@@ -4,79 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76578F34C5E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 15:30:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEBF7F34C5E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 15:31:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A/tyFuZQFYTYsk5yepZic+9iJmMgnVldp43vNUqBGF8=; b=3c+5CxBY9J08Q9CZAaiMkGC660
-	CGvJi7HRraUKUdYzLwGCdJ/kt33xUUp0FG5dIHAmjoXxA15EXCA5fRa5wS85vZZsay+/2iCNFyTQ8
-	dWk3TApBQlO+j62YBemoi7U31dD7Q/gpFFDhy0w/gbshEBZ46h8TQu6iEDqkcGuO8ZKQhOiWW3qFx
-	6bNpGO9mda8UkHfjNyjAMZPgv/J5dAA3TnqpTy89W8KimORBzlhbSSmQu966e/tpRBA1rYnn8OJLP
-	/nl+lh/t5JiNGhVmxICUSeOE01lZ8RM+u1xkNK6WmRt87k61iUQHfD6QgRJ0pk+rJ7iLrcZS78TvR
-	ogjwr76Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xg8mzFbPBXrLw9j1EK50l3GIhD/98doCuEPkQsBTXYk=; b=lTR76hfcQiJwVINdmEz/aZJy4D
+	sx85sRN7ivr4bATUcRhPDfwyIzehxo/uTud3GgiATOA3hV+cFjW1XYdr0FAv4tm9JDGTABAtj2QbP
+	ikuKEmusczF0brVKi7lQvBt1uJwebtoDfvCcMXd1hkrEM0Jqwta9mHqv5VmFmJ69e5NwvD4XOMhfH
+	NlntCuagyd7po9MLU1S4M6Ng7LZNzKpdcBWnEqIhMwwvjg2+SA+SZB7g2uKwj1rd0CzrZ6uAqlhQW
+	N6E0b0YPML1us28O79Tg0LDpNmUBtKa6LX+ha3BKg2Fvg24IpvmAw30HNv2jwr044bNhQlMZ7tZ4r
+	GMIrOLLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCJEh-0000000Fxv4-19QD;
-	Mon, 13 Apr 2026 15:30:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wCJFW-0000000Fy9q-3QoE;
+	Mon, 13 Apr 2026 15:30:54 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCJEf-0000000Fxup-2vIS;
-	Mon, 13 Apr 2026 15:30:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=A/tyFuZQFYTYsk5yepZic+9iJmMgnVldp43vNUqBGF8=; b=bfhbd2sL8t75c5rug3uBwuxg5P
-	LuWR8p2uSlhmLvoC75s7TYMX1lfdHXhQNJF2OG0QXGhVA74ED4L05Ui2YgH9chIQJTBVRJcaDXkdQ
-	PoO6uYPpDnqy8MenOCTFbkRMKQS78wCprJ3tkgPda8HAMffpT54zL852bGYOCnflkc2nDFvdBn0cR
-	8vP+E7+2CaxiOsjddnC2m+sVdQvAC0f34xjQErQU8sm5+txqnL/HeNOtCoI1QzVGmD8hBCUOicCZO
-	Sdtu+YLC1PADFf5yRRMpMGrKPzY0Wz8LlL1valPv8PoqQKRDiHRNlNkJrhES2TYrKiZoLqunJos/G
-	lcviTgFA==;
-Received: from [213.122.4.78] (helo=u09cd745991455d.ant.amazon.com)
-	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCJEX-0000000H2ae-13Uv;
-	Mon, 13 Apr 2026 15:29:53 +0000
-Message-ID: <aa07b2a812255473ca6f1ca0c872a983ee24728e.camel@infradead.org>
-Subject: Re: [patch 10/38] arcnet: Remove function timing code
-From: David Woodhouse <dwmw2@infradead.org>
-To: Thomas Gleixner <tglx@kernel.org>, LKML <linux-kernel@vger.kernel.org>
-Cc: Michael Grzeschik <m.grzeschik@pengutronix.de>, netdev@vger.kernel.org, 
- Arnd Bergmann <arnd@arndb.de>, x86@kernel.org, Lu Baolu
- <baolu.lu@linux.intel.com>,  iommu@lists.linux.dev,
- linux-wireless@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>,
- linux-crypto@vger.kernel.org, Vlastimil Babka <vbabka@kernel.org>,
- linux-mm@kvack.org, Bernie Thompson <bernie@plugable.com>, 
- linux-fbdev@vger.kernel.org, Theodore Tso <tytso@mit.edu>, 
- linux-ext4@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>, 
- Uladzislau Rezki <urezki@gmail.com>, Marco Elver <elver@google.com>, Dmitry
- Vyukov <dvyukov@google.com>, kasan-dev@googlegroups.com, Andrey Ryabinin
- <ryabinin.a.a@gmail.com>, Thomas Sailer <t.sailer@alumni.ethz.ch>, 
- linux-hams@vger.kernel.org, "Jason A. Donenfeld" <Jason@zx2c4.com>, Richard
- Henderson <richard.henderson@linaro.org>, linux-alpha@vger.kernel.org,
- Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>, Huacai Chen
- <chenhuacai@kernel.org>,  loongarch@lists.linux.dev, Geert Uytterhoeven
- <geert@linux-m68k.org>,  linux-m68k@lists.linux-m68k.org, Dinh Nguyen
- <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
- linux-openrisc@vger.kernel.org, Helge Deller <deller@gmx.de>, 
- linux-parisc@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>, 
- linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>, 
- linux-riscv@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>, 
- linux-s390@vger.kernel.org, "David S. Miller" <davem@davemloft.net>, 
- sparclinux@vger.kernel.org
-Date: Mon, 13 Apr 2026 16:29:51 +0100
-In-Reply-To: <20260410120318.253872322@kernel.org>
-References: <20260410120044.031381086@kernel.org>
-	 <20260410120318.253872322@kernel.org>
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-kGTl9uf920QcQo+U2JVg"
-User-Agent: Evolution 3.52.3-0ubuntu1.1 
+	id 1wCJFS-0000000Fy76-29cZ;
+	Mon, 13 Apr 2026 15:30:53 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 3528C4E42978;
+	Mon, 13 Apr 2026 15:30:46 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id ED2C35FFBB;
+	Mon, 13 Apr 2026 15:30:45 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D8842104513C6;
+	Mon, 13 Apr 2026 17:30:33 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1776094244; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=xg8mzFbPBXrLw9j1EK50l3GIhD/98doCuEPkQsBTXYk=;
+	b=Bd+Mxj8LwX8bmTnYNL7sIGdg6fifgVRg5gBnAlj9DJfaOxX3ZMmFgplXr3RpU0G6J0nZsm
+	GsPmX0Cd70dbZe9H37Sg/fs6lNEDwb2HFql8aKBOyyVHYkhs+kOEsc4183IEhRtE/+Y+bn
+	B7Quo8kONLit4TeT3qRtlgQ8aIpLCBKwRueL734GVpuAoGRTWcIVQd8HZh+lml6CSdv5qB
+	1DIjkVOi1e1GN698Ge5QhGyetJvHFhguVpCbSawA8cwwM0U4oRZqE04EEmUDBhaj9QQqzN
+	5xK+Sw/bTXn8nBDLQHq455wUR0enHUfQ4/ku2qUCLZV+HGW8lgvFBy129MgmxA==
+Date: Mon, 13 Apr 2026 17:30:32 +0200
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi
+ <rodrigo.vivi@intel.com>, Joonas Lahtinen
+ <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Dave
+ Airlie <airlied@redhat.com>, Jesse Barnes <jbarnes@virtuousgeek.org>, Eric
+ Anholt <eric@anholt.net>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda
+ <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Robert Foss <rfoss@kernel.org>, Laurent Pinchart
+ <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Chun-Kuang Hu
+ <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, Chris Wilson
+ <chris@chris-wilson.co.uk>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, Mark Yacoub <markyacoub@google.com>, Sean
+ Paul <seanpaul@google.com>, Louis Chauvet <louis.chauvet@bootlin.com>,
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Simona Vetter <simona.vetter@ffwll.ch>
+Subject: Re: [PATCH RFC 09/12] drm: Introduce drmm_connector_dp_init() with
+ link training state properties
+Message-ID: <20260413173032.75ee842a@kmaincent-XPS-13-7390>
+In-Reply-To: <bwgzwwlmvlbtnl7qnmnjrkzjaifeyrhllnbjxh7txrd2o24aqi@2ykn2gwyatcx>
+References: <20260409-feat_link_cap-v1-0-7069e8199ce2@bootlin.com>
+	<20260409-feat_link_cap-v1-9-7069e8199ce2@bootlin.com>
+	<gmaxonri7y3k43pxsnxfnd23mydgrwsw2322v6m4yjoksqm7aj@4ehgvhzg2ubb>
+	<20260413145930.140ba461@kmaincent-XPS-13-7390>
+	<bwgzwwlmvlbtnl7qnmnjrkzjaifeyrhllnbjxh7txrd2o24aqi@2ykn2gwyatcx>
+Organization: bootlin
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260413_083051_085485_2F6A3DB9 
+X-CRM114-Status: GOOD (  30.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,128 +100,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 13 Apr 2026 16:59:43 +0300
+Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com> wrote:
 
---=-kGTl9uf920QcQo+U2JVg
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, 2026-04-10 at 14:19 +0200, Thomas Gleixner wrote:
-> ARCNET is a museums piece and the function timing can be done with
-> ftrace. Remove the cruft.
+> On Mon, Apr 13, 2026 at 02:59:30PM +0200, Kory Maincent wrote:
+> > On Fri, 10 Apr 2026 00:53:08 +0300
+> > Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com> wrote:
+> >  =20
+> > > On Thu, Apr 09, 2026 at 07:08:25PM +0200, Kory Maincent wrote: =20
+> > > > Add a managed DisplayPort connector initialization helper,
+> > > > drmm_connector_dp_init(), modeled after the existing HDMI counterpa=
+rt
+> > > > drmm_connector_hdmi_init(). Cleanup is handled automatically via a
+> > > > DRM-managed action.
+> > > >=20
+> > > > The helper creates the following immutable connector properties to
+> > > > expose DP link training capabilities and state to userspace:
+> > > >=20
+> > > >   - num_lanes: bitmask of supported lane counts (1, 2, 4)
+> > > >   - link_rate: Array of supported link rates.
+> > > >   - dsc_en: Display Stream Compression supported
+> > > >   - voltage_swingN: per-lane voltage swing level bitmask
+> > > >   - pre-emphasisN: per-lane pre-emphasis level bitmask
+> > > >=20
+> > > > Link rates are passed by the driver in deca-kbps, following the DRM
+> > > > convention, but exposed to userspace in kbps for clarity.
+> > > >=20
+> > > > Two additional helpers are provided to update and reset those prope=
+rties
+> > > > at runtime:
+> > > >   - drm_connector_dp_set_link_train_properties()
+> > > >   - drm_connector_dp_reset_link_train_properties()
+> > > >  =20
+> >=20
+> > ...
+> >  =20
+> > > > +/**
+> > > > + * struct drm_connector_dp_link_train - DRM DisplayPort link train=
+ing
+> > > > + * information report
+> > > > + */
+> > > > +struct drm_connector_dp_link_train {   =20
+> > >=20
+> > > THese define the current DP state. As such, they definitely make sense
+> > > to be a part of the drm_connector. =20
+> > > > +	/**
+> > > > +	 * @nlanes: The number of lanes used
+> > > > +	 */
+> > > > +	u8 nlanes;
+> > > > +
+> > > > +	/**
+> > > > +	 * @rates: Link rate value selected in deca-kbps
+> > > > +	 */
+> > > > +	u32 rate;
+> > > > +
+> > > > +	/**
+> > > > +	 * @dsc: Display Stream Compression enabled
+> > > > +	 */
+> > > > +	bool dsc_en;
+> > > > +
+> > > > +	/**
+> > > > +	 * @v_swings: Array listing the bitmask voltage swing level per
+> > > > lanes
+> > > > +	 */
+> > > > +	u8 v_swing[4];
+> > > > +
+> > > > +	/**
+> > > > +	 * @pre_emph: Array listing the bitmask pre-emphasis level per
+> > > > lanes
+> > > > +	 */
+> > > > +	u8 pre_emph[4];   =20
+> > >=20
+> > > Please consider following struct phy_configure_opts_dp (or using it as
+> > > is). Overall, please refer the talk and (more important) the lightning
+> > > resumee at this XDC. I have some bits and pieces ready in spite of th=
+at
+> > > proposal, but I didn't have time to finish it. =20
+> >=20
+> > I didn't know this phy_configure_opts_dp struct. This indeed could make
+> > sense to reuse and modify that structure for our needs. =20
 >=20
-> Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-> Cc: Michael Grzeschik <m.grzeschik@pengutronix.de>
-> Cc: netdev@vger.kernel.org
-> ---
-> =C2=A0drivers/net/arcnet/arc-rimi.c=C2=A0 |=C2=A0=C2=A0=C2=A0 4 ++--
-> =C2=A0drivers/net/arcnet/arcdevice.h |=C2=A0=C2=A0 20 +------------------=
--
-> =C2=A0drivers/net/arcnet/com20020.c=C2=A0 |=C2=A0=C2=A0=C2=A0 6 ++----
-> =C2=A0drivers/net/arcnet/com90io.c=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 6 ++--=
---
-> =C2=A0drivers/net/arcnet/com90xx.c=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 4 ++--
-> =C2=A05 files changed, 9 insertions(+), 31 deletions(-)
+> Why would you want to modify it? It is an interface for the PHY drivers.
+> Is there anything that you miss there?
 
-Acked-by: David Woodhouse <dwmw2@infradead.org>
+I was thinking of the DSC, but after a quick look it is not done at the PHY
+level therefore it won't land here.
+=20
+> > About your XDC talk. What were the developments you were talking about?
+> > Could I have a look at them? =20
+>=20
+> I've posted an RFC just before the XDC. Currently I'm looking at the
+> link training generification. Overall, you don't have to wait for that
+> job to be completed, just take some of the notes in account (like reuse
+> of the PHY config structures).
 
-By coincidence, I took the last of my ARCNET cards to the tip just this
-morning...
+Ok, have you a link? I can't find the related series.
 
---=-kGTl9uf920QcQo+U2JVg
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
-
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
-ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
-MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
-a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
-jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
-GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
-aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
-nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
-8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
-HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
-IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
-KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
-BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
-QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
-QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
-ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
-/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
-uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
-xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
-W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
-c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
-VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
-NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
-DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
-sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
-w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
-i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
-kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
-0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
-ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
-blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
-hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
-VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
-HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
-ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
-AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
-cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
-cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
-AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
-aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
-hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
-iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
-8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
-JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
-xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
-EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
-B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
-MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
-KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
-Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
-nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
-WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
-W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
-nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
-g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
-9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
-9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
-sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
-a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
-ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
-AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
-dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
-MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
-YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
-4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
-6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
-QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
-nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
-MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
-VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI2MDQxMzE1Mjk1
-MVowLwYJKoZIhvcNAQkEMSIEICWq9Tw93kgoeMQ9F5qJ+YhMr6w729C1ImFtgihFCjxfMGQGCSsG
-AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
-cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
-VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
-cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAF2v1t0NNvA9R
-Y/eA55NxK3TZMe94oxYBqcXF6qRUkayrUgndnrU8aJ75/Bj1TvINyOboZfKk/49c2w/wZOyOUE0L
-wvFeYUHN7taPRGCYmiRRxay6cRI7P01GTAg4BTI9mhaxjDMwqRmzK6U7kMbVk6ZZpUOcQDAhZqME
-RRSEeosxUsKBXWhUcKwwISnwfMCHpG0VrrcywSvheGipfYrl0r/+SUFpCDbktajsPhO8lPbtMKAX
-XExpwh88BCI+A1+hevVUd276InlzNOYd2CawQelqvMX2Ym/VGcG+AoSKWBSH5fhczq4rbBBsqmFD
-cbEGxUY96DOmPLHR1qNvcYvY6itLYE8H7kdovxHZ1P6pqX2EiflVkHBNz2aMu5WOHoFEitdFuO/K
-aTXwJFmhjaEvv6DOL4pVkHSJPfyUxqbqXgDlRFts5KF18nX4+QZklgshL936nLvpUz5asDSFoMQs
-UVUSfGa0oL6jPEimso9TAX0xs2+CDPcBXpUXhVtFd2mQ6OlRr4Fr7vgOS+9CCv3t0qrMAo45K9qa
-dYdET4QgaVe3hthkoRcSHu0A8r3bt7d3+ZmaIko2iRbuZL1r6dhNFgJ36vhGv0/1ErQoPUaNaQuC
-g/fGaJ5ARXfMWiOfXQPMQ9V/v8woxotz8SbH1TtMDXr4BJhlw5Va4uX0SpA0+fwAAAAAAAA=
-
-
---=-kGTl9uf920QcQo+U2JVg--
+Regards,
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
