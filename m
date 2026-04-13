@@ -4,136 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65F14EBFD0A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 07:45:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 510E6EBFD0A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 07:45:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uXpz2O0o7IAOiW0wpCsudNdz58SNhf9Y+6JQ1Zpf05w=; b=3xjxFM0ZvtiavhgQ1GYl4i0BQL
-	cjS8X+P+HZXcvttzyNszOOBcejqIeHETeTxdQnLeKSrbYjQwtxmvfTNCdqXCkikzVw9HeYDvM64Hk
-	K/BGFkzA9gD5/8yDKS7f7+aYk7Ws61soW4Y+pk5PdnpS2sXE2nMObt0nNuIkwQ0vqGLcDB+9xa1pd
-	wtll3umPRUjRJRIdtNfwvqOKWsDphnQK92LZYnv1B0AIYA++e2HpLD3WHXSlnxRlsg6Pmw0pPxI15
-	ykN0hpSMs3bEZCYmwNfjuWfPD8GN13DO9CYIkBLxeAjgdZ6tTiivgMrP2MNtWpgXqX4ZacmbPBa+V
-	EmG1z66Q==;
+	bh=CPGB450BgNYljKUDXZxUQRXQWnX1iFE/RTDC2ASOQ6g=; b=v72Y7g6aS8NJdEiH5IUPNoqJNY
+	3Y0uOjik4tqOjzAr7/szMaoXyFIAZJ+MaSdhy4+NsKRIln722ffa/kRRbfNy6a+4+zHIF1zcuTKfg
+	3k6q2lWBPEkqmlyNAbcE57NXENKE4+6Ryi5hMFCqljOv1ST7zo2oXv1CEXDu6U+OwEga/mX+KcKqc
+	iKmbpryFOWmVlfrO88hwCHp34eDA7ZvA3VIZqxylwKj5KrhrNgQSFe/yZBvbEkztqS4YexioCz+MD
+	mdGI+sG1I7waMjV6D1ImtC8rVtI9as7bkwwt0Qs8QOZ0jVmj6bZ7TtKBnsF9lZflj1HfbO1RYPoO2
+	ze3gvpPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCBzF-0000000FB9y-45lO;
-	Mon, 13 Apr 2026 07:45:37 +0000
+	id 1wCBzQ-0000000FBH4-2kXA;
+	Mon, 13 Apr 2026 07:45:48 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCBzD-0000000FB71-3Ceu
+	id 1wCBzK-0000000FBCz-48Jj
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 13 Apr 2026 07:45:36 +0000
+	Mon, 13 Apr 2026 07:45:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:References:Cc:To:Subject:Reply-To:From:MIME-Version:Date:
-	Message-ID:Sender:Content-ID:Content-Description;
-	bh=uXpz2O0o7IAOiW0wpCsudNdz58SNhf9Y+6JQ1Zpf05w=; b=i7oSkCuH196utwCkQwy+3S+aWb
-	ddQFpggLmjVA7gMt2CZqmIEWx6Kyj3wbSBjCgwYkmwi4G4ahGXRvNNeX4DypSwFkZ/yKdtkzCaLCf
-	PGBJvNYWvLSNoZg1aqZfpTWrUPqAFyEMmt542GVCziWIWxRce7lqU0B+cKBiX+0XpgQdakknTd5Hu
-	NwDglUqLaoqWGEYNhqTkFEK+cA6uzSwNWBYTLy4ua2zNMA0oXvD8gjYM8rYLJn/oW/ghsLrkNKS6D
-	f3RcUER62sb7IqHWBDmjzjM6M2kWe8UAX2K0yeL8OJPpMDmigagUWw82NC6MXPCHiB6XI/QW87PiR
-	AKKdXgxw==;
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=CPGB450BgNYljKUDXZxUQRXQWnX1iFE/RTDC2ASOQ6g=; b=E8s/TkMRin8iCO6uafhqXD8iF4
+	tAFPWw4j6Pqmr037CIFPb6oW3Ey1EVJIhx5IuJSt4tgmFH8hgQr07S3KMCWh0VLp0tJdo/9SOL1Ag
+	UC0mGgBR7oa8RLW9ZXWRmcs53n96jeg5gy88zZxBgXsh2FYq4qzZVdcvTJ0poFby439dU3PhwOklL
+	QGmvDlWPvg5bq5nSePJ+IyLdrlz36dfSfwT/EjkgC3sQUZ6IPkILxGzAwSp8t43Mnfyx2xg9L7c1y
+	7GPCjNmHZuk/wFdfJbQ7A1yLrK00ladb6r0XIz3xuNODOV8UUlgvixDXBnYEfnbHxqoMVVLB5vU/x
+	Y0WZCRdA==;
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCBz1-0000000GJCW-1dHq
+	id 1wCBzH-0000000GJHT-1jZ7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 07:45:34 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-488ba6366a7so51435695e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 00:45:22 -0700 (PDT)
+	Mon, 13 Apr 2026 07:45:41 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-5a2a70bb66aso4263219e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 00:45:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1776066321; x=1776671121; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=uXpz2O0o7IAOiW0wpCsudNdz58SNhf9Y+6JQ1Zpf05w=;
-        b=tLx3Uz2EwQZIqo2M3Lz8eMw5CqIozbMpASkaiisZ2UG1jKkj5m4D6BmuVUl07NnFkO
-         DLCTWEg7ge2w2+K+IdGPo8EFUxjTmMShz9UEClWs6EQIUjG4n3pDVjDpJJEoJjR9t82O
-         DCvItlAMbJKZ6F9RSGjcFgF46lJe+KVdtAFj3JLlplZaYtlKoi9njSu5E+9yuUNyOW6L
-         uuKcwXMAhsRewn8j4HBoEy2FRSEZ0VEOGbAZgUzFhdffbXmi/5qO1U1iWt9J4z4jdPFB
-         3G9OisQ6WDS93kGo3pfju8i+hA02LCZme77sKbhXp/WJd4jr53hP50o/32xGZjk1rOXp
-         L4EA==
+        d=gmail.com; s=20251104; t=1776066335; x=1776671135; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=CPGB450BgNYljKUDXZxUQRXQWnX1iFE/RTDC2ASOQ6g=;
+        b=F730UE4x2ejkwaSAr4Yll/RDTmZrgyQENu7btnMuSXkNxlmURWrQUSoCjO1K0TDZTE
+         RJuyv1qFTGD4aEsnl793ob/U9lvZOMsp+teIRFE7Nq5om4Bso0JEL7mNG8EYLfqlh4qp
+         V5LrPTD6cQ24lYI75vh2yFBBFeeZfGbT9gwb55K1ZCYS95XuPrfGxg2yiblvATDzRM/m
+         CIKiKVuNRusyAHnZJAKwrPsf8GpeHHppN+xt9UhXTYutuWnS1iAWrExzBejT82rL6Osy
+         THsWYsAX6wdt9l5l1qoi7G7oskZVX1IyvenbzEJEAg+GWQs2nNS1Jy52YZuqy1oraTOB
+         80Iw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776066321; x=1776671121;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=uXpz2O0o7IAOiW0wpCsudNdz58SNhf9Y+6JQ1Zpf05w=;
-        b=JoDD2w8OsM6+LM9zpL7k2fnvZ2hnCuXLi2Sg4cefQCuLZ5h6xFT8PIClkLum0HiVeP
-         +8n345XNPxkVHvL4MRbRNzBPkGdO5LuOpqEMDvJ+R26VuGPsSYvP02IdVvYcRX3z0pyt
-         jUCYnZHj0GF5Whb9nshp9EAsNOYVrHh6cn7hJLCKIUxTWdTxlhtlsiOx+ltpdDkb0biF
-         XNgKNl6ZYDGOt8mIdBRgB/u8fRvxaNP1o32mRjz7JI+aWKVYfK/SZFib9q/3QRSFHESV
-         F37hbReMe/A9tGLSJ0hHpHUwSuicIJQNF58Grs1hr8odwkenQ4WnEHjr53uSKAHciDfS
-         zEzw==
-X-Forwarded-Encrypted: i=1; AFNElJ9JL0dBZaaHFHYAYcN8kDZB6UjZRJeT/2Ou0RV02PKMyNaTd0oio+VpnsF3NWqODvBgQ1L5oZYNTN5gBvTRRkuC@lists.infradead.org
-X-Gm-Message-State: AOJu0YyO0iAi/68hFzv+rm1pXXTpjiDlkp5c8jQYsxxtzuaNGfa5kMfY
-	es37lfNVwttkDhfMEjEor39Zs+wLo/hORZxcouanM6ruh03JPUI2EiChMx5MX7pBf/Z87TASt3e
-	TGniG
-X-Gm-Gg: AeBDieuO+StoRvibj24q8pssWKmpfmB0CKigip9LRKelIaUBYilmYhsch/LtyTX1DtM
-	eFeDURE1mdveXo5yujctgtvW0Vdb6TLd28XoY8ny4vcYwLKDMpRpILC43A+mNULJj+HbdCSXg4w
-	8V+rcy5qhBIExsb37YS2BmABrRrDhpi5xvOMLjxofDVj1LE4ie2NX68VvEeD/CiEMpyMuiBKn9G
-	Dw5drZ1zIIAtqVs4qMilleCAOMls7CLZOSpjvc/S5YXLWrzqoDNHbuP8LWqrLn/4z1xXkLLj9j3
-	S1WBWqNGqYCdMJA2JdI+qEDYHRqodJa8gf/htaSCKAREKfNHP8jFfZoWfNmGNNxQ9CtjoLyNQHo
-	Df2ohj7sEHkPA2KOsJCaPSg9xulR2XdBYnbEfT2JKuL7AEukjEsFQPxCkJGc1VT2DZdY7H/L2cY
-	wwDjetHpv3Hpw02zF+ooDh3wOQf004JI2ohruZf4EM5vsSaIASUQipK5b2RFjgB0iyFc6Uac0xG
-	AjYrocv
-X-Received: by 2002:a05:600c:4215:b0:488:d9ea:3da7 with SMTP id 5b1f17b1804b1-488d9ea3e0cmr86555425e9.10.1776066321406;
-        Mon, 13 Apr 2026 00:45:21 -0700 (PDT)
-Received: from ?IPV6:2a01:cb1c:fcf:4600:4cfb:7427:8a08:9d25? ([2a01:cb1c:fcf:4600:4cfb:7427:8a08:9d25])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488d684b55fsm92669805e9.26.2026.04.13.00.45.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Apr 2026 00:45:20 -0700 (PDT)
-Message-ID: <6adde3fe-7eea-46e7-a6f7-de536f054c06@linaro.org>
-Date: Mon, 13 Apr 2026 09:45:18 +0200
+        d=1e100.net; s=20251104; t=1776066335; x=1776671135;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=CPGB450BgNYljKUDXZxUQRXQWnX1iFE/RTDC2ASOQ6g=;
+        b=sNy8JBXSHLHFVq04hsUnSNHMKse/EtXE7OFR3lR/ySc2e8Di/qePBwA7P7beUhAdeI
+         RBTMjZv9edaiXhe6JI4RuVATwWSqVhcb7JoynG41KAhu2qVIaXBAgSv3ZMsSND6As9hp
+         uHzjqJ1ZYiP3V1z/G3j74b+AmzSizpevLkaioT6EkTp1DXAA9GwkzJmHgrCXXEPHL7Od
+         dw7waHdGfM6ZeqDdY6NrOiFi+cMhgoTgl4/m0kVHkJRQBT5BMA3Qbwb6KNIVEPjHdh1o
+         k1U9yCMVI7RgBXK5U9gum0O+4nT134tdTY9e+0N+rdAsHVFro/PcuxkJINeKCzsxQLQT
+         A2AQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/X394n8UETRFsV1Jr1rsDz4/qfvgusr7aXb1AJ4nH1uKb5D1uzt9dggEwLFBuDkAm6Sj4fhwJ2BIWjMzPNuwgW@lists.infradead.org
+X-Gm-Message-State: AOJu0YxsRY8iUpQoD+B8fLBtT0sfod7BZf80md87gUxMeyce0VON2gxO
+	VFCp91wQ1DB/8N5O0qZPEtiPCFw0UUXludYcYuHT5Y9n5qJUV73lN8cR
+X-Gm-Gg: AeBDies03LOaOvdrMlTT0gcMAqfoz//EQHtkrNAxN5ELM2j+7QwB9BtqyUPC+RvE05A
+	jqBbeLLPGusyQSEDRp+nJUrQ4utknYl1EdsWLK47cBI3oHNYxfsO32s+ZOncTyWtCa96Tx+MFYz
+	JMGAygBpgx998jjw7gimyakZeMe+zeq00U8WIB81nGS7y7b20hGre/SNLYXko3sQoT5KHBbaKp1
+	gbi4An3I9fQghJCMp2bbXjji1A2LWeTDilmRPJfMUX/ce2XiYjzD9GKj+zHBhPfZEBvtLTKdLRV
+	TA5WOx96rVLhD7KH+JkvVkS4kT+QklCVor2y2ATAtTItDI77is13YIKUKa69GpstW8a+8WX6rE1
+	2+y6zPa0fg7r7EzpYVcIfFVJ0Bi1SUGGpsGml3xrgqNMmqNd7HGGyjixBWp07G6s8hM5BRpL0GV
+	8C+xhWSzw5a7mTUYD4MDfVk/cdmsuB+6L6L8JQZvJ2ZXBREgeoDq06sJeOa+bq
+X-Received: by 2002:a05:6512:3c87:b0:5a2:cacf:5b2 with SMTP id 2adb3069b0e04-5a3efb299demr4803771e87.22.1776066335061;
+        Mon, 13 Apr 2026 00:45:35 -0700 (PDT)
+Received: from gmail.com (83-233-6-197.cust.bredband2.com. [83.233.6.197])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a3eeefb849sm2411855e87.60.2026.04.13.00.45.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Apr 2026 00:45:34 -0700 (PDT)
+Date: Mon, 13 Apr 2026 09:45:31 +0200
+From: Marcus Folkesson <marcus.folkesson@gmail.com>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Peter Rosin <peda@axentia.se>,
+	Michael Hennerich <michael.hennerich@analog.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@intel.com>,
+	Bartosz Golaszewski <brgl@kernel.org>
+Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v9 0/5] I2C Mux per channel bus speed
+Message-ID: <adyfG1jckNp3Sv2_@gmail.com>
+References: <20260324-i2c-mux-v9-0-5292b0608243@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [GIT PULL] amlogic ARM64 DT updates for v7.1
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: soc@kernel.org, arm@kernel.org, linux-amlogic@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-References: <2fde1b11-d2a4-4aa2-8c28-d20fbbb54f7f@linaro.org>
- <20260411-spicy-apricot-newt-afa8a7@quoll>
- <5af5dfdb-001a-4b63-8a43-5cfcf28d821c@linaro.org>
- <fe782180-99ec-404f-96c5-8949a8732186@kernel.org>
- <4b2a319e-3292-4576-b5b9-4e7db8aebe87@kernel.org>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <4b2a319e-3292-4576-b5b9-4e7db8aebe87@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260324-i2c-mux-v9-0-5292b0608243@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_084530_677152_ECECD185 
-X-CRM114-Status: GOOD (  22.42  )
+X-CRM114-CacheID: sfid-20260413_084539_750311_D83EF5C4 
+X-CRM114-Status: GOOD (  22.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,106 +117,47 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/13/26 09:30, Krzysztof Kozlowski wrote:
-> On 13/04/2026 09:17, Krzysztof Kozlowski wrote:
->> On 13/04/2026 09:10, Neil Armstrong wrote:
->>> On 4/11/26 11:32, Krzysztof Kozlowski wrote:
->>>> On Fri, Apr 10, 2026 at 10:50:58AM +0200, Neil Armstrong wrote:
->>>>> Hi,
->>>>>
->>>>> Here's the Amlogic ARM64 DT changes for v7.1, including a bunch of fixes
->>>>> and improvements for the Khadas VIM4 and VIM1s SBCs, plus some additions
->>>>> for the Phicomm N1 and a couple of low priority fixes.
->>>>>
->>>>> Thanks,
->>>>> Neil
->>>>>
->>>>> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
->>>>>
->>>>>     Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
->>>>>
->>>>> are available in the Git repository at:
->>>>>
->>>>>     https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git tags/amlogic-arm64-dt-for-v7.1
->>>>>
->>>>> for you to fetch changes up to 401e5c73eedde8225e87bd11c794b8409248ff41:
->>>>>
->>>>>     arm64: dts: meson-gxl-p230: fix ethernet PHY interrupt number (2026-04-08 14:27:20 +0200)
->>>>
->>>> Days in linux-next:
->>>> ----------------------------------------
->>>>    1 | ++++++++ (8)
->>>>    ...
->>>>
->>>> So a few things were just applied, unless this was rebased?
->>>
->>> This one has been applied lately, but this is news for me, I always took
->>> in account the time spent in the lists, not in linux-next.
->>> I made sure this one landed at least once in -next to trigger CIs.
->>>
->>> So if there’s new rules, we should be made aware of those.
->>
->> How is it a new rule? Linus posting from 2023:
->>
->> https://lore.kernel.org/all/CAHk-=wgXDTfWFbn-481=it6W_B0KTQsOhdgXL6mweVm6ewtSvA@mail.gmail.com/
->>
->> Plus this is simply logic - why soc tree should be the first tree
->> exposed to integration issues and robot reports? If soc tree merges
->> stuff which was not on next, all such reports will be applicable to soc
->> tree as well. That's nothing new about this.
->>
->>>
->>>>
->>>> I will wait with this. It might miss the merge window if v7.0 is
->>>> released this weekend.
->>>
->>> Ok wow, just like that... I mean the amlogic DT is stable, all patches
->>> patches bindings checks and none is critical since it mainly touches
->>
->> You sent your pull very late, just before v7.1, and skipping late
->> posting is not a new rule. It was always going late pulls, which might
->> make it or might not make it.
->>
->>> new platforms and the incriminated commit is a low priority fix for
->>> 10y old development boards...
->>
->> I did not check which commit was not in next. You can provide feedback
->> to my reply with actual argument, because such explanation was missing
->> in tag. Instead you decided to be surprised that patches needs to be in
->> next...
->>
-> 
-> And to clarify, I did not say that pull will not make it. Considering
-> the timeline:
-> 1. You sent the pull on 10th April, Friday
-> 2. v7.1 is released on 13th April, Sunday
+On Tue, Mar 24, 2026 at 02:54:14PM +0100, Marcus Folkesson wrote:
+> This was a RFC on how to implement a feature to have different bus
+> speeds on different channels with an I2C multiplexer/switch.
+> As no major complaints on the design came up during the review, I
+> decided to submit the series without the RFC tag.
+>=20
+> The benefit with this feature is that you may group devices after
+> the fastest bus speed they can handle.
+> A real-world example is that you could have e.g. a display running @400kHz
+> and a smart battery running @100kHz using the same I2C controller.
+>=20
+> There are many corner cases where this may cause a problem for some
+> hardware topologies. I've tried to describe those I could think of
+> in the documentation, see Patch #5.
+>=20
+> E.g. one risk is that if the mux driver does not disconnect channels
+> when Idle, this may cause a higher frequency to "leak" through to
+> devices that are supposed to run at lower bus speed.
+> This is not only a "problem" for changing bus speed but could also be
+> an issue for potential address conflicts.
+>=20
+> This patchset has been used and tested heavily the last months
+> on a custom board based on a da850 (DaVinci) platform.
+>=20
+> The implementation is split up into several patches:
+>=20
+> Patch #1 Introduce a callback for the i2c controller to set bus speed
+> Patch #2 Introduce functionality to adjust bus speed depending on mux
+>          channel.
+> Patch #3 Cleanup i2c-davinci driver a bit to prepare it for set_clk_freq
+> Parch #4 Implement set_clk_freq for the i2c-davinci driver
+> Parch #5 Update documentation with this feature
+>=20
+> Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
+> ---
 
-Stop this nonsense, there's a very high probability release are done after rc7,
-but it's not a strict rule at all.
+Any more feedback on this patchset is very welcome.
 
-> 
-> and that people are allowed to take weekends off, then there is simply
-> almost no way that pull can be merged before v7.1 is released, so by
-> definition it is a *late pull*. The policy for late pulls, like that,
-> did not change.
-> 
-> Lack of exposure of a few commits to linux-next is only the explanation
-> why I did not pull it while doing last round of pulls.
-> 
-> Feel free to ignore that explanation and take other one: avoid sending
-> pulls a one working day before new release, because it is considered a
-> late pull.
-
-I understood your explanation, crystal clear.
-
-Neil
-
-> 
-> Best regards,
-> Krzysztof
-
+Thank you in advance,
+Marcus
 
