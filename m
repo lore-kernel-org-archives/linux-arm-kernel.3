@@ -4,61 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BD5DF531C7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 19:36:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19A19F531CB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 19:50:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h57ClK60tsH9oI4DCtdzR36a7IrxmxfNNBkYJTic2WA=; b=VrYyB++COeNVqL9HaZ9QzVUqIo
-	XmocdSqbP16NvUNWEMjKFV6mrCBFGoHK0ddZxcviPzaWejZbEDxZ83VFBRBrn8zPO5aTMW/g9GCKh
-	F0RejILdCP3eb89Utv9QSJpND8pT9JrH+hs+zYjcc3wygESZq4WcIcYbgIWx9GJUNLZuheAnosy/l
-	BZMOeiMv5oeKPyT3yhkxr6vALbrcmdjM92dMc+bNEGdJuIyimng5G7J8Kfa06S1ri68aH2g53DFRU
-	cimDZjzbaiLEHeRxX4w/Vko8O3QojPHo2FwGHC9q5QHly5XeKxBu8EkmvzVmRv1nuf/IkQJIlEX9/
-	jWHQdLUw==;
+	bh=xFQYviYu5IERsK9WZ4rZwOi+7n5BFxSsKXE2pfOu77M=; b=nLuTX1qPY84AXE2c+k2caMSXP8
+	4K3wVRx+CBffYcIeWEFGYDU3IhSNZY1zL9VCZR5CCT7T77QMqRekaCnwjs9CMzokOoPRTF87eljz7
+	Ag/g7eqAkzDkGmjdeHvxID7nEPS0Y0MPEBUxoxSD3nKWFLUvYJjyXQVOMlf+0eCaX7zyowcHKcJj6
+	R3z3VQTeexMVduAz0ZNPm1J75mIV54scsA8uCZFzP7DAYICIqyVi1dTd/N1fVSNWqR4cKSG951zqs
+	4fckdXDTSirXh81pb1Cd+LBSdYba+tTDAqa4Zky1EPON+ectZD4xQVncKXN5e44fg1hSiiAiWx2zK
+	MZa2k4wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCN50-0000000GJbH-3OlQ;
-	Mon, 13 Apr 2026 19:36:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wCNIQ-0000000GKJ0-1n0Q;
+	Mon, 13 Apr 2026 19:50:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCN50-0000000GJbB-0AxK
+	id 1wCNIO-0000000GKId-1fbS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 19:36:18 +0000
+	Mon, 13 Apr 2026 19:50:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1EC1561852;
-	Mon, 13 Apr 2026 19:36:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E826C2BCB6;
-	Mon, 13 Apr 2026 19:36:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 584E843261
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 19:50:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39CC5C2BCB0
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 19:50:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776108976;
-	bh=MO0Ytka59ZQnHYNVwc8gNhlxA933PxFOBNgjc4vISHg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KYtm7i8oH6cvvoAP2XrKRqp7Eo45Dn6bQxOF6++q2uSN4i9kdTe3D1knbBKSssiBW
-	 Kpme7sAigdZmKsAUb1icVMIQYyCFjklRtfmkohJlyFLGOD5smK4MQATMRFQBZQvHDu
-	 Mo4kwI5EUxxTzN3WgaYFt7GuhxX05/zWGhojSbaiPc3xZKROn071MfECnYSh5rJHgj
-	 MSNc9fPtleAUcejJW/UCBhT7mW2CUIy48s0LvIhGy9xstE1xu3fIrAvg/uuS2nPfs3
-	 Nnmd6g7ALQwjhSbVIFdPjAJ5jFRFKFq1/+Xvjswfi+n8AC6aewWzD+P/TsxbREPFY5
-	 qEHPgszMSM8gw==
-Message-ID: <1403462a-4426-4c70-ad14-544a7a2fbb12@kernel.org>
-Date: Mon, 13 Apr 2026 21:36:12 +0200
+	s=k20201202; t=1776109807;
+	bh=oJxljyVFYnJlQ71cjOxsdi4l3kBeDgjEaeIU1wDEovQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=XIQI+3Dfu1tgIlOd7I9GwqUKy/UHOa+d6+MTpZjl59E8NqsIHW2EmcRPPonI8lMe8
+	 sIOIlYsx+sEBhXkKpnAXxSWNep6CkxYmGwJ3rjCuI7l4zWhke1LU+/fxOI5PTLAYEz
+	 lhnJZmxwArId51Z8KA/e/gf2lZ/ksGe/+1epkfXkvgt3JLMmgCSnGmDOpCnREiO83a
+	 1UoPHwUHw0vZrWO8GgUTfB4Yjx1PpBtea7pv7IWEvQhDzfIQtPLHP2i0YuLrnRurle
+	 p+xuDMMxw0joJd9Ig08+k5XaPOhh1KTTAqaDIjO4DC1HyIKLWPp9ya9PAN+xGgq0UV
+	 nZSWf0JDuSZcg==
+Received: by mail-qv1-f47.google.com with SMTP id 6a1803df08f44-8acae26e564so17798296d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 12:50:07 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/v3hgOLlHMzfYzjxYznYPqZQ5sf0bJpExd8Bm6HF7fPt/sEYAhqy4RAmZ8W35NSVLtYEFwv9V7r7pq+WLOob0B@lists.infradead.org
+X-Gm-Message-State: AOJu0YwjSnp+kkQh2wLg3d37TAynsqpXPJ6cBCoxbNN3PJAyUwM0oyBz
+	vzLFZ1b812a2OVX3VopXy1HniYyXZPVR4Z3kvsEpG/RYpJV3hkj6T7ugv0dfLSb9mzxMc8nWAOH
+	e0Lfx2jJvXzZQ0Mj00wQwFImCxNPHxN0=
+X-Received: by 2002:a05:6214:c6d:b0:8ac:a57e:ec1f with SMTP id
+ 6a1803df08f44-8aca57f19a6mr113901546d6.29.1776109806510; Mon, 13 Apr 2026
+ 12:50:06 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND] arm64: dts: apple: fix spelling error
-To: Axel Flordal <axel@flordal.net>
-Cc: Janne Grunau <j@jannau.net>, asahi@lists.linux.dev,
- Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <2338500.vFx2qVVIhK@fedora>
-Content-Language: en-US
-From: Sven Peter <sven@kernel.org>
-In-Reply-To: <2338500.vFx2qVVIhK@fedora>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260408025115.27368-1-baohua@kernel.org> <20260408025115.27368-5-baohua@kernel.org>
+ <ad0Wyq5--L0SeIqr@kernel.org>
+In-Reply-To: <ad0Wyq5--L0SeIqr@kernel.org>
+From: Barry Song <baohua@kernel.org>
+Date: Tue, 14 Apr 2026 03:49:55 +0800
+X-Gmail-Original-Message-ID: <CAGsJ_4zuBXjm45w3h=x=iK8weVEajW_yaksXa35w0eBK6eoyxQ@mail.gmail.com>
+X-Gm-Features: AQROBzA1k3Am_KfJGvo_jQMK1NqwlYnHYsaB7gQDCvz7fR6iifxM7skZxpHGLhk
+Message-ID: <CAGsJ_4zuBXjm45w3h=x=iK8weVEajW_yaksXa35w0eBK6eoyxQ@mail.gmail.com>
+Subject: Re: [RFC PATCH 4/8] mm/vmalloc: Eliminate page table zigzag for huge
+ vmalloc mappings
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
+	catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org, 
+	urezki@gmail.com, linux-kernel@vger.kernel.org, anshuman.khandual@arm.com, 
+	ryan.roberts@arm.com, ajd@linux.ibm.com, david@kernel.org, 
+	Xueyuan.chen21@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260413_125008_481518_38A1A43C 
+X-CRM114-Status: GOOD (  21.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,24 +87,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08.04.26 09:21, Axel Flordal wrote:
-> Change "configiguration" to "configuration".
-> 
-> Reviewed-by: Neal Gompa <neal@gompa.dev>
-> Signed-off-by: Axel Flordal <axel@flordal.net>
-> ---
-> Original patch: https://lore.kernel.org/asahi/CAEg-Je-KwNNGoi3mpPeNq3Jmtzj_5seuj1Qeh2_1dt994iCJSA@mail.gmail.com/T/#t
-> If this is unwanted I of course won't send again.
+On Tue, Apr 14, 2026 at 12:16=E2=80=AFAM Mike Rapoport <rppt@kernel.org> wr=
+ote:
+>
+> On Wed, Apr 08, 2026 at 10:51:11AM +0800, Barry Song (Xiaomi) wrote:
+> > For vmalloc() allocations with VM_ALLOW_HUGE_VMAP, we no longer
+> > need to iterate over pages one by one, which would otherwise lead to
+> > zigzag page table mappings.
+> >
+> > The code is now unified with the PAGE_SHIFT case by simply
+> > calling vmap_small_pages_range_noflush().
+> >
+> > Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+> > ---
+> >  mm/vmalloc.c | 22 ++++------------------
+> >  1 file changed, 4 insertions(+), 18 deletions(-)
+> >
+> > diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> > index 5bf072297536..eba436386929 100644
+> > --- a/mm/vmalloc.c
+> > +++ b/mm/vmalloc.c
+> > @@ -689,27 +689,13 @@ static int vmap_small_pages_range_noflush(unsigne=
+d long addr, unsigned long end,
+> >  int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+> >               pgprot_t prot, struct page **pages, unsigned int page_shi=
+ft)
+> >  {
+> > -     unsigned int i, nr =3D (end - addr) >> PAGE_SHIFT;
+> > -
+> >       WARN_ON(page_shift < PAGE_SHIFT);
+> >
+> > -     if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC) ||
+> > -                     page_shift =3D=3D PAGE_SHIFT)
+> > -             return vmap_small_pages_range_noflush(addr, end, prot, pa=
+ges, PAGE_SHIFT);
+> > -
+> > -     for (i =3D 0; i < nr; i +=3D 1U << (page_shift - PAGE_SHIFT)) {
+> > -             int err;
+> > -
+> > -             err =3D vmap_range_noflush(addr, addr + (1UL << page_shif=
+t),
+> > -                                     page_to_phys(pages[i]), prot,
+> > -                                     page_shift);
+> > -             if (err)
+> > -                     return err;
+> > +     if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC))
+> > +             page_shift =3D PAGE_SHIFT;
+> >
+> > -             addr +=3D 1UL << page_shift;
+> > -     }
+> > -
+> > -     return 0;
+> > +     return vmap_small_pages_range_noflush(addr, end, prot, pages,
+> > +                     min(page_shift, PMD_SHIFT));
+>
+> Wouldn't vmap_range_noflush() already "do the right thing" even without
+> changes to vmap_small_pages_range_noflush()?
 
-No, this is perfectly fine. I just totally missed the patch, sorry about 
-that.
-I'm going to pick it up after the merge window since it doesn't fix an 
-urgent bug!
+vmap_range_noflush does the right thing for the contiguous physical
+address - ioremap case where we map contiguous physical addresses
+for iomem etc.
 
+for pages array, they are not contiguous physical addresses. they might be
+multiple contiguous physical addresses, but they are not contiguous as
+a whole.
 
+>
+> >  }
+> >
+> >  int vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+> > --
 
-Sven
-
-
-
+Thanks
+Barry
 
