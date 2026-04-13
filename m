@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B232F34C78
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 17:28:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1406DF34C6B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 17:38:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ySJV8S5uSS03dsK9VnD9fW65elFDvvZ6y3Eq544bv60=; b=vfibHU5rD45qBkY0WZpPG4X0QC
-	XOMp/SYdb1x6cuiiEec7F7lacvN7JcTK3SQyKTNKaAhUWNVVLsVaOHo+tapUGw0UwsJsiNyL2phc3
-	GEtBnxkprTKh3ynGFvj2EMcicicgLpN2TdkondpVHx0KQmMzChlI6CTo4B/TZtaSYqnFeoXNPNlZW
-	Bjg9OOd68OEdkHDrijBD286OuP4zDMuqNJwHiVVkRDxvG14WqUkox2/XrrLAv8ZTo+xjnVKUqnd+e
-	F6Jwjsuq9OsH6kctjkF7oV8t5bh7fzVPnQsucns4oo0r8mxsKiXvEdQPS7d0CjAzUedAnw9XHQ3g2
-	bwmsvKug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mP903dU9E33eepcYpUl+fojnP5DkqKJS4SIH6D9VG4A=; b=dbQwz2yeVG41Rk/DM401C0qq33
+	3VKWIbaMOEzs2WNsPu0ER/zo0yxlhlovDry+AKDyZ4Yt3JLj0Q7g64YwkVL7ZjW2LcsIYiUupH0kQ
+	sixoOwR5fspbSeIxvufdECAv31rP3eWntRzEIw/0KUFP0AQTWOlcjk19zs2OmH8fu92UBDogooq+z
+	lHAYguqtT/ih8c69pgLUGqeZdMEljR1P6x8y4BRVlB603YCznkd232ifV1/hM4pjvkr1Zp+noCFw8
+	iDSJY5M9W68BLvMJufg8/f5CyN5FriMX3KF6nCrUU4Bx3037UMpRxz7aYwZdkJRVWpZbYuduh5YyA
+	oDswkG+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCL5N-0000000G8MV-14O8;
-	Mon, 13 Apr 2026 17:28:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCL5K-0000000G8M7-4Aao
+	id 1wCLFI-0000000G8lS-1azB;
+	Mon, 13 Apr 2026 17:38:48 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCLEo-0000000G8kI-3iok
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 17:28:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D7DD244347;
-	Mon, 13 Apr 2026 17:28:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F7F3C2BCAF;
-	Mon, 13 Apr 2026 17:28:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776101309;
-	bh=mqqZU7qX3WkW3Mz56Hb4EU0rPxdufMB8ABltBRDUZmY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jd7KiQQqs0DZTve83Te+eNU8yKj3iiSmehCuJK/zEXrzX2zhQub3+gTVqbNhHWNej
-	 Q0q+JL8DYgokmJ9fosrF8RLmf+4pTHS5jCOSyzdO+MldJXXvSieOm7c+ti7e78wItv
-	 Hi8DX3XSkypJH/g42Z6WcZjkr96ex0z1KsWKuO4dHIIUckwvVDFRYFLmTPqFqZLbJ7
-	 3pF7esVReLIlV+k7M95AKoav0ieQngxL30OultcjdURfrGOtgNPAdn7w+P7entGLNr
-	 kAxZROAjT067dF68F5OumsC2e2oQ+z06A0Jse8AddYNRQb5XZTrFt42KEsvLBarHsi
-	 CUjPoVprv5MpQ==
-Date: Mon, 13 Apr 2026 12:28:27 -0500
-From: Rob Herring <robh@kernel.org>
-To: Khushal Chitturi <khushalchitturi@gmail.com>
-Cc: krzk+dt@kernel.org, conor+dt@kernel.org, liviu.dudau@arm.com,
-	sudeep.holla@kernel.org, lpieralisi@kernel.org, pawel.moll@arm.com,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] dt-bindings: ARM: arm,vexpress-scc: convert to DT
- schema
-Message-ID: <20260413172827.GA3139713-robh@kernel.org>
-References: <20260411183355.8847-1-khushalchitturi@gmail.com>
+	Mon, 13 Apr 2026 17:38:46 +0000
+Received: from [100.65.225.115] (unknown [20.236.11.42])
+	by linux.microsoft.com (Postfix) with ESMTPSA id E478220B6F01;
+	Mon, 13 Apr 2026 10:38:16 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com E478220B6F01
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1776101897;
+	bh=mP903dU9E33eepcYpUl+fojnP5DkqKJS4SIH6D9VG4A=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=eRSUm6dVxDM8+l8UZbS6bfvl5PP7E8vnXwL/BnbzJu+GC+gVIwbb7jojj9gJc9YcA
+	 TbDemA4ZnDah8mZwqG9nUnu8SygKTWbWrjGgqSZedKmpQfnip2XoVpblI1/uJ+EHqk
+	 aCJxjR91NYSzdnIe2aXfCcJ0lvYm3ozBEbKOfl30=
+Message-ID: <3305684d-8517-47dd-8852-2e34d40fc712@linux.microsoft.com>
+Date: Mon, 13 Apr 2026 10:38:15 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260411183355.8847-1-khushalchitturi@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] mmc: host: sdhci-iproc: implement the .hw_reset
+ callback
+To: rjui@broadcom.com
+Cc: sbranden@broadcom.com, linux-arm-kernel@lists.infradead.org,
+ tgopinath@linux.microsoft.com, adrian.hunter@intel.com,
+ linux-mmc@vger.kernel.org
+References: <20260327222150.2108111-1-meaganlloyd@linux.microsoft.com>
+Content-Language: en-US
+From: Meagan Lloyd <meaganlloyd@linux.microsoft.com>
+In-Reply-To: <20260327222150.2108111-1-meaganlloyd@linux.microsoft.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_102831_053395_55BADC5C 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20260413_103819_034977_BA2EDB2A 
+X-CRM114-Status: GOOD (  17.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,24 +71,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 12, 2026 at 12:03:55AM +0530, Khushal Chitturi wrote:
-> Convert the ARM Versatile Express Serial Configuration Controller
-> bindings to DT schema.
-> 
-> Signed-off-by: Khushal Chitturi <khushalchitturi@gmail.com>
+
+On 3/27/2026 3:21 PM, Meagan Lloyd wrote:
+> Implement the .hw_reset callback so that the eMMC can be reset as needed
+> given cap-mmc-hw-reset is set in the devicetree and the functionality is
+> enabled on the eMMC.
+>
+> Signed-off-by: Meagan Lloyd <meaganlloyd@linux.microsoft.com>
 > ---
-> Changelog:
-> v1 -> v2:
-> - Modified compatible string to use an enum instead of a generic pattern.
-> - Updated maintainers list.
-> 
->  .../bindings/arm/arm,vexpress-scc.yaml        | 53 +++++++++++++++++++
->  .../devicetree/bindings/arm/vexpress-scc.txt  | 33 ------------
->  2 files changed, 53 insertions(+), 33 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/arm/arm,vexpress-scc.yaml
->  delete mode 100644 Documentation/devicetree/bindings/arm/vexpress-scc.txt
+>
+> SDHCI_POWER_CONTROL[4] (SD Host Controller Standard) has been repurposed
+> on my Broadcomm processor to be eMMC hardware reset
+> (SDIO*_eMMCSDXC_CTRL[12], HRESET).
+>
+> Can you confirm this repurposed bit is consistent across the Broadcomm
+> iProc processors and thus the .hw_reset callback can be uniformly
+> applied in this driver?
 
-Applied, thanks.
+Hi Ray & Scott,
 
-Rob
+I hope you're doing well. This bit looks to have been repurposed from
+the SD Host Controller Standard's VDD2 Power Control to being used for
+toggling the hardware reset signal to eMMCs. Can you verify that it
+applies across the iProc processors so that I may finalize this patch?
+
+Thank you,
+
+Meagan
+
+>
+> ---
+>  drivers/mmc/host/sdhci-iproc.c | 16 ++++++++++++++++
+>  1 file changed, 16 insertions(+)
+>
+> diff --git a/drivers/mmc/host/sdhci-iproc.c b/drivers/mmc/host/sdhci-iproc.c
+> index 35ef5c5f51467..9018ed7fe2e66 100644
+> --- a/drivers/mmc/host/sdhci-iproc.c
+> +++ b/drivers/mmc/host/sdhci-iproc.c
+> @@ -181,12 +181,26 @@ static unsigned int sdhci_iproc_bcm2711_get_min_clock(struct sdhci_host *host)
+>  	return 200000;
+>  }
+>  
+> +static void sdhci_iproc_hw_reset(struct sdhci_host *host)
+> +{
+> +	u8 val = sdhci_readb(host, SDHCI_POWER_CONTROL);
+> +
+> +	/* Trigger reset and hold for at least 1us (eMMC spec requirement) */
+> +	sdhci_writeb(host, val | BIT(4), SDHCI_POWER_CONTROL);
+> +	usleep_range(2, 10);
+> +
+> +	/* Release from reset and wait for at least 200us (eMMC spec requirement) */
+> +	sdhci_writeb(host, val & ~BIT(4), SDHCI_POWER_CONTROL);
+> +	usleep_range(250, 300);
+> +}
+> +
+>  static const struct sdhci_ops sdhci_iproc_ops = {
+>  	.set_clock = sdhci_set_clock,
+>  	.get_max_clock = sdhci_iproc_get_max_clock,
+>  	.set_bus_width = sdhci_set_bus_width,
+>  	.reset = sdhci_reset,
+>  	.set_uhs_signaling = sdhci_set_uhs_signaling,
+> +	.hw_reset = sdhci_iproc_hw_reset,
+>  };
+>  
+>  static const struct sdhci_ops sdhci_iproc_32only_ops = {
+> @@ -201,6 +215,7 @@ static const struct sdhci_ops sdhci_iproc_32only_ops = {
+>  	.set_bus_width = sdhci_set_bus_width,
+>  	.reset = sdhci_reset,
+>  	.set_uhs_signaling = sdhci_set_uhs_signaling,
+> +	.hw_reset = sdhci_iproc_hw_reset,
+>  };
+>  
+>  static const struct sdhci_pltfm_data sdhci_iproc_cygnus_pltfm_data = {
+> @@ -283,6 +298,7 @@ static const struct sdhci_ops sdhci_iproc_bcm2711_ops = {
+>  	.set_bus_width = sdhci_set_bus_width,
+>  	.reset = sdhci_reset,
+>  	.set_uhs_signaling = sdhci_set_uhs_signaling,
+> +	.hw_reset = sdhci_iproc_hw_reset,
+>  };
+>  
+>  static const struct sdhci_pltfm_data sdhci_bcm2711_pltfm_data = {
 
