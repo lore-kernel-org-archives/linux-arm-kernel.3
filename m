@@ -4,103 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E895BF531C7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 19:08:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFA12F531C9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 19:11:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xu8655yBXKRaJ83q8y1V7Kqw0/NodP6YKg6wMODJ3Uk=; b=vqsXqhErKNas66dZwf2wE0M1dL
-	pcBMRgi+HmZYMAWAOjqvAU4l4ucfZzSRofAWe0FHHJL6/UvspixJS3Rbg1jURaktqL9LVJgi/Ynd+
-	DkwGUMRDNzwbxd428Lh2hG7dUVIBTLm2zxZxnYHLV6HAZleNNh4x+B/TR7g18cPAUG9F8tOmUVes6
-	DfGZu8W1Ev1zqNu9/1HLi8c7b+jgt+RigK0ts9wLM3+AxPnwgQK+MkOLf3FjGTqnbWx2/79mGD75I
-	CnBwdjGFafWWzUJLCgVAk6gw9xdngCyfbG0fp2lFk6EYCuZnIna+4dZ0A9sk27OwOzRm8hT8I/obG
-	THhdl5sg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Gh7rTIF5xjhe36exhKJaQhHcLe+TArIECUvTx0COlx0=; b=lhfEQrw62uOzmiRD1Xja06e/Le
+	sBdrQ7JWPZr7e0sYDRkr2Wph5+WRU9JBuMcaJ8GWJZkC6qjRDCBdzbiOX+ONqE1DeR7/SsipMXzyD
+	rPh89gUVxgg+H58ATbGSbKpKzXiI5yh0XXpLisYXieUyGnGeN9PN8QJ+fAWEmEreSGNZXxC5e2i8h
+	z8Y8sfh6GNOIS9Z9bDbPsUSa7k/81lYqaXHOyB2+nwpgpI/a++QKgy6uOwl12dQS8mdEzEJTFIIvM
+	QQMNirbRJ1pCnBtLFO/fbGGtqtjbnV+V0b2yK2r6x/veXteZByvQ/H3XuCzrL+4zAKape2YZgGYVQ
+	eRo6GcGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCMeF-0000000GGhn-0wvm;
-	Mon, 13 Apr 2026 19:08:39 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1wCMgs-0000000GGvj-2LTh;
+	Mon, 13 Apr 2026 19:11:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCMeD-0000000GGhP-0feD;
-	Mon, 13 Apr 2026 19:08:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1776107318; x=1807643318;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=4CaM7wenZxKtG66qKgsfsJsukc+IvRC3EJ8tB66RfKQ=;
-  b=QttfARdcQv/8J8zr+fH/UMN73lL1dXP4cDGDxNeu9a86JNs5D/uAtalE
-   nCAphRjp8czS6uWHkIP6aE6z+MXDGPRSRujRpohgNNyxK+33sNTWb8Uwz
-   rwdYVb6CJQd3EHsfua9UelhGLy+6B0mzda8fNkV8CcHO6tI3k3DGfh3Rn
-   +QlyTsEfQz+iaYPjXwQq1pK5Z5AVkTgBCwqHX59oRAcWkrti1basnvLZY
-   080tsLXp1V0uVZWwYjkEBcQyVB0HKA996SsKwa1s6AgqoonJL6NiA2tfK
-   E6T0dYQVzY9+EwzN+INBPsYE7B8Q6UKCpT+9kdjDiGpzBV+c2IegyNsNF
-   g==;
-X-CSE-ConnectionGUID: UcQxNi1oRIm4iJ7sGVtrQA==
-X-CSE-MsgGUID: baOvfrs+SEStThPw1HcYfQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11758"; a="80914447"
-X-IronPort-AV: E=Sophos;i="6.23,177,1770624000"; 
-   d="scan'208";a="80914447"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Apr 2026 12:08:37 -0700
-X-CSE-ConnectionGUID: LLoqwsUcSQadMQwd692Pcg==
-X-CSE-MsgGUID: c3AdYV8HRbyVMj2WycmQ6g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,177,1770624000"; 
-   d="scan'208";a="225137667"
-Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.97])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Apr 2026 12:08:26 -0700
-Date: Mon, 13 Apr 2026 22:08:23 +0300
-From: Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
-	Rodrigo Siqueira <siqueira@igalia.com>,
-	Alex Deucher <alexander.deucher@amd.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>, kernel@collabora.com,
-	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v13 12/27] drm/i915/dp: Add YCBCR444 handling for sink
- formats
-Message-ID: <ad0_J-wTpGeaxnF8@intel.com>
-References: <20260413-color-format-v13-0-ab37d4dfba48@collabora.com>
- <20260413-color-format-v13-12-ab37d4dfba48@collabora.com>
+	id 1wCMgq-0000000GGvN-0xXv;
+	Mon, 13 Apr 2026 19:11:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C56FB43D69;
+	Mon, 13 Apr 2026 19:11:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AC95C2BCAF;
+	Mon, 13 Apr 2026 19:11:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776107479;
+	bh=wQgADd80D/pun3cifGRSz/mIPDYovCZECVayXUjBKrg=;
+	h=From:To:Cc:Subject:Date:From;
+	b=eM4ZFz8yZ1k2of+wPmWowz80jBd70rhdHOFyAgCv0sMUcqq0hNqASbK+atDSo5/v7
+	 OXff0sMmMm4Uro+jw8NeKEYarPVkLeL8qMq3lqsyEW3QAEvgN03yTT6LiY+l5TwXJp
+	 +AOSvHlpjhGl1TGT/cRGpwRA5mk0402pGmvuMok0k9QbhxsrWBnGAZFb4NUo8ATRiS
+	 w4gChZ2YV7eK5ePij0+2wggMJnaMHBhNL62obsd5Xtd7ztUYsQpP2rjuqUOSIWmk1w
+	 LmDg122CUY1O4kD3Nv4u37ry0E8k8KT+6HL9MZnw6vEt6s2wWVRzsReULl215xuJBx
+	 x/H3dsIak8hVQ==
+From: Puranjay Mohan <puranjay@kernel.org>
+To: bpf@vger.kernel.org
+Cc: Puranjay Mohan <puranjay@kernel.org>,
+	"Alexei Starovoitov" <ast@kernel.org>,
+	"Daniel Borkmann" <daniel@iogearbox.net>,
+	"Andrii Nakryiko" <andrii@kernel.org>,
+	"Martin KaFai Lau" <martin.lau@linux.dev>,
+	"Eduard Zingerman" <eddyz87@gmail.com>,
+	"Kumar Kartikeya Dwivedi" <memxor@gmail.com>,
+	"Song Liu" <song@kernel.org>,
+	"Yonghong Song" <yonghong.song@linux.dev>,
+	"Jiri Olsa" <jolsa@kernel.org>,
+	"Xu Kuohai" <xukuohai@huaweicloud.com>,
+	"Catalin Marinas" <catalin.marinas@arm.com>,
+	"Will Deacon" <will@kernel.org>,
+	"Luke Nelson" <luke.r.nels@gmail.com>,
+	"Xi Wang" <xi.wang@gmail.com>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	"Pu Lehui" <pulehui@huawei.com>,
+	"Paul Walmsley" <pjw@kernel.org>,
+	"Palmer Dabbelt" <palmer@dabbelt.com>,
+	"Albert Ou" <aou@eecs.berkeley.edu>,
+	"Alexandre Ghiti" <alex@ghiti.fr>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH bpf-next v2 0/2] bpf, arm64/riscv: Remove redundant icache flush after pack allocator finalize
+Date: Mon, 13 Apr 2026 12:11:07 -0700
+Message-ID: <20260413191111.3426023-1-puranjay@kernel.org>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260413-color-format-v13-12-ab37d4dfba48@collabora.com>
-X-Patchwork-Hint: comment
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_120837_238530_B1925A61 
-X-CRM114-Status: GOOD (  18.68  )
+X-CRM114-CacheID: sfid-20260413_121120_299762_C13835F8 
+X-CRM114-Status: UNSURE (   5.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,48 +91,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 13, 2026 at 12:07:26PM +0200, Nicolas Frattaroli wrote:
-> In anticipation of userspace being able to explicitly select supported
-> sink formats, add handling of the YCBCR444 sink format. The AUTO path
-> does not choose this format, but with explicit format selection added to
-> the driver, it becomes a possibility.
-> 
-> Check for sink support of YCBCR444 to intel_dp_sink_format_valid.
-> 
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
->  drivers/gpu/drm/i915/display/intel_dp.c | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/i915/display/intel_dp.c b/drivers/gpu/drm/i915/display/intel_dp.c
-> index 35b8fb5740aa..47bd3d59ea93 100644
-> --- a/drivers/gpu/drm/i915/display/intel_dp.c
-> +++ b/drivers/gpu/drm/i915/display/intel_dp.c
-> @@ -1364,6 +1364,11 @@ intel_dp_sink_format_valid(struct intel_connector *connector,
->  
->  		return MODE_OK;
->  	case INTEL_OUTPUT_FORMAT_RGB:
-> +		return MODE_OK;
-> +	case INTEL_OUTPUT_FORMAT_YCBCR444:
-> +		if (!(info->color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444)))
-> +			return MODE_BAD;
+Changelog:
+v1: https://lore.kernel.org/all/20260413123256.3296452-1-puranjay@kernel.org/
+Changes in v2:
+- Remove "#include <asm/cacheflush.h>" as it is not needed now.
+- Add Acked-by: Song Liu <song@kernel.org>
 
-The DP situation is a lot more more fuzzy than the HDMI situation
-due to the PCON stuff. So I'm not quite sure what we should do here.
+When the BPF prog pack allocator was added for arm64 and riscv, the
+existing bpf_flush_icache() calls were retained after
+bpf_jit_binary_pack_finalize(). However, the finalize path copies the
+JITed code via architecture text patching routines (__text_poke on arm64,
+patch_text_nosync on riscv) that already perform a full
+flush_icache_range() internally. The subsequent bpf_flush_icache()
+repeats the same cache maintenance on the same range.
 
-At the very least I think we want the equivalent of
-intel_dp_can_ycbcr420() for 444, and the same intel_dp_has_hdmi_sink()
-check that we have for 420.
+Remove the redundant flush and the now-unused bpf_flush_icache()
+definitions on both architectures.
 
-> +
->  		return MODE_OK;
->  	default:
->  		MISSING_CASE(sink_format);
-> 
-> -- 
-> 2.53.0
+Puranjay Mohan (2):
+  bpf, arm64: Remove redundant bpf_flush_icache() after pack allocator
+    finalize
+  bpf, riscv: Remove redundant bpf_flush_icache() after pack allocator
+    finalize
 
+ arch/arm64/net/bpf_jit_comp.c | 12 ------------
+ arch/riscv/net/bpf_jit.h      |  6 ------
+ arch/riscv/net/bpf_jit_core.c |  7 -------
+ 3 files changed, 25 deletions(-)
+
+
+base-commit: 71b500afd2f7336f5b6c6026f2af546fc079be26
 -- 
-Ville Syrjälä
-Intel
+2.52.0
+
 
