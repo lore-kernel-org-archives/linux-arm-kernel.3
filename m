@@ -4,103 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0143F531C3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 18:58:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3436EF531C3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 18:58:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+MaTCH4UAzBLtav7IwhrqYDPxTENuRUi8lQLCR9KHqw=; b=guHo+GBJxp+uCcb0hsDoNbFD/x
-	KgKxFrdOEBtp3GH+SV5t/n7RkFTbWhwapJfs/gtgvmrdPml/Qx1fGisS9ADCAoCIzMOnxeHSTn8mL
-	kVSaY3OQi2e0ZtsRdbxyjuYaykJDu61qrkstcPO4MDqxxju+/4B5awM+LzOVYV2MaU79CZEcNqMzv
-	olhyDNdQhjl916tFNfj/bgL6xEOQASE1ZC08W0bb0TlKme6p+iG1q5a6jXh3E6LlLHAeHbbT28LEK
-	vzb3ZqN+eR4cUoGaGVaZpa7EcCplLlSnGIstwRnZmRCkX4cdGW1mt9WJiVtFHD9hv+pZ0qivcB7Wz
-	sU1MXKjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0nvwln6rjBBZEEru9ErbEWkQ+3VNYPlbFaim9XRDohw=; b=BZ44J5cKqU1PGxSuMwrh+ENx/6
+	lsonpJuJsZCG6kcpINXVqNXodmQoVjnhBwAFJYVdwuJqkHzraGN4ZwvWHTOVIHgoNqhuivo521TNt
+	+w0EHEYTpfgx0MJPnKK7RCFj2VH/NaGiOZSSwsLypAvlPZlMjYn18G/RHV9n1J3fJmJ1G98ccvzgZ
+	8zUjzZZLDaMRnje9bpFBDOFMog9iPzfyiFP6614vWpkTv/QS5i+4z7A+DdmseVE5i2JDslekWPjNV
+	g7nji1iCK7HOCrotHk7NFThGMerLIyCcOiGMWc49QFxBbeRA5/CPc5uQ8Rz5s5BpyiZAtdITRMeUI
+	4RKNv2sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCMUd-0000000GFIT-17nA;
-	Mon, 13 Apr 2026 18:58:43 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1wCMUg-0000000GFLe-1KSo;
+	Mon, 13 Apr 2026 18:58:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCMUb-0000000GFH9-02Yz;
-	Mon, 13 Apr 2026 18:58:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1776106721; x=1807642721;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=G2euJdDLSGI1AgeMMOPf+n8HzOsAs0MY5JsKd9Nn1y0=;
-  b=VgnalwkeSG9DlttEphbKkhu5HqC30Y6WrBlobRi0y76IUvcc474f93Ot
-   EaH4AOEnhY6vbHpcHIGMWcNF8wG0T3EWQh2pE+S9hLaHYT/ZnZCP4iXGK
-   pknPtfRr6nCJIuAGE/YqEYLdE6MUvGHhlw6J8fksyS9qQKZgzcw6XaU95
-   NiSX8Bu5YQVNlIw9VmBFITn0OOGwnaVFKGuRoXIyRZleD4staMhcZ5lot
-   XKPrKdvPD48EAFZSmKsKM4HySspax+cITavyAMylad1IgLDyEhEpOsL/2
-   ajH8RbLqLa3x757OL51rvUwXrM1rkqRslyyB+bWPh4SfUr4QgWYiowzGp
-   A==;
-X-CSE-ConnectionGUID: 3SB4dqGyT7eU0w2sXRPB8A==
-X-CSE-MsgGUID: 1HR66iySShW3CgcNWTzmHg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11758"; a="99697373"
-X-IronPort-AV: E=Sophos;i="6.23,177,1770624000"; 
-   d="scan'208";a="99697373"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Apr 2026 11:58:37 -0700
-X-CSE-ConnectionGUID: lgk8/XHyQTiEOVbWVCgYAg==
-X-CSE-MsgGUID: FSL3yA18QpKQaJN/d5mFiw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,177,1770624000"; 
-   d="scan'208";a="228829346"
-Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.97])
-  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Apr 2026 11:58:26 -0700
-Date: Mon, 13 Apr 2026 21:58:22 +0300
-From: Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
-	Rodrigo Siqueira <siqueira@igalia.com>,
-	Alex Deucher <alexander.deucher@amd.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>, kernel@collabora.com,
-	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v13 11/27] drm/i915/hdmi: Add YCBCR444 handling for sink
- formats
-Message-ID: <ad08zqpKbyF--Br3@intel.com>
-References: <20260413-color-format-v13-0-ab37d4dfba48@collabora.com>
- <20260413-color-format-v13-11-ab37d4dfba48@collabora.com>
+	id 1wCMUe-0000000GFIn-1EvS
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Apr 2026 18:58:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5182461853;
+	Mon, 13 Apr 2026 18:58:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF7DEC2BCAF;
+	Mon, 13 Apr 2026 18:58:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776106723;
+	bh=x0FufSkSBt0JmK3zAYZJMpJPG4N7AJq2hUvuGYHPtHo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=EOrNAGGi3PB4uFo4u00SGeTHTJjiJ+KbmpiDpXapCjf8Hw2J36+vBxqQLreLRvxKI
+	 rUiq4vyy3kxR7DD+c0uis7k7+A2RsFpUg5uLtT9yl8N5wGwnwhz4y1jv+joA+62hWU
+	 2EI17S/kgnyprLCJXsJCT4aiVnWuadAlRfay9aU/AWcf9w6+iDPanf14ZNYI4lqOWi
+	 KUDtYMks4Nd6OWmefO8IHkO4kb3ahvGKTDX3lT/atWa5FGH5hQ+1WM4y6cLzl4Z3Vp
+	 hqgh6nZ5tYJV1s+QpsJeSk4vki3nqGY2pJ3VZSWyAIH7CoxlOF+zpLWRaqZVNJ5Nx0
+	 2qZx2hKoMTJPA==
+From: Puranjay Mohan <puranjay@kernel.org>
+To: bpf@vger.kernel.org
+Cc: Puranjay Mohan <puranjay@kernel.org>,
+	Puranjay Mohan <puranjay12@gmail.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Leo Yan <leo.yan@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Breno Leitao <leitao@debian.org>,
+	Ravi Bangoria <ravi.bangoria@amd.com>,
+	Stephane Eranian <eranian@google.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Usama Arif <usama.arif@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kernel-team@meta.com
+Subject: [PATCH v3 4/4] selftests/bpf: Adjust wasted entries threshold for ARM64 BRBE
+Date: Mon, 13 Apr 2026 11:57:23 -0700
+Message-ID: <20260413185740.3286146-5-puranjay@kernel.org>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260413185740.3286146-1-puranjay@kernel.org>
+References: <20260413185740.3286146-1-puranjay@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260413-color-format-v13-11-ab37d4dfba48@collabora.com>
-X-Patchwork-Hint: comment
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_115841_104197_D1F325E6 
-X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,72 +99,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 13, 2026 at 12:07:25PM +0200, Nicolas Frattaroli wrote:
-> In anticipation of userspace being able to explicitly select supported
-> sink formats, add handling of the YCBCR444 sink format. The AUTO path
-> does not choose this format, but with explicit format selection added to
-> the driver, it becomes a possibility.
-> 
-> Check for YCBCR444 support on the sink in both sink_bpc_possible, and
-> sink_format_valid.
-> 
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
->  drivers/gpu/drm/i915/display/intel_hdmi.c | 9 +++++++++
->  1 file changed, 9 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/i915/display/intel_hdmi.c b/drivers/gpu/drm/i915/display/intel_hdmi.c
-> index 874076a29da4..5ab5b5f85cde 100644
-> --- a/drivers/gpu/drm/i915/display/intel_hdmi.c
-> +++ b/drivers/gpu/drm/i915/display/intel_hdmi.c
-> @@ -1966,6 +1966,8 @@ static bool intel_hdmi_sink_bpc_possible(struct drm_connector *_connector,
->  
->  		if (sink_format == INTEL_OUTPUT_FORMAT_YCBCR420)
->  			return hdmi->y420_dc_modes & DRM_EDID_YCBCR420_DC_36;
-> +		else if (sink_format == INTEL_OUTPUT_FORMAT_YCBCR444)
-> +			return info->edid_hdmi_ycbcr444_dc_modes & DRM_EDID_HDMI_DC_36;
->  		else
->  			return info->edid_hdmi_rgb444_dc_modes & DRM_EDID_HDMI_DC_36;
->  	case 10:
-> @@ -1974,6 +1976,8 @@ static bool intel_hdmi_sink_bpc_possible(struct drm_connector *_connector,
->  
->  		if (sink_format == INTEL_OUTPUT_FORMAT_YCBCR420)
->  			return hdmi->y420_dc_modes & DRM_EDID_YCBCR420_DC_30;
-> +		else if (sink_format == INTEL_OUTPUT_FORMAT_YCBCR444)
-> +			return info->edid_hdmi_ycbcr444_dc_modes & DRM_EDID_HDMI_DC_30;
->  		else
->  			return info->edid_hdmi_rgb444_dc_modes & DRM_EDID_HDMI_DC_30;
->  	case 8:
-> @@ -2038,6 +2042,11 @@ intel_hdmi_sink_format_valid(struct intel_connector *connector,
->  
->  		return MODE_OK;
->  	case INTEL_OUTPUT_FORMAT_RGB:
-> +		return MODE_OK;
-> +	case INTEL_OUTPUT_FORMAT_YCBCR444:
+The get_branch_snapshot test checks that bpf_get_branch_snapshot()
+doesn't waste too many branch entries on infrastructure overhead. The
+threshold of < 10 was calibrated for x86 where about 7 entries are
+wasted.
 
-We'll also want the !has_hdmi_sink check here like for 4:2:0.
+On ARM64, the BPF trampoline generates more branches than x86,
+resulting in about 13 wasted entries. The overhead comes from the BPF
+trampoline calling __bpf_prog_enter_recur which on ARM64 makes
+out-of-line calls to __rcu_read_lock and generates more conditional
+branches than x86:
 
-And I think we also want something to mirror the ycbcr_420_allowed
-flag. I guess you could just make it something like:
+ [#12] bpf_testmod_loop_test+0x40    -> bpf_trampoline_...+0x48
+ [#11] bpf_trampoline_...+0x68       -> __bpf_prog_enter_recur+0x0
+ [#10] __bpf_prog_enter_recur+0x20   -> __bpf_prog_enter_recur+0x118
+ [#09] __bpf_prog_enter_recur+0x154  -> __bpf_prog_enter_recur+0x160
+ [#08] __bpf_prog_enter_recur+0x164  -> __bpf_prog_enter_recur+0x2c
+ [#07] __bpf_prog_enter_recur+0x2c   -> __rcu_read_lock+0x0
+ [#06] __rcu_read_lock+0x18          -> __bpf_prog_enter_recur+0x30
+ [#05] __bpf_prog_enter_recur+0x9c   -> __bpf_prog_enter_recur+0xf0
+ [#04] __bpf_prog_enter_recur+0xf4   -> __bpf_prog_enter_recur+0xa8
+ [#03] __bpf_prog_enter_recur+0xb8   -> __bpf_prog_enter_recur+0x100
+ [#02] __bpf_prog_enter_recur+0x114  -> bpf_trampoline_...+0x6c
+ [#01] bpf_trampoline_...+0x78       -> bpf_prog_...test1+0x0
+ [#00] bpf_prog_...test1+0x58        -> arm_brbe_snapshot_branch_stack+0x0
 
-intel_hdmi_ycbcr_444_allowed(display)
-{
-	return DISPLAY_VER(display) >= 5 && !HAS_GMCH(display);
-}
+Use an architecture-specific threshold of < 14 for ARM64 to accommodate
+this overhead while still detecting regressions.
 
-That can also be reused when setting up the allowed property values.
+Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+---
+ .../selftests/bpf/prog_tests/get_branch_snapshot.c  | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
 
-> +		if (!(info->color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444)))
-> +			return MODE_BAD;
-> +
->  		return MODE_OK;
->  	default:
->  		MISSING_CASE(sink_format);
-> 
-> -- 
-> 2.53.0
-
+diff --git a/tools/testing/selftests/bpf/prog_tests/get_branch_snapshot.c b/tools/testing/selftests/bpf/prog_tests/get_branch_snapshot.c
+index 0394a1156d99..8d1a3480767f 100644
+--- a/tools/testing/selftests/bpf/prog_tests/get_branch_snapshot.c
++++ b/tools/testing/selftests/bpf/prog_tests/get_branch_snapshot.c
+@@ -116,13 +116,18 @@ void serial_test_get_branch_snapshot(void)
+ 
+ 	ASSERT_GT(skel->bss->test1_hits, 6, "find_looptest_in_lbr");
+ 
+-	/* Given we stop LBR in software, we will waste a few entries.
++	/* Given we stop LBR/BRBE in software, we will waste a few entries.
+ 	 * But we should try to waste as few as possible entries. We are at
+-	 * about 7 on x86_64 systems.
+-	 * Add a check for < 10 so that we get heads-up when something
+-	 * changes and wastes too many entries.
++	 * about 7 on x86_64 and about 13 on arm64 systems (the arm64 BPF
++	 * trampoline generates more branches than x86_64).
++	 * Add a check so that we get heads-up when something changes and
++	 * wastes too many entries.
+ 	 */
++#if defined(__aarch64__)
++	ASSERT_LT(skel->bss->wasted_entries, 14, "check_wasted_entries");
++#else
+ 	ASSERT_LT(skel->bss->wasted_entries, 10, "check_wasted_entries");
++#endif
+ 
+ cleanup:
+ 	get_branch_snapshot__destroy(skel);
 -- 
-Ville Syrjälä
-Intel
+2.52.0
+
 
