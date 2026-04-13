@@ -4,139 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48213F34C78
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 17:43:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BAD8F34C79
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 17:56:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uqcqUmMytTlyST79HXSur+JVhERdyL6edRqn6BR2Hog=; b=c3JVRPlUoiLkzzwsycKVOo5FRS
-	hQ/4zOgvdUffPETa7+T7QgZy+a8QhLzZEvhD65Vz65YV2BjgKMNZyHJUsI2BI4qDhng9pl+qu9pBq
-	Uoq9aISPKxwOoAwHCDWxgtEwVPDxU/yBpw4OhXlQMtfAyIAIaIDwggWkx//kCA3DxXsdKNgfdrSwO
-	H3iOFKLCbxjANAb97iz1tBgcycZFQMcFLxhf6veicP1OllHNt0AeRDsboz8HOLjv3twhdJ6n1fFc9
-	crA8HNovU/sQaUQJHZBjWgmETuxiEs0CpODKd3n+H8/L2+nCSVqu3WyXmX9T2mtgvoN2oaBlgxz3r
-	uHPlwQBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZOK8xz+kAAT0sGnFLw4aNDwgw8+J3RcJlXQkxpqjpmM=; b=aEoSHx8K2Cun+pvTrZaKs2xjCK
+	8Jx1DhI4lmTCcc9NpMNy5w8Lbj9vbmWUkER96lYJuKTgN3JAjTswF+NIfGWVnVV9dgn2rY7EEdhmq
+	NqQJ6WRHkVim92z8Vn3kON6631KgpYtirjLLRmvcOsev+CRgWRRe1muxzMvcKPuBP0/7atGRJKPYd
+	ZOzZ0z8wgdTkcHo5VgLknPiU3D7ihjaTBjBUY7zINtaKrlxvthEJBpIRK3Ky9dnZp8ZyvegTUVm31
+	uyY7OQT4MORVdNeRVjOCoqTvDZNnOPJcxPDcTF41Ck01H22Yk4OeYBbas7lkkZtphtE+jBilUxlbY
+	2HJXe8nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCLJj-0000000G91k-1dKU;
-	Mon, 13 Apr 2026 17:43:23 +0000
-Received: from mail-pj1-x1064.google.com ([2607:f8b0:4864:20::1064])
+	id 1wCLWV-0000000G9g3-0bXA;
+	Mon, 13 Apr 2026 17:56:35 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCLJg-0000000G91N-2ICv
+	id 1wCLWS-0000000G9fe-1QdB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 17:43:21 +0000
-Received: by mail-pj1-x1064.google.com with SMTP id 98e67ed59e1d1-35fb166b0c6so701629a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 10:43:19 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776102198; x=1776706998;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=uqcqUmMytTlyST79HXSur+JVhERdyL6edRqn6BR2Hog=;
-        b=XspDx76E1Va0kddzz9TqzkwGVvhOrARVqnvnFR1AbEEJdV5xGdacaGqJr2Uz7cc2AX
-         GFRVdtRvmzc+q3viofgMY8tzJ3Fu8KRlac29aN1YxbbWBFABg7E1ZNZy4sDtsYbasV47
-         cfOvPPJQJ9MEKtNMUgRf+hq+kCegtGxqIaT2FW93egv6qmVOdHz8VlTJkYtOYyOpy40n
-         3RlXmC8BMxGNldpJPRw4J/Vb6NBKEg1A4+hMqtws10eLCjDNdtqw3ZH7bX2f5T+m7GYg
-         TKg505Z0o+ERkeG2kulrrnibvo1qHyIya1NnNUjPIiza4SJ46AbgwXLMkicFOk3TXN+k
-         qbUA==
-X-Forwarded-Encrypted: i=1; AFNElJ9G9YpdHiUrip4Cfn3rpEFnJO+u2G1nnz7Qw1j+C/Mgf/Zt/dO/pwX9UtFb4beWKfQu8SXMoyAnemMHem4UGOJg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzm9v/9gUPnfOMqFkG9zb1/nEKrO1YgJYD7dJRnQk7C9HgxcUTL
-	qqycj+DGZfGXAAezB7cUUL+sKj16qzbAFF2wXPxtSiQlH9fxstqdZzqIxRVA0n9zkObyjHJ2ug/
-	SkFwHXppda03ZKAgynuIAb6y5MKzLgb7iQd2H59wFTUaZ0ua6JnBR/EQbFbWIDEPWcOLw0cyLsp
-	8+BpnWEFnr5EI1zaKVJQMqfLu3stgjKXndUxp6aHcCYlXrxA1xUG1aXcKEQUOodWUMGgdgyXuP9
-	bs0CzQ6hYjZoi4zC+dTjJg3rZRYNsA/0j4=
-X-Gm-Gg: AeBDieuJIm8cBvEy5aR2UQqr2/zzrdAP+ry/TlzTY+Otc1Urova8BGaaCgu/JBFCKcJ
-	bSZioNa8BSF9E3DDTMvDBO8RFUZ9WtHVUjr8y+WKDnut1epwoPmalj9nOTl+UrPg+cirUSJltfd
-	XJlYYYMSTgFd0hBaKh9WsOqF7kfw9YE09Ykh70lBzY0iXzEvRUNGvqcKNUn11C36HOfNg1sbUuo
-	AYReyrA0ahph2xC/0BOrhM07KztUK/HThucynbcxPoR3fzH+/klXBTWSpCSiv7oBZV2V8/plT6g
-	+NAQmm1kz1dkrKlytRO80rhGPjWmdkhOFLHbPJn5ZunMqkCSkBc+dmRags8NITu+jdinAKXKYuz
-	vlraHl42mGuGIQzg7Hf3EkfKtDhTfAk+ak/Yq3mTXA1onJGsPzvk/8GZ93RzbMMOIrIY9I5dYF2
-	g9mUTsewT+vnm74C6CD69s9z04bBJLrPq+y1YWaz2oickjjabgM6ApH2+ExoMMfA==
-X-Received: by 2002:a17:90b:5548:b0:35f:c156:a82e with SMTP id 98e67ed59e1d1-35fc156ab7amr1304203a91.9.1776102198447;
-        Mon, 13 Apr 2026 10:43:18 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-15.dlp.protect.broadcom.com. [144.49.247.15])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-35fbd0abae9sm263502a91.3.2026.04.13.10.43.18
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 13 Apr 2026 10:43:18 -0700 (PDT)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-1273dfdaf5dso4507093c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 10:43:17 -0700 (PDT)
+	Mon, 13 Apr 2026 17:56:34 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63DEJOP53539434
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 17:56:30 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=ZOK8xz+kAAT0sGnFLw4aNDwg
+	w8+J3RcJlXQkxpqjpmM=; b=Dw/nxBMdq4uF/bpfRCFEEszlAGlfPaHv4z+nVmQj
+	dUjFoQO4+KLUN18wfNGZpltZOoG6HkvF1YxLwe3lJPQJVno4vCXlSIBoM59HF/fQ
+	44J7Pb4VYomEr3wcHHs9jEFQbpkxHbKhO4YgLQ9zYIscZ3/peMKUa70joNENP+gD
+	HdAlZRL6LX6Xb02hIEQKDYQ1PZMp07eGZ5EQEXZGMTt3q3v3R8XnjZQLF/ZGCubW
+	fVsH4kC/iOlShXfkHrS5a+uJj6uB7so8J7DPsTqK3wFsJ26kptiFkqnkrn6337Ju
+	VUrueMdMLmIM7ESyw26imU04XaK7jw9QavztEH+mFZwa1g==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dh258rrrf-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 17:56:30 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-50d831e8083so74002891cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 10:56:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1776102197; x=1776706997; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=uqcqUmMytTlyST79HXSur+JVhERdyL6edRqn6BR2Hog=;
-        b=MevKyvEy+F71CWaZDkHmW8hLU9xFG5D+jRClkkrV/VwE0L40AD7Sun0C1h0uFqN0zg
-         5sJicf9YzinUndyuq85sqr9pToOgWabBiHjXiVHorRK4hl/E1HlMIsGhq4+RvZbAxaP6
-         h6qQzpGKBK5gBehlVHnDnMYA5BqaWgFnN7E18=
-X-Forwarded-Encrypted: i=1; AFNElJ/iqjd1d34rtFftMboCoTCk8lynyBGKPMdvXmTHsdD0KmmlB6uXq/oZPKJ8cKVZeQD1cSWjZtYWWaHzP3ANS17/@lists.infradead.org
-X-Received: by 2002:a05:7022:ec2:b0:12c:1288:ce63 with SMTP id a92af1059eb24-12c28c2953fmr7790103c88.13.1776102196573;
-        Mon, 13 Apr 2026 10:43:16 -0700 (PDT)
-X-Received: by 2002:a05:7022:ec2:b0:12c:1288:ce63 with SMTP id a92af1059eb24-12c28c2953fmr7790070c88.13.1776102195919;
-        Mon, 13 Apr 2026 10:43:15 -0700 (PDT)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2d55faa586bsm20432752eec.11.2026.04.13.10.43.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Apr 2026 10:43:14 -0700 (PDT)
-Message-ID: <702c52e4-b0b3-4e1e-a40d-29e136e46d7d@broadcom.com>
-Date: Mon, 13 Apr 2026 10:43:13 -0700
+        d=oss.qualcomm.com; s=google; t=1776102990; x=1776707790; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZOK8xz+kAAT0sGnFLw4aNDwgw8+J3RcJlXQkxpqjpmM=;
+        b=XJrtL8EFKfQ3TxHkGH6bS7cSD55He66VakmXyndAS3hKhr36BwOHhb8OGz3AP7VG61
+         ayaC3wZ+AQNNhbZjJLMAA4ElIskDpva/PAwhifIYoQduvmfvutCVcBti0lbO1dcX4hpz
+         +EgKYb0YGvcIENnu0EC4ZHUD5QELOAdCQgNTT0ISz1QEbeT307u9coJx7KQr6vzF6up2
+         6E/vG3F7Uodr94XBzFGQlwQ/ISoY1KavRa3xZgaEmiqrhlhh9JnmnCxQVd/pWDpilBHo
+         IVdnpGlslUe0hqih/0P58VvAilq6UJKRminQWU1XdR8j7qLEaEwwqmPkA7EJewKDrXnW
+         86zw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776102990; x=1776707790;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ZOK8xz+kAAT0sGnFLw4aNDwgw8+J3RcJlXQkxpqjpmM=;
+        b=gGni45PPCWxWrw287N+5osFYLnvKVd12xevyDKaKM1zZ7nRT4V/1/FtSyEmVs3CF+b
+         rGEgY8lcIuTX/x+GTqNaxSvF5No3BZtIUWVxdFZU2I7GW2ss5bXMe7s3OHcM0SgVKt6V
+         L+aQiojYuTOe9jrvmMvnuE29Z10c4NvHmcQkdt2Vyscm4IU59vDPuQcMNoXrFiJD92bv
+         oZHQyYf4V7QXFCWWC8x9j3vhAZHOjZ5jCTuhrN0pW/2cgarlL2imIksmMIVswAkyazkl
+         yHN7Ajefj+H0aKs8Gsa3tuMcWqWWuuKxCqpPo6zSE7ibUffyJmvALCLwmgNAM6f45afM
+         EYsA==
+X-Forwarded-Encrypted: i=1; AFNElJ920N939H/IezfHnNi4OEk3+0FV8U9YWp585fTuG5YLvmHaNSayUaBMtgqQXLMVsz13LCeJ2vZdyarAKNFE/wi4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy4maH1Z0gJPWVtWJvQr2QWfockJpjPrHPPF1/CcUHYrO23AvTP
+	5DCm/H/QjAiz8ogVmTNHc2OT3ICK7usHhb0A2m73eHrpzvfbdMa26EKxLCrqH2sJV6hYqZ3D7UA
+	Z8i93Xs2HmCmTtSNn/I0oZXhryM5hhvapJ02wJ0+Oua+GM73klmbBL9PHF0dWtOV8N9MzXwQ38Q
+	+fig==
+X-Gm-Gg: AeBDieuqMiq8ma2up6m1HTWuGFxre7OWZScwL2z7NRmcKyJVH0GRnhCXPH+ZWtJbJYY
+	ifMqiYUyWPVocWfa6RQPoIyjGcgrxmiqd7FbMtNSVVVznZw+hhRIqkd2Tfjr0LTmTYJaiCKUbpO
+	FYBbEg8h1UjOVrrZDcqCSg5OjhA5KieAkTEz7i5LC0LRfUFlaKbylOvEUYHG5d/LqRsONFgYF7k
+	dSSCMh1zEPLsfdZHDY9C+fu4oZfZ5fTbikQ0GHKGp71AbdbcBPdPqAZNK7SFSScQVJt2dHmtcoC
+	HgEqcWo7x+ZIV44ooJ3boANQBswjSggcdxkjveng6AVn//dzQ+0UUWVQm66kh4wXuDSZ/wf1bV/
+	h05Gt5rEW8urs93JURgHlfGsf1umuMCY6qicEKW83VEK+0hQ2csZJerCbyp2JGhFsqvqVFz8NqW
+	orTlJ7+09BJRfAtsQeOOoBGF1+tcoF1z78DixGV6C4X8A6+Q==
+X-Received: by 2002:ac8:590a:0:b0:50d:9073:f8e with SMTP id d75a77b69052e-50dd5b3f2f9mr228447351cf.26.1776102989385;
+        Mon, 13 Apr 2026 10:56:29 -0700 (PDT)
+X-Received: by 2002:ac8:590a:0:b0:50d:9073:f8e with SMTP id d75a77b69052e-50dd5b3f2f9mr228446291cf.26.1776102988486;
+        Mon, 13 Apr 2026 10:56:28 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a3fe7db18bsm670757e87.47.2026.04.13.10.56.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Apr 2026 10:56:27 -0700 (PDT)
+Date: Mon, 13 Apr 2026 20:56:25 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Xinliang Liu <xinliang.liu@linaro.org>,
+        Tian Tao <tiantao6@hisilicon.com>,
+        Xinwei Kong <kong.kongxinwei@hisilicon.com>,
+        Sumit Semwal <sumit.semwal@linaro.org>,
+        Yongqin Liu <yongqin.liu@linaro.org>, John Stultz <jstultz@google.com>,
+        Andrzej Hajda <andrzej.hajda@intel.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Robert Foss <rfoss@kernel.org>,
+        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+        Jonas Karlman <jonas@kwiboo.se>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+        Michal Simek <michal.simek@amd.com>, Hui Pu <Hui.Pu@gehealthcare.com>,
+        Ian Ray <ian.ray@gehealthcare.com>,
+        Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
+        linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 01/10] drm/bridge: add of_drm_get_bridge_by_endpoint()
+Message-ID: <omlnswxukeqgnatzdvooaashgkfcacjevkvbkm6xt33itgua2k@jcmzll2w6kdq>
+References: <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-0-acd01cd79a1f@bootlin.com>
+ <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-1-acd01cd79a1f@bootlin.com>
+ <u2awvqh2uoc2acuuvyavwwtuvtiaidhbkkj5a2d2wwph2s7j7g@b4j73kwzblgk>
+ <DHS6WZRYGWZQ.1X6ABU4UWF730@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH] mmc: host: sdhci-iproc: implement the .hw_reset
- callback
-To: Meagan Lloyd <meaganlloyd@linux.microsoft.com>, rjui@broadcom.com
-Cc: sbranden@broadcom.com, linux-arm-kernel@lists.infradead.org,
- tgopinath@linux.microsoft.com, adrian.hunter@intel.com,
- linux-mmc@vger.kernel.org
-References: <20260327222150.2108111-1-meaganlloyd@linux.microsoft.com>
- <3305684d-8517-47dd-8852-2e34d40fc712@linux.microsoft.com>
-Content-Language: en-US, fr-FR
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <3305684d-8517-47dd-8852-2e34d40fc712@linux.microsoft.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <DHS6WZRYGWZQ.1X6ABU4UWF730@bootlin.com>
+X-Proofpoint-GUID: 94Iuc99C3VxgSPVa-RmJAUPR239irdCG
+X-Authority-Analysis: v=2.4 cv=Vo4Txe2n c=1 sm=1 tr=0 ts=69dd2e4e cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=VwQbUJbxAAAA:8
+ a=P-IC7800AAAA:8 a=Ch5lwy9Ifhz3koOEWzcA:9 a=CjuIK1q_8ugA:10
+ a=a_PwQJl-kcHnX1M80qC6:22 a=d3PnA9EDa4IxuAV0gXij:22
+X-Proofpoint-ORIG-GUID: 94Iuc99C3VxgSPVa-RmJAUPR239irdCG
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEzMDE3NiBTYWx0ZWRfX8N4Zxcq5aJUl
+ lH+hYfSElCV0pWYSzAAWNHomD2xjwQ47sX/qqLJ0O9DHr5SmBBLKIRNftg4EMr104knF0eLCh4F
+ 7eiPQsHVO2dKuRfSvswtVfT7EoxnGBpv66gO1cmc5QcXk2LkAQUgbzIsOLDOHE/3iwFVZconEhB
+ +aS7A5VAvbtiTtdpSgUzTGzsnyS5SBZuqG2JLyyZm6kI7E8EhifXXMEduALh4vJmgDhwoVIYbmk
+ nrbxW8EFc1V1pdpyOUkXd9I8JRhmOOf8ZN553hMLR60Njhv9iZkWQPfM5HvNoWtAutrCHU2dp4N
+ aVOWStQJ0GpcT8KGolpetv58b9wluJeIEu9JEjUhZa4JGWujiCqfGx1l7Tnk1IRw0P8CTRzSf+I
+ 1u7YjMa0wlTrJ03o5dNIjmFxqWgGyE0nF6vuHPidGxuDQYwG1zHT3UH5X2Q45lk4ZMyYTCQ/s82
+ PO+hOh/r3Ihsk0DCrmA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-13_03,2026-04-13_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 lowpriorityscore=0 impostorscore=0 bulkscore=0 spamscore=0
+ adultscore=0 phishscore=0 malwarescore=0 priorityscore=1501 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604010000 definitions=main-2604130176
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_104320_617319_04D8D439 
-X-CRM114-Status: GOOD (  13.98  )
+X-CRM114-CacheID: sfid-20260413_105632_564184_1005ABFC 
+X-CRM114-Status: GOOD (  43.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,34 +169,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/13/26 10:38, Meagan Lloyd wrote:
+On Mon, Apr 13, 2026 at 07:07:14PM +0200, Luca Ceresoli wrote:
+> Hi Dmitry, Maxime,
 > 
-> On 3/27/2026 3:21 PM, Meagan Lloyd wrote:
->> Implement the .hw_reset callback so that the eMMC can be reset as needed
->> given cap-mmc-hw-reset is set in the devicetree and the functionality is
->> enabled on the eMMC.
->>
->> Signed-off-by: Meagan Lloyd <meaganlloyd@linux.microsoft.com>
->> ---
->>
->> SDHCI_POWER_CONTROL[4] (SD Host Controller Standard) has been repurposed
->> on my Broadcomm processor to be eMMC hardware reset
->> (SDIO*_eMMCSDXC_CTRL[12], HRESET).
->>
->> Can you confirm this repurposed bit is consistent across the Broadcomm
->> iProc processors and thus the .hw_reset callback can be uniformly
->> applied in this driver?
+> thanks Dmitry for the quick feedback!
 > 
-> Hi Ray & Scott,
+> On Mon Apr 13, 2026 at 4:58 PM CEST, Dmitry Baryshkov wrote:
 > 
-> I hope you're doing well. This bit looks to have been repurposed from
-> the SD Host Controller Standard's VDD2 Power Control to being used for
-> toggling the hardware reset signal to eMMCs. Can you verify that it
-> applies across the iProc processors so that I may finalize this patch?
+> >> --- a/drivers/gpu/drm/drm_bridge.c
+> >> +++ b/drivers/gpu/drm/drm_bridge.c
+> >> @@ -1581,6 +1581,52 @@ struct drm_bridge *of_drm_find_bridge(struct device_node *np)
+> >>  	return bridge;
+> >>  }
+> >>  EXPORT_SYMBOL(of_drm_find_bridge);
+> >> +
+> >> +/**
+> >> + * of_drm_get_bridge_by_endpoint - return DRM bridge connected to a port/endpoint
+> >> + * @np: device tree node containing output ports
+> >> + * @port: port in the device tree node, or -1 for the first port found
+> >> + * @endpoint: endpoint in the device tree node, or -1 for the first endpoint found
+> >> + * @bridge: pointer to hold returned drm_bridge, must not be NULL
+> >> + *
+> >> + * Given a DT node's port and endpoint number, find the connected node and
+> >> + * return the associated drm_bridge device.
+> >> + *
+> >> + * The refcount of the returned bridge is incremented. Use drm_bridge_put()
+> >> + * when done with it.
+> >> + *
+> >> + * Returns zero (and sets *bridge to a valid bridge pointer) if successful,
+> >> + * or one of the standard error codes (and the value in *bridge is
+> >> + * unspecified) if it fails.
+> >
+> > Can we return drm_bridge or error cookie instead?
+> 
+> (while replying I realized there is a design flaw in my implementation, but
+> see below)
+> 
+> I initially thought I'd do it, but I don't like returning an error cookie
+> for functions getting a bridge pointer. The main reason is that with bridge
+> refcounting the __free() cleanup actions are handy in a lot of places, so we
+> are introdugin a lot of code like:
+> 
+>   struct drm_bridge *foo __free(drm_bridge_put) = some_func(...);
+> 
+> Where some_func can be one of of_drm_find_bridge(),
+> drm_bridge_get_next_bridge(), drm_bridge_chain_get_{first,last}_bridge()
+> etc.
 
-Which iProc process are you using? If you are not sure this applies 
-broadly, can you at least make it specific to the SoC you are using?
+This is fine even with the functions returning a cookie: the free
+function can explicitly check and return early if IS_ERR() pointer is
+passed to it.
+
+> 
+> Such code is very handy exactly because these functions return either a
+> valid pointer or NULL, and thus the cleanup actions always does the right
+> thing. If an error cookie were returned, the caller would have to be very
+> careful in inhibiting the cleanup action by clearing the pointer before
+> returning. This originate for example this discussion: [0]
+> 
+> [0] https://lore.kernel.org/lkml/4cd29943-a8d0-4706-b0c5-01d6b33863e4@bootlin.com/
+> 
+> So I think never having a negative error value in the bridge pointer is
+> useful to prevent bugs slipping in drivers. For this we should take one of
+> these two opposite approaches:
+> 
+>  1. don't return a bridge pointer which can be an ERR_PTR; return an int
+>     with the error code and take a **drm_bridge and:
+>       - on success, set the valid pointer in *bridge
+>       - on failure, set *bridge = NULL (*)
+>  2. like the above-mentioned functions (of_drm_find_bridge(),
+>     drm_bridge_get_next_bridge() etc) return a drm_bridge pointer which is
+>     either a valid pointer or NULL
+
+3. Return pointer or cookie, ignore cookie in the release function.
+
+> 
+> (*) I didn't do it in this patch, that's a design flaw, I'll fix in case
+>     approach 1 is taken
+> 
+> Clearly option 2 is the simplest to use, but it loses information about
+> which error happened.
+> 
+> What do you think about these options?
+> 
+> >> + */
+> >> +int of_drm_get_bridge_by_endpoint(const struct device_node *np,
+> >> +				  int port, int endpoint,
+> >> +				  struct drm_bridge **bridge)
+> >
+> > Nit: can it be drm_of_get_bridge_by_endpoint?
+> 
+> Argh, this convention is changing periodically it seems! :-)
+> 
+> I previous discussions I was asked to do either drm_of_ [1] of of_drm_ [2],
+> but since the latter was the last one requested I sticked on it.
+> 
+> @Maxime, Dmitry, I'm OK with either, just let me know if I need to change.
+
+I missed Maxime's response, sorry. I'm fine with the suggested
+convention of using the first argument.
+
+> 
+> [1] https://lore.kernel.org/dri-devel/20250319-stylish-lime-mongoose-0a18ad@houat/
+>     -> search "called drm_of_find_bridge"
+> [2] https://lore.kernel.org/all/DEH1VJUEJ8HQ.MIS45UOLCPXL@bootlin.com/
+>     -> search "What about"
+> 
+> Luca
+> 
+> --
+> Luca Ceresoli, Bootlin
+> Embedded Linux and Kernel engineering
+> https://bootlin.com
+
 -- 
-Florian
-
+With best wishes
+Dmitry
 
