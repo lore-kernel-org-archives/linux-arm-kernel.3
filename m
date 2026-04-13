@@ -4,136 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C151E9380E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 02:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D709DE93805
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 03:00:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QEGzIki+1N8cNLyklAPy6pAGy9378thqjB9kewpojWE=; b=dEcUHDtruJQL18t89/bBS1DAv3
-	Cwwv0CEy/iErGCNW2BYUDyEmN/fnRwcrfAmHKJshmPWYJdSpI6+lnPJtEzsQ0n+m5Ld2Ea9sTrtIl
-	rLxgDl8A1gmNPs6s7iLUeVtQBA0W/kv+i7Z8QzI+lJuQUpNJqXvyCIXzCdYxA/j6MBht4HeDKGq2i
-	6ttkbHZaSwkOZynWeatdc0PWJDCoe18fVCi4xCg4HADsbPyt6IjcL+ehEek/AuFx95KhCXYbNFUpH
-	8iR5s8WWs3oWfWrvcuMP2pSeRE3Z/lOoeij2J/e+9VBV6eXbTEfpaqhV6zIKCPnLEXqHkKujP+hJ+
-	zZrkOdhA==;
+	bh=GkI4dSza7+hYmnqfpBrsZ+kgGDJBguJz0a0nBnJa1Vg=; b=UBa/41U8+ZZBBOLYaXUfeI7EW0
+	h/wpFA2Q2yL4YFD/YWvQV+oJZYv6JnQTtoGBldCc5bOmNnx1yEW6Rj/oxr3WUKpCN0ekvrTyOSejv
+	AyFmGCf3i1eTtAIc32j8ncKv5wUBfkET/x3DsFj9X1lGK2Z9cQ7MPilUD2qrEyL0S6MMUS1/s0hs9
+	o/gL+p4WJODCkminCKbtTCOE8XBQqLVHJEWz/VKnV9slc9H+Vz3t9w2Wna1cNQfOxClhLnfZOiJHW
+	5Ttayxxs15ujCIKjsZxgPRoQ0NIPJEw3yq9QWHyW9UqHNohIIN3rPBPj60D/Cl3U4c74QuisJ/4g5
+	OVEg4fjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wC7Vc-0000000Euks-2b2T;
-	Mon, 13 Apr 2026 02:58:44 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wC7Wt-0000000EutC-1RdY;
+	Mon, 13 Apr 2026 03:00:03 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wC7Va-0000000EukW-0vZO
+	id 1wC7Wo-0000000EusO-1IfS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 02:58:43 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63CE6Z1T2786424
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 02:58:41 GMT
+	Mon, 13 Apr 2026 03:00:01 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63CJq3F93362382
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 02:59:57 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	QEGzIki+1N8cNLyklAPy6pAGy9378thqjB9kewpojWE=; b=XRo9VdKR28FixArj
-	/8Jm/eqTZ66OEQswA1dI5uc2vIzMqk+rXI/syIRcU5ZiKJBFDVoUs1TRG+G21B28
-	zcD65raBcZmy8y58GSdFMxvnNCNoSsWpC0EZezjsapsvsVMy298bhI2PBMtYDWZ2
-	HkF08jidQYHouD92lHLMgY6M/CA+IyUFDOfSHFiZXwYvf6A8Y/oe0+dqZmGrXHiZ
-	/j1sDun/PcD0ZDREssAbWeD2cpHJZ2GhCc4G7UxQsca3pcHXwBodSBuupORKI6W3
-	E8miRuR+41rs7e7CUSiKVDD4y0fYHOjHy8SLbv9o6JFFdsmmKjPlIXr/hfjdRh+t
-	2WlJXg==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dfjbpb5xs-1
+	GkI4dSza7+hYmnqfpBrsZ+kgGDJBguJz0a0nBnJa1Vg=; b=Fv7mCbNWC3uraU5D
+	R0wV3Wcx0VSdkrI5PIgxmdBs11UZt4NtliJgb0IjyRIuJz3O34+lEit8VNLTmMtv
+	MbLVIXG3tWJlXxF+DxX85FlI8GTjdZDPAkZHaWJjvEH2F7hWbVRAyFPJ2REUdOFU
+	kNH6FbtZ0l/ya1jRj/RkG6gpduYJasGTGhsgXliixtCY0VUjbvDh/GZlzzaYp4cb
+	bsP+ZSRgD9sY1sOVxA0sGzmNV1YiIs4z4/VNqSGwdPBD1Pd1Nw/VVeptxom2thF9
+	dMEi0x7I68Iq3nLz9xf/DcLjh5LQFs6yma4UKycvJzAQ3ZBYj3diPrWtPnoFbDK7
+	GfMEfg==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dfexcuemq-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 02:58:41 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2b24a00d12cso38893075ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 19:58:41 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 02:59:57 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-35845fcf0f5so4048733a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 19:59:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1776049121; x=1776653921; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1776049196; x=1776653996; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=QEGzIki+1N8cNLyklAPy6pAGy9378thqjB9kewpojWE=;
-        b=E5AaSD+j1ONIxEKOWez0FyWBrvhUpS+qNZav3a+b6XM3gEmmw6QKJVlW7T3HQ2W94g
-         6pD2qDvdFyFThE7Lg+3FLYlLAhXOEVWKkOtM2rKEeLxHfYUkPi8ONF10hZgFp4fZ9kP/
-         1AiQ73hmPAu1fyie3FQliCVVd5FKHgzt9AdblBfLwPu0n3IntUWL1uBjqOf+uYMTYX73
-         LNOYSUppeQmYWEDVAabWeNR+5p2hIWG6ROzZ50SoVha6TghfjF3qdB8mxx5ijoD0dENK
-         XZadEGKOdRaNzzUgn+fwTevuWH6iTkHnF1pn6D8652nHpf7062pVwD5j1w6ukXSgWH9m
-         1ruQ==
+        bh=GkI4dSza7+hYmnqfpBrsZ+kgGDJBguJz0a0nBnJa1Vg=;
+        b=S4RuG//VP0xEg3g34XkxOadGQxD8sMDxYCvlYzs99hPUAyXW4OTL4qwArXc/YgM7uX
+         VEgzy7XmGlFQvqa7czx+d5IYgJEWNlf+MlLvHUS9/KdlsrwnGTWbykXEBzy0Za+Ahw8L
+         n9EdqpGj8vXNrad7dH6Gn1/mhqubhLuuz0XY7j+CHCtjVayucymFK93o3G2hq/8iKA9S
+         C6wmvrbfMbcq8elyobbq/CSRW30+jgW8BSeyDrsVEqmKCtf6A93z2OBr4pB6z2YiEIws
+         e9V6OXzB/h6KETb+6wpUmZM/b2pzs3SgI/LzoDeicdtJltWDAEGValb0wj0oCo3PcUwW
+         9pbA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776049121; x=1776653921;
+        d=1e100.net; s=20251104; t=1776049196; x=1776653996;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=QEGzIki+1N8cNLyklAPy6pAGy9378thqjB9kewpojWE=;
-        b=cjGr23q/yr1NJzIb6G5WN7Q8qWSNYcz9MUJ1yyeViJp4ybfl7opGeuTxQF7UWR9h/j
-         32bxXBSXIEGk9H1truiv0CmVZirwKOEQbtkhQY/Ejjt1r56EGpsVq7CIMbbKipa46nLo
-         D4GOqVbXHEuDQBAk4ND13KMOXpklqvwFs2Avvulv3wR5ER00M3C2e/fmjY1bTEthONAh
-         QUcuFJnLv8dJrPRxKeE63+NiNK4MBXTys5kSXPenp7A9mY5M+b7Q1SN9Hh99AAyz4kUD
-         aXcirYENK/E+MYDqhlf8VEMCoK4aXyACZ86Qjom8o3s0DAnuv/wGtjRn2hhWxrY6Lcb8
-         qOBw==
-X-Forwarded-Encrypted: i=1; AFNElJ8+9277KpdWoWkNeRl386+yi8jNMzUr5ffWJ+aUjlBoYI4Pym+uok1dV2fzwCtmH2INRnCrCNzVf0KepbAzZlRW@lists.infradead.org
-X-Gm-Message-State: AOJu0YxH9AYodtqhzVX38TRpn6PuMmXYu2FLSYT3Bl6bPANlwkhrWFJ8
-	/p5WUyD4kUk/QrMMbasZr/dmVGciTRiR/peXC6sgCPjbrnUuBIT+P3qCCuighd3Hf/6cn642p4o
-	CJFTOuATiB49XHgjvSRllOpOU/06Ya6fxGEFayBlTANNnrNdwiZsLkW9z1HH8i+IY1ExhTygDT6
-	fYSQ==
-X-Gm-Gg: AeBDiesq8lBJAp1RCTdpogj+yajLHKjm6cIa0u7xHIQlo9oI2ik/Y4VO+HxVvpehA6/
-	QluZ63gjU+eok6oZoZmZ9RYWie49uW2cBgp/hjDTNMEpjne8hSuygGvnm6C6MXSeue8sWonQ0uA
-	2ibAGe29A71GCHCIfX/dVJ/ItXI2R12ZaFJ+vqqd3/wpb+SB2Oxk4f6uc8IRhkRfIworLVZBSXx
-	QBM5IeuDotTkldUBZqCOQj+y1SxylfkStBZXIT3ggSJJduj13xdq20SnB8spd8t5NYhUsuxSMgm
-	H9S0sPR9plEPVZnMu65njxpUwPMMP4BOgPAg5UoRpWOWt7gRlPXX2gGzMr4HiXTBSzDcxeTJkNb
-	t3bCidXvzEUPzVIH+yYeTf6/9tBaDfu4Td6fvywFk1TvyhbJL+3TzFbsuzDuRzDji3ZvxspBTw9
-	bCWYcHiXNRFw==
-X-Received: by 2002:a17:903:1b6c:b0:2ae:c5fc:b2ea with SMTP id d9443c01a7336-2b2d5a387d0mr115078405ad.30.1776049120774;
-        Sun, 12 Apr 2026 19:58:40 -0700 (PDT)
-X-Received: by 2002:a17:903:1b6c:b0:2ae:c5fc:b2ea with SMTP id d9443c01a7336-2b2d5a387d0mr115078205ad.30.1776049120211;
-        Sun, 12 Apr 2026 19:58:40 -0700 (PDT)
+        bh=GkI4dSza7+hYmnqfpBrsZ+kgGDJBguJz0a0nBnJa1Vg=;
+        b=CNAmAa5qxva0+VTAEsNxuy/xjj/TvATGJl4apCKVOTmJ+GkX9KWqAoyRhCw3App11r
+         FqC5XmCCnuvTud/iz4kFuvVO4DnzXPdDrAmzMyOmOS+vKkOqxa2nwM2PO70kxiqKTElo
+         pNJXh6YE0p4rlJHRjTjLiDUkIJ27axyR1EwdM24MQ6fK6gyotlMocFxxLlTszhJ6zvXW
+         SeeUDlZuke0RyCQcm8wmmtTsbdGI5trgw/k2q3EcFfPqbQUqXEKxLfmk5B2xlf6yiA25
+         D+rHiUSSQPnCQlP+h2eM0GAKL9rGnNQgQZLLPts3k/t869mdrGZqfcChM0+vbYzjmWEi
+         Dshg==
+X-Forwarded-Encrypted: i=1; AFNElJ+g521qoz91El39RIia3NVU02p42FFvr5+lvZ/JniM0tBYJkX4p2DjEV9W7OfoJG2pKjekZzM4c5wGHm0n1mNa1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0ayNTEYlbupUzQuFAdjttCtF+0g/nSUNE1w5nl1F/HAUw3Y3+
+	aMrYDZu3qkAxLj/1QJSEk9+SK66GfiCRpffemADxqO7ajApPw7ic8Lkxk1pIk3k65+O6DuY8wlB
+	Q/PQjnc3hwJFswkxn8U7XfREdpfn11Q1/m0pKwPvXR5uF+IBIzGBZBQVhMkGvNnRBL7AjjJHCnC
+	9Lt+iMovcGdj5X
+X-Gm-Gg: AeBDievam/N0fXldgrrql9VXozZh7rOZeBvb7jrl+ND747T3FqAg+0D4rXIwDVQw/1s
+	BTy+287EIuc4IqDliep1YzOshn2VsTMSzREzR2NoUKf7mbrkTNvNxXYMiPhXJPXeO6Iu8xg44yU
+	KaF26+D42HGYSewBfXtKvlQ7nFJtoWH8Rwi8ZlsZOd6f/arGUK2TrYP/QxHlmTDdeIvtl1OtTGZ
+	BML8o2IF4MKi9pZOZ/HHMLNoul6U+0rh6DfReccPCoTVogrXf/1Qs3MMiTExUKg3GN7EIrmERul
+	7N5P0RF2kVTK1BakBHYa4XknvQX6wSzb8w8SApC8WQuEIFxMhYRFZjJFNV0qU1RhpNYalmwVQsw
+	06uaDrQDRpKqmAMm/2naF9xCnwy35OqU4aTY360OHPdbSskZKhZtEsGnNJLkV5C2AH3PCZlZW7T
+	JXpznWiA16kw==
+X-Received: by 2002:a17:90b:2692:b0:35f:b4c1:91ea with SMTP id 98e67ed59e1d1-35fb4c19506mr1897435a91.13.1776049196071;
+        Sun, 12 Apr 2026 19:59:56 -0700 (PDT)
+X-Received: by 2002:a17:90b:2692:b0:35f:b4c1:91ea with SMTP id 98e67ed59e1d1-35fb4c19506mr1897408a91.13.1776049195560;
+        Sun, 12 Apr 2026 19:59:55 -0700 (PDT)
 Received: from [10.133.33.35] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b2d4ddb742sm100231215ad.27.2026.04.12.19.58.37
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35fb567f63dsm1998851a91.4.2026.04.12.19.59.52
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 12 Apr 2026 19:58:39 -0700 (PDT)
-Message-ID: <6ed0ee60-caa2-4a76-9e01-5d2b8c9af701@oss.qualcomm.com>
-Date: Mon, 13 Apr 2026 10:58:35 +0800
+        Sun, 12 Apr 2026 19:59:55 -0700 (PDT)
+Message-ID: <f426ea8a-58ac-4d0f-b56c-c21f88eb863d@oss.qualcomm.com>
+Date: Mon, 13 Apr 2026 10:59:51 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/5] coresight: etm4x: introduce struct etm4_caps
+Subject: Re: [PATCH v3 2/5] coresight: etm4x: exclude ss_status from
+ drvdata->config
 To: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Cc: suzuki.poulose@arm.com, mike.leach@arm.com, james.clark@linaro.org,
         alexander.shishkin@linux.intel.com, leo.yan@arm.com
 References: <20260412175506.412301-1-yeoreum.yun@arm.com>
- <20260412175506.412301-2-yeoreum.yun@arm.com>
+ <20260412175506.412301-3-yeoreum.yun@arm.com>
 Content-Language: en-US
 From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20260412175506.412301-2-yeoreum.yun@arm.com>
+In-Reply-To: <20260412175506.412301-3-yeoreum.yun@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=PuijqQM3 c=1 sm=1 tr=0 ts=69dc5be1 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEzMDAyNCBTYWx0ZWRfX3BcHXo3HfGfu
+ cl+/RQmIKK6joTJeURRbwfYNwE6Uyhmyhko/HlgTM5wFDsMIiMDCo2dxFJ1Z/FZAkm7Uc268g3o
+ hggvErVLBSxRsxZULCOWPD2Bu997lfBpyxhWeylNz4mPILwvK6GPv3jGukpk4441xSiXKnZg1o+
+ YkGDzwqlzAItZyyXnotc2/xx5EDN+K9sHBGBOgbfJ6JL8H1d/EfmuQyf+CGRLl14qs425junjyy
+ B4DSrIkRa74czbBk3n2olEGsW/5igbeJsWJxAVnZe6Zj6VNZODed4a+UEdIpQKbaVeHljPvFGpk
+ xHfGdWkjrgXbGtfv3dgaSrlXzG+N7QCQ6ZbDFSut/hohY1jyXzMkiL/2O6kwxJUQkg90w+iSlGK
+ Avs+IUWwovI+ch9YcEnN4Q5twvmR96H3ZVsXZ+0wMaJqpM3807xxjvAiVrgfsl7Z6wfzNfCeDqx
+ h0IrYUP4gV/XDIXbc7w==
+X-Proofpoint-GUID: 8Z_yLNzUd6YvBJHGE9vDHINfJDFXD_CX
+X-Authority-Analysis: v=2.4 cv=MqliLWae c=1 sm=1 tr=0 ts=69dc5c2d cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
  a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=7CQSdrXTAAAA:8 a=s9qJF0ULUEalZJ-qjl0A:9 a=QEXdDO2ut3YA:10
- a=324X-CrmTo6CU4MGRt3R:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-ORIG-GUID: y49aDBIKZNOxEjE5HBw_G7xCXC4op8Ce
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEzMDAyNCBTYWx0ZWRfX8nJt3Lsp05aV
- 9YtjC+shxeHIA/a+Ch1Fpc908HJdex/2T3Qz1vMlV+z135tJBezPmQ75vEeOPRKDYKXriy/kMW2
- B7UeicwP3d/l1b4bfsNfZgQNwTx8EoJ8I9kZ5SLmnr9cMBFE/1RmOJuZS5U9QcxtrfWqJjCAFVm
- AwXaY42IFH7HSGenoZgyaAbsdV/nvZyP6wvRChepw2GSsKvyuqivsvq5qHeUCTw3Os7aEcMTUhR
- h+229PtyGkyuhjUqadq/Rc7LCRB8OTDRDM5cGG0okXIRCCMKgKZnv1LMqh+CLawjIiOkwnjpC9j
- kPqvvDfbe3tugMXbpi5oXC0jYyGUwOZQN05qVv53vPJdUvbS0dauOsHpYDYt3DXf7ZQXu62Ok2V
- 4l3q9sAC0kuemhPOCXZa4auSDQ9vH1NyyTBawXrTnmBC2C4dUZWoWugO6aGvuSofG+DSxQ91pSQ
- w4CCg3Bs+GkNNw0EFLA==
-X-Proofpoint-GUID: y49aDBIKZNOxEjE5HBw_G7xCXC4op8Ce
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=7CQSdrXTAAAA:8 a=BRZUhdLeOCknMCWa-HcA:9 a=QEXdDO2ut3YA:10
+ a=mQ_c8vxmzFEMiUWkPHU9:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-ORIG-GUID: 8Z_yLNzUd6YvBJHGE9vDHINfJDFXD_CX
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-04-13_01,2026-04-09_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 lowpriorityscore=0 suspectscore=0 spamscore=0 phishscore=0
- malwarescore=0 clxscore=1015 impostorscore=0 adultscore=0 bulkscore=0
+ clxscore=1015 adultscore=0 priorityscore=1501 phishscore=0 lowpriorityscore=0
+ impostorscore=0 bulkscore=0 suspectscore=0 malwarescore=0 spamscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2604010000 definitions=main-2604130024
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260412_195842_359011_F0CB352D 
-X-CRM114-Status: GOOD (  30.69  )
+X-CRM114-CacheID: sfid-20260412_195959_415105_5E6D1096 
+X-CRM114-Status: GOOD (  27.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,247 +150,157 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-Hi Yeoreum,
 
 On 4/13/2026 1:55 AM, Yeoreum Yun wrote:
-> introduce struct etm4_caps to describe ETMv4 capabilities
-> and move capabilities information into it.
+> The purpose of TRCSSCSRn register is to show status of
+> the corresponding Single-shot Comparator Control and input supports.
+> That means writable field's purpose for reset or restore from idle status
+> not for configuration.
+> 
+> Therefore, exclude ss_status from drvdata->config, move it to etm4x_caps.
+> This includes remove TRCSSCRn from configurable item and
+> remove saving in etm4_disable_hw().
 > 
 > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 > ---
->   .../coresight/coresight-etm4x-core.c          | 234 +++++++++---------
->   .../coresight/coresight-etm4x-sysfs.c         | 190 ++++++++------
->   drivers/hwtracing/coresight/coresight-etm4x.h | 175 ++++++-------
->   3 files changed, 327 insertions(+), 272 deletions(-)
+>   .../hwtracing/coresight/coresight-etm4x-cfg.c  |  1 -
+>   .../hwtracing/coresight/coresight-etm4x-core.c | 18 +++++-------------
+>   .../coresight/coresight-etm4x-sysfs.c          |  7 ++-----
+>   drivers/hwtracing/coresight/coresight-etm4x.h  |  3 ++-
+>   4 files changed, 9 insertions(+), 20 deletions(-)
 > 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> index c302072b293a..d14d7c8a23e5 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> @@ -86,7 +86,6 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
+>   		off_mask =  (offset & GENMASK(11, 5));
+>   		do {
+>   			CHECKREGIDX(TRCSSCCRn(0), ss_ctrl, idx, off_mask);
+> -			CHECKREGIDX(TRCSSCSRn(0), ss_status, idx, off_mask);
+>   			CHECKREGIDX(TRCSSPCICRn(0), ss_pe_cmp, idx, off_mask);
+>   		} while (0);
+>   	} else if ((offset >= TRCCIDCVRn(0)) && (offset <= TRCVMIDCVRn(7))) {
 > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index d565a73f0042..6443f3717b37 100644
+> index 6443f3717b37..8ebfd3924143 100644
 > --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
 > +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -91,7 +91,7 @@ static bool etm4x_sspcicrn_present(struct etmv4_drvdata *drvdata, int n)
+>   	const struct etmv4_caps *caps = &drvdata->caps;
+>   
+>   	return (n < caps->nr_ss_cmp) && caps->nr_pe &&
+> -	       (drvdata->config.ss_status[n] & TRCSSCSRn_PC);
+> +	       (caps->ss_status[n] & TRCSSCSRn_PC);
+>   }
+>   
+>   u64 etm4x_sysreg_read(u32 offset, bool _relaxed, bool _64bit)
+> @@ -571,11 +571,9 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+>   		etm4x_relaxed_write32(csa, config->res_ctrl[i], TRCRSCTLRn(i));
+>   
+>   	for (i = 0; i < caps->nr_ss_cmp; i++) {
+> -		/* always clear status bit on restart if using single-shot */
+> -		if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
+> -			config->ss_status[i] &= ~TRCSSCSRn_STATUS;
+>   		etm4x_relaxed_write32(csa, config->ss_ctrl[i], TRCSSCCRn(i));
+> -		etm4x_relaxed_write32(csa, config->ss_status[i], TRCSSCSRn(i));
+> +		/* always clear status and pending bits on restart if using single-shot */
+> +		etm4x_relaxed_write32(csa, caps->ss_status[i], TRCSSCSRn(i));
+>   		if (etm4x_sspcicrn_present(drvdata, i))
+>   			etm4x_relaxed_write32(csa, config->ss_pe_cmp[i], TRCSSPCICRn(i));
+>   	}
+> @@ -1053,12 +1051,6 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
+>   
+>   	etm4_disable_trace_unit(drvdata);
+>   
+> -	/* read the status of the single shot comparators */
+> -	for (i = 0; i < caps->nr_ss_cmp; i++) {
+> -		config->ss_status[i] =
+> -			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
+> -	}
+> -
+>   	/* read back the current counter values */
+>   	for (i = 0; i < caps->nr_cntr; i++) {
+>   		config->cntr_val[i] =
+> @@ -1501,8 +1493,8 @@ static void etm4_init_arch_data(void *info)
+>   	 */
+>   	caps->nr_ss_cmp = FIELD_GET(TRCIDR4_NUMSSCC_MASK, etmidr4);
+>   	for (i = 0; i < caps->nr_ss_cmp; i++) {
+> -		drvdata->config.ss_status[i] =
+> -			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
+> +		caps->ss_status[i] = etm4x_relaxed_read32(csa, TRCSSCSRn(i));
+> +		caps->ss_status[i] &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
+>   	}
+>   	/* NUMCIDC, bits[27:24] number of Context ID comparators for tracing */
+>   	caps->numcidc = FIELD_GET(TRCIDR4_NUMCIDC_MASK, etmidr4);
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> index 50408215d1ac..dd62f01674cf 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> @@ -1827,8 +1827,6 @@ static ssize_t sshot_ctrl_store(struct device *dev,
+>   	raw_spin_lock(&drvdata->spinlock);
+>   	idx = config->ss_idx;
+>   	config->ss_ctrl[idx] = FIELD_PREP(TRCSSCCRn_SAC_ARC_RST_MASK, val);
+> -	/* must clear bit 31 in related status register on programming */
+> -	config->ss_status[idx] &= ~TRCSSCSRn_STATUS;
+>   	raw_spin_unlock(&drvdata->spinlock);
+>   	return size;
+>   }
+> @@ -1839,10 +1837,11 @@ static ssize_t sshot_status_show(struct device *dev,
+>   {
+>   	unsigned long val;
+>   	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> +	const struct etmv4_caps *caps = &drvdata->caps;
+>   	struct etmv4_config *config = &drvdata->config;
+>   
+>   	raw_spin_lock(&drvdata->spinlock);
+> -	val = config->ss_status[config->ss_idx];
+> +	val = caps->ss_status[config->ss_idx];
+>   	raw_spin_unlock(&drvdata->spinlock);
+>   	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
+>   }
+> @@ -1877,8 +1876,6 @@ static ssize_t sshot_pe_ctrl_store(struct device *dev,
+>   	raw_spin_lock(&drvdata->spinlock);
+>   	idx = config->ss_idx;
+>   	config->ss_pe_cmp[idx] = FIELD_PREP(TRCSSPCICRn_PC_MASK, val);
+> -	/* must clear bit 31 in related status register on programming */
+> -	config->ss_status[idx] &= ~TRCSSCSRn_STATUS;
+>   	raw_spin_unlock(&drvdata->spinlock);
+>   	return size;
+>   }
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+> index 8eebb83fcaeb..3cc1ca76c933 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+> @@ -213,6 +213,7 @@
+>   #define TRCACATRn_EXLEVEL_MASK			GENMASK(14, 8)
+>   
+>   #define TRCSSCSRn_STATUS			BIT(31)
+> +#define TRCSSCSRn_PENDING			BIT(30)
+>   #define TRCSSCCRn_SAC_ARC_RST_MASK		GENMASK(24, 0)
+>   
+>   #define TRCSSPCICRn_PC_MASK			GENMASK(7, 0)
+> @@ -898,6 +899,7 @@ struct etmv4_caps {
+>   	bool	atbtrig : 1;
+>   	bool	lpoverride : 1;
+>   	bool	skip_power_up : 1;
+> +	u32	ss_status[ETM_MAX_SS_CMP];
 
-<...>
-
-> +/**
-> + * struct etmv4_caps - specifics ETM capabilities
-> + * @nr_pe:	The number of processing entity available for tracing.
-> + * @nr_pe_cmp:	The number of processing entity comparator inputs that are
-> + *		available for tracing.
-> + * @nr_addr_cmp:Number of pairs of address comparators available
-> + *		as found in ETMIDR4 0-3.
-> + * @nr_cntr:    Number of counters as found in ETMIDR5 bit 28-30.
-> + * @nr_ext_inp: Number of external input.
-> + * @numcidc:	Number of contextID comparators.
-
-@numextinsel:
-
-> + * @numvmidc:	Number of VMID comparators.
-> + * @nrseqstate: The number of sequencer states that are implemented.
-> + * @nr_event:	Indicates how many events the trace unit support.
-> + * @nr_resource:The number of resource selection pairs available for tracing.
-> + * @nr_ss_cmp:	Number of single-shot comparator controls that are available.
-> + * @trcid_size: Indicates the trace ID width.
-> + * @ts_size:	Global timestamp size field.
-> + * @ctxid_size:	Size of the context ID field to consider.
-> + * @vmid_size:	Size of the VM ID comparator to consider.
-> + * @ccsize:	Indicates the size of the cycle counter in bits.
-> + * @ccitmin:	minimum value that can be programmed in
-> + * @s_ex_level:	In secure state, indicates whether instruction tracing is
-> + *		supported for the corresponding Exception level.
-> + * @ns_ex_level:In non-secure state, indicates whether instruction tracing is
-> + *		supported for the corresponding Exception level.
-> + * @q_support:	Q element support characteristics.
-> + * @os_lock_model: OSLock model.
-> + * @instrp0:	Tracing of load and store instructions
-> + *		as P0 elements is supported.
-> + * @q_filt:	Q element filtering support, if Q elements are supported.
-> + * @trcbb:	Indicates if the trace unit supports branch broadcast tracing.
-> + * @trccond:	If the trace unit supports conditional
-> + *		instruction tracing.
-> + * @retstack:	Indicates if the implementation supports a return stack.
-> + * @trccci:	Indicates if the trace unit supports cycle counting
-> + *		for instruction.
-> + * @trc_error:	Whether a trace unit can trace a system
-> + *		error exception.
-> + * @syncpr:	Indicates if an implementation has a fixed
-> + *		synchronization period.
-> + * @stallctl:	If functionality that prevents trace unit buffer overflows
-> + *		is available.
-> + * @sysstall:	Does the system support stall control of the PE?
-> + * @nooverflow:	Indicate if overflow prevention is supported.
-> + * @atbtrig:	If the implementation can support ATB triggers
-> + * @lpoverride:	If the implementation can support low-power state over.
-> + * @skip_power_up: Indicates if an implementation can skip powering up
-> + *		   the trace unit.
-> + */
-> +struct etmv4_caps {
-> +	u8	nr_pe;
-> +	u8	nr_pe_cmp;
-> +	u8	nr_addr_cmp;
-> +	u8	nr_cntr;
-> +	u8	nr_ext_inp;
-> +	u8	numcidc;
-> +	u8	numextinsel;
-
-missed kernel_doc.
+Needs kernel_doc also.
 
 Thanks,
 Jie
 
-> +	u8	numvmidc;
-> +	u8	nrseqstate;
-> +	u8	nr_event;
-> +	u8	nr_resource;
-> +	u8	nr_ss_cmp;
-> +	u8	trcid_size;
-> +	u8	ts_size;
-> +	u8	ctxid_size;
-> +	u8	vmid_size;
-> +	u8	ccsize;
-> +	u16	ccitmin;
-> +	u8	s_ex_level;
-> +	u8	ns_ex_level;
-> +	u8	q_support;
-> +	u8	os_lock_model;
-> +	bool	instrp0 : 1;
-> +	bool	q_filt : 1;
-> +	bool	trcbb : 1;
-> +	bool	trccond : 1;
-> +	bool	retstack : 1;
-> +	bool	trccci : 1;
-> +	bool	trc_error : 1;
-> +	bool	syncpr : 1;
-> +	bool	stallctl : 1;
-> +	bool	sysstall : 1;
-> +	bool	nooverflow : 1;
-> +	bool	atbtrig : 1;
-> +	bool	lpoverride : 1;
-> +	bool	skip_power_up : 1;
-> +};
-> +
+
+>   };
+>   
 >   /**
->    * struct etmv4_config - configuration information related to an ETMv4
->    * @mode:	Controls various modes supported by this ETM.
-> @@ -819,8 +907,8 @@ enum etm_impdef_type {
->    * @cfg:	Controls the tracing options.
->    * @eventctrl0: Controls the tracing of arbitrary events.
->    * @eventctrl1: Controls the behavior of the events that @event_ctrl0 selects.
-> - * @stallctl:	If functionality that prevents trace unit buffer overflows
-> - *		is available.
-> + * @stall_ctrl:	Enables trace unit functionality that prevents trace
-> + *		unit buffer overflows.
->    * @ts_ctrl:	Controls the insertion of global timestamps in the
->    *		trace streams.
->    * @syncfreq:	Controls how often trace synchronization requests occur.
-> @@ -971,61 +1059,17 @@ struct etmv4_save_state {
->    * @mode:	This tracer's mode, i.e sysFS, Perf or disabled.
->    * @cpu:        The cpu this component is affined to.
->    * @arch:       ETM architecture version.
-> - * @nr_pe:	The number of processing entity available for tracing.
-> - * @nr_pe_cmp:	The number of processing entity comparator inputs that are
-> - *		available for tracing.
-> - * @nr_addr_cmp:Number of pairs of address comparators available
-> - *		as found in ETMIDR4 0-3.
-> - * @nr_cntr:    Number of counters as found in ETMIDR5 bit 28-30.
-> - * @nr_ext_inp: Number of external input.
-> - * @numcidc:	Number of contextID comparators.
-> - * @numvmidc:	Number of VMID comparators.
-> - * @nrseqstate: The number of sequencer states that are implemented.
-> - * @nr_event:	Indicates how many events the trace unit support.
-> - * @nr_resource:The number of resource selection pairs available for tracing.
-> - * @nr_ss_cmp:	Number of single-shot comparator controls that are available.
-> + * @caps:	ETM capabilities.
->    * @trcid:	value of the current ID for this component.
-> - * @trcid_size: Indicates the trace ID width.
-> - * @ts_size:	Global timestamp size field.
-> - * @ctxid_size:	Size of the context ID field to consider.
-> - * @vmid_size:	Size of the VM ID comparator to consider.
-> - * @ccsize:	Indicates the size of the cycle counter in bits.
-> - * @ccitmin:	minimum value that can be programmed in
-> - * @s_ex_level:	In secure state, indicates whether instruction tracing is
-> - *		supported for the corresponding Exception level.
-> - * @ns_ex_level:In non-secure state, indicates whether instruction tracing is
-> - *		supported for the corresponding Exception level.
->    * @sticky_enable: true if ETM base configuration has been done.
->    * @boot_enable:True if we should start tracing at boot time.
->    * @os_unlock:  True if access to management registers is allowed.
-> - * @instrp0:	Tracing of load and store instructions
-> - *		as P0 elements is supported.
-> - * @q_filt:	Q element filtering support, if Q elements are supported.
-> - * @trcbb:	Indicates if the trace unit supports branch broadcast tracing.
-> - * @trccond:	If the trace unit supports conditional
-> - *		instruction tracing.
-> - * @retstack:	Indicates if the implementation supports a return stack.
-> - * @trccci:	Indicates if the trace unit supports cycle counting
-> - *		for instruction.
-> - * @q_support:	Q element support characteristics.
-> - * @trc_error:	Whether a trace unit can trace a system
-> - *		error exception.
-> - * @syncpr:	Indicates if an implementation has a fixed
-> - *		synchronization period.
-> - * @stall_ctrl:	Enables trace unit functionality that prevents trace
-> - *		unit buffer overflows.
-> - * @sysstall:	Does the system support stall control of the PE?
-> - * @nooverflow:	Indicate if overflow prevention is supported.
-> - * @atbtrig:	If the implementation can support ATB triggers
-> - * @lpoverride:	If the implementation can support low-power state over.
->    * @trfcr:	If the CPU supports FEAT_TRF, value of the TRFCR_ELx that
->    *		allows tracing at all ELs. We don't want to compute this
->    *		at runtime, due to the additional setting of TRFCR_CX when
->    *		in EL2. Otherwise, 0.
->    * @config:	structure holding configuration parameters.
->    * @save_state:	State to be preserved across power loss
-> - * @skip_power_up: Indicates if an implementation can skip powering up
-> - *		   the trace unit.
->    * @paused:	Indicates if the trace unit is paused.
->    * @arch_features: Bitmap of arch features of etmv4 devices.
->    */
-> @@ -1037,46 +1081,11 @@ struct etmv4_drvdata {
->   	raw_spinlock_t			spinlock;
->   	int				cpu;
->   	u8				arch;
-> -	u8				nr_pe;
-> -	u8				nr_pe_cmp;
-> -	u8				nr_addr_cmp;
-> -	u8				nr_cntr;
-> -	u8				nr_ext_inp;
-> -	u8				numcidc;
-> -	u8				numextinsel;
-> -	u8				numvmidc;
-> -	u8				nrseqstate;
-> -	u8				nr_event;
-> -	u8				nr_resource;
-> -	u8				nr_ss_cmp;
-> +	struct etmv4_caps		caps;
->   	u8				trcid;
-> -	u8				trcid_size;
-> -	u8				ts_size;
-> -	u8				ctxid_size;
-> -	u8				vmid_size;
-> -	u8				ccsize;
-> -	u16				ccitmin;
-> -	u8				s_ex_level;
-> -	u8				ns_ex_level;
-> -	u8				q_support;
-> -	u8				os_lock_model;
->   	bool				sticky_enable : 1;
->   	bool				boot_enable : 1;
->   	bool				os_unlock : 1;
-> -	bool				instrp0 : 1;
-> -	bool				q_filt : 1;
-> -	bool				trcbb : 1;
-> -	bool				trccond : 1;
-> -	bool				retstack : 1;
-> -	bool				trccci : 1;
-> -	bool				trc_error : 1;
-> -	bool				syncpr : 1;
-> -	bool				stallctl : 1;
-> -	bool				sysstall : 1;
-> -	bool				nooverflow : 1;
-> -	bool				atbtrig : 1;
-> -	bool				lpoverride : 1;
-> -	bool				skip_power_up : 1;
->   	bool				paused : 1;
->   	u64				trfcr;
->   	struct etmv4_config		config;
+> @@ -976,7 +978,6 @@ struct etmv4_config {
+>   	u32				res_ctrl[ETM_MAX_RES_SEL]; /* TRCRSCTLRn */
+>   	u8				ss_idx;
+>   	u32				ss_ctrl[ETM_MAX_SS_CMP];
+> -	u32				ss_status[ETM_MAX_SS_CMP];
+>   	u32				ss_pe_cmp[ETM_MAX_SS_CMP];
+>   	u8				addr_idx;
+>   	u64				addr_val[ETM_MAX_SINGLE_ADDR_CMP];
 
 
