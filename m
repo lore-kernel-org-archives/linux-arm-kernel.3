@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB86AEBFD17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 08:32:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40CC5EBFD16
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 08:35:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cQQBBatstKHBo4lMlwLveMtfJD+9B9TqPNx8RQnqVxQ=; b=uHXeSu7g8qNA60WLLEJ4la+6AF
-	sXNNk1rqMviA0spD1NUAQNHmpKIZe47EnhgzfaccOEYqDngE88lQZN4xCumXQR51VDJ/TgcAZHaKW
-	nLzvDXLsgX4q1gbZzA+aywwCZMpOBbNJ0UPKZYWP4T7MSQrJevN7qsiktK+xF1j1nf1EDoiYLcNVb
-	kMPWBKUR0H65FawTtX9KbviSr04XsFmT1jMxkzeEfIFu2moxmD90LfTni3SAP0yO5ZZru1AVwmKh1
-	Z+m4AStyrcbufIBbQEq1bKvHJBxYJX7G6p9fwTsJsUyqeEp6ehMbpcnr1sKiwoOFnyo5PRGUo2+qj
-	48vNUd7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a5cfvD79s13RodOBSnnS6MZy+PfOZ1JpGpK2+xNbky4=; b=AwFz5Dr60glHVBNvEFsb9bj4fh
+	hP3iOKHfXEj849EukLKmagf/MeEqbH7qTn6tdfBS+o9snFlYavvY5r62kjwMVr4+rpEWxY1vwSo1M
+	TTqxuhnupam1Zj6R8ivzsnBYfvRRR/AWF5brp7b+4WeRPHASpqMTFFCNLCBMmLd1YnPBrmYh328LV
+	52Dyw4nNXBbfM957qbjYkn6og3tPrALETAOpTTgkKYAVP8m2HO4EonNXOvqIyJUjhNaDk0WsFsAgl
+	EH0lyV3fmlBuxtaXK9+P0/hiI9YIFfCceMxTUQJbsJGsmyaRBWutJ28A6RThrqXnjFvB6ThQAuQD3
+	AL7DdlOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCCie-0000000FHNJ-28wL;
-	Mon, 13 Apr 2026 08:32:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wCCkz-0000000FHYH-2s8W;
+	Mon, 13 Apr 2026 08:34:57 +0000
+Received: from mail-m32113.qiye.163.com ([220.197.32.113])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCCic-0000000FHMy-3MWC
+	id 1wCCkw-0000000FHXD-3oml
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 08:32:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1174944166
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 08:32:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC9A4C116C6;
-	Mon, 13 Apr 2026 08:32:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776069149;
-	bh=BiNIBNFEvjfdjnsBqksdXXFnEweIGfhc8bp7l1pCXGA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KX1HDsJZpV39XyXhw5gKqQYq1yi25yiqTzZN2NeZ+1T2jX41HHA+oxDVesshLgrZ5
-	 ZTHnYfDxqvKCVXBBBNTG8yKwPHfxRrSabjL61f2AH/fiYsiSZ3YfO5ZOCF1PBAqAok
-	 MWYiaryuvA5nj5Sl/y2/AnLgs3mSQV+Dh73OqbYQ+TPdJ3qP8sJ0fQkQLUUnXcRq8m
-	 zIhmBd+c92Ea91Syp6zuQeCPYkFCuFgxjen+7B/3vqoJxs6zzmB2uEQLE/HS975myW
-	 i72cjKzRYv0XHBtm+SciVDFpPiY/pMfR3bU+VsiW22TBV3Y+V86opKxKRBt7cOSUb8
-	 eJTMmtNcdw6sA==
-Date: Mon, 13 Apr 2026 09:32:26 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, arm <arm@kernel.org>,
-	SoC Team <soc@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>,
-	ALKML <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [GIT PULL] firmware: arm_ffa: Fix for v7.1
-Message-ID: <20260413-inventive-fox-of-novelty-b7790d@sudeepholla>
-References: <20260407100841.3150090-1-sudeep.holla@kernel.org>
- <20260411-tireless-agama-of-advance-5bdabf@quoll>
- <20260411-exotic-astonishing-piculet-0cd25e@sudeepholla>
- <45bc09d9-33e0-48c4-92a3-9bf8e64ef80a@app.fastmail.com>
+	Mon, 13 Apr 2026 08:34:56 +0000
+Received: from albert-OptiPlex-7080.. (unknown [112.65.126.162])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3a8013ec1;
+	Mon, 13 Apr 2026 16:34:41 +0800 (GMT+08:00)
+From: Albert Yang <yangzh0906@thundersoft.com>
+To: krzk@kernel.org,
+	arnd@arndb.de
+Cc: krzk+dt@kernel.org,
+	robh@kernel.org,
+	conor+dt@kernel.org,
+	gordon.ge@bst.ai,
+	bst-upstream@bstai.top,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	yangzh0906@thundersoft.com
+Subject: [PING] Re: [PATCH v7 0/2] arm64: dts/defconfig: enable BST C1200 eMMC
+Date: Mon, 13 Apr 2026 16:34:41 +0800
+Message-ID: <20260413083441.1758438-1-yangzh0906@thundersoft.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260310091211.4171307-1-yangzh0906@thundersoft.com>
+References: <20260310091211.4171307-1-yangzh0906@thundersoft.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <45bc09d9-33e0-48c4-92a3-9bf8e64ef80a@app.fastmail.com>
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9d85fa86b809cckunmf74b8d5778cf66
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCSE1MVkJKHR4eGB4eTk4YTlYVFAkWGhdVEwETFh
+	oSFyQUDg9ZV1kYEgtZQVlKSklVTU5VSklNVUpNSVlXWRYaDxIVHRRZQVlPS0hVSktJT09PSFVKS0
+	tVSkJLS1kG
+DKIM-Signature: a=rsa-sha256;
+	b=JZktgYiOjdFMsJrxGJj2UQzex9sE2av8KIhm6YmDwj4Sp32hnsDurgnAodc8/nRAkMyd4qcUmCxdnUoxEylVWwzIeINsScDfCcxB99q9nMdBA8oJRS4afVj63efkiPZR0J8s0z5KqliwCz7vOph8io5yYdzsTe0DUoxIKsEqbqI=; s=default; c=relaxed/relaxed; d=thundersoft.com; v=1;
+	bh=a5cfvD79s13RodOBSnnS6MZy+PfOZ1JpGpK2+xNbky4=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_013230_867923_2FC01649 
-X-CRM114-Status: GOOD (  23.35  )
+X-CRM114-CacheID: sfid-20260413_013455_468469_1301D39E 
+X-CRM114-Status: UNSURE (   5.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,39 +78,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 13, 2026 at 08:23:58AM +0200, Arnd Bergmann wrote:
-> On Sat, Apr 11, 2026, at 19:35, Sudeep Holla wrote:
-> > On Sat, Apr 11, 2026 at 10:49:50AM +0200, Krzysztof Kozlowski wrote:
-> >> On Tue, Apr 07, 2026 at 11:08:39AM +0100, Sudeep Holla wrote:
-> >> > ----------------------------------------------------------------
-> >> > Arm FF-A fix for v7.1
-> >> > 
-> >> > Use the page aligned backing allocation size when computing the RXTX_MAP
-> >> > page count. This fixes FF-A RX/TX buffer registration on kernels built
-> >> > with 16K/64K PAGE_SIZE, where alloc_pages_exact() backs the buffer with a
-> >> > larger aligned span than the discovered minimum buffer size.
-> >> 
-> >> Can we avoid per-driver trees or pulls? You do maintain also ARM SCMI
-> >> firmware driver, so this could be sent together? I think you also use
-> >> the same Git tree, right?
-> >
-> > Sure, I can put all of the firmware drivers I maintain together. I had
-> > for some reason assumed individual PR is preferred.
-> 
-> To me, that's a function of how complex the changes are and how
-> you describe them in the changelog text: If you have a lot of changes
-> for the merge window, having one branch per firmware type probably
-> works best, or even multiple ones if you have a series that implements
-> something new and a number of random changes do existing code.
-> 
-> If you have only a handful of bugfixes across multiple firmware
-> subsystems, a single 'firmware fixes' is less work for all of
-> us, with no loss of readability in the git history.
-> 
+Hi Krzysztof, Arnd, Rob, and Conor,
 
-Understood, will try to follow something along these in the future.
+Gentle ping for this v7 series posted on 2026-03-10:
+https://lore.kernel.org/lkml/20260310091211.4171307-1-yangzh0906@thundersoft.com/
 
--- 
-Regards,
-Sudeep
+This series only contains the remaining DTS + defconfig parts for BST C1200 eMMC:
+- 1/2 arm64: dts: bst: enable eMMC controller in C1200 CDCU1.0 board
+- 2/2 arm64: defconfig: enable BST SDHCI controller
+
+The MMC driver-side patches were already applied in mmc-next, so this series is for
+arm64/DT review and merge path.
+
+No functional code changes since v7. If preferred, I can send a rebase/refresh (v8)
+on top of current mainline immediately.
+
+Could you please help review and let me know if any changes are still needed?
+
+Thanks for your time.
+
+Best regards,
+Albert
 
