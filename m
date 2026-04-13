@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60201EBFD16
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 08:55:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D2CBEBFD1D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 08:55:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=op08HCqJ4u4oJC1zLRF5Zh2ZqxSUZczSTa3QNhH8QVA=; b=IR4ibVwesoH5BKjY1Da9ZTpBXu
-	cbsXh2mEVoHm8y4BJJTUOCAEmj9rQ54QuKxZZ9ZsEtWaF7LXgckyvn5+BpSAZB5nMSMmFmNxddvgW
-	kYfGwmbRB3UHuYAEPeYzge7z3FZ6BqgLSkmjUL/vNeSiBK0BdSBQt4qLqTsjQIyclJ5irf/ncS1YT
-	x61SHCulaYEUPVUJrH0agZNxbIpV7L0BR+rwdRKMCgx0uefT3Axv37l4YCrnfZEsONFeuiz7liUlB
-	0G7EEeRdBKzLmC+9pniOJWoNKSqzDetKgRGXr6s/NFVIV0TVH37gvXwhGOratMoRljlgLEojR4aJH
-	Y/V7p+NQ==;
+	bh=l4UyPVTRcZ3XGIKT+x6CF9L5buHORlMCnapP9Kds0+s=; b=g80Dl6P2A7K1kYTZjv0Cx4b3JZ
+	7W25ItwhvI4SueuS+We4YNYr54wHW8XsnXfYjklhhXpYRWWEq/oync/owCz+G909mJixE30lmjUPU
+	1q7tkOQbBZmAXaJOyMVDzHEcJkcNc+VX37Q+ggaRHfcsYkRzanp8okgnx8jacIQZmZ/nkxm32rNGg
+	LzWFqCSFt0z3X07lPuMzDAJnoYITmwOK7+LGArrKWQ2zj87kQIw5wsHYRgWJ8hcxxvWGnavUW84hI
+	skVn28hNB6Do7amtduTbicdf8io5yX4ZxIfPWcqK07bj5S1JSzeVt/f5U3gZcU6kXZr2i24f2bA6M
+	eSmzISjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCD4g-0000000FJLI-1KA7;
-	Mon, 13 Apr 2026 08:55:18 +0000
+	id 1wCD4h-0000000FJM4-0612;
+	Mon, 13 Apr 2026 08:55:19 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCD4e-0000000FJK4-22CB
+	id 1wCD4e-0000000FJK2-1rIq
 	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 13 Apr 2026 08:55:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=op08HCqJ4u4oJC1zLRF5Zh2ZqxSUZczSTa3QNhH8QVA=; b=pyuzoVYC+6H0M4W83FxzaHX7GB
-	2BwVkZftd+4Y8mYu9aLXzRpLX7jnjA2+a9Da/wOhJAYj1seN5GvqeAp9SgTNtF1mJyJyKLwcZcq3J
-	MfTODHHOy3w1m+KDzSE0izTlhULTEwKp+LI+25X+f9xy4eD51GKv/rKIU3CADeNfYA1rmTr4/Yccn
-	RMIS0UK7w6JYFrT3hjgwcK83ZlkM0MjZyyY/USs2vqrhoiOKNJrtSORjVaZ6QNR2/9zLpG8ArsuEo
-	VjJnTUImBCz2DYTpftyKf80BhwnLZGj91aTK5YMZcWjxbJJKc7OnvsSw+LBbdYOGcJd7uiCWsNnTJ
-	1/YhWYWw==;
-Received: from [113.46.200.219] (helo=canpmsgout04.his.huawei.com)
+	bh=l4UyPVTRcZ3XGIKT+x6CF9L5buHORlMCnapP9Kds0+s=; b=iwBXDI+pzDimtZhpNKNJLoFTL5
+	z02wxUzVNh7V67xliFE71718de5EkTuqoT+meCBp7f+di7JMKaqlDP7bYMyR74o/aoIoiLe1STO8v
+	A6XgtiQNQ09i1GvEGUhe88IEuVOlBUHjVsLdk94WGoeMhn4HWON/0BNZ81MVl8k1pUJ5pW4amZ0Xp
+	Fc6fVD9kjrvJs96JEkgaJbn8oxuBx66XxqBS5yuJaHr3EWYqxgXfBF2fLWOOi3IY6qXpxILChauY4
+	kSdJ+QJQCIN7fdSNV7PWEXIgm3NlrfBZ2nyqkfStEei/JCzP2h/qdWiwLpYTPMwPxVFEe+Rg+3xrS
+	OOGkqavQ==;
+Received: from [113.46.200.217] (helo=canpmsgout02.his.huawei.com)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCD47-0000000GR5R-1SS3
+	id 1wCD47-0000000GR5O-1G6e
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 13 Apr 2026 08:54:55 +0000
 dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=op08HCqJ4u4oJC1zLRF5Zh2ZqxSUZczSTa3QNhH8QVA=;
-	b=G2FLyrGrPKf+8n2pI2yjcDLwbWNb6INdPxOhRr6yWLH71z2EQondVn7PF1bd6al4gjqmGE/E4
-	Cef/wBNiNoPrycoMuwQn9j8JES9tGwR1GzorG8WFLDb9KC0wtLKW3AYw0BLg3EhsgCadNf9AJpp
-	2SyrGg5C9yO+/ySKohZ2ePY=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4fvLdm54zxz1prNH;
-	Mon, 13 Apr 2026 16:47:56 +0800 (CST)
+	bh=l4UyPVTRcZ3XGIKT+x6CF9L5buHORlMCnapP9Kds0+s=;
+	b=cXDJeFcNmlh9tCWenmToLebL6axovKN79nys0U3QaeT8+1QS7kWxxWEp2aKPWYWOglE9Bc+yj
+	jW/sRq5uagDutz2jf5HSqamvJvQNYJdJXqKz13NugWch7wDdp7VgpOVTIU+xaX+qmr1IBOlkjD5
+	rQTTeUkkrt4JFtb8X9C97QI=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4fvLdh0VBkzcZyv;
+	Mon, 13 Apr 2026 16:47:52 +0800 (CST)
 Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
-	by mail.maildlp.com (Postfix) with ESMTPS id 97BDD40561;
-	Mon, 13 Apr 2026 16:54:16 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 71BA340576;
+	Mon, 13 Apr 2026 16:54:18 +0800 (CST)
 Received: from huawei.com (10.50.87.109) by kwepemf100008.china.huawei.com
  (7.202.181.222) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 13 Apr
- 2026 16:54:15 +0800
+ 2026 16:54:17 +0800
 From: Zeng Heng <zengheng4@huawei.com>
 To: <ben.horgan@arm.com>, <Dave.Martin@arm.com>, <james.morse@arm.com>,
 	<tan.shaopeng@jp.fujitsu.com>, <reinette.chatre@intel.com>,
@@ -68,9 +68,9 @@ To: <ben.horgan@arm.com>, <Dave.Martin@arm.com>, <james.morse@arm.com>,
 	<catalin.marinas@arm.com>
 CC: <linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
 	<linux-kernel@vger.kernel.org>, <wangkefeng.wang@huawei.com>
-Subject: [PATCH v8 next 01/10] fs/resctrl: Fix MPAM Partid parsing errors by preserving CDP state during umount
-Date: Mon, 13 Apr 2026 16:53:56 +0800
-Message-ID: <20260413085405.1166412-2-zengheng4@huawei.com>
+Subject: [PATCH v8 next 05/10] arm_mpam: Propagate control group config to sub-monitoring groups
+Date: Mon, 13 Apr 2026 16:54:00 +0800
+Message-ID: <20260413085405.1166412-6-zengheng4@huawei.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20260413085405.1166412-1-zengheng4@huawei.com>
 References: <20260413085405.1166412-1-zengheng4@huawei.com>
@@ -81,8 +81,8 @@ X-Originating-IP: [10.50.87.109]
 X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
  kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_095444_116522_008C244C 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20260413_095444_157582_85B668CB 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,84 +97,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch fixes a pre-existing issue in the resctrl filesystem teardown
-sequence where premature clearing of cdp_enabled could lead to MPAM Partid
-parsing errors.
+With the Narrow-PARTID feature, each control group is assigned multiple
+(req)PARTIDs to expand monitoring capacity. When a control group's
+configuration is updated, all associated sub-monitoring groups (each
+identified by a unique reqPARTID) should be synchronized.
 
-The closid to partid conversion logic inherently depends on the global
-cdp_enabled state. However, rdt_disable_ctx() clears this flag early in
-the umount path, while free_rmid() operations will reference after that.
-This creates a window where partid parsing operates with inconsistent CDP
-state, potentially makes monitor reads with wrong partid mapping.
+In __write_config(), iterate over all reqPARTIDs belonging to the
+control group and propagate the configuration to each sub-monitoring
+group:
 
-Additionally, rmid_entry remaining in limbo between mount sessions may
-trigger potential partid out-of-range errors, leading to MPAM fault
-interrupts and subsequent MPAM disablement.
-
-Reorder rdt_kill_sb() to delay rdt_disable_ctx() until after
-rmdir_all_sub() and resctrl_fs_teardown() complete. This ensures
-all rmid-related operations finish with correct CDP state.
-
-Introduce rdt_flush_limbo() to flush and cancel limbo work before the
-filesystem teardown completes. An alternative approach would be to cancel
-limbo work on umount and restart it on remount with remaked bitmap.
-However, this would require substantial changes in the resctrl layer to
-handle CDP state transitions across mount sessions, which is beyond the
-scope of the reqpartid feature work this patchset focuses on. The current
-fix addresses the immediate correctness issue with minimal churn.
+  * For MSCs supporting Narrow-PARTID, establish the reqPARTID to
+    intPARTID mapping.
+  * For MSCs without Narrow-PARTID support, synchronize the configuration
+    to new PARTIDs directly.
 
 Signed-off-by: Zeng Heng <zengheng4@huawei.com>
 ---
- fs/resctrl/rdtgroup.c | 24 ++++++++++++++++++++++--
- 1 file changed, 22 insertions(+), 2 deletions(-)
+ drivers/resctrl/mpam_devices.c | 33 +++++++++++++++++++++++++++------
+ 1 file changed, 27 insertions(+), 6 deletions(-)
 
-diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
-index 5dfdaa6f9d8f..69966589713f 100644
---- a/fs/resctrl/rdtgroup.c
-+++ b/fs/resctrl/rdtgroup.c
-@@ -3169,6 +3169,25 @@ static void resctrl_fs_teardown(void)
- 	rdtgroup_destroy_root();
+diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+index cf067bf5092e..8fbc8f9f9688 100644
+--- a/drivers/resctrl/mpam_devices.c
++++ b/drivers/resctrl/mpam_devices.c
+@@ -1547,6 +1547,7 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
+ {
+ 	u32 pri_val = 0;
+ 	u16 cmax = MPAMCFG_CMAX_CMAX;
++	u16 intpartid = req2intpartid(partid);
+ 	struct mpam_msc *msc = ris->vmsc->msc;
+ 	struct mpam_props *rprops = &ris->props;
+ 	u16 dspri = GENMASK(rprops->dspri_wd, 0);
+@@ -1556,15 +1557,17 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
+ 	__mpam_part_sel(ris->ris_idx, partid, msc);
+ 
+ 	if (mpam_has_feature(mpam_feat_partid_nrw, rprops)) {
+-		/* Update the intpartid mapping */
+ 		mpam_write_partsel_reg(msc, INTPARTID,
+-				       MPAMCFG_INTPARTID_INTERNAL | partid);
++				       MPAMCFG_INTPARTID_INTERNAL | intpartid);
+ 
+ 		/*
+-		 * Then switch to the 'internal' partid to update the
+-		 * configuration.
++		 * Mapping from reqpartid to intpartid already established.
++		 * Sub-monitoring groups share the parent's configuration.
+ 		 */
+-		__mpam_intpart_sel(ris->ris_idx, partid, msc);
++		if (partid != intpartid)
++			goto out;
++
++		__mpam_intpart_sel(ris->ris_idx, intpartid, msc);
+ 	}
+ 
+ 	if (mpam_has_feature(mpam_feat_cpor_part, rprops)) {
+@@ -1631,6 +1634,7 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
+ 
+ 	mpam_quirk_post_config_change(ris, partid, cfg);
+ 
++out:
+ 	mutex_unlock(&msc->part_sel_lock);
  }
  
-+static void rdt_flush_limbo(void)
+@@ -1755,11 +1759,28 @@ struct mpam_write_config_arg {
+ 	u16 partid;
+ };
+ 
++static u32 get_num_reqpartid_per_intpartid(void)
 +{
-+	struct rdt_resource *r = resctrl_arch_get_resource(RDT_RESOURCE_L3);
-+	struct rdt_l3_mon_domain *d;
-+
-+	if (!IS_ENABLED(CONFIG_RESCTRL_RMID_DEPENDS_ON_CLOSID))
-+		return;
-+
-+	if (!resctrl_is_mon_event_enabled(QOS_L3_OCCUP_EVENT_ID))
-+		return;
-+
-+	list_for_each_entry(d, &r->mon_domains, hdr.list) {
-+		if (has_busy_rmid(d)) {
-+			__check_limbo(d, true);
-+			cancel_delayed_work(&d->cqm_limbo);
-+		}
-+	}
++	return (mpam_partid_max + 1) / (mpam_intpartid_max + 1);
 +}
 +
- static void rdt_kill_sb(struct super_block *sb)
+ static int __write_config(void *arg)
  {
- 	struct rdt_resource *r;
-@@ -3176,13 +3195,14 @@ static void rdt_kill_sb(struct super_block *sb)
- 	cpus_read_lock();
- 	mutex_lock(&rdtgroup_mutex);
++	int closid_num = resctrl_arch_get_num_closid(NULL);
+ 	struct mpam_write_config_arg *c = arg;
++	u32 reqpartid, req_idx;
  
--	rdt_disable_ctx();
--
- 	/* Put everything back to default values. */
- 	for_each_alloc_capable_rdt_resource(r)
- 		resctrl_arch_reset_all_ctrls(r);
- 
- 	resctrl_fs_teardown();
-+	rdt_flush_limbo();
-+	rdt_disable_ctx();
+-	mpam_reprogram_ris_partid(c->ris, c->partid, &c->comp->cfg[c->partid]);
++	/* c->partid should be within the range of intPARTIDs */
++	WARN_ON_ONCE(c->partid >= closid_num);
 +
- 	if (resctrl_arch_alloc_capable())
- 		resctrl_arch_disable_alloc();
- 	if (resctrl_arch_mon_capable())
++	/* Synchronize the configuration to each sub-monitoring group. */
++	for (req_idx = 0; req_idx < get_num_reqpartid_per_intpartid();
++	     req_idx++) {
++		reqpartid = req_idx * closid_num + c->partid;
++
++		mpam_reprogram_ris_partid(c->ris, reqpartid,
++					 &c->comp->cfg[c->partid]);
++	}
+ 
+ 	return 0;
+ }
 -- 
 2.25.1
 
