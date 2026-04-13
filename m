@@ -4,109 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 803F6E93808
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 01:42:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B205E93808
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 01:43:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mkQ6RBTZ5z5vPmik3lad4IDd4nljLh9X4eyQBenQOSc=; b=Cg5m3YEqozstXue+giydDbE0db
-	28A9i9PVA8gWnuM0U9AhiHKnwgzl2NllsAWq4+iZSLGqKhgQszWB+AN5s3xe6ylOFejVVbrjKNVjS
-	yjNWWZTTq3OWUG5j26aDD7rpXj4mfuNIqJyHLwuR2dLSFauFqq/lDcBvBb81MIwh6fTp5diUVIkKh
-	F4a1DVMelvz06zmoNpNabvymEF4VyqWc6Z3Hkk5dZ0UBCWWVW7CleUcFTwDnK97hUqH5rt6ufj6r6
-	5USFanSUGOO2na7j1Y97RtTK3cT7sWIxIcRnxffJG8MzEUCizBIMLWEJh2/CSdZtfwk44XkMtV1sl
-	oJ89zztA==;
+	bh=ZpqWZ5OeBihZW+KiOWj3yc4NCjFh45eEbq7S9GQ1ONE=; b=YhpoyreyYFmDeZjnUWjWMiWaDX
+	N/Cq0PubIVYlDK8dEG6dteYNUX6TgTeF0AImxrV3KvNbego4whNPdnp5DQmouzSkE4AKXsOQ3zh8X
+	DKWxptx0mlLkE+xkdyy9xznlboiRk0ZDfHeml3Uh4YiC2r2LCpWlyfmOK2glTrrwrhYhH3QKJO5Eb
+	YI4TH4fPCjILq0mR7hjuqnvyi/GhuzKhj4btboyh9RfdHmTGP9huN+NU1sP9UhJsOB6+W3lt4Dx+p
+	9VE3rjwiMhHhOOojyfwpddi8W6Hje8Cww5/vZ2KSxTNW8zNmxEgzRku2P7NEtFL80qs3zypCMKm0g
+	Sh76kB9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wC6Jg-0000000EqYM-1cRt;
-	Mon, 13 Apr 2026 01:42:20 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1wC6KN-0000000EqcD-03TS;
+	Mon, 13 Apr 2026 01:43:03 +0000
+Received: from mail-oa1-x33.google.com ([2001:4860:4864:20::33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wC6Je-0000000EqY1-1AlS
+	id 1wC6KJ-0000000Eqai-1cNW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 01:42:19 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-43cfbd17589so2571087f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 18:42:17 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776044536; cv=none;
+	Mon, 13 Apr 2026 01:43:01 +0000
+Received: by mail-oa1-x33.google.com with SMTP id 586e51a60fabf-42321c8b8f5so3154750fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 18:42:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776044578; cv=none;
         d=google.com; s=arc-20240605;
-        b=C5gbxfkHQAVahqSECCERf5r1p6SouT8jrVrmOzaTjalIda8upfYcZxvCppTb7/Yi5f
-         VEDqLB1HjjOXJucmDMLQYmJd2VmlL9dB42RFuthcw69x0HxFJGQ3qCFbU3ll7lyPLOnR
-         hK8eusPLcjbBBA443zZHz0gS3DwTzfMqmfGqohYH6YKXbk8Ie1R6hwJyZn3ubIAvZnUn
-         deYHwAYLJRhSp0qBOpGn9ACc9EEeHJjlYDYS65WWR5Xk4hkZfuX1UQuWIaDb++RYNTDS
-         psmkeoekD7gFjxDKHWRqNR89h630zO/f3Ipd8z4jNqaSJ7ssBzofPWMW+CXubMA5dlJO
-         SjTA==
+        b=H4UZSiSMcDiKSLetDHcSiHIElgoFt0aRhBqWbzz2kFz0YN65WorLgchga7rK3tEZoh
+         6RIKDdni/LLOkFXMn+twslwslbkxa1hOGPcHRPzPG3gO2OH1RhMr1ME07L8Vaba1MX8f
+         KTe6pBw/bnqLVU5Uj3tLv+nk69xkCUAswcpKlsnZk6JVvnOToBS9f14Qa9oWmpSqXjTb
+         nT+q3A5+nBa77YRbVu/A6NwT1WUTd26HG8tEZxnIQbxIFTmFRFM6+7x2aimAQwjylNc9
+         babK/BD0AVeUqYLPjnRssP9N1uVlRWcYaVLk1mxN6yzaRJX+Nk8okDvPy6kjUbT8Itbt
+         OHXA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=mkQ6RBTZ5z5vPmik3lad4IDd4nljLh9X4eyQBenQOSc=;
-        fh=5t0IZI5QlS2rlfT7hZ+3JhJcdewZm4ZkzZGIlvJPZpM=;
-        b=O/oIsZhwdCLkKB8jXVXoVP2+EWuCpNCnfCSSK3ewvTi956P5i98DvRNvrNCdrzRaV8
-         ELCsFj3SBPZdDamgLegus92+F0DQf7ulG29cPX35CbkBOU6ZUHS+ovK5ePUXAVlJi4AF
-         s8+XZ0nk9JczNpRt0RazAqHxcwmmbHJRCXCKheJCy3PZv/CaDDA83R757uSo2bSB8zPn
-         M07ayZ8X/8iK4STHA11RdsAzRgAaY0ZFWmHotpeEtRwgSPSC1Wj/fWDWlMfuO4QcDR3l
-         MXiDUSgg+8mLMxm0LYRkTXgKIRVlIJsHZwbj3yGnrt2LelBIaCmw3xjziiTL1rGQxHIz
-         39VQ==;
+        bh=ZpqWZ5OeBihZW+KiOWj3yc4NCjFh45eEbq7S9GQ1ONE=;
+        fh=jBQ9s4kNb15zVWMi4Zzg7OuKqLnvalZITqI9VgjCVAQ=;
+        b=g8xcoP+1W1+IKSpiuEB5uNhxkUT/8gZ+/K1CVMiD7bTIKD1jCHHT83svHO8jS5zEib
+         0a/TUnqcJM6t+9PQMa7X3kN6aPDHk8uaOioG/oQqaUe/OVRPKA/5DCGIhOXAyTXrwMBI
+         GYDcCp61vbXlgKWpb0mi9bxtXsB9XLr8Iqk0d1nh0OCPPCn4hpT7h0funw38RDSGIYhK
+         O+ecvQCbumO3uOA2IJbNMoJp6ybLwVXLU7z7330LV76ToKgMhKK9UguEPKqOf/Ry80+F
+         F5gSu83ZPCBfrGSziOoDc56qLDdyUJJaKDketgzmQTHtIkz/Y/L7f5BYmU0DjScJlI8L
+         fa9A==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776044536; x=1776649336; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1776044578; x=1776649378; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=mkQ6RBTZ5z5vPmik3lad4IDd4nljLh9X4eyQBenQOSc=;
-        b=CwZs7fpRprbZNiMUmu/PiItI88TLvuxhbkkViVzYbbfj7NvAz3dVLNwHf4OagVa7uI
-         HpLXd1Yaof9IYa1yQ9HqPotRR6bsrUx9xKyE3rdCwVruwcyt3VbqZJuemUMjJFhdVJnc
-         qBNJhzw6n7yaujLqZHTpd5uD9YF7LBhKVJii6q5Ik/rB243rVP6+snop9OKF+B3gMOst
-         68yIdtnFgQHZWzcRlAAx2MrYr0TM6rSwQxUaQCGhzG67MlwgrbLybXWeyL6ZPF0rVkdB
-         9kud9Z43JZ4DcaWGBs8ZGb7mzsfRilRu6jLLv+BK40UqB71iWBXUYPzyUrJ+hWHLbSda
-         dNrg==
+        bh=ZpqWZ5OeBihZW+KiOWj3yc4NCjFh45eEbq7S9GQ1ONE=;
+        b=ERIyDAJvMuNoYACU9C/CmLuXfDTxnuFu71BwTNbkVm5jgKEprloxT0TlhApYfL9hKZ
+         EwZRktvU0hnTE9wUZIKE4864YcQLvQ1po2QOLY+ap87E9Plxr5q0lIshuZMnfEMQAHZy
+         j4q8HS2JTEzoSUuUNxYqOLm6fFRlYi/vkxf5sf6dWGUVHp+Os8Iwkn185TJkKSKDWY37
+         Xpr0Bjb1jctqz4LXbIY9uYq5Wx/gnDiczMQUxOsUoNHspbwlQu/9dDxzD0o+Os6STLdd
+         /BwhKuEsYrohBUH1J/9PqCR69x4XZ+LKMqQftYDf9cG4MDNYawainD2ppT4GQWxog2z4
+         Dh6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776044536; x=1776649336;
+        d=1e100.net; s=20251104; t=1776044578; x=1776649378;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=mkQ6RBTZ5z5vPmik3lad4IDd4nljLh9X4eyQBenQOSc=;
-        b=l166NnnSErDWcVSLp/bQ3yMg0CTSWxLUmh/lkhDJNTx4xqOkA8MgoQWOAR1AMNR83S
-         W3OZDjg+4M5+OgVp/tB+aTDvsuNv6KQ2jEvtgGvZJ4wvhDdwQzYSKz0Q5zsrbBwAlmKi
-         ZN6xuO/raYyuQ/6SVmHWVvKdFimS2UBnk0WMtc0W9Gra+hiLosDcnFN0JaRCs4avU9JU
-         XpPLgVNePfh47RO2tHNGBQCTIrrUPbJZecpyXkLpS4E2wSYPH++xLEUso/pJOLdB+hHQ
-         ILvFHZ/9N5jUnnlyPbQkat4h4Sh8EWygwClqktktepsd0aAdh4myypVpVEiEM+g1yEgO
-         VzrA==
-X-Forwarded-Encrypted: i=1; AFNElJ/P5hS2RfARIIVU9iGCqyZYoVjcghLhyI9K+T4rw9hSyBsUTsl/vbjgfyuSYnERCR5fKlLCaOIc6Wc05zRMCZ4f@lists.infradead.org
-X-Gm-Message-State: AOJu0YyuI/gulDOVOGpuAIWx8NF4nWT8ipWLjvjd8hw96e0/ryx46MF8
-	qnDAOT3OvQxOTjS/u3K8HN37sDYH/466DYTiEjcpqtoM305djlb0RGbHKr4YlX+xqadf9Vx7rcU
-	xlmS52KnFlyyR4HgfEV5c+xE0zJvCPd4=
-X-Gm-Gg: AeBDievBzQf2peYV9on09OY7PNaStgFZ/tATCy+cBeDYb7Vokl/JYyvT5TGU2aymLqF
-	VNsQOTc4Szf+1QW6oHqa+aPK/H7ZWyKHipbJndvKsx2OFOUtYdE/ZhMicPoLC0ePdRN8/6on8z5
-	/i//5FtnVpsUtiRUeYCLR4Hr5px2opYKmyWTcbP7XG7pVJY+tUoje+z+aOeSD3xSnOIDIk+dTKD
-	1jWmB1LJSyPfdRutgqfjIzeDnHQPbWUKVXaJu6mhe5+YWrFD3yKJl+NATZC66Vrx9dceEDUl0fF
-	mbrbuOfFG3HE4rYxMhwWw6pFMMDjsKPa9mdMOMp2
-X-Received: by 2002:a05:6000:4026:b0:43b:50d6:4f04 with SMTP id
- ffacd0b85a97d-43d642b5f41mr15811417f8f.38.1776044535544; Sun, 12 Apr 2026
- 18:42:15 -0700 (PDT)
+        bh=ZpqWZ5OeBihZW+KiOWj3yc4NCjFh45eEbq7S9GQ1ONE=;
+        b=r9Hh58OUGCVggCLh5uqjkE2V6ilNAa+BnvyivEiPNQ93tRXGXQnUlJ6oYw3RaAvWUu
+         olcPsOGG+5NHmFTDIJ6DQgAfkPb28bquy518/7WnXYAMgx0qP3X+EIGQ93xaeGAWuWCR
+         PTnrN3WcqEVc3wCRkKxCPUG9ilADocgpX2n0t/2tsSPFTFRm4Jl1xiCCdKvIWoO/GEad
+         +EKPOCzimjWZV65frJ5zN7uxxerZrSHhWuXuIe5SSLQSROCHUoV0qvYTs86Nx35RK79p
+         wJGlvSn/Z6SmlM/T7U/SMbiKIY8twWCLVgvWoRKwVm71EPWD9IWUAQZbJvSMoHSeeeZg
+         2KPg==
+X-Forwarded-Encrypted: i=1; AFNElJ8IWQjOeFiqvrVO4U7I90JP1Fe6TUvGDqX+4AWX+DrQyTFwx4GxeMmXo5cuC3CD/KmgoItut54pgLv3I20eulad@lists.infradead.org
+X-Gm-Message-State: AOJu0YwzBVOdDAWmFsbaw8suvmTx2tn8DVsOlL7CFIGSA3G3lPzv6wpl
+	6fzV3akIa2c6YHpmKOJGQaz6PA/v0kUBqdAudPukTlspkRt+MUvJ/ONMxFO8wUTGUNI+NTfVXpo
+	mgjzZd3Oq7tGUUVvXMSQLx8k2I3ecgsk=
+X-Gm-Gg: AeBDiesQkTQZEvCRXk8q2psRaKkJTklPWYdEXtgWpBZCQX5XYTrENNC7ruSHLUFdOfL
+	1pdWPqZjS7IhVCGXYBjC5XZJB+kEa+GZ/cZLgu+HU0twUqv/DThiy+sLa0mTq3FvTeAOTVyBpLI
+	ZWZtb/KfO2MJA2H0MQNLCOfoeRWgliY9grU/5INgb1hzfsAe6fFEFMOz6QqQLZvxkkEcg+0qJ9O
+	V8X+wyKKOAjAPTTMYOGJWDQypYAVqI8inEEe2je1Mu4HahsuLhuO5oaQkBbCmxAT99dmrZzWNXB
+	tFWX+KaI
+X-Received: by 2002:a05:687c:20c2:b0:41c:9797:d1e6 with SMTP id
+ 586e51a60fabf-423e1e1318dmr5077336fac.14.1776044577979; Sun, 12 Apr 2026
+ 18:42:57 -0700 (PDT)
 MIME-Version: 1.0
-References: <E1wBBaR-0000000GZHR-1dbM@rmk-PC.armlinux.org.uk>
- <266998d8-7e38-4bae-a4df-2f889538fe88@bootlin.com> <aduq7Lvkfrz971Rb@shell.armlinux.org.uk>
-In-Reply-To: <aduq7Lvkfrz971Rb@shell.armlinux.org.uk>
-From: Sam Edwards <cfsworks@gmail.com>
-Date: Sun, 12 Apr 2026 18:42:04 -0700
-X-Gm-Features: AQROBzC8C6b8uovPJvoH5TRYEOGsdMo85w4vcpDsb0ECyjaa-7k3CW1WkTIND9g
-Message-ID: <CAH5Ym4hEX15dmJhGBqhhk--_PoFRKRSyE1AomY4D3ipwAz+pKg@mail.gmail.com>
-Subject: Re: [PATCH net-next] net: stmmac: enable RPS and RBU interrupts
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn <andrew@lunn.ch>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org, 
-	Paolo Abeni <pabeni@redhat.com>
+References: <20260410125105.39340-2-wsa+renesas@sang-engineering.com>
+In-Reply-To: <20260410125105.39340-2-wsa+renesas@sang-engineering.com>
+From: Jassi Brar <jassisinghbrar@gmail.com>
+Date: Sun, 12 Apr 2026 20:42:46 -0500
+X-Gm-Features: AQROBzD5VLydoqD-crkS8q5jKVQvu0Dgk3PHuV4kaQv0TPwaWMSf23DdaK7QoI0
+Message-ID: <CABb+yY0QydFqBQ2sPzrbDjoj1ODTe0FW_p_4jyBR8cP_gxg9XQ@mail.gmail.com>
+Subject: Re: [PATCH] mailbox: prefix new constants with MBOX_
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: linux-renesas-soc@vger.kernel.org, Peter Chen <peter.chen@cixtech.com>, 
+	Fugang Duan <fugang.duan@cixtech.com>, 
+	CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Thierry Reding <thierry.reding@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260412_184218_338468_E1D3DAB6 
-X-CRM114-Status: GOOD (  16.79  )
+X-CRM114-CacheID: sfid-20260412_184259_433851_E457980F 
+X-CRM114-Status: GOOD (  29.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,39 +123,211 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 12, 2026 at 7:23=E2=80=AFAM Russell King (Oracle)
-<linux@armlinux.org.uk> wrote:
-> As the dwmac 5.0 core receive path seems to lock up after the first
-> RBU, I never see more than one of those at a time.
+On Fri, Apr 10, 2026 at 7:51=E2=80=AFAM Wolfram Sang
+<wsa+renesas@sang-engineering.com> wrote:
 >
-> Right now, I consider this pretty much unsolvable - I've spent quite
-> some time looking at it and trying various approaches, nothing seems
-> to fix it. However, adding dma_rmb() in the descriptor cleanup/refill
-> paths does seem to improve the situation a little with the 480Mbps
-> case, because I think it means that we're reading the descriptors in
-> a more timely manner after the hardware has updated them.
-
-Hey Russell,
-
-I'd like to repro this but I currently can't boot net-next. My issue
-is the same as [1], and the patch to fix it [2] isn't yet committed
-anywhere apparently.
-
-This prevents my Jetson Xavier NX from starting at all (and after
-enough attempts, corrupts eMMC); I'm surprised you're not suffering
-the same effects. But because this bug lives in the IOMMU subsystem
-(and it has somewhat inconsistent effects), perhaps this is just a
-different way it manifests? Could you confirm whether your dwmac hang
-happens with IOMMU disabled, and/or with [1] reverted or [2] applied?
-
-I'm using a defconfig build and a fairly minimal cmdline (just
-console=3D, root=3D, and rootwait).
-
-Cheers,
-Sam
-
-[1] https://lore.kernel.org/all/8800a38b-8515-4bbe-af15-0dae81274bf7@nvidia=
-.com/
-[2] https://lore.kernel.org/all/0-v1-664d3acaabb9+78b-iommu_gather_always_j=
-gg@nvidia.com/
+> Commit 89e5d7d61600 ("mailbox: remove superfluous internal header")
+> moved some constants to a public header but forgot to add a mailbox
+> specific prefix. Add this now to prevent future collisions on a too
+> generic naming.
+>
+> Link: https://sashiko.dev/#/patchset/20260327151112.5202-2-wsa%2Brenesas%=
+40sang-engineering.com
+> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+> ---
+>
+> This patch improves the above mentioned commit which already sits in
+> -next. It is not really a fix but it probably is still a good idea to
+> apply it before rc1 to avoid confusion.
+>
+>  drivers/mailbox/cix-mailbox.c      |  2 +-
+>  drivers/mailbox/imx-mailbox.c      |  2 +-
+>  drivers/mailbox/mailbox.c          | 22 +++++++++++-----------
+>  drivers/mailbox/mtk-cmdq-mailbox.c |  2 +-
+>  drivers/mailbox/omap-mailbox.c     |  2 +-
+>  drivers/mailbox/tegra-hsp.c        |  2 +-
+>  include/linux/mailbox_controller.h |  6 +++---
+>  7 files changed, 19 insertions(+), 19 deletions(-)
+>
+> diff --git a/drivers/mailbox/cix-mailbox.c b/drivers/mailbox/cix-mailbox.=
+c
+> index 8cfaa91b75bd..43c76cdab24a 100644
+> --- a/drivers/mailbox/cix-mailbox.c
+> +++ b/drivers/mailbox/cix-mailbox.c
+> @@ -413,7 +413,7 @@ static int cix_mbox_startup(struct mbox_chan *chan)
+>         switch (cp->type) {
+>         case CIX_MBOX_TYPE_DB:
+>                 /* Overwrite txdone_method for DB channel */
+> -               chan->txdone_method =3D TXDONE_BY_ACK;
+> +               chan->txdone_method =3D MBOX_TXDONE_BY_ACK;
+>                 fallthrough;
+>         case CIX_MBOX_TYPE_REG:
+>                 if (priv->dir =3D=3D CIX_MBOX_TX) {
+> diff --git a/drivers/mailbox/imx-mailbox.c b/drivers/mailbox/imx-mailbox.=
+c
+> index 22331b579489..246a9a9e3952 100644
+> --- a/drivers/mailbox/imx-mailbox.c
+> +++ b/drivers/mailbox/imx-mailbox.c
+> @@ -732,7 +732,7 @@ static struct mbox_chan * imx_mu_xlate(struct mbox_co=
+ntroller *mbox,
+>         p_chan =3D &mbox->chans[chan];
+>
+>         if (type =3D=3D IMX_MU_TYPE_TXDB_V2)
+> -               p_chan->txdone_method =3D TXDONE_BY_ACK;
+> +               p_chan->txdone_method =3D MBOX_TXDONE_BY_ACK;
+>
+>         return p_chan;
+>  }
+> diff --git a/drivers/mailbox/mailbox.c b/drivers/mailbox/mailbox.c
+> index 138ffbcd4fde..30eafdf3a91e 100644
+> --- a/drivers/mailbox/mailbox.c
+> +++ b/drivers/mailbox/mailbox.c
+> @@ -72,7 +72,7 @@ static void msg_submit(struct mbox_chan *chan)
+>                 }
+>         }
+>
+> -       if (!err && (chan->txdone_method & TXDONE_BY_POLL)) {
+> +       if (!err && (chan->txdone_method & MBOX_TXDONE_BY_POLL)) {
+>                 /* kick start the timer immediately to avoid delays */
+>                 scoped_guard(spinlock_irqsave, &chan->mbox->poll_hrt_lock=
+)
+>                         hrtimer_start(&chan->mbox->poll_hrt, 0, HRTIMER_M=
+ODE_REL);
+> @@ -162,7 +162,7 @@ EXPORT_SYMBOL_GPL(mbox_chan_received_data);
+>   */
+>  void mbox_chan_txdone(struct mbox_chan *chan, int r)
+>  {
+> -       if (unlikely(!(chan->txdone_method & TXDONE_BY_IRQ))) {
+> +       if (unlikely(!(chan->txdone_method & MBOX_TXDONE_BY_IRQ))) {
+>                 dev_err(chan->mbox->dev,
+>                        "Controller can't run the TX ticker\n");
+>                 return;
+> @@ -183,7 +183,7 @@ EXPORT_SYMBOL_GPL(mbox_chan_txdone);
+>   */
+>  void mbox_client_txdone(struct mbox_chan *chan, int r)
+>  {
+> -       if (unlikely(!(chan->txdone_method & TXDONE_BY_ACK))) {
+> +       if (unlikely(!(chan->txdone_method & MBOX_TXDONE_BY_ACK))) {
+>                 dev_err(chan->mbox->dev, "Client can't run the TX ticker\=
+n");
+>                 return;
+>         }
+> @@ -344,8 +344,8 @@ static int __mbox_bind_client(struct mbox_chan *chan,=
+ struct mbox_client *cl)
+>                 chan->cl =3D cl;
+>                 init_completion(&chan->tx_complete);
+>
+> -               if (chan->txdone_method =3D=3D TXDONE_BY_POLL && cl->know=
+s_txdone)
+> -                       chan->txdone_method =3D TXDONE_BY_ACK;
+> +               if (chan->txdone_method =3D=3D MBOX_TXDONE_BY_POLL && cl-=
+>knows_txdone)
+> +                       chan->txdone_method =3D MBOX_TXDONE_BY_ACK;
+>         }
+>
+>         if (chan->mbox->ops->startup) {
+> @@ -499,8 +499,8 @@ void mbox_free_channel(struct mbox_chan *chan)
+>         scoped_guard(spinlock_irqsave, &chan->lock) {
+>                 chan->cl =3D NULL;
+>                 chan->active_req =3D MBOX_NO_MSG;
+> -               if (chan->txdone_method =3D=3D TXDONE_BY_ACK)
+> -                       chan->txdone_method =3D TXDONE_BY_POLL;
+> +               if (chan->txdone_method =3D=3D MBOX_TXDONE_BY_ACK)
+> +                       chan->txdone_method =3D MBOX_TXDONE_BY_POLL;
+>         }
+>
+>         module_put(chan->mbox->dev->driver->owner);
+> @@ -531,13 +531,13 @@ int mbox_controller_register(struct mbox_controller=
+ *mbox)
+>                 return -EINVAL;
+>
+>         if (mbox->txdone_irq)
+> -               txdone =3D TXDONE_BY_IRQ;
+> +               txdone =3D MBOX_TXDONE_BY_IRQ;
+>         else if (mbox->txdone_poll)
+> -               txdone =3D TXDONE_BY_POLL;
+> +               txdone =3D MBOX_TXDONE_BY_POLL;
+>         else /* It has to be ACK then */
+> -               txdone =3D TXDONE_BY_ACK;
+> +               txdone =3D MBOX_TXDONE_BY_ACK;
+>
+> -       if (txdone =3D=3D TXDONE_BY_POLL) {
+> +       if (txdone =3D=3D MBOX_TXDONE_BY_POLL) {
+>
+>                 if (!mbox->ops->last_tx_done) {
+>                         dev_err(mbox->dev, "last_tx_done method is absent=
+\n");
+> diff --git a/drivers/mailbox/mtk-cmdq-mailbox.c b/drivers/mailbox/mtk-cmd=
+q-mailbox.c
+> index 547a10a8fad3..e523c84b4808 100644
+> --- a/drivers/mailbox/mtk-cmdq-mailbox.c
+> +++ b/drivers/mailbox/mtk-cmdq-mailbox.c
+> @@ -728,7 +728,7 @@ static int cmdq_probe(struct platform_device *pdev)
+>         cmdq->mbox.ops =3D &cmdq_mbox_chan_ops;
+>         cmdq->mbox.of_xlate =3D cmdq_xlate;
+>
+> -       /* make use of TXDONE_BY_ACK */
+> +       /* make use of MBOX_TXDONE_BY_ACK */
+>         cmdq->mbox.txdone_irq =3D false;
+>         cmdq->mbox.txdone_poll =3D false;
+>
+> diff --git a/drivers/mailbox/omap-mailbox.c b/drivers/mailbox/omap-mailbo=
+x.c
+> index 5772c6b9886a..535ca8020877 100644
+> --- a/drivers/mailbox/omap-mailbox.c
+> +++ b/drivers/mailbox/omap-mailbox.c
+> @@ -238,7 +238,7 @@ static int omap_mbox_startup(struct omap_mbox *mbox)
+>         }
+>
+>         if (mbox->send_no_irq)
+> -               mbox->chan->txdone_method =3D TXDONE_BY_ACK;
+> +               mbox->chan->txdone_method =3D MBOX_TXDONE_BY_ACK;
+>
+>         omap_mbox_enable_irq(mbox, IRQ_RX);
+>
+> diff --git a/drivers/mailbox/tegra-hsp.c b/drivers/mailbox/tegra-hsp.c
+> index 7b1e1b83ea29..500fa77c7d53 100644
+> --- a/drivers/mailbox/tegra-hsp.c
+> +++ b/drivers/mailbox/tegra-hsp.c
+> @@ -514,7 +514,7 @@ static int tegra_hsp_mailbox_startup(struct mbox_chan=
+ *chan)
+>         struct tegra_hsp *hsp =3D mb->channel.hsp;
+>         unsigned long flags;
+>
+> -       chan->txdone_method =3D TXDONE_BY_IRQ;
+> +       chan->txdone_method =3D MBOX_TXDONE_BY_IRQ;
+>
+>         /*
+>          * Shared mailboxes start out as consumers by default. FULL and E=
+MPTY
+> diff --git a/include/linux/mailbox_controller.h b/include/linux/mailbox_c=
+ontroller.h
+> index e3896b08f22e..a49ee687d4cf 100644
+> --- a/include/linux/mailbox_controller.h
+> +++ b/include/linux/mailbox_controller.h
+> @@ -15,9 +15,9 @@ struct mbox_chan;
+>  /* Sentinel value distinguishing "no active request" from "NULL message =
+data" */
+>  #define MBOX_NO_MSG    ((void *)-1)
+>
+> -#define TXDONE_BY_IRQ  BIT(0) /* controller has remote RTR irq */
+> -#define TXDONE_BY_POLL BIT(1) /* controller can read status of last TX *=
+/
+> -#define TXDONE_BY_ACK  BIT(2) /* S/W ACK received by Client ticks the TX=
+ */
+> +#define MBOX_TXDONE_BY_IRQ     BIT(0) /* controller has remote RTR irq *=
+/
+> +#define MBOX_TXDONE_BY_POLL    BIT(1) /* controller can read status of l=
+ast TX */
+> +#define MBOX_TXDONE_BY_ACK     BIT(2) /* S/W ACK received by Client tick=
+s the TX */
+>
+>  /**
+>   * struct mbox_chan_ops - methods to control mailbox channels
+> --
+> 2.51.0
+>
+Applied to mailbox/for-next
+Thanks
+Jassi
 
