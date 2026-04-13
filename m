@@ -4,97 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE5ECF34C5F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 14:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18389F34C5E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 14:58:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J9dPDvYBTw9HdYMdZ/a5T1qVs23laCgwvQcsbGk2Rh0=; b=t+qKer8RKmtY8Ja/JItIztqgx/
-	7OTSGj8XhsEQ/RcDrQpre881f8m8X+LjCuIXD59qQ/agxvhxiHbS+qcl65/ZhySrSF+EWQWPlF3Yw
-	dPjEm9n3iEUqNOuk1oXmFF85GpQpvo69snJOvk1UF3TTNBaeIXuZ8M/8D0IYACtJ8o2G1IUfyjjDu
-	wrx/Sdc8TRFyFgXFuX7P6rxw9rPT+cinO753zbFVedNxNOH+TfhDxI9oese5Sh2BmfnOIuHbBmT7Z
-	u4b6R55v8zVJ9UcoDMRXBK55EzH4P2hyv0ScwwdRSC7jRkMIe0m+aV3/3HRQhcbRPtZCQfdO4OSVj
-	G044HY0Q==;
+	bh=00DJSzTx4OYnNszTMCzO4Ng7MXEjLPxiBpeE0uNJD6k=; b=vuH3PhuPRcr38kpgOHIdCsMCGw
+	7Bwo/RnHJg9dlBsYGDnybTmMTs2mfeEdEGIYafat3utc+CBKHnJp/WqLsAz4aawtNcIw0v29em4Fi
+	QnldcdYCddhWo7efTAzeBVJK676cyp3b5wM0oAjbUu17TmI6DUAwBZRXbFnjhl71Mf6+GQGOGDR3J
+	c/HTadpmvePt1nt3p7vOBKi6H6QTZr9SDGCcCKr8Uf3Xa0W9WVQUivr0AUuCY0g40H7gLJ7Xa9NjB
+	uUUP/PtYbFTzxG8QbUkWa8CawBNEKvIFA/Btap8yv7eMk5Lfe1mE40Z++b6ZUw6mjzBtUpefU5/rM
+	C6SG5nzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCIkP-0000000FufM-3bSj;
-	Mon, 13 Apr 2026 14:58:45 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1wCIkT-0000000Fugn-142c;
+	Mon, 13 Apr 2026 14:58:49 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCIkM-0000000FueU-0HyL
+	id 1wCIkQ-0000000FufJ-10dD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 14:58:44 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-43cfde3c3f3so4549928f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 07:58:41 -0700 (PDT)
+	Mon, 13 Apr 2026 14:58:47 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63DCZEA63989205
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 14:58:45 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=00DJSzTx4OYnNszTMCzO4Ng7
+	MXEjLPxiBpeE0uNJD6k=; b=mgwDecpGYk1IEbv5RhvjNBijJN3DKbCFeO9mk0mR
+	6xzlx0jWn9lAgIXzn0rwYWUTi1IvjJZxN6AfFsSzLvgXonH1dAclmOsyoUHZG1jT
+	KFHWpPF7aGkxofgz9GpLSxtQqmZkGWXfLzIPsaAnuOu+LS0TCR8w6juXFTdQRMIP
+	r93NkAOrzu9m9PolKDcdIKcA+/qWJCPSQuGpztJw0woes1OdZL0dQLH0K3BXz2/6
+	2bJXcHlF2XWia9JsPoYk+MQOW9XKwW/EXuPxmjnMP2Pa0vKje/IJuSoQmtE9Aggz
+	wLJzBC6+bCcgp988cc4NJN9oCe38Wxa0bLaMqAByNOa8VQ==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dh0mfrk39-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 14:58:44 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-50df4c130dbso33656831cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 07:58:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1776092319; x=1776697119; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=J9dPDvYBTw9HdYMdZ/a5T1qVs23laCgwvQcsbGk2Rh0=;
-        b=iixbaVPQSMaKSIAq0TQceMqq1x5dFj3yOYCgfhLdHkxQRQOKmE3tv/8l8Xh0dcG/WC
-         gWQwwoQM/ZLfIKQvi9xB4SVtapco0QdrZtODt30VBL0GjmiR/xOljEjLxPezpIPriMQM
-         jfoUkNqQLs3l0zND1QDw/NCkA65Ozt+dd7UtRx3f3njZ6BGOr75WuN2t26QMLCfyWVu4
-         BVN5uDXnIxCjEF0UeLCrD8RzJCmHp4AYio0q90dRW8vB/OR1PL+bOE8VdMjXP7RelkXi
-         RTNquBovaQuHbn/bET+ewd85qPO6hs7XxRvYNcvFVmPLd1AgqW+E7nH4h3kdpDRvsEkJ
-         knpQ==
+        d=oss.qualcomm.com; s=google; t=1776092324; x=1776697124; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=00DJSzTx4OYnNszTMCzO4Ng7MXEjLPxiBpeE0uNJD6k=;
+        b=J+cfyZz7tt0QB/99TDZZ8BcAYZQXNKYsDVWpgzzyYspMzsGI2Tg65X/jxR5SKhg/hy
+         nQ64y4dI5dPj7sSn2Pe5P17bXB9q1+esO7gjNKPEd9Tx/nAg6Xvxja1AjiV0kEGPttCG
+         /rZ/W/9BDGQH3DxJ0rGLFgjaAutmnyTLJlbiKWcWdw1TL3NhG7CMeBWJbTRyj/3FQPUf
+         wKJSh+CxBaH9qGYYQrNXRz7oc8JmLI9G5sLVz6W4cwg7fJKNwSOcJc5X5kZ3UEh0+wKK
+         K7HnOtKqxJmNYc0GaCIeAVIAQI+ntsleB+LPvOfWanmJPIuB/LcEy3aBIhE6W5xQrBKS
+         Ixrg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776092319; x=1776697119;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=J9dPDvYBTw9HdYMdZ/a5T1qVs23laCgwvQcsbGk2Rh0=;
-        b=knNKHC3u1aAD0YMw1JwQ5tK1iOfjcODb3ffLDazfx7mRtFyfuZ2DH/3DNPet0Dx5BX
-         l9VCPCCw4rXBL5va5tBw/idksFCKdz7JT0r2HP4w10Ri2g5lYgJKBU4Swk/U/9gGnZY4
-         yCbtzoMC/kQDaiyVNq+yz7k+TZBLTA9A7e1g4aO//QO4N+KYk2BOcIkGSBg2L5Ff2ZTs
-         kpPsgpV1cYUeCZGYPETa17ZPdsb0VpI+jBXwSdmzbMH06kjf7unmm5wvibnZCOFQb9SQ
-         HRKP4Dcmuz40eMtttmlq5IHcJZCAlXLIpvMDOVbcA71TU8cywjwTc9eR+oLr4dYI6jfo
-         hlyA==
-X-Forwarded-Encrypted: i=1; AFNElJ8s3v30bAh8GLJWFSqZ83rwylxJqRnvd0MP5CPmkTyB+zCVwfKFK3ocIsoLwf91TFWKWAAcLaoxPhJW1PE/7uug@lists.infradead.org
-X-Gm-Message-State: AOJu0YxU9CBvfT+4P9rrj7hjjt4LbnXf3qH2q3WvJ+e3Um/EO7/xjdo1
-	0JmVS1GimN83PPbIOKC3y4P+1zp43FZELiAS5LEs4/12KjWIy/rRHqY/I7125KVYgtw=
-X-Gm-Gg: AeBDievkNsGwaX33OUzbkYBZ1DNKusRv1gug7316bLq/2F8VDWtq4vJ9/D4UT5v0Lui
-	NPzdlp5jqf6UPw+7g1yqNqr1f2HmXx/bTFxG22lMix9862/NchekSYcQbtzyZCY24Iwt/yH/OFh
-	AL8gf/UwJ1hsvXPy4NBNbAZM4+UAC4gILQjGqM5ivXZwzqb0OC/+51B2k3vvO0bWHTyCJPIRweR
-	4MXv08zbtnM7KN1Zixzxht2inJGNTFWigwSTRdBKM3NqVxwBE+rsx5z+d5SKA6pKqmpk31oz2lE
-	Hmjf4QBMqTTjBZXECCPy8G3fo9mIaKTf7oa3iTosdudw91FUx065Ne4rwtkPmz+wIETwDWuVu+C
-	bsiHagERXbkFAnH6CUYFMP3Gzx2fXcZVXk8ZSVqr9fDbAwXZ/V7ECTlD1HzTlswRSN0+nsBb6vY
-	QhdQgbQIoEpSsh2rM=
-X-Received: by 2002:a5d:568b:0:b0:43d:6a0c:9571 with SMTP id ffacd0b85a97d-43d6a0c95demr10556355f8f.11.1776092319396;
-        Mon, 13 Apr 2026 07:58:39 -0700 (PDT)
-Received: from localhost ([62.246.35.158])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d7bd2f237sm5888815f8f.23.2026.04.13.07.58.38
+        d=1e100.net; s=20251104; t=1776092324; x=1776697124;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=00DJSzTx4OYnNszTMCzO4Ng7MXEjLPxiBpeE0uNJD6k=;
+        b=YM0fqp0fRrR6xo15cLcXpUcyIKnr76op8D7bxKprZzvkUm1U9zLARjaHO3cpreKtsY
+         bv6hf0yUajP6Dk3Hf2jsLFy2BN06fjX1KkRnIBrApCx61XRty5J6qAWHK9SESHB4TB0c
+         9x4MDFTwROAnUINg1BW05SRa+AL7I72ErBoOYdegKs0s35w6ceAkjqYfTN8gUKXDG2G4
+         tCCAZOXTSmo5M5bKS3qLdCojJcTPAOVqAvd2JtUAYUh6DqvuNpxKlGzJfPv4X5ml6Bnw
+         unPioiaFFBmC2o350L/36+sPgZuQYiSD+Uqd6Vmh4ry5MW+buRHEyJ/2UvEoLMDbLQUU
+         QEBg==
+X-Forwarded-Encrypted: i=1; AFNElJ9OF8R4483JQGlyiVJB7PJCiapzwRfkYDLrz/rCMsL0oOPJ7K3N1gp5tJ+/Ub6jejyq4cWcXZM5gYk/zM0FhzG7@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOZgKEfu1QLt6ceCUCKv19nqcTRYh2Zvkb6EvxebfPb2T64t8+
+	mB9w5Wli8TTySSHlyCDbp1eIPnGYDb0T10tRK19Yp/Db/ltYap0J79pBykYo/2if+zxMnsO6yyr
+	MB+MJFlqLFWdnUtsf/AYKJxtypvLdmKgeP1HwUWLsVAj+IDKhRAHsdSFYSutHF2DUYS5Xj88CQ+
+	UmLw==
+X-Gm-Gg: AeBDietAL4o7kPmewk+ombL/+5elL9UDORZ5wUeKK7tBHzmGPAWI4cnjwHE8gihw4nT
+	+0IXKt92/xXx03lYCbADliAA0qd/9eP4lJxeBTWD7Os2KpNDJnuVT6HiRAFGCSIOVX1a/0SJNep
+	LEyfjNEVVwcjtmudxgl/igOFXK/XtvKf+c8SazpGPdiDiFCkcTlw8o4urBpa5pEyBk5CxKnCy4J
+	QS0RF763Os6+jm3sD6jsAkehkJASSD9Jwe/poWmOrUYlUoKh30rhGL8kJMm1T7VHngLJyN3oAk7
+	fNiu8ZOVjishp5BAlHixdoBbsy8Gy4soHcKZ2gfVlgoL2aaeW4iRfAWakRq89wEaufMTkd1/jJM
+	y/1eW05NGbouHot68oX/+xkKHwHpIhIY8B10aSCeUJCYMOlBLOZ5DYLl8vbMVctGlSaA1j0Acl/
+	SmCy/NthL/rbBAxTXmqXcmulAHGpoLhP7kQm0=
+X-Received: by 2002:ac8:5955:0:b0:50d:84ce:e339 with SMTP id d75a77b69052e-50dc1acd899mr255338581cf.19.1776092324096;
+        Mon, 13 Apr 2026 07:58:44 -0700 (PDT)
+X-Received: by 2002:ac8:5955:0:b0:50d:84ce:e339 with SMTP id d75a77b69052e-50dc1acd899mr255338201cf.19.1776092323512;
+        Mon, 13 Apr 2026 07:58:43 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-38e4956a839sm24467831fa.32.2026.04.13.07.58.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Apr 2026 07:58:38 -0700 (PDT)
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=0a785cbd2c7f90d7885fd7b41f2dd71fdce8ca289150b6b9839827a32df0;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Mon, 13 Apr 2026 16:58:30 +0200
-Message-Id: <DHS46FH9ZYZB.3BG6HVH832NAE@baylibre.com>
-Cc: "Vishal Mahaveer" <vishalm@ti.com>, "Kevin Hilman"
- <khilman@baylibre.com>, "Dhruva Gole" <d-gole@ti.com>, "Sebin Francis"
- <sebin.francis@ti.com>, "Kendall Willis" <k-willis@ti.com>, "Akashdeep
- Kaur" <a-kaur@ti.com>, <linux-remoteproc@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v3 4/7] arm64: dts: ti: k3-am62a7-sk: Split r5f memory
- region
-From: "Markus Schneider-Pargmann" <msp@baylibre.com>
-To: "Vignesh Raghavendra" <vigneshr@ti.com>, "Markus Schneider-Pargmann"
- <msp@baylibre.com>, "Bjorn Andersson" <andersson@kernel.org>, "Mathieu
- Poirier" <mathieu.poirier@linaro.org>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
- <conor+dt@kernel.org>, "Suman Anna" <s-anna@ti.com>, "Nishanth Menon"
- <nm@ti.com>, "Tero Kristo" <kristo@kernel.org>
-X-Mailer: aerc 0.21.0-126-g9e77103592fe
-References: <20260318-topic-am62a-ioddr-dt-v6-19-v3-0-c41473cb23c3@baylibre.com> <20260318-topic-am62a-ioddr-dt-v6-19-v3-4-c41473cb23c3@baylibre.com> <8673745d-aad2-49d3-b3af-556de7037b69@ti.com> <DHPIOTXA81M3.AHBN8M49ENG5@baylibre.com> <c35fea4e-dc22-4314-9c5c-bfa5b880864d@ti.com>
-In-Reply-To: <c35fea4e-dc22-4314-9c5c-bfa5b880864d@ti.com>
+        Mon, 13 Apr 2026 07:58:42 -0700 (PDT)
+Date: Mon, 13 Apr 2026 17:58:40 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Xinliang Liu <xinliang.liu@linaro.org>,
+        Tian Tao <tiantao6@hisilicon.com>,
+        Xinwei Kong <kong.kongxinwei@hisilicon.com>,
+        Sumit Semwal <sumit.semwal@linaro.org>,
+        Yongqin Liu <yongqin.liu@linaro.org>, John Stultz <jstultz@google.com>,
+        Andrzej Hajda <andrzej.hajda@intel.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Robert Foss <rfoss@kernel.org>,
+        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+        Jonas Karlman <jonas@kwiboo.se>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+        Michal Simek <michal.simek@amd.com>, Hui Pu <Hui.Pu@gehealthcare.com>,
+        Ian Ray <ian.ray@gehealthcare.com>,
+        Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
+        linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 01/10] drm/bridge: add of_drm_get_bridge_by_endpoint()
+Message-ID: <u2awvqh2uoc2acuuvyavwwtuvtiaidhbkkj5a2d2wwph2s7j7g@b4j73kwzblgk>
+References: <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-0-acd01cd79a1f@bootlin.com>
+ <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-1-acd01cd79a1f@bootlin.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-1-acd01cd79a1f@bootlin.com>
+X-Proofpoint-GUID: yvxINCe5Z2evuF0mXJM02FCrR3vhUahp
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEzMDE0NyBTYWx0ZWRfX9gX8Qa9E01sY
+ 6sMvIfN/CjS5nyqikmaZZiq1q9nyIYnK0Uz+Oo3ePA4O5Ti8iOJLJA/mgksymonQlNQT3FyyaJw
+ 8+yCGGUroxMd8/3F1PCA8/4FS+81rFyElaIXadY888Td4Zlojj34FVUDv7zgbw6G5zBWqN/LcHE
+ KpPw2cUgR/YyisBAtS4hKtFrZHYhuIeMxAyYT9r5/FOQLHZsu2WRHvFUUOS+3bs7hOk/nLZDSff
+ lwPjN7WsGmwweyOrkoPx6CR0T/Ljb6PGLvIW9xBvqeLXjMj7AcXC0KIfrdqZ3SkUGgMJ9Pbr6Ws
+ 5+GD0nQlhVtm8QBMBWTCEI3RHNTDeBbPRU6YVo2opYvLT4rUh6FdZG6WLbNaaGMzbyfvk0RD9Lc
+ he4MGaDC8yobzT3c+3xqdpXdeSRhW6eDFacKQyPwpURZWNpLn7b6yHx9gUy+tsUymhKFJzz2knU
+ nLt652QRVPWDAVMQujw==
+X-Authority-Analysis: v=2.4 cv=cMvQdFeN c=1 sm=1 tr=0 ts=69dd04a4 cx=c_pps
+ a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=P-IC7800AAAA:8
+ a=rZHl3HjT5p_iJrZpzTIA:9 a=CjuIK1q_8ugA:10 a=dawVfQjAaf238kedN5IG:22
+ a=d3PnA9EDa4IxuAV0gXij:22
+X-Proofpoint-ORIG-GUID: yvxINCe5Z2evuF0mXJM02FCrR3vhUahp
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-13_03,2026-04-13_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 spamscore=0 priorityscore=1501 adultscore=0 impostorscore=0
+ malwarescore=0 bulkscore=0 phishscore=0 clxscore=1015 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604010000 definitions=main-2604130147
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_075842_129579_EC75BE93 
-X-CRM114-Status: GOOD (  24.16  )
+X-CRM114-CacheID: sfid-20260413_075846_402324_50608A65 
+X-CRM114-Status: GOOD (  35.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,108 +167,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---0a785cbd2c7f90d7885fd7b41f2dd71fdce8ca289150b6b9839827a32df0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+On Mon, Apr 13, 2026 at 03:58:33PM +0200, Luca Ceresoli wrote:
+> drm_of_find_panel_or_bridge() is widely used, but many callers pass NULL
+> into the @panel or the @bridge arguments, thus making a very partial usage
+> of this rather complex function.
+> 
+> Besides, the bridge returned in @bridge is not refcounted, thus making this
+> API unsafe when DRM bridge hotplug will be introduced.
+> 
+> Solve both issues for the cases of calls to drm_of_find_panel_or_bridge()
+> with a NULL @panel pointer by adding a new function that only looks for
+> bridges (and is thus much simpler) and increments the refcount of the
+> returned bridge.
+> 
+> The new function is identical to drm_of_find_panel_or_bridge() except it:
+> 
+>  - handles bridge refcounting: uses of_drm_find_and_get_bridge() instead of
+>    of_drm_find_bridge() internally to return a refcounted bridge
+>  - is slightly simpler to use: just takes no @panel parameter
+>  - has a simpler implementation: it is equal to
+>    drm_of_find_panel_or_bridge() after removing the code that becomes dead
+>    when @panel == NULL
+> 
+> Also add this function to drm_bridge.c and not drm_of.c because it returns
+> bridges only.
+> 
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> ---
+>  drivers/gpu/drm/drm_bridge.c | 46 ++++++++++++++++++++++++++++++++++++++++++++
+>  include/drm/drm_bridge.h     |  9 +++++++++
+>  2 files changed, 55 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
+> index ba80bebb5685..e51990b74417 100644
+> --- a/drivers/gpu/drm/drm_bridge.c
+> +++ b/drivers/gpu/drm/drm_bridge.c
+> @@ -1581,6 +1581,52 @@ struct drm_bridge *of_drm_find_bridge(struct device_node *np)
+>  	return bridge;
+>  }
+>  EXPORT_SYMBOL(of_drm_find_bridge);
+> +
+> +/**
+> + * of_drm_get_bridge_by_endpoint - return DRM bridge connected to a port/endpoint
+> + * @np: device tree node containing output ports
+> + * @port: port in the device tree node, or -1 for the first port found
+> + * @endpoint: endpoint in the device tree node, or -1 for the first endpoint found
+> + * @bridge: pointer to hold returned drm_bridge, must not be NULL
+> + *
+> + * Given a DT node's port and endpoint number, find the connected node and
+> + * return the associated drm_bridge device.
+> + *
+> + * The refcount of the returned bridge is incremented. Use drm_bridge_put()
+> + * when done with it.
+> + *
+> + * Returns zero (and sets *bridge to a valid bridge pointer) if successful,
+> + * or one of the standard error codes (and the value in *bridge is
+> + * unspecified) if it fails.
 
-Hi Vignesh,
+Can we return drm_bridge or error cookie instead?
 
-On Sat Apr 11, 2026 at 4:47 PM CEST, Vignesh Raghavendra wrote:
->
->
-> On 10/04/26 19:12, Markus Schneider-Pargmann wrote:
->> Hi Vignesh,
->>=20
->> On Fri Apr 10, 2026 at 6:30 AM CEST, Vignesh Raghavendra wrote:
->>> Hi Markus
->>>
->>> On 18/03/26 20:43, Markus Schneider-Pargmann (TI) wrote:
->>>> Split the firmware memory region in more specific parts so it is bette=
-r
->>>> described where to find which information. Specifically the LPM metada=
-ta
->>>> region is important as bootloader software like U-Boot has to know whe=
-re
->>>> that data is to be able to read that data.
->>>>
->>>> Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
->>>> ---
->>>>  arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 40 ++++++++++++++++++++++++=
-+++++++--
->>>>  1 file changed, 38 insertions(+), 2 deletions(-)
->>>>
->>>> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot=
-/dts/ti/k3-am62a7-sk.dts
->>>> index e99bdbc2e0cbdf858f1631096f9c2a086191bab3..c381cc33064ec427751a9a=
-c5bcdff745a9559a89 100644
->>>> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
->>>> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
->>>> @@ -59,9 +59,33 @@ wkup_r5fss0_core0_dma_memory_region: memory@9c80000=
-0 {
->>>>  			no-map;
->>>>  		};
->>>> =20
->>>> -		wkup_r5fss0_core0_memory_region: memory@9c900000 {
->>>> +		wkup_r5fss0_core0_ipc_region: memory@9c900000 {
->>>
->>> There are still references to wkup_r5fss0_core0_memory_region in
->>> k3-am62a-ti-ipc-firmware.dtsi (same comment applies to next 2 patches a=
-s
->>> well)
->>>
->>> Dont those need to be updated too?
->>=20
->> I only updated the sk boards as these are the only ones that have IO+DDR
->> support that I know works and need the new memory region layout. But
->> thinking about this, updating the memory region structure shouldn't be a
->> problem for the other boards either, of course I can't tell if IO+DDR
->> would work on them, but the new memory region layout shouldn't break
->> anything.
->
-> I am not talking about updating other boards, but specifically about
-> k3-am62*-ti-ipc-firmware.dtsi which have a phandle reference to
-> wkup_r5fss0_core0_memory_region. Therefore any dts trying to include
-> this dtsi would fail to compile post this series.
+> + */
+> +int of_drm_get_bridge_by_endpoint(const struct device_node *np,
+> +				  int port, int endpoint,
+> +				  struct drm_bridge **bridge)
 
-I am not sure I understand why they would fail?
+Nit: can it be drm_of_get_bridge_by_endpoint?
 
-The current design is to have the k3-am62*-ti-ipc-firmware.dtsi files
-reference the memory regions in the r5fss node, for example:
+> +{
+> +	if (!bridge)
+> +		return -EINVAL;
+> +
+> +	/*
+> +	 * of_graph_get_remote_node() produces a noisy error message if port
+> +	 * node isn't found and the absence of the port is a legit case here,
+> +	 * so at first we silently check whether graph presents in the
+> +	 * device-tree node.
+> +	 */
+> +	if (!of_graph_is_present(np))
+> +		return -ENODEV;
+> +
+> +	struct device_node *remote __free(device_node) =
+> +		of_graph_get_remote_node(np, port, endpoint);
+> +	if (!remote)
+> +		return -ENODEV;
+> +
+> +	*bridge = of_drm_find_and_get_bridge(remote);
+> +	if (*bridge)
+> +		return 0;
+> +
+> +	return -EPROBE_DEFER;
+> +}
+> +EXPORT_SYMBOL_GPL(of_drm_get_bridge_by_endpoint);
+>  #endif
+>  
 
-  &wkup_r5fss0_core0 {
-    mboxes =3D <&mailbox0_cluster0>, <&mbox_r5_0>;
-    memory-region =3D <&wkup_r5fss0_core0_dma_memory_region>,
-        <&wkup_r5fss0_core0_memory_region>;
-    memory-region-names =3D "dma", "firmware";
-    status =3D "okay";
-  };
-
-But k3-am62*-ti-ipc-firmware.dtsi do not define these memory regions.
-Instead it relies on the dts files to define them. That is done for
-example in k3-am62a7-sk.dts and others.
-
-This patch now changes the memory regions being used by r5fss0 as well
-as the memory regions being defined but only in k3-am62a7-sk.dts. It
-does not change the references or definitions in
-k3-am62*-ti-ipc-firmware.dtsi.
-
-So I think including the k3-am62*-ti-ipc-firmware.dtsi file should still
-work as long as you have the memory regions defined in the dts file.
-
-Best
-Markus
-
---0a785cbd2c7f90d7885fd7b41f2dd71fdce8ca289150b6b9839827a32df0
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKMEABYKAEsWIQSJYVVm/x+5xmOiprOFwVZpkBVKUwUCad0ElhsUgAAAAAAEAA5t
-YW51MiwyLjUrMS4xMiwyLDIRHG1zcEBiYXlsaWJyZS5jb20ACgkQhcFWaZAVSlN9
-/wD5Ab5i95liHETc2NOhXhkDKA1xYvzEVvaeIFg98GPhbA4A/3L3/LhrHSz6dGz9
-qBvd1F0mm4iVotX0AxZJ4Rm3YZoH
-=SQ08
------END PGP SIGNATURE-----
-
---0a785cbd2c7f90d7885fd7b41f2dd71fdce8ca289150b6b9839827a32df0--
+-- 
+With best wishes
+Dmitry
 
