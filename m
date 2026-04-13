@@ -4,86 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 787E2F34C65
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 16:55:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01BA9F34C65
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 16:56:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=J8y/qrgJ/svRDpXDwPdep8Ccwbu5OEPjV+xcyx8BGnQ=; b=DEvF0OHYgzbmR5N/nOHVF1/fLn
-	iffG4Ze+A7A9DgWQogfYsJoHLGxjjScS9ExWmv7Cg7BYlkwWbJERWsUvSv9LuxyosM6/RCAMH4Eai
-	bJmoqhK7VrLZrqgvXTq2WUTL7uUGaeI26yStlMm4V7wFI5itqrXa+U2lVMx8E4Nl5NXZEFmQEXl4Q
-	DxxaQ8sw8NAlSQLMNrqtUoGHGnVX2TlE37LuG7hspQNVpbjJad9EL8EGWo36SguSFep+252+jcE76
-	eoREBk88+XC09g2T4LNhC3V8Sv/4RAfWZmX+3iZ5OxeCb3Kwuq4v1jZwGDU+w6WFrYY83b+rU7q4Y
-	mLfnyCuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SaMe/XCfATJZ2LJcHZ4lSlaqFFo8ZIhHj8aFqQq8m1w=; b=x85b4xpX5/Si9shjUdsfYENL8k
+	gbuEpmy7e1YLn1XNzOkCoxmbVDkndofNYFBF0rm0AzcglphhmwwxNX5PX0wGgF3EdaWBQ43TOdp02
+	dW0lEuQr1ly0ckbRnxrCDakVKeCqfDRo87Yfw48VMbVLUN4siOq+dPhTr4VccASRQCCdx1OfVU1di
+	sw4WZK03Tini70qrQ+2grW9M26tISdRFu1ze3kRLrRNuwOoTak3351GKQdbHMVRAKDD+sX0dKnU9h
+	AS46o1DVuhbHC6n2hbh4G3oXLEkJQYvSYEmeNbl/uMFAKSn5imgghY/xmaMEu8N+hiiRo0byoScK0
+	DTALJjyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCKZM-0000000G5Z1-2wSa;
-	Mon, 13 Apr 2026 16:55:28 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1wCKaT-0000000G5g7-0QED;
+	Mon, 13 Apr 2026 16:56:37 +0000
+Received: from mx0b-0016f401.pphosted.com ([67.231.156.173])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCKZK-0000000G5Ye-1mCC
+	id 1wCKaQ-0000000G5ff-2tHY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 16:55:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=J8y/qrgJ/svRDpXDwPdep8Ccwbu5OEPjV+xcyx8BGnQ=; b=m6XB1UMBQMbTebZwWsFDiSd3cc
-	yVUORyG6pKjy1HiBAYneoKVM69S3Ei/sAFt9Bgf1QJ6fe4pDu++Nyk+bP1wxJjtlaxVb2VCBH2oOk
-	hEh5CJhWECjmpcag5oJNN/L8U5sulmg5VEJ6I+pLlnY7bCjp1p0WIZxmu51ay6wnp5+Tc1pRBIkdz
-	y/cJqPMJAbH4RKa0JLRWSKkdvYJztIutWt1GH/dIA5O807oLOa7Bm10ahDei07/NO+511MxtQbZBT
-	RSQ5p/TjXi86wHf7xPpJZ/Cd8o8nJEaM1KBOgPRJxyoKvRJ/Mr+scOTMQNJST7gnJKGXCh2lrAtAg
-	NxTRDkxQ==;
-Received: from authenticated user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1wCKZ1-00CRKa-15;
-	Mon, 13 Apr 2026 16:55:07 +0000
-From: Breno Leitao <leitao@debian.org>
-Date: Mon, 13 Apr 2026 09:54:54 -0700
-Subject: [PATCH RFC] ACPI: processor: idle: Do not propagate
- acpi_processor_ffh_lpi_probe() -ENODEV
+	Mon, 13 Apr 2026 16:56:35 +0000
+Received: from pps.filterd (m0045851.ppops.net [127.0.0.1])
+	by mx0b-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63D8f4j83064118;
+	Mon, 13 Apr 2026 09:56:27 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-type:date:from:message-id:mime-version:subject:to; s=
+	pfpt0220; bh=SaMe/XCfATJZ2LJcHZ4lSlaqFFo8ZIhHj8aFqQq8m1w=; b=Zta
+	yu3j8M08aS2q2T+sEcF+zHOzBiAPJCdRJdB3/oDXS/Eqak3li39quJDhQKkJISvD
+	FaEna2J9kDMm9aZz5QC1L5gsJ+ImrnbeaqzzRgqx9UVseAjrLPok/bxYlpqD/AhF
+	ELBTS3v352+BGq+9SIjjqehSYyML+QDQ8ekaMGlTfhrcQuZAvskQS0hvuOe230yW
+	4v327coq8jqpjZFQ3o805ABLcBx4JeoKrJuF4MJ04JKU75tPPYDH2J9QYwnaaz/A
+	M29sPSvJHeozFzmoCHHJlMW0BFKVKNOrq4nG0bN8E26O8Y8Gh8DtqkwAS0vONhqM
+	FphNsxWz7WFX6gKx6pQ==
+Received: from dc5-exch05.marvell.com ([199.233.59.128])
+	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 4dgw6hh3sf-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 13 Apr 2026 09:56:27 -0700 (PDT)
+Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
+ DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Mon, 13 Apr 2026 09:56:26 -0700
+Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
+ DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Mon, 13 Apr 2026 09:56:25 -0700
+Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
+ (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.25 via Frontend
+ Transport; Mon, 13 Apr 2026 09:56:25 -0700
+Received: from hyd1soter3.marvell.com (unknown [10.29.37.12])
+	by maili.marvell.com (Postfix) with ESMTP id E3EAD3F7075;
+	Mon, 13 Apr 2026 09:56:22 -0700 (PDT)
+From: Geetha sowjanya <gakula@marvell.com>
+To: <linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
+CC: <mark.rutland@arm.com>, <will@kernel.org>, <krzk+dt@kernel.org>
+Subject: [PATCH v5 0/2] perf: marvell: Add CN20K DDR PMU support
+Date: Mon, 13 Apr 2026 22:26:19 +0530
+Message-ID: <20260413165621.10921-1-gakula@marvell.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260413-ffh-v1-1-301704f69e2f@debian.org>
-X-B4-Tracking: v=1; b=H4sIAN0f3WkC/6tWKk4tykwtVrJSqFYqSi3LLM7Mz1OyUjDUUVBKz
- kjMS0/VzUxRslJQMjIwMjMwMTTWTUvL0LU0TjOzSDJKMzFLNFbSUVAqKEpNy6wAmxKtFOTmrBQ
- LESwuTcpKTS4B6VeqrQUApFTz8GwAAAA=
-X-Change-ID: 20260413-ffh-93f68b2f46a3
-To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
- Huisong Li <lihuisong@huawei.com>, lpieralisi@kernel.org, 
- catalin.marinas@arm.com, will@kernel.org
-Cc: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
- linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, 
- pjaroszynski@nvidia.com, guohanjun@huawei.com, sudeep.holla@kernel.org, 
- linux-arm-kernel@lists.infradead.org, rmikey@meta.com, kernel-team@meta.com, 
- Breno Leitao <leitao@debian.org>
-X-Mailer: b4 0.16-dev-453a6
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2023; i=leitao@debian.org;
- h=from:subject:message-id; bh=z+bID2xRqvNdSv6krbjXyLPtoBh4AG9TeEpRvzw4Zrg=;
- b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBp3R/lVGvXewp9VI7riinOiJgjvUZLdBNdMpuoG
- i5iRB9H9XeJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCad0f5QAKCRA1o5Of/Hh3
- bcCaD/9sMnMwnrJk6HxRkLqA0rXb7O/ZtAmdNUhH6Hi2GkiHWCSl0D2WCtEk5Qfj5yYMB+65XYr
- HNShqyHsnGkXKZnoSjlPFJa/RxJFLrSYXdAlxDkarx7I80vZ988eqrFPLcmM/EQg/rlkxmH7uFM
- jWRyaTQliizZw1UIxMrwJd7uMt/8J3wNm3MZK79/ourulb7MaP677NVr5HbLJUh5Wr+vwGVntSh
- wfpURHf9JQlvMVaRIqOdRQQS6eS2ZTO3n/hmyqvMYKZomBqFqz2pEmZquok+gvLtuMCpkcnG2gA
- PDyzPu+QU1CcDXe8l/bo1Q4vC4UuFrCFUiXWh26XpXu1tmv007Y3s0uXVU61XHNgG7Jsa+i/zjn
- q3F/yfEJyIE5yveQaVhGRqpwt6e4u2EhXx5cKnrpE2qilwydpOxNWaoudY/k9jSEwGO5lQmlGvd
- HpGFoI9lUHa/vOt7Z6U/E1vgDCTuQ3pgGpJVO+dIMX1D3A7EYk3nu12fFmwld4Hcmd0MKMnMqqA
- hAkirtWRqt+Vy+SDSAxY2J3Te1/v9BjbLDQffCXyoh/X0StN45piRhCvC0aYJto2XEbEydbFke+
- cXm2avLL5dnBGqugRu6aWkacmCTSGJLwE53TvelBeR3yXoPSckhfyl33UmZg0+RjxsrL8wfgWAx
- fC6NWOpo4pk9JrA==
-X-Developer-Key: i=leitao@debian.org; a=openpgp;
- fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
-X-Debian-User: leitao
+Content-Type: text/plain
+X-Authority-Analysis: v=2.4 cv=BY7oFLt2 c=1 sm=1 tr=0 ts=69dd203b cx=c_pps
+ a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17
+ a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
+ a=QXcCYyLzdtTjyudCfB6f:22 a=M5GUcnROAAAA:8 a=adgkevBCHCmUBQKKAzcA:9
+ a=OBjm3rFKGHvpk9ecZwUJ:22
+X-Proofpoint-GUID: mimk6iZsQBwJGLdnfxC0-_l_kfZuqGiR
+X-Proofpoint-ORIG-GUID: mimk6iZsQBwJGLdnfxC0-_l_kfZuqGiR
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEzMDE2NiBTYWx0ZWRfXxW18DiTN7u24
+ T8+lCtTW87VKhOR7/FFOZQL86/hY7zUFGBIGw3sNPbRA0k7FIfMIgNv0t9zicES6vXWb6OeJsUg
+ TZ3427BLf+6/WA/HhIghVqLj45BIlcj1/v9eOc7XvzT0p+w+XiwNUdspWzBTycv/FAf6fpOdEkd
+ 8w6j2HPzLwIyOU38Hy8ULNrRkDQogx3EIvDfn5LtDtyzwx7/5GLysI9UWLlDvl2Fx+qqZ8BrUjO
+ bKeritahmHOCm8NNz1bAyLrLzsZQ2b/ENsEVpxzwG6SO+MV685oVOSAl4tVqTWNSIEayan7TljH
+ 4roV4VWAiaa6ihbkUDkOXiOBM4PgurBFQ5zpOnNOFMWI0LRIeyvc+AkvjpNO1Etq6mKV3e2f2dy
+ exL1tKV5qC+Q4rEWpJOsXjIxX167bf8I9ZB/sUq5Xgkx8ji5WH7UZ2blBxnGPCGwEJpkjLlnVnY
+ m/PdpZpBVghLelyc+xw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-13_03,2026-04-13_04,2025-10-01_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_095526_514655_323129F2 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20260413_095634_844525_8B5EC69C 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,56 +102,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit cac173bea57d ("ACPI: processor: idle: Rework the handling of
-acpi_processor_ffh_lpi_probe()") moved the acpi_processor_ffh_lpi_probe()
-call from acpi_processor_setup_cpuidle_dev(), where its return value was
-ignored, to acpi_processor_get_power_info(), where it is treated as a
-hard failure. This causes cpuidle setup to fail entirely for all CPUs on
-platforms where the FFH LPI probe returns an error.
+This series adds support for the DDR Performance Monitoring Unit (PMU)
+present in Marvell CN20K SoCs.
 
-On NVIDIA Grace (aarch64) systems with PSCIv1.1, the probe fails for all
-72 CPUs with -ENODEV because psci_acpi_cpu_init_idle() finds
-power.count - 1 <= 0 (power.count=1). This results in no cpuidle states
-registered for any CPU, forcing them to busy-poll when idle instead of
-entering low-power states.
+The DDR PMU is part of the DRAM Subsystem (DSS) and provides hardware
+counters to monitor DDR traffic and performance events. The block
+implements eight programmable counters and two fixed-function counters
+tracking DDR read and write activity, and is accessed via a dedicated
+MMIO region.
 
-The -ENODEV error simply means no deep PSCI idle states are available
-beyond WFI, which is a normal condition. Do not propagate -ENODEV and
-downgrade its message to pr_debug, while still propagating other errors
-that may indicate real problems.
+CN20K is the successor to CN10K, and the DDR PMU hardware is functionally
+equivalent to the CN10K implementation, with only minor differences in
+register offsets and event mappings. To allow software to distinguish
+between the two silicon variants, this series introduces a specific
+"marvell,cn20k-ddr-pmu" compatible and extends the existing
+marvell_cn10k_ddr_pmu driver to handle CN20K via variant-specific data.
 
-Fixes: cac173bea57d ("ACPI: processor: idle: Rework the handling of acpi_processor_ffh_lpi_probe()")
-Signed-off-by: Breno Leitao <leitao@debian.org>
----
- drivers/acpi/processor_idle.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+Signed-off-by: Geetha sowjanya <gakula@marvell.com>
 
-diff --git a/drivers/acpi/processor_idle.c b/drivers/acpi/processor_idle.c
-index ee5facccbe10c..7b6f7730ec63d 100644
---- a/drivers/acpi/processor_idle.c
-+++ b/drivers/acpi/processor_idle.c
-@@ -1258,8 +1258,13 @@ static int acpi_processor_get_power_info(struct acpi_processor *pr)
- 
- 	if (pr->flags.has_lpi) {
- 		ret = acpi_processor_ffh_lpi_probe(pr->id);
--		if (ret)
-+		if (ret == -ENODEV) {
-+			pr_debug("CPU%u: FFH LPI probe failed, err = %d, power.count = %d\n",
-+				 pr->id, ret, pr->power.count);
-+			ret = 0;
-+		} else if (ret) {
- 			pr_err("CPU%u: Invalid FFH LPI data\n", pr->id);
-+		}
- 	}
- 
- 	return ret;
+Chnages in v4:
+ - Fixed document file name.
 
----
-base-commit: 66672af7a095d89f082c5327f3b15bc2f93d558e
-change-id: 20260413-ffh-93f68b2f46a3
+Chnages in v3:
+- Expanded cover letter and commit message to better describe the DDR PMU
+  hardware and its relationship to CN10K
+- Fixed the file name.
 
-Best regards,
---  
-Breno Leitao <leitao@debian.org>
+Changes in v2:
+ - Fixed YAML syntax error triggered by a tab character in the examples
+  section, which caused dt_binding_check to fail.
+
+Changes in v1:
+- Added a description field to the binding.
+- Simplified the compatible property using 'const' instead of 'items/enum'.
+- Updated the example node name to include a unit-address matching the reg base.
+
+Geetha sowjanya (2):
+  dt-bindings: perf: marvell: Document CN20K DDR PMU
+  perf: marvell: Add CN20K DDR PMU support
+
+ .../bindings/perf/marvell,cn20k-ddr-pmu.yaml  |  39 ++++
+ drivers/perf/marvell_cn10k_ddr_pmu.c          | 187 ++++++++++++++++--
+ 2 files changed, 210 insertions(+), 16 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/perf/marvell,cn20k-ddr-pmu.yaml
+
+-- 
+2.25.1
 
 
