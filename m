@@ -4,132 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54559EBFD22
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 09:16:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5E94EBFD21
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 09:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3hYK9Ei+d9kVH0VV/CR68CUDnV5UVCrS18XI/2Q3GjY=; b=keq3YIcdM51ywoZ8va3n2byxC6
-	uw5JPe3YGHh1wSo2XXCRvsKkZMIoh33Qontk6IMLJf/0jIxNX42sXIlIDD3TokF0bcRgemqVEP+IB
-	bhKMiskG72AdHFWHNqz09Z0DhhvYgQ1SXH09gp3Ipe59Vk9A0OCgJ4YX5bWq8d/C8pfXSvDuNMhXw
-	9NJaCWfKEsFGCjfFGMuOC6k3C99vDAENjivsIJV069xU4y4MNoYaRQWONXeIem32GfSzXlhI0gmcx
-	UvyQcNcdmZ9vqPIoFYRhmXij94d2JXboXKqqmXRMs5MEvoog+eYDLDuod8BfdI+L/fl3jZb8QVl6u
-	dlWDMJeA==;
+	bh=1EVVnRscnj6EDiTCh8XD69BCiK/HfbkoFLnqLMdnIZo=; b=Vr0F1KnKxNbsW+y6TiEYX8lzji
+	DBf5d9CmP4OylOmAdDM+8XzDRv9EsXK3IxAA7bFvhgvw5LolfqYDxcvYF1qHUCPVP6GGmCAzHiTOS
+	qX0HGd6GG0v66tCFKUav/xlThlIjOCIgKfcd5p8SxW1FQwK18xdqfihU9JVJ8+dZTFd0tyEOsptno
+	NWXTuje++yw/IbJmg9AM3LIa0ZdOJO3nCR70KiO5W79FLK759JDajDxQnjlLUnwqiXV4bquPNphc/
+	zF4OIkzbqte76IEIO5t9V0EOHYkX8WHSLHi4DC7VZhziTAo/gnYr4O+yulbZpGQeg5zsefjmz7xh9
+	DpuNnzjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCDOk-0000000FLOp-0qF8;
-	Mon, 13 Apr 2026 09:16:02 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCDOh-0000000FLOE-1vlW;
-	Mon, 13 Apr 2026 09:16:00 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63CNQ6Rp3649347;
-	Mon, 13 Apr 2026 09:15:18 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=3hYK9Ei+d9kVH0VV/CR68CUDnV5UVC
-	rS18XI/2Q3GjY=; b=oY+vEH1nHYm21zR7dKdG+rMVbiAs+2M4pSYJYH25H3Q/WQ
-	S5pbibNxKHXRtCU5RA4BZpoAC/CsLV14kYSk9HD7BI83gpVLqIVXm+N3/UD3mtFb
-	VGL3bfwkoS+MFSXp/7ksAXz/d/43BdzYyNe+WU94qMB7+oTAY5jMdy/aC1rg5QU1
-	UhBzNrX2r1ZHEsamBr6j/bYRaaLxasa1WWuLDHkVDfa2K6RkMY6wizvw26f4v3Pw
-	kdUQa11kKa0O4lHqHX35TBGaxo9cfSk8h/UtwhMbDVaUgMt8SMltIpECwIrRGVKB
-	KeirN6PqfMTEor0kXcjWPcrhlHvR883P23ApPmxw==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dfdt3px1j-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 13 Apr 2026 09:15:17 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 63D80WMC015153;
-	Mon, 13 Apr 2026 09:15:16 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4dg0mscku7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 13 Apr 2026 09:15:16 +0000
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63D9FEC727328866
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 13 Apr 2026 09:15:14 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 70F6620043;
-	Mon, 13 Apr 2026 09:15:14 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B712A2004F;
-	Mon, 13 Apr 2026 09:15:04 +0000 (GMT)
-Received: from li-dc0c254c-257c-11b2-a85c-98b6c1322444.ibm.com (unknown [9.123.13.2])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Mon, 13 Apr 2026 09:15:04 +0000 (GMT)
-Date: Mon, 13 Apr 2026 14:45:02 +0530
-From: Ojaswin Mujoo <ojaswin@linux.ibm.com>
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        x86@kernel.org, Lu Baolu <baolu.lu@linux.intel.com>,
-        iommu@lists.linux.dev, Michael Grzeschik <m.grzeschik@pengutronix.de>,
-        netdev@vger.kernel.org, linux-wireless@vger.kernel.org,
-        Herbert Xu <herbert@gondor.apana.org.au>, linux-crypto@vger.kernel.org,
-        Vlastimil Babka <vbabka@kernel.org>, linux-mm@kvack.org,
-        David Woodhouse <dwmw2@infradead.org>,
-        Bernie Thompson <bernie@plugable.com>, linux-fbdev@vger.kernel.org,
-        Theodore Tso <tytso@mit.edu>, linux-ext4@vger.kernel.org,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Uladzislau Rezki <urezki@gmail.com>, Marco Elver <elver@google.com>,
-        Dmitry Vyukov <dvyukov@google.com>, kasan-dev@googlegroups.com,
-        Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-        Thomas Sailer <t.sailer@alumni.ethz.ch>, linux-hams@vger.kernel.org,
-        "Jason A. Donenfeld" <Jason@zx2c4.com>,
-        Richard Henderson <richard.henderson@linaro.org>,
-        linux-alpha@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
-        linux-arm-kernel@lists.infradead.org,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev,
-        Geert Uytterhoeven <geert@linux-m68k.org>,
-        linux-m68k@lists.linux-m68k.org, Dinh Nguyen <dinguyen@kernel.org>,
-        Jonas Bonn <jonas@southpole.se>, linux-openrisc@vger.kernel.org,
-        Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
-        Michael Ellerman <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org,
-        Paul Walmsley <pjw@kernel.org>, linux-riscv@lists.infradead.org,
-        Heiko Carstens <hca@linux.ibm.com>, linux-s390@vger.kernel.org,
-        "David S. Miller" <davem@davemloft.net>, sparclinux@vger.kernel.org
-Subject: Re: [patch 07/38] treewide: Consolidate cycles_t
-Message-ID: <ady0Ft_tDrbGlu2o@li-dc0c254c-257c-11b2-a85c-98b6c1322444.ibm.com>
-References: <20260410120044.031381086@kernel.org>
- <20260410120318.045532623@kernel.org>
+	id 1wCDRd-0000000FLmF-0Nuf;
+	Mon, 13 Apr 2026 09:19:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCDRb-0000000FLlm-1VQE
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Apr 2026 09:19:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 22AC132E0;
+	Mon, 13 Apr 2026 02:18:52 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 984D53F93E;
+	Mon, 13 Apr 2026 02:18:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776071937; bh=g0ESrCViHyCxKf3iu65baEykiub0+SeZDWwUl391xKM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OFSjKH6+MOZGPpPhNp2SfF7rSHgMFE3bKQUfqbKUL42XZwtXTwqeq2Id2dfuQDLJF
+	 0JUw61Nds3kLespdZfnvipzqo5o3idh1vCJxMgVxw0gKxLHmCUWdLgRkLbsix0Hwoc
+	 zSyBawg5/azVBHRjL5M/dy2fbzFpp0yiQEOuyUpU=
+Date: Mon, 13 Apr 2026 10:18:42 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Shuah Khan <shuah@kernel.org>
+Subject: Re: [PATCH v2 3/4] KVM: arm64: sefltests: Add basic NV selftest
+Message-ID: <ddr6exocupk6mzshjwvu6sqt57aeqiyxqss3rpgcxxyh54cw4g@rxvm5zh3ybrw>
+References: <20260412142216.3806482-1-weilin.chang@arm.com>
+ <20260412142216.3806482-4-weilin.chang@arm.com>
+ <adwofV7yf71OdMFk@sm-arm-grace07>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260410120318.045532623@kernel.org>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: r6KN03kK1HZaoam71kVl5aHZm9BfgAQ4
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEzMDA4NSBTYWx0ZWRfX+Gwbo0yddZP/
- ED3CWrVQNFFw/TECS1M9+tSS57FYBZnMmG79KmJVnAwBWc3o5BgyeadFZ9maSHI4Tv+/+VHQiXF
- uu6/EAbMsVnRYIXugjj6TyQBBqRyeSoPbLxIVX8tqr0goumkz0lPJ9Y4Y3a3ECfM9WbzUtOSm5u
- eNbyrRMw+nuwi0Afz/QuxwA0FuazktkFPrSziYKfNEV92tR6ksCbhLbdKwZfOQ6IaUNAK3mHh04
- Z9ZuJvFG4+5R/DIJQ8v5H1fE5bYExgqIL1hC1HoekBef4/UHL3Jav5jU5Ty8ib2gAESLlopFcCb
- VttV6mxWXomhvrcFDBgGSdweqIiLio3UyKWRaxfdCdf1K3UdP0nDdx3LiWp/XKSUCxaso/02xav
- PADy/jEsrag0vsgcCLG1/jcBcJ3bFL3cNcYlDCC6JXFySGCPKTcpDMOtfvLh9vv4Vg7VR02ItSs
- a0USozVz3do3GTBrHkA==
-X-Proofpoint-GUID: iwEVNX-0n_YmGG6iAARt9TRRoEhRuwqE
-X-Authority-Analysis: v=2.4 cv=WpEb99fv c=1 sm=1 tr=0 ts=69dcb426 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=kj9zAlcOel0A:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VwQbUJbxAAAA:8
- a=9Pz4rRoAHiK5H5RfW9YA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-13_02,2026-04-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 phishscore=0 bulkscore=0 adultscore=0 spamscore=0
- malwarescore=0 clxscore=1011 lowpriorityscore=0 suspectscore=0
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604010000
- definitions=main-2604130085
+In-Reply-To: <adwofV7yf71OdMFk@sm-arm-grace07>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_021559_510571_B80FA432 
-X-CRM114-Status: GOOD (  21.03  )
+X-CRM114-CacheID: sfid-20260413_021859_494403_5AAA46F3 
+X-CRM114-Status: GOOD (  25.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,62 +75,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 10, 2026 at 02:19:03PM +0200, Thomas Gleixner wrote:
-> Most architectures define cycles_t as unsigned long execpt:
-> 
->  - x86 requires it to be 64-bit independent of the 32-bit/64-bit build.
-> 
->  - parisc and mips define it as unsigned int
-> 
->    parisc has no real reason to do so as there are only a few usage sites
->    which either expand it to a 64-bit value or utilize only the lower
->    32bits.
-> 
->    mips has no real requirement either.
-> 
-> Move the typedef to types.h and provide a config switch to enforce the
-> 64-bit type for x86.
-> 
-> Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-> ---
->  arch/Kconfig                       |    4 ++++
->  arch/alpha/include/asm/timex.h     |    3 ---
->  arch/arm/include/asm/timex.h       |    1 -
->  arch/loongarch/include/asm/timex.h |    2 --
->  arch/m68k/include/asm/timex.h      |    2 --
->  arch/mips/include/asm/timex.h      |    2 --
->  arch/nios2/include/asm/timex.h     |    2 --
->  arch/parisc/include/asm/timex.h    |    2 --
->  arch/powerpc/include/asm/timex.h   |    4 +---
->  arch/riscv/include/asm/timex.h     |    2 --
->  arch/s390/include/asm/timex.h      |    2 --
->  arch/sparc/include/asm/timex_64.h  |    1 -
->  arch/x86/Kconfig                   |    1 +
->  arch/x86/include/asm/tsc.h         |    2 --
->  include/asm-generic/timex.h        |    1 -
->  include/linux/types.h              |    6 ++++++
->  16 files changed, 12 insertions(+), 25 deletions(-)
-> 
-<...>
+Hi Itaru,
 
-> --- a/arch/powerpc/include/asm/timex.h
-> +++ b/arch/powerpc/include/asm/timex.h
-> @@ -11,9 +11,7 @@
->  #include <asm/cputable.h>
->  #include <asm/vdso/timebase.h>
->  
-> -typedef unsigned long cycles_t;
-> -
-> -static inline cycles_t get_cycles(void)
-> +ostatic inline cycles_t get_cycles(void)
+On Mon, Apr 13, 2026 at 08:19:25AM +0900, Itaru Kitayama wrote:
+> On Sun, Apr 12, 2026 at 03:22:15PM +0100, Wei-Lin Chang wrote:
+> > This selftest simply starts an L1, which starts its own guest (L2). L2
+> > runs without stage-1 and 2 translations, it calls an HVC to jump back
+> > to L1.
+> 
+> How do you disable both the nested guest (L2)'s MMU and stage 2
+> translations?
 
-Hi Thomas, I'm in middle of testing this series on powerpc. In the meantime I
-noticed that there's probably a small typo here (althrough this is fixed
-later)
+Guest stage-2 is disabled by not setting HCR_EL2.VM in prepare_hyp(),
+and stage-1 is disabled by not writing to SCTLR_EL12 in init_vcpu(),
+effectively using the default value set by L0. However since SCTLR_EL1
+has many architecturally UNKNOWN bits (including SCTLR_EL1.M), it should
+be better to write a value before running L2 I suppose...
 
-Regards,
-ojaswin
->  {
->  	return mftb();
->  }
+Thanks,
+Wei-Lin Chang
+
+> 
+> Itaru.
+> 
+> > 
+> > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> > ---
+> >  tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+> >  .../selftests/kvm/arm64/hello_nested.c        | 103 ++++++++++++++++++
+> >  2 files changed, 104 insertions(+)
+> >  create mode 100644 tools/testing/selftests/kvm/arm64/hello_nested.c
+> > 
+> > diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+> > index 3dc3e39f7025..e8c108e0c487 100644
+> > --- a/tools/testing/selftests/kvm/Makefile.kvm
+> > +++ b/tools/testing/selftests/kvm/Makefile.kvm
+> > @@ -168,6 +168,7 @@ TEST_GEN_PROGS_arm64 += arm64/arch_timer_edge_cases
+> >  TEST_GEN_PROGS_arm64 += arm64/at
+> >  TEST_GEN_PROGS_arm64 += arm64/debug-exceptions
+> >  TEST_GEN_PROGS_arm64 += arm64/hello_el2
+> > +TEST_GEN_PROGS_arm64 += arm64/hello_nested
+> >  TEST_GEN_PROGS_arm64 += arm64/host_sve
+> >  TEST_GEN_PROGS_arm64 += arm64/hypercalls
+> >  TEST_GEN_PROGS_arm64 += arm64/external_aborts
+> > diff --git a/tools/testing/selftests/kvm/arm64/hello_nested.c b/tools/testing/selftests/kvm/arm64/hello_nested.c
+> > new file mode 100644
+> > index 000000000000..97387e4697b3
+> > --- /dev/null
+> > +++ b/tools/testing/selftests/kvm/arm64/hello_nested.c
+> > @@ -0,0 +1,103 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only
+> > +/*
+> > + * hello_nested - Go from vEL2 to EL1 then back
+> > + */
+> > +
+> > +#include "nested.h"
+> > +#include "processor.h"
+> > +#include "test_util.h"
+> > +#include "ucall.h"
+> > +
+> > +#define XLATE2GPA	(0xABCD)
+> > +#define L2STACKSZ	(0x100)
+> > +
+> > +/*
+> > + * TPIDR_EL2 is used to store vcpu id, so save and restore it.
+> > + */
+> > +static vm_paddr_t ucall_translate_to_gpa(void *gva)
+> > +{
+> > +	vm_paddr_t gpa;
+> > +	u64 vcpu_id = read_sysreg(tpidr_el2);
+> > +
+> > +	GUEST_SYNC2(XLATE2GPA, gva);
+> > +
+> > +	/* get the result from userspace */
+> > +	gpa = read_sysreg(tpidr_el2);
+> > +
+> > +	write_sysreg(vcpu_id, tpidr_el2);
+> > +
+> > +	return gpa;
+> > +}
+> > +
+> > +static void l2_guest_code(void)
+> > +{
+> > +	do_hvc();
+> > +}
+> > +
+> > +static void guest_code(void)
+> > +{
+> > +	struct vcpu vcpu;
+> > +	struct hyp_data hyp_data;
+> > +	int ret;
+> > +	vm_paddr_t l2_pc, l2_stack_top;
+> > +	/* force 16-byte alignment for the stack pointer */
+> > +	u8 l2_stack[L2STACKSZ] __attribute__((aligned(16)));
+> > +
+> > +	GUEST_ASSERT_EQ(get_current_el(), 2);
+> > +	GUEST_PRINTF("vEL2 entry\n");
+> > +
+> > +	l2_pc = ucall_translate_to_gpa(l2_guest_code);
+> > +	l2_stack_top = ucall_translate_to_gpa(&l2_stack[L2STACKSZ]);
+> > +
+> > +	init_vcpu(&vcpu, l2_pc, l2_stack_top);
+> > +	prepare_hyp();
+> > +
+> > +	ret = run_l2(&vcpu, &hyp_data);
+> > +	GUEST_ASSERT_EQ(ret, ARM_EXCEPTION_TRAP);
+> > +	GUEST_DONE();
+> > +}
+> > +
+> > +int main(void)
+> > +{
+> > +	struct kvm_vcpu_init init;
+> > +	struct kvm_vcpu *vcpu;
+> > +	struct kvm_vm *vm;
+> > +	struct ucall uc;
+> > +	vm_paddr_t gpa;
+> > +
+> > +	TEST_REQUIRE(kvm_check_cap(KVM_CAP_ARM_EL2));
+> > +	vm = vm_create(1);
+> > +
+> > +	kvm_get_default_vcpu_target(vm, &init);
+> > +	init.features[0] |= BIT(KVM_ARM_VCPU_HAS_EL2);
+> > +	vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code);
+> > +	kvm_arch_vm_finalize_vcpus(vm);
+> > +
+> > +	while (true) {
+> > +		vcpu_run(vcpu);
+> > +
+> > +		switch (get_ucall(vcpu, &uc)) {
+> > +		case UCALL_SYNC:
+> > +			if (uc.args[0] == XLATE2GPA) {
+> > +				gpa = addr_gva2gpa(vm, (vm_vaddr_t)uc.args[1]);
+> > +				vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TPIDR_EL2), gpa);
+> > +			}
+> > +			break;
+> > +		case UCALL_PRINTF:
+> > +			pr_info("%s", uc.buffer);
+> > +			break;
+> > +		case UCALL_DONE:
+> > +			pr_info("DONE!\n");
+> > +			goto end;
+> > +		case UCALL_ABORT:
+> > +			REPORT_GUEST_ASSERT(uc);
+> > +			fallthrough;
+> > +		default:
+> > +			TEST_FAIL("Unhandled ucall: %ld\n", uc.cmd);
+> > +		}
+> > +	}
+> > +
+> > +end:
+> > +	kvm_vm_free(vm);
+> > +	return 0;
+> > +}
+> > -- 
+> > 2.43.0
+> > 
 
