@@ -4,75 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B9E1EBFD16
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 08:19:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAAD1EBFD16
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 08:22:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YIdYpFbPqSqa+u+cU5dz39tKUt9/tNGlnr2A4nJKPQc=; b=c5Xb8VNJcuX5spr4v5PvtJldXr
-	ieK9vBsN9KcuBPiBiYVMOjpwnRJq6BZKg+8ccjBxRXZh8NXyu7Ll2SkGqcSv6iyBN0lweSYYKmh2t
-	cFnd96ig/cfFy0N+aoIIzBLjJcnyyTBL9MVYIc0YRlVKMHxoXmG6Yae3hjqJsSlaDAyXgn9cTSmZQ
-	L8+eY66LW4fQBXUItAT4nHjkCh55ZhN6pGl44jBmx1OWCKYxJvrvIIVpHO57scQgJozBQQ+rplIWG
-	pEBdgaWY8Ir0yed3bYSMXSkUwp6Cn6LJJ2kYOJDmXJBouOe/cqnVgw0KB4/yyQmnuAYH05lGO+ZY3
-	wCYZBmow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZPSKK65EgPR4ue03a29l8i4azjlHc7Tl0VaisQsiQ2c=; b=e4jrqQV7onyrZjjOQRXMRCMvWI
+	+4NTGQjFEAxE+Yg4/Hz87RopIQTXDq8CjurYBu5cUVdyxjIZ1I+r4WUEWJ0ivTCTXnG9OnJMyG7O2
+	sUf509B8xtZZntI+OWUEnHcczB6361AXPoraom66LRPLLhtkbTTafzXOGbjXcbSl1CKbi3PIWd7b8
+	S+9roGoF8S4U+3qCNm3TfEd+JsbM5arXCPVl2B5BTgHB0TT45vLiBn4CSEyPnvSbtwl8zM3bZbvka
+	aWoN28rc1gAMdervVkltewcFA4fAL/oJ2XyAl+o9Fr8SPMrvn2Hqz9JDMYwWDGJW2qhEnIYlNcwJH
+	W0iyIi+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCCWD-0000000FFoX-24aD;
-	Mon, 13 Apr 2026 08:19:41 +0000
-Received: from www3579.sakura.ne.jp ([49.212.243.89])
+	id 1wCCYd-0000000FG7r-17Vc;
+	Mon, 13 Apr 2026 08:22:11 +0000
+Received: from mail-japaneastazon11023134.outbound.protection.outlook.com ([52.101.127.134] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCCWA-0000000FFnm-3m92
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 08:19:40 +0000
-Received: from [133.11.54.205] (h205.csg.ci.i.u-tokyo.ac.jp [133.11.54.205])
-	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 63D8J8cC090058
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Mon, 13 Apr 2026 17:19:08 +0900 (JST)
-	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=YIdYpFbPqSqa+u+cU5dz39tKUt9/tNGlnr2A4nJKPQc=;
-        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
-        h=From:Message-ID:To:Subject:Date;
-        s=rs20250326; t=1776068348; v=1;
-        b=N/78aSf7BKLE/mhBIYGN+F/5dKx6SwzbvqrDHIasYyVw/aKVfhhmFa0CfwiWT9Vq
-         5C7XQrFOXxEUuS9Fl6Q8apVejmFUaBu5cFFWM2omcvnQpaOAvCa8nsHh1sglVrQO
-         FA6whf71D/7H5pECjdIdm8onyW0668ZqGcflfz1mXGxqeY0C6YQDbQCDb1B1ycj1
-         ds6/XeJfSOHn3GcnpzFsp3iFc6UPezdvPp0byfSxOcZWxfafupy8qgwv5yjLtcA5
-         DsisRNRwyv7RsLZ4KUIcOmy1+xWsnR++aS+M+R6skoaujXWXwlP2coNfL8UKQBsb
-         r7m3rQXqqlkwk3qM47PXhw==
-Message-ID: <0ea0ac1a-12dd-4b62-956f-fb6ee64cc8da@rsg.ci.i.u-tokyo.ac.jp>
-Date: Mon, 13 Apr 2026 17:19:07 +0900
-MIME-Version: 1.0
+	id 1wCCYZ-0000000FG5j-4B9j;
+	Mon, 13 Apr 2026 08:22:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Vmr7ZtrmcwAeDSrIrIs6BHf27j2S/+RG2iZLghAsiuKuwYoUWXXYV52BEwjhBjl4uDiILTwciGOdoDQBDowIJ/Nlsf7avwCAKA6A/9XvBIcKGK6vYOyMh3GMmgyM7lvQX435U6gFmHtjjd2Ljt7VT+i5u8krg5+2j61wzlyBp8y6hKyLcxSGjvX10sOl3/dJzobf0Xwn68QQBWYd67ZpvDtiCV/nHocop1q6R7SueZ8CZuuznrCs4Qjucpm4+JwxylWgufmK0ScQZHI9G5QN7JMfKeMiYloavNxysTKL1CWDVPZKwDcis0Fam3QAqg99lSQdlEhyhkUMcrvalmbF3w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZPSKK65EgPR4ue03a29l8i4azjlHc7Tl0VaisQsiQ2c=;
+ b=kVhEJMhuT05ItHla9FVln7A8P3IiSHt0XiMlrU4XIcLTxE+FJzwMVgDwUVRlI4sgNJgaUVEzxbX2fyxLtVmQHNQh6jvkqa70CrZG9MKX7AXc/lLZ7jJLVRw7Cudu53CkBZZS7ZteieJLTbRQ+kS8On6o4QacDqj6G8GoYd8s3mV5f604WIoY+IBAITNKZz9PPLGAGdx2vEpLXInggDd5urIjnnCGitkWZPkmolSZF/zUHAo3W0SVUf0X8hGq1AfBZ2zg90TaCXDrkiENIU3tL+KKOMXgyytxoM7XJcsaBPuDPYgHc5ni4wUWg3tMZaOeXWRfG8KJonDSi3SqYEaFEQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZPSKK65EgPR4ue03a29l8i4azjlHc7Tl0VaisQsiQ2c=;
+ b=LqzDhGB9BjQjunrNvj2dSJvdZjzMygeTPe8gbnZWLaXo9QkeVemyC+kSFVyJMGTdK5oWtNv6h/jYLNndDF6bKLGSuVASYUXizSFalSzAgVLWBB6/1tVlhuGd16MsAqgcJOTXU7mJ9CWafHRx2/5jB4V6IwfEECR0ibSLr10Cl93dR6misyVIn5vLLzKeZyDm8IKzHVXHzyAa1kRshQshgYLhXRoo9apEGxEWvtSeJV426/PAt2NQM8/Mon8mdglvLuTGMI/iSQjXltE1iP8izbOiQu/yet1IIXh3WQzlgsoGk7EezSZVnTIv6gSUpJgzkwxrgUu3ODpvC4rpymXaxA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
+ by SEZPR03MB7073.apcprd03.prod.outlook.com (2603:1096:101:ed::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Mon, 13 Apr
+ 2026 08:21:57 +0000
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::2f06:12a:fff0:6506]) by KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::2f06:12a:fff0:6506%5]) with mapi id 15.20.9769.046; Mon, 13 Apr 2026
+ 08:21:57 +0000
+Message-ID: <274d2abd-05b9-4dbd-b962-ff70044b8d07@amlogic.com>
+Date: Mon, 13 Apr 2026 16:21:53 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/4] KVM: arm64: selftests: Test
- PMU_V3_FIXED_COUNTERS_ONLY
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-        Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>,
-        Catalin Marinas
- <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <shuah@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-        linux-kselftest@vger.kernel.org
-References: <20260413-hybrid-v6-0-e79d760f7f1b@rsg.ci.i.u-tokyo.ac.jp>
- <20260413-hybrid-v6-4-e79d760f7f1b@rsg.ci.i.u-tokyo.ac.jp>
-Content-Language: en-US
-From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <20260413-hybrid-v6-4-e79d760f7f1b@rsg.ci.i.u-tokyo.ac.jp>
+Subject: Re: [PATCH 2/4] soc: amlogic: clk-measure: Add A1 and T7 support
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ robh+dt <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>
+Cc: devicetree <devicetree@vger.kernel.org>,
+ linux-amlogic <linux-amlogic@lists.infradead.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+References: <20260410100329.3167482-1-jian.hu@amlogic.com>
+ <20260410100329.3167482-3-jian.hu@amlogic.com>
+ <9a4f69e7-838a-4992-af1d-46324e14eb48@kernel.org>
+From: Jian Hu <jian.hu@amlogic.com>
+In-Reply-To: <9a4f69e7-838a-4992-af1d-46324e14eb48@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SE2P216CA0173.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:2ca::9) To KL1PR03MB7149.apcprd03.prod.outlook.com
+ (2603:1096:820:ca::7)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR03MB7149:EE_|SEZPR03MB7073:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2b211da9-dfd7-4148-fa0a-08de9935ba55
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: h8iBua1Q6QeU9DWSaQZAq3JkXzEuJvpqctiqZoq4km7RXe1LomlPIH5Az451UGqY7nK+i9zcUVedtoOGsq3sZEO+f3FQGu/OL7elBDLY1yRUgJELBoUN77uFGGqrnSFrbB9uNwj0ueXE3OrSta6Z/0Hp/Mq+aBuNQQc0EYfzCKNJWIOE1LA/a6vWO76aCO0T7jJYvyUKFKHLGepuwkMQIdCAzRIZLfdARVXU9EsXVz8U3oZ93IPlnZ1Y3hkFdMXGxEs9BWLHlGnZSHwTVdhCF8MvLw++ogCTs/KEAAfqxmYkIdKIARhjCfMbtOdAo4/hgRJosg9kG8wWwhpjcqMe7cBHy+GINZI4a3CaoE13H5hR3ZvRdFYOI1fx/IR0jGEPguY5sUX91ZKSVSY45O3DRF44MsC03Cus8PzG4gWeHC+aeixFid88LUKbAIf5WVWGMp1zIxPLLg9jPuvHUhi0UKtRGpsPfnlOBvwESERh7g1ZxIa0huPKV4mW6nCWx3xAvO8DbyShd+Lu82dwYXTQV//vSTcE7eJUVzuzEqeVy8yFWPQAiPMs2Qg/g+0So6anWHU+d3WdHVc0xVIvfSm2jOvUaxbIvhEeW+7yckkcMoPb/Yt06Y7YMRyqT8RCFZuhAHDS9kDCt5+iiffcZYMOwV2tSaRNegBdxz47Hb5p0Bq8FBohAYx0FfXF16zBBoK+
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7149.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UWhSRmFzZjBHam9kY0Q0VU95anQ5TXVjTkFrNC9PMEM5b0NheG5aaTNSYTRu?=
+ =?utf-8?B?Nk1HRDBMVVZRaVhDVFlBQkUxeDVyVXgvK2hMOWljbEtyd1pJN3hrQjZjZktx?=
+ =?utf-8?B?QnkrM01uQjRnNktIZ2loem9XRFd4d0VYczVOa0toNWRLWGJoRWFhZDVDMVU5?=
+ =?utf-8?B?NkhUNmZoallRaUk5NUZORUFmdDd2d3ljYzVpc2JtVnhTS0sydXR2K1lCdnU4?=
+ =?utf-8?B?cVF1MVAxeHE0ZmJBQThBWVZ3ckhmWFMvckovRndpUzNZd2I3TE5sL3EwcFEv?=
+ =?utf-8?B?SFFQSGRTRzBNVGJqVzN3dWJVNmFURUxHQkZxL2dnU2VVdkd0bVgwaHJPWlZv?=
+ =?utf-8?B?OGxiRXFZMkN6ZDZCckZoQURPZ2ZWWmZzV3hUeTZEai9ydy85UDhhdHk5TWNB?=
+ =?utf-8?B?NW9ZUFJ4dEhVbGo1QXo0OS8vQkc2Z1l2MnVWTXB3eGoyTFRqWFM1VTRISHF1?=
+ =?utf-8?B?QzBua3BxZGxTTkcyNWxZejB5RGwvZkJpMUNXbDlWMlhPUm9TSzlVaFJPWVRu?=
+ =?utf-8?B?TkhucjRoYURUVnFLMmZQa2pZRFpvMG5KczVKdlRmYVNFVnN3VDRmT29oRGFX?=
+ =?utf-8?B?VXJJdmNEbjlsbDdPUDhTT1kzZGEwNnFYcnVjNGw3TXRtWU1yWHF6Sm1ZamJF?=
+ =?utf-8?B?V2pIUzdZYlJJc29FcWFQeElGVzc3YXJTT0xGRGNQZVJ5VWVDQURGUWk2QmZG?=
+ =?utf-8?B?K20wM3hyYm45Y3BOV1UyaTgxS1BaYkVrTnc5eVJXVG85TWRhZGlVR1NoVzIr?=
+ =?utf-8?B?NTF4dysvQ0R5N3MrSzNibU5DVFhUdGoyT0xVdEFkUTdTRlZBaGx3QzZ3QUc2?=
+ =?utf-8?B?RElJS2ZIU0RVc2cwdDVxT25CRkJhN1J4OGZ6Q1hBdUNCaGZ3ZXJHUnRRdXVZ?=
+ =?utf-8?B?NU1mak9PaWRjdktHTkpFWWFCK3JxdTV5TkNVN0piVC9BYTRMWHlSellFMjNS?=
+ =?utf-8?B?NWg4STgvbHp6eVFkVjhmemhJaTQxSjNzYSsxUnZ0bHVwVkUxbGhKSFpEZG5O?=
+ =?utf-8?B?eGhxWGNVTXF3Q1RFUThpVFhyUDdCb2thdUY1cFdLcDhNeGtWME85YmtLc29J?=
+ =?utf-8?B?STFEVW5sRWpTUnM4R0hJYzc3UjY3UHZCWXZ0M1hmbnplYjhjZUdESWVMeDRS?=
+ =?utf-8?B?SXBDT3ZaQkNMWEJ0alBlWTExTkZNclJ0Z0lZVDdURWhrTHpzdXdZbklHSWlG?=
+ =?utf-8?B?ZTRiY25DVHRpVkhTZ2RTS1F1ZlBFQTRhR1pUQllQcXpDc3l1ejlIZC9PYngy?=
+ =?utf-8?B?MHRpQkdVOGx4bFBFUStkVmJZQWRXbnhPRUZDdW1MYXJ1VmhsQUV1SlJQdEV0?=
+ =?utf-8?B?R1FKMUIvdmQ5Mm1VcElkWVhTOGlLN1lMWXhralYwV0JyV016amJaZXVwVmZp?=
+ =?utf-8?B?aTI1dm12T2Q0OHpVQ0tvenZOVHFEb01MTFpFdHpyR0JHaFJIc0JGWVpmN1pB?=
+ =?utf-8?B?VjJYeDlha2lCRXlkdlBhMnpwS0JrMDFDckNXbzdyUEhsZWppRldXWGUwMXlI?=
+ =?utf-8?B?dEdRVVJtUFN6N2RLTDZpWTJvTGZBTGRSaThZUmJBMVBZSEVCNGl1dGdpTWxX?=
+ =?utf-8?B?SkVWVzZKeGZDZnlhU0w1THhuNmRCTHE3M0Y5Ri9ZQTAwUWFFMkVhWkhvd1JW?=
+ =?utf-8?B?aXBQcnFTMlVEWGVlSjQyRDhVYm5FS1ZTbTV4OXhmVDZkaU1qRUkyeEliV3VC?=
+ =?utf-8?B?UUJtOGhIWUFqbllTMFBVYUg5NVlFZ1RlSk0zNGlENmV6Uk01WE9yb2VaQk5u?=
+ =?utf-8?B?U1pNTG5yTXZLREtMSmVRdTJZVG9aMGxaRjJ5TE9DMjZ0SU0wRVNza255Y1Jy?=
+ =?utf-8?B?Z1FJTGJ2NktibTIvSmtmaSsxOXBsTUFQem0rYkw4Wlo5dHV5NFNXZytjRDdk?=
+ =?utf-8?B?ZlZna3ZTd0tENUdSSWRYVjdkNkdZZDNvVHliZGVlRG5NUU1HaWEvOFF0cHhW?=
+ =?utf-8?B?VVRCVHNDSVJ5bFNNMHNZcnFZeUJJU2QweUlvZ1d6ZktIWTgvb2VjMjVqSDFJ?=
+ =?utf-8?B?QUkwTytzZk1hMkxvR0xheXdxRXdDR0IvUXZOQWhpVmVacWkyaVN0Q3BwZlZz?=
+ =?utf-8?B?OCtRTytjK0NWVmVqeEc2NkNRTWpvSjhKTjByYlJzdHNBMU1YdHNWbTN0eWR3?=
+ =?utf-8?B?OTVRbytBNmxZMEF3eWlqLzRNTzlCS0xMZkNJcVd0VnV5WkVTZ3NiSWs4VFhE?=
+ =?utf-8?B?VFp0M2Ftb1dwQldHZTIrV1ZaTFRnSFgwM2JUUEVqYXZ5a3ZCOHBRV3ZVVXpX?=
+ =?utf-8?B?a0ZDMXpMczl6cUdrZXVZWnFGUFRNd3Q3ckZRUlpXYmFteGVpM1crTGZuZ0Yv?=
+ =?utf-8?B?dnd6bGpTNGp6S2tXdnNvaVhJcFBJV2hJQm1HK1VSZWNyTUpOL3hLQT09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2b211da9-dfd7-4148-fa0a-08de9935ba55
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7149.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Apr 2026 08:21:57.3738
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0AdE6UANBZc+Jg3FgOKPU/zkAqGRwH02qaeBAbCQ+nCJNVgPRGHsguCn9Mbp2dgD9ub4oLfoZ/yRHVhuvRZxOA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB7073
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_011939_173856_4AFC5E6E 
-X-CRM114-Status: GOOD (  29.54  )
+X-CRM114-CacheID: sfid-20260413_012208_047577_090DFBFD 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,262 +153,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/04/13 17:07, Akihiko Odaki wrote:
-> Assert the following:
-> - KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY is unset at initialization.
-> - KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY can be set.
-> - Setting KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY for the first time
->    after setting an event filter results in EBUSY.
-> - KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY can be set again even if an
->    event filter has already been set.
-> - Setting KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY after running a VCPU
->    results in EBUSY.
-> - The existing test cases pass with
->    KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY set.
-> 
-> Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-> ---
->   .../selftests/kvm/arm64/vpmu_counter_access.c      | 147 +++++++++++++++++----
->   1 file changed, 123 insertions(+), 24 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-> index ae36325c022f..6e2bf3ad63b2 100644
-> --- a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-> +++ b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-> @@ -403,12 +403,7 @@ static void create_vpmu_vm(void *guest_code)
->   {
->   	struct kvm_vcpu_init init;
->   	uint8_t pmuver, ec;
-> -	uint64_t dfr0, irq = 23;
-> -	struct kvm_device_attr irq_attr = {
-> -		.group = KVM_ARM_VCPU_PMU_V3_CTRL,
-> -		.attr = KVM_ARM_VCPU_PMU_V3_IRQ,
-> -		.addr = (uint64_t)&irq,
-> -	};
-> +	uint64_t dfr0;
->   
->   	/* The test creates the vpmu_vm multiple times. Ensure a clean state */
->   	memset(&vpmu_vm, 0, sizeof(vpmu_vm));
-> @@ -434,8 +429,6 @@ static void create_vpmu_vm(void *guest_code)
->   	TEST_ASSERT(pmuver != ID_AA64DFR0_EL1_PMUVer_IMP_DEF &&
->   		    pmuver >= ID_AA64DFR0_EL1_PMUVer_IMP,
->   		    "Unexpected PMUVER (0x%x) on the vCPU with PMUv3", pmuver);
-> -
-> -	vcpu_ioctl(vpmu_vm.vcpu, KVM_SET_DEVICE_ATTR, &irq_attr);
->   }
->   
->   static void destroy_vpmu_vm(void)
-> @@ -461,15 +454,25 @@ static void run_vcpu(struct kvm_vcpu *vcpu, uint64_t pmcr_n)
->   	}
->   }
->   
-> -static void test_create_vpmu_vm_with_nr_counters(unsigned int nr_counters, bool expect_fail)
-> +static void test_create_vpmu_vm_with_nr_counters(unsigned int nr_counters,
-> +						 bool fixed_counters_only,
-> +						 bool expect_fail)
->   {
->   	struct kvm_vcpu *vcpu;
->   	unsigned int prev;
->   	int ret;
-> +	uint64_t irq = 23;
->   
->   	create_vpmu_vm(guest_code);
->   	vcpu = vpmu_vm.vcpu;
->   
-> +	if (fixed_counters_only)
-> +		vcpu_device_attr_set(vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-> +				     KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY, NULL);
-> +
-> +	vcpu_device_attr_set(vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-> +			     KVM_ARM_VCPU_PMU_V3_IRQ, &irq);
-> +
->   	prev = get_pmcr_n(vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0)));
->   
->   	ret = __vcpu_device_attr_set(vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-> @@ -489,15 +492,15 @@ static void test_create_vpmu_vm_with_nr_counters(unsigned int nr_counters, bool
->    * Create a guest with one vCPU, set the PMCR_EL0.N for the vCPU to @pmcr_n,
->    * and run the test.
->    */
-> -static void run_access_test(uint64_t pmcr_n)
-> +static void run_access_test(uint64_t pmcr_n, bool fixed_counters_only)
->   {
->   	uint64_t sp;
->   	struct kvm_vcpu *vcpu;
->   	struct kvm_vcpu_init init;
->   
-> -	pr_debug("Test with pmcr_n %lu\n", pmcr_n);
-> +	pr_debug("Test with pmcr_n %lu, fixed_counters_only %d\n", pmcr_n, fixed_counters_only);
->   
-> -	test_create_vpmu_vm_with_nr_counters(pmcr_n, false);
-> +	test_create_vpmu_vm_with_nr_counters(pmcr_n, fixed_counters_only, false);
->   	vcpu = vpmu_vm.vcpu;
->   
->   	/* Save the initial sp to restore them later to run the guest again */
-> @@ -531,14 +534,14 @@ static struct pmreg_sets validity_check_reg_sets[] = {
->    * Create a VM, and check if KVM handles the userspace accesses of
->    * the PMU register sets in @validity_check_reg_sets[] correctly.
->    */
-> -static void run_pmregs_validity_test(uint64_t pmcr_n)
-> +static void run_pmregs_validity_test(uint64_t pmcr_n, bool fixed_counters_only)
->   {
->   	int i;
->   	struct kvm_vcpu *vcpu;
->   	uint64_t set_reg_id, clr_reg_id, reg_val;
->   	uint64_t valid_counters_mask, max_counters_mask;
->   
-> -	test_create_vpmu_vm_with_nr_counters(pmcr_n, false);
-> +	test_create_vpmu_vm_with_nr_counters(pmcr_n, fixed_counters_only, false);
->   	vcpu = vpmu_vm.vcpu;
->   
->   	valid_counters_mask = get_counters_mask(pmcr_n);
-> @@ -588,11 +591,11 @@ static void run_pmregs_validity_test(uint64_t pmcr_n)
->    * the vCPU to @pmcr_n, which is larger than the host value.
->    * The attempt should fail as @pmcr_n is too big to set for the vCPU.
->    */
-> -static void run_error_test(uint64_t pmcr_n)
-> +static void run_error_test(uint64_t pmcr_n, bool fixed_counters_only)
->   {
->   	pr_debug("Error test with pmcr_n %lu (larger than the host)\n", pmcr_n);
->   
-> -	test_create_vpmu_vm_with_nr_counters(pmcr_n, true);
-> +	test_create_vpmu_vm_with_nr_counters(pmcr_n, fixed_counters_only, true);
->   	destroy_vpmu_vm();
->   }
->   
-> @@ -622,22 +625,118 @@ static bool kvm_supports_nr_counters_attr(void)
->   	return supported;
->   }
->   
-> +static void test_config(uint64_t pmcr_n, bool fixed_counters_only)
-> +{
-> +	uint64_t i;
-> +
-> +	for (i = 0; i <= pmcr_n; i++) {
-> +		run_access_test(i, fixed_counters_only);
-> +		run_pmregs_validity_test(i, fixed_counters_only);
-> +	}
-> +
-> +	for (i = pmcr_n + 1; i < ARMV8_PMU_MAX_COUNTERS; i++)
-> +		run_error_test(i, fixed_counters_only);
-> +}
-> +
-> +static void test_fixed_counters_only(uint64_t pmcr_n)
-> +{
-> +	struct kvm_pmu_event_filter filter = { .nevents = 0 };
-> +	struct kvm_vm *vm;
-> +	struct kvm_vcpu *running_vcpu;
-> +	struct kvm_vcpu *stopped_vcpu;
-> +	struct kvm_vcpu_init init;
-> +	int ret;
-> +	uint64_t irq = 23;
-> +
-> +	create_vpmu_vm(guest_code);
-> +	ret = __vcpu_has_device_attr(vpmu_vm.vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-> +				     KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY);
-> +	if (ret) {
-> +		TEST_ASSERT(ret == -1 && errno == ENXIO,
-> +			    KVM_IOCTL_ERROR(KVM_HAS_DEVICE_ATTR, ret));
-> +		destroy_vpmu_vm();
-> +		return;
-> +	}
-> +
-> +	/* Assert that FIXED_COUNTERS_ONLY is unset at initialization. */
-> +	ret = __vcpu_device_attr_get(vpmu_vm.vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-> +				     KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY, NULL);
-> +	TEST_ASSERT(ret == -1 && errno == ENXIO,
-> +		    KVM_IOCTL_ERROR(KVM_GET_DEVICE_ATTR, ret));
-> +
-> +	/* Assert that setting FIXED_COUNTERS_ONLY succeeds. */
-> +	vcpu_device_attr_set(vpmu_vm.vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-> +			     KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY, NULL);
-> +
-> +	/* Assert that getting FIXED_COUNTERS_ONLY succeeds. */
-> +	vcpu_device_attr_get(vpmu_vm.vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-> +			     KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY, NULL);
-> +
-> +	/*
-> +	 * Assert that setting FIXED_COUNTERS_ONLY again succeeds even if an
-> +	 * event filter has already been set.
-> +	 */
-> +	vcpu_device_attr_set(vpmu_vm.vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-> +			     KVM_ARM_VCPU_PMU_V3_FILTER, &filter);
-> +
-> +	vcpu_device_attr_set(vpmu_vm.vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-> +			     KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY, NULL);
-> +
-> +	destroy_vpmu_vm();
-> +
-> +	create_vpmu_vm(guest_code);
-> +
-> +	/*
-> +	 * Assert that setting FIXED_COUNTERS_ONLY results in EBUSY if an event
-> +	 * filter has already been set while FIXED_COUNTERS_ONLY has not.
-> +	 */
-> +	vcpu_device_attr_set(vpmu_vm.vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-> +			     KVM_ARM_VCPU_PMU_V3_FILTER, &filter);
-> +
-> +	ret = __vcpu_device_attr_set(vpmu_vm.vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-> +				     KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY, NULL);
-> +	TEST_ASSERT(ret == -1 && errno == EBUSY,
-> +		    KVM_IOCTL_ERROR(KVM_SET_DEVICE_ATTR, ret));
-> +
-> +	destroy_vpmu_vm();
-> +
-> +	/*
-> +	 * Assert that setting FIXED_COUNTERS_ONLY after running a VCPU results
-> +	 * in EBUSY.
-> +	 */
-> +	vm = vm_create(2);
-> +	vm_ioctl(vm, KVM_ARM_PREFERRED_TARGET, &init);
-> +	init.features[0] |= (1 << KVM_ARM_VCPU_PMU_V3);
-> +	running_vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code);
-> +	stopped_vcpu = aarch64_vcpu_add(vm, 1, &init, guest_code);
-> +	kvm_arch_vm_finalize_vcpus(vm);
-> +	vcpu_device_attr_set(running_vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-> +			     KVM_ARM_VCPU_PMU_V3_IRQ, &irq);
-> +	vcpu_device_attr_set(running_vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-> +			     KVM_ARM_VCPU_PMU_V3_INIT, NULL);
-> +	run_vcpu(running_vcpu, pmcr_n);
 
-Sorry, I sent a series before testing by mistake. This hangs the test 
-and I'll send a fix later. Anything else is fine and ready for review.
+On 4/12/2026 5:55 PM, Krzysztof Kozlowski wrote:
+> [ EXTERNAL EMAIL ]
+>
+> On 10/04/2026 12:03, Jian Hu wrote:
+>> Add support for the A1 and T7 SoC family in amlogic clk measure.
+>>
+>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+>> ---
+>>   drivers/soc/amlogic/meson-clk-measure.c | 272 ++++++++++++++++++++++++
+>>   1 file changed, 272 insertions(+)
+>>
+>> diff --git a/drivers/soc/amlogic/meson-clk-measure.c b/drivers/soc/amlogic/meson-clk-measure.c
+>> index d862e30a244e..083524671b76 100644
+>> --- a/drivers/soc/amlogic/meson-clk-measure.c
+>> +++ b/drivers/soc/amlogic/meson-clk-measure.c
+>> @@ -787,6 +787,258 @@ static const struct meson_msr_id clk_msr_s4[] = {
+>>
+>>   };
+>>
+>> +static struct meson_msr_id clk_msr_a1[] = {
+> And existing code uses what sort of array? Seems you send us obsolete or
+> downstream code.
 
-Regards,
-Akihiko Odaki
 
-> +
-> +	ret = __vcpu_device_attr_set(stopped_vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-> +				     KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY, NULL);
-> +	TEST_ASSERT(ret == -1 && errno == EBUSY,
-> +		    KVM_IOCTL_ERROR(KVM_SET_DEVICE_ATTR, ret));
-> +
-> +	kvm_vm_free(vm);
-> +
-> +	test_config(0, true);
-> +}
-> +
->   int main(void)
->   {
-> -	uint64_t i, pmcr_n;
-> +	uint64_t pmcr_n;
->   
->   	TEST_REQUIRE(kvm_has_cap(KVM_CAP_ARM_PMU_V3));
->   	TEST_REQUIRE(kvm_supports_vgic_v3());
->   	TEST_REQUIRE(kvm_supports_nr_counters_attr());
->   
->   	pmcr_n = get_pmcr_n_limit();
-> -	for (i = 0; i <= pmcr_n; i++) {
-> -		run_access_test(i);
-> -		run_pmregs_validity_test(i);
-> -	}
-> -
-> -	for (i = pmcr_n + 1; i < ARMV8_PMU_MAX_COUNTERS; i++)
-> -		run_error_test(i);
-> +	test_config(pmcr_n, false);
-> +	test_fixed_counters_only(pmcr_n);
->   
->   	return 0;
->   }
-> 
+Thanks for your review.
 
+
+I have checked the previous Amlogic SoC's commits. Such as Amlogic AXG, 
+G12A, C3, S4.
+
+The clk_msr_xx entry is added after last SoC's array, sorted by 
+submissin date rather than alphabetical order.
+
+So I place A1 and T7 after S4 accordingly.
+
+
+The A1 clock controller driver was already supported in 
+https://lore.kernel.org/all/20230523135351.19133-7-ddrokosov@sberdevices.ru/
+
+It is also present in the mainline kernel: 
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/clk/meson/Kconfig#n113
+
+
+This clock measure IP is used to measure the internal clock paths 
+frequencies,  and A1 clock controller driver was supported.
+
+Since the corresponding clock measure driver does not support A1 yet, So 
+add A1 clk msr here.
+
+
+>
+> Best regards,
+> Krzysztof
 
