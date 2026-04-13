@@ -4,81 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BF46EBFD2D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 09:57:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5F69EBFD30
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 10:03:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mVVdXbB6YFbogHcED9JQf+metfl9LxIdePoajPfcT4A=; b=uD0ZXn4KAKOrAE9BljKcBvZjom
-	PiDTXu0n0ZAUmArE8mDcwAVgbkpI/w7qS1/xJsrIIOyADi9jfXICBn0H1UDnrsqTAIBmFUZZd+KrF
-	OgQTubMfSBhthpiOyeaTnEDZbnRzSCgN/Dr+tcdXmZdW75/EieVUPE50fu6vmmxcOZ7s7PazAoRzL
-	lOiOQY/Op87HEeyxK129Ymd+1X9W7NocV6lLBkXzG6HQbvdt2u+yM0qngmWYWc7Jxr5ayMXyXsEiD
-	JRC0pKdrPcAJs9XhCc4Ub1JQCBXBWpK4pWx63SQQazdCglLztTfNGWZUsy5fls/t7fMotSsM+4EW3
-	+tgMwZ0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q+jPXobqJkWViI7fPVcLHzAx+nNikvv2KnjSxfNKdqA=; b=44iIxANJzT3YUNVauuAPUwOFBO
+	8H+fk+xdv0n2eu7ocfSuRI4ynBBwiLgw1P53qM+9Cp4vKT/QBlbjoKhuArxvrQS/i0FPKb2aliiOn
+	vM+5xZUD2RyhcmWde1rKBIU3J/hEvXvoE3cRzoO+jVg1L/HEVJj3xqQ3MeRZ2XHxUqjV77EXysLzg
+	MaxTgvfXSRHr2wX/C3Hp4ETkyQvQ/VuUffPxKHVc+ADXtV1a4OFdZJpS6jFBiNO4PSvbq5lqzXRKT
+	ANpF0NBlyZomizgBQs79bnLhbkXazAbula/VslY0dsgyrTkgMJWmGZDYg9NS6FOKoxEq1RcJaESct
+	G2nVTxFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCE2Y-0000000FOpm-3pDT;
-	Mon, 13 Apr 2026 09:57:10 +0000
-Received: from smtpbguseast1.qq.com ([54.204.34.129])
+	id 1wCE90-0000000FPEm-0mNJ;
+	Mon, 13 Apr 2026 10:03:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCE2V-0000000FOo1-2H4C
+	id 1wCE8z-0000000FPEZ-1SKa
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 13 Apr 2026 10:03:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=q+jPXobqJkWViI7fPVcLHzAx+nNikvv2KnjSxfNKdqA=; b=MYWS+NltUHeWpRooyKNHa6ql07
+	XvuFHLbt9zJZ7WMqpFSS5hF4xsgFwN34v+jlkgafQfcSP/BoflL9vUH4+Jc+pSLZeQjKrTOus1I9q
+	dgiIpechy38+rsdn1UsCm6TtoqZ9KJ2XZQ1+MD6RYQU6Op9SSb+azpiopgj03GYQBMpxrnLBGAqQJ
+	kFMeHRaUO9zpRAU4dBhuFx8WOIZG4wYBh7t/pJ9APWL4mdiBYeyH6GkQ8QhGqlYghN4PrJefqKf11
+	BYbHlE81klUAaTjRvNmfFarL1mqHwAwjASW87f2aODM65iu/QkWAJKQmgMDCSc4zGDeqiSDiwj87W
+	U3zqQ1lA==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCE8v-0000000GXcy-3uu9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 09:57:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1776074184;
-	bh=mVVdXbB6YFbogHcED9JQf+metfl9LxIdePoajPfcT4A=;
-	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=XCvVBp5sasXx3jIiZKm2s6tyOZqTu57WxqEWHi24GT5EznYKy0D1HAnV9uvVfJVog
-	 kBR14GygROlJH6ttrHCaxW/0u7zOFIF61fCMStBNeeQRNAIekbQudszXWlQIY9lc1j
-	 6PtguoUXpoiRAoerUGPYwpTXUaLxdmvL6gsAX8/Q=
-X-QQ-mid: zesmtpip3t1776074166t4d35053d
-X-QQ-Originating-IP: OpJz0VuGHnoZKqstHD3DOHEdrfEkDti3o0+O4jdd0ho=
-Received: from localhost.localdomain ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 13 Apr 2026 17:56:04 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 9950462555277513804
-EX-QQ-RecipientCnt: 6
-From: Wentao Guan <guanwentao@uniontech.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	hello@peppergray.xyz,
-	linux-kernel@vger.kernel.org,
-	Wentao Guan <guanwentao@uniontech.com>
-Subject: [PATCH RFC] arm64/scs: Fix potential sign extension issue of advance_loc4
-Date: Mon, 13 Apr 2026 17:54:59 +0800
-Message-Id: <20260413095459.2470584-1-guanwentao@uniontech.com>
-X-Mailer: git-send-email 2.30.2
+	Mon, 13 Apr 2026 10:03:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 74E1935A7;
+	Mon, 13 Apr 2026 03:03:37 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A6FF93F641;
+	Mon, 13 Apr 2026 03:03:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776074623; bh=+WaVpOKRK+c+itVGcTa/pCcJblWYON1rar2wLjXPz1o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IXjv3UuMd85iVJ0wKfIAOskwb4linlNWUTK9e6jYgaPazUtzzNW7YpexoWr/YL74b
+	 zFSySfUpK4ZxqUA/DNJTUHCQKhyrZWx8f9ZP3XSPFlOOd3VkP8I52Dec0fp7SbCZyt
+	 s24seek5kKSsBBXK6pLbVlEmVC6g5HUdbIt18aYk=
+Date: Mon, 13 Apr 2026 11:03:39 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
+	mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, leo.yan@arm.com
+Subject: Re: [PATCH v3 1/5] coresight: etm4x: introduce struct etm4_caps
+Message-ID: <ady/e9JYmr3ypNBQ@e129823.arm.com>
+References: <20260412175506.412301-1-yeoreum.yun@arm.com>
+ <20260412175506.412301-2-yeoreum.yun@arm.com>
+ <6ed0ee60-caa2-4a76-9e01-5d2b8c9af701@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpip:uniontech.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: MFZ9kh0LMtuHaoRA+4WTHtc7uCO2fKFVaSPzsvnko9FqJTsSXZ0VXx4v
-	VjVFylbRAiJsbb09psBTSKsiopwcCMS1ZkHroUNQA6byo0OwuCwJv+8/hsJ9X0NlEisjfjf
-	oDrmaD3omOiIAbiRVolHfv/Iq4m5OG6t5d5epnPPChlcyespKbFOMo6jI4BlyF3FdfzFd3C
-	q1HAOAF5at6bvnKa5YLFThERJMfPoAKE58gGeoo7qdVQwIw69DIFQ6wFRZAGJSwJ8ylbR7a
-	gliLmoU4GoobPdtgkdMJkzimIumFe6n9CCQJUFw9erzt8DgbMs7pXgeDJN8yambBByDe6tU
-	FUAonk8w5XiBn9P1aOWnpSFapmzYxBC1uayXHKKtMVPY2wH+LXokfcSvdRpq9RcI/ctwUz4
-	89a01XLFUQr5cyjQjjv96TN38JvoQenJNqwfyj6GqG0DqJMGVfM66IoNohCfLOc1MoNHB2k
-	vMRKnhFKVAsMDR5DM1Wf8UuovV5VNb14p3fkaFJlyCPxq3cgMPFHosVWPebvZKRXM/Ja1Ov
-	A6u/r2Kv2yl4D+mR/B8DVxs0AXBIoaZB+/g4dKF3C9W3wRaM/Tk2gXih0bUOxmOcjovnfeF
-	KJcYVMjdLs2aPZdLjk5WMYAj3xjvwnY1keQPYn3pN9+dlLRPMMwNT9VY+KDyTyDwJWwfaU6
-	joFndMmMj1xxONpikj6kpozE4EOE2O5+OhOEDW8ctbd5VZy+xx57fHY1gg+o79hTUZqBEkK
-	m9ow5e/KjVo1QMhZbv3WCakEbrIjrqzQt2z246hXta9OvyEYxdpqJqC9CLt2CZSjw7lRFbD
-	a8lUI43rK4gBKhXm7CLUuXG2M9lHHR1RdTvO81sRGIh3YxIDtpFTN46rVAE02AIcg5MJJfg
-	4yCvKsgPU7gW7+BB/bLgvVM3lHNOdkNeNrrQc64e9Dh0iDYRk018vAKl5i1MPY+n62j4tgX
-	DFjkhHl9NijmFznwhFZmYZMFi8sU0aoxpJCHRCUqFhHGWRzYByJ/mldx6RDOikTdoBSnXBv
-	ULQc1t6VDWE/XMkt1ksyoo85lR2NvZ5vgoeEDmtps9MD3r6sCmqvkuoimyQ1Y=
-X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
-X-QQ-RECHKSPAM: 0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <6ed0ee60-caa2-4a76-9e01-5d2b8c9af701@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_025708_328552_49654B06 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20260413_110346_327880_08D113F3 
+X-CRM114-Status: GOOD (  22.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,40 +87,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The expression (*opcode++ << 24) and exp * code_alignment_factor
-may overflow signed int and becomes negative.
+Hi Jie,
+>
+> Hi Yeoreum,
+>
+> On 4/13/2026 1:55 AM, Yeoreum Yun wrote:
+> > introduce struct etm4_caps to describe ETMv4 capabilities
+> > and move capabilities information into it.
+> >
+> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> > ---
+> >   .../coresight/coresight-etm4x-core.c          | 234 +++++++++---------
+> >   .../coresight/coresight-etm4x-sysfs.c         | 190 ++++++++------
+> >   drivers/hwtracing/coresight/coresight-etm4x.h | 175 ++++++-------
+> >   3 files changed, 327 insertions(+), 272 deletions(-)
+> >
+> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > index d565a73f0042..6443f3717b37 100644
+> > --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+>
+> <...>
+>
+> > +/**
+> > + * struct etmv4_caps - specifics ETM capabilities
+> > + * @nr_pe:	The number of processing entity available for tracing.
+> > + * @nr_pe_cmp:	The number of processing entity comparator inputs that are
+> > + *		available for tracing.
+> > + * @nr_addr_cmp:Number of pairs of address comparators available
+> > + *		as found in ETMIDR4 0-3.
+> > + * @nr_cntr:    Number of counters as found in ETMIDR5 bit 28-30.
+> > + * @nr_ext_inp: Number of external input.
+> > + * @numcidc:	Number of contextID comparators.
+>
+> @numextinsel:
+>
+> > + * @numvmidc:	Number of VMID comparators.
+> > + * @nrseqstate: The number of sequencer states that are implemented.
+> > + * @nr_event:	Indicates how many events the trace unit support.
+> > + * @nr_resource:The number of resource selection pairs available for tracing.
+> > + * @nr_ss_cmp:	Number of single-shot comparator controls that are available.
+> > + * @trcid_size: Indicates the trace ID width.
+> > + * @ts_size:	Global timestamp size field.
+> > + * @ctxid_size:	Size of the context ID field to consider.
+> > + * @vmid_size:	Size of the VM ID comparator to consider.
+> > + * @ccsize:	Indicates the size of the cycle counter in bits.
+> > + * @ccitmin:	minimum value that can be programmed in
+> > + * @s_ex_level:	In secure state, indicates whether instruction tracing is
+> > + *		supported for the corresponding Exception level.
+> > + * @ns_ex_level:In non-secure state, indicates whether instruction tracing is
+> > + *		supported for the corresponding Exception level.
+> > + * @q_support:	Q element support characteristics.
+> > + * @os_lock_model: OSLock model.
+> > + * @instrp0:	Tracing of load and store instructions
+> > + *		as P0 elements is supported.
+> > + * @q_filt:	Q element filtering support, if Q elements are supported.
+> > + * @trcbb:	Indicates if the trace unit supports branch broadcast tracing.
+> > + * @trccond:	If the trace unit supports conditional
+> > + *		instruction tracing.
+> > + * @retstack:	Indicates if the implementation supports a return stack.
+> > + * @trccci:	Indicates if the trace unit supports cycle counting
+> > + *		for instruction.
+> > + * @trc_error:	Whether a trace unit can trace a system
+> > + *		error exception.
+> > + * @syncpr:	Indicates if an implementation has a fixed
+> > + *		synchronization period.
+> > + * @stallctl:	If functionality that prevents trace unit buffer overflows
+> > + *		is available.
+> > + * @sysstall:	Does the system support stall control of the PE?
+> > + * @nooverflow:	Indicate if overflow prevention is supported.
+> > + * @atbtrig:	If the implementation can support ATB triggers
+> > + * @lpoverride:	If the implementation can support low-power state over.
+> > + * @skip_power_up: Indicates if an implementation can skip powering up
+> > + *		   the trace unit.
+> > + */
+> > +struct etmv4_caps {
+> > +	u8	nr_pe;
+> > +	u8	nr_pe_cmp;
+> > +	u8	nr_addr_cmp;
+> > +	u8	nr_cntr;
+> > +	u8	nr_ext_inp;
+> > +	u8	numcidc;
+> > +	u8	numextinsel;
+>
+> missed kernel_doc.
+>
+> Thanks,
+> Jie
 
-Fix this by casting each byte to u64 before shifting. Also fix
-the misaligned break statement while we are here.
+Thanks. I'll add comment for numextinsel.
 
-Example of the result can be seen here:
-Link: https://godbolt.org/z/zhY8d3595
-
-It maybe not a real problem, but could be a issue in future.
-
-Fixes: d499e9627d70 ("arm64/scs: Fix handling of advance_loc4")
-Signed-off-by: Wentao Guan <guanwentao@uniontech.com>
----
- arch/arm64/kernel/pi/patch-scs.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/kernel/pi/patch-scs.c b/arch/arm64/kernel/pi/patch-scs.c
-index dac568e4a54f2..3944ad899021c 100644
---- a/arch/arm64/kernel/pi/patch-scs.c
-+++ b/arch/arm64/kernel/pi/patch-scs.c
-@@ -196,9 +196,9 @@ static int scs_handle_fde_frame(const struct eh_frame *frame,
- 			loc += *opcode++ * code_alignment_factor;
- 			loc += (*opcode++ << 8) * code_alignment_factor;
- 			loc += (*opcode++ << 16) * code_alignment_factor;
--			loc += (*opcode++ << 24) * code_alignment_factor;
-+			loc += ((u64)*opcode++ << 24) * code_alignment_factor;
- 			size -= 4;
--		break;
-+			break;
- 
- 		case DW_CFA_def_cfa:
- 		case DW_CFA_offset_extended:
--- 
-2.30.2
-
+--
+Sincerely,
+Yeoreum Yun
 
