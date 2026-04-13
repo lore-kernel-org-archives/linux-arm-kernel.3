@@ -4,77 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C0E2F34C65
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 16:56:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 927FCF34C65
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 16:58:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h2aM87LBp2ambqCZSnTPbSPCg4/IJ24tetHqkm6TuZ0=; b=Y1PYM4oMPx5pHQhe27hVLoankI
-	Liyt0YPNP9TgGgRYBEBAJmDGc6wBp1zi9vTZIulN8liSV/lhdtGwW2kN0mBMbqIO1pENT04RtZmOs
-	vFjcySqOAnqjePOzMzIhsDZ88Fjix3Z8z2+STPcgyG70kxq9Q0hy/lLDTogs6UPJ5T/yQBtE8LE38
-	5RxQ0+2wRIZUiHl2MFg1RNMDbfyNW3LIq0Cg8yWqmr+XHT5oPxcVi6rh93bqktM+5ePqP2y0p1O5T
-	kVeMUevMMr+qIP5Q2xb8gF8v3d8OY0mTB6WVTHtg0Vqc8kKvWG8OzPQmM6A98sNJgwXrtK4U6KYgA
-	znJF0EGw==;
+	bh=iXftkA/TtE/FAvx0eFBxkT/BsHoSgTPpPrjxa1Rt22Y=; b=z4/m1arr/tFzsGJGomXHFJH/jG
+	KC0ATp8qVEaBsN1W163pXHGkhEw/naYagLBg5lDMCJ6Yf9GepVjw9FJwoawhpW/BFVUvOlmwv981u
+	c7eFqxrtM0Vi4jortawi2YN6YuUJNhBJh/fEGv6E/Lg3XyCtqgTozMdMuyRyZUD61eQM7CtqNDcZP
+	YV7MYLLx/BuDy+EPy0QNU/4PtSayDsUyMRZVfr5AG27pWLqs4FU52MnhYYE301CAkIzmhJ2ulcOz7
+	lZxj888WPLrBShWDW6q0NcIVZg2KdjXEgC9qrIdwYmpInlh8zqh0FVoJOH2WAjncxXYB9na6uVPrs
+	KzktBkzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCKac-0000000G5kd-2DIH;
-	Mon, 13 Apr 2026 16:56:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wCKcD-0000000G6CQ-0vDO;
+	Mon, 13 Apr 2026 16:58:25 +0000
+Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCKab-0000000G5jg-0KBt
+	id 1wCKcA-0000000G6C5-25RS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 16:56:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DBEF56184F
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 16:56:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7DC8C2BCB0
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 16:56:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776099403;
-	bh=h2aM87LBp2ambqCZSnTPbSPCg4/IJ24tetHqkm6TuZ0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=A1/LSmdy8yQDvjhZ3UN23Bo1McCQ+BT+1wnSom64e8RPslCZBRZLZIP6DRRf0pIiu
-	 AYUhIYTPlTfs63sOgeuMTapnP+rp30KAelHN3fiI7E0FL9IIN4468pLK6etoZQqowd
-	 Brmmh/BJ2JTJLKuhww2KBw9Lqm+n57uNrYTJb7VSEd62ymZC4mvO1GHqDbQt1jKcNs
-	 gClElEadOplATXbg2ENOVpUiy0Eeo64gftDYX8vYoWNMVxk02iYF9WT0cI6nCOI4C4
-	 ftBfR9n2a7QwTBDniLN8evg6WYEqH/5xzu3IzSDok+J9OoT1JrU0gIeVjU5mbKJSbS
-	 N82p1DC4TX89g==
-Received: by mail-qv1-f44.google.com with SMTP id 6a1803df08f44-8acb856a674so5670476d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 09:56:43 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8n+pGfAwyrbo9WZNOFMByjrrW4TeCIgBY9dYV587ZGybmwRmnPcU/thaZZV278WDVd0TpYrFKk0xI0oX9TCjrm@lists.infradead.org
-X-Gm-Message-State: AOJu0YygiFbecgC472Q3ugilihMavm06nZ3fX48e4clDib3jrkB/oSt3
-	buOcwlIto8ekznxOEBc6/hjJ5pqUl/OKiIFtowxpRwk4jGFjYxXN6Rt6Sfh6K4hMWIGL2Zc0TkD
-	KXyp4ieSTF55VrdJB7tuOHl7aCHLYTjU=
-X-Received: by 2002:a05:6214:3307:b0:8ac:b2e1:3798 with SMTP id
- 6a1803df08f44-8acb2e17026mr38597226d6.28.1776099402680; Mon, 13 Apr 2026
- 09:56:42 -0700 (PDT)
+	Mon, 13 Apr 2026 16:58:23 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id ADD167A0225;
+	Mon, 13 Apr 2026 12:58:19 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Mon, 13 Apr 2026 12:58:20 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1776099499;
+	 x=1776185899; bh=iXftkA/TtE/FAvx0eFBxkT/BsHoSgTPpPrjxa1Rt22Y=; b=
+	dwbQA4rCjG6+MaG2iXNI86l9LVJkOQ6HNR18FztjnIp9UiYjuEimlRUvuABkyaPI
+	uFkio5XpeH2nIfp68QMFuOKRnCgAwnES0eGebxzPZ5JWXMUTkGFgWS5XE6s4kkBZ
+	fIeKDGIrxabOikF/a+GxM0Dcz5b/VxrNtU6hU0xm6mQR8aXW1wKygv2mYxG8xPQU
+	9tTq6cEQLFk84f61DOawvKr1vkwxBqdk85tx8yBHBnMDw3Dj/HbMkX0EPCrNBkPe
+	XkAUGZu2ZZVwn/nisJ8UluJe6G2Oa51n6r1RgiALvccOTY0jQylzzKNd6RHsLwhv
+	c3HpB4IIRaZTkmlkadtPEg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1776099499; x=
+	1776185899; bh=iXftkA/TtE/FAvx0eFBxkT/BsHoSgTPpPrjxa1Rt22Y=; b=l
+	B+wNBtwPnjIN/R58PpGG/hOmAatu+iQo0p5KYrPi7cqaCha25sVxj0AGOj1SOOD/
+	6WP+RGKq0FABllqvQ3QnlFUTOfJDiAONti962rNSGAgRvLayoSNkZkJ+qOlDKTUd
+	sWg4oxdmbPIUhW+GfkDr3wJIV2X/6o88NEzC4HNjPD8pTLJxghPTTjeSeOfR8Rhj
+	DD0BGCtDLY+BY4hXfB7RIOxfbfGnZdAOQ78qpHlX1E0oc68hd1qwXRygBv88tJpW
+	R/7t1ERF1lR0CMh4ePn6X9LWffzeJmrsR0IcDawsgxP6gC46aUV3J++d5gTokxvS
+	Fqq7d7Kvil/Z9wYAlWI4g==
+X-ME-Sender: <xms:qSDdabxcXtGK7zn72oOTjQLLw_m0n-fpLvAlMFO_CdQGvah9ir58Vg>
+    <xme:qSDdaeE3XU3VxacmZtpSzB7VX0eFTmTLuZVpvMhV1YFGIs7lHqAdeSj03Dl-s8Hq1
+    ExABtmjWuowvgt99hbo3Mhs7FCQcefUQXxNHY6SuMD_edhE9Jnygg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdefkeejjecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthhqredtredtjeenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpedvhfdvkeeuudevfffftefgvdevfedvleehvddvgeejvdefhedtgeegveehfeeljeen
+    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
+    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopedvuddpmhhouggvpehsmhhtphhouhht
+    pdhrtghpthhtohepsghpsegrlhhivghnkedruggvpdhrtghpthhtohepthhssghoghgvnh
+    gusegrlhhphhgrrdhfrhgrnhhkvghnrdguvgdprhgtphhtthhopegtrghtrghlihhnrdhm
+    rghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepvhhinhgtvghniihordhfrhgrsh
+    gtihhnohesrghrmhdrtghomhdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidr
+    ohhrghdruhhkpdhrtghpthhtohepmhhpvgesvghllhgvrhhmrghnrdhiugdrrghupdhrtg
+    hpthhtohepnhhpihhgghhinhesghhmrghilhdrtghomhdprhgtphhtthhopegthhhlvghr
+    ohihsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehluhhtoheskhgvrhhnvghlrdhorh
+    hg
+X-ME-Proxy: <xmx:qSDdaavx47-MxifP9e0NgnW1DR20ZXqAKWkcKv1MxvffIm8cFkuzxg>
+    <xmx:qSDdabAu41iLHMXHXIGROZ67HTuNFVHob8GAV_8Qq_wfxbXbP0n3kQ>
+    <xmx:qSDdaVyd52wrfUMBrV9lrYFsmRklna0TfVm9aTbLJF8v9erm00lE5w>
+    <xmx:qSDdaaKbH1FkC36VrqjRdLG_SQciQtaIRXLrkDuWWuH9TNnz1oocqA>
+    <xmx:qyDdaQwn82ueHGh7hcir24sAx6Xr8S1xCeJkgWh7lkzUIwIF2T3Cagtw>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id BEDE0700065; Mon, 13 Apr 2026 12:58:17 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-References: <20260413123256.3296452-1-puranjay@kernel.org> <20260413123256.3296452-2-puranjay@kernel.org>
-In-Reply-To: <20260413123256.3296452-2-puranjay@kernel.org>
-From: Song Liu <song@kernel.org>
-Date: Mon, 13 Apr 2026 09:56:30 -0700
-X-Gmail-Original-Message-ID: <CAPhsuW5M6-9HdYhGnerZiSnZM=VdgN-H91ND=Qop+thEASfvQQ@mail.gmail.com>
-X-Gm-Features: AQROBzA1h53NIbW6wB2_ufILfMN6eHhnFaWBiPdIcTkHfEIuA00ldjcsm5gEbB8
-Message-ID: <CAPhsuW5M6-9HdYhGnerZiSnZM=VdgN-H91ND=Qop+thEASfvQQ@mail.gmail.com>
-Subject: Re: [PATCH bpf-next 1/2] bpf, arm64: Remove redundant
- bpf_flush_icache() after pack allocator finalize
-To: Puranjay Mohan <puranjay@kernel.org>
-Cc: bpf@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
-	Xu Kuohai <xukuohai@huaweicloud.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
-	Pu Lehui <pulehui@huawei.com>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-ThreadId: ARwL1vy566MZ
+Date: Mon, 13 Apr 2026 18:57:57 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+Cc: "H. Peter Anvin" <hpa@zytor.com>, "Andy Lutomirski" <luto@kernel.org>,
+ "Thomas Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>,
+ "Borislav Petkov" <bp@alien8.de>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
+ "Madhavan Srinivasan" <maddy@linux.ibm.com>,
+ "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Nicholas Piggin" <npiggin@gmail.com>,
+ "Christophe Leroy" <chleroy@kernel.org>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Vincenzo Frascino" <vincenzo.frascino@arm.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org
+Message-Id: <e9487ebe-3730-438a-9c23-e45f75986ecc@app.fastmail.com>
+In-Reply-To: <20260413180541-e13f374c-b990-4236-bc83-8fde948899df@linutronix.de>
+References: <20260227-vdso-compat_32bit_time-v1-0-3f0286a7bac3@linutronix.de>
+ <20260227-vdso-compat_32bit_time-v1-1-3f0286a7bac3@linutronix.de>
+ <c29f5e70-bd17-4e1b-a005-5a3282e70075@app.fastmail.com>
+ <03cd1e21-a2f2-46a1-a674-cbaef9712016@app.fastmail.com>
+ <20260227103226-cc3bb32c-0107-4c09-b81a-ca33ea03ad5c@linutronix.de>
+ <49b7c9f9-198a-49f7-880b-6ae74d7bd985@zytor.com>
+ <2b1ac7b9-fcc8-4aa3-a0ad-eb37e4bce030@app.fastmail.com>
+ <20260410091131-46b6354c-9d06-4e47-9345-ee224d8528f7@linutronix.de>
+ <15925544-1ae5-406a-b9cc-af5935cc9f02@app.fastmail.com>
+ <20260413180541-e13f374c-b990-4236-bc83-8fde948899df@linutronix.de>
+Subject: Re: [PATCH 1/7] x86/vdso: Respect COMPAT_32BIT_TIME
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260413_095822_586162_FFF16604 
+X-CRM114-Status: GOOD (  16.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,31 +135,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 13, 2026 at 5:33=E2=80=AFAM Puranjay Mohan <puranjay@kernel.org=
-> wrote:
+On Mon, Apr 13, 2026, at 18:13, Thomas Wei=C3=9Fschuh wrote:
+> On Mon, Apr 13, 2026 at 05:59:52PM +0200, Arnd Bergmann wrote:
+>> On Fri, Apr 10, 2026, at 09:24, Thomas Wei=C3=9Fschuh wrote:
 >
-> bpf_flush_icache() calls flush_icache_range() to clean the data cache
-> and invalidate the instruction cache for the JITed code region. However,
-> since commit 1dad391daef1 ("bpf, arm64: use bpf_prog_pack for memory
-> management"), this flush is redundant.
+>> > * Always provide settimeofday(). If CONFIG_COMPAT_32BIT_TIME is *no=
+t*
+>> >   set, reject passing any 'tv' argument where it may not be y2038 s=
+afe.
+>>=20
+>> This sounds wrong to me now: the case I'm worried about is a 32-bit
+>> system calling settimeofday() based on the value of an RTC or NTP.
+>> The idea of CONFIG_COMPAT_32BIT_TIME=3Dn is to catch this by causing
+>> an intentional ENOSYS error even for valid times, so it doesn't
+>> suddenly start breaking in 2038.
 >
-> bpf_jit_binary_pack_finalize() copies the JITed instructions to the ROX
-> region via bpf_arch_text_copy() -> aarch64_insn_copy() -> __text_poke(),
-> and __text_poke() already calls flush_icache_range() on the written
-> range. The subsequent bpf_flush_icache() repeats the same cache
-> maintenance on an overlapping range, including an unnecessary second
-> synchronous IPI to all CPUs via kick_all_cpus_sync().
->
-> Remove the redundant bpf_flush_icache() call and its now-unused
-> definition.
->
-> Fixes: 1dad391daef1 ("bpf, arm64: use bpf_prog_pack for memory management=
-")
-> Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+> This is what I meant with "where it *may*" be not y2038 safe.
+> Even if the value fits, the call would be rejected.
 
-We can now remove "#include <asm/cacheflush.h>".
+Ok, that's fine then.
 
-Other than that,
+> My wording was crappy indeed, though.
+>
+> In code:
+>
+> if (tv && !IS_ENABLED(CONFIG_COMPAT_32BIT_TIME) && sizeof(tv->tv_sec) =
+< 8) {
+> 	pr_warn_once(...);
+> 	return -EINVAL;
+> }
+>
+> Or maybe drop the EINVAL but still emit a warning. That warning would =
+be
+> useful for gettimeofday(), too.
 
-Acked-by: Song Liu <song@kernel.org>
+We discussed this during the original y2038 work and decided
+at the time to not have those warnings for syscalls. We could
+bring that back, but I think I would want one level of abstraction
+there and control this using a global Kconfig switch for all
+syscalls as well as ioctl commands that could use such a check.
+
+     Arnd
 
