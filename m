@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68B10EBFD2F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 10:10:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73CFBEBFD34
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 10:11:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4QFgyuOG5afpYS03fcWAL5CdSy2aihqhs+a6jM8HpD0=; b=vSp5vB8Pg/r907Uubh+HXpnIPT
-	O8kQ+m6uPEjGxJ5MhxAaaAhK41K0pRByoGaJEzHLdMTiIFJq4JuTNYgAhbpstdBWPi380Wa3nIAKU
-	1xvB5Ku2+wUw0XmASJxcZJHbPwPG4SDIDtZ8eLeQiHLuQJsDGRQeNZ4EUOSG77k6XB7aKy3mGjGaK
-	LvFXvu00caN7j9cNIMhBaq6h+BKamL4BkU5FhyuiS70QBUkTwbhqcdve2sNQHpqdwtklRxJlRBoZ+
-	vrz9Jg3laQHEbzyAhk4w+MviKWNH2OpSjVRlC/pkQKpnsovFGOrBokHmXm/GnGY0muW6Nh+HYcMpH
-	9eFYb7fQ==;
+	bh=+F2WuEiqCUVykRB3XRC/Bxq6Gy1eCIr0ZWhVWJ26imU=; b=tNU01rbtL4wWCbFZ6x372r4kXq
+	AvnS73QJfokEzh+wqyQ8s5KMZyaoG5TIDXNmeBfDlK0kAoiVe0tFbL2ToA4dC2DTgrEvFIs1jF4fj
+	VVJ4F+uZ2B1mL0Rf373wO21ssl25cFJ9fpuLUvy02ebIwXvThOZ5zlwy1FgZz7NHAQ0/72Y4YIX/7
+	wT+tKbgnwxOV4lZF+z/S0Ll152h6bm+TF4iL4xCgeisv7rk/Beb6hY9RHnM/vq/lbskZ4cSgulGG3
+	qC2crtygYqHr3OAgbZtfNvREJ9pFCzQXUsJc2VeYln2GNlnKC9UX0eA5bXCVlAullNMutjRpQzVOL
+	O8D/5lDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCEFp-0000000FRdM-2rsO;
-	Mon, 13 Apr 2026 10:10:53 +0000
+	id 1wCEFy-0000000FRlX-33VE;
+	Mon, 13 Apr 2026 10:11:02 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCEFn-0000000FRbG-3tFC;
-	Mon, 13 Apr 2026 10:10:52 +0000
+	id 1wCEFw-0000000FRjE-47tU;
+	Mon, 13 Apr 2026 10:11:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=4QFgyuOG5afpYS03fcWAL5CdSy2aihqhs+a6jM8HpD0=; b=BgWoMPcUypOsbVWdad5Wr3+Lva
-	49U5jo7Y5vsWPD5NCcwbmMLoMf+FUJ8hXI+8I5wGY4OeznpOe7t5ERdhJml7KGoR4BvUEOnawd36Z
-	JI2Z/zsrBbQjcZgQcSF+hYLYcDbqqqlgvxf4SHMTuAecaSYkzV01fVkj3xDMLSk+DXuR4TxxnoSk7
-	w2HT3PmQuuiw92kOm/FifsGcXJ5KV4fbqU9w0nzqFdZlYdXENW6FqoZFgue/WhjmbD9fPOt20n06p
-	WjoF60o6YjAL9F9XoZsmdXzAIF0VeTw7AHP9uxLU740OXwKMe4za8ZP+TV4hgP594b1nLjPc/WjWM
-	Bwv6wXnQ==;
+	bh=+F2WuEiqCUVykRB3XRC/Bxq6Gy1eCIr0ZWhVWJ26imU=; b=VpubgPa4DxyKYgiUhNnJoccxqn
+	8/mm/4CGdv/WTDR0FRREGN27VrCgHUdzJAw96K4LuhbATQF/ZTP5jMDLuDBjNAzA1q5x28LDGVqB0
+	xIJ8walWhawGdxDDavghWk5HpSY/owV7eAH7Cm086pQUMtQyTeCvBk5jgS0zjW0L1zfxp5Z4rAfjv
+	o0kXSU6OZL6pjpLQLidpFwHqkaBn+Y+TLUpze57C6T6WgRl+ItcT/s/ULlkh+Tm9T2K6arp7ikYjS
+	YlX9Sca8vjoQ0De3/73gpxo3Z6I/r/QmyGg49SwphUk+Rs8E1SeTzlTWWoBncVixi167fTMFcI886
+	qO/N4eGQ==;
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCEFk-0000000GYwQ-2gHM;
-	Mon, 13 Apr 2026 10:10:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1776075013; cv=none; 
+	id 1wCEFt-0000000GYzq-3wz3;
+	Mon, 13 Apr 2026 10:10:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1776075021; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=eufJxWAjk3m4fOPTEy5KM3tdUe5UaLkCDTRsKRD2da9+yAAVisIin38qT+6H3vs5jeSy7VV7Shxg3x5UipnCFEVcuKgatqBqgMqe97eu5AYLzevdEFC2hi4pca4qjEcm5krI3olCplKiJBD/PSlUVjGozGTAhq4oNFtAm66IYy8=
+	b=SWgG4dkMV1vO8gYvVBR9m/1IPoZwhBbTNpJ5SWgGlocTx6eV8sRy+EvjBpRwchuOaT9Fp/p8wrmA1xEJnEeHQgZHEjvLML9BrhLMV7Ff9GZ3W4i0GSGIANVOLqW5EpVl48a9Irq3zUS9UQOokPVWpu2e76N2bJNWSBzndGOWSfg=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1776075013; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=4QFgyuOG5afpYS03fcWAL5CdSy2aihqhs+a6jM8HpD0=; 
-	b=JVghGphdwzuseqRdf85fdJIhavB4G4+PxH1/gJ/eb4teCGZAa0fvjFUG8Lih3SToP/PNffPoS+tNGkce1n6ytC+KLkavz91RcJ1ecH1KOjZGIxXEQNGY+YYKH5UrQQcJlkkMLAZPdgv+QkP9c5zcw+eXvqouwCW9uzSH3Si6JgE=
+	t=1776075021; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=+F2WuEiqCUVykRB3XRC/Bxq6Gy1eCIr0ZWhVWJ26imU=; 
+	b=LvPcsJZ0q5V6HBS196+ZPK3AzOBEeaeEGwmLtMQjRyVaQm/HaY8Ws5p6Fi0kwFnQb+KAMMAhqTTJdaFuzn4WTdAhicqqetTJxRZwMgQYk03RApn1XrjpJhHT96urlyMrxuLK3H8pXBAus+ZvLaCKHpQAGgOOYUmD4evM6+W7CtE=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1776075013;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1776075021;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=4QFgyuOG5afpYS03fcWAL5CdSy2aihqhs+a6jM8HpD0=;
-	b=XZ1rDGfiDvh5DDbE0ueXCfQqhl8HzCN1B6h+rpKX54Qg9wkzv3x9RDDg3+90Cmul
-	xQLQRooMZSIQ8r3pR6RKYBBY7/kEH9Nb1HPyoqyWDh7t7Bql3MbLdH1LgB9HYpFKmUL
-	ncXvwW6ph/4NCXs8LSIrwsUsMISzKe7d9B+ubN/s=
-Received: by mx.zohomail.com with SMTPS id 177607501214065.19548628636062;
-	Mon, 13 Apr 2026 03:10:12 -0700 (PDT)
+	bh=+F2WuEiqCUVykRB3XRC/Bxq6Gy1eCIr0ZWhVWJ26imU=;
+	b=FWu/Fj7ESc75rLeVnbStmpSKRmJY0gxT81KpIvgIUkJ9oD1G/yZJ1yKVR4gVNjVz
+	FsSBKc/EvVJoH5g+As6IZPhMgXhUiOxdpH8+06QQ/E9hNp34p57Qt4dGzJWwp3k0FPm
+	rcOXRaol6vf5DtHOn+dMHEplOSq+v7HR+yHSgSnY=
+Received: by mx.zohomail.com with SMTPS id 1776075021006776.3877738797408;
+	Mon, 13 Apr 2026 03:10:21 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 13 Apr 2026 12:07:31 +0200
-Subject: [PATCH v13 17/27] drm/rockchip: vop2: Set correct output format
- for RK3576 YUV422
+Date: Mon, 13 Apr 2026 12:07:32 +0200
+Subject: [PATCH v13 18/27] drm/bridge: dw-hdmi-qp: Use common HDMI output
+ bus fmts helper
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260413-color-format-v13-17-ab37d4dfba48@collabora.com>
+Message-Id: <20260413-color-format-v13-18-ab37d4dfba48@collabora.com>
 References: <20260413-color-format-v13-0-ab37d4dfba48@collabora.com>
 In-Reply-To: <20260413-color-format-v13-0-ab37d4dfba48@collabora.com>
 To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
@@ -96,11 +96,12 @@ Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org,
  intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
  linux-doc@vger.kernel.org, 
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Andy Yan <andyshrk@163.com>
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_111049_058076_DBDAE68F 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20260413_111058_340502_4082A2F9 
+X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,48 +116,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For RK3576 to be able to output YUV422 signals, it first needs to be
-able to pick the right output mode in the display controller to do so.
+Make use of the common drm_bridge_funcs.atomic_get_output_bus_fmts
+helper for HDMI bridge connectors.
 
-The RK3576 hardware specifies different output formats depending on the
-used display protocol.
+This allows dw-hdmi-qp HDMI bridges to participate in recursive bus
+format selection in a meaningful way.
 
-Adjust the written register value based on the SoC and connector, so
-other users of vcstate->output_mode don't have to care about this.
-
-Reviewed-by: Andy Yan <andyshrk@163.com>
+Reviewed-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 59d15bacf023..e76e00f0a530 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -1702,6 +1702,22 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
- 	if (vcstate->output_mode == ROCKCHIP_OUT_MODE_AAAA &&
- 	    !(vp_data->feature & VOP2_VP_FEATURE_OUTPUT_10BIT))
- 		out_mode = ROCKCHIP_OUT_MODE_P888;
-+	else if (vcstate->output_mode == ROCKCHIP_OUT_MODE_YUV422 &&
-+		 vop2->version == VOP_VERSION_RK3576)
-+		switch (vcstate->output_type) {
-+		case DRM_MODE_CONNECTOR_DisplayPort:
-+		case DRM_MODE_CONNECTOR_eDP:
-+			out_mode = ROCKCHIP_OUT_MODE_YUV422_RK3576_DP;
-+			break;
-+		case DRM_MODE_CONNECTOR_HDMIA:
-+			out_mode = ROCKCHIP_OUT_MODE_YUV422_RK3576_HDMI;
-+			break;
-+		default:
-+			drm_err(vop2->drm, "Unknown DRM_MODE_CONNECTOR %d\n",
-+				vcstate->output_type);
-+			vop2_unlock(vop2);
-+			return;
-+		}
- 	else
- 		out_mode = vcstate->output_mode;
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+index d649a1cf07f5..5380aa7d82a8 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+@@ -1192,6 +1192,7 @@ static int dw_hdmi_qp_cec_transmit(struct drm_bridge *bridge, u8 attempts,
+ #endif /* CONFIG_DRM_DW_HDMI_QP_CEC */
  
+ static const struct drm_bridge_funcs dw_hdmi_qp_bridge_funcs = {
++	.atomic_get_output_bus_fmts = drm_atomic_helper_bridge_get_hdmi_output_bus_fmts,
+ 	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
+ 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
+ 	.atomic_reset = drm_atomic_helper_bridge_reset,
 
 -- 
 2.53.0
