@@ -4,155 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E9D7E93808
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 01:58:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFEB1E9380B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 02:26:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NxMIA335Kx5utnu1B5+E72rSIBe3vrlT2Mk6fidITiw=; b=Z1slmUixDyUcFT0npK4F78gHfQ
-	RHZtqIu+8c3cXeXSpzl/pQ11tNVKVLgg2B2dvq+S8NR0A5Dfx1NWNhTTuVbxOesGK01B1vsK5VZfK
-	RwbflplsPbP7oq5R8Sq4worh/UtH79g8/l9CbWAAgIxjtOgGAf1VU2DbiRx9wxoYfDE5IjbWhfjNy
-	vBmY9cOW7qJjwR/gvM7KVNowSgrXsF+QWBLNrpzBoXWzuCMa6y1B0eW/8yfF64AOBY14R4ykLemK1
-	2dbsYYApoMfJV9nHPx8Bue6VwszfIVukZKWPWwFggthe9xhL/5GsbQPWdhhLXeNr75jiSTpTiA4aD
-	yqHFkD/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Y5eMBXzSEAO7BufTTyEROYYDXiefQqA9u6INAxla288=; b=04TquPdmHCoxbu6fK2oLm1V/WE
+	lOuuNnJHSotQj2pI40kSZC/r8nDW4CMeN1Xefj6JA81+44cV3BBMzhHdnAngGd0CfumKsYcsxIuUJ
+	foZzMxSlXEdLXroRiRe+wTvfGY/n/U6xsCKBLD5cJqDyAUpdhYI9WFr6aAko1LSDVf3gnfLgQX1n/
+	UomVjYrxeKmliYO3eHpUI3N8lc92rX57bqgdmM1/mNiyExxw0JIuySbjbAYgN+uk4tzzBxXqjrvKL
+	637kn7Cx5jO/62L8In1+L0P4bir0FDkyTUGH7tVI6Gksv5p9g7bgopv9wLhB1Pbz9BX8M8dInDhR4
+	LC5RwpMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wC6Z0-0000000ErCq-3Lcm;
-	Mon, 13 Apr 2026 01:58:10 +0000
-Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1wC70Q-0000000EsEC-2DxU;
+	Mon, 13 Apr 2026 02:26:30 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wC6Yx-0000000ErCO-3za2
+	id 1wC70N-0000000EsDr-3ZCP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 01:58:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QC9VOhNWbT5Y7V+NIDHjlgkCqppjR5tefnWWVO1+kQbUljtB9PfsUAAMfexoqASPre8hUJE7gr0dFwnvYuG9ycuZq/9RkQmDbCY+5SHwYGhxBUIdmBU4Jxk51LWs6Djwg0Y8y14lPed41gCLAFCnC4ISyOlZmB5Wpx2oe5IyeO/u8WjU9r9lb/dJzmva5uYnBiUs1kNYloZ3C4sljFPd5oTTJ0kmO07HI2fSV8it5lPo8rzrpj+4VK1jRxak5XUEh2On2ph34EOds0Ff29dJcdlYpWO96i9ahDQKyrqN+qa8lGbn/pHu1bbpmF/FhSnbHJECA0PKReCvt0RWAKtmhQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NxMIA335Kx5utnu1B5+E72rSIBe3vrlT2Mk6fidITiw=;
- b=GKuMVGMZCfr09/8KH6pwVpkeFJMAlrKNiOm0WQAdF+s2B76aZod7grLBjNxUWpZNinb560L6gjKXSmVYTfykjOCUrnZJ2gFtXnjp0egYlWO52Gu1EdZYqpbBEt9FFg81WzlGZeItuUqpf2vqV2v5N/Hzq3J+zbbNNqM6/kQuoIC+HOh5PZRj7xtT0Eo+6mdrFA6N7PlGps7luNvGnNQBEjjJaRW23IOVpkI9R5Pqi5w9eki6NlkkyhrUUna/xWIWjivkPugdk0uu4C3uExkCajZeY8SpWSDTSE58pPml7ehsm9ZMEuK/gYaa6LKHwyuUbjaV3qP5lCss7FYHNEUYDg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NxMIA335Kx5utnu1B5+E72rSIBe3vrlT2Mk6fidITiw=;
- b=YHf0XelvKCTaOwcbRieRn1CkeLtb0FSlMfim2KsTiV6UMOr4G6GKjOorlUJ3DojnnANPb8TWeLf6jur3LQX416vg8rCv2Y3QTIQS/B9J3fHViypJpshPLzKZvZkLYYQ5mbmJxNVM6LiKLQdcz3T4XWXDM/XL4VXbBc+KJEiIlBb2mPZJIuSSZVns7ufCk4aMbo7q1vGqzxu/GzSdFu+dxty/qzwU68c2rvmvUAKXJ8OHtFw0cKf1rXwT06p7T/1ZVLwuSTra0zPln49gYtDOSWSAe+7+5/fpT2MhV63oP8+o/Xz3sHSL4r5gGRcUVgJEuFJxMBYwAhE1qqIh3DH/Uw==
-Received: from TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com (2603:1096:408::791)
- by SE3PR06MB8200.apcprd06.prod.outlook.com (2603:1096:101:2ee::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Mon, 13 Apr
- 2026 01:57:46 +0000
-Received: from TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
- ([fe80::8c70:cb01:78fb:d9c0]) by TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
- ([fe80::8c70:cb01:78fb:d9c0%6]) with mapi id 15.20.9769.015; Mon, 13 Apr 2026
- 01:57:46 +0000
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: Ryan Chen <ryan_chen@aspeedtech.com>, Jeremy Kerr
-	<jk@codeconstruct.com.au>, Krzysztof Kozlowski <krzk@kernel.org>
-CC: "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
-	Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel
- Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, "linux-i2c@vger.kernel.org"
-	<linux-i2c@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
-	<openbmc@lists.ozlabs.org>
-Subject: RE: [PATCH v28 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
- global-regs and enable-dma properties
-Thread-Topic: [PATCH v28 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
- global-regs and enable-dma properties
-Thread-Index: AQHcwB5Ez31FCAF2H06H/moL1lfWeLXINCEAgAABqPCAAAIpgIAAAW0AgAADQQCAAAMycIAUEY9g
-Date: Mon, 13 Apr 2026 01:57:46 +0000
-Message-ID: <TY2PPF5CB9A1BE6B6C124B8DE265562A722F2242@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-References: <20260330-upstream_i2c-v28-0-17bdae39c5cb@aspeedtech.com>
-	 <20260330-upstream_i2c-v28-2-17bdae39c5cb@aspeedtech.com>
-	 <20260331-fanatic-certain-bustard-fb13bc@quoll>
-	 <TY2PPF5CB9A1BE6F267C60EEC34B6A75400F253A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-	 <09cbc12bea5707f794e139ea1bfafac82c2d2c12.camel@codeconstruct.com.au>
-	 <TY2PPF5CB9A1BE6EA5BABE55EB8A7003D22F253A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
- <72517fcf99a7453841ee75243dc54e735c10238f.camel@codeconstruct.com.au>
- <TY2PPF5CB9A1BE64B7988CD85A7189164E1F253A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-In-Reply-To: <TY2PPF5CB9A1BE64B7988CD85A7189164E1F253A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY2PPF5CB9A1BE6:EE_|SE3PR06MB8200:EE_
-x-ms-office365-filtering-correlation-id: 712aad48-bc31-46e4-a65c-08de99000ee2
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|38070700021|18002099003|22082099003|56012099003;
-x-microsoft-antispam-message-info: ZpdAzHBwTBzgikItf1bdZACnbmREhmKE0o74T7UrfLLkSg85I5K+VrF8T8eY0x7D+lVTotohPqSbfWEfShIfQ3dGfaMDelezPo9VBmV4EWxsIGX6iQYbcXNWlIqMP3H/Ut/QbaFeiAb0IvEWWFIgBj8D94yAIHTEc8pFhY5tmZAlo0uBTncMYc8hrbmhRRVqeE1eXMbusmLA+4442Dr5ZIvhouHXz34wKZ2GiDT+1yt22m2FfOCW8+muGqSHsYtafpC0u3ibsQdyeVVCezJGpwlMOnLFlC50qLNozkhw7DyZBgaw+M2TPnainYo+QczkGYNUKqU8+hmHkQJtLi1+6rLRoh3LBNIWes4UgRD8fJN5JQHqrvwpuoSQnLKQHYUX4VAn+t3EuAMpRoSgb4GaD5vQTSgLLEIPU+mDHssKFw3E2hY3Onr0fxBqxBIaZFF2bcgSPZBYwsCmOdyIq3rsDMi0RXO1ifrVRMlTKwUnWjAcFbCrCOc43eMLl3/ICDhkeacmeyWx4mINJbT0h0ckE+ZfJRbWSlGPxZL9Ip67J6zUAS+O1W/tzJvpw7wmvfPXYYn4OVoQZBw2TMWFMht2+vjwT61aKA1d6kVJ9JZkmvLu7sWvT9O0MTS2P7EpQxIA+DLNE8n3e8mzm6G/TteskQXL4uCp/iZbd23J4O9NLfiMKo9e14hMfZtMKZdF+JD6XfK0NxbssDH80d/WvPUev+OUtF3kM1SuNBGURIc/7sPJob2C+MZDYIKZsEXsVhVYe7OsH8dbcb+djm1npAiNPnah5b0edMDOPusV6tRCUeQ=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(38070700021)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SFh5Wk9qMmpWREtadTlTaGo2dkJHM3hwclNuWDJRVk9ET3J1MHUyU240QVZU?=
- =?utf-8?B?Y0hCbnFGbUIvQ3drcWlaTkZUN3NhbjFUVXBPVnNlK2ZnbzZaSER5NjljdFJn?=
- =?utf-8?B?SkRORlY4NkRSMG5vR2pXTWxNM0RjWUtVSDlmajBRWi9pbXArd0o0NnJzRm9h?=
- =?utf-8?B?MVdxNlQzck5JV0FkTHdvakJabGZyZzhkbVo3RlNBOHBxOVd1RUFrZWpBQ0FT?=
- =?utf-8?B?UzBPaDArbTRQS0l3WnBIWE9WNUpraHFqdGROTTFVcm9SeU0vclI5b09aOVNl?=
- =?utf-8?B?dkkvZk1vYVg5OHh2aVlaVUh4WTJvYVorQzMyZGlyRjAyK29PbEY5VXBrVEtD?=
- =?utf-8?B?b0t4WjF5NE4wb3R5T3RxY1J5QXBlSSt4Unc4Y2dId1BuMVBuelE3ME9MK21G?=
- =?utf-8?B?RlZ3MHdVeHJWb2hDYnlDcDFTYlhnU2xraFhIczFYWmJxcE1Oa0lFZmpzbytP?=
- =?utf-8?B?OXJPSFZneFdKTWxiZmtIN0d0YnFTVVNyRWdnTVRFSVo0Q21SNCs2eVBvWE1O?=
- =?utf-8?B?Wm1qNGRoWTZodHRWaDRRenVxM3BMc2pOK1hRb3ZHZEdDSjRSUkc1aWNSNzZw?=
- =?utf-8?B?WHVxcm1pQ2Fhd1FsdGl6K3JoMUlDanU5SzhwV2wvVExoZFhzdElaNE1XYTRl?=
- =?utf-8?B?Wmc2aGpYL1VjV2dYMzgreEY4d3ZnQnNTcDBwNmdvU2VHVmtZWHdoaHBYcGZG?=
- =?utf-8?B?VGxGT2Rhc0ZNZHNQTHM0ZE5xQTNoNkpCRVY1V2VEejdpL3FZaVh5cGYrc1RC?=
- =?utf-8?B?MjNTRXVWd2owSFgzMzZzNW4vanRXNlJBaGtWTVpDNGxIeFlGMmNWK0JVVE9T?=
- =?utf-8?B?bDRma3N5RTFHd0Z5ZjdDYmUzeUpFUVMzMno5MFJHR1hSY2dEa0hGdW1yaWxi?=
- =?utf-8?B?dWlQcmFrVFM2aS9YZjI4aWF6ZTBnYWNHYnNrd09GSnoyYlQyTFJDbWdwOUVw?=
- =?utf-8?B?c01mUE1aRTVDZ01JNlhwR2VKdnE3ajJacXpndThnMFhKU0hxaUtmTS9sVldi?=
- =?utf-8?B?eHhyZThWbzlXbys4UjY0bWR0TlZFNUg1R05QZitFQXZDc0xIeUpwYy95MHpl?=
- =?utf-8?B?cEhESWtNRnBpWnl6SG9rR0Zqd1I5QnRrZkJha1NXOTJRM09meWk0QUVReHdB?=
- =?utf-8?B?am9uTWtkNW43YWNrMlQ2NmlJWW9pRGhqdkhrOWp3aHJiRUlUQmlXY0ZXZ3A5?=
- =?utf-8?B?a2tmUmxYYXVwQmxBWlBDRy9zMi9qd0Z3K0FBUVhPb1BjVkVtYlNoNlFtWkFX?=
- =?utf-8?B?MEhPRk1jRWlVOEhsNytXQTFNSFdXRk5aRXJWRDdoWHJJUS9BRzdpaVgxcGdG?=
- =?utf-8?B?amFySFdQeFpCU3ZEc2JubFQvRHNYcFdSSWNkQ2U0OVBuUFo3dlBaUWZENk5D?=
- =?utf-8?B?cFZVeWozYlZBV05xZWVRUVhjdytBRjd4Q2JOQnVlT0cyZmc1OVViak40Wk10?=
- =?utf-8?B?SjdGYWpXRkQ1dStHZ1A5Z0FWcUI1aUhWOVhxWXlnTHQwTUpqU3F1MXEzUGR1?=
- =?utf-8?B?YTJ2dSsrRmYvNWZzcjBXcGN4NmRyWUorNjdYdE9URm9uLzByRndwM25NTGFV?=
- =?utf-8?B?UkkxK1ZhSWpPdW9VSURvS0ZwL2hHVTlUQnV0SWxpenhhdUhKYWdhYnVrTlNF?=
- =?utf-8?B?ZEpVeFZ4U0xIZGpqR09wZWorbWJ6M2tUT29JMUZJNjVSYmJjeVZPMkpQSEFV?=
- =?utf-8?B?TWdWdWZGRzRtQ2lscVYzakpnU1MwUHlBUzJWVXRIUHkrOVRIMFFSblZWeWYz?=
- =?utf-8?B?WUZHK2QrTHg2UkI5dWRoVFlmYkpZaUFvT3VETFJYekRkRnkxaW5aSVpzU1lh?=
- =?utf-8?B?enZiQzFnS3hUdFhVZFJUQlpWMEhSeXYxY0RGS2RYZEJTOVpuajlpMHczZEZE?=
- =?utf-8?B?elJsRTZ0dkEwVW9iclNGK2daelhZNGJUUlBjTUtZQzF3LzBCQS9vNkQ0UGVw?=
- =?utf-8?B?bjg4K2RlenRMdVBiY280bXcvVHcwejlDYnJ3ZWtqZnRIZVFCM3ZaUzljU3Vt?=
- =?utf-8?B?MTdFVW5OdlduYmtUN1NEcjkyclNOUEYyTit1VWwyMHRTTzdOYloyNjF6emVP?=
- =?utf-8?B?OGxuWERxVHl4T00rdXZ2RmZJYXFNRTBCL2pERVp6Tm9ldWJJK2pReU9YVEpv?=
- =?utf-8?B?aWkyNXM2UnpKQ2JpUHFFV240YkZ4VzU2YnZXek5hdnZYWFJNbWRQOU1nQXgx?=
- =?utf-8?B?QW1OWG9EVEtJMDZyTHFKY2NBd1pQVFZxd3VibVRwd0NYL3FHdlBrbDBEWEo3?=
- =?utf-8?B?ZGt5Tk9DSUxMVnhzNFp2MDcrUmNUTzg2ZFV2dUxWeXhCU2hQUFVtUVIxOGlO?=
- =?utf-8?B?UDJUdTJReHZSMC9uUHhxc29BN1dtendSSW5jYm5NZnUrVUVORkkrZz09?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Mon, 13 Apr 2026 02:26:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1776047188; x=1807583188;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=cYFFXHwwvGuibt1PZzWRliLfIKEX30gWC7CvWsMh4B0=;
+  b=IfzB4V0D/4LAn+tZ4U2l/JJK251ugzgaAH9nzuOFIWQ+4XPl2lwwjpN1
+   ntva7X+knRF9R5VSLRne1VyqsoN+iTOAIq+KNdwVe+C253MltwLmTb9bO
+   qchkasr0ikWbcTfT1/WeCA+0baHuDYxu/a4IK/z9blisPpFZh+8G8aJxq
+   PLRY9+Fnrd7VBmBsII1ootcrr/ujdufsKZVxDMoKg0EbsO6Xwx9lEIbkq
+   WZhnQn8FBSbBcKbIc9aVlMHM5FuIqAzSxQLvQDokcn7cn3NP34EKeqXOL
+   ibKuoRX6ojGir/W84qu7O6riCEsvwLeY2jtjSyKHJtHMALNcQBNyC8j8L
+   w==;
+X-CSE-ConnectionGUID: HqPf++L7RhuZPVmwMO49Zg==
+X-CSE-MsgGUID: /Ikr8c0BRZeMK2pZ4IfZPg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11757"; a="76885980"
+X-IronPort-AV: E=Sophos;i="6.23,176,1770624000"; 
+   d="scan'208";a="76885980"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Apr 2026 19:26:24 -0700
+X-CSE-ConnectionGUID: jXtFVFBiTOGC3ltGX6nwmA==
+X-CSE-MsgGUID: XXTjSMEWRLGlIxVqUw5xug==
+X-ExtLoop1: 1
+Received: from unknown (HELO localhost.png.intel.com) ([10.107.255.31])
+  by fmviesa003.fm.intel.com with ESMTP; 12 Apr 2026 19:26:19 -0700
+From: KhaiWenTan <khai.wen.tan@linux.intel.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk,
+	maxime.chevallier@bootlin.com,
+	ovidiu.panait.rb@renesas.com,
+	vladimir.oltean@nxp.com
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	yoong.siang.song@intel.com,
+	hong.aun.looi@intel.com,
+	khai.wen.tan@intel.com,
+	KhaiWenTan <khai.wen.tan@linux.intel.com>
+Subject: [PATCH net,v2 1/1] net: stmmac: Update default_an_inband before passing value to phylink_config
+Date: Mon, 13 Apr 2026 10:03:39 +0800
+Message-ID: <20260413020339.68426-1-khai.wen.tan@linux.intel.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 712aad48-bc31-46e4-a65c-08de99000ee2
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Apr 2026 01:57:46.1831
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: WSB5yaEs9xQ2mNBVcbOhdi711SsPe5ntcwNIfiR8pErS5LuEBGucQS0X5c2TiNBOd/Xv6D0AiHJTR9wke3/R7gncDr9iBX5QAtjA9cp7hsA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE3PR06MB8200
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260412_185808_289233_AB7D55F2 
-X-CRM114-Status: GOOD (  21.92  )
+X-CRM114-CacheID: sfid-20260412_192627_943106_050287ED 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,35 +95,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiA+IFN1YmplY3Q6IFJlOiBbUEFUQ0ggdjI4IDIvNF0gZHQtYmluZGluZ3M6IGkyYzogYXN0MjYw
-MC1pMmMueWFtbDogQWRkDQo+ID4gZ2xvYmFsLXJlZ3MgYW5kIGVuYWJsZS1kbWEgcHJvcGVydGll
-cw0KPiA+DQo+ID4gSGkgUnlhbiwNCj4gPg0KPiA+ID4gPiBTb3VuZHMgcmVhc29uYWJsZSwgYnV0
-IGJlZm9yZSB5b3UgZG8gc28sIGhvdyBhcmUgeW91IHBsYW5uaW5nIHRvDQo+ID4gPiA+IG1hbmFn
-ZSB0aGUgYWxsb2NhdGlvbiBvZiBETUEgY2hhbm5lbHMgYWNyb3NzIG11bHRpcGxlIGkyYyBwZXJp
-cGhlcmFscz8NCj4gPiA+ID4NCj4gPiA+IFRoZSBBU1QyNjAwIEkyQyBoYXJkd2FyZSBoYXMgb25s
-eSBvbmUgY2FuIHVzZSBETUEgYXQgYSB0aW1lLg0KPiA+ID4gVG8gYXZvaWQgdGhlIGNvbXBsZXhp
-dHkgb2YgbWFuYWdpbmcgRE1BIGNoYW5uZWwgY29udGVudGlvbiwgSSBwbGFuDQo+ID4gPiB0byB1
-c2UgYnVmZmVyIG1vZGUgYnkgZGVmYXVsdCBmb3IgYWxsIGNvbnRyb2xsZXJzLCB3aGljaCBzdGls
-bA0KPiA+ID4gcHJvdmlkZXMgYmV0dGVyIHBlcmZvcm1hbmNlIHRoYW4gYnl0ZSBtb2RlIHdpdGhv
-dXQgcmVxdWlyaW5nIERNQQ0KPiA+ID4gY2hhbm5lbA0KPiA+IGFsbG9jYXRpb24uDQo+ID4NCj4g
-PiBPSywgYnV0IHlvdXIgd29yZGluZyB0aGVyZSAoImJ5IGRlZmF1bHQiKSBpbXBsaWVzIHRoYXQg
-RE1BIGlzIHN0aWxsDQo+ID4gc2VsZWN0YWJsZSBmb3Igb25lIGNvbnRyb2xsZXIgcGVyaXBoZXJh
-bC4gSW4gd2hpY2ggY2FzZTogeW91IHN0aWxsDQo+ID4gaGF2ZSB0aGUgcHJvYmxlbSBvZiBtYW5h
-Z2luZyBETUEgY2hhbm5lbCBjb250ZW50aW9uLCBidXQgbm93IGl0J3MgYXQNCj4gcnVudGltZSBp
-bnN0ZWFkLg0KPiA+DQo+ID4gU28gbXkgcXVlc3Rpb24gc3RpbGwgc3RhbmRzOiBob3cgYXJlIHlv
-dSBwbGFubmluZyB0byBlbmZvcmNlIHRoYXQgRE1BDQo+ID4gaXMgb25seSBlbmFibGVkIGZvciBv
-bmUgY29udHJvbGxlcj8NCj4gPg0KPiA+IE9yIGFyZSB5b3UgcGxhbm5pbmcgdG8gZGlzYWJsZSBJ
-MkMgRE1BIGVudGlyZWx5IG9uIEFTVDI2MDA/DQo+IFllcywgVGhpcyBpcyBteSBpbnRlbnQgdG8g
-ZG8uDQo+IERpc2FibGUgSTJDIERNQSBlbnRpcmVseSBvbiBBU1QyNjAwLg0KPiBJZiBJIHJlbW92
-ZSBETUEsIHNob3VsZCBjYW4gSSBrZWVwIGJ5dGUgYW5kIGJ1ZmZlciBmb3Igc3lzZnM/DQoNCkhl
-bGxvIFJvYiwNCg0KT24gdGhlIEFTVDI2MDAsIHdlIGhhdmUgYSBzaW5nbGUtY2hhbm5lbCBjb25z
-dHJhaW50LCB3aGljaCBtYWtlcyBETUENCnN1cHBvcnQgYWNyb3NzIGFsbCBjb250cm9sbGVycyBk
-aWZmaWN1bHQgdG8gaW1wbGVtZW50IHdpdGhvdXQgc29tZSBraW5kIG9mDQpwcmVkZWZpbmVkIGNv
-bmZpZ3VyYXRpb24uIFRoYXQgd291bGQgYmUgYSBiaXQgb2YgYSBtaXN1c2Ugb2YgYSBEVCBwcm9w
-ZXJ0eS4NCg0KRm9yIGZ1dHVyZSBwbGF0Zm9ybXMgc3VjaCBhcyB0aGUgQVNUMjcwMCwgRE1BIHN1
-cHBvcnQgc2hvdWxkIGJlIG11Y2gNCm1vcmUgc3RyYWlnaHRmb3J3YXJkLiBETUEgY2FwYWJpbGl0
-eSBjYW4gYmUgaW5mZXJyZWQgZnJvbSB0aGUgY29tcGF0aWJsZQ0Kc3RyaW5nLg0KDQpVbmxlc3Mg
-dGhlcmUgYXJlIGFueSBvYmplY3Rpb25zLCBJIHdpbGwgcmV3b3JrIHRoaXMgc2VyaWVzIHRvIHVz
-ZSBidWZmZXIgbW9kZQ0Kb25seSBvbiB0aGUgQVNUMjYwMCwgYW5kIGFkZCBBU1QyNzAwIERNQSBz
-dXBwb3J0IHNlcGFyYXRlbHkuDQoNClJ5YW4NCg==
+get_interfaces() will update both the plat->phy_interfaces and
+mdio_bus_data->default_an_inband based on reading a SERDES register. As
+get_interfaces() will be called after default_an_inband had already been
+read, dwmac-intel regressed as a result with incorrect default_an_inband
+value in phylink_config.
+
+Therefore, we moved the priv->plat->get_interfaces() to be executed first
+before assigning mdio_bus_data->default_an_inband to
+config->default_an_inband to ensure default_an_inband is in correct value.
+
+Fixes: d3836052fe09 ("net: stmmac: intel: convert speed_mode_2500() to get_interfaces()")
+Signed-off-by: KhaiWenTan <khai.wen.tan@linux.intel.com>
+---
+v2:
+  - update commit message for better understanding (Russell King)
+  - corrected the blamed commit (Russell King)
+v1: https://patchwork.kernel.org/project/netdevbpf/patch/20260410020735.327590-1-khai.wen.tan@linux.intel.com/
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 13d3cac056be..c92054648a7e 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -1345,10 +1345,6 @@ static int stmmac_phylink_setup(struct stmmac_priv *priv)
+ 	priv->tx_lpi_clk_stop = priv->plat->flags &
+ 				STMMAC_FLAG_EN_TX_LPI_CLOCKGATING;
+ 
+-	mdio_bus_data = priv->plat->mdio_bus_data;
+-	if (mdio_bus_data)
+-		config->default_an_inband = mdio_bus_data->default_an_inband;
+-
+ 	/* Get the PHY interface modes (at the PHY end of the link) that
+ 	 * are supported by the platform.
+ 	 */
+@@ -1356,6 +1352,10 @@ static int stmmac_phylink_setup(struct stmmac_priv *priv)
+ 		priv->plat->get_interfaces(priv, priv->plat->bsp_priv,
+ 					   config->supported_interfaces);
+ 
++	mdio_bus_data = priv->plat->mdio_bus_data;
++	if (mdio_bus_data)
++		config->default_an_inband = mdio_bus_data->default_an_inband;
++
+ 	/* Set the platform/firmware specified interface mode if the
+ 	 * supported interfaces have not already been provided using
+ 	 * phy_interface as a last resort.
+-- 
+2.43.0
+
 
