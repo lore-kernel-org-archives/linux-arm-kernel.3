@@ -4,102 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 850B6EBFD22
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 09:26:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1F21EBFD21
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 09:27:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LyTRrutYnATzApAeFIWft4RRx7gSZRf923LkUajEI58=; b=uL77DJ9JFcUgW5uYR6DYde1+z6
-	pUm72pQ0nl+hsVX5/8AlM0A8eG5ysBwmS+8aZWE4RT0nZqx7v0/Xl/SEL08bMHq8pA/XEUhkNqxTd
-	axqsfN46IXxmBnvFbmg8M2Z3ymFDJHMAn9LpkOFD/BeEXSKm9kLaduqNKzVIstjBZggCkn3a+r4bB
-	DbUUi0o6h4R6viib4kDTWAyQuF4TY51+JzPR2wooerKuNIOOar1xGduezqtza7FxHL5T0z5wRPfKQ
-	fIkFRl+0zHOvSW3O2vjfi7Tu16HBLg6D6Dj7Khb0C9sRS9aKX5E0UcxsYixET8QBrC4ePiVxJ1J3S
-	A8JDZIyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2wvi947uo20FA69I85LYvzZQOo4Tp7LaD0OliYhKDrw=; b=KO9ZvxFZthL+msMFLyZoZSNw9n
+	DJ1W75SrrZpOwSZ9rvEQvwwT9GTMhQ95T4xs6mQFjc6NqR0P1vw/ZbhrUC9KgAWKHPAeIkDW3+tAk
+	07o849QtDcsQ+s8yO8n+dbE97e70CMgQRdbA6WlhCfGWpz/vvRUiG19cDBo0GROTPgFP3hWuLwfdC
+	VesdpW+fbIgtaF25ZB3EbyVBRF1K6XDGFiq6s9b2Qell1CeQ3cMR+drHKsAX6gq3JQYMcdq0cpG30
+	qHEJzc9RFFyusBv1Alc6xUDwRA6cZKmeeD9q5MXRDwJ3hEGFQFJTb5Sj6npN7gjW9Qp5joBDxndn7
+	TWpDhSuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCDYY-0000000FMsX-1syf;
-	Mon, 13 Apr 2026 09:26:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wCDa5-0000000FN1d-3fWg;
+	Mon, 13 Apr 2026 09:27:45 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCDYX-0000000FMsN-1ZBY;
-	Mon, 13 Apr 2026 09:26:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=LyTRrutYnATzApAeFIWft4RRx7gSZRf923LkUajEI58=; b=kWxfZceAeGE186Qa4l2ZBwxRM9
-	wYy3LecGINJNL+4t53FjWIRNCdgFl1z8ZNpXZJiHYwdOSOA1TwjA/THTHp1HiKhXjXkbe80ac0B9E
-	cKzdtl7liyvgW3RL8bqDYzqHcdWwLL7b14Th/F3On7r0cyVJo1l6wN/cDdPBAZ82LLFyItYs1ukrt
-	rJ4E+/26GD9k2QfG2VlbREKaQFNfDJZt03sY9IHPuiW90klJjpxDxsP8OrwtUe4AmPwG45dsm0XN7
-	FlJH5oTrE1azJJyM8CKHS/S/g2v1fvAkPgbcra4RrnfsKJb2N0U3chRV3qp/x7rtJ9OlduVwKBF20
-	vVMY+x/A==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCDYS-0000000GUa6-42J4;
-	Mon, 13 Apr 2026 09:26:07 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 63D9ND4z83976123, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1776072193; bh=LyTRrutYnATzApAeFIWft4RRx7gSZRf923LkUajEI58=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=QUOwRZ03s5JS1wgUz5eQ7+cw0w7zUStWcsVSVzMw5mnwen6pHeIyiVQ8pi5NdXGFb
-	 B24djn7qgmar6G18riwNisBfCLvaLOotjWEsHRrrYfCWRS0AZOR3bOBcEDbukNrGqf
-	 Osr1gZzLTfDlpNpLI/F+nA+HwzwTDsQjv2pGmOAAY1FU47amqCbkFDTXpqYtdoqw5q
-	 tpoYLUYM1LmrgYjUotV3BkcVj0nuLMhJa8H3T+z81vbs4omCn5W+LRKLG5um0cbgUy
-	 vw5BKPdO8n+nwjoWVJrhF+OCk1K9s3JlJEHTRok1E8cBX7FI2qulm8TfqmVMTIOYuL
-	 wIAAE0nAROopg==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.26/5.94) with ESMTPS id 63D9ND4z83976123
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 13 Apr 2026 17:23:13 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Mon, 13 Apr 2026 17:23:13 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::ed72:3015:2840:4458]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::ed72:3015:2840:4458%10]) with mapi id
- 15.02.1748.010; Mon, 13 Apr 2026 17:23:13 +0800
-From: =?utf-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-        Linus Walleij
-	<linusw@kernel.org>,
-        =?utf-8?B?QW5kcmVhcyBGw6RyYmVy?= <afaerber@suse.de>
-CC: "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        Andrew Jeffery
-	<andrew@codeconstruct.com.au>,
-        "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>,
-        "openbmc@lists.ozlabs.org"
-	<openbmc@lists.ozlabs.org>,
-        "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-        Joel Stanley <joel@jms.id.au>,
-        "linux-realtek-soc@lists.infradead.org"
-	<linux-realtek-soc@lists.infradead.org>,
-        =?utf-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?= <james.tai@realtek.com>
-Subject: RE: [PATCH 4/4] ARM: realtek: MAINTAINERS: Include pin controller
- drivers
-Thread-Topic: [PATCH 4/4] ARM: realtek: MAINTAINERS: Include pin controller
- drivers
-Thread-Index: AQHcyOquo2WiRIDaMEumOWsAJK/C+LXctDBA
-Date: Mon, 13 Apr 2026 09:23:13 +0000
-Message-ID: <45866135c8a54e1d98cac51932ca8e1a@realtek.com>
-References: <20260410-pinctrl-testing-v1-0-6f708c855867@oss.qualcomm.com>
- <20260410-pinctrl-testing-v1-4-6f708c855867@oss.qualcomm.com>
-In-Reply-To: <20260410-pinctrl-testing-v1-4-6f708c855867@oss.qualcomm.com>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-x-originating-ip: [172.21.6.42]
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	id 1wCDa2-0000000FN11-4AHt
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Apr 2026 09:27:44 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63D6P1xp1121575
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 09:27:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	2wvi947uo20FA69I85LYvzZQOo4Tp7LaD0OliYhKDrw=; b=cgJ5fjq+5mwJc68Q
+	zssl32vNnvSktud/HYdxp6fFfAjOl26aW4QMq2qAFN9oZVBwQWV8Nb4oTXOx4X0t
+	8MqgIW8gu3PbVI4CqL125LkBflf7ljWFyc+WloVJuPOTEcHiWLy2XwPgyWCjeGFw
+	j40LRA2htIrG7LUuy8pjlnynnSz08c1pPYeLp7JsjTVCDbnz6yhYuv1O8oBGVNJi
+	Hh0f2OsRICTfBL6JZrRxAjlwqczs920JG2OnAJymaFj/F7xupOI9JIWQzekQuNQN
+	mmpumTUldIOpEWW7bmnrNoIzrmiKt7rnPsUf6W4ntho1FYV7LFCVaTNByrjL8HU3
+	qbCi5A==
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dff0jvkxa-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 09:27:41 +0000 (GMT)
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-82a6906e35fso3082155b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 02:27:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1776072460; x=1776677260; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=2wvi947uo20FA69I85LYvzZQOo4Tp7LaD0OliYhKDrw=;
+        b=KXOCIkj3gfgxqdbBJ5lCia+hKgjWhSDwKbZqD5hVNS9C8IRc35DnWy/ZjbejJjusE/
+         O9g3Wav9tgOrsj2oqpDT8bRMdFyf5wxQ7W3BieAgQg/Kb2PKQOJT/lvw/D5Gh/uFWko8
+         vxviiodNxEY4F1Z7Bi1tDnJ9C4icRfGQD57Ld3H35kkgvYjR8oP0+nCTub4LgtPp7aBa
+         qFSUMHpvBPSR9hiLBicFg0qd2861yMFH5HBrlmHzU+A3mPWolK1T5VxLiBo+PoWsmy9m
+         uPWuWJvf5/61r0p7Cm54a1IyFJcFBoedzT2wnYAEWloP+s/cfgwxzdOQbdgR42nhyJZh
+         gtOQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776072460; x=1776677260;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=2wvi947uo20FA69I85LYvzZQOo4Tp7LaD0OliYhKDrw=;
+        b=k5BnGxD2+waZC/3igy1uDt+wyUO5aj2YnpD02TukWSklsZgRPEnAbZcMiixYpU6gn2
+         LKdn4hE/UYYC3cjVsg1dxuisTzI7TSSVG+Zwx+ZvgTl3JXTg5qPyY+8LNrfVkhDP4eYG
+         FOdQhe/tGo9syy8+FgzxBU7AaR38+tN+vBWxhrlAQLHjPzv3Q/6IhbrZaVF2tGkgMK7B
+         1ynV0oL4dbiAwWsuBXqf1iDDGlBVIVvam5Zquu7vgyQBINyst/YcdbbLCgfY5kpjFnDz
+         DlxsecgZS6wuRb9i94VLnpodXBUroTQyUh6mk9MMk5ayvnNt7aU/hiao6+mPtebz8n9i
+         AEMw==
+X-Forwarded-Encrypted: i=1; AFNElJ9vYiNDzXZNK/hqdl9a/4aoJVJvN601VrNcVCAM6RTqsl1WvsofOSceOrgUu4oFfi7aKNGYHbtqNLEt3IFhGcxz@lists.infradead.org
+X-Gm-Message-State: AOJu0YzBkrptfS1nMwuTf8SA9OpGkfUeJ2l5ieJABoI1r/xmp/3/ZHJS
+	QDVa2G18+wiUTqg2geqQwntX98KAk9r/8Y+TlRVGVoSeQIlXB5IiIL3HML64XX2BdzUVA1fExGK
+	29f4GQsj5ujUNz6lLEp7i3bcO536QDRxtIEliWjx4oARJVkj+1JRhEan5Nb1lL1oLwd87MTppht
+	R0Tw==
+X-Gm-Gg: AeBDieuQIwNdUsZp3FGV4ifBszHA4Aubo8h730eXyYGV3TuNPOBdUbpqhDApUKaKiJP
+	LbkreugzQU7chP0gxGJYmkAplYNXSZHINzslHNLehZnLDPOPf9EpZGRH+HWbZvZz8MJGH9VzM7n
+	hhXFycEVWTkf//Y77di1TOMVEQ9YVVA/VMDrnGcQqzCQpayNVj3oCrgxRF8qAPWZlOGmnXob4rX
+	Ca6qVgBYWxOVsPwkE1M+jFymz6lLI1IPjV1PJg11roGoknHAmyfRjFjBtvJs1JbShjyOC+EPs6v
+	SIEjoJyjnahg0pA4mcV6Fy/nK0EIdzjQYJS0szYdM71bYgoQEsLDXedbC4xanOTDC6frEU5PP+q
+	04BOfrLX1Y73Nv3QNYZCkoWQbBk1mdDBFp03BuThhcQ0be7/l8FtqE4J9g+Abu/XYfE9rWAT9uU
+	tUfAJZIWI5cA==
+X-Received: by 2002:a05:6a00:9515:b0:82f:39df:dd54 with SMTP id d2e1a72fcca58-82f39dfdfb2mr3665740b3a.8.1776072460449;
+        Mon, 13 Apr 2026 02:27:40 -0700 (PDT)
+X-Received: by 2002:a05:6a00:9515:b0:82f:39df:dd54 with SMTP id d2e1a72fcca58-82f39dfdfb2mr3665718b3a.8.1776072459961;
+        Mon, 13 Apr 2026 02:27:39 -0700 (PDT)
+Received: from [10.133.33.35] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f0c4e1a2dsm10921102b3a.44.2026.04.13.02.27.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 13 Apr 2026 02:27:39 -0700 (PDT)
+Message-ID: <597f5dec-2339-4e12-81fd-d808e6d0d363@oss.qualcomm.com>
+Date: Mon, 13 Apr 2026 17:27:33 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 16/20] coresight: Add PM callbacks for sink device
+To: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+ <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+        Yeoreum Yun <yeoreum.yun@arm.com>, Mark Rutland <mark.rutland@arm.com>,
+        Will Deacon <will@kernel.org>, Yabin Cui <yabinc@google.com>,
+        Keita Morisaki <keyz@google.com>,
+        Yuanfang Zhang
+ <quic_yuanfang@quicinc.com>,
+        Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Tamas Petz <tamas.petz@arm.com>, Thomas Gleixner <tglx@kernel.org>,
+        Peter Zijlstra <peterz@infradead.org>, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org
+References: <20260405-arm_coresight_path_power_management_improvement-v10-0-13e94754a8be@arm.com>
+ <20260405-arm_coresight_path_power_management_improvement-v10-16-13e94754a8be@arm.com>
+ <227b77b9-5232-4cff-b26a-458477e9eb32@oss.qualcomm.com>
+ <20260413084833.GA356832@e132581.arm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20260413084833.GA356832@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEzMDA5MiBTYWx0ZWRfX35KvTp4oc3On
+ eZ3jiJHAA98/K9UqjkJ/+Tpj02RupvWawY3NSP8q3bHLhSBY5Y6Zz0wUel8+gaq2KfJBZR23eY6
+ DB3XnRUanT4fUNRn7DFcUIR+jxOh7mu/FglNRDeSmVBqLEbQUDSfYPIElAkvhkMl4FOP+vbSW/c
+ Ll7yv0oBMtl89SOCD/GIHD5sv4o/w5x3Br993W3Pv509iDnWc7bCjor3Ago47xp61zVafE7gJ5S
+ YBLiAxZDvIRq5B1u+mPwOix5saYvf6xEQnYfRExR+++798Nw3KrttbwWxweIRe85Of/4mujgjuH
+ XMmog8S0Tei/W0wEFGjs78rUSfnnmLPVJcPLkce9Tu/+8+U1SfvUWV1Y0QFQBLTCXPvnq4fDvXU
+ 3bSADuY3cz6I9qAEgwcqL6Ajc+CCWSteVgiDLNsdiPir08XKw+4PfZFDev/T6Hq2maBnD7myPGy
+ ZfMtsRVlU+LfHjH5bcg==
+X-Proofpoint-ORIG-GUID: 6epUOIS9Bpg4q40RNmzhyF7Wvcw9RnKs
+X-Proofpoint-GUID: 6epUOIS9Bpg4q40RNmzhyF7Wvcw9RnKs
+X-Authority-Analysis: v=2.4 cv=d/LFDxjE c=1 sm=1 tr=0 ts=69dcb70d cx=c_pps
+ a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=YxUyXSWcmWsRzNVEdBIA:9 a=QEXdDO2ut3YA:10 a=OpyuDcXvxspvyRM73sMx:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-13_02,2026-04-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 impostorscore=0 malwarescore=0 phishscore=0 priorityscore=1501
+ bulkscore=0 suspectscore=0 adultscore=0 lowpriorityscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604010000 definitions=main-2604130092
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_102605_721919_4830B914 
-X-CRM114-Status: GOOD (  15.45  )
+X-CRM114-CacheID: sfid-20260413_022743_308545_578E4518 
+X-CRM114-Status: GOOD (  26.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,23 +160,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiBObyBkZWRpY2F0ZWQgbWFpbnRhaW5lcnMgYXJlIHNob3duIGZvciBSZWFsdGVrIFNvQyBwaW4g
-Y29udHJvbGxlcnMsIGV4Y2VwdA0KPiBwaW5jdHJsIHN1YnN5c3RlbSBtYWludGFpbmVyLCB3aGlj
-aCBtZWFucyByZWR1Y2VkIHJldmlldyBhbmQgaW1wcmVzc2lvbiBvZg0KPiBhYmFuZG9uZWQgZHJp
-dmVycy4gIFBpbiBjb250cm9sbGVyIGRyaXZlcnMgYXJlIGVzc2VudGlhbCBwYXJ0IG9mIGFuIFNv
-Qywgc28gaW4NCj4gY2FzZSBvZiBsYWNrIG9mIGRlZGljYXRlZCBlbnRyeSBhdCBsZWFzdCBjb3Zl
-ciBpdCBieSB0aGUgU29DIHBsYXRmb3JtDQo+IG1haW50YWluZXJzLg0KPiANCj4gU2lnbmVkLW9m
-Zi1ieTogS3J6eXN6dG9mIEtvemxvd3NraSA8a3J6eXN6dG9mLmtvemxvd3NraUBvc3MucXVhbGNv
-bW0uY29tPg0KPiANCj4gLS0tDQo+IA0KPiBUaGlzIHBhdGNoIHNob3VsZCBnbyB2aWEgUmVhbHRl
-ayBTb0MgbWFpbnRhaW5lcnMsIG5vdCBwaW5jdHJsLg0KPiAtLS0NCj4gIE1BSU5UQUlORVJTIHwg
-MSArDQo+ICAxIGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKykNCj4gDQo+IGRpZmYgLS1naXQg
-YS9NQUlOVEFJTkVSUyBiL01BSU5UQUlORVJTDQo+IGluZGV4IDEwZDEyYjUxYjFmNi4uMzc0Y2U1
-NWU0ZmI2IDEwMDY0NA0KPiAtLS0gYS9NQUlOVEFJTkVSUw0KPiArKysgYi9NQUlOVEFJTkVSUw0K
-PiBAQCAtMzM3Myw2ICszMzczLDcgQEAgRjoNCj4gRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2Jp
-bmRpbmdzL2FybS9yZWFsdGVrLnlhbWwNCj4gIEY6ICAgICBhcmNoL2FybS9ib290L2R0cy9yZWFs
-dGVrLw0KPiAgRjogICAgIGFyY2gvYXJtL21hY2gtcmVhbHRlay8NCj4gIEY6ICAgICBhcmNoL2Fy
-bTY0L2Jvb3QvZHRzL3JlYWx0ZWsvDQo+ICtGOiAgICAgZHJpdmVycy9waW5jdHJsL3JlYWx0ZWsv
-DQo+IA0KPiAgQVJNL1JJU0MtVi9SRU5FU0FTIEFSQ0hJVEVDVFVSRQ0KPiAgTTogICAgIEdlZXJ0
-IFV5dHRlcmhvZXZlbiA8Z2VlcnQrcmVuZXNhc0BnbGlkZXIuYmU+DQo+IA0KPiAtLQ0KPiAyLjUx
-LjANCg0KQWNrZWQtYnk6IFl1LUNodW4gTGluIDxlbGVhbm9yLmxpbkByZWFsdGVrLmNvbT4NCg==
+Hi Leo,
+
+On 4/13/2026 4:48 PM, Leo Yan wrote:
+> On Mon, Apr 13, 2026 at 01:45:50PM +0800, Jie Gan wrote:
+> 
+> [...]
+> 
+>>> @@ -1787,15 +1808,32 @@ static int coresight_pm_save(struct coresight_path *path)
+>>>    	to = list_prev_entry(coresight_path_last_node(path), link);
+>>>    	coresight_disable_path_from_to(path, from, to);
+>>> +	ret = coresight_pm_device_save(coresight_get_sink(path));
+>>> +	if (ret)
+>>> +		goto sink_failed;
+>>> +
+>>>    	return 0;
+>>> +
+>>> +sink_failed:
+>>> +	if (!coresight_enable_path_from_to(path, coresight_get_mode(source),
+>>> +					   from, to))
+>>> +		coresight_pm_device_restore(source);
+>>
+>> I have go through the history messages. I have a question about this point
+>> here:
+>>
+>> how can we handle the scenario if coresight_enable_path_from_to failed? It
+>> means we are never calling coresight_pm_device_restore for the ETM and
+>> leaving the ETM with OS lock state until CPU reset?
+> 
+>  From a design perspective, if any failure occurs in the idle flow, the
+> priority is to avoid further mess, especially partial enable/disable
+> sequences that could lead to lockups.
+> 
+> The case you mentioned is a typical risk - if a path after source to
+> sink fails to be enabled, it is unsafe to arbitrarily enable the source
+> further.  We rely on the per-CPU flag "percpu_pm_failed" to disable idle
+> states, if ETE/TRBE fails to be disabled, if CPU is turned off, this
+> also might cause lockup.
+
+understood.
+
+> 
+>> Consider we are calling etm4_disable_hw with OS lock:
+>> etm4_disable_hw -> etm4_disable_trace_unit -> etm4x_wait_status (may timeout
+>> here?)
+> 
+> This is expected.  I don't want to introduce a _recovery_ mechanism for
+> CPU PM failures, which is complex and over-engineering.  CPU PM notifier
+> is low level code, and in my experience, PM issues can be easily
+> observed once CPU idle is enabled and should be resolved during the
+> development phase.
+> 
+> In many cases PM issues are often not caused by CoreSight drivers but by
+> other modules (e.g., clock or regulator drivers).  The log "Failed in
+> coresight PM save ..." reminds developers the bugs.  As said,
+> percpu_pm_failed is used as a last resort to prevent the platform from
+> locking up if there is a PM bug.
+
+Thanks for the explanation.
+
+Thanks,
+Jie
+
+
+> 
+> Thanks,
+> Leo
+
 
