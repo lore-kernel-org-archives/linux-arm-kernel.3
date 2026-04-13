@@ -4,156 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79F75F531C2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 18:18:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C1EDF531C3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 18:29:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cvg9O/QkoL6L++yjzZgvdyr7NcHvlP+82mqh/kFxhmE=; b=qM/fdP79R2S49wxqlX2Y91/J4r
-	7bTjMFdVZSqBmUWbSxCzd4WPlOlN+P5e8rL7mq1KZXOzDXoL+fBoH3hXc1NeNGfCN3Cyy7tqzFwHY
-	DOqg3v/ChwtIkcXDDKFGKUry0rYhXpk7TrMkGTQvvEEHyuR8LGtQFlFHNL731NPchaXFVUGRfkWNI
-	dncsV2s1TC8Eehhl54z4AhgatQow3CtWxWbnuw2soAmDmAZzZk24MbRFk9z1EHEASR3VgO8FeIgOn
-	Yy+iMBmfMltjQMD2AlD4vmN1Oggymr1NDhvHoav7U+5ox5uG3vjxyyA7a7zoX5AbsyZXei/fWELmT
-	sJa+F44w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8wwTbqAk1/v1m7wW2LqSmKK5iRKdfUxdCX7mcszWNIw=; b=dS7RdEwl1BhHem
+	Q621PZ9YKZehyuGwxQafnabPrXwgz3uLTzzWrwX2ULp3IXq1VkmtFxVhKw3fR4Y3muctPxhSsEpHc
+	Niw6kuLaPIYCzxKJlu8w0mNOpwX/ZmdjDoRfmfT+4C+sT5EbeegdoXAaQcKVGULXI/uimGmB5eFdk
+	Cmun0zYo8KLMNDqe9/iB8Jsx2m3J6knTHdp7fbbo8NzckPggPeziogyBkJXFgLea7KojHvWqmBs0C
+	dqglBZ4HHfnUa3g4tIH56XBAjBVZOhiBQ7va4bppL+w35K6f/tERo3HEHkud4kZ3+jetGR9Bp/QqQ
+	Nlm1/8huLGqX+teKpEbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCLru-0000000GBSf-0hLF;
-	Mon, 13 Apr 2026 18:18:42 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wCM1y-0000000GC3M-3hUu;
+	Mon, 13 Apr 2026 18:29:06 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCLrq-0000000GBRF-1txy
+	id 1wCM1v-0000000GC1v-0YB1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 18:18:40 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63DF6QQ93752203
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 18:18:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=Cvg9O/QkoL6L++yjzZgvdyr7
-	NcHvlP+82mqh/kFxhmE=; b=pRKkzj4eBCLt7MBIHrvfMDHA8m40GRD33k+hBScN
-	2Ygbk73IPzEDe5rG8ZQVNp8xBORszviNd5JgeNCOkbvUnUKjd21Wk49Ec2c5jaWp
-	ZuFeKcPeVikXiC5f5XXRfMKFA3nc2UtOSWQeAxW7U6+2nIKSHrkRkL1O7jVf5MJ+
-	Pclf8y65gFhT2lcawQlBhx+jbhrc3dT4B4OZEmPqWu5IFEwCz3xMcaRHUpqu/OHE
-	5YdK3FVApL2VjsE7Qc/RzlpqDsG/Xfz7W7golo5D7kaxCNwer0pxx9pFrNarWl1S
-	o57bOBJPnO7cOv3F+q6PLIGpZjy9Tks13KdMF9PWNA2ELg==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dh2tu8p5h-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 18:18:37 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-50d9a6a853bso114303881cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 11:18:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1776104316; x=1776709116; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Cvg9O/QkoL6L++yjzZgvdyr7NcHvlP+82mqh/kFxhmE=;
-        b=giPxfNq6RjGqJ0XKymc7IZr9NMDDVd4UaNIvXNgRN1B2A/pev8G153fHF/J/Vpcxu7
-         ja2n28YRHOOdgx41rlIS7Lt6NFCO4SJPeF+YfQ7c0Sx0c2ux17K5iUKcCudpQNOHB6kW
-         /BdEk4dUXEAJqZvsd2nhyIeMNum7fhtMcrrclsl7SFBsm2M9XgXLVFok8t5kVmZUBJ7P
-         m3/+XpLuSfxG/6lufRXyYiHw8Z90O6bc8Sckepx3aXIkCfMOldJMQPNy+H1V/FE+MvNk
-         XW/tMB02dZisOXMBc5RevKK8V22SUl4SVqELA2cMFBNkkqzdtA/63aEXcOZS93u+eExH
-         pXsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776104316; x=1776709116;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Cvg9O/QkoL6L++yjzZgvdyr7NcHvlP+82mqh/kFxhmE=;
-        b=ebs2sh6P3DlAOxrEvt5o0aZ3kRRkXWDqyfrBhzyExNekuyXqeTTTJ3DlB/UPzg2aaG
-         Znc8AtWjjMsyOCnBarxykh8GudF4TRGBzJT3svU4YsQTpTMBuA1I5YUhJVNbCPsWPYCv
-         DUStaapwJyUI0uhIR0CvnQxRYxTPkmNWef8vHLsw0OaJccCfjdBTvSvWHHMM6rWejFul
-         KblBadw20E2+EsOsemGuMSj7Z9yjm+GkZlELZhH2f9YvvnvHRJajeu2+gKH3Su62sHRA
-         DOsNCPOi81XJQm/ebqb/23trtLlkgvTmGf6Zsi5YSKAh4sI2XfxkRTjJkjK0c2cOIuII
-         l1rA==
-X-Forwarded-Encrypted: i=1; AFNElJ+7zGS2OZrxMzStndr/t1VoUndDFH4aYeI6T5f7VE8VjrF6PPATh1HSJTMxO3JrxW8+bvOwWprMUAWrd+GODRCe@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPEFA9CqSyXeO6Proxabsw9DfdR6F+uh4ynt+fdNKlAkpilCLz
-	M+PkHfTv1YkIqWPztn94A7ehZ6F4Z6CE8HK907qElxHtdx1L+u35rSQtJdOUV7ddVFY0AV7Tjsk
-	6ZIo5L5yAABmuiq1MFM1VrSLXQq0U2s6U/KRBm6yNmjEHi/sAyCjm7Ns1xGQ4MiGx2UFEcSwEHY
-	RyyQ==
-X-Gm-Gg: AeBDiesjlxQaDNyH2FeNYAvjXo76/BiQ9oDnP8aYP57gmEYJdVE/qBuB7rJdZeBDYPY
-	JqdSdKGW+T3UQjsKWfCR5erZUrTMF7Mdwgp3jVD1iJFVSfTZo43mV9nDyIArCCbXTOVntcxjlX0
-	K0lTKM/tiiGIxNOC6DuOvWJsEy2Irhfbo9I967X/lLPvGFnVq7B/R4KtUYkcuvZ6q7zfm/bHFtf
-	GtH6mRYJO9PtNCekCeCr89ky4lfstD24c+xtYLMAcclLtS6/rCUQWGgGgDTpwam7szl40ddj9RN
-	oZDKihXXJQjk8ILw1Vo4ypLfq28kWjvyCm+s0k8zC9y+9agRZiZyfUfsMsmvLhtObkEbwqASoyU
-	eX+jtMf97tlyBlVsqb+XKqPUqYex4e1GaPRYMYeXlhT6nnnOV7UtWTpx9nq5jRauI1Sw3Wzo3TP
-	N/rXvX4F7yl7phjUU1yoL5t61a5OUyBfAFm029hUeaLLFtWA==
-X-Received: by 2002:ac8:5916:0:b0:509:348f:bc1a with SMTP id d75a77b69052e-50dd5ad989amr232216181cf.26.1776104316422;
-        Mon, 13 Apr 2026 11:18:36 -0700 (PDT)
-X-Received: by 2002:ac8:5916:0:b0:509:348f:bc1a with SMTP id d75a77b69052e-50dd5ad989amr232215361cf.26.1776104315794;
-        Mon, 13 Apr 2026 11:18:35 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-38e49298f1csm24034161fa.12.2026.04.13.11.18.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Apr 2026 11:18:33 -0700 (PDT)
-Date: Mon, 13 Apr 2026 21:18:31 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        Xinliang Liu <xinliang.liu@linaro.org>,
-        Tian Tao <tiantao6@hisilicon.com>,
-        Xinwei Kong <kong.kongxinwei@hisilicon.com>,
-        Sumit Semwal <sumit.semwal@linaro.org>,
-        Yongqin Liu <yongqin.liu@linaro.org>, John Stultz <jstultz@google.com>,
-        Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-        Michal Simek <michal.simek@amd.com>, Hui Pu <Hui.Pu@gehealthcare.com>,
-        Ian Ray <ian.ray@gehealthcare.com>,
-        Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
-        linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 08/10] drm/bridge: lt8713sx: switch to
- of_drm_get_bridge_by_endpoint()
-Message-ID: <5d4juwqjm2wxxzd6vf3rjrsrp3xhg2spklukvocwrdenuepk6v@a7mdfn27fsgt>
-References: <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-0-acd01cd79a1f@bootlin.com>
- <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-8-acd01cd79a1f@bootlin.com>
+	Mon, 13 Apr 2026 18:29:05 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 64B3C1A31EE;
+	Mon, 13 Apr 2026 18:28:57 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 24AAB5FFB9;
+	Mon, 13 Apr 2026 18:28:57 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 57AC3104504B7;
+	Mon, 13 Apr 2026 20:28:43 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1776104935; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=8wwTbqAk1/v1m7wW2LqSmKK5iRKdfUxdCX7mcszWNIw=;
+	b=A6txoxr1XcmG6tEbbCTyhur5lWgPF7QbN2kOqQ54tYUX88h9fiDrus4Hjzv6K1aTBvZ2CO
+	bjdVtAPCZTUuxgjc6RPvbXX0F56K9Ade5XwS7muo/TOF1Tvpmck0wAWs4AVubunqSm+Ndd
+	6f01OPXyrIg/4lsYV6IK/RMy3MjbBTauAl1B50TjTV2IxPVcJuSQrO4S+u7TZwMR/mU033
+	FVILOV9EtBmoXp1r76CWS2aoAmzpBnQyc2Izig6DLjirZ630fRVBYFhCLMDQGNkhc32w4F
+	Q3k01keahidyZQVCTHur9l743MSGM6UBhfKfPB0DM8ZaeCot7DW4hlmohhjJyw==
+From: =?utf-8?q?Alexis_Lothor=C3=A9_=28eBPF_Foundation=29?= <alexis.lothore@bootlin.com>
+Subject: [PATCH RFC bpf-next 0/8] bpf: add support for KASAN checks in
+ JITed programs
+Date: Mon, 13 Apr 2026 20:28:40 +0200
+Message-Id: <20260413-kasan-v1-0-1a5831230821@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-8-acd01cd79a1f@bootlin.com>
-X-Proofpoint-ORIG-GUID: yRJFeMws295iR0yQEYKzO20Yd1IutGyz
-X-Proofpoint-GUID: yRJFeMws295iR0yQEYKzO20Yd1IutGyz
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEzMDE4MCBTYWx0ZWRfX77Xsn/VhZE72
- si46r/0+GhgQ+sjxUkYhroiKz8kMcNLfjYY0jjEGaf4nCSGXi5Cv22Z5aWXcpWw0gfS/Y688Ens
- n0oUyZoVjQO3jXn+d0wPlbEr4bQLTYpHO3vc6+Fz2Hg1vjAAGqSj8HtI5Xzm3i7uoQQRYGmr5mv
- +E4QRAm+BT5LrCZjUi/rOFA2pYQ8xAfVB6sHGND+VFrI3zCgxXTMqiDUNmbxz5dhR1m3c6LhxKF
- AWVIy0qyuuZXA21Eua8K4nHeXZVotsMZ8uPa14lRHELx7E/30YfTjNyFt5gyZzaH9Abf+9UR32/
- OYYdM9jbahg5YGj21jGRyQS1pqiB54bbg0MAjEY+cldN3KZ9qwkDUsWHyUL667cW6cO9XchvQwV
- +O12g2wkCz0HcRiP/1vF4OdRC9FDyyQzQ1mMxvJf4q3D4yJFtDhzgtsDabF+d5GHpc+Ly0DDpfV
- 4mdw37VJ7q0EqL5mJPQ==
-X-Authority-Analysis: v=2.4 cv=RJ+D2Yi+ c=1 sm=1 tr=0 ts=69dd337d cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=P-IC7800AAAA:8
- a=EUspDBNiAAAA:8 a=sqxsbOWVCbAVHG9YZwUA:9 a=CjuIK1q_8ugA:10
- a=uxP6HrT_eTzRwkO_Te1X:22 a=d3PnA9EDa4IxuAV0gXij:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-13_03,2026-04-13_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 impostorscore=0 bulkscore=0 spamscore=0 phishscore=0
- clxscore=1015 adultscore=0 lowpriorityscore=0 suspectscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604010000 definitions=main-2604130180
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDQyMz3ezE4sQ83bTkFDOLNDOT5BTzJCWg2oKi1LTMCrA50UpBbs4gsaS
+ CNN281IoSpdjaWgCGQM1aaAAAAA==
+X-Change-ID: 20260126-kasan-fcd68f64cd7b
+To: Alexei Starovoitov <ast@kernel.org>, 
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+ Martin KaFai Lau <martin.lau@linux.dev>, 
+ Eduard Zingerman <eddyz87@gmail.com>, 
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>, 
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+ John Fastabend <john.fastabend@gmail.com>, 
+ "David S. Miller" <davem@davemloft.net>, David Ahern <dsahern@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+ Shuah Khan <shuah@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+ Alexander Potapenko <glider@google.com>, 
+ Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>, 
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: ebpf@linuxfoundation.org, 
+ Bastien Curutchet <bastien.curutchet@bootlin.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Xu Kuohai <xukuohai@huawei.com>, bpf@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, kasan-dev@googlegroups.com, 
+ linux-mm@kvack.org, 
+ =?utf-8?q?Alexis_Lothor=C3=A9_=28eBPF_Foundation=29?= <alexis.lothore@bootlin.com>
+X-Mailer: b4 0.15.1
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_111838_610212_0ABC9464 
-X-CRM114-Status: GOOD (  17.84  )
+X-CRM114-CacheID: sfid-20260413_112903_438657_710285B3 
+X-CRM114-Status: GOOD (  18.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,26 +101,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 13, 2026 at 03:58:40PM +0200, Luca Ceresoli wrote:
-> This driver calls drm_of_find_panel_or_bridge() with a NULL pointer in the
-> @panel parameter, thus using a reduced feature set of that function.
-> Replace this call with the simpler of_drm_get_bridge_by_endpoint().
-> 
-> Since of_drm_get_bridge_by_endpoint() increases the refcount of the
-> returned bridge, ensure it is put on removal. To achieve this, instead of
-> adding an explicit drm_bridge_put(), migrate to the bridge::next_bridge
-> pointer which is automatically put when the bridge is eventually freed.
-> 
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> ---
->  drivers/gpu/drm/bridge/lontium-lt8713sx.c | 7 +++----
->  1 file changed, 3 insertions(+), 4 deletions(-)
-> 
+Hello,
+this series aims to bring basic support for KASAN checks to BPF JITed
+programs. This follows the first RFC posted in [1].
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+KASAN allows to spot memory management mistakes by reserving a fraction
+of memory as "shadow memory" that will map to the rest of the memory and
+allow its monitoring. Each memory-accessing instruction is then
+instrumented at build time to call some ASAN check function, that will
+analyze the corresponding bits in shadow memory, and if it detects the
+access as invalid, trigger a detailed report. The goal of this series is
+to replicate this mechanism for BPF programs when they are being JITed
+into native instructions: that's then the (runtime) JIT compiler who is
+in charge of inserting calls to the corresponding kasan checks, when a
+program is being loaded into the kernel. This task involves:
+- identifying at program load time the instructions performing memory
+  accesses
+- identifying those accesses properties (size ? read or write ?) to
+  define the relevant kasan check function to call
+- just before the identified instructions:
+  - perform the basic context saving (ie: saving registers)
+  - inserting a call to the relevant kasan check function 
+  - restore context
+- whenever the instrumented program executes, if it performs an invalid
+  access, it triggers a kasan report identical to those instrumented on
+  kernel side at build time.
 
+As discussed in [1], this series is based on some choices and
+assumptions:
+- it focuses on x86_64 for now, and so only on KASAN_GENERIC
+- not all memory accessing BPF instructions are being instrumented:
+  - it focuses on STX/LDX instructions
+  - it discards instructions accessing BPF program stack (already
+    monitored by page guards)
+  - it discards possibly faulting instructions, like BPF_PROBE_MEM or
+    BPF_PROBE_ATOMIC insns
 
--- 
-With best wishes
-Dmitry
+The series is marked and sent as RFC:
+- to allow collecting feedback early and make sure that it goes into the
+  right direction
+- because it depends on Xu's work to pass data between the verifier and
+  JIT compilers. This work is not merged yet, see [2]. I have been
+  tracking the various revisions he sent on the ML and based my local
+  branch on his work
+- because tests brought by this series currently can't run on BPF CI:
+  they expect kasan multishot to be enabled, otherwise the first test
+  will make all other kasan-related tests fail.
+- because some cases like atomic loads/stores are not instrumented yet
+  (and are still making me scratch my head)
+- because it will hopefully provide a good basis to discuss the topic at
+  LSFMMBPF (see [3])
+
+Despite this series not being ready for integration yet, anyone
+interested in running it locally can perform the following steps to run
+the JITed KASAN instrumentation selftests:
+- rebasing locally this series on [2]
+- building and running the corresponding kernel with kasan_multi_shot
+  enabled
+- running `test_progs -a kasan`
+
+And should get a variety of KASAN tests executed for BPF programs:
+
+  #162/1   kasan/bpf_kasan_uaf_read_1:OK
+  #162/2   kasan/bpf_kasan_uaf_read_2:OK
+  #162/3   kasan/bpf_kasan_uaf_read_4:OK
+  #162/4   kasan/bpf_kasan_uaf_read_8:OK
+  #162/5   kasan/bpf_kasan_uaf_write_1:OK
+  #162/6   kasan/bpf_kasan_uaf_write_2:OK
+  #162/7   kasan/bpf_kasan_uaf_write_4:OK
+  #162/8   kasan/bpf_kasan_uaf_write_8:OK
+  #162/9   kasan/bpf_kasan_oob_read_1:OK
+  #162/10  kasan/bpf_kasan_oob_read_2:OK
+  #162/11  kasan/bpf_kasan_oob_read_4:OK
+  #162/12  kasan/bpf_kasan_oob_read_8:OK
+  #162/13  kasan/bpf_kasan_oob_write_1:OK
+  #162/14  kasan/bpf_kasan_oob_write_2:OK
+  #162/15  kasan/bpf_kasan_oob_write_4:OK
+  #162/16  kasan/bpf_kasan_oob_write_8:OK
+  #162     kasan:OK
+  Summary: 1/16 PASSED, 0 SKIPPED, 0 FAILED
+
+[1] https://lore.kernel.org/bpf/DG7UG112AVBC.JKYISDTAM30T@bootlin.com/
+[2] https://lore.kernel.org/bpf/cover.1776062885.git.xukuohai@hotmail.com/
+[3] https://lore.kernel.org/bpf/DGGNCXX79H8O.2P6K8L1QW1M8K@bootlin.com/
+
+Signed-off-by: Alexis Lothoré (eBPF Foundation) <alexis.lothore@bootlin.com>
+---
+Alexis Lothoré (eBPF Foundation) (8):
+      kasan: expose generic kasan helpers
+      bpf: mark instructions accessing program stack
+      bpf: add BPF_JIT_KASAN for KASAN instrumentation of JITed programs
+      bpf, x86: add helper to emit kasan checks in x86 JITed programs
+      bpf, x86: emit KASAN checks into x86 JITed programs
+      selftests/bpf: do not run verifier JIT tests when BPF_JIT_KASAN is enabled
+      bpf, x86: enable KASAN for JITed programs on x86
+      selftests/bpf: add tests to validate KASAN on JIT programs
+
+ arch/x86/Kconfig                                   |   1 +
+ arch/x86/net/bpf_jit_comp.c                        | 106 +++++++++++++
+ include/linux/bpf.h                                |   2 +
+ include/linux/bpf_verifier.h                       |   2 +
+ include/linux/kasan.h                              |  13 ++
+ kernel/bpf/Kconfig                                 |   9 ++
+ kernel/bpf/core.c                                  |  10 ++
+ kernel/bpf/verifier.c                              |   7 +
+ mm/kasan/kasan.h                                   |  10 --
+ tools/testing/selftests/bpf/prog_tests/kasan.c     | 165 +++++++++++++++++++++
+ tools/testing/selftests/bpf/progs/kasan.c          | 146 ++++++++++++++++++
+ .../testing/selftests/bpf/test_kmods/bpf_testmod.c |  79 ++++++++++
+ tools/testing/selftests/bpf/test_loader.c          |   5 +
+ tools/testing/selftests/bpf/unpriv_helpers.c       |   5 +
+ tools/testing/selftests/bpf/unpriv_helpers.h       |   1 +
+ 15 files changed, 551 insertions(+), 10 deletions(-)
+---
+base-commit: 7990a071b32887a1a883952e8cf60134b6d6fea0
+change-id: 20260126-kasan-fcd68f64cd7b
+
+Best regards,
+--  
+Alexis Lothoré (eBPF Foundation) <alexis.lothore@bootlin.com>
+
 
