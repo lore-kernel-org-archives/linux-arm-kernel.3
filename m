@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E31C6F34C4E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 13:59:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C4CDF34C4E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 13:59:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I/uO96Rr3tKxwsuoLDCRBHX8aNlKyL9xUuUhRjLmqu4=; b=n7ylwNHvlZL+QRh8d06rU8LAX0
-	aEgmtrcZJOvuuyODrkf1U5eb5RlX/QPCs37gH6T7ao9xj1i06zE0EHyObyXRONq129yvlfXDe0s2X
-	Zmi/XRUqPHJolRzwLTegejJacOumrjzE9jSdO+3X6ze7EGG2/tARYCvF0DP57Xg1b1OWqTv5CVQI9
-	Q61TkoMASLnff6Tgoc5ioiswQzDCihlnyKvZLtQAztdo/+G32hvxnYh1H/YOghyaph/btRkzr7h0a
-	WM/HJQrJ47RKw+cKSFNlaS5kdvk4lQpghKrToTE5e8ZZrOAbdcfRFiHaaLmM4LevOLgFlzgylyp65
-	rO+LwoMQ==;
+	bh=kyqLbsIF4J3i/WeGxaDtEjARw/tyTVImHH71Ui8/dSc=; b=TbPfw07V1dy0J+jBImiUwcylcq
+	9zBpauwJbxvN5Ott/PovtZxzkz/rVKHT71KpOQu7dQvBckeSPRphCH6zIm5bevHUiAhw9TekL5Xco
+	Q9Y9EkgW58Yz0NX20+94oie8LyT04Fkp/95gsSjHwCYEBv41sBszYGWxqF1fX5szeb/jBPIOGe0xe
+	QMwfrnQ2+4ui/Re51oZMZBATmJtB9mhJioG9XYbR2F6841kjA4+s/LcCZHQaNbOtJl0kd0STfPhz7
+	oRkfbzcokGsXMSvEisJ871SsfDo+aR9r+cZ3ojWjTR3XZNC+GCrc/stoGhh2fxocIRmZe/oOT2RYM
+	bR3aZd4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCHox-0000000FnzN-09Lg;
-	Mon, 13 Apr 2026 13:59:23 +0000
+	id 1wCHp1-0000000Fo28-1Wks;
+	Mon, 13 Apr 2026 13:59:27 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCHov-0000000Fnxr-3o9m
+	id 1wCHoz-0000000Fo0g-3TfA
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 13 Apr 2026 13:59:22 +0000
+	Mon, 13 Apr 2026 13:59:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=I/uO96Rr3tKxwsuoLDCRBHX8aNlKyL9xUuUhRjLmqu4=; b=QmQD1iydfrnDxlhUXjiwzrm0iS
-	a1q1+1DBaCxn7xEaxkCPqAhHPDz0NkE070Hjs4TeZLltBslBqwqE5SA/s0ghnyRo7HUODxgMkYarw
-	BkyyTkqo3hIKScA5NEd4EepvUZM4F6hZZtWWyHVb7gICsezCRqST1+BAAGnbOrEG++vvc/0B0Z0sX
-	Ip0YP84x/Y8iSGv6ae3zE32beJQhOzop0f/O/C8Fqv3wMDo+jCyZqKg+GmPNYjBfk3rFlzmMGMmoh
-	0J/Bo/O5k2/fSp+D+J/1lQFbTsyMx8HGrhF9tNY9hqeiyNxhFKAerNJWZmgFjC1f/8yg0whR79IDt
-	NMtxiOMw==;
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	bh=kyqLbsIF4J3i/WeGxaDtEjARw/tyTVImHH71Ui8/dSc=; b=LiYiGi+hNGxxWSRxlIq5KOT1CP
+	bAGueQff/hqCWh7CXeR5u6Cgm0VpgLqePT6UlZcf2j2nbFQXgl+dYXqMrW7a+kE3tdoT8Rj3oq+pP
+	7E+gCqIj4khs9S8sIYRBz/l6WN+ax/MaGKcaJHynJ6w0DtqM2MeBTO/shfLb+xKtUy1npQ/AASK9n
+	0+yxIwEWt3kiRQINwU2ekg3b5Nm7E0o+prUab1rVS1whFztHNHYiCN4G5sDzMHitM99H90K5XT+Nd
+	E6GNv82y3UdP6js6WpxSdeF3+DO8qMINPB/W19vJj5i1n0FmnIsP5eUOSQ3hrQzT3hVgIzWgMit9s
+	aFG7mjFQ==;
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCHos-0000000GtYM-3v5J
+	id 1wCHow-0000000GtZM-48OD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 13:59:20 +0000
+	Mon, 13 Apr 2026 13:59:24 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id EE59A1A322D;
-	Mon, 13 Apr 2026 13:59:16 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id EA5DB4E429EA;
+	Mon, 13 Apr 2026 13:59:21 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id BCAF15FFB9;
-	Mon, 13 Apr 2026 13:59:16 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8B8C1104513DF;
-	Mon, 13 Apr 2026 15:59:10 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id BE95F5FFB9;
+	Mon, 13 Apr 2026 13:59:21 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6A87B10450084;
+	Mon, 13 Apr 2026 15:59:15 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1776088754; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1776088760; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=I/uO96Rr3tKxwsuoLDCRBHX8aNlKyL9xUuUhRjLmqu4=;
-	b=Vkuq8VsDIcVs0Mduv36yWY8vjJHKU9KQpCScZCTQg0ruiKWVh7fzTqZ9qV2q3SFTyStWfO
-	Sst1CPNF6aGqEIntpfDlaqRE8AlyIoW+jCt0qzkySiEpZp15WDfbEoztRWkVacV+npXLsY
-	I14yhgJTOYIpUUL+MOkd5/SiW8YmvFkyY0J0tfq7wD7V0VNn+mjYoo9XtcbatCBOyHMBlB
-	EPh45HfR5pxGQvUJmwqAxydEru5gT4MrBfsdURwpA4aRReBcqPyrP5GjQF3hjk81Ipx5S4
-	HmWR4LuufaQ8t5gUjj2d71isPQ/8wAzs6vFImdt12chDHIhUh4KivuStyt1vnA==
+	bh=kyqLbsIF4J3i/WeGxaDtEjARw/tyTVImHH71Ui8/dSc=;
+	b=szUK6RQJRH0c3MATXBcO5zhrx4N95w6Ej4G7RQb+oflIMocTG7t0A2rK1S9qQJcizD7rl/
+	DAiRxjzmW8iCp8bctPeO1L+bKMPXoSUFr4ePN8jR7g/gw34Y3hAbeuW9Q7Rex1qPCBU2UE
+	T/8EaJEy7m2YRcjoMEw4UEU2G95xNQn4r2hiw9ADjL2UcKVxESLy/4tnn8vYWPRSQO9nqB
+	+QobA9/as4JoLtWcMTk0zTvqnJWEGCbEUkdkiLdbngmRXGWx65ku4zBptvWYJ7avmxA2Cl
+	KeBdEtjHRsHPLNSZn99kVW4FZX7vImdbYpM/ztT6wV+rnJWqL0cBkSKQtr3Ikg==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Mon, 13 Apr 2026 15:58:38 +0200
-Subject: [PATCH 06/10] drm/bridge: lt9611: switch to
+Date: Mon, 13 Apr 2026 15:58:39 +0200
+Subject: [PATCH 07/10] drm/bridge: adv7511: switch to
  of_drm_get_bridge_by_endpoint()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-6-acd01cd79a1f@bootlin.com>
+Message-Id: <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-7-acd01cd79a1f@bootlin.com>
 References: <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-0-acd01cd79a1f@bootlin.com>
 In-Reply-To: <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-0-acd01cd79a1f@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -96,8 +96,8 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
 X-Mailer: b4 0.15.1
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_145919_223328_A14CA409 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20260413_145923_247779_C2ED5E0D 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,39 +123,48 @@ pointer which is automatically put when the bridge is eventually freed.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- drivers/gpu/drm/bridge/lontium-lt9611.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ drivers/gpu/drm/bridge/adv7511/adv7511.h     | 1 -
+ drivers/gpu/drm/bridge/adv7511/adv7511_drv.c | 8 ++++----
+ 2 files changed, 4 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/lontium-lt9611.c b/drivers/gpu/drm/bridge/lontium-lt9611.c
-index 4517aee83332..6aeaf248d7fe 100644
---- a/drivers/gpu/drm/bridge/lontium-lt9611.c
-+++ b/drivers/gpu/drm/bridge/lontium-lt9611.c
-@@ -37,7 +37,6 @@
- struct lt9611 {
- 	struct device *dev;
- 	struct drm_bridge bridge;
+diff --git a/drivers/gpu/drm/bridge/adv7511/adv7511.h b/drivers/gpu/drm/bridge/adv7511/adv7511.h
+index 8be7266fd4f4..12c95198d9a4 100644
+--- a/drivers/gpu/drm/bridge/adv7511/adv7511.h
++++ b/drivers/gpu/drm/bridge/adv7511/adv7511.h
+@@ -354,7 +354,6 @@ struct adv7511 {
+ 	enum drm_connector_status status;
+ 	bool powered;
+ 
 -	struct drm_bridge *next_bridge;
+ 	struct drm_display_mode curr_mode;
  
- 	struct regmap *regmap;
+ 	unsigned int f_tmds;
+diff --git a/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c b/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
+index 6bd76c1fb007..6d2923a2ef19 100644
+--- a/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
++++ b/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
+@@ -851,8 +851,8 @@ static int adv7511_bridge_attach(struct drm_bridge *bridge,
+ 	struct adv7511 *adv = bridge_to_adv7511(bridge);
+ 	int ret = 0;
  
-@@ -761,7 +760,7 @@ static int lt9611_bridge_attach(struct drm_bridge *bridge,
- {
- 	struct lt9611 *lt9611 = bridge_to_lt9611(bridge);
+-	if (adv->next_bridge) {
+-		ret = drm_bridge_attach(encoder, adv->next_bridge, bridge,
++	if (adv->bridge.next_bridge) {
++		ret = drm_bridge_attach(encoder, adv->bridge.next_bridge, bridge,
+ 					flags | DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+ 		if (ret)
+ 			return ret;
+@@ -1251,8 +1251,8 @@ static int adv7511_probe(struct i2c_client *i2c)
  
--	return drm_bridge_attach(encoder, lt9611->next_bridge,
-+	return drm_bridge_attach(encoder, lt9611->bridge.next_bridge,
- 				 bridge, flags);
- }
+ 	memset(&link_config, 0, sizeof(link_config));
  
-@@ -1058,7 +1057,7 @@ static int lt9611_parse_dt(struct device *dev,
+-	ret = drm_of_find_panel_or_bridge(dev->of_node, 1, -1, NULL,
+-					  &adv7511->next_bridge);
++	ret = of_drm_get_bridge_by_endpoint(dev->of_node, 1, -1,
++					    &adv7511->bridge.next_bridge);
+ 	if (ret && ret != -ENODEV)
+ 		return ret;
  
- 	lt9611->ac_mode = of_property_read_bool(dev->of_node, "lt,ac-mode");
- 
--	return drm_of_find_panel_or_bridge(dev->of_node, 2, -1, NULL, &lt9611->next_bridge);
-+	return of_drm_get_bridge_by_endpoint(dev->of_node, 2, -1, &lt9611->bridge.next_bridge);
- }
- 
- static int lt9611_gpio_init(struct lt9611 *lt9611)
 
 -- 
 2.53.0
