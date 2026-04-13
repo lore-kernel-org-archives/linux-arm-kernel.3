@@ -4,87 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F53DF531C3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 18:58:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0143F531C3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 18:58:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6nFFugN790C/dw9I9C7Ssqh/FGRWh4x/CL5AyqX9j5w=; b=ThWVDtNK9lk9EIAo/EibCo6ilS
-	KG1mBB7P8HwQLeYjBTBH/fXnsrF3m6x4p5g7JaoSYZ3zEr2nChb7OP7SLCzXMGnUhbgDuhLQ5uI8T
-	ZXwz1sFMLoq87aOSHng8IdQBEm4rElJstvrt+Yvq+5DIjalxrBBrlDpU3uiL0luS4BSKHiWPVHf3b
-	QC64dfoT8Pb7cq0Zb3rOx6jyq6MheZAQsa05Ew+CcYC0ifdHkWUwTBcPIZBLFP09iQqQ5kxQYGMdC
-	tIYvTTJUnAvRTwBm5N3HFdJYwzdn5NPuwyCXSEvcKM+KWUH7yYvVitUCmlBTZihjwJxUFxazafKbP
-	4vaxnHHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+MaTCH4UAzBLtav7IwhrqYDPxTENuRUi8lQLCR9KHqw=; b=guHo+GBJxp+uCcb0hsDoNbFD/x
+	KgKxFrdOEBtp3GH+SV5t/n7RkFTbWhwapJfs/gtgvmrdPml/Qx1fGisS9ADCAoCIzMOnxeHSTn8mL
+	kVSaY3OQi2e0ZtsRdbxyjuYaykJDu61qrkstcPO4MDqxxju+/4B5awM+LzOVYV2MaU79CZEcNqMzv
+	olhyDNdQhjl916tFNfj/bgL6xEOQASE1ZC08W0bb0TlKme6p+iG1q5a6jXh3E6LlLHAeHbbT28LEK
+	vzb3ZqN+eR4cUoGaGVaZpa7EcCplLlSnGIstwRnZmRCkX4cdGW1mt9WJiVtFHD9hv+pZ0qivcB7Wz
+	sU1MXKjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCMUX-0000000GFFz-3y9O;
-	Mon, 13 Apr 2026 18:58:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wCMUd-0000000GFIT-17nA;
+	Mon, 13 Apr 2026 18:58:43 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCMUV-0000000GFFU-3WpB
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 18:58:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3D74161852;
-	Mon, 13 Apr 2026 18:58:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF387C2BCAF;
-	Mon, 13 Apr 2026 18:58:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776106714;
-	bh=Yrewm25QxKHuHPPzUpCt1jWW9y9z0Bjv30JM4nYw3i4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TlVLgq3jkQwGeq5pwIiimn5mrTXRa1XaBnCit/Mgsml5QJRx1n9bZyYhcdsCjEPOZ
-	 1ud0SXebtGO464Oi/6ATqgDgkUy0lQ4AlqyLudFQPGsXphRNWglJOIW6wQ4pcH8lgH
-	 i1ayhKLXPIS4UGT2Me7I4srB4V0VrkRZtGHNbxSzqdfIa06qYfXa1V+VzffGbXQKXd
-	 6ya2Ry0UDgbck7xO+Nsc6jfD0YOF5ZvnVNlTnftHdXl4lwCUdQP3IxrZlbv9i82GIW
-	 UO/qwrFRG8FhPRpIlIGJ4qJ05L5DswnIOSerbrDiOnE7/6/gXlHLyNf/RBcSgqKtp3
-	 PH7s4UNLsfE/A==
-From: Puranjay Mohan <puranjay@kernel.org>
-To: bpf@vger.kernel.org
-Cc: Puranjay Mohan <puranjay@kernel.org>,
-	Puranjay Mohan <puranjay12@gmail.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Leo Yan <leo.yan@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Breno Leitao <leitao@debian.org>,
-	Ravi Bangoria <ravi.bangoria@amd.com>,
-	Stephane Eranian <eranian@google.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Usama Arif <usama.arif@linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	kernel-team@meta.com
-Subject: [PATCH v3 3/4] perf/arm64: Add BRBE support for bpf_get_branch_snapshot()
-Date: Mon, 13 Apr 2026 11:57:22 -0700
-Message-ID: <20260413185740.3286146-4-puranjay@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260413185740.3286146-1-puranjay@kernel.org>
-References: <20260413185740.3286146-1-puranjay@kernel.org>
+	id 1wCMUb-0000000GFH9-02Yz;
+	Mon, 13 Apr 2026 18:58:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1776106721; x=1807642721;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=G2euJdDLSGI1AgeMMOPf+n8HzOsAs0MY5JsKd9Nn1y0=;
+  b=VgnalwkeSG9DlttEphbKkhu5HqC30Y6WrBlobRi0y76IUvcc474f93Ot
+   EaH4AOEnhY6vbHpcHIGMWcNF8wG0T3EWQh2pE+S9hLaHYT/ZnZCP4iXGK
+   pknPtfRr6nCJIuAGE/YqEYLdE6MUvGHhlw6J8fksyS9qQKZgzcw6XaU95
+   NiSX8Bu5YQVNlIw9VmBFITn0OOGwnaVFKGuRoXIyRZleD4staMhcZ5lot
+   XKPrKdvPD48EAFZSmKsKM4HySspax+cITavyAMylad1IgLDyEhEpOsL/2
+   ajH8RbLqLa3x757OL51rvUwXrM1rkqRslyyB+bWPh4SfUr4QgWYiowzGp
+   A==;
+X-CSE-ConnectionGUID: 3SB4dqGyT7eU0w2sXRPB8A==
+X-CSE-MsgGUID: 1HR66iySShW3CgcNWTzmHg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11758"; a="99697373"
+X-IronPort-AV: E=Sophos;i="6.23,177,1770624000"; 
+   d="scan'208";a="99697373"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Apr 2026 11:58:37 -0700
+X-CSE-ConnectionGUID: lgk8/XHyQTiEOVbWVCgYAg==
+X-CSE-MsgGUID: FSL3yA18QpKQaJN/d5mFiw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,177,1770624000"; 
+   d="scan'208";a="228829346"
+Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.97])
+  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Apr 2026 11:58:26 -0700
+Date: Mon, 13 Apr 2026 21:58:22 +0300
+From: Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
+	Rodrigo Siqueira <siqueira@igalia.com>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>, kernel@collabora.com,
+	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org
+Subject: Re: [PATCH v13 11/27] drm/i915/hdmi: Add YCBCR444 handling for sink
+ formats
+Message-ID: <ad08zqpKbyF--Br3@intel.com>
+References: <20260413-color-format-v13-0-ab37d4dfba48@collabora.com>
+ <20260413-color-format-v13-11-ab37d4dfba48@collabora.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260413-color-format-v13-11-ab37d4dfba48@collabora.com>
+X-Patchwork-Hint: comment
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260413_115841_104197_D1F325E6 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,231 +115,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable bpf_get_branch_snapshot() on ARM64 by implementing the
-perf_snapshot_branch_stack static call for BRBE.
+On Mon, Apr 13, 2026 at 12:07:25PM +0200, Nicolas Frattaroli wrote:
+> In anticipation of userspace being able to explicitly select supported
+> sink formats, add handling of the YCBCR444 sink format. The AUTO path
+> does not choose this format, but with explicit format selection added to
+> the driver, it becomes a possibility.
+> 
+> Check for YCBCR444 support on the sink in both sink_bpc_possible, and
+> sink_format_valid.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>  drivers/gpu/drm/i915/display/intel_hdmi.c | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/i915/display/intel_hdmi.c b/drivers/gpu/drm/i915/display/intel_hdmi.c
+> index 874076a29da4..5ab5b5f85cde 100644
+> --- a/drivers/gpu/drm/i915/display/intel_hdmi.c
+> +++ b/drivers/gpu/drm/i915/display/intel_hdmi.c
+> @@ -1966,6 +1966,8 @@ static bool intel_hdmi_sink_bpc_possible(struct drm_connector *_connector,
+>  
+>  		if (sink_format == INTEL_OUTPUT_FORMAT_YCBCR420)
+>  			return hdmi->y420_dc_modes & DRM_EDID_YCBCR420_DC_36;
+> +		else if (sink_format == INTEL_OUTPUT_FORMAT_YCBCR444)
+> +			return info->edid_hdmi_ycbcr444_dc_modes & DRM_EDID_HDMI_DC_36;
+>  		else
+>  			return info->edid_hdmi_rgb444_dc_modes & DRM_EDID_HDMI_DC_36;
+>  	case 10:
+> @@ -1974,6 +1976,8 @@ static bool intel_hdmi_sink_bpc_possible(struct drm_connector *_connector,
+>  
+>  		if (sink_format == INTEL_OUTPUT_FORMAT_YCBCR420)
+>  			return hdmi->y420_dc_modes & DRM_EDID_YCBCR420_DC_30;
+> +		else if (sink_format == INTEL_OUTPUT_FORMAT_YCBCR444)
+> +			return info->edid_hdmi_ycbcr444_dc_modes & DRM_EDID_HDMI_DC_30;
+>  		else
+>  			return info->edid_hdmi_rgb444_dc_modes & DRM_EDID_HDMI_DC_30;
+>  	case 8:
+> @@ -2038,6 +2042,11 @@ intel_hdmi_sink_format_valid(struct intel_connector *connector,
+>  
+>  		return MODE_OK;
+>  	case INTEL_OUTPUT_FORMAT_RGB:
+> +		return MODE_OK;
+> +	case INTEL_OUTPUT_FORMAT_YCBCR444:
 
-BRBE is paused before masking exceptions to avoid branch buffer
-pollution from trace_hardirqs_off(). Exceptions are then masked with
-local_daif_save() to prevent PMU overflow pseudo-NMIs from interfering.
-If an overflow between pause and DAIF save re-enables BRBE, the snapshot
-detects this via BRBFCR_EL1.PAUSED and bails out.
+We'll also want the !has_hdmi_sink check here like for 4:2:0.
 
-Branch records are read using perf_entry_from_brbe_regset() with a NULL
-event pointer to bypass event-specific filtering. The buffer is
-invalidated after reading.
+And I think we also want something to mirror the ycbcr_420_allowed
+flag. I guess you could just make it something like:
 
-Introduce a for_each_brbe_entry() iterator to deduplicate bank
-iteration between brbe_read_filtered_entries() and the snapshot.
+intel_hdmi_ycbcr_444_allowed(display)
+{
+	return DISPLAY_VER(display) >= 5 && !HAS_GMCH(display);
+}
 
-Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
----
- drivers/perf/arm_brbe.c  | 107 ++++++++++++++++++++++++++++++++-------
- drivers/perf/arm_brbe.h  |   9 ++++
- drivers/perf/arm_pmuv3.c |   5 +-
- 3 files changed, 103 insertions(+), 18 deletions(-)
+That can also be reused when setting up the allowed property values.
 
-diff --git a/drivers/perf/arm_brbe.c b/drivers/perf/arm_brbe.c
-index ba554e0c846c..fd62019ddc83 100644
---- a/drivers/perf/arm_brbe.c
-+++ b/drivers/perf/arm_brbe.c
-@@ -9,6 +9,7 @@
- #include <linux/types.h>
- #include <linux/bitmap.h>
- #include <linux/perf/arm_pmu.h>
-+#include <asm/daifflags.h>
- #include "arm_brbe.h"
- 
- #define BRBFCR_EL1_BRANCH_FILTERS (BRBFCR_EL1_DIRECT   | \
-@@ -271,6 +272,20 @@ static void select_brbe_bank(int bank)
- 	isb();
- }
- 
-+static inline void __brbe_advance(int *bank, int *idx, int nr_hw)
-+{
-+	if (++(*idx) >= BRBE_BANK_MAX_ENTRIES &&
-+	    *bank * BRBE_BANK_MAX_ENTRIES + *idx < nr_hw) {
-+		*idx = 0;
-+		select_brbe_bank(++(*bank));
-+	}
-+}
-+
-+#define for_each_brbe_entry(idx, nr_hw)					\
-+	for (int __bank = (select_brbe_bank(0), 0), idx = 0;		\
-+	     __bank * BRBE_BANK_MAX_ENTRIES + idx < (nr_hw);		\
-+	     __brbe_advance(&__bank, &idx, (nr_hw)))
-+
- static bool __read_brbe_regset(struct brbe_regset *entry, int idx)
- {
- 	entry->brbinf = get_brbinf_reg(idx);
-@@ -618,10 +633,10 @@ static bool perf_entry_from_brbe_regset(int index, struct perf_branch_entry *ent
- 
- 	brbe_set_perf_entry_type(entry, brbinf);
- 
--	if (!branch_sample_no_cycles(event))
-+	if (!event || !branch_sample_no_cycles(event))
- 		entry->cycles = brbinf_get_cycles(brbinf);
- 
--	if (!branch_sample_no_flags(event)) {
-+	if (!event || !branch_sample_no_flags(event)) {
- 		/* Mispredict info is available for source only and complete branch records. */
- 		if (!brbe_record_is_target_only(brbinf)) {
- 			entry->mispred = brbinf_get_mispredict(brbinf);
-@@ -774,32 +789,90 @@ void brbe_read_filtered_entries(struct perf_branch_stack *branch_stack,
- {
- 	struct arm_pmu *cpu_pmu = to_arm_pmu(event->pmu);
- 	int nr_hw = brbe_num_branch_records(cpu_pmu);
--	int nr_banks = DIV_ROUND_UP(nr_hw, BRBE_BANK_MAX_ENTRIES);
- 	int nr_filtered = 0;
- 	u64 branch_sample_type = event->attr.branch_sample_type;
- 	DECLARE_BITMAP(event_type_mask, PERF_BR_ARM64_MAX);
- 
- 	prepare_event_branch_type_mask(branch_sample_type, event_type_mask);
- 
--	for (int bank = 0; bank < nr_banks; bank++) {
--		int nr_remaining = nr_hw - (bank * BRBE_BANK_MAX_ENTRIES);
--		int nr_this_bank = min(nr_remaining, BRBE_BANK_MAX_ENTRIES);
-+	for_each_brbe_entry(i, nr_hw) {
-+		struct perf_branch_entry *pbe = &branch_stack->entries[nr_filtered];
- 
--		select_brbe_bank(bank);
-+		if (!perf_entry_from_brbe_regset(i, pbe, event))
-+			break;
- 
--		for (int i = 0; i < nr_this_bank; i++) {
--			struct perf_branch_entry *pbe = &branch_stack->entries[nr_filtered];
-+		if (!filter_branch_record(pbe, branch_sample_type, event_type_mask))
-+			continue;
- 
--			if (!perf_entry_from_brbe_regset(i, pbe, event))
--				goto done;
-+		nr_filtered++;
-+	}
- 
--			if (!filter_branch_record(pbe, branch_sample_type, event_type_mask))
--				continue;
-+	branch_stack->nr = nr_filtered;
-+}
- 
--			nr_filtered++;
--		}
-+/*
-+ * Best-effort BRBE snapshot for BPF tracing. Pause BRBE to avoid
-+ * self-recording and return 0 if the snapshot state appears disturbed.
-+ */
-+int arm_brbe_snapshot_branch_stack(struct perf_branch_entry *entries, unsigned int cnt)
-+{
-+	unsigned long flags;
-+	int nr_hw, nr_copied = 0;
-+	u64 brbfcr, brbcr;
-+
-+	if (!cnt)
-+		return 0;
-+
-+	/*
-+	 * Pause BRBE first to avoid recording our own branches. The
-+	 * sysreg read/write and ISB are branchless, so pausing before
-+	 * checking BRBCR avoids polluting the buffer with our own
-+	 * conditional branches.
-+	 */
-+	brbfcr = read_sysreg_s(SYS_BRBFCR_EL1);
-+	brbcr = read_sysreg_s(SYS_BRBCR_EL1);
-+	write_sysreg_s(brbfcr | BRBFCR_EL1_PAUSED, SYS_BRBFCR_EL1);
-+	isb();
-+
-+	/* Bail out if BRBE is not enabled (BRBCR_EL1 == 0). */
-+	if (!brbcr) {
-+		write_sysreg_s(brbfcr, SYS_BRBFCR_EL1);
-+		return 0;
- 	}
- 
--done:
--	branch_stack->nr = nr_filtered;
-+	/* Block local exception delivery while reading the buffer. */
-+	flags = local_daif_save();
-+
-+	/*
-+	 * A PMU overflow before local_daif_save() could have re-enabled
-+	 * BRBE, clearing the PAUSED bit. The overflow handler already
-+	 * restored BRBE to its correct state, so just bail out.
-+	 */
-+	if (!(read_sysreg_s(SYS_BRBFCR_EL1) & BRBFCR_EL1_PAUSED)) {
-+		local_daif_restore(flags);
-+		return 0;
-+	}
-+
-+	nr_hw = FIELD_GET(BRBIDR0_EL1_NUMREC_MASK,
-+			  read_sysreg_s(SYS_BRBIDR0_EL1));
-+
-+	for_each_brbe_entry(i, nr_hw) {
-+		if (nr_copied >= cnt)
-+			break;
-+
-+		if (!perf_entry_from_brbe_regset(i, &entries[nr_copied], NULL))
-+			break;
-+
-+		nr_copied++;
-+	}
-+
-+	brbe_invalidate();
-+
-+	/* Restore BRBCR before unpausing via BRBFCR, matching brbe_enable(). */
-+	write_sysreg_s(brbcr, SYS_BRBCR_EL1);
-+	isb();
-+	write_sysreg_s(brbfcr, SYS_BRBFCR_EL1);
-+	local_daif_restore(flags);
-+
-+	return nr_copied;
- }
-diff --git a/drivers/perf/arm_brbe.h b/drivers/perf/arm_brbe.h
-index b7c7d8796c86..c2a1824437fb 100644
---- a/drivers/perf/arm_brbe.h
-+++ b/drivers/perf/arm_brbe.h
-@@ -10,6 +10,7 @@
- struct arm_pmu;
- struct perf_branch_stack;
- struct perf_event;
-+struct perf_branch_entry;
- 
- #ifdef CONFIG_ARM64_BRBE
- void brbe_probe(struct arm_pmu *arm_pmu);
-@@ -22,6 +23,8 @@ void brbe_disable(void);
- bool brbe_branch_attr_valid(struct perf_event *event);
- void brbe_read_filtered_entries(struct perf_branch_stack *branch_stack,
- 				const struct perf_event *event);
-+int arm_brbe_snapshot_branch_stack(struct perf_branch_entry *entries,
-+				   unsigned int cnt);
- #else
- static inline void brbe_probe(struct arm_pmu *arm_pmu) { }
- static inline unsigned int brbe_num_branch_records(const struct arm_pmu *armpmu)
-@@ -44,4 +47,10 @@ static void brbe_read_filtered_entries(struct perf_branch_stack *branch_stack,
- 				       const struct perf_event *event)
- {
- }
-+
-+static inline int arm_brbe_snapshot_branch_stack(struct perf_branch_entry *entries,
-+						 unsigned int cnt)
-+{
-+	return 0;
-+}
- #endif
-diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
-index 8014ff766cff..1a9f129a0f94 100644
---- a/drivers/perf/arm_pmuv3.c
-+++ b/drivers/perf/arm_pmuv3.c
-@@ -1449,8 +1449,11 @@ static int armv8_pmu_init(struct arm_pmu *cpu_pmu, char *name,
- 	cpu_pmu->set_event_filter	= armv8pmu_set_event_filter;
- 
- 	cpu_pmu->pmu.event_idx		= armv8pmu_user_event_idx;
--	if (brbe_num_branch_records(cpu_pmu))
-+	if (brbe_num_branch_records(cpu_pmu)) {
- 		cpu_pmu->pmu.sched_task		= armv8pmu_sched_task;
-+		static_call_update(perf_snapshot_branch_stack,
-+				   arm_brbe_snapshot_branch_stack);
-+	}
- 
- 	cpu_pmu->name			= name;
- 	cpu_pmu->map_event		= map_event;
+> +		if (!(info->color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444)))
+> +			return MODE_BAD;
+> +
+>  		return MODE_OK;
+>  	default:
+>  		MISSING_CASE(sink_format);
+> 
+> -- 
+> 2.53.0
+
 -- 
-2.52.0
-
+Ville Syrjälä
+Intel
 
