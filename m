@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CCCAEBFD37
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 10:58:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79364EBFD38
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 11:01:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rkyT/xGrfdYxKkf7+s31EPSjJ+5OwLJoWVHiWNEDXa8=; b=hSBFeS3f4YHWgibWpXWr8UZJ5M
-	m0rIRDN9OIlGJr2LfZtPq4LVmhhr+/syCu/0XFAvwGkFCWk53AsCwXtUEBZ8wg4xJZvjyJfTlSFmi
-	SST7tFv+rcvZ9qTOacSUZo6xX8ITiTvf8HXQx2evY5IcjcI2sDb5wx0M02Z4xUrt3lPykI8Z0RSEA
-	NQxit1440VnsXEO90uqPswkbdvcLw7E1dxCg7yeM8f03QG62lLnr8VWikRjycLEOwehZGPi6Jipat
-	OsJURcrOtPHpdhZ1vp3ANyc3miEDJyF7T6/RuQctmRMowGDRWAJoIT22wxmjBMHjXKD40mxXRUw/b
-	0VdnfjiA==;
+	bh=RSUdzbqww9DcnNCBy+e6Pckw5rkg/9kJJVGgVjZJuyU=; b=k5JkRk6MpdjlRDsM/5h98RzKXa
+	JyT2OajSt9e6slRMLijIWCzbHopSaTTWf2IcqTf0ofFvcEkBlgekLJSaINs6mARBo5l91VcrkxPxV
+	kn7/7JEwge5A17P7HM9DHlhv5F3i3yen+67ocorLtgl8x+R+sgMqGDYhvyAcxT+X7kEMu96wRPhu7
+	13JgT+c5Y+DL0Z+Xl2lsOgGQhaI5hp30IEJt6Zj7pwcmt5eTzewPhEP60JMDOgl0hw7Mo+aAqSRnt
+	ovbzHb8y24xNbGCt7DwJlsquygKY0V4ioobfeFDBGLbcqcuQnHD9Dxd1va0UkbHZxHYrg9i54LgX6
+	EDbp47hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCEzY-0000000FXRZ-2vjW;
-	Mon, 13 Apr 2026 10:58:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCEzW-0000000FXQp-4260
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 10:58:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 26F42439FC;
-	Mon, 13 Apr 2026 10:58:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B091CC116C6;
-	Mon, 13 Apr 2026 10:58:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776077886;
-	bh=1q8mMSzFfHFD4VJxv75XPl+1LHtJHSntvdrBWaamK5c=;
+	id 1wCF2b-0000000FXgf-0tMw;
+	Mon, 13 Apr 2026 11:01:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCF2Y-0000000FXgC-2TmB;
+	Mon, 13 Apr 2026 11:01:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8493C3581;
+	Mon, 13 Apr 2026 04:01:05 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BACD83F641;
+	Mon, 13 Apr 2026 04:01:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776078071; bh=P5560RAnvZN21+y42j1UNU3zw/F77/WG44SpxSSnyqQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XM0tJ4BQ3t30qOb7FA4VzH7ObrudEH9GhfUbWZbfYH1/fouIPCLSM2Z37TzrmS3ue
-	 0ZiU/5wVph6pj+OCq5G4EVlpX1SNki/Wps76v/wHK9gMOElOFfIt97ere+CXD0j5dH
-	 /cTvfQ76OvZlz8QBf0o8k6k43WLQ1LM5U9dN3nxUdcwgCS+CQHC110Tc4MlrClfGwk
-	 FdGqXftdZ1KweKurn7W9BBMcHMoj1KeqKzSBqsIxcWWvxzIF3pvz+Avt08OEvr6ACf
-	 3apR73LdL2wbyl8JpJb2Y2a89YudKwIuzcODz0P5B+k9JAcCf+XUP/7bLRgGtcBMbw
-	 Ad1O5XEFJwkKw==
-Date: Mon, 13 Apr 2026 11:58:01 +0100
-From: Will Deacon <will@kernel.org>
-To: Brian Ruley <brian.ruley@gehealthcare.com>
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
-	Steve Capper <steve.capper@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	catalin.marinas@arm.com
-Subject: Re: [PATCH] mm/arm: pgtable: remove young bit check for
- pte_valid_user
-Message-ID: <adzMOdySgMIePcue@willie-the-truck>
-References: <20260409125446.981747-1-brian.ruley@gehealthcare.com>
- <adewJetUv6wMiz9o@willie-the-truck>
- <adfDEMK8EbIjPu3J@zoo11.fihel.lab.ge-healthcare.net>
- <adfNN33QIOP3VfDm@shell.armlinux.org.uk>
- <adjYlUk8_JjPivNi@zoo11.fihel.lab.ge-healthcare.net>
+	b=NgLb3FObr2jCRDXSLm8COFWaQdrrXHeryVHOrr+La3FNXGfYu/NTKqn8Qwma5HnOj
+	 jPUSYrOfKWA6U4R1W121xjN1n7pfjokpsNwPc6rXIbPZf7zgREg5R3M/N35h90VOP/
+	 zt8JyZ/FWVvEXZhvjQy9D8u/7u8vulPNvFJcA5CA=
+Date: Mon, 13 Apr 2026 12:01:05 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Will Deacon <will@kernel.org>,
+	David Laight <david.laight.linux@gmail.com>,
+	Darren Hart <dvhart@infradead.org>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	Jisheng Zhang <jszhang@kernel.org>
+Subject: Re: [PATCH v3 2/7] arm64/runtime-const: Use
+ aarch64_insn_patch_text_nosync() for patching
+Message-ID: <adzM8RtjbOy0kLOC@arm.com>
+References: <20260402112250.2138-1-kprateek.nayak@amd.com>
+ <20260402112250.2138-3-kprateek.nayak@amd.com>
+ <adjE6WzFM7NogzlU@arm.com>
+ <c45ede13-f8d0-4b6a-b2ed-f06af4882ebc@amd.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <adjYlUk8_JjPivNi@zoo11.fihel.lab.ge-healthcare.net>
+In-Reply-To: <c45ede13-f8d0-4b6a-b2ed-f06af4882ebc@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_035807_037533_F1B30DA0 
-X-CRM114-Status: GOOD (  37.77  )
+X-CRM114-CacheID: sfid-20260413_040114_852029_5CF9B475 
+X-CRM114-Status: GOOD (  21.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,97 +81,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 10, 2026 at 02:01:41PM +0300, Brian Ruley wrote:
-> On Apr 09, Russell King (Oracle) wrote:
+On Sun, Apr 12, 2026 at 01:24:45AM +0530, K Prateek Nayak wrote:
+> On 4/10/2026 3:07 PM, Catalin Marinas wrote:
+> > https://sashiko.dev/#/patchset/20260402112250.2138-1-kprateek.nayak@amd.com
 > > 
-> > On Thu, Apr 09, 2026 at 06:17:36PM +0300, Brian Ruley wrote:
-> > > However, in the case I describe, if VA_B is mapped immediately to pfn_q
-> > > after it been has unmapped and freed for VA_A, then it's quite possible
-> > > that the page is still indexed in the cache.
+> > In short, aarch64_insn_patch_text_nosync() does not expect a linear map
+> > address but rather a kernel text one (or vmalloc/modules). The other
+> > valid point is on aliasing I-caches.
 > > 
-> > True.
-> > 
-> > > The hypothesis is that if
-> > > VA_A and VA_B land in the same I-cache set and VA_A old cache entry
-> > > still exists (tagged with pfn_q), then the CPU can fetch stale
-> > > instructions because the tag will match. That's one reason why we need
-> > > to invalidate the cache, but that will be skipped in the path:
-> > >
-> > >     migrate_pages
-> > >      migrate_pages_batch
-> > >       migrate_folio_move
-> > >        remove_migration_ptes
-> > >         remove_migration_pte
-> > >          set_pte_at
-> > >           set_ptes
-> > >            __sync_icache_dcache  (skipped if !young)
-> > >             set_pte_ext
-> > 
-> > In this case, if the old PTE was marked !young, then the new PTE will
-> > have:
-> >         pte = pte_mkold(pte);
-> > 
-> > on it, which marks it !young. As you say, __sync_icache_dcache() will
-> > be skipped. While a PTE entry will be set for the kernel, the code in
-> > set_pte_ext() will *not* establish a hardware PTE entry. For the
-> > 2-level pte code:
-> > 
-> >         tst     r1, #L_PTE_YOUNG        @ <- results in Z being set
-> >         tstne   r1, #L_PTE_VALID        @ <- not executed
-> >         eorne   r1, r1, #L_PTE_NONE     @ <- not executed
-> >         tstne   r1, #L_PTE_NONE         @ <- not executed
-> >         moveq   r3, #0                  @ <- hardware PTE value
-> >  ARM(   str     r3, [r0, #2048]! )      @ <- writes hardware PTE
-> > 
-> > So, for a !young PTE, the hardware PTE entry is written as zero,
-> > which means accesses should fault, which will then cause the PTE to
-> > be marked young.
-> > 
-> > For the 3-level case, the L_PTE_YOUNG bit corresponds with the AF bit
-> > in the PTE, and there aren't split Linux / hardware PTE entries. AF
-> > being clear should result in a page fault being generated for the
-> > kernel to handle making the PTE young.
-> > 
-> > In both of these cases, set_ptes() will need to be called with the
-> > updated PTE which will now be marked young, and that will result in
-> > the I-cache being flushed.
+> > I think dropping the lm_alias() and just use 'where' directly would do
+> > but I haven't tried.
 > 
-> Hi Russell,
+> Ack! I completely missed that subtlety of passing "where" to
+> caches_clean_inval_pou(). I'm still surprised that it didn't
+> blow up in my testing.
+
+For the first part (passing a linear map address), I suspect we get away
+with this in vmalloc_to_page() as it just walks the page tables and
+VIRTUAL_BUG_ON() is a no-op with defconfig.
+
+For the I-cache aliasing, you may not have the right hardware but even
+if you did, it's harder to hit.
+
+> Anyhow, following diff, on top of the full series builds and
+> tests fine and has been blessed by review-prompts:
 > 
-> Thank you for the clarification, this is very educational for me.
-> I understand your scepticism, and I can't explain what's going on based
-> on what you replied. However, I do honestly believe there is a problem
-> here. I'll share the exact testing details and the instrumentation
-> we added that convinced us to reach out at the end. One idea we also
-> had was that could cache aliasing be happening here.
+> diff --git a/arch/arm64/include/asm/runtime-const.h b/arch/arm64/include/asm/runtime-const.h
+> index 21f817eb5951..d3f0dfa7ced0 100644
+> --- a/arch/arm64/include/asm/runtime-const.h
+> +++ b/arch/arm64/include/asm/runtime-const.h
+> @@ -57,21 +57,21 @@
+>  } while (0)
+>  
+>  /* 16-bit immediate for wide move (movz and movk) in bits 5..20 */
+> -static inline void __runtime_fixup_16(__le32 *p, unsigned int val)
+> +static inline void __runtime_fixup_16(void *where, unsigned int val)
+>  {
+> +	__le32 *p = lm_alias(where);
+>  	u32 insn = le32_to_cpu(*p);
+>  	insn &= 0xffe0001f;
+>  	insn |= (val & 0xffff) << 5;
+> -	aarch64_insn_patch_text_nosync(p, insn);
+> +	aarch64_insn_patch_text_nosync(where, insn);
+>  }
 
-I thought a bit more about this over the weekend and started to wonder
-if there's a potential race where multiple CPUs try to write the same
-PTE and don't synchronise properly on the cache-maintenance.
+You might as well keep the __le32 *p argument and just dereference it
+directly, no need for lm_alias(). The kernel text is readable and you
+avoid having to change all the other functions.
 
-In particular, PG_dcache_clean is manipulated with a test_and_set_bit()
-operation _before_ the cache maintenance is performed, so there's a
-small window where the flag is set but the page is _not_ clean. I don't
-think that matters with regards to invalid migration entries, but
-perhaps the migration just means that we end up putting down a bunch of
-'old' entries and are then more likely to see concurrent faults trying
-to make the thing young again, potentially hitting this race.
+>  static inline void __runtime_fixup_ptr(void *where, unsigned long val)
+>  {
+> -	__le32 *p = lm_alias(where);
+> -	__runtime_fixup_16(p, val);
+> -	__runtime_fixup_16(p+1, val >> 16);
+> -	__runtime_fixup_16(p+2, val >> 32);
+> -	__runtime_fixup_16(p+3, val >> 48);
+> +	__runtime_fixup_16(where, val);
+> +	__runtime_fixup_16(where + 4, val >> 16);
+> +	__runtime_fixup_16(where + 8, val >> 32);
+> +	__runtime_fixup_16(where + 12, val >> 48);
+>  }
 
-Looking at arm64 this morning, I noticed that we split the flag
-manipulation so that it's set with a set_bit() after the maintenance has
-been performed. Git then points to 588a513d3425 ("arm64: Fix race
-condition on PG_dcache_clean in __sync_icache_dcache()") which seems to
-talk about the same race. In fact, the mailing list posting:
+And here change the argument to '__le32 *p' (and in other places where
+you changed p to where + 4 etc.).
 
-  https://lore.kernel.org/all/20210514095001.13236-1-catalin.marinas@arm.com/
-
-points out that arch/arm/ is also affected but we forgot to CC Russell
-because I think this all came out of the MTE-enablement work [1] and it
-sounds like Catalin was trying to fix it in the core mprotect() code.
-
-Brian, can you try something like 588a513d3425?
-
-Will
-
-[1] https://lore.kernel.org/all/YJGHApOCXl811VK3@arm.com/
+-- 
+Catalin
 
