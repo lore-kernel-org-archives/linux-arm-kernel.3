@@ -4,91 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FEC9F34C4E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 12:59:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18778F34C51
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 12:59:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GtewcD3NlQ9T2rz4r/4NzvXWwz+tL/DhJnSJQl16Rzg=; b=vA5AhOeymzv8gcd/RywpdkFweL
-	L1ypuzl0ujKSiSC2wqhwzo8WS+d5JDdOvtW8rRxPCIHvphcv4xhY1FL3MiFWSGo6IzJPREzGKAGEO
-	ql1G9/RcUXCA9r7FRWm08bmd8PTBrIDQHeTZxceTUIehowOxbzI43fmAliTYzY2jKmsS2mwpXPZ6/
-	okVNJTtmCVdMfQ1HJ85kmbHp8y2MCX3b0ZhpY3l92f9ntmsgRGEDseDHS1Uh7yGUCuPMDLkLRFa1z
-	d/qj18Htv141XSy8CbaHs23wFch+EXT1aMpdK1+0jHrXMyDRNJrzbZBcTOxMUSMfQQd3MEOrtCf6j
-	A1/uauFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h3FUUOILacuSgM+ABHMGfQupbtWpVZVev0K7QR0S3PA=; b=O4cSfHJX0BuVe7MWXnmZQBdwBo
+	H3vkvStOFYiv+JE1aBszU4B7ec66jM51+kmWLv1jBJPN6RPaeZ7TmloSGSmP78e5NwjazDUky/oU+
+	TKQ75qIZDQvq47cK9HA0NVV3f3SGaP8l+Uxc+upQJRsmozvt9ls3M+HG2ieOp4zC38jPUU15q/RAs
+	Jio8y0g+RPqB+bg6OZmpbFbbcX6qDRnB4sSv9CFTVFztupijlzuFQcHyHXG+0SICZ67sTgrAlIdQ2
+	NN6SloNwdTbAZebfRuwvyczv3q1fd/R/rETnebt7SUraEma2MDIQoG2wWRLMwyuNLYVa/dBgIbx3G
+	znr3JXSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCGsz-0000000Fh9l-46Ck;
-	Mon, 13 Apr 2026 12:59:29 +0000
-Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
+	id 1wCGtK-0000000FhDt-0fCc;
+	Mon, 13 Apr 2026 12:59:50 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCGsy-0000000Fh9O-1Jxc
+	id 1wCGtG-0000000FhBV-3Weq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 12:59:29 +0000
-Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-8cb5c9ba82bso678470285a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 05:59:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1776085167; x=1776689967; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GtewcD3NlQ9T2rz4r/4NzvXWwz+tL/DhJnSJQl16Rzg=;
-        b=FrTU8dkg2KKFYn6jIWWLCnRj6MDNuqs8afvJZD0iT1ovTc8SiOVy/K8crp2zmfF/dY
-         GSg1JIPrnWsb66JPoo+QC+SHSuJQngRtyAahYJQ6IOt+Jqx3wVyPP4IDYiLlTK/EyZ0k
-         /S2pZ3HJqSOza9BnCHCn78nr1QltB2mydFKyeWuoeUkWBI7KlO4yXVQ6DWS3UH0sFbFT
-         lZcahFcCh+F2+nx/3SshTfcCGGgKUs9klvenFfvrQNQcvvLAVDlHThk/9jakz3V1Cyey
-         nFG8hIp40COL03qn0UwlxauXQkWzn9n6D8HvKy70Ob9/CqacUSKE9OQxcCYFmLbobRkR
-         bXPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776085167; x=1776689967;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GtewcD3NlQ9T2rz4r/4NzvXWwz+tL/DhJnSJQl16Rzg=;
-        b=DBE64bQOB0NqRe/OzDLjWiKBY5TkdzZlUkFXBcsFb9Y4MPY2h30GJmH8IXA7JApPCi
-         X/KHp7Dn/ernSeEg/9u0naxtlgfgr7RT64O7qRHsuLuRJSFdHghvkeToqYA3RzHjT/Ph
-         tgoJPlh37Dao46Xy45sm1k77UHvO/4avoLSnKnvKIEJXWPj9SNME2hlt3+RRUeqUsVXk
-         808KQkxIs8DBCwiluRnYi5FB9ijV2Bu1IFYTb7MmH0wKnZb4kgUlK1i25NF1nvRmHawK
-         mogfUxjJLj/rWU/hRtTrbBQE1xVUQzv+FQoBDAONP4l0SfZpHzDEcySXlklLvmsJrYda
-         FW/w==
-X-Gm-Message-State: AOJu0Yw9aB2sTsJxlUtKLm59j4UI3WvHJrSz8t9PaRvX8mRrZvYOxIcH
-	wuQPpUo379IHkbm+S5s1mgOhmocVUYSG/dEY1UiufsmiLOaZLDJPsgRLBQHfTjC/JD0=
-X-Gm-Gg: AeBDieuOMg4niws1QaDVKhKG5mZT7VxVHqikyxtktiOwZaoGtqs5BvEP0rB6KQoBjj1
-	rDHN2v+flw6F8sQzw/RrlTBYCwQQtm+EHbswIp6GqzpdkhzSuw0bB34YOhAZgaYa6BIpt+p7LXI
-	Mc0YHHGmHjkXCKW9FNhr02mQN0HxTie2R9d2OVHPvJ3STPGamBMRJA+Lh7cqIkhslegpEjtRQy+
-	yxkRww69E49YWG8NA38hVuWyDUlxDmJfWqdl/mJ16458JoA6cm5IvKNVYqFCHle9wPrBOGOcdIS
-	ZOKSPm8BNzcsulYUu1Rmc1Pt8vhG24uvMeyvJuqt2k9ZDnoYI6flqUKMQ5k+yV1hAq5qw0xiV5d
-	ExdgR5uvZXJ/sxgVuYM4FoGzETGEEev94yJ9pCfRCmrPiyA8WjAoN5hc083UyK7598Nb4wHiIIl
-	HDOuIaFo8rAiZE0O/ijFb/EfGzhEIAgQxbIQFfWoCmQSRDeeWYlp+nxrAXnK5o0tBQjggDbcluh
-	MTqKA==
-X-Received: by 2002:a05:620a:2589:b0:8cf:e015:afe2 with SMTP id af79cd13be357-8ddcf6b5c97mr1946023485a.48.1776085166749;
-        Mon, 13 Apr 2026 05:59:26 -0700 (PDT)
-Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8ddb646d715sm826322485a.15.2026.04.13.05.59.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Apr 2026 05:59:26 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wCGsv-00000005Aom-2whV;
-	Mon, 13 Apr 2026 09:59:25 -0300
-Date: Mon, 13 Apr 2026 09:59:25 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Sami Mujawar <sami.mujawar@arm.com>, Dan Williams <djbw@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	catalin.marinas@arm.com, will@kernel.org, thuth@redhat.com,
-	Suzuki.Poulose@arm.com, steven.price@arm.com, gshan@redhat.com,
-	YeoReum.Yun@arm.com
-Subject: Re: [PATCH 0/3] arm64/virt: Add Arm CCA measurement register support
-Message-ID: <20260413125925.GK3694781@ziepe.ca>
-References: <20260413084957.327661-1-sami.mujawar@arm.com>
+	Mon, 13 Apr 2026 12:59:48 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 5D8E2C5B19E;
+	Mon, 13 Apr 2026 13:00:20 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B42DE5FFB9;
+	Mon, 13 Apr 2026 12:59:43 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 05B5810450229;
+	Mon, 13 Apr 2026 14:59:32 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1776085182; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=h3FUUOILacuSgM+ABHMGfQupbtWpVZVev0K7QR0S3PA=;
+	b=wDi4rylprXYa5KvrF5XClhZwCqdBhIRvrj68umpv0rOZCRw+SHIMqqb9J6A5OlpXFegLXb
+	1v1yWAis2ur92VlhEUydt8lyKrp3p55Mm8z+cYDV+L0hnrTR+erxW8efuL3L8dxN5VzCkr
+	zU/YVxQzBaq+vUFYst8ScqPRT6rtP+1OJUU/axL3iUbwIQxAhQxyAuWdIIfxwRFUKKgp/6
+	th235XxhexkP7slAiEV8kDSum6Qom6jTajuknHPdnSpgRF4Y9gRdntzSjMMsboitxLJD2v
+	2oOiT4IQHWd8cguLrclzB4T7Rk0CCw8IEvepPTsgnrO/+IRlae+TSlDZSMjNuQ==
+Date: Mon, 13 Apr 2026 14:59:30 +0200
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi
+ <rodrigo.vivi@intel.com>, Joonas Lahtinen
+ <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Dave
+ Airlie <airlied@redhat.com>, Jesse Barnes <jbarnes@virtuousgeek.org>, Eric
+ Anholt <eric@anholt.net>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda
+ <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Robert Foss <rfoss@kernel.org>, Laurent Pinchart
+ <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Chun-Kuang Hu
+ <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, Chris Wilson
+ <chris@chris-wilson.co.uk>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, Mark Yacoub <markyacoub@google.com>, Sean
+ Paul <seanpaul@google.com>, Louis Chauvet <louis.chauvet@bootlin.com>,
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Simona Vetter <simona.vetter@ffwll.ch>
+Subject: Re: [PATCH RFC 09/12] drm: Introduce drmm_connector_dp_init() with
+ link training state properties
+Message-ID: <20260413145930.140ba461@kmaincent-XPS-13-7390>
+In-Reply-To: <gmaxonri7y3k43pxsnxfnd23mydgrwsw2322v6m4yjoksqm7aj@4ehgvhzg2ubb>
+References: <20260409-feat_link_cap-v1-0-7069e8199ce2@bootlin.com>
+	<20260409-feat_link_cap-v1-9-7069e8199ce2@bootlin.com>
+	<gmaxonri7y3k43pxsnxfnd23mydgrwsw2322v6m4yjoksqm7aj@4ehgvhzg2ubb>
+Organization: bootlin
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260413084957.327661-1-sami.mujawar@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_055928_366289_CA1EA2C9 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20260413_055947_029419_3A602AAB 
+X-CRM114-Status: GOOD (  19.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,54 +99,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 13, 2026 at 09:49:54AM +0100, Sami Mujawar wrote:
-> This series adds support for Arm Confidential Compute Architecture (CCA)
-> measurement registers in the Linux kernel, enabling guest Realms to
-> access, extend, and expose measurement values for attestation and runtime
-> integrity tracking.
-> 
-> The Realm Management Monitor (RMM) defines a set of measurement registers
-> consisting of a Realm Initial Measurement (RIM) and a number of Realm
-> Extensible Measurements (REMs). This series introduces the necessary
-> infrastructure to interact with these registers via the RSI interface
-> and exposes them to userspace through the TSM measurement framework.
-> 
-> At a high level, the series includes:
->  - Helper interfaces for reading and extending measurement
->    registers via RSI
->  - Definitions for Realm hash algorithms as defined by the 
->    RMM specification
->  - Integration with the TSM measurement subsystem and sysfs
->    exposure for userspace visibility and interaction
-> 
-> After applying this series, measurement registers are exposed under:
->     /sys/devices/virtual/misc/arm_cca_guest/measurements/
+On Fri, 10 Apr 2026 00:53:08 +0300
+Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com> wrote:
 
-I'm surprised we get some random sysfs files? How does some more
-generic userspace figure out to use this vs a TPM or some other
-platform's version of it?
+> On Thu, Apr 09, 2026 at 07:08:25PM +0200, Kory Maincent wrote:
+> > Add a managed DisplayPort connector initialization helper,
+> > drmm_connector_dp_init(), modeled after the existing HDMI counterpart
+> > drmm_connector_hdmi_init(). Cleanup is handled automatically via a
+> > DRM-managed action.
+> >=20
+> > The helper creates the following immutable connector properties to expo=
+se
+> > DP link training capabilities and state to userspace:
+> >=20
+> >   - num_lanes: bitmask of supported lane counts (1, 2, 4)
+> >   - link_rate: Array of supported link rates.
+> >   - dsc_en: Display Stream Compression supported
+> >   - voltage_swingN: per-lane voltage swing level bitmask
+> >   - pre-emphasisN: per-lane pre-emphasis level bitmask
+> >=20
+> > Link rates are passed by the driver in deca-kbps, following the DRM
+> > convention, but exposed to userspace in kbps for clarity.
+> >=20
+> > Two additional helpers are provided to update and reset those properties
+> > at runtime:
+> >   - drm_connector_dp_set_link_train_properties()
+> >   - drm_connector_dp_reset_link_train_properties()
+> >=20
 
-I also think exposing PCRs as was done for TPM in sysfs was something
-of a mistake.. Allowing extension without logging is too low level and
-is very hard to build an entire attestation system around.
+...
 
-I really think we are missing a subsystem here, TPM has sort of been
-filling this role in a non-generic way, but we should have a
-common uAPI for platform measurement & attestation:
- - Discover available measurements
- - Report signed measurements, with ingesting a nonce
- - Report measurement logs
- - Extend measurements and udpate logs
- - Report certificates used in signing
- - General reporting of various kinds of attestation evidence
+> > +/**
+> > + * struct drm_connector_dp_link_train - DRM DisplayPort link training
+> > + * information report
+> > + */
+> > +struct drm_connector_dp_link_train { =20
+>=20
+> THese define the current DP state. As such, they definitely make sense
+> to be a part of the drm_connector.
+> > +	/**
+> > +	 * @nlanes: The number of lanes used
+> > +	 */
+> > +	u8 nlanes;
+> > +
+> > +	/**
+> > +	 * @rates: Link rate value selected in deca-kbps
+> > +	 */
+> > +	u32 rate;
+> > +
+> > +	/**
+> > +	 * @dsc: Display Stream Compression enabled
+> > +	 */
+> > +	bool dsc_en;
+> > +
+> > +	/**
+> > +	 * @v_swings: Array listing the bitmask voltage swing level per
+> > lanes
+> > +	 */
+> > +	u8 v_swing[4];
+> > +
+> > +	/**
+> > +	 * @pre_emph: Array listing the bitmask pre-emphasis level per
+> > lanes
+> > +	 */
+> > +	u8 pre_emph[4]; =20
+>=20
+> Please consider following struct phy_configure_opts_dp (or using it as
+> is). Overall, please refer the talk and (more important) the lightning
+> resumee at this XDC. I have some bits and pieces ready in spite of that
+> proposal, but I didn't have time to finish it.
 
-And it would be nice for the PCI devices and others to plug into the
-general framework as well instead of building a parallel TSM framework
-for handling evidence.
+I didn't know this phy_configure_opts_dp struct. This indeed could make sen=
+se
+to reuse and modify that structure for our needs.
 
-Isn't this also sort of incomplete? Doesn't anything serious need
-signed measurements? Isnt't there alot more data that comes out of RMM
-than just a few measurement registers?
+About your XDC talk. What were the developments you were talking about? Cou=
+ld I
+have a look at them?
 
-Jason
+Regards,
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
