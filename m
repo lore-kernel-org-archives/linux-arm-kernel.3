@@ -4,98 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DD66F34C49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 13:58:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B3CFF34C49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 13:59:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S1Jred93a8Ywwo0WVeyu+LfFpcjBGBo395/UHFn8LPw=; b=TqGJvz61u40UWYTpY8678NXB0T
-	6bktRWBA1mnhjsfQ8CV+lgu/1SR6+As8GEPC61NxQB3bJFcRaiCCse/3ZnpV2m9yib1mrVnNjIvDv
-	s1oUzbj2L1u8yyA8oUApTvuNo58vpkBV4ofQyXVhUgS4zR5Hlev1nK51KmgDw0ju/WHzjSw6DY3H6
-	drIwYklh0x1aZMhCUbWaXLEL8qYsWjLf0ghIo21llN2kDolfZ5TRbFOoA45fgnMXc5JOlQYzVjfnU
-	WjCjUlDB7esq9xzMfe3xnypyZBeyJuVhcW3j6V2N5UIMLgPI/PwJb81k19ZUwuS07ubJ4q1vPh4in
-	VL6DS0Yg==;
+	bh=6uVyC++V1UmVV258SySNjnH/QWEzHB3vGKW3rS3VhpE=; b=xhL+hJS4ZqfWQmtwlD4AJMx5WB
+	+neYCAUAWOGYTAc+j4TnDsIAU3FEoYGImOXFEcyMepRaLCuy78ObEdaKK1HTTvip0Awu29932w0HX
+	uG42AuCNtzUmpeHVswQ+Js4HKi5oA+r1re/WpYdNcm5QJebPFBStaI6ZWgXY9x0e4JJrgApNSkw9x
+	TkkvGHLU2n9Bd1P4H7wWM4YIK6nwtoo2oCbeVBL19sUb5pXgkao5KsoWJrEQRxoa1goZ2pGKGkkSa
+	udx525/KBh6PJIFTmOowfT0ZhFtRLwMUCYHJ80U8a5CU25QI3fjWDqGnvdogCx1lXe/zqmj8Rp2vt
+	F85nru0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCHnh-0000000FnQ3-3nN8;
-	Mon, 13 Apr 2026 13:58:05 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1wCHoX-0000000FngG-37pk;
+	Mon, 13 Apr 2026 13:58:57 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCHng-0000000FnOV-0GHr
+	id 1wCHoU-0000000Fnea-3QtE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 13:58:05 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2b458ca2296so8735345ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 06:58:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776088682; x=1776693482; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=S1Jred93a8Ywwo0WVeyu+LfFpcjBGBo395/UHFn8LPw=;
-        b=R9HjcJU1jwXlZrJ7hkiJE/VSTW6pzG6LGBJbkRvCdv9ZGIikMBzjUyHTMgnoFNz5/o
-         loXUW5VnvPXoMJahHxa77oJ04r5VszPykoxwTaJmr6X/U84hyGgpM8DpdYHLK6YTWCLs
-         Qtzgu7SmB5PfpJIHKmESmthJyEwRxYeljb1+D4COMPw5r6ig7qj/WS83NIji3OA9TmnO
-         7kBiJRh5KQmPdXSnvlMVZcGb01jmc19t/Z1B4qAFkuN7I8ncaCJplobpnJF3H9Y0oE+l
-         vRZiv7e650Q6a6OYo8Qqr7cUlIacoqm4D1VejbEmJ8QkxQJvl7d68T4QIekG79Bbf+Hc
-         enfA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776088682; x=1776693482;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=S1Jred93a8Ywwo0WVeyu+LfFpcjBGBo395/UHFn8LPw=;
-        b=FKKL3uU3lZb7RxQ39T/7VB/zwwdBupr9xQ3CaomDkFmqWuZALNLpsHUQ8cbBgpcBWH
-         dDMG3+ztymNRP8js+6HS0++gaD9aRmvULfcJuDSmW6AMHhkvWfZUsv1kT5WTc6zI4XVO
-         EMX2DAhfg/uEgwv+T8nkjyucrYoMHHHoPlXKw1N1bqhYLDV0M+Mm2fJG4i/1J/MzTk5M
-         uVI2nPO7Z0Uk7a3/ArI07jVitA9UL/ags0DRxYAmj0uqgBPGb2hwYevlnjb1NwBvqyHc
-         Ikxde0/uJ+jg2U2Le0KaO0WGkiwwcRImQTyWmfnqt9NwYlsrUuNxfqZCgxR854TYa7V+
-         fQQw==
-X-Forwarded-Encrypted: i=1; AFNElJ8ITtzV1E0TmrW7WtYHapSngGzImdk/WxrFAlgM9iCMqyOhWyYKmGaVmKogb+36Hb8LNNmaOZ4FNhIAWS5EZHIK@lists.infradead.org
-X-Gm-Message-State: AOJu0YwOGOnbn28yZtfeL4ix9WrMqjuQWC18K/fQsHtGVp/+UrhfKYuc
-	wnbhIOSpffRC91orYMUzdbwaAxzfwWgEJn4Q10afIpBkpuA7OCrwMoFC
-X-Gm-Gg: AeBDietg3mJpr1l3wYjEchlgMt+cYG4UELe9prNLAGcCQStvRG8eVeeUvRS0O5V0YK/
-	92TfpmRFNvlhu91YH69oWb7H5nsn+s4DzcQ/Wwn3L/QEzigXOxqmF7g30w9moKx/Jcfidmk+oa5
-	CEaHHtNdrjhMVJPbEQNjCtqmYU7yOhQn5oe8I34Gd3frEj1DT1fcYbbaDRpPebvBJEmLKj1lSFu
-	s8QzlO7DNzkhPxljV8kcdKd198daJ8VcMOUJIG8z+8qZ9fbaMbinPhM1zlZAcUXoGWp4EXind1t
-	uDsLXnmai97SD/cViw0KFoOfOyzuI2g9ZAExOyZwkQbrJoJv4ksB3fRGo8n/n18iOVR/S03uAyL
-	JQvR+TVcrgVDXCU0B6G1FS5pkemo81PBw7V9GbjjiVOiObS6EKVqvaAyCfdl9b3aT4HMWGT/fiw
-	O15QYTPlN/rPw3VfTNL+tFCcIWGG6WWBQxZj5dtY1G8gkE4lwFw20+x+rbTN+f4apL/sMxPs/Cq
-	sx+3Lg+BHw8Tw==
-X-Received: by 2002:a17:903:284:b0:2b2:5822:7a70 with SMTP id d9443c01a7336-2b2d5a63d4dmr133027285ad.38.1776088681795;
-        Mon, 13 Apr 2026 06:58:01 -0700 (PDT)
-Received: from localhost.localdomain (61-230-3-9.dynamic-ip.hinet.net. [61.230.3.9])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b2d4f36351sm113068545ad.69.2026.04.13.06.57.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Apr 2026 06:58:01 -0700 (PDT)
-From: Yu-Chun Lin <eleanor15x@gmail.com>
-To: krzysztof.kozlowski@oss.qualcomm.com
-Cc: afaerber@suse.de,
-	andrew@codeconstruct.com.au,
-	eleanor.lin@realtek.com,
-	james.tai@realtek.com,
-	joel@jms.id.au,
-	linusw@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-realtek-soc@lists.infradead.org,
-	openbmc@lists.ozlabs.org
-Subject: Re: [PATCH 4/4] ARM: realtek: MAINTAINERS: Include pin controller drivers
-Date: Mon, 13 Apr 2026 21:57:56 +0800
-Message-Id: <20260413135756.8796-1-eleanor15x@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <e483acb6-af9d-4bc4-9aa6-c4841ff0a8dc@oss.qualcomm.com>
-References: <e483acb6-af9d-4bc4-9aa6-c4841ff0a8dc@oss.qualcomm.com>
+	Mon, 13 Apr 2026 13:58:56 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 06EB94E429EA;
+	Mon, 13 Apr 2026 13:58:53 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C4FA75FFB9;
+	Mon, 13 Apr 2026 13:58:52 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8366410450084;
+	Mon, 13 Apr 2026 15:58:47 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1776088731; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=6uVyC++V1UmVV258SySNjnH/QWEzHB3vGKW3rS3VhpE=;
+	b=z/IAyX3cr6ydhmF+62EMz8NfkSsjebBn7/omwngWBm8Nn4uyX7nYklonTQ5fXdLL5QiOYy
+	+1THmm5QjgiJqYt3Gx6EHZqO1sYrGB5+soslEjRulOl7J0x7FLcZRIV7rOcXvFvfvjQPS3
+	WpTDOcLtHwMq4fovz2LnVZRTWM3zCfi+WcZwtPZkqWq6hglUMRpXS6gA+3cjLhRjk/EjWx
+	+ENFvJi4VWk66EXtK3T72MsaL/pERdNNZTfe8S9pK84OG09lOVXS/NVr5a8rhwY120mzk2
+	gWIkuNkFFsjLlXjxZerjx1HbvuXqJ8hxOjxcp8YXLCaId3XpvSlQWExCz5zH5A==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Date: Mon, 13 Apr 2026 15:58:33 +0200
+Subject: [PATCH 01/10] drm/bridge: add of_drm_get_bridge_by_endpoint()
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-1-acd01cd79a1f@bootlin.com>
+References: <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-0-acd01cd79a1f@bootlin.com>
+In-Reply-To: <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-0-acd01cd79a1f@bootlin.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Clark <robin.clark@oss.qualcomm.com>, 
+ Dmitry Baryshkov <lumag@kernel.org>, 
+ Abhinav Kumar <abhinav.kumar@linux.dev>, 
+ Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>, 
+ Marijn Suijten <marijn.suijten@somainline.org>, 
+ Xinliang Liu <xinliang.liu@linaro.org>, Tian Tao <tiantao6@hisilicon.com>, 
+ Xinwei Kong <kong.kongxinwei@hisilicon.com>, 
+ Sumit Semwal <sumit.semwal@linaro.org>, 
+ Yongqin Liu <yongqin.liu@linaro.org>, John Stultz <jstultz@google.com>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Michal Simek <michal.simek@amd.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+X-Mailer: b4 0.15.1
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_065804_107775_111CF12B 
-X-CRM114-Status: GOOD (  13.64  )
+X-CRM114-CacheID: sfid-20260413_065855_125845_A375FB8F 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,51 +96,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On 13/04/2026 11:23, Yu-Chun Lin [林祐君] wrote:
->>> No dedicated maintainers are shown for Realtek SoC pin controllers, except
->>> pinctrl subsystem maintainer, which means reduced review and impression of
->>> abandoned drivers.  Pin controller drivers are essential part of an SoC, so in
->>> case of lack of dedicated entry at least cover it by the SoC platform
->>> maintainers.
->>>
->>> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->>>
->>> ---
->>>
->>> This patch should go via Realtek SoC maintainers, not pinctrl.
->>> ---
->>>  MAINTAINERS | 1 +
->>>  1 file changed, 1 insertion(+)
->>>
->>> diff --git a/MAINTAINERS b/MAINTAINERS
->>> index 10d12b51b1f6..374ce55e4fb6 100644
->>> --- a/MAINTAINERS
->>> +++ b/MAINTAINERS
->>> @@ -3373,6 +3373,7 @@ F:
->>> Documentation/devicetree/bindings/arm/realtek.yaml
->>>  F:     arch/arm/boot/dts/realtek/
->>>  F:     arch/arm/mach-realtek/
->>>  F:     arch/arm64/boot/dts/realtek/
->>> +F:     drivers/pinctrl/realtek/
->>>
->>>  ARM/RISC-V/RENESAS ARCHITECTURE
->>>  M:     Geert Uytterhoeven <geert+renesas@glider.be>
->>>
->>> --
->>> 2.51.0
->> 
->> Acked-by: Yu-Chun Lin <eleanor.lin@realtek.com>
->
-> So James will pick it up?
->
-> Best regards,
-> Krzysztof
+drm_of_find_panel_or_bridge() is widely used, but many callers pass NULL
+into the @panel or the @bridge arguments, thus making a very partial usage
+of this rather complex function.
 
-Sorry for the confusion. I'll pick up this patch and include it in a series
-along with the maintainer updates and other DTS changes. I plan to submit
-the series to soc@ during the v7.1-rc1 to v7.1-rc5 window.
+Besides, the bridge returned in @bridge is not refcounted, thus making this
+API unsafe when DRM bridge hotplug will be introduced.
 
-Best regards,
-Yu-Chun
+Solve both issues for the cases of calls to drm_of_find_panel_or_bridge()
+with a NULL @panel pointer by adding a new function that only looks for
+bridges (and is thus much simpler) and increments the refcount of the
+returned bridge.
+
+The new function is identical to drm_of_find_panel_or_bridge() except it:
+
+ - handles bridge refcounting: uses of_drm_find_and_get_bridge() instead of
+   of_drm_find_bridge() internally to return a refcounted bridge
+ - is slightly simpler to use: just takes no @panel parameter
+ - has a simpler implementation: it is equal to
+   drm_of_find_panel_or_bridge() after removing the code that becomes dead
+   when @panel == NULL
+
+Also add this function to drm_bridge.c and not drm_of.c because it returns
+bridges only.
+
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+---
+ drivers/gpu/drm/drm_bridge.c | 46 ++++++++++++++++++++++++++++++++++++++++++++
+ include/drm/drm_bridge.h     |  9 +++++++++
+ 2 files changed, 55 insertions(+)
+
+diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
+index ba80bebb5685..e51990b74417 100644
+--- a/drivers/gpu/drm/drm_bridge.c
++++ b/drivers/gpu/drm/drm_bridge.c
+@@ -1581,6 +1581,52 @@ struct drm_bridge *of_drm_find_bridge(struct device_node *np)
+ 	return bridge;
+ }
+ EXPORT_SYMBOL(of_drm_find_bridge);
++
++/**
++ * of_drm_get_bridge_by_endpoint - return DRM bridge connected to a port/endpoint
++ * @np: device tree node containing output ports
++ * @port: port in the device tree node, or -1 for the first port found
++ * @endpoint: endpoint in the device tree node, or -1 for the first endpoint found
++ * @bridge: pointer to hold returned drm_bridge, must not be NULL
++ *
++ * Given a DT node's port and endpoint number, find the connected node and
++ * return the associated drm_bridge device.
++ *
++ * The refcount of the returned bridge is incremented. Use drm_bridge_put()
++ * when done with it.
++ *
++ * Returns zero (and sets *bridge to a valid bridge pointer) if successful,
++ * or one of the standard error codes (and the value in *bridge is
++ * unspecified) if it fails.
++ */
++int of_drm_get_bridge_by_endpoint(const struct device_node *np,
++				  int port, int endpoint,
++				  struct drm_bridge **bridge)
++{
++	if (!bridge)
++		return -EINVAL;
++
++	/*
++	 * of_graph_get_remote_node() produces a noisy error message if port
++	 * node isn't found and the absence of the port is a legit case here,
++	 * so at first we silently check whether graph presents in the
++	 * device-tree node.
++	 */
++	if (!of_graph_is_present(np))
++		return -ENODEV;
++
++	struct device_node *remote __free(device_node) =
++		of_graph_get_remote_node(np, port, endpoint);
++	if (!remote)
++		return -ENODEV;
++
++	*bridge = of_drm_find_and_get_bridge(remote);
++	if (*bridge)
++		return 0;
++
++	return -EPROBE_DEFER;
++}
++EXPORT_SYMBOL_GPL(of_drm_get_bridge_by_endpoint);
+ #endif
+ 
+ /**
+diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
+index a8d67bd9ee50..ad93597cd622 100644
+--- a/include/drm/drm_bridge.h
++++ b/include/drm/drm_bridge.h
+@@ -1327,6 +1327,9 @@ int drm_bridge_attach(struct drm_encoder *encoder, struct drm_bridge *bridge,
+ #ifdef CONFIG_OF
+ struct drm_bridge *of_drm_find_and_get_bridge(struct device_node *np);
+ struct drm_bridge *of_drm_find_bridge(struct device_node *np);
++int of_drm_get_bridge_by_endpoint(const struct device_node *np,
++				  int port, int endpoint,
++				  struct drm_bridge **bridge);
+ #else
+ static inline struct drm_bridge *of_drm_find_and_get_bridge(struct device_node *np)
+ {
+@@ -1336,6 +1339,12 @@ static inline struct drm_bridge *of_drm_find_bridge(struct device_node *np)
+ {
+ 	return NULL;
+ }
++static inline int of_drm_get_bridge_by_endpoint(const struct device_node *np,
++						int port, int endpoint,
++						struct drm_bridge **bridge)
++{
++	return -ENODEV;
++}
+ #endif
+ 
+ static inline bool drm_bridge_is_last(struct drm_bridge *bridge)
+
+-- 
+2.53.0
 
 
