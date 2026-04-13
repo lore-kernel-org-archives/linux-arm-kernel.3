@@ -4,113 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6422EBFD21
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 09:10:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54559EBFD22
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 09:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/9NMcyRE3q4URjSrnrfk9vDMlnwzyXGvpvT4VQSPzFM=; b=0+F1TwmcohwC6pn8dai32RJ0yo
-	ZVIteGeYdQYzUY/Dymu642WOafLtise3R5luLYYuQSeWXRkUtU43OfdSkoU7EIoWf1dCDRlEPpmq1
-	TkYF0nRFvKzb3X3ryr8gMgP9c+XMh9/v111e/SouRWi7aZPeQi9MjBbdihdE0ueGAGJVLIYjaz8ay
-	TunS+UIhFP5YmYi98acgDmCV/fAT6hlZNdMI4kcnRLmplSM9UCFyEvv2cfqxuGXSiK9qlU7eUYsQE
-	6yBAxwxWcgfBOit1mcvOrddtWeE5ixDg7uYIGeyxDW0cq6hmGN5oDeLneOd8PhsVDkgXjGc3FxIOt
-	fLhgEFUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3hYK9Ei+d9kVH0VV/CR68CUDnV5UVCrS18XI/2Q3GjY=; b=keq3YIcdM51ywoZ8va3n2byxC6
+	uw5JPe3YGHh1wSo2XXCRvsKkZMIoh33Qontk6IMLJf/0jIxNX42sXIlIDD3TokF0bcRgemqVEP+IB
+	bhKMiskG72AdHFWHNqz09Z0DhhvYgQ1SXH09gp3Ipe59Vk9A0OCgJ4YX5bWq8d/C8pfXSvDuNMhXw
+	9NJaCWfKEsFGCjfFGMuOC6k3C99vDAENjivsIJV069xU4y4MNoYaRQWONXeIem32GfSzXlhI0gmcx
+	UvyQcNcdmZ9vqPIoFYRhmXij94d2JXboXKqqmXRMs5MEvoog+eYDLDuod8BfdI+L/fl3jZb8QVl6u
+	dlWDMJeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCDJX-0000000FL2R-1h66;
-	Mon, 13 Apr 2026 09:10:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wCDOk-0000000FLOp-0qF8;
+	Mon, 13 Apr 2026 09:16:02 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCDJT-0000000FL1y-3Gqw;
-	Mon, 13 Apr 2026 09:10:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D5848440C7;
-	Mon, 13 Apr 2026 09:10:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27EF9C116C6;
-	Mon, 13 Apr 2026 09:10:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776071434;
-	bh=SrSZiqxJwReULWnjaaQIC3mrh4DMqvNbscfFISsWAyg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=imUvg10Q336zJleZMGPGm/EmAzkgDRNQf1E8cZaoJDb+3Y0NIBnKQhGv3a/r9e2YE
-	 IC7xUL2qUzzdJPBcF4xoPd4FYvxjDjv+TVQk8GSjH1WGT3fL3ydkNE5/p//l3TyPMI
-	 4pTq7UrIrnwNX5qlvKiWzVGsKRpXgkBWzhm9cLEA2okFBFDSZGnQm9/y27NnehydoJ
-	 qqpDU+BUn6KoPGUup+jRpEB1fwUB40CZYHGGS6Z2ikuFSbjQaH6nlGPUFD4vo6SYGJ
-	 G050tX/owazGVhTCtC/yNYFJFSaFnVm/PJwV7SALSm1oIags9j4dJiCzdirb7pyxeI
-	 FcCkmGUNzgN8Q==
-Message-ID: <b0d81181-d4a4-4c03-8c26-c7f6e8cde70f@kernel.org>
-Date: Mon, 13 Apr 2026 11:10:30 +0200
+	id 1wCDOh-0000000FLOE-1vlW;
+	Mon, 13 Apr 2026 09:16:00 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63CNQ6Rp3649347;
+	Mon, 13 Apr 2026 09:15:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=3hYK9Ei+d9kVH0VV/CR68CUDnV5UVC
+	rS18XI/2Q3GjY=; b=oY+vEH1nHYm21zR7dKdG+rMVbiAs+2M4pSYJYH25H3Q/WQ
+	S5pbibNxKHXRtCU5RA4BZpoAC/CsLV14kYSk9HD7BI83gpVLqIVXm+N3/UD3mtFb
+	VGL3bfwkoS+MFSXp/7ksAXz/d/43BdzYyNe+WU94qMB7+oTAY5jMdy/aC1rg5QU1
+	UhBzNrX2r1ZHEsamBr6j/bYRaaLxasa1WWuLDHkVDfa2K6RkMY6wizvw26f4v3Pw
+	kdUQa11kKa0O4lHqHX35TBGaxo9cfSk8h/UtwhMbDVaUgMt8SMltIpECwIrRGVKB
+	KeirN6PqfMTEor0kXcjWPcrhlHvR883P23ApPmxw==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dfdt3px1j-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 13 Apr 2026 09:15:17 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 63D80WMC015153;
+	Mon, 13 Apr 2026 09:15:16 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4dg0mscku7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 13 Apr 2026 09:15:16 +0000
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63D9FEC727328866
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 13 Apr 2026 09:15:14 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 70F6620043;
+	Mon, 13 Apr 2026 09:15:14 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B712A2004F;
+	Mon, 13 Apr 2026 09:15:04 +0000 (GMT)
+Received: from li-dc0c254c-257c-11b2-a85c-98b6c1322444.ibm.com (unknown [9.123.13.2])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon, 13 Apr 2026 09:15:04 +0000 (GMT)
+Date: Mon, 13 Apr 2026 14:45:02 +0530
+From: Ojaswin Mujoo <ojaswin@linux.ibm.com>
+To: Thomas Gleixner <tglx@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+        x86@kernel.org, Lu Baolu <baolu.lu@linux.intel.com>,
+        iommu@lists.linux.dev, Michael Grzeschik <m.grzeschik@pengutronix.de>,
+        netdev@vger.kernel.org, linux-wireless@vger.kernel.org,
+        Herbert Xu <herbert@gondor.apana.org.au>, linux-crypto@vger.kernel.org,
+        Vlastimil Babka <vbabka@kernel.org>, linux-mm@kvack.org,
+        David Woodhouse <dwmw2@infradead.org>,
+        Bernie Thompson <bernie@plugable.com>, linux-fbdev@vger.kernel.org,
+        Theodore Tso <tytso@mit.edu>, linux-ext4@vger.kernel.org,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Uladzislau Rezki <urezki@gmail.com>, Marco Elver <elver@google.com>,
+        Dmitry Vyukov <dvyukov@google.com>, kasan-dev@googlegroups.com,
+        Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+        Thomas Sailer <t.sailer@alumni.ethz.ch>, linux-hams@vger.kernel.org,
+        "Jason A. Donenfeld" <Jason@zx2c4.com>,
+        Richard Henderson <richard.henderson@linaro.org>,
+        linux-alpha@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
+        linux-arm-kernel@lists.infradead.org,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev,
+        Geert Uytterhoeven <geert@linux-m68k.org>,
+        linux-m68k@lists.linux-m68k.org, Dinh Nguyen <dinguyen@kernel.org>,
+        Jonas Bonn <jonas@southpole.se>, linux-openrisc@vger.kernel.org,
+        Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
+        Michael Ellerman <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org,
+        Paul Walmsley <pjw@kernel.org>, linux-riscv@lists.infradead.org,
+        Heiko Carstens <hca@linux.ibm.com>, linux-s390@vger.kernel.org,
+        "David S. Miller" <davem@davemloft.net>, sparclinux@vger.kernel.org
+Subject: Re: [patch 07/38] treewide: Consolidate cycles_t
+Message-ID: <ady0Ft_tDrbGlu2o@li-dc0c254c-257c-11b2-a85c-98b6c1322444.ibm.com>
+References: <20260410120044.031381086@kernel.org>
+ <20260410120318.045532623@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] soc: amlogic: clk-measure: Add A1 and T7 support
-To: Jian Hu <jian.hu@amlogic.com>, Neil Armstrong
- <neil.armstrong@linaro.org>, Jerome Brunet <jbrunet@baylibre.com>,
- Kevin Hilman <khilman@baylibre.com>,
- Michael Turquette <mturquette@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- robh+dt <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>
-Cc: devicetree <devicetree@vger.kernel.org>,
- linux-amlogic <linux-amlogic@lists.infradead.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
-References: <20260410100329.3167482-1-jian.hu@amlogic.com>
- <20260410100329.3167482-3-jian.hu@amlogic.com>
- <9a4f69e7-838a-4992-af1d-46324e14eb48@kernel.org>
- <274d2abd-05b9-4dbd-b962-ff70044b8d07@amlogic.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <274d2abd-05b9-4dbd-b962-ff70044b8d07@amlogic.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260410120318.045532623@kernel.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-ORIG-GUID: r6KN03kK1HZaoam71kVl5aHZm9BfgAQ4
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEzMDA4NSBTYWx0ZWRfX+Gwbo0yddZP/
+ ED3CWrVQNFFw/TECS1M9+tSS57FYBZnMmG79KmJVnAwBWc3o5BgyeadFZ9maSHI4Tv+/+VHQiXF
+ uu6/EAbMsVnRYIXugjj6TyQBBqRyeSoPbLxIVX8tqr0goumkz0lPJ9Y4Y3a3ECfM9WbzUtOSm5u
+ eNbyrRMw+nuwi0Afz/QuxwA0FuazktkFPrSziYKfNEV92tR6ksCbhLbdKwZfOQ6IaUNAK3mHh04
+ Z9ZuJvFG4+5R/DIJQ8v5H1fE5bYExgqIL1hC1HoekBef4/UHL3Jav5jU5Ty8ib2gAESLlopFcCb
+ VttV6mxWXomhvrcFDBgGSdweqIiLio3UyKWRaxfdCdf1K3UdP0nDdx3LiWp/XKSUCxaso/02xav
+ PADy/jEsrag0vsgcCLG1/jcBcJ3bFL3cNcYlDCC6JXFySGCPKTcpDMOtfvLh9vv4Vg7VR02ItSs
+ a0USozVz3do3GTBrHkA==
+X-Proofpoint-GUID: iwEVNX-0n_YmGG6iAARt9TRRoEhRuwqE
+X-Authority-Analysis: v=2.4 cv=WpEb99fv c=1 sm=1 tr=0 ts=69dcb426 cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=kj9zAlcOel0A:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VwQbUJbxAAAA:8
+ a=9Pz4rRoAHiK5H5RfW9YA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-13_02,2026-04-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 phishscore=0 bulkscore=0 adultscore=0 spamscore=0
+ malwarescore=0 clxscore=1011 lowpriorityscore=0 suspectscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604010000
+ definitions=main-2604130085
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_021035_858225_EB1DE23D 
-X-CRM114-Status: GOOD (  17.67  )
+X-CRM114-CacheID: sfid-20260413_021559_510571_B80FA432 
+X-CRM114-Status: GOOD (  21.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,62 +144,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/04/2026 10:21, Jian Hu wrote:
+On Fri, Apr 10, 2026 at 02:19:03PM +0200, Thomas Gleixner wrote:
+> Most architectures define cycles_t as unsigned long execpt:
 > 
-> On 4/12/2026 5:55 PM, Krzysztof Kozlowski wrote:
->> [ EXTERNAL EMAIL ]
->>
->> On 10/04/2026 12:03, Jian Hu wrote:
->>> Add support for the A1 and T7 SoC family in amlogic clk measure.
->>>
->>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
->>> ---
->>>   drivers/soc/amlogic/meson-clk-measure.c | 272 ++++++++++++++++++++++++
->>>   1 file changed, 272 insertions(+)
->>>
->>> diff --git a/drivers/soc/amlogic/meson-clk-measure.c b/drivers/soc/amlogic/meson-clk-measure.c
->>> index d862e30a244e..083524671b76 100644
->>> --- a/drivers/soc/amlogic/meson-clk-measure.c
->>> +++ b/drivers/soc/amlogic/meson-clk-measure.c
->>> @@ -787,6 +787,258 @@ static const struct meson_msr_id clk_msr_s4[] = {
->>>
->>>   };
->>>
->>> +static struct meson_msr_id clk_msr_a1[] = {
->> And existing code uses what sort of array? Seems you send us obsolete or
->> downstream code.
+>  - x86 requires it to be 64-bit independent of the 32-bit/64-bit build.
 > 
+>  - parisc and mips define it as unsigned int
 > 
-> Thanks for your review.
+>    parisc has no real reason to do so as there are only a few usage sites
+>    which either expand it to a 64-bit value or utilize only the lower
+>    32bits.
 > 
+>    mips has no real requirement either.
 > 
-> I have checked the previous Amlogic SoC's commits. Such as Amlogic AXG, 
-> G12A, C3, S4.
+> Move the typedef to types.h and provide a config switch to enforce the
+> 64-bit type for x86.
 > 
-> The clk_msr_xx entry is added after last SoC's array, sorted by 
-> submissin date rather than alphabetical order.
+> Signed-off-by: Thomas Gleixner <tglx@kernel.org>
+> ---
+>  arch/Kconfig                       |    4 ++++
+>  arch/alpha/include/asm/timex.h     |    3 ---
+>  arch/arm/include/asm/timex.h       |    1 -
+>  arch/loongarch/include/asm/timex.h |    2 --
+>  arch/m68k/include/asm/timex.h      |    2 --
+>  arch/mips/include/asm/timex.h      |    2 --
+>  arch/nios2/include/asm/timex.h     |    2 --
+>  arch/parisc/include/asm/timex.h    |    2 --
+>  arch/powerpc/include/asm/timex.h   |    4 +---
+>  arch/riscv/include/asm/timex.h     |    2 --
+>  arch/s390/include/asm/timex.h      |    2 --
+>  arch/sparc/include/asm/timex_64.h  |    1 -
+>  arch/x86/Kconfig                   |    1 +
+>  arch/x86/include/asm/tsc.h         |    2 --
+>  include/asm-generic/timex.h        |    1 -
+>  include/linux/types.h              |    6 ++++++
+>  16 files changed, 12 insertions(+), 25 deletions(-)
 > 
-> So I place A1 and T7 after S4 accordingly.
-> 
-> 
-> The A1 clock controller driver was already supported in 
-> https://lore.kernel.org/all/20230523135351.19133-7-ddrokosov@sberdevices.ru/
-> 
-> It is also present in the mainline kernel: 
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/clk/meson/Kconfig#n113
-> 
-> 
-> This clock measure IP is used to measure the internal clock paths 
-> frequencies,  and A1 clock controller driver was supported.
-> 
-> Since the corresponding clock measure driver does not support A1 yet, So 
-> add A1 clk msr here.
+<...>
 
-No, what qualifiers or keywords are used for existing arrays? IOW,
-please investigate and understand why you are doing this very different
-than existing code. Maybe because you sent us downstream, so you
-replicated all other downstream issues.
+> --- a/arch/powerpc/include/asm/timex.h
+> +++ b/arch/powerpc/include/asm/timex.h
+> @@ -11,9 +11,7 @@
+>  #include <asm/cputable.h>
+>  #include <asm/vdso/timebase.h>
+>  
+> -typedef unsigned long cycles_t;
+> -
+> -static inline cycles_t get_cycles(void)
+> +ostatic inline cycles_t get_cycles(void)
 
-Best regards,
-Krzysztof
+Hi Thomas, I'm in middle of testing this series on powerpc. In the meantime I
+noticed that there's probably a small typo here (althrough this is fixed
+later)
+
+Regards,
+ojaswin
+>  {
+>  	return mftb();
+>  }
 
