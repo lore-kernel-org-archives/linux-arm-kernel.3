@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E734F34C58
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 14:20:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 699E0F34C58
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 14:31:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zO64SVeF86ReUBEKH7LVqdzeS3lL5rsCwvrOkWEIz4w=; b=3R7xqJNpmg+6NLiRIzcdy9nsMf
-	WgjZ0kdKGLbI8z1voaxgnCX/Mgvsj/S6ADei3dZAcPvfOv0WlrfOipzMJS9WkdcftshVmoMTI1GQr
-	dVXw3jYyFV7TsmqFrqtQ+Pbl7TXznb2CcOHlVmUkDsAZkJHv3BDPf9SD3z0e9lKy0np7K2T6jYZ4u
-	gpOnIpM7vzhj0ou/fTqIG6mKpaKD68RqzFyG10WiL0KPpFZT2oyMqWZAG87OFaeGri23u/Mz9CPws
-	Lhu1kVTy3dopVyQXpD7kxeqCdV46H3GcpRICGZVWltz+ci0scKwcxB5ytJryWzeXZhwsuFsKVmXzb
-	8N0wAH8Q==;
+	bh=Jo0hbjCjZvmie+u75EWVLstjM4G6yhKlbjKUttqbl8w=; b=dGS410ZQiLR/1tlzM9xjr7D+MN
+	oDJ6Yq9g2SsXqdMiGSy5Sv4jP0kACqBGkNodIs13JthXJ23aBXAjFRtYm3vDwq/xkKidpcaXgtaRp
+	IsqiE0S2zF5WvCxyAPibMkNi9r00fWp0JA7Sz2uXUATd7jyrVcW+J+pmWpxGkTtN+iCVJ8sShIz33
+	waawxD6b5qG7v6Z4iKd2XGmEiz1BPQSXtxHGyQ+ogim+l0gSeQj/OJvTy0Y/EJvKZ+yBw6AHV+xLy
+	xygKzM1J7W0tQ7/6a0/v6dfn9P2GDUE/s3MnHhy/44Kwz+dAT2+WRZSI0ZeSKw1g091H+bF0oRZMU
+	+TNdLHhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCI9P-0000000Fqhu-2s59;
-	Mon, 13 Apr 2026 14:20:31 +0000
+	id 1wCIKL-0000000Frwj-0OQC;
+	Mon, 13 Apr 2026 14:31:49 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCI9K-0000000FqcM-17WG
+	id 1wCIKI-0000000FrwB-0e9j
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 14:20:27 +0000
+	Mon, 13 Apr 2026 14:31:47 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DA3C2357A;
-	Mon, 13 Apr 2026 07:20:17 -0700 (PDT)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 143493F641;
-	Mon, 13 Apr 2026 07:20:21 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 727F6339;
+	Mon, 13 Apr 2026 07:31:37 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B239D3F641;
+	Mon, 13 Apr 2026 07:31:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776090023; bh=Qwt8jUbbvMo92bDPS6T3dox0x9gyvJKy4t2N4lfA8uI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kwY6cPq24eP3MaAQQqfRWVejOIQPYyK2KLgb25/OvsdBN+loVJXaayjBaybSePFbw
-	 3lOUMUPd7Wx77D+w2gPAgbAq5TYmh4PHDy1/IsWhg7Z/xa760fQT1xM8093TYEo3Zl
-	 r7Y4lq0s1XTFQyHu4PR843/HkoJU2EhLO5ppQPJ4=
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: suzuki.poulose@arm.com,
-	mike.leach@arm.com,
-	james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com,
-	leo.yan@arm.com,
-	jie.gan@oss.qualcomm.com,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v4 9/9] coresight: etm3x: remove redundant call etm4_enable_hw with hotplug
-Date: Mon, 13 Apr 2026 15:20:02 +0100
-Message-Id: <20260413142003.3549310-10-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260413142003.3549310-1-yeoreum.yun@arm.com>
-References: <20260413142003.3549310-1-yeoreum.yun@arm.com>
+	t=1776090703; bh=Bq30PsvBig46HcczZd+NZdFILcN3Ad0q3W32R7+TqHw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=tcYYyjmNQmbBlP/CXf6Tkt6kzenoZ6R7ZWifBjHdYs5iAuiRpjZLOPkfeChoQvwZp
+	 KpDX1ZKS4+myLT9ycjsrVWTJoQ3yKZBQ+L/NX3LI1l+6YhXausRfCgrThiN3VtAky4
+	 DpGxmw9kcRkClHU9xfGrgpvXZlQpjx5tIKubCWFY=
+Message-ID: <c8a48e64-bdef-4d6f-997d-1c912dfcceb7@arm.com>
+Date: Mon, 13 Apr 2026 15:31:37 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v6 00/40] arm_mpam: Add KVM/arm64 and resctrl glue code
+To: Fenghua Yu <fenghuay@nvidia.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ gshan@redhat.com, james.morse@arm.com, jonathan.cameron@huawei.com,
+ kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
+ zengheng4@huawei.com, linux-doc@vger.kernel.org
+References: <20260313144617.3420416-1-ben.horgan@arm.com>
+ <8c4f8019-f6eb-4a3b-a6cf-96e533bfa15f@nvidia.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <8c4f8019-f6eb-4a3b-a6cf-96e533bfa15f@nvidia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_072026_338385_9496FB08 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20260413_073146_276290_5D4C121D 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,64 +82,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The cpu_online_mask is set at the CPUHP_BRINGUP_CPU step.
-In other words, if etm4_enable_sysfs() is called between
-CPUHP_BRINGUP_CPU and CPUHP_AP_ARM_CORESIGHT_STARTING,
-etm_enable_hw() may be invoked in etm_enable_sysfs_smp_call()
-and then executed again in etm_starting_cpu().
 
-To remove this redundant call, take the hotplug lock before executing
-etm_enable_sysfs_smp_call().
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- .../coresight/coresight-etm3x-core.c          | 24 +++++++++----------
- 1 file changed, 12 insertions(+), 12 deletions(-)
+On 4/2/26 00:56, Fenghua Yu wrote:
+> 
+> 
+> On 3/13/26 07:45, Ben Horgan wrote:
+>> This version of the mpam missing pieces series sees a couple of things
+>> dropped or hidden. Memory bandwith utilization with free-running counters
+>> is dropped in preference of just always using 'mbm_event' mode (ABMC
+>> emulation) which simplifies the code and allows for, in the future,
+>> filtering by read/write traffic. So, for the interim, there is no memory
+>> bandwidth utilization support. CDP is hidden behind config expert as
+>> remount of resctrl fs could potentially lead to out of range PARTIDs being
+>> used and the fix requires a change in fs/resctrl. The setting of MPAM2_EL2
+>> (for pkvm/nvhe) is dropped as too expensive a write for not much value.
+>>
+>> There are a couple of 'fixes' at the start of the series which address
+>> problems in the base driver but are only user visible due to this series.
+> 
+> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-index b7e3b5eea3f9..5dc5492a1fb5 100644
---- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-@@ -522,26 +522,26 @@ static int etm_enable_sysfs(struct coresight_device *csdev, struct coresight_pat
- 	struct etm_enable_arg arg = { };
- 	int ret;
- 
-+	arg.drvdata = drvdata;
-+	arg.traceid = path->trace_id;
-+
-+	raw_spin_lock(&drvdata->spinlock);
-+	arg.config = drvdata->config;
-+	raw_spin_unlock(&drvdata->spinlock);
- 
- 	/*
- 	 * Configure the ETM only if the CPU is online.  If it isn't online
- 	 * hw configuration will take place on the local CPU during bring up.
- 	 */
--	if (cpu_online(drvdata->cpu)) {
--		arg.drvdata = drvdata;
--		arg.traceid = path->trace_id;
--
--		raw_spin_lock(&drvdata->spinlock);
--		arg.config = drvdata->config;
--		raw_spin_unlock(&drvdata->spinlock);
--
-+	cpus_read_lock();
- 		ret = smp_call_function_single(drvdata->cpu,
- 					       etm_enable_sysfs_smp_call, &arg, 1);
--		if (!ret)
--			ret = arg.rc;
--	} else {
-+	cpus_read_unlock();
-+
-+	if (!ret)
-+		ret = arg.rc;
-+	else
- 		ret = -ENODEV;
--	}
- 
- 	if (!ret)
- 		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
--- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+Thanks!
+
+Ben
 
 
