@@ -4,51 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18778F34C51
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 12:59:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45221F34C49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 13:06:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h3FUUOILacuSgM+ABHMGfQupbtWpVZVev0K7QR0S3PA=; b=O4cSfHJX0BuVe7MWXnmZQBdwBo
-	H3vkvStOFYiv+JE1aBszU4B7ec66jM51+kmWLv1jBJPN6RPaeZ7TmloSGSmP78e5NwjazDUky/oU+
-	TKQ75qIZDQvq47cK9HA0NVV3f3SGaP8l+Uxc+upQJRsmozvt9ls3M+HG2ieOp4zC38jPUU15q/RAs
-	Jio8y0g+RPqB+bg6OZmpbFbbcX6qDRnB4sSv9CFTVFztupijlzuFQcHyHXG+0SICZ67sTgrAlIdQ2
-	NN6SloNwdTbAZebfRuwvyczv3q1fd/R/rETnebt7SUraEma2MDIQoG2wWRLMwyuNLYVa/dBgIbx3G
-	znr3JXSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Iko4iL350bHl0dtVV4q17CtQFS3AkOVgzaKO1i0BmHw=; b=s9y2Vw4/Q+C5PACB47RPfnud5T
+	p8mjagKPXoGpdq1vOaEo/+Le1aareK9gXBaMqtHevERLn7wKkZxXNMla8Wmzn8rwRLK+Of1SiSKbK
+	/SGYDoFamX/IAZZAO5I0CB8FcdJRfwVIm+gI0KK5jGZeHKgOgj1HnVTMNIqwvhDY2yrQlgwA6mDi+
+	AoJS8DBn8GO7YrAnPibFKS2dBhuZ2UbxB7wdr16rDw6txFBdVTK18o4iWkiAmtEssLzPDMRnNtA08
+	5/xlhCcOdR3nA9BPeIROvygg40CMB99tTs61J1jthUr3Hj+IRJlvazD2kOeK1JPp4EjylII+Ee/PM
+	MSr5omsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCGtK-0000000FhDt-0fCc;
-	Mon, 13 Apr 2026 12:59:50 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wCGzW-0000000Fhh2-0DWJ;
+	Mon, 13 Apr 2026 13:06:14 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCGtG-0000000FhBV-3Weq
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 12:59:48 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 5D8E2C5B19E;
-	Mon, 13 Apr 2026 13:00:20 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B42DE5FFB9;
-	Mon, 13 Apr 2026 12:59:43 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 05B5810450229;
-	Mon, 13 Apr 2026 14:59:32 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1776085182; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=h3FUUOILacuSgM+ABHMGfQupbtWpVZVev0K7QR0S3PA=;
-	b=wDi4rylprXYa5KvrF5XClhZwCqdBhIRvrj68umpv0rOZCRw+SHIMqqb9J6A5OlpXFegLXb
-	1v1yWAis2ur92VlhEUydt8lyKrp3p55Mm8z+cYDV+L0hnrTR+erxW8efuL3L8dxN5VzCkr
-	zU/YVxQzBaq+vUFYst8ScqPRT6rtP+1OJUU/axL3iUbwIQxAhQxyAuWdIIfxwRFUKKgp/6
-	th235XxhexkP7slAiEV8kDSum6Qom6jTajuknHPdnSpgRF4Y9gRdntzSjMMsboitxLJD2v
-	2oOiT4IQHWd8cguLrclzB4T7Rk0CCw8IEvepPTsgnrO/+IRlae+TSlDZSMjNuQ==
-Date: Mon, 13 Apr 2026 14:59:30 +0200
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi
- <rodrigo.vivi@intel.com>, Joonas Lahtinen
+	id 1wCGzS-0000000FhgT-2fk1;
+	Mon, 13 Apr 2026 13:06:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1776085571; x=1807621571;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version;
+  bh=m1GPLNSP07gTZEdCOrDIkYV5h1LGGTFSBOSRoqBTE9M=;
+  b=Q7nl6dYMJKq7ppyyPnl4mmjiByYhsdibJDGA4sW8YUw8fzh+nFwnZn9L
+   iAJbXh515oz+qhNVU2OcgI0sC8eJ8Gz5uPcbsVH+cxIeptoorB8xlwndd
+   msCRpGeIew9tTm4bXYRGlJHu6veZJtPAlU4hWj3vIu8C/XYY7B2bMFF3H
+   RD1iB5UrIxzjjCaQ4CEIRpVyWm6+TW8d8iuItuy3wxhpBbhZvdbwTO/KC
+   IZJc1Jav0HBKMPOvsat9HP2Tt2C1qGxnW5vGJZ01kBNvDRw2kRZ5CZDZT
+   t5k5zXnzlG/vevhbVO/2vzDm0t8bVAVg4ocvzlomJtzL4jXVcUtEr5Vsj
+   Q==;
+X-CSE-ConnectionGUID: +7H5kPI0QSW96q957Zflxw==
+X-CSE-MsgGUID: ZAa2vvTbSGCA8aSRXSBMnA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11758"; a="76926676"
+X-IronPort-AV: E=Sophos;i="6.23,177,1770624000"; 
+   d="scan'208";a="76926676"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Apr 2026 06:06:07 -0700
+X-CSE-ConnectionGUID: XTvhLMeDSvSBM281Sg4XIw==
+X-CSE-MsgGUID: Tk8VfxcDR0yDidSuU528tQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,177,1770624000"; 
+   d="scan'208";a="231507270"
+Received: from slindbla-desk.ger.corp.intel.com (HELO localhost) ([10.245.246.182])
+  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Apr 2026 06:05:57 -0700
+From: Jani Nikula <jani.nikula@linux.intel.com>
+To: Kory Maincent <kory.maincent@bootlin.com>
+Cc: Rodrigo Vivi <rodrigo.vivi@intel.com>, Joonas Lahtinen
  <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>,
  David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Dave
  Airlie <airlied@redhat.com>, Jesse Barnes <jbarnes@virtuousgeek.org>, Eric
@@ -59,7 +66,8 @@ Cc: Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi
  Robert Foss <rfoss@kernel.org>, Laurent Pinchart
  <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
  Jernej Skrabec <jernej.skrabec@gmail.com>, Chun-Kuang Hu
- <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Matthias
+ <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Matthias
  Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
  <angelogioacchino.delregno@collabora.com>, Chris Wilson
  <chris@chris-wilson.co.uk>, Thomas Petazzoni
@@ -69,22 +77,22 @@ Cc: Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi
  dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  Simona Vetter <simona.vetter@ffwll.ch>
-Subject: Re: [PATCH RFC 09/12] drm: Introduce drmm_connector_dp_init() with
- link training state properties
-Message-ID: <20260413145930.140ba461@kmaincent-XPS-13-7390>
-In-Reply-To: <gmaxonri7y3k43pxsnxfnd23mydgrwsw2322v6m4yjoksqm7aj@4ehgvhzg2ubb>
+Subject: Re: [PATCH RFC 10/12] drm/i915/display/dp: Adopt dp_connector
+ helpers to expose link training state
+In-Reply-To: <20260413143402.76f5c3c9@kmaincent-XPS-13-7390>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
+ 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
 References: <20260409-feat_link_cap-v1-0-7069e8199ce2@bootlin.com>
-	<20260409-feat_link_cap-v1-9-7069e8199ce2@bootlin.com>
-	<gmaxonri7y3k43pxsnxfnd23mydgrwsw2322v6m4yjoksqm7aj@4ehgvhzg2ubb>
-Organization: bootlin
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
+ <20260409-feat_link_cap-v1-10-7069e8199ce2@bootlin.com>
+ <e253ca4fa0b493032a7b35a0a20689b9d9e0c4e7@intel.com>
+ <20260413143402.76f5c3c9@kmaincent-XPS-13-7390>
+Date: Mon, 13 Apr 2026 16:05:53 +0300
+Message-ID: <9f4bb4501c4885f432cbe9b6a10b7d27e40b0876@intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_055947_029419_3A602AAB 
-X-CRM114-Status: GOOD (  19.97  )
+X-CRM114-CacheID: sfid-20260413_060610_764289_4EB1EE10 
+X-CRM114-Status: GOOD (  23.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,87 +107,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 10 Apr 2026 00:53:08 +0300
-Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com> wrote:
+On Mon, 13 Apr 2026, Kory Maincent <kory.maincent@bootlin.com> wrote:
+> On Fri, 10 Apr 2026 19:26:53 +0300
+> Jani Nikula <jani.nikula@linux.intel.com> wrote:
+>
+>> On Thu, 09 Apr 2026, Kory Maincent <kory.maincent@bootlin.com> wrote:
+>> > Switch the i915 DP connector initialization from drmm_connector_init()
+>> > to drmm_connector_dp_init(), providing the source link capabilities
+>> > (supported lane counts, link rates, DSC support, voltage swing and
+>> > pre-emphasis levels).
+>> >
+>> > Add intel_dp_report_link_train() to collect the negotiated link
+>> > parameters (rate, lane count, DSC enable, per-lane voltage swing and
+>> > pre-emphasis) and report them via
+>> > drm_connector_dp_set_link_train_properties() once link training completes
+>> > successfully.
+>> >
+>> > Reset the link training properties via
+>> > drm_connector_dp_reset_link_train_properties() when the connector is
+>> > reported as disconnected or when the display device is disabled, so
+>> > the exposed state always reflects the current link status.
+>> >
+>> > Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
+>> > ---
+>> >  drivers/gpu/drm/i915/display/intel_dp.c            | 31
+>> > +++++++++++++++++++--- .../gpu/drm/i915/display/intel_dp_link_training.c  |
+>> > 25 +++++++++++++++++ 2 files changed, 52 insertions(+), 4 deletions(-)
+>> >
+>> > diff --git a/drivers/gpu/drm/i915/display/intel_dp.c
+>> > b/drivers/gpu/drm/i915/display/intel_dp.c index
+>> > 2af64de9c81de..641406bdc0cc9 100644 ---
+>> > a/drivers/gpu/drm/i915/display/intel_dp.c +++
+>> > b/drivers/gpu/drm/i915/display/intel_dp.c @@ -45,6 +45,7 @@
+>> >  #include <drm/display/drm_hdmi_helper.h>
+>> >  #include <drm/drm_atomic_helper.h>
+>> >  #include <drm/drm_crtc.h>
+>> > +#include <drm/drm_dp_connector.h>
+>> >  #include <drm/drm_edid.h>
+>> >  #include <drm/drm_fixed.h>
+>> >  #include <drm/drm_managed.h>
+>> > @@ -6337,8 +6338,10 @@ intel_dp_detect(struct drm_connector *_connector,
+>> >  	drm_WARN_ON(display->drm,
+>> >  		    !drm_modeset_is_locked(&display->drm->mode_config.connection_mutex));
+>> >  
+>> > -	if (!intel_display_device_enabled(display))
+>> > +	if (!intel_display_device_enabled(display)) {
+>> > +		drm_connector_dp_reset_link_train_properties(_connector);
+>> >  		return connector_status_disconnected;
+>> > +	}
+>> >  
+>> >  	if (!intel_display_driver_check_access(display))
+>> >  		return connector->base.status;
+>> > @@ -6388,6 +6391,8 @@ intel_dp_detect(struct drm_connector *_connector,
+>> >  
+>> >  		intel_dp_tunnel_disconnect(intel_dp);
+>> >  
+>> > +		drm_connector_dp_reset_link_train_properties(_connector);
+>> > +
+>> >  		goto out_unset_edid;
+>> >  	}
+>> >  
+>> > @@ -7162,10 +7167,12 @@ intel_dp_init_connector(struct intel_digital_port
+>> > *dig_port, struct intel_connector *connector)
+>> >  {
+>> >  	struct intel_display *display = to_intel_display(dig_port);
+>> > +	struct drm_connector_dp_link_train_caps link_caps;
+>> >  	struct intel_dp *intel_dp = &dig_port->dp;
+>> >  	struct intel_encoder *encoder = &dig_port->base;
+>> >  	struct drm_device *dev = encoder->base.dev;
+>> >  	enum port port = encoder->port;
+>> > +	u32 *rates;
+>> >  	int type;
+>> >  
+>> >  	if (drm_WARN(dev, dig_port->max_lanes < 1,
+>> > @@ -7213,8 +7220,25 @@ intel_dp_init_connector(struct intel_digital_port
+>> > *dig_port, type == DRM_MODE_CONNECTOR_eDP ? "eDP" : "DP",
+>> >  		    encoder->base.base.id, encoder->base.name);
+>> >  
+>> > -	drmm_connector_init(dev, &connector->base,
+>> > &intel_dp_connector_funcs,
+>> > -			    type, &intel_dp->aux.ddc);
+>> > +	intel_dp_set_source_rates(intel_dp);
+>> > +	link_caps.nlanes = DRM_DP_1LANE | DRM_DP_2LANE | DRM_DP_4LANE;
+>> > +	link_caps.nrates = intel_dp->num_source_rates;
+>> > +	rates = kzalloc_objs(*rates, intel_dp->num_source_rates);
+>> > +	if (!rates)
+>> > +		goto fail;
+>> > +
+>> > +	for (int i = 0; i < intel_dp->num_source_rates; i++)
+>> > +		rates[i] = intel_dp->source_rates[i];
+>> > +
+>> > +	link_caps.rates = rates;
+>> > +	link_caps.dsc = true;  
+>> 
+>> You have a source, you have a sink, and you have a link between the two.
+>> 
+>> Source rates do not reflect the link rates common between source and
+>> sink.
+>> 
+>> DSC depends on source and sink, and it's not statically "true" for
+>> either, and depends on a bunch of things.
+>
+> At init, we are reporting the capabilities of the source. So we list every
+> link rates that the source can achieve and we report that the source is DSC
+> capable which it is IIUC the code. Or maybe I am missing something?
 
-> On Thu, Apr 09, 2026 at 07:08:25PM +0200, Kory Maincent wrote:
-> > Add a managed DisplayPort connector initialization helper,
-> > drmm_connector_dp_init(), modeled after the existing HDMI counterpart
-> > drmm_connector_hdmi_init(). Cleanup is handled automatically via a
-> > DRM-managed action.
-> >=20
-> > The helper creates the following immutable connector properties to expo=
-se
-> > DP link training capabilities and state to userspace:
-> >=20
-> >   - num_lanes: bitmask of supported lane counts (1, 2, 4)
-> >   - link_rate: Array of supported link rates.
-> >   - dsc_en: Display Stream Compression supported
-> >   - voltage_swingN: per-lane voltage swing level bitmask
-> >   - pre-emphasisN: per-lane pre-emphasis level bitmask
-> >=20
-> > Link rates are passed by the driver in deca-kbps, following the DRM
-> > convention, but exposed to userspace in kbps for clarity.
-> >=20
-> > Two additional helpers are provided to update and reset those properties
-> > at runtime:
-> >   - drm_connector_dp_set_link_train_properties()
-> >   - drm_connector_dp_reset_link_train_properties()
-> >=20
+IMO link caps is the intersection of the source and sink caps. If the
+sink is unknown, i.e. its caps are the empty set, then the link caps
+should also be the empty set.
 
-...
+If you need to know the source caps, then they need to be presented
+separately.
 
-> > +/**
-> > + * struct drm_connector_dp_link_train - DRM DisplayPort link training
-> > + * information report
-> > + */
-> > +struct drm_connector_dp_link_train { =20
->=20
-> THese define the current DP state. As such, they definitely make sense
-> to be a part of the drm_connector.
-> > +	/**
-> > +	 * @nlanes: The number of lanes used
-> > +	 */
-> > +	u8 nlanes;
-> > +
-> > +	/**
-> > +	 * @rates: Link rate value selected in deca-kbps
-> > +	 */
-> > +	u32 rate;
-> > +
-> > +	/**
-> > +	 * @dsc: Display Stream Compression enabled
-> > +	 */
-> > +	bool dsc_en;
-> > +
-> > +	/**
-> > +	 * @v_swings: Array listing the bitmask voltage swing level per
-> > lanes
-> > +	 */
-> > +	u8 v_swing[4];
-> > +
-> > +	/**
-> > +	 * @pre_emph: Array listing the bitmask pre-emphasis level per
-> > lanes
-> > +	 */
-> > +	u8 pre_emph[4]; =20
->=20
-> Please consider following struct phy_configure_opts_dp (or using it as
-> is). Overall, please refer the talk and (more important) the lightning
-> resumee at this XDC. I have some bits and pieces ready in spite of that
-> proposal, but I didn't have time to finish it.
+Moreover, the source does not unconditionally support DSC. See
+intel_dp_has_dsc().
 
-I didn't know this phy_configure_opts_dp struct. This indeed could make sen=
-se
-to reuse and modify that structure for our needs.
 
-About your XDC talk. What were the developments you were talking about? Cou=
-ld I
-have a look at them?
+BR,
+Jani.
 
-Regards,
---=20
-K=C3=B6ry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
+-- 
+Jani Nikula, Intel
 
