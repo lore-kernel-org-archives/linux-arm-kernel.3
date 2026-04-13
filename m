@@ -4,73 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93C0AF531C0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 18:50:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E641F531C4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 18:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7/4Rz38FYHztW6Uw1aNeN0nYjBCQSBspRwjLSoc/tsM=; b=twvGAk3XyP+PXPDNz6oIZpirEu
-	LkYr9mju9XobYKO3+l3fSIYj/PvoKhq3NMzS4OdKg+kCtsnnbW2Cpuf7CotcelVt7SUW/vxIpQ4pK
-	A9a3JtaMci9oMhgLGYkeGy5WoneMZ03KzJlzdIfEIgDN6V96g1Zoo2HXvww8aU2jHSRU3UdcdRz9Z
-	Z1rDxSa/+7R3Wy4f42we8EClmFv3eorMR3dRZRZ0vUIhSvg/i4/8zQ4RTUUVpXJCGKhQs1YybO9Op
-	jY7SsevxiyAnT79tjx6bWvJDq9NnVxM/3MvV0lq3YVXzn1AOPxYgjXR3unxw/4dFjY17tchVrwWLt
-	nT4IfGbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eSKgrUdawdFI726hyGBRPmyfYbemisDaas7NqJ3yayc=; b=iV2l/RY7j5FgBVtwu7lwzDb7i8
+	ozLTXpetx2+aszev5mwLDubBy17Z55PztNI/pr6Tjmkz+0Cmj1GwUGfisAgDRn9X3Xllqn10WBDju
+	JuD3Usn2gpy77BDXBUpCUtzZgQJQAaDB8oYBKCkNXDfPE8o/ptJDIu1I1yrd+LjbPslE8Hz5mnZzJ
+	Y5hO5HkaV3IUlxY/zH8j4JT/tLFPSySll3EPRE3ulGKMb7Pje9RHIh5qS1MPXLk8adwgnfvymPZNS
+	9pUB5+Qb9BF3oGvoPlr5Irjg+5BHkzI1QGAzjpo8qGP+664dztkER5mBurjzUfsQfFjJIcQfpzNtO
+	QQmrBryg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCMMB-0000000GEii-264l;
-	Mon, 13 Apr 2026 18:49:59 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1wCMUG-0000000GFB7-26L9;
+	Mon, 13 Apr 2026 18:58:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCMM9-0000000GEi7-1Rak
+	id 1wCMUE-0000000GFAz-2h1I
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 18:49:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=7/4Rz38FYHztW6Uw1aNeN0nYjBCQSBspRwjLSoc/tsM=; b=AGyOB4mgu+d1VyICZUwGFZYT7Y
-	K5ED2R/bZWOpa+WMGx1kypTsJun3aoDxwDmxuspMMi8EcrLx1zd1lR8YLlhb6vKyT0RW5WvpZKuYq
-	cxURkcwXpCCLK6PzcmdaXdvjY/fnwnH6ieYN/E/WxIgSs3Exs3lizWZqArxy6t4V4LSnl7kvTLdPi
-	NKPNRBKpUga6LGv9FxnneG2EIS6+HJjFwAgo8/2b0g9npPpfKIpu8RmkZ8uMhMciskcsRToRnu9Wz
-	iV7yFrXKyKrG90eT1uK1AjJuoACzDOrH/29hAbh8zTS44fWhJtdDYIe1zAkCWmVTUzk3GCYry9qXn
-	0LkeLXpw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:51338)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1wCMM1-000000000Bu-2Naq;
-	Mon, 13 Apr 2026 19:49:49 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1wCMLy-000000000RD-22Jt;
-	Mon, 13 Apr 2026 19:49:46 +0100
-Date: Mon, 13 Apr 2026 19:49:46 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
+	Mon, 13 Apr 2026 18:58:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 85A9A6183B;
+	Mon, 13 Apr 2026 18:58:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F33BDC2BCAF;
+	Mon, 13 Apr 2026 18:58:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776106697;
+	bh=ZIwtCZUtFAcxaWvpSxsXK2zFamF+0vNdar2fG1YYuk8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Q25BzOsKiK2Ph9Z9XF8bDoVKeWECh8ph2lSUriFzjTKVrv3lbZWzMCoL3JICKaMtP
+	 CcwAl+9tpVb7T880Q61O27tIn4wfeB36a625PJTuKGzopCSrWgCe6wpbUDih/eaNv2
+	 /uCmW5RqZy0eCaXnaARzCoVRWvpCHd9+7S8pGqU7oQelrvTs+w/2mhXFT3nFqPB34p
+	 ao214sKnpvR/ao64D9QaOGw9mq4JDpvxtGhPzdXJZ+eIL5C60YCIkCBkKdxDpQaTmD
+	 i5GrNrsexwSxRqmjninqISK0nsLeySTQ4rsDG+cd3W032WWDDy47WF+ZOQA2acObnC
+	 0DB8VDFwRzzSw==
+From: Puranjay Mohan <puranjay@kernel.org>
+To: bpf@vger.kernel.org
+Cc: Puranjay Mohan <puranjay@kernel.org>,
+	Puranjay Mohan <puranjay12@gmail.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Leo Yan <leo.yan@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Breno Leitao <leitao@debian.org>,
+	Ravi Bangoria <ravi.bangoria@amd.com>,
+	Stephane Eranian <eranian@google.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Usama Arif <usama.arif@linux.dev>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Sam Edwards <cfsworks@gmail.com>
-Subject: Re: [PATCH net-next] net: stmmac: enable RPS and RBU interrupts
-Message-ID: <ad06yiZZbLC9k3jY@shell.armlinux.org.uk>
-References: <E1wBBaR-0000000GZHR-1dbM@rmk-PC.armlinux.org.uk>
- <20260413110222.49fc3759@kernel.org>
+	linux-perf-users@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kernel-team@meta.com
+Subject: [PATCH v3 0/4] arm64: Add BRBE support for bpf_get_branch_snapshot()
+Date: Mon, 13 Apr 2026 11:57:19 -0700
+Message-ID: <20260413185740.3286146-1-puranjay@kernel.org>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260413110222.49fc3759@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_114957_407145_0B7B41A8 
-X-CRM114-Status: GOOD (  30.09  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,113 +97,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 13, 2026 at 11:02:22AM -0700, Jakub Kicinski wrote:
-> On Fri, 10 Apr 2026 14:07:51 +0100 Russell King (Oracle) wrote:
-> > Since we are seeing receive buffer exhaustion on several platforms,
-> > let's enable the interrupts so the statistics we publish via ethtool -S
-> > actually work to aid diagnosis. I've been in two minds about whether
-> > to send this patch, but given the problems with stmmac at the moment,
-> > I think it should be merged.
-> 
-> Sorry for a under-research response but wasn't there are person trying
-> to fix the OOM starvation issue? Who was supposed to add a timer?
-> Is your problem also OOM related or do you suspect something else?
+v2: https://lore.kernel.org/all/20260318171706.2840512-1-puranjay@kernel.org/
+Changes in v3:
+- Move NULL pmu_ctx fix from arm_pmuv3.c to perf core (Leo Yan)
+- Use union to clear branch entry bitfields instead of per-field
+  zeroing (Leo Yan)
+- Remove per-CPU brbe_active flag; check BRBCR_EL1 == 0 instead (Rob
+  Herring)
+- Remove redundant valid_brbidr() check in snapshot path (Rob Herring)
+- Introduce for_each_brbe_entry() iterator to deduplicate bank
+  iteration (Rob Herring)
+- Include perf core maintainers (Leo Yan, Rob Herring)
 
-It is not OOM related. I have this patch applied:
+v1: https://lore.kernel.org/all/20260313180352.3800358-1-puranjay@kernel.org/
+Changes in v2:
+- Rebased on arm64/for-next/core
+- Add per-CPU brbe_active flag to guard against UNDEFINED sysreg access
+  on non-BRBE CPUs in heterogeneous big.LITTLE systems.
+- Fix pre-existing bug in perf_clear_branch_entry_bitfields() that missed
+  zeroing new_type and priv bitfields, added as a separate patch with
+  Fixes tags (new patch 2).
+- Use architecture-specific selftest threshold (#if defined(__aarch64__))
+  instead of raising the global threshold, to preserve x86 regression
+  detection.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 131ea887bedc..614d0e10e3e6 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -5095,14 +5095,18 @@ static inline void stmmac_rx_refill(struct stmmac_priv *priv, u32 queue)
- 
- 		if (!buf->page) {
- 			buf->page = page_pool_alloc_pages(rx_q->page_pool, gfp);
--			if (!buf->page)
-+			if (!buf->page) {
-+				netdev_err(priv->dev, "q%u: no buffer 1\n", queue);
- 				break;
-+			}
- 		}
- 
- 		if (priv->sph_active && !buf->sec_page) {
- 			buf->sec_page = page_pool_alloc_pages(rx_q->page_pool, gfp);
--			if (!buf->sec_page)
-+			if (!buf->sec_page) {
-+				netdev_err(priv->dev, "q%u: no buffer 2\n", queue);
- 				break;
-+			}
- 
- 			buf->sec_addr = page_pool_get_dma_addr(buf->sec_page);
- 		}
+RFC: https://lore.kernel.org/all/20260102214043.1410242-1-puranjay@kernel.org/
+Changes from RFC:
+ - Fix pre-existing NULL pointer dereference in armv8pmu_sched_task()
+   found by Leo Yan during testing (patch 1)
+ - Pause BRBE before local_daif_save() to avoid branch pollution from
+   trace_hardirqs_off()
+ - Use local_daif_save() to prevent pNMI race from counter overflow
+   (Mark Rutland)
+ - Reuse perf_entry_from_brbe_regset() instead of duplicating register
+   read logic, by making it accept NULL event (Mark Rutland)
+ - Invalidate BRBE after reading to maintain record contiguity for
+   other consumers (Mark Rutland)
+ - Adjust selftest wasted_entries threshold for ARM64 (patch 3)
+ - Tested on ARM FVP with BRBE enabled
 
-and it is silent, so we are not suffering starvation of buffers.
+This series enables the bpf_get_branch_snapshot() BPF helper on ARM64
+by implementing the perf_snapshot_branch_stack static call for ARM's
+Branch Record Buffer Extension (BRBE).
 
-However, the hardware hangs during iperf3, and because it triggers the
-MAC to stream PAUSE frames, and my network uses Netgear GS108 and GS116
-unmanaged switches that always use flow-control between them (there's no
-way not to) it takes down the entire network - as we've discussed
-before. So, this problem is pretty fatal to the *entire* network.
+bpf_get_branch_snapshot() [1] allows BPF programs to capture hardware
+branch records on-demand from any BPF tracing context. This was
+previously only available on x86 (Intel LBR) since v5.16. With BRBE
+available on ARMv9, this series closes the gap for ARM64.
 
-With this patch, the existing statistical counters for this condition
-are incremented, and thus users can use ethtool -S to see what happened
-and report whether they are seeing the same issue.
+Usage model
+-----------
 
-Without this patch applied, there are no diagnostics from stmmac that
-report what the state is. ethtool -d doesn't list the appropriate
-registers (as I suspect part of the problem is the number of queues
-is somewhat dynamic - userspace can change that configuration through
-ethtool).
+The helper works in conjunction with perf events. The userspace
+component of the BPF application opens a perf event with
+PERF_SAMPLE_BRANCH_STACK on each CPU, which configures the hardware
+to continuously record branches into BRBE (on ARM64) or LBR (on x86).
+A BPF program attached to a tracepoint, kprobe, or fentry hook can
+then call bpf_get_branch_snapshot() to snapshot the branch buffer at
+any point. Without an active perf event, BRBE is not recording and
+the buffer is empty.
 
-Thus, one has to resort to using devmem2 to find out what's happened.
-That's not user friendly.
+On-demand branch snapshots from BPF are useful for diagnosing which
+specific code path was taken inside a function. Stack traces only show
+function boundaries, but branch records reveal the exact sequence of
+jumps, calls, and returns within a function -- making it possible to
+identify which specific error check triggered a failure, or which
+callback implementation was invoked through a function pointer.
 
-For me, devmem2 shows:
+For example, retsnoop [2] is a BPF-based tool for non-intrusive
+mass-tracing of kernel internals. Its LBR mode (--lbr) creates per-CPU
+perf events with PERF_SAMPLE_BRANCH_STACK and then uses
+bpf_get_branch_snapshot() in its fentry/fexit BPF programs to capture
+branch records whenever a traced function returns an error.
 
-Channel 0 status register:
-Value at address 0x02491160: 0x00000484
-bit 10: ETI early transmit interrupt - set
-bit 9 : RWT receive watchdog - clear
-bit 8 : RPS receieve process stopped - clear
-bit 7 : RBU receive buffer unavailable - set
-bit 6 : RI  receive interrupt - clear
-bit 2 : TBU transmit buffer unavailable - set
-bit 1 : TPS transmit process stopped - clear
-bit 0 : TI  transmit interrupt - clear
+Consider debugging a bpf() syscall that returns -EINVAL when creating
+a BPF map with invalid parameters. Running retsnoop on an ARM64 FVP
+with BRBE to trace the bpf() syscall and array_map_alloc_check():
 
-Debug status register:
-Value at address 0x0249100c: 0x00006300
-TPS[3:0] = 6 = Suspended, Tx descriptor unavailable or Tx buffer
-		underflow
-RPS[3:0] = 3 = Running, waiting for Rx packet
+  $ retsnoop -e '*sys_bpf' -a 'array_map_alloc_check' --lbr=any \
+             -F -k vmlinux --debug full-lbr
+  $ simfail bpf-bad-map-max-entries-array  # in another terminal
 
-Metal Queue 0 debug register:
-Value at address 0x02490d38: 0x002e0020
-PRXQ[13:0] = 0x2e = 46 packets in receive queue
-RXQSTS[1:0] = 2 = Rx queue fill-level above flow-control activate
-		threshold
-RRCSTS[1:0] = 0 = Rx Queue Read Controller State = Idle
+Output of retsnoop:
 
-> Firing interrupts when Rx fill ring runs dry (which IIUC this patches
-> dies?) is not a good idea.
+  --- fentry BPF program (entries #63-#17) ---
 
-Well, I'm thinking that at least on some platforms, such as the Jetson
-Xavier NX, unless a different solution can be found, we need the RBU
-interrupt to fire off a reset of the stmmac IP when this happens to
-reduce the PAUSE frame flood on the network.
+  [#63-#59] __htab_map_lookup_elem: hash table walk with memcmp        (hashtab.c)
+  [#58] __htab_map_lookup_elem+0x98  -> dump_bpf_prog+0xc850           (hashtab.c:750)
+  [#57-#55] ... dump_bpf_prog internal branches ...
+  [#54] dump_bpf_prog+0xcab8        -> bpf_get_current_pid_tgid+0x0    (helpers.c:225)
+  [#53] bpf_get_current_pid_tgid+0x1c -> dump_bpf_prog+0xcabc          (helpers.c:225)
+  [#52-#51] ... dump_bpf_prog -> __htab_map_lookup_elem ...
+  [#50-#47] __htab_map_lookup_elem: htab_map_hash (jhash2), select_bucket
+  [#46-#42] lookup_nulls_elem_raw: hash chain walk with memcmp         (hashtab.c:717)
+  [#41] __htab_map_lookup_elem+0x98  -> dump_bpf_prog+0xcaf8           (hashtab.c:750)
+  [#40-#37] ... dump_bpf_prog -> bpf_ktime_get_ns ...
+  [#36] bpf_ktime_get_ns+0x10       -> ktime_get_mono_fast_ns+0x0      (helpers.c:178)
+  [#35-#32] ktime_get_mono_fast_ns: tk_clock_read -> arch_counter_get_cntpct
+  [#31] ktime_get_mono_fast_ns+0x9c -> bpf_ktime_get_ns+0x14           (timekeeping.c:493)
+  [#30] bpf_ktime_get_ns+0x18       -> dump_bpf_prog+0xcd50            (helpers.c:178)
+  [#29-#25] ... dump_bpf_prog internal branches ...
+  [#24] dump_bpf_prog+0x11b28       -> __bpf_prog_exit_recur+0x0       (trampoline.c:1190)
+  [#23-#17] __bpf_prog_exit_recur: rcu_read_unlock, migrate_enable     (trampoline.c:1195)
 
-If we can't do that, then I think stmmac on these platforms needs to be
-marked with CONFIG_BROKEN because right now there doesn't seem to be any
-other viable solution.
+  --- array_map_alloc_check (entries #16-#12) ---
 
-My intention with this patch is merely to start collecting the already
-existing statistics so other users can start seeing whether they are
-hitting the same or similar problem. If we're not prepared to do that,
-then we should delete the useless statistics from ethtool -S, but I
-suspect they're now part of the UAPI, even though without this patch
-they will remain stedfastly stuck at zero.
+  [#16] dump_bpf_prog+0x11b38       -> array_map_alloc_check+0x8       (arraymap.c:55)
+  [#15] array_map_alloc_check+0x18  -> array_map_alloc_check+0xb8      (arraymap.c:56)
+        . bpf_map_attr_numa_node       . bpf_map_attr_numa_node
+  [#14] array_map_alloc_check+0xbc  -> array_map_alloc_check+0x20      (arraymap.c:59)
+        . bpf_map_attr_numa_node
+  [#13] array_map_alloc_check+0x24  -> array_map_alloc_check+0x94      (arraymap.c:64)
+  [#12] array_map_alloc_check+0x98  -> dump_bpf_prog+0x11b3c           (arraymap.c:82)
 
+  --- fexit trampoline overhead (entries #11-#00) ---
+
+  [#11] dump_bpf_prog+0x11b5c       -> __bpf_prog_enter_recur+0x0      (trampoline.c:1145)
+  [#10-#03] __bpf_prog_enter_recur: rcu_read_lock, migrate_disable     (trampoline.c:1146)
+  [#02] __bpf_prog_enter_recur+0x114 -> dump_bpf_prog+0x11b60          (trampoline.c:1157)
+  [#01] dump_bpf_prog+0x11b6c       -> dump_bpf_prog+0xd230
+  [#00] dump_bpf_prog+0xd340        -> arm_brbe_snapshot_branch_stack+0x0 (arm_brbe.c:814)
+
+                   el0t_64_sync+0x168
+                   el0t_64_sync_handler+0x98
+                   el0_svc+0x28
+                   do_el0_svc+0x4c
+                   invoke_syscall.constprop.0+0x54
+    373us [-EINVAL] __arm64_sys_bpf+0x8
+                    __sys_bpf+0x87c
+                    map_create+0x120
+     95us [-EINVAL] array_map_alloc_check+0x8
+
+The FVP's BRBE buffer has 64 entries (BRBE supports 8, 16, 32, or
+64). Of these, entries #63-#17 (47) are consumed by the fentry BPF
+trampoline that ran before the function, and entries #11-#00 (12)
+are consumed by the fexit trampoline that runs after. Entry #00
+shows the very last branch recorded before BRBE is paused: the call
+into arm_brbe_snapshot_branch_stack().
+
+The 5 useful entries (#16-#12) show the exact path taken inside
+array_map_alloc_check(). Record #14 shows a jump from line 56
+(bpf_map_attr_numa_node) to line 59 (the if-condition), and #13
+shows an immediate jump from line 59 (attr->max_entries == 0) to
+line 64 (return -EINVAL), skipping lines 60-63. This pinpoints
+max_entries==0 as the cause -- a diagnosis impossible with stack
+traces alone.
+
+[1] 856c02dbce4f ("bpf: Introduce helper bpf_get_branch_snapshot")
+[2] https://github.com/anakryiko/retsnoop
+
+Puranjay Mohan (4):
+  perf/core: Fix NULL pmu_ctx passed to PMU sched_task callback
+  perf: Use a union to clear branch entry bitfields
+  perf/arm64: Add BRBE support for bpf_get_branch_snapshot()
+  selftests/bpf: Adjust wasted entries threshold for ARM64 BRBE
+
+ drivers/perf/arm_brbe.c                       | 107 +++++++++++++++---
+ drivers/perf/arm_brbe.h                       |   9 ++
+ drivers/perf/arm_pmuv3.c                      |   5 +-
+ include/linux/perf_event.h                    |   9 +-
+ include/uapi/linux/perf_event.h               |  25 ++--
+ kernel/events/core.c                          |   3 +-
+ .../bpf/prog_tests/get_branch_snapshot.c      |  13 ++-
+ 7 files changed, 130 insertions(+), 41 deletions(-)
+
+
+base-commit: 480a9e57cceaf42db6ff874dbfe91de201935035
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.52.0
+
 
