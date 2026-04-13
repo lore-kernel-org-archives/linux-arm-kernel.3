@@ -4,110 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 288B4F531C7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 19:28:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EF0DF531C7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 19:31:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9bF/zvI2KpjlnALCVbm2BiZRYcKLJLbXhP543C6RUbg=; b=1U7sjOzycq17xSxmoniUi7fO2E
-	1me7xEtCp5eDKuhcayzPM0+3LWlgpcqrwMmD7UZUadRGAd09rhyLI0QoFkv/bTS9qijvpCW/S1keE
-	f2xrxKcyhO79c1iHPvJDRJ1M32hbq7sTgG2MPQUzc0E3lKG5qqbBC7Ewxr5Up/pALZYDy3DoLJDXm
-	9zstqsertOgh8soNas52Fs9u57NoTLCsNZwq160YOCBIn/4AUvm3P1pf/jmh6TOR5Hx19wraHjp7J
-	eW72UpK9Us3KQhh+RbU1OSGEiqoQu3nxxWee8gfbY/zlBZq5Vy8D4G2ZSjx2Oi8XYIJA1wrRY4kRy
-	Uf5QtECw==;
+	bh=oF7+4SGRAImH9WMGSId2dJm+4RdrBt2YGrt25aFUZUA=; b=s3kXqA1UKWhNjY262LsodLEzK3
+	zXUgYqL19tkoPPUIw4JM/wDlG5Fjh8Oc7mchQCVLpkLU0oTL62m/h2dBh8G8ndMUQ+M8S9+1N0Irg
+	7rFtIZLXah+cHm9mudrQ/qhvSdIeJdLL6pkXYqFtNRQ0lJJluykRSZAZKFWdXSV0Addl8K+mCK6Pc
+	W+MDUvp0lnFaUSxcNXkrjlr+LmUusiMN53r09YdQl8u4dJ/hb56oFYORmvlOpS5Q7slXOZf9b7XVc
+	EHqTq2VELSmTrYSNJmbQfe+6YkvL79K/Nh0hghKF1jMlBZuOmCMpMUQ9LRTgHsapju/UbB7QUiruW
+	HkCNPfbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCMxZ-0000000GIrg-0BKN;
-	Mon, 13 Apr 2026 19:28:37 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1wCN0Z-0000000GJ6K-2RnT;
+	Mon, 13 Apr 2026 19:31:43 +0000
+Received: from flow-a4-smtp.messagingengine.com ([103.168.172.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCMxW-0000000GIrI-3X7T
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 19:28:36 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b9c603ec2dfso637827966b.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 12:28:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776108512; cv=none;
-        d=google.com; s=arc-20240605;
-        b=gCDNevKV1k56EZdANCYKL/ttZyUD2Ob/+W++ma1NLVu23YtrA9+tzGin8wVf4X8Z7e
-         jvo6zEduWPyZ5mhl69ze1ZYOvYgre6Gi6Q8D8sNQst6vKFerq3JukMry1Mcj3BkmDTp/
-         9YwVbqb/P7M/lMKnZGzI5nPxGI1xyUvkEY2wsFAT89fUmrkOleutGf6AIWfGW4QmmrSo
-         sQ91HSDdL2bUIsS7UDw+FFxvwsqLXhBaypLRyAujeWAcb+/kH9TcTb+fvSd/dnIV3xlU
-         iOzRBZNoligyvcaUuSGySDfA9KblU1ufK4+U/5H24LZXH+MTSE4ixzx6UGzp8RtNbf1S
-         fPRg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=9bF/zvI2KpjlnALCVbm2BiZRYcKLJLbXhP543C6RUbg=;
-        fh=PovRblWwqgwHF54fHxdu1K/mlVMJFQMl72jfzMXSnkE=;
-        b=M96EQ/2ThAWvA1rRJvkcJFxRmkecfWQlOsibXbF4LbvtEuYNnbTem5FRorFoRQ2IBa
-         pPVXbT8XzXgSscr4uDsZSoygp40BKqNUr/YnzwfheadeyGbX3Rj+CpNyZj0BhW472h0n
-         KUnwGW5Q/spIkNUgvd95QzNmBq0bsUF55kdCSSpgcG1TZgot8d/zJ29JFuEOs8tTuK4s
-         FJK077DGloPv03kV7TF1nZNG3q+55Z8z1aHbRGHi6cC3VYpm1vlvZPJm1VEHm4O9VgeJ
-         rUHY2dc8eQYDsnmfdtfvydIU8seimoLbUse2frEQ6mImfo6EEgQ25zrhuvejq7hpiN0y
-         28PQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776108512; x=1776713312; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9bF/zvI2KpjlnALCVbm2BiZRYcKLJLbXhP543C6RUbg=;
-        b=DWaUZqpOAYRTM9Ix0BcWaSRbjH9YzSLJMBXyZYrZelffmOgGn5c6mqC61TMXtSxO4W
-         vs/OQgVHFYedaTwVcg0t8NJBSIiaqjBl3eaZoJzCaUQllLqp9utdGbjzn+VfPHDQYbJc
-         FaEler8i6PMU+JuSJI6/zHXRWBUVnnkCImqHDwsGMpOo/Us/tXSvTYM3VLirI9FJq+b1
-         FIZXJQX26woVnJShUrP2aQGZ+TgXg+GjUu59iX8YWKVt6t23MB0MDC0RtZr761k1jF3d
-         BbAC+Y/neYPk6Pqk/GgTDiuRyDO+02gjAR2bT2TYeBOxXQmz5mBg+pexhJwvF1Ukw+/M
-         f3EA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776108512; x=1776713312;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=9bF/zvI2KpjlnALCVbm2BiZRYcKLJLbXhP543C6RUbg=;
-        b=NNxeetleAKNgQ/kwxPTPBWbxrBVnWlToLcb6rB+V0xuhfKibe4+piCNnGPRziiqOyz
-         ZBFUKA1AIy/ra5EpA8j8yIaAxGLdkdoxScjFtc1crPushLm6sKOOMyzKVpaoZOym6Zvy
-         kc2fZu7NDfZSoMWx402qFaZ7taIjZEELoGqW4JnzoI6WIPZ380Q2fUGPdN5SN79+nopq
-         DYv+usOWeOuL0c4597/B+kN0exMui624GqJFboWExynAc8MOFlUFUj4jkwSctz9lSAre
-         9DPASwBsNmPBU7NMCurlnuQyFU0oNLtoTr7MJZdVQpNVYB1OtKmgEsfhbaFQTHw2GJZW
-         FNPQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9Kw/qfHPjjuhPpIl29XpHnSI8XSxfY+H7wK5g85a/x1IqPrG2woqtEa/hyfjcccAWeCne7hFLTTVbUYIVwP8T3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx16oD+h90keDUJIrTULrKPBWZl21wU/koaNB0wlrIBI1jtCfRx
-	lFw0QqOgmeGleBROoalN+f6RvcL9XOC/oVbPArMsRRxF8reSQy5o0BVwm1I9krTVY/JdX2LxI98
-	+ZtHqwvrk3ccrrVk4YybDD319gpDIpFg=
-X-Gm-Gg: AeBDiet6cuRistIT45QY6HcpRkCB9j8UAoI2CZN3LnZwnhImoPXeD35mtZFF/oBasat
-	CB2yc6o61/jkjiDjZQ+GoJefj/FwURRafmDuT462hh46V/MED7aeY15O3xNa4BeoBdGmimPMUQB
-	Nwf4prVS++KFtAEV7nvSOfPhHndGIYdbrGr5y/PxAQIuGSEKTjS3sFZXfJwuehwCm5prft+zCI7
-	5XeYLmfGnX2e74vocAC2H7ctlV0/e0jfzIs+1woWx9nVgXaNn8WVCWuxTMhTUMtQGtp6JLWlx2q
-	dvTmDKnbEjXJuEPDmzg/cdu6cAeFdqBUBH/sk8QxLcNf2se6ycD7dKyMDNU3TDY01IOgFzrShuu
-	OlEfJWw==
-X-Received: by 2002:a17:907:6c0f:b0:b97:e32f:7ee8 with SMTP id
- a640c23a62f3a-b9d7298ffe1mr758494466b.37.1776108511829; Mon, 13 Apr 2026
- 12:28:31 -0700 (PDT)
+	id 1wCN0W-0000000GJ5p-2Cr0;
+	Mon, 13 Apr 2026 19:31:42 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailflow.phl.internal (Postfix) with ESMTP id 9BAA81380415;
+	Mon, 13 Apr 2026 15:31:38 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Mon, 13 Apr 2026 15:31:38 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1776108698;
+	 x=1776115898; bh=oF7+4SGRAImH9WMGSId2dJm+4RdrBt2YGrt25aFUZUA=; b=
+	eBEb3+z4uCJ5XpVJfmMDtd+Hz4pTmn4rIKoszU8vf+435LUmCEc3EJdi4K0/oVv8
+	C+yjXVYuraejFdA/rcQOSN6Zfi5pNlS43GslApllsudgHnK44npvkIwaUHWVTtuh
+	Dw/4I/j/UNeqyr1LQlKmH5vdXZciz/2GPqFtFHFDNoaInKEsvm7hwh9DYdVnGoah
+	lMAIbVhEjH95sryDmrUzci3AfaiCDHHYDZH3oXJ/R4+VlvsfKJPopXWx0JE7CxaE
+	ognvTjwa06PAMT31z/DBGKMGBcoGUsjb6Y3k+6cm618rMbyQ7yCpT6T6pE5XH3Hf
+	w2SGXNdq7Abx7TrcOF+CrA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1776108698; x=
+	1776115898; bh=oF7+4SGRAImH9WMGSId2dJm+4RdrBt2YGrt25aFUZUA=; b=f
+	K2XbJ97Y0jsbU1s6LswXOEcaT2AuIJQsZKTCiqB2bsDjsavXFxXjXN24HUjqmHPV
+	30lUfZzPVJ0GZrRSLZsyTrPlhAwj+oOp7rzHIcW4Q+ggBxcGWjNT+roTWJQkS80p
+	muhmPfZao8pyrAslQS6xE9YgbnnrpBmxpEViK0VuBn5kyHZfCSLFSApLiy8hZEkj
+	X3o7U4xt3roWjYEf/0QsKGiNqeP3myXk/e3+BEa4KYIE59wmYsrhudiDwV46CB5d
+	E8K4OFv0fHuOdK14nnUUxfff3rCPKj8vJw3X7p6M4i0BpN1E8RSwySIEaUf5sCqK
+	alHtK1Rc5jgsKIF8k3s0A==
+X-ME-Sender: <xms:l0TdaRMQ1ovC5UjXw9wB_riUJbJZBZQ47VcEC4ozPMlWVwTWyL-hPg>
+    <xme:l0Tdaey9qAPkMkkSsq5ZowyLiVSaVZg3Aabqq1QUbhdAX-Y8VC29U600TE9HTIGWj
+    W-h6ka_l-N0bKYGG_W-3bzXlHGY0ZcjcSbZR_zuoL-6Ds0X7Q55CQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdefledtkecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthhqredtredtjeenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpedvhfdvkeeuudevfffftefgvdevfedvleehvddvgeejvdefhedtgeegveehfeeljeen
+    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
+    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopeegkedpmhhouggvpehsmhhtphhouhht
+    pdhrtghpthhtohepthdrshgrihhlvghrsegrlhhumhhnihdrvghthhiirdgthhdprhgtph
+    htthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohep
+    lhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopegurghvvghmse
+    gurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepmhhpvgesvghllhgvrhhmrghnrdhi
+    ugdrrghupdhrtghpthhtoheprhihrggsihhnihhnrdgrrdgrsehgmhgrihhlrdgtohhmpd
+    hrtghpthhtohepuhhrvgiikhhisehgmhgrihhlrdgtohhmpdhrtghpthhtohepuggvlhhl
+    vghrsehgmhigrdguvgdprhgtphhtthhopehhvghrsggvrhhtsehgohhnughorhdrrghprg
+    hnrgdrohhrghdrrghu
+X-ME-Proxy: <xmx:l0TdaTelOssYXt15-FK9p6saYLM_nmrvIO6c-_F3ZyF6_xfZywmCYA>
+    <xmx:l0TdaUxOkh6ozfKMIVT4v_qdW_i5Tss0CLMqkf2F01TBmahdCnZo_w>
+    <xmx:l0TdaUWn-LdWx2_7oUHRu6zzNshE3wCLw-aFKzbUUXN26D6Q-_6vLw>
+    <xmx:l0TdacTwYVtUWJnf_Fdh14nt-sYvlNq7AaQbOTvOw2Uu221fQyzEjQ>
+    <xmx:mkTdaTH5uGiAlbaAI17-uSN6CKxYeQsdeWCm3ruscf_j0l2LK_Chakad>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 04818700069; Mon, 13 Apr 2026 15:31:35 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-References: <20260413092148.3870746-1-arnd@kernel.org>
-In-Reply-To: <20260413092148.3870746-1-arnd@kernel.org>
-From: Rosen Penev <rosenp@gmail.com>
-Date: Mon, 13 Apr 2026 12:28:19 -0700
-X-Gm-Features: AQROBzDRhEA53Q6D19izUguGZUF4CJzwH_A7MqptLtlQ6pim0lENIBLGjdUpTss
-Message-ID: <CAKxU2N9iBwbt2frA5v3=BgAdUgQm6zSdVU01ZVV2AqOJb-ntRw@mail.gmail.com>
-Subject: Re: [PATCH] ARM: dts: bcm4709: fix bus range assignment
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>, Hauke Mehrtens <hauke@hauke-m.de>, 
-	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	soc@lists.linux.dev, Arnd Bergmann <arnd@arndb.de>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-ThreadId: AMdy4yCH1GcR
+Date: Mon, 13 Apr 2026 21:30:11 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "David Woodhouse" <dwmw2@infradead.org>,
+ "Thomas Gleixner" <tglx@kernel.org>, LKML <linux-kernel@vger.kernel.org>
+Cc: x86@kernel.org, "Baolu Lu" <baolu.lu@linux.intel.com>,
+ iommu@lists.linux.dev, "Michael Grzeschik" <m.grzeschik@pengutronix.de>,
+ Netdev <netdev@vger.kernel.org>, linux-wireless@vger.kernel.org,
+ "Herbert Xu" <herbert@gondor.apana.org.au>, linux-crypto@vger.kernel.org,
+ "Vlastimil Babka (SUSE)" <vbabka@kernel.org>, linux-mm@kvack.org,
+ "Bernie Thompson" <bernie@plugable.com>, linux-fbdev@vger.kernel.org,
+ "Theodore Ts'o" <tytso@mit.edu>, linux-ext4@vger.kernel.org,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Uladzislau Rezki (Sony)" <urezki@gmail.com>,
+ "Marco Elver" <elver@google.com>, "Dmitry Vyukov" <dvyukov@google.com>,
+ kasan-dev@googlegroups.com, "Andrey Ryabinin" <ryabinin.a.a@gmail.com>,
+ "Thomas Sailer" <t.sailer@alumni.ethz.ch>, linux-hams@vger.kernel.org,
+ "Jason A . Donenfeld" <Jason@zx2c4.com>,
+ "Richard Henderson" <richard.henderson@linaro.org>,
+ linux-alpha@vger.kernel.org, "Russell King" <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Huacai Chen" <chenhuacai@kernel.org>, loongarch@lists.linux.dev,
+ "Geert Uytterhoeven" <geert@linux-m68k.org>,
+ linux-m68k@lists.linux-m68k.org, "Dinh Nguyen" <dinguyen@kernel.org>,
+ "Jonas Bonn" <jonas@southpole.se>,
+ "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
+ "Helge Deller" <deller@gmx.de>, linux-parisc@vger.kernel.org,
+ "Michael Ellerman" <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org,
+ "Paul Walmsley" <pjw@kernel.org>, linux-riscv@lists.infradead.org,
+ "Heiko Carstens" <hca@linux.ibm.com>, linux-s390@vger.kernel.org,
+ "David S . Miller" <davem@davemloft.net>, sparclinux@vger.kernel.org
+Message-Id: <07df88e5-208d-4aac-9668-a3b0c65ae529@app.fastmail.com>
+In-Reply-To: <7a48b636cb3146f4f7134c6d4fe42070ac2edb43.camel@infradead.org>
+References: <20260410120044.031381086@kernel.org>
+ <20260410120318.592237447@kernel.org>
+ <7a48b636cb3146f4f7134c6d4fe42070ac2edb43.camel@infradead.org>
+Subject: Re: [patch 15/38] ptp: ptp_vmclock: Replace get_cycles() usage
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_122834_908290_FBAC8B0A 
-X-CRM114-Status: GOOD (  24.10  )
+X-CRM114-CacheID: sfid-20260413_123140_934086_B52A23AA 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,61 +141,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 13, 2026 at 2:21=E2=80=AFAM Arnd Bergmann <arnd@kernel.org> wro=
-te:
+On Mon, Apr 13, 2026, at 17:33, David Woodhouse wrote:
+> On Fri, 2026-04-10 at 14:19 +0200, Thomas Gleixner wrote:
 >
-> From: Arnd Bergmann <arnd@arndb.de>
+> ... depend on TSC_RELIABLE=C2=B9, since if the guest doesn't believe t=
+hat it
+> is, then the guest shouldn't be trying to use it as the basis for
+> precise timing.
 >
-> The netgear r8000 dts file limits the bus range for the first host
-> bridge to exclude bus 0, but the two devices on the first bus are
-> explicitly assigned to bus 0, causing a build time warning:
->
-> /home/arnd/arm-soc/arch/arm/boot/dts/broadcom/bcm4709-netgear-r8000.dts:1=
-42.3-27: Warning (pci_device_bus_num): /axi@18000000/pcie@13000/pcie@0/pcie=
-@0,0/pcie@1,0:bus-range: PCI bus number 0 out of range, expected (1 - 255)
-> /home/arnd/arm-soc/arch/arm/boot/dts/broadcom/bcm4709-netgear-r8000.dts:1=
-42.3-27: Warning (pci_device_bus_num): /axi@18000000/pcie@13000/pcie@0/pcie=
-@0,0/pcie@2,0:bus-range: PCI bus number 0 out of range, expected (1 - 255)
->
-> I could not find any reason why this is done in the first place, but
-> this can be easily addressed by reassigning the two devices to
-> bus 1, or by dropping the bus-range property in order to allow
-> secondary bus 0 to be assigned.
->
-> Assuming the bus-range is intentional, fix this by moving the
-> devices to the first valid secondary bus number.
-No, bus-range is not intentional. It should be removed instead.
->
-> Fixes: 893faf67438c ("ARM: dts: BCM5301X: add root pcie bridges")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  arch/arm/boot/dts/broadcom/bcm4709-netgear-r8000.dts | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm/boot/dts/broadcom/bcm4709-netgear-r8000.dts b/arch/=
-arm/boot/dts/broadcom/bcm4709-netgear-r8000.dts
-> index d170c71cbd76..355be5014943 100644
-> --- a/arch/arm/boot/dts/broadcom/bcm4709-netgear-r8000.dts
-> +++ b/arch/arm/boot/dts/broadcom/bcm4709-netgear-r8000.dts
-> @@ -147,7 +147,7 @@ pcie@0,0 {
->
->                 pcie@1,0 {
->                         device_type =3D "pci";
-> -                       reg =3D <0x800 0 0 0 0>;
-> +                       reg =3D <0x10800 0 0 0 0>;
->
->                         #address-cells =3D <3>;
->                         #size-cells =3D <2>;
-> @@ -162,7 +162,7 @@ wifi@0,0 {
->
->                 pcie@2,0 {
->                         device_type =3D "pci";
-> -                       reg =3D <0x1000 0 0 0 0>;
-> +                       reg =3D <0x11000 0 0 0 0>;
->
->                         #address-cells =3D <3>;
->                         #size-cells =3D <2>;
-> --
-> 2.39.5
->
+> =C2=B9 (Or... one of the other zoo of TSC flags for the gradually redu=
+cing
+> brokenness over the years...)
+
+It looks like this is sufficiently handled in the caller:
+
+static int vmclock_get_crosststamp(struct vmclock_state *st,
+                                   struct ptp_system_timestamp *sts,
+                                   struct system_counterval_t *system_co=
+unter,
+                                   struct timespec64 *tspec)
+{
+....
+#ifdef CONFIG_X86
+        /*
+         * We'd expect the hypervisor to know this and to report the clo=
+ck
+         * status as VMCLOCK_STATUS_UNRELIABLE. But be paranoid.
+         */
+        if (check_tsc_unstable())
+                return -EINVAL;
+#endif
+
+With 486 and ELAN out of the way, Winchip6 seems to be the only
+one without X86_FEATURE_TSC, so I think the next logical step would
+be to turn off Winchip6 as well and remove all X86_FEATURE_TSC
+and CONFIG_X86_TSC checks.
+
+      Arnd
 
