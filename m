@@ -4,116 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CB35EBFD04
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 06:49:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9116AEBFD07
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 07:06:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=o8vi2XvuWsUXS14e2c2BRo4eE23R7SK/MQ3LDkwDdCI=; b=ji2IZSVFVXms/tZ9ck4IWfU/+c
-	lf+7BxFVnapzkDVPzkI1mVypqnJpbMp9KRUY9eWNDZULq+cflN1+8aEBcGWL84wrri5Kro0jWS0dE
-	T1a83zQZBB8R8xb3ueWura1g52U1ky24BQbgzNAkym54JWRIm332KmEB3T73gnyWOOFfpst1otCnE
-	kXmRKjLeiVq37o/t4KaEzUjdAij9u+f74OHWS97AlLHSWl7xHvUNBGAwa0vDMpa9af/0PZwvIw+Ly
-	N8nyOrxkvT1VKM/QchNqsWIjbiV22doekfi4cDaaXy7asVr/qGTcJH48D1NEyWvWwS2KRxQi8YL3E
-	AjFUiRrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n13aWmfABqf0ACII0iuopiaMba90EnQgEx9gPb2M6+8=; b=CHkG2dEJWuLXEFSTevTDl+zSxC
+	6MdH4uV3LIFTPmimkINaCU9h7ruylp6FhnRon+OaFaOfnm+AhG8h425EfHfFmjVt0RqXQg15rVZy7
+	KY2+DoZK2rErOZXs54GkfZWoAowxhO2syixVAdXpFjvrOgEhnX0tY3WwxNpU8E4YG6uVn41ptf/fl
+	UsZu/crOpI6zSXAnUS4AIecjml5pozbwE2bqD5MCcFsCXINNg1BmRZ81l+2vCxzYO1/06U+nmQ4nA
+	zdKlPVhKIAZJzRoilCTf1Sf34Sny9K/xNyKXYlCGS6df8Poqdrb1ADW5mrpVf/4xUNi5PGZDA3aH8
+	gDxy7Lqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCB6u-0000000F5xt-0OGU;
-	Mon, 13 Apr 2026 06:49:28 +0000
-Received: from mail-northcentralusazon11010016.outbound.protection.outlook.com ([52.101.193.16] helo=CH1PR05CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCB6r-0000000F5ws-0zuI
+	id 1wCBNP-0000000F6x4-2dlt;
+	Mon, 13 Apr 2026 07:06:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCBNM-0000000F6wj-3NW4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 06:49:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vgAgCzAs46xgL//oylh5s8nf1fymP5Cr+FY7xrdMrQNeg5L71dLxU5OXshpuPcnuHIdZKpO7Q8hUg+V/c65WJtPRze+TsHNgRg+r9ryYRmuxqmTF16oPcmBStw8sYqcQIZoMJeo3tD8rMuP1qtiwLStYDZP/WZVcucKX/2eXM+bYokCbd35n0TI8b6DMYuesMCG9qGSbD11/BV1pEqeYKkhWUgbdhXBvUnVbDwhX2FeQ4e0Jkd1kxKr2uIuw/PVFm6bIokZipJDiaixk4h1xwn3xdPI9VKKNlBmOtzvZjHOoHvk0GkpwJP2+DyOjiGDaQAsHVqGODQpDFbrIIoOyow==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=o8vi2XvuWsUXS14e2c2BRo4eE23R7SK/MQ3LDkwDdCI=;
- b=L27LeY/G2w4KSuTBDi3K/Dymvq6HbijMERReUC/NoeP+QGthlJyUggMKP4pZ82HObPclyFhGzJsBSGZ+1s0z7DC75LClcj1ab75ukNjVww+2DMQOQaMZYOCS79xPWJ5gWiSTElTpuQ/jmPXu9ZSaLsAEHlRAZqBoP4Ki0aF2AvewN3sOa8LesEJJl9cPiBQs5E/t+9kOgzvDRcjbt3OwLQ9nTJJfYAuVmGK+c+dqFkzOdBwuxKgDACGZ74nnRfBxmPNYkMcYo5+41l1rvB+Ux/ElvhQFsWdLuiISNfCZ+EvWEbJiXODh3IMEnjGynGS1SMqXH3Y2UlCexArhl/eOGg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=o8vi2XvuWsUXS14e2c2BRo4eE23R7SK/MQ3LDkwDdCI=;
- b=aK6RbiWl08D2cWcF8WtXvQBMYem5YgYxKC3OMSP4/MXEHMgzwl4D+2ifOucO1tSpE3d0e6OYC4dQYlyLYNW+x9X0h0A0T9EbgKe43KtcRdVv0/XA6j8F0u9x3OCZ4Z6FQfJTjoDKpz4dO1uQq3rOiZT5Cgc/h5L3WhZ7fzMN5/I=
-Received: from PH8PR02CA0009.namprd02.prod.outlook.com (2603:10b6:510:2d0::22)
- by CO1PR10MB4403.namprd10.prod.outlook.com (2603:10b6:303:9a::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Mon, 13 Apr
- 2026 06:49:17 +0000
-Received: from MW1PEPF00016159.namprd21.prod.outlook.com
- (2603:10b6:510:2d0:cafe::67) by PH8PR02CA0009.outlook.office365.com
- (2603:10b6:510:2d0::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.48 via Frontend Transport; Mon,
- 13 Apr 2026 06:49:17 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- MW1PEPF00016159.mail.protection.outlook.com (10.167.249.84) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.0 via Frontend Transport; Mon, 13 Apr 2026 06:49:16 +0000
-Received: from DLEE207.ent.ti.com (157.170.170.95) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 13 Apr
- 2026 01:49:13 -0500
-Received: from DLEE203.ent.ti.com (157.170.170.78) by DLEE207.ent.ti.com
- (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 13 Apr
- 2026 01:49:13 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE203.ent.ti.com
- (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 13 Apr 2026 01:49:12 -0500
-Received: from toolbox.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.73.74])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63D6nALO1598785;
-	Mon, 13 Apr 2026 01:49:11 -0500
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: <nm@ti.com>, <ssantosh@kernel.org>
-CC: <stable@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <srk@ti.com>, <s-vadapalli@ti.com>
-Subject: [PATCH] soc: ti: k3-ringacc: Fix access mode for k3_ringacc_ring_pop_tail_io()
-Date: Mon, 13 Apr 2026 12:21:14 +0530
-Message-ID: <20260413065125.627180-1-s-vadapalli@ti.com>
-X-Mailer: git-send-email 2.51.1
+	Mon, 13 Apr 2026 07:06:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D5EED1AC1;
+	Mon, 13 Apr 2026 00:06:21 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C0BE93F7B4;
+	Mon, 13 Apr 2026 00:06:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776063987; bh=XGNHcX6f/sKfYlVXwKVDYEqv5Gvlox8Z8P3NxNleDqE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ALFrlBKIQfth2qMQfsvBMI93jAOfAkWn9Az6L3P4RLWEqVoK/QOzHJMXhwmTB+6TQ
+	 KcAEBXlEthZR/ZVhapKfEdOiitJOATpUeQQq8G5YTiS1DLcX752NOATQI06RZArgh1
+	 roi8QP91uKfo7IT5SdMccVCkGYyZjenqTRr4+NRg=
+Date: Mon, 13 Apr 2026 08:06:23 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
+	mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, leo.yan@arm.com
+Subject: Re: [PATCH v3 3/5] coresight: etm4x: fix inconsistencies with sysfs
+ configration
+Message-ID: <adyV78oSCU2t6puT@e129823.arm.com>
+References: <20260412175506.412301-1-yeoreum.yun@arm.com>
+ <20260412175506.412301-4-yeoreum.yun@arm.com>
+ <ea457326-f81c-47ce-abf8-a66bf13f19cc@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW1PEPF00016159:EE_|CO1PR10MB4403:EE_
-X-MS-Office365-Filtering-Correlation-Id: 54e7ddf2-3c37-453f-9286-08de9928c803
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|1800799024|82310400026|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: ijL/G6eOfrJOCKV6A/Lc0wOcEHrHrLEIryXR3+fwDEOBp5zJdMcNoufUp+DWus/GJloXNeIgpVivgrO/4ppnUxwZjlR992DURjedk5qoboAY60A7d2ciHJQclEgd9k4YYRrlxM8x4NM2LNjQkL/7UYiE7uzlSuKepMtBrakZ+z9WQf3ZmqyOCQbzCZr8vfKCUylrfPPkGfowYeVoMJhgifOvs/3n4hMQDcQ9mUVmYjQbMrmCnIUhcU5t8hyzTHW/KP+RiU1yk8yANCgAufhahxC0Rwt+Ae2Y7yGnhNv+fsdAv80E/UvH4H5hJjTQiQs5bVUViR0bP3adXtTHJcQqVZn4v6WhAt0Yb+S5JZ/7ZguUi4zhXapFrOnav+ds6RjQje36bG7UAeHDXclV44M08mmZ2Sw1yVSgh2fuqZWSPxUj25wr8ypXbyIlQ5/Wjo5pdOe+TsLzE50iwHeUtefco5BAGssINmYPq8Yjx5ka/C1g9a+yUXtEy2Kz99f8tMTbKGw0zO6Mwp4O0ksC+7Z47YGnJKNrsPRItv0Tblwz5ymatUyZ3MDEKEG59PNBmf3LwVt77E857CeMvNIc4dhby6bDiajmpCIW+Rqm38tWl3x9tGG0WgXY9MB68Vka7cZtazt2tdDwWyah1qP4JlMeF6j/DjMZzk/LhHfo+E5/mtu9lSDv7YWbvlC8PluQCigWz8Muzs35/NM+iclXLD89l+HN9iO2zydk5/vOXiHBALa47nkFl1jc19aKG8eMlSlO03JJqTo6iYyv8mr9KbzW7Q==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(1800799024)(82310400026)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ECAE6eN75HzoZwo9g5tx69qalM/9rRhegknDxga3LcUxkihaLCKXcSzcAgQGV9HFR0CvEwIBg8v77xaHfr3mPo9iedJ4c/FEkTvcZxBOFbtP1sHY8qtUiE1YXwh1S7zMJKN7+btHIlCIAZZCFvExthNkf95wdNc0gXvqeS/izAdaRL75YFejQenOL9gbDjlmR/UaQcDe5fviZy7/OiIcrjrRlhBYKSQZd7kxQSuVsrcYVjMUE2lnDGmsZqJgLSjQqL96gNLntExSZEpxGg8sQSGGCfn/iq1A26+RiX3LYqP3wkUIdWBxlzl1pRgJ9KS7DzWkvZ+8n1aVgQ0CvpeUD3jl2RrSjVBeHp8HEzVROcz6QXLjyVcfBkbWuJppXx8LJjV6Re/LOMSJWomPBTBzMi3nyA4MH4cO5t1VvFZOnKqgJNNSSF+c+dkYDDAPxDeZ
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Apr 2026 06:49:16.5324
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 54e7ddf2-3c37-453f-9286-08de9928c803
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: MW1PEPF00016159.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR10MB4403
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ea457326-f81c-47ce-abf8-a66bf13f19cc@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260412_234925_439071_17E48BF7 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260413_000629_111740_2A05A4E8 
+X-CRM114-Status: GOOD (  33.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,44 +73,244 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-k3_ringacc_ring_pop_tail_io() invokes k3_ringacc_ring_access_io() with the
-access mode incorrectly set to K3_RINGACC_ACCESS_MODE_POP_HEAD instead of
-K3_RINGACC_ACCESS_MODE_POP_TAIL. Fix this.
+Hi Jie,
 
-Fixes: 3277e8aa2504 ("soc: ti: k3: add navss ringacc driver")
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
----
+> Hi Yeoreum,
+>
+> On 4/13/2026 1:55 AM, Yeoreum Yun wrote:
+> > The current ETM4x configuration via sysfs can lead to the following
+> > inconsistencies:
+> >
+> >    - If a configuration is modified via sysfs while a perf session is
+> >      active, the running configuration may differ between before
+> >      a sched-out and after a subsequent sched-in.
+> >
+> >    - If a perf session and sysfs session tries to enable concurrently,
+> >      configuration from configfs could be corrupted.
+> >
+> >    - There is chance to corrupt drvdata->config if perf session tries
+> >      to enabled among handling cscfg_csdev_disable_active_config()
+> >      in etm4_disable_sysfs().
+> >
+> > To resolve these inconsistencies, the configuration should be separated into:
+> >
+> >    - active_config, which is applied configuration for the current session
+> >    - config, which stores the settings configured via sysfs.
+> >
+> > and apply configuration from configfs after taking a mode.
+>
+> typo in subject:
+> s/configration/configuration
 
-Hello,
+Thanks.
 
-This patch is based on commit
-028ef9c96e96 Linux 7.0
-of Mainline Linux.
+>
+> >
+> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> > ---
+> >   .../hwtracing/coresight/coresight-etm4x-cfg.c |  2 +-
+> >   .../coresight/coresight-etm4x-core.c          | 74 ++++++++++++-------
+> >   drivers/hwtracing/coresight/coresight-etm4x.h |  2 +
+> >   3 files changed, 49 insertions(+), 29 deletions(-)
+> >
+> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> > index d14d7c8a23e5..0553771d04e7 100644
+> > --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> > @@ -47,7 +47,7 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
+> >   				   struct cscfg_regval_csdev *reg_csdev, u32 offset)
+> >   {
+> >   	int err = -EINVAL, idx;
+> > -	struct etmv4_config *drvcfg = &drvdata->config;
+> > +	struct etmv4_config *drvcfg = &drvdata->active_config;
+> >   	u32 off_mask;
+>
+> <...>
+>
+> >   	struct device *etm_dev = &csdev->dev;
+> >   	struct csdev_access *csa = &csdev->access;
+> > @@ -616,19 +621,36 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+> >   static void etm4_enable_sysfs_smp_call(void *info)
+> >   {
+> >   	struct etm4_enable_arg *arg = info;
+> > +	struct etmv4_drvdata *drvdata;
+> >   	struct coresight_device *csdev;
+> >   	if (WARN_ON(!arg))
+> >   		return;
+> > -	csdev = arg->drvdata->csdev;
+> > +	drvdata = arg->drvdata;
+> > +	csdev = drvdata->csdev;
+> >   	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
+> >   		/* Someone is already using the tracer */
+> >   		arg->rc = -EBUSY;
+> >   		return;
+> >   	}
+> > -	arg->rc = etm4_enable_hw(arg->drvdata);
+> > +	drvdata->active_config = drvdata->config;
+> > +
+> > +	if (arg->cfg_hash) {
+> > +		arg->rc = cscfg_csdev_enable_active_config(csdev,
+> > +							   arg->cfg_hash,
+> > +							   arg->preset);
+> > +		if (arg->rc)
+>
+> we need reset the mode once enable failed before return.
+> coresight_set_mode(csdev, CS_MODE_DISABLED);
 
-I noticed (visually) the incorrect access mode while working on:
-https://lore.kernel.org/r/20260325123850.638748-1-s-vadapalli@ti.com/
+Good catch. also missing some fix more for deadlock.
+I'll send again. Thanks!
 
-Regards,
-Siddharth.
+>
+> Thanks,
+> Jie
+>
+> > +			return;
+> > +	}
+> > +
+> > +	drvdata->trcid = arg->trace_id;
+> > +
+> > +	/* Tracer will never be paused in sysfs mode */
+> > +	drvdata->paused = false;
+> > +
+> > +	arg->rc = etm4_enable_hw(drvdata);
+> >   	/* The tracer didn't start */
+> >   	if (arg->rc)
+> > @@ -670,7 +692,7 @@ static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata,
+> >   	int ctridx;
+> >   	int rselector;
+> >   	const struct etmv4_caps *caps = &drvdata->caps;
+> > -	struct etmv4_config *config = &drvdata->config;
+> > +	struct etmv4_config *config = &drvdata->active_config;
+> >   	/* No point in trying if we don't have at least one counter */
+> >   	if (!caps->nr_cntr)
+> > @@ -754,7 +776,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
+> >   	int ret = 0;
+> >   	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> >   	const struct etmv4_caps *caps = &drvdata->caps;
+> > -	struct etmv4_config *config = &drvdata->config;
+> > +	struct etmv4_config *config = &drvdata->active_config;
+> >   	struct perf_event_attr max_timestamp = {
+> >   		.ATTR_CFG_FLD_timestamp_CFG = U64_MAX,
+> >   	};
+> > @@ -916,24 +938,18 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+> >   	/* enable any config activated by configfs */
+> >   	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
+> > -	if (cfg_hash) {
+> > -		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
+> > -		if (ret)
+> > -			return ret;
+> > -	}
+> >   	raw_spin_lock(&drvdata->spinlock);
+> > -	drvdata->trcid = path->trace_id;
+> > -
+> > -	/* Tracer will never be paused in sysfs mode */
+> > -	drvdata->paused = false;
+> > -
+> >   	/*
+> >   	 * Executing etm4_enable_hw on the cpu whose ETM is being enabled
+> >   	 * ensures that register writes occur when cpu is powered.
+> >   	 */
+> >   	arg.drvdata = drvdata;
+> > +	arg.cfg_hash = cfg_hash;
+> > +	arg.preset = preset;
+> > +	arg.trace_id = path->trace_id;
+> > +
+> >   	ret = smp_call_function_single(drvdata->cpu,
+> >   				       etm4_enable_sysfs_smp_call, &arg, 1);
+> >   	if (!ret)
+> > @@ -1034,7 +1050,7 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
+> >   {
+> >   	u32 control;
+> >   	const struct etmv4_caps *caps = &drvdata->caps;
+> > -	struct etmv4_config *config = &drvdata->config;
+> > +	struct etmv4_config *config = &drvdata->active_config;
+> >   	struct coresight_device *csdev = drvdata->csdev;
+> >   	struct csdev_access *csa = &csdev->access;
+> >   	int i;
+> > @@ -1070,6 +1086,8 @@ static void etm4_disable_sysfs_smp_call(void *info)
+> >   	etm4_disable_hw(drvdata);
+> > +	cscfg_csdev_disable_active_config(drvdata->csdev);
+> > +
+> >   	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
+> >   }
+> > @@ -1130,9 +1148,6 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
+> >   				 drvdata, 1);
+> >   	raw_spin_unlock(&drvdata->spinlock);
+> > -
+> > -	cscfg_csdev_disable_active_config(csdev);
+> > -
+> >   	cpus_read_unlock();
+> >   	/*
+> > @@ -1375,6 +1390,7 @@ static void etm4_init_arch_data(void *info)
+> >   	struct etm4_init_arg *init_arg = info;
+> >   	struct etmv4_drvdata *drvdata;
+> >   	struct etmv4_caps *caps;
+> > +	struct etmv4_config *config;
+> >   	struct csdev_access *csa;
+> >   	struct device *dev = init_arg->dev;
+> >   	int i;
+> > @@ -1382,6 +1398,7 @@ static void etm4_init_arch_data(void *info)
+> >   	drvdata = dev_get_drvdata(init_arg->dev);
+> >   	caps = &drvdata->caps;
+> >   	csa = init_arg->csa;
+> > +	config = &drvdata->active_config;
+> >   	/*
+> >   	 * If we are unable to detect the access mechanism,
+> > @@ -1442,7 +1459,7 @@ static void etm4_init_arch_data(void *info)
+> >   	/* EXLEVEL_S, bits[19:16] Secure state instruction tracing */
+> >   	caps->s_ex_level = FIELD_GET(TRCIDR3_EXLEVEL_S_MASK, etmidr3);
+> > -	drvdata->config.s_ex_level = caps->s_ex_level;
+> > +	config->s_ex_level = caps->s_ex_level;
+> >   	/* EXLEVEL_NS, bits[23:20] Non-secure state instruction tracing */
+> >   	caps->ns_ex_level = FIELD_GET(TRCIDR3_EXLEVEL_NS_MASK, etmidr3);
+> >   	/*
+> > @@ -1687,7 +1704,7 @@ static void etm4_set_default(struct etmv4_config *config)
+> >   static int etm4_get_next_comparator(struct etmv4_drvdata *drvdata, u32 type)
+> >   {
+> >   	int nr_comparator, index = 0;
+> > -	struct etmv4_config *config = &drvdata->config;
+> > +	struct etmv4_config *config = &drvdata->active_config;
+> >   	/*
+> >   	 * nr_addr_cmp holds the number of comparator _pair_, so time 2
+> > @@ -1728,7 +1745,7 @@ static int etm4_set_event_filters(struct etmv4_drvdata *drvdata,
+> >   {
+> >   	int i, comparator, ret = 0;
+> >   	u64 address;
+> > -	struct etmv4_config *config = &drvdata->config;
+> > +	struct etmv4_config *config = &drvdata->active_config;
+> >   	struct etm_filters *filters = event->hw.addr_filters;
+> >   	if (!filters)
+> > @@ -2250,7 +2267,8 @@ static int etm4_add_coresight_dev(struct etm4_init_arg *init_arg)
+> >   	if (!desc.name)
+> >   		return -ENOMEM;
+> > -	etm4_set_default(&drvdata->config);
+> > +	etm4_set_default(&drvdata->active_config);
+> > +	drvdata->config = drvdata->active_config;
+> >   	pdata = coresight_get_platform_data(dev);
+> >   	if (IS_ERR(pdata))
+> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+> > index 3cc1ca76c933..b943c28c9c71 100644
+> > --- a/drivers/hwtracing/coresight/coresight-etm4x.h
+> > +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+> > @@ -1069,6 +1069,7 @@ struct etmv4_save_state {
+> >    *		allows tracing at all ELs. We don't want to compute this
+> >    *		at runtime, due to the additional setting of TRFCR_CX when
+> >    *		in EL2. Otherwise, 0.
+> > + * @active_config:	structure holding current applied configuration parameters.
+> >    * @config:	structure holding configuration parameters.
+> >    * @save_state:	State to be preserved across power loss
+> >    * @paused:	Indicates if the trace unit is paused.
+> > @@ -1089,6 +1090,7 @@ struct etmv4_drvdata {
+> >   	bool				os_unlock : 1;
+> >   	bool				paused : 1;
+> >   	u64				trfcr;
+> > +	struct etmv4_config		active_config;
+> >   	struct etmv4_config		config;
+> >   	struct etmv4_save_state		*save_state;
+> >   	DECLARE_BITMAP(arch_features, ETM4_IMPDEF_FEATURE_MAX);
+>
 
- drivers/soc/ti/k3-ringacc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/soc/ti/k3-ringacc.c b/drivers/soc/ti/k3-ringacc.c
-index 7602b8a909b0..24f658e8c1dc 100644
---- a/drivers/soc/ti/k3-ringacc.c
-+++ b/drivers/soc/ti/k3-ringacc.c
-@@ -1083,7 +1083,7 @@ static int k3_ringacc_ring_pop_io(struct k3_ring *ring, void *elem)
- static int k3_ringacc_ring_pop_tail_io(struct k3_ring *ring, void *elem)
- {
- 	return k3_ringacc_ring_access_io(ring, elem,
--					 K3_RINGACC_ACCESS_MODE_POP_HEAD);
-+					 K3_RINGACC_ACCESS_MODE_POP_TAIL);
- }
- 
- /*
--- 
-2.51.1
-
+--
+Sincerely,
+Yeoreum Yun
 
