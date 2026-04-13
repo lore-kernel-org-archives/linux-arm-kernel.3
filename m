@@ -4,85 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECCF7EBFD1D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 08:55:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E082EBFD1E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 09:07:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fKZBhbLqvomHQwozvNv6OmQiXZDyI1OApDbhLlPdwx0=; b=4xmpNOhZ7QOEY91IHflgpGDpuE
-	La8AM/vXG2FcYtXRHmEw3vzE8sqH7dV5LGDY7uYu58lJixdan1B3sSEq0XuUJGObMnAKQF5raPGmC
-	v/ruZ4o0t4RCPT/il8Q6kWtQ0oXJpxdffWYa4CtANUEJy4PSss6vZ4DZUkTyiOFy9lxHDw+wp8y1h
-	jJ7PrEOiuCa32NnSmeTpn7hl1c17uHK09stgt4Q3Y7291U6LEDr+gYpgETqgeuxAk9o2DBi4qu7qK
-	+jzMMdQBhBTcD0b4wndM64vON53ZbUKkgfDgav2wLu5urpdHmnaxzeUTupA4Pk97uVIx8t4dUd2nS
-	EYa/Mfqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bS4CAqLyyN3vhcD+LdVe9Ic1o3rAepHQ07P+f8uMLn8=; b=3gqUuMvou+M4wE9A0Ohfxfe6s5
+	nXmrGfhZspsSugwFQF5Om4XP8tiTMZ2s3IQMtb3SUwS75keDwW+oz6N32soNV/sqMSZx50qkOcEjB
+	IkEg5iK2hTsav99rHB9c983wbchgCHPjUsaJAkuT9Fj/pfvOJJv5uvBUSKeKAvf5v7B2iUxb+HDRn
+	Im035AnBc7d6X0yJkcqwg4AAFfnJqj3xULsfTBuyBrh86ik74tbzZi70zQ0z6hCOWEKc4oyipqwbK
+	aT1Xgd4kr2kbrTvDMQ3kl6ozYi7uIUgBV9TxOQmxvxxvAj9LAus6kfjnWZFgP2O8FUwEwpdW2eUYq
+	6ZHjw1Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCD4s-0000000FJWT-0DuS;
-	Mon, 13 Apr 2026 08:55:30 +0000
+	id 1wCDGg-0000000FKhi-3RNu;
+	Mon, 13 Apr 2026 09:07:42 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCD4h-0000000FJLv-2ni0
+	id 1wCDGe-0000000FKhI-3byj
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 13 Apr 2026 08:55:19 +0000
+	Mon, 13 Apr 2026 09:07:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=fKZBhbLqvomHQwozvNv6OmQiXZDyI1OApDbhLlPdwx0=; b=AJmJi/mqzo0RafoMAR1ZC8R8+K
-	lupptmXdfglEewFEUOdKpplQ2JttZCsjOVjN+vxZ0FqsA9vx81uPW3a5D5qJqaWFJZWerxGgO663m
-	OniJwn8gPR/rzseVtTOZO5IyWnnjCY866xgSo3w5pf18SPnqtyUs5nW8KLmyXUQNMupwtfRZyYefj
-	hxEPLtSlyhhZfFN3z3IeUjYpE4LmNDOA5HJUtSbwVxyxk91WjiWR1vfjpaNhQVChy7hM9LTFrFbfn
-	wwJq8mKeiSdh+u0OhyDzeliQ7WfS1QPLioPprHlyscTyIeAe0Z93ChmQxXt6UAnvhiiDawgK2tfVn
-	RPdNwR2g==;
-Received: from [113.46.200.218] (helo=canpmsgout03.his.huawei.com)
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=bS4CAqLyyN3vhcD+LdVe9Ic1o3rAepHQ07P+f8uMLn8=; b=IYVdwtkbZyKrT2yA+Jzu6dg1Vt
+	254vW+nma7ZJuXxEIZ7/yONdmBijBQRyWo83I/epy3AAxDMMw6B9gWmFaRX1C87IwJqQGFWwmZy7g
+	2X7IKz+ZK6Aw3L3RfnHS2eIWwTAKro9oWwkMXZOzhD2HzhriOo+448y4OWMC2zq+f1PE4pSY0K45i
+	sTygNuJoxe7q09po5IyAephcVVUrRUzqtLf6Du4bYh4YfqStUP0Dw7X6L9BACuXwGw+JF/vHkcVnu
+	IxEqvffvOCAkpyV16u4TxBFVOFRPfzHjoWWGY91b7aLCTQwJIYnQyUuvi3EudNrtLry5qIVxuCUtK
+	OcHT2qxQ==;
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCD48-0000000GR5T-3Kgr
+	id 1wCDGa-0000000GSZ1-3Wwg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 08:55:14 +0000
-dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=fKZBhbLqvomHQwozvNv6OmQiXZDyI1OApDbhLlPdwx0=;
-	b=jc4kTF6mGt4rwB0E/oP4iBAxB+QRyj9LyMQ+W+3A5TTv09JX4TLfg+SqAxuDrWTizcv1fTDAl
-	xyj733V8XDw9v7JLbu7uiymKgF4Qv+HNhRsgxb7oAvoZd52JFnOEvapIJVEmPoQcv1Izc9iu2hq
-	mqUs378DQkM3mddqMBTu3vA=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4fvLf00vlgzpStx;
-	Mon, 13 Apr 2026 16:48:08 +0800 (CST)
-Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
-	by mail.maildlp.com (Postfix) with ESMTPS id 133B64048F;
-	Mon, 13 Apr 2026 16:54:17 +0800 (CST)
-Received: from huawei.com (10.50.87.109) by kwepemf100008.china.huawei.com
- (7.202.181.222) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 13 Apr
- 2026 16:54:16 +0800
-From: Zeng Heng <zengheng4@huawei.com>
-To: <ben.horgan@arm.com>, <Dave.Martin@arm.com>, <james.morse@arm.com>,
-	<tan.shaopeng@jp.fujitsu.com>, <reinette.chatre@intel.com>,
-	<fenghuay@nvidia.com>, <tglx@kernel.org>, <will@kernel.org>, <hpa@zytor.com>,
-	<bp@alien8.de>, <babu.moger@amd.com>, <dave.hansen@linux.intel.com>,
-	<mingo@redhat.com>, <tony.luck@intel.com>, <gshan@redhat.com>,
-	<catalin.marinas@arm.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <wangkefeng.wang@huawei.com>
-Subject: [PATCH v8 next 02/10] arm_mpam: Add intPARTID and reqPARTID support for Narrow-PARTID feature
-Date: Mon, 13 Apr 2026 16:53:57 +0800
-Message-ID: <20260413085405.1166412-3-zengheng4@huawei.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260413085405.1166412-1-zengheng4@huawei.com>
-References: <20260413085405.1166412-1-zengheng4@huawei.com>
+	Mon, 13 Apr 2026 09:07:39 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63D6xnoH2662866
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 09:07:30 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=bS4CAqLyyN3vhcD+LdVe9Ic1o3rAepHQ07P
+	+f8uMLn8=; b=G9KXiMLD3IsO13FTdHHxr3afEcV3tesQP4+fGLFzwnK79WLH9TJ
+	z6d0QgIjp2YiUG9vjG0v2mS17+o1toCL2c9Yy2iWZ75RG78lPOQ+/PdvjKxdqeib
+	uAwHmBmPbaAhs9N76sZmVJMWmvALWHvgLIzrKquunVScEC//lIrWlk0qveE7zLpI
+	XPPB3ILykMeMEP/BD+Ju4Tkk9sBJt1CuPslXvz6RWzTu5gwvrHQSXmm4ThJqIFvZ
+	W2Xit5OEKWxt0lUgAodvPSXPszPQwST3DIpDiQD2Sw5k/eTIBMlRyA6PUXgfZ/+c
+	60ha2IjnkZfABmIZrfVPc1dpTaod7ruEu5Q==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dffk6mk9s-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 09:07:29 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-50d84b5f73bso44999501cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 02:07:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1776071249; x=1776676049; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=bS4CAqLyyN3vhcD+LdVe9Ic1o3rAepHQ07P+f8uMLn8=;
+        b=V8njoDvskSM3cboiyDsVKOqnBynDAmLfCLc5TgROIltWZV+h352xC9edZSv9Bc2sOz
+         3p1bVikOeu7v9HXMWr39/A9dRfkfVKX97P1D3iFchPQw6DJVqQFx8h+x9XaUBE3b8zEn
+         Sqi/WjuRi1sK7cOKi9G1fGBxC24M7Wz5It9YsYsnHi2dgLWClhIgQjHCMOuMD7cjbC2X
+         fjDifDqY1yFvdpgYMBXkHjY5d8ZZK6OZjRcZfzGUgxwghdj5uTiKpGJBNUOMsQHF1k2t
+         I35occTXSi1ALJTcTbFNUKDXrQfyroLr9GBWu7y7Xfw4RMaVi3vch+88xdYecdKmEx57
+         stmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776071249; x=1776676049;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bS4CAqLyyN3vhcD+LdVe9Ic1o3rAepHQ07P+f8uMLn8=;
+        b=F+vAzzKUH0laSkPN+8/6dp+DZpiqflueCrOtODJmwbx8MjJxBfioDPqpp41Volz0yt
+         bYmgt3ebGbP2CDWpjK9vqNI+Mutx/SdQCLRwkWD0CtDiVWzgkq8fTQ/9knrPtTHRc96V
+         tafgE9cW4JlNoLYAv6cYar+J/FhmCaH6sK7eGHwxueafj791WQ5KPDASfJDi+zQJ+xFW
+         mACu3fniuOXXdPyfB2VSjT+02VJEW1idOQh4AWdfHPrA8bPliCXFkNcW6Nw4L6+xHWjJ
+         eFlQGJKKnlw7wewAa34x53E/vmW/88+9cwRcsd90esUi0nFaZi7k67HSbZJZ8kHswdSa
+         XbzQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/80Wbm855VIR79y27qEHgJHgyB7Ti1QMqJdPoYF5NgjgdDv/dt4D/ZGhUn7JQcXR1wq7fyy7srIY2OmXIvmeNL@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKnSTaTcxbkfI9uz47ktyKOh2W70j+c33q4Y4HwPLMHWBeR+BH
+	BciseX6N9J24Bi2Zs0oFjbbbdPKRr34g5RZztez6g0ACWxAGz71aE3P/jfYcBafN1mC5Gp47W1o
+	7hRTbn1GndeD1Xw+tFEl19VwGBbMe3FJOk2S0crIAQxljF8leLZNR10mialWFfkVtA2ygBepZTO
+	9dfw==
+X-Gm-Gg: AeBDievRi0PdAQz/isygyeapcFYxVz69qV/98ETI3kikdxfdXwR77P2cAazA7n1QkOi
+	w7mZ6zSNBoH+ntapk7vQjui6pE5trZrB3y6efvECAJHyoUYQ7R+1ifTdbzFIE0tDWrxqXwOLYq+
+	VdeoEBQyQFvkmboRHW7acuupb0BB+QO7IZNwUtxNaKUzL9F7tIpTUcXe1JwkomTt5GE/HHMMdD3
+	rEwrFqJyvkPhHxjWxZ8j9u19v6uvzJLATXjH43nIod0CaIpUmF1HQTRZoKcSo8EN7ncIrohniM1
+	B30tY316ne3JsNChD7C2cWtrUhu06tgCdBTr5ZXGDXEooxdjEvJPwOmdwsdy6bW/qzqJMQp2Rp+
+	WsC3GG2cQ/ve5Zv88+++Ikptal2d6QZ/D6pUb
+X-Received: by 2002:ac8:5944:0:b0:509:211e:3624 with SMTP id d75a77b69052e-50dd5b15e8amr185842791cf.4.1776071248840;
+        Mon, 13 Apr 2026 02:07:28 -0700 (PDT)
+X-Received: by 2002:ac8:5944:0:b0:509:211e:3624 with SMTP id d75a77b69052e-50dd5b15e8amr185842301cf.4.1776071248352;
+        Mon, 13 Apr 2026 02:07:28 -0700 (PDT)
+Received: from quoll ([178.197.219.94])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d63e5c98fsm30759347f8f.35.2026.04.13.02.07.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Apr 2026 02:07:27 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+        Xu Yang <xu.yang_2@nxp.com>, devicetree@vger.kernel.org,
+        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        stable@vger.kernel.org
+Subject: [PATCH] arm64: dts: imx8ulp-evk: Correct Type-C int GPIO flags
+Date: Mon, 13 Apr 2026 11:07:24 +0200
+Message-ID: <20260413090723.53277-2-krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1545; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=b1tENQvXY+F8W/xm3g4+DZZXahca+UgV07xvDpCrdHg=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBp3LJLy1g4Z3wLsTX9TEjDy5k3oRMGgxKGR72pO
+ vd4nUJlFOaJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCadyySwAKCRDBN2bmhouD
+ 11ufD/9ZfBbErQA0qwmvgVga1ZWnncoEdQfgPmQ5Atvcd8AjusNJNHwI3JxEtW4603nVn215Wat
+ sFBZ5kd/GbFG/fQy6AIBQjANCQKaCd7Iv54odcNpyoW3SDFeTDDImTfP8TNQZE/acMLO+yxVrdJ
+ mppQKhxN9bUvlN0tvBA1xLoF1unBTLUONg5gRj9LA0N8TKaghrtY5sesJrLaqAj0INi2PurPF4Y
+ Py7Czn7wu2B9CMUUN+UUnKVsh38kguO3FAgWrVZ0m0bah3VlXQQEbbbpsmvp1/BA7ioMZp4VY51
+ yg7rYiMy0cdhO/52ohzD3odmMaTCYMLeH9vxogDPUAf0HsDLnyNQDZm8EMe9lOFQhdQdj136rIf
+ b2YZQYEtt4QBjPUNOS2KucLApABH8lbbEC+jecObhc9vGanpi7oXlJQi/2bIOEauFyxCYEvSWGK
+ LNgfXXMMO0dsnQyouIR3LZJLEZ13StW/7GWs1+lsuoQDpdQeJm69e0Bly/VJyRoX5KiRK04Pc4t
+ UnA4SyICpw1YXR/7a+jFA1O7wWgvufkIBSrLEmYBzrAviVxEIVQuFmSHvHAmP9OLjlIAR/+j8cl
+ zRFc7DV99va+L8jJZWfncZ8tkznxc6FCjf74hhFRensYTBrFHQS9d6N3JOD5kOkZredA3CkyFgA pPZvVLJdACruOkw==
+X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.87.109]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemf100008.china.huawei.com (7.202.181.222)
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEzMDA4OCBTYWx0ZWRfX054IFoIcVI2S
+ vIOWPbH1Ry7QVy09RWUchPIifmlK/HvlN9MNEv1ZvaOdPEKgJbJnnN5Caj2+6nX1PBuEjnTw6su
+ cXMTV2Yv8uG9R8uIRA33fI+oOUofcgomN2ry1qGtxgPI3YbE8kAScXrOE5o+/UC4c8oXDQ6bvxN
+ p4FjYM2jweSAj2EnziUmEunf4rU5A2cYBQGJ2w2A9XEm9THWKL/fZ1S0hqeUQAzLJMYxsefVG+r
+ oUPf/VIiX511zOWZSr6G+WPg8JG8HXmz+ZEaYS2u2/f6WfCV+go6pItyrssuTIgIium3oYni0J4
+ Hs0/bPSusS7Fvffcx9UyqZxr1LcXSX+E9JsGWUnX3wWuip0t7wfb52b/U2vZVCDZKxv24A7Jzur
+ uWve3u3q4YBnvaXJpP1Yujdaxt//aKEVKP/1Qo8sNjjV+QYiqP2MYMGkuZMM8yJwu7TQDD5Ngnt
+ oPD4lXiHhcrJdMg4NEQ==
+X-Authority-Analysis: v=2.4 cv=YM2vDxGx c=1 sm=1 tr=0 ts=69dcb251 cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
+ a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=7SNBkYlbXATC84MHoTAA:9 a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-GUID: 7vFFn4BIw0n9GGYinMEfzpVkS_DFYXnx
+X-Proofpoint-ORIG-GUID: 7vFFn4BIw0n9GGYinMEfzpVkS_DFYXnx
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-13_02,2026-04-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 adultscore=0 impostorscore=0 suspectscore=0 phishscore=0
+ bulkscore=0 spamscore=0 clxscore=1015 lowpriorityscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604010000 definitions=main-2604130088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_095456_126318_96DC779E 
-X-CRM114-Status: GOOD (  20.61  )
+X-CRM114-CacheID: sfid-20260413_100737_814656_75FCA556 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,217 +173,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce Narrow-PARTID (partid_nrw) feature support, which enables
-many-to-one mapping of request PARTIDs (reqPARTID) to internal PARTIDs
-(intPARTID). This expands monitoring capability by allowing a single
-control group to track more task types through multiple reqPARTIDs
-per intPARTID, bypassing the PMG limit in some extent.
+IRQ_TYPE_xxx flags are not correct in the context of GPIO flags.
+These are simple defines so they could be used in DTS but they will not
+have the same meaning: IRQ_TYPE_EDGE_FALLING = 2 = GPIO_SINGLE_ENDED.
 
-intPARTID: Internal PARTID used for control group configuration.
-Configurations are synchronized to all reqPARTIDs mapped to the same
-intPARTID. Count is indicated by MPAMF_PARTID_NRW_IDR.INTPARTID_MAX, or
-defaults to PARTID count if Narrow-PARTID is unsupported.
+Correct the Type-C int-gpios to use proper flags, assuming the author of
+the code wanted similar logical behavior:
 
-reqPARTID: Request PARTID used to expand monitoring groups. Enables
-a single control group to monitor more task types by multiple reqPARTIDs
-within one intPARTID, overcoming the PMG count limitation.
+  IRQ_TYPE_EDGE_FALLING => GPIO_ACTIVE_LOW
 
-For systems with homogeneous MSCs (all supporting Narrow-PARTID), the
-driver exposes the full reqPARTID range directly. For heterogeneous
-systems where some MSCs lack Narrow-PARTID support, the driver utilizes
-PARTIDs beyond the intPARTID range as reqPARTIDs to expand monitoring
-capacity.
-
-So, the numbers of control group and monitoring group are calculated as:
-
-  n = min(intPARTID, PARTID)  /* the number of control groups */
-  l = min(reqPARTID, PARTID)  /* the number of monitoring groups */
-  m = l // n                  /* monitoring groups per control group */
-
-Where:
-
-  intPARTID: intPARTIDs on Narrow-PARTID-capable MSCs
-  reqPARTID: reqPARTIDs on Narrow-PARTID-capable MSCs
-  PARTID:    PARTIDs on non-Narrow-PARTID-capable MSCs
-
-Example: L3 cache (256 PARTIDs, without Narrow-PARTID feature) +
-         MATA (32 intPARTIDs, 256 reqPARTIDs):
-
-  n = min( 32, 256) =  32 intPARTIDs
-  l = min(256, 256) = 256 reqPARTIDs
-  m = 256 / 32 = 8 reqPARTIDs per intPARTID
-
-Implementation notes:
-  * Handle mixed MSC systems (some support Narrow-PARTID, some don't) by
-    taking minimum number of intPARTIDs across all MSCs.
-  * resctrl_arch_get_num_closid() now returns the number of intPARTIDs
-    (was PARTID).
-
-Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+Fixes: c4b4593ecb0b ("arm64: dts: imx8ulp-evk: enable usb nodes and add ptn5150 nodes")
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- drivers/resctrl/mpam_devices.c  | 30 ++++++++++++++++++++----------
- drivers/resctrl/mpam_internal.h |  2 ++
- drivers/resctrl/mpam_resctrl.c  |  4 ++--
- 3 files changed, 24 insertions(+), 12 deletions(-)
+ arch/arm64/boot/dts/freescale/imx8ulp-evk.dts | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 41b14344b16f..cf067bf5092e 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -63,6 +63,7 @@ static DEFINE_MUTEX(mpam_cpuhp_state_lock);
-  * Generating traffic outside this range will result in screaming interrupts.
-  */
- u16 mpam_partid_max;
-+u16 mpam_intpartid_max;
- u8 mpam_pmg_max;
- static bool partid_max_init, partid_max_published;
- static DEFINE_SPINLOCK(partid_max_lock);
-@@ -288,10 +289,12 @@ int mpam_register_requestor(u16 partid_max, u8 pmg_max)
- {
- 	guard(spinlock)(&partid_max_lock);
- 	if (!partid_max_init) {
-+		mpam_intpartid_max = partid_max;
- 		mpam_partid_max = partid_max;
- 		mpam_pmg_max = pmg_max;
- 		partid_max_init = true;
- 	} else if (!partid_max_published) {
-+		mpam_intpartid_max = min(mpam_intpartid_max, partid_max);
- 		mpam_partid_max = min(mpam_partid_max, partid_max);
- 		mpam_pmg_max = min(mpam_pmg_max, pmg_max);
- 	} else {
-@@ -931,7 +934,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 		u16 partid_max = FIELD_GET(MPAMF_PARTID_NRW_IDR_INTPARTID_MAX, nrwidr);
- 
- 		mpam_set_feature(mpam_feat_partid_nrw, props);
--		msc->partid_max = min(msc->partid_max, partid_max);
-+		msc->intpartid_max = min(msc->partid_max, partid_max);
-+	} else {
-+		msc->intpartid_max = msc->partid_max;
- 	}
- }
- 
-@@ -995,6 +1000,7 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
- 
- 	spin_lock(&partid_max_lock);
- 	mpam_partid_max = min(mpam_partid_max, msc->partid_max);
-+	mpam_intpartid_max = min(mpam_intpartid_max, msc->intpartid_max);
- 	mpam_pmg_max = min(mpam_pmg_max, msc->pmg_max);
- 	spin_unlock(&partid_max_lock);
- 
-@@ -1711,7 +1717,7 @@ static int mpam_reset_ris(void *arg)
- 		return 0;
- 
- 	spin_lock(&partid_max_lock);
--	partid_max = mpam_partid_max;
-+	partid_max = mpam_intpartid_max;
- 	spin_unlock(&partid_max_lock);
- 	for (partid = 0; partid <= partid_max; partid++)
- 		mpam_reprogram_ris_partid(ris, partid, &reset_cfg);
-@@ -1767,7 +1773,7 @@ static void mpam_reprogram_msc(struct mpam_msc *msc)
- 	struct mpam_write_config_arg arg;
- 
- 	/*
--	 * No lock for mpam_partid_max as partid_max_published has been
-+	 * No lock for mpam_intpartid_max as partid_max_published has been
- 	 * set by mpam_enabled(), so the values can no longer change.
- 	 */
- 	mpam_assert_partid_sizes_fixed();
-@@ -1784,7 +1790,7 @@ static void mpam_reprogram_msc(struct mpam_msc *msc)
- 		arg.comp = ris->vmsc->comp;
- 		arg.ris = ris;
- 		reset = true;
--		for (partid = 0; partid <= mpam_partid_max; partid++) {
-+		for (partid = 0; partid <= mpam_intpartid_max; partid++) {
- 			cfg = &ris->vmsc->comp->cfg[partid];
- 			if (!bitmap_empty(cfg->features, MPAM_FEATURE_LAST))
- 				reset = false;
-@@ -2607,7 +2613,7 @@ static void mpam_reset_component_cfg(struct mpam_component *comp)
- 	if (!comp->cfg)
- 		return;
- 
--	for (i = 0; i <= mpam_partid_max; i++) {
-+	for (i = 0; i <= mpam_intpartid_max; i++) {
- 		comp->cfg[i] = (struct mpam_config) {};
- 		if (cprops->cpbm_wd)
- 			comp->cfg[i].cpbm = GENMASK(cprops->cpbm_wd - 1, 0);
-@@ -2627,7 +2633,7 @@ static int __allocate_component_cfg(struct mpam_component *comp)
- 	if (comp->cfg)
- 		return 0;
- 
--	comp->cfg = kzalloc_objs(*comp->cfg, mpam_partid_max + 1);
-+	comp->cfg = kzalloc_objs(*comp->cfg, mpam_intpartid_max + 1);
- 	if (!comp->cfg)
- 		return -ENOMEM;
- 
-@@ -2694,7 +2700,7 @@ static void mpam_enable_once(void)
- 	int err;
- 
- 	/*
--	 * Once the cpuhp callbacks have been changed, mpam_partid_max can no
-+	 * Once the cpuhp callbacks have been changed, mpam_intpartid_max can no
- 	 * longer change.
- 	 */
- 	spin_lock(&partid_max_lock);
-@@ -2743,9 +2749,13 @@ static void mpam_enable_once(void)
- 	mpam_register_cpuhp_callbacks(mpam_cpu_online, mpam_cpu_offline,
- 				      "mpam:online");
- 
--	/* Use printk() to avoid the pr_fmt adding the function name. */
--	printk(KERN_INFO "MPAM enabled with %u PARTIDs and %u PMGs\n",
--	       mpam_partid_max + 1, mpam_pmg_max + 1);
-+	if (mpam_partid_max == mpam_intpartid_max)
-+		/* Use printk() to avoid the pr_fmt adding the function name. */
-+		printk(KERN_INFO "MPAM enabled with %u PARTIDs and %u PMGs\n",
-+		       mpam_partid_max + 1, mpam_pmg_max + 1);
-+	else
-+		printk(KERN_INFO "MPAM enabled with %u reqPARTIDs, %u intPARTIDs and %u PMGs\n",
-+		       mpam_partid_max + 1, mpam_intpartid_max + 1, mpam_pmg_max + 1);
- }
- 
- static void mpam_reset_component_locked(struct mpam_component *comp)
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index 1914aefdcba9..790a90a5ccd9 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -81,6 +81,7 @@ struct mpam_msc {
- 	 */
- 	struct mutex		probe_lock;
- 	bool			probed;
-+	u16			intpartid_max;
- 	u16			partid_max;
- 	u8			pmg_max;
- 	unsigned long		ris_idxs;
-@@ -452,6 +453,7 @@ extern struct list_head mpam_classes;
- 
- /* System wide partid/pmg values */
- extern u16 mpam_partid_max;
-+extern u16 mpam_intpartid_max;
- extern u8 mpam_pmg_max;
- 
- /* Scheduled work callback to enable mpam once all MSC have been probed */
-diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index 161fb8905e28..5f4364c8101a 100644
---- a/drivers/resctrl/mpam_resctrl.c
-+++ b/drivers/resctrl/mpam_resctrl.c
-@@ -223,7 +223,7 @@ int resctrl_arch_set_cdp_enabled(enum resctrl_res_level rid, bool enable)
- 		mpam_resctrl_controls[RDT_RESOURCE_MBA].resctrl_res.alloc_capable = false;
- 
- 	if (enable) {
--		if (mpam_partid_max < 1)
-+		if (mpam_intpartid_max < 1)
- 			return -EINVAL;
- 
- 		partid_d = resctrl_get_config_index(RESCTRL_RESERVED_CLOSID, CDP_DATA);
-@@ -254,7 +254,7 @@ static bool mpam_resctrl_hide_cdp(enum resctrl_res_level rid)
-  */
- u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)
- {
--	return mpam_partid_max + 1;
-+	return mpam_intpartid_max + 1;
- }
- 
- u32 resctrl_arch_system_num_rmid_idx(void)
+diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
+index 290a49bea2f7..5dea66c1e7aa 100644
+--- a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
+@@ -166,7 +166,7 @@ &lpi2c7 {
+ 	ptn5150_1: typec@1d {
+ 		compatible = "nxp,ptn5150";
+ 		reg = <0x1d>;
+-		int-gpios = <&gpiof 3 IRQ_TYPE_EDGE_FALLING>;
++		int-gpios = <&gpiof 3 GPIO_ACTIVE_LOW>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_typec1>;
+ 		status = "disabled";
+@@ -182,7 +182,7 @@ pcal6408: gpio@21 {
+ 	ptn5150_2: typec@3d {
+ 		compatible = "nxp,ptn5150";
+ 		reg = <0x3d>;
+-		int-gpios = <&gpiof 5 IRQ_TYPE_EDGE_FALLING>;
++		int-gpios = <&gpiof 5 GPIO_ACTIVE_LOW>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_typec2>;
+ 		status = "disabled";
 -- 
-2.25.1
+2.51.0
 
 
