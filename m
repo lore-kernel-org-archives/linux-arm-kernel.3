@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27B78F34C53
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 13:26:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB736F34C55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 13:26:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d/FCVumE/O5C2RSrhSt9KETqu/jcswM9WaZOzdADNjQ=; b=3HFpcFteJb0GidQTWiLlkPr1n2
-	tk4PQm0ur/o7TmglOIC+IyK9iPcb+2uMdHF9luWMtZ/+6wsngK/hljCbGPH2eMAgk4gC6R4JvOah/
-	J7+26KQFzjM5XXqbMzvtk/52ZXRiCs4BTT4l1YPDGoDE2AkaM0moG8Wj6gjzt2bQofMDAY9QlAA1q
-	hYpOYg5yoWT2bKuhqwRH0VVXzIotjbZlTwaxcjHAbW9RU1LxfllnrR3UQLm6lo9aj+S0kJHT+Kea4
-	n17kK+OgjmWKVREUvfiJXlxsTRWmlpGhik7w+FAXnBdtNOUOexfEZF70ZcOAnMFVaBTiaqtIPi9QV
-	DMcsXSlg==;
+	bh=Lr0drAXv6a9U/siAoum2C72I0Kf7N9TKVRu8v95lrJA=; b=48DbcigAPBDfXtBPQMeyTWaw7z
+	ThyI/FBJgbKyW6QdPu61eShPARmuW6DdygjAnLWSdzQG/mnBNJJQu/DAhBbWHg3bQpfOrfavESHus
+	FZ29KxT7XzY9/kFHyaLi7klbbSv+dRJ3L8yL8PEgMYsgtBdpIwvgkDY13m3/Al935tHfWOKAAV0bB
+	jCSKLzrSl16DTxYUrRBcmBVg95QiKqCmJkN0UdpfiVR/fo6u8cmLC0lB+BDIajfyeDzAo0LjzAjti
+	EJ52jxaWTHzm8+ngT18PfinrtNFGQ5Mqh0g2o+SDA2Um8A4gCSfsRPfghMdHxp3OhA1njx5P3Sne7
+	PGVJxrOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCHIx-0000000FjkE-48de;
-	Mon, 13 Apr 2026 13:26:19 +0000
-Received: from mail-m49239.qiye.163.com ([45.254.49.239])
+	id 1wCHIz-0000000FjnT-31ux;
+	Mon, 13 Apr 2026 13:26:21 +0000
+Received: from mail-m49247.qiye.163.com ([45.254.49.247])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCHIp-0000000Fjay-2YqP;
-	Mon, 13 Apr 2026 13:26:12 +0000
+	id 1wCHIr-0000000FjcU-26dV;
+	Mon, 13 Apr 2026 13:26:14 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3a8976aeb;
-	Mon, 13 Apr 2026 21:26:06 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3a8976aed;
+	Mon, 13 Apr 2026 21:26:08 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: andrzej.hajda@intel.com,
 	neil.armstrong@linaro.org,
@@ -61,27 +61,28 @@ Cc: Laurent.pinchart@ideasonboard.com,
 	linux-samsung-soc@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v14 6/8] drm/bridge: analogix_dp: Attach the next bridge in analogix_dp_bridge_attach()
-Date: Mon, 13 Apr 2026 21:25:49 +0800
-Message-Id: <20260413132551.1049307-7-damon.ding@rock-chips.com>
+Subject: [PATCH v14 7/8] drm/bridge: analogix_dp: Remove bridge disabing and panel unpreparing in analogix_dp_unbind()
+Date: Mon, 13 Apr 2026 21:25:50 +0800
+Message-Id: <20260413132551.1049307-8-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260413132551.1049307-1-damon.ding@rock-chips.com>
 References: <20260413132551.1049307-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9d8705549503a3kunmf5e06f40656e6e
+X-HM-Tid: 0a9d87055cc603a3kunmf5e06f40656e72
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkMZQ1ZOSktJT01OGRofSkJWFRQJFh
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUJLT1ZPTh4ZTUNMSEMaQ0hWFRQJFh
 	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
 	1VSktLVUpCWQY+
 DKIM-Signature: a=rsa-sha256;
-	b=Wkw4xb1YzR5FQCk53bzmu8aXfTmwI70t7LR4V0liTETz+gA+IKg4+nL7XktVcWgQASpwL3vs7CI7MUJntTvs+9lKt1+wQG/3FZlN6Ce3Ggz1p85S2/WfuYGx03JcByvAHpG5I3368pjkS5F54jV8YFkN2sqYmkGzsyN61x+visM=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=d/FCVumE/O5C2RSrhSt9KETqu/jcswM9WaZOzdADNjQ=;
+	b=DdURDvYbPoh1Jr0gvygEHROP5G7cHUOGOtSsMWcIjBqclEc1HJ5JIQtpt6/nocrXtFULhn7haH71rFk95aR3/0XYC6Q/3/O3EqROMgMRc9JRGj4KWsyci9x2EHWGiJua+bkdBqZ6K4BFhkGYIbPg3TSpcf+A0x8tNAOsw6iS1Tk=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=Lr0drAXv6a9U/siAoum2C72I0Kf7N9TKVRu8v95lrJA=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_062611_853350_27835977 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20260413_062613_781292_E409F34D 
+X-CRM114-Status: UNSURE (   7.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,10 +97,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Uniformly, move the next bridge attachment to the Analogix side
-rather than scattered on Rockchip and Exynos sides. It can also
-help get rid of the callback &analogix_dp_plat_data.attach() and
-make codes more concise.
+The analogix_dp_unbind() should be balanced with analogix_dp_bind().
+There are no bridge enabling and panel preparing in analogix_dp_bind(),
+so it should be reasonable to remove the bridge disabing and panel
+unpreparing in analogix_dp_unbind().
 
 Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
@@ -108,10 +109,6 @@ Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
 Tested-by: Heiko Stuebner <heiko@sntech.de> # rk3588
 
 ---
-
-Changes in v6:
-- Move the next bridge attachment to the Analogix side rather than
-  scattered on Rockchip and Exynos sides.
 
 Changes in v9:
 - Add Tested-by tag.
@@ -122,79 +119,24 @@ Changes in v11:
 Changes in v13:
 - Modify '(on rk3588)' to '# rk3588' for Tested-by tag.
 ---
- .../drm/bridge/analogix/analogix_dp_core.c    |  7 ++++---
- drivers/gpu/drm/exynos/exynos_dp.c            | 19 -------------------
- include/drm/bridge/analogix_dp.h              |  1 -
- 3 files changed, 4 insertions(+), 23 deletions(-)
+ drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 4 ----
+ 1 file changed, 4 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index 50415a98acb7..85033a8ab146 100644
+index 85033a8ab146..ec56d900f899 100644
 --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
 +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -931,10 +931,11 @@ static int analogix_dp_bridge_attach(struct drm_bridge *bridge,
- 		return -EINVAL;
- 	}
+@@ -1527,10 +1527,6 @@ EXPORT_SYMBOL_GPL(analogix_dp_bind);
  
--	if (dp->plat_data->attach) {
--		ret = dp->plat_data->attach(dp->plat_data, bridge);
-+	if (dp->plat_data->next_bridge) {
-+		ret = drm_bridge_attach(dp->encoder, dp->plat_data->next_bridge, bridge,
-+					DRM_BRIDGE_ATTACH_NO_CONNECTOR);
- 		if (ret) {
--			DRM_ERROR("Failed at platform attach func\n");
-+			dev_err(dp->dev, "failed to attach following panel or bridge (%d)\n", ret);
- 			return ret;
- 		}
- 	}
-diff --git a/drivers/gpu/drm/exynos/exynos_dp.c b/drivers/gpu/drm/exynos/exynos_dp.c
-index 9f3d4d4c7352..6884ea6d04eb 100644
---- a/drivers/gpu/drm/exynos/exynos_dp.c
-+++ b/drivers/gpu/drm/exynos/exynos_dp.c
-@@ -68,24 +68,6 @@ static int exynos_dp_poweroff(struct analogix_dp_plat_data *plat_data)
- 	return exynos_dp_crtc_clock_enable(plat_data, false);
+ void analogix_dp_unbind(struct analogix_dp_device *dp)
+ {
+-	analogix_dp_bridge_disable(&dp->bridge);
+-
+-	drm_panel_unprepare(dp->plat_data->panel);
+-
+ 	drm_dp_aux_unregister(&dp->aux);
  }
- 
--static int exynos_dp_bridge_attach(struct analogix_dp_plat_data *plat_data,
--				   struct drm_bridge *bridge)
--{
--	struct exynos_dp_device *dp = to_dp(plat_data);
--	enum drm_bridge_attach_flags flags = 0;
--	int ret;
--
--	/* Pre-empt DP connector creation if there's a bridge */
--	if (plat_data->next_bridge) {
--		ret = drm_bridge_attach(&dp->encoder, plat_data->next_bridge, bridge,
--					flags | DRM_BRIDGE_ATTACH_NO_CONNECTOR);
--		if (ret)
--			return ret;
--	}
--
--	return 0;
--}
--
- static void exynos_dp_mode_set(struct drm_encoder *encoder,
- 			       struct drm_display_mode *mode,
- 			       struct drm_display_mode *adjusted_mode)
-@@ -196,7 +178,6 @@ static int exynos_dp_probe(struct platform_device *pdev)
- 	dp->plat_data.dev_type = EXYNOS_DP;
- 	dp->plat_data.power_on = exynos_dp_poweron;
- 	dp->plat_data.power_off = exynos_dp_poweroff;
--	dp->plat_data.attach = exynos_dp_bridge_attach;
- 	dp->plat_data.ops = &exynos_dp_ops;
- 
- out:
-diff --git a/include/drm/bridge/analogix_dp.h b/include/drm/bridge/analogix_dp.h
-index bae969dec63a..854af692229b 100644
---- a/include/drm/bridge/analogix_dp.h
-+++ b/include/drm/bridge/analogix_dp.h
-@@ -34,7 +34,6 @@ struct analogix_dp_plat_data {
- 
- 	int (*power_on)(struct analogix_dp_plat_data *);
- 	int (*power_off)(struct analogix_dp_plat_data *);
--	int (*attach)(struct analogix_dp_plat_data *, struct drm_bridge *);
- };
- 
- int analogix_dp_resume(struct analogix_dp_device *dp);
+ EXPORT_SYMBOL_GPL(analogix_dp_unbind);
 -- 
 2.34.1
 
