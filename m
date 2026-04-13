@@ -4,85 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC985E9380C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 02:50:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C151E9380E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 02:58:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KQVkcwEiLCnN6dwxfewA2WuOZTkC+/YHvO/Den3A6Hw=; b=2ngY/Jq+CPfAm4en3AT3Mk/SL2
-	ApObkNj+sICo7C92+NjL9BzzUvP0ImNQM9crpBzeRWVhQwPo1j9/gmotssR6tVacG08R1CZMexLQL
-	+aNPQieoIVPpcMmWK2Rb8gY/1xCFLJn2JPYCG9bBAL0aksj3sIE3qojf2gUGt0Yiu8ZxLOSxaoPxt
-	u2tgjWMT1LRsVtpT1XotNTrcTdGxmXcXA9W8oGn9WcSAsIPPwRPmezyyIrBlzLTDBJBHG2miOah42
-	Jha2RbwOR7FUsExJt1vhaLnQBgJEggRrvaY62DAU3BZVjfdkkqHBw2wN6rGm+yRUetq0uJ7BG/g9m
-	/o7VgoNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QEGzIki+1N8cNLyklAPy6pAGy9378thqjB9kewpojWE=; b=dEcUHDtruJQL18t89/bBS1DAv3
+	Cwwv0CEy/iErGCNW2BYUDyEmN/fnRwcrfAmHKJshmPWYJdSpI6+lnPJtEzsQ0n+m5Ld2Ea9sTrtIl
+	rLxgDl8A1gmNPs6s7iLUeVtQBA0W/kv+i7Z8QzI+lJuQUpNJqXvyCIXzCdYxA/j6MBht4HeDKGq2i
+	6ttkbHZaSwkOZynWeatdc0PWJDCoe18fVCi4xCg4HADsbPyt6IjcL+ehEek/AuFx95KhCXYbNFUpH
+	8iR5s8WWs3oWfWrvcuMP2pSeRE3Z/lOoeij2J/e+9VBV6eXbTEfpaqhV6zIKCPnLEXqHkKujP+hJ+
+	zZrkOdhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wC7Mx-0000000EtmK-0jbl;
-	Mon, 13 Apr 2026 02:49:55 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1wC7Vc-0000000Euks-2b2T;
+	Mon, 13 Apr 2026 02:58:44 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wC7Ln-0000000Et1R-2SNU
+	id 1wC7Va-0000000EukW-0vZO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 02:48:41 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-82a77f807e4so3955622b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 19:48:26 -0700 (PDT)
+	Mon, 13 Apr 2026 02:58:43 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63CE6Z1T2786424
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 02:58:41 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	QEGzIki+1N8cNLyklAPy6pAGy9378thqjB9kewpojWE=; b=XRo9VdKR28FixArj
+	/8Jm/eqTZ66OEQswA1dI5uc2vIzMqk+rXI/syIRcU5ZiKJBFDVoUs1TRG+G21B28
+	zcD65raBcZmy8y58GSdFMxvnNCNoSsWpC0EZezjsapsvsVMy298bhI2PBMtYDWZ2
+	HkF08jidQYHouD92lHLMgY6M/CA+IyUFDOfSHFiZXwYvf6A8Y/oe0+dqZmGrXHiZ
+	/j1sDun/PcD0ZDREssAbWeD2cpHJZ2GhCc4G7UxQsca3pcHXwBodSBuupORKI6W3
+	E8miRuR+41rs7e7CUSiKVDD4y0fYHOjHy8SLbv9o6JFFdsmmKjPlIXr/hfjdRh+t
+	2WlJXg==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dfjbpb5xs-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 02:58:41 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2b24a00d12cso38893075ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 19:58:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1776048505; x=1776653305; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=KQVkcwEiLCnN6dwxfewA2WuOZTkC+/YHvO/Den3A6Hw=;
-        b=LS7dAaGxf2lyU3Bxg8Nkut1NJLXxqCxKpy8OA23VBxGtxgmrgCrFGtgMKdy7Ov7ns+
-         ijlb85qi86lGPDUg9CzKM6ZspJrc2uJp9pK6dgrmtn+m2mFn6x4znbCAvn6f31U64A5W
-         +tItD+LmdUay4yuAjhKXYSownnGH9q+a+p/EhilJVTJimLoXE7xdXU9hKodjuZbfGVqf
-         cGjW8mQgp/cUQQXDtvVLOwEC/ecqeeNLZg0KUMOzoSu3s9uRxMk8qHAQtA4QiSepce6K
-         Yn2f9HifC8dN6mpnFyIubFlQQ5j3k1u458K72VCBXQUVgNbhKY9vABaN0FjHImEAWUx6
-         3XIg==
+        d=oss.qualcomm.com; s=google; t=1776049121; x=1776653921; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=QEGzIki+1N8cNLyklAPy6pAGy9378thqjB9kewpojWE=;
+        b=E5AaSD+j1ONIxEKOWez0FyWBrvhUpS+qNZav3a+b6XM3gEmmw6QKJVlW7T3HQ2W94g
+         6pD2qDvdFyFThE7Lg+3FLYlLAhXOEVWKkOtM2rKEeLxHfYUkPi8ONF10hZgFp4fZ9kP/
+         1AiQ73hmPAu1fyie3FQliCVVd5FKHgzt9AdblBfLwPu0n3IntUWL1uBjqOf+uYMTYX73
+         LNOYSUppeQmYWEDVAabWeNR+5p2hIWG6ROzZ50SoVha6TghfjF3qdB8mxx5ijoD0dENK
+         XZadEGKOdRaNzzUgn+fwTevuWH6iTkHnF1pn6D8652nHpf7062pVwD5j1w6ukXSgWH9m
+         1ruQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776048505; x=1776653305;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KQVkcwEiLCnN6dwxfewA2WuOZTkC+/YHvO/Den3A6Hw=;
-        b=gS+zmO42rhA2YzT6tBF1SBfECCScgbvM6udeblHQYPVh5wLEvZ4h4enDT3SL2P3VAG
-         Q32/mhD3jA9lOEghh1ogAKthfvz+gEZR6s2HsNN5j3ZT0yUaTINL2o4Jr2eRTlpl0fup
-         AE6LJmmEX2LcbpCSv5cLwfSc87U8jNNGZvnAiiu/W1GNaLiUrPfujxPAnumbouwaDMeM
-         vljkXHNnhvpYBIzNU2bg9I4yxhU+53lOcJtEZHKe3fXbPI4xYhhr14e/o089Yra4GIu1
-         PsCMvFQZKZX0WV5Sd9behhsebRdrEJfGCrQo6jWTNp2uAy0OPRo4vKg26uuXtKSD/bm0
-         5BAA==
-X-Forwarded-Encrypted: i=1; AFNElJ8B7c6nKdj420/cX030iCKJqeKNm8l5nXRUzqIrEG95iLXIixPfbxfFPhSBDYplbQBLoxWd9qWt12pLntjFS/Qd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz48wpRnywWiUa6eMZ1l0yDM1RdWrAPWWg0vq0reBY8bRn0d0SV
-	CxK5ENfbljp7JI2/S3K6dBjNdTWDm44/tBOQ+BFoQq3Y8p7+sK90z4c+OpxuT4PG49ZCPesIsJP
-	IAVOARLq78A==
-X-Received: from pfud7.prod.google.com ([2002:a05:6a00:10c7:b0:82f:2efd:4158])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:1888:b0:823:998:95b0
- with SMTP id d2e1a72fcca58-82f0c29e529mr12961253b3a.35.1776048505252; Sun, 12
- Apr 2026 19:48:25 -0700 (PDT)
-Date: Sun, 12 Apr 2026 19:48:05 -0700
-In-Reply-To: <20260413024805.1316480-1-irogers@google.com>
-Mime-Version: 1.0
-References: <advv6twWCEVBo_Hc@x1> <20260413024805.1316480-1-irogers@google.com>
-X-Mailer: git-send-email 2.53.0.1213.gd9a14994de-goog
-Message-ID: <20260413024805.1316480-9-irogers@google.com>
-Subject: [PATCH v4 8/8] perf unwind-libunwind: Add RISC-V libunwind support
-From: Ian Rogers <irogers@google.com>
-To: acme@kernel.org
-Cc: 9erthalion6@gmail.com, adrian.hunter@intel.com, alex@ghiti.fr, 
-	alexander.shishkin@linux.intel.com, andrew.jones@oss.qualcomm.com, 
-	aou@eecs.berkeley.edu, atrajeev@linux.ibm.com, blakejones@google.com, 
-	ctshao@google.com, dapeng1.mi@linux.intel.com, howardchu95@gmail.com, 
-	irogers@google.com, james.clark@linaro.org, john.g.garry@oracle.com, 
-	jolsa@kernel.org, leo.yan@linux.dev, libunwind-devel@nongnu.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	mingo@redhat.com, namhyung@kernel.org, palmer@dabbelt.com, 
-	peterz@infradead.org, pjw@kernel.org, shimin.guo@skydio.com, 
-	tglozar@redhat.com, tmricht@linux.ibm.com, will@kernel.org, yuzhuo@google.com
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20251104; t=1776049121; x=1776653921;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=QEGzIki+1N8cNLyklAPy6pAGy9378thqjB9kewpojWE=;
+        b=cjGr23q/yr1NJzIb6G5WN7Q8qWSNYcz9MUJ1yyeViJp4ybfl7opGeuTxQF7UWR9h/j
+         32bxXBSXIEGk9H1truiv0CmVZirwKOEQbtkhQY/Ejjt1r56EGpsVq7CIMbbKipa46nLo
+         D4GOqVbXHEuDQBAk4ND13KMOXpklqvwFs2Avvulv3wR5ER00M3C2e/fmjY1bTEthONAh
+         QUcuFJnLv8dJrPRxKeE63+NiNK4MBXTys5kSXPenp7A9mY5M+b7Q1SN9Hh99AAyz4kUD
+         aXcirYENK/E+MYDqhlf8VEMCoK4aXyACZ86Qjom8o3s0DAnuv/wGtjRn2hhWxrY6Lcb8
+         qOBw==
+X-Forwarded-Encrypted: i=1; AFNElJ8+9277KpdWoWkNeRl386+yi8jNMzUr5ffWJ+aUjlBoYI4Pym+uok1dV2fzwCtmH2INRnCrCNzVf0KepbAzZlRW@lists.infradead.org
+X-Gm-Message-State: AOJu0YxH9AYodtqhzVX38TRpn6PuMmXYu2FLSYT3Bl6bPANlwkhrWFJ8
+	/p5WUyD4kUk/QrMMbasZr/dmVGciTRiR/peXC6sgCPjbrnUuBIT+P3qCCuighd3Hf/6cn642p4o
+	CJFTOuATiB49XHgjvSRllOpOU/06Ya6fxGEFayBlTANNnrNdwiZsLkW9z1HH8i+IY1ExhTygDT6
+	fYSQ==
+X-Gm-Gg: AeBDiesq8lBJAp1RCTdpogj+yajLHKjm6cIa0u7xHIQlo9oI2ik/Y4VO+HxVvpehA6/
+	QluZ63gjU+eok6oZoZmZ9RYWie49uW2cBgp/hjDTNMEpjne8hSuygGvnm6C6MXSeue8sWonQ0uA
+	2ibAGe29A71GCHCIfX/dVJ/ItXI2R12ZaFJ+vqqd3/wpb+SB2Oxk4f6uc8IRhkRfIworLVZBSXx
+	QBM5IeuDotTkldUBZqCOQj+y1SxylfkStBZXIT3ggSJJduj13xdq20SnB8spd8t5NYhUsuxSMgm
+	H9S0sPR9plEPVZnMu65njxpUwPMMP4BOgPAg5UoRpWOWt7gRlPXX2gGzMr4HiXTBSzDcxeTJkNb
+	t3bCidXvzEUPzVIH+yYeTf6/9tBaDfu4Td6fvywFk1TvyhbJL+3TzFbsuzDuRzDji3ZvxspBTw9
+	bCWYcHiXNRFw==
+X-Received: by 2002:a17:903:1b6c:b0:2ae:c5fc:b2ea with SMTP id d9443c01a7336-2b2d5a387d0mr115078405ad.30.1776049120774;
+        Sun, 12 Apr 2026 19:58:40 -0700 (PDT)
+X-Received: by 2002:a17:903:1b6c:b0:2ae:c5fc:b2ea with SMTP id d9443c01a7336-2b2d5a387d0mr115078205ad.30.1776049120211;
+        Sun, 12 Apr 2026 19:58:40 -0700 (PDT)
+Received: from [10.133.33.35] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b2d4ddb742sm100231215ad.27.2026.04.12.19.58.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 12 Apr 2026 19:58:39 -0700 (PDT)
+Message-ID: <6ed0ee60-caa2-4a76-9e01-5d2b8c9af701@oss.qualcomm.com>
+Date: Mon, 13 Apr 2026 10:58:35 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/5] coresight: etm4x: introduce struct etm4_caps
+To: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: suzuki.poulose@arm.com, mike.leach@arm.com, james.clark@linaro.org,
+        alexander.shishkin@linux.intel.com, leo.yan@arm.com
+References: <20260412175506.412301-1-yeoreum.yun@arm.com>
+ <20260412175506.412301-2-yeoreum.yun@arm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20260412175506.412301-2-yeoreum.yun@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=PuijqQM3 c=1 sm=1 tr=0 ts=69dc5be1 cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=7CQSdrXTAAAA:8 a=s9qJF0ULUEalZJ-qjl0A:9 a=QEXdDO2ut3YA:10
+ a=324X-CrmTo6CU4MGRt3R:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-ORIG-GUID: y49aDBIKZNOxEjE5HBw_G7xCXC4op8Ce
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEzMDAyNCBTYWx0ZWRfX8nJt3Lsp05aV
+ 9YtjC+shxeHIA/a+Ch1Fpc908HJdex/2T3Qz1vMlV+z135tJBezPmQ75vEeOPRKDYKXriy/kMW2
+ B7UeicwP3d/l1b4bfsNfZgQNwTx8EoJ8I9kZ5SLmnr9cMBFE/1RmOJuZS5U9QcxtrfWqJjCAFVm
+ AwXaY42IFH7HSGenoZgyaAbsdV/nvZyP6wvRChepw2GSsKvyuqivsvq5qHeUCTw3Os7aEcMTUhR
+ h+229PtyGkyuhjUqadq/Rc7LCRB8OTDRDM5cGG0okXIRCCMKgKZnv1LMqh+CLawjIiOkwnjpC9j
+ kPqvvDfbe3tugMXbpi5oXC0jYyGUwOZQN05qVv53vPJdUvbS0dauOsHpYDYt3DXf7ZQXu62Ok2V
+ 4l3q9sAC0kuemhPOCXZa4auSDQ9vH1NyyTBawXrTnmBC2C4dUZWoWugO6aGvuSofG+DSxQ91pSQ
+ w4CCg3Bs+GkNNw0EFLA==
+X-Proofpoint-GUID: y49aDBIKZNOxEjE5HBw_G7xCXC4op8Ce
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-13_01,2026-04-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 lowpriorityscore=0 suspectscore=0 spamscore=0 phishscore=0
+ malwarescore=0 clxscore=1015 impostorscore=0 adultscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604010000 definitions=main-2604130024
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260412_194837_439506_A8E34A7F 
-X-CRM114-Status: GOOD (  15.87  )
+X-CRM114-CacheID: sfid-20260412_195842_359011_F0CB352D 
+X-CRM114-Status: GOOD (  30.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,496 +148,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a RISC-V implementation for unwinding.
 
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- tools/perf/util/libunwind-arch/Build          |   1 +
- .../perf/util/libunwind-arch/libunwind-arch.c |  21 ++
- .../perf/util/libunwind-arch/libunwind-arch.h |  22 ++
- .../util/libunwind-arch/libunwind-riscv.c     | 297 ++++++++++++++++++
- 4 files changed, 341 insertions(+)
- create mode 100644 tools/perf/util/libunwind-arch/libunwind-riscv.c
+Hi Yeoreum,
 
-diff --git a/tools/perf/util/libunwind-arch/Build b/tools/perf/util/libunwind-arch/Build
-index 87fd657a3248..80d3571918b1 100644
---- a/tools/perf/util/libunwind-arch/Build
-+++ b/tools/perf/util/libunwind-arch/Build
-@@ -5,6 +5,7 @@ perf-util-$(CONFIG_LIBUNWIND) += libunwind-loongarch.o
- perf-util-$(CONFIG_LIBUNWIND) += libunwind-mips.o
- perf-util-$(CONFIG_LIBUNWIND) += libunwind-ppc32.o
- perf-util-$(CONFIG_LIBUNWIND) += libunwind-ppc64.o
-+perf-util-$(CONFIG_LIBUNWIND) += libunwind-riscv.o
- perf-util-$(CONFIG_LIBUNWIND) += libunwind-s390.o
- perf-util-$(CONFIG_LIBUNWIND) += libunwind-i386.o
- perf-util-$(CONFIG_LIBUNWIND) += libunwind-x86_64.o
-diff --git a/tools/perf/util/libunwind-arch/libunwind-arch.c b/tools/perf/util/libunwind-arch/libunwind-arch.c
-index 8539b4233df4..9a74cf3c8729 100644
---- a/tools/perf/util/libunwind-arch/libunwind-arch.c
-+++ b/tools/perf/util/libunwind-arch/libunwind-arch.c
-@@ -20,6 +20,8 @@ int get_perf_regnum_for_unw_regnum(unsigned int e_machine, int unw_regnum)
- 		return __get_perf_regnum_for_unw_regnum_ppc32(unw_regnum);
- 	case EM_PPC64:
- 		return __get_perf_regnum_for_unw_regnum_ppc64(unw_regnum);
-+	case EM_RISCV:
-+		return __get_perf_regnum_for_unw_regnum_riscv(unw_regnum);
- 	case EM_S390:
- 		return __get_perf_regnum_for_unw_regnum_s390(unw_regnum);
- 	case EM_386:
-@@ -58,6 +60,9 @@ void libunwind_arch__flush_access(struct maps *maps)
- 	case EM_PPC64:
- 		__libunwind_arch__flush_access_ppc64(maps);
- 		break;
-+	case EM_RISCV:
-+		__libunwind_arch__flush_access_riscv(maps);
-+		break;
- 	case EM_S390:
- 		__libunwind_arch__flush_access_s390(maps);
- 		break;
-@@ -98,6 +103,9 @@ void libunwind_arch__finish_access(struct maps *maps)
- 	case EM_PPC64:
- 		__libunwind_arch__finish_access_ppc64(maps);
- 		break;
-+	case EM_RISCV:
-+		__libunwind_arch__finish_access_riscv(maps);
-+		break;
- 	case EM_S390:
- 		__libunwind_arch__finish_access_s390(maps);
- 		break;
-@@ -128,6 +136,8 @@ void *libunwind_arch__create_addr_space(unsigned int e_machine)
- 		return __libunwind_arch__create_addr_space_ppc32();
- 	case EM_PPC64:
- 		return __libunwind_arch__create_addr_space_ppc64();
-+	case EM_RISCV:
-+		return __libunwind_arch__create_addr_space_riscv();
- 	case EM_S390:
- 		return __libunwind_arch__create_addr_space_s390();
- 	case EM_386:
-@@ -167,6 +177,9 @@ int libunwind_arch__dwarf_search_unwind_table(unsigned int e_machine,
- 	case EM_PPC64:
- 		return __libunwind_arch__dwarf_search_unwind_table_ppc64(as, ip, di, pi,
- 									 need_unwind_info, arg);
-+	case EM_RISCV:
-+		return __libunwind_arch__dwarf_search_unwind_table_riscv(as, ip, di, pi,
-+									need_unwind_info, arg);
- 	case EM_S390:
- 		return __libunwind_arch__dwarf_search_unwind_table_s390(as, ip, di, pi,
- 									need_unwind_info, arg);
-@@ -211,6 +224,9 @@ int libunwind_arch__dwarf_find_debug_frame(unsigned int e_machine,
- 	case EM_PPC64:
- 		return __libunwind_arch__dwarf_find_debug_frame_ppc64(found, di_debug, ip, segbase,
- 								      obj_name, start, end);
-+	case EM_RISCV:
-+		return __libunwind_arch__dwarf_find_debug_frame_riscv(found, di_debug, ip, segbase,
-+								     obj_name, start, end);
- 	case EM_S390:
- 		return __libunwind_arch__dwarf_find_debug_frame_s390(found, di_debug, ip, segbase,
- 								     obj_name, start, end);
-@@ -250,6 +266,9 @@ struct unwind_info *libunwind_arch_unwind_info__new(struct thread *thread,
- 	case EM_PPC64:
- 		return __libunwind_arch_unwind_info__new_ppc64(thread, sample, max_stack,
- 							       best_effort, first_ip);
-+	case EM_RISCV:
-+		return __libunwind_arch_unwind_info__new_riscv(thread, sample, max_stack,
-+							      best_effort, first_ip);
- 	case EM_S390:
- 		return __libunwind_arch_unwind_info__new_s390(thread, sample, max_stack,
- 							      best_effort, first_ip);
-@@ -285,6 +304,8 @@ int libunwind_arch__unwind_step(struct unwind_info *ui)
- 		return __libunwind_arch__unwind_step_ppc32(ui);
- 	case EM_PPC64:
- 		return __libunwind_arch__unwind_step_ppc64(ui);
-+	case EM_RISCV:
-+		return __libunwind_arch__unwind_step_riscv(ui);
- 	case EM_S390:
- 		return __libunwind_arch__unwind_step_s390(ui);
- 	case EM_386:
-diff --git a/tools/perf/util/libunwind-arch/libunwind-arch.h b/tools/perf/util/libunwind-arch/libunwind-arch.h
-index 2bf7fc33313b..74a09cd58f38 100644
---- a/tools/perf/util/libunwind-arch/libunwind-arch.h
-+++ b/tools/perf/util/libunwind-arch/libunwind-arch.h
-@@ -39,6 +39,7 @@ int __get_perf_regnum_for_unw_regnum_loongarch(int unw_regnum);
- int __get_perf_regnum_for_unw_regnum_mips(int unw_regnum);
- int __get_perf_regnum_for_unw_regnum_ppc32(int unw_regnum);
- int __get_perf_regnum_for_unw_regnum_ppc64(int unw_regnum);
-+int __get_perf_regnum_for_unw_regnum_riscv(int unw_regnum);
- int __get_perf_regnum_for_unw_regnum_s390(int unw_regnum);
- int __get_perf_regnum_for_unw_regnum_i386(int unw_regnum);
- int __get_perf_regnum_for_unw_regnum_x86_64(int unw_regnum);
-@@ -50,6 +51,7 @@ void __libunwind_arch__flush_access_loongarch(struct maps *maps);
- void __libunwind_arch__flush_access_mips(struct maps *maps);
- void __libunwind_arch__flush_access_ppc32(struct maps *maps);
- void __libunwind_arch__flush_access_ppc64(struct maps *maps);
-+void __libunwind_arch__flush_access_riscv(struct maps *maps);
- void __libunwind_arch__flush_access_s390(struct maps *maps);
- void __libunwind_arch__flush_access_i386(struct maps *maps);
- void __libunwind_arch__flush_access_x86_64(struct maps *maps);
-@@ -61,6 +63,7 @@ void __libunwind_arch__finish_access_loongarch(struct maps *maps);
- void __libunwind_arch__finish_access_mips(struct maps *maps);
- void __libunwind_arch__finish_access_ppc32(struct maps *maps);
- void __libunwind_arch__finish_access_ppc64(struct maps *maps);
-+void __libunwind_arch__finish_access_riscv(struct maps *maps);
- void __libunwind_arch__finish_access_s390(struct maps *maps);
- void __libunwind_arch__finish_access_i386(struct maps *maps);
- void __libunwind_arch__finish_access_x86_64(struct maps *maps);
-@@ -72,6 +75,7 @@ void *__libunwind_arch__create_addr_space_loongarch(void);
- void *__libunwind_arch__create_addr_space_mips(void);
- void *__libunwind_arch__create_addr_space_ppc32(void);
- void *__libunwind_arch__create_addr_space_ppc64(void);
-+void *__libunwind_arch__create_addr_space_riscv(void);
- void *__libunwind_arch__create_addr_space_s390(void);
- void *__libunwind_arch__create_addr_space_i386(void);
- void *__libunwind_arch__create_addr_space_x86_64(void);
-@@ -111,6 +115,11 @@ int __libunwind_arch__dwarf_search_unwind_table_ppc64(void *as, uint64_t ip,
- 						      void *pi,
- 						      int need_unwind_info,
- 						      void *arg);
-+int __libunwind_arch__dwarf_search_unwind_table_riscv(void *as, uint64_t ip,
-+						     struct libarch_unwind__dyn_info *di,
-+						     void *pi,
-+						     int need_unwind_info,
-+						     void *arg);
- int __libunwind_arch__dwarf_search_unwind_table_s390(void *as, uint64_t ip,
- 						     struct libarch_unwind__dyn_info *di,
- 						     void *pi,
-@@ -176,6 +185,13 @@ int __libunwind_arch__dwarf_find_debug_frame_ppc64(int found,
- 						   const char *obj_name,
- 						   uint64_t start,
- 						   uint64_t end);
-+int __libunwind_arch__dwarf_find_debug_frame_riscv(int found,
-+						  struct libarch_unwind__dyn_info *di_debug,
-+						  uint64_t ip,
-+						  uint64_t segbase,
-+						  const char *obj_name,
-+						  uint64_t start,
-+						  uint64_t end);
- int __libunwind_arch__dwarf_find_debug_frame_s390(int found,
- 						  struct libarch_unwind__dyn_info *di_debug,
- 						  uint64_t ip,
-@@ -236,6 +252,11 @@ struct unwind_info *__libunwind_arch_unwind_info__new_ppc64(struct thread *threa
- 							   int max_stack,
- 							   bool best_effort,
- 							uint64_t first_ip);
-+struct unwind_info *__libunwind_arch_unwind_info__new_riscv(struct thread *thread,
-+							struct perf_sample *sample,
-+							   int max_stack,
-+							   bool best_effort,
-+							uint64_t first_ip);
- struct unwind_info *__libunwind_arch_unwind_info__new_s390(struct thread *thread,
- 							struct perf_sample *sample,
- 							   int max_stack,
-@@ -266,6 +287,7 @@ int __libunwind_arch__unwind_step_loongarch(struct unwind_info *ui);
- int __libunwind_arch__unwind_step_mips(struct unwind_info *ui);
- int __libunwind_arch__unwind_step_ppc32(struct unwind_info *ui);
- int __libunwind_arch__unwind_step_ppc64(struct unwind_info *ui);
-+int __libunwind_arch__unwind_step_riscv(struct unwind_info *ui);
- int __libunwind_arch__unwind_step_s390(struct unwind_info *ui);
- int __libunwind_arch__unwind_step_i386(struct unwind_info *ui);
- int __libunwind_arch__unwind_step_x86_64(struct unwind_info *ui);
-diff --git a/tools/perf/util/libunwind-arch/libunwind-riscv.c b/tools/perf/util/libunwind-arch/libunwind-riscv.c
-new file mode 100644
-index 000000000000..a70a2ea96644
---- /dev/null
-+++ b/tools/perf/util/libunwind-arch/libunwind-riscv.c
-@@ -0,0 +1,297 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include "libunwind-arch.h"
-+#include "../debug.h"
-+#include "../maps.h"
-+#include "../thread.h"
-+#include "../../../arch/riscv/include/uapi/asm/perf_regs.h"
-+#include <linux/compiler.h>
-+#include <linux/kernel.h>
-+#include <linux/zalloc.h>
-+#include <elf.h>
-+#include <errno.h>
-+
-+#ifdef HAVE_LIBUNWIND_RISCV_SUPPORT
-+#include <libunwind-riscv.h>
-+#endif
-+
-+int __get_perf_regnum_for_unw_regnum_riscv(int unw_regnum __maybe_unused)
-+{
-+#ifndef HAVE_LIBUNWIND_RISCV_SUPPORT
-+	return -EINVAL;
-+#else
-+	switch (unw_regnum) {
-+	case UNW_RISCV_X1 ... UNW_RISCV_X31:
-+		return unw_regnum - UNW_RISCV_X1 + PERF_REG_RISCV_RA;
-+	case UNW_RISCV_PC:
-+		return PERF_REG_RISCV_PC;
-+	default:
-+		pr_err("unwind: invalid reg id %d\n", unw_regnum);
-+		return -EINVAL;
-+	}
-+#endif // HAVE_LIBUNWIND_RISCV_SUPPORT
-+}
-+
-+void __libunwind_arch__flush_access_riscv(struct maps *maps __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_RISCV_SUPPORT
-+	unw_flush_cache(maps__addr_space(maps), 0, 0);
-+#endif
-+}
-+
-+void __libunwind_arch__finish_access_riscv(struct maps *maps __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_RISCV_SUPPORT
-+	unw_destroy_addr_space(maps__addr_space(maps));
-+#endif
-+}
-+
-+#ifdef HAVE_LIBUNWIND_RISCV_SUPPORT
-+static int find_proc_info(unw_addr_space_t as, unw_word_t ip, unw_proc_info_t *pi,
-+			  int need_unwind_info, void *arg)
-+{
-+	return __libunwind__find_proc_info(as, ip, pi, need_unwind_info, arg, sizeof(unw_word_t));
-+}
-+
-+static void put_unwind_info(unw_addr_space_t __maybe_unused as,
-+			    unw_proc_info_t *pi __maybe_unused,
-+			    void *arg __maybe_unused)
-+{
-+	pr_debug("unwind: put_unwind_info called\n");
-+}
-+
-+static int get_dyn_info_list_addr(unw_addr_space_t __maybe_unused as,
-+				  unw_word_t __maybe_unused *dil_addr,
-+				  void __maybe_unused *arg)
-+{
-+	return -UNW_ENOINFO;
-+}
-+
-+static int access_mem(unw_addr_space_t as, unw_word_t addr, unw_word_t *valp,
-+		      int __write, void *arg)
-+{
-+	return __libunwind__access_mem(as, addr, valp, __write, arg, sizeof(unw_word_t));
-+}
-+
-+static int access_reg(unw_addr_space_t as, unw_regnum_t regnum, unw_word_t *valp,
-+		      int __write, void *arg)
-+{
-+	return __libunwind__access_reg(as, regnum, valp, __write, arg, sizeof(unw_word_t));
-+}
-+
-+static int access_fpreg(unw_addr_space_t __maybe_unused as,
-+			unw_regnum_t __maybe_unused num,
-+			unw_fpreg_t __maybe_unused *val,
-+			int __maybe_unused __write,
-+			void __maybe_unused *arg)
-+{
-+	pr_err("unwind: access_fpreg unsupported\n");
-+	return -UNW_EINVAL;
-+}
-+
-+static int resume(unw_addr_space_t __maybe_unused as,
-+		  unw_cursor_t __maybe_unused *cu,
-+		  void __maybe_unused *arg)
-+{
-+	pr_err("unwind: resume unsupported\n");
-+	return -UNW_EINVAL;
-+}
-+
-+static int get_proc_name(unw_addr_space_t __maybe_unused as,
-+			 unw_word_t __maybe_unused addr,
-+			 char __maybe_unused *bufp, size_t __maybe_unused buf_len,
-+			 unw_word_t __maybe_unused *offp, void __maybe_unused *arg)
-+{
-+	pr_err("unwind: get_proc_name unsupported\n");
-+	return -UNW_EINVAL;
-+}
-+#endif
-+
-+void *__libunwind_arch__create_addr_space_riscv(void)
-+{
-+#ifdef HAVE_LIBUNWIND_RISCV_SUPPORT
-+	static unw_accessors_t accessors = {
-+		.find_proc_info		= find_proc_info,
-+		.put_unwind_info	= put_unwind_info,
-+		.get_dyn_info_list_addr	= get_dyn_info_list_addr,
-+		.access_mem		= access_mem,
-+		.access_reg		= access_reg,
-+		.access_fpreg		= access_fpreg,
-+		.resume			= resume,
-+		.get_proc_name		= get_proc_name,
-+	};
-+	unw_addr_space_t addr_space;
-+
-+	addr_space = unw_create_addr_space(&accessors, /*byte_order=*/0);
-+	unw_set_caching_policy(addr_space, UNW_CACHE_GLOBAL);
-+	return addr_space;
-+#else
-+	return NULL;
-+#endif
-+}
-+
-+#ifdef HAVE_LIBUNWIND_RISCV_SUPPORT
-+extern int UNW_OBJ(dwarf_search_unwind_table) (unw_addr_space_t as,
-+					       unw_word_t ip,
-+					       unw_dyn_info_t *di,
-+					       unw_proc_info_t *pi,
-+					       int need_unwind_info, void *arg);
-+#define dwarf_search_unwind_table UNW_OBJ(dwarf_search_unwind_table)
-+#endif
-+
-+int __libunwind_arch__dwarf_search_unwind_table_riscv(void *as __maybe_unused,
-+						       uint64_t ip __maybe_unused,
-+						       struct libarch_unwind__dyn_info *_di __maybe_unused,
-+						       void *pi __maybe_unused,
-+						       int need_unwind_info __maybe_unused,
-+						       void *arg __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_RISCV_SUPPORT
-+	unw_dyn_info_t di = {
-+		.format     = UNW_INFO_FORMAT_REMOTE_TABLE,
-+		.start_ip   = _di->start_ip,
-+		.end_ip     = _di->end_ip,
-+		.u = {
-+			.rti = {
-+				.segbase    = _di->segbase,
-+				.table_data = _di->table_data,
-+				.table_len  = _di->table_len,
-+			},
-+		},
-+	};
-+	int ret = dwarf_search_unwind_table(as, ip, &di, pi, need_unwind_info, arg);
-+
-+	_di->start_ip = di.start_ip;
-+	_di->end_ip = di.end_ip;
-+	_di->segbase = di.u.rti.segbase;
-+	_di->table_data = di.u.rti.table_data;
-+	_di->table_len = di.u.rti.table_len;
-+	return ret;
-+#else
-+	return -EINVAL;
-+#endif
-+}
-+
-+#if defined(HAVE_LIBUNWIND_RISCV_SUPPORT) && !defined(NO_LIBUNWIND_DEBUG_FRAME_RISCV)
-+extern int UNW_OBJ(dwarf_find_debug_frame) (int found, unw_dyn_info_t *di_debug,
-+					    unw_word_t ip,
-+					    unw_word_t segbase,
-+					    const char *obj_name, unw_word_t start,
-+					    unw_word_t end);
-+#define dwarf_find_debug_frame UNW_OBJ(dwarf_find_debug_frame)
-+#endif
-+
-+int __libunwind_arch__dwarf_find_debug_frame_riscv(int found __maybe_unused,
-+						 struct libarch_unwind__dyn_info *_di __maybe_unused,
-+						 uint64_t ip __maybe_unused,
-+						 uint64_t segbase __maybe_unused,
-+						 const char *obj_name __maybe_unused,
-+						 uint64_t start __maybe_unused,
-+						 uint64_t end __maybe_unused)
-+{
-+#if defined(HAVE_LIBUNWIND_RISCV_SUPPORT) && !defined(NO_LIBUNWIND_DEBUG_FRAME_RISCV)
-+	unw_dyn_info_t di = {
-+		.format     = UNW_INFO_FORMAT_REMOTE_TABLE,
-+		.start_ip   = _di->start_ip,
-+		.end_ip     = _di->end_ip,
-+		.u = {
-+			.rti = {
-+				.segbase    = _di->segbase,
-+				.table_data = _di->table_data,
-+				.table_len  = _di->table_len,
-+			},
-+		},
-+	};
-+	int ret = dwarf_find_debug_frame(found, &di, ip, segbase, obj_name, start, end);
-+
-+	_di->start_ip = di.start_ip;
-+	_di->end_ip = di.end_ip;
-+	_di->segbase = di.u.rti.segbase;
-+	_di->table_data = di.u.rti.table_data;
-+	_di->table_len = di.u.rti.table_len;
-+	return ret;
-+#else
-+	return -EINVAL;
-+#endif
-+}
-+
-+struct unwind_info *__libunwind_arch_unwind_info__new_riscv(struct thread *thread __maybe_unused,
-+							     struct perf_sample *sample  __maybe_unused,
-+							     int max_stack __maybe_unused,
-+							     bool best_effort  __maybe_unused,
-+							     uint64_t first_ip  __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_RISCV_SUPPORT
-+	struct arch_unwind_info {
-+		struct unwind_info ui;
-+		unw_cursor_t _cursor;
-+		uint64_t _ips[];
-+	};
-+
-+	struct maps *maps = thread__maps(thread);
-+	void *addr_space = maps__addr_space(maps);
-+	struct arch_unwind_info *ui;
-+	int ret;
-+
-+	if (addr_space == NULL)
-+		return NULL;
-+
-+	ui = zalloc(sizeof(*ui) + sizeof(ui->_ips[0]) * max_stack);
-+	if (!ui)
-+		return NULL;
-+
-+	ui->ui.machine = maps__machine(maps);
-+	ui->ui.thread = thread;
-+	ui->ui.sample = sample;
-+	ui->ui.cursor = &ui->_cursor;
-+	ui->ui.ips = &ui->_ips[0];
-+	ui->ui.ips[0] = first_ip;
-+	ui->ui.cur_ip = 1;
-+	ui->ui.max_ips = max_stack;
-+	ui->ui.unw_word_t_size = sizeof(unw_word_t);
-+	ui->ui.e_machine = EM_RISCV;
-+	ui->ui.best_effort = best_effort;
-+
-+	ret = unw_init_remote(&ui->_cursor, addr_space, &ui->ui);
-+	if (ret) {
-+		if (!best_effort)
-+			pr_err("libunwind: %s\n", unw_strerror(ret));
-+		free(ui);
-+		return NULL;
-+	}
-+
-+	return &ui->ui;
-+#else
-+	return NULL;
-+#endif
-+}
-+
-+int __libunwind_arch__unwind_step_riscv(struct unwind_info *ui __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_RISCV_SUPPORT
-+	int ret;
-+
-+	if (ui->cur_ip >= ui->max_ips)
-+		return -1;
-+
-+	ret = unw_step(ui->cursor);
-+	if (ret > 0) {
-+		uint64_t ip;
-+
-+		unw_get_reg(ui->cursor, UNW_REG_IP, &ip);
-+
-+		if (unw_is_signal_frame(ui->cursor) <= 0) {
-+			/*
-+			 * Decrement the IP for any non-activation frames. This
-+			 * is required to properly find the srcline for caller
-+			 * frames.  See also the documentation for
-+			 * dwfl_frame_pc(), which this code tries to replicate.
-+			 */
-+			--ip;
-+		}
-+		ui->ips[ui->cur_ip++] = ip;
-+	}
-+	return ret;
-+#else
-+	return -EINVAL;
-+#endif
-+}
--- 
-2.53.0.1213.gd9a14994de-goog
+On 4/13/2026 1:55 AM, Yeoreum Yun wrote:
+> introduce struct etm4_caps to describe ETMv4 capabilities
+> and move capabilities information into it.
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>   .../coresight/coresight-etm4x-core.c          | 234 +++++++++---------
+>   .../coresight/coresight-etm4x-sysfs.c         | 190 ++++++++------
+>   drivers/hwtracing/coresight/coresight-etm4x.h | 175 ++++++-------
+>   3 files changed, 327 insertions(+), 272 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index d565a73f0042..6443f3717b37 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+
+<...>
+
+> +/**
+> + * struct etmv4_caps - specifics ETM capabilities
+> + * @nr_pe:	The number of processing entity available for tracing.
+> + * @nr_pe_cmp:	The number of processing entity comparator inputs that are
+> + *		available for tracing.
+> + * @nr_addr_cmp:Number of pairs of address comparators available
+> + *		as found in ETMIDR4 0-3.
+> + * @nr_cntr:    Number of counters as found in ETMIDR5 bit 28-30.
+> + * @nr_ext_inp: Number of external input.
+> + * @numcidc:	Number of contextID comparators.
+
+@numextinsel:
+
+> + * @numvmidc:	Number of VMID comparators.
+> + * @nrseqstate: The number of sequencer states that are implemented.
+> + * @nr_event:	Indicates how many events the trace unit support.
+> + * @nr_resource:The number of resource selection pairs available for tracing.
+> + * @nr_ss_cmp:	Number of single-shot comparator controls that are available.
+> + * @trcid_size: Indicates the trace ID width.
+> + * @ts_size:	Global timestamp size field.
+> + * @ctxid_size:	Size of the context ID field to consider.
+> + * @vmid_size:	Size of the VM ID comparator to consider.
+> + * @ccsize:	Indicates the size of the cycle counter in bits.
+> + * @ccitmin:	minimum value that can be programmed in
+> + * @s_ex_level:	In secure state, indicates whether instruction tracing is
+> + *		supported for the corresponding Exception level.
+> + * @ns_ex_level:In non-secure state, indicates whether instruction tracing is
+> + *		supported for the corresponding Exception level.
+> + * @q_support:	Q element support characteristics.
+> + * @os_lock_model: OSLock model.
+> + * @instrp0:	Tracing of load and store instructions
+> + *		as P0 elements is supported.
+> + * @q_filt:	Q element filtering support, if Q elements are supported.
+> + * @trcbb:	Indicates if the trace unit supports branch broadcast tracing.
+> + * @trccond:	If the trace unit supports conditional
+> + *		instruction tracing.
+> + * @retstack:	Indicates if the implementation supports a return stack.
+> + * @trccci:	Indicates if the trace unit supports cycle counting
+> + *		for instruction.
+> + * @trc_error:	Whether a trace unit can trace a system
+> + *		error exception.
+> + * @syncpr:	Indicates if an implementation has a fixed
+> + *		synchronization period.
+> + * @stallctl:	If functionality that prevents trace unit buffer overflows
+> + *		is available.
+> + * @sysstall:	Does the system support stall control of the PE?
+> + * @nooverflow:	Indicate if overflow prevention is supported.
+> + * @atbtrig:	If the implementation can support ATB triggers
+> + * @lpoverride:	If the implementation can support low-power state over.
+> + * @skip_power_up: Indicates if an implementation can skip powering up
+> + *		   the trace unit.
+> + */
+> +struct etmv4_caps {
+> +	u8	nr_pe;
+> +	u8	nr_pe_cmp;
+> +	u8	nr_addr_cmp;
+> +	u8	nr_cntr;
+> +	u8	nr_ext_inp;
+> +	u8	numcidc;
+> +	u8	numextinsel;
+
+missed kernel_doc.
+
+Thanks,
+Jie
+
+> +	u8	numvmidc;
+> +	u8	nrseqstate;
+> +	u8	nr_event;
+> +	u8	nr_resource;
+> +	u8	nr_ss_cmp;
+> +	u8	trcid_size;
+> +	u8	ts_size;
+> +	u8	ctxid_size;
+> +	u8	vmid_size;
+> +	u8	ccsize;
+> +	u16	ccitmin;
+> +	u8	s_ex_level;
+> +	u8	ns_ex_level;
+> +	u8	q_support;
+> +	u8	os_lock_model;
+> +	bool	instrp0 : 1;
+> +	bool	q_filt : 1;
+> +	bool	trcbb : 1;
+> +	bool	trccond : 1;
+> +	bool	retstack : 1;
+> +	bool	trccci : 1;
+> +	bool	trc_error : 1;
+> +	bool	syncpr : 1;
+> +	bool	stallctl : 1;
+> +	bool	sysstall : 1;
+> +	bool	nooverflow : 1;
+> +	bool	atbtrig : 1;
+> +	bool	lpoverride : 1;
+> +	bool	skip_power_up : 1;
+> +};
+> +
+>   /**
+>    * struct etmv4_config - configuration information related to an ETMv4
+>    * @mode:	Controls various modes supported by this ETM.
+> @@ -819,8 +907,8 @@ enum etm_impdef_type {
+>    * @cfg:	Controls the tracing options.
+>    * @eventctrl0: Controls the tracing of arbitrary events.
+>    * @eventctrl1: Controls the behavior of the events that @event_ctrl0 selects.
+> - * @stallctl:	If functionality that prevents trace unit buffer overflows
+> - *		is available.
+> + * @stall_ctrl:	Enables trace unit functionality that prevents trace
+> + *		unit buffer overflows.
+>    * @ts_ctrl:	Controls the insertion of global timestamps in the
+>    *		trace streams.
+>    * @syncfreq:	Controls how often trace synchronization requests occur.
+> @@ -971,61 +1059,17 @@ struct etmv4_save_state {
+>    * @mode:	This tracer's mode, i.e sysFS, Perf or disabled.
+>    * @cpu:        The cpu this component is affined to.
+>    * @arch:       ETM architecture version.
+> - * @nr_pe:	The number of processing entity available for tracing.
+> - * @nr_pe_cmp:	The number of processing entity comparator inputs that are
+> - *		available for tracing.
+> - * @nr_addr_cmp:Number of pairs of address comparators available
+> - *		as found in ETMIDR4 0-3.
+> - * @nr_cntr:    Number of counters as found in ETMIDR5 bit 28-30.
+> - * @nr_ext_inp: Number of external input.
+> - * @numcidc:	Number of contextID comparators.
+> - * @numvmidc:	Number of VMID comparators.
+> - * @nrseqstate: The number of sequencer states that are implemented.
+> - * @nr_event:	Indicates how many events the trace unit support.
+> - * @nr_resource:The number of resource selection pairs available for tracing.
+> - * @nr_ss_cmp:	Number of single-shot comparator controls that are available.
+> + * @caps:	ETM capabilities.
+>    * @trcid:	value of the current ID for this component.
+> - * @trcid_size: Indicates the trace ID width.
+> - * @ts_size:	Global timestamp size field.
+> - * @ctxid_size:	Size of the context ID field to consider.
+> - * @vmid_size:	Size of the VM ID comparator to consider.
+> - * @ccsize:	Indicates the size of the cycle counter in bits.
+> - * @ccitmin:	minimum value that can be programmed in
+> - * @s_ex_level:	In secure state, indicates whether instruction tracing is
+> - *		supported for the corresponding Exception level.
+> - * @ns_ex_level:In non-secure state, indicates whether instruction tracing is
+> - *		supported for the corresponding Exception level.
+>    * @sticky_enable: true if ETM base configuration has been done.
+>    * @boot_enable:True if we should start tracing at boot time.
+>    * @os_unlock:  True if access to management registers is allowed.
+> - * @instrp0:	Tracing of load and store instructions
+> - *		as P0 elements is supported.
+> - * @q_filt:	Q element filtering support, if Q elements are supported.
+> - * @trcbb:	Indicates if the trace unit supports branch broadcast tracing.
+> - * @trccond:	If the trace unit supports conditional
+> - *		instruction tracing.
+> - * @retstack:	Indicates if the implementation supports a return stack.
+> - * @trccci:	Indicates if the trace unit supports cycle counting
+> - *		for instruction.
+> - * @q_support:	Q element support characteristics.
+> - * @trc_error:	Whether a trace unit can trace a system
+> - *		error exception.
+> - * @syncpr:	Indicates if an implementation has a fixed
+> - *		synchronization period.
+> - * @stall_ctrl:	Enables trace unit functionality that prevents trace
+> - *		unit buffer overflows.
+> - * @sysstall:	Does the system support stall control of the PE?
+> - * @nooverflow:	Indicate if overflow prevention is supported.
+> - * @atbtrig:	If the implementation can support ATB triggers
+> - * @lpoverride:	If the implementation can support low-power state over.
+>    * @trfcr:	If the CPU supports FEAT_TRF, value of the TRFCR_ELx that
+>    *		allows tracing at all ELs. We don't want to compute this
+>    *		at runtime, due to the additional setting of TRFCR_CX when
+>    *		in EL2. Otherwise, 0.
+>    * @config:	structure holding configuration parameters.
+>    * @save_state:	State to be preserved across power loss
+> - * @skip_power_up: Indicates if an implementation can skip powering up
+> - *		   the trace unit.
+>    * @paused:	Indicates if the trace unit is paused.
+>    * @arch_features: Bitmap of arch features of etmv4 devices.
+>    */
+> @@ -1037,46 +1081,11 @@ struct etmv4_drvdata {
+>   	raw_spinlock_t			spinlock;
+>   	int				cpu;
+>   	u8				arch;
+> -	u8				nr_pe;
+> -	u8				nr_pe_cmp;
+> -	u8				nr_addr_cmp;
+> -	u8				nr_cntr;
+> -	u8				nr_ext_inp;
+> -	u8				numcidc;
+> -	u8				numextinsel;
+> -	u8				numvmidc;
+> -	u8				nrseqstate;
+> -	u8				nr_event;
+> -	u8				nr_resource;
+> -	u8				nr_ss_cmp;
+> +	struct etmv4_caps		caps;
+>   	u8				trcid;
+> -	u8				trcid_size;
+> -	u8				ts_size;
+> -	u8				ctxid_size;
+> -	u8				vmid_size;
+> -	u8				ccsize;
+> -	u16				ccitmin;
+> -	u8				s_ex_level;
+> -	u8				ns_ex_level;
+> -	u8				q_support;
+> -	u8				os_lock_model;
+>   	bool				sticky_enable : 1;
+>   	bool				boot_enable : 1;
+>   	bool				os_unlock : 1;
+> -	bool				instrp0 : 1;
+> -	bool				q_filt : 1;
+> -	bool				trcbb : 1;
+> -	bool				trccond : 1;
+> -	bool				retstack : 1;
+> -	bool				trccci : 1;
+> -	bool				trc_error : 1;
+> -	bool				syncpr : 1;
+> -	bool				stallctl : 1;
+> -	bool				sysstall : 1;
+> -	bool				nooverflow : 1;
+> -	bool				atbtrig : 1;
+> -	bool				lpoverride : 1;
+> -	bool				skip_power_up : 1;
+>   	bool				paused : 1;
+>   	u64				trfcr;
+>   	struct etmv4_config		config;
 
 
