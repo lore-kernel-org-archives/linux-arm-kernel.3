@@ -4,137 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D709DE93805
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 03:00:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07F8CE93805
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 03:08:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GkI4dSza7+hYmnqfpBrsZ+kgGDJBguJz0a0nBnJa1Vg=; b=UBa/41U8+ZZBBOLYaXUfeI7EW0
-	h/wpFA2Q2yL4YFD/YWvQV+oJZYv6JnQTtoGBldCc5bOmNnx1yEW6Rj/oxr3WUKpCN0ekvrTyOSejv
-	AyFmGCf3i1eTtAIc32j8ncKv5wUBfkET/x3DsFj9X1lGK2Z9cQ7MPilUD2qrEyL0S6MMUS1/s0hs9
-	o/gL+p4WJODCkminCKbtTCOE8XBQqLVHJEWz/VKnV9slc9H+Vz3t9w2Wna1cNQfOxClhLnfZOiJHW
-	5Ttayxxs15ujCIKjsZxgPRoQ0NIPJEw3yq9QWHyW9UqHNohIIN3rPBPj60D/Cl3U4c74QuisJ/4g5
-	OVEg4fjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZOKGa8CecIuKFiX5uyolrzMd842bbs4sr76eVhdo3p0=; b=bpcAAwkrGg0DOK7BzEOcxfrywH
+	lxTrKc9Heq7CqjoC99zMIS1T9enCBkMRfeDguCIARZV8BdxFNSf7G6T/s4v3aWfXhypbxLf2knbx2
+	0Vy921GCV9taJZQ3E6/Kplm9ujLDISOR5hCnqqtE5DkjvoFvOkDSuBpWLTwN+XjEfFL27IQd8SxG0
+	GbC0q6zRcxOsBVuMLHYWJqYvMka7r5myQh14SqI3X3kd5yBCqy9Ta3zQrpXGZsmEMVVrKn7pyqp9Q
+	+5ymD+0nucZEmWi7cEQVoE5BbdEUjAsCTKRKI1f2R6y+gvPSHm6BBGvXOwJvbN8OZ2XvXyvDEiBu2
+	vNfF5Arg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wC7Wt-0000000EutC-1RdY;
-	Mon, 13 Apr 2026 03:00:03 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wC7f5-0000000EvDk-21nG;
+	Mon, 13 Apr 2026 03:08:31 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wC7Wo-0000000EusO-1IfS
+	id 1wC7f1-0000000EvDO-3wJz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 03:00:01 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63CJq3F93362382
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 02:59:57 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	GkI4dSza7+hYmnqfpBrsZ+kgGDJBguJz0a0nBnJa1Vg=; b=Fv7mCbNWC3uraU5D
-	R0wV3Wcx0VSdkrI5PIgxmdBs11UZt4NtliJgb0IjyRIuJz3O34+lEit8VNLTmMtv
-	MbLVIXG3tWJlXxF+DxX85FlI8GTjdZDPAkZHaWJjvEH2F7hWbVRAyFPJ2REUdOFU
-	kNH6FbtZ0l/ya1jRj/RkG6gpduYJasGTGhsgXliixtCY0VUjbvDh/GZlzzaYp4cb
-	bsP+ZSRgD9sY1sOVxA0sGzmNV1YiIs4z4/VNqSGwdPBD1Pd1Nw/VVeptxom2thF9
-	dMEi0x7I68Iq3nLz9xf/DcLjh5LQFs6yma4UKycvJzAQ3ZBYj3diPrWtPnoFbDK7
-	GfMEfg==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dfexcuemq-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 02:59:57 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-35845fcf0f5so4048733a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 19:59:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1776049196; x=1776653996; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=GkI4dSza7+hYmnqfpBrsZ+kgGDJBguJz0a0nBnJa1Vg=;
-        b=S4RuG//VP0xEg3g34XkxOadGQxD8sMDxYCvlYzs99hPUAyXW4OTL4qwArXc/YgM7uX
-         VEgzy7XmGlFQvqa7czx+d5IYgJEWNlf+MlLvHUS9/KdlsrwnGTWbykXEBzy0Za+Ahw8L
-         n9EdqpGj8vXNrad7dH6Gn1/mhqubhLuuz0XY7j+CHCtjVayucymFK93o3G2hq/8iKA9S
-         C6wmvrbfMbcq8elyobbq/CSRW30+jgW8BSeyDrsVEqmKCtf6A93z2OBr4pB6z2YiEIws
-         e9V6OXzB/h6KETb+6wpUmZM/b2pzs3SgI/LzoDeicdtJltWDAEGValb0wj0oCo3PcUwW
-         9pbA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776049196; x=1776653996;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=GkI4dSza7+hYmnqfpBrsZ+kgGDJBguJz0a0nBnJa1Vg=;
-        b=CNAmAa5qxva0+VTAEsNxuy/xjj/TvATGJl4apCKVOTmJ+GkX9KWqAoyRhCw3App11r
-         FqC5XmCCnuvTud/iz4kFuvVO4DnzXPdDrAmzMyOmOS+vKkOqxa2nwM2PO70kxiqKTElo
-         pNJXh6YE0p4rlJHRjTjLiDUkIJ27axyR1EwdM24MQ6fK6gyotlMocFxxLlTszhJ6zvXW
-         SeeUDlZuke0RyCQcm8wmmtTsbdGI5trgw/k2q3EcFfPqbQUqXEKxLfmk5B2xlf6yiA25
-         D+rHiUSSQPnCQlP+h2eM0GAKL9rGnNQgQZLLPts3k/t869mdrGZqfcChM0+vbYzjmWEi
-         Dshg==
-X-Forwarded-Encrypted: i=1; AFNElJ+g521qoz91El39RIia3NVU02p42FFvr5+lvZ/JniM0tBYJkX4p2DjEV9W7OfoJG2pKjekZzM4c5wGHm0n1mNa1@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0ayNTEYlbupUzQuFAdjttCtF+0g/nSUNE1w5nl1F/HAUw3Y3+
-	aMrYDZu3qkAxLj/1QJSEk9+SK66GfiCRpffemADxqO7ajApPw7ic8Lkxk1pIk3k65+O6DuY8wlB
-	Q/PQjnc3hwJFswkxn8U7XfREdpfn11Q1/m0pKwPvXR5uF+IBIzGBZBQVhMkGvNnRBL7AjjJHCnC
-	9Lt+iMovcGdj5X
-X-Gm-Gg: AeBDievam/N0fXldgrrql9VXozZh7rOZeBvb7jrl+ND747T3FqAg+0D4rXIwDVQw/1s
-	BTy+287EIuc4IqDliep1YzOshn2VsTMSzREzR2NoUKf7mbrkTNvNxXYMiPhXJPXeO6Iu8xg44yU
-	KaF26+D42HGYSewBfXtKvlQ7nFJtoWH8Rwi8ZlsZOd6f/arGUK2TrYP/QxHlmTDdeIvtl1OtTGZ
-	BML8o2IF4MKi9pZOZ/HHMLNoul6U+0rh6DfReccPCoTVogrXf/1Qs3MMiTExUKg3GN7EIrmERul
-	7N5P0RF2kVTK1BakBHYa4XknvQX6wSzb8w8SApC8WQuEIFxMhYRFZjJFNV0qU1RhpNYalmwVQsw
-	06uaDrQDRpKqmAMm/2naF9xCnwy35OqU4aTY360OHPdbSskZKhZtEsGnNJLkV5C2AH3PCZlZW7T
-	JXpznWiA16kw==
-X-Received: by 2002:a17:90b:2692:b0:35f:b4c1:91ea with SMTP id 98e67ed59e1d1-35fb4c19506mr1897435a91.13.1776049196071;
-        Sun, 12 Apr 2026 19:59:56 -0700 (PDT)
-X-Received: by 2002:a17:90b:2692:b0:35f:b4c1:91ea with SMTP id 98e67ed59e1d1-35fb4c19506mr1897408a91.13.1776049195560;
-        Sun, 12 Apr 2026 19:59:55 -0700 (PDT)
-Received: from [10.133.33.35] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35fb567f63dsm1998851a91.4.2026.04.12.19.59.52
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 12 Apr 2026 19:59:55 -0700 (PDT)
-Message-ID: <f426ea8a-58ac-4d0f-b56c-c21f88eb863d@oss.qualcomm.com>
-Date: Mon, 13 Apr 2026 10:59:51 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/5] coresight: etm4x: exclude ss_status from
- drvdata->config
-To: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: suzuki.poulose@arm.com, mike.leach@arm.com, james.clark@linaro.org,
-        alexander.shishkin@linux.intel.com, leo.yan@arm.com
-References: <20260412175506.412301-1-yeoreum.yun@arm.com>
- <20260412175506.412301-3-yeoreum.yun@arm.com>
+	Mon, 13 Apr 2026 03:08:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QlEX0zbPNyJhgWHMe4z4SFksAEhn1Zbq1NwGgZqzzKt7vMf92Ei0/y2MAHirGOzUerVBs0kWcZg9KMlQB5tjObPXFvS6m1eH4S/EkahRT4AYqCVFWVLc5hUmdhQnjw3Tpl/muK1CSyV/mRsXAkI2nl12gW48VgBGJr6HzsHfnpVZBXHqMLbRan1EDeYvNeKyrbrOVnWBwcgKwclCrEWUYYnvhSyHXKAzmg7rGAu8grvSbrtajvRR5fPIxWlR90Wl8oFAr4U3rtu6ljNXGJUkStM9y5exz0JCuBsoRkOHQIVaKgVnDZCBr/3nGopUyOdFolNseG/6Zw99PkLxLKdYrw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZOKGa8CecIuKFiX5uyolrzMd842bbs4sr76eVhdo3p0=;
+ b=HDSyEU1Z/FQjLE4uhA+fUydjm6hknSQ7OAJmbk/BnH61og83QnuMMrJZ01cKYD0puB8VCH1D11xOLU/mCoDb2aJv6i0CBVl9Vbc+0XtD4phrm0Rl5XvYQrvQj7XyY2xYvxSUbaN34Y+c50HoMZfNcLUvAqqNy8LPDdvQ53Zr75NWCS67uFKOC/juiiMhgRcKqIguT6K98HX7xMBF6+x0fROmJ2uF5clEeCmKUtGw6Rdpxm9QPSmebTj+YkdyVF2IX6h2KXzghYiUlMmZ/VO5zhMjU7OO+EEC/8AY9TA7rVnoFAPEo7M8bK/kf/fGRD0Eyk+K3lzQgEZprFAi2w1EMw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZOKGa8CecIuKFiX5uyolrzMd842bbs4sr76eVhdo3p0=;
+ b=fEmHQ6Lm4mctizkBQwRQ9fGT99URbVqZa7sSsHvpTVdLAWqY9JKz/1BJegWJutnGRU1rR3YalbZgUYj2maqQTLmTIz8y7HOfy72eeHp6nVZOqvWrU9ZnqwPxB5UVkak4d/WN34GKUKzfIxMULyZHSuakKn2iaIKbGOqa8wg0VrYG0eNNsD15+VQOPTksF9DkLlhtcAZkRjwwkDbD/hkE+ulww6rxvF7ZvXhagPPh2fzlRZ/rH1k8K0h8bPQDhJf3nRiFeFybNZkQWHyzWE+0XdaJWOKFF5ah0Bc7iD4QWzPTDIjf3ybBSXeUZgerdD7Z4w7aFgwNoI7KewisHyeZeg==
+Received: from AS8PR04MB8420.eurprd04.prod.outlook.com (2603:10a6:20b:3fd::16)
+ by MIYPR04MB12573.eurprd04.prod.outlook.com (2603:10a6:290:7a::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Mon, 13 Apr
+ 2026 03:08:20 +0000
+Received: from AS8PR04MB8420.eurprd04.prod.outlook.com
+ ([fe80::3f0f:857:96a5:17f]) by AS8PR04MB8420.eurprd04.prod.outlook.com
+ ([fe80::3f0f:857:96a5:17f%6]) with mapi id 15.20.9769.046; Mon, 13 Apr 2026
+ 03:08:20 +0000
+From: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+To: Frank Li <frank.li@nxp.com>
+CC: "ulfh@kernel.org" <ulfh@kernel.org>, "s.hauer@pengutronix.de"
+	<s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>, "linux-pm@vger.kernel.org"
+	<linux-pm@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Xuegang Liu <xuegang.liu@nxp.com>, Jindong
+ Yue <jindong.yue@nxp.com>
+Subject: RE: [PATCH] pmdomain: imx: Make IMX8M/IMX9 BLK_CTRL tristate
+Thread-Topic: [PATCH] pmdomain: imx: Make IMX8M/IMX9 BLK_CTRL tristate
+Thread-Index: AQHcyMxR5yqeo97CDU+xsz/4jCXMMLXan8SAgAGzW3A=
+Date: Mon, 13 Apr 2026 03:08:20 +0000
+Message-ID: <AS8PR04MB84204966B358280D2A89F348EB242@AS8PR04MB8420.eurprd04.prod.outlook.com>
+References: <20260410092735.1065294-1-zhipeng.wang_1@nxp.com>
+ <adrwO8HdZ7d85mEy@lizhi-Precision-Tower-5810>
+In-Reply-To: <adrwO8HdZ7d85mEy@lizhi-Precision-Tower-5810>
+Accept-Language: zh-CN, en-US
 Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20260412175506.412301-3-yeoreum.yun@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEzMDAyNCBTYWx0ZWRfX3BcHXo3HfGfu
- cl+/RQmIKK6joTJeURRbwfYNwE6Uyhmyhko/HlgTM5wFDsMIiMDCo2dxFJ1Z/FZAkm7Uc268g3o
- hggvErVLBSxRsxZULCOWPD2Bu997lfBpyxhWeylNz4mPILwvK6GPv3jGukpk4441xSiXKnZg1o+
- YkGDzwqlzAItZyyXnotc2/xx5EDN+K9sHBGBOgbfJ6JL8H1d/EfmuQyf+CGRLl14qs425junjyy
- B4DSrIkRa74czbBk3n2olEGsW/5igbeJsWJxAVnZe6Zj6VNZODed4a+UEdIpQKbaVeHljPvFGpk
- xHfGdWkjrgXbGtfv3dgaSrlXzG+N7QCQ6ZbDFSut/hohY1jyXzMkiL/2O6kwxJUQkg90w+iSlGK
- Avs+IUWwovI+ch9YcEnN4Q5twvmR96H3ZVsXZ+0wMaJqpM3807xxjvAiVrgfsl7Z6wfzNfCeDqx
- h0IrYUP4gV/XDIXbc7w==
-X-Proofpoint-GUID: 8Z_yLNzUd6YvBJHGE9vDHINfJDFXD_CX
-X-Authority-Analysis: v=2.4 cv=MqliLWae c=1 sm=1 tr=0 ts=69dc5c2d cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
- a=7CQSdrXTAAAA:8 a=BRZUhdLeOCknMCWa-HcA:9 a=QEXdDO2ut3YA:10
- a=mQ_c8vxmzFEMiUWkPHU9:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-ORIG-GUID: 8Z_yLNzUd6YvBJHGE9vDHINfJDFXD_CX
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-13_01,2026-04-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 adultscore=0 priorityscore=1501 phishscore=0 lowpriorityscore=0
- impostorscore=0 bulkscore=0 suspectscore=0 malwarescore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604010000 definitions=main-2604130024
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR04MB8420:EE_|MIYPR04MB12573:EE_
+x-ms-office365-filtering-correlation-id: 0a505a1d-6961-4d8c-9ce5-08de9909eaef
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|19092799006|366016|1800799024|38070700021|18002099003|22082099003|56012099003;
+x-microsoft-antispam-message-info: Str0/hV9koZXNms4NFfYV0ApzvUGrg/EIdHjgmh9MNI7OVVgzIndoVu7H+HHBo6p5nOANX0QiopHSz+ynQhZLK5WQPrGnYGOPEfHYorzvzetsp2PBhNtrYKwGXMuJUdvfs8A1TCBBzbjxhL4TMOaMIn1r3Jzb7M95xjUSwqysrxvpqWnU0lFU4RNc/TqfBRf1K1pfroJkV9kuiLdJDzy9mVO4EaDLR8rNjHCY2vYQcikSfUkSNLI0gdKipP6DPektXO7cESChmWct6QnQqIeuNxc60t3CcJ3J17G91pTvs1pA+AHCnV1HLVPq+FnCKloEWKFi4YdZXjdknH49YumIJ5xppwValnZd45CrCSwn+sfHBdzNwxHiTmDDxvLV3EWyvVq134UD14orULDK28tikY8OrGB1EYdqy0sU/i7KFso9g8Fu2/D0B2pPIIN/wdIBz4Oc8FW4GEl5Pn2GenRLvGvPhbKdpzm1Uynj0LIOCcffJScrrX0Rl2f3ywcaZbo7xCPJ0C019sXtEECbQbEnLmiUCDdUzQcs+yxD/vLc/TGNHTRotKQfFkNhWWTLYNv06rzoext3y4tA13bxZamLIOCopOa9woM99khQRusyM+WjHZ12y4ouIyV+lWpNNN07X1BGFbWUx8acbatwpTnuATuht5eVrtmMB36BqKA3gYsWgMgi4Foxt26P+Jh7iru0hRuyW33r6I3Od+tDN7AGxCZDzwTLcDbYNyUPCnjnahttU9VlgDEolpwvlsrT2+cgIadYFXavq2/cRFHM0tfigRi701KJT3ynniRKZqQ2/w=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8420.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(366016)(1800799024)(38070700021)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?j853+IAYU7DnczOxORUHmbXS0sri2eAW6Hq1S9Xvp/jT6ll3fNekNkZLK9gH?=
+ =?us-ascii?Q?u32zhajQFlgRjFOc1ai5c8yfzT5nuEp2sEy3hxFS+ZQ8AuuMDkhxnnpe3spi?=
+ =?us-ascii?Q?B9BfuK4JRhgiHtW9Fq3JQVCWgn0Tv8FbZs+OXf7Wp+5FLOW5Ryg+TDcaHEpD?=
+ =?us-ascii?Q?G9phwCBGdbzDrDCirUW2VTZma6a2xiS86qghTKv7n6BmT1T7BCmlpwYaylFi?=
+ =?us-ascii?Q?a1p/yBZohLifN3Q2Ale2rDrZvKwcfEhw3MkOdEfPRv2/nxGgDeDyBN6D8EN5?=
+ =?us-ascii?Q?/L3H5s5r1cYjmgL9ENjTLe3W0HRijMOMH+AM/NY6NSuY3mz/eNLKfA0VV/GJ?=
+ =?us-ascii?Q?ads/iJuRmoVZfnhq7NDIsKk8jXXAgi9fwMqs79PCJEnnv65ZPGMk0E14BSe6?=
+ =?us-ascii?Q?ZkP5s1bCRFYbo2PcL/nqotz3JQYlLkP6P8k93NTMqolVKShExfi3PO8EUpha?=
+ =?us-ascii?Q?/Ubh9uFvvFGptmkeADOV+COliR6iGmE1aT6w3zLT8PiXclEGxkD6L1U+g/sG?=
+ =?us-ascii?Q?KQHPCVIU0U94OxY3JIYk/Kg2Dw9Wz/96ihL2zd5wEtHoExEzvUS7c3J8unQF?=
+ =?us-ascii?Q?4h9Axdx/D3J7UchQJN1WuDRUqK+Dd6bw8QwOy8GR7tCmb+dtBWMcwn4GV+7x?=
+ =?us-ascii?Q?pBXoFLYQL9h+rFaMTwo0eKkW2128hvjb0Hsm9OHqlBS6XmEAxNieauN0Inrk?=
+ =?us-ascii?Q?xc+TXt2+1xm3ABTYlkGW7uEiIGTTHp81QO7EmCue18Y9m21q1dzGFeDW63lI?=
+ =?us-ascii?Q?hQSEN/mdUCmWQgbjgM9nSS6H9zR+ZEpfGr3235x04YsVMgPttcbZVpcVE4Re?=
+ =?us-ascii?Q?X0Amqv3XgJLMSJPOPdXrpwBONTpDGbfaRPwgOnl/uEpBWSgh59ZmFlWF8A6E?=
+ =?us-ascii?Q?AuuKILDvY0YD9XQzu2S9fYPI453DwEi8VvNxqAYWn1CM9xben5RB49AKxPiX?=
+ =?us-ascii?Q?dVE0XufKnK0o2dV/OIwOHiFpum+ePhN/3dE79W2jQv0v1Zpu7O748dWJKT8x?=
+ =?us-ascii?Q?wMziME8AL8Xswsx/q3p6pU20yRF3pi/FAYyYbsZGVWydJTwJ7KCc1miY62gd?=
+ =?us-ascii?Q?cRJxOF5pEkRlpg2+cUENawD1fT2Oh3cyYewrkewF5XD+l8wz7jzzXQFmIbHE?=
+ =?us-ascii?Q?MCoCB2ov+4Bw7Cp67gv60LWYl47lBryl5iJ3SOFlir24vIDLuU8ma41qnsbi?=
+ =?us-ascii?Q?vQBteglySvAWcNQzc2J9yz2lREdtOy8PAFN6Kvfha5cGnSBazYe9Bh4iH+/n?=
+ =?us-ascii?Q?eZH+kucRSCFerDlGQNrA7NH9OLQVswa9mYydVeBIKfpor45jkNW9PFyzlHlq?=
+ =?us-ascii?Q?/YPTz9j8egRCkDzkjxH4uEFhM6umZFr5AwhOutnsdCP8VE8f5jCAZJoNVAdP?=
+ =?us-ascii?Q?RBCy+DcT95Zq53+1R/+Br9KkmwU/lgAKRZabLOz6d+PRfceNWNWn01yWS2Fd?=
+ =?us-ascii?Q?qhc6+kvHA/+XChENvk0mszLa0d1ekaPG3x8FLXGE7y5kLpEJ7WmS2Nc6jqWT?=
+ =?us-ascii?Q?9f5lVwUCpSQ2i0RmnG4tJifS1GjK29+yJ6mvETbHib1va819KwnIv9txHM+W?=
+ =?us-ascii?Q?lVER74NIAYThP1YDYs3AxkPOPoBwVeuLPyfFlRbjBY/9BzY0VWsnqCg7yeIg?=
+ =?us-ascii?Q?O0phERKgYH3NvhIsApxiL1q3CUqtzSYB4Tx78Doc9YynNN/TJ42k36yoA0+3?=
+ =?us-ascii?Q?OkYH0uMiRF5ZW12sSSLHVIsjEwdw88BA9k3bXXtwKe+hZEBTsQoNsj+dmZj1?=
+ =?us-ascii?Q?lvyejOzEgg=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8420.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0a505a1d-6961-4d8c-9ce5-08de9909eaef
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Apr 2026 03:08:20.8238
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 5II4NUvsZmG2ghXi1FK79AhN+aLThKAyw3pk7A9w/ObH0IsNU8Dv90eFDejSNN1wpWdArNM9Zzpe9LtPIJ3Rbw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MIYPR04MB12573
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260412_195959_415105_5E6D1096 
-X-CRM114-Status: GOOD (  27.90  )
+X-CRM114-CacheID: sfid-20260412_200828_003526_17FFFF14 
+X-CRM114-Status: GOOD (  21.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,158 +144,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> On Fri, Apr 10, 2026 at 06:27:35PM +0900, Zhipeng Wang wrote:
+> > Convert IMX8M_BLK_CTRL and IMX9_BLK_CTRL from bool to tristate to
+> > allow building as loadable modules.
+> >
+> > Add prompt strings to make these options visible and configurable in
+> > menuconfig, keeping them enabled by default on appropriate platforms.
+> >
+> > Also remove the IMX_GPCV2_PM_DOMAINS dependency from
+> IMX9_BLK_CTRL
+> > since i.MX93 doesn't use GPCv2 power domains.
+>=20
+> Does it cause build failure at GPCv2 platform? Or previous dependency act=
+ually
+> wrong.
+>=20
+> Frank
 
+Hi Frank,
 
-On 4/13/2026 1:55 AM, Yeoreum Yun wrote:
-> The purpose of TRCSSCSRn register is to show status of
-> the corresponding Single-shot Comparator Control and input supports.
-> That means writable field's purpose for reset or restore from idle status
-> not for configuration.
-> 
-> Therefore, exclude ss_status from drvdata->config, move it to etm4x_caps.
-> This includes remove TRCSSCRn from configurable item and
-> remove saving in etm4_disable_hw().
-> 
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> ---
->   .../hwtracing/coresight/coresight-etm4x-cfg.c  |  1 -
->   .../hwtracing/coresight/coresight-etm4x-core.c | 18 +++++-------------
->   .../coresight/coresight-etm4x-sysfs.c          |  7 ++-----
->   drivers/hwtracing/coresight/coresight-etm4x.h  |  3 ++-
->   4 files changed, 9 insertions(+), 20 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> index c302072b293a..d14d7c8a23e5 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> @@ -86,7 +86,6 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
->   		off_mask =  (offset & GENMASK(11, 5));
->   		do {
->   			CHECKREGIDX(TRCSSCCRn(0), ss_ctrl, idx, off_mask);
-> -			CHECKREGIDX(TRCSSCSRn(0), ss_status, idx, off_mask);
->   			CHECKREGIDX(TRCSSPCICRn(0), ss_pe_cmp, idx, off_mask);
->   		} while (0);
->   	} else if ((offset >= TRCCIDCVRn(0)) && (offset <= TRCVMIDCVRn(7))) {
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index 6443f3717b37..8ebfd3924143 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -91,7 +91,7 @@ static bool etm4x_sspcicrn_present(struct etmv4_drvdata *drvdata, int n)
->   	const struct etmv4_caps *caps = &drvdata->caps;
->   
->   	return (n < caps->nr_ss_cmp) && caps->nr_pe &&
-> -	       (drvdata->config.ss_status[n] & TRCSSCSRn_PC);
-> +	       (caps->ss_status[n] & TRCSSCSRn_PC);
->   }
->   
->   u64 etm4x_sysreg_read(u32 offset, bool _relaxed, bool _64bit)
-> @@ -571,11 +571,9 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
->   		etm4x_relaxed_write32(csa, config->res_ctrl[i], TRCRSCTLRn(i));
->   
->   	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> -		/* always clear status bit on restart if using single-shot */
-> -		if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
-> -			config->ss_status[i] &= ~TRCSSCSRn_STATUS;
->   		etm4x_relaxed_write32(csa, config->ss_ctrl[i], TRCSSCCRn(i));
-> -		etm4x_relaxed_write32(csa, config->ss_status[i], TRCSSCSRn(i));
-> +		/* always clear status and pending bits on restart if using single-shot */
-> +		etm4x_relaxed_write32(csa, caps->ss_status[i], TRCSSCSRn(i));
->   		if (etm4x_sspcicrn_present(drvdata, i))
->   			etm4x_relaxed_write32(csa, config->ss_pe_cmp[i], TRCSSPCICRn(i));
->   	}
-> @@ -1053,12 +1051,6 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
->   
->   	etm4_disable_trace_unit(drvdata);
->   
-> -	/* read the status of the single shot comparators */
-> -	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> -		config->ss_status[i] =
-> -			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
-> -	}
-> -
->   	/* read back the current counter values */
->   	for (i = 0; i < caps->nr_cntr; i++) {
->   		config->cntr_val[i] =
-> @@ -1501,8 +1493,8 @@ static void etm4_init_arch_data(void *info)
->   	 */
->   	caps->nr_ss_cmp = FIELD_GET(TRCIDR4_NUMSSCC_MASK, etmidr4);
->   	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> -		drvdata->config.ss_status[i] =
-> -			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
-> +		caps->ss_status[i] = etm4x_relaxed_read32(csa, TRCSSCSRn(i));
-> +		caps->ss_status[i] &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
->   	}
->   	/* NUMCIDC, bits[27:24] number of Context ID comparators for tracing */
->   	caps->numcidc = FIELD_GET(TRCIDR4_NUMCIDC_MASK, etmidr4);
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> index 50408215d1ac..dd62f01674cf 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> @@ -1827,8 +1827,6 @@ static ssize_t sshot_ctrl_store(struct device *dev,
->   	raw_spin_lock(&drvdata->spinlock);
->   	idx = config->ss_idx;
->   	config->ss_ctrl[idx] = FIELD_PREP(TRCSSCCRn_SAC_ARC_RST_MASK, val);
-> -	/* must clear bit 31 in related status register on programming */
-> -	config->ss_status[idx] &= ~TRCSSCSRn_STATUS;
->   	raw_spin_unlock(&drvdata->spinlock);
->   	return size;
->   }
-> @@ -1839,10 +1837,11 @@ static ssize_t sshot_status_show(struct device *dev,
->   {
->   	unsigned long val;
->   	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +	const struct etmv4_caps *caps = &drvdata->caps;
->   	struct etmv4_config *config = &drvdata->config;
->   
->   	raw_spin_lock(&drvdata->spinlock);
-> -	val = config->ss_status[config->ss_idx];
-> +	val = caps->ss_status[config->ss_idx];
->   	raw_spin_unlock(&drvdata->spinlock);
->   	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
->   }
-> @@ -1877,8 +1876,6 @@ static ssize_t sshot_pe_ctrl_store(struct device *dev,
->   	raw_spin_lock(&drvdata->spinlock);
->   	idx = config->ss_idx;
->   	config->ss_pe_cmp[idx] = FIELD_PREP(TRCSSPCICRn_PC_MASK, val);
-> -	/* must clear bit 31 in related status register on programming */
-> -	config->ss_status[idx] &= ~TRCSSCSRn_STATUS;
->   	raw_spin_unlock(&drvdata->spinlock);
->   	return size;
->   }
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-> index 8eebb83fcaeb..3cc1ca76c933 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-> @@ -213,6 +213,7 @@
->   #define TRCACATRn_EXLEVEL_MASK			GENMASK(14, 8)
->   
->   #define TRCSSCSRn_STATUS			BIT(31)
-> +#define TRCSSCSRn_PENDING			BIT(30)
->   #define TRCSSCCRn_SAC_ARC_RST_MASK		GENMASK(24, 0)
->   
->   #define TRCSSPCICRn_PC_MASK			GENMASK(7, 0)
-> @@ -898,6 +899,7 @@ struct etmv4_caps {
->   	bool	atbtrig : 1;
->   	bool	lpoverride : 1;
->   	bool	skip_power_up : 1;
-> +	u32	ss_status[ETM_MAX_SS_CMP];
+The previous dependency was actually wrong. Here's why:
 
-Needs kernel_doc also.
+i.MX93 uses a different power domain architecture compared to i.MX8M series=
+:
 
-Thanks,
-Jie
+- i.MX8M uses GPCv2 (General Power Controller v2) for power domain manageme=
+nt
+- i.MX93 uses BLK_CTRL directly without GPCv2.
 
+The IMXGPCV2PMDOMAINS dependency was likely copied from IMX8MBLKCTRL=20
+configuration when IMX9BLKCTRL was initially added, but it was incorrect=20
+from the beginning since i.MX93 hardware doesn't have GPCv2 at all.
 
->   };
->   
->   /**
-> @@ -976,7 +978,6 @@ struct etmv4_config {
->   	u32				res_ctrl[ETM_MAX_RES_SEL]; /* TRCRSCTLRn */
->   	u8				ss_idx;
->   	u32				ss_ctrl[ETM_MAX_SS_CMP];
-> -	u32				ss_status[ETM_MAX_SS_CMP];
->   	u32				ss_pe_cmp[ETM_MAX_SS_CMP];
->   	u8				addr_idx;
->   	u64				addr_val[ETM_MAX_SINGLE_ADDR_CMP];
+So this patch corrects the Kconfig to match the actual hardware architectur=
+e.
 
+Best regards,
+Zhipeng
+> >
+> > Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+> > ---
+> >  drivers/pmdomain/imx/Kconfig | 11 +++++++----
+> >  1 file changed, 7 insertions(+), 4 deletions(-)
+> >
+> > diff --git a/drivers/pmdomain/imx/Kconfig
+> > b/drivers/pmdomain/imx/Kconfig index 00203615c65e..9168d183b0c5
+> 100644
+> > --- a/drivers/pmdomain/imx/Kconfig
+> > +++ b/drivers/pmdomain/imx/Kconfig
+> > @@ -10,15 +10,18 @@ config IMX_GPCV2_PM_DOMAINS
+> >  	default y if SOC_IMX7D
+> >
+> >  config IMX8M_BLK_CTRL
+> > -	bool
+> > -	default SOC_IMX8M && IMX_GPCV2_PM_DOMAINS
+> > +	tristate "i.MX8M BLK CTRL driver"
+> > +	depends on SOC_IMX8M
+> > +	depends on IMX_GPCV2_PM_DOMAINS
+> >  	depends on PM_GENERIC_DOMAINS
+> >  	depends on COMMON_CLK
+> > +	default y
+> >
+> >  config IMX9_BLK_CTRL
+> > -	bool
+> > -	default SOC_IMX9 && IMX_GPCV2_PM_DOMAINS
+> > +	tristate "i.MX93 BLK CTRL driver"
+> > +	depends on SOC_IMX9
+> >  	depends on PM_GENERIC_DOMAINS
+> > +	default y
+> >
+> >  config IMX_SCU_PD
+> >  	bool "IMX SCU Power Domain driver"
+> > --
+> > 2.34.1
+> >
 
