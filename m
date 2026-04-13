@@ -4,77 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65668F34C4B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 12:28:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEC14F34C4B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 12:29:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AGiehZZNyaMCBy3EGSOGSIxMabypmgMQbg0NvoD0/8w=; b=AG2l04kd2KiPwWzZrEg2+ULmy7
-	2DIR0J8y7qTDMZS7EBr4JLq9Pj+ZRkOhDJhQK4vt7lb4Qs8fMa+yQXSnmwKMYfEccwdltjdVXzagA
-	teV5+qKsUo5qsYiPZi7nzvRuyGZtzZPhVLyc5eR602Iz0mgVZJXyZ+Xf3O0Pv66O+CpekLAbK/jDX
-	AiqfL66mBNb7taMjy2gX/0wkZS47a1b3cBu88RXns6hKlarQXzCC3zCKf4tNu0dYOdeQQSgwDw50T
-	9ImwZUGOJrgn2qpFTgyEZBKQmvemP3KHY5MVwBXEAdSA28CPSYGqp7ZH39v/CQjxZPzP3KnasOVJ2
-	pgkXxQEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Dy7+J3Nmv3CmyBjyZLXnfY++J8xerQl5T/d1Q6AZ1bc=; b=NTvyOnEt/2l1ceA7P/9VOqFt7G
+	qxj0hylsTdjo5bADMUfmU1JXYKqQXBY3q7RhsqMcMHeodZBw5G4hm+b7jTIH6PL513TIlUhVlW3sd
+	lbrtvMWb3PBGSjPgA8fWV2zrzQl33QYhBLT194HWOBQIUS7UhaQVnxX5N5QDlZzT6UzNnMdegKyRf
+	NoWhN+u3pYCeeRttqrcVx7e4HTO0umf/APGBQNIp0Z+JD1yvgmxMA7BuO2FYifZ6q53yG2DirKaGr
+	jkpXP15NvxwG49PyIV/t8mqF+Zkg7g4gnh+xeqje9HVofoTTeNsi4qzLr1aSjU2Vn4fAE1zlTw6mz
+	jeMtLVFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCGPJ-0000000FdsZ-2HPa;
-	Mon, 13 Apr 2026 12:28:49 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1wCGQG-0000000Fe87-2PqU;
+	Mon, 13 Apr 2026 12:29:48 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCGPG-0000000FdqJ-0eo4;
-	Mon, 13 Apr 2026 12:28:47 +0000
-X-UUID: 4e6753ac373411f19e7563141e833ce8-20260413
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=AGiehZZNyaMCBy3EGSOGSIxMabypmgMQbg0NvoD0/8w=;
-	b=RRKx/WZfJ7SHI3ArpakS8EVDOJePhNEbuNjXn4ltuK3/WBeD0JJvQZnIZ0cFok0MASZDNmowdjz7n6XrZTyBVy9uAkkEK39T3C/bR3N7cX2vMm3ybB06ZXWDN9QjLYjtysvyxq/vr6AaBihgN68kLLONNsc6KqiS2qHrG/QLEto=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:503719db-ac68-4a70-be1c-3dc0326e7d94,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:16eb5d8f-6df4-4a3d-a7a4-fbdc42d669ce,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|865|888|898,TC:-5,Content:0|
-	15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 4e6753ac373411f19e7563141e833ce8-20260413
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
-	(envelope-from <chunfeng.yun@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1826340708; Mon, 13 Apr 2026 05:28:41 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Mon, 13 Apr 2026 20:28:39 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Mon, 13 Apr 2026 20:28:38 +0800
-From: Chunfeng Yun <chunfeng.yun@mediatek.com>
-To: Vinod Koul <vkoul@kernel.org>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: Chunfeng Yun <chunfeng.yun@mediatek.com>, Neil Armstrong
-	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias
- Brugger <matthias.bgg@gmail.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, <linux-phy@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v2 RESEND 1/2] dt-bindings: phy: mediatek,xsphy: add property to set disconnect threshold
-Date: Mon, 13 Apr 2026 20:28:35 +0800
-Message-ID: <20260413122836.4848-1-chunfeng.yun@mediatek.com>
-X-Mailer: git-send-email 2.46.0
+	id 1wCGQC-0000000Fe6d-1w16;
+	Mon, 13 Apr 2026 12:29:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Dy7+J3Nmv3CmyBjyZLXnfY++J8xerQl5T/d1Q6AZ1bc=; b=QsVW+pzP/fktEna0S7j0QJmrsJ
+	Sv/GgoChbT8MctDEWJs9+NCQTEW7i8Ofq5fjZY1k7vTrit6euX57QMT32YEozT7MBnsNXJQjOYPr7
+	9XUFtLXPhZuBVoGXuIzfV0kYtDpl7ia5PGW7t7Fv6gaQAKZ5TuaCqVCqg5+BvfsuT4S/pETS75Q0Z
+	O3tPbSqmVt514KwYuB2YO+rHO1umNrJVgOhYuLxNjI9/fwrB0oABm+56snVkVHRhVYKrcBANu7UdH
+	KR8o7nnICXyaVsXXOHEQbcm4eAMizg+7eOdZX3/WFO8KPTHnDISgKXbVM4aoK+CptywUTRPAQ8f+W
+	U9S/D1YQ==;
+Received: from gwsc.sc.usp.br ([143.107.225.16] helo=[172.24.27.208])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1wCGPx-00FOp1-Pk; Mon, 13 Apr 2026 14:29:30 +0200
+Message-ID: <b5ab4741-1300-4a43-b491-2b73e052eed0@igalia.com>
+Date: Mon, 13 Apr 2026 09:29:24 -0300
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] clk: bcm: rpi: Mark VEC clock as CLK_IGNORE_UNUSED
+To: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Mark Brown <broonie@kernel.org>,
+ Maxime Ripard <mripard@kernel.org>, Stefan Wahren <wahrenst@gmx.net>,
+ Dom Cobley <popcornmix@gmail.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>
+Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, kernel-dev@igalia.com
+References: <20260401111416.562279-2-mcanal@igalia.com>
+Content-Language: en-US
+From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+Autocrypt: addr=mcanal@igalia.com; keydata=
+ xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
+ /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
+ gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
+ SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
+ G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
+ AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
+ dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
+ P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
+ O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
+ GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
+ 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
+ FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
+ TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
+ Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
+ 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
+ LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
+ T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
+ wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
+ zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
+ it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
+ Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
+ uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
+ raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
+In-Reply-To: <20260401111416.562279-2-mcanal@igalia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_052846_195467_6F089334 
-X-CRM114-Status: UNSURE (   7.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260413_052944_812553_C64E9D12 
+X-CRM114-Status: GOOD (  16.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,44 +104,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a property to tune usb2 phy's disconnect threshold.
-And add a compatible for mt8196.
+Hi Stephen,
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Chunfeng Yun <chunfeng.yun@mediatek.com>
----
-v2: change property name
----
- Documentation/devicetree/bindings/phy/mediatek,xsphy.yaml | 8 ++++++++
- 1 file changed, 8 insertions(+)
+It would be great to land this patch in the next release together with
+commit 672299736af6 ("clk: bcm: rpi: Manage clock rate in prepare/
+unprepare callbacks"). When possible, could you take a look at it?
 
-diff --git a/Documentation/devicetree/bindings/phy/mediatek,xsphy.yaml b/Documentation/devicetree/bindings/phy/mediatek,xsphy.yaml
-index 0bed847bb4ad..9017a9c93eb9 100644
---- a/Documentation/devicetree/bindings/phy/mediatek,xsphy.yaml
-+++ b/Documentation/devicetree/bindings/phy/mediatek,xsphy.yaml
-@@ -50,6 +50,7 @@ properties:
-           - mediatek,mt3611-xsphy
-           - mediatek,mt3612-xsphy
-           - mediatek,mt7988-xsphy
-+          - mediatek,mt8196-xsphy
-       - const: mediatek,xsphy
- 
-   reg:
-@@ -130,6 +131,13 @@ patternProperties:
-         minimum: 1
-         maximum: 7
- 
-+      mediatek,disconnect-threshold:
-+        description:
-+          The selection of disconnect threshold (U2 phy)
-+        $ref: /schemas/types.yaml#/definitions/uint32
-+        minimum: 1
-+        maximum: 15
-+
-       mediatek,efuse-intr:
-         description:
-           The selection of Internal Resistor (U2/U3 phy)
--- 
-2.45.2
+Best regards,
+- Maíra
+
+On 4/1/26 08:13, Maíra Canal wrote:
+> On Raspberry Pi 3B, the VEC clock is used by the VideoCore firmware
+> display driver, which remains active until the vc4 driver loads and
+> sends NOTIFY_DISPLAY_DONE. If this clock is disabled during boot, a bus
+> lockup happens and the firmware becomes unresponsive, causing a complete
+> system lockup.
+> 
+> Mark the VEC clock with CLK_IGNORE_UNUSED so it survives the unused
+> clock disablement and remains available until the vc4 driver takes over
+> display management.
+> 
+> Fixes: 672299736af6 ("clk: bcm: rpi: Manage clock rate in prepare/unprepare callbacks")
+> Reported-by: Mark Brown <broonie@kernel.org>
+> Signed-off-by: Maíra Canal <mcanal@igalia.com>
+> ---
+>   drivers/clk/bcm/clk-raspberrypi.c | 7 +++++++
+>   1 file changed, 7 insertions(+)
+> 
+> diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-raspberrypi.c
+> index df2d246eb6ef..f1a99de6de4f 100644
+> --- a/drivers/clk/bcm/clk-raspberrypi.c
+> +++ b/drivers/clk/bcm/clk-raspberrypi.c
+> @@ -160,6 +160,13 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+>   	[RPI_FIRMWARE_VEC_CLK_ID] = {
+>   		.export = true,
+>   		.minimize = true,
+> +
+> +		/*
+> +		 * If this clock is disabled during boot, it causes a bus
+> +		 * lockup in RPi 3B. Therefore, make sure it's left enabled
+> +		 * during boot.
+> +		 */
+> +		.flags = CLK_IGNORE_UNUSED,
+>   	},
+>   	[RPI_FIRMWARE_DISP_CLK_ID] = {
+>   		.export = true,
 
 
