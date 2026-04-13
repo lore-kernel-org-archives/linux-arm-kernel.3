@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EAD3F34C5E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 14:58:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88633F34C5E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 14:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6JhUja+jY7Hvs14nTFQKfonq29ce0Ud13IFze0Y80M0=; b=nsF28I3pah0Z2nAa+aEqfVBftO
-	yzbDkKvbWE7ecVG2GQpVtxB8Y2vIpaD1II5oSJ8GLSgbxk4yCd8/JtAoA3A1VgR+zUEgD8o+k9zMa
-	/VMMOOEEZnKgVQEl0x4IaAWaV21RuMaHJpFI2cGWDqqF5uNscM+NL2nwsbI+FrMtPajxvuCWL81jo
-	6dsXFei5SB6LmR+w3GQAM3OEXgNvuMJ9wrOk0nH2FJxytcjlSHDSzwvNfhuu0pM1z6gHxg2JeEvZT
-	XLFpOh1w7grYCqAVPHS3ElxXY02l4JyWdvZsEvRY85JeXk/fcTRdpio+Ni1E26amCA455RfrETD0e
-	X4YPwHjg==;
+	bh=QHJmMDoYWFoM6dwtiiIkEKq+ypH6lIJ3K5+eSUDa5zc=; b=pC+KdisKzM1PCNB9Zdkn4y3uzq
+	/uL0sg1aE+Ooznl5h7GgbZRqXYuru6qKlqkhbEfeNh8lrIJizz8XrmB8OCy4xCk6RwluJztJPRan7
+	Gwh72YwPp/k1aN1eym/Hk8C/hI9sEOdlRo4dWbJyl+YMBREtM880+4A1FrfKOFkoWON/5sne5wolB
+	yUjZPD8JrFBIdy72ETfbw+EVv0XVv/jGHUk3lG53Bq2tepFcVdlRBRnpZteEV1DHPSGjNqq0p5axi
+	CxiU9x5DpW2lro0Ola3nd8xxseBazGtlvnjxF6rYBcGFxIQ7a5tdaBVihkIJC2PdyyUp1ipKYn+y8
+	cxcY7Ksg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCIjc-0000000FuTy-2Cmx;
-	Mon, 13 Apr 2026 14:57:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCIjZ-0000000FuTO-1yAz
+	id 1wCIjr-0000000FuXA-1vGd;
+	Mon, 13 Apr 2026 14:58:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCIjp-0000000FuWb-1R2U
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 14:57:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 32BCE32F9;
-	Mon, 13 Apr 2026 07:57:46 -0700 (PDT)
-Received: from [10.57.62.88] (unknown [10.57.62.88])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CBBE43F641;
-	Mon, 13 Apr 2026 07:57:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776092271; bh=6JhUja+jY7Hvs14nTFQKfonq29ce0Ud13IFze0Y80M0=;
+	Mon, 13 Apr 2026 14:58:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3ADA44430D;
+	Mon, 13 Apr 2026 14:58:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00411C2BCAF;
+	Mon, 13 Apr 2026 14:58:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776092288;
+	bh=c/crgD2cydhjzHPYC0Jib4vZAZ370Vr36kI0vZgqROU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=l6VNZfs0a1qju11zbgRgB8TIewKUGm0YuGrXo3YGW2Ykr8aKPTMCRtDpT1c7RmAOM
-	 Mgj1mtBgLT0dI5YSEbwsqSHB6nV90OLLCu7JIsmSNkSV8m75E7uj7mLaQvzeLRo8LP
-	 lH10czl6YjEmHqbLwsdGW9RTPIeo8XaYIJb232SE=
-Message-ID: <315131b7-237b-4705-ba84-e03a484128da@arm.com>
-Date: Mon, 13 Apr 2026 16:57:43 +0200
+	b=cEnAxJqYidHsfLI5Q5LLp7L+MALVzEAcMA3d9iuNv5vgTUM7vvFiF7GVUN5rZvpgT
+	 7WbICuo5qKFrJoeHZZTcxuoXfEoAmkrNk9Jx5vKuvhQj79sgU8D2tHJGQKevyT+f9d
+	 wu8bUn2qa60JSctaHquVCUHi16ZVyni0ikezYzS7Cd+MFS4xdCTdAXteNmzhI+mTLX
+	 FRgjmc8L/oj86kjGoYd99IzV2K0e2YO9FCJ+cfiLD5YyXIYhX7L3+WsWnOKLz2Tvon
+	 2HjJO6uTXNhqDbXnINlxDA8swy3c1D68c1wtAZT5ZzIMkTJja3MeXKlqZ2rBua+7Rm
+	 CbjCmLtIiy2Wg==
+Message-ID: <c74c0245-7651-4cc8-8550-4b25f662a03e@kernel.org>
+Date: Mon, 13 Apr 2026 09:58:00 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] arm64: mm: Fix rodata=full block mapping support
- for realm guests
-To: Yang Shi <yang@os.amperecomputing.com>,
- Catalin Marinas <catalin.marinas@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
- "David Hildenbrand (Arm)" <david@kernel.org>, Dev Jain <dev.jain@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Jinjiang Tu <tujinjiang@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- "Kalyazin, Nikita" <kalyazin@amazon.co.uk>
-References: <20260330161705.3349825-2-ryan.roberts@arm.com>
- <ac7VD4Z85nS30GCp@arm.com> <ac-W9oNM_O5RTtaf@arm.com>
- <beacee23-c177-47a1-b8b5-743844b617a8@arm.com> <adTPFrlVCEt-hioX@arm.com>
- <bc4a0246-33bb-443e-a885-a31b24d4a022@arm.com> <adTh8d9k3y5ybemL@arm.com>
- <567dff89-9f0f-40a0-ab10-22e061b4faaf@arm.com> <adfDoatH8hj6zN7_@arm.com>
- <07054475-6b07-4b19-a393-cbe037adef8b@os.amperecomputing.com>
- <adfw_hNDsIWwSAIv@arm.com>
- <e4682b9a-9c18-44c5-a892-b12ce4745474@os.amperecomputing.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <e4682b9a-9c18-44c5-a892-b12ce4745474@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH 2/5] ARM: configs: Drop redundant I2C_DESIGNWARE_PLATFORM
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Bjorn Andersson <andersson@kernel.org>, Dmitry Baryshkov <lumag@kernel.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>,
+ Drew Fustini <fustini@kernel.org>, soc@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260412-b4-defconfig-multi-v7-v1-0-e76de035c2df@oss.qualcomm.com>
+ <20260412-b4-defconfig-multi-v7-v1-2-e76de035c2df@oss.qualcomm.com>
+Content-Language: en-US
+From: Dinh Nguyen <dinguyen@kernel.org>
+In-Reply-To: <20260412-b4-defconfig-multi-v7-v1-2-e76de035c2df@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_075753_649676_F2722F33 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20260413_075809_403343_E7C4C5A9 
+X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,59 +81,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/04/2026 01:08, Yang Shi wrote:
-> On 4/9/26 11:33 AM, Catalin Marinas wrote:
->> On Thu, Apr 09, 2026 at 09:48:58AM -0700, Yang Shi wrote:
->>> On 4/9/26 8:20 AM, Catalin Marinas wrote:
->>>> On Thu, Apr 09, 2026 at 11:53:41AM +0200, Kevin Brodsky wrote:
->>>>> What would make more sense to me is to enable the use of
->>>>> BBML2-noabort
->>>>> unconditionally if !force_pte_mapping(). We can then have
->>>>> can_set_direct_map() return true if we have BBML2-noabort, and we no
->>>>> longer need to check it in map_mem().
->>>> Indeed.
->>> I'm trying to wrap up my head for this discussion. IIUC, if none of the
->>> features is enabled, it means we don't need do anything because the
->>> direct
->>> map is not changed. For example, if vmalloc doesn't change direct map
->>> permission when rodata != full, there is no need to call
->>> set_direct_map_*_noflush(). So unconditionally checking
->>> BBML2_NOABORT will
->>> change the behavior unnecessarily. Did I miss something?
->>>
->>> I think the only exception is secretmem if I don't miss something.
->>> Currently, secretmem is actually not supported if none of the
->>> features is
->>> enabled. But BBML2_NOABORT allows to lift the restriction.
->> Yes, it's secretmem only AFAICT. I think execmem will only change the
->> linear map if rodata_full anyway.
->
-> Yes, execmem calls set_memory_rox(), which won't change linear map
-> permission if rodata_full is not enabled.
 
-That is a good point, AFAICT set_direct_map_*_noflush() are only used by
-execmem and secretmem. excmem only modifies the direct map if
-rodata=full, so the proposed change would only be useful for secretmem.
 
-The current situation with execmem is pretty strange: if rodata!=full,
-but another feature is enabled (say kfence), then set_memory_rox() won't
-touch the direct map but we will still use set_direct_map_*_noflush() to
-reset it (directly or via VM_FLUSH_RESET_PERMS). Checking BBML2-noabort
-in can_set_direct_map() would make these unnecessary calls more likely,
-but it doesn't fundamentally change the situation.
+On 4/12/26 12:12, Krzysztof Kozlowski wrote:
+> I2C_DESIGNWARE_PLATFORM is default=y via I2C_DESIGNWARE_CORE, which is
+> enabled.  No impact on include/generated/autoconf.h.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> ---
+>   arch/arm/configs/hisi_defconfig      | 1 -
+>   arch/arm/configs/multi_v7_defconfig  | 1 -
+>   arch/arm/configs/pxa_defconfig       | 1 -
+>   arch/arm/configs/socfpga_defconfig   | 1 -
 
-It's also worth considering the series unmapping parts of the direct map
-for guest_memfd [1], since it gates the use of
-set_direct_map_*_noflush() on can_set_direct_map().
+...
 
-I think it makes complete sense to enable secretmem and the guest_memfd
-use-case if BBML2-noabort is available, regardless of the other
-features. The question is: are we worried about the overhead of
-needlessly calling set_direct_map_*_noflush() for execmem mappings? If
-so, it seems that the right solution is to introduce a new API to check
-whether set_memory_ro() and friends actually modify the direct map or not.
+> diff --git a/arch/arm/configs/socfpga_defconfig b/arch/arm/configs/socfpga_defconfig
+> index f2e42846b116..19a8e30a7b22 100644
+> --- a/arch/arm/configs/socfpga_defconfig
+> +++ b/arch/arm/configs/socfpga_defconfig
 
-- Kevin
-
-[1] https://lore.kernel.org/lkml/20260317141031.514-1-kalyazin@amazon.com/
+Acked-by: Dinh Nguyen <dinguyen@kernel.org>
 
