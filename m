@@ -4,126 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E32EEBFD22
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 09:24:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 850B6EBFD22
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 09:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=++gWQ1SwhCFjmBGRgz/y7dJIShpHiYWMcQltdeeVLx4=; b=ZsajPAou0tgSwE055VMmo2QDjE
-	ALbt45mjCDz1ZFFKw1w1usy7Q6WqwxkMSrmK307Ipf8sGgnx6iK0C6xYrDZhpV5cPJZqcrzeocwtO
-	witmpjaD/7bMsa3BCI424p+GKJG97a2atrG+nidb/GLMjzF7L7nE6AGfesuUf/cd9LY5xeFofbe45
-	8iK8z4xkM5g20thQVrwwX/xHoyVtJiI0dG8Y/God3raikDaZ5FLtpivgNaloU58Cgu0iP79tKW94E
-	YXR1LIJjdnXx5gKxPTMrWJbDMgxuvO5xbdU3ttXqYM57GjrlGqPzkPTYYTDcBlekBKKgOAwCk+voq
-	xBUQwyfA==;
+	bh=LyTRrutYnATzApAeFIWft4RRx7gSZRf923LkUajEI58=; b=uL77DJ9JFcUgW5uYR6DYde1+z6
+	pUm72pQ0nl+hsVX5/8AlM0A8eG5ysBwmS+8aZWE4RT0nZqx7v0/Xl/SEL08bMHq8pA/XEUhkNqxTd
+	axqsfN46IXxmBnvFbmg8M2Z3ymFDJHMAn9LpkOFD/BeEXSKm9kLaduqNKzVIstjBZggCkn3a+r4bB
+	DbUUi0o6h4R6viib4kDTWAyQuF4TY51+JzPR2wooerKuNIOOar1xGduezqtza7FxHL5T0z5wRPfKQ
+	fIkFRl+0zHOvSW3O2vjfi7Tu16HBLg6D6Dj7Khb0C9sRS9aKX5E0UcxsYixET8QBrC4ePiVxJ1J3S
+	A8JDZIyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCDXH-0000000FMjS-0yvf;
-	Mon, 13 Apr 2026 09:24:51 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wCDYY-0000000FMsX-1syf;
+	Mon, 13 Apr 2026 09:26:10 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCDXE-0000000FMif-2PDX
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 09:24:49 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-488a29e6110so45624335e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 02:24:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1776072287; x=1776677087; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=++gWQ1SwhCFjmBGRgz/y7dJIShpHiYWMcQltdeeVLx4=;
-        b=pNxykhnCzeV0c/bparxk0Dn6/Q4UGcCfs+iE+U2lpnhZpvHRw71+YJgJ3Whoo+XfUb
-         kj9K3wGc+gF3ta1TPH9Z30drb3yDpwS79AoXVDjQwih0hiTY0yZLNin8t81H5ATscys+
-         dzP+H+qAJAtRokq7i+WwJoQJdIaTXpLVZRmh3EOLssPB+qDKtg0wY+4gqv6Wr10+u3QI
-         3ZibqNHVEHBO6Ik/+f3AatV2lIG4EeiRTlxIovGKrwxc/yRmUMurCbQA9rEWCGyR6Q5j
-         fIYDusyciEU2Yy1ma+eYFM2Zx2Hl+SlBYPF2d9nIxFz3AKClduqasPStZAomNbSfFOUs
-         TkHA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776072287; x=1776677087;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=++gWQ1SwhCFjmBGRgz/y7dJIShpHiYWMcQltdeeVLx4=;
-        b=fySABY//WZTZ2tEJCiEww8NyQPA+iizC9I+pd+C+/Gswae+OsMN6Wk3vBBjIZ3lmwA
-         yr/n7JtcXfYs9OxqPP3jL/4cnT43Zm4bySqRQ5q1h0Ss1YMoi8wtwZ8W6zX+eCqyUkFd
-         91XsfPfInUDrVKzbDpo5Heq35QULUYjtnzU9PnVUdD/nSCzHWQhkjngnMGnvaOE4UHZd
-         7WdVOrXl9n24OHB+fcCiS90pN5gmetyitG76XysJN2+HlwCaGlTvMZgstUA8808A2npb
-         2tzzscziuhz+Vt+yWFKJqu7qw0G+KN+sWpIMCHWAP0OQT1b5p+MzbNXvVM8mKWRgSVWm
-         rlbA==
-X-Forwarded-Encrypted: i=1; AFNElJ8Z53mGWIvspYT8LnPVMq/luihOFfsX9c0OId35mdLbkwACZF/Jg3fYhEcNxp5F/3dAerDpjLbKm2h69kQxxjZJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRqN/iFOTsZ+n7soQZy7ubn1T9lzBdVo4AgTXPg/Jh9KH1XvAO
-	stlEHXMh7PS05J0nqXM9yARcwlOLfuh6pOTxqrnLcOCcQHXgc2b4ocm3LPSIMChrzVI=
-X-Gm-Gg: AeBDietDiKlBbPQClCXQBAnwpaDnUOkt/loIkbmrBRQRZ2rBaZ0Q0DVB85vw26GTopQ
-	II4jssJXgAHDmRO9pxBS7UMSt5j61wWXCdKjbn2o/uwfGk1GlYZI4jCTrZwkCkHV+d/IivmED8g
-	mKFCGFDCsPKAxq/v6oUmgT7MAnyQs19BfEecLOTbmHZ1udQxCYF2OnVcEfhiUQcdJ9vheFlQKxE
-	x1TkardiKA6/cHQfjJj6oalHugR6e8DFFg5E1L5EgTpwMJ2SFWdW09FxBL2/eVseccXY+GB2ng6
-	XWU0GoD3k84l6VW98mVTSWj4HDfcITyWWxCUbsZQybaDDt+vd2ag3FSuK1kfCXkz4OGq0ghxRpL
-	lksQ5cqwqvMThEoTInw45K09v2li3x3CkAid1XO8Pw1udUm84MY0gzja8ekB+pU0bnsh/yvOKAJ
-	p/1NuKRs67VTT8tLcqOzwDxYAYSbnbkig9YurrB08bp3SUgAlymYiDjE4W5MKef7oDDPD+W0bU7
-	rJFbJ+D
-X-Received: by 2002:a05:600c:5292:b0:486:fe39:28b7 with SMTP id 5b1f17b1804b1-488d67fa48emr177471465e9.9.1776072286480;
-        Mon, 13 Apr 2026 02:24:46 -0700 (PDT)
-Received: from ?IPV6:2a01:cb1c:fcf:4600:4cfb:7427:8a08:9d25? ([2a01:cb1c:fcf:4600:4cfb:7427:8a08:9d25])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488d531f229sm373689155e9.3.2026.04.13.02.24.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Apr 2026 02:24:46 -0700 (PDT)
-Message-ID: <3a08bb84-b313-4b3b-bb61-1b686226e902@linaro.org>
-Date: Mon, 13 Apr 2026 11:24:45 +0200
+	id 1wCDYX-0000000FMsN-1ZBY;
+	Mon, 13 Apr 2026 09:26:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=LyTRrutYnATzApAeFIWft4RRx7gSZRf923LkUajEI58=; b=kWxfZceAeGE186Qa4l2ZBwxRM9
+	wYy3LecGINJNL+4t53FjWIRNCdgFl1z8ZNpXZJiHYwdOSOA1TwjA/THTHp1HiKhXjXkbe80ac0B9E
+	cKzdtl7liyvgW3RL8bqDYzqHcdWwLL7b14Th/F3On7r0cyVJo1l6wN/cDdPBAZ82LLFyItYs1ukrt
+	rJ4E+/26GD9k2QfG2VlbREKaQFNfDJZt03sY9IHPuiW90klJjpxDxsP8OrwtUe4AmPwG45dsm0XN7
+	FlJH5oTrE1azJJyM8CKHS/S/g2v1fvAkPgbcra4RrnfsKJb2N0U3chRV3qp/x7rtJ9OlduVwKBF20
+	vVMY+x/A==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCDYS-0000000GUa6-42J4;
+	Mon, 13 Apr 2026 09:26:07 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 63D9ND4z83976123, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1776072193; bh=LyTRrutYnATzApAeFIWft4RRx7gSZRf923LkUajEI58=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=QUOwRZ03s5JS1wgUz5eQ7+cw0w7zUStWcsVSVzMw5mnwen6pHeIyiVQ8pi5NdXGFb
+	 B24djn7qgmar6G18riwNisBfCLvaLOotjWEsHRrrYfCWRS0AZOR3bOBcEDbukNrGqf
+	 Osr1gZzLTfDlpNpLI/F+nA+HwzwTDsQjv2pGmOAAY1FU47amqCbkFDTXpqYtdoqw5q
+	 tpoYLUYM1LmrgYjUotV3BkcVj0nuLMhJa8H3T+z81vbs4omCn5W+LRKLG5um0cbgUy
+	 vw5BKPdO8n+nwjoWVJrhF+OCk1K9s3JlJEHTRok1E8cBX7FI2qulm8TfqmVMTIOYuL
+	 wIAAE0nAROopg==
+Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
+	by rtits2.realtek.com.tw (8.15.2/3.26/5.94) with ESMTPS id 63D9ND4z83976123
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 13 Apr 2026 17:23:13 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Mon, 13 Apr 2026 17:23:13 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([fe80::ed72:3015:2840:4458]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::ed72:3015:2840:4458%10]) with mapi id
+ 15.02.1748.010; Mon, 13 Apr 2026 17:23:13 +0800
+From: =?utf-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        Linus Walleij
+	<linusw@kernel.org>,
+        =?utf-8?B?QW5kcmVhcyBGw6RyYmVy?= <afaerber@suse.de>
+CC: "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        Andrew Jeffery
+	<andrew@codeconstruct.com.au>,
+        "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>,
+        "openbmc@lists.ozlabs.org"
+	<openbmc@lists.ozlabs.org>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        Joel Stanley <joel@jms.id.au>,
+        "linux-realtek-soc@lists.infradead.org"
+	<linux-realtek-soc@lists.infradead.org>,
+        =?utf-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?= <james.tai@realtek.com>
+Subject: RE: [PATCH 4/4] ARM: realtek: MAINTAINERS: Include pin controller
+ drivers
+Thread-Topic: [PATCH 4/4] ARM: realtek: MAINTAINERS: Include pin controller
+ drivers
+Thread-Index: AQHcyOquo2WiRIDaMEumOWsAJK/C+LXctDBA
+Date: Mon, 13 Apr 2026 09:23:13 +0000
+Message-ID: <45866135c8a54e1d98cac51932ca8e1a@realtek.com>
+References: <20260410-pinctrl-testing-v1-0-6f708c855867@oss.qualcomm.com>
+ <20260410-pinctrl-testing-v1-4-6f708c855867@oss.qualcomm.com>
+In-Reply-To: <20260410-pinctrl-testing-v1-4-6f708c855867@oss.qualcomm.com>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+x-originating-ip: [172.21.6.42]
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH 2/4] soc: amlogic: clk-measure: Add A1 and T7 support
-To: Krzysztof Kozlowski <krzk@kernel.org>, Jian Hu <jian.hu@amlogic.com>,
- Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>,
- Michael Turquette <mturquette@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- robh+dt <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>
-Cc: devicetree <devicetree@vger.kernel.org>,
- linux-amlogic <linux-amlogic@lists.infradead.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
-References: <20260410100329.3167482-1-jian.hu@amlogic.com>
- <20260410100329.3167482-3-jian.hu@amlogic.com>
- <9a4f69e7-838a-4992-af1d-46324e14eb48@kernel.org>
- <274d2abd-05b9-4dbd-b962-ff70044b8d07@amlogic.com>
- <b0d81181-d4a4-4c03-8c26-c7f6e8cde70f@kernel.org>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <b0d81181-d4a4-4c03-8c26-c7f6e8cde70f@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_022448_685454_8A119C40 
-X-CRM114-Status: GOOD (  16.94  )
+X-CRM114-CacheID: sfid-20260413_102605_721919_4830B914 
+X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,75 +111,26 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/13/26 11:10, Krzysztof Kozlowski wrote:
-> On 13/04/2026 10:21, Jian Hu wrote:
->>
->> On 4/12/2026 5:55 PM, Krzysztof Kozlowski wrote:
->>> [ EXTERNAL EMAIL ]
->>>
->>> On 10/04/2026 12:03, Jian Hu wrote:
->>>> Add support for the A1 and T7 SoC family in amlogic clk measure.
->>>>
->>>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
->>>> ---
->>>>    drivers/soc/amlogic/meson-clk-measure.c | 272 ++++++++++++++++++++++++
->>>>    1 file changed, 272 insertions(+)
->>>>
->>>> diff --git a/drivers/soc/amlogic/meson-clk-measure.c b/drivers/soc/amlogic/meson-clk-measure.c
->>>> index d862e30a244e..083524671b76 100644
->>>> --- a/drivers/soc/amlogic/meson-clk-measure.c
->>>> +++ b/drivers/soc/amlogic/meson-clk-measure.c
->>>> @@ -787,6 +787,258 @@ static const struct meson_msr_id clk_msr_s4[] = {
->>>>
->>>>    };
->>>>
->>>> +static struct meson_msr_id clk_msr_a1[] = {
->>> And existing code uses what sort of array? Seems you send us obsolete or
->>> downstream code.
->>
->>
->> Thanks for your review.
->>
->>
->> I have checked the previous Amlogic SoC's commits. Such as Amlogic AXG,
->> G12A, C3, S4.
->>
->> The clk_msr_xx entry is added after last SoC's array, sorted by
->> submissin date rather than alphabetical order.
->>
->> So I place A1 and T7 after S4 accordingly.
->>
->>
->> The A1 clock controller driver was already supported in
->> https://lore.kernel.org/all/20230523135351.19133-7-ddrokosov@sberdevices.ru/
->>
->> It is also present in the mainline kernel:
->> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/clk/meson/Kconfig#n113
->>
->>
->> This clock measure IP is used to measure the internal clock paths
->> frequencies,  and A1 clock controller driver was supported.
->>
->> Since the corresponding clock measure driver does not support A1 yet, So
->> add A1 clk msr here.
-> 
-> No, what qualifiers or keywords are used for existing arrays? IOW,
-> please investigate and understand why you are doing this very different
-> than existing code. Maybe because you sent us downstream, so you
-> replicated all other downstream issues.
-
-I see, the existing uses "static const struct".
-
-Jian, could to switch to that please ?
-
-Neil
-
-> 
-> Best regards,
-> Krzysztof
-
+PiBObyBkZWRpY2F0ZWQgbWFpbnRhaW5lcnMgYXJlIHNob3duIGZvciBSZWFsdGVrIFNvQyBwaW4g
+Y29udHJvbGxlcnMsIGV4Y2VwdA0KPiBwaW5jdHJsIHN1YnN5c3RlbSBtYWludGFpbmVyLCB3aGlj
+aCBtZWFucyByZWR1Y2VkIHJldmlldyBhbmQgaW1wcmVzc2lvbiBvZg0KPiBhYmFuZG9uZWQgZHJp
+dmVycy4gIFBpbiBjb250cm9sbGVyIGRyaXZlcnMgYXJlIGVzc2VudGlhbCBwYXJ0IG9mIGFuIFNv
+Qywgc28gaW4NCj4gY2FzZSBvZiBsYWNrIG9mIGRlZGljYXRlZCBlbnRyeSBhdCBsZWFzdCBjb3Zl
+ciBpdCBieSB0aGUgU29DIHBsYXRmb3JtDQo+IG1haW50YWluZXJzLg0KPiANCj4gU2lnbmVkLW9m
+Zi1ieTogS3J6eXN6dG9mIEtvemxvd3NraSA8a3J6eXN6dG9mLmtvemxvd3NraUBvc3MucXVhbGNv
+bW0uY29tPg0KPiANCj4gLS0tDQo+IA0KPiBUaGlzIHBhdGNoIHNob3VsZCBnbyB2aWEgUmVhbHRl
+ayBTb0MgbWFpbnRhaW5lcnMsIG5vdCBwaW5jdHJsLg0KPiAtLS0NCj4gIE1BSU5UQUlORVJTIHwg
+MSArDQo+ICAxIGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKykNCj4gDQo+IGRpZmYgLS1naXQg
+YS9NQUlOVEFJTkVSUyBiL01BSU5UQUlORVJTDQo+IGluZGV4IDEwZDEyYjUxYjFmNi4uMzc0Y2U1
+NWU0ZmI2IDEwMDY0NA0KPiAtLS0gYS9NQUlOVEFJTkVSUw0KPiArKysgYi9NQUlOVEFJTkVSUw0K
+PiBAQCAtMzM3Myw2ICszMzczLDcgQEAgRjoNCj4gRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2Jp
+bmRpbmdzL2FybS9yZWFsdGVrLnlhbWwNCj4gIEY6ICAgICBhcmNoL2FybS9ib290L2R0cy9yZWFs
+dGVrLw0KPiAgRjogICAgIGFyY2gvYXJtL21hY2gtcmVhbHRlay8NCj4gIEY6ICAgICBhcmNoL2Fy
+bTY0L2Jvb3QvZHRzL3JlYWx0ZWsvDQo+ICtGOiAgICAgZHJpdmVycy9waW5jdHJsL3JlYWx0ZWsv
+DQo+IA0KPiAgQVJNL1JJU0MtVi9SRU5FU0FTIEFSQ0hJVEVDVFVSRQ0KPiAgTTogICAgIEdlZXJ0
+IFV5dHRlcmhvZXZlbiA8Z2VlcnQrcmVuZXNhc0BnbGlkZXIuYmU+DQo+IA0KPiAtLQ0KPiAyLjUx
+LjANCg0KQWNrZWQtYnk6IFl1LUNodW4gTGluIDxlbGVhbm9yLmxpbkByZWFsdGVrLmNvbT4NCg==
 
