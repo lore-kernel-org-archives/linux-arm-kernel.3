@@ -4,57 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1927BEBFD20
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 09:09:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6422EBFD21
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 09:10:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KC6dxzPJzSoOcSCJVqq11wychYpZ+3EGcMmhK7tFY3E=; b=AhPetyObhSzoErNggNDAp9CTdD
-	iUBtaaYSr+oZqAX9eKjnzXDVJ4HpPNLJGorjbmsyrRd/BfmKQJ954h+6MyjfOCeHGis71Vund02kI
-	rScKn/4j8WvxlYTYFdJvSEoNbL5DiH7wpExM4fHxTS1kJMEcK7zXGnuAx1DG7fr3547n0j7HJcyH1
-	PtKoAKJECQ0XZGFqIvUQuqoiAt725FCb8bhkYFHvXlS8rvMYNtpXveM3s+J2I9uI/KqqpV6FPYceW
-	MatYlOoxV0JdnrQM/TWpwrdL/BUibHMIUqMLtLIwfZFjjG7REV3GUhWFOqxEsJY8TeEr2P3n7+QBY
-	2pxihWJg==;
+	bh=/9NMcyRE3q4URjSrnrfk9vDMlnwzyXGvpvT4VQSPzFM=; b=0+F1TwmcohwC6pn8dai32RJ0yo
+	ZVIteGeYdQYzUY/Dymu642WOafLtise3R5luLYYuQSeWXRkUtU43OfdSkoU7EIoWf1dCDRlEPpmq1
+	TkYF0nRFvKzb3X3ryr8gMgP9c+XMh9/v111e/SouRWi7aZPeQi9MjBbdihdE0ueGAGJVLIYjaz8ay
+	TunS+UIhFP5YmYi98acgDmCV/fAT6hlZNdMI4kcnRLmplSM9UCFyEvv2cfqxuGXSiK9qlU7eUYsQE
+	6yBAxwxWcgfBOit1mcvOrddtWeE5ixDg7uYIGeyxDW0cq6hmGN5oDeLneOd8PhsVDkgXjGc3FxIOt
+	fLhgEFUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCDIN-0000000FKu5-2xgq;
-	Mon, 13 Apr 2026 09:09:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wCDJX-0000000FL2R-1h66;
+	Mon, 13 Apr 2026 09:10:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCDIM-0000000FKtz-2jbu
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 09:09:26 +0000
+	id 1wCDJT-0000000FL1y-3Gqw;
+	Mon, 13 Apr 2026 09:10:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CA2546111B;
-	Mon, 13 Apr 2026 09:09:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 575B9C2BCAF;
-	Mon, 13 Apr 2026 09:09:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D5848440C7;
+	Mon, 13 Apr 2026 09:10:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27EF9C116C6;
+	Mon, 13 Apr 2026 09:10:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776071365;
-	bh=FM3j7fvz3JBYbkTQt55K7oWSPEqGx4Bt4Wj0SVUO5Tw=;
+	s=k20201202; t=1776071434;
+	bh=SrSZiqxJwReULWnjaaQIC3mrh4DMqvNbscfFISsWAyg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ljjDA2G9N7jdxsLWbRcucI1r1HK36Ib5u9Sx/hvimdqhdSnGBMBXn1uHtI8tJKP2y
-	 c3T5MZzBywdNmsuK0BoibvfYpI5wYqljz9mNZwIginh+NhnBdzq+uJOV8+rZICFNre
-	 IeOMJ52Kxrh6sOVdcM2rYADiHZPGDjHeWvg+CMtHt9Dihqhfkbdftp6CQmAVGssTNV
-	 JlgbPLTSxBqkkyUZ9oHYdKHiMveSejagK+0iDgv3cvNIe/SzZYXAd73QyKZh0BMr8p
-	 sLvcpSGX/hrVcH86J2aVveyIvzfCwiYu6Gevv5kGGOZLfIi6u+g8diyFYKLgaQjOZ3
-	 6GKhXcKPHRmyQ==
-Message-ID: <10708cfd-738d-47fc-b19d-0f1033b7d19f@kernel.org>
-Date: Mon, 13 Apr 2026 11:09:21 +0200
+	b=imUvg10Q336zJleZMGPGm/EmAzkgDRNQf1E8cZaoJDb+3Y0NIBnKQhGv3a/r9e2YE
+	 IC7xUL2qUzzdJPBcF4xoPd4FYvxjDjv+TVQk8GSjH1WGT3fL3ydkNE5/p//l3TyPMI
+	 4pTq7UrIrnwNX5qlvKiWzVGsKRpXgkBWzhm9cLEA2okFBFDSZGnQm9/y27NnehydoJ
+	 qqpDU+BUn6KoPGUup+jRpEB1fwUB40CZYHGGS6Z2ikuFSbjQaH6nlGPUFD4vo6SYGJ
+	 G050tX/owazGVhTCtC/yNYFJFSaFnVm/PJwV7SALSm1oIags9j4dJiCzdirb7pyxeI
+	 FcCkmGUNzgN8Q==
+Message-ID: <b0d81181-d4a4-4c03-8c26-c7f6e8cde70f@kernel.org>
+Date: Mon, 13 Apr 2026 11:10:30 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PING] Re: [PATCH v7 0/2] arm64: dts/defconfig: enable BST C1200
- eMMC
-To: Albert Yang <yangzh0906@thundersoft.com>, arnd@arndb.de
-Cc: krzk+dt@kernel.org, robh@kernel.org, conor+dt@kernel.org,
- gordon.ge@bst.ai, bst-upstream@bstai.top,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260310091211.4171307-1-yangzh0906@thundersoft.com>
- <20260413083441.1758438-1-yangzh0906@thundersoft.com>
+Subject: Re: [PATCH 2/4] soc: amlogic: clk-measure: Add A1 and T7 support
+To: Jian Hu <jian.hu@amlogic.com>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Jerome Brunet <jbrunet@baylibre.com>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ robh+dt <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>
+Cc: devicetree <devicetree@vger.kernel.org>,
+ linux-amlogic <linux-amlogic@lists.infradead.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+References: <20260410100329.3167482-1-jian.hu@amlogic.com>
+ <20260410100329.3167482-3-jian.hu@amlogic.com>
+ <9a4f69e7-838a-4992-af1d-46324e14eb48@kernel.org>
+ <274d2abd-05b9-4dbd-b962-ff70044b8d07@amlogic.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,9 +105,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260413083441.1758438-1-yangzh0906@thundersoft.com>
+In-Reply-To: <274d2abd-05b9-4dbd-b962-ff70044b8d07@amlogic.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260413_021035_858225_EB1DE23D 
+X-CRM114-Status: GOOD (  17.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,16 +125,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/04/2026 10:34, Albert Yang wrote:
-> Hi Krzysztof, Arnd, Rob, and Conor,
+On 13/04/2026 10:21, Jian Hu wrote:
 > 
-> Gentle ping for this v7 series posted on 2026-03-10:
-> https://lore.kernel.org/lkml/20260310091211.4171307-1-yangzh0906@thundersoft.com/
+> On 4/12/2026 5:55 PM, Krzysztof Kozlowski wrote:
+>> [ EXTERNAL EMAIL ]
+>>
+>> On 10/04/2026 12:03, Jian Hu wrote:
+>>> Add support for the A1 and T7 SoC family in amlogic clk measure.
+>>>
+>>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+>>> ---
+>>>   drivers/soc/amlogic/meson-clk-measure.c | 272 ++++++++++++++++++++++++
+>>>   1 file changed, 272 insertions(+)
+>>>
+>>> diff --git a/drivers/soc/amlogic/meson-clk-measure.c b/drivers/soc/amlogic/meson-clk-measure.c
+>>> index d862e30a244e..083524671b76 100644
+>>> --- a/drivers/soc/amlogic/meson-clk-measure.c
+>>> +++ b/drivers/soc/amlogic/meson-clk-measure.c
+>>> @@ -787,6 +787,258 @@ static const struct meson_msr_id clk_msr_s4[] = {
+>>>
+>>>   };
+>>>
+>>> +static struct meson_msr_id clk_msr_a1[] = {
+>> And existing code uses what sort of array? Seems you send us obsolete or
+>> downstream code.
+> 
+> 
+> Thanks for your review.
+> 
+> 
+> I have checked the previous Amlogic SoC's commits. Such as Amlogic AXG, 
+> G12A, C3, S4.
+> 
+> The clk_msr_xx entry is added after last SoC's array, sorted by 
+> submissin date rather than alphabetical order.
+> 
+> So I place A1 and T7 after S4 accordingly.
+> 
+> 
+> The A1 clock controller driver was already supported in 
+> https://lore.kernel.org/all/20230523135351.19133-7-ddrokosov@sberdevices.ru/
+> 
+> It is also present in the mainline kernel: 
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/clk/meson/Kconfig#n113
+> 
+> 
+> This clock measure IP is used to measure the internal clock paths 
+> frequencies,  and A1 clock controller driver was supported.
+> 
+> Since the corresponding clock measure driver does not support A1 yet, So 
+> add A1 clk msr here.
 
-That's a BST patch, so pinging SoC and DT maintainers won't help you.
-You need to work with BST maintainers.
-
-Additionally, don't ping during merge window.
+No, what qualifiers or keywords are used for existing arrays? IOW,
+please investigate and understand why you are doing this very different
+than existing code. Maybe because you sent us downstream, so you
+replicated all other downstream issues.
 
 Best regards,
 Krzysztof
