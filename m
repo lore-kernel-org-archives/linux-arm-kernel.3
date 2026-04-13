@@ -4,135 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1265EF34C43
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 11:49:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CEB7F34C43
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 11:49:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-ID:Subject:References:In-Reply-To:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2cBndj+1OrdzmEv+QgTGSQmNkLH35U4GrGYozwObmUY=; b=N34qTV0cbxZjz4i/XXOUWGBxVG
-	+HqRMIGm8n6NE8b0kDsej+HcgG4hMpSqgK5xKoUZZn2QmuKsJZDF1bBYpVyRR8K6w3tUVp3ENEGb1
-	8xFWdyG4ya567ckqtmyPXPK4jQLSALOtvsbjG6f0dJbagn71RHDX6WGQRjgN/YocyGGLXQex0GqYk
-	4qVkjSxrHiecYoYIaF0uNk6NTaGr8PWvJWanML3gR3OHXM67W6VrpnB7xb3dwftbfGJcFtSrgjPtF
-	ksQ0IgYANhonGxd1OM3+fKAHC8gyF2ZHB2sGPu0xGfxOK4zLEA3bwc8rPF5BkwO9Ch9uzGI/Qprle
-	SnqXXorA==;
+	bh=4IjyGsFE0RAc+jCgnm01ouXsvsI/sEbPMxALfKo5KqA=; b=whoJaMjSq2OPSMGhG6N7t03DMp
+	llzSyMQ4QhMK4FoFgjymzIfxqMBKhCeqDot57vvce5wRrpenXLhgN/VAnDCGozLE2e2sARTD3xmoV
+	3Hd8W4cy++IcCO26OVbqrCY1W2nCSxMyciYGgHzHkrohq6U/1xdCh/YTLh8UI+/EpoBzfAk3L4Hna
+	+JOJZXD8jDW4+OoQ+xO/EpkUZyne1tyiPuIGEV54kp2u8b6SRAx0ESnHJXyL9XHfUZCssTelZis/+
+	nEvzZXF5TePRRzkqu9S8vNmCompg2ES+n0drf7tsHqFPdJSOFpZLW5BnGCeZBuiH2uOEoiFN86z8O
+	p1uNe16g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCFml-0000000Fbit-3hkX;
-	Mon, 13 Apr 2026 11:48:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wCFnD-0000000FbrM-37NC;
+	Mon, 13 Apr 2026 11:49:27 +0000
+Received: from out-181.mta1.migadu.com ([95.215.58.181])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCFmk-0000000FbiT-1Io6
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 13 Apr 2026 11:48:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Date:Message-ID:Subject:References:In-Reply-To:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=2cBndj+1OrdzmEv+QgTGSQmNkLH35U4GrGYozwObmUY=; b=FHEOzOI18hhixstBD26C+IoYq2
-	iDktPpHe45/F6sZx2WryOAbZtmJORP6y4tRSLn0tatB8iQ23XBiLz2DiUWfjsKxGmxzxsvmfZ6FhF
-	2nMJITSIVAMj3hau41DL4M1YbeWjHisH7DeZzo307JSjwmqxfwtKdF2WGsH2+1WuoMSfBVfQcFWQa
-	VlGVh0tU6BT9JbbZtrEzOqGrjBvp8h3xQPjM9FqPp+bKAj6b72nxKYt1t8DkeDwVyJwZhw2Y6khXi
-	sgtzxtoKxkysrsoNKPPmlvevlvuPNVMx8rljC5YY1N7AlrVxT99P2tkuCIg7RDOcpVIijPAqKOb4T
-	v9P7Db6Q==;
-Received: from mail-francesouthazon11011012.outbound.protection.outlook.com ([40.107.130.12] helo=MRWPR03CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCFmg-0000000Gj5u-03uA
+	id 1wCFnA-0000000FblU-2mfR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 11:48:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fWmp1hhP6OqOwt6ucJWalK73XHlUgcIwg/bnEcTxIHpsAZ3nN8C2Jez+uC2oUd+Vxh/yzmcMPTlFwGiPfk4ZpclgmNKgwsm6U8Ms0P/aFRa99aM12KN7x2frN3A5ufXjtX+vikNizPz4YHNILCrHM1PHm1MzDTJUl0xdEaI6pMnEQMDHNyMuLJ6wP0DhaH2eQxuw6hwaogw5/bNA5s94TKD5/dvCoJEx1jcm/VBxnv5ZSCVLrfuCq/2gc0Ntg+0u75dOClrNZ/i8NuU4dYqcCvZaei0q6tUBM11ZWiUVBZgmARuZDKhFcnWrMTJ5A/tpSTK/NQTGHxerHu1L7/+ZaQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2cBndj+1OrdzmEv+QgTGSQmNkLH35U4GrGYozwObmUY=;
- b=S6qW77r7FPWwdjWTlbDksuC/rTRmCZVUhxh/6nM+b34R9mnY/O3ibRRZUCQVrxYFfC6nSXqMLSWX4caz+3MKO1rCgH72EWE07+AGo/tON7A9GT6odrfqIyGUW3X5ifU/Pobm/Da+YTp/xfgmaK30WXzdPsiQHhOOhMxYtb6OREZlvppHygyiTSqZIM5kyb/kmHs03wrzx2NdqNJo5Y6NKW0dElB5GM/vm1PYWHoUNkM2c+t3VcijnHmG4tip6MWYSrKyLwJCmsCToq3yim2eu9rkt7QMT4h1VSH4LtHl0Rg4vOSPJE+/kQoMvVuy0zZXstAyEfjzbndU4nVzIAUcgg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=nabladev.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2cBndj+1OrdzmEv+QgTGSQmNkLH35U4GrGYozwObmUY=;
- b=MpXNKcqEtUDt8tJ17nhf6fYqJep/VELDiVbDcyTFNBLqx/Xce4HnXTUhX5e86xNNKO/DOjv0zBzSDdG+vHLFZ0Md+wzYQWwIClAcAb4mIe40F9d3LtPJ7zYk2O2KxI54FfzKhpAWXTltbcrzYiI3S72NslIzXjuDuVH1tlU3SfZAIETwrRg36PA7sSr3NhAnVkddqEF/tqcD1c0CAtwyeA0ZyCCvJT1ENWMrHB8KrqINp9rqX1M8IK3MmqiRPcn7lU9RmJxz8aR7KQeNMyadGZPpKoAAx6ukahCKFo4myQI/iXERjCfbUTXOUh7E53ph/n4/mtRqP7FuvU7Ig9gRPA==
-Received: from DB7PR05CA0020.eurprd05.prod.outlook.com (2603:10a6:10:36::33)
- by AM0PR10MB3537.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:155::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Mon, 13 Apr
- 2026 11:48:47 +0000
-Received: from DB3PEPF0000885D.eurprd02.prod.outlook.com
- (2603:10a6:10:36:cafe::a) by DB7PR05CA0020.outlook.office365.com
- (2603:10a6:10:36::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.48 via Frontend Transport; Mon,
- 13 Apr 2026 11:48:47 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DB3PEPF0000885D.mail.protection.outlook.com (10.167.242.8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9769.17 via Frontend Transport; Mon, 13 Apr 2026 11:48:47 +0000
-Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 13 Apr
- 2026 13:51:54 +0200
-Received: from localhost (10.252.11.107) by STKDAG1NODE1.st.com
- (10.75.128.132) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 13 Apr
- 2026 13:48:46 +0200
-From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-To: <dri-devel@lists.freedesktop.org>, Marek Vasut <marex@nabladev.com>
-CC: Alexandre Torgue <alexandre.torgue@foss.st.com>, David Airlie
-	<airlied@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Maxime Ripard
-	<mripard@kernel.org>, Philippe Cornu <philippe.cornu@foss.st.com>, "Simona
- Vetter" <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>, "Yannick
- Fertre" <yannick.fertre@foss.st.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>
-In-Reply-To: <20260409024928.344010-1-marex@nabladev.com>
-References: <20260409024928.344010-1-marex@nabladev.com>
-Subject: Re: [PATCH] drm/bridge: stm_lvds: Do not fail atomic_check on
- disabled connector
-Message-ID: <177608092576.35288.17760549377022484534.b4-ty@foss.st.com>
-Date: Mon, 13 Apr 2026 13:48:45 +0200
+	Mon, 13 Apr 2026 11:49:26 +0000
+Message-ID: <a598cd04-9db6-43bf-a3d5-9320bdf395bd@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1776080934;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4IjyGsFE0RAc+jCgnm01ouXsvsI/sEbPMxALfKo5KqA=;
+	b=uNsNyeBwjHPn6FGcHCAZ0gkvp9Rf069Jfz4KJaa1ShSN3nv64PsSgYgIJx+mLck2JyaZ7B
+	MAnIwjK2Ll9hNcQ/2scX+lSDzwcjnW3/I3ypkn5N0btau4+Yxsd+IHFbQzENNKzjkapYMI
+	oyZa1Dsf9k0v5bGaLhFv4bO5NHcIOVY=
+Date: Mon, 13 Apr 2026 12:48:42 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
-X-Originating-IP: [10.252.11.107]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE1.st.com
- (10.75.128.132)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB3PEPF0000885D:EE_|AM0PR10MB3537:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7359a7d7-694e-470b-fac7-08de99529f5f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|36860700016|82310400026|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: QdCrhCi2txi+JerRjYf6H4gFCC+wdFLQeDr0ZlNCrV7vHiCxTPKcG+SukU9L5b3PhcOcrCpZUTuQn8puwHdP6JFkFlR9YaVEQGBHmivCg8qBDAi1CpFceRd6y7n14ZUEhIhcoQiZY45VvKZm/kBec8tXn87cN/P1I6ONbWB9nZlTXJLn1UgVhxe5iH1NURMRQR48VM0qfzyjnfqA/AJxkQNmtroh5rfmeJ21a3+FpK9rZVms0D+wn5tLOEnJN8KR4KXhAxwtt16VR1/+iC2u9dhE1t4VkjL8CczSqr5L3TTlF8tc1CUAxh3T6Kw+Tq+2ssCBgFhqtoYTvE4ELl7RjEYaNAJc+YY9Yp2MxkQp/bmyZz0DlbN1jelYoDBS7CjTFaA8MYazbQIdarBy+vm4nZVEwDRGSgDPLNLI1heYnFDFIglnkIvCzApJ81A1j51utRVnk51F0tvUhlq3c/CAoKCqpDn6up106L4+yTnfzBZpeKh+Vuw0nKKZnbliJ/92NEPcjpDPRrFJTh4/jEXo/iBoA6sHmKGF4glnvhLUJbYJWnliGWYu9/l553VnlMoQBW4Cc4aZ9qivT+WOG+T3Mwa3tM39s0GTDW4j7kZ5ScK9rABkeocDx9WW2CVjqw7Vqer2pn14TkL4hdAg4okIjeD+PTsd9xsQjUtR5EuaGMUMjYmFqAbhxHssM932V/lIHzX9ArDXQasL8zNjKBaCcv9QWG9SKQ5RZvDTjByFPqZUXzuFFrEn1JYp1TuohwgKlyu/aNboX+ni/Zfeg28J+Q==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(36860700016)(82310400026)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: EI0jKnUTLzDxuMvqa9tbcinCFwao1r6oks8anx/Sy1+u+XHkOSHmYQZAp7BR1821zwQQOXkpcfpKbdyJlXTPe34sSvS85QcZATWpM14oSZbdw+hYUZGdKi1TStePgNgkF+yiYjESAaQZm0ymcSrrYuDjeFuEOVKCl6QwLnzyWDe5PlFHQc+HMyjtCKAGOmHwVzuLURFKYTtnjbPFICn8H16Yg7QkQ9CcI3AWhIUGfc+pbjRC377bB/O7N7DM8Kj+7/bImp7Jp2b4Y3CE4JDpZPm3k9p0zNU+9Vsj76D9yvr33JHfJwm52Zk2s8vjlgvGo/gNGNVhnlZO91sxrjtA5GKhi3buGr6R1hds1pG/LpfFcP9UzgEn6Dt6YwXFC7HCDFkpezLVVJDMkIybjpNo+n9j6jBmelY3EnfuyRYuieHgUI1enaLGD6tDZVr3UhHi
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Apr 2026 11:48:47.2291
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7359a7d7-694e-470b-fac7-08de99529f5f
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF0000885D.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR10MB3537
+Subject: Re: [PATCH v3 2/4] mm: use tiered folio allocation for VM_EXEC
+ readahead
+Content-Language: en-GB
+To: Jan Kara <jack@suse.cz>
+Cc: Andrew Morton <akpm@linux-foundation.org>, david@kernel.org,
+ willy@infradead.org, ryan.roberts@arm.com, linux-mm@kvack.org, r@hev.cc,
+ ajd@linux.ibm.com, apopple@nvidia.com, baohua@kernel.org,
+ baolin.wang@linux.alibaba.com, brauner@kernel.org, catalin.marinas@arm.com,
+ dev.jain@arm.com, kees@kernel.org, kevin.brodsky@arm.com,
+ lance.yang@linux.dev, Liam.Howlett@oracle.com,
+ linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Lorenzo Stoakes <ljs@kernel.org>,
+ mhocko@suse.com, npache@redhat.com, pasha.tatashin@soleen.com,
+ rmclure@linux.ibm.com, rppt@kernel.org, surenb@google.com,
+ vbabka@kernel.org, Al Viro <viro@zeniv.linux.org.uk>,
+ wilts.infradead.org@quack3, ziy@nvidia.com, hannes@cmpxchg.org,
+ kas@kernel.org, shakeel.butt@linux.dev, leitao@debian.org,
+ kernel-team@meta.com
+References: <20260402181326.3107102-1-usama.arif@linux.dev>
+ <20260402181326.3107102-3-usama.arif@linux.dev>
+ <aji7zs42th272khtxesk6dfcrgf7ddr5r5n62wgzeqooyexgxf@5ns3i47f5nlg>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Usama Arif <usama.arif@linux.dev>
+In-Reply-To: <aji7zs42th272khtxesk6dfcrgf7ddr5r5n62wgzeqooyexgxf@5ns3i47f5nlg>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_124854_986061_1CBEAFD7 
-X-CRM114-Status: UNSURE (   7.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260413_044925_013931_1F0207E8 
+X-CRM114-Status: GOOD (  36.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,25 +85,231 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 09 Apr 2026 04:48:41 +0200, Marek Vasut wrote:
-> If the connector is disabled, the new connector state has .crtc field
-> set to NULL and there is nothing more to validate after that point.
-> The .crtc field being NULL is not an error. Test for .crtc being NULL,
-> and if it is NULL, exit early with return 0.
+
+On 13/04/2026 12:03, Jan Kara wrote:
+> On Thu 02-04-26 11:08:23, Usama Arif wrote:
+>> When executable pages are faulted via do_sync_mmap_readahead(), request
+>> a folio order that enables the best hardware TLB coalescing available:
+>>
+>> - If the VMA is large enough to contain a full PMD, request
+>>   HPAGE_PMD_ORDER so the folio can be PMD-mapped. This benefits
+>>   architectures where PMD_SIZE is reasonable (e.g. 2M on x86-64
+>>   and arm64 with 4K pages). VM_EXEC VMAs are very unlikely to be
+>>   large enough for 512M pages on ARM to take into affect.
 > 
-> This fixes a failure in suspend/resume path, where the connector is
-> already disabled, but .atomic_check is called, fails, returns -EINVAL
-> and blocks the suspend entry.
+> I'm not sure relying on PMD_SIZE will be too much for a VMA is a great
+> strategy. With 16k PAGE_SIZE the PMD would be 32MB large which would fit in
+> the .text size but already looks a bit too much? Mapping with PMD sized
+> folios brings some benefits but at the same time it costs because now parts
+> of VMA that would be never paged in are pulled into memory and also LRU
+> tracking now happens with this very large granularity making it fairly
+> inefficient (big folios have much higher chances of getting accessed
+> similarly often making LRU order mostly random). We are already getting
+> reports of people with small machines (phones etc.) where the memory
+> overhead of large folios (in the page cache) is simply too much. So I'd
+> have a bigger peace of mind if we capped folio size at 2MB for now until we
+> come with a more sophisticated heuristic of picking sensible folio order
+> given the machine size. Now I'm not really an MM person so my feeling here
+> may be just wrong but I wanted to voice this concern from what I can see...
 > 
-> [...]
+> 								Honza
+> 
+> 
 
-Applied, thanks!
+Thanks for the feedback! I agree, it makes sense. I did that in the previous
+revision [1]. I will reinistante that in the next one.
 
-[1/1] drm/bridge: stm_lvds: Do not fail atomic_check on disabled connector
-      commit: eecdd4bd6e47bf0c8ff1e049771fa5bab7074c7c
+[1] https://lore.kernel.org/all/20260320140315.979307-3-usama.arif@linux.dev/
 
-Best regards,
--- 
-Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+>> - Otherwise, fall back to exec_folio_order(), which returns the
+>>   minimum order for hardware PTE coalescing for arm64:
+>>   - arm64 4K:  order 4 (64K) for contpte (16 PTEs → 1 iTLB entry)
+>>   - arm64 16K: order 2 (64K) for HPA (4 pages → 1 TLB entry)
+>>   - arm64 64K: order 5 (2M) for contpte (32 PTEs → 1 iTLB entry)
+>>   - generic:   order 0 (no coalescing)
+>>
+>> Update the arm64 exec_folio_order() to return ilog2(SZ_2M >>
+>> PAGE_SHIFT) on 64K page configurations, where the previous SZ_64K
+>> value collapsed to order 0 (a single page) and provided no coalescing
+>> benefit.
+>>
+>> Use ~__GFP_RECLAIM so the allocation is opportunistic: if a large
+>> folio is readily available, use it, otherwise fall back to smaller
+>> folios without stalling on reclaim or compaction. The existing fallback
+>> in page_cache_ra_order() handles this naturally.
+>>
+>> The readahead window is already clamped to the VMA boundaries, so
+>> ra->size naturally caps the folio order via ilog2(ra->size) in
+>> page_cache_ra_order().
+>>
+>> Signed-off-by: Usama Arif <usama.arif@linux.dev>
+>> ---
+>>  arch/arm64/include/asm/pgtable.h | 16 +++++++++----
+>>  mm/filemap.c                     | 40 +++++++++++++++++++++++---------
+>>  mm/internal.h                    |  3 ++-
+>>  mm/readahead.c                   |  7 +++---
+>>  4 files changed, 45 insertions(+), 21 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+>> index 52bafe79c10a..9ce9f73a6f35 100644
+>> --- a/arch/arm64/include/asm/pgtable.h
+>> +++ b/arch/arm64/include/asm/pgtable.h
+>> @@ -1591,12 +1591,18 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
+>>  #define arch_wants_old_prefaulted_pte	cpu_has_hw_af
+>>  
+>>  /*
+>> - * Request exec memory is read into pagecache in at least 64K folios. This size
+>> - * can be contpte-mapped when 4K base pages are in use (16 pages into 1 iTLB
+>> - * entry), and HPA can coalesce it (4 pages into 1 TLB entry) when 16K base
+>> - * pages are in use.
+>> + * Request exec memory is read into pagecache in folios large enough for
+>> + * hardware TLB coalescing. On 4K and 16K page configs this is 64K, which
+>> + * enables contpte mapping (16 × 4K) and HPA coalescing (4 × 16K). On
+>> + * 64K page configs, contpte requires 2M (32 × 64K).
+>>   */
+>> -#define exec_folio_order() ilog2(SZ_64K >> PAGE_SHIFT)
+>> +#define exec_folio_order exec_folio_order
+>> +static inline unsigned int exec_folio_order(void)
+>> +{
+>> +	if (PAGE_SIZE == SZ_64K)
+>> +		return ilog2(SZ_2M >> PAGE_SHIFT);
+>> +	return ilog2(SZ_64K >> PAGE_SHIFT);
+>> +}
+>>  
+>>  static inline bool pud_sect_supported(void)
+>>  {
+>> diff --git a/mm/filemap.c b/mm/filemap.c
+>> index a4ea869b2ca1..7ffea986b3b4 100644
+>> --- a/mm/filemap.c
+>> +++ b/mm/filemap.c
+>> @@ -3311,6 +3311,7 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
+>>  	DEFINE_READAHEAD(ractl, file, ra, mapping, vmf->pgoff);
+>>  	struct file *fpin = NULL;
+>>  	vm_flags_t vm_flags = vmf->vma->vm_flags;
+>> +	gfp_t gfp = readahead_gfp_mask(mapping);
+>>  	bool force_thp_readahead = false;
+>>  	unsigned short mmap_miss;
+>>  
+>> @@ -3363,28 +3364,45 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
+>>  			ra->size *= 2;
+>>  		ra->async_size = HPAGE_PMD_NR;
+>>  		ra->order = HPAGE_PMD_ORDER;
+>> -		page_cache_ra_order(&ractl, ra);
+>> +		page_cache_ra_order(&ractl, ra, gfp);
+>>  		return fpin;
+>>  	}
+>>  
+>>  	if (vm_flags & VM_EXEC) {
+>>  		/*
+>> -		 * Allow arch to request a preferred minimum folio order for
+>> -		 * executable memory. This can often be beneficial to
+>> -		 * performance if (e.g.) arm64 can contpte-map the folio.
+>> -		 * Executable memory rarely benefits from readahead, due to its
+>> -		 * random access nature, so set async_size to 0.
+>> +		 * Request large folios for executable memory to enable
+>> +		 * hardware PTE coalescing and PMD mappings:
+>>  		 *
+>> -		 * Limit to the boundaries of the VMA to avoid reading in any
+>> -		 * pad that might exist between sections, which would be a waste
+>> -		 * of memory.
+>> +		 *  - If the VMA is large enough for a PMD, request
+>> +		 *    HPAGE_PMD_ORDER so the folio can be PMD-mapped.
+>> +		 *  - Otherwise, use exec_folio_order() which returns
+>> +		 *    the minimum order for hardware TLB coalescing
+>> +		 *    (e.g. arm64 contpte/HPA).
+>> +		 *
+>> +		 * Use ~__GFP_RECLAIM so large folio allocation is
+>> +		 * opportunistic — if memory isn't readily available,
+>> +		 * fall back to smaller folios rather than stalling on
+>> +		 * reclaim or compaction.
+>> +		 *
+>> +		 * Executable memory rarely benefits from speculative
+>> +		 * readahead due to its random access nature, so set
+>> +		 * async_size to 0.
+>> +		 *
+>> +		 * Limit to the boundaries of the VMA to avoid reading
+>> +		 * in any pad that might exist between sections, which
+>> +		 * would be a waste of memory.
+>>  		 */
+>> +		gfp &= ~__GFP_RECLAIM;
+>>  		struct vm_area_struct *vma = vmf->vma;
+>>  		unsigned long start = vma->vm_pgoff;
+>>  		unsigned long end = start + vma_pages(vma);
+>>  		unsigned long ra_end;
+>>  
+>> -		ra->order = exec_folio_order();
+>> +		if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) &&
+>> +		    vma_pages(vma) >= HPAGE_PMD_NR)
+>> +			ra->order = HPAGE_PMD_ORDER;
+>> +		else
+>> +			ra->order = exec_folio_order();
+>>  		ra->start = round_down(vmf->pgoff, 1UL << ra->order);
+>>  		ra->start = max(ra->start, start);
+>>  		ra_end = round_up(ra->start + ra->ra_pages, 1UL << ra->order);
+>> @@ -3403,7 +3421,7 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
+>>  
+>>  	fpin = maybe_unlock_mmap_for_io(vmf, fpin);
+>>  	ractl._index = ra->start;
+>> -	page_cache_ra_order(&ractl, ra);
+>> +	page_cache_ra_order(&ractl, ra, gfp);
+>>  	return fpin;
+>>  }
+>>  
+>> diff --git a/mm/internal.h b/mm/internal.h
+>> index 475bd281a10d..e624cb619057 100644
+>> --- a/mm/internal.h
+>> +++ b/mm/internal.h
+>> @@ -545,7 +545,8 @@ int zap_vma_for_reaping(struct vm_area_struct *vma);
+>>  int folio_unmap_invalidate(struct address_space *mapping, struct folio *folio,
+>>  			   gfp_t gfp);
+>>  
+>> -void page_cache_ra_order(struct readahead_control *, struct file_ra_state *);
+>> +void page_cache_ra_order(struct readahead_control *, struct file_ra_state *,
+>> +			 gfp_t gfp);
+>>  void force_page_cache_ra(struct readahead_control *, unsigned long nr);
+>>  static inline void force_page_cache_readahead(struct address_space *mapping,
+>>  		struct file *file, pgoff_t index, unsigned long nr_to_read)
+>> diff --git a/mm/readahead.c b/mm/readahead.c
+>> index 7b05082c89ea..b3dc08cf180c 100644
+>> --- a/mm/readahead.c
+>> +++ b/mm/readahead.c
+>> @@ -465,7 +465,7 @@ static inline int ra_alloc_folio(struct readahead_control *ractl, pgoff_t index,
+>>  }
+>>  
+>>  void page_cache_ra_order(struct readahead_control *ractl,
+>> -		struct file_ra_state *ra)
+>> +		struct file_ra_state *ra, gfp_t gfp)
+>>  {
+>>  	struct address_space *mapping = ractl->mapping;
+>>  	pgoff_t start = readahead_index(ractl);
+>> @@ -475,7 +475,6 @@ void page_cache_ra_order(struct readahead_control *ractl,
+>>  	pgoff_t mark = index + ra->size - ra->async_size;
+>>  	unsigned int nofs;
+>>  	int err = 0;
+>> -	gfp_t gfp = readahead_gfp_mask(mapping);
+>>  	unsigned int new_order = ra->order;
+>>  
+>>  	trace_page_cache_ra_order(mapping->host, start, ra);
+>> @@ -626,7 +625,7 @@ void page_cache_sync_ra(struct readahead_control *ractl,
+>>  readit:
+>>  	ra->order = 0;
+>>  	ractl->_index = ra->start;
+>> -	page_cache_ra_order(ractl, ra);
+>> +	page_cache_ra_order(ractl, ra, readahead_gfp_mask(ractl->mapping));
+>>  }
+>>  EXPORT_SYMBOL_GPL(page_cache_sync_ra);
+>>  
+>> @@ -697,7 +696,7 @@ void page_cache_async_ra(struct readahead_control *ractl,
+>>  		ra->size -= end - aligned_end;
+>>  	ra->async_size = ra->size;
+>>  	ractl->_index = ra->start;
+>> -	page_cache_ra_order(ractl, ra);
+>> +	page_cache_ra_order(ractl, ra, readahead_gfp_mask(ractl->mapping));
+>>  }
+>>  EXPORT_SYMBOL_GPL(page_cache_async_ra);
+>>  
+>> -- 
+>> 2.52.0
+>>
 
 
