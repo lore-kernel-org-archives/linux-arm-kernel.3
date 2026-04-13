@@ -4,146 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1C64EBFD37
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 11:34:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 597D5F4487B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 11:44:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Yr8HxxYcUxEnyfid12vu5wt0mrWrndp4uzCHhPxkxc=; b=fvO7bubWxdGoaTYsayX2lKUUO6
-	eWCN8CidzgcTURG3RmU4tfvG1DPkjN92dsLlAlJxWDTYxz39dP5x735Shw5h0Jh+3Dy3UiMIxbDYk
-	v21t8MxZJCbrSxhmj/KqmREYnyOeKrle4EopM1iUhDZTm6ftSZoA9002eaSZ7Bo/Jb7napGGQ/MJh
-	7gv0C2wOGo1aEU7OYHBNTUM900j+YnDnOpU8/7lIBpsFTtKxZs6fzdeN4+PSvNHK9oTVkZse48AOM
-	xuvH4DwmiLpKozdirf/UHHciyhE5tqV5iyYhzHkqwSYwutGwg3HCO6R3unsxgpjOyvDfFKXu00y/c
-	fMr4lbKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cGNuEHkArBiNiNVxwIRGSAzaCURMpjmGdsqqc7Hqft0=; b=NM0JXjpV+3R4rVguxk2eDAZ/Xb
+	hocnCdzu1sYzDwPBPnBX91539F0k4lDRgktBv6FC/NSh2+5n4ZxochkG77m4NDkfyeQLy0yw2a8S/
+	t2znBHCXhHH1mrAl0FmA46vK4kdmMwfcctgM86PK1CwTCseKR8y1r7CkFDjjykKep8EjOGFS2j64/
+	IMf3tCtF+/umQ0fgHf/lifaV0P15nmijw/Yrnh4e2dP71vAWHusHNZdkY91OY8TroiGjOSu7NRchX
+	c8c1SPxKsWs7gdCBUtm7vDD8ZziZVIVnRTFy+EnGPswUcO+0W62n48cZpbYlb8blNXfsUnkeSfvQE
+	3I52O9uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCFYJ-0000000FZwj-14S5;
-	Mon, 13 Apr 2026 11:34:03 +0000
-Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCFYG-0000000FZvD-1IfC
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 11:34:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hialp1d4OyhqPxBfL9Xo1ZUFBhVzva44j7tyxHiP38IXMqAPALiXZuhpVBIT52O0UaJxlsvc4dRl5FWutpMoMbUe4J48g3nuJH6AYemaXexPCIPiXI+uu1Lv0JwcqhxEYGtjc3LV6dEesqqohcdRS5z//T4thVYsjHXqahPpFgBVCqSpN2Ir34Re+ZeUXrQuouwo1W10Unr/yw+eLf9HaLv1VrgZ4mHBtRK02aDPdtpF4o9R1/Rvk2l5waEkOHR91ympa94cncsUGm1yF/VUS1w7JNVoyV3WohxzmAKvlxZTjC/OR6Vt7uKAo69pzyR7S9g2/M4Tdcol0gxTqLOKCg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6Yr8HxxYcUxEnyfid12vu5wt0mrWrndp4uzCHhPxkxc=;
- b=utqyubDQTMjXhqJB1CPWpcPVNbfmEgbrbzVqZiAiCgaphx+nmlfPNk6Qe6O9NBaDI/cWU9QZfbJPWs8UwQlnBIf6HJW8q2eu8tYeseEkJCGxD8zjISVOBgbA8P+/aFzZAOAYs8sfJtDxJt/A1UB4r1SiBHLUnI6nX8wSyylZLXhSwirIURxVwwj+j+A93DzlGMBFhbxNrkCcRb1FR6SRL4u+fETXFyIgIfvvZ57sWqBLHpAVHixTMDNGQ8Io+uLr5rMTrjWGjWEOHqRBcxP5eMa8e2QgIMcQKK9FV7AViJVQj/X47IAvDioZbkpGrR//1y/73Uk6OUgqnbZUBlJdUg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6Yr8HxxYcUxEnyfid12vu5wt0mrWrndp4uzCHhPxkxc=;
- b=o+vF0R++txplA58d9pvNUky6B4wphDrL1Emm82LnFnI/lRSUeNzdORtdi80SwuCWcKW9i3dU/qZg0jHUaB4mPL0lyunI4i7lyiVrOMAO9N1qcp0DRXOoTFwTobiCgK9jdNDH2GLNcOpf+IVpRMH/QcXaab0o2/lxmi1l7I+v408=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
- by BL3PR12MB6547.namprd12.prod.outlook.com (2603:10b6:208:38e::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.42; Mon, 13 Apr
- 2026 11:33:51 +0000
-Received: from CY1PR12MB9697.namprd12.prod.outlook.com
- ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
- ([fe80::3a41:55a0:8203:596d%5]) with mapi id 15.20.9818.017; Mon, 13 Apr 2026
- 11:33:51 +0000
-Message-ID: <faf2421e-0d12-424d-abf8-ad490f5421ff@amd.com>
-Date: Mon, 13 Apr 2026 17:03:39 +0530
+	id 1wCFiX-0000000Fac3-1UuY;
+	Mon, 13 Apr 2026 11:44:37 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCFiU-0000000FabZ-35km;
+	Mon, 13 Apr 2026 11:44:35 +0000
+Received: from [192.168.0.106] (unknown [49.205.253.198])
+	by linux.microsoft.com (Postfix) with ESMTPSA id ED2F320B7128;
+	Mon, 13 Apr 2026 04:44:21 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com ED2F320B7128
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1776080668;
+	bh=cGNuEHkArBiNiNVxwIRGSAzaCURMpjmGdsqqc7Hqft0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GdpGvPY6u6Kxlr3Gwj9vd3P3c+ECIc35+EwWAEp1VNH4UT26kmYkva+RZR3iv/Msg
+	 uMIxbkofXzjxjwMRBnOSfMzfdKXz8nqUEP5WL2mOZ0gf2qqY16we/vfeRP9v29dxnY
+	 GSqaZM25iXA12FMSgbcU8MrMWBs5cmsQkREpOLoM=
+Message-ID: <7c6e721e-d8e1-45b5-99a3-a8104c212983@linux.microsoft.com>
+Date: Mon, 13 Apr 2026 17:14:16 +0530
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/4] usb: dwc3: xilinx: Add Versal2 MMI USB 3.2
- controller support
-To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
- Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Cc: "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "michal.simek@amd.com" <michal.simek@amd.com>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+Subject: Re: [PATCH 01/11] arch: arm64: Export arch_smp_send_reschedule for
+ mshv_vtl module
+To: Michael Kelley <mhklinux@outlook.com>,
+ "K . Y . Srinivasan" <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "x86@kernel.org" <x86@kernel.org>, "H . Peter Anvin" <hpa@zytor.com>,
+ Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+ "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
  "linux-arm-kernel@lists.infradead.org"
  <linux-arm-kernel@lists.infradead.org>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "git@amd.com" <git@amd.com>
-References: <20260330190304.1841593-1-radhey.shyam.pandey@amd.com>
- <20260401230401.w2si3gnqvzlszduh@synopsys.com>
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+References: <20260316121241.910764-1-namjain@linux.microsoft.com>
+ <20260316121241.910764-2-namjain@linux.microsoft.com>
+ <SN6PR02MB41570A9050B3EB6A905DFF56D450A@SN6PR02MB4157.namprd02.prod.outlook.com>
 Content-Language: en-US
-From: "Pandey, Radhey Shyam" <radheys@amd.com>
-In-Reply-To: <20260401230401.w2si3gnqvzlszduh@synopsys.com>
+From: Naman Jain <namjain@linux.microsoft.com>
+In-Reply-To: <SN6PR02MB41570A9050B3EB6A905DFF56D450A@SN6PR02MB4157.namprd02.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PN2PR01CA0112.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:27::27) To CY1PR12MB9697.namprd12.prod.outlook.com
- (2603:10b6:930:107::6)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY1PR12MB9697:EE_|BL3PR12MB6547:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9cf2debe-c3d0-4d7f-e55e-08de995088de
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: wosb6zZmrZCX5ladm1RJnNpVEQamayzxdioG6frdPY/suLK84UNaRyojI5R4DcKwQ6XX1z/IuiImztBsU2LTGLI1+5+hy57mXbtYCiCrALqZOMwLsJPGT7b5iJbPQBAA5GTnbSublQRGt1kc2ZZvqQ8rbLc0e0JDrf8bBj6DskuEAip6TH/T19UUlFvVfKLFtPKkXcVd9pFkEkYFG022B9MMdtFFceeh50OMQw1U30ua96qCgYGP3wjc0J16soELSoWxwP++3ZR1fC1Eg9Z7vxULvFmdOjSSJV5MCCyLjHWuKavilipfbZ/Jao+P/ZF79nEQ4n5ssjdndFqW7CxEiNk5jRBjMAiz42dZzioRqFFqFc6MK5+OgHJb6BdbIepT2bFDWw710xYklqgwLZ9Aw2Rd0p6aLOogJF57v5uZMxmtpkqMy+kTY8Gsmg7bm0Nkm6w1KfsHPg1/DCX9DZJT00eyh9UpWYrvd/5hJ14ZKaqv2F5g/LobsIVKS1CSm4NYarKkgg7wr03nzzOm4vMfxsYuGYW22LPX7KyGEzEvZws/aIT9UwEcHnQpKoKh9AXojhPRkQgqbT50cEInzyA3xcpjZmfky+dwL6sHzSmpGPGo5CGIrmgpXBFiQnmAMTLeoFjOpP1qxTwBHUUM8eYpTm/Y/zvjngjSqnI3eTESJSjzlWUuPZC2lAWx71CMlvcsckJP7jYFxwqK+wp11x98oiqm7KiMCCkJVYbV/noD/t7XJaJGcTeKen9A55fN1HPn
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WmZxakMvNGZNYTd3b2wrNE9PMS90U0FZZFVCZFdTR0Q5TXN1WmdpeE1ySFor?=
- =?utf-8?B?OWxCcjRyb0Z5S2MrMlhxWld3Y2Rkczk0d1RmbHpBdmoyUFkwQTgyRVNkL0Vx?=
- =?utf-8?B?VzQ3bmt1Zlp1TEVtbUt6a2FmcGhIMVNUVGU0Z00vbENlNldaMDhaUHdiMTYx?=
- =?utf-8?B?a2lpd0pTRWE0b1JmR09vdGFRZUZmVW1Jc3B3Rytaa0lrSSs1cERjaUV3N2Jt?=
- =?utf-8?B?a1NUSWFUWUQ5ejkwRlhsNWs0bHhGamdBR3BiTjViM0hZTE5RbjRpQmx2K25L?=
- =?utf-8?B?b2ZKbjZCYk0zUEE0Q1h2UW9oYkE3RUlvRjRPWXRrQmFYSHl5OUpvVEk2cHZW?=
- =?utf-8?B?SEJqQ29qVXBnZlpNbXhxd3lCYmNHVTR5Q1pleFNJdjF1cVpqY2dFRHBJK0lk?=
- =?utf-8?B?bkY3WDNUZzgrZVJ0Z1M2Q1lJWWE4QVRlblJxaGEwRUxkVHdpZWlWbVlHS2tL?=
- =?utf-8?B?Y2JsM2pqNXRtMjRGdHZKM0drUU4xek1vRHJsNmlHRUpTWDVpWDJ1Tjd2ZUFh?=
- =?utf-8?B?aFJkd3dHMHNhSXpxcFYrNFhUNHF3dE9Ib3dHOXI5aGNPanBSY0hOQURoOEZO?=
- =?utf-8?B?RUFLaFBuZk1hNWsvKzdDNXdMSnUxTnF6aWxTNEFBZDJDR0xmeG1YSS9haTZD?=
- =?utf-8?B?SW9INlEzbjVUOHo2a0t3eHZZdlg2bW40Nzg0dm9tc1BXQjYvZlUvOFNuaHY2?=
- =?utf-8?B?MFJVMTBtbHpDUzU0WkJjam9BMnh0N2NMNHNaMWJ2SkwwcytGcU5ESU1iT2V6?=
- =?utf-8?B?clVYTlhxbTJGSkc5NzV5Z0dEdGMyU3A0Um1OQmZTYXZuT2hhNkxFakRoeVNQ?=
- =?utf-8?B?R3ZpNldlU0lGeEE1T3NWamhEcDhicVRJRWZ0RDZCQWVLSnQvbUVad2lyNFZz?=
- =?utf-8?B?UmJUSTZ6WUU0YlZaelBpYmlrOWI1Y2x2VndpOENHUG5vbSszZktQQTFlbitN?=
- =?utf-8?B?QkpqYnhQYVNpWXJxbGlnb05welJmdHc0d2hOaXpnY2tGSGFwNE9ZRmhqRjV3?=
- =?utf-8?B?STNWb01YOEIwWFJpUE1UNkhsTGtBWG8zcXRrWFRiOTlFYUlVK0J5bGI4aGxn?=
- =?utf-8?B?MWx2RWlHMmMxS2NFdkE5ZkF2eC9DaWYxQ3Z5WUFSem1UUGNtZjN1dndtdUN4?=
- =?utf-8?B?eXovajhOV0c2aFFjeWNYbVYvaEtZcjZzN1NlaSt4VFJFblh3NVg2MmV2OG1G?=
- =?utf-8?B?dWl4Zmc4RndCYURpOWhCNFFtYjhJblBnZzdidjdkVXcyamRUODJJM0MrcWF4?=
- =?utf-8?B?L2l0UlZaSWpMa1lRc09pWmJ5YVc4eGlTbk0vbDZiN0xEWWdHSVhQODJMUVpH?=
- =?utf-8?B?dDArZHFyNFlLUmpyWEFQZlhhQnhzandKaVNVaGxRZytPN1NvN3dlb1c5dy83?=
- =?utf-8?B?WEZET01YRTV3Z3M5eXdMUzkrcnpBenNBTUlmR2R0TGJXVzNoOFNXODR5MUJT?=
- =?utf-8?B?aVBJcEJoWm1lYmZBWEpBcURGck5iOXlQWklpYStodk5PRFNzQVcvejFhdUt2?=
- =?utf-8?B?NjhwdW95RjR3NVBtUVJkcFpWUzlUUU5TQ0ROV1BrNVNFejcvNFY2VWhWZFAy?=
- =?utf-8?B?dGo4ZlRzaXRsbW5mdlNnY2VYK01aTkNKL2ZFaExLR3Fkd1BvdmdZTUQzOWl2?=
- =?utf-8?B?ZkZqZS9QMkQzZVYybmV2cCtjZjNObnBxZ0h2MVV4cldpekZkT0tVY0ZzMFk2?=
- =?utf-8?B?Q3BWWXdNRUJWTGFYMEdRWGJ0aS9xTWk1S2VHUmZoU1BabTBDN0xKWnkrdmV5?=
- =?utf-8?B?eGJnanRSQ2JXeHg0L2NwRjdRUzN1MkxsNGRHMVZrRWM1enZ2SmJiSXNGeHNU?=
- =?utf-8?B?ckVDYjRXNjRtbGdNK1RpMW93UTFrMTJmR09uKzE2R2JkVFhxZHFrWUZUa01L?=
- =?utf-8?B?cXFKdUdTQXlmY1ZHNWJzMWF6ZVVHb1orN2pBR0UzUEMvV0l6OThld1FUMXZN?=
- =?utf-8?B?MTZSenRiWEdPYi9PVGlnWmxjZVRzYWtEUiswUWl0S09tajZYTzlvclo3MUQ5?=
- =?utf-8?B?Wkl6bzV1TGxWZEpBNmpDaDJPc0VBY2swMWtXWnhrS2huZDBaTGpiU3AxcnQy?=
- =?utf-8?B?a2hOZFpxamFSTFhFRE1peHlhL1E5b0pFeHhyMmMvK1MwcW1YV0pUWFdFUW5y?=
- =?utf-8?B?cHVUSjIrRnhmZWRMa2wveWdkWXZwc2pNRFFsclIvVmd5Ymtod29GUnh2WkxV?=
- =?utf-8?B?UUdtYWRBUTA2WTlHTGM3SXY3U0JvbjNTeXloUkFwbnUvUFdZSGcvQU1WWDRO?=
- =?utf-8?B?WldyL0JqS09Zdi9iRUFJdzQ2aVQrR2pUdDVGUW9hV2ZFQUNONkZod1liOTRS?=
- =?utf-8?B?a3J1L3llT0l1UkxjOUtMNDNQT0EyZWQwYy9tT0ZIeUNodldFQlNFdz09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9cf2debe-c3d0-4d7f-e55e-08de995088de
-X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Apr 2026 11:33:50.6761
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AxSBovxoir8jNb4j7Kvjl8tI906a8G7+63pB4yrzvJIokGHW7pQ/nUZQJNBwIC0W
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR12MB6547
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_043400_404189_277B5955 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20260413_044434_818311_8E7B545A 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,73 +89,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Tue, Mar 31, 2026, Radhey Shyam Pandey wrote:
->> This series introduces support for the Multi-Media Integrated (MMI) USB
->> 3.2 Dual-Role Device (DRD) controller on Xilinx Versal2 platforms.
+
+
+On 4/1/2026 10:24 PM, Michael Kelley wrote:
+> From: Naman Jain <namjain@linux.microsoft.com> Sent: Monday, March 16, 2026 5:13 AM
 >>
->> The controller supports SSP(10-Gbps), SuperSpeed, high-speed, full-speed
->> and low-speed operation modes.
+> 
+> Nit: For the patch "Subject", the most common prefix for the file
+> arch/arm64/kernel/smp.c is "arm64: smp:".  I'd suggest using that
+> prefix for historical consistency.
+
+Acked. Will change in v2.
+
+> 
+>> mshv_vtl_main.c calls smp_send_reschedule() which expands to
+>> arch_smp_send_reschedule(). When CONFIG_MSHV_VTL=m, the module cannot
+>> access this symbol since it is not exported on arm64.
 >>
->> USB2 and USB3 PHY support Physical connectivity via the Type-C
->> connectivity. DWC3 wrapper IP IO space is in SLCR so reg is made
->> optional.
+>> smp_send_reschedule() is used in mshv_vtl_cancel() to interrupt a vCPU
+>> thread running on another CPU. When a vCPU is looping in
+>> mshv_vtl_ioctl_return_to_lower_vtl(), it checks a per-CPU cancel flag
+>> before each VTL0 entry. Setting cancel=1 alone is not enough if the
+>> target CPU thread is sleeping - the IPI from smp_send_reschedule() kicks
+>> the remote CPU out of idle/sleep so it re-checks the cancel flag and
+>> exits the loop promptly.
 >>
->> The driver is required for the clock, reset and platform specific
->> initialization (coherency/TX_DEEMPH etc). In this initial version typec
->> reversibility is not implemented and it is assumed that USB3 PHY TCA mux
->> programming is done by MMI configuration data object (CDOs) and TI PD
->> controller is configured using external tiva programmer on VEK385
->> evaluation board.
+>> Other architectures (riscv, loongarch, powerpc) already export this
+>> symbol. Add the same EXPORT_SYMBOL_GPL for arm64. This is required
+>> for adding arm64 support in MSHV_VTL.
 >>
->> Changes for v2:
->> - DT binding: fix MHz spacing (SI convention), reorder description
->>    before $ref in xlnx,usb-syscon, restore zynqmp-dwc3 example and add
->>    versal2-mmi-dwc3 example, fix node name for no-reg case, use 1/1
->>    address/size configuration and lowercase hex in syscon offsets.
->> - Split config struct refactoring (device_get_match_data,dwc3_xlnx_config)
->>    into a separate preparatory patch.
->> - Fix error message capitalization to lowercase per kernel convention.
->> - Rename property snps,lcsr_tx_deemph to snps,lcsr-tx-deemph (hyphens).
->> - Fix double space in comment and missing blank line in core.h.
->> - Use platform data instead of of_device_is_compatible() check for
->>    deemphasis support.
+>> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
+>> ---
+>>   arch/arm64/kernel/smp.c | 1 +
+>>   1 file changed, 1 insertion(+)
 >>
->> Link: https://urldefense.com/v3/__https://lore.kernel.org/all/20251119193036.2666877-1-radhey.shyam.pandey@amd.com/__;!!A4F2R9G_pg!YSeyY-bpQrMLqswAc1cWND5CSHvGFygPGMEMpR9amrRMnRFjYrFZktzbLzEzVZcQmOW34IUAfwRKHwy7B8p_ciUorWGJsA$
+>> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+>> index 1aa324104afb..26b1a4456ceb 100644
+>> --- a/arch/arm64/kernel/smp.c
+>> +++ b/arch/arm64/kernel/smp.c
+>> @@ -1152,6 +1152,7 @@ void arch_smp_send_reschedule(int cpu)
+>>   {
+>>   	smp_cross_call(cpumask_of(cpu), IPI_RESCHEDULE);
+>>   }
+>> +EXPORT_SYMBOL_GPL(arch_smp_send_reschedule);
 >>
->> Radhey Shyam Pandey (4):
->>    dt-bindings: usb: dwc3-xilinx: Add MMI USB support on Versal Gen2
->>      platform
->>    usb: dwc3: xilinx: Introduce dwc3_xlnx_config for per-platform data
->>    usb: dwc3: xilinx: Add Versal2 MMI USB 3.2 controller support
->>    usb: dwc3: xilinx: Add support to program MMI USB TX deemphasis
->>
->>   .../devicetree/bindings/usb/dwc3-xilinx.yaml  | 70 ++++++++++++++-
->>   drivers/usb/dwc3/core.c                       | 17 ++++
->>   drivers/usb/dwc3/core.h                       |  8 ++
->>   drivers/usb/dwc3/dwc3-xilinx.c                | 89 +++++++++++++++----
->>   4 files changed, 166 insertions(+), 18 deletions(-)
->>
->>
->> base-commit: 46b513250491a7bfc97d98791dbe6a10bcc8129d
->> -- 
+>>   #ifdef CONFIG_ARM64_ACPI_PARKING_PROTOCOL
+>>   void arch_send_wakeup_ipi(unsigned int cpu)
+>> --
 >> 2.43.0
 >>
-> Hi Radhey,
->
-> Do you have plans to convert dwc3-xilinx to using the new flatten model?
-> The change you have here fits better for the new glue model.
-Thanks Thinh for the review.
-
-I have looked into the newly introduced flattened model introduced by
-commit 613a2e655d4d ("usb: dwc3: core: Expose core driver as library").
-Moving to that approach would require switching to the new DT binding
-and doing a large refactor.
-
-Given this series is already implemented and under review,
-I suggest we get it merged first, then evaluate the flattened models
-benefits and limitations and plan a follow‑up migration if it still
-makes sense. If there are no objections, I'll send out v3.
+> 
+> The "Subject" nit notwithstanding,
+> 
+> Reviewed-by: Michael Kelley <mhklinux@outlook.com>
 
 Thanks,
-Radhey
+Naman
 
