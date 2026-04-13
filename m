@@ -4,61 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 056F5F34C63
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 16:08:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60B6AF34C64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 16:14:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JvQ9j9MGoF9KJJFAzoRgrZyKdKTqB5LaNool0Iuh4YQ=; b=gqzFAutYxKUY6sX7IAHg0zQ4v+
-	maeWRaSw8CiREHIdBqxG96eO9lgUKuVm2tkweRPbHbY1Tuvi3nyXcYR8MRFE2d7ub3NPna+f3hMyd
-	LkvYuY7K7o25Qf41Fhbjl8/+sBWcrTIvXl+y49WB2PjSlA6Zp84HE1tTimE3zZaZ+HZkAmbdSGaHE
-	EnOo21Gw/wufv1t3snJS4paPUJZ9NC81hV787Ibigeefd9Z/ckFBCgOhnChRWmd5eso2ZoNNmGUlO
-	xjoIDbySn3P0hdNYEQIyqjT+ZEvbQB2bUxUE+IZFtt4i2QhHpPSnG88+ofrcPThvt+ojvrUpM4OCD
-	i0+qxWQw==;
+	bh=QTxZjlPwQbG3YSd8NjMQF965BtCe0lPqly+S72Myshs=; b=d4GfmeDzg5nhh+3Oy8l9cDdzBh
+	WxTelu+7kRrQRnEmM8WHaTjtiW33RTd6P3EpSwQe08a70AmYXu2fRALKjViLIlIASSlSbidN/eSnG
+	cP+XnKVP5Wz6ChhexPNVv7Y+nRQZ20rIsF3KIApj5adbMqmbwtw4CMuq4Hcp7HzBc9DCOVVAw7dpw
+	6XeJ8/Ln6A/3Eq+FtzKW9pxquoRVTsapiGvIuQOmlQ2GD9lG/02IQZIG7XCc1pGnO8Dvk7JlgLdUH
+	x1RDCbKOsrd8Up9bReT8zh0+h6OlcXPGKkAdLtjfE/A36yLCLGjsD9jjHX3lThLRTyVpnt2zLf4ul
+	NcdR/O6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCJpz-0000000G1qR-066u;
-	Mon, 13 Apr 2026 16:08:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wCJvI-0000000G2RD-0ZqF;
+	Mon, 13 Apr 2026 16:14:04 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCJpx-0000000G1qF-1QL4
+	id 1wCJvG-0000000G2Qm-0LsT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 16:08:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9CC4861336;
-	Mon, 13 Apr 2026 16:08:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDA7DC2BCAF;
-	Mon, 13 Apr 2026 16:08:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776096512;
-	bh=d825AxCCibvEeW1TS9m6BI8YXTIqv9i5TOVSoBg9bsE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sLgD6aLfOKT7I8UT9/pGuAtkMNU5pKGEL+PmzpXyknCX2JRD/MRLmW2OFA1NXCBV/
-	 pdNzou3dwWx0Uip+kPcPhz6Ssaf065a5j+vm67Z9UbAeN3SMeG3pcalhKpRgi5xE4h
-	 1/LYDpv7k8YMyKW+DJSNTmXqViWmyKOxRAw0fif2wbom7DHAAXR91i795M8Rg6OZfo
-	 /y8nJZdclPaiVSHaBYwKR4PnasxsqZSOP1HAXlsxAmobUCVQjz7yEmlBOzItOprJed
-	 lxWDMuCTHJcoMzIAvs8Mb1YriQKypH1b9btDAkpEUwwe+0zwS4eImaEcqa2TmbCJlT
-	 ubo+kfd4RY8Cg==
-Date: Mon, 13 Apr 2026 19:08:24 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: "Barry Song (Xiaomi)" <baohua@kernel.org>
-Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
-	catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
-	urezki@gmail.com, linux-kernel@vger.kernel.org,
-	anshuman.khandual@arm.com, ryan.roberts@arm.com, ajd@linux.ibm.com,
-	david@kernel.org, Xueyuan.chen21@gmail.com
-Subject: Re: [RFC PATCH 3/8] mm/vmalloc: Extend
- vmap_small_pages_range_noflush() to support larger page_shift sizes
-Message-ID: <ad0U-IEvZkFwpBsg@kernel.org>
-References: <20260408025115.27368-1-baohua@kernel.org>
- <20260408025115.27368-4-baohua@kernel.org>
+	Mon, 13 Apr 2026 16:14:03 +0000
+Date: Mon, 13 Apr 2026 18:13:56 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1776096838;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QTxZjlPwQbG3YSd8NjMQF965BtCe0lPqly+S72Myshs=;
+	b=tkXY4nmg+ufLH8pIEREGPRIN7lEqDgcVyS4rMzP1pwHp3yL9b7kXJNaCAOrhLb02cE7TGx
+	ggSSsIsYsGtFlAqRc8UG2XgBwu4Qk7X16r+d5lL2igIBjpcbMUvCVDWy7ZLItlTIXxZD2z
+	h84JvMJNCIi1kvdvkxIIavJgYl+u/z8BcToeOgc+aJOW6lKeBrGdb3kEMvdFXGg6XytgEk
+	rPMpXXME1ph1vQl4s9O5z+BEsC7htoA6IsUN921QvLHj7U4PfLX+8Y45VLFAq5AKYwtmoY
+	FG1tRrjVloQGmzZUNVRNkeyCEHHE5ks19vbY61zf1F/NW+xmp2dLuPlt0SZxoA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1776096838;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QTxZjlPwQbG3YSd8NjMQF965BtCe0lPqly+S72Myshs=;
+	b=LoVkYl6MMLeNBjAM4BvQVhVn1NnaY+OSsVvNNOBvu1HsCV87BqTgHRgkWFHBm1kAvMqe5B
+	HVlxTATbwykTSSCg==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Russell King <linux@armlinux.org.uk>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <chleroy@kernel.org>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org
+Subject: Re: [PATCH 1/7] x86/vdso: Respect COMPAT_32BIT_TIME
+Message-ID: <20260413180541-e13f374c-b990-4236-bc83-8fde948899df@linutronix.de>
+References: <20260227-vdso-compat_32bit_time-v1-0-3f0286a7bac3@linutronix.de>
+ <20260227-vdso-compat_32bit_time-v1-1-3f0286a7bac3@linutronix.de>
+ <c29f5e70-bd17-4e1b-a005-5a3282e70075@app.fastmail.com>
+ <03cd1e21-a2f2-46a1-a674-cbaef9712016@app.fastmail.com>
+ <20260227103226-cc3bb32c-0107-4c09-b81a-ca33ea03ad5c@linutronix.de>
+ <49b7c9f9-198a-49f7-880b-6ae74d7bd985@zytor.com>
+ <2b1ac7b9-fcc8-4aa3-a0ad-eb37e4bce030@app.fastmail.com>
+ <20260410091131-46b6354c-9d06-4e47-9345-ee224d8528f7@linutronix.de>
+ <15925544-1ae5-406a-b9cc-af5935cc9f02@app.fastmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20260408025115.27368-4-baohua@kernel.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <15925544-1ae5-406a-b9cc-af5935cc9f02@app.fastmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260413_091402_263756_D07CB018 
+X-CRM114-Status: GOOD (  13.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,112 +93,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Barry,
+On Mon, Apr 13, 2026 at 05:59:52PM +0200, Arnd Bergmann wrote:
+> On Fri, Apr 10, 2026, at 09:24, Thomas Weißschuh wrote:
 
-On Wed, Apr 08, 2026 at 10:51:10AM +0800, Barry Song (Xiaomi) wrote:
-> vmap_small_pages_range_noflush() provides a clean interface by taking
-> struct page **pages and mapping them via direct PTE iteration. This
-> avoids the page table zigzag seen when using
-> vmap_range_noflush() for page_shift values other than PAGE_SHIFT.
+(...)
+
+> > Recap/Proposal:
+
+(...)
+
+> > * Always provide settimeofday(). If CONFIG_COMPAT_32BIT_TIME is *not*
+> >   set, reject passing any 'tv' argument where it may not be y2038 safe.
 > 
-> Extend it to support larger page_shift values, and add PMD- and
-> contiguous-PTE mappings as well.
-> 
-> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-> ---
->  mm/vmalloc.c | 54 ++++++++++++++++++++++++++++++++++++++++------------
->  1 file changed, 42 insertions(+), 12 deletions(-)
-> 
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index 57eae99d9909..5bf072297536 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -524,8 +524,9 @@ void vunmap_range(unsigned long addr, unsigned long end)
->  
->  static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
->  		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
-> -		pgtbl_mod_mask *mask)
-> +		pgtbl_mod_mask *mask, unsigned int shift)
->  {
-> +	unsigned int steps = 1;
->  	int err = 0;
->  	pte_t *pte;
->  
-> @@ -543,6 +544,7 @@ static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
->  	do {
->  		struct page *page = pages[*nr];
->  
-> +		steps = 1;
->  		if (WARN_ON(!pte_none(ptep_get(pte)))) {
->  			err = -EBUSY;
->  			break;
-> @@ -556,9 +558,24 @@ static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
->  			break;
->  		}
->  
-> +#ifdef CONFIG_HUGETLB_PAGE
+> This sounds wrong to me now: the case I'm worried about is a 32-bit
+> system calling settimeofday() based on the value of an RTC or NTP.
+> The idea of CONFIG_COMPAT_32BIT_TIME=n is to catch this by causing
+> an intentional ENOSYS error even for valid times, so it doesn't
+> suddenly start breaking in 2038.
 
-Why is this related to HUGETLB_PAGE?
+This is what I meant with "where it *may*" be not y2038 safe.
+Even if the value fits, the call would be rejected.
+My wording was crappy indeed, though.
 
-> +		if (shift != PAGE_SHIFT) {
-> +			unsigned long pfn = page_to_pfn(page), size;
-> +
-> +			size = arch_vmap_pte_range_map_size(addr, end, pfn, shift);
-> +			if (size != PAGE_SIZE) {
-> +				steps = size >> PAGE_SHIFT;
-> +				pte_t entry = pfn_pte(pfn, prot);
-> +
-> +				entry = arch_make_huge_pte(entry, ilog2(size), 0);
-> +				set_huge_pte_at(&init_mm, addr, pte, entry, size);
-> +				continue;
-> +			}
-> +		}
-> +#endif
-> +
->  		set_pte_at(&init_mm, addr, pte, mk_pte(page, prot));
-> -		(*nr)++;
-> -	} while (pte++, addr += PAGE_SIZE, addr != end);
-> +	} while (pte += steps, *nr += steps, addr += PAGE_SIZE * steps, addr != end);
->  
->  	lazy_mmu_mode_disable();
->  	*mask |= PGTBL_PTE_MODIFIED;
-> @@ -568,7 +585,7 @@ static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
->  
->  static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
->  		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
-> -		pgtbl_mod_mask *mask)
-> +		pgtbl_mod_mask *mask, unsigned int shift)
->  {
->  	pmd_t *pmd;
->  	unsigned long next;
-> @@ -578,7 +595,20 @@ static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
->  		return -ENOMEM;
->  	do {
->  		next = pmd_addr_end(addr, end);
-> -		if (vmap_pages_pte_range(pmd, addr, next, prot, pages, nr, mask))
-> +
-> +		if (shift == PMD_SHIFT) {
-> +			struct page *page = pages[*nr];
-> +			phys_addr_t phys_addr = page_to_phys(page);
-> +
-> +			if (vmap_try_huge_pmd(pmd, addr, next, phys_addr, prot,
-> +						shift)) {
-> +				*mask |= PGTBL_PMD_MODIFIED;
-> +				*nr += 1 << (shift - PAGE_SHIFT);
-> +				continue;
-> +			}
+In code:
 
-With this vmap_pages_pmd_range() looks quite similar to vmap_pmd_range().
-Any changes we can consolidate the two?
+if (tv && !IS_ENABLED(CONFIG_COMPAT_32BIT_TIME) && sizeof(tv->tv_sec) < 8) {
+	pr_warn_once(...);
+	return -EINVAL;
+}
 
-> +		}
-> +
-> +		if (vmap_pages_pte_range(pmd, addr, next, prot, pages, nr, mask, shift))
->  			return -ENOMEM;
->  	} while (pmd++, addr = next, addr != end);
->  	return 0;
+Or maybe drop the EINVAL but still emit a warning. That warning would be
+useful for gettimeofday(), too.
 
--- 
-Sincerely yours,
-Mike.
+Thomas
 
