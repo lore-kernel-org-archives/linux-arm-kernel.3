@@ -4,63 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E0AEBFD36
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 10:40:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DF32EBFD3A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 10:50:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3XueimPDZD4ii762L33XaFO65U/3dumP3mZwccEK19k=; b=wUOPaxIrzyJ+tJBt024B6si/nS
-	4asUwCEbfqRR/LrscuS14PcDSZp4pjmIV8uWoUSJhmrr+d80s2DC1vV6fEoZq5rvb0OBXmWkSdawk
-	Q69FmqRyIkiao5zt+fpQdi1j2uhb4pR5/4RqwlrRk3SJlzEom7k7l0XUbuDhPi//3O/iAjjEOz/5L
-	p1naoV3hHhavZapX8PIaEL84UtTbkWZPul5O+98rV21o1ifoxRPhSww8xfNv7wuA3QJ8dMjQ4Y+5Z
-	CsPuzv49bsG6Zdmx8/A3R9xi+KiWnL93w2h414MIS70kCuZK6F+qLqmjX0emR8uq9ejG84s5eRLEi
-	6lKSZ30w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8oeKvpLoIwX0D2jORLmERdw0ELrxuo/MOedWUT29oW8=; b=JWC+j4KC+jbMmLGcJa52zlZb4n
+	o8TmFKYj1Qz8vrAz1gei/5CB//lVHKWBIkSTsRROgxKqp0ex0t5NAlDLXdtKQXJ4mcGYurZniRD03
+	GOnsqnoSu0CTMS03Jt1tke7p5b+qZuIxBW6dJskfPMp2VGqtJlsOyCdJjzH6zrMqYqAm+YYJ/Orso
+	UTf3FjYSTWXWiT9304VfKgxR+G0ITlMQy5y6DhMndfH6XpF9Jj5tJsltxO+3TXW0fWnPgQQL0FOon
+	SdvapLaQ0wvLwOh6vxZ35Sr7xGh7o0HDAStthr0Fca4F37wKXDZk+fXdJEpn4m30dp8sEPZMHE77d
+	zo0HpUfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCEhw-0000000FVFD-0svD;
-	Mon, 13 Apr 2026 10:39:56 +0000
-Received: from courrier.aliel.fr ([2a01:4f9:c011:1c83::1])
+	id 1wCEsL-0000000FVus-46LO;
+	Mon, 13 Apr 2026 10:50:41 +0000
+Received: from mail-northeuropeazon11011062.outbound.protection.outlook.com ([52.101.65.62] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCEhr-0000000FVEF-335i;
-	Mon, 13 Apr 2026 10:39:53 +0000
-Message-ID: <6a204eb0-ab08-462b-8dad-8f0990dc500d@aliel.fr>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1776076785;
-	bh=duq9L31NUVCD1nJNJYBo8ZhlfesdFiU++70jz5ELPL8=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To;
-	b=i7A3JI9g79SdnCtohMFvDOCVny58Mep5/hD+vBGfIvZxClV7vztMISAsgPZLMkgIO
-	 30bpiC+t/4hyPb/dwf+/m7AZyU2Co4ynqeNbB9TjjsVCf6y6M/HaaqcJdSQAyOkMLb
-	 eQVwAcjNlP/nvQ7YyVrNCOtlLK42yte8REpDGrgw=
-Date: Mon, 13 Apr 2026 12:39:43 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-Subject: Re: [PATCH 1/8] dt-bindings: thermal: amlogic: Add support for T7
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Guillaume La Roque <glaroque@baylibre.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-pm@vger.kernel.org, linux-amlogic@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260410-add-thermal-t7-vim4-v1-0-19f2b8da74d7@aliel.fr>
- <20260410-add-thermal-t7-vim4-v1-1-19f2b8da74d7@aliel.fr>
- <20260412-abiding-silver-turkey-1623cc@quoll>
-Content-Language: en-US
-In-Reply-To: <20260412-abiding-silver-turkey-1623cc@quoll>
-Content-Type: text/plain; charset=UTF-8
+	id 1wCEsJ-0000000FVu6-05Iv
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Apr 2026 10:50:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fy/tyuPOvaQieD3TfYDXaMXsEH7W+LV64ERoN4W1t4oJjdCJjvyxzHEiYFTmmYeqBayiMZ13ZdMNXnhCGIDolXShnLqZXMgQe6foNnjZq9iNKjL1edLj1k+1VDQ+PunLCggPtj1TgrajYTU3fZoOdh0gLhnuCTsfjyi43kU5XmbU0SdXOjMHHlifS20Rma7gl6/TP7cUBEgFHeEtaNdYsBwQzqRRccfZqaHOnpRVcLDBLjfogNKxN4FzNielIC73nxmRnSlXt90p9hOogb1xC13+FqgpZHZkd3mJ0H+2meAx0//0P48OFNQER0J2AoRevOrwjaGNKj8j4yct12iwmg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8oeKvpLoIwX0D2jORLmERdw0ELrxuo/MOedWUT29oW8=;
+ b=hEZMp3x6xHKJmzwl7gvXJxhSvltEVDcwgqWSGeWrfqKeC7kuZOxCqAX0NNmH+wNqPcsHuk/AolzkUmXEGnXtl5KPSJNtD+fcLv0KGIBL2dI0UDuBdyLkEvieCTEVhCAbjpYicOHyux9h2ZVTToXq2Gsvs76t6MiQgTLetvv4K/R6jSx9c/DtIACjo8LNiZDHWWOLrwqYqkmonoC23vfsuCFfv8LpG0EtlkdYg/j4OMdEih9NjdkQRprk+I0nfvVrrdU9TnA3DZ5cYxPR4XRrRTRcTh9gPWp3cQVEjo0HNjCnCoY1EXsLrNy98mkwGOCmhRGNJjdHOTM+A0mH2GumTg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8oeKvpLoIwX0D2jORLmERdw0ELrxuo/MOedWUT29oW8=;
+ b=aFB3WLlnwKJwpb3vKC1qv9v7ziSkQgEu5/twRFHoo/A6Op5HTIrpcjazX0iDGHmJCzs7vYA8bCeZ9kP8J3e9xfFliqx+hz0ba2BKutbi0kj+uZvF+fjUafcPeYYC0nAIslmj/yY5vV254BuqEjE7OcCcq9/pzJUc4exBMqXI5rGLc51I1U0G81EHGads8bSl0gl/4Lac+3G75UEQl8khUCACzuXz6ZZT/dUnfvgypK958dt0nReUSMZyyt608XUjFiF+hwws9+o+DyehckcXeh0UuDCBCIWRUTDeVE7W28pZz6GTeaWmU/GjEATciW/S1w3a2GjNA6gAcMfdhAHWiA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DB9PR04MB8461.eurprd04.prod.outlook.com (2603:10a6:10:2cf::20)
+ by DU4PR04MB12276.eurprd04.prod.outlook.com (2603:10a6:10:629::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Mon, 13 Apr
+ 2026 10:50:32 +0000
+Received: from DB9PR04MB8461.eurprd04.prod.outlook.com
+ ([fe80::21f6:947a:1f40:18af]) by DB9PR04MB8461.eurprd04.prod.outlook.com
+ ([fe80::21f6:947a:1f40:18af%6]) with mapi id 15.20.9769.046; Mon, 13 Apr 2026
+ 10:50:32 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Date: Mon, 13 Apr 2026 18:52:43 +0800
+Subject: [PATCH] ASoC: pxa2xx-ac97: fix error handling for reset GPIO
+ descriptor
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260413-ac97-v1-1-b44b9e084307@nxp.com>
+X-B4-Tracking: v=1; b=H4sIAPrK3GkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDE0Nj3cRkS3NdC2MjI5NEE5PUFGNzJaDSgqLUtMwKsDHRsbW1AHTjAWB
+ WAAAA
+X-Change-ID: 20260413-ac97-83224a44ed37
+To: Daniel Mack <daniel@zonque.org>, 
+ Haojian Zhuang <haojian.zhuang@gmail.com>, 
+ Robert Jarzmik <robert.jarzmik@free.fr>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>, 
+ kernel test robot <lkp@intel.com>, Dan Carpenter <error27@gmail.com>
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: SI1PR02CA0001.apcprd02.prod.outlook.com
+ (2603:1096:4:1f7::15) To DB9PR04MB8461.eurprd04.prod.outlook.com
+ (2603:10a6:10:2cf::20)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB8461:EE_|DU4PR04MB12276:EE_
+X-MS-Office365-Filtering-Correlation-Id: ce0442f4-a3ac-4238-2655-08de994a7c38
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|52116014|7416014|376014|38350700014|18002099003|56012099003|41080700001;
+X-Microsoft-Antispam-Message-Info: dth3sF6EBJTeCHFUMEKmXaraHmHF+6LMUJONKuvjjObPiV7omVKrwQJNfbWhiCZNp3oLPBFwuNOHx0ayI2yOpIXb9Frxgxr6QwuHsZ7FZn4r/P3WDfSL6GkYEmwYCCPeaU0TMNFJgsItAi9VsSk673XN/Tet1vkXw9hJpsvNG+XnRh8Eh9fK6nTvrTWTBsdZ5gQMQHp6hAAJbRAxlCKVIbTrDzVE2pMarUCcePIVbg3e63tKS6hRIaCpcVdTDkLecivgqHew+5muA090oGFDCPbLjvoxeifmzyri2owYMvKWflZ5JoRz53kKYTxzY4CiQI0JYuPAHa7eaLUvUEaHY31q50j9ChWNz2zSwnJRIDhn6RWTF0viH25ie738iiMb4/qhwfwe5jlEq4JTzoSTeifM9Sr/7JnoBjtYd92MoAVUdfsKgP758BncmkGh7YmYpMR31TENs7wk6485PEWrS+dwn3x/5PLY+WHbop8dgrKAybP2sTSFtfXzXjNcHsGdoFKIKq7LJYJCG65N2g+DwU0MJ9ZdkIC8I578pC3srXedtehbKTF4IDVu0FiYRDtk9rIFL8enqVOpC2vjT/CkedgWdX9L4mf/atVWvM0C/GnLwzpiq3oo6G0O40t2JgaKxI/2aufHgXNIXNrBNJhPMZQ7vP4sidzPWcStxGNxSzkuTGit0IPss5BW9kk1/uwUWzhjeIxhrFI/rb29My+e0bBDODL2jQgB9OtOKY2d8hR9tk/dqNLEcIjyuqGHQt1YmHqZOROsNG/gNNSxTgmrcNcG4I1jUtU3FWHm/ivsMGyfTX4ZpOhIQWncvedD2T9zkq+rGc34LSthkTd3F9Xb1w==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8461.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(52116014)(7416014)(376014)(38350700014)(18002099003)(56012099003)(41080700001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dVlENk1hZmRZZFhiaUtZTEg3cTNjNHN6R2hUTlRlM0pSOWVnbC80ajFaNVJa?=
+ =?utf-8?B?a1FnWDVuVHhoMGFhMHZRSUF2a3oxTFVlSGVVa0VJaklQMUdzK2VLK2N2bnln?=
+ =?utf-8?B?LzdZOHpmYUFkUyswZkhMdHY1RkdhRzZKMU5rM1ErY295MkZweXdCRElTcjlX?=
+ =?utf-8?B?Q0pkT1VWSEd0TGpEeDBQRFlYKzBKTHRoZmJSRFBpdHhQRU9uVjhhUVVsbmZt?=
+ =?utf-8?B?RjA1V0h5WDVaaWFmam1EUUFEN3JLZkJVTDBYYVV3cW5vaTNlYXFaVEtsSEhT?=
+ =?utf-8?B?Y3FKbG1jTzJlZzArUWQ2T3Zmdy9lTXAzRmV1OERvOEpjdHpubFdXbjJPZDJo?=
+ =?utf-8?B?eTlUL1R2Y1VCNUFoUkRSc1BFdDBhMnJmTWphOCs0VGpwZ2xmQVlnc2M2dXJw?=
+ =?utf-8?B?ZGtwVmd4ckhuOFJWK2lmZkkwajdxc1Z0NllYcy81aVFvZ2lFTUFrUXlrK0Jn?=
+ =?utf-8?B?aUM3aHE4S1B4YnF4WmtJYmtkejNva2ZzMms0QmhldUNJTlBXZmF6YmVnc242?=
+ =?utf-8?B?Z0t4WEczS3lVZ3J4RTJzVXNSOU1RL0NkeG5sOXAxYVRBejZ0bnJYbUdwdldF?=
+ =?utf-8?B?TzZkMlM0U3o3dWNTYy9yL2FITEM4NDhOMURiSUxaM3k4d3JQUjhPaWMvdldR?=
+ =?utf-8?B?YzZFQ3NMa3docXpIdXhUdkFTNFUwQ3dreHBicE84emJnQnMvVjNKVWxTN3J5?=
+ =?utf-8?B?blRoNUlvM3FtTWVMckFPeDN2dVEwY1NvUWZzQkNKR0ZzQ0RKRTRibHJuYjlu?=
+ =?utf-8?B?VkdId3hLOGt1K0JTSHlBYk1PSktuS1pqS0ZaeFoyTXlLeUM4VnVhWFYraEhJ?=
+ =?utf-8?B?WlBSUFUvdmI4WXlVbSs2ODgzS3pQLzE3Wk5XTG04bytNL0FheDlDOWNhdGht?=
+ =?utf-8?B?bXgvTFJkM0pwRGJpbkZ3ckNMS08rbTdmdmVWUmtKL3ZHOUNJWlpCRnBJR1Iw?=
+ =?utf-8?B?RjJJL0NlMWU3WHNEMnVHYlUySWw1VnZ2bCtrOUw5WmE3NHZYcjgrRnU3cXhW?=
+ =?utf-8?B?SGRVajlXRjQwM1VNODJ6Z2xNd1d3b1BxVTJWc1BYSFBKOWNQKzVNR2hNMUZV?=
+ =?utf-8?B?emJoUFBDUFdaTUJ3ZTNsbFExNENWWW5BV3Jrc2dJWmNmTy84eTNUR1grZVEr?=
+ =?utf-8?B?Sks1NXRQN0tjVFg0dXlsMHErR1JUN1ErclZRT1lNcGFabWNIYW1Eak14TFhp?=
+ =?utf-8?B?ejdOSUdsV25mbWZ5OUN0ZnpGM2pOVHA5ZXFQWEtHVEQwQ1RrVnJBYlBMbTJ1?=
+ =?utf-8?B?NnVXR2o4Z000cjd5YzNrSXlqbTlQM0srYWZsUzlsTjJKUWFPaXVEeklXWTY3?=
+ =?utf-8?B?WFlTaDg1a2FrY1lpdTNkTGt3cmhDWEJRNkhHcjlhU2ROTEF5Mm41a2JnbVha?=
+ =?utf-8?B?TVVYdS9EeHg2aEZiTGxBWTB3Sk1uZE4rWXFDelhJYURhaDJvcHFCSHNpVHRa?=
+ =?utf-8?B?UHYvZUQyRyszTTBIWm9RQ01RR0pRNnZ2YU1BeERDRXN0Q0FobEU1T1NIYXdR?=
+ =?utf-8?B?OUVCM2UrcWpMMTdZcDJYdmMrOFNXNm82c2FEckRZdkhqUTI1REwwQTE1WVlI?=
+ =?utf-8?B?Qk8xL0VxcCttREx5WGpRNEoyUkY4QStRRFdaYVhFK3ZnL29lQmlnVzgvUXdz?=
+ =?utf-8?B?d3hNditiWkxZZlNkUzhuWSsvbkt2QVZiM2FaeW0yU2VHSkR5S3NpWU9ESW9k?=
+ =?utf-8?B?NzcvWk1MckhJTktqb0MzcnpZVngyNUdMaXJaZVU4OStPRGs3MHA4SUJrL2xV?=
+ =?utf-8?B?VXlSaStSVHl1cGN0aElZVyt5R0ZUV3ZOQW0rcWJWM1ZTRTBXOGJORDBTRDN0?=
+ =?utf-8?B?cW1sdGRkZmxyUkV4dXE1NzJ5QWpVaGxlbkp2Uzk4QkJHQjVFRmFBOTJDZkhI?=
+ =?utf-8?B?cm1pNmRVb1VGWU1NM21kM0hTMmtJdnY1MWRTMi90MVVjVExjZkFXMkJsRmFI?=
+ =?utf-8?B?T0RnejJTNTdOOWJ3cmd2OG1RNmo5NE9SYWp5Q0t4VnFDZXNCSGFLem9VNytH?=
+ =?utf-8?B?YnZFOVNjcUEvbStxNmhYandxNmJadWRXeFN2Z3c2NVpnWE5RKzNIMk1VUTFO?=
+ =?utf-8?B?bFViY3FFZFR5dVk3NjBlWFh6K2M0MnF5WmozN0ZoQ25Zb3kzZ2xZdVRPVzYr?=
+ =?utf-8?B?UjJROEdyZ2tNQ1BsdDdFNG9zd00wamlia1BDZ0Q5UG5EbFJmZ05qeWtCWFFM?=
+ =?utf-8?B?VlNxT1lMbWFya3cya3FldmtUNVJHc3B2c1k3bTdsUVF5QVRtaktYcVlmMVQv?=
+ =?utf-8?B?L1FTaFNqMHJWdmZsQnpyVlpTUDVxb1RaUGVmdlZKeE05ekN5emZJbjBNamNm?=
+ =?utf-8?B?SlRuc3F4V0FOWTlrRFJ6a3oxVjlxZFd4YkNEV3dodTQ4SWlhQnRmQT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ce0442f4-a3ac-4238-2655-08de994a7c38
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8461.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Apr 2026 10:50:32.6685
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: T2E1j0cSrVSEl9UpnMirYItQWz0uTLyVG3OyK/gKpGkoE504gYwgTyn78NWT6IV34ILtB3rGGGSyUApkYoX6Yw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB12276
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_033952_088195_0069413F 
-X-CRM114-Status: GOOD (  21.33  )
+X-CRM114-CacheID: sfid-20260413_035039_067227_B4D504A2 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,107 +154,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Krzysztof, thank you for this feedback.
+From: Peng Fan <peng.fan@nxp.com>
 
-On 4/12/26 11:58 AM, Krzysztof Kozlowski wrote:
-> On Fri, Apr 10, 2026 at 06:48:02PM +0200, Ronald Claveau wrote:
->> Add the amlogic,t7-thermal compatible for the Amlogic T7 thermal sensor.
->>
->> Unlike existing variants which use a phandle to the ao-secure syscon,
->> the T7 relies on a secure monitor interface described by a phandle and
->> a sensor index argument.
->>
->> Introduce the amlogic,secure-monitor property as a phandle-array and
->> make amlogic,ao-secure or amlogic,secure-monitor conditionally required
->> depending on the compatible.
->>
->> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
->> ---
->>  .../bindings/thermal/amlogic,thermal.yaml          | 40 +++++++++++++++++++++-
->>  1 file changed, 39 insertions(+), 1 deletion(-)
->>
->> diff --git a/Documentation/devicetree/bindings/thermal/amlogic,thermal.yaml b/Documentation/devicetree/bindings/thermal/amlogic,thermal.yaml
->> index 70b273271754b..85ee73c6e1161 100644
->> --- a/Documentation/devicetree/bindings/thermal/amlogic,thermal.yaml
->> +++ b/Documentation/devicetree/bindings/thermal/amlogic,thermal.yaml
->> @@ -22,6 +22,7 @@ properties:
->>                - amlogic,g12a-ddr-thermal
->>            - const: amlogic,g12a-thermal
->>        - const: amlogic,a1-cpu-thermal
->> +      - const: amlogic,t7-thermal
-> 
-> So these two entries are enum.
-> 
+The reset GPIO obtained via devm_gpiod_get() may return an ERR_PTR()
+when the GPIO is missing or an error occurs. The current code
+unconditionally assigns PTR_ERR() to ret and later dereferences
+rst_gpio via desc_to_gpio(), which is incorrect when rst_gpio is an
+error pointer.
 
-I will change to enum.
+Rework the logic to first check IS_ERR(rst_gpio) before converting the
+descriptor. Handle -ENOENT by disabling reset GPIO support, and return
+other errors to the caller as expected.
 
->>  
->>    reg:
->>      maxItems: 1
->> @@ -42,12 +43,40 @@ properties:
->>    '#thermal-sensor-cells':
->>      const: 0
->>  
->> +  amlogic,secure-monitor:
->> +    description: phandle to the secure monitor
->> +    $ref: /schemas/types.yaml#/definitions/phandle-array
->> +    items:
->> +      - items:
->> +          - description: phandle to the secure monitor
->> +          - description: sensor index
-> 
-> For what exactly this sensor index is needed? commit msg explained me
-> nothing, instead repeated what you did. That's pointless, explain why
-> you did it.
-> 
+Fixes: c76d50b71e89 ("ASoC: ac97: Convert to GPIO descriptors")
+Reported-by: kernel test robot <lkp@intel.com>
+Reported-by: Dan Carpenter <error27@gmail.com>
+Closes: https://lore.kernel.org/r/202604041426.i2C1xqHk-lkp@intel.com/
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+ sound/arm/pxa2xx-ac97-lib.c | 15 +++++++++------
+ 1 file changed, 9 insertions(+), 6 deletions(-)
 
-Thanks I will add the explanation in the commit message and in the
-description here.
+diff --git a/sound/arm/pxa2xx-ac97-lib.c b/sound/arm/pxa2xx-ac97-lib.c
+index 1e114dbcf93c94ef30b7b81c40ef9aa30d1271ff..79eb557d4942f19df843d057bfcc0cddb28cf4d8 100644
+--- a/sound/arm/pxa2xx-ac97-lib.c
++++ b/sound/arm/pxa2xx-ac97-lib.c
+@@ -331,12 +331,15 @@ int pxa2xx_ac97_hw_probe(struct platform_device *dev)
+ 	if (dev->dev.of_node) {
+ 		/* Assert reset using GPIOD_OUT_HIGH, because reset is GPIO_ACTIVE_LOW */
+ 		rst_gpio = devm_gpiod_get(&dev->dev, "reset", GPIOD_OUT_HIGH);
+-		ret = PTR_ERR(rst_gpio);
+-		if (ret == -ENOENT)
+-			reset_gpio = -1;
+-		else if (ret)
+-			return ret;
+-		reset_gpio = desc_to_gpio(rst_gpio);
++		if (IS_ERR(rst_gpio)) {
++			ret = PTR_ERR(rst_gpio);
++			if (ret == -ENOENT)
++				reset_gpio = -1;
++			else if (ret)
++				return ret;
++		} else {
++			reset_gpio = desc_to_gpio(rst_gpio);
++		}
+ 	} else {
+ 		if (cpu_is_pxa27x())
+ 			reset_gpio = 113;
 
->> +
->>  required:
->>    - compatible
->>    - reg
->>    - interrupts
->>    - clocks
->> -  - amlogic,ao-secure
->> +
->> +allOf:
->> +  - if:
->> +      properties:
->> +        compatible:
->> +          contains:
->> +            enum:
->> +              - amlogic,g12a-cpu-thermal
->> +              - amlogic,g12a-ddr-thermal
-> 
-> Drop both, you need only fallback.
-> 
+---
+base-commit: 66672af7a095d89f082c5327f3b15bc2f93d558e
+change-id: 20260413-ac97-83224a44ed37
 
-I hesitated between the two methods. I will change to fallback only.
-
->> +              - amlogic,a1-cpu-thermal
-> 
-> And list is sorted alphabetically.
-> 
-
-Thanks for the reminder.
-
->> +    then:
->> +      required:
->> +        - amlogic,ao-secure
-> 
-> Best regards,
-> Krzysztof
-> 
-> 
-> _______________________________________________
-> linux-amlogic mailing list
-> linux-amlogic@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-amlogic
-
-
--- 
 Best regards,
-Ronald
+-- 
+Peng Fan <peng.fan@nxp.com>
+
 
