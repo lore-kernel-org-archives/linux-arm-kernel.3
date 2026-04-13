@@ -4,73 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5A77F34C63
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 16:35:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B56ECF34C65
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 16:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7kag+k76MMII2rJ7lc0nPwSZz3w0zkW2ZuT/Qpx9Y1o=; b=bigC2s6gYI2IkmzIfJX33NTV9i
-	fP4ztDAEXL8JQ2X1nZ5Le8XhxJyJcj1PP7/AtM+iCWfbMumoyhLTRc6415TvQbh27xAA8oYCHVI3m
-	XFePtA4/6+oXlBVTbiXCbHXf0let82tp0UMQw88RJAvz8fKJ70DkvRyZOGw68VrM+tySXP/NnuypA
-	/Rgr5riH83togzQHI8QAyNh9GqI0BcgIJb/m9QNfh+Z7claGKBrALYEMZsklYYikW+avMwekH5pGT
-	5Drzn4ey5vrsqqyqolQNkuvN5dvPPwNl8kCTeiKoTVDV2emXvI0TdWOwzdH6y/7ks7m4723/Rgimj
-	imCWrxOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BZg4EuUfpHNS+JSwjQ1D2m4I/BJ7BVsxLCpbabF/7+U=; b=mBjcaVRBF/LsRmOkHqTjPOkQz/
+	2eDKvxKTxlDYrMxcMiVsI+xL55nGu/cqLGlv9GAbQSYqEwKC2O25NCN0Dk9tIV0W/PlGIDlaZKoba
+	dK4TFTrhugkzXBLxLU5gDgjuvbtU/wen9SeKN/qGqYKLpmNl0Ghq67H9L1J7ypw5Nc/Urp8cuKlrF
+	UZqZW9MwbFEOgopCfNr8PtbnLRlKERWWF2vtnmU66N4+JKIUZg8XaMj69zYeZ8MGKmeBfO4FRk3GO
+	4hiJx3V9Bhu/5IOwL8SHaopHnT24itEE92N5boTZZit095tIbgsOwkK6FD9Gcg5tPxnucvOWOT47w
+	Ue2L9+ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCKGL-0000000G4Mu-1oz3;
-	Mon, 13 Apr 2026 16:35:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCKGJ-0000000G4MT-1x0F;
-	Mon, 13 Apr 2026 16:35:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2DA4F40881;
-	Mon, 13 Apr 2026 16:35:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49FBCC2BCB3;
-	Mon, 13 Apr 2026 16:35:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776098145;
-	bh=YZ23nMQ/ay3QztACjeZpwAsTDk5SE/Lr+pB3V6c9Mqw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Lk8ymw3MMZG/o+y7+yEs9+SRa2wM7p+rrtsT8WBnSf4v+gl6sXbHWOTbbi/XV3xC4
-	 Pn5g7XBWkIkq8K23OKBe16ohjIMDDnUIoslb4p0kQC3a9ulPP1tSHjaCLOf54uD2oZ
-	 G7ui53icbdw2iggotHL0Vy9VNgLSVMib1U3kiMTN0uW2+GElkpA8ikUiE8h0XLfNE9
-	 ImA9l7/Am6GKhLrhIsYsx1CFPePcxFQ9wp4T8PUnxtM3gUcwJQ6/+R6IdMPwZ4nbDA
-	 dZDI+53aOQhehcepUJNY3OiBRpz0ea9bCWS9K13MaCoeVgSKeZOTLYKnFz8Fy56/JW
-	 PoN5/0eOM46Gw==
-Date: Mon, 13 Apr 2026 22:05:28 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Brian Norris <briannorris@chromium.org>, 
-	Hongxing Zhu <hongxing.zhu@nxp.com>
-Cc: Hongxing Zhu <hongxing.zhu@nxp.com>, 
-	"manivannan.sadhasivam@oss.qualcomm.com" <manivannan.sadhasivam@oss.qualcomm.com>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Mahesh J Salgaonkar <mahesh@linux.ibm.com>, Oliver O'Halloran <oohall@gmail.com>, 
-	Will Deacon <will@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>, 
-	"linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>, Niklas Cassel <cassel@kernel.org>, 
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>, Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
-	Lukas Wunner <lukas@wunner.de>, Wilson Ding <dingwei@marvell.com>, 
-	Miles Chen <minhuachen@google.com>
-Subject: Re: [PATCH v7 0/4] PCI: Add support for resetting the Root Ports in
- a platform specific way
-Message-ID: <klzq2i2ne62hdri65gz7s5pxmvely277optr2lrkvdrrahl3ca@k3hdo6o4nkjz>
-References: <20260310-pci-port-reset-v7-0-9dd00ccc25ab@oss.qualcomm.com>
- <AS8PR04MB883389FD2A016F9E02756B048C49A@AS8PR04MB8833.eurprd04.prod.outlook.com>
- <adcHylFjFjhHT-tP@google.com>
+	id 1wCKW0-0000000G578-1ECB;
+	Mon, 13 Apr 2026 16:52:00 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCKVx-0000000G56k-3BTB;
+	Mon, 13 Apr 2026 16:51:58 +0000
+Received: from [192.168.0.106] (unknown [49.205.253.198])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 4DCF620B6F01;
+	Mon, 13 Apr 2026 09:51:50 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 4DCF620B6F01
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1776099116;
+	bh=BZg4EuUfpHNS+JSwjQ1D2m4I/BJ7BVsxLCpbabF/7+U=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=F8eRxB/+wsF8U83KHRZ7cGnuJTXK5ScgYWX22s7lQ01sfWax4WFRBAp9xYWL/CNID
+	 q09Rk6ZIJASUKh7q2NOci1dN+XraY4q45tViJ0uFadXnEvrwoBJgWYZpiE3cTp6T9j
+	 esOfCpHOGKPfaTr4Wp5rVM7XMgeDVZeMzjIHtFi4=
+Message-ID: <3264b2e6-f6fb-41b1-97da-22b5249c1839@linux.microsoft.com>
+Date: Mon, 13 Apr 2026 22:21:47 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <adcHylFjFjhHT-tP@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 06/11] Drivers: hv: Make sint vector architecture neutral
+ in MSHV_VTL
+To: Michael Kelley <mhklinux@outlook.com>,
+ "K . Y . Srinivasan" <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "x86@kernel.org" <x86@kernel.org>, "H . Peter Anvin" <hpa@zytor.com>,
+ Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+ "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+References: <20260316121241.910764-1-namjain@linux.microsoft.com>
+ <20260316121241.910764-7-namjain@linux.microsoft.com>
+ <SN6PR02MB4157521DEF9EA2471B6F3359D450A@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <b5125f61-173f-45d0-a6dc-d795ba0f8693@linux.microsoft.com>
+ <SN6PR02MB4157DA00A31F0BA8585B9B69D4242@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Language: en-US
+From: Naman Jain <namjain@linux.microsoft.com>
+In-Reply-To: <SN6PR02MB4157DA00A31F0BA8585B9B69D4242@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_093547_543509_6509235F 
-X-CRM114-Status: GOOD (  39.55  )
+X-CRM114-CacheID: sfid-20260413_095157_838306_C26D52E1 
+X-CRM114-Status: GOOD (  21.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,134 +91,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Brian,
 
-On Wed, Apr 08, 2026 at 06:58:34PM -0700, Brian Norris wrote:
-> Hi Richard and Mani,
+
+On 4/13/2026 9:19 PM, Michael Kelley wrote:
+> From: Naman Jain <namjain@linux.microsoft.com> Sent: Monday, April 13, 2026 4:48 AM
+>>
+>> On 4/1/2026 10:27 PM, Michael Kelley wrote:
+>>> From: Naman Jain <namjain@linux.microsoft.com> Sent: Monday, March 16, 2026 5:13 AM
+>>>>
+>>>> Generalize Synthetic interrupt source vector (sint) to use
+>>>> vmbus_interrupt variable instead, which automatically takes care of
+>>>> architectures where HYPERVISOR_CALLBACK_VECTOR is not present (arm64).
+>>>
+>>> Sashiko AI raised an interesting question about the startup timing --
+>>> whether the vmbus_platform_driver_probe() is guaranteed to have
+>>> set vmbus_interrupt before the VTL functions below run and use it.
+>>> What causes the mshv_vtl.ko module to be loaded, and hence run
+>>> mshv_vtl_init()?
+>>
+>> There is no race condition here. The init ordering guarantees that
+>> vmbus_interrupt is always set before mshv_vtl_synic_enable_regs()
+>> reads it.
+>>
+>> The call chain for setting vmbus_interrupt:
+>>
+>>     subsys_initcall(hv_acpi_init)                          [level 4]
+>>       -> platform_driver_register(&vmbus_platform_driver) and so on.
+>>
+>>
+>> The call chain for reading vmbus_interrupt:
+>>
+>>     module_init(mshv_vtl_init)                             [level 6]
+>>       -> hv_vtl_setup_synic()
+>>         -> cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, ..., mshv_vtl_alloc_context, ...)
+>>           -> mshv_vtl_alloc_context()
+>>             -> mshv_vtl_synic_enable_regs()
+>>               -> sint.vector = vmbus_interrupt
+>>
+>> do_initcalls() processes sections in order 0 through 7, so
+>> hv_acpi_init() (level 4) is guaranteed to complete before
+>> mshv_vtl_init() (level 6) runs.
+>>
 > 
-> For the record, I've been using a form of an earlier version of this
-> patchset in my environment for some time now, and I've run across
-> problems that *might* relate to what Richard is reporting, but I'm not
-> quite sure at the moment. Details below.
+> I think the situation is more complex than what you describe, depending
+> on whether the VMBus driver and/or MSHV_VTL are built as modules vs.
+> being built-in to the kernel image. In include/linux/module.h, see the
+> comment for module_init() and how subsys_initcall() is mapped
+> to module_init() when built as a module.
 > 
-> On Wed, Mar 25, 2026 at 07:06:49AM +0000, Hongxing Zhu wrote:
-> > Hi Mani:
-> > I've accidentally encountered a new issue based on the reset root port patch-set.
-> > After performing a few hot-reset operations, the PCIe link enters a continuous up/down cycling pattern.
-> > 
-> > I found that calling pci_reset_secondary_bus() first in pcibios_reset_secondary_bus() appears to resolve this issue.
-> > Have you experienced a similar problem?
-> > 
-> > "
-> > ...
-> > [  141.897701] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000700) link up detected
-> > [  142.086341] imx6q-pcie 4c300000.pcie: PCIe Gen.3 x1 link up
-> > [  142.092038] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000c00) link down detected
-> > ...
-> > "
-> > 
-> > Platform: i.MX95 EVK board plus local Root Ports reset supports based on the #1 and #2 patches of v7 patch-set.
-> > Notes of the logs:
-> > - One Gen3 NVME device is connected.
-> > - "./memtool 4c341058=0;./memtool 4c341058=1;" is used to toggle the LTSSM_EN bit to trigger the link down.
-> > - Toggle BIT6 of Bridge Control Register to trigger hot reset by "./memtool 4c30003c=004001ff; ./memtool 4c30003c=000001ff;"
-> > - The Root Port reset patches works correctly at first.
-> > However, after several hot-reset triggers, the link enters a repeated down/up cycling state.
-> > 
-> > Logs:
-> > [    3.553188] imx6q-pcie 4c300000.pcie: host bridge /soc/pcie@4c300000 ranges:
-> > [    3.560308] imx6q-pcie 4c300000.pcie:       IO 0x006ff00000..0x006fffffff -> 0x0000000000
-> > [    3.568525] imx6q-pcie 4c300000.pcie:      MEM 0x0910000000..0x091fffffff -> 0x0010000000
-> > [    3.577314] imx6q-pcie 4c300000.pcie: config reg[1] 0x60100000 == cpu 0x60100000
-> > [    3.796029] imx6q-pcie 4c300000.pcie: iATU: unroll T, 128 ob, 128 ib, align 4K, limit 1024G
-> > [    4.003746] imx6q-pcie 4c300000.pcie: PCIe Gen.3 x1 link up
-> > [    4.009553] imx6q-pcie 4c300000.pcie: PCI host bridge to bus 0000:00
-> > root@imx95evk:~#
-> > root@imx95evk:~#
-> > root@imx95evk:~# ./memtool 4c341058=0;./memtool 4c341058=1; Writing 32-bit value 0x0 to address 0x4C341058
-> > Writing 32-bit v
-> > [   87.265348] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000d01) link down detected
-> > alue 0x1 to adder
-> > [   87.273106] imx6q-pcie 4c300000.pcie: Stop root bus and handle link down
-> > ss 0x4C341058
-> > [   87.281264] pcieport 0000:00:00.0: Recovering Root Port due to Link Down
-> > [   87.289245] pci 0000:01:00.0: AER: can't recover (no error_detected callback)
-> > root@imx95evk:~# [   87.514216] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000700) link up detected
-> > [   87.702968] imx6q-pcie 4c300000.pcie: PCIe Gen.3 x1 link up
-> > [   87.834983] pcieport 0000:00:00.0: Root Port has been reset
-> > [   87.840714] pcieport 0000:00:00.0: AER: device recovery failed
-> > [   87.846592] imx6q-pcie 4c300000.pcie: Rescan bus after link up is detected
-> > [   87.855947] pcieport 0000:00:00.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+> If both are built-in, then what you describe is correct. But if either or
+> both are modules, then the respective init functions (hv_acpi_init
+> and mshv_vtl_init) get called at the time the module is loaded, and
+> not by do_initcalls(). I think hv_vmbus.ko gets loaded when an attempt
+> is first made to access a disk, but I would need to look more closely to
+> be sure. I don't have any understanding of what causes mshv_vtl.ko
+> to be loaded. And what is the ordering if MSHV_VTL is built-in while
+> VMBus is built as a module, or vice versa?
 > 
-> I've seen this same line ("bridge configuration invalid") before, and I
-> believe that's because the saved state (pci_save_state(); more about
-> this below) is invalid -- it contains 0 values in places where they
-> should be non-zero. So when those values are restored
-> (pci_restore_state()), we get confused.
-> 
-> I believe we've pinned down one reason this invalid state occurs -- it's
-> because of an automatic (mis)feature in the DesignWare PCIe hardware.
-> Specifically, it's because of what the controller does during a surprise
-> link-down error.
-> 
-> From the Designware docs:
-> 
->   "[...] during normal operation, the link might fail and go down. After
->   this link-down event, the controller requests the DWC_pcie_clkrst.v
->   module to hot-reset the controller. There is no difference in the
->   handling of a link-down reset or a hot reset; the controller asserts
->   the link_req_rst_not output requesting the DWC_pcie_clkrst.v module to
->   reset the controller."
-> 
-> In some of the adjacent documentation (and confirmed in local testing),
-> it suggests that this automatic reset will also reset various DBI (i.e.,
-> PCIe config space) registers. It also seems as if there's not really a
-> good way to completely stop this automatic reset -- the docs mention
-> some SW methods prevent the reset, but they all seem racy or incomplete.
-> 
-> Anyway, I think this implies that patch 1 is somewhat wrong [1]. It
-> includes some code like this:
-> 
-> 		pci_save_state(dev);
-> 		ret = host->reset_root_port(host, dev);
-> 		if (ret)
-> 			pci_err(dev, "Failed to reset Root Port: %d\n", ret);
-> 		else
-> 			/* Now restore it on success */
-> 			pci_restore_state(dev);
-> 
-> That first line (pci_save_state()) is prone to saving invalid state,
-> depending on whether the link-down event has finished flushing and
-> resetting the controller yet or not. The resulting impact is a bit hard
-> to judge, depending on what (mis)configuration you end up with.
+> Michael
 > 
 
-Thanks a lot for your investigation. I think your observation makes sense and
-could be the culprit in saving the corrupted state. Even on non-DWC controllers,
-there is no guarantee that the Root Port config registers state will be
-preserved after LDn (before Root Port reset).
+Based on this, I still feel that this race is not possible.
 
-> I also noticed commit a2f1e22390ac ("PCI/ERR: Ensure error
-> recoverability at all times") was merged recently. With that change, I
-> believe it is now safe to perform pci_restore_state() even without
-> pci_save_state() here.
-> 
-> So ... can we remove pci_save_state() from
-> pcibios_reset_secondary_bus()? Might that help?
+hv_vmbus   mshv_vtl
+    y          y  -> different initcall levels, no issues
+    y          m  -> use without initialization is not possible
+    m          y  -> config dependencies take care of this, and mshv_vtl 
+is forced to compile as a module in this case.
+    m          m  -> config and symbol dependencies should take care of 
+it. mshv_vtl has symbol and config dependencies on hv_vmbus, and it 
+won't allow loading mshv_vtl if hv_vmbus module is not loaded.
 
-I think so. I will also test it locally and report back soon.
+Relevant code here: kernel/module/main.c
 
-> It sounds like my above
-> observations *may* match Richard's reports, but I'm not sure. And
-> anyway, the documented hardware behavior is racy, so it's hard to
-> propose a foolproof solution.
-> 
-
-@Richard: Can you confirm if removing 'pci_save_state(dev);' from
-pcibios_reset_secondary_bus() fixes your issue?
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+Regards,
+Naman
 
