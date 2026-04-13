@@ -4,81 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60B6AF34C64
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 16:14:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF494F34C65
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 16:16:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QTxZjlPwQbG3YSd8NjMQF965BtCe0lPqly+S72Myshs=; b=d4GfmeDzg5nhh+3Oy8l9cDdzBh
-	WxTelu+7kRrQRnEmM8WHaTjtiW33RTd6P3EpSwQe08a70AmYXu2fRALKjViLIlIASSlSbidN/eSnG
-	cP+XnKVP5Wz6ChhexPNVv7Y+nRQZ20rIsF3KIApj5adbMqmbwtw4CMuq4Hcp7HzBc9DCOVVAw7dpw
-	6XeJ8/Ln6A/3Eq+FtzKW9pxquoRVTsapiGvIuQOmlQ2GD9lG/02IQZIG7XCc1pGnO8Dvk7JlgLdUH
-	x1RDCbKOsrd8Up9bReT8zh0+h6OlcXPGKkAdLtjfE/A36yLCLGjsD9jjHX3lThLRTyVpnt2zLf4ul
-	NcdR/O6Q==;
+	bh=D+FrOfT4Covm9FV8Q8vZRx7hii6aeNYLt2ouslmn3OM=; b=2BBddzapOcWVUAXpYO/IW38UGX
+	fMSxv7TTqVsW73bnaRETbcAOxxKwsZMkzyX51BVx2rZMr5Was9ZmH0hTbGimCWVkkUdrKckKKKSWj
+	DFXpdN9+Nk6HY3u97zIBhbHZ0SF+wmlpAk2LoYNdnJig+fzB3An8eJGWu3OeY15h+qu2cF48cBjX3
+	le5BnyWmemgPJ+JxbH5109DSOoJ1c/PLiU+0Ws+sDDLiR1VA7glu121aTLg67DK9cNMKcWmMvx1l8
+	EFs2b0aIhWYrXqgOq2ux4lwvVVyA21M1EZ2sXsZkT7bttPFcETW9j4e2pN10i7DlmBE2VMAzWOZx1
+	PKaXmo9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCJvI-0000000G2RD-0ZqF;
-	Mon, 13 Apr 2026 16:14:04 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wCJxU-0000000G2oB-405d;
+	Mon, 13 Apr 2026 16:16:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCJvG-0000000G2Qm-0LsT
+	id 1wCJxT-0000000G2o2-0tbv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 16:14:03 +0000
-Date: Mon, 13 Apr 2026 18:13:56 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1776096838;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QTxZjlPwQbG3YSd8NjMQF965BtCe0lPqly+S72Myshs=;
-	b=tkXY4nmg+ufLH8pIEREGPRIN7lEqDgcVyS4rMzP1pwHp3yL9b7kXJNaCAOrhLb02cE7TGx
-	ggSSsIsYsGtFlAqRc8UG2XgBwu4Qk7X16r+d5lL2igIBjpcbMUvCVDWy7ZLItlTIXxZD2z
-	h84JvMJNCIi1kvdvkxIIavJgYl+u/z8BcToeOgc+aJOW6lKeBrGdb3kEMvdFXGg6XytgEk
-	rPMpXXME1ph1vQl4s9O5z+BEsC7htoA6IsUN921QvLHj7U4PfLX+8Y45VLFAq5AKYwtmoY
-	FG1tRrjVloQGmzZUNVRNkeyCEHHE5ks19vbY61zf1F/NW+xmp2dLuPlt0SZxoA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1776096838;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QTxZjlPwQbG3YSd8NjMQF965BtCe0lPqly+S72Myshs=;
-	b=LoVkYl6MMLeNBjAM4BvQVhVn1NnaY+OSsVvNNOBvu1HsCV87BqTgHRgkWFHBm1kAvMqe5B
-	HVlxTATbwykTSSCg==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Russell King <linux@armlinux.org.uk>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <chleroy@kernel.org>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org
-Subject: Re: [PATCH 1/7] x86/vdso: Respect COMPAT_32BIT_TIME
-Message-ID: <20260413180541-e13f374c-b990-4236-bc83-8fde948899df@linutronix.de>
-References: <20260227-vdso-compat_32bit_time-v1-0-3f0286a7bac3@linutronix.de>
- <20260227-vdso-compat_32bit_time-v1-1-3f0286a7bac3@linutronix.de>
- <c29f5e70-bd17-4e1b-a005-5a3282e70075@app.fastmail.com>
- <03cd1e21-a2f2-46a1-a674-cbaef9712016@app.fastmail.com>
- <20260227103226-cc3bb32c-0107-4c09-b81a-ca33ea03ad5c@linutronix.de>
- <49b7c9f9-198a-49f7-880b-6ae74d7bd985@zytor.com>
- <2b1ac7b9-fcc8-4aa3-a0ad-eb37e4bce030@app.fastmail.com>
- <20260410091131-46b6354c-9d06-4e47-9345-ee224d8528f7@linutronix.de>
- <15925544-1ae5-406a-b9cc-af5935cc9f02@app.fastmail.com>
+	Mon, 13 Apr 2026 16:16:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9314D6133C;
+	Mon, 13 Apr 2026 16:16:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 201E9C2BCAF;
+	Mon, 13 Apr 2026 16:16:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776096978;
+	bh=s0GwUHExH4iN6ORL9X/gv2Ol3KDyD0IWHk3CIXYTiuQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kSEiYwVVNDqkNOGFJlyXyMEfXbylJRhQHfHiecOFmq/5hD8BLWtz4RNtQBt4oQgUJ
+	 IDmkPBS9QF4yIrQjGHjGuni8vDAPswk8iJF4zZsQ3tRvOuYsqWfC+aRdn8YqHNjv/6
+	 jHM7kdzTSaQ++71op3y/TQPHhLsNMUYgMjh6ztNrwtBu1KJQS26m/TTiEG2C/X5ZEx
+	 VJ97LP/CF1M2ecnrQ3b7mrdVHZn8bgGaYqyUA6HBnvX2NQpUNAdl9GjNC1WJPYP1p1
+	 RY1bFEvthjSK1toNlL50id84i1EqNq7rumXyeTrF1u5l+qTxKtvPa6y6mV6zbIWD5Z
+	 7ojaosHo643pQ==
+Date: Mon, 13 Apr 2026 19:16:10 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: "Barry Song (Xiaomi)" <baohua@kernel.org>
+Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+	catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
+	urezki@gmail.com, linux-kernel@vger.kernel.org,
+	anshuman.khandual@arm.com, ryan.roberts@arm.com, ajd@linux.ibm.com,
+	david@kernel.org, Xueyuan.chen21@gmail.com
+Subject: Re: [RFC PATCH 4/8] mm/vmalloc: Eliminate page table zigzag for huge
+ vmalloc mappings
+Message-ID: <ad0Wyq5--L0SeIqr@kernel.org>
+References: <20260408025115.27368-1-baohua@kernel.org>
+ <20260408025115.27368-5-baohua@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <15925544-1ae5-406a-b9cc-af5935cc9f02@app.fastmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_091402_263756_D07CB018 
-X-CRM114-Status: GOOD (  13.14  )
+In-Reply-To: <20260408025115.27368-5-baohua@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,37 +73,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 13, 2026 at 05:59:52PM +0200, Arnd Bergmann wrote:
-> On Fri, Apr 10, 2026, at 09:24, Thomas Weißschuh wrote:
-
-(...)
-
-> > Recap/Proposal:
-
-(...)
-
-> > * Always provide settimeofday(). If CONFIG_COMPAT_32BIT_TIME is *not*
-> >   set, reject passing any 'tv' argument where it may not be y2038 safe.
+On Wed, Apr 08, 2026 at 10:51:11AM +0800, Barry Song (Xiaomi) wrote:
+> For vmalloc() allocations with VM_ALLOW_HUGE_VMAP, we no longer
+> need to iterate over pages one by one, which would otherwise lead to
+> zigzag page table mappings.
 > 
-> This sounds wrong to me now: the case I'm worried about is a 32-bit
-> system calling settimeofday() based on the value of an RTC or NTP.
-> The idea of CONFIG_COMPAT_32BIT_TIME=n is to catch this by causing
-> an intentional ENOSYS error even for valid times, so it doesn't
-> suddenly start breaking in 2038.
+> The code is now unified with the PAGE_SHIFT case by simply
+> calling vmap_small_pages_range_noflush().
+> 
+> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+> ---
+>  mm/vmalloc.c | 22 ++++------------------
+>  1 file changed, 4 insertions(+), 18 deletions(-)
+> 
+> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> index 5bf072297536..eba436386929 100644
+> --- a/mm/vmalloc.c
+> +++ b/mm/vmalloc.c
+> @@ -689,27 +689,13 @@ static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
+>  int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+>  		pgprot_t prot, struct page **pages, unsigned int page_shift)
+>  {
+> -	unsigned int i, nr = (end - addr) >> PAGE_SHIFT;
+> -
+>  	WARN_ON(page_shift < PAGE_SHIFT);
+>  
+> -	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC) ||
+> -			page_shift == PAGE_SHIFT)
+> -		return vmap_small_pages_range_noflush(addr, end, prot, pages, PAGE_SHIFT);
+> -
+> -	for (i = 0; i < nr; i += 1U << (page_shift - PAGE_SHIFT)) {
+> -		int err;
+> -
+> -		err = vmap_range_noflush(addr, addr + (1UL << page_shift),
+> -					page_to_phys(pages[i]), prot,
+> -					page_shift);
+> -		if (err)
+> -			return err;
+> +	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC))
+> +		page_shift = PAGE_SHIFT;
+>  
+> -		addr += 1UL << page_shift;
+> -	}
+> -
+> -	return 0;
+> +	return vmap_small_pages_range_noflush(addr, end, prot, pages,
+> +			min(page_shift, PMD_SHIFT));
 
-This is what I meant with "where it *may*" be not y2038 safe.
-Even if the value fits, the call would be rejected.
-My wording was crappy indeed, though.
+Wouldn't vmap_range_noflush() already "do the right thing" even without
+changes to vmap_small_pages_range_noflush()?
 
-In code:
+>  }
+>  
+>  int vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+> -- 
+> 2.39.3 (Apple Git-146)
+> 
 
-if (tv && !IS_ENABLED(CONFIG_COMPAT_32BIT_TIME) && sizeof(tv->tv_sec) < 8) {
-	pr_warn_once(...);
-	return -EINVAL;
-}
-
-Or maybe drop the EINVAL but still emit a warning. That warning would be
-useful for gettimeofday(), too.
-
-Thomas
+-- 
+Sincerely yours,
+Mike.
 
