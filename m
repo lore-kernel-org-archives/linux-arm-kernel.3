@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1EC2F34C4E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 12:33:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 226F6F34C4F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 12:33:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6D0e/cuow2udIW1NJbpNY3L426VIkd2ZBjeoiqRQiXE=; b=BsTdurcCkGn7kf8wIl+dyEl90C
-	jCupsCaUYPqoHJZoa54rwo9MdiKk5CHUdWdoUlvvYFiKuqSWfsYDGpMNKp7olDNQMtIkw65GlO/1c
-	ynudxA1AiO+4lnr+0lr3Ddb0oYtUNKIZWjNvMgJLDmBWGFzNakr7rhFHqVWOESwyH7oud+EJQ1AKm
-	UxbDCY+6227LsZb2dpDbgqze8dSr0e7waumg7Oa1ZSGkabFIXhpQ8RYHpqNuobGj5foyJBVHJdWDV
-	mAxmwnKhxH4Dgik4PmJJtSGEqp7FLTgdKqtDnQYvgLViAbMcxAAf9RPlVMuJde74WJuW4zh4vAilU
-	CnpMt8sw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QgGJZonHx4G5XRpuehuWe55RuRKfs7yfu3qS0jpqwJA=; b=r1GxV71usXibwzp6YfEVosWc3v
+	qlCackMp7TzRjNDuKV/3Hbk9a+jCN2oGSysLzi2IYr2m3cDtzwUVn3Dz4dL8z96kzfSKGR3r/qswi
+	ml9AvJQp/ZAoVFV41YxdWDqvRaRXnId23iDMwxPCaxb5grCZX9EyigiPzlJZZzSzosvnOupO3R2vW
+	UD3ybE0ALa9XHw0Xgc2LCgcOHVnfGg6peaVRpOI5u+lEpA7sHCSW8BY65Mr09bA2lvMTyt8hCJpbP
+	ByERWsHw8WPQB63Mk/Bk/kmAAYD4++a6Y8qGnofaatT1ky4RaDhIODgalJH9glsSK2ccDbXCQhVRo
+	gQ7OqBWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCGTr-0000000FeQ3-27kE;
-	Mon, 13 Apr 2026 12:33:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wCGTy-0000000FeSL-0oOv;
+	Mon, 13 Apr 2026 12:33:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCGTo-0000000FePd-28bq;
-	Mon, 13 Apr 2026 12:33:29 +0000
+	id 1wCGTv-0000000FeRI-3IVp;
+	Mon, 13 Apr 2026 12:33:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4411240A90;
-	Mon, 13 Apr 2026 12:33:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2E2CC2BCAF;
-	Mon, 13 Apr 2026 12:33:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A179743F68;
+	Mon, 13 Apr 2026 12:33:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C778C2BCAF;
+	Mon, 13 Apr 2026 12:33:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776083607;
-	bh=wDEfO/xa61/CEJ6jniOSKCwWHmjQlG9qEwI4fGV3AGc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=IRzYJPLtqyLTFDkW/E3erTl2pGBOqmAeso6+BBxzRo34O4QBovomeWcfquiET/MKM
-	 p5ED9lkTfMffRJhzYHIWthsOtj4LLQmJZ4hZUxXOJMOehclBB9EXYql4RxVLEpWzEe
-	 GhuqetgomPeaWQX/4PJnqIcZGdNCfBwbc6/SjjeOXRX0WYWdXvwMRNPqo6hWCpnury
-	 FyYY9tTrqHh0m6+YoGqQNa8B9x/LHqB6dtXzLCg+X3Xsc44ejCjWoB8Gz/VvWykmnI
-	 S+W1HNlVKveGdHiBri6PUzAqjbDo5M6M2Ln0WCVUmbD6q4KxUwOpdmZM/3T30wltqy
-	 P7sNedl2CTHPw==
+	s=k20201202; t=1776083614;
+	bh=s2vi1gMOe/zR29r19y5FbZV0U3O5/J47TujbBaojO2Q=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=tyVdMkfK4Oedgp2gw/N++DpkgaKb8l8tqh6RNQQu+m78z4PZX76lWAkk7uCa7uTzw
+	 WjO4QNoNAx8PaoFPUDio7r7lHUblHPTnjKE+CSKp2IFpaRCr2O7H7qA+Ov33NVq9/7
+	 6oqMi2QvgGZ6rInIBaUEcu4wIsjD+tRbVYAmw6sIJvml1IF7ow6rvdRSr3DOLeIk1J
+	 Gx72Cfs3ZAm26IK48vwf1zqZr1sSng05KRjk1fpTRty7IiznAstw4qSYj016I6PnKz
+	 iggPuonwpdFCEul7W4eCW05XVHjsdAQq5jw6sisOiWjot2aosVsu/Oa7PqOLokO80m
+	 TiydTUzKdzQkw==
 From: Puranjay Mohan <puranjay@kernel.org>
 To: bpf@vger.kernel.org
 Cc: Puranjay Mohan <puranjay@kernel.org>,
@@ -67,16 +67,17 @@ Cc: Puranjay Mohan <puranjay@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH bpf-next 0/2] bpf, arm64/riscv: Remove redundant icache flush after pack allocator finalize
-Date: Mon, 13 Apr 2026 05:32:53 -0700
-Message-ID: <20260413123256.3296452-1-puranjay@kernel.org>
+Subject: [PATCH bpf-next 2/2] bpf, riscv: Remove redundant bpf_flush_icache() after pack allocator finalize
+Date: Mon, 13 Apr 2026 05:32:55 -0700
+Message-ID: <20260413123256.3296452-3-puranjay@kernel.org>
 X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260413123256.3296452-1-puranjay@kernel.org>
+References: <20260413123256.3296452-1-puranjay@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_053328_601083_1EA54165 
-X-CRM114-Status: UNSURE (   5.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260413_053335_867361_C6DE4369 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,30 +92,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the BPF prog pack allocator was added for arm64 and riscv, the
-existing bpf_flush_icache() calls were retained after
-bpf_jit_binary_pack_finalize(). However, the finalize path copies the
-JITed code via architecture text patching routines (__text_poke on arm64,
-patch_text_nosync on riscv) that already perform a full
-flush_icache_range() internally. The subsequent bpf_flush_icache()
-repeats the same cache maintenance on the same range.
+bpf_flush_icache() calls flush_icache_range() to clean the data cache
+and invalidate the instruction cache for the JITed code region. However,
+since commit 48a8f78c50bd ("bpf, riscv: use prog pack allocator in the
+BPF JIT"), this flush is redundant.
 
-Remove the redundant flush and the now-unused bpf_flush_icache()
-definitions on both architectures.
+bpf_jit_binary_pack_finalize() copies the JITed instructions to the ROX
+region via bpf_arch_text_copy() -> patch_text_nosync(), and
+patch_text_nosync() already calls flush_icache_range() on the written
+range. The subsequent bpf_flush_icache() repeats the same cache
+maintenance on an overlapping range.
 
-Puranjay Mohan (2):
-  bpf, arm64: Remove redundant bpf_flush_icache() after pack allocator
-    finalize
-  bpf, riscv: Remove redundant bpf_flush_icache() after pack allocator
-    finalize
+Remove the redundant bpf_flush_icache() call and its now-unused
+definition.
 
- arch/arm64/net/bpf_jit_comp.c | 11 -----------
- arch/riscv/net/bpf_jit.h      |  5 -----
- arch/riscv/net/bpf_jit_core.c |  7 -------
- 3 files changed, 23 deletions(-)
+Fixes: 48a8f78c50bd ("bpf, riscv: use prog pack allocator in the BPF JIT")
+Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+---
+ arch/riscv/net/bpf_jit.h      | 5 -----
+ arch/riscv/net/bpf_jit_core.c | 7 -------
+ 2 files changed, 12 deletions(-)
 
-
-base-commit: 71b500afd2f7336f5b6c6026f2af546fc079be26
+diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
+index 632ced07bca4..549537cad86b 100644
+--- a/arch/riscv/net/bpf_jit.h
++++ b/arch/riscv/net/bpf_jit.h
+@@ -105,11 +105,6 @@ static inline void bpf_fill_ill_insns(void *area, unsigned int size)
+ 	memset(area, 0, size);
+ }
+ 
+-static inline void bpf_flush_icache(void *start, void *end)
+-{
+-	flush_icache_range((unsigned long)start, (unsigned long)end);
+-}
+-
+ /* Emit a 4-byte riscv instruction. */
+ static inline void emit(const u32 insn, struct rv_jit_context *ctx)
+ {
+diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
+index b3581e926436..f7fd4afc3ca3 100644
+--- a/arch/riscv/net/bpf_jit_core.c
++++ b/arch/riscv/net/bpf_jit_core.c
+@@ -183,13 +183,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
+ 			prog = orig_prog;
+ 			goto out_offset;
+ 		}
+-		/*
+-		 * The instructions have now been copied to the ROX region from
+-		 * where they will execute.
+-		 * Write any modified data cache blocks out to memory and
+-		 * invalidate the corresponding blocks in the instruction cache.
+-		 */
+-		bpf_flush_icache(jit_data->ro_header, ctx->ro_insns + ctx->ninsns);
+ 		for (i = 0; i < prog->len; i++)
+ 			ctx->offset[i] = ninsns_rvoff(ctx->offset[i]);
+ 		bpf_prog_fill_jited_linfo(prog, ctx->offset);
 -- 
 2.52.0
 
