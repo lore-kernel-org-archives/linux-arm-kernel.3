@@ -4,141 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAAD1EBFD16
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 08:22:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2705EBFD16
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 08:22:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZPSKK65EgPR4ue03a29l8i4azjlHc7Tl0VaisQsiQ2c=; b=e4jrqQV7onyrZjjOQRXMRCMvWI
-	+4NTGQjFEAxE+Yg4/Hz87RopIQTXDq8CjurYBu5cUVdyxjIZ1I+r4WUEWJ0ivTCTXnG9OnJMyG7O2
-	sUf509B8xtZZntI+OWUEnHcczB6361AXPoraom66LRPLLhtkbTTafzXOGbjXcbSl1CKbi3PIWd7b8
-	S+9roGoF8S4U+3qCNm3TfEd+JsbM5arXCPVl2B5BTgHB0TT45vLiBn4CSEyPnvSbtwl8zM3bZbvka
-	aWoN28rc1gAMdervVkltewcFA4fAL/oJ2XyAl+o9Fr8SPMrvn2Hqz9JDMYwWDGJW2qhEnIYlNcwJH
-	W0iyIi+w==;
+	bh=oj3IM4W0nIOuffDuch4Mhpo9XPuJdr9Bhj2brT8H+dw=; b=J4dyEYNzjW01+o2S9LLhs0pQd9
+	QmrCo2KJpKYn8lJ87B9/zJuwlzCbfGlBzCXDqqPy+2I6LV+k+7nRpn1ayuYtuLaUBI3eMayUC16kf
+	EHN3t+b/CIKydKPCQjrMJv1Yfo1/XgXwExoa44FLygts/+Gf6oVzDHM2iU3t3MXi8E8OS0Dz0y5W+
+	ATg6/v30YE9bKJEdvkHZ52bEYD6h3d96ly7e1VHTKBsOETMs9pS8G2t/+BpBH9Ci00uYWHiJD1290
+	0ytzcPPC9lwpVNDBnCt7x9c+vKb2dE+85cHpv3wZtSAIQut+aEam2GpD5gSqkVt9Ia8qwsmMAl/Wx
+	RC+5YJDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCCYd-0000000FG7r-17Vc;
-	Mon, 13 Apr 2026 08:22:11 +0000
-Received: from mail-japaneastazon11023134.outbound.protection.outlook.com ([52.101.127.134] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1wCCZL-0000000FGIP-2jB0;
+	Mon, 13 Apr 2026 08:22:55 +0000
+Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCCYZ-0000000FG5j-4B9j;
-	Mon, 13 Apr 2026 08:22:10 +0000
+	id 1wCCZJ-0000000FGHi-3izg;
+	Mon, 13 Apr 2026 08:22:55 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Vmr7ZtrmcwAeDSrIrIs6BHf27j2S/+RG2iZLghAsiuKuwYoUWXXYV52BEwjhBjl4uDiILTwciGOdoDQBDowIJ/Nlsf7avwCAKA6A/9XvBIcKGK6vYOyMh3GMmgyM7lvQX435U6gFmHtjjd2Ljt7VT+i5u8krg5+2j61wzlyBp8y6hKyLcxSGjvX10sOl3/dJzobf0Xwn68QQBWYd67ZpvDtiCV/nHocop1q6R7SueZ8CZuuznrCs4Qjucpm4+JwxylWgufmK0ScQZHI9G5QN7JMfKeMiYloavNxysTKL1CWDVPZKwDcis0Fam3QAqg99lSQdlEhyhkUMcrvalmbF3w==
+ b=m2IQj7CT4+2Gsr+Wdck155BJQoAMTloVkcwbhkK0yIWaeu7WpbQTIUkRUt4w3SCJjkoJb7XiTe+MyIh24HMewXE5BlZbbBeh1VAfohAMJcbrnvoSgmjXvHTggDrT3UokUTTnv3r5V/9H5ltUkAEZaxMBUJRCG89Q5IuINlfCJ0xd4f3TJxLQqo/X7CsnEIbwaErAXCGf+XvaVKK7FjyAlfJRBJw7BAEv8CVDhl1UX8LvlG0pAAiAA6SYjyz8kwsVaVntlOD9SUvHTUHHljKnF2thy0tg621t+MJt0yq6udgbPvuCpSJG3bLgcTdezTbG3G3UQ0KqCP/GfJiMaTfh2A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZPSKK65EgPR4ue03a29l8i4azjlHc7Tl0VaisQsiQ2c=;
- b=kVhEJMhuT05ItHla9FVln7A8P3IiSHt0XiMlrU4XIcLTxE+FJzwMVgDwUVRlI4sgNJgaUVEzxbX2fyxLtVmQHNQh6jvkqa70CrZG9MKX7AXc/lLZ7jJLVRw7Cudu53CkBZZS7ZteieJLTbRQ+kS8On6o4QacDqj6G8GoYd8s3mV5f604WIoY+IBAITNKZz9PPLGAGdx2vEpLXInggDd5urIjnnCGitkWZPkmolSZF/zUHAo3W0SVUf0X8hGq1AfBZ2zg90TaCXDrkiENIU3tL+KKOMXgyytxoM7XJcsaBPuDPYgHc5ni4wUWg3tMZaOeXWRfG8KJonDSi3SqYEaFEQ==
+ bh=oj3IM4W0nIOuffDuch4Mhpo9XPuJdr9Bhj2brT8H+dw=;
+ b=nOZASgSv5pGQ5EUKMMDE4quMoCHTx1DeNVUOA8APheHPnftdN7bcsoiH5uY3/rxnmJ3dQh+ubmwM+iSCUuUeEQlC3Ys8a6wh9aWs9yjc+R6NbxQ/xnw7EKwTRWwrJZyIJyjc6ecgcuSxIUGZucCTvDC6qMM2kOhPSNmArhV4dsg6mQ+fFf3RWptXO15JzbAnvP0gWiTP/3kYaUAWBZ1kQYZ0oqp+zC8RUc75bL06yRjsoTvIIYoGbjMHVSb1+Lgm5tCPkJBOYqHmAd3N+4ml6u27sBx5gfnKnXlOLul+WkEX141nFNiTJMTwewkeItI/R5DnvC8HIya5p8MG+ZTvUQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
+ smtp.mailfrom=microsoft.com; dmarc=pass action=none
+ header.from=microsoft.com; dkim=pass header.d=microsoft.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZPSKK65EgPR4ue03a29l8i4azjlHc7Tl0VaisQsiQ2c=;
- b=LqzDhGB9BjQjunrNvj2dSJvdZjzMygeTPe8gbnZWLaXo9QkeVemyC+kSFVyJMGTdK5oWtNv6h/jYLNndDF6bKLGSuVASYUXizSFalSzAgVLWBB6/1tVlhuGd16MsAqgcJOTXU7mJ9CWafHRx2/5jB4V6IwfEECR0ibSLr10Cl93dR6misyVIn5vLLzKeZyDm8IKzHVXHzyAa1kRshQshgYLhXRoo9apEGxEWvtSeJV426/PAt2NQM8/Mon8mdglvLuTGMI/iSQjXltE1iP8izbOiQu/yet1IIXh3WQzlgsoGk7EezSZVnTIv6gSUpJgzkwxrgUu3ODpvC4rpymXaxA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
- by SEZPR03MB7073.apcprd03.prod.outlook.com (2603:1096:101:ed::5) with
+ bh=oj3IM4W0nIOuffDuch4Mhpo9XPuJdr9Bhj2brT8H+dw=;
+ b=Ic8JAjCPc6W5FerLFyUaAA5Pqcx757Dp+4xVmAR/luoD+p6mBERHaDZcqEZ+cxhg4NyQp7srxThptXWTr1vnG5OodV8ESNbandSk68slRPfZ18XGYInhfH5HzcjAot1lLgrHsvtFRYKYQmFJEX5qaksS6XREz+J0zJRCB0Puo0g=
+Received: from KUZP153MB1444.APCP153.PROD.OUTLOOK.COM (2603:1096:d10:36::22)
+ by OSNP153MB1643.APCP153.PROD.OUTLOOK.COM (2603:1096:604:48b::6) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Mon, 13 Apr
- 2026 08:21:57 +0000
-Received: from KL1PR03MB7149.apcprd03.prod.outlook.com
- ([fe80::2f06:12a:fff0:6506]) by KL1PR03MB7149.apcprd03.prod.outlook.com
- ([fe80::2f06:12a:fff0:6506%5]) with mapi id 15.20.9769.046; Mon, 13 Apr 2026
- 08:21:57 +0000
-Message-ID: <274d2abd-05b9-4dbd-b962-ff70044b8d07@amlogic.com>
-Date: Mon, 13 Apr 2026 16:21:53 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] soc: amlogic: clk-measure: Add A1 and T7 support
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>,
- Michael Turquette <mturquette@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- robh+dt <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>
-Cc: devicetree <devicetree@vger.kernel.org>,
- linux-amlogic <linux-amlogic@lists.infradead.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
-References: <20260410100329.3167482-1-jian.hu@amlogic.com>
- <20260410100329.3167482-3-jian.hu@amlogic.com>
- <9a4f69e7-838a-4992-af1d-46324e14eb48@kernel.org>
-From: Jian Hu <jian.hu@amlogic.com>
-In-Reply-To: <9a4f69e7-838a-4992-af1d-46324e14eb48@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SE2P216CA0173.KORP216.PROD.OUTLOOK.COM
- (2603:1096:101:2ca::9) To KL1PR03MB7149.apcprd03.prod.outlook.com
- (2603:1096:820:ca::7)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.20; Mon, 13 Apr
+ 2026 08:22:39 +0000
+Received: from KUZP153MB1444.APCP153.PROD.OUTLOOK.COM
+ ([fe80::c9fa:b931:702:dbac]) by KUZP153MB1444.APCP153.PROD.OUTLOOK.COM
+ ([fe80::c9fa:b931:702:dbac%5]) with mapi id 15.20.9818.017; Mon, 13 Apr 2026
+ 08:22:39 +0000
+From: Saurabh Singh Sengar <ssengar@microsoft.com>
+To: Thomas Zimmermann <tzimmermann@suse.de>, "javierm@redhat.com"
+	<javierm@redhat.com>, "arnd@arndb.de" <arnd@arndb.de>, "ardb@kernel.org"
+	<ardb@kernel.org>, "ilias.apalodimas@linaro.org"
+	<ilias.apalodimas@linaro.org>, "chenhuacai@kernel.org"
+	<chenhuacai@kernel.org>, "kernel@xen0n.name" <kernel@xen0n.name>,
+	"maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+	"mripard@kernel.org" <mripard@kernel.org>, "airlied@gmail.com"
+	<airlied@gmail.com>, "simona@ffwll.ch" <simona@ffwll.ch>, KY Srinivasan
+	<kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>,
+	"wei.liu@kernel.org" <wei.liu@kernel.org>, Dexuan Cui <DECUI@microsoft.com>,
+	Long Li <longli@microsoft.com>, "deller@gmx.de" <deller@gmx.de>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "loongarch@lists.linux.dev"
+	<loongarch@lists.linux.dev>, "linux-efi@vger.kernel.org"
+	<linux-efi@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>, "linux-hyperv@vger.kernel.org"
+	<linux-hyperv@vger.kernel.org>, "linux-fbdev@vger.kernel.org"
+	<linux-fbdev@vger.kernel.org>, Michael Kelley <mhklinux@outlook.com>, Saurabh
+ Sengar <ssengar@linux.microsoft.com>, "stable@vger.kernel.org"
+	<stable@vger.kernel.org>, Wei Liu <wei.liu@kernel.org>
+Subject: RE: [EXTERNAL] Re: [PATCH 1/8] hv: Select CONFIG_SYSFB only for
+ CONFIG_HYPERV_VMBUS
+Thread-Topic: [EXTERNAL] Re: [PATCH 1/8] hv: Select CONFIG_SYSFB only for
+ CONFIG_HYPERV_VMBUS
+Thread-Index: AQHcwo6UUBvHYaEr8EK6Q8BbiI9wobXcpfeAgAAR2iA=
+Date: Mon, 13 Apr 2026 08:22:39 +0000
+Message-ID: <KUZP153MB1444885C302B353C02C2FA2FBE242@KUZP153MB1444.APCP153.PROD.OUTLOOK.COM>
+References: <20260402092305.208728-1-tzimmermann@suse.de>
+ <20260402092305.208728-2-tzimmermann@suse.de>
+ <KUZP153MB14449BBE44CBAEEA7621A4A0BE51A@KUZP153MB1444.APCP153.PROD.OUTLOOK.COM>
+ <2fe8ce91-2dc5-4cf2-b7cf-d495e5cff14b@suse.de>
+In-Reply-To: <2fe8ce91-2dc5-4cf2-b7cf-d495e5cff14b@suse.de>
+Accept-Language: en-IN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_ActionId=68f474dc-35e8-4341-9b89-6427baf0a9e0;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_ContentBits=0;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Enabled=true;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Method=Standard;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Name=Internal;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_SetDate=2026-04-13T08:21:02Z;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_SiteId=72f988bf-86f1-41af-91ab-2d7cd011db47;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Tag=10,
+ 3, 0, 1;
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microsoft.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: KUZP153MB1444:EE_|OSNP153MB1643:EE_
+x-ms-office365-filtering-correlation-id: b0e52200-d9d8-4bef-a66f-08de9935d373
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|921020|38070700021|56012099003|18002099003|22082099003;
+x-microsoft-antispam-message-info: I3U20ShaxuoG82qDbE9AmG2Fz51hvpKldpGKZWDPoC11L7xxI428h2BC/d/ColrU++0jWQiBJPKW9xHcueYyYCgmmi0obTXp8iyVYI/WSEKb+BfX7RXf8ddQD8f41bac+MK/XsfXbAUNuNqqYpOutLRz9KHHme+qK/qsiKfm5QO9sFPAZjHZtGNioszPxfWEc6TaBvJpYCFA9tu7Ja9s/MFcEWHV97qv3hNQAYD7T4AYot6pYHscASSgIp+jdU9VRlBEWTlnFYtWGouGZ8krLDYe0bUTcV08mqyUn/9paVfXm/POpM1S+gqNqccTaDB2BiCP7tZPAUSnbc/8mX5ajlG+Plgd6j9yJNaUtHXs+ubJtMmkpSainpTBTvb4u2PPbzmBtgieT2OyBQEHXHHR3W8lV3eVq3G76DF10bLZA9SbTG8OK/9C8ioHguZrsC7amM6TcYEHBSo6slkLAxcZ/yzAoyXLu74xWmJLdApAYHw7JnKdXZSEVaOt6vZ71y4zeyAKPtPMe8PINxOO8Mb5EsoCGOALCFu3026Q+Yl27KIn0GfCpME8Dl0wnjyLQwNm6WmgxJNLBlKWT0E93TxzOdQvOPisSVVfpxdhKkGYvZ0uwu2hQaE76620HhV11KK5FKI5431wyvJBWpr+I1apYrc5VI9QJYVk7ezHRNNujbr3sI4Tya0R9/OzzaTn0MrQaDuaxIlTzL1ZH4YcrMtZ/6k9xerzv9P7gMEJ+/aTzRUdIl410zOmly+6A3x1aXM0KVTm7k6qoYf+UTIRMZBnuntNnnMjmr0sFvv2D424rpFoUOah6rllJfnijKe2Uj5e
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KUZP153MB1444.APCP153.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(921020)(38070700021)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?DP/3v7cfq2p/Twep2bhGAfX0psnOHmwg8K0Hnp586FDvZuSuP/MwT78PppU0?=
+ =?us-ascii?Q?Vy4h+xLi1L++h/2nGv1qAnmQpDzQSDsDm31PcMEAuYrU46BQYIDItCLuFwwt?=
+ =?us-ascii?Q?xOq0xhWsMBnJju6dp5tXWYg2TDYDjhJNCAgdrJcHIW4826vxz+9rRhb/26KN?=
+ =?us-ascii?Q?c4u5PKvuFLmpJEVSPOjxjUQdDI7BSqMiYIALW1FWRW1opg6uJ8p7ZqemRSlC?=
+ =?us-ascii?Q?aYIpc44fvlHAcb6auh/DSyXsjYMSa2nvB8bKeTPhYX9yRNdeReg2uMc+6fLG?=
+ =?us-ascii?Q?T4sU+XiuhsHQgrTapRHfHcgKp+zfxu700hyzhDH5LVzEcaBverpH9tzmNeWM?=
+ =?us-ascii?Q?ImH5XRh626oG495JZT2008djZCzNfC2lcrM1xC4LZqhEiQjikR0MGwVU7ODL?=
+ =?us-ascii?Q?c50R4KQpOVat6zApNkjOVA4bP5u9ujpAgrndRHUwFf77BaDvMfkMITA6w4EX?=
+ =?us-ascii?Q?DWhLFgKvIVr2kcPoTH8arhMFr1mvqw2nVWZFCAgNp7pBefdTfJyWAKDrHFkm?=
+ =?us-ascii?Q?XQoDTRMSm7dYmsT0Y/jLcQL9AdYXfV/S2YAD9dZYWSWrKdPLc3Ckl62SpBVf?=
+ =?us-ascii?Q?S06mMKwYc+nbMITmjZDYxidYqVklhzNeyZImschtWkKRyVH/nycjsOVkTNqk?=
+ =?us-ascii?Q?x/JEnvcMJ+CJ0GTfc0ee+KYHIJZXAw9FZJNBVFBJvPatN5A0vxK6uzffWO1D?=
+ =?us-ascii?Q?yOY/tcS5NnlfComt+X61IH/XZ7sKiHN8pLU4plpk10+TT/gHASg4Ukn20F2u?=
+ =?us-ascii?Q?Y+Kz3QLQKOfdFid798hKnnELg3M/riSohUEJBA3ksxBf5JwuskODz//5ysJS?=
+ =?us-ascii?Q?2VWs8aSDGA5kChFsYGjrOA1lv5DOIU5HIJFO2cpUT9WK+E7vSH06LpcSiD7r?=
+ =?us-ascii?Q?gE9K77triBPOPoqX5WXzj5HSFBP3lL9ZERHWkkWfNbqE5MDI3ZhsI+t9Ngf4?=
+ =?us-ascii?Q?2DXeiQDctDg03XdbGHF+fAW6Pn619si+UTNXnZIX6INI/mWQdj1YY9KBXSoO?=
+ =?us-ascii?Q?JzaabPF2BvHLxWpRNEEvKxwW6prOmMGYc9XZBhd5OD4zCZD+iiGQIKWuQVT+?=
+ =?us-ascii?Q?tcDfXC1uTpaIMdF+bK2p+TISGSp40ln8r1YY+2szjsj755c5IS/OX2xLMIVV?=
+ =?us-ascii?Q?LkI49RAHEVnzUCYLuItCWFFtVjSJm27snegQzUbZIdVZYOec5+wWGn23ydRd?=
+ =?us-ascii?Q?UQw8wSVFD4TCDJ1rypZYQhrNBOD0aRfxPzqdhwl8lzEEr68Y2nFFY3ji/G8u?=
+ =?us-ascii?Q?kddfboNoG4frIA/JcxH59ngPl0GhjcQHYsr3uvbu0s//dShLlPSQXKp9JFvr?=
+ =?us-ascii?Q?dBd1iIHhdp3JBK1ddwOIn2fAuDZTHwe1n5ttocXB5QJkvRdBx4n1dkJHPZxN?=
+ =?us-ascii?Q?os+9tt66JojejU8k0hQ97eGmguchXSG4LMIYEfh5dmQVs5GpjzYOp6mKQSPz?=
+ =?us-ascii?Q?0lKTrd8oecs7GTayg+PdEH0RrTUoiHva2co9tuaUWA0asuEtuzg/goTjuQLl?=
+ =?us-ascii?Q?7zGUbRbJ84d6AqiHNYW5oCYoPJVobvaOCCG9QxpIIyWBgJOsmM8hR3/hjC0j?=
+ =?us-ascii?Q?B5VnZgUNh2s0y2DfHJrt8BovCiZHyLmbOtQbDnurED+TRphRy5RHPnaqoRRx?=
+ =?us-ascii?Q?HN75gScwGwa5UHbw3du0OGZPsAn0LSKCgiK07vtEdiLgAklp2Y75bdMuMUv5?=
+ =?us-ascii?Q?jW+Akw=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB7149:EE_|SEZPR03MB7073:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2b211da9-dfd7-4148-fa0a-08de9935ba55
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: h8iBua1Q6QeU9DWSaQZAq3JkXzEuJvpqctiqZoq4km7RXe1LomlPIH5Az451UGqY7nK+i9zcUVedtoOGsq3sZEO+f3FQGu/OL7elBDLY1yRUgJELBoUN77uFGGqrnSFrbB9uNwj0ueXE3OrSta6Z/0Hp/Mq+aBuNQQc0EYfzCKNJWIOE1LA/a6vWO76aCO0T7jJYvyUKFKHLGepuwkMQIdCAzRIZLfdARVXU9EsXVz8U3oZ93IPlnZ1Y3hkFdMXGxEs9BWLHlGnZSHwTVdhCF8MvLw++ogCTs/KEAAfqxmYkIdKIARhjCfMbtOdAo4/hgRJosg9kG8wWwhpjcqMe7cBHy+GINZI4a3CaoE13H5hR3ZvRdFYOI1fx/IR0jGEPguY5sUX91ZKSVSY45O3DRF44MsC03Cus8PzG4gWeHC+aeixFid88LUKbAIf5WVWGMp1zIxPLLg9jPuvHUhi0UKtRGpsPfnlOBvwESERh7g1ZxIa0huPKV4mW6nCWx3xAvO8DbyShd+Lu82dwYXTQV//vSTcE7eJUVzuzEqeVy8yFWPQAiPMs2Qg/g+0So6anWHU+d3WdHVc0xVIvfSm2jOvUaxbIvhEeW+7yckkcMoPb/Yt06Y7YMRyqT8RCFZuhAHDS9kDCt5+iiffcZYMOwV2tSaRNegBdxz47Hb5p0Bq8FBohAYx0FfXF16zBBoK+
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7149.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UWhSRmFzZjBHam9kY0Q0VU95anQ5TXVjTkFrNC9PMEM5b0NheG5aaTNSYTRu?=
- =?utf-8?B?Nk1HRDBMVVZRaVhDVFlBQkUxeDVyVXgvK2hMOWljbEtyd1pJN3hrQjZjZktx?=
- =?utf-8?B?QnkrM01uQjRnNktIZ2loem9XRFd4d0VYczVOa0toNWRLWGJoRWFhZDVDMVU5?=
- =?utf-8?B?NkhUNmZoallRaUk5NUZORUFmdDd2d3ljYzVpc2JtVnhTS0sydXR2K1lCdnU4?=
- =?utf-8?B?cVF1MVAxeHE0ZmJBQThBWVZ3ckhmWFMvckovRndpUzNZd2I3TE5sL3EwcFEv?=
- =?utf-8?B?SFFQSGRTRzBNVGJqVzN3dWJVNmFURUxHQkZxL2dnU2VVdkd0bVgwaHJPWlZv?=
- =?utf-8?B?OGxiRXFZMkN6ZDZCckZoQURPZ2ZWWmZzV3hUeTZEai9ydy85UDhhdHk5TWNB?=
- =?utf-8?B?NW9ZUFJ4dEhVbGo1QXo0OS8vQkc2Z1l2MnVWTXB3eGoyTFRqWFM1VTRISHF1?=
- =?utf-8?B?QzBua3BxZGxTTkcyNWxZejB5RGwvZkJpMUNXbDlWMlhPUm9TSzlVaFJPWVRu?=
- =?utf-8?B?TkhucjRoYURUVnFLMmZQa2pZRFpvMG5KczVKdlRmYVNFVnN3VDRmT29oRGFX?=
- =?utf-8?B?VXJJdmNEbjlsbDdPUDhTT1kzZGEwNnFYcnVjNGw3TXRtWU1yWHF6Sm1ZamJF?=
- =?utf-8?B?V2pIUzdZYlJJc29FcWFQeElGVzc3YXJTT0xGRGNQZVJ5VWVDQURGUWk2QmZG?=
- =?utf-8?B?K20wM3hyYm45Y3BOV1UyaTgxS1BaYkVrTnc5eVJXVG85TWRhZGlVR1NoVzIr?=
- =?utf-8?B?NTF4dysvQ0R5N3MrSzNibU5DVFhUdGoyT0xVdEFkUTdTRlZBaGx3QzZ3QUc2?=
- =?utf-8?B?RElJS2ZIU0RVc2cwdDVxT25CRkJhN1J4OGZ6Q1hBdUNCaGZ3ZXJHUnRRdXVZ?=
- =?utf-8?B?NU1mak9PaWRjdktHTkpFWWFCK3JxdTV5TkNVN0piVC9BYTRMWHlSellFMjNS?=
- =?utf-8?B?NWg4STgvbHp6eVFkVjhmemhJaTQxSjNzYSsxUnZ0bHVwVkUxbGhKSFpEZG5O?=
- =?utf-8?B?eGhxWGNVTXF3Q1RFUThpVFhyUDdCb2thdUY1cFdLcDhNeGtWME85YmtLc29J?=
- =?utf-8?B?STFEVW5sRWpTUnM4R0hJYzc3UjY3UHZCWXZ0M1hmbnplYjhjZUdESWVMeDRS?=
- =?utf-8?B?SXBDT3ZaQkNMWEJ0alBlWTExTkZNclJ0Z0lZVDdURWhrTHpzdXdZbklHSWlG?=
- =?utf-8?B?ZTRiY25DVHRpVkhTZ2RTS1F1ZlBFQTRhR1pUQllQcXpDc3l1ejlIZC9PYngy?=
- =?utf-8?B?MHRpQkdVOGx4bFBFUStkVmJZQWRXbnhPRUZDdW1MYXJ1VmhsQUV1SlJQdEV0?=
- =?utf-8?B?R1FKMUIvdmQ5Mm1VcElkWVhTOGlLN1lMWXhralYwV0JyV016amJaZXVwVmZp?=
- =?utf-8?B?aTI1dm12T2Q0OHpVQ0tvenZOVHFEb01MTFpFdHpyR0JHaFJIc0JGWVpmN1pB?=
- =?utf-8?B?VjJYeDlha2lCRXlkdlBhMnpwS0JrMDFDckNXbzdyUEhsZWppRldXWGUwMXlI?=
- =?utf-8?B?dEdRVVJtUFN6N2RLTDZpWTJvTGZBTGRSaThZUmJBMVBZSEVCNGl1dGdpTWxX?=
- =?utf-8?B?SkVWVzZKeGZDZnlhU0w1THhuNmRCTHE3M0Y5Ri9ZQTAwUWFFMkVhWkhvd1JW?=
- =?utf-8?B?aXBQcnFTMlVEWGVlSjQyRDhVYm5FS1ZTbTV4OXhmVDZkaU1qRUkyeEliV3VC?=
- =?utf-8?B?UUJtOGhIWUFqbllTMFBVYUg5NVlFZ1RlSk0zNGlENmV6Uk01WE9yb2VaQk5u?=
- =?utf-8?B?U1pNTG5yTXZLREtMSmVRdTJZVG9aMGxaRjJ5TE9DMjZ0SU0wRVNza255Y1Jy?=
- =?utf-8?B?Z1FJTGJ2NktibTIvSmtmaSsxOXBsTUFQem0rYkw4Wlo5dHV5NFNXZytjRDdk?=
- =?utf-8?B?ZlZna3ZTd0tENUdSSWRYVjdkNkdZZDNvVHliZGVlRG5NUU1HaWEvOFF0cHhW?=
- =?utf-8?B?VVRCVHNDSVJ5bFNNMHNZcnFZeUJJU2QweUlvZ1d6ZktIWTgvb2VjMjVqSDFJ?=
- =?utf-8?B?QUkwTytzZk1hMkxvR0xheXdxRXdDR0IvUXZOQWhpVmVacWkyaVN0Q3BwZlZz?=
- =?utf-8?B?OCtRTytjK0NWVmVqeEc2NkNRTWpvSjhKTjByYlJzdHNBMU1YdHNWbTN0eWR3?=
- =?utf-8?B?OTVRbytBNmxZMEF3eWlqLzRNTzlCS0xMZkNJcVd0VnV5WkVTZ3NiSWs4VFhE?=
- =?utf-8?B?VFp0M2Ftb1dwQldHZTIrV1ZaTFRnSFgwM2JUUEVqYXZ5a3ZCOHBRV3ZVVXpX?=
- =?utf-8?B?a0ZDMXpMczl6cUdrZXVZWnFGUFRNd3Q3ckZRUlpXYmFteGVpM1crTGZuZ0Yv?=
- =?utf-8?B?dnd6bGpTNGp6S2tXdnNvaVhJcFBJV2hJQm1HK1VSZWNyTUpOL3hLQT09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2b211da9-dfd7-4148-fa0a-08de9935ba55
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7149.apcprd03.prod.outlook.com
+X-OriginatorOrg: microsoft.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Apr 2026 08:21:57.3738
+X-MS-Exchange-CrossTenant-AuthSource: KUZP153MB1444.APCP153.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: b0e52200-d9d8-4bef-a66f-08de9935d373
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Apr 2026 08:22:39.2445
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0AdE6UANBZc+Jg3FgOKPU/zkAqGRwH02qaeBAbCQ+nCJNVgPRGHsguCn9Mbp2dgD9ub4oLfoZ/yRHVhuvRZxOA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB7073
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 72f988bf-86f1-41af-91ab-2d7cd011db47
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: VPiXmaOgRbFAAm2fUll+rjiMXM/SiMs67XoBxn68DK73fbfmApE2gnCIKLho+LmN8PJoeyXtHXRWdY4clBtGdA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSNP153MB1643
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_012208_047577_090DFBFD 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20260413_012253_936625_0145BDE0 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,58 +161,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> Hi
+>=20
+> Am 02.04.26 um 12:50 schrieb Saurabh Singh Sengar:
+> >> Hyperv's sysfb access only exists in the VMBUS support. Therefore
+> >> only select CONFIG_SYSFB for CONFIG_HYPERV_VMBUS. Avoids sysfb code
+> >> on systems that don't need it.
+> >>
+> >> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+> >> Fixes: 96959283a58d ("Drivers: hv: Always select CONFIG_SYSFB for
+> >> Hyper-V
+> >> guests")
+> >> Cc: Michael Kelley <mhklinux@outlook.com>
+> >> Cc: Saurabh Sengar <ssengar@linux.microsoft.com>
+> >> Cc: Wei Liu <wei.liu@kernel.org>
+> >> Cc: "K. Y. Srinivasan" <kys@microsoft.com>
+> >> Cc: Haiyang Zhang <haiyangz@microsoft.com>
+> >> Cc: Dexuan Cui <decui@microsoft.com>
+> >> Cc: Long Li <longli@microsoft.com>
+> >> Cc: linux-hyperv@vger.kernel.org
+> >> Cc: <stable@vger.kernel.org> # v6.16+
+> >> ---
+> >>   drivers/hv/Kconfig | 2 +-
+> >>   1 file changed, 1 insertion(+), 1 deletion(-)
+> >>
+> >> diff --git a/drivers/hv/Kconfig b/drivers/hv/Kconfig index
+> >> 7937ac0cbd0f..2d0b3fcb0ff8 100644
+> >> --- a/drivers/hv/Kconfig
+> >> +++ b/drivers/hv/Kconfig
+> >> @@ -9,7 +9,6 @@ config HYPERV
+> >>   	select PARAVIRT
+> >>   	select X86_HV_CALLBACK_VECTOR if X86
+> >>   	select OF_EARLY_FLATTREE if OF
+> >> -	select SYSFB if EFI && !HYPERV_VTL_MODE
+> >>   	select IRQ_MSI_LIB if X86
+> >>   	help
+> >>   	  Select this option to run Linux as a Hyper-V client operating @@
+> >> -62,6
+> >> +61,7 @@ config HYPERV_VMBUS
+> >>   	tristate "Microsoft Hyper-V VMBus driver"
+> >>   	depends on HYPERV
+> >>   	default HYPERV
+> >> +	select SYSFB if EFI && !HYPERV_VTL_MODE
+> >>   	help
+> >>   	  Select this option to enable Hyper-V Vmbus driver.
+> >>
+> >> --
+> >> 2.53.0
+> > Reviewed-by: Saurabh Sengar <ssengar@linux.microsoft.com>
+>=20
+> This fix is independent from the rest of the series. Do you want to merge=
+ it or
+> can I take it into DRM trees?
 
-On 4/12/2026 5:55 PM, Krzysztof Kozlowski wrote:
-> [ EXTERNAL EMAIL ]
->
-> On 10/04/2026 12:03, Jian Hu wrote:
->> Add support for the A1 and T7 SoC family in amlogic clk measure.
->>
->> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
->> ---
->>   drivers/soc/amlogic/meson-clk-measure.c | 272 ++++++++++++++++++++++++
->>   1 file changed, 272 insertions(+)
->>
->> diff --git a/drivers/soc/amlogic/meson-clk-measure.c b/drivers/soc/amlogic/meson-clk-measure.c
->> index d862e30a244e..083524671b76 100644
->> --- a/drivers/soc/amlogic/meson-clk-measure.c
->> +++ b/drivers/soc/amlogic/meson-clk-measure.c
->> @@ -787,6 +787,258 @@ static const struct meson_msr_id clk_msr_s4[] = {
->>
->>   };
->>
->> +static struct meson_msr_id clk_msr_a1[] = {
-> And existing code uses what sort of array? Seems you send us obsolete or
-> downstream code.
+Please feel free to take it via DRM tree.
+CC : Wei Liu
 
+- Saurabh
 
-Thanks for your review.
-
-
-I have checked the previous Amlogic SoC's commits. Such as Amlogic AXG, 
-G12A, C3, S4.
-
-The clk_msr_xx entry is added after last SoC's array, sorted by 
-submissin date rather than alphabetical order.
-
-So I place A1 and T7 after S4 accordingly.
-
-
-The A1 clock controller driver was already supported in 
-https://lore.kernel.org/all/20230523135351.19133-7-ddrokosov@sberdevices.ru/
-
-It is also present in the mainline kernel: 
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/clk/meson/Kconfig#n113
-
-
-This clock measure IP is used to measure the internal clock paths 
-frequencies,  and A1 clock controller driver was supported.
-
-Since the corresponding clock measure driver does not support A1 yet, So 
-add A1 clk msr here.
-
-
->
-> Best regards,
-> Krzysztof
 
