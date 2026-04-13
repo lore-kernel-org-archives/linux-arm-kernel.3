@@ -4,117 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DC4EEBFD08
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 07:10:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71E2EEBFD0A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 07:17:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xTEWMiKgWWJTQ9Wt/NJF5efY3D+FA4RYVlQMZj0kIcY=; b=SclHbjqWT8YRZZFi43SYY3kx2w
-	OdYYkCLkluupnTGKq/3CFDAMWuyb/OFnnyCh3P1PG+bpjbHmFEc5oGVm5BHAgwPhR8mrHsL0f1wxu
-	wRNw+t51fOvkF/zlxuAK1nN+crCnSSTYafYb0tsp/FeLGaoBBbpnN6F48EmL0YW/lADQGEwwgF7aY
-	XHpA6RNrT9UW3Cim3eyJnBDI7SsWtNDSOjuUlkoUSDAfbnnAgnURRwWKF6kLgxaZj7GvXmgJGUt6q
-	rZ6AtqgRmH4VpckUWSu1byj6ljOYHqjwtzNiAiakBOwfrGwME2xIHa432VbY7NO1Bwk2Ag8T5/xag
-	SHoDLyzg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rW5R3xGds9bg8qA2Ep9wnIOEprJ657jFgsGGoKUBMeQ=; b=KG94ppncyM1WrmvAYQPx92Ktp9
+	OiviDYD+i6jd9br4Rwowhw5ToOAd/Bp508FFMWqCp6QWqt5bMnHWlI/w0Yyt9mgeuOioNVI5hF0j0
+	MZ3aCb4U2R2tOgIPAgzKt5WTSux1ssA4hv5nsAE98ak7+ToLhr85fSwMr/mbv1M2kj+pUePQ5lIIx
+	oEBpUbzDrj3J2RwM6epkBxLRYkbl/ReafvpIHEerTnTH+AV0QdCOE7BUbIqxPgtbBK3IruYqUv795
+	D5NI3XS1WKgEzAhyRVPrQPahD4bVL1jFcKlWYQA2wcz+k9OaiM9mr7hlQGMqZekF+oEqHNagO2vbD
+	x6igu57A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCBRR-0000000F79W-13XX;
-	Mon, 13 Apr 2026 07:10:41 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1wCBXq-0000000F7mF-3YfX;
+	Mon, 13 Apr 2026 07:17:18 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCBRP-0000000F78R-0A39
+	id 1wCBXm-0000000F7lK-1GKT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 07:10:40 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-48897fd88ebso43748965e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 00:10:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1776064236; x=1776669036; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xTEWMiKgWWJTQ9Wt/NJF5efY3D+FA4RYVlQMZj0kIcY=;
-        b=zhMqxkaaIscyvXiu3oI4G7BXdWo2cnlk9kg6ySmOZ3+QaxHuxt5pgpu93ZDFkqPrSM
-         ysYW4oWZE1wRjN24edG1MpY0jgAtO0U4sjdjzASFggkzr1TTHO29DCML+lkHNaR2zPUN
-         jZ3XqtzbVHiVSu5MCaSlMpKPBWmWGr1Ov+q5C2u8/1zqLmbw12UWDKsMqjnsQ7uddwfs
-         t9joLnkcQ2XkVZHQ1lCdbbYzxBXLqo1H+FXR/93a3U68LE8a3Na70vAe/HO+/p898U48
-         ZyDYQWSS87F8uLFBEsjsW4Jsd0tWvkPOOGn7D4SK9jDbAI9R6ACRv/MQNb6tHGy+i712
-         PHRw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776064236; x=1776669036;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xTEWMiKgWWJTQ9Wt/NJF5efY3D+FA4RYVlQMZj0kIcY=;
-        b=bLzvWV77w+wCSnIsTNgCClbDQjaxC6McR2P4/KIit7fq9ZYeboeUoyJ41DK3pp4DeW
-         J00EimCYKVRbyGGcwOSo9MFGXA2FzwrH2SKVVCeUrC0L4u16B+9mU5CEvXzqGK8ljXrz
-         D2quxtcQnIFmhfllEfWsjjgvyrLxfQFVEO7aSrBTTeBHq3o9mpYqAM+y3E5r4xicNKcp
-         z4ub1Nsz2LiQnn2iZ3aBeuCjhf/bjgQ2wQk2JphnQFWNy9GDewTVBvNr1xAakriD6rxz
-         Tyj8YNHUXKqSE2tjAjlFppB5FpXepfNYeMEMEkVtAMT1YaGJElxsphnkTqd+4HisGa6n
-         PREg==
-X-Forwarded-Encrypted: i=1; AFNElJ/7exvksKRagwcFLZNZEIVc4JVsaJG3vGlU3HdDd+KFvb134ieIullfnovcZT8BSL2KWVqmAW393Jex6Jc5/KA2@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvEXcahrD8MzJKCM6Xob/JiOmlWsh4ymQPhkTTLdsTNZGBxtV1
-	pwU+ScFWmZROV96+xK0dL1fZe2A0DA1iKsaUNYRUNWX6kX8udn4pyfhn3fVNcJePHDc=
-X-Gm-Gg: AeBDietRZU8LMrllv0+JcTVCI8QtcTGiJ7tznA2G7bAU6WqmKCLgRt0ibPaPSiFNfGZ
-	KX09Qi8qc9aAVVpQZsdhcbr0mgMWROsYqTUBYlVoPM8t/Hz6xZVVabeoS7RkIItdVwqqwROWK9y
-	8+7OrcXYAFajwjE7z+vsUxicGF3Crf/HIG3wEYGmslKfxQrDllAPzcdPGYARnVxpu2SE9m1Mi9k
-	aZT+meIsk9HqhT+lg1le3IyFVaYy6HqjtW9gog0kCgK12M8qlRPeAyaDn8zlVTiftr9LVQzo7NG
-	LP28RDPzFNb6X4JsQ1cLErMKpxKzNNuGineByi5T/7MoMcXtp00fcsy7zOzSCwlBJoKSl9/7kK3
-	K34woasSmpN/JUEMhvhSsNP6L9pO+5BrxHFAwoglBJDsumJfzu6udfuGjxMPakRTHry1AIsajcR
-	iMT6rnwJMeWVdq7UurHpDCOa95jNe2k13ZnOlmEhf6soQfecaKgTyiPnMtq94aDOw3XDZLXiNlE
-	A9rLYwq
-X-Received: by 2002:a05:600c:8591:b0:488:a824:fe04 with SMTP id 5b1f17b1804b1-488d6abe9e4mr118911365e9.26.1776064236236;
-        Mon, 13 Apr 2026 00:10:36 -0700 (PDT)
-Received: from ?IPV6:2a01:cb1c:fcf:4600:4cfb:7427:8a08:9d25? ([2a01:cb1c:fcf:4600:4cfb:7427:8a08:9d25])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488d538c03esm276356665e9.13.2026.04.13.00.10.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Apr 2026 00:10:35 -0700 (PDT)
-Message-ID: <5af5dfdb-001a-4b63-8a43-5cfcf28d821c@linaro.org>
-Date: Mon, 13 Apr 2026 09:10:36 +0200
+	Mon, 13 Apr 2026 07:17:16 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 0D7BB6A7CA;
+	Mon, 13 Apr 2026 07:17:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1776064631; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=rW5R3xGds9bg8qA2Ep9wnIOEprJ657jFgsGGoKUBMeQ=;
+	b=EMPBYo7maOolaDclqrmqB7DoCjl8hY7R4nEKa6AIy3rB1y3LfX+HoXBy7v/39LT1OKozid
+	PuG7L6eBwWC+Lp1r7PzZRvDZ4NYYI+DPKy1TUuFlIPTi4EdrW/bHW1Z9cjxBUis2Uw17Sw
+	HoiFtvk2JVm4WKbGYsztTjtOmWmQ+QE=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1776064631;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=rW5R3xGds9bg8qA2Ep9wnIOEprJ657jFgsGGoKUBMeQ=;
+	b=ZvsBVw15CdLOkuECwK4FZfeeJL2S20COYfNUOGcCvtUx5gkYos6MV477z2JoIsUf6YWR/H
+	+S/m0SXjg3jbqcDQ==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1776064631; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=rW5R3xGds9bg8qA2Ep9wnIOEprJ657jFgsGGoKUBMeQ=;
+	b=EMPBYo7maOolaDclqrmqB7DoCjl8hY7R4nEKa6AIy3rB1y3LfX+HoXBy7v/39LT1OKozid
+	PuG7L6eBwWC+Lp1r7PzZRvDZ4NYYI+DPKy1TUuFlIPTi4EdrW/bHW1Z9cjxBUis2Uw17Sw
+	HoiFtvk2JVm4WKbGYsztTjtOmWmQ+QE=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1776064631;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=rW5R3xGds9bg8qA2Ep9wnIOEprJ657jFgsGGoKUBMeQ=;
+	b=ZvsBVw15CdLOkuECwK4FZfeeJL2S20COYfNUOGcCvtUx5gkYos6MV477z2JoIsUf6YWR/H
+	+S/m0SXjg3jbqcDQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 5E7034AD72;
+	Mon, 13 Apr 2026 07:17:10 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id iMDYFXaY3GkWRQAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Mon, 13 Apr 2026 07:17:10 +0000
+Message-ID: <2fe8ce91-2dc5-4cf2-b7cf-d495e5cff14b@suse.de>
+Date: Mon, 13 Apr 2026 09:17:09 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [GIT PULL] amlogic ARM64 DT updates for v7.1
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: soc@kernel.org, arm@kernel.org, linux-amlogic@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-References: <2fde1b11-d2a4-4aa2-8c28-d20fbbb54f7f@linaro.org>
- <20260411-spicy-apricot-newt-afa8a7@quoll>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20260411-spicy-apricot-newt-afa8a7@quoll>
+Subject: Re: [PATCH 1/8] hv: Select CONFIG_SYSFB only for CONFIG_HYPERV_VMBUS
+To: Saurabh Singh Sengar <ssengar@microsoft.com>,
+ "javierm@redhat.com" <javierm@redhat.com>, "arnd@arndb.de" <arnd@arndb.de>,
+ "ardb@kernel.org" <ardb@kernel.org>,
+ "ilias.apalodimas@linaro.org" <ilias.apalodimas@linaro.org>,
+ "chenhuacai@kernel.org" <chenhuacai@kernel.org>,
+ "kernel@xen0n.name" <kernel@xen0n.name>,
+ "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+ "mripard@kernel.org" <mripard@kernel.org>,
+ "airlied@gmail.com" <airlied@gmail.com>, "simona@ffwll.ch"
+ <simona@ffwll.ch>, KY Srinivasan <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>,
+ "wei.liu@kernel.org" <wei.liu@kernel.org>, Dexuan Cui <DECUI@microsoft.com>,
+ Long Li <longli@microsoft.com>, "deller@gmx.de" <deller@gmx.de>
+Cc: "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
+ "linux-efi@vger.kernel.org" <linux-efi@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "linux-fbdev@vger.kernel.org" <linux-fbdev@vger.kernel.org>,
+ Michael Kelley <mhklinux@outlook.com>,
+ Saurabh Sengar <ssengar@linux.microsoft.com>,
+ "stable@vger.kernel.org" <stable@vger.kernel.org>
+References: <20260402092305.208728-1-tzimmermann@suse.de>
+ <20260402092305.208728-2-tzimmermann@suse.de>
+ <KUZP153MB14449BBE44CBAEEA7621A4A0BE51A@KUZP153MB1444.APCP153.PROD.OUTLOOK.COM>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <KUZP153MB14449BBE44CBAEEA7621A4A0BE51A@KUZP153MB1444.APCP153.PROD.OUTLOOK.COM>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-4.30 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	TO_DN_EQ_ADDR_SOME(0.00)[];
+	ARC_NA(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de,outlook.com];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_TLS_ALL(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[27];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	FREEMAIL_TO(0.00)[microsoft.com,redhat.com,arndb.de,kernel.org,linaro.org,xen0n.name,linux.intel.com,gmail.com,ffwll.ch,gmx.de];
+	MID_RHS_MATCH_FROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[lists.infradead.org,lists.linux.dev,vger.kernel.org,lists.freedesktop.org,outlook.com,linux.microsoft.com];
+	R_RATELIMIT(0.00)[to_ip_from(RLykjg6e7ifkwtw7jmpw7b9yio)];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:email,imap1.dmz-prg2.suse.org:helo,outlook.com:email,suse.com:url]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_001039_089835_DA3CA14F 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20260413_001714_686020_68B21C63 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,60 +180,71 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/11/26 11:32, Krzysztof Kozlowski wrote:
-> On Fri, Apr 10, 2026 at 10:50:58AM +0200, Neil Armstrong wrote:
->> Hi,
->>
->> Here's the Amlogic ARM64 DT changes for v7.1, including a bunch of fixes
->> and improvements for the Khadas VIM4 and VIM1s SBCs, plus some additions
->> for the Phicomm N1 and a couple of low priority fixes.
->>
->> Thanks,
->> Neil
->>
->> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
->>
->>    Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
->>
->> are available in the Git repository at:
->>
->>    https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git tags/amlogic-arm64-dt-for-v7.1
->>
->> for you to fetch changes up to 401e5c73eedde8225e87bd11c794b8409248ff41:
->>
->>    arm64: dts: meson-gxl-p230: fix ethernet PHY interrupt number (2026-04-08 14:27:20 +0200)
-> 
-> Days in linux-next:
-> ----------------------------------------
->   1 | ++++++++ (8)
->   ...
-> 
-> So a few things were just applied, unless this was rebased?
+Hi
 
-This one has been applied lately, but this is news for me, I always took
-in account the time spent in the lists, not in linux-next.
-I made sure this one landed at least once in -next to trigger CIs.
+Am 02.04.26 um 12:50 schrieb Saurabh Singh Sengar:
+>> Hyperv's sysfb access only exists in the VMBUS support. Therefore only select
+>> CONFIG_SYSFB for CONFIG_HYPERV_VMBUS. Avoids sysfb code on systems
+>> that don't need it.
+>>
+>> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+>> Fixes: 96959283a58d ("Drivers: hv: Always select CONFIG_SYSFB for Hyper-V
+>> guests")
+>> Cc: Michael Kelley <mhklinux@outlook.com>
+>> Cc: Saurabh Sengar <ssengar@linux.microsoft.com>
+>> Cc: Wei Liu <wei.liu@kernel.org>
+>> Cc: "K. Y. Srinivasan" <kys@microsoft.com>
+>> Cc: Haiyang Zhang <haiyangz@microsoft.com>
+>> Cc: Dexuan Cui <decui@microsoft.com>
+>> Cc: Long Li <longli@microsoft.com>
+>> Cc: linux-hyperv@vger.kernel.org
+>> Cc: <stable@vger.kernel.org> # v6.16+
+>> ---
+>>   drivers/hv/Kconfig | 2 +-
+>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/hv/Kconfig b/drivers/hv/Kconfig index
+>> 7937ac0cbd0f..2d0b3fcb0ff8 100644
+>> --- a/drivers/hv/Kconfig
+>> +++ b/drivers/hv/Kconfig
+>> @@ -9,7 +9,6 @@ config HYPERV
+>>   	select PARAVIRT
+>>   	select X86_HV_CALLBACK_VECTOR if X86
+>>   	select OF_EARLY_FLATTREE if OF
+>> -	select SYSFB if EFI && !HYPERV_VTL_MODE
+>>   	select IRQ_MSI_LIB if X86
+>>   	help
+>>   	  Select this option to run Linux as a Hyper-V client operating @@ -62,6
+>> +61,7 @@ config HYPERV_VMBUS
+>>   	tristate "Microsoft Hyper-V VMBus driver"
+>>   	depends on HYPERV
+>>   	default HYPERV
+>> +	select SYSFB if EFI && !HYPERV_VTL_MODE
+>>   	help
+>>   	  Select this option to enable Hyper-V Vmbus driver.
+>>
+>> --
+>> 2.53.0
+> Reviewed-by: Saurabh Sengar <ssengar@linux.microsoft.com>
 
-So if there’s new rules, we should be made aware of those.
+This fix is independent from the rest of the series. Do you want to 
+merge it or can I take it into DRM trees?
 
-> 
-> I will wait with this. It might miss the merge window if v7.0 is
-> released this weekend.
+Best regards
+Thomas
 
-Ok wow, just like that... I mean the amlogic DT is stable, all patches
-patches bindings checks and none is critical since it mainly touches
-new platforms and the incriminated commit is a low priority fix for
-10y old development boards...
+>
 
-Neil
+-- 
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
 
-> 
-> Best regards,
-> Krzysztof
-> 
 
 
