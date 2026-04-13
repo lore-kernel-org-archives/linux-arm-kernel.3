@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA12EF34C63
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 16:31:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5A77F34C63
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 16:35:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cBakdcPrrkFOeg8BAdHgZZ69Eqz22VUJ+QoybgiBchY=; b=3/2EIA1jVC9ilJzLyqsfHwZAGO
-	LWQdgJ67JRoTTvTjjHHM554TNNRzNDxSrh7nzSdZj7C+xuGNSWB8Se92I6ZX4KXRTunui8JpkwGYz
-	NUjzJHfLYBrKnrOUZN5hWJIGPBpycZPZHHtu2l5IG/PSycIXKmL5DkOZp2zODCELPWHNuFhdcvW5j
-	e/bgwTS6a+MBo/LZQ6bDl4n+IGhPbtO4RcWvzfAwzVnBlTefukqo0537Sf+oJAA+eIYfrvO3NTVqv
-	UKPHdWviekS2zE0X3F7hY4Ord3Cc0UQabfqO8gS6TOgFxRinP0pxJDPEtVIl8udKt0QhMVglV16Vi
-	74nr2BrQ==;
+	bh=7kag+k76MMII2rJ7lc0nPwSZz3w0zkW2ZuT/Qpx9Y1o=; b=bigC2s6gYI2IkmzIfJX33NTV9i
+	fP4ztDAEXL8JQ2X1nZ5Le8XhxJyJcj1PP7/AtM+iCWfbMumoyhLTRc6415TvQbh27xAA8oYCHVI3m
+	XFePtA4/6+oXlBVTbiXCbHXf0let82tp0UMQw88RJAvz8fKJ70DkvRyZOGw68VrM+tySXP/NnuypA
+	/Rgr5riH83togzQHI8QAyNh9GqI0BcgIJb/m9QNfh+Z7claGKBrALYEMZsklYYikW+avMwekH5pGT
+	5Drzn4ey5vrsqqyqolQNkuvN5dvPPwNl8kCTeiKoTVDV2emXvI0TdWOwzdH6y/7ks7m4723/Rgimj
+	imCWrxOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCKCH-0000000G3zU-3cv5;
-	Mon, 13 Apr 2026 16:31:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCKCF-0000000G3zA-1MMO
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 16:31:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B58A32C3E;
-	Mon, 13 Apr 2026 09:31:26 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0410E3F641;
-	Mon, 13 Apr 2026 09:31:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776097892; bh=QdS2WhB7D5fppC6/7TCLRPfg8i0c7xcZA6vFB70h7Rk=;
+	id 1wCKGL-0000000G4Mu-1oz3;
+	Mon, 13 Apr 2026 16:35:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCKGJ-0000000G4MT-1x0F;
+	Mon, 13 Apr 2026 16:35:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2DA4F40881;
+	Mon, 13 Apr 2026 16:35:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49FBCC2BCB3;
+	Mon, 13 Apr 2026 16:35:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776098145;
+	bh=YZ23nMQ/ay3QztACjeZpwAsTDk5SE/Lr+pB3V6c9Mqw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hkKigAKB075h9OetxZEcL/aicUls84+A27G/OZA6N0qitICpMQa3Cxb3iiXd//cZg
-	 PxBhWIn65z/OLf+Ehhghwoxp4W+p5HrNGujAv/J3Q3Jl/KLouhEW3FxSf132VPiw+7
-	 5FZpLVj/q21cv147xCrxm3TVwLsTabxBMM0Xyk78=
-Date: Mon, 13 Apr 2026 17:31:30 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
-	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
-	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Tamas Petz <tamas.petz@arm.com>, Thomas Gleixner <tglx@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v10 00/20] CoreSight: Refactor power management for
- CoreSight path
-Message-ID: <20260413163130.GC356832@e132581.arm.com>
-References: <20260405-arm_coresight_path_power_management_improvement-v10-0-13e94754a8be@arm.com>
- <0dd1c432-884a-46c1-828b-f3b22769d000@oss.qualcomm.com>
+	b=Lk8ymw3MMZG/o+y7+yEs9+SRa2wM7p+rrtsT8WBnSf4v+gl6sXbHWOTbbi/XV3xC4
+	 Pn5g7XBWkIkq8K23OKBe16ohjIMDDnUIoslb4p0kQC3a9ulPP1tSHjaCLOf54uD2oZ
+	 G7ui53icbdw2iggotHL0Vy9VNgLSVMib1U3kiMTN0uW2+GElkpA8ikUiE8h0XLfNE9
+	 ImA9l7/Am6GKhLrhIsYsx1CFPePcxFQ9wp4T8PUnxtM3gUcwJQ6/+R6IdMPwZ4nbDA
+	 dZDI+53aOQhehcepUJNY3OiBRpz0ea9bCWS9K13MaCoeVgSKeZOTLYKnFz8Fy56/JW
+	 PoN5/0eOM46Gw==
+Date: Mon, 13 Apr 2026 22:05:28 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Brian Norris <briannorris@chromium.org>, 
+	Hongxing Zhu <hongxing.zhu@nxp.com>
+Cc: Hongxing Zhu <hongxing.zhu@nxp.com>, 
+	"manivannan.sadhasivam@oss.qualcomm.com" <manivannan.sadhasivam@oss.qualcomm.com>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Mahesh J Salgaonkar <mahesh@linux.ibm.com>, Oliver O'Halloran <oohall@gmail.com>, 
+	Will Deacon <will@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>, 
+	"linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>, Niklas Cassel <cassel@kernel.org>, 
+	Wilfred Mallawa <wilfred.mallawa@wdc.com>, Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
+	Lukas Wunner <lukas@wunner.de>, Wilson Ding <dingwei@marvell.com>, 
+	Miles Chen <minhuachen@google.com>
+Subject: Re: [PATCH v7 0/4] PCI: Add support for resetting the Root Ports in
+ a platform specific way
+Message-ID: <klzq2i2ne62hdri65gz7s5pxmvely277optr2lrkvdrrahl3ca@k3hdo6o4nkjz>
+References: <20260310-pci-port-reset-v7-0-9dd00ccc25ab@oss.qualcomm.com>
+ <AS8PR04MB883389FD2A016F9E02756B048C49A@AS8PR04MB8833.eurprd04.prod.outlook.com>
+ <adcHylFjFjhHT-tP@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <0dd1c432-884a-46c1-828b-f3b22769d000@oss.qualcomm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <adcHylFjFjhHT-tP@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_093135_550441_6060F88F 
-X-CRM114-Status: GOOD (  13.99  )
+X-CRM114-CacheID: sfid-20260413_093547_543509_6509235F 
+X-CRM114-Status: GOOD (  39.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,81 +85,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 13, 2026 at 06:30:18PM +0800, Jie Gan wrote:
+Hi Brian,
 
-[...]
+On Wed, Apr 08, 2026 at 06:58:34PM -0700, Brian Norris wrote:
+> Hi Richard and Mani,
+> 
+> For the record, I've been using a form of an earlier version of this
+> patchset in my environment for some time now, and I've run across
+> problems that *might* relate to what Richard is reporting, but I'm not
+> quite sure at the moment. Details below.
+> 
+> On Wed, Mar 25, 2026 at 07:06:49AM +0000, Hongxing Zhu wrote:
+> > Hi Mani:
+> > I've accidentally encountered a new issue based on the reset root port patch-set.
+> > After performing a few hot-reset operations, the PCIe link enters a continuous up/down cycling pattern.
+> > 
+> > I found that calling pci_reset_secondary_bus() first in pcibios_reset_secondary_bus() appears to resolve this issue.
+> > Have you experienced a similar problem?
+> > 
+> > "
+> > ...
+> > [  141.897701] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000700) link up detected
+> > [  142.086341] imx6q-pcie 4c300000.pcie: PCIe Gen.3 x1 link up
+> > [  142.092038] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000c00) link down detected
+> > ...
+> > "
+> > 
+> > Platform: i.MX95 EVK board plus local Root Ports reset supports based on the #1 and #2 patches of v7 patch-set.
+> > Notes of the logs:
+> > - One Gen3 NVME device is connected.
+> > - "./memtool 4c341058=0;./memtool 4c341058=1;" is used to toggle the LTSSM_EN bit to trigger the link down.
+> > - Toggle BIT6 of Bridge Control Register to trigger hot reset by "./memtool 4c30003c=004001ff; ./memtool 4c30003c=000001ff;"
+> > - The Root Port reset patches works correctly at first.
+> > However, after several hot-reset triggers, the link enters a repeated down/up cycling state.
+> > 
+> > Logs:
+> > [    3.553188] imx6q-pcie 4c300000.pcie: host bridge /soc/pcie@4c300000 ranges:
+> > [    3.560308] imx6q-pcie 4c300000.pcie:       IO 0x006ff00000..0x006fffffff -> 0x0000000000
+> > [    3.568525] imx6q-pcie 4c300000.pcie:      MEM 0x0910000000..0x091fffffff -> 0x0010000000
+> > [    3.577314] imx6q-pcie 4c300000.pcie: config reg[1] 0x60100000 == cpu 0x60100000
+> > [    3.796029] imx6q-pcie 4c300000.pcie: iATU: unroll T, 128 ob, 128 ib, align 4K, limit 1024G
+> > [    4.003746] imx6q-pcie 4c300000.pcie: PCIe Gen.3 x1 link up
+> > [    4.009553] imx6q-pcie 4c300000.pcie: PCI host bridge to bus 0000:00
+> > root@imx95evk:~#
+> > root@imx95evk:~#
+> > root@imx95evk:~# ./memtool 4c341058=0;./memtool 4c341058=1; Writing 32-bit value 0x0 to address 0x4C341058
+> > Writing 32-bit v
+> > [   87.265348] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000d01) link down detected
+> > alue 0x1 to adder
+> > [   87.273106] imx6q-pcie 4c300000.pcie: Stop root bus and handle link down
+> > ss 0x4C341058
+> > [   87.281264] pcieport 0000:00:00.0: Recovering Root Port due to Link Down
+> > [   87.289245] pci 0000:01:00.0: AER: can't recover (no error_detected callback)
+> > root@imx95evk:~# [   87.514216] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000700) link up detected
+> > [   87.702968] imx6q-pcie 4c300000.pcie: PCIe Gen.3 x1 link up
+> > [   87.834983] pcieport 0000:00:00.0: Root Port has been reset
+> > [   87.840714] pcieport 0000:00:00.0: AER: device recovery failed
+> > [   87.846592] imx6q-pcie 4c300000.pcie: Rescan bus after link up is detected
+> > [   87.855947] pcieport 0000:00:00.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+> 
+> I've seen this same line ("bridge configuration invalid") before, and I
+> believe that's because the saved state (pci_save_state(); more about
+> this below) is invalid -- it contains 0 values in places where they
+> should be non-zero. So when those values are restored
+> (pci_restore_state()), we get confused.
+> 
+> I believe we've pinned down one reason this invalid state occurs -- it's
+> because of an automatic (mis)feature in the DesignWare PCIe hardware.
+> Specifically, it's because of what the controller does during a surprise
+> link-down error.
+> 
+> From the Designware docs:
+> 
+>   "[...] during normal operation, the link might fail and go down. After
+>   this link-down event, the controller requests the DWC_pcie_clkrst.v
+>   module to hot-reset the controller. There is no difference in the
+>   handling of a link-down reset or a hot reset; the controller asserts
+>   the link_req_rst_not output requesting the DWC_pcie_clkrst.v module to
+>   reset the controller."
+> 
+> In some of the adjacent documentation (and confirmed in local testing),
+> it suggests that this automatic reset will also reset various DBI (i.e.,
+> PCIe config space) registers. It also seems as if there's not really a
+> good way to completely stop this automatic reset -- the docs mention
+> some SW methods prevent the reset, but they all seem racy or incomplete.
+> 
+> Anyway, I think this implies that patch 1 is somewhat wrong [1]. It
+> includes some code like this:
+> 
+> 		pci_save_state(dev);
+> 		ret = host->reset_root_port(host, dev);
+> 		if (ret)
+> 			pci_err(dev, "Failed to reset Root Port: %d\n", ret);
+> 		else
+> 			/* Now restore it on success */
+> 			pci_restore_state(dev);
+> 
+> That first line (pci_save_state()) is prone to saving invalid state,
+> depending on whether the link-down event has finished flushing and
+> resetting the controller yet or not. The resulting impact is a bit hard
+> to judge, depending on what (mis)configuration you end up with.
+> 
 
-> tested on QCOM sa8775-ride:
-> 
-> === 1. Sysfs mode: basic enable/disable ===
-> PASS: Sink tmc_etr0 enabled
-> PASS: Source etm0 enabled
-> PASS: Source etm0 disabled cleanly
-> PASS: Sink tmc_etr0 disabled cleanly
-> 
-> === 2. Sysfs mode: repeated enable/disable cycles (10x) ===
-> PASS: 10 enable/disable cycles completed without error
-> 
-> === 3. Sysfs mode: enable source with no active sink ===
-> PASS: Enable without sink returned error (expected)
-> 
-> === 4. Sysfs mode: enable/disable all per-CPU sources ===
->     etm0 (cpu0): enabled OK
->     etm1 (cpu1): enabled OK
->     etm2 (cpu2): enabled OK
->     etm3 (cpu3): enabled OK
->     etm4 (cpu4): enabled OK
->     etm5 (cpu5): enabled OK
->     etm6 (cpu6): enabled OK
->     etm7 (cpu7): enabled OK
-> PASS: All online per-CPU sources enabled/disabled successfully
-> 
-> === 5. CPU hotplug: offline CPU while sysfs tracing active ===
->   Using source etm1 on cpu1
->   Tracing active on cpu1, offlining CPU...
-> [   82.805359] psci: CPU1 killed (polled 0 ms)
-> PASS: Source auto-disabled on CPU offline
-> [   83.346033] Detected PIPT I-cache on CPU1
-> [   83.346114] GICv3: CPU1: found redistributor 100 region
-> 0:0x0000000017a80000
-> [   83.346283] CPU1: Booted secondary processor 0x0000000100 [0x410fd4b2]
-> PASS: Source re-enabled after CPU re-online
-> 
-> === 6. Sysfs: enable source on offline CPU (expect ENODEV) ===
-> [   84.013788] psci: CPU1 killed (polled 0 ms)
-> PASS: Enable on offline cpu1 rejected (enable_source=0)
-> [   84.349558] Detected PIPT I-cache on CPU1
-> [   84.349640] GICv3: CPU1: found redistributor 100 region
-> 0:0x0000000017a80000
-> [   84.349811] CPU1: Booted secondary processor 0x0000000100 [0x410fd4b2]
-> 
-> === 7. CPU PM: trace survives CPU idle entry/exit ===
->   Sleeping 3s to allow CPU idle entry...
->   Idle entries on cpu0 during test: 35
-> PASS: Source still enabled after idle (PM save/restore working)
-> 
-> === 8. Perf mode: basic cs_etm recording ===
-> SKIP: perf not found in PATH
-> 
-> === 11. TRBE: check save/restore sysfs nodes (if present) ===
-> SKIP: No TRBE devices found
-> 
-> Tested-by: Jie Gan <jie.gan@oss.qualcomm.com>
+Thanks a lot for your investigation. I think your observation makes sense and
+could be the culprit in saving the corrupted state. Even on non-DWC controllers,
+there is no guarantee that the Root Port config registers state will be
+preserved after LDn (before Root Port reset).
 
-Just heads up: since Sashiko [1] pointed out a corner case where an SMP call
-may fail when disabling the source device, the per-CPU path pointer
-might not be cleared.  If the ETMv4 device is then removed (e.g. if the
-user unloads the ETMv4 module), CPU PM notifier might access the stale
-path pointer.  Though this is a rare case, we should handle it safely.
-This is why the series was not picked for the v7.1 merge window.
+> I also noticed commit a2f1e22390ac ("PCI/ERR: Ensure error
+> recoverability at all times") was merged recently. With that change, I
+> believe it is now safe to perform pci_restore_state() even without
+> pci_save_state() here.
+> 
+> So ... can we remove pci_save_state() from
+> pcibios_reset_secondary_bus()? Might that help?
 
-Thanks a lot for the testing, Jie! It's very helpful, and I will add
-your test tags in the next spin.
+I think so. I will also test it locally and report back soon.
 
-Anyway, please expect more iterations.
+> It sounds like my above
+> observations *may* match Richard's reports, but I'm not sure. And
+> anyway, the documented hardware behavior is racy, so it's hard to
+> propose a foolproof solution.
+> 
 
-Thanks,
-Leo
+@Richard: Can you confirm if removing 'pci_save_state(dev);' from
+pcibios_reset_secondary_bus() fixes your issue?
 
-[1] https://sashiko.dev/#/patchset/20260405-arm_coresight_path_power_management_improvement-v10-0-13e94754a8be%40arm.com?part=5
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
