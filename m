@@ -4,111 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B205E93808
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 01:43:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E9D7E93808
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 01:58:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZpqWZ5OeBihZW+KiOWj3yc4NCjFh45eEbq7S9GQ1ONE=; b=YhpoyreyYFmDeZjnUWjWMiWaDX
-	N/Cq0PubIVYlDK8dEG6dteYNUX6TgTeF0AImxrV3KvNbego4whNPdnp5DQmouzSkE4AKXsOQ3zh8X
-	DKWxptx0mlLkE+xkdyy9xznlboiRk0ZDfHeml3Uh4YiC2r2LCpWlyfmOK2glTrrwrhYhH3QKJO5Eb
-	YI4TH4fPCjILq0mR7hjuqnvyi/GhuzKhj4btboyh9RfdHmTGP9huN+NU1sP9UhJsOB6+W3lt4Dx+p
-	9VE3rjwiMhHhOOojyfwpddi8W6Hje8Cww5/vZ2KSxTNW8zNmxEgzRku2P7NEtFL80qs3zypCMKm0g
-	Sh76kB9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NxMIA335Kx5utnu1B5+E72rSIBe3vrlT2Mk6fidITiw=; b=Z1slmUixDyUcFT0npK4F78gHfQ
+	RHZtqIu+8c3cXeXSpzl/pQ11tNVKVLgg2B2dvq+S8NR0A5Dfx1NWNhTTuVbxOesGK01B1vsK5VZfK
+	RwbflplsPbP7oq5R8Sq4worh/UtH79g8/l9CbWAAgIxjtOgGAf1VU2DbiRx9wxoYfDE5IjbWhfjNy
+	vBmY9cOW7qJjwR/gvM7KVNowSgrXsF+QWBLNrpzBoXWzuCMa6y1B0eW/8yfF64AOBY14R4ykLemK1
+	2dbsYYApoMfJV9nHPx8Bue6VwszfIVukZKWPWwFggthe9xhL/5GsbQPWdhhLXeNr75jiSTpTiA4aD
+	yqHFkD/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wC6KN-0000000EqcD-03TS;
-	Mon, 13 Apr 2026 01:43:03 +0000
-Received: from mail-oa1-x33.google.com ([2001:4860:4864:20::33])
+	id 1wC6Z0-0000000ErCq-3Lcm;
+	Mon, 13 Apr 2026 01:58:10 +0000
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wC6KJ-0000000Eqai-1cNW
+	id 1wC6Yx-0000000ErCO-3za2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 01:43:01 +0000
-Received: by mail-oa1-x33.google.com with SMTP id 586e51a60fabf-42321c8b8f5so3154750fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 18:42:58 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776044578; cv=none;
-        d=google.com; s=arc-20240605;
-        b=H4UZSiSMcDiKSLetDHcSiHIElgoFt0aRhBqWbzz2kFz0YN65WorLgchga7rK3tEZoh
-         6RIKDdni/LLOkFXMn+twslwslbkxa1hOGPcHRPzPG3gO2OH1RhMr1ME07L8Vaba1MX8f
-         KTe6pBw/bnqLVU5Uj3tLv+nk69xkCUAswcpKlsnZk6JVvnOToBS9f14Qa9oWmpSqXjTb
-         nT+q3A5+nBa77YRbVu/A6NwT1WUTd26HG8tEZxnIQbxIFTmFRFM6+7x2aimAQwjylNc9
-         babK/BD0AVeUqYLPjnRssP9N1uVlRWcYaVLk1mxN6yzaRJX+Nk8okDvPy6kjUbT8Itbt
-         OHXA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=ZpqWZ5OeBihZW+KiOWj3yc4NCjFh45eEbq7S9GQ1ONE=;
-        fh=jBQ9s4kNb15zVWMi4Zzg7OuKqLnvalZITqI9VgjCVAQ=;
-        b=g8xcoP+1W1+IKSpiuEB5uNhxkUT/8gZ+/K1CVMiD7bTIKD1jCHHT83svHO8jS5zEib
-         0a/TUnqcJM6t+9PQMa7X3kN6aPDHk8uaOioG/oQqaUe/OVRPKA/5DCGIhOXAyTXrwMBI
-         GYDcCp61vbXlgKWpb0mi9bxtXsB9XLr8Iqk0d1nh0OCPPCn4hpT7h0funw38RDSGIYhK
-         O+ecvQCbumO3uOA2IJbNMoJp6ybLwVXLU7z7330LV76ToKgMhKK9UguEPKqOf/Ry80+F
-         F5gSu83ZPCBfrGSziOoDc56qLDdyUJJaKDketgzmQTHtIkz/Y/L7f5BYmU0DjScJlI8L
-         fa9A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776044578; x=1776649378; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZpqWZ5OeBihZW+KiOWj3yc4NCjFh45eEbq7S9GQ1ONE=;
-        b=ERIyDAJvMuNoYACU9C/CmLuXfDTxnuFu71BwTNbkVm5jgKEprloxT0TlhApYfL9hKZ
-         EwZRktvU0hnTE9wUZIKE4864YcQLvQ1po2QOLY+ap87E9Plxr5q0lIshuZMnfEMQAHZy
-         j4q8HS2JTEzoSUuUNxYqOLm6fFRlYi/vkxf5sf6dWGUVHp+Os8Iwkn185TJkKSKDWY37
-         Xpr0Bjb1jctqz4LXbIY9uYq5Wx/gnDiczMQUxOsUoNHspbwlQu/9dDxzD0o+Os6STLdd
-         /BwhKuEsYrohBUH1J/9PqCR69x4XZ+LKMqQftYDf9cG4MDNYawainD2ppT4GQWxog2z4
-         Dh6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776044578; x=1776649378;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ZpqWZ5OeBihZW+KiOWj3yc4NCjFh45eEbq7S9GQ1ONE=;
-        b=r9Hh58OUGCVggCLh5uqjkE2V6ilNAa+BnvyivEiPNQ93tRXGXQnUlJ6oYw3RaAvWUu
-         olcPsOGG+5NHmFTDIJ6DQgAfkPb28bquy518/7WnXYAMgx0qP3X+EIGQ93xaeGAWuWCR
-         PTnrN3WcqEVc3wCRkKxCPUG9ilADocgpX2n0t/2tsSPFTFRm4Jl1xiCCdKvIWoO/GEad
-         +EKPOCzimjWZV65frJ5zN7uxxerZrSHhWuXuIe5SSLQSROCHUoV0qvYTs86Nx35RK79p
-         wJGlvSn/Z6SmlM/T7U/SMbiKIY8twWCLVgvWoRKwVm71EPWD9IWUAQZbJvSMoHSeeeZg
-         2KPg==
-X-Forwarded-Encrypted: i=1; AFNElJ8IWQjOeFiqvrVO4U7I90JP1Fe6TUvGDqX+4AWX+DrQyTFwx4GxeMmXo5cuC3CD/KmgoItut54pgLv3I20eulad@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzBVOdDAWmFsbaw8suvmTx2tn8DVsOlL7CFIGSA3G3lPzv6wpl
-	6fzV3akIa2c6YHpmKOJGQaz6PA/v0kUBqdAudPukTlspkRt+MUvJ/ONMxFO8wUTGUNI+NTfVXpo
-	mgjzZd3Oq7tGUUVvXMSQLx8k2I3ecgsk=
-X-Gm-Gg: AeBDiesQkTQZEvCRXk8q2psRaKkJTklPWYdEXtgWpBZCQX5XYTrENNC7ruSHLUFdOfL
-	1pdWPqZjS7IhVCGXYBjC5XZJB+kEa+GZ/cZLgu+HU0twUqv/DThiy+sLa0mTq3FvTeAOTVyBpLI
-	ZWZtb/KfO2MJA2H0MQNLCOfoeRWgliY9grU/5INgb1hzfsAe6fFEFMOz6QqQLZvxkkEcg+0qJ9O
-	V8X+wyKKOAjAPTTMYOGJWDQypYAVqI8inEEe2je1Mu4HahsuLhuO5oaQkBbCmxAT99dmrZzWNXB
-	tFWX+KaI
-X-Received: by 2002:a05:687c:20c2:b0:41c:9797:d1e6 with SMTP id
- 586e51a60fabf-423e1e1318dmr5077336fac.14.1776044577979; Sun, 12 Apr 2026
- 18:42:57 -0700 (PDT)
+	Mon, 13 Apr 2026 01:58:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QC9VOhNWbT5Y7V+NIDHjlgkCqppjR5tefnWWVO1+kQbUljtB9PfsUAAMfexoqASPre8hUJE7gr0dFwnvYuG9ycuZq/9RkQmDbCY+5SHwYGhxBUIdmBU4Jxk51LWs6Djwg0Y8y14lPed41gCLAFCnC4ISyOlZmB5Wpx2oe5IyeO/u8WjU9r9lb/dJzmva5uYnBiUs1kNYloZ3C4sljFPd5oTTJ0kmO07HI2fSV8it5lPo8rzrpj+4VK1jRxak5XUEh2On2ph34EOds0Ff29dJcdlYpWO96i9ahDQKyrqN+qa8lGbn/pHu1bbpmF/FhSnbHJECA0PKReCvt0RWAKtmhQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NxMIA335Kx5utnu1B5+E72rSIBe3vrlT2Mk6fidITiw=;
+ b=GKuMVGMZCfr09/8KH6pwVpkeFJMAlrKNiOm0WQAdF+s2B76aZod7grLBjNxUWpZNinb560L6gjKXSmVYTfykjOCUrnZJ2gFtXnjp0egYlWO52Gu1EdZYqpbBEt9FFg81WzlGZeItuUqpf2vqV2v5N/Hzq3J+zbbNNqM6/kQuoIC+HOh5PZRj7xtT0Eo+6mdrFA6N7PlGps7luNvGnNQBEjjJaRW23IOVpkI9R5Pqi5w9eki6NlkkyhrUUna/xWIWjivkPugdk0uu4C3uExkCajZeY8SpWSDTSE58pPml7ehsm9ZMEuK/gYaa6LKHwyuUbjaV3qP5lCss7FYHNEUYDg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NxMIA335Kx5utnu1B5+E72rSIBe3vrlT2Mk6fidITiw=;
+ b=YHf0XelvKCTaOwcbRieRn1CkeLtb0FSlMfim2KsTiV6UMOr4G6GKjOorlUJ3DojnnANPb8TWeLf6jur3LQX416vg8rCv2Y3QTIQS/B9J3fHViypJpshPLzKZvZkLYYQ5mbmJxNVM6LiKLQdcz3T4XWXDM/XL4VXbBc+KJEiIlBb2mPZJIuSSZVns7ufCk4aMbo7q1vGqzxu/GzSdFu+dxty/qzwU68c2rvmvUAKXJ8OHtFw0cKf1rXwT06p7T/1ZVLwuSTra0zPln49gYtDOSWSAe+7+5/fpT2MhV63oP8+o/Xz3sHSL4r5gGRcUVgJEuFJxMBYwAhE1qqIh3DH/Uw==
+Received: from TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com (2603:1096:408::791)
+ by SE3PR06MB8200.apcprd06.prod.outlook.com (2603:1096:101:2ee::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Mon, 13 Apr
+ 2026 01:57:46 +0000
+Received: from TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
+ ([fe80::8c70:cb01:78fb:d9c0]) by TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
+ ([fe80::8c70:cb01:78fb:d9c0%6]) with mapi id 15.20.9769.015; Mon, 13 Apr 2026
+ 01:57:46 +0000
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Jeremy Kerr
+	<jk@codeconstruct.com.au>, Krzysztof Kozlowski <krzk@kernel.org>
+CC: "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
+	Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel
+ Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, "linux-i2c@vger.kernel.org"
+	<linux-i2c@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
+	<openbmc@lists.ozlabs.org>
+Subject: RE: [PATCH v28 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
+ global-regs and enable-dma properties
+Thread-Topic: [PATCH v28 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
+ global-regs and enable-dma properties
+Thread-Index: AQHcwB5Ez31FCAF2H06H/moL1lfWeLXINCEAgAABqPCAAAIpgIAAAW0AgAADQQCAAAMycIAUEY9g
+Date: Mon, 13 Apr 2026 01:57:46 +0000
+Message-ID: <TY2PPF5CB9A1BE6B6C124B8DE265562A722F2242@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+References: <20260330-upstream_i2c-v28-0-17bdae39c5cb@aspeedtech.com>
+	 <20260330-upstream_i2c-v28-2-17bdae39c5cb@aspeedtech.com>
+	 <20260331-fanatic-certain-bustard-fb13bc@quoll>
+	 <TY2PPF5CB9A1BE6F267C60EEC34B6A75400F253A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+	 <09cbc12bea5707f794e139ea1bfafac82c2d2c12.camel@codeconstruct.com.au>
+	 <TY2PPF5CB9A1BE6EA5BABE55EB8A7003D22F253A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+ <72517fcf99a7453841ee75243dc54e735c10238f.camel@codeconstruct.com.au>
+ <TY2PPF5CB9A1BE64B7988CD85A7189164E1F253A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+In-Reply-To: <TY2PPF5CB9A1BE64B7988CD85A7189164E1F253A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY2PPF5CB9A1BE6:EE_|SE3PR06MB8200:EE_
+x-ms-office365-filtering-correlation-id: 712aad48-bc31-46e4-a65c-08de99000ee2
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|38070700021|18002099003|22082099003|56012099003;
+x-microsoft-antispam-message-info: ZpdAzHBwTBzgikItf1bdZACnbmREhmKE0o74T7UrfLLkSg85I5K+VrF8T8eY0x7D+lVTotohPqSbfWEfShIfQ3dGfaMDelezPo9VBmV4EWxsIGX6iQYbcXNWlIqMP3H/Ut/QbaFeiAb0IvEWWFIgBj8D94yAIHTEc8pFhY5tmZAlo0uBTncMYc8hrbmhRRVqeE1eXMbusmLA+4442Dr5ZIvhouHXz34wKZ2GiDT+1yt22m2FfOCW8+muGqSHsYtafpC0u3ibsQdyeVVCezJGpwlMOnLFlC50qLNozkhw7DyZBgaw+M2TPnainYo+QczkGYNUKqU8+hmHkQJtLi1+6rLRoh3LBNIWes4UgRD8fJN5JQHqrvwpuoSQnLKQHYUX4VAn+t3EuAMpRoSgb4GaD5vQTSgLLEIPU+mDHssKFw3E2hY3Onr0fxBqxBIaZFF2bcgSPZBYwsCmOdyIq3rsDMi0RXO1ifrVRMlTKwUnWjAcFbCrCOc43eMLl3/ICDhkeacmeyWx4mINJbT0h0ckE+ZfJRbWSlGPxZL9Ip67J6zUAS+O1W/tzJvpw7wmvfPXYYn4OVoQZBw2TMWFMht2+vjwT61aKA1d6kVJ9JZkmvLu7sWvT9O0MTS2P7EpQxIA+DLNE8n3e8mzm6G/TteskQXL4uCp/iZbd23J4O9NLfiMKo9e14hMfZtMKZdF+JD6XfK0NxbssDH80d/WvPUev+OUtF3kM1SuNBGURIc/7sPJob2C+MZDYIKZsEXsVhVYe7OsH8dbcb+djm1npAiNPnah5b0edMDOPusV6tRCUeQ=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(38070700021)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SFh5Wk9qMmpWREtadTlTaGo2dkJHM3hwclNuWDJRVk9ET3J1MHUyU240QVZU?=
+ =?utf-8?B?Y0hCbnFGbUIvQ3drcWlaTkZUN3NhbjFUVXBPVnNlK2ZnbzZaSER5NjljdFJn?=
+ =?utf-8?B?SkRORlY4NkRSMG5vR2pXTWxNM0RjWUtVSDlmajBRWi9pbXArd0o0NnJzRm9h?=
+ =?utf-8?B?MVdxNlQzck5JV0FkTHdvakJabGZyZzhkbVo3RlNBOHBxOVd1RUFrZWpBQ0FT?=
+ =?utf-8?B?UzBPaDArbTRQS0l3WnBIWE9WNUpraHFqdGROTTFVcm9SeU0vclI5b09aOVNl?=
+ =?utf-8?B?dkkvZk1vYVg5OHh2aVlaVUh4WTJvYVorQzMyZGlyRjAyK29PbEY5VXBrVEtD?=
+ =?utf-8?B?b0t4WjF5NE4wb3R5T3RxY1J5QXBlSSt4Unc4Y2dId1BuMVBuelE3ME9MK21G?=
+ =?utf-8?B?RlZ3MHdVeHJWb2hDYnlDcDFTYlhnU2xraFhIczFYWmJxcE1Oa0lFZmpzbytP?=
+ =?utf-8?B?OXJPSFZneFdKTWxiZmtIN0d0YnFTVVNyRWdnTVRFSVo0Q21SNCs2eVBvWE1O?=
+ =?utf-8?B?Wm1qNGRoWTZodHRWaDRRenVxM3BMc2pOK1hRb3ZHZEdDSjRSUkc1aWNSNzZw?=
+ =?utf-8?B?WHVxcm1pQ2Fhd1FsdGl6K3JoMUlDanU5SzhwV2wvVExoZFhzdElaNE1XYTRl?=
+ =?utf-8?B?Wmc2aGpYL1VjV2dYMzgreEY4d3ZnQnNTcDBwNmdvU2VHVmtZWHdoaHBYcGZG?=
+ =?utf-8?B?VGxGT2Rhc0ZNZHNQTHM0ZE5xQTNoNkpCRVY1V2VEejdpL3FZaVh5cGYrc1RC?=
+ =?utf-8?B?MjNTRXVWd2owSFgzMzZzNW4vanRXNlJBaGtWTVpDNGxIeFlGMmNWK0JVVE9T?=
+ =?utf-8?B?bDRma3N5RTFHd0Z5ZjdDYmUzeUpFUVMzMno5MFJHR1hSY2dEa0hGdW1yaWxi?=
+ =?utf-8?B?dWlQcmFrVFM2aS9YZjI4aWF6ZTBnYWNHYnNrd09GSnoyYlQyTFJDbWdwOUVw?=
+ =?utf-8?B?c01mUE1aRTVDZ01JNlhwR2VKdnE3ajJacXpndThnMFhKU0hxaUtmTS9sVldi?=
+ =?utf-8?B?eHhyZThWbzlXbys4UjY0bWR0TlZFNUg1R05QZitFQXZDc0xIeUpwYy95MHpl?=
+ =?utf-8?B?cEhESWtNRnBpWnl6SG9rR0Zqd1I5QnRrZkJha1NXOTJRM09meWk0QUVReHdB?=
+ =?utf-8?B?am9uTWtkNW43YWNrMlQ2NmlJWW9pRGhqdkhrOWp3aHJiRUlUQmlXY0ZXZ3A5?=
+ =?utf-8?B?a2tmUmxYYXVwQmxBWlBDRy9zMi9qd0Z3K0FBUVhPb1BjVkVtYlNoNlFtWkFX?=
+ =?utf-8?B?MEhPRk1jRWlVOEhsNytXQTFNSFdXRk5aRXJWRDdoWHJJUS9BRzdpaVgxcGdG?=
+ =?utf-8?B?amFySFdQeFpCU3ZEc2JubFQvRHNYcFdSSWNkQ2U0OVBuUFo3dlBaUWZENk5D?=
+ =?utf-8?B?cFZVeWozYlZBV05xZWVRUVhjdytBRjd4Q2JOQnVlT0cyZmc1OVViak40Wk10?=
+ =?utf-8?B?SjdGYWpXRkQ1dStHZ1A5Z0FWcUI1aUhWOVhxWXlnTHQwTUpqU3F1MXEzUGR1?=
+ =?utf-8?B?YTJ2dSsrRmYvNWZzcjBXcGN4NmRyWUorNjdYdE9URm9uLzByRndwM25NTGFV?=
+ =?utf-8?B?UkkxK1ZhSWpPdW9VSURvS0ZwL2hHVTlUQnV0SWxpenhhdUhKYWdhYnVrTlNF?=
+ =?utf-8?B?ZEpVeFZ4U0xIZGpqR09wZWorbWJ6M2tUT29JMUZJNjVSYmJjeVZPMkpQSEFV?=
+ =?utf-8?B?TWdWdWZGRzRtQ2lscVYzakpnU1MwUHlBUzJWVXRIUHkrOVRIMFFSblZWeWYz?=
+ =?utf-8?B?WUZHK2QrTHg2UkI5dWRoVFlmYkpZaUFvT3VETFJYekRkRnkxaW5aSVpzU1lh?=
+ =?utf-8?B?enZiQzFnS3hUdFhVZFJUQlpWMEhSeXYxY0RGS2RYZEJTOVpuajlpMHczZEZE?=
+ =?utf-8?B?elJsRTZ0dkEwVW9iclNGK2daelhZNGJUUlBjTUtZQzF3LzBCQS9vNkQ0UGVw?=
+ =?utf-8?B?bjg4K2RlenRMdVBiY280bXcvVHcwejlDYnJ3ZWtqZnRIZVFCM3ZaUzljU3Vt?=
+ =?utf-8?B?MTdFVW5OdlduYmtUN1NEcjkyclNOUEYyTit1VWwyMHRTTzdOYloyNjF6emVP?=
+ =?utf-8?B?OGxuWERxVHl4T00rdXZ2RmZJYXFNRTBCL2pERVp6Tm9ldWJJK2pReU9YVEpv?=
+ =?utf-8?B?aWkyNXM2UnpKQ2JpUHFFV240YkZ4VzU2YnZXek5hdnZYWFJNbWRQOU1nQXgx?=
+ =?utf-8?B?QW1OWG9EVEtJMDZyTHFKY2NBd1pQVFZxd3VibVRwd0NYL3FHdlBrbDBEWEo3?=
+ =?utf-8?B?ZGt5Tk9DSUxMVnhzNFp2MDcrUmNUTzg2ZFV2dUxWeXhCU2hQUFVtUVIxOGlO?=
+ =?utf-8?B?UDJUdTJReHZSMC9uUHhxc29BN1dtendSSW5jYm5NZnUrVUVORkkrZz09?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-References: <20260410125105.39340-2-wsa+renesas@sang-engineering.com>
-In-Reply-To: <20260410125105.39340-2-wsa+renesas@sang-engineering.com>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Sun, 12 Apr 2026 20:42:46 -0500
-X-Gm-Features: AQROBzD5VLydoqD-crkS8q5jKVQvu0Dgk3PHuV4kaQv0TPwaWMSf23DdaK7QoI0
-Message-ID: <CABb+yY0QydFqBQ2sPzrbDjoj1ODTe0FW_p_4jyBR8cP_gxg9XQ@mail.gmail.com>
-Subject: Re: [PATCH] mailbox: prefix new constants with MBOX_
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: linux-renesas-soc@vger.kernel.org, Peter Chen <peter.chen@cixtech.com>, 
-	Fugang Duan <fugang.duan@cixtech.com>, 
-	CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Thierry Reding <thierry.reding@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-	linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 712aad48-bc31-46e4-a65c-08de99000ee2
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Apr 2026 01:57:46.1831
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: WSB5yaEs9xQ2mNBVcbOhdi711SsPe5ntcwNIfiR8pErS5LuEBGucQS0X5c2TiNBOd/Xv6D0AiHJTR9wke3/R7gncDr9iBX5QAtjA9cp7hsA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE3PR06MB8200
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260412_184259_433851_E457980F 
-X-CRM114-Status: GOOD (  29.85  )
+X-CRM114-CacheID: sfid-20260412_185808_289233_AB7D55F2 
+X-CRM114-Status: GOOD (  21.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,211 +167,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 10, 2026 at 7:51=E2=80=AFAM Wolfram Sang
-<wsa+renesas@sang-engineering.com> wrote:
->
-> Commit 89e5d7d61600 ("mailbox: remove superfluous internal header")
-> moved some constants to a public header but forgot to add a mailbox
-> specific prefix. Add this now to prevent future collisions on a too
-> generic naming.
->
-> Link: https://sashiko.dev/#/patchset/20260327151112.5202-2-wsa%2Brenesas%=
-40sang-engineering.com
-> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-> ---
->
-> This patch improves the above mentioned commit which already sits in
-> -next. It is not really a fix but it probably is still a good idea to
-> apply it before rc1 to avoid confusion.
->
->  drivers/mailbox/cix-mailbox.c      |  2 +-
->  drivers/mailbox/imx-mailbox.c      |  2 +-
->  drivers/mailbox/mailbox.c          | 22 +++++++++++-----------
->  drivers/mailbox/mtk-cmdq-mailbox.c |  2 +-
->  drivers/mailbox/omap-mailbox.c     |  2 +-
->  drivers/mailbox/tegra-hsp.c        |  2 +-
->  include/linux/mailbox_controller.h |  6 +++---
->  7 files changed, 19 insertions(+), 19 deletions(-)
->
-> diff --git a/drivers/mailbox/cix-mailbox.c b/drivers/mailbox/cix-mailbox.=
-c
-> index 8cfaa91b75bd..43c76cdab24a 100644
-> --- a/drivers/mailbox/cix-mailbox.c
-> +++ b/drivers/mailbox/cix-mailbox.c
-> @@ -413,7 +413,7 @@ static int cix_mbox_startup(struct mbox_chan *chan)
->         switch (cp->type) {
->         case CIX_MBOX_TYPE_DB:
->                 /* Overwrite txdone_method for DB channel */
-> -               chan->txdone_method =3D TXDONE_BY_ACK;
-> +               chan->txdone_method =3D MBOX_TXDONE_BY_ACK;
->                 fallthrough;
->         case CIX_MBOX_TYPE_REG:
->                 if (priv->dir =3D=3D CIX_MBOX_TX) {
-> diff --git a/drivers/mailbox/imx-mailbox.c b/drivers/mailbox/imx-mailbox.=
-c
-> index 22331b579489..246a9a9e3952 100644
-> --- a/drivers/mailbox/imx-mailbox.c
-> +++ b/drivers/mailbox/imx-mailbox.c
-> @@ -732,7 +732,7 @@ static struct mbox_chan * imx_mu_xlate(struct mbox_co=
-ntroller *mbox,
->         p_chan =3D &mbox->chans[chan];
->
->         if (type =3D=3D IMX_MU_TYPE_TXDB_V2)
-> -               p_chan->txdone_method =3D TXDONE_BY_ACK;
-> +               p_chan->txdone_method =3D MBOX_TXDONE_BY_ACK;
->
->         return p_chan;
->  }
-> diff --git a/drivers/mailbox/mailbox.c b/drivers/mailbox/mailbox.c
-> index 138ffbcd4fde..30eafdf3a91e 100644
-> --- a/drivers/mailbox/mailbox.c
-> +++ b/drivers/mailbox/mailbox.c
-> @@ -72,7 +72,7 @@ static void msg_submit(struct mbox_chan *chan)
->                 }
->         }
->
-> -       if (!err && (chan->txdone_method & TXDONE_BY_POLL)) {
-> +       if (!err && (chan->txdone_method & MBOX_TXDONE_BY_POLL)) {
->                 /* kick start the timer immediately to avoid delays */
->                 scoped_guard(spinlock_irqsave, &chan->mbox->poll_hrt_lock=
-)
->                         hrtimer_start(&chan->mbox->poll_hrt, 0, HRTIMER_M=
-ODE_REL);
-> @@ -162,7 +162,7 @@ EXPORT_SYMBOL_GPL(mbox_chan_received_data);
->   */
->  void mbox_chan_txdone(struct mbox_chan *chan, int r)
->  {
-> -       if (unlikely(!(chan->txdone_method & TXDONE_BY_IRQ))) {
-> +       if (unlikely(!(chan->txdone_method & MBOX_TXDONE_BY_IRQ))) {
->                 dev_err(chan->mbox->dev,
->                        "Controller can't run the TX ticker\n");
->                 return;
-> @@ -183,7 +183,7 @@ EXPORT_SYMBOL_GPL(mbox_chan_txdone);
->   */
->  void mbox_client_txdone(struct mbox_chan *chan, int r)
->  {
-> -       if (unlikely(!(chan->txdone_method & TXDONE_BY_ACK))) {
-> +       if (unlikely(!(chan->txdone_method & MBOX_TXDONE_BY_ACK))) {
->                 dev_err(chan->mbox->dev, "Client can't run the TX ticker\=
-n");
->                 return;
->         }
-> @@ -344,8 +344,8 @@ static int __mbox_bind_client(struct mbox_chan *chan,=
- struct mbox_client *cl)
->                 chan->cl =3D cl;
->                 init_completion(&chan->tx_complete);
->
-> -               if (chan->txdone_method =3D=3D TXDONE_BY_POLL && cl->know=
-s_txdone)
-> -                       chan->txdone_method =3D TXDONE_BY_ACK;
-> +               if (chan->txdone_method =3D=3D MBOX_TXDONE_BY_POLL && cl-=
->knows_txdone)
-> +                       chan->txdone_method =3D MBOX_TXDONE_BY_ACK;
->         }
->
->         if (chan->mbox->ops->startup) {
-> @@ -499,8 +499,8 @@ void mbox_free_channel(struct mbox_chan *chan)
->         scoped_guard(spinlock_irqsave, &chan->lock) {
->                 chan->cl =3D NULL;
->                 chan->active_req =3D MBOX_NO_MSG;
-> -               if (chan->txdone_method =3D=3D TXDONE_BY_ACK)
-> -                       chan->txdone_method =3D TXDONE_BY_POLL;
-> +               if (chan->txdone_method =3D=3D MBOX_TXDONE_BY_ACK)
-> +                       chan->txdone_method =3D MBOX_TXDONE_BY_POLL;
->         }
->
->         module_put(chan->mbox->dev->driver->owner);
-> @@ -531,13 +531,13 @@ int mbox_controller_register(struct mbox_controller=
- *mbox)
->                 return -EINVAL;
->
->         if (mbox->txdone_irq)
-> -               txdone =3D TXDONE_BY_IRQ;
-> +               txdone =3D MBOX_TXDONE_BY_IRQ;
->         else if (mbox->txdone_poll)
-> -               txdone =3D TXDONE_BY_POLL;
-> +               txdone =3D MBOX_TXDONE_BY_POLL;
->         else /* It has to be ACK then */
-> -               txdone =3D TXDONE_BY_ACK;
-> +               txdone =3D MBOX_TXDONE_BY_ACK;
->
-> -       if (txdone =3D=3D TXDONE_BY_POLL) {
-> +       if (txdone =3D=3D MBOX_TXDONE_BY_POLL) {
->
->                 if (!mbox->ops->last_tx_done) {
->                         dev_err(mbox->dev, "last_tx_done method is absent=
-\n");
-> diff --git a/drivers/mailbox/mtk-cmdq-mailbox.c b/drivers/mailbox/mtk-cmd=
-q-mailbox.c
-> index 547a10a8fad3..e523c84b4808 100644
-> --- a/drivers/mailbox/mtk-cmdq-mailbox.c
-> +++ b/drivers/mailbox/mtk-cmdq-mailbox.c
-> @@ -728,7 +728,7 @@ static int cmdq_probe(struct platform_device *pdev)
->         cmdq->mbox.ops =3D &cmdq_mbox_chan_ops;
->         cmdq->mbox.of_xlate =3D cmdq_xlate;
->
-> -       /* make use of TXDONE_BY_ACK */
-> +       /* make use of MBOX_TXDONE_BY_ACK */
->         cmdq->mbox.txdone_irq =3D false;
->         cmdq->mbox.txdone_poll =3D false;
->
-> diff --git a/drivers/mailbox/omap-mailbox.c b/drivers/mailbox/omap-mailbo=
-x.c
-> index 5772c6b9886a..535ca8020877 100644
-> --- a/drivers/mailbox/omap-mailbox.c
-> +++ b/drivers/mailbox/omap-mailbox.c
-> @@ -238,7 +238,7 @@ static int omap_mbox_startup(struct omap_mbox *mbox)
->         }
->
->         if (mbox->send_no_irq)
-> -               mbox->chan->txdone_method =3D TXDONE_BY_ACK;
-> +               mbox->chan->txdone_method =3D MBOX_TXDONE_BY_ACK;
->
->         omap_mbox_enable_irq(mbox, IRQ_RX);
->
-> diff --git a/drivers/mailbox/tegra-hsp.c b/drivers/mailbox/tegra-hsp.c
-> index 7b1e1b83ea29..500fa77c7d53 100644
-> --- a/drivers/mailbox/tegra-hsp.c
-> +++ b/drivers/mailbox/tegra-hsp.c
-> @@ -514,7 +514,7 @@ static int tegra_hsp_mailbox_startup(struct mbox_chan=
- *chan)
->         struct tegra_hsp *hsp =3D mb->channel.hsp;
->         unsigned long flags;
->
-> -       chan->txdone_method =3D TXDONE_BY_IRQ;
-> +       chan->txdone_method =3D MBOX_TXDONE_BY_IRQ;
->
->         /*
->          * Shared mailboxes start out as consumers by default. FULL and E=
-MPTY
-> diff --git a/include/linux/mailbox_controller.h b/include/linux/mailbox_c=
-ontroller.h
-> index e3896b08f22e..a49ee687d4cf 100644
-> --- a/include/linux/mailbox_controller.h
-> +++ b/include/linux/mailbox_controller.h
-> @@ -15,9 +15,9 @@ struct mbox_chan;
->  /* Sentinel value distinguishing "no active request" from "NULL message =
-data" */
->  #define MBOX_NO_MSG    ((void *)-1)
->
-> -#define TXDONE_BY_IRQ  BIT(0) /* controller has remote RTR irq */
-> -#define TXDONE_BY_POLL BIT(1) /* controller can read status of last TX *=
-/
-> -#define TXDONE_BY_ACK  BIT(2) /* S/W ACK received by Client ticks the TX=
- */
-> +#define MBOX_TXDONE_BY_IRQ     BIT(0) /* controller has remote RTR irq *=
-/
-> +#define MBOX_TXDONE_BY_POLL    BIT(1) /* controller can read status of l=
-ast TX */
-> +#define MBOX_TXDONE_BY_ACK     BIT(2) /* S/W ACK received by Client tick=
-s the TX */
->
->  /**
->   * struct mbox_chan_ops - methods to control mailbox channels
-> --
-> 2.51.0
->
-Applied to mailbox/for-next
-Thanks
-Jassi
+PiA+IFN1YmplY3Q6IFJlOiBbUEFUQ0ggdjI4IDIvNF0gZHQtYmluZGluZ3M6IGkyYzogYXN0MjYw
+MC1pMmMueWFtbDogQWRkDQo+ID4gZ2xvYmFsLXJlZ3MgYW5kIGVuYWJsZS1kbWEgcHJvcGVydGll
+cw0KPiA+DQo+ID4gSGkgUnlhbiwNCj4gPg0KPiA+ID4gPiBTb3VuZHMgcmVhc29uYWJsZSwgYnV0
+IGJlZm9yZSB5b3UgZG8gc28sIGhvdyBhcmUgeW91IHBsYW5uaW5nIHRvDQo+ID4gPiA+IG1hbmFn
+ZSB0aGUgYWxsb2NhdGlvbiBvZiBETUEgY2hhbm5lbHMgYWNyb3NzIG11bHRpcGxlIGkyYyBwZXJp
+cGhlcmFscz8NCj4gPiA+ID4NCj4gPiA+IFRoZSBBU1QyNjAwIEkyQyBoYXJkd2FyZSBoYXMgb25s
+eSBvbmUgY2FuIHVzZSBETUEgYXQgYSB0aW1lLg0KPiA+ID4gVG8gYXZvaWQgdGhlIGNvbXBsZXhp
+dHkgb2YgbWFuYWdpbmcgRE1BIGNoYW5uZWwgY29udGVudGlvbiwgSSBwbGFuDQo+ID4gPiB0byB1
+c2UgYnVmZmVyIG1vZGUgYnkgZGVmYXVsdCBmb3IgYWxsIGNvbnRyb2xsZXJzLCB3aGljaCBzdGls
+bA0KPiA+ID4gcHJvdmlkZXMgYmV0dGVyIHBlcmZvcm1hbmNlIHRoYW4gYnl0ZSBtb2RlIHdpdGhv
+dXQgcmVxdWlyaW5nIERNQQ0KPiA+ID4gY2hhbm5lbA0KPiA+IGFsbG9jYXRpb24uDQo+ID4NCj4g
+PiBPSywgYnV0IHlvdXIgd29yZGluZyB0aGVyZSAoImJ5IGRlZmF1bHQiKSBpbXBsaWVzIHRoYXQg
+RE1BIGlzIHN0aWxsDQo+ID4gc2VsZWN0YWJsZSBmb3Igb25lIGNvbnRyb2xsZXIgcGVyaXBoZXJh
+bC4gSW4gd2hpY2ggY2FzZTogeW91IHN0aWxsDQo+ID4gaGF2ZSB0aGUgcHJvYmxlbSBvZiBtYW5h
+Z2luZyBETUEgY2hhbm5lbCBjb250ZW50aW9uLCBidXQgbm93IGl0J3MgYXQNCj4gcnVudGltZSBp
+bnN0ZWFkLg0KPiA+DQo+ID4gU28gbXkgcXVlc3Rpb24gc3RpbGwgc3RhbmRzOiBob3cgYXJlIHlv
+dSBwbGFubmluZyB0byBlbmZvcmNlIHRoYXQgRE1BDQo+ID4gaXMgb25seSBlbmFibGVkIGZvciBv
+bmUgY29udHJvbGxlcj8NCj4gPg0KPiA+IE9yIGFyZSB5b3UgcGxhbm5pbmcgdG8gZGlzYWJsZSBJ
+MkMgRE1BIGVudGlyZWx5IG9uIEFTVDI2MDA/DQo+IFllcywgVGhpcyBpcyBteSBpbnRlbnQgdG8g
+ZG8uDQo+IERpc2FibGUgSTJDIERNQSBlbnRpcmVseSBvbiBBU1QyNjAwLg0KPiBJZiBJIHJlbW92
+ZSBETUEsIHNob3VsZCBjYW4gSSBrZWVwIGJ5dGUgYW5kIGJ1ZmZlciBmb3Igc3lzZnM/DQoNCkhl
+bGxvIFJvYiwNCg0KT24gdGhlIEFTVDI2MDAsIHdlIGhhdmUgYSBzaW5nbGUtY2hhbm5lbCBjb25z
+dHJhaW50LCB3aGljaCBtYWtlcyBETUENCnN1cHBvcnQgYWNyb3NzIGFsbCBjb250cm9sbGVycyBk
+aWZmaWN1bHQgdG8gaW1wbGVtZW50IHdpdGhvdXQgc29tZSBraW5kIG9mDQpwcmVkZWZpbmVkIGNv
+bmZpZ3VyYXRpb24uIFRoYXQgd291bGQgYmUgYSBiaXQgb2YgYSBtaXN1c2Ugb2YgYSBEVCBwcm9w
+ZXJ0eS4NCg0KRm9yIGZ1dHVyZSBwbGF0Zm9ybXMgc3VjaCBhcyB0aGUgQVNUMjcwMCwgRE1BIHN1
+cHBvcnQgc2hvdWxkIGJlIG11Y2gNCm1vcmUgc3RyYWlnaHRmb3J3YXJkLiBETUEgY2FwYWJpbGl0
+eSBjYW4gYmUgaW5mZXJyZWQgZnJvbSB0aGUgY29tcGF0aWJsZQ0Kc3RyaW5nLg0KDQpVbmxlc3Mg
+dGhlcmUgYXJlIGFueSBvYmplY3Rpb25zLCBJIHdpbGwgcmV3b3JrIHRoaXMgc2VyaWVzIHRvIHVz
+ZSBidWZmZXIgbW9kZQ0Kb25seSBvbiB0aGUgQVNUMjYwMCwgYW5kIGFkZCBBU1QyNzAwIERNQSBz
+dXBwb3J0IHNlcGFyYXRlbHkuDQoNClJ5YW4NCg==
 
