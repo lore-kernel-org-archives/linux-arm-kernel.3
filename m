@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A004DEBFD38
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCAE7EBFD3C
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 10:56:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,34 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zELJgDuUSi8hu8qa033J+3U1qYnbh4e6/MaC+wYctrU=; b=jOOr8akoOetJcE6P6oHw83DxP0
-	tmYD88mNSwHYGL+io2z3d7jLewiq5sUQGL5DPQGdeEquoaIXVotzjhv/lFmpVDo+E5PU8+Wvhuvoo
-	l4fhKSmoj4CtJ+CP3gENQ23gg9bXVaCvuzkNO5UwCCGErKAUKEdKZZriJ4Sz6dhMe3RtxTVVI1kuR
-	UngSlV37nxLzuMkRrGDTo+fnzq5c5AHb/oXJa33jfxRZb2naZ4vceKg1jsxtAarGGhi9DsAIzgq53
-	RRuwAyAyxs0YbDkrIT4FXt3mbdODr8+jJhTmP5rEfLTtb6lZ4mrkfdFlvH/DFkcQPkPqMOKgu/s3x
-	zGn3r3fw==;
+	bh=UrAxDNhn6augEGk1NGHUc1rfz1Acys+cqYFMAPWwM2k=; b=jknQEy+976DOeHcWtWW5rqsXf6
+	KlxYuJKliPui/Q7UQq+Qvm9k7uKJxL+QdUnVdWMfYwQprbx9XxbmOPAcV2NK4iw8qIOQSsVZ4pT2z
+	ZmYoqAqLCA8XJiP9QH4RVZomaoIbEh6LEyiiheZBrc0X7yA7u7l2iXQWJ3yHKLtqU/QGcQbO3YTFl
+	f4Su40fiLZQqeuIdWHu4K4gQklJPZmjfe8vgUDuivxZsRBR8OS2Yz7mzSG1GWR5UmuK8Grl66d9Di
+	OlOE+Q/E9VbuWxh2PLLqm6LlZyt/otK1uU1AEv/2kRtDOvZPM3YuY0DryUZ6Q4frYurcHcowuR0f4
+	6MG7HMQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCEyE-0000000FWOh-3yM2;
-	Mon, 13 Apr 2026 10:56:46 +0000
-Received: from courrier.aliel.fr ([65.21.61.41])
+	id 1wCEyG-0000000FWSQ-4ANp;
+	Mon, 13 Apr 2026 10:56:49 +0000
+Received: from courrier.aliel.fr ([2a01:4f9:c011:1c83::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCEy5-0000000FWGS-1Vlw;
-	Mon, 13 Apr 2026 10:56:40 +0000
+	id 1wCEy9-0000000FWI3-2Dsa;
+	Mon, 13 Apr 2026 10:56:43 +0000
 From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1776077792;
-	bh=4rF5v0oH3zHajGhcO+pdY8F+zBXF1taTiSXYiRiU680=;
+	s=courrier-s1; t=1776077796;
+	bh=WdROqCoECVugDQijrfKUvfX+9RIJRisOOsFej55YKwg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=rDAM+h6CxOhKLlZm3w/dr9qoS6MCuu9J9cdybhcgUfXwU+OCXOfS3OhKRofo4Sb9Q
-	 8DZ3mKdIKEj0kG/lQsgFEYe71Vbw1YHCyMyq+sNao6fB1LJckmjT8ufTIMegl7JnLH
-	 /WWYf3b+zwFsU4N4kgnuWgRyP9heDoMVyN7dqKbQ=
-Date: Mon, 13 Apr 2026 12:52:42 +0200
-Subject: [PATCH v2 1/8] dt-bindings: thermal: amlogic: Add support for T7
+	b=AS6BkIt5uegN1fVBKjr6KsqpNiLOdtVulmcpFNXJgxGLGZ4aYpi/LHoZh3zWGF+oh
+	 ZmgcvwwUroIUCO10wepUa7ic01IPsaLvzRhLPi6Ke0VIapcjZwUh3RgiyvhKGRYmUK
+	 URFKLpYOyKo9u1ySHGjmvnhMisB96QXzU9jAgpWw=
+Date: Mon, 13 Apr 2026 12:52:46 +0200
+Subject: [PATCH v2 5/8] arm64: dts: amlogic: t7: Add cooling cells to all
+ CPUs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260413-add-thermal-t7-vim4-v2-1-1002d90a0602@aliel.fr>
+Message-Id: <20260413-add-thermal-t7-vim4-v2-5-1002d90a0602@aliel.fr>
 References: <20260413-add-thermal-t7-vim4-v2-0-1002d90a0602@aliel.fr>
 In-Reply-To: <20260413-add-thermal-t7-vim4-v2-0-1002d90a0602@aliel.fr>
 To: Guillaume La Roque <glaroque@baylibre.com>, 
@@ -56,18 +57,19 @@ Cc: linux-pm@vger.kernel.org, linux-amlogic@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, 
  Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openssh-sha256; t=1776077789; l=2935;
+X-Developer-Signature: v=1; a=openssh-sha256; t=1776077790; l=2093;
  i=linux-kernel-dev@aliel.fr; s=id_ed25519; h=from:subject:message-id;
- bh=4rF5v0oH3zHajGhcO+pdY8F+zBXF1taTiSXYiRiU680=;
+ bh=WdROqCoECVugDQijrfKUvfX+9RIJRisOOsFej55YKwg=;
  b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgMGec55oxeeisqykQiUedekMYyOnR9
  BG9E/7rDWyqdNoAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
- QEE005bjIEBZUsZ5Fz2BGTRjbXUvqOu0vjSYpQ+sNaSLQOz0OIfmWamV47fF3NnfGQ438XoFROk
- z20K2YX+Rmwo=
+ QEaLt8PHHSNy0WGF4+nJ5qBliINe657rDkUCl4G1aECkF0CZSvnYHZDGt6HdDhmhDWxpk+K4qdV
+ pEOvWcVZ5xwA=
 X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openssh;
  fpr=SHA256:kch4osYZ6A1BrPps5AUs6KnfdE2wm4ocMtyTc8TmZMs
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_035637_848179_26ED180A 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20260413_035641_732708_81D2BC85 
+X-CRM114-Status: UNSURE (   7.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,96 +84,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the amlogic,t7-thermal compatible for the Amlogic T7 thermal sensor.
-
-Unlike existing variants which use a phandle to the ao-secure syscon,
-the T7 relies on a secure monitor interface described by a phandle and
-a sensor index argument.
-
-The T7 integrates multiple thermal sensors, all accessed through the
-same SMC call. The sensor index argument is required to identify which
-sensor's calibration data the secure monitor should return, as a single
-SM_THERMAL_CALIB_READ command serves all of them.
-
-Introduce the amlogic,secure-monitor property as a phandle-array and
-make amlogic,ao-secure or amlogic,secure-monitor conditionally required
-depending on the compatible.
+Add #cooling-cells = <2> to all CPU nodes (both little and big cluster)
+to allow them to be used as cooling devices in thermal zone mappings.
 
 Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 ---
- .../bindings/thermal/amlogic,thermal.yaml          | 42 ++++++++++++++++++++--
- 1 file changed, 40 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/thermal/amlogic,thermal.yaml b/Documentation/devicetree/bindings/thermal/amlogic,thermal.yaml
-index 70b273271754b..1c096116b2dda 100644
---- a/Documentation/devicetree/bindings/thermal/amlogic,thermal.yaml
-+++ b/Documentation/devicetree/bindings/thermal/amlogic,thermal.yaml
-@@ -21,7 +21,9 @@ properties:
-               - amlogic,g12a-cpu-thermal
-               - amlogic,g12a-ddr-thermal
-           - const: amlogic,g12a-thermal
--      - const: amlogic,a1-cpu-thermal
-+      - enum:
-+          - amlogic,a1-cpu-thermal
-+          - amlogic,t7-thermal
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+index 560c9dce35266..7aec65f036a9c 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+@@ -63,6 +63,7 @@ cpu100: cpu@100 {
+ 			i-cache-size = <0x8000>;
+ 			i-cache-sets = <32>;
+ 			next-level-cache = <&l2_cache_l>;
++			#cooling-cells = <2>;
+ 		};
  
-   reg:
-     maxItems: 1
-@@ -42,12 +44,39 @@ properties:
-   '#thermal-sensor-cells':
-     const: 0
+ 		cpu101: cpu@101 {
+@@ -77,6 +78,7 @@ cpu101: cpu@101 {
+ 			i-cache-size = <0x8000>;
+ 			i-cache-sets = <32>;
+ 			next-level-cache = <&l2_cache_l>;
++			#cooling-cells = <2>;
+ 		};
  
-+  amlogic,secure-monitor:
-+    description: phandle to the secure monitor
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    items:
-+      - items:
-+          - description: phandle to the secure monitor
-+          - description: sensor index to get specific calibration data
-+
- required:
-   - compatible
-   - reg
-   - interrupts
-   - clocks
--  - amlogic,ao-secure
-+
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - amlogic,a1-cpu-thermal
-+              - amlogic,g12a-thermal
-+    then:
-+      required:
-+        - amlogic,ao-secure
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: amlogic,t7-thermal
-+    then:
-+      required:
-+        - amlogic,secure-monitor
+ 		cpu102: cpu@102 {
+@@ -91,6 +93,7 @@ cpu102: cpu@102 {
+ 			i-cache-size = <0x8000>;
+ 			i-cache-sets = <32>;
+ 			next-level-cache = <&l2_cache_l>;
++			#cooling-cells = <2>;
+ 		};
  
- unevaluatedProperties: false
+ 		cpu103: cpu@103 {
+@@ -105,6 +108,7 @@ cpu103: cpu@103 {
+ 			i-cache-size = <0x8000>;
+ 			i-cache-sets = <32>;
+ 			next-level-cache = <&l2_cache_l>;
++			#cooling-cells = <2>;
+ 		};
  
-@@ -62,4 +91,13 @@ examples:
-         #thermal-sensor-cells = <0>;
-         amlogic,ao-secure = <&sec_AO>;
-     };
-+  - |
-+    a73_tsensor: temperature-sensor@20000 {
-+        compatible = "amlogic,t7-thermal";
-+        reg = <0x0 0x20000 0x0 0x50>;
-+        interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_HIGH>;
-+        clocks = <&clkc_periphs CLKID_TS>;
-+        #thermal-sensor-cells = <0>;
-+        amlogic,secure-monitor = <&sm 1>;
-+    };
- ...
+ 		cpu0: cpu@0 {
+@@ -119,6 +123,7 @@ cpu0: cpu@0 {
+ 			i-cache-size = <0x10000>;
+ 			i-cache-sets = <64>;
+ 			next-level-cache = <&l2_cache_b>;
++			#cooling-cells = <2>;
+ 		};
+ 
+ 		cpu1: cpu@1 {
+@@ -133,6 +138,7 @@ cpu1: cpu@1 {
+ 			i-cache-size = <0x10000>;
+ 			i-cache-sets = <64>;
+ 			next-level-cache = <&l2_cache_b>;
++			#cooling-cells = <2>;
+ 		};
+ 
+ 		cpu2: cpu@2 {
+@@ -147,6 +153,7 @@ cpu2: cpu@2 {
+ 			i-cache-size = <0x10000>;
+ 			i-cache-sets = <64>;
+ 			next-level-cache = <&l2_cache_b>;
++			#cooling-cells = <2>;
+ 		};
+ 
+ 		cpu3: cpu@3 {
+@@ -161,6 +168,7 @@ cpu3: cpu@3 {
+ 			i-cache-size = <0x10000>;
+ 			i-cache-sets = <64>;
+ 			next-level-cache = <&l2_cache_b>;
++			#cooling-cells = <2>;
+ 		};
+ 
+ 		l2_cache_l: l2-cache-cluster0 {
 
 -- 
 2.49.0
