@@ -4,69 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84605F34C49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 13:46:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79479F34C4E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 13:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1JnCx6HhOINoPWX+2cEjuRhzL5gOmNZQ9ID98zwzjh0=; b=dKofqeN1rzY9jS/QbBfpIpA9PC
-	ecsfUHPlkRvOm21scrhwxMRXV9h1kvHbxEGNaBOrS5+lSchUZ3nfck5C5dqTo3h0mkkr/ssIw2dof
-	Pr0bD4ky0vhHWSbNiYntPXf0CNG6jNJiJkQeRghdyHkc574998mmMzYQ5w1Fw57Au9a9j8++WQXj7
-	UwA5J3Xgf9+PowMGq+1h0SLZ3nRsfdlWJmzwmFHv2MTYDAjFSvmw4wTdKMAHcF6+wypBTaBXsn4HW
-	cgXg955AV/oWCnbtHyapsI4qgXrPunwV8nL9NG0ps+vbO76vzOwHTqRYx6Uh8rOW/Di3pxg9rpiSk
-	It+MhYUQ==;
+	bh=bXiCf+XJvpx9b3wf1eQkANQyG2CEUHXMlk20d/QoRPs=; b=hH3D5iWoObLwFsXbiQIU1HEtnQ
+	hgmVXmFiDYQ2Qh6Z7m1Cjk7kxen6Y7SNxLYCIBiuUKElpVlcATIbmxcxcbmgixrdvPM/K4La5ii/p
+	pz7fZIGEqbPYQ8DHAD6RBw/k4VPB8iwPH0z3D6uqFZZd4IIniQtG4QcX9Pgg+hauzZWV1xqJnHM42
+	SULzhQFMMkUbZqWXtJeXLxOkaqgiovk3kp86z8f5KpIAYPlWj+Ip2YQlRPAiG442NjRJevM0mwyTE
+	40hzzLuZAzxgGGxKEMrSxXO0nWyMJy0+XXUX2ul2dQ8Vtp8TDbZh+1XmCShWL/9in+QewxYeTEeJU
+	ra+WFUSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCHcY-0000000Fm5G-1cHK;
-	Mon, 13 Apr 2026 13:46:34 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1wCHdK-0000000FmCK-3V1t;
+	Mon, 13 Apr 2026 13:47:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCHcV-0000000Fm4K-3Q4Y
+	id 1wCHdH-0000000FmBS-21ls
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 13:46:32 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wCHcB-0001bv-VY; Mon, 13 Apr 2026 15:46:11 +0200
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wCHcA-005BIh-2P;
-	Mon, 13 Apr 2026 15:46:10 +0200
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wCHcA-00000000DAF-2j4e;
-	Mon, 13 Apr 2026 15:46:10 +0200
-Message-ID: <99fdddde59e1b0fe13d5014182b1c97de4fbec86.camel@pengutronix.de>
-Subject: Re: [PATCH] drm: mxsfb: lcdif: enforce 64-byte pitch alignment for
- scanout
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Advait Dhamorikar <advaitd@mechasystems.com>, marex@denx.de
-Cc: simona@ffwll.ch, imx@lists.linux.dev, festevam@gmail.com, 
-	kernel@pengutronix.de, dri-devel@lists.freedesktop.org, Frank.Li@nxp.com, 
-	s.hauer@pengutronix.de, maarten.lankhorst@linux.intel.com, 
-	linux-kernel@vger.kernel.org, mripard@kernel.org, stefan@agner.ch, 
-	tzimmermann@suse.de, airlied@gmail.com, linux-arm-kernel@lists.infradead.org
-Date: Mon, 13 Apr 2026 15:46:10 +0200
-In-Reply-To: <20260413114456.173485-1-advaitd@mechasystems.com>
-References: <20260413114456.173485-1-advaitd@mechasystems.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Mon, 13 Apr 2026 13:47:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4976240056;
+	Mon, 13 Apr 2026 13:47:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F9C8C2BCB1;
+	Mon, 13 Apr 2026 13:47:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776088038;
+	bh=rMXI7MynRACmo7J3TU7p5YzDSfDDr/BAcnGwaBTJV94=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date:From;
+	b=IuPKkqBFLus3ZZihucCPXZBt0/wyjJXVs9cLIPDnUMaU+SFwTxw+o32qNML+J7nvB
+	 +T0ctEKppjqTZOIM6Rh3j17lGUYIeAzFiWyBqRwf76+oabI4Mp8eXQv5ninX1ukEvr
+	 LnH8NYY5a631BQ60QJwGDVOVITtEloDxi398HYkfXCKB41n08uH4BssEdBkDJqnx0n
+	 QA7qYUc5xYwPpefkCXn0fvXa6DXoHuOaoFBvwYltyVxogbHvcfPje+NZHdmnKlmxV5
+	 F0XlRCtoF/jpz8glOacO4i4jrAjxxjQc8VMGEp2086vfWXRZXeAHBUBqvSG3B/UETz
+	 cg2zi5atDi8Nw==
+Content-Type: multipart/mixed; boundary="===============0318703698084331295=="
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Message-Id: <fa46a9034904c7622f935d3e3a60264a37afda290705f40c816c9846c9d3f3f8@mail.kernel.org>
+In-Reply-To: <7d88904b4028cbe124bbaba5739c525663bedc64.1776062885.git.xukuohai@hotmail.com>
+References: <7d88904b4028cbe124bbaba5739c525663bedc64.1776062885.git.xukuohai@hotmail.com>
+Subject: Re: [PATCH bpf-next v14 1/5] bpf: Move constants blinding out of arch-specific JITs
+From: bot+bpf-ci@kernel.org
+To: xukuohai@huaweicloud.com,bpf@vger.kernel.org,linux-kernel@vger.kernel.org,linux-arm-kernel@lists.infradead.org
+Cc: ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,martin.lau@linux.dev,eddyz87@gmail.com,memxor@gmail.com,yonghong.song@linux.dev,puranjay@kernel.org,a.s.protopopov@gmail.com,alexis.lothore@bootlin.com,list+bpf@vahedi.org,linux@armlinux.org.uk,yangtiezhu@loongson.cn,hengqi.chen@gmail.com,johan.almbladh@anyfinetworks.com,paulburton@kernel.org,hbathini@linux.ibm.com,chleroy@kernel.org,naveen@kernel.org,luke.r.nels@gmail.com,xi.wang@gmail.com,bjorn@kernel.org,pulehui@huawei.com,iii@linux.ibm.com,hca@linux.ibm.com,gor@linux.ibm.com,davem@davemloft.net,udknight@gmail.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
+Date: Mon, 13 Apr 2026 13:47:17 +0000 (UTC)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_064631_853976_8AF41450 
-X-CRM114-Status: UNSURE (   9.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260413_064719_558403_3B20C577 
+X-CRM114-Status: GOOD (  18.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,31 +69,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+--===============0318703698084331295==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-On Mo, 2026-04-13 at 17:14 +0530, Advait Dhamorikar wrote:
-> The LCDIF controller expects framebuffer pitch to be aligned to a
-> 64 byte boundary for reliable scanout.
->
-> While byte-granular pitches are
-> supported by the interface, the i.MX8MP reference manual
-> recommends 64-byte alignment for optimal operation.
->
-> Corrupted output was observed with XR24 framebuffers where a pitch of
-> 4320 bytes caused visible corruption and choppy display, while an aligned
-> pitch of 4352 bytes worked correctly.
+> diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
+> index 066b86e7233c..fc9fb3c07866 100644
+> --- a/kernel/bpf/core.c
+> +++ b/kernel/bpf/core.c
 
-This happens to be divisible by 256, which is is the burst size
-currently set in the undocumented CTRLDESCL0_3 register fields,
-according to the comment in lcdif_set_mode().
+[ ... ]
 
-I wonder if setting 4320 bytes stride works if you reduce the burst
-size, for example by reverting commit 2215cb3be5c2 ("drm: lcdif: change
-burst size to 256B") to test.
+>  /**
+>   *	bpf_prog_select_runtime - select exec runtime for BPF program
+>   *	@fp: bpf_prog populated with BPF program
 
-If that is the case, it might be better to allow unaligned pitches but
-configure the burst size depending on pitch alignment.
+[ ... ]
 
-regards
-Philipp
+> -	/* eBPF JITs can rewrite the program in case constant
+> -	 * blinding is active. However, in case of error during
+> -	 * blinding, bpf_int_jit_compile() must always return a
+> -	 * valid program, which in this case would simply not
+> -	 * be JITed, but falls back to the interpreter.
+> -	 */
+> +	/* eBPF JITs can rewrite the program in case constant
+> +	 * blinding is active. However, in case of error during
+> +	 * blinding, bpf_int_jit_compile() must always return a
+> +	 * valid program, which in this case would simply not
+> +	 * be JITed, but falls back to the interpreter.
+> +	 */
+
+This isn't a bug, but this comment still references bpf_int_jit_compile()
+even though the code now calls bpf_prog_jit_compile(). Should this be
+updated to match?
+
+> -		fp = bpf_int_jit_compile(fp);
+> +		fp = bpf_prog_jit_compile(fp);
+
+> diff --git a/kernel/bpf/fixups.c b/kernel/bpf/fixups.c
+> index 67c9b28767e1..ec8afd6a9369 100644
+> --- a/kernel/bpf/fixups.c
+> +++ b/kernel/bpf/fixups.c
+
+[ ... ]
+
+> +out_jit_err:
+> +	if (blinded) {
+> +		bpf_jit_prog_release_other(orig_prog, prog);
+> +		/* roll back to the clean original prog */
+> +		prog = env->prog = orig_prog;
+> +		goto out_restore;
+> +	} else {
+> +		if (err != -EFAULT) {
+> +			/*
+> +			 * We will fall back to interpreter mode when err is not -EFAULT, before
+> +			 * that, insn->off and insn->imm should be restored to their original
+> +			 * values since they were modified by __jit_subprogs.
+> +			 */
+
+The comment references __jit_subprogs, but the function is named
+jit_subprogs (no double underscore prefix). Should this be updated?
+
+> +			for (i = 0, insn = prog->insnsi; i < prog->len; i++, insn++) {
+> +				if (!bpf_pseudo_call(insn))
+> +					continue;
+> +				insn->off = 0;
+> +				insn->imm = env->insn_aux_data[i].call_imm;
+> +			}
+> +		}
+
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/24345549165
+--===============0318703698084331295==--
 
