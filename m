@@ -4,57 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB248F34C53
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 13:59:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D496F34C49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 13:59:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kpXfKOvR3np/sIO/bcw5rLSmNmCzh2OkzuwODBfBSCs=; b=EqPpZI3iscDr1T
-	ZcIQKTLPR+UA4lq9vsXAfUHP462+PxrnkkEw7WJ+hTfmBXSYAQk99RElFczQHUAFTCBDW+0+nWzSz
-	XTyLjpa1smeuipVXE3HJM9Dj9CKQrSXsAhRVCl3LUJqUnW9fAeEIH0Wqs66rt5t3wPu577CGbv/ha
-	dUp7fBru/omRr+zhjaApHjcrDeRd0wnkKfcrl1Gz1ihZ5i384neNPYVMuVtgEr5WPU5Gif5BU7M09
-	OZY96LXBEsvfQeZXAzgqP9L73/LYXA3k0dovPGox8bDS80Yx/3npnIvdZ9QS9IeFrJTdOTlN+fRq6
-	0s2/fp+iWU9pfbvb6xfw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FiMsl19rJD1IVfeYhbmK871odM1dYpv4rqscGsKp4+E=; b=4kE6joEhyzHAahCkp9r8/aMnVe
+	njQMmjDOjXSnn52uU2y4b4tO714xKbPaH3nylrs9nc1McFl+NTnU1zZD5ONdhHj/ohB7PRUycP/R4
+	AierwQkigRGEY3WQH9S+EsLNIF99mHdi3E6YtWU/vv7mbz84DAzLhrAc7/MYnQoEXU8CjNCjq5uhz
+	Mlfq66DMESXLzlc99hylMYuqgGldokbJ7wPStz/dl/XtqID6m6H8VkhZRMyoZgEZ3NvvwoaT5jHW5
+	eHwiFBusDSNQk5hYiQx893vs7XM3EUklpVCe0XYYQymfCUz3if5Vagri/KQTQng8Hoae/kEWKekTQ
+	5YeDsCBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCHoX-0000000Fnfy-1sqQ;
-	Mon, 13 Apr 2026 13:58:57 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wCHod-0000000Fnjo-0BPO;
+	Mon, 13 Apr 2026 13:59:03 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCHoT-0000000Fne5-2NdL
+	id 1wCHoZ-0000000Fngy-05hD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 13:58:55 +0000
+	Mon, 13 Apr 2026 13:59:00 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id A1DC01A31E4;
-	Mon, 13 Apr 2026 13:58:48 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 840DE4E429F0;
+	Mon, 13 Apr 2026 13:58:57 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7141C5FFB9;
-	Mon, 13 Apr 2026 13:58:48 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 509781045001B;
-	Mon, 13 Apr 2026 15:58:35 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 5246E5FFB9;
+	Mon, 13 Apr 2026 13:58:57 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D67C91045001B;
+	Mon, 13 Apr 2026 15:58:51 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1776088726; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding; bh=kpXfKOvR3np/sIO/bcw5rLSmNmCzh2OkzuwODBfBSCs=;
-	b=ndG8cFwi4OvHrdGhfS6oTekIINOSMhMMJc0IvQBdV5wcq5mE4cXAwZtuYMFvrjJNXIKJR+
-	9Cp118556v0j2R+3UQyGB3Kmief67FHcsCpElkiOH5Dif3KuVLogPhgOowFAffGWNk2I48
-	37+HupFaKDXdnAizp9YN4HL8l59UW3FaTiIuY2ZSRQgxPNbmMjq8euFUPxhDMNZ6dK+6CB
-	aahmxJO4mYdQcDAKxLI4HDCnz0COlAyeb6yycqed3yEpLweRehEiVPki+7KscV/NpxU5FK
-	VlV5J8LMOUbcIaMKUVJ8MWWJw01mhkXKALWJvW4/nH7/w8IAY7CLtxPvwkPwoA==
+	t=1776088735; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=FiMsl19rJD1IVfeYhbmK871odM1dYpv4rqscGsKp4+E=;
+	b=E8vMd4rjXXppZok1PPM26OX2QRCpxqxDsHauysoy1TaWuc0RSVJCNNz0WLgRiTReuTeGli
+	QFUsjDkpF6UD7xwtbrP2obOTgVtNfORZHiWSog3gxm9iDU8UGlfwipRHsgN9191h1hKhGS
+	xEycHcRhVWqb75gBlb7yxHxuDaoVDMzmlY5XnZwlxcfHSgG2uXJeSSvvN24LMlAZUjNT7O
+	LMURjH/hI1i1GKe3c8EkVoaZK0JpLM9pvLLlLdv/0R+jwQISt63bg5EFShLfTj1zucfRoL
+	47JVxnoCwFBmMJrT8EZ5UdYvCbipdT/4oBZ1sAXo+gIraE3fs8mcVPJL8dLgOg==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Subject: [PATCH 00/10] drm/bridge: handle refcounting for bridge-only
- callers of drm_of_find_panel_or_bridge()
-Date: Mon, 13 Apr 2026 15:58:32 +0200
-Message-Id: <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-0-acd01cd79a1f@bootlin.com>
+Date: Mon, 13 Apr 2026 15:58:34 +0200
+Subject: [PATCH 02/10] drm/msm/hdmi: switch to
+ of_drm_get_bridge_by_endpoint()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAIj23GkC/y2NWwrCMBAAr1L220CSVhGvIlLyWOtKTMImFaH07
- o3Vz2FgZoGCTFjg0i3A+KZCKTZQhw7cw8QJBfnGoKU+yUFJ4fklLJNvxoSQnJiw5rmKbCKGMfH
- 4l4M+SmX7MxrjodUy450+++l6+3GZ7RNd/eZhXTcyVXZEiwAAAA==
-X-Change-ID: 20260410-drm-bridge-alloc-getput-panel_or_bridge-42501b38eaad
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-2-acd01cd79a1f@bootlin.com>
+References: <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-0-acd01cd79a1f@bootlin.com>
+In-Reply-To: <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-0-acd01cd79a1f@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
  David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
@@ -82,8 +81,8 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
 X-Mailer: b4 0.15.1
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_065853_869949_268062C6 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20260413_065859_202947_03AF7A38 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,99 +97,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series converts all the bridge-only callers of the deprecated
-drm_of_find_panel_or_bridge() API to a new, simpler API that handles bridge
-refcounting.
+This driver calls drm_of_find_panel_or_bridge() with a NULL pointer in the
+@panel parameter, thus using a reduced feature set of that function.
+Replace this call with the simpler of_drm_get_bridge_by_endpoint().
 
-== Series description
-
- * The first patch introduces of_drm_get_bridge_by_endpoint() as a
-   replacement for bridge-only calls to drm_of_find_panel_or_bridge(); the
-   new function is simpler and returns a refcounted bridge
- * The following patches convert all bridge-only users to the new API
- * The last patch forbids new bridge-only calls to
-   drm_of_find_panel_or_bridge()
-
-== Grand plan
-
-This is part of the work to support hotplug of DRM bridges. The grand plan
-was discussed in [0].
-
-Here's the work breakdown (➜ marks the current series):
-
- 1. ➜ add refcounting to DRM bridges struct drm_bridge,
-      based on devm_drm_bridge_alloc()
-    A. ✔ add new alloc API and refcounting (v6.16)
-    B. ✔ convert all bridge drivers to new API (v6.17)
-    C. ✔ kunit tests (v6.17)
-    D. ✔ add get/put to drm_bridge_add/remove() + attach/detach()
-         and warn on old allocation pattern (v6.17)
-    E. ➜ add get/put on drm_bridge accessors
-       1. ✔ drm_bridge_chain_get_first_bridge(), add cleanup action (v6.18)
-       2. ✔ drm_bridge_get_prev_bridge() (v6.18)
-       3. ✔ drm_bridge_get_next_bridge() (v6.19)
-       4. ✔ drm_for_each_bridge_in_chain() (v6.19)
-       5. ✔ drm_bridge_connector_init (v6.19)
-       6. … protect encoder bridge chain with a mutex
-       7. ➜ of_drm_find_bridge
-          a. ✔ add of_drm_get_bridge() (v7.0),
-               convert basic direct users (v7.0-v7.1)
-          b. ✔ convert direct of_drm_get_bridge() users, part 2 (v7.0)
-          c. ✔ convert direct of_drm_get_bridge() users, part 3 (v7.0)
-          d. ✔… convert direct of_drm_get_bridge() users, part 4
-                (some v7.1, some pending)
-          e. ➜ convert bridge-only drm_of_find_panel_or_bridge() users
-       8. drm_of_find_panel_or_bridge, *_of_get_bridge
-       9. ✔ enforce drm_bridge_add before drm_bridge_attach (v6.19)
-    F. ✔ debugfs improvements
-       1. ✔ add top-level 'bridges' file (v6.16)
-       2. ✔ show refcount and list lingering bridges (v6.19)
- 2. … handle gracefully atomic updates during bridge removal
-    A. ✔ Add drm_bridge_enter/exit() to protect device resources (v7.0)
-    B. … protect private_obj removal from list
-    C. ✔ Add drm_bridge_clear_and_put() (v7.1)
- 3. … DSI host-device driver interaction
- 4. ✔ removing the need for the "always-disconnected" connector
- 5. … Migrate i.MX LCDIF driver to bridge-connector
- 6.   DRM bridge hotplug
-    A.   Bridge hotplug management in the DRM core
-    B.   Device tree description
-
-[0] https://lore.kernel.org/lkml/20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com/#t
+Since of_drm_get_bridge_by_endpoint() increases the refcount of the
+returned bridge, ensure it is put on removal.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
-Luca Ceresoli (10):
-      drm/bridge: add of_drm_get_bridge_by_endpoint()
-      drm/msm/hdmi: switch to of_drm_get_bridge_by_endpoint()
-      drm/hisilicon/kirin: switch to of_drm_get_bridge_by_endpoint()
-      drm/bridge: chrontel-ch7033: switch to of_drm_get_bridge_by_endpoint()
-      drm/bridge: lontium-lt9611uxc: switch to of_drm_get_bridge_by_endpoint()
-      drm/bridge: lt9611: switch to of_drm_get_bridge_by_endpoint()
-      drm/bridge: adv7511: switch to of_drm_get_bridge_by_endpoint()
-      drm/bridge: lt8713sx: switch to of_drm_get_bridge_by_endpoint()
-      drm: zynqmp_dp: switch to of_drm_get_bridge_by_endpoint()
-      drm: of: forbid bridge-only calls to drm_of_find_panel_or_bridge()
+ drivers/gpu/drm/msm/hdmi/hdmi.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
- drivers/gpu/drm/bridge/adv7511/adv7511.h     |  1 -
- drivers/gpu/drm/bridge/adv7511/adv7511_drv.c |  8 ++---
- drivers/gpu/drm/bridge/chrontel-ch7033.c     | 24 +++++++--------
- drivers/gpu/drm/bridge/lontium-lt8713sx.c    |  7 ++---
- drivers/gpu/drm/bridge/lontium-lt9611.c      |  5 ++-
- drivers/gpu/drm/bridge/lontium-lt9611uxc.c   |  5 ++-
- drivers/gpu/drm/drm_bridge.c                 | 46 ++++++++++++++++++++++++++++
- drivers/gpu/drm/drm_of.c                     | 26 ++++++++--------
- drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c |  4 +--
- drivers/gpu/drm/msm/hdmi/hdmi.c              |  3 +-
- drivers/gpu/drm/xlnx/zynqmp_dp.c             | 10 +++---
- include/drm/drm_bridge.h                     |  9 ++++++
- 12 files changed, 97 insertions(+), 51 deletions(-)
----
-base-commit: f9ef69563cc82e908e1ce84fd135d3290fb65cde
-change-id: 20260410-drm-bridge-alloc-getput-panel_or_bridge-42501b38eaad
+diff --git a/drivers/gpu/drm/msm/hdmi/hdmi.c b/drivers/gpu/drm/msm/hdmi/hdmi.c
+index 852abb2466f0..90e529b3d0c8 100644
+--- a/drivers/gpu/drm/msm/hdmi/hdmi.c
++++ b/drivers/gpu/drm/msm/hdmi/hdmi.c
+@@ -287,7 +287,7 @@ static int msm_hdmi_dev_probe(struct platform_device *pdev)
+ 	spin_lock_init(&hdmi->reg_lock);
+ 	mutex_init(&hdmi->state_mutex);
+ 
+-	ret = drm_of_find_panel_or_bridge(dev_of_node(dev), 1, 0, NULL, &hdmi->next_bridge);
++	ret = of_drm_get_bridge_by_endpoint(dev_of_node(dev), 1, 0, &hdmi->next_bridge);
+ 	if (ret && ret != -ENODEV)
+ 		return ret;
+ 
+@@ -383,6 +383,7 @@ static void msm_hdmi_dev_remove(struct platform_device *pdev)
+ 	component_del(&pdev->dev, &msm_hdmi_ops);
+ 
+ 	msm_hdmi_put_phy(hdmi);
++	drm_bridge_put(hdmi->next_bridge);
+ }
+ 
+ static int msm_hdmi_runtime_suspend(struct device *dev)
 
-Best regards,
---  
-Luca Ceresoli <luca.ceresoli@bootlin.com>
+-- 
+2.53.0
 
 
