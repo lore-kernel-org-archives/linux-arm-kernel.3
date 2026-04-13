@@ -4,70 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B863EBFD2F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 10:12:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08CC8EBFD30
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 10:12:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pAXSZtPd5U/ZCuO8959Lc90gPEZRU63FJ0bQzc9gzHI=; b=aDPbEyws9cTmIQbI8VZ0DXaOyi
-	16cNSoPYSetVZ3Xp55b9dFoWFhzMlO0RcgZIcokG9QJTchgkylGev3pFsHAbQSzfBH9i+TDjOnqSp
-	qaM/RYqHqLCgSckFMi9ClNPsczMX/oT6Kk0tBhbTk0DjbUGXf9cQRbSBduLklmLjt1yIgDvHdOf1k
-	T8d2PPxXOx2NGP53hHtp9PBrstKCZq90r83jdB5EViILcte9Y2iEeYHmpiBup/9gjzfi4y0khFHNP
-	rYBCI8JPYTCCHOspMsFuw8xfMm6TiZDb57w62Pdf/uTXaGsYp8mwWiUPYy1mK53joxvF1Ab96bHkp
-	5Sc/4XDA==;
+	bh=76fDzNVJYSDVrGkTUxdvp/mv1wblBjOyqunsJgcUsWM=; b=4a1eXxziTFXVkIZ2DdoBwezaaY
+	WnZs512pFq6UejiAe5Q1jXb2H8AqQFqY+Vwesc3W7Btr1FCL4kO6HOEw7oFS4BPSISHDagYdwjbBU
+	ykQhm4OmY5P1x0Ukn55ixkY6PTubKaovVmUq8ReUQdDuXua3yiBSMO/KVWQoo8q1N/9dhgzEEVL/M
+	2o87dEG/fZMVp6qc6im4ky+SRyAaL/qZ9Hw4F9RMG4adU4m/z+pNnzgSpCoR1nuKAmWref4/C3r6F
+	/3eZgeEeH2Yp0SX7ViIo5t4VuK0Ndwmuw+n/sgBPG5wDz4KImd957FrU3tZYPm/vUw7pAVk4zOV3N
+	vm1vJzzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCEHE-0000000FT5E-25Mb;
-	Mon, 13 Apr 2026 10:12:20 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCEHD-0000000FT4C-1iJI;
-	Mon, 13 Apr 2026 10:12:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
-	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=pAXSZtPd5U/ZCuO8959Lc90gPEZRU63FJ0bQzc9gzHI=; b=Q0lo9chrlc6bHohAwNwz44okdW
-	sXWPXWdCkeXZN+QX85Gsx8o/aau5j1wgc2gAZJYaP9DHVntJ1TAWeCyQHM8opkJ6jIJwINMwosTLU
-	+t5rx4XiB0DWtjb0J7JTMgbgqVgkALlxe4tW6bxb+DCTm7tUIzO5vk00cSJNGnpPSte6j9vio9PTm
-	DcrXoQQszhC5tGwaC+g4I7kz0XZjzgT0mLz7vXNHdhy/Y+m+Nn2d8bt6+BuZVNZo4nwaPaZ/hfy9U
-	iGu3wD1g0uzvsTeDyUUZRhVaMqW0h5TD+pHgrXxQTm+bcs4Cm17exoQvs0kyW8p/QIXSopWtyQccU
-	5OliHkTw==;
+	id 1wCEHV-0000000FTFM-24Q9;
+	Mon, 13 Apr 2026 10:12:37 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCEH9-0000000Dh7W-1oO9;
-	Mon, 13 Apr 2026 10:12:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1776075102; cv=none; 
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCEHS-0000000FSpN-29QL;
+	Mon, 13 Apr 2026 10:12:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1776075092; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=IBTsDxLxQSdNoi3ndUXa20r13M4Ela5iEpVM08Oo2RkBEYLAF+Lw/dJzqDGqMyz+i5psseEJCdN5DruAJbExPguHCM75eMzOJdpnFxkP+wZg+/gMI7lE0pJcdv9DkEAtPV4kEdSgWhnuNvZd+EAylDxSJ4pdbF1Cjvz2D1hLgMU=
+	b=BzK7pbbbtL0/RC583Da4ed82n0lff6IzUcoX+Izh3vJgInY2eKPFV/WsJ0JTtEP7qnNJRYkpi+zB0H8AO/rRLShCBukvu7c+8h1144odvcAhRpgNEqpR+Vhbwy2l6dS0wJgtHLNAmK7/wJ3dmIA1DM1EmpgG3kxxhLI5RB+CZt8=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1776075102; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=pAXSZtPd5U/ZCuO8959Lc90gPEZRU63FJ0bQzc9gzHI=; 
-	b=AOkxbjOIdTJDYdW1Ob1kjqvA6a3TpbC77dYOBpKpH4MSQpWVFZmHRnlbH+TrscRrKWcyrEhkmUzfM0Qgp5plOFgjrB1DhBx2Ffd2tCbUTRlCjXTMDaewahyww7Ty/Td11sYdcNqN+W0q853FZ0UjF0OwDnncCxJQfRJzyLt76r8=
+	t=1776075092; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=76fDzNVJYSDVrGkTUxdvp/mv1wblBjOyqunsJgcUsWM=; 
+	b=QiVYLIzzfAaEGx1hpPU2hTpLctgT9AzZP/5FqH0Etq574pJjWqZ6/tdZ3DMfJk53NuOxgPCHI6W50tCeB93motguxEa5eP2T33Fx0mQh2vqquvmx+2FkfgkEgdGNmp+93I+MTbM1Mu1Q8D/AFEEcEWfzXhvBC0/SZIg/J0YrgQE=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1776075102;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1776075092;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=pAXSZtPd5U/ZCuO8959Lc90gPEZRU63FJ0bQzc9gzHI=;
-	b=QgmkkMtl/suz2GbB8NnEaOetn8NXNniLv61xv0fk95cPbACV/sIw1UsHl28Dt/N5
-	luI4x10c2eVBU0SoYIKt3VMzDO5Go1sk4iLDXd1ck8OcT43IzcLS7xvCvCMEeqDlrWh
-	HoSdEUnQehxbKyyt7GHgciZ+tLnaeEi2F3cU++VE=
-Received: by mx.zohomail.com with SMTPS id 1776075099753819.2140777372053;
-	Mon, 13 Apr 2026 03:11:39 -0700 (PDT)
+	bh=76fDzNVJYSDVrGkTUxdvp/mv1wblBjOyqunsJgcUsWM=;
+	b=MUXuFQM4uJ9ru9EMEqkiQWOyhLULiMsvuPJSkMl8HXJy1orXoTPzahMwuyc5XiPG
+	PvqVPW0+jDcw71KVXObXA22E+9BvEdLWNucx5FBtW4MWopCpjQRzmHiQyr1KlRVpMdY
+	hT+ODRV/J8PstN5lXHOXoHem6tMgM32BasAZ8A4A=
+Received: by mx.zohomail.com with SMTPS id 1776075090846920.0376394014768;
+	Mon, 13 Apr 2026 03:11:30 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 13 Apr 2026 12:07:41 +0200
-Subject: [PATCH v13 27/27] drm/connector: Update docs of "colorspace" for
- color format prop
+Date: Mon, 13 Apr 2026 12:07:40 +0200
+Subject: [PATCH v13 26/27] drm/bridge: Document bridge chain format
+ selection
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260413-color-format-v13-27-ab37d4dfba48@collabora.com>
+Message-Id: <20260413-color-format-v13-26-ab37d4dfba48@collabora.com>
 References: <20260413-color-format-v13-0-ab37d4dfba48@collabora.com>
 In-Reply-To: <20260413-color-format-v13-0-ab37d4dfba48@collabora.com>
 To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
@@ -98,8 +84,8 @@ Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_111215_824311_CD563167 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20260413_031234_714598_645EB706 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,35 +100,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The colorspace property's documentation states that BT2020_RGB and
-BT2020_YCC are equivalent, and the output format depends on the driver.
+The bridge chain format selection behaviour was, until now,
+undocumented. With the addition of the "color format" DRM property, it's
+not sufficiently complex enough that documentation is warranted,
+especially for driver authors trying to do the right thing.
 
-Now that there is a "color format" property that userspace can use to
-explicitly set a format, update the colorspace docs to mention this.
+Add a high-level overview of how the process is supposed to work, and
+mention what the display driver is supposed to do if it wants to make
+use of this functionality.
 
-The behaviour here is not changed for userspace that doesn't know about
-the color format property yet, as the color format property defaults to
-"AUTO", where the choice of output format is left up to drivers.
-
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/gpu/drm/drm_connector.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ Documentation/gpu/drm-kms-helpers.rst |  6 ++++++
+ drivers/gpu/drm/drm_bridge.c          | 40 +++++++++++++++++++++++++++++++++++
+ 2 files changed, 46 insertions(+)
 
-diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
-index 048789032971..88185a53d940 100644
---- a/drivers/gpu/drm/drm_connector.c
-+++ b/drivers/gpu/drm/drm_connector.c
-@@ -2573,7 +2573,8 @@ EXPORT_SYMBOL(drm_mode_create_aspect_ratio_property);
-  *		conversion matrix and convert to the appropriate quantization
-  *		range.
-  *		The variants BT2020_RGB and BT2020_YCC are equivalent and the
-- *		driver chooses between RGB and YCbCr on its own.
-+ *		driver chooses between RGB and YCbCr based on the color format
-+ *		property.
-  *
-  *	SMPTE_170M_YCC:
-  *	BT709_YCC:
+diff --git a/Documentation/gpu/drm-kms-helpers.rst b/Documentation/gpu/drm-kms-helpers.rst
+index b4a9e5ae81f6..bf5a9d909cf3 100644
+--- a/Documentation/gpu/drm-kms-helpers.rst
++++ b/Documentation/gpu/drm-kms-helpers.rst
+@@ -169,6 +169,12 @@ Bridge Operations
+ .. kernel-doc:: drivers/gpu/drm/drm_bridge.c
+    :doc: bridge operations
+ 
++Bridge Chain Format Selection
++-----------------------------
++
++.. kernel-doc:: drivers/gpu/drm/drm_bridge.c
++   :doc: bridge chain format selection
++
+ Bridge Connector Helper
+ -----------------------
+ 
+diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
+index 5acd6bf84ae2..4cdc3c944f89 100644
+--- a/drivers/gpu/drm/drm_bridge.c
++++ b/drivers/gpu/drm/drm_bridge.c
+@@ -198,6 +198,46 @@
+  * driver.
+  */
+ 
++/**
++ * DOC: bridge chain format selection
++ *
++ * A bridge chain, from display output processor to connector, may contain
++ * bridges capable of converting between bus formats on their inputs, and
++ * output formats on their outputs. For example, a bridge may be able to convert
++ * from RGB to YCbCr 4:4:4, and pass through YCbCr 4:2:0 as-is, but not convert
++ * from RGB to YCbCr 4:2:0. This means not all input formats map to all output
++ * formats.
++ *
++ * Further adding to this, a desired output color format, as specified with the
++ * "color format" DRM property, might not correspond 1:1 to what the display
++ * driver should set at its output. The bridge chain it feeds into may only be
++ * able to reach the desired output format, if a conversion from a different
++ * starting format is performed.
++ *
++ * To deal with this complexity, the recursive bridge chain bus format selection
++ * logic starts with the last bridge in the chain, usually the connector, and
++ * then recursively walks the chain of bridges backwards to the first bridge,
++ * trying to find a path.
++ *
++ * For a display driver to work in such a scenario, it should read the first
++ * bridge's bridge state to figure out which bus format the chain resolved to.
++ * If the first bridge's input format resolved to %MEDIA_BUS_FMT_FIXED, then its
++ * output format should be used.
++ *
++ * Special handling is done for HDMI as it relates to format selection. Instead
++ * of directly using the "color format" DRM property for bridge chains that end
++ * in HDMI bridges, the bridge chain format selection logic will trust the logic
++ * that set the HDMI output format. For the common HDMI state helper
++ * functionality, this means that %DRM_CONNECTOR_COLOR_FORMAT_AUTO will allow
++ * fallbacks to YCBCr 4:2:0 if the bandwidth requirements would otherwise be too
++ * high but the mode and connector allow it.
++ *
++ * For bridge chains that do not end in an HDMI bridge,
++ * %DRM_CONNECTOR_COLOR_FORMAT_AUTO will be satisfied with the first output
++ * format on the last bridge for which it can find a path back to the first
++ * bridge.
++ */
++
+ /* Protect bridge_list and bridge_lingering_list */
+ static DEFINE_MUTEX(bridge_lock);
+ static LIST_HEAD(bridge_list);
 
 -- 
 2.53.0
