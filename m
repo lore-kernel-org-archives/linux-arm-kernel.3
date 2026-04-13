@@ -4,94 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E9F3F531DB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 21:54:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5384BF531CE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 21:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AOXMNTIIXoqpY3VFkb3PMLMzullDNaoQaiXPYXq2Yho=; b=43i8dGAqr4yenSIAUaUru72B/Y
-	9eYduI6NUvV36QjfyT4640VrSf7QFYuuLufHsFHuTdLkV17GEw1o/BmY5UB6V9cRvZlHH+Ic4E8Sx
-	fmiH2hVypsLiMeQ8xLz/g2+yhBql78V1TZWZDwi0D/KK9R6Z6JilVS6PlxnzA43HEg66x8hEmCORV
-	dijZCZrKWrR3ek0nB/Oyx0wTirwwkGomO6eFqamQkfEvfFF7mI+EJKwZS8vUSgAcbxB/tYHuDi7fB
-	skRp52M7Mn5KGEK0fSYXJysKhqawyK8C+6oJ8eVpMePXVrgUrgCcPclDbZwCmzEsuVRCBen/H2oas
-	xEv0hL6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OIvSVDNyRXVMKIryJy1tu7/f3jU7uICWZPfOZkml13I=; b=gNiFixyE7s7XlF0gFh+yOb+ofc
+	aw27eoK/I/8Wor381v5kH3Jop4XXm9061Yr/roxLqGrrocGqhyEDdQ1d7+0CrxA42y3tARsPGyDTv
+	cnfwjJ+VyYC/ilEaf9eV6c3iIaj8EDuE8eVxBMdPDh2661oqvQhSXbdORpu1ODz8czocyX50Ckfmg
+	/SuUr4n7H5L1t+a+ChWx2q8j1XGRh1NbSSnpvxanLE5BY5cojNSwmZnm67JVcVxwKgAipxfhelbOv
+	1t99OobIZMzq63hvhdkN3A/mjntE0afv9VJBgJNXY46Seh48M98YZzq1fsheSpbVNTprkOXdorGUx
+	bSHydejg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCPEH-0000000GPhY-0m1D;
-	Mon, 13 Apr 2026 21:54:01 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1wCPF0-0000000GPnh-2G7R;
+	Mon, 13 Apr 2026 21:54:46 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCPED-0000000GPgh-2aHq
+	id 1wCPEy-0000000GPn3-3Cuo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 21:53:59 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-5a0faa0d15cso5251908e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 14:53:56 -0700 (PDT)
+	Mon, 13 Apr 2026 21:54:46 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-43cfce3a195so3075078f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 14:54:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776117283; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ED8Q+ZiZVvelbN+nuVnxcNZPTRkRlH7gGOLkKKoe+p72fXuRFbg+hKqicFL0z+B3uC
+         y2S99eKwK+M7ziEEewgt0yb21DQD8EovoKNw7SwDM8tpff2jxssm9vXT11jlzmBnNPx0
+         Xj0WpozclhxBL8vxRWgfWgRjK0ND4hNOT/fwznmXRNt58IDG2RXZYfs/PTfE5Gy/RkM2
+         YGE59OdZedb0ti15M/8Efr5JPXUVCLdv6UI9qoCZScYuZR6vY4PRxD0Me1SFcactGwh+
+         MHEcYUUQ17Tn8UWVv9K2KF3nGUiSYzyXMTT+a5BtdjDCjVRrZfnT9NvxcdeyDR6+pHkf
+         K39w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=OIvSVDNyRXVMKIryJy1tu7/f3jU7uICWZPfOZkml13I=;
+        fh=xx9mPaeIGRw3lA/ng0XZtzT96lHUBHbrv2I75XU4DY8=;
+        b=PVNDNXFayVylnyiwIzcfUo+6lCs4JsolQtOjjgImNwvccnnKbgiCcki/Qc25BSGh0+
+         8mMmQeNZPqoMGJEPdQbNq70tl3T95oBn9emAF/Dbk0Rr0EMyjzhUabpWMJliWsNIseFs
+         Ef1fhbjWE9gwl+M9emUzbWCDhB6pXXILnFdcvV+jireBiyO41Nbx9LxjXlBj4Yk+MSMH
+         CDwa7sDO5aLIAmo2qMf2gTEiBEOOQKDrMC9Tr1/Hud1L7o36+HfSdEf/uVieR/SsS7M/
+         Lc4CioJrmJhd2ZUtsJs3pAiEd5Zv12M0DDBIHXAE4AgGs1xeIb53GpLLKDzqj6dOX322
+         z+dg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776117235; x=1776722035; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=AOXMNTIIXoqpY3VFkb3PMLMzullDNaoQaiXPYXq2Yho=;
-        b=OPeCbT7h24Z3BSBrr5eAXjmHtIZhBvJoZxF9frsrQyHPJ5Wn8be0JR2PT8DJouaZl6
-         d94kcWhf/Qo4akKEVWdqsKggQ8Hlsv+WTdN+v/8Nq5/pQDBKpk9adW1ZoKFuHJkXpJmE
-         Sns+2uJ93aDDwiJmxI3p7F7bs0Vc46DArh7FfuPk+ggnXUNt4slfMgxM8s8a+XnKvc9k
-         x4oJ4ZtRCuGvGJ/Z5+Az69OfLFoU1bOk0Hah5FOqvZetUJUfa1o2n/M+BoOwbuWp4KEp
-         ueYzB+vb5/qz9Zqn7hUQ0ycbrvZKWcBhrRiQx75D4zmKUs6uUhFJ9jQ1q0S2UR/twVq+
-         dZGQ==
+        d=gmail.com; s=20251104; t=1776117283; x=1776722083; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=OIvSVDNyRXVMKIryJy1tu7/f3jU7uICWZPfOZkml13I=;
+        b=szviB8uH2WzwAvHHudTvlR8/UeSNO9TwANv0+djtkLBouXzvoFbtwRJ6CxGX5b+ICc
+         Wo4CuddB/AthQt33EAEtAE8Pi8Jba9mOHeU+ZDRGheLeJ+lYAYYtYXc+8+h/acqKImzH
+         K5QKA5bRx6GivFOrHnI0C2Ho5pAcEWCkhXJrODONsgza7syYanKMzeWMh3szXc1v+jXo
+         94u+LYxzEFf2GqULIFM3mJNIavtWwrWmyycHUnyhMv0tYNRVaEnoy+ekrxVmy+j7nyd5
+         ZoQWUbHFAhpNAO7lZqRUC+mMXW4DZM4D/bIVCoFKML+uk5mLgspEkNqVwYOBFusWbL87
+         VSpw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776117235; x=1776722035;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1776117283; x=1776722083;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=AOXMNTIIXoqpY3VFkb3PMLMzullDNaoQaiXPYXq2Yho=;
-        b=cfbTg/Gvg7voXEevaa9khcyu9RvDsF2B2pWefj/dNH1nCdK43Hleyc/V1PWCt5j1BE
-         tDgpxnaX8zcKUhWoDmU0cMFX4+bM1rJRC/uzIG+cg8JT/xNJS6ztmEUZ60nGyFNX5Ds6
-         oNBaFSuKMQ1vHIE/TVK3v9vIyYZASRDJwInCbNXr1fRsD3TQhII7r3wT2OxeLLXIC+OH
-         +H6fVtnQOdrC3eK7UGB46cqV+OGuQaQm69ElTCmBSnxCo3Arv2nYohTsNwUKncgpV4FF
-         ER5CW8EKhskDnkbamK0ae4r04Ev4A2kC3EgdarpyPJlI7sCSkVWMkG5gUe52elKlKj0q
-         CCig==
-X-Forwarded-Encrypted: i=1; AFNElJ/SU0E+rI80OiSSKA9lxJSj/ynnkS1LLEDctiiru1H9HuqzzOmp7tDxjG3BWjnlZyLgDCihJajZN21gGu/nWK0l@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxx2vxRZQhRXiheLdFj99hAGwwZPYrj1GVInfjng+CV7OYktbeK
-	NrWQrzOZQOkV8KBeePXz/FJF9WdwHC5gbVe7d+fT1Bq7wdSPWV6vHItF
-X-Gm-Gg: AeBDievyZNTxNWo/Rue5B1MwMKGk3UfiCnk9EzdhS3QuTn3jFrKZMk7XEYrX/hvl+2W
-	P9SVC/408RR+NqVcMDf6zOdjtPJNTn1Ib781CHu1ifKE7A+wUysJ4z/2km2ZSj8HhQIp3A8b0tc
-	GV+G39VGOcpN24Rlo6X1yCUznQN1k36xjyEx4pjAADuUBIynb3gwf6NYF3oWmT+0XEAWS47FM2i
-	lxFwvzFSTyqYf/Yx5KYUch1ealuvD4ffQ2eKE/pT6z8xZJ6qz7Xpgy5cjmqyR98h/FuHSSXWl0R
-	hr9ishj//phdoFf1yuYXXkeSjeciS7xsrjlloYVMDQh7jIR0Xz8AP+cMuqLjIGOgI3iZ0Yu2rLH
-	6kU24zqNHu1BmtBxmRWuskc2umLJUi8366Q053mY9SERRvs9FTM15Z3BdU2KK+HGD3DKKo3rAhC
-	OWKppTn2T/ZmcgffdmU6D/xlGLTgIHOJOPLz0IUvxKGaB/Srprx9tuwphu1OQy2SkeiL1364/jV
-	uOV70bPnXqYWlQkaKx4tG7QpYQC1A==
-X-Received: by 2002:a05:6512:108d:b0:5a4:d4:5c5e with SMTP id 2adb3069b0e04-5a400d45e20mr1006936e87.22.1776117234891;
-        Mon, 13 Apr 2026 14:53:54 -0700 (PDT)
-Received: from rocky.so.lan (9091-40f8-8d6a-8ea6-6a01-841a-07d0-2001.dyn.estpak.ee. [2001:7d0:841a:6a01:8ea6:8d6a:40f8:9091])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a3fe65214fsm806370e87.49.2026.04.13.14.53.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Apr 2026 14:53:53 -0700 (PDT)
-From: Sten-Silver Ots <stensilver@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Sten-Silver Ots <stensilver@gmail.com>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Torsten Duwe <duwe@lst.de>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: rockchip: Enable the NPU on rk3588-rock-5-itx
-Date: Tue, 14 Apr 2026 00:52:49 +0300
-Message-ID: <20260413215301.4656-1-stensilver@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        bh=OIvSVDNyRXVMKIryJy1tu7/f3jU7uICWZPfOZkml13I=;
+        b=CcPStjtc/MMJtF5qrsg0o6HiG0wnFLrD0ww93KRhWh788wxAvEAiRP7ZRJ6MZdPeFG
+         JVg1WbuNqpl0KeLk+bbyB7nw15q+cAWg2dmbwicqLdw+MYgOQ/NB9eMsFQaaY4F9hrew
+         MA9bNgkwd+0vaFcD6yBQJWI3R5sUblCir/z/H+tA3AqPByyr82udGOYvOo9ItW9XHqQ8
+         5E19Hykk7qkRH4sUNyFZmo5LeRc+LFzR9WIYBe7m70NJX18dmEmP1u2fP3QRBo0ZyOYe
+         nJ1Hd1wqqJTDLpyJKynQ4MZWh6GS79rLCBC3kMyC+L8PTK80VSglU5TrG2ata5QZzwvn
+         nFoQ==
+X-Forwarded-Encrypted: i=1; AFNElJ80rOpAx1k3BnZQL6d9IjNguWj+HqaIdgTP4zV7YDPP2/0L/OE/pcoEhgcGmbXGSCCbbQNM+f44PBu2SCz20AB+@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoLRfaTV6/nh8+WKCZyomzAQZ9Gi8Pk/nmhrrjOq/42PlNshdP
+	wnZpbKglfPK/R0LQ7N4xMzi1N6/5P/ZLC0wlh2mNkIfNDu1SJFT+xxkUhAD07/WH3xZ4lCuV1cH
+	bMA/LdWJvmvW6bYoIORZOEba3c7xbuf4=
+X-Gm-Gg: AeBDievwemJP6fJ3BpKjM7ryaIigMaVsxan0Vf16v27KTe+a0vv0qBvLwb5OCO50OrN
+	oZldP/y8kxFUXZyJCImdTE2p64fuRvZ/94XlW7Xy8IFlsFqJo80yuKLHg5tDEE4gOxlbaXcVEkM
+	edj//MoAWrCS4kpoxXbyGyYRUDM8ImYbAtUWlmWm2GpkIhVFwd3zPCHIzt5CfkL6AbxdAsxzfgp
+	Ps2al2FLUcpPBPGD09VUvBCcfC5d92X69ft/lnrI0oSGDpOejEOkB8oOU5G1+HMTGEYHNP3fCOs
+	NzM9O3A1H4W9z5Ld+k3ZY+0ABvBM+XFIXNOqnLr0R25vbCbkwPI=
+X-Received: by 2002:a5d:5d83:0:b0:43d:5ec9:246 with SMTP id
+ ffacd0b85a97d-43d64250a83mr20728904f8f.12.1776117282589; Mon, 13 Apr 2026
+ 14:54:42 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <E1wBBaR-0000000GZHR-1dbM@rmk-PC.armlinux.org.uk>
+ <20260413110222.49fc3759@kernel.org> <ad06yiZZbLC9k3jY@shell.armlinux.org.uk>
+In-Reply-To: <ad06yiZZbLC9k3jY@shell.armlinux.org.uk>
+From: Sam Edwards <cfsworks@gmail.com>
+Date: Mon, 13 Apr 2026 14:54:30 -0700
+X-Gm-Features: AQROBzDMFq1J1BHeTMkIhkt-_OIJqPvCL5sV9otRjtVQgF6B-9x3ogZe80tOPWg
+Message-ID: <CAH5Ym4i7VV53hQGY3AjAUW3B8g_ffgmw69kPhPrk2CmcRbguuQ@mail.gmail.com>
+Subject: Re: [PATCH net-next] net: stmmac: enable RPS and RBU interrupts
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	Linux Network Development Mailing List <netdev@vger.kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_145357_677302_26687B0C 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20260413_145444_844438_4E0D8F03 
+X-CRM114-Status: GOOD (  48.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,77 +119,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This commit enables the NPU on Radxa Rock 5 ITX board.
-The regulator vdd_npu_s0 was already in place and since the NPUs
-power domain supply is now described remove the always-on property
-from the regulator.
+On Mon, Apr 13, 2026, 11:49 Russell King (Oracle) <linux@armlinux.org.uk> wrote:
+>
+> On Mon, Apr 13, 2026 at 11:02:22AM -0700, Jakub Kicinski wrote:
+> > On Fri, 10 Apr 2026 14:07:51 +0100 Russell King (Oracle) wrote:
+> > > Since we are seeing receive buffer exhaustion on several platforms,
+> > > let's enable the interrupts so the statistics we publish via ethtool -S
+> > > actually work to aid diagnosis. I've been in two minds about whether
+> > > to send this patch, but given the problems with stmmac at the moment,
+> > > I think it should be merged.
+> >
+> > Sorry for a under-research response but wasn't there are person trying
+> > to fix the OOM starvation issue? Who was supposed to add a timer?
+> > Is your problem also OOM related or do you suspect something else?
+>
+> It is not OOM related. I have this patch applied:
+>
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 131ea887bedc..614d0e10e3e6 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -5095,14 +5095,18 @@ static inline void stmmac_rx_refill(struct stmmac_priv *priv, u32 queue)
+>
+>                 if (!buf->page) {
+>                         buf->page = page_pool_alloc_pages(rx_q->page_pool, gfp);
+> -                       if (!buf->page)
+> +                       if (!buf->page) {
+> +                               netdev_err(priv->dev, "q%u: no buffer 1\n", queue);
+>                                 break;
+> +                       }
+>                 }
+>
+>                 if (priv->sph_active && !buf->sec_page) {
+>                         buf->sec_page = page_pool_alloc_pages(rx_q->page_pool, gfp);
+> -                       if (!buf->sec_page)
+> +                       if (!buf->sec_page) {
+> +                               netdev_err(priv->dev, "q%u: no buffer 2\n", queue);
+>                                 break;
+> +                       }
+>
+>                         buf->sec_addr = page_pool_get_dma_addr(buf->sec_page);
+>                 }
+>
+> and it is silent, so we are not suffering starvation of buffers.
+>
+> However, the hardware hangs during iperf3, and because it triggers the
+> MAC to stream PAUSE frames, and my network uses Netgear GS108 and GS116
+> unmanaged switches that always use flow-control between them (there's no
+> way not to) it takes down the entire network - as we've discussed
+> before. So, this problem is pretty fatal to the *entire* network.
+>
+> With this patch, the existing statistical counters for this condition
+> are incremented, and thus users can use ethtool -S to see what happened
+> and report whether they are seeing the same issue.
+>
+> Without this patch applied, there are no diagnostics from stmmac that
+> report what the state is. ethtool -d doesn't list the appropriate
+> registers (as I suspect part of the problem is the number of queues
+> is somewhat dynamic - userspace can change that configuration through
+> ethtool).
+>
+> Thus, one has to resort to using devmem2 to find out what's happened.
+> That's not user friendly.
+>
+> For me, devmem2 shows:
+>
+> Channel 0 status register:
+> Value at address 0x02491160: 0x00000484
+> bit 10: ETI early transmit interrupt - set
+> bit 9 : RWT receive watchdog - clear
+> bit 8 : RPS receieve process stopped - clear
+> bit 7 : RBU receive buffer unavailable - set
+> bit 6 : RI  receive interrupt - clear
+> bit 2 : TBU transmit buffer unavailable - set
+> bit 1 : TPS transmit process stopped - clear
+> bit 0 : TI  transmit interrupt - clear
+>
+> Debug status register:
+> Value at address 0x0249100c: 0x00006300
+> TPS[3:0] = 6 = Suspended, Tx descriptor unavailable or Tx buffer
+>                 underflow
+> RPS[3:0] = 3 = Running, waiting for Rx packet
+>
+> Metal Queue 0 debug register:
+> Value at address 0x02490d38: 0x002e0020
+> PRXQ[13:0] = 0x2e = 46 packets in receive queue
+> RXQSTS[1:0] = 2 = Rx queue fill-level above flow-control activate
+>                 threshold
+> RRCSTS[1:0] = 0 = Rx Queue Read Controller State = Idle
+>
+> > Firing interrupts when Rx fill ring runs dry (which IIUC this patches
+> > dies?) is not a good idea.
+>
+> Well, I'm thinking that at least on some platforms, such as the Jetson
+> Xavier NX, unless a different solution can be found, we need the RBU
+> interrupt to fire off a reset of the stmmac IP when this happens to
+> reduce the PAUSE frame flood on the network.
 
-Signed-off-by: Sten-Silver Ots <stensilver@gmail.com>
----
- .../boot/dts/rockchip/rk3588-rock-5-itx.dts   | 35 ++++++++++++++++++-
- 1 file changed, 34 insertions(+), 1 deletion(-)
+Hi Russell,
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
-index de154adb1497..d3ab6c68a60b 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
-@@ -421,7 +421,6 @@ vdd_npu_s0: regulator@42 {
- 		reg = <0x42>;
- 		fcs,suspend-voltage-selector = <1>;
- 		regulator-name = "vdd_npu_s0";
--		regulator-always-on;
- 		regulator-boot-on;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <950000>;
-@@ -683,6 +682,10 @@ &pd_gpu {
- 	domain-supply = <&vdd_gpu_s0>;
- };
- 
-+&pd_npu {
-+	domain-supply = <&vdd_npu_s0>;
-+};
-+
- &pinctrl {
- 	hym8563 {
- 		rtc_int: rtc-int {
-@@ -802,6 +805,36 @@ dp1_hpd: dp1-hpd {
- 	};
- };
- 
-+&rknn_core_0 {
-+	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_core_1 {
-+	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_core_2 {
-+	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_mmu_0 {
-+	status = "okay";
-+};
-+
-+&rknn_mmu_1 {
-+	status = "okay";
-+};
-+
-+&rknn_mmu_2 {
-+	status = "okay";
-+};
-+
- &pwm14 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pwm14m1_pins>;
--- 
-2.53.0
+Should that reset trigger be RPS, not RBU? My understanding of these
+status bits is RBU is just "RxDMA has failed to take a frame from the
+RxFIFO" while RPS is "the RxFIFO is full." That would make RBU our
+critical threshold to start proactively refilling, and RPS the "too
+late, we lose" threshold.
 
+Thinking aloud: Do you suppose the RxDMA waits for a wakeup signal
+sent whenever a frame is added to RxFIFO? That might explain why the
+former never recovers once the latter is full: a manual wakeup needs
+to be sent whenever we resolve RBU. Does the .enable_dma_reception()
+op need to be implemented for dwmac5, or have you tried that already?
+
+>
+> If we can't do that, then I think stmmac on these platforms needs to be
+> marked with CONFIG_BROKEN because right now there doesn't seem to be any
+> other viable solution.
+>
+> My intention with this patch is merely to start collecting the already
+> existing statistics so other users can start seeing whether they are
+> hitting the same or similar problem. If we're not prepared to do that,
+> then we should delete the useless statistics from ethtool -S, but I
+> suspect they're now part of the UAPI, even though without this patch
+> they will remain stedfastly stuck at zero.
+>
+> --
+> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
