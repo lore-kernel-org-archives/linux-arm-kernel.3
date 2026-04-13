@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF494F34C65
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 16:16:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8DE6F34C63
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 16:20:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D+FrOfT4Covm9FV8Q8vZRx7hii6aeNYLt2ouslmn3OM=; b=2BBddzapOcWVUAXpYO/IW38UGX
-	fMSxv7TTqVsW73bnaRETbcAOxxKwsZMkzyX51BVx2rZMr5Was9ZmH0hTbGimCWVkkUdrKckKKKSWj
-	DFXpdN9+Nk6HY3u97zIBhbHZ0SF+wmlpAk2LoYNdnJig+fzB3An8eJGWu3OeY15h+qu2cF48cBjX3
-	le5BnyWmemgPJ+JxbH5109DSOoJ1c/PLiU+0Ws+sDDLiR1VA7glu121aTLg67DK9cNMKcWmMvx1l8
-	EFs2b0aIhWYrXqgOq2ux4lwvVVyA21M1EZ2sXsZkT7bttPFcETW9j4e2pN10i7DlmBE2VMAzWOZx1
-	PKaXmo9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YH0mHltCpk09vpZSv6nIZp375YekbuGJG93Vt+2dp8Y=; b=DFWU1zrZzQkKWXtEjRwgM6b+a3
+	jJJxmClMbSieCE9AbMcUsdcGjr/Ox/QFAp12ltlcFp1olpOahfe2BJwblqHwu2wHOvK/mxi9dxd73
+	9e+jPEyEKkquq1Gt8ZLo4F4jdA9soNqDpvFFCXU5HwV4Ws7IBYeq23ZHPA4XD6jK2fzgXMyVGP3yO
+	BgOgSHNw+fWtOwjz0GUoamgECp39a1A3Hg7/HHMehLWlUOMktFTAYUMkiA3Tf3vsw/zBQVT9ZCivz
+	vu+Un6YBfjwMFy9yWxylhT7j5c9vMNs3u6M0lgxEm72xPpO2MsYOWjmQrWMY186K/CpKJPheusvHt
+	0gCYLAnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCJxU-0000000G2oB-405d;
-	Mon, 13 Apr 2026 16:16:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wCK1e-0000000G39F-3Mgw;
+	Mon, 13 Apr 2026 16:20:38 +0000
+Received: from mail.hugovil.com ([162.243.120.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCJxT-0000000G2o2-0tbv
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 16:16:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9314D6133C;
-	Mon, 13 Apr 2026 16:16:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 201E9C2BCAF;
-	Mon, 13 Apr 2026 16:16:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776096978;
-	bh=s0GwUHExH4iN6ORL9X/gv2Ol3KDyD0IWHk3CIXYTiuQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kSEiYwVVNDqkNOGFJlyXyMEfXbylJRhQHfHiecOFmq/5hD8BLWtz4RNtQBt4oQgUJ
-	 IDmkPBS9QF4yIrQjGHjGuni8vDAPswk8iJF4zZsQ3tRvOuYsqWfC+aRdn8YqHNjv/6
-	 jHM7kdzTSaQ++71op3y/TQPHhLsNMUYgMjh6ztNrwtBu1KJQS26m/TTiEG2C/X5ZEx
-	 VJ97LP/CF1M2ecnrQ3b7mrdVHZn8bgGaYqyUA6HBnvX2NQpUNAdl9GjNC1WJPYP1p1
-	 RY1bFEvthjSK1toNlL50id84i1EqNq7rumXyeTrF1u5l+qTxKtvPa6y6mV6zbIWD5Z
-	 7ojaosHo643pQ==
-Date: Mon, 13 Apr 2026 19:16:10 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: "Barry Song (Xiaomi)" <baohua@kernel.org>
-Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
-	catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
-	urezki@gmail.com, linux-kernel@vger.kernel.org,
-	anshuman.khandual@arm.com, ryan.roberts@arm.com, ajd@linux.ibm.com,
-	david@kernel.org, Xueyuan.chen21@gmail.com
-Subject: Re: [RFC PATCH 4/8] mm/vmalloc: Eliminate page table zigzag for huge
- vmalloc mappings
-Message-ID: <ad0Wyq5--L0SeIqr@kernel.org>
-References: <20260408025115.27368-1-baohua@kernel.org>
- <20260408025115.27368-5-baohua@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260408025115.27368-5-baohua@kernel.org>
+	id 1wCK1c-0000000G38e-0oDp;
+	Mon, 13 Apr 2026 16:20:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
+	; s=default; h=Content-Transfer-Encoding:Mime-Version:Message-Id:Subject:Cc:
+	To:From:Date:subject:date:message-id:reply-to;
+	bh=YH0mHltCpk09vpZSv6nIZp375YekbuGJG93Vt+2dp8Y=; b=ALkNiugEU9QiB3sJvasopnP1WS
+	kPR56ItS7pU6bT5IH8rswElfE1WdMcdIDusm0jcm9/uDclmAMqs79cE2jmokMOPy2XWOhBC38obV7
+	CY9jjmfZ5fa3Mf90rM4Lo9YhfnlZMMnfbwkT2BrOhU/+ApeCaJKd5hqCiVwMmJxvIGco=;
+Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168] helo=pettiford.lan)
+	by mail.hugovil.com with esmtpa (Exim 4.98.2)
+	(envelope-from <hugo@hugovil.com>)
+	id 1wCK1R-0000000038Y-2Ca0;
+	Mon, 13 Apr 2026 12:20:26 -0400
+Date: Mon, 13 Apr 2026 12:20:24 -0400
+From: Hugo Villeneuve <hugo@hugovil.com>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: robin@protonic.nl, andy@kernel.org, geert@linux-m68k.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ dmitry.torokhov@gmail.com, hvilleneuve@dimonoff.com,
+ mkorpershoek@kernel.org, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, lee@kernel.org,
+ alexander.sverdlin@gmail.com, marek.vasut@gmail.com, akurz@blala.de,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-input@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v5 4/4] Input: charlieplex_keypad: add GPIO charlieplex
+ keypad
+Message-Id: <20260413122024.0abf7e1da5e1e954edc52bc9@hugovil.com>
+In-Reply-To: <abPXX1eWoq7C7J1R@ashevche-desk.local>
+References: <20260312180304.3865850-1-hugo@hugovil.com>
+	<20260312180304.3865850-5-hugo@hugovil.com>
+	<abPXX1eWoq7C7J1R@ashevche-desk.local>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Spam_score: -2.0
+X-Spam_bar: --
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260413_092036_327287_205F18F7 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,64 +79,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 08, 2026 at 10:51:11AM +0800, Barry Song (Xiaomi) wrote:
-> For vmalloc() allocations with VM_ALLOW_HUGE_VMAP, we no longer
-> need to iterate over pages one by one, which would otherwise lead to
-> zigzag page table mappings.
-> 
-> The code is now unified with the PAGE_SHIFT case by simply
-> calling vmap_small_pages_range_noflush().
-> 
-> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-> ---
->  mm/vmalloc.c | 22 ++++------------------
->  1 file changed, 4 insertions(+), 18 deletions(-)
-> 
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index 5bf072297536..eba436386929 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -689,27 +689,13 @@ static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
->  int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
->  		pgprot_t prot, struct page **pages, unsigned int page_shift)
->  {
-> -	unsigned int i, nr = (end - addr) >> PAGE_SHIFT;
-> -
->  	WARN_ON(page_shift < PAGE_SHIFT);
->  
-> -	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC) ||
-> -			page_shift == PAGE_SHIFT)
-> -		return vmap_small_pages_range_noflush(addr, end, prot, pages, PAGE_SHIFT);
-> -
-> -	for (i = 0; i < nr; i += 1U << (page_shift - PAGE_SHIFT)) {
-> -		int err;
-> -
-> -		err = vmap_range_noflush(addr, addr + (1UL << page_shift),
-> -					page_to_phys(pages[i]), prot,
-> -					page_shift);
-> -		if (err)
-> -			return err;
-> +	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC))
-> +		page_shift = PAGE_SHIFT;
->  
-> -		addr += 1UL << page_shift;
-> -	}
-> -
-> -	return 0;
-> +	return vmap_small_pages_range_noflush(addr, end, prot, pages,
-> +			min(page_shift, PMD_SHIFT));
+Hi Dmitry,
 
-Wouldn't vmap_range_noflush() already "do the right thing" even without
-changes to vmap_small_pages_range_noflush()?
+On Fri, 13 Mar 2026 11:22:39 +0200
+Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
 
->  }
->  
->  int vmap_pages_range_noflush(unsigned long addr, unsigned long end,
-> -- 
-> 2.39.3 (Apple Git-146)
+> On Thu, Mar 12, 2026 at 02:00:58PM -0400, Hugo Villeneuve wrote:
+> > 
+> > Add support for GPIO-based charlieplex keypad, allowing to control
+> > N^2-N keys using N GPIO lines.
+> > 
+> > Reuse matrix keypad keymap to simplify, even if there is no concept
+> > of rows and columns in this type of keyboard.
 > 
+> LGTM,
+> Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+
+I was just wondering if this will go into v7.1, as I am not seing the
+patch series in your input/next tree/branch for the moment? Let me know
+if you need me to rebase it on v7.0.
 
 -- 
-Sincerely yours,
-Mike.
+Hugo Villeneuve
 
