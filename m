@@ -4,95 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45221F34C49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 13:06:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1549FF34C51
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 13:06:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Iko4iL350bHl0dtVV4q17CtQFS3AkOVgzaKO1i0BmHw=; b=s9y2Vw4/Q+C5PACB47RPfnud5T
-	p8mjagKPXoGpdq1vOaEo/+Le1aareK9gXBaMqtHevERLn7wKkZxXNMla8Wmzn8rwRLK+Of1SiSKbK
-	/SGYDoFamX/IAZZAO5I0CB8FcdJRfwVIm+gI0KK5jGZeHKgOgj1HnVTMNIqwvhDY2yrQlgwA6mDi+
-	AoJS8DBn8GO7YrAnPibFKS2dBhuZ2UbxB7wdr16rDw6txFBdVTK18o4iWkiAmtEssLzPDMRnNtA08
-	5/xlhCcOdR3nA9BPeIROvygg40CMB99tTs61J1jthUr3Hj+IRJlvazD2kOeK1JPp4EjylII+Ee/PM
-	MSr5omsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0kS7Su4usRbElOy/B7fygAASmC6IyYYq2f3y8QdvM0k=; b=kdM2AcA5RQSS4DGcPlZDSphL6R
+	/LfJas1bsI7mG9S/lZOWRRKFwIaUuUOVfv5zDBTHig9Tvul96H7c3WaMgPAr0ogqZfRdI/gUMadCH
+	s9EVdqvEKmqLmHwAiBL6o4fwk1Ifaj1Ifke/yiq7bH0JML1CHEEzy+Zz95DqSW6Q+LFjnV0PKAetQ
+	qnTaOLE46+QYY7Yk3zx9Gjal7G3TRNHx9xrZixy6bxjFVU+mJHEXOQV72lXASjDHcXdKU55nbTb4R
+	SbRWyQgML6p9rp5PyGVsEvOUOJoBEdUaPVxRG4heVAiKA+jnftTRQO4Syja8aBcTTWShh8RM2pHHN
+	HxSgcHXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCGzW-0000000Fhh2-0DWJ;
-	Mon, 13 Apr 2026 13:06:14 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1wCH03-0000000Fhp1-3Rkw;
+	Mon, 13 Apr 2026 13:06:47 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCGzS-0000000FhgT-2fk1;
-	Mon, 13 Apr 2026 13:06:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1776085571; x=1807621571;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=m1GPLNSP07gTZEdCOrDIkYV5h1LGGTFSBOSRoqBTE9M=;
-  b=Q7nl6dYMJKq7ppyyPnl4mmjiByYhsdibJDGA4sW8YUw8fzh+nFwnZn9L
-   iAJbXh515oz+qhNVU2OcgI0sC8eJ8Gz5uPcbsVH+cxIeptoorB8xlwndd
-   msCRpGeIew9tTm4bXYRGlJHu6veZJtPAlU4hWj3vIu8C/XYY7B2bMFF3H
-   RD1iB5UrIxzjjCaQ4CEIRpVyWm6+TW8d8iuItuy3wxhpBbhZvdbwTO/KC
-   IZJc1Jav0HBKMPOvsat9HP2Tt2C1qGxnW5vGJZ01kBNvDRw2kRZ5CZDZT
-   t5k5zXnzlG/vevhbVO/2vzDm0t8bVAVg4ocvzlomJtzL4jXVcUtEr5Vsj
-   Q==;
-X-CSE-ConnectionGUID: +7H5kPI0QSW96q957Zflxw==
-X-CSE-MsgGUID: ZAa2vvTbSGCA8aSRXSBMnA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11758"; a="76926676"
-X-IronPort-AV: E=Sophos;i="6.23,177,1770624000"; 
-   d="scan'208";a="76926676"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Apr 2026 06:06:07 -0700
-X-CSE-ConnectionGUID: XTvhLMeDSvSBM281Sg4XIw==
-X-CSE-MsgGUID: Tk8VfxcDR0yDidSuU528tQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,177,1770624000"; 
-   d="scan'208";a="231507270"
-Received: from slindbla-desk.ger.corp.intel.com (HELO localhost) ([10.245.246.182])
-  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Apr 2026 06:05:57 -0700
-From: Jani Nikula <jani.nikula@linux.intel.com>
-To: Kory Maincent <kory.maincent@bootlin.com>
-Cc: Rodrigo Vivi <rodrigo.vivi@intel.com>, Joonas Lahtinen
- <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Dave
- Airlie <airlied@redhat.com>, Jesse Barnes <jbarnes@virtuousgeek.org>, Eric
- Anholt <eric@anholt.net>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda
- <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
- Robert Foss <rfoss@kernel.org>, Laurent Pinchart
- <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Chun-Kuang Hu
- <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Matthias
- Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Chris Wilson
- <chris@chris-wilson.co.uk>, Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>, Mark Yacoub <markyacoub@google.com>, Sean
- Paul <seanpaul@google.com>, Louis Chauvet <louis.chauvet@bootlin.com>,
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- Simona Vetter <simona.vetter@ffwll.ch>
-Subject: Re: [PATCH RFC 10/12] drm/i915/display/dp: Adopt dp_connector
- helpers to expose link training state
-In-Reply-To: <20260413143402.76f5c3c9@kmaincent-XPS-13-7390>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
- 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
-References: <20260409-feat_link_cap-v1-0-7069e8199ce2@bootlin.com>
- <20260409-feat_link_cap-v1-10-7069e8199ce2@bootlin.com>
- <e253ca4fa0b493032a7b35a0a20689b9d9e0c4e7@intel.com>
- <20260413143402.76f5c3c9@kmaincent-XPS-13-7390>
-Date: Mon, 13 Apr 2026 16:05:53 +0300
-Message-ID: <9f4bb4501c4885f432cbe9b6a10b7d27e40b0876@intel.com>
+	id 1wCGzz-0000000FhmL-3dHC
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Apr 2026 13:06:46 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.198])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4fvSMK4t2bzYQttW
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 21:05:49 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id 54A3E40575
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 21:06:32 +0800 (CST)
+Received: from localhost.huawei.com (unknown [10.67.174.243])
+	by APP4 (Coremail) with SMTP id gCh0CgA3Ib9U6txpI8MQAQ--.65519S6;
+	Mon, 13 Apr 2026 21:06:32 +0800 (CST)
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+To: bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Anton Protopopov <a.s.protopopov@gmail.com>,
+	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+	Shahab Vahedi <list+bpf@vahedi.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>,
+	Hengqi Chen <hengqi.chen@gmail.com>,
+	Johan Almbladh <johan.almbladh@anyfinetworks.com>,
+	Paul Burton <paulburton@kernel.org>,
+	Hari Bathini <hbathini@linux.ibm.com>,
+	Christophe Leroy <chleroy@kernel.org>,
+	Naveen N Rao <naveen@kernel.org>,
+	Luke Nelson <luke.r.nels@gmail.com>,
+	Xi Wang <xi.wang@gmail.com>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Pu Lehui <pulehui@huawei.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Wang YanQing <udknight@gmail.com>
+Subject: [PATCH bpf-next v14 4/5] bpf, x86: Emit ENDBR for indirect jump targets
+Date: Mon, 13 Apr 2026 12:45:01 +0000
+Message-ID: <0d74f28347a2223b92a2bb634a6793c182ef145f.1776062885.git.xukuohai@hotmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1776062885.git.xukuohai@hotmail.com>
+References: <cover.1776062885.git.xukuohai@hotmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: gCh0CgA3Ib9U6txpI8MQAQ--.65519S6
+X-Coremail-Antispam: 1UD129KBjvJXoWxZr4DXF1DAFW8Jw13WFW3KFg_yoWrKF13pa
+	9xJ3sIyrZ8WFs8KF1kXF47CFy7AF4qgryfGr4rt3yruw42grnYgF15Ka4FqFyYkrWrKrn7
+	XFyjkr1DWw1ku37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPvb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUAV
+	Cq3wA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0
+	rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcVCY1x0267
+	AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E
+	14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7
+	xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Y
+	z7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2
+	AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAq
+	x4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6r
+	W5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF
+	7I0E14v26r4UJVWxJr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14
+	v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuY
+	vjxUI-eODUUUU
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_060610_764289_4EB1EE10 
-X-CRM114-Status: GOOD (  23.34  )
+X-CRM114-CacheID: sfid-20260413_060644_292076_B01916E7 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,125 +112,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 13 Apr 2026, Kory Maincent <kory.maincent@bootlin.com> wrote:
-> On Fri, 10 Apr 2026 19:26:53 +0300
-> Jani Nikula <jani.nikula@linux.intel.com> wrote:
->
->> On Thu, 09 Apr 2026, Kory Maincent <kory.maincent@bootlin.com> wrote:
->> > Switch the i915 DP connector initialization from drmm_connector_init()
->> > to drmm_connector_dp_init(), providing the source link capabilities
->> > (supported lane counts, link rates, DSC support, voltage swing and
->> > pre-emphasis levels).
->> >
->> > Add intel_dp_report_link_train() to collect the negotiated link
->> > parameters (rate, lane count, DSC enable, per-lane voltage swing and
->> > pre-emphasis) and report them via
->> > drm_connector_dp_set_link_train_properties() once link training completes
->> > successfully.
->> >
->> > Reset the link training properties via
->> > drm_connector_dp_reset_link_train_properties() when the connector is
->> > reported as disconnected or when the display device is disabled, so
->> > the exposed state always reflects the current link status.
->> >
->> > Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
->> > ---
->> >  drivers/gpu/drm/i915/display/intel_dp.c            | 31
->> > +++++++++++++++++++--- .../gpu/drm/i915/display/intel_dp_link_training.c  |
->> > 25 +++++++++++++++++ 2 files changed, 52 insertions(+), 4 deletions(-)
->> >
->> > diff --git a/drivers/gpu/drm/i915/display/intel_dp.c
->> > b/drivers/gpu/drm/i915/display/intel_dp.c index
->> > 2af64de9c81de..641406bdc0cc9 100644 ---
->> > a/drivers/gpu/drm/i915/display/intel_dp.c +++
->> > b/drivers/gpu/drm/i915/display/intel_dp.c @@ -45,6 +45,7 @@
->> >  #include <drm/display/drm_hdmi_helper.h>
->> >  #include <drm/drm_atomic_helper.h>
->> >  #include <drm/drm_crtc.h>
->> > +#include <drm/drm_dp_connector.h>
->> >  #include <drm/drm_edid.h>
->> >  #include <drm/drm_fixed.h>
->> >  #include <drm/drm_managed.h>
->> > @@ -6337,8 +6338,10 @@ intel_dp_detect(struct drm_connector *_connector,
->> >  	drm_WARN_ON(display->drm,
->> >  		    !drm_modeset_is_locked(&display->drm->mode_config.connection_mutex));
->> >  
->> > -	if (!intel_display_device_enabled(display))
->> > +	if (!intel_display_device_enabled(display)) {
->> > +		drm_connector_dp_reset_link_train_properties(_connector);
->> >  		return connector_status_disconnected;
->> > +	}
->> >  
->> >  	if (!intel_display_driver_check_access(display))
->> >  		return connector->base.status;
->> > @@ -6388,6 +6391,8 @@ intel_dp_detect(struct drm_connector *_connector,
->> >  
->> >  		intel_dp_tunnel_disconnect(intel_dp);
->> >  
->> > +		drm_connector_dp_reset_link_train_properties(_connector);
->> > +
->> >  		goto out_unset_edid;
->> >  	}
->> >  
->> > @@ -7162,10 +7167,12 @@ intel_dp_init_connector(struct intel_digital_port
->> > *dig_port, struct intel_connector *connector)
->> >  {
->> >  	struct intel_display *display = to_intel_display(dig_port);
->> > +	struct drm_connector_dp_link_train_caps link_caps;
->> >  	struct intel_dp *intel_dp = &dig_port->dp;
->> >  	struct intel_encoder *encoder = &dig_port->base;
->> >  	struct drm_device *dev = encoder->base.dev;
->> >  	enum port port = encoder->port;
->> > +	u32 *rates;
->> >  	int type;
->> >  
->> >  	if (drm_WARN(dev, dig_port->max_lanes < 1,
->> > @@ -7213,8 +7220,25 @@ intel_dp_init_connector(struct intel_digital_port
->> > *dig_port, type == DRM_MODE_CONNECTOR_eDP ? "eDP" : "DP",
->> >  		    encoder->base.base.id, encoder->base.name);
->> >  
->> > -	drmm_connector_init(dev, &connector->base,
->> > &intel_dp_connector_funcs,
->> > -			    type, &intel_dp->aux.ddc);
->> > +	intel_dp_set_source_rates(intel_dp);
->> > +	link_caps.nlanes = DRM_DP_1LANE | DRM_DP_2LANE | DRM_DP_4LANE;
->> > +	link_caps.nrates = intel_dp->num_source_rates;
->> > +	rates = kzalloc_objs(*rates, intel_dp->num_source_rates);
->> > +	if (!rates)
->> > +		goto fail;
->> > +
->> > +	for (int i = 0; i < intel_dp->num_source_rates; i++)
->> > +		rates[i] = intel_dp->source_rates[i];
->> > +
->> > +	link_caps.rates = rates;
->> > +	link_caps.dsc = true;  
->> 
->> You have a source, you have a sink, and you have a link between the two.
->> 
->> Source rates do not reflect the link rates common between source and
->> sink.
->> 
->> DSC depends on source and sink, and it's not statically "true" for
->> either, and depends on a bunch of things.
->
-> At init, we are reporting the capabilities of the source. So we list every
-> link rates that the source can achieve and we report that the source is DSC
-> capable which it is IIUC the code. Or maybe I am missing something?
+From: Xu Kuohai <xukuohai@huawei.com>
 
-IMO link caps is the intersection of the source and sink caps. If the
-sink is unknown, i.e. its caps are the empty set, then the link caps
-should also be the empty set.
+On CPUs that support CET/IBT, the indirect jump selftest triggers
+a kernel panic because the indirect jump targets lack ENDBR
+instructions.
 
-If you need to know the source caps, then they need to be presented
-separately.
+To fix it, emit an ENDBR instruction to each indirect jump target. Since
+the ENDBR instruction shifts the position of original jited instructions,
+fix the instruction address calculation wherever the addresses are used.
 
-Moreover, the source does not unconditionally support DSC. See
-intel_dp_has_dsc().
+For reference, below is a sample panic log.
 
+ Missing ENDBR: bpf_prog_2e5f1c71c13ac3e0_big_jump_table+0x97/0xe1
+ ------------[ cut here ]------------
+ kernel BUG at arch/x86/kernel/cet.c:133!
+ Oops: invalid opcode: 0000 [#1] SMP NOPTI
 
-BR,
-Jani.
+ ...
 
+  ? 0xffffffffc00fb258
+  ? bpf_prog_2e5f1c71c13ac3e0_big_jump_table+0x97/0xe1
+  bpf_prog_test_run_syscall+0x110/0x2f0
+  ? fdget+0xba/0xe0
+  __sys_bpf+0xe4b/0x2590
+  ? __kmalloc_node_track_caller_noprof+0x1c7/0x680
+  ? bpf_prog_test_run_syscall+0x215/0x2f0
+  __x64_sys_bpf+0x21/0x30
+  do_syscall_64+0x85/0x620
+  ? bpf_prog_test_run_syscall+0x1e2/0x2f0
+
+Fixes: 493d9e0d6083 ("bpf, x86: add support for indirect jumps")
+Reviewed-by: Anton Protopopov <a.s.protopopov@gmail.com> # v8
+Reviewed-by: Emil Tsalapatis <emil@etsalapatis.com> # v12
+Acked-by: Leon Hwang <leon.hwang@linux.dev>
+Signed-off-by: Xu Kuohai <xukuohai@huawei.com>
+---
+ arch/x86/net/bpf_jit_comp.c | 28 +++++++++++++++-------------
+ 1 file changed, 15 insertions(+), 13 deletions(-)
+
+diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
+index 72d9a5faa230..ea9e707e8abf 100644
+--- a/arch/x86/net/bpf_jit_comp.c
++++ b/arch/x86/net/bpf_jit_comp.c
+@@ -58,8 +58,8 @@ static u8 *emit_code(u8 *ptr, u32 bytes, unsigned int len)
+ #define EMIT_ENDBR()		EMIT(gen_endbr(), 4)
+ #define EMIT_ENDBR_POISON()	EMIT(gen_endbr_poison(), 4)
+ #else
+-#define EMIT_ENDBR()
+-#define EMIT_ENDBR_POISON()
++#define EMIT_ENDBR()		do { } while (0)
++#define EMIT_ENDBR_POISON()	do { } while (0)
+ #endif
+ 
+ static bool is_imm8(int value)
+@@ -1649,8 +1649,8 @@ static int emit_spectre_bhb_barrier(u8 **pprog, u8 *ip,
+ 	return 0;
+ }
+ 
+-static int do_jit(struct bpf_prog *bpf_prog, int *addrs, u8 *image, u8 *rw_image,
+-		  int oldproglen, struct jit_context *ctx, bool jmp_padding)
++static int do_jit(struct bpf_verifier_env *env, struct bpf_prog *bpf_prog, int *addrs, u8 *image,
++		  u8 *rw_image, int oldproglen, struct jit_context *ctx, bool jmp_padding)
+ {
+ 	bool tail_call_reachable = bpf_prog->aux->tail_call_reachable;
+ 	struct bpf_insn *insn = bpf_prog->insnsi;
+@@ -1663,7 +1663,7 @@ static int do_jit(struct bpf_prog *bpf_prog, int *addrs, u8 *image, u8 *rw_image
+ 	void __percpu *priv_stack_ptr;
+ 	int i, excnt = 0;
+ 	int ilen, proglen = 0;
+-	u8 *prog = temp;
++	u8 *ip, *prog = temp;
+ 	u32 stack_depth;
+ 	int err;
+ 
+@@ -1734,6 +1734,11 @@ static int do_jit(struct bpf_prog *bpf_prog, int *addrs, u8 *image, u8 *rw_image
+ 				dst_reg = X86_REG_R9;
+ 		}
+ 
++		if (bpf_insn_is_indirect_target(env, bpf_prog, i - 1))
++			EMIT_ENDBR();
++
++		ip = image + addrs[i - 1] + (prog - temp);
++
+ 		switch (insn->code) {
+ 			/* ALU */
+ 		case BPF_ALU | BPF_ADD | BPF_X:
+@@ -2440,8 +2445,6 @@ st:			if (is_imm8(insn->off))
+ 
+ 			/* call */
+ 		case BPF_JMP | BPF_CALL: {
+-			u8 *ip = image + addrs[i - 1];
+-
+ 			func = (u8 *) __bpf_call_base + imm32;
+ 			if (src_reg == BPF_PSEUDO_CALL && tail_call_reachable) {
+ 				LOAD_TAIL_CALL_CNT_PTR(stack_depth);
+@@ -2465,7 +2468,8 @@ st:			if (is_imm8(insn->off))
+ 			if (imm32)
+ 				emit_bpf_tail_call_direct(bpf_prog,
+ 							  &bpf_prog->aux->poke_tab[imm32 - 1],
+-							  &prog, image + addrs[i - 1],
++							  &prog,
++							  ip,
+ 							  callee_regs_used,
+ 							  stack_depth,
+ 							  ctx);
+@@ -2474,7 +2478,7 @@ st:			if (is_imm8(insn->off))
+ 							    &prog,
+ 							    callee_regs_used,
+ 							    stack_depth,
+-							    image + addrs[i - 1],
++							    ip,
+ 							    ctx);
+ 			break;
+ 
+@@ -2639,7 +2643,7 @@ st:			if (is_imm8(insn->off))
+ 			break;
+ 
+ 		case BPF_JMP | BPF_JA | BPF_X:
+-			emit_indirect_jump(&prog, insn->dst_reg, image + addrs[i - 1]);
++			emit_indirect_jump(&prog, insn->dst_reg, ip);
+ 			break;
+ 		case BPF_JMP | BPF_JA:
+ 		case BPF_JMP32 | BPF_JA:
+@@ -2729,8 +2733,6 @@ st:			if (is_imm8(insn->off))
+ 			ctx->cleanup_addr = proglen;
+ 			if (bpf_prog_was_classic(bpf_prog) &&
+ 			    !ns_capable_noaudit(&init_user_ns, CAP_SYS_ADMIN)) {
+-				u8 *ip = image + addrs[i - 1];
+-
+ 				if (emit_spectre_bhb_barrier(&prog, ip, bpf_prog))
+ 					return -EINVAL;
+ 			}
+@@ -3791,7 +3793,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
+ 	for (pass = 0; pass < MAX_PASSES || image; pass++) {
+ 		if (!padding && pass >= PADDING_PASSES)
+ 			padding = true;
+-		proglen = do_jit(prog, addrs, image, rw_image, oldproglen, &ctx, padding);
++		proglen = do_jit(env, prog, addrs, image, rw_image, oldproglen, &ctx, padding);
+ 		if (proglen <= 0) {
+ out_image:
+ 			image = NULL;
 -- 
-Jani Nikula, Intel
+2.47.3
+
 
