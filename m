@@ -4,74 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81B8FF34C5C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 14:43:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47CD2F34C5E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 14:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qZXQx6kCEVLHkvrJf8yo7jK7KcskVbu8IUZM19Y4EwA=; b=aVGbIKkZ01uIUzd/wsp0061bOj
-	n1Pu015d9CqFD+eyDqJ+SQZkcxnTL7Z0S+fANllvQNyvL2IHHtTYScj4fQQLlWpJ0jqBR/FJ+EyZ4
-	mYyUBlD+8dOsHRQrGrupH2C0k5OgiwqxKeN2d1oHdgX3fPVcWK9OuIgojTOghrJOJo2G2tBxdyhm4
-	fFXzXLcOScYrh3591kf0oAvK/gVB5B6KjC1pAGUR6Vgr9QT/Ar3nvzNU/iwv0PSSTgDjMgTANTeV+
-	0x7i4OTl58wRErtiZxxlcS7qmMocEUJsEtz2xbmotEh5LSWSJvbNsdSQocSUAUjGkOAnv03N3YpUE
-	ea0UpH1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CPqrtdPK1fzOFd0Y9/MDHGVDApYeKMdzUWsDXpmbjTE=; b=BhpJP8AlyTr7gGgUnUYZpsNlEt
+	UaBB+EvcGi/l4QRxpRMkRHJ7K2FhPXxZM0VjzEaYmolap7eHUgB7bFN5hxQEz5YH4HQCVSSXRxXoZ
+	JeebRlcIpb/wmuZ0VI7ZivGCXl+BCF7vvY1yV++gBo22Txj14WUWMMIQLABNZySkjBEm7vUt9XfPp
+	tAhIjGUzw7DXAlsNlrKQ3Z9wDoqE9med9V0GNZGZfDvd3zvOzdGKzI3Hg/SCknjQKyX6lMmtgaQ4Y
+	Lk6qUDZe4i+cOQvSkGQbys+WAe9jDMf3PDULzbKKP8CuFRjoYfjGBFGGP+s8oI7xSUr2BLijfC4AO
+	zPVyrB8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCIVA-0000000FstM-2RHS;
-	Mon, 13 Apr 2026 14:43:00 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1wCIVt-0000000FszI-3xgk;
+	Mon, 13 Apr 2026 14:43:45 +0000
+Received: from flow-b2-smtp.messagingengine.com ([202.12.124.137])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCIV7-0000000FssI-0eLa
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 14:42:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=qZXQx6kCEVLHkvrJf8yo7jK7KcskVbu8IUZM19Y4EwA=; b=q3hzH+m1sF+i+Zwcg2/xUGnpNn
-	eppoHoCXoNnAYUlWsFP7JMg/9SATF1lnmonNbq904YLHEUmfONcVZk19vxn2WrQMrGxTyVt+Qjcdr
-	XuPptOFR62R5zYtQelIeCtce8Dh1vlx0ap/MS2LMxLsf7+Mq7jzavyzgWcmXjUvG6ATbK9Qk5ZO7N
-	eWOl4eQZAl/kr9rPr7ToAHPM27pfMxnfMqRqTuGjNnpR0dCXvTBlAEeJT9uoT2btLMZXzSYzZ3yMy
-	EEzxd30ktw6NHZBqngVbKWkkGls1KG/hU8c84Wkvy8bKDIDcbnWxkn6k09H9ZpBWiN+pIYgd9ljLk
-	YQQr6OTg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:57578)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1wCIV0-000000008PX-1RZ7;
-	Mon, 13 Apr 2026 15:42:50 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1wCIUy-000000000GB-2hxI;
-	Mon, 13 Apr 2026 15:42:48 +0100
-Date: Mon, 13 Apr 2026 15:42:48 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Will Deacon <will@kernel.org>
-Cc: Brian Ruley <brian.ruley@gehealthcare.com>,
-	Steve Capper <steve.capper@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	catalin.marinas@arm.com
-Subject: Re: [PATCH] mm/arm: pgtable: remove young bit check for
- pte_valid_user
-Message-ID: <ad0A6Oe7XnVUQe-5@shell.armlinux.org.uk>
-References: <20260409125446.981747-1-brian.ruley@gehealthcare.com>
- <adewJetUv6wMiz9o@willie-the-truck>
- <adfDEMK8EbIjPu3J@zoo11.fihel.lab.ge-healthcare.net>
- <adfNN33QIOP3VfDm@shell.armlinux.org.uk>
- <adjYlUk8_JjPivNi@zoo11.fihel.lab.ge-healthcare.net>
- <adzMOdySgMIePcue@willie-the-truck>
+	id 1wCIVr-0000000FsyV-0aWo;
+	Mon, 13 Apr 2026 14:43:44 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailflow.stl.internal (Postfix) with ESMTP id 580C613004A2;
+	Mon, 13 Apr 2026 10:43:39 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Mon, 13 Apr 2026 10:43:41 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1776091419;
+	 x=1776098619; bh=CPqrtdPK1fzOFd0Y9/MDHGVDApYeKMdzUWsDXpmbjTE=; b=
+	dThTVDJRrT61VUkRS+cdt7Y0Z5RRsLEBjlt5LbUT/Wkj3XuC1dVyKWZPgLth6rHI
+	xbXnXmRzoJxvLeN5K5KTS4bLI9JTPMUMZHJQi9mq2+Mm0O8HtxzN6gdwi5dKMGzS
+	o1z8qIdRudVgAnBmJYPys1vSE6iXXFJKhXBunGcqiXTQxSIZPwExbixipylrVyN9
+	4kf4i5YSOQ5TyiEguuaQMFY1bjfsEzY4T5yjV+i49k3OFs/Vmf2QAO7EvG9pkkWh
+	N8bT6ZPczJACaYt7v0DdNhd+Jcw1QSr4sfdnPLEq3qIenfqRfJd23mvz1BSPAcJy
+	t7jf+cR2gTZwsPDeAUjd8w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1776091419; x=
+	1776098619; bh=CPqrtdPK1fzOFd0Y9/MDHGVDApYeKMdzUWsDXpmbjTE=; b=m
+	KaUdPcERkC+zzfJk9o14B4ADxV7hBFIrlwDzvbBZEzHm0PKs68AEHjccunfdwCIR
+	xandwmc3ligmxNR3yrYrjDSRktpJmwg0D7TTzo3rAlmWy0gSHQXh1wFw4+NYGyVg
+	zDlM8PgR4QH15XnDMMXbSfnGvjJh/j4eK/GlCalmtgkTknPnFph+dfWco8cTlWse
+	WFEPDTU+OA38Yo/f8OVtqBAERl/dqEvgrfDqnngro8UiU3Du4URjogCH7u9C6eP/
+	RYqA02k02M2VwiJpdNWH8HG6r4KmynyPDoJYdxTNeNoiAqYyt88JcV7BBjOLulpB
+	DJUQhLG59C0zm2Z5pxrQg==
+X-ME-Sender: <xms:GAHdaVYGCaKUPjfNsUorzxAck0ngCpZdPLdqJKjZEoxtd6QEkfV5yg>
+    <xme:GAHdaXPKX2B9tilU84LfHthnj4XuzUMENgXV2EBsOOdx9XMImcZUEPIIzoIwFqvOh
+    pcGkwnRvUUR4OUGZGU3iYkbbpFp25Dx9wq8LoeuFKlAv-Ydx1YT>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdefkeehtdcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieen
+    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
+    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopeegkedpmhhouggvpehsmhhtphhouhht
+    pdhrtghpthhtohepthdrshgrihhlvghrsegrlhhumhhnihdrvghthhiirdgthhdprhgtph
+    htthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohep
+    lhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopegurghvvghmse
+    gurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepmhhpvgesvghllhgvrhhmrghnrdhi
+    ugdrrghupdhrtghpthhtoheprhihrggsihhnihhnrdgrrdgrsehgmhgrihhlrdgtohhmpd
+    hrtghpthhtohepuhhrvgiikhhisehgmhgrihhlrdgtohhmpdhrtghpthhtohepuggvlhhl
+    vghrsehgmhigrdguvgdprhgtphhtthhopehhvghrsggvrhhtsehgohhnughorhdrrghprg
+    hnrgdrohhrghdrrghu
+X-ME-Proxy: <xmx:GAHdadx3OaLmpgnQ-qR09fFSyphBizIiykQxx2Qr5HCiMADvCUw5LA>
+    <xmx:GAHdabzajIhZOwZQz55Cqp-WmIPvMJl0Qeu3WJrRVrqO07JZC9K3bQ>
+    <xmx:GAHdaSIxPmEuEecG1TMTc2ieeRuLkqK7w1Mgwy5a1Wj0e-ew_hD6MQ>
+    <xmx:GAHdaVsDbvRI-p-Ezq237oUrDyOkdrmimmA3aH1JiaBrwsVneKVMbQ>
+    <xmx:GwHdaelj14NT6xOHjmTv_huVndzlY2JM81Rr0b3-wFbundNAWyZ-7jZM>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id E9F8A700065; Mon, 13 Apr 2026 10:43:35 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <adzMOdySgMIePcue@willie-the-truck>
+X-ThreadId: AaL_vZcj0OrJ
+Date: Mon, 13 Apr 2026 16:43:14 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Thomas Gleixner" <tglx@kernel.org>, LKML <linux-kernel@vger.kernel.org>
+Cc: "Michael Ellerman" <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org,
+ x86@kernel.org, "Baolu Lu" <baolu.lu@linux.intel.com>,
+ iommu@lists.linux.dev, "Michael Grzeschik" <m.grzeschik@pengutronix.de>,
+ Netdev <netdev@vger.kernel.org>, linux-wireless@vger.kernel.org,
+ "Herbert Xu" <herbert@gondor.apana.org.au>, linux-crypto@vger.kernel.org,
+ "Vlastimil Babka (SUSE)" <vbabka@kernel.org>, linux-mm@kvack.org,
+ "David Woodhouse" <dwmw2@infradead.org>,
+ "Bernie Thompson" <bernie@plugable.com>, linux-fbdev@vger.kernel.org,
+ "Theodore Ts'o" <tytso@mit.edu>, linux-ext4@vger.kernel.org,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Uladzislau Rezki (Sony)" <urezki@gmail.com>,
+ "Marco Elver" <elver@google.com>, "Dmitry Vyukov" <dvyukov@google.com>,
+ kasan-dev@googlegroups.com, "Andrey Ryabinin" <ryabinin.a.a@gmail.com>,
+ "Thomas Sailer" <t.sailer@alumni.ethz.ch>, linux-hams@vger.kernel.org,
+ "Jason A . Donenfeld" <Jason@zx2c4.com>,
+ "Richard Henderson" <richard.henderson@linaro.org>,
+ linux-alpha@vger.kernel.org, "Russell King" <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Huacai Chen" <chenhuacai@kernel.org>, loongarch@lists.linux.dev,
+ "Geert Uytterhoeven" <geert@linux-m68k.org>,
+ linux-m68k@lists.linux-m68k.org, "Dinh Nguyen" <dinguyen@kernel.org>,
+ "Jonas Bonn" <jonas@southpole.se>,
+ "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
+ "Helge Deller" <deller@gmx.de>, linux-parisc@vger.kernel.org,
+ "Paul Walmsley" <pjw@kernel.org>, linux-riscv@lists.infradead.org,
+ "Heiko Carstens" <hca@linux.ibm.com>, linux-s390@vger.kernel.org,
+ "David S . Miller" <davem@davemloft.net>, sparclinux@vger.kernel.org
+Message-Id: <3d7c3433-2325-4bb2-a8f6-ddd11c82f71d@app.fastmail.com>
+In-Reply-To: <20260410120319.723429844@kernel.org>
+References: <20260410120044.031381086@kernel.org>
+ <20260410120319.723429844@kernel.org>
+Subject: Re: [patch 32/38] powerpc/spufs: Use mftb() directly
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_074257_194291_C51AFEA2 
-X-CRM114-Status: GOOD (  43.57  )
+X-CRM114-CacheID: sfid-20260413_074343_228821_DBD22F11 
+X-CRM114-Status: UNSURE (   6.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,104 +141,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 13, 2026 at 11:58:01AM +0100, Will Deacon wrote:
-> On Fri, Apr 10, 2026 at 02:01:41PM +0300, Brian Ruley wrote:
-> > On Apr 09, Russell King (Oracle) wrote:
-> > > 
-> > > On Thu, Apr 09, 2026 at 06:17:36PM +0300, Brian Ruley wrote:
-> > > > However, in the case I describe, if VA_B is mapped immediately to pfn_q
-> > > > after it been has unmapped and freed for VA_A, then it's quite possible
-> > > > that the page is still indexed in the cache.
-> > > 
-> > > True.
-> > > 
-> > > > The hypothesis is that if
-> > > > VA_A and VA_B land in the same I-cache set and VA_A old cache entry
-> > > > still exists (tagged with pfn_q), then the CPU can fetch stale
-> > > > instructions because the tag will match. That's one reason why we need
-> > > > to invalidate the cache, but that will be skipped in the path:
-> > > >
-> > > >     migrate_pages
-> > > >      migrate_pages_batch
-> > > >       migrate_folio_move
-> > > >        remove_migration_ptes
-> > > >         remove_migration_pte
-> > > >          set_pte_at
-> > > >           set_ptes
-> > > >            __sync_icache_dcache  (skipped if !young)
-> > > >             set_pte_ext
-> > > 
-> > > In this case, if the old PTE was marked !young, then the new PTE will
-> > > have:
-> > >         pte = pte_mkold(pte);
-> > > 
-> > > on it, which marks it !young. As you say, __sync_icache_dcache() will
-> > > be skipped. While a PTE entry will be set for the kernel, the code in
-> > > set_pte_ext() will *not* establish a hardware PTE entry. For the
-> > > 2-level pte code:
-> > > 
-> > >         tst     r1, #L_PTE_YOUNG        @ <- results in Z being set
-> > >         tstne   r1, #L_PTE_VALID        @ <- not executed
-> > >         eorne   r1, r1, #L_PTE_NONE     @ <- not executed
-> > >         tstne   r1, #L_PTE_NONE         @ <- not executed
-> > >         moveq   r3, #0                  @ <- hardware PTE value
-> > >  ARM(   str     r3, [r0, #2048]! )      @ <- writes hardware PTE
-> > > 
-> > > So, for a !young PTE, the hardware PTE entry is written as zero,
-> > > which means accesses should fault, which will then cause the PTE to
-> > > be marked young.
-> > > 
-> > > For the 3-level case, the L_PTE_YOUNG bit corresponds with the AF bit
-> > > in the PTE, and there aren't split Linux / hardware PTE entries. AF
-> > > being clear should result in a page fault being generated for the
-> > > kernel to handle making the PTE young.
-> > > 
-> > > In both of these cases, set_ptes() will need to be called with the
-> > > updated PTE which will now be marked young, and that will result in
-> > > the I-cache being flushed.
-> > 
-> > Hi Russell,
-> > 
-> > Thank you for the clarification, this is very educational for me.
-> > I understand your scepticism, and I can't explain what's going on based
-> > on what you replied. However, I do honestly believe there is a problem
-> > here. I'll share the exact testing details and the instrumentation
-> > we added that convinced us to reach out at the end. One idea we also
-> > had was that could cache aliasing be happening here.
-> 
-> I thought a bit more about this over the weekend and started to wonder
-> if there's a potential race where multiple CPUs try to write the same
-> PTE and don't synchronise properly on the cache-maintenance.
-> 
-> In particular, PG_dcache_clean is manipulated with a test_and_set_bit()
-> operation _before_ the cache maintenance is performed, so there's a
-> small window where the flag is set but the page is _not_ clean. I don't
-> think that matters with regards to invalid migration entries, but
-> perhaps the migration just means that we end up putting down a bunch of
-> 'old' entries and are then more likely to see concurrent faults trying
-> to make the thing young again, potentially hitting this race.
-> 
-> Looking at arm64 this morning, I noticed that we split the flag
-> manipulation so that it's set with a set_bit() after the maintenance has
-> been performed. Git then points to 588a513d3425 ("arm64: Fix race
-> condition on PG_dcache_clean in __sync_icache_dcache()") which seems to
-> talk about the same race. In fact, the mailing list posting:
-> 
->   https://lore.kernel.org/all/20210514095001.13236-1-catalin.marinas@arm.com/
-> 
-> points out that arch/arm/ is also affected but we forgot to CC Russell
-> because I think this all came out of the MTE-enablement work [1] and it
+On Fri, Apr 10, 2026, at 14:21, Thomas Gleixner wrote:
+> There is no reason to indirect via get_cycles(), which is about to be
+> removed.
+>
+> Use mftb() directly.
+>
+> Signed-off-by: Thomas Gleixner <tglx@kernel.org>
+> Cc: Michael Ellerman <mpe@ellerman.id.au>
+> Cc: linuxppc-dev@lists.ozlabs.org
 
-If this is the problem, then I'll point out that this is the problem
-with *not* sharing even a base level of code between arm64 and arm,
-resulting in the same bugs being present in both, needing two separate
-fixes, but only one fix happens.
-
-Catalin was dead against any kind of code sharing though, so I suspect
-we're going to be forever fixing the same bugs in two separate chunks
-of code.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Acked-by: Arnd Bergmann <arnd@arndb.de>
 
