@@ -4,91 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ACDAF531C1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 18:04:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B607F531C0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 18:11:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uG6p1MFp+26v87RPXmsW7BAV+LfDZF1OPvLL93JOuM0=; b=KsdS8Knsf54UXcZOf0Yku63DzO
-	FE0EkDMaCVmvtfZrIAKiiE/4PAV7tXaj6/USPDDyXZ4bqnz8Zzj0saGGEQjm1BY2ZhHpfeUFurT4z
-	op4WqdwlXyoMQqMnYobL1Z+HN8mgTyu3yC2vYajnXUs5bJQ4M7p2EqmCQ00y2R+1AG8lIwu3s070D
-	YJAqUUgl1+CCp/duKr5vHHl67cpaoOmggtfBJ8zS+ElscLqSjHN3kzOiQ7Yrj3/+WpCRS07KhqPnL
-	nqOOtc5vMdZPBt04rdlXdctVSjcd+HBaBiFvwKjqpOrJYykGvbFV+BAvsnih47fDd8Go1lqqAwtps
-	lSxGgj7Q==;
+	bh=thMSOyRCtxX4mnV8s8UastfNC+eBisw9LHuDPQy4Nyc=; b=tBUMZtBmRYa9s52n6L3HVNNaiV
+	EMqOLFXeNGWio5b3N+d6bNUVW33ab4+ofXFhq0v7vy15EpccUZsHeGuBG9Oti/FhSnr7e2lwt8B1y
+	oMNddH2wnaMgQ+Oba+SlnzV1JRpJmL9zuC5DJZgkCKt8HYb6VxmuX5fseBsuS/4RbHGlg0MouYp9v
+	hrAGpiWPyCyb3lpsr0d404U5xsYacUx9Vl1WAnGSai2bzqqEt1sPscLe4xGe+GkVv9YveH+xzNJhz
+	ZWjNQVGSvb84j4DkDvnm2wsSOLjydPHPHrfuVh4kXRvkNFgX5nSyOfuiGfHGaBnGtXKFBDehGYMZt
+	KVOrJvBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCLdp-0000000GAKd-2507;
-	Mon, 13 Apr 2026 18:04:09 +0000
+	id 1wCLkS-0000000GAds-1e2g;
+	Mon, 13 Apr 2026 18:11:00 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCLdn-0000000GAK9-2BT6
+	id 1wCLkP-0000000GAdW-3jnE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 18:04:08 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63DEJK1t3539284
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 18:04:06 GMT
+	Mon, 13 Apr 2026 18:10:59 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63DF5Jop3750379
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 18:10:56 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=uG6p1MFp+26v87RPXmsW7BAV
-	+LfDZF1OPvLL93JOuM0=; b=olBy1O2OMOlg59z38ME2FspkMia97BPsNpQAcUFA
-	IVsJNTWZGxEWFER43A/2wB8v/RLuaowc9ryQia13ZkzfaKtA7SIWJBBFPiKQnssQ
-	fhiZosocLqiMn/iQ96JenS3iwW7e7L4mS17msFVvwue8U0NeYaaxysy17K7tzktx
-	EqgOZ4qzq98P/okV1scwWMVq7FMjS/w9003qg4uR9mJMDFW/Sp4jBSvd4f9qo4T9
-	l8kInOABbVzccqcotJ20RLO8X+yHYRA51pQBNSwZ2dS6OERlC8kahwcWYWSz6HG4
-	nhnfJ3mpMh/XOzXkgS1AMBrIRgVwALfs1bWlugv5dFmpcQ==
-Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dh258rsu7-1
+	:references:subject:to; s=qcppdkim1; bh=thMSOyRCtxX4mnV8s8UastfN
+	C+eBisw9LHuDPQy4Nyc=; b=Nxr7YDE+Ulwbsxs0uQJ+5XFCFHQ3rs6D447Ui0he
+	QKbSdxMt2HbxlqcqFyVNXKv1cdRJlXe5AjvPaa3qvzOBv3Wyyz5eXJaZFfPxKhIo
+	XTOdfMeDJploU2cL4J8PvpeUbbTzPpJKx9XQu2igu5lSzFPLjR9m4Gay+zyDts6g
+	th1flOoNgEstnMsA9vem9nKRS36CbA85DsT6PE6JkFkzaqxewn/zKahWRwkdcgtu
+	5Kx/4cOfY+LMvgE2CgE1LhX8YoOJ+lzwYkqZaHLefpYEkyGjWEnfHx+cXJ3QpFB6
+	ulBzEUNTB2oRatIaHovicUc4itXNbR9YRqMkh6FAinqO1g==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dh2tu8nf7-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 18:04:06 +0000 (GMT)
-Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-46ee4a74741so3562872b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 11:04:06 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 18:10:56 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-50b4076dc16so104755431cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 11:10:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1776103446; x=1776708246; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1776103856; x=1776708656; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=uG6p1MFp+26v87RPXmsW7BAV+LfDZF1OPvLL93JOuM0=;
-        b=hDIxog6gKLg1MVwTR8vjVFr4vkgK/xVZHEepkaOhBMFP95zheOuO3FAMwZN6LF0G/G
-         pGABvbt/x9c80ac3FwEuBSha6+liUfL4fM0tkER1hskjiXmMOv3qfJ15xskyKZ7cIYXA
-         zQNK0PSNLgJV51pMaccs6o5hvfNHKEfBFyZhaqLCCWLmV68QpZYoWAAmLQXy6M76USdj
-         ox+C7QzYwl7Riy7x/Qotxc9G8E/4lyueh7lxcNuaCal3AJduzz9sOt8qBtFqdrCqFeIj
-         E3lFP+Jh8NEsHogu9tq+IFhD4MiaVjGTB8KLu5wGh6xEaxr1KqQoa94MiJyS5PmgQIL2
-         JoKw==
+        bh=thMSOyRCtxX4mnV8s8UastfNC+eBisw9LHuDPQy4Nyc=;
+        b=L11emDLzMjZNaFooqImCXoHaBDBFSFyr0awpp/eZS+iCZ5k+E0MXj1BhNdPHdS2cTm
+         qpJOInUa696FUYdOsu52YN6kY1ON2/2Yn3kE0yoKFLL0EkdlRKPxWd04xCcdJKHa2w9W
+         lUzjcdPaj8gQ8krDXWPebukDe4mhlYDPLlUqya/OWt2YdPN2CXRAAEbHCu5tTMq6WhxX
+         Yq6cIgJH1HW4IVY8LIzvsA38btasXcgJwBugp2xadX5veuV/xNqbX85ktt+BEO1+AvsV
+         2J4CuFXt1N4YRLd34uW2yHKAh0hiPEmgrvm5408oAtUTzbhPga2fNwGMPbWFmlpxszg0
+         yCbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776103446; x=1776708246;
+        d=1e100.net; s=20251104; t=1776103856; x=1776708656;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=uG6p1MFp+26v87RPXmsW7BAV+LfDZF1OPvLL93JOuM0=;
-        b=i+D9kkQakK0N3qNTOE3r6g6tjh4CdSTqEa6lnLB+wpeiko/OUr4W9wE4GB3DOt98XD
-         mgZf60vLGoJ3/5sO/WyiOGoIst4Vk/JuM+ILmEgli65OleQTPCjQ82iC8jJDl4c6qjzF
-         05d6RWHHswaZ0dS9u3t0Q5SYIVSxOgZ/irPfPc7DkJ4I/8e0hpDz6GMCyuwMjCIfNboY
-         NzsYNCe1QpEWhgSZ0ky4ul8qHqGyfYtQobUVuQ/xluAHvtir0jbY9aDGdjlstPRa/hpv
-         XUqDKlm52EHtTnGnaG/1w5sBMAU3WncGQwbqeIVmAqqssnHi8ggigZVZeJFLitzUnX6K
-         CcpQ==
-X-Forwarded-Encrypted: i=1; AFNElJ83WbBhTpXrIS5J1aSpKIgiG8I0Jmt9ITxvXGXEDIhWPJpez+y/aZuytfT3ZdiEKI5iNbbSqddSj0R1isZmge0K@lists.infradead.org
-X-Gm-Message-State: AOJu0YxItJTx0vY0VPJe/HA5gSEIrQ/CJCCkFPqwUyycQ8PrI398Vosn
-	ANYwDelIGmqDUvr2HD+G6zY/bCZWHX3o0TzLTeqUk1zJIXyWa4WiOvQfpVZXLWH5SHK/wSA2goA
-	sbwnWZGVUB1amuzBfzChsS+kkcn2sLBBbnl24/UaNYGAcoxVE/c8gwcNfV91rGluR404p25LNl7
-	C/kA==
-X-Gm-Gg: AeBDiesMC7yFlfBx4L8CDRO6KMZaIHQrPiq11aSAKzR8NycrwMgHYl084nltDIox6Vj
-	MQ4wQjQohsqtXoH33ynSA4DY0b3w5OGhmvOlDmhd2JCcBbRqh18hdH1JiHztouJNu3nWTuRAn+E
-	3VvYd5cGLAaG9FLE9pB1TcpQ8uspsBQWdmqmSzOFmgq8lYEnAMm7Gth3R8BzvxoW/ZrJJX7Umh7
-	LRrh7scu0SIASlgqu2vNsd+9tTn3/zB2ch8Rws5+FW6jzYsifRr2WFRIRtQSFrPi7arN7syh91u
-	CrujFMR+48NyVysVIO2vtJRIq2+Lp54YPXRn94fKUIoZpevrsfaUKquiQuGy0SYRnF5EMxOEQdv
-	+6mlyY8a/tbiwV7dvUFKG/srEdje+IOrqi73Cgjzwr1XNA+Pls4C62dpACz8WIn9sGUBj4zwvRr
-	yu/lFzL0oq/EXtnCZCQSvQi2qYkLORkv/K+FOge4Lp13nJYg==
-X-Received: by 2002:a05:6808:67c5:b0:467:462b:ab0 with SMTP id 5614622812f47-4789e42be12mr7589011b6e.2.1776103445636;
-        Mon, 13 Apr 2026 11:04:05 -0700 (PDT)
-X-Received: by 2002:a05:6808:67c5:b0:467:462b:ab0 with SMTP id 5614622812f47-4789e42be12mr7588959b6e.2.1776103445107;
-        Mon, 13 Apr 2026 11:04:05 -0700 (PDT)
+        bh=thMSOyRCtxX4mnV8s8UastfNC+eBisw9LHuDPQy4Nyc=;
+        b=lq3ynQEJLPHtk8Msv+bSkYBPh4W/2oC9YPBgL3gXH9o+kOEnQK1C1uT80Ahy8W/V2y
+         CKrIKmICPaXv4LNwa2FpbpzgDYMD63Sw9xoRIPpCLw8DBVejgYaqAgeWKCy0lkXgIrls
+         lDfViuRkcQHY9hdoNluFHlixMpv2ch5r1bGs9CZdN7tQb+kquvha24mJdanFGkEQA90u
+         4WXn749XvPdLhAlmVzvo0jvUJecXp2rTsp/0fH8bmREKiHh+xd9O6Az8gaTjiB72f9dv
+         sf7go/y+aFP/snCtGLQIontFT4iJ9trMcyougwa/pVc55Ji9LKgBbPNa37v7oZw8mMhG
+         Rg1g==
+X-Forwarded-Encrypted: i=1; AFNElJ8D23xjMxzYeA/paFlQvK7Akzx/g4cbLnht8aJKIlcD+rVFr6TIU2bgTEOc+2WChChp7TpKCwSt+CX2ASnNh8Vv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3/QB5U4d0v3zlaJdYJ0KlaJXYnO4zmkB0rF/IJYudgqdvC2Fp
+	QKXGgJOZVXgZKnIqpRqi3BwzJXIu4IHDhjWDeNK/JqjNaKyhtZdtCW9efI77o3Qo/6EcFWp8LaB
+	RJOcgZRcJKc/+vN7k8iWolPYo+cugADbtWr23M0kVqyRIY8gwtDpEmYqpXD8hdKzqEIkTofL0xJ
+	0SwQ==
+X-Gm-Gg: AeBDietVHFyU++260oO7qLcFNlvPjwtawEHrxCvqqP6EW+sNnCl+pNeIHwEKqbMLw/h
+	eNyxSvkg/SyAKqR5HfwP+hbcQ8N3ZwshfPtBcbh//A1ts1xMeOQfGsRnJaCMp3Xl9+1HXXu6nBX
+	QKVVL2SNltiOIYBuZxh0CL3TY1jpq2tOjlEW4LH0xWCA6pzHbvOmzcdm7HBO2p9L/ShsnX4yweT
+	TXU5baAGaezN2z0YvXSB5K21PUOOJWx6Kli0do/ZwMHFodUkThN7uvFEJJ9tdzwTx7C66D+eWKa
+	f1+KAZbqMQCqv4q8AjMBkcEIgrblh/tL5AE4lXWhrub/R+zdx6uFvAIJ5im2XTlgW0KgdtPL8Jq
+	+73s6KV7Ke/FKWfpxT+/0X8YSxjpyyEF2xCkWmrCzETKvjimRNCu1BZ6epKD51q+d/pH3mX9+dy
+	vS4OJXkjzK+Sia756zOf9gO4wRSUP5f/jS/551ZEFVNlnLRw==
+X-Received: by 2002:a05:622a:1f8f:b0:50d:736a:624a with SMTP id d75a77b69052e-50dd5b95bafmr242460491cf.1.1776103855758;
+        Mon, 13 Apr 2026 11:10:55 -0700 (PDT)
+X-Received: by 2002:a05:622a:1f8f:b0:50d:736a:624a with SMTP id d75a77b69052e-50dd5b95bafmr242459651cf.1.1776103855207;
+        Mon, 13 Apr 2026 11:10:55 -0700 (PDT)
 Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a3eee865e7sm2765700e87.10.2026.04.13.11.04.03
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a3eeee12fesm2704689e87.40.2026.04.13.11.10.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Apr 2026 11:04:03 -0700 (PDT)
-Date: Mon, 13 Apr 2026 21:04:01 +0300
+        Mon, 13 Apr 2026 11:10:54 -0700 (PDT)
+Date: Mon, 13 Apr 2026 21:10:52 +0300
 From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 To: Luca Ceresoli <luca.ceresoli@bootlin.com>
 Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
@@ -118,42 +118,43 @@ Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
         dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
         linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
         linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 10/10] drm: of: forbid bridge-only calls to
- drm_of_find_panel_or_bridge()
-Message-ID: <nligqvm3lq6n556onglmb345arxztd4pc6fboo4yrs3bfu27eu@uiyu2xklnexb>
+Subject: Re: [PATCH 02/10] drm/msm/hdmi: switch to
+ of_drm_get_bridge_by_endpoint()
+Message-ID: <kie3dnybc3ycjcotnlxdanffv3hr6emaafy3xuhc3x7wsi5s5q@dqvqkm5fidof>
 References: <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-0-acd01cd79a1f@bootlin.com>
- <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-10-acd01cd79a1f@bootlin.com>
+ <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-2-acd01cd79a1f@bootlin.com>
+ <t45cmunr6lhxrvqgwa2mrh765zmjjderfpd32islrbg7jey4fq@d5635guivyla>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-10-acd01cd79a1f@bootlin.com>
-X-Proofpoint-GUID: -WAt0DVoG1TfRHuU7lQ--Ap89cwcFJ7R
-X-Authority-Analysis: v=2.4 cv=Vo4Txe2n c=1 sm=1 tr=0 ts=69dd3016 cx=c_pps
- a=WJcna6AvsNCxL/DJwPP1KA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+In-Reply-To: <t45cmunr6lhxrvqgwa2mrh765zmjjderfpd32islrbg7jey4fq@d5635guivyla>
+X-Proofpoint-ORIG-GUID: 2kJORIpabPum5HNVN9IIOvpNmCrH-zXA
+X-Proofpoint-GUID: 2kJORIpabPum5HNVN9IIOvpNmCrH-zXA
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEzMDE3OSBTYWx0ZWRfX3DxkfBF+cv6B
+ t5nEdsPc3EcMCQA94pzKf6b+Cx/4WPLmc5XIKCUMU0LvLwtryrcCi5fzNXuYXKu1taRg4GhrJxK
+ O7ARgNSJ9fdSyu4AgPEf+vKFn3VHgY+tdJ4PnPdvxrsEQfwrbgiqHTLpLA5OfxUn1H/pkyBlWh0
+ QQqAgAPGMksmAKLowBwBKZTmIGJ0IZkz6ICppOPgiiWLKswStoFy8lk1oJgJqyCwOBf/zdeAO4Z
+ n+mEGW9CUAWwff5d3NsFEYWBkRBQFZqHUB78Fy4dVZCAABPlZzJVtliM9BoVq6BuROYVMJIz/M+
+ PQ1cNXCoOJlJYy5rwDX2f6R5vWuFJBR2ANI5PpWRKkyotdI4rp7uRkYj8rcigQ4C2B4ELJhA95M
+ C8LAm+ok6t+r1Oe8iOc47IvTnEw+APX4ZGzT1L+Fh0GQYLa6xaMjVoljOO8KWKSxJ99t0Ycgwhj
+ K0D5sfRSnu8ssDGUgkg==
+X-Authority-Analysis: v=2.4 cv=RJ+D2Yi+ c=1 sm=1 tr=0 ts=69dd31b0 cx=c_pps
+ a=WeENfcodrlLV9YRTxbY/uA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
  a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=P-IC7800AAAA:8
- a=ihHiGccrl-12bfV6lMsA:9 a=CjuIK1q_8ugA:10 a=_Y9Zt4tPzoBS9L09Snn2:22
- a=d3PnA9EDa4IxuAV0gXij:22
-X-Proofpoint-ORIG-GUID: -WAt0DVoG1TfRHuU7lQ--Ap89cwcFJ7R
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEzMDE3NyBTYWx0ZWRfX3eZhGP4OZETh
- q0VpuY6tBSjvcJYIN2IdSpKhV0FP0xE81eUc+hsvZKp824igFyK6iH2LtBc0qSFXa3K+zmpYAaj
- 4icoYwcdTCzn5yuvcGJs3dKqKxQIRbANNNisFDzIma1209njJN/I53WiV9CXArEKOHiXK5LAioc
- 0D0smtsjpAT+F2+4gEcIZVGUNyJrqXTmt3NbNNc0WaQRKckdyDALLmmnOSNnpmvnP8jXbyDGQmo
- lAV/n/Bs77fcdju+wqvRVC3mMHunHD5IYX8DLLM70v3CLZU6nBxjP9nOGX2vvb0nxMCBaoBK9gs
- o/c28edEn+kMtLCViJ7i3mCyLwRwzy7jbLc/ZEMEuJBEQqdZhaZ7tIwbhI6Xt64SSp+TMJVao7N
- 99I8yf8AlPC/qN8TLT2HJQF+QARR+5QV/p1ciey0FfMdatxzq4RLP49+/lKfWqltumtQ0SgqRsG
- XGLAuD9n/8RoEc3N7ow==
+ a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=P-IC7800AAAA:8
+ a=EUspDBNiAAAA:8 a=Z46hioPf_zsqFS52ZJEA:9 a=CjuIK1q_8ugA:10
+ a=kacYvNCVWA4VmyqE58fU:22 a=d3PnA9EDa4IxuAV0gXij:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-04-13_03,2026-04-13_04,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 lowpriorityscore=0 impostorscore=0 bulkscore=0 spamscore=0
- adultscore=0 phishscore=0 malwarescore=0 priorityscore=1501 suspectscore=0
+ priorityscore=1501 impostorscore=0 bulkscore=0 spamscore=0 phishscore=0
+ clxscore=1015 adultscore=0 lowpriorityscore=0 suspectscore=0 malwarescore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604010000 definitions=main-2604130177
+ reason=mlx scancount=1 engine=8.22.0-2604010000 definitions=main-2604130179
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_110407_701523_063C6C03 
-X-CRM114-Status: GOOD (  17.35  )
+X-CRM114-CacheID: sfid-20260413_111058_052984_5B9F0A7A 
+X-CRM114-Status: GOOD (  22.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,25 +169,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 13, 2026 at 03:58:42PM +0200, Luca Ceresoli wrote:
-> Up to now drm_of_find_panel_or_bridge() can be called with a bridge pointer
-> only, a panel pointer only, or both a bridge and a panel pointers. The
-> logic to handle all the three cases is somewhat complex to read however.
+On Mon, Apr 13, 2026 at 08:57:42PM +0300, Dmitry Baryshkov wrote:
+> On Mon, Apr 13, 2026 at 03:58:34PM +0200, Luca Ceresoli wrote:
+> > This driver calls drm_of_find_panel_or_bridge() with a NULL pointer in the
+> > @panel parameter, thus using a reduced feature set of that function.
+> > Replace this call with the simpler of_drm_get_bridge_by_endpoint().
+> > 
+> > Since of_drm_get_bridge_by_endpoint() increases the refcount of the
+> > returned bridge, ensure it is put on removal.
+> > 
+> > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> > ---
+> >  drivers/gpu/drm/msm/hdmi/hdmi.c | 3 ++-
+> >  1 file changed, 2 insertions(+), 1 deletion(-)
+> > 
 > 
-> Now all bridge-only callers have been converted to
-> of_drm_get_bridge_by_endpoint(), which is simpler and handles bridge
-> refcounting. So forbid new bridge-only users by mandating a non-NULL panel
-> pointer in the docs and in the sanity checks along with a warning.
+> Acked-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> 
+> How common is the probe / remove path? Would it make sense to have a
+> devm_ version of the function?
 
-Are there remaining users which still use either the bridge or the
-panel? Would it be possible / better to drop the two-arg version?
+And probably the best way would be to change the driver to allocate the
+bridge early and follow the rest of the bridge drivers. I will check it
+out and possibly send a patch.
 
-> 
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> ---
->  drivers/gpu/drm/drm_of.c | 26 ++++++++++++--------------
->  1 file changed, 12 insertions(+), 14 deletions(-)
-> 
 
 -- 
 With best wishes
