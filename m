@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CE1CF34C54
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 13:26:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEEFBF34C49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 13:26:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A5keYFJrkzJg3KtOz/q0z9EqomERCDhhSfauQH5w3LQ=; b=voabupW2ZnORrkBDZA+c+wrfIF
-	9c52at1M4tibfRfyX3wbhvnMuWpjLeRA2haFWetRuzSV7tEtyyjVDSCkVvAqeufl6q2Diavkorrc+
-	22Z8sm8IuXjJLhLtZIMhaDGyKe3w1c9qLUq4g/bZNTpY3alpBhFt1VR3mnO/a39ijACdIsROx86nK
-	tJkiHvAbUqBtQxtHVmGHCGTxJrngO8jpLbs/DBqyxAmxGKAws7/nGrtxXkhzd1h7A6yIRa3nijKIT
-	p09UdGhl4AiSpK9f+Bc1XXQUcvnG808HPC6kAcUvAG50z1B2R827xE+c0fL2eQ97KRV3FqJp4fpHH
-	GB5vuM4g==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3m1llzTVoFgx/vD5INRQ645qN4fKypoVUgFkxb0uIPU=; b=1EkwXvttkc+Pch4WdmNBhfiMXU
+	B9D2sVsMBmhXjiSl5MlDkAwTP6MWuHGZCfGPDLjyayz0B4dCEJAYooGpLQmtfru3OpI8Y0KID2IkH
+	6onnPVYK904nkfk8CRaHWIzyeqUEFnKej3VZ/nIGGtG/087CoBZOMOtxO4DIXgsVEfUBMnMNI1o8P
+	sJkS9XOMF3UidL6JZe+bBec8ZHLKAeWussqjRYtBPSutt9iURbUOjkB2vGbAyTwRkG9UwET15XMnP
+	9AdJbvYRfNndo8rFt+fAn7mAf5+Ye9S73Wi6m62H//42IJIoOziqbifGFb6qzLBcr6mowtM3MA/hs
+	xARO45tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCHIr-0000000Fjdc-1cUa;
-	Mon, 13 Apr 2026 13:26:13 +0000
-Received: from mail-m32124.qiye.163.com ([220.197.32.124])
+	id 1wCHIs-0000000FjeG-07Ky;
+	Mon, 13 Apr 2026 13:26:14 +0000
+Received: from mail-m32115.qiye.163.com ([220.197.32.115])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCHIn-0000000FjaA-03Kr;
+	id 1wCHIm-0000000Fja9-0rkc;
 	Mon, 13 Apr 2026 13:26:11 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3a8976adf;
-	Mon, 13 Apr 2026 21:26:00 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3a8976ad3;
+	Mon, 13 Apr 2026 21:25:54 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: andrzej.hajda@intel.com,
 	neil.armstrong@linaro.org,
@@ -61,27 +61,25 @@ Cc: Laurent.pinchart@ideasonboard.com,
 	linux-samsung-soc@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v14 3/8] drm/bridge: analogix_dp: Add new API analogix_dp_finish_probe()
-Date: Mon, 13 Apr 2026 21:25:46 +0800
-Message-Id: <20260413132551.1049307-4-damon.ding@rock-chips.com>
+Subject: [PATCH v14 0/8] Apply drm_bridge_connector and panel_bridge helper for the Analogix DP driver
+Date: Mon, 13 Apr 2026 21:25:43 +0800
+Message-Id: <20260413132551.1049307-1-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260413132551.1049307-1-damon.ding@rock-chips.com>
-References: <20260413132551.1049307-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9d87053c8703a3kunmf5e06f40656e55
+X-HM-Tid: 0a9d870522cc03a3kunmf5e06f40656e3d
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkpIHlZNTklLSB9KSBlLGB5WFRQJFh
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQh9MS1YZTx0ZTk5LTEpKH0JWFRQJFh
 	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
 	1VSktLVUpCWQY+
 DKIM-Signature: a=rsa-sha256;
-	b=CdPx9iS4+3KaKlayKDNotavCGVlgxCG7kF1Q5Rgx0YFP2DLlzZeQr9XGKYC9Pa3e1wWIooO8f3OQjR+P12ShW/PC0H2qv4LyaFbGdHLgMI6c23sQa1mKqQtP/B7G98g/5kVOOktW4qoWn24BnSVkrVsp4yWVa7F7nVO0UR3XPmw=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=A5keYFJrkzJg3KtOz/q0z9EqomERCDhhSfauQH5w3LQ=;
+	b=dUSWDU2hhwBZz6Vnfg5TJ6feosYkPDKzfzuKQHKZN6mGC6XBnJ1A1AJv2TEO/elduZsYwaKDtN7UZ+jbqq1WWsgUmovSLoYDVP1cW3ZGAlLFYo8IQitxCEAD0OAC3ihzWkX64VyYpJP4tT07TH2nNzPtLROuD+0hvPklCglW8os=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=3m1llzTVoFgx/vD5INRQ645qN4fKypoVUgFkxb0uIPU=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_062609_632438_4290F9FF 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20260413_062609_632485_D4F28A9B 
+X-CRM114-Status: GOOD (  14.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,149 +94,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since the panel/bridge should logically be positioned behind the
-Analogix bridge in the display pipeline, it makes sense to handle
-the panel/bridge parsing on the Analogix side. Therefore, we add
-a new API analogix_dp_finish_probe(), which combines the panel/bridge
-parsing with component addition, to do it.
+Picked from:
+https://lore.kernel.org/all/20260409065301.446670-1-damon.ding@rock-chips.com/
 
-In order to process component binding right after the probe completes,
-the &analogix_dp_plat_data.ops is newly added to pass &component_ops,
-for which the &dp_aux_ep_device_with_data.done_probing() of DP AUX bus
-only supports passing &drm_dp_aux.
+PATCH 1 is the preparation for apply drm_bridge_connector helper.
+PATCH 2 is to apply the drm_bridge_connector helper.
+PATCH 3-5 are to move the panel/bridge parsing to the Analogix side.
+PATCH 6 is to attach the next bridge on Analogix side uniformly.
+PATCH 7-8 are to apply the panel_bridge helper.
 
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
-Tested-by: Heiko Stuebner <heiko@sntech.de> # rk3588
+Damon Ding (8):
+  drm/bridge: analogix_dp: Pass struct drm_atomic_state* for
+    analogix_dp_bridge_mode_set()
+  drm/bridge: analogix_dp: Apply drm_bridge_connector helper
+  drm/bridge: analogix_dp: Add new API analogix_dp_finish_probe()
+  drm/rockchip: analogix_dp: Apply analogix_dp_finish_probe()
+  drm/exynos: exynos_dp: Apply analogix_dp_finish_probe()
+  drm/bridge: analogix_dp: Attach the next bridge in
+    analogix_dp_bridge_attach()
+  drm/bridge: analogix_dp: Remove bridge disabing and panel unpreparing
+    in analogix_dp_unbind()
+  drm/bridge: analogix_dp: Apply panel_bridge helper
+
+ drivers/gpu/drm/bridge/analogix/Kconfig       |   1 +
+ .../drm/bridge/analogix/analogix_dp_core.c    | 225 +++++++++---------
+ .../drm/bridge/analogix/analogix_dp_core.h    |   1 -
+ drivers/gpu/drm/exynos/Kconfig                |   1 +
+ drivers/gpu/drm/exynos/exynos_dp.c            |  59 ++---
+ drivers/gpu/drm/rockchip/Kconfig              |   1 +
+ .../gpu/drm/rockchip/analogix_dp-rockchip.c   |  49 +---
+ include/drm/bridge/analogix_dp.h              |   3 +-
+ 8 files changed, 150 insertions(+), 190 deletions(-)
 
 ---
+
+Changes in v2:
+- Update Exynos DP driver synchronously.
+- Move the panel/bridge parsing to the Analogix side.
+
+Changes in v3:
+- Rebase for the existing devm_drm_bridge_alloc() applying commit.
+- Fix the typographical error of panel/bridge check in exynos_dp_bind().
+- Squash all commits related to skip_connector deletion in both Exynos and
+  Analogix code into one.
+- Apply panel_bridge helper to make the codes more concise.
+- Fix the handing of bridge in analogix_dp_bridge_get_modes().
+- Remove unnecessary parameter struct drm_connector* for callback
+  &analogix_dp_plat_data.attach().
+- In order to decouple the connector driver and the bridge driver, move
+  the bridge connector initilization to the Rockchip and Exynos sides.
 
 Changes in v4:
+- Rebase for the applied &drm_bridge_funcs.detect() modification commit.
+- Rename analogix_dp_find_panel_or_bridge() to analogix_dp_finish_probe().
+- Drop the drmm_encoder_init() modification commit.
 - Rename the &analogix_dp_plat_data.bridge to
   &analogix_dp_plat_data.next_bridge.
-- Remame API analogix_dp_find_panel_or_bridge() to
-  analogix_dp_finish_probe().
 
 Changes in v5:
-- Select DRM_DISPLAY_DP_AUX_BUS for DRM_ANALOGIX_DP.
+- Add legacy bridge to parse the display-timings node under the dp node
+  for Exynos side.
+- Move color format check to &drm_connector_helper_funcs.atomic_check()
+  in order to get rid of &analogix_dp_plat_data.get_modes().
+- Remove unused callback &analogix_dp_plat_data.get_modes().
+- Distinguish the &drm_bridge->ops of Analogix bridge based on whether
+  the downstream device is a panel, a bridge or neither.
+- Select DRM_DISPLAY_DP_AUX_BUS for DRM_ANALOGIX_DP, and remove it for
+  ROCKCHIP_ANALOGIX_DP.
+- Apply rockchip_dp_attach() to support the next bridge attachment for
+  the Rockchip side.
+- Move next_bridge attachment from Analogix side to Rockchip/Exynos sides.
+
+Changes in v6:
+- Move legacy bridge driver out of imx directory for multi-platform use.
+- Apply DRM legacy bridge to parse display timings intead of implementing
+  the same codes only for Exynos DP.
+- Ensure last bridge determines EDID/modes detection capabilities in DRM
+  bridge_connector driver.
+- Remove unnecessary drm_bridge_get_modes() in
+  analogix_dp_bridge_get_modes().
+- Simplify analogix_dp_bridge_edid_read().
+- If the next is a bridge, set DRM_BRIDGE_OP_DETECT and return
+  connector_status_connected in analogix_dp_bridge_detect().
+- Set flag DRM_BRIDGE_ATTACH_NO_CONNECTOR for bridge attachment while
+  binding. Meanwhile, make DRM_BRIDGE_ATTACH_NO_CONNECTOR unsuppported
+  in analogix_dp_bridge_attach().
+- Move the next bridge attachment to the Analogix side rather than
+  scattered on Rockchip and Exynos sides.
+- Remove the unnecessary analogix_dp_bridge_get_modes().
+- Squash [PATCH v5 15/17] into [PATCH v5 17/17].
+- Fix the &drm_bridge->ops to DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_DETECT.
+
+Changes in v7:
+- As Luca suggested, simplify the code and related comment for bridge_connector
+  modifications. Additionally, move the commit related to bridge_connector to
+  the top of this patch series.
+- Rename legacy-bridge driver to of-display-mode-bridge driver.
+- Remove unnecessary API drm_bridge_is_legacy() and apply a temporary flag
+  &exynos_dp_device.has_of_bridge instead, which will be removed finally.
+- Remove exynos_dp_legacy_bridge_init() and inline API
+  devm_drm_of_display_mode_bridge().
+
+Changes in v8:
+- Adapt the related modifications to the newest bridge_connector driver.
 
 Changes in v9:
-- Add Tested-by tag.
+- Fix the Kconfig help text for CONFIG_DRM_OF_DISPLAY_MODE_BRIDGE.
+- Add Tested-by tag from Heiko.
 
 Changes in v10:
-- Fix to use dev_err_probe() in analogix_dp_finish_probe().
-- Expand the commit message.
+- Fix to use dev_err_probe() in newly added API analogix_dp_finish_probe().
+- Expaned commit message for [PATCH v9 9/15] and [PATCH v9 10/15].
+- Split [PATCH v9 9/15] into serval smaller commits.
+- Add Reviewed-by tags from Luca.
+
+Changes in v11:
+- Merge [PATCH v10 12/18] into [PATCH v10 11/18].
+- Fix the bridge flag to 'flags | DRM_BRIDGE_ATTACH_NO_CONNECTOR' in
+  [PATCH v10 11/18].
+- Add Reviewed-by tags from Luca.
+
+Changes in v12:
+- Restore accidentally removed DRM_BRIDGE_CONNECTOR Kconfig in v10.
 
 Changes in v13:
-- Modify '(on rk3588)' to '# rk3588' for Tested-by tag.
----
- drivers/gpu/drm/bridge/analogix/Kconfig       |  1 +
- .../drm/bridge/analogix/analogix_dp_core.c    | 46 +++++++++++++++++++
- include/drm/bridge/analogix_dp.h              |  2 +
- 3 files changed, 49 insertions(+)
+- Modify '(on rk3588)' to '# rk3588' for Tested-by tag as discussed in
+  https://lore.kernel.org/all/571cc85a-3310-4b56-a3ef-3aab698192f6@rock-chips.com/
+- Rebase [PATCH v12 2/17] after commit 02df94d98ff8 ("drm/imx: parallel-display:
+  add DRM_DISPLAY_HELPER for DRM_IMX_PARALLEL_DISPLAY")
+- Rebase [PATCH v12 7/17] and [PATCH v12 11/17] after commit 01962a191242
+  ("drm/rockchip: analogix: Convert to drm_output_color_format")
 
-diff --git a/drivers/gpu/drm/bridge/analogix/Kconfig b/drivers/gpu/drm/bridge/analogix/Kconfig
-index 03dc7ffe824a..8a6136cd675f 100644
---- a/drivers/gpu/drm/bridge/analogix/Kconfig
-+++ b/drivers/gpu/drm/bridge/analogix/Kconfig
-@@ -29,6 +29,7 @@ config DRM_ANALOGIX_ANX78XX
- config DRM_ANALOGIX_DP
- 	tristate
- 	depends on DRM
-+	select DRM_DISPLAY_DP_AUX_BUS
- 
- config DRM_ANALOGIX_ANX7625
- 	tristate "Analogix Anx7625 MIPI to DP interface support"
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index 3c6eed9279d2..50415a98acb7 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -21,12 +21,14 @@
- #include <linux/platform_device.h>
- 
- #include <drm/bridge/analogix_dp.h>
-+#include <drm/display/drm_dp_aux_bus.h>
- #include <drm/drm_atomic.h>
- #include <drm/drm_atomic_helper.h>
- #include <drm/drm_bridge.h>
- #include <drm/drm_crtc.h>
- #include <drm/drm_device.h>
- #include <drm/drm_edid.h>
-+#include <drm/drm_of.h>
- #include <drm/drm_panel.h>
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
-@@ -1582,6 +1584,50 @@ struct drm_dp_aux *analogix_dp_get_aux(struct analogix_dp_device *dp)
- }
- EXPORT_SYMBOL_GPL(analogix_dp_get_aux);
- 
-+static int analogix_dp_aux_done_probing(struct drm_dp_aux *aux)
-+{
-+	struct analogix_dp_device *dp = to_dp(aux);
-+	struct analogix_dp_plat_data *plat_data = dp->plat_data;
-+	int port = plat_data->dev_type == EXYNOS_DP ? 0 : 1;
-+	int ret;
-+
-+	/*
-+	 * If drm_of_find_panel_or_bridge() returns -ENODEV, there may be no valid panel
-+	 * or bridge nodes. The driver should go on for the driver-free bridge or the DP
-+	 * mode applications.
-+	 */
-+	ret = drm_of_find_panel_or_bridge(dp->dev->of_node, port, 0,
-+					  &plat_data->panel, &plat_data->next_bridge);
-+	if (ret && ret != -ENODEV)
-+		return ret;
-+
-+	return component_add(dp->dev, plat_data->ops);
-+}
-+
-+int analogix_dp_finish_probe(struct analogix_dp_device *dp)
-+{
-+	int ret;
-+
-+	ret = devm_of_dp_aux_populate_bus(&dp->aux, analogix_dp_aux_done_probing);
-+	if (ret) {
-+		/*
-+		 * If devm_of_dp_aux_populate_bus() returns -ENODEV, the done_probing() will
-+		 * not be called because there are no EP devices. Then the callback function
-+		 * analogix_dp_aux_done_probing() will be called directly in order to support
-+		 * the other valid DT configurations.
-+		 *
-+		 * NOTE: The devm_of_dp_aux_populate_bus() is allowed to return -EPROBE_DEFER.
-+		 */
-+		if (ret != -ENODEV)
-+			return dev_err_probe(dp->dev, ret, "failed to populate aux bus\n");
-+
-+		return analogix_dp_aux_done_probing(&dp->aux);
-+	}
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(analogix_dp_finish_probe);
-+
- MODULE_AUTHOR("Jingoo Han <jg1.han@samsung.com>");
- MODULE_DESCRIPTION("Analogix DP Core Driver");
- MODULE_LICENSE("GPL v2");
-diff --git a/include/drm/bridge/analogix_dp.h b/include/drm/bridge/analogix_dp.h
-index 3428ffff24c5..bae969dec63a 100644
---- a/include/drm/bridge/analogix_dp.h
-+++ b/include/drm/bridge/analogix_dp.h
-@@ -30,6 +30,7 @@ struct analogix_dp_plat_data {
- 	struct drm_bridge *next_bridge;
- 	struct drm_encoder *encoder;
- 	struct drm_connector *connector;
-+	const struct component_ops *ops;
- 
- 	int (*power_on)(struct analogix_dp_plat_data *);
- 	int (*power_off)(struct analogix_dp_plat_data *);
-@@ -49,5 +50,6 @@ int analogix_dp_stop_crc(struct drm_connector *connector);
- 
- struct analogix_dp_plat_data *analogix_dp_aux_to_plat_data(struct drm_dp_aux *aux);
- struct drm_dp_aux *analogix_dp_get_aux(struct analogix_dp_device *dp);
-+int analogix_dp_finish_probe(struct analogix_dp_device *dp);
- 
- #endif /* _ANALOGIX_DP_H_ */
+Changes in v14:
+- Picked from
+  https://lore.kernel.org/all/20260409065301.446670-1-damon.ding@rock-chips.com/
+- Add Reviewed-by tags.
+- Apply __free() to call drm_bridge_put() in CRC ralted functions of Analogix
+  side.
+
 -- 
 2.34.1
 
