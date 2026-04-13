@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FB9FF34C59
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E734F34C58
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 14:20:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,33 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zO64SVeF86ReUBEKH7LVqdzeS3lL5rsCwvrOkWEIz4w=; b=Vn/Ti6DOvzAFR09nqqx6YZMThr
-	azFH0XcIHpl3onNcnhDtp9CN+sVrsXxnKD9jiqaOt7kKyq5CGelWfJgQLRvP/o2SLTVIcD/wVJyBa
-	ACctSSE3j8oYIH4vSoBTRr9nZdVRlQzM0wXnzsB1HwvYto+8/nVfXosywTSaCH3xRQ9GI9TeP+RIA
-	krItHcnoKEmp1/KuGvLkK3DD1FXc/jxvu7fVzLQQrkZCwE0yQOfmFzhgPAtR7q/osSnbYeGoSiJU6
-	SM9rV+LMiqcaJeDtUcBqks1p+se3X+VBEH6RplKK/9mIxo0MGYpUaBtdsSQ7wpsC26tFO/s3BwTa7
-	6jnqZyIQ==;
+	bh=zO64SVeF86ReUBEKH7LVqdzeS3lL5rsCwvrOkWEIz4w=; b=3R7xqJNpmg+6NLiRIzcdy9nsMf
+	WgjZ0kdKGLbI8z1voaxgnCX/Mgvsj/S6ADei3dZAcPvfOv0WlrfOipzMJS9WkdcftshVmoMTI1GQr
+	dVXw3jYyFV7TsmqFrqtQ+Pbl7TXznb2CcOHlVmUkDsAZkJHv3BDPf9SD3z0e9lKy0np7K2T6jYZ4u
+	gpOnIpM7vzhj0ou/fTqIG6mKpaKD68RqzFyG10WiL0KPpFZT2oyMqWZAG87OFaeGri23u/Mz9CPws
+	Lhu1kVTy3dopVyQXpD7kxeqCdV46H3GcpRICGZVWltz+ci0scKwcxB5ytJryWzeXZhwsuFsKVmXzb
+	8N0wAH8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCI9P-0000000FqhI-1R6v;
+	id 1wCI9P-0000000Fqhu-2s59;
 	Mon, 13 Apr 2026 14:20:31 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCI9J-0000000Fqc1-3jjM
+	id 1wCI9K-0000000FqcM-17WG
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 13 Apr 2026 14:20:27 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B4E66359A;
-	Mon, 13 Apr 2026 07:20:19 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DA3C2357A;
+	Mon, 13 Apr 2026 07:20:17 -0700 (PDT)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id DE5AA3F641;
-	Mon, 13 Apr 2026 07:20:23 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 143493F641;
+	Mon, 13 Apr 2026 07:20:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776090025; bh=Qwt8jUbbvMo92bDPS6T3dox0x9gyvJKy4t2N4lfA8uI=;
+	t=1776090023; bh=Qwt8jUbbvMo92bDPS6T3dox0x9gyvJKy4t2N4lfA8uI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ofYF9Btyz0Itq1rCHMGyxlKDCTtniuQuVyRoAFwqXJu5rQRRf02ImodpwuzoQsSzT
-	 igua5GyuTdCbfyFZqHfGwwqplT/2psbP1e5ugqpRdv3RBtBpHx+KskFTLNGs6QnQMW
-	 b43YLtXpxDRPzXeozyZkDDdw5KjmAJvw7LMnZr9w=
+	b=kwY6cPq24eP3MaAQQqfRWVejOIQPYyK2KLgb25/OvsdBN+loVJXaayjBaybSePFbw
+	 3lOUMUPd7Wx77D+w2gPAgbAq5TYmh4PHDy1/IsWhg7Z/xa760fQT1xM8093TYEo3Zl
+	 r7Y4lq0s1XTFQyHu4PR843/HkoJU2EhLO5ppQPJ4=
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -50,16 +50,16 @@ Cc: suzuki.poulose@arm.com,
 	leo.yan@arm.com,
 	jie.gan@oss.qualcomm.com,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v4 9/9] coresight: etm3x: remove redundant call etm_enable_hw() with hotplug
-Date: Mon, 13 Apr 2026 15:20:03 +0100
-Message-Id: <20260413142003.3549310-11-yeoreum.yun@arm.com>
+Subject: [PATCH v4 9/9] coresight: etm3x: remove redundant call etm4_enable_hw with hotplug
+Date: Mon, 13 Apr 2026 15:20:02 +0100
+Message-Id: <20260413142003.3549310-10-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260413142003.3549310-1-yeoreum.yun@arm.com>
 References: <20260413142003.3549310-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_072025_967513_69DE074E 
+X-CRM114-CacheID: sfid-20260413_072026_338385_9496FB08 
 X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
