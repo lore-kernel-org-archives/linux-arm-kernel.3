@@ -4,74 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8422EE9381D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 05:47:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A318F3ED7E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 06:21:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sl2okSSer0UQJVmm+gu+avWeu7+IMVxq4F8/vWo19rI=; b=bOUoyF90HVD5sulSgAdgU+me+4
-	WqK671a/pb1WLJJAB7QTaWGpFFjx0/zDs2QTrGHtBwxgeuBz/x15NW9odQvKOF0ozzrPXMGzH1NKg
-	Tvtnpx+XinQyhpTQxKiuYbSla0jzcHEAO8V8BMTSo3jRWgrA8M1gkoDmOWIudn6znJBfK4Oc19Dck
-	wSvMzdjmm7w2cdKjsIk88bH1lIKL85cAOfL6eB3vszNrUaZ/ImuLbjfF2EGxisMV1advHQ5vgDFJc
-	h7v+U37YIvjV4AcApo3GehNjOBfXTaljqtMlys+gyf6HywHeKSdp9KFSSU2ipGaX3m6VQcGJxIbsZ
-	65ow/OSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8i8mPauj/f/nJuhyMXnVTFcajYsPl5NLDtfrWoT0Kbc=; b=QG/T5kvUy/R8bGqvF+EE8lmLeC
+	wlQEnTUdXd7JfLJzhG2xVL0IRbiXfA1oy4M7zPWt0OmY+ex4P0IO6OkF86rraKfLVjzjEIahC35GA
+	yXHN/G0cCVoxe36/K+LoL7hi3xIHbY5AfkKQDDmQLGEPMG4g90yswnoJ0HGD56w/MmxfXNPuHBJoU
+	OObrZ/VXBxdVoyufIoowLlvh9cWLYyCLCQIVV6SbbA7JhOUK8inipkhGYPoRfVehonbj6oez0TkTz
+	lquP6mQoqlVoDtdpSecE0cWwBUkuBWhTRkO232XqZQMd8rja7e7qQkvNRcF0KKwHzwIcVKpfLJ53c
+	tLx3G8Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCA9J-0000000F2AC-2YPl;
-	Mon, 13 Apr 2026 05:47:53 +0000
-Received: from angie.orcam.me.uk ([2001:4190:8020::34])
+	id 1wCAfq-0000000F440-2XtB;
+	Mon, 13 Apr 2026 06:21:30 +0000
+Received: from [101.204.27.37] (helo=mailgw2.hygon.cn)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCA9G-0000000F29K-2zpW;
-	Mon, 13 Apr 2026 05:47:52 +0000
-Received: by angie.orcam.me.uk (Postfix, from userid 500)
-	id 2FA4892009C; Mon, 13 Apr 2026 07:47:45 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by angie.orcam.me.uk (Postfix) with ESMTP id 283D292009B;
-	Mon, 13 Apr 2026 06:47:45 +0100 (BST)
-Date: Mon, 13 Apr 2026 06:47:45 +0100 (BST)
-From: "Maciej W. Rozycki" <macro@orcam.me.uk>
-To: Thomas Gleixner <tglx@kernel.org>
-cc: LKML <linux-kernel@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-    x86@kernel.org, Lu Baolu <baolu.lu@linux.intel.com>, iommu@lists.linux.dev, 
-    Michael Grzeschik <m.grzeschik@pengutronix.de>, netdev@vger.kernel.org, 
-    linux-wireless@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>, 
-    linux-crypto@vger.kernel.org, Vlastimil Babka <vbabka@kernel.org>, 
-    linux-mm@kvack.org, David Woodhouse <dwmw2@infradead.org>, 
-    Bernie Thompson <bernie@plugable.com>, linux-fbdev@vger.kernel.org, 
-    Theodore Tso <tytso@mit.edu>, linux-ext4@vger.kernel.org, 
-    Andrew Morton <akpm@linux-foundation.org>, 
-    Uladzislau Rezki <urezki@gmail.com>, Marco Elver <elver@google.com>, 
-    Dmitry Vyukov <dvyukov@google.com>, kasan-dev@googlegroups.com, 
-    Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
-    Thomas Sailer <t.sailer@alumni.ethz.ch>, linux-hams@vger.kernel.org, 
-    "Jason A. Donenfeld" <Jason@zx2c4.com>, 
-    Richard Henderson <richard.henderson@linaro.org>, 
-    linux-alpha@vger.kernel.org, Russell King <linux@armlinux.org.uk>, 
-    linux-arm-kernel@lists.infradead.org, 
-    Catalin Marinas <catalin.marinas@arm.com>, 
-    Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev, 
-    Geert Uytterhoeven <geert@linux-m68k.org>, linux-m68k@lists.linux-m68k.org, 
-    Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>, 
-    linux-openrisc@vger.kernel.org, Helge Deller <deller@gmx.de>, 
-    linux-parisc@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>, 
-    linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>, 
-    linux-riscv@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>, 
-    linux-s390@vger.kernel.org, "David S. Miller" <davem@davemloft.net>, 
-    sparclinux@vger.kernel.org
-Subject: Re: [patch 28/38] mips: Select ARCH_HAS_RANDOM_ENTROPY
-In-Reply-To: <20260410120319.462206386@kernel.org>
-Message-ID: <alpine.DEB.2.21.2604130638270.29980@angie.orcam.me.uk>
-References: <20260410120044.031381086@kernel.org> <20260410120319.462206386@kernel.org>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+	id 1wCAfn-0000000F42S-12w0
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Apr 2026 06:21:29 +0000
+Received: from maildlp2.hygon.cn (unknown [127.0.0.1])
+	by mailgw2.hygon.cn (Postfix) with ESMTP id 4fvHNX68Ypz1YQpmD;
+	Mon, 13 Apr 2026 14:21:16 +0800 (CST)
+Received: from maildlp2.hygon.cn (unknown [172.23.18.61])
+	by mailgw2.hygon.cn (Postfix) with ESMTP id 4fvHNW0JZ7z1YQpmD;
+	Mon, 13 Apr 2026 14:21:15 +0800 (CST)
+Received: from cncheex04.Hygon.cn (unknown [172.23.18.114])
+	by maildlp2.hygon.cn (Postfix) with ESMTPS id F402830004D3;
+	Mon, 13 Apr 2026 14:19:21 +0800 (CST)
+Received: from SH-HV00110.Hygon.cn (172.19.26.208) by cncheex04.Hygon.cn
+ (172.23.18.114) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 13 Apr
+ 2026 14:21:13 +0800
+From: Huang Shijie <huangsj@hygon.cn>
+To: <akpm@linux-foundation.org>, <viro@zeniv.linux.org.uk>,
+	<brauner@kernel.org>
+CC: <linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-fsdevel@vger.kernel.org>,
+	<muchun.song@linux.dev>, <osalvador@suse.de>,
+	<linux-trace-kernel@vger.kernel.org>, <linux-perf-users@vger.kernel.org>,
+	<linux-parisc@vger.kernel.org>, <nvdimm@lists.linux.dev>,
+	<zhongyuan@hygon.cn>, <fangbaoshun@hygon.cn>, <yingzhiwei@hygon.cn>, Huang
+ Shijie <huangsj@hygon.cn>
+Subject: [PATCH 0/3] mm: split the file's i_mmap tree for NUMA
+Date: Mon, 13 Apr 2026 14:20:39 +0800
+Message-ID: <20260413062042.804-1-huangsj@hygon.cn>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [172.19.26.208]
+X-ClientProxiedBy: cncheex06.Hygon.cn (172.23.18.116) To cncheex04.Hygon.cn
+ (172.23.18.114)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260412_224750_914179_5DD3509D 
-X-CRM114-Status: UNSURE (   9.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260412_232127_475714_3D04DCA1 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,20 +77,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 10 Apr 2026, Thomas Gleixner wrote:
+  In NUMA, there are maybe many NUMA nodes and many CPUs.
+For example, a Hygon's server has 12 NUMA nodes, and 384 CPUs.
+In the UnixBench tests, there is a test "execl" which tests
+the execve system call.
 
-> The only solution for now is to uninline random_get_entropy().  Fix up all
-> other dependencies on the content of asm/timex.h in those files which
-> really depend on it.
+  When we test our server with "./Run -c 384 execl",
+the test result is not good enough. The i_mmap locks contended heavily on
+"libc.so" and "ld.so". For example, the i_mmap tree for "libc.so" can have 
+over 6000 VMAs, all the VMAs can be in different NUMA mode.
+The insert/remove operations do not run quickly enough.
 
- Oh dear!  I'd yet have to fully evaluate the consequences, but offhand 
-this has clearly turned what compiles to a single CPU instruction on the 
-vast majority of MIPS platforms into an expensive function call, possibly 
-also changing the caller from a leaf to a nested function with all the 
-associated execution penalty.  Is there no other way?
+patch 1 & patch 2 are try to hide the direct access of i_mmap.
+patch 3 splits the i_mmap into sibling trees, and we can get better 
+performance with this patch set:
+    we can get 77% performance improvement(10 times average)
 
- Cf. commit 06947aaaf9bf ("MIPS: Implement random_get_entropy with CP0 
-Random").
 
-  Maciej
+Huang Shijie (3):
+  mm: use mapping_mapped to simplify the code
+  mm: use get_i_mmap_root to access the file's i_mmap
+  mm: split the file's i_mmap tree for NUMA
+
+ arch/arm/mm/fault-armv.c   |  3 ++-
+ arch/arm/mm/flush.c        |  3 ++-
+ arch/nios2/mm/cacheflush.c |  3 ++-
+ arch/parisc/kernel/cache.c |  4 ++-
+ fs/dax.c                   |  3 ++-
+ fs/hugetlbfs/inode.c       | 10 +++----
+ fs/inode.c                 | 55 +++++++++++++++++++++++++++++++++++++-
+ include/linux/fs.h         | 40 +++++++++++++++++++++++++++
+ include/linux/mm.h         | 33 +++++++++++++++++++++++
+ include/linux/mm_types.h   |  1 +
+ kernel/events/uprobes.c    |  3 ++-
+ mm/hugetlb.c               |  7 +++--
+ mm/khugepaged.c            |  6 +++--
+ mm/memory-failure.c        |  8 +++---
+ mm/memory.c                |  8 +++---
+ mm/mmap.c                  |  3 ++-
+ mm/nommu.c                 | 11 +++++---
+ mm/pagewalk.c              |  2 +-
+ mm/rmap.c                  |  2 +-
+ mm/vma.c                   | 36 +++++++++++++++++++------
+ mm/vma_init.c              |  1 +
+ 21 files changed, 204 insertions(+), 38 deletions(-)
+
+-- 
+2.43.0
+
+
 
