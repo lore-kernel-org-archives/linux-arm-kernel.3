@@ -4,65 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02B14ED7B96
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 10:17:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A350ED7B9A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 10:20:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l5C5jHE7wmYT2njtxUKATaoWl5OCfwzpPijBbG8nBWA=; b=Gf0+odmKdFvhW5PxBXoHtbZtFF
-	dEdp3Hi/1bO8St2ys02oo1hkyfGhyMqEOaLBJsdqIp4SqrpxpVFjkS+uPkVL7d8DWgRQjv1+BWejP
-	hAybKf+nv+qocRilRAzTKNEZPeZ6EM+O1kLmwVFwc+M3fI3GpswDGtSuN5NiUqCXwqjBb1/906/5z
-	QBbO3TeOShdHFTCJ1ap3euzFb9BJDqYV6esnr8eiM0Ihi2Yit3ue8aesns7wABQP2Rmvp2x+mP+r2
-	e05riOnRLoxFktsxMLeYIrkeOkC3EilHtOTN4ZVp3+Sgd5XyuRndlvzOU0WQDz8NN/Wpd5zETxr+o
-	/KzbnB4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HjjP3x2s4FAG01oUrkjM+enP8FGX1QBSjIAMGgLldEs=; b=Fdl7iTE7+MJeWFHrYbOvz5NxdH
+	vkEYvW87DuLRzB8GKlu3MXi1tNC27rXgVPbBnY5ObFG1PlNHtOyb7q75nwFWCjcTpfZe38ApKp8ba
+	jcgQ2zmRER5D4zgtqH+uOuWz6wSyoV0imm58bOff9omZMRHZDmGkQlJSpiivPwAEqvmtaHzL6fLIc
+	tANQ1ccQgJQA37DMVxfEZCNnuBIJR8rWC3a0Uz+dp7OUvaZUyTDrqaScerllOsf6iJLCy8tgbGQpy
+	D8/ZpG9vjUVfb6uudaM7sIlGbcx59GDHVxHUs/uE4OJOJZ0YSzcQ4AAmhZo8K+vAbo64S9nbDaj8O
+	hCADQVAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCapO-0000000H7op-15qE;
-	Tue, 14 Apr 2026 10:17:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCapL-0000000H7oG-1Vff
+	id 1wCasr-0000000H86b-3fvp;
+	Tue, 14 Apr 2026 10:20:41 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCasp-0000000H85l-2E9W
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 10:17:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 92BBF4ECD;
-	Tue, 14 Apr 2026 03:16:55 -0700 (PDT)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D79593F641;
-	Tue, 14 Apr 2026 03:16:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776161821; bh=oRWO6Lo2WmEtu7qNFiuBDthh+Y1C1/KwDqss8kDou9o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pP0EKI30IOaOKAhgEdOfCZqlzEWecgcx61lIFuNyhPz4kVX+QTa6Ke2pOo/xlGO77
-	 lISB8906WejbDkHf64sBQVS4TV8VFOT7JsqjCcd4SERWReBsrY5ZlX0648tnI4BVya
-	 zvkxh8jtmW4z2ZxbF+qkZijD0wSd12JIdH4GDGiQ=
-Date: Tue, 14 Apr 2026 11:16:47 +0100
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Shuah Khan <shuah@kernel.org>
-Subject: Re: [PATCH v2 3/4] KVM: arm64: sefltests: Add basic NV selftest
-Message-ID: <xsdf2k2u4g6n7nmxcgwhiraqodwtteuxqqtnj2dx5sxgu74a7j@yjijkyohkq4i>
-References: <20260412142216.3806482-1-weilin.chang@arm.com>
- <20260412142216.3806482-4-weilin.chang@arm.com>
- <adwofV7yf71OdMFk@sm-arm-grace07>
- <ddr6exocupk6mzshjwvu6sqt57aeqiyxqss3rpgcxxyh54cw4g@rxvm5zh3ybrw>
- <ad1gqsqqOXyYmJoG@sm-arm-grace07>
+	Tue, 14 Apr 2026 10:20:41 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-43cfe71e5d3so4102739f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 03:20:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1776162037; x=1776766837; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=HjjP3x2s4FAG01oUrkjM+enP8FGX1QBSjIAMGgLldEs=;
+        b=LcDNaltPLH0QsvlJoJGUo9o3H1j/8h+8yzTU7Y8C/sggj7kawygSs9G41yuNDbgk3g
+         VIMtut+leQx2HcB87Lu+PQEMN6i5raf0rno0gLb0d3/r+Qp43x2ayV4cFsy7CX0xfte7
+         HXS+SkeZyYaMK1ysWPawDpTmA8rhFEEtF/IWSAwGW8lOVrRd951t6PNxDmhWdd+ocwmY
+         S/Xxr6POvFMiw7GsyV0Wd6gbdTVyONHU15vrCBTJIhZtd7CNXVf9iYMgUEpTSKio5llt
+         aNNIsWiUgFmj0okde+wM+P+8ON8twm4p2GHp//4PNvje8wBW944SYAAn4Jg1S0AY4ANd
+         dDbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776162037; x=1776766837;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=HjjP3x2s4FAG01oUrkjM+enP8FGX1QBSjIAMGgLldEs=;
+        b=Dnhejh/j8BdFhkrNAqijOnILXSaEXTeUNXoH+AM2f3VVk7X1fz/bI8xxjF6nkI1J1C
+         FLFWW7Mq3t0HH3JBYdVNQH7fjUTuxQRuJztgzsjBTBT1Fbiw5A2s+/gakXm3pT+fvV80
+         mheUprQNlWYR6bCjRYD11vFzMe2BV86YrgUly4LIumF7PUngZj7ntxtADZOGx5Y3NUZ4
+         9MBL0qmZHopAzBzySWxFC9ltles8pE2ZJE9QP1dseOG4DHfT6ky8SH+XVNTCQSm/UA44
+         w1O1QoxDbpK8foPaySK97KEF0sDUsAlZWfJiuKDvSUA0m/m/cTN//lzN7JzEHG3AiPR1
+         tNWw==
+X-Forwarded-Encrypted: i=1; AFNElJ/2cSD//5zfKG0Ou/BzN74nWwdCZ4m7yaK7YENBDm/ssXKpdCl6sfai2eE/S7qmfiRQ+AnIoiqHQh1LXw0baYlu@lists.infradead.org
+X-Gm-Message-State: AOJu0YzM75G6VGGqi/ZumwHyzkpsKBEDpPTAoCIGrpyWjusse7AgvAep
+	X6+lvXQhc98YsExbQ8WQf2k6eLt9B06CoHA/esJiWeIKr34np+rTeTR+xtRPSbfbgVq55Mn8UCc
+	fwfQNhfQ=
+X-Gm-Gg: AeBDievNZDbIWqPh/hXjKZYAG1oupdSEZedNQkNUdDOiesxNkeCjZd2eOt9s+53gXQs
+	1TuDQeF85GofG0JeHE4gIWYov4bZ2uz+xEblMQ5iYGO4THnH3cRpbwchwz4l86nYgeKUOTjMcoZ
+	Qmm8+03h2NURMiFqGgVwW2qwxK4c3RhE5IhMQG1bD8uXujVt/jmFnrbyWSEc6awRQBwOodU342T
+	fQHJXNOs+SzZf5osKFHkxXk/nqIlFEBXGm4zWDAGWMmo9rIzwi+9DfWUYI/G2AAHcbg7CptrZua
+	YJpdjxZE91g7jEJQUd+JAr1t22iR8ST1SAW4AC1+npQ97ITE0UJiVqxuIAAT6mzK0lGAGK3Gkzc
+	g45Lt1YHxFBmigk+TbLTzSsIApqZQhyYOUDqhdfdwuRwoBCwUhdOf2uK/F/kul1yqVHNLZdhJz7
+	LSe+X/Wmw6i2paEvydtCFvU+DHXqfKcgbOTFUyaY2tXw==
+X-Received: by 2002:a05:6000:1a8d:b0:43d:1bf6:30f3 with SMTP id ffacd0b85a97d-43d6424c4f6mr24710460f8f.14.1776162037022;
+        Tue, 14 Apr 2026 03:20:37 -0700 (PDT)
+Received: from [10.11.12.108] ([79.115.63.48])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d73e36e7csm20342473f8f.10.2026.04.14.03.20.36
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 14 Apr 2026 03:20:36 -0700 (PDT)
+Message-ID: <5797be19-8886-45a2-bfce-eb7d5f0df6c2@linaro.org>
+Date: Tue, 14 Apr 2026 13:20:31 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ad1gqsqqOXyYmJoG@sm-arm-grace07>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: exynos850: Add SRAM node
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Alexey Klimov <alexey.klimov@linaro.org>,
+ Sam Protsenko <semen.protsenko@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Juan Yescas <jyescas@google.com>, Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+References: <20260413-exynos850_sram-v1-1-7fda5b7fb7d4@linaro.org>
+ <2ff077e1-8983-4a41-bb21-5e4140545aa3@kernel.org>
+ <DHSR70EGYY4N.2EA2HWIXJR7QR@linaro.org>
+ <4c6a92e0-15a1-4f82-afc9-542f5ad9d2df@kernel.org>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <4c6a92e0-15a1-4f82-afc9-542f5ad9d2df@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_031703_490260_43A2B13B 
-X-CRM114-Status: GOOD (  34.29  )
+X-CRM114-CacheID: sfid-20260414_032039_622427_6873C7D0 
+X-CRM114-Status: GOOD (  18.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,183 +111,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 14, 2026 at 06:31:22AM +0900, Itaru Kitayama wrote:
-> On Mon, Apr 13, 2026 at 10:18:42AM +0100, Wei-Lin Chang wrote:
-> > Hi Itaru,
-> > 
-> > On Mon, Apr 13, 2026 at 08:19:25AM +0900, Itaru Kitayama wrote:
-> > > On Sun, Apr 12, 2026 at 03:22:15PM +0100, Wei-Lin Chang wrote:
-> > > > This selftest simply starts an L1, which starts its own guest (L2). L2
-> > > > runs without stage-1 and 2 translations, it calls an HVC to jump back
-> > > > to L1.
-> > > 
-> > > How do you disable both the nested guest (L2)'s MMU and stage 2
-> > > translations?
-> > 
-> > Guest stage-2 is disabled by not setting HCR_EL2.VM in prepare_hyp(),
-> > and stage-1 is disabled by not writing to SCTLR_EL12 in init_vcpu(),
-> > effectively using the default value set by L0. However since SCTLR_EL1
-> > has many architecturally UNKNOWN bits (including SCTLR_EL1.M), it should
-> > be better to write a value before running L2 I suppose...
+Hi!
+
+On 4/14/26 12:08 PM, Krzysztof Kozlowski wrote:
+> On 14/04/2026 11:00, Alexey Klimov wrote:
+>> On Mon Apr 13, 2026 at 4:23 PM BST, Krzysztof Kozlowski wrote:
+>>> On 13/04/2026 16:52, Alexey Klimov wrote:
+>>>> SRAM is used by the ACPM protocol to retrieve the ACPM channels
+>>>> information and configuration data. Add the SRAM node.
+>>>>
+>>>> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+>>>> ---
+>>>>  arch/arm64/boot/dts/exynos/exynos850.dtsi | 8 ++++++++
+>>>>  1 file changed, 8 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot/dts/exynos/exynos850.dtsi
+>>>> index cb55015c8dce..cf4a6168846c 100644
+>>>> --- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
+>>>> +++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
+>>>> @@ -910,6 +910,14 @@ spi_2: spi@11d20000 {
+>>>>  			};
+>>>>  		};
+>>>>  	};
+>>>> +
+>>>> +	apm_sram: sram@2039000 {
+>>>> +		compatible = "mmio-sram";
+>>>> +		reg = <0x0 0x2039000 0x40000>;
+>>>> +		#address-cells = <1>;
+>>>> +		#size-cells = <1>;
+>>>> +		ranges = <0x0 0x0 0x2039000 0x40000>;
+>>>
+>>> You miss here children.
+>>
+>> Thank you! I guess I should convert it to smth like this:
+>>
+>> apm_sram: sram@2039000 {
+>> 		compatible = "mmio-sram";
+>> 		reg = <0x0 0x2039000 0x40000>;
+>> 		ranges = <0x0 0x0 0x2039000 0x40000>;
+>> 		#address-cells = <1>;
+>> 		#size-cells = <1>;
+>>
+>> 		acpm_sram_region: sram-section@0 {
+>> 			reg = <0x0 0x40000>;
 > 
-> Thanks. What do you think of using copy_el2_to_el1() macro in at.c, so we
-> can prepare in guest_code() to manipulate the SCTLR_EL12 System register 
-> with the sensible programmed values?
-
-Yes, using copy_el2_to_el1() can give us an L2 stage-1 that is identical
-to the L1's stage-1. But what I was considering was if guest stage-2 is
-enabled (which we plan to implement), then those stage-1 page tables
-will have to be mapped for L2, and its base address translated to L2IPA.
-It's doable but seems like extra complexity when stage-1 is not so
-interesting for KVM (except for AT?), it lets the guest do whatever it
-likes and let the hardware do the translation.
-
-Let me know if you have reasons to want stage-1 for L2, there could be
-something I should consider but did not.
-
-Thanks,
-Wei-Lin Chang
-
+> This covers entire block, so feels pointless. Maybe requirement of
+> children should be dropped. What's the point of having children? Why
+> does the driver need them?
 > 
-> Itaru.
+>> 		};
+>> 	};
+>>
+>> And then later reference shmem = &acpm_sram_region from acpm node.
+>>
+>>> Also, 'ranges' should be after 'reg'.
+>>
+>> Thanks, will fix this.
+>>
+>> FWIW this commit is a copy of commit 48e7821b26904
+>> https://lore.kernel.org/r/20250207-gs101-acpm-dt-v4-1-230ba8663a2d@linaro.org
 > 
-> > 
-> > Thanks,
-> > Wei-Lin Chang
-> > 
-> > > 
-> > > Itaru.
-> > > 
-> > > > 
-> > > > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
-> > > > ---
-> > > >  tools/testing/selftests/kvm/Makefile.kvm      |   1 +
-> > > >  .../selftests/kvm/arm64/hello_nested.c        | 103 ++++++++++++++++++
-> > > >  2 files changed, 104 insertions(+)
-> > > >  create mode 100644 tools/testing/selftests/kvm/arm64/hello_nested.c
-> > > > 
-> > > > diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-> > > > index 3dc3e39f7025..e8c108e0c487 100644
-> > > > --- a/tools/testing/selftests/kvm/Makefile.kvm
-> > > > +++ b/tools/testing/selftests/kvm/Makefile.kvm
-> > > > @@ -168,6 +168,7 @@ TEST_GEN_PROGS_arm64 += arm64/arch_timer_edge_cases
-> > > >  TEST_GEN_PROGS_arm64 += arm64/at
-> > > >  TEST_GEN_PROGS_arm64 += arm64/debug-exceptions
-> > > >  TEST_GEN_PROGS_arm64 += arm64/hello_el2
-> > > > +TEST_GEN_PROGS_arm64 += arm64/hello_nested
-> > > >  TEST_GEN_PROGS_arm64 += arm64/host_sve
-> > > >  TEST_GEN_PROGS_arm64 += arm64/hypercalls
-> > > >  TEST_GEN_PROGS_arm64 += arm64/external_aborts
-> > > > diff --git a/tools/testing/selftests/kvm/arm64/hello_nested.c b/tools/testing/selftests/kvm/arm64/hello_nested.c
-> > > > new file mode 100644
-> > > > index 000000000000..97387e4697b3
-> > > > --- /dev/null
-> > > > +++ b/tools/testing/selftests/kvm/arm64/hello_nested.c
-> > > > @@ -0,0 +1,103 @@
-> > > > +// SPDX-License-Identifier: GPL-2.0-only
-> > > > +/*
-> > > > + * hello_nested - Go from vEL2 to EL1 then back
-> > > > + */
-> > > > +
-> > > > +#include "nested.h"
-> > > > +#include "processor.h"
-> > > > +#include "test_util.h"
-> > > > +#include "ucall.h"
-> > > > +
-> > > > +#define XLATE2GPA	(0xABCD)
-> > > > +#define L2STACKSZ	(0x100)
-> > > > +
-> > > > +/*
-> > > > + * TPIDR_EL2 is used to store vcpu id, so save and restore it.
-> > > > + */
-> > > > +static vm_paddr_t ucall_translate_to_gpa(void *gva)
-> > > > +{
-> > > > +	vm_paddr_t gpa;
-> > > > +	u64 vcpu_id = read_sysreg(tpidr_el2);
-> > > > +
-> > > > +	GUEST_SYNC2(XLATE2GPA, gva);
-> > > > +
-> > > > +	/* get the result from userspace */
-> > > > +	gpa = read_sysreg(tpidr_el2);
-> > > > +
-> > > > +	write_sysreg(vcpu_id, tpidr_el2);
-> > > > +
-> > > > +	return gpa;
-> > > > +}
-> > > > +
-> > > > +static void l2_guest_code(void)
-> > > > +{
-> > > > +	do_hvc();
-> > > > +}
-> > > > +
-> > > > +static void guest_code(void)
-> > > > +{
-> > > > +	struct vcpu vcpu;
-> > > > +	struct hyp_data hyp_data;
-> > > > +	int ret;
-> > > > +	vm_paddr_t l2_pc, l2_stack_top;
-> > > > +	/* force 16-byte alignment for the stack pointer */
-> > > > +	u8 l2_stack[L2STACKSZ] __attribute__((aligned(16)));
-> > > > +
-> > > > +	GUEST_ASSERT_EQ(get_current_el(), 2);
-> > > > +	GUEST_PRINTF("vEL2 entry\n");
-> > > > +
-> > > > +	l2_pc = ucall_translate_to_gpa(l2_guest_code);
-> > > > +	l2_stack_top = ucall_translate_to_gpa(&l2_stack[L2STACKSZ]);
-> > > > +
-> > > > +	init_vcpu(&vcpu, l2_pc, l2_stack_top);
-> > > > +	prepare_hyp();
-> > > > +
-> > > > +	ret = run_l2(&vcpu, &hyp_data);
-> > > > +	GUEST_ASSERT_EQ(ret, ARM_EXCEPTION_TRAP);
-> > > > +	GUEST_DONE();
-> > > > +}
-> > > > +
-> > > > +int main(void)
-> > > > +{
-> > > > +	struct kvm_vcpu_init init;
-> > > > +	struct kvm_vcpu *vcpu;
-> > > > +	struct kvm_vm *vm;
-> > > > +	struct ucall uc;
-> > > > +	vm_paddr_t gpa;
-> > > > +
-> > > > +	TEST_REQUIRE(kvm_check_cap(KVM_CAP_ARM_EL2));
-> > > > +	vm = vm_create(1);
-> > > > +
-> > > > +	kvm_get_default_vcpu_target(vm, &init);
-> > > > +	init.features[0] |= BIT(KVM_ARM_VCPU_HAS_EL2);
-> > > > +	vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code);
-> > > > +	kvm_arch_vm_finalize_vcpus(vm);
-> > > > +
-> > > > +	while (true) {
-> > > > +		vcpu_run(vcpu);
-> > > > +
-> > > > +		switch (get_ucall(vcpu, &uc)) {
-> > > > +		case UCALL_SYNC:
-> > > > +			if (uc.args[0] == XLATE2GPA) {
-> > > > +				gpa = addr_gva2gpa(vm, (vm_vaddr_t)uc.args[1]);
-> > > > +				vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TPIDR_EL2), gpa);
-> > > > +			}
-> > > > +			break;
-> > > > +		case UCALL_PRINTF:
-> > > > +			pr_info("%s", uc.buffer);
-> > > > +			break;
-> > > > +		case UCALL_DONE:
-> > > > +			pr_info("DONE!\n");
-> > > > +			goto end;
-> > > > +		case UCALL_ABORT:
-> > > > +			REPORT_GUEST_ASSERT(uc);
-> > > > +			fallthrough;
-> > > > +		default:
-> > > > +			TEST_FAIL("Unhandled ucall: %ld\n", uc.cmd);
-> > > > +		}
-> > > > +	}
-> > > > +
-> > > > +end:
-> > > > +	kvm_vm_free(vm);
-> > > > +	return 0;
-> > > > +}
-> > > > -- 
-> > > > 2.43.0
-> > > > 
+> 
+> Huh, we should fix that one as well.
+> 
+
+On gs101, likely on e850 too, ACPM parses the SRAM and discovers at runtime where
+the TX/RX queue offsets are in SRAM. So we can't define static partitions in DT.
+I remember that I thought about extending the SRAM driver to add dynamic
+partitions (clients to request the mmio-sram driver to create partitions at
+runtime), but it was just ACPM that's using SRAM, so I didn't need it.
+
+Cheers,
+ta
 
