@@ -4,82 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98887F531F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 07:02:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BD64F531FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 07:38:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:
-	Subject:From:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GSwJySJHo0hT7GXeWrDOalz8cnz5bMLyfqqv3BHlXRA=; b=2z4XaOmVymwuNjtIF4dzVjntxO
-	ey8jTXYBmvUCjy7s8Kmy7ExDC7d1P8//3KlPqHMuD9SChgbGtwBSq7hNNm0P1ldBJPzxDbSoKV0J8
-	hYMjkkG1Lb2rBfM1MXE5gDGpqcyfgDQ53iU15FHM850ZH4PGR6bRElNalZysnbJ5Wraxh9Klgl6g9
-	FSbV8U3xBa8LPYW0aVTqZqtHrVKISXAOVbNz/8dFhBJDuKkvXlksfDfDUhlvsdwTSTXIX5VwEN9CQ
-	te6m6CLhkp5or+cA7u3hihbeLYYxB0GPrF4dLSlGPtiBvovaivfFBqxSpk6vjII0gZxcmserL3lAz
-	I9oaILGw==;
+	bh=RiVB1nUUaTgLHnOiDu9/3O5El3WjSoq5GjXvTnCDSVc=; b=yJAwsmVSpIY3uU33jCQ0H3+ndg
+	XOwBS8fUAIJv3PgPgxC7oOyz3jyptCafzGBYUEpx92usYqk8lWZgCKQFLpV2HkGFQ5TALJgVi/NGp
+	yRahd5Vu4RBIYyDtmAE4ZmV/eE3A3mOqkljJbuu9RlasiXskco3y25eH9fe/+12mGMrio4tvB+Hhw
+	67i98FZ/o/HgVLY2vMtYKUBtEaK32koqpwz9dCWqHsU0e+0IrN7QRxjBpomQqv8UH13QN+TNIeuG7
+	0FV+vKxSB/TLyCmvCZr3bu/2LAAwozq1Sdh67Uxtouacipu4VvZBKjRRD7Uqq08jr65G47NaSCGSu
+	Eqd6IMVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCXnM-0000000GsKL-3X3s;
-	Tue, 14 Apr 2026 07:02:48 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wCYLn-0000000Guca-1miE;
+	Tue, 14 Apr 2026 07:38:23 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCXnI-0000000GsK3-4C0K
+	id 1wCYLk-0000000GucB-0xGa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 07:02:47 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 4D47BC5B1BB;
-	Tue, 14 Apr 2026 07:03:19 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 4EA1C5FFBB;
-	Tue, 14 Apr 2026 07:02:42 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DE66810450D08;
-	Tue, 14 Apr 2026 09:02:27 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1776150160; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=GSwJySJHo0hT7GXeWrDOalz8cnz5bMLyfqqv3BHlXRA=;
-	b=OJBuMBRnZ+1k0pvNy34xrHqO2sDtPpDWaR5tU5nqeGGgWSkYmHpD2OCmU8elLppdM+FZfO
-	w0DduviNhyxdv6HA5bPmhN6QWm7zZhJe9bpszUAgTALiVlrDx7Z/J1cBi/t/Ry5rdFzOqu
-	R9JonwE28Dtat/FKH00kCLyUE0whYkGlR+uKNLDuDgfj/Rdw8vBC2f0BPneCgtCaLa/GIJ
-	jH1rCkKR5yfbF2aexL9UkLhqJVKUEXAtibTr52l0hPNZ6RGKDm20chWzXLhfzHC4ky6OIq
-	KWfO9iSdVGivMNMZCB0IM5Bz+oH6rKh94YLpmIIoLEF+6QQz3VK4UTlBsapH1A==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 14 Apr 2026 09:02:27 +0200
-Message-Id: <DHSOOH7FU7Y4.1R63I92H08W86@bootlin.com>
-To: "Dmitry Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH 10/10] drm: of: forbid bridge-only calls to
- drm_of_find_panel_or_bridge()
-Cc: "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
- <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
- Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob Clark"
- <robin.clark@oss.qualcomm.com>, "Dmitry Baryshkov" <lumag@kernel.org>,
- "Abhinav Kumar" <abhinav.kumar@linux.dev>, "Jessica Zhang"
- <jesszhan0024@gmail.com>, "Sean Paul" <sean@poorly.run>, "Marijn Suijten"
- <marijn.suijten@somainline.org>, "Xinliang Liu" <xinliang.liu@linaro.org>,
- "Tian Tao" <tiantao6@hisilicon.com>, "Xinwei Kong"
- <kong.kongxinwei@hisilicon.com>, "Sumit Semwal" <sumit.semwal@linaro.org>,
- "Yongqin Liu" <yongqin.liu@linaro.org>, "John Stultz" <jstultz@google.com>,
- "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
- <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
- Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
- <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Tomi
- Valkeinen" <tomi.valkeinen@ideasonboard.com>, "Michal Simek"
- <michal.simek@amd.com>, "Hui Pu" <Hui.Pu@gehealthcare.com>, "Ian Ray"
- <ian.ray@gehealthcare.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, <dri-devel@lists.freedesktop.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
- <freedreno@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>
-X-Mailer: aerc 0.20.1
-References: <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-0-acd01cd79a1f@bootlin.com> <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-10-acd01cd79a1f@bootlin.com> <nligqvm3lq6n556onglmb345arxztd4pc6fboo4yrs3bfu27eu@uiyu2xklnexb>
-In-Reply-To: <nligqvm3lq6n556onglmb345arxztd4pc6fboo4yrs3bfu27eu@uiyu2xklnexb>
-X-Last-TLS-Session-Version: TLSv1.3
+	Tue, 14 Apr 2026 07:38:21 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-488ad135063so50206125e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 00:38:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1776152297; x=1776757097; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=RiVB1nUUaTgLHnOiDu9/3O5El3WjSoq5GjXvTnCDSVc=;
+        b=V9eDsCRmlZHEGOZNuT1kOscpGVkoSzI2b/uKirdKAzsnRfJWRBuNi5E0ylYf79KWaD
+         Cm+7c8GRexia5dwU4U0Mg3Qr/aYm6bYCkXLNLeKK4o096UiwhIU4SW2GWyuCUwni9G6R
+         e9fCaNPUBODKXi/RsNuSI+fdYYGTAKi3wRz+DZKdCU8cUf8o4z958XTz87e8TukKmPri
+         PQFSypHe3hbzLFIQhqbb0RkCUQZYHZ7jMJy+RkcVG0ve5z9S3/2smbmM0UCpaNcjX2q7
+         M1yDHUmtLpWj9nAu/Gl8kiz6v9eAiqv2lrv1w+UNlMQi7jID0sEy2PNV8UQOFz6iazAn
+         6JQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776152297; x=1776757097;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RiVB1nUUaTgLHnOiDu9/3O5El3WjSoq5GjXvTnCDSVc=;
+        b=dime3kK308KW31iZnj8mpYDG6su/7S6deda7uDEot1w2ArKHFvBExHFyaHTy+uYF5g
+         g9WAPkwkYXXEKoOBXDg128dgq7pBVpWrfe6Pw1Y3DCx0NlMJgn4jCWA26NhYrjeCQIDW
+         FZpob/eB1ANQxU17Zat9dj/STKiQNYDmiNeq4KjsdCxEyjz2JokNQSf8x7Xd2Te+3WbB
+         HlREzn0rnuVGraLiMuzm8Vnoig1zUmi7mhqjw0AUggSQder+whHFDDK4bPIh6RZ838x5
+         Z6TQsXpLGalFfNwiFUJ8h0MhGPeNE5gZYRakBWlb2Takgtk+lgnD83ITbTfDcOWwEfxc
+         NRtw==
+X-Forwarded-Encrypted: i=1; AFNElJ8zRxfNDz0DOjd5s1D8STCmUPasG7stmN3zu/u/1MOe5DiakR3jGYYs+S7sPwOLSGBYGA5z9739/CZGIB5HgT3Y@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTlx0seInHkwqepLjQy9939rDuq4uChLjFq8xNvE80mTtXbBBq
+	VopSTe/K3GWyCnhpT5TqPQhd31wL3VrWXRuBcytN+5scfbbD4zFp2dUQ5iUnWMNyuQc=
+X-Gm-Gg: AeBDieu2Q2XfC5EpLvzNM/VEwCu/aXe2o3MKeJ1sOZYVO2NdrSPvkQwcOaDRrJGCL1r
+	sA2dvpArPSblbzdAixrWAzhLCIaw2ix0u4C+cGYHfC9wdZWV2abrBMprgIGNqiylIY+1T16gSpc
+	6CJtYVR+40xyBDy5cY+YbvOhO5dOBBOVtg2TeFetqCB5OdgeGOf/xRZOT+2q7g+nL64fJAsEQ7i
+	2NeeIFS6bzePiut2Cdn5eD93HFp0kTDk3QGA7gSuIKogrB7eqpU9mC0UZjixF8xZ0tdAVHQLOCL
+	snbfYGwtEDPmhSWT0o6M8T61j3/FsIM0fT8ONm+l5vF+ahEiynnms6ztYHhm2P4dy7CSIUwHw/x
+	ad9+oloboxHa6zxT2zbBcFz5zrBZ+qAZUrM1uTiqB/inN6pq2ZGLXachHCqr145S1rVZbgW2X/L
+	GEfc7iheZ3NaxwvkiI9/DZFyGzeJBR77Q=
+X-Received: by 2002:a05:600d:d:b0:487:2439:b7c8 with SMTP id 5b1f17b1804b1-488d67eb7a7mr170044495e9.1.1776152297303;
+        Tue, 14 Apr 2026 00:38:17 -0700 (PDT)
+Received: from [192.168.50.4] ([82.78.167.123])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488ede1e826sm64458585e9.6.2026.04.14.00.38.16
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 14 Apr 2026 00:38:16 -0700 (PDT)
+Message-ID: <09085eff-ed71-42a9-8806-a9748d2fcd61@tuxon.dev>
+Date: Tue, 14 Apr 2026 10:38:15 +0300
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/5] ARM: configs: Drop redundant SND_ATMEL_SOC
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Bjorn Andersson <andersson@kernel.org>, Dmitry Baryshkov <lumag@kernel.org>,
+ Dinh Nguyen <dinguyen@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>,
+ Drew Fustini <fustini@kernel.org>, soc@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260412-b4-defconfig-multi-v7-v1-0-e76de035c2df@oss.qualcomm.com>
+ <20260412-b4-defconfig-multi-v7-v1-3-e76de035c2df@oss.qualcomm.com>
+Content-Language: en-US
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+In-Reply-To: <20260412-b4-defconfig-multi-v7-v1-3-e76de035c2df@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_000245_245533_8C2B9E41 
-X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-CacheID: sfid-20260414_003820_417471_7763E4F7 
+X-CRM114-Status: UNSURE (   6.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,42 +108,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Dmitry, Maxime,
 
-On Mon Apr 13, 2026 at 8:04 PM CEST, Dmitry Baryshkov wrote:
-> On Mon, Apr 13, 2026 at 03:58:42PM +0200, Luca Ceresoli wrote:
->> Up to now drm_of_find_panel_or_bridge() can be called with a bridge poin=
-ter
->> only, a panel pointer only, or both a bridge and a panel pointers. The
->> logic to handle all the three cases is somewhat complex to read however.
->>
->> Now all bridge-only callers have been converted to
->> of_drm_get_bridge_by_endpoint(), which is simpler and handles bridge
->> refcounting. So forbid new bridge-only users by mandating a non-NULL pan=
-el
->> pointer in the docs and in the sanity checks along with a warning.
->
-> Are there remaining users which still use either the bridge or the
-> panel? Would it be possible / better to drop the two-arg version?
 
-Yes. I counted ~20 panel+bridge and 4 panel-only callers with this series
-applied, and on top of those there are devm_drm_of_get_bridge() and
-drmm_of_get_bridge() which to me are the real issue because they make it
-impossible to correctly handle bridge lifetime.
+On 4/12/26 20:12, Krzysztof Kozlowski wrote:
+> CONFIG_SND_ATMEL_SOC is gone since commit 4f30f84feb77 ("ASoC: atmel:
+> Standardize ASoC menu") and can be simply dropped without effect.
+> 
+> No impact on include/generated/autoconf.h.
+> 
+> Signed-off-by: Krzysztof Kozlowski<krzysztof.kozlowski@oss.qualcomm.com>
 
-We discussed this with both you and Maxime a while back. AFAIK Maxime has a
-plan to make every panel automatically instantiate a panel_bridge. I think
-that's the only reasonable approach to get rid of
-drm_of_find_panel_or_bridge() + *_of_get_bridge() and make bridge lifetime
-easier and safe.
-
-@Maxime, do you have updates on that idea?
-
-Best regards,
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Acked-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
