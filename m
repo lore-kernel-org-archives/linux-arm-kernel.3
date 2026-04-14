@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9461BF9D0D8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 21:41:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ABD7F9D0D8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 21:41:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pdc35Ylej5ItvmLOneRVPWcqxy/OnSmxmxiLCyeKGpU=; b=kAURhw8hEoUESsioFpfudU+20R
-	wbsRNnFLcGdA57rv6N5rCE3c0XQKSvZME7Khv4+LxcwZYkGEqMSDe+GIfnJp6HHTGjnjoMhB1OB1a
-	vLJ2xbMcqYcwEs4aLvs9/W7LNIDPGA4zlvCse4C9+zJ5O3VQrUbVjRoDoGWdBEKDUzJO2gM+/li8f
-	qFP0meIhT1td0todfZQrEcgAnFlPMzcEcZTUZya21CFYsR1Y9gyy9Vmxd3ZfxSQdnLL5fh5AOhIbs
-	0a+dO4kX8ZLM9H9pi7NW+QNk7Wj0huPxIY6F7Q6SYfrBbvlE0db2yMYzzyLCQaNU9PobyEWdcaI/i
-	uzHobXdw==;
+	bh=iCAekC6JihikkAEuEdzid7oOkeSPTTqIBC2dONRzXqc=; b=xW0++stQ5CRelYRXVZubHSUAGb
+	7oZZjCoWEbVy9PxzDFP2hRnwDomZ3RNa3pTcFI9LRfv8DW9cuLorYYvORzaxlzyTBJQEBZ+unrZ+N
+	bzVl5n77i9yA8rhO3koE+OU0AxkdgQAS1b1kO488b145GphxIoTlM1cZ4mmYLUSjaPp1i2iBA7Krp
+	+BKdtfjBMlvt0SrGO0UROEZYIFPhAINyBODFV/lpxqjbJIDSHo4zNAel3bBNXNryLp2KseIbk6qRU
+	rJuG5NpAwQFCFmDizXAHPlPsHdQSzHEbqr34z1aK5vtuSb1Hh/Yn1yqig9fT3emCauSsE6tBn2XYO
+	gWY57dEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wClVT-00000000Feh-2lEQ;
-	Tue, 14 Apr 2026 21:41:15 +0000
-Received: from mail-vk1-xa63.google.com ([2607:f8b0:4864:20::a63])
+	id 1wClVY-00000000FjM-12dz;
+	Tue, 14 Apr 2026 21:41:20 +0000
+Received: from mail-vs1-xe61.google.com ([2607:f8b0:4864:20::e61])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wClVQ-00000000FbS-2TyJ
+	id 1wClVS-00000000FcX-0a5D
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 21:41:13 +0000
-Received: by mail-vk1-xa63.google.com with SMTP id 71dfb90a1353d-56adf76631cso2535338e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 14:41:12 -0700 (PDT)
+	Tue, 14 Apr 2026 21:41:15 +0000
+Received: by mail-vs1-xe61.google.com with SMTP id ada2fe7eead31-610e2e8f57dso643407137.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 14:41:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ausil.us; s=google; t=1776202871; x=1776807671; darn=lists.infradead.org;
+        d=ausil.us; s=google; t=1776202873; x=1776807673; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Pdc35Ylej5ItvmLOneRVPWcqxy/OnSmxmxiLCyeKGpU=;
-        b=AsEsZsJwPwecnQX4+i55eBVDvF/YwVdUIkDIq49XeEm3ky5zKVhQA16lv7dbZoK9NJ
-         vravcouJreiaWVKPJzhbDonDAi3E/jOLLdTa5P7It9BQH1Yu2cJBkI5yTrwo6VQRsdkO
-         QKWJn1SslKoSySUA/VnjH9+UXdDvmGQ0UkkNrWlEM/9G7ydze1SOTASxKjtAe10i54FF
-         OIMg0SVMcppDXbEBzmNkHi93HhSiWYdwdgHhE8wKnTdncphsJiBjxIMl1LeFDkRpmvKF
-         KgONG25UMXwpq8glCNTLcqM98NkVfFbxTk5wdQJKcqCrjfDCm0peDUFUQtcie4z4pG5v
-         qxEQ==
+        bh=iCAekC6JihikkAEuEdzid7oOkeSPTTqIBC2dONRzXqc=;
+        b=ig6/TNQIEy8TANp/I4fmzMCwW8N912RQVXtRrKPrt9xDkZEBNm1Kyz9Zi2ZafuqiAK
+         88xW18+NC0oEdi++JZHpq+QlLhuIN15erFt7Qns0+zI4fEGf18CUHIXOC2yDFLSbSQk9
+         1DB+NxavVDjtD5r4+jDreDKcP9dWAZPjELY3M349rutRgJhV0XkpMa1zzVGL14+qfxjd
+         YoPKq7Z1HSo31N8BfV+mjuY/42uCuqCdbOsOmJuHdh4l5SlzQHEkt2Pdsfjqjh4eERvu
+         11+fmwIommgP38cHISZjuz+YYhyOlKLCo/jZJXo1dqf1BRmbu5UtoJnguTQGeHzuh5Iz
+         Y9yg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776202871; x=1776807671;
+        d=1e100.net; s=20251104; t=1776202873; x=1776807673;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=Pdc35Ylej5ItvmLOneRVPWcqxy/OnSmxmxiLCyeKGpU=;
-        b=GLU9XxZ32ML4xk7oB2jUWdtIvUJ55nH4Ee/ndNWxwoGVNteZhqwzkZMaBKzapQlZqf
-         YJKRo8C2P0Dy6D7hk3vzhbJ2pgmhNsDZtfxaeQRApWV/Kdd37gwYkLt/ApVU6MZw51S0
-         /dzHozoXXy2bdqQl5sJ1Ig0viXoYIX3uZgbzn9grOR1L4TlxyefyNJ6AbSGLUjcth0nM
-         GDBeR3GKmB7eBgvh+rj4vOiHxrmJvA+lnekM5qNNgn4081LBNs59HHg4LMN2k+4jG8CH
-         SnrFB2rFKka1E30xUByCrZWFcF/48bhUtnaXsenEIEQBMtazRYFe6YclXYZXHqL5Ikg1
-         Sz4Q==
-X-Forwarded-Encrypted: i=1; AFNElJ/FvpkCkMvnlypSuIDiZvUJeP8oAfpIxjw8vdHIJKCB4KUkwo+CWA+g4aJHZCh49ykoLuftSbML6BB5wJJkUicA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9fLKla1MWNo0e6T9aDuPhpP0OIR2Bw1hH9iOWc+umH091yy5L
-	8Wzfnk7kMtbPltOZh5TaFPPXOEmUUCXqoSnV/TkHHcYpNVs5+d/b6XOXw5DkQBDOcWV4W24RVnr
-	Jp4gCZe39GhOMZvZJOWQkKu6A6TKcuW2GRM4U
-X-Gm-Gg: AeBDiesKjod5fcCAnGUYZGQsbDjMc9ZwoCrPqg+9kiVnzEnSg9/EaGXeuwokAMRoIbx
-	Gt/7aKlbmxfUhhP/fBhSLJquGMGqhOrVx+qNmpl7T402ghQVjZHaHsd09HPtaKE3Jem6Ki6FPZI
-	C6Qkc2kzilxfSin2pWYnkxb1extA0y5LhWSpBcPUnOmr1rt3JcDbVskCoOPvO7UIj14sVoga1z9
-	zycApt9SjMMl4juY5JenEyQT3nk1agz4d5VZxPheIbn7/qnVFqGN2BcwL1QWt/UtnMbywA35kec
-	/4CVv5NcaB5ZudqS+5sIokMmFSd3B36Iub7IhTXLnkSlkIHjjEWKRSAirwvui0pEhEwyTWgDlN0
-	zGlgq8KVtOfWd97faN8T1y1MNBc/XmbJ9sUWj4f8hCiXZhMf7rr7tcvo=
-X-Received: by 2002:a05:6122:4b82:b0:56c:ce0b:fecd with SMTP id 71dfb90a1353d-56f3bce78b3mr9047810e0c.12.1776202871351;
-        Tue, 14 Apr 2026 14:41:11 -0700 (PDT)
+        bh=iCAekC6JihikkAEuEdzid7oOkeSPTTqIBC2dONRzXqc=;
+        b=Eot/bIJ0MId1YA7DvEE0DRPjP0fuDaAcDjhRG9e4UF45M8WzuGsNB6dfImbFxFJLKb
+         gwm+TsMtcNjfXriKrUBzsD3UP2yfy6mMQLHNyvd9/w/LhdBOzDsk6FX4Ihjr6S6XHLah
+         smu2LJaGG1MqaDBXhzagARRI5rt4FmvgRl17D+UJpn8X4VajUkRYkM1ImohXMY8stHjc
+         W3GcvulHt8H9mFZyiBguyjnPWvp+fYZRDMR31+bTodmExsf656cVXL2bxzIiQWvhtXWc
+         POERUsprl4xQZLcr+sq8klXsxauuPec24brmWjtkUrBbYQla/xS5wJwubDkpYW5wlAYL
+         KQWg==
+X-Forwarded-Encrypted: i=1; AFNElJ+q1gfrWNC1IjhD3r2Fe1Rh2IdO1yk6fTIkkTWubWC6wCysm+CUv243Q+CDibqWrDjWPL1EIT79sf4cTIiU7prO@lists.infradead.org
+X-Gm-Message-State: AOJu0YylFY1K4fZ5wsH2ZhSX9uX9FFu/90CbGuFLrxys2lJIX9ovBauB
+	gxraucwpO0fUmLcgyOrE5CzwZTi6p/xnBw6yc6jyvxK0OtErYEqTmvTCXwxSOS8CCu2lmGTf05F
+	FJB9fgyrhylBSWx6EzTjBQAk+8RQCt3wV2xzy
+X-Gm-Gg: AeBDietvu09NAGE+WDEKVfgK02iGAAxMI5upFJ8vj5aGdRhDlqx0JQDSZmp1JNn/I2a
+	xONJ3xyMkWXkQ+fDv4K0eSPnmcx7HZ2FefwaDIHXfv1jO+Gh0maDvE6gZjGmB5YkqctGoKWnyAY
+	aXSA7sX7kcAAg7CeelQKj/jJhP+bdStr0a2Cx34iO6t4Z/NiNSeuq71xAgYoWGXiHu74jwrhgjQ
+	gowLYBSqxj/tM6Zifu28DDkyRhKceXps1R1eZuXNpeKOw+TPDzHdsksOiPbA3oP+KZ7KrniayQ3
+	wxTR3ByfuZiFfyNH0c6nsKlgzO0/9qfpucQ19rvd2cgVkddfIKvSdoy2ln7aTbMxRgfQ1onAQZV
+	u4yA2X44aX0GontZZcW+ZiH2QQvGhmWEPqwSW49sKpMw46NPwt0L+LCs=
+X-Received: by 2002:a05:6102:48:b0:611:959c:86e with SMTP id ada2fe7eead31-611959c25e6mr1708483137.32.1776202872864;
+        Tue, 14 Apr 2026 14:41:12 -0700 (PDT)
 Received: from ryac.ausil.us (207-179-239-100.mtco.net. [207.179.239.100])
-        by smtp-relay.gmail.com with ESMTPS id a1e0cc1a2514c-95691131afesm346899241.1.2026.04.14.14.41.10
+        by smtp-relay.gmail.com with ESMTPS id a1e0cc1a2514c-95691131afesm346899241.1.2026.04.14.14.41.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Apr 2026 14:41:11 -0700 (PDT)
+        Tue, 14 Apr 2026 14:41:12 -0700 (PDT)
 X-Relaying-Domain: ausil.us
 From: Dennis Gilmore <dennis@ausil.us>
 To: 
@@ -105,18 +105,17 @@ Cc: Alexey Charkov <alchark@gmail.com>,
 	Rob Herring <robh@kernel.org>,
 	Simona Vetter <simona@ffwll.ch>,
 	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH v7 2/6] dt-bindings: display: bridge: simple: document the Lontium LT8711UXD DP-to-HDMI bridge
-Date: Tue, 14 Apr 2026 16:40:53 -0500
-Message-ID: <20260414214104.1363987-3-dennis@ausil.us>
+Subject: [PATCH v7 3/6] drm/bridge: simple: Add the Lontium LT8711UXD DP-to-HDMI bridge
+Date: Tue, 14 Apr 2026 16:40:54 -0500
+Message-ID: <20260414214104.1363987-4-dennis@ausil.us>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260414214104.1363987-1-dennis@ausil.us>
 References: <20260414214104.1363987-1-dennis@ausil.us>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_144112_634344_0697E122 
-X-CRM114-Status: UNSURE (   9.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260414_144114_185121_337E8682 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,21 +136,25 @@ a DP1.4 source to an HDMI2.0 sink.
 
 Signed-off-by: Dennis Gilmore <dennis@ausil.us>
 ---
- .../devicetree/bindings/display/bridge/simple-bridge.yaml        | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/gpu/drm/bridge/simple-bridge.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/display/bridge/simple-bridge.yaml b/Documentation/devicetree/bindings/display/bridge/simple-bridge.yaml
-index e6808419f625..752c736c8f85 100644
---- a/Documentation/devicetree/bindings/display/bridge/simple-bridge.yaml
-+++ b/Documentation/devicetree/bindings/display/bridge/simple-bridge.yaml
-@@ -30,6 +30,7 @@ properties:
-           - algoltek,ag6311
-           - asl-tek,cs5263
-           - dumb-vga-dac
-+          - lontium,lt8711uxd
-           - parade,ps185hdm
-           - radxa,ra620
-           - realtek,rtd2171
+diff --git a/drivers/gpu/drm/bridge/simple-bridge.c b/drivers/gpu/drm/bridge/simple-bridge.c
+index 8aa31ca3c72d..42c1f3d5ba0c 100644
+--- a/drivers/gpu/drm/bridge/simple-bridge.c
++++ b/drivers/gpu/drm/bridge/simple-bridge.c
+@@ -270,6 +270,11 @@ static const struct of_device_id simple_bridge_match[] = {
+ 		.data = &(const struct simple_bridge_info) {
+ 			.connector_type = DRM_MODE_CONNECTOR_HDMIA,
+ 		},
++	}, {
++		.compatible = "lontium,lt8711uxd",
++		.data = &(const struct simple_bridge_info) {
++			.connector_type = DRM_MODE_CONNECTOR_HDMIA,
++		},
+ 	}, {
+ 		.compatible = "parade,ps185hdm",
+ 		.data = &(const struct simple_bridge_info) {
 -- 
 2.53.0
 
