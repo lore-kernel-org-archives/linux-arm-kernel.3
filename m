@@ -4,61 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF467F9D0E9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 16:59:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCEB3F9D0EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 17:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eb4SR6GvS+4h4u0wPufgDNkNgbcPSCSMYogiffifkNw=; b=Ou/fsQjdBxdV974tQKwc7gL26O
-	G+lbkI7Dvi9juVbq7fOQ85aEA3KqrSgL2HMJLXrEG4PkGZb7ycEDMizr7/++l0o9we5cdOd1XAy4H
-	03eRjBOty1+3V05ToqS3OcBWsLsI85LNEjLEemovRdh8HO0FpwqSBHhnnXDfmH34CAAztPagj/OXr
-	tijlJpaC0NNOWaBikG3WFHbr0wn8wcGRUI4pMeyptzzA2HMqLW5qqLY/K7ER3lk5+HUdYjbjbcO3c
-	deqwmWVYAXP+0XBzQKELD1xcOfGhV6juehe2ROWpjbg74UVCaL1SgUWf9EJsc+3dk6mJfauzCFB9A
-	sxufNHOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4R0CQZ/qrW+yRPLga1sILnx+THT1hscnrJSpkR4Elps=; b=x6zkZQsPOMh9pRpPORPM2sslNA
+	B7LmWsnyp7wp961PuWOlDobppB4CttKPzuAwqU3PXgLcytPffFKUxahYHEI61H5ZgHUIwu+tWadKn
+	7u83/a81qG8JUVifyLHI0/egJe8jikRBupq4zIkbPJ8gC+LOBdNNOfgH6X77LTNonBjTtCn4iTPMg
+	pckTV5BhfaTeftoIOeIj1w1OsJiiZxsAe8JBlzMZYfH3hieOCsaUst7bN1t9muwF3bl7DYpY8ScRG
+	LzwkUfdSEX9SkShdi3ZsILKzRKuCuDl71qug45IqpOL0zh1Qr9TG3pbOOBT2V+tcwWsTVrGxT7vD5
+	PRB4OhmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCh6V-000000002cw-1KO8;
-	Tue, 14 Apr 2026 16:59:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCh6T-000000002ca-3KYm
+	id 1wChyv-000000004xT-0Yje;
+	Tue, 14 Apr 2026 17:55:25 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wChyt-000000004x9-0hF2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 16:59:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A9044537;
-	Tue, 14 Apr 2026 09:59:02 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 14FAB3F641;
-	Tue, 14 Apr 2026 09:59:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776185947; bh=8Qhlm2wztND+facK8IvBMtLuPNCwpVjYPBXsG3xqRvk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eZfbDPW2IlSUpZGaOXVPJypQn/1kUuL+6aG6E0uU1jHOSgFil+5T+HT6f5VfNH0+Z
-	 XZf5jmung7YT1db6yHfv4NW0pUkKqrP4e2kch4Gk3M4+PkvMMST9JhbsXMWaEIlxcd
-	 dbkSy/2NhNjw1DvbB8b1vm4BrLyISQEwYZQAPMKY=
-Date: Tue, 14 Apr 2026 17:59:03 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
-	mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v4 2/9] coresight: etm4x: exclude ss_status from
- drvdata->config
-Message-ID: <ad5yV2FoNbGGLE6R@e129823.arm.com>
-References: <20260413142003.3549310-1-yeoreum.yun@arm.com>
- <20260413142003.3549310-3-yeoreum.yun@arm.com>
- <20260414160441.GF356832@e132581.arm.com>
+	Tue, 14 Apr 2026 17:55:24 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4852b81c73aso55841725e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 10:55:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776189321; x=1776794121; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4R0CQZ/qrW+yRPLga1sILnx+THT1hscnrJSpkR4Elps=;
+        b=syhCsp77dPnoorxJbpp7SN94wj4t/T8SbnlS+c3TqIHh42eI/wZxoZSO/wW8/+Cbww
+         4vm5mvW1xYcdX4Q6JWBCRiXiyIQrFqjsnL1+9VPfffQWTxxEewlwILcTOlspun1qQOWe
+         8fmBdmRG00RRV7WpOhYRapEVbkX4HxuDNMYTclYoKX05EcVA1RF87tDGkGmM2KlZH4nF
+         OVr0Q+V8xoDIRmuotUSpFyOlcRdfqtC3l/AUFcR6zCOG4wGD98eue4UVRZjJ8X13eUup
+         wh8iEPhNPpJQOIZ4n1HBk9Dhum9gdn5bkrwCD1eCw09Xnss1o3cavmk9r+afoANB8g1w
+         VhZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776189321; x=1776794121;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=4R0CQZ/qrW+yRPLga1sILnx+THT1hscnrJSpkR4Elps=;
+        b=c01aRX8xz382zhOqLTz1hv4u7T2KTxXyRxA4ocJutk7fmaGGB6PYJ5HWjlXQd+FtEn
+         /R+TMBKs2lkdR60WXHdJ3fc7ZI/hvik4idCnkz+DCgOhW61Rw59Fv8Ksr1t5oCzRFTNf
+         ETN4uW6PbANRTKSjA8g99vudSs5qOA5mUrPpPPKF1kR1aQUmnbmwdrxCcL2KP4hf5Dxs
+         RKjr9A78MGX9W/KUELpI9+1rt673+BtOBnCVxc18BEJjKBHuqaZwn/dWxDBUeIuDhGV9
+         VW4XMxBeixgPsSz7pqEsppZp8CKN9Fbc7hu9CmBKCDyijTWvdMVNa7D3twZUxdiS+1db
+         iWdQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8NKTxFdLGTYA8xQtBCBG4sGtz51eva+dG7ptpqeBRCPI1WfHEEFH19DfB4BTO9pYLM8nBE8IMrJ6zC+SqibhUF@lists.infradead.org
+X-Gm-Message-State: AOJu0YwbR6JEmypDdGrMZoFdqxVAUtUFD10JlybyRFT0cqRKIq1lv8Y4
+	GSqngAXLzgCaLjZcQ5memQ9pUBbk+Sb+Dn+QNeD/+eEGbeoC7wHtICH9
+X-Gm-Gg: AeBDieuGcYYhCJmfjfpx/AOPEAUCPKKKWEcBh4c7oOJGCA9x005lN6K7n3+WjQIJenb
+	AssY5oSYzgtgj/w5toc4T44qWT6P/+WZkU48eJO2jwd5QBfYTKcr0GSX5KihqDLEhXimNw6IkIK
+	YcyssIKdDZlhTE1HHS9cE1rjqfms8GxRI0fM9ef63RQEK+oD8+EkTYHWavvU/0VNNDIRttU1L80
+	IJd/mAR+xftQjFtVFt/JrMdHtOXZ7ONbr6a2eqRMxUJviLAvnXqk3niDiN4doK1QLWBzCS1LoNG
+	I1S3KYAM/yEqhdH9rAe61bdw2chjeV0Ox66TBROrVX3xaBn40WQ2+DeRIQ55cyXSH8EE/mWBucS
+	QDVYxTwnoAx8DWv9JFBLws9gDdzrknszpB9cUR0FIy/dItcf0kr5ImjehpKKm5l+RIMUI/kEecZ
+	vxIOMx1+r9IyxGD4jqqSi6duz+5tJaHifd3npwvi4zxM14cTn1/bH5RJGWWane
+X-Received: by 2002:a05:600c:c088:b0:486:f4d2:eac6 with SMTP id 5b1f17b1804b1-488d67e6776mr181720905e9.13.1776189321058;
+        Tue, 14 Apr 2026 10:55:21 -0700 (PDT)
+Received: from osama.. ([2a02:908:1b6:8980:cb49:f403:bb20:cc84])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488ede1df12sm150436425e9.4.2026.04.14.10.55.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Apr 2026 10:55:20 -0700 (PDT)
+From: Osama Abdelkader <osama.abdelkader@gmail.com>
+To: luca.ceresoli@bootlin.com,
+	Inki Dae <inki.dae@samsung.com>,
+	Seung-Woo Kim <sw0312.kim@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Osama Abdelkader <osama.abdelkader@gmail.com>
+Subject: [PATCH v2 2/3] drm/exynos: remove bridge when component_add fails
+Date: Tue, 14 Apr 2026 19:54:15 +0200
+Message-ID: <20260414175417.144625-3-osama.abdelkader@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260414175417.144625-1-osama.abdelkader@gmail.com>
+References: <20260414175417.144625-1-osama.abdelkader@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260414160441.GF356832@e132581.arm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_095909_919098_60400C1B 
-X-CRM114-Status: GOOD (  40.77  )
+X-CRM114-CacheID: sfid-20260414_105523_253754_CED179E3 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,218 +108,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo,
+Use devm_drm_bridge_add() so the bridge is released if probe fails after
+registration, and drop the manual drm_bridge_remove() in remove().
 
-> On Mon, Apr 13, 2026 at 03:19:55PM +0100, Yeoreum Yun wrote:
-> > The purpose of TRCSSCSRn register is to show status of
-> > the corresponding Single-shot Comparator Control and input supports.
-> > That means writable field's purpose for reset or restore from idle status
-> > not for configuration.
-> >
-> > Therefore, exclude ss_status from drvdata->config, move it to etm4x_caps.
-> > This includes remove TRCSSCRn from configurable item and
-> > remove saving in etm4_disable_hw().
-> >
-> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > ---
-> >  .../hwtracing/coresight/coresight-etm4x-cfg.c  |  1 -
-> >  .../hwtracing/coresight/coresight-etm4x-core.c | 18 +++++-------------
-> >  .../coresight/coresight-etm4x-sysfs.c          |  7 ++-----
-> >  drivers/hwtracing/coresight/coresight-etm4x.h  |  4 +++-
-> >  4 files changed, 10 insertions(+), 20 deletions(-)
-> >
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> > index c302072b293a..d14d7c8a23e5 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> > @@ -86,7 +86,6 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
-> >  		off_mask =  (offset & GENMASK(11, 5));
-> >  		do {
-> >  			CHECKREGIDX(TRCSSCCRn(0), ss_ctrl, idx, off_mask);
-> > -			CHECKREGIDX(TRCSSCSRn(0), ss_status, idx, off_mask);
-> >  			CHECKREGIDX(TRCSSPCICRn(0), ss_pe_cmp, idx, off_mask);
-> >  		} while (0);
-> >  	} else if ((offset >= TRCCIDCVRn(0)) && (offset <= TRCVMIDCVRn(7))) {
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > index 6443f3717b37..8ebfd3924143 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > @@ -91,7 +91,7 @@ static bool etm4x_sspcicrn_present(struct etmv4_drvdata *drvdata, int n)
-> >  	const struct etmv4_caps *caps = &drvdata->caps;
-> >
-> >  	return (n < caps->nr_ss_cmp) && caps->nr_pe &&
-> > -	       (drvdata->config.ss_status[n] & TRCSSCSRn_PC);
-> > +	       (caps->ss_status[n] & TRCSSCSRn_PC);
->
-> Nitpick: The naming 'ss_status' is a bit confused for capability.
-> Could we rename 'ss_status' to 'ss_comparator' or a simple one
-> 'ss_cmp' ?
+Check the return value of devm_drm_bridge_add().
 
-Okay.
+v2: devm_drm_bridge_add instead of drm_bridge_add + goto remove_bridge
 
->
-> >  }
-> >
-> >  u64 etm4x_sysreg_read(u32 offset, bool _relaxed, bool _64bit)
-> > @@ -571,11 +571,9 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
-> >  		etm4x_relaxed_write32(csa, config->res_ctrl[i], TRCRSCTLRn(i));
-> >
-> >  	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> > -		/* always clear status bit on restart if using single-shot */
-> > -		if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
-> > -			config->ss_status[i] &= ~TRCSSCSRn_STATUS;
-> >  		etm4x_relaxed_write32(csa, config->ss_ctrl[i], TRCSSCCRn(i));
-> > -		etm4x_relaxed_write32(csa, config->ss_status[i], TRCSSCSRn(i));
-> > +		/* always clear status and pending bits on restart if using single-shot */
-> > +		etm4x_relaxed_write32(csa, caps->ss_status[i], TRCSSCSRn(i));
->
-> It is a bit weird to use caps to write a register.  A smooth way is to
-> clear STATUS and PENDING bits based on the read back value:
->
->   val = etm4x_relaxed_read32(csa, TRCSSCSRn(i));
->   val &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
->   etm4x_relaxed_write32(csa, val, TRCSSCSRn(i));
+Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
+---
+ drivers/gpu/drm/exynos/exynos_drm_mic.c | 8 +++-----
+ 1 file changed, 3 insertions(+), 5 deletions(-)
 
-TBH, this is what I want to avoid. anyway Why do we need to
-read again TRCSSCSR<n>? I think it's enough to write caps->ss_cmp
-for clear purpose or
-since the cap->ss_cmp will be all RO fields, It seems to better
-to write "0" in here without reading TRCSSSR again.
->
-> >  		if (etm4x_sspcicrn_present(drvdata, i))
-> >  			etm4x_relaxed_write32(csa, config->ss_pe_cmp[i], TRCSSPCICRn(i));
-> >  	}
-> > @@ -1053,12 +1051,6 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
-> >
-> >  	etm4_disable_trace_unit(drvdata);
-> >
-> > -	/* read the status of the single shot comparators */
-> > -	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> > -		config->ss_status[i] =
-> > -			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
-> > -	}
-> > -
-> >  	/* read back the current counter values */
-> >  	for (i = 0; i < caps->nr_cntr; i++) {
-> >  		config->cntr_val[i] =
-> > @@ -1501,8 +1493,8 @@ static void etm4_init_arch_data(void *info)
-> >  	 */
-> >  	caps->nr_ss_cmp = FIELD_GET(TRCIDR4_NUMSSCC_MASK, etmidr4);
-> >  	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> > -		drvdata->config.ss_status[i] =
-> > -			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
-> > +		caps->ss_status[i] = etm4x_relaxed_read32(csa, TRCSSCSRn(i));
-> > +		caps->ss_status[i] &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
->
-> For init cap, we can use explict way:
->
->   caps->ss_cmp &= (TRCSSCSRn_PC | TRCSSCSRn_DV |
->                    TRCSSCSRn_DA | TRCSSCSRn_INST);
+diff --git a/drivers/gpu/drm/exynos/exynos_drm_mic.c b/drivers/gpu/drm/exynos/exynos_drm_mic.c
+index 29a8366513fa..e68c954ec3e6 100644
+--- a/drivers/gpu/drm/exynos/exynos_drm_mic.c
++++ b/drivers/gpu/drm/exynos/exynos_drm_mic.c
+@@ -423,7 +423,9 @@ static int exynos_mic_probe(struct platform_device *pdev)
+ 
+ 	mic->bridge.of_node = dev->of_node;
+ 
+-	drm_bridge_add(&mic->bridge);
++	ret = devm_drm_bridge_add(dev, &mic->bridge);
++	if (ret)
++		goto err;
+ 
+ 	pm_runtime_enable(dev);
+ 
+@@ -443,12 +445,8 @@ static int exynos_mic_probe(struct platform_device *pdev)
+ 
+ static void exynos_mic_remove(struct platform_device *pdev)
+ {
+-	struct exynos_mic *mic = platform_get_drvdata(pdev);
+-
+ 	component_del(&pdev->dev, &exynos_mic_component_ops);
+ 	pm_runtime_disable(&pdev->dev);
+-
+-	drm_bridge_remove(&mic->bridge);
+ }
+ 
+ static const struct of_device_id exynos_mic_of_match[] = {
+-- 
+2.43.0
 
-Okay.
-
->
-> >  	}
-> >  	/* NUMCIDC, bits[27:24] number of Context ID comparators for tracing */
-> >  	caps->numcidc = FIELD_GET(TRCIDR4_NUMCIDC_MASK, etmidr4);
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> > index 50408215d1ac..dd62f01674cf 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> > @@ -1827,8 +1827,6 @@ static ssize_t sshot_ctrl_store(struct device *dev,
-> >  	raw_spin_lock(&drvdata->spinlock);
-> >  	idx = config->ss_idx;
-> >  	config->ss_ctrl[idx] = FIELD_PREP(TRCSSCCRn_SAC_ARC_RST_MASK, val);
-> > -	/* must clear bit 31 in related status register on programming */
-> > -	config->ss_status[idx] &= ~TRCSSCSRn_STATUS;
-> >  	raw_spin_unlock(&drvdata->spinlock);
-> >  	return size;
-> >  }
-> > @@ -1839,10 +1837,11 @@ static ssize_t sshot_status_show(struct device *dev,
-> >  {
-> >  	unsigned long val;
-> >  	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> > +	const struct etmv4_caps *caps = &drvdata->caps;
-> >  	struct etmv4_config *config = &drvdata->config;
-> >
-> >  	raw_spin_lock(&drvdata->spinlock);
-> > -	val = config->ss_status[config->ss_idx];
-> > +	val = caps->ss_status[config->ss_idx];
->
-> I think cap->ss_cmp is a good refactoring, but for legacy reason, I am
-> just wandering if we still need config->ss_status so that it can record
-> the lastest status (mainly for STATUS bit and PENDING bit).
->
-> Otherwise, this Sysfs interface can only provide capability rather
-> than status value.
-
-The legacy *totally* isn't understandable.
-Since config->ss_status is *updated* at "disable" -- end of sysfs session,
-STATUS and PENDING bit doesn't have any meaning in here
-and while running a session config->ss_status isn't updated all
-So, I don't believe there was any user who care about this bit via
-sysfs interface.
-
-Therefore, I think we can refactor with caps->ss_cmp. let's drop the
-useless and meaningless information.
-
->
-> Thanks,
-> Leo
->
-> >  	raw_spin_unlock(&drvdata->spinlock);
-> >  	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-> >  }
-> > @@ -1877,8 +1876,6 @@ static ssize_t sshot_pe_ctrl_store(struct device *dev,
-> >  	raw_spin_lock(&drvdata->spinlock);
-> >  	idx = config->ss_idx;
-> >  	config->ss_pe_cmp[idx] = FIELD_PREP(TRCSSPCICRn_PC_MASK, val);
-> > -	/* must clear bit 31 in related status register on programming */
-> > -	config->ss_status[idx] &= ~TRCSSCSRn_STATUS;
-> >  	raw_spin_unlock(&drvdata->spinlock);
-> >  	return size;
-> >  }
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-> > index 8168676f2945..8864cfb76bad 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x.h
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-> > @@ -213,6 +213,7 @@
-> >  #define TRCACATRn_EXLEVEL_MASK			GENMASK(14, 8)
-> >
-> >  #define TRCSSCSRn_STATUS			BIT(31)
-> > +#define TRCSSCSRn_PENDING			BIT(30)
-> >  #define TRCSSCCRn_SAC_ARC_RST_MASK		GENMASK(24, 0)
-> >
-> >  #define TRCSSPCICRn_PC_MASK			GENMASK(7, 0)
-> > @@ -861,6 +862,7 @@ enum etm_impdef_type {
-> >   * @lpoverride:	If the implementation can support low-power state over.
-> >   * @skip_power_up: Indicates if an implementation can skip powering up
-> >   *		   the trace unit.
-> > + * @ss_status:	The status of the corresponding single-shot comparator.
-> >   */
-> >  struct etmv4_caps {
-> >  	u8	nr_pe;
-> > @@ -899,6 +901,7 @@ struct etmv4_caps {
-> >  	bool	atbtrig : 1;
-> >  	bool	lpoverride : 1;
-> >  	bool	skip_power_up : 1;
-> > +	u32	ss_status[ETM_MAX_SS_CMP];
-> >  };
-> >
-> >  /**
-> > @@ -977,7 +980,6 @@ struct etmv4_config {
-> >  	u32				res_ctrl[ETM_MAX_RES_SEL]; /* TRCRSCTLRn */
-> >  	u8				ss_idx;
-> >  	u32				ss_ctrl[ETM_MAX_SS_CMP];
-> > -	u32				ss_status[ETM_MAX_SS_CMP];
-> >  	u32				ss_pe_cmp[ETM_MAX_SS_CMP];
-> >  	u8				addr_idx;
-> >  	u64				addr_val[ETM_MAX_SINGLE_ADDR_CMP];
-> > --
-> > LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
-> >
-
---
-Sincerely,
-Yeoreum Yun
 
