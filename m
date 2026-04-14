@@ -4,67 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FB97F9D0E9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 16:47:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 012B4F9D0E8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 16:50:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0XpvUWJdPK3It3NjFxZMUgAiv9eSPEerzQWrcf7EaiA=; b=xqsAjQ7fMd5+POa/1tuyfsQa2s
-	bivO1s88Q5sSCeQLl5Abdp8g/pswliW+gHJqvvFVda9b/auUwhyWmm+QSmNJpxoLClfyVxizfa5i8
-	DgbKirXDY3FEutgUY1s7klbY0CfUpP6K5UrY2OCpd3wjjA3uxOgSNuvbpQdFf8VRmdEgGkGnqvsei
-	C/iXEnHwtGQEJEwGff2pIAjoholOsNKU2TD40iEzKFlCYVCh1RX27DoPTTVvpDUziR3XHzEJ72w/2
-	1RFMCiwOxVnWGIrmC/4+UwOT/yc0le4VRbWWEK+Vjgufgbt6dSdjJ9hYYAhgBJktCJWvsFvRtjeOR
-	BYlJBetg==;
+	bh=Gy9EJ4yDrBvcghRHqbFcA8UM610tTKTLHWJMXO1gIdM=; b=RvpJGb4eQTLXuwMtJq/ETViP7W
+	W1vuZde7Zk8W3FHg7NzOPoSeCio72VczIwEhw72nFgm1+PlELqtKT8rsla1GnGFb3aL2gZAqXoxVX
+	lB1cg080z71zqyaQunJHXnr9ZChe+UqWjHnFrqudXi4pTft3vku8JVvd7OZrTcPHoMDh98kQqITy5
+	coPrP/Cjudj3MhH5t9fy7gR1ZadfT5crt98LN8zq9iBQpYAIZOYXyC5D8zFMoxnGVeisGKGwGY9hH
+	ET+TdxgcHzdb5eDfa45uK1ISReW+zZB9AYBHIGpBuvLZQjoLURd9ekN4E4bpHg1c5uR6Nk9GfnZ6C
+	FjjAAJbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCguh-00000000242-1t4l;
-	Tue, 14 Apr 2026 16:46:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCguf-0000000023c-2zgJ
+	id 1wCgyD-000000002Ih-0CKV;
+	Tue, 14 Apr 2026 16:50:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCgyA-000000002Ho-2a92
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 16:46:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 35F0743C4D;
-	Tue, 14 Apr 2026 16:46:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B62CC19425;
-	Tue, 14 Apr 2026 16:46:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776185217;
-	bh=h5CUHLLZGJj1sqfzAOFN24P+lZAUpLgJCzAIP3pIVak=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=M3XzHspleh86r3vzAE6YUI8iX7fuNondhwJgpVrbrS0Op2mj2wIUHrH6fREXFKsIG
-	 pem7Y2vx+7Y7xwcrJ53ciAxItrD22RLU7qrf8Hp2j1xmoJc8hIvngurUvXyS+qkBub
-	 09nlGhcwM6sBuxJtfeY0yNha/v0y2nM1OpuMFM/Zr94Pf2tTnISy5Y3xt0Ci2EKXuG
-	 vKqkWXd08DrAsFfVL/8q1rNyTPsVxR/M6KO84zqoDqRYb4tOiaVJZBICeda8HWuSed
-	 ECCuMdETCSR6E3e0oPEVWgRNlqQU9u7DIt6JDR+Yv+2AaB+z66VFmF1bo5P7C02lT1
-	 Sx30d41kHGYgg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA1313809A07;
-	Tue, 14 Apr 2026 16:46:28 +0000 (UTC)
-Subject: Re: [GIT PULL] Kbuild and Kconfig changes for v7.1
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <adu-ZyIv47FnsVLI@levanger>
-References: <adu-ZyIv47FnsVLI@levanger>
-X-PR-Tracked-List-Id: <linux-s390.vger.kernel.org>
-X-PR-Tracked-Message-Id: <adu-ZyIv47FnsVLI@levanger>
-X-PR-Tracked-Remote: ssh://git@gitolite.kernel.org/pub/scm/linux/kernel/git/kbuild/linux.git tags/kbuild-7.1-1
-X-PR-Tracked-Commit-Id: 404927758daac5ec4594071e033c1fa6ee9ca9b6
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 5d0d3623303775d750e122a2542d1a26c8573d38
-Message-Id: <177618518744.1376142.6209842916194520385.pr-tracker-bot@kernel.org>
-Date: Tue, 14 Apr 2026 16:46:27 +0000
-To: Nicolas Schier <nsc@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, Alexander Coffin <alex@cyberialabs.net>, Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Bill Wendling <morbo@google.com>, David Howells <dhowells@redhat.com>, Dodji Seketeli <dodji@seketeli.org>, "H. Peter Anvin" <hpa@zytor.com>, Helge Deller <deller@gmx.de>, John Moon <john@jmoon.dev>, Jonathan Corbet <corbet@lwn.net>, Josh Poimboeuf <jpoimboe@kernel.org>, Justin Stitt <justinstitt@google.com>, Kees Cook <kees@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Shuah Khan <skhan@linuxfoundation.org>, Song Liu <song@kernel.org>, Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>, Yonghong Song <yonghong.song@linux.dev>, kernel-team@fb.com, linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, linux-hexagon@vger.kernel.org, linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, linux-parisc@vger.kernel
- .org, linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, llvm@lists.linux.dev, loongarch@lists.linux.dev
+	Tue, 14 Apr 2026 16:50:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A70FD4519;
+	Tue, 14 Apr 2026 09:50:27 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D24F03F641;
+	Tue, 14 Apr 2026 09:50:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776185433; bh=I0IRdQWChhwRN6t2vsCKAaqrPRW/S9ofOt/f00Ppi+c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cSg60PCo+IhSK7QVHCR5b+Bd0TWonb6s/g5qmtXEN1hv9Wy2Vu9fdzNnLxPUhDm/Y
+	 wqcBaveiz4zGdDc9Kb5iIxBbKveKPouA6we7TkZbeLxmrae332y/J6SpEkddHRPbT6
+	 0svmouJRuFBC1gcsPTAshcydvqju9Ut5ZZuLMcRY=
+Date: Tue, 14 Apr 2026 17:50:29 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
+	mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
+Subject: Re: [PATCH v4 3/9] coresight: etm4x: fix leaked trace id
+Message-ID: <ad5wVVnUw1jnkCdn@e129823.arm.com>
+References: <20260413142003.3549310-1-yeoreum.yun@arm.com>
+ <20260413142003.3549310-4-yeoreum.yun@arm.com>
+ <20260414163221.GG356832@e132581.arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260414163221.GG356832@e132581.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_094657_772934_81734113 
-X-CRM114-Status: UNSURE (   5.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260414_095034_696772_E5B33190 
+X-CRM114-Status: GOOD (  22.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,16 +72,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Sun, 12 Apr 2026 17:46:47 +0200:
+Hi,
 
-> ssh://git@gitolite.kernel.org/pub/scm/linux/kernel/git/kbuild/linux.git tags/kbuild-7.1-1
+> On Mon, Apr 13, 2026 at 03:19:56PM +0100, Yeoreum Yun wrote:
+> > If etm4_enable_sysfs() fails in cscfg_csdev_enable_active_config(),
+> > the trace ID may be leaked because it is not released.
+> >
+> > To address this, call etm4_release_trace_id() when etm4_enable_sysfs()
+> > fails in cscfg_csdev_enable_active_config().
+> >
+> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> > ---
+> >  drivers/hwtracing/coresight/coresight-etm4x-core.c | 4 +++-
+> >  1 file changed, 3 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > index 8ebfd3924143..1bc9f13e33f7 100644
+> > --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > @@ -918,8 +918,10 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+> >  	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
+> >  	if (cfg_hash) {
+> >  		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
+> > -		if (ret)
+> > +		if (ret) {
+> > +			etm4_release_trace_id(drvdata);
+>
+> I am not familiar with the trace ID, seems to me, it just allocate a ID
+> for each tracer from the ID map and then always use this cached ID for
+> the tracers.
+>
+> If so, even an ID is reserved for failures, and the ID map is big enough
+> for each CPU, we don't need to worry memory leak or ID used out issue ?
+>
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/5d0d3623303775d750e122a2542d1a26c8573d38
+Agree. Practically, this is not a big issue and I don't think
+because of this new id couldn't be allocated in 128
+although the one id is occupied by cpu while source is disabled.
 
-Thank you!
+However, in theory, this could lead to an ID leak,
+so it would be better to release it in error cases.
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+[...]
+
+--
+Sincerely,
+Yeoreum Yun
 
