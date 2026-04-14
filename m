@@ -4,109 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B27CED7B8F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 09:08:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D1D2ED7B91
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 09:11:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LYpM0iGO6NGNIBhsZqi4IJzgbNrNWFTD12snay4xsxY=; b=sLkxYx0GVDXN3wvCnpcM/qntK5
-	EG7BgL8H4zqLia7cN6srkYZiUtmp7TO72qxy51xsyVd/fIOxDl/mtAn8ex8ROwriDcJ4NcVNNUgUs
-	h/W2w1qTW+aaUvXIDM3rSKm1jB8QVpqcTICxNWC7s5ppUYB1MvBQ4FU/3KIehyK2Q9LkjUfaNATTV
-	A/uyQhO/X3R3Qmc6Xj8LVBF2vKF3iZNkTqN57c9kjYzYzHwl8Xv5cUIiKRFVrORbKqIDXq6ItH2jZ
-	yV1dQdEIQVDMPwGIT83rcgZvLlixs6ky31mrCG5Jas8VkjfYr91YsRFZZi2wdDPvxMOioVSeUxOxK
-	neN13zFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pIb+7e3FoSZdsvZo6hNoQggErGHsAXBdIGibmV017wg=; b=E4lVYicTkYU1Qrs2xlwh0jKgAq
+	fucAB8zk5j586VzXq+7MmQA+GrfV8KOOjtF+MnIC6zPuacukM+ZdJgPGspqJvsmptV5QdqqKFIGIb
+	kyZvnltQznxdM+3dg2y2H8+GPDo2Db+GWgExx1PKiw9AcUiyHPv2jvPfZFiIUbOQe/OrKp/rhUa+Z
+	Rp1p8P7IQB/xA/+aOLjkKlo836vQkkhd2yhzNDxuSM5FGJIAHMbCIelVi5lIWeFnW58dFyff78t2r
+	/RAdvSz69EfeaxUMLeScM21Q7MRCoz22ivhC/HeVbu+S94H6lMLnTptZ1tyqquPtm1tgIWWOXIr3x
+	txXn45ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCZl0-0000000H2Ey-0X6J;
-	Tue, 14 Apr 2026 09:08:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCZkx-0000000H2EU-2hJh
+	id 1wCZoF-0000000H2T8-1OXp;
+	Tue, 14 Apr 2026 09:11:51 +0000
+Received: from [101.204.27.37] (helo=mailgw2.hygon.cn)
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCZoA-0000000H2Sl-1AZk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 09:08:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3A630444D0;
-	Tue, 14 Apr 2026 09:08:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E72CAC19425;
-	Tue, 14 Apr 2026 09:08:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776157705;
-	bh=kOitrEK4mNc+UbBONUKFdxc0c9QlWdF0i4PXUddFiMw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VbwhTnDBMyjQLMEWcddXz4zonlCbfhSwf7Of9Gsd5hvQfOTbl3w1JMPPY+EQVqvGp
-	 LFKCWaI+8IS2teNJCAudZmCD4MJI7GFQmU6lnzZEpLK5kwoQDk0y+NRw9iQDrsIKdx
-	 a8RZdzNoK0PPSZq3YHkv92uaaiRc6D/70fUyjEYHW2HDVVEayY01vy57vaqYrQk5Jp
-	 3bCsXlj+uQRtd5n/Zl1TBgaeIO9Lsze0nzaI2YOcUyJCufAPK79qEQjg86MUvhCFc7
-	 JUzNA4D6lMjdWQJpOxt75c8mBTWORKb2T4HSn0Cf6Le+Xlvv20M4VsRwmnKIEnCiFc
-	 Rfv9AsieZZjNQ==
-Message-ID: <4c6a92e0-15a1-4f82-afc9-542f5ad9d2df@kernel.org>
-Date: Tue, 14 Apr 2026 11:08:21 +0200
+	Tue, 14 Apr 2026 09:11:49 +0000
+Received: from maildlp2.hygon.cn (unknown [127.0.0.1])
+	by mailgw2.hygon.cn (Postfix) with ESMTP id 4fvz6Y1Vswz1YQpmJ;
+	Tue, 14 Apr 2026 17:11:33 +0800 (CST)
+Received: from maildlp2.hygon.cn (unknown [172.23.18.61])
+	by mailgw2.hygon.cn (Postfix) with ESMTP id 4fvz6V6YZ3z1YQpmJ;
+	Tue, 14 Apr 2026 17:11:30 +0800 (CST)
+Received: from cncheex04.Hygon.cn (unknown [172.23.18.114])
+	by maildlp2.hygon.cn (Postfix) with ESMTPS id 75DAD3005A41;
+	Tue, 14 Apr 2026 17:09:35 +0800 (CST)
+Received: from hsj-2U-Workstation (172.19.20.61) by cncheex04.Hygon.cn
+ (172.23.18.114) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 14 Apr
+ 2026 17:11:28 +0800
+Date: Tue, 14 Apr 2026 17:11:26 +0800
+From: Huang Shijie <huangsj@hygon.cn>
+To: Mateusz Guzik <mjguzik@gmail.com>
+CC: <akpm@linux-foundation.org>, <viro@zeniv.linux.org.uk>,
+	<brauner@kernel.org>, <linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-fsdevel@vger.kernel.org>,
+	<muchun.song@linux.dev>, <osalvador@suse.de>,
+	<linux-trace-kernel@vger.kernel.org>, <linux-perf-users@vger.kernel.org>,
+	<linux-parisc@vger.kernel.org>, <nvdimm@lists.linux.dev>,
+	<zhongyuan@hygon.cn>, <fangbaoshun@hygon.cn>, <yingzhiwei@hygon.cn>
+Subject: Re: [PATCH 0/3] mm: split the file's i_mmap tree for NUMA
+Message-ID: <ad4EvoDcAKE2Sl4+@hsj-2U-Workstation>
+References: <20260413062042.804-1-huangsj@hygon.cn>
+ <76pfiwabdgsej6q2yxfh3efuqvsyg7mt7rvl5itzzjyhdrto5r@53viaxsackzv>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: exynos850: Add SRAM node
-To: Alexey Klimov <alexey.klimov@linaro.org>,
- Sam Protsenko <semen.protsenko@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260413-exynos850_sram-v1-1-7fda5b7fb7d4@linaro.org>
- <2ff077e1-8983-4a41-bb21-5e4140545aa3@kernel.org>
- <DHSR70EGYY4N.2EA2HWIXJR7QR@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <DHSR70EGYY4N.2EA2HWIXJR7QR@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <76pfiwabdgsej6q2yxfh3efuqvsyg7mt7rvl5itzzjyhdrto5r@53viaxsackzv>
+X-Originating-IP: [172.19.20.61]
+X-ClientProxiedBy: cncheex05.Hygon.cn (172.23.18.115) To cncheex04.Hygon.cn
+ (172.23.18.114)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_020827_726685_135E00D6 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20260414_021146_511254_C99C4991 
+X-CRM114-Status: GOOD (  34.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,67 +78,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/04/2026 11:00, Alexey Klimov wrote:
-> On Mon Apr 13, 2026 at 4:23 PM BST, Krzysztof Kozlowski wrote:
->> On 13/04/2026 16:52, Alexey Klimov wrote:
->>> SRAM is used by the ACPM protocol to retrieve the ACPM channels
->>> information and configuration data. Add the SRAM node.
->>>
->>> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
->>> ---
->>>  arch/arm64/boot/dts/exynos/exynos850.dtsi | 8 ++++++++
->>>  1 file changed, 8 insertions(+)
->>>
->>> diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot/dts/exynos/exynos850.dtsi
->>> index cb55015c8dce..cf4a6168846c 100644
->>> --- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
->>> +++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
->>> @@ -910,6 +910,14 @@ spi_2: spi@11d20000 {
->>>  			};
->>>  		};
->>>  	};
->>> +
->>> +	apm_sram: sram@2039000 {
->>> +		compatible = "mmio-sram";
->>> +		reg = <0x0 0x2039000 0x40000>;
->>> +		#address-cells = <1>;
->>> +		#size-cells = <1>;
->>> +		ranges = <0x0 0x0 0x2039000 0x40000>;
->>
->> You miss here children.
+On Mon, Apr 13, 2026 at 05:33:21PM +0200, Mateusz Guzik wrote:
+> On Mon, Apr 13, 2026 at 02:20:39PM +0800, Huang Shijie wrote:
+> >   In NUMA, there are maybe many NUMA nodes and many CPUs.
+> > For example, a Hygon's server has 12 NUMA nodes, and 384 CPUs.
+> > In the UnixBench tests, there is a test "execl" which tests
+> > the execve system call.
+> > 
+> >   When we test our server with "./Run -c 384 execl",
+> > the test result is not good enough. The i_mmap locks contended heavily on
+> > "libc.so" and "ld.so". For example, the i_mmap tree for "libc.so" can have 
+> > over 6000 VMAs, all the VMAs can be in different NUMA mode.
+> > The insert/remove operations do not run quickly enough.
+> > 
+> > patch 1 & patch 2 are try to hide the direct access of i_mmap.
+> > patch 3 splits the i_mmap into sibling trees, and we can get better 
+> > performance with this patch set:
+> >     we can get 77% performance improvement(10 times average)
+> > 
 > 
-> Thank you! I guess I should convert it to smth like this:
+> To my reading you kept the lock as-is and only distributed the protected
+> state.
 > 
-> apm_sram: sram@2039000 {
-> 		compatible = "mmio-sram";
-> 		reg = <0x0 0x2039000 0x40000>;
-> 		ranges = <0x0 0x0 0x2039000 0x40000>;
-> 		#address-cells = <1>;
-> 		#size-cells = <1>;
-> 
-> 		acpm_sram_region: sram-section@0 {
-> 			reg = <0x0 0x40000>;
+> While I don't doubt the improvement, I'm confident should you take a
+> look at the profile you are going to find this still does not scale with
+> rwsem being one of the problems (there are other global locks, some of
+> which have experimental patches for).
+IMHO, when the number of VMAs in the i_mmap is very large, only optimise the rwsem
+lock does not help too much for our NUMA case.
 
-This covers entire block, so feels pointless. Maybe requirement of
-children should be dropped. What's the point of having children? Why
-does the driver need them?
-
-> 		};
-> 	};
-> 
-> And then later reference shmem = &acpm_sram_region from acpm node.
-> 
->> Also, 'ranges' should be after 'reg'.
-> 
-> Thanks, will fix this.
-> 
-> FWIW this commit is a copy of commit 48e7821b26904
-> https://lore.kernel.org/r/20250207-gs101-acpm-dt-v4-1-230ba8663a2d@linaro.org
+In our NUMA server, the remote access could be the major issue.
 
 
-Huh, we should fix that one as well.
+> 
+> Apart from that this does nothing to help high core systems which are
+> all one node, which imo puts another question mark on this specific
+> proposal.
+Yes, this patch set only focus on the NUMA case.
+The one-node case should use the original i_mmap.
 
+Maybe I can add a new config, CONFIG_SPILT_I_MMAP. The config is disabled
+by default, and enabled when the NUMA node is not one.
 
-Best regards,
-Krzysztof
+> 
+> Of course one may question whether a RB tree is the right choice here,
+> it may be the lock-protected cost can go way down with merely a better
+> data structure.
+> 
+> Regardless of that, for actual scalability, there will be no way around
+> decentralazing locking around this and partitioning per some core count
+> (not just by numa awareness).
+> 
+> Decentralizing locking is definitely possible, but I have not looked
+> into specifics of how problematic it is. Best case scenario it will
+> merely with separate locks. Worst case scenario something needs a fully
+> stabilized state for traversal, in that case another rw lock can be
+Yes. 
+
+The traversal may need to hold many locks.
+
+> slapped around this, creating locking order read lock -> per-subset
+> write lock -- this will suffer scalability due to the read locking, but
+> it will still scale drastically better as apart from that there will be
+> no serialization. In this setting the problematic consumer will write
+> lock the new thing to stabilize the state.
+> 
+> So my non-maintainer opinion is that the patchset is not worth it as it
+> fails to address anything for significantly more common and already
+> affected setups.
+This patch set is to reduce the remote access latency for insert/remove VMA
+in NUMA.
+
+> 
+> Have you looked into splitting the lock?
+> 
+I ever tried. 
+
+But there are two disadvantages:
+  1.) The traversal may need to hold many locks which makes the
+      code very horrible.
+
+  2.) Even we split the locks. Each lock protects a tree, when the tree becomes
+      big enough, the VMA insert/remove will also become slow in NUMA.
+      The reason is that the tree has VMAs in different NUMA nodes.
+      
+
+Thanks
+Huang Shijie
+
 
