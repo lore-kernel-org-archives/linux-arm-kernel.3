@@ -4,67 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DF56F531F1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 06:48:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA327F531F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 06:50:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pdsqpleAsC0hxA1u9yqEyqaShdftKvYAcsPRNsTY7Dk=; b=TRmrZqQYUEdBRZ6CpAL24Sq5hp
-	f1M2u3hluNGrwNiNmRw1bkYDcwS+BZiiZyK97WhQTXKxNK0+RuF3ebEd+FcaBjKLnDjb42+Gab7op
-	P+F/PuXNWvs8VMCg0dXhhY4J9yuU+i7ROFHG920AxiKF/ewssfx+kya4G0uPXKGGhguqiobimmjnU
-	Y33b9zEQw1gEdPyvAezuDeRr8DLUtjK0S2XUuniyna27i5Jg//qYIcaaVnEPxaso3l+d9xoh1RH0/
-	HVa6QMF0Zhh2dob4cENkyDyotCFwZdA2qP9w/80K4L8aKNQR1QWT7qIWB5bvSZzQBO2GtXhJs63zT
-	Tt5rgk8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3bBNMufzYVqr5UxXwJVKvzP0MCL1gV7PFUCF2Nv07i8=; b=w4uIfkDTkZdg29pKkiYd54Svr1
+	GPbXWLCTpPoAslMWLPANRiWOjfKH2rUA7EC8D0A6vsIyS9zR63r3Ef4uY/mHWIpp5J3tRVZPySB51
+	iBDhwof7wYWRgeJbTjYg9oTkXYZ9V2EojHO/O0axjjga4/oD9JkFPSKIruHxnyCLojIHNqSEkAgjk
+	ODbd+L406bo4ssX2ZyO9bpQSzj346nUIhCtJ8xANGly7L7ocB1A2E5mjrSqsPmpFHNJgI1dehvUHF
+	KhacCDKoZmvJHp1IyJ8rxnM8e0U+hEgyUv6UzWDUXN+9wZj3XQBdDW7EoCQbdlImRH54ap+ifMb0s
+	d8M8w8OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCXZ8-0000000GrWe-28kk;
-	Tue, 14 Apr 2026 06:48:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wCXbo-0000000GrhJ-0Mo3;
+	Tue, 14 Apr 2026 06:50:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCXZ5-0000000GrWF-3MwV
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 06:48:04 +0000
+	id 1wCXbm-0000000Grh3-37Wu;
+	Tue, 14 Apr 2026 06:50:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B3F8C43F93;
-	Tue, 14 Apr 2026 06:48:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3BD4C19425;
-	Tue, 14 Apr 2026 06:47:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BCE5C60018;
+	Tue, 14 Apr 2026 06:50:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24650C2BCB3;
+	Tue, 14 Apr 2026 06:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776149281;
-	bh=sgQSnvH0C3Sqy1eWfjYwrIYFONIpzqlkzyRfsudm/xU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Et8EgnRsWhzdmcM4RENWMbVpkXKS8dXoteWcjVKiKsBIsvCbKJY/7smciG299ZLWG
-	 8tH2CrpUVX4tT6Gv1IbzuEfayBYNMmfbCeO4ullqdeuT0wxNIEM1RJK0eDKTTDxH3F
-	 nboa+k0ApHlnGj4VjghnFw6HdWJrt6d9af8VDYYRzkCjcWBG/w2Q9Vq84msCbNmnsk
-	 kEAfI7TbIJanjyq+PtunxH+fuOM1+jwjO4arCliVHUcnUBAodyZxxWTWDUOU5wTVR4
-	 6TWHeR38oIrsxjodpPfOOd8X3ZTYLRP4UkejezBYvSQ0P7Qw2xVv8G+ajSLEsLXk9C
-	 0SAVbkmo2VYzA==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Hauke Mehrtens <hauke@hauke-m.de>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <zajec5@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Rosen Penev <rosenp@gmail.com>
-Cc: soc@lists.linux.dev,
-	Arnd Bergmann <arnd@arndb.de>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] [v2] ARM: dts: bcm4709: fix bus range assignment
-Date: Tue, 14 Apr 2026 08:47:46 +0200
-Message-Id: <20260414064754.3129667-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	s=k20201202; t=1776149449;
+	bh=J7urA2Y9K/1/xQ3Pfm3NoRFKtOG7BaAW7PeZ+LWeRww=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IqQWRIgcFqS9gj2NS9UOweLrccR9X2jgkZLSsKnCmEcOJLaqLGn9CGumfKg566s2n
+	 OjxP/eTIUItS8CU91+kQqk3UEd8Pdg4yyltgwMScyBmbjBrhbnVn0sv050l5dscXNL
+	 sGkuTazS5AVl1h0B1JOyNqOPt4HPNP699JuCfV/CGA6bClHzl3+exbejRR18DohI6C
+	 meJqnUWqZj0fOkXx6ns05iqqL4xmmHSga/foSEQRtJedmXIbdwKeni4HbHeGk0B2Id
+	 C9mZ4++TZQEN2YaYezwUm2oXczqTEVraedNwjERslf2cEO+HG5AxJv14Lwql323k+p
+	 ItIRi7V6Bt/6Q==
+Date: Tue, 14 Apr 2026 08:50:47 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net] net: airoha: Add missing bits in
+ airoha_qdma_cleanup_tx_queue()
+Message-ID: <ad3jxzIN8UqTnsa2@lore-desk>
+References: <20260410-airoha_qdma_cleanup_tx_queue-fix-net-v1-1-b7171c8f1e78@kernel.org>
+ <20260413225709.3648413-1-kuba@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_234803_865646_7E2E9599 
-X-CRM114-Status: GOOD (  11.34  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="W0h9puXbvySZQQQC"
+Content-Disposition: inline
+In-Reply-To: <20260413225709.3648413-1-kuba@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,39 +71,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
 
-The netgear r8000 dts file limits the bus range for the first host
-bridge to exclude bus 0, but the two devices on the first bus are
-explicitly assigned to bus 0, causing a build time warning:
+--W0h9puXbvySZQQQC
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-/home/arnd/arm-soc/arch/arm/boot/dts/broadcom/bcm4709-netgear-r8000.dts:142.3-27: Warning (pci_device_bus_num): /axi@18000000/pcie@13000/pcie@0/pcie@0,0/pcie@1,0:bus-range: PCI bus number 0 out of range, expected (1 - 255)
-/home/arnd/arm-soc/arch/arm/boot/dts/broadcom/bcm4709-netgear-r8000.dts:142.3-27: Warning (pci_device_bus_num): /axi@18000000/pcie@13000/pcie@0/pcie@0,0/pcie@2,0:bus-range: PCI bus number 0 out of range, expected (1 - 255)
+> This is an AI-generated review of your patch. The human sending this
+> email has considered the AI review valid, or at least plausible.
+> ---
+> net: airoha: Add missing bits in airoha_qdma_cleanup_tx_queue()
+>=20
+> This commit resets DMA TX descriptors in airoha_qdma_cleanup_tx_queue
+> and synchronizes TX_DMA_IDX to TX_CPU_IDX to notify the hardware that
+> the ring is empty.
+>=20
+> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
+ernet/airoha/airoha_eth.c
+> > index 9285a68f435fe..963ab7b8d166b 100644
+> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> > @@ -1044,13 +1044,17 @@ static int airoha_qdma_init_tx(struct airoha_qd=
+ma *qdma)
+> [ ... ]
+> >  	spin_lock_bh(&q->lock);
+> >  	for (i =3D 0; i < q->ndesc; i++) {
+> > -		struct airoha_queue_entry *e =3D &q->entry[i];
+> > +		struct airoha_qdma_desc *desc =3D &q->desc[i];
+> > =20
+> > +		e =3D &q->entry[i];
+>=20
+> Can this result in a NULL pointer dereference?
+>=20
+> If airoha_qdma_init_tx_queue() sets q->ndesc before allocating q->entry a=
+nd
+> q->desc, and devm_kzalloc() fails, the error path jumps to
+> airoha_hw_cleanup().
+>=20
+> Because q->ndesc > 0, this cleanup loop would execute and dereference
+> q->entry[i] and q->desc[i], which may not have been allocated.
 
-As Rosen mentioned, the bus-range property was a mistake, so just
-remove it and keep the reg values pointing to bus 0, which is
-allowed by the default bus range of the SoC.
+ack, I will fix it in v2.
 
-Suggested-by: Rosen Penev <rosenp@gmail.com>
-Fixes: 893faf67438c ("ARM: dts: BCM5301X: add root pcie bridges")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- arch/arm/boot/dts/broadcom/bcm4709-netgear-r8000.dts | 1 -
- 1 file changed, 1 deletion(-)
+>=20
+> [ ... ]
+> > +		/* Reset DMA descriptor */
+> > +		WRITE_ONCE(desc->ctrl, 0);
+> > +		WRITE_ONCE(desc->addr, 0);
+> > +		WRITE_ONCE(desc->data, 0);
+> > +		WRITE_ONCE(desc->msg0, 0);
+> > +		WRITE_ONCE(desc->msg1, 0);
+> > +		WRITE_ONCE(desc->msg2, 0);
+>=20
+> Is it safe to modify these DMA descriptors and reset the ring indices bel=
+ow
+> without waiting for the hardware DMA engine to become idle?
+>=20
+> In airoha_dev_stop(), the driver clears GLOBAL_CFG_TX_DMA_EN_MASK to requ=
+est
+> the hardware DMA engine to stop, but it does not appear to poll
+> GLOBAL_CFG_TX_DMA_BUSY_MASK to ensure it has actually stopped.
+>=20
+> Modifying the DMA descriptors and internal ring indices while the hardware
+> is still actively processing in-flight descriptors could potentially lead
+> to corrupted DMA fetches or IOMMU faults.
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm4709-netgear-r8000.dts b/arch/arm/boot/dts/broadcom/bcm4709-netgear-r8000.dts
-index d170c71cbd76..e85693fba16a 100644
---- a/arch/arm/boot/dts/broadcom/bcm4709-netgear-r8000.dts
-+++ b/arch/arm/boot/dts/broadcom/bcm4709-netgear-r8000.dts
-@@ -139,7 +139,6 @@ &pcie_bridge1 {
- 	pcie@0,0 {
- 		device_type = "pci";
- 		reg = <0x0000 0 0 0 0>;
--		bus-range = <0x01 0xff>;
- 
- 		#address-cells = <3>;
- 		#size-cells = <2>;
--- 
-2.39.5
+This is already fixed here:
+https://lore.kernel.org/netdev/20260411-airoha-fix-ndo_stop-v1-1-caddaa1817=
+39@kernel.org/
 
+>=20
+> >  		q->queued--;
+> >  	}
+> > +
+> > +	e =3D list_first_entry(&q->tx_list, struct airoha_queue_entry,
+> > +			     list);
+> > +	index =3D e - q->entry;
+> > +	/* Set TX_DMA_IDX to TX_CPU_IDX to notify the hw the QDMA TX ring is
+> > +	 * empty.
+> > +	 */
+> > +	airoha_qdma_rmw(qdma, REG_TX_CPU_IDX(qid), TX_RING_CPU_IDX_MASK,
+> > +			FIELD_PREP(TX_RING_CPU_IDX_MASK, index));
+> > +	airoha_qdma_rmw(qdma, REG_TX_DMA_IDX(qid), TX_RING_DMA_IDX_MASK,
+> > +			FIELD_PREP(TX_RING_DMA_IDX_MASK, index));
+>=20
+> Could list_first_entry() be called on an empty list here?
+>=20
+> If q->tx_list is empty (for example, if allocation failed in
+> airoha_qdma_init_tx_queue or if no entries had a valid dma_addr), calling
+> list_first_entry() returns an invalid pointer.
+>=20
+> The subsequent pointer arithmetic would produce a garbage index value,
+> which is then written to the REG_TX_CPU_IDX and REG_TX_DMA_IDX registers.
+
+ack, I will fix it in v2.
+
+Regards,
+Lorenzo
+
+> --=20
+> pw-bot: cr
+
+--W0h9puXbvySZQQQC
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCad3jxwAKCRA6cBh0uS2t
+rFjtAQDyhrwFh+QugKLUMHuIU38dxPrvgRB5D8rTrcU3XsBnLwD+OGPN6+RIDOmR
+LGc8ZXJFrgJs1j1ZTN/W9OLa44BQFww=
+=b+XE
+-----END PGP SIGNATURE-----
+
+--W0h9puXbvySZQQQC--
 
