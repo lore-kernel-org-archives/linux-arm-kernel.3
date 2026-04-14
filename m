@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41249F9D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 14:05:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6EC1F9D0D2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 14:07:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e2nLFp9D7NyPx26g8wHHBU305n/tPZJN9328+pRcfm4=; b=r/kIXblyuY70kj1I2g0E+O2nPe
-	yGITOwwRhrgHQ/GHaMGOOIC/bFpv5ABnKw1NOMGYKYwjjKaHNM2NDeoDFKosyC83mrZGF4+yD6tc3
-	zmJKeaoJguH2XIyBF8VflnvtbGBBgj9Ph2J61Cv8KaGK+lUjKyR4CvVmw3xH5l/7Mj08p71U790kd
-	Xf948DCCFqLwsb2TZ0s4WoTVtCkcete3fYgdLyty/tTpTqIRnVqI+6CINCWrpoAMXgHjCK+J29e80
-	KXZL9ABoxxunlV301RpBq92uF8rl9u7qkmXOmW762q1JkuVcXW6pb4oVZzvmyHEODnxBGpqrQ5nFC
-	u9BzubkQ==;
+	bh=fiRnhwr0iZXWzQ73+Np2uueJ06hYUWpobUqygHYOSLk=; b=sGGGFcfknb69QDLstGOcBuDPev
+	suQpWTejAz7INsNiBnpkoMUaUwFKEyejsr3ZP3ejCun34SgPaBQB08OVLlREsQtFDAcnk2lVq1ONT
+	EwaPrXVjHHHtDaqTcBGGQioM/waHGPlIrC6nJetGz8Y5NOhH6Anw9SyHv+c6fE0FKF3xUVvqniQkk
+	bK0+MNW4ES7sHuHcSU5JXe+9PoCo8JHqSdFOXuepi6Nbl0A1QTqyz6sOQ5by8EWJEHzD3YIDaZH9C
+	SQjsSYJtw/2I0nnR2ox3BhTEWOT4goi4rfEZ34ok4M+tOzUUxuVwiwLYOK2ZLcCew4U1s01r+ZjOG
+	5GtBt7PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCeO2-0000000HQBw-2CYV;
-	Tue, 14 Apr 2026 14:05:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wCePp-0000000HQL5-04D4;
+	Tue, 14 Apr 2026 14:06:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCeO2-0000000HQBp-0bSU
+	id 1wCePn-0000000HQKj-0P4W
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 14:05:06 +0000
+	Tue, 14 Apr 2026 14:06:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3B25B600AD;
-	Tue, 14 Apr 2026 14:05:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF9C0C19425;
-	Tue, 14 Apr 2026 14:05:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 57A1640E8B;
+	Tue, 14 Apr 2026 14:06:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22419C19425;
+	Tue, 14 Apr 2026 14:06:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776175504;
-	bh=OF74E1jQi9q8RugvWARpV7zDv+GE0MY3No45lifQv/4=;
+	s=k20201202; t=1776175614;
+	bh=t4X7l3EOKtqGKlDUASynKsS2O0JDUC1jZLEKi60Gtl0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XRQYte4arHLokcDvFI9HBWgNA9wtDMJVYVJbkgQeM2bC47GJWfUNsI4BoF5ra/O8D
-	 bAh6VdqSSceAQeK4BW1KcIJDDxbp3mthjclhC8Kc1c7wFfoFNCot5w09okpk6ZOVQD
-	 /pItKbut6ccWoajFKFZ2XWijoqG1s2nshmzdA/nfB4VSyou7tGxjAOxLuoNk1Bn+5q
-	 Fgu/vk9cAMDWElgaYzZpHA6EBs7GtLtXCPQ9k8K+SGQdwFVTibwShZuw23DZk9rH6G
-	 UrRxl/x3RuLoD/xry8YYLU6yj8rBQH21z2pL6nkSiQXE3/cJbLlh9sd6mmKOoxI2sB
-	 LUWCi73Ox/S1g==
-Message-ID: <247a2a55-14e5-469b-908a-54ffebe035d8@kernel.org>
-Date: Tue, 14 Apr 2026 16:04:59 +0200
+	b=o7ZcYUUXmJIzKgU/9IBQaeyg135a8wfN3ysTO6yKUruwITxim+o89AicYt2Ac3JGu
+	 PqoRlMm5Q8KZ5ar3Wk5jf9GTFio0do+qeh6cJwo+0sBobrHoNm1+U51Ktj4LoGPLCO
+	 cnWNGyjA5SLltTI8cjcA1AT63S/366sB5VBFhBShesl1B/OtBVrPPAaumhOVHEkmes
+	 6mwBDcGJeYp4IUS3I5wcISewbZRuK6TRYOUt9ut3/HqDYXgJGNQOfFiDDTFquf+dPg
+	 +fRTaKybMMdk5ipLZ8Ny0glgaypBRMuVSig861H2UEm91yN1jwjYb6IH6/fT2Rv+NP
+	 c16mKpnGeLjiw==
+Message-ID: <4d0a05b9-664d-4a2b-9a35-1b93726e2c33@kernel.org>
+Date: Tue, 14 Apr 2026 16:06:49 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] gpio: axiado: add SGPIO controller support
+Subject: Re: [PATCH 1/3] dt-bindings: gpio: add Axiado SGPIO controller
 To: Petar Stepanovic <pstepanovic@axiado.com>, Tzu-Hao Wei <twei@axiado.com>,
  Swark Yang <syang@axiado.com>, Prasad Bolisetty <pbolisetty@axiado.com>,
  Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
@@ -56,7 +56,7 @@ To: Petar Stepanovic <pstepanovic@axiado.com>, Tzu-Hao Wei <twei@axiado.com>,
 Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20260414-axiado-ax3000-sgpio-controller-v1-0-b5c7e4c2e69b@axiado.com>
- <20260414-axiado-ax3000-sgpio-controller-v1-2-b5c7e4c2e69b@axiado.com>
+ <20260414-axiado-ax3000-sgpio-controller-v1-1-b5c7e4c2e69b@axiado.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,9 +102,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260414-axiado-ax3000-sgpio-controller-v1-2-b5c7e4c2e69b@axiado.com>
+In-Reply-To: <20260414-axiado-ax3000-sgpio-controller-v1-1-b5c7e4c2e69b@axiado.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260414_070655_201073_8BB76F80 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,120 +124,48 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 14/04/2026 15:48, Petar Stepanovic wrote:
-> +
-> +	for (i = 0; i < sgpio->max_offset_regs; i++) {
-> +		sgpio->slices[2].reg_ss[i] = 0;
-> +		dout_value = be32_to_cpu(prop[i]);
-> +
-> +		for (dout_reverse = 0; dout_reverse < 32; ++dout_reverse) {
-> +			sgpio->slices[2].reg_ss[i] <<= 1;
-> +			sgpio->slices[2].reg_ss[i] |= (dout_value & 1);
-> +			dout_value >>= 1;
-> +		}
-> +	}
-> +
-> +	sgpio_hw_init(sgpio);
-> +
-> +	irq = platform_get_irq(pdev, 0);
-> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - axiado,sgpio
 
-Odd style
-
-> +	if (irq < 0) {
-> +		dev_err(&pdev->dev, "Failed to get parent IRQ: %d\n", irq);
-> +		return irq;
-> +	}
-> +	/* Store parent IRQ for cleanup */
-> +	sgpio->parent_irq = irq;
-> +
-> +	rc = devm_request_threaded_irq(&pdev->dev, irq, NULL, sgpio_irq_handler,
-> +				       IRQF_ONESHOT, "axiado-sgpio", sgpio);
-> +
-> +	if (rc < 0) {
-> +		dev_err(&pdev->dev, "Failed to request threaded IRQ %d: %d\n",
-> +			irq, rc);
-
-Nope
-
-> +		return rc;
-> +	}
-> +
-> +	sgpio->chip.parent = &pdev->dev;
-> +	sgpio->chip.ngpio = sgpio->ngpios * 2;
-> +	sgpio->chip.owner = THIS_MODULE;
-> +	sgpio->chip.direction_input = ax3000_sgpio_dir_in;
-> +	sgpio->chip.direction_output = ax3000_sgpio_dir_out;
-> +	sgpio->chip.get = ax3000_sgpio_get;
-> +	sgpio->chip.set = ax3000_sgpio_set;
-> +	sgpio->chip.label = dev_name(&pdev->dev);
-> +	sgpio->chip.base = -1;
-> +
-> +	girq = &sgpio->chip.irq;
-> +
-> +	girq->chip = &axiado_sgpio_irqchip;
-> +	girq->handler = handle_edge_irq;
-> +	girq->default_type = IRQ_TYPE_NONE;
-> +	girq->num_parents = 1;
-> +	girq->parents =
-> +		devm_kcalloc(&pdev->dev, 1, sizeof(*girq->parents), GFP_KERNEL);
-> +	if (!girq->parents) {
-> +		dev_err(&pdev->dev, "Failed to allocate parents array\n");
-> +		return -ENOMEM;
-
-Ykes...
-
-> +	}
-
-
+That's a SoC no? Where is SoC compatible?
 
 > +
-> +static struct platform_driver sgpio_driver = {
-> +	.driver = {
-> +		.name = "sgpio",
-> +		.owner = THIS_MODULE,
-
-Uh, that's 13 year old code. Please drop everything and write from
-scratch using latest reviewed drivers as your base. No point to repeat
-same review and fix the same issues we already fixed during last 13 years...
-
-> +		.of_match_table = ax_sgpio_match,
-> +	},
-> +	.probe = sgpio_probe,
-> +	.remove = sgpio_remove,
-> +};
+> +  reg:
+> +    maxItems: 1
 > +
-> +static int __init ax_sgpio_init(void)
-> +{
-> +	int ret;
+> +  gpio-controller: true
 > +
-> +	ret = platform_driver_register(&sgpio_driver);
-> +	if (ret < 0) {
-> +		pr_err("Failed to register SGPIO driver\n");
-> +		return ret;
-> +	}
+> +  '#gpio-cells':
+> +    const: 2
 > +
-> +	return 0;
-> +}
+> +  interrupts:
+> +    maxItems: 1
 > +
-> +static void __exit ax_sgpio_exit(void)
-> +{
-> +	platform_driver_unregister(&sgpio_driver);
-> +}
+> +  interrupt-controller: true
 > +
-> +module_init(ax_sgpio_init);
-> +module_exit(ax_sgpio_exit);
+> +  '#interrupt-cells':
+> +    const: 2
+> +
+> +  design-variant:
 
-And that's one more.
+Sorry, but no, none of this and further properties apply to DT. Drop all
+of them.
 
-module_platform_driver, no?
+Please also read writing bindings so you won't make trivial mistakes.
 
-> +
-> +MODULE_DESCRIPTION("Axiado Serial GPIO Driver");
-> +MODULE_AUTHOR("Axiado Corporation");
-> +MODULE_LICENSE("GPL");
-> 
+...
 
 
+> +    sgpio@a000 {
+> +            compatible = "axiado,sgpio";
+
+Don't come with own style, please. Look at other files.
+
+> +            reg = <0xa000 0x800>;
+> +            gpio-controller;
+> +            #gpio-cells = <2>;
 Best regards,
 Krzysztof
 
