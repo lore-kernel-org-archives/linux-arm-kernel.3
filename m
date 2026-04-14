@@ -4,89 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF657F9D0CA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 13:24:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6219DF9D0CA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 13:28:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cMPO/P6ZptnY7PwA9Kq6DHiKsIFPvqoz4r+zqZlAlBc=; b=KxluF6M8yvZ/pPAxMqNv/MJasD
-	91WVjyVznhfZGVbTxR4/Ue+IAdjbioU3JKM0O1YxsdKlA0xsXbfyFg0zbcHc904qU3oLEAKlyupN5
-	ejXaqvcz/rcJ2SqopnkMluAk9dIi0yBaBtHo/Ud2VaBcrYftjfGzQxiecfPa+72SXnfUhR8I0QQuN
-	E1mUMHbpZEoQhfZFriVWOR9GuKB90078h8PwByoLJ722nnxltjXIW9OscObLrGWhCGZAJEDaCFAF4
-	p0JqmdusiErTjJ7CbfddnjIy7u+EvRMwVNUA3qE6dzgHXP2X6KRBMS2mnKI9bGhAEH19OYaUBi/ge
-	bl/lPFSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=px5yEBU5FcEbehMk8v4NjrkmJXQht5doE3kzOmaFP0w=; b=gJmSOdRmoxwbSaFtN5RpApDWj0
+	KJ5ZB6iRsxF5GdGyHrYF8HRoy9BTJNvJPHO3Pe61vlTs+6H2cS/LUFH/cmHRk8oJEKckapVfUlaAs
+	0fjnwEMbCflRSI0FrSqlt60eonnowkeTBoUNK+MOBgZLq6VRAIyFPXV+L86GdNd1HN30bg5K1MH6Q
+	bI9rXuLhYEAErE3cZ0tM2QST6RLkbHnL5WHUSVKFC0ahBjRyXHMkx15/3vBULNALIcLiPpjWo7A45
+	3Sjw//2VAU9k6LBNpE8XKRQ7gVXAh4YF5YVPQV4id+8bVxKFr7zoc4ls3+X8qtnDvCARPigoMsRrZ
+	Tr74FrHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCdkl-0000000HMxM-1TAg;
-	Tue, 14 Apr 2026 13:24:31 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCdkh-0000000HMx0-2fDc
+	id 1wCdoJ-0000000HNI0-3RqE;
+	Tue, 14 Apr 2026 13:28:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCdoH-0000000HNHS-41zK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 13:24:30 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 49A624E429A0;
-	Tue, 14 Apr 2026 13:24:24 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 15A6960410;
-	Tue, 14 Apr 2026 13:24:24 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 91474104500A2;
-	Tue, 14 Apr 2026 15:24:15 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1776173062; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=cMPO/P6ZptnY7PwA9Kq6DHiKsIFPvqoz4r+zqZlAlBc=;
-	b=X6A4tqU3MkoqM6hdV2BYcurk14+6JZDEN/gbqla0kWX1zkUOVhzepr1g+eqrPNbNUv/huV
-	YvRVcaXQMDSoKNvHHEev5avgGrcMFEKbpEaqiYiDYgm7Bt3jlvoqJQ5ERrTOmbM6hkpZ4c
-	lSZlrap8zNk/UzuRZwSWbVolH6CoRl3/X0CCVwBfc1YF32vGuKDzOTtnFMST1koqfhy2JQ
-	FHgxzpJuT7y8RT0NzKx5KsKEo6MlgAJgguOw61CCS91aw38/mmn96yQctauQKN1Mw/26EC
-	Mku30aEpcpuqoVCUdGMmoRzHpFjahdvvfYrXfOquex2Iaj6Ff2PksIHe5lfBCw==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 14 Apr 2026 15:24:14 +0200
-Message-Id: <DHSWSSYRPUVC.2W3G3OU27L3HG@bootlin.com>
-Subject: Re: [PATCH RFC bpf-next 3/8] bpf: add BPF_JIT_KASAN for KASAN
- instrumentation of JITed programs
-Cc: "Alexei Starovoitov" <ast@kernel.org>, "Daniel Borkmann"
- <daniel@iogearbox.net>, "Andrii Nakryiko" <andrii@kernel.org>, "Martin
- KaFai Lau" <martin.lau@linux.dev>, "Eduard Zingerman" <eddyz87@gmail.com>,
- "Kumar Kartikeya Dwivedi" <memxor@gmail.com>, "Song Liu" <song@kernel.org>,
- "Yonghong Song" <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>,
- "John Fastabend" <john.fastabend@gmail.com>, "David S. Miller"
- <davem@davemloft.net>, "David Ahern" <dsahern@kernel.org>, "Thomas
- Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>, "Borislav
- Petkov" <bp@alien8.de>, "Dave Hansen" <dave.hansen@linux.intel.com>,
- <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, "Shuah Khan"
- <shuah@kernel.org>, "Maxime Coquelin" <mcoquelin.stm32@gmail.com>,
- "Alexandre Torgue" <alexandre.torgue@foss.st.com>, "Andrey Ryabinin"
- <ryabinin.a.a@gmail.com>, "Alexander Potapenko" <glider@google.com>,
- "Dmitry Vyukov" <dvyukov@google.com>, "Vincenzo Frascino"
- <vincenzo.frascino@arm.com>, "Andrew Morton" <akpm@linux-foundation.org>,
- <ebpf@linuxfoundation.org>, "Bastien Curutchet"
- <bastien.curutchet@bootlin.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, "Xu Kuohai" <xukuohai@huawei.com>,
- <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <netdev@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
- <linux-stm32@st-md-mailman.stormreply.com>,
- <linux-arm-kernel@lists.infradead.org>, <kasan-dev@googlegroups.com>,
- <linux-mm@kvack.org>
-From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-To: "Andrey Konovalov" <andreyknvl@gmail.com>,
- =?utf-8?b?QWxleGlzIExvdGhvcsOpIChlQlBGIEZvdW5kYXRpb24p?=
- <alexis.lothore@bootlin.com>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260413-kasan-v1-0-1a5831230821@bootlin.com>
- <20260413-kasan-v1-3-1a5831230821@bootlin.com>
- <CA+fCnZf-o8tiv_tX9YB5eBUGx17OpztKZsEB6Awjw3WAqBAiUw@mail.gmail.com>
-In-Reply-To: <CA+fCnZf-o8tiv_tX9YB5eBUGx17OpztKZsEB6Awjw3WAqBAiUw@mail.gmail.com>
-X-Last-TLS-Session-Version: TLSv1.3
+	Tue, 14 Apr 2026 13:28:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A4B8C4E8A;
+	Tue, 14 Apr 2026 06:28:02 -0700 (PDT)
+Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 0E9DD3F7B4;
+	Tue, 14 Apr 2026 06:28:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776173288; bh=nphOGQjMcH8/vvF1pOblAjkrgf8ijLSmK2j4/Q1BhOc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=hBL0rjCu9TODGvAPZ+UCQV6rRz0cjV00DSSM2dLKr0K09ZnJbP+RwFWx6oc6o+Y4m
+	 QpUgD/geLl+nNolpHv7qrPYNmVYggtj7G7C9zCgiu9xs5Y3yRpInvMTVZLStO8SZYb
+	 CB0ujXfqFV0roSQdPnqF70EMKY5dXAQHeQgTEcI0=
+From: Ben Horgan <ben.horgan@arm.com>
+To: ben.horgan@arm.com
+Cc: Dan Carpenter <dan.carpenter@oracle.com>,
+	Dan Carpenter <error27@gmail.com>,
+	James Morse <james.morse@arm.com>,
+	Reinette Chatre <reinette.chatre@intel.com>,
+	Fenghua Yu <fenghuay@nvidia.com>,
+	lkml <linux-kernel@vger.kernel.org>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH v1 0/2] arm_mpam: resctrl: mpam resctrl glue code fixes
+Date: Tue, 14 Apr 2026 14:27:55 +0100
+Message-ID: <20260414132758.196874-1-ben.horgan@arm.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_062427_942483_D8AE38BD 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20260414_062810_122618_4599683C 
+X-CRM114-Status: UNSURE (   7.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,77 +72,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue Apr 14, 2026 at 12:20 AM CEST, Andrey Konovalov wrote:
-> On Mon, Apr 13, 2026 at 8:29=E2=80=AFPM Alexis Lothor=C3=A9 (eBPF Foundat=
-ion)
-> <alexis.lothore@bootlin.com> wrote:
->>
->> Add a new Kconfig option CONFIG_BPF_JIT_KASAN that automatically enables
->> KASAN (Kernel Address Sanitizer) memory access checks for JIT-compiled
->> BPF programs, when both KASAN and JIT compiler are enabled. When
->> enabled, the JIT compiler will emit shadow memory checks before memory
->> loads and stores to detect use-after-free, out-of-bounds, and other
->> memory safety bugs at runtime. The option is gated behind
->> HAVE_EBPF_JIT_KASAN, as it needs proper arch-specific implementation.
->>
->> Signed-off-by: Alexis Lothor=C3=A9 (eBPF Foundation) <alexis.lothore@boo=
-tlin.com>
->> ---
->>  kernel/bpf/Kconfig | 9 +++++++++
->>  1 file changed, 9 insertions(+)
->>
->> diff --git a/kernel/bpf/Kconfig b/kernel/bpf/Kconfig
->> index eb3de35734f0..28392adb3d7e 100644
->> --- a/kernel/bpf/Kconfig
->> +++ b/kernel/bpf/Kconfig
->> @@ -17,6 +17,10 @@ config HAVE_CBPF_JIT
->>  config HAVE_EBPF_JIT
->>         bool
->>
->> +# KASAN support for JIT compiler
->> +config HAVE_EBPF_JIT_KASAN
->> +       bool
->> +
->>  # Used by archs to tell that they want the BPF JIT compiler enabled by
->>  # default for kernels that were compiled with BPF JIT support.
->>  config ARCH_WANT_DEFAULT_BPF_JIT
->> @@ -101,4 +105,9 @@ config BPF_LSM
->>
->>           If you are unsure how to answer this question, answer N.
->>
->> +config BPF_JIT_KASAN
->> +       bool
->> +       depends on HAVE_EBPF_JIT_KASAN
->> +       default y if BPF_JIT && KASAN_GENERIC
->
-> Should this be "depends on KASAN && KASAN_GENERIC"?
+A couple of minor fixes for the new mpam resctrl glue code. These fix
+a sparse warning and and use of an unitialized variable in an
+unexpected error case.
 
-Meaning, making it an explicit user-selectable option ?
+Thanks for the bug reports.
 
-If so, the current design choice is voluntary and based on the feedback
-received on the original RFC, where I have been suggested to
-automatically enable the KASAN instrumentation in BPF programs if KASAN
-support is enabled in the kernel ([1]). But if a user-selectable toggle
-is eventually a better solution, I'm fine with changing it.
+Based on arm64 for-next/mpam.
+git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/mpam
 
-[1] https://lore.kernel.org/bpf/CAADnVQLX7RSnOqQuU32Cgq-e0MVqyeNrtCQSBbk0W2=
-xGkE-ZNw@mail.gmail.com/
+Ben Horgan (2):
+  arm_mpam: resctrl: Fix the check for no monitor components found
+  arm_mpam: resctrl: Make resctrl_mon_ctx_waiters static
 
->
->
->> +
->>  endmenu # "BPF subsystem"
->>
->> --
->> 2.53.0
->>
+ drivers/resctrl/mpam_resctrl.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-
-
-
---=20
-Alexis Lothor=C3=A9, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+-- 
+2.43.0
 
 
