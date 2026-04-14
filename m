@@ -4,94 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED80AF531E8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 11:06:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3583F531DE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 11:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SmMwrtSIePz754V0sje5TuC0YnmOAM3jxAH9WYpMnUs=; b=nHN8p/vFAg8ikYjMhGuKjCJQhM
-	GR5HyXevB5W8T36ZbGIfdSEYVubvFEU/jZ11P5BNKEK0IWCu5cTt8GF2Hm9LVfq6JjTfj3wN4h2An
-	Xn63ctpsNeYDueFZ7ENTdzoRrfc5g0v7yi4MOxNhc2XSkyYAzO5WUC30ULk4Y89oLVK6Xrk42xHUR
-	ZkWslHqwB8GlItLPJJiY1FbT3UR63xxkyUIbnKh9R3Yhn99samPNEswPunsK9pjhlkRcnsefKy/1b
-	Iq4nndnLbAXUmxTmUMmnBzr6adX1A0qoPS7/0jTyYHBObQF0eHsSPi6UsQIz2Q0I17wNkyYGAgEoF
-	rk4GVKpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x3S9jBB7rFaohFOnGlp4KwVhYdhC0mAEOE/r6Elp0J8=; b=t+Eg6eci/ASSovNrzlPbaIVRa+
+	pL5SXayY6wqUh2t1B+7mqp7C+eiHMwJ9QaVz8mDOXZYEPTAEudMbTcNlGRTYmxa2ZMQG0mMrRvp4v
+	QX4sLbKJiX2jDPrvM80QrfsTG0gAhMCZpsgYT1fFTJ4Q/drURrhaJQvd/T8pueYaH6GrI0z5CzI3t
+	7/nlkjNU1Ts3l41mL+vZq3cDRpNlTAXuKtDyZFmCPOwTMLyzFJLdrX/TFIGQ4YNu/5BwSdV9DtXuI
+	JspqwVs+SceYKnIFmfFpO3uoU9JFUAEj+89jVAfTsjnFUxvehUoeM3hEEJe23E4BEw/kxRKey2lga
+	nmIxLZbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCbbO-0000000HCXU-17BG;
-	Tue, 14 Apr 2026 11:06:42 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1wCbdT-0000000HD4X-22R7;
+	Tue, 14 Apr 2026 11:08:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCbbL-0000000HCUe-0ZaG
+	id 1wCbdQ-0000000HD4C-1di7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 11:06:40 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-488d2079582so49234965e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 04:06:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1776164797; x=1776769597; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=SmMwrtSIePz754V0sje5TuC0YnmOAM3jxAH9WYpMnUs=;
-        b=zFvKOBnnQL0CQEEvdZWWu3zqNyhH7IqWdDYd3oV3aNdbUpaR2SESNSBQ0di5+IV+9e
-         dHAnTD++Oypt2UrbSu+UdGo67WJeq7WCepAdT5m9Lcix7ItjwrnB/Gz+iclL+5c4XBBP
-         gTj3MQnJBzSYiD9PNNJJ1L7c+ftimsNzq4MM/4mT8uZOAMxv38QOxcm4qqh+rBQGdPrS
-         Jr9OJaN6nZhsYQYgJrvbSzqgq3OlMdtX0v3guZ8pIuXfx/1nOlc/lLGdfO++7L1vMYZG
-         U2UmiQEJK7gdOmZN/fKRNagvAQZ3x3LPASudYWA8zJBIg2UtQK4sKhcNbpN8XqnH1qtM
-         te+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776164797; x=1776769597;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=SmMwrtSIePz754V0sje5TuC0YnmOAM3jxAH9WYpMnUs=;
-        b=H27a00FrhhgUf8Er4AKu5oJI3ZDbUexkjQ/VtijHC/JVA7PAexaJuJqTkfUQJIQ9rF
-         rFacAQNRZyC6rDWVRbcJL+vgpIfo+ewGD7WUSX7Vyuke6PfAfg/aYlV0C6hU/1lh5gCQ
-         33UeIBtR3fdigeoNEsWJqx9bkrToxLe6u4RwvoMRVvnE2MJ9FSfPUuX9EjoUXsYDblU2
-         esw3roL17Og5VoSSRSOWvZ2AMYu8UMEeYQXBIBBNkrKwPUKrl+9KmMe5NXtieNInsflq
-         ME0Oho6YoBCJXBfZU3iYr+Ma0Lo+BrmRUIcCCqDHaxJhXqTha+AZHJjcUeOoigcpgJC6
-         pcjQ==
-X-Gm-Message-State: AOJu0YxugnyyGNrufvhJuCDK93Dsgo+qbt7XtL1yHbvXBhCqfhDCp1i9
-	BaTi6kALStcMDt96zZ1yX+GyO0XeKjOpMx3Xa33jVyCdzGT2oDr1EEJGgPui2njYovY=
-X-Gm-Gg: AeBDieua0LUvmit4+e6jQ36aQBWjEE49QdLKHUuwPcwlPbNUjd/QFK1W8NwPbRk4tD1
-	fPxnwkRRuAbeD8seB5eZcBQVk8MmMWiNcq6z2XoNliXHj/FtaZa3pjWRgH12lMvFOmUDAfpu9sP
-	PM0Ig0dX+j5SK+Zmi2+mwGvijaNAVrvcF22BZAWdr365/+EQ2Xg1sBElT7T8oBv5Yss37z6+xhv
-	IZ87OR2d+XYjhJAaIkRyAixss8kePRQ1/Am1zkNiSg6R23zDnw/jpYylIKhgG27l3mr+yOgfObw
-	w3K3RmL0x91tabXzRW8ejB0XewVdy0d8f78JIgY+NATgMQacec9i9no1UKkiDYQmAF1LTxD/8Oe
-	UA/t27EpSLteTOgOXIkl8Okakk8Fj8kBVHY3EfRIVdkUT+tDvvwekwapO8cy83NtORKZixze0ki
-	cAdkl21dtj53G7jPlovlXeQtY2GlUQWcW694n1B5xGWw==
-X-Received: by 2002:a05:600c:3b24:b0:488:b811:51c4 with SMTP id 5b1f17b1804b1-488d6872ed0mr236056315e9.25.1776164797092;
-        Tue, 14 Apr 2026 04:06:37 -0700 (PDT)
-Received: from e133063.arm.com ([213.137.22.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488d5d9dd86sm183254655e9.4.2026.04.14.04.06.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Apr 2026 04:06:34 -0700 (PDT)
-From: James Clark <james.clark@linaro.org>
-Date: Tue, 14 Apr 2026 12:04:52 +0100
-Subject: [PATCH v3 6/6] perf arm_spe: Print remaining IMPDEF event numbers
+	Tue, 14 Apr 2026 11:08:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 795C44415F;
+	Tue, 14 Apr 2026 11:08:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FCC6C19425;
+	Tue, 14 Apr 2026 11:08:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776164926;
+	bh=sNu71ZUb1rt4ab2E8eZagKk8jYhy4eDjDlSs+G1tla4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fLgGDLRcloWUP15mYzJp7RDXnNZmpO/6pWOEi45FADVz3SD32RzX9h4NfzJY5Kqwl
+	 7K/1YTy21PD2fzwt7TO10R4VdrpI3vol53VyB2M+Z9tDEzzhVjVgGnTJIfI664EFWv
+	 CRWcfyOx5DvTUCNi9MPDcCBT6rdurpP+9uro+a5aSUb1xztssrUFZ0Zb7MqOk4EJT8
+	 9qXUQVmr7vcFrP88fkXuh7uHBWURQHUDaTtAp+Vue0AGSNrkGjj2kDmwkEwEW6f4HP
+	 GzbQyGmYowRVYmnb3TD5xP4rVOPtNVVP/wfrWFNQq6efLbCgl1c1zRvVsUdFt1BJpS
+	 LNzZR9cJgjEqw==
+Date: Tue, 14 Apr 2026 12:08:42 +0100
+From: Will Deacon <will@kernel.org>
+To: Brian Ruley <brian.ruley@gehealthcare.com>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+	Steve Capper <steve.capper@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	catalin.marinas@arm.com
+Subject: Re: [PATCH] mm/arm: pgtable: remove young bit check for
+ pte_valid_user
+Message-ID: <ad4gOu83zY-SKijx@willie-the-truck>
+References: <20260409125446.981747-1-brian.ruley@gehealthcare.com>
+ <adewJetUv6wMiz9o@willie-the-truck>
+ <adfDEMK8EbIjPu3J@zoo11.fihel.lab.ge-healthcare.net>
+ <adfNN33QIOP3VfDm@shell.armlinux.org.uk>
+ <adjYlUk8_JjPivNi@zoo11.fihel.lab.ge-healthcare.net>
+ <adzMOdySgMIePcue@willie-the-truck>
+ <ad0Ky09tLcFx7JCa@zoo11.fihel.lab.ge-healthcare.net>
+ <ad3wRQt7K-QLX8Jw@zoo11.fihel.lab.ge-healthcare.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260414-james-spe-impdef-decode-v3-6-63baf9c893b1@linaro.org>
-References: <20260414-james-spe-impdef-decode-v3-0-63baf9c893b1@linaro.org>
-In-Reply-To: <20260414-james-spe-impdef-decode-v3-0-63baf9c893b1@linaro.org>
-To: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
- Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>, 
- Al Grant <al.grant@arm.com>, Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ad3wRQt7K-QLX8Jw@zoo11.fihel.lab.ge-healthcare.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_040639_203512_D12FCFE0 
-X-CRM114-Status: GOOD (  13.88  )
+X-CRM114-CacheID: sfid-20260414_040848_449234_CC59D29D 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,56 +81,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Any IMPDEF events not printed out from a known core's IMPDEF list or for
-a completely unknown core will still not be shown to the user. Fix this
-by printing the remaining bits as comma separated raw numbers, e.g.
-"IMPDEF:1,2,3,4".
+On Tue, Apr 14, 2026 at 10:44:05AM +0300, Brian Ruley wrote:
+> On Apr 13, Brian Ruley wrote:
+> > 
+> > In the meanwhile, I'll see if I can add some instrumentation to
+> > verify this is the bug we're seeing.
+> 
+> The instrumentation worked (used the same ring buffer approach to track
+> dcache flushes). Here's the output:
+> 
+> ```
+> kernel: [48629.557043] SIGILL at b6b80ac0 cpu 1 pid 32663 linux_pte=8eff659f hw_pte=8eff6e7e young=1 exec=1
+> kernel: [48629.557157] dcache flush START   cpu0 pfn=8eff6 ts=48629557020154
+> kernel: [48629.557207] dcache flush FINISH  cpu0 pfn=8eff6 ts=48629557036154
+> kernel: [48629.557230] dcache flush SKIPPED cpu1 pfn=8eff6 ts=48629557020154
+> audisp-syslog: type=ANOM_ABEND msg=audit(1776154637.460:15): auid=4294967295 uid=0 gid=0 ses=4294967295 pid=32663 comm="journalctl" exe="/usr/bin/journalctl" sig=4 res=1 AUID="unset" UID="root" GID="root"
+> ```
 
-Suggested-by: Al Grant <al.grant@arm.com>
-Reviewed-by: Leo Yan <leo.yan@arm.com>
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+Red-handed!
 
-diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
-index b74f887a48f2a13b1be165947b4e3293f9987bd4..600677318f84c06970e4e618280c39cc83ac5b1e 100644
---- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
-+++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
-@@ -8,6 +8,7 @@
- #include <string.h>
- #include <endian.h>
- #include <byteswap.h>
-+#include <linux/bitmap.h>
- #include <linux/bitops.h>
- #include <stdarg.h>
- #include <linux/kernel.h>
-@@ -365,6 +366,23 @@ static int arm_spe_pkt_desc_event(const struct arm_spe_pkt *packet,
- 						   payload);
- 	}
- 
-+	/*
-+	 * Print remaining IMPDEF bits that weren't printed above as raw
-+	 * "IMPDEF:1,2,3,4" etc.
-+	 */
-+	if (payload) {
-+		arm_spe_pkt_out_string(&err, &buf, &buf_len, " IMPDEF:");
-+		for (int i = 0; i < 64; i++) {
-+			const char *sep = payload & (payload - 1) ? "," : "";
-+
-+			if (payload & BIT_ULL(i)) {
-+				arm_spe_pkt_out_string(&err, &buf, &buf_len, "%d%s", i,
-+						sep);
-+				payload &= ~BIT_ULL(i);
-+			}
-+		}
-+	}
-+
- 	return err;
- }
- 
+Please send a patch for review (perhaps you can include that snippet in
+the commit message).
 
--- 
-2.34.1
+Cheers,
 
+Will
 
