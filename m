@@ -4,77 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA46F9D0C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 11:31:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7FE7F9D0C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 11:33:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uV2E4OtysVLSUG4XWoVwDCw2mDt/pkmI+uQgA0k/IpY=; b=Ae4OZkTlwjZvQ1pI+M6hm3fbbN
-	+K8ZCdL6lmvAI7V6YIEoGm8EwlC6QHq9qG1DhVDkNdSNU3RKcARrs+xPR8TRFA0g7FyWmWMAMPiQe
-	L/eh782nnhBJgv/6OUKgg69pgf7ido7iXSxF75cwesgws59hV9DqZ2dTwV3agoN2GxbhCP2QUbAhk
-	DoJVempm7cptabiwx4QDkHPRniz75nkvqfQhUY5Dk0fVNI8F59ZWyVXd9qJuCMzpuM2Su7YEYbGz1
-	i/1PckZRKy+duIONdrUnsp3xFfONnySRo9fDxLc7cBLQbe0sxmeDRtjPzNL2sR0HFxgNF8uIiBzel
-	D8+LGVwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vRycoa9XJXaHdgck4YXhdc+pjwRDwPQE3ewYnkVvhOc=; b=eJ+Mc7wZv2mnwGsGef/qaZ/xPl
+	PGoiM1oCwVIJZPLxLObJRACXo0HaJ6NK46YMoiYcjAi7dn9MCCbKGo7/NXlv4EvowduNEIYGHUGw9
+	rASiuDjhZN8XcGRcUUqm+oNhQhyjzq5cxy7NJ7CXrVujx8+JC3nnUgDhtGYEq4HW39THp/HvKZY+z
+	UbbE0wIub+nb8kJfA9c5StuV51seBAm7iEhORbhJhMk3Qetni9m7GJy12HyGbyNgB5ShTnhhIB+d7
+	+uAYOGV/Ie1PmDlriFAgeombITU2/eq3Ylfy11hOYZfazz02Ie7MFUDpv7kKgpdljHhQeC2i5g6zS
+	KdMlIKvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCbzg-0000000HEgh-2HL9;
-	Tue, 14 Apr 2026 11:31:48 +0000
-Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	id 1wCc10-0000000HEnx-45nH;
+	Tue, 14 Apr 2026 11:33:10 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCbzd-0000000HEgF-04BJ
+	id 1wCc0z-0000000HEnd-0QrL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 11:31:47 +0000
-dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=uV2E4OtysVLSUG4XWoVwDCw2mDt/pkmI+uQgA0k/IpY=;
-	b=GF1LAInEeqgAeqq5DYjP+nLq0xL5yYIOhCe2gEwUHcd1Vr6fcLNAKdOX8juEJunV1xzy2hPOv
-	poDUU8BZ5Z8yCYpzk+SaHlmHqAZc8gH6McjPKMguh7JkZURQfdx71b8E9ZwgOB6MPsXsjenFeQR
-	y5xT6Yca/6U34vqz77ed2ks=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4fw24n3tyTzRhR4;
-	Tue, 14 Apr 2026 19:25:13 +0800 (CST)
-Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 561814048F;
-	Tue, 14 Apr 2026 19:31:31 +0800 (CST)
-Received: from kwepemn100009.china.huawei.com (7.202.194.112) by
- dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 14 Apr 2026 19:31:31 +0800
-Received: from [10.67.121.59] (10.67.121.59) by kwepemn100009.china.huawei.com
- (7.202.194.112) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 14 Apr
- 2026 19:31:30 +0800
-Message-ID: <6694ca7c-13bf-4e7d-9621-bc992cbf96a7@huawei.com>
-Date: Tue, 14 Apr 2026 19:31:29 +0800
+	Tue, 14 Apr 2026 11:33:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1776166389; x=1807702389;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=2CaMzWPUzuDaXCd90z0j3y1RLVWl75u/5ubiZ1P3Sc4=;
+  b=iWLnG3cSAbz69qc3yRW4UGKwc68xWqvO1m+XkooEga+g8LHd5ypQmz71
+   T2sEr3g7XI7m7tPYIYcTm7ZQTNfrPMIoyN05tKnSuwxWqOYE/941trD0v
+   3rY2gVy0rL9W8DkYmPH4Mn2wnvjvpKn7Czh10Fki9RwKEfPFKVtC9fhnC
+   M4MsHlwiu2ZdL7b8VJLnJ/CDH2+3vyVepY5bmHG9PVaGVErH6101A5/uT
+   vGzY69Y2QymbyTZKQqabl/FKPc4mpqrjTtZN7apSEW5ThHfGI/WL6px0+
+   58Tc0giwJbVJBgkJu/7jbtOi2rzCCnIvKV1hF3VzgMfl2Qe9eFC8ShlgX
+   Q==;
+X-CSE-ConnectionGUID: m13CvFeIT4yQULYGw2VkYg==
+X-CSE-MsgGUID: b8DaMISUREmb/CRsu7zC1w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11758"; a="102576892"
+X-IronPort-AV: E=Sophos;i="6.23,179,1770624000"; 
+   d="scan'208";a="102576892"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Apr 2026 04:33:08 -0700
+X-CSE-ConnectionGUID: E3gAO0PNRxK3O1eH0peRQw==
+X-CSE-MsgGUID: P3xDdFcMQf+p2mODx7zoKQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,179,1770624000"; 
+   d="scan'208";a="229945312"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.106])
+  by orviesa009-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Apr 2026 04:33:06 -0700
+Date: Tue, 14 Apr 2026 14:33:02 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Guilherme Ivo Bozi <guilherme.bozi@usp.br>
+Cc: Salih Erim <salih.erim@amd.com>,
+	Conall O'Griofa <conall.ogriofa@amd.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, linux-iio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/3] iio: adc: xilinx-ams: refactor alarm handling to
+ table-driven design
+Message-ID: <ad4l7jao9Fj6T6Nr@ashevche-desk.local>
+References: <20260414093018.7153-1-guilherme.bozi@usp.br>
+ <20260414103316.18455-1-guilherme.bozi@usp.br>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC] ACPI: processor: idle: Do not propagate
- acpi_processor_ffh_lpi_probe() -ENODEV
-To: Breno Leitao <leitao@debian.org>
-CC: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-	<lpieralisi@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	<linux-acpi@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<pjaroszynski@nvidia.com>, <guohanjun@huawei.com>, <sudeep.holla@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <rmikey@meta.com>,
-	<kernel-team@meta.com>
-References: <20260413-ffh-v1-1-301704f69e2f@debian.org>
- <af9c679d-899c-4832-b902-e621b5987f12@huawei.com>
- <ad4UWJ__dnDQtrj8@gmail.com>
-From: "lihuisong (C)" <lihuisong@huawei.com>
-In-Reply-To: <ad4UWJ__dnDQtrj8@gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.59]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemn100009.china.huawei.com (7.202.194.112)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260414103316.18455-1-guilherme.bozi@usp.br>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_043145_727589_7E73CB65 
-X-CRM114-Status: GOOD (  22.94  )
+X-CRM114-CacheID: sfid-20260414_043309_198656_B6C1D42D 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,96 +94,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Apr 14, 2026 at 07:29:16AM -0300, Guilherme Ivo Bozi wrote:
+> This series addresses significant code duplication in alarm handling
+> logic across the Xilinx AMS IIO driver.
+> 
+> To address this, the series introduces a centralized table-driven
+> mapping (alarm_map) that replaces multiple switch statements spread
+> across the driver.
+> 
+> This improves:
+> - maintainability (single source of truth for mappings)
+> - readability (removes repeated switch logic)
+> - extensibility (new alarms require only table updates)
+> 
+> No functional changes are intended.
 
-On 4/14/2026 6:21 PM, Breno Leitao wrote:
-> Hello Huisong,
->
-> On Tue, Apr 14, 2026 at 05:43:51PM +0800, lihuisong (C) wrote:
->> But it is a real issue. Thanks for your report.
->> I think the best way to fix your issue is that remove this verification in
->> psci_acpi_cpu_init_idle().
->> Because it is legal for platform to report one LPI state.
->> This function just needs to verify the LPI states which are FFH.
-> Thank you for the prompt feedback.
->
-> Would this approach work?
->
-> commit 6c9d52840a4f778cc989838ba76ee51416e85de3
-> Author: Breno Leitao <leitao@debian.org>
-> Date:   Tue Apr 14 03:16:08 2026 -0700
->
->      ACPI: processor: idle: Allow platforms with only one LPI state
->      
->      psci_acpi_cpu_init_idle() rejects platforms where power.count - 1 <= 0
->      by returning -ENODEV. However, having a single LPI state (WFI) is a
->      valid configuration. The function's purpose is to verify FFH idle states,
->      and when count is zero, there are simply no FFH states to validate —
->      this is not an error.
->      
->      On NVIDIA Grace (aarch64) systems with PSCIv1.1, power.count is 1 for
->      all 72 CPUs, so the probe fails with -ENODEV. After commit cac173bea57d
->      ("ACPI: processor: idle: Rework the handling of
->      acpi_processor_ffh_lpi_probe()"), this failure propagates up and prevents
->      cpuidle registration entirely.
->      
->      Change the check from (count <= 0) to (count < 0) so that platforms
->      with only WFI are accepted. The for loop naturally handles count == 0
->      by not iterating.
->      
->      Fixes: cac173bea57d ("ACPI: processor: idle: Rework the handling of acpi_processor_ffh_lpi_probe()")
->      Signed-off-by: Breno Leitao <leitao@debian.org>
->
-> diff --git a/drivers/acpi/arm64/cpuidle.c b/drivers/acpi/arm64/cpuidle.c
-> index 801f9c4501425..7791b751042ce 100644
-> --- a/drivers/acpi/arm64/cpuidle.c
-> +++ b/drivers/acpi/arm64/cpuidle.c
-> @@ -31,7 +31,7 @@ static int psci_acpi_cpu_init_idle(unsigned int cpu)
->   		return -EOPNOTSUPP;
->   
->   	count = pr->power.count - 1;
-> -	if (count <= 0)
-> +	if (count < 0)
->   		return -ENODEV;
->   
->   	for (i = 0; i < count; i++) {
+Please, do not send a new version in the same email thread!
 
-This count already verified in acpi_processor_get_lpi_info.
+> Series overview:
+> - Patch 1: fix out-of-bounds channel lookup 
+> - Patch 2: convert mutex handling to guard(mutex) 
+> - Patch 3: introduce table-driven alarm mapping
 
-I suggest modifing it as below:
+I will look into them later on.
 
--->
+-- 
+With Best Regards,
+Andy Shevchenko
 
-git diff
-diff --git a/drivers/acpi/arm64/cpuidle.c b/drivers/acpi/arm64/cpuidle.c
-index 801f9c450142..c68a5db8ebba 100644
---- a/drivers/acpi/arm64/cpuidle.c
-+++ b/drivers/acpi/arm64/cpuidle.c
-@@ -16,7 +16,7 @@
-
-  static int psci_acpi_cpu_init_idle(unsigned int cpu)
-  {
--       int i, count;
-+       int i;
-         struct acpi_lpi_state *lpi;
-         struct acpi_processor *pr = per_cpu(processors, cpu);
-
-@@ -30,14 +30,10 @@ static int psci_acpi_cpu_init_idle(unsigned int cpu)
-         if (!psci_ops.cpu_suspend)
-                 return -EOPNOTSUPP;
-
--       count = pr->power.count - 1;
--       if (count <= 0)
--               return -ENODEV;
--
--       for (i = 0; i < count; i++) {
-+       for (i = 1; i < pr->power.count; i++) {
-                 u32 state;
-
--               lpi = &pr->power.lpi_states[i + 1];
-+               lpi = &pr->power.lpi_states[i];
-                 /*
-                  * Only bits[31:0] represent a PSCI power_state while
-                  * bits[63:32] must be 0x0 as per ARM ACPI FFH 
-Specification
 
 
