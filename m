@@ -4,60 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0206DF531F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 06:56:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98887F531F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 07:02:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:
+	Subject:From:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fumOGiEuGSiD8FTeMSTa8ywJjh2IIFWkB/1bTH68iW0=; b=ANilFC42tho6lrkNXxHOCXGuv5
-	gwnPnsXfEsCgJ+abpo47IuNQRBEkvuw604n/0+8aQToNtEzJYud8+8SBMzZ61yWAhUsT8hIzYHIGP
-	0rrH/MkvYU1F2Xu/rwBCvtwRjUj57cUysZwTqsDIxFadxj6CstdH/KlfSV3I04jXKx1+QKMdrQi2h
-	WYhhGJjxbKOS5eQ6cx0MfxWjjmRPee1xcIl5n4AkgGIcX/8vAEYuiiSHvGbBM0Sj3d78xisF/RVv3
-	PtmvtNg1TxMxPdKo4mHMuXKbl23xls2BYfGjt1lmHCFWVwsEhnxoQP/Wo0uGOHYwj9957eEjYrHgh
-	C50oZlIQ==;
+	bh=GSwJySJHo0hT7GXeWrDOalz8cnz5bMLyfqqv3BHlXRA=; b=2z4XaOmVymwuNjtIF4dzVjntxO
+	ey8jTXYBmvUCjy7s8Kmy7ExDC7d1P8//3KlPqHMuD9SChgbGtwBSq7hNNm0P1ldBJPzxDbSoKV0J8
+	hYMjkkG1Lb2rBfM1MXE5gDGpqcyfgDQ53iU15FHM850ZH4PGR6bRElNalZysnbJ5Wraxh9Klgl6g9
+	FSbV8U3xBa8LPYW0aVTqZqtHrVKISXAOVbNz/8dFhBJDuKkvXlksfDfDUhlvsdwTSTXIX5VwEN9CQ
+	te6m6CLhkp5or+cA7u3hihbeLYYxB0GPrF4dLSlGPtiBvovaivfFBqxSpk6vjII0gZxcmserL3lAz
+	I9oaILGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCXgq-0000000Gs2f-3cg1;
-	Tue, 14 Apr 2026 06:56:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCXgo-0000000Gs2K-25nv
+	id 1wCXnM-0000000GsKL-3X3s;
+	Tue, 14 Apr 2026 07:02:48 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCXnI-0000000GsK3-4C0K
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 06:56:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 795334EEA;
-	Mon, 13 Apr 2026 23:55:53 -0700 (PDT)
-Received: from [10.164.18.83] (J09HK2D2RT.blr.arm.com [10.164.18.83])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 640EC3F86F;
-	Mon, 13 Apr 2026 23:55:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776149759; bh=pX9QwlBOEFv9MYyDm9CACWnc9zJVNgyWvTTpWF+Y0Hc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=c6Apt0VjwyC3SzUgpqIeFCY9j2JVWCTGSH2D3uxt/zifVJ1om+Xbj+wjRIqWB8oLX
-	 7osRzV3pY4BSIB7FiTTJQcAkil7ty9UDnHGZECgF/lhxOnf5uimBRprE8rooOhzNz1
-	 6saLolWOrJUkqXb0hLsSbhp4b/jBl/Bx/aMBmZAc=
-Message-ID: <d22daf6d-92cf-444a-9f51-0fa63b21a5c5@arm.com>
-Date: Tue, 14 Apr 2026 12:25:54 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/hwcap: Include kernel-hwcap.h in list of generated
- files
-To: Mark Brown <broonie@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: Marek Vasut <marex@nabladev.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260413-arm64-hwcap-gen-fix-v1-1-26c56aed6908@kernel.org>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20260413-arm64-hwcap-gen-fix-v1-1-26c56aed6908@kernel.org>
+	Tue, 14 Apr 2026 07:02:47 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 4D47BC5B1BB;
+	Tue, 14 Apr 2026 07:03:19 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 4EA1C5FFBB;
+	Tue, 14 Apr 2026 07:02:42 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DE66810450D08;
+	Tue, 14 Apr 2026 09:02:27 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1776150160; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=GSwJySJHo0hT7GXeWrDOalz8cnz5bMLyfqqv3BHlXRA=;
+	b=OJBuMBRnZ+1k0pvNy34xrHqO2sDtPpDWaR5tU5nqeGGgWSkYmHpD2OCmU8elLppdM+FZfO
+	w0DduviNhyxdv6HA5bPmhN6QWm7zZhJe9bpszUAgTALiVlrDx7Z/J1cBi/t/Ry5rdFzOqu
+	R9JonwE28Dtat/FKH00kCLyUE0whYkGlR+uKNLDuDgfj/Rdw8vBC2f0BPneCgtCaLa/GIJ
+	jH1rCkKR5yfbF2aexL9UkLhqJVKUEXAtibTr52l0hPNZ6RGKDm20chWzXLhfzHC4ky6OIq
+	KWfO9iSdVGivMNMZCB0IM5Bz+oH6rKh94YLpmIIoLEF+6QQz3VK4UTlBsapH1A==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Date: Tue, 14 Apr 2026 09:02:27 +0200
+Message-Id: <DHSOOH7FU7Y4.1R63I92H08W86@bootlin.com>
+To: "Dmitry Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH 10/10] drm: of: forbid bridge-only calls to
+ drm_of_find_panel_or_bridge()
+Cc: "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
+ <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
+ Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob Clark"
+ <robin.clark@oss.qualcomm.com>, "Dmitry Baryshkov" <lumag@kernel.org>,
+ "Abhinav Kumar" <abhinav.kumar@linux.dev>, "Jessica Zhang"
+ <jesszhan0024@gmail.com>, "Sean Paul" <sean@poorly.run>, "Marijn Suijten"
+ <marijn.suijten@somainline.org>, "Xinliang Liu" <xinliang.liu@linaro.org>,
+ "Tian Tao" <tiantao6@hisilicon.com>, "Xinwei Kong"
+ <kong.kongxinwei@hisilicon.com>, "Sumit Semwal" <sumit.semwal@linaro.org>,
+ "Yongqin Liu" <yongqin.liu@linaro.org>, "John Stultz" <jstultz@google.com>,
+ "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
+ <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
+ <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Tomi
+ Valkeinen" <tomi.valkeinen@ideasonboard.com>, "Michal Simek"
+ <michal.simek@amd.com>, "Hui Pu" <Hui.Pu@gehealthcare.com>, "Ian Ray"
+ <ian.ray@gehealthcare.com>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, <dri-devel@lists.freedesktop.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+ <freedreno@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>
+X-Mailer: aerc 0.20.1
+References: <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-0-acd01cd79a1f@bootlin.com> <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-10-acd01cd79a1f@bootlin.com> <nligqvm3lq6n556onglmb345arxztd4pc6fboo4yrs3bfu27eu@uiyu2xklnexb>
+In-Reply-To: <nligqvm3lq6n556onglmb345arxztd4pc6fboo4yrs3bfu27eu@uiyu2xklnexb>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_235602_742287_6E3E8715 
-X-CRM114-Status: GOOD (  15.85  )
+X-CRM114-CacheID: sfid-20260414_000245_245533_8C2B9E41 
+X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,44 +95,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Dmitry, Maxime,
 
+On Mon Apr 13, 2026 at 8:04 PM CEST, Dmitry Baryshkov wrote:
+> On Mon, Apr 13, 2026 at 03:58:42PM +0200, Luca Ceresoli wrote:
+>> Up to now drm_of_find_panel_or_bridge() can be called with a bridge poin=
+ter
+>> only, a panel pointer only, or both a bridge and a panel pointers. The
+>> logic to handle all the three cases is somewhat complex to read however.
+>>
+>> Now all bridge-only callers have been converted to
+>> of_drm_get_bridge_by_endpoint(), which is simpler and handles bridge
+>> refcounting. So forbid new bridge-only users by mandating a non-NULL pan=
+el
+>> pointer in the docs and in the sanity checks along with a warning.
+>
+> Are there remaining users which still use either the bridge or the
+> panel? Would it be possible / better to drop the two-arg version?
 
-On 13/04/26 9:14 PM, Mark Brown wrote:
-> When adding generation for the kernel internal constants for hwcaps the
-> generated file was not explicitly flagged as such in the build system,
-> causing it to be regenerated on each build. This wasn't obvious when the
-> series the change was included in was developed since it was all about
-> changes that trigger rebuilds anyway.
-> 
-> Fixes: abed23c3c44f5 (arm64/hwcap: Generate the KERNEL_HWCAP_ definitions for the hwcaps)
-> Reported-by: Marek Vasut <marex@nabladev.com>
-> Signed-off-by: Mark Brown <broonie@kernel.org>
+Yes. I counted ~20 panel+bridge and 4 panel-only callers with this series
+applied, and on top of those there are devm_drm_of_get_bridge() and
+drmm_of_get_bridge() which to me are the real issue because they make it
+impossible to correctly handle bridge lifetime.
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+We discussed this with both you and Maxime a while back. AFAIK Maxime has a
+plan to make every panel automatically instantiate a panel_bridge. I think
+that's the only reasonable approach to get rid of
+drm_of_find_panel_or_bridge() + *_of_get_bridge() and make bridge lifetime
+easier and safe.
 
-> ---
->  arch/arm64/include/asm/Kbuild | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/include/asm/Kbuild b/arch/arm64/include/asm/Kbuild
-> index d2ff8f6c3231..31441790b808 100644
-> --- a/arch/arm64/include/asm/Kbuild
-> +++ b/arch/arm64/include/asm/Kbuild
-> @@ -17,4 +17,5 @@ generic-y += parport.h
->  generic-y += user.h
->  
->  generated-y += cpucap-defs.h
-> +generated-y += kernel-hwcap.h
->  generated-y += sysreg-defs.h
-> 
-> ---
-> base-commit: abed23c3c44f565dc812563ac015be70dd61e97b
-> change-id: 20260413-arm64-hwcap-gen-fix-ecb4bb6dbb91
-> 
-> Best regards,
-> --  
-> Mark Brown <broonie@kernel.org>
-> 
-> 
+@Maxime, do you have updates on that idea?
 
+Best regards,
+Luca
+
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
