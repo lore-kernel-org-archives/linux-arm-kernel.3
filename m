@@ -4,65 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E972F9D0CA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 12:46:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A141BF9D0CA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 12:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AqmsG+Mvl/dOdfhm/0XVj1sTKwx12L2hYh9eYN2vBpI=; b=vBLyE8B6m+sWDadResqQWgj62I
-	HRSBLKnavD13bQQ1nhuAro8VXSW2MP7GSLqZ+FHbLrDH0F5J0WtV/ZmUri1SmjeeA6/EAy6kijrLa
-	kCaUSEyVgyx9I9lJU+DrPmcKR3z+T+Z/1tRxfwKahf8lJ5//DGey2eq4lDjLe9Q3X+JoCRxNFQjHB
-	KD/lpIL93OEaBU43ZVohYajEBZbEcYiZp4pxDxCTJ7B9+Gg9Jps2DVdjYXpMeNXBTtMiqSz7SN3DA
-	t5vGXNiK33CBou4i9N50BZKh+N9kijbOjQbY7vwxEmGgVnpsP9IERK+g2nmA8mEyIdhTjIPlOYoem
-	qe93FUmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=bRMqXcgfTBMb2taAmCioY8eT98K2Okrp/46Mz8Swy10=; b=kpkAplzG3zH5k0
+	6pok5Z2Ugkf2SJZqGikbCtX/2JSixFsGjAl1oVmCdS0aBLr7Ox3Rd+denZrIZ8EYtjI1dvFxl4z1h
+	759jxmcsGFDCIZ9Sh7YYoX8cYczoLHwlPBp+Pg2EghcyhL2m823ZYREE2FxroagFk3kOIamAu2dHI
+	Bu1tInewvR/n6VgN0/8XWUcpof3LiZ0u9u0ugXjR9guDsaiRlE/nH+ZYdib0eD/K5h0EWuSBvkM34
+	8/B4O1BYBfHiAsKBicjt8QJD0P3S9QrAYS8YWEdXGkS6mm5lS0F2iMt2uCks9cP2y48FpaSXb4qfO
+	WP/pHNDwKr13qo7WJaBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCdAL-0000000HJec-32bK;
-	Tue, 14 Apr 2026 12:46:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wCdBg-0000000HJsD-1jAN;
+	Tue, 14 Apr 2026 12:48:16 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCdAI-0000000HJe9-2peP;
-	Tue, 14 Apr 2026 12:46:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CDA3143B30;
-	Tue, 14 Apr 2026 12:46:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B10DFC19425;
-	Tue, 14 Apr 2026 12:46:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776170809;
-	bh=0xrsRx8+fhBqILy3gChyEPRzzf8cZshNTlrUxsv7RZE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=s+lll3apOXZ6lUCDqv5yjMnIzo9yurD/78YpGTKuGiu5ceEmxt38X8F6eUAOQb4lK
-	 w4cTDQgA1U9R+Zsn6xepiteJzeFNVxVhUQrfs1GEnM2NYOBBJuHuTm1wPE/TMigTCc
-	 ciSfADwOeRtZqqQ+4iTr2y9FjwfaComoC1tgU8qG8cfdNzhsO+D/OcMwogPbSQYyLz
-	 o/FLEeGhEE6EQ93hNdu3eZHQjmWjh5hXMwpL3nP6PFgaHzPO2N6XLXQBC58GHG+v0c
-	 e7ceZE86pS8SNSIwm3GGq+/5WrnHoo4qlX5KX8OGUgO7rp8l+eLEYtcUVa3LWLBsIP
-	 4dmVU0sH6dU9w==
-From: Simon Horman <horms@kernel.org>
-To: lorenzo@kernel.org
-Cc: 'Simon Horman' <horms@kernel.org>,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH net] net: airoha: Wait for NPU PPE configuration to complete in airoha_ppe_offload_setup()
-Date: Tue, 14 Apr 2026 13:46:41 +0100
-Message-ID: <20260414124641.754059-1-horms@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260412-airoha-wait-for-npu-config-offload-setup-v1-1-f4e0aa2a5d85@kernel.org>
-References: <20260412-airoha-wait-for-npu-config-offload-setup-v1-1-f4e0aa2a5d85@kernel.org>
+	id 1wCdBe-0000000HJrc-1msL
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Apr 2026 12:48:15 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-488af96f6b2so73642025e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 05:48:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1776170892; x=1776775692; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=bRMqXcgfTBMb2taAmCioY8eT98K2Okrp/46Mz8Swy10=;
+        b=sNaIKGopOpgMsu3ksjkbA3ewFToWCX/OTnCv5lWm/gytnYRHaiu/XPtbvy42hRhwl6
+         nhTsY44mmrrk1vZKRbHXwXdcjs+s8hEAbfErbUew7uU+XL84jtYnqVl/NEY3GTv3U/BW
+         AQccA+fTjzZ7myR8RPmPpJCrPhn1qUYx4DHGnB46rd2uZZbacezHkMi0tWzSztnpB+38
+         Y816/kOrbQ2HXjyjoCLGgjmhn7OHO7PbVvGoYaZQEU5e2xbzzCDvVpr28MIeY9XlCmHr
+         7ob7sk3tdp+Di8N/IBLIgOV9XUBHTraMroCtUdKnXK1VEdATjx1Zf9TQs7yhYOmvrgkc
+         FWvQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776170892; x=1776775692;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bRMqXcgfTBMb2taAmCioY8eT98K2Okrp/46Mz8Swy10=;
+        b=D2ccGxVVE20Rs0FwTcICNEWaw6sSoMy0B//pY5jMq8YZ0RXE78b561tbV3m1az8QlI
+         9CExpdVX1c1geL5TUf4SOI4+fAvBR4BHJaes6OQIr0bbOgUwImrXgG4p0fB2ltYrmeqG
+         I5/iE7f+5Ffm9INBX6CXmQbc/Hm8PH+8yCnlz4bDT6g88N8sI3t5//UWzeASG4lN529R
+         j6ZUU7vIfOW08U8ohe/Th3xJxZ7ArN1Fa7oaRqJcMCyVFWE+rogRsqI/iN+XBXqQHaDJ
+         e0YB4gAdSZi0MudayF8nKiu3b7J+Rb4mLkbx/49bhJUcBEvpdJkrUjh4zfuxtfsvGlNR
+         m7zA==
+X-Gm-Message-State: AOJu0YzYl4pybTU+mn+o3P18dc/klAV9sjZ7VulmqDsyL4Sn0eIU7IIw
+	8RyTt/yWSW3H41BXIE1ClxD2aC1LQ+0dR0o+lMXeObaY0GQdGD/py1xgE4U/jYzVsQM=
+X-Gm-Gg: AeBDieuWRgiIwOwwh3M75ISTrXpK/tGX2mtG/qm1UuGifke4zoKZYp5BpvS/pXsMYeo
+	RIysOD5eh6Zapr/rFwDK5B7QcUP0ezWgpmd2fxeRd2jj4ajP+/iYmyNl577F3vmuAEiV1DEEC1c
+	2PRwqHLAeKbGPyRIK0WoiV1Bmxvx1B6X0v74xqLI6G2uwPdzPYWb8SOkKjSx3ZAjS6x7Ktvh013
+	g9RXXLGMf8xFPEF9aBcp7Z443An0j7uHRDDqTNUOgjdfz8U5e2CemfPk86lE+s0SQS1HTCOJe9N
+	6rCxi77x7Q87PaBrA7dpJZPO50q0FWOrb/1YzW2KueoO3+WQH3XLUeT57Zj/1594Au6PzOvUCy2
+	fUTvbdIlOIipHFMvc1vsl26JzdEjkAb19NHKkSRt8B7CMPYN4ALGRreQ1T8RvSlDOMBbweRP7om
+	FRJnAbkzWjHC/Evhz8aBriHQPDNwTuSaqQbQBdmAQyrA==
+X-Received: by 2002:a05:600c:820b:b0:483:2c98:4368 with SMTP id 5b1f17b1804b1-488d685b878mr245798645e9.18.1776170892428;
+        Tue, 14 Apr 2026 05:48:12 -0700 (PDT)
+Received: from e133063.arm.com ([213.137.22.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488ede1e05bsm81185285e9.6.2026.04.14.05.48.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Apr 2026 05:48:11 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+Subject: [PATCH v4 0/6] perf arm_spe: Dump IMPDEF events
+Date: Tue, 14 Apr 2026 13:47:58 +0100
+Message-Id: <20260414-james-spe-impdef-decode-v4-0-1dd30783a33b@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAH433mkC/3XNSw7CIBCA4asY1mJ41Yor72FcUGZoMVoaMETT9
+ O7SutGYLv+ZzDcjSRg9JnLcjCRi9smHvoTabojtTN8i9VCaCCb2TEpOr+aOiaahLO4DoKOANgB
+ S0Eo55cA6V5NyPUR0/rnI50vpzqdHiK/lUebz9GMqtm5mThk1wEDWwgrB7OnmexPDLsSWzGgW3
+ 1C9DokCVRVIdFrXVh3+IPkFcbUOyQLtZWOctgctG/4DTdP0BiIjJglRAQAA
+X-Change-ID: 20260331-james-spe-impdef-decode-d944f4fdcff7
+To: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+ Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>, 
+ Leo Yan <leo.yan@arm.com>, Al Grant <al.grant@arm.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_054650_797936_C0118817 
-X-CRM114-Status: GOOD (  15.57  )
+X-CRM114-CacheID: sfid-20260414_054814_505085_60E24C56 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,61 +108,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: 'Simon Horman' <horms@kernel.org>
+In the Arm SPE raw data dump, IMPDEF events aren't printed. Add the
+ability to add names for some known events or print the raw event number
+for unknown events.
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
-Full review at: https://sashiko.dev
+For example:
+
+  $ perf report -D
+
+  ... ARM SPE data: size 0xd000 bytes
+  00000000: b0 18 c6 32 80 00 80 ff a0  PC 0xff80008032c618 el1 ns=1
+  00000009: 64 e7 42 00 00              CONTEXT 0x42e7 el1
+  0000000e: 00 00 00 00 00              PAD
+  00000013: 49 00                       LD GP-REG
+  00000015: 52 16 10               	EV RETIRED L1D-ACCESS TLB-ACCESS
+
+On N1 the event line becomes:
+
+  00000015: 52 16 10                    EV RETIRED L1D-ACCESS TLB-ACCESS LATE-PREFETCH
+
+Or on other cores it becomes:
+
+  00000015: 52 16 10                    EV RETIRED L1D-ACCESS TLB-ACCESS IMPDEF:12
+
+Signed-off-by: James Clark <james.clark@linaro.org>
 ---
-    net: airoha: Wait for NPU PPE configuration to complete in airoha_ppe_offload_setup()
+Changes in v4:
+- Change a pr_err() to pr_warning_once() to avoid spam (Sashiko)
+- Link to v3: https://lore.kernel.org/r/20260414-james-spe-impdef-decode-v3-0-63baf9c893b1@linaro.org
 
-This commit adds a poll loop in airoha_ppe_offload_setup() to wait for the NPU
-PPE configuration to complete before running airoha_ppe_hw_init().
+Changes in v3:
+- Revert for_each_set_bit() back to a loop with BIT_ULL to fix both 32
+  bit builds and decoding on big endian machines.
+- Link to v2: https://lore.kernel.org/r/20260407-james-spe-impdef-decode-v2-0-55d3ef997c48@linaro.org
 
-> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-> index c2c32b6833df9..52199f6b39f9b 100644
-> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
-> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-[ ... ]
-> @@ -1340,6 +1341,13 @@ static int airoha_ppe_offload_setup(struct airoha_eth *eth)
->  	if (err)
->  		goto error_npu_put;
->  
-> +	/* Wait for NPU PPE configuration to complete */
-> +	err = read_poll_timeout(airoha_fe_rr, val, val, USEC_PER_MSEC,
-> +				100 * USEC_PER_MSEC, false, eth,
-> +				REG_PPE_PPE_FLOW_CFG(0));
+Changes in v2:
+- Put MIDR in arm_spe_pkt (Leo)
+- Use for_each_set_bit() (Leo)
+- Use BIT_ULL() to fix 32bit builds (Ian)
+- Don't call strtol() with NULL (Ian)
+- Link to v1: https://lore.kernel.org/r/20260401-james-spe-impdef-decode-v1-0-ad0d372c220c@linaro.org
 
-If the SoC has multiple PPE instances, is it sufficient to only wait for
-REG_PPE_PPE_FLOW_CFG(0)?
+---
+James Clark (6):
+      perf arm_spe: Make a function to get the MIDR
+      perf arm_spe: Handle missing CPU IDs
+      perf arm_spe: Store MIDR in arm_spe_pkt
+      perf arm_spe: Turn event name mappings into an array
+      perf arm_spe: Decode Arm N1 IMPDEF events
+      perf arm_spe: Print remaining IMPDEF event numbers
 
-Later in airoha_ppe_hw_init(), the code iterates up to eth->soc->num_ppe,
-initializing all available instances:
+ tools/perf/util/arm-spe-decoder/Build              |   2 +
+ tools/perf/util/arm-spe-decoder/arm-spe-decoder.c  |  17 ++-
+ tools/perf/util/arm-spe-decoder/arm-spe-decoder.h  |   3 +-
+ .../util/arm-spe-decoder/arm-spe-pkt-decoder.c     | 144 ++++++++++++++-------
+ .../util/arm-spe-decoder/arm-spe-pkt-decoder.h     |   5 +-
+ tools/perf/util/arm-spe.c                          |  62 ++++++---
+ 6 files changed, 158 insertions(+), 75 deletions(-)
+---
+base-commit: 4e03d6494f9504f8af46ba68a2a8b6877c196789
+change-id: 20260331-james-spe-impdef-decode-d944f4fdcff7
 
-drivers/net/ethernet/airoha/airoha_ppe.c:airoha_ppe_hw_init() {
-    ...
-	for (i = 0; i < eth->soc->num_ppe; i++) {
-		...
-		airoha_fe_wr(eth, REG_PPE_TB_BASE(i),
-			     ppe->foe_dma + sram_tb_size);
-    ...
-}
+Best regards,
+-- 
+James Clark <james.clark@linaro.org>
 
-If we only poll PPE 0, could the driver race with the NPU firmware's
-initialization of subsequent PPEs?
-
-Additionally, does this poll condition properly ensure the hardware is ready?
-Since the break condition is simply `val`, it exits immediately if the register
-contains any non-zero value.
-
-If the register retains a non-zero value from a previous session (like across
-driver reloads), or if an unclocked domain returns 0xFFFFFFFF, this poll might
-succeed immediately and bypass the wait.
-
-Could we clear the register before polling, or wait for a specific bit instead?
-
-> +	if (err)
-> +		goto error_npu_put;
-> +
->  	ppe_num_stats_entries = airoha_ppe_get_total_num_stats_entries(ppe);
 
