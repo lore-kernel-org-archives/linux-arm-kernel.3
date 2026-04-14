@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1693EF9D0DE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 22:43:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51E0AF9D0FB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 22:43:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rj8k2pIm7AGjb+3hd5/bWIIgB52x4pA/wcxJmlNMSMU=; b=wgeFNY5sbBS9G6iALTYHDyc4Rb
-	tHRxfHJnzNFoVEuCqS4EphLAWXwdLyJ2Izv4ngmq2B8OuJO/sTjNqHvHWe6Lx+Mvnz0Uaw81x4gfl
-	gq1tcjH1Z0yCMpSBZdoL9sz7KJSfnAOfaFagTSZ58+ajueBo+TZnqZOb8kx4r3FeG5azIpodSx5Q5
-	IHeTo4cvzOCl7vmxbXMAGlxNUsnR3gxlCO7HAFncFY8BSFdzM4Gm2dcWMaOcw2xaJZ8f3TqhJz5nr
-	4sDvXv232H6CQ0V2telkopok1TwKu6AdAly4aiOScB8ecmdg0tH+tAWSEuWPjYfmQ/kmsEMbkYEmW
-	BQ5EVj1A==;
+	bh=Atp4lMX+KQb/XdR4N3FQnBkv+Ii6UBEhE3TAnqHAWWo=; b=at7PvVRbg6XDmdIGbQB/qcfdbW
+	lUU8Wq1nzQW9aj7gthAjsT+aPy8FYY41UTF0etBWHuiZc7D5kj7Ok2RX359Tn5fubIdLdTfsmiqpn
+	9q5a7gNG2ULW/0Ei6becPrMZsq6jCOJoNlsT8dL5QQ7+gFqn76OMg5WjXT/cPxF2L2n3j5HYToo2W
+	g9a9hRqaFSShEo54uGJa+APMsTInG7b2ek9UXiJLV/y8qIe4xLXesGvqkumTAk0I3Bg1GpUMgnD/7
+	dmCH61RzCQUEuFkthUjAC0Jzl6XLz4jQqx6P1fmRFAprebjIwKfcpHR2KGwiDV1H58QCN8TQKl66G
+	XkXiucHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCmTj-00000000IfR-0vWh;
-	Tue, 14 Apr 2026 22:43:31 +0000
-Received: from mail-dy1-x132e.google.com ([2607:f8b0:4864:20::132e])
+	id 1wCmTs-00000000IiZ-29Qd;
+	Tue, 14 Apr 2026 22:43:40 +0000
+Received: from mail-dl1-x1234.google.com ([2607:f8b0:4864:20::1234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCmTg-00000000Ieg-3oPp
+	id 1wCmTq-00000000Ihj-1Zmc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 22:43:30 +0000
-Received: by mail-dy1-x132e.google.com with SMTP id 5a478bee46e88-2d52c7f92b1so5455549eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 15:43:28 -0700 (PDT)
+	Tue, 14 Apr 2026 22:43:39 +0000
+Received: by mail-dl1-x1234.google.com with SMTP id a92af1059eb24-12c55e3858cso3393398c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 15:43:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=usp.br; s=usp-google; t=1776206608; x=1776811408; darn=lists.infradead.org;
+        d=usp.br; s=usp-google; t=1776206617; x=1776811417; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Rj8k2pIm7AGjb+3hd5/bWIIgB52x4pA/wcxJmlNMSMU=;
-        b=hrke8dWhQNrkKUDkDrzgE/+FaRmmoU1R+sm6FJiiFqnMCYw+wSQ5FCVSBEMhBaqfT2
-         jqrS9DtUyTFrMw71U1WVinwGJuKWcDk6g3/u3MoOnLIM5wIboQT5uL6095KEkQuslhmK
-         u9fwBsQ19usoymcMkhbIhKMxvcLuIZhZPeEIeVKDEDmspe8eRYdn2SIPl04fUQPITATZ
-         aXwyEqM/miexQE8ygiJmrWkVFNq0et6ltOZM0G8dQPtRx2tzVHn64qGW71D4kBrpGmIy
-         u6MYkZvTAGu0Abv14tsfqriNdn/oCZdrgZfp6nWsDqB8iZ6rRT9JHqILQzaKPokqm84x
-         JS7Q==
+        bh=Atp4lMX+KQb/XdR4N3FQnBkv+Ii6UBEhE3TAnqHAWWo=;
+        b=dB3h8c5WukZAweVoo1oru3JX41QE62I1s9L1WPQ5l8D+tVvyiWF4p7txnXXx7zfH5f
+         xWqzD4Zy6v2OPLKeHx+JFVuKzkRcuoqMPUGtcOAuiG4peFvwWHrhGH5MCYKO6IXhvIiQ
+         F7ZM8xcLg8ttxrFG4NwnuskXibhvVBFYAgPNROP6Swe/cVyczM2OUKXiG0doOGMNOhHI
+         FlekHyB1hrNRIs6lIapRHgyzemZSeWam96D4r2ijVNtKO4kxNoHCU+FYDzxnGoZ+kixI
+         RgJ4jsPWyPhMIh60RVVu5qZAmcVPb9sRprWfu3xMV+y8n95csLHROiLJ/v7CLIsxTNCx
+         yAxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776206608; x=1776811408;
+        d=1e100.net; s=20251104; t=1776206617; x=1776811417;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=Rj8k2pIm7AGjb+3hd5/bWIIgB52x4pA/wcxJmlNMSMU=;
-        b=sIU4WgI+GGVwt87tBDYChAIhVHR0Hd5rvx20l/Pafd4Dloobuaz0xCBjz2tqa586Rm
-         YOZMEsRzF/XLlKMw3cdweYUM+NLPxhEyyYN9zuBhgfDKX4BV87XtW862g+z+S5e2W1y6
-         O0veSCVCV+WInf0N3fNlvnK4eaxwqvrSWN9e4NumwKc7l/WBnSbr4uUfJH6VGMzaXSS+
-         zv98GkLhFL1B8aXm7/D4do4MZXGa4S8+Hxd/DVI6ZUGdv7Gjd0gueqRTCVQT5GfpEMYL
-         4U3jpb30o8uibXLFzBb/fLDk1SD8EVeierwA+xJkNLaUL+ltLNR/WaZk5Fj/dOqobZcJ
-         5P2Q==
-X-Forwarded-Encrypted: i=1; AFNElJ+2BPabhNtMy5AdNDrjxHFjTIkyarbYD7zFeVuBXNdNCQ/wsCd+ZKkas90CL5wOQR6glYXgxB1zE8Oepw4U6OFS@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsD66CacuqF8GPK2eloWlF6fs5aHrTXf90gUMzyoPATHg6OgDO
-	zDXjwRWrZVaVBW4WWbJnMgrH3b8MLAXQr9/yqXvpikxATk3JG2hzkxQTt4UNogEujK0=
-X-Gm-Gg: AeBDietDSybZUX0cNQ2aG+ZWBVETTzVsyz+uglZ3bL4kT/4O6K+jNh6BuiYEd1MlRrL
-	I12m+Ctvy2CZfZdKzot7MQECyATgsSBM/tKwBgDh6QAbd3SaSUfjAUEFjA1NcNuPWIkWFPJ3HDq
-	djUluPKz/ZaxXcrl1wleejp1NwY2VySfuDHorjFAZXfUAQP0wEFkeWiXt2PKkuj1H3awSRjzqzw
-	ULJwfLo4uuDqkq1eR0KGtQG3RtSZOF5H6MWVkhGRacqUmwD/i4rnLkVU/ckiPfAt6WHTjWSEqYa
-	xkpF6y2UzsvG4XOjabnnM9SxdUyVe662ai0gLaRO+SOZMkwJE9OB9xTjH0UV3OJuZiXX48c1lba
-	azt7UZ6u8L3PG+9IpBvlrt7ryb7+Im/KMnHC4wJxlw3+xmMm3w/zNZf2X4WhVfINigb9GeTmP5y
-	DZ1xksRLlw5MZRM72UxXCWpFVuRBcYCldrDugJp+MvK4nnAtocXo26Uz0tvQ82cu02XKxOwJUgR
-	Ls5MdRPWIP7DhzCfSn0SJ7qxq4uKPK8XteyxG3dZk4uJhQhJw==
-X-Received: by 2002:a05:693c:80c1:b0:2d9:6f2f:9f6f with SMTP id 5a478bee46e88-2d96f2fd124mr3002666eec.24.1776206608051;
-        Tue, 14 Apr 2026 15:43:28 -0700 (PDT)
+        bh=Atp4lMX+KQb/XdR4N3FQnBkv+Ii6UBEhE3TAnqHAWWo=;
+        b=fow8y7CRuGC9IfwZPZeLgAYLft/okWfdTlAo1H8xYoAX2yGGl3sCMR75PyRHDeBjQG
+         UOzOuAkSsKclC5OM5pm96m7D9CQFvXw5toGEERRXU+eKQRIZFKFzIRwQk01JbABybPnI
+         ux0i3PSDh5u5rLtzXwecPQsYGTy+9tdSUyEGdRitJaLXKK+3JcQ2n0aecCfbd1tioPoe
+         RBZfT6qkMurqOoPMugeVX22yneCLsAnbFhp49M7exEX0kjxmB0sXLyNXdXAYgQjHlxDT
+         tsO0wdVUz1h+apyjlB0XXSMEWnJ2hCHg2rhnCXdPrP9KkGD2hXRo6FyREBiz1cQlP5TX
+         ++/g==
+X-Forwarded-Encrypted: i=1; AFNElJ9fRT+7LZIWQgx7uSv9LA28GiCcxB2g+4RnWQti6ZOcKK0ysYa+mVea7Jl8B/JgChBrurAozSNhm56mOoqpCctS@lists.infradead.org
+X-Gm-Message-State: AOJu0YwjhD/iyamjz49P2P9qj/ixr/HmkkBczL3m/nw3BOzBNx33zD12
+	SmjC/J5+OfeLFqJNd5T+yAwoMF24sFj1QeQvS8o28AW3w3oPXBN6qkf7zCfJhrQnFO8=
+X-Gm-Gg: AeBDievyGAEeuGyCQEdbFHcuosyOBZQlfLDDxOQD3d+A7EJ9nSq8XZDbctIHvOjxbEj
+	Ao41Q6j/7nVscvMcoH06b3s7CMIQE+aAIx8bTlWgkf8UEqfTzCkKq78seOSn3muCAbLFptRzaiW
+	3ryWSsRnI9XaGoKyd0m/BKbAKjVo4vOg7tDNGvLurAzIDzz7EmzFRc/wgnqujLg7ktsjs15d5C1
+	1YHk5GzKY1w5jzREtxyiUFHSIF+ptTQXOqaEGqR3Pgy4wtgpIYtQPL4l9MA7Y4PIoOmVQLPj2yi
+	TIT+mxyUWK2iR5f1sIaU1bP0aGL/Um0tqMxwRLkUlzW6XcmfP5t4gvS9NYvbPmiOMJwTyHMKm4W
+	4qjxKw4NsaxlCy9IYL3lFre4/2JyF6sryPPNDi0vm+ScUtRuS7PrL2T2K5qFYNBQ6sgn4T7FVIT
+	vHbGspJWFt4sxDsi0o2QpRP2xVUc1HyDWH3JAu3SJZHkwJ6mT9k8fOGB1x87UR1//i/8c/RWFD9
+	jtx9tPKljLAbzhXM8hCDBmJp0WNWQ2YITUBO2r+Ef2x5RsMLA==
+X-Received: by 2002:a05:7022:e1b:b0:128:d107:da0f with SMTP id a92af1059eb24-12c34ea9471mr11412638c88.10.1776206617403;
+        Tue, 14 Apr 2026 15:43:37 -0700 (PDT)
 Received: from gui-host.Dlink ([177.33.104.190])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2dd32dc2827sm4650361eec.23.2026.04.14.15.43.24
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2dd32dc2827sm4650361eec.23.2026.04.14.15.43.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Apr 2026 15:43:27 -0700 (PDT)
+        Tue, 14 Apr 2026 15:43:36 -0700 (PDT)
 From: Guilherme Ivo Bozi <guilherme.bozi@usp.br>
 To: Salih Erim <salih.erim@amd.com>,
 	Conall O'Griofa <conall.ogriofa@amd.com>,
@@ -81,19 +81,18 @@ Cc: David Lechner <dlechner@baylibre.com>,
 	linux-iio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Guilherme Ivo Bozi <guilherme.bozi@usp.br>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>
-Subject: [PATCH v3 2/3] iio: adc: xilinx-ams: use guard(mutex) for automatic locking
-Date: Tue, 14 Apr 2026 19:40:34 -0300
-Message-ID: <20260414224245.8493-3-guilherme.bozi@usp.br>
+	Guilherme Ivo Bozi <guilherme.bozi@usp.br>
+Subject: [PATCH v3 3/3] iio: adc: xilinx-ams: refactor alarm mapping to table-driven approach
+Date: Tue, 14 Apr 2026 19:40:35 -0300
+Message-ID: <20260414224245.8493-4-guilherme.bozi@usp.br>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260414224245.8493-1-guilherme.bozi@usp.br>
 References: <20260414224245.8493-1-guilherme.bozi@usp.br>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_154328_948429_B189FF95 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20260414_154338_417613_2DC95A38 
+X-CRM114-Status: GOOD (  16.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,105 +107,235 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace open-coded mutex_lock()/mutex_unlock() pairs with
-guard(mutex) to simplify locking and ensure proper unlock on
-all control flow paths.
+Replace multiple open-coded switch statements that map between
+scan_index, alarm bits, and register offsets with a centralized
+table-driven approach.
 
-This removes explicit unlock handling, reduces boilerplate,
-and avoids potential mistakes in error paths while keeping
-the behavior unchanged.
+Introduce a struct-based alarm_map to describe the relationship
+between scan indices and alarm offsets, and add a helper to
+translate scan_index to event IDs. This removes duplicated logic
+across ams_get_alarm_offset(), ams_event_to_channel(), and
+ams_get_alarm_mask().
+
+The new approach improves maintainability, reduces code size,
+and makes it easier to extend or modify alarm mappings in the
+future, while preserving existing behavior.
 
 Signed-off-by: Guilherme Ivo Bozi <guilherme.bozi@usp.br>
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 ---
- drivers/iio/adc/xilinx-ams.c | 24 ++++++++----------------
- 1 file changed, 8 insertions(+), 16 deletions(-)
+ drivers/iio/adc/xilinx-ams.c | 161 +++++++++++++----------------------
+ 1 file changed, 58 insertions(+), 103 deletions(-)
 
 diff --git a/drivers/iio/adc/xilinx-ams.c b/drivers/iio/adc/xilinx-ams.c
-index 6191cd1b29a5..70a1f97f6dad 100644
+index 70a1f97f6dad..2ce78883cead 100644
 --- a/drivers/iio/adc/xilinx-ams.c
 +++ b/drivers/iio/adc/xilinx-ams.c
-@@ -720,22 +720,20 @@ static int ams_read_raw(struct iio_dev *indio_dev,
- 	int ret;
+@@ -102,6 +102,7 @@
+ #define AMS_PS_SEQ_MASK			GENMASK(21, 0)
+ #define AMS_PL_SEQ_MASK			GENMASK_ULL(59, 22)
  
- 	switch (mask) {
--	case IIO_CHAN_INFO_RAW:
--		mutex_lock(&ams->lock);
-+	case IIO_CHAN_INFO_RAW: {
-+		guard(mutex)(&ams->lock);
- 		if (chan->scan_index >= AMS_CTRL_SEQ_BASE) {
- 			ret = ams_read_vcc_reg(ams, chan->address, val);
- 			if (ret)
--				goto unlock_mutex;
-+				return ret;
- 			ams_enable_channel_sequence(indio_dev);
- 		} else if (chan->scan_index >= AMS_PS_SEQ_MAX)
- 			*val = readl(ams->pl_base + chan->address);
- 		else
- 			*val = readl(ams->ps_base + chan->address);
++#define AMS_ALARM_NONE			0x000 /* not a real offset */
+ #define AMS_ALARM_TEMP			0x140
+ #define AMS_ALARM_SUPPLY1		0x144
+ #define AMS_ALARM_SUPPLY2		0x148
+@@ -763,9 +764,49 @@ static int ams_read_raw(struct iio_dev *indio_dev,
+ 	}
+ }
  
--		ret = IIO_VAL_INT;
--unlock_mutex:
--		mutex_unlock(&ams->lock);
--		return ret;
-+		return IIO_VAL_INT;
++struct ams_alarm_map {
++	enum ams_ps_pl_seq scan_index;
++	unsigned int base_offset;
++};
++
++/*
++ * Array index matches enum ams_alarm_bit.
++ * Entries with base_offset == AMS_ALARM_NONE are unused/invalid
++ * (e.g. RESERVED) and must be skipped.
++ */
++static const struct ams_alarm_map alarm_map[] = {
++	[AMS_ALARM_BIT_TEMP] = { AMS_SEQ_TEMP, AMS_ALARM_TEMP },
++	[AMS_ALARM_BIT_SUPPLY1] = { AMS_SEQ_SUPPLY1, AMS_ALARM_SUPPLY1 },
++	[AMS_ALARM_BIT_SUPPLY2] = { AMS_SEQ_SUPPLY2, AMS_ALARM_SUPPLY2 },
++	[AMS_ALARM_BIT_SUPPLY3] = { AMS_SEQ_SUPPLY3, AMS_ALARM_SUPPLY3 },
++	[AMS_ALARM_BIT_SUPPLY4] = { AMS_SEQ_SUPPLY4, AMS_ALARM_SUPPLY4 },
++	[AMS_ALARM_BIT_SUPPLY5] = { AMS_SEQ_SUPPLY5, AMS_ALARM_SUPPLY5 },
++	[AMS_ALARM_BIT_SUPPLY6] = { AMS_SEQ_SUPPLY6, AMS_ALARM_SUPPLY6 },
++	[AMS_ALARM_BIT_RESERVED] = { 0, AMS_ALARM_NONE },
++	[AMS_ALARM_BIT_SUPPLY7] = { AMS_SEQ_SUPPLY7, AMS_ALARM_SUPPLY7 },
++	[AMS_ALARM_BIT_SUPPLY8] = { AMS_SEQ_SUPPLY8, AMS_ALARM_SUPPLY8 },
++	[AMS_ALARM_BIT_SUPPLY9] = { AMS_SEQ_SUPPLY9, AMS_ALARM_SUPPLY9 },
++	[AMS_ALARM_BIT_SUPPLY10] = { AMS_SEQ_SUPPLY10, AMS_ALARM_SUPPLY10 },
++	[AMS_ALARM_BIT_VCCAMS] = { AMS_SEQ_VCCAMS, AMS_ALARM_VCCAMS },
++	[AMS_ALARM_BIT_TEMP_REMOTE] = { AMS_SEQ_TEMP_REMOTE, AMS_ALARM_TEMP_REMOTE },
++};
++
++static int ams_scan_index_to_event(int scan_index)
++{
++	for (unsigned int i = 0; i < ARRAY_SIZE(alarm_map); i++) {
++		if (alarm_map[i].base_offset == AMS_ALARM_NONE)
++			continue;
++
++		if (alarm_map[i].scan_index == scan_index)
++			return i;
 +	}
- 	case IIO_CHAN_INFO_SCALE:
- 		switch (chan->type) {
- 		case IIO_VOLTAGE:
-@@ -939,7 +937,7 @@ static int ams_write_event_config(struct iio_dev *indio_dev,
++
++	return -EINVAL;
++}
++
+ static int ams_get_alarm_offset(int scan_index, enum iio_event_direction dir)
+ {
+-	int offset;
++	int offset, event;
  
- 	alarm = ams_get_alarm_mask(chan->scan_index);
+ 	if (scan_index >= AMS_PS_SEQ_MAX)
+ 		scan_index -= AMS_PS_SEQ_MAX;
+@@ -779,36 +820,11 @@ static int ams_get_alarm_offset(int scan_index, enum iio_event_direction dir)
+ 		offset = 0;
+ 	}
  
--	mutex_lock(&ams->lock);
-+	guard(mutex)(&ams->lock);
- 
- 	if (state)
- 		ams->alarm_mask |= alarm;
-@@ -948,8 +946,6 @@ static int ams_write_event_config(struct iio_dev *indio_dev,
- 
- 	ams_update_alarm(ams, ams->alarm_mask);
- 
--	mutex_unlock(&ams->lock);
--
- 	return 0;
+-	switch (scan_index) {
+-	case AMS_SEQ_TEMP:
+-		return AMS_ALARM_TEMP + offset;
+-	case AMS_SEQ_SUPPLY1:
+-		return AMS_ALARM_SUPPLY1 + offset;
+-	case AMS_SEQ_SUPPLY2:
+-		return AMS_ALARM_SUPPLY2 + offset;
+-	case AMS_SEQ_SUPPLY3:
+-		return AMS_ALARM_SUPPLY3 + offset;
+-	case AMS_SEQ_SUPPLY4:
+-		return AMS_ALARM_SUPPLY4 + offset;
+-	case AMS_SEQ_SUPPLY5:
+-		return AMS_ALARM_SUPPLY5 + offset;
+-	case AMS_SEQ_SUPPLY6:
+-		return AMS_ALARM_SUPPLY6 + offset;
+-	case AMS_SEQ_SUPPLY7:
+-		return AMS_ALARM_SUPPLY7 + offset;
+-	case AMS_SEQ_SUPPLY8:
+-		return AMS_ALARM_SUPPLY8 + offset;
+-	case AMS_SEQ_SUPPLY9:
+-		return AMS_ALARM_SUPPLY9 + offset;
+-	case AMS_SEQ_SUPPLY10:
+-		return AMS_ALARM_SUPPLY10 + offset;
+-	case AMS_SEQ_VCCAMS:
+-		return AMS_ALARM_VCCAMS + offset;
+-	case AMS_SEQ_TEMP_REMOTE:
+-		return AMS_ALARM_TEMP_REMOTE + offset;
+-	default:
++	event = ams_scan_index_to_event(scan_index);
++	if (event < 0 || alarm_map[event].base_offset == AMS_ALARM_NONE)
+ 		return 0;
+-	}
++
++	return alarm_map[event].base_offset + offset;
  }
  
-@@ -962,15 +958,13 @@ static int ams_read_event_value(struct iio_dev *indio_dev,
- 	struct ams *ams = iio_priv(indio_dev);
- 	unsigned int offset = ams_get_alarm_offset(chan->scan_index, dir);
+ static const struct iio_chan_spec *ams_event_to_channel(struct iio_dev *dev,
+@@ -821,49 +837,13 @@ static const struct iio_chan_spec *ams_event_to_channel(struct iio_dev *dev,
+ 		scan_index = AMS_PS_SEQ_MAX;
+ 	}
  
--	mutex_lock(&ams->lock);
-+	guard(mutex)(&ams->lock);
+-	switch (event) {
+-	case AMS_ALARM_BIT_TEMP:
+-		scan_index += AMS_SEQ_TEMP;
+-		break;
+-	case AMS_ALARM_BIT_SUPPLY1:
+-		scan_index += AMS_SEQ_SUPPLY1;
+-		break;
+-	case AMS_ALARM_BIT_SUPPLY2:
+-		scan_index += AMS_SEQ_SUPPLY2;
+-		break;
+-	case AMS_ALARM_BIT_SUPPLY3:
+-		scan_index += AMS_SEQ_SUPPLY3;
+-		break;
+-	case AMS_ALARM_BIT_SUPPLY4:
+-		scan_index += AMS_SEQ_SUPPLY4;
+-		break;
+-	case AMS_ALARM_BIT_SUPPLY5:
+-		scan_index += AMS_SEQ_SUPPLY5;
+-		break;
+-	case AMS_ALARM_BIT_SUPPLY6:
+-		scan_index += AMS_SEQ_SUPPLY6;
+-		break;
+-	case AMS_ALARM_BIT_SUPPLY7:
+-		scan_index += AMS_SEQ_SUPPLY7;
+-		break;
+-	case AMS_ALARM_BIT_SUPPLY8:
+-		scan_index += AMS_SEQ_SUPPLY8;
+-		break;
+-	case AMS_ALARM_BIT_SUPPLY9:
+-		scan_index += AMS_SEQ_SUPPLY9;
+-		break;
+-	case AMS_ALARM_BIT_SUPPLY10:
+-		scan_index += AMS_SEQ_SUPPLY10;
+-		break;
+-	case AMS_ALARM_BIT_VCCAMS:
+-		scan_index += AMS_SEQ_VCCAMS;
+-		break;
+-	case AMS_ALARM_BIT_TEMP_REMOTE:
+-		scan_index += AMS_SEQ_TEMP_REMOTE;
+-		break;
+-	default:
+-		break;
+-	}
++	if (event < 0 || event >= ARRAY_SIZE(alarm_map))
++		return NULL;
++
++	if (alarm_map[event].base_offset == AMS_ALARM_NONE)
++		return NULL;
++
++	scan_index += alarm_map[event].scan_index;
  
- 	if (chan->scan_index >= AMS_PS_SEQ_MAX)
- 		*val = readl(ams->pl_base + offset);
- 	else
- 		*val = readl(ams->ps_base + offset);
+ 	for (i = 0; i < dev->num_channels; i++)
+ 		if (dev->channels[i].scan_index == scan_index)
+@@ -877,43 +857,18 @@ static const struct iio_chan_spec *ams_event_to_channel(struct iio_dev *dev,
  
--	mutex_unlock(&ams->lock);
--
- 	return IIO_VAL_INT;
+ static int ams_get_alarm_mask(int scan_index)
+ {
+-	int bit = 0;
++	int bit = 0, event;
+ 
+ 	if (scan_index >= AMS_PS_SEQ_MAX) {
+ 		bit = AMS_PL_ALARM_START;
+ 		scan_index -= AMS_PS_SEQ_MAX;
+ 	}
+ 
+-	switch (scan_index) {
+-	case AMS_SEQ_TEMP:
+-		return BIT(AMS_ALARM_BIT_TEMP + bit);
+-	case AMS_SEQ_SUPPLY1:
+-		return BIT(AMS_ALARM_BIT_SUPPLY1 + bit);
+-	case AMS_SEQ_SUPPLY2:
+-		return BIT(AMS_ALARM_BIT_SUPPLY2 + bit);
+-	case AMS_SEQ_SUPPLY3:
+-		return BIT(AMS_ALARM_BIT_SUPPLY3 + bit);
+-	case AMS_SEQ_SUPPLY4:
+-		return BIT(AMS_ALARM_BIT_SUPPLY4 + bit);
+-	case AMS_SEQ_SUPPLY5:
+-		return BIT(AMS_ALARM_BIT_SUPPLY5 + bit);
+-	case AMS_SEQ_SUPPLY6:
+-		return BIT(AMS_ALARM_BIT_SUPPLY6 + bit);
+-	case AMS_SEQ_SUPPLY7:
+-		return BIT(AMS_ALARM_BIT_SUPPLY7 + bit);
+-	case AMS_SEQ_SUPPLY8:
+-		return BIT(AMS_ALARM_BIT_SUPPLY8 + bit);
+-	case AMS_SEQ_SUPPLY9:
+-		return BIT(AMS_ALARM_BIT_SUPPLY9 + bit);
+-	case AMS_SEQ_SUPPLY10:
+-		return BIT(AMS_ALARM_BIT_SUPPLY10 + bit);
+-	case AMS_SEQ_VCCAMS:
+-		return BIT(AMS_ALARM_BIT_VCCAMS + bit);
+-	case AMS_SEQ_TEMP_REMOTE:
+-		return BIT(AMS_ALARM_BIT_TEMP_REMOTE + bit);
+-	default:
++	event = ams_scan_index_to_event(scan_index);
++	if (event < 0)
+ 		return 0;
+-	}
++
++	return BIT(event + bit);
  }
  
-@@ -983,7 +977,7 @@ static int ams_write_event_value(struct iio_dev *indio_dev,
- 	struct ams *ams = iio_priv(indio_dev);
- 	unsigned int offset;
- 
--	mutex_lock(&ams->lock);
-+	guard(mutex)(&ams->lock);
- 
- 	/* Set temperature channel threshold to direct threshold */
- 	if (chan->type == IIO_TEMP) {
-@@ -1005,8 +999,6 @@ static int ams_write_event_value(struct iio_dev *indio_dev,
- 	else
- 		writel(val, ams->ps_base + offset);
- 
--	mutex_unlock(&ams->lock);
--
- 	return 0;
- }
- 
+ static int ams_read_event_config(struct iio_dev *indio_dev,
 -- 
 2.47.3
 
