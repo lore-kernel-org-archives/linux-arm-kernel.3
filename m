@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAC5BF531E8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 11:06:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1768AF531E8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 11:06:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cnDaoHU9lvJQ2uQXddehL+kUOzgShbq6x/cqg2qBy3Y=; b=RinsXDaxR0AXuplMFm02AUsywd
-	V9Z6uMsZpoZDfiV1oKuPJKvAh8bXEgPDPCErPi2m1yQZa4XE3sU0yebj33gRYRUHZFjhgbOXs6fXD
-	3DzKzJxmrx+ZdE+iSytwifZE0cbG0aFoaD70jIh42a664IWmE0ndhee13KLAPhqJmPSL1dCn/tlXs
-	QhTBrWYWiyyNXZ2U1F2Rcj+S1uVCsj0mFod0JtHsfUr3oH2uYpyoYPIzBQVfkOatziEJci4RCxDI1
-	8XxB9CTFwGASSCzXFwXHVH3vlXNIjUHQf7OkdKamvcUhcBwjVgMRlcv5ipFRjpvd7+wARxYcn4A1q
-	IL2q/UXw==;
+	bh=wbsDVJkTRMx0qswgCm9IniTVkJpsMJgpoF58GIGXMdg=; b=RBiL7vqLwzVeZtcvsZYsSvIL6D
+	YFR8bYa4XRo3VkGTnbps/Q18ahdb2kzJ/KPsRdwgGWALmcVlX8wRlBpnlGDyESBtI3en896N2pnAI
+	ZIzIba+6niIFRyG2d0hp77cVp7P5HS+BAhRsa446MJPPHPrcNVyFObl1UcDcLCUj8PSjregX/YbmN
+	d90Zvc6/fQ66rvV8CK3XaODWRcAI7ub3oxOMwHNAidF6LOBzEJE32p9Hn6HJH/6G1R+W/EWP3VHWx
+	0iuBowfukSEwF8CBwevNQAFZZGghYf9VzN3L2rEuSgIQHP9B0524DNjsZKX2LdehCtyE+wQuGThUT
+	q/C+uQ4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCbbB-0000000HCPl-3R2T;
-	Tue, 14 Apr 2026 11:06:29 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wCbbF-0000000HCS0-2exk;
+	Tue, 14 Apr 2026 11:06:33 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCbb8-0000000HCNq-05Ii
+	id 1wCbbD-0000000HCPz-1GGv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 11:06:27 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-488a88aeec9so73153025e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 04:06:25 -0700 (PDT)
+	Tue, 14 Apr 2026 11:06:32 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4887fd35e60so38482715e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 04:06:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1776164784; x=1776769584; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1776164789; x=1776769589; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=cnDaoHU9lvJQ2uQXddehL+kUOzgShbq6x/cqg2qBy3Y=;
-        b=y3JQb6QlGkoOjgT6yXThSVuSFz+un8vCNrSrHdQXfeUQDQg246OSUIvi9U53taKO5I
-         SkI+GvYu0fowmrxT1DQDpjUbUH4lQ8yNXvkG8SrdzWkvithBKg75kF1cjbfUvtlW5z4V
-         d+A2LgSPEn5YjCcErqZY2ZiTJxutB+SFTaNscTwN8z32r/oW7PIx/zZccPx7gSQC0qrm
-         kpQqReKUy3+2+kX6l4RaJoAKsbJY9dyxEF9RuEqnmdmxndxBpB4KzvNVB0l391+Kecii
-         hocPLbNCHH4GH4H3PF/14x9z+cVyx5jIzSOdPi7yUFsUc0ssZuTiiDiEM6pfHMoLCVrk
-         h7tg==
+        bh=wbsDVJkTRMx0qswgCm9IniTVkJpsMJgpoF58GIGXMdg=;
+        b=b7muu/DsdlnrJMu9VAvE4QsmKT5xTsJekGqDqpIS8UuDnA9OpNvG2ZWkOUe2pWe7A0
+         6jI+ssfmjkZjCD6fz9/Kn6HwCzTSHceepMmvT/auoyJJeW8rH5Mq09N7L+3um9ug2FQS
+         Iu5zNJwq+iSa2dL+YK3T2TyCXMc01T5+nkB5Sx4ZEq9K6cXtR6o/B2OD/5EKF4yiJpiU
+         6x1lhhwKG23aOk7+EvAIimYnfncDiace96uuT9036wTPRYLSV92zv87IdWQlCr4Q/n/i
+         Jq6WCKYyrM0rUUYgCw2O3KtOJwYIz6m299/KpRgiwzwVVfOf/Sbu0IjqxzLqDCCJr194
+         2p+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776164784; x=1776769584;
+        d=1e100.net; s=20251104; t=1776164789; x=1776769589;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=cnDaoHU9lvJQ2uQXddehL+kUOzgShbq6x/cqg2qBy3Y=;
-        b=T166ZSqtJtps845EGSwq+7BJIL7XrouyXs7VkveQ9IhnUNnmtHYD+Wx9oFb2FeD0yk
-         M+HawDyUPo7ROKhq7UWSOrtCmB3A0W5Hdy6HTwAVMr68yMIIw0ZXMxxxBLZIDrc0H488
-         Osm40oSwK2YucmnI02u6BSUyJTbjIggRzfC4JP7Nxc4Lv4QV51nAvRm/8PyKR+imeW2P
-         U1uARkjUh0iGqts0AHRB99dc7EXCRmhxnSb2+qMWa+4Dg3eVAwP36W766LB/fSxy3SxU
-         Ik1HwxMp+mJmKNqmMPxs7C2kI9VpMse9cKqYPMpP2tCHMvdtUfwZuBBuNdA7bKaNwUaS
-         hJDQ==
-X-Gm-Message-State: AOJu0YwT+ng5kEHC2Pj7Sn5PNOWuqe7rd1N3Lp5G1rndk+4yWUfZgx1n
-	DeN3jzDVPsNYDhY1HoxxcMt+Z1gTJiIeALa3krRRQLcl3Vv3biVXBjiwFDwKtJ2jvxc=
-X-Gm-Gg: AeBDieuAZcZ9n52+hUtJTEe0+84C5HgLYDTnXHondC2Yj00px2VUJ9jQHlNPAk9KZAz
-	0yFsAM0nZ8adQUM+7FZDo9q03v6BuAAu03aKtjiSR35tEd2Fa9rMyRCZ2l6oyyCJ9dmkDYLgq6D
-	OdN3ktDwJi0k7q4RpShYttJ5GlIAj7IK1v1ZrHCx7vOi8us5sHw+DbR1+k8zqPLjojh9oBPAgpA
-	Xqn1OGqJ2oLTIxkVDlaJT4j1S4FZmqp4dBL0NrxXBU9FNPRngq8sxPILDpfsHG5bS8J/xN0S1hU
-	ABe4rweYjZtJU7C3aU+zqQmA2t+/WWPK1/e8kT/vadj77asE56CRAiNU/trwGFiRVC45wBFeOW9
-	WVRXaxDn7Raz3gG5awOViIWQ7hVbCLBA+/YCa9A2qPyEtFw8P2TYbFAHag/VaiSsAO190ei54Am
-	BB0rV8k72fXxXeYbN2UjFlXvZjjGuDjH2dvDHAR6coOg==
-X-Received: by 2002:a05:600c:c084:b0:485:4006:960c with SMTP id 5b1f17b1804b1-488d685b86bmr169239765e9.16.1776164784181;
-        Tue, 14 Apr 2026 04:06:24 -0700 (PDT)
+        bh=wbsDVJkTRMx0qswgCm9IniTVkJpsMJgpoF58GIGXMdg=;
+        b=EVRrKJt7i+53RkxmNI4JrWlQz9Y6YR/BcJej2ia9pNkR4SLGutVLJXOeYEjh2TPz20
+         dps+aYyiexqLi64+vm5B6rktbGiOAhaU8xP0D55RmGaJ59J0ny536e1q99oK8jnn4XKf
+         ubpKylYLQ233u8V6WLNRAyDaMgirdHlmI6Bx5lh/qpX1OQex+CobrSdKYrL5KRvL4JBz
+         93C6pfn7LTwAWF17fsK4nSmIPsAnbfLR8IEwI+TcLZ0fBgvaM/Ge5DPO3LJuFx31bAhh
+         +LtiyYXGM1arJl4gX2e7JgH19PamHBAD1e9d9EGxMNTDHOGrKHc2H0H5GX4HwRaazWV1
+         ttRA==
+X-Gm-Message-State: AOJu0Yx27OU8+LKA33cINkWuNb5VbhJfa8p6tiHlpRmOWIkwmb7WbUy8
+	NtQmM4iaW3I8rvDHyEqsJ/vHTk383jpY7unvO4I4C4jEE6VlfDKyxXB16PkL5Ybnua0=
+X-Gm-Gg: AeBDiesTE9bYA7jYLFfxRE8mva3SJQKv2tMv+mewIXuWK1tnnFc5nmKhGoO0O3J98GG
+	GqsguNy6958cJBelFCX0nPhOvO7UPj9DjM27qRhz0updWhIcc2TUOXBoUMi0lz1FCQpLBKsvcOP
+	0x+UXeG+528Stdnh695P1D8d76QCICkhK7OzKPEfA4EQ6UdxuEARLzD62J75S9QqH1NiXwbPWll
+	hTyH/ODvc/O6zGPCAJHrtCwksol7QPwNyp2nqkjXGhmWN2MrMY3yDYR2WwLIn210ffUjC1weud8
+	XmxrgMDefY0YjIBNC8gX7v1Wd9jz0gM6wa0Dorv3UgP4VW8/nZU81a+BUYaTUSLWUfLHZENRIdu
+	b7jalnXj74D/vdtQ/Y9EJ9IwVKF4uy0b+lf78JKQqsWEAv/l98HKH3sblVUYCGBJ3zvNcJYlATc
+	qDJSAmGovEMPvvlY3qCN2uEqICDjCbRmQ4EpCQkhPizA==
+X-Received: by 2002:a05:600c:8710:b0:485:3abe:ab86 with SMTP id 5b1f17b1804b1-488d67bbd1dmr248340235e9.4.1776164789177;
+        Tue, 14 Apr 2026 04:06:29 -0700 (PDT)
 Received: from e133063.arm.com ([213.137.22.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488d5d9dd86sm183254655e9.4.2026.04.14.04.06.22
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488d5d9dd86sm183254655e9.4.2026.04.14.04.06.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Apr 2026 04:06:23 -0700 (PDT)
+        Tue, 14 Apr 2026 04:06:25 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Date: Tue, 14 Apr 2026 12:04:49 +0100
-Subject: [PATCH v3 3/6] perf arm_spe: Store MIDR in arm_spe_pkt
+Date: Tue, 14 Apr 2026 12:04:50 +0100
+Subject: [PATCH v3 4/6] perf arm_spe: Turn event name mappings into an
+ array
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260414-james-spe-impdef-decode-v3-3-63baf9c893b1@linaro.org>
+Message-Id: <20260414-james-spe-impdef-decode-v3-4-63baf9c893b1@linaro.org>
 References: <20260414-james-spe-impdef-decode-v3-0-63baf9c893b1@linaro.org>
 In-Reply-To: <20260414-james-spe-impdef-decode-v3-0-63baf9c893b1@linaro.org>
 To: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
@@ -90,8 +91,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_040626_103888_72056EE5 
-X-CRM114-Status: GOOD (  23.51  )
+X-CRM114-CacheID: sfid-20260414_040631_380881_FC56C59D 
+X-CRM114-Status: GOOD (  14.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,210 +107,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MIDR will affect printing of arm_spe_pkts, so store a copy of it
-there. Technically it's constant for each decoder, but there is no
-decoder when doing a raw dump, so it has to be stored in every packet.
-It will only be used in raw dump mode and not in normal decoding for
-now, but to avoid any surprises, set MIDR properly on the decoder too.
+This is so we can have a single function that prints events and can be
+used with multiple mappings from different CPUs. Remove any bit that was
+printed so that later we can print out the remaining unknown impdef
+bits.
 
-Having both the MIDR and the arm_spe_pkt (which has a copy of it) in the
-decoder seemed a bit weird, so remove arm_spe_pkt from the decoder. The
-packet is only short lived anyway so probably shouldn't have been there
-in the first place.
+No functional changes intended.
 
 Reviewed-by: Leo Yan <leo.yan@arm.com>
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- tools/perf/util/arm-spe-decoder/arm-spe-decoder.c   | 17 ++++++++++-------
- tools/perf/util/arm-spe-decoder/arm-spe-decoder.h   |  3 +--
- .../perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c |  3 ++-
- .../perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h |  3 ++-
- tools/perf/util/arm-spe.c                           | 21 +++++++++++++++------
- 5 files changed, 30 insertions(+), 17 deletions(-)
+ .../util/arm-spe-decoder/arm-spe-pkt-decoder.c     | 88 +++++++++++-----------
+ 1 file changed, 43 insertions(+), 45 deletions(-)
 
-diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
-index 9e02b2bdd1177193996d071dd88f969e25b1ad86..7a3a4815fd37b7f57687189c09c618aaf7ac9801 100644
---- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
-+++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
-@@ -120,7 +120,8 @@ static int arm_spe_get_data(struct arm_spe_decoder *decoder)
- 	return decoder->len;
- }
- 
--static int arm_spe_get_next_packet(struct arm_spe_decoder *decoder)
-+static int arm_spe_get_next_packet(struct arm_spe_decoder *decoder,
-+				  struct arm_spe_pkt *packet)
- {
- 	int ret;
- 
-@@ -134,7 +135,8 @@ static int arm_spe_get_next_packet(struct arm_spe_decoder *decoder)
- 		}
- 
- 		ret = arm_spe_get_packet(decoder->buf, decoder->len,
--					 &decoder->packet);
-+					 packet, decoder->midr);
-+
- 		if (ret <= 0) {
- 			/* Move forward for 1 byte */
- 			decoder->buf += 1;
-@@ -144,7 +146,7 @@ static int arm_spe_get_next_packet(struct arm_spe_decoder *decoder)
- 
- 		decoder->buf += ret;
- 		decoder->len -= ret;
--	} while (decoder->packet.type == ARM_SPE_PAD);
-+	} while (packet->type == ARM_SPE_PAD);
- 
- 	return 1;
- }
-@@ -154,19 +156,20 @@ static int arm_spe_read_record(struct arm_spe_decoder *decoder)
- 	int err;
- 	int idx;
- 	u64 payload, ip;
-+	struct arm_spe_pkt packet;
- 
- 	memset(&decoder->record, 0x0, sizeof(decoder->record));
- 	decoder->record.context_id = (u64)-1;
- 
- 	while (1) {
--		err = arm_spe_get_next_packet(decoder);
-+		err = arm_spe_get_next_packet(decoder, &packet);
- 		if (err <= 0)
- 			return err;
- 
--		idx = decoder->packet.index;
--		payload = decoder->packet.payload;
-+		idx = packet.index;
-+		payload = packet.payload;
- 
--		switch (decoder->packet.type) {
-+		switch (packet.type) {
- 		case ARM_SPE_TIMESTAMP:
- 			decoder->record.timestamp = payload;
- 			return 1;
-diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-index 3310e05122f02e8ef32f79f8ed3c6932cc43eecc..0cbcb501edc9965d34cfd3ede79cab3fd9b318f8 100644
---- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-+++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-@@ -147,8 +147,7 @@ struct arm_spe_decoder {
- 
- 	const unsigned char *buf;
- 	size_t len;
--
--	struct arm_spe_pkt packet;
-+	u64 midr;
- };
- 
- struct arm_spe_decoder *arm_spe_decoder_new(struct arm_spe_params *params);
 diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
-index 5769ba2f414049161f271fd8b8f40c440d15a75a..718022aecec30bf30a51ba3d2bca9cf6465259a7 100644
+index 718022aecec30bf30a51ba3d2bca9cf6465259a7..67ca356100e53aaf6d47489717537ba27aa2b98e 100644
 --- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
 +++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
-@@ -222,11 +222,12 @@ static int arm_spe_do_get_packet(const unsigned char *buf, size_t len,
+@@ -277,6 +277,48 @@ static int arm_spe_pkt_out_string(int *err, char **buf_p, size_t *blen,
+ 	return ret;
  }
  
- int arm_spe_get_packet(const unsigned char *buf, size_t len,
--		       struct arm_spe_pkt *packet)
-+		       struct arm_spe_pkt *packet, u64 midr)
- {
- 	int ret;
- 
- 	ret = arm_spe_do_get_packet(buf, len, packet);
-+	packet->midr = midr;
- 	/* put multiple consecutive PADs on the same line, up to
- 	 * the fixed-width output format of 16 bytes per line.
- 	 */
-diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
-index adf4cde320aad01265b5232b0d6ff6b1f752f35f..a457821f3bccb67691cfd530de2f1c5bf9d8d50c 100644
---- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
-+++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
-@@ -35,6 +35,7 @@ struct arm_spe_pkt {
- 	enum arm_spe_pkt_type	type;
- 	unsigned char		index;
- 	uint64_t		payload;
-+	uint64_t		midr;
- };
- 
- /* Short header (HEADER0) and extended header (HEADER1) */
-@@ -184,7 +185,7 @@ enum arm_spe_events {
- const char *arm_spe_pkt_name(enum arm_spe_pkt_type);
- 
- int arm_spe_get_packet(const unsigned char *buf, size_t len,
--		       struct arm_spe_pkt *packet);
-+		       struct arm_spe_pkt *packet, u64 midr);
- 
- int arm_spe_pkt_desc(const struct arm_spe_pkt *packet, char *buf, size_t len);
- #endif
-diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index f9188fdb8e786fccff94cd8a92f367d90efc5cfe..ed4515fef2de3dded17befc358c87c2461d397d4 100644
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -134,8 +134,10 @@ struct data_source_handle {
- 		.ds_synth = arm_spe__synth_##func,	\
- 	}
- 
-+static int arm_spe__get_midr(struct arm_spe *spe, int cpu, u64 *midr);
++struct ev_string {
++	u8 event;
++	const char *desc;
++};
 +
- static void arm_spe_dump(struct arm_spe *spe __maybe_unused,
--			 unsigned char *buf, size_t len)
-+			 unsigned char *buf, size_t len, u64 midr)
- {
- 	struct arm_spe_pkt packet;
- 	size_t pos = 0;
-@@ -148,7 +150,8 @@ static void arm_spe_dump(struct arm_spe *spe __maybe_unused,
- 		      len);
- 
- 	while (len) {
--		ret = arm_spe_get_packet(buf, len, &packet);
-+		ret = arm_spe_get_packet(buf, len, &packet, midr);
++static const struct ev_string common_ev_strings[] = {
++	{ .event = EV_EXCEPTION_GEN, .desc = "EXCEPTION-GEN" },
++	{ .event = EV_RETIRED, .desc = "RETIRED" },
++	{ .event = EV_L1D_ACCESS, .desc = "L1D-ACCESS" },
++	{ .event = EV_L1D_REFILL, .desc = "L1D-REFILL" },
++	{ .event = EV_TLB_ACCESS, .desc = "TLB-ACCESS" },
++	{ .event = EV_TLB_WALK, .desc = "TLB-REFILL" },
++	{ .event = EV_NOT_TAKEN, .desc = "NOT-TAKEN" },
++	{ .event = EV_MISPRED, .desc = "MISPRED" },
++	{ .event = EV_LLC_ACCESS, .desc = "LLC-ACCESS" },
++	{ .event = EV_LLC_MISS, .desc = "LLC-REFILL" },
++	{ .event = EV_REMOTE_ACCESS, .desc = "REMOTE-ACCESS" },
++	{ .event = EV_ALIGNMENT, .desc = "ALIGNMENT" },
++	{ .event = EV_TRANSACTIONAL, .desc = "TXN" },
++	{ .event = EV_PARTIAL_PREDICATE, .desc = "SVE-PARTIAL-PRED" },
++	{ .event = EV_EMPTY_PREDICATE, .desc = "SVE-EMPTY-PRED" },
++	{ .event = EV_L2D_ACCESS, .desc = "L2D-ACCESS" },
++	{ .event = EV_L2D_MISS, .desc = "L2D-MISS" },
++	{ .event = EV_CACHE_DATA_MODIFIED, .desc = "HITM" },
++	{ .event = EV_RECENTLY_FETCHED, .desc = "LFB" },
++	{ .event = EV_DATA_SNOOPED, .desc = "SNOOPED" },
++	{ .event = EV_STREAMING_SVE_MODE, .desc = "STREAMING-SVE" },
++	{ .event = EV_SMCU, .desc = "SMCU" },
++	{ .event = 0, .desc = NULL },
++};
 +
- 		if (ret > 0)
- 			pkt_len = ret;
- 		else
-@@ -174,10 +177,10 @@ static void arm_spe_dump(struct arm_spe *spe __maybe_unused,
- }
- 
- static void arm_spe_dump_event(struct arm_spe *spe, unsigned char *buf,
--			       size_t len)
-+			       size_t len, u64 midr)
- {
- 	printf(".\n");
--	arm_spe_dump(spe, buf, len);
-+	arm_spe_dump(spe, buf, len, midr);
- }
- 
- static int arm_spe_get_trace(struct arm_spe_buffer *b, void *data)
-@@ -302,8 +305,10 @@ static void arm_spe_set_pid_tid_cpu(struct arm_spe *spe,
- 
- 	if (speq->thread) {
- 		speq->pid = thread__pid(speq->thread);
--		if (queue->cpu == -1)
-+		if (queue->cpu == -1) {
- 			speq->cpu = thread__cpu(speq->thread);
-+			arm_spe__get_midr(spe, speq->cpu, &speq->decoder->midr);
-+		}
- 	}
- }
- 
-@@ -1248,6 +1253,7 @@ static int arm_spe__setup_queue(struct arm_spe *spe,
- 
- 	if (queue->cpu != -1)
- 		speq->cpu = queue->cpu;
-+	arm_spe__get_midr(spe, queue->cpu, &speq->decoder->midr);
- 
- 	if (!speq->on_heap) {
- 		int ret;
-@@ -1490,8 +1496,11 @@ static int arm_spe_process_auxtrace_event(struct perf_session *session,
- 		/* Dump here now we have copied a piped trace out of the pipe */
- 		if (dump_trace) {
- 			if (auxtrace_buffer__get_data(buffer, fd)) {
-+				u64 midr = 0;
++static u64 print_event_list(int *err, char **buf, size_t *buf_len,
++			    const struct ev_string *ev_strings, u64 payload)
++{
++	for (const struct ev_string *ev = ev_strings; ev->desc != NULL; ev++) {
++		if (payload & BIT_ULL(ev->event))
++			arm_spe_pkt_out_string(err, buf, buf_len, " %s", ev->desc);
++		payload &= ~BIT_ULL(ev->event);
++	}
++	return payload;
++}
 +
-+				arm_spe__get_midr(spe, buffer->cpu.cpu, &midr);
- 				arm_spe_dump_event(spe, buffer->data,
--						buffer->size);
-+						   buffer->size, midr);
- 				auxtrace_buffer__put_data(buffer);
- 			}
- 		}
+ static int arm_spe_pkt_desc_event(const struct arm_spe_pkt *packet,
+ 				  char *buf, size_t buf_len)
+ {
+@@ -284,51 +326,7 @@ static int arm_spe_pkt_desc_event(const struct arm_spe_pkt *packet,
+ 	int err = 0;
+ 
+ 	arm_spe_pkt_out_string(&err, &buf, &buf_len, "EV");
+-
+-	if (payload & BIT(EV_EXCEPTION_GEN))
+-		arm_spe_pkt_out_string(&err, &buf, &buf_len, " EXCEPTION-GEN");
+-	if (payload & BIT(EV_RETIRED))
+-		arm_spe_pkt_out_string(&err, &buf, &buf_len, " RETIRED");
+-	if (payload & BIT(EV_L1D_ACCESS))
+-		arm_spe_pkt_out_string(&err, &buf, &buf_len, " L1D-ACCESS");
+-	if (payload & BIT(EV_L1D_REFILL))
+-		arm_spe_pkt_out_string(&err, &buf, &buf_len, " L1D-REFILL");
+-	if (payload & BIT(EV_TLB_ACCESS))
+-		arm_spe_pkt_out_string(&err, &buf, &buf_len, " TLB-ACCESS");
+-	if (payload & BIT(EV_TLB_WALK))
+-		arm_spe_pkt_out_string(&err, &buf, &buf_len, " TLB-REFILL");
+-	if (payload & BIT(EV_NOT_TAKEN))
+-		arm_spe_pkt_out_string(&err, &buf, &buf_len, " NOT-TAKEN");
+-	if (payload & BIT(EV_MISPRED))
+-		arm_spe_pkt_out_string(&err, &buf, &buf_len, " MISPRED");
+-	if (payload & BIT(EV_LLC_ACCESS))
+-		arm_spe_pkt_out_string(&err, &buf, &buf_len, " LLC-ACCESS");
+-	if (payload & BIT(EV_LLC_MISS))
+-		arm_spe_pkt_out_string(&err, &buf, &buf_len, " LLC-REFILL");
+-	if (payload & BIT(EV_REMOTE_ACCESS))
+-		arm_spe_pkt_out_string(&err, &buf, &buf_len, " REMOTE-ACCESS");
+-	if (payload & BIT(EV_ALIGNMENT))
+-		arm_spe_pkt_out_string(&err, &buf, &buf_len, " ALIGNMENT");
+-	if (payload & BIT(EV_TRANSACTIONAL))
+-		arm_spe_pkt_out_string(&err, &buf, &buf_len, " TXN");
+-	if (payload & BIT(EV_PARTIAL_PREDICATE))
+-		arm_spe_pkt_out_string(&err, &buf, &buf_len, " SVE-PARTIAL-PRED");
+-	if (payload & BIT(EV_EMPTY_PREDICATE))
+-		arm_spe_pkt_out_string(&err, &buf, &buf_len, " SVE-EMPTY-PRED");
+-	if (payload & BIT(EV_L2D_ACCESS))
+-		arm_spe_pkt_out_string(&err, &buf, &buf_len, " L2D-ACCESS");
+-	if (payload & BIT(EV_L2D_MISS))
+-		arm_spe_pkt_out_string(&err, &buf, &buf_len, " L2D-MISS");
+-	if (payload & BIT(EV_CACHE_DATA_MODIFIED))
+-		arm_spe_pkt_out_string(&err, &buf, &buf_len, " HITM");
+-	if (payload & BIT(EV_RECENTLY_FETCHED))
+-		arm_spe_pkt_out_string(&err, &buf, &buf_len, " LFB");
+-	if (payload & BIT(EV_DATA_SNOOPED))
+-		arm_spe_pkt_out_string(&err, &buf, &buf_len, " SNOOPED");
+-	if (payload & BIT(EV_STREAMING_SVE_MODE))
+-		arm_spe_pkt_out_string(&err, &buf, &buf_len, " STREAMING-SVE");
+-	if (payload & BIT(EV_SMCU))
+-		arm_spe_pkt_out_string(&err, &buf, &buf_len, " SMCU");
++	print_event_list(&err, &buf, &buf_len, common_ev_strings, payload);
+ 
+ 	return err;
+ }
 
 -- 
 2.34.1
