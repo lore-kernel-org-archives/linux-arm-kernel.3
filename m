@@ -4,69 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD9BF9D0C8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 12:05:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3A5AF9D0C8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 12:10:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JBdItcm4SpsvDcMo6VDP8MI5QdRVaF4W043aa/ZGUhQ=; b=uzkW2qojAaiv0+4VKqQpSe7RD8
-	lhysojoSb7akshkgBW3HIQqO7rM1iJOqhMDugAZcSsSSTss6tI6by0G8dYQ7Zu64RdWLPblR1NxL6
-	Nl4eP7Yt20o5wsGOLmYQnoJAZkfZIkNLVLlqDMu9QRTUijl8a8Jf+qmSqC1CsMPbnqidgk89MBQO2
-	/N+SmPVKcoPN7fDVTF7JAAP/vIzCLp7mOgPzPfoc1i5TBrrMU9BFqyTs0kjxOlIrgUf/zo7bfdnW8
-	wPS1lmTNoDnDgNbKIJAMD4XwMY8LDOdZ3d1QcmOqxQsLyP7YGgZYA/thKlJc8ByaKm8Hv52nt0YvJ
-	PJEtF0zg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AeWnSlgGKZBcyenb8mUUEqV0mdW31nwaGuQrp2ApXLk=; b=x23B51dUoO210S2halhUYcXYKY
+	mT7yBUhDgzEXWXSEFsvuRBOvfEDJKtSqcXyLx28uYJuAbokVG4ge1xFiHgKLbtQCBdMELG4zbHYkU
+	LIZ44rFkGXZzNk8rnR07E73PtMXfKz7Qn2rgrW6zr6lMhDHUPG5+rL+ilKieHUWic7ksgxG85a7U7
+	CiGiuQDn30x0TCIouoqYm0R4a61FM9Z29bHDwwqt8h5MyyMXDINm09oJ934NKdw3kdUtBehgiOTX4
+	lsR2lXfbdmPx4xENrUYqEIJDPjdvgBTFSqaKUkEaICWTuRdJD5XAojslzOa1WV3EDWApvraMooq3O
+	hF6N33CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCcWP-0000000HH4i-296y;
-	Tue, 14 Apr 2026 12:05:37 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1wCcb1-0000000HHL5-2aiJ;
+	Tue, 14 Apr 2026 12:10:23 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCcWN-0000000HH4J-1b5z
+	id 1wCcay-0000000HHKf-1o3a
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 12:05:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-ID:Content-Description;
-	bh=JBdItcm4SpsvDcMo6VDP8MI5QdRVaF4W043aa/ZGUhQ=; b=prh3cNO7H5DIoCudtpYHbVGQ8z
-	95eGPGtTkFLexvqs6odwc4SN9rzEuqkklN8ahwVaX+79xwM49vqQ7z1PtADTAucfFiOTt5uQDo9sa
-	OYfJgJYGOUOTssGMffcBJQ24LGrBo6xoPO2Ou1DPx7Kv+82mU2sAaEI6Bsah622mpfCEa6MbeyOrc
-	S9fsJCkEn60d/jlrsapqNOmZrdC6QNHORD9oQX0pedBDJ6rV3uzYyC4EgHbD0BE3CTjDZ7Oemadm9
-	Nq7Ce8n1QibO23zbDWVXBSHKmMOUIsAiphi1hhgmoqXvn9vlQgGU5XmJ+3WjoGOuBweRbnda0AaT7
-	QAeTGLvA==;
-Received: from authenticated user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1wCcW1-00D3Kj-1S;
-	Tue, 14 Apr 2026 12:05:13 +0000
-Date: Tue, 14 Apr 2026 05:05:07 -0700
-From: Breno Leitao <leitao@debian.org>
-To: "lihuisong (C)" <lihuisong@huawei.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
-	lpieralisi@kernel.org, catalin.marinas@arm.com, will@kernel.org, 
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	pjaroszynski@nvidia.com, guohanjun@huawei.com, sudeep.holla@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, rmikey@meta.com, kernel-team@meta.com
-Subject: Re: [PATCH RFC] ACPI: processor: idle: Do not propagate
- acpi_processor_ffh_lpi_probe() -ENODEV
-Message-ID: <ad4tXOlXITpREkLb@gmail.com>
-References: <20260413-ffh-v1-1-301704f69e2f@debian.org>
- <af9c679d-899c-4832-b902-e621b5987f12@huawei.com>
- <ad4UWJ__dnDQtrj8@gmail.com>
- <6694ca7c-13bf-4e7d-9621-bc992cbf96a7@huawei.com>
+	Tue, 14 Apr 2026 12:10:21 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63DLIUvd2130640;
+	Tue, 14 Apr 2026 12:09:48 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=AeWnSl
+	gGKZBcyenb8mUUEqV0mdW31nwaGuQrp2ApXLk=; b=tEbpv5QkdxUtovtblXHfnl
+	YNLlDu/7aGcHlB5OE8YAFYB0Bn2xP12uW9iG+j8y7eEBVztQfinRFDjoDef91me0
+	vFfj3pjxJLjHrML8Jg103gwhMu3zfUE5SijDkV6RwI0FcDrUrD99vtwyN+IH91fM
+	Ulg/gCzVhKPemhuVUoDxrf7caeFCTj2YdAorYi4wnGmY6rJbyRXAFBxfCST8r81J
+	4/keMlRlu9TjpibrEL2TY9pXBUXYoT+YHwob16C0ro5Bv8al/4D14hhg6Bmnmepj
+	rXx0GMiNLnXywpSFCJW0nFDlmn197LF8aPG+HGIuF3Rc+m0eOQYNJhABqSUNJIfg
+	==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dh89nakf4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 14 Apr 2026 12:09:47 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 63E9NLqg030721;
+	Tue, 14 Apr 2026 12:09:46 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dg10y9f77-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 14 Apr 2026 12:09:46 +0000
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63EC9iQP28836298
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 14 Apr 2026 12:09:44 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8B57320043;
+	Tue, 14 Apr 2026 12:09:44 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2F21820040;
+	Tue, 14 Apr 2026 12:09:44 +0000 (GMT)
+Received: from [9.52.200.195] (unknown [9.52.200.195])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Tue, 14 Apr 2026 12:09:44 +0000 (GMT)
+Message-ID: <e087a768-507d-4ac2-8875-ab7c522420bd@linux.ibm.com>
+Date: Tue, 14 Apr 2026 14:09:42 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/8] sframe: Allow kernelspace sframe sections.
+To: Dylan Hatch <dylanbhatch@google.com>,
+        Roman Gushchin <roman.gushchin@linux.dev>,
+        Weinan Liu <wnliu@google.com>, Will Deacon <will@kernel.org>,
+        Josh Poimboeuf <jpoimboe@kernel.org>,
+        Indu Bhagat <indu.bhagat@oracle.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Steven Rostedt <rostedt@goodmis.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Jiri Kosina <jikos@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+        Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+        Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>,
+        joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org,
+        linux-kernel@vger.kernel.org, live-patching@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org
+References: <20260406185000.1378082-1-dylanbhatch@google.com>
+ <20260406185000.1378082-2-dylanbhatch@google.com>
+Content-Language: en-US
+From: Jens Remus <jremus@linux.ibm.com>
+Organization: IBM Deutschland Research & Development GmbH
+In-Reply-To: <20260406185000.1378082-2-dylanbhatch@google.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <6694ca7c-13bf-4e7d-9621-bc992cbf96a7@huawei.com>
-X-Debian-User: leitao
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: 7s7cXi06g2xRhHmoKeqjlbPa6_VRgFW7
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE0MDExMCBTYWx0ZWRfX9/u2/WGDmdi7
+ 7VBm4jga7f++j/WVPnbbqm+2mLvlfxeJWr3YeGTscgsYBNJSTaUeZUx6PUe/BBQtwKDEmnK/I/u
+ Zd9NFpl4M9cNL9B6Yjm6u0AEUTA3S4ej6exA1d7dOkFM17EtN6Qcx4eFizNZHvRu3V20oY4/RBC
+ vUU9la7B3CdTW5r7MDYVk1Y81VNGSngddNnhVpzGILbqpuy98Lib4tqGHGOi4k/lQm/u9dnjLGe
+ huzoCekBKesJNpd6ePZxBfmtraB7bV3t2c4I3AZrJZyTVHcy5hmF8zoDIGBccO4b36VI8w+/mtw
+ FaPbhLXNBvcga2Jq/C/6zSau8PeTE98prOeIzMMwW0t4eV0YdDgHJ+nVvsS56403SEyYo9GI0D7
+ j3+EMdz2cQeFBC2MgtAIDYvOvFoZhdFshuhTOpJX30oUxMBFHv/Nvhj6RuNAV3ite+oYlaP7mY8
+ +mrH5AVdfnKmr8PqonQ==
+X-Proofpoint-ORIG-GUID: kLj3cRsPjkPaXpmA957ELV5MyMQakV30
+X-Authority-Analysis: v=2.4 cv=FY4HAp+6 c=1 sm=1 tr=0 ts=69de2e8c cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8
+ a=1XWaLZrsAAAA:8 a=EcvllB-cgGEySGRCOTcA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-14_03,2026-04-13_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 priorityscore=1501 bulkscore=0 impostorscore=0 spamscore=0
+ lowpriorityscore=0 suspectscore=0 clxscore=1011 malwarescore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604140110
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_050535_504018_AD2281F3 
-X-CRM114-Status: GOOD (  29.57  )
+X-CRM114-CacheID: sfid-20260414_051020_502439_C35A0007 
+X-CRM114-Status: GOOD (  28.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,94 +134,288 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 14, 2026 at 07:31:29PM +0800, lihuisong (C) wrote:
+Hello Dylan!
+
+On 4/6/2026 8:49 PM, Dylan Hatch wrote:
+> Generalize the sframe lookup code to support kernelspace sections. This
+> is done by defining a SFRAME_LOOKUP option that can be activated
+> separate from UNWIND_USER_SFRAME, as there will be other clients to this
+> library than just userspace unwind.
+
+Nit: s/UNWIND_USER_SFRAME/HAVE_UNWIND_USER_SFRAME/
+
+This actually uses the following two new Kconfig options (with
+SFRAME_UNWINDER technically being introduced in the next patch):
+
+  SFRAME_LOOKUP
+  SFRAME_UNWINDER
+
+IIUC SFRAME_UNWINDER is the kernel counterpart to the existing
+HAVE_UNWIND_USER_SFRAME.  Would it therefore make sense to align the
+naming as follows?
+
+  HAVE_UNWIND_KERNEL_SFRAME (instead of SFRAME_UNWINDER)
+  HAVE_UNWIND_USER_SFRAME
+
+> Sframe section location is now tracked in a separate sec_type field to
+> determine whether user-access functions are necessary to read the sframe
+> data. Relevant type delarations are moved and renamed to reflect the
+> non-user sframe support.
 > 
-> On 4/14/2026 6:21 PM, Breno Leitao wrote:
-> > Hello Huisong,
-> > 
-> > On Tue, Apr 14, 2026 at 05:43:51PM +0800, lihuisong (C) wrote:
-> > > But it is a real issue. Thanks for your report.
-> > > I think the best way to fix your issue is that remove this verification in
-> > > psci_acpi_cpu_init_idle().
-> > > Because it is legal for platform to report one LPI state.
-> > > This function just needs to verify the LPI states which are FFH.
-> > Thank you for the prompt feedback.
-> > 
-> > Would this approach work?
-> > 
-> > commit 6c9d52840a4f778cc989838ba76ee51416e85de3
-> > Author: Breno Leitao <leitao@debian.org>
-> > Date:   Tue Apr 14 03:16:08 2026 -0700
-> > 
-> >      ACPI: processor: idle: Allow platforms with only one LPI state
-> >      psci_acpi_cpu_init_idle() rejects platforms where power.count - 1 <= 0
-> >      by returning -ENODEV. However, having a single LPI state (WFI) is a
-> >      valid configuration. The function's purpose is to verify FFH idle states,
-> >      and when count is zero, there are simply no FFH states to validate —
-> >      this is not an error.
-> >      On NVIDIA Grace (aarch64) systems with PSCIv1.1, power.count is 1 for
-> >      all 72 CPUs, so the probe fails with -ENODEV. After commit cac173bea57d
-> >      ("ACPI: processor: idle: Rework the handling of
-> >      acpi_processor_ffh_lpi_probe()"), this failure propagates up and prevents
-> >      cpuidle registration entirely.
-> >      Change the check from (count <= 0) to (count < 0) so that platforms
-> >      with only WFI are accepted. The for loop naturally handles count == 0
-> >      by not iterating.
-> >      Fixes: cac173bea57d ("ACPI: processor: idle: Rework the handling of acpi_processor_ffh_lpi_probe()")
-> >      Signed-off-by: Breno Leitao <leitao@debian.org>
-> > 
-> > diff --git a/drivers/acpi/arm64/cpuidle.c b/drivers/acpi/arm64/cpuidle.c
-> > index 801f9c4501425..7791b751042ce 100644
-> > --- a/drivers/acpi/arm64/cpuidle.c
-> > +++ b/drivers/acpi/arm64/cpuidle.c
-> > @@ -31,7 +31,7 @@ static int psci_acpi_cpu_init_idle(unsigned int cpu)
-> >   		return -EOPNOTSUPP;
-> >   	count = pr->power.count - 1;
-> > -	if (count <= 0)
-> > +	if (count < 0)
-> >   		return -ENODEV;
-> >   	for (i = 0; i < count; i++) {
-> 
-> This count already verified in acpi_processor_get_lpi_info.
-> 
-> I suggest modifing it as below:
-> 
-> -->
-> 
-> git diff
-> diff --git a/drivers/acpi/arm64/cpuidle.c b/drivers/acpi/arm64/cpuidle.c
-> index 801f9c450142..c68a5db8ebba 100644
-> --- a/drivers/acpi/arm64/cpuidle.c
-> +++ b/drivers/acpi/arm64/cpuidle.c
-> @@ -16,7 +16,7 @@
-> 
->  static int psci_acpi_cpu_init_idle(unsigned int cpu)
->  {
-> -       int i, count;
-> +       int i;
->         struct acpi_lpi_state *lpi;
->         struct acpi_processor *pr = per_cpu(processors, cpu);
-> 
-> @@ -30,14 +30,10 @@ static int psci_acpi_cpu_init_idle(unsigned int cpu)
->         if (!psci_ops.cpu_suspend)
->                 return -EOPNOTSUPP;
-> 
-> -       count = pr->power.count - 1;
-> -       if (count <= 0)
-> -               return -ENODEV;
+> Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
+
+> diff --git a/arch/Kconfig b/arch/Kconfig
+
+> @@ -486,6 +486,9 @@ config AS_SFRAME3
+>  	def_bool $(as-instr,.cfi_startproc\n.cfi_endproc,-Wa$(comma)--gsframe-3)
+>  	select AS_SFRAME
+>  
+> +config SFRAME_LOOKUP
+> +	bool
+> +
+>  config UNWIND_USER
+>  	bool
+>  
+> @@ -496,6 +499,7 @@ config HAVE_UNWIND_USER_FP
+>  config HAVE_UNWIND_USER_SFRAME
+>  	bool
+>  	select UNWIND_USER
+> +	select SFRAME_LOOKUP
+>  
+>  config SFRAME_VALIDATION
+>  	bool "Enable .sframe section debugging"
+
+IIUC SFRAME_LOOKUP only exists to pull in the common (kernel and user)
+sframe lookup code if SFRAME_UNWINDER and/or UNWIND_USER_SFRAME are
+enabled.  Given there is currently no other use case than kernel/user
+stacktrace unwinding, would it make sense to rename it as follows to
+group all of the related options with the UNWIND prefix?
+
+  UNWIND_SFRAME[_LOOKUP]
+
+> diff --git a/include/linux/sframe.h b/include/linux/sframe.h
+
+> @@ -4,36 +4,85 @@
+>  
+>  #include <linux/mm_types.h>
+>  #include <linux/srcu.h>
+> -#include <linux/unwind_user_types.h>
+>  
+> -#ifdef CONFIG_HAVE_UNWIND_USER_SFRAME
+> +#define UNWIND_RULE_DEREF			BIT(31)
+> +
+> +enum unwind_cfa_rule {
+> +	UNWIND_CFA_RULE_SP_OFFSET,		/* CFA = SP + offset */
+> +	UNWIND_CFA_RULE_FP_OFFSET,		/* CFA = FP + offset */
+> +	UNWIND_CFA_RULE_REG_OFFSET,	/* CFA = reg + offset */
+> +	/* DEREF variants */
+> +	UNWIND_CFA_RULE_REG_OFFSET_DEREF =	/* CFA = *(reg + offset) */
+> +		UNWIND_CFA_RULE_REG_OFFSET | UNWIND_RULE_DEREF,
+> +};
+> +
+> +struct unwind_cfa_rule_data {
+> +	enum unwind_cfa_rule rule;
+> +	s32 offset;
+> +	unsigned int regnum;
+> +};
+> +
+> +enum unwind_rule {
+> +	UNWIND_RULE_RETAIN,		/* entity = entity */
+> +	UNWIND_RULE_CFA_OFFSET,		/* entity = CFA + offset */
+> +	UNWIND_RULE_REG_OFFSET,		/* entity = register + offset */
+> +	/* DEREF variants */
+> +	UNWIND_RULE_CFA_OFFSET_DEREF =	/* entity = *(CFA + offset) */
+> +		UNWIND_RULE_CFA_OFFSET | UNWIND_RULE_DEREF,
+> +	UNWIND_RULE_REG_OFFSET_DEREF =	/* entity = *(register + offset) */
+> +		UNWIND_RULE_REG_OFFSET | UNWIND_RULE_DEREF,
+> +};
+> +
+> +struct unwind_rule_data {
+> +	enum unwind_rule rule;
+> +	s32 offset;
+> +	unsigned int regnum;
+> +};
+> +
+> +struct unwind_frame {
+> +	struct unwind_cfa_rule_data cfa;
+> +	struct unwind_rule_data ra;
+> +	struct unwind_rule_data fp;
+> +	bool outermost;
+> +};
+
+You are moving (and renaming to generalize for kernel and user unwind
+use) the above definitions from include/linux/unwind_user_types.h to
+include/linux/sframe.h.  Given the definitions are used in
+kernel/unwind/user.c for FP and SFRAME unwinding this seems wrong to
+me.  The definitions should better be moved (and renamed as you did)
+into a new include/linux/unwind_types.h (or the like).
+
+> diff --git a/include/linux/unwind_user_types.h b/include/linux/unwind_user_types.h
+
+> @@ -27,47 +27,6 @@ struct unwind_stacktrace {
+>  	unsigned long	*entries;
+>  };
+>  
+> -#define UNWIND_USER_RULE_DEREF			BIT(31)
 > -
-> -       for (i = 0; i < count; i++) {
-> +       for (i = 1; i < pr->power.count; i++) {
->                 u32 state;
-> 
-> -               lpi = &pr->power.lpi_states[i + 1];
-> +               lpi = &pr->power.lpi_states[i];
->                 /*
->                  * Only bits[31:0] represent a PSCI power_state while
->                  * bits[63:32] must be 0x0 as per ARM ACPI FFH Specification
+> -enum unwind_user_cfa_rule {
+> -	UNWIND_USER_CFA_RULE_SP_OFFSET,		/* CFA = SP + offset */
+> -	UNWIND_USER_CFA_RULE_FP_OFFSET,		/* CFA = FP + offset */
+> -	UNWIND_USER_CFA_RULE_REG_OFFSET,	/* CFA = reg + offset */
+> -	/* DEREF variants */
+> -	UNWIND_USER_CFA_RULE_REG_OFFSET_DEREF =	/* CFA = *(reg + offset) */
+> -		UNWIND_USER_CFA_RULE_REG_OFFSET | UNWIND_USER_RULE_DEREF,
+> -};
+> -
+> -struct unwind_user_cfa_rule_data {
+> -	enum unwind_user_cfa_rule rule;
+> -	s32 offset;
+> -	unsigned int regnum;
+> -};
+> -
+> -enum unwind_user_rule {
+> -	UNWIND_USER_RULE_RETAIN,		/* entity = entity */
+> -	UNWIND_USER_RULE_CFA_OFFSET,		/* entity = CFA + offset */
+> -	UNWIND_USER_RULE_REG_OFFSET,		/* entity = register + offset */
+> -	/* DEREF variants */
+> -	UNWIND_USER_RULE_CFA_OFFSET_DEREF =	/* entity = *(CFA + offset) */
+> -		UNWIND_USER_RULE_CFA_OFFSET | UNWIND_USER_RULE_DEREF,
+> -	UNWIND_USER_RULE_REG_OFFSET_DEREF =	/* entity = *(register + offset) */
+> -		UNWIND_USER_RULE_REG_OFFSET | UNWIND_USER_RULE_DEREF,
+> -};
+> -
+> -struct unwind_user_rule_data {
+> -	enum unwind_user_rule rule;
+> -	s32 offset;
+> -	unsigned int regnum;
+> -};
+> -
+> -struct unwind_user_frame {
+> -	struct unwind_user_cfa_rule_data cfa;
+> -	struct unwind_user_rule_data ra;
+> -	struct unwind_user_rule_data fp;
+> -	bool outermost;
+> -};
+> -
+>  struct unwind_user_state {
+>  	unsigned long				ip;
+>  	unsigned long				sp;
 
-Ack, I will respin.
+> diff --git a/kernel/unwind/Makefile b/kernel/unwind/Makefile
 
-Thanks for your help,
---breno
+> @@ -1,2 +1,2 @@
+>   obj-$(CONFIG_UNWIND_USER)		+= user.o deferred.o
+> - obj-$(CONFIG_HAVE_UNWIND_USER_SFRAME)	+= sframe.o
+> + obj-$(CONFIG_SFRAME_LOOKUP)	+= sframe.o
+
+> diff --git a/kernel/unwind/sframe.c b/kernel/unwind/sframe.c
+
+> @@ -44,8 +43,6 @@ struct sframe_fre_internal {
+>  	unsigned char	dw_size;
+>  };
+>  
+> -DEFINE_STATIC_SRCU(sframe_srcu);
+> -
+>  static __always_inline unsigned char fre_type_to_size(unsigned char fre_type)
+>  {
+>  	if (fre_type > 2)
+> @@ -60,6 +57,78 @@ static __always_inline unsigned char dataword_size_enum_to_size(unsigned char da
+>  	return 1 << dataword_size;
+>  }
+>  
+> +#ifdef CONFIG_HAVE_UNWIND_USER_SFRAME
+> +
+> +DEFINE_STATIC_SRCU(sframe_srcu);
+> +
+> +#define UNSAFE_USER_COPY(to, from, size, label)				\
+> +	unsafe_copy_from_user(to, (void __user *)from, size, label)
+> +
+> +#define UNSAFE_USER_GET(to, from, type, label)				\
+> +	unsafe_get_user(to, (type __user *)from, label)
+> +
+> +#else /* !CONFIG_HAVE_UNWIND_USER_SFRAME */
+> +
+> +#define UNSAFE_USER_COPY(to, from, size, label) do {			\
+> +	(void)to; (void)from; (void)size;				\
+> +	goto label;							\
+> +} while (0)
+> +
+> +#define UNSAFE_USER_GET(to, from, type, label) do {			\
+> +	(void)to; (void)from;						\
+> +	goto label;							\
+> +} while (0)
+> +
+> +#endif /* !CONFIG_HAVE_UNWIND_USER_SFRAME */
+> +
+> +#ifdef CONFIG_SFRAME_UNWINDER
+> +
+> +#define KERNEL_COPY(to, from, size) memcpy(to, (void *)from, size)
+> +#define KERNEL_GET(to, from, type) ({ (to) = *(type *)(from); })
+> +
+> +#else /* !CONFIG_SFRAME_UNWINDER */
+> +
+> +#define KERNEL_COPY(to, from, size) do {				\
+> +	(void)(to); (void)(from); (void)size;				\
+> +	return -EFAULT;							\
+> +} while (0)
+> +
+> +#define KERNEL_GET(to, from, type) do {					\
+> +	(void)(to); (void)(from);					\
+> +	return -EFAULT;							\
+> +} while (0)
+
+The error return value in above dummy implementations is never used
+(see DATA_COPY() and DATA_GET() below).  Maybe better define the KERNEL
+flavors with the same interface as the UNSAFE_USER ones (with error
+label) and have the dummy implementations goto that label?
+
+> +
+> +
+
+Nit: Two instead of one empty line.
+
+> +#endif /* !CONFIG_SFRAME_UNWINDER */
+> +
+> +#define DATA_COPY(sec, to, from, size, label)			\
+> +({								\
+> +	switch (sec->sec_type) {				\
+> +	case SFRAME_KERNEL:					\
+> +		KERNEL_COPY(to, from, size);			\
+> +		break;						\
+> +	case SFRAME_USER:					\
+> +		UNSAFE_USER_COPY(to, from, size, label);	\
+> +		break;						\
+> +	default:						\
+> +		return -EFAULT;					\
+> +	}							\
+> +})
+> +
+> +#define DATA_GET(sec, to, from, type, label)			\
+> +({								\
+> +	switch (sec->sec_type) {				\
+> +	case SFRAME_KERNEL:					\
+> +		KERNEL_GET(to, from, type);			\
+> +		break;						\
+> +	case SFRAME_USER:					\
+> +		UNSAFE_USER_GET(to, from, type, label);		\
+> +		break;						\
+> +	default:						\
+> +		return -EFAULT;					\
+> +	}							\
+> +})
+> +
+>  static __always_inline int __read_fde(struct sframe_section *sec,
+>  				      unsigned int fde_num,
+>  				      struct sframe_fde_internal *fde)
+
+Regards,
+Jens
+-- 
+Jens Remus
+Linux on Z Development (D3303)
+jremus@de.ibm.com / jremus@linux.ibm.com
+
+IBM Deutschland Research & Development GmbH; Vorsitzender des Aufsichtsrats: Wolfgang Wendt; Geschäftsführung: David Faller; Sitz der Gesellschaft: Ehningen; Registergericht: Amtsgericht Stuttgart, HRB 243294
+IBM Data Privacy Statement: https://www.ibm.com/privacy/
+
 
