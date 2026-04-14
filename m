@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39F69F9D0DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 16:40:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FB1BF9D0E7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 16:45:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qt7jYtjwGFuclVO7ZJCqgMU1+C1Vky1GdU47nMEZF6g=; b=iFx3uxrNPWzZBTicxypbJvlBU+
-	NcunT4BbX1xow0IA9RoVAADVBAv+zpocw1fWay9dI1nF9Gm3t+MFGQA2Xj+PWkNsIAqsP1ozfARqh
-	IZRIESclKV+4R26/Xct5lJVh4gmpGrueprOf/HX815aSoC+ft+Ag/pfp1grShB6PvDehcqx7+quvO
-	Vn3WuiOPjtSC8PisrwNheNCqJm0YQa8vYh4n1wn3Y8tdldNxuzPXye9zSZ+RH+k81sy0wvMlpQJ3G
-	F6skjbxzMWAr6MNmH3SzYPE3wLApXhFcuTWAO8rtJ6pw7j/H5iMGdn90z1+W+jNSFkiO59JTZPmJy
-	E0iprk/A==;
+	bh=PcNL2JvkLWME3ozkn6G9unkuvHbCdgO3F2rHHMxczgI=; b=D3/YG+BDqCjOO1FRq9XnNNXzqc
+	3cPw1sdi8EpsppG3VaTWOebwbHHTQQ00BWKyHrz7GzLX/9sqAtBSeNGU2rVAml4xMWZXpvm30PzTB
+	lLjmn/VE5skUgwguVwUzUlX8rmJqo6m5v164kaHWAGdSmtDp8pTe+rjC6AJu/CNZ3un87XMj7nYkh
+	67CdVgCtK2bpikBZ0AcddNNx/qdTT13iZDum9eJfPPXKmT50/ZQX08Ta2xoUdlpIvz+Ecq4T+re64
+	HfepQ6O65INhi8RUQH6MVEF3JZubNyuY5kBWTw4uwXkLcOnoYBcg6brS7jjSTk5vm47Mgo5wWtrd7
+	3IXljWIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCgoi-000000001eZ-28V6;
-	Tue, 14 Apr 2026 16:40:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wCgss-000000001pu-0b2N;
+	Tue, 14 Apr 2026 16:45:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCgof-000000001eD-35C7
+	id 1wCgso-000000001pR-3JqX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 16:40:47 +0000
+	Tue, 14 Apr 2026 16:45:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 80640408A7;
-	Tue, 14 Apr 2026 16:40:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D14C4C19425;
-	Tue, 14 Apr 2026 16:40:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3B48143BF9;
+	Tue, 14 Apr 2026 16:45:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80D77C19425;
+	Tue, 14 Apr 2026 16:45:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776184844;
-	bh=bWAXhLUbOAxRun08ft9x+2N6DT+CKZownG9+NFBU+44=;
+	s=k20201202; t=1776185102;
+	bh=DtB5DYTaR28SLpzvv7nCbQkO6KtAJJ1wWIiVmOdIfaI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Y0NJToNC8IM3A7Gfb11U42v4H5AX1/j91q+7QO8RTBVN7NaixHAs9VVeZ9Q7GQXA3
-	 JEyPTVfX0pe9bOwvtmlSaCXBa8oDpGfaeUwgGtEIPMT8FNBIeKKtNomtN4dHdSlSIf
-	 5rFXgtl8eS8WCI6KK1zuCTTC/FRSoBh4o1YscYit28gqp1Od9EdlgzzHqN1VXegDM6
-	 TtFnGHMZ+oN9EcPq3RgrcsKLSYAz9FUnh+gV+3yJ7RlhrtdoC9/eCZWGFGEIutZwVQ
-	 2QXHuXN5ILA9COBkMq1Za3ItqstiShWpqBnXjjBocmud0BAYQ89e4lZyPjjzEFIBOo
-	 2FajLzu2zTgYg==
-Date: Tue, 14 Apr 2026 18:40:41 +0200
+	b=aUZZ36WQPvD5VXDAhUN8kn9hDHX8y/rFXzBwFBHj8Z/+AyewTEJe57G7U3P/2J+mu
+	 f6iAJLIsEya1kwM0/GoCX6gceG6DI/KPLczf/692L6srICIXA+qj8Kw/R1F+bkR7bM
+	 +28Ehl7h3iSR5NXvaESJe6BKTpIL5N1oRiVRPzes1NGmtzsFBTZb5IkuYRbUF9mCNI
+	 W7wjsWrC7H9Bwdsce/2oru/2B9h2Yi7Wk7vieP51xR27ok38kd93a2k6vnXrqCo9fH
+	 D5MZC7mVd8jZmFuAXSBqYzdyi0ZrRwIP0qtUpvKu4tqJGz6422NTule5W7Fwk+xtAq
+	 viq72a875qHGA==
+Date: Tue, 14 Apr 2026 18:44:59 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Gregory CLEMENT <gregory.clement@bootlin.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, arm@kernel.org, soc@kernel.org, 
-	Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL] ARM: mvebu: dt64 for v7.1 (#1)
-Message-ID: <20260414-nifty-conscious-fox-973b65@quoll>
-References: <87cy072bho.fsf@BLaptop.bootlin.com>
+To: Vignesh Raghavendra <vigneshr@ti.com>
+Cc: SoC <soc@kernel.org>, arm@kernel.org, SoC list <soc@lists.linux.dev>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Tero Kristo <kristo@kernel.org>, 
+	"Nishanth, Menon" <nm@ti.com>
+Subject: Re: [GIT PULL] arm64: dts: ti: k3: Late DT update for v7.1
+Message-ID: <20260414-viridian-turkey-of-progress-dd5094@quoll>
+References: <6e294d61-9779-41ef-83f8-29f46fd98700@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <87cy072bho.fsf@BLaptop.bootlin.com>
+In-Reply-To: <6e294d61-9779-41ef-83f8-29f46fd98700@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_094045_815183_7F87CF9A 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20260414_094502_855801_6986B963 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,30 +72,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 10, 2026 at 03:25:39PM +0200, Gregory CLEMENT wrote:
-> Hi,
+On Sun, Apr 12, 2026 at 12:52:51PM +0530, Vignesh Raghavendra wrote:
+> Hi ARM SoC Maintainers,
 > 
-> Here is the first pull request for dt64 for mvebu for v7.1.
+> This contains a single patch that updates r5f remoteproc DT nodes, warranted by recent 
+> binding update merged via remoteproc tree.
 > 
-> Gregory
+> The following changes since commit 47c806de9e9cf171d197f2f0df86df7f2bd1aa56:
 > 
-> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
-> 
->   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+>   arm64: dts: ti: k3-pinctrl: sort shift values numerically (2026-03-27 19:55:06 +0530)
 > 
 > are available in the Git repository at:
 > 
->   git://git.kernel.org/pub/scm/linux/kernel/git/gclement/mvebu.git tags/mvebu-dt64-7.1-1
+>   https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git tags/ti-k3-dt-for-v7.1-part2
 > 
-> for you to fetch changes up to 00e6d608fe80b0f68c325cb46862f78e9a8ec768:
+> for you to fetch changes up to abe76f9f47d59ff80eb2fc59482aa76bbf6fd13a:
 > 
->   arm64: dts: marvell: armada-37xx: swap PHYs' order in USB3 controller node (2026-04-09 10:14:40 +0200)
+>   arm64: dts: ti: k3: Use memory-region-names for r5f (2026-04-09 17:05:28 +0530)
 > 
 > ----------------------------------------------------------------
-> mvebu dt64 for 7.1 (part 1)
+> TI K3 device tree updates for v7.1 part2
+> 
+> Late addition:
+> - Use memory-region-names for r5f across K3 SoCs
+> 
 
-This was sent just 2 days before merge window open, thus I applied it as
-late branch.
+Thanks, applied
 
 Best regards,
 Krzysztof
