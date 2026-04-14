@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92B03F531DF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 00:04:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD695F531DE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 00:20:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SGw2GjqOXi58j0Gn9XKtyTUsHpDR95Swr3zaO9zZMr4=; b=KW71eUKrkpsJVaN0Zv7m5rKkLn
-	1xfwUCjiaBWVQLVI/ve0o38TiUuPsfhEV9WJIkg4PNzv6Hu/0XtqodwNZcDhyETiRmLQB7ZY5Xc54
-	/7vOFKXL5Bpui9gDtys8BCBejhMnFxz3H3dXzZkJAQt4uyGjo4ZEtqFtnVsWp2Kpddg2GMqiZNRBB
-	6FVDCG+RnuqqCUtpse6t4LXGYKxVtgdnRssOSWtvujeAh03buHMi16sBIiBDD8iZMiB07CSxZAv40
-	WjiqQn/0Dl2GcK+pWjQSZKK4DI+wbu4x6VtEUsUw1/FhAFYmJIHP8LWgAv5ObAnaQg6noFnwQ6iWS
-	ombomN2A==;
+	bh=CtaHijjT1rvbKzGQyz/wPXn7s/64Fj55XvuCDtLQSkE=; b=un1WuYnkcHYVfLYLrCAvsKOmw9
+	qv285r0Ot9mU/i/A3j4BbueY31lXLDf9SCW5xrgbRoUwGXa75EZV7YLTQsAOMTgsjeR3+0bfAWvvk
+	gCc3ON/RfEaOk2c3Cye3AnlNTw9sE5KiGFOGlVilpnNjQXFefV+zizxX/aNtD9k6rsc1rW5b5TxnB
+	GEP2gNgCVd1QtDJmX+0DXOgUvZXUb1v8wDXK6kpqjHIQ7Q3+RitVnLNeKwwNqAJ86znYN3LLyUT9t
+	aovNjjoUhhokOLvhclvHvLmzlZA2u90LOhxNlbY9IFPUTGxDfSe/uKeKm7Aaa6UkS0/BcJ/uUfjrE
+	SsCnOliQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCRGF-0000000GVMJ-2Nmx;
-	Tue, 14 Apr 2026 00:04:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCRG9-0000000GVIu-1QXU
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 00:04:07 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E9D014E2A;
-	Mon, 13 Apr 2026 17:03:57 -0700 (PDT)
-Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F23833F7B4;
-	Mon, 13 Apr 2026 17:04:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776125043; bh=hEJOa8RFZZTEyMjtJNuutXiH+ANECuK/KTknvYqeWN8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GCi8IVOd+MwfFd/o/V/cELURlvjgld91kDSixTrCEwUMLTtg5tVi0qidqNx+do0w2
-	 cGYBki1EhhyQsz4Y1iuFEsIRz9BQVyednOaawsi92ZWYekkFQtR0ydcADA6yMTZnBY
-	 0OZ0RbPyZijMMUkwgBDlQDYwZqOrKMg+VWqbLWAE=
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Cc: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: [PATCH v2 2/4] KVM: arm64: Factor out TG0/1 decoding of VTCR and TCR
-Date: Tue, 14 Apr 2026 01:03:32 +0100
-Message-ID: <20260414000334.3947257-3-weilin.chang@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260414000334.3947257-1-weilin.chang@arm.com>
-References: <20260414000334.3947257-1-weilin.chang@arm.com>
+	id 1wCRW9-0000000GWdI-0yeh;
+	Tue, 14 Apr 2026 00:20:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCRW6-0000000GWcw-2tKG;
+	Tue, 14 Apr 2026 00:20:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0BED744018;
+	Tue, 14 Apr 2026 00:20:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7C69C2BCAF;
+	Tue, 14 Apr 2026 00:20:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776126033;
+	bh=Onxb3IkXi1CkXKJYdmvYXkDz88SpNuG9G8aW4lomnb8=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=mLpdZ4F8MA8miCjtRlpTD2DspdpdcNAYpOyg9hV4h4LsxZuLRwtXFe0MnhmA5n9Ro
+	 btkMtW/2gl4gvOslcKHeIryiylMT0QTo/LaiNTb4jX03OdaqPdg4oRpniTyW0x8I51
+	 JjDQnjGUxCNNyyHiEZgnO//lIzIno1z8AI/SthCOQCe/BaEvEvJFEgvVQOajL1y51n
+	 hSnyBKZXFsXczsMvmdd3E04Qpvra28rKoyHwb9589/yEnBMzluQxnwfaek7PVQjxHe
+	 ebv3rEqj09Oqu1+Z0SSmwbQnDxAc4eGqCTqYbK2xwwp67HSewJZr2v1+1smvneNJNW
+	 O4f0ZzLTtNqWg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FCF23809A0B;
+	Tue, 14 Apr 2026 00:20:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next] net: airoha: Remove PCE_MC_EN_MASK bit in
+ REG_FE_PCE_CFG configuration
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <177612600505.611791.831863790646439804.git-patchwork-notify@kernel.org>
+Date: Tue, 14 Apr 2026 00:20:05 +0000
+References: <20260412-airoha_fe_init_remove_mc_en_bit-v1-1-7b6a5a25a74d@kernel.org>
+In-Reply-To: <20260412-airoha_fe_init_remove_mc_en_bit-v1-1-7b6a5a25a74d@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_170405_461070_354CDDD9 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20260413_172034_749488_B58130C0 
+X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,171 +76,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current code decodes TCR.TG0/TG1 and VTCR.TG0 inline at several
-places. Extract this logic into helpers so the granule size can be
-derived in one place. This enables us to alter the effective granule
-size in the same place, which we will do in a later patch.
+Hello:
 
-Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
----
- arch/arm64/kvm/at.c     | 77 ++++++++++++++++++++++++++---------------
- arch/arm64/kvm/nested.c | 27 +++++++++------
- 2 files changed, 65 insertions(+), 39 deletions(-)
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
-index a024d9a770dc..927226266081 100644
---- a/arch/arm64/kvm/at.c
-+++ b/arch/arm64/kvm/at.c
-@@ -135,14 +135,58 @@ static void compute_s1poe(struct kvm_vcpu *vcpu, struct s1_walk_info *wi)
- 	wi->e0poe = (wi->regime != TR_EL2) && (val & TCR2_EL1_E0POE);
- }
- 
-+static unsigned int tcr_to_tg0_pgshift(u64 tcr)
-+{
-+	u64 tg0 = tcr & TCR_TG0_MASK;
-+
-+	switch (tg0) {
-+	case TCR_TG0_4K:
-+		return 12;
-+	case TCR_TG0_16K:
-+		return 14;
-+	case TCR_TG0_64K:
-+	default:	/* IMPDEF: treat any other value as 64k */
-+		return 16;
-+	}
-+}
-+
-+static unsigned int tcr_to_tg1_pgshift(u64 tcr)
-+{
-+	u64 tg1 = tcr & TCR_TG1_MASK;
-+
-+	switch (tg1) {
-+	case TCR_TG1_4K:
-+		return 12;
-+	case TCR_TG1_16K:
-+		return 14;
-+	case TCR_TG1_64K:
-+	default:	/* IMPDEF: treat any other value as 64k */
-+		return 16;
-+	}
-+}
-+
-+static unsigned int tcr_tg_pgshift(u64 tcr, bool upper_range)
-+{
-+	unsigned int shift;
-+
-+	/* Someone was silly enough to encode TG0/TG1 differently */
-+	if (upper_range)
-+		shift = tcr_to_tg1_pgshift(tcr);
-+	else
-+		shift = tcr_to_tg0_pgshift(tcr);
-+
-+	return shift;
-+}
-+
- static int setup_s1_walk(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
- 			 struct s1_walk_result *wr, u64 va)
- {
--	u64 hcr, sctlr, tcr, tg, ps, ia_bits, ttbr;
-+	u64 hcr, sctlr, tcr, ps, ia_bits, ttbr;
- 	unsigned int stride, x;
--	bool va55, tbi, lva;
-+	bool va55, tbi, lva, upper_range;
- 
- 	va55 = va & BIT(55);
-+	upper_range = va55 && wi->regime != TR_EL2;
- 
- 	if (vcpu_has_nv(vcpu)) {
- 		hcr = __vcpu_sys_reg(vcpu, HCR_EL2);
-@@ -173,35 +217,12 @@ static int setup_s1_walk(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
- 		BUG();
- 	}
- 
--	/* Someone was silly enough to encode TG0/TG1 differently */
--	if (va55 && wi->regime != TR_EL2) {
-+	if (upper_range)
- 		wi->txsz = FIELD_GET(TCR_T1SZ_MASK, tcr);
--		tg = FIELD_GET(TCR_TG1_MASK, tcr);
--
--		switch (tg << TCR_TG1_SHIFT) {
--		case TCR_TG1_4K:
--			wi->pgshift = 12;	 break;
--		case TCR_TG1_16K:
--			wi->pgshift = 14;	 break;
--		case TCR_TG1_64K:
--		default:	    /* IMPDEF: treat any other value as 64k */
--			wi->pgshift = 16;	 break;
--		}
--	} else {
-+	else
- 		wi->txsz = FIELD_GET(TCR_T0SZ_MASK, tcr);
--		tg = FIELD_GET(TCR_TG0_MASK, tcr);
--
--		switch (tg << TCR_TG0_SHIFT) {
--		case TCR_TG0_4K:
--			wi->pgshift = 12;	 break;
--		case TCR_TG0_16K:
--			wi->pgshift = 14;	 break;
--		case TCR_TG0_64K:
--		default:	    /* IMPDEF: treat any other value as 64k */
--			wi->pgshift = 16;	 break;
--		}
--	}
- 
-+	wi->pgshift = tcr_tg_pgshift(tcr, upper_range);
- 	wi->pa52bit = has_52bit_pa(vcpu, wi, tcr);
- 
- 	ia_bits = get_ia_size(wi);
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index f20402d0d7e5..40d52e9100d6 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -378,28 +378,33 @@ static int walk_nested_s2_pgd(struct kvm_vcpu *vcpu, phys_addr_t ipa,
- 	return 0;
- }
- 
--static void setup_s2_walk(struct kvm_vcpu *vcpu, struct s2_walk_info *wi)
--{
--	u64 vtcr = vcpu_read_sys_reg(vcpu, VTCR_EL2);
- 
--	wi->baddr = vcpu_read_sys_reg(vcpu, VTTBR_EL2);
--	wi->t0sz = vtcr & VTCR_EL2_T0SZ_MASK;
-+static unsigned int vtcr_to_tg0_pgshift(u64 vtcr)
-+{
-+	u64 tg0 = FIELD_GET(VTCR_EL2_TG0_MASK, vtcr);
- 
--	switch (FIELD_GET(VTCR_EL2_TG0_MASK, vtcr)) {
-+	switch (tg0) {
- 	case VTCR_EL2_TG0_4K:
--		wi->pgshift = 12;	 break;
-+		return 12;
- 	case VTCR_EL2_TG0_16K:
--		wi->pgshift = 14;	 break;
-+		return 14;
- 	case VTCR_EL2_TG0_64K:
--	default:	    /* IMPDEF: treat any other value as 64k */
--		wi->pgshift = 16;	 break;
-+	default:	/* IMPDEF: treat any other value as 64k */
-+		return 16;
- 	}
-+}
-+
-+static void setup_s2_walk(struct kvm_vcpu *vcpu, struct s2_walk_info *wi)
-+{
-+	u64 vtcr = vcpu_read_sys_reg(vcpu, VTCR_EL2);
- 
-+	wi->baddr = vcpu_read_sys_reg(vcpu, VTTBR_EL2);
-+	wi->t0sz = vtcr & VTCR_EL2_T0SZ_MASK;
-+	wi->pgshift = vtcr_to_tg0_pgshift(vtcr);
- 	wi->sl = FIELD_GET(VTCR_EL2_SL0_MASK, vtcr);
- 	/* Global limit for now, should eventually be per-VM */
- 	wi->max_oa_bits = min(get_kvm_ipa_limit(),
- 			      ps_to_output_size(FIELD_GET(VTCR_EL2_PS_MASK, vtcr), false));
--
- 	wi->ha = vtcr & VTCR_EL2_HA;
- 	wi->be = vcpu_read_sys_reg(vcpu, SCTLR_EL2) & SCTLR_ELx_EE;
- }
+On Sun, 12 Apr 2026 11:56:25 +0200 you wrote:
+> PCE_MC_EN_MASK bit in REG_FE_PCE_CFG configuration performed in
+> airoha_fe_init() is used to duplicate multicast packets and send a copy
+> to the CPU when the traffic is offloaded. This is necessary just if
+> it is requested by the user. Disable multicast packets duplication by
+> default.
+> 
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> 
+> [...]
+
+Here is the summary with links:
+  - [net-next] net: airoha: Remove PCE_MC_EN_MASK bit in REG_FE_PCE_CFG configuration
+    https://git.kernel.org/netdev/net-next/c/34e1a98ff2a8
+
+You are awesome, thank you!
 -- 
-2.43.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
