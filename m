@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B272F9D0CF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 13:28:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A791F9D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 13:31:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JFsHWqLg+0xIam6os0DlYyH4MJVroIL9fnFiWQQ0xGQ=; b=0m9a4Bz4XQi6TPQ4E2JMDl4M1a
-	F0GQzwUXpqMYOOFmVbvyo33az7XQLlwAxO76M76W0HmJ2xigG8QG9LcmSM7cUDHkTL9Oalnzcq/zm
-	xk/MvCOr0xT+RaF/DUUYLuvrUEFTzzfb0AZc3XT1WGDU2pubaKgxQLGCf7uc61u9YGieH7EfMycVr
-	f2DYjt4xEwGC983SXvNmPyqlsjkRrlMWOfT+qhykw4FUage/eVECiVweMcHGfK0/fRbmKD5LauSNn
-	7Nm+Izcb71rZvDc5zgLKU203pFxnDyrz9trxrYl9zZfDUFsry4jBs2aKiJg20/TIf02PtLRC1H77s
-	Z+uxnoMQ==;
+	Content-Type:In-Reply-To:From:References:Cc:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:To:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GdO6F4/G5lB/fmuoFjUKn+RHITqBLcf58EJEUDdbwxs=; b=Lfcz26lDO6J3P7NQ+WwM4P4/q0
+	vIqpwzxSb9JrUMIznU2x4769wRmsqPLwfeRfM6Bp0sfSNwadykxSJuakbtisF49UnU0cqWjWGZ9sE
+	iVTnWVw6ESyhJv+Jxv1qlusdlgMkgTBYbJEIsvXADs8Ij2oYGLSnjKgOOgMIXBj+SwGl/fl3vkeqs
+	AxNym/bM8n1tdGoj0ljjSyJu85v7/OBzseijlCYYu0c0gy7ZJ3aiVDFDu0BNtVXxDlMVcftgBvuix
+	tTh3huEmjwsV9Nz3eD3zl12IEsEKO6cbXfxtdZG5iyGpyrDdhiCQSFwDczzVhtH6EfG6g5752UVKr
+	RQ0XwJFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCdoU-0000000HNN8-136K;
-	Tue, 14 Apr 2026 13:28:22 +0000
+	id 1wCdrL-0000000HNoh-1Pvu;
+	Tue, 14 Apr 2026 13:31:19 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCdoP-0000000HNKe-2ahG
+	id 1wCdrI-0000000HNo9-1vaV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 13:28:18 +0000
+	Tue, 14 Apr 2026 13:31:17 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EAD184E8A;
-	Tue, 14 Apr 2026 06:28:09 -0700 (PDT)
-Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3334D3F7B4;
-	Tue, 14 Apr 2026 06:28:14 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8ED0E4E8A;
+	Tue, 14 Apr 2026 06:31:09 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3CAA23F7B4;
+	Tue, 14 Apr 2026 06:31:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776173295; bh=HMzN+2rajCGdvWg1so8Az2z0J7swU487eh13m8v6SPI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cEtJS8P4RiQUJJ1QiaaJCMt+yU59xcofiec0MhrOr3+1G6sB/0KqvwL69k64SxRAH
-	 dKaRyICKuOH4/slloOp9LlGhEOPe9uOiFrAC1agcvTo7nWj7xNK99uD5D7TsBH3kXT
-	 llPzvS28Ttt48NFqMsfir3lSbaM+DNabmNjsoVU8=
-From: Ben Horgan <ben.horgan@arm.com>
-To: ben.horgan@arm.com
-Cc: Dan Carpenter <dan.carpenter@oracle.com>,
-	Dan Carpenter <error27@gmail.com>,
-	James Morse <james.morse@arm.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Fenghua Yu <fenghuay@nvidia.com>,
-	lkml <linux-kernel@vger.kernel.org>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH v1 2/2] arm_mpam: resctrl: Make resctrl_mon_ctx_waiters static
-Date: Tue, 14 Apr 2026 14:27:58 +0100
-Message-ID: <20260414132758.196874-4-ben.horgan@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260414132758.196874-1-ben.horgan@arm.com>
-References: <20260414132758.196874-1-ben.horgan@arm.com>
+	t=1776173475; bh=3tK6M2VAY67sZVBwbr7Iq6/6sbKfCk+1QBc/ADPvwg4=;
+	h=Date:Subject:Cc:References:From:In-Reply-To:From;
+	b=g05Z+H9Y5zCAfxxsCMLAye3oMcFUXL7MA899/SOhlndi/DbGbg1e2kDInXzjWGDQ2
+	 vZQdgTd2iz77PALwwMiotIRofahX+pXMm26oUBFzNhx5siVKf/oZaoEm1V7+9vjbuJ
+	 v7Z3JR16kMgg5SO3/304eUwitzA/AbqASXX2yaYI=
+Message-ID: <f764d070-0f3e-4be3-8850-b43a711f492c@arm.com>
+Date: Tue, 14 Apr 2026 14:31:12 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v1 1/2] arm_mpam: resctrl: Fix broken error path in
+ mpam_resctrl_alloc_domain()
+Cc: Dan Carpenter <dan.carpenter@oracle.com>,
+ Dan Carpenter <error27@gmail.com>, James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu
+ <fenghuay@nvidia.com>, lkml <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+References: <20260414132758.196874-1-ben.horgan@arm.com>
+ <20260414132758.196874-2-ben.horgan@arm.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20260414132758.196874-2-ben.horgan@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_062817_708395_1E0B5BA5 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20260414_063116_563735_1AC2DCED 
+X-CRM114-Status: GOOD (  15.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,33 +74,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-resctrl_mon_ctx_waiters is not used outside of this file, so make it
-static. This fixes the sparse warning:
+Apologies, I just sent the same patch twice with different subjects. This one can be ignored.
 
-drivers/resctrl/mpam_resctrl.c:25:1: warning: symbol 'resctrl_mon_ctx_waiters' was not declared. Should it be static?
+Thanks,
 
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202603281842.c2K96tJA-lkp@intel.com/
-Fixes: 2a3c79c61539 ("arm_mpam: resctrl: Allow resctrl to allocate monitors")
-Signed-off-by: Ben Horgan <ben.horgan@arm.com>
----
- drivers/resctrl/mpam_resctrl.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Ben
 
-diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index d80df486a313..bb933b224851 100644
---- a/drivers/resctrl/mpam_resctrl.c
-+++ b/drivers/resctrl/mpam_resctrl.c
-@@ -22,7 +22,7 @@
- 
- #include "mpam_internal.h"
- 
--DECLARE_WAIT_QUEUE_HEAD(resctrl_mon_ctx_waiters);
-+static DECLARE_WAIT_QUEUE_HEAD(resctrl_mon_ctx_waiters);
- 
- /*
-  * The classes we've picked to map to resctrl resources, wrapped
--- 
-2.43.0
+On 4/14/26 14:27, Ben Horgan wrote:
+> Dan Carpenter reports that, in mpam_resctrl_alloc_domain(), any_mon_comp is
+> used in an 'if' condition when it may be uninitialized. Initialize it to
+> NULL so that the check behaves correctly when no monitor components are
+> found.
+> 
+> Reported-by: Dan Carpenter <error27@gmail.com>
+> Fixes: 264c285999fc ("arm_mpam: resctrl: Add monitor initialisation and domain boilerplate")
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> ---
+>  drivers/resctrl/mpam_resctrl.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+> index a9938006d0e6..d80df486a313 100644
+> --- a/drivers/resctrl/mpam_resctrl.c
+> +++ b/drivers/resctrl/mpam_resctrl.c
+> @@ -1399,7 +1399,7 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+>  	}
+>  
+>  	if (r->mon_capable) {
+> -		struct mpam_component *any_mon_comp;
+> +		struct mpam_component *any_mon_comp = NULL;
+>  		struct mpam_resctrl_mon *mon;
+>  		enum resctrl_event_id eventid;
+>  
 
 
