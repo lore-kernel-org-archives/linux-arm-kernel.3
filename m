@@ -4,97 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69D67F9D0D5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 14:54:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C953F9D0D5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 14:58:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PAo7ya1UV+iUteVyqPUr+hg05LINCS2Wr9p6hmA+q2Q=; b=Y9B0/YOrYXfUMUf7RR4mbx/y3S
-	HAfSVy6sj+Lxtc1aqeXslrQLZcYvlSmEplVUCgGRcgSOWNoPlBJQHpGy/lqAcO+Hth6m5Yn4O0+5w
-	qnbRNj6Or4AcBZg9mSW7GKiUi4vGFVLQKb21NXizvgwWVJmVwUtcnZGONPtpIUKUk3GGpk95ZTkiq
-	aog25SZ6WKC4JzJzyczO/07gmfL/BDdjCry4ARis7njKnEAEzThtsLaLwduu0DKY9xkrMdN76Lr2z
-	2pKNryrQYmw52RcbrR2ijk1F80g6VlUI6Yvctafpl8dGPseOsf9Wuu6nn5oiHsxkBbDK3SvEV4wVF
-	xfy+15Pw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CZXc1G4AWwe3GuaS5rvpotOJKX0XtTzUPyknVjNY0u0=; b=fD6YhRSSEmB9/aGiDB7RqX/oYH
+	UOJZ1oPvU3Bkpgln8wgfzWCVZXd7u5ffglUyH5ITgj6tB/NhFKtkxhB/UKMJRzPTp2oyxWLzSer4n
+	/hpg7cSC2xNz0SI/KHlh2XpEae1TGR9tX6K2xmrkGA7y7ro2nAkZYWfu8U9c+xieEOTHOVXfhfE9k
+	CwyBJbjsU+7oJR8cPtIZq2W7NAcjgU2Ml9EyuX1pULeECrhuqVSHV9zerWMDZDCNuo+XDwFKWHIUM
+	FUmjrpGI4h6GrVZIUcokLO4lZ7vryIgofgVul2bhCCtkvoDmeAaY//WTK+fTA4W6lcFx7XUg+Ud04
+	om8x10Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCfA3-0000000HU2Y-328I;
-	Tue, 14 Apr 2026 14:54:43 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1wCfDT-0000000HUFP-1JQd;
+	Tue, 14 Apr 2026 14:58:15 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCfA1-0000000HU1o-0kC9
+	id 1wCfDQ-0000000HUF0-0Pjw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 14:54:42 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-488b0e1b870so89701545e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 07:54:40 -0700 (PDT)
+	Tue, 14 Apr 2026 14:58:13 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-488b150559bso44991535e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 07:58:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1776178479; x=1776783279; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PAo7ya1UV+iUteVyqPUr+hg05LINCS2Wr9p6hmA+q2Q=;
-        b=QbmQZqiLqnwzU83Mx5kC6UEPKE45kDt2KTJ6/HVqMsC7isaCldDgE8AlecGFVBDew+
-         rmT3jSkW9K0f63c33jRlhP65nq3Sp10f5une9Am6xphRIEtMTzQoqMpoVj6gAsQOE2hz
-         VpQLTUQwKTK2/ZtZMACE+uSVg4sDdlQMK6mb52skku2aCcAM8CFJUpLHuYqI4OkRxogp
-         PzCleI/I0WpXhB01SgPdpFxnrY+SuZiThgV9BzUorFsVIzQ2vroGtGt4mabl/4IBT/L0
-         aLjwBKCIIyLypcg8BJ0OBE0BgcVhXaRjft4h1kZKX/ncXJDy/bd1jmrCZUEwCjeaDHkS
-         5jEg==
+        d=google.com; s=20251104; t=1776178689; x=1776783489; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=CZXc1G4AWwe3GuaS5rvpotOJKX0XtTzUPyknVjNY0u0=;
+        b=uysRCw2YL8DS8znYg9/CEDSElq9nMG9PgWUShE5rLPT3BArK848TeqBr+iGE8S+mry
+         dVAfrlpqi14zK68ZP3th9pMfl7D1iyKTbNDkxYoIyqdVIPnqpt2fdYlxRAq5fcvYD5Wd
+         iqSWupYihKYxwqyyVZ8SUviY8vj6QZ2optX42puh4sGOQJFBeRLwOyD7+NUdstpspW5R
+         qaU7wbk27BxYjhNJ1WVwSm1leycK+ch9S4CP6ITsECadZ8bEgde0SNtP24xpLQlrJ+02
+         j0oKEdv7MnGLwGrRsc6z6mbDX8N7qmEzc4TVZq3C+ONHcxwdoTi8XVr1oBis378YE3Ic
+         ruvA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776178479; x=1776783279;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=PAo7ya1UV+iUteVyqPUr+hg05LINCS2Wr9p6hmA+q2Q=;
-        b=JscFbPun9QDm9zNzPL1VAQ25hKAukCQsgBY7+p1PMlPlKnK14KcPW0QSofZ2615rm5
-         ZzMCJnJfx93Fu/aAo37IZ2QTH8JcKhdKcjN7baLmhaQMHVBAgltuvaE3eI+GrKGF95TO
-         8T3Tyk+5rgD8a6n69POMMjYMC/enjFlkIf2aqfz8FugRstqCL2iJDiyBM9t40Mqodk0M
-         jMCR/5IXFUO9iXNtw108peV5xv7ZuV0SmXJVMYyhZwA5ofvKBFlC/v0yVEnqx9sW8zdg
-         DosoHqdsbSY+tfJg14BeGcs6LD91D33zVQrkHz4PWd0cONjwvrAlvxrbzlcr9+C4XKQS
-         pnAw==
-X-Forwarded-Encrypted: i=1; AFNElJ+k1blrldZKzHdRMnLBYX3NBMUGleiJ/0RxKNTCYNNJV24wlgEFgPCVELMrSXIpZPyYp7UF+7rrheXBHAPZe3Fb@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVqECRV+zrwOXgtnw6hrjIdG8F5345KCuxMz+PAaGLafQZFx5n
-	480T16cdMV0RFB6sxth59UkHMROf+r4IA9cAkWFc+jVHLu40R0hy0Jl4lmAg4VCbltg=
-X-Gm-Gg: AeBDievJO0SpRJV5IaPm+xCRxpmBYSwuVzU3AZSdC05/57KtrZa9YbouBhLmB0jyQoa
-	YGcjvkMCzm+xx4fCpN1egTwB7TMc1Kb0Eq/FWXpDGtVKRd/BIKL+2blhruAoM/kQrde6Fkqql+Q
-	cHFP6/Rktlk+EQlzmd8I1aZE8owTQMWKIXoYIugMO/1Y8H6lBqu//oB0fEUsyNnBDmclpYCIcTF
-	Sdj2Rbl0tPXIJ9vbMkwr6jmd9ZklRVO6eR65PsuqooSCIB6AcaSUXhOB5Xjjr1zu/1mST5F9PU3
-	H390wGcYQzDLGcLrHcTq8wf5KY/9DYWelUtOsswDejj+rCFANbeodDYOc0t2Es879ESX6WIKgM1
-	c7XmlwcXoYgGz3JS5eHulSDl/NHYxfGZJZr8JK28Du2GhcMj5qa6wLvXliWXUNV5Xus8DI1uNP+
-	Mnm64Gn1Q2RAQ6+MD+nnlz+pUFkpqhpCEJ8pj2NpH8ivDoRBHxEGEzHAVrHUzV9Ez3lFdkNlZIF
-	fxy+FgGdub94/HWXA==
-X-Received: by 2002:a05:600c:1391:b0:487:5c0:671f with SMTP id 5b1f17b1804b1-488d67e6a48mr259531285e9.9.1776178478697;
-        Tue, 14 Apr 2026 07:54:38 -0700 (PDT)
-Received: from localhost ([212.187.182.166])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d73e36e7csm22002840f8f.10.2026.04.14.07.54.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 14 Apr 2026 07:54:38 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 14 Apr 2026 15:54:37 +0100
-Message-Id: <DHSYQ027GZGC.4I9F6TPPMBI5@linaro.org>
-Cc: "Sam Protsenko" <semen.protsenko@linaro.org>,
- <linux-samsung-soc@vger.kernel.org>, "Krzysztof Kozlowski"
- <krzk@kernel.org>, "Peter Griffin" <peter.griffin@linaro.org>,
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, "Conor Dooley"
- <conor+dt@kernel.org>, "Alim Akhtar" <alim.akhtar@samsung.com>, "Tudor
- Ambarus" <tudor.ambarus@linaro.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 2/7] dt-bindings: soc: samsung: exynos-pmu: add
- samsung,pmu-intr-gen phandle
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-To: "Rob Herring" <robh@kernel.org>
-X-Mailer: aerc 0.21.0
-References: <20260401-exynos850-cpuhotplug-v2-0-c5a760a3e259@linaro.org>
- <20260401-exynos850-cpuhotplug-v2-2-c5a760a3e259@linaro.org>
- <20260413221638.GA3624532-robh@kernel.org>
-In-Reply-To: <20260413221638.GA3624532-robh@kernel.org>
+        d=1e100.net; s=20251104; t=1776178689; x=1776783489;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=CZXc1G4AWwe3GuaS5rvpotOJKX0XtTzUPyknVjNY0u0=;
+        b=jlkTrv3E6utcQ7EFO/FZuJBWH0P8VAQzKx66Mf1TVX50MAgHprckkJ0J+cJczEZtcE
+         A/9II8yAQbk9vgKUqnyZyTr41XnaZdR0ohRn1QTgfx1SjeOKZAxcPQrvtaOmrJvyXSn6
+         vPFYn6Q+CyV9MbFd1wyzuBri5QmKvMn3o6VS4PQExGmCiYSIEss8vApxaRmuhOFBXkbV
+         B/UAl3KuL4WrOeoOxAVMfratysgp2dGz1BWOLIVwyiL5vlSsyrbl11DBd5Pzo2woOkly
+         jvt4L0Wc3H3GJ1F8nbA9701BrjmWLVeyJd+/Wnw3poHNlGzeV7GQRz1MzcJtP+Dw9GSc
+         pRLQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8xNSom1/CYKxvKk3Pi94Ps36QXNiy7jGW1XiIXLwpYdpQWozyMqIxwyyNJLpfBmQ+q6awrkyN/pgs4Xbbkj7HC@lists.infradead.org
+X-Gm-Message-State: AOJu0YzbJAYaEogL6VZqckPmR1rm7Pcu1hW/xaVolTTCDRxXYirIo7q3
+	cnS0UMCTgJ00csLPjuGFRGq827hs+8GvvnlKDgt5Fv35FPykEnUz1VzCVHRKDQp8LA==
+X-Gm-Gg: AeBDiescFCtDzAXiU769PD89XQAxHoKftpWTNkvLxe2Ab2CAvJ1FZV9E5dhekoBjx4u
+	awsSVpi/a9YcZy4CFX+09A2QzI8gQuBGMmklvvWOjDjNQnfg08+ZUhWRVzLVXMjnrHNMucELuqr
+	q/s96kOI/cj7zDmhMiCqdIDOBN63P6IjifiMRHpQIN1y5aCCa4abl15DS6qoKg7QqP/FVnA/2l9
+	7wVvSHPLTAGegRcjc1AxMaLCpPSQCVNEEVg31q/vtXjHtCB2TBfTtto8u3JA25707Cy6R9z8+d8
+	LFy7zHqwlm6Kbrt89Px4PFRA/SAg+ScpKwsQ+8ZVA88TN2sWo3jA9BboEPcS3i4fTuon20L7xMD
+	XFNcypFta4KUl44lh8ZyFh54aqUusCcK2L5cv770v01oAMnpsVV4SKNJz2a8UuaWb08ppsotO6m
+	80IpnLddcRyTLEsY8xbY+HOfQ7dgLiORB4iD3o+kXdHt1PLs4+6zUWU+GYv+X80SpjiVPpVN1xI
+	6wLzbwEb0X5K4yQ
+X-Received: by 2002:a05:600c:3acf:b0:485:35a4:939f with SMTP id 5b1f17b1804b1-488d68a8275mr205934955e9.28.1776178689003;
+        Tue, 14 Apr 2026 07:58:09 -0700 (PDT)
+Received: from google.com (198.115.140.34.bc.googleusercontent.com. [34.140.115.198])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488d5d85ae9sm170426105e9.3.2026.04.14.07.58.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Apr 2026 07:58:08 -0700 (PDT)
+Date: Tue, 14 Apr 2026 15:58:04 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kernel-team@android.com
+Subject: Re: [PATCH] KVM: arm64: Re-allow hyp tracing HVCs for [nh]VHE
+Message-ID: <ad5V_GuLY77xl8gw@google.com>
+References: <20260414100231.1859687-1-vdonnefort@google.com>
+ <86ik9t387m.wl-maz@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86ik9t387m.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_075441_254460_A230AF11 
-X-CRM114-Status: GOOD (  18.17  )
+X-CRM114-CacheID: sfid-20260414_075812_186903_9DD6D943 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,56 +101,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon Apr 13, 2026 at 11:16 PM BST, Rob Herring wrote:
-> On Wed, Apr 01, 2026 at 05:51:55AM +0100, Alexey Klimov wrote:
->> Some Exynos-based SoCs, for instance Exynos850, require access
->> to the pmu interrupt generation register region which is exposed
->> as a syscon. Update the exynos-pmu bindings documentation to
->> reflect this.
->>=20
->> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
->> ---
->>  .../devicetree/bindings/soc/samsung/exynos-pmu.yaml    | 18 +++++++++++=
-+++++++
->>  1 file changed, 18 insertions(+)
->>=20
->> diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.ya=
-ml b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
->> index 76ce7e98c10f..92acdfd5d44e 100644
->> --- a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
->> +++ b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
->> @@ -110,6 +110,11 @@ properties:
->>      description:
->>        Node for reboot method
->> =20
->> +  samsung,pmu-intr-gen-syscon:
->> +    $ref: /schemas/types.yaml#/definitions/phandle
->> +    description:
->> +      Phandle to PMU interrupt generation interface.
->> +
->>    google,pmu-intr-gen-syscon:
->
-> Does this mean the driver is just going to have to look at both=20
-> properties for the same thing? If so, just use the existing property. We=
-=20
-> don't need 2. Yeah, 'google' in Samsung SoCs is a bit weird, but that's=
-=20
-> Samsung's fault for not upstreaming support for their h/w first.
+On Tue, Apr 14, 2026 at 03:52:29PM +0100, Marc Zyngier wrote:
+> On Tue, 14 Apr 2026 11:02:31 +0100,
+> Vincent Donnefort <vdonnefort@google.com> wrote:
+> > 
+> > The introduction of __KVM_HOST_SMCCC_FUNC_MAX_NO_PKVM excluded hyp
+> > tracing HVCs from the common [nh]VHE/pKVM list. Re-allow them.
+> > 
+> > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> > 
+> > diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> > index 37414440cee7..11dcdf434971 100644
+> > --- a/arch/arm64/include/asm/kvm_asm.h
+> > +++ b/arch/arm64/include/asm/kvm_asm.h
+> > @@ -72,6 +72,14 @@ enum __kvm_host_smccc_func {
+> >  	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid_range,
+> >  	__KVM_HOST_SMCCC_FUNC___kvm_flush_cpu_context,
+> >  	__KVM_HOST_SMCCC_FUNC___kvm_timer_set_cntvoff,
+> > +	__KVM_HOST_SMCCC_FUNC___tracing_load,
+> > +	__KVM_HOST_SMCCC_FUNC___tracing_unload,
+> > +	__KVM_HOST_SMCCC_FUNC___tracing_enable,
+> > +	__KVM_HOST_SMCCC_FUNC___tracing_swap_reader,
+> > +	__KVM_HOST_SMCCC_FUNC___tracing_update_clock,
+> > +	__KVM_HOST_SMCCC_FUNC___tracing_reset,
+> > +	__KVM_HOST_SMCCC_FUNC___tracing_enable_event,
+> > +	__KVM_HOST_SMCCC_FUNC___tracing_write_event,
+> >  	__KVM_HOST_SMCCC_FUNC___vgic_v3_save_aprs,
+> >  	__KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
+> >  	__KVM_HOST_SMCCC_FUNC___vgic_v5_save_apr,
+> > @@ -100,14 +108,6 @@ enum __kvm_host_smccc_func {
+> >  	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_load,
+> >  	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_put,
+> >  	__KVM_HOST_SMCCC_FUNC___pkvm_tlb_flush_vmid,
+> > -	__KVM_HOST_SMCCC_FUNC___tracing_load,
+> > -	__KVM_HOST_SMCCC_FUNC___tracing_unload,
+> > -	__KVM_HOST_SMCCC_FUNC___tracing_enable,
+> > -	__KVM_HOST_SMCCC_FUNC___tracing_swap_reader,
+> > -	__KVM_HOST_SMCCC_FUNC___tracing_update_clock,
+> > -	__KVM_HOST_SMCCC_FUNC___tracing_reset,
+> > -	__KVM_HOST_SMCCC_FUNC___tracing_enable_event,
+> > -	__KVM_HOST_SMCCC_FUNC___tracing_write_event,
+> >  };
+> >  
+> >  #define DECLARE_KVM_VHE_SYM(sym)	extern char sym[]
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > index 73f2e0221e70..8f7582d57ab5 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > @@ -709,6 +709,14 @@ static const hcall_t host_hcall[] = {
+> >  	HANDLE_FUNC(__kvm_tlb_flush_vmid_range),
+> >  	HANDLE_FUNC(__kvm_flush_cpu_context),
+> >  	HANDLE_FUNC(__kvm_timer_set_cntvoff),
+> > +	HANDLE_FUNC(__tracing_load),
+> > +	HANDLE_FUNC(__tracing_unload),
+> > +	HANDLE_FUNC(__tracing_enable),
+> > +	HANDLE_FUNC(__tracing_swap_reader),
+> > +	HANDLE_FUNC(__tracing_update_clock),
+> > +	HANDLE_FUNC(__tracing_reset),
+> > +	HANDLE_FUNC(__tracing_enable_event),
+> > +	HANDLE_FUNC(__tracing_write_event),
+> >  	HANDLE_FUNC(__vgic_v3_save_aprs),
+> >  	HANDLE_FUNC(__vgic_v3_restore_vmcr_aprs),
+> >  	HANDLE_FUNC(__vgic_v5_save_apr),
+> > @@ -735,14 +743,6 @@ static const hcall_t host_hcall[] = {
+> >  	HANDLE_FUNC(__pkvm_vcpu_load),
+> >  	HANDLE_FUNC(__pkvm_vcpu_put),
+> >  	HANDLE_FUNC(__pkvm_tlb_flush_vmid),
+> > -	HANDLE_FUNC(__tracing_load),
+> > -	HANDLE_FUNC(__tracing_unload),
+> > -	HANDLE_FUNC(__tracing_enable),
+> > -	HANDLE_FUNC(__tracing_swap_reader),
+> > -	HANDLE_FUNC(__tracing_update_clock),
+> > -	HANDLE_FUNC(__tracing_reset),
+> > -	HANDLE_FUNC(__tracing_enable_event),
+> > -	HANDLE_FUNC(__tracing_write_event),
+> >  };
+> 
+> Why isn't it sufficient to reorder the enum?
+> 
+> Thanks,
+> 
+> 	M.
 
-First question - yes, look for both properties. Using the existing
-property is even better, I don't mind at all. Thanks for pointing that
-out.
+It is, I just thought we might want to keep both in the same order. WDYS?
 
-Initially, I added more generic samsung,... property because I thought
-that device tree style prefers <vendor>,<property-name> semantics where
-<vendor> is actual (real) HW vendor of corresponding hw block and it
-should also refer to the first/earlier hw vendor in terms of the
-timeline.
-
-Using google,<..> is simplier and I don't need need commit that
-obsoletes that, so I'll rework the series in that way.
-
-BR,
-Alexey
-
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
