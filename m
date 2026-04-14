@@ -4,69 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3583F531DE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 11:08:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF8BDF531FC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 11:16:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x3S9jBB7rFaohFOnGlp4KwVhYdhC0mAEOE/r6Elp0J8=; b=t+Eg6eci/ASSovNrzlPbaIVRa+
-	pL5SXayY6wqUh2t1B+7mqp7C+eiHMwJ9QaVz8mDOXZYEPTAEudMbTcNlGRTYmxa2ZMQG0mMrRvp4v
-	QX4sLbKJiX2jDPrvM80QrfsTG0gAhMCZpsgYT1fFTJ4Q/drURrhaJQvd/T8pueYaH6GrI0z5CzI3t
-	7/nlkjNU1Ts3l41mL+vZq3cDRpNlTAXuKtDyZFmCPOwTMLyzFJLdrX/TFIGQ4YNu/5BwSdV9DtXuI
-	JspqwVs+SceYKnIFmfFpO3uoU9JFUAEj+89jVAfTsjnFUxvehUoeM3hEEJe23E4BEw/kxRKey2lga
-	nmIxLZbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fgqIBTgB57l+vFUu/wwChiaB4X4H0HIoRuFonSLHuic=; b=slAurtEiXRUtS+xu+t2jTKg9eK
+	IagLzzRdPkYE3cnNL6UdbETQyC3x2869dstDEnEdiOt7Asrw7WeXlpJ6N6Z7eKY4zuh5C2GRCk/Dh
+	kjc8s65Ivvx6uPttollXk0JUWVCpUYQn5a2cXvO6nbNunToALZu22iIGbFqjlUxUavGzh1eDTQByf
+	fhpOChAYTh0H1I9ZIv3yuowfcPzIDulloRRNwqUdgrdf5L4oFvO4WCFILwfUsI9xBHaYYLMS33C/S
+	56a/4BFP8gg2Rk3YJ5i8MKp60pSqTpTbojAdHk9QWki2Q443R6hraiMdck5KXgSss6X9mD8kE/bwk
+	XZ8BtuSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCbdT-0000000HD4X-22R7;
-	Tue, 14 Apr 2026 11:08:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wCblB-0000000HDln-1sqr;
+	Tue, 14 Apr 2026 11:16:49 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCbdQ-0000000HD4C-1di7
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 11:08:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 795C44415F;
-	Tue, 14 Apr 2026 11:08:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FCC6C19425;
-	Tue, 14 Apr 2026 11:08:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776164926;
-	bh=sNu71ZUb1rt4ab2E8eZagKk8jYhy4eDjDlSs+G1tla4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fLgGDLRcloWUP15mYzJp7RDXnNZmpO/6pWOEi45FADVz3SD32RzX9h4NfzJY5Kqwl
-	 7K/1YTy21PD2fzwt7TO10R4VdrpI3vol53VyB2M+Z9tDEzzhVjVgGnTJIfI664EFWv
-	 CRWcfyOx5DvTUCNi9MPDcCBT6rdurpP+9uro+a5aSUb1xztssrUFZ0Zb7MqOk4EJT8
-	 9qXUQVmr7vcFrP88fkXuh7uHBWURQHUDaTtAp+Vue0AGSNrkGjj2kDmwkEwEW6f4HP
-	 GzbQyGmYowRVYmnb3TD5xP4rVOPtNVVP/wfrWFNQq6efLbCgl1c1zRvVsUdFt1BJpS
-	 LNzZR9cJgjEqw==
-Date: Tue, 14 Apr 2026 12:08:42 +0100
-From: Will Deacon <will@kernel.org>
-To: Brian Ruley <brian.ruley@gehealthcare.com>
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
-	Steve Capper <steve.capper@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	catalin.marinas@arm.com
-Subject: Re: [PATCH] mm/arm: pgtable: remove young bit check for
- pte_valid_user
-Message-ID: <ad4gOu83zY-SKijx@willie-the-truck>
-References: <20260409125446.981747-1-brian.ruley@gehealthcare.com>
- <adewJetUv6wMiz9o@willie-the-truck>
- <adfDEMK8EbIjPu3J@zoo11.fihel.lab.ge-healthcare.net>
- <adfNN33QIOP3VfDm@shell.armlinux.org.uk>
- <adjYlUk8_JjPivNi@zoo11.fihel.lab.ge-healthcare.net>
- <adzMOdySgMIePcue@willie-the-truck>
- <ad0Ky09tLcFx7JCa@zoo11.fihel.lab.ge-healthcare.net>
- <ad3wRQt7K-QLX8Jw@zoo11.fihel.lab.ge-healthcare.net>
+	id 1wCbl5-0000000HDku-22AU;
+	Tue, 14 Apr 2026 11:16:47 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.170])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4fw1tg2RzczKHMhC;
+	Tue, 14 Apr 2026 19:16:27 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id 59F194056D;
+	Tue, 14 Apr 2026 19:16:35 +0800 (CST)
+Received: from [10.67.111.192] (unknown [10.67.111.192])
+	by APP1 (Coremail) with SMTP id cCh0CgDXyAMRIt5pWY9+AQ--.18262S2;
+	Tue, 14 Apr 2026 19:16:35 +0800 (CST)
+Message-ID: <5b7bb008-ac7b-41a5-9ee6-bdef6cd33d98@huaweicloud.com>
+Date: Tue, 14 Apr 2026 19:16:33 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ad3wRQt7K-QLX8Jw@zoo11.fihel.lab.ge-healthcare.net>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next v2 1/2] bpf, arm64: Remove redundant
+ bpf_flush_icache() after pack allocator finalize
+Content-Language: en-US
+To: Puranjay Mohan <puranjay12@gmail.com>
+Cc: bpf@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
+ <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
+ Jiri Olsa <jolsa@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Luke Nelson <luke.r.nels@gmail.com>,
+ Xi Wang <xi.wang@gmail.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@kernel.org>, Pu Lehui <pulehui@huawei.com>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260413191111.3426023-1-puranjay@kernel.org>
+ <20260413191111.3426023-2-puranjay@kernel.org>
+ <dd645fcf-76dc-4c68-8b6f-1a168cafd44f@huaweicloud.com>
+ <CANk7y0js0YxPFX1HqpYumN-ji6-OkKi4YO5=CRz8nx8aTzYxPw@mail.gmail.com>
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+In-Reply-To: <CANk7y0js0YxPFX1HqpYumN-ji6-OkKi4YO5=CRz8nx8aTzYxPw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: cCh0CgDXyAMRIt5pWY9+AQ--.18262S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7urWxJw1kJry5GFWkGFW8tFb_yoW8Aw4UpF
+	WfA3Z8KF4kXw4Dur10gF48XFySyws7JayUJ3WrCF9ak34Yvr97KFy3Kw409Fn0kryruw4j
+	vF4jywsxuFy5ZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUv0b4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
+	14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
+	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWr
+	XwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
+	0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
+	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU0
+	s2-5UUUUU==
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_040848_449234_CC59D29D 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20260414_041643_935892_E2F8A81E 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,29 +99,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 14, 2026 at 10:44:05AM +0300, Brian Ruley wrote:
-> On Apr 13, Brian Ruley wrote:
-> > 
-> > In the meanwhile, I'll see if I can add some instrumentation to
-> > verify this is the bug we're seeing.
+On 4/14/2026 5:38 PM, Puranjay Mohan wrote:
+> On Tue, Apr 14, 2026 at 2:56 AM Xu Kuohai <xukuohai@huaweicloud.com> wrote:
+>>
+>> On 4/14/2026 3:11 AM, Puranjay Mohan wrote:
+>>> bpf_flush_icache() calls flush_icache_range() to clean the data cache
+>>> and invalidate the instruction cache for the JITed code region. However,
+>>> since commit 1dad391daef1 ("bpf, arm64: use bpf_prog_pack for memory
+>>> management"), this flush is redundant.
+>>>
+>>> bpf_jit_binary_pack_finalize() copies the JITed instructions to the ROX
+>>> region via bpf_arch_text_copy() -> aarch64_insn_copy() -> __text_poke(),
+>>> and __text_poke() already calls flush_icache_range() on the written
+>>> range. The subsequent bpf_flush_icache() repeats the same cache
+>>> maintenance on an overlapping range, including an unnecessary second
+>>> synchronous IPI to all CPUs via kick_all_cpus_sync().
+>>>
+>>
+>> So icache is flushed twice: once per instruction and again after all
+>> instructions are copied. I think it's better to remove the per-instruction
+>> flush and retain the single final flush to avoid repeating flush overhead
+>> for each instruction.
 > 
-> The instrumentation worked (used the same ring buffer approach to track
-> dcache flushes). Here's the output:
+> No, bpf_jit_binary_pack_finalize() is called at the end after the
+> whole program is jited, and it calls: bpf_arch_text_copy(ro_header,
+> rw_header, rw_header->size); which does aarch64_insn_copy(dst, src,
+> len), this calls __text_poke() which copies the whole program and then
+> does flush_icache_range((uintptr_t)addr, (uintptr_t)addr + len); once.
+> This is correct, after this we don't need to call flush_icache_range()
+> on the same range again.
 > 
-> ```
-> kernel: [48629.557043] SIGILL at b6b80ac0 cpu 1 pid 32663 linux_pte=8eff659f hw_pte=8eff6e7e young=1 exec=1
-> kernel: [48629.557157] dcache flush START   cpu0 pfn=8eff6 ts=48629557020154
-> kernel: [48629.557207] dcache flush FINISH  cpu0 pfn=8eff6 ts=48629557036154
-> kernel: [48629.557230] dcache flush SKIPPED cpu1 pfn=8eff6 ts=48629557020154
-> audisp-syslog: type=ANOM_ABEND msg=audit(1776154637.460:15): auid=4294967295 uid=0 gid=0 ses=4294967295 pid=32663 comm="journalctl" exe="/usr/bin/journalctl" sig=4 res=1 AUID="unset" UID="root" GID="root"
-> ```
+> If we had been calling flush_icache_range() for each instruction, the
+> system would hang due to the storm of IPIs.
+Right, thanks for the explanation!
 
-Red-handed!
+LGTM.
 
-Please send a patch for review (perhaps you can include that snippet in
-the commit message).
-
-Cheers,
-
-Will
 
