@@ -4,107 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAE58F531EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 06:35:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E544F531F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 06:45:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7O5b4cGVPKsvcNPmXRaJvLz/LMUgaIpEgEY1d8OANag=; b=vDz7Mmo4KfQeCnZjq0B1xeTrtH
-	aNIhGRV13cxBjOoB5LJP2RmHBJgsC6zlurjYChX+wVNKe+atWmVg+L1hIVMoJ4KxGQxrtMwow8cEN
-	wDTBKmPgTkU0c7IElpJGALTU+bVLV651Hm6CG2d8Z2qQv/b+3AuDEcqFrEYMq+3AZ80xmoGMKVKsj
-	ZsqhjFl7cWUakHjL2LEaJtKbplIy/RvLuoMD0g+C6P0RKCrFlUfFW2K49q3Bw7sGvsUHxq4g4+YzM
-	3ivctYiN+5jA8YwX5qjxivULWJih1veVMlUhI6TWYJRgtZd3grl1Xle+JFUsU2FbNtChzF3eXNLAx
-	mtm1Ol+Q==;
+	bh=vj+EQ05FPKBTp1OV46fO5Oedc52PA+zs2hyhcrWvq4Y=; b=LXJVQUoweh4m4oGmifXyy+yIrt
+	NNnUW/ZjGiqDhHEP8CuTGZV/4O2lh/nnNme+8LhndICtauHFDUB6sxrXx/zMLumYkmfTr530OS2uz
+	+uIi+p+mzYOe/nwkyvhn3dAjXZXK/c6qL3L5uI5rJjWCsfh54xFjQCuZBJ/wInzQz8FwedyDdhX8O
+	hTj7Fz/jsMdJNarkeoX5CO+OsdPcYsONo37TI3rLwWU6hZG+1mbZNzX6Zm862JjIr1/VmoDq0yX6S
+	iqB0D2kow63jtsRiS3ZORFcgl+32g9tnosoE0OavobMQda2+fSMbIXtecuZ/N1ryKJWS7rYWlqPm8
+	244XXwWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCXMl-0000000GqnS-3a1z;
-	Tue, 14 Apr 2026 06:35:19 +0000
-Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
+	id 1wCXWJ-0000000GrJy-1HP5;
+	Tue, 14 Apr 2026 06:45:11 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCXMj-0000000Gqn3-3ZMy
+	id 1wCXWE-0000000GrJb-49UK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 06:35:19 +0000
-Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-38df1889fb9so55629881fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Apr 2026 23:35:17 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776148515; cv=none;
-        d=google.com; s=arc-20240605;
-        b=QO5brQ2HuXjly3JyAbuVLjd76MdXO6SB3JrvSWquOvOUpcF0O18BNVIiBnmnn+FhQb
-         0e8c/VHrrQpa6b2+TptEz0ppDW4lXYWjeEQ0cOSS0mDCsGGo5rvHdtJN19BvszMw2oN4
-         4Ir8hmkPm5m1kK8F0zcGMutP4RwDYHx39AEgum6fDJ+n8cavKKcaNKGKljYe2v/SQr41
-         9EaedB6b9hvIq+d/mld6iGZP6ueAvSJiOvN3cnV7t0j/q+NbdIXN8HdkN796YH+uDahT
-         7Y54S8ZCWM2oosOBIUGkNLNQdZWcKtQJHyf/YG/xuA1TRt/COBBgZ5/FpoHUiziSs/aL
-         kIoQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=7O5b4cGVPKsvcNPmXRaJvLz/LMUgaIpEgEY1d8OANag=;
-        fh=DVi36u4U08wVB4OlLisMuFSmeNXlUMsWOxBhQe7jbio=;
-        b=bvucjHCrlqndwQngGEkiAzPEnaiRdqWxQaA+COA5MYzvTdMGRwZ1AV+tWX0FQG+exb
-         OhcFAV8n8Je02kQDVihKnlAYPg4dX6Gxh7EMyfBjMjrLmBrS0FEot3XIw1GLioKcDcoI
-         hgqaC3ariiFg6gsZBEUjP1srRiU5GxKOSbqRSr//FfXx6oDrbo2ekFvKsE6h7LaQ6bdG
-         JS5IPJPtkWkwf0kz0HSpn/VPHcweGgVNjUcObudQKQEY5199TOg6B66+riCRz+qc/4D9
-         wbF76d1Er95n6NO4X5fx+pbaBxJcZ/KAydLP4jG4hJAPXxYvc9xP1A5TTxdMvTfcVvpM
-         iMLw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=mechasystems-com.20251104.gappssmtp.com; s=20251104; t=1776148515; x=1776753315; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7O5b4cGVPKsvcNPmXRaJvLz/LMUgaIpEgEY1d8OANag=;
-        b=tHz8gFCTK0FiQrxouHsRuV2OP1NcN5EFoL1O5NcpSFnuz6JBoxiY3eBA/+3h2U87qu
-         y30gQhrPuJCqCmDWfq94dO9Kam751StAObJhKWkUBKTcH6zdCnidwqqPsTEjjclAmJVa
-         gwJtB9th3TxcmMGpOqpPkKBrFm0mG3+j3Po4+BtFs8jYDayKnEv9g13HXP8QnVOv/HaV
-         hNJxjMqtxod6G9F/b2JPSUIt+WBC/oveBWfiCkqIAvClotR4IwQkRGKY4o7Km5bOGN6V
-         dQVVZ0wnUO8eQCSklw8/BYeS1/YGXsn8ie+/UNHEkrHXPm7+BmOkYHBM9hnhvN97uHEf
-         k2cw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776148515; x=1776753315;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=7O5b4cGVPKsvcNPmXRaJvLz/LMUgaIpEgEY1d8OANag=;
-        b=UFwCgprfGBdz91vGj3Y0Lr12e5VPH4f4nnTxdCJVtG0s3KINr1zDHWBhpCfTIW08+4
-         whGR1z3zIxDQq6MGAQC8qzPV/E7En60Oqix3vjNj9K1Xt0CEZ/QxZhi9+bug1JO3W6O1
-         wNDrnCPMTjJlAJ8CvyXg5fO/YS7vg1ZtqWgwXSfOKKny4gvgUF2vGZ18j09/oeFZhjGy
-         OWsCOOLz9o9QsTW3kHWQecrMaOqh1Q9Y9ZlQkmj5vcH92RKtGcq4fcqKwb7EKeJEMOKV
-         QLm839pqx4M3O6osL/wbkjB/QrnHrGG/NqswdgKqTL7ecUcdmlbx/dWBlRhSN/sIB+jc
-         vmZw==
-X-Forwarded-Encrypted: i=1; AFNElJ+JzV+H5IEM4ifz7rIlRr0i/PmNqVjKjmnFhMaOpO3PqffVfeWtGQPSi+oltnnSAflAIbBkb/k9VPwVg2u/K6C1@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/Rwii7UzHAnB6/ubkeyl0Vr45ZuBxoBgrCC47ch5IXuI41vyf
-	hjcMiGodIbrAkwHI2+X61HJZb56N2kxr16IiXbmL1rj+uowl6w7Tz94e8gtZfb7GnVhrmk/3iM8
-	J2J2wvkWM4NFzYnje5vgWNMgtPcdNZkv4ybH7HwOtyg==
-X-Gm-Gg: AeBDieuSfZwLq86BfhJ4yzWTJ0KrcB8Ze4e/SF3Wa+bAYy/WR50tMUp6eOlSt+9GBGO
-	je8tuzlpmPbTvvJX2scmskk2h8l9ja07rUlf7UNQhGYBh+IHUg96JnvPcXnwRFbZ0genREHnPGs
-	GSBI7s2fzyPLndufJSjdn4hfBqFJkE80x8BsDprbKSD4uQ8y2OI0o+p9MP6ndVChwvZMr0rPxD4
-	LUptSccH6CWh/EWyCxvANF1uVWu8nOi/XsBgOskiCy/xO7lgpWJKOBDMAFJ6kyP8PBmB3bV8y4g
-	CAoHMliIuqhUzGgf41Nwy6L2SPVrnfdG3RlINcxE
-X-Received: by 2002:a2e:8a88:0:b0:38e:7b10:fdca with SMTP id
- 38308e7fff4ca-38e7b11028amr23413361fa.18.1776148515199; Mon, 13 Apr 2026
- 23:35:15 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260413114456.173485-1-advaitd@mechasystems.com> <99fdddde59e1b0fe13d5014182b1c97de4fbec86.camel@pengutronix.de>
-In-Reply-To: <99fdddde59e1b0fe13d5014182b1c97de4fbec86.camel@pengutronix.de>
-From: Advait Dhamorikar <advaitd@mechasystems.com>
-Date: Tue, 14 Apr 2026 12:05:02 +0530
-X-Gm-Features: AQROBzASMMowUHpiQY8V3AZzIF8UFIDuQygsDzeqZIIv6U3TInzAp3bBuMtO9xM
-Message-ID: <CAAPs2HRQ12Y18y1JGRE+8htegjUiKN9S5JP14rkAye=pdoxt-A@mail.gmail.com>
-Subject: Re: [PATCH] drm: mxsfb: lcdif: enforce 64-byte pitch alignment for scanout
-To: Philipp Zabel <p.zabel@pengutronix.de>
-Cc: marex@denx.de, simona@ffwll.ch, imx@lists.linux.dev, festevam@gmail.com, 
-	kernel@pengutronix.de, dri-devel@lists.freedesktop.org, Frank.Li@nxp.com, 
-	s.hauer@pengutronix.de, maarten.lankhorst@linux.intel.com, 
-	linux-kernel@vger.kernel.org, mripard@kernel.org, stefan@agner.ch, 
-	tzimmermann@suse.de, airlied@gmail.com, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 14 Apr 2026 06:45:09 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 85D48C5B1BB;
+	Tue, 14 Apr 2026 06:45:39 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 898E15FFBB;
+	Tue, 14 Apr 2026 06:45:02 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 745AD10450B1D;
+	Tue, 14 Apr 2026 08:44:48 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1776149100; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=vj+EQ05FPKBTp1OV46fO5Oedc52PA+zs2hyhcrWvq4Y=;
+	b=f+/FdJ3gFgZicxmZg+3TKsSO2HjLdvbBRDofdKToAwxC33qBRQ8P/OdBuele8fRfK4UKQl
+	oPu7bXBT3oYRrsNRnKLHjc2lXCMhrD7vseb+uh3e3JcLdfl4qE2Xo/XaNcgiLOHQJ+7Fdl
+	PpSRU3G8FBDAsHB50K9vRe3YC0ujuVMYP+5Jb11M33LXw2l/RQBGw/4FFnsbXrbW0723RW
+	3+Xo5cxuTUThO8Lh9gqqILwQnGxkCHNX/rsWMcbo1SENnBzQon0lO11SMv0jGNUOuRF5gi
+	iZdcqnP0mxCLizVi57yo8M+WvjPhNrEofWGsMNJwur3uxKctJE62SaR9CHo8fQ==
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 14 Apr 2026 08:44:47 +0200
+Message-Id: <DHSOAYIAQWWN.2WEM50YWAZZSB@bootlin.com>
+Subject: Re: [PATCH 01/10] drm/bridge: add of_drm_get_bridge_by_endpoint()
+Cc: "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
+ <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
+ Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob Clark"
+ <robin.clark@oss.qualcomm.com>, "Dmitry Baryshkov" <lumag@kernel.org>,
+ "Abhinav Kumar" <abhinav.kumar@linux.dev>, "Jessica Zhang"
+ <jesszhan0024@gmail.com>, "Sean Paul" <sean@poorly.run>, "Marijn Suijten"
+ <marijn.suijten@somainline.org>, "Xinliang Liu" <xinliang.liu@linaro.org>,
+ "Tian Tao" <tiantao6@hisilicon.com>, "Xinwei Kong"
+ <kong.kongxinwei@hisilicon.com>, "Sumit Semwal" <sumit.semwal@linaro.org>,
+ "Yongqin Liu" <yongqin.liu@linaro.org>, "John Stultz" <jstultz@google.com>,
+ "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
+ <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
+ <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Tomi
+ Valkeinen" <tomi.valkeinen@ideasonboard.com>, "Michal Simek"
+ <michal.simek@amd.com>, "Hui Pu" <Hui.Pu@gehealthcare.com>, "Ian Ray"
+ <ian.ray@gehealthcare.com>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, <dri-devel@lists.freedesktop.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+ <freedreno@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>
+To: "Dmitry Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.20.1
+References: <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-0-acd01cd79a1f@bootlin.com> <20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-1-acd01cd79a1f@bootlin.com> <u2awvqh2uoc2acuuvyavwwtuvtiaidhbkkj5a2d2wwph2s7j7g@b4j73kwzblgk> <DHS6WZRYGWZQ.1X6ABU4UWF730@bootlin.com> <omlnswxukeqgnatzdvooaashgkfcacjevkvbkm6xt33itgua2k@jcmzll2w6kdq>
+In-Reply-To: <omlnswxukeqgnatzdvooaashgkfcacjevkvbkm6xt33itgua2k@jcmzll2w6kdq>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_233518_186646_43177133 
-X-CRM114-Status: GOOD (  19.80  )
+X-CRM114-CacheID: sfid-20260413_234507_644630_E4F93248 
+X-CRM114-Status: GOOD (  32.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,52 +93,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Philipp,
+Hi Dmitry,
 
-> I wonder if setting 4320 bytes stride works if you reduce the burst
-> size, for example by reverting commit 2215cb3be5c2 ("drm: lcdif: change
-> burst size to 256B") to test.
+On Mon Apr 13, 2026 at 7:56 PM CEST, Dmitry Baryshkov wrote:
+> On Mon, Apr 13, 2026 at 07:07:14PM +0200, Luca Ceresoli wrote:
+>> Hi Dmitry, Maxime,
+>>
+>> thanks Dmitry for the quick feedback!
+>>
+>> On Mon Apr 13, 2026 at 4:58 PM CEST, Dmitry Baryshkov wrote:
+>>
+>> >> --- a/drivers/gpu/drm/drm_bridge.c
+>> >> +++ b/drivers/gpu/drm/drm_bridge.c
+>> >> @@ -1581,6 +1581,52 @@ struct drm_bridge *of_drm_find_bridge(struct d=
+evice_node *np)
+>> >>  	return bridge;
+>> >>  }
+>> >>  EXPORT_SYMBOL(of_drm_find_bridge);
+>> >> +
+>> >> +/**
+>> >> + * of_drm_get_bridge_by_endpoint - return DRM bridge connected to a =
+port/endpoint
+>> >> + * @np: device tree node containing output ports
+>> >> + * @port: port in the device tree node, or -1 for the first port fou=
+nd
+>> >> + * @endpoint: endpoint in the device tree node, or -1 for the first =
+endpoint found
+>> >> + * @bridge: pointer to hold returned drm_bridge, must not be NULL
+>> >> + *
+>> >> + * Given a DT node's port and endpoint number, find the connected no=
+de and
+>> >> + * return the associated drm_bridge device.
+>> >> + *
+>> >> + * The refcount of the returned bridge is incremented. Use drm_bridg=
+e_put()
+>> >> + * when done with it.
+>> >> + *
+>> >> + * Returns zero (and sets *bridge to a valid bridge pointer) if succ=
+essful,
+>> >> + * or one of the standard error codes (and the value in *bridge is
+>> >> + * unspecified) if it fails.
+>> >
+>> > Can we return drm_bridge or error cookie instead?
+>>
+>> (while replying I realized there is a design flaw in my implementation, =
+but
+>> see below)
+>>
+>> I initially thought I'd do it, but I don't like returning an error cooki=
+e
+>> for functions getting a bridge pointer. The main reason is that with bri=
+dge
+>> refcounting the __free() cleanup actions are handy in a lot of places, s=
+o we
+>> are introdugin a lot of code like:
+>>
+>>   struct drm_bridge *foo __free(drm_bridge_put) =3D some_func(...);
+>>
+>> Where some_func can be one of of_drm_find_bridge(),
+>> drm_bridge_get_next_bridge(), drm_bridge_chain_get_{first,last}_bridge()
+>> etc.
+>
+> This is fine even with the functions returning a cookie: the free
+> function can explicitly check and return early if IS_ERR() pointer is
+> passed to it.
+>
+>>
+>> Such code is very handy exactly because these functions return either a
+>> valid pointer or NULL, and thus the cleanup actions always does the righ=
+t
+>> thing. If an error cookie were returned, the caller would have to be ver=
+y
+>> careful in inhibiting the cleanup action by clearing the pointer before
+>> returning. This originate for example this discussion: [0]
+>>
+>> [0] https://lore.kernel.org/lkml/4cd29943-a8d0-4706-b0c5-01d6b33863e4@bo=
+otlin.com/
+>>
+>> So I think never having a negative error value in the bridge pointer is
+>> useful to prevent bugs slipping in drivers. For this we should take one =
+of
+>> these two opposite approaches:
+>>
+>>  1. don't return a bridge pointer which can be an ERR_PTR; return an int
+>>     with the error code and take a **drm_bridge and:
+>>       - on success, set the valid pointer in *bridge
+>>       - on failure, set *bridge =3D NULL (*)
+>>  2. like the above-mentioned functions (of_drm_find_bridge(),
+>>     drm_bridge_get_next_bridge() etc) return a drm_bridge pointer which =
+is
+>>     either a valid pointer or NULL
+>
+> 3. Return pointer or cookie, ignore cookie in the release function.
 
-Unfortunately, reverting the commit doesn't seem to fix the issue.
-I tested with the reduced/default burst size as well as explicitly
-setting it to 128 bytes, but a pitch of 4320 bytes still results in a
-corrupted output(stretched and choppy display).
+Ah, that's a good idea indeed!
 
-However, using a 64 byte aligned pitch works in all cases without having
-to alter the burst size.
+It had been proposed recently by Laurent too, but in that case I didn't
+take the suggestion because it was referring to a panel API which IIUC is
+meant to be reworked anyway [0]. I must have archived the idea too much and
+didn't think about using it now! :)
 
-Best regards,
-Advait
+So yes, being of_drm_get_bridge_by_endpoint() a new API that is meant to
+stay, I think it's worth doing.
 
-On Mon, Apr 13, 2026 at 7:16=E2=80=AFPM Philipp Zabel <p.zabel@pengutronix.=
-de> wrote:
+Sadly, I guess that means I have to drop all the R-by you already gave to
+various patches in the series.
+
+[0] https://lore.kernel.org/all/DH624WYWKT14.5TSCJXZPVN0T@bootlin.com/
+
+>> >> + */
+>> >> +int of_drm_get_bridge_by_endpoint(const struct device_node *np,
+>> >> +				  int port, int endpoint,
+>> >> +				  struct drm_bridge **bridge)
+>> >
+>> > Nit: can it be drm_of_get_bridge_by_endpoint?
+>>
+>> Argh, this convention is changing periodically it seems! :-)
+>>
+>> I previous discussions I was asked to do either drm_of_ [1] of of_drm_ [=
+2],
+>> but since the latter was the last one requested I sticked on it.
+>>
+>> @Maxime, Dmitry, I'm OK with either, just let me know if I need to chang=
+e.
 >
-> Hi,
->
-> On Mo, 2026-04-13 at 17:14 +0530, Advait Dhamorikar wrote:
-> > The LCDIF controller expects framebuffer pitch to be aligned to a
-> > 64 byte boundary for reliable scanout.
-> >
-> > While byte-granular pitches are
-> > supported by the interface, the i.MX8MP reference manual
-> > recommends 64-byte alignment for optimal operation.
-> >
-> > Corrupted output was observed with XR24 framebuffers where a pitch of
-> > 4320 bytes caused visible corruption and choppy display, while an align=
-ed
-> > pitch of 4352 bytes worked correctly.
->
-> This happens to be divisible by 256, which is is the burst size
-> currently set in the undocumented CTRLDESCL0_3 register fields,
-> according to the comment in lcdif_set_mode().
->
-> I wonder if setting 4320 bytes stride works if you reduce the burst
-> size, for example by reverting commit 2215cb3be5c2 ("drm: lcdif: change
-> burst size to 256B") to test.
->
-> If that is the case, it might be better to allow unaligned pitches but
-> configure the burst size depending on pitch alignment.
->
-> regards
-> Philipp
+> I missed Maxime's response, sorry. I'm fine with the suggested
+> convention of using the first argument.
+
+OK, no problem. Based on current discussion, in v2 the new API will be:
+
+/**
+ * of_drm_get_bridge_by_endpoint - return DRM bridge connected to a port/en=
+dpoint
+ * @np: device tree node containing output ports
+ * @port: port in the device tree node, or -1 for the first port found
+ * @endpoint: endpoint in the device tree node, or -1 for the first endpoin=
+t found
+ *
+ * Given a DT node's port and endpoint number, find the connected node and
+ * return the associated drm_bridge device.
+ *
+ * The refcount of the returned bridge is incremented. Use drm_bridge_put()
+ * when done with it.
+ *
+ * Returns a pointer to the connected drm_bridge, or a negative error on fa=
+ilure
+ */
+struct drm_bridge *int of_drm_get_bridge_by_endpoint(const struct device_no=
+de *np,
+                                                     int port, int endpoint=
+);
+
+It would be nice to agree on the API before v2, to avoid the need to rework
+many patches and drop any review tags multiple times.
+
+Luca
+
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
