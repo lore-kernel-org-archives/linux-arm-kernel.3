@@ -4,95 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BD64F531FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 07:38:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44D9CF531FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 07:44:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RiVB1nUUaTgLHnOiDu9/3O5El3WjSoq5GjXvTnCDSVc=; b=yJAwsmVSpIY3uU33jCQ0H3+ndg
-	XOwBS8fUAIJv3PgPgxC7oOyz3jyptCafzGBYUEpx92usYqk8lWZgCKQFLpV2HkGFQ5TALJgVi/NGp
-	yRahd5Vu4RBIYyDtmAE4ZmV/eE3A3mOqkljJbuu9RlasiXskco3y25eH9fe/+12mGMrio4tvB+Hhw
-	67i98FZ/o/HgVLY2vMtYKUBtEaK32koqpwz9dCWqHsU0e+0IrN7QRxjBpomQqv8UH13QN+TNIeuG7
-	0FV+vKxSB/TLyCmvCZr3bu/2LAAwozq1Sdh67Uxtouacipu4VvZBKjRRD7Uqq08jr65G47NaSCGSu
-	Eqd6IMVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OlzMDNQ1cM8ah+38Tw9DOLxzKgOZGgHJ/+gYu0boa3s=; b=DCP9XXcjHts8wHLGIeZf6Q1GWD
+	xSH/qZnvqJh8zQ6V61zlJA7Qh9hsF97J+nVgTw4MJdpLUJeaJela6O63FvxscXQ5bAh4R7tYoz8uI
+	rk33cpJG3h/lMe7nXJGM2msF/Yz8F05KzGtVKcOkTwQ9UPXnKwkhvbtgpZK6GjNFinEXuVlhI91gt
+	mVDJ00joCvNVdTw8PR5o2BdDFXqi1SDoHW8RDXeZFbdU2V+hOErTAR76dmcwDemhrcTCYGq5vexq5
+	VePMit7542p4xZE0vBC774qhd0caIr/+UT5T1hsOdxsqCc1wvMjAM9zEjWsMZTjlnTVK8bQQXjEC3
+	QDRvotpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCYLn-0000000Guca-1miE;
-	Tue, 14 Apr 2026 07:38:23 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1wCYRX-0000000Guvq-11Cu;
+	Tue, 14 Apr 2026 07:44:19 +0000
+Received: from mail-westcentralusazon11010027.outbound.protection.outlook.com ([40.93.198.27] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCYLk-0000000GucB-0xGa
+	id 1wCYRU-0000000GuvT-3exA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 07:38:21 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-488ad135063so50206125e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 00:38:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1776152297; x=1776757097; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=RiVB1nUUaTgLHnOiDu9/3O5El3WjSoq5GjXvTnCDSVc=;
-        b=V9eDsCRmlZHEGOZNuT1kOscpGVkoSzI2b/uKirdKAzsnRfJWRBuNi5E0ylYf79KWaD
-         Cm+7c8GRexia5dwU4U0Mg3Qr/aYm6bYCkXLNLeKK4o096UiwhIU4SW2GWyuCUwni9G6R
-         e9fCaNPUBODKXi/RsNuSI+fdYYGTAKi3wRz+DZKdCU8cUf8o4z958XTz87e8TukKmPri
-         PQFSypHe3hbzLFIQhqbb0RkCUQZYHZ7jMJy+RkcVG0ve5z9S3/2smbmM0UCpaNcjX2q7
-         M1yDHUmtLpWj9nAu/Gl8kiz6v9eAiqv2lrv1w+UNlMQi7jID0sEy2PNV8UQOFz6iazAn
-         6JQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776152297; x=1776757097;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=RiVB1nUUaTgLHnOiDu9/3O5El3WjSoq5GjXvTnCDSVc=;
-        b=dime3kK308KW31iZnj8mpYDG6su/7S6deda7uDEot1w2ArKHFvBExHFyaHTy+uYF5g
-         g9WAPkwkYXXEKoOBXDg128dgq7pBVpWrfe6Pw1Y3DCx0NlMJgn4jCWA26NhYrjeCQIDW
-         FZpob/eB1ANQxU17Zat9dj/STKiQNYDmiNeq4KjsdCxEyjz2JokNQSf8x7Xd2Te+3WbB
-         HlREzn0rnuVGraLiMuzm8Vnoig1zUmi7mhqjw0AUggSQder+whHFDDK4bPIh6RZ838x5
-         Z6TQsXpLGalFfNwiFUJ8h0MhGPeNE5gZYRakBWlb2Takgtk+lgnD83ITbTfDcOWwEfxc
-         NRtw==
-X-Forwarded-Encrypted: i=1; AFNElJ8zRxfNDz0DOjd5s1D8STCmUPasG7stmN3zu/u/1MOe5DiakR3jGYYs+S7sPwOLSGBYGA5z9739/CZGIB5HgT3Y@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTlx0seInHkwqepLjQy9939rDuq4uChLjFq8xNvE80mTtXbBBq
-	VopSTe/K3GWyCnhpT5TqPQhd31wL3VrWXRuBcytN+5scfbbD4zFp2dUQ5iUnWMNyuQc=
-X-Gm-Gg: AeBDieu2Q2XfC5EpLvzNM/VEwCu/aXe2o3MKeJ1sOZYVO2NdrSPvkQwcOaDRrJGCL1r
-	sA2dvpArPSblbzdAixrWAzhLCIaw2ix0u4C+cGYHfC9wdZWV2abrBMprgIGNqiylIY+1T16gSpc
-	6CJtYVR+40xyBDy5cY+YbvOhO5dOBBOVtg2TeFetqCB5OdgeGOf/xRZOT+2q7g+nL64fJAsEQ7i
-	2NeeIFS6bzePiut2Cdn5eD93HFp0kTDk3QGA7gSuIKogrB7eqpU9mC0UZjixF8xZ0tdAVHQLOCL
-	snbfYGwtEDPmhSWT0o6M8T61j3/FsIM0fT8ONm+l5vF+ahEiynnms6ztYHhm2P4dy7CSIUwHw/x
-	ad9+oloboxHa6zxT2zbBcFz5zrBZ+qAZUrM1uTiqB/inN6pq2ZGLXachHCqr145S1rVZbgW2X/L
-	GEfc7iheZ3NaxwvkiI9/DZFyGzeJBR77Q=
-X-Received: by 2002:a05:600d:d:b0:487:2439:b7c8 with SMTP id 5b1f17b1804b1-488d67eb7a7mr170044495e9.1.1776152297303;
-        Tue, 14 Apr 2026 00:38:17 -0700 (PDT)
-Received: from [192.168.50.4] ([82.78.167.123])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488ede1e826sm64458585e9.6.2026.04.14.00.38.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 14 Apr 2026 00:38:16 -0700 (PDT)
-Message-ID: <09085eff-ed71-42a9-8806-a9748d2fcd61@tuxon.dev>
-Date: Tue, 14 Apr 2026 10:38:15 +0300
+	Tue, 14 Apr 2026 07:44:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Daq48RG1mDNMVwB+0HUpcykBvLOhHPUwgnPVXS70tVDFkVdGSLzkus+UH9KRvRse6fRAexGfondOxtPH26Xcg0uyDUACOkaquvidKQrAViq6MYYx4LbYZlTZ9U8g/jnpSIIaLd/K/IjVtXaQu2Y+BARnLWs+24udeSouOavKhI5R/m6T1nkoj3IltCuT67V0Y8QDm4Tf3zgeUA6I6tvMp1zhc1la5bb/h8qYhInd+1kuvreBJNcNBB1nkep7oawCJ86DN/kE+t9XyS0qXZEXm2f5v5SUi/vEWmY2ihIDNLhNossY6er9xsl/2XulezthKcPBEETVzyTfy/9OltLkJA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OlzMDNQ1cM8ah+38Tw9DOLxzKgOZGgHJ/+gYu0boa3s=;
+ b=TuQSNULQTHeUxEKPUloD177ysyTv5eZmb3XsGE+Zwq/ndfRUJPJL16bjHIFJOAdo8WbYmRsChaAFDKr25pjQVdQaADl8T9xjj2BVDj6Wq5chquVdQBtLJPVt/ZBymzqJK0tdUzdwS58TLgE+5n0hJLgBIQ7DeUYF2I/IHn9qi8dWmeyKnb7NOyt78aaGzVQfvvbzgvPq+M3oKwb8JUuus15SFpvtib/LaSrEOzINZQ16RJSdyzpQ2KzrqK5/q3EmCKsSAuHHXOLEwVdCvLe2HG9gezHTDvTipoOCBYOVgo2yFTojkBmSzXqo3FfEYneqXIPLFhnoAuYCbjmNNB2iOg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 165.85.157.49) smtp.rcpttodomain=lists.infradead.org
+ smtp.mailfrom=gehealthcare.com; dmarc=fail (p=quarantine sp=quarantine
+ pct=100) action=quarantine header.from=gehealthcare.com; dkim=none (message
+ not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gehealthcare.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OlzMDNQ1cM8ah+38Tw9DOLxzKgOZGgHJ/+gYu0boa3s=;
+ b=sf08aNdhr/yipIZfbiW5ttb+k2L9yYo/uOBH5b7y/Kk6P9wllPo1E1fCsfp7Bf2VBBWH9VRA782FpC5jVM3fEfGrf4qR+yYV/cymjcCgF+EtwqaZrCF013vs7JCMKZJ2TmsMTWAgmWYY0PdW8MXEA/NiPmPasf5CdT+Xlk81+qbF/DjgvU3EK3gqP3ULTQDyvqadxJsb+v89IrNjVq9zslZTZQCy4PwldP4CS8BcA/RjkAAkR2SRWOSXheUOxeh2RCXidsF1dn3eA5IyFAt/Laxoi/XC/4WWzNH/6ZJ3CY0HxfzyqjVt0SuCE5qCQJHemZHxLFPI4/uV+e4/ReG/wA==
+Received: from BYAPR21CA0025.namprd21.prod.outlook.com (2603:10b6:a03:114::35)
+ by DS4PPF242240EEC.namprd22.prod.outlook.com (2603:10b6:f:fc00::b0e) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.20; Tue, 14 Apr
+ 2026 07:44:09 +0000
+Received: from MWH0EPF000C6184.namprd02.prod.outlook.com
+ (2603:10b6:a03:114:cafe::89) by BYAPR21CA0025.outlook.office365.com
+ (2603:10b6:a03:114::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.2 via Frontend Transport; Tue,
+ 14 Apr 2026 07:44:08 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 165.85.157.49)
+ smtp.mailfrom=gehealthcare.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=quarantine header.from=gehealthcare.com;
+Received-SPF: Fail (protection.outlook.com: domain of gehealthcare.com does
+ not designate 165.85.157.49 as permitted sender)
+ receiver=protection.outlook.com; client-ip=165.85.157.49;
+ helo=mkerelay2.compute.ge-healthcare.net;
+Received: from mkerelay2.compute.ge-healthcare.net (165.85.157.49) by
+ MWH0EPF000C6184.mail.protection.outlook.com (10.167.249.116) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9769.17 via Frontend Transport; Tue, 14 Apr 2026 07:44:08 +0000
+Received: from zoo11.fihel.lab.ge-healthcare.net (zoo11.fihel.lab.ge-healthcare.net [10.168.174.93])
+	by builder1.fihel.lab.ge-healthcare.net (Postfix) with SMTP id CEDFD131E4;
+	Tue, 14 Apr 2026 10:44:05 +0300 (EEST)
+Date: Tue, 14 Apr 2026 10:44:05 +0300
+From: Brian Ruley <brian.ruley@gehealthcare.com>
+To: Will Deacon <will@kernel.org>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+	Steve Capper <steve.capper@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	catalin.marinas@arm.com
+Subject: Re: [PATCH] mm/arm: pgtable: remove young bit check for
+ pte_valid_user
+Message-ID: <ad3wRQt7K-QLX8Jw@zoo11.fihel.lab.ge-healthcare.net>
+References: <20260409125446.981747-1-brian.ruley@gehealthcare.com>
+ <adewJetUv6wMiz9o@willie-the-truck>
+ <adfDEMK8EbIjPu3J@zoo11.fihel.lab.ge-healthcare.net>
+ <adfNN33QIOP3VfDm@shell.armlinux.org.uk>
+ <adjYlUk8_JjPivNi@zoo11.fihel.lab.ge-healthcare.net>
+ <adzMOdySgMIePcue@willie-the-truck>
+ <ad0Ky09tLcFx7JCa@zoo11.fihel.lab.ge-healthcare.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/5] ARM: configs: Drop redundant SND_ATMEL_SOC
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Bjorn Andersson <andersson@kernel.org>, Dmitry Baryshkov <lumag@kernel.org>,
- Dinh Nguyen <dinguyen@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>,
- Drew Fustini <fustini@kernel.org>, soc@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260412-b4-defconfig-multi-v7-v1-0-e76de035c2df@oss.qualcomm.com>
- <20260412-b4-defconfig-multi-v7-v1-3-e76de035c2df@oss.qualcomm.com>
-Content-Language: en-US
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <20260412-b4-defconfig-multi-v7-v1-3-e76de035c2df@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ad0Ky09tLcFx7JCa@zoo11.fihel.lab.ge-healthcare.net>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000C6184:EE_|DS4PPF242240EEC:EE_
+X-MS-Office365-Filtering-Correlation-Id: 489e76cf-8209-44db-e313-08de99f99ca1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|82310400026|1800799024|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: U7kCcKgg7A8U69UNFc5x9HZ9HDPtFYRipkDTPfx1O5jE00e/jAI7LfOrkXlJvgFSUlu1QVzaSkusZzjecuWDKZPD47xUIQsMN1euzvnfBC8mB63zMMV888N0YMrA5MKKOhsVpQRDGHQEyLdVPJrxWb1d/iKo23JXuuCC8mW/5WT/9uSb6JZx3Wkrh+OWRFk5w2jx8nP7zD2Q3fR2eNL8WtduIpKVTTsN9Nl6V+uIwYi/JhGWP7Cm1qiXGgklUaXH1cLOU/4h2Ppa64p60BTfqFiEEJw1gYgzAOBa0no70cNqQlx2MeRGyDWMvt57yCG4eqNtMtnoDqh2YQJ3OvgF9EsNz+nuiWw9mWUihdftuvqGfCHVIVUjYiQexWq8cnd9mLLDfQrBHLWjqok5l9G/m6jLn/XuFe/IrrMekdmLNH7pt36MGhNIi61r9z1PSbHATqWYKduN8YGJrmqOS0grdhGeUme0LDyXjwjIUpqqXoLtYL7cr1GtsZa2djhNKFLp8eOz0HsCNfCWMVdth4WNGnSZpN+Uz8oz2zdfgygqPiPsaEi571WODEeREbdOtWy+B3Q7hd6zGlSXI5pw+AAUTApe3Xym7vUHeeAWPMb5nOuTKvYYx2NpLj2CNo/P+kv9OswDBC/zpOYmvlbfF4BJcKmeEeikIaZ2HABFXKEOlsSNTkDsRk62EiFgO/NtJEScwIAjUk8cBFvWsruu9oWJIFg4OpLUEFJAl7woOkhm46akkXOijjBfjo48q2UVAyFzw7qgOs8st8Ej1yxtFJDGQw==
+X-Forefront-Antispam-Report: CIP:165.85.157.49;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mkerelay2.compute.ge-healthcare.net;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(82310400026)(1800799024)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: XwjXK+ie0rPNS0KwE0FTmng5jrfPqTBekxWqqm9I8WR4uWQLMUX69dIxMii9tFlzJ6hAw3a2WY+bpk36OxU7cs85/GAIc0DBtGbykN4kig1wS9jZCTkMbk2d0lNP3i42u27iEnO9FeKPlq2bb7YrOBNpSXeJHituq77WYGYVeY2si4FWHxKhsXuK2Z+WGCrJCxA7AGYMhYLmgIP0MxxxxRB6MLo5E09mkybPeaDgsP9pZNAoSi/aZYvPJfcBK8GCiNqJwIJcQM5zDNthV2t2dR6wWEoKq4TqQhxu+Yy7WkkaxRI5NhU9u9hdo6x4jRIKgLSiZ0GoPKcVesw1cSqyrgh4hz3z5LZHDpsn0BCHGE+F3D2KD2NVrNtl5BX/0xRGOJAo2aO1m8x6d/3DowFOV149vQiFmRkRmf/T8oMtk3VAr4FN4xS0zQCzQr3wqODY
+X-OriginatorOrg: gehealthcare.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Apr 2026 07:44:08.4496
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 489e76cf-8209-44db-e313-08de99f99ca1
+X-MS-Exchange-CrossTenant-Id: 9a309606-d6ec-4188-a28a-298812b4bbbf
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=9a309606-d6ec-4188-a28a-298812b4bbbf;Ip=[165.85.157.49];Helo=[mkerelay2.compute.ge-healthcare.net]
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-MWH0EPF000C6184.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PPF242240EEC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_003820_417471_7763E4F7 
-X-CRM114-Status: UNSURE (   6.93  )
+X-CRM114-CacheID: sfid-20260414_004416_991278_66ED0B4A 
+X-CRM114-Status: UNSURE (   7.55  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,15 +128,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 4/12/26 20:12, Krzysztof Kozlowski wrote:
-> CONFIG_SND_ATMEL_SOC is gone since commit 4f30f84feb77 ("ASoC: atmel:
-> Standardize ASoC menu") and can be simply dropped without effect.
+On Apr 13, Brian Ruley wrote:
 > 
-> No impact on include/generated/autoconf.h.
-> 
-> Signed-off-by: Krzysztof Kozlowski<krzysztof.kozlowski@oss.qualcomm.com>
+> In the meanwhile, I'll see if I can add some instrumentation to
+> verify this is the bug we're seeing.
 
-Acked-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+The instrumentation worked (used the same ring buffer approach to track
+dcache flushes). Here's the output:
+
+```
+kernel: [48629.557043] SIGILL at b6b80ac0 cpu 1 pid 32663 linux_pte=8eff659f hw_pte=8eff6e7e young=1 exec=1
+kernel: [48629.557157] dcache flush START   cpu0 pfn=8eff6 ts=48629557020154
+kernel: [48629.557207] dcache flush FINISH  cpu0 pfn=8eff6 ts=48629557036154
+kernel: [48629.557230] dcache flush SKIPPED cpu1 pfn=8eff6 ts=48629557020154
+audisp-syslog: type=ANOM_ABEND msg=audit(1776154637.460:15): auid=4294967295 uid=0 gid=0 ses=4294967295 pid=32663 comm="journalctl" exe="/usr/bin/journalctl" sig=4 res=1 AUID="unset" UID="root" GID="root"
+```
+
+BR,
+Brian
 
