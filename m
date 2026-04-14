@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3999F9D0C0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 11:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA46F9D0C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 11:31:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FDoNnB/stWo+tIA8rfLeuivUqjWfBjMEcC5J+xm1V+Q=; b=YvMwkEfu54J+v16L53LV1V6/Ar
-	8aFG9MvO5BZvwo3/0n/17keMBIsXVjyfIHkkxLlVaKoHyTI9lVUF1K1q1ZYbv6L6HjUmlCbzNrHmc
-	Sli9D2mlYjPGXsXv/+LOn4ZZb4RPR/Wv+RX1p4h6oiXYmgF1kqIKNw8bf5lfg2Mnh8zG+DIIdeoSa
-	QIF+5DFp9uoWTOKHFkOTry18/xLDvY3eU4+/JksHPJN37Y/nMgZe774+Czb8Bwh627eW0/bpF57ZE
-	iLNINNhk4Lb5+dtpAzk7p/3wPzL/+6AXuvo2JdSkQVPXwDe3ApR9XSsujy+poUjr1R3k9yP4lwT2H
-	e7zvyyhg==;
+	bh=uV2E4OtysVLSUG4XWoVwDCw2mDt/pkmI+uQgA0k/IpY=; b=Ae4OZkTlwjZvQ1pI+M6hm3fbbN
+	+K8ZCdL6lmvAI7V6YIEoGm8EwlC6QHq9qG1DhVDkNdSNU3RKcARrs+xPR8TRFA0g7FyWmWMAMPiQe
+	L/eh782nnhBJgv/6OUKgg69pgf7ido7iXSxF75cwesgws59hV9DqZ2dTwV3agoN2GxbhCP2QUbAhk
+	DoJVempm7cptabiwx4QDkHPRniz75nkvqfQhUY5Dk0fVNI8F59ZWyVXd9qJuCMzpuM2Su7YEYbGz1
+	i/1PckZRKy+duIONdrUnsp3xFfONnySRo9fDxLc7cBLQbe0sxmeDRtjPzNL2sR0HFxgNF8uIiBzel
+	D8+LGVwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCbtX-0000000HEGc-1hTz;
-	Tue, 14 Apr 2026 11:25:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wCbzg-0000000HEgh-2HL9;
+	Tue, 14 Apr 2026 11:31:48 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCbtU-0000000HEFV-25lg
+	id 1wCbzd-0000000HEgF-04BJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 11:25:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 363414456D;
-	Tue, 14 Apr 2026 11:25:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DC26C2BCB6;
-	Tue, 14 Apr 2026 11:25:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776165924;
-	bh=Ta/hm6NRVE22lBnoq5DBMBWzc8sZInol9jpzrXHLxFo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hJY6Q+pOpjWAdBnTGZH79OA77LDJMeEASW0EYU6/PT6eTAX5Bspa+knn/teKkf4rL
-	 Zunnyk82zPQAwhht73yRQbrvkjJLebmHyhYcS0VJf0aBSZQOfcMqeVDpQDRuBqhG0l
-	 VVq3t2F/OLn0uQI+zpAdBs6xJxJF7aW+pZTxgDyCLdDvKXi+JKI2evTRomJhaiYe0D
-	 Z8bQNJew2JJS/EFqxSZy+onPU43w+DnYXjDkjkgJGuDRnIZWQMDub1fme7fuYWlhbO
-	 n/CFkfLbpkfDbACULxjW26cvbEdC0596ScD1o+QwjAj+d3nwEIt0vX9RiwpX8o6yy5
-	 BYydfjlhE82gA==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Tomasz Merta <tomasz.merta@arrow.com>,
-	Tomasz Merta <tommerta@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Sasha Levin <sashal@kernel.org>,
-	olivier.moysan@foss.st.com,
-	arnaud.pouliquen@foss.st.com,
-	lgirdwood@gmail.com,
-	perex@perex.cz,
-	tiwai@suse.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	linux-sound@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.19-5.10] ASoC: stm32_sai: fix incorrect BCLK polarity for DSP_A/B, LEFT_J
-Date: Tue, 14 Apr 2026 07:25:05 -0400
-Message-ID: <20260414112509.410217-9-sashal@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260414112509.410217-1-sashal@kernel.org>
-References: <20260414112509.410217-1-sashal@kernel.org>
+	Tue, 14 Apr 2026 11:31:47 +0000
+dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=uV2E4OtysVLSUG4XWoVwDCw2mDt/pkmI+uQgA0k/IpY=;
+	b=GF1LAInEeqgAeqq5DYjP+nLq0xL5yYIOhCe2gEwUHcd1Vr6fcLNAKdOX8juEJunV1xzy2hPOv
+	poDUU8BZ5Z8yCYpzk+SaHlmHqAZc8gH6McjPKMguh7JkZURQfdx71b8E9ZwgOB6MPsXsjenFeQR
+	y5xT6Yca/6U34vqz77ed2ks=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4fw24n3tyTzRhR4;
+	Tue, 14 Apr 2026 19:25:13 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 561814048F;
+	Tue, 14 Apr 2026 19:31:31 +0800 (CST)
+Received: from kwepemn100009.china.huawei.com (7.202.194.112) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 14 Apr 2026 19:31:31 +0800
+Received: from [10.67.121.59] (10.67.121.59) by kwepemn100009.china.huawei.com
+ (7.202.194.112) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 14 Apr
+ 2026 19:31:30 +0800
+Message-ID: <6694ca7c-13bf-4e7d-9621-bc992cbf96a7@huawei.com>
+Date: Tue, 14 Apr 2026 19:31:29 +0800
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.19.12
-Content-Type: text/plain; charset=UTF-8
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC] ACPI: processor: idle: Do not propagate
+ acpi_processor_ffh_lpi_probe() -ENODEV
+To: Breno Leitao <leitao@debian.org>
+CC: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+	<lpieralisi@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	<linux-acpi@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<pjaroszynski@nvidia.com>, <guohanjun@huawei.com>, <sudeep.holla@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <rmikey@meta.com>,
+	<kernel-team@meta.com>
+References: <20260413-ffh-v1-1-301704f69e2f@debian.org>
+ <af9c679d-899c-4832-b902-e621b5987f12@huawei.com>
+ <ad4UWJ__dnDQtrj8@gmail.com>
+From: "lihuisong (C)" <lihuisong@huawei.com>
+In-Reply-To: <ad4UWJ__dnDQtrj8@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.121.59]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemn100009.china.huawei.com (7.202.194.112)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_042524_623999_5671DB70 
-X-CRM114-Status: GOOD (  26.31  )
+X-CRM114-CacheID: sfid-20260414_043145_727589_7E73CB65 
+X-CRM114-Status: GOOD (  22.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,470 +89,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Tomasz Merta <tomasz.merta@arrow.com>
 
-[ Upstream commit 0669631dbccd41cf3ca7aa70213fcd8bb41c4b38 ]
-
-The STM32 SAI driver do not set the clock strobing bit (CKSTR) for DSP_A,
-DSP_B and LEFT_J formats, causing data to be sampled on the wrong BCLK
-edge when SND_SOC_DAIFMT_NB_NF is used.
-
-Per ALSA convention, NB_NF requires sampling on the rising BCLK edge.
-The STM32MP25 SAI reference manual states that CKSTR=1 is required for
-signals received by the SAI to be sampled on the SCK rising edge.
-Without setting CKSTR=1, the SAI samples on the falling edge, violating
-the NB_NF convention. For comparison, the NXP FSL SAI driver correctly
-sets FSL_SAI_CR2_BCP for DSP_A, DSP_B and LEFT_J, consistent with its
-I2S handling.
-
-This patch adds SAI_XCR1_CKSTR for DSP_A, DSP_B and LEFT_J in
-stm32_sai_set_dai_fmt which was verified empirically with a cs47l35 codec.
-RIGHT_J (LSB) is not investigated and addressed by this patch.
-
-Note: the STM32 I2S driver (stm32_i2s_set_dai_fmt) may have the same issue
-for DSP_A mode, as I2S_CGFR_CKPOL is not set. This has not been verified
-and is left for a separate investigation.
-
-Signed-off-by: Tomasz Merta <tommerta@gmail.com>
-Link: https://patch.msgid.link/20260408084056.20588-1-tommerta@gmail.com
-Signed-off-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
-
-LLM Generated explanations, may be completely bogus:
-
-Now I have comprehensive data. Let me compile the full analysis.
-
----
-
-## PHASE 1: COMMIT MESSAGE FORENSICS
-
-### Step 1.1: Parse the Subject Line
-- **Subsystem:** ASoC: stm32_sai (STM32 Serial Audio Interface driver)
-- **Action verb:** "fix" — explicitly a bug fix
-- **Summary:** Fixes incorrect BCLK (bit clock) polarity for DSP_A,
-  DSP_B, and LEFT_J audio formats
-
-Record: [ASoC: stm32_sai] [fix] [incorrect BCLK polarity for DSP_A/B,
-LEFT_J formats]
-
-### Step 1.2: Parse All Commit Message Tags
-- **Signed-off-by:** Tomasz Merta <tommerta@gmail.com> — patch author
-- **Link:**
-  https://patch.msgid.link/20260408084056.20588-1-tommerta@gmail.com —
-  patch submission link
-- **Signed-off-by:** Mark Brown <broonie@kernel.org> — ASoC subsystem
-  maintainer applied it
-- **No Fixes: tag** — expected for commits under review
-- **No Cc: stable** — expected for commits under review
-- **No Reported-by** — author discovered this themselves
-
-Record: Applied by Mark Brown (ASoC maintainer). No Fixes: or Cc:stable
-tags. Single-patch submission, no series.
-
-### Step 1.3: Analyze the Commit Body Text
-The commit explains:
-- **Bug:** The CKSTR (Clock STRobing) bit is not set for DSP_A, DSP_B,
-  and LEFT_J formats
-- **Symptom:** Data sampled on the wrong BCLK edge when
-  SND_SOC_DAIFMT_NB_NF is used
-- **Root cause:** Per ALSA convention, NB_NF (Normal Bit clock, Normal
-  Frame) requires sampling on the rising BCLK edge. The STM32MP25
-  reference manual confirms CKSTR=1 is needed for rising edge sampling.
-  Without it, data is sampled on the falling edge.
-- **Verification:** Empirically verified with a cs47l35 codec
-- **Reference:** NXP FSL SAI driver correctly sets the equivalent bit
-  for these formats
-
-Record: Real hardware bug — audio data sampled on wrong clock edge for
-DSP_A, DSP_B, LEFT_J formats. Causes incorrect audio behavior.
-
-### Step 1.4: Detect Hidden Bug Fixes
-This is an explicit bug fix — not hidden. The subject says "fix" and the
-commit describes the exact hardware behavior violation.
-
-Record: Explicit bug fix, no hidden nature.
-
----
-
-## PHASE 2: DIFF ANALYSIS
-
-### Step 2.1: Inventory the Changes
-- **File:** sound/soc/stm/stm32_sai_sub.c
-- **Lines added:** 3
-- **Lines removed:** 0
-- **Functions modified:** `stm32_sai_set_dai_fmt()`
-- **Scope:** Single-file, single-function, surgical fix
-
-Record: 1 file, +3 lines, 0 removed. Only stm32_sai_set_dai_fmt()
-modified. Extremely small and surgical.
-
-### Step 2.2: Understand the Code Flow Change
-Three hunks, each adding `cr1 |= SAI_XCR1_CKSTR;`:
-1. **SND_SOC_DAIFMT_MSB (LEFT_J):** Before: only set FSPOL and FSDEF.
-   After: also sets CKSTR for rising-edge sampling.
-2. **SND_SOC_DAIFMT_DSP_A:** Before: only set FSPOL and FSOFF. After:
-   also sets CKSTR.
-3. **SND_SOC_DAIFMT_DSP_B:** Before: only set FSPOL. After: also sets
-   CKSTR.
-
-The I2S case already had `cr1 |= SAI_XCR1_CKSTR;` — the fix makes the
-other formats consistent.
-
-Note the later code at line 828-832: the SND_SOC_DAIFMT_INV_MASK switch
-uses XOR (`cr1 ^= SAI_XCR1_CKSTR`) to invert the polarity. Without CKSTR
-being initially set, the XOR for IB_NF would SET it instead of clearing
-it — the inversion logic only works correctly when CKSTR starts at the
-right default value.
-
-Record: Each hunk adds the missing CKSTR bit to a format case. Fix makes
-DSP_A, DSP_B, LEFT_J consistent with I2S (which already had CKSTR). Also
-fixes the inversion logic interaction.
-
-### Step 2.3: Identify the Bug Mechanism
-Category: **Logic/correctness fix** — missing hardware register bit
-configuration.
-
-The STM32 SAI hardware defaults to sampling on the falling edge
-(CKSTR=0). ALSA convention says NB_NF means rising edge. Without setting
-CKSTR=1 for these formats, audio data is sampled on the wrong clock
-edge, leading to corrupted or incorrect audio output.
-
-Record: Logic/correctness bug. Missing register bit causes wrong clock
-edge for audio sampling.
-
-### Step 2.4: Assess the Fix Quality
-- **Obviously correct:** Yes. The I2S case already sets CKSTR, and the
-  FSL SAI driver (a well-established reference implementation) sets the
-  equivalent bit for all these formats. The hardware reference manual
-  confirms CKSTR=1 is needed.
-- **Minimal/surgical:** Extremely — 3 identical one-line additions
-- **Regression risk:** Very low. Only affects users of STM32 SAI with
-  DSP_A, DSP_B, or LEFT_J formats. Cannot affect other formats or other
-  hardware.
-- **Red flags:** None
-
-Record: Obviously correct (confirmed by reference manual, FSL SAI
-comparison, empirical testing). Zero regression risk for unaffected
-configurations.
-
----
-
-## PHASE 3: GIT HISTORY INVESTIGATION
-
-### Step 3.1: Blame the Changed Lines
-The buggy code was introduced by commit `3e086edfe0c73d` ("ASoC: stm32:
-add SAI driver") from 2017-04-10, by Olivier Moysan. This was the
-**initial driver commit** creating the entire stm32_sai_sub.c file.
-First appeared in **v4.12**.
-
-Record: Bug present since the initial driver addition in v4.12 (2017).
-Present in ALL stable trees that have this driver.
-
-### Step 3.2: Follow the Fixes: Tag
-No Fixes: tag present. The implicit fixes target is `3e086edfe0c73d`
-(the initial driver commit).
-
-Record: Bug is original to the driver (v4.12). Present in all stable
-trees.
-
-### Step 3.3: Check File History for Related Changes
-Recent changes to stm32_sai_sub.c are mostly cleanup, probe error path
-fixes, and stm32mp25 support additions. None touch the
-`stm32_sai_set_dai_fmt()` function's format handling.
-
-Record: No recent changes to the same code region. Patch applies cleanly
-to any stable tree containing this driver.
-
-### Step 3.4: Check the Author's Other Commits
-Tomasz Merta has no other commits in the kernel tree. This is a first-
-time contributor. However, the fix was accepted by Mark Brown (ASoC
-subsystem maintainer) which validates it.
-
-Record: First-time contributor, but fix accepted by subsystem maintainer
-Mark Brown.
-
-### Step 3.5: Check for Dependent/Prerequisite Commits
-None. The fix adds 3 identical lines (`cr1 |= SAI_XCR1_CKSTR;`) in
-switch cases that have been unchanged since v4.12. No dependencies.
-
-Record: Fully standalone. No prerequisites needed.
-
----
-
-## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
-
-### Step 4.1: Find the Original Patch Discussion
-From the agent research: The patch was submitted on April 8, 2026, and
-applied by Mark Brown the same day to his `for-7.0` branch. Only two
-messages in the thread — submission and Mark Brown's automated "Applied
-to" message. No substantive review discussion.
-
-Record: Lore URL:
-https://patch.msgid.link/20260408084056.20588-1-tommerta@gmail.com.
-Applied same day by maintainer. No concerns raised.
-
-### Step 4.2: Check Who Reviewed the Patch
-Mark Brown (ASoC maintainer) applied the patch. Olivier Moysan (original
-STM32 SAI driver author) was CC'd but did not comment.
-
-Record: Applied by subsystem maintainer. No objections.
-
-### Step 4.3: Search for Bug Report
-No formal Reported-by tag. Author discovered this empirically while
-working with a cs47l35 codec on STM32 hardware.
-
-Record: Author-discovered bug during empirical testing.
-
-### Step 4.4: Check for Related Patches and Series
-Single patch, not part of a series. The commit message notes the STM32
-I2S driver may have a similar issue but that is a separate
-investigation.
-
-Record: Standalone fix.
-
-### Step 4.5: Check Stable Mailing List History
-No prior stable discussion found for this specific issue.
-
-Record: No prior stable discussion.
-
----
-
-## PHASE 5: CODE SEMANTIC ANALYSIS
-
-### Step 5.1: Identify Key Functions in the Diff
-Only `stm32_sai_set_dai_fmt()` is modified.
-
-### Step 5.2: Trace Callers
-`stm32_sai_set_dai_fmt` is registered as `.set_fmt` in two
-`snd_soc_dai_ops` structs (lines 1368 and 1380). It is called by the
-ASoC framework during DAI configuration — a standard, commonly exercised
-path whenever audio playback/capture begins with this hardware.
-
-Record: Called by ASoC framework during DAI setup. Common path for any
-audio operation on STM32 SAI hardware.
-
-### Step 5.3-5.4: Trace Callees and Call Chain
-The function configures hardware registers via `regmap_update_bits`.
-Standard ASoC driver pattern with no unusual side effects.
-
-Record: Standard register configuration function.
-
-### Step 5.5: Search for Similar Patterns
-Confirmed by FSL SAI driver comparison: `fsl_sai.c` lines 325, 333, 342,
-351 all set `FSL_SAI_CR2_BCP` (the equivalent bit) for I2S, LEFT_J,
-DSP_A, and DSP_B formats. The STM32 SAI driver was missing it for 3 of 4
-formats.
-
-Record: FSL SAI driver confirms the correct pattern — BCP/CKSTR must be
-set for all these formats.
-
----
-
-## PHASE 6: CROSS-REFERENCING AND STABLE TREE ANALYSIS
-
-### Step 6.1: Does the Buggy Code Exist in Stable Trees?
-The buggy code was introduced in v4.12. The function
-`stm32_sai_set_dai_fmt()` and the specific switch cases have been
-unchanged since then. The bug exists in **all active stable trees**
-(5.10, 5.15, 6.1, 6.6, 6.12+).
-
-Record: Bug present in all active stable trees.
-
-### Step 6.2: Check for Backport Complications
-None of the recent commits touch the format switch in
-`stm32_sai_set_dai_fmt()`. The patch adds simple one-line additions to
-existing switch cases. Expected to apply cleanly to all stable trees.
-
-Record: Clean apply expected for all stable trees.
-
-### Step 6.3: Check if Related Fixes Are Already in Stable
-No related clock polarity fixes have been applied to this driver.
-
-Record: No existing fixes for this issue.
-
----
-
-## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
-
-### Step 7.1: Identify the Subsystem and Its Criticality
-- **Subsystem:** ASoC (ALSA System on Chip) / STM32 SAI driver
-- **Criticality:** PERIPHERAL — affects STM32 (ARM embedded) platform
-  users
-- **User base:** STM32MP1, STM32MP2 series users running Linux (embedded
-  systems, IoT, industrial)
-
-Record: PERIPHERAL. Affects STM32 ARM SoC users.
-
-### Step 7.2: Assess Subsystem Activity
-The stm32_sai_sub.c file has had 65 changes since v4.19. Moderate
-activity, mostly maintenance and cleanup. The core format handling code
-has been stable since v4.12.
-
-Record: Moderate activity. Format handling code very stable.
-
----
-
-## PHASE 8: IMPACT AND RISK ASSESSMENT
-
-### Step 8.1: Determine Who Is Affected
-Users of STM32 SAI hardware using DSP_A, DSP_B, or LEFT_J audio formats
-with codecs. This is specific to STM32 embedded platform users.
-
-Record: STM32 SAI users with DSP_A/DSP_B/LEFT_J formats. Niche but real
-user population.
-
-### Step 8.2: Determine the Trigger Conditions
-The bug triggers whenever:
-1. STM32 SAI driver is used (common on STM32MP platforms)
-2. Audio format is DSP_A, DSP_B, or LEFT_J (common for certain codecs)
-3. NB_NF clock polarity convention is used (the default/normal case)
-
-This is deterministic — it always triggers for these configurations, not
-a race or timing issue.
-
-Record: Deterministic trigger for affected configurations. Always
-broken, not intermittent.
-
-### Step 8.3: Determine the Failure Mode Severity
-- Audio data sampled on wrong clock edge
-- Results in **incorrect audio output** — corrupted, distorted, or
-  silent audio
-- This is a **functional correctness** issue, not a crash or security
-  issue
-- Severity: **MEDIUM** — incorrect hardware behavior, but no
-  crash/corruption/security impact
-
-Record: Incorrect audio output. MEDIUM severity. No crash or data
-corruption.
-
-### Step 8.4: Calculate Risk-Benefit Ratio
-- **BENEFIT:** Medium. Fixes broken audio for STM32 SAI users with
-  DSP_A/DSP_B/LEFT_J formats. Deterministic bug.
-- **RISK:** Very low. 3 one-line additions. Identical pattern to
-  existing I2S case. Cannot affect other formats or other hardware.
-  Confirmed correct by hardware reference manual and NXP FSL SAI
-  reference implementation.
-- **Ratio:** Favorable. Very low risk, meaningful benefit for affected
-  users.
-
-Record: Benefit=MEDIUM, Risk=VERY LOW. Favorable ratio.
-
----
-
-## PHASE 9: FINAL SYNTHESIS
-
-### Step 9.1: Compile the Evidence
-
-**Evidence FOR backporting:**
-- Fixes a real hardware bug: audio data sampled on wrong clock edge
-- Bug present since v4.12 (initial driver addition) — affects all stable
-  trees
-- Extremely small and surgical: 3 identical one-line additions
-- Obviously correct: confirmed by hardware reference manual, FSL SAI
-  reference driver, and empirical testing
-- No dependencies or prerequisites
-- Will apply cleanly to all stable trees
-- Accepted by subsystem maintainer Mark Brown
-- Deterministic bug (always triggers for affected configs)
-
-**Evidence AGAINST backporting:**
-- Driver-specific, affecting only STM32 SAI users
-- No crash, data corruption, or security impact — functional audio
-  correctness only
-- No Reported-by tags — unclear how many users are affected in practice
-- No formal bug reports from users
-
-**Unresolved:**
-- Exact number of users affected is unknown (STM32 embedded is a niche
-  but real market)
-
-### Step 9.2: Apply the Stable Rules Checklist
-1. **Obviously correct and tested?** YES — empirically verified with
-   cs47l35 codec, confirmed by hardware manual and FSL SAI reference
-2. **Fixes a real bug?** YES — wrong clock edge for audio sampling
-3. **Important issue?** MEDIUM — incorrect audio output, not
-   crash/security
-4. **Small and contained?** YES — 3 lines in 1 file, 1 function
-5. **No new features or APIs?** Correct — pure bug fix
-6. **Can apply to stable trees?** YES — clean apply expected
-
-### Step 9.3: Check for Exception Categories
-This falls under a **hardware workaround/correctness fix** — fixing
-incorrect hardware register configuration for an existing driver.
-
-### Step 9.4: Decision
-This is a well-understood, minimal, obviously correct fix for a real
-hardware bug that has existed since the driver was first added. While it
-only affects STM32 SAI users with specific audio formats (not a crash or
-security issue), the fix is so small and risk-free that the benefit
-clearly outweighs the negligible risk. It meets all stable kernel
-criteria and is the kind of small driver fix that routinely goes to
-stable.
-
----
-
-## Verification
-
-- [Phase 1] Parsed tags: Signed-off-by from author (Tomasz Merta) and
-  maintainer (Mark Brown). Link to patch.msgid.link. No Fixes: or Cc:
-  stable (expected).
-- [Phase 2] Diff analysis: 3 identical one-line additions of `cr1 |=
-  SAI_XCR1_CKSTR;` in MSB, DSP_A, DSP_B cases of
-  stm32_sai_set_dai_fmt().
-- [Phase 2] FSL SAI comparison verified: fsl_sai.c:325,333,342,351 all
-  set FSL_SAI_CR2_BCP for I2S, LEFT_J, DSP_A, DSP_B — confirms the STM32
-  fix is correct.
-- [Phase 2] SAI_XCR1_CKSTR definition verified: stm32_sai.h:63 defines
-  it as BIT(9).
-- [Phase 3] git blame: all affected lines trace to 3e086edfe0c73d
-  (2017-04-10, "ASoC: stm32: add SAI driver"), first in v4.12.
-- [Phase 3] git tag --contains 3e086edfe0c73d: confirms first release
-  was v4.12-rc1.
-- [Phase 3] No other commits touch the format switch in
-  stm32_sai_set_dai_fmt — clean apply expected.
-- [Phase 3] Author (Tomasz Merta) has no other kernel commits — first-
-  time contributor.
-- [Phase 4] Mailing list: 2-message thread. Applied by Mark Brown same
-  day. No objections, no stable nomination.
-- [Phase 5] stm32_sai_set_dai_fmt registered in .set_fmt ops (lines
-  1368, 1380) — called by ASoC framework during standard DAI setup.
-- [Phase 6] File exists unchanged in all stable trees (v5.10+, v6.1+,
-  v6.6+). No conflicting changes to the format switch.
-- [Phase 7] Subsystem: ASoC STM32 SAI. PERIPHERAL criticality.
-- [Phase 8] Failure mode: incorrect audio sampling (wrong clock edge).
-  MEDIUM severity. VERY LOW regression risk.
-
-**YES**
-
- sound/soc/stm/stm32_sai_sub.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/sound/soc/stm/stm32_sai_sub.c b/sound/soc/stm/stm32_sai_sub.c
-index 450e1585edeee..3e82fa90e719a 100644
---- a/sound/soc/stm/stm32_sai_sub.c
-+++ b/sound/soc/stm/stm32_sai_sub.c
-@@ -802,6 +802,7 @@ static int stm32_sai_set_dai_fmt(struct snd_soc_dai *cpu_dai, unsigned int fmt)
- 		break;
- 	/* Left justified */
- 	case SND_SOC_DAIFMT_MSB:
-+		cr1 |= SAI_XCR1_CKSTR;
- 		frcr |= SAI_XFRCR_FSPOL | SAI_XFRCR_FSDEF;
- 		break;
- 	/* Right justified */
-@@ -809,9 +810,11 @@ static int stm32_sai_set_dai_fmt(struct snd_soc_dai *cpu_dai, unsigned int fmt)
- 		frcr |= SAI_XFRCR_FSPOL | SAI_XFRCR_FSDEF;
- 		break;
- 	case SND_SOC_DAIFMT_DSP_A:
-+		cr1 |= SAI_XCR1_CKSTR;
- 		frcr |= SAI_XFRCR_FSPOL | SAI_XFRCR_FSOFF;
- 		break;
- 	case SND_SOC_DAIFMT_DSP_B:
-+		cr1 |= SAI_XCR1_CKSTR;
- 		frcr |= SAI_XFRCR_FSPOL;
- 		break;
- 	default:
--- 
-2.53.0
+On 4/14/2026 6:21 PM, Breno Leitao wrote:
+> Hello Huisong,
+>
+> On Tue, Apr 14, 2026 at 05:43:51PM +0800, lihuisong (C) wrote:
+>> But it is a real issue. Thanks for your report.
+>> I think the best way to fix your issue is that remove this verification in
+>> psci_acpi_cpu_init_idle().
+>> Because it is legal for platform to report one LPI state.
+>> This function just needs to verify the LPI states which are FFH.
+> Thank you for the prompt feedback.
+>
+> Would this approach work?
+>
+> commit 6c9d52840a4f778cc989838ba76ee51416e85de3
+> Author: Breno Leitao <leitao@debian.org>
+> Date:   Tue Apr 14 03:16:08 2026 -0700
+>
+>      ACPI: processor: idle: Allow platforms with only one LPI state
+>      
+>      psci_acpi_cpu_init_idle() rejects platforms where power.count - 1 <= 0
+>      by returning -ENODEV. However, having a single LPI state (WFI) is a
+>      valid configuration. The function's purpose is to verify FFH idle states,
+>      and when count is zero, there are simply no FFH states to validate —
+>      this is not an error.
+>      
+>      On NVIDIA Grace (aarch64) systems with PSCIv1.1, power.count is 1 for
+>      all 72 CPUs, so the probe fails with -ENODEV. After commit cac173bea57d
+>      ("ACPI: processor: idle: Rework the handling of
+>      acpi_processor_ffh_lpi_probe()"), this failure propagates up and prevents
+>      cpuidle registration entirely.
+>      
+>      Change the check from (count <= 0) to (count < 0) so that platforms
+>      with only WFI are accepted. The for loop naturally handles count == 0
+>      by not iterating.
+>      
+>      Fixes: cac173bea57d ("ACPI: processor: idle: Rework the handling of acpi_processor_ffh_lpi_probe()")
+>      Signed-off-by: Breno Leitao <leitao@debian.org>
+>
+> diff --git a/drivers/acpi/arm64/cpuidle.c b/drivers/acpi/arm64/cpuidle.c
+> index 801f9c4501425..7791b751042ce 100644
+> --- a/drivers/acpi/arm64/cpuidle.c
+> +++ b/drivers/acpi/arm64/cpuidle.c
+> @@ -31,7 +31,7 @@ static int psci_acpi_cpu_init_idle(unsigned int cpu)
+>   		return -EOPNOTSUPP;
+>   
+>   	count = pr->power.count - 1;
+> -	if (count <= 0)
+> +	if (count < 0)
+>   		return -ENODEV;
+>   
+>   	for (i = 0; i < count; i++) {
+
+This count already verified in acpi_processor_get_lpi_info.
+
+I suggest modifing it as below:
+
+-->
+
+git diff
+diff --git a/drivers/acpi/arm64/cpuidle.c b/drivers/acpi/arm64/cpuidle.c
+index 801f9c450142..c68a5db8ebba 100644
+--- a/drivers/acpi/arm64/cpuidle.c
++++ b/drivers/acpi/arm64/cpuidle.c
+@@ -16,7 +16,7 @@
+
+  static int psci_acpi_cpu_init_idle(unsigned int cpu)
+  {
+-       int i, count;
++       int i;
+         struct acpi_lpi_state *lpi;
+         struct acpi_processor *pr = per_cpu(processors, cpu);
+
+@@ -30,14 +30,10 @@ static int psci_acpi_cpu_init_idle(unsigned int cpu)
+         if (!psci_ops.cpu_suspend)
+                 return -EOPNOTSUPP;
+
+-       count = pr->power.count - 1;
+-       if (count <= 0)
+-               return -ENODEV;
+-
+-       for (i = 0; i < count; i++) {
++       for (i = 1; i < pr->power.count; i++) {
+                 u32 state;
+
+-               lpi = &pr->power.lpi_states[i + 1];
++               lpi = &pr->power.lpi_states[i];
+                 /*
+                  * Only bits[31:0] represent a PSCI power_state while
+                  * bits[63:32] must be 0x0 as per ARM ACPI FFH 
+Specification
 
 
