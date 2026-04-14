@@ -4,99 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A350ED7B9A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 10:20:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55123ED7B96
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 10:22:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HjjP3x2s4FAG01oUrkjM+enP8FGX1QBSjIAMGgLldEs=; b=Fdl7iTE7+MJeWFHrYbOvz5NxdH
-	vkEYvW87DuLRzB8GKlu3MXi1tNC27rXgVPbBnY5ObFG1PlNHtOyb7q75nwFWCjcTpfZe38ApKp8ba
-	jcgQ2zmRER5D4zgtqH+uOuWz6wSyoV0imm58bOff9omZMRHZDmGkQlJSpiivPwAEqvmtaHzL6fLIc
-	tANQ1ccQgJQA37DMVxfEZCNnuBIJR8rWC3a0Uz+dp7OUvaZUyTDrqaScerllOsf6iJLCy8tgbGQpy
-	D8/ZpG9vjUVfb6uudaM7sIlGbcx59GDHVxHUs/uE4OJOJZ0YSzcQ4AAmhZo8K+vAbo64S9nbDaj8O
-	hCADQVAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mrj0TgymHiMmZwZs2Vo2Bt+4CUgM0die06+x7rWw59g=; b=BnatvVdG9QlzNigepdI99QKHQR
+	mLlBZFBIbouuK4WDl0un/xDBrI5Tqvng13aeYA7/NynZTJvwvjOsQw8wj0q671KjZmP2Oo2ug0Wok
+	wbUpmogjazUgVZ2XF4s21X+PuwARYdeHjOZMDz8V6vE7HvY5gfWtA/mmha879ZkKZEyriIN8UOn+q
+	suYCDDSCxyFx3obFjy7Oao0w0hL6azxi6Naoz5BJGM+84RKTV3O3Z8HgLZZBQoX4wykpXJ3B1XjDd
+	h5WYEOqQJNuVCEg+Rl9desLA8+ZvgAgoU/9gRzpOdnNMV63bVcA9G23ynWqbaCEEjj7VMyNWjLxW3
+	tOKuKxZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCasr-0000000H86b-3fvp;
-	Tue, 14 Apr 2026 10:20:41 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1wCauQ-0000000H8HY-3Zk0;
+	Tue, 14 Apr 2026 10:22:18 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCasp-0000000H85l-2E9W
+	id 1wCauP-0000000H8H2-1h8K
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 10:20:41 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-43cfe71e5d3so4102739f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 03:20:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1776162037; x=1776766837; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=HjjP3x2s4FAG01oUrkjM+enP8FGX1QBSjIAMGgLldEs=;
-        b=LcDNaltPLH0QsvlJoJGUo9o3H1j/8h+8yzTU7Y8C/sggj7kawygSs9G41yuNDbgk3g
-         VIMtut+leQx2HcB87Lu+PQEMN6i5raf0rno0gLb0d3/r+Qp43x2ayV4cFsy7CX0xfte7
-         HXS+SkeZyYaMK1ysWPawDpTmA8rhFEEtF/IWSAwGW8lOVrRd951t6PNxDmhWdd+ocwmY
-         S/Xxr6POvFMiw7GsyV0Wd6gbdTVyONHU15vrCBTJIhZtd7CNXVf9iYMgUEpTSKio5llt
-         aNNIsWiUgFmj0okde+wM+P+8ON8twm4p2GHp//4PNvje8wBW944SYAAn4Jg1S0AY4ANd
-         dDbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776162037; x=1776766837;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=HjjP3x2s4FAG01oUrkjM+enP8FGX1QBSjIAMGgLldEs=;
-        b=Dnhejh/j8BdFhkrNAqijOnILXSaEXTeUNXoH+AM2f3VVk7X1fz/bI8xxjF6nkI1J1C
-         FLFWW7Mq3t0HH3JBYdVNQH7fjUTuxQRuJztgzsjBTBT1Fbiw5A2s+/gakXm3pT+fvV80
-         mheUprQNlWYR6bCjRYD11vFzMe2BV86YrgUly4LIumF7PUngZj7ntxtADZOGx5Y3NUZ4
-         9MBL0qmZHopAzBzySWxFC9ltles8pE2ZJE9QP1dseOG4DHfT6ky8SH+XVNTCQSm/UA44
-         w1O1QoxDbpK8foPaySK97KEF0sDUsAlZWfJiuKDvSUA0m/m/cTN//lzN7JzEHG3AiPR1
-         tNWw==
-X-Forwarded-Encrypted: i=1; AFNElJ/2cSD//5zfKG0Ou/BzN74nWwdCZ4m7yaK7YENBDm/ssXKpdCl6sfai2eE/S7qmfiRQ+AnIoiqHQh1LXw0baYlu@lists.infradead.org
-X-Gm-Message-State: AOJu0YzM75G6VGGqi/ZumwHyzkpsKBEDpPTAoCIGrpyWjusse7AgvAep
-	X6+lvXQhc98YsExbQ8WQf2k6eLt9B06CoHA/esJiWeIKr34np+rTeTR+xtRPSbfbgVq55Mn8UCc
-	fwfQNhfQ=
-X-Gm-Gg: AeBDievNZDbIWqPh/hXjKZYAG1oupdSEZedNQkNUdDOiesxNkeCjZd2eOt9s+53gXQs
-	1TuDQeF85GofG0JeHE4gIWYov4bZ2uz+xEblMQ5iYGO4THnH3cRpbwchwz4l86nYgeKUOTjMcoZ
-	Qmm8+03h2NURMiFqGgVwW2qwxK4c3RhE5IhMQG1bD8uXujVt/jmFnrbyWSEc6awRQBwOodU342T
-	fQHJXNOs+SzZf5osKFHkxXk/nqIlFEBXGm4zWDAGWMmo9rIzwi+9DfWUYI/G2AAHcbg7CptrZua
-	YJpdjxZE91g7jEJQUd+JAr1t22iR8ST1SAW4AC1+npQ97ITE0UJiVqxuIAAT6mzK0lGAGK3Gkzc
-	g45Lt1YHxFBmigk+TbLTzSsIApqZQhyYOUDqhdfdwuRwoBCwUhdOf2uK/F/kul1yqVHNLZdhJz7
-	LSe+X/Wmw6i2paEvydtCFvU+DHXqfKcgbOTFUyaY2tXw==
-X-Received: by 2002:a05:6000:1a8d:b0:43d:1bf6:30f3 with SMTP id ffacd0b85a97d-43d6424c4f6mr24710460f8f.14.1776162037022;
-        Tue, 14 Apr 2026 03:20:37 -0700 (PDT)
-Received: from [10.11.12.108] ([79.115.63.48])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d73e36e7csm20342473f8f.10.2026.04.14.03.20.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 14 Apr 2026 03:20:36 -0700 (PDT)
-Message-ID: <5797be19-8886-45a2-bfce-eb7d5f0df6c2@linaro.org>
-Date: Tue, 14 Apr 2026 13:20:31 +0300
+	Tue, 14 Apr 2026 10:22:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-ID:Content-Description;
+	bh=mrj0TgymHiMmZwZs2Vo2Bt+4CUgM0die06+x7rWw59g=; b=Sqz9M3LXIsN+s1ZYgdcBHfRdjS
+	BQPb0aiMYyE7+TUmuI9k6GybWCOqYRsB0itaIgQTGeTMoVAUOdoJxQpEvYwRRrl6oVLDShTM+qSHh
+	F2A1W8mDhStkHA3/nwcRkkPFUjzP1WUr8qt2Szs2vjoGJi+5ecSuy148Mq0jkNNHjztEcceX7/VkS
+	iVp1Eje/IrkowGM61e39a8ELoRKv4Nv3q8s4b7Z8yrIjLh+uV9MVCxT9fBymiIEnCAj2/VcO+muUp
+	vIenLrg9CivGsD8GxC4anEpwCsbGEuFx3wHXO5TXWuyTGFWIYXfWWvzNeWhyzBGDPjAnJmJVb+s8p
+	xKErlGwA==;
+Received: from authenticated user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1wCau0-00CzuK-0k;
+	Tue, 14 Apr 2026 10:21:52 +0000
+Date: Tue, 14 Apr 2026 03:21:46 -0700
+From: Breno Leitao <leitao@debian.org>
+To: "lihuisong (C)" <lihuisong@huawei.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+	lpieralisi@kernel.org, catalin.marinas@arm.com, will@kernel.org, 
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	pjaroszynski@nvidia.com, guohanjun@huawei.com, sudeep.holla@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, rmikey@meta.com, kernel-team@meta.com
+Subject: Re: [PATCH RFC] ACPI: processor: idle: Do not propagate
+ acpi_processor_ffh_lpi_probe() -ENODEV
+Message-ID: <ad4UWJ__dnDQtrj8@gmail.com>
+References: <20260413-ffh-v1-1-301704f69e2f@debian.org>
+ <af9c679d-899c-4832-b902-e621b5987f12@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: exynos850: Add SRAM node
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Alexey Klimov <alexey.klimov@linaro.org>,
- Sam Protsenko <semen.protsenko@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Juan Yescas <jyescas@google.com>, Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-References: <20260413-exynos850_sram-v1-1-7fda5b7fb7d4@linaro.org>
- <2ff077e1-8983-4a41-bb21-5e4140545aa3@kernel.org>
- <DHSR70EGYY4N.2EA2HWIXJR7QR@linaro.org>
- <4c6a92e0-15a1-4f82-afc9-542f5ad9d2df@kernel.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <4c6a92e0-15a1-4f82-afc9-542f5ad9d2df@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <af9c679d-899c-4832-b902-e621b5987f12@huawei.com>
+X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_032039_622427_6873C7D0 
-X-CRM114-Status: GOOD (  18.78  )
+X-CRM114-CacheID: sfid-20260414_032217_446480_5E737B67 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,76 +79,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi!
+Hello Huisong,
 
-On 4/14/26 12:08 PM, Krzysztof Kozlowski wrote:
-> On 14/04/2026 11:00, Alexey Klimov wrote:
->> On Mon Apr 13, 2026 at 4:23 PM BST, Krzysztof Kozlowski wrote:
->>> On 13/04/2026 16:52, Alexey Klimov wrote:
->>>> SRAM is used by the ACPM protocol to retrieve the ACPM channels
->>>> information and configuration data. Add the SRAM node.
->>>>
->>>> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
->>>> ---
->>>>  arch/arm64/boot/dts/exynos/exynos850.dtsi | 8 ++++++++
->>>>  1 file changed, 8 insertions(+)
->>>>
->>>> diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot/dts/exynos/exynos850.dtsi
->>>> index cb55015c8dce..cf4a6168846c 100644
->>>> --- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
->>>> +++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
->>>> @@ -910,6 +910,14 @@ spi_2: spi@11d20000 {
->>>>  			};
->>>>  		};
->>>>  	};
->>>> +
->>>> +	apm_sram: sram@2039000 {
->>>> +		compatible = "mmio-sram";
->>>> +		reg = <0x0 0x2039000 0x40000>;
->>>> +		#address-cells = <1>;
->>>> +		#size-cells = <1>;
->>>> +		ranges = <0x0 0x0 0x2039000 0x40000>;
->>>
->>> You miss here children.
->>
->> Thank you! I guess I should convert it to smth like this:
->>
->> apm_sram: sram@2039000 {
->> 		compatible = "mmio-sram";
->> 		reg = <0x0 0x2039000 0x40000>;
->> 		ranges = <0x0 0x0 0x2039000 0x40000>;
->> 		#address-cells = <1>;
->> 		#size-cells = <1>;
->>
->> 		acpm_sram_region: sram-section@0 {
->> 			reg = <0x0 0x40000>;
-> 
-> This covers entire block, so feels pointless. Maybe requirement of
-> children should be dropped. What's the point of having children? Why
-> does the driver need them?
-> 
->> 		};
->> 	};
->>
->> And then later reference shmem = &acpm_sram_region from acpm node.
->>
->>> Also, 'ranges' should be after 'reg'.
->>
->> Thanks, will fix this.
->>
->> FWIW this commit is a copy of commit 48e7821b26904
->> https://lore.kernel.org/r/20250207-gs101-acpm-dt-v4-1-230ba8663a2d@linaro.org
-> 
-> 
-> Huh, we should fix that one as well.
-> 
+On Tue, Apr 14, 2026 at 05:43:51PM +0800, lihuisong (C) wrote:
+> But it is a real issue. Thanks for your report.
+> I think the best way to fix your issue is that remove this verification in
+> psci_acpi_cpu_init_idle().
+> Because it is legal for platform to report one LPI state.
+> This function just needs to verify the LPI states which are FFH.
 
-On gs101, likely on e850 too, ACPM parses the SRAM and discovers at runtime where
-the TX/RX queue offsets are in SRAM. So we can't define static partitions in DT.
-I remember that I thought about extending the SRAM driver to add dynamic
-partitions (clients to request the mmio-sram driver to create partitions at
-runtime), but it was just ACPM that's using SRAM, so I didn't need it.
+Thank you for the prompt feedback.
 
-Cheers,
-ta
+Would this approach work?
+
+commit 6c9d52840a4f778cc989838ba76ee51416e85de3
+Author: Breno Leitao <leitao@debian.org>
+Date:   Tue Apr 14 03:16:08 2026 -0700
+
+    ACPI: processor: idle: Allow platforms with only one LPI state
+    
+    psci_acpi_cpu_init_idle() rejects platforms where power.count - 1 <= 0
+    by returning -ENODEV. However, having a single LPI state (WFI) is a
+    valid configuration. The function's purpose is to verify FFH idle states,
+    and when count is zero, there are simply no FFH states to validate —
+    this is not an error.
+    
+    On NVIDIA Grace (aarch64) systems with PSCIv1.1, power.count is 1 for
+    all 72 CPUs, so the probe fails with -ENODEV. After commit cac173bea57d
+    ("ACPI: processor: idle: Rework the handling of
+    acpi_processor_ffh_lpi_probe()"), this failure propagates up and prevents
+    cpuidle registration entirely.
+    
+    Change the check from (count <= 0) to (count < 0) so that platforms
+    with only WFI are accepted. The for loop naturally handles count == 0
+    by not iterating.
+    
+    Fixes: cac173bea57d ("ACPI: processor: idle: Rework the handling of acpi_processor_ffh_lpi_probe()")
+    Signed-off-by: Breno Leitao <leitao@debian.org>
+
+diff --git a/drivers/acpi/arm64/cpuidle.c b/drivers/acpi/arm64/cpuidle.c
+index 801f9c4501425..7791b751042ce 100644
+--- a/drivers/acpi/arm64/cpuidle.c
++++ b/drivers/acpi/arm64/cpuidle.c
+@@ -31,7 +31,7 @@ static int psci_acpi_cpu_init_idle(unsigned int cpu)
+ 		return -EOPNOTSUPP;
+ 
+ 	count = pr->power.count - 1;
+-	if (count <= 0)
++	if (count < 0)
+ 		return -ENODEV;
+ 
+ 	for (i = 0; i < count; i++) {
 
