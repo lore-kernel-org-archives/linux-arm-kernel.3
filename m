@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07E82F531F1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 06:51:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0206DF531F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 06:56:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mFcskcNPjj+if0QeGUzgLxPT9AMobbo/E+QtnQWUyAo=; b=F5EAXDOkO7VMsmpJdL9x4NLlkb
-	AkK3HS3ltpPAJQ3MpMNoGhp815HMeI1Bp50Sa4RqrhN3ndA03wapq+d3/UlFkV69mJz0G8jxBQKDP
-	f/uDqux0VeJsmw4mBtUscb5obZoScM2/2DIBc28yTV5e68QV+hqCZgG/3H5iqqC5Ddh4wFabTO433
-	wBo/SgwAEKxPrKaVz8B/+4SWgvw2erIElefZPffxqtqyFI4YINH/jbF70E8MEOF+s7bNm96ENPIjw
-	D0sCtTfdoD3SCo0FXFgbar0VbAuO5fFXB7wpHOZPqwojUvOdLqbQCH0JYOrenTqPWrLakQ4qHOb61
-	hxaV74fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fumOGiEuGSiD8FTeMSTa8ywJjh2IIFWkB/1bTH68iW0=; b=ANilFC42tho6lrkNXxHOCXGuv5
+	gwnPnsXfEsCgJ+abpo47IuNQRBEkvuw604n/0+8aQToNtEzJYud8+8SBMzZ61yWAhUsT8hIzYHIGP
+	0rrH/MkvYU1F2Xu/rwBCvtwRjUj57cUysZwTqsDIxFadxj6CstdH/KlfSV3I04jXKx1+QKMdrQi2h
+	WYhhGJjxbKOS5eQ6cx0MfxWjjmRPee1xcIl5n4AkgGIcX/8vAEYuiiSHvGbBM0Sj3d78xisF/RVv3
+	PtmvtNg1TxMxPdKo4mHMuXKbl23xls2BYfGjt1lmHCFWVwsEhnxoQP/Wo0uGOHYwj9957eEjYrHgh
+	C50oZlIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCXc3-0000000Grjw-2xGf;
-	Tue, 14 Apr 2026 06:51:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCXc1-0000000Grjd-3NNU;
-	Tue, 14 Apr 2026 06:51:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4103A60126;
-	Tue, 14 Apr 2026 06:51:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FD8EC19425;
-	Tue, 14 Apr 2026 06:51:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776149465;
-	bh=HZPV2FvJj6UhRn6Km5MahgpIDMpyNJ7h1uzc2GBuNik=;
-	h=From:Date:Subject:To:Cc:From;
-	b=tvZUHNW6QwYV21WEXKJLZ3MqI+TIicgCniMqgtVY0ou5dJL2snWpFw3cNucFcF66M
-	 gxa6sIw2keT+r1zwKWLiMltTMuFA+9tsbOZXz3Mz14zdhQjvBPjqxsmuJP3wkHCbCJ
-	 I/9A41HV0c9ij3CN44cpXxa2YVN6MCVky/VcJfpOV6W1wwMeq1/3cb/gJHBLUoRDn5
-	 8IhyClnaRQ3nueHqNvjAsJNT02dSBHlzH9GP5yFwKgKfvdg63lAYcSzN5SPjKhiP41
-	 e/1BRjYsOuRsqkxGiO3eNMnkCoc4OY9NCdl0F2YoOmv9OoKqX1q4xyB3iEX4OyZ5+I
-	 iFl7/UuUubGQw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 14 Apr 2026 08:50:52 +0200
-Subject: [PATCH net v2] net: airoha: Add missing bits in
- airoha_qdma_cleanup_tx_queue()
+	id 1wCXgq-0000000Gs2f-3cg1;
+	Tue, 14 Apr 2026 06:56:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCXgo-0000000Gs2K-25nv
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Apr 2026 06:56:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 795334EEA;
+	Mon, 13 Apr 2026 23:55:53 -0700 (PDT)
+Received: from [10.164.18.83] (J09HK2D2RT.blr.arm.com [10.164.18.83])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 640EC3F86F;
+	Mon, 13 Apr 2026 23:55:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776149759; bh=pX9QwlBOEFv9MYyDm9CACWnc9zJVNgyWvTTpWF+Y0Hc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=c6Apt0VjwyC3SzUgpqIeFCY9j2JVWCTGSH2D3uxt/zifVJ1om+Xbj+wjRIqWB8oLX
+	 7osRzV3pY4BSIB7FiTTJQcAkil7ty9UDnHGZECgF/lhxOnf5uimBRprE8rooOhzNz1
+	 6saLolWOrJUkqXb0hLsSbhp4b/jBl/Bx/aMBmZAc=
+Message-ID: <d22daf6d-92cf-444a-9f51-0fa63b21a5c5@arm.com>
+Date: Tue, 14 Apr 2026 12:25:54 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/hwcap: Include kernel-hwcap.h in list of generated
+ files
+To: Mark Brown <broonie@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: Marek Vasut <marex@nabladev.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260413-arm64-hwcap-gen-fix-v1-1-26c56aed6908@kernel.org>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20260413-arm64-hwcap-gen-fix-v1-1-26c56aed6908@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260414-airoha_qdma_cleanup_tx_queue-fix-net-v2-1-875de57cc022@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5WNQQ6CMBREr0L+2pp+EIuuvIchTYVfaMQWWiAY0
- rvbcAOXb2Yyb4dA3lCAe7aDp9UE42yC/JRB0yvbETNtYsh5fuUX5EwZ73olp/ajZDOQssso501
- OCy3EtNmYpZndikKUuiSquIZ0NXpK1aF5QhpAncLehNn576Fe8aj+s6zIkL0ECmwqjSSqx5u8p
- eHsfAd1jPEHqO0DYN4AAAA=
-X-Change-ID: 20260410-airoha_qdma_cleanup_tx_queue-fix-net-93375f5ee80f
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260413_235602_742287_6E3E8715 
+X-CRM114-Status: GOOD (  15.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,119 +72,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Similar to airoha_qdma_cleanup_rx_queue(), reset DMA TX descriptors in
-airoha_qdma_cleanup_tx_queue routine. Moreover, reset TX_DMA_IDX to
-TX_CPU_IDX to notify the NIC the QDMA TX ring is empty.
 
-Fixes: 23020f0493270 ("net: airoha: Introduce ethernet support for EN7581 SoC")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
-Changes in v2:
-- Move q->ndesc initialization at end of airoha_qdma_init_tx routine in
-  order to avoid any possible NULL pointer dereference in
-  airoha_qdma_cleanup_tx_queue()
-- Check if q->tx_list is empty in airoha_qdma_cleanup_tx_queue()
-- Link to v1: https://lore.kernel.org/r/20260410-airoha_qdma_cleanup_tx_queue-fix-net-v1-1-b7171c8f1e78@kernel.org
----
- drivers/net/ethernet/airoha/airoha_eth.c | 41 ++++++++++++++++++++++++++------
- 1 file changed, 34 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 9e995094c32a..3c1a2bc68c42 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -966,27 +966,27 @@ static int airoha_qdma_init_tx_queue(struct airoha_queue *q,
- 	dma_addr_t dma_addr;
- 
- 	spin_lock_init(&q->lock);
--	q->ndesc = size;
- 	q->qdma = qdma;
- 	q->free_thr = 1 + MAX_SKB_FRAGS;
- 	INIT_LIST_HEAD(&q->tx_list);
- 
--	q->entry = devm_kzalloc(eth->dev, q->ndesc * sizeof(*q->entry),
-+	q->entry = devm_kzalloc(eth->dev, size * sizeof(*q->entry),
- 				GFP_KERNEL);
- 	if (!q->entry)
- 		return -ENOMEM;
- 
--	q->desc = dmam_alloc_coherent(eth->dev, q->ndesc * sizeof(*q->desc),
-+	q->desc = dmam_alloc_coherent(eth->dev, size * sizeof(*q->desc),
- 				      &dma_addr, GFP_KERNEL);
- 	if (!q->desc)
- 		return -ENOMEM;
- 
--	for (i = 0; i < q->ndesc; i++) {
-+	for (i = 0; i < size; i++) {
- 		u32 val = FIELD_PREP(QDMA_DESC_DONE_MASK, 1);
- 
- 		list_add_tail(&q->entry[i].list, &q->tx_list);
- 		WRITE_ONCE(q->desc[i].ctrl, cpu_to_le32(val));
- 	}
-+	q->ndesc = size;
- 
- 	/* xmit ring drop default setting */
- 	airoha_qdma_set(qdma, REG_TX_RING_BLOCKING(qid),
-@@ -1051,13 +1051,17 @@ static int airoha_qdma_init_tx(struct airoha_qdma *qdma)
- 
- static void airoha_qdma_cleanup_tx_queue(struct airoha_queue *q)
- {
--	struct airoha_eth *eth = q->qdma->eth;
--	int i;
-+	struct airoha_qdma *qdma = q->qdma;
-+	struct airoha_eth *eth = qdma->eth;
-+	int i, qid = q - &qdma->q_tx[0];
-+	struct airoha_queue_entry *e;
-+	u16 index = 0;
- 
- 	spin_lock_bh(&q->lock);
- 	for (i = 0; i < q->ndesc; i++) {
--		struct airoha_queue_entry *e = &q->entry[i];
-+		struct airoha_qdma_desc *desc = &q->desc[i];
- 
-+		e = &q->entry[i];
- 		if (!e->dma_addr)
- 			continue;
- 
-@@ -1067,8 +1071,31 @@ static void airoha_qdma_cleanup_tx_queue(struct airoha_queue *q)
- 		e->dma_addr = 0;
- 		e->skb = NULL;
- 		list_add_tail(&e->list, &q->tx_list);
-+
-+		/* Reset DMA descriptor */
-+		WRITE_ONCE(desc->ctrl, 0);
-+		WRITE_ONCE(desc->addr, 0);
-+		WRITE_ONCE(desc->data, 0);
-+		WRITE_ONCE(desc->msg0, 0);
-+		WRITE_ONCE(desc->msg1, 0);
-+		WRITE_ONCE(desc->msg2, 0);
-+
- 		q->queued--;
- 	}
-+
-+	if (!list_empty(&q->tx_list)) {
-+		e = list_first_entry(&q->tx_list, struct airoha_queue_entry,
-+				     list);
-+		index = e - q->entry;
-+	}
-+	/* Set TX_DMA_IDX to TX_CPU_IDX to notify the hw the QDMA TX ring is
-+	 * empty.
-+	 */
-+	airoha_qdma_rmw(qdma, REG_TX_CPU_IDX(qid), TX_RING_CPU_IDX_MASK,
-+			FIELD_PREP(TX_RING_CPU_IDX_MASK, index));
-+	airoha_qdma_rmw(qdma, REG_TX_DMA_IDX(qid), TX_RING_DMA_IDX_MASK,
-+			FIELD_PREP(TX_RING_DMA_IDX_MASK, index));
-+
- 	spin_unlock_bh(&q->lock);
- }
- 
+On 13/04/26 9:14 PM, Mark Brown wrote:
+> When adding generation for the kernel internal constants for hwcaps the
+> generated file was not explicitly flagged as such in the build system,
+> causing it to be regenerated on each build. This wasn't obvious when the
+> series the change was included in was developed since it was all about
+> changes that trigger rebuilds anyway.
+> 
+> Fixes: abed23c3c44f5 (arm64/hwcap: Generate the KERNEL_HWCAP_ definitions for the hwcaps)
+> Reported-by: Marek Vasut <marex@nabladev.com>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
 
----
-base-commit: 2cd7e6971fc2787408ceef17906ea152791448cf
-change-id: 20260410-airoha_qdma_cleanup_tx_queue-fix-net-93375f5ee80f
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+>  arch/arm64/include/asm/Kbuild | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/arm64/include/asm/Kbuild b/arch/arm64/include/asm/Kbuild
+> index d2ff8f6c3231..31441790b808 100644
+> --- a/arch/arm64/include/asm/Kbuild
+> +++ b/arch/arm64/include/asm/Kbuild
+> @@ -17,4 +17,5 @@ generic-y += parport.h
+>  generic-y += user.h
+>  
+>  generated-y += cpucap-defs.h
+> +generated-y += kernel-hwcap.h
+>  generated-y += sysreg-defs.h
+> 
+> ---
+> base-commit: abed23c3c44f565dc812563ac015be70dd61e97b
+> change-id: 20260413-arm64-hwcap-gen-fix-ecb4bb6dbb91
+> 
+> Best regards,
+> --  
+> Mark Brown <broonie@kernel.org>
+> 
+> 
 
 
