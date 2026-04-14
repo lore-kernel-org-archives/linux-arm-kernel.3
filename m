@@ -4,149 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B954FED7B96
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 10:12:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A0DED7B96
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 10:14:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sjTMrzfAMUbPahM9455teeqrCSrPly22FCyYCabM94k=; b=xKGYeijN94C7GlvdwEq0AkwVtN
-	bRhAH/wX04H1xJu8PlO8OgHizA+s8s2/cTpVl/kF7rhVF/4B9F7Bj6zAeeBDEcrVsU79qmZulTHBx
-	bIJWHz+fC5b7Q1tGxOGf6W5cq8NR5xcYjEolPXRQRj/0bRmp7VbVutoinL8Vtheu3bv1enC/C8GHg
-	/JkSWdZ53I2JX99uoM7nvivNDXw+XMhCI4C8GrIMwyEHaqoYTHQZX7oCmoGEjsgfp3Jlo/yqX6YCd
-	r2jT0LHqVgrqQ3rUmLgil9jQ3KpPWoR4cYYNfppUnw8ahRv3xr+vKCxbfHBQxYIQaw6zGcWP/WEmA
-	idnJ4NFw==;
+	bh=NfhtP/TymotrhPrcOVkiPER8szRMYGC9sOoOX92Yt+I=; b=z+dv0wyhMTQ5rom0dST6AJSoKC
+	X5dYyMQX7kF/9bKfVQPPeG3/gbHIrNdbkkRtAoE3NOTdRgg6YGmlroctNMesoggNn84gAc9tCgOGl
+	VMzmjdfGB9mV3FTxKb8u5SsCHBEHS0jnzpn2IbsB4C0A/EDCmOllwviUminSYxGVaTI5ynxN4C/RP
+	t3qgwL7z91YBxTeZg8dMOYFXOHk5kLLZ+c2CBEg6e0p2qZU+dYrb71YFsLtrraFiNlevlmJVEcoUd
+	9Dnno/8tgavevte3eSX+nuznQ3J3px2prsHibWzssL2K+duzM2BUGSir4vzsc3SlzCO+Twfgcv816
+	TkfobiMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCakZ-0000000H79l-3EUP;
-	Tue, 14 Apr 2026 10:12:07 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wCamp-0000000H7Mz-3Ezn;
+	Tue, 14 Apr 2026 10:14:27 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCakW-0000000H79G-0FOG
+	id 1wCamm-0000000H7Mc-3EvZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 10:12:05 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=QqxhC4hZ5031haPPJZSRk5/m+1Nlo1uqbgHJ1b4EbnBUYd1DfwoHpbuGx7bNvSZ2Gm4SWV8DqlvoqpfpQsMHwAz7Kiff08VFnNwNfSDSn/HQGGu5Cc2+bfKVG2a3N5gItJWZfXziRisT00efk5oq/vTY7/MdTFbPxuFkroxmZuzOl7o3PX1EoBwkec/KbvlzezUiFWSFpLG6//9WjTk3lvtYf3UbTQB30gRxfS6PBPpgNlNjeextS6OUqWsHMFrrvPKb0KPEHB1M5XOUUCYnSZOrocBy+LinAbd9OtBl5KZFCQVg2b4Ip0NOJiDPtdVlpd3IdRIQvDihsBgy9G5hhQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sjTMrzfAMUbPahM9455teeqrCSrPly22FCyYCabM94k=;
- b=ad5XHb/W2M17DdiQXvE/BsOChwnu0ZIr6UmHRmDjYwQulpKXEhqIp8L/Vwa6Z8wXy3K1pMLi8akhRABhJD8FtUFvrlRVtG099XW4XlPCu6+VQvOUjMGnExQWmAj8oIu0yJqLb4J3MB1oSFlYjCmLYn6ggmo7fVzlcSHRMU/iBaWbVbUIiTMzb1G4UvNosAtt946kzuwFvQPEqzZvCxcFSIHwoItmzSnLUGO1f/crFiQ4J+tk17FCyTSMERRQboYFdweKJeLLHi22SmLQ1CdEeUpmH0WiaQRn9vaW5Kg3TmrOahJcNrikIp3/E17tVjRWiSFaC6/LM++BN9INWbX0tw==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=ziepe.ca smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sjTMrzfAMUbPahM9455teeqrCSrPly22FCyYCabM94k=;
- b=itnu2l48xbA2mbP0jpTyN9AMpP8N08Q8WFcrH+stLAErbafDgWiNIvjqyBKa0q8wML7zx1WOEn+KYFky4F3eR5kDQI8jbXU3AzEaw5JIOquSGIzh19Htn0WlC/KfIXEnWYFCcPPRMH4JaA8sUXpzRwdsve2GO8DplqPTb17oy10=
-Received: from DUZPR01CA0055.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:469::19) by VI0PR08MB11988.eurprd08.prod.outlook.com
- (2603:10a6:800:344::15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Tue, 14 Apr
- 2026 10:11:57 +0000
-Received: from DU2PEPF00028D06.eurprd03.prod.outlook.com
- (2603:10a6:10:469:cafe::e8) by DUZPR01CA0055.outlook.office365.com
- (2603:10a6:10:469::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.48 via Frontend Transport; Tue,
- 14 Apr 2026 10:11:57 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU2PEPF00028D06.mail.protection.outlook.com (10.167.242.166) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9745.21
- via Frontend Transport; Tue, 14 Apr 2026 10:11:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tXk6vg1HKEWla5M4tumlQDnD/etbGw3CB9DqizqPB3eWigVMK8o8uixuRf2KBJVcAGNMS1ZkjUdZurGPl9n875MwK8poRbRivx9NnIHoGb8GQp9MlOtwyZ9sAXmOtUBVykZ4zcwFnUEpI2pl1kfsGYAvXHWbKpdutq5EZqv6BjmzYQQFlIEu5P86Wqf1mdCI9ccopgasOed8WvwonTf+LgwgHkWdQuRNODQyL29mi0n+E5qRcfzW1EOU8t/bkK079bwmp3avpBKjpPMdIFocASqAK5u1h3Zsz3KT15jY6KV2IEmB0wRjUMgeYSHLueFxXwzRCx6loWdB97QU1VbLJw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sjTMrzfAMUbPahM9455teeqrCSrPly22FCyYCabM94k=;
- b=CJN66LEAkOBRH8mj8TJZs0UQT128yMC+eelH2pGa3isAEtsVaic+aiywOBFSalVH9qYrlMp7NutTnIiQB201c3QQ6NiSF/Ddzki530f7Ugy+L71oWM4/ef7QzoqkqSYrl0FWc38M6vId3zu3fxpwawfACuJw8GjsUW0ggiESt3ho6kxI1CPn6+PPT+7JAqhWJZPCO6Z6cNvsamxFRM1qNJGuShT+Gj39XESnhlfFMyPeGM3fpJ6vIn5GlPdypy0+X/guu7XgZGIMkIq4nskDqS5ugOK7c69mE8XqHdtlCWaDdiegqWiSDZugPSWN+Hc6Ap+RLsxTI3I9JmLR+5MKGA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sjTMrzfAMUbPahM9455teeqrCSrPly22FCyYCabM94k=;
- b=itnu2l48xbA2mbP0jpTyN9AMpP8N08Q8WFcrH+stLAErbafDgWiNIvjqyBKa0q8wML7zx1WOEn+KYFky4F3eR5kDQI8jbXU3AzEaw5JIOquSGIzh19Htn0WlC/KfIXEnWYFCcPPRMH4JaA8sUXpzRwdsve2GO8DplqPTb17oy10=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from DU4PR08MB11769.eurprd08.prod.outlook.com (2603:10a6:10:644::21)
- by DU2PR08MB9962.eurprd08.prod.outlook.com (2603:10a6:10:498::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.20; Tue, 14 Apr
- 2026 10:10:53 +0000
-Received: from DU4PR08MB11769.eurprd08.prod.outlook.com
- ([fe80::d424:cd62:81a8:490f]) by DU4PR08MB11769.eurprd08.prod.outlook.com
- ([fe80::d424:cd62:81a8:490f%5]) with mapi id 15.20.9769.046; Tue, 14 Apr 2026
- 10:10:53 +0000
-Message-ID: <514ddb27-137b-4223-84fe-2152737db3a6@arm.com>
-Date: Tue, 14 Apr 2026 11:10:51 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] arm64/virt: Add Arm CCA measurement register support
-To: Jason Gunthorpe <jgg@ziepe.ca>, Sami Mujawar <sami.mujawar@arm.com>,
- Dan Williams <djbw@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- catalin.marinas@arm.com, will@kernel.org, thuth@redhat.com,
- steven.price@arm.com, gshan@redhat.com, YeoReum.Yun@arm.com,
- cedric.xing@intel.com, Dan Williams <dan.j.williams@intel.com>,
- Dionna Glaze <dionnaglaze@google.com>,
- "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
- Alexey Kardashevskiy <aik@amd.com>,
- "linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>
-References: <20260413084957.327661-1-sami.mujawar@arm.com>
- <20260413125925.GK3694781@ziepe.ca>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260413125925.GK3694781@ziepe.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PA7P264CA0095.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:348::6) To DU4PR08MB11769.eurprd08.prod.outlook.com
- (2603:10a6:10:644::21)
+	Tue, 14 Apr 2026 10:14:25 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-43d7badbd7dso924969f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 03:14:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776161662; x=1776766462; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=NfhtP/TymotrhPrcOVkiPER8szRMYGC9sOoOX92Yt+I=;
+        b=hDDUiV/2C7j4F66WUixg4GEAOqHt3nK0APK4n3KWH/IBsqLzy7nlGkGIxHMFdSxAnz
+         X1vBDAio+xH4Lczs5CysufUjI8ttIkGTuR44RrBenL2jktK63LgnJI201dEkTqkuiJUz
+         3Udat5f32wsG9uoxmgazNet+wC0L2NA/wn/0VcQRfYcNNXAIq4wApzT0/cCMGPcixvuT
+         uwOSgZ+WiTihzMasF3lXCEjWhGxeCQpVoq9AGCPa2TzGxtoBhmLwiEeWJoyn0qPzFfMB
+         sCvZB0b75nISSVcSFsB0XpaGae4NMJkLcE7qk3n5SiuHht5++HW6TaQoZ+zeJ4H0GQ1V
+         8G+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776161662; x=1776766462;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=NfhtP/TymotrhPrcOVkiPER8szRMYGC9sOoOX92Yt+I=;
+        b=CgaTeBClpy6+uPQnmHLZMO3VKfSM7N+XYJaS3K5U15hZQDxEAY7qPO/Tt3LabaVpvb
+         /14rl+ToAz6h5/1VmTN/YB4M30yLhM+oGT5oLk/gJkckpX3L9BgPgLEBXdbAWZyl3zf3
+         PmZ/UD6O+TxMxqCuVMcHTNQuqRk3sOpDtTemGv0tzTytjysEgtiFEcOYV4Q30oBUfTG0
+         qszq2LOhcw8zDgp2apbUH+scpvFT7QyHcJF+I5wTQLQ1E6/IrdhW8qq0LcxMmhUVHbGE
+         JIrqPeXFQILX86GvnBIDwDnopavLdaunxzYAAPaI+MvyHxpdBMP9KRMw6Th1WVHuj8GK
+         Q0mA==
+X-Forwarded-Encrypted: i=1; AFNElJ+PsyXcTtczcQmki4I9Wt1tAz67ULFBFl0SHfyioDvHl3n/Yh6aoWge0p+DFUG+6Y2MxEASM0IKtQVqzEQg2s0c@lists.infradead.org
+X-Gm-Message-State: AOJu0YxsL9S7vGRmI7RPfbZxewuxw42eTEJbrd/JfUNrqYi4xaxLVCr6
+	EVw8DzvU2aql3RtyhvRmPUiAn2kqB+N7XYp0SMocrm47WzK9qft5e8L7
+X-Gm-Gg: AeBDieuL6CDksEJrkS4Km80FdTlXUis7nymGSnCHbkxfRDcnD3QIr4i/1tvlLh1ohw5
+	i7IDBpBNmHTZnQ81h0PSX/gWXpljzkxwKXGhM3BV4PRr16/X4blMEG/QbKxJoyFxwEwGfs0W6MU
+	XKxBjfdekgJU31882qL/x/i9pL3/liF5MqmUIcP0Rdtuz5EPmDndAw1mWixpPjzEa8dLnPD2dE6
+	bsPOgB3yur5ESs5rooJbexK7XFrrQSkQpMEQhfQ7+QKKZYFnSU+DnuNhiIoSFuhHaVGzN5TqE6Z
+	uy8RgJv7n9t6oPuo3U/zUUkUCp88oe3yYV0Tk9rLlhlCQhBayedAcwLvHm7skSJwNgJDMZnqn6W
+	ibtOBvK1VidshujQOabxRielb2SlLzLaBA2brsKUzqEP2qhcWtVV784yshj5KrxDIn3KJ+VAEkT
+	Ih6Ck/fyXX8Fa6t68Ub0IEOYvRzZYUsoTg3aj14meXiE6Z5DxYWfzOsxQxuQ==
+X-Received: by 2002:a05:6000:4387:b0:43d:7508:c9c1 with SMTP id ffacd0b85a97d-43d7508cd32mr14134342f8f.50.1776161662283;
+        Tue, 14 Apr 2026 03:14:22 -0700 (PDT)
+Received: from osama ([2a02:908:1b6:8980:1aaa:ede0:d93f:dcaa])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43ea764eff2sm2779121f8f.27.2026.04.14.03.14.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Apr 2026 03:14:21 -0700 (PDT)
+Date: Tue, 14 Apr 2026 12:14:19 +0200
+From: Osama Abdelkader <osama.abdelkader@gmail.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Ryo Takakura <ryotkkr98@gmail.com>,
+	Breno Leitao <leitao@debian.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: panic from init_IRQ if IRQ handler stacks
+ cannot be allocated
+Message-ID: <ad4Te1AKgWt2stVL@osama>
+References: <20260326225755.50297-1-osama.abdelkader@gmail.com>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: DU4PR08MB11769:EE_|DU2PR08MB9962:EE_|DU2PEPF00028D06:EE_|VI0PR08MB11988:EE_
-X-MS-Office365-Filtering-Correlation-Id: a322bab2-7836-426c-bf65-08de9a0e4292
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info-Original: 3imFHxRiIvF7HQWAKv9ncPnMxOxXXw2DwSExRKskI9K6pH+sDut2pt7QPADE6YLvtF6SHkfAObIdh2UsCZXoidkhJr2sPqXCrDDse8LnWlw3Qd+l1/psrzxYoiqAWGLVB3udwWubvBq/bDihDtP6DMSSty/iqO4K+saKvISHsPgEFtemDr9Jt3KzbIuLHmRv8n818DuSnCXb5kgzWKV6Ut3WvWtf/lA1AqPwtHokJB5fRuKkI6VRS6wyOAv1QTqj48Ib6E1dKlGCL/NxKGL0umMPhJ9Xo3ezglaFBVc3goTwjO9r3w2UlXgOBoUR/ubYXl9DxoRhEKRZiHfTA8tJZrtw7uLHErQD59m1WUNmHyaQCoQ52E/dLngIK96YHJhmX95ohvgb5bHK91hZKSEwNLtBT5SIMJH0la83ojWFGCxVmGFnJ+IJsSOJkVWNz7Cg/VVDGxvhi/+Z6LgBS5K066xxJmkzfmTB5yLuysL23sObFnbmQ4ji8KEYUdDcysdsu5LAfhHWtn3tPeg6GNIOplAvUj+0jqMGzwul3ok/7D/lTTof1WuYPUMyPz6v/NUz2VwAii9gVoPUE4HgXgz3BZH9rOd1t8uOb0AOknDy6XNTkJVC8l/6eP6Qy8PWeCca2P6L5m93R/tSCZ7bpkfcoNg2NScYS2HnZMD2/1WnMbB4Ho7CeiER/+cFONX0v9h+Zp6xojMiACU6dThAZZb5gHHG/Em9TS+kz4stc8/HT9M=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR08MB11769.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: a1++B22PZNeBnKNbELjvWjpnslFSveNfohI3qp9pJ49mFDevdQtfuoUNHo/Qvr629Kh56S6qCjAk+dFZKeG7L0kFSCwLEXf4lafUjK90iOJvVezdzWsFBzkuxYKoAd6KxNeKjwMcng2XzU1ClURl8yeSFNYma1UogohoRuOS19ORMmh04EB90zyaHJOqvi/yAh6T8YUuwR2zgPVIt3pfNmWDtSseuQ1Lu8WWcp5g51qegdtpSjRrp6GiyFdDbWhK772wNZzNviSoo/a7KgwCX3XHaFvgGInAFaCUsgw6+Bd7uTGDtxTzLkaI/uh6zyljb12yvHftjYvLponl7qkTkA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR08MB9962
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF00028D06.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: c1059834-e128-4f2c-5d4d-08de9a0e1ca1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|1800799024|376014|36860700016|7416014|14060799003|82310400026|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: VNu34kioQnrdkna3LA/at3cZuePXk5wl1H39Z+ckoGS7yHtGgw868d/xvpkphup3aCV3AMUmXWSNgITcfoGpMWxPwP1IGGG2wfEYqoQqwTdBHfHBSUyFo84AzCnMwcWPXiMH6pyrw0x/7CDAw5ztwodMWpJDGIePqajFZHx5iAQMo/VrCY5PKP8QKCyTULrN9JiZa/6S6+8NRyEAaAXQJSxpp0TePDWKr71H8VhLuUcG2z+IDXcl535ZFbotbCVNfdwWmHpIlCZxo2vaFob7uPKJEx5eiZOyrf8y1/XgrQEePjxIFOSLUkmvX7NMSzWcuqbfBPHbltodvvS9EgOxYjjuYDau88qdexPcmWm8PjcLvbpQpHzYlAkaVSFGsYg02FyQrTmjN9P89TkXZ7PwC3VOOoqliW6IjHgK+WybCMxRkNX+cV+PHqvh8gZUOtp/yoSGljX5/F9sL2LSb9HuNkpJHvspqGIkJG2uM8ZTSiAegzV6NfsNSt4xsiqUwRKfcKFauzXyh1S2svyhghTAdWCOQq6OrmuFi0tukKi4HEK7dn8AGIevYTCdbv6puE1OsklOVclpfCImLjpJMNEaeuBRy0IXln8kS4mP8Av6szdPYbGdGm9u76IMhyvVbhN2U94asJCcmqOB+SUY7LoRdrEUwB8icIZKTAFeWucZTxn1YnJ4QDMy9NWySwQnCV7nfrKKCv4dcnkX3hejuiMLGNWtn0VjBmMKKrlPkAwiJxWd6HBtAWVQBkfGSPKCBYbk19z/BohU8cPPexYKQAqKvw==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(1800799024)(376014)(36860700016)(7416014)(14060799003)(82310400026)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 8qhBa9c4ZjC23aiUCbQe/U6RBfK8CEU45JOMgR9PTvQfPC+aHPgcaC0PDKDBe7010J7DuY7TD0JR0OFD1MjnQxmw69itJz4QdqhYD1qO4KXn7Mo6U8uPkLRPDXRNivks3ZwblcnkPK5dsuC4DCnHRipbZ1OKbFnoSmXq/IIi/YhL8kvxHBUa1DNqDisbpifmaaK7TcA3wGnMmdhT9z9ltSIPB2Qxy0ZMBCYJZDyDBD83YelPk2TzuX3NRXFz3ibXk+aihm/uiVvWGgpcoAkYF48upsNWa4wl/cpOl9i/RH7dww3kcLcgxLeY28sxWon5HKD3k0gIAFsJ3eAEeV/5268BrAxGAwpO2+VGPvuRA568nOt3R19FKoktf6Hwb1jyy1B7YtsHQwQvhR7kcpoNXHkxvllFk0HJvB2rZ8GHkHQmYarOxQgc1N0UVnGsOWAo
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Apr 2026 10:11:56.9352
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a322bab2-7836-426c-bf65-08de9a0e4292
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D06.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR08MB11988
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260326225755.50297-1-osama.abdelkader@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_031204_418509_2CA7929C 
-X-CRM114-Status: GOOD (  23.81  )
+X-CRM114-CacheID: sfid-20260414_031424_831798_81249184 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,83 +101,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Cc: Dan, Cedric, Dionna, Aneesh, Alexey. linux-coco
-
-Hi Jason,
-
-On 13/04/2026 13:59, Jason Gunthorpe wrote:
-> On Mon, Apr 13, 2026 at 09:49:54AM +0100, Sami Mujawar wrote:
->> This series adds support for Arm Confidential Compute Architecture (CCA)
->> measurement registers in the Linux kernel, enabling guest Realms to
->> access, extend, and expose measurement values for attestation and runtime
->> integrity tracking.
->>
->> The Realm Management Monitor (RMM) defines a set of measurement registers
->> consisting of a Realm Initial Measurement (RIM) and a number of Realm
->> Extensible Measurements (REMs). This series introduces the necessary
->> infrastructure to interact with these registers via the RSI interface
->> and exposes them to userspace through the TSM measurement framework.
->>
->> At a high level, the series includes:
->>   - Helper interfaces for reading and extending measurement
->>     registers via RSI
->>   - Definitions for Realm hash algorithms as defined by the
->>     RMM specification
->>   - Integration with the TSM measurement subsystem and sysfs
->>     exposure for userspace visibility and interaction
->>
->> After applying this series, measurement registers are exposed under:
->>      /sys/devices/virtual/misc/arm_cca_guest/measurements/
+On Thu, Mar 26, 2026 at 11:57:52PM +0100, Osama Abdelkader wrote:
+> init_irq_stacks() and init_irq_scs() may fail when arch_alloc_vmap_stack
+> or scs_alloc return NULL. Return -ENOMEM from both and call panic() once
+> from init_IRQ(), covering per-CPU IRQ stacks and shadow IRQ stacks
+> consistently.
 > 
-> I'm surprised we get some random sysfs files? How does some more
-> generic userspace figure out to use this vs a TPM or some other
-> platform's version of it?
-
-That is true. This is the infrastructure for exposing Runtime
-Measurement registers (R/W) for use by the OS, complementing the
-TSM_REPORTS (Read Only Platform measurements+Attestation Reports, e.g.
-on CCA Attestation Report from RMM). Unlike the TSM reports,
-this doesn't have a generic interface for userspace.
-
-
-> I also think exposing PCRs as was done for TPM in sysfs was something
-> of a mistake.. Allowing extension without logging is too low level and
-> is very hard to build an entire attestation system around.
+> Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
+> ---
+> v2:
+> - Add return -ENOMEM from both init_irq_stacks() and init_irq_scs()
+> - Call panic() once from init_IRQ() if either init_irq_stacks() or
+>   init_irq_scs() returns -ENOMEM
+> ---
+>  arch/arm64/kernel/irq.c | 29 ++++++++++++++++++++---------
+>  1 file changed, 20 insertions(+), 9 deletions(-)
 > 
-> I really think we are missing a subsystem here, TPM has sort of been
-> filling this role in a non-generic way, but we should have a
-> common uAPI for platform measurement & attestation:
-
-Agreed, such a subsystem would solve the below.
-
->   - Discover available measurements
->   - Report signed measurements, with ingesting a nonce
->   - Report measurement logs
->   - Extend measurements and udpate logs
->   - Report certificates used in signing
->   - General reporting of various kinds of attestation evidence
+> diff --git a/arch/arm64/kernel/irq.c b/arch/arm64/kernel/irq.c
+> index 15dedb385b9e..9fafd826002b 100644
+> --- a/arch/arm64/kernel/irq.c
+> +++ b/arch/arm64/kernel/irq.c
+> @@ -10,6 +10,7 @@
+>   * Copyright (C) 2012 ARM Ltd.
+>   */
+>  
+> +#include <linux/errno.h>
+>  #include <linux/hardirq.h>
+>  #include <linux/init.h>
+>  #include <linux/irq.h>
+> @@ -32,34 +33,43 @@ DEFINE_PER_CPU(struct nmi_ctx, nmi_contexts);
+>  
+>  DEFINE_PER_CPU(unsigned long *, irq_stack_ptr);
+>  
+> -
+>  DECLARE_PER_CPU(unsigned long *, irq_shadow_call_stack_ptr);
+>  
+>  #ifdef CONFIG_SHADOW_CALL_STACK
+>  DEFINE_PER_CPU(unsigned long *, irq_shadow_call_stack_ptr);
+>  #endif
+>  
+> -static void init_irq_scs(void)
+> +static int __init init_irq_scs(void)
+>  {
+>  	int cpu;
+> +	void *s;
+>  
+>  	if (!scs_is_enabled())
+> -		return;
+> +		return 0;
+> +
+> +	for_each_possible_cpu(cpu) {
+> +		s = scs_alloc(early_cpu_to_node(cpu));
+> +		if (!s)
+> +			return -ENOMEM;
+> +		per_cpu(irq_shadow_call_stack_ptr, cpu) = s;
+> +	}
+>  
+> -	for_each_possible_cpu(cpu)
+> -		per_cpu(irq_shadow_call_stack_ptr, cpu) =
+> -			scs_alloc(early_cpu_to_node(cpu));
+> +	return 0;
+>  }
+>  
+> -static void __init init_irq_stacks(void)
+> +static int __init init_irq_stacks(void)
+>  {
+>  	int cpu;
+>  	unsigned long *p;
+>  
+>  	for_each_possible_cpu(cpu) {
+>  		p = arch_alloc_vmap_stack(IRQ_STACK_SIZE, early_cpu_to_node(cpu));
+> +		if (!p)
+> +			return -ENOMEM;
+>  		per_cpu(irq_stack_ptr, cpu) = p;
+>  	}
+> +
+> +	return 0;
+>  }
+>  
+>  #ifdef CONFIG_SOFTIRQ_ON_OWN_STACK
+> @@ -109,8 +119,9 @@ int __init set_handle_fiq(void (*handle_fiq)(struct pt_regs *))
+>  
+>  void __init init_IRQ(void)
+>  {
+> -	init_irq_stacks();
+> -	init_irq_scs();
+> +	if (init_irq_stacks() || init_irq_scs())
+> +		panic("Failed to allocate IRQ stack resources\n");
+> +
+>  	irqchip_init();
+>  
+>  	if (system_uses_irq_prio_masking()) {
+> -- 
+> 2.43.0
 > 
-> And it would be nice for the PCI devices and others to plug into the
-> general framework as well instead of building a parallel TSM framework
-> for handling evidence.
 
-That makes sense and AFAIU, there are efforts in progress to expose
-the Device measurements+Certificates in a different form. May be a good
-idea to intervene early enough to see if we can find a common ground.
+Hi All,
 
-> 
-> Isn't this also sort of incomplete?  Doesn't anything serious need
-> signed measurements? Isnt't there alot more data that comes out of RMM
-> than just a few measurement registers?
-As mentioned above, this series adds the support for Runtime Extendible
-Measurements (REM in CCA, RTMR on TDX). The RIM+Platform Attestation is 
-already provided via the TSM_REPORT
+Can you please review?
 
-
-Kind regards
-Suzuki
-
-> 
-> Jason
-
+Best regards,
+Osama
 
