@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B879F9D0D3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8492F9D0DB
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 15:29:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,28 +12,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=reO8FkVOSCmvh6cNS+XOBBthpeRomlgGJxelQnXGf7c=; b=qK7+xUp3zfIROvhJWTPRsherG9
-	/X9QUSMA0kTzSvfzCedDOV4aq1ZVA5QllIqc2R2352cyZ9R9u/nSGcfeEObcYtekukGI4EZNOV1wb
-	qfm3yPUs9kVqTxUY+3WXIbousxI4sDNpzVte/rEBHss+jDOYQftRvc9Ldwlu7hbbzGecCIE+lcLDh
-	iE9go0tzTYGnc3oaUuUWA6gxE9Ayj7I5Z/237JgLMwZtj7kM5HyRGs55NnvAzsc93lT0Y+lLAmEqw
-	yL23+30eQ6EcDjzzcI3aIw//9KcTT/F+QPuUtuX/LMyJfZ/XnBSWOyuhCFPkQ5qwc4OpiaOJeltOT
-	2qnXAHJA==;
+	bh=2v1BKn4m0w5IBXYvMyQCy1dPiGTZV2n/1sA15+aXp0A=; b=qMCGGUGf9el0ygyzIxXWkGU6ou
+	RMLFCLCVZnUu/XMT6bCr6N+6/oCM3fJrJ6pqH9WVVpOIhaFlZBWfaIonHEYFXM/7oSMcdbM4KqZB5
+	TizCGYvNgmOPdYrs+92Cw5zTNrB7/gsBk/50cTVgwJy0kO+2J5L2LM5cbxe6xhLzyVAbFSr36QVNG
+	ZRRJBkIp9H0kUDvSszb61R4KutCds9hBubQ6YGGJkb47+fPp0WG82XBXo9FYtqZysmiW8B8CJaXEr
+	4fRZwwZdmzIDTyhfUJTE2CpgpsVn8pKI3Im/uskbuZUXzOUKrdrEukfvSUNRmgsZmzuPfDAAiMzA4
+	sEAZwMfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCfhg-0000000HWRt-0mcY;
-	Tue, 14 Apr 2026 15:29:28 +0000
-Received: from mail-westeuropeazon11010014.outbound.protection.outlook.com ([52.101.69.14] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wCfhm-0000000HWXH-3CAm;
+	Tue, 14 Apr 2026 15:29:34 +0000
+Received: from mail-northeuropeazon11012010.outbound.protection.outlook.com ([52.101.66.10] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCfhc-0000000HWOx-3PPy
+	id 1wCfhi-0000000HWSS-16kl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 15:29:26 +0000
+	Tue, 14 Apr 2026 15:29:31 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OLYAxrmh5MFb2EiblkN3PmvkGHuz4k8ObWFMXyYJ1m+yhv4uHwxkW1xRSiK4TbbMQB/YcZ2EY/jkT/TSKHgSQc3QYmoohS8srs50Dr1V2EH4JgboueCbXFEZqG4gKjxZwZ+GYWHrhstQorKzi1gMA5KP2zq4MmyLbanM/vAlaPuq6VY7HhFsFyI2U+dV20uSkMqWpcH5B1aR42usU79FqpDidl7oLpfwKWy7Y6ADUnN6ZeZjddcF3fbAnnFa44XbQj0akA8midMGrl9hLBPMmeNRlBFKLjG6FDUKTPCT8UiU58mRcoj6wtSD5+XkcjG3mU8cRR1nMVP5f+Hin/CAvQ==
+ b=ro+6cFCnzubnzn2HDYhevXwc+YsgsJPG6fZlV5RKpY8yqV/zkig+k3bpe18HpZOOAHCt0TVaznKsq1qWbOVEIMX0kQh5ZC8h4V3LrnJnmxRJ64B0E+llzO/FkDDois9tqnBpBLnItZ7Q8dOPxyFed4NUxSQVHvbxZuhmTy2iHNFUdjVVYAnBFh4JiYe+29qLjjzaIKyZiIwhEUSQ3iCQvDwdrOux/60DbA4jQnB4lH4b9weZXUxc840hERBvMfepjT19UarVOVv70LsyltObducsKxuXQS6NJc5O0BFn0xVkD9aR4jFZN4C6FwQGLv7qOKM9Uzti1LU030VpMbtp6Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=reO8FkVOSCmvh6cNS+XOBBthpeRomlgGJxelQnXGf7c=;
- b=BdyJ4JiCY/5kj9sYFaO25fCGVrUfeJ1gUkLwuCg3TwypxFLV40NWU9N2q6L69PDt9jjdysjHnWSvIYjTUZ9WgoSAOl8yoKxq7BSVkGLnC9vI7Ve4psnfS3/K6WjF/0tIeS1uRfpeGzINt4sS0onedV1mEFQiBq2Z9dVRvA94F/PQK2hR/VmU6mcsQJyVpI27bR+Iz/bh2ZpcUr/HSdeq5+iqrzh2MxFMDcdLSRIIZni9iju1k2mb56CfkSsW0rKUPdDDMDxHNBi2Fbh0EUHyINK96H3qPBYcuYdiF6WGSdCnCUpCt0kqxvGIq/x/fmEDGiu0OuUjS/EpFdoUWkNDZA==
+ bh=2v1BKn4m0w5IBXYvMyQCy1dPiGTZV2n/1sA15+aXp0A=;
+ b=FUwdx6LLhHNjFr/uYP9uRz+z1K/L9Fb4M8U/LF/NpIxgPsyjmgm+pwbrTaBwKAhval19487CTtVO1TgOdNxYGfLY8hrreHhGaSbpVRktLgIBVAaf9eTh6vzLOobsa75PCV+LEgE8EQFeuTZesJyE8e+wF7mQ4qsPIXvBbU5hBblJFNW6ZKU9v3OwvCxHmTUiKh3NBf0yYtVRbPwV0CcdgDkog+Csn5XUJHi/sY/fBx0CTQ1v4lRABcHV0jgeL0JlJ7WM0lf50VJeQeU1vrKiMoaKrnYc7XcLqthkMQRaPFUo+mM+nJwfIVvgTAMEO3S3d3zgiv/f1CFs9xbRtSqPhw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
  164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
  dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=reO8FkVOSCmvh6cNS+XOBBthpeRomlgGJxelQnXGf7c=;
- b=OYbQrftPixs49tSY4a6AbbXSkrbrODcvKcAXgDAoGCaNZspy9CmgaNXJOIXACVdqQlW67eeCVNOAN7tigoYBtqA1YxNk7+ty+jwDfbZCfflTqepga915py0oe6GdeJkee8Fcgqr48CkjICvuF9odWwyZWb3J5Wh4NhVwKbCrJ5qMEc39pF0Wzh8vLJh2+FvFU/Li1XwH8czlFZ32ngk1sahWRgs/FoiXrbB+HxYSeSGuVimh0RiwL5xENPw15ETLO0UOt+prJRFi6SpZGyFXHhl6x6PEV052jT9LtLf+JnXptYeeSvafn+/wvKUqbEWQhe8YAuL41llatOUvc3UjAA==
-Received: from DU2PR04CA0048.eurprd04.prod.outlook.com (2603:10a6:10:234::23)
- by PAWPR10MB7198.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:2f1::19) with
- Microsoft SMTP Server (version=TLS1_2,
+ bh=2v1BKn4m0w5IBXYvMyQCy1dPiGTZV2n/1sA15+aXp0A=;
+ b=RB0yKKbAN75v5bThHNN3CKkJuor0ARZdXyvn1ZWy/XW8W28RWePinNm7hcMV+g0QwUJHW9wK++YJrHnJlHGQxqS8JtGlUFDSRtK9lSM7GPHHGR/FfSjNDHd5uThL7QMNjddRdK4KXCi7Ek3sS+3Jjcfcsv0nkdM00nmRRuHbXjKHdbPLRabB08CLQ1SCAGGc5SeXAy1i9fsp7AAoJAL0FKEfMQVRNcRixdFDIEuSwjld/y/Ds5KKq3u4VQ7VE4wFnqncpg655rwJc6DfqQZu6iq+bsGiJzcs6udKfmAWomA5p3pV6XGq5Mn1UG0+mMdZzdSBjMmQ0LmK10XyJuogtw==
+Received: from DB9PR01CA0014.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:1d8::19) by GV2PR10MB6984.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:150:d2::13) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Tue, 14 Apr
- 2026 15:29:17 +0000
-Received: from DU2PEPF00028D0A.eurprd03.prod.outlook.com
- (2603:10a6:10:234:cafe::59) by DU2PR04CA0048.outlook.office365.com
- (2603:10a6:10:234::23) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 15:29:22 +0000
+Received: from DU2PEPF00028D0B.eurprd03.prod.outlook.com
+ (2603:10a6:10:1d8:cafe::11) by DB9PR01CA0014.outlook.office365.com
+ (2603:10a6:10:1d8::19) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.48 via Frontend Transport; Tue,
- 14 Apr 2026 15:29:17 +0000
+ 14 Apr 2026 15:29:22 +0000
 X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
  smtp.mailfrom=foss.st.com; dkim=none (message not signed)
  header.d=none;dmarc=fail action=none header.from=foss.st.com;
@@ -60,17 +60,17 @@ Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
  designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
  client-ip=164.130.1.60; helo=smtpO365.st.com;
 Received: from smtpO365.st.com (164.130.1.60) by
- DU2PEPF00028D0A.mail.protection.outlook.com (10.167.242.170) with Microsoft
+ DU2PEPF00028D0B.mail.protection.outlook.com (10.167.242.171) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9745.21 via Frontend Transport; Tue, 14 Apr 2026 15:29:16 +0000
+ 15.20.9769.17 via Frontend Transport; Tue, 14 Apr 2026 15:29:22 +0000
 Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
  (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Tue, 14 Apr
- 2026 17:32:04 +0200
+ 2026 17:32:10 +0200
 Received: from localhost (10.252.12.46) by STKDAG1NODE2.st.com (10.75.128.133)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Tue, 14 Apr
- 2026 17:29:15 +0200
+ 2026 17:29:21 +0200
 From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
 To: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier
 	<mathieu.poirier@linaro.org>, Jens Wiklander <jens.wiklander@linaro.org>,
@@ -80,9 +80,9 @@ CC: <linux-stm32@st-md-mailman.stormreply.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-remoteproc@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <op-tee@lists.trustedfirmware.org>,
 	<devicetree@vger.kernel.org>, Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-Subject: [PATCH v22 1/7] dt-bindings: firmware: Add TEE remoteproc service binding
-Date: Tue, 14 Apr 2026 17:28:56 +0200
-Message-ID: <20260414152904.1679724-2-arnaud.pouliquen@foss.st.com>
+Subject: [PATCH v22 7/7] remoteproc: stm32: add OP-TEE backend support
+Date: Tue, 14 Apr 2026 17:29:02 +0200
+Message-ID: <20260414152904.1679724-8-arnaud.pouliquen@foss.st.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260414152904.1679724-1-arnaud.pouliquen@foss.st.com>
 References: <20260414152904.1679724-1-arnaud.pouliquen@foss.st.com>
@@ -94,28 +94,28 @@ X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
  (10.75.128.133)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PEPF00028D0A:EE_|PAWPR10MB7198:EE_
-X-MS-Office365-Filtering-Correlation-Id: 614e3259-31d6-40d2-072e-08de9a3a972e
+X-MS-TrafficTypeDiagnostic: DU2PEPF00028D0B:EE_|GV2PR10MB6984:EE_
+X-MS-Office365-Filtering-Correlation-Id: 55ebd6cc-32bc-49f4-d588-08de9a3a9a7f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|36860700016|82310400026|18002099003|22082099003|13003099007|56012099003;
-X-Microsoft-Antispam-Message-Info: VmAP85iVx+bvd+XqJMs8KQIefkELkuNuaFXVeSZOhMwS4f3DHU0fWir/esKQUvtvqPl75ha743MDGCNY+lI2tXF/Dfg8zDafA6+pHNH7xFDLZ8Ofsv3eP4Y+HC65mjLpAr7cnVjTGHRZsGY8alQKy4TXwX8QD8XQ1e3OCuJg5AOv/nZM+886hHlaxVAJbM0c1f/ZSZ4S1EM7UqNKDqhvhKlRnBmm9TxyJLbHJ3FfUoM40/73ZJSctu6dZsVMxNfpjs01HbJQgyJnK+0/lwWhR2TbvMfKmQBBdHHs9dvP6hzJ+eXXCL08lZqiQ8FTRao5o3qwdWBHfC0zhYJ0V7W5LME5UIwPoFalt4XRvTbrvAteSWePA+NTplrTZTT26oHpLaJSy9dGAJ/k2nnEjG8bhzzB34Y8WrPmAYLzM4F30Uwl/KHVYcue+ppCDasVGMsc9cez7Exl8f02ph74Exas95k1Mk2Vo9mq4nvGghQbPek6Tf7SHk7qkrZSIeLmfwHXcFCfoepvYmg5VpWhGUKzxSkRRGtO5lVd4JAcz9GFonUrykzSJ/th8vJRm3siVDPSiyGaj0RRTPGW+hanrV6aO5xdAtdGC8c35dz3G1OdOuAU7XZC0YnhDiGJ6z8C5UTR1BXKtkBsZl1Z07jWuYnJoJQfeMvOjBfXCQAfT2iR++oOYvgov8DXxIS4vjXS81gXOrPXo4b6AgK/MJOPrjJC/ZC0TGU5J2OwafTGp1y7mVg=
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(36860700016)(82310400026)(18002099003)(22082099003)(13003099007)(56012099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|1800799024|36860700016|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: OYdFlAirwSxnw/YprOHRkaRNlohk1HzjXuryitTJz/EzQ012eHQSi4qju54OJnLD1ahsoRtaJuhRWbIOgZSrv5uDqKXEqRODxVceRzs4EYtHmUvPSyM9Cjv4Gf8Ju08zq6m0usX5cqLD3Q4+68fKagoIkdviZ+qXLK7jQOXEWsszxUj9EV/pKgh3SR5Fep5HDVy5fo3h7D6loaIBRep546V/6pSLVAvk6YzHh+bwhlQLTkGZT1BAX5FaCV4fNRXvKROHw73Ong4a42la6HpaZhjFqx0l4n1JE0S9F5w9VmVCW9z7sTTuXkUySlYEZ12MeV7CY6GoDg/9wXNLEW68JCjm2+bpJsDRxfYk7mTKAd/3t03E97yH+ceSob+a01FAhVqM+cVukwZJoKRB3tM6vtbuvLQNNV/kUnSHRiVK/HNBUsJvOE9lTwjRNyQAs9OTmtpeglu17Pl0VNLOJmGFOZwu2J+HEfEZkI7LuMwsZWElY/gPdKVCobKKnI68l6FROB0cXrshxEh7IqcesqJ0ODlwia6tmR7vPvloHxYBKGwa0s4xnIcoLnF649/a0QZhkvAZ+dX1T+tMMN8UZnGvmBttfbxgKR+Mg6WWYcS8ym2G1VhRyga5mqwzCzk+mzBlEKDgIc8g11Z+SgMoT6NFApCyZL10MCDYgzDwlxCoei7jT53fAHEXWER7cMCnab1WiXwnNPDg+hc9G9eYi4eirLvlQicMWpe821pVN3t3uYIeQ78TKu6JXBBAXBYEGQAs5GHMtVERPXbyk2p/1lwAjg==
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(1800799024)(36860700016)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 7Xbfp0B7/V6RVxNjkxj24oyoIJRP334N+gWsm5feRMoUvqkN6aepSb9sJHdrkuPNW8m/HqWsrIMLA2T+UmQn/6i5hUeKqS8fRA6w0+LvgyAAZlvZ9y+I9cUfu1zxMiAkKcHaI47OwexbJzJ0QVvcERH4AFbW24DPgLg9rHJQ9nAdZd5WYPy3mQVezf5xZ9tednFOQD3ZX18hiHIBesslOgxjtzbLGlHOcDmRKRvPYMG0gnbt8HWfodIBASLd8yoXBsjWoQizBKyTwRMoQ2J2tvicfnJND5uNUr7xreqda0ku2aLcNxTVUkSJ60242ni8LVlITIrKO8CxLYa7q5WObnCNW1qWs22aTqCZxRNB/rYC5/2nGXPRbtyZnzLJ1oXsq1t/0V3B/XxvgYJ7m7v3wcp6S3JIkfxm15fjMEG1t8+tOWQFzgo7AdUK/q4WDYaN
+X-MS-Exchange-AntiSpam-MessageData-0: LP4OvrTADXMWAbkkbC+EfZsPYiCe7fRpsRpj/vptf9OFP42vymYIqv1Owym0LBmHyVr9c5eDDrejraAUeo/TsJ+q06Jdp3pxxTGtc4D6wfytRR268DGEtb18SX3++oa6pDtAC9C7fP85h96mjJCZaWythgvT4Cxdc8JbmuH23OehIz4FRF1z2RBTROZEXEzG8t7kG0rykRq16VWG6vNdw/zn7w9f5xYpETCb7893rvpVllpAsKbzokl0UI1OzUbhqEljUI1Wypn2Gh+0JbHcgpSTazxonwXMHNLvfnmZxboct3B0yoEFjG3lNqipuuTM6RjfygK44AXAaMeEI2gFKrQAqNFL264GUXSHGvpx937CA+O+sXufL1beas/WZKs9S47Hlc0llFc5zxvua6fnTFUZoZbCHo3qrdV5L6S4NduiRdJXzRf2AP1Ec2NlyDIS
 X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Apr 2026 15:29:16.7247
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Apr 2026 15:29:22.2910
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 614e3259-31d6-40d2-072e-08de9a3a972e
+X-MS-Exchange-CrossTenant-Network-Message-Id: 55ebd6cc-32bc-49f4-d588-08de9a3a9a7f
 X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D0A.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D0B.eurprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR10MB7198
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR10MB6984
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_082925_327417_C8C21257 
-X-CRM114-Status: GOOD (  14.02  )
+X-CRM114-CacheID: sfid-20260414_082930_482043_0BE0F430 
+X-CRM114-Status: GOOD (  22.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,64 +130,308 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a device tree binding for the TEE-based remote processor control
-service implemented as an OP-TEE Trusted Application identified by
-UUID 80a4c275-0a47-4905-8285-1486a9771a08.
+Integrate OP-TEE-controlled firmware loading into stm32_rproc
+adding support for the st,rproc-tee devicetree property.
+
+When st,rproc-tee is present, the driver:
+- parses the backend phandle + ID from DT and validates it
+- uses the remoteproc_tee operation set and registration path
+- keeps reset/holdboot handling only for the non-TEE case
+- uses a TEE-specific flow.
+
+Notice that the attach/detach is not yet supported and should be part
+of a separate patchset.
 
 Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
 ---
-v21 updates:
-- rename compatible to exactly match with the TEE UUID
-- the remoteproc device driver is no more declared as a child,
-  but use phandle as done for the SCMI.
-- remove linaro,optee-tz bindings update are now useless.
+V21 updates:
+- reapply the V19 patch as the stm32_rproc-tee  driver can no more
+  be used.
+- update v19 patch to support the st,rproc-tee phandle.
+- rework the commit message.
 ---
- .../bindings/remoteproc/remoteproc-tee.yaml   | 36 +++++++++++++++++++
- 1 file changed, 36 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/remoteproc/remoteproc-tee.yaml
+ drivers/remoteproc/stm32_rproc.c | 167 +++++++++++++++++++++++--------
+ 1 file changed, 123 insertions(+), 44 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/remoteproc/remoteproc-tee.yaml b/Documentation/devicetree/bindings/remoteproc/remoteproc-tee.yaml
-new file mode 100644
-index 000000000000..498a7e590905
---- /dev/null
-+++ b/Documentation/devicetree/bindings/remoteproc/remoteproc-tee.yaml
-@@ -0,0 +1,36 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/remoteproc/remoteproc-tee.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/remoteproc/stm32_rproc.c b/drivers/remoteproc/stm32_rproc.c
+index 4bcd6a784935..61d89f3a78b1 100644
+--- a/drivers/remoteproc/stm32_rproc.c
++++ b/drivers/remoteproc/stm32_rproc.c
+@@ -18,6 +18,7 @@
+ #include <linux/pm_wakeirq.h>
+ #include <linux/regmap.h>
+ #include <linux/remoteproc.h>
++#include <linux/remoteproc_tee.h>
+ #include <linux/reset.h>
+ #include <linux/slab.h>
+ #include <linux/workqueue.h>
+@@ -89,6 +90,7 @@ struct stm32_rproc {
+ 	struct stm32_rproc_mem *rmems;
+ 	struct stm32_mbox mb[MBOX_NB_MBX];
+ 	struct workqueue_struct *workqueue;
++	struct of_phandle_args tee_phandle;
+ 	bool hold_boot_smc;
+ 	void __iomem *rsc_va;
+ };
+@@ -255,6 +257,19 @@ static int stm32_rproc_release(struct rproc *rproc)
+ 	return 0;
+ }
+ 
++static int stm32_rproc_tee_stop(struct rproc *rproc)
++{
++	int err;
 +
-+title: TEE Remote Processor Control Service (UUID 80a4c275-0a47-4905-8285-1486a9771a08)
++	stm32_rproc_request_shutdown(rproc);
 +
-+maintainers:
-+  - Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
++	err = rproc_tee_stop(rproc);
++	if (err)
++		return err;
 +
-+description:
-+  Node describing a TEE-based remote processor control service implemented as
-+  a Trusted Application identified by UUID 80a4c275-0a47-4905-8285-1486a9771a08.
++	return stm32_rproc_release(rproc);
++}
 +
-+  This binding is intended to define the interface for remoteproc services
-+  implemented as TAs running in a TEE, and is used by the a remoteproc driver
-+  to bind to such a service and control a remote processor through it.
+ static int stm32_rproc_prepare(struct rproc *rproc)
+ {
+ 	struct device *dev = rproc->dev.parent;
+@@ -683,6 +698,17 @@ static const struct rproc_ops st_rproc_ops = {
+ 	.get_boot_addr	= rproc_elf_get_boot_addr,
+ };
+ 
++static const struct rproc_ops st_rproc_tee_ops = {
++	.prepare	= stm32_rproc_prepare,
++	.start		= rproc_tee_start,
++	.stop		= stm32_rproc_tee_stop,
++	.kick		= stm32_rproc_kick,
++	.load		= rproc_tee_load_fw,
++	.parse_fw	= rproc_tee_parse_fw,
++	.find_loaded_rsc_table = rproc_tee_find_loaded_rsc_table,
++	.release_fw	= rproc_tee_release_fw,
++};
 +
-+properties:
-+  compatible:
-+    const: 80a4c275-0a47-4905-8285-1486a9771a08
+ static const struct of_device_id stm32_rproc_match[] = {
+ 	{ .compatible = "st,stm32mp1-m4" },
+ 	{},
+@@ -716,6 +742,7 @@ static int stm32_rproc_parse_dt(struct platform_device *pdev,
+ {
+ 	struct device *dev = &pdev->dev;
+ 	struct device_node *np = dev->of_node;
++	struct of_phandle_args tee_phandle;
+ 	struct stm32_syscon tz;
+ 	unsigned int tzen;
+ 	int err, irq;
+@@ -741,51 +768,69 @@ static int stm32_rproc_parse_dt(struct platform_device *pdev,
+ 		dev_info(dev, "wdg irq registered\n");
+ 	}
+ 
+-	ddata->rst = devm_reset_control_get_optional(dev, "mcu_rst");
+-	if (!ddata->rst) {
+-		/* Try legacy fallback method: get it by index */
+-		ddata->rst = devm_reset_control_get_by_index(dev, 0);
++	if (of_find_property(np, "st,rproc-tee", NULL)) {
++		err = of_parse_phandle_with_fixed_args(np, "st,rproc-tee",
++						       1, 0, &tee_phandle);
++		if (err)
++			return dev_err_probe(dev, err,
++					     "failed to parse st,rproc-tee\n");
 +
-+required:
-+  - compatible
++		if (!IS_ENABLED(CONFIG_REMOTEPROC_TEE)) {
++			of_node_put(tee_phandle.np);
++			return dev_err_probe(dev, -ENODEV,
++					     "st,rproc-tee requires REMOTEPROC_TEE support\n");
++		}
 +
-+additionalProperties: false
++		ddata->tee_phandle = tee_phandle;
+ 	}
+-	if (IS_ERR(ddata->rst))
+-		return dev_err_probe(dev, PTR_ERR(ddata->rst),
+-				     "failed to get mcu_reset\n");
+ 
+-	/*
+-	 * Three ways to manage the hold boot
+-	 * - using SCMI: the hold boot is managed as a reset
+-	 *    The DT "reset-mames" property should be defined with 2 items:
+-	 *        reset-names = "mcu_rst", "hold_boot";
+-	 * - using SMC call (deprecated): use SMC reset interface
+-	 *    The DT "reset-mames" property is optional, "st,syscfg-tz" is required
+-	 * - default(no SCMI, no SMC): the hold boot is managed as a syscon register
+-	 *    The DT "reset-mames" property is optional, "st,syscfg-holdboot" is required
+-	 */
++	if (!ddata->tee_phandle.np) {
++		ddata->rst = devm_reset_control_get_optional(dev, "mcu_rst");
++		if (!ddata->rst) {
++			/* Try legacy fallback method: get it by index */
++			ddata->rst = devm_reset_control_get_by_index(dev, 0);
++		}
++		if (IS_ERR(ddata->rst))
++			return dev_err_probe(dev, PTR_ERR(ddata->rst),
++					"failed to get mcu_reset\n");
+ 
+-	ddata->hold_boot_rst = devm_reset_control_get_optional(dev, "hold_boot");
+-	if (IS_ERR(ddata->hold_boot_rst))
+-		return dev_err_probe(dev, PTR_ERR(ddata->hold_boot_rst),
+-				     "failed to get hold_boot reset\n");
++		/*
++		 * Three ways to manage the hold boot
++		 * - using SCMI: the hold boot is managed as a reset
++		 *    The DT "reset-mames" property should be defined with 2 items:
++		 *        reset-names = "mcu_rst", "hold_boot";
++		 * - using SMC call (deprecated): use SMC reset interface
++		 *    The DT "reset-mames" property is optional, "st,syscfg-tz" is required
++		 * - default(no SCMI, no SMC): the hold boot is managed as a syscon register
++		 *    The DT "reset-mames" property is optional, "st,syscfg-holdboot" is required
++		 */
+ 
+-	if (!ddata->hold_boot_rst && IS_ENABLED(CONFIG_HAVE_ARM_SMCCC)) {
+-		/* Manage the MCU_BOOT using SMC call */
+-		err = stm32_rproc_get_syscon(np, "st,syscfg-tz", &tz);
+-		if (!err) {
+-			err = regmap_read(tz.map, tz.reg, &tzen);
+-			if (err) {
+-				dev_err(dev, "failed to read tzen\n");
+-				return err;
++		ddata->hold_boot_rst = devm_reset_control_get_optional(dev, "hold_boot");
++		if (IS_ERR(ddata->hold_boot_rst))
++			return dev_err_probe(dev, PTR_ERR(ddata->hold_boot_rst),
++					"failed to get hold_boot reset\n");
 +
-+examples:
-+  - |
-+    firmware {
-+        tee_rproc: optee-rproc {
-+            compatible = "80a4c275-0a47-4905-8285-1486a9771a08";
-+        };
-+    };
-+...
++		if (!ddata->hold_boot_rst && IS_ENABLED(CONFIG_HAVE_ARM_SMCCC)) {
++			/* Manage the MCU_BOOT using SMC call */
++			err = stm32_rproc_get_syscon(np, "st,syscfg-tz", &tz);
++			if (!err) {
++				err = regmap_read(tz.map, tz.reg, &tzen);
++				if (err) {
++					dev_err(dev, "failed to read tzen\n");
++					return err;
++				}
++				ddata->hold_boot_smc = tzen & tz.mask;
+ 			}
+-			ddata->hold_boot_smc = tzen & tz.mask;
+ 		}
+-	}
+ 
+-	if (!ddata->hold_boot_rst && !ddata->hold_boot_smc) {
+-		/* Default: hold boot manage it through the syscon controller */
+-		err = stm32_rproc_get_syscon(np, "st,syscfg-holdboot",
+-					     &ddata->hold_boot);
+-		if (err) {
+-			dev_err(dev, "failed to get hold boot\n");
+-			return err;
++		if (!ddata->hold_boot_rst && !ddata->hold_boot_smc) {
++			/* Default: hold boot manage it through the syscon controller */
++			err = stm32_rproc_get_syscon(np, "st,syscfg-holdboot",
++						     &ddata->hold_boot);
++			if (err) {
++				dev_err(dev, "failed to get hold boot\n");
++				return err;
++			}
+ 		}
+ 	}
+ 
+@@ -857,18 +902,31 @@ static int stm32_rproc_probe(struct platform_device *pdev)
+ 	if (ret < 0 && ret != -EINVAL)
+ 		return ret;
+ 
+-	rproc = devm_rproc_alloc(dev, np->name, &st_rproc_ops, fw_name, sizeof(*ddata));
++	if (of_find_property(np, "st,rproc-tee", NULL))
++		rproc = devm_rproc_alloc(dev, np->name, &st_rproc_tee_ops, fw_name,
++					 sizeof(*ddata));
++	else
++		rproc = devm_rproc_alloc(dev, np->name, &st_rproc_ops, fw_name,
++					 sizeof(*ddata));
++
+ 	if (!rproc)
+ 		return -ENOMEM;
+ 
+ 	ddata = rproc->priv;
+-
+ 	rproc_coredump_set_elf_info(rproc, ELFCLASS32, EM_NONE);
+ 
+ 	ret = stm32_rproc_parse_dt(pdev, ddata, &rproc->auto_boot);
+ 	if (ret)
+ 		goto free_rproc;
+ 
++	if (ddata->tee_phandle.np &&
++	    !of_device_is_available(ddata->tee_phandle.np)) {
++		of_node_put(ddata->tee_phandle.np);
++		ddata->tee_phandle.np = NULL;
++		ret = -EPROBE_DEFER;
++		goto free_rproc;
++	}
++
+ 	ret = stm32_rproc_of_memory_translations(pdev, ddata);
+ 	if (ret)
+ 		goto free_rproc;
+@@ -877,8 +935,14 @@ static int stm32_rproc_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto free_rproc;
+ 
+-	if (state == M4_STATE_CRUN)
++	if (state == M4_STATE_CRUN) {
++		if (ddata->tee_phandle.np) {
++			dev_err(dev, "TEE support not yet compatible with attached state\n");
++			ret = -EINVAL;
++			goto free_rproc;
++		}
+ 		rproc->state = RPROC_DETACHED;
++	}
+ 
+ 	rproc->has_iommu = false;
+ 	ddata->workqueue = create_workqueue(dev_name(dev));
+@@ -894,10 +958,12 @@ static int stm32_rproc_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto free_wkq;
+ 
+-	ret = rproc_add(rproc);
++	if (ddata->tee_phandle.np)
++		ret = rproc_tee_register(dev, rproc, &ddata->tee_phandle);
++	else
++		ret = rproc_add(rproc);
+ 	if (ret)
+ 		goto free_mb;
+-
+ 	return 0;
+ 
+ free_mb:
+@@ -911,6 +977,11 @@ static int stm32_rproc_probe(struct platform_device *pdev)
+ 		dev_pm_clear_wake_irq(dev);
+ 		device_init_wakeup(dev, false);
+ 	}
++	if (ddata->tee_phandle.np) {
++		of_node_put(ddata->tee_phandle.np);
++		ddata->tee_phandle.np = NULL;
++	}
++
+ 	return ret;
+ }
+ 
+@@ -919,11 +990,11 @@ static void stm32_rproc_remove(struct platform_device *pdev)
+ 	struct rproc *rproc = platform_get_drvdata(pdev);
+ 	struct stm32_rproc *ddata = rproc->priv;
+ 	struct device *dev = &pdev->dev;
++	struct device_node *tee_np = ddata->tee_phandle.np;
+ 
+ 	if (atomic_read(&rproc->power) > 0)
+ 		rproc_shutdown(rproc);
+ 
+-	rproc_del(rproc);
+ 	stm32_rproc_free_mbox(rproc);
+ 	destroy_workqueue(ddata->workqueue);
+ 
+@@ -931,6 +1002,14 @@ static void stm32_rproc_remove(struct platform_device *pdev)
+ 		dev_pm_clear_wake_irq(dev);
+ 		device_init_wakeup(dev, false);
+ 	}
++
++	if (tee_np) {
++		ddata->tee_phandle.np = NULL;
++		rproc_tee_unregister(dev, rproc);
++		of_node_put(tee_np);
++	} else {
++		rproc_del(rproc);
++	}
+ }
+ 
+ static int stm32_rproc_suspend(struct device *dev)
 -- 
 2.43.0
 
