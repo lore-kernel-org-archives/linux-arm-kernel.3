@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 206B6F9D0C9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 12:48:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E8B7F9D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 13:04:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JAIr67bkxC3XQwY18544tV2pAQWuxB1Ff+z7mxRuI9Y=; b=TpoB64p8mFWMgpCY8zGP/kgP3A
-	xX8oj/BLl3k2DAcW///UcWX4rc2rU1Sd/yZqz7BgqjCwC6YCE8wCCUcByobiDueFgXCAQSs9HCE0R
-	c1W8wOdxnBDBcgtNgYtHsATaSf0Ycgc9Wd1Ji10jtTj8AspCMS4Tck775BGt1/+t9hfs9eaoJL9Er
-	OIIBTNxlxU191iONl+Q0nGF3E/bZ3p3N389d+LtSd4c72xKg4PNz+fn0zpwX9HNrzyFbkCHd5cuSO
-	kRw2nuMOLlXr1XOcph9VN5uCQliNdU5AobbLDkIL928PRbAVewp41fAAInevo9CgAfFdqhGhvTAzp
-	X4kGAR0Q==;
+	bh=K8pBh4398RDoCeTIQR+5NhGbtRQ52nIfk084bkMFoO8=; b=tVLDX2Y833A2my4d9NVpHXSCC9
+	/KSNneMk9yO6TVKKqa5AdE/yYRFycmhSFSeHgpVU2SjEMm2KoMxpJH8fHPjzuqWxQAGOt9goD3sEH
+	1yGqk6naxvSGjAuhuJuX81F5EmTwpZyFi7F12u1nvgE6uOEPtjsX9J0jd2nD/HODy+zLLkasBL+6u
+	o7SLizaxMRGdolgNntU2sPCUT+e3OhoEUSf/NdTo/9g6RlBhqTubD2DZUAccvO2WWVsVp8b4c0lH7
+	Vo+gvuaLZjsZfVY1Rsv/LpsVRe1B3TcZr4pyKiXT1SP5L4XupKTEFr0vfqQmW5ZaE+OIlEzqwNEj2
+	iHxooLtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCdCC-0000000HKFu-2hw0;
-	Tue, 14 Apr 2026 12:48:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wCdR5-0000000HL9Z-42np;
+	Tue, 14 Apr 2026 13:04:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCdCA-0000000HKEC-2lRM;
-	Tue, 14 Apr 2026 12:48:46 +0000
+	id 1wCdR4-0000000HL95-0bHG;
+	Tue, 14 Apr 2026 13:04:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A8AD460126;
-	Tue, 14 Apr 2026 12:48:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 918AAC19425;
-	Tue, 14 Apr 2026 12:48:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2CE5E60018;
+	Tue, 14 Apr 2026 13:04:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64FCFC19425;
+	Tue, 14 Apr 2026 13:04:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776170925;
-	bh=ywvmaEFfcZLbgJZzgdExmYObQSQSsjeTYz/irjz5laA=;
+	s=k20201202; t=1776171848;
+	bh=+SdxuvV++RW3Au9ENkYe7TDMNH7gu+U+TpzaE8EMu60=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IvU2nXq6Q4wsp2dI5CJL0+WLnFsCXIt2Ghi87O1uv5Ik1R0cMsO/7z2ftR2IhjZMd
-	 Mzo1Rp+Rr2xO/Swp5zJTlvT4nM79ak7W/fmYW39HUydPku0PR74Y26IwsW1WrNSIxM
-	 zlBMo8UDgmvzRpLxa443rbekz6/dFMruYCeqhxMcite0KKx1NUGrKcPUrwpNMWl79U
-	 hNuFa0U3WJRfbtQY6tbR4Is6V17nkJf7AaKeEIWTj5R6/2BC+nLf+kxo7P/7dU1Qag
-	 ton6XG5S61YsoGgrq2xJZKbWJMJG9ayfT+uKKVwxtVlLFVgs8Yd7pcTWLOD16rFtXf
-	 bQJc/c76L637w==
-Date: Tue, 14 Apr 2026 13:48:41 +0100
-From: Simon Horman <horms@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	b=h9oAJT39GRuHqt8X4CzT3FAocKIXUrycPfF479DhSGQ9lDYjqZdrVJMMal/khypft
+	 uiE8m/T/lSLmTIrK4QZWNc34kZjGFlo/wt5DEA2oaCJcSw7k68zV185MyRzvJ0gf77
+	 gmQqDnU+8WShfOA5yrhzQaTFUgVOE0lRhPJjt6Rbi8PFzGeQSJHVv86Spki/3gY24c
+	 a85V+kaLHRCLxXfBwiuGHLaMEVADYE/07rb4xmJQpgYmq0hFqSlY/90+VLZQGnF00L
+	 OzZEGAoHbm7cCiw6TAahbBkkvoG2JfZYlUQvV1HFlpnClg1Ukpzqq3uefkRNX+JbU4
+	 dNrPfidGe3fKg==
+Date: Tue, 14 Apr 2026 15:04:06 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Simon Horman <horms@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net] net: airoha: Add missing PPE configurations in
- airoha_ppe_hw_init()
-Message-ID: <20260414124841.GF469338@kernel.org>
-References: <20260412-airoha_ppe_hw_init-missing-bits-v1-1-06ac670819e3@kernel.org>
+Subject: Re: [PATCH net] net: airoha: Fix max TX packet length configuration
+Message-ID: <ad47Rn6O3zxMGvga@lore-desk>
+References: <20260412-airoha-fix-max-mtu-v1-1-333030d0a564@kernel.org>
+ <20260414124011.751922-1-horms@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Q+gggKPI9waM/m7U"
 Content-Disposition: inline
-In-Reply-To: <20260412-airoha_ppe_hw_init-missing-bits-v1-1-06ac670819e3@kernel.org>
+In-Reply-To: <20260414124011.751922-1-horms@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,22 +71,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 12, 2026 at 10:43:26AM +0200, Lorenzo Bianconi wrote:
-> Add the following PPE configuration in airoha_ppe_hw_init routine:
-> - 6RD hw offloading is currently not supported by Netfilter flowtable.
->   Disable explicitly PPE 6RD offloading in order to prevent PPE to learn
->   6RD flows and eventually interrupt the traffic.
-> - Add missing PPE bind rate configuration for L3 and L2 traffic.
->   PPE bind rate configuration specifies the pps threshold to move a PPE
->   entry state from UNBIND to BIND. Without this configuration this value
->   is random.
-> - Set ageing thresholds to the values used in the vendor SDK in order to
->   improve connection stability under load and avoid packet loss caused by
->   fast aging.
-> 
-> Fixes: 00a7678310fe3 ("net: airoha: Introduce flowtable offload support")
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+--Q+gggKPI9waM/m7U
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+> From: 'Simon Horman' <horms@kernel.org>
+>=20
+> This is an AI-generated review of your patch. The human sending this
+> email has considered the AI review valid, or at least plausible.
+> Full review at: https://sashiko.dev
+> ---
+> net: airoha: Fix max TX packet length configuration
+>=20
+> This commit fixes the MTU configuration for the Airoha driver by removing
+> ETH_FCS_LEN from the maximum TX packet length, matching the hardware
+> documentation which states the register does not include the FCS length.
+>=20
+> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
+ernet/airoha/airoha_eth.c
+> > index c14cdce588a7c..a81ffda72b39f 100644
+> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> > @@ -1629,9 +1629,9 @@ static void airoha_update_hw_stats(struct airoha_=
+gdm_port *port)
+> > =20
+> >  static int airoha_dev_open(struct net_device *dev)
+> >  {
+> > -	int err, len =3D ETH_HLEN + dev->mtu + ETH_FCS_LEN;
+> >  	struct airoha_gdm_port *port =3D netdev_priv(dev);
+> >  	struct airoha_qdma *qdma =3D port->qdma;
+> > +	int err, len =3D ETH_HLEN + dev->mtu;
+>=20
+> Does this regression cause MTU-sized VLAN-tagged frames to be dropped by =
+the
+> hardware?
+>=20
+> By limiting the frame size to ETH_HLEN + dev->mtu, the maximum allowed le=
+ngth
+> becomes 1514 bytes for a standard 1500 MTU. An Ethernet frame containing a
+> standard 802.1Q VLAN tag and a maximum-sized 1500-byte IP payload require=
+s an
+> 18-byte L2 header, making the total frame size 1518 bytes (excluding FCS).
+>=20
+> Previously, the inclusion of ETH_FCS_LEN inadvertently provided the 4-byte
+> headroom needed to accommodate a single VLAN tag.=20
+>=20
+> Could the configuration explicitly account for VLAN headers using VLAN_ET=
+H_HLEN
+> instead?
+
+ack, thx for pointing this out. I will fix it in v2.
+
+Regards,
+Lorenzo
+
+>=20
+> [ ... ]
+
+--Q+gggKPI9waM/m7U
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCad47RgAKCRA6cBh0uS2t
+rPLDAP9Q5H7Gu+YaELSGXFfA19Ve/ujnBdFo02w+qdtwsV1EiwEAz8wT7BGV5Axj
+dQ8zS8efuQJZOHb4yYvA+gf5P4uGIQ8=
+=4+Tn
+-----END PGP SIGNATURE-----
+
+--Q+gggKPI9waM/m7U--
 
