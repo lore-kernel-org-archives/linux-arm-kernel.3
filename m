@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CDBAF531DE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 00:04:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AA01F531CE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 00:04:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iZQGwEHwBQUY6iK+AfcutNF4R8Ig24CfmNfmXwDw7qg=; b=oTlBUoRVsnIyoVOiZNAxckZcCw
-	YKneJLmxBKYxuySIDbGnzvvijtBnn3ZQvvn+XhSU8WruURvB5rLCmmZfDR5FTQQqyrjF+wC4B5NSw
-	0hq44hYQGP4utIkSKVjgtz0Ngn2bab0nnyeQfhvs4lvrItKufM7Rjg5iz73zczE+p2OmHFDX0hej9
-	iRhy82wtH3yv14gJJn0+T9wz0d8c4DhIDF9xA7Gz62UzZsSKSpQYO3UXMFB1mjz24Yjj/T9ceix2P
-	1crWrACO2n74s+7umMnUATnZ4NuQVuDMEZcvA9KTXmItkTLCdnDQyCYoZ0yLosd+ixut3UPAIAi2B
-	+uXu3f8g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=benOn9LBj7v8ilS4dNoqkKSPj7qth7jV5m24asJKWUg=; b=j8VfkAXWHP7zrva7xxWwAUytYo
+	3sLKtZ2iaOeCc2EGzuGXekuJLmSFK0ibRqnJGGZimEx9BYRd/0iQN9gVePdX23IxisXpiM5Fc7CGo
+	d6H3pDyLzTxDcPeY+MNcHbkLibX0l/DHlEWGyFtZGY5Faj+Ku/VHNTHlxVBfkFJ03c84bjao5Vnxn
+	AGBanjeLoCQI9XyP59HffLbj5dkfFVhr2pPCl8Btk1Whw1cHJow4EExOZPcU2aUpqgNMog5MTNAx1
+	PkW5wuL3QmeFmt2RnDpsqqtZ2WrgnmlYmMtpR7Y9srwmHEkXquqXFRQ+gZuaZMiESF6Bd5DWiREC4
+	6ml+7ztQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCRGC-0000000GVK8-10Un;
-	Tue, 14 Apr 2026 00:04:08 +0000
+	id 1wCRGB-0000000GVK1-42zW;
+	Tue, 14 Apr 2026 00:04:07 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCRG8-0000000GVIe-32A7
+	id 1wCRG9-0000000GVIf-1Rhy
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 14 Apr 2026 00:04:06 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C0914E26;
-	Mon, 13 Apr 2026 17:03:54 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 02A3E4E28;
+	Mon, 13 Apr 2026 17:03:56 -0700 (PDT)
 Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 10E4F3F7B4;
-	Mon, 13 Apr 2026 17:03:57 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 07E4E3F7B4;
+	Mon, 13 Apr 2026 17:03:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776125039; bh=m6x/63nnfpg6KYUYTu5KqOD4nFrzdvwE6G7muugTYuY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=pC5yaf0E+ADbte4ZRHujJmQZlq1k4KKzSDIIeiUoSp4HCnfLajY7PUTBZHYw06Tzo
-	 S37+n/p64em1CL0VSJnWZ2ux1ojw4vpypkOe3HrHQpaBQsRJKolUyXYuQjJ+stZui5
-	 AVPOPMSJTdZfVDpZl1+Ci/ZgQR0S5EaWg7DcY8Rk=
+	t=1776125041; bh=sNkeD3oItSsUYpcwRXopPrAGHGTV7rUHC2RBworXx6M=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=qzTpUOMtt4Daa1iCNSkoG6aW71GBI52JmOBJuML2B5kaxm32WfnMgBniZyQU6tfLy
+	 wGJiXEDWZDjfG3XFWBAbi3+oo7PfuScZCQrVlsKy+nb33CUJI2CryYbapSVVRTBccG
+	 KKzE9uO+KkTyzyLE+t3FvSci7YdovJoyMiHr4MXI=
 From: Wei-Lin Chang <weilin.chang@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
@@ -51,16 +51,17 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: [PATCH v2 0/4] KVM: arm64: Handle unsupported guest translation granule sizes
-Date: Tue, 14 Apr 2026 01:03:30 +0100
-Message-ID: <20260414000334.3947257-1-weilin.chang@arm.com>
+Subject: [PATCH v2 1/4] KVM: arm64: nv: Rename vtcr_to_walk_info() to setup_s2_walk()
+Date: Tue, 14 Apr 2026 01:03:31 +0100
+Message-ID: <20260414000334.3947257-2-weilin.chang@arm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260414000334.3947257-1-weilin.chang@arm.com>
+References: <20260414000334.3947257-1-weilin.chang@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_170404_889839_42BC2F39 
-X-CRM114-Status: UNSURE (   6.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260413_170405_418208_F925F65F 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,39 +76,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+This rename aligns the stage-2 walker better with the stage-1 walker.
+Also set up other non-VTCR walk info in the function.
 
-This is v2 of fixing the granule size selection for software stage-1
-and stage-2 walks. Thanks to Marc for the feedback on v1 ([1]).
+Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+---
+ arch/arm64/kvm/nested.c | 15 +++++++--------
+ 1 file changed, 7 insertions(+), 8 deletions(-)
 
-* Changes from v1:
-
-  - Take the entire (v)tcr value for TGx decode helpers.
-
-  - Rename vtcr_to_walk_info() to setup_s2_walk() as preparation, also
-    pass vcpu as the argument instead of kvm.
-
-  - Use TCR_* instead of TCR_EL1_* definitions.
-
-  - Return unsigned int instead of u64 when returning a granule shift.
-
-  - Split unit changes in get_guest_mapping_ttl() and
-    compute_tlb_inval_range() into its own patch.
-
-Thanks!
-
-[1]: https://lore.kernel.org/kvmarm/20260406164618.3312473-1-weilin.chang@arm.com/
-
-Wei-Lin Chang (4):
-  KVM: arm64: nv: Rename vtcr_to_walk_info() to setup_s2_walk()
-  KVM: arm64: Factor out TG0/1 decoding of VTCR and TCR
-  KVM: arm64: nv: Use literal granule size in TLBI range calculation
-  KVM: arm64: Fallback to a supported value for unsupported guest TGx
-
- arch/arm64/kvm/at.c     | 125 ++++++++++++++++++++++++++--------
- arch/arm64/kvm/nested.c | 144 +++++++++++++++++++++++++++-------------
- 2 files changed, 196 insertions(+), 73 deletions(-)
-
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 2c43097248b2..f20402d0d7e5 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -378,9 +378,12 @@ static int walk_nested_s2_pgd(struct kvm_vcpu *vcpu, phys_addr_t ipa,
+ 	return 0;
+ }
+ 
+-static void vtcr_to_walk_info(u64 vtcr, struct s2_walk_info *wi)
++static void setup_s2_walk(struct kvm_vcpu *vcpu, struct s2_walk_info *wi)
+ {
+-	wi->t0sz = vtcr & TCR_EL2_T0SZ_MASK;
++	u64 vtcr = vcpu_read_sys_reg(vcpu, VTCR_EL2);
++
++	wi->baddr = vcpu_read_sys_reg(vcpu, VTTBR_EL2);
++	wi->t0sz = vtcr & VTCR_EL2_T0SZ_MASK;
+ 
+ 	switch (FIELD_GET(VTCR_EL2_TG0_MASK, vtcr)) {
+ 	case VTCR_EL2_TG0_4K:
+@@ -398,12 +401,12 @@ static void vtcr_to_walk_info(u64 vtcr, struct s2_walk_info *wi)
+ 			      ps_to_output_size(FIELD_GET(VTCR_EL2_PS_MASK, vtcr), false));
+ 
+ 	wi->ha = vtcr & VTCR_EL2_HA;
++	wi->be = vcpu_read_sys_reg(vcpu, SCTLR_EL2) & SCTLR_ELx_EE;
+ }
+ 
+ int kvm_walk_nested_s2(struct kvm_vcpu *vcpu, phys_addr_t gipa,
+ 		       struct kvm_s2_trans *result)
+ {
+-	u64 vtcr = vcpu_read_sys_reg(vcpu, VTCR_EL2);
+ 	struct s2_walk_info wi;
+ 	int ret;
+ 
+@@ -412,11 +415,7 @@ int kvm_walk_nested_s2(struct kvm_vcpu *vcpu, phys_addr_t gipa,
+ 	if (!vcpu_has_nv(vcpu))
+ 		return 0;
+ 
+-	wi.baddr = vcpu_read_sys_reg(vcpu, VTTBR_EL2);
+-
+-	vtcr_to_walk_info(vtcr, &wi);
+-
+-	wi.be = vcpu_read_sys_reg(vcpu, SCTLR_EL2) & SCTLR_ELx_EE;
++	setup_s2_walk(vcpu, &wi);
+ 
+ 	ret = walk_nested_s2_pgd(vcpu, gipa, &wi, result);
+ 	if (ret)
 -- 
 2.43.0
 
