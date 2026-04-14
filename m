@@ -4,126 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB0C2F9D0DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 15:58:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB94AF9D0DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 16:04:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3mMVtHum7zPwks+XDXBRlehlKpwvf1Ihn9S56ZO2pRY=; b=m2CxxxrF9RsKG7dbbVObS6NMpF
-	fZsBA1x1aXrboU9W7IAmOLhd5x8zyNOBoJAuTt6LnlUwKbM8iO06w6RyITJiClNaprHL7Tx5Yr254
-	M4IqZtjWL6CpCp5adVN/Db/DC3eG2TBYecP9BolT1sGde4n1nNSyOzITWY8UVbY2XfkpnGUUM/cyD
-	sp8axecj6Q2dCUk5JpMs6hCHreTqnxhgsB+MkZkTpmkWu3j8zW2nCNDRmiHo9HCb0DUYOfC+vRFsT
-	FslZipfEZFMC2JPn2PUJ4btsneOLyWQxl7g1/evDg83H2ycDbeQ2XUGNiiCvQF8uAIKQxfpzP0XuB
-	CVUrgXlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e8gcpnfLmJgHtyAALVfiXISha8s1sj1w75S9vN7Lnag=; b=xC8Mhhazxqashi8MgTNFNbB0zZ
+	+VUnKmmRiSPkHCR+bf3yXcpmW/ug7XEdgqmLoM1ZpPBaT3/mVVpaYykNnvmcWpy4V+UxRZ/BwELoj
+	5Zz/KsQgXa01WUYltcxi9EA2e6DEC6SiT2ySMnZ08YJ7cjj4g5iiIgp8r7zchtox4maQ1bCdmIpfR
+	n8FppWKrFiGcTSEEaMnWv/ieXuog5GapbcoQTSs1Kg7cKyDRyPxUb8GZEWD/whtt0vnX9DB0DyaHc
+	LrukaKRZQ9oVZUpK8hscg+SRv9y7kpnCfzHck/B5mJzZ5ofTGR6LtGYdfDKdvdXgWJLX5sSqwWetH
+	hmD98XVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCg9o-0000000HZEq-22Db;
-	Tue, 14 Apr 2026 15:58:32 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCg9l-0000000HZEU-37D9
+	id 1wCgFv-0000000HaDJ-0HG6;
+	Tue, 14 Apr 2026 16:04:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCgFr-0000000HaCp-32ce
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 15:58:30 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-43d7650202fso1932990f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 08:58:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776182307; cv=none;
-        d=google.com; s=arc-20240605;
-        b=SS1quuI3/l3i4wfy46VzT24oV/j/kJWU9MMsM2Ay/VLAEko7WW3Jv4rlP5rmtKIodi
-         C8jHLrKp3i4zazqflPzKJs0UpJEdnT1k/prZR8qQfTjO9oHCE4CuQpKj5rqcpjcgXo99
-         8cCigg6MITiPz3vsCCogOcaXrEJLotfYrTmA7UCrHFFnzqDROBaoBuW5vNjb9YJ4Ftpe
-         4o4e3/iK8INfiB/wHrpvL+e9n2uwSyP+D/lwVFdoyUhfAPhYDC9veqcu8RGZ/U01MylV
-         s0C94CDpo6dymBEXBZ58t+HAvMzMogrgTLD3uqhAc0J9Fa8PIMiX1DJkVKqYB2CQD/wk
-         FRVg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=3mMVtHum7zPwks+XDXBRlehlKpwvf1Ihn9S56ZO2pRY=;
-        fh=USmvDBSIvyASCTBx6X6hUzTyZr05oZApzZx1IYu+VqQ=;
-        b=k73xKUW5lOtohL+092bI/3H41f5OGmI8XT943jJ8nGmtunagUE8JsqfSGBogoNy95q
-         Lmdtrm1rkH0G3jNKj0OosF3EAqT33px/m7O9Bg9savZvSDviOEu3fy4AyfEuTom9p6U1
-         R++K4+hoKVGBsEBHeDgP0XkfNtJknPS3YYjOCHcZIOoOIYUiWtwTM8AaIiTPXx1SAxuc
-         UANesc7KxUKu0/PEmXDdcwPPnx5ZULMiLl+aE9Zrb+Mt60BYimGX3So+VjndrNmbL8K2
-         /ejz5iVf6KuKKQQ3axKJNTmFG2UqQgxT8wLRffA+XtbVtwR9LMfRq0nfLHFlHRfwtHQs
-         l5vQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776182307; x=1776787107; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3mMVtHum7zPwks+XDXBRlehlKpwvf1Ihn9S56ZO2pRY=;
-        b=Txp6Vs50Be2a/hVtGeiaL6zB5bTvQTURbQjDJx3HndYIATXeSjHA6C1IsTx5qUtI2t
-         kj3kgKclpKBNQYijeSXgvheHluXlcfPKLBRtgIhR9pHnA1eG42/nMsjgM6qgw8ilSe5K
-         uIZThRikwfzvtZUJUSJLVjJtEbcd6gubfxE86lCv3o5a89WSWkqVDLkN//5tA0pt6DRK
-         WUeqqkjR4jDakldhhi2VFS3y4sU7WEgLgptuVdnx69IyZb6BhMOVvYT+a3QCXKlwh5BG
-         mnM9T+otZTGWsngqm/OmEYxmkF6WN2B+X9v0Ykk/KBQ17xKIGHfUtwDQkkuvW033AZsv
-         fg1Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776182307; x=1776787107;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=3mMVtHum7zPwks+XDXBRlehlKpwvf1Ihn9S56ZO2pRY=;
-        b=P3ujhKLQuYoqO1r635s7tjP7rPNABNArbZbYmNyHcSi6jmNE8I5mPFm46HCY0e+OS+
-         sxEpZ4iJDNk96sZgFH5ya1vIaS0E/1feio8Pu+NiGs7Q0dGQ9TBA4Lr9OWmAp8tYnZVZ
-         IrmlhaSQonSpS2nKsB6FFQvg2izZaSFny5+lxnC9WSvlajlyzRnmh79egfMPnzG9Wrud
-         OpgOM38751qIl9SiEcDW657w7813EMatw9tjZWRYeuGe96GSPK+KZ80Pq6mtVhf40Gj3
-         4rpYgY5oK6A32JLSXmn1+qkyMMdgbXYNFFRMlPNvf6FmFkOrZnZZujLB2dRJYJdDn/8Y
-         mfZw==
-X-Forwarded-Encrypted: i=1; AFNElJ/d1K0g09hHgBnUFbOm4eq9F/+Trk117QeBW2gg9YF/ztcv2YP9JhuCO6D3qFZla/8IvjwhrnA1bd+pFbQo8T/s@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw28tsUXem9qJ2bB+vJH8pB0owEHK3hCTwg8cfzfHzy/On/NqjK
-	RXwpqCNsLo1n5LXEBGaht0KqEvphJ+r9dAMNitifLNENkYb6SzWEQss/fH2ZYrfq1YgiuQQRYj2
-	gY/6FxXn9pzVEPK1zrg91hk0xrmX3f98=
-X-Gm-Gg: AeBDietKK2OAKEA6o43+UG+5Sq77mqEzgHxdHQhAWhCU1AKjf8ySAJ8mKtL8MVa3rtL
-	TsUvNy9yZ7UFsdUO1v2J+M4mpccHR9c1jrAKaXlBVS+uwOAbN9iwI/GuJk+XTi8BIrqlEV9BW+4
-	roByhrn1LRuQ2s7rpyo0OljM4NWWBWDJ2RN8rC6MZfEZ78qP7En83cVwvu+NgGPMG7uyTZKoMea
-	/MzzBrMbKN0k/aZZxcFOmVC+IjhiU38wQKF1oKNoBYhxy3uMSaQnmCKao/Tp9TScHIMgn3AVBDe
-	UHe3Zaa5jstHijrz0b1IL8vTGgg3roSGaRrq8awOZw+Jor8dCkCEpCg39wXxeYdaIKZUA+JEj5H
-	INHnxS6bUyp7oSiRv+cOWZ7hRVqMchWUBIZmP
-X-Received: by 2002:a05:6000:290b:b0:43e:a703:3665 with SMTP id
- ffacd0b85a97d-43ea7033872mr4250710f8f.25.1776182307210; Tue, 14 Apr 2026
- 08:58:27 -0700 (PDT)
+	Tue, 14 Apr 2026 16:04:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 31E8A34FC;
+	Tue, 14 Apr 2026 09:04:38 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6F6B23FB90;
+	Tue, 14 Apr 2026 09:04:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776182683; bh=9vwO0jYI0KlzgOEr2skDfx/C+zqyj/c8LIpoy5xumug=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tvow3jzHanh/H6exVz9NIZwb47gfthCo89zu0iWApatCq7JAg5ZDyEkZsgCijAwpO
+	 hhbuO/vc/bgJgV4vx0f3/y1zKyNqUvjpMvea9p7T601nH0QrGwc6jIJmeA7Qkkglw3
+	 021xpUkSki75SlyH4oZ7Q6Qdn+o+ejXt+ZmEg8DU=
+Date: Tue, 14 Apr 2026 17:04:41 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
+	mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
+Subject: Re: [PATCH v4 2/9] coresight: etm4x: exclude ss_status from
+ drvdata->config
+Message-ID: <20260414160441.GF356832@e132581.arm.com>
+References: <20260413142003.3549310-1-yeoreum.yun@arm.com>
+ <20260413142003.3549310-3-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-References: <20260413-kasan-v1-0-1a5831230821@bootlin.com> <20260413-kasan-v1-1-1a5831230821@bootlin.com>
- <CA+fCnZfubV6LgRjO3NQvhrG2Q5o0ftkFFupLWVYS50XDnmCaog@mail.gmail.com>
- <DHSWK17EZUDP.GIJ6BX2NFR6U@bootlin.com> <CAADnVQLJ=fJ7t1i2+_RYqU1gqYqiLP9Zrwo4vdZsgzjK_yzJTQ@mail.gmail.com>
- <CA+fCnZd31GzdpEqR8VhfK4JtUKyyRMgbBoAbeGACJgm7WvB6Vw@mail.gmail.com>
-In-Reply-To: <CA+fCnZd31GzdpEqR8VhfK4JtUKyyRMgbBoAbeGACJgm7WvB6Vw@mail.gmail.com>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Tue, 14 Apr 2026 08:58:15 -0700
-X-Gm-Features: AQROBzCLeOrIcZKaiQb6Cd-OuEC8rfDXHtXvBFTPGfyaVO0Jqt2FWke0BxyjjQs
-Message-ID: <CAADnVQKv5y+gq=TnOAEXSqgBRpmHNjwqCfxpLaw5XkcbQ+23bg@mail.gmail.com>
-Subject: Re: [PATCH RFC bpf-next 1/8] kasan: expose generic kasan helpers
-To: Andrey Konovalov <andreyknvl@gmail.com>
-Cc: =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
-	Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
-	John Fastabend <john.fastabend@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
-	David Ahern <dsahern@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>, 
-	"H. Peter Anvin" <hpa@zytor.com>, Shuah Khan <shuah@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Alexander Potapenko <glider@google.com>, 
-	Dmitry Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, ebpf@linuxfoundation.org, 
-	Bastien Curutchet <bastien.curutchet@bootlin.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Xu Kuohai <xukuohai@huawei.com>, 
-	bpf <bpf@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	Network Development <netdev@vger.kernel.org>, 
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	kasan-dev <kasan-dev@googlegroups.com>, linux-mm <linux-mm@kvack.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260413142003.3549310-3-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_085829_811533_F4F2BD60 
-X-CRM114-Status: GOOD (  23.71  )
+X-CRM114-CacheID: sfid-20260414_090447_874775_D4A60826 
+X-CRM114-Status: GOOD (  32.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,63 +72,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 14, 2026 at 8:10=E2=80=AFAM Andrey Konovalov <andreyknvl@gmail.=
-com> wrote:
->
-> On Tue, Apr 14, 2026 at 4:36=E2=80=AFPM Alexei Starovoitov
-> <alexei.starovoitov@gmail.com> wrote:
-> >
-> > > ACK, I'll try to use those kasan_check_read and kasan_check_write rat=
-her
-> > > than __asan_{load,store}X.
-> >
-> > No. The performance penalty will be too high.
->
-> With using __asan_load/storeX(), it will be one function call to get
-> to check_region_inline(): __asan_load/storeX->check_region_inline.
->
-> With kasan_check_read/write(), right now, it would be two function
-> calls: __kasan_check_read->kasan_check_range->check_region_inline.
->
-> I doubt an extra function call would make a difference in terms of
-> performance: the shadow checking itself is also expensive.
->
-> But if the second call is a concern, we can move kasan_check_range()
-> and lower-level functions into mm/kasan/generic.h and include it into
-> shadow.c, and then it will be just one function call.
->
-> To improve performance further, the JIT compiler could emit inlined
-> shadow checking instructions, same as the C compiler does with
-> KASAN_INLINE=3Dy.
->
-> > hw_tags won't work without corresponding JIT work.
->
-> You probably meant SW_TAGS here.
->
-> HW_TAGS will likely just work without any JIT changes (even the
-> kasan_check_byte() thing I mentioned should not be required), assuming
-> JIT'ed BPF code just accesses kernel-returned pointers as is.
->
-> > I see no point sacrificing performance for aesthetics.
->
-> With the change I suggested above, there would be no performance
-> difference. And the code stays cleaner.
->
-> > __asan_load/storeX is what compilers emit.
->
-> For Generic mode. For SW_TAGS, the function names are different.
-> Keeping this detail within the KASAN code is cleaner.
+On Mon, Apr 13, 2026 at 03:19:55PM +0100, Yeoreum Yun wrote:
+> The purpose of TRCSSCSRn register is to show status of
+> the corresponding Single-shot Comparator Control and input supports.
+> That means writable field's purpose for reset or restore from idle status
+> not for configuration.
+> 
+> Therefore, exclude ss_status from drvdata->config, move it to etm4x_caps.
+> This includes remove TRCSSCRn from configurable item and
+> remove saving in etm4_disable_hw().
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>  .../hwtracing/coresight/coresight-etm4x-cfg.c  |  1 -
+>  .../hwtracing/coresight/coresight-etm4x-core.c | 18 +++++-------------
+>  .../coresight/coresight-etm4x-sysfs.c          |  7 ++-----
+>  drivers/hwtracing/coresight/coresight-etm4x.h  |  4 +++-
+>  4 files changed, 10 insertions(+), 20 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> index c302072b293a..d14d7c8a23e5 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> @@ -86,7 +86,6 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
+>  		off_mask =  (offset & GENMASK(11, 5));
+>  		do {
+>  			CHECKREGIDX(TRCSSCCRn(0), ss_ctrl, idx, off_mask);
+> -			CHECKREGIDX(TRCSSCSRn(0), ss_status, idx, off_mask);
+>  			CHECKREGIDX(TRCSSPCICRn(0), ss_pe_cmp, idx, off_mask);
+>  		} while (0);
+>  	} else if ((offset >= TRCCIDCVRn(0)) && (offset <= TRCVMIDCVRn(7))) {
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index 6443f3717b37..8ebfd3924143 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -91,7 +91,7 @@ static bool etm4x_sspcicrn_present(struct etmv4_drvdata *drvdata, int n)
+>  	const struct etmv4_caps *caps = &drvdata->caps;
+>  
+>  	return (n < caps->nr_ss_cmp) && caps->nr_pe &&
+> -	       (drvdata->config.ss_status[n] & TRCSSCSRn_PC);
+> +	       (caps->ss_status[n] & TRCSSCSRn_PC);
 
-I think we're talking past each other.
-We're not interested in KASAN_SW_TAGS or KASAN_HW_TAGS.
-We're not going to modify arm64 JIT at all.
+Nitpick: The naming 'ss_status' is a bit confused for capability.
+Could we rename 'ss_status' to 'ss_comparator' or a simple one
+'ss_cmp' ?
 
-This is purely KASAN_GENRIC and only on x86-64.
-JIT will emit exactly what compilers emit for generic
-which is __asan_load/store. This is as stable ABI as it can get
-and we don't want to deviate from it.
+>  }
+>  
+>  u64 etm4x_sysreg_read(u32 offset, bool _relaxed, bool _64bit)
+> @@ -571,11 +571,9 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+>  		etm4x_relaxed_write32(csa, config->res_ctrl[i], TRCRSCTLRn(i));
+>  
+>  	for (i = 0; i < caps->nr_ss_cmp; i++) {
+> -		/* always clear status bit on restart if using single-shot */
+> -		if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
+> -			config->ss_status[i] &= ~TRCSSCSRn_STATUS;
+>  		etm4x_relaxed_write32(csa, config->ss_ctrl[i], TRCSSCCRn(i));
+> -		etm4x_relaxed_write32(csa, config->ss_status[i], TRCSSCSRn(i));
+> +		/* always clear status and pending bits on restart if using single-shot */
+> +		etm4x_relaxed_write32(csa, caps->ss_status[i], TRCSSCSRn(i));
 
-The goal here is to find bugs in the verifier.
-If something got past it, that shouldn't have,
-kasan generic on x86-64 is enough.
+It is a bit weird to use caps to write a register.  A smooth way is to
+clear STATUS and PENDING bits based on the read back value:
+
+  val = etm4x_relaxed_read32(csa, TRCSSCSRn(i));
+  val &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
+  etm4x_relaxed_write32(csa, val, TRCSSCSRn(i));
+
+>  		if (etm4x_sspcicrn_present(drvdata, i))
+>  			etm4x_relaxed_write32(csa, config->ss_pe_cmp[i], TRCSSPCICRn(i));
+>  	}
+> @@ -1053,12 +1051,6 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
+>  
+>  	etm4_disable_trace_unit(drvdata);
+>  
+> -	/* read the status of the single shot comparators */
+> -	for (i = 0; i < caps->nr_ss_cmp; i++) {
+> -		config->ss_status[i] =
+> -			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
+> -	}
+> -
+>  	/* read back the current counter values */
+>  	for (i = 0; i < caps->nr_cntr; i++) {
+>  		config->cntr_val[i] =
+> @@ -1501,8 +1493,8 @@ static void etm4_init_arch_data(void *info)
+>  	 */
+>  	caps->nr_ss_cmp = FIELD_GET(TRCIDR4_NUMSSCC_MASK, etmidr4);
+>  	for (i = 0; i < caps->nr_ss_cmp; i++) {
+> -		drvdata->config.ss_status[i] =
+> -			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
+> +		caps->ss_status[i] = etm4x_relaxed_read32(csa, TRCSSCSRn(i));
+> +		caps->ss_status[i] &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
+
+For init cap, we can use explict way:
+
+  caps->ss_cmp &= (TRCSSCSRn_PC | TRCSSCSRn_DV |
+                   TRCSSCSRn_DA | TRCSSCSRn_INST);
+
+>  	}
+>  	/* NUMCIDC, bits[27:24] number of Context ID comparators for tracing */
+>  	caps->numcidc = FIELD_GET(TRCIDR4_NUMCIDC_MASK, etmidr4);
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> index 50408215d1ac..dd62f01674cf 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> @@ -1827,8 +1827,6 @@ static ssize_t sshot_ctrl_store(struct device *dev,
+>  	raw_spin_lock(&drvdata->spinlock);
+>  	idx = config->ss_idx;
+>  	config->ss_ctrl[idx] = FIELD_PREP(TRCSSCCRn_SAC_ARC_RST_MASK, val);
+> -	/* must clear bit 31 in related status register on programming */
+> -	config->ss_status[idx] &= ~TRCSSCSRn_STATUS;
+>  	raw_spin_unlock(&drvdata->spinlock);
+>  	return size;
+>  }
+> @@ -1839,10 +1837,11 @@ static ssize_t sshot_status_show(struct device *dev,
+>  {
+>  	unsigned long val;
+>  	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> +	const struct etmv4_caps *caps = &drvdata->caps;
+>  	struct etmv4_config *config = &drvdata->config;
+>  
+>  	raw_spin_lock(&drvdata->spinlock);
+> -	val = config->ss_status[config->ss_idx];
+> +	val = caps->ss_status[config->ss_idx];
+
+I think cap->ss_cmp is a good refactoring, but for legacy reason, I am
+just wandering if we still need config->ss_status so that it can record
+the lastest status (mainly for STATUS bit and PENDING bit).
+
+Otherwise, this Sysfs interface can only provide capability rather
+than status value.
+
+Thanks,
+Leo
+
+>  	raw_spin_unlock(&drvdata->spinlock);
+>  	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
+>  }
+> @@ -1877,8 +1876,6 @@ static ssize_t sshot_pe_ctrl_store(struct device *dev,
+>  	raw_spin_lock(&drvdata->spinlock);
+>  	idx = config->ss_idx;
+>  	config->ss_pe_cmp[idx] = FIELD_PREP(TRCSSPCICRn_PC_MASK, val);
+> -	/* must clear bit 31 in related status register on programming */
+> -	config->ss_status[idx] &= ~TRCSSCSRn_STATUS;
+>  	raw_spin_unlock(&drvdata->spinlock);
+>  	return size;
+>  }
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+> index 8168676f2945..8864cfb76bad 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+> @@ -213,6 +213,7 @@
+>  #define TRCACATRn_EXLEVEL_MASK			GENMASK(14, 8)
+>  
+>  #define TRCSSCSRn_STATUS			BIT(31)
+> +#define TRCSSCSRn_PENDING			BIT(30)
+>  #define TRCSSCCRn_SAC_ARC_RST_MASK		GENMASK(24, 0)
+>  
+>  #define TRCSSPCICRn_PC_MASK			GENMASK(7, 0)
+> @@ -861,6 +862,7 @@ enum etm_impdef_type {
+>   * @lpoverride:	If the implementation can support low-power state over.
+>   * @skip_power_up: Indicates if an implementation can skip powering up
+>   *		   the trace unit.
+> + * @ss_status:	The status of the corresponding single-shot comparator.
+>   */
+>  struct etmv4_caps {
+>  	u8	nr_pe;
+> @@ -899,6 +901,7 @@ struct etmv4_caps {
+>  	bool	atbtrig : 1;
+>  	bool	lpoverride : 1;
+>  	bool	skip_power_up : 1;
+> +	u32	ss_status[ETM_MAX_SS_CMP];
+>  };
+>  
+>  /**
+> @@ -977,7 +980,6 @@ struct etmv4_config {
+>  	u32				res_ctrl[ETM_MAX_RES_SEL]; /* TRCRSCTLRn */
+>  	u8				ss_idx;
+>  	u32				ss_ctrl[ETM_MAX_SS_CMP];
+> -	u32				ss_status[ETM_MAX_SS_CMP];
+>  	u32				ss_pe_cmp[ETM_MAX_SS_CMP];
+>  	u8				addr_idx;
+>  	u64				addr_val[ETM_MAX_SINGLE_ADDR_CMP];
+> -- 
+> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+> 
 
