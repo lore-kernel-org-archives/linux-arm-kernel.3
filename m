@@ -4,99 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20C3DF9D0CA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 12:30:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 830E8F9D0C9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 12:33:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dJMqO/MtamYrx+eD9k7vgpIEFfxi+YyFS8+euIM3MYs=; b=ONnnvDtvkVfsXsEhBUJdtd5eZF
-	oMUv1Am2YbbLBFbsOhGPqxa6OHLb/1MiOoixFaj8VSNRtdU0SfYHz+5vZZMt1V/YvmhZRhzIrhc1i
-	tVn2gML35Elioz1NVZkjdLbzuyIiQymmkiwYsv6DXuOVXHo6UIkpQ/DYiUVfUnMidVsHFxmyI4mpr
-	scj2ZIw3+eR/tPP7gbP703xMsT44JhVjvox/sGBWlSUzhFti7INlSvM7rLSf+du6ahUll85s0+niW
-	AoGSucroZwdCIQWrI6faHqjD6cLoecFIP1NG77Z67ztBTQ8kVUbfo+tYzlWKXP2CkurPUGSeV8GUt
-	6LdcZm+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UxY7/XYmwNSHb0KeZ115ZDEsWv5HDo0M3BjA3kAHliA=; b=2ARrp4K+Glm31RARGwBQsbRovA
+	neh9lJlp3Oc3UNxMgeQdduQHIoTqVJTG4j3ynUJv0wCtp2MDYKDwpkIiQUYvMTbuRgLtNPHj3ijIb
+	t+lawgum21hAXfSvN1oL7vaAJ3eYvxt7cxEnpdH74ZXIf+1PrtC7HXpFhGYbsoexT45aHH2CEtLty
+	SEEryVqNhKMC2CwuVRcMR+78MnY3dopwyMqveToPBUgWlo4cw2CMlLjC2AYYOuLebUMPuQXryytgw
+	OkmJBl/7dtnd/4FDDjXtIRKqZEY2iKERoOPxqW7XBL7kpgwXkl/RcLMnDo2dCfQvUN6Fy+DqwziIZ
+	wDR9SynQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCctv-0000000HIWG-2D8y;
-	Tue, 14 Apr 2026 12:29:55 +0000
-Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
+	id 1wCcxZ-0000000HIhl-21OH;
+	Tue, 14 Apr 2026 12:33:41 +0000
+Received: from courrier.aliel.fr ([2a01:4f9:c011:1c83::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCctt-0000000HIVv-1hwk
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 12:29:54 +0000
-Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-8d68f702851so855265785a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 05:29:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1776169792; x=1776774592; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=dJMqO/MtamYrx+eD9k7vgpIEFfxi+YyFS8+euIM3MYs=;
-        b=EvP0PL9K6a3L4qWqWe6fjEPkG0Fm0PutZMjo7ZjKBGafORnwzAje0hHqDu8kM9tqkv
-         p+PvoHYMSLOfUpWbuoO1fIUqu9XctMwkIk/9/YEEgNH4JPoFr1IlddQC6tv07pAIFkSC
-         On6XH/7EXrNns0y8nlSX+JdDwynkK+J0l+jPXAV8WTMoKn0mv6+lvdhFVFre9OvnRcqR
-         c6XK3j+aaeB0LZgH/PnFBeqjimTmO3zjHpITjjDaSOtq2FfItQqgPoNaOHU0Om7sRfwO
-         w7Szytenn28nfpzCHT7PLplxIVGyew9m7nFPblLamJ5T0A+vqSV168GpHgk0/3/+iXPF
-         /EYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776169792; x=1776774592;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dJMqO/MtamYrx+eD9k7vgpIEFfxi+YyFS8+euIM3MYs=;
-        b=s8o9DAlfBpWwT/IGG93z4Ma5lhI1gK6D1YRlxiFEGJaaJxi8Qu4FB596EibG4A8TyI
-         u6V4BlzevlWEvy7cVS+0ThsLPXqxqDmnNoIlrOqtXvzMnXR0vQmbWlMSosAzseJMJWP9
-         jIdKoveKvjvm1gbyG0qLKna+wEMawv+0pSwwtznDYv/pPbQhe+f4y2faf0BzKjyKN09Y
-         D9/Oi3CQ5a/gkQtUT+dt3z0WLxvxv2adN4++gPpOpQqqRBZhbZdejD8I6NdiS252Z0jS
-         s5F77rkFIGWZ7ufUzT5uoUUyqdzu3y3qY1fOAlakeZOCMj9UoB8dnjcSBfjAOj/mfR7W
-         UvvA==
-X-Forwarded-Encrypted: i=1; AFNElJ/1REJ2gh2FNMH+3KvqabBZaSzwqkibeD7PWBkaz6yjfP0wz20oM5QxtRBIkScTC/qvycg9c83OuBlE2AmTN0HD@lists.infradead.org
-X-Gm-Message-State: AOJu0YySY+n34NIpe57rQ4tYYxkzkKATozVI9VNBFFkn6OLmInd+kosc
-	qnOZy/zKBZff5KktIyRw3LgWm6Qjv/JQCZyOf10dyJqNPRvUlzJEZnbHss+Q9Wsq4SU=
-X-Gm-Gg: AeBDievBy+9QYtuPKD45v8q4vWeJTwm87lCYfetUry7sezb6qnmat2rMOamewfQXmrV
-	V7D5E3WcLmArH9qVT+VAbXWiDHLuI48CjMhhJtRujvPsyCtZMpNwHokbb/mphn33teUQWpkpszC
-	AZckmpl3ZPvD3jVS2ou6FlVAqKcTENWo1lvO41iGCOC0YT5rJFqF0HRYAmM5TfVPZImmj07ODs3
-	1VyxAclZc6JAZ5MdaoebnYy9G3DJtwQDDCXHOOOLmOmKwF+7nWzeS14xMQgI6F07HEohC399WAn
-	cPHVfrQHDOF8dDYGMEaJDToZ3YzmRSvSZRm8RAF8rJHw+i+HSbUO4ObweEomr00RoBa/gqBgFou
-	udl7T8aFNsxv9Bo5odvYuXSkEky2UP3G0Gb1kodCPqeUV9eXje9D0rI3vTAXbT6k/0dhwBFwnr3
-	YULvYEzV8r1I3ej0cX/EtLGQgBBgjBsmRv5lUfHeoSuBENauwa7yMZBKtxQrNUKDqmnZUTuk7Vc
-	aUPMbnf1EcR8XWO
-X-Received: by 2002:a05:6214:5504:b0:8ac:b46d:8543 with SMTP id 6a1803df08f44-8acb46d8cccmr95904756d6.9.1776169791555;
-        Tue, 14 Apr 2026 05:29:51 -0700 (PDT)
-Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ac84cb0474sm121526396d6.40.2026.04.14.05.29.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Apr 2026 05:29:51 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wCctq-0000000Afc7-2XTs;
-	Tue, 14 Apr 2026 09:29:50 -0300
-Date: Tue, 14 Apr 2026 09:29:50 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Sami Mujawar <sami.mujawar@arm.com>, Dan Williams <djbw@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	catalin.marinas@arm.com, will@kernel.org, thuth@redhat.com,
-	steven.price@arm.com, gshan@redhat.com, YeoReum.Yun@arm.com,
-	cedric.xing@intel.com, Dan Williams <dan.j.williams@intel.com>,
-	Dionna Glaze <dionnaglaze@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>
-Subject: Re: [PATCH 0/3] arm64/virt: Add Arm CCA measurement register support
-Message-ID: <20260414122950.GW3694781@ziepe.ca>
-References: <20260413084957.327661-1-sami.mujawar@arm.com>
- <20260413125925.GK3694781@ziepe.ca>
- <514ddb27-137b-4223-84fe-2152737db3a6@arm.com>
+	id 1wCcxV-0000000HIhF-2HZp;
+	Tue, 14 Apr 2026 12:33:39 +0000
+Message-ID: <69196110-0eff-4442-ab31-21e8e84781d8@aliel.fr>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1776170008;
+	bh=d3bktvVna1J5QQvrEvpiMs7fPfSFe03MCbAM/nAAbGc=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To;
+	b=kz77AKNlRM42Ei5wKqG+wr9GAcyb8/2iizonAQxHaYw7kfdWEgckgaS9Bs9bXooMs
+	 nqT55MrItap3FQ65IYwKYIG9CdqS+D8KhXdVeSmEIhPPf/EGZw+ZHKeIUEolXuP1kx
+	 9LQ8bDTniToDhR0NZNkX+ISN5llnL4/x0VDR82GQ=
+Date: Tue, 14 Apr 2026 14:33:26 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <514ddb27-137b-4223-84fe-2152737db3a6@arm.com>
+User-Agent: Mozilla Thunderbird Beta
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+Subject: Re: [PATCH v2 1/8] dt-bindings: thermal: amlogic: Add support for T7
+To: Conor Dooley <conor@kernel.org>
+Cc: Guillaume La Roque <glaroque@baylibre.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-pm@vger.kernel.org, linux-amlogic@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260413-add-thermal-t7-vim4-v2-0-1002d90a0602@aliel.fr>
+ <20260413-add-thermal-t7-vim4-v2-1-1002d90a0602@aliel.fr>
+ <20260413-impose-cartel-bd7d18f91a24@spud>
+Content-Language: en-US
+In-Reply-To: <20260413-impose-cartel-bd7d18f91a24@spud>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_052953_456173_A0241906 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20260414_053338_098000_026C3DDF 
+X-CRM114-Status: GOOD (  18.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,26 +75,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 14, 2026 at 11:10:51AM +0100, Suzuki K Poulose wrote:
+On 4/13/26 5:42 PM, Conor Dooley wrote:
+> On Mon, Apr 13, 2026 at 12:52:42PM +0200, Ronald Claveau wrote:
+>> Add the amlogic,t7-thermal compatible for the Amlogic T7 thermal sensor.
+>>
+>> Unlike existing variants which use a phandle to the ao-secure syscon,
+>> the T7 relies on a secure monitor interface described by a phandle and
+>> a sensor index argument.
+>>
+>> The T7 integrates multiple thermal sensors, all accessed through the
+>> same SMC call. The sensor index argument is required to identify which
+>> sensor's calibration data the secure monitor should return, as a single
+>> SM_THERMAL_CALIB_READ command serves all of them.
+>>
+>> Introduce the amlogic,secure-monitor property as a phandle-array and
+>> make amlogic,ao-secure or amlogic,secure-monitor conditionally required
+>> depending on the compatible.
+>>
+>> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+>> ---
+>>  .../bindings/thermal/amlogic,thermal.yaml          | 42 ++++++++++++++++++++--
+>>  1 file changed, 40 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/thermal/amlogic,thermal.yaml b/Documentation/devicetree/bindings/thermal/amlogic,thermal.yaml
+>> index 70b273271754b..1c096116b2dda 100644
+>> --- a/Documentation/devicetree/bindings/thermal/amlogic,thermal.yaml
+>> +++ b/Documentation/devicetree/bindings/thermal/amlogic,thermal.yaml
+>> @@ -21,7 +21,9 @@ properties:
+>>                - amlogic,g12a-cpu-thermal
+>>                - amlogic,g12a-ddr-thermal
+>>            - const: amlogic,g12a-thermal
+>> -      - const: amlogic,a1-cpu-thermal
+>> +      - enum:
+>> +          - amlogic,a1-cpu-thermal
+>> +          - amlogic,t7-thermal
+>>  
+>>    reg:
+>>      maxItems: 1
+>> @@ -42,12 +44,39 @@ properties:
+>>    '#thermal-sensor-cells':
+>>      const: 0
+>>  
+>> +  amlogic,secure-monitor:
+>> +    description: phandle to the secure monitor
+>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+>> +    items:
+>> +      - items:
+>> +          - description: phandle to the secure monitor
+>> +          - description: sensor index to get specific calibration data
+>> +
+>>  required:
+>>    - compatible
+>>    - reg
+>>    - interrupts
+>>    - clocks
+>> -  - amlogic,ao-secure
+>> +
+>> +allOf:
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            enum:
+>> +              - amlogic,a1-cpu-thermal
+>> +              - amlogic,g12a-thermal
+>> +    then:
+>> +      required:
+>> +        - amlogic,ao-secure
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            const: amlogic,t7-thermal
+> 
+> This can just be replaced by a else I think.
+> 
 
-> > Isn't this also sort of incomplete?  Doesn't anything serious need
-> > signed measurements? Isnt't there alot more data that comes out of RMM
-> > than just a few measurement registers?
-> As mentioned above, this series adds the support for Runtime Extendible
-> Measurements (REM in CCA, RTMR on TDX). The RIM+Platform Attestation is
-> already provided via the TSM_REPORT
+Thank you for your feedback, I will replace this `if` condition by an
+`else`.
 
-Okay, but what actual use is this?
+>> +    then:
+>> +      required:
+>> +        - amlogic,secure-monitor
+>>  
+>>  unevaluatedProperties: false
+>>  
+>> @@ -62,4 +91,13 @@ examples:
+>>          #thermal-sensor-cells = <0>;
+>>          amlogic,ao-secure = <&sec_AO>;
+>>      };
+>> +  - |
+>> +    a73_tsensor: temperature-sensor@20000 {
+> 
+> Can drop the label here, it has no users.
+> 
 
-Extendable measrements with no log
-Measurement read back without signature
+Ok, I will remove this label.
 
-What is the use case? What do you imagine any userspace will do with
-this? Put it in the cover letter.
+> Otherwise, seems fine.
+> 
+> Cheers,
+> Conor.
+> 
+> pw-bot: changes-requested
+> 
+>> +        compatible = "amlogic,t7-thermal";
+>> +        reg = <0x0 0x20000 0x0 0x50>;
+>> +        interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_HIGH>;
+>> +        clocks = <&clkc_periphs CLKID_TS>;
+>> +        #thermal-sensor-cells = <0>;
+>> +        amlogic,secure-monitor = <&sm 1>;
+>> +    };
+>>  ...
+>>
+>> -- 
+>> 2.49.0
+>>
 
-I don't think the raw rmm calls are sufficiently developed to be
-usable directly by userspace. They are less capable than TPM and even
-TPM has a lot of software around it to make it useful.
 
-Jason
+-- 
+Best regards,
+Ronald
 
