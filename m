@@ -4,64 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40ADEF9D0F2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 20:21:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DB91F9D0F2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 20:24:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d6geAZuk8+x2xb8Vf/vPC4YutHEzId9aV9SzyoiSX7I=; b=ISm2AtIUeKmg0L0HoMxRPY6Tr/
-	9zZWTwsGvow40yup0yRA0KIOoIAZDUpCd+cqPlnHKNYW4eguKn/CaP9Nm7RFNwYORcd8biyhGrm2W
-	8m9iwkZYQz23Qexm/vKYaB6lhwaPXLnzDXnDFEMbCJRy+kcd+CHsYRDj5WRluXj9dFO3RBLiAQ2QI
-	JtALXVjNZ3/+br8FCEUxPbFqCjF+831OXl6AHg+8P0cXGcNMzcjRNmaKhRNLWzkubSOunnlz1X34h
-	C14aFJ3VCH6PfXmo3k7t0+p46q/xg78wrptHdE+8lVo/w1thNFKBWCtTkKtteqLYij2ETVJm0llkp
-	3FmhUZdw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uPX3bdqetJyAXLQx5+gwiLlWyEUjNfIqWGh9hIQNoOg=; b=xhVVBkJ5lBiP5rkT4Aftf5YJNL
+	zYE432N4kjYodiYnqO6McumxUU8Up7NY3oZC21mpOuXshxUM52pOxHcwl2zUrc2ORTt0EHOafZI2J
+	dlczfIuvIRik1vizLlSKRZTmvUfICsHew1DL4vJPI6Vf6J+quBpXiHutVsiuMixj7QzHcW21OF96I
+	AANV6CBFz98KgUZRxdoBKGySrzXMGDHmoAOb+icxV4JubCoRM6sLDnnih9N7kiKZ3RtxFtl7iSTIi
+	O6/BUT4NqmSLIrU5U/kAd7anqpq1BPk1vrF41nrr6gQfVRWixT2u1NVd0vLXtzqpR1SsOvtkVqL2S
+	9l9lHsoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCkGb-00000000C6s-3Yim;
-	Tue, 14 Apr 2026 20:21:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wCkJT-00000000CI3-1lYR;
+	Tue, 14 Apr 2026 20:24:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCkGZ-00000000C6m-36LZ
+	id 1wCkJR-00000000CHw-4C78
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 20:21:47 +0000
+	Tue, 14 Apr 2026 20:24:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E2B24600CB;
-	Tue, 14 Apr 2026 20:21:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22A75C19425;
-	Tue, 14 Apr 2026 20:21:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1E2A760018
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 20:24:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1C97C19425;
+	Tue, 14 Apr 2026 20:24:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776198104;
-	bh=dAtIVeubofBPck88/SI+wYUiOKq07a9wjnhIsv2LFZI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jG3caVK/Bv3MnbeQfm2JCp0IttofKc3ean64Uw9LxmcR0Yu0DcIYMLH6wIcZWE/Hw
-	 WRYCR3UKtgcZW4QIwCguxVE/ZH2LA2Lyl7BwxexKhYR4IkvtZTXL8oFJFNym4NAXbt
-	 177E7cx7Qltw3zD5Lna1XZVwJT6pwNl7W0IyjQF87UnMge+qg+em+b+cSPUCCqucV8
-	 BJa5DQFIi2jckmgx6rzMlMNwpPpdc4K/INf8D6+Y9WNBIcQcn0FFbPJCqNoPKxr+Eq
-	 tWcMeFgx99zO/NNzCVu9LXUshHGMOItsOz+gq50woUyAQW5m4oN6Ou5xy4FfGdGqC2
-	 RBd5okisOIXfg==
+	s=k20201202; t=1776198284;
+	bh=9gzrxKbw2rxLwue2MsvZ/QpDvJM6VvmWIy9J5cPJO0s=;
+	h=From:To:Cc:Subject:Date:From;
+	b=iB9npNQd4Uq8GqWbc6nfDQCUGz/NKMH077as1pAwywYc5wRCRfAktsxJjnD7VG4Fm
+	 YiCfAoH9UJSR3T0Fey7YxZS2PeoRdN8bLXMetpjdu1gbDVEPCX3ikAEv8wJEosCETX
+	 6kFn24oRkmPRTttdSqHgk9PraPWwhf0lTY4dyPgTbCXCOI3UGZ2AdUvIzporkOEERm
+	 Q2czFlISg7eqB6/oWEKoHVxHDj6lri+116jn/Ve/7jhlRhXTx3Kjtqjt6iJ0d1WeC8
+	 zaduqioMFVbova++50cAcnZ05BNrs/puRC81gQuFmglTBud0VMLHmPFqEHlIXMMfvH
+	 xPzXaQrY2loEA==
 From: Sven Peter <sven@kernel.org>
-To: asahi@lists.linux.dev,
+To: soc@lists.linux.dev
+Cc: asahi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Axel Flordal <axel@flordal.net>
-Cc: Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH RESEND] arm64: dts: apple: fix spelling error
-Date: Tue, 14 Apr 2026 22:21:31 +0200
-Message-ID: <177619775022.3727.18063777472413149195.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: [GIT PULL] Apple SoC fixes for v7.0
+Date: Tue, 14 Apr 2026 22:24:25 +0200
+Message-ID: <20260414202428.5278-1-sven@kernel.org>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <2338500.vFx2qVVIhK@fedora>
-References: <2338500.vFx2qVVIhK@fedora>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,18 +67,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 08 Apr 2026 07:21:23 +0000, Axel Flordal wrote:
-> Change "configiguration" to "configuration".
-> 
-> 
+Hi,
 
-Applied to local tree (apple-soc/fixes-7.0), thanks!
+Two fixes without any functional changes, they just update Sasha's email
+everywhere and fix a typo in a dtsi file comment.
+As discussed with Arnd I'm already sending out the PR now so that you guys can
+decide when to merge this.
 
-[1/1] arm64: dts: apple: fix spelling error
-      https://github.com/AsahiLinux/linux/commit/c7ff53ef45b2
 
-Best regards,
--- 
-Sven Peter <sven@kernel.org>
+Thanks,
 
+
+Sven
+
+
+The following changes since commit 028ef9c96e96197026887c0f092424679298aae8:
+
+  Linux 7.0 (2026-04-12 13:48:06 -0700)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/sven/linux.git tags/apple-soc-fixes-7.0
+
+for you to fetch changes up to c7ff53ef45b2f879576f7bbeb163828d04f5f491:
+
+  arm64: dts: apple: Fix spelling error (2026-04-14 22:13:19 +0200)
+
+----------------------------------------------------------------
+Apple SoC fixes for 7.0
+
+Two commits without any functional changes that arrived just before the
+merge window opened:
+- Update Sasha's email address in all dt-bindings, MAINTAINERS and add
+  him to mailmap
+- Fix a typo in spi1-nvram.dtsi
+
+----------------------------------------------------------------
+Axel Flordal (1):
+      arm64: dts: apple: Fix spelling error
+
+Sasha Finkelstein (2):
+      mailmap: Update Sasha Finkelstein's email address
+      dt-bindings: Update Sasha Finkelstein's email address
+
+ .mailmap                                                                | 1 +
+ .../devicetree/bindings/display/apple,h7-display-pipe-mipi.yaml         | 2 +-
+ Documentation/devicetree/bindings/display/apple,h7-display-pipe.yaml    | 2 +-
+ Documentation/devicetree/bindings/display/panel/apple,summit.yaml       | 2 +-
+ Documentation/devicetree/bindings/gpu/apple,agx.yaml                    | 2 +-
+ .../devicetree/bindings/input/touchscreen/apple,z2-multitouch.yaml      | 2 +-
+ Documentation/devicetree/bindings/nvmem/apple,spmi-nvmem.yaml           | 2 +-
+ Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml               | 2 +-
+ Documentation/devicetree/bindings/spmi/apple,spmi.yaml                  | 2 +-
+ MAINTAINERS                                                             | 2 +-
+ arch/arm64/boot/dts/apple/spi1-nvram.dtsi                               | 2 +-
+ 11 files changed, 11 insertions(+), 10 deletions(-)
 
