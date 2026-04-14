@@ -4,92 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44B99F9D0F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 20:44:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC82EF9D0F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 21:12:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:To:From:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L8bWJr7FXUdlTXBxL69DdsJ20JowQnELYHkBWQ0j71o=; b=SgkfaqZ4D1Sp10jQkR0AP4tfGI
-	xzSvdsqlGqEvrzJBD0SDfiHqUvqwCQJQVQhzZ7+RVk0WKc7Qz38OeQn6p+Z5Wz50QuGN8zR64eEnW
-	lU7sy82EGU+bTAm+FqI8t6QR48jrli5urpj+PdgA2zucEhz+N3VoSv1EALAwVA50gUDrDhBueeiFl
-	zVXLZCAyWQ+xAFwMU5ko9pcRlI3SlvqZsl90jFo3JS9CycfD7oTgA/J57ljk5QyAdsvwoNyOmqm5H
-	6gbKYkblZuSKRL1PTSKALvQC+rbGz+MzT+ITLNTMLjwoseBmTnVhSPmWIgG/kssC6dS8YO/I/NKjx
-	YxLA37yA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7rNJx51nZ5v0rxVmH9cSEcldop8PKAU+fA+AP1OHk9Q=; b=vuFSXuvcKfPEgF6xbZr4g/ll86
+	McLNd09P38SovBHSRab92OzaqiOxxVoHRB5WpIKwrjbEj+v1HD/dpudTKo1kFkYTSFrWAmxY3X8V2
+	WN8xsexcG0NWJFT08u6mUGstNIE0WWlQXZR4QJPNYD5Uef+c4stkHIJx8TNNyPtpo+2BrbCW/naax
+	JTDpybopu03mzE8HgEq/SRsE3Tthbf9uxEO0j2E5CE5i/KUZMJVrLKp/qZBebfqR2UcgwH13XEGXW
+	+qWmrpAL7tg95gAa7o2+JjxAE7DKDUKXDj/6H9nH1pG8vG/Vj8O9Fqp1DpCbVMtyWh7q+jDGVrZ2+
+	sD7XQEWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCkce-00000000CyA-0cF8;
-	Tue, 14 Apr 2026 20:44:36 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wCl3Z-00000000Dqf-2lNB;
+	Tue, 14 Apr 2026 21:12:25 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCkca-00000000Cxj-0Jbo
+	id 1wCl3W-00000000Dq3-3U9V
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 20:44:34 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 36C6FC5AAB7;
-	Tue, 14 Apr 2026 20:45:05 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id CCCED60410;
-	Tue, 14 Apr 2026 20:44:27 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4D13710450F98;
-	Tue, 14 Apr 2026 22:44:13 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1776199466; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=L8bWJr7FXUdlTXBxL69DdsJ20JowQnELYHkBWQ0j71o=;
-	b=tp0oFwTf5VHzsnEQcoI6YFXubpXr48s6UWlXK4aDR8EDMSSF+/OjNf6hUwJE2BAbHAdgPz
-	v2f4A8tTxVtK7dqJZfFAdjP+hWDl0Fam9eGGy91tNDrdqr1jGCVU5mlUKQsx7dKkw5Fj/o
-	8xB9Inm9XOYYzG+OqKhmNW03MF+ALRZMBSynxDWIF5QBxopuN97KxRbIxhOyfKSB9o6wkS
-	91454gD3J6J7wN/TaEOT0JgO64Dp+ztksnjtLIOwoMGIkVJ9RQPJZYo6iGmJA9iAtEHlyl
-	YSu689PmkWekOvBlF+bpB2iuXK1nNSBHe1tFVeClAIGo4vy+Vjuo6lCfP898kw==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+	Tue, 14 Apr 2026 21:12:24 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-43d70b3e159so1307780f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 14:12:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776201140; x=1776805940; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7rNJx51nZ5v0rxVmH9cSEcldop8PKAU+fA+AP1OHk9Q=;
+        b=KBySJAs641K0ppMzrAukpxHTqCrQTim82p14qLVfzLMFGQmxrk/Lhj+RGB8OGZNJXi
+         hoo6vdDRZH/RK/H/yGyMLjH0ANKrd2qYE3JNn/6fmdKmTCFSt5Bix87xUypp/B3k/ger
+         c+ahDe/JOnQjEJD7U3W1xlw8w+Vs6AlKwdN3A0Fln8NWF0ky2eN4lrXpADF/biAcbFoF
+         pSiiqrHTql5qaXVtUpfxyg2LRM/KSNQ5BDkoNhqC3v2/YzEX+FlXTbvWwUtH1SvxXrrp
+         23wK4MHYfMhGWeKcVu01j+Rejh6aCS5EJ8ms20c8oLS6F7E4685EH5LQQLnAF73aI2WM
+         eSNw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776201140; x=1776805940;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7rNJx51nZ5v0rxVmH9cSEcldop8PKAU+fA+AP1OHk9Q=;
+        b=WTQ+ZgT+NBadsoLVQ78BclLORYPN51PDVBjKOv/dAocwkoZQle1/Q4IWsq3C2byd/c
+         sAoPTTvQ0YP/YD18Rck26My25PfLyIm0Bj5HJuNI9LmgTo0EEfnytA7H4Cb5QLuNGDO5
+         1x9f8sVXhP7loPS/QaRrGh1HBak8aPQ/WvpdzzrCIxwg5pCnRBwT0kgjm+zMXyRDVmOD
+         jrEngUHh/8XTpVPA2Rc8+H4PcLTXqq8A2eXgaVCIXOFOetYW6vE2E3RZp0ql3KXLUbXK
+         o0lvTZXGWD+gDsP6dDxxI5vgN1drR273mWAaiOtHjCnUkToLHTHOUG1pWVcIpWWfNNQR
+         GkwQ==
+X-Gm-Message-State: AOJu0YxgXKfW9ZrJ+nb2YuQvxVNY5utJ2PMNwZRJpF3o3zXZCypNJTv2
+	BtntxukQ0LzD+1kxj271EpkBICEDM62rh4DkrKlZhlHo0DqfsbtyrNLxWDmUpm//
+X-Gm-Gg: AeBDiesVbPOnss3hKP9PSRDTBTBWjtTfE/8s4wPyEM4j9vR58MHTJBV4GD0e8JT0zxJ
+	NhRar3M/fOAOzTkTRcn4Bi37WecDbATdtJuL1fesKuVMApDynJhQqESoHuBdwoZY1zmAxJn7DHi
+	t1K4xeQU6e2Nbrag86juNx16pP8YJlsjUdeizYPwDh4YRDcPhJ+AB0C9NRb3tAum5vPFE3G3zXu
+	T/7tvRLY0/oS1W18XLe/pCz0riIHdgFX+17eu+MvaDRSkKOGsLpxD/Nkf9PpOeC1Fb86coSkapf
+	KlRVstUNqURvlYzx/h67SHQ3qDk3mUh82f8hmEdnBmodZKm6I4ME0Fac2y5FlXId4xU7z0efrkA
+	oEUfU4czhjXo9Nk1IX+TBny54V/Cw2pwt5hBA+JrqZzUCnv/UUT0HCdAiLNa2emZO47v6m6YNnH
+	zEvG5dNpMD2w1M3stCISGNQz1QZudCEJbOQejOIJJmDoE=
+X-Received: by 2002:a5d:5d83:0:b0:43b:40ef:5d1a with SMTP id ffacd0b85a97d-43d642552e7mr27403907f8f.5.1776201140232;
+        Tue, 14 Apr 2026 14:12:20 -0700 (PDT)
+Received: from strix.doe.home ([197.250.100.13])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d73b44b3esm27652679f8f.13.2026.04.14.14.12.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Apr 2026 14:12:19 -0700 (PDT)
+From: =?UTF-8?q?Stefan=20D=C3=B6singer?= <stefandoesinger@gmail.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Linus Walleij <linusw@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>
+Subject: [PATCH v3 0/8] Add support for ZTE zx297520v3 
+Date: Wed, 15 Apr 2026 00:12:07 +0300
+Message-ID: <20260414211215.152850-1-stefandoesinger@gmail.com>
+X-Mailer: git-send-email 2.52.0
+MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-Date: Tue, 14 Apr 2026 22:44:13 +0200
-Message-Id: <DHT65O6DS001.14GNQMXFJZHTN@bootlin.com>
-Cc: "Andrey Konovalov" <andreyknvl@gmail.com>, "Alexei Starovoitov"
- <ast@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii
- Nakryiko" <andrii@kernel.org>, "Martin KaFai Lau" <martin.lau@linux.dev>,
- "Eduard Zingerman" <eddyz87@gmail.com>, "Kumar Kartikeya Dwivedi"
- <memxor@gmail.com>, "Song Liu" <song@kernel.org>, "Yonghong Song"
- <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "John Fastabend"
- <john.fastabend@gmail.com>, "David S. Miller" <davem@davemloft.net>, "David
- Ahern" <dsahern@kernel.org>, "Thomas Gleixner" <tglx@kernel.org>, "Ingo
- Molnar" <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>, "Dave Hansen"
- <dave.hansen@linux.intel.com>, "X86 ML" <x86@kernel.org>, "H. Peter Anvin"
- <hpa@zytor.com>, "Shuah Khan" <shuah@kernel.org>, "Maxime Coquelin"
- <mcoquelin.stm32@gmail.com>, "Alexandre Torgue"
- <alexandre.torgue@foss.st.com>, "Andrey Ryabinin" <ryabinin.a.a@gmail.com>,
- "Alexander Potapenko" <glider@google.com>, "Dmitry Vyukov"
- <dvyukov@google.com>, "Vincenzo Frascino" <vincenzo.frascino@arm.com>,
- "Andrew Morton" <akpm@linux-foundation.org>, <ebpf@linuxfoundation.org>,
- "Bastien Curutchet" <bastien.curutchet@bootlin.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, "Xu Kuohai" <xukuohai@huawei.com>, "bpf"
- <bpf@vger.kernel.org>, "LKML" <linux-kernel@vger.kernel.org>, "Network
- Development" <netdev@vger.kernel.org>, "open list:KERNEL SELFTEST
- FRAMEWORK" <linux-kselftest@vger.kernel.org>,
- <linux-stm32@st-md-mailman.stormreply.com>, "linux-arm-kernel"
- <linux-arm-kernel@lists.infradead.org>, "kasan-dev"
- <kasan-dev@googlegroups.com>, "linux-mm" <linux-mm@kvack.org>
-From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-To: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>,
- =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-Subject: Re: [PATCH RFC bpf-next 1/8] kasan: expose generic kasan helpers
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260413-kasan-v1-0-1a5831230821@bootlin.com>
- <20260413-kasan-v1-1-1a5831230821@bootlin.com>
- <CA+fCnZfubV6LgRjO3NQvhrG2Q5o0ftkFFupLWVYS50XDnmCaog@mail.gmail.com>
- <DHSWK17EZUDP.GIJ6BX2NFR6U@bootlin.com>
- <CAADnVQLJ=fJ7t1i2+_RYqU1gqYqiLP9Zrwo4vdZsgzjK_yzJTQ@mail.gmail.com>
- <DHT3JV7GTOBL.29205LGGNEDSH@bootlin.com>
- <CAADnVQ+c9h_wuNwj8pjx885oNErGY7bxxCwKi+DiJ0XKSpyYfg@mail.gmail.com>
-In-Reply-To: <CAADnVQ+c9h_wuNwj8pjx885oNErGY7bxxCwKi+DiJ0XKSpyYfg@mail.gmail.com>
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_134432_403136_90A1F050 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20260414_141222_910165_5D09FCAD 
+X-CRM114-Status: GOOD (  22.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,54 +97,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue Apr 14, 2026 at 9:16 PM CEST, Alexei Starovoitov wrote:
-> On Tue, Apr 14, 2026 at 11:41=E2=80=AFAM Alexis Lothor=C3=A9
-> <alexis.lothore@bootlin.com> wrote:
->>
->> On Tue Apr 14, 2026 at 4:36 PM CEST, Alexei Starovoitov wrote:
->> > On Tue, Apr 14, 2026 at 6:13=E2=80=AFAM Alexis Lothor=C3=A9
->> > <alexis.lothore@bootlin.com> wrote:
->> >>
->> >> Hi Andrey, thanks for the prompt review !
+Hi,
 
-[...]
+This is a follow-up on my RFC patches from January [0]. I made more progress in more work on this SoC and it is time to get serious about code review and upstreaming.
 
->> > No. The performance penalty will be too high.
->>
->> Since we are mentioning it, I did not consider yet any performance
->> comparision/benchmarking (and I am not really familiar with usual bpf
->> performance validation practices for new bpf features). Is there any
->> existing test I should take a look at for this ? Maybe some specific
->> benches in tools/testing/selftests/bpf/bench ?
->
-> So far everything in bpf/bench/ measures bpf infra like
-> maps, kprobes, tracepoints, etc.
-> We don't have benchmarks for bpf programs.
-> So we don't know how well JITs are generating code
-> and how much inlining done by the verifier, JITs actually helps.
->
-> Puranjay is working on creating a SPECint like set of benchmarks.
->
-> For this kasan work we should make the best decisions from
-> performance point of view, like not wasting unnecessary call
-> and not saving unnecessary registers. btw in the other patch
-> I think you can skip saving of r10 and r11.
+Since my version in January I managed to get more hardware running: SPI, I2C, PMIC with real time clock and voltage regulators, Watchdog. LTE is not working yet, but I am able to start the coprocessor that handles it and talk to it via mailbox + shared memory. Wifi is working on a few more devices. Since WiFi, USB and Ethernet are working, the devices can have actual use with OpenWRT even without LTE.
 
-Noted, I'll do some checks and tests without those two.
+Another hacker created a free software program to talk to the USB loader [1] and boot uboot and Linux without modifying the on disk files. At the moment it needs a proprietary blob, so my documentation is emphasising booting with the on-device U-Boot.
 
-> But we cannot quantify yet that avoiding extra call gives us N%.
->
-> You can micro-benchmark, of course, but gotta be careful
-> interpreting the results. It might be too easy to get into
-> thinking that JIT must inline __asan_load() for the sake of performance.
+This patchset here is mostly unmodified from the version I sent in January. It is the bare minimum to get an interactive shell working on the UART. Future patches can be found on my git repository [2] for those curious to peek ahead. The first 30 patches are in reasonable shape, but the further you go the more cleanup is necessary. I expect all of the patches go require a few rounds of feedback though.
 
-Ok, interesting, thanks for those details
+My plan for upstreaming is largly this:
 
-Alexis
+1) This bare minimum boot patchset
+2) Add clock and pinctrl drivers
+3) Add hardware to the device tree that already has existing drivers
+4) Add zx29 specific drivers one by one: Watchdog, spi, i2c, DMA, PMIC, battery
+5) SDIO backend for rtl8xxxu
+6) rproc, mailbox and rpmsg
 
---=20
-Alexis Lothor=C3=A9, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+I am willing to maintain support for the SoC within reason. My patches add myself as maintainer. This is a hobby project for me though, keep that in mind if you want to ship a commercial product with these SoCs and upstreaming Linux.
+
+Cheers,
+Stefan
+
+0: https://lists.infradead.org/pipermail/linux-arm-kernel/2026-January/1099306.html
+1: https://github.com/zx297520v3-mainline/zx297520v3-loader
+2: https://gitlab.com/stefandoesinger/zx297520-kernel/
+
+Stefan Dösinger (8):
+  ARM: zte: Add zx297520v3 platform support
+  dt-bindings: arm: Add zx297520v3 board binding
+  ARM: dts: Add D-Link DWR-932M support
+  ARM: zte: Add support for zx29 low level debug
+  ARM: dts: Add an armv7 timer for zx297520v3
+  ARM: zte: Bring back zx29 UART support
+  ARM: dts: Declare UART1 on zx297520v3 boards
+  ARM: defconfig: Add a zx29 defconfig file
+
+ Documentation/arch/arm/zte/zx297520v3.rst     | 158 ++++++++++++++++++
+ .../devicetree/bindings/arm/zx29.yaml         |  20 +++
+ MAINTAINERS                                   |   6 +
+ arch/arm/Kconfig                              |   2 +
+ arch/arm/Kconfig.debug                        |  12 ++
+ arch/arm/Makefile                             |   1 +
+ arch/arm/boot/dts/Makefile                    |   1 +
+ arch/arm/boot/dts/zte/Makefile                |   3 +
+ arch/arm/boot/dts/zte/dlink-dwr-932m.dts      |  21 +++
+ arch/arm/boot/dts/zte/zx297520v3.dtsi         |  83 +++++++++
+ arch/arm/configs/zx29_defconfig               |  90 ++++++++++
+ arch/arm/include/debug/pl01x.S                |   7 +
+ arch/arm/mach-zte/Kconfig                     |  24 +++
+ arch/arm/mach-zte/Makefile                    |   2 +
+ arch/arm/mach-zte/zx297520v3.c                |  19 +++
+ drivers/tty/serial/amba-pl011.c               |  37 ++++
+ include/linux/amba/bus.h                      |   6 +
+ 17 files changed, 492 insertions(+)
+ create mode 100644 Documentation/arch/arm/zte/zx297520v3.rst
+ create mode 100644 Documentation/devicetree/bindings/arm/zx29.yaml
+ create mode 100644 arch/arm/boot/dts/zte/Makefile
+ create mode 100644 arch/arm/boot/dts/zte/dlink-dwr-932m.dts
+ create mode 100644 arch/arm/boot/dts/zte/zx297520v3.dtsi
+ create mode 100644 arch/arm/configs/zx29_defconfig
+ create mode 100644 arch/arm/mach-zte/Kconfig
+ create mode 100644 arch/arm/mach-zte/Makefile
+ create mode 100644 arch/arm/mach-zte/zx297520v3.c
+
+-- 
+2.52.0
 
 
