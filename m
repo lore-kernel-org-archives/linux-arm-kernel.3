@@ -4,85 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B9B9F531EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 03:20:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 739DBF531EB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 03:26:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AYL2d0CGzKYbA+ydZnz9FwU6gKd+55O84czAxN9QH2c=; b=yZp0nnLfSlXgXOriCrIYYHOxtV
-	D6ED2yhnjtWzceJvXQTgOT1u8V6dbdOQ7hICB1mmP1XJpi17yYj7FMXWjeN/Np3LPvMTmtZ41vZ46
-	3ljsQ7W8hQYxWtFHShnd6DkKCGzoeWhIZEZHVtwUjAA2IZAPxZOA4TvSNISKsAG+euLCUbZIH7LSZ
-	jAbcsvMPDRedDeMjyTRhciW+uHvgLvotWZWL+WOFS7QWBlJKfNmtFhahm9Hu576oh/TojZ06Y/din
-	8lPgbFmZVZ+Ro4bYwpNvRrzXufg9/tFSnjKkP+Cz8BAzmm14gaQJ/W2KyjARecZRKT+uHpvSvsInR
-	WTVm7TtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=68fF55HV376pI4LjfwblJHU6ULTAGgkYdx9eR4Q2upg=; b=iKRV+TdoBLjfWTimlDoXvOql+D
+	8eoB/7udCiMuk9L/wkLy0v2KpiHEsGGbNT4Y4JkA2SGsLK4Re1mf80HcGaYELKycJW0HcbagbAKuV
+	hdw7aBwo9T1wECmKTuxSnP4tfo9yOj/Iw/AEc3iDsxgUljvLssfQyPGE76ZydVrMoG7qC2gt6YS9m
+	YzAYhvdn3mFWIaywOWDPeVgCde+rWh55VTrOiKkaCWjA+xUzIrKJeelW++KM0sccx7mdix68b4JBd
+	LwI6QMpRWlVa4o7qKBL7+OK5d036DDyG1JRyGqM8F/fzQz30WqrdX1fycOW9LCl1DweD50S0SrwrO
+	yk4wjpAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCUKD-0000000GdNX-0TUx;
-	Tue, 14 Apr 2026 03:20:29 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1wCUQQ-0000000GdgO-38zA;
+	Tue, 14 Apr 2026 03:26:54 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCUK9-0000000GdNC-1Mp6
+	id 1wCUQM-0000000Gdey-3MQa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 03:20:28 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.170])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4fvqJQ2rp2zYQtg5
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 11:19:34 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.252])
-	by mail.maildlp.com (Postfix) with ESMTP id 141364056B
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 11:20:18 +0800 (CST)
-Received: from [10.67.111.192] (unknown [10.67.111.192])
-	by APP3 (Coremail) with SMTP id _Ch0CgA3Mrxwst1pANJVAQ--.64448S2;
-	Tue, 14 Apr 2026 11:20:17 +0800 (CST)
-Message-ID: <349fd6fd-97c8-4d80-8f2f-af5a9c7d3be9@huaweicloud.com>
-Date: Tue, 14 Apr 2026 11:20:16 +0800
+	Tue, 14 Apr 2026 03:26:53 +0000
+dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=68fF55HV376pI4LjfwblJHU6ULTAGgkYdx9eR4Q2upg=;
+	b=mwxOITi5uUy0Mz9HZmI9XxLLXMu268AM/euaIa+2V9KlmZkgfTKaeOdBl01/TT/wLDGGEJyQr
+	ybyrqAXDVpb9quQH8h2dE8yrwVePoW13hy+VOb4U2uQiXF+O79WSU+Q6nL/uuNgpio8CJ3AOM6c
+	6om/h7T2Yz0nRa+YBzi+3oI=
+Received: from mail.maildlp.com (unknown [172.19.163.214])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4fvqKS1r0Gz1K9BY;
+	Tue, 14 Apr 2026 11:20:28 +0800 (CST)
+Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
+	by mail.maildlp.com (Postfix) with ESMTPS id 8BB6A4056C;
+	Tue, 14 Apr 2026 11:26:43 +0800 (CST)
+Received: from huawei.com (10.50.87.109) by kwepemf100008.china.huawei.com
+ (7.202.181.222) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 14 Apr
+ 2026 11:26:43 +0800
+From: Zeng Heng <zengheng4@huawei.com>
+To: <ben.horgan@arm.com>, <james.morse@arm.com>, <Dave.Martin@arm.com>,
+	<fenghuay@nvidia.com>, <reinette.chatre@intel.com>
+CC: <xiaqinxin@huawei.com>, <sunnanyong@huawei.com>,
+	<jonathan.cameron@huawei.com>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH mpam mpam/snapshot+extras/v6.18-rc1 v2 0/3] fs/resctrl: IOMMU group fixes for tasks interface and cleanup
+Date: Tue, 14 Apr 2026 11:26:07 +0800
+Message-ID: <20260414032610.1523958-1-zengheng4@huawei.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v14 1/5] bpf: Move constants blinding out of
- arch-specific JITs
-Content-Language: en-US
-To: bot+bpf-ci@kernel.org, bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
- martin.lau@linux.dev, eddyz87@gmail.com, memxor@gmail.com,
- yonghong.song@linux.dev, puranjay@kernel.org, a.s.protopopov@gmail.com,
- alexis.lothore@bootlin.com, list+bpf@vahedi.org, linux@armlinux.org.uk,
- yangtiezhu@loongson.cn, hengqi.chen@gmail.com,
- johan.almbladh@anyfinetworks.com, paulburton@kernel.org,
- hbathini@linux.ibm.com, chleroy@kernel.org, naveen@kernel.org,
- luke.r.nels@gmail.com, xi.wang@gmail.com, bjorn@kernel.org,
- pulehui@huawei.com, iii@linux.ibm.com, hca@linux.ibm.com, gor@linux.ibm.com,
- davem@davemloft.net, udknight@gmail.com, martin.lau@kernel.org,
- clm@meta.com, ihor.solodrai@linux.dev
-References: <7d88904b4028cbe124bbaba5739c525663bedc64.1776062885.git.xukuohai@hotmail.com>
- <fa46a9034904c7622f935d3e3a60264a37afda290705f40c816c9846c9d3f3f8@mail.kernel.org>
-From: Xu Kuohai <xukuohai@huaweicloud.com>
-In-Reply-To: <fa46a9034904c7622f935d3e3a60264a37afda290705f40c816c9846c9d3f3f8@mail.kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: _Ch0CgA3Mrxwst1pANJVAQ--.64448S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxZry7Kr45urykXrWUCr4UJwb_yoW5ZrW5pF
-	y8tFy7CF4qqFs7tw47XF48W3yYqw4rXFW3CF98Wryxtrn8XrykWr4fKrWa9FW3Ar90yrWF
-	vFs0grySka4DuFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUv0b4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
-	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
-	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
-	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AF
-	wI0_Wrv_ZF1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
-	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26rWY6r4U
-	JwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
-	0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
-	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU0
-	EksDUUUUU==
-X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.87.109]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_202025_749940_BD516768 
-X-CRM114-Status: GOOD (  25.73  )
+X-CRM114-CacheID: sfid-20260413_202651_316549_08742F39 
+X-CRM114-Status: UNSURE (   6.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,97 +78,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/13/2026 9:47 PM, bot+bpf-ci@kernel.org wrote:
->> diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
->> index 066b86e7233c..fc9fb3c07866 100644
->> --- a/kernel/bpf/core.c
->> +++ b/kernel/bpf/core.c
-> 
-> [ ... ]
-> 
->>   /**
->>    *	bpf_prog_select_runtime - select exec runtime for BPF program
->>    *	@fp: bpf_prog populated with BPF program
-> 
-> [ ... ]
-> 
->> -	/* eBPF JITs can rewrite the program in case constant
->> -	 * blinding is active. However, in case of error during
->> -	 * blinding, bpf_int_jit_compile() must always return a
->> -	 * valid program, which in this case would simply not
->> -	 * be JITed, but falls back to the interpreter.
->> -	 */
->> +	/* eBPF JITs can rewrite the program in case constant
->> +	 * blinding is active. However, in case of error during
->> +	 * blinding, bpf_int_jit_compile() must always return a
->> +	 * valid program, which in this case would simply not
->> +	 * be JITed, but falls back to the interpreter.
->> +	 */
-> 
-> This isn't a bug, but this comment still references bpf_int_jit_compile()
-> even though the code now calls bpf_prog_jit_compile(). Should this be
-> updated to match?
->
+This fix patch is against the mpam/snapshot+extras/v6.18-rc1 branch at
+https://kernel.googlesource.com/pub/scm/linux/kernel/git/morse/linux.git .
 
-This comment is not touched by the patch, it was already there before
-the patch, so I'd leave it as is.
+The patch series fixes several issues with IOMMU group handling in the
+resctrl filesystem.
 
->> -		fp = bpf_int_jit_compile(fp);
->> +		fp = bpf_prog_jit_compile(fp);
-> 
->> diff --git a/kernel/bpf/fixups.c b/kernel/bpf/fixups.c
->> index 67c9b28767e1..ec8afd6a9369 100644
->> --- a/kernel/bpf/fixups.c
->> +++ b/kernel/bpf/fixups.c
-> 
-> [ ... ]
-> 
->> +out_jit_err:
->> +	if (blinded) {
->> +		bpf_jit_prog_release_other(orig_prog, prog);
->> +		/* roll back to the clean original prog */
->> +		prog = env->prog = orig_prog;
->> +		goto out_restore;
->> +	} else {
->> +		if (err != -EFAULT) {
->> +			/*
->> +			 * We will fall back to interpreter mode when err is not -EFAULT, before
->> +			 * that, insn->off and insn->imm should be restored to their original
->> +			 * values since they were modified by __jit_subprogs.
->> +			 */
-> 
-> The comment references __jit_subprogs, but the function is named
-> jit_subprogs (no double underscore prefix). Should this be updated?
->
+Changes
+=======
 
-Yes, it should be jit_subprogs.
+Compared with v1:
+  - Split patch 2 into separate patches 2 and 3.
 
-In addition, sashiko reported an issue that subprog_start of the fake
-exit subprog is not restored on the rollback path. It said that
-bpf_fixup_call_args() relies on this sentinel to detect the end of the
-last subprog. I checked the bpf_fixup_call_args() function and its child
-functions, but could not find any usage of the sentinel.
+Previous Versions
+=================
 
-IIUC, the sentinel is only used to compute the length of the last subprog
-and is not used after jit_subprogs fails, so not restoring it does not
-to be a real issue.
+  v1: https://lore.kernel.org/all/20251107063300.1580046-1-zengheng4@huawei.com/
 
-However, leaving the sentinel unrestored seems error-prone, and for code
-consistency, I'll restore it in the next version.
+---
 
->> +			for (i = 0, insn = prog->insnsi; i < prog->len; i++, insn++) {
->> +				if (!bpf_pseudo_call(insn))
->> +					continue;
->> +				insn->off = 0;
->> +				insn->imm = env->insn_aux_data[i].call_imm;
->> +			}
->> +		}
-> 
-> 
-> ---
-> AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-> See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-> 
-> CI run summary: https://github.com/kernel-patches/bpf/actions/runs/24345549165
+Zeng Heng (3):
+  fs/resctrl: Fix incorrect PID parsing after IOMMU group token
+  fs/resctrl: Remove unused 'of' parameter from rdtgroup_move_iommu()
+  fs/resctrl: Migrate IOMMU groups when removing resource groups
+
+ fs/resctrl/rdtgroup.c | 91 ++++++++++++++++++++++++++++++++++---------
+ 1 file changed, 73 insertions(+), 18 deletions(-)
+
+--
+2.25.1
 
 
