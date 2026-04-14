@@ -4,88 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E676F9D0CE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 13:13:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 213F9F9D0CE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 13:14:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ljtr9WPSUnaAjZD/FtGwji3II/sbFJuzXTsBaHKsQSU=; b=Ov31hNXzXOintjVYnDtOjKiG6U
-	bqOw+pVYcTRcOQa+iHjEU1J1pFFbhdQRG3xYkvoNWV7svFqi0ChAk5ahYblhitoUGRsjEBH1+dzg6
-	Z3KBZibMtjz/xwGHvnNeks73wCzzTLeDatSTMYzaw+b3JakWBxQOin1L+AFU3ehq2OFEzuWsoeTEO
-	EjHvrcTi8veyClLGa1tbsJS1i7EQfAxq1tWmWI21P1axGTFxHaPATf7XLgdXFXR+fctYkZvi21R/V
-	OOzV6CRym8tXJCEUDS7+zqGPrSgnpw7j5RmOALGp2q2I4bb7uR2Z+OADVngr6LwDTNpfGO8cZtlz4
-	339WcNAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p6w550N0MxEwxNAHSInqETjhVWVfzaLbGQYn5bMQkuk=; b=qHdwjE8aGLkrOY4e+ZkI4sp2dV
+	wZtiR8TO/1ECTiqRISzWFqX1EbZRTvynyPYy+CvvwdWi5NZbdWwwIdBCFhTd4l3N+E0yqSsZo0tQe
+	EigAjJgbFd0bsc7O3AFr8SHI9i/hGpkqACEmTwsppuYRn2/fEE+MwuXb5+xkGAS1ESszeGgZuyjEE
+	pcpkeme7eESMuQ+zylw/0lI2MTW8BbGc7F8CadVa3ILjjZ/lOs8EdlwejhOG+tGhKAqW7SfzXmENS
+	aXxlK40sjUg/t9/+/DU/mUvuctAOZh2i865W3OPdXoqQ1k77NCubTH2PiYSU5NgKxPs9FTnM3atOD
+	ceHeppLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCdZk-0000000HLq3-0Koo;
-	Tue, 14 Apr 2026 13:13:08 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wCdbL-0000000HM3y-2A1y;
+	Tue, 14 Apr 2026 13:14:47 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCdZg-0000000HLpW-3HGl
+	id 1wCdbI-0000000HM2e-25Y8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 13:13:06 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 932294E429EC;
-	Tue, 14 Apr 2026 13:13:01 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 46E3160410;
-	Tue, 14 Apr 2026 13:13:01 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 569A6104500A2;
-	Tue, 14 Apr 2026 15:12:48 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1776172379; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=ljtr9WPSUnaAjZD/FtGwji3II/sbFJuzXTsBaHKsQSU=;
-	b=lhDeNvog7+cXfwfKejAzO+yVIre7KeKOh4nxhyYR84tw7Qhs4CDNLFYshF/sNo/ddcHeul
-	OAXDnRRPYFfdKmNFr6FNXLWBgkwR5bSerHfi1jG3QAuxmeyq9DKVn4ADpvD+k/LktKcxCV
-	Qo+C51KQYvBPk2tQWgzerrUX38wX8fl9mns5nowg6aBHUe0QUCDETlFcTsN3Vd+g6AhDW1
-	t0+PPdVn0VXoKLO/NdWsu8xr8pa5SfFsPWlNHjagwF2HUg4Jwz/bTTtoEDbu5jNS5UXcqe
-	/1a7m2ycQR5Rypiiam1nxF1Kid65dAD8mzMdsDqIpVAnb6rsDVnu+pzT2qXnlw==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 14 Apr 2026 15:12:47 +0200
-Message-Id: <DHSWK17EZUDP.GIJ6BX2NFR6U@bootlin.com>
-Subject: Re: [PATCH RFC bpf-next 1/8] kasan: expose generic kasan helpers
-Cc: "Alexei Starovoitov" <ast@kernel.org>, "Daniel Borkmann"
- <daniel@iogearbox.net>, "Andrii Nakryiko" <andrii@kernel.org>, "Martin
- KaFai Lau" <martin.lau@linux.dev>, "Eduard Zingerman" <eddyz87@gmail.com>,
- "Kumar Kartikeya Dwivedi" <memxor@gmail.com>, "Song Liu" <song@kernel.org>,
- "Yonghong Song" <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>,
- "John Fastabend" <john.fastabend@gmail.com>, "David S. Miller"
- <davem@davemloft.net>, "David Ahern" <dsahern@kernel.org>, "Thomas
- Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>, "Borislav
- Petkov" <bp@alien8.de>, "Dave Hansen" <dave.hansen@linux.intel.com>,
- <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, "Shuah Khan"
- <shuah@kernel.org>, "Maxime Coquelin" <mcoquelin.stm32@gmail.com>,
- "Alexandre Torgue" <alexandre.torgue@foss.st.com>, "Andrey Ryabinin"
- <ryabinin.a.a@gmail.com>, "Alexander Potapenko" <glider@google.com>,
- "Dmitry Vyukov" <dvyukov@google.com>, "Vincenzo Frascino"
- <vincenzo.frascino@arm.com>, "Andrew Morton" <akpm@linux-foundation.org>,
- <ebpf@linuxfoundation.org>, "Bastien Curutchet"
- <bastien.curutchet@bootlin.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, "Xu Kuohai" <xukuohai@huawei.com>,
- <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <netdev@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
- <linux-stm32@st-md-mailman.stormreply.com>,
- <linux-arm-kernel@lists.infradead.org>, <kasan-dev@googlegroups.com>,
- <linux-mm@kvack.org>
-From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-To: "Andrey Konovalov" <andreyknvl@gmail.com>,
- =?utf-8?b?QWxleGlzIExvdGhvcsOpIChlQlBGIEZvdW5kYXRpb24p?=
- <alexis.lothore@bootlin.com>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260413-kasan-v1-0-1a5831230821@bootlin.com>
- <20260413-kasan-v1-1-1a5831230821@bootlin.com>
- <CA+fCnZfubV6LgRjO3NQvhrG2Q5o0ftkFFupLWVYS50XDnmCaog@mail.gmail.com>
-In-Reply-To: <CA+fCnZfubV6LgRjO3NQvhrG2Q5o0ftkFFupLWVYS50XDnmCaog@mail.gmail.com>
-X-Last-TLS-Session-Version: TLSv1.3
+	Tue, 14 Apr 2026 13:14:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=p6w550N0MxEwxNAHSInqETjhVWVfzaLbGQYn5bMQkuk=; b=XlTlVTrF7k4kweRqsnLhib6u2s
+	JBVZbhwkXgqWFEOAq1frC3U41CvvnE4H7d5DcfmfLjYN3/IjfFYQCWSnIXeNP322WjdezqWyz7JH8
+	4dw41S+JTbqQrEDCQIZy1J7L7MaJenecODg6bLCc6UPpAp60Tkdimy5zFCB3Mw4VVXbvkW3uErNt2
+	otJo5JbZIeOH4QLsrNHhI29zee0WDcpO8TBVsm69UOYvmuPE8VtS5CI6favDXclujdaLLZrGEmwvJ
+	10fSHky5bxCsBXlFdslmXX+LID5KESeqvgYGCfxv2oiDqvXkZ5nmRNByU9jGspmYIdaup0sABsG3S
+	v6S+BV2Q==;
+Received: from authenticated user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1wCday-00D5gf-1t;
+	Tue, 14 Apr 2026 13:14:24 +0000
+Date: Tue, 14 Apr 2026 06:14:19 -0700
+From: Breno Leitao <leitao@debian.org>
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: "lihuisong (C)" <lihuisong@huawei.com>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, lpieralisi@kernel.org, 
+	catalin.marinas@arm.com, will@kernel.org, 
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	pjaroszynski@nvidia.com, guohanjun@huawei.com, linux-arm-kernel@lists.infradead.org, 
+	rmikey@meta.com, kernel-team@meta.com
+Subject: Re: [PATCH RFC] ACPI: processor: idle: Do not propagate
+ acpi_processor_ffh_lpi_probe() -ENODEV
+Message-ID: <ad48gItCwrC-ar34@gmail.com>
+References: <20260413-ffh-v1-1-301704f69e2f@debian.org>
+ <af9c679d-899c-4832-b902-e621b5987f12@huawei.com>
+ <ad4UWJ__dnDQtrj8@gmail.com>
+ <6694ca7c-13bf-4e7d-9621-bc992cbf96a7@huawei.com>
+ <20260414-cute-shapeless-dolphin-c5b2fc@sudeepholla>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260414-cute-shapeless-dolphin-c5b2fc@sudeepholla>
+X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_061304_984121_3670DECD 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20260414_061444_540993_347420C1 
+X-CRM114-Status: UNSURE (   8.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,46 +83,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrey, thanks for the prompt review !
+Hello Sudeep,
 
-On Tue Apr 14, 2026 at 12:19 AM CEST, Andrey Konovalov wrote:
-> On Mon, Apr 13, 2026 at 8:29=E2=80=AFPM Alexis Lothor=C3=A9 (eBPF Foundat=
-ion)
-> <alexis.lothore@bootlin.com> wrote:
->>
+On Tue, Apr 14, 2026 at 01:25:53PM +0100, Sudeep Holla wrote:
+> So while I understand that the kernel did not report an error previously, that
+> does not mean the _LPI table is merely moot on this platform when it contains
+> only a WFI state.
 
-[...]
+Can you clarify whether datacenter ARM systems are expected to expose
+deeper idle states beyond WFI in their _LPI tables?
 
->> +#ifdef CONFIG_KASAN_GENERIC
->> +void __asan_load1(void *p);
->> +void __asan_store1(void *p);
->> +void __asan_load2(void *p);
->> +void __asan_store2(void *p);
->> +void __asan_load4(void *p);
->> +void __asan_store4(void *p);
->> +void __asan_load8(void *p);
->> +void __asan_store8(void *p);
->> +void __asan_load16(void *p);
->> +void __asan_store16(void *p);
->> +#endif /* CONFIG_KASAN_GENERIC */
->
-> This looks ugly, let's not do this unless it's really required.
->
-> You can just use kasan_check_read/write() instead - these are public
-> wrappers around the same shadow memory checking functions. And they
-> also work with the SW_TAGS mode, in case the BPF would want to use
-> that mode at some point. (For HW_TAGS, we only have kasan_check_byte()
-> that checks a single byte, but it can be extended in the future if
-> required to be used by BPF.)
-
-ACK, I'll try to use those kasan_check_read and kasan_check_write rather
-than __asan_{load,store}X.
-
-Alexis
-
---=20
-Alexis Lothor=C3=A9, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
-
+Backing up, I'm observing 72 pr_err() messages during boot on these
+hosts and trying to determine whether this indicates a firmware issue or
+if the kernel needs adjustment.
 
