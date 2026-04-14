@@ -4,116 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44D9CF531FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 07:44:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C873CF531FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 07:45:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OlzMDNQ1cM8ah+38Tw9DOLxzKgOZGgHJ/+gYu0boa3s=; b=DCP9XXcjHts8wHLGIeZf6Q1GWD
-	xSH/qZnvqJh8zQ6V61zlJA7Qh9hsF97J+nVgTw4MJdpLUJeaJela6O63FvxscXQ5bAh4R7tYoz8uI
-	rk33cpJG3h/lMe7nXJGM2msF/Yz8F05KzGtVKcOkTwQ9UPXnKwkhvbtgpZK6GjNFinEXuVlhI91gt
-	mVDJ00joCvNVdTw8PR5o2BdDFXqi1SDoHW8RDXeZFbdU2V+hOErTAR76dmcwDemhrcTCYGq5vexq5
-	VePMit7542p4xZE0vBC774qhd0caIr/+UT5T1hsOdxsqCc1wvMjAM9zEjWsMZTjlnTVK8bQQXjEC3
-	QDRvotpA==;
+	bh=LTSg/E5dWEBMouw/2txXF5He/FP3xbBtzi6zAJRDtL4=; b=YX86aVtP1apPwnVuz6DlGinu4X
+	w0sfzQqs4L0I0OmVnnycRrAe2ByNj73AYqfOY4PnoqVanwqXLeZ65xmN7rS5Wx67sGwFJJERrC9eF
+	Oc23yH+TD9r3S+AJ0C5VszOht144laIU/1ZJPMeGU2m1c2c33h0ImUSSJdywXE3r64job0Er6jKZJ
+	FKO1Eq7sB/GBNKKXb6cMT9b83AZkNNcGpMtVsbWP/El4/qwT7KIVBZ0nDQPzpvhNWGnvQBdUt4iSE
+	Lb/dcsJudRLoO6jJ2CInmYjqrYTLATGdFaMVAdVXNXz8mBUVNNnqY1HTtUcbe/73uk4i5IwjKkxU7
+	HU61rbMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCYRX-0000000Guvq-11Cu;
-	Tue, 14 Apr 2026 07:44:19 +0000
-Received: from mail-westcentralusazon11010027.outbound.protection.outlook.com ([40.93.198.27] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1wCYS7-0000000GuzW-2SlX;
+	Tue, 14 Apr 2026 07:44:55 +0000
+Received: from mail-francesouthazon11011013.outbound.protection.outlook.com ([40.107.130.13] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCYRU-0000000GuvT-3exA
+	id 1wCYS4-0000000Guyl-3Rtg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 07:44:18 +0000
+	Tue, 14 Apr 2026 07:44:54 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Daq48RG1mDNMVwB+0HUpcykBvLOhHPUwgnPVXS70tVDFkVdGSLzkus+UH9KRvRse6fRAexGfondOxtPH26Xcg0uyDUACOkaquvidKQrAViq6MYYx4LbYZlTZ9U8g/jnpSIIaLd/K/IjVtXaQu2Y+BARnLWs+24udeSouOavKhI5R/m6T1nkoj3IltCuT67V0Y8QDm4Tf3zgeUA6I6tvMp1zhc1la5bb/h8qYhInd+1kuvreBJNcNBB1nkep7oawCJ86DN/kE+t9XyS0qXZEXm2f5v5SUi/vEWmY2ihIDNLhNossY6er9xsl/2XulezthKcPBEETVzyTfy/9OltLkJA==
+ b=LA5Z2SAU2oZASViuLhXsU2m1idpPMfb/icO95jGZt9lS8q8H6l43tfRlenPQbmXhPsDNc72Y8WSNjFi7OLoKvYyTI5mBbX4GfAPIuVMJX+S8/SPEazAVPxi1hJ/vd75Bl2rk/Xnfstgqf1XMPUCzwBi6PZq6joNI/JMdp44yQlwWcwGuQoKSaOgjwWQ0p4m6MKe3zgQvwp4/1ZDoClEahUIZ76jy0smIaYA0aEgo0C8IO9tQrJ39frL1/licWCdJ1FvDzmg7q31EtjWBRUuycGUwXi8Lg9RimcE2t10sMVUofUJHYi0q5Xl5H7bH9tNtoo7Q/DWGtcdKXWdl+Lto1Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OlzMDNQ1cM8ah+38Tw9DOLxzKgOZGgHJ/+gYu0boa3s=;
- b=TuQSNULQTHeUxEKPUloD177ysyTv5eZmb3XsGE+Zwq/ndfRUJPJL16bjHIFJOAdo8WbYmRsChaAFDKr25pjQVdQaADl8T9xjj2BVDj6Wq5chquVdQBtLJPVt/ZBymzqJK0tdUzdwS58TLgE+5n0hJLgBIQ7DeUYF2I/IHn9qi8dWmeyKnb7NOyt78aaGzVQfvvbzgvPq+M3oKwb8JUuus15SFpvtib/LaSrEOzINZQ16RJSdyzpQ2KzrqK5/q3EmCKsSAuHHXOLEwVdCvLe2HG9gezHTDvTipoOCBYOVgo2yFTojkBmSzXqo3FfEYneqXIPLFhnoAuYCbjmNNB2iOg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 165.85.157.49) smtp.rcpttodomain=lists.infradead.org
- smtp.mailfrom=gehealthcare.com; dmarc=fail (p=quarantine sp=quarantine
- pct=100) action=quarantine header.from=gehealthcare.com; dkim=none (message
- not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gehealthcare.com;
- s=selector1;
+ bh=LTSg/E5dWEBMouw/2txXF5He/FP3xbBtzi6zAJRDtL4=;
+ b=JfVRyU04lFzD71WlNx/w5ex7f9D1B6NHfaW7QJAZQL3tj58pF2MdXOwKYHVIN7iW5s1zOSwnkwXs9kPa7Oz0/159jE/iEEty29U+aDdbwI5uF7CzFpn2b/rMCisRT0llYFoDRr3w8AGVM6IfKg1BnBPMtPGyz1bsljBA3wOUOxZDvd7dXjXMgVWmXVEGdfigRtQtefx3XuyMFj2I0YyLdAYFD6x0Uwz+WZG1i6O/mhCbmox5NFFZwJscS+sbXA01dd5ZwXM5D4B8+rzBmysfUpwtUIO9i8gRrRcMCyUnA0y1WIrTeiL9cMf9ZKS/2wJqaoCEvcCaQ1fihNyWY70K7Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OlzMDNQ1cM8ah+38Tw9DOLxzKgOZGgHJ/+gYu0boa3s=;
- b=sf08aNdhr/yipIZfbiW5ttb+k2L9yYo/uOBH5b7y/Kk6P9wllPo1E1fCsfp7Bf2VBBWH9VRA782FpC5jVM3fEfGrf4qR+yYV/cymjcCgF+EtwqaZrCF013vs7JCMKZJ2TmsMTWAgmWYY0PdW8MXEA/NiPmPasf5CdT+Xlk81+qbF/DjgvU3EK3gqP3ULTQDyvqadxJsb+v89IrNjVq9zslZTZQCy4PwldP4CS8BcA/RjkAAkR2SRWOSXheUOxeh2RCXidsF1dn3eA5IyFAt/Laxoi/XC/4WWzNH/6ZJ3CY0HxfzyqjVt0SuCE5qCQJHemZHxLFPI4/uV+e4/ReG/wA==
-Received: from BYAPR21CA0025.namprd21.prod.outlook.com (2603:10b6:a03:114::35)
- by DS4PPF242240EEC.namprd22.prod.outlook.com (2603:10b6:f:fc00::b0e) with
+ bh=LTSg/E5dWEBMouw/2txXF5He/FP3xbBtzi6zAJRDtL4=;
+ b=irbIvWk0o4OOgJNnwdW9nY0Z0VM0LcLUJLj7ESVVdZJsQCueq/ozkniWozEzoM6C1qw+tNllCL3KSxj4GEoqUVsOEIbnWE0r3dZi0+cakuciQmDmAAUJUchHUPxwFE8HtaGdl9jTP/6Ga/7Yx/DICLEFutlFwt8CpyNTaDaT+XME+sZWu/VXvSacyrsuPF8jhiRAgy9nbF9H0zXOQoAQusCLrizTmhJGHFkRv63j/KfKMtHvMQMu7bzf70MusFgkAkbABfnkNHO/u7F1zkrkaQL2wNR5/Uq8cdnAs+scFs4uk6ri/MZaaKm5CXk2+pRMzTlP3VjqSyFnl7W0J+Cijw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AMVPR04MB12649.eurprd04.prod.outlook.com (2603:10a6:20b:774::18) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.20; Tue, 14 Apr
- 2026 07:44:09 +0000
-Received: from MWH0EPF000C6184.namprd02.prod.outlook.com
- (2603:10b6:a03:114:cafe::89) by BYAPR21CA0025.outlook.office365.com
- (2603:10b6:a03:114::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.2 via Frontend Transport; Tue,
- 14 Apr 2026 07:44:08 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 165.85.157.49)
- smtp.mailfrom=gehealthcare.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=gehealthcare.com;
-Received-SPF: Fail (protection.outlook.com: domain of gehealthcare.com does
- not designate 165.85.157.49 as permitted sender)
- receiver=protection.outlook.com; client-ip=165.85.157.49;
- helo=mkerelay2.compute.ge-healthcare.net;
-Received: from mkerelay2.compute.ge-healthcare.net (165.85.157.49) by
- MWH0EPF000C6184.mail.protection.outlook.com (10.167.249.116) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9769.17 via Frontend Transport; Tue, 14 Apr 2026 07:44:08 +0000
-Received: from zoo11.fihel.lab.ge-healthcare.net (zoo11.fihel.lab.ge-healthcare.net [10.168.174.93])
-	by builder1.fihel.lab.ge-healthcare.net (Postfix) with SMTP id CEDFD131E4;
-	Tue, 14 Apr 2026 10:44:05 +0300 (EEST)
-Date: Tue, 14 Apr 2026 10:44:05 +0300
-From: Brian Ruley <brian.ruley@gehealthcare.com>
-To: Will Deacon <will@kernel.org>
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
-	Steve Capper <steve.capper@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	catalin.marinas@arm.com
-Subject: Re: [PATCH] mm/arm: pgtable: remove young bit check for
- pte_valid_user
-Message-ID: <ad3wRQt7K-QLX8Jw@zoo11.fihel.lab.ge-healthcare.net>
-References: <20260409125446.981747-1-brian.ruley@gehealthcare.com>
- <adewJetUv6wMiz9o@willie-the-truck>
- <adfDEMK8EbIjPu3J@zoo11.fihel.lab.ge-healthcare.net>
- <adfNN33QIOP3VfDm@shell.armlinux.org.uk>
- <adjYlUk8_JjPivNi@zoo11.fihel.lab.ge-healthcare.net>
- <adzMOdySgMIePcue@willie-the-truck>
- <ad0Ky09tLcFx7JCa@zoo11.fihel.lab.ge-healthcare.net>
-MIME-Version: 1.0
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Tue, 14 Apr
+ 2026 07:44:47 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e%3]) with mapi id 15.20.9769.046; Tue, 14 Apr 2026
+ 07:44:46 +0000
+Date: Tue, 14 Apr 2026 15:47:08 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 0/3] arm-smmu-v3: Add PMCG child support and update PMU
+ MMIO mapping
+Message-ID: <ad3w/P1vA2uKsV/o@shlinux89>
+References: <20260408-smmu-perf-v1-0-d75dac96e828@nxp.com>
+ <2c1a1694-9597-400d-b441-714225b5377b@arm.com>
+ <adZcaEKm3vIYSy3N@shlinux89>
+ <65629411-0e1c-4c9c-bc9f-6488097bd77f@arm.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ad0Ky09tLcFx7JCa@zoo11.fihel.lab.ge-healthcare.net>
-X-EOPAttributedMessage: 0
+In-Reply-To: <65629411-0e1c-4c9c-bc9f-6488097bd77f@arm.com>
+X-ClientProxiedBy: SI1PR02CA0058.apcprd02.prod.outlook.com
+ (2603:1096:4:1f5::9) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000C6184:EE_|DS4PPF242240EEC:EE_
-X-MS-Office365-Filtering-Correlation-Id: 489e76cf-8209-44db-e313-08de99f99ca1
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AMVPR04MB12649:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1683ed50-8967-4135-8e5d-08de99f9b2c1
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|82310400026|1800799024|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: U7kCcKgg7A8U69UNFc5x9HZ9HDPtFYRipkDTPfx1O5jE00e/jAI7LfOrkXlJvgFSUlu1QVzaSkusZzjecuWDKZPD47xUIQsMN1euzvnfBC8mB63zMMV888N0YMrA5MKKOhsVpQRDGHQEyLdVPJrxWb1d/iKo23JXuuCC8mW/5WT/9uSb6JZx3Wkrh+OWRFk5w2jx8nP7zD2Q3fR2eNL8WtduIpKVTTsN9Nl6V+uIwYi/JhGWP7Cm1qiXGgklUaXH1cLOU/4h2Ppa64p60BTfqFiEEJw1gYgzAOBa0no70cNqQlx2MeRGyDWMvt57yCG4eqNtMtnoDqh2YQJ3OvgF9EsNz+nuiWw9mWUihdftuvqGfCHVIVUjYiQexWq8cnd9mLLDfQrBHLWjqok5l9G/m6jLn/XuFe/IrrMekdmLNH7pt36MGhNIi61r9z1PSbHATqWYKduN8YGJrmqOS0grdhGeUme0LDyXjwjIUpqqXoLtYL7cr1GtsZa2djhNKFLp8eOz0HsCNfCWMVdth4WNGnSZpN+Uz8oz2zdfgygqPiPsaEi571WODEeREbdOtWy+B3Q7hd6zGlSXI5pw+AAUTApe3Xym7vUHeeAWPMb5nOuTKvYYx2NpLj2CNo/P+kv9OswDBC/zpOYmvlbfF4BJcKmeEeikIaZ2HABFXKEOlsSNTkDsRk62EiFgO/NtJEScwIAjUk8cBFvWsruu9oWJIFg4OpLUEFJAl7woOkhm46akkXOijjBfjo48q2UVAyFzw7qgOs8st8Ej1yxtFJDGQw==
-X-Forefront-Antispam-Report: CIP:165.85.157.49;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mkerelay2.compute.ge-healthcare.net;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(82310400026)(1800799024)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|19092799006|366016|38350700014|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: oWs7XtJ0SI2YO+k7/+ro3F67KqTtbjpdrpc3lK1UUm4bfJyfO54EDkD69gzMGqmlIkuNSEqvpY2PWmO1IByQzMzy1hboXicTyOXeouEDcGIMSpgf7CUOIbSiWJhLHcAJZSxj4YMmPsK8wAVKQa1FPHQy6GW8PE+hhr9sO4EeLGMXZbE8x0Kj2vJ5tQtkIJNr94vPnGkDr3aPs/STaEH+Jc9aO5EiRENQtV4HuezgYWQHT4mHq4LInSMHeZ/rJtO4tsPhYAR63P8yr1curQ4XNw4YKyHL6rSx+3xBKk8BjODFIaU08baTGECyX6zAnqQAwT6g6lbDgD656kdkvvwEihT/UzRw7T/k1Kj5tlmbSIRAVt4jW63wKnsaWl8w6hEUVGxX41uTxXqTxIkJZmqsZxk1e6pVdtpbC5IuuEYbHZcxiiDg+BaCLdDD4ScePZ22l6HUflpIhySkG7ty2KmrUm+XgrD+8HLfg2ENu0hKH1gnkdAqOrElZaPGjjlKKSPn7Kk3n0ybpZKdt0KPMuBYpyEQ5fGP75eN2K5OQh8q1yMG9X/2i+OQd+qP48Fdw8Ec0jICsQybj9ETQYzDuiHXBcj7EcS1sukXe2YUckD8DweMJASkh4ORlsTVF2p51+qugWQhBJqfwKROK7hJOgxj5FvyoEnmbdnG1SXcR5vgjxrndTex7RTWnWfbmO4kGi9mIzvOVphBokXnBddU78YN0vN/dgMaLFLORHaM5nlNy09zch6QUJ8nlYVEE2Pws9jyrJjcDYHoPkrNHDCRWCaE1Vd8ZwlXWGTe5sSNAtMSbN8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(19092799006)(366016)(38350700014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: XwjXK+ie0rPNS0KwE0FTmng5jrfPqTBekxWqqm9I8WR4uWQLMUX69dIxMii9tFlzJ6hAw3a2WY+bpk36OxU7cs85/GAIc0DBtGbykN4kig1wS9jZCTkMbk2d0lNP3i42u27iEnO9FeKPlq2bb7YrOBNpSXeJHituq77WYGYVeY2si4FWHxKhsXuK2Z+WGCrJCxA7AGYMhYLmgIP0MxxxxRB6MLo5E09mkybPeaDgsP9pZNAoSi/aZYvPJfcBK8GCiNqJwIJcQM5zDNthV2t2dR6wWEoKq4TqQhxu+Yy7WkkaxRI5NhU9u9hdo6x4jRIKgLSiZ0GoPKcVesw1cSqyrgh4hz3z5LZHDpsn0BCHGE+F3D2KD2NVrNtl5BX/0xRGOJAo2aO1m8x6d/3DowFOV149vQiFmRkRmf/T8oMtk3VAr4FN4xS0zQCzQr3wqODY
-X-OriginatorOrg: gehealthcare.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Apr 2026 07:44:08.4496
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 489e76cf-8209-44db-e313-08de99f99ca1
-X-MS-Exchange-CrossTenant-Id: 9a309606-d6ec-4188-a28a-298812b4bbbf
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=9a309606-d6ec-4188-a28a-298812b4bbbf;Ip=[165.85.157.49];Helo=[mkerelay2.compute.ge-healthcare.net]
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?97op//zrB8gTAk2Id/77uSXmQYlNvus+Ls7Q+JcI8GsDloETaRhtP0sUlCBA?=
+ =?us-ascii?Q?0YqmalC9A59Rj6RZciNng+otHJdTvs7j6pcHipY+b9abFf5yVwLp/waK1uXs?=
+ =?us-ascii?Q?SvDqcs6ngB8fI6bW4JjkhUgUThWjIGfFLN7pOkhw1DK0wAgGItITyD/P2Y5t?=
+ =?us-ascii?Q?w+nv4S1e/N3vB01Xxm8FacSloIUMgJInN7Y9iY8t4lkpkl1bom+VE6DhRdTh?=
+ =?us-ascii?Q?8IMgLLMyUPuIdiDKbd/8p8g4qVZXJMMVABbUfm4DCPlvxaC1THD0QdU4GVLd?=
+ =?us-ascii?Q?s/a4386Ny33uR8wQzWu6iaNF+xZba/rvN4WUHg4QY/R968pBRzMtZEOx86Nf?=
+ =?us-ascii?Q?4OUsgez94UR3Ca2kTXlpOmhnhKlCxe/VHFhavwMWexJE8N7HfrVJn9UXZS1u?=
+ =?us-ascii?Q?pt/qous82q/q9xuecXeB3qosEvzJd8djUzHMsK5Parvps+fm7HN3DYoDzSe6?=
+ =?us-ascii?Q?T6lReZOhQwoccMh8nVILISlvkqKgpq0bbt1Qvh6j9MDKDshOds232Pgx6B58?=
+ =?us-ascii?Q?L8uPL3dNMM8soHZ4urxYTuUJiN8udak+ApyU61qnw8iImFEFCggx+o9GRefx?=
+ =?us-ascii?Q?TlavfdPvFp9DdcXW/mIdhbKYRyc1TRFSGLgCjhNfNW/Zt2IYypNxdexK5lwK?=
+ =?us-ascii?Q?aMoESe/uUNdHxmW3mAErZzBrLakRnGgOnLalSNeiENuGlUssxaV5PbXOXU+i?=
+ =?us-ascii?Q?dUne+nl750wci2seft1XAePl/R765AfN5nswx3UHZmkyCs1uykXeAhbSfhA5?=
+ =?us-ascii?Q?SxIORkGP1PC7Ywe/8BbZ3QUZuPMHvcN6sAbzYVUwktty92Q6QEgkxzhKvbrZ?=
+ =?us-ascii?Q?QpNuZ7UD6LHozCO4nP3fa50qblWsmBpVa0JXIUEK1bPhapfjc96WFMKoCB1T?=
+ =?us-ascii?Q?rFnV7Q4sgXyxMEzIRP85rz8Ji1xyqMh/jFHChqmSdO2xA5EXDtBQxdo5txkf?=
+ =?us-ascii?Q?iKmXsERM3MqmFIWlItrpaVTSW33Ihr2BNijwLbJ6yU/7XuZHn3V1pdVpPdhm?=
+ =?us-ascii?Q?WMz6fmc+Rk80rgqqtt/mHk5rWvhQg3eiOwmGHaTwYmlury68BcYbyErjA29P?=
+ =?us-ascii?Q?KCmld1wNLKCVpW+iiLIDnToAoN7K2ohcN32PLs3IcMJRcLcdvAfzQSZ/5EOg?=
+ =?us-ascii?Q?h99c/M1Bksm1vNK8A80viYzNktasSxL/COb6fWXxxWOK7gqTlLVK+L4whjRW?=
+ =?us-ascii?Q?32MrYAwC2mWnxHxFUq1BiAkkHtLIquHdBSUNp/C3fgYhBezUwhT2W93e9zhF?=
+ =?us-ascii?Q?PSec3F7oyVtrANSsuI+pVnPlQFabNZL5aVPy0dM3RQhGTszKmSR1gAEzA2+5?=
+ =?us-ascii?Q?cqII+xUg1WkcWaGANFCPRk033WlLosQralQj7ggt6sypNIutkEx9RVOfyoa6?=
+ =?us-ascii?Q?cGwPFxfBKWqy17Km0yTbAE9QZJrzWyxoLKQcihuekxvFMJvPnUdKPu/12JCx?=
+ =?us-ascii?Q?Ml3ag+QQZb1tbh/nOLin4RpyNxPt3B/e7exnTcWhC/ATKMrEpF+N9jsl/Ral?=
+ =?us-ascii?Q?78d5UHQsIY8yU2x+VT6Pl4b/s7FGbMhS/cOYakin2UjOgyz72LNR278W/Pqy?=
+ =?us-ascii?Q?/Aij6+12gawAq0u8yBkqkJe3njiFxqW0S5Fb0UWIWgFvIenjjJwVmkWl9KKx?=
+ =?us-ascii?Q?xUNVekk9g9957Ej0kFm7k83sI74gQjqvXsETau2b8pJ8slOPeAmhYICz782M?=
+ =?us-ascii?Q?tAOI9fKuqPUCWAd7gB/dPmKm/zoSzobBeQoMKaReX6FNWz1OOv4Rk6MjqPZR?=
+ =?us-ascii?Q?/4TfCjzB/g=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1683ed50-8967-4135-8e5d-08de99f9b2c1
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-MWH0EPF000C6184.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PPF242240EEC
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Apr 2026 07:44:46.7376
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BeyxDY7aJjzVTZVdJ4dOONKoXQ8RSTsXLfGvxBLejJbruZ02ZWXGfbotYArKo2psP06iIpdS9c8C/XGmDxApKQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMVPR04MB12649
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_004416_991278_66ED0B4A 
-X-CRM114-Status: UNSURE (   7.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260414_004452_886228_9F93130C 
+X-CRM114-Status: GOOD (  25.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,22 +147,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Apr 13, Brian Ruley wrote:
-> 
-> In the meanwhile, I'll see if I can add some instrumentation to
-> verify this is the bug we're seeing.
+Hi Robin,
 
-The instrumentation worked (used the same ring buffer approach to track
-dcache flushes). Here's the output:
+On Fri, Apr 10, 2026 at 01:07:29PM +0100, Robin Murphy wrote:
+>On 08/04/2026 2:47 pm, Peng Fan wrote:
+>> On Wed, Apr 08, 2026 at 12:15:31PM +0100, Robin Murphy wrote:
+>> > On 2026-04-08 8:51 am, Peng Fan (OSS) wrote:
+>> > > This patch series adds proper support for describing and probing the
+>> > > Arm SMMU v3 PMCG (Performance Monitor Control Group) as a child node of
+>> > > the SMMU in Devicetree, and updates the relevant drivers accordingly.
+>> > > 
+>> > > The SMMU v3 architecture allows an optional PMCG block, typically
+>> > > associated with TCUs, to be implemented within the SMMU register
+>> > > address space. For example, mmu700 PMCG is at the offset 0x2000 of the
+>> > > TCU page 0.
+>> > 
+>> > But what's wrong with the existing binding? Especially given that it even has
+>> > an upstream user already:
+>> > 
+>> > https://git.kernel.org/torvalds/c/aef9703dcbf8
+>> > 
+>> > > Patch 1 updates the SMMU v3 Devicetree binding to allow PMCG child nodes,
+>> > > referencing the existing arm,smmu-v3-pmcg binding.
+>> > > 
+>> > > Patch 2 updates the arm-smmu-v3 driver to populate platform devices for
+>> > > child nodes described in DT once the SMMU probe succeeds.
+>> > > 
+>> > > Patch 3 updates the SMMUv3 PMU driver to correctly handle MMIO mapping when
+>> > > PMCG is described as a child node. The PMCG registers occupy a sub-region
+>> > > of the parent SMMU MMIO window, which is already requested by the SMMU
+>> > 
+>> > That has not been the case since 52f3fab0067d ("iommu/arm-smmu-v3: Don't
+>> > reserve implementation defined register space") nearly 6 years ago, where the
+>> > whole purpose was to support Arm's PMCG implementation properly. What kernel
+>> > is this based on?
+>> 
+>> Seems I am wrong. I thought PMCG is in page 0, so there were resource
+>> conflicts. I just retest without this patchset, all goes well.
+>> 
+>> But from dt perspective, should the TCU PMCG node be child node of
+>> SMMU node?
+>
+>No. PMCGs can be used entirely independently of the SMMU itself, and while
+>most of the events do relate to SMMU translation and thus aren't necessarily
+>meaningful if it's not in use, there are still some which can be useful for
+>basic traffic counting, monitoring GPT/translation activity from _other_
+>security states (if observation is delegated to Non-Secure) and possibly
+>other things, even if the "main" Non-Secure SMMU interface isn't advertised
+>at all. It would be unreasonable to require the SMMU node to be present and
+>enabled *and* have a driver to populate PMCGs, to monitor events which are
+>outside the scope of that driver.
 
-```
-kernel: [48629.557043] SIGILL at b6b80ac0 cpu 1 pid 32663 linux_pte=8eff659f hw_pte=8eff6e7e young=1 exec=1
-kernel: [48629.557157] dcache flush START   cpu0 pfn=8eff6 ts=48629557020154
-kernel: [48629.557207] dcache flush FINISH  cpu0 pfn=8eff6 ts=48629557036154
-kernel: [48629.557230] dcache flush SKIPPED cpu1 pfn=8eff6 ts=48629557020154
-audisp-syslog: type=ANOM_ABEND msg=audit(1776154637.460:15): auid=4294967295 uid=0 gid=0 ses=4294967295 pid=32663 comm="journalctl" exe="/usr/bin/journalctl" sig=4 res=1 AUID="unset" UID="root" GID="root"
-```
+Thanks for explaining this in detail.
 
-BR,
-Brian
+Just have one more question, we are using mmu-700, but MMU-700 implementation
+defined TCU and TBU events are not supported.
+
+Should we introduce a compatible string saying "arm,mmu700-tcu-pmcg" or
+"arm,mmu700-tbu-pmcg"? TBH, I have not checked MMU600(AE) or else.
+
+Thanks,
+Peng
+
+>
+>Thanks,
+>Robin.
+>
 
