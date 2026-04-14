@@ -4,94 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D2A3ED7B8D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 09:00:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D76BFED7B8C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 09:05:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JBYUs6vtopkXApMTy5KoL+CYxoYocSKqj1Le8Qpg1Dk=; b=moXyL4ajWVh2xo4f7WNvTv2CNR
-	CkzJvZMjCC7G5pEyY3R5HATtXrcZ7GEvZs6bKMfKh+sVP1U5QNx3R+P+p7Qkb5kZPQW9ylLTlspDH
-	DdlxGXFOWNV+0H+ov5Dc72i+vYEMtizKI7+Tc2P0DZ2pU18lpTuAxr+wY8cQfMEiMxa/AoLN9ZXdC
-	YyQvfFSO4BqrRp7UwA4KvvKiLqoKn60P77ewH0gWrcvSDngf7wOB62QBZ/o7WTS9jGWf17M333oBr
-	GZkca94vG9A9pPOA5Ej2ld2PpkVyrPMoPENyaH6v00QtN3k0BHaM2F6UGktDfIX12lpXJkJh/ZRTs
-	mzyNZMMQ==;
+	bh=dKq8GR5ap0k8hzKoBGsodA1vc183gkvpdg3uuj+NV80=; b=R/PaVadIEw+hZ+HcEzqNVcJaWC
+	WuVrGUvAG3QqwQIWSGR5zASCWvppmaSHG5AGyxyqObD8ZbuuUxy7vnl5m0+l3WlqhXhUsfIckMhKY
+	bTfDGePsIVQy5YXzk7BYbP/orA0STCkoXwY/tTluhrxT0VffL04Xx+N0HKxTf8oyOUAMyyL2W3DRS
+	X4bM6xVJhCcf5WFMrfvtZSunOXy6pjE1VnlTNaX9vxkcXhNh6b9hLNh9mqwmNYK1pWsAa/AA9owTt
+	Q4yBNjH65MT6YxcfOucDvtZfE80mcDF+CJi+Wnv+FxhqpIKGTi3fDVWzBp+okOWr0899xocNvkeNz
+	/4Ocdnqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCZdX-0000000H1e4-40je;
-	Tue, 14 Apr 2026 09:00:48 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1wCZhe-0000000H1xt-0qhv;
+	Tue, 14 Apr 2026 09:05:02 +0000
+Received: from smtpbgau2.qq.com ([54.206.34.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCZdV-0000000H1dW-34up
+	id 1wCZhZ-0000000H1vB-31NY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 09:00:47 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b93698bb57aso960361366b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 02:00:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1776157244; x=1776762044; darn=lists.infradead.org;
-        h=in-reply-to:references:from:subject:cc:to:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JBYUs6vtopkXApMTy5KoL+CYxoYocSKqj1Le8Qpg1Dk=;
-        b=xRhbj2wdtMleJfKXUwn61hAMn2vDQBzF0vo4HY/wRevGjA55xFmp5qxhxf92LVwiz0
-         tC8LPtunA3HIp3FgCvOQ6IJYRLsXl5apHDEY8Rngu3m8WwddnuGj5WP0oAwuCm3N6mrV
-         PG/pCLs7Yt0agn24eIqb4rlPSEGrjLdz53VWMoaoufLm//vjByzPsQoFwk5j2CB1egwP
-         uT2WVS6UnRuTwtHF42hz/UfULWO8LU9o9CWLi8EEV21ghTgC8Q5QTTzanp7wVvDyz4Xp
-         t4azsVlv3Qkvx1SI8xoEW+78w+CO8l7PP+ZTpFUT+L6KgqxZeQ/1foD5CDVT5ZpdDyE8
-         zkkw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776157244; x=1776762044;
-        h=in-reply-to:references:from:subject:cc:to:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=JBYUs6vtopkXApMTy5KoL+CYxoYocSKqj1Le8Qpg1Dk=;
-        b=ODllRCm8d/TEjrr6tuqYtfFWx9yQcECzER5Ei4OhwDo4A10F/p/aCHu/MJRCG9eqaK
-         MvAkiij1CCW8L0FxxLl2eH0N/HeRj1yFebe+Shi5s2EKhaX5t0askGVHqgprQuKqhz01
-         K/DCKLGyQDzGJKlwTSn1eynynD+WVBfmWvsoJm1cnhVOcBnwQxIGnHVw1l5Cs06waWd9
-         +/T6uKxUpq8O2WvKhen32ftTUR/JCjbAM4ql8tAE0JfrZ7KQW4eGiMybw/knI2feU8/x
-         Unl+RnFgid+6sA3eHaJRLe1BibTNCI7VXexNSiuEEohYs7cmG8Klx7pdtBYvf8IFKJMv
-         6wfA==
-X-Forwarded-Encrypted: i=1; AFNElJ/FYAqS/fGKv2o68la2mCp0KM7eZ3qmhXCETm586GCo8p9yUb/XhFXhim42wdemNmYtSj6EaBHw0kGDa88vLv3C@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmBlyFV11wZ8F7KY7vxDX/6O23hLmaCfC9f7FdCSXnfoSFbu41
-	PtaJrV20JAJjqAEapDTfjJWsypyAfal4yxZYkTSeKM3seXs9ish1i132lixsNyt8lo0=
-X-Gm-Gg: AeBDieu4WmNp/lenovSXp7Q1U+GYPTMI2etaX5GGy6MtQ72B2p5ljFiBUUpKhvufE8o
-	Nt8LXA9ByzK9mVRDloXwE4fIAIHbzaduCPe0WbORIgVto56GxAWf/Sj/71Ipn73vmEKaMAVsfFY
-	arDm2ghLS0OXVemmokO4KjU9eFHEmHx1DDHzzCx4L9Jd68NrsaUXCncY9uh/RqL8iAIwj+uw6K3
-	sYL/HAfxT87BEReCMg0kJ4qkdClv2l4LkeS1LKf02Yq3joK+DfyJFtJPVn9SN9rm+j30QyBIgK1
-	q7UIdjayfQ9QGFSZ/oW+7bxxbAoPxebOGFjD+HdZnuNmJ0xfMFfrxIDKXZcOiF03E/6aypV57cw
-	o5skRNP5MWYuJC7ms6tZS6GzE53smWMx6BOyeiiCieFiW6xbiwQrJdwYhR7eXqb762WfQLtZD18
-	t3pbX64Qk5vnT5jWrOf0Og2t28fhJOMMLIP8sMjB8RNfOkXSVDgF7G9Qy/qD3WFbiZ6O4Hb9jwL
-	m3+8+B8vRsLVWBrX28Js/GZOetx
-X-Received: by 2002:a17:906:6a15:b0:b9b:e7b3:a25a with SMTP id a640c23a62f3a-b9d76d2f86fmr806127766b.12.1776157242962;
-        Tue, 14 Apr 2026 02:00:42 -0700 (PDT)
-Received: from localhost ([212.187.182.166])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b9d6de97e43sm396148266b.13.2026.04.14.02.00.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 14 Apr 2026 02:00:42 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+	Tue, 14 Apr 2026 09:05:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1776157484;
+	bh=dKq8GR5ap0k8hzKoBGsodA1vc183gkvpdg3uuj+NV80=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=HUoofrCSINl68NMf79PZPbEY7+eqqDXcyn1yz3dY37rfIC0PhP9OOBJxMFwO9j4sy
+	 sLqmw1n9JFlmGn5q3dvkuDZqBKku+Srp8xyoeRnGoz07f+DADD+eMrrlag+J64fgCi
+	 rRjh/4wS1sNiGFSOQv41J+jj/K6TSyYXP9y7z32c=
+X-QQ-mid: esmtpgz14t1776157482tad73993c
+X-QQ-Originating-IP: gW79XwohU7riN9BZdRWNqW2pRA4I6XO+I2C4gswJxmw=
+Received: from [127.0.0.1] ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 14 Apr 2026 17:04:38 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 1161964651524546658
+EX-QQ-RecipientCnt: 29
+Message-ID: <7EFD9F2504326BD1+26395797-fbe8-491b-b651-701286fb5751@linux.spacemit.com>
+Date: Tue, 14 Apr 2026 17:04:38 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 00/12] Add Linux RISC-V trace support via CoreSight
+To: Anup Patel <anup@brainfault.org>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ palmer@dabbelt.com, pjw@kernel.org, gregkh@linuxfoundation.org,
+ alexander.shishkin@linux.intel.com, irogers@google.com,
+ coresight@lists.linaro.org, peterz@infradead.org, mingo@redhat.com,
+ namhyung@kernel.org, mark.rutland@arm.com, jolsa@kernel.org,
+ adrian.hunter@intel.com, mchitale@gmail.com, atish.patra@linux.dev,
+ andrew.jones@oss.qualcomm.com, sunilvl@oss.qualcomm.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ anup.patel@oss.qualcomm.com, mayuresh.chitale@oss.qualcomm.com,
+ zhuangqiubin@linux.spacemit.com, suzuki.poulose@arm.com,
+ mike.leach@linaro.org, james.clark@linaro.org,
+ alexander.shishkin@linux.intel.com, linux-arm-kernel@lists.infradead.org
+References: <20260414034153.3272485-1-liangzhen@linux.spacemit.com>
+ <CAAhSdy2Sx98qcCMBVF+_BV1G-syrO74Y_S298hMwkW+vgLtb5Q@mail.gmail.com>
+From: Zane Leung <liangzhen@linux.spacemit.com>
+In-Reply-To: <CAAhSdy2Sx98qcCMBVF+_BV1G-syrO74Y_S298hMwkW+vgLtb5Q@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Date: Tue, 14 Apr 2026 10:00:41 +0100
-Message-Id: <DHSR70EGYY4N.2EA2HWIXJR7QR@linaro.org>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>, "Alexey Klimov"
- <alexey.klimov@linaro.org>, "Sam Protsenko" <semen.protsenko@linaro.org>,
- "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Alim Akhtar"
- <alim.akhtar@samsung.com>
-Cc: <linux-samsung-soc@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] arm64: dts: exynos850: Add SRAM node
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-X-Mailer: aerc 0.21.0
-References: <20260413-exynos850_sram-v1-1-7fda5b7fb7d4@linaro.org>
- <2ff077e1-8983-4a41-bb21-5e4140545aa3@kernel.org>
-In-Reply-To: <2ff077e1-8983-4a41-bb21-5e4140545aa3@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: M0qzrJwwKu7ji5uitGQf7YXjsT0YyeWU161z/wWbeXXrwfhYq3uaqClL
+	nHXD5zwPIUkdNguEajC/Q8Hv/RoD1g3WOEP4MNVfPw+tDCT+szbTmrVmdjpFVl6fR8Z4S75
+	w49QZ4XWevtRMukKCrYqFZX5elJ05WhD85Ora97R4jl1Zizwg6AMagblI6gH6q3CN0TME/Y
+	SA7GfpN2dMkzlUGmrHlvETNl8OQConvSKFTdiYudVP80U7N92zzoPueX5bgE3hTvnSw+Tz6
+	Ltrmns/abQo3zbR8KdBhs5a8nDy06Eh3KpAUa2Kqc4/TwQmTumcNoJVt41gBbNbcspTZFzM
+	2NKb0/nKhzM+6zcTiWVjbHzeOPiPJiwV9W5WD94iaeGhyAYjTQDk4qKlhWQufcu2f2KbA1S
+	HoMQlVEi0T/xLC7rXx3tJECHnOqboVKU2HugQADArvihTJMWrgKQElfIDp55EbAuAY4ul3k
+	oEx2m4AkUlQKsUWVP60f1tPrFaF2Piq2rfOQZZ7FZgWHI+IBf8uNnXYVZxbwKqF5lU9PXqz
+	bAYqHjyMhhushDsNAf/4ZGYueYGNEY6O2wadpKeaNMxEL1SyweB/KTf4AtRZs+mBxiKRAns
+	3B0rw6ZavmVLsCkeGfK1xjpUxs4yPITUPrw+tcZ8bMq1kMiFVxtcvo/DntepxC9+naq54xC
+	sMvvcFBwDcqYjXESRn8wsVx8BbpVzOkCm5rmcYvI41UXZqPiQwEfAo3y5nxU0VYZvvWlQL/
+	wrYJzaBvoCddyiiLyoRqcBgm5rF0IYMXaNCE7mcUgJxZsKj71XUcCiLHl2Igt6uBPooyi1X
+	YLUoRD6G4151dyUv9/An0UfhkP81A1HtyfWKzRuo0DXetpS6S0Ffp5eYMnaMS1DBdG2IVnC
+	8xPK5ooGJwzGjlj1W5ifoPZ0gFj+lH0KKppwStY3hfJ0Feb9oamARqrCjy198X+XW/vSlPZ
+	YwpJEje9g5wq4E5bylqtO9k3GBGbSaQyAgg6T0179BYY3uaHd43m4JY4MURbh30qgNi3tr5
+	e9OrlBTzZ2RGaF5mxO2jZd4iLdlfiVHQUHZI1sCXDxWzkjilRcCz6OkaKj7Xw/EUm4nb0jQ
+	w==
+X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_020045_804878_39CB915F 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20260414_020458_562043_91575F7E 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,60 +105,371 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon Apr 13, 2026 at 4:23 PM BST, Krzysztof Kozlowski wrote:
-> On 13/04/2026 16:52, Alexey Klimov wrote:
->> SRAM is used by the ACPM protocol to retrieve the ACPM channels
->> information and configuration data. Add the SRAM node.
->>=20
->> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
->> ---
->>  arch/arm64/boot/dts/exynos/exynos850.dtsi | 8 ++++++++
->>  1 file changed, 8 insertions(+)
->>=20
->> diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot=
-/dts/exynos/exynos850.dtsi
->> index cb55015c8dce..cf4a6168846c 100644
->> --- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
->> +++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
->> @@ -910,6 +910,14 @@ spi_2: spi@11d20000 {
->>  			};
->>  		};
->>  	};
->> +
->> +	apm_sram: sram@2039000 {
->> +		compatible =3D "mmio-sram";
->> +		reg =3D <0x0 0x2039000 0x40000>;
->> +		#address-cells =3D <1>;
->> +		#size-cells =3D <1>;
->> +		ranges =3D <0x0 0x0 0x2039000 0x40000>;
+
+On 4/14/2026 3:23 PM, Anup Patel wrote:
+> On Tue, Apr 14, 2026 at 9:12 AM Zane Leung <liangzhen@linux.spacemit.com> wrote:
+>> From: liangzhen <zhen.liang@spacemit.com>
+>>
+>> This series adds Linux RISC-V trace support via CoreSight, implementing RISC-V
+>> trace drivers within the CoreSight framework and integrating them with perf tools.
+>> The K3 SoC contains RISC-V Encoder, Funnel, ATB, CoreSight Funnel, and CoreSight TMC
+>> components, which can be directly leveraged through the existing CoreSight infrastructure.
+>>
+>> Linux RISC-V trace support form Anup Patel:
+>> (https://patchwork.kernel.org/project/linux-riscv/cover/20260225062448.4027948-1-anup.patel@oss.qualcomm.com/)
+>> which currently lacks ATB component support and guidance on reusing CoreSight components.
+> What stops you from adding RISC-V trace funnel and ATB bridge drivers
+> on top of this series ?
 >
-> You miss here children.
+Firstly, my works started much earlier than this series. Secondly, it is difficult to add the coresight funnel and coresight tmc components to this series. Based on the coresight framework, I can directly reuse them.
 
-Thank you! I guess I should convert it to smth like this:
+>
+>> The series includes:
+>> - RISC-V trace driver implementation within the CoreSight framework
+> The RISC-V trace very different from the CoreSight framework in many ways:
+> 1) Types of components supported
+> 2) Trace packet formats
+> 3) The way MMIO based components are discoverd
+> 4) ... and more ...
+1) I believe that RISC-V tracing is coresight-alike, where have encoders/funnel/sink/bridge that are described through DT and controlled by MMIO. 
+2) I think the difference in package format is nothing more than the coresight frame generated by the ATB component to distinguish the trace source. After removing it, it becomes riscv trace data.
+3) The current CoreSight framework code does not introduce this mechanism, it is described through DT.
+>> - RISC-V Trace Encoder, Funnel, and ATB Bridge drivers as CoreSight devices
+>> - RISC-V trace PMU record capabilities and parsing events in perf.
+>> - RISC-V Nexus Trace decoder for perf tools
+>>
+>> Any comments or suggestions are welcome.
+>>
+>> Verification on K3 SoC:
+>> To verify this patch series on K3 hardware, the following device tree are required:
+>> 1. RISC-V Trace Encoder node (8)
+>> 2. RISC-V ATB Bridge node (8)
+>> 3. RISC-V Trace Funnel node (2)
+>> 3. CoreSight Funnel configuration for RISC-V (1)
+>> 4. CoreSight TMC configuration for trace buffer (1)
+>>
+>> /{
+>>         dummy_clk: apb-pclk {
+>>                 compatible = "fixed-clock";
+>>                 #clock-cells = <0x0>;
+>>                 clock-output-names = "clk14mhz";
+>>                 clock-frequency = <14000000>;
+>>         };
+>>
+>>
+>>         soc: soc {
+>>                 #address-cells = <2>;
+>>                 #size-cells = <2>;
+>>
+>>                 encoder0: encoder@d9002000 {
+>>                         compatible = "riscv,trace-encoder";
+>>                         reg = <0x0 0xd9002000 0x0 0x1000>;
+>>                         cpus = <&cpu_0>;
+>>                         out-ports {
+>>                                 port {
+>>                                         cluster0_encoder0_out_port: endpoint {
+>>                                                 remote-endpoint = <&cluster0_bridge0_in_port>;
+>>                                         };
+>>                                 };
+>>                         };
+>>                 };
+>>
+>>                 bridge0: bridge@d9003000 {
+>>                         compatible = "riscv,trace-atbbridge";
+>>                         reg = <0x0 0xd9003000 0x0 0x1000>;
+>>                         cpus = <&cpu_0>;
+>>                         out-ports {
+>>                                 port {
+>>                                         cluster0_bridge0_out_port: endpoint {
+>>                                                 remote-endpoint = <&cluster0_funnel_in_port0>;
+>>                                         };
+>>                                 };
+>>                         };
+>>                         in-ports {
+>>                                 port {
+>>                                         cluster0_bridge0_in_port: endpoint {
+>>                                                 remote-endpoint = <&cluster0_encoder0_out_port>;
+>>                                         };
+>>                                 };
+>>                         };
+>>                 };
+>>
+>> ...
+>>
+>>                 cluster0_funnel: funnel@d9000000 {
+>>                         compatible = "riscv,trace-funnel";
+>>                         reg = <0x0 0xd9000000 0x0 0x1000>;
+>>                         cpus = <&cpu_0>, <&cpu_1>, <&cpu_2>, <&cpu_3>;
+>>                         riscv,timestamp-present;
+>>                         out-ports {
+>>                                 port {
+>>                                         cluster0_funnel_out_port: endpoint {
+>>                                                 remote-endpoint = <&main_funnel_in_port0>;
+>>                                         };
+>>                                 };
+>>                         };
+>>                         in-ports {
+>>                                 #address-cells = <1>;
+>>                                 #size-cells = <0>;
+>>
+>>                                 port@0 {
+>>                                         reg = <0>;
+>>                                         cluster0_funnel_in_port0: endpoint {
+>>                                                 remote-endpoint = <&cluster0_bridge0_out_port>;
+>>                                         };
+>>                                 };
+>>
+>>                                 port@1 {
+>>                                         reg = <1>;
+>>                                         cluster0_funnel_in_port1: endpoint {
+>>                                                 remote-endpoint = <&cluster0_bridge1_out_port>;
+>>                                         };
+>>                                 };
+>>
+>>                                 port@2 {
+>>                                         reg = <2>;
+>>                                         cluster0_funnel_in_port2: endpoint {
+>>                                                 remote-endpoint = <&cluster0_bridge2_out_port>;
+>>                                         };
+>>                                 };
+>>
+>>                                 port@3 {
+>>                                         reg = <3>;
+>>                                         cluster0_funnel_in_port3: endpoint {
+>>                                                 remote-endpoint = <&cluster0_bridge3_out_port>;
+>>                                         };
+>>                                 };
+>>                         };
+>>                 };
+>>
+>>                 cluster1_funnel: funnel@d9010000 {
+>>                         compatible = "riscv,trace-funnel";
+>>                         reg = <0x0 0xd9010000 0x0 0x1000>;
+>>                         cpus = <&cpu_4>, <&cpu_5>, <&cpu_6>, <&cpu_7>;
+>>                         riscv,timestamp-present;
+>>                         out-ports {
+>>                                 port {
+>>                                         cluster1_funnel_out_port: endpoint {
+>>                                                 remote-endpoint = <&main_funnel_in_port1>;
+>>                                         };
+>>                                 };
+>>                         };
+>>                         in-ports {
+>>                                 #address-cells = <1>;
+>>                                 #size-cells = <0>;
+>>
+>>                                 port@0 {
+>>                                         reg = <0>;
+>>                                         cluster1_funnel_in_port0: endpoint {
+>>                                                 remote-endpoint = <&cluster1_bridge0_out_port>;
+>>                                         };
+>>                                 };
+>>
+>>                                 port@1 {
+>>                                         reg = <1>;
+>>                                         cluster1_funnel_in_port1: endpoint {
+>>                                                 remote-endpoint = <&cluster1_bridge1_out_port>;
+>>                                         };
+>>                                 };
+>>
+>>                                 port@2 {
+>>                                         reg = <2>;
+>>                                         cluster1_funnel_in_port2: endpoint {
+>>                                                 remote-endpoint = <&cluster1_bridge2_out_port>;
+>>                                         };
+>>                                 };
+>>
+>>                                 port@3 {
+>>                                         reg = <3>;
+>>                                         cluster1_funnel_in_port3: endpoint {
+>>                                                 remote-endpoint = <&cluster1_bridge3_out_port>;
+>>                                         };
+>>                                 };
+>>                         };
+>>                 };
+>>
+>>                 main_funnel: funnel@d9042000 {
+>>                         compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
+> Is it legally allowed to mix and match ARM coresight IPs with
+> RISC-V trace components at hardware level ?
+The ATB Bridge allows sending RISC-V trace to Arm CoreSight infrastructure (instead of RISC-V compliant sink defined in this document) as an ATB initiator.  see: 
+https://github.com/riscv-non-isa/riscv-nexus-trace/blob/105dc1c349556622e4d202d22b584a887ded462f/docs/RISC-V-Trace-Control-Interface.adoc#L184
+For ATB Bridge, read trace using Coresight components (ETB/TMC/TPIU). see:
+https://github.com/riscv-non-isa/riscv-nexus-trace/blob/105dc1c349556622e4d202d22b584a887ded462f/docs/RISC-V-Trace-Control-Interface.adoc#L1684
+>
+>>                         reg = <0x0 0xd9042000 0x0 0x1000>;
+>>                         clocks = <&dummy_clk>;
+>>                         clock-names = "apb_pclk";
+>>                         out-ports {
+>>                                 port {
+>>                                         main_funnel_out_port: endpoint {
+>>                                                 remote-endpoint = <&etf_in_port>;
+>>                                         };
+>>                                 };
+>>                         };
+>>                         in-ports {
+>>                                 #address-cells = <1>;
+>>                                 #size-cells = <0>;
+>>
+>>                                 port@0 {
+>>                                         reg = <0>;
+>>                                         main_funnel_in_port0: endpoint {
+>>                                                 remote-endpoint = <&cluster0_funnel_out_port>;
+>>                                         };
+>>                                 };
+>>
+>>                                 port@1 {
+>>                                         reg = <1>;
+>>                                         main_funnel_in_port1: endpoint {
+>>                                                 remote-endpoint = <&cluster1_funnel_out_port>;
+>>                                         };
+>>                                 };
+>>                         };
+>>                 };
+>>
+>>                 etf: etf@d9043000 {
+>>                         compatible = "arm,coresight-tmc", "arm,primecell";
+>>                         reg = <0x0 0xd9043000 0x0 0x1000>;
+>>                         clocks = <&dummy_clk>;
+>>                         clock-names = "apb_pclk";
+>>                         out-ports {
+>>                                 port {
+>>                                         etf_out_port: endpoint {
+>>                                                 remote-endpoint = <&etr_in_port>;
+>>                                         };
+>>                                 };
+>>                         };
+>>                         in-ports {
+>>                                 port {
+>>                                         etf_in_port: endpoint {
+>>                                                 remote-endpoint = <&main_funnel_out_port>;
+>>                                         };
+>>                                 };
+>>                         };
+>>                 };
+>>
+>>                 etr: etr@d9044000 {
+>>                         compatible = "arm,coresight-tmc", "arm,primecell";
+>>                         reg = <0x0 0xd9044000 0x0 0x1000>;
+>>                         clocks = <&dummy_clk>;
+>>                         clock-names = "apb_pclk";
+>>                         arm,scatter-gather;
+>>                         in-ports {
+>>                                 port {
+>>                                         etr_in_port: endpoint {
+>>                                                 remote-endpoint = <&etf_out_port>;
+>>                                         };
+>>                                 };
+>>                         };
+>>                 };
+>>         };
+>> };
+>>
+>> Verification case:
+>>
+>> ~ # perf list pmu
+>>   rvtrace//                                          [Kernel PMU event]
+>>
+>> ~ # perf record -e rvtrace/@tmc_etr0/ --per-thread uname
+>> Linux
+>> [ perf record: Woken up 1 times to write data ]
+>> [ perf record: Captured and wrote 0.191 MB perf.data ]
+>> ~ # perf script
+>>            uname     137 [003]          1           branches:  ffffffff80931470 rvtrace_poll_bit+0x38 ([kernel.kallsyms]) => ffffffff80931492 rvtrace_poll_bit+0x5a ([kernel.kallsyms])
+>>            uname     137 [003]          1           branches:  ffffffff809328a6 encoder_enable_hw+0x252 ([kernel.kallsyms]) => ffffffff809328ba encoder_enable_hw+0x266 ([kernel.kallsyms])
+>>            uname     137 [003]          1           branches:  ffffffff80932c4a encoder_enable+0x82 ([kernel.kallsyms]) => ffffffff80932c36 encoder_enable+0x6e ([kernel.kallsyms])
+>>            uname     137 [003]          1           branches:  ffffffff80928198 etm_event_start+0xf0 ([kernel.kallsyms]) => ffffffff809281aa etm_event_start+0x102 ([kernel.kallsyms])
+>>            uname     137 [003]          1           branches:  ffffffff809281e6 etm_event_start+0x13e ([kernel.kallsyms]) => ffffffff8092755e coresight_get_sink_id+0x16 ([kernel.kallsyms])
+>>            uname     137 [003]          1           branches:  ffffffff8092820e etm_event_start+0x166 ([kernel.kallsyms]) => ffffffff80928226 etm_event_start+0x17e ([kernel.kallsyms])
+>>            uname     137 [003]          1           branches:  ffffffff801c3bb4 perf_report_aux_output_id+0x0 ([kernel.kallsyms]) => ffffffff801c3bd6 perf_report_aux_output_id+0x22 ([kernel.kallsyms])
+>>            uname     137 [003]          1           branches:  ffffffff801c3c5a perf_report_aux_output_id+0xa6 ([kernel.kallsyms]) => ffffffff801c3bf0 perf_report_aux_output_id+0x3c ([kernel.kallsyms])
+>>            uname     137 [003]          1           branches:  ffffffff801c3c40 perf_report_aux_output_id+0x8c ([kernel.kallsyms]) => ffffffff801c3aea __perf_event_header__init_id+0x2a ([kernel.kallsyms])
+>>            uname     137 [003]          1           branches:  ffffffff801c3b42 __perf_event_header__init_id+0x82 ([kernel.kallsyms]) => ffffffff801c3b4a __perf_event_header__init_id+0x8a ([kernel.kallsyms])
+>>            uname     137 [003]          1           branches:  ffffffff801c3bb0 __perf_event_header__init_id+0xf0 ([kernel.kallsyms]) => ffffffff801c3b58 __perf_event_header__init_id+0x98 ([kernel.kallsyms])
+>>            uname     137 [003]          1           branches:  ffffffff8004c658 __task_pid_nr_ns+0x0 ([kernel.kallsyms]) => ffffffff8004c696 __task_pid_nr_ns+0x3e ([kernel.kallsyms])
+>>            uname     137 [003]          1           branches:  ffffffff8004c71e __task_pid_nr_ns+0xc6 ([kernel.kallsyms]) => ffffffff8004c6a4 __task_pid_nr_ns+0x4c ([kernel.kallsyms])
+>>            uname     137 [003]          1           branches:  ffffffff8004c6e4 __task_pid_nr_ns+0x8c ([kernel.kallsyms]) => ffffffff8004c6e4 __task_pid_nr_ns+0x8c ([kernel.kallsyms])
+>> ...
+>>
+>> liangzhen (12):
+>>   coresight: Add RISC-V support to CoreSight tracing
+>>   coresight: Initial implementation of RISC-V trace driver
+>>   coresight: Add RISC-V Trace Encoder driver
+>>   coresight: Add RISC-V Trace Funnel driver
+>>   coresight: Add RISC-V Trace ATB Bridge driver
+>>   coresight rvtrace: Add timestamp component support for encoder and
+>>     funnel
+>>   coresight: Add RISC-V PMU name support
+>>   perf tools: riscv: making rvtrace PMU listable
+>>   perf tools: Add RISC-V trace PMU record capabilities
+>>   perf tools: Add Nexus RISC-V Trace decoder
+>>   perf symbols: Add RISC-V PLT entry sizes
+>>   perf tools: Integrate RISC-V trace decoder into auxtrace
+>>
+>>  drivers/hwtracing/Kconfig                     |    2 +
+>>  drivers/hwtracing/coresight/Kconfig           |   46 +-
+>>  drivers/hwtracing/coresight/Makefile          |    6 +
+>>  drivers/hwtracing/coresight/coresight-core.c  |    8 +
+>>  .../hwtracing/coresight/coresight-etm-perf.c  |    1 -
+>>  .../hwtracing/coresight/coresight-etm-perf.h  |   21 +
+>>  .../hwtracing/coresight/coresight-platform.c  |    1 -
+>>  .../hwtracing/coresight/coresight-tmc-etf.c   |    4 +
+>>  .../hwtracing/coresight/coresight-tmc-etr.c   |    4 +
+>>  .../hwtracing/coresight/rvtrace-atbbridge.c   |  239 +++
+>>  drivers/hwtracing/coresight/rvtrace-core.c    |  135 ++
+>>  .../coresight/rvtrace-encoder-core.c          |  562 +++++++
+>>  .../coresight/rvtrace-encoder-sysfs.c         |  363 +++++
+>>  drivers/hwtracing/coresight/rvtrace-encoder.h |  151 ++
+>>  drivers/hwtracing/coresight/rvtrace-funnel.c  |  337 ++++
+>>  drivers/hwtracing/coresight/rvtrace-funnel.h  |   39 +
+>>  .../hwtracing/coresight/rvtrace-timestamp.c   |  278 ++++
+>>  .../hwtracing/coresight/rvtrace-timestamp.h   |   64 +
+>>  include/linux/coresight-pmu.h                 |    4 +
+>>  include/linux/rvtrace.h                       |  116 ++
+>>  tools/arch/riscv/include/asm/insn.h           |  645 ++++++++
+>>  tools/perf/arch/riscv/util/Build              |    2 +
+>>  tools/perf/arch/riscv/util/auxtrace.c         |  490 ++++++
+>>  tools/perf/arch/riscv/util/pmu.c              |   20 +
+>>  tools/perf/util/Build                         |    3 +
+>>  tools/perf/util/auxtrace.c                    |    4 +
+>>  tools/perf/util/auxtrace.h                    |    1 +
+>>  tools/perf/util/nexus-rv-decoder/Build        |    1 +
+>>  .../util/nexus-rv-decoder/nexus-rv-decoder.c  | 1364 +++++++++++++++++
+>>  .../util/nexus-rv-decoder/nexus-rv-decoder.h  |  139 ++
+>>  .../perf/util/nexus-rv-decoder/nexus-rv-msg.h |  190 +++
+>>  tools/perf/util/rvtrace-decoder.c             | 1039 +++++++++++++
+>>  tools/perf/util/rvtrace.h                     |   40 +
+>>  tools/perf/util/symbol-elf.c                  |    4 +
+>>  34 files changed, 6320 insertions(+), 3 deletions(-)
+>>  create mode 100644 drivers/hwtracing/coresight/rvtrace-atbbridge.c
+>>  create mode 100644 drivers/hwtracing/coresight/rvtrace-core.c
+>>  create mode 100644 drivers/hwtracing/coresight/rvtrace-encoder-core.c
+>>  create mode 100644 drivers/hwtracing/coresight/rvtrace-encoder-sysfs.c
+>>  create mode 100644 drivers/hwtracing/coresight/rvtrace-encoder.h
+>>  create mode 100644 drivers/hwtracing/coresight/rvtrace-funnel.c
+>>  create mode 100644 drivers/hwtracing/coresight/rvtrace-funnel.h
+>>  create mode 100644 drivers/hwtracing/coresight/rvtrace-timestamp.c
+>>  create mode 100644 drivers/hwtracing/coresight/rvtrace-timestamp.h
+>>  create mode 100644 include/linux/rvtrace.h
+>>  create mode 100644 tools/arch/riscv/include/asm/insn.h
+>>  create mode 100644 tools/perf/arch/riscv/util/auxtrace.c
+>>  create mode 100644 tools/perf/arch/riscv/util/pmu.c
+>>  create mode 100644 tools/perf/util/nexus-rv-decoder/Build
+>>  create mode 100644 tools/perf/util/nexus-rv-decoder/nexus-rv-decoder.c
+>>  create mode 100644 tools/perf/util/nexus-rv-decoder/nexus-rv-decoder.h
+>>  create mode 100644 tools/perf/util/nexus-rv-decoder/nexus-rv-msg.h
+>>  create mode 100644 tools/perf/util/rvtrace-decoder.c
+>>  create mode 100644 tools/perf/util/rvtrace.h
+>>
+>> --
+>> 2.34.1
+>>
+> NACK to this approach of retrofitting RISC-V trace into ARM coresight.
+I agree that integrating RISC-V trace directly into CoreSight is not a good approach, so I think we should abstract some of the logic of coresight and reuse it in RISC-V Trace.
+>
+> Regards,
+> Anup
 
-apm_sram: sram@2039000 {
-		compatible =3D "mmio-sram";
-		reg =3D <0x0 0x2039000 0x40000>;
-		ranges =3D <0x0 0x0 0x2039000 0x40000>;
-		#address-cells =3D <1>;
-		#size-cells =3D <1>;
-
-		acpm_sram_region: sram-section@0 {
-			reg =3D <0x0 0x40000>;
-		};
-	};
-
-And then later reference shmem =3D &acpm_sram_region from acpm node.
-
-> Also, 'ranges' should be after 'reg'.
-
-Thanks, will fix this.
-
-FWIW this commit is a copy of commit 48e7821b26904
-https://lore.kernel.org/r/20250207-gs101-acpm-dt-v4-1-230ba8663a2d@linaro.o=
-rg
-
-Best regards,
-Alexey
-
+Thanks,
+Zane
 
