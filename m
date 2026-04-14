@@ -4,60 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C860DF9D0C5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 11:40:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A76CF9D0C9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 11:45:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z8CuHpoJMmm/eTipaRhGEwIxqjGQ4qli3GNAsKwX/ME=; b=CgyI8GnBrXCRceFHwPTTp8nx6L
-	CIICKwRfIeaERwrGBTi1NLbsamtVeNsyZW0EQWd5dYVhWJIQkvA21scLZrtUfiXq2B7ari62LC+Sh
-	vIZDm8Var97+kIb8UXzdrcvJRpKjb5EvPGKuCbOs5gRaTqtEjaga3Jk+w2fr7CiBi3zxW3wPoXMdc
-	u6c/0w/UgNWfWrnS3byssncgOWkeWalsZjfTaC9uAiHAwy5GeiZZdNmkE/qbDWN0k4xUcG2D4cEwh
-	KlwNfskN7RaAGyxc1uB5S4bKKhnMdynrwmZ1rLrEOoX2KJmlNc4Vu09MzdRcmmjaCOBLlCvv4M1MT
-	bfCuAO0Q==;
+	bh=zH0R5sbJzEQ7yxwtzIi4pbtWLt6pIkCcNIRfI2l55qc=; b=LHrF6BvP9eIV8uZMV/nQDLoJU4
+	4MMlZRkv2AcPvO6/A0u3K435mn7Fk9pWqEJyY3udiuh+TGDvWtma0eBK0HhE8LtgtN7TpBGgQ/BRd
+	tgFmisL8TJ6fqPiJfhfyRnF1tzKh3m1F+Di29YY3ZU7K+CIqVHxNKf1MqHoCuEPSzkrZdzNknMORA
+	t0netvXWZAhVtOWqQlCe+toc7/9sHuQbgTMOIkhKoMX/BkupCw9/qnAY027FvAtzm0rPXK35k9hjT
+	n6jk2FAUfSlsV7EHujtEXYDcPjNE32Gn4fGOBvyLP0cagsMwc+Fxyyp9+ytZ/ITVHQn0dwMiNWJ5n
+	dekTIhOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCc8E-0000000HFC5-1Gt7;
-	Tue, 14 Apr 2026 11:40:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wCcCw-0000000HFe1-1K6Y;
+	Tue, 14 Apr 2026 11:45:30 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCc8C-0000000HFBb-1Zya;
-	Tue, 14 Apr 2026 11:40:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2B9F660128;
-	Tue, 14 Apr 2026 11:40:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5D60C19425;
-	Tue, 14 Apr 2026 11:40:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776166834;
-	bh=B3BglmvRt8X/jgxHSb6URI9mj88QwlUxQhBzS+va8rU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=FU4pYPFnthk4cT9SVYY2n9sh7zY/ThkDQBv3UpAF6uqFug2Ee7N/IIjrZ8Qfwv3Y3
-	 /ilxmuXrxUKx0wjEJHr3HmcSL/t5D9eQYoCT12SQ/KN17yAtGcI1eo+XApI/lm3Nh+
-	 n8bPmr1aH2+nZuXkw2cATloIvz0latJjTIvq/8sebOvYL43I7HNVygxeieekFSsJET
-	 WbwO6KMGTzZKbZZmZvP0BiUeJnhEPwFjVpX5dG1gnjedOV3DIIh4OtB5JqnGs77vzn
-	 eph+32ZqnfYAd8QE0Re6J/QELvmHBIKG9RQqCNb7huKhfxb/3R0T5+AH0eXAevtd+E
-	 rCjOfHbD7Prwg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B9F153808205;
-	Tue, 14 Apr 2026 11:40:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1wCcCt-0000000HFcM-3cRR;
+	Tue, 14 Apr 2026 11:45:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1776167125;
+	bh=tx6YHplKw2wzbPUqEn6qcYrqTXhPiMFKrMER9Kp00HM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=kDS7qidnpnqUHyiIcaFtEfHBBYYSt2EkBlFs2e2od6gdxcvH0cv1u/mxrQ98a/A0E
+	 ZjlpQJyJP5+xaLeNMVmB5JtzXbSpfekQ89Q6nKQ6hWS5GrVGfApE/pL3ZiD1n4jONL
+	 mewgXuDbcCEv5Ue0VK3E4H0zwf4n1dsUKtbOia+zrY5+Z4DTmY4yWge20f+iSrw89Z
+	 2Dz2CPtqZs7opFvUhcw3HGNnxNHF+RQmcNpG03T4wZNKstJwVJrgJ8ZA8mWnJyC3c+
+	 0Ja1gp74Axk89kRZMX8x42jSovQwKjkOnZNFbxCrls7YVk4jxdTXfSW8heRnom9fFT
+	 kK+sehbySWosg==
+Received: from yukiji.home (unknown [100.64.0.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 406B417E1313;
+	Tue, 14 Apr 2026 13:45:24 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Tue, 14 Apr 2026 13:44:10 +0200
+Subject: [PATCH 1/3] regulator: dt-bindings: mt6360: add buck regulator
+ supplies
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: airoha: Fix VIP configuration for AN7583 SoC
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <177616680555.841978.4384575148487022724.git-patchwork-notify@kernel.org>
-Date: Tue, 14 Apr 2026 11:40:05 +0000
-References: <20260412-airoha-7583-vip-fix-v1-1-c35e02b054bb@kernel.org>
-In-Reply-To: <20260412-airoha-7583-vip-fix-v1-1-c35e02b054bb@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260414-mtk-g1200-pmic-cleanup-v1-1-2a7193ed4e93@collabora.com>
+References: <20260414-mtk-g1200-pmic-cleanup-v1-0-2a7193ed4e93@collabora.com>
+In-Reply-To: <20260414-mtk-g1200-pmic-cleanup-v1-0-2a7193ed4e93@collabora.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Gene Chen <gene_chen@richtek.com>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1776167122; l=1149;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=tx6YHplKw2wzbPUqEn6qcYrqTXhPiMFKrMER9Kp00HM=;
+ b=Bsu7eHJDGAZi8VLbWxRKUzSwo3gi7EeXTNYA7Etr10Z9AyArwuf8c5v4VkQb58/XgP1xMZ2I/
+ sJZtLUkIcuUBH5dBMJMYd2WzMsi3tUWoJVnHczk5Ur6h6wsnDEulKrK
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260414_044528_083679_D5D2BF57 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,30 +89,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+MT6360 PMIC provides 2 buck and 6 ldo regulators, that have each one a
+separate supply.
+Currently, the supplies for the ldo regulators are described in the
+dt-bindings but the ones for the buck regulators are not.
 
-This patch was applied to netdev/net.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
+Add the descriptions for these missing supplies.
 
-On Sun, 12 Apr 2026 09:57:29 +0200 you wrote:
-> EN7581 and AN7583 SoCs have different VIP definitions. Introduce
-> get_vip_port callback in airoha_eth_soc_data struct in order to take
-> into account EN7581 and AN7583 VIP register layout and definition
-> differences.
-> Introduce nbq parameter in airoha_gdm_port struct. At the moment nbq
-> is set statically to value previously used in airhoha_set_gdm2_loopback
-> routine and it will be read from device tree in subsequent patches.
-> 
-> [...]
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+ Documentation/devicetree/bindings/regulator/mt6360-regulator.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Here is the summary with links:
-  - [net] net: airoha: Fix VIP configuration for AN7583 SoC
-    https://git.kernel.org/netdev/net/c/1acdfbdb516b
+diff --git a/Documentation/devicetree/bindings/regulator/mt6360-regulator.yaml b/Documentation/devicetree/bindings/regulator/mt6360-regulator.yaml
+index 9c879bc3c360..cbb74e8e875d 100644
+--- a/Documentation/devicetree/bindings/regulator/mt6360-regulator.yaml
++++ b/Documentation/devicetree/bindings/regulator/mt6360-regulator.yaml
+@@ -17,6 +17,10 @@ properties:
+   compatible:
+     const: mediatek,mt6360-regulator
+ 
++  BUCK1_VIN-supply:
++    description: Input supply phandle(s) for BUCK1
++  BUCK2_VIN-supply:
++    description: Input supply phandle(s) for BUCK2
+   LDO_VIN1-supply:
+     description: Input supply phandle(s) for LDO1/2/3
+   LDO_VIN2-supply:
 
-You are awesome, thank you!
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.53.0
 
 
