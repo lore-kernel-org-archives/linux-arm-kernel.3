@@ -4,55 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DB91F9D0F2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 20:24:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44B99F9D0F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 20:44:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uPX3bdqetJyAXLQx5+gwiLlWyEUjNfIqWGh9hIQNoOg=; b=xhVVBkJ5lBiP5rkT4Aftf5YJNL
-	zYE432N4kjYodiYnqO6McumxUU8Up7NY3oZC21mpOuXshxUM52pOxHcwl2zUrc2ORTt0EHOafZI2J
-	dlczfIuvIRik1vizLlSKRZTmvUfICsHew1DL4vJPI6Vf6J+quBpXiHutVsiuMixj7QzHcW21OF96I
-	AANV6CBFz98KgUZRxdoBKGySrzXMGDHmoAOb+icxV4JubCoRM6sLDnnih9N7kiKZ3RtxFtl7iSTIi
-	O6/BUT4NqmSLIrU5U/kAd7anqpq1BPk1vrF41nrr6gQfVRWixT2u1NVd0vLXtzqpR1SsOvtkVqL2S
-	9l9lHsoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:To:From:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L8bWJr7FXUdlTXBxL69DdsJ20JowQnELYHkBWQ0j71o=; b=SgkfaqZ4D1Sp10jQkR0AP4tfGI
+	xzSvdsqlGqEvrzJBD0SDfiHqUvqwCQJQVQhzZ7+RVk0WKc7Qz38OeQn6p+Z5Wz50QuGN8zR64eEnW
+	lU7sy82EGU+bTAm+FqI8t6QR48jrli5urpj+PdgA2zucEhz+N3VoSv1EALAwVA50gUDrDhBueeiFl
+	zVXLZCAyWQ+xAFwMU5ko9pcRlI3SlvqZsl90jFo3JS9CycfD7oTgA/J57ljk5QyAdsvwoNyOmqm5H
+	6gbKYkblZuSKRL1PTSKALvQC+rbGz+MzT+ITLNTMLjwoseBmTnVhSPmWIgG/kssC6dS8YO/I/NKjx
+	YxLA37yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCkJT-00000000CI3-1lYR;
-	Tue, 14 Apr 2026 20:24:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wCkce-00000000CyA-0cF8;
+	Tue, 14 Apr 2026 20:44:36 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCkJR-00000000CHw-4C78
+	id 1wCkca-00000000Cxj-0Jbo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 20:24:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1E2A760018
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 20:24:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1C97C19425;
-	Tue, 14 Apr 2026 20:24:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776198284;
-	bh=9gzrxKbw2rxLwue2MsvZ/QpDvJM6VvmWIy9J5cPJO0s=;
-	h=From:To:Cc:Subject:Date:From;
-	b=iB9npNQd4Uq8GqWbc6nfDQCUGz/NKMH077as1pAwywYc5wRCRfAktsxJjnD7VG4Fm
-	 YiCfAoH9UJSR3T0Fey7YxZS2PeoRdN8bLXMetpjdu1gbDVEPCX3ikAEv8wJEosCETX
-	 6kFn24oRkmPRTttdSqHgk9PraPWwhf0lTY4dyPgTbCXCOI3UGZ2AdUvIzporkOEERm
-	 Q2czFlISg7eqB6/oWEKoHVxHDj6lri+116jn/Ve/7jhlRhXTx3Kjtqjt6iJ0d1WeC8
-	 zaduqioMFVbova++50cAcnZ05BNrs/puRC81gQuFmglTBud0VMLHmPFqEHlIXMMfvH
-	 xPzXaQrY2loEA==
-From: Sven Peter <sven@kernel.org>
-To: soc@lists.linux.dev
-Cc: asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL] Apple SoC fixes for v7.0
-Date: Tue, 14 Apr 2026 22:24:25 +0200
-Message-ID: <20260414202428.5278-1-sven@kernel.org>
-X-Mailer: git-send-email 2.53.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Tue, 14 Apr 2026 20:44:34 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 36C6FC5AAB7;
+	Tue, 14 Apr 2026 20:45:05 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id CCCED60410;
+	Tue, 14 Apr 2026 20:44:27 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4D13710450F98;
+	Tue, 14 Apr 2026 22:44:13 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1776199466; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=L8bWJr7FXUdlTXBxL69DdsJ20JowQnELYHkBWQ0j71o=;
+	b=tp0oFwTf5VHzsnEQcoI6YFXubpXr48s6UWlXK4aDR8EDMSSF+/OjNf6hUwJE2BAbHAdgPz
+	v2f4A8tTxVtK7dqJZfFAdjP+hWDl0Fam9eGGy91tNDrdqr1jGCVU5mlUKQsx7dKkw5Fj/o
+	8xB9Inm9XOYYzG+OqKhmNW03MF+ALRZMBSynxDWIF5QBxopuN97KxRbIxhOyfKSB9o6wkS
+	91454gD3J6J7wN/TaEOT0JgO64Dp+ztksnjtLIOwoMGIkVJ9RQPJZYo6iGmJA9iAtEHlyl
+	YSu689PmkWekOvBlF+bpB2iuXK1nNSBHe1tFVeClAIGo4vy+Vjuo6lCfP898kw==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 14 Apr 2026 22:44:13 +0200
+Message-Id: <DHT65O6DS001.14GNQMXFJZHTN@bootlin.com>
+Cc: "Andrey Konovalov" <andreyknvl@gmail.com>, "Alexei Starovoitov"
+ <ast@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii
+ Nakryiko" <andrii@kernel.org>, "Martin KaFai Lau" <martin.lau@linux.dev>,
+ "Eduard Zingerman" <eddyz87@gmail.com>, "Kumar Kartikeya Dwivedi"
+ <memxor@gmail.com>, "Song Liu" <song@kernel.org>, "Yonghong Song"
+ <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "John Fastabend"
+ <john.fastabend@gmail.com>, "David S. Miller" <davem@davemloft.net>, "David
+ Ahern" <dsahern@kernel.org>, "Thomas Gleixner" <tglx@kernel.org>, "Ingo
+ Molnar" <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>, "Dave Hansen"
+ <dave.hansen@linux.intel.com>, "X86 ML" <x86@kernel.org>, "H. Peter Anvin"
+ <hpa@zytor.com>, "Shuah Khan" <shuah@kernel.org>, "Maxime Coquelin"
+ <mcoquelin.stm32@gmail.com>, "Alexandre Torgue"
+ <alexandre.torgue@foss.st.com>, "Andrey Ryabinin" <ryabinin.a.a@gmail.com>,
+ "Alexander Potapenko" <glider@google.com>, "Dmitry Vyukov"
+ <dvyukov@google.com>, "Vincenzo Frascino" <vincenzo.frascino@arm.com>,
+ "Andrew Morton" <akpm@linux-foundation.org>, <ebpf@linuxfoundation.org>,
+ "Bastien Curutchet" <bastien.curutchet@bootlin.com>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, "Xu Kuohai" <xukuohai@huawei.com>, "bpf"
+ <bpf@vger.kernel.org>, "LKML" <linux-kernel@vger.kernel.org>, "Network
+ Development" <netdev@vger.kernel.org>, "open list:KERNEL SELFTEST
+ FRAMEWORK" <linux-kselftest@vger.kernel.org>,
+ <linux-stm32@st-md-mailman.stormreply.com>, "linux-arm-kernel"
+ <linux-arm-kernel@lists.infradead.org>, "kasan-dev"
+ <kasan-dev@googlegroups.com>, "linux-mm" <linux-mm@kvack.org>
+From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+To: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>,
+ =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+Subject: Re: [PATCH RFC bpf-next 1/8] kasan: expose generic kasan helpers
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260413-kasan-v1-0-1a5831230821@bootlin.com>
+ <20260413-kasan-v1-1-1a5831230821@bootlin.com>
+ <CA+fCnZfubV6LgRjO3NQvhrG2Q5o0ftkFFupLWVYS50XDnmCaog@mail.gmail.com>
+ <DHSWK17EZUDP.GIJ6BX2NFR6U@bootlin.com>
+ <CAADnVQLJ=fJ7t1i2+_RYqU1gqYqiLP9Zrwo4vdZsgzjK_yzJTQ@mail.gmail.com>
+ <DHT3JV7GTOBL.29205LGGNEDSH@bootlin.com>
+ <CAADnVQ+c9h_wuNwj8pjx885oNErGY7bxxCwKi+DiJ0XKSpyYfg@mail.gmail.com>
+In-Reply-To: <CAADnVQ+c9h_wuNwj8pjx885oNErGY7bxxCwKi+DiJ0XKSpyYfg@mail.gmail.com>
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260414_134432_403136_90A1F050 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,59 +104,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Tue Apr 14, 2026 at 9:16 PM CEST, Alexei Starovoitov wrote:
+> On Tue, Apr 14, 2026 at 11:41=E2=80=AFAM Alexis Lothor=C3=A9
+> <alexis.lothore@bootlin.com> wrote:
+>>
+>> On Tue Apr 14, 2026 at 4:36 PM CEST, Alexei Starovoitov wrote:
+>> > On Tue, Apr 14, 2026 at 6:13=E2=80=AFAM Alexis Lothor=C3=A9
+>> > <alexis.lothore@bootlin.com> wrote:
+>> >>
+>> >> Hi Andrey, thanks for the prompt review !
 
-Two fixes without any functional changes, they just update Sasha's email
-everywhere and fix a typo in a dtsi file comment.
-As discussed with Arnd I'm already sending out the PR now so that you guys can
-decide when to merge this.
+[...]
 
+>> > No. The performance penalty will be too high.
+>>
+>> Since we are mentioning it, I did not consider yet any performance
+>> comparision/benchmarking (and I am not really familiar with usual bpf
+>> performance validation practices for new bpf features). Is there any
+>> existing test I should take a look at for this ? Maybe some specific
+>> benches in tools/testing/selftests/bpf/bench ?
+>
+> So far everything in bpf/bench/ measures bpf infra like
+> maps, kprobes, tracepoints, etc.
+> We don't have benchmarks for bpf programs.
+> So we don't know how well JITs are generating code
+> and how much inlining done by the verifier, JITs actually helps.
+>
+> Puranjay is working on creating a SPECint like set of benchmarks.
+>
+> For this kasan work we should make the best decisions from
+> performance point of view, like not wasting unnecessary call
+> and not saving unnecessary registers. btw in the other patch
+> I think you can skip saving of r10 and r11.
 
-Thanks,
+Noted, I'll do some checks and tests without those two.
 
+> But we cannot quantify yet that avoiding extra call gives us N%.
+>
+> You can micro-benchmark, of course, but gotta be careful
+> interpreting the results. It might be too easy to get into
+> thinking that JIT must inline __asan_load() for the sake of performance.
 
-Sven
+Ok, interesting, thanks for those details
 
+Alexis
 
-The following changes since commit 028ef9c96e96197026887c0f092424679298aae8:
+--=20
+Alexis Lothor=C3=A9, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
-  Linux 7.0 (2026-04-12 13:48:06 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/sven/linux.git tags/apple-soc-fixes-7.0
-
-for you to fetch changes up to c7ff53ef45b2f879576f7bbeb163828d04f5f491:
-
-  arm64: dts: apple: Fix spelling error (2026-04-14 22:13:19 +0200)
-
-----------------------------------------------------------------
-Apple SoC fixes for 7.0
-
-Two commits without any functional changes that arrived just before the
-merge window opened:
-- Update Sasha's email address in all dt-bindings, MAINTAINERS and add
-  him to mailmap
-- Fix a typo in spi1-nvram.dtsi
-
-----------------------------------------------------------------
-Axel Flordal (1):
-      arm64: dts: apple: Fix spelling error
-
-Sasha Finkelstein (2):
-      mailmap: Update Sasha Finkelstein's email address
-      dt-bindings: Update Sasha Finkelstein's email address
-
- .mailmap                                                                | 1 +
- .../devicetree/bindings/display/apple,h7-display-pipe-mipi.yaml         | 2 +-
- Documentation/devicetree/bindings/display/apple,h7-display-pipe.yaml    | 2 +-
- Documentation/devicetree/bindings/display/panel/apple,summit.yaml       | 2 +-
- Documentation/devicetree/bindings/gpu/apple,agx.yaml                    | 2 +-
- .../devicetree/bindings/input/touchscreen/apple,z2-multitouch.yaml      | 2 +-
- Documentation/devicetree/bindings/nvmem/apple,spmi-nvmem.yaml           | 2 +-
- Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml               | 2 +-
- Documentation/devicetree/bindings/spmi/apple,spmi.yaml                  | 2 +-
- MAINTAINERS                                                             | 2 +-
- arch/arm64/boot/dts/apple/spi1-nvram.dtsi                               | 2 +-
- 11 files changed, 11 insertions(+), 10 deletions(-)
 
