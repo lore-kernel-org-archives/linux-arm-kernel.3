@@ -4,84 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A99ED7B9C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 10:50:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1B22F531DE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 11:06:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
-	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Mj/Oka325dO4DTA8Y3g+CRMxVCnYcU7sYESI0JYHgo=; b=bbIlWpFL+oAQx9qt6xOFq15Nce
-	TSUSvRGn2t8qsk6TiWWGOkIRrQpU4O7A3SbuxEKaCvGCIw9nCca58DteCaTMVVelEbVFEUGSmtA6M
-	XcdDo4NfDpKd7p1MpM3oh/zjtR847JHvtKsgw9yxynz5YxjX3SE+dNuq62yJisGa/xXphImzC9K69
-	BrZ1+YKB5s5cb1ITmYBc1CmpaKMghbPmHOBjoVN6xu5ewmGX2dwC41ylemiDsLfygTzQb/sSYNyY8
-	AI3/myVDeOb8u2qsuQ+7T9cnRGxV+77yjHidP4ytDV3/gDZZHreEyM3iYrfdYsHiOrlfaBAy00snH
-	wJg8S/ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/UlFbfy1tsVpqkvx1d3PVwDBlDWdNrEuOEoNe4Rz2eg=; b=xM5Hf65JZZ+Yhk
+	nA+zBTqS3aLSeGgWsPa6jWdBO5VW+qm16fGp0wsiKRAsZL5AdhIO1VL2TPrltOfpq0moF4isu35bO
+	owCBHACHOz/fM17nori3BVgjGseNS81lNrlsEnylRlhCpgOmdUfmdM4V946u7YyipsQ7Rn3ki0qBf
+	CDtSHHIkPq1qwXuIk1OWzqpbF4E6HuFWlq3CAy0x3n6Fm4oMfnBtgvgv/0fDNNeTL1wjDyzd+JsSE
+	44fCRDupEQUZVVvtNed1EkSj7azNC6UL0KdUnIDW8beuCOmbxxngq+Hc8hF6+oXtmXhgzjknj7zGB
+	ljGINl8QzeIoK2obDgAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCbLW-0000000HBDV-3Bkn;
-	Tue, 14 Apr 2026 10:50:18 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wCbay-0000000HCLE-3NkV;
+	Tue, 14 Apr 2026 11:06:16 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCbLU-0000000HBDD-28fb
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 14 Apr 2026 10:50:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:References:Cc:To:From:
-	Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=2Mj/Oka325dO4DTA8Y3g+CRMxVCnYcU7sYESI0JYHgo=; b=as2iGZdUJc0QZj8DEMq5Ggv4ji
-	sgdv+3DqNIp9nzwkAZXrVgIaJVbWjvOA4Vj77e8tE3KsW6mfqQoll7R1BXSjpVSnVY2YJl+paFhVU
-	/6br4bo70tr/gdyP0JSCPTKtZfBhWuxEZbFWmXzcC/9ARC4N/FKudmvd/jxRG7TIeXckZU3ec/uWh
-	8MO3DiBGvv/vyWQbj57lDniEylpkypkOxjz84DsK+GpNYhmqMkdconZHQUiRQp99GR+JesQpzKycL
-	ZUr2ape8KC+qVpTX7InIp2xOyUKnxdrLYMc7g2iu9vqbMBWPXJDrFA2/AdEIo0TsuYpzQLJNNsx10
-	1rXrYJEg==;
-Received: from layka.disroot.org ([178.21.23.139])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCbLQ-0000000FRnr-3gqj
+	id 1wCbaw-0000000HCKt-3CYk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 10:50:14 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id A11F32673A;
-	Tue, 14 Apr 2026 12:50:02 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id ah9wOf_RKuH4; Tue, 14 Apr 2026 12:50:01 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1776163801; bh=ATR7jPCiqFhUJZWvipHfB9fQLlfRKaC77BcEuJfekz4=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To;
-	b=bU5WOgvDZTzvFknUo05leQFShBt352kJl6xDKxA//wTjNOpFR0BsbGj2lmpW4LxFo
-	 /6L+yP5O/Q+XDIAZSaQ7wgjFsc30YZYUbEFOgj6mPt03OLnnpJ6uw4nxzK5+9+obwp
-	 2ZqbjkPEtZPrbqRAjxdGO5HqbXCNboQhy2WrgyE2WVNOx8hc116sj/bfJ3XtOW4wmE
-	 PXNkMieYy1iXmiell9tTjrk1extFxAcOjyQhEguYEQCEfkf77jgyPsLxZb9f0mQCs/
-	 b1p+jWbCMMKNvyGas1o/maZmXZBOJ6M5E/jzMtoQfhwUhZHtb06n5AOKCXBUnDcEMf
-	 XXhykpnNkkWlA==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 14 Apr 2026 16:19:52 +0530
-Message-Id: <DHSTILN3EP1X.1KGAMPFVIKXJC@disroot.org>
-Subject: Re: [PATCH v2 1/2] mmc: dw_mmc: implement option for configuring
- DMA threshold
-From: "Kaustabh Chakraborty" <kauschluss@disroot.org>
-To: "Shawn Lin" <shawn.lin@rock-chips.com>, "Kaustabh Chakraborty"
- <kauschluss@disroot.org>, "Ulf Hansson" <ulfh@kernel.org>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, "Jaehoon Chung" <jh80.chung@samsung.com>,
- "Krzysztof Kozlowski" <krzk@kernel.org>, "Alim Akhtar"
- <alim.akhtar@samsung.com>
-Cc: <linux-mmc@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-samsung-soc@vger.kernel.org>
-References: <20260414-dwmmc-dma-thr-v2-0-4058078f5361@disroot.org>
- <20260414-dwmmc-dma-thr-v2-1-4058078f5361@disroot.org>
- <cec99f99-5ac4-7f0d-8e2a-947edfef8930@rock-chips.com>
-In-Reply-To: <cec99f99-5ac4-7f0d-8e2a-947edfef8930@rock-chips.com>
+	Tue, 14 Apr 2026 11:06:16 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4887fd35e60so38480855e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 04:06:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1776164773; x=1776769573; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=/UlFbfy1tsVpqkvx1d3PVwDBlDWdNrEuOEoNe4Rz2eg=;
+        b=l5aeueVmnM6LsoarvqSaZaS20PGCUCNY3Fj8V36YhE6LCd9f+uQaZLpirV9afVNAnG
+         Gf2dKAcBWp/bfO89uRkNDdRNyUE9foVFeboMH1QcKaMRiq9GwS0AuA9lUYWElhnThtA2
+         LlS1BqsgfQi+4RMMFx3D/3YQ8O+tCXIKTuCSexWh/6yPAyMtPHFq6KSrmt0Tl84XgQew
+         v4F/YhDXxk9GyvDvOB7mO8V8vYm8w+kc3YBOVqyqw+lx7Uci88HtNqOyW1Bx/ffvBtzC
+         c3+fo0+ZsFDw9yRZmAf6T+MU6hp4UOn8UMX2NFLmR1HLYQnYGWvQ/Bp0+iUGxC4JZzW8
+         LHtw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776164773; x=1776769573;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/UlFbfy1tsVpqkvx1d3PVwDBlDWdNrEuOEoNe4Rz2eg=;
+        b=DA9Zr/v16nrGN3B/QPCmduboNssqwnXXUpja724QRG+McI4jPV4RrKg0pKgkzBqh05
+         ixJhtKWpotE4gar4egZBuNXZnumxhhkkgBVPVgxy8iMrQZMMXQHJvjmlU2Ih2b8YOOh1
+         RIiFpTdpBqRNwGUsj/gZxnFcm2eZUFycXBWQfFbhfkFghZ5xVubMvwBdx/9I+5i1ahwT
+         eg1E8ftONnlodAGXuEP064MFp4pEM0eLAkrGyEs/zKAZwGEbs33Brfgb/Jx0yY8gJ0Mn
+         kXfAerUA+ejFac2+0NWp+YlgARblEFBb4ZIy58VbaUBxd4MYxjOZXZtp0SuzCujg9qjl
+         xvtw==
+X-Gm-Message-State: AOJu0YzS9pPrC4ZIhHMTYauPJl5XaZCNw2gQbg+899WrIF7zDkAft0TD
+	eg+B/UyCXep7oCKtbZfXuI5EZdyV8OOmprPpl/03XTq1/FAmC0DWKRVQvs/4FE8LBNg=
+X-Gm-Gg: AeBDietmyUxhRdhZn4H0QKj/UjRspDDx/Q4CEN5e+6rxBmKkJoFd/lu+MzIe7qeLJR8
+	uHE4UUsrYVJt7FGOMQrW0i2VCn5q+NBAYYJSwQtPKUd2hqg0WWSbt4+iSox7XcM3vSC+tw8xn7w
+	fNdjlfipw0w25fmNtblDhl2RiqfIYirCBmM8bf/CGsihlvH01fqbpS9XTWLUq6Eokze6YNrsy41
+	H/cwfmaQhFA/gm6wDNXXZc5MHXZBFtWdFxsiflzZo2lPZnVlsCJ7unqT8DD8UjGJT8Gkwr7xsx/
+	rzY7yFxVqLB4n5XFxUON26kehAIChtQ9YHKU3K80Wc9L4A/NBacD1VJCat4pxIH3J8A48mUl9dA
+	a4pdgiWCutorK3Mwtj1fEQEKTDu8PZGA3Z3hFbF2kWCYv6Ovdpr4T3Wc3ks5DKdjtDhMnUsMqE5
+	n/62cfArRvgIu8zViRrlDW/pQ+fwDcaqnaJS2zJVc0Mw==
+X-Received: by 2002:a05:600c:628b:b0:488:904b:f31 with SMTP id 5b1f17b1804b1-488d68603ffmr214529015e9.22.1776164772573;
+        Tue, 14 Apr 2026 04:06:12 -0700 (PDT)
+Received: from e133063.arm.com ([213.137.22.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488d5d9dd86sm183254655e9.4.2026.04.14.04.06.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Apr 2026 04:06:09 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+Subject: [PATCH v3 0/6] perf arm_spe: Dump IMPDEF events
+Date: Tue, 14 Apr 2026 12:04:46 +0100
+Message-Id: <20260414-james-spe-impdef-decode-v3-0-63baf9c893b1@linaro.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAE4f3mkC/3XNwQ7CIAyA4VdZOIthhYnz5HsYD4SWDaNjAUM0y
+ 95dNi962PFv068TSxQ9JXaqJhYp++TDUELuKmZ7M3TEPZZmIOAgpKz5zTwo8TSWxWNEchzJBiS
+ OrVJOObTOaVaux0jOv1b5ci3d+/QM8b0+yvUy/ZpKbJu55oIbFCg1WABhz3c/mBj2IXZsQTP8Q
+ nobggI1DUpybautOv5B8zx/AP+fj8AIAQAA
+X-Change-ID: 20260331-james-spe-impdef-decode-d944f4fdcff7
+To: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+ Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>, 
+ Leo Yan <leo.yan@arm.com>, Al Grant <al.grant@arm.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_115013_008170_1840B5A0 
-X-CRM114-Status: GOOD (  15.71  )
+X-CRM114-CacheID: sfid-20260414_040614_916656_9D407166 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,82 +108,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-04-14 16:50 +08:00, Shawn Lin wrote:
-> =E5=9C=A8 2026/04/14 =E6=98=9F=E6=9C=9F=E4=BA=8C 16:36, Kaustabh Chakrabo=
-rty =E5=86=99=E9=81=93:
->> Some controllers, such as certain Exynos SDIO ones, are unable to
->> perform DMA transfers of small amount of bytes properly. Following the
->> device tree schema, implement the property to define the DMA transfer
->> threshold (from a hard coded value of 16 bytes) so that lesser number of
->> bytes can be transferred safely skipping DMA in such controllers. The
->> value of 16 bytes stays as the default for controllers which do not
->> define it. This value can be overridden by implementation-specific init
->> sequences.
->>=20
->> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
->> ---
->>   drivers/mmc/host/dw_mmc.c | 5 +++--
->>   drivers/mmc/host/dw_mmc.h | 2 ++
->>   2 files changed, 5 insertions(+), 2 deletions(-)
->>=20
->> diff --git a/drivers/mmc/host/dw_mmc.c b/drivers/mmc/host/dw_mmc.c
->> index 20193ee7b73eb..9dd9fed4ccf49 100644
->> --- a/drivers/mmc/host/dw_mmc.c
->> +++ b/drivers/mmc/host/dw_mmc.c
->> @@ -40,7 +40,6 @@
->>   				 SDMMC_INT_RESP_ERR | SDMMC_INT_HLE)
->>   #define DW_MCI_ERROR_FLAGS	(DW_MCI_DATA_ERROR_FLAGS | \
->>   				 DW_MCI_CMD_ERROR_FLAGS)
->> -#define DW_MCI_DMA_THRESHOLD	16
->>  =20
->>   #define DW_MCI_FREQ_MAX	200000000	/* unit: HZ */
->>   #define DW_MCI_FREQ_MIN	100000		/* unit: HZ */
->> @@ -821,7 +820,7 @@ static int dw_mci_pre_dma_transfer(struct dw_mci *ho=
-st,
->>   	 * non-word-aligned buffers or lengths. Also, we don't bother
->>   	 * with all the DMA setup overhead for short transfers.
->>   	 */
->> -	if (data->blocks * data->blksz < DW_MCI_DMA_THRESHOLD)
->> +	if (data->blocks * data->blksz < host->dma_threshold)
->>   		return -EINVAL;
->>  =20
->>   	if (data->blksz & 3)
->> @@ -3245,6 +3244,8 @@ int dw_mci_probe(struct dw_mci *host)
->>   		goto err_clk_ciu;
->>   	}
->>  =20
->> +	host->dma_threshold =3D 16;
->
-> I'd prefer to set it in dw_mci_alloc_host() instead of picking up
-> a random place to put it, for better code management.
+In the Arm SPE raw data dump, IMPDEF events aren't printed. Add the
+ability to add names for some known events or print the raw event number
+for unknown events.
 
-Okay, that function is in -next I see.
+For example:
 
->
->> +
->>   	if (host->rstc) {
->>   		reset_control_assert(host->rstc);
->>   		usleep_range(10, 50);
->> diff --git a/drivers/mmc/host/dw_mmc.h b/drivers/mmc/host/dw_mmc.h
->> index 42e58be74ce09..fc7601fba849f 100644
->> --- a/drivers/mmc/host/dw_mmc.h
->> +++ b/drivers/mmc/host/dw_mmc.h
->> @@ -164,6 +164,8 @@ struct dw_mci {
->>   	void __iomem		*fifo_reg;
->>   	u32			data_addr_override;
->>   	bool			wm_aligned;
->> +	/* Configurable data byte threshold value for DMA transfer. */
->
-> No here, there is a long section of comment before struct dw_mci{ } that
-> describes each member of it, please add it there.
+  $ perf report -D
 
-Ah, you mean the documenting comment. Shouldn't have missed in either
-way.
+  ... ARM SPE data: size 0xd000 bytes
+  00000000: b0 18 c6 32 80 00 80 ff a0  PC 0xff80008032c618 el1 ns=1
+  00000009: 64 e7 42 00 00              CONTEXT 0x42e7 el1
+  0000000e: 00 00 00 00 00              PAD
+  00000013: 49 00                       LD GP-REG
+  00000015: 52 16 10               	EV RETIRED L1D-ACCESS TLB-ACCESS
 
->
->> +	u32			dma_threshold;
->>  =20
->>   	struct scatterlist	*sg;
->>   	struct sg_mapping_iter	sg_miter;
->>=20
+On N1 the event line becomes:
+
+  00000015: 52 16 10                    EV RETIRED L1D-ACCESS TLB-ACCESS LATE-PREFETCH
+
+Or on other cores it becomes:
+
+  00000015: 52 16 10                    EV RETIRED L1D-ACCESS TLB-ACCESS IMPDEF:12
+
+Signed-off-by: James Clark <james.clark@linaro.org>
+---
+Changes in v3:
+- Revert for_each_set_bit() back to a loop with BIT_ULL to fix both 32
+  bit builds and decoding on big endian machines.
+- Link to v2: https://lore.kernel.org/r/20260407-james-spe-impdef-decode-v2-0-55d3ef997c48@linaro.org
+
+Changes in v2:
+- Put MIDR in arm_spe_pkt (Leo)
+- Use for_each_set_bit() (Leo)
+- Use BIT_ULL() to fix 32bit builds (Ian)
+- Don't call strtol() with NULL (Ian)
+- Link to v1: https://lore.kernel.org/r/20260401-james-spe-impdef-decode-v1-0-ad0d372c220c@linaro.org
+
+---
+James Clark (6):
+      perf arm_spe: Make a function to get the MIDR
+      perf arm_spe: Handle missing CPU IDs
+      perf arm_spe: Store MIDR in arm_spe_pkt
+      perf arm_spe: Turn event name mappings into an array
+      perf arm_spe: Decode Arm N1 IMPDEF events
+      perf arm_spe: Print remaining IMPDEF event numbers
+
+ tools/perf/util/arm-spe-decoder/Build              |   2 +
+ tools/perf/util/arm-spe-decoder/arm-spe-decoder.c  |  17 ++-
+ tools/perf/util/arm-spe-decoder/arm-spe-decoder.h  |   3 +-
+ .../util/arm-spe-decoder/arm-spe-pkt-decoder.c     | 144 ++++++++++++++-------
+ .../util/arm-spe-decoder/arm-spe-pkt-decoder.h     |   5 +-
+ tools/perf/util/arm-spe.c                          |  62 ++++++---
+ 6 files changed, 158 insertions(+), 75 deletions(-)
+---
+base-commit: 4e03d6494f9504f8af46ba68a2a8b6877c196789
+change-id: 20260331-james-spe-impdef-decode-d944f4fdcff7
+
+Best regards,
+-- 
+James Clark <james.clark@linaro.org>
+
 
