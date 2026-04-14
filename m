@@ -4,118 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C61D6F9D0C9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 11:49:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD9BF9D0C8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 12:05:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Muchk4/lpEpyusQFoAzupDtSww3MJPJx57QVIOS37fs=; b=hB/EM9z1FxadBFqUO8l1XrcH6n
-	9YOHMAqO4ZgfmqrDW1l52Gyk3UUwENizuYNgvb2lovmsW570fLWJ5BAuqNF4cYH5sh6Brr18QhujJ
-	7urNOzLAw4HBADkkAaz9d7KxP7/13Y8oXN4/FJemPhafjX2/alS4N6FQeI2++wDX9ksr8wczug3Yu
-	EBYV0ofRf0n2/uPl52fAT1HukbagCwGRmEegW/dgqZAAVGp8azAi1L9SSKYvV4QoePjnKrO96iUGx
-	H7QNx+AU5nZzAw4mENwV9+rqSnNcV0myMwnKSHcq5Eyo7U/gPDNxyxbwuzEJJnB3g3JzFwvtaiZ+Z
-	gnOEkUbg==;
+	bh=JBdItcm4SpsvDcMo6VDP8MI5QdRVaF4W043aa/ZGUhQ=; b=uzkW2qojAaiv0+4VKqQpSe7RD8
+	lhysojoSb7akshkgBW3HIQqO7rM1iJOqhMDugAZcSsSSTss6tI6by0G8dYQ7Zu64RdWLPblR1NxL6
+	Nl4eP7Yt20o5wsGOLmYQnoJAZkfZIkNLVLlqDMu9QRTUijl8a8Jf+qmSqC1CsMPbnqidgk89MBQO2
+	/N+SmPVKcoPN7fDVTF7JAAP/vIzCLp7mOgPzPfoc1i5TBrrMU9BFqyTs0kjxOlIrgUf/zo7bfdnW8
+	wPS1lmTNoDnDgNbKIJAMD4XwMY8LDOdZ3d1QcmOqxQsLyP7YGgZYA/thKlJc8ByaKm8Hv52nt0YvJ
+	PJEtF0zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCcH1-0000000HGBg-1Wwf;
-	Tue, 14 Apr 2026 11:49:43 +0000
-Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1wCcWP-0000000HH4i-296y;
+	Tue, 14 Apr 2026 12:05:37 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCcGy-0000000HGBN-2XAf
+	id 1wCcWN-0000000HH4J-1b5z
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 11:49:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=unvT2ZAOGQMfux9Wyl0F7m45r8tOGaIccUjrTeIMReNibHAD0Y6ruI88+XplpDsKxEOU+o3ZTMX1FEw3ouI1kmhrEWvp2TaldXHoYIbNDJ4vfDJRcKQhBNqlUpiO+vRl1CuXRwZkrREyM1648Ou/TSBktElvkv1i6sxSsEkKH6khIoMrhniWnGTMFipfZpFVPaRSv4+FzjliuqUS8UtD4nxcZxW/OoFRR4KpbMtq76qK+U8kCZfPgfwBcYmRdfc6lRh+bbDzzgMIP3wVPEwbwn/IIFPEwGKFP0JZbIShWZ7LH1DFvjQmO5Qs4eQv+XHe0OLTATruD2trQQjDsRYglw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Muchk4/lpEpyusQFoAzupDtSww3MJPJx57QVIOS37fs=;
- b=K0MMW5GD4pdDzPFDw5Lps4Q7lBLRLP3tEHv3bmB0xrtNwSI+QcJYDU7zwQ24Y9sr3l04sMFZ7wxSTo1AWjLwatSGfZHQIFuuRggdVNgNHL+9TPvn+R7qMHmK3kJ2HLQcLr4GIyZ8XOA79ZUMeiTSTCPRFByZvHUyYYYZMq4qRcLjig4raBUZjm7xSYwpCxExy74sBCGaBi6AmgH792NVHWOUjA4Hw19LdmxEicheplhgF/WSGiBVF0ONhQaD/ZvEyRQKqtfkc+rWKK4hhWRVD1bzNPso/2Bpy6wOA6wa5W4DIVRetwJNQsS4yf+dwtmwTHexalKXNW5Dgs8X5EG3Lg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 165.85.157.49) smtp.rcpttodomain=lists.infradead.org
- smtp.mailfrom=gehealthcare.com; dmarc=fail (p=quarantine sp=quarantine
- pct=100) action=quarantine header.from=gehealthcare.com; dkim=none (message
- not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gehealthcare.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Muchk4/lpEpyusQFoAzupDtSww3MJPJx57QVIOS37fs=;
- b=depPr2lK+K8WHk9v5J7f8b4DJvE9dlL8oUhxjWLoWJkl3Uxphpo4aRQ/B+VSgH1MHCFRU2FgV9TOEo58DPl6AdcdWyu+jP3CRQ1AeWktkRizPk6LOKeTEBdBhsYGfZynhvA/4d6CWyiLOrv1hp5PVGmxMLR3ErcnOjLuQWCxc19kDG1hn/PkDVkh8J013bZYvi0jQ/0cPIWyLIlECBJEb8qQaPypjB85hY37DtnfHeSjFzaDcNUdu2+X5wLSo5mFJCxIXs4y7b7zs0kiy2+h29MFUu8LHop5r+45ScywdEh4ziVEFOFw6e7P7j8/cfhHsMQCiQYe0bZ+vt1mzANy9g==
-Received: from BN9PR03CA0661.namprd03.prod.outlook.com (2603:10b6:408:10e::6)
- by CH4PR22MB5802.namprd22.prod.outlook.com (2603:10b6:610:229::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Tue, 14 Apr
- 2026 11:48:44 +0000
-Received: from BN3PEPF0000B370.namprd21.prod.outlook.com
- (2603:10b6:408:10e:cafe::8d) by BN9PR03CA0661.outlook.office365.com
- (2603:10b6:408:10e::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.48 via Frontend Transport; Tue,
- 14 Apr 2026 11:48:43 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 165.85.157.49)
- smtp.mailfrom=gehealthcare.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=gehealthcare.com;
-Received-SPF: Fail (protection.outlook.com: domain of gehealthcare.com does
- not designate 165.85.157.49 as permitted sender)
- receiver=protection.outlook.com; client-ip=165.85.157.49;
- helo=mkerelay1.compute.ge-healthcare.net;
-Received: from mkerelay1.compute.ge-healthcare.net (165.85.157.49) by
- BN3PEPF0000B370.mail.protection.outlook.com (10.167.243.167) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.0 via Frontend Transport; Tue, 14 Apr 2026 11:48:43 +0000
-Received: from zoo11.fihel.lab.ge-healthcare.net (zoo11.fihel.lab.ge-healthcare.net [10.168.174.93])
-	by builder1.fihel.lab.ge-healthcare.net (Postfix) with SMTP id 3C84A131E4;
-	Tue, 14 Apr 2026 14:43:41 +0300 (EEST)
-Date: Tue, 14 Apr 2026 14:43:40 +0300
-From: Brian Ruley <brian.ruley@gehealthcare.com>
-To: Will Deacon <will@kernel.org>
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
-	Steve Capper <steve.capper@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	catalin.marinas@arm.com
-Subject: Re: [PATCH] mm/arm: pgtable: remove young bit check for
- pte_valid_user
-Message-ID: <ad4obIAQ5vbWsIau@zoo11.fihel.lab.ge-healthcare.net>
-References: <20260409125446.981747-1-brian.ruley@gehealthcare.com>
- <adewJetUv6wMiz9o@willie-the-truck>
- <adfDEMK8EbIjPu3J@zoo11.fihel.lab.ge-healthcare.net>
- <adfNN33QIOP3VfDm@shell.armlinux.org.uk>
- <adjYlUk8_JjPivNi@zoo11.fihel.lab.ge-healthcare.net>
- <adzMOdySgMIePcue@willie-the-truck>
- <ad0Ky09tLcFx7JCa@zoo11.fihel.lab.ge-healthcare.net>
- <ad3wRQt7K-QLX8Jw@zoo11.fihel.lab.ge-healthcare.net>
- <ad4gOu83zY-SKijx@willie-the-truck>
+	Tue, 14 Apr 2026 12:05:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-ID:Content-Description;
+	bh=JBdItcm4SpsvDcMo6VDP8MI5QdRVaF4W043aa/ZGUhQ=; b=prh3cNO7H5DIoCudtpYHbVGQ8z
+	95eGPGtTkFLexvqs6odwc4SN9rzEuqkklN8ahwVaX+79xwM49vqQ7z1PtADTAucfFiOTt5uQDo9sa
+	OYfJgJYGOUOTssGMffcBJQ24LGrBo6xoPO2Ou1DPx7Kv+82mU2sAaEI6Bsah622mpfCEa6MbeyOrc
+	S9fsJCkEn60d/jlrsapqNOmZrdC6QNHORD9oQX0pedBDJ6rV3uzYyC4EgHbD0BE3CTjDZ7Oemadm9
+	Nq7Ce8n1QibO23zbDWVXBSHKmMOUIsAiphi1hhgmoqXvn9vlQgGU5XmJ+3WjoGOuBweRbnda0AaT7
+	QAeTGLvA==;
+Received: from authenticated user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1wCcW1-00D3Kj-1S;
+	Tue, 14 Apr 2026 12:05:13 +0000
+Date: Tue, 14 Apr 2026 05:05:07 -0700
+From: Breno Leitao <leitao@debian.org>
+To: "lihuisong (C)" <lihuisong@huawei.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+	lpieralisi@kernel.org, catalin.marinas@arm.com, will@kernel.org, 
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	pjaroszynski@nvidia.com, guohanjun@huawei.com, sudeep.holla@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, rmikey@meta.com, kernel-team@meta.com
+Subject: Re: [PATCH RFC] ACPI: processor: idle: Do not propagate
+ acpi_processor_ffh_lpi_probe() -ENODEV
+Message-ID: <ad4tXOlXITpREkLb@gmail.com>
+References: <20260413-ffh-v1-1-301704f69e2f@debian.org>
+ <af9c679d-899c-4832-b902-e621b5987f12@huawei.com>
+ <ad4UWJ__dnDQtrj8@gmail.com>
+ <6694ca7c-13bf-4e7d-9621-bc992cbf96a7@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <ad4gOu83zY-SKijx@willie-the-truck>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B370:EE_|CH4PR22MB5802:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7bc38ba8-c982-47d8-15c7-08de9a1bc7a6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|1800799024|376014|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: DziYxVqzEh1S8x+qFLDsDAII9dEBIYQMBQ6CS+8yCbW7SbdFv9A37AfkRkThX9bo1zCb9xgLJNexxTBmJbCv9yl+9q4bNnM2zr0H8386RZqXxOSrAg9wUQUyVyRpmt6z6DPTSZH/wc4+Gmn099YrAP5CXILcHAf4VOofF4CLIYE/P4TklZKFdF0leRhXVZPVhnOUHft//r99yn0d8q2QqV/0Y0niG2j1DwP9ajnc5KzPP/dU5PZJ1vriqLHWAJ4HRfXsCsXLGjPReKnQQMYMqHrlm1krIWMaCbTT+wOa4VrZPBq0bC7qKh+NQGsIYb4dw2oOwAnyd14m7OisP/OwPja558v++Hbefhsg2kvGLdxcXOdkj/LnVn7GuRsY0SQUbqLgR9nD5nr/0o2uCIHOp8l6qq/lW9aKvfteItToIRAJN1upEX+Rg8u0W52HQSchK+2xHL4A87yhynD+qPjvTdjnRMbuduDwbErKG2nldy3ZrvRD8hMabBncVi6aaJhXBLimC8LOgkNS+TBz41ObqOOukjBKHpa5UNlGFakVSvZC9tQqX4NNy56822RmpSjJlVxtKstG05gy/DnNLUIusq8ihpBHWpzUy+kpOn+EvlIqW/sUiVA2kkvLs3E2TtQDSkCqcUliErJ7MRNxrG17JcPZfzlQIdliYz2y64/oxVv3BgxeKZGnT8iTMspWaz5fhBc8kPx0pWnXK6l+7QKNguVePXnIXZbR0bvbS1YSHPsmQMKhOd7b4nCxDjCs6K9fPuEhCoW9Vpw+MM3CYcHA4g==
-X-Forefront-Antispam-Report: CIP:165.85.157.49;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mkerelay1.compute.ge-healthcare.net;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(1800799024)(376014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 6NO8aVQZ4ZCEN2maXSeX3Xydfrzx4CBocwWVYnx1rKwXXhv1ZS5tHzoTG8EzlpsAuqWYvz5R0Wu6NZBADeMilE/13YWFdZhFe1umnAIbk/2+HIG3dIltdm3Glh2piQRpQ2H2duUH2op1nbw9fawSaLRsAw/dJWZvH4Xxd49HaKzxez9Dzz1AfrAkdzjM/5Sz1kVTMytq0zaEim9RXJTRgc97PAAZnbwgnk7OhMrBks4PngEhBx7Qj//eNmHhqaLY66mB//vooK/u39esQvIcwkwd1rtRR5ZFyGTcEDbapxgWsH/NJ5M/ntzrr6Zn93s01Sd2ECWlIO/7Anb4e/WPT+9WpViLnL+bq9bS6/ahIE2/Qfims0NeJgvmXWoNpOg+1uBLg9AGFxocAovT3KVY5RbIzEo/LMqm/LQ+t7ZOt0zd1JTen3F54XdszlKVCccw
-X-OriginatorOrg: gehealthcare.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Apr 2026 11:48:43.5781
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7bc38ba8-c982-47d8-15c7-08de9a1bc7a6
-X-MS-Exchange-CrossTenant-Id: 9a309606-d6ec-4188-a28a-298812b4bbbf
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=9a309606-d6ec-4188-a28a-298812b4bbbf;Ip=[165.85.157.49];Helo=[mkerelay1.compute.ge-healthcare.net]
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-BN3PEPF0000B370.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH4PR22MB5802
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <6694ca7c-13bf-4e7d-9621-bc992cbf96a7@huawei.com>
+X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_044940_668538_6F647993 
-X-CRM114-Status: UNSURE (   9.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260414_050535_504018_AD2281F3 
+X-CRM114-Status: GOOD (  29.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,22 +81,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Apr 14, Will Deacon wrote:
+On Tue, Apr 14, 2026 at 07:31:29PM +0800, lihuisong (C) wrote:
 > 
-> Red-handed!
+> On 4/14/2026 6:21 PM, Breno Leitao wrote:
+> > Hello Huisong,
+> > 
+> > On Tue, Apr 14, 2026 at 05:43:51PM +0800, lihuisong (C) wrote:
+> > > But it is a real issue. Thanks for your report.
+> > > I think the best way to fix your issue is that remove this verification in
+> > > psci_acpi_cpu_init_idle().
+> > > Because it is legal for platform to report one LPI state.
+> > > This function just needs to verify the LPI states which are FFH.
+> > Thank you for the prompt feedback.
+> > 
+> > Would this approach work?
+> > 
+> > commit 6c9d52840a4f778cc989838ba76ee51416e85de3
+> > Author: Breno Leitao <leitao@debian.org>
+> > Date:   Tue Apr 14 03:16:08 2026 -0700
+> > 
+> >      ACPI: processor: idle: Allow platforms with only one LPI state
+> >      psci_acpi_cpu_init_idle() rejects platforms where power.count - 1 <= 0
+> >      by returning -ENODEV. However, having a single LPI state (WFI) is a
+> >      valid configuration. The function's purpose is to verify FFH idle states,
+> >      and when count is zero, there are simply no FFH states to validate —
+> >      this is not an error.
+> >      On NVIDIA Grace (aarch64) systems with PSCIv1.1, power.count is 1 for
+> >      all 72 CPUs, so the probe fails with -ENODEV. After commit cac173bea57d
+> >      ("ACPI: processor: idle: Rework the handling of
+> >      acpi_processor_ffh_lpi_probe()"), this failure propagates up and prevents
+> >      cpuidle registration entirely.
+> >      Change the check from (count <= 0) to (count < 0) so that platforms
+> >      with only WFI are accepted. The for loop naturally handles count == 0
+> >      by not iterating.
+> >      Fixes: cac173bea57d ("ACPI: processor: idle: Rework the handling of acpi_processor_ffh_lpi_probe()")
+> >      Signed-off-by: Breno Leitao <leitao@debian.org>
+> > 
+> > diff --git a/drivers/acpi/arm64/cpuidle.c b/drivers/acpi/arm64/cpuidle.c
+> > index 801f9c4501425..7791b751042ce 100644
+> > --- a/drivers/acpi/arm64/cpuidle.c
+> > +++ b/drivers/acpi/arm64/cpuidle.c
+> > @@ -31,7 +31,7 @@ static int psci_acpi_cpu_init_idle(unsigned int cpu)
+> >   		return -EOPNOTSUPP;
+> >   	count = pr->power.count - 1;
+> > -	if (count <= 0)
+> > +	if (count < 0)
+> >   		return -ENODEV;
+> >   	for (i = 0; i < count; i++) {
 > 
-> Please send a patch for review (perhaps you can include that snippet in
-> the commit message).
+> This count already verified in acpi_processor_get_lpi_info.
 > 
-> Cheers,
+> I suggest modifing it as below:
 > 
-> Will
+> -->
+> 
+> git diff
+> diff --git a/drivers/acpi/arm64/cpuidle.c b/drivers/acpi/arm64/cpuidle.c
+> index 801f9c450142..c68a5db8ebba 100644
+> --- a/drivers/acpi/arm64/cpuidle.c
+> +++ b/drivers/acpi/arm64/cpuidle.c
+> @@ -16,7 +16,7 @@
+> 
+>  static int psci_acpi_cpu_init_idle(unsigned int cpu)
+>  {
+> -       int i, count;
+> +       int i;
+>         struct acpi_lpi_state *lpi;
+>         struct acpi_processor *pr = per_cpu(processors, cpu);
+> 
+> @@ -30,14 +30,10 @@ static int psci_acpi_cpu_init_idle(unsigned int cpu)
+>         if (!psci_ops.cpu_suspend)
+>                 return -EOPNOTSUPP;
+> 
+> -       count = pr->power.count - 1;
+> -       if (count <= 0)
+> -               return -ENODEV;
+> -
+> -       for (i = 0; i < count; i++) {
+> +       for (i = 1; i < pr->power.count; i++) {
+>                 u32 state;
+> 
+> -               lpi = &pr->power.lpi_states[i + 1];
+> +               lpi = &pr->power.lpi_states[i];
+>                 /*
+>                  * Only bits[31:0] represent a PSCI power_state while
+>                  * bits[63:32] must be 0x0 as per ARM ACPI FFH Specification
 
-I sent it as separate patch with a link to this thread, since it's a
-different fix.
+Ack, I will respin.
 
-Thank you for the help in this matter!
-
-BR,
-Brian
+Thanks for your help,
+--breno
 
