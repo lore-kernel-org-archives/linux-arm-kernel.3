@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D81ECFA0C4C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 08:32:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BB22FA0C38
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 08:34:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B0YVr5VDQ9l5LiJwz5trQwgxUHf3mbmuBoNgSGW4exs=; b=D6Rrc4KG/LGqX9w0X8F56VbN1P
-	vwJsOTaW62k30HBN9w+dqP720yGCuJMWwr42mLFNJxI1m8/53DEeRLsnmnMam+Ta958OSdWmW8YNQ
-	OtRz+CutpYuabLG+eKPNpJ0oh9unqr7wjOExoTFCSmgzoeuImrnsYtLIfs9vtZN9yw1oFI0yZo9cJ
-	vzQANB1/jMzVzbbqhLiRYL429YUUdw7yWKiKv0ItjCbpxLwZ3Nzt/0bLg8vh/5laONUEuTsM6Nf5X
-	GlKaRlcWgWvwha3LG7sEL6lgWxEOXV1pj+4qz+K2UoTE+l/Ftoeoo8dQXLFgW1n9ax39GGwZ/apSB
-	JkxyGPrQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=om+hHHdljzsF5Cf7gFHYpPcoED6vHfQJ2/tCZOgANJ0=; b=FYhl/jtflLEhtPtKIifhNnKtUa
+	YPKr9YB0yDrM1YrQPxF2UiCbqQJAqiByKBKne2lFk5NMCUaSc2Tchfe0M239wIwunK4pX0kzL5oqc
+	egF29uJUXxV4N843MrbkI/fkNDBEXCbVXxecBgSoVcKOUNPehr+PJBIMGGg2Q5NAnn6keFEEHVBKo
+	0xHOVruNgPpYtbpuSZJAs2+4ahdKg4LfPaDcpNNm6tR9f6xhnjutCw75SDtwk/pdRCiCCczZ4p95u
+	xJmVNKbNWj20E7NJHVirEcG6qHlZ6YynFr5TDUfAB+4e2mvKET4S/8SJyIR8kuQo8DqA14/45fN4I
+	uFKjRPPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCvfk-00000000ov8-2UQX;
-	Wed, 15 Apr 2026 08:32:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCvfh-00000000ouk-13Li
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 08:32:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C76EF4FBA;
-	Wed, 15 Apr 2026 01:32:21 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C95F63F86F;
-	Wed, 15 Apr 2026 01:32:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776241947; bh=3Oz86IP4KYvd6deOUSDzB67MR2t73cfuj670d+WNmzo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Od7qU9ycVAJ7NZPjTu8N/n5px8XP7FCmjka+VPZpo+2Y50cv9e6ZYbZ8R2gjou/qD
-	 7vNQitqNq92Qb6pljihwzKJ8iKI1SYHE5q586Sw3Xjou2uRRkaAKw8YIrj+UnWSQqe
-	 zt+sQUcDPxGasRQy50YzgyrNp+tN/bR2EtOGWZVw=
-Date: Wed, 15 Apr 2026 09:32:24 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: Jie Gan <jie.gan@oss.qualcomm.com>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	suzuki.poulose@arm.com, mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com
-Subject: Re: [PATCH v4 3/9] coresight: etm4x: fix leaked trace id
-Message-ID: <20260415083224.GJ356832@e132581.arm.com>
-References: <20260413142003.3549310-1-yeoreum.yun@arm.com>
- <20260413142003.3549310-4-yeoreum.yun@arm.com>
- <20260414163221.GG356832@e132581.arm.com>
- <ad5wVVnUw1jnkCdn@e129823.arm.com>
- <81fdef8a-a60e-4d29-948d-c4a07e23dad9@oss.qualcomm.com>
- <20260415072933.GH356832@e132581.arm.com>
- <ad9FxS86FTqxu00d@e129823.arm.com>
+	id 1wCvhP-00000000p4n-1LJx;
+	Wed, 15 Apr 2026 08:34:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCvhN-00000000p2t-20R4;
+	Wed, 15 Apr 2026 08:34:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 38C1E600AE;
+	Wed, 15 Apr 2026 08:34:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D682AC2BCB4;
+	Wed, 15 Apr 2026 08:34:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776242051;
+	bh=gGJkbjQ1NGX6fgwdB9YUsJ0pPiyL6JdM59/u6GrsAC8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=DHsDKVAlRdMTwqDHEgZvhEt1FgyxR3QIY0FR2sVtVRaJWqc901JwpKuNON+Q9hcgr
+	 TnON9sjJLHf9H1hc4EMRp03VP0pWpOwwqAbMRkn7H5997xwNQlcTvsIf3oCmnaj/f2
+	 J+bj/AFq6bgXgsr+KX+Qku9AepMDMTKVuKKu1v+de938cMPTJnYy44MgIEvLghGg85
+	 ljlShhYxSMZlLMbrzxRgopHFBf3Gr7DFpTmNbi8k5WcojYrG0yIwSjY63LWJVaxAUu
+	 7Jdkcv7Uf3J12tkqBjMn/XADVtZQqkMh4LuZpCICAJ3dn4/mkA5SMH7mcDvQiTrP7j
+	 8+GZnpEch2ohw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C0239FA0C4C;
+	Wed, 15 Apr 2026 08:34:11 +0000 (UTC)
+From: Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>
+Date: Wed, 15 Apr 2026 16:33:41 +0800
+Subject: [PATCH v2 1/4] dt-bindings: soc: amlogic: clk-measure: Add A1 and
+ T7 compatible
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ad9FxS86FTqxu00d@e129823.arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_013229_523297_F903E82E 
-X-CRM114-Status: GOOD (  17.89  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260415-clkmsr_a1_t7-v2-1-02b6314427e6@amlogic.com>
+References: <20260415-clkmsr_a1_t7-v2-0-02b6314427e6@amlogic.com>
+In-Reply-To: <20260415-clkmsr_a1_t7-v2-0-02b6314427e6@amlogic.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Jian Hu <jian.hu@amlogic.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1776242050; l=872;
+ i=jian.hu@amlogic.com; s=20260415; h=from:subject:message-id;
+ bh=IimYeGQJ3sTp582FUYGP7eCFxCNOvcMVP+spCKBvEZI=;
+ b=FTtwbJROifIZYLVA99AKO3wSGTKbZHs98icsYsqYtO8Mg4ZRTH1mFCDUFtUYCdfYrMNBcBx9g
+ rFXH34gR4B7DiKr25FVbcU/cYUJM3rIkkFv+1vTLJf5QJdu6By1eyXO
+X-Developer-Key: i=jian.hu@amlogic.com; a=ed25519;
+ pk=zHUE+rNtH9z+Sb8au1/elWknjFQmy5QDVkBoxleuOIA=
+X-Endpoint-Received: by B4 Relay for jian.hu@amlogic.com/20260415 with
+ auth_id=735
+X-Original-From: Jian Hu <jian.hu@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,42 +84,35 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: jian.hu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 15, 2026 at 09:01:09AM +0100, Yeoreum Yun wrote:
+From: Jian Hu <jian.hu@amlogic.com>
 
-[...]
+Add the Amlogic A1 and T7 compatible for the clk-measurer IP.
 
-> > > What I am thinking is as SoCs continue to grow more complex with an
-> > > increasing number of subsystems, trace IDs may be exhausted in the near
-> > > future. (that's why we have dynamic trace ID allocation/release).
-> >
-> > Thanks for the input.
-> >
-> > I am wandering if we can use "dev->devt" as the trace ID.  A device's
-> > major/minor number is unique in kernel and dev_t is defined as u32:
-> >
-> >   typedef u32 __kernel_dev_t;
-> >
-> > And we can consolidate this for both SYSFS and PERF modes.
-> >
-> 
-> When I see the CORESIGHT_TRACE_ID_MAX:
-> 
->  /* architecturally we have 128 IDs some of which are reserved */
->   #define CORESIGHT_TRACE_IDS_MAX 128
-> 
-> I think this came from the hardware restriction for number of TRACE_IDs.
-> In this case, clamping the device_id to trace_id seems more complex and
-> reduce some performance perspective.
+Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+---
+ .../devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml   | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Sigh, my stupid.  Please ignore my previous comment, let us first fix
-ID leak issue.
+diff --git a/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml b/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml
+index 39d4637c2d08..b1200e6940ac 100644
+--- a/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml
++++ b/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml
+@@ -24,6 +24,8 @@ properties:
+       - amlogic,meson-sm1-clk-measure
+       - amlogic,c3-clk-measure
+       - amlogic,s4-clk-measure
++      - amlogic,a1-clk-measure
++      - amlogic,t7-clk-measure
+ 
+   reg:
+     maxItems: 1
 
-Given Jie's comment on the use-out issue, it is valid for me especially
-if a system have many dummy tracers.  We can defer to refactor it
-later (e.g., use separate ranges for hardware and dummy tracers).
+-- 
+2.47.1
 
-thanks for correction!
+
 
