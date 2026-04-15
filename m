@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D73ADF433CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 23:33:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A719EF433D2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 23:33:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Uzpxb6DtyGHQDbmAOcel7Q32uUlKf4f9KooP+/aMlU=; b=3tUgd0RT58TvWsn+vWSR8PQLoU
-	qCWVT8TIFNjtdiRFkXjAYd11YdD6inhr1ZKxWGEZaZr+pfdD+L+k2OapTa1NAPfafqV0Jmu1Js6QP
-	wZXXs4QZj7IYVthHTO3Q/dMChjyDzc+DzqytUBxiejypHa0ZWqfz2sEcSr+Zr4RaL6esAzkADiS1H
-	LsQfCf4266KDxzX76lSCEB1ykPXRnYA+twn5ez9aexgT4uzH1rUuYVpOtuYLCZXnvvxo0Lr7IblkE
-	T06nk1Je6YugMGShcmLhoTPL11y0+3WsRhAM/E+Vu083Z0xctcNNFlz79YC1gYO7vlEezChWKLC6+
-	WMWqCwgQ==;
+	bh=LS7b4nt2CaxovI2sYJxZS8EFjpXGqCXQdb+UI5J1fMk=; b=wVRzdpyZrKcr6syafolHK/Q53W
+	gQ09+rOrEHDhgBJ825ZFiVd/5hCwvFmkFpHpEDkf96Ek65W4plHThQc9RnSEubHS3iZfml/CULKEA
+	KNlgLnvUiLXfqnpV7VsJusO/V//pL/NftuaKuTtyJuawDvFE0C7A4plnz15CPKALiAFojs7xzfnCz
+	1OZazRd1k6zF1tvDUmmbCAsmtZB1z3eLb3I63BWtk/KOmIwA4oiH2ytV0w/KFdtLFoGs6dXzOSocH
+	+eOtqEt8vQELCdht4HwD2PMjbk+2Kcet0lOqCFDgSdKp34CZd7OWx52i3WXS2UBhLUhFS3Z/DlVMB
+	LcN6Ylyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD9jb-00000001l4T-0L8V;
+	id 1wD9jb-00000001l4t-1qKY;
 	Wed, 15 Apr 2026 23:33:27 +0000
-Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
+Received: from mout-p-202.mailbox.org ([80.241.56.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD9jX-00000001l2d-0x3o
+	id 1wD9jX-00000001l2s-1Z21
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 15 Apr 2026 23:33:24 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4fwyBQ5LQ2z9v1T;
-	Thu, 16 Apr 2026 01:33:18 +0200 (CEST)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4fwyBT3cSSz9tff;
+	Thu, 16 Apr 2026 01:33:21 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1776295998;
+	t=1776296001;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=4Uzpxb6DtyGHQDbmAOcel7Q32uUlKf4f9KooP+/aMlU=;
-	b=I+YJxD6JOeTuvdvqBS4rZfzM3Gc/UQ0dyk3c3R9qyHX9c7om+ifxD2VWesTrgTpZ8Ic3kN
-	u8vrGhcawLS7uBNuBy/eQbK3/5OuiCHJpqTRsG31VepWRPHbYqqy8PVEzE2VY+kcfqhWzU
-	+Tnl4cfTyo3WiPr4NMpP13mYS+rtbtY1d2S9fGmvJHVzvwBAUjGHOXSj1Xncu/tpzFqN9Y
-	PJYBTHouqPICc0kjB6zlHd08rKBGfEqY5ZKSmr35keDdNkXdTvCOA30al5bb/zcdUBzX2L
-	mW3KCUKSEB4EnqwPHiJpApR1kLUDTBf9DlPUPZtc7KXGdqu6Tk/RiTi9bRNy1w==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=kBBG6Pc9;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
+	bh=LS7b4nt2CaxovI2sYJxZS8EFjpXGqCXQdb+UI5J1fMk=;
+	b=M4vaJbL3qYavG6n1tXlhY4NwrZFTAQtVmdqTB2XwSBeXrP5VaYk7JmX15qY7OrkDluID2o
+	Qg3/nQAlciMrwd1LH2veo/Zo+UoWyay+kZfsSR1VcT1lWAxQWyY0grJ4/uOuGzYijXG6ya
+	qBwl6NRjfmaSX1S/gdlezUW4S5d9axK5K1EkGTQdYKrtAMGntxu1MESiJWiBJ2HkQnulAI
+	AvH/ZCnqqOJ66TxgEYDtOn/7zNBGzdqOAj+/J1tFlArZNolW/MHzxHjAjJAgBFAgeJoZ7x
+	FcLisN3pfd87MvYNqVbFgUDjiUg7eQZP5ToUDx6bnJ+y81oeDRO7RTFaDiokFA==
 From: Marek Vasut <marek.vasut+renesas@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1776295997;
+	t=1776295999;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=4Uzpxb6DtyGHQDbmAOcel7Q32uUlKf4f9KooP+/aMlU=;
-	b=kBBG6Pc91jhmGNTDv5o/v4UchGhW+21cU+Iq6ekWDvr2C95gjGBShLMXDppMLS+DN7hdPx
-	QBojmQ9NhAr/HvUz8MprD3y8sAH59dWZTR6GL8faeqjCRKwtFeZapxQtOD9ShTABFoDzFn
-	W6Lh1gHlTHnRdb/kWOlWqNQJNRG793j68YNSjQmU8697itXTSdr3H2yuvAbStGDvFfn8CM
-	0KB8jNEzM7slP2K0E6PoK18WqyzT5+B1s9Zbfc1Yw31sUIN1i5JgHLDwwhmPW7O6mosMVP
-	xLJz06XWt7qj5fCYK05mc1plWk7HgXSg8Vr+a+BlPts9sLJFAALYV6n3xqqd0g==
+	bh=LS7b4nt2CaxovI2sYJxZS8EFjpXGqCXQdb+UI5J1fMk=;
+	b=RHwUIsI7iUHWok3pnmIKOMqlFhaQeSmNgPk5ZsN/i/HoToWuittMKSRyj4CaF8au5KvZAc
+	vvwsU0c1Hr2GypemVO/rWaNCYh3rsswJv01sdnwbIdaKA7ZQRkF0IxEYp9/KzA9muHD44X
+	hNLMyvzimI+SZVIY6zJ7c6qtKuQfFez37UAPsR5L0MJhLG5pFsn2TpiD/hlEdlS33o9Mmr
+	XAedVizEBZ3RFzY730pzagfX7B/KKM6xG2kLlek4qQMHqxpmL9q6TF2fHZkaktJMPV5Hfp
+	XntiX5i5Jp7feb4FpnlP0QUJtc2RqLcLn5Hm2Eue5/yxIm6wgM8Z4OHtcDS+dg==
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -74,19 +71,18 @@ Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v2 1/4] dt-bindings: clock: renesas,cpg-clocks: Document ZT/ZTR trace clock on R-Mobile A1
-Date: Thu, 16 Apr 2026 01:31:38 +0200
-Message-ID: <20260415233300.457892-2-marek.vasut+renesas@mailbox.org>
+Subject: [PATCH v2 2/4] clk: renesas: r8a7740: Implement ZT/ZTR trace clock on R-Mobile A1
+Date: Thu, 16 Apr 2026 01:31:39 +0200
+Message-ID: <20260415233300.457892-3-marek.vasut+renesas@mailbox.org>
 In-Reply-To: <20260415233300.457892-1-marek.vasut+renesas@mailbox.org>
 References: <20260415233300.457892-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 2307a0a962d2af639f0
-X-MBO-RS-META: yb79zqqnpc4e74rh61ehhwnu18fx1bsi
-X-Rspamd-Queue-Id: 4fwyBQ5LQ2z9v1T
+X-MBO-RS-ID: d868da50f061637a0a1
+X-MBO-RS-META: fxs6xzmm1khhhrrnqynihxqqugr494a1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_163323_406353_54BCA616 
-X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-CacheID: sfid-20260415_163323_551963_1E95AECA 
+X-CRM114-Status: UNSURE (   9.79  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,7 +98,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document ZT trace bus and ZTR trace clock on the R-Mobile A1.
+Implement ZT trace bus and ZTR trace clock on the R-Mobile A1.
 
 Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 ---
@@ -118,41 +114,24 @@ Cc: linux-clk@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org
 Cc: linux-renesas-soc@vger.kernel.org
 ---
-V2: Reorder new clock at the end to match bindings
+V2: No change
 ---
- .../devicetree/bindings/clock/renesas,cpg-clocks.yaml       | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ drivers/clk/renesas/clk-r8a7740.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/renesas,cpg-clocks.yaml b/Documentation/devicetree/bindings/clock/renesas,cpg-clocks.yaml
-index a0e09b7002f07..925ed35d6658a 100644
---- a/Documentation/devicetree/bindings/clock/renesas,cpg-clocks.yaml
-+++ b/Documentation/devicetree/bindings/clock/renesas,cpg-clocks.yaml
-@@ -41,7 +41,7 @@ properties:
- 
-   clock-output-names:
-     minItems: 3
--    maxItems: 17
-+    maxItems: 19
- 
-   renesas,mode:
-     description: Board-specific settings of the MD_CK* bits on R-Mobile A1
-@@ -123,6 +123,8 @@ allOf:
-             - const: zb
-             - const: m3
-             - const: cp
-+            - const: ztr
-+            - const: zt
- 
-       required:
-         - renesas,mode
-@@ -240,6 +242,6 @@ examples:
-             #clock-cells = <1>;
-             clock-output-names = "system", "pllc0", "pllc1", "pllc2", "r",
-                                  "usb24s", "i", "zg", "b", "m1", "hp", "hpp",
--                                 "usbp", "s", "zb", "m3", "cp";
-+                                 "usbp", "s", "zb", "m3", "cp", "ztr", "zt";
-             renesas,mode = <0x05>;
-     };
+diff --git a/drivers/clk/renesas/clk-r8a7740.c b/drivers/clk/renesas/clk-r8a7740.c
+index 635d59ead499e..31a79674583e8 100644
+--- a/drivers/clk/renesas/clk-r8a7740.c
++++ b/drivers/clk/renesas/clk-r8a7740.c
+@@ -37,6 +37,8 @@ static struct div4_clk div4_clks[] = {
+ 	{ "zg", CPG_FRQCRA, 16 },
+ 	{ "b", CPG_FRQCRA,  8 },
+ 	{ "m1", CPG_FRQCRA,  4 },
++	{ "ztr", CPG_FRQCRB,  20 },
++	{ "zt", CPG_FRQCRB,  16 },
+ 	{ "hp", CPG_FRQCRB,  4 },
+ 	{ "hpp", CPG_FRQCRC, 20 },
+ 	{ "usbp", CPG_FRQCRC, 16 },
 -- 
 2.53.0
 
