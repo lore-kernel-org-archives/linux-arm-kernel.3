@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 282F6F41998
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 11:56:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5740F41994
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 11:56:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PXcreO94mAHxUUV+r1v33IxGiQVSrYQ5hhb+6CVEgik=; b=cpCfJjlcL/EjMKYE1YhhFHoScW
-	IpSeeHcpzJ+1Gv4855mkDZYKx0tXXtywwggx0v4OwUwOZvEacprUcmVn9hl24HiTUVocnVpanoKB2
-	Tt1wK+BOVaPRTzQlQU3rtMu6jcq+Y1ZXyRoFzoL6SSn9oWSKFwigwsnDFtIi+2TTFVzgSJf2CGMEz
-	Ql++2JOIgb86YDcHLFc1OIzWpNb6+qQmZzyhSMUdMVJFQCshjb6uuPI0XuH8ifd3rOUhf3Kk6f0+n
-	MeY5CEn1sAahhziuGjQ7sgqWQCdy1gYiF4Bpb4rD/wFXIa17HRrwUcuePV6bCnDwRoP251KJFGEIf
-	GG+h1T8g==;
+	bh=5KR+/TB9Yez6ofhLetKPMHXPveUYI+DWa2bMl6f96E4=; b=fD2cErbFgJJhER7ynVBGzeDlwf
+	s9oi8DlvOp/f65zPeihnkCiDMBaVYL2t2otQJeITMAQNsnpe1PegcbsHBIWIrTE9IHYgt8SRVsq98
+	Ik1y1YEM+KVioQlMXVEceWRs9WZussjW0vq83t0hZQ7uDh+csYF2zV8ST7jGiu3JT5tm1DvqcmW1B
+	hq/kE7iylPnZlWXEPI/Mk4uEC3vPZqU3al/bCycj72rLh3X6NHjF6WEzH6z4ZLMst9wBHyFvAvgWT
+	1ZupIycWmRYpziS31IN/RX/yBTs9M8EumkxwgJ4TQNEvVHaYGw7TF0EFetbyT6aTB4/Bxc9z4eo/V
+	YnkCe56A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCyr4-0000000148a-0BAF;
-	Wed, 15 Apr 2026 11:56:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wCyrI-000000014K0-07KS;
+	Wed, 15 Apr 2026 11:56:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCyr1-0000000145j-177X
+	id 1wCyr2-00000001478-2hic
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 11:56:23 +0000
+	Wed, 15 Apr 2026 11:56:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4393060132;
-	Wed, 15 Apr 2026 11:56:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA65FC2BCB3;
-	Wed, 15 Apr 2026 11:56:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CB35644597;
+	Wed, 15 Apr 2026 11:56:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0545C19424;
+	Wed, 15 Apr 2026 11:56:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776254182;
-	bh=zg/O1lbhHNxnBcNkT9hwR81QOn47rC0ck3ZBFsXd2YM=;
+	s=k20201202; t=1776254183;
+	bh=sB52Lk/iyzOu++m68c6uukcJ6VfiI7VFY+ooUkIlVy0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qbeHPz1g4mEyWA9GwSEgi1uKCEyuCl03GJfmac+kxOxtbAKxcSioOZdB7Ccu4t6ek
-	 C0BmPvy19Ad/P1VtU+hVIERWdM1mEpz4hVF+CJOY+dbPiXZsJ5NIJ8zbhdefbUvqpX
-	 mqCuCoEkiJoGpqkHFCQnJPilgST949w7icwsSTq+WAtn714/1FrmU2KwCCu7T+X/vG
-	 QA0y/eHxOZvnVTok5yDDgiVUL8zfIvXMqDVTTNaLG/8C4b7NtVau0m+4wGr0DDpujq
-	 Y61iXE9N1Eel6sBL+ujl/JpNpHSCMr4vV7/EmqZ8w4GbCSFMCZqC1mAUNvKGzCC0gR
-	 QYby/Yzrtqktw==
+	b=tjf4jJMnkj7a7JG2urSIAUTH8PsG6h9kbh2T1Sl7QR4mhnX1QMNh0D3+9adJm5mKm
+	 +Bjr0hVgxgZ2qS/X9cHF6bXGQF4Jt5HbDDRM+LAJWwfrjNKWKl/FcYwJcdUvjfp6NT
+	 U7gxHgdjWzTuKQmArxwzVrXaxLWkGWtGs85Unig7M3VjMlPBzk3wP9QvkiJaho/TZU
+	 I+cGn+srl99khiJlpbSKMZ+jG1AtY/Bo+Srtkc1Pd3XZjFNlrkOhvsR+/Y6g1KLJQu
+	 arLzNF8gNZoctMj4sYxGgNdwIrh85NPAyVMLDhtviXrB37OTlxx3FdiEa97Evi9qIS
+	 fIyrzHk37xaRA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wCyqy-0000000Bqsi-0at1;
-	Wed, 15 Apr 2026 11:56:20 +0000
+	id 1wCyqz-0000000Bqsi-3z0P;
+	Wed, 15 Apr 2026 11:56:22 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
@@ -56,9 +56,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Sascha Bischoff <sascha.bischoff@arm.com>
-Subject: [PATCH 05/18] KVM: arm64: vgic: Constify struct irq_ops usage
-Date: Wed, 15 Apr 2026 12:55:46 +0100
-Message-ID: <20260415115559.2227718-6-maz@kernel.org>
+Subject: [PATCH 14/18] KVM: arm64: selftests: Improve error handling for GICv5 PPI selftest
+Date: Wed, 15 Apr 2026 12:55:55 +0100
+Message-ID: <20260415115559.2227718-15-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260415115559.2227718-1-maz@kernel.org>
 References: <20260415115559.2227718-1-maz@kernel.org>
@@ -68,6 +68,9 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, sascha.bischoff@arm.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260415_045624_701856_2027D12F 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,136 +85,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-vgic-v5 has introduced much more prevalent usage of the struct
-irq_ops mechanism.
+From: Sascha Bischoff <sascha.bischoff@arm.com>
 
-In the process, it becomes evident that suffers from two related
-problems:
+Cases where the KVM_RUN ioctl returned an error were wrongly reported
+as incorrect ucalls. Furthermore, potential failures when calling
+KVM_IRQ_LINE were being hidden.
 
-- it contains flags, rather than only callbacks
-- it is mutable, because we need to update the above flags
+Improve the error handling to correctly propagate the error in both
+cases.
 
-Swap the flags for a helper retrieving the flags, and make all
-irq_ops const, something that is slightly satisfying.
-
+Fixes: 0a9f38bf612b ("KVM: arm64: selftests: Introduce a minimal GICv5 PPI selftest")
+Link: https://sashiko.dev/#/patchset/20260319154937.3619520-1-sascha.bischoff%40arm.com
+Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/arch_timer.c   | 14 +++++++++-----
- arch/arm64/kvm/vgic/vgic-v5.c |  2 +-
- arch/arm64/kvm/vgic/vgic.c    |  2 +-
- include/kvm/arm_vgic.h        |  9 +++++----
- 4 files changed, 16 insertions(+), 11 deletions(-)
+ tools/testing/selftests/kvm/arm64/vgic_v5.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-index cbea4d9ee9552..f003df76fdda7 100644
---- a/arch/arm64/kvm/arch_timer.c
-+++ b/arch/arm64/kvm/arch_timer.c
-@@ -52,11 +52,17 @@ static u64 kvm_arm_timer_read(struct kvm_vcpu *vcpu,
- 			      enum kvm_arch_timer_regs treg);
- static bool kvm_arch_timer_get_input_level(int vintid);
+diff --git a/tools/testing/selftests/kvm/arm64/vgic_v5.c b/tools/testing/selftests/kvm/arm64/vgic_v5.c
+index 9ddd32c3665bd..49c57ea72eaa9 100644
+--- a/tools/testing/selftests/kvm/arm64/vgic_v5.c
++++ b/tools/testing/selftests/kvm/arm64/vgic_v5.c
+@@ -129,6 +129,8 @@ static void test_vgic_v5_ppis(uint32_t gic_dev_type)
  
--static struct irq_ops arch_timer_irq_ops = {
-+static unsigned long kvm_arch_timer_get_irq_flags(void)
-+{
-+	return kvm_vgic_global_state.no_hw_deactivation ? VGIC_IRQ_SW_RESAMPLE : 0;
-+}
-+
-+static const struct irq_ops arch_timer_irq_ops = {
-+	.get_flags	 = kvm_arch_timer_get_irq_flags,
- 	.get_input_level = kvm_arch_timer_get_input_level,
- };
+ 	while (1) {
+ 		ret = run_vcpu(vcpus[0]);
++		if (ret)
++			break;
  
--static struct irq_ops arch_timer_irq_ops_vgic_v5 = {
-+static const struct irq_ops arch_timer_irq_ops_vgic_v5 = {
- 	.get_input_level = kvm_arch_timer_get_input_level,
- 	.queue_irq_unlock = vgic_v5_ppi_queue_irq_unlock,
- 	.set_direct_injection = vgic_v5_set_ppi_dvi,
-@@ -1392,8 +1398,6 @@ static int kvm_irq_init(struct arch_timer_kvm_info *info)
- 			return -ENOMEM;
- 		}
+ 		switch (get_ucall(vcpus[0], &uc)) {
+ 		case UCALL_SYNC:
+@@ -144,7 +146,7 @@ static void test_vgic_v5_ppis(uint32_t gic_dev_type)
+ 				irq = FIELD_PREP(KVM_ARM_IRQ_NUM_MASK, 3);
+ 				irq |= KVM_ARM_IRQ_TYPE_PPI << KVM_ARM_IRQ_TYPE_SHIFT;
  
--		if (kvm_vgic_global_state.no_hw_deactivation)
--			arch_timer_irq_ops.flags |= VGIC_IRQ_SW_RESAMPLE;
- 		WARN_ON(irq_domain_push_irq(domain, host_vtimer_irq,
- 					    (void *)TIMER_VTIMER));
- 	}
-@@ -1591,8 +1595,8 @@ static bool kvm_arch_timer_get_input_level(int vintid)
- int kvm_timer_enable(struct kvm_vcpu *vcpu)
- {
- 	struct arch_timer_cpu *timer = vcpu_timer(vcpu);
-+	const struct irq_ops *ops;
- 	struct timer_map map;
--	struct irq_ops *ops;
- 	int ret;
- 
- 	if (timer->enabled)
-diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-index 0101ec3f55283..757484d2493b2 100644
---- a/arch/arm64/kvm/vgic/vgic-v5.c
-+++ b/arch/arm64/kvm/vgic/vgic-v5.c
-@@ -285,7 +285,7 @@ void vgic_v5_set_ppi_dvi(struct kvm_vcpu *vcpu, struct vgic_irq *irq, bool dvi)
- 	__assign_bit(ppi, cpu_if->vgic_ppi_dvir, dvi);
- }
- 
--static struct irq_ops vgic_v5_ppi_irq_ops = {
-+static const struct irq_ops vgic_v5_ppi_irq_ops = {
- 	.queue_irq_unlock = vgic_v5_ppi_queue_irq_unlock,
- 	.set_direct_injection = vgic_v5_set_ppi_dvi,
- };
-diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-index 1e9fe8764584d..3ac6d49bc4876 100644
---- a/arch/arm64/kvm/vgic/vgic.c
-+++ b/arch/arm64/kvm/vgic/vgic.c
-@@ -573,7 +573,7 @@ int kvm_vgic_inject_irq(struct kvm *kvm, struct kvm_vcpu *vcpu,
- }
- 
- void kvm_vgic_set_irq_ops(struct kvm_vcpu *vcpu, u32 vintid,
--			  struct irq_ops *ops)
-+			  const struct irq_ops *ops)
- {
- 	struct vgic_irq *irq = vgic_get_vcpu_irq(vcpu, vintid);
- 
-diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-index ea793479ab254..fe49fb56dc3c9 100644
---- a/include/kvm/arm_vgic.h
-+++ b/include/kvm/arm_vgic.h
-@@ -205,7 +205,7 @@ struct vgic_irq;
-  */
- struct irq_ops {
- 	/* Per interrupt flags for special-cased interrupts */
--	unsigned long flags;
-+	unsigned long (*get_flags)(void);
- 
- #define VGIC_IRQ_SW_RESAMPLE	BIT(0)	/* Clear the active state for resampling */
- 
-@@ -271,7 +271,7 @@ struct vgic_irq {
- 	u8 priority;
- 	u8 group;			/* 0 == group 0, 1 == group 1 */
- 
--	struct irq_ops *ops;
-+	const struct irq_ops *ops;
- 
- 	void *owner;			/* Opaque pointer to reserve an interrupt
- 					   for in-kernel devices. */
-@@ -279,7 +279,8 @@ struct vgic_irq {
- 
- static inline bool vgic_irq_needs_resampling(struct vgic_irq *irq)
- {
--	return irq->ops && (irq->ops->flags & VGIC_IRQ_SW_RESAMPLE);
-+	return irq->ops && irq->ops->get_flags &&
-+	       (irq->ops->get_flags() & VGIC_IRQ_SW_RESAMPLE);
- }
- 
- struct vgic_register_region;
-@@ -557,7 +558,7 @@ void kvm_vgic_init_cpu_hardware(void);
- int kvm_vgic_inject_irq(struct kvm *kvm, struct kvm_vcpu *vcpu,
- 			unsigned int intid, bool level, void *owner);
- void kvm_vgic_set_irq_ops(struct kvm_vcpu *vcpu, u32 vintid,
--			  struct irq_ops *ops);
-+			  const struct irq_ops *ops);
- void kvm_vgic_clear_irq_ops(struct kvm_vcpu *vcpu, u32 vintid);
- int kvm_vgic_map_phys_irq(struct kvm_vcpu *vcpu, unsigned int host_irq,
- 			  u32 vintid);
+-				_kvm_irq_line(v.vm, irq, level);
++				kvm_irq_line(v.vm, irq, level);
+ 			} else if (uc.args[1] == GUEST_CMD_IS_AWAKE) {
+ 				pr_info("Guest skipping WFI due to pending IRQ\n");
+ 			} else if (uc.args[1] == GUEST_CMD_IRQ_CDIA) {
 -- 
 2.47.3
 
