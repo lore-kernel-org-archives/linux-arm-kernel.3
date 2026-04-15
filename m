@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FE7BF41996
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86FBDF41997
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 11:56:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,41 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3uZexWDmgXifLSn34IfEanZcpYlzXSPBmMp8RHmHshM=; b=xvV6Ym87oGrQr46fm2Llw9OEJL
-	wvV8QYn55Z5j8BKswu799qBXYxxthZN2sQmyys/+f8fYXjf43uP3vZQwzqBDqBIe7gqZ/UW/PzX4/
-	W/riEBhYgANsFb02q9BzHLDHzFA8FKablnWPAt20MP1+xFPBMbr22yTc/zefxb6vEeT+K9iHs48ud
-	wuN8V4eHofjrn2IyAMjzeJNr4EVq7ACbNQLQwobqXN37SLxMCvouxI5YSCLIjpovCdYA+fygIME+A
-	tMekTnEre77XHOesrwgZuO9zvqr/bYPK850N81gy+E7itzIg/trZ4rQCMhqYAQSzWVJ9/Ew/RByD0
-	BedaUCew==;
+	bh=LsdMoOJmlRlzGp5zQP3AHVoH36EaiJADf+BAwxUcYWM=; b=OcJgflhutOQHxHZ4mRGQDC02+E
+	sRDpZmhu2rypNYJGJV32JDsWt5hKlvMMUnLguGEwR2+ssFqHtqUj9bG4KsIC6DPeuQXLtQguZvh3V
+	3J+KuSt/QIiMtOA5k6VoBRaXMrb+sQYztnnHlQSdOV29yMs+yoWvEdqJZL/e3iddIujhY8uNPVu1X
+	YCJ2nH5fJMWOmWnIl8sWO0ZaPKHev7mtovuAUr542FC9rgTUGxw8+0g1NwPIt5Esf1C/loWh+aO8W
+	CtHE0dOI4gNRF/3yFdDWRxDq12TXBSJVwiXNrjoyYCkNiPB2M3K1ey2RwT6pXxT+m6BntRrxe9bQv
+	NQGtfNhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCyr2-0000000147R-3QSS;
-	Wed, 15 Apr 2026 11:56:24 +0000
+	id 1wCyr3-0000000147x-1g30;
+	Wed, 15 Apr 2026 11:56:25 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCyr0-0000000145i-3mpm
+	id 1wCyr0-0000000145h-3muN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 11:56:22 +0000
+	Wed, 15 Apr 2026 11:56:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E3695600AE;
+	by tor.source.kernel.org (Postfix) with ESMTP id E1BC7600AD;
 	Wed, 15 Apr 2026 11:56:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 997C7C4AF09;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93C6EC2BCB4;
 	Wed, 15 Apr 2026 11:56:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1776254181;
-	bh=5uepsjQHzt2SBVAjdXEaX2voIvkanpfVMA5y+kwwmag=;
+	bh=gazaM+hbBkgurtwj2pSx8TA704AOvxVtNX2zJsNdhdM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=F9Wo106PfKVgUvFy7csC1ipd85bVBtyzUSat0TQLb8XaTTsRUq6FojJ/9oa6cy5K2
-	 tKTqdX0FaaY47SEFlAa7AcUuHjKgPSDjDsfUUXnosfwLEf7sZVuZRkyUHnoSsaIzEi
-	 77P8nrTEyyicVHu6VuyFa6zJIGvgcfnRqyCHURvpELH4JuVj4TvaELnNcyeh6XO8mO
-	 bueM5EMRa2NmX1fXbKjaLl8K9jWBeJZnIUbAk2BFhoZvEBFfTNpF5D+EErH+7gDJVh
-	 WSAOReLgJsLOpqS25bh7BBSVf0xp935gx6sdMdM3n723FO6vI2SJzmEZqUCEAR05jU
-	 AvhC/tANWnesw==
+	b=p5iWYg77aZ6PMS1rx3u7SjXcxb5eA8Zf43sFntvUjAujRBNbLp+j4SJXn6T086m1m
+	 BCsO6uAaC+xssG9p9pL8KF2XDTaREn1MOzmhKIc6tF7NLWFCkopAzWEhS0i4n9rcxy
+	 HN0Zqcmyl8Dl9XpCvn4Ta4N1ghbSDuRcV0Tb9D26QY+4nGWFKjUgaB8sW8r6cC7WrM
+	 kbhe5CP4Y5cnO1KTZOLW4JqAWkP+wkjKPQLYv+bYHUb2WkklOINM5VkrNW9aI35cZl
+	 rI9KpKyF6rygeCoeeTfo3TZHW45ML5uf2TcEfaFjouOjQIwQKQaUqVB8pCUJ8ckc1b
+	 zdulR0ai/LzsA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wCyqx-0000000Bqsi-2NiD;
+	id 1wCyqx-0000000Bqsi-3B7l;
 	Wed, 15 Apr 2026 11:56:19 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -56,9 +56,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Sascha Bischoff <sascha.bischoff@arm.com>
-Subject: [PATCH 02/18] KVM: arm64: vgic-v5: Move PPI caps into kvm_vgic_global_state
-Date: Wed, 15 Apr 2026 12:55:43 +0100
-Message-ID: <20260415115559.2227718-3-maz@kernel.org>
+Subject: [PATCH 03/18] KVM: arm64: vgic-v5: Remove use of __assign_bit() with a constant
+Date: Wed, 15 Apr 2026 12:55:44 +0100
+Message-ID: <20260415115559.2227718-4-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260415115559.2227718-1-maz@kernel.org>
 References: <20260415115559.2227718-1-maz@kernel.org>
@@ -82,59 +82,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Constant vgic properties are usually kept in kvm_vgic_global_state,
-but the vgic-v5 code does its own thing.
+Using __assign_bit() is very useful when the value of the bit is
+not known at compile time. In all other cases, __set_bit() and
+__clear_bit() are the correct tool for the job.
 
-Move the ppi_caps data into the global structure, which has the
-modest additional advantage of making it ro_after_init.
+This also fixes an odd case of using VGIC_V5_NR_PRIVATE_IRQS as
+the bit value...
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic-v5.c |  2 +-
- include/kvm/arm_vgic.h        | 10 +++++-----
- 2 files changed, 6 insertions(+), 6 deletions(-)
+ arch/arm64/kvm/vgic/vgic-v5.c | 16 +++++++---------
+ 1 file changed, 7 insertions(+), 9 deletions(-)
 
 diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-index c0d36658ffe74..7c146fccc9689 100644
+index 7c146fccc9689..4d62b1c31fe8b 100644
 --- a/arch/arm64/kvm/vgic/vgic-v5.c
 +++ b/arch/arm64/kvm/vgic/vgic-v5.c
-@@ -10,7 +10,7 @@
+@@ -25,13 +25,13 @@ static void vgic_v5_get_implemented_ppis(void)
+ 	 * If we have KVM, we have EL2, which means that we have support for the
+ 	 * EL1 and EL2 Physical & Virtual timers.
+ 	 */
+-	__assign_bit(GICV5_ARCH_PPI_CNTHP, ppi_caps.impl_ppi_mask, 1);
+-	__assign_bit(GICV5_ARCH_PPI_CNTV, ppi_caps.impl_ppi_mask, 1);
+-	__assign_bit(GICV5_ARCH_PPI_CNTHV, ppi_caps.impl_ppi_mask, 1);
+-	__assign_bit(GICV5_ARCH_PPI_CNTP, ppi_caps.impl_ppi_mask, 1);
++	__set_bit(GICV5_ARCH_PPI_CNTHP, ppi_caps.impl_ppi_mask);
++	__set_bit(GICV5_ARCH_PPI_CNTV, ppi_caps.impl_ppi_mask);
++	__set_bit(GICV5_ARCH_PPI_CNTHV, ppi_caps.impl_ppi_mask);
++	__set_bit(GICV5_ARCH_PPI_CNTP, ppi_caps.impl_ppi_mask);
  
- #include "vgic.h"
+ 	/* The SW_PPI should be available */
+-	__assign_bit(GICV5_ARCH_PPI_SW_PPI, ppi_caps.impl_ppi_mask, 1);
++	__set_bit(GICV5_ARCH_PPI_SW_PPI, ppi_caps.impl_ppi_mask);
  
--static struct vgic_v5_ppi_caps ppi_caps;
-+#define ppi_caps	kvm_vgic_global_state.vgic_v5_ppi_caps
- 
- /*
-  * Not all PPIs are guaranteed to be implemented for GICv5. Deterermine which
-diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-index 1388dc6028a9a..ea793479ab254 100644
---- a/include/kvm/arm_vgic.h
-+++ b/include/kvm/arm_vgic.h
-@@ -177,6 +177,11 @@ struct vgic_global {
- 	bool			has_gcie_v3_compat;
- 
- 	u32			ich_vtr_el2;
-+
-+	/* GICv5 PPI capabilities */
-+	struct {
-+		DECLARE_BITMAP(impl_ppi_mask, VGIC_V5_NR_PRIVATE_IRQS);
-+	} vgic_v5_ppi_caps;
- };
- 
- extern struct vgic_global kvm_vgic_global_state;
-@@ -492,11 +497,6 @@ struct vgic_v5_cpu_if {
- 	struct gicv5_vpe gicv5_vpe;
- };
- 
--/* What PPI capabilities does a GICv5 host have */
--struct vgic_v5_ppi_caps {
--	DECLARE_BITMAP(impl_ppi_mask, VGIC_V5_NR_PRIVATE_IRQS);
--};
--
- struct vgic_cpu {
- 	/* CPU vif control registers for world switch */
- 	union {
+ 	/* The PMUIRQ is available if we have the PMU */
+ 	__assign_bit(GICV5_ARCH_PPI_PMUIRQ, ppi_caps.impl_ppi_mask, system_supports_pmuv3());
+@@ -146,9 +146,7 @@ int vgic_v5_init(struct kvm *kvm)
+ 	/* We only allow userspace to drive the SW_PPI, if it is implemented. */
+ 	bitmap_zero(kvm->arch.vgic.gicv5_vm.userspace_ppis,
+ 		    VGIC_V5_NR_PRIVATE_IRQS);
+-	__assign_bit(GICV5_ARCH_PPI_SW_PPI,
+-		     kvm->arch.vgic.gicv5_vm.userspace_ppis,
+-		     VGIC_V5_NR_PRIVATE_IRQS);
++	__set_bit(GICV5_ARCH_PPI_SW_PPI, kvm->arch.vgic.gicv5_vm.userspace_ppis);
+ 	bitmap_and(kvm->arch.vgic.gicv5_vm.userspace_ppis,
+ 		   kvm->arch.vgic.gicv5_vm.userspace_ppis,
+ 		   ppi_caps.impl_ppi_mask, VGIC_V5_NR_PRIVATE_IRQS);
+@@ -197,7 +195,7 @@ int vgic_v5_finalize_ppi_state(struct kvm *kvm)
+ 		/* Expose PPIs with an owner or the SW_PPI, only */
+ 		scoped_guard(raw_spinlock_irqsave, &irq->irq_lock) {
+ 			if (irq->owner || i == GICV5_ARCH_PPI_SW_PPI) {
+-				__assign_bit(i, kvm->arch.vgic.gicv5_vm.vgic_ppi_mask, 1);
++				__set_bit(i, kvm->arch.vgic.gicv5_vm.vgic_ppi_mask);
+ 				__assign_bit(i, kvm->arch.vgic.gicv5_vm.vgic_ppi_hmr,
+ 					     irq->config == VGIC_CONFIG_LEVEL);
+ 			}
 -- 
 2.47.3
 
