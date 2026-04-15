@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58153FA0C4B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 08:34:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ED15FA0C4D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 08:39:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BbOGe+x9O0dFDM8dr+Wpp78DumfFMUUqgRITdg5YK8U=; b=v05TMjVd0WvrNYOUhzQo2jzQTZ
-	m0DDprc92rlneTLN/PNII+T/Q2XybC/TgAZTvjBMBHcPKqAeIA8QOFIi5NkaXOPmxBObVF+5DCAlT
-	uUVude23/hVLUNDh31/uLK+0Em1j3k4gi8EuL81gz1z/yusR83rkwLnlyGYYjG87AjNV/ZG2/hhm/
-	xMgRa0DBlPIdEo2VvV9QrUIA5DD3cnxtLJ4MdDxMGLiP5+KpVAbbt5vUpsfOqN0VvF1o1kN+ODJ8i
-	5/A6yoDamLExPx1mU2pUWcDF0zLULOYtBZcy3Xv90wrRGIS5NlZ0hKOT+IG9YnnGCbwJDEGtFOqjT
-	6n5sfGJA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3cMemixGBJmkeykKBj2cnSLyx8/WS2riG0MvAahfo3A=; b=RTGejgCajEMiTekzRB52EahxsI
+	J63SSw8MtInoE30Q3w/qdyTfgrXSdNT/gx+Qikl9CQ9/UFBXxcmEKyqpjQm79suNaGdDlMfgEuwU4
+	+DnMyXQ7fnnG4h7dI09AMowyYDQiuuPZ20YMwDO0l2AvJy0I2YWgvbXTKvkFDyQqyrlP/3+j8oI6p
+	IRdzPRWGKXbxFBl8WudQybYuI4jmwor+HW/J2FsXoo/a+v8AesjA2ApZMdVUOr3J9aOahAfaS3jUi
+	0WXt+t40gJPDkul+wzmmgw5p/Hfho3Ck2Lh2B3Qvlel4iwM7oc/rKc/BA5xS0tQIeTzoM1NsiNFjB
+	ItwW8UcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCvhU-00000000p99-2nZs;
-	Wed, 15 Apr 2026 08:34:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wCvm0-00000000plw-3FDv;
+	Wed, 15 Apr 2026 08:39:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCvhN-00000000p2r-2cJM;
-	Wed, 15 Apr 2026 08:34:16 +0000
+	id 1wCvlz-00000000plq-3WL0
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Apr 2026 08:38:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1AC5944561;
-	Wed, 15 Apr 2026 08:34:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id E32BEC2BCB5;
-	Wed, 15 Apr 2026 08:34:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D30D2600AD;
+	Wed, 15 Apr 2026 08:38:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4090BC19424;
+	Wed, 15 Apr 2026 08:38:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776242052;
-	bh=fZWur14hq9T/aIAxyDvwI0Lw31tiBJM6V0OJBoWBIx8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=kwi0AuSaCPn1XRyWIdvotP2GBYI/K3kA2CVrToT7zoBY/hfZunNyXnFroOrg4g3EE
-	 1pfQE6wQwoitGwiyi6PsjKXDbswS+f4j+QK6O1zQ6hhx9jGdUDufLctbZkYDKzoBFh
-	 jmblxFmw5cK6f33JuaJrEchv1OLDy816qZhNOpGN2+QKogVzPa42WzoHN7+2fLqMEu
-	 DlEjlDbKzc4kUCKbE5iEUu5e+fvpuuJsuZhDG8f88lJDFUYiQborOQzIr3RL8s5HGP
-	 FBXUpP3W32LdCo8TSzThzWWNuANc9r7gxt2if+IMqiPLXgUoYgXigzC6uHQBIwHfaR
-	 //sKfB4vGDUfg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CFB0BFA0C4D;
-	Wed, 15 Apr 2026 08:34:11 +0000 (UTC)
-From: Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>
-Date: Wed, 15 Apr 2026 16:33:42 +0800
-Subject: [PATCH v2 2/4] soc: amlogic: clk-measure: Add A1 and T7 support
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260415-clkmsr_a1_t7-v2-2-02b6314427e6@amlogic.com>
-References: <20260415-clkmsr_a1_t7-v2-0-02b6314427e6@amlogic.com>
-In-Reply-To: <20260415-clkmsr_a1_t7-v2-0-02b6314427e6@amlogic.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Jian Hu <jian.hu@amlogic.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1776242050; l=9977;
- i=jian.hu@amlogic.com; s=20260415; h=from:subject:message-id;
- bh=iHmySUJzmH6tSl1/vquJB2KzHIoQSraR2dHgy/i4xW0=;
- b=aKHQ7kh48QasEkewUpwTaZKGaUezWVnIyVG4JARtiR7q32e0DYk5bLCXAevB7f5v88IZ3Oceu
- XaCHFtLlqUXD3JfaZVBH87bukCO0tKp+/aWQSKkMu0IXoT73g/S5lZk
-X-Developer-Key: i=jian.hu@amlogic.com; a=ed25519;
- pk=zHUE+rNtH9z+Sb8au1/elWknjFQmy5QDVkBoxleuOIA=
-X-Endpoint-Received: by B4 Relay for jian.hu@amlogic.com/20260415 with
- auth_id=735
-X-Original-From: Jian Hu <jian.hu@amlogic.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_013413_742462_AD6C8C83 
-X-CRM114-Status: GOOD (  10.01  )
+	s=k20201202; t=1776242338;
+	bh=1SEENklGY2OEpLaItYKrNdGcJ4xU4gbP37e/QpBWzfk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=p7fLfHtFi3YMBHlYWd1tebG8VosBBbiKoHcNFEiXcU+Vyt4VheF4L9LGfBnUQEJ3V
+	 i25Pp0wS+dR6VFONosKOsK1I+odJ/Jdt7siTVzaJI5OWlcRBMgnWvT+yZ+tsJzLatY
+	 DNxCybQcvCDxoPNmzA9CM5DcDRii7MpxOJBuXulhLaDzl9Evq6sG0TLJNXU5U4GCHV
+	 gbSKye1X2JlHoaEl2jfIRvlh9yMpQeoTUdg9Grnxw1Kzo3AZPR3TvbKQq9YzS1KCfs
+	 adX68oJDh+sye4mWDPu3VyW/u/QRdvCDtdQoV5jrtJlVmDUKLy1A6hB6BLnTAO1/L+
+	 /KAcqfglTHbhg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wCvlw-0000000Bnpd-07Ek;
+	Wed, 15 Apr 2026 08:38:56 +0000
+Date: Wed, 15 Apr 2026 09:38:55 +0100
+Message-ID: <86eckg39eo.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH 1/1] KVM: arm64: nv: Avoid full shadow s2 unmap
+In-Reply-To: <20260411125024.3735989-2-weilin.chang@arm.com>
+References: <20260411125024.3735989-1-weilin.chang@arm.com>
+	<20260411125024.3735989-2-weilin.chang@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: weilin.chang@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,319 +85,464 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jian.hu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jian Hu <jian.hu@amlogic.com>
+On Sat, 11 Apr 2026 13:50:24 +0100,
+Wei-Lin Chang <weilin.chang@arm.com> wrote:
+> 
+> Currently we are forced to fully unmap all shadow stage-2 for a VM when
+> unmapping a page from the canonical stage-2, for example during an MMU
+> notifier call. This is because we are not tracking what canonical IPA
+> are mapped in the shadow stage-2 page tables hence there is no way to
+> know what to unmap.
+> 
+> Create a per kvm_s2_mmu maple tree to track canonical IPA range ->
+> nested IPA range, so that it is possible to partially unmap shadow
+> stage-2 when a canonical IPA range is unmapped. The algorithm is simple
+> and conservative:
+> 
+> At each shadow stage-2 map, insert the nested IPA range into the maple
+> tree, with the canonical IPA range as the key. If the canonical IPA
+> range doesn't overlap with existing ranges in the tree, insert as is,
+> and a reverse mapping for this range is established. But if the
+> canonical IPA range overlaps with any existing ranges in the tree,
+> create a new range that spans all the overlapping ranges including the
+> input range and replace those existing ranges. In the mean time, mark
+> this new spanning canonical IPA range as "polluted" indicating we lost
+> track of the nested IPA ranges that map to this canonical IPA range.
+> 
+> The maple tree's 64 bit entry is enough to store the nested IPA and
+> polluted status (stored as a bit called UNKNOWN_IPA), therefore besides
+> maple tree's internal operation, memory allocation is avoided.
+> 
+> Example:
+> |||| means existing range, ---- means empty range
+> 
+> input:            $$$$$$$$$$$$$$$$$$$$$$$$$$
+> tree:  --||||-----|||||||---------||||||||||-----------
+> 
+> insert spanning range and replace overlapping ones:
+>        --||||-----||||||||||||||||||||||||||-----------
+>                   ^^^^^^^^polluted!^^^^^^^^^
 
-Add support for the A1 and T7 SoC family in amlogic clk measure.
+I think you should stick to a single terminology. It is either
+"polluted", or "unknown IPA". My preference goes to the latter, as the
+former is not very descriptive in this context.
 
-Signed-off-by: Jian Hu <jian.hu@amlogic.com>
----
- drivers/soc/amlogic/meson-clk-measure.c | 272 ++++++++++++++++++++++++++++++++
- 1 file changed, 272 insertions(+)
+> 
+> With the reverse map created, when a canonical IPA range gets unmapped,
+> look into each s2 mmu's maple tree and look for canonical IPA ranges
+> affected, and base on their polluted status:
+> 
+> polluted -> fall back and fully invalidate the current shadow stage-2,
+>             also clear the tree
+> not polluted -> unmap the nested IPA range, and remove the reverse map
+>                 entry
+> 
+> Suggested-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> ---
+>  arch/arm64/include/asm/kvm_host.h   |   4 +
+>  arch/arm64/include/asm/kvm_nested.h |   4 +
+>  arch/arm64/kvm/mmu.c                |  30 ++++--
+>  arch/arm64/kvm/nested.c             | 147 +++++++++++++++++++++++++++-
+>  4 files changed, 177 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 851f6171751c..a97bd461c1e1 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -217,6 +217,10 @@ struct kvm_s2_mmu {
+>  	 */
+>  	bool	nested_stage2_enabled;
+>  
+> +	/* canonical IPA to nested IPA range lookup */
+> +	struct maple_tree nested_revmap_mt;
+> +	bool	nested_revmap_broken;
+> +
 
-diff --git a/drivers/soc/amlogic/meson-clk-measure.c b/drivers/soc/amlogic/meson-clk-measure.c
-index d862e30a244e..8c4f3cc8c8ab 100644
---- a/drivers/soc/amlogic/meson-clk-measure.c
-+++ b/drivers/soc/amlogic/meson-clk-measure.c
-@@ -787,6 +787,258 @@ static const struct meson_msr_id clk_msr_s4[] = {
- 
- };
- 
-+static const struct meson_msr_id clk_msr_a1[] = {
-+	CLK_MSR_ID(0, "tdmout_b_sclk"),
-+	CLK_MSR_ID(1, "tdmout_a_sclk"),
-+	CLK_MSR_ID(2, "tdmin_lb_sclk"),
-+	CLK_MSR_ID(3, "tdmin_b_sclk"),
-+	CLK_MSR_ID(4, "tdmin_a_sclk"),
-+	CLK_MSR_ID(5, "vad"),
-+	CLK_MSR_ID(6, "resamplea"),
-+	CLK_MSR_ID(7, "pdm_sysclk"),
-+	CLK_MSR_ID(8, "pdm_dclk"),
-+	CLK_MSR_ID(9, "locker_out"),
-+	CLK_MSR_ID(10, "locker_in"),
-+	CLK_MSR_ID(11, "spdifin"),
-+	CLK_MSR_ID(12, "tdmin_vad"),
-+	CLK_MSR_ID(13, "au_adc"),
-+	CLK_MSR_ID(14, "au_dac"),
-+	CLK_MSR_ID(16, "spicc_a"),
-+	CLK_MSR_ID(17, "spifc"),
-+	CLK_MSR_ID(18, "sd_emmc_a"),
-+	CLK_MSR_ID(19, "dmcx4"),
-+	CLK_MSR_ID(20, "dmc"),
-+	CLK_MSR_ID(21, "psram"),
-+	CLK_MSR_ID(22, "cecb"),
-+	CLK_MSR_ID(23, "ceca"),
-+	CLK_MSR_ID(24, "ts"),
-+	CLK_MSR_ID(25, "pwm_f"),
-+	CLK_MSR_ID(26, "pwm_e"),
-+	CLK_MSR_ID(27, "pwm_d"),
-+	CLK_MSR_ID(28, "pwm_c"),
-+	CLK_MSR_ID(29, "pwm_b"),
-+	CLK_MSR_ID(30, "pwm_a"),
-+	CLK_MSR_ID(31, "saradc"),
-+	CLK_MSR_ID(32, "usb_bus"),
-+	CLK_MSR_ID(33, "dsp_b"),
-+	CLK_MSR_ID(34, "dsp_a"),
-+	CLK_MSR_ID(35, "axi"),
-+	CLK_MSR_ID(36, "sys"),
-+	CLK_MSR_ID(40, "rng_ring_osc0"),
-+	CLK_MSR_ID(41, "rng_ring_osc1"),
-+	CLK_MSR_ID(42, "rng_ring_osc2"),
-+	CLK_MSR_ID(43, "rng_ring_osc3"),
-+	CLK_MSR_ID(44, "dds_out"),
-+	CLK_MSR_ID(45, "cpu_clk_div16"),
-+	CLK_MSR_ID(46, "gpio_msr"),
-+	CLK_MSR_ID(50, "osc_ring_cpu0"),
-+	CLK_MSR_ID(51, "osc_ring_cpu1"),
-+	CLK_MSR_ID(54, "osc_ring_top0"),
-+	CLK_MSR_ID(55, "osc_ring_top1"),
-+	CLK_MSR_ID(56, "osc_ring_ddr"),
-+	CLK_MSR_ID(57, "osc_ring_dmc"),
-+	CLK_MSR_ID(58, "osc_ring_dspa"),
-+	CLK_MSR_ID(59, "osc_ring_dspb"),
-+	CLK_MSR_ID(60, "osc_ring_rama"),
-+	CLK_MSR_ID(61, "osc_ring_ramb"),
-+};
-+
-+static const struct meson_msr_id clk_msr_t7[] = {
-+	CLK_MSR_ID(0, "sys"),
-+	CLK_MSR_ID(1, "axi"),
-+	CLK_MSR_ID(2, "rtc"),
-+	CLK_MSR_ID(3, "dspa"),
-+	CLK_MSR_ID(4, "dspb"),
-+	CLK_MSR_ID(5, "mali"),
-+	CLK_MSR_ID(6, "sys_cpu_clk_div16"),
-+	CLK_MSR_ID(7, "ceca"),
-+	CLK_MSR_ID(8, "cecb"),
-+	CLK_MSR_ID(10, "fclk_div5"),
-+	CLK_MSR_ID(11, "mpll0"),
-+	CLK_MSR_ID(12, "mpll1"),
-+	CLK_MSR_ID(13, "mpll2"),
-+	CLK_MSR_ID(14, "mpll3"),
-+	CLK_MSR_ID(15, "mpll_50m"),
-+	CLK_MSR_ID(16, "pcie_inp"),
-+	CLK_MSR_ID(17, "pcie_inn"),
-+	CLK_MSR_ID(18, "mpll_test_out"),
-+	CLK_MSR_ID(19, "hifi_pll"),
-+	CLK_MSR_ID(20, "gp0_pll"),
-+	CLK_MSR_ID(21, "gp1_pll"),
-+	CLK_MSR_ID(22, "eth_mppll_50m"),
-+	CLK_MSR_ID(23, "sys_pll_div16"),
-+	CLK_MSR_ID(24, "ddr_dpll_pt"),
-+	CLK_MSR_ID(25, "earcrx_pll"),
-+	CLK_MSR_ID(26, "paie1_clk_inp"),
-+	CLK_MSR_ID(27, "paie1_clk_inn"),
-+	CLK_MSR_ID(28, "amlgdc"),
-+	CLK_MSR_ID(29, "gdc"),
-+	CLK_MSR_ID(30, "mod_eth_phy_ref"),
-+	CLK_MSR_ID(31, "mod_eth_tx"),
-+	CLK_MSR_ID(32, "eth_clk125Mhz"),
-+	CLK_MSR_ID(33, "eth_clk_rmii"),
-+	CLK_MSR_ID(34, "co_clkin_to_mac"),
-+	CLK_MSR_ID(35, "mod_eth_rx_clk_rmii"),
-+	CLK_MSR_ID(36, "co_rx"),
-+	CLK_MSR_ID(37, "co_tx"),
-+	CLK_MSR_ID(38, "eth_phy_rxclk"),
-+	CLK_MSR_ID(39, "eth_phy_plltxclk"),
-+	CLK_MSR_ID(40, "ephy_test"),
-+	CLK_MSR_ID(41, "dsi_b_meas"),
-+	CLK_MSR_ID(42, "hdmirx_apl"),
-+	CLK_MSR_ID(43, "hdmirx_tmds"),
-+	CLK_MSR_ID(44, "hdmirx_cable"),
-+	CLK_MSR_ID(45, "hdmirx_apll_clk_audio"),
-+	CLK_MSR_ID(46, "hdmirx_5m"),
-+	CLK_MSR_ID(47, "hdmirx_2m"),
-+	CLK_MSR_ID(48, "hdmirx_cfg"),
-+	CLK_MSR_ID(49, "hdmirx_hdcp2x_eclk"),
-+	CLK_MSR_ID(50, "vid_pll0_div"),
-+	CLK_MSR_ID(51, "hdmi_vid_pll"),
-+	CLK_MSR_ID(54, "vdac_clk"),
-+	CLK_MSR_ID(55, "vpu_clk_buf"),
-+	CLK_MSR_ID(56, "mod_tcon_clko"),
-+	CLK_MSR_ID(57, "lcd_an_clk_ph2"),
-+	CLK_MSR_ID(58, "lcd_an_clk_ph3"),
-+	CLK_MSR_ID(59, "hdmi_tx_pixel"),
-+	CLK_MSR_ID(60, "vdin_meas"),
-+	CLK_MSR_ID(61, "vpu_clk"),
-+	CLK_MSR_ID(62, "vpu_clkb"),
-+	CLK_MSR_ID(63, "vpu_clkb_tmp"),
-+	CLK_MSR_ID(64, "vpu_clkc"),
-+	CLK_MSR_ID(65, "vid_lock"),
-+	CLK_MSR_ID(66, "vapbclk"),
-+	CLK_MSR_ID(67, "ge2d"),
-+	CLK_MSR_ID(68, "aud_pll"),
-+	CLK_MSR_ID(69, "aud_sck"),
-+	CLK_MSR_ID(70, "dsi_a_meas"),
-+	CLK_MSR_ID(72, "mipi_csi_phy"),
-+	CLK_MSR_ID(73, "mipi_isp"),
-+	CLK_MSR_ID(76, "hdmitx_tmds"),
-+	CLK_MSR_ID(77, "hdmitx_sys"),
-+	CLK_MSR_ID(78, "hdmitx_fe"),
-+	CLK_MSR_ID(80, "hdmitx_prif"),
-+	CLK_MSR_ID(81, "hdmitx_200m"),
-+	CLK_MSR_ID(82, "hdmitx_aud"),
-+	CLK_MSR_ID(83, "hdmitx_pnx"),
-+	CLK_MSR_ID(84, "spicc5"),
-+	CLK_MSR_ID(85, "spicc4"),
-+	CLK_MSR_ID(86, "spicc3"),
-+	CLK_MSR_ID(87, "spicc2"),
-+	CLK_MSR_ID(93, "vdec"),
-+	CLK_MSR_ID(94, "wave521_aclk"),
-+	CLK_MSR_ID(95, "wave521_cclk"),
-+	CLK_MSR_ID(96, "wave521_bclk"),
-+	CLK_MSR_ID(97, "hcodec"),
-+	CLK_MSR_ID(98, "hevcb"),
-+	CLK_MSR_ID(99, "hevcf"),
-+	CLK_MSR_ID(100, "hdmi_aud_pll"),
-+	CLK_MSR_ID(101, "hdmi_acr_ref"),
-+	CLK_MSR_ID(102, "hdmi_meter"),
-+	CLK_MSR_ID(103, "hdmi_vid"),
-+	CLK_MSR_ID(104, "hdmi_aud"),
-+	CLK_MSR_ID(105, "hdmi_dsd"),
-+	CLK_MSR_ID(108, "dsi1_phy"),
-+	CLK_MSR_ID(109, "dsi0_phy"),
-+	CLK_MSR_ID(110, "smartcard"),
-+	CLK_MSR_ID(111, "sar_adc"),
-+	CLK_MSR_ID(113, "sd_emmc_c"),
-+	CLK_MSR_ID(114, "sd_emmc_b"),
-+	CLK_MSR_ID(115, "sd_emmc_a"),
-+	CLK_MSR_ID(116, "gpio_msr"),
-+	CLK_MSR_ID(117, "spicc1"),
-+	CLK_MSR_ID(118, "spicc0"),
-+	CLK_MSR_ID(119, "anakin"),
-+	CLK_MSR_ID(121, "ts_clk(temp sensor)"),
-+	CLK_MSR_ID(122, "ts_a73"),
-+	CLK_MSR_ID(123, "ts_a53"),
-+	CLK_MSR_ID(124, "ts_nna"),
-+	CLK_MSR_ID(130, "audio_vad"),
-+	CLK_MSR_ID(131, "acodec_dac_clk_x128"),
-+	CLK_MSR_ID(132, "audio_locker_in"),
-+	CLK_MSR_ID(133, "audio_locker_out"),
-+	CLK_MSR_ID(134, "audio_tdmout_c_sclk"),
-+	CLK_MSR_ID(135, "audio_tdmout_b_sclk"),
-+	CLK_MSR_ID(136, "audio_tdmout_a_sclk"),
-+	CLK_MSR_ID(137, "audio_tdmin_lb_sclk"),
-+	CLK_MSR_ID(138, "audio_tdmin_c_sclk"),
-+	CLK_MSR_ID(139, "audio_tdmin_b_sclk"),
-+	CLK_MSR_ID(140, "audio_tdmin_a_sclk"),
-+	CLK_MSR_ID(141, "audio_resamplea"),
-+	CLK_MSR_ID(142, "audio_pdm_sysclk"),
-+	CLK_MSR_ID(143, "audio_spdifoutb_mst"),
-+	CLK_MSR_ID(144, "audio_spdifout_mst"),
-+	CLK_MSR_ID(145, "audio_spdifin_mst"),
-+	CLK_MSR_ID(146, "audio_pdm_dclk"),
-+	CLK_MSR_ID(147, "audio_resampleb"),
-+	CLK_MSR_ID(148, "earcrx_pll_dmac"),
-+	CLK_MSR_ID(156, "pwm_ao_h"),
-+	CLK_MSR_ID(157, "pwm_ao_g"),
-+	CLK_MSR_ID(158, "pwm_ao_f"),
-+	CLK_MSR_ID(159, "pwm_ao_e"),
-+	CLK_MSR_ID(160, "pwm_ao_d"),
-+	CLK_MSR_ID(161, "pwm_ao_c"),
-+	CLK_MSR_ID(162, "pwm_ao_b"),
-+	CLK_MSR_ID(163, "pwm_ao_a"),
-+	CLK_MSR_ID(164, "pwm_f"),
-+	CLK_MSR_ID(165, "pwm_e"),
-+	CLK_MSR_ID(166, "pwm_d"),
-+	CLK_MSR_ID(167, "pwm_c"),
-+	CLK_MSR_ID(168, "pwm_b"),
-+	CLK_MSR_ID(169, "pwm_a"),
-+	CLK_MSR_ID(170, "aclkm"),
-+	CLK_MSR_ID(171, "mclk_pll"),
-+	CLK_MSR_ID(172, "a73_sys_pll_div16"),
-+	CLK_MSR_ID(173, "a73_cpu_clk_div16"),
-+	CLK_MSR_ID(176, "rng_ring_0"),
-+	CLK_MSR_ID(177, "rng_ring_1"),
-+	CLK_MSR_ID(178, "rng_ring_2"),
-+	CLK_MSR_ID(179, "rng_ring_3"),
-+	CLK_MSR_ID(180, "am_ring_out0"),
-+	CLK_MSR_ID(181, "am_ring_out1"),
-+	CLK_MSR_ID(182, "am_ring_out2"),
-+	CLK_MSR_ID(183, "am_ring_out3"),
-+	CLK_MSR_ID(184, "am_ring_out4"),
-+	CLK_MSR_ID(185, "am_ring_out5"),
-+	CLK_MSR_ID(186, "am_ring_out6"),
-+	CLK_MSR_ID(187, "am_ring_out7"),
-+	CLK_MSR_ID(188, "am_ring_out8"),
-+	CLK_MSR_ID(189, "am_ring_out9"),
-+	CLK_MSR_ID(190, "am_ring_out10"),
-+	CLK_MSR_ID(191, "am_ring_out11"),
-+	CLK_MSR_ID(192, "am_ring_out12"),
-+	CLK_MSR_ID(193, "am_ring_out13"),
-+	CLK_MSR_ID(194, "am_ring_out14"),
-+	CLK_MSR_ID(195, "am_ring_out15"),
-+	CLK_MSR_ID(196, "am_ring_out16"),
-+	CLK_MSR_ID(197, "am_ring_out17"),
-+	CLK_MSR_ID(198, "am_ring_out18"),
-+	CLK_MSR_ID(199, "am_ring_out19"),
-+	CLK_MSR_ID(200, "mipi_csi_phy0"),
-+	CLK_MSR_ID(201, "mipi_csi_phy1"),
-+	CLK_MSR_ID(202, "mipi_csi_phy2"),
-+	CLK_MSR_ID(203, "mipi_csi_phy3"),
-+	CLK_MSR_ID(204, "vid_pll1_div"),
-+	CLK_MSR_ID(205, "vid_pll2_div"),
-+	CLK_MSR_ID(206, "am_ring_out20"),
-+	CLK_MSR_ID(207, "am_ring_out21"),
-+	CLK_MSR_ID(208, "am_ring_out22"),
-+	CLK_MSR_ID(209, "am_ring_out23"),
-+	CLK_MSR_ID(210, "am_ring_out24"),
-+	CLK_MSR_ID(211, "am_ring_out25"),
-+	CLK_MSR_ID(212, "am_ring_out26"),
-+	CLK_MSR_ID(213, "am_ring_out27"),
-+	CLK_MSR_ID(214, "am_ring_out28"),
-+	CLK_MSR_ID(215, "am_ring_out29"),
-+	CLK_MSR_ID(216, "am_ring_out30"),
-+	CLK_MSR_ID(217, "am_ring_out31"),
-+	CLK_MSR_ID(218, "am_ring_out32"),
-+	CLK_MSR_ID(219, "enc0_if"),
-+	CLK_MSR_ID(220, "enc2"),
-+	CLK_MSR_ID(221, "enc1"),
-+	CLK_MSR_ID(222, "enc0")
-+};
-+
- static int meson_measure_id(struct meson_msr_id *clk_msr_id,
- 			    unsigned int duration)
- {
-@@ -1026,6 +1278,18 @@ static const struct meson_msr_data clk_msr_s4_data = {
- 	.reg = &msr_reg_offset_v2,
- };
- 
-+static const struct meson_msr_data clk_msr_a1_data = {
-+	.msr_table = (void *)clk_msr_a1,
-+	.msr_count = ARRAY_SIZE(clk_msr_a1),
-+	.reg = &msr_reg_offset_v2,
-+};
-+
-+static const struct meson_msr_data clk_msr_t7_data = {
-+	.msr_table = (void *)clk_msr_t7,
-+	.msr_count = ARRAY_SIZE(clk_msr_t7),
-+	.reg = &msr_reg_offset_v2,
-+};
-+
- static const struct of_device_id meson_msr_match_table[] = {
- 	{
- 		.compatible = "amlogic,meson-gx-clk-measure",
-@@ -1059,6 +1323,14 @@ static const struct of_device_id meson_msr_match_table[] = {
- 		.compatible = "amlogic,s4-clk-measure",
- 		.data = &clk_msr_s4_data,
- 	},
-+	{
-+		.compatible = "amlogic,a1-clk-measure",
-+		.data = &clk_msr_a1_data,
-+	},
-+	{
-+		.compatible = "amlogic,t7-clk-measure",
-+		.data = &clk_msr_t7_data,
-+	},
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, meson_msr_match_table);
+Consider moving this boolean next to the other ones so that you don't
+create too many holes in the kvm_s2_mmu structure (use pahole to find out).
+
+But I have some misgivings about the way things are structured
+here. Only NV needs a revmap, yet this is present irrelevant of the
+nature of the VM and bloats the data structure a bit.
+
+My naive approach would have been to only keep a pointer to the
+revmap, and make that pointer NULL when the tree is "broken", and
+freed under RCU if the context isn't the correct one.
+
+This would have multiple benefits: no large-ish structure embedded in
+the s2_mmu structure, no extra boolean to indicate an error condition,
+memory reclaimed earlier.
+
+>  #ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
+>  	struct dentry *shadow_pt_debugfs_dentry;
+>  #endif
+> diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
+> index 091544e6af44..f039220e87a6 100644
+> --- a/arch/arm64/include/asm/kvm_nested.h
+> +++ b/arch/arm64/include/asm/kvm_nested.h
+> @@ -76,6 +76,8 @@ extern void kvm_s2_mmu_iterate_by_vmid(struct kvm *kvm, u16 vmid,
+>  				       const union tlbi_info *info,
+>  				       void (*)(struct kvm_s2_mmu *,
+>  						const union tlbi_info *));
+> +extern void kvm_record_nested_revmap(gpa_t gpa, struct kvm_s2_mmu *mmu,
+> +				    gpa_t fault_gpa, size_t map_size);
+>  extern void kvm_vcpu_load_hw_mmu(struct kvm_vcpu *vcpu);
+>  extern void kvm_vcpu_put_hw_mmu(struct kvm_vcpu *vcpu);
+>  
+> @@ -164,6 +166,8 @@ extern int kvm_s2_handle_perm_fault(struct kvm_vcpu *vcpu,
+>  				    struct kvm_s2_trans *trans);
+>  extern int kvm_inject_s2_fault(struct kvm_vcpu *vcpu, u64 esr_el2);
+>  extern void kvm_nested_s2_wp(struct kvm *kvm);
+> +extern void kvm_unmap_gfn_range_nested(struct kvm *kvm, gpa_t gpa, size_t size,
+> +				       bool may_block);
+>  extern void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block);
+>  extern void kvm_nested_s2_flush(struct kvm *kvm);
+>  
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index d089c107d9b7..4c9b9cf6dc43 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -5,6 +5,7 @@
+>   */
+>  
+>  #include <linux/acpi.h>
+> +#include <linux/maple_tree.h>
+>  #include <linux/mman.h>
+>  #include <linux/kvm_host.h>
+>  #include <linux/io.h>
+> @@ -1099,6 +1100,7 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
+>  {
+>  	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
+>  	struct kvm_pgtable *pgt = NULL;
+> +	struct maple_tree *mt = &mmu->nested_revmap_mt;
+>  
+>  	write_lock(&kvm->mmu_lock);
+>  	pgt = mmu->pgt;
+> @@ -1108,8 +1110,11 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
+>  		free_percpu(mmu->last_vcpu_ran);
+>  	}
+>  
+> -	if (kvm_is_nested_s2_mmu(kvm, mmu))
+> +	if (kvm_is_nested_s2_mmu(kvm, mmu)) {
+> +		if (!mtree_empty(mt))
+> +			mtree_destroy(mt);
+>  		kvm_init_nested_s2_mmu(mmu);
+> +	}
+>  
+>  	write_unlock(&kvm->mmu_lock);
+>  
+> @@ -1631,6 +1636,10 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+>  		goto out_unlock;
+>  	}
+>  
+> +	if (s2fd->nested)
+> +		kvm_record_nested_revmap(gfn << PAGE_SHIFT, pgt->mmu,
+> +					 s2fd->fault_ipa, PAGE_SIZE);
+> +
+>  	ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, s2fd->fault_ipa, PAGE_SIZE,
+>  						 __pfn_to_phys(pfn), prot,
+>  						 memcache, flags);
+> @@ -2031,6 +2040,13 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
+>  		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, gfn_to_gpa(gfn),
+>  								 prot, flags);
+>  	} else {
+> +		if (s2fd->nested) {
+> +			phys_addr_t ipa = gfn_to_gpa(get_canonical_gfn(s2fd, s2vi));
+> +
+> +			ipa &= ~(mapping_size - 1);
+
+I guess it'd be worth adding a helper for this instead of duplicating
+the existing code.
+
+> +			kvm_record_nested_revmap(ipa, pgt->mmu, gfn_to_gpa(gfn),
+> +						 mapping_size);
+
+This worries me a bit, see below.
+
+> +		}
+>  		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, gfn_to_gpa(gfn), mapping_size,
+>  							 __pfn_to_phys(pfn), prot,
+>  							 memcache, flags);
+> @@ -2388,14 +2404,16 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+>  
+>  bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
+>  {
+> +	gpa_t gpa = range->start << PAGE_SHIFT;
+> +	size_t size = (range->end - range->start) << PAGE_SHIFT;
+> +	bool may_block = range->may_block;
+> +
+>  	if (!kvm->arch.mmu.pgt || kvm_vm_is_protected(kvm))
+>  		return false;
+>  
+> -	__unmap_stage2_range(&kvm->arch.mmu, range->start << PAGE_SHIFT,
+> -			     (range->end - range->start) << PAGE_SHIFT,
+> -			     range->may_block);
+> +	__unmap_stage2_range(&kvm->arch.mmu, gpa, size, may_block);
+> +	kvm_unmap_gfn_range_nested(kvm, gpa, size, may_block);
+>  
+> -	kvm_nested_s2_unmap(kvm, range->may_block);
+>  	return false;
+>  }
+>  
+> @@ -2673,7 +2691,7 @@ void kvm_arch_flush_shadow_memslot(struct kvm *kvm,
+>  
+>  	write_lock(&kvm->mmu_lock);
+>  	kvm_stage2_unmap_range(&kvm->arch.mmu, gpa, size, true);
+> -	kvm_nested_s2_unmap(kvm, true);
+> +	kvm_unmap_gfn_range_nested(kvm, gpa, size, true);
+>  	write_unlock(&kvm->mmu_lock);
+>  }
+>  
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index 883b6c1008fb..c9ebe969b453 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -7,6 +7,7 @@
+>  #include <linux/bitfield.h>
+>  #include <linux/kvm.h>
+>  #include <linux/kvm_host.h>
+> +#include <linux/maple_tree.h>
+>  
+>  #include <asm/fixmap.h>
+>  #include <asm/kvm_arm.h>
+> @@ -43,6 +44,19 @@ struct vncr_tlb {
+>   */
+>  #define S2_MMU_PER_VCPU		2
+>  
+> +/*
+> + * Per shadow S2 reverse map (IPA -> nested IPA range) maple tree payload
+> + * layout:
+> + *
+> + * bit 63: valid, 1 for non-polluted entries, prevents the case where the
+> + *         nested IPA is 0 and turns the whole value to 0
+> + * bits 55-12: nested IPA bits 55-12
+> + * bit 0: polluted, 1 for polluted, 0 for not
+> + */
+> +#define VALID_ENTRY		BIT(63)
+> +#define NESTED_IPA_MASK		GENMASK_ULL(55, 12)
+> +#define UNKNOWN_IPA		BIT(0)
+> +
+
+This only works because you are using the "advanced" API, right?
+Otherwise, you'd be losing the high bit. It'd be good to add a comment
+so that people keep that in mind.
+
+>  void kvm_init_nested(struct kvm *kvm)
+>  {
+>  	kvm->arch.nested_mmus = NULL;
+> @@ -769,12 +783,57 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
+>  	return s2_mmu;
+>  }
+>  
+> +void kvm_record_nested_revmap(gpa_t ipa, struct kvm_s2_mmu *mmu,
+> +			      gpa_t fault_ipa, size_t map_size)
+> +{
+> +	struct maple_tree *mt = &mmu->nested_revmap_mt;
+> +	gpa_t start = ipa;
+> +	gpa_t end = ipa + map_size - 1;
+> +	u64 entry, new_entry = 0;
+> +	MA_STATE(mas, mt, start, end);
+> +
+> +	if (mmu->nested_revmap_broken)
+> +		return;
+> +
+> +	mtree_lock(mt);
+> +	entry = (u64)mas_find_range(&mas, end);
+> +
+> +	if (entry) {
+> +		/* maybe just a perm update... */
+> +		if (!(entry & UNKNOWN_IPA) && mas.index == start &&
+> +		    mas.last == end &&
+> +		    fault_ipa == (entry & NESTED_IPA_MASK))
+> +			goto unlock;
+> +		/*
+> +		 * Create a "polluted" range that spans all the overlapping
+> +		 * ranges and store it.
+> +		 */
+> +		while (entry && mas.index <= end) {
+> +			start = min(mas.index, start);
+> +			end = max(mas.last, end);
+> +			entry = (u64)mas_find_range(&mas, end);
+> +		}
+> +		new_entry |= UNKNOWN_IPA;
+> +	} else {
+> +		new_entry |= fault_ipa;
+> +		new_entry |= VALID_ENTRY;
+> +	}
+> +
+> +	mas_set_range(&mas, start, end);
+> +	if (mas_store_gfp(&mas, (void *)new_entry, GFP_NOWAIT | __GFP_ACCOUNT))
+> +		mmu->nested_revmap_broken = true;
+
+Can we try and minimise the risk of allocation failure here?
+
+user_mem_abort() tries very hard to pre-allocate pages for page
+tables by maintaining an memcache. Can we have a similar approach for
+the revmap?
+
+> +unlock:
+> +	mtree_unlock(mt);
+> +}
+> +
+>  void kvm_init_nested_s2_mmu(struct kvm_s2_mmu *mmu)
+>  {
+>  	/* CnP being set denotes an invalid entry */
+>  	mmu->tlb_vttbr = VTTBR_CNP_BIT;
+>  	mmu->nested_stage2_enabled = false;
+>  	atomic_set(&mmu->refcnt, 0);
+> +	mt_init(&mmu->nested_revmap_mt);
+> +	mmu->nested_revmap_broken = false;
+>  }
+>  
+>  void kvm_vcpu_load_hw_mmu(struct kvm_vcpu *vcpu)
+> @@ -1150,6 +1209,90 @@ void kvm_nested_s2_wp(struct kvm *kvm)
+>  	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
+>  }
+>  
+> +static void reset_revmap_and_unmap(struct kvm_s2_mmu *mmu, bool may_block)
+> +{
+> +	mtree_destroy(&mmu->nested_revmap_mt);
+> +	kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
+> +	mmu->nested_revmap_broken = false;
+> +}
+> +
+> +static void unmap_mmu_ipa_range(struct kvm_s2_mmu *mmu, gpa_t gpa,
+> +				  size_t unmap_size, bool may_block)
+> +{
+> +	struct maple_tree *mt = &mmu->nested_revmap_mt;
+> +	gpa_t start = gpa;
+> +	gpa_t end = gpa + unmap_size - 1;
+> +	u64 entry;
+> +	size_t entry_size;
+> +	bool unlock, fallback;
+> +	MA_STATE(mas, mt, gpa, end);
+> +
+> +	if (mmu->nested_revmap_broken) {
+> +		unlock = false;
+> +		fallback = true;
+> +		goto fin;
+> +	}
+
+Using booleans to affect the control flow reads really badly. I'd
+expect this to simply be:
+
+	if (...) {
+		reset_revmap_and_unmap(mmu, may_block);
+		return;
+	}
+
+> +
+> +	mtree_lock(mt);
+> +	entry = (u64)mas_find_range(&mas, end);
+> +
+> +	while (entry && mas.index <= end) {
+> +		start = mas.last + 1;
+> +		entry_size = mas.last - mas.index + 1;
+> +		/*
+> +		 * Give up and invalidate this s2 mmu if the unmap range
+> +		 * touches any polluted range.
+> +		 */
+> +		if (entry & UNKNOWN_IPA) {
+> +			unlock = true;
+> +			fallback = true;
+> +			goto fin;
+> +		}
+
+and this to be:
+
+		if (entry & UNKNOWN_IPA) {
+			mtree_unlock(mt);
+			reset_revmap_and_unmap(mmu, may_block);
+			return;
+		}
+
+> +
+> +		/*
+> +		 * Ignore result, it is okay if a reverse mapping erase
+> +		 * fails.
+> +		 */
+> +		mas_store_gfp(&mas, NULL, GFP_NOWAIT | __GFP_ACCOUNT);
+> +
+> +		mtree_unlock(mt);
+> +		kvm_stage2_unmap_range(mmu, entry & NESTED_IPA_MASK, entry_size,
+> +				       may_block);
+> +		mtree_lock(mt);
+> +		/*
+> +		 * Other maple tree operations during preemption could render
+> +		 * this ma_state invalid, so reset it.
+> +		 */
+> +		mas_set_range(&mas, start, end);
+> +		entry = (u64)mas_find_range(&mas, end);
+> +	}
+> +	unlock = true;
+> +	fallback = false;
+> +
+> +fin:
+> +	if (unlock)
+> +		mtree_unlock(mt);
+> +	if (fallback)
+> +		reset_revmap_and_unmap(mmu, may_block);
+
+and this can eventually be greatly simplified.
+
+> +}
+> +
+> +void kvm_unmap_gfn_range_nested(struct kvm *kvm, gpa_t gpa, size_t size,
+> +				bool may_block)
+> +{
+> +	int i;
+> +
+> +	if (!kvm->arch.nested_mmus_size)
+> +		return;
+> +
+> +	/* TODO: accelerate this using mt of canonical s2 mmu */
+> +	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> +		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> +
+> +		if (kvm_s2_mmu_valid(mmu))
+> +			unmap_mmu_ipa_range(mmu, gpa, size, may_block);
+> +	}
+> +}
+> +
+>  void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
+>  {
+>  	int i;
+> @@ -1163,7 +1306,7 @@ void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
+>  		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+>  
+>  		if (kvm_s2_mmu_valid(mmu))
+> -			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
+> +			reset_revmap_and_unmap(mmu, may_block);
+>  	}
+>  
+>  	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
+> @@ -1848,7 +1991,7 @@ void check_nested_vcpu_requests(struct kvm_vcpu *vcpu)
+>  
+>  		write_lock(&vcpu->kvm->mmu_lock);
+>  		if (mmu->pending_unmap) {
+> -			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), true);
+> +			reset_revmap_and_unmap(mmu, true);
+>  			mmu->pending_unmap = false;
+>  		}
+>  		write_unlock(&vcpu->kvm->mmu_lock);
+
+My other concern here is related to TLB invalidation. As the guest
+performs TLB invalidations that remove entries from the shadow S2,
+there is no way to update the revmap to account for this.
+
+This obviously means that the revmap becomes more and more inaccurate
+over time, and that is likely to accumulate conflicting entries.
+
+What is the plan to improve the situation on this front?
+
+Thanks,
+
+	M.
 
 -- 
-2.47.1
-
-
+Without deviation from the norm, progress is not possible.
 
