@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F0A4F433C6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 21:49:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B0E7F433CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 22:01:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+rXk/xHxt80bks6Xds5L48JVOXFrKrawqRWPPp/eMT0=; b=YPq8PMXgpdGHsfzAGF1rkp4uct
-	WdO/tC3s+rqG9SIxI00hzB89HMRE4emsYnv6BQ7G1oyd2vIMgpzgIXJxLofyfMwNHVoxQ76fx0PUu
-	kBatITSD3vMqjeJwzfwOX5cYx2iyh3e8FtIiHdV0Fm4Zii6GWxd59QB8/Hc2mPYKYCj4XB+zrxaIz
-	3nhFZsR+fB2gvhk+DBJFSeWHVR11MksFcJ0h3dSuSeRl3icEzV3nlPrYvnpOxkiam0pF0tvWLUACe
-	x01Uh7XWPt3PtdZiNjvk6RrKcb2Q5QgQgWU6J4ien+VZVhGIyeJRWT1p2s1dtjVcuXP/rIzt3PKGN
-	/xk1R7MA==;
+	bh=zKnCtQY8K829WOgvYcD2s//rkc4nVa+9t32e0iwibWs=; b=Ax8GL0i/C9bI0wBbn06xBVkwB0
+	4+kvz/wGw+LdBZaGVLA0nhdVU7V2GXozsdB8NRwTl+oKTKq89Q7GEpvYoprv0p1Q/iyd4Jy5DOPjv
+	DhEWAsTF0J1uC96xCip/A0UOAccqfnI3V/bk6KjRbHsN2wLQqBOaLCW/EQbnKZbm+sRkCCq1rL4ju
+	q8p4tgq+LIBCNJyQEApXvSgngNBJnSg9BoE+kpCkaccq7LTnK/tCUhvtGGf0+fjhTWGYfh6gunVUJ
+	SSMoVK4UVvV4GBJqQJIM2ODfFo2Rcv3NP5+JDYN+iB/8j4O9bDDlL0ZRlArbYcfNdUAcwLx3OAirN
+	zrdNz/UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD86i-00000001eJb-3ehq;
-	Wed, 15 Apr 2026 21:49:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wD8IQ-00000001evx-18t3;
+	Wed, 15 Apr 2026 22:01:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD86O-00000001eFA-2HHe;
-	Wed, 15 Apr 2026 21:48:52 +0000
+	id 1wD8IO-00000001evq-3yzc
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Apr 2026 22:01:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9D09860120;
-	Wed, 15 Apr 2026 21:48:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C3B8C19424;
-	Wed, 15 Apr 2026 21:48:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 017EE60123;
+	Wed, 15 Apr 2026 22:01:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC416C2BCB3;
+	Wed, 15 Apr 2026 22:01:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776289731;
-	bh=NLKcyyFr09VfsA7f5Fgt//lj0YJ6MLZ+i+19K50/J90=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YwyBfLlfJ0kL3e9UtxJpUnZP8uF1e529T0PSfMqewkeQ9fOdWP0F9946nle9/BkWA
-	 7NraekXB7ieQ+xv9P6Qa7DzHF+BxcS4O64ouUiUU4oCWBqoXe4y51S7uJH6DOJXrQT
-	 m7vxx68YhHc7aNyqQrqWk1JN+TJHkhzMrAsa3wGeqEv/Vy8M40aIVO1oKQbyQ7+Auc
-	 OoVY4woMWj7Wqd/vci3UMHsj+dJcZCmyexTjE1El+Sst6Wff1fEPhe1cI6vNWn38m1
-	 QzCbSjJcEfiKPSvP8RFGfDT3+q/DewAX8gwY9LWz74J01pCjRUNeTYJj9lK53XGGOw
-	 gFpRAfdKW2mnw==
-Date: Wed, 15 Apr 2026 16:48:49 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Ronald Claveau <linux-kernel-dev@aliel.fr>
-Cc: Jerome Brunet <jbrunet@baylibre.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	linux-i2c@vger.kernel.org, Kevin Hilman <khilman@baylibre.com>,
-	linux-pm@vger.kernel.org, Lukasz Luba <lukasz.luba@arm.com>,
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Zhang Rui <rui.zhang@intel.com>, Lee Jones <lee@kernel.org>,
-	devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Beniamino Galvani <b.galvani@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	"Rafael J. Wysocki" <rafael@kernel.org>
-Subject: Re: [PATCH v2 2/8] dt-bindings: i2c: amlogic: Add compatible for T7
- SOC
-Message-ID: <177628972872.698571.2241475535349345609.robh@kernel.org>
-References: <20260403-add-mcu-fan-khadas-vim4-v2-0-70536b22439a@aliel.fr>
- <20260403-add-mcu-fan-khadas-vim4-v2-2-70536b22439a@aliel.fr>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260403-add-mcu-fan-khadas-vim4-v2-2-70536b22439a@aliel.fr>
+	s=k20201202; t=1776290475;
+	bh=Cvv7WMMiVOX5VAT00vi45hE1b91zrk1QdOSZLpJBYvQ=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=hOMc+B1Q896nnOl46V6R2Mi4zZ64HgnTC1WnopyYt7QNb90Gi0Owruf6fQR8mQYwJ
+	 9idLR6RHx+x9yyi/1+rpKpI//fyrBMfdhyqtZXfMK6iKxDngKYWWAubiUGFABteqFi
+	 7CdMAK7NvgIcdFQ60XxU/Oh2wRgVkLUu7kRTcf/E67SB4dlIrfHKqbFyM7izViSmKq
+	 JEt3WpLjqeUaB5mwFjVQg6KXdm2D6F1J5XJonZy0knJUlzz/NlGMwusY2DYSrMRQKN
+	 51lqAQf+qjIp5YJhJTMYee03sonXq6CmlOb625x5Xojz6XHEX7Wqp2uoEvXeXrYrK7
+	 5k1rsNt55cldg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3B526380A964;
+	Wed, 15 Apr 2026 22:00:46 +0000 (UTC)
+Subject: Re: [GIT PULL] pmdomain updates for v7.1
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <20260414103826.161076-1-ulf.hansson@linaro.org>
+References: <20260414103826.161076-1-ulf.hansson@linaro.org>
+X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
+X-PR-Tracked-Message-Id: <20260414103826.161076-1-ulf.hansson@linaro.org>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v7.1
+X-PR-Tracked-Commit-Id: 596ca99cf04f339db2ed18a5bb230ee11a47b699
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: e41a25c53f96abe40edc5db1626d37a518852d84
+Message-Id: <177629044491.2457809.14724201696656005362.pr-tracker-bot@kernel.org>
+Date: Wed, 15 Apr 2026 22:00:44 +0000
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Linus <torvalds@linux-foundation.org>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>, linux-arm-kernel@lists.infradead.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,16 +74,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The pull request you sent on Tue, 14 Apr 2026 12:38:21 +0200:
 
-On Fri, 03 Apr 2026 18:08:35 +0200, Ronald Claveau wrote:
-> Add the T7 SOC compatible which fallback to AXG compatible.
-> 
-> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
-> ---
->  .../devicetree/bindings/i2c/amlogic,meson6-i2c.yaml         | 13 +++++++++----
->  1 file changed, 9 insertions(+), 4 deletions(-)
-> 
+> git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v7.1
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/e41a25c53f96abe40edc5db1626d37a518852d84
 
+Thank you!
+
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
