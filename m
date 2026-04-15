@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BE9AF4385A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 16:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70C52F43858
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 16:47:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k4JpYVcMpH8gy//+nGqFzD3fN96UK9Ogg3354aXrQrQ=; b=edtjKacDlhrkiF6vbrPOoXLOxG
-	I/j18L3mywZmK7NL5PBBoOo382/MVK6R1+w1MBBWXeNf5m0ks7B1EtTLFbnY6URm08thC6+24irtk
-	E6A9mwmMMIzZ8NeGwDfXUHpGKc/nZmZ+NVQXvA0ofqQGuGmc5bBBfL96y9kVB9DB/VFNke6TGK+ob
-	Ws6Vkiovr3AETHEAN5u5lJeqelokkpfqazH4oW5jy+bWDsDt3sRZQFnbhEnWCb7KirgRfXTPRJHg1
-	uxUYthbWLldIClJCBlBNEVtXbrelEQV0xZPxcVzKkJcf/f1nf5U/wIakc1Csb1HREKPyBHzWH71NF
-	eCDTjoGw==;
+	bh=5JOeBNkxu4emZ1xR2H2OG6CLtF/UNlFtnq0p1aEYiSE=; b=yq2gEkpU3GYXrXakjgfJYPv9mE
+	ntvjfXndXGgplAIvRf6O/mYvAle7qMrV4PscPVhgGGMP2LMbbxEcZhTHV5oH7KzG7sJZVyS0Vp/b3
+	U+8Mf5+qnFfnr15DN+sxnTsywBNxRCGFWS2uEbwC7t+ZbBElE6YQV4T76AqicG1mrFkYZVRhOzJOu
+	AM9Eds9fnqeKiGZUXghW1e9u5MFs8rgA0kjU0a4ov2meSan8jep5dnTAHTIAp3AQLbrPdy+ylmvbY
+	ps8wJfSAsztS/6TmzGSD990/nROOHsh/bnGCYBor3/LQ4fOllz69rfkgDT+YqyX4ma2CFAKb8FjNW
+	cvTLQoWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD3P1-00000001OYK-2V7b;
-	Wed, 15 Apr 2026 16:47:47 +0000
+	id 1wD3P3-00000001Oaq-1SCk;
+	Wed, 15 Apr 2026 16:47:49 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD3Os-00000001ORB-2SA5
+	id 1wD3Ox-00000001ORb-0wmy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 16:47:40 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fwn9K6MNPzJ46DM;
-	Thu, 16 Apr 2026 00:46:45 +0800 (CST)
+	Wed, 15 Apr 2026 16:47:45 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.107])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fwn9v082YzHnGjb;
+	Thu, 16 Apr 2026 00:47:15 +0800 (CST)
 Received: from mscpeml500003.china.huawei.com (unknown [7.188.49.51])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4733E40569;
-	Thu, 16 Apr 2026 00:47:29 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 6482A40584;
+	Thu, 16 Apr 2026 00:47:31 +0800 (CST)
 Received: from localhost.localdomain (10.123.66.205) by
  mscpeml500003.china.huawei.com (7.188.49.51) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 15 Apr 2026 19:47:28 +0300
+ 15.2.1544.11; Wed, 15 Apr 2026 19:47:30 +0300
 From: Fedorov Nikita <fedorov.nikita@h-partners.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
 	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav
@@ -59,9 +59,9 @@ CC: Nikita Fedorov <fedorov.nikita@h-partners.com>,
 	<linux-mm@kvack.org>, <guohanjun@huawei.com>, <wangkefeng.wang@huawei.com>,
 	<weiyongjun1@huawei.com>, <yusongping@huawei.com>, <leijitang@huawei.com>,
 	<artem.kuzin@huawei.com>, <kang.sun@huawei.com>, <chenjieping3@huawei.com>
-Subject: [RFC PATCH v3 3/7] hq-spinlock: add contention detection
-Date: Thu, 16 Apr 2026 00:44:55 +0800
-Message-ID: <20260415164459.2904963-4-fedorov.nikita@h-partners.com>
+Subject: [RFC PATCH v3 7/7] futex: use hq-spinlock for hash buckets
+Date: Thu, 16 Apr 2026 00:44:59 +0800
+Message-ID: <20260415164459.2904963-8-fedorov.nikita@h-partners.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260415164459.2904963-1-fedorov.nikita@h-partners.com>
 References: <20260415164459.2904963-1-fedorov.nikita@h-partners.com>
@@ -72,8 +72,8 @@ X-Originating-IP: [10.123.66.205]
 X-ClientProxiedBy: mscpeml500003.china.huawei.com (7.188.49.51) To
  mscpeml500003.china.huawei.com (7.188.49.51)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_094739_454753_F0151BF1 
-X-CRM114-Status: GOOD (  18.57  )
+X-CRM114-CacheID: sfid-20260415_094743_488787_03466712 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,182 +88,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The hierarchical slowpath is needed for locks that experience
-sustained cross-node contention. Enabling it unconditionally is
-undesirable for lightly contended locks and may decrease the performance.
+Example of hq-spinlock enabled for futex hash-table bucket locks
+(used in memcached testing scenario)
 
-Add a simple contention detection scheme that tracks remote handoffs
-separately from overall handoff activity and enables HQ mode only when
-the observed handoff pattern indicates that cross-node contention is
-high enough to benefit from NUMA-aware queueing.
-
-HQ lock type can be turned on if remote_handoffs exceeds `hqlock_remote_handoffs_turn_numa`.
-Lock can be turned back into QSPINLOCK mode if in HQ mode
-amount of remote handoffs will not exceed `hqlock_remote_handoffs_keep_numa`.
-
-Remote handoffs counter will increase only if the amount of local handoffs after previous increase
-is not less than `hqlock_local_handoffs_to_increase_remotes`.
-
-Additional locktorture reruns showed no degradation
-in low-contention configurations after adding contention-based switching
-while maintaining practically the same performance improvement in high contention cases.
+In the evaluated memcached workloads, this improved throughput by up to
+10% on AMD EPYC 9654 and by up to 8% on Kunpeng 920, with corresponding
+latency reductions.
 
 Co-developed-by: Anatoly Stepanov <stepanov.anatoly@huawei.com>
 Signed-off-by: Anatoly Stepanov <stepanov.anatoly@huawei.com>
 Co-developed-by: Nikita Fedorov <fedorov.nikita@h-partners.com>
 Signed-off-by: Nikita Fedorov <fedorov.nikita@h-partners.com>
 ---
- kernel/locking/hqlock_core.h  | 57 +++++++++++++++++++++++++++++++++--
- kernel/locking/hqlock_meta.h  |  4 +++
- kernel/locking/hqlock_types.h |  8 +++--
- 3 files changed, 65 insertions(+), 4 deletions(-)
+ kernel/futex/core.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/kernel/locking/hqlock_core.h b/kernel/locking/hqlock_core.h
-index 7322199228..e2ba09d758 100644
---- a/kernel/locking/hqlock_core.h
-+++ b/kernel/locking/hqlock_core.h
-@@ -450,6 +450,23 @@ static inline void hqlock_handoff(struct qspinlock *lock,
- 					 struct mcs_spinlock *next, u32 tail,
- 					 int handoff_info);
- 
-+/*
-+ * In low_contention_mcs_lock_handoff we wanted to help processor optimise writes
-+ * and avoid extra reading of our cpu cacheline (read our qnode->numa_node),
-+ * so previous contender has saved his numa node in our prev_numa_node,
-+ * and now we need to update remote_handoffs counter by ourself
-+ */
-+static __always_inline void update_counters_qspinlock(struct numa_qnode *qnode)
-+{
-+	if (qnode->numa_node != qnode->prev_numa_node) {
-+		if ((qnode->general_handoffs - qnode->prev_general_handoffs)
-+		    > hqlock_local_handoffs_to_increase_remotes) {
-+			qnode->remote_handoffs++;
-+		}
-+
-+		qnode->prev_general_handoffs = qnode->general_handoffs;
-+	}
-+}
- 
- /*
-  * Chech if contention has risen and if we need to set NUMA-aware mode
-@@ -458,8 +475,13 @@ static __always_inline bool determine_contention_qspinlock_mode(struct mcs_spinl
- {
- 	struct numa_qnode *qnode = (void *)node;
- 
--	if (qnode->general_handoffs > READ_ONCE(hqlock_general_handoffs_turn_numa))
-+	unsigned long general_handoffs = (unsigned long) qnode->general_handoffs;
-+	unsigned long remote_handoffs = (unsigned long) qnode->remote_handoffs;
-+
-+	if ((general_handoffs > hqlock_general_handoffs_turn_numa) &&
-+		(remote_handoffs > hqlock_remote_handoffs_turn_numa))
- 		return true;
-+
- 	return false;
+diff --git a/kernel/futex/core.c b/kernel/futex/core.c
+index 31e83a0978..042cdc7f75 100644
+--- a/kernel/futex/core.c
++++ b/kernel/futex/core.c
+@@ -1521,7 +1521,7 @@ static void futex_hash_bucket_init(struct futex_hash_bucket *fhb,
+ #endif
+ 	atomic_set(&fhb->waiters, 0);
+ 	plist_head_init(&fhb->chain);
+-	spin_lock_init(&fhb->lock);
++	spin_lock_init_hq(&fhb->lock);
  }
  
-@@ -485,7 +507,14 @@ static __always_inline bool low_contention_try_clear_tail(struct qspinlock *lock
- 	else
- 		update_val |= _Q_LOCK_INVALID_TAIL;
- 
--	return atomic_try_cmpxchg_relaxed(&lock->val, &val, update_val);
-+	bool ret = atomic_try_cmpxchg_relaxed(&lock->val, &val, update_val);
-+
-+#ifdef CONFIG_HQSPINLOCKS_DEBUG
-+	if (ret && high_contention)
-+		atomic_inc(&transitions_from_qspinlock_to_hq);
-+#endif
-+
-+	return ret;
- }
- 
- static __always_inline void low_contention_mcs_lock_handoff(struct mcs_spinlock *node,
-@@ -502,6 +531,17 @@ static __always_inline void low_contention_mcs_lock_handoff(struct mcs_spinlock
- 		general_handoffs++;
- 
- 	qnext->general_handoffs = general_handoffs;
-+	qnext->remote_handoffs = qnode->remote_handoffs;
-+	qnext->prev_general_handoffs = qnode->prev_general_handoffs;
-+
-+	/*
-+	 * Show next contender our numa node and assume
-+	 * he will update remote_handoffs counter in update_counters_qspinlock by himself
-+	 * instead of reading his numa_node and updating remote_handoffs here
-+	 * to avoid extra cacheline transferring and help processor optimise several writes here
-+	 */
-+	qnext->prev_numa_node = qnode->numa_node;
-+
- 	arch_mcs_spin_unlock_contended(&next->locked);
- }
- 
-@@ -557,6 +597,10 @@ static inline void hqlock_init_node(struct mcs_spinlock *node)
- 	qnode->numa_node = numa_node_id() + 1;
- 	qnode->lock_id = 0;
- 	qnode->wrong_fallback_tail = 0;
-+
-+	qnode->remote_handoffs = 0;
-+	qnode->prev_numa_node = 0;
-+	qnode->prev_general_handoffs = 0;
- }
- 
- static inline void reset_handoff_counter(struct numa_qnode *qnode)
-@@ -580,6 +624,8 @@ static inline void handoff_local(struct mcs_spinlock *node,
- 
- 	qnext->general_handoffs = general_handoffs;
- 
-+	qnext->remote_handoffs = qnode->remote_handoffs;
-+
- 	u16 wrong_fallback_tail = qnode->wrong_fallback_tail;
- 
- 	if (wrong_fallback_tail != 0 && wrong_fallback_tail != (tail >> _Q_TAIL_OFFSET)) {
-@@ -641,6 +687,13 @@ static inline void handoff_remote(struct qspinlock *lock,
- 
- 	mcs_head = (void *) qhead;
- 
-+	u16 remote_handoffs = qnode->remote_handoffs;
-+
-+	if (qnode->general_handoffs > hqlock_local_handoffs_to_increase_remotes)
-+		remote_handoffs++;
-+
-+	qhead->remote_handoffs = remote_handoffs;
-+
- 	/* arch_mcs_spin_unlock_contended implies smp-barrier */
- 	arch_mcs_spin_unlock_contended(&mcs_head->locked);
- }
-diff --git a/kernel/locking/hqlock_meta.h b/kernel/locking/hqlock_meta.h
-index 5b54801326..561d5a5fd0 100644
---- a/kernel/locking/hqlock_meta.h
-+++ b/kernel/locking/hqlock_meta.h
-@@ -307,6 +307,10 @@ static inline void release_lock_meta(struct qspinlock *lock,
- 			goto do_rollback;
- 	}
- 
-+	if (qnode->remote_handoffs < hqlock_remote_handoffs_keep_numa) {
-+		upd_val |= _Q_LOCK_MODE_QSPINLOCK_VAL;
-+	}
-+
- 	/*
- 	 * We need wait until pending is gone.
- 	 * Otherwise, clearing pending can erase a mode we will set here
-diff --git a/kernel/locking/hqlock_types.h b/kernel/locking/hqlock_types.h
-index 32d06f2755..40061f11a1 100644
---- a/kernel/locking/hqlock_types.h
-+++ b/kernel/locking/hqlock_types.h
-@@ -37,9 +37,13 @@ struct numa_qnode {
- 
- 	u16 lock_id;
- 	u16 wrong_fallback_tail;
--	u16 general_handoffs;
--
- 	u16 numa_node;
-+
-+
-+	u16 general_handoffs;
-+	u16 remote_handoffs;
-+	u16 prev_general_handoffs;
-+	u16 prev_numa_node;
- };
- 
- struct numa_queue {
+ #define FH_CUSTOM	0x01
 -- 
 2.34.1
 
