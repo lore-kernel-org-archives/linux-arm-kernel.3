@@ -4,106 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24F6BF9D0FB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Apr 2026 23:10:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0569FF9D0F6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 00:02:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H7rPI74gfbA2XtefUw19IA/YOEdNbS/Pn3yAdirOPcI=; b=SbvW9ll1+i3GmB5pIBdKz/uigb
-	UPqm3MgVVjNqAtD8EsLyOUTPgN3/loebiUe5dPjyIQdWNayUxAu3fDIoROwidj9gKe3Jce5Loj+QP
-	EitudmUk8LztSHOWfEKZZK7lLQ7WFp/uMHq8sMCtXTLwhKTbFs1Ti5b/Ld7ZFsGedM1NAQsUoS5wz
-	vu1i74fOgOhQnIhTVkeHAYCLqsmhzQXSXDpcpBbNGn4TNE57sHJ+85Lej60pZXGOACv1qbMR0CRu9
-	+L5TMBtAitYOcyvrrdzwOG9r6qa/5hnlbIU0LGRrBtW60MyhuHsNIoKRcdpyZdz9N6bc9VjC/gSww
-	A0o7/Jwg==;
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hgQGxFoxLDltZ1JPw5sDwkv0KcQRI/z1RDM6bOge0Nk=; b=pYuq2H1gx207rpHM5etRrM+pKO
+	OrO16IwQyzqFW90r2/e8vZmDqAOv8IE8Id8TFplNiKq9b08XOYcp4yH3CMpV22CsU9pDAXX9a3THe
+	PfFH7qCSFEr+LngxKdUyhCjw4ohdRN1rqpqyEYNI1OhAhAj/x6fQ27/ju04Lmndn5Yw+wc3g8sDKN
+	VHhyif0UZ6Vb2CpXrhiLP5AMKRjdheZQ9B5haXjl7Zpo72iMVvzDuLgHSapUsS4l8mtilylw5ZUno
+	Fu78Qpfvv8225NukDhaQ5e/H9oStwXJ+OUoxOhsVZDYWDNGdd7dd0eWJmbZ1s1GeajLBGV0HOeRmr
+	7L/kEB7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCmtP-00000000JnM-0rGT;
-	Tue, 14 Apr 2026 23:10:03 +0000
+	id 1wCnhx-00000000Ly0-1SDM;
+	Wed, 15 Apr 2026 00:02:17 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCmtM-00000000JmR-1iPt
+	id 1wCnhu-00000000Lxe-0BiQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Apr 2026 23:10:01 +0000
+	Wed, 15 Apr 2026 00:02:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1776208199;
+	s=mimecast20190719; t=1776211331;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=H7rPI74gfbA2XtefUw19IA/YOEdNbS/Pn3yAdirOPcI=;
-	b=dLXgfYtA130ogV3m0GxXP/LZbGH4/K7UsSZYR12dBCwXOUuaG1n3nWvqE3Fje2kNd/O/vj
-	gOAqzQuIEJYviPvYqc0oUMcvzoMA36RMjOJ6EiIq2Eu/kNAdzW4Q8kVt2kL3nflb+04cLk
-	hXvRxsG+dfXdDKoCwnB8nZ2OptXqxSA=
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com
- [209.85.214.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-608-QttvR6uVOiyfEZQq5HQpQw-1; Tue, 14 Apr 2026 19:09:58 -0400
-X-MC-Unique: QttvR6uVOiyfEZQq5HQpQw-1
-X-Mimecast-MFC-AGG-ID: QttvR6uVOiyfEZQq5HQpQw_1776208197
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2b24611696eso45145045ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 16:09:57 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776208197; x=1776812997;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=H7rPI74gfbA2XtefUw19IA/YOEdNbS/Pn3yAdirOPcI=;
-        b=PorJQrZP8lZHt9ZaitjMIjJhqRBOkSdD95Qlpyy+nQG0/Nptv5TARyetOzHFlsk6YN
-         p7puoHZatyV5u3JU21l+ZpeFJNHfqGjlGC0Yh3KQNx0tNbiH+sLraQJg11E74vvF356k
-         ADPf37cnZzMAS5hmNHK3ZUdKZjTERpObLXoB/iwTK8fcdGdZ8Y1pxiV3M4VGB3M5kqWv
-         pMfmpJ2PTYwucvp7kwvgHKD+n1GkJA0+WOpSHLCve4smV2PgTrtdP3F+dK0jYRH3FqC6
-         gPBYguQOCJELeczQIkVEAJ78dy64giwNJFbe73xD6YdW4+FEPJ1LtdXVXX/R0olkSYXY
-         LtJw==
-X-Forwarded-Encrypted: i=1; AFNElJ/R5nvo1NZwSKYwMR4+vIeHn5rP1mKag43BBOpU4VgubV9FFETAZ1pBkLxI0847XSCdXaCmcBCUtgyP/BxItr+l@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7X/H2d/sqzzW3RnYjP2LKVjYpV5/+dePm9TDDlGkgfbNOCEyd
-	z2LQSZlMrJ8SgRTzBbdWDvsZx0/BuPJyfFJTIPqmUODZf6phemQl3dj9IJgYpf8Ax8je8NTvW9N
-	Q0nfE3tLm7iRcI5Y9XZSlvpOFjXY8MxlhW6fM/XQapw1MA+2sGSCPf6mdLSEJoIkx0z1ArKbzfc
-	E8
-X-Gm-Gg: AeBDieu057+312rKhFcHkqRXhZ/xsddqBw4IkdVztp3FrIAkoShogrB2db9u7unoYoc
-	xW2ZIJLobmtJdTmmwPMW4PBNHbukYWZ/bU8bfRFb27IJ1wRi2p7cEaI/eMj/unFrQvJHx90UafH
-	xRgfWczsBw+kpsKU+RJyH1lvMYHRQ4FMNrN4SKeoZ65G+zVmh/yrWrtU+GJ+tldbl8OGxVEB2EI
-	4R+v8yS3QCnDnFfIV2hRhFeLnVppHXd+/GjVaemAP1JoWVur+aZQDE4oFwqwUGMZRtTpWTONvgh
-	W0urHyBmGU7LN1MSdSYkwN7FkQkIiTiNN2cNBkS0A8haYMPcVFzjZc35VaD48B6ukNyYu3pHbHo
-	FCmJ2SEX4JvVxnWzBUXPczBQ9NZjWVnLaldDxDmIxQvqUMa105ThbctmjxVuTlfVcswBWHGoi7B
-	w=
-X-Received: by 2002:a17:903:3c65:b0:2b4:586d:2e5c with SMTP id d9443c01a7336-2b4586d3429mr111702375ad.2.1776208196903;
-        Tue, 14 Apr 2026 16:09:56 -0700 (PDT)
-X-Received: by 2002:a17:903:3c65:b0:2b4:586d:2e5c with SMTP id d9443c01a7336-2b4586d3429mr111702245ad.2.1776208196497;
-        Tue, 14 Apr 2026 16:09:56 -0700 (PDT)
-Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b47826e23dsm67725ad.39.2026.04.14.16.09.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 14 Apr 2026 16:09:55 -0700 (PDT)
-Message-ID: <bd2953d1-9da6-4337-9743-17c8ba61740f@redhat.com>
-Date: Wed, 15 Apr 2026 09:09:49 +1000
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=hgQGxFoxLDltZ1JPw5sDwkv0KcQRI/z1RDM6bOge0Nk=;
+	b=jWpl5VGcxejHi/LafMIyv8Eq9nPfhT+mkjt8SBGDiq8DL0Cqmi2hh4nFouSeeKtPgABuvj
+	6GM1GNx1FRHcJmVRxVhhR1jMqU1dSP83K7wDOOZVTAljBMlcZ25T2FEN29TIGJvSPAWaUp
+	PujutM0t87g+WaQzMdPrlcOMFBdULvY=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-20-jOUIMPoUOYCoI1TTxa_C1w-1; Tue,
+ 14 Apr 2026 20:02:08 -0400
+X-MC-Unique: jOUIMPoUOYCoI1TTxa_C1w-1
+X-Mimecast-MFC-AGG-ID: jOUIMPoUOYCoI1TTxa_C1w_1776211328
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AAC0C195608E;
+	Wed, 15 Apr 2026 00:02:07 +0000 (UTC)
+Received: from [172.20.96.14] (unknown [10.30.44.37])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 09EC6195608E;
+	Wed, 15 Apr 2026 00:02:05 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS (MISSED 51 of 56): Test report for for-kernelci
+ (7.0.0-0, upstream-arm-next, 986cb454)
+Date: Wed, 15 Apr 2026 00:02:05 -0000
+To: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+ will@kernel.org
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/2] arm_mpam: resctrl: Make resctrl_mon_ctx_waiters
- static
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: Dan Carpenter <dan.carpenter@oracle.com>,
- Dan Carpenter <error27@gmail.com>, James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu
- <fenghuay@nvidia.com>, lkml <linux-kernel@vger.kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- kernel test robot <lkp@intel.com>
-References: <20260414132758.196874-1-ben.horgan@arm.com>
- <20260414132758.196874-4-ben.horgan@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260414132758.196874-4-ben.horgan@arm.com>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+Message-Id: <90810.126041420020900151@us-mta-20.us.mimecast.lan>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: YsKiKiZ36FI70lZRoRvLY7kZKHqzMu_S30UHuQJ2Dlc_1776208197
+X-Mimecast-MFC-PROC-ID: MRnH1uR-Cu-86OYKBpkE7ZDpFOJwNOQMkvap7S9oPW4_1776211328
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_161000_529761_BC8C0E29 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20260414_170214_179044_412AB370 
+X-CRM114-Status: UNSURE (   6.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,20 +84,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/14/26 11:27 PM, Ben Horgan wrote:
-> resctrl_mon_ctx_waiters is not used outside of this file, so make it
-> static. This fixes the sparse warning:
-> 
-> drivers/resctrl/mpam_resctrl.c:25:1: warning: symbol 'resctrl_mon_ctx_waiters' was not declared. Should it be static?
-> 
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202603281842.c2K96tJA-lkp@intel.com/
-> Fixes: 2a3c79c61539 ("arm_mpam: resctrl: Allow resctrl to allocate monitors")
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> ---
->   drivers/resctrl/mpam_resctrl.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+Hi, we tested your kernel and here are the results:
+
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
+
+Tested-by: CKI Project <cki-project@redhat.com>
+
+Kernel information:
+    Commit message: Merge branch 'for-next/core' into for-kernelci
+
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2453129617
+
+Tests that were not ran because of internal issues:
+    /distribution/check-install [aarch64]
+    /distribution/command [aarch64]
+    /test/misc/machineinfo [aarch64]
+    Boot test [aarch64]
+    CKI/restraint [aarch64]
+    Hardware - Firmware test suite [aarch64]
+    Reboot test [aarch64]
+    SELinux Custom Module Setup [aarch64]
+    selinux-policy: serge-testsuite [aarch64]
+    Storage - blktests - throtl [aarch64]
+    Storage - blktests - ublk [aarch64]
+    stress: stress-ng - cpu-cache [aarch64]
+    stress: stress-ng - memory [aarch64]
+    xfstests - btrfs [aarch64]
+    xfstests - ext4 [aarch64]
+    xfstests - xfs [aarch64]
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
 
 
