@@ -4,106 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54021F4199E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 12:34:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3377EF41998
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 12:38:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9v5h0WGA6GciBmySthgQ0LZ+Ql4Vyrp/FXGCtEgGi0I=; b=HoYKWcjkzRsulPIDGSuaQ1063K
-	Xq50QrpwBIwzdNOi1ML3etLv6BCf5fqLcavmsw6mqSRp29oM2w5MHt7SEidl22ADKIutlgyDUw9vS
-	ks47if5WUQmE0gVppVyFhQlhywDHsS42ipxkF2Fm+mE8pT2HG66GQyiBoMVXTiCA/Mp+0eMJdgTns
-	PbMV6tdggfbbygdQUTaiZqKpADEPHM82OjBZFxXu9lqzTTyCPEgMGo224QEeMgYDqHYAkxOtIRfV1
-	yIRf9MNrCf8s7zkPDtH2mbl+EeMYyJCxvA37lKcQ/VexW108S3+Yo7Kwxrl08SIGOfhTZAla58x2c
-	a7va7fmQ==;
+	bh=eRHac6+7OjGhQ4pPHk0arofb9sWAo1B2RbgwlWeamq0=; b=XQ1Qn6kSDMqm9EH+aOH5D9hgQR
+	elwvlWYq3d3h05lr7N8nkyBgQjCSYqAJJEtYveE5z6cqVKFwji6n7ivVut11r5DIfqQ8XW2wp9bwo
+	qXu5L/mQkncUfvlshY/RK2jwFt6KpcujfFuBcKVkoK0m7styaes2/gZX0xhelYq9dwSQfUSHWU45v
+	d3qNYzu8uDF55ko7eUgCoM0WimXqpXTKlktHa1V32fAP1Oks7FGS7++Sumq6AuRGAH0+T1rw45K8p
+	+fxnZCCBFPWVriMxqJzF+ULzG+kDxB47XlMjvkGJPuF0y2dkkmFRgflKpALmEsNupK/URsgfgWQN3
+	wnwHW0jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCzRa-000000017re-3qAG;
-	Wed, 15 Apr 2026 12:34:10 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1wCzVw-000000018Kj-08np;
+	Wed, 15 Apr 2026 12:38:40 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCzRY-000000017r2-2Xff
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 12:34:09 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2ad9516a653so33908575ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Apr 2026 05:34:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776256447; cv=none;
-        d=google.com; s=arc-20240605;
-        b=j9umtxG1eYYpX2D0A61pPz/KLVVPPmkL0nWC8zSDS1vdYoybultYVaaUFN6br03jMo
-         GbqmyUED1b2deIco5PlAAcbt2zcMEvkh2N0IMmrwWp6G7ya8h+LH2h1igL0ar1ZzH2Ei
-         IASdbWyrxZCY4ICXwKVa8oV+pw4SY9DebxEjtpSAYIu86tYgtVZcX4B6lVOvtvhFHeN8
-         5INqYNZioPeA+/+ZBZm8Icvp3hmofHd3bdlEC09xglzzjQxHYJaB2hMxzs45fjcqiW/a
-         iYVZUeNvE+FbZhjaMyyTbdjsAY6x//didP83c/SIR/kFaHsKvrbN8Dt1X2iP8IQqABK+
-         xhHg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=9v5h0WGA6GciBmySthgQ0LZ+Ql4Vyrp/FXGCtEgGi0I=;
-        fh=rcwRltrQC683vfgws/blKG2rIZXQE7+DUQZ1XaETovs=;
-        b=imTuY9aH5zVLR+niAQjPxI3/UCWGJtuIYaSA3+7Wtr3ZGD6PijAu/VhrSGq9DID/5m
-         265TmwJh1MLTAZI8O0QydBj79jnInUO2FEsNonatReZjy8YKlym0IB7DqVt96Rp71cJQ
-         kjM5ylGGBjs+GK6xdkOsXhW7WKF4Mtn4NTACXgNtbbTHjaaTQgxGAzJVxrt48dVp74fn
-         sl6PV+q0yZDpX1TS4fh9MVKeb1zRjjVkFOsrr1+QRLCx17w4LZJNuXA2e2XBmWPLZWOd
-         beJrUAHp02jIvNr1QzbchEbSi9eGPSkg3Fl6LpHLaHfZ//y6LXkPsycIR2dd+qBfe4Ns
-         V+gA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776256447; x=1776861247; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=9v5h0WGA6GciBmySthgQ0LZ+Ql4Vyrp/FXGCtEgGi0I=;
-        b=ARw/m+Svyd5mGc9fbR19L7z/FsaQwQ0OTosZhXPdokyZ0EngOzs6T7irdkR/UnuuFo
-         6+bIxRTb+i7WmzMyw3/Vk+xHbYV/fgoUAZLaWep9e9akLW/M3r/Tm59WhLk1RlDVl+xk
-         9eWYxOf9ivx49gtrQoU96avQXmTifjzS3tW6rCDh0G+eQLD3QTDaT7Nnv6+FfstzSp4f
-         gYLfN0rKILR0GvJCEhBmn7jG1n0Ccb3oF5kfKGDC3+aOppM6YWXqc9H7oCRdmuAJ6UiZ
-         fjQo8ma15ouaIYROrg/axz66t+CVYKZF1NiUg41eMn3lDqHL9MFxcCEcxHFChc4wFZPO
-         b7Rw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776256447; x=1776861247;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9v5h0WGA6GciBmySthgQ0LZ+Ql4Vyrp/FXGCtEgGi0I=;
-        b=KWqfCflKkGhpxL4DhyJURmsXZj7P3Ln8nwskw02UO/vVXgPC82nvN2Z0HGVd1URx0k
-         2Xr6j9Fdqr/AC9jpF7BiyIYPfgvTC2zXtjlax2+GdIqJ4jiLoSSte4X8n4hOrIFKtGRS
-         M7n9njAuWYa8mwHp7Gbf3BYVckjHUPBeuBGqHfkEk+4j+GRQv/P+wVORI8cfDgHlL3ef
-         mxXPK9LuAuEOcLRxcxUYbD2CHiNrJcBlD8fgLQJL5gu2x4gY58l2tB2TD6Ijgjn4KARs
-         SDX/E/UeWLDW7wsNcmSYjH26akQ+tRjccIx0xQV+4rXW+yX4aLvQTfgLxqdT9c9AB4nz
-         1L4w==
-X-Forwarded-Encrypted: i=1; AFNElJ+yRNwc5MXjNVBgrmV7KNiQG6QLmVhCEWjkQn2a+Aw+VqN2ud6kV4BmMnZy040igTdgLjxU/YPGmDqWXTf3Zy+v@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJS/BsxJ4/tewQX3C0gHhhd2ZaKrzEFGCDJF1IhK/DoVCNAJvQ
-	z8VZ0EzE85bZU02hN4zjjxhP3BvPtu6L9r59Vdp77OiSUH0fQRxzFHLvd2+ZwjvEUIJtWGPPJls
-	vR9kOmhXnWs6mQtsEF9cJOba32WZ7N6U=
-X-Gm-Gg: AeBDieveZCYhh5YaVwFPZtRRp+DDKwMtyIWmiuabDEQ+bXq1/fTNB+iJD4zBfqXy4tg
-	706qx8EKGdrl/RpjQAFOu01h9eCh5leHLMUS9P3iVlucC2+FerIoNIWLImAVdAHarGDsFElqcTZ
-	ZstU68qlWX7YbOGsxzoOVnPRMqbLcd20R5vIAFSwfymKrNNEUSna8hGCGaN2n9YZlTOINXqGuO9
-	I4dZBPtwdpKBhYu8IDPAcaktH1tqyqwS3j0EDdg5eqY7VdLhg67AJWGELyQu7nBpigHXIIVbtQV
-	Evm0VXOjG0ShZNkOEDKgkN28g3fAjw==
-X-Received: by 2002:a17:903:ac6:b0:2b0:60db:7927 with SMTP id
- d9443c01a7336-2b2d5a168bcmr221211305ad.28.1776256447117; Wed, 15 Apr 2026
- 05:34:07 -0700 (PDT)
+	id 1wCzVt-000000018Jd-2bkM;
+	Wed, 15 Apr 2026 12:38:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=eRHac6+7OjGhQ4pPHk0arofb9sWAo1B2RbgwlWeamq0=; b=VXD/xn0hXIMU1iK3HIIAIyKapC
+	OMlDpvUPFyN1cbc5rT+/MmehfjNFi2HHrnkB/3Jg7DeHi62tq31iZC+exinlj8mXgnvccnNw6OT9Z
+	O9wYYry02IDoO1b/ysgwAjt5tdzY2ZbadG0m6aQKFgi9PIGxJU58VXorrpiQV6Mua+WAsI6j+s2vp
+	0oXWPFE1B0dLlYgZPUZxCf7u6HRD8yBBdJQPpDyRGYflPiz30oo8X4I6UL5iavX3ijMHYlUNKP4nm
+	iukmmtUTOM2hXYWgUv0msL8nchlFPgROY32FP/a4isRqWC4dm/1arhgNSsOpPz68yRXI9eI7u4tMd
+	0RxlCEBQ==;
+Received: from authenticated user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1wCzVQ-00Dq5O-18;
+	Wed, 15 Apr 2026 12:38:08 +0000
+Date: Wed, 15 Apr 2026 05:38:01 -0700
+From: Breno Leitao <leitao@debian.org>
+To: Puranjay Mohan <puranjay@kernel.org>
+Cc: bpf@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+	Xu Kuohai <xukuohai@huaweicloud.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, 
+	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Pu Lehui <pulehui@huawei.com>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH bpf-next v2 1/2] bpf, arm64: Remove redundant
+ bpf_flush_icache() after pack allocator finalize
+Message-ID: <ad-GmdGbXrZAi7WA@gmail.com>
+References: <20260413191111.3426023-1-puranjay@kernel.org>
+ <20260413191111.3426023-2-puranjay@kernel.org>
 MIME-Version: 1.0
-References: <20260407-brcm-prio-v2-1-3f745edf49af@gmail.com> <CABBYNZJAEqwfTuVqbFAnx97HBSjcwn3Hb+y+r4r2C=MMPxFoDg@mail.gmail.com>
-In-Reply-To: <CABBYNZJAEqwfTuVqbFAnx97HBSjcwn3Hb+y+r4r2C=MMPxFoDg@mail.gmail.com>
-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
-Date: Wed, 15 Apr 2026 14:33:55 +0200
-X-Gm-Features: AQROBzCJwjrc1bDi-TXhcjD-wf65qYVngCDiW7f3UZYU9kWetoIg3teCKW6NkdA
-Message-ID: <CAMT+MTQ6orj5tpiGL9hz8m2TGiBjA-9D_0e1iLt=_dXBFHcOgg@mail.gmail.com>
-Subject: Re: [PATCH v2] Bluetooth: Add Broadcom channel priority commands
-To: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
-	Marcel Holtmann <marcel@holtmann.org>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Simon Horman <horms@kernel.org>, linux-kernel@vger.kernel.org, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-bluetooth@vger.kernel.org, 
-	netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260413191111.3426023-2-puranjay@kernel.org>
+X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_053408_645766_4559B86E 
-X-CRM114-Status: GOOD (  15.51  )
+X-CRM114-CacheID: sfid-20260415_053837_664234_32D7DE14 
+X-CRM114-Status: UNSURE (   9.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,23 +84,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Apr 2026 at 16:00, Luiz Augusto von Dentz
-<luiz.dentz@gmail.com> wrote:
-> > +       if (sock)
-> > +               set_bit(SOCK_CUSTOM_SOCKOPT, &sock->flags);
->
-> This is more complicated than it needs to be. I'd just add a new
-> callback, `hdev->set_priority(handle, skb->priority)`, so the driver
-> is called whenever it needs to elevate a connection's priority, that
-> said there could be cases where a connection needs its priority set
-> momentarily to transmit A2DP, followed by OBEX packets that are best
-> effort. Therefore, `hci_conn` will probably need to track the priority
-> so it can detect when it needs changing on a per skb basis.
+On Mon, Apr 13, 2026 at 12:11:08PM -0700, Puranjay Mohan wrote:
+> bpf_flush_icache() calls flush_icache_range() to clean the data cache
+> and invalidate the instruction cache for the JITed code region. However,
+> since commit 1dad391daef1 ("bpf, arm64: use bpf_prog_pack for memory
+> management"), this flush is redundant.
+> 
+> bpf_jit_binary_pack_finalize() copies the JITed instructions to the ROX
+> region via bpf_arch_text_copy() -> aarch64_insn_copy() -> __text_poke(),
+> and __text_poke() already calls flush_icache_range() on the written
+> range. The subsequent bpf_flush_icache() repeats the same cache
+> maintenance on an overlapping range, including an unnecessary second
+> synchronous IPI to all CPUs via kick_all_cpus_sync().
+> 
+> Remove the redundant bpf_flush_icache() call and its now-unused
+> definition.
+> 
+> Fixes: 1dad391daef1 ("bpf, arm64: use bpf_prog_pack for memory management")
+> Acked-by: Song Liu <song@kernel.org>
+> Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
 
-I have tested per-skb priorities, and unfortunately, this does not work.
-If something tries to send a low-priority packet (for example - a volume
-adjustment), a priority drop causes the same kind of dropout that is
-caused by scans. It appears that the only way to make this hardware work
-is to set the entire hci connection as high priority for as long as it
-is being used to transmit audio.
+Acked-by: Breno Leitao <leitao@debian.org>
 
