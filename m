@@ -4,72 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0569FF9D0F6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 00:02:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3C88F9D0F6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 00:03:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hgQGxFoxLDltZ1JPw5sDwkv0KcQRI/z1RDM6bOge0Nk=; b=pYuq2H1gx207rpHM5etRrM+pKO
-	OrO16IwQyzqFW90r2/e8vZmDqAOv8IE8Id8TFplNiKq9b08XOYcp4yH3CMpV22CsU9pDAXX9a3THe
-	PfFH7qCSFEr+LngxKdUyhCjw4ohdRN1rqpqyEYNI1OhAhAj/x6fQ27/ju04Lmndn5Yw+wc3g8sDKN
-	VHhyif0UZ6Vb2CpXrhiLP5AMKRjdheZQ9B5haXjl7Zpo72iMVvzDuLgHSapUsS4l8mtilylw5ZUno
-	Fu78Qpfvv8225NukDhaQ5e/H9oStwXJ+OUoxOhsVZDYWDNGdd7dd0eWJmbZ1s1GeajLBGV0HOeRmr
-	7L/kEB7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L86pgMPaGWjmqPOMQTdb1uBGsJLkOLipSbIJUcawm7U=; b=eZ9fJTLHqLi91/50QmsU7Re3uz
+	wqSPql/zhFcLHLErh6U5S5pm3b0RiAGFOWpbEBhlDq/58k+SW7LtONgMho7R71RHXVadU/RG4SQyB
+	zKiImIwqRv4rsbwsIJRVWiDPn/O7xQTzgnEBTQYB8fkZWZbQsopotnEhV4cYtrvpTzsNqbu+TR0oK
+	7/iodcA1HqCGa851jZeWKdr/XQu6PrHUPYPtCOImtY1pE8cuZ901kvvupA4b64TwEYEtGuiARI8iA
+	rR54+ikargrY1XbDVyADR6PRrLiH+auGBikWfdyqgg8+lJzRZ+oVHTb+fvxl6JumQhc69YSy5x/sh
+	5w349TUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCnhx-00000000Ly0-1SDM;
-	Wed, 15 Apr 2026 00:02:17 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wCnip-00000000M4S-0ehl;
+	Wed, 15 Apr 2026 00:03:11 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCnhu-00000000Lxe-0BiQ
+	id 1wCnim-00000000M3y-3N4a
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 00:02:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1776211331;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=hgQGxFoxLDltZ1JPw5sDwkv0KcQRI/z1RDM6bOge0Nk=;
-	b=jWpl5VGcxejHi/LafMIyv8Eq9nPfhT+mkjt8SBGDiq8DL0Cqmi2hh4nFouSeeKtPgABuvj
-	6GM1GNx1FRHcJmVRxVhhR1jMqU1dSP83K7wDOOZVTAljBMlcZ25T2FEN29TIGJvSPAWaUp
-	PujutM0t87g+WaQzMdPrlcOMFBdULvY=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-20-jOUIMPoUOYCoI1TTxa_C1w-1; Tue,
- 14 Apr 2026 20:02:08 -0400
-X-MC-Unique: jOUIMPoUOYCoI1TTxa_C1w-1
-X-Mimecast-MFC-AGG-ID: jOUIMPoUOYCoI1TTxa_C1w_1776211328
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AAC0C195608E;
-	Wed, 15 Apr 2026 00:02:07 +0000 (UTC)
-Received: from [172.20.96.14] (unknown [10.30.44.37])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 09EC6195608E;
-	Wed, 15 Apr 2026 00:02:05 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS (MISSED 51 of 56): Test report for for-kernelci
- (7.0.0-0, upstream-arm-next, 986cb454)
-Date: Wed, 15 Apr 2026 00:02:05 -0000
-To: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
- will@kernel.org
+	Wed, 15 Apr 2026 00:03:09 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b982b0889d8so887412666b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 17:03:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1776211386; x=1776816186; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=L86pgMPaGWjmqPOMQTdb1uBGsJLkOLipSbIJUcawm7U=;
+        b=SENmzCpDA61swjM/z8zf+eZSUU/x6rGlDCDF3sFTcSkPSbeqfhklzQtF7ZRFjwe3fR
+         m+++CzCKO/5HnCOpEVFpurZUKrsu0ej9ohWp2knxe593b0intpsa05IganX4fNw2YJPA
+         /F/BZxdkW27RXa9PFhlgcOVZg3IVnnpfT+Nws=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776211386; x=1776816186;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=L86pgMPaGWjmqPOMQTdb1uBGsJLkOLipSbIJUcawm7U=;
+        b=cvzdrdwg29QXNPnazxSpdCJEublFl8pTsCCJN26928CqOHKpiXQsPZc2e9wttSEQSg
+         oIdGnNsv8UYH5zW8beqdKknAJnOmDkQfN+bs+dAAx9s9sHxEkgEQ6nRT2PFr3WpiRUPd
+         8X7soO3V/LQFzJzSUEIJMAQ93/RUEtnw7tS5vsS/M8r4h9ZCS81Jy0lWBxneE9i2HHVS
+         7nfSB4w08S/NQcDTLVGqAxKrof7JCvnUoekoERaQQHnlWVTZVHIVHDcbxaCwDbfVOHUG
+         eseYuiyLezZFCXCQaSs7rhDBOXV2eECtRrluNIAbJFyXxX3VhecvVDsymRC5YKKEDrLX
+         ZaQw==
+X-Forwarded-Encrypted: i=1; AFNElJ/DjN6Ps/U2dAfubzrWOn+JzgBMjH8uQ9qNO32SvNpubFQmTftMsDpMZk490SZtGnanXh6vzcZBVPSWguo39bsa@lists.infradead.org
+X-Gm-Message-State: AOJu0YxMB91KNvuwAVCoKKqASAJ8cGgbp1U8oQuWqCujLgko/sxlNmNt
+	uIOciu4yy164i9RvKBRXOsZ4Tqeiq8x0VeeSkQDbUjgg5q9GqILFUDQ4SFAIetDyzyV+EqG/xep
+	CKIzjEYo=
+X-Gm-Gg: AeBDievneibdx9CKE5sftSyVOOLJyX4wD6CAVr6SgGnMrkuF+Ff1Z67q5LHf5VMkX9s
+	+RpoZWtQWYOm6I5WSCeFiu3vuQonua+krheNEB4qUwU3v6LOLPM1whbrPx9CUZTvHyU77FvIAf6
+	xT75UIU/imUgio6+70aksiSrBDat7TAsQSSiXsMqOAGNtxz/LODOOr+dd7VCS6oZKmBVCDRAMUe
+	JVApWPPW2im8zuAl7os8SvyxCZvaPW+mbAW/HtdvSWzbHyhpfuAo2QlY8SpjQl+S0HamBmNJtRC
+	IO9vEiOM/eO7DXj5QxGq2vrRYi8KmeNgYn3UUZSltYKMSpjmdkO7bBAhwJi2swr8NzPQqiBkiHv
+	zgkmBxhMOYM8PPizWIsHwI/qo1t6LauSdy+SGLPmI+wxKxQz/0AVxwcJAOngbM0KkEQ/Es8+DOn
+	RMxitoLcmTrMeBldU7ojII81h+zBR8N1QyCFhX9/0loMG+VgI4Xbq9Hqh85lxfdCQeQwHL3Dh8
+X-Received: by 2002:a17:906:f582:b0:b9d:6109:f1fb with SMTP id a640c23a62f3a-b9d72440757mr1145859966b.11.1776211386141;
+        Tue, 14 Apr 2026 17:03:06 -0700 (PDT)
+Received: from mail-ed1-f50.google.com (mail-ed1-f50.google.com. [209.85.208.50])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ba1784a656asm214066b.62.2026.04.14.17.03.05
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 14 Apr 2026 17:03:05 -0700 (PDT)
+Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-671a901584eso3403935a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 17:03:05 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+bSwv+qHCt1S58ZkKbmzDVpoHl8vJVB+vp1U7RO5UE92N+pEf2dRZdDi8HS6GSk0MDZi+nev5blssJgLYgaJE4@lists.infradead.org
+X-Received: by 2002:a05:6402:280c:b0:670:64fd:2301 with SMTP id
+ 4fb4d7f45d1cf-670795162d8mr9495589a12.15.1776211385010; Tue, 14 Apr 2026
+ 17:03:05 -0700 (PDT)
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
-Message-Id: <90810.126041420020900151@us-mta-20.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: MRnH1uR-Cu-86OYKBpkE7ZDpFOJwNOQMkvap7S9oPW4_1776211328
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+References: <ad5Fh5JUqptcYkrp@arm.com>
+In-Reply-To: <ad5Fh5JUqptcYkrp@arm.com>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Tue, 14 Apr 2026 17:02:47 -0700
+X-Gmail-Original-Message-ID: <CAHk-=wg8+BER4VyFKG3rnPi2gXxbf-jbHS=EU+xhFqGVQfbutw@mail.gmail.com>
+X-Gm-Features: AQROBzBThzQrw4bmeV6J1wQT7THcBE8GVty-3tqf4UWTX2lNKJUVf31HwlF4DBQ
+Message-ID: <CAHk-=wg8+BER4VyFKG3rnPi2gXxbf-jbHS=EU+xhFqGVQfbutw@mail.gmail.com>
+Subject: Re: [GIT PULL] arm64 updates for 7.1
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Peter Zijlstra <peterz@infradead.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_170214_179044_412AB370 
-X-CRM114-Status: UNSURE (   6.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260414_170308_869585_5CD6B2A9 
+X-CRM114-Status: GOOD (  14.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,56 +105,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Tue, 14 Apr 2026 at 06:47, Catalin Marinas <catalin.marinas@arm.com> wrote:
+>
+> The generic entry patches touch include/linux/*entry* and kernel/entry/*
+> as they are based on a tag from tip. Not sure when Thomas will send them
+> your way, so sending the arm64 pull request in the meantime.
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+Ok, so the conflict with the irq changes is something that I want
+Thomas and PeterZ to take a look at, because it involved two calls to
+hrtimer_rearm_deferred() that got added in the meantime - while in
+this pull the call site then got split up and moved from
+kernel/entry/common.c to include/linux/irq-entry-common.h.
 
-Tested-by: CKI Project <cki-project@redhat.com>
+In my initial resolution I placed the two hrtimer_rearm_deferred()
+calls very similarly to how they were placed before (just in the moved
+location).
 
-Kernel information:
-    Commit message: Merge branch 'for-next/core' into for-kernelci
+So my initial resolution was the fairly direct "that's what the code
+movement would do".
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2453129617
+But then I double-checked what linux-next did, and it did something
+quite different. The linux-next resolution isn't the naive direct code
+movement, and seems to be a smarter semantic resolution with just one
+call-site.
 
-Tests that were not ran because of internal issues:
-    /distribution/check-install [aarch64]
-    /distribution/command [aarch64]
-    /test/misc/machineinfo [aarch64]
-    Boot test [aarch64]
-    CKI/restraint [aarch64]
-    Hardware - Firmware test suite [aarch64]
-    Reboot test [aarch64]
-    SELinux Custom Module Setup [aarch64]
-    selinux-policy: serge-testsuite [aarch64]
-    Storage - blktests - throtl [aarch64]
-    Storage - blktests - ublk [aarch64]
-    stress: stress-ng - cpu-cache [aarch64]
-    stress: stress-ng - memory [aarch64]
-    xfstests - btrfs [aarch64]
-    xfstests - ext4 [aarch64]
-    xfstests - xfs [aarch64]
+So after having stared at it for a long time, and convinced myself it
+was the better resolution I went back and fixed up mine too.
 
+It all makes me go "PeterZ and Thomas should double-check me that I
+didn't miss something else".
 
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
+I did the builds on both x86-64 and arm64, but I feel it should still
+be checked by people involved with that hrtimer code.
 
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+               Linus
 
