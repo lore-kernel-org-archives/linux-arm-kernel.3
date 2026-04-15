@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8440FF4198E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 11:01:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93A3EF4198B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 11:17:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sDUL30yrhL4EDBZcfU8vTp/OhE3mzZjhQYQ/C8Dw78U=; b=2BIHqWWVm9bfqDq5gcVCXTJGXW
-	3vXZ2s/HKM+FesiJm6gUThhzXTlzgXMt3w/h1Imhg5BjTYjUkf2s30XV9XSUVxtTpZs25nrYlsmBS
-	suw2iXTnoqcw4XYf1Exwrn8aBhv/uWxkx/KT2aUdY4pEuOsK/qebthlhpO2Nxu6qXvmiphyOFBWcm
-	1JE4MpnWyQy+jyLkSzE7E6+S67IPJ5rGqI2zMXq7ubDIqIwBGilvF3FO0DwyvPbmJEibH9VPeTvH6
-	jaTbx0i0bzTP8v+qlm2RosaUxrtoW0i1lKlyJvmmxwpYFtM9PZ28bBj4NXO1OXWou3ERlqi6ziwXm
-	5L5ne6NA==;
+	bh=wDW/hkjZG2TNajZ9OhpqOBIm7y1FmRjLBIkT4OyaOGo=; b=Uu/spmShV49HG1GISiU58yxjWZ
+	qJdLbrGLWxT1R6QmBxxqMOOWcxnFCPrI+pYuiz5VNX0Kx/ZJjpO/hxj9nmLmyt98UWBik578Fw9yh
+	K3RURNM5pj6d85240sAUrr19C5DqIyVV3lZTXH4VbbLGtTEZXcN3MRUV6E9UO5Iu7yR1i3hkR7P6O
+	wAp7gJS7FwF1brjkwrJOtDiUuy8EQIUiOBvbJJlbPMZOGdIIk6L3YQ+3QxDPxhrnu5NKCSvVtBogU
+	Dd+BijaEUZcmCehISWV7vX3pBDn3VDRcGJMwcl/HLq/kGM7itxHrFJyHPWk3cr2VpIMNcSJE9fJ7z
+	MF2qDolA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCxzl-000000010sB-14Bs;
-	Wed, 15 Apr 2026 11:01:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCxzi-000000010qr-3M3f
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 11:01:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C28B44FD5;
-	Wed, 15 Apr 2026 04:01:09 -0700 (PDT)
-Received: from [10.57.61.136] (unknown [10.57.61.136])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AB8F53F86F;
-	Wed, 15 Apr 2026 04:01:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776250875; bh=NzEKcgytpfU97DicbGiWl3bAhmdduI6FBslfTibPQpA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RQI2AU3/9HJQ3DCygIxuFntue21kAtZGjYmq2oeYxB5funNDUWj27KuLS6+o8P6EW
-	 ywh6dckswaimSu/YRjs5FId01ljwKyU73eG067hQCEkQDWa8EO4hxfYl7SefgZQodi
-	 +mwRKU/aoeiFRzW7Ai3tgQj+Q0Q3fcGWbd8mYtY0=
-Message-ID: <d661a24c-6619-4734-96bd-075d3416e809@arm.com>
-Date: Wed, 15 Apr 2026 12:01:08 +0100
+	id 1wCyF6-000000011ta-0Tyr;
+	Wed, 15 Apr 2026 11:17:12 +0000
+Received: from courrier.aliel.fr ([65.21.61.41])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCyF2-000000011rt-0eQq;
+	Wed, 15 Apr 2026 11:17:09 +0000
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1776251823;
+	bh=L3Q7zkw2FPx+B+NP3gRuCh4v3HV7G+1IeRCxJ9+Fo90=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=XH8leFYvQduC2e5BQTdD3s/kN4Yx8hNJH9qS4aenS5YRC1pDORLWUQiEX6Sb5JAYg
+	 LJ/Inn/WoUYRk48g9qfhvCEQKjyyDaVCEpCB/yhIojvxzuxX7V1mOJGyXItDOKWjE0
+	 ShiETy+Fng0eYhXXRZmXDg0LJuH3AzipkpUAvyHI=
+Date: Wed, 15 Apr 2026 13:16:14 +0200
+Subject: [PATCH 2/3] arm64: dts: amlogic: t7: Add UART controllers nodes
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 00/48] arm64: Support for Arm CCA in KVM
-To: Alper Gun <alpergun@google.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
- Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve <vannapurve@google.com>
-References: <20260318155413.793430-1-steven.price@arm.com>
- <CABpDEukEO4Y_fg8fv5Nr1_Pw_qOK=2UmioXk=WyPEzoEprPcGA@mail.gmail.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <CABpDEukEO4Y_fg8fv5Nr1_Pw_qOK=2UmioXk=WyPEzoEprPcGA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260415-add-bluetooth-t7-vim4-v1-2-0ba0746cc1d6@aliel.fr>
+References: <20260415-add-bluetooth-t7-vim4-v1-0-0ba0746cc1d6@aliel.fr>
+In-Reply-To: <20260415-add-bluetooth-t7-vim4-v1-0-0ba0746cc1d6@aliel.fr>
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Ronald Claveau <linux-kernel-dev@aliel.fr>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openssh-sha256; t=1776251821; l=3650;
+ i=linux-kernel-dev@aliel.fr; s=id_ed25519; h=from:subject:message-id;
+ bh=L3Q7zkw2FPx+B+NP3gRuCh4v3HV7G+1IeRCxJ9+Fo90=;
+ b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgMGec55oxeeisqykQiUedekMYyOnR9
+ BG9E/7rDWyqdNoAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
+ QNZFuzW9w43solsBUqQBQsol4CdNLpiKGi8QELKGmU1lzLkaCkIl4n0fwFlyQHw5mQj2kXGqrTl
+ in7oOmgbvAQI=
+X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openssh;
+ fpr=SHA256:kch4osYZ6A1BrPps5AUs6KnfdE2wm4ocMtyTc8TmZMs
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_040118_934187_63EA582F 
-X-CRM114-Status: GOOD (  37.19  )
+X-CRM114-CacheID: sfid-20260415_041708_607734_4F1A73A1 
+X-CRM114-Status: UNSURE (   8.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,119 +78,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/04/2026 22:40, Alper Gun wrote:
-> On Wed, Mar 18, 2026 at 8:54 AM Steven Price <steven.price@arm.com> wrote:
->>
->> This series adds support for running protected VMs using KVM under the
->> Arm Confidential Compute Architecture (CCA).
->>
->> New major version number! This now targets RMM v2.0-bet0[1]. And unlike
->> for Linux this represents a significant change.
->>
->> RMM v2.0 brings with it the ability to configure the RMM to have the
->> same page size as the host (so no more RMM_PAGE_SIZE and dealing with
->> granules being different from host pages). It also introduces range
->> based APIs for many operations which should be more efficient and
->> simplifies the code in places.
->>
->> The handling of the GIC has changed, so the system registers are used to
->> pass the GIC state rather than memory. This means fewer changes to the
->> KVM code as it looks much like a normal VM in this respect.
->>
->> And of course the new uAPI introduced in the previous v12 posting is
->> retained so that also remains simplified compared to earlier postings.
->>
->> The RMM support for v2.0 is still early and so this series includes a
->> few hacks to ease the integration. Of note are that there are some RMM
->> v1.0 SMCs added to paper over areas where the RMM implementation isn't
->> quite ready for v2.0, and "SROs" (see below) are deferred to the final
->> patch in the series.
->>
->> The PMU in RMM v2.0 requires more handling on the RMM-side (and
->> therefore simplifies the implementation on Linux), but this isn't quite
->> ready yet. The Linux side is implemented (but untested).
->>
->> PSCI still requires the VMM to provide the "target" REC for operations
->> that affect another vCPU. This is likely to change in a future version
->> of the specification. There's also a desire to force PSCI to be handled
->> in the VMM for realm guests - this isn't implemented yet as I'm waiting
->> for the dust to settle on the RMM interface first.
->>
->> Stateful RMI Operations
->> -----------------------
->>
->> The RMM v2.0 spec brings a new concept of Stateful RMI Operations (SROs)
->> which allow the RMM to complete an operation over several SMC calls and
->> requesting/returning memory to the host. This has the benefit of
->> allowing interrupts to be handled in the middle of an operation (by
->> returning to the host to handle the interrupt without completing the
->> operation) and enables the RMM to dynamically allocate memory for
->> internal tracking purposes. One example of this is RMI_REC_CREATE no
->> longer needs "auxiliary granules" provided upfront but can request the
->> memory needed during the RMI_REC_CREATE operation.
->>
->> There are a fairly large number of operations that are defined as SROs
->> in the specification, but current both Linux and RMM only have support
->> for RMI_REC_CREATE and RMI_REC_DESTROY. There a number of TODOs/FIXMEs
->> in the code where support is missing.
->>
->> Given the early stage support for this, the SRO handling is all confined
->> to the final patch. This patch can be dropped to return to a pre-SRO
->> state (albeit a mixture of RMM v1.0 and v2.0 APIs) for testing purposes.
->>
->> A future posting will reorder the series to move the generic SRO support
->> to an early patch and will implement the proper support for this in all
->> RMI SMCs.
->>
->> One aspect of SROs which is not yet well captured is that in some
->> circumstances the Linux kernel will need to call an SRO call in a
->> context where memory allocation is restricted (e.g. because a spinlock
->> is held). In this case the intention is that the SRO will be cancelled,
->> the spinlock dropped so the memory allocation can be completed, and then
->> the SRO restarted (obviously after rechecking the state that the
->> spinlock was protecting). For this reason the code stores the memory
->> allocations within a struct rmi_sro_state object - see the final patch
->> for more details.
->>
->> This series is based on v7.0-rc1. It is also available as a git
->> repository:
->>
->> https://gitlab.arm.com/linux-arm/linux-cca cca-host/v13
->>
->>
-> 
-> Hi Steven,
-> 
-> I have a question regarding host kexec and kdump scenarios, and
-> whether there is any plan to make them work in this initial series.
-> 
-> Intel TDX and AMD SEV-SNP both have a firmware shutdown command that
-> is invoked during the kexec or panic code paths to safely bypass
-> hardware memory protections and boot into the new kernel. As far as
-> I know, there is no similar global teardown command available for
-> the RMM.
+Add device tree nodes for UART B through F (serial@7a000 to
+serial@82000), completing the UART controller description for the T7
+SoC. Each node includes the peripheral clock.
 
-Correct, the RMM specification as it stands doesn't provide a mechanism
-for the host to do this. The host would have to identify all the realm
-guests in the system: specifically the address of the RDs (Realm
-Descriptors) and RECs (Realm Execution Contexts). It needs this to tear
-down the guests and be able to undelegate the memory.
+While at it, move the uart_a node to its correct position in the
+bus address order (0x78000) to comply with the DT requirement that
+nodes be sorted by their reg address. Complete the
+uart_a node with its peripheral clock (CLKID_SYS_UART_A) and the
+associated clock-names, matching the vendor default clock assignment,
+consistent with the other UART nodes.
 
-It's an interesting point and I'll raise the idea of a "firmware
-shutdown command" to make this more possible.
+Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+---
+ arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 61 +++++++++++++++++++++++++----
+ 1 file changed, 54 insertions(+), 7 deletions(-)
 
-> What is the roadmap for supporting both general kexec and
-> more specifically kdump (panic) scenarios with CCA?
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+index 531931cc1437c..56b015cfbd6d1 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+@@ -577,13 +577,6 @@ gpio_intc: interrupt-controller@4080 {
+ 					<10 11 12 13 14 15 16 17 18 19 20 21>;
+ 			};
+ 
+-			uart_a: serial@78000 {
+-				compatible = "amlogic,t7-uart", "amlogic,meson-s4-uart";
+-				reg = <0x0 0x78000 0x0 0x18>;
+-				interrupts = <GIC_SPI 168 IRQ_TYPE_EDGE_RISING>;
+-				status = "disabled";
+-			};
+-
+ 			gp0: clock-controller@8080 {
+ 				compatible = "amlogic,t7-gp0-pll";
+ 				reg = <0x0 0x8080 0x0 0x20>;
+@@ -713,6 +706,60 @@ pwm_ao_cd: pwm@60000 {
+ 				status = "disabled";
+ 			};
+ 
++			uart_a: serial@78000 {
++				compatible = "amlogic,t7-uart", "amlogic,meson-s4-uart";
++				reg = <0x0 0x78000 0x0 0x18>;
++				interrupts = <GIC_SPI 168 IRQ_TYPE_EDGE_RISING>;
++				clocks = <&xtal>, <&clkc_periphs CLKID_SYS_UART_A>, <&xtal>;
++				clock-names = "xtal", "pclk", "baud";
++				status = "disabled";
++			};
++
++			uart_b: serial@7a000 {
++				compatible = "amlogic,t7-uart", "amlogic,meson-s4-uart";
++				reg = <0x0 0x7a000 0x0 0x18>;
++				interrupts = <GIC_SPI 169 IRQ_TYPE_EDGE_RISING>;
++				clocks = <&xtal>, <&clkc_periphs CLKID_SYS_UART_B>, <&xtal>;
++				clock-names = "xtal", "pclk", "baud";
++				status = "disabled";
++			};
++
++			uart_c: serial@7c000 {
++				compatible = "amlogic,t7-uart", "amlogic,meson-s4-uart";
++				reg = <0x0 0x7c000 0x0 0x18>;
++				interrupts = <GIC_SPI 170 IRQ_TYPE_EDGE_RISING>;
++				clocks = <&xtal>, <&clkc_periphs CLKID_SYS_UART_C>, <&xtal>;
++				clock-names = "xtal", "pclk", "baud";
++				status = "disabled";
++			};
++
++			uart_d: serial@7e000 {
++				compatible = "amlogic,t7-uart", "amlogic,meson-s4-uart";
++				reg = <0x0 0x7e000 0x0 0x18>;
++				interrupts = <GIC_SPI 171 IRQ_TYPE_EDGE_RISING>;
++				clocks = <&xtal>, <&clkc_periphs CLKID_SYS_UART_D>, <&xtal>;
++				clock-names = "xtal", "pclk", "baud";
++				status = "disabled";
++			};
++
++			uart_e: serial@80000 {
++				compatible = "amlogic,t7-uart", "amlogic,meson-s4-uart";
++				reg = <0x0 0x80000 0x0 0x18>;
++				interrupts = <GIC_SPI 172 IRQ_TYPE_EDGE_RISING>;
++				clocks = <&xtal>, <&clkc_periphs CLKID_SYS_UART_E>, <&xtal>;
++				clock-names = "xtal", "pclk", "baud";
++				status = "disabled";
++			};
++
++			uart_f: serial@82000 {
++				compatible = "amlogic,t7-uart", "amlogic,meson-s4-uart";
++				reg = <0x0 0x82000 0x0 0x18>;
++				interrupts = <GIC_SPI 173 IRQ_TYPE_EDGE_RISING>;
++				clocks = <&xtal>, <&clkc_periphs CLKID_SYS_UART_F>, <&xtal>;
++				clock-names = "xtal", "pclk", "baud";
++				status = "disabled";
++			};
++
+ 			sd_emmc_a: mmc@88000 {
+ 				compatible = "amlogic,t7-mmc", "amlogic,meson-axg-mmc";
+ 				reg = <0x0 0x88000 0x0 0x800>;
 
-I don't have a roadmap I'm afraid for these. kexec in theory would be
-possible with KVM gracefully terminating all realms. For kdump/panic
-that sort of graceful shutdown isn't really appropriate (or likely to
-succeed).
+-- 
+2.49.0
 
-There is also some RMM configuration which cannot be repeated (see
-RMI_RMM_CONFIG_SET) - which implies that the kexec kernel must be
-similar to the first kernel (i.e. same page size).
-
-Thanks,
-Steve
 
