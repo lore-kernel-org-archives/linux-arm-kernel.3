@@ -4,119 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F3FFA0C5E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 08:57:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F0D8FA0C5E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 08:58:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Jjqr84WRLYmTsvMPyUGhcd+41sBX1COVuLB9jY1N90=; b=A5cpkfH/J1OiLdCCrw5zQbvv3V
-	r6JgDLbBPzUsEPImAr8L6uelVYGz8/k7ZN7RR98QBEGzINzkPv4EM6KCEZLtxZ91tBDUQ74EhGHro
-	o/YFrLn0Dpx4IwkyBgAmGAhBt+HGMuSF54bWtNd225EpCI2dKQZ6mR5x+cRYWfz0/IYqmYprCo1Io
-	AG+5m7zU5TVruTLgnszQqeu7K/sS7M0mg74PMtj23DRCBTufTP4C4uKEWbKhsidGH8H5DBTk+DC1+
-	+ewZf4ic6+wkJo1fpEpc2JwgcyIdT+KTLQ73wZoffTKeCx2PB1bDzF8Nnv43G200T1McvUSIyStFP
-	qy9N3JVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZIxfevD6ZOYTFsAmaOEP8nwJBpoWovoGLSUjZyNjUJA=; b=sfxSmwF76Sz9tCWycQtwrp8Iak
+	ZacOHB5+9MdScwjkl9PF/PIhZ/oh0tG8hAa7zoPRZBx5POF4c107y0NsT7BuO13oA0JdhL12Lz2I+
+	dT7hBnnNfLcUugrM2VAog03qhwhT+WO3ihzoCYo4CQZ7Pb7DJufLmiYwP313IoJRKFxU6uQdKdU7+
+	ZkeiOntQDG0Xm5XcNyz5yf9E42QlEJBuN0XS9wrD2MGcQ9woxHPbjBy7iMaaj97mvsA23E5RKb3UK
+	pzUWU0aDkteNDGK92a9NhRRfL9QVsjLUJ4sFX87u7/glk4GFq2NL6t+F0ml6Op5sIWTbak9uYh8pP
+	2rNHJXvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCw4F-00000000rdd-3hSL;
-	Wed, 15 Apr 2026 08:57:51 +0000
-Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
+	id 1wCw4U-00000000rhE-0tED;
+	Wed, 15 Apr 2026 08:58:06 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCw4C-00000000rcs-02cX
+	id 1wCw4S-00000000rfw-10OA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 08:57:50 +0000
-Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-50baf2df711so52503771cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Apr 2026 01:57:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776243466; cv=none;
-        d=google.com; s=arc-20240605;
-        b=lNJoN+KpS9YLFMKcTOvYhu/jEX+klfoLtpAXjy9GPdnuGVgpq5uqfsL1LuOy70yAIY
-         nUXSSp8VxkLg47m1BTmVQWgbNvnIIXDPjSJ/lhFYtdH7IjrQ3t+uo0TeHHAjFayE5tgx
-         G42tq68DFCK4mH/9jIxRSUygOc4bIhbIJfCDf80+V2y3REyKlpFV50gUHDnVfzKA9rnx
-         NWrqwuDe9Ms2PRQCThLnhYkDRtfOnHixkMCwUMRrPC5ricP+NVblMYDlAkrdcGMm26wR
-         oq2eiIJsqPIVXPC/PGlF3f3NKsI1eKQB1mDAJpt1etze6OxXiVKlFz3I4lWbcRzLD9Hf
-         NGcQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=1Jjqr84WRLYmTsvMPyUGhcd+41sBX1COVuLB9jY1N90=;
-        fh=oPIrrcgp5AbRuG0mApO/zwqMNh060fyUZ36o8kW9Bt0=;
-        b=i7XWXpzaAOPO4Oxaz029rYNfoHWpAsYPLAwtp/jhTJzhZA6F2/E+YDgF9PH99+Toks
-         76WZESA8/Xeuj9tHz/azSUOM+OJ43wgl6+wAjS8XQgRpLNpHyyyPxbV//oQ7CgwEcHPM
-         MB0YxfsWoehhIOOuFsVwSPx53MsH/u7E6bqYABXETQ4pwdQicl+QVUdTlE9LukLP+UML
-         NsR1Pg1c+qv+m3G49czRjD71vAF6Qx0dgveVQufrH1nzqtIUZfk7O5AKxngEzlbr5P/b
-         mnVERFTeq3/W/VuLCS8DzN1quIJumJlun29TahXNyTjbBrS40Z20VCrZHhs8Rtrayqom
-         Fx/A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776243466; x=1776848266; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1Jjqr84WRLYmTsvMPyUGhcd+41sBX1COVuLB9jY1N90=;
-        b=pIF8KO6yd56qBWHotPIW0NbChToQgzbSEoWMd9BEiNGI46SEt5fhv7XFzvGCZPsKFj
-         DngFDkIOfWa1w3tA1keiP+H0EYyFatjttJ6aP0Hxki89iggtomwbOhCiOaniG4rkEiWu
-         6UZdIXv70tRAbaxQ5KJzyqVyOg7OvS6afE0z6u6K7C8SKQQJgsp81jAw+ulaMxoBZPGH
-         sO54KHXLGUqN+5/6y0IAshh5HNdqTiyKDCSeEsFeUSfqiweKaPJIMjtlWpHRaLIceitM
-         78TKllKf3SMRxTwyZwPfixRSlzQl60IilDu1gNIt4/bLCP+RPslk6EmQ0vJP/JrZlYw/
-         Vwmw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776243466; x=1776848266;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=1Jjqr84WRLYmTsvMPyUGhcd+41sBX1COVuLB9jY1N90=;
-        b=Vs1GzmfZoOzhhBS9rYiGQAAOvWlAoX8qm2Dk1Hy6LpURVNlnhOAa5JMP3GQViLz3NH
-         c2ZmGxNLVhO0TlsZtaJOn6kAsyykWSeAKU2JzTp8Rv4KJkpigAKJpk1sHV2r/vJRnrk/
-         3QjM5agF0niGXNINw5CAOVPo9UkowF2AIxTqmMYnkXWWaxf/QETOk0QlARCTy54ZNJiO
-         RXK4ORkSRnRK4vm1/AS6kA4a+ylhcbDUWeRTD/OXX9widnDoP2zcqkZjxIpIMcikWDUE
-         Xp6yaCb7i7O/oOvbNJ3jPI0bxXnOkFtmON9Q8SVm6Ku15iQL6U30QnAlzfZ1h8VSG7AG
-         +nEA==
-X-Forwarded-Encrypted: i=1; AFNElJ9ps7ESokitn54oQg+fyxVSbAE8l3MdLFsKCqLyTn2wbyDLSQd1Vdyw0Ms32liC2KGTVFmm23Pg65PeZEob6EBn@lists.infradead.org
-X-Gm-Message-State: AOJu0YxeeXYpMz8hGiSanGQ439JR6b8UMDFhJmA0VeIpwSt4W6upBm3M
-	A4iMiGylaqs35mCtsDVTD5JVradkp7FK7vWyXdJGk5U/baL/t8k3OjdabZRSk1f4ucrbh0OA5Py
-	AQjvJUuZCkaRXeZhrXDViWUsSf6SDSsE=
-X-Gm-Gg: AeBDievmFPzj3B8uoNu/j2RUdm6l7i+Bqs/INC5KMGUApZdbqQldTFYSLrEctvfsvOf
-	zi02P4O78/Wytj/x7Cb0FZYzEfqYOwu9MiQAvHNC7kdm9rWnFuI/WkO4Onhbu4AcvbS8mNv9Kx4
-	x3O84u8b52LxK0/bStX4ZJ3YgV96od522dNqa0pFOl3ziT1wsf/jGE0vi5haOqF4sNszF50pETC
-	taUr1B+3HEb0G0TNGWM0sUpeQndE1EKEB2/DslndgIwMUbGSVW92yPdVZ28RHc5frYV69jVXnUz
-	mg0BTUo=
-X-Received: by 2002:a05:622a:2a0c:b0:509:14f6:9841 with SMTP id
- d75a77b69052e-50dd5b7c649mr291665491cf.31.1776243466376; Wed, 15 Apr 2026
- 01:57:46 -0700 (PDT)
+	Wed, 15 Apr 2026 08:58:05 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=dNhm9cthZE1o1byWOUVZ0q8JOTQzLgBDnK+1V4YcGT78lucJVL697eUCR63Hft6w/E5k2nZUWi1bE8ed7eMNJtxsmO6oNI2I0/y+tSkoQBYs2gJcPR8KSHvx6fIGM8S9XG+Dp6AQ/sp2/JSszmrxo9woF2JpKbTopYFMzrx+9GUexYcVbSTxuNCYDKGfSImwmRpLwLXDEg/TpQc6QjTuPuf02kS00bgz8h8VJgC6iJieCD/eZiow7v5fgPye9vEEuw+3cdNG9md2gUPJuYDI3KZU7+PpYMqwjRQehL1jJlM0iVOm22P1RoyezMjuf98VmA/380IH/YwQCj6Jog9csw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZIxfevD6ZOYTFsAmaOEP8nwJBpoWovoGLSUjZyNjUJA=;
+ b=PiacMfB6+23rTsMq8kFmF7r50O2uo6zJgi7x3Ru7NppZLkRBOVOPtI9XQY+7Pm6YFTIOnqo0pZPNI6kE3gopF03DrkK4QZ+j7T5hTrS4ycIn2toLmSa70pzGuiVI3WOEslNR0DFCiAL2SpsNVb4HeDSDsKyv9pFI6BDfKSKv+mQLdZN/qoi+b3jR7nbBt4U+ehtvAsaEv9g0nWF/XNT3Cn6nREDycRjfoaJYEfsboo6YRAkCpoXtV2nYPX4S9Yh5E6qLRe14pMw5jUmYQCiW/EpO+kZg+VMUEfO1dYRjbKqlMh5Hcexv7pnXG06ticQoYlT9r9siKvipHPbLSNziKA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=oss.qualcomm.com smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZIxfevD6ZOYTFsAmaOEP8nwJBpoWovoGLSUjZyNjUJA=;
+ b=cm9XanujNntFpICds536bsB9TOavshyTY4o7JZCl4rERGirXzw8sghMxA1YtFqkkW6XClW/tUY749Yln22peVk7M3QmNkodnkwR9V/Fj6FITBrOl4Npi6SJ45QBkiS518wsaJg0HCHn+1+9jbiHzSmiMi6Hb6F79yLd6iP9w8oU=
+Received: from DU2PR04CA0317.eurprd04.prod.outlook.com (2603:10a6:10:2b5::22)
+ by AS8PR08MB7717.eurprd08.prod.outlook.com (2603:10a6:20b:525::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Wed, 15 Apr
+ 2026 08:57:53 +0000
+Received: from DB1PEPF000509F6.eurprd02.prod.outlook.com
+ (2603:10a6:10:2b5:cafe::ea) by DU2PR04CA0317.outlook.office365.com
+ (2603:10a6:10:2b5::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.50 via Frontend Transport; Wed,
+ 15 Apr 2026 08:57:53 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DB1PEPF000509F6.mail.protection.outlook.com (10.167.242.152) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.17
+ via Frontend Transport; Wed, 15 Apr 2026 08:57:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NFiEHn47GBv+7u0aZ+Q4XKVTjL4c9cpaiQkBK0Aw5VgOsq3NxRR6a8jsPgo5wV65G45tB6dpNdWYL1zaXFheDQK4QY8SqzIIMAFVaxHzFP37X/KHIymcLJdZcXaUN5K0fwrw0xPSgcOv5xn1tZCAe7VdyVGo+EIjFHABXYojhHoqhdaPlb2WnGA8qJ+NrN2yb2ZtuCc2fkEhKVIWXZazLbjeWRgHmM3jLLfKbtIwB/fcYoRKnGf+3FmTSjHWa7g7EgHpVVvUbKv+Gb3PuKksFV486tbuvDIODknzEH7CcD6p7Yp3hKXqfERDSKcj9JD7RAFH3vKYOwEO3hKntCEL+Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZIxfevD6ZOYTFsAmaOEP8nwJBpoWovoGLSUjZyNjUJA=;
+ b=lHCTx55lE/F4AvyuKjnbhKF6/8nDY128puiOAmRw/ad53UapGRC47+kYSYKoCHNi5xwG1ZLMh5uxjOem9XX48sJ/f8WyUzPO1ykcDuUntiNF9AhU8qWHVVwRGcyvdWvoUIpkWpbjX5cbBntaWMedXsdPq7QlriTJOyHq6nydLtKC/XhLNGYVdbQU+yU/gMWPP837TR6bU3Mqu+mIe7cSy1lFs16Zp/NS+3PQmc2lQtVjo97q3TIk1kXrRKbFdn9FtjTi2S+JYlTn9Giqud/I7Veo8oPqQpvkaFoHmirviljSK6ZWEMpRLZjrxUa0ExXrlfU+EkLVG/QVwllPCb8lfQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZIxfevD6ZOYTFsAmaOEP8nwJBpoWovoGLSUjZyNjUJA=;
+ b=cm9XanujNntFpICds536bsB9TOavshyTY4o7JZCl4rERGirXzw8sghMxA1YtFqkkW6XClW/tUY749Yln22peVk7M3QmNkodnkwR9V/Fj6FITBrOl4Npi6SJ45QBkiS518wsaJg0HCHn+1+9jbiHzSmiMi6Hb6F79yLd6iP9w8oU=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from DU4PR08MB11769.eurprd08.prod.outlook.com (2603:10a6:10:644::21)
+ by DB9PR08MB6618.eurprd08.prod.outlook.com (2603:10a6:10:263::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Wed, 15 Apr
+ 2026 08:56:50 +0000
+Received: from DU4PR08MB11769.eurprd08.prod.outlook.com
+ ([fe80::d424:cd62:81a8:490f]) by DU4PR08MB11769.eurprd08.prod.outlook.com
+ ([fe80::d424:cd62:81a8:490f%5]) with mapi id 15.20.9769.046; Wed, 15 Apr 2026
+ 08:56:50 +0000
+Message-ID: <a681fb3e-d15f-4dcc-ae35-46bb4ba5e11a@arm.com>
+Date: Wed, 15 Apr 2026 09:56:49 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 3/9] coresight: etm4x: fix leaked trace id
+To: Jie Gan <jie.gan@oss.qualcomm.com>, Leo Yan <leo.yan@arm.com>,
+ Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, mike.leach@arm.com, james.clark@linaro.org,
+ alexander.shishkin@linux.intel.com
+References: <20260413142003.3549310-1-yeoreum.yun@arm.com>
+ <20260413142003.3549310-4-yeoreum.yun@arm.com>
+ <20260414163221.GG356832@e132581.arm.com> <ad5wVVnUw1jnkCdn@e129823.arm.com>
+ <81fdef8a-a60e-4d29-948d-c4a07e23dad9@oss.qualcomm.com>
+ <20260415072933.GH356832@e132581.arm.com> <ad9FxS86FTqxu00d@e129823.arm.com>
+ <20260415083224.GJ356832@e132581.arm.com>
+ <d871bc3a-c104-4e8f-8104-898b957af79c@oss.qualcomm.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <d871bc3a-c104-4e8f-8104-898b957af79c@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: LO0P265CA0007.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:355::18) To DU4PR08MB11769.eurprd08.prod.outlook.com
+ (2603:10a6:10:644::21)
 MIME-Version: 1.0
-References: <20260414214104.1363987-1-dennis@ausil.us> <20260414214104.1363987-7-dennis@ausil.us>
-In-Reply-To: <20260414214104.1363987-7-dennis@ausil.us>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Wed, 15 Apr 2026 12:57:31 +0400
-X-Gm-Features: AQROBzBEtWJOTHuxeBGjPJqMt4Wcq_1Spd5oLgN9jC4wNkqJlKqoy-oCTRuq_9Q
-Message-ID: <CABjd4YxfeCfRUneZfFx31WmQOexO0gcH8yHPQmRY38GKNk=Ztg@mail.gmail.com>
-Subject: Re: [PATCH v7 6/6] arm64: dts: rockchip: Add Orange Pi 5 Pro board support
-To: Dennis Gilmore <dennis@ausil.us>
-Cc: Andrew Lunn <andrew@lunn.ch>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>, Conor Dooley <conor+dt@kernel.org>, 
-	David Airlie <airlied@gmail.com>, devicetree@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, FUKAUMI Naoki <naoki@radxa.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Hsun Lai <i@chainsx.cn>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Jimmy Hon <honyuenkwun@gmail.com>, 
-	John Clark <inindev@gmail.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
-	Michael Riesch <michael.riesch@collabora.com>, Mykola Kvach <xakep.amatop@gmail.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Peter Robinson <pbrobinson@gmail.com>, 
-	Quentin Schulz <quentin.schulz@cherry.de>, Robert Foss <rfoss@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
-	Thomas Zimmermann <tzimmermann@suse.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-TrafficTypeDiagnostic: DU4PR08MB11769:EE_|DB9PR08MB6618:EE_|DB1PEPF000509F6:EE_|AS8PR08MB7717:EE_
+X-MS-Office365-Filtering-Correlation-Id: 649a864d-349e-4609-ae12-08de9acd13ff
+X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|366016|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info-Original: iA3kxXCNnis0SiErJ+6rwnIHbh7Su8bTSccv8xLk3s5B5fPuznmgga2BZR8tyUwXaBNvUn8HQm+iDW79S3JDgaEl0VY1fiTn3Lzm+v5uHtyK60IG48aANHCK36lgDoU3QTpJu0CWBRd4y5oeYG59RslovwHau4EasO1VzApjwuiInLcuDtCkVXGb5FR00jNQTo53AxsW8Js3GFVJP0CStKZwfVqzdN0mG9Ka64uCbns5EibV9vgTJsZpRNpXBtOaLFrQKg6L2w4jn8V0uaL9v7uASfjBeVKauTVCBS9o1K0mcR5cql2wW0o0KqQWnEcjTQczAtJaiW5onKL5Tf7hGb1QztNvS6YLCrdHor5pHcIs1XcE7qt/qiUPiqy11856JFEKMT2n+oiXtmoLkiX4AavxIWALuiy3HZzjJK3HKO3ztaUErCnG768SVfwYAJRZXYogHJMDV1RvDPVUbqfbU3a9CLYLwyk1G8G1TTogkUr7SaNmo47UwiUR9dVxTznhYz1OF+xJf8OuPk3s5iI2LbFbgZrfWZUW+fr7MNJdGYaBW8XrGjWUePTeCE9mKedkTAtWjOu2hsxgA589kFcXYBNl5DmVe8tlB0xjNvlyGndLlSN+IrYt2BzVcliuiq3zUnQipz7fga2gGQZ75bQZf70iboJsxd2lt5G5svC+s8W0rRpFUHzhhxygquuYU85ALZaxwmMGvH6UHvsw7ZMAcxD5Y1C18RmFhMptoxwrqCo=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR08MB11769.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: EKQpvN08gevf4LNrvMm2wXcBiJvDID8JczV4zXcVkowQQW/LZJ06jOSa2+nt3myCMDUoPEpVy8pOcQImpkIjl1OELCLj+6iddzGanWJDi/d+dC7+Eaa0v0RwMbNreXSfgdzpKVuOTbU7qFDHNDLxSal2aPJ6VbE9SIg00u504UrYudL0Pm9gSNAc1HXio5ZcOqOz6I1BWABOZYO+KU5qxueCLkEHq5E4OUcegW2/uf8oCZW1gnCPuzJsHFNlBxQFSDWjoN+kQpwbeFqSbaUeIDNViRrYGzcRjvyPvkVZ9jLgsAlr5T+29VNSGbMm89/Bng5FP3KMqHHBVuBNjgUXPg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB6618
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509F6.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 5be722e3-0a2a-4f71-e5c9-08de9accee95
+X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|36860700016|376014|82310400026|35042699022|1800799024|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: vCamGCuAi+/Yf7ZRPhnXPgLHNaZbkkmcslLx117Pvy8mcndtTxOuRJTmWXq1pBgHZQXlqexZbEH9vuzriQ7tDSusHyzUCJ4H9dP2B0X/jg+59l8tx3DsTi+hUAzA26oo2TJY+i9sITeBuaWE+VJhDGM/z24smACOtDE2AtuoJ29Ai1FQCuCRFw1yTqF+6jAi/H5NFiF/1aZk4AObHYbgW2mpEA5ioN+jSHr3WNDZamOWSgC8I0fiDB83drWJ7dy1oxNjuCtVAMqWHO3vLmihlWiY5zfoRwLGctIJ9Jp2ZyP5VlglBKzeMGre7CGakj61YOfLdhVf6Sz4JiIEz05scN9xjS/d0yEyjvkkv65gNT/IW7umfCiYGLxKqNquhiyPLRO7YcBL6vwCSy18hzaEXhO4/BtPX5Kt6Cl49zmXoLkDws2IZsMpouXtBiSVI1Pns6EpQXd5NxWanl9gUpFOXw++PG1ugWVFGoa7vyR9on8gGp8xBp887G3rvpgu9+24lHSol+MynjOBIGz4DGwUYmPHAO+HP5R+Gjy7sihtLRcPYAvByl2nBcmJrjy+XPxpGIJznkSVPs1xs99KhWeMKXWWLEiRXl6n0SIRsy6MyWH9xbU7mTZNSLYC3GYNGPGqOM0wbFU3C49o6ze1L87kytdskTwgaDF3AuqYacYp1d2NvX40/vQtduuRySgvOr0g39jn1g2YSRI58JmfWw/errTXlQnT08ohbRYslq/iSQfXEG8nLcRXME8uqY2IboNLZpimuLzOobEE0TzY+7VICg==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(36860700016)(376014)(82310400026)(35042699022)(1800799024)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: IA7WCHcyPPGNHpCdxxDOQI8hBGbL1PivfCZAWek/NrdZgBur0QKRv+eYjDY2Ht0Mt4G6cX3KIBXkUFcc+HRbrTzCJBo9Na8dgKQnd3XaHKE4nrAOGtjdJrSx/YEmF5ojS73oXsmaDLN/Xh5aeqp1A1+a0TILzJjNpDPdWJrluPu2dXWVzZ8xrlRJVxrJQZkqOZoo83PGS1ZyRSbzQQl+ar3LP3pzD+y4pfK4DC+sRMjCgRlCfCGJqfGwCbwsFW+YFsDizaiyj/D3ytBTPLpSEOr23MIokjijknDqLVMKSt7vMRsvmPphaenniE0BGRAEK/55yEf6hhoKvQ32TWRMBf4SVAAm5jsqXkq6Ha6nnWQW6ph4h9yRb3NPNa8Rfxq/TQR9Hf2xB76LZaDfX59npW+Y8XAaxDHDqgdnyglFSrBQWsUkF8f+5YIHtGQxcPFc
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Apr 2026 08:57:52.6618
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 649a864d-349e-4609-ae12-08de9acd13ff
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F6.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB7717
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_015748_147499_071E2CBE 
-X-CRM114-Status: GOOD (  24.04  )
+X-CRM114-CacheID: sfid-20260415_015804_416783_D6E22752 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,447 +162,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 15, 2026 at 1:41=E2=80=AFAM Dennis Gilmore <dennis@ausil.us> wr=
-ote:
->
-> Add device tree for the Xunlong Orange Pi 5 Pro (RK3588S).
->
-> - eMMC module, you can optionally solder a SPI NOR in place and turn
->  off the eMMC
-> - PCIe-attached NIC (pcie2x1l1)
-> - PCIe NVMe slot (pcie2x1l2)
+On 15/04/2026 09:45, Jie Gan wrote:
+> 
+> 
+> On 4/15/2026 4:32 PM, Leo Yan wrote:
+>> On Wed, Apr 15, 2026 at 09:01:09AM +0100, Yeoreum Yun wrote:
+>>
+>> [...]
+>>
+>>>>> What I am thinking is as SoCs continue to grow more complex with an
+>>>>> increasing number of subsystems, trace IDs may be exhausted in the 
+>>>>> near
+>>>>> future. (that's why we have dynamic trace ID allocation/release).
+>>>>
+>>>> Thanks for the input.
+>>>>
+>>>> I am wandering if we can use "dev->devt" as the trace ID.  A device's
+>>>> major/minor number is unique in kernel and dev_t is defined as u32:
+>>>>
+>>>>    typedef u32 __kernel_dev_t;
+>>>>
+>>>> And we can consolidate this for both SYSFS and PERF modes.
+>>>>
+>>>
+>>> When I see the CORESIGHT_TRACE_ID_MAX:
+>>>
+>>>   /* architecturally we have 128 IDs some of which are reserved */
+>>>    #define CORESIGHT_TRACE_IDS_MAX 128
+>>>
+>>> I think this came from the hardware restriction for number of TRACE_IDs.
+>>> In this case, clamping the device_id to trace_id seems more complex and
+>>> reduce some performance perspective.
+>>
+>> Sigh, my stupid.  Please ignore my previous comment, let us first fix
+>> ID leak issue.
+>>
+>> Given Jie's comment on the use-out issue, it is valid for me especially
+>> if a system have many dummy tracers.  We can defer to refactor it
+>> later (e.g., use separate ranges for hardware and dummy tracers).
+>>
+>> thanks for correction!
+> 
+> Just share some info:
+> 
+> With my memory, The ARM AMBA ATB Protocol Specification defined a 7-bit 
+> width field for the trace ID, that's where the 128 comes from. (in each 
+> frame, we also have 7-bit field for containing the trace ID)
 
-Hi Dennis,
+That is true and some IDs in the range (0-128) are reserved. So we
+actually have less than 128. We need the dynamic allocation, preferrably
+isolated to a "pool" for the relevant session to make the full use of
+the space.
 
-Sashiko noticed [1] that the controller names here do not match the
-nodes/comments you have in the patch body - which ones are correct?
+Suzuki
 
-[1] https://sashiko.dev/#/patchset/20260414214104.1363987-1-dennis%40ausil.=
-us
+> 
+> Thanks,
+> Jie
+> 
 
-> - AP6256 WiFi (BCM43456) via SDIO with mmc-pwrseq
-> - BCM4345C5 Bluetooth
-> - es8388 audio
-> - USB 2.0 and USB 3.0
-> - Two HDMI ports, the second is connected to the SoC's DP controller
->   driven through a Lontium LT8711UXD bridge.
->
-> Vendors schematics are available at:
-> https://drive.google.com/file/d/1qs1DratHuh7C6J6MEtQIwUsiSrg8qgTi/view
->
-> Signed-off-by: Dennis Gilmore <dennis@ausil.us>
-> ---
->  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
->  .../dts/rockchip/rk3588s-orangepi-5-pro.dts   | 442 ++++++++++++++++++
->  2 files changed, 443 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.d=
-ts
->
-> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/=
-rockchip/Makefile
-> index 4d384f153c13..c99dca2ae9e7 100644
-> --- a/arch/arm64/boot/dts/rockchip/Makefile
-> +++ b/arch/arm64/boot/dts/rockchip/Makefile
-> @@ -214,6 +214,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3588s-nanopi-r6c.d=
-tb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3588s-odroid-m2.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3588s-orangepi-5.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3588s-orangepi-5b.dtb
-> +dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3588s-orangepi-5-pro.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3588s-orangepi-cm5-base.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3588s-radxa-cm5-io.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3588s-roc-pc.dtb
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.dts b/ar=
-ch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.dts
-> new file mode 100644
-> index 000000000000..61462c66753d
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.dts
-> @@ -0,0 +1,442 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +
-> +/dts-v1/;
-> +
-> +#include "rk3588s-orangepi-5.dtsi"
-> +
-> +/ {
-> +       model =3D "Xunlong Orange Pi 5 Pro";
-> +       compatible =3D "xunlong,orangepi-5-pro", "rockchip,rk3588s";
-> +
-> +       aliases {
-> +               mmc0 =3D &sdhci;
-> +               mmc1 =3D &sdmmc;
-> +               mmc2 =3D &sdio;
-> +       };
-> +
-> +       hdmi1-con {
-> +               compatible =3D "hdmi-connector";
-> +               label =3D "HDMI1 OUT";
-> +               type =3D "a";
-> +
-> +               port {
-> +                       hdmi1_con_in: endpoint {
-> +                               remote-endpoint =3D <&lt8711uxd_out>;
-> +                       };
-> +               };
-> +       };
-> +
-> +       lt8711uxd {
-
-Please use a generic node name per DT convention. "hdmi-bridge" perhaps?
-
-> +               compatible =3D "lontium,lt8711uxd";
-
-Don't you want to add "vdd-supply =3D <&vcc3v3_dp>;" here? It costs you
-nothing, as it's already in the binding and in the driver, and having
-this dependency listed explicitly will let the kernel order the driver
-probes correctly, and also likely let you drop the boot-on/always-on
-annotation from the regulator node.
-
-> +               ports {
-> +                       #address-cells =3D <1>;
-> +                       #size-cells =3D <0>;
-> +
-> +                       port@0 {
-> +                               reg =3D <0>;
-> +
-> +                               lt8711uxd_in: endpoint {
-> +                                       remote-endpoint =3D <&dp0_out_con=
->;
-> +                               };
-> +                       };
-> +
-> +                       port@1 {
-> +                               reg =3D <1>;
-> +
-> +                               lt8711uxd_out: endpoint {
-> +                                       remote-endpoint =3D <&hdmi1_con_i=
-n>;
-> +                               };
-> +                       };
-> +               };
-> +       };
-> +
-> +       analog-sound {
-> +               compatible =3D "simple-audio-card";
-> +               pinctrl-names =3D "default";
-> +               pinctrl-0 =3D <&hp_detect>;
-> +               simple-audio-card,format =3D "i2s";
-> +               simple-audio-card,hp-det-gpios =3D <&gpio1 RK_PD5 GPIO_AC=
-TIVE_HIGH>;
-> +               simple-audio-card,mclk-fs =3D <256>;
-> +               simple-audio-card,name =3D "rockchip,es8388";
-> +               simple-audio-card,routing =3D
-> +                       "Headphones", "LOUT1",
-> +                       "Headphones", "ROUT1",
-> +                       "LINPUT1", "Microphone Jack",
-> +                       "RINPUT1", "Microphone Jack",
-> +                       "LINPUT2", "Onboard Microphone",
-> +                       "RINPUT2", "Onboard Microphone";
-> +               simple-audio-card,widgets =3D
-> +                       "Microphone", "Microphone Jack",
-> +                       "Microphone", "Onboard Microphone",
-> +                       "Headphone", "Headphones";
-> +
-> +               simple-audio-card,cpu {
-> +                       sound-dai =3D <&i2s2_2ch>;
-> +               };
-> +
-> +               simple-audio-card,codec {
-> +                       sound-dai =3D <&es8388>;
-> +                       system-clock-frequency =3D <12288000>;
-> +               };
-> +       };
-> +
-> +       pwm-leds {
-> +               compatible =3D "pwm-leds";
-> +
-> +               led-0 {
-> +                       color =3D <LED_COLOR_ID_BLUE>;
-> +                       function =3D LED_FUNCTION_STATUS;
-> +                       linux,default-trigger =3D "heartbeat";
-> +                       max-brightness =3D <255>;
-> +                       pwms =3D <&pwm15 0 1000000 0>;
-> +               };
-> +
-> +               led-1 {
-> +                       color =3D <LED_COLOR_ID_GREEN>;
-> +                       function =3D LED_FUNCTION_ACTIVITY;
-> +                       linux,default-trigger =3D "heartbeat";
-> +                       max-brightness =3D <255>;
-> +                       pwms =3D <&pwm3 0 1000000 0>;
-> +               };
-> +       };
-> +
-> +       fan: pwm-fan {
-> +               compatible =3D "pwm-fan";
-> +               #cooling-cells =3D <2>;
-> +               cooling-levels =3D <0 50 100 150 200 255>;
-> +               fan-supply =3D <&vcc5v0_sys>;
-> +               pwms =3D <&pwm2 0 20000000 0>;
-> +       };
-> +
-> +       vcc3v3_dp: regulator-vcc3v3-dp {
-> +               compatible =3D "regulator-fixed";
-> +               enable-active-high;
-> +               gpios =3D <&gpio3 RK_PC2 GPIO_ACTIVE_HIGH>;
-> +               pinctrl-names =3D "default";
-> +               pinctrl-0 =3D <&dp_bridge_en>;
-> +               regulator-max-microvolt =3D <3300000>;
-> +               regulator-min-microvolt =3D <3300000>;
-> +               regulator-name =3D "vcc3v3_dp";
-> +               regulator-always-on;
-> +               regulator-boot-on;
-
-Please see if you can drop these always-on/boot-on when vdd-supply is
-explicitly listed in the bridge node
-
-> +               vin-supply =3D <&vcc_3v3_s3>;
-> +       };
-> +
-> +       vcc3v3_phy1: regulator-vcc3v3-phy1 {
-> +               compatible =3D "regulator-fixed";
-> +               enable-active-high;
-> +               gpios =3D <&gpio3 RK_PB7 GPIO_ACTIVE_HIGH>;
-> +               pinctrl-names =3D "default";
-> +               pinctrl-0 =3D <&vcc3v3_phy1_en>;
-
-The board schematics call the pin "Ethernet_EN"
-
-> +               regulator-max-microvolt =3D <3300000>;
-> +               regulator-min-microvolt =3D <3300000>;
-> +               regulator-name =3D "vcc3v3_phy1";
-> +               startup-delay-us =3D <50000>;
-> +               vin-supply =3D <&vcc_3v3_s3>;
-> +       };
-> +
-> +       vcc5v0_otg: regulator-vcc5v0-otg {
-> +               compatible =3D "regulator-fixed";
-> +               enable-active-high;
-> +               gpios =3D <&gpio0 RK_PC4 GPIO_ACTIVE_HIGH>;
-> +               pinctrl-names =3D "default";
-> +               pinctrl-0 =3D <&vcc5v0_otg_en>;
-> +               regulator-max-microvolt =3D <5000000>;
-> +               regulator-min-microvolt =3D <5000000>;
-> +               regulator-name =3D "vcc5v0_otg";
-> +               vin-supply =3D <&vcc5v0_sys>;
-> +       };
-> +
-> +       sdio_pwrseq: sdio-pwrseq {
-> +               compatible =3D "mmc-pwrseq-simple";
-> +               clocks =3D <&hym8563>;
-> +               clock-names =3D "ext_clock";
-> +               pinctrl-names =3D "default";
-> +               pinctrl-0 =3D <&wifi_enable_h>;
-> +               post-power-on-delay-ms =3D <200>;
-> +               reset-gpios =3D <&gpio0 RK_PD0 GPIO_ACTIVE_LOW>;
-> +       };
-> +
-> +       typea_con: usb-a-connector {
-> +               compatible =3D "usb-a-connector";
-> +               data-role =3D "host";
-> +               label =3D "USB3 Type-A";
-> +               power-role =3D "source";
-> +               vbus-supply =3D <&vcc5v0_otg>;
-> +       };
-> +};
-> +
-> +&dp0 {
-> +       pinctrl-names =3D "default";
-> +       pinctrl-0 =3D <&dp0m0_pins>;
-> +       status =3D "okay";
-> +};
-> +
-> +&dp0_in {
-> +       dp0_in_vp1: endpoint {
-> +               remote-endpoint =3D <&vp1_out_dp0>;
-> +       };
-> +};
-> +
-> +&dp0_out {
-> +       dp0_out_con: endpoint {
-> +               remote-endpoint =3D <&lt8711uxd_in>;
-> +       };
-> +};
-> +
-> +&i2c1 {
-> +       pinctrl-names =3D "default";
-> +       pinctrl-0 =3D <&i2c1m4_xfer>;
-> +       status =3D "okay";
-> +};
-> +
-> +&i2c3 {
-> +       pinctrl-names =3D "default";
-> +       pinctrl-0 =3D <&i2c3m0_xfer>;
-> +       status =3D "okay";
-> +
-> +       es8388: audio-codec@11 {
-> +               compatible =3D "everest,es8388", "everest,es8328";
-> +               reg =3D <0x11>;
-> +               #sound-dai-cells =3D <0>;
-> +               AVDD-supply =3D <&vcca_3v3_s0>;
-> +               DVDD-supply =3D <&vcca_1v8_s0>;
-> +               HPVDD-supply =3D <&vcca_3v3_s0>;
-> +               PVDD-supply =3D <&vcca_1v8_s0>;
-> +               assigned-clock-rates =3D <12288000>;
-> +               assigned-clocks =3D <&cru I2S2_2CH_MCLKOUT>;
-> +               clocks =3D <&cru I2S2_2CH_MCLKOUT>;
-> +               pinctrl-names =3D "default";
-> +               pinctrl-0 =3D <&i2s2m1_mclk>;
-> +       };
-> +};
-> +
-> +&i2c4 {
-> +       pinctrl-names =3D "default";
-> +       pinctrl-0 =3D <&i2c4m3_xfer>;
-> +       status =3D "okay";
-> +};
-> +
-> +&i2s2_2ch {
-> +       pinctrl-0 =3D <&i2s2m1_lrck &i2s2m1_sclk
-> +                    &i2s2m1_sdi &i2s2m1_sdo>;
-> +       status =3D "okay";
-> +};
-> +
-> +&package_thermal {
-> +       polling-delay =3D <1000>;
-> +
-> +       cooling-maps {
-> +               map0 {
-> +                       trip =3D <&package_fan0>;
-> +                       cooling-device =3D <&fan THERMAL_NO_LIMIT 1>;
-> +               };
-> +
-> +               map1 {
-> +                       trip =3D <&package_fan1>;
-> +                       cooling-device =3D <&fan 2 THERMAL_NO_LIMIT>;
-> +               };
-> +       };
-> +
-> +       trips {
-> +               package_fan0: package-fan0 {
-> +                       hysteresis =3D <2000>;
-> +                       temperature =3D <55000>;
-> +                       type =3D "active";
-> +               };
-> +
-> +               package_fan1: package-fan1 {
-> +                       hysteresis =3D <2000>;
-> +                       temperature =3D <65000>;
-> +                       type =3D "active";
-> +               };
-> +       };
-> +};
-> +
-> +/* NVMe */
-> +&pcie2x1l1 {
-> +       pinctrl-names =3D "default";
-> +       pinctrl-0 =3D <&pcie2x1l1_rst &pcie30x1m1_1_clkreqn &pcie30x1m1_1=
-_waken>;
-
-Is there a particular reason to use the GPIO mode for the reset pin,
-rather than the (confusingly named) &pcie30x1m1_1_perstn in line with
-the other two?
-
-> +       reset-gpios =3D <&gpio4 RK_PA2 GPIO_ACTIVE_HIGH>;
-> +       supports-clkreq;
-> +       vpcie3v3-supply =3D <&vcc_3v3_s3>;
-> +       status =3D "okay";
-> +};
-> +
-> +/* NIC */
-> +&pcie2x1l2 {
-> +       pinctrl-names =3D "default";
-> +       pinctrl-0 =3D <&pcie2x1l2_rst>;
-
-Similar to the above - have you tried the dedicated hardware mode for
-this pin, i.e. &pcie20x1m0_perstn? You are not requesting the
-&pcie20x1m0_clkreqn or &pcie20x1m0_waken either, even though they are
-routed on the board - that will probably bite you if you try
-suspending the board.
-
-> +       reset-gpios =3D <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
-> +       vpcie3v3-supply =3D <&vcc3v3_phy1>;
-> +       status =3D "okay";
-> +};
-> +
-> +&pinctrl {
-> +       bluetooth {
-> +               bt_wake_gpio: bt-wake-pin {
-> +                       rockchip,pins =3D <0 RK_PC6 RK_FUNC_GPIO &pcfg_pu=
-ll_none>;
-
-If you care about power consumption of the board it's probably better
-to pull this down to make sure the Bluetooth module is predictably in
-a sleep state when not explicitly requested, not floating randomly.
-There is no dedicated pull-up/pull-down on your board.
-
-> +               };
-> +
-> +               bt_wake_host_irq: bt-wake-host-irq {
-> +                       rockchip,pins =3D <0 RK_PC5 RK_FUNC_GPIO &pcfg_pu=
-ll_down>;
-> +               };
-> +       };
-> +
-> +       dp {
-> +               dp_bridge_en: dp-bridge-en {
-> +                       rockchip,pins =3D <3 RK_PC2 RK_FUNC_GPIO &pcfg_pu=
-ll_none>;
-
-This pin doesn't have any dedicated pull-up/pull-down on the board, so
-you might end up in a weird power state for the period of time between
-the probing of the pinctrl subsystem and regulators. Better set it to
-&pcfg_pull_down, which matches the power-on-reset default state of
-this pin.
-
-> +               };
-> +       };
-> +
-> +       pcie {
-> +               pcie2x1l1_rst: pcie2x1l1-rst {
-> +                       rockchip,pins =3D <4 RK_PA2 RK_FUNC_GPIO &pcfg_pu=
-ll_none>;
-> +               };
-> +
-> +               pcie2x1l2_rst: pcie2x1l2-rst {
-> +                       rockchip,pins =3D <3 RK_PD1 RK_FUNC_GPIO &pcfg_pu=
-ll_none>;
-> +               };
-> +
-> +               vcc3v3_phy1_en: vcc3v3-phy1-en {
-
-The schematic calls this pin "Ethernet_EN", so perhaps use that in the
-label and node name for easier reference.
-
-> +                       rockchip,pins =3D <3 RK_PB7 RK_FUNC_GPIO &pcfg_pu=
-ll_none>;
-
-As above: no dedicated pull resistors on the board, better set to
-&pcfg_pull_down in line with POR default.
-
-> +               };
-> +       };
-> +
-> +       usb {
-> +               vcc5v0_otg_en: vcc5v0-otg-en {
-> +                       rockchip,pins =3D <0 RK_PC4 RK_FUNC_GPIO &pcfg_pu=
-ll_none>;
-
-As above: no dedicated pull resistors on the board, better set to
-&pcfg_pull_down in line with POR default.
-
-> +               };
-> +       };
-> +
-> +       wlan {
-> +               wifi_enable_h: wifi-enable-h {
-> +                       rockchip,pins =3D <0 RK_PD0 RK_FUNC_GPIO &pcfg_pu=
-ll_none>;
-
-As above: no dedicated pull resistors on the board, better set to
-&pcfg_pull_down in line with POR default.
-
-Best regards,
-Alexey
 
