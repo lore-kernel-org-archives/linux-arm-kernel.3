@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90092F43821
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 14:35:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DB23F43830
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 14:43:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ofXPji/7laZRxxQ+NmgzTWk9YZj9DL2cPl4WvjnsuZg=; b=oKTsrFHNLsWHKm1HF6/RIfr6G+
-	SUk/3/iYsQUvz0k1+0aFhvByQHyBvnsXibrHqEASySvN6UTCGkRejmCeK72KRTNgxqTv8eBykW1P4
-	SGiZ7IuIFeDLfVPbekedlz8LejY5r+5Xn6HDy/uaqbDT0eJIc9srMxGmhUveglhs6B+3PudU+hQfQ
-	OVUs1KQiD+oABG3sUFFInba9aKFnfzGwN74RTozfr8BYN+sXDkUhBPaWrJRBE3U8ZtIuChywXxPRh
-	/TUQBXcVOtM4XvqQ+R2dA/1i0qGorf7ZJfW9Voyto9trYU+3SE3dH3qeotgIh2ZDG7tIB+kCocuFG
-	g3iH3pSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PdpU36ytRDyTPClt0FPAhPcCtyommbNbu/0VUzq6kyw=; b=SsOe50lV3BLup9clVaQARqYfM6
+	sVHRfFueq1se/W4cIJpJ2u4/anxUntCrQkDS58xUP2Gr5CKJ8trLPyIZyc9Mjo8+6pZYxeB9TjDVU
+	mDSQJxYWCb4wbUNXcrkpIpArCU6QLCNQL61JTGBXpILn3fawIVUHBGesMOvPa0NFRiwh9h8KpBrdX
+	VNiNRcs0MlyHocTXLXPSFMnnLK4ki3Uo49+Z9RkF8z0jyCRKJKWegb5ToMOOkkCVZeYgxCUFDoUwJ
+	wu2DSwpdAFi3KA/Vch8uGlDA8HAaDc15t+PzuT90KZzfsGctfhfJlk+Z0ibJY+4rUmaMASRFxFsgj
+	k+SDXCRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD1Kz-00000001FLT-47Vm;
-	Wed, 15 Apr 2026 14:35:30 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wD1T4-00000001FiP-10if;
+	Wed, 15 Apr 2026 14:43:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD1Kw-00000001FL3-3SID;
-	Wed, 15 Apr 2026 14:35:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1776263723;
-	bh=WnKn70BAZ4sIf6ZszM++Jo6mlB40fmv2BMBcceSDkYQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CiU2a4LlRImsM5l+nSEb0eApmWCoCHT3iaWM5v++oJlHVdZJ14Yq0iKPj+AAo8Ec1
-	 z/WUs1E2sUwGuwt5MFKd6Hp6Wl7qHRLckSAKG6mNx+8q+1z616CD+WIyOY5+YPybAv
-	 YcHRl5SZ26CkGGotAlJE9rVWhVnf8dFirqvbzp+bTB/bViqqVLCvW5sENkkrP/17Ge
-	 uJ4bMQmmgUot7sTh2Dh+a7Zuly4E+TCX6OKPCHTvZUBNn5ZA9IDDDxZHO/N45m72yK
-	 z0UoigsfQj08VU3mrRJDtrseTZd0ZNn6vjwfEo8a3wH1VVWFUr1gDwnwjZoJ6RcxEZ
-	 dJ/JnSbRe6NYA==
-Received: from [100.64.1.43] (unknown [100.64.1.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: benjamin.gaignard)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4BEE517E0610;
-	Wed, 15 Apr 2026 16:35:23 +0200 (CEST)
-Message-ID: <fd663d6d-2380-41f9-8d03-8f7740cbd6ce@collabora.com>
-Date: Wed, 15 Apr 2026 16:35:22 +0200
+	id 1wD1T2-00000001FiF-0jeV;
+	Wed, 15 Apr 2026 14:43:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 19BA8600AE;
+	Wed, 15 Apr 2026 14:43:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00294C19424;
+	Wed, 15 Apr 2026 14:43:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776264226;
+	bh=9i7ucr/FPUAUV3jCqOGxaNo9oFryZ+19C0hp4xTZ5Uw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gqaN5N0y3dhQK5sTEFWhpO1r9tU761vPUZi8owXkbkxUuCf43H9sZDCxMQZy+f9KN
+	 mI6BWzwbN5fafhk4e0A0FZmPVZfU/83bpV2JDMENoxCy6OtFpBhXFnPLmTDBhzCMQ2
+	 60H817fc34qGrVXhEon5JM36u3tcIdep+7IYsRDzPBgvnw55PNyNTQ9+mSpXcgUMHk
+	 eCI+X0VCixYvRAkUd1nvJ4HPGJJ0H1PRRyz+GiN5I3yEPZPALet5kVgptTRgS+NaGM
+	 paz8nA3yapGK7dgXQQ1axdzJN7aagQ7fdKoKwfCQIqT6liWjnzO5xslrZwPwAveuPT
+	 WvU1oD/9PLUcw==
+Date: Wed, 15 Apr 2026 08:43:44 -0600
+From: Keith Busch <kbusch@kernel.org>
+To: =?utf-8?B?7KCE66+87Iud?= <hmi.jeon@samsung.com>
+Cc: "hch@lst.de" <hch@lst.de>, Justin Tee <justintee8345@gmail.com>,
+	"axboe@kernel.dk" <axboe@kernel.dk>,
+	"sven@kernel.org" <sven@kernel.org>, "j@jannau.net" <j@jannau.net>,
+	"neal@gompa.dev" <neal@gompa.dev>,
+	"sagi@grimberg.me" <sagi@grimberg.me>,
+	"justin.tee@broadcom.com" <justin.tee@broadcom.com>,
+	"nareshgottumukkala83@gmail.com" <nareshgottumukkala83@gmail.com>,
+	"paul.ely@broadcom.com" <paul.ely@broadcom.com>,
+	James Smart <james.smart@broadcom.com>,
+	"kch@nvidia.com" <kch@nvidia.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-nvme@lists.infradead.org" <linux-nvme@lists.infradead.org>,
+	"asahi@lists.linux.dev" <asahi@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	=?utf-8?B?7J207J2A7IiY?= <euns212.lee@samsung.com>,
+	=?utf-8?B?7Lm47LCs?= <joshi.k@samsung.com>
+Subject: Re: [PATCH v5] nvme: Skip trace complete_rq on host path error
+Message-ID: <ad-kIPLsGO7iv8y0@kbusch-mbp>
+References: <CGME20260415084107epcms2p71b9c0d252180653ab96a9f5f2121be71@epcms2p7>
+ <20260415084107epcms2p71b9c0d252180653ab96a9f5f2121be71@epcms2p7>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/2] media: verisilicon: Simplification and clean up
-To: nicolas.dufresne@collabora.com, p.zabel@pengutronix.de,
- mchehab@kernel.org, Frank.Li@nxp.com, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com, heiko@sntech.de,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, wens@kernel.org,
- jernej.skrabec@gmail.com, samuel@sholland.org
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev,
- kernel@collabora.com
-References: <20260415140420.282084-1-benjamin.gaignard@collabora.com>
-Content-Language: en-US
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <20260415140420.282084-1-benjamin.gaignard@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_073527_069916_8CD816DF 
-X-CRM114-Status: GOOD (  11.29  )
+In-Reply-To: <20260415084107epcms2p71b9c0d252180653ab96a9f5f2121be71@epcms2p7>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,53 +83,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Apr 15, 2026 at 05:41:07PM +0900, 전민식 wrote:
+> Hi Keith, hch
+> 
+> Gentle ping for review on [PATCH v5] nvme: Skip trace complete_rq on 
+> host path error.
+> 
+> I agree with your propsed approach. Should I send a new version(v6) 
+> based on that?
 
-Le 15/04/2026 à 16:04, Benjamin Gaignard a écrit :
-> Simplify motion vectors and reference allocation with common helpers.
-> Since it requires to move some of codecs specific functions and
-> structure in codecs header files add a patch to finish the clean up.
-
-I forgot to mention that this series depends on
-https://patchwork.linuxtv.org/project/linux-media/patch/20260415073801.58369-1-benjamin.gaignard@collabora.com/
-
->
-> Benjamin Gaignard (2):
->    media: verisilicon: Simplify motion vectors and rfc buffers allocation
->    media: verisilicon: Clean up messy include
->
->   drivers/media/platform/verisilicon/hantro.h   |  31 +-
->   .../media/platform/verisilicon/hantro_av1.c   |   7 -
->   .../media/platform/verisilicon/hantro_av1.h   | 100 +++-
->   .../platform/verisilicon/hantro_g1_h264_dec.c |   1 +
->   .../verisilicon/hantro_g1_mpeg2_dec.c         |   2 +-
->   .../platform/verisilicon/hantro_g1_vp8_dec.c  |   2 +-
->   .../media/platform/verisilicon/hantro_g2.c    |  36 --
->   .../platform/verisilicon/hantro_g2_hevc_dec.c |  26 +-
->   .../platform/verisilicon/hantro_g2_vp9_dec.c  |  12 +-
->   .../media/platform/verisilicon/hantro_h264.c  |   2 +-
->   .../media/platform/verisilicon/hantro_h264.h  |  98 ++++
->   .../media/platform/verisilicon/hantro_hevc.c  |  37 +-
->   .../media/platform/verisilicon/hantro_hevc.h  |  82 ++++
->   .../media/platform/verisilicon/hantro_hw.h    | 446 +-----------------
->   .../media/platform/verisilicon/hantro_mpeg2.c |   1 +
->   .../media/platform/verisilicon/hantro_mpeg2.h |  27 ++
->   .../platform/verisilicon/hantro_postproc.c    |  29 +-
->   .../media/platform/verisilicon/hantro_v4l2.c  | 262 +++++++++-
->   .../media/platform/verisilicon/hantro_vp8.c   |   1 +
->   .../media/platform/verisilicon/hantro_vp8.h   |  29 ++
->   .../media/platform/verisilicon/hantro_vp9.h   | 104 ++++
->   .../media/platform/verisilicon/imx8m_vpu_hw.c |   5 +
->   .../verisilicon/rockchip_vpu2_hw_h264_dec.c   |   2 +-
->   .../verisilicon/rockchip_vpu2_hw_mpeg2_dec.c  |   2 +-
->   .../verisilicon/rockchip_vpu2_hw_vp8_dec.c    |   2 +-
->   .../verisilicon/rockchip_vpu981_hw_av1_dec.c  |  16 +-
->   .../platform/verisilicon/rockchip_vpu_hw.c    |   3 +
->   .../platform/verisilicon/stm32mp25_vpu_hw.c   |   2 +
->   .../media/platform/verisilicon/sunxi_vpu_hw.c |   1 +
->   29 files changed, 796 insertions(+), 572 deletions(-)
->   create mode 100644 drivers/media/platform/verisilicon/hantro_h264.h
->   create mode 100644 drivers/media/platform/verisilicon/hantro_hevc.h
->   create mode 100644 drivers/media/platform/verisilicon/hantro_mpeg2.h
->   create mode 100644 drivers/media/platform/verisilicon/hantro_vp8.h
->
+Yes, I hadn't seen an updated patch yet so was just waiting for that.
+Or was this one on me to submit?
 
