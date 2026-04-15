@@ -4,53 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3ED9F43844
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 15:04:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6503BF43841
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 15:04:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=v6t2fD7bCNqhSP/SW6WWurr5c/l20RwLeUuX0nYgGUk=; b=kmZF8uWpu8x9RoDm5Znv8zTXK8
-	TOXSvrTLSsTkJC4yHQIM/Ty7j/2zxKT3kAZJKDQBk90mOLktiBMx6lC041/lyYKZOciGNM4MXi82W
-	dWTeee5CI74HBVweooqlVOkiHHC7s86NXwx5zbfX8AXMKdonMq1xVoZGA4B4nGW/hUNwxywgfxIM7
-	XgpNExUCo34F7F1PGUv3bYVPkIdXT9aaiJzmI37qdUdWJpKFpQsW8IPwNh1HWiwmKRYMV1AjitLZX
-	Yr3Z0MI4WkzBsACo4P3ioSAFu6qQZ//hr4MbQivIfip4VELjL3I6CcskbCSrbb4i+HenD1ZU/eEtC
-	N51P7lvA==;
+	bh=I5SYHccg3xEGfzR/KqSPOJF543/cK71eScdbAvMHgRU=; b=PSjN0o2iPPIBHxakjf9BYBHNSP
+	5gwT2TGlOzZk6StumyrEEExJAm46nQdV8g9ykSdgMmIhYT77rd37zx8nlve70bpZhXhU/Dd0Ja6qj
+	zC+vV033kGd45/jsxSInUQhOqIbG6YZ//sAYRW4rRJyRiHdesXKJNsrT6QHIb/CmIuNcrqfQBI6xt
+	2qsJPdHdHvoPh2S/On+XJDroZEJftiBv0hNLuLzQEJn6gDS0xjdYbXKs48yaW5oeFpBmTakCjBdA/
+	iUcusJf+0LIePGoYcYi5vIz7CF7wgABuvli1UDmwJD2muRuWqKffEhi+dH/thM2cAVvlytIHEqYzU
+	YRbwX8qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD1my-00000001HUM-1tj8;
-	Wed, 15 Apr 2026 15:04:24 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1wD1mv-00000001HSq-3nBk;
+	Wed, 15 Apr 2026 15:04:21 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD1mv-00000001HS1-3OS9;
-	Wed, 15 Apr 2026 15:04:22 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.99)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1wD1mk-000000002Nj-3q51;
-	Wed, 15 Apr 2026 15:04:11 +0000
-Date: Wed, 15 Apr 2026 16:04:08 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Junzhi Zhao <junzhi.zhao@mediatek.com>,
-	Jie Qiu <jie.qiu@mediatek.com>, dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 1/2] drm/mediatek: hdmi: pulse audio clocks on bridge enable
-Message-ID: <a3e22cbae528c9a38d854a586d1736b860998d41.1776265222.git.daniel@makrotopia.org>
+	id 1wD1mt-00000001HRo-21FI
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Apr 2026 15:04:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1776265459; x=1807801459;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=BM8qgB6lWhS0NOLxgV5xCucJJwUqPX+tF4iKGroq+Fs=;
+  b=YReDU6LrDsfnTUPOHiRLfxtLk7umFYP+9cO4r21mZt58XZnZV3QrP92u
+   qFxRK1I3qRy9l2LIg2OtyWL0Jjhf3e8eclS46CTTpdtwp25jPXERKz02j
+   YbCcLFymPYrtZpMedQmM+Rd8yU2nD8hoxIfYyypeFzZBlh39JoJMyNoHd
+   LQO2gsYCAvgVIMUYLwii66TqRa9hqCgiAmHutvfv8YbKbxs9z/z8zHUuu
+   ngWKMwvVqm70N/Pn4CY6XqBqC24Dvoxpcof9UVithDajWgmO69yXGxYmi
+   EwOsP22toDDh+9rkFvC56M8aBatM4X8Vyfwrlvqu5S/JFg8uihc4SAB3Z
+   Q==;
+X-CSE-ConnectionGUID: GBDHRr2QTDOtou6wdJWCsw==
+X-CSE-MsgGUID: w3lu3r8pS+qjwEgmZoC/Pw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11760"; a="94815857"
+X-IronPort-AV: E=Sophos;i="6.23,179,1770624000"; 
+   d="scan'208";a="94815857"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Apr 2026 08:04:17 -0700
+X-CSE-ConnectionGUID: 3hLKX1BQRKaEOGATyUnNEQ==
+X-CSE-MsgGUID: ZANtQXLDSAu4vsXaECGXmw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,179,1770624000"; 
+   d="scan'208";a="253678781"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by fmviesa002.fm.intel.com with ESMTP; 15 Apr 2026 08:04:15 -0700
+Received: by black.igk.intel.com (Postfix, from userid 1003)
+	id E1B7095; Wed, 15 Apr 2026 17:04:13 +0200 (CEST)
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Peng Fan <peng.fan@nxp.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Subject: [PATCH v3 1/1] ASoC: pxa2xx-ac97: Use devm_gpiod_get_optional()
+Date: Wed, 15 Apr 2026 17:03:36 +0200
+Message-ID: <20260415150412.365989-1-andriy.shevchenko@linux.intel.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_080421_845834_79F83EE7 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20260415_080419_532045_A1616F69 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,63 +90,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CLK_MM_HDMI_AUDIO and CLK_MM_HDMI_SPDIF mmsys gates feed the
-HDMI TX internal audio measurement block which derives CTS values
-for the ACR packets embedded in the TMDS stream. These clocks are
-enabled once at driver probe time and then left untouched across
-bridge atomic_enable / atomic_disable cycles.
+No need to open code the devm_gpiod_get_optional() wrapper.
+Instead of checking for a certain error code, check for NULL.
+This improves readability of the code.
 
-On every observed stale-state event -- a blank/unblank cycle, or
-a cold boot with the monitor off followed by a later hotplug --
-the measurement block remains armed against the previous state
-and fails to latch a valid CTS on the subsequent bridge enable.
-Video recovers cleanly but the audio data islands never regain
-lock and the HDMI sink sees no audio, even though the ASoC stack,
-the AFE, and the HDMI TX audio packetizer are all programmed
-correctly.
-
-Debugging the issue of audio no longer working after vblank it was
-found that an unbind+bind of the mediatek-drm-hdmi platform driver
-recovers audio in all such scenarios without disturbing video.
-The only audio-relevant side effect of that rebind is an off->on edge
-on CLK_MM_HDMI_AUDIO / CLK_MM_HDMI_SPDIF via the probe path. Pulsing
-those two clocks directly at the end of mtk_hdmi_bridge_atomic_enable
-reproduces that recovery on every enable and doesn't hurt on the
-first enable after boot.
-
-Fixes: 8f83f26891e1 ("drm/mediatek: Add HDMI support")
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
+Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- drivers/gpu/drm/mediatek/mtk_hdmi.c | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-index 1ea2598547800..9050d7785f109 100644
---- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-@@ -1065,6 +1065,22 @@ static void mtk_hdmi_bridge_atomic_enable(struct drm_bridge *bridge,
- 	phy_power_on(hdmi->phy);
- 	mtk_hdmi_send_infoframe(hdmi, &hdmi->mode);
+v3: rebased on top of the latest changes to the driver
+v2: added tag (Peng), rebased on top of latest ASoC tree
+
+ sound/arm/pxa2xx-ac97-lib.c | 16 ++++++----------
+ 1 file changed, 6 insertions(+), 10 deletions(-)
+
+diff --git a/sound/arm/pxa2xx-ac97-lib.c b/sound/arm/pxa2xx-ac97-lib.c
+index 79eb557d4942..47889f6003c1 100644
+--- a/sound/arm/pxa2xx-ac97-lib.c
++++ b/sound/arm/pxa2xx-ac97-lib.c
+@@ -330,16 +330,12 @@ int pxa2xx_ac97_hw_probe(struct platform_device *dev)
  
-+	/*
-+	 * Pulse the HDMI TX audio clocks off/on on every bridge enable.
-+	 * The CLK_MM_HDMI_AUDIO and CLK_MM_HDMI_SPDIF mmsys gates feed
-+	 * the HDMI TX internal audio measurement block that derives CTS
-+	 * for the ACR packets embedded in the TMDS stream. Without an
-+	 * off->on edge at bridge enable the block can stay armed against
-+	 * stale state from a previous enable (e.g. after blank/unblank,
-+	 * or after a monitor that was off at boot is plugged in later)
-+	 * and fails to latch a valid CTS, leaving the audio path silent
-+	 * even though video recovers. The pulse is what an unbind+bind
-+	 * of the HDMI platform driver effectively does, and it recovers
-+	 * audio in all observed stale-state scenarios.
-+	 */
-+	mtk_hdmi_clk_disable_audio(hdmi);
-+	mtk_hdmi_clk_enable_audio(hdmi);
+ 	if (dev->dev.of_node) {
+ 		/* Assert reset using GPIOD_OUT_HIGH, because reset is GPIO_ACTIVE_LOW */
+-		rst_gpio = devm_gpiod_get(&dev->dev, "reset", GPIOD_OUT_HIGH);
+-		if (IS_ERR(rst_gpio)) {
+-			ret = PTR_ERR(rst_gpio);
+-			if (ret == -ENOENT)
+-				reset_gpio = -1;
+-			else if (ret)
+-				return ret;
+-		} else {
+-			reset_gpio = desc_to_gpio(rst_gpio);
+-		}
++		rst_gpio = devm_gpiod_get_optional(&dev->dev, "reset", GPIOD_OUT_HIGH);
++		ret = PTR_ERR(rst_gpio);
++		if (ret)
++			return ret;
 +
- 	hdmi->enabled = true;
- }
- 
++		reset_gpio = rst_gpio ? desc_to_gpio(rst_gpio) : -1;
+ 	} else {
+ 		if (cpu_is_pxa27x())
+ 			reset_gpio = 113;
 -- 
-2.53.0
+2.50.1
+
 
