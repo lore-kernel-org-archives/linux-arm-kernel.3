@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D71EDF41994
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 558E6F41996
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 11:56:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=02qnO6q+Y2WyzRZ55saENhptxHHaPB8mtl4fEi4I0kQ=; b=V0qv59IVPROJYaCWVJIb2S5IBV
-	u+rm+BGDcS7Q1XyPkSYLnGqtV6CcL+UiPxyCKFUkkcsJJqbn9Agmjrgf4N9D3S/sSWgJ+8FQs7N6u
-	tlGXDepe5P/TdVQyCdLtXZeHLlda57jA32W5IZNYIDelFZWQM1aO7PeidHRGitMLo/s8fRq9UHkn0
-	/xywjrFLXILXF2nLOAq/8ll5i0RvgiYbwGN40dtCJma8KoqZTKsRJ7mWpRCzbxxsTpv0YIoEBS030
-	CN7W7VFwGn2Vdwurw9OeWQnTAll3FB4kedCySom/rHrYkChHhSPRx6oQYrUsIUKPd6d9h37njrhHt
-	Ee+dx0tQ==;
+	bh=ex7j0IARhLKMO0gUuZEXlWqwAJ5B3ZW7lfBYvvTOHwc=; b=SlvtqUDMQ+ig4QwLwoK/HYXCOx
+	cQmRmjhy8sZnk8iOD1blJ5rvxhjA7ptTsy03JDxdG+uswVpQiCEf0CJfWp9Jni5+YcNjquEaB+EPH
+	PmAaWNaTRhdzzHXDX3kDCMJEFzJpPNsyJTPz4+GCojsi9soXE1D80XEBK7eg5i/pxlEWST9FUMg8N
+	GsIsq7OaU+uxqN5b6jS8Tdb+LzKWiMBgvhdcl0InpBjVqhI0YAvIC+r0TWfrl8C4OyUXtoawoBnfF
+	VeSAoQue5t0Bf8If63k4TeImAARhnQ6/CB8NM4ZgbiXrxY1oI27VhybqH4MLPmommbmpvBhTWm0gq
+	zug3V6kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCyrI-000000014KX-1UUg;
-	Wed, 15 Apr 2026 11:56:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wCyrH-000000014JV-2zMb;
+	Wed, 15 Apr 2026 11:56:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCyr4-00000001478-0HRu
+	id 1wCyr0-0000000145g-2Lvs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 11:56:27 +0000
+	Wed, 15 Apr 2026 11:56:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4DD6343BF5;
-	Wed, 15 Apr 2026 11:56:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 316DDC2BCB3;
-	Wed, 15 Apr 2026 11:56:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BB3EF44230;
+	Wed, 15 Apr 2026 11:56:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 971D4C2BCB6;
+	Wed, 15 Apr 2026 11:56:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776254184;
-	bh=rRhz56yIoRfzm5lLrNbTpKXQobUyeg4eP1h1LUt2eq4=;
+	s=k20201202; t=1776254181;
+	bh=npSFjAvwbJMOHiNP4CjT7Nb5PeWddTKlynu5vkGPu40=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rywnk2Kp62odGRynhLhGFWi4bKCBQBgNwc3krmVwU5+fWGNbJFLU5L5e4+11oU66U
-	 VlzTDtfQZf5IcVXwdS2S+2Fw50gCToyrTUkrfZJAS5JxH0OpKFFRSCX+ARJF6c1AVU
-	 o8y7TL5YAoyQLpFWPvCrHays5DY4RozaQ4QqaEAWOTZ08cNpeio1xg+UmokRzpejjA
-	 vi0RaH/6FtZha3U9TPkpiPHSuz6fExWmnkreOxtUHB/fwrz+sPjVh2Mq5tVI/XW/BN
-	 9vULtXrPbOcRHmSNkHs0Lm52EBaNS9PZQabJgk4ngCJWErbfp/AYonSA/8uXkP7IIO
-	 JXeCvLvyaWAww==
+	b=gq2laJQ6AnGrl6z1Qy8Lm2BIN+zuQn510oVD9AgtQrb+rAB8/mX08wT/5Jtp6WloT
+	 vOWYUCpiO/AHzgclOHu1zCRD7/QZJUmqelGy1tgJGqSoosxmrLynIVmUJyeKPmcQVo
+	 2GXa6bXTG/6XQVO4ObgICUH2dDyV71Phpmg1VWB+oWYotoRRGGzvJVwaL2rJkKAIa7
+	 HEwN+E0R1scvtVfalyeCIFyz2YG6BqfaXbe3xJqSGNpvU903OP5+lsLJEoz2HguT+o
+	 lz7wwZqZchs1gaXZ6/UGLJ4p3N5VcVsLKFR+rUQ+X77+jArbMexbKIoSiI0re0BsgG
+	 /JUdPDMOGaAog==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wCyr0-0000000Bqsi-1ZS1;
-	Wed, 15 Apr 2026 11:56:22 +0000
+	id 1wCyqx-0000000Bqsi-1WjL;
+	Wed, 15 Apr 2026 11:56:19 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
@@ -56,9 +56,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Sascha Bischoff <sascha.bischoff@arm.com>
-Subject: [PATCH 16/18] Documentation: KVM: Clarify that PMU_V3_IRQ IntID requirements for GICv5
-Date: Wed, 15 Apr 2026 12:55:57 +0100
-Message-ID: <20260415115559.2227718-17-maz@kernel.org>
+Subject: [PATCH 01/18] KVM: arm64: vgic-v5: Add for_each_visible_v5_ppi() iterator
+Date: Wed, 15 Apr 2026 12:55:42 +0100
+Message-ID: <20260415115559.2227718-2-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260415115559.2227718-1-maz@kernel.org>
 References: <20260415115559.2227718-1-maz@kernel.org>
@@ -69,8 +69,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_045626_160872_8BED1119 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20260415_045622_670757_73103DF2 
+X-CRM114-Status: GOOD (  14.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,43 +85,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sascha Bischoff <sascha.bischoff@arm.com>
+We have multiple instances of iterators walking the vgic_ppi_mask
+mask, and the way it is written has a tendency to make one's eyes
+bleed.
 
-When running a GICv5-based guest, the PMU must use PPI 23. This,
-however, must be communicated via the
-KVM_ARM_VCPU_PMU_V3_CTRL->KVM_ARM_VCPU_PMU_V3_IRQ ioctl as a full
-GICv5-style Interrupt ID. That is, 0x20000017. Optionally, the whole
-ioctl can be skipped for GICv5.
+Factor it as a helper and use that across the code base.
 
-This was previously not clearly documented, so bump the documentation
-accordingly.
-
-Fixes: 7c31c06e2d2d ("KVM: arm64: gic-v5: Mandate architected PPI for PMU emulation on GICv5")
-Link: https://sashiko.dev/#/patchset/20260319154937.3619520-1-sascha.bischoff%40arm.com
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- Documentation/virt/kvm/devices/vcpu.rst | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ arch/arm64/kvm/sys_regs.c     |  2 +-
+ arch/arm64/kvm/vgic/vgic-v5.c | 10 ++++------
+ arch/arm64/kvm/vgic/vgic.h    |  3 +++
+ 3 files changed, 8 insertions(+), 7 deletions(-)
 
-diff --git a/Documentation/virt/kvm/devices/vcpu.rst b/Documentation/virt/kvm/devices/vcpu.rst
-index 5e38058200105..66e714f2fcfa7 100644
---- a/Documentation/virt/kvm/devices/vcpu.rst
-+++ b/Documentation/virt/kvm/devices/vcpu.rst
-@@ -37,8 +37,11 @@ Returns:
- A value describing the PMUv3 (Performance Monitor Unit v3) overflow interrupt
- number for this vcpu. This interrupt could be a PPI or SPI, but the interrupt
- type must be same for each vcpu. As a PPI, the interrupt number is the same for
--all vcpus, while as an SPI it must be a separate number per vcpu. For
--GICv5-based guests, the architected PPI (23) must be used.
-+all vcpus, while as an SPI it must be a separate number per vcpu.
-+
-+For GICv5-based guests, the architected PPI (23) must be used, and must be
-+communicated as the full GICv5-style Interrupt ID, i.e., 0x20000017. This ioctl
-+can be omitted altogether for a GICv5-based guest.
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 6a96cb7ba9a3c..4ef13ac0703df 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -751,7 +751,7 @@ static bool access_gicv5_ppi_enabler(struct kvm_vcpu *vcpu,
+ 	 * Sync the change in enable states to the vgic_irqs. We consider all
+ 	 * PPIs as we don't expose many to the guest.
+ 	 */
+-	for_each_set_bit(i, mask, VGIC_V5_NR_PRIVATE_IRQS) {
++	for_each_visible_v5_ppi(i, vcpu->kvm) {
+ 		u32 intid = vgic_v5_make_ppi(i);
+ 		struct vgic_irq *irq;
  
- 1.2 ATTRIBUTE: KVM_ARM_VCPU_PMU_V3_INIT
- ---------------------------------------
+diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
+index fdd39ea7f83ec..c0d36658ffe74 100644
+--- a/arch/arm64/kvm/vgic/vgic-v5.c
++++ b/arch/arm64/kvm/vgic/vgic-v5.c
+@@ -316,7 +316,7 @@ static void vgic_v5_sync_ppi_priorities(struct kvm_vcpu *vcpu)
+ 	 * those actually exposed to the guest by first iterating over the mask
+ 	 * of exposed PPIs.
+ 	 */
+-	for_each_set_bit(i, vcpu->kvm->arch.vgic.gicv5_vm.vgic_ppi_mask, VGIC_V5_NR_PRIVATE_IRQS) {
++	for_each_visible_v5_ppi(i, vcpu->kvm) {
+ 		u32 intid = vgic_v5_make_ppi(i);
+ 		struct vgic_irq *irq;
+ 		int pri_idx, pri_reg, pri_bit;
+@@ -358,7 +358,7 @@ bool vgic_v5_has_pending_ppi(struct kvm_vcpu *vcpu)
+ 	if (!priority_mask)
+ 		return false;
+ 
+-	for_each_set_bit(i, vcpu->kvm->arch.vgic.gicv5_vm.vgic_ppi_mask, VGIC_V5_NR_PRIVATE_IRQS) {
++	for_each_visible_v5_ppi(i, vcpu->kvm) {
+ 		u32 intid = vgic_v5_make_ppi(i);
+ 		bool has_pending = false;
+ 		struct vgic_irq *irq;
+@@ -391,8 +391,7 @@ void vgic_v5_fold_ppi_state(struct kvm_vcpu *vcpu)
+ 	activer = host_data_ptr(vgic_v5_ppi_state)->activer_exit;
+ 	pendr = host_data_ptr(vgic_v5_ppi_state)->pendr;
+ 
+-	for_each_set_bit(i, vcpu->kvm->arch.vgic.gicv5_vm.vgic_ppi_mask,
+-			 VGIC_V5_NR_PRIVATE_IRQS) {
++	for_each_visible_v5_ppi(i, vcpu->kvm) {
+ 		u32 intid = vgic_v5_make_ppi(i);
+ 		struct vgic_irq *irq;
+ 
+@@ -429,8 +428,7 @@ void vgic_v5_flush_ppi_state(struct kvm_vcpu *vcpu)
+ 	 * ICC_PPI_PENDRx_EL1, however.
+ 	 */
+ 	bitmap_zero(pendr, VGIC_V5_NR_PRIVATE_IRQS);
+-	for_each_set_bit(i, vcpu->kvm->arch.vgic.gicv5_vm.vgic_ppi_mask,
+-			 VGIC_V5_NR_PRIVATE_IRQS) {
++	for_each_visible_v5_ppi(i, vcpu->kvm) {
+ 		u32 intid = vgic_v5_make_ppi(i);
+ 		struct vgic_irq *irq;
+ 
+diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+index 9d941241c8a2b..f45f7e3ec4d6e 100644
+--- a/arch/arm64/kvm/vgic/vgic.h
++++ b/arch/arm64/kvm/vgic/vgic.h
+@@ -378,6 +378,9 @@ void vgic_v5_get_vmcr(struct kvm_vcpu *vcpu, struct vgic_vmcr *vmcr);
+ void vgic_v5_restore_state(struct kvm_vcpu *vcpu);
+ void vgic_v5_save_state(struct kvm_vcpu *vcpu);
+ 
++#define for_each_visible_v5_ppi(__i, __k)		\
++	for_each_set_bit(__i, (__k)->arch.vgic.gicv5_vm.vgic_ppi_mask, VGIC_V5_NR_PRIVATE_IRQS)
++
+ static inline int vgic_v3_max_apr_idx(struct kvm_vcpu *vcpu)
+ {
+ 	struct vgic_cpu *cpu_if = &vcpu->arch.vgic_cpu;
 -- 
 2.47.3
 
