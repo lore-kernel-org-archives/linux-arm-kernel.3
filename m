@@ -4,102 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B7ECF9D0F6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 00:05:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDB5FF9D0FD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 00:55:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LvQVwlsrY8VrUpVEOwJTYh7Vydf5dnFXRYiFOW2UE4U=; b=kXmHcmQwTb0suB6ooBSN31Oy6B
-	j8en5BPB1brBXIZLeN72zuJ6plZDoAk+DhnJDitDaBSi+WisHwskaiqJg9S58SbT4jjkOAAJMCsih
-	UopHm7+VET+0MVe+Xosn27xOVA2Gm3WIRywuWAITCNHYNR1UYlVaIQaI73SBfQK3GEK6ujSwTONuK
-	PcW4OxDZjgfYSklXxcmtKZwK2eBsezDoeiMlI7aSHKk6LDDVajFTrK44LcY/UBA7NZfDB3t8kJmnd
-	3Ag8suPWmEzYvOa2fV0xlP6BHyCFKfwh4DuXc0b2usI56nPej1ZXQw7ZdvRBn3Wz0yRKRmIRcJlIL
-	3TFXWIxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JisZxEEa5QeT6AqcCZbYi+6l0OYCTHsi5Q2vB1toknY=; b=mD0mMYbbDNQQGWa3hPoSVRDSqE
+	XGRU9SYKeLmKAbjSfffVYXLoPhdOau/WY9GniR2XHtsgfn26aAJ6ANyH85B6raI2AdA5bHMyehmwZ
+	gL5LTpS8+rz+eMPNPB6SL9ZwZ6fbLIGeSmvlH3foYI5hh6OlmF1xIeoBeO+dpw0DLQV5yXFE32fFS
+	dOA0xBVCU44bkx8EsPZlFI30tN6/gbDmUi2X10gQs9gZO/7Clsk+ak1J9uHNlRdhCj+IXnhR3P3J9
+	KXjqCYf9Tv2fSic5FipgOD/aSt3rYE6KK3a98S4vst/6/wQw8KB+VwQkkvPwCt0M7fO3+kAe8k7E3
+	X0H/kCmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCnkl-00000000MK2-3yzC;
-	Wed, 15 Apr 2026 00:05:11 +0000
-Received: from mail-dy1-x1330.google.com ([2607:f8b0:4864:20::1330])
+	id 1wCoXl-00000000P47-0O1Z;
+	Wed, 15 Apr 2026 00:55:49 +0000
+Received: from mail-centralusazon11020079.outbound.protection.outlook.com ([52.101.61.79] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCnkj-00000000MIo-1AcQ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 00:05:10 +0000
-Received: by mail-dy1-x1330.google.com with SMTP id 5a478bee46e88-2c156c4a9efso8485129eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 17:05:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776211508; x=1776816308; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=LvQVwlsrY8VrUpVEOwJTYh7Vydf5dnFXRYiFOW2UE4U=;
-        b=imGoM0xiUclTXi7rtyfhp3BJDAxVF27UcsbOnmiKjLojdN5dtWhKB8DwinQfo2xcGi
-         0EwvvFa1BCxsOvqVcL9VJFrYtzW7WAWJFNRZGdDJUihK0qy6swqOFDRlWFL9pSWfHJGa
-         AWz3LGUwVLWz06nsLSNPk364aTUfsoSNl3MtxRaqklupbdNHccRcnj5g2eU9j8EWRRfE
-         0A3Uk8XbRn7vjkk3IZ9uDHo3O29LZlMqRr39GzFaRA2OHoGhnHT9DjSjdLYqeST8sAf9
-         B0j2uNexlT19IBr8geyfXg1qYw9CFQLtpYEPQLf7KoFvXgnXQsUGBMSMxxU+fNXhQasr
-         +amg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776211508; x=1776816308;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LvQVwlsrY8VrUpVEOwJTYh7Vydf5dnFXRYiFOW2UE4U=;
-        b=fuQpmaoD2pp6MY3PJBkIOXoiHmb0xtO/da8KA9bu1UbTFwquShUrDcY3McndhbSpVu
-         ARky+QxIKjHjLKZ/UFbWGQgos4VfwoSSIrOWpoHtMg62Qw4l325isa5+lllcGpUCFvyv
-         e/Kmlk3dTkGXvf5twXKIXQfEMzRgUXV7HqMcdZfRPTx++A4QoAw3h6elWJo3D8K7Qe6U
-         57cIipf20Z/9uaNr5YAaquMhn3wyYJanm1tLorRtvCtLagvpPMA1mPu+/Qjmf8gFo4eW
-         zp2LE7anibi4EBttXHcC1qbW2kqT9sYTTza1vhoJGWzzP0i9NhRz/MncwlI20mhQcouw
-         5Jew==
-X-Forwarded-Encrypted: i=1; AFNElJ/PDOzwRiHNB1gH6NSZwmENK3shN3Ro46MMMLXFdqwNojVEwRtLNBqX8ZQTHXKLaY6/rYdeWDj9UbIJ1pB6xVhd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3HzO0HW4QWufxIQaeyDo6YS/znNLWzCfcASJW48ySbc/xx5wt
-	VXIDHKH68RAiJoHHDaehdtsolYOkq5xy339micOzKc4oGyn9DJ+C3y8O
-X-Gm-Gg: AeBDievUXExun39GSC9Ohe7gCW5FbZBiRzJcylpo2J1aTI0VhiQ/y+3aCd6EofMfaq6
-	GWHrNUYJgo/WIrHgyiDnQlGNQkDNAzQtSjeOIgaDKjfHweRWkQ4MfXRGRRJ3ANimCk8oGlZRNCQ
-	ZztAhRIjyRnl6ozEmgcsQIlTpYnaKBKZpcrXg8imARDqDZyOa9qGkc7jjkE8QLCQxef6+RaTpA2
-	7GTtVdY+M4Ex63NKRev0EXAPQVYTvzA7ItFy+0uRrS38cbca4wh5Tx+tjc9lh1vfZ6LJSe7Pph3
-	W8ZHbEGokvp/XDlu2y5iuFAiLzH94WaBhwceEHe+JUzUAeKmDtMwTcmjssr2qQaiRnMnwrdRnek
-	Q6ncEQURRzQKOxzthazIrX313j0hUHp80IHjC5hg/+x7QS4reyTtGcw1dZe4dwiXeoW42uCcT2w
-	bqyvg/g2FXBaZXytPIF8YmCofaTjGXwKEXOT4AIukwCQzC2ko=
-X-Received: by 2002:a05:7300:a194:b0:2c4:b8d6:45cf with SMTP id 5a478bee46e88-2d5876a4970mr10903627eec.9.1776211507961;
-        Tue, 14 Apr 2026 17:05:07 -0700 (PDT)
-Received: from [172.16.0.242] ([192.19.161.250])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2de8c606925sm318206eec.12.2026.04.14.17.05.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 14 Apr 2026 17:05:06 -0700 (PDT)
-Message-ID: <1ced8f98-6ac5-4ffc-ac29-cef25937a920@gmail.com>
-Date: Tue, 14 Apr 2026 17:10:30 -0700
-MIME-Version: 1.0
+	id 1wCoXi-00000000P3P-07OW;
+	Wed, 15 Apr 2026 00:55:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BuuRTZG3/SDELHWAT3Ax6rw7YslHqeKfPCLflqDQT2DFVF8ho242GqpoLktJ/53fH5gaafW/ZWIOUQscwjJK/Ks8K2qdoK3KLqWuNlyRAEp77jugiNZSMCgDWxRgYzUJJ9B7Xny+lOxwEzqQK8SNmLXFn/gCY3MMEhp1p9+WiIdOMg2aUBqAMLxYEXGwCp6ltU2B5choRiHQTrIf/YpUkSKeUFMLqeoF2Wpn+D8qeiNQwS3tbF+Cxwm3e4gEpmsXOZi3PD0RLdbRMt3XI/thhT8rLuH5hNkt1Ksx4abr/uFK7Rr9o2qUG72nD9D4+JXEPnozUpNEAf7l4ylwA8E33A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JisZxEEa5QeT6AqcCZbYi+6l0OYCTHsi5Q2vB1toknY=;
+ b=qdxeOqDNwd2vO2M83Mm8LROfKg7nnaXsEARto0Nf9KcOYwZnNjrzvjqkh3S4CeyK+mrScK7h7hqzyKW8AkpLko7/qIWyDK/eg0G5vDIWMfdhgCtV4Gu6BNO84VrbfCt4QnhKlZOO++Qvj4rPUMgoWJ9x+f6Ilx08ZeQO8oaMLS81HEAZdqExb+usOR+IiQeN7DTBBsQoOugrvSOzk3VOnOYiy9TG23FMzz9AuKou2bcp6pK7jCw1DI2OuMR7LU/Rf24n/3iKjleh5d2svvTj+YgrsHdZbeOxQXqER5HV9YAJspKzeVGS6DFy/j39quQohg9JBqY1L3Oul+Fwq9iMyQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=axiado.com; dmarc=pass action=none header.from=axiado.com;
+ dkim=pass header.d=axiado.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JisZxEEa5QeT6AqcCZbYi+6l0OYCTHsi5Q2vB1toknY=;
+ b=PXg4+yhDjB3j00zeRjmAk3atGFLJOuSe8ZNg2XCJ1/v7nMqXMqV6kA6gdP9wxrCdUpHBqhEB0rGK2+KdBp439/m2zg3YPhnG8Lhg6sUfNHmvvkqpbdtf1AyHngwmBnk4lUXrdwvGQng/zh5A7Vnxq7urW2N0F1Dhm+rgzR4IFpU2wQ7MtKdtp3tArkMKB2IwrmyCq24n09EJmQcKrJVA4H4qvR/N4UoUClz6ysKSEdsM88qbBxZ5+xWN1wEzy9OEF2BhPa1pCcBquE9bP8moDskTv1k2+nPtcvDx0P8gyl2sQeIFpFeJOW36HBlCdUBn1aq7VRbXLWXQMrG+PhEk8g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received: from PH0PR18MB4558.namprd18.prod.outlook.com (2603:10b6:510:ac::13)
+ by IA1PR18MB6396.namprd18.prod.outlook.com (2603:10b6:208:598::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Wed, 15 Apr
+ 2026 00:55:38 +0000
+Received: from PH0PR18MB4558.namprd18.prod.outlook.com
+ ([fe80::ba9:422:da8:b963]) by PH0PR18MB4558.namprd18.prod.outlook.com
+ ([fe80::ba9:422:da8:b963%6]) with mapi id 15.20.9769.046; Wed, 15 Apr 2026
+ 00:55:38 +0000
+Message-ID: <cb6365b0-11ac-4e99-9457-f7d4f7086f87@axiado.com>
+Date: Wed, 15 Apr 2026 08:55:31 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 00/12] Add Linux RISC-V trace support via CoreSight
-To: Zane Leung <liangzhen@linux.spacemit.com>,
- Anup Patel <anup@brainfault.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- palmer@dabbelt.com, pjw@kernel.org, gregkh@linuxfoundation.org,
- alexander.shishkin@linux.intel.com, irogers@google.com,
- coresight@lists.linaro.org, peterz@infradead.org, mingo@redhat.com,
- namhyung@kernel.org, mark.rutland@arm.com, jolsa@kernel.org,
- adrian.hunter@intel.com, mchitale@gmail.com, atish.patra@linux.dev,
- andrew.jones@oss.qualcomm.com, sunilvl@oss.qualcomm.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- anup.patel@oss.qualcomm.com, mayuresh.chitale@oss.qualcomm.com,
- zhuangqiubin@linux.spacemit.com, suzuki.poulose@arm.com,
- mike.leach@linaro.org, james.clark@linaro.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260414034153.3272485-1-liangzhen@linux.spacemit.com>
- <CAAhSdy2Sx98qcCMBVF+_BV1G-syrO74Y_S298hMwkW+vgLtb5Q@mail.gmail.com>
- <7EFD9F2504326BD1+26395797-fbe8-491b-b651-701286fb5751@linux.spacemit.com>
+Subject: Re: [PATCH v3 2/4] phy: axiado: add Axiado eMMC PHY driver
+To: SriNavmani A <srinavmani@axiado.com>,
+ Prasad Bolisetty <pbolisetty@axiado.com>, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ openbmc@lists.ozlabs.org
+References: <20260317-axiado-ax3000-add-emmc-phy-driver-support-v3-0-fbf790f3f711@axiado.com>
+ <20260317-axiado-ax3000-add-emmc-phy-driver-support-v3-2-fbf790f3f711@axiado.com>
 Content-Language: en-US
-From: Bo Gan <ganboing@gmail.com>
-In-Reply-To: <7EFD9F2504326BD1+26395797-fbe8-491b-b651-701286fb5751@linux.spacemit.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+From: Tzu-Hao Wei <twei@axiado.com>
+In-Reply-To: <20260317-axiado-ax3000-add-emmc-phy-driver-support-v3-2-fbf790f3f711@axiado.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: TPYP295CA0041.TWNP295.PROD.OUTLOOK.COM
+ (2603:1096:7d0:7::19) To PH0PR18MB4558.namprd18.prod.outlook.com
+ (2603:10b6:510:ac::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH0PR18MB4558:EE_|IA1PR18MB6396:EE_
+X-MS-Office365-Filtering-Correlation-Id: c6ac53a8-4244-47ba-ca2d-08de9a89b533
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|42112799006|376014|7416014|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: Favq6i3VSisDKGlZe/o6nctMExs0LwAPpMsJGZzDHN75f8qPq3c4aPhg3tbxXQ+cWvdD1M4iVHe57BdB0cRQL2LoUWjvV0tpkFhV+JAEHG7iNzkS8pzlJfxi5qYxfipYEuXvqi5KXkMGa+zGZuRmwbfN4YGlSTKJ/E90CwvGPU1iMVqLdT0xYdpbwdu2dTD3s/ogBOal/M3RUYTEp9sc1Ic9WjTwErQo/9++Ogvh3d4Xn6n+LyeNZrrZZeRwPZnOF6zpCJlvshODnMQM8LIGHamcgAyKU+F8XXGjxCcV7buiOu5L+45IhKCcSrv+Znbc0Jcgk5KmDqL+8msYaxG2ZrO3FXYd3VMLOr2GFQpQUJjH5DGKPgAfnV5LeIv/P74AyA8oal7B/5NR2X8D3ZRyyjc4tfwScownPOW26CDtGWKX7cO7gQSiFXVVM7KaJeLYTwQAXH3q0a7i9yKBKobN+d53ZY8KrEObPLitcoVFSQfhZq2nfoT1vQdCdI4iKG8pH3Pbh3GezsC7gLJzdMtclzZIOLHsd757C8zf3qYZqFIPVINR+mBxFBfCEIQguXb4OHEaDf1gPXxFp+aX0KyZGjVCQj4Z3A5UtEQtyX097JUwEbhmNTo5fIxajbq9fovEd3GCG22h7bZ7L8jTeApUA4ebXmBu2PqQ2WBHY3k+m8hHSiV848zg35ZDxVWsBen8+VEPzvd3MHGdKi88LJC732GzgW+D7JWTstp3vsTMuxo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR18MB4558.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(42112799006)(376014)(7416014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N1pSclFQVElyRVJWeitYRExhVGNFcE0ycEhpK3YwOUNtVzk1L2RwSFlKbkR2?=
+ =?utf-8?B?bHZyU0NvQ0xoMWtLZTMvUVlIS292V2FJMEpFdkVMQ29FRVExSUkvb0kxQlo0?=
+ =?utf-8?B?bTBFRURrQ014YkIxbXhHeUx3QTI0UmhWN3gwcU5MRDY4SnN5c0Z3NVV6SFdD?=
+ =?utf-8?B?N21YV3JJOUxmZEl5NHFpN3RsYkI3aTZxMWFXelFNRjFTSGhBbXZxUDhtY3NX?=
+ =?utf-8?B?NG1pSEduZHQ1NmRVNzRPdnFiSlIzSnJuY1Awa3NPY0lUajNsbUZ1OTNScWli?=
+ =?utf-8?B?Z0VRTEN6M2RFUFA4c1F0UEhKN3AraUhGUjRqaStvVUoxVDNFeGhLbjFGUUcx?=
+ =?utf-8?B?cC9wSHp5QU5ZMmhGUnROUGZaOXRUZEFEWVErUVRibE9sbnRlbFBteU9yK3BZ?=
+ =?utf-8?B?R2J5bmdVcXowY3ZIaXEvT0dSK2owWmFxRGt6Y2NzelUwVEZGaVVQYzhFWity?=
+ =?utf-8?B?V1Jza0tpaE5kdGR5Mmh6bC8yT1hsblhDVVY0eE5QZFd0ZWcxR2RDODJJNldB?=
+ =?utf-8?B?cldFdVZWdGF6bythakdGeFZ4bi9hTTVncHdJcnFvc1ZNM0JMWEx3TTJwb3JU?=
+ =?utf-8?B?Rm0rMnIvdlVIQVgwdTFFOXpibWVmYndqYTdiTmVlcGxOMUMxam5CSm85bmtW?=
+ =?utf-8?B?NGdzOHQvdVdDbm1OTkR5MFAvQ0lnZCtTb1pGcnBoanV1eTlwcndkR2dUT1pG?=
+ =?utf-8?B?L3NSRjEvY3Q2THBYL3RJa2ZHa2EyZXlWUWZzSjY0bXNGOXBBN21rUkJlc3V2?=
+ =?utf-8?B?VlFlRWc4Tmk2MHZjNHl2L016VEJGSVF2aU8zT2lDQlNONDdQb1pQbHhyYU51?=
+ =?utf-8?B?cWtxUmhMVGdyWHZ6OTdISkJYNXFsVDRFTmdGd2U4Wld5QTlkbEt1TFdLZGNX?=
+ =?utf-8?B?VW5Kd0xWaDh3cmdPakxoY25OUXIwSVdoV3NCNzU1cVh0RVdIR2tWQm44a3k1?=
+ =?utf-8?B?eHd2aDM4SEduek5LR21PSUJTZHVoTWdnank5M2xMOUttb2UxV0VDN253cGlZ?=
+ =?utf-8?B?MW9ocFBGU1UwSmo4V1dyaC9MTTNSaVlCR2dRU2NoaEEzWW9NR3RtakdFaUdp?=
+ =?utf-8?B?SCtMM2FVUDNYWWl1U0RoNVpKWjFzU3FGMFd2YlBjaVhnbGZ2aE9PbXpyVzNE?=
+ =?utf-8?B?S3BSOE5VOE1POUVyU05xTDUwQnZlL1AxVWNzMm1uMFRBY3N0V0I2bW9iS2x2?=
+ =?utf-8?B?Vks0bEtQMVVUTy96bEFkSzd5TVlBdCtTM0J3TlhoSTByZ1ZJam1QSERreENp?=
+ =?utf-8?B?Y09HWklGM21VK1l0RGwyNlFsQkt3ZTZzK1pxU3F2Ui9rQVlGWDIxTXExMktn?=
+ =?utf-8?B?a244RFJIMzdBbEdTbUVLS1UvNXhlR3pFYmdEZ1N4Uk1EdkJkZzY2aDJWTTJE?=
+ =?utf-8?B?VUttbTlIVzJpOE54OXk1SCt3K3lFd2cra2Q2N083a0RIb3pZYTBsMUxNVlBZ?=
+ =?utf-8?B?NnJUUFVRVTlzRTF3cEdscnN5c1BGR3BsMk1EUFpNMlFQVTRsR1JweWwzNlBt?=
+ =?utf-8?B?em5xd09yNTRxM0ViSkI2akhSZnl6V1ppMzdmMnBIUDd0Nnloang1RFJjMzVY?=
+ =?utf-8?B?R2szdG56UHRtdVR0cXpvNVZpb2VDblNjWXd6d2thd2MrYTdnd1lWODFjMkFm?=
+ =?utf-8?B?ME42MlRDRDU1VVJrN1JXRkpldVVxQ3k2ajI1S0dOUWhCaDAvUm5wb2IvUklI?=
+ =?utf-8?B?YmlqRjc0cDBzbkVVV1hVS3plSkpZRGs4YVcycXBYZ0Q0T3ppSWg5Rm4vRndp?=
+ =?utf-8?B?bHZFNHJ2YjdTVTJjRG85Qy85enltemZyL3RSbTdDVkYxZythSzJuS2tvNXlU?=
+ =?utf-8?B?NDNWSytjZDYxbjhkUTY1Z3VHRmIvQnArZGxWdWNxM2lYdk1sY3FDZ2xqYk5v?=
+ =?utf-8?B?c20wc2V1UWtrMU5uK3Z4RndxLzlhclBSWmRvT2pGbXBraENlSkZ5bVVLTmN5?=
+ =?utf-8?B?RFJXUXI3WkNnZm9qamlaUmgzMTE2M2plbGJUOVB6QjZVeDByWFJYbFZEZTd1?=
+ =?utf-8?B?RWtydXpiTTVzMDFobHRlUTRZR2docHFYMEx2OE9MUHZGcC8yUHRKZU0ybFkx?=
+ =?utf-8?B?ZUFoSGtkTExIRlZLRVdFVnB2MGJGZmEvTldUTHp4Zkc2QlM2cVBieWh5TEZz?=
+ =?utf-8?B?QVJacWU3MXpNbjRHdk5XSmwrdFQ5SFV6bVlBWTFKaW9YVXJNTVZzYzZGdlFs?=
+ =?utf-8?B?TCtxek9XTGJEQnErR2t2Z1ZsUlNvclo2ZHI5WExIN2ZzQ0hOMkFYeGNKenVw?=
+ =?utf-8?B?Yjc4ZmkrcExMSTd4eTBGbEhJT3JpMGw3aHEwN3R0S2NPamlodTU4aC9xMks5?=
+ =?utf-8?Q?NE6nlDOfoT9FPeMwk2?=
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c6ac53a8-4244-47ba-ca2d-08de9a89b533
+X-MS-Exchange-CrossTenant-AuthSource: PH0PR18MB4558.namprd18.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Apr 2026 00:55:37.8641
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: VflTYS2M3HibRl99Tt2VK5HX/AKKIhqwwXy1MpepwAj7rUlF1ZNXz7fc/tTLa17v
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR18MB6396
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_170509_355156_45A799A8 
-X-CRM114-Status: GOOD (  19.04  )
+X-CRM114-CacheID: sfid-20260414_175546_084743_4E01466C 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,391 +150,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Zane, Anup,
-
-On 4/14/26 02:04, Zane Leung wrote:
+On 3/18/2026 3:52 AM, Tzu-Hao Wei wrote:
+> From: SriNavmani A <srinavmani@axiado.com>
 > 
-> On 4/14/2026 3:23 PM, Anup Patel wrote:
->> On Tue, Apr 14, 2026 at 9:12 AM Zane Leung <liangzhen@linux.spacemit.com> wrote:
->>> From: liangzhen <zhen.liang@spacemit.com>
->>>
->>> This series adds Linux RISC-V trace support via CoreSight, implementing RISC-V
->>> trace drivers within the CoreSight framework and integrating them with perf tools.
->>> The K3 SoC contains RISC-V Encoder, Funnel, ATB, CoreSight Funnel, and CoreSight TMC
->>> components, which can be directly leveraged through the existing CoreSight infrastructure.
->>>
->>> Linux RISC-V trace support form Anup Patel:
->>> (https://patchwork.kernel.org/project/linux-riscv/cover/20260225062448.4027948-1-anup.patel@oss.qualcomm.com/)
->>> which currently lacks ATB component support and guidance on reusing CoreSight components.
->> What stops you from adding RISC-V trace funnel and ATB bridge drivers
->> on top of this series ?
->>
-> Firstly, my works started much earlier than this series. Secondly, it is difficult to add the coresight funnel and coresight tmc components to this series. Based on the coresight framework, I can directly reuse them.
+> It provides the required configurations for Axiado eMMC PHY driver for
+> HS200 mode.
 > 
->>
->>> The series includes:
->>> - RISC-V trace driver implementation within the CoreSight framework
->> The RISC-V trace very different from the CoreSight framework in many ways:
->> 1) Types of components supported
->> 2) Trace packet formats
->> 3) The way MMIO based components are discoverd
->> 4) ... and more ...
-> 1) I believe that RISC-V tracing is coresight-alike, where have encoders/funnel/sink/bridge that are described through DT and controlled by MMIO.
-> 2) I think the difference in package format is nothing more than the coresight frame generated by the ATB component to distinguish the trace source. After removing it, it becomes riscv trace data.
-> 3) The current CoreSight framework code does not introduce this mechanism, it is described through DT.
->>> - RISC-V Trace Encoder, Funnel, and ATB Bridge drivers as CoreSight devices
->>> - RISC-V trace PMU record capabilities and parsing events in perf.
->>> - RISC-V Nexus Trace decoder for perf tools
->>>
->>> Any comments or suggestions are welcome.
->>>
->>> Verification on K3 SoC:
->>> To verify this patch series on K3 hardware, the following device tree are required:
->>> 1. RISC-V Trace Encoder node (8)
->>> 2. RISC-V ATB Bridge node (8)
->>> 3. RISC-V Trace Funnel node (2)
->>> 3. CoreSight Funnel configuration for RISC-V (1)
->>> 4. CoreSight TMC configuration for trace buffer (1)
->>>
->>> /{
->>>          dummy_clk: apb-pclk {
->>>                  compatible = "fixed-clock";
->>>                  #clock-cells = <0x0>;
->>>                  clock-output-names = "clk14mhz";
->>>                  clock-frequency = <14000000>;
->>>          };
->>>
->>>
->>>          soc: soc {
->>>                  #address-cells = <2>;
->>>                  #size-cells = <2>;
->>>
->>>                  encoder0: encoder@d9002000 {
->>>                          compatible = "riscv,trace-encoder";
->>>                          reg = <0x0 0xd9002000 0x0 0x1000>;
->>>                          cpus = <&cpu_0>;
->>>                          out-ports {
->>>                                  port {
->>>                                          cluster0_encoder0_out_port: endpoint {
->>>                                                  remote-endpoint = <&cluster0_bridge0_in_port>;
->>>                                          };
->>>                                  };
->>>                          };
->>>                  };
->>>
->>>                  bridge0: bridge@d9003000 {
->>>                          compatible = "riscv,trace-atbbridge";
->>>                          reg = <0x0 0xd9003000 0x0 0x1000>;
->>>                          cpus = <&cpu_0>;
->>>                          out-ports {
->>>                                  port {
->>>                                          cluster0_bridge0_out_port: endpoint {
->>>                                                  remote-endpoint = <&cluster0_funnel_in_port0>;
->>>                                          };
->>>                                  };
->>>                          };
->>>                          in-ports {
->>>                                  port {
->>>                                          cluster0_bridge0_in_port: endpoint {
->>>                                                  remote-endpoint = <&cluster0_encoder0_out_port>;
->>>                                          };
->>>                                  };
->>>                          };
->>>                  };
->>>
->>> ...
->>>
->>>                  cluster0_funnel: funnel@d9000000 {
->>>                          compatible = "riscv,trace-funnel";
->>>                          reg = <0x0 0xd9000000 0x0 0x1000>;
->>>                          cpus = <&cpu_0>, <&cpu_1>, <&cpu_2>, <&cpu_3>;
->>>                          riscv,timestamp-present;
->>>                          out-ports {
->>>                                  port {
->>>                                          cluster0_funnel_out_port: endpoint {
->>>                                                  remote-endpoint = <&main_funnel_in_port0>;
->>>                                          };
->>>                                  };
->>>                          };
->>>                          in-ports {
->>>                                  #address-cells = <1>;
->>>                                  #size-cells = <0>;
->>>
->>>                                  port@0 {
->>>                                          reg = <0>;
->>>                                          cluster0_funnel_in_port0: endpoint {
->>>                                                  remote-endpoint = <&cluster0_bridge0_out_port>;
->>>                                          };
->>>                                  };
->>>
->>>                                  port@1 {
->>>                                          reg = <1>;
->>>                                          cluster0_funnel_in_port1: endpoint {
->>>                                                  remote-endpoint = <&cluster0_bridge1_out_port>;
->>>                                          };
->>>                                  };
->>>
->>>                                  port@2 {
->>>                                          reg = <2>;
->>>                                          cluster0_funnel_in_port2: endpoint {
->>>                                                  remote-endpoint = <&cluster0_bridge2_out_port>;
->>>                                          };
->>>                                  };
->>>
->>>                                  port@3 {
->>>                                          reg = <3>;
->>>                                          cluster0_funnel_in_port3: endpoint {
->>>                                                  remote-endpoint = <&cluster0_bridge3_out_port>;
->>>                                          };
->>>                                  };
->>>                          };
->>>                  };
->>>
->>>                  cluster1_funnel: funnel@d9010000 {
->>>                          compatible = "riscv,trace-funnel";
->>>                          reg = <0x0 0xd9010000 0x0 0x1000>;
->>>                          cpus = <&cpu_4>, <&cpu_5>, <&cpu_6>, <&cpu_7>;
->>>                          riscv,timestamp-present;
->>>                          out-ports {
->>>                                  port {
->>>                                          cluster1_funnel_out_port: endpoint {
->>>                                                  remote-endpoint = <&main_funnel_in_port1>;
->>>                                          };
->>>                                  };
->>>                          };
->>>                          in-ports {
->>>                                  #address-cells = <1>;
->>>                                  #size-cells = <0>;
->>>
->>>                                  port@0 {
->>>                                          reg = <0>;
->>>                                          cluster1_funnel_in_port0: endpoint {
->>>                                                  remote-endpoint = <&cluster1_bridge0_out_port>;
->>>                                          };
->>>                                  };
->>>
->>>                                  port@1 {
->>>                                          reg = <1>;
->>>                                          cluster1_funnel_in_port1: endpoint {
->>>                                                  remote-endpoint = <&cluster1_bridge1_out_port>;
->>>                                          };
->>>                                  };
->>>
->>>                                  port@2 {
->>>                                          reg = <2>;
->>>                                          cluster1_funnel_in_port2: endpoint {
->>>                                                  remote-endpoint = <&cluster1_bridge2_out_port>;
->>>                                          };
->>>                                  };
->>>
->>>                                  port@3 {
->>>                                          reg = <3>;
->>>                                          cluster1_funnel_in_port3: endpoint {
->>>                                                  remote-endpoint = <&cluster1_bridge3_out_port>;
->>>                                          };
->>>                                  };
->>>                          };
->>>                  };
->>>
->>>                  main_funnel: funnel@d9042000 {
->>>                          compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
->> Is it legally allowed to mix and match ARM coresight IPs with
->> RISC-V trace components at hardware level ?
-> The ATB Bridge allows sending RISC-V trace to Arm CoreSight infrastructure (instead of RISC-V compliant sink defined in this document) as an ATB initiator.  see:
-> https://github.com/riscv-non-isa/riscv-nexus-trace/blob/105dc1c349556622e4d202d22b584a887ded462f/docs/RISC-V-Trace-Control-Interface.adoc#L184
-> For ATB Bridge, read trace using Coresight components (ETB/TMC/TPIU). see:
-> https://github.com/riscv-non-isa/riscv-nexus-trace/blob/105dc1c349556622e4d202d22b584a887ded462f/docs/RISC-V-Trace-Control-Interface.adoc#L1684
->>
->>>                          reg = <0x0 0xd9042000 0x0 0x1000>;
->>>                          clocks = <&dummy_clk>;
->>>                          clock-names = "apb_pclk";
->>>                          out-ports {
->>>                                  port {
->>>                                          main_funnel_out_port: endpoint {
->>>                                                  remote-endpoint = <&etf_in_port>;
->>>                                          };
->>>                                  };
->>>                          };
->>>                          in-ports {
->>>                                  #address-cells = <1>;
->>>                                  #size-cells = <0>;
->>>
->>>                                  port@0 {
->>>                                          reg = <0>;
->>>                                          main_funnel_in_port0: endpoint {
->>>                                                  remote-endpoint = <&cluster0_funnel_out_port>;
->>>                                          };
->>>                                  };
->>>
->>>                                  port@1 {
->>>                                          reg = <1>;
->>>                                          main_funnel_in_port1: endpoint {
->>>                                                  remote-endpoint = <&cluster1_funnel_out_port>;
->>>                                          };
->>>                                  };
->>>                          };
->>>                  };
->>>
->>>                  etf: etf@d9043000 {
->>>                          compatible = "arm,coresight-tmc", "arm,primecell";
->>>                          reg = <0x0 0xd9043000 0x0 0x1000>;
->>>                          clocks = <&dummy_clk>;
->>>                          clock-names = "apb_pclk";
->>>                          out-ports {
->>>                                  port {
->>>                                          etf_out_port: endpoint {
->>>                                                  remote-endpoint = <&etr_in_port>;
->>>                                          };
->>>                                  };
->>>                          };
->>>                          in-ports {
->>>                                  port {
->>>                                          etf_in_port: endpoint {
->>>                                                  remote-endpoint = <&main_funnel_out_port>;
->>>                                          };
->>>                                  };
->>>                          };
->>>                  };
->>>
->>>                  etr: etr@d9044000 {
->>>                          compatible = "arm,coresight-tmc", "arm,primecell";
->>>                          reg = <0x0 0xd9044000 0x0 0x1000>;
->>>                          clocks = <&dummy_clk>;
->>>                          clock-names = "apb_pclk";
->>>                          arm,scatter-gather;
->>>                          in-ports {
->>>                                  port {
->>>                                          etr_in_port: endpoint {
->>>                                                  remote-endpoint = <&etf_out_port>;
->>>                                          };
->>>                                  };
->>>                          };
->>>                  };
->>>          };
->>> };
->>>
->>> Verification case:
->>>
->>> ~ # perf list pmu
->>>    rvtrace//                                          [Kernel PMU event]
->>>
->>> ~ # perf record -e rvtrace/@tmc_etr0/ --per-thread uname
->>> Linux
->>> [ perf record: Woken up 1 times to write data ]
->>> [ perf record: Captured and wrote 0.191 MB perf.data ]
->>> ~ # perf script
->>>             uname     137 [003]          1           branches:  ffffffff80931470 rvtrace_poll_bit+0x38 ([kernel.kallsyms]) => ffffffff80931492 rvtrace_poll_bit+0x5a ([kernel.kallsyms])
->>>             uname     137 [003]          1           branches:  ffffffff809328a6 encoder_enable_hw+0x252 ([kernel.kallsyms]) => ffffffff809328ba encoder_enable_hw+0x266 ([kernel.kallsyms])
->>>             uname     137 [003]          1           branches:  ffffffff80932c4a encoder_enable+0x82 ([kernel.kallsyms]) => ffffffff80932c36 encoder_enable+0x6e ([kernel.kallsyms])
->>>             uname     137 [003]          1           branches:  ffffffff80928198 etm_event_start+0xf0 ([kernel.kallsyms]) => ffffffff809281aa etm_event_start+0x102 ([kernel.kallsyms])
->>>             uname     137 [003]          1           branches:  ffffffff809281e6 etm_event_start+0x13e ([kernel.kallsyms]) => ffffffff8092755e coresight_get_sink_id+0x16 ([kernel.kallsyms])
->>>             uname     137 [003]          1           branches:  ffffffff8092820e etm_event_start+0x166 ([kernel.kallsyms]) => ffffffff80928226 etm_event_start+0x17e ([kernel.kallsyms])
->>>             uname     137 [003]          1           branches:  ffffffff801c3bb4 perf_report_aux_output_id+0x0 ([kernel.kallsyms]) => ffffffff801c3bd6 perf_report_aux_output_id+0x22 ([kernel.kallsyms])
->>>             uname     137 [003]          1           branches:  ffffffff801c3c5a perf_report_aux_output_id+0xa6 ([kernel.kallsyms]) => ffffffff801c3bf0 perf_report_aux_output_id+0x3c ([kernel.kallsyms])
->>>             uname     137 [003]          1           branches:  ffffffff801c3c40 perf_report_aux_output_id+0x8c ([kernel.kallsyms]) => ffffffff801c3aea __perf_event_header__init_id+0x2a ([kernel.kallsyms])
->>>             uname     137 [003]          1           branches:  ffffffff801c3b42 __perf_event_header__init_id+0x82 ([kernel.kallsyms]) => ffffffff801c3b4a __perf_event_header__init_id+0x8a ([kernel.kallsyms])
->>>             uname     137 [003]          1           branches:  ffffffff801c3bb0 __perf_event_header__init_id+0xf0 ([kernel.kallsyms]) => ffffffff801c3b58 __perf_event_header__init_id+0x98 ([kernel.kallsyms])
->>>             uname     137 [003]          1           branches:  ffffffff8004c658 __task_pid_nr_ns+0x0 ([kernel.kallsyms]) => ffffffff8004c696 __task_pid_nr_ns+0x3e ([kernel.kallsyms])
->>>             uname     137 [003]          1           branches:  ffffffff8004c71e __task_pid_nr_ns+0xc6 ([kernel.kallsyms]) => ffffffff8004c6a4 __task_pid_nr_ns+0x4c ([kernel.kallsyms])
->>>             uname     137 [003]          1           branches:  ffffffff8004c6e4 __task_pid_nr_ns+0x8c ([kernel.kallsyms]) => ffffffff8004c6e4 __task_pid_nr_ns+0x8c ([kernel.kallsyms])
->>> ...
->>>
->>> liangzhen (12):
->>>    coresight: Add RISC-V support to CoreSight tracing
->>>    coresight: Initial implementation of RISC-V trace driver
->>>    coresight: Add RISC-V Trace Encoder driver
->>>    coresight: Add RISC-V Trace Funnel driver
->>>    coresight: Add RISC-V Trace ATB Bridge driver
->>>    coresight rvtrace: Add timestamp component support for encoder and
->>>      funnel
->>>    coresight: Add RISC-V PMU name support
->>>    perf tools: riscv: making rvtrace PMU listable
->>>    perf tools: Add RISC-V trace PMU record capabilities
->>>    perf tools: Add Nexus RISC-V Trace decoder
->>>    perf symbols: Add RISC-V PLT entry sizes
->>>    perf tools: Integrate RISC-V trace decoder into auxtrace
->>>
->>>   drivers/hwtracing/Kconfig                     |    2 +
->>>   drivers/hwtracing/coresight/Kconfig           |   46 +-
->>>   drivers/hwtracing/coresight/Makefile          |    6 +
->>>   drivers/hwtracing/coresight/coresight-core.c  |    8 +
->>>   .../hwtracing/coresight/coresight-etm-perf.c  |    1 -
->>>   .../hwtracing/coresight/coresight-etm-perf.h  |   21 +
->>>   .../hwtracing/coresight/coresight-platform.c  |    1 -
->>>   .../hwtracing/coresight/coresight-tmc-etf.c   |    4 +
->>>   .../hwtracing/coresight/coresight-tmc-etr.c   |    4 +
->>>   .../hwtracing/coresight/rvtrace-atbbridge.c   |  239 +++
->>>   drivers/hwtracing/coresight/rvtrace-core.c    |  135 ++
->>>   .../coresight/rvtrace-encoder-core.c          |  562 +++++++
->>>   .../coresight/rvtrace-encoder-sysfs.c         |  363 +++++
->>>   drivers/hwtracing/coresight/rvtrace-encoder.h |  151 ++
->>>   drivers/hwtracing/coresight/rvtrace-funnel.c  |  337 ++++
->>>   drivers/hwtracing/coresight/rvtrace-funnel.h  |   39 +
->>>   .../hwtracing/coresight/rvtrace-timestamp.c   |  278 ++++
->>>   .../hwtracing/coresight/rvtrace-timestamp.h   |   64 +
->>>   include/linux/coresight-pmu.h                 |    4 +
->>>   include/linux/rvtrace.h                       |  116 ++
->>>   tools/arch/riscv/include/asm/insn.h           |  645 ++++++++
->>>   tools/perf/arch/riscv/util/Build              |    2 +
->>>   tools/perf/arch/riscv/util/auxtrace.c         |  490 ++++++
->>>   tools/perf/arch/riscv/util/pmu.c              |   20 +
->>>   tools/perf/util/Build                         |    3 +
->>>   tools/perf/util/auxtrace.c                    |    4 +
->>>   tools/perf/util/auxtrace.h                    |    1 +
->>>   tools/perf/util/nexus-rv-decoder/Build        |    1 +
->>>   .../util/nexus-rv-decoder/nexus-rv-decoder.c  | 1364 +++++++++++++++++
->>>   .../util/nexus-rv-decoder/nexus-rv-decoder.h  |  139 ++
->>>   .../perf/util/nexus-rv-decoder/nexus-rv-msg.h |  190 +++
->>>   tools/perf/util/rvtrace-decoder.c             | 1039 +++++++++++++
->>>   tools/perf/util/rvtrace.h                     |   40 +
->>>   tools/perf/util/symbol-elf.c                  |    4 +
->>>   34 files changed, 6320 insertions(+), 3 deletions(-)
->>>   create mode 100644 drivers/hwtracing/coresight/rvtrace-atbbridge.c
->>>   create mode 100644 drivers/hwtracing/coresight/rvtrace-core.c
->>>   create mode 100644 drivers/hwtracing/coresight/rvtrace-encoder-core.c
->>>   create mode 100644 drivers/hwtracing/coresight/rvtrace-encoder-sysfs.c
->>>   create mode 100644 drivers/hwtracing/coresight/rvtrace-encoder.h
->>>   create mode 100644 drivers/hwtracing/coresight/rvtrace-funnel.c
->>>   create mode 100644 drivers/hwtracing/coresight/rvtrace-funnel.h
->>>   create mode 100644 drivers/hwtracing/coresight/rvtrace-timestamp.c
->>>   create mode 100644 drivers/hwtracing/coresight/rvtrace-timestamp.h
->>>   create mode 100644 include/linux/rvtrace.h
->>>   create mode 100644 tools/arch/riscv/include/asm/insn.h
->>>   create mode 100644 tools/perf/arch/riscv/util/auxtrace.c
->>>   create mode 100644 tools/perf/arch/riscv/util/pmu.c
->>>   create mode 100644 tools/perf/util/nexus-rv-decoder/Build
->>>   create mode 100644 tools/perf/util/nexus-rv-decoder/nexus-rv-decoder.c
->>>   create mode 100644 tools/perf/util/nexus-rv-decoder/nexus-rv-decoder.h
->>>   create mode 100644 tools/perf/util/nexus-rv-decoder/nexus-rv-msg.h
->>>   create mode 100644 tools/perf/util/rvtrace-decoder.c
->>>   create mode 100644 tools/perf/util/rvtrace.h
->>>
->>> --
->>> 2.34.1
->>>
->> NACK to this approach of retrofitting RISC-V trace into ARM coresight.
-> I agree that integrating RISC-V trace directly into CoreSight is not a good approach, so I think we should abstract some of the logic of coresight and reuse it in RISC-V Trace.
-
-I think we should indeed abstract out some coresight logic so it can be
-reused by both coresight/rvtrace, especially the way of handling trace
-component topology. The generic logic of building a path from source ->
-sink should be common among coresight/rvtrace and for future architecture.
-To support ATB use case like the K3, I think the best way to approach this
-is to model the atb driver as a separate rvtrace-atb drive and let it
-drive the ARM coresight components. Don't treat risc-v trace as another
-type of coresight.
-
-@Zane, can you also clarify that only the 2 X100 clusters have trace
-encoders, and the A100 clusters do not? I don't see the 2 A100 clusters
-listed in your sample devicetree. If that's the case, then we'll be faced
-with heterogeneous trace setup, making it even more complicated.
-
->>
->> Regards,
->> Anup
+> Signed-off-by: SriNavmani A <srinavmani@axiado.com>
+> Co-developed-by: Prasad Bolisetty <pbolisetty@axiado.com>
+> Signed-off-by: Prasad Bolisetty <pbolisetty@axiado.com>
+> Signed-off-by: Tzu-Hao Wei <twei@axiado.com>
+> ---
+>  drivers/phy/Kconfig                  |   1 +
+>  drivers/phy/Makefile                 |   1 +
+>  drivers/phy/axiado/Kconfig           |  11 ++
+>  drivers/phy/axiado/Makefile          |   1 +
+>  drivers/phy/axiado/phy-axiado-emmc.c | 217 +++++++++++++++++++++++++++++++++++
+>  5 files changed, 231 insertions(+)
 > 
-> Thanks,
-> Zane
 
-Bo
+Hi Vinod,
+
+Just a gentle ping on this patch series.
+
+Since you reviewed the previous version, I wanted to check if you might have
+a chance to take a look at this one when time permits.
+
+Any feedback would be appreciated.
+
+Best regards,
+TH
+
 
