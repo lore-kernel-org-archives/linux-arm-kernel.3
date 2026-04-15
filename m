@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86FBDF41997
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 11:56:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B727F41994
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 11:56:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LsdMoOJmlRlzGp5zQP3AHVoH36EaiJADf+BAwxUcYWM=; b=OcJgflhutOQHxHZ4mRGQDC02+E
-	sRDpZmhu2rypNYJGJV32JDsWt5hKlvMMUnLguGEwR2+ssFqHtqUj9bG4KsIC6DPeuQXLtQguZvh3V
-	3J+KuSt/QIiMtOA5k6VoBRaXMrb+sQYztnnHlQSdOV29yMs+yoWvEdqJZL/e3iddIujhY8uNPVu1X
-	YCJ2nH5fJMWOmWnIl8sWO0ZaPKHev7mtovuAUr542FC9rgTUGxw8+0g1NwPIt5Esf1C/loWh+aO8W
-	CtHE0dOI4gNRF/3yFdDWRxDq12TXBSJVwiXNrjoyYCkNiPB2M3K1ey2RwT6pXxT+m6BntRrxe9bQv
-	NQGtfNhg==;
+	bh=Yp8TJvgYk4dUAnyYuq90MCPQ++6cQcyfGHV+/YigiLU=; b=ECahVshP7tnflPnR7YVprc2W+T
+	2H6jNYRfgrMrQRcDQq9mZR9AzrBRTbUacmRqVsIMvgUxp5U0vJdCGrIsNULOpr6Tej1mJS0eX8QRS
+	R2Y/iprJmQ4dv+yLfVt24AYqrZrwtXemJ73UyrOqh9UnlfN8l2+OvrIuZyzqs/RaVajC2oAwEOLH6
+	X1azfGq0vviLBAABtXTq5NXBu3PFZsZemDCw8lYPJHFSfpT7sK36BMBdQHw4Ti2YARC0Me16Dr6qq
+	UBKWkOhow9+Rpd138FvVi3q8AOZXKJ03+U1BtxbEG45mlgpJI3GPlNUYTi0tdxy8M29ZgLUhCz2BF
+	1VHjlM/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCyr3-0000000147x-1g30;
-	Wed, 15 Apr 2026 11:56:25 +0000
+	id 1wCyr4-0000000149D-1rDc;
+	Wed, 15 Apr 2026 11:56:26 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCyr0-0000000145h-3muN
+	id 1wCyr1-0000000146S-25oW
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 15 Apr 2026 11:56:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E1BC7600AD;
-	Wed, 15 Apr 2026 11:56:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93C6EC2BCB4;
-	Wed, 15 Apr 2026 11:56:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D79146012A;
+	Wed, 15 Apr 2026 11:56:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D139C19424;
+	Wed, 15 Apr 2026 11:56:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776254181;
-	bh=gazaM+hbBkgurtwj2pSx8TA704AOvxVtNX2zJsNdhdM=;
+	s=k20201202; t=1776254182;
+	bh=3GpnxZCnP3owOfN9/6GKMUYj5IThL0sP1V0fxRFMcbw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=p5iWYg77aZ6PMS1rx3u7SjXcxb5eA8Zf43sFntvUjAujRBNbLp+j4SJXn6T086m1m
-	 BCsO6uAaC+xssG9p9pL8KF2XDTaREn1MOzmhKIc6tF7NLWFCkopAzWEhS0i4n9rcxy
-	 HN0Zqcmyl8Dl9XpCvn4Ta4N1ghbSDuRcV0Tb9D26QY+4nGWFKjUgaB8sW8r6cC7WrM
-	 kbhe5CP4Y5cnO1KTZOLW4JqAWkP+wkjKPQLYv+bYHUb2WkklOINM5VkrNW9aI35cZl
-	 rI9KpKyF6rygeCoeeTfo3TZHW45ML5uf2TcEfaFjouOjQIwQKQaUqVB8pCUJ8ckc1b
-	 zdulR0ai/LzsA==
+	b=d2njVw4eigEg9mSxeee0opXf34CTcAMoiv2SoqtfnusruC1h+FMMYjRudo/EuBFmS
+	 N7ZXRYq7/Yx1vHnepMZflfLV28RPN8VYv/MSTH1Ks0DSiRlXxiYbdOZTjKh21ASQ4I
+	 Tqw4uOO+t0JcdVpasjEvKzOS5OiJ1IJF2msPy972KEM4EKphtv/6kcq+t1ihlvlc0J
+	 rJOeLRyv5nfdmWj6wXjE3F3kGYvvZ5ETHuNdJwkTY87Zhxx1+R3uYiiOKBMQl/emkQ
+	 FC00cF5BrqKLVp8SKSVXUAV8OkFl02xT/dxIqY1oGyJg1Y4mcUuP9To6Wuy7nOzXwK
+	 zE10jILtfiauA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wCyqx-0000000Bqsi-3B7l;
-	Wed, 15 Apr 2026 11:56:19 +0000
+	id 1wCyqy-0000000Bqsi-2DGS;
+	Wed, 15 Apr 2026 11:56:20 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
@@ -56,9 +56,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Sascha Bischoff <sascha.bischoff@arm.com>
-Subject: [PATCH 03/18] KVM: arm64: vgic-v5: Remove use of __assign_bit() with a constant
-Date: Wed, 15 Apr 2026 12:55:44 +0100
-Message-ID: <20260415115559.2227718-4-maz@kernel.org>
+Subject: [PATCH 07/18] KVM: arm64: vgic-v5: Drop defensive checks from vgic_v5_ppi_queue_irq_unlock()
+Date: Wed, 15 Apr 2026 12:55:48 +0100
+Message-ID: <20260415115559.2227718-8-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260415115559.2227718-1-maz@kernel.org>
 References: <20260415115559.2227718-1-maz@kernel.org>
@@ -82,61 +82,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Using __assign_bit() is very useful when the value of the bit is
-not known at compile time. In all other cases, __set_bit() and
-__clear_bit() are the correct tool for the job.
+vgic_v5_ppi_queue_irq_unlock() performs a bunch of sanity checks
+that are pretty pointless as there is no code path that can
+result in these invariants to be violated. And if they are, a nice
+crash is just as instructive than a warning.
 
-This also fixes an odd case of using VGIC_V5_NR_PRIVATE_IRQS as
-the bit value...
+Drop what is evidently debug code and simplify the whole thing.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic-v5.c | 16 +++++++---------
- 1 file changed, 7 insertions(+), 9 deletions(-)
+ arch/arm64/kvm/vgic/vgic-v5.c | 16 +++-------------
+ 1 file changed, 3 insertions(+), 13 deletions(-)
 
 diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-index 7c146fccc9689..4d62b1c31fe8b 100644
+index 757484d2493b2..7916bd8d564ef 100644
 --- a/arch/arm64/kvm/vgic/vgic-v5.c
 +++ b/arch/arm64/kvm/vgic/vgic-v5.c
-@@ -25,13 +25,13 @@ static void vgic_v5_get_implemented_ppis(void)
- 	 * If we have KVM, we have EL2, which means that we have support for the
- 	 * EL1 and EL2 Physical & Virtual timers.
- 	 */
--	__assign_bit(GICV5_ARCH_PPI_CNTHP, ppi_caps.impl_ppi_mask, 1);
--	__assign_bit(GICV5_ARCH_PPI_CNTV, ppi_caps.impl_ppi_mask, 1);
--	__assign_bit(GICV5_ARCH_PPI_CNTHV, ppi_caps.impl_ppi_mask, 1);
--	__assign_bit(GICV5_ARCH_PPI_CNTP, ppi_caps.impl_ppi_mask, 1);
-+	__set_bit(GICV5_ARCH_PPI_CNTHP, ppi_caps.impl_ppi_mask);
-+	__set_bit(GICV5_ARCH_PPI_CNTV, ppi_caps.impl_ppi_mask);
-+	__set_bit(GICV5_ARCH_PPI_CNTHV, ppi_caps.impl_ppi_mask);
-+	__set_bit(GICV5_ARCH_PPI_CNTP, ppi_caps.impl_ppi_mask);
+@@ -238,9 +238,9 @@ static u32 vgic_v5_get_effective_priority_mask(struct kvm_vcpu *vcpu)
  
- 	/* The SW_PPI should be available */
--	__assign_bit(GICV5_ARCH_PPI_SW_PPI, ppi_caps.impl_ppi_mask, 1);
-+	__set_bit(GICV5_ARCH_PPI_SW_PPI, ppi_caps.impl_ppi_mask);
+ /*
+  * For GICv5, the PPIs are mostly directly managed by the hardware. We (the
+- * hypervisor) handle the pending, active, enable state save/restore, but don't
+- * need the PPIs to be queued on a per-VCPU AP list. Therefore, sanity check the
+- * state, unlock, and return.
++ * hypervisor) handle the pending, active, enable state save/restore, but
++ * don't need the PPIs to be queued on a per-VCPU AP list. Therefore,
++ * unlock, kick the vcpu and return.
+  */
+ bool vgic_v5_ppi_queue_irq_unlock(struct kvm *kvm, struct vgic_irq *irq,
+ 				  unsigned long flags)
+@@ -250,12 +250,7 @@ bool vgic_v5_ppi_queue_irq_unlock(struct kvm *kvm, struct vgic_irq *irq,
  
- 	/* The PMUIRQ is available if we have the PMU */
- 	__assign_bit(GICV5_ARCH_PPI_PMUIRQ, ppi_caps.impl_ppi_mask, system_supports_pmuv3());
-@@ -146,9 +146,7 @@ int vgic_v5_init(struct kvm *kvm)
- 	/* We only allow userspace to drive the SW_PPI, if it is implemented. */
- 	bitmap_zero(kvm->arch.vgic.gicv5_vm.userspace_ppis,
- 		    VGIC_V5_NR_PRIVATE_IRQS);
--	__assign_bit(GICV5_ARCH_PPI_SW_PPI,
--		     kvm->arch.vgic.gicv5_vm.userspace_ppis,
--		     VGIC_V5_NR_PRIVATE_IRQS);
-+	__set_bit(GICV5_ARCH_PPI_SW_PPI, kvm->arch.vgic.gicv5_vm.userspace_ppis);
- 	bitmap_and(kvm->arch.vgic.gicv5_vm.userspace_ppis,
- 		   kvm->arch.vgic.gicv5_vm.userspace_ppis,
- 		   ppi_caps.impl_ppi_mask, VGIC_V5_NR_PRIVATE_IRQS);
-@@ -197,7 +195,7 @@ int vgic_v5_finalize_ppi_state(struct kvm *kvm)
- 		/* Expose PPIs with an owner or the SW_PPI, only */
- 		scoped_guard(raw_spinlock_irqsave, &irq->irq_lock) {
- 			if (irq->owner || i == GICV5_ARCH_PPI_SW_PPI) {
--				__assign_bit(i, kvm->arch.vgic.gicv5_vm.vgic_ppi_mask, 1);
-+				__set_bit(i, kvm->arch.vgic.gicv5_vm.vgic_ppi_mask);
- 				__assign_bit(i, kvm->arch.vgic.gicv5_vm.vgic_ppi_hmr,
- 					     irq->config == VGIC_CONFIG_LEVEL);
- 			}
+ 	lockdep_assert_held(&irq->irq_lock);
+ 
+-	if (WARN_ON_ONCE(!__irq_is_ppi(KVM_DEV_TYPE_ARM_VGIC_V5, irq->intid)))
+-		goto out_unlock_fail;
+-
+ 	vcpu = irq->target_vcpu;
+-	if (WARN_ON_ONCE(!vcpu))
+-		goto out_unlock_fail;
+ 
+ 	raw_spin_unlock_irqrestore(&irq->irq_lock, flags);
+ 
+@@ -264,11 +259,6 @@ bool vgic_v5_ppi_queue_irq_unlock(struct kvm *kvm, struct vgic_irq *irq,
+ 	kvm_vcpu_kick(vcpu);
+ 
+ 	return true;
+-
+-out_unlock_fail:
+-	raw_spin_unlock_irqrestore(&irq->irq_lock, flags);
+-
+-	return false;
+ }
+ 
+ /*
 -- 
 2.47.3
 
