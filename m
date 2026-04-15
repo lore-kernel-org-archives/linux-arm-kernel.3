@@ -4,68 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7463AF419B9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 13:45:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 736AAF419B6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 14:03:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bfUdp5yiGeveHx7awmwIX27sfdsCI3XlgjXD1amRh8Q=; b=KaIkBwAA+B1mhJkX7CtT+8n4mP
-	/bl79EAx6tVOqOTdmuN3Ic5fnoEyUpMvfad7XzDLZZxKkIITFn2neqX8NznnaQYrtqMaE8Quyucax
-	/ojWMSKVoqSJzfi9Diw0gzYIp83XSCfsOQObSwKQ/clptLGVBGjtg3jlo7sgAA486dL7xHpiYefsJ
-	Rq/OIut4WVHybiIxneZ2g+hX+lwYffTKfgw3/RS9XDTEJ9fHytbX1+kgRmFH74HEqx+FMO/MqBke1
-	kn80ur0P1fkOXOLDrz4iIE3/IAoaKkq+bmcUSaikNjcChE1cyYaaAM/0miZ0fn7rp7Bn2tCQJd6lD
-	rPAdPzlw==;
+	bh=bUEUiRGlmPY2mseaWmxVfdTWYErUp9wSt8W/hdYt0g0=; b=UnrueOtS7ibHCtleJ7ULCegadP
+	mkZxlrUhwWFkvngglSGZWZ7L2gAcd08KTBYYHdcOlhJTH3IAAzaVBABeUuC29iaE9NtBRw3E56hUY
+	JFIdX04jzRSm4sE6M2mBD6LbL46gfs/kKqxrp7jX6KDPO/T0t3jM0oIzpxWlqussPr3qZ8bhZCSvt
+	UdBfFkoB+DFp8SMUUkcMRtGcYTmSagTvgzD+bD/arD7jhqybX83F4hLlrbydAgUikGalltH6s1NcP
+	3jgvZny79MeCiRRwTaRisYxEmm5gRGGZBVzjudnmcFhSrTAgO99gamigeQFBMxJXMHTHpkrc/LW1G
+	OFW0bmyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD0YI-00000001CW7-1zlI;
-	Wed, 15 Apr 2026 13:45:10 +0000
-Received: from 8.mo511.mail-out.ovh.net ([46.105.79.208])
+	id 1wD0q6-00000001D6t-0QaB;
+	Wed, 15 Apr 2026 14:03:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD0YD-00000001CVH-1rJc;
-	Wed, 15 Apr 2026 13:45:08 +0000
-Received: from ex.mail.ovh.net (unknown [10.111.174.125])
-	by mo511.mail-out.ovh.net (Postfix) with SMTP id 4fwj7Y1kr5z9snQ;
-	Wed, 15 Apr 2026 13:44:57 +0000 (UTC)
-Message-ID: <451d2cc8-d15e-47f6-be4e-515f9be62f9b@aliel.fr>
-Date: Wed, 15 Apr 2026 15:44:55 +0200
+	id 1wD0q3-00000001D6X-1iSD
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Apr 2026 14:03:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 076264454A
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Apr 2026 14:03:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E06EBC2BCB4
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Apr 2026 14:03:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776261809;
+	bh=5pS4SfD0lWDbRwrU5/HiL/ioGrDgnmIiFIPZChr5qes=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=G8a67CT9i9eC93CYW+yJKIVxfGColVv7omAwr4rBgTVUWXesxWhu+KWVrn+dRk4Hm
+	 /D4+5p1BXqRCV0CUL469IcePDSK4wl3qSHui2mPMa6VkC8OmLxtuBEF0/HFWhOPyVo
+	 YWxvQDpwYZe5t4kp8N3Vjt5PsqGGDiHavUcc+JiyRzzawH1Gfvx29FQ3E2QguA4QWT
+	 9GCW3mrsTqJCQNzqb/NoyAErhdTsYe3SezAApwLys3uH+u02BZzNly77ni1fuzEJm6
+	 s0A+CdRrQ59jMIf125pJNmpcAig6He+V/y00T47JjTj8mMH1KqtKKWP69caY5R6lSg
+	 mfi0E7oRw2onw==
+Received: by mail-oo1-f46.google.com with SMTP id 006d021491bc7-68a5e7b5b52so2842279eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Apr 2026 07:03:29 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ9XYSY9bsFKtsD5Isr94OHEum0JadiX/+MRgsAwKCre4RBrooq4u1e6vlgznL0knBgHiuFVngn9iXzUOuDie2D5@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVDQz6igyKw4EK+MVJvfBIeeRvaxb+nHJrlVZLMDDzkcqANC0U
+	J4xlouQqZayNtU0E0QL0wPK5j+CU9vCPrDv/flDak4dlnKDK6SYeuCqD7MUke/9SClt1fUHIVq/
+	0Lupak484f1Xbxe+ATVui7A2j3Iq1Xpk=
+X-Received: by 2002:a05:6820:218:b0:687:bbfa:2158 with SMTP id
+ 006d021491bc7-68bf6aebec2mr9587988eaf.13.1776261806782; Wed, 15 Apr 2026
+ 07:03:26 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-Subject: Re: [PATCH 1/3] arm64: dts: amlogic: t7: Add uart_c pinctrl pins
- group
-To: Xianwei Zhao <xianwei.zhao@amlogic.com>
-CC: <linux-arm-kernel@lists.infradead.org>,
-	<linux-amlogic@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>
-References: <20260415-add-bluetooth-t7-vim4-v1-0-0ba0746cc1d6@aliel.fr>
- <20260415-add-bluetooth-t7-vim4-v1-1-0ba0746cc1d6@aliel.fr>
- <956625df-0a80-4d0e-9bb7-8071d5797748@amlogic.com>
-Content-Language: en-US
-In-Reply-To: <956625df-0a80-4d0e-9bb7-8071d5797748@amlogic.com>
+References: <20260413-ffh-v1-1-301704f69e2f@debian.org> <af9c679d-899c-4832-b902-e621b5987f12@huawei.com>
+ <ad4UWJ__dnDQtrj8@gmail.com> <6694ca7c-13bf-4e7d-9621-bc992cbf96a7@huawei.com>
+ <20260414-cute-shapeless-dolphin-c5b2fc@sudeepholla> <33c15199-25ea-4d39-bff9-91af0b49633e@huawei.com>
+In-Reply-To: <33c15199-25ea-4d39-bff9-91af0b49633e@huawei.com>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Wed, 15 Apr 2026 16:03:15 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0hftnagiLTPCEjqviyug5g5NQCztX1o0w5NOY8d=5cz+g@mail.gmail.com>
+X-Gm-Features: AQROBzARfwQzbblVS4HwmI4PAiTiOq-oHuuggUND-Sc3bt1HPaVjtyZCd_Xm8_o
+Message-ID: <CAJZ5v0hftnagiLTPCEjqviyug5g5NQCztX1o0w5NOY8d=5cz+g@mail.gmail.com>
+Subject: Re: [PATCH RFC] ACPI: processor: idle: Do not propagate
+ acpi_processor_ffh_lpi_probe() -ENODEV
+To: "lihuisong (C)" <lihuisong@huawei.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Breno Leitao <leitao@debian.org>, Len Brown <lenb@kernel.org>, lpieralisi@kernel.org, 
+	catalin.marinas@arm.com, will@kernel.org, 
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, linux-acpi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, pjaroszynski@nvidia.com, guohanjun@huawei.com, 
+	linux-arm-kernel@lists.infradead.org, rmikey@meta.com, kernel-team@meta.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Originating-IP: [92.91.227.71]
-X-ClientProxiedBy: CAS12.indiv.local (172.16.1.12) To DAG11EX2.indiv.local
- (172.16.2.112)
-DKIM-Signature: v=1; a=rsa-sha256; d=aliel.fr; s=ovhex24454-selector1;
- c=relaxed/relaxed; t=1776260697; h=from:to:subject:date;
- bh=nXLEFR5ld0gmkhDZoJbppfO88OloAWVZCcUgrZTTpMs=;
- b=na+26WtfbGcCpipes2h38G9UemzYZH1/SVn5Lmb6XQwN5o2uB1iJAOUX8iU1R5V23jtCoGb91ZX1JqSgsNWadzZGAllXPnO0rwDjt0Z85MUnbObnQZpEU9u+e/nDtBlXeOJz09YqNqGbvKN3Li2mVOqxfhe88O8o9Mg9FuCQmtBPI+C1f8TK7wrZzS0lcVSAg7eEd6odXrIX0FFx43UfyCfPo+ITag4keLPX49NVRvJWqr/MpOl6nQJkKRKQ0+mcxbeF4miBrL7f2g93xYkxIe9ZHuT7/n4azyhU+UleABqsH/pDSFzwKlmspzWkXKDiYz5Gyztzun8w2cCYgYvRTw==
-x-ovh-tracer-id: 10833971856656240110
-X-VR-SPAMSTATE: OK
-X-VR-SPAMSCORE: -100
-X-VR-SPAMCAUSE: dmFkZTF18bDFAC26Re3D/Quk/G2rv+fn1qEiTVJFd9A+lSh7lBclNoacWW6YyCzDY45eYv9KdsbYaW5wjpUkUFKkwhYtTDxn6xhgwPBnj8brLw3zfxZQkGokQuuvRgPYIy76QikIcN4cX0Ky2Ovmw80U7tpMOqpfGAulivI09vMONPaFTUIoRFDGWDzk6JdoeKmkOru6dRFXxpxj6cov/ntGBKVkn24Vws8jLuECq0+TbR2BjsfnNHwGyV0xxcuxOn7OlJSyZhmMJvxzAzOh+pQhNShyGh9nzQcM1NZEzJC/YxHn8Itu9fLdeF5h2eM9XQWuZyVLrPIitzsmwEbSMF3V4VkKLnXRHEWlQWl3F9bE0AVfBKH8VJPFv1It67F0Gwmt3Oe4TooOEbsu8bO9WJtrHEQXNPaW6gOiIH3Dhqu81Nb8RmYtgINQacbnfyYaYNoWLUJXV8EQoSepmREUHqVobR43XWLyrCpr8cVLh4PPfoZhO01nu2LTPlOVgzJ58+57CzQmsvM+ysKMKyBvBzAJrdr03QK7eQKDJNyoTFTOJ0ouAXVm6MaMvdeP64F73otWmiS9h2+c/N7St+4QCCuIq8LONTx26ibK8xqY4gzkhbTHTBgLDIUDza1kaCanMXK3ievGYHIM3ntiMYQYyQgwNKaUT7Hsc360I6cQCXOABh8cPQ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_064505_808166_C21524BA 
-X-CRM114-Status: UNSURE (   7.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260415_070331_511703_51276C31 
+X-CRM114-Status: GOOD (  33.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,100 +89,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Xianwei,
+On Wed, Apr 15, 2026 at 3:32=E2=80=AFAM lihuisong (C) <lihuisong@huawei.com=
+> wrote:
+>
+>
+> On 4/14/2026 8:25 PM, Sudeep Holla wrote:
+> > On Tue, Apr 14, 2026 at 07:31:29PM +0800, lihuisong (C) wrote:
+> >> On 4/14/2026 6:21 PM, Breno Leitao wrote:
+> >>> Hello Huisong,
+> >>>
+> >>> On Tue, Apr 14, 2026 at 05:43:51PM +0800, lihuisong (C) wrote:
+> >>>> But it is a real issue. Thanks for your report.
+> >>>> I think the best way to fix your issue is that remove this verificat=
+ion in
+> >>>> psci_acpi_cpu_init_idle().
+> >>>> Because it is legal for platform to report one LPI state.
+> >>>> This function just needs to verify the LPI states which are FFH.
+> >>> Thank you for the prompt feedback.
+> >>>
+> >>> Would this approach work?
+> >>>
+> >>> commit 6c9d52840a4f778cc989838ba76ee51416e85de3
+> >>> Author: Breno Leitao <leitao@debian.org>
+> >>> Date:   Tue Apr 14 03:16:08 2026 -0700
+> >>>
+> >>>       ACPI: processor: idle: Allow platforms with only one LPI state
+> >>>       psci_acpi_cpu_init_idle() rejects platforms where power.count -=
+ 1 <=3D 0
+> >>>       by returning -ENODEV. However, having a single LPI state (WFI) =
+is a
+> >>>       valid configuration. The function's purpose is to verify FFH id=
+le states,
+> >>>       and when count is zero, there are simply no FFH states to valid=
+ate =E2=80=94
+> >>>       this is not an error.
+> >>>       On NVIDIA Grace (aarch64) systems with PSCIv1.1, power.count is=
+ 1 for
+> >>>       all 72 CPUs, so the probe fails with -ENODEV. After commit cac1=
+73bea57d
+> >>>       ("ACPI: processor: idle: Rework the handling of
+> >>>       acpi_processor_ffh_lpi_probe()"), this failure propagates up an=
+d prevents
+> >>>       cpuidle registration entirely.
+> >>>       Change the check from (count <=3D 0) to (count < 0) so that pla=
+tforms
+> >>>       with only WFI are accepted. The for loop naturally handles coun=
+t =3D=3D 0
+> >>>       by not iterating.
+> >>>       Fixes: cac173bea57d ("ACPI: processor: idle: Rework the handlin=
+g of acpi_processor_ffh_lpi_probe()")
+> >>>       Signed-off-by: Breno Leitao <leitao@debian.org>
+> >>>
+> >>> diff --git a/drivers/acpi/arm64/cpuidle.c b/drivers/acpi/arm64/cpuidl=
+e.c
+> >>> index 801f9c4501425..7791b751042ce 100644
+> >>> --- a/drivers/acpi/arm64/cpuidle.c
+> >>> +++ b/drivers/acpi/arm64/cpuidle.c
+> >>> @@ -31,7 +31,7 @@ static int psci_acpi_cpu_init_idle(unsigned int cpu=
+)
+> >>>             return -EOPNOTSUPP;
+> >>>     count =3D pr->power.count - 1;
+> >>> -   if (count <=3D 0)
+> >>> +   if (count < 0)
+> >>>             return -ENODEV;
+> >>>     for (i =3D 0; i < count; i++) {
+> >> This count already verified in acpi_processor_get_lpi_info.
+> >>
+> >> I suggest modifing it as below:
+> >>
+> >> -->
+> >>
+> >> git diff
+> >> diff --git a/drivers/acpi/arm64/cpuidle.c b/drivers/acpi/arm64/cpuidle=
+.c
+> >> index 801f9c450142..c68a5db8ebba 100644
+> >> --- a/drivers/acpi/arm64/cpuidle.c
+> >> +++ b/drivers/acpi/arm64/cpuidle.c
+> >> @@ -16,7 +16,7 @@
+> >>
+> >>   static int psci_acpi_cpu_init_idle(unsigned int cpu)
+> >>   {
+> >> -       int i, count;
+> >> +       int i;
+> >>          struct acpi_lpi_state *lpi;
+> >>          struct acpi_processor *pr =3D per_cpu(processors, cpu);
+> >>
+> >> @@ -30,14 +30,10 @@ static int psci_acpi_cpu_init_idle(unsigned int cp=
+u)
+> >>          if (!psci_ops.cpu_suspend)
+> >>                  return -EOPNOTSUPP;
+> >>
+> >> -       count =3D pr->power.count - 1;
+> >> -       if (count <=3D 0)
+> >> -               return -ENODEV;
+> >> -
+> > It was intentionally designed this way, as there is little value in def=
+ining
+> > only WFI in the _LPI tables. In the absence of a cpuidle driver/LPI ent=
+ry,
+> > arch_cpu_idle() is invoked, which is sufficient and avoids unnecessary
+> > complexity, only to ultimately execute wfi() anyway.
+> Yeah, it's correct. The code flow will be more simple and high-efficiency=
+.
+> This looks good to me.
+>
+>
+> But cpuidle sysfs under per CPU is created when firmware just reports
+> WFI state before
+> my commit cac173bea57d ("ACPI: processor: idle: Rework the handling of
+> acpi_processor_ffh_lpi_probe()").
+> However, these platforms will no longer be created now and some
+> statistics for state0 are also missing.
+> This change in behavor is visiable to user space.I'm not sure if it is
+> acceptable.
+> What do you think, Rafael?
 
-On 4/15/26 1:28 PM, Xianwei Zhao wrote:
->=20
->=20
-> On 2026/4/15 19:16, Ronald Claveau wrote:
->> Add the pin multiplexing configuration for UART C (TX, RX, CTS, RTS)
->> in the T7 SoC pinctrl node, required to route the UART C signals
->> through the correct pads before enabling the controller.
->>
->> Signed-off-by: Ronald Claveau<linux-kernel-dev@aliel.fr>
->> ---
->> =C2=A0 arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 12 ++++++++++++
->> =C2=A0 1 file changed, 12 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/
->> boot/dts/amlogic/amlogic-t7.dtsi
->> index 7fe72c94ed623..531931cc1437c 100644
->> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
->> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
->> @@ -553,6 +553,18 @@ mux {
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 bias-pul=
-l-up;
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 };
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
->> +
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 uart_c_pins: uart_c {
-> node name=C2=A0 uart-c
-
-I will change this, thank you for reminding me.
-
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 mux {
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 groups =3D "uart_=
-c_tx",
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "uart_c_rx",
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "uart_c_cts",
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "uart_c_rts";
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 bias-pull-up;
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 output-high;
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 function =3D "uar=
-t_c";
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 };
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
->>
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 gp=
-io_intc: interrupt-controller@4080 {
-
-
---=20
-Best regards,
-Ronald
+I think that it would be good to restore the previous behavior,
+especially if it has been changed inadvertently.
 
