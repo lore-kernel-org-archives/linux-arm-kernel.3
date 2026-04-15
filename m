@@ -4,85 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AC6AFA0C42
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 07:24:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE0B0FA0C3C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 07:29:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9mtrdQXsmfpf1uRi6c7IZnrJmMwda+Bb18Mgv5ItycQ=; b=NVhuHqcAYjjEauFXOeLyKPLDCT
-	JPzYtUKSueqKhIYzxQc9dgGtnFy80e7GoxcMTmBk85sAwUtgjlKv1DEIviwTLOaBFEaT9ISu7zbek
-	vYRHk2aJ3LLOs+Sr+iTsOYYVLD+u5kgjffL7CtwduKsrC5W/szLIWohO+rOct3uG1jXEglc7bW9s0
-	sh+1pd2upmD5aaTJN544pmRVqFm0MDoGPGHY8iLpihcy2DhCA9lpd6cIkriRIeoWzzVZN6G/jlL2d
-	FWImojnr6g0ujbtJWtNb624VIoDPu6zXiWcQqBDDR+1NNfc19Hgl4GLQnwvQsdEq9PdsL2/H5iAeU
-	LWEnJ8sQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7Dk3GisAOb/rF1zeEfEW8bvXiY1v2Ot9Iqe/g0nVt5c=; b=TC2AtkV3OgmZNDn3Wcq+3uIQwf
+	a8n17OS65EM8pYusE4CtwSn5GE6GvZCdP+gVCot/+HpFe1GIFtAUbLNtHRgPeNS5MOf8nBdEpQONo
+	dFsAaGxeaB4hxIKeWxXRJXM9uQO+UYqCn+yuK1EAgVPyv/Le865sK8wnJW6PyU6klqz/rkotks5rq
+	OYAYeP6Qda6UZ0cAMrETosjMpjSSUZUysBMK++qFF2Y05wWamxkLRy0+7VRaxKkMWc7/3MSvVtifI
+	FJZFiuFiS+EBid691zZAIn2tzDOOl+AhCylCTTRX3H0Ej4e8UiDNDwp8FB1xRe1OSTiIGoRCVwXAv
+	pEi9IPcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCubg-00000000iku-3D9m;
-	Wed, 15 Apr 2026 07:24:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCube-00000000ihX-1wY6;
-	Wed, 15 Apr 2026 07:24:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=9mtrdQXsmfpf1uRi6c7IZnrJmMwda+Bb18Mgv5ItycQ=; b=bQoCufP+2AevqQiquFvwo/idKO
-	ZbgJYPDyAD9/FPi+w3UWVknN7oxOESOXzZHsuRkaWHFEK5d81xyJIKZDNqrLpXCq5rpOl+MoUsr2U
-	uMLV+u2s+gVh74Qoa6195fKCvGGZ7bu6il7QqNBDRpOi8braYvlcm+W3tIMQPlF5p28lEWSPybjri
-	3SSqPMsRuRb64wTc/gehWXEU7XdJ/rBNUymqOIW7H4iLCnLWZCY9jVWM9cjtR40VL/mTO0uY2T04x
-	e9PZIUQ2ycX3R/5m8J9HWstYCBojLoFrqJ0ol5sm5wDbnzWK6CrLn1TQLiwx/+G3pCXrJ9wFBJCnH
-	9WVuHQ1g==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCubY-000000020G8-1GNN;
-	Wed, 15 Apr 2026 07:24:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1776237836;
-	bh=heh+k/1ODoaxXv2R5HPjXJm6oybJcbQZVD3EyshC35g=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gqFkTqn8z0pK8YA+xdWK7PRnq5dHuDZun6hNKMP5Vpodvz4+hg8pmvuWXRiCgLZQ8
-	 gmxZl/tsEgP3zWx5Yz35yrxsg4nCRTiH6hAz43Ek+PLb2k7tOt46g8m6hhGY3g4evm
-	 z1LOSkyjgQonwd54Ltb3cdRKqKa7AzZorS8I6Bas+MUyk5/dRYJILTwotJb5ZDOyCp
-	 8Qm0U+Xny7rP/FGV7KACu6BtbNoWG7tfVhIa7zCPkalZ7oWr++bpd+jpLNZMdzj3cs
-	 Xwv/fFTYlRG3ZZ/JXni+iGiJUvqh2UKldqobnID+CVh4ivdanRXG2yo9BpIOMZhrMy
-	 hgBACg16oykUw==
-Received: from benjamin-XPS-13-9310.. (unknown [100.64.1.43])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: benjamin.gaignard)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C70A017E1388;
-	Wed, 15 Apr 2026 09:23:55 +0200 (CEST)
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-To: joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de
-Cc: iommu@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	kernel@collabora.com,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v14 2/5] dt-bindings: iommu: verisilicon: Add binding for VSI IOMMU
-Date: Wed, 15 Apr 2026 09:23:38 +0200
-Message-ID: <20260415072349.44237-3-benjamin.gaignard@collabora.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260415072349.44237-1-benjamin.gaignard@collabora.com>
-References: <20260415072349.44237-1-benjamin.gaignard@collabora.com>
+	id 1wCugu-00000000jRq-3ZAQ;
+	Wed, 15 Apr 2026 07:29:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCugs-00000000jRU-0tkW
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Apr 2026 07:29:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AE34049BF;
+	Wed, 15 Apr 2026 00:29:29 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ED9E33F641;
+	Wed, 15 Apr 2026 00:29:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776238175; bh=/31K8foPrl7GUrN8NgKXk6NjRxdK25IVX3atfBtVP0o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oshJfZRgOXDeIzS6DFBD9S9fhQ2SZ6ghoH+F46oxZHHYLJytvMcRVsNYRaCSXKtEe
+	 BV5NPsEVsqGCtW7gwpDPCH4hot31UgVdnj7t+n/5JR95EAxFKPjODamGDxf48nKi3J
+	 NZb2dckTU43ASUuDmFuvk2LZBGNuXqv/PJf+yi9g=
+Date: Wed, 15 Apr 2026 08:29:33 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	suzuki.poulose@arm.com, mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com
+Subject: Re: [PATCH v4 3/9] coresight: etm4x: fix leaked trace id
+Message-ID: <20260415072933.GH356832@e132581.arm.com>
+References: <20260413142003.3549310-1-yeoreum.yun@arm.com>
+ <20260413142003.3549310-4-yeoreum.yun@arm.com>
+ <20260414163221.GG356832@e132581.arm.com>
+ <ad5wVVnUw1jnkCdn@e129823.arm.com>
+ <81fdef8a-a60e-4d29-948d-c4a07e23dad9@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <81fdef8a-a60e-4d29-948d-c4a07e23dad9@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_082408_878124_F095D543 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20260415_002938_371706_166BE3B8 
+X-CRM114-Status: GOOD (  17.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,95 +74,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a device tree binding for the Verisilicon (VSI) IOMMU.
-This IOMMU sits in front of hardware encoder and decoder
-blocks on SoCs using Verisilicon IP, such as the Rockchip RK3588.
+On Wed, Apr 15, 2026 at 09:21:21AM +0800, Jie Gan wrote:
 
-Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
----
- .../bindings/iommu/verisilicon,iommu.yaml     | 71 +++++++++++++++++++
- 1 file changed, 71 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
+[...]
 
-diff --git a/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
-new file mode 100644
-index 000000000000..d3ce9e603b61
---- /dev/null
-+++ b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
-@@ -0,0 +1,71 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/iommu/verisilicon,iommu.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Verisilicon IOMMU
-+
-+maintainers:
-+  - Benjamin Gaignard <benjamin.gaignard@collabora.com>
-+
-+description: |+
-+  A Versilicon iommu translates io virtual addresses to physical addresses for
-+  its associated video decoder.
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: rockchip,rk3588-av1-iommu
-+      - const: verisilicon,iommu-1.2
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: Core clock
-+      - description: Interface clock
-+
-+  clock-names:
-+    items:
-+      - const: core
-+      - const: iface
-+
-+  "#iommu-cells":
-+    const: 0
-+
-+  power-domains:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - clock-names
-+  - "#iommu-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+    bus {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      iommu@fdca0000 {
-+        compatible = "rockchip,rk3588-av1-iommu","verisilicon,iommu-1.2";
-+        reg = <0x0 0xfdca0000 0x0 0x600>;
-+        interrupts = <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH 0>;
-+        clocks = <&cru ACLK_AV1>, <&cru PCLK_AV1>;
-+        clock-names = "core", "iface";
-+        #iommu-cells = <0>;
-+      };
-+    };
--- 
-2.43.0
+> > > > @@ -918,8 +918,10 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+> > > >   	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
+> > > >   	if (cfg_hash) {
+> > > >   		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
+> > > > -		if (ret)
+> > > > +		if (ret) {
+> > > > +			etm4_release_trace_id(drvdata);
+> > > 
+> > > If so, even an ID is reserved for failures, and the ID map is big enough
+> > > for each CPU, we don't need to worry memory leak or ID used out issue ?
+> > 
+> > However, in theory, this could lead to an ID leak,
+> > so it would be better to release it in error cases.
+> 
+> What I am thinking is as SoCs continue to grow more complex with an
+> increasing number of subsystems, trace IDs may be exhausted in the near
+> future. (that's why we have dynamic trace ID allocation/release).
 
+Thanks for the input.
+
+I am wandering if we can use "dev->devt" as the trace ID.  A device's
+major/minor number is unique in kernel and dev_t is defined as u32:
+
+  typedef u32 __kernel_dev_t;
+
+And we can consolidate this for both SYSFS and PERF modes.
+
+Thanks,
+Leo
 
