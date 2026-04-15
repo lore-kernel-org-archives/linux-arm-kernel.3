@@ -4,82 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53DBAF428C9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 19:37:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17F29F428CE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 19:59:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=viRXQtxeBKpI0EkGaS8qTA342mbqqDTJOZSG74686rI=; b=RSQ899ChLzmUUY+9KOWjmVbzI7
-	DDUzd9ZvLLKdA+I9sRpDcJW02b5A0KFDHbxnOHDLZHoWv9+vodS4dtwEZuC2PU8pv+gxTg/gfO/H/
-	ZXsqYIuNtuyS7DSOk6YU84hNRltcJGyu/NMQTcepkxnAZwmzSP9kiSuBrT8UJfDyA7qXPDpIeM3e5
-	K3EXOkhVaQKWF91dXqe0QzIA3ClN1EaNu4hteEPs/BsLUMCnqBKECJZ/f1mO1foYIvr71O4ON2djc
-	ylLaDI62Lxh7qLw2ovHhtAuBpchFrb96IfzGGAS5yl5bMR0L10YJhdePDlR0bxY2hNpENujoTXT7K
-	9+X3/zpA==;
+	bh=zzfItcPbm51n9sUCqPS3pMEdP67XndcXm/lQ9tFu+D0=; b=kOgaAeO7wDLSp7sN0IqDJ/slwd
+	P9tJN8rqVwAY9y5S5E+fZr3t53R5UsPpxqxUfTG+Hx6qW1ptkpfZoyXGBtc/BbysaeMu6Rr0c+6Dp
+	rNt+AzMPoqjkQaPh2hlRi1u0cJ34aJWYIs74qUTyqeSLxKHGUUrHQ/6Yf3SRmeyOj/4OvI4uoyYfm
+	TVcqNA0vlrTujjjNPWuWWkXWXfnZq47Lxsy7bA7/3XwI/CeDdRJ+7cGhZP4c7QsnedSLzjwFs5R8k
+	UWJDSRBog8rNb8EmN58OUDFWE33iQ8GdBqcN+5po2hoQiCwrRwue9BhMAcITJ+eYmJQJfPswd6CNT
+	IRcGJKMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD636-00000001YBW-1LwR;
-	Wed, 15 Apr 2026 19:37:20 +0000
+	id 1wD6Nr-00000001ZLa-3cBH;
+	Wed, 15 Apr 2026 19:58:47 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD633-00000001YB8-1jHk
+	id 1wD6NW-00000001ZJt-1xcU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 19:37:19 +0000
+	Wed, 15 Apr 2026 19:58:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
 	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=viRXQtxeBKpI0EkGaS8qTA342mbqqDTJOZSG74686rI=; b=nTXNzDNZWJKpe+cgsUONE7k1Ay
-	GXwieD0e6klzbadXdIzM5BVMIpwA0eJE5m3ejACrkF98lc5ZVlQItspJrAwRWcrAu2oVC8jWPIdtQ
-	eeS3P7f5I8BDL7NnO8dT2enzGFIsP+Q6CBL+pKC9Y3E4+I2+WZpVk5LdBboaug675s3GDtwNqNcoU
-	/+Di75u4hK5UyoI4LUXpnQLYLxZnzGeXyJCiMjstFB9qep0Z2BaDIhF6Eag6Wz8Mwwughpj4HQaYb
-	7vBsoh+BSQ8wVwQykD8/ZW3DdFKQALQI3euQxmZeFEd5pLzqwp/sE+3J0GyTQHDhOhlsaHSS/1ubw
-	1IrWsNWg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:35866)
+	bh=zzfItcPbm51n9sUCqPS3pMEdP67XndcXm/lQ9tFu+D0=; b=WRxrdmIsc4eRiptzsUaHuJhBKe
+	+UVOxQ0GJxULMlm3Gx+I9D42waGwzfpRMjNhf4nurL3eYPd1HdhdlvmLK71QFhp0NqOqCtdkcrrqZ
+	KAQhYz+iCGUUYGP4vm66y5hr6xtILN/vce8MNQ5ihZahNRmB90D3K3p5wokjUq1X27a42va07e2AE
+	VbYPoGKiDBDRBJXwHicnFlufKVEmimawsz2detW0wGLMlD5hmTaefp64z1J/ORfEQDff6kEnmuVOV
+	aEbLNlCkIXAzRAWynK05SMR4CFYa9jXTmb6kqUCBaFr9jIU0r5fFUjp2Xw0tQMYWxTGtQE2QtPVcz
+	H6quAEaA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40820)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <linux@armlinux.org.uk>)
-	id 1wD62v-000000002Rn-2o8T;
-	Wed, 15 Apr 2026 20:37:09 +0100
+	id 1wD6NJ-000000002SU-0s9z;
+	Wed, 15 Apr 2026 20:58:13 +0100
 Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1wD62r-000000002UH-1hC5;
-	Wed, 15 Apr 2026 20:37:05 +0100
-Date: Wed, 15 Apr 2026 20:37:05 +0100
+	id 1wD6NG-000000002VN-0Po4;
+	Wed, 15 Apr 2026 20:58:10 +0100
+Date: Wed, 15 Apr 2026 20:58:09 +0100
 From: "Russell King (Oracle)" <linux@armlinux.org.uk>
 To: Sam Edwards <cfsworks@gmail.com>
-Cc: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Baruch Siach <baruch@tkos.co.il>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, netdev@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
-	Linux Network Development Mailing List <netdev@vger.kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next] net: stmmac: enable RPS and RBU interrupts
-Message-ID: <ad_o4aDP0UBY_8i4@shell.armlinux.org.uk>
-References: <E1wBBaR-0000000GZHR-1dbM@rmk-PC.armlinux.org.uk>
- <20260413110222.49fc3759@kernel.org>
- <ad06yiZZbLC9k3jY@shell.armlinux.org.uk>
- <CAH5Ym4i7VV53hQGY3AjAUW3B8g_ffgmw69kPhPrk2CmcRbguuQ@mail.gmail.com>
- <ad5LlXzeQ8j14Mjg@shell.armlinux.org.uk>
- <ad7nsUQvksJF7JFK@shell.armlinux.org.uk>
- <CAH5Ym4jA8w9=UxMT4vKJpnXkuDHtkFtMcg4u2sy_0S+8wgy-9w@mail.gmail.com>
- <ad-ID2WaPgPJqdsa@shell.armlinux.org.uk>
- <CAH5Ym4jKdzDeYwCfkMLmUz0FsiD2vFwfuAvqFE=uvMtPmakeMQ@mail.gmail.com>
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH net v5] net: stmmac: Prevent NULL deref when RX memory
+ exhausted
+Message-ID: <ad_t0aOKdC6f5Ja8@shell.armlinux.org.uk>
+References: <20260415023947.7627-1-CFSworks@gmail.com>
+ <ad-LAB08-_rpmMzK@shell.armlinux.org.uk>
+ <ad-8q4OrOm-VtGrO@shell.armlinux.org.uk>
+ <CAH5Ym4gy6g8d88-vGhe1zxoV7jNH_fXHsDSdDWC4x00H7s-3=w@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAH5Ym4jKdzDeYwCfkMLmUz0FsiD2vFwfuAvqFE=uvMtPmakeMQ@mail.gmail.com>
+In-Reply-To: <CAH5Ym4gy6g8d88-vGhe1zxoV7jNH_fXHsDSdDWC4x00H7s-3=w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_123717_611902_28AEC12F 
-X-CRM114-Status: GOOD (  58.54  )
+X-CRM114-CacheID: sfid-20260415_125833_895599_F4861FBB 
+X-CRM114-Status: GOOD (  34.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,227 +96,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 15, 2026 at 10:38:29AM -0700, Sam Edwards wrote:
-> On Wed, Apr 15, 2026 at 5:44 AM Russell King (Oracle)
+On Wed, Apr 15, 2026 at 10:53:15AM -0700, Sam Edwards wrote:
+> On Wed, Apr 15, 2026 at 9:28 AM Russell King (Oracle)
 > <linux@armlinux.org.uk> wrote:
 > >
-> > On Tue, Apr 14, 2026 at 07:12:34PM -0700, Sam Edwards wrote:
-> > > On Tue, Apr 14, 2026 at 6:19 PM Russell King (Oracle)
-> > > <linux@armlinux.org.uk> wrote:
-> > > > Okay, just a quick note to say that nvidia's 5.10.216-tegra kernel
-> > > > survives iperf3 -c -R to the imx6.
+> > On Wed, Apr 15, 2026 at 01:56:32PM +0100, Russell King (Oracle) wrote:
+> > > Locally, while debugging my issues, I used this to prevent cur_rx
+> > > catching up with dirty_rx:
 > > >
-> > > Hi Russell,
+> > >                 status = stmmac_rx_status(priv, &priv->xstats, p);
+> > >                 /* check if managed by the DMA otherwise go ahead */
+> > >                 if (unlikely(status & dma_own))
+> > >                         break;
 > > >
-> > > Aw, you beat me to it! I was about to report that 5.10.104-tegra is
-> > > unaffected. And my iperf3 server is a multi-GbE amd64 machine.
+> > >                 next_entry = STMMAC_NEXT_ENTRY(rx_q->cur_rx,
+> > >                                                priv->dma_conf.dma_rx_size);
+> > >                 if (unlikely(next_entry == rx_q->dirty_rx))
+> > >                         break;
 > > >
-> > > > Dumping the registers and comparing, and then forcing the RQS and TQS
-> > > > values to 0x23 (+1 = 36, *256 = 9216 bytes) and 0x8f (+1 = 144,
-> > > > *256 = 36864 ytes) respectively seems to solve the problem. Under
-> > > > net-next, these both end up being 0xff (+1 = 256, *256 = 65536 bytes.)
-> > > > Suspiciously, 36 * 4 = 144, and I also see that this kernel programs
-> > > > all four of the MTL receive operation mode registers, but only the
-> > > > first MTL transmit operation mode register. However, DMA channels 1-3
-> > > > aren't initialised.
+> > >                 rx_q->cur_rx = next_entry;
 > > >
-> > > Wow, great! I wonder if the problem is that the MTL FIFOs are smaller
-> > > than that, so when the DMA suffers a momentary hiccup, the FIFOs are
-> > > allowed to overflow, putting the hardware in a bad state.
-> > >
-> > > Though I suspect this is only half of the problem: do you still see
-> > > RBUs? Everything you've shared so far suggests the DMA failures are
-> > > _not_ because the rx ring is drying up.
-> >
-> > Yes. Note that RBUs will happen not because of DMA failures, but if
-> > the kernel fails to keep up with the packet rate. RBU means "we read
-> > the next descriptor, and it wasn't owned by hardware".
+> > > If we care about the cost of reloading rx_q->dirty_rx on every
+> > > iteration, then I'd suggest that the cost we already incur reading and
+> > > writing rx_q->cur_rx is something that should be addressed, and
+> > > eliminating that would counter the cost of reading rx_q->dirty_rx. I
+> > > suspect, however, that the cost is minimal, as cur_tx and dirty_rx are
+> > > likely in the same cache line.
 > 
-> Are you speaking from observation, documentation, or understanding?
-
-Observation.
-
-> I'd define RBU the same way, but you reported:
-
-It's not a question about how I define RBU - this is defined by Synopsys
-and I'm using it *exactly* that way as stated in the documentation.
-
-"This bit indicates that the host owns the Next Descriptor in the
-Receive List and the DMA cannot acquire it. The Receive Process is
-suspended. ... This bit is set only when the previous Receive
-Descriptor is owned by the DMA."
-
-In other words, DMA has processed the previous receive descriptor which
-_was_ owned by the hardware, written back to clear the OWN bit, and
-then fetches the next descriptor and finds that the OWN bit is also
-clear.
-
+> No, no, I like your approach better. :) It also removes the need for
+> the `limit` clamp at the top of the function, so later code can assume
+> limit==budget.
 > 
-> ```
-> [   55.766199] dwc-eth-dwmac 2490000.ethernet eth0: q0: receive buffer
-> unavailable: cur_rx=309 dirty_rx=309 last_cur_rx=245
-> last_cur_rx_post=309 last_dirty_rx=245 count=64 budget=64
+> > > It looks like any fix to stmmac_rx() will also need a corresponding
+> > > fix for stmmac_rx_zc().
 > 
-> cur_rx == dirty_rx _should_ mean that we fully refilled the ring. [...]
-> [...]
-> Every ring entry contains the same RDES3 value, so it really is
-> completely full at the point RBU fires (bit 31 clear means software
-> owns the descriptor, and it's basically saying first/last segment,
-> RDES1 valid, buffer 1 length of 1518.
-> ```
+> I agree that stmmac_rx_zc() is likely also broken (in a similar way,
+> but not similar enough to permit a "corresponding" fix), but I don't
+> agree that there's a dependency relationship here. This patch is
+> addressing #221010, which affects the generic/non-ZC codepath; I'm
+> afraid the ZC codepath warrants its own investigation.
 
-Right, because the _last_ time stmmac_rx() was called, the ring was
-completely refilled (as it always is for me).
+The code structure is identical. The only difference is what happens
+to the packets.
 
-There are two scenarios that what I'm seeing may happen.
+Both paths take the NAPI limit. Both paths process up to that limit of
+descriptors. The state saving / restoring is similar. The read_again
+label is the same, the condition after is the same.
 
-1) The ring was fully refilled, but before stmmac_rx() is next
-   executed, all descriptors end up being consumed due to the rate
-   at which packets are being received. Thus, the hardware encounters
-   a descriptor that has OWN=0
+The ZC path differs at this point in that it will attempt to refill
+every 16 descriptors that have been processed.
 
-2) The kernel has been slow to respond to packets that have been
-   received, and because of the NAPI throttling stmmac_rx() to only
-   process 64 descriptors at a time, we are falling way behind the
-   hardware position. Eventually, the hardware catches up with
-   the point at which stmmac_rx_refill() is repopulating the receive
-   descriptors, and encounters a descriptor that has OWN=0.
-
-For (2), for example, let's take the example which you've quoted from
-me.
-
-stmmac_rx() gets called, and cur_rx = dirty_rx = 245. We're limited to
-a count of 64 meaning we're not going to process more than 64 entries
-no matter how far ahead the hardware is. Let's say the hardware is at
-e.g. descriptor 400 at this point.
-
-stmmac_rx() runs, processing descriptors. It works its way up to entry
-309, at which point count == limit, so it stops, and we now have
-cur_rx = 309, dirty_rx = 245.
-
-The next thing stmmac_rx() does is call stmmac_rx_refill(). This looks
-at the difference, and calculates how many entries need to be
-repopulated. stmmac_rx_dirty() returns 64, as that's the number of
-entries between dirty_rx and the updated cur_rx. It populates those
-entries.
-
-At this point, dirty_rx = 309. All well and good. However, during that
-process, packet reception hasn't stopped, and let's say it's now at
-descriptor 500.
-
-In that scenario, we're consuming 100 descriptors, but only repopulating
-64 descriptors. As this continues, the hardware is slowly catching up
-with point in the ring that stmmac_rx_refill() is repopulating the
+Both paths then read the descriptor and check the ownership.
+Both paths then increment cur_rx to point to the next entry around
+the ring.
+Both paths then get the following descriptor pointer and prefetch
+it.
+Both paths then get the extended status if we're using extended
 descriptors.
+Both paths then handle frame discard.
+Both paths then jump back to read_again if this isn't the last
+segment and we have an error.
+Both paths then check for error.
+... and so it goes on.
 
-When it does catch up, it will encounter a descriptor with OWN=0, which
-will fire the RBU interrupt.
+The ZC path to me looks like a copy-paste-and-tweak approach to
+adding support. The difference seems to be centered only around
+the handling of the data buffers in the descriptors. The overall
+mechanism of processing the descriptors follows the same layout
+in both functions.
 
-At this point, my debug dumps the state of the ring. If the RBU was
-raised when stmmac_rx()/stmmac_rx_refill() was not running, _and_ we
-are always successfully refilling all the entries that stmmac_rx()
-processed, then cur_rx will equal dirty_rx, even when the hardware
-could be way ahead of cur_rx. Neither of these indexes have any
-relevance to where the hardware actually is in the ring.
-
-The dump of the ring state *clearly* shows that all descriptors have
-a RDES3 value which indicates that every single descriptor is not
-hardware owned at this point (since RBU has been raised, the receive
-process is suspended, so hardware is no longer changing the ring.)
-
-> It would seem* that the kernel isn't really failing to keep up with
-> the packet rate. If RBU is firing with a ring that's not even close to
-> empty, that tells me there's another way for it to fire. So I suspect
-> the hardware designers implemented it to mean:
-> "We couldn't read the next descriptor, _or_ it wasn't owned by hardware."
+> > I have some further information, but a new curveball has just been
+> > chucked... and I've no idea what this will mean at this stage. Just
+> > take it that I won't be responding for a while.
 > 
-> (* However, if bit 31 is clear everywhere, wouldn't that mean the ring
-> is actually completely depleted, not full? If count==budget, wouldn't
-> that mean the whole ring hasn't been visited, so we only refilled 64
-> entries and not necessarily the entire ring? Maybe the kernel isn't
-> keeping up after all.)
+> I think I follow your meaning. Good luck getting it straightened out!
 
-Ah, I think that's where our terminology differs.
+It looks like further curveballs have been thrown as a result,
+destroying all "plans" for the next days/week. I have aboslutely
+no ideas how much time or when I'll be able to look at anything
+at the moment, so don't assume that because I find an opportunity
+to send an email, everthing is back to normal.
 
-You seem to define full as "populated with empty buffers". I define
-full to mean "the hardware has filled every buffer with a packet that
-it has received and handed it over to software to process." Note even
-the terminology there - filling buffers with data. That ultimately
-ends up filling the ring, and when completely filled, it is full.
+I'll also note that over the last two days I've written several
+emails on this, spent many hours on them, only to discard them
+as other ideas/research and maybe even the passage of time means
+they're no longer appropriate to send.
 
-I think of buffers like buckets. If a buffer contains no data, it
-is empty. If a buffer contains data, it has been filled or is full.
-Apply that to a list of buffers and you get the same thing. Many
-ethernet driver documentation uses this same terminology, so I
-thought it would be widely understood.
-
-> > That has:
-> >
-> >         const nveu32_t rx_fifo_sz[2U][OSI_EQOS_MAX_NUM_QUEUES] = {
-> >                 { FIFO_SZ(9U), FIFO_SZ(9U), FIFO_SZ(9U), FIFO_SZ(9U),
-> >                   FIFO_SZ(1U), FIFO_SZ(1U), FIFO_SZ(1U), FIFO_SZ(1U) },
-> >                 { FIFO_SZ(36U), FIFO_SZ(2U), FIFO_SZ(2U), FIFO_SZ(2U),
-> >                   FIFO_SZ(2U), FIFO_SZ(2U), FIFO_SZ(2U), FIFO_SZ(16U) },
-> >         };
-> >         const nveu32_t tx_fifo_sz[2U][OSI_EQOS_MAX_NUM_QUEUES] = {
-> >                 { FIFO_SZ(9U), FIFO_SZ(9U), FIFO_SZ(9U), FIFO_SZ(9U),
-> >                   FIFO_SZ(1U), FIFO_SZ(1U), FIFO_SZ(1U), FIFO_SZ(1U) },
-> >                 { FIFO_SZ(8U), FIFO_SZ(8U), FIFO_SZ(8U), FIFO_SZ(8U),
-> >                   FIFO_SZ(8U), FIFO_SZ(8U), FIFO_SZ(8U), FIFO_SZ(8U) },
-> >         };
-> >
-> > where each of those values is the RQS/TQS value to use in KiB:
-> >
-> > #define FIFO_SZ(x)              ((((x) * 1024U) / 256U) - 1U)
-> >
-> > This doesn't correspond with the values I'm seeing programmed into
-> > the hardware under the 5.10.216-tegra kernel. I'm seeing TQS = 143
-> > (36KiB), and RQS = 35 (9KiB). Yes, these values exist in the tables
-> > above from a quick look, but they're not in the right place!
-> 
-> True, but:
-> a) I doubt 5.10.216-tegra includes exactly the same version of the
-> driver found in this random GitHub mirror. (My intent was only to
-> point out that they don't use 5.10's stmmac; I should have been more
-> clear that I wasn't trying to link the same version, sorry!)
-> b) This is vendor code; I don't know how good their testing/review
-> process is. It might not run the way it looks. The intent seems to be
-> for RQS > TQS (which makes intuitive sense), but as you're seeing the
-> registers programmed the other way 'round, they might have gotten them
-> subtly mixed up.
-> 
-> > Now, as for FIFO sizes, if we sum up all the entries, then we
-> > get:
-> >
-> > SUM(rx_fifo_size[0][]) = 60KiB
-> > SUM(rx_fifo_size[1][]) = 64KiB
-> > SUM(tx_fifo_size[0][]) = 60KiB
-> > SUM(tx_fifo_size[1][]) = 64KiB
-> 
-> I follow the math with 64KiB, but surely the 60KiB should be
-> 9+9+9+9+1+1+1+1=40KiB? This seems to me that the "legacy EQOS" simply
-> shifts with smaller FIFOs. Since dwmac is licensed as a soft IP core,
-> perhaps the FIFO size is an elaboration parameter? That would mean
-> this isn't an issue with dwmac 5.0 broadly, but with Nvidia's specific
-> instantiation of it.
-
-Right, 40KiB. Sorry, I'm getting interrupted almost constantly while
-trying to do anything.
-
-However, I've tested with 0x7f in both fields, and it still falls flat
-on its face. I've also tried other values, but because I had to unplug
-the laptop from the nvidia board to use the laptop portably due to the
-medical emergency situation, that caused screen to quit, so I've lost
-all that. Chaos reigns supreme here :/
-
-So, I'm not sure we understand what's going on - I don't think it's that
-the FIFOs are smaller than specified. I suspect that the 9KiB vs 36KiB
-results in some kind of throttling that prevents the condition which
-hangs the hardware.
-
-I'm not getting as much time as I'd like to really test out scenarios
-due to everything that is going on, and honestly I feel like just
-writing this week off now and giving up.
+Jakub: sorry, I just *can't* review stuff on netdev with everything
+that is going on, not when .... cna't complete this.
 
 -- 
 RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
