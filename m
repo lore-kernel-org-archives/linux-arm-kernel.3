@@ -4,74 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E918FFA0C35
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 06:24:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D6CAFA0C36
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 06:38:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cKvxKrEAPFq/y0IpQgm674FoRAJX/pUpi5+a8m7Kle8=; b=fhVFyZSO7hlRoRHldLz1VylKXO
-	gxQA3h+5O98KkRjSCN255kP2sSRKTuTS5HnPxtBwWwV1vSQUN1MOFy395QyHJjqBLuFJMQYNBrffB
-	WYGphuN53dNJtKg5Cl+6uiOlrOL7XvmuvMJ9LZeO9nUPImYKT11uH8MHWnHiDBnN32D3FSMFkDapo
-	g5StqOxKPTVWL/XAH3O+iGxm8R5cgizQbl9xYhCn1r3RlWOeg4CyWoazgkQQgsCExo+4R2Hii8hVV
-	PjRuBFEEoABEbJV0jg/3BjuWvh7jEvko4FxOay7vuhD+A0cv8NGzzoQz65s/cGJwph1lZDiMvSo2N
-	j/Gtc6Fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D4IWqjLAxrBh670kFtitiIgXoOH5Wk9dWJgsH3Z8snA=; b=Hy15OJpCe/ug5sR6MpskKokP3t
+	WBirgNc+GXLI2v3mEHNBrvbQcNQBgFRWtv7yZk+gMopMnREEeVEV/iCiGMZBcItzRmU4AVUGi2kgL
+	DlL1EYAw2JhtFSCbt9jcGFl0HCIQKnsUijPzIvJAyrrNMduoaxMWkF4pReFUHNakhAZ4nhsOnBAuv
+	OrYmjuFbWBeIMZcfexyAHaFT+ZwQVgnbPwSrt50wSmEQp8iYmIdpyNcOJ+PdnmLd7qpqCEqFYWiT9
+	8dPypUY68+kcBqqMA2M2fg5xWCcHb1u5w2XR85AP6959UvNNWhWiS0NDPfCrJqRk6JXi5s2NHlRS1
+	0dDjCoDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCtfv-00000000dzt-0Uj9;
-	Wed, 15 Apr 2026 06:24:35 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1wCtta-00000000eiI-21nd;
+	Wed, 15 Apr 2026 06:38:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCtfs-00000000dzW-14sU
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 06:24:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=cKvxKrEAPFq/y0IpQgm674FoRAJX/pUpi5+a8m7Kle8=; b=UtOXXLwrRkelyZ5PhfZiAj7mA0
-	HcTNrUWE4mTvsBHTkJkOPbEBh5qsWH2bp3xXxKTXe05kO58vTkrJJz0ySA8L9Kgc4GWPA9sHgB28b
-	vUGKOU2tN7GkDSH34K4SHKAme+oaZnf1ZkFB4+2ouUcdu+UKWJrQL9tz6kuu14B3jxyPcQGuu+90Z
-	IZiQSwSiuGf9Mnnxb70GsSJoX9TJbc0okZZUNzZDeQEOU5F3L4BhDOK1pkE4VTUBEtM70lw5aFiQO
-	cKVNZiZcvqNg6QfVsiMGat7ZkJHC+wNRiDtaRH7GX4pzm1F6KwwL/Wj+afuBr6f4jjbFiuyOglal0
-	kE79p83w==;
-Received: from sslproxy08.your-server.de ([78.47.166.52])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wCtfj-000FBS-2d;
-	Wed, 15 Apr 2026 08:24:23 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy08.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wCtfi-0008bK-1w;
-	Wed, 15 Apr 2026 08:24:23 +0200
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
- linux-arm-kernel@lists.infradead.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
- Mark Brown <broonie@kernel.org>, Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH 1/8] arm64/hwcap: Generate the KERNEL_HWCAP_ definitions for the
- hwcaps
-Date: Wed, 15 Apr 2026 08:24:22 +0200
-Message-ID: <8745494.GXAFRqVoOG@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20260302-arm64-dpisa-2025-v1-1-0855e7f41689@kernel.org>
-References: <20260302-arm64-dpisa-2025-v1-0-0855e7f41689@kernel.org>
- <20260302-arm64-dpisa-2025-v1-1-0855e7f41689@kernel.org>
+	id 1wCttX-00000000ehd-2zpS;
+	Wed, 15 Apr 2026 06:38:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 540C64369E;
+	Wed, 15 Apr 2026 06:38:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4603C19424;
+	Wed, 15 Apr 2026 06:38:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776235117;
+	bh=oJA3I+zKvq9KD+ojZoVICzDS05lI3MCnC5Rlh6cn04Q=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=CW1zPJNSJCGtniBmy6uyWDY71JAL0i4dK/N5qkFlNYs3kz0wXN03HHuHTh1S4hKQi
+	 e2yWcwq5RclCcCVX6A0Lopstyv1iJwvVwNRsKmdSs6NBxbKPvhq3apDF5Mh9EQ73Js
+	 q6/zItY3OOkWbN+i3+Ng0jCLJkMAwhrFhYQnM+LI0mETHNwewJwuPg1EQX95XcPKNN
+	 j2R4mf89jj4nr2TUgQRoKIUpiIuUlriELzBuol0ebMztd/ZZRtnQ1qtW+tQ2/QgIAp
+	 oYZF1auoZqP0e9mHU9TqSeeI5ff2Bxo+lnB6gCW6VWEs5KrEifF6NFFvP+OSWCop4o
+	 Cz3scEaJinP/g==
+Message-ID: <f6e6f630-07f1-46b4-888d-324a62a41070@kernel.org>
+Date: Wed, 15 Apr 2026 08:38:24 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Virus-Scanned: Clear (ClamAV 1.4.3/27971/Tue Apr 14 08:24:44 2026)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [patch 32/38] powerpc/spufs: Use mftb() directly
+To: Thomas Gleixner <tglx@kernel.org>, LKML <linux-kernel@vger.kernel.org>
+Cc: Michael Ellerman <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org,
+ Arnd Bergmann <arnd@arndb.de>, x86@kernel.org,
+ Lu Baolu <baolu.lu@linux.intel.com>, iommu@lists.linux.dev,
+ Michael Grzeschik <m.grzeschik@pengutronix.de>, netdev@vger.kernel.org,
+ linux-wireless@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>,
+ linux-crypto@vger.kernel.org, Vlastimil Babka <vbabka@kernel.org>,
+ linux-mm@kvack.org, David Woodhouse <dwmw2@infradead.org>,
+ Bernie Thompson <bernie@plugable.com>, linux-fbdev@vger.kernel.org,
+ Theodore Tso <tytso@mit.edu>, linux-ext4@vger.kernel.org,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>, Marco Elver <elver@google.com>,
+ Dmitry Vyukov <dvyukov@google.com>, kasan-dev@googlegroups.com,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Thomas Sailer <t.sailer@alumni.ethz.ch>, linux-hams@vger.kernel.org,
+ "Jason A. Donenfeld" <Jason@zx2c4.com>,
+ Richard Henderson <richard.henderson@linaro.org>,
+ linux-alpha@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev,
+ Geert Uytterhoeven <geert@linux-m68k.org>, linux-m68k@lists.linux-m68k.org,
+ Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
+ linux-openrisc@vger.kernel.org, Helge Deller <deller@gmx.de>,
+ linux-parisc@vger.kernel.org, Paul Walmsley <pjw@kernel.org>,
+ linux-riscv@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>,
+ linux-s390@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
+ sparclinux@vger.kernel.org
+References: <20260410120044.031381086@kernel.org>
+ <20260410120319.723429844@kernel.org>
+Content-Language: fr-FR
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+In-Reply-To: <20260410120319.723429844@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_232432_552903_4193A54D 
-X-CRM114-Status: GOOD (  19.06  )
+X-CRM114-CacheID: sfid-20260414_233839_795171_C48F38A1 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,270 +98,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 2. M=E4rz 2026, 23:53:16 CEST schrieb Mark Brown:
-> Currently for each hwcap we define both the HWCAPn_NAME definition which =
-is
-> exposed to userspace and a kernel internal KERNEL_HWCAP_NAME definition
-> which we use internally. This is tedious and repetitive, instead use a
-> script to generate the KERNEL_HWCAP_ definitions from the UAPI definition=
-s.
->=20
-> No functional changes intended.
 
-Somehow this change causes to delete and generate kernel-hwcap.h on each
-make call. This results in compiling essentially everything each time.
 
-$ make Image
-make[1]: Entering directory '/linux/build_arm64'
-  REMOVE  arch/arm64/include/generated/asm/kernel-hwcap.h
-  GEN     arch/arm64/include/generated/asm/kernel-hwcap.h
-  CC      arch/arm64/kernel/asm-offsets.s
-  CC      kernel/sched/rq-offsets.s
-^Cmake[3]: *** Deleting file 'kernel/sched/rq-offsets.s'
-make[3]: *** [../scripts/Makefile.build:184: kernel/sched/rq-offsets.s] Int=
-errupt
-make[2]: *** [/linux/Makefile:1371: prepare0] Interrupt
-make[1]: *** [/linux/Makefile:248: __sub-make] Interrupt
-make: *** [Makefile:248: __sub-make] Interrupt
+Le 10/04/2026 à 14:21, Thomas Gleixner a écrit :
+> There is no reason to indirect via get_cycles(), which is about to be
+> removed.
+> 
+> Use mftb() directly.
+> 
+> Signed-off-by: Thomas Gleixner <tglx@kernel.org>
+> Cc: Michael Ellerman <mpe@ellerman.id.au>
+> Cc: linuxppc-dev@lists.ozlabs.org
 
-make Image
-make[1]: Entering directory '/linux/build_arm64'
-  REMOVE  arch/arm64/include/generated/asm/kernel-hwcap.h
-  GEN     arch/arm64/include/generated/asm/kernel-hwcap.h
-  CC      arch/arm64/kernel/asm-offsets.s
-  CC      kernel/sched/rq-offsets.s
-  CC      arch/arm64/kernel/vdso/vgettimeofday.o
-  LD      arch/arm64/kernel/vdso/vdso.so.dbg
-  VDSOSYM include/generated/vdso-offsets.h
-  OBJCOPY arch/arm64/kernel/vdso/vdso.so
-  CC      init/version.o
-^Cmake[4]: *** [../scripts/Makefile.build:289: init/version.o] Interrupt
-make[3]: *** [../scripts/Makefile.build:548: init] Interrupt
-make[2]: *** [/linux/Makefile:2140: .] Interrupt
-make[1]: *** [/linux/Makefile:248: __sub-make] Interrupt
-make: *** [Makefile:248: __sub-make] Interrupt
+Reviewed-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
 
-Best regards,
-Alexander
-
->=20
-> Signed-off-by: Mark Brown <broonie@kernel.org>
 > ---
->  arch/arm64/include/asm/hwcap.h        | 120 +---------------------------=
-=2D-----
->  arch/arm64/tools/Makefile             |   8 ++-
->  arch/arm64/tools/gen-kernel-hwcaps.sh |  23 +++++++
->  3 files changed, 32 insertions(+), 119 deletions(-)
->=20
-> diff --git a/arch/arm64/include/asm/hwcap.h b/arch/arm64/include/asm/hwca=
-p.h
-> index 72ea4bda79f3..abe8218b2325 100644
-> --- a/arch/arm64/include/asm/hwcap.h
-> +++ b/arch/arm64/include/asm/hwcap.h
-> @@ -60,126 +60,10 @@
->   * of KERNEL_HWCAP_{feature}.
->   */
->  #define __khwcap_feature(x)		const_ilog2(HWCAP_ ## x)
-> -#define KERNEL_HWCAP_FP			__khwcap_feature(FP)
-> -#define KERNEL_HWCAP_ASIMD		__khwcap_feature(ASIMD)
-> -#define KERNEL_HWCAP_EVTSTRM		__khwcap_feature(EVTSTRM)
-> -#define KERNEL_HWCAP_AES		__khwcap_feature(AES)
-> -#define KERNEL_HWCAP_PMULL		__khwcap_feature(PMULL)
-> -#define KERNEL_HWCAP_SHA1		__khwcap_feature(SHA1)
-> -#define KERNEL_HWCAP_SHA2		__khwcap_feature(SHA2)
-> -#define KERNEL_HWCAP_CRC32		__khwcap_feature(CRC32)
-> -#define KERNEL_HWCAP_ATOMICS		__khwcap_feature(ATOMICS)
-> -#define KERNEL_HWCAP_FPHP		__khwcap_feature(FPHP)
-> -#define KERNEL_HWCAP_ASIMDHP		__khwcap_feature(ASIMDHP)
-> -#define KERNEL_HWCAP_CPUID		__khwcap_feature(CPUID)
-> -#define KERNEL_HWCAP_ASIMDRDM		__khwcap_feature(ASIMDRDM)
-> -#define KERNEL_HWCAP_JSCVT		__khwcap_feature(JSCVT)
-> -#define KERNEL_HWCAP_FCMA		__khwcap_feature(FCMA)
-> -#define KERNEL_HWCAP_LRCPC		__khwcap_feature(LRCPC)
-> -#define KERNEL_HWCAP_DCPOP		__khwcap_feature(DCPOP)
-> -#define KERNEL_HWCAP_SHA3		__khwcap_feature(SHA3)
-> -#define KERNEL_HWCAP_SM3		__khwcap_feature(SM3)
-> -#define KERNEL_HWCAP_SM4		__khwcap_feature(SM4)
-> -#define KERNEL_HWCAP_ASIMDDP		__khwcap_feature(ASIMDDP)
-> -#define KERNEL_HWCAP_SHA512		__khwcap_feature(SHA512)
-> -#define KERNEL_HWCAP_SVE		__khwcap_feature(SVE)
-> -#define KERNEL_HWCAP_ASIMDFHM		__khwcap_feature(ASIMDFHM)
-> -#define KERNEL_HWCAP_DIT		__khwcap_feature(DIT)
-> -#define KERNEL_HWCAP_USCAT		__khwcap_feature(USCAT)
-> -#define KERNEL_HWCAP_ILRCPC		__khwcap_feature(ILRCPC)
-> -#define KERNEL_HWCAP_FLAGM		__khwcap_feature(FLAGM)
-> -#define KERNEL_HWCAP_SSBS		__khwcap_feature(SSBS)
-> -#define KERNEL_HWCAP_SB			__khwcap_feature(SB)
-> -#define KERNEL_HWCAP_PACA		__khwcap_feature(PACA)
-> -#define KERNEL_HWCAP_PACG		__khwcap_feature(PACG)
-> -#define KERNEL_HWCAP_GCS		__khwcap_feature(GCS)
-> -#define KERNEL_HWCAP_CMPBR		__khwcap_feature(CMPBR)
-> -#define KERNEL_HWCAP_FPRCVT		__khwcap_feature(FPRCVT)
-> -#define KERNEL_HWCAP_F8MM8		__khwcap_feature(F8MM8)
-> -#define KERNEL_HWCAP_F8MM4		__khwcap_feature(F8MM4)
-> -#define KERNEL_HWCAP_SVE_F16MM		__khwcap_feature(SVE_F16MM)
-> -#define KERNEL_HWCAP_SVE_ELTPERM	__khwcap_feature(SVE_ELTPERM)
-> -#define KERNEL_HWCAP_SVE_AES2		__khwcap_feature(SVE_AES2)
-> -#define KERNEL_HWCAP_SVE_BFSCALE	__khwcap_feature(SVE_BFSCALE)
-> -#define KERNEL_HWCAP_SVE2P2		__khwcap_feature(SVE2P2)
-> -#define KERNEL_HWCAP_SME2P2		__khwcap_feature(SME2P2)
-> -#define KERNEL_HWCAP_SME_SBITPERM	__khwcap_feature(SME_SBITPERM)
-> -#define KERNEL_HWCAP_SME_AES		__khwcap_feature(SME_AES)
-> -#define KERNEL_HWCAP_SME_SFEXPA		__khwcap_feature(SME_SFEXPA)
-> -#define KERNEL_HWCAP_SME_STMOP		__khwcap_feature(SME_STMOP)
-> -#define KERNEL_HWCAP_SME_SMOP4		__khwcap_feature(SME_SMOP4)
-> -
->  #define __khwcap2_feature(x)		(const_ilog2(HWCAP2_ ## x) + 64)
-> -#define KERNEL_HWCAP_DCPODP		__khwcap2_feature(DCPODP)
-> -#define KERNEL_HWCAP_SVE2		__khwcap2_feature(SVE2)
-> -#define KERNEL_HWCAP_SVEAES		__khwcap2_feature(SVEAES)
-> -#define KERNEL_HWCAP_SVEPMULL		__khwcap2_feature(SVEPMULL)
-> -#define KERNEL_HWCAP_SVEBITPERM		__khwcap2_feature(SVEBITPERM)
-> -#define KERNEL_HWCAP_SVESHA3		__khwcap2_feature(SVESHA3)
-> -#define KERNEL_HWCAP_SVESM4		__khwcap2_feature(SVESM4)
-> -#define KERNEL_HWCAP_FLAGM2		__khwcap2_feature(FLAGM2)
-> -#define KERNEL_HWCAP_FRINT		__khwcap2_feature(FRINT)
-> -#define KERNEL_HWCAP_SVEI8MM		__khwcap2_feature(SVEI8MM)
-> -#define KERNEL_HWCAP_SVEF32MM		__khwcap2_feature(SVEF32MM)
-> -#define KERNEL_HWCAP_SVEF64MM		__khwcap2_feature(SVEF64MM)
-> -#define KERNEL_HWCAP_SVEBF16		__khwcap2_feature(SVEBF16)
-> -#define KERNEL_HWCAP_I8MM		__khwcap2_feature(I8MM)
-> -#define KERNEL_HWCAP_BF16		__khwcap2_feature(BF16)
-> -#define KERNEL_HWCAP_DGH		__khwcap2_feature(DGH)
-> -#define KERNEL_HWCAP_RNG		__khwcap2_feature(RNG)
-> -#define KERNEL_HWCAP_BTI		__khwcap2_feature(BTI)
-> -#define KERNEL_HWCAP_MTE		__khwcap2_feature(MTE)
-> -#define KERNEL_HWCAP_ECV		__khwcap2_feature(ECV)
-> -#define KERNEL_HWCAP_AFP		__khwcap2_feature(AFP)
-> -#define KERNEL_HWCAP_RPRES		__khwcap2_feature(RPRES)
-> -#define KERNEL_HWCAP_MTE3		__khwcap2_feature(MTE3)
-> -#define KERNEL_HWCAP_SME		__khwcap2_feature(SME)
-> -#define KERNEL_HWCAP_SME_I16I64		__khwcap2_feature(SME_I16I64)
-> -#define KERNEL_HWCAP_SME_F64F64		__khwcap2_feature(SME_F64F64)
-> -#define KERNEL_HWCAP_SME_I8I32		__khwcap2_feature(SME_I8I32)
-> -#define KERNEL_HWCAP_SME_F16F32		__khwcap2_feature(SME_F16F32)
-> -#define KERNEL_HWCAP_SME_B16F32		__khwcap2_feature(SME_B16F32)
-> -#define KERNEL_HWCAP_SME_F32F32		__khwcap2_feature(SME_F32F32)
-> -#define KERNEL_HWCAP_SME_FA64		__khwcap2_feature(SME_FA64)
-> -#define KERNEL_HWCAP_WFXT		__khwcap2_feature(WFXT)
-> -#define KERNEL_HWCAP_EBF16		__khwcap2_feature(EBF16)
-> -#define KERNEL_HWCAP_SVE_EBF16		__khwcap2_feature(SVE_EBF16)
-> -#define KERNEL_HWCAP_CSSC		__khwcap2_feature(CSSC)
-> -#define KERNEL_HWCAP_RPRFM		__khwcap2_feature(RPRFM)
-> -#define KERNEL_HWCAP_SVE2P1		__khwcap2_feature(SVE2P1)
-> -#define KERNEL_HWCAP_SME2		__khwcap2_feature(SME2)
-> -#define KERNEL_HWCAP_SME2P1		__khwcap2_feature(SME2P1)
-> -#define KERNEL_HWCAP_SME_I16I32		__khwcap2_feature(SME_I16I32)
-> -#define KERNEL_HWCAP_SME_BI32I32	__khwcap2_feature(SME_BI32I32)
-> -#define KERNEL_HWCAP_SME_B16B16		__khwcap2_feature(SME_B16B16)
-> -#define KERNEL_HWCAP_SME_F16F16		__khwcap2_feature(SME_F16F16)
-> -#define KERNEL_HWCAP_MOPS		__khwcap2_feature(MOPS)
-> -#define KERNEL_HWCAP_HBC		__khwcap2_feature(HBC)
-> -#define KERNEL_HWCAP_SVE_B16B16		__khwcap2_feature(SVE_B16B16)
-> -#define KERNEL_HWCAP_LRCPC3		__khwcap2_feature(LRCPC3)
-> -#define KERNEL_HWCAP_LSE128		__khwcap2_feature(LSE128)
-> -#define KERNEL_HWCAP_FPMR		__khwcap2_feature(FPMR)
-> -#define KERNEL_HWCAP_LUT		__khwcap2_feature(LUT)
-> -#define KERNEL_HWCAP_FAMINMAX		__khwcap2_feature(FAMINMAX)
-> -#define KERNEL_HWCAP_F8CVT		__khwcap2_feature(F8CVT)
-> -#define KERNEL_HWCAP_F8FMA		__khwcap2_feature(F8FMA)
-> -#define KERNEL_HWCAP_F8DP4		__khwcap2_feature(F8DP4)
-> -#define KERNEL_HWCAP_F8DP2		__khwcap2_feature(F8DP2)
-> -#define KERNEL_HWCAP_F8E4M3		__khwcap2_feature(F8E4M3)
-> -#define KERNEL_HWCAP_F8E5M2		__khwcap2_feature(F8E5M2)
-> -#define KERNEL_HWCAP_SME_LUTV2		__khwcap2_feature(SME_LUTV2)
-> -#define KERNEL_HWCAP_SME_F8F16		__khwcap2_feature(SME_F8F16)
-> -#define KERNEL_HWCAP_SME_F8F32		__khwcap2_feature(SME_F8F32)
-> -#define KERNEL_HWCAP_SME_SF8FMA		__khwcap2_feature(SME_SF8FMA)
-> -#define KERNEL_HWCAP_SME_SF8DP4		__khwcap2_feature(SME_SF8DP4)
-> -#define KERNEL_HWCAP_SME_SF8DP2		__khwcap2_feature(SME_SF8DP2)
-> -#define KERNEL_HWCAP_POE		__khwcap2_feature(POE)
-> -
->  #define __khwcap3_feature(x)		(const_ilog2(HWCAP3_ ## x) + 128)
-> -#define KERNEL_HWCAP_MTE_FAR		__khwcap3_feature(MTE_FAR)
-> -#define KERNEL_HWCAP_MTE_STORE_ONLY	__khwcap3_feature(MTE_STORE_ONLY)
-> -#define KERNEL_HWCAP_LSFE		__khwcap3_feature(LSFE)
-> -#define KERNEL_HWCAP_LS64		__khwcap3_feature(LS64)
-> +
-> +#include "asm/kernel-hwcap.h"
-> =20
->  /*
->   * This yields a mask that user programs can use to figure out what
-> diff --git a/arch/arm64/tools/Makefile b/arch/arm64/tools/Makefile
-> index c2b34e761006..a94b3d9caad6 100644
-> --- a/arch/arm64/tools/Makefile
-> +++ b/arch/arm64/tools/Makefile
-> @@ -3,7 +3,7 @@
->  gen :=3D arch/$(ARCH)/include/generated
->  kapi :=3D $(gen)/asm
-> =20
-> -kapisyshdr-y :=3D cpucap-defs.h sysreg-defs.h
-> +kapisyshdr-y :=3D cpucap-defs.h kernel-hwcap.h sysreg-defs.h
-> =20
->  kapi-hdrs-y :=3D $(addprefix $(kapi)/, $(kapisyshdr-y))
-> =20
-> @@ -18,11 +18,17 @@ kapi:   $(kapi-hdrs-y)
->  quiet_cmd_gen_cpucaps =3D GEN     $@
->        cmd_gen_cpucaps =3D mkdir -p $(dir $@); $(AWK) -f $(real-prereqs) =
-> $@
-> =20
-> +quiet_cmd_gen_kernel_hwcap =3D GEN     $@
-> +      cmd_gen_kernel_hwcap =3D mkdir -p $(dir $@); /bin/sh -e $(real-pre=
-reqs) > $@
-> +
->  quiet_cmd_gen_sysreg =3D GEN     $@
->        cmd_gen_sysreg =3D mkdir -p $(dir $@); $(AWK) -f $(real-prereqs) >=
- $@
-> =20
->  $(kapi)/cpucap-defs.h: $(src)/gen-cpucaps.awk $(src)/cpucaps FORCE
->  	$(call if_changed,gen_cpucaps)
-> =20
-> +$(kapi)/kernel-hwcap.h: $(src)/gen-kernel-hwcaps.sh $(srctree)/arch/arm6=
-4/include/uapi/asm/hwcap.h FORCE
-> +	$(call if_changed,gen_kernel_hwcap)
-> +
->  $(kapi)/sysreg-defs.h: $(src)/gen-sysreg.awk $(src)/sysreg FORCE
->  	$(call if_changed,gen_sysreg)
-> diff --git a/arch/arm64/tools/gen-kernel-hwcaps.sh b/arch/arm64/tools/gen=
-=2Dkernel-hwcaps.sh
-> new file mode 100644
-> index 000000000000..e7cdcf428d91
-> --- /dev/null
-> +++ b/arch/arm64/tools/gen-kernel-hwcaps.sh
-> @@ -0,0 +1,23 @@
-> +#!/bin/sh -e
-> +# SPDX-License-Identifier: GPL-2.0
-> +#
-> +# gen-kernel-hwcap.sh - Generate kernel internal hwcap.h definitions
-> +#
-> +# Copyright 2026 Arm, Ltd.
-> +
-> +if [ "$1" =3D "" ]; then
-> +	echo "$0: no filename specified"
-> +	exit 1
-> +fi
-> +
-> +echo "#ifndef __ASM_KERNEL_HWCAPS_H"
-> +echo "#define __ASM_KERNEL_HWCAPS_H"
-> +echo ""
-> +echo "/* Generated file - do not edit */"
-> +echo ""
-> +
-> +grep -E '^#define HWCAP[0-9]*_[A-Z0-9_]+' $1 | \
-> +	sed 's/.*HWCAP\([0-9]*\)_\([A-Z0-9_]\+\).*/#define KERNEL_HWCAP_\2\t__k=
-hwcap\1_feature(\2)/'
-> +
-> +echo ""
-> +echo "#endif /* __ASM_KERNEL_HWCAPS_H */"
->=20
->=20
-
-
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
+>   arch/powerpc/platforms/cell/spufs/switch.c |    5 +++--
+>   1 file changed, 3 insertions(+), 2 deletions(-)
+> 
+> --- a/arch/powerpc/platforms/cell/spufs/switch.c
+> +++ b/arch/powerpc/platforms/cell/spufs/switch.c
+> @@ -34,6 +34,7 @@
+>   #include <asm/spu_priv1.h>
+>   #include <asm/spu_csa.h>
+>   #include <asm/mmu_context.h>
+> +#include <asm/time.h>
+>   
+>   #include "spufs.h"
+>   
+> @@ -279,7 +280,7 @@ static inline void save_timebase(struct
+>   	 *    Read PPE Timebase High and Timebase low registers
+>   	 *    and save in CSA.  TBD.
+>   	 */
+> -	csa->suspend_time = get_cycles();
+> +	csa->suspend_time = mftb();
+>   }
+>   
+>   static inline void remove_other_spu_access(struct spu_state *csa,
+> @@ -1261,7 +1262,7 @@ static inline void setup_decr(struct spu
+>   	 *     in LSCSA.
+>   	 */
+>   	if (csa->priv2.mfc_control_RW & MFC_CNTL_DECREMENTER_RUNNING) {
+> -		cycles_t resume_time = get_cycles();
+> +		cycles_t resume_time = mftb();
+>   		cycles_t delta_time = resume_time - csa->suspend_time;
+>   
+>   		csa->lscsa->decr_status.slot[0] = SPU_DECR_STATUS_RUNNING;
+> 
+> 
 
 
