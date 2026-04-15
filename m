@@ -4,121 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE4B5F419A2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 13:01:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 619B9F419A5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 13:10:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lLSvvy9qa8zWSMzTnss/XEjyfCf5hC74NXNaC32e3Dc=; b=cCpp+EOtp4lO/P8cDTE1SyghZR
-	Yr4cB4InNCakp2QXlRAYr+Ts7D2D3Y/9pJ5DXT2MvFF/x9jBNlQDfZP/ykTsXcxtpu3Ei0eaC6bB7
-	EAKPcEbrOmTwAc+aKy53pOlHus6oa/XD3ZvkUrvzZpTOm1NpJDlMFjV4JJ8d+eZZk18Ws1EXTjh1p
-	ZWMj4rvzGaQlRU83IKfx/6PXxvgTCoe/oLcK2JIRaceIbGNc6ZB+wzQz9emK9+GiJLbVLuzYj2L/d
-	UoHwSuKhk/8ReNNTZNEDuZWSgcHSwVh7A+RJwc9meEwUiBKgbT6OMsESXfjuCROR6DLp5u16ZHm3J
-	EMSCY/Ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ij396v/ARQbEqIfPoR7kjIiJGCWUlYIBuo1ugDzDJG4=; b=ffORpai4+xr3li
+	LanFtGjvzYH/mq9fTU1kR67a00INVPzBqqJUzjqG0MRVyZTplwzAgyj/jUHNH9c2KulP1zpV86Qwe
+	dj+lhLzHE1i/G8J/bkAYaZ9xMXm8uAp0j9GD9adm1myD8Nk+5HPPzHGfPJfWiWAFpf4bZR04GUtqx
+	kVtVOoF0Uww+RS0XZUxzTFAqC4mgMq94vE6Qo4N7peqMXh74cf6MuQcsjbbzkPHEOeB+1804rvSJj
+	/rgF886N6uRWmtbHX1ChXFtsIiuqrJg5pUIPbf6n5QVDWvfd9+Fm5xLwgfvVH5FpZIVcdQbcynbzz
+	fO6XYm3PqNNOZUGGFiew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCzra-00000001A0f-2FTx;
-	Wed, 15 Apr 2026 13:01:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wD00r-00000001AX9-3PCN;
+	Wed, 15 Apr 2026 13:10:37 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCzrY-000000019zk-1nzH
+	id 1wD00p-00000001AWZ-1SGe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 13:01:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D9B33437F8;
-	Wed, 15 Apr 2026 13:00:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7ECE5C19424;
-	Wed, 15 Apr 2026 13:00:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776258059;
-	bh=R9She/fty570ixfUUkm+hiI2Yw0EuREkb6cYfJweZ5Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Jb+0DT4W1wA4KEIVY4FoTtbFdUSZtISD7worO4gRLlYY13CxQryM6AF6d0YWZbYzF
-	 LyX3FSawfZ0kMCSA4gRZSBZHETiCihTbBLv/EP9F1CduZHloB/MmIg5Ui7E/EouNKn
-	 TeHzhu0uercSUy9wjPxl5S4QDwqFdGmdvmn6wfms/pbWEDnjVLyCz2CpziNgPzIJ6U
-	 9lyu2kDRnQ8Q38D98pATzyqu4XMt0IBR4d44V2436QrK3tQsQUdmouWn62qrqXx3kE
-	 btgIr4R3pdICtncO7p14CMOiRN4I88Pu2GDKcg/lLWRmMr8FkvK1VZqsV94h3ZAIFU
-	 /EQQgy7FE+paQ==
-Message-ID: <eaca640b-5006-489b-8b2d-148a3c4073da@kernel.org>
-Date: Wed, 15 Apr 2026 15:00:46 +0200
+	Wed, 15 Apr 2026 13:10:36 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2aae146b604so48288255ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Apr 2026 06:10:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776258633; x=1776863433; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ij396v/ARQbEqIfPoR7kjIiJGCWUlYIBuo1ugDzDJG4=;
+        b=NgmJ9Oz/fqYkZ8wNGHjNHZN6XRR6S0+ilAHsJ3exWH6mpTchys5IYjgQkUuvti+Xwt
+         80YFwGPyKag4aR6TBm2hnf7OiMlScVWiU3A90tHlXuRrA1X6qVm1rNGM3jylsin3jfHB
+         njOPTG+QvtLGrSRkj6xTlwaCRGDXHUR7p15xubJesoqpjZbhTNlaEFlMMQNWKnPX/q9q
+         N8APHQIMbV0qeMZNHT/UJBiXsBBBkevge62jEMO0G0fKDtmOwxltIoyqBcOrmzkgSghH
+         VlJMWC8AfBoL5Sx5O5gSVCxufmgKKmVYo4SsrYp+aakcX924oF15EhAQb1WmqL1XZiFA
+         6s6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776258633; x=1776863433;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ij396v/ARQbEqIfPoR7kjIiJGCWUlYIBuo1ugDzDJG4=;
+        b=mBJRG5npcH9kB5/zJjTsqFC8zPIumsNQrsVuaaY1xhqVOWk+4DncC280YN/eCQ9jvf
+         s2IEyZMQyDCLoaVYwOKNfMnzeVGeix2CC6WJWu9TqHidhs7cAgGDQn5RDT6iRiE9LHYM
+         Xf4B7ukwyXiyMdxNe3RYWANw9p564lderKKbXn3Qms8vYF4p3/Z0XeW/4U3kDQuEfzgE
+         8AUZPH3HqmJqDHZQHfjgwy8Xp2XKZTF91lGLodgpm9R/tba4+3lvN5xXBlOWgbY2BEXS
+         WbyTVhxevDhiV7W4EMSmlXqWz2CyvwFoBel0qOKuJIB9e5TCi1KqYXpHshWDNhLZtMmf
+         9AHw==
+X-Forwarded-Encrypted: i=1; AFNElJ8vh7CmLkExu4OOsI/v1QpfAeQmcGMPwDK/ZRJTk3jvGLCR4011XmJcHX8aEp+EygzLkiu+A/Z9U7QJhtv5am3I@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrsL9cBItQUCVq25zWYJ/wTuRCBg/3QZ7ZAkmGa1/LYYzCh65A
+	TYP62PSaQmU1OYi30IyUF2tTktD8OiCJuHsbSSGwh3ls/JjNQGyjboGS
+X-Gm-Gg: AeBDieuKD8bJeUv3csTEV6QhuLuGuapq2OUZDRbBr+Ng5iV/RngcOt0UvenY8xi8ITd
+	tkPmmuwc5olj2+AYWgMBeBMadUDCu+ApukAROeXZjAoDgVUR/FWRIJEYTgqgfmxEy8h/8GBpQLb
+	WjbQMBfwWUCmrc4ahDN+0LPidA/K+5e21bVzBG2bvRpHRKuAQD19WNn8rmY4NwN88kbP+dPPLfj
+	2ahgW3TlL0nX6aJRuouQHVvLHwsd1JAVvMk4ct1CysdOE6H3OL45KPHERjrxT0BKNpcFLX5ISax
+	m0ftK9T3Yg9hlNUXaQirAGsTwDU15nNG5mtrjsVCklgEYimnLU7ogBUC7TdSm+Z2nWwbwa1dLUW
+	OOXKJZ2q9cIIhI4tR5CJ2hxme321f4lYOBjvmtD//d+bt6HwDPmN5Kh4IDu4HSE9GEEvaTQ0i30
+	1iT0NKwPVFDRE/njGzNqgD+5zbpSpUSZPsMUECKyW7SjxmxVuCXgA5dTeLwv+cy0eQHi5UmpsIv
+	gWpE7k6ma7E/cTvEtxmycx1aZI58fg=
+X-Received: by 2002:a17:902:bc86:b0:2b2:81aa:f6c3 with SMTP id d9443c01a7336-2b2d5a5aa5bmr174065115ad.29.1776258632397;
+        Wed, 15 Apr 2026 06:10:32 -0700 (PDT)
+Received: from junjungu-PC.localdomain ([223.167.147.125])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b478292053sm28062555ad.56.2026.04.15.06.10.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Apr 2026 06:10:32 -0700 (PDT)
+From: Felix Gu <ustc.gu@gmail.com>
+Subject: [PATCH v2 0/2] thermal/drivers/imx: two fixes
+Date: Wed, 15 Apr 2026 21:10:26 +0800
+Message-Id: <20260415-imx-v2-0-aeacff9e72b2@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 01/30] mm: Introduce kpkeys
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-hardening@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- Andy Lutomirski <luto@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
- Ira Weiny <ira.weiny@intel.com>, Jann Horn <jannh@google.com>,
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
- Kees Cook <kees@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Marc Zyngier <maz@kernel.org>,
- Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>,
- Maxwell Bland <mbland@motorola.com>, "Mike Rapoport (IBM)"
- <rppt@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- Quentin Perret <qperret@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- Yang Shi <yang@os.amperecomputing.com>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org
-References: <20260227175518.3728055-1-kevin.brodsky@arm.com>
- <20260227175518.3728055-2-kevin.brodsky@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260227175518.3728055-2-kevin.brodsky@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAEKO32kC/zWMQQ7CIBBFr9LMWgxDa7WuvIfpAujYTiLFgCE1D
+ XcXSVy+n//eDpECU4Rrs0OgxJH9WkAdGrCLXmcSPBUGJVUvO0TBbhNGKnUekDSaAcrzFejBW63
+ cx8ILx7cPnxpN+Fv/vqp+QiGFta3pTlPfXhBvs9P8PFrvYMw5fwGinG2rlgAAAA==
+X-Change-ID: 20260411-imx-b022791ea1b9
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Oleksij Rempel <o.rempel@pengutronix.de>
+Cc: linux-pm@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Felix Gu <ustc.gu@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1776258629; l=726;
+ i=ustc.gu@gmail.com; h=from:subject:message-id;
+ bh=TKihPKu1wRQ8mI4Zio2465s/4R0zt/1D8Ib7m8Y/KFM=;
+ b=CNdQWFIHFiTFWs0EFl3Cyentbx1WrOppKyZSwi6EDSUAdKVfXJN9zmQWrGvs8MCLKZnyaH8h5
+ t9sOioC0Ul3AJOtUkP+wRYpj8HCr5PgWeahKcvILQyj3kbtcTmive2S
+X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
+ pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_060100_516881_1D11C46A 
-X-CRM114-Status: GOOD (  16.69  )
+X-CRM114-CacheID: sfid-20260415_061035_422515_86BB5FFA 
+X-CRM114-Status: UNSURE (   7.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,52 +116,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/27/26 18:54, Kevin Brodsky wrote:
-> kpkeys is a simple framework to enable the use of protection keys
-> (pkeys) to harden the kernel itself. This patch introduces the basic
-> API in <linux/kpkeys.h>: a couple of functions to set and restore
-> the pkey register and macros to define guard objects.
-> 
-> kpkeys introduces a new concept on top of pkeys: the kpkeys level.
-> Each level is associated to a set of permissions for the pkeys
-> managed by the kpkeys framework. kpkeys_set_level(lvl) sets those
-> permissions according to lvl, and returns the original pkey
-> register, to be later restored by kpkeys_restore_pkey_reg(). To
-> start with, only KPKEYS_LVL_DEFAULT is available, which is meant
-> to grant RW access to KPKEYS_PKEY_DEFAULT (i.e. all memory since
-> this is the only available pkey for now).
-> 
-> Because each architecture implementing pkeys uses a different
-> representation for the pkey register, and may reserve certain pkeys
-> for specific uses, support for kpkeys must be explicitly indicated
-> by selecting ARCH_HAS_KPKEYS and defining the following functions in
-> <asm/kpkeys.h>, in addition to the macros provided in
-> <asm-generic/kpkeys.h>:
+Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+---
+Changes in v2:
+- Switch to use devm_thermal_of_zone_register() to fix Frank and Daniel's comment.
+- Collect Frank's Reviewed-by tag for patch 2.
+- Link to v1: https://lore.kernel.org/r/20260412-imx-v1-0-cc3b45d63811@gmail.com
 
-I don't quite understand the reason for using levels. Levels sounds like
-it would all be in some ordered fashion, where higher levels have access
-to lower levels.
+---
+Felix Gu (2):
+      thermal/drivers/imx: Fix thermal zone leak on probe error path
+      thermal/drivers/imxl:Fix runtime PM handling on early returns
 
-Think of that as a key that can unlock all "lower" locks, not just a
-single lock.
+ drivers/thermal/imx_thermal.c | 49 ++++++++++++++++++++++---------------------
+ 1 file changed, 25 insertions(+), 24 deletions(-)
+---
+base-commit: 66672af7a095d89f082c5327f3b15bc2f93d558e
+change-id: 20260411-imx-b022791ea1b9
 
-Then, the question is about the ordering once we introduce new
-keys/locks. With two, it obviously doesn't matter :)
-
-So naturally I wonder whether levels is really the right abstraction
-here, and why we are not simply using "distinct" keys, like
-
-KPKEY_DEFAULT
-KPKEY_PGTABLE
-KPKEY_SUPER_SECRET1
-KPKEY_SUPER_SECRET2
-
-Is it because you want KPKEY_PGTABLE also be able to write to KPKEY_DEFAULT?
-
-But how would you handle KPKEY_SUPER_SECRET1 and KPKEY_SUPER_SECRET2 then?
-
+Best regards,
 -- 
-Cheers,
+Felix Gu <ustc.gu@gmail.com>
 
-David
 
