@@ -4,60 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E86F43848
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 16:46:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 554B6F4385A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 16:47:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nvEfo4RLMftO1QlHHSO50filSXucrZy2YoN/9VrEKeM=; b=qA82bTBrGr7x+syg7zvstNBdrF
-	DxHE9/3xaLsvnCpOm7fcamWhbBougSrQkNyFhmqwjPwQ5uCOqmeh95oS33+/LAsyy9de72eH0IUNv
-	17W8d5/TmJWWDdspJmN/x0mTuEqX50+gpU6B4bFzxQfZR05KMhL1UdaHAj2y493s9TttVuepqPF4l
-	9NX/8IhD3FfTxcjz9SDaUPrJ8v+nPgD1gDDtpDl9DsKuV4l3c43OUqki82tCmj4SAAtcpgw/zCIi7
-	+VzQCEx8MGkZMQyMKlzWOwKcY0UwEftEGuHmAz96QfGzL+DLZZa9AJxyP9RRxtTvkxnBrW1lwXhxA
-	LrE5XjzA==;
+	bh=Zyv3ymqc5YZkH4cazJw1RDFwVaHLsF5idlSy/bPzDNc=; b=SoJxfSQpjT17ZeV/UGX0+1D+gb
+	K4GFQuh63su+jXnaKu3oRsYA7qWM8UG7fdaOLbnW45p34KQR7QDRaDM1XtAlPKEMrb7BOmc1oDdyx
+	I+bbuXgtop/znabEPstAszv/iMhY1r6+pC+y9rhK/BCT95WDDjMYaKeUFhgX3Jo5v/GxQjeNfacpq
+	H+TT861f53p7mjh4JAucxaoOnl/Dp7mXJ+5VGTHtnA6NUQcP3hiNn9Vhk4UrDxH05VQkOf08rUSuj
+	ftzBD48o16gjqyajlpO5unOc2srmSuiHNYDxUIxP0xTYEFmCDrRTRuh8yN03fr1pJdJMidNJeMsCO
+	MHQVoZDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD3O6-00000001OKX-04v7;
-	Wed, 15 Apr 2026 16:46:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wD3Ou-00000001OUA-2lWP;
+	Wed, 15 Apr 2026 16:47:40 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD3O4-00000001OKI-2FXJ;
-	Wed, 15 Apr 2026 16:46:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 90C92600AD;
-	Wed, 15 Apr 2026 16:46:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7531AC19424;
-	Wed, 15 Apr 2026 16:46:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776271607;
-	bh=9V5UV0H7MNGsiv3j20XRW3gOxXBgz2rZPl/n+ef13Uw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fW/f26Es+VpZNbsFgLDGuFZPeNpaxhhh4Snuyt9w2JIMPiB1dhxrqeL6YBx8Jpt4E
-	 ZQ7/nvDHkkPpEo8MOH4NbMh/Ok3l9PHn1ELWTJjvicCfCC994+ciDxlnXoQ2QlLykV
-	 dPDakfB6qFZ5v3sKcVhSSyBmuHBHHUeoQYG5BP9LXCdfjzgHeenrjWUkjF40swEwNx
-	 a0mVjfMq2eaSGSMKoOXfbZF0xPIUvGN3ErKGA2Z0kW4V3TAe3zyqy9v9zPM/HRF1Gc
-	 oLN05DTT8JdNdkSG9UbHnbRc3budngWXSxJwrPBGbCc4sBjUbqX5wYgYT1EH4khf6m
-	 F7Aed9NzH5q4A==
-Date: Wed, 15 Apr 2026 17:46:43 +0100
-From: Simon Horman <horms@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net v2] net: airoha: Add missing bits in
- airoha_qdma_cleanup_tx_queue()
-Message-ID: <20260415164643.GQ772670@horms.kernel.org>
-References: <20260414-airoha_qdma_cleanup_tx_queue-fix-net-v2-1-875de57cc022@kernel.org>
+	id 1wD3Or-00000001ORG-06ql
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Apr 2026 16:47:39 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.83])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fwn9L3YfJzJ46Dq;
+	Thu, 16 Apr 2026 00:46:46 +0800 (CST)
+Received: from mscpeml500003.china.huawei.com (unknown [7.188.49.51])
+	by mail.maildlp.com (Postfix) with ESMTPS id DC7F440569;
+	Thu, 16 Apr 2026 00:47:29 +0800 (CST)
+Received: from localhost.localdomain (10.123.66.205) by
+ mscpeml500003.china.huawei.com (7.188.49.51) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 15 Apr 2026 19:47:29 +0300
+From: Fedorov Nikita <fedorov.nikita@h-partners.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav
+ Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+	<x86@kernel.org>, <hpa@zytor.com>, Juergen Gross <jgross@suse.com>, Ajay
+ Kaher <ajay.kaher@broadcom.com>, Alexey Makhalov
+	<alexey.makhalov@broadcom.com>, <bcm-kernel-feedback-list@broadcom.com>, Arnd
+ Bergmann <arnd@arndb.de>, Peter Zijlstra <peterz@infradead.org>, Boqun Feng
+	<boqun@kernel.org>, Waiman Long <longman@redhat.com>, Darren Hart
+	<dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
+	<andrealmeid@igalia.com>, Andrew Morton <akpm@linux-foundation.org>, David
+ Hildenbrand <david@kernel.org>, Zi Yan <ziy@nvidia.com>, Matthew Brost
+	<matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim
+	<rakie.kim@sk.com>, <byungchul@sk.com>, Gregory Price <gourry@gourry.net>,
+	Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple
+	<apopple@nvidia.com>, Anatoly Stepanov <stepanov.anatoly@huawei.com>
+CC: Nikita Fedorov <fedorov.nikita@h-partners.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<virtualization@lists.linux.dev>, <linux-arch@vger.kernel.org>,
+	<linux-mm@kvack.org>, <guohanjun@huawei.com>, <wangkefeng.wang@huawei.com>,
+	<weiyongjun1@huawei.com>, <yusongping@huawei.com>, <leijitang@huawei.com>,
+	<artem.kuzin@huawei.com>, <kang.sun@huawei.com>, <chenjieping3@huawei.com>
+Subject: [RFC PATCH v3 4/7] hq-spinlock: add hq-spinlock tunables and debug statistics
+Date: Thu, 16 Apr 2026 00:44:56 +0800
+Message-ID: <20260415164459.2904963-5-fedorov.nikita@h-partners.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260415164459.2904963-1-fedorov.nikita@h-partners.com>
+References: <20260415164459.2904963-1-fedorov.nikita@h-partners.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260414-airoha_qdma_cleanup_tx_queue-fix-net-v2-1-875de57cc022@kernel.org>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.123.66.205]
+X-ClientProxiedBy: mscpeml500003.china.huawei.com (7.188.49.51) To
+ mscpeml500003.china.huawei.com (7.188.49.51)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260415_094737_364933_0AFCB332 
+X-CRM114-Status: GOOD (  19.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,136 +88,260 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 14, 2026 at 08:50:52AM +0200, Lorenzo Bianconi wrote:
-> Similar to airoha_qdma_cleanup_rx_queue(), reset DMA TX descriptors in
-> airoha_qdma_cleanup_tx_queue routine. Moreover, reset TX_DMA_IDX to
-> TX_CPU_IDX to notify the NIC the QDMA TX ring is empty.
-> 
-> Fixes: 23020f0493270 ("net: airoha: Introduce ethernet support for EN7581 SoC")
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> ---
-> Changes in v2:
-> - Move q->ndesc initialization at end of airoha_qdma_init_tx routine in
->   order to avoid any possible NULL pointer dereference in
->   airoha_qdma_cleanup_tx_queue()
+The HQ slowpath and contention-based mode switching depend on several
+parameters that affect when NUMA-aware mode becomes active and how long
+local handoff can continue. Expose these parameters through procfs so
+that the behaviour can be inspected and tuned without rebuilding the
+kernel.
 
-This seems to be a separate issue.
-If so, I think it should be split out into a separate patch.
+Also add debug statistics that make it possible to observe HQ lock
+activation, handoff behaviour, and mode switching decisions during
+testing and evaluation.
 
-> - Check if q->tx_list is empty in airoha_qdma_cleanup_tx_queue()
-> - Link to v1: https://lore.kernel.org/r/20260410-airoha_qdma_cleanup_tx_queue-fix-net-v1-1-b7171c8f1e78@kernel.org
+These controls are intended to simplify validation and analysis of HQ
+lock behaviour on different systems and workloads.
 
-I think it was covered in the review Jakub forwarded for v1.  But FTR,
-Sashiko has some feedback on this patch in the form of an existing bug
-(that should almost certainly be handled separately from this patch).
+Co-developed-by: Anatoly Stepanov <stepanov.anatoly@huawei.com>
+Signed-off-by: Anatoly Stepanov <stepanov.anatoly@huawei.com>
+Co-developed-by: Nikita Fedorov <fedorov.nikita@h-partners.com>
+Signed-off-by: Nikita Fedorov <fedorov.nikita@h-partners.com>
+---
+ kernel/locking/hqlock_core.h |   5 ++
+ kernel/locking/hqlock_meta.h |  16 ++++
+ kernel/locking/hqlock_proc.h | 164 +++++++++++++++++++++++++++++++++++
+ 3 files changed, 185 insertions(+)
+ create mode 100644 kernel/locking/hqlock_proc.h
 
-> ---
->  drivers/net/ethernet/airoha/airoha_eth.c | 41 ++++++++++++++++++++++++++------
->  1 file changed, 34 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-> index 9e995094c32a..3c1a2bc68c42 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> @@ -966,27 +966,27 @@ static int airoha_qdma_init_tx_queue(struct airoha_queue *q,
->  	dma_addr_t dma_addr;
->  
->  	spin_lock_init(&q->lock);
-> -	q->ndesc = size;
->  	q->qdma = qdma;
->  	q->free_thr = 1 + MAX_SKB_FRAGS;
->  	INIT_LIST_HEAD(&q->tx_list);
->  
-> -	q->entry = devm_kzalloc(eth->dev, q->ndesc * sizeof(*q->entry),
-> +	q->entry = devm_kzalloc(eth->dev, size * sizeof(*q->entry),
->  				GFP_KERNEL);
->  	if (!q->entry)
->  		return -ENOMEM;
->  
-> -	q->desc = dmam_alloc_coherent(eth->dev, q->ndesc * sizeof(*q->desc),
-> +	q->desc = dmam_alloc_coherent(eth->dev, size * sizeof(*q->desc),
->  				      &dma_addr, GFP_KERNEL);
->  	if (!q->desc)
->  		return -ENOMEM;
->  
-> -	for (i = 0; i < q->ndesc; i++) {
-> +	for (i = 0; i < size; i++) {
->  		u32 val = FIELD_PREP(QDMA_DESC_DONE_MASK, 1);
->  
->  		list_add_tail(&q->entry[i].list, &q->tx_list);
->  		WRITE_ONCE(q->desc[i].ctrl, cpu_to_le32(val));
->  	}
-> +	q->ndesc = size;
->  
->  	/* xmit ring drop default setting */
->  	airoha_qdma_set(qdma, REG_TX_RING_BLOCKING(qid),
-> @@ -1051,13 +1051,17 @@ static int airoha_qdma_init_tx(struct airoha_qdma *qdma)
->  
->  static void airoha_qdma_cleanup_tx_queue(struct airoha_queue *q)
->  {
-> -	struct airoha_eth *eth = q->qdma->eth;
-> -	int i;
-> +	struct airoha_qdma *qdma = q->qdma;
-> +	struct airoha_eth *eth = qdma->eth;
-> +	int i, qid = q - &qdma->q_tx[0];
-> +	struct airoha_queue_entry *e;
-> +	u16 index = 0;
->  
->  	spin_lock_bh(&q->lock);
->  	for (i = 0; i < q->ndesc; i++) {
-> -		struct airoha_queue_entry *e = &q->entry[i];
+diff --git a/kernel/locking/hqlock_core.h b/kernel/locking/hqlock_core.h
+index e2ba09d758..b7681915b4 100644
+--- a/kernel/locking/hqlock_core.h
++++ b/kernel/locking/hqlock_core.h
+@@ -530,6 +530,11 @@ static __always_inline void low_contention_mcs_lock_handoff(struct mcs_spinlock
+ 	if (next != prev && likely(general_handoffs + 1 != max_u16))
+ 		general_handoffs++;
+ 
++#ifdef CONFIG_HQSPINLOCKS_DEBUG
++	if (READ_ONCE(max_general_handoffs) < general_handoffs)
++		WRITE_ONCE(max_general_handoffs, general_handoffs);
++#endif
++
+ 	qnext->general_handoffs = general_handoffs;
+ 	qnext->remote_handoffs = qnode->remote_handoffs;
+ 	qnext->prev_general_handoffs = qnode->prev_general_handoffs;
+diff --git a/kernel/locking/hqlock_meta.h b/kernel/locking/hqlock_meta.h
+index 561d5a5fd0..1c69df536b 100644
+--- a/kernel/locking/hqlock_meta.h
++++ b/kernel/locking/hqlock_meta.h
+@@ -124,6 +124,12 @@ static inline enum meta_status grab_lock_meta(struct qspinlock *lock, u32 lock_i
+ 	}
+ 
+ 	*seq = seq_counter;
++#ifdef CONFIG_HQSPINLOCKS_DEBUG
++	int current_used = atomic_inc_return_relaxed(&cur_buckets_in_use);
++
++	if (READ_ONCE(max_buckets_in_use) < current_used)
++		WRITE_ONCE(max_buckets_in_use, current_used);
++#endif
+ 	return META_GRABBED;
+ }
+ 
+@@ -252,6 +258,9 @@ hqlock_mode_t setup_lock_mode(struct qspinlock *lock, u16 lock_id, u32 *meta_seq
+ 		 */
+ 		if (status == META_GRABBED && mode != LOCK_MODE_HQLOCK) {
+ 			smp_store_release(&meta_pool[lock_id].lock_ptr, NULL);
++#ifdef CONFIG_HQSPINLOCKS_DEBUG
++			atomic_dec(&cur_buckets_in_use);
++#endif
+ 		}
+ 	} while (mode == LOCK_NO_MODE);
+ 
+@@ -307,8 +316,15 @@ static inline void release_lock_meta(struct qspinlock *lock,
+ 			goto do_rollback;
+ 	}
+ 
++#ifdef CONFIG_HQSPINLOCKS_DEBUG
++	atomic_dec(&cur_buckets_in_use);
++#endif
++
+ 	if (qnode->remote_handoffs < hqlock_remote_handoffs_keep_numa) {
+ 		upd_val |= _Q_LOCK_MODE_QSPINLOCK_VAL;
++#ifdef CONFIG_HQSPINLOCKS_DEBUG
++		atomic_inc(&transitions_from_hq_to_qspinlock);
++#endif
+ 	}
+ 
+ 	/*
+diff --git a/kernel/locking/hqlock_proc.h b/kernel/locking/hqlock_proc.h
+new file mode 100644
+index 0000000000..ea68635851
+--- /dev/null
++++ b/kernel/locking/hqlock_proc.h
+@@ -0,0 +1,164 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _GEN_HQ_SPINLOCK_SLOWPATH
++#error "Do not include this file!"
++#endif
++
++#include <linux/sysctl.h>
++
++/*
++ * Local handoffs threshold to maintain global fairness,
++ * perform remote handoff if it's reached
++ */
++unsigned long hqlock_fairness_threshold = 1000;
++
++/*
++ * Minimal amount of handoffs in LOCK_MODE_QSPINLOCK
++ * to enable NUMA-awareness
++ */
++unsigned long hqlock_general_handoffs_turn_numa = 50;
++
++/*
++ * Minimal amount of remote handoffs in LOCK_MODE_QSPINLOCK
++ * to enable NUMA-awareness.
++ *
++ * counter is increased if local handoffs >= hqlock_local_handoffs_to_increase_remotes
++ */
++unsigned long hqlock_remote_handoffs_turn_numa = 2;
++
++/*
++ * How many remote handoffs are needed
++ * to keep NUMA-awareness on
++ */
++unsigned long hqlock_remote_handoffs_keep_numa = 1;
++
++/*
++ * How many local handoffs are needed
++ * to increase remote handoffs counter.
++ *
++ * That is needed to avoid using LOCK_MODE_HQLOCK mode
++ * with 1-2 threads from several NUMA nodes,
++ * in this case HQlock will give more overhead then benefit
++ */
++unsigned long hqlock_local_handoffs_to_increase_remotes = 2;
++
++unsigned long hqlock_probability_of_force_stay_numa = 5000;
++
++static unsigned long long_zero;
++static unsigned long long_max = LONG_MAX;
++static unsigned long long_hundred_percent = 10000;
++
++static const struct ctl_table hqlock_settings[] = {
++	{
++		.procname		= "hqlock_fairness_threshold",
++		.data			= &hqlock_fairness_threshold,
++		.maxlen			= sizeof(hqlock_fairness_threshold),
++		.mode			= 0644,
++		.proc_handler	= proc_doulongvec_minmax
++	},
++	{
++		.procname		= "hqlock_general_handoffs_turn_numa",
++		.data			= &hqlock_general_handoffs_turn_numa,
++		.maxlen			= sizeof(hqlock_general_handoffs_turn_numa),
++		.mode			= 0644,
++		.proc_handler	= proc_doulongvec_minmax,
++		.extra1		= &long_zero,
++		.extra2		= &long_max,
++	},
++	{
++		.procname		= "hqlock_probability_of_force_stay_numa",
++		.data			= &hqlock_probability_of_force_stay_numa,
++		.maxlen			= sizeof(hqlock_probability_of_force_stay_numa),
++		.mode			= 0644,
++		.proc_handler	= proc_doulongvec_minmax,
++		.extra1		= &long_zero,
++		.extra2		= &long_hundred_percent,
++	},
++	{
++		.procname		= "hqlock_remote_handoffs_turn_numa",
++		.data			= &hqlock_remote_handoffs_turn_numa,
++		.maxlen			= sizeof(hqlock_remote_handoffs_turn_numa),
++		.mode			= 0644,
++		.proc_handler	= proc_doulongvec_minmax,
++		.extra1		= &long_zero,
++		.extra2		= &long_max,
++	},
++	{
++		.procname		= "hqlock_remote_handoffs_keep_numa",
++		.data			= &hqlock_remote_handoffs_keep_numa,
++		.maxlen			= sizeof(hqlock_remote_handoffs_keep_numa),
++		.mode			= 0644,
++		.proc_handler	= proc_doulongvec_minmax,
++		.extra1		= &long_zero,
++		.extra2		= &long_max,
++	},
++	{
++		.procname		= "hqlock_local_handoffs_to_increase_remotes",
++		.data			= &hqlock_local_handoffs_to_increase_remotes,
++		.maxlen			= sizeof(hqlock_local_handoffs_to_increase_remotes),
++		.mode			= 0644,
++		.proc_handler	= proc_doulongvec_minmax,
++		.extra1		= &long_zero,
++		.extra2		= &long_max,
++	},
++};
++static int __init init_numa_spinlock_sysctl(void)
++{
++	if (!register_sysctl("kernel", hqlock_settings))
++		return -EINVAL;
++	return 0;
++}
++core_initcall(init_numa_spinlock_sysctl);
++
++
++#ifdef CONFIG_HQSPINLOCKS_DEBUG
++static int max_buckets_in_use;
++static int max_general_handoffs;
++static atomic_t cur_buckets_in_use = ATOMIC_INIT(0);
++
++static atomic_t transitions_from_qspinlock_to_hq = ATOMIC_INIT(0);
++static atomic_t transitions_from_hq_to_qspinlock = ATOMIC_INIT(0);
++
++
++static int print_hqlock_stats(struct seq_file *file, void *v)
++{
++	seq_printf(file, "Max dynamic metada in use after previous print: %d\n",
++		   READ_ONCE(max_buckets_in_use));
++	WRITE_ONCE(max_buckets_in_use, 0);
++
++	seq_printf(file, "Currently in use: %d\n",
++		   atomic_read(&cur_buckets_in_use));
++
++	seq_printf(file, "Max MCS handoffs after previous print: %d\n",
++		   READ_ONCE(max_general_handoffs));
++	WRITE_ONCE(max_general_handoffs, 0);
++
++	seq_printf(file, "Transitions from qspinlock to HQ mode after previous print: %d\n",
++		   atomic_xchg_relaxed(&transitions_from_qspinlock_to_hq, 0));
++
++	seq_printf(file, "Transitions from HQ to qspinlock mode after previous print: %d\n",
++		   atomic_xchg_relaxed(&transitions_from_hq_to_qspinlock, 0));
++
++	return 0;
++}
++
++
++static int stats_open(struct inode *inode, struct file *file)
++{
++	return single_open(file, print_hqlock_stats, NULL);
++}
++
++static const struct proc_ops stats_ops = {
++	.proc_open  = stats_open,
++	.proc_read  = seq_read,
++	.proc_lseek = seq_lseek,
++};
++
++static int __init stats_init(void)
++{
++	proc_create("hqlock_stats", 0444, NULL, &stats_ops);
++	return 0;
++}
++
++core_initcall(stats_init);
++
++#endif // HQSPINLOCKS_DEBUG
+-- 
+2.34.1
 
-super nit: In v2 e is always used within a block (here and in the hunk below).
-           So I would lean towards declaring e in the blocks where it is
-	   used.
-
-	   No need to repost just for this!
-
-> +		struct airoha_qdma_desc *desc = &q->desc[i];
->  
-> +		e = &q->entry[i];
->  		if (!e->dma_addr)
->  			continue;
->  
-> @@ -1067,8 +1071,31 @@ static void airoha_qdma_cleanup_tx_queue(struct airoha_queue *q)
->  		e->dma_addr = 0;
->  		e->skb = NULL;
->  		list_add_tail(&e->list, &q->tx_list);
-> +
-> +		/* Reset DMA descriptor */
-> +		WRITE_ONCE(desc->ctrl, 0);
-> +		WRITE_ONCE(desc->addr, 0);
-> +		WRITE_ONCE(desc->data, 0);
-> +		WRITE_ONCE(desc->msg0, 0);
-> +		WRITE_ONCE(desc->msg1, 0);
-> +		WRITE_ONCE(desc->msg2, 0);
-> +
->  		q->queued--;
->  	}
-> +
-> +	if (!list_empty(&q->tx_list)) {
-> +		e = list_first_entry(&q->tx_list, struct airoha_queue_entry,
-> +				     list);
-> +		index = e - q->entry;
-> +	}
-> +	/* Set TX_DMA_IDX to TX_CPU_IDX to notify the hw the QDMA TX ring is
-> +	 * empty.
-> +	 */
-> +	airoha_qdma_rmw(qdma, REG_TX_CPU_IDX(qid), TX_RING_CPU_IDX_MASK,
-> +			FIELD_PREP(TX_RING_CPU_IDX_MASK, index));
-> +	airoha_qdma_rmw(qdma, REG_TX_DMA_IDX(qid), TX_RING_DMA_IDX_MASK,
-> +			FIELD_PREP(TX_RING_DMA_IDX_MASK, index));
-> +
->  	spin_unlock_bh(&q->lock);
->  }
->  
-> 
-> ---
-> base-commit: 2cd7e6971fc2787408ceef17906ea152791448cf
-> change-id: 20260410-airoha_qdma_cleanup_tx_queue-fix-net-93375f5ee80f
-> 
-> Best regards,
-> -- 
-> Lorenzo Bianconi <lorenzo@kernel.org>
-> 
 
