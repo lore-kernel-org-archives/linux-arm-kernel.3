@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06A94F9D0F9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCD6EFA0C5E
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 09:26:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1ArWwPmW4Ev5BLIQFRrw9zX4AGUYJ0E2/pe61Z/I0o0=; b=pHykhXXsg4pcBLQnnG6pRpgtnn
-	1mBw6KZp6GTwh8vzhSKoy+mOWDiHjuRwdnSQKXxR6xU35lejpRP0dNA0dAWUghEpNhWO5jAOCFTFW
-	jJ0J5S2GG9Kvhxp79G9UPo4i6u9y7muPF7dIagNCjwVfC9UReZVVuNtgSIRpgDxKQEhgSHgq3sJ3o
-	Vnkum2Y57dlgiequOgcANRwRgNLNMf61u28IOtYJkvdddiih58iwjK9o3sOp1Hllkn5qKDIxYYIGK
-	tjzR4s3rfW3f7llrm4z/E7TZYhZANm0TNPUY8lV7mz6kWw20Hi7j5esDdxZkO/wzB4MK+yjn2GKrt
-	7Mboo0zA==;
+	bh=La322k3sVuG/Cqr94bwFsseU8L+RVxJY8bC96sXymQ4=; b=I9ynmhcC5nOOjeCNexy8dczD5B
+	64SU2Jbib2KomWk12mxFVU1y/5nT9xureBvEq8plCcmkRMhx3Clocb8J5Mv5Gq61/MGXq91LQe5Px
+	SFgNag8nwHyaZNdwa/VB8Zltt64Szvbm9VRQSrxjmD3MuhpXsVnfW16dRtlUKZ0CdsoWmYrZiCdfA
+	Dw67W/y283/wilKjnVfwuxstADTUKOMetVfV+OJ1BapmYPTMGBkJBvTEBidlXQQASlQvwQRGp5dkz
+	M72eTTZfgVqtzlwsdZOSaBorAnzMQEAUjyJINmIoZ1g71Dw6advs+KxGipTxmmBI9/s/4ucZImAH5
+	ZINSjUgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCwVV-00000000thn-3OwJ;
-	Wed, 15 Apr 2026 09:26:01 +0000
+	id 1wCwVW-00000000ti6-0hJC;
+	Wed, 15 Apr 2026 09:26:02 +0000
 Received: from mail-koreacentralazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c40f::] helo=SLXP216CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCwVT-00000000tg9-0gED
+	id 1wCwVT-00000000tgF-30kg
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 15 Apr 2026 09:26:00 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ClpdO369Mz6ANZscJkGNBVTPpWduxf4DUuIoevI7x9EFED50H/abCPMv3hivBv2oenSeuZzpwQI19MmtMEhgIJNAACIb4AiUkKBvHAXoxC+XyzRin3bxoVK6Y+UfPF8sUyxLtXNSbJY/593XwHeFE0LuwHDEiDpEUaoT7Tn9OaEDCrZm38tWuktPX1rSJ+Bn5UNpd8l1mCx0eE/q4VLXRs7cq1QR7a5Y+ZCHDuKoKV+/jJxAXxTkKed+0AGPa+azMw0ZiWNLWvNQ4OzoQgh3sFk7yRkZrrFuT7IfaYzpogX7MZFLQg8bnAO5v/WkBs1ZXcjTXYpK9pD0h6R9Y0ilZg==
+ b=jkRQsYDbrPbtZtSTthptMk6gaEVkJyCLNr9DSqhI/v5GXJ1R3WwrIi3wEbJmvb5X7rdoyPaxslLQzTlWhkxLErr/qELN5HZ0NpT94utFuIRSbmMfOdI77CXlY2mG/92yduVFxgVxcFf9ElfF1R8t5hsHFhfLqceAk7l1o8kbFh7IIEQZGI0BJzlCa/5qc0oslxby1Vz2JFWc70Vq3cxyN/9Xydm6j2nDzZ3vSRtUnACa/AgN+4py4h9ilakmVCZ3t3pLBVwFr5lGALCqC/5ABs5RwPDYpuuMnsKJsWmQtT44PEX6dw2YVMDddWU/HNhUuy6dS70PGthttfGlKFFxXA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1ArWwPmW4Ev5BLIQFRrw9zX4AGUYJ0E2/pe61Z/I0o0=;
- b=A9XUYq6b5wTLe4lPRazF/Ikl0bVQezC5KpUS21SL/1vWCpj2bMMWHpRgpYX2s7yhNS0YSmAktQcJwNathEgoQRO9QSmgG7VDvp0VwD9NPlclH6qB4KSZzxjhRqg9p9xjVSAzi97OrTduVQgdZgBgh9Fjv+NggRilZB7xm3FpW/PpSAvqcIoDoR5KScUFFfhDzr5WvX1KlYJQuCmV8LFk5CQGa4rLPeXLQuRcW5Fiabmv37rEhcDn0+BH+bZ7oAuvyTvoo10SYrBMQ5d4jmnK7Z+g/wi6yfNBn1jRhNNVYE07kbv0qQZ96WAHqrLRyINbEtB8MxY3gvwlBJc2as7IGQ==
+ bh=La322k3sVuG/Cqr94bwFsseU8L+RVxJY8bC96sXymQ4=;
+ b=QemnL8PhwTZLMlpIZCyexPXJHdaWYcTOhVQKQT29fC96HU882dYf5i1v3QmuB5QGRHJYk7EBnMkBtvD6QUW3mAH2h7zvMzIeSqr3SZyh9NR4vNJvwZDlezL2SK7SzTRZshgN1LjNLF5KgS8tlD5EVtm0COo7LBaIlLUIVTVZnFxNpcp8AT8IcYGWJKObfvaki62szdPR6N0q69UdxVOFvclWsrasZl6dWAbdcwgfEjlM/iGjlrWdDdI/xXpxQjjWWYnkf598dxztDpKS/udnAATJjPSg+TNkezf4hmyS1Hp18fTCQZseDE3pN9W2qlLJq2/BgF/OSrx4Vv7Xo9d/ew==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
  header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1ArWwPmW4Ev5BLIQFRrw9zX4AGUYJ0E2/pe61Z/I0o0=;
- b=ATT5Pp+HUQ968Ebk60fBF+NZ7UveH+B9H1WVbWRTTqJqyLudr7PywP2v58ODx4zPeCQz/9UWa4FU5HBC9ueaEWDA1BM4SkczbT42loSdPWKIqMFzmhiIkgA3TAUesK8hjnKBNSNlAqZ3Y9PcamTAd9F03HwiJHRz8nf60JYcfFU=
+ bh=La322k3sVuG/Cqr94bwFsseU8L+RVxJY8bC96sXymQ4=;
+ b=RPOGndfXWGgXVoxxZYZviAh9OnsPBVudx9Mz/i2L0a6L/PcioP9caWFNnf+qmfRxCS1Z5hzYSrnNJCWBuy+n8kP7zOtMHiwtEPLzpRydsWan+JDCJnNczyOQQ/KGhU65MkPymfdi/humne6AzvmWHfNF6qnr+Gclz89/JlSvsMw=
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
 Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM (2603:1096:101:1b9::8)
- by SL2P216MB2830.KORP216.PROD.OUTLOOK.COM (2603:1096:101:27f::11) with
+ by SE1P216MB1414.KORP216.PROD.OUTLOOK.COM (2603:1096:101:1d::5) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Wed, 15 Apr
- 2026 09:25:43 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.50; Wed, 15 Apr
+ 2026 09:25:49 +0000
 Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
  ([fe80::f234:3bc6:9197:8232]) by SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
  ([fe80::f234:3bc6:9197:8232%5]) with mapi id 15.20.9769.046; Wed, 15 Apr 2026
- 09:25:43 +0000
+ 09:25:49 +0000
 From: Nas Chung <nas.chung@chipsnmedia.com>
 To: mchehab@kernel.org,
 	hverkuil@xs4all.nl,
@@ -68,11 +68,10 @@ Cc: linux-media@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	marek.vasut@mailbox.org,
 	ming.qian@oss.nxp.com,
-	Nas Chung <nas.chung@chipsnmedia.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Subject: [RFC PATCH v5 1/9] media: v4l2-common: Add YUV24 format info
-Date: Wed, 15 Apr 2026 18:25:21 +0900
-Message-Id: <20260415092529.577-2-nas.chung@chipsnmedia.com>
+	Nas Chung <nas.chung@chipsnmedia.com>
+Subject: [RFC PATCH v5 9/9] arm64: dts: freescale: imx95: Add video codec node
+Date: Wed, 15 Apr 2026 18:25:29 +0900
+Message-Id: <20260415092529.577-10-nas.chung@chipsnmedia.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20260415092529.577-1-nas.chung@chipsnmedia.com>
 References: <20260415092529.577-1-nas.chung@chipsnmedia.com>
@@ -83,59 +82,58 @@ X-ClientProxiedBy: SE2P216CA0163.KORP216.PROD.OUTLOOK.COM
  (2603:1096:101:1b9::8)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SL2P216MB2441:EE_|SL2P216MB2830:EE_
-X-MS-Office365-Filtering-Correlation-Id: 25b054de-6369-4ed0-0ec6-08de9ad0f7f7
+X-MS-TrafficTypeDiagnostic: SL2P216MB2441:EE_|SE1P216MB1414:EE_
+X-MS-Office365-Filtering-Correlation-Id: f3a11892-f219-4c0e-ea75-08de9ad0fb02
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|52116014|38350700014|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: AoMw/MQyvme9/QTd9ptIwpE4WhKX1y4UiL6/GaVVh60IzlFu0a1YZC8FLu716gwEh1yzQLoed0SCbayKqAp1v+DvNHcVO/0C3yOqQS8YXxluew663+b84PPrJHXMcNZRBKO1B8F42HQDjfKtuVhIDcy/a8XqrjErgVARs5k8FuOZZtNU0PxGfbD0+TYKbbPMRVJr2IPinE16l9ysTBoSO+4ZII8qGtCqQ9IW+Wt69ht+HbOZWXkqR+Cdzk2mu6qm9/77QFL07RC03hEnSKO5kM6Mz77ZJHYu+uhIPh61XeC7+sjGG2daPLGrIHeu6Z/UrcH6k+GOGaa2Sb445F/5Ys2c2B35Sj6epEJo2GxKLK+tkstJkVGQhLzN/YUFrn1NHF5ZDa7XIlt/NPQbH2zNkJsqR8jdel563BA/kPMUJcbkbKAiXaTVMw6zKppUd0AetGOukX2Q/ZwU7MmrVWdv+VQtIEiSDI7QlyjJFe9lJHniO+IqjoBfSD87CJ1zNS6RsVnkdA27J1CB6JjWaf+YmCnAQjBsYcEIBl9HxKRGzFppVoRuw9e+0zz+Ov1E1ts5IlfHE34fqfyStCTzt4ZBjRp8FRO9un5D9p12d5sw2oBic2u8h/4aADSfZ2EdOVSEh0nSl1Ag7tVf23Qx3hxlyaD8FdDoRXdsPTUGbyRwM/u0HnWzM1/s/97XU7FsXuDr3vrDicRN7FAVfCgIIQEFfHpThnoLvUfYmHRUh1S+GeWMGlUaBfjtS40wYe00MzkhmKs1iT5O6O1/ilCuAzj7eViOf2IG10RopVlzQC6yHEw=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB2441.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(52116014)(38350700014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|52116014|366016|38350700014|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 5GUPMFeuV+Ir3D6Cwvc1dS5egtvO+yFCEVJII/0V+QOC6QpuT9YsVWk/Za2HK1fHQlR/+Wbv5URngxmqwD4UvUeWUVfAADtYRXnUSoMGVKLrBhlq9IPqcICKrnT3TCcJGR45QqpkaIh82pIarBrxMEfni9te4Swn5j++BExE2bD/Z47vEhVSCpA4tJmURKdSeHGQsIjGWnby7HlchUqm0zbhFnJtZbqkjLmNZ5utdA7ar3tIA5h5cYDU3QNmuLFNk8WjzEtLOQWbtBMI39ruggM72hdvZKGRf+fTI0P0RZhJFLY6CFGCeWARi903qUWLsv/jhHjKmo74tKuX4PyNBPrF5PBfBRX4W1E+dDvfQ+y/a0kqEkVQjWySf1gWJHxPR6Cftk2/WwS1lQJYfaQRXh459Ce8MghGMnZCwpwAo71ShuxOSCA29SM4PI8YGyVqmr0wDEUsLBSQxGqE+u9fCB2AG+fxzLPWTFDTvg5DTCn9FEfyMeJ5rb0TOVVE+3kNGyomXeMmPghtw6U7tB7oFnlDPeNaoVI1TAKEizLzOz3OapqwqOIevs2mMGVCW1z3AxyReQg9cdkDGTfg4xNukSU83N/hJfHqrXb64lsmlOxtgeVTqw/hMJ+Bn4pGKquJVbp8CcUbioCBqKaE8W/uuvKgGdNe+/DntdYmEnD0KcR9Dmjp0bL6pZumonthlX1+CXuGa/CAsMNeq3ThKA623bwcYCiFoWPpSyIRHONsuhiWGNhabcO/RsmAOgGJqQXDxGcf8F4eDlXpvwLgui6ur3llxIZI9WAzrBLF4mrE8s0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB2441.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(52116014)(366016)(38350700014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uFXBbBiNdv5ZK4eLMl3jmCDEgkWEfLf2Z4Tvr4MRrGCzbE+KaChW+JSIZ4az?=
- =?us-ascii?Q?W+PvfxSTWANUvvc8KHbettNFwvImxOcizt0azcGyta3ECpbzmWqG6rBFAB/F?=
- =?us-ascii?Q?R9C2tp7Xa0AK6MFO/6pc7DzJH2Ju5KJ2t1pjScFgqvpL728JmgKpLdyGVsjQ?=
- =?us-ascii?Q?lcox/7Hfc+tdJwXVXRucfj1YMPK4XFmhuEYHSCbUECd9Z+1rkCdZ6FHLW6Ir?=
- =?us-ascii?Q?JINi3SsyCb+q2X9f8nKGnnb1M1Qkvg1qUhc0pgOpOgbVOCh3RVI1lTP2RYIj?=
- =?us-ascii?Q?bHZvQzaHf7PL6eK7TxwrfYxdkDmGvFZv0fyGmnygkf0MMhB19OtCuQo3/vt3?=
- =?us-ascii?Q?0vQrRprFbUcmAONS1wKv/QyLDyPWeMTAi5WisBI/nixR7shHd6LmIcaOePWN?=
- =?us-ascii?Q?lTGaalzm4O8WaSBnTIO0iOKmlGr3IkAQzVE/YqIEeKPG+YX6S/5Wc1r98hkU?=
- =?us-ascii?Q?tZiUBcPO/IHJnJ7bO/QhodV34//9iMkcAxE4Wqx+ZFVyQqlR3h675FZaiTnJ?=
- =?us-ascii?Q?PB9VVUq1A5kwkvUyKGmUiIOEnGpMB3e9t6VyMAQhvhE6snCWTPWy5g87lRd6?=
- =?us-ascii?Q?bizudiHKKmTRxs4d9WRZ9IjsVcXOnEFT9tTRusFrjBAZhWWv1dMkdjYrzLAf?=
- =?us-ascii?Q?osR0wsVnByUtcu20ssN2aEz0uIdGO0yvKVqBl0Hn6LCDjrGu1fE399hhcXMa?=
- =?us-ascii?Q?IEiYgUDdrj6NmTcKNziQFn+yNlGc+J3UhoHCeP3z+BIw3Nc+E1CE5B22h3n5?=
- =?us-ascii?Q?SQeaOzTfGiITJL9kXS+7OWOMc0CzxupF+Il9KZ+H+XUb7kxckqJ1hsuMp4I/?=
- =?us-ascii?Q?CnLQErbHQKnT6FUSzmfd6tlsWT9j6pBOxU7X9iR19kN/HkSK5gaxRSDurjzf?=
- =?us-ascii?Q?s3GOKZGGsOfVd8mTrQ+S58ctT++Tt/+n1I9HE3Xfj0+Ca7kSj+dvL1bMKX6T?=
- =?us-ascii?Q?s4fXYKetRF0ByDRxMJOd1MR6UBjwt7CaaFUnnfYr6F9TWDcLeYkM7+YuqGq1?=
- =?us-ascii?Q?3bwKxHWaMMyYJUNtTFdzijP+1lgVmO5esIiNfaxpiry2/zTOlTL9VyzYBzV6?=
- =?us-ascii?Q?uMRu55y5swHdAQNWWkKh3bPvRj/zxRqTVRULaP33hqvKsQP6NaAZiIZMpKJf?=
- =?us-ascii?Q?XHYnBsKYzujbydnRB2g28l+3hHNzMou8BqT/q7uuLkGoINNhzSEPkmQ81lYw?=
- =?us-ascii?Q?8k9bKlzjpTFVENZcDWRZtx6fqE9qFMp0Ps46bKO+r3/z+zjILG7OzR84I6Bp?=
- =?us-ascii?Q?8n/pEaETTS83l39/sk914k3nM3ToOouA1V2vsD5ml6xA6D4yRpWANq7oMVq4?=
- =?us-ascii?Q?4cL5p88VnA68sxacYvelNAOzKPPb+EAylxRLSJ+NrsNxorh1q8QhrsoA7T8J?=
- =?us-ascii?Q?NtG9pATx2orPmH/Zz4SfAPhI+HeZ1gF53WTxgvUyWM1ariYm4HcGcqCPZpGB?=
- =?us-ascii?Q?1RFOLkZrNKpyKQw6hsm5MLXu1d0j5dEN+34akULzkVBJ5ZRE8cz8TIjdMO3c?=
- =?us-ascii?Q?ERpNLB2IZzuistZsrBZFjGLFtLeuEaF++cGIji9IFzaUK8itjK1dXzBm5DRH?=
- =?us-ascii?Q?avK6kT8G9TaIoSrhDKzn10CEfik6lRCr3tPAXCJlvAAZEt8JV9yGj1PlugIN?=
- =?us-ascii?Q?FVRPEPNYxvqObNEAXscIz3UfyREydgqL2rkfQL+OeVPFsnqnyiU3zWFqmVan?=
- =?us-ascii?Q?XTeB/LFADGpoBfG6nZFyck4hGH4PG0dh7fXBvDjzjOgEmX01izZwu16I7qX9?=
- =?us-ascii?Q?co99voqMU79O9cwr0NiM1eNqdeSeCQs=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?upGQKUPI9vWRWI2S9VEeS14vmFo196bUk91fvXa22UAZ3zjZWCVfDDQD3IIy?=
+ =?us-ascii?Q?80eZE0MJ7P+vLhvV2ukZHE5dfMdQmobL0T1sWTj7xpALPfWbPSJoqhs5sX9q?=
+ =?us-ascii?Q?a7gDAAbpS259A+DL4skN49+S2Y+8Nh/VObFeCeaM01vIZ6Vcw7Qa6cavOstk?=
+ =?us-ascii?Q?/rdq/8pc/JUCs9vHuomqETUvBGKiJu6iQTqEOA0l0+klzjiyoj+HRZ8Qa0If?=
+ =?us-ascii?Q?+6UXjVF03dJFjReVid0tB4xgs/NNp61fIfH1ZbsfR0kZRdDUghpd9NwwHX0C?=
+ =?us-ascii?Q?zpB8OiAjouHPltx2qNfkWwnGYlMhrN4Y+FyxJVg4/vyntK13qnnmGjWgbmf+?=
+ =?us-ascii?Q?GVEbX0/s0atSGHa/5JFSq5C8Jau7EZp4F5bQ0Zb+TLZPCkNx/19V3bsWqC/E?=
+ =?us-ascii?Q?Oq8WTHwAtIPLl3CzfBgiSCWq9NUGS0kWzmjG3/QOcuygel0oxS/t8vxbs7RH?=
+ =?us-ascii?Q?rWKRF4aE35y2P+Tnjuj1nAwIefdf3eN8RMwecfmN7KgtIG84a34qAVQVLc14?=
+ =?us-ascii?Q?ZuPhMDQWM1qIpdvtyBoRwZWEkzkICgFwz+D2g6m1lcfBOYNuDxZBVlFQLQja?=
+ =?us-ascii?Q?nPSX9MlBrDC0UfYQwgB2EPs5erGEEVxlQN+9V+ST4ktW5q66BOq1ugMCqsD1?=
+ =?us-ascii?Q?X6PHVZ3LHxocwei/xLl+JQMhuKu7CCF2n508le1ksae5CLrHe7Q1rNiaeAw5?=
+ =?us-ascii?Q?DhCkZL0BmnqVFAVSFqm5BWfGLFHRH4zfYqmY2/TlW/tlpn/H4PdYdp7MU5jM?=
+ =?us-ascii?Q?zqHVwWO7JChfBMAxws3be1+LHUUGA5yk0PbuJLiGm0kuCdh9CzISM1afVfpf?=
+ =?us-ascii?Q?b6juGrD8gEBLbEzWsDPOmj9/09M/zeX20nduIinlREV1cCQT7obeU1s3PDyi?=
+ =?us-ascii?Q?9FCQczVCHourlHVZu/6feUa8wIuE0LU8xzz12S9NCRBjKF2VGkaiUMmecvgi?=
+ =?us-ascii?Q?k61NqEX1+31/EVXZSrPw2KQDsIDIO7lm1CpU2F+t+w3u/p3+X6h/zlESZhOF?=
+ =?us-ascii?Q?nArJVNuH0a4rmJKrnGxhD9uOCUwJ7J1EedKPtSomslYPbSiNYlLvCBH5xJ0l?=
+ =?us-ascii?Q?5ET7HEdriGc7y6xFuDrUzqyP0hkeVdj0XCHmOzcTefzsbw16+CR+hCV/8WsR?=
+ =?us-ascii?Q?UnpNeQ1aP0wfuMGM/x3rRW+UoqQACIfpQm16HFixCD5esowa/0/vJrHT222V?=
+ =?us-ascii?Q?x6PWx2LQp96eF4jSA7L9SEI5u30arLYIGQh/uUny2+B7cuHmP4mi35fpi8Zl?=
+ =?us-ascii?Q?kQsuUMYwnQtsGZSlKTMgoD9LFQxPdEdzp/Ao1wzbCpd9ISvxhJRqZF27WpEG?=
+ =?us-ascii?Q?FYWG4WCDPwr21RfQ5HHvnK9tL8cxUjoUlzI4HuBhr2A+HE25JQGP5M18BXMV?=
+ =?us-ascii?Q?dPXpLAMmfJkrUyyjId5smwEKpt4ovfoxHjOKh5m/I/z/xp5+vfrNZaYxmz8m?=
+ =?us-ascii?Q?EXR290U2DyhAeuo6du+wwAZTVH0lPxYIeNW7HVEQbsT7KtZMNFktDHwWuFkN?=
+ =?us-ascii?Q?phInbfLZ29l/oTOmX+qQBnNt3Vn/Tvr0JvHS8xdBA8lfjVMSGJTSisAT/c5A?=
+ =?us-ascii?Q?1OR59NcLl49z/fQ5sqtxoxg2/jvUtlZOAtR6DNrH1eyWRCROzUPwHIay13y9?=
+ =?us-ascii?Q?n3jk9yjok7AeW0qkGUokdwXnPmeAwesrqL6/93h+9qP1rr+hciLxZ35SJL6A?=
+ =?us-ascii?Q?5PStz33oUEAorj1+vZ8XTiTzMdLHkDsGrfCtSOhhWZgvQjvSO8j2IYndccgn?=
+ =?us-ascii?Q?Mn8KucYS3tATRimYNQb7uv7pMAsfLuM=3D?=
 X-OriginatorOrg: chipsnmedia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 25b054de-6369-4ed0-0ec6-08de9ad0f7f7
+X-MS-Exchange-CrossTenant-Network-Message-Id: f3a11892-f219-4c0e-ea75-08de9ad0fb02
 X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Apr 2026 09:25:43.8250
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Apr 2026 09:25:48.9410
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: X1OTaMHLlyHNWlMR9BQCQatPm+zS0GbACT8CQD+f+KchWwjgi5Pvs4unhRaBUr0JBunX3zMfTdfzFsxEKu1cuWKHh5Ve/fbztF9pca9d7M0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SL2P216MB2830
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZepswzAp/7i2vJU0K4sNH3Cf5K/wwcJagcVhLa0dweRDJs8TlcW+KsyVsIsiZOl1kggwlwDs4yqB6rpTIlFvK2jprzPsfNQ7x/bGQZYf+HY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE1P216MB1414
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_022559_538180_830007F1 
-X-CRM114-Status: UNSURE (   8.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260415_022559_899993_8DF3964E 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,29 +148,231 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The YUV24 format is missing an entry in the v4l2_format_info().
-The YUV24 format is the packed YUV 4:4:4 formats with 8 bits
-per component.
+Add the Chips and Media wave633 video codec node on IMX95 SoCs.
 
-Fixes: 0376a51fbe5e ("media: v4l: Add packed YUV444 24bpp pixel format")
 Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 ---
- drivers/media/v4l2-core/v4l2-common.c | 1 +
- 1 file changed, 1 insertion(+)
+ .../boot/dts/freescale/imx95-15x15-evk.dts    |  7 +++-
+ .../boot/dts/freescale/imx95-15x15-frdm.dts   |  5 +++
+ .../boot/dts/freescale/imx95-19x19-evk.dts    | 10 ++++++
+ .../dts/freescale/imx95-19x19-verdin-evk.dts  | 10 ++++++
+ .../dts/freescale/imx95-phycore-fpsc.dtsi     | 10 ++++++
+ .../dts/freescale/imx95-toradex-smarc-dev.dts |  5 +++
+ .../dts/freescale/imx95-toradex-smarc.dtsi    |  5 +++
+ .../boot/dts/freescale/imx95-tqma9596sa.dtsi  |  7 +++-
+ arch/arm64/boot/dts/freescale/imx95.dtsi      | 35 +++++++++++++++++++
+ 9 files changed, 92 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-core/v4l2-common.c
-index 554c591e1113..55bcd5975d9f 100644
---- a/drivers/media/v4l2-core/v4l2-common.c
-+++ b/drivers/media/v4l2-core/v4l2-common.c
-@@ -281,6 +281,7 @@ const struct v4l2_format_info *v4l2_format_info(u32 format)
- 		{ .format = V4L2_PIX_FMT_Y212,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_Y216,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_YUV48_12, .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 1, .bpp = { 6, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_YUV24,   .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 1, .bpp = { 3, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_MT2110T, .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 2, .comp_planes = 2, .bpp = { 5, 10, 0, 0 }, .bpp_div = { 4, 4, 1, 1 }, .hdiv = 2, .vdiv = 2,
- 		  .block_w = { 16, 8, 0, 0 }, .block_h = { 32, 16, 0, 0 }},
- 		{ .format = V4L2_PIX_FMT_MT2110R, .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 2, .comp_planes = 2, .bpp = { 5, 10, 0, 0 }, .bpp_div = { 4, 4, 1, 1 }, .hdiv = 2, .vdiv = 2,
+diff --git a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
+index d4184fb8b28c..2c841e476d17 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
+@@ -215,7 +215,7 @@ rsc_table: rsc-table@88220000 {
+ 			no-map;
+ 		};
+ 
+-		vpu_boot: vpu-boot@a0000000 {
++		vpu_boot: memory@a0000000 {
+ 			reg = <0 0xa0000000 0 0x100000>;
+ 			no-map;
+ 		};
+@@ -1157,6 +1157,11 @@ &wdog3 {
+ 	status = "okay";
+ };
+ 
++&vpu {
++	memory-region = <&vpu_boot>;
++	sram = <&sram1>;
++};
++
+ &xcvr {
+ 	clocks = <&scmi_clk IMX95_CLK_BUSWAKEUP>,
+ 		 <&scmi_clk IMX95_CLK_SPDIF>,
+diff --git a/arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts b/arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts
+index ca1c4966c867..106186c75f9c 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts
++++ b/arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts
+@@ -962,3 +962,8 @@ &usdhc3 {
+ &wdog3 {
+ 	status = "okay";
+ };
++
++&vpu {
++	memory-region = <&vpu_boot>;
++	sram = <&sram1>;
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
+index aaa0da55a22b..0ee5f9700fd3 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
+@@ -76,6 +76,11 @@ linux_cma: linux,cma {
+ 			linux,cma-default;
+ 			reusable;
+ 		};
++
++		vpu_boot: memory@a0000000 {
++			reg = <0 0xa0000000 0 0x100000>;
++			no-map;
++		};
+ 	};
+ 
+ 	flexcan1_phy: can-phy0 {
+@@ -1142,3 +1147,8 @@ &tpm6 {
+ 	pinctrl-0 = <&pinctrl_tpm6>;
+ 	status = "okay";
+ };
++
++&vpu {
++	memory-region = <&vpu_boot>;
++	sram = <&sram1>;
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-verdin-evk.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-verdin-evk.dts
+index 2b0ff232f680..c35ad2466b19 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-19x19-verdin-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx95-19x19-verdin-evk.dts
+@@ -65,6 +65,11 @@ linux_cma: linux,cma {
+ 			linux,cma-default;
+ 			reusable;
+ 		};
++
++		vpu_boot: memory@a0000000 {
++			reg = <0 0xa0000000 0 0x100000>;
++			no-map;
++		};
+ 	};
+ 
+ 	reg_1p8v: regulator-1p8v {
+@@ -693,3 +698,8 @@ pinctrl_usdhc3: usdhc3grp {
+ 			<IMX95_PAD_SD3_DATA3__USDHC3_DATA3		0x138e>;
+ 	};
+ };
++
++&vpu {
++	memory-region = <&vpu_boot>;
++	sram = <&sram1>;
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi b/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi
+index 7519d5bd06ba..b713d4159e35 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi
+@@ -59,6 +59,11 @@ linux,cma {
+ 			size = <0 0x3c000000>;
+ 			linux,cma-default;
+ 		};
++
++		vpu_boot: memory@a0000000 {
++			reg = <0 0xa0000000 0 0x100000>;
++			no-map;
++		};
+ 	};
+ };
+ 
+@@ -654,3 +659,8 @@ &usdhc3 { /* FPSC SDIO */
+ 	pinctrl-0 = <&pinctrl_usdhc3>;
+ 	pinctrl-names = "default";
+ };
++
++&vpu {
++	memory-region = <&vpu_boot>;
++	sram = <&sram1>;
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc-dev.dts b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc-dev.dts
+index 5b05f256fd52..5bdfdab8647e 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc-dev.dts
++++ b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc-dev.dts
+@@ -275,3 +275,8 @@ &usb3_phy {
+ &usdhc2 {
+ 	status = "okay";
+ };
++
++&vpu {
++	memory-region = <&vpu_boot>;
++	sram = <&sram1>;
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
+index 5932ba238a8a..10e6d1fbb8e2 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
+@@ -156,6 +156,11 @@ linux_cma: linux,cma {
+ 			alloc-ranges = <0 0x80000000 0 0x7f000000>;
+ 			linux,cma-default;
+ 		};
++
++		vpu_boot: memory@a0000000 {
++			reg = <0 0xa0000000 0 0x100000>;
++			no-map;
++		};
+ 	};
+ };
+ 
+diff --git a/arch/arm64/boot/dts/freescale/imx95-tqma9596sa.dtsi b/arch/arm64/boot/dts/freescale/imx95-tqma9596sa.dtsi
+index 456129f4a682..a7b5b517e021 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-tqma9596sa.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95-tqma9596sa.dtsi
+@@ -40,7 +40,7 @@ linux_cma: linux,cma {
+ 			linux,cma-default;
+ 		};
+ 
+-		vpu_boot: vpu-boot@a0000000 {
++		vpu_boot: memory@a0000000 {
+ 			reg = <0 0xa0000000 0 0x100000>;
+ 			no-map;
+ 		};
+@@ -801,3 +801,8 @@ pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
+ 			   <IMX95_PAD_SD2_VSELECT__USDHC2_VSELECT		0x51e>;
+ 	};
+ };
++
++&vpu {
++	memory-region = <&vpu_boot>;
++	sram = <&sram1>;
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+index 55e2da094c88..de8fb19c7e3b 100644
+--- a/arch/arm64/boot/dts/freescale/imx95.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+@@ -2005,6 +2005,41 @@ vpu_blk_ctrl: clock-controller@4c410000 {
+ 			assigned-clock-rates = <133333333>, <667000000>, <500000000>;
+ 		};
+ 
++		vpu: video-codec@4c4c0000 {
++			compatible = "nxp,imx95-vpu";
++			reg = <0x0 0x4c4c0000 0x0 0x10000>;
++			clocks = <&scmi_clk IMX95_CLK_VPU>,
++				 <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
++			clock-names = "core", "vpublk";
++			power-domains = <&scmi_devpd IMX95_PD_VPU>,
++					<&scmi_perf IMX95_PERF_VPU>;
++			power-domain-names = "vpu", "perf";
++			#cooling-cells = <2>;
++			#address-cells = <2>;
++			#size-cells = <2>;
++			ranges;
++
++			interface@4c480000 {
++				reg = <0x0 0x4c480000 0x0 0x10000>;
++				interrupts = <GIC_SPI 299 IRQ_TYPE_LEVEL_HIGH>;
++			};
++
++			interface@4c490000 {
++				reg = <0x0 0x4c490000 0x0 0x10000>;
++				interrupts = <GIC_SPI 300 IRQ_TYPE_LEVEL_HIGH>;
++			};
++
++			interface@4c4a0000 {
++				reg = <0x0 0x4c4a0000 0x0 0x10000>;
++				interrupts = <GIC_SPI 301 IRQ_TYPE_LEVEL_HIGH>;
++			};
++
++			interface@4c4b0000 {
++				reg = <0x0 0x4c4b0000 0x0 0x10000>;
++				interrupts = <GIC_SPI 302 IRQ_TYPE_LEVEL_HIGH>;
++			};
++		};
++
+ 		jpegdec: jpegdec@4c500000 {
+ 			compatible = "nxp,imx95-jpgdec", "nxp,imx8qxp-jpgdec";
+ 			reg = <0x0 0x4C500000 0x0 0x00050000>;
 -- 
 2.31.1
 
