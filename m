@@ -4,86 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99D7EFA0C37
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 06:43:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01CD2FA0C39
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 06:45:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r6HjAjcgcE6PNwReVnTSdYqGCc9ebXbnfh6z+tasmI8=; b=3qEPTu0mhkPKCHA5tdWWAJZOCj
-	wVBrgxXLpKO/q7bHL6BKfoB2YPjPPZtfxzQJp5OjawvWm9LMN3hYGlKGcEZGn0tWzM7Oc5sX1HAee
-	+UL0Xk901njiYHyexYCYe4hqds7SP/yMOMzdEuG34qEZ6UyzzbXIltjW9Rb0SpF+t3ZlLDL3ix8r8
-	rANZ9k5cCREiRIEG+Gf4ME45wWuLdbFkecXDX6r0RrATL3yxvNynxraZxT1nWqvZ2IJn25dcAGutV
-	R+Yh5GQf0uIl4vwNAn4mukcXfJ5VQ3DZJ2qXjQm1nutjIjpOb8BjkenruMfFLfgmEu95vOmlKY0mB
-	jhMemIKA==;
+	bh=UCgL6mJxUiGeqc/BW7ydGhqH7n8cCtydiLJBoRAyq0E=; b=xBFQrYLKlMsxLRWC+vMikKBuk6
+	UML1oP/G/4QZHf2yNlkK3zHD11EMikwdKBqJohFb6hdQnYPHcvJsYQ24VUm2oqylees8z3FOie2by
+	PeELOWyySmI1PlK75XSlu648b9kB135SgTd9tm2v2AdHM0Cxl/QhCf/FEsFWNx/T9fO8dYlaslqcd
+	2WgejagWrBgVip0hdcBO89yx7QtkcM3DrwbKJ+P+qPTBi+TiqGxHYVM6dyCtSw/YG6OajFhwHTMkb
+	0ff0FIDldjeDW+h1Heuv4pHdArGTYOEvrW0e0V7pt/eH/t8sr7pyylgthkOwM+IBfo+UZskTOw3s7
+	PFz861RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCtyI-00000000fTI-2ooI;
-	Wed, 15 Apr 2026 06:43:34 +0000
+	id 1wCtzp-00000000fia-3lnj;
+	Wed, 15 Apr 2026 06:45:09 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCtyG-00000000fSr-102T;
-	Wed, 15 Apr 2026 06:43:33 +0000
+	id 1wCtzn-00000000fi0-29g9
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Apr 2026 06:45:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7742F403A8;
-	Wed, 15 Apr 2026 06:43:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DC3EC19424;
-	Wed, 15 Apr 2026 06:43:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2A4C6444BD;
+	Wed, 15 Apr 2026 06:45:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F4B4C19424;
+	Wed, 15 Apr 2026 06:45:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776235411;
-	bh=3l4dmsvsnQyxf5GbIefFkBoRTtzYmP3a/BJez1WWJU0=;
+	s=k20201202; t=1776235507;
+	bh=ps1DNtyxN20gqO7ILcfduSjpq3aal8krIa2ehlwKrFI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NmG1V1Qh8X51h9yFFz/RGI1o84gKp7RHsiOopESELjzBD3f9G2epzFGKqLdlrBBvM
-	 85BRNDv9YgePWTAd/mWHoOfcVqkZ9t54hSGyPy5okYzBxuCsVMlJue+y2wSJhbVhIb
-	 lb1DnIaWF178QVSBg4jx+V4/OFjaBNwtpoh3Tr4lJfjGJizmbNJlvTEiLyH2ILDjm+
-	 9pOpGMDHM1wUUHlqTgOAicNu6S/pI86hh/KXo0HpBVSU8mvpdrsn1yE6nfT23v28aD
-	 LJpZNPtQ4Ce9RQkXbclJOLPdj0XzY6SczhKB/CIS9XrbEQGTKPU35O7cIRgQtYcfwt
-	 Wv24vurrRB4xg==
-Message-ID: <0758843e-8f75-4c82-b9c0-25fab502e62f@kernel.org>
-Date: Wed, 15 Apr 2026 08:43:21 +0200
+	b=XN4kjV4TMbr2tRNTxvprounJxy64uunRRmLi6IVj3zTNtOpZheDcIdHFBzDrbqSXS
+	 7yeBtvlJygyPc+HW6e5EMMBEEEvpOkKd+S106TYjaNl/iJkPoazIWJnll1Z4n+K8eS
+	 lx6waQLIfwsOFMIjAf5Y6mDF57iE/627V15dFYgwZKfYP+p0xvAbPEUz1nKY2HMs5c
+	 zYUERdkXJ9ei+2gIgJ8FsjHplpgwplA4lzrgi/Nes0CKtHXUv8YfnwyAaFvRfrZZjM
+	 fjwQ9HB5RLrhC/4/bW1rgDADYDWqcJ9M3t65RnEPFFUbNdMSaSLFc918TUibkE/1BW
+	 cZD5up7RC8oeg==
+Message-ID: <64dd416e-9d16-4200-9f17-7f855b9378e9@kernel.org>
+Date: Wed, 15 Apr 2026 08:45:03 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [patch 07/38] treewide: Consolidate cycles_t
-To: Thomas Gleixner <tglx@kernel.org>, LKML <linux-kernel@vger.kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, x86@kernel.org,
- Lu Baolu <baolu.lu@linux.intel.com>, iommu@lists.linux.dev,
- Michael Grzeschik <m.grzeschik@pengutronix.de>, netdev@vger.kernel.org,
- linux-wireless@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>,
- linux-crypto@vger.kernel.org, Vlastimil Babka <vbabka@kernel.org>,
- linux-mm@kvack.org, David Woodhouse <dwmw2@infradead.org>,
- Bernie Thompson <bernie@plugable.com>, linux-fbdev@vger.kernel.org,
- Theodore Tso <tytso@mit.edu>, linux-ext4@vger.kernel.org,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Marco Elver <elver@google.com>,
- Dmitry Vyukov <dvyukov@google.com>, kasan-dev@googlegroups.com,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>,
- Thomas Sailer <t.sailer@alumni.ethz.ch>, linux-hams@vger.kernel.org,
- "Jason A. Donenfeld" <Jason@zx2c4.com>,
- Richard Henderson <richard.henderson@linaro.org>,
- linux-alpha@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>,
- Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev,
- Geert Uytterhoeven <geert@linux-m68k.org>, linux-m68k@lists.linux-m68k.org,
- Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
- linux-openrisc@vger.kernel.org, Helge Deller <deller@gmx.de>,
- linux-parisc@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>,
- linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>,
- linux-riscv@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>,
- linux-s390@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
- sparclinux@vger.kernel.org
-References: <20260410120044.031381086@kernel.org>
- <20260410120318.045532623@kernel.org>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <20260410120318.045532623@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v3 2/8] dt-bindings: arm: Add zx297520v3 board binding
+To: =?UTF-8?Q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Linus Walleij <linusw@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>
+References: <20260414211215.152850-1-stefandoesinger@gmail.com>
+ <20260414211215.152850-3-stefandoesinger@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260414211215.152850-3-stefandoesinger@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_234332_339072_0246AB49 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20260414_234507_595631_544384A6 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,58 +118,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-Le 10/04/2026 à 14:19, Thomas Gleixner a écrit :
-> Most architectures define cycles_t as unsigned long execpt:
+On 14/04/2026 23:12, Stefan Dösinger wrote:
+> Add a compatible for boards based on the ZTE zx297520v3 SoC.
 > 
->   - x86 requires it to be 64-bit independent of the 32-bit/64-bit build.
-> 
->   - parisc and mips define it as unsigned int
-> 
->     parisc has no real reason to do so as there are only a few usage sites
->     which either expand it to a 64-bit value or utilize only the lower
->     32bits.
-> 
->     mips has no real requirement either.
-> 
-> Move the typedef to types.h and provide a config switch to enforce the
-> 64-bit type for x86.
-> 
-> Signed-off-by: Thomas Gleixner <tglx@kernel.org>
+> Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
 > ---
->   arch/Kconfig                       |    4 ++++
->   arch/alpha/include/asm/timex.h     |    3 ---
->   arch/arm/include/asm/timex.h       |    1 -
->   arch/loongarch/include/asm/timex.h |    2 --
->   arch/m68k/include/asm/timex.h      |    2 --
->   arch/mips/include/asm/timex.h      |    2 --
->   arch/nios2/include/asm/timex.h     |    2 --
->   arch/parisc/include/asm/timex.h    |    2 --
->   arch/powerpc/include/asm/timex.h   |    4 +---
->   arch/riscv/include/asm/timex.h     |    2 --
->   arch/s390/include/asm/timex.h      |    2 --
->   arch/sparc/include/asm/timex_64.h  |    1 -
->   arch/x86/Kconfig                   |    1 +
->   arch/x86/include/asm/tsc.h         |    2 --
->   include/asm-generic/timex.h        |    1 -
->   include/linux/types.h              |    6 ++++++
->   16 files changed, 12 insertions(+), 25 deletions(-)
+>  .../devicetree/bindings/arm/zx29.yaml         | 20 +++++++++++++++++++
+
+Please use scripts/get_maintainers.pl to get a list of necessary people
+and lists to CC. It might happen, that command when run on an older
+kernel, gives you outdated entries. Therefore please be sure you base
+your patches on recent Linux kernel.
+
+Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+people, so fix your workflow. Tools might also fail if you work on some
+ancient tree (don't, instead use mainline) or work on fork of kernel
+(don't, instead use mainline). Just use b4 and everything should be
+fine, although remember about `b4 prep --auto-to-cc` if you added new
+patches to the patchset.
+
+You missed at least devicetree list (maybe more), so this won't be
+tested by automated tooling. Performing review on untested code might be
+a waste of time.
+
+Please kindly resend and include all necessary To/Cc entries.
+
+>  MAINTAINERS                                   |  1 +
+>  2 files changed, 21 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/arm/zx29.yaml
 > 
-> --- a/arch/powerpc/include/asm/timex.h
-> +++ b/arch/powerpc/include/asm/timex.h
-> @@ -11,9 +11,7 @@
->   #include <asm/cputable.h>
->   #include <asm/vdso/timebase.h>
->   
-> -typedef unsigned long cycles_t;
-> -
-> -static inline cycles_t get_cycles(void)
-> +ostatic inline cycles_t get_cycles(void)
+> diff --git a/Documentation/devicetree/bindings/arm/zx29.yaml b/Documentation/devicetree/bindings/arm/zx29.yaml
+> new file mode 100644
+> index 000000000000..717ca6413993
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/arm/zx29.yaml
+> @@ -0,0 +1,20 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/arm/zx29.yaml#
 
-What is 'ostatic' ?
+Bindings are per vendor, so zte.
 
->   {
->   	return mftb();
->   }
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: ZTE zx29
+> +
+> +maintainers:
+> +  - Stefan Dösinger <stefandoesinger@gmail.com>
+> +
+> +properties:
+> +  $nodename:
+> +    const: "/"
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - const: zte,zx297520v3
+
+Incomplete. Neither board nor SoC can be alone.
+
+
+Best regards,
+Krzysztof
 
