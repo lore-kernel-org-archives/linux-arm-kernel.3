@@ -4,137 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C911F41996
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 12:05:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07F5FF41997
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 12:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MwBet7bCW1wD+xetcr91fdOTEjQ1zx9HiPSuxCPkglw=; b=Qc1pU8eEbxAIrlYeaXEOGyli1w
-	m5ZVprg5tVhCKf2nySYWAUcOp04T/g/tD/qz5SSkGISjSa3HQ2ouaa/pfr5vO+WgiHEPehabN+yjY
-	wpYEY9B4IiAzaEfScZSfrOMsedXCUZvhH6dcHy/kczkaaiVTht7c2TuAYV7XRnKEzwbBy+lPybuG4
-	gkdC6anY+QegEDPJLlv/1NTGMLU0Q0Km9I6CjIABLL7U8wtozI8v3jlIuBwA+8fxlPi927J7Ch/31
-	y0WCbuWyJrK5Aa1o8aaww+IMVFKBX0Jc357Er8FHk9QUE4s7iHfnQd9ft0vSLF0nHWfiXIiaLD+Ic
-	w3Er0y+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pkt1egPRcD6Dn/oR8mtcCdsbsUP7Y0ia3uYxCdpqqkk=; b=XKVek1aJ6Z09+7iEsb8wmuaKod
+	n7JXJ9gfRc7j3IGvuClQjEgKNmUOlukarBttV/KBWxXrvXkBb73/MO9q64J5bb6K5OgnLQBCzKI2K
+	E5+HCCMho2k01bcg8JyQ/Jn96AXqsHrBPNMJ/+64W3YKnqKqxvPRA6xv2mdwGQH82cnAFY+Fl/xi0
+	HunJ9CyTWlXITKvtE2G8PsiQd0Gr+WPKp/WGeyzsghFFkQsHfDPqjOAEStZC75nDLOFaYACUE52zG
+	7+mue9fjmPvfwFKvWA0p4+DKqkPbeX3wyWt98SDJ3gwdx/V88lf7xlicwZRX2uu0FFVLRP+5iPN3M
+	32EP8abw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCyzg-000000015w3-22xO;
-	Wed, 15 Apr 2026 12:05:20 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wCz4H-000000016CD-2zK6;
+	Wed, 15 Apr 2026 12:10:05 +0000
+Received: from mail-northeuropeazon11021118.outbound.protection.outlook.com ([52.101.65.118] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCyze-000000015vE-0dSH
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 12:05:19 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63F9ICjV1566849
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Apr 2026 12:05:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	MwBet7bCW1wD+xetcr91fdOTEjQ1zx9HiPSuxCPkglw=; b=jPz3LLVthE6+CGE/
-	gy7uP4dKxMIqzoJ7+O8aofe0Ze2FgwRvwfKGr9WWT3VLxRmTVt9p3byh/i0F/ptf
-	MI/ZzD6Cqw6d9Ko+kMAIJEttWUrs+gxzPiOBSA34Pd+6zBLlCSIJBZ7+guo+D8xi
-	Mhk4+PxH62HNZi73yG/2rGiRVS9lYFg1cqS9TeQiRqcvqiVro73pN0NAZeCGr1dL
-	CNwDYsER9B708PCZjtbLGztR+EZBP41bfvhpYC9f5SJKkB0Ij4C9uHs/jDj602NM
-	Y27GXqmjyKnutAY5M9yzLBW+bghAeNIknBKvKJucm1YWW1gI81kWRGN9bJ2KOjCE
-	WRKgLg==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dj7wv0j8b-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Apr 2026 12:05:16 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2b24e9b4d82so55588265ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Apr 2026 05:05:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1776254715; x=1776859515; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=MwBet7bCW1wD+xetcr91fdOTEjQ1zx9HiPSuxCPkglw=;
-        b=WU8T2Jql8UrdN8OHQuVxQy+exVpKvQi5MgejEOCBQyUhRHfE7h8E1OgfGJcZbI9CzK
-         4voiOYkPVAlayLay7aiJlJv1Wzl/ZQVXz+jJOZgs2o9iBz1TAMapGfF4rMbyXOxNMu+x
-         /5qmZlWU4/RmC5XrIQvKCDiEKD1Wzo+vf/oAVR9T/bOIQpEMkBKOIF04P4dmjnxZCgNe
-         xrL4seywTwwxFX5ge2hDNL2BHONZfBxmdvg8Rf/oamGmnZPXcK5Csg7Ol6sSqrNSZN3U
-         85/MEy8ZpRNgDthHuKTgrACjl0nRkDbKeKalnRBUl2CmCnSqvpqWkG47LBrGxTb1Clkc
-         jDPQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776254715; x=1776859515;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=MwBet7bCW1wD+xetcr91fdOTEjQ1zx9HiPSuxCPkglw=;
-        b=RwJvF1dU6Kby1CBmj/YQ3/t5yyMJXExyz7PjvxsIaadRpykv+qamXUgmxJ0HqoUcOu
-         vCmAJYJZY1EQPn9skfcDSbihkXUg4+i2qJX/ycCPYoReftXAJq/kBL4mi0vws8XqsigF
-         HT80ztqOfxQPSwCYY1Yu0xyjFeqlVEFifrD/5W9LA58Ql18usxFOl2pr2Uju2s2AKekx
-         ZU6Ui3NVdmP+lQWSJJhGyFAuwE/KpKw/N+lyDQcC4PnDOiBXAtS5E1ScIRfYuL/6WJ7v
-         L44PEhIJ5WQo3PxfPbPKAikZquWaZ+kuv3N36sx8YBN0y2FOXDSks+JrKcmVSO6g0r9d
-         EIbw==
-X-Forwarded-Encrypted: i=1; AFNElJ/+7suSbiak1rLuRQk6DI9XOLpIvn0jyRFxk43onM+1ca27rF9MdnPNQT/roOH00lssgYRKqCVvMtQH7Fc2CQP3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxr2hLnCNOGrUYOdI6d6QUQTUvOnf8L6mNG7orLZGdIFmH8MzV3
-	zlic6KId1FvDwl7L0dLB6w+EPxYQ1Z0AOoBw45+KHLTOtGDo2c/DIsrhcCvl5fUDw6SIRPokjKU
-	Ib+6lSop78dO2oEFcK1CacMtewO+Zqzb6YEtEDgH/ejFV/+HHuT7xggG7RHs4weUgHlb596bcEJ
-	0o4TUG3gnBfIpj
-X-Gm-Gg: AeBDieuxSmKpWUA5wz9WYQSTMQPabnJYqc4eDvGgWyL9BLsvsw34VBbbtrRslNSnpLt
-	Nz2ATCEhDD59frhKmHvwQ3YLJbV8eFdmpzkgGS5oBQhTJ6oiFBtgw4I9apKyXXSZu7I/58rTy+D
-	9xV2mZGl17Of+r0AjQzJtjkhfY1cAa0NuwbOhZ2kmPogF0gHBn3jXQinRVRAX3CLgwQ4UfualFu
-	zlEH2WfIc1/qXMZiN9ReOG07SEydjB7oirlL8Lpy/Zsa/SnaBHZh8gHJt7v+XY1tVrTo5Lrgrh2
-	SkIRRHUOJqXu5KHq39jnXWg8gPl64SxJd2Aj7nFySjyIb1BBvQoctP7RptrL1Ca8GoZ6MpRJS3b
-	KikmgsdcLuMpWszsO05ziv6q4C/3x1Xcscz1wWym1Cd7Hi8pXmh4DTA+MfWFntDxLbkpSmYPL3m
-	aWyOKNCuwnxQ==
-X-Received: by 2002:a17:903:2acb:b0:2b4:6122:10f8 with SMTP id d9443c01a7336-2b4612213ecmr86207255ad.21.1776254714391;
-        Wed, 15 Apr 2026 05:05:14 -0700 (PDT)
-X-Received: by 2002:a17:903:2acb:b0:2b4:6122:10f8 with SMTP id d9443c01a7336-2b4612213ecmr86206855ad.21.1776254713476;
-        Wed, 15 Apr 2026 05:05:13 -0700 (PDT)
-Received: from [10.133.33.81] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b4780ef673sm22165245ad.17.2026.04.15.05.05.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Apr 2026 05:05:12 -0700 (PDT)
-Message-ID: <c8db21cb-f02c-4628-8f38-f85fe5abdaf1@oss.qualcomm.com>
-Date: Wed, 15 Apr 2026 20:05:07 +0800
-MIME-Version: 1.0
+	id 1wCz4F-000000016AF-2Zuj;
+	Wed, 15 Apr 2026 12:10:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sRcxhGpDKA7iH21rymSJMimLYn9Ezk2iAWpj1Ni8sHkq1zL7hSiGLvXPyX08EolFA/1oVsqQBvLw/kV0b1W8TaU63sf5Zl6TCVt9LRl2EXWMFbp0N4QFuMZImAai8EJNKj5RkyCUZtUt9aIW8E0RHmGFIpH62NcTJoW8lFY7T89KcV2OpY7bJdv3V7CO54a+ohPPPnazf58Q15wYWKXmdVIQG2PzYuc9SiRoo2gTdZWc4MNKK+18tWhlUHKhYBGkdoEfADRmR71Sbqj1gln9NT5cJAzTPOjP7k1NyvWnfCs0dGgcWHXjlspjUMQ0TvpVIWmf3EXMkiWmKatJmKTQ/Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pkt1egPRcD6Dn/oR8mtcCdsbsUP7Y0ia3uYxCdpqqkk=;
+ b=X6pmCsQHlPGeN8DU24g8ioCISMAxa8O09a4AK5UxZTP69d8h23msKRTtfzaTb5o1bWvXNR+RyPTpFJc1LtaBJlnAJQkRFI+cjfjbWdPNKrkhNTQKbsSlt9Cdi7wp2ktCmivwScy5mYa16w0cRgzhDdjDEthX901k20VzHKYEgDII1V/nUnGmNBxUcEWmcABkeTHxco6La6G/E50DHBRS3V9hKExidUU+FK5f3z/uw/7LYCoKikqlvgPo5IZcJfcRI8Da3yAp2Yt7UUEpNld3AQmkegCJFZGiv6HlDuAR+0GC+zEtRAxmMCgM8Tk09BeLEpJyHVWI1ZsFDmmCUpnTIA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=genexis.eu;
+ dkim=pass header.d=genexis.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=genexis.eu;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pkt1egPRcD6Dn/oR8mtcCdsbsUP7Y0ia3uYxCdpqqkk=;
+ b=YYdb1lFV2lDdqcGgRsg9VWTnle3kdyclWlwNkbh67pmCtYuLc94NLPPBYIYXI35o010oDC8jq856NbX3SD26yamOBlERrBLt1WfNQ6BqE/ynimgCqp2jg2aLqzSS6yCURlVehFHfMwiylR2nAq7je1a20IAXjLvi7uewQmmk9bt8u7+IbkUScZeLqTVMnuzUY+UgsaZhGVfx64u8d/hwZhmMBSX5+6vIJNGsSXGSt4XnXjtJ77qdE72gjfvNBysSjj8KA0iVLuF7ZCxLRd+J10+TygCsuLdgh4EgFF+FEVjO3YHpaveAD3Rl4roBINiwLTsBSiiYa8kC/dcud79eVw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=genexis.eu;
+Received: from DB9PR08MB6697.eurprd08.prod.outlook.com (2603:10a6:10:2ad::14)
+ by DU5PR08MB10823.eurprd08.prod.outlook.com (2603:10a6:10:528::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Wed, 15 Apr
+ 2026 12:09:52 +0000
+Received: from DB9PR08MB6697.eurprd08.prod.outlook.com
+ ([fe80::bdec:3e95:6614:441f]) by DB9PR08MB6697.eurprd08.prod.outlook.com
+ ([fe80::bdec:3e95:6614:441f%7]) with mapi id 15.20.9769.046; Wed, 15 Apr 2026
+ 12:09:52 +0000
+Message-ID: <ab5bab39-88be-4f58-aee6-2bb0dc49a732@genexis.eu>
+Date: Wed, 15 Apr 2026 14:09:51 +0200
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 6/9] coresight: etm3x: change drvdata->spinlock type to
- raw_spin_lock_t
-To: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: suzuki.poulose@arm.com, mike.leach@arm.com, james.clark@linaro.org,
-        alexander.shishkin@linux.intel.com, leo.yan@arm.com
-References: <20260413142003.3549310-1-yeoreum.yun@arm.com>
- <20260413142003.3549310-7-yeoreum.yun@arm.com>
+Subject: Re: [PATCH v2] arm64: dts: airoha: en7581: Enable spi nand controller
+ for EN7581 EVB
+To: "Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>,
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org
+References: <20250225-en7581-snfi-probe-fix-v2-1-92e35add701b@kernel.org>
+ <abBPufvrG8I8UP69@lore-desk>
+ <CA+_ehUyfP7bohsSZEbjp-KLxD084NcR+2SmhDNrpoKQE=BiHcQ@mail.gmail.com>
 Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20260413142003.3549310-7-yeoreum.yun@arm.com>
+From: Benjamin Larsson <benjamin.larsson@genexis.eu>
+In-Reply-To: <CA+_ehUyfP7bohsSZEbjp-KLxD084NcR+2SmhDNrpoKQE=BiHcQ@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: YtxYO9gv7uWQ-hL6FJC9MrPGuxwIlB2X
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE1MDExMiBTYWx0ZWRfXw3gAKSvjRaPm
- ALo4ShWRhQ66t8uDL/rWkC+j3hToG1KX1QtSkYA33Cg0OvWx/ps6UnWbDfViimdOquIJEo0Tv1h
- oJjjoUnnmIptEiLF/ZqWYQdMpsnXlu4Zy0r2Hsv1TTGEgiBvWixYyKvPRaxYqGVUshh+IUiIGPQ
- AFTyyct86nX0E36eJ2ua2Wq5YyW30+IUHeuPZNuqBJUtJmwel//CObSO4bjtRoLONZQeEr1R43b
- CRGqTdMN1UpGSYN4Mh1FVJ7ijDe5tgwYUq95rBDUGwlDYFg7Q8w6yuPo9FUcq5ceFNGG8rGLnZy
- y2/OfROdzsqofz27leOtEXLkeiD+DD6SYAYSIPXcRpirp4UjMzD0wUJfjB5humjscxmBo21boXF
- h0XyG3fgVopVQAMb4S9sewotOJXu17HfO7kI6NQlyMSr22ggXG+Nvzd3oG9PJyMYQoxo850nH2z
- 6qPSdQdkaZfOTT6Gi4Q==
-X-Authority-Analysis: v=2.4 cv=GYgnWwXL c=1 sm=1 tr=0 ts=69df7efc cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=EUspDBNiAAAA:8 a=7CQSdrXTAAAA:8 a=_2Kl_f2i-WPWCSh5FmAA:9 a=QEXdDO2ut3YA:10
- a=GvdueXVYPmCkWapjIL-Q:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-ORIG-GUID: YtxYO9gv7uWQ-hL6FJC9MrPGuxwIlB2X
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-14_04,2026-04-13_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 phishscore=0 lowpriorityscore=0 malwarescore=0 spamscore=0
- clxscore=1015 priorityscore=1501 suspectscore=0 adultscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604150112
+X-ClientProxiedBy: GVX0EPF0005F673.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:158:400::3b0) To DB9PR08MB6697.eurprd08.prod.outlook.com
+ (2603:10a6:10:2ad::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR08MB6697:EE_|DU5PR08MB10823:EE_
+X-MS-Office365-Filtering-Correlation-Id: a5b8323f-22d7-4815-496d-08de9ae7e64e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|10070799003|7416014|376014|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: RXbFx1LTTgLYJSWI82qSrUSOdlDq/SJXuP9SaQcl6iFXzMnphONcu433Fnzzg1ZRegWoWmHEjZHta9ZWdFboej0VWBoVl+sHqtGFNc9s8hjBARdbZZaQFcXySitEZ0nwf1j8xYAL8yudD0L+AaEpfkDhckZoJdtXFNJW4BqVBoBD0UoXNyIkE2jywDzr8s2AdsHzpPI+2GsC2jZKdpHTp1ubHh/+ejQ/kaxhqUnV0oG4jyCy9+V0UPACmj7A8NC6o9EKb3JMiwFZ6zptz5Lfujc6i1aTCMohicJ2i5mmhHJypTpnrVzXeToK5w4Orci7GjdynmHMQb0C0qcXL2mYYQxAQX0H7SiPdjaTV3aTHkXzF+3lvwcMKOxszTC96VctrmrqwuHX47t/jAaBBBtUHQPMKh2/DRLZqH46pU7gVvMikrJUtYDInzL76e2+OCQ7bjkN5PHblc3HFP9iXkcD3hSyBsV7FohpXjqzow5zOWLsedoKE9yAB45T/5RC1OsZbaC4ic1gd+znbiwcAMitz7DyUB3jYrdKnfnKVzRQb1AJp7OSXHz9gPwFWCtXqX7n2mFetIR2NHMLAFriZV21/NzZCW+ccp4csRc5g+/EYYZ86ExczkOpDsw1Si2TyFzo49xGBdAs6jABfKxVJaT3lHBskEE5+p7d2J9IfY5YmfQ2WeeF/rmj6jAV8AFzey748IiEd4FVuMHdVhpwm9kTmj/NY/ReFNyP8OEn0Tzh2Io=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR08MB6697.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(10070799003)(7416014)(376014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SGxNaTNCRTBWWmhjVERCbzJmYzlsck13SDdIT0YzalVmZGk2OE02TVZsSng3?=
+ =?utf-8?B?dzkwVEhYeHU1bTBUdnBidVd4eDRYSFNseE1scWIrck1QbEp3ZkhCcmF3WDU5?=
+ =?utf-8?B?ZzBUV25NRExBemMyQ2ZUbjNoaVB4dVdkazc4aHpqYnI1Y3liOHNmYUM0a3hx?=
+ =?utf-8?B?elYvMGI0T2hhTHJDaGtmcWdlR3FkQXF6Q2tFbitJMnU0OWlTUCtyYm9QWEFE?=
+ =?utf-8?B?VnAwczZwOTVrazl6bWtPYTdEQis3RzBjbjhER2hoT00xdWZ5UHNYeUdoNHh6?=
+ =?utf-8?B?KzN1N1lsTmptTXJkRXoyVndicE9WcE1POE5UaXRscGFNUTNaejhnSEVMRUFy?=
+ =?utf-8?B?bER2akFnTVFUbWd6L1liUW1EQ3BUaDkyalBjTWJ1bWMrZVR6NWxKODU3a3hj?=
+ =?utf-8?B?d3QxRktMVnBudmtWbTFGTGVsU2FWeUlNVm5iVFM4MGtTMEJ5UU9PaklVZDFZ?=
+ =?utf-8?B?K1pOZkMxeW5GdTJWYS9nUmVTdEhFYTZHaW9uNWNIeU4yajJ5U3YxbzNQQXFZ?=
+ =?utf-8?B?UGFXdVoyOVNOYXBvaW5CZkNDNnZtUk1wd3drZnF0Tmg4a3NZZjhoVnI3Mkk5?=
+ =?utf-8?B?RFphY1VZTlRMNW1aMmNqZEpGaEMvNlZlNm0rcE02ckxSYWFqb2J6M2NOUjVi?=
+ =?utf-8?B?R3hsaFNuWUJnQTVEbVZuYUJ3NkxZTlpVdUxOZjJMZzVvUUpkdVkzdkRodkJy?=
+ =?utf-8?B?ZzFvZjVmRlkzZ0NhYllqanNTME5taWZNYngzS3Fnb2R2cEVUdGxXYjd3aSs2?=
+ =?utf-8?B?NWdyVWFlV2s0Qjc1dDB2R2pLQkdkcnFpUjN2R2ZqN3dnTk56cy9KSzVNVXBu?=
+ =?utf-8?B?ZFYyWWg3RzVPbGs4eTJLVGNqRzJCenNxMzJiME8xOEJwVUx6eXRLTEdRc3lv?=
+ =?utf-8?B?ajQrdVZuVWlZbzRJOHMxcEFqdm0zNDVyYjhsZ09mWExvWDhDYm5FQXRlWFRz?=
+ =?utf-8?B?VlFUQ2g4Q1FZNEJBTXRZa3BNNTF4S2dYVlVPZGJNZFZiY3VFY2VmYjVZUkFo?=
+ =?utf-8?B?VkVuSnpJb2lLQTZIcUEvQUViZFJSdHoxMkgzQ0dEUS9EUUhqS245TVM3OVc3?=
+ =?utf-8?B?aGNYWUVJMW5QOW1KMnpndmtZTytZT2ZFQWxhdlA0VkxBaFBJWjVrRThiTTlz?=
+ =?utf-8?B?QldMZ2Q2ald0anJEMTRXNkhhZDgzdEwvQVh6VzNrdTdldlJSeTBEVnpoSncz?=
+ =?utf-8?B?d3NjejdJeTY0SnhYakwwc2FsZDc2T1pHLzE0ZzhMa0hNTEdxOU1lWFVKUnhN?=
+ =?utf-8?B?QTJMMTAvL2hrNFFkTjZ3UFhVK1lJUHc0cW9FUGFIa2NjaTYrdnR1MkRQZVhT?=
+ =?utf-8?B?Ukl4bnhiZlpqeEZhZmVRRnZTYkh5dzhvWDA2MVRGUkR0aEE1VDZJbFdNS3RL?=
+ =?utf-8?B?bmFaK3IzWmN6NWNKZVFxaFRQRjNlb0ZTV0xmYmVWeFVqc0RoSy9ZN2xkTHUx?=
+ =?utf-8?B?V3lFVTJlUUdrdmpycU03RlE0eW5yL3ZtckhmdWVsME9Mamx5bW1DaFpHcis4?=
+ =?utf-8?B?SDRLTnpkVFB0a2lzZHpnOXlmS29GN2FMdXYzYTEvOVp6NjJiTm9tOUJoUHJN?=
+ =?utf-8?B?dDhRbzdUeFYxZHpKYlZRQmRmRTRNRjBrRVk1RXNtVC9aVkhmK3VwT2EvbFZv?=
+ =?utf-8?B?ME10Q0p0MC9KbVBsNUd6Q2Nocy9qc0V5aURKUzZUeG55T0NQYVJSSlFFQnMy?=
+ =?utf-8?B?UWZrRGtXWkJ4UzMzNEt6bnM5Y3dQSlNiL3UvTUF4THdLTldMNGE1RGd2R0d3?=
+ =?utf-8?B?enl1UkpyODJQNmFZbTFiaSt2YzBnNzE4VE1rK294eE1VM1JlcDRNZE8zdGww?=
+ =?utf-8?B?elJXTGZ4bjBiRWs4TFJzdjUvd1NXMStvRWFYVGZXYXNvUXhRejdTazhRNmRr?=
+ =?utf-8?B?OUpUUXg5RmpteW5MVmpZN2tBVzhBcHJ4TWdiY0xDa2FFakZ1d1dBNzVqbDhJ?=
+ =?utf-8?B?VXBmRFJXV0h1UFZITnRyRjI5QUZwL3lBSGczMHJUT3BrMjhNcEdobGE1WGVF?=
+ =?utf-8?B?NVN4bHlHb2w0N2t6SGJEd1N0MHllZ2JBdzFaZkZqUDNuOG85ZFc3WEVBK3hv?=
+ =?utf-8?B?Z2dIeXUxWmdXWnkwVWFLVDNyNldsU0lVc2xwOUlQVnlnWHlhSmFDa2traWph?=
+ =?utf-8?B?QUlXYldjLzJQSUhBVVpOVG1ZU2JjbmpoMHc2eDU3U2V3MnNIclg0TnpiZGlD?=
+ =?utf-8?B?SkdVMVhwUDlTdmhwdCtPRTVuOTVjTzhhcEN6QmJDS3ZQTHlPak96ZEVFdlhU?=
+ =?utf-8?B?TXIwRVJZSk16SXFZN01RZGFVVFlFS1NGUld2b2xIMTh5MEYyc1NOVTE2RkVW?=
+ =?utf-8?B?WjA0R3dlTGhhc3ZHSlkwbFBoK2M4V2t2L3I1RWZvSlJiL3FGVm80aUx2TTZU?=
+ =?utf-8?Q?3BenUkDjj5xmolmgXUbnueuN9uflxyOYJPqTM424EJ89K?=
+X-MS-Exchange-AntiSpam-MessageData-1: NvvQHA+opM3Ftj2h4b8eDCeUUGqFMaDp3kQ=
+X-OriginatorOrg: genexis.eu
+X-MS-Exchange-CrossTenant-Network-Message-Id: a5b8323f-22d7-4815-496d-08de9ae7e64e
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR08MB6697.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Apr 2026 12:09:52.6349
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: gsH2FbpYG6bw/5JVRSa8yWwrwuih9HN0DCk0w4mOZEdXqnVuK4virGkP15KAv6NUGi4gdvzeyv1Mj9B6sQR3/ea92UXDxXm+bG/bZr1DP10=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU5PR08MB10823
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_050518_345351_E63A8C13 
-X-CRM114-Status: GOOD (  24.00  )
+X-CRM114-CacheID: sfid-20260415_051003_674322_80CFEA81 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,563 +154,43 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+On 4/15/26 11:47, Christian Marangi (Ansuel) wrote:
+> Il giorno mar 10 mar 2026 alle ore 18:07 Lorenzo Bianconi
+> <lorenzo@kernel.org> ha scritto:
+>>> Enable spi controller used for snand memory device for EN7581 evaluation
+>>> board.
+>>>
+>>> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>>> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+>> Hi all,
+>>
+>> it seems this patch has been reviewed by AngeloGioacchino, but it has never
+>> been applied to linux-mediatek tree (or at least I can't find it). It is marked
+>> as 'New, archived' in patchwork [0]. Am I missing something?
+>>
+>> Regards,
+>> Lorenzo
+>>
+>> [0] https://patchwork.kernel.org/project/linux-mediatek/patch/20250225-en7581-snfi-probe-fix-v2-1-92e35add701b@kernel.org/
+>>
+> Hi,
+>
+> friendly ping here. There are lots of patch with review tag and ACK
+> also for 7583.
+>
+> Any chance someone can ping maintainers that take care of picking these patch?
+> Or someone that can reply on how to handle this? Maybe we need to sync with
+> them? Lorenzo (and also me) are fully maintaining the Airoha ARM target also on
+> U-Boot. Also on OpenWrt this target is starting to get traction and is
+> getting used
+> there, so Airoha is not considered an abandoned target anymore.
 
-On 4/13/2026 10:19 PM, Yeoreum Yun wrote:
-> etm_starting_cpu()/etm_dying_cpu() are called in not sleepable context.
-> This poses an issue in PREEMPT_RT kernel where spinlock_t is sleepable.
-> 
-> To address this, change etm3's drvdata->spinlock type to raw_spin_lock_t.
-> This will be good to align with etm4x.
-> 
+I think the following Airoha patch set has not been picked up either:
 
-LGTM
+[PATCH RESEND v3 0/2] ARM: dts: airoha: en7523: update dts
 
-Reviewed-by: Jie Gan <jie.gan@oss.qualcomm.com>
+MvH
 
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-etm.h   |   2 +-
->   .../coresight/coresight-etm3x-core.c          |  18 +--
->   .../coresight/coresight-etm3x-sysfs.c         | 130 +++++++++---------
->   3 files changed, 75 insertions(+), 75 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm.h b/drivers/hwtracing/coresight/coresight-etm.h
-> index 1d753cca2943..40f20daded4f 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm.h
-> +++ b/drivers/hwtracing/coresight/coresight-etm.h
-> @@ -232,7 +232,7 @@ struct etm_drvdata {
->   	struct csdev_access		csa;
->   	struct clk			*atclk;
->   	struct coresight_device		*csdev;
-> -	spinlock_t			spinlock;
-> +	raw_spinlock_t			spinlock;
->   	int				cpu;
->   	int				port_size;
->   	u8				arch;
-> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-> index a547a6d2e0bd..4a702b515733 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-> @@ -511,7 +511,7 @@ static int etm_enable_sysfs(struct coresight_device *csdev, struct coresight_pat
->   	struct etm_enable_arg arg = { };
->   	int ret;
->   
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   
->   	drvdata->traceid = path->trace_id;
->   
-> @@ -534,7 +534,7 @@ static int etm_enable_sysfs(struct coresight_device *csdev, struct coresight_pat
->   	if (ret)
->   		etm_release_trace_id(drvdata);
->   
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	if (!ret)
->   		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
-> @@ -634,7 +634,7 @@ static void etm_disable_sysfs(struct coresight_device *csdev)
->   	 * DYING hotplug callback is serviced by the ETM driver.
->   	 */
->   	cpus_read_lock();
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   
->   	/*
->   	 * Executing etm_disable_hw on the cpu whose ETM is being disabled
-> @@ -643,7 +643,7 @@ static void etm_disable_sysfs(struct coresight_device *csdev)
->   	smp_call_function_single(drvdata->cpu, etm_disable_sysfs_smp_call,
->   				 drvdata, 1);
->   
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   	cpus_read_unlock();
->   
->   	/*
-> @@ -709,7 +709,7 @@ static int etm_starting_cpu(unsigned int cpu)
->   	if (!etmdrvdata[cpu])
->   		return 0;
->   
-> -	spin_lock(&etmdrvdata[cpu]->spinlock);
-> +	raw_spin_lock(&etmdrvdata[cpu]->spinlock);
->   	if (!etmdrvdata[cpu]->os_unlock) {
->   		etm_os_unlock(etmdrvdata[cpu]);
->   		etmdrvdata[cpu]->os_unlock = true;
-> @@ -717,7 +717,7 @@ static int etm_starting_cpu(unsigned int cpu)
->   
->   	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
->   		etm_enable_hw(etmdrvdata[cpu]);
-> -	spin_unlock(&etmdrvdata[cpu]->spinlock);
-> +	raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
->   	return 0;
->   }
->   
-> @@ -726,10 +726,10 @@ static int etm_dying_cpu(unsigned int cpu)
->   	if (!etmdrvdata[cpu])
->   		return 0;
->   
-> -	spin_lock(&etmdrvdata[cpu]->spinlock);
-> +	raw_spin_lock(&etmdrvdata[cpu]->spinlock);
->   	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
->   		etm_disable_hw(etmdrvdata[cpu]);
-> -	spin_unlock(&etmdrvdata[cpu]->spinlock);
-> +	raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
->   	return 0;
->   }
->   
-> @@ -856,7 +856,7 @@ static int etm_probe(struct amba_device *adev, const struct amba_id *id)
->   
->   	desc.access = drvdata->csa = CSDEV_ACCESS_IOMEM(base);
->   
-> -	spin_lock_init(&drvdata->spinlock);
-> +	raw_spin_lock_init(&drvdata->spinlock);
->   
->   	drvdata->atclk = devm_clk_get_optional_enabled(dev, "atclk");
->   	if (IS_ERR(drvdata->atclk))
-> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> index 762109307b86..42b12c33516b 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> @@ -49,13 +49,13 @@ static ssize_t etmsr_show(struct device *dev,
->   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
->   
->   	pm_runtime_get_sync(dev->parent);
-> -	spin_lock_irqsave(&drvdata->spinlock, flags);
-> +	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
->   	CS_UNLOCK(drvdata->csa.base);
->   
->   	val = etm_readl(drvdata, ETMSR);
->   
->   	CS_LOCK(drvdata->csa.base);
-> -	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-> +	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
->   	pm_runtime_put(dev->parent);
->   
->   	return sprintf(buf, "%#lx\n", val);
-> @@ -76,7 +76,7 @@ static ssize_t reset_store(struct device *dev,
->   		return ret;
->   
->   	if (val) {
-> -		spin_lock(&drvdata->spinlock);
-> +		raw_spin_lock(&drvdata->spinlock);
->   		memset(config, 0, sizeof(struct etm_config));
->   		config->mode = ETM_MODE_EXCLUDE;
->   		config->trigger_event = ETM_DEFAULT_EVENT_VAL;
-> @@ -86,7 +86,7 @@ static ssize_t reset_store(struct device *dev,
->   
->   		etm_set_default(config);
->   		etm_release_trace_id(drvdata);
-> -		spin_unlock(&drvdata->spinlock);
-> +		raw_spin_unlock(&drvdata->spinlock);
->   	}
->   
->   	return size;
-> @@ -117,7 +117,7 @@ static ssize_t mode_store(struct device *dev,
->   	if (ret)
->   		return ret;
->   
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	config->mode = val & ETM_MODE_ALL;
->   
->   	if (config->mode & ETM_MODE_EXCLUDE)
-> @@ -168,12 +168,12 @@ static ssize_t mode_store(struct device *dev,
->   	if (config->mode & (ETM_MODE_EXCL_KERN | ETM_MODE_EXCL_USER))
->   		etm_config_trace_mode(config);
->   
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return size;
->   
->   err_unlock:
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   	return ret;
->   }
->   static DEVICE_ATTR_RW(mode);
-> @@ -299,9 +299,9 @@ static ssize_t addr_idx_store(struct device *dev,
->   	 * Use spinlock to ensure index doesn't change while it gets
->   	 * dereferenced multiple times within a spinlock block elsewhere.
->   	 */
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	config->addr_idx = val;
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return size;
->   }
-> @@ -315,16 +315,16 @@ static ssize_t addr_single_show(struct device *dev,
->   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
->   	struct etm_config *config = &drvdata->config;
->   
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	idx = config->addr_idx;
->   	if (!(config->addr_type[idx] == ETM_ADDR_TYPE_NONE ||
->   	      config->addr_type[idx] == ETM_ADDR_TYPE_SINGLE)) {
-> -		spin_unlock(&drvdata->spinlock);
-> +		raw_spin_unlock(&drvdata->spinlock);
->   		return -EINVAL;
->   	}
->   
->   	val = config->addr_val[idx];
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return sprintf(buf, "%#lx\n", val);
->   }
-> @@ -343,17 +343,17 @@ static ssize_t addr_single_store(struct device *dev,
->   	if (ret)
->   		return ret;
->   
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	idx = config->addr_idx;
->   	if (!(config->addr_type[idx] == ETM_ADDR_TYPE_NONE ||
->   	      config->addr_type[idx] == ETM_ADDR_TYPE_SINGLE)) {
-> -		spin_unlock(&drvdata->spinlock);
-> +		raw_spin_unlock(&drvdata->spinlock);
->   		return -EINVAL;
->   	}
->   
->   	config->addr_val[idx] = val;
->   	config->addr_type[idx] = ETM_ADDR_TYPE_SINGLE;
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return size;
->   }
-> @@ -367,23 +367,23 @@ static ssize_t addr_range_show(struct device *dev,
->   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
->   	struct etm_config *config = &drvdata->config;
->   
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	idx = config->addr_idx;
->   	if (idx % 2 != 0) {
-> -		spin_unlock(&drvdata->spinlock);
-> +		raw_spin_unlock(&drvdata->spinlock);
->   		return -EPERM;
->   	}
->   	if (!((config->addr_type[idx] == ETM_ADDR_TYPE_NONE &&
->   	       config->addr_type[idx + 1] == ETM_ADDR_TYPE_NONE) ||
->   	      (config->addr_type[idx] == ETM_ADDR_TYPE_RANGE &&
->   	       config->addr_type[idx + 1] == ETM_ADDR_TYPE_RANGE))) {
-> -		spin_unlock(&drvdata->spinlock);
-> +		raw_spin_unlock(&drvdata->spinlock);
->   		return -EPERM;
->   	}
->   
->   	val1 = config->addr_val[idx];
->   	val2 = config->addr_val[idx + 1];
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return sprintf(buf, "%#lx %#lx\n", val1, val2);
->   }
-> @@ -403,17 +403,17 @@ static ssize_t addr_range_store(struct device *dev,
->   	if (val1 > val2)
->   		return -EINVAL;
->   
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	idx = config->addr_idx;
->   	if (idx % 2 != 0) {
-> -		spin_unlock(&drvdata->spinlock);
-> +		raw_spin_unlock(&drvdata->spinlock);
->   		return -EPERM;
->   	}
->   	if (!((config->addr_type[idx] == ETM_ADDR_TYPE_NONE &&
->   	       config->addr_type[idx + 1] == ETM_ADDR_TYPE_NONE) ||
->   	      (config->addr_type[idx] == ETM_ADDR_TYPE_RANGE &&
->   	       config->addr_type[idx + 1] == ETM_ADDR_TYPE_RANGE))) {
-> -		spin_unlock(&drvdata->spinlock);
-> +		raw_spin_unlock(&drvdata->spinlock);
->   		return -EPERM;
->   	}
->   
-> @@ -422,7 +422,7 @@ static ssize_t addr_range_store(struct device *dev,
->   	config->addr_val[idx + 1] = val2;
->   	config->addr_type[idx + 1] = ETM_ADDR_TYPE_RANGE;
->   	config->enable_ctrl1 |= (1 << (idx/2));
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return size;
->   }
-> @@ -436,16 +436,16 @@ static ssize_t addr_start_show(struct device *dev,
->   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
->   	struct etm_config *config = &drvdata->config;
->   
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	idx = config->addr_idx;
->   	if (!(config->addr_type[idx] == ETM_ADDR_TYPE_NONE ||
->   	      config->addr_type[idx] == ETM_ADDR_TYPE_START)) {
-> -		spin_unlock(&drvdata->spinlock);
-> +		raw_spin_unlock(&drvdata->spinlock);
->   		return -EPERM;
->   	}
->   
->   	val = config->addr_val[idx];
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return sprintf(buf, "%#lx\n", val);
->   }
-> @@ -464,11 +464,11 @@ static ssize_t addr_start_store(struct device *dev,
->   	if (ret)
->   		return ret;
->   
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	idx = config->addr_idx;
->   	if (!(config->addr_type[idx] == ETM_ADDR_TYPE_NONE ||
->   	      config->addr_type[idx] == ETM_ADDR_TYPE_START)) {
-> -		spin_unlock(&drvdata->spinlock);
-> +		raw_spin_unlock(&drvdata->spinlock);
->   		return -EPERM;
->   	}
->   
-> @@ -476,7 +476,7 @@ static ssize_t addr_start_store(struct device *dev,
->   	config->addr_type[idx] = ETM_ADDR_TYPE_START;
->   	config->startstop_ctrl |= (1 << idx);
->   	config->enable_ctrl1 |= ETMTECR1_START_STOP;
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return size;
->   }
-> @@ -490,16 +490,16 @@ static ssize_t addr_stop_show(struct device *dev,
->   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
->   	struct etm_config *config = &drvdata->config;
->   
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	idx = config->addr_idx;
->   	if (!(config->addr_type[idx] == ETM_ADDR_TYPE_NONE ||
->   	      config->addr_type[idx] == ETM_ADDR_TYPE_STOP)) {
-> -		spin_unlock(&drvdata->spinlock);
-> +		raw_spin_unlock(&drvdata->spinlock);
->   		return -EPERM;
->   	}
->   
->   	val = config->addr_val[idx];
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return sprintf(buf, "%#lx\n", val);
->   }
-> @@ -518,11 +518,11 @@ static ssize_t addr_stop_store(struct device *dev,
->   	if (ret)
->   		return ret;
->   
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	idx = config->addr_idx;
->   	if (!(config->addr_type[idx] == ETM_ADDR_TYPE_NONE ||
->   	      config->addr_type[idx] == ETM_ADDR_TYPE_STOP)) {
-> -		spin_unlock(&drvdata->spinlock);
-> +		raw_spin_unlock(&drvdata->spinlock);
->   		return -EPERM;
->   	}
->   
-> @@ -530,7 +530,7 @@ static ssize_t addr_stop_store(struct device *dev,
->   	config->addr_type[idx] = ETM_ADDR_TYPE_STOP;
->   	config->startstop_ctrl |= (1 << (idx + 16));
->   	config->enable_ctrl1 |= ETMTECR1_START_STOP;
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return size;
->   }
-> @@ -543,9 +543,9 @@ static ssize_t addr_acctype_show(struct device *dev,
->   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
->   	struct etm_config *config = &drvdata->config;
->   
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	val = config->addr_acctype[config->addr_idx];
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return sprintf(buf, "%#lx\n", val);
->   }
-> @@ -563,9 +563,9 @@ static ssize_t addr_acctype_store(struct device *dev,
->   	if (ret)
->   		return ret;
->   
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	config->addr_acctype[config->addr_idx] = val;
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return size;
->   }
-> @@ -601,9 +601,9 @@ static ssize_t cntr_idx_store(struct device *dev,
->   	 * Use spinlock to ensure index doesn't change while it gets
->   	 * dereferenced multiple times within a spinlock block elsewhere.
->   	 */
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	config->cntr_idx = val;
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return size;
->   }
-> @@ -616,9 +616,9 @@ static ssize_t cntr_rld_val_show(struct device *dev,
->   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
->   	struct etm_config *config = &drvdata->config;
->   
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	val = config->cntr_rld_val[config->cntr_idx];
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return sprintf(buf, "%#lx\n", val);
->   }
-> @@ -636,9 +636,9 @@ static ssize_t cntr_rld_val_store(struct device *dev,
->   	if (ret)
->   		return ret;
->   
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	config->cntr_rld_val[config->cntr_idx] = val;
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return size;
->   }
-> @@ -651,9 +651,9 @@ static ssize_t cntr_event_show(struct device *dev,
->   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
->   	struct etm_config *config = &drvdata->config;
->   
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	val = config->cntr_event[config->cntr_idx];
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return sprintf(buf, "%#lx\n", val);
->   }
-> @@ -671,9 +671,9 @@ static ssize_t cntr_event_store(struct device *dev,
->   	if (ret)
->   		return ret;
->   
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	config->cntr_event[config->cntr_idx] = val & ETM_EVENT_MASK;
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return size;
->   }
-> @@ -686,9 +686,9 @@ static ssize_t cntr_rld_event_show(struct device *dev,
->   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
->   	struct etm_config *config = &drvdata->config;
->   
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	val = config->cntr_rld_event[config->cntr_idx];
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return sprintf(buf, "%#lx\n", val);
->   }
-> @@ -706,9 +706,9 @@ static ssize_t cntr_rld_event_store(struct device *dev,
->   	if (ret)
->   		return ret;
->   
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	config->cntr_rld_event[config->cntr_idx] = val & ETM_EVENT_MASK;
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return size;
->   }
-> @@ -723,11 +723,11 @@ static ssize_t cntr_val_show(struct device *dev,
->   	struct etm_config *config = &drvdata->config;
->   
->   	if (!coresight_get_mode(drvdata->csdev)) {
-> -		spin_lock(&drvdata->spinlock);
-> +		raw_spin_lock(&drvdata->spinlock);
->   		for (i = 0; i < drvdata->nr_cntr; i++)
->   			ret += sprintf(buf, "counter %d: %x\n",
->   				       i, config->cntr_val[i]);
-> -		spin_unlock(&drvdata->spinlock);
-> +		raw_spin_unlock(&drvdata->spinlock);
->   		return ret;
->   	}
->   
-> @@ -752,9 +752,9 @@ static ssize_t cntr_val_store(struct device *dev,
->   	if (ret)
->   		return ret;
->   
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	config->cntr_val[config->cntr_idx] = val;
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return size;
->   }
-> @@ -947,13 +947,13 @@ static ssize_t seq_curr_state_show(struct device *dev,
->   	}
->   
->   	pm_runtime_get_sync(dev->parent);
-> -	spin_lock_irqsave(&drvdata->spinlock, flags);
-> +	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
->   
->   	CS_UNLOCK(drvdata->csa.base);
->   	val = (etm_readl(drvdata, ETMSQR) & ETM_SQR_MASK);
->   	CS_LOCK(drvdata->csa.base);
->   
-> -	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-> +	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
->   	pm_runtime_put(dev->parent);
->   out:
->   	return sprintf(buf, "%#lx\n", val);
-> @@ -1012,9 +1012,9 @@ static ssize_t ctxid_idx_store(struct device *dev,
->   	 * Use spinlock to ensure index doesn't change while it gets
->   	 * dereferenced multiple times within a spinlock block elsewhere.
->   	 */
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	config->ctxid_idx = val;
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return size;
->   }
-> @@ -1034,9 +1034,9 @@ static ssize_t ctxid_pid_show(struct device *dev,
->   	if (task_active_pid_ns(current) != &init_pid_ns)
->   		return -EINVAL;
->   
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	val = config->ctxid_pid[config->ctxid_idx];
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return sprintf(buf, "%#lx\n", val);
->   }
-> @@ -1066,9 +1066,9 @@ static ssize_t ctxid_pid_store(struct device *dev,
->   	if (ret)
->   		return ret;
->   
-> -	spin_lock(&drvdata->spinlock);
-> +	raw_spin_lock(&drvdata->spinlock);
->   	config->ctxid_pid[config->ctxid_idx] = pid;
-> -	spin_unlock(&drvdata->spinlock);
-> +	raw_spin_unlock(&drvdata->spinlock);
->   
->   	return size;
->   }
+Benjamin Larsson
 
 
