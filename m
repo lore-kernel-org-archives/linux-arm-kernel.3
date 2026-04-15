@@ -4,65 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8E62F4198C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 10:25:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD028F4198E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 10:32:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fUoVCq31af6XYyzexqFt5Aja7lKfBwRcK204Ab+AUAA=; b=gukK61UHFHuEy/xkQ3Gov5/KNJ
-	zhy6eacc3c3Nzly7sCfRq2Lev4ZQt1r2aqP7no6rDH9V6DGEhzTyKqdwHetAGUsupy1PONgpEYEEg
-	CH5nCQtkCyPDzMQMs9tHR0eEn0GKvhSf7PWylYIss0B/i+co+JaaXlfX5+DKsFmDxs/aQzZfMmama
-	sGSgztjJy1QqhdK8Fh4rTKJkWaKgzAYgd6Anjb6TdT6dugLBvZtr7DoPYwqYkA+slY7Jpdy4GXFJu
-	qg+oZIPeAuucL6Tv3cxPjXM3k42WKkn99ksMEtgn6SamYIiQD6swJfUDjIXWcXeMAdlgY+hJd+7Ca
-	kg0ix0bQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/ThJNdtQNnKjDW0KruG9zUrkmNzFcnatkwMSl6uRWxU=; b=RKMborX7RTxs9/lH0a6/Z7ZxT0
+	y5WoEeK2TA9sSahdqyelZaTyxyO1pyxoav5sYN8cpjdsjyrcFh/bEnxxg2zogubC/sMo9fNTeJTzb
+	V8m5p3GVE9QoAq4z2wBWrddBK5Qn3uxgrxIfN18stk8KAY+N8TiQ9+CUvqwEnbSKD4BYEEDAsz8HY
+	kierBokQNjzz5/XUMVXoXNPagnvYmbNbcFoqo5GE+/Hasq9YJeTE0ajPc1TrVFJJCSyFCnfZYn/j2
+	OX5Rd0gnWeIritB5qY5QwOL5DzahMMVq8Hz266cG4e4kKuPZ4QbYLqpj1RCTuxB4OQXGcIsP2qibr
+	x8XNTlmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCxQb-00000000xnD-04wF;
-	Wed, 15 Apr 2026 10:25:01 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1wCxXI-00000000y7J-0hSp;
+	Wed, 15 Apr 2026 10:31:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCxQX-00000000xmh-2phR
+	id 1wCxXG-00000000y78-2sF1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 10:24:59 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 15 Apr
- 2026 18:24:46 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Wed, 15 Apr 2026 18:24:46 +0800
-From: Billy Tsai <billy_tsai@aspeedtech.com>
-Date: Wed, 15 Apr 2026 18:24:42 +0800
-Subject: [PATCH] gpio: aspeed: fix AST2700 debounce selector bit
- definitions
+	Wed, 15 Apr 2026 10:31:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 782D3600AD;
+	Wed, 15 Apr 2026 10:31:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 414CBC19424;
+	Wed, 15 Apr 2026 10:31:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776249113;
+	bh=kgIKspavfXmQAV/aYr7IgFWMpdtrydmrRA6do8GblgU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Bv04nU+GCcvZ0I3TDl+lXX0Umk3HGpaRkK3sLrCS/6z39CxrJ5g5JHaqLf+MXSsPn
+	 UCZJ9Ol0nVO5D3jw14aCQFQjwIw2W7iww4c+56t3bwiHxPQlltWm55gY2q2tuOAMyX
+	 OKFWme44nfsxF3E2c1Sp/BqPvfyPldNguLC+JoRm1GCygjX5duDvdBx9qIJovnsWSD
+	 7CsoCjtOO0Cax9vZ/9uVFNFfk1zaOguH0tI7/ifkXSEU+1bMTfN0/VOX0Kho+/SveX
+	 ZWrbBy71n2q5muP872XbXx9N0lzN7pXxvZ/oqQc8Eo3OJVEabbwUzg7lGnXUWkwsym
+	 4AyXiGf1Lh3tg==
+Message-ID: <87792b57-8f05-401f-a597-9d7610c629dc@kernel.org>
+Date: Wed, 15 Apr 2026 12:31:46 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC V1 05/16] arm64/mm: Convert READ_ONCE() as pmdp_get() while
+ accessing PMD
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
+ Linu Cherian <linu.cherian@arm.com>, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, kasan-dev@googlegroups.com
+References: <20260224051153.3150613-1-anshuman.khandual@arm.com>
+ <20260224051153.3150613-6-anshuman.khandual@arm.com>
+ <628a1d9b-cc16-4cf6-8c19-b6ed49af8492@kernel.org>
+ <8a3849cc-e6d3-4932-865f-476a137f891a@arm.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <8a3849cc-e6d3-4932-865f-476a137f891a@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260415-gpio-fix-v1-1-b08a89b31e6f@aspeedtech.com>
-X-B4-Tracking: v=1; b=H4sIAGln32kC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDE0NT3fSCzHzdtMwKXUNzE1NTC+PU5DQDMyWg8oKiVKAw2Kjo2NpaADr
- KCulaAAAA
-X-Change-ID: 20260415-gpio-fix-1745583ecf06
-To: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>
-CC: <linux-gpio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>, Billy Tsai
-	<billy_tsai@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1776248686; l=1387;
- i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
- bh=mm7hDoKN7iti+b5vLqDrPKkhJ+rkkywvY8n22UKL7Q4=;
- b=xltRCYSWnLbGHqjv3iCcpoxcxMICHhXNHsq8rZVGdgeOxVKQIMYm7j5TcRzziaAqE2G5qfqW0
- t13s1XuI2pMA6PQpU3uoagyImsMSbktSm1U/OoH2Ac9o2mabPBnwVlk
-X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
- pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_032457_741226_85D8CB78 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,42 +123,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The AST2700 datasheet defines reg_debounce_sel1 as the low bit and
-reg_debounce_sel2 as the high bit. The current driver uses the AST2600
-mapping instead, where sel1 is the high bit and sel2 is the low bit.
+On 4/10/26 06:48, Anshuman Khandual wrote:
+> 
+> 
+> On 08/04/26 5:41 PM, David Hildenbrand (Arm) wrote:
+>> On 2/24/26 06:11, Anshuman Khandual wrote:
+>>> Convert all READ_ONCE() based PMD accesses as pmdp_get() instead which will
+>>> support both D64 and D128 translation regime going forward.
+>>
+>> You should mention the move from pmdp_test_and_clear_young(), and why it
+>> is performed.
+> 
+> Sure will do that. Actually there as a build problem while accessing
+> pmdp_get() from pmdp_test_and_clear_young() while being inside the
+> header which necessitated this move.
 
-As a result, the debounce selector bits are programmed in reverse on
-AST2700. Swap the G7 sel1/sel2 bit definitions so the driver matches the
-hardware definition.
+Could that be resolved while keeping the files in the header?
 
-Fixes: b2e861bd1eaf ("gpio: aspeed: Support G7 Aspeed gpio controller")
-Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
----
- drivers/gpio/gpio-aspeed.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/gpio/gpio-aspeed.c b/drivers/gpio/gpio-aspeed.c
-index 9115e56a1626..98b5bfbc04a3 100644
---- a/drivers/gpio/gpio-aspeed.c
-+++ b/drivers/gpio/gpio-aspeed.c
-@@ -42,8 +42,8 @@
- #define GPIO_G7_CTRL_IRQ_TYPE1 BIT(4)
- #define GPIO_G7_CTRL_IRQ_TYPE2 BIT(5)
- #define GPIO_G7_CTRL_RST_TOLERANCE BIT(6)
--#define GPIO_G7_CTRL_DEBOUNCE_SEL1 BIT(7)
--#define GPIO_G7_CTRL_DEBOUNCE_SEL2 BIT(8)
-+#define GPIO_G7_CTRL_DEBOUNCE_SEL2 BIT(7)
-+#define GPIO_G7_CTRL_DEBOUNCE_SEL1 BIT(8)
- #define GPIO_G7_CTRL_INPUT_MASK BIT(9)
- #define GPIO_G7_CTRL_IRQ_STS BIT(12)
- #define GPIO_G7_CTRL_IN_DATA BIT(13)
-
----
-base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-change-id: 20260415-gpio-fix-1745583ecf06
-
-Best regards,
 -- 
-Billy Tsai <billy_tsai@aspeedtech.com>
+Cheers,
 
+David
 
