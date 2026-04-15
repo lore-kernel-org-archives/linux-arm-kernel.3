@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC638F43832
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 15:23:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AA36F43834
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 15:23:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IfOxoM5WVYwvrI44ZOerLlboyilCYQcoZEZMGC/MMuA=; b=0wLdKSgwuiqdOXTSn968Lr2qvR
-	YkPP6js3p9MI4+0RJgBbyQDfYki/UgZ4K64PW09My17IS9/FeIE7HUb875/8zcLskg+9UNT+n+CUD
-	OA+pHft1MqfMllS6cAoUD2jsg6qbWfkHlLoxUFMoTUw0rC42CGp7aRE4422XLQ/pg4QZekIfg9kr+
-	JkDLwDNc9oWFlExc4Rm+ehthCk/Xdho4lah9dU2JG1FdmdVbcr2BChF9RQeCJZ4CDtAW+4K1XLCAT
-	n+/IYPc7yazHk8F1Lj5zANxPAVU2VJA6l7ZICQEa8+Yu3OvzmAa03tydHLc/XZ7plLpa/ltd7AV5E
-	Q/z3yrHw==;
+	bh=wmeKiVlOkuuIyVP257CUVHCymzlW+hcdCQGV0TF4DuE=; b=1oqXraT8ogu7SZycgutE9VlMxp
+	Eb7Zr6NlWum0ED9V86RIOzW3kE6v03Wsa3UtTjhk1d+AEg7NwpoFai/v2iNaYNzNKHh2tO+6diSIX
+	dQFSPA3Aw255dpm7LowOx2xQCH/fv+EREaR8a1nWK8HngatkQ/qGtrRQ+UTHcZa4GaL8LCmipH7BT
+	unRShdBrwSNg/xZZ1EpEXQZqJ2tVrmC9VYHOVnr6VFYhgQf4zO/scSgdYqyQPlJim51idXWWPZbhP
+	ufiJhKWbRvvwIBIo+eRjDdd6oILeN5JmGRfwZlXvLJpAQrmRjUt4yPrvQe6Snq3yIVK8x9PrI/ITP
+	dGJNaDUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD25a-00000001JKf-2GVB;
-	Wed, 15 Apr 2026 15:23:38 +0000
+	id 1wD25j-00000001JOY-0T4m;
+	Wed, 15 Apr 2026 15:23:47 +0000
 Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD25Z-00000001JJ2-0NzR;
-	Wed, 15 Apr 2026 15:23:38 +0000
+	id 1wD25g-00000001JNF-2gPh;
+	Wed, 15 Apr 2026 15:23:45 +0000
 Received: from local
 	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
 	 (Exim 4.99)
 	(envelope-from <daniel@makrotopia.org>)
-	id 1wD25S-000000002dc-1Uez;
-	Wed, 15 Apr 2026 15:23:30 +0000
-Date: Wed, 15 Apr 2026 16:23:27 +0100
+	id 1wD25a-000000002e3-1YDv;
+	Wed, 15 Apr 2026 15:23:38 +0000
+Date: Wed, 15 Apr 2026 16:23:35 +0100
 From: Daniel Golle <daniel@makrotopia.org>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -49,17 +49,17 @@ To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
 	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH 1/9] dt-bindings: sound: mt2701-afe-pcm: add HDMI audio path
- clocks
-Message-ID: <50afd83a314cd20c715fb9b0d3bc85fb00f9a6eb.1776265610.git.daniel@makrotopia.org>
+Subject: [PATCH 2/9] dt-bindings: sound: add mediatek,mt2701-hdmi-audio
+ machine binding
+Message-ID: <1fe31edbdf045f87f4cfa7ae6fa53196e8b67b96.1776265610.git.daniel@makrotopia.org>
 References: <cover.1776265610.git.daniel@makrotopia.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <cover.1776265610.git.daniel@makrotopia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_082337_133275_29FED7BE 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20260415_082344_682095_CAB56E21 
+X-CRM114-Status: GOOD (  14.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,54 +74,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document four additional optional clocks feeding the HDMI audio
-output path on MT2701 and MT7623N: the HADDS2 PLL (root of the
-HDMI audio clock tree), the HDMI audio and S/PDIF interface power
-gates, and the audio APLL root gate. Older device trees that do
-not wire these up remain valid via minItems.
+Describe the ASoC machine compatible used to wire the MT2701/MT7623N
+AFE HDMI playback path to the on-chip HDMI transmitter acting as the
+generic HDMI audio codec. MT7623N boards carry the same IP and use
+the mt7623n- compatible as a fallback to mt2701-.
 
 Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 ---
- .../bindings/sound/mediatek,mt2701-audio.yaml          | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ .../sound/mediatek,mt2701-hdmi-audio.yaml     | 47 +++++++++++++++++++
+ 1 file changed, 47 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt2701-hdmi-audio.yaml
 
-diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt2701-audio.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt2701-audio.yaml
-index 45382c4d86aa3..9d4fc542cd72c 100644
---- a/Documentation/devicetree/bindings/sound/mediatek,mt2701-audio.yaml
-+++ b/Documentation/devicetree/bindings/sound/mediatek,mt2701-audio.yaml
-@@ -32,6 +32,7 @@ properties:
-     maxItems: 1
- 
-   clocks:
-+    minItems: 34
-     items:
-       - description: audio infra sys clock
-       - description: top audio mux 1
-@@ -67,8 +68,13 @@ properties:
-       - description: top audio a1 sys pd
-       - description: top audio a2 sys pd
-       - description: audio merge interface pd
-+      - description: HADDS2 PLL 294 MHz (HDMI audio path root)
-+      - description: HDMI audio interface pd
-+      - description: S/PDIF interface pd
-+      - description: audio APLL root pd
- 
-   clock-names:
-+    minItems: 34
-     items:
-       - const: infra_sys_audio_clk
-       - const: top_audio_mux1_sel
-@@ -104,6 +110,10 @@ properties:
-       - const: audio_a1sys_pd
-       - const: audio_a2sys_pd
-       - const: audio_mrgif_pd
-+      - const: hadds2pll_294m
-+      - const: audio_hdmi_pd
-+      - const: audio_spdf_pd
-+      - const: audio_apll_pd
- 
- required:
-   - compatible
+diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt2701-hdmi-audio.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt2701-hdmi-audio.yaml
+new file mode 100644
+index 0000000000000..d08aee447b471
+--- /dev/null
++++ b/Documentation/devicetree/bindings/sound/mediatek,mt2701-hdmi-audio.yaml
+@@ -0,0 +1,47 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/sound/mediatek,mt2701-hdmi-audio.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MediaTek MT2701 HDMI audio machine driver
++
++maintainers:
++  - Daniel Golle <daniel@makrotopia.org>
++
++description:
++  ASoC machine driver binding the MT2701 AFE HDMI playback path to
++  the on-chip HDMI transmitter via the generic HDMI audio codec.
++  The same HDMI audio IP is present on MT7623N.
++
++properties:
++  compatible:
++    oneOf:
++      - const: mediatek,mt2701-hdmi-audio
++      - items:
++          - const: mediatek,mt7623n-hdmi-audio
++          - const: mediatek,mt2701-hdmi-audio
++
++  mediatek,platform:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: Phandle of the MT2701/MT7623N AFE platform node.
++
++  mediatek,audio-codec:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: Phandle of the HDMI transmitter acting as audio codec.
++
++required:
++  - compatible
++  - mediatek,platform
++  - mediatek,audio-codec
++
++additionalProperties: false
++
++examples:
++  - |
++    sound-hdmi {
++        compatible = "mediatek,mt7623n-hdmi-audio",
++                     "mediatek,mt2701-hdmi-audio";
++        mediatek,platform = <&afe>;
++        mediatek,audio-codec = <&hdmi0>;
++    };
 -- 
 2.53.0
 
