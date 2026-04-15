@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B610F4198C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 10:32:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59463F4198E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 10:35:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vb4ApaNKGbL8+M+FidV52TNNZ3tFHT+hhS09LGCWCpU=; b=0z0E7aY7npztX0tpJiJt7KnAJZ
-	fNGOCk0OlD75EQJfq22G4iAbMmm4SOFJgrQWOz3VYWsN3uf6U15oboPa5ITph7R6mQ0584qZVpyFs
-	0UVzl8RhIQGFAATdxhhpeF1J7Sx8TQh8d1XayH2+Ej0q+XKy3Y/JeHF3zxXapacpld6kFamMSKbPt
-	LGH4uuNR6EmXt0DCEyARCIPsn5f8bZl73zlONCwFRjGuAmqawV+P/LCqdqOnFXQv8ciK+4muheruZ
-	nwbyJHJd9Z/fNtOaLqQL6jhXKP67d1rzXKqxe9+9dMHCkdxdodm9uU0KY0pvI77tNZlzgl6r1xdxR
-	elAb55mQ==;
+	bh=am9Vfb1Aq580mnQo1cyYfFVKDwtcUwL0M+34cRZgLu0=; b=htxPEPS+DTg3AUhibB90lpkXdJ
+	Pz5C9g/lekarGCxS4puO+WS+H88zDAIqj2F1eZ4fqw+p0aMSrP/QYU42MrXOXAnRn6PcbimjzCQJF
+	rk+rvSi8A74PoeBbMXfpLgCcs0c2jHZ7+zSBzc6ucPSFhErxGK+SfEgo79CyHPal50j1+ANDds1Dm
+	8i+rp7bW5/pZVEgX79Q8hAoeyZpI+3iaayf2Up+iyZDIKgZDG+cafg4dpiepKuGrgd228A2z07neF
+	TYq9SZWiKo4sZBC6anGS5v3xleY8dmdG+R3rV2nJTzvGwLQ14W7wENLfExJ8pT5ZTWstVqqhfVbWc
+	00kZX3KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCxXv-00000000yG1-0Y6H;
-	Wed, 15 Apr 2026 10:32:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wCxaX-00000000yYY-0kUT;
+	Wed, 15 Apr 2026 10:35:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCxXu-00000000yFn-0l0f
+	id 1wCxaV-00000000yYD-12Dq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 10:32:34 +0000
+	Wed, 15 Apr 2026 10:35:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 38B17600AD;
-	Wed, 15 Apr 2026 10:32:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FBD4C19424;
-	Wed, 15 Apr 2026 10:32:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 66C1F44491;
+	Wed, 15 Apr 2026 10:35:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EECF4C2BCB3;
+	Wed, 15 Apr 2026 10:35:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776249152;
-	bh=dIKjmnqM6oUTiL+YZGK0NoKhkwGaTLfBB089nc7SMyc=;
+	s=k20201202; t=1776249314;
+	bh=bpHgcNl4FYMb3tMxE2yHLnHeP4ny/KqKAE26kXtowaQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=D97O1w5ysWxeGP7GcN3ChbzY+zPak2gSdq6xrWTDtQeR5AWCHEw8wkP+Vg/t5LFt6
-	 ap42mjvw6UvD1y8evOqk9IL5Xv3v3Zel/SmtKXfnbZnYx8MaBYspUWulwAri/4KOA9
-	 TUmh3YJiqY+SJ51dSWE7hRmVDXlVB+vFbOhMImsDY0NqDcCvCZ5wzVMvWY3cpo02zJ
-	 HanYvjFWPsQX7N4wfX/iB8N8zTIkHc9pKXudi0++KNxAwQOVjTIFZz+Xrwb+M8X8Bf
-	 hYQtAow41nfWTr0jb1GUxgkt6kNO4By0T64Sh+w/RsqXKNBr7k26wUB95m60y0wAPS
-	 iFlpo1At1gmXw==
-Message-ID: <eaa6386e-4de0-4d9b-a92f-ee4f6e4f4f58@kernel.org>
-Date: Wed, 15 Apr 2026 12:32:26 +0200
+	b=c0X1iM/loYQV+lM9Y7nboPQ5AI057tcs4b3NzAj+4Ek9Mgu7fDkzUIT4bbM9KSX2G
+	 XVawRbC0AKM05vBRWJMZWLNgk2qDYdhQdB5GpVQBGYgZpWu66sjDgz6f9RrRnbqgWJ
+	 m6ays8iGIBJ6yqow4uNHPsK5Lix/zhsvs7/q/qc8015Ki9N9YyYJvj0b7V6NOr0qoY
+	 s3r1xNWSe24u7FGHpMdykAN7BkR8hh/cp8OsqbQTRE7zVd9kToPNuXO6Tgo+OurmpY
+	 2ZFjTof4Gzk32YdqX13IeddI/nNkWhEVd0oKNBs9/95fiT5m/8uBmxrRoQWk1jpgq9
+	 U7ZE/jfalFfIg==
+Message-ID: <d61a8e11-5b8c-4cea-a7f4-a890f65d62f4@kernel.org>
+Date: Wed, 15 Apr 2026 12:35:07 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC V1 06/16] arm64/mm: Convert READ_ONCE() as pudp_get() while
- accessing PUD
+Subject: Re: [RFC V1 07/16] arm64/mm: Convert READ_ONCE() as p4dp_get() while
+ accessing P4D
 To: Anshuman Khandual <anshuman.khandual@arm.com>,
  linux-arm-kernel@lists.infradead.org
 Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
@@ -57,9 +57,9 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Linu Cherian <linu.cherian@arm.com>, linux-kernel@vger.kernel.org,
  linux-mm@kvack.org, kasan-dev@googlegroups.com
 References: <20260224051153.3150613-1-anshuman.khandual@arm.com>
- <20260224051153.3150613-7-anshuman.khandual@arm.com>
- <b1e1783c-3621-41e4-b65d-38cf66a1124c@kernel.org>
- <6d91c17f-2027-482a-b0b2-98ad258f1687@arm.com>
+ <20260224051153.3150613-8-anshuman.khandual@arm.com>
+ <238ab437-06b1-43ef-86bb-9341c02040b1@kernel.org>
+ <c490455f-084a-4f53-86b0-89c15669efb3@arm.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -106,9 +106,12 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <6d91c17f-2027-482a-b0b2-98ad258f1687@arm.com>
+In-Reply-To: <c490455f-084a-4f53-86b0-89c15669efb3@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260415_033515_354226_148A8D21 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,31 +126,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/10/26 06:50, Anshuman Khandual wrote:
-> 
-> 
-> On 08/04/26 5:45 PM, David Hildenbrand (Arm) wrote:
->> On 2/24/26 06:11, Anshuman Khandual wrote:
->>> Convert all READ_ONCE() based PUD accesses as pudp_get() instead which will
->>> support both D64 and D128 translation regime going forward.
->>>
->>> Cc: Catalin Marinas <catalin.marinas@arm.com>
->>> Cc: Will Deacon <will@kernel.org>
->>> Cc: Ryan Roberts <ryan.roberts@arm.com>
->>> Cc: Mark Rutland <mark.rutland@arm.com>
->>> Cc: linux-arm-kernel@lists.infradead.org
->>> Cc: linux-kernel@vger.kernel.org
->>> Cc: kasan-dev@googlegroups.com
->>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
->>> ---
+>>>  
+>>> @@ -2258,4 +2258,21 @@ int pmdp_test_and_clear_young(struct vm_area_struct *vma,
+>>>  }
+>>>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE || CONFIG_ARCH_HAS_NONLEAF_PMD_YOUNG */
+>>>  
+>>> +#if CONFIG_PGTABLE_LEVELS > 3
+>>> +phys_addr_t pud_offset_phys(p4d_t *p4dp, unsigned long addr)
+>>> +{
+>>> +	p4d_t p4d = p4dp_get(p4dp);
+>>> +
+>>> +	BUG_ON(!pgtable_l4_enabled());
 >>
->> I was wondering for a second whether it would be better to structure
->> this as "convert READ_ONCE to use pxxxp_get() in fault.c" instead,
->> essentially, to touch each file only once.
+>> Heh, while at it, convert that to a VM_WARN_ON_ONCE() or anything else
+>> that is not a BUG.
+>>
+>> I strongly assume CONFIG_DEBUG_VM checks are sufficient.
 > 
-> But will not that create too many patches ?
+> There are multiple similar BUG_ON() instances
+> 
+> arch/arm64/include/asm/pgtable.h:       BUG_ON(!pgtable_l4_enabled());
+> arch/arm64/include/asm/pgtable.h:       BUG_ON(!pgtable_l5_enabled());
+> 
+> arch/arm64/mm/mmu.c:                    BUG_ON(pmd_val(old_pmd) != 0 &&
+> arch/arm64/mm/mmu.c:                    BUG_ON(pud_val(old_pud) != 0 &&
+> arch/arm64/mm/mmu.c:            BUG_ON(p4d_val(old_p4d) != 0 &&
+> 
+> Shall we convert all of them as VM_WARN_ON_ONCE() in a separate patch
+> as a pre-requisite ?
 
-Good for your patch count? :)
+In MM at least, we fix them up when touching the code, and only
+sometimes convert entire files.
+
+As documented in Documentation/process/coding-style.rst, there might be
+some exceptions where BUG_ON makes sense (severe data corruption
+possible), and some cases would want to use WARN_ON_ONCE() + recovery code.
+
+All of these cases here sound like VM_WARN_ON_ONCE() is more than
+sufficient though, so feel free to convert them all in one shot.
 
 -- 
 Cheers,
