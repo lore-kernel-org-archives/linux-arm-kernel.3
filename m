@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ED20F419B9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 17:59:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACAE0F4210B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 18:08:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b0NXYVGheZNN2fgRMDNeYJQUh1YcNfnhZj1Zx2eozhM=; b=gYyKL0ZScsPFpht3TJHtYi3Ofa
-	YBhwhuCUpYzIkT7DoKxY5FeTbqcoiog5DyLvGrKp8oBjZkqs8B5Lhy9/MEmMd3WiPVYfQqqa9gYjx
-	7v2xIOmpTq+jlVnxe0p+Q5QZUMk/tbVF/0qIOBTVC8isJGiJ7+mC9f4vdygIz70wCO0pP6/MS0Laa
-	Tss8l2HThL2HzOPMQlH0ytpNxn6B8u8xe2aA+AmpnqkTiOKHMo9csn7kROo16l6YvWQ0tZWU8YMwZ
-	ucVB6QAKKdcU2sGVT1KQ4Pz1xgAYNPEJ9Lvk1MEGuI1xblmT3WnM9or1GEUkVVYj8U0ngmCcmhWfW
-	wwTXbyog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TCV4VIJmWx9k667IW/rOciXHIeyHQuU5WisubSOrurc=; b=gIzTuRxwqT+19JovSWmDSsy644
+	FDqzTEUBI+PdWU2eD6/BDbwu8QEkMUKTAP3DFoR52czVwNmEn8QxV97Tv9e9RmpoFX4qiy8Qm/oam
+	922NkUnemq5KYFaOhI+Y7IfUFqQ9ulY2Hi8neIJ6Pcr3AmQ+itJlUOPVoNia+UyQZfpLBE+GVke6G
+	sWIjZTB8n8A+EbH9eJteT8jezHliHnmqLB3dli1bJUKnJsn9nNgjlvh5PmXUrFxtpIeyHg/nutpaW
+	rTh7Pu+PdTQmgP9BxWDdqdCmQUg17e6qgcXD22IKNjUX9mZyzm0p7eO9VfQihJIgN6YnK4Dohw8mN
+	zha48ErA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD4Vs-00000001U0n-2Jnj;
-	Wed, 15 Apr 2026 17:58:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD4Vp-00000001U01-40w2;
-	Wed, 15 Apr 2026 17:58:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A9D0B434F9;
-	Wed, 15 Apr 2026 17:58:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11729C19424;
-	Wed, 15 Apr 2026 17:58:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776275932;
-	bh=zOaTL2NNkh6dUpZwCq8yCW+BdPc/jYidrV0dsURT6W0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Hd4LhKjeERgPr4m0ddcWMGu5i9MGZ9zXikQHCi98iXlS3evOK/FP5JYwQSu2adcoy
-	 7H4Koez7sDTZyHubivMUWfy6jqNm/TtRWVMLG+gON7v7TvjqNe4Kn4uABmXNH/tFCA
-	 undKq6SCceEza5YNvbMnRXlGZUUzgdAEoGAHFP7AskuYhVHyqJ1GCro/VIGJyabqJI
-	 dlRbgSJv8autY9Vao+IYD4iRs0PJMDz+JX2Qc8jUXW0Ah9G8zNItOnjGdj715zHjF+
-	 xgEXu9/ZyRmsdBwicVOVTtgc1o431kae3N4A9POgEYaLsPkVs4Oxi4EXsliiruCua5
-	 kDmjqFHer3vEA==
-Date: Wed, 15 Apr 2026 19:58:50 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Simon Horman <horms@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net v2] net: airoha: Add missing bits in
- airoha_qdma_cleanup_tx_queue()
-Message-ID: <ad_R2kp2toH35Z0p@lore-desk>
-References: <20260414-airoha_qdma_cleanup_tx_queue-fix-net-v2-1-875de57cc022@kernel.org>
- <20260415164643.GQ772670@horms.kernel.org>
+	id 1wD4fA-00000001URk-1R47;
+	Wed, 15 Apr 2026 18:08:32 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wD4eh-00000001UQy-2cWq
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Apr 2026 18:08:31 +0000
+Received: from [10.17.149.54] (unknown [131.107.1.246])
+	by linux.microsoft.com (Postfix) with ESMTPSA id A347B20B7128;
+	Wed, 15 Apr 2026 11:08:01 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com A347B20B7128
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1776276481;
+	bh=TCV4VIJmWx9k667IW/rOciXHIeyHQuU5WisubSOrurc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qxkXAeh6A57FRAaZ6ImQ5cMOifokZ9e36rM6iGTU6eCB5uKHnYNosUIR4ZGv/erTZ
+	 p72khgsnBaQnzG9kW1IItvlE5219X6GHUaq5gtA7T4ilxEcvk5/HJdBqILP5WpcLCK
+	 te89vK2aF1HQKdncjhPLcMK1ZqESt7hS29WWfGkA=
+Message-ID: <448010ef-278c-4711-a244-447a2b1a22c1@linux.microsoft.com>
+Date: Wed, 15 Apr 2026 11:07:59 -0700
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="iThq3ydaXqdTfH2R"
-Content-Disposition: inline
-In-Reply-To: <20260415164643.GQ772670@horms.kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] mmc: host: sdhci-iproc: implement the .hw_reset
+ callback
+To: Florian Fainelli <florian.fainelli@broadcom.com>, rjui@broadcom.com
+Cc: sbranden@broadcom.com, linux-arm-kernel@lists.infradead.org,
+ tgopinath@linux.microsoft.com, adrian.hunter@intel.com,
+ linux-mmc@vger.kernel.org
+References: <20260327222150.2108111-1-meaganlloyd@linux.microsoft.com>
+ <3305684d-8517-47dd-8852-2e34d40fc712@linux.microsoft.com>
+ <702c52e4-b0b3-4e1e-a40d-29e136e46d7d@broadcom.com>
+Content-Language: en-US
+From: Meagan Lloyd <meaganlloyd@linux.microsoft.com>
+In-Reply-To: <702c52e4-b0b3-4e1e-a40d-29e136e46d7d@broadcom.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_105854_038508_6AD8E799 
-X-CRM114-Status: GOOD (  33.04  )
+X-CRM114-CacheID: sfid-20260415_110803_695582_176106E3 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,169 +74,38 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---iThq3ydaXqdTfH2R
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-> On Tue, Apr 14, 2026 at 08:50:52AM +0200, Lorenzo Bianconi wrote:
-> > Similar to airoha_qdma_cleanup_rx_queue(), reset DMA TX descriptors in
-> > airoha_qdma_cleanup_tx_queue routine. Moreover, reset TX_DMA_IDX to
-> > TX_CPU_IDX to notify the NIC the QDMA TX ring is empty.
-> >=20
-> > Fixes: 23020f0493270 ("net: airoha: Introduce ethernet support for EN75=
-81 SoC")
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> > ---
-> > Changes in v2:
-> > - Move q->ndesc initialization at end of airoha_qdma_init_tx routine in
-> >   order to avoid any possible NULL pointer dereference in
-> >   airoha_qdma_cleanup_tx_queue()
->=20
-> This seems to be a separate issue.
-> If so, I think it should be split out into a separate patch.
-
-Sorry, I missed this comment.
-Ack. I will repost splitting this in two separated patches.
-
-Regards,
-Lorenzo
-
->=20
-> > - Check if q->tx_list is empty in airoha_qdma_cleanup_tx_queue()
-> > - Link to v1: https://lore.kernel.org/r/20260410-airoha_qdma_cleanup_tx=
-_queue-fix-net-v1-1-b7171c8f1e78@kernel.org
->=20
-> I think it was covered in the review Jakub forwarded for v1.  But FTR,
-> Sashiko has some feedback on this patch in the form of an existing bug
-> (that should almost certainly be handled separately from this patch).
->=20
-> > ---
-> >  drivers/net/ethernet/airoha/airoha_eth.c | 41 ++++++++++++++++++++++++=
-++------
-> >  1 file changed, 34 insertions(+), 7 deletions(-)
-> >=20
-> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
-ernet/airoha/airoha_eth.c
-> > index 9e995094c32a..3c1a2bc68c42 100644
-> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> > @@ -966,27 +966,27 @@ static int airoha_qdma_init_tx_queue(struct airoh=
-a_queue *q,
-> >  	dma_addr_t dma_addr;
-> > =20
-> >  	spin_lock_init(&q->lock);
-> > -	q->ndesc =3D size;
-> >  	q->qdma =3D qdma;
-> >  	q->free_thr =3D 1 + MAX_SKB_FRAGS;
-> >  	INIT_LIST_HEAD(&q->tx_list);
-> > =20
-> > -	q->entry =3D devm_kzalloc(eth->dev, q->ndesc * sizeof(*q->entry),
-> > +	q->entry =3D devm_kzalloc(eth->dev, size * sizeof(*q->entry),
-> >  				GFP_KERNEL);
-> >  	if (!q->entry)
-> >  		return -ENOMEM;
-> > =20
-> > -	q->desc =3D dmam_alloc_coherent(eth->dev, q->ndesc * sizeof(*q->desc),
-> > +	q->desc =3D dmam_alloc_coherent(eth->dev, size * sizeof(*q->desc),
-> >  				      &dma_addr, GFP_KERNEL);
-> >  	if (!q->desc)
-> >  		return -ENOMEM;
-> > =20
-> > -	for (i =3D 0; i < q->ndesc; i++) {
-> > +	for (i =3D 0; i < size; i++) {
-> >  		u32 val =3D FIELD_PREP(QDMA_DESC_DONE_MASK, 1);
-> > =20
-> >  		list_add_tail(&q->entry[i].list, &q->tx_list);
-> >  		WRITE_ONCE(q->desc[i].ctrl, cpu_to_le32(val));
-> >  	}
-> > +	q->ndesc =3D size;
-> > =20
-> >  	/* xmit ring drop default setting */
-> >  	airoha_qdma_set(qdma, REG_TX_RING_BLOCKING(qid),
-> > @@ -1051,13 +1051,17 @@ static int airoha_qdma_init_tx(struct airoha_qd=
-ma *qdma)
-> > =20
-> >  static void airoha_qdma_cleanup_tx_queue(struct airoha_queue *q)
-> >  {
-> > -	struct airoha_eth *eth =3D q->qdma->eth;
-> > -	int i;
-> > +	struct airoha_qdma *qdma =3D q->qdma;
-> > +	struct airoha_eth *eth =3D qdma->eth;
-> > +	int i, qid =3D q - &qdma->q_tx[0];
-> > +	struct airoha_queue_entry *e;
-> > +	u16 index =3D 0;
-> > =20
-> >  	spin_lock_bh(&q->lock);
-> >  	for (i =3D 0; i < q->ndesc; i++) {
-> > -		struct airoha_queue_entry *e =3D &q->entry[i];
->=20
-> super nit: In v2 e is always used within a block (here and in the hunk be=
-low).
->            So I would lean towards declaring e in the blocks where it is
-> 	   used.
->=20
-> 	   No need to repost just for this!
->=20
-> > +		struct airoha_qdma_desc *desc =3D &q->desc[i];
-> > =20
-> > +		e =3D &q->entry[i];
-> >  		if (!e->dma_addr)
-> >  			continue;
-> > =20
-> > @@ -1067,8 +1071,31 @@ static void airoha_qdma_cleanup_tx_queue(struct =
-airoha_queue *q)
-> >  		e->dma_addr =3D 0;
-> >  		e->skb =3D NULL;
-> >  		list_add_tail(&e->list, &q->tx_list);
-> > +
-> > +		/* Reset DMA descriptor */
-> > +		WRITE_ONCE(desc->ctrl, 0);
-> > +		WRITE_ONCE(desc->addr, 0);
-> > +		WRITE_ONCE(desc->data, 0);
-> > +		WRITE_ONCE(desc->msg0, 0);
-> > +		WRITE_ONCE(desc->msg1, 0);
-> > +		WRITE_ONCE(desc->msg2, 0);
-> > +
-> >  		q->queued--;
-> >  	}
-> > +
-> > +	if (!list_empty(&q->tx_list)) {
-> > +		e =3D list_first_entry(&q->tx_list, struct airoha_queue_entry,
-> > +				     list);
-> > +		index =3D e - q->entry;
-> > +	}
-> > +	/* Set TX_DMA_IDX to TX_CPU_IDX to notify the hw the QDMA TX ring is
-> > +	 * empty.
-> > +	 */
-> > +	airoha_qdma_rmw(qdma, REG_TX_CPU_IDX(qid), TX_RING_CPU_IDX_MASK,
-> > +			FIELD_PREP(TX_RING_CPU_IDX_MASK, index));
-> > +	airoha_qdma_rmw(qdma, REG_TX_DMA_IDX(qid), TX_RING_DMA_IDX_MASK,
-> > +			FIELD_PREP(TX_RING_DMA_IDX_MASK, index));
-> > +
-> >  	spin_unlock_bh(&q->lock);
-> >  }
-> > =20
-> >=20
-> > ---
-> > base-commit: 2cd7e6971fc2787408ceef17906ea152791448cf
-> > change-id: 20260410-airoha_qdma_cleanup_tx_queue-fix-net-93375f5ee80f
-> >=20
-> > Best regards,
-> > --=20
-> > Lorenzo Bianconi <lorenzo@kernel.org>
-> >=20
-
---iThq3ydaXqdTfH2R
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCad/R2gAKCRA6cBh0uS2t
-rAsxAQCKyKMvs7z3VGfMqDQMFX/Z8atbBA5QK1r7fjjqMBvsBgD/Us/x1vWTr9QG
-hilddlamKDc07tzQ7aqXHFHN3z0CLwM=
-=b3Np
------END PGP SIGNATURE-----
-
---iThq3ydaXqdTfH2R--
+On 4/13/2026 10:43 AM, Florian Fainelli wrote:
+> On 4/13/26 10:38, Meagan Lloyd wrote:
+>>
+>> On 3/27/2026 3:21 PM, Meagan Lloyd wrote:
+>>> Implement the .hw_reset callback so that the eMMC can be reset as
+>>> needed
+>>> given cap-mmc-hw-reset is set in the devicetree and the
+>>> functionality is
+>>> enabled on the eMMC.
+>>>
+>>> Signed-off-by: Meagan Lloyd <meaganlloyd@linux.microsoft.com>
+>>> ---
+>>>
+>>> SDHCI_POWER_CONTROL[4] (SD Host Controller Standard) has been
+>>> repurposed
+>>> on my Broadcomm processor to be eMMC hardware reset
+>>> (SDIO*_eMMCSDXC_CTRL[12], HRESET).
+>>>
+>>> Can you confirm this repurposed bit is consistent across the Broadcomm
+>>> iProc processors and thus the .hw_reset callback can be uniformly
+>>> applied in this driver?
+>>
+>> Hi Ray & Scott,
+>>
+>> I hope you're doing well. This bit looks to have been repurposed from
+>> the SD Host Controller Standard's VDD2 Power Control to being used for
+>> toggling the hardware reset signal to eMMCs. Can you verify that it
+>> applies across the iProc processors so that I may finalize this patch?
+>
+> Which iProc process are you using? If you are not sure this applies
+> broadly, can you at least make it specific to the SoC you are using? 
+Yes, if it comes to that I can. I think it's overkill to roll a new
+compat string/associated structures over this small change, hence
+checking with Broadcomm iProc maintainers on this thread.
 
