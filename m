@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FCCEF4198E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 10:38:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE786F4198E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 10:39:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AzugdfaOWv0mpiqwtW8ZXjy66zEjkhjnQ3wMX2aWyrM=; b=gnBB4GQLOzasP9W03NwdSpBCq0
-	zm/KbhhQ6VdQD4iV7Xf0bC5DTvrkCOgXq1wLkEL/2IDUE2BDsPqi/fsL0QZOFcL9tzexVem55rcw2
-	eQAfBHlquKBvQAb/7lfyubMqvIppPtkMjcJrPMrcvRolUjZOfuPmtL+TOGI17Je8RznJ5UywFQSc7
-	JRqkdA4NgO8zPNBVWj/Ft2mD4+FyHbcJBL3ywzSY0RqBrHzCRhPnYO1FURg4tvKHCYnUPz+qgwihl
-	tip5TAKDDKjH08LfJgG4mHYh9BQcv5dGJ+exRGgM3KP/okUNZG9jQ/Mf5tWWmhlryJVovXNLKgvwF
-	U+rh14Yw==;
+	bh=DKCrW0o6aXpRAmXs22He+QVIMxPsqiY/RjuF4ZJ+/YQ=; b=QPfA3zxm5J3SMklW97eQFgJ+51
+	2GjsbCZPQ8A+ujFOrm44ZFwDQbaaY/CsJeQ5+JmD37558TuA05tnUMxsxHyI7C+3y2CcIc/LDjyco
+	WWXumTiZHRyS70/7VyUtdzWs0JyfpxWh36wjIRgaStqXHme8TAG18DkJfYfXdH9C0Pke+dP3EWuPS
+	aFa3SymAHedg7Q1vSPS9HG9gIg2k81AKmlUL4cxSpn1/24g61AoCFqDGUzy8XgLdkGK4RV4GnkwV2
+	LqouqGCA1rAxy2qnz1K+io8dZVMXpM8oc6h51xl4bR+Yify3r3pm/4mSkfIceoB+EXqm346V3G+d6
+	StJFIkpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCxdv-00000000yoy-1fHx;
-	Wed, 15 Apr 2026 10:38:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wCxea-00000000yuY-36lH;
+	Wed, 15 Apr 2026 10:39:28 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCxdu-00000000yoS-0Nqw
+	id 1wCxeY-00000000yu1-0qQ5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 10:38:46 +0000
+	Wed, 15 Apr 2026 10:39:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 523D2600AD;
-	Wed, 15 Apr 2026 10:38:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB067C2BCB3;
-	Wed, 15 Apr 2026 10:38:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AB1FD41796;
+	Wed, 15 Apr 2026 10:39:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E34BC19424;
+	Wed, 15 Apr 2026 10:39:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776249525;
-	bh=qCE51tFTa1BLfSxOaRiThiT09pL3zMpL8+i20K7u+bo=;
+	s=k20201202; t=1776249565;
+	bh=K7RukhB23YR3WJa/P9JAfup97CfUcFnGwXXICQ2wyfU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kZLIyAbBtz7vnZrkuoI+3ia2GC3PxiBHPzLFHBr6Tn100ovNNWLEylPCJVT1Iboit
-	 /S65KwvbpDLKyaZXwfwrDhsE1w7xFkeigtzIGZjfRs0Vp5/4vUJwJ8p0ySZHZN8JDB
-	 R2EW5eskfszLPx7vY0DfArpVM/0hObfZxKzMP+5+hTxexeglU51gubR8rCDIHO5Ai9
-	 aIvqSyQ9MQAvFBOiqDK4r8XNUmL48x+L/v5QNYX7Ic7w+Rp4vWPt14E8FsdudIYVmN
-	 z6h5EdVg0sMQtlrBrHicjqtlhY9vANDD8vwAPuqDNlEZ2q3JJVrHvT2oF+/y+f6NYr
-	 7m412mIgcOJhA==
-Message-ID: <10dd6ea4-8da5-41bb-88ea-c6a4a976a6c9@kernel.org>
-Date: Wed, 15 Apr 2026 12:38:38 +0200
+	b=XVrQ8U1P2sxf3hOsdPR0lPOuE6D3Nar/YhKPORu24nsR1fezq+vsIUp3pNck2Xzdy
+	 GRaD9MkEQHguAvHKHBJjfXZhnTnqBTDC88jRTaxu71EXop5DWraHOIrEgjH703dbL5
+	 VmisIyiGLxKYAxewY5WOWyCbNmsZGHyki0s5aZdhdnqsswGLkImoiVaNCjK0SpUzU+
+	 XXhrsiGA9TH5mxkSrr75fMytu+O50ZcKARywRPwLaAKhCTwfLQ8OsCAkNothX77YfL
+	 gN5rdojqrJSFyK2OgxZ/t6GVfFWSBpndBCJuqMph2Cc/Z3Kf3pQaSKrUWPXMQSyUiI
+	 LqjQcc7nMlGBg==
+Message-ID: <0499741d-56f0-41c3-9256-0b5f9ccc063b@kernel.org>
+Date: Wed, 15 Apr 2026 12:39:19 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC V1 11/16] arm64/mm: Route all pgtable atomics to central
- helpers
+Subject: Re: [RFC V1 14/16] arm64/mm: Enable fixmap with 5 level page table
 To: Anshuman Khandual <anshuman.khandual@arm.com>,
  linux-arm-kernel@lists.infradead.org
 Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
@@ -57,9 +56,9 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Linu Cherian <linu.cherian@arm.com>, linux-kernel@vger.kernel.org,
  linux-mm@kvack.org
 References: <20260224051153.3150613-1-anshuman.khandual@arm.com>
- <20260224051153.3150613-12-anshuman.khandual@arm.com>
- <aeb1972c-57ba-4f21-8289-66424e4e619b@kernel.org>
- <e5558ba2-dad6-4090-87d0-2fdec426e815@arm.com>
+ <20260224051153.3150613-15-anshuman.khandual@arm.com>
+ <4382c90a-bc92-470e-9aa7-4666753479ca@kernel.org>
+ <ac73cc87-8663-4d45-8c0f-4a01ffc0fc29@arm.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -106,9 +105,12 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <e5558ba2-dad6-4090-87d0-2fdec426e815@arm.com>
+In-Reply-To: <ac73cc87-8663-4d45-8c0f-4a01ffc0fc29@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260415_033926_284148_9403521E 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,57 +125,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/10/26 06:02, Anshuman Khandual wrote:
-> On 08/04/26 5:58 PM, David Hildenbrand (Arm) wrote:
->> On 2/24/26 06:11, Anshuman Khandual wrote:
->>> Route all cmpxchg() operations performed on various page table entries to a
->>> new ptdesc_cmpxchg_relaxed() helper. Similarly route all xchg() operations
->>> performed on page table entries to a new ptdesc_xchg_relaxed() helper.
->>>
->>> Currently these helpers just forward to the same APIs that were previously
->>> called direct, but in future we will change the routing for D128 which is
->>> too long to use the standard APIs.
->>>
->>> Cc: Catalin Marinas <catalin.marinas@arm.com>
->>> Cc: Will Deacon <will@kernel.org>
->>> Cc: Ryan Roberts <ryan.roberts@arm.com>
->>> Cc: Mark Rutland <mark.rutland@arm.com>
->>> Cc: linux-arm-kernel@lists.infradead.org
->>> Cc: linux-kernel@vger.kernel.org
->>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
->>> ---
->>>  arch/arm64/include/asm/pgtable.h | 23 +++++++++++++++++------
->>>  arch/arm64/mm/fault.c            |  2 +-
->>>  2 files changed, 18 insertions(+), 7 deletions(-)
->>>
->>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->>> index 42124d2f323d..cf69ce68f951 100644
->>> --- a/arch/arm64/include/asm/pgtable.h
->>> +++ b/arch/arm64/include/asm/pgtable.h
->>> @@ -87,6 +87,17 @@ static inline void arch_leave_lazy_mmu_mode(void)
->>>  #define ptdesc_get(x)		READ_ONCE(x)
->>>  #define ptdesc_set(x, val)	WRITE_ONCE(x, val)
->>>  
->>> +static inline ptdesc_t ptdesc_cmpxchg_relaxed(ptdesc_t *ptep, ptdesc_t old,
->>> +					      ptdesc_t new)
->>> +{
->>> +	return cmpxchg_relaxed(ptep, old, new);
->>> +}
->>> +
->>> +static inline ptdesc_t ptdesc_xchg_relaxed(ptdesc_t *ptep, ptdesc_t new)
->>> +{
->>> +	return xchg_relaxed(ptep, new);
->>> +}
->>> +
->>
->> We really want the rename of ptdesc_t before this change.
->>
+On 4/10/26 05:22, Anshuman Khandual wrote:
 > 
-> Planning to rename ptdesc_t as ptent_t in a pre-requisite
-> patch early in the series.
+> 
+> On 08/04/26 5:59 PM, David Hildenbrand (Arm) wrote:
+>> On 2/24/26 06:11, Anshuman Khandual wrote:
+>>> Enable fixmap with 5 level page table when required. This creates table
+>>> entries at the PGD level. Add a fallback stub for pgd_page_paddr() when
+>>> (PGTBALE_LEVELS <= 4) which helps in intercepting any unintended usage.
+>>
+>> Can you add the "why" ?
+> 
+> Following reworded commit message should work ?
+> 
+> ------------------------------------------------------------------
+> arm64/mm: Enable fixmap with 5 level page table
+> 
+> FEAT_D128 halves PTRS_PER_PXX thus shrinking the VA range coverage 
+> for each page table level. Hence in order to preserve all existing
+> VA range configurations, some geometry now need to become 5-level.
+> 
+> Since fixmap is used to build and manipulate page tables early on
+> during boot the mapping must also gain that additional level which
+> was not required earlier.
+> 
+> Enable fixmap with 5 level page table when required. This creates table
+> entries at the PGD level. Add a fallback stub for pgd_page_paddr() when
+> (PGTBALE_LEVELS <= 4) which helps in intercepting any unintended usage.
+> -------------------------------------------------------------------
 
-Good. As discussed, something that contains "pxx" might be clearer than
-something that includes "pte".
+Perfect, thanks!
 
 -- 
 Cheers,
