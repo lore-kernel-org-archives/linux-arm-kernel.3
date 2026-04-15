@@ -4,55 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01CD2FA0C39
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 06:45:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BE5AFA0C39
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 06:47:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UCgL6mJxUiGeqc/BW7ydGhqH7n8cCtydiLJBoRAyq0E=; b=xBFQrYLKlMsxLRWC+vMikKBuk6
-	UML1oP/G/4QZHf2yNlkK3zHD11EMikwdKBqJohFb6hdQnYPHcvJsYQ24VUm2oqylees8z3FOie2by
-	PeELOWyySmI1PlK75XSlu648b9kB135SgTd9tm2v2AdHM0Cxl/QhCf/FEsFWNx/T9fO8dYlaslqcd
-	2WgejagWrBgVip0hdcBO89yx7QtkcM3DrwbKJ+P+qPTBi+TiqGxHYVM6dyCtSw/YG6OajFhwHTMkb
-	0ff0FIDldjeDW+h1Heuv4pHdArGTYOEvrW0e0V7pt/eH/t8sr7pyylgthkOwM+IBfo+UZskTOw3s7
-	PFz861RQ==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0xuxSnowt4KsoT5AWZdKDWfjcNSTkyU4kzdLuWk3BLY=; b=uVq2QbxhEr0+eDfqZ3VHxO3Z4X
+	w4RWghPhJlK01DQFukvhoTwl/axrVHCTyhmur2CpbtitwOA34RhX8/Z0dFaJwNNDwJIVARgUHTPmK
+	RH7FL6pfapK8igTrESUayC+Cj6gNhMGN5WvyCELPdaND5hWAhy7ZYZJwlFhrsc4GA2hdDNaLJUeuf
+	sek5mYC1wHRK673MwTaB1QUYtAtYT9QAlnF0GUV6YiCLcEzSLnCw3TuPhlm2ExYlcfTGT0+x/hGva
+	zzeIY/5B4DwICfsFl57IP+l9HtViAwXalJjuivRZlTN9P16Ogk9KtpBtvBucZmCqsBCMEw3Rhxe4u
+	MIdtB5Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCtzp-00000000fia-3lnj;
-	Wed, 15 Apr 2026 06:45:09 +0000
+	id 1wCu1q-00000000fur-1eFG;
+	Wed, 15 Apr 2026 06:47:14 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCtzn-00000000fi0-29g9
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 06:45:08 +0000
+	id 1wCu1n-00000000fuV-1jUH;
+	Wed, 15 Apr 2026 06:47:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2A4C6444BD;
-	Wed, 15 Apr 2026 06:45:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F4B4C19424;
-	Wed, 15 Apr 2026 06:45:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F07D34069A;
+	Wed, 15 Apr 2026 06:47:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FD1CC19424;
+	Wed, 15 Apr 2026 06:47:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776235507;
-	bh=ps1DNtyxN20gqO7ILcfduSjpq3aal8krIa2ehlwKrFI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XN4kjV4TMbr2tRNTxvprounJxy64uunRRmLi6IVj3zTNtOpZheDcIdHFBzDrbqSXS
-	 7yeBtvlJygyPc+HW6e5EMMBEEEvpOkKd+S106TYjaNl/iJkPoazIWJnll1Z4n+K8eS
-	 lx6waQLIfwsOFMIjAf5Y6mDF57iE/627V15dFYgwZKfYP+p0xvAbPEUz1nKY2HMs5c
-	 zYUERdkXJ9ei+2gIgJ8FsjHplpgwplA4lzrgi/Nes0CKtHXUv8YfnwyAaFvRfrZZjM
-	 fjwQ9HB5RLrhC/4/bW1rgDADYDWqcJ9M3t65RnEPFFUbNdMSaSLFc918TUibkE/1BW
-	 cZD5up7RC8oeg==
-Message-ID: <64dd416e-9d16-4200-9f17-7f855b9378e9@kernel.org>
-Date: Wed, 15 Apr 2026 08:45:03 +0200
+	s=k20201202; t=1776235630;
+	bh=0xuxSnowt4KsoT5AWZdKDWfjcNSTkyU4kzdLuWk3BLY=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=UrGoLmaTS+umrIcWQZfplscL6MVOS0HvZ6+q+cWoVB8UTpD78szmsZ9McLIwrfCwQ
+	 X4A1WFAGTIyCJOqTOUGDitBbpQ9EmFl5/P29XcbSiILuK7csVH4nx4Gpx4sYx7MYtE
+	 4tWn6s0uFSa5loQt9pqeMo0ezTNN5MqNHVaieSH3zNjnchl3TAHAkVkBswyi8sAD4r
+	 yyxKWg3Efkf8gyiS0OIQrtbAzThlySeKBDzBijP2kwMKmOirQir9x8VEaOtcEl/ejr
+	 lQ/JOObeK+VZT9JGFzg5VmGtQdV6mZ5rxEVoR1BX3bTagFYjhEMM4Fvi3x833mam3O
+	 LhWqtZJCcyrHA==
+Message-ID: <575ded97-9cb2-47a0-8ca3-b03d765a80b9@kernel.org>
+Date: Wed, 15 Apr 2026 08:47:07 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/8] dt-bindings: arm: Add zx297520v3 board binding
-To: =?UTF-8?Q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Linus Walleij <linusw@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>
-References: <20260414211215.152850-1-stefandoesinger@gmail.com>
- <20260414211215.152850-3-stefandoesinger@gmail.com>
+Subject: Re: [PATCH v3] arm64: defconfig: Enable Rockchip video decoder
+To: Detlev Casanova <detlev.casanova@collabora.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kernel@collabora.com, linux-rockchip@lists.infradead.org
+References: <20260414-rkvdec-add-defconfig-v3-1-a3b49b0ca4a2@collabora.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -98,12 +95,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260414211215.152850-3-stefandoesinger@gmail.com>
+In-Reply-To: <20260414-rkvdec-add-defconfig-v3-1-a3b49b0ca4a2@collabora.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_234507_595631_544384A6 
-X-CRM114-Status: GOOD (  15.36  )
+X-CRM114-CacheID: sfid-20260414_234711_496726_A64859BF 
+X-CRM114-Status: UNSURE (   6.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,64 +116,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/04/2026 23:12, Stefan Dösinger wrote:
-> Add a compatible for boards based on the ZTE zx297520v3 SoC.
-> 
-> Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
-> ---
->  .../devicetree/bindings/arm/zx29.yaml         | 20 +++++++++++++++++++
+On 14/04/2026 15:37, Detlev Casanova wrote:
+> The Rockchip video decoder (rkvdec) provides hardware-accelerated video
+> decoding on Rockchip SoCs.
 
-Please use scripts/get_maintainers.pl to get a list of necessary people
-and lists to CC. It might happen, that command when run on an older
-kernel, gives you outdated entries. Therefore please be sure you base
-your patches on recent Linux kernel.
+Again, open lore or git log and look what was done here.
 
-Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-people, so fix your workflow. Tools might also fail if you work on some
-ancient tree (don't, instead use mainline) or work on fork of kernel
-(don't, instead use mainline). Just use b4 and everything should be
-fine, although remember about `b4 prep --auto-to-cc` if you added new
-patches to the patchset.
+Which boards (with socs) need it?
 
-You missed at least devicetree list (maybe more), so this won't be
-tested by automated tooling. Performing review on untested code might be
-a waste of time.
+> Enable it as a module so that users of these
+> widely used platforms get video decoding support out of the box.
 
-Please kindly resend and include all necessary To/Cc entries.
-
->  MAINTAINERS                                   |  1 +
->  2 files changed, 21 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/arm/zx29.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/zx29.yaml b/Documentation/devicetree/bindings/arm/zx29.yaml
-> new file mode 100644
-> index 000000000000..717ca6413993
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/arm/zx29.yaml
-> @@ -0,0 +1,20 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/arm/zx29.yaml#
-
-Bindings are per vendor, so zte.
-
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: ZTE zx29
-> +
-> +maintainers:
-> +  - Stefan Dösinger <stefandoesinger@gmail.com>
-> +
-> +properties:
-> +  $nodename:
-> +    const: "/"
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - const: zte,zx297520v3
-
-Incomplete. Neither board nor SoC can be alone.
+That's not valid reasons. Users use distros and distros have their own
+defconfig. Plus this is kind of trivial/obvious. If you looked at
+previous discussions you would see what is needed here.
 
 
 Best regards,
