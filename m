@@ -4,113 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A047CF531FC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 03:23:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E93B1FA0C22
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 03:44:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bCJFJAlafGf5iUAnRzpXrnFhih9V2iqwArhAitqgRQ8=; b=aRonO3I8cyUt3cW+WT+lGmO2AD
-	WY8vBgkSCc32XsOu1fhAaEXudwZKB+QaqP7tj/tR7nKtFMEzaNsFeBTgO/Oj5ows8zNp0HdHcFcPe
-	jT8zJs5onzKvdMHYvYBzTNeGI2F/YqiovBsk2sdkUAGDGINLGYoeggA7zGxDgbsFVKlG/mbQ8lKQU
-	pS8wAOcBouDJih7n5Wr04qIcDnWf/zu3yEsC1rBRzYH68uHsF/6cqloHggb+1wX5CqddaJC8n9mWK
-	Q7DJg5H6V3XE3MdGrRofc0kZa2wR8QknnHva4VitvMyO9PN/j0p2LtBXXgIRL0swepmKfwn9kZoFL
-	4PqSGn4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JRjSS724tEiehDG4/kwHMjn/ssIL76UEZb+otux+UJI=; b=y3uGXEnSwA4MBQcELLp0RJcnnY
+	BN+Fo857IkNiN3p8V72Vf9vvxvu0XhFkLo7rs1k5lAf6c5nMtlQ7ItaViR6P/NjJnPkHR/QC+fSDm
+	GCHPTzl5M20g6UR/FkO5lw055Sc1tkeTD7/83dXI/GIsMhQvkIvbh8fgpP9e9Hl9jeN40Ze+J9ZNg
+	I5ARDG2TnIgu/obe6EY7Adq8dmkeIOmOYFUm5NBMKBq3DPwTVdU3t3Kt9Ot1M/XH2+j/VGsAvQsqM
+	HY27+3iLBtbDS5sNYaka8tlRO2BeWlsSugLgCDXsqDDTkd7c713aYh1kpJqtARoCg6INZK2bkmitH
+	DpZvfLOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCqqQ-00000000W7H-3N4P;
-	Wed, 15 Apr 2026 03:23:14 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wCrBJ-00000000X3C-36a2;
+	Wed, 15 Apr 2026 03:44:49 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCqqO-00000000W6v-1J9v
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 03:23:13 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63EHcMQh3100838;
-	Wed, 15 Apr 2026 03:23:05 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	bCJFJAlafGf5iUAnRzpXrnFhih9V2iqwArhAitqgRQ8=; b=ownyt6aGXoSuEjf9
-	MPPwNvov26qT07TxxBr/ZKnYIw1WvxJgqiKKveFMzLZvmlwcMej0ViyajxE5j+Iz
-	KSV29bGkFdqwGUzcf6QnB3++c0ZMLvYoUrL0xe4mi4rktxrLx7OtHzUnUA9FtPhq
-	JCmATz1+ebd1Z4Cli7GMKetN47HyzgMffOw0Vc8WkLcIC1JVDhfcdAeOZp1Ind48
-	4HvafF2vM7Yi2/afjkl49JaE2rauxFSUKgnWc0pCf9DETdKEauBLiciwyok42Teg
-	oFh0BlnWC/w7HDoEd1bEFJDeGjd64G4VyTcfITB+QdDkS1zNAsr3RZ5D8vJ5EA2s
-	SPHzvg==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dht5h1fpt-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 15 Apr 2026 03:23:05 +0000 (GMT)
-Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
-	by NASANPPMTA01.qualcomm.com (8.18.1.7/8.18.1.7) with ESMTPS id 63F3N42r025390
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 15 Apr 2026 03:23:04 GMT
-Received: from [10.233.71.148] (10.80.80.8) by nasanex01a.na.qualcomm.com
- (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 14 Apr
- 2026 20:23:01 -0700
-Message-ID: <9772e300-06cb-4892-810c-bdcf6251bf9f@quicinc.com>
-Date: Wed, 15 Apr 2026 11:22:49 +0800
+	id 1wCrBH-00000000X2d-3llM;
+	Wed, 15 Apr 2026 03:44:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tNhC4J6FfKxz91a226KacaF70Nde66dNaVWXwY6/uwP6/njOUoqlOB59rfexaxJHP1nAKgc8ZqvSjabUBxvrFWLMNln/jPnTPp3C9ss4Qdx1FbSSCEilsEG1Qpta09sltJ1yGzPoovDZfehSYiJIBaTqWOaXxWhIJTS2FUm7Q068PsIZmf4k8XuikYa2yOEgl3axXqMc39LVl5cB1LRRKqGcniSAfseY5dIDrbQYL9hbaGdiXEMqTDjZW/73ZRE70TMYDPCAHvIrLQu0PC017MlGwkmGaXWoYdoVCybDOF5MLQ+EzJ/VCoKP5FTx0bOfRhGAEZPqvRAJjxWd/Zz+Bw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JRjSS724tEiehDG4/kwHMjn/ssIL76UEZb+otux+UJI=;
+ b=pKQIb2ZKf6Q/GQvq9fgVPcoyeh73hfxW4cdx7A93TvS+MBZVZL9jxvLa0jD9YQ4PNYe1K3Wq3GGlelbCs8pYK2QZRmwQU2Kbf1pis8EDMagPw+XGv5yB9kE2IM3mkw4aMjkNUaBZiSEj6hMU/1ReIsJ5afvq0cyT6pkmvourawCjkb5PiKYhDww4vkwcKHjvcY9SUzGG0lp43x15wZ+TMFPzZ5t2FncMO1s1hzMkTeZ5n9+AS9DQZwqgmMjog9ZsRo6w6n902PC9U+SBT4MsoqRMpRow9p1a+YO9BleoLExLJVIcrBd/muMlSvIAS3zRWR2gQ/iKLYitWFKwKEmSug==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JRjSS724tEiehDG4/kwHMjn/ssIL76UEZb+otux+UJI=;
+ b=MEtJXW6/sbpWu0AHsw1dp7pCffMa2ejqP2NZuRZDIMlxjZxOlUoBWVvoDQD35Ihd+du/OtwOMNbMcGkquhIP2R9enViHR/HjIZVYzo5FNt5TDk2vawVyazYXcNIV+WUQCGDYnfOV8FeBqVkEwVsf5EzFiIKk0I6Ses60j1cB/eFIrwFNIJCS7lKzTChlxowzxtBCxuE4CbXppxS+Ak+3e21HQDsIqHUwrC2ZAX2A3kzPD4an0J+Y/Mwv08kBinHmrAwngmkLiwUz2lpaD6jIDc5B2HLT79+7IZjsw8o3wJBe+d8+hanwoxF9FJftRmOZgj9QdqEnOWePVC30HdMLAQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU2PR04MB9081.eurprd04.prod.outlook.com (2603:10a6:10:2f0::13)
+ by AS8PR04MB8785.eurprd04.prod.outlook.com (2603:10a6:20b:42c::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Wed, 15 Apr
+ 2026 03:44:40 +0000
+Received: from DU2PR04MB9081.eurprd04.prod.outlook.com
+ ([fe80::b025:f7ce:2cc:9e5e]) by DU2PR04MB9081.eurprd04.prod.outlook.com
+ ([fe80::b025:f7ce:2cc:9e5e%5]) with mapi id 15.20.9769.046; Wed, 15 Apr 2026
+ 03:44:39 +0000
+From: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Subject: [PATCH 0/5] media: synopsys: enhancements and i.MX95 support
+Date: Wed, 15 Apr 2026 11:46:51 +0800
+Message-Id: <20260415-csi2_imx95-v1-0-7d63f3508719@oss.nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACsK32kC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDE0MT3eTiTKP4zNwKS1NdM9PEFINU8zQzY4NEJaCGgqLUtMwKsGHRsbW
+ 1ADjcYCxcAAAA
+To: Michael Riesch <michael.riesch@collabora.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Frank Li <Frank.Li@nxp.com>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+X-Mailer: b4 0.14.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1776224832; l=1054;
+ i=guoniu.zhou@oss.nxp.com; s=20250815; h=from:subject:message-id;
+ bh=VqS1ccn27uBHLU77MVMEfEKlgoQsXr2kgNj17EV1UHE=;
+ b=WQAn99dSWMsQZezBAnfYOt0AvHoXbSLxclKkOZ/GYZ6ibGgeVXhMkbOGbPbugIhqxn9zWqGAj
+ ThDdpW8u2WtC//ykPt51OsrNu3U4YfqNuLsh47pQgnwSvEHbWEYmEJI
+X-Developer-Key: i=guoniu.zhou@oss.nxp.com; a=ed25519;
+ pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
+X-ClientProxiedBy: MA5P287CA0181.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1b6::8) To DU2PR04MB9081.eurprd04.prod.outlook.com
+ (2603:10a6:10:2f0::13)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 0/4] Add Qualcomm extended CTI support
-To: Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
-        Suzuki K Poulose
-	<suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@arm.com>, James Clark
-	<james.clark@linaro.org>,
-        Leo Yan <leo.yan@arm.com>,
-        Alexander Shishkin
-	<alexander.shishkin@linux.intel.com>
-CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        Jinlong Mao
-	<jinlong.mao@oss.qualcomm.com>,
-        Tingwei Zhang
-	<tingwei.zhang@oss.qualcomm.com>,
-        Jie Gan <jie.gan@oss.qualcomm.com>,
-        Yingchao Deng <quic_yingdeng@quicinc.com>
-References: <20260325-extended_cti-v7-0-bb406005089f@oss.qualcomm.com>
-Content-Language: en-US
-From: "Yingchao Deng (Consultant)" <quic_yingdeng@quicinc.com>
-In-Reply-To: <20260325-extended_cti-v7-0-bb406005089f@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01a.na.qualcomm.com (10.52.223.231)
-X-QCInternal: smtphost
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE1MDAyOCBTYWx0ZWRfX1VaQpHqArrD7
- E5I+Hr5U4H8MzItwYAi2/ybTLXzzOp/hJCVhZEjSGMLiEPOAXYEMY+rAwAcKCxWtsp5f8F5dg0H
- TS/iHePhASnPb//EN76Dl+lI4HqzPmrffximkoU2WxAdNg0O7ATjffQ+dZUkoAcjvYp+Lotdpq/
- X5hl1o5SgbOBMHnj3cIJ0Ixftj8pxR+lfBgQLkMzVMJ6+sUrcJBqcC2C4LE314LWfFlW8eKXms1
- qBW0npkVL73/t6lih32qNutu5qRb0VSX+9qihRloqPs4Uq5m00Yb03yGfOwG4+SWvWJiFxbeuwF
- EfVZ5ufqWEPGZoDmNFnx6bOQamkOTnsWfHrUw3+sNKFPI0aKWYC9MnuMqal8HABMzpyluZSzwH1
- ZoTzyCflup0YrzA4fkCxt/0ieS0HbtjM1nCO5gj/lfXNbZ5mNi2a5jFrREGDBuyy2tNL04zjk/m
- bfeVqTkN/Yg2sE/0Aeg==
-X-Proofpoint-ORIG-GUID: G6ntLghWieHUcqT-liZgDVIM6TJp7O5c
-X-Proofpoint-GUID: G6ntLghWieHUcqT-liZgDVIM6TJp7O5c
-X-Authority-Analysis: v=2.4 cv=afFRWxot c=1 sm=1 tr=0 ts=69df0499 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=VwQbUJbxAAAA:8 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8
- a=BrGTpx9XV5RcIlctfScA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=cvBusfyB2V15izCimMoJ:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-14_04,2026-04-13_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 adultscore=0 impostorscore=0 clxscore=1011 lowpriorityscore=0
- priorityscore=1501 bulkscore=0 suspectscore=0 malwarescore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604150028
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB9081:EE_|AS8PR04MB8785:EE_
+X-MS-Office365-Filtering-Correlation-Id: f4346ec1-9720-4c35-bc73-08de9aa15279
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|19092799006|366016|1800799024|38350700014|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: zYYmbMHTH+LSmpv9uSPjwoR/56yMC1lOXlrXuvQIdLB8IUgmUktD5vEMnbgsdQHt62DdFB+EbTQIe9VhsTq9SiGIcGoMH0nI6Yni19QTKdInGY9dPd1pjWS+OQ2ZMLgRvIjWl+HpBAerAmgjOebBteo7imtIa8a85jq2BKvqjWz88Apr652V/DF7JkbxvP2hBn6KGldIdVbLLzsgR5/n/5q2CVXMnx48Sn2G7lQlXha64zrAWsDtpVINPMDd8C/Az2FNI6M4XbT1EAQWmrsqdDyHf3hjGAqQJqv2RQmEPVrxvjJ/zAasGFqeFqqnqn173UbNu3gU8IjOYYLWoz0oy+lNMQ2qOz6nAiGmTURmlNYjMdOIU/E4HTSuFwpI9i446WmJ6J7XgpSujWrkenXxXiHxoyUOQ9G6Jn7SZbtDP5Uce2laHh8BRKNyqXLjXIL0h3Kcor4VmGWeHh5l+4hxnoDqjuYJ6IZlxSL1abB/+pEIM1nmsHmuyC0MCnTybaohjea/a7FyMt5am3gRz00YlwXc1WqKbIQeNnsmf6rV+6SB/RWHD404MBVdxp90k+PWTUHIMZ3+GXcNywp46qF9+TiCmNyMYTnk+K6FLIuuqJ1Kkp0gatE6dSieDif5vO0NBHgRLEZft+QApMY2ABu9qdHxM2fb461XQ5kDvDi/odnWEqpu4hx5nwrL2YqM/ffaNnLMqYBVGrZNEA/WxcLhnGpBNFj/clZKniXdFHaeBmWP5Zpzxawqx/6bYi2JL6OhPpgw5bCa6B+HgQYFd2zd7GiKOEXrfGygTtg6Hdsnqsg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB9081.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(19092799006)(366016)(1800799024)(38350700014)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QjY4UWtzRnZVMlRIdUpsNjljMFpiZ0VUUkZVMmQvY0N2d1ZvemJIaWRSZEZS?=
+ =?utf-8?B?eThEVEcxNkszQnJqS1lISlJ3emdFWi9aNHIreG1xWTJ5c0luMzNjQjZHTzBG?=
+ =?utf-8?B?cE96dTdUS2JMMWV3SHJISUNsQU8rV0d4eS9rOE9uQ2czQ2lNNHJPWDFwYlNv?=
+ =?utf-8?B?VXA3UFF5am5HcDk4enkwczJuKzJYUHVBTThtSi9qd0R5MEY2V3c1Tm1GLzBB?=
+ =?utf-8?B?dVZoRVZrRmVjK3FpVVZGMVVNdG1QUmExNVNvbHBsTkFOVjdSbnRlMGJ1Uklh?=
+ =?utf-8?B?ckxIbWtNWFhIRklyN2JGY25ibHEvUUJ4ZHJVOHJxVmY3ckpwOUltZHV4ajRz?=
+ =?utf-8?B?WFJYUEdEQmxJVEUyNVpkODlmelZPdThJVFVuZ2k4RURyWENtOFZpUDdIaFFG?=
+ =?utf-8?B?OUdXQjI3MTg4dDVjK3EvVHErRkpPU2tzYXdJK0kwdTcxZFJPZXhwbVhrVGIw?=
+ =?utf-8?B?Sjl1OHNpNVlFTVp0WDVJejF4UjNEYVFrelZySjNMY3QwR0JiMDdaNUtjV0xa?=
+ =?utf-8?B?RlpjWWxjNDMyMnBsTEs3ZmVoUk51amZueDBnWlQvYlRKQUlnTlpMclBtL2NF?=
+ =?utf-8?B?K3RhRXc1bmdTbk02RXExUDgwNlc3WTdkSHJvUldHYmd0Vm02RkpGc2dZS240?=
+ =?utf-8?B?azdnRDdZcnRybnk4NkxBdzlCdy9FNVVBTU5vSytGR3dBV2xtUm9KYVZHMlRG?=
+ =?utf-8?B?NWtwTkJvTDdWK1o4a1V4ZWtXV2hwWmJ1U2xHbUl6UWoxMjVUbzF6UlZoTkNh?=
+ =?utf-8?B?WEptclZaWllaSlMwckJoT2hIK0ZOZHZRc0s0OTJ4OEpqK0pHNVNqQzd1d05u?=
+ =?utf-8?B?ZUtNbkY4QlpNY1AyM3A3RGlyK3BFcHdwZ3hCQWEzZ0FRa1pCT3BHVUJPUHp3?=
+ =?utf-8?B?UnQ1amZ5eTROS1FUb2NHbmNvZUpGeS9mOXNhK3V6Z3lpQUZZOHBmTkVVNngy?=
+ =?utf-8?B?TUlibm5wV1YrV01ySWZXVmVoSWJmc0VneVVobW9ZS001SUhwNExlUC9XdlhH?=
+ =?utf-8?B?Z1RZTmdMSzZndVUrVWRJNVFGb3UzWU5YWjZqUUZLQTFMNEJDQlcxNDZGakZS?=
+ =?utf-8?B?bks3QUk0SDhMYjBWdktIWnpFbFprNmQvQ0dHOFU0S3VYei92ZDhtem9CUkYy?=
+ =?utf-8?B?WHNubGdyM1lMdjl1NDVpSktBZjdGeThBcGhwekxHeEduSDh1N21CTlZtY1Iw?=
+ =?utf-8?B?TnZCZ0hyT2Fxd0NWRkkzT2RrNUEwdGVleEF1a0VKeUVpQ0VaaStSeFRlZDZG?=
+ =?utf-8?B?NFIwVWZjeEE4bVlnY0FTTmVHbng1a0xzYVVOWkJtK1Avck43N1RhR2Q5aHZm?=
+ =?utf-8?B?OThiQkt1Q09LNFY1TElNa0lyZTc3U2ZCbVV4QlNCVG5Ocnd0UHJhZFdyVG9F?=
+ =?utf-8?B?NFlpa29PVFM4Z2MvMlpEWWNRUnFvRUdkRXNPdHlGRmtoeFd2eU9kTzRwUnEx?=
+ =?utf-8?B?YS9YRTVjeXVYSGxFakR3RktGQzAvbXA2amRMSWE0dURXcHlzaVFxaUlGRkJM?=
+ =?utf-8?B?bnNPTEhFRmVsUTNnZ0JybU9pQi85bjUyTU4wMk5tcHRWVTJGM3E1cDB2dVZN?=
+ =?utf-8?B?WVNrZ2cxWDhqNGlVeURhV1c2ZVZmekNzbm5XbmQzaUJTSXNPMk9qUDJ0OURl?=
+ =?utf-8?B?MmRsN2FIbEdxYnFpTXBmdk5lZ2NSSDAwUFVUZ1R3VThQTVJXSW5XU0RJbFA5?=
+ =?utf-8?B?TGFwWGx6TVFrcnQxRURYRTRoMGUyZ1hOdlZocWxqTUpCQjhJaUZObEFzRzFl?=
+ =?utf-8?B?eG5pYy9OQ1JsRWVnNnVXRlMyTWFLd1FzVFhINmg5Tk92cE0wRWhCcW5zWkVq?=
+ =?utf-8?B?YVhWUGdUMlVYMDZQU0VadlhHeG55VWU2cTUvKzVxVWRSTVU0Q1BXSm9RRlow?=
+ =?utf-8?B?STA0SWdTUG1uWTNqTjB2ZVdYS0hsZWhVR3V6Um1tMU5qS0lTMW9KZWNWNmIw?=
+ =?utf-8?B?cjJoN0dZd1dKK01VWHFoTUI1VTFuR0FlR1JvNy9lelJBc3RnMCs3dmFMUTNL?=
+ =?utf-8?B?VWpMU2NvdnBGZjV0WWhyOGNtUzlwVUJLenVEWDBoZk1OTVlISHVyeS9LbDJX?=
+ =?utf-8?B?c3padGRrL2daN2xoZVdtMm1ieWtCZkN0Rm8xY0RyZWxiQ3dqSGRCdks4eUlV?=
+ =?utf-8?B?VEc5TndWbG9aY2JGVFRDL3oxQThNSEZvV1BMUHI0azYzYUQySzJWd29JeFNj?=
+ =?utf-8?B?ektSV082Z0FKdVlLQ1BtU2huQytFazdnd0pzS1lEamNCYW94Wno5ZkxkdERv?=
+ =?utf-8?B?RkVqRDZUK2VPYXlJTE4wK0VpVVAvMm5WNnRWQ0R3VTVNK0crbFNiMGNsaGVt?=
+ =?utf-8?B?L0xYSHBLajRHUzQ3UzMvMlU0VXkrdHdBNXBBN25YOExqWjk5eldJQT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f4346ec1-9720-4c35-bc73-08de9aa15279
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB9081.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Apr 2026 03:44:39.8861
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Pl21rqCn+f+Cbcs78lvNOBv8N27tTIjvO7VV3rNw4EM4wwvJXED8LOhd+VvAuhXR49abImnpytKnG2cGgBZTQw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8785
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_202312_363733_90F1352C 
-X-CRM114-Status: GOOD (  23.18  )
+X-CRM114-CacheID: sfid-20260414_204447_978978_4AA726D6 
+X-CRM114-Status: UNSURE (   7.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,95 +163,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series enhances the Synopsys DesignWare MIPI CSI-2 receiver driver
+with multiple stream support and adds i.MX95 platform support.
 
-On 3/25/2026 1:43 PM, Yingchao Deng wrote:
-> The Qualcomm extended CTI is a heavily parameterized version of ARM’s
-> CSCTI. It allows a debugger to send to trigger events to a processor or to
-> send a trigger event to one or more processors when a trigger event occurs
-> on another processor on the same SoC, or even between SoCs.
->
-> Qualcomm extended CTI supports up to 128 triggers. And some of the register
-> offsets are changed.
->
-> The commands to configure CTI triggers are the same as ARM's CTI.
->
-> Prerequisites:
->     This series depends on the following CoreSight fix:
->     [PATCH v2 1/1] coresight: fix issue where coresight component has no claimtags
-> Link: https://lore.kernel.org/all/20251027223545.2801-2-mike.leach@linaro.org/
->
-> Changes in v7:
-> 1. Split the extended CTI support into smaller, logically independent
->     patches to improve reviewability.
-> 2. Removed the dual offset-array based register access used in v6 for
->     standard and Qualcomm CTIs. Register addressing is now unified through
->     a single code path by encoding the register index together with the base
->     offset and applying variant-specific translation at the final MMIO
->     access point.
-> 3. Removed ext_reg_sel, extend the CTI sysfs interface to expose banked
->     register instances on Qualcomm CTIs only. Numbered sysfs nodes are
->     hidden on standard ARM CTIs, and on Qualcomm CTIs their visibility is
->     derived from nr_trig_max (32 triggers per bank), ensuring that only
->     registers backed by hardware are exposed.
-> Link to v6 - https://lore.kernel.org/all/20251202-extended_cti-v6-0-ab68bb15c4f5@oss.qualcomm.com/
->
-> Changes in v6:
-> 1. Rename regs_idx to ext_reg_sel and add information in documentation
->     file.
-> 2. Reset CLAIMSET to zero for qcom-cti during probe.
-> 3. Retrieve idx value under spinlock.
-> 4. Use yearless copyright for qcom-cti.h.
-> Link to v5 - https://lore.kernel.org/all/20251020-extended_cti-v5-0-6f193da2d467@oss.qualcomm.com/
->
-> Changes in v5:
-> 1. Move common part in qcom-cti.h to coresight-cti.h.
-> 2. Convert trigger usage fields to dynamic bitmaps and arrays.
-> 3. Fix holes in struct cti_config to save some space.
-> 4. Revert the previous changes related to the claim tag in
->     cti_enable/disable_hw.
-> Link to v4 - https://lore.kernel.org/linux-arm-msm/20250902-extended_cti-v4-1-7677de04b416@oss.qualcomm.com/
->
-> Changes in v4:
-> 1. Read the DEVARCH registers to identify Qualcomm CTI.
-> 2. Add a reg_idx node, and refactor the coresight_cti_reg_show() and
-> coresight_cti_reg_store() functions accordingly.
-> 3. The register offsets specific to Qualcomm CTI are moved to qcom_cti.h.
-> Link to v3 - https://lore.kernel.org/linux-arm-msm/20250722081405.2947294-1-quic_jinlmao@quicinc.com/
->
-> Changes in v3:
-> 1. Rename is_extended_cti() to of_is_extended_cti().
-> 2. Add the missing 'i' when write the CTI trigger registers.
-> 3. Convert the multi-line output in sysfs to single line.
-> 4. Initialize offset arrays using designated initializer.
-> Link to V2 - https://lore.kernel.org/all/20250429071841.1158315-3-quic_jinlmao@quicinc.com/
->
-> Changes in V2:
-> 1. Add enum for compatible items.
-> 2. Move offset arrays to coresight-cti-core
->
-> Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-> ---
-> Yingchao Deng (4):
->        coresight: cti: Convert trigger usage fields to dynamic bitmaps and arrays
->        coresight: cti: encode trigger register index in register offsets
->        coresight: cti: add Qualcomm extended CTI identification and quirks
->        coresight: cti: expose banked sysfs registers for Qualcomm extended CTI
->
->   drivers/hwtracing/coresight/coresight-cti-core.c   | 114 ++++++++++++++++-----
->   .../hwtracing/coresight/coresight-cti-platform.c   |  16 +--
->   drivers/hwtracing/coresight/coresight-cti-sysfs.c  |  75 ++++++++++++--
->   drivers/hwtracing/coresight/coresight-cti.h        |  30 ++++--
->   drivers/hwtracing/coresight/qcom-cti.h             |  65 ++++++++++++
->   5 files changed, 247 insertions(+), 53 deletions(-)
-> ---
-> base-commit: 5bca1f031b65a4a8caf700537cbbc770252af475
-> change-id: 20260324-extended_cti-707638ceee9e
->
-> Best regards,
+The i.MX95 variant is similar to i.MX93 but uses IDI instead of IPI. Since
+IDI is software transparent, only a different register map is needed.
 
-Gentle reminder.
+Tested on i.MX93 and i.MX95 platforms.
 
-thanks,
-Yingchao.
+Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+---
+Guoniu Zhou (5):
+      media: synopsys: Add support for RAW16 Bayer formats
+      media: synopsys: Add support for multiple streams
+      media: synopsys: Add PHY stopstate wait for i.MX93
+      media: dt-bindings: add NXP i.MX95 compatible string
+      media: synopsys: Add support for i.MX95
+
+ .../bindings/media/rockchip,rk3568-mipi-csi2.yaml  |   5 +-
+ drivers/media/platform/synopsys/dw-mipi-csi2rx.c   | 125 ++++++++++++++++++---
+ 2 files changed, 111 insertions(+), 19 deletions(-)
+---
+base-commit: 4fbeef21f5387234111b5d52924e77757626faa5
+change-id: 20260414-csi2_imx95-65ad0e7f630a
+
+Best regards,
+-- 
+Guoniu Zhou <guoniu.zhou@oss.nxp.com>
 
 
