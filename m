@@ -4,68 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1B2AF43834
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 15:03:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3ED9F43844
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 15:04:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vYuNhr3OzQTUS+jz5yMKk4NFkF+4wx8tO9sN7qPAzcw=; b=t853/wAbjU+nfmrwuYC55MK2HU
-	iM/LDmdmX7z8awOoXx5HWtYldUFesyEfS4Puictz1dfZK+ROYTiNmPLxGQ7MNRurntqx2uGwVtCjU
-	HVAEk9OcKz/7eKG8QmwxuJO26XBJnUspY485OCJtIJOJYCFcVkItA7IC1kUSvmR+FPLTmvUYxTOSY
-	zX20aGZ+0ilS2fkYZghu8B2Cb7kZ1DAm2sUyX9JigmkKFFka/v8jNVzFQIXcStqX4v9XsZsrN4Etf
-	vzdxUvD5KoLcteKEgS6v4y7c/3Ev1kX0zsHxwaFdgTw9FRvkWrCrEb1hkegZh4EGclvs95XrPuDdm
-	ZocrWK0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=v6t2fD7bCNqhSP/SW6WWurr5c/l20RwLeUuX0nYgGUk=; b=kmZF8uWpu8x9RoDm5Znv8zTXK8
+	TOXSvrTLSsTkJC4yHQIM/Ty7j/2zxKT3kAZJKDQBk90mOLktiBMx6lC041/lyYKZOciGNM4MXi82W
+	dWTeee5CI74HBVweooqlVOkiHHC7s86NXwx5zbfX8AXMKdonMq1xVoZGA4B4nGW/hUNwxywgfxIM7
+	XgpNExUCo34F7F1PGUv3bYVPkIdXT9aaiJzmI37qdUdWJpKFpQsW8IPwNh1HWiwmKRYMV1AjitLZX
+	Yr3Z0MI4WkzBsACo4P3ioSAFu6qQZ//hr4MbQivIfip4VELjL3I6CcskbCSrbb4i+HenD1ZU/eEtC
+	N51P7lvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD1m4-00000001HHS-2LSY;
-	Wed, 15 Apr 2026 15:03:28 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1wD1my-00000001HUM-1tj8;
+	Wed, 15 Apr 2026 15:04:24 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD1m2-00000001HGk-0nsY
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 15:03:27 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 101EC27157;
-	Wed, 15 Apr 2026 17:03:18 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id W6gzkfQ_kabV; Wed, 15 Apr 2026 17:03:17 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1776265397; bh=L84JWopRw4FxKWz9AQYxbsooFwv6BpfQMhWnSZT5k/o=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=dT3QtYJ2ZkmGSWY2R69mfOtu0cshVPJL3NgQuD6eN14GcsgvCFccoc+1XlY7r1J9P
-	 iV35LO9Lj9X1QZsqfXAvQsrc3HZBpMRr8P8CxJFp75ya/I/fzY2Rj9U96vf9eat0x4
-	 XGMMFcmgO7cPALyzF9wbBVlVli0mXlXZhYzwa2M6KnO/cLjMY6dX0h+3dDt8BA84VT
-	 4Nxo7tB/gixyr0vbhRn19iIb8+2x4lvnD+2BLYHDYqARtiWNedH7XKQTDhar2bc5/4
-	 +G3raNE1oOQaY3TXxJ2T/MOu17Y5x4nSqHKCtxyN1S/VDEJqpNUMDXlbsJJYHwmvF6
-	 GRrci01HcN7+w==
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Wed, 15 Apr 2026 20:32:09 +0530
-Subject: [PATCH v3 2/2] mmc: dw_mmc: exynos: increase DMA threshold value
- for exynos7870
+	id 1wD1mv-00000001HS1-3OS9;
+	Wed, 15 Apr 2026 15:04:22 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.99)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1wD1mk-000000002Nj-3q51;
+	Wed, 15 Apr 2026 15:04:11 +0000
+Date: Wed, 15 Apr 2026 16:04:08 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Junzhi Zhao <junzhi.zhao@mediatek.com>,
+	Jie Qiu <jie.qiu@mediatek.com>, dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 1/2] drm/mediatek: hdmi: pulse audio clocks on bridge enable
+Message-ID: <a3e22cbae528c9a38d854a586d1736b860998d41.1776265222.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260415-dwmmc-dma-thr-v3-2-31014d36b6ee@disroot.org>
-References: <20260415-dwmmc-dma-thr-v3-0-31014d36b6ee@disroot.org>
-In-Reply-To: <20260415-dwmmc-dma-thr-v3-0-31014d36b6ee@disroot.org>
-To: Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Jaehoon Chung <jh80.chung@samsung.com>, 
- Shawn Lin <shawn.lin@rock-chips.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, 
- Kaustabh Chakraborty <kauschluss@disroot.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_080326_365761_5C426FA6 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260415_080421_845834_79F83EE7 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,31 +65,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Exynos 7870 compatible controllers, such as SDIO ones are not able to
-perform DMA transfers for small sizes of data (~16 to ~512 bytes),
-resulting in cache issues in subsequent transfers. Increase the DMA
-transfer threshold to 512 to allow the shorter transfers to take place,
-bypassing DMA.
+The CLK_MM_HDMI_AUDIO and CLK_MM_HDMI_SPDIF mmsys gates feed the
+HDMI TX internal audio measurement block which derives CTS values
+for the ACR packets embedded in the TMDS stream. These clocks are
+enabled once at driver probe time and then left untouched across
+bridge atomic_enable / atomic_disable cycles.
 
-Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+On every observed stale-state event -- a blank/unblank cycle, or
+a cold boot with the monitor off followed by a later hotplug --
+the measurement block remains armed against the previous state
+and fails to latch a valid CTS on the subsequent bridge enable.
+Video recovers cleanly but the audio data islands never regain
+lock and the HDMI sink sees no audio, even though the ASoC stack,
+the AFE, and the HDMI TX audio packetizer are all programmed
+correctly.
+
+Debugging the issue of audio no longer working after vblank it was
+found that an unbind+bind of the mediatek-drm-hdmi platform driver
+recovers audio in all such scenarios without disturbing video.
+The only audio-relevant side effect of that rebind is an off->on edge
+on CLK_MM_HDMI_AUDIO / CLK_MM_HDMI_SPDIF via the probe path. Pulsing
+those two clocks directly at the end of mtk_hdmi_bridge_atomic_enable
+reproduces that recovery on every enable and doesn't hurt on the
+first enable after boot.
+
+Fixes: 8f83f26891e1 ("drm/mediatek: Add HDMI support")
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 ---
- drivers/mmc/host/dw_mmc-exynos.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/gpu/drm/mediatek/mtk_hdmi.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/drivers/mmc/host/dw_mmc-exynos.c b/drivers/mmc/host/dw_mmc-exynos.c
-index 261344d3a8cfe..4b76b997ddc15 100644
---- a/drivers/mmc/host/dw_mmc-exynos.c
-+++ b/drivers/mmc/host/dw_mmc-exynos.c
-@@ -141,6 +141,7 @@ static int dw_mci_exynos_priv_init(struct dw_mci *host)
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU) {
- 		/* Quirk needed for certain Exynos SoCs */
- 		host->quirks |= DW_MMC_QUIRK_FIFO64_32;
-+		host->dma_threshold = 512;
- 	}
+diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+index 1ea2598547800..9050d7785f109 100644
+--- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
++++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+@@ -1065,6 +1065,22 @@ static void mtk_hdmi_bridge_atomic_enable(struct drm_bridge *bridge,
+ 	phy_power_on(hdmi->phy);
+ 	mtk_hdmi_send_infoframe(hdmi, &hdmi->mode);
  
- 	if (priv->ctrl_type == DW_MCI_TYPE_ARTPEC8) {
-
++	/*
++	 * Pulse the HDMI TX audio clocks off/on on every bridge enable.
++	 * The CLK_MM_HDMI_AUDIO and CLK_MM_HDMI_SPDIF mmsys gates feed
++	 * the HDMI TX internal audio measurement block that derives CTS
++	 * for the ACR packets embedded in the TMDS stream. Without an
++	 * off->on edge at bridge enable the block can stay armed against
++	 * stale state from a previous enable (e.g. after blank/unblank,
++	 * or after a monitor that was off at boot is plugged in later)
++	 * and fails to latch a valid CTS, leaving the audio path silent
++	 * even though video recovers. The pulse is what an unbind+bind
++	 * of the HDMI platform driver effectively does, and it recovers
++	 * audio in all observed stale-state scenarios.
++	 */
++	mtk_hdmi_clk_disable_audio(hdmi);
++	mtk_hdmi_clk_enable_audio(hdmi);
++
+ 	hdmi->enabled = true;
+ }
+ 
 -- 
 2.53.0
-
 
