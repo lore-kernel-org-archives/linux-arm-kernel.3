@@ -4,118 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A36A2F9D0FE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 01:56:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B50BF9D0CE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 02:12:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DuuScJrO41wU3vjKiXwwCtRZbcM08ckKA7HYywmq6ig=; b=mNqL3l//pPJQ3EuYR5ZpIq3f5g
-	B2rdndbSTRaojILIZEmyXS5VHRglvCjwWH3Y+vlmsFldMzgXTdgPNLxYPitWNSxynDzepKNSniZ12
-	tJABJM7XHUZhKkwxTmB5DNERI6K7HcBNZ5fEI4rBkt0hU6ABU6t5az+/O9AwYxDjPvSTTqx+A7r59
-	hFp4lTImzAxM3t6pFwrWU8TYBrxdeaDmTDUDbrtlYFkZEIgWt3RL8VjoF4FoFXZewXBjCp5xRVcSl
-	31/HS0ynUK2kJh5QWjZ+T86LCIvA8b+PwPyPiBO/fNK1eNDupYiOQdXfUW124cWklvEXZTIllxuDG
-	iOk6nqEg==;
+	bh=aBV/+MFplyMX182F7OgLwYJLUvM+93jxAF1jhxn3A/M=; b=AvWY+dtUfDDHYtcB6Tk+gDc3OL
+	m2bkTloLnH3BEnSIl4LlQsbiLa44CfPJreHCqhr7rXQcTVwC3K3DzsvOOK0iVFKAXiGkzdG6SuL6B
+	syjZqaTyAHAHj2YSo85BVj7ab0b6OPnov1mwPaS1r6PJ1QEsR/Zt7jfPBIVm/7dGBrO+r0Nof7skf
+	2D86AIt6ClkReXx5bUot/8rZrQVSSes6+9uoKZisr00wpkgWOZsHc+V024G/I1oX2tpg4vKAabXgP
+	ZhML3q1rpIQQWN/ALWHssi0fAWjiudZb4qvXe4LIHF7gFVExvptF9LZhVolo1VAE7YjJiCq42fhTA
+	zoFBswNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCpU5-00000000Rc4-02Gl;
-	Wed, 15 Apr 2026 01:56:05 +0000
-Received: from mail-ot1-x32d.google.com ([2607:f8b0:4864:20::32d])
+	id 1wCpkK-00000000TQs-1fWT;
+	Wed, 15 Apr 2026 02:12:52 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCpU2-00000000RbE-1eeT
+	id 1wCpkH-00000000TQ2-1L2X
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 01:56:03 +0000
-Received: by mail-ot1-x32d.google.com with SMTP id 46e09a7af769-7d4c12ff3d5so5586850a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 18:56:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776218161; cv=none;
+	Wed, 15 Apr 2026 02:12:50 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-488ab2db91aso96342645e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Apr 2026 19:12:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776219167; cv=none;
         d=google.com; s=arc-20240605;
-        b=WIBdW7dD7oIAfi3SlLUKnxJvr6JnDqkEtSLJurPJkt6YqdlYXAyD6Ld8zz11ppV/Pe
-         ar0WRf0kdPd1toW9mSSh2ATb+cfkv/mE/6N3U3vesLyft8qagZCMBgqEg+ehlpVKT5+J
-         rrtNUlnjvLYk9YQRemMBLfktxBdeGpwDQy2YW3IjIP7dlwb7b1izBfxnDlYHIoY6p3lz
-         1DufZ3EQfIy5OShqWY0ny21Osq80XKJ2Rl0jZFdz92ZFTphy7l7rjVq/ZGHPPyTjAHrv
-         1R34h6DjjCmgRuXhZxW7qP2NFXtHxWPRP6np6UyY0+XyiOsHGu21T0Ka8FLWFTKr/4Mo
-         tLBg==
+        b=BzZTzBw0qaOYGmLKShODTAHUUqS5RYaw3ntCFNNjcLKuxLTI8alKnchdHYXX8DZuYs
+         ZfKxPAJ2FQ53iiEnljBUGKkbA+bdN2MKBnUreIlgp77U0Tnz9V/ilzDqZrXcS4ZtQLAq
+         grXgbgbar3x6711hbDP9wm3g4drDvVxhDEWd/vBr4zuGUyFBQpO0QMhXehDZW/Qfz1Fr
+         G5iZbuNjoNpAzLhTaMql7e+Nk6ocy9BPXOHPuphAzToSKzdHOwpYvajbIqe//cpNAKg2
+         wqoqpOAQQQvFN11O/fknNVrYlyc2C677GhyWPalOt7RyuhNWn8cEjSNVuBgwRyDEhb0L
+         rLCQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=DuuScJrO41wU3vjKiXwwCtRZbcM08ckKA7HYywmq6ig=;
-        fh=9AxQ3P81GbnMZtTeTRPBzKL6y6z+0yaFCYIBwLCq6l4=;
-        b=T0REXi3OkWhjXiUtRDSIi8Qxdcz67mMiYM2bct1erPaZLUihd1ZNmR2EwhXzSi6QzB
-         IsGev7KyJYkXeGioXK34bFy+j8P+1Wx7ZDswif3LPQHJCpCweKKiOhA4wOwi2Ixsffap
-         WRZQY9ZDiyp/trXW8u21OkuVJmXMsdKVnwhdFEq1ZhZh4Uxo753q7/TuCb8Fjs+pZ0hL
-         J/nokZ+lV9pS8L67QbuRKHMiaAG9Vm0tjwGT6m82V4ye61K5Bv1ZXPhVVymt80E1vESz
-         SSbaXgVFiqkDjaVVUw76sn56tpvpZ0yAmO6mzBLfAKMmEb0Pe0w+vwAIoFKVIqlt5Gie
-         lBIw==;
+        bh=aBV/+MFplyMX182F7OgLwYJLUvM+93jxAF1jhxn3A/M=;
+        fh=nBEY/atcrxzvu8tp3U/CqatFBZVcloSj5Ft6flMTews=;
+        b=ItHJuTAxZAyLOR7k/QuunDasQNKmGU3Z4Iyr9qLnzQlT+uukpjNYxBEWkv5QPG3FRW
+         6sXb775+i6E/2eazXa91tVhKLxDPoteZaAX0QhrX4ulnlqNgbLXR1tics4FGKAejY2bG
+         BB2xlxMZV61wsETz88I654pHaJ7jCqhUIU+TvWNlo7S5GMIrOHBDp7X1J5U5fJnwohAM
+         2OAvEHF1cS9Ox725uCaWbz2n60dBBU/jmXGcimOKvScJrjCKADEzSEUqop0N8NSon2Mt
+         jR6jr4jM3CZ9zVqoaIc0auNXd6/8SqfwjtdXFltSAaa4jQfxJcz0xwhDYqGClYNsvx50
+         hqLw==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776218161; x=1776822961; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1776219167; x=1776823967; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=DuuScJrO41wU3vjKiXwwCtRZbcM08ckKA7HYywmq6ig=;
-        b=lK2KV4s5BTtaT1idIH3COGgmaA+SkNW1aH2WXQ/6ygeHIjONygiMLmh5IiPB2YRd3K
-         RUyJG+fb7+xHTih/Sh/Gj6bg3ePO6UF8S4IIxpNY3UD6fgDV8KNlwkpNPw3kGBj5g3kH
-         u6k4YCK5Z6czHtO/6jusykvzIFL9VRDEFBQXBjvYRA576UDTLcbR16nz09sHKenkVy19
-         oWHi0v9tdtxKzIAOa/ow7+0W4VZM1XW4f7rtD1QJZwYT8sufrAGoHquVTPWvAayWzySP
-         hhRdl2wjwmedQ9fFciHq8GFZTiJl3gaXmPtpwFCZq4aD/j34NXxPmQ7H9Tc5TlgGSbbC
-         vs9g==
+        bh=aBV/+MFplyMX182F7OgLwYJLUvM+93jxAF1jhxn3A/M=;
+        b=l3nzEGTqpHmyN89hztGm8L8G1ST1SkaELOjeLVvTshjIUDYfSayagujTzsxDTIQZE5
+         XltllwkKKMjTLkOa4LARtRtrzMSyaRacQ+y5GuNDBcVrt7uICXbFstN3TGp7PFIKa/32
+         KiFw9kogPAXDLXOuwd/5fvX64oE5h9tH3olbBOMaWnEC2qqVxf2TtuK3RFBRiZ6fxSGM
+         2qv2wcPl8BAAo9afvZLCOy+ah/tLH9mOMCPbU8tdH62zlcAOoEwqYAqnGs16pVTYx32v
+         LIQ6ym6xLEKa/YuMFMtZdzRh3Kqds7QzCaAIU0UXefQzAQuBuaxebWKSBNllWU1A29Pk
+         H2Gg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776218161; x=1776822961;
+        d=1e100.net; s=20251104; t=1776219167; x=1776823967;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=DuuScJrO41wU3vjKiXwwCtRZbcM08ckKA7HYywmq6ig=;
-        b=SFFaOifbk1ue5U1tpdiZK9QCnCKKL6BF8sm5eRNsc8IwYwCFEIGaJqxG8WLU4+VJVB
-         MURJ6WEgIFdZ43+ZA4jCAlUhQIBb824GitMFvsZImRqbxwaTDhi1UMRJOdx2jYEm01Ln
-         Fkba6QFw9HrHUCXfWVj9nkfjV+90Lr4AwKMtdJF8UuPP0wVUvTFY1awPosPxbtGgRZP3
-         1ImwaQFtjVQU8y2BPAbtuuaYnByAN2pMwk58GN1noP8/jbAegl6csoJMuBSaDJgh6iJl
-         dryS8fwRtotk1K9SVW9c53eyf/cNDPMglBRwq3Pbmk2lvQ+Lv7JfkS5Yvo4GE20q5+px
-         UObg==
-X-Forwarded-Encrypted: i=1; AFNElJ/U71JT3S7Ek2riF0iYbALxfwJ3vYbStKUO8lB3iu7ELfIXEIIg2CCOvKTJaCK/wBBlnCgsY22n39b00CN4vfRR@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWVx9ytqF4+JLzLk1cvrkwB8GOdYZDr1s/okA3K1v/4D7hXpur
-	pmG1Aq2oliS0AuaT1Vw3pt+UmFzLepWHi2Ijs9J0Z6GSYn/qFIIGnSUJzFVywUC79UpeYJp1J6J
-	UVBhp75RdEDTmbIMU7nfxqFspkbDhFU8=
-X-Gm-Gg: AeBDietOgiLr4p5rCHT/hx/JBBp+NyyfPT7xNPEpf0wKd25Y9bjrZAD0twBWeQtKWfB
-	C2zhE/6gDdtv5cn66id13eeVS5sesAw1SnIohWOl5nujR+AW6EQ7ae03K8uRfvDFGqbTLjrJt74
-	7YWMs4sTIk5C8E/gPWA7MUOA84m+RK646YGmGeYrxw451DzbGj8iCZaHDoWw3gwnMUQRicenkV6
-	//RM6vxF5EURv7kUUjO3+PMtGms3DFvzxQTJw4mVCu9IahANMhd17FvorT6MI2dH0HIwvQ5GyMb
-	VUYCqT88Rduxb/Dp6g==
-X-Received: by 2002:a05:6830:4884:b0:7d9:b2b8:e06f with SMTP id
- 46e09a7af769-7dc27f65b7dmr10748778a34.21.1776218161007; Tue, 14 Apr 2026
- 18:56:01 -0700 (PDT)
+        bh=aBV/+MFplyMX182F7OgLwYJLUvM+93jxAF1jhxn3A/M=;
+        b=K9Y0eH4p3r/e4NqHfie4YipDCmA3u3GMvkWMeytOuP2fisKBugkeeRkuD5Ygu8DYg4
+         RSheLvy44K8krz73VGcnvqEAUYLmbK5/fNtnK73wlbamvPDx+HqxEIko0ABgqqVHVoue
+         fK0Ta5FWUDfCFOGrt61BE5eEbze0eqQhOoZIoTlW2VEjxfdXoHId/DHkRoemmcjyh3F2
+         CJ/FDt70tMDOkl5pNZ6MeifF5BLOypEqkil071Pr/mmdv7m6r+szE+aya+LlGI3xdVdo
+         RvnZoF78nUKDyYnOzGydb299Zq6J234Iy0uRR+ThI+uuWLgjncFijN0kmg1KvZRC75Co
+         SGJQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9rKThJv8LZFomyrwC25+zkDXCMqvR5UG/nfjjL4cNC3tx2yGcIsYOzWJoahXW7CXb8N7/Oa81ExAkmOIOvIciB@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNRv9m4MTPpjpcOMPhEL13PKjWcl4t71WeC5eGUUOepFmX5gjd
+	n2kNmdb++E8oo5winjPyTNnbKkkA2ClRzije7g71aOpQaDUg5o3HjJXjpZ/TRS83+BtLq2ik27D
+	C0WAVq5huETYNDawb02j7VQcMo8mbiYg=
+X-Gm-Gg: AeBDieuAQBM/UTDznJIUdmU6ag6P7FWnQiylhNWIn4oIhLa3kli3gmV2Ht10rQuTk7T
+	OQoipILIAMsrUolV8ZCnMM2T1vmMBNOi8tEb8wTniC5ktWA1WBDQYRqyusx6/fj1ODmxgRjcOZa
+	xW+cCoq8DtPi4CbBL5t+Ky6zXURiBzSrmrA8ItFQp0jRI5uOjFPJGP93sK9SF6r8vMko7aZaYAW
+	pu/LEtatuZ8/w0BNUy3suC+OmOHtHqfzmkw6GUlTJN6e27DfLP6FzU5GCk1JZx5EsGXBMF9b/ja
+	sGmmdc64nxtQZs0lUwPwhik+r04h
+X-Received: by 2002:a05:600c:4f83:b0:488:7ff5:2c67 with SMTP id
+ 5b1f17b1804b1-488d67f0aa2mr242704755e9.12.1776219166427; Tue, 14 Apr 2026
+ 19:12:46 -0700 (PDT)
 MIME-Version: 1.0
-References: <cover.1776062885.git.xukuohai@hotmail.com> <e99d594bcedfc0d818242ca6dda26f8f45f44062.1776062885.git.xukuohai@hotmail.com>
-In-Reply-To: <e99d594bcedfc0d818242ca6dda26f8f45f44062.1776062885.git.xukuohai@hotmail.com>
-From: Hengqi Chen <hengqi.chen@gmail.com>
-Date: Wed, 15 Apr 2026 09:55:49 +0800
-X-Gm-Features: AQROBzCUAQX2PLCRiTcPfMddhIEe0p3Qg375MuPpiaM87l9rFtzcuBNvXKNUy-A
-Message-ID: <CAEyhmHS_H6ckUoMGGPmyKbYfEWMivsY7eRnW373Y9NTiUpJ75g@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v14 2/5] bpf: Pass bpf_verifier_env to JIT
-To: Xu Kuohai <xukuohai@huaweicloud.com>
-Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Yonghong Song <yonghong.song@linux.dev>, 
-	Puranjay Mohan <puranjay@kernel.org>, Anton Protopopov <a.s.protopopov@gmail.com>, 
-	=?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>, 
-	Shahab Vahedi <list+bpf@vahedi.org>, Russell King <linux@armlinux.org.uk>, 
-	Tiezhu Yang <yangtiezhu@loongson.cn>, Johan Almbladh <johan.almbladh@anyfinetworks.com>, 
-	Paul Burton <paulburton@kernel.org>, Hari Bathini <hbathini@linux.ibm.com>, 
-	Christophe Leroy <chleroy@kernel.org>, Naveen N Rao <naveen@kernel.org>, 
-	Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
-	Pu Lehui <pulehui@huawei.com>, Ilya Leoshkevich <iii@linux.ibm.com>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	"David S . Miller" <davem@davemloft.net>, Wang YanQing <udknight@gmail.com>
+References: <E1wBBaR-0000000GZHR-1dbM@rmk-PC.armlinux.org.uk>
+ <20260413110222.49fc3759@kernel.org> <ad06yiZZbLC9k3jY@shell.armlinux.org.uk>
+ <CAH5Ym4i7VV53hQGY3AjAUW3B8g_ffgmw69kPhPrk2CmcRbguuQ@mail.gmail.com>
+ <ad5LlXzeQ8j14Mjg@shell.armlinux.org.uk> <ad7nsUQvksJF7JFK@shell.armlinux.org.uk>
+In-Reply-To: <ad7nsUQvksJF7JFK@shell.armlinux.org.uk>
+From: Sam Edwards <cfsworks@gmail.com>
+Date: Tue, 14 Apr 2026 19:12:34 -0700
+X-Gm-Features: AQROBzCDcuqEllTQUrqo3wn50XlYGqYnBRK7Hkwk8UIZegBM5SM6IflWL3J01U4
+Message-ID: <CAH5Ym4jA8w9=UxMT4vKJpnXkuDHtkFtMcg4u2sy_0S+8wgy-9w@mail.gmail.com>
+Subject: Re: [PATCH net-next] net: stmmac: enable RPS and RBU interrupts
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	Linux Network Development Mailing List <netdev@vger.kernel.org>, Paolo Abeni <pabeni@redhat.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_185602_501904_EE1CB66E 
-X-CRM114-Status: GOOD (  22.26  )
+X-CRM114-CacheID: sfid-20260414_191249_390866_B3787E5C 
+X-CRM114-Status: GOOD (  17.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,573 +123,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 13, 2026 at 9:07=E2=80=AFPM Xu Kuohai <xukuohai@huaweicloud.com=
-> wrote:
->
-> From: Xu Kuohai <xukuohai@huawei.com>
->
-> Pass bpf_verifier_env to bpf_int_jit_compile(). The follow-up patch will
-> use env->insn_aux_data in the JIT stage to detect indirect jump targets.
->
-> Since bpf_prog_select_runtime() can be called by cbpf and lib/test_bpf.c
-> code without verifier, introduce helper __bpf_prog_select_runtime()
-> to accept the env parameter.
->
-> Remove the call to bpf_prog_select_runtime() in bpf_prog_load(), and
-> switch to call __bpf_prog_select_runtime() in the verifier, with env
-> variable passed. The original bpf_prog_select_runtime() is preserved for
-> cbpf and lib/test_bpf.c, where env is NULL.
->
-> Now all constants blinding calls are moved into the verifier, except
-> the cbpf and lib/test_bpf.c cases. The instructions arrays are adjusted
-> by bpf_patch_insn_data() function for normal cases, so there is no need
-> to call adjust_insn_arrays() in bpf_jit_blind_constants(). Remove it.
->
-> Reviewed-by: Anton Protopopov <a.s.protopopov@gmail.com> # v8
-> Reviewed-by: Emil Tsalapatis <emil@etsalapatis.com> # v12
-> Signed-off-by: Xu Kuohai <xukuohai@huawei.com>
-> ---
+On Tue, Apr 14, 2026 at 6:19=E2=80=AFPM Russell King (Oracle)
+<linux@armlinux.org.uk> wrote:
+> Okay, just a quick note to say that nvidia's 5.10.216-tegra kernel
+> survives iperf3 -c -R to the imx6.
 
-Acked-by: Hengqi Chen <hengqi.chen@gmail.com>
+Hi Russell,
 
->  arch/arc/net/bpf_jit_core.c      |  2 +-
->  arch/arm/net/bpf_jit_32.c        |  2 +-
->  arch/arm64/net/bpf_jit_comp.c    |  2 +-
->  arch/loongarch/net/bpf_jit.c     |  2 +-
->  arch/mips/net/bpf_jit_comp.c     |  2 +-
->  arch/parisc/net/bpf_jit_core.c   |  2 +-
->  arch/powerpc/net/bpf_jit_comp.c  |  2 +-
->  arch/riscv/net/bpf_jit_core.c    |  2 +-
->  arch/s390/net/bpf_jit_comp.c     |  2 +-
->  arch/sparc/net/bpf_jit_comp_64.c |  2 +-
->  arch/x86/net/bpf_jit_comp.c      |  2 +-
->  arch/x86/net/bpf_jit_comp32.c    |  2 +-
->  include/linux/filter.h           | 17 ++++++-
->  kernel/bpf/core.c                | 86 ++++++++++++++++----------------
->  kernel/bpf/fixups.c              | 10 ++--
->  kernel/bpf/syscall.c             |  4 --
->  kernel/bpf/verifier.c            | 14 +++---
->  17 files changed, 84 insertions(+), 71 deletions(-)
->
-> diff --git a/arch/arc/net/bpf_jit_core.c b/arch/arc/net/bpf_jit_core.c
-> index 973ceae48675..639a2736f029 100644
-> --- a/arch/arc/net/bpf_jit_core.c
-> +++ b/arch/arc/net/bpf_jit_core.c
-> @@ -1400,7 +1400,7 @@ static struct bpf_prog *do_extra_pass(struct bpf_pr=
-og *prog)
->   * (re)locations involved that their addresses are not known
->   * during the first run.
->   */
-> -struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
-> +struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struc=
-t bpf_prog *prog)
->  {
->         vm_dump(prog);
->
-> diff --git a/arch/arm/net/bpf_jit_32.c b/arch/arm/net/bpf_jit_32.c
-> index e6b1bb2de627..1628b6fc70a4 100644
-> --- a/arch/arm/net/bpf_jit_32.c
-> +++ b/arch/arm/net/bpf_jit_32.c
-> @@ -2142,7 +2142,7 @@ bool bpf_jit_needs_zext(void)
->         return true;
->  }
->
-> -struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
-> +struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struc=
-t bpf_prog *prog)
->  {
->         struct bpf_binary_header *header;
->         struct jit_ctx ctx;
-> diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.=
-c
-> index cd5a72fff500..7212ec89dfe3 100644
-> --- a/arch/arm64/net/bpf_jit_comp.c
-> +++ b/arch/arm64/net/bpf_jit_comp.c
-> @@ -2006,7 +2006,7 @@ struct arm64_jit_data {
->         struct jit_ctx ctx;
->  };
->
-> -struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
-> +struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struc=
-t bpf_prog *prog)
->  {
->         int image_size, prog_size, extable_size, extable_align, extable_o=
-ffset;
->         struct bpf_binary_header *header;
-> diff --git a/arch/loongarch/net/bpf_jit.c b/arch/loongarch/net/bpf_jit.c
-> index fcc8c0c29fb0..5149ce4cef7e 100644
-> --- a/arch/loongarch/net/bpf_jit.c
-> +++ b/arch/loongarch/net/bpf_jit.c
-> @@ -1920,7 +1920,7 @@ int arch_bpf_trampoline_size(const struct btf_func_=
-model *m, u32 flags,
->         return ret < 0 ? ret : ret * LOONGARCH_INSN_SIZE;
->  }
->
-> -struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
-> +struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struc=
-t bpf_prog *prog)
->  {
->         bool extra_pass =3D false;
->         u8 *image_ptr, *ro_image_ptr;
-> diff --git a/arch/mips/net/bpf_jit_comp.c b/arch/mips/net/bpf_jit_comp.c
-> index d2b6c955f18e..6ee4abe6a1f7 100644
-> --- a/arch/mips/net/bpf_jit_comp.c
-> +++ b/arch/mips/net/bpf_jit_comp.c
-> @@ -909,7 +909,7 @@ bool bpf_jit_needs_zext(void)
->         return true;
->  }
->
-> -struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
-> +struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struc=
-t bpf_prog *prog)
->  {
->         struct bpf_binary_header *header =3D NULL;
->         struct jit_context ctx;
-> diff --git a/arch/parisc/net/bpf_jit_core.c b/arch/parisc/net/bpf_jit_cor=
-e.c
-> index 35dca372b5df..172770132440 100644
-> --- a/arch/parisc/net/bpf_jit_core.c
-> +++ b/arch/parisc/net/bpf_jit_core.c
-> @@ -41,7 +41,7 @@ bool bpf_jit_needs_zext(void)
->         return true;
->  }
->
-> -struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
-> +struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struc=
-t bpf_prog *prog)
->  {
->         unsigned int prog_size =3D 0, extable_size =3D 0;
->         bool extra_pass =3D false;
-> diff --git a/arch/powerpc/net/bpf_jit_comp.c b/arch/powerpc/net/bpf_jit_c=
-omp.c
-> index 711028bebea3..27fecb4cc063 100644
-> --- a/arch/powerpc/net/bpf_jit_comp.c
-> +++ b/arch/powerpc/net/bpf_jit_comp.c
-> @@ -129,7 +129,7 @@ bool bpf_jit_needs_zext(void)
->         return true;
->  }
->
-> -struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
-> +struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struc=
-t bpf_prog *fp)
->  {
->         u32 proglen;
->         u32 alloclen;
-> diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.=
-c
-> index 527baa50dc68..768ac686b359 100644
-> --- a/arch/riscv/net/bpf_jit_core.c
-> +++ b/arch/riscv/net/bpf_jit_core.c
-> @@ -41,7 +41,7 @@ bool bpf_jit_needs_zext(void)
->         return true;
->  }
->
-> -struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
-> +struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struc=
-t bpf_prog *prog)
->  {
->         unsigned int prog_size =3D 0, extable_size =3D 0;
->         bool extra_pass =3D false;
-> diff --git a/arch/s390/net/bpf_jit_comp.c b/arch/s390/net/bpf_jit_comp.c
-> index 2dfc279b1be2..94128fe6be23 100644
-> --- a/arch/s390/net/bpf_jit_comp.c
-> +++ b/arch/s390/net/bpf_jit_comp.c
-> @@ -2312,7 +2312,7 @@ static struct bpf_binary_header *bpf_jit_alloc(stru=
-ct bpf_jit *jit,
->  /*
->   * Compile eBPF program "fp"
->   */
-> -struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
-> +struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struc=
-t bpf_prog *fp)
->  {
->         struct bpf_binary_header *header;
->         struct s390_jit_data *jit_data;
-> diff --git a/arch/sparc/net/bpf_jit_comp_64.c b/arch/sparc/net/bpf_jit_co=
-mp_64.c
-> index e83e29137566..2fa0e9375127 100644
-> --- a/arch/sparc/net/bpf_jit_comp_64.c
-> +++ b/arch/sparc/net/bpf_jit_comp_64.c
-> @@ -1477,7 +1477,7 @@ struct sparc64_jit_data {
->         struct jit_ctx ctx;
->  };
->
-> -struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
-> +struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struc=
-t bpf_prog *prog)
->  {
->         struct sparc64_jit_data *jit_data;
->         struct bpf_binary_header *header;
-> diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
-> index 77d00a8dec87..72d9a5faa230 100644
-> --- a/arch/x86/net/bpf_jit_comp.c
-> +++ b/arch/x86/net/bpf_jit_comp.c
-> @@ -3713,7 +3713,7 @@ struct x64_jit_data {
->  #define MAX_PASSES 20
->  #define PADDING_PASSES (MAX_PASSES - 5)
->
-> -struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
-> +struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struc=
-t bpf_prog *prog)
->  {
->         struct bpf_binary_header *rw_header =3D NULL;
->         struct bpf_binary_header *header =3D NULL;
-> diff --git a/arch/x86/net/bpf_jit_comp32.c b/arch/x86/net/bpf_jit_comp32.=
-c
-> index 5f259577614a..852baf2e4db4 100644
-> --- a/arch/x86/net/bpf_jit_comp32.c
-> +++ b/arch/x86/net/bpf_jit_comp32.c
-> @@ -2518,7 +2518,7 @@ bool bpf_jit_needs_zext(void)
->         return true;
->  }
->
-> -struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
-> +struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struc=
-t bpf_prog *prog)
->  {
->         struct bpf_binary_header *header =3D NULL;
->         int proglen, oldproglen =3D 0;
-> diff --git a/include/linux/filter.h b/include/linux/filter.h
-> index d396e55c9a1d..83f37d38c5c1 100644
-> --- a/include/linux/filter.h
-> +++ b/include/linux/filter.h
-> @@ -1107,6 +1107,8 @@ static inline int sk_filter_reason(struct sock *sk,=
- struct sk_buff *skb,
->         return sk_filter_trim_cap(sk, skb, 1, reason);
->  }
->
-> +struct bpf_prog *__bpf_prog_select_runtime(struct bpf_verifier_env *env,=
- struct bpf_prog *fp,
-> +                                          int *err);
->  struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err);
->  void bpf_prog_free(struct bpf_prog *fp);
->
-> @@ -1152,7 +1154,7 @@ u64 __bpf_call_base(u64 r1, u64 r2, u64 r3, u64 r4,=
- u64 r5);
->         ((u64 (*)(u64, u64, u64, u64, u64, const struct bpf_insn *)) \
->          (void *)__bpf_call_base)
->
-> -struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog);
-> +struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struc=
-t bpf_prog *prog);
->  void bpf_jit_compile(struct bpf_prog *prog);
->  bool bpf_jit_needs_zext(void);
->  bool bpf_jit_inlines_helper_call(s32 imm);
-> @@ -1187,12 +1189,25 @@ struct bpf_prog *bpf_patch_insn_single(struct bpf=
-_prog *prog, u32 off,
->  #ifdef CONFIG_BPF_SYSCALL
->  struct bpf_prog *bpf_patch_insn_data(struct bpf_verifier_env *env, u32 o=
-ff,
->                                      const struct bpf_insn *patch, u32 le=
-n);
-> +struct bpf_insn_aux_data *bpf_dup_insn_aux_data(struct bpf_verifier_env =
-*env);
-> +void bpf_restore_insn_aux_data(struct bpf_verifier_env *env,
-> +                              struct bpf_insn_aux_data *orig_insn_aux);
->  #else
->  static inline struct bpf_prog *bpf_patch_insn_data(struct bpf_verifier_e=
-nv *env, u32 off,
->                                                    const struct bpf_insn =
-*patch, u32 len)
->  {
->         return ERR_PTR(-ENOTSUPP);
->  }
-> +
-> +static inline struct bpf_insn_aux_data *bpf_dup_insn_aux_data(struct bpf=
-_verifier_env *env)
-> +{
-> +       return NULL;
-> +}
-> +
-> +static inline void bpf_restore_insn_aux_data(struct bpf_verifier_env *en=
-v,
-> +                                            struct bpf_insn_aux_data *or=
-ig_insn_aux)
-> +{
-> +}
->  #endif /* CONFIG_BPF_SYSCALL */
->
->  int bpf_remove_insns(struct bpf_prog *prog, u32 off, u32 cnt);
-> diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-> index fc9fb3c07866..79361aa11757 100644
-> --- a/kernel/bpf/core.c
-> +++ b/kernel/bpf/core.c
-> @@ -1491,23 +1491,6 @@ void bpf_jit_prog_release_other(struct bpf_prog *f=
-p, struct bpf_prog *fp_other)
->         bpf_prog_clone_free(fp_other);
->  }
->
-> -static void adjust_insn_arrays(struct bpf_prog *prog, u32 off, u32 len)
-> -{
-> -#ifdef CONFIG_BPF_SYSCALL
-> -       struct bpf_map *map;
-> -       int i;
-> -
-> -       if (len <=3D 1)
-> -               return;
-> -
-> -       for (i =3D 0; i < prog->aux->used_map_cnt; i++) {
-> -               map =3D prog->aux->used_maps[i];
-> -               if (map->map_type =3D=3D BPF_MAP_TYPE_INSN_ARRAY)
-> -                       bpf_insn_array_adjust(map, off, len);
-> -       }
-> -#endif
-> -}
-> -
->  /*
->   * Now this function is used only to blind the main prog and must be inv=
-oked only when
->   * bpf_prog_need_blind() returns true.
-> @@ -1580,13 +1563,6 @@ struct bpf_prog *bpf_jit_blind_constants(struct bp=
-f_verifier_env *env, struct bp
->
->                 if (env)
->                         env->prog =3D clone;
-> -               else
-> -                       /*
-> -                        * Instructions arrays must be updated using abso=
-lute xlated offsets.
-> -                        * The arrays have already been adjusted by bpf_p=
-atch_insn_data() when
-> -                        * env is not NULL.
-> -                        */
-> -                       adjust_insn_arrays(clone, i, rewritten);
->
->                 /* Walk new program and skip insns we just inserted. */
->                 insn =3D clone->insnsi + i + insn_delta;
-> @@ -2555,47 +2531,55 @@ static bool bpf_prog_select_interpreter(struct bp=
-f_prog *fp)
->         return select_interpreter;
->  }
->
-> -static struct bpf_prog *bpf_prog_jit_compile(struct bpf_prog *prog)
-> +static struct bpf_prog *bpf_prog_jit_compile(struct bpf_verifier_env *en=
-v, struct bpf_prog *prog)
->  {
->  #ifdef CONFIG_BPF_JIT
->         struct bpf_prog *orig_prog;
-> +       struct bpf_insn_aux_data *orig_insn_aux;
->
->         if (!bpf_prog_need_blind(prog))
-> -               return bpf_int_jit_compile(prog);
-> +               return bpf_int_jit_compile(env, prog);
-> +
-> +       if (env) {
-> +               /*
-> +                * If env is not NULL, we are called from the end of bpf_=
-check(), at this
-> +                * point, only insn_aux_data is used after failure, so it=
- should be restored
-> +                * on failure.
-> +                */
-> +               orig_insn_aux =3D bpf_dup_insn_aux_data(env);
-> +               if (!orig_insn_aux)
-> +                       return prog;
-> +       }
->
->         orig_prog =3D prog;
-> -       prog =3D bpf_jit_blind_constants(NULL, prog);
-> +       prog =3D bpf_jit_blind_constants(env, prog);
->         /*
->          * If blinding was requested and we failed during blinding, we mu=
-st fall
->          * back to the interpreter.
->          */
->         if (IS_ERR(prog))
-> -               return orig_prog;
-> +               goto out_restore;
->
-> -       prog =3D bpf_int_jit_compile(prog);
-> +       prog =3D bpf_int_jit_compile(env, prog);
->         if (prog->jited) {
->                 bpf_jit_prog_release_other(prog, orig_prog);
-> +               if (env)
-> +                       vfree(orig_insn_aux);
->                 return prog;
->         }
->
->         bpf_jit_prog_release_other(orig_prog, prog);
-> +
-> +out_restore:
->         prog =3D orig_prog;
-> +       if (env)
-> +               bpf_restore_insn_aux_data(env, orig_insn_aux);
->  #endif
->         return prog;
->  }
->
-> -/**
-> - *     bpf_prog_select_runtime - select exec runtime for BPF program
-> - *     @fp: bpf_prog populated with BPF program
-> - *     @err: pointer to error variable
-> - *
-> - * Try to JIT eBPF program, if JIT is not available, use interpreter.
-> - * The BPF program will be executed via bpf_prog_run() function.
-> - *
-> - * Return: the &fp argument along with &err set to 0 for success or
-> - * a negative errno code on failure
-> - */
-> -struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err)
-> +struct bpf_prog *__bpf_prog_select_runtime(struct bpf_verifier_env *env,=
- struct bpf_prog *fp,
-> +                                          int *err)
->  {
->         /* In case of BPF to BPF calls, verifier did all the prep
->          * work with regards to JITing, etc.
-> @@ -2623,7 +2607,7 @@ struct bpf_prog *bpf_prog_select_runtime(struct bpf=
-_prog *fp, int *err)
->                 if (*err)
->                         return fp;
->
-> -               fp =3D bpf_prog_jit_compile(fp);
-> +               fp =3D bpf_prog_jit_compile(env, fp);
->                 bpf_prog_jit_attempt_done(fp);
->                 if (!fp->jited && jit_needed) {
->                         *err =3D -ENOTSUPP;
-> @@ -2649,6 +2633,22 @@ struct bpf_prog *bpf_prog_select_runtime(struct bp=
-f_prog *fp, int *err)
->
->         return fp;
->  }
-> +
-> +/**
-> + *     bpf_prog_select_runtime - select exec runtime for BPF program
-> + *     @fp: bpf_prog populated with BPF program
-> + *     @err: pointer to error variable
-> + *
-> + * Try to JIT eBPF program, if JIT is not available, use interpreter.
-> + * The BPF program will be executed via bpf_prog_run() function.
-> + *
-> + * Return: the &fp argument along with &err set to 0 for success or
-> + * a negative errno code on failure
-> + */
-> +struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err)
-> +{
-> +       return __bpf_prog_select_runtime(NULL, fp, err);
-> +}
->  EXPORT_SYMBOL_GPL(bpf_prog_select_runtime);
->
->  static unsigned int __bpf_prog_ret1(const void *ctx,
-> @@ -3136,7 +3136,7 @@ const struct bpf_func_proto bpf_tail_call_proto =3D=
- {
->   * It is encouraged to implement bpf_int_jit_compile() instead, so that
->   * eBPF and implicitly also cBPF can get JITed!
->   */
-> -struct bpf_prog * __weak bpf_int_jit_compile(struct bpf_prog *prog)
-> +struct bpf_prog * __weak bpf_int_jit_compile(struct bpf_verifier_env *en=
-v, struct bpf_prog *prog)
->  {
->         return prog;
->  }
-> diff --git a/kernel/bpf/fixups.c b/kernel/bpf/fixups.c
-> index ec8afd6a9369..6ef213429a2a 100644
-> --- a/kernel/bpf/fixups.c
-> +++ b/kernel/bpf/fixups.c
-> @@ -991,7 +991,7 @@ static void bpf_restore_subprog_starts(struct bpf_ver=
-ifier_env *env, u32 *orig_s
->                 env->subprog_info[i].start =3D orig_starts[i];
->  }
->
-> -static struct bpf_insn_aux_data *bpf_dup_insn_aux_data(struct bpf_verifi=
-er_env *env)
-> +struct bpf_insn_aux_data *bpf_dup_insn_aux_data(struct bpf_verifier_env =
-*env)
->  {
->         size_t size;
->         void *new_aux;
-> @@ -1003,8 +1003,8 @@ static struct bpf_insn_aux_data *bpf_dup_insn_aux_d=
-ata(struct bpf_verifier_env *
->         return new_aux;
->  }
->
-> -static void bpf_restore_insn_aux_data(struct bpf_verifier_env *env,
-> -                                     struct bpf_insn_aux_data *orig_insn=
-_aux)
-> +void bpf_restore_insn_aux_data(struct bpf_verifier_env *env,
-> +                              struct bpf_insn_aux_data *orig_insn_aux)
->  {
->         /* the expanded elements are zero-filled, so no special handling =
-is required */
->         vfree(env->insn_aux_data);
-> @@ -1147,7 +1147,7 @@ static int jit_subprogs(struct bpf_verifier_env *en=
-v)
->                 func[i]->aux->might_sleep =3D env->subprog_info[i].might_=
-sleep;
->                 if (!i)
->                         func[i]->aux->exception_boundary =3D env->seen_ex=
-ception;
-> -               func[i] =3D bpf_int_jit_compile(func[i]);
-> +               func[i] =3D bpf_int_jit_compile(env, func[i]);
->                 if (!func[i]->jited) {
->                         err =3D -ENOTSUPP;
->                         goto out_free;
-> @@ -1191,7 +1191,7 @@ static int jit_subprogs(struct bpf_verifier_env *en=
-v)
->         }
->         for (i =3D 0; i < env->subprog_cnt; i++) {
->                 old_bpf_func =3D func[i]->bpf_func;
-> -               tmp =3D bpf_int_jit_compile(func[i]);
-> +               tmp =3D bpf_int_jit_compile(env, func[i]);
->                 if (tmp !=3D func[i] || func[i]->bpf_func !=3D old_bpf_fu=
-nc) {
->                         verbose(env, "JIT doesn't support bpf-to-bpf call=
-s\n");
->                         err =3D -ENOTSUPP;
-> diff --git a/kernel/bpf/syscall.c b/kernel/bpf/syscall.c
-> index b73b25c63073..a3c0214ca934 100644
-> --- a/kernel/bpf/syscall.c
-> +++ b/kernel/bpf/syscall.c
-> @@ -3083,10 +3083,6 @@ static int bpf_prog_load(union bpf_attr *attr, bpf=
-ptr_t uattr, u32 uattr_size)
->         if (err < 0)
->                 goto free_used_maps;
->
-> -       prog =3D bpf_prog_select_runtime(prog, &err);
-> -       if (err < 0)
-> -               goto free_used_maps;
-> -
->         err =3D bpf_prog_mark_insn_arrays_ready(prog);
->         if (err < 0)
->                 goto free_used_maps;
-> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-> index 9e4980128151..e804e0da3500 100644
-> --- a/kernel/bpf/verifier.c
-> +++ b/kernel/bpf/verifier.c
-> @@ -20155,6 +20155,14 @@ int bpf_check(struct bpf_prog **prog, union bpf_=
-attr *attr, bpfptr_t uattr, __u3
->
->         adjust_btf_func(env);
->
-> +       /* extension progs temporarily inherit the attach_type of their t=
-argets
-> +          for verification purposes, so set it back to zero before retur=
-ning
-> +        */
-> +       if (env->prog->type =3D=3D BPF_PROG_TYPE_EXT)
-> +               env->prog->expected_attach_type =3D 0;
-> +
-> +       env->prog =3D __bpf_prog_select_runtime(env, env->prog, &ret);
-> +
->  err_release_maps:
->         if (ret)
->                 release_insn_arrays(env);
-> @@ -20166,12 +20174,6 @@ int bpf_check(struct bpf_prog **prog, union bpf_=
-attr *attr, bpfptr_t uattr, __u3
->         if (!env->prog->aux->used_btfs)
->                 release_btfs(env);
->
-> -       /* extension progs temporarily inherit the attach_type of their t=
-argets
-> -          for verification purposes, so set it back to zero before retur=
-ning
-> -        */
-> -       if (env->prog->type =3D=3D BPF_PROG_TYPE_EXT)
-> -               env->prog->expected_attach_type =3D 0;
-> -
->         *prog =3D env->prog;
->
->         module_put(env->attach_btf_mod);
-> --
-> 2.47.3
->
+Aw, you beat me to it! I was about to report that 5.10.104-tegra is
+unaffected. And my iperf3 server is a multi-GbE amd64 machine.
+
+> Dumping the registers and comparing, and then forcing the RQS and TQS
+> values to 0x23 (+1 =3D 36, *256 =3D 9216 bytes) and 0x8f (+1 =3D 144,
+> *256 =3D 36864 ytes) respectively seems to solve the problem. Under
+> net-next, these both end up being 0xff (+1 =3D 256, *256 =3D 65536 bytes.=
+)
+> Suspiciously, 36 * 4 =3D 144, and I also see that this kernel programs
+> all four of the MTL receive operation mode registers, but only the
+> first MTL transmit operation mode register. However, DMA channels 1-3
+> aren't initialised.
+
+Wow, great! I wonder if the problem is that the MTL FIFOs are smaller
+than that, so when the DMA suffers a momentary hiccup, the FIFOs are
+allowed to overflow, putting the hardware in a bad state.
+
+Though I suspect this is only half of the problem: do you still see
+RBUs? Everything you've shared so far suggests the DMA failures are
+_not_ because the rx ring is drying up. My gut's telling me the DMA
+unit is encountering an AXI error, triggering RBU plus some kind of
+recovery behavior, and the recovery takes the DMA offline long enough
+for the FIFO to overflow (without triggering RPS because the RQS
+threshold is unreachable).
+
+It seems that the problem happens less frequently on my test setup
+when I boot with iommu.passthrough=3D1 but that could be my imagination.
+But if the hardware remains stable with RQS and TQS set correctly, I
+don't feel an urgent need to dig deeper. :)
+
+> Looking back at 5.10, I don't see any code that would account for these
+> values being programmed for TQS and RQS, it looks like the calculations
+> are basically the same as we have today.
+
+Note that Nvidia have their own "nvethernet" driver for their vendor
+kernel, which appears to pick the FIFO sizes from hardcoded tables in
+its eqos_configure_mtl_queue() [1] function.
+
+Cheers,
+Sam
+
+[1] https://github.com/proski/nvethernet/blob/main/nvethernetrm/osi/core/eq=
+os_core.c#L263
 
