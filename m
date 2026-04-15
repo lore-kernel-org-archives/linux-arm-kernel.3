@@ -4,71 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FE07F43847
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 15:19:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3F1BF43834
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 15:19:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dee28jZnToSIv/2KhtAbQI/WuccJs8QoILf+fdpRKPQ=; b=Od7F5oRpWw8je80klj3dn8FMJx
-	UxnyC/SI1Au0nN5OpqBAdMugJq5qhKs0fzLUnrWZR40njF8r3MLyBOVVDKyhwWvukazC3+Ex78Pvr
-	TGMJ5F2aJMMyl1Rl0jeUfFYaCpmyURKMKF6YnkrAoaZNn+yspIdqGQUv2vyj6C7IECIXOn/l4N7ng
-	P2ibHVjzZpj1RsU43enQZ2uICNJzFXn59veNPax47QpN5+XzO9Z9d9awbAFuRIURD8DoTH9EXnzF9
-	BTZJvPNMBD3wlj/aeceGkwxYOiUqXR9YKpulk2HsEWD5Qg22LYycC2cldynNbqRwn1HzKsbHcIAw3
-	GmIiElSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1VOuNwEfeozQq2kMUhcXYFUYg+uJ+za15jc5bP91H/o=; b=Dnj4Qc3KNf9S6xoIn/+DBOHFDL
+	yOhuBSTSGllWJca+NUiN0wGwAeyC6v1cjRzYbkjUgMp/26wzIL1knzEElO3AtYqz9QV+IoXknW1Sg
+	PzXY6WrRHE+VPF2//abH1SYzqqfADQj8d9qXXhaauLyEQ/HWVmgwVj5dGzU/qjdg3665Vw42+nj+o
+	G88X3WXZd2C7DTJz3P/NDoXRy3RZh7nMHohB2BlAP8ypK6VW8JAoc9Gs0EMwahzpMJvlDd1vhM4yj
+	nRIBJBYkTkJlsuRRDBZkloCR8QFhNM+QM4vJ6fm2VA7M47Qk3ARx76qY/nAwfl8Z+lfKTczAAFiFP
+	LWnVVVSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD21R-00000001IwP-2HMC;
-	Wed, 15 Apr 2026 15:19:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wD21l-00000001Iyz-3hsQ;
+	Wed, 15 Apr 2026 15:19:41 +0000
+Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD21P-00000001Iw5-1jTq
+	id 1wD21j-00000001IyJ-05kl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 15:19:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D1ABA440B9;
-	Wed, 15 Apr 2026 15:19:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E8CEC19424;
-	Wed, 15 Apr 2026 15:19:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776266358;
-	bh=C2CEKkmCH9aV17LYLLM5/3fFEfH0fiYdFqoFdPLbCN4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bS4AIlrTVya99sPUUaSqchJnoC6rYci6Xzps/4CQD2kUYYTmQDqXTctvL4FGXcCzN
-	 X2IMTtcMBZa1NoBprs5sXGpMnltuGHDSD9onfKIKmRwOLCKIhTrX4VGTkJ9y1Ewjr7
-	 jwJXWgWa9sfdD+xI8InH8vG3rho7h10owTtFx/8RPxFFImdgU6Z4lo3RgaPRSMg3S+
-	 48jQ4ZE2kL+PI+CEk2JqSXD5+PZ5Rz97yOjVAPANdEA567ruWCca51wpQmDpWBvV9T
-	 BEZ0NLRsjjZ0M1/L1Wqjr6NkZDOPzQiKBhADFn+WcQoQpOQ+zMpqCsbbTFDQTQ8p1x
-	 6OP7bi0P8k8gg==
-Date: Wed, 15 Apr 2026 16:19:13 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: jk@codeconstruct.com.au, andriy.shevchenko@linux.intel.com,
-	Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Rayn Chen <rayn_chen@aspeedtech.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-i2c@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	openbmc@lists.ozlabs.org
-Subject: Re: [PATCH v29 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
- global-regs properties
-Message-ID: <20260415-unrushed-collected-562130070d8b@spud>
-References: <20260415-upstream_i2c-v29-0-317c1a905ae1@aspeedtech.com>
- <20260415-upstream_i2c-v29-2-317c1a905ae1@aspeedtech.com>
+	Wed, 15 Apr 2026 15:19:40 +0000
+Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-7dbf23885dfso4188144a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Apr 2026 08:19:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776266377; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Dr8euQnlN/M0cnjWw7sJW18A8MD7Gu+KY49EBbOmJhmacCTzk41UD4yuNBls7LH3O8
+         rcUxysiTUC/Cd2R3xFMu7bFm2bMEh+Hjw8hQi1alYV8GjdLzVf00qdysNtZwX2uQFTjT
+         glSjeL6+OLLHrIXu2Fl9FTW5Kv7/qSUKRiePUFWxQcJQZ32TBa7OWvU+Rneddrhf40dP
+         QTMN59cOcgoaPX5nAePEwQ9ci4EwWEgsFVmKD9vAf8W3jotCRCfks66RYBAFPE6S+7eb
+         wAyA8JAiiz6TyPnloT5B6OgiRMKBmfnTFNGoF1wuSMbynDhRst78rxnRRpasrG9Y2Hd/
+         ytEw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=1VOuNwEfeozQq2kMUhcXYFUYg+uJ+za15jc5bP91H/o=;
+        fh=M9euRGDY+VMUv4rxUPdfDZDK0BidY+5VPc763zGrn/s=;
+        b=dEYvv+uoR9l5WRs/irxmHYsuJMDOl2hTdY0BrNM0+Y1pSR2l3sGn+/K2c16fU3DAxV
+         QMkks8VH+2O3oRIE7js6gn3RzD0EJ5SK4sotsxDYKpfUZUIlXtezYXq+mckyNfU3mk2Z
+         ppTMxZz86/LtJbbmDg0+zqCQ1u+vbJXOCz619x1R2QF+j+M7qnKMeWyFZRP2IgxNuWJ3
+         HY6VzkWBN7yBkpDDUdnWjW6gHn2ewpOHozxZrT2UGz5NErKcAz3jor6JqaPFFrnhp5sk
+         UyAoBbI4Q3f0rFJ2q9imddmUXiYIqhdtLS5WoJpuU3F7nHYksa45hYCkFTlRe7qTlZYF
+         FHmg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776266377; x=1776871177; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1VOuNwEfeozQq2kMUhcXYFUYg+uJ+za15jc5bP91H/o=;
+        b=O81gv+Ty5HOn8szg3d+YQM0ayIa5k3ntmGatWJrwTtc0ll5nG+v47OB1YdLE04PUrl
+         PdtFpoDT4+EZdIwjdDg6jBRaqRsw6etnAGnVXqITT9FYTpueRIaWFp6gy3vCvrnyDbPf
+         AjfnOSagl8I+Iaa1Dpw7pNCs7bgevIE/h51xTtmAwRbJWKZA0rBk4NhXBnr2I+26XkCj
+         HG502itNjuO3Vp1W9ffH8sVgd9wy7+HItjV2KSBY1ZEiAxgh8TCdpTH0TsZlmluPl6am
+         zWJRmnGySNDGB0pmW5oSpPcArOdjuDHQFrpuudgiPEVwL9G3Ca8eQYs5RyGjl1x7rKR6
+         yXsA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776266377; x=1776871177;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=1VOuNwEfeozQq2kMUhcXYFUYg+uJ+za15jc5bP91H/o=;
+        b=TmC6M+hZZTVSi8mLOiwmyWUtBNTZIIc3v4min8TO64fF8qtrLEyORNQZI7hJfHWKJq
+         NKV+xKSeO6ZT7jTr9tINljqQYWkCVc+4CjlOLYgWYBJy1J6tlM5ItsdOYVPClZb7yBvn
+         Oedg51+QXkDuBvB0FhQGMbIDAAqE0RwDFj2rb5vNRclsQjyNsnpqQbTAWbU4DOoDVfvZ
+         tDUI6aSopt+ZxAajNp6lvrhVBew0W1gni12djyLvcc/E87t59yWETamTU5gD5V2jwO9/
+         2RWKTKLbVfj7rFk6xgJe2K544FhRo3NUbkk8qFg+8uRoUnrgIw6hLYDtS/hOTTJHWvYz
+         rhug==
+X-Forwarded-Encrypted: i=1; AFNElJ9Nn+mK83DiryW6klO08o+Km7j/BLefLadlj8kYRW9X8D7gPhidExh9BB/+zrQmaz7fnXs/1kbOS2DTmniuvKl6@lists.infradead.org
+X-Gm-Message-State: AOJu0YyxJkMJVzvfJIFbZRRXmhkvWq6TbhFQYmcaDkbz/6qWis3fHVy1
+	n37iax4LjyZTXSL/DaNvSYs1gpt/xPilyRJy0a0iwqgPx7yn/zovpgI3XZdgQ3Vyu2lplkXK+4p
+	XbGwyLmL7Wn0uVu2ChLmrh7eYnSVj90I=
+X-Gm-Gg: AeBDievLBXRLKdnHm67oMBLnuq2VWEPD2gR56/EY4OfQwERWhNCt4MK/c3odGNpuJOX
+	XFeo8L470d6cJHlqiE5tlsbVJzHJ9TCGu8ACFEn3vrgqwzwe2/WkIU06tM8W96Zu6JVUCQievz2
+	nZLLbcdIFPnM8XiUEQY4VgsReA6EeIPjKRG+9sUEJvnCGsc3QRRJkHTOQEly+cIPgez6QAcgOg2
+	xa1xZUgV0n1W2sLkgVsxz4EHEf0MxVEbYmCfB8cYs2481Mb/10Q90bLr/XhAuFFepWC7Z0/2Jv6
+	Bsuh6vYcB3nypKxU4xvbiVuq1qLHqMuRyPMvUIvchBeWIyDwvpzrViAh/D6nWhDlsxgJ1GnYEFH
+	94A==
+X-Received: by 2002:a05:6820:98a:b0:68c:a53c:8ff1 with SMTP id
+ 006d021491bc7-68ca54bd3eamr11009276eaf.11.1776266377081; Wed, 15 Apr 2026
+ 08:19:37 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="k6I7hnG3lmH5OCNw"
-Content-Disposition: inline
-In-Reply-To: <20260415-upstream_i2c-v29-2-317c1a905ae1@aspeedtech.com>
+References: <20260407-brcm-prio-v2-1-3f745edf49af@gmail.com>
+ <CABBYNZJAEqwfTuVqbFAnx97HBSjcwn3Hb+y+r4r2C=MMPxFoDg@mail.gmail.com> <CAMT+MTQ6orj5tpiGL9hz8m2TGiBjA-9D_0e1iLt=_dXBFHcOgg@mail.gmail.com>
+In-Reply-To: <CAMT+MTQ6orj5tpiGL9hz8m2TGiBjA-9D_0e1iLt=_dXBFHcOgg@mail.gmail.com>
+From: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
+Date: Wed, 15 Apr 2026 11:19:24 -0400
+X-Gm-Features: AQROBzDwk1p0rJ7IlG2lPh_IuUkTifTHO7F9HnsebEPzRDlTsV8TRziiZbRGV7g
+Message-ID: <CABBYNZLNR8hYS9jLLKeB=M9XVvtSFtf1wi4DmcJKBbQVvHTPaw@mail.gmail.com>
+Subject: Re: [PATCH v2] Bluetooth: Add Broadcom channel priority commands
+To: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+	Marcel Holtmann <marcel@holtmann.org>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Simon Horman <horms@kernel.org>, linux-kernel@vger.kernel.org, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-bluetooth@vger.kernel.org, 
+	netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_081919_489283_198D30DF 
-X-CRM114-Status: GOOD (  19.48  )
+X-CRM114-CacheID: sfid-20260415_081939_066128_BBA0A8AF 
+X-CRM114-Status: GOOD (  21.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,83 +122,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Sasha,
 
---k6I7hnG3lmH5OCNw
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Wed, Apr 15, 2026 at 8:34=E2=80=AFAM Sasha Finkelstein <fnkl.kernel@gmai=
+l.com> wrote:
+>
+> On Tue, 14 Apr 2026 at 16:00, Luiz Augusto von Dentz
+> <luiz.dentz@gmail.com> wrote:
+> > > +       if (sock)
+> > > +               set_bit(SOCK_CUSTOM_SOCKOPT, &sock->flags);
+> >
+> > This is more complicated than it needs to be. I'd just add a new
+> > callback, `hdev->set_priority(handle, skb->priority)`, so the driver
+> > is called whenever it needs to elevate a connection's priority, that
+> > said there could be cases where a connection needs its priority set
+> > momentarily to transmit A2DP, followed by OBEX packets that are best
+> > effort. Therefore, `hci_conn` will probably need to track the priority
+> > so it can detect when it needs changing on a per skb basis.
+>
+> I have tested per-skb priorities, and unfortunately, this does not work.
+> If something tries to send a low-priority packet (for example - a volume
+> adjustment), a priority drop causes the same kind of dropout that is
+> caused by scans. It appears that the only way to make this hardware work
+> is to set the entire hci connection as high priority for as long as it
+> is being used to transmit audio.
 
-On Wed, Apr 15, 2026 at 01:14:03PM +0800, Ryan Chen wrote:
-> Add the aspeed,global-regs phandle to reference the AST2600 global
-> registers syscon node, containing the SoC-common I2C register set.
->=20
-> These properties apply only to the AST2600 binding. Legacy DTs remain
-> unchanged.
->=20
-> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+Ok, then maybe we should decrease the priority, so it can only go up.
+That said, in a multiple connection scenario, we cannot really tell
+what should be prioritized if we cannot momentarily decrease the
+priority.
 
-I hate to do it to you on v29, but can you please explain what this
-"soc-common i2c register set" actually is/does in your commit message.
-The patch seems fine, so with that
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
-
-> ---
-> Changes in v29:
-> - remove aspeed,enable-dma properties.
->=20
-> Changes in v28:
-> - update commit message correspond with aspeed,enable-dma.
-> - remove aspeed,transfer-mode and add aspeed,enable-dma property and
->   description.
-> - Fix aspeed,enable-dma description to reflect hardware capability rather
->   than software behavior
->=20
-> Changes in v27:
-> - change aspeed,transfer-mode to aspeed,enable-dma.
-> ---
->  Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml | 7 +++++++
->  1 file changed, 7 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yam=
-l b/Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml
-> index de2c359037da..0c769efb76a5 100644
-> --- a/Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml
-> +++ b/Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml
-> @@ -37,6 +37,12 @@ properties:
->    resets:
->      maxItems: 1
-> =20
-> +  aspeed,global-regs:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      Phandle reference to the i2c global syscon node, containing the
-> +      SoC-common i2c register set.
-> +
->  required:
->    - reg
->    - compatible
-> @@ -59,4 +65,5 @@ examples:
->          resets =3D <&syscon ASPEED_RESET_I2C>;
->          clock-frequency =3D <100000>;
->          interrupts =3D <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH>;
-> +        aspeed,global-regs =3D <&i2c_global>;
->      };
->=20
-> --=20
-> 2.34.1
->=20
-
---k6I7hnG3lmH5OCNw
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCad+scQAKCRB4tDGHoIJi
-0kJHAQCCIue29Y53DEXwYeyc7bzKCGyQ41fURdeMFKTMRVm7uAD9FboLEsQkGSoy
-RW+T31SM4kdnSSbuJvWj/tlGvWC9xQ8=
-=8TWM
------END PGP SIGNATURE-----
-
---k6I7hnG3lmH5OCNw--
+--=20
+Luiz Augusto von Dentz
 
