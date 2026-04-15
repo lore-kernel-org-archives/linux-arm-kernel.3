@@ -4,110 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3F1BF43834
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 15:19:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD442F43834
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 15:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1VOuNwEfeozQq2kMUhcXYFUYg+uJ+za15jc5bP91H/o=; b=Dnj4Qc3KNf9S6xoIn/+DBOHFDL
-	yOhuBSTSGllWJca+NUiN0wGwAeyC6v1cjRzYbkjUgMp/26wzIL1knzEElO3AtYqz9QV+IoXknW1Sg
-	PzXY6WrRHE+VPF2//abH1SYzqqfADQj8d9qXXhaauLyEQ/HWVmgwVj5dGzU/qjdg3665Vw42+nj+o
-	G88X3WXZd2C7DTJz3P/NDoXRy3RZh7nMHohB2BlAP8ypK6VW8JAoc9Gs0EMwahzpMJvlDd1vhM4yj
-	nRIBJBYkTkJlsuRRDBZkloCR8QFhNM+QM4vJ6fm2VA7M47Qk3ARx76qY/nAwfl8Z+lfKTczAAFiFP
-	LWnVVVSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uy98rZ0nWolXchTD8m5yvaBDG4+4G1NIqCUVcsrwcWE=; b=W9dGiOGad99hU4siIUkE5qiEqO
+	DKkAssIzk48hsCw2DKcCPi/8e7xtvD32Y4HY8OuSSUk0qjSOnmGl0rLbUdc0FsDicKDHBjTq8aHSz
+	nVa7+GMBACjA1bCFUGioNa3Sm3OTodnJZogC1zEarud+hZnWPRzZnPCyqEmYEHRq+bV1baclWhkiR
+	xOkwUeVXEFrtl3IiNmtjXi0Q03dSJo/ejaKT/P955S/zBY+8NyFLCuTca0fZYBpvQ9rDD6e+C6fAH
+	jlXtklG3Ile5FMAVp+48XyYX74TJon7Eq9CH82aC0lY9hRto5wXITL8BqcDBkeeap8OdAGMVvsWm0
+	E0IEaVAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD21l-00000001Iyz-3hsQ;
-	Wed, 15 Apr 2026 15:19:41 +0000
-Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
+	id 1wD25X-00000001JIf-22MI;
+	Wed, 15 Apr 2026 15:23:35 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD21j-00000001IyJ-05kl
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 15:19:40 +0000
-Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-7dbf23885dfso4188144a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Apr 2026 08:19:38 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776266377; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Dr8euQnlN/M0cnjWw7sJW18A8MD7Gu+KY49EBbOmJhmacCTzk41UD4yuNBls7LH3O8
-         rcUxysiTUC/Cd2R3xFMu7bFm2bMEh+Hjw8hQi1alYV8GjdLzVf00qdysNtZwX2uQFTjT
-         glSjeL6+OLLHrIXu2Fl9FTW5Kv7/qSUKRiePUFWxQcJQZ32TBa7OWvU+Rneddrhf40dP
-         QTMN59cOcgoaPX5nAePEwQ9ci4EwWEgsFVmKD9vAf8W3jotCRCfks66RYBAFPE6S+7eb
-         wAyA8JAiiz6TyPnloT5B6OgiRMKBmfnTFNGoF1wuSMbynDhRst78rxnRRpasrG9Y2Hd/
-         ytEw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=1VOuNwEfeozQq2kMUhcXYFUYg+uJ+za15jc5bP91H/o=;
-        fh=M9euRGDY+VMUv4rxUPdfDZDK0BidY+5VPc763zGrn/s=;
-        b=dEYvv+uoR9l5WRs/irxmHYsuJMDOl2hTdY0BrNM0+Y1pSR2l3sGn+/K2c16fU3DAxV
-         QMkks8VH+2O3oRIE7js6gn3RzD0EJ5SK4sotsxDYKpfUZUIlXtezYXq+mckyNfU3mk2Z
-         ppTMxZz86/LtJbbmDg0+zqCQ1u+vbJXOCz619x1R2QF+j+M7qnKMeWyFZRP2IgxNuWJ3
-         HY6VzkWBN7yBkpDDUdnWjW6gHn2ewpOHozxZrT2UGz5NErKcAz3jor6JqaPFFrnhp5sk
-         UyAoBbI4Q3f0rFJ2q9imddmUXiYIqhdtLS5WoJpuU3F7nHYksa45hYCkFTlRe7qTlZYF
-         FHmg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776266377; x=1776871177; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1VOuNwEfeozQq2kMUhcXYFUYg+uJ+za15jc5bP91H/o=;
-        b=O81gv+Ty5HOn8szg3d+YQM0ayIa5k3ntmGatWJrwTtc0ll5nG+v47OB1YdLE04PUrl
-         PdtFpoDT4+EZdIwjdDg6jBRaqRsw6etnAGnVXqITT9FYTpueRIaWFp6gy3vCvrnyDbPf
-         AjfnOSagl8I+Iaa1Dpw7pNCs7bgevIE/h51xTtmAwRbJWKZA0rBk4NhXBnr2I+26XkCj
-         HG502itNjuO3Vp1W9ffH8sVgd9wy7+HItjV2KSBY1ZEiAxgh8TCdpTH0TsZlmluPl6am
-         zWJRmnGySNDGB0pmW5oSpPcArOdjuDHQFrpuudgiPEVwL9G3Ca8eQYs5RyGjl1x7rKR6
-         yXsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776266377; x=1776871177;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=1VOuNwEfeozQq2kMUhcXYFUYg+uJ+za15jc5bP91H/o=;
-        b=TmC6M+hZZTVSi8mLOiwmyWUtBNTZIIc3v4min8TO64fF8qtrLEyORNQZI7hJfHWKJq
-         NKV+xKSeO6ZT7jTr9tINljqQYWkCVc+4CjlOLYgWYBJy1J6tlM5ItsdOYVPClZb7yBvn
-         Oedg51+QXkDuBvB0FhQGMbIDAAqE0RwDFj2rb5vNRclsQjyNsnpqQbTAWbU4DOoDVfvZ
-         tDUI6aSopt+ZxAajNp6lvrhVBew0W1gni12djyLvcc/E87t59yWETamTU5gD5V2jwO9/
-         2RWKTKLbVfj7rFk6xgJe2K544FhRo3NUbkk8qFg+8uRoUnrgIw6hLYDtS/hOTTJHWvYz
-         rhug==
-X-Forwarded-Encrypted: i=1; AFNElJ9Nn+mK83DiryW6klO08o+Km7j/BLefLadlj8kYRW9X8D7gPhidExh9BB/+zrQmaz7fnXs/1kbOS2DTmniuvKl6@lists.infradead.org
-X-Gm-Message-State: AOJu0YyxJkMJVzvfJIFbZRRXmhkvWq6TbhFQYmcaDkbz/6qWis3fHVy1
-	n37iax4LjyZTXSL/DaNvSYs1gpt/xPilyRJy0a0iwqgPx7yn/zovpgI3XZdgQ3Vyu2lplkXK+4p
-	XbGwyLmL7Wn0uVu2ChLmrh7eYnSVj90I=
-X-Gm-Gg: AeBDievLBXRLKdnHm67oMBLnuq2VWEPD2gR56/EY4OfQwERWhNCt4MK/c3odGNpuJOX
-	XFeo8L470d6cJHlqiE5tlsbVJzHJ9TCGu8ACFEn3vrgqwzwe2/WkIU06tM8W96Zu6JVUCQievz2
-	nZLLbcdIFPnM8XiUEQY4VgsReA6EeIPjKRG+9sUEJvnCGsc3QRRJkHTOQEly+cIPgez6QAcgOg2
-	xa1xZUgV0n1W2sLkgVsxz4EHEf0MxVEbYmCfB8cYs2481Mb/10Q90bLr/XhAuFFepWC7Z0/2Jv6
-	Bsuh6vYcB3nypKxU4xvbiVuq1qLHqMuRyPMvUIvchBeWIyDwvpzrViAh/D6nWhDlsxgJ1GnYEFH
-	94A==
-X-Received: by 2002:a05:6820:98a:b0:68c:a53c:8ff1 with SMTP id
- 006d021491bc7-68ca54bd3eamr11009276eaf.11.1776266377081; Wed, 15 Apr 2026
- 08:19:37 -0700 (PDT)
+	id 1wD25V-00000001JIG-1oJW;
+	Wed, 15 Apr 2026 15:23:34 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.99)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1wD25J-000000002dB-1dYA;
+	Wed, 15 Apr 2026 15:23:21 +0000
+Date: Wed, 15 Apr 2026 16:23:17 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Cyril Chao <Cyril.Chao@mediatek.com>, Arnd Bergmann <arnd@arndb.de>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
+	Eugen Hristev <eugen.hristev@linaro.org>,
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH 0/9] ASoC: mediatek: mt2701: HDMI audio support
+Message-ID: <cover.1776265610.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-References: <20260407-brcm-prio-v2-1-3f745edf49af@gmail.com>
- <CABBYNZJAEqwfTuVqbFAnx97HBSjcwn3Hb+y+r4r2C=MMPxFoDg@mail.gmail.com> <CAMT+MTQ6orj5tpiGL9hz8m2TGiBjA-9D_0e1iLt=_dXBFHcOgg@mail.gmail.com>
-In-Reply-To: <CAMT+MTQ6orj5tpiGL9hz8m2TGiBjA-9D_0e1iLt=_dXBFHcOgg@mail.gmail.com>
-From: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
-Date: Wed, 15 Apr 2026 11:19:24 -0400
-X-Gm-Features: AQROBzDwk1p0rJ7IlG2lPh_IuUkTifTHO7F9HnsebEPzRDlTsV8TRziiZbRGV7g
-Message-ID: <CABBYNZLNR8hYS9jLLKeB=M9XVvtSFtf1wi4DmcJKBbQVvHTPaw@mail.gmail.com>
-Subject: Re: [PATCH v2] Bluetooth: Add Broadcom channel priority commands
-To: Sasha Finkelstein <fnkl.kernel@gmail.com>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
-	Marcel Holtmann <marcel@holtmann.org>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Simon Horman <horms@kernel.org>, linux-kernel@vger.kernel.org, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-bluetooth@vger.kernel.org, 
-	netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_081939_066128_BBA0A8AF 
-X-CRM114-Status: GOOD (  21.11  )
+X-CRM114-CacheID: sfid-20260415_082333_493119_E12F506D 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,36 +71,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sasha,
+This series wires up on-chip HDMI audio on MT2701 and MT7623, from the
+DRM bridge down through the AFE into a small machine driver that binds
+the AFE HDMI BE to the HDMI TX codec already exposed by the
+mediatek-drm-hdmi driver. Bindings, DT and a BananaPi R2 board node
+are included.
 
-On Wed, Apr 15, 2026 at 8:34=E2=80=AFAM Sasha Finkelstein <fnkl.kernel@gmai=
-l.com> wrote:
->
-> On Tue, 14 Apr 2026 at 16:00, Luiz Augusto von Dentz
-> <luiz.dentz@gmail.com> wrote:
-> > > +       if (sock)
-> > > +               set_bit(SOCK_CUSTOM_SOCKOPT, &sock->flags);
-> >
-> > This is more complicated than it needs to be. I'd just add a new
-> > callback, `hdev->set_priority(handle, skb->priority)`, so the driver
-> > is called whenever it needs to elevate a connection's priority, that
-> > said there could be cases where a connection needs its priority set
-> > momentarily to transmit A2DP, followed by OBEX packets that are best
-> > effort. Therefore, `hci_conn` will probably need to track the priority
-> > so it can detect when it needs changing on a per skb basis.
->
-> I have tested per-skb priorities, and unfortunately, this does not work.
-> If something tries to send a low-priority packet (for example - a volume
-> adjustment), a priority drop causes the same kind of dropout that is
-> caused by scans. It appears that the only way to make this hardware work
-> is to set the entire hci connection as high priority for as long as it
-> is being used to transmit audio.
+In order to survive vblank or late hotplug of the monitor, the fix
+submitted separately [1] is required as well.
 
-Ok, then maybe we should decrease the priority, so it can only go up.
-That said, in a multiple connection scenario, we cannot really tell
-what should be prioritized if we cannot momentarily decrease the
-priority.
+Everything here was developed for and tested on a BananaPi R2
+(MT7623N), which turns ten years old this year -- a nice occasion to
+finally land native HDMI audio for a SoC which was truly ahead of its
+time.
 
---=20
-Luiz Augusto von Dentz
+[1]: https://patchwork.kernel.org/project/linux-mediatek/patch/a3e22cbae528c9a38d854a586d1736b860998d41.1776265222.git.daniel@makrotopia.org/
+
+Daniel Golle (9):
+  dt-bindings: sound: mt2701-afe-pcm: add HDMI audio path clocks
+  dt-bindings: sound: add mediatek,mt2701-hdmi-audio machine binding
+  ASoC: mediatek: mt2701: add AFE HDMI register definitions
+  ASoC: mediatek: mt2701: add optional HDMI audio path clocks
+  ASoC: mediatek: mt2701: add HDMI audio memif, FE and BE DAIs
+  ASoC: mediatek: mt2701: add machine driver for on-chip HDMI codec
+  ARM: dts: mediatek: mt2701: wire HDMI audio path clocks into AFE
+  ARM: dts: mediatek: mt7623: wire HDMI audio path clocks into AFE
+  ARM: dts: mediatek: mt7623n-bananapi-bpi-r2: add HDMI audio machine
+    node
+
+ .../bindings/sound/mediatek,mt2701-audio.yaml |  10 +
+ .../sound/mediatek,mt2701-hdmi-audio.yaml     |  47 +++
+ arch/arm/boot/dts/mediatek/mt2701.dtsi        |  21 +-
+ arch/arm/boot/dts/mediatek/mt7623.dtsi        |  21 +-
+ .../dts/mediatek/mt7623n-bananapi-bpi-r2.dts  |   7 +
+ sound/soc/mediatek/Kconfig                    |  10 +
+ sound/soc/mediatek/mt2701/Makefile            |   1 +
+ .../mediatek/mt2701/mt2701-afe-clock-ctrl.c   |  22 ++
+ sound/soc/mediatek/mt2701/mt2701-afe-common.h |   6 +
+ sound/soc/mediatek/mt2701/mt2701-afe-pcm.c    | 281 +++++++++++++++++-
+ sound/soc/mediatek/mt2701/mt2701-hdmi.c       | 114 +++++++
+ sound/soc/mediatek/mt2701/mt2701-reg.h        |  35 +++
+ 12 files changed, 564 insertions(+), 11 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt2701-hdmi-audio.yaml
+ create mode 100644 sound/soc/mediatek/mt2701/mt2701-hdmi.c
+
+-- 
+2.53.0
 
