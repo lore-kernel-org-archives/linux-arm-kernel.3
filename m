@@ -4,131 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C98CFA0C32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 06:07:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28B06FA0C33
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 06:09:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HTC9lJCcpuLOSzNBVUr0uqWnvlBZGJTmTziOZTPoCGU=; b=ET0HgGuZMTm1HleBmQIpqXd2dq
-	Sl6cVTVIHv/ZTowhZlN/sTjVQOSjFGaqm6HS9CRWRIU+habsspqzvZIrwD1cdCoi6fXN6m7uu8n6V
-	TlpUZsW0ksVYq7c7ts0ujM+qJpbWQMO3rSGRHC3dBSrQEq0GWmTWg5HOKpqODqNYmFSfBZxTO6M5A
-	sscdmk5cS7kQITnCW549sDveTrQDTB4spvPmUCON9gXdetseY/gKTH2qDuivN/cXLuMiwkCNa/Zr2
-	qBHAlGjAXwNnof1JdT3pMSUN3DKtLVcoIc+vvr1lywpYAQx2ikPm9Td3CVMPhrlRX6m90wGN2kiRp
-	AgVsYQLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+ypCQYb5z2PZvIzS0gw2ULN0rjsWR7QSr55MLlXIZUs=; b=lIPcm99wgKe6VHUCHmOVOjlhjG
+	py9XU9taWEdAKXCn+wpJE3B5DgIySF2KWxGgE1pZB39Vq74NDF1yk2eI2Sadw5KoSZ84V5Cl65Fo+
+	0t2MdUaO9eCGH/Aw3m6fauuqtwFkQ4fGN9hllTlZVuN0rIVA5nR+D1eKZOaFLDU2B+kZLuL39dkBh
+	PIbcE47qP5ZiCfM2WUiOoU+o0bR8Fwj/D35aGMHLC3+n+XasAoHNi2LZZgnAsMz7r8/eZ19PxOJzO
+	ur0/ROTRw9bQZigPlACS9UqI7c3hwKxxWk793ONGituBSDj0MPw4+9iyEFlR6sAz8Zeq9zY9wMynQ
+	mLQsz9Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCtOi-00000000cmM-2rvZ;
-	Wed, 15 Apr 2026 06:06:48 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wCtQu-00000000d8K-2Ffl;
+	Wed, 15 Apr 2026 06:09:04 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCtOK-00000000ckB-2CQB
+	id 1wCtQr-00000000d6h-1Fb4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 06:06:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WUWOLNdrwQalDJc7+xBCOojbNs63ku5I+JMGONl4zWysiaFNhTqx0umhBCcQBm5LcjoX4LDyyrBFs5EUSoucU2m5kwKFSOGHvyQUJaBtOjmpLN0rYgRtACMJtvO6/BGkhriMh5/jveq45kb7QnA8mysoRufLJWYCKDKHTstT4y9hZKlKtaiAUZEoK3Qn7DzoYyhIBcbf/gxRrHcY2/Wl+N5qglF9IguJ4X1CsZmOmloUpkL+xe09+PB1YNQd1AOvm/JPq7N+Nf8KvRdfc21mOhiq8HuXqjMPNZQ9pQ5JQX1zZH8xx08AqxlgHXWFqbD5ZeUekfNeg2ueWouQrNh+tQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HTC9lJCcpuLOSzNBVUr0uqWnvlBZGJTmTziOZTPoCGU=;
- b=sWiEw3ONP0MKiEAxmBgLMtpdoomerbpKxy/yMONIbw6myWC9XTKpCdpni5cq2R55cVmKIp2MGX1Gdi64PIBpuyOkMl+4K4Ik8dF8v9Was9oQuWK8JHX557ZIYugPDLcQJp1I2YhjYXy5Yqpn2erJO7eu5Xzv9RPalNdmyUtAi52pdHEfEONFGvbOYWje7ih7SWsIRyhOOdzqIx2TbALEoGuym21m1nHeBQiinWI7DIjs0uEugu9lKfnotcILsE/nkimOTRKqP+GUiB2Dm36JdgK6vY99MJ1yT9V+RSZGviDwEHljh1Dd+wYGUMIC6MHpBEW8rIobhRnzUKjWue3agw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HTC9lJCcpuLOSzNBVUr0uqWnvlBZGJTmTziOZTPoCGU=;
- b=SzU+Lk/wxwVZzR0yS2sf8qjZnGzTEtVKWPQHs+wUSNs4iwHYpcv//STTO3mKAB5/fkownOU1VpoJmlEhFY19LibwokpB1dy+zJ6Pz+3vkGwZdOifopWNvyeK1Qe3VSYQ8qpEkoSbo1+E/dLHjfxgfp9S4SjxYmXOh9rgHLV1Bvt9THuIJCULb98dNZMOg0vizOxRR/NuhtR3tIF7GFDlRTmt1RgD9vgIccrUszl069beTksdnufJzi9UeCM1+cm8hZMCq5VEnnKtG9130/cU+muso6tL5DnsYltvb82gPZNNrf1HwcWdzwTGSan1LcTECWxbPSYSBl0jsxWM+iWqnQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM8PR04MB7284.eurprd04.prod.outlook.com (2603:10a6:20b:1dc::8)
- by AS8PR04MB7701.eurprd04.prod.outlook.com (2603:10a6:20b:293::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Wed, 15 Apr
- 2026 06:06:15 +0000
-Received: from AM8PR04MB7284.eurprd04.prod.outlook.com
- ([fe80::9cd6:51bd:82b:98dc]) by AM8PR04MB7284.eurprd04.prod.outlook.com
- ([fe80::9cd6:51bd:82b:98dc%5]) with mapi id 15.20.9769.046; Wed, 15 Apr 2026
- 06:06:15 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: claudiu.manoil@nxp.com,
-	vladimir.oltean@nxp.com,
-	xiaoning.wang@nxp.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	chleroy@kernel.org
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 net 0/2] net: enetc: fix command BD ring issues
-Date: Wed, 15 Apr 2026 14:08:31 +0800
-Message-Id: <20260415060833.2303846-1-wei.fang@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR06CA0243.apcprd06.prod.outlook.com
- (2603:1096:4:ac::27) To AM8PR04MB7284.eurprd04.prod.outlook.com
- (2603:10a6:20b:1dc::8)
+	Wed, 15 Apr 2026 06:09:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=+ypCQYb5z2PZvIzS0gw2ULN0rjsWR7QSr55MLlXIZUs=; b=U2rZcQR6HMY/i/VBmz284fF8wv
+	K7/JWqg2h4tNV4DIHyw1lwN7pzAT0uikIQ+qeybZ4UbJooIKTPttoJQPkhDR2EJr90sl1H8ggF3D2
+	b6e/ytUR1FwI1dbx89qnWjjavatDJgcRxV8DVrikX7B/VM9th8tWpyU7MdzJEKJWvvc+Ce3Y2u3o3
+	KbWSS70kDPh0wp3YSXvBpu0RHrndvdAn0714vAMMz78KrOoix5Sajz4e+bi+8n8v2xzsv2UY3ar/z
+	puTv3aVkWXWdUu6eHr8JFlDXtHToxFLrqZVHjcZBubSH8foYL9ouYFZM6Dt9C7CusqEYqZ2dCxTdV
+	bR3S9Awg==;
+Received: from sslproxy08.your-server.de ([78.47.166.52])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wCtQY-000C07-1D;
+	Wed, 15 Apr 2026 08:08:42 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy08.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wCtQX-0008Pj-03;
+	Wed, 15 Apr 2026 08:08:41 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+ Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 5/6] net: stmmac: move PHY handling out of
+ __stmmac_open()/release()
+Date: Wed, 15 Apr 2026 08:08:40 +0200
+Message-ID: <8409022.LvFx2qVVIh@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <E1v11A3-0000000774G-3PKY@rmk-PC.armlinux.org.uk>
+References: <aNKDqqI7aLsuDD52@shell.armlinux.org.uk>
+ <E1v11A3-0000000774G-3PKY@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7284:EE_|AS8PR04MB7701:EE_
-X-MS-Office365-Filtering-Correlation-Id: a5ac28d0-4c88-499d-bffe-08de9ab51a14
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|19092799006|7416014|1800799024|366016|38350700014|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: QGTyigMAhfAhu92czqsz3TkoCnUXMgaSRjtq9V/ry42n28FBhKmRDKqJHGm+bqLYSqvtR/LXZhVKGdFlRTYmV1/5xnF+h4VNLSFyrY32/ov5qUDJPkqB8KXQ5xXG63Ey0haHTyUmUxL0yCMyijZ2DCS7OBkcuGJ/Z7HEBf1bHMHaCtbWpgmH0PNfSgtWSR2LrEFg/QMotz9izaSHLcPlbjtuRDp4cJ/PIlLir+xDypw9lB3XP/OAUOHLpLCFRrPP4Li3EDLJfrWgmawjlHiQx0QoIPqliIZv2LBC7W17InKA2M+53rop3NzXac4l68q33NxhME+5mq8T+Y5IT8cK/RH/A11txLeodnQuh3FUyCKlENODxD46DjLd0/xCQ4YnTgu1MwfQHsYUWysD8S9DCbvtCYBAvrnJ84Ax4ZSudJsZC9gPVqZMauQL1tbllEUl449nJWsCePBzrDo5ofujqjNLGHmbY7QYh5Nhute696kaI9cRPs8Od2znGyel6q9SYEPexcurDpRM7YhkAqDul9/ircy9ZdxfBnyneZEs/Dru4YpJlN/uNO203qPJIGuKT6Im0+aTH3X8oJdrMaTKp5dI4TVMNbxZBcI1sjTXsLdV0pW5oTRVhutwGdLg6gKEOqorwdk0gnYRTXsK8u+YdQJpd3Aqm6EjImusGyiudGDOAZNMozCf7f1C09R5kViifzKe8oqp7GqW+5B6+M/5FsDn8J4n9u6lniMk/jSApkDUpfZ4LSxIhUUjptr5yemANgXYuGXA9MxEOvlLA3By/i1tn7DF7b/E+SUf+AlexQY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7284.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(19092799006)(7416014)(1800799024)(366016)(38350700014)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8KLi/qA01vm0EtFdD93NwjjJl1qJprNbY9E5rqH0z1BTA/O9b536FErcR5PR?=
- =?us-ascii?Q?mKfgimt9wn2+ErYgbJO7ItLIUnRfJV4OuU/FuVD49D7u7TzQ4JXPzLREUU1R?=
- =?us-ascii?Q?HppIO0/t9RTi7hG1aATUoaD0CtZcrTFlsQ012dkHXY2NZ4dk6D8FQuklZde9?=
- =?us-ascii?Q?NXITQZn5Le+xHTGXa/tpXS9yO32TE2g19BO0EWcd/wnvxUrDP+n3NRDZSbll?=
- =?us-ascii?Q?0CgiLcrHXhdWeFPm6OapbCy7QqykiIT5gGymjAF6spd6PL4uflIrGo3l60JR?=
- =?us-ascii?Q?MF4HL3FHDddFB0fBhKvd7Wn+QpT+QcJt283grb0yC/NGEliVOdDXdJM2uBDb?=
- =?us-ascii?Q?GnB1ddzMsdmDlYB4GwVcgwJG9mJjWoZF1bQJFBBNK70FqAHVkNUB/LxXZozF?=
- =?us-ascii?Q?yYDrltPluibCamBefcb40q1XgnL2EMAK7AxoFLPD/qAR/yoYccXzkwhoIThc?=
- =?us-ascii?Q?rurJ6KsqPt2e9BFISvjDeQhJFF5cNnxVKVFZwXWc7IL2AL2x6ZuW3y2fYEHA?=
- =?us-ascii?Q?h8uQy76hPGmey8JPBzV+PTltp1kskZj+SDr0ytl0mBmSWlHGAJnDOF2HaNtY?=
- =?us-ascii?Q?G/1sgoHSrL4lH+P/53L2Ki9dkd2+9IRdAXyxYbYGoMnco/MJZ0xX0bC9aQO0?=
- =?us-ascii?Q?nj0MWS4mHvt8sL0a3EZfH82zUpv0nxOV72IK24pd87M/P6x9Pmkd5lnZsI34?=
- =?us-ascii?Q?mymHmnr970Jdooges04CQlMLgUXlEL1RJjGy6dBPQgugOREZhMDn7Zeh3ex9?=
- =?us-ascii?Q?XJCXFLXLwUIzRRriVe5iGkjaVSca5XwgbdDr70gtH++jm6d2+CKJtC8oWbjr?=
- =?us-ascii?Q?Q3cF1n7dWH6RTtgI7hNT+KID3XvIATNpGp//8nFGvkjfudE89XlOJ5Q6MCDC?=
- =?us-ascii?Q?ksb3rT92ALSPdgzD8BGkJ6T4w7E4aj7+nvmj5V5Llqrp16s1x8ut61WSp8fw?=
- =?us-ascii?Q?XLDzVdcfIa+sVs58+rn13L7KD+r+vQhIVXXM1fxPP48bgerXg9/0DvPYsKRD?=
- =?us-ascii?Q?HNbuShxTF/T4ROyqQe1xlOgiWm/lsHa8iNUxk2hwblhXn7xp6KJd8+3mS67/?=
- =?us-ascii?Q?FfnBUMPfLL7l+stpoRy3+FRoSdObrVLH+uvKax5FyT7ITrKoCtTPzqx+0cHD?=
- =?us-ascii?Q?Y1Bwv9tX9YMbG28qCpVQeJUzDxCaN/eDQBTSelPgDpkvATqwgo0BdiQfjKNZ?=
- =?us-ascii?Q?JCn/eWvrSzoltvfmyuVD1XuggPvat6ColCBfiHF7HBh/NgKyg0qOR9G0fqVf?=
- =?us-ascii?Q?Ltaxq7BHOHuEIOg7daqWOxGum1equcbnhq+QxUE6YfzHQnrDdoFNhmnorVDN?=
- =?us-ascii?Q?ZBsum0dfqDEiDz24gLRI727i+mf3AlB4q7gAL04KXD44P6E7iaydPsws/IG8?=
- =?us-ascii?Q?Xw2EicD14mhSbiYV1fkPGHNoWgY0IA56PINKsTOjrKZ35LnjXpPQzMxFmFVC?=
- =?us-ascii?Q?dTfK7MihfEhynTdrmFNnHkzHn3REC7N1EpnMNdEebc/vda4V9nP0cLm+1I2M?=
- =?us-ascii?Q?nOWtltleWygB6rMkc/uJTO+SSEGBK4SiIjGDDbUiW2gEF5zJ2x5pwUZOT74O?=
- =?us-ascii?Q?CazJEJVeuOmVXUT6LGEQAAqkDjqbg57rbHgPSSBVj33pgbspYn4CiUlQINTi?=
- =?us-ascii?Q?Tn/fUd7ia/oc0Kehby/IcIAcHHtenQu08yFtwKnycU9sA27bLGt9rXsDden5?=
- =?us-ascii?Q?hIZs2p2LI/4BMf+5uUZwOat7P2acpPXS1Vx5O4PzSHZBfnyO?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a5ac28d0-4c88-499d-bffe-08de9ab51a14
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7284.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Apr 2026 06:06:15.3009
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: s9zuiyu3N/aNHsa3LMMe0w8VMEkQu2RWapnklxGZzmqx0vApibL9Yr2dSVg5zeZEGLuVFafpplg5T7to01rZgg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7701
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Virus-Scanned: Clear (ClamAV 1.4.3/27971/Tue Apr 14 08:24:44 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_230624_582940_1FD24C9E 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20260414_230901_445119_09C3C179 
+X-CRM114-Status: GOOD (  20.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,38 +89,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, the implementation of command BD ring has two issues, one is
-that the driver may obtain wrong consumer index of the ring, because the
-driver does not mask out the SBE bit of the CIR value, so a wrong index
-will be obtained when a SBE error ouccrs. The other one is that the DMA
-buffer may be used after free. If netc_xmit_ntmp_cmd() times out and
-returns an error, the pending command is not explicitly aborted, while
-ntmp_free_data_mem() unconditionally frees the DMA buffer. If the buffer
-has already been reallocated elsewhere, this may lead to silent memory
-corruption. Because the hardware eventually processes the pending command
-and perform a DMA write of the response to the physical address of the
-freed buffer. So this patch set is to fix these two issues.
+Hi,
 
----
-v2:
-1. Check the SBE bit in netc_xmit_ntmp_cmd().
-2. Fix DMA buffer leak issue when netc_xmit_ntmp_cmd returns -EBUSY.
-3. Check swcbd->buf in ntmp_free_data_mem().
-4. Move ring_lock ownership to the caller to ensure the response buffer
-cannot be reclaimed prematurely. So add the helpers ntmp_unlock_cbdr()
-and ntmp_select_and_lock_cbdr().
----
+Am Dienstag, 23. September 2025, 13:26:19 CEST schrieb Russell King (Oracle=
+):
+> Move the PHY attachment/detachment from the network driver out of
+> __stmmac_open() and __stmmac_release() into stmmac_open() and
+> stmmac_release() where these actions will only happen when the
+> interface is administratively brought up or down. It does not make
+> sense to detach and re-attach the PHY during a change of MTU.
 
-Wei Fang (2):
-  net: enetc: correct the command BD ring consumer index
-  net: enetc: fix NTMP DMA use-after-free issue
+Sorry for coming up now. But I recently noticed this commit breaks changing
+the MTU on i.MX8MP. Once I simply change the MTU I run into some DMA error:
+$ ip link set dev end1 mtu 1400
+imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-0
+imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-1
+imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-2
+imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-3
+imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-4
+imx-dwmac 30bf0000.ethernet end1: Link is Down
+imx-dwmac 30bf0000.ethernet end1: Failed to reset the dma
+imx-dwmac 30bf0000.ethernet end1: stmmac_hw_setup: DMA engine initializatio=
+n failed
+imx-dwmac 30bf0000.ethernet end1: __stmmac_open: Hw setup failed
+imx-dwmac 30bf0000.ethernet end1: failed reopening the interface after MTU =
+change
 
- drivers/net/ethernet/freescale/enetc/ntmp.c   | 217 +++++++++++-------
- .../ethernet/freescale/enetc/ntmp_private.h   |  10 +-
- include/linux/fsl/ntmp.h                      |   9 +-
- 3 files changed, 141 insertions(+), 95 deletions(-)
+Using the command above bisecting was straight forward.
+=46or some reason detach and re-attaching the PHY seems necessary on this p=
+latform.
+There already too much changes for simply reverting this commit.
 
--- 
-2.34.1
+Best regards,
+Alexander
+
+>=20
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
+>  .../net/ethernet/stmicro/stmmac/stmmac_main.c | 29 +++++++++++--------
+>  1 file changed, 17 insertions(+), 12 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/=
+net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 4acd180d2da8..4844d563e291 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -3937,10 +3937,6 @@ static int __stmmac_open(struct net_device *dev,
+>  	u32 chan;
+>  	int ret;
+> =20
+> -	ret =3D stmmac_init_phy(dev);
+> -	if (ret)
+> -		return ret;
+> -
+>  	for (int i =3D 0; i < MTL_MAX_TX_QUEUES; i++)
+>  		if (priv->dma_conf.tx_queue[i].tbs & STMMAC_TBS_EN)
+>  			dma_conf->tx_queue[i].tbs =3D priv->dma_conf.tx_queue[i].tbs;
+> @@ -3990,7 +3986,6 @@ static int __stmmac_open(struct net_device *dev,
+> =20
+>  	stmmac_release_ptp(priv);
+>  init_error:
+> -	phylink_disconnect_phy(priv->phylink);
+>  	return ret;
+>  }
+> =20
+> @@ -4010,18 +4005,28 @@ static int stmmac_open(struct net_device *dev)
+> =20
+>  	ret =3D pm_runtime_resume_and_get(priv->device);
+>  	if (ret < 0)
+> -		goto err;
+> +		goto err_dma_resources;
+> +
+> +	ret =3D stmmac_init_phy(dev);
+> +	if (ret)
+> +		goto err_runtime_pm;
+> =20
+>  	ret =3D __stmmac_open(dev, dma_conf);
+> -	if (ret) {
+> -		pm_runtime_put(priv->device);
+> -err:
+> -		free_dma_desc_resources(priv, dma_conf);
+> -	}
+> +	if (ret)
+> +		goto err_disconnect_phy;
+> =20
+>  	kfree(dma_conf);
+> =20
+>  	return ret;
+> +
+> +err_disconnect_phy:
+> +	phylink_disconnect_phy(priv->phylink);
+> +err_runtime_pm:
+> +	pm_runtime_put(priv->device);
+> +err_dma_resources:
+> +	free_dma_desc_resources(priv, dma_conf);
+> +	kfree(dma_conf);
+> +	return ret;
+>  }
+> =20
+>  static void __stmmac_release(struct net_device *dev)
+> @@ -4038,7 +4043,6 @@ static void __stmmac_release(struct net_device *dev)
+> =20
+>  	/* Stop and disconnect the PHY */
+>  	phylink_stop(priv->phylink);
+> -	phylink_disconnect_phy(priv->phylink);
+> =20
+>  	stmmac_disable_all_queues(priv);
+> =20
+> @@ -4078,6 +4082,7 @@ static int stmmac_release(struct net_device *dev)
+> =20
+>  	__stmmac_release(dev);
+> =20
+> +	phylink_disconnect_phy(priv->phylink);
+>  	pm_runtime_put(priv->device);
+> =20
+>  	return 0;
+>=20
+
+
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
 
 
