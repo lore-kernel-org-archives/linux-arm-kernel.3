@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36FE1F9D0F6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 01:27:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C8AEF9D0CE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 01:33:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8XtA1EyYgn41uAU/MTEXCY/CsCra52HysC3sbmkEf68=; b=OGW77uxHIqLiRoX3Wfgcb2pYET
-	IJVvM7mC3ZVLakEsEfZIiCkvy8epAbTui1oF6nImCNDRJ6t2eSM7EbFzKGMMeTMpyA78H54tgXy7o
-	DICaLhgK7sztFjU84vLbe7Zwte71SsKsqBLJE4kiUACoCg69sqjynzn132/GwZeuwguKkEv0Pz1Vt
-	YQvcpfqqSQq+KFJTsV+TP5z2OCza1kgXAdPCR1WxrQOsGyZuNJTXNEydpUVof+ZzKeQPEIsYwiQ44
-	kC1CYw/2HO1npcoRKr5ydto19v05ndrWYZqhdSpGFe8kaYf4uzv9Mext4oaDuiRSr5b9U4GhZwkag
-	EqC6yGEg==;
+	bh=O2kZvsNPH9LHVBECqKSB4VWfMUhvRVjvwKNwWXu2iiI=; b=T0Whe+h+1kBrAER7U+vXaUiB23
+	7yeYVKMsc2nx5peMQxV8I49CF8grV0nCeUVDkgXqjuQk8Qiaytw1oCeDOAy+odHjYN+GfwQt3FllD
+	R/82N2CQMV9Gc5HMzIqCXeV0peLPANHieOSOEFWKkA+CxjpudnNEy4Rw0D1L+bqWtUM16I2TiOqJS
+	isbdy0NArL6S4rx+7cGQkxdJBotyKf5nAi/ZIyU/nyiGSUT0sC/w7D6HPF3ohnrorGiEAsp+XlHlG
+	+sLv9cUiBlDa/745JOZzTavQjAJxe3tJxqDc0bVdiSCaO0hIlTfF2etRrahvjgSLV389r2R0CENFc
+	GpSlontw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCp2W-00000000Qgx-3o6s;
-	Wed, 15 Apr 2026 01:27:36 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1wCp7j-00000000Qu1-2uur;
+	Wed, 15 Apr 2026 01:32:59 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCp2S-00000000QgD-3fia
+	id 1wCp7g-00000000QtC-1Jrq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 01:27:35 +0000
+	Wed, 15 Apr 2026 01:32:58 +0000
 dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=8XtA1EyYgn41uAU/MTEXCY/CsCra52HysC3sbmkEf68=;
-	b=axN/6JiDV8CeNDO3m1v/grb3Tl/1S2uz4IWT52lRujIhut/lnAVhip8Yg7MqyKMYMyW/VJCek
-	lCSb9pZeT6nqj3B8yf9lGRZRS2j7B/WrzSDFAihXlSJ4M6+nBkr+Vo1QeOrNuUjYxe1q9Ex7Utj
-	YzPLEsTmjETGsaSI01aBj/Q=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4fwNdQ5yZMz1T4G8;
-	Wed, 15 Apr 2026 09:21:14 +0800 (CST)
-Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
-	by mail.maildlp.com (Postfix) with ESMTPS id 0575440572;
-	Wed, 15 Apr 2026 09:27:15 +0800 (CST)
-Received: from [10.174.179.37] (10.174.179.37) by
- kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
+	bh=O2kZvsNPH9LHVBECqKSB4VWfMUhvRVjvwKNwWXu2iiI=;
+	b=gaA/rGn4O25rIzd73vQzt3VvnO0dQzUwEpEQMCnjyvQBByRZGGIUrgTFPHej+rEKlHVeMAc1b
+	olOQfRTI3eK8HKsejGlMsRt5s65hiS5g3oio9HyzQedZn4oTzhhjxUC3MEFzmS0XXa1DrUhSZX/
+	HOexY74PX6sSyqpdOsEeiV8=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4fwNlG2XlQzcb3c;
+	Wed, 15 Apr 2026 09:26:18 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id D3CD340576;
+	Wed, 15 Apr 2026 09:32:47 +0800 (CST)
+Received: from kwepemn100009.china.huawei.com (7.202.194.112) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Wed, 15 Apr 2026 09:27:13 +0800
-Message-ID: <d5918112-0c9f-ecf3-226c-8c3cdd5cd508@huawei.com>
-Date: Wed, 15 Apr 2026 09:27:12 +0800
+ 15.2.1544.11; Wed, 15 Apr 2026 09:32:47 +0800
+Received: from [10.67.121.59] (10.67.121.59) by kwepemn100009.china.huawei.com
+ (7.202.194.112) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 15 Apr
+ 2026 09:32:47 +0800
+Message-ID: <33c15199-25ea-4d39-bff9-91af0b49633e@huawei.com>
+Date: Wed, 15 Apr 2026 09:32:46 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [Question mpam mpam/snapshot+extras/v6.18-rc1] Question with
- Configuring iommu_group in 'task'
-Content-Language: en-US
-To: Ben Horgan <ben.horgan@arm.com>, James Morse <james.morse@arm.com>
-CC: Qinxin Xia <xiaqinxin@huawei.com>, <amitsinght@marvell.com>,
-	<baisheng.gao@unisoc.com>, <baolin.wang@linux.alibaba.com>,
-	<carl@os.amperecomputing.com>, <dave.martin@arm.com>, <david@kernel.org>,
-	<dfustini@baylibre.com>, <fenghuay@nvidia.com>, <gshan@redhat.com>,
-	<james.morse@arm.com>, <jonathan.cameron@huawei.com>, <kobak@nvidia.com>,
-	<lcherian@marvell.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <peternewman@google.com>,
-	<punit.agrawal@oss.qualcomm.com>, <quic_jiles@quicinc.com>,
-	<reinette.chatre@intel.com>, <rohit.mathew@arm.com>,
-	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
-	<xhao@linux.alibaba.com>, Linuxarm <linuxarm@huawei.com>
-References: <d13fdc75-b647-44f3-9657-d592353e8a1a@huawei.com>
- <08aacacc-e3e5-4e97-858b-cbcbdb9a1fcf@arm.com>
- <7b2681c3-9ef7-4882-ba57-2503934e2759@huawei.com>
- <0d578c61-1341-4149-9e8c-936ea0ce0c50@arm.com>
-From: Zeng Heng <zengheng4@huawei.com>
-In-Reply-To: <0d578c61-1341-4149-9e8c-936ea0ce0c50@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC] ACPI: processor: idle: Do not propagate
+ acpi_processor_ffh_lpi_probe() -ENODEV
+To: Sudeep Holla <sudeep.holla@kernel.org>, "Rafael J. Wysocki"
+	<rafael@kernel.org>
+CC: Breno Leitao <leitao@debian.org>, Len Brown <lenb@kernel.org>,
+	<lpieralisi@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	<linux-acpi@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<pjaroszynski@nvidia.com>, <guohanjun@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <rmikey@meta.com>,
+	<kernel-team@meta.com>, <lihuisong@huawei.com>
+References: <20260413-ffh-v1-1-301704f69e2f@debian.org>
+ <af9c679d-899c-4832-b902-e621b5987f12@huawei.com>
+ <ad4UWJ__dnDQtrj8@gmail.com>
+ <6694ca7c-13bf-4e7d-9621-bc992cbf96a7@huawei.com>
+ <20260414-cute-shapeless-dolphin-c5b2fc@sudeepholla>
+From: "lihuisong (C)" <lihuisong@huawei.com>
+In-Reply-To: <20260414-cute-shapeless-dolphin-c5b2fc@sudeepholla>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.174.179.37]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemf100008.china.huawei.com (7.202.181.222)
+X-Originating-IP: [10.67.121.59]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemn100009.china.huawei.com (7.202.194.112)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_182733_588222_F983B8D2 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20260414_183256_709091_A0FE56F3 
+X-CRM114-Status: GOOD (  19.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,84 +92,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
 
-On 2026/4/13 23:02, Ben Horgan wrote:
-> Hi Qinxin,
-> 
-> On 4/3/26 03:44, Qinxin Xia wrote:
->>
->>
->> On 2026/3/27 18:47:49, Ben Horgan <ben.horgan@arm.com> wrote:
->>> Hi Qinxin,
+On 4/14/2026 8:25 PM, Sudeep Holla wrote:
+> On Tue, Apr 14, 2026 at 07:31:29PM +0800, lihuisong (C) wrote:
+>> On 4/14/2026 6:21 PM, Breno Leitao wrote:
+>>> Hello Huisong,
 >>>
->>> On 3/27/26 10:21, Qinxin Xia wrote:
->>>>
->>>> Hello everyone!
->>>>
->>>> In earlier versions, mpam supports the configuration of iommu_groups.
->>>>
->>>>    823 static ssize_t rdtgroup_tasks_write(struct kernfs_open_file *of,
->>>>    824                                     char *buf, size_t nbytes,
->>>> loff_t off)
->>>>    825 {
->>>>    826         struct rdtgroup *rdtgrp;
->>>>    827         int iommu_group_id;
->>>>    828         bool is_iommu;
->>>>    829         char *pid_str;
->>>>    830         int ret = 0;
->>>>    831         pid_t pid;
->>>>    832
->>>>    833         rdtgrp = rdtgroup_kn_lock_live(of->kn);
->>>>    834         if (!rdtgrp) {
->>>>    835                 rdtgroup_kn_unlock(of->kn);
->>>>    836                 return -ENOENT;
->>>>    837         }
->>>>    838         rdt_last_cmd_clear();
->>>>    839
->>>>    840         if (rdtgrp->mode == RDT_MODE_PSEUDO_LOCKED ||
->>>>    841             rdtgrp->mode == RDT_MODE_PSEUDO_LOCKSETUP) {
->>>>    842                 ret = -EINVAL;
->>>>    843                 rdt_last_cmd_puts("Pseudo-locking in progress\n");
->>>>    844                 goto unlock;
->>>>    845         }
->>>>    846
->>>>    847         while (buf && buf[0] != '\0' && buf[0] != '\n') {
->>>>    848                 pid_str = strim(strsep(&buf, ","));
->>>>    849
->>>>    850                 is_iommu = string_is_iommu_group(pid_str, &iommu_group_id);
->>>>
->>>> What puzzles me is why we would put it under 'task'—this seems a little
->>>>    strange to users.It seems they are not related.Why don't we add a new
->>>> interface like 'iommu'?
+>>> On Tue, Apr 14, 2026 at 05:43:51PM +0800, lihuisong (C) wrote:
+>>>> But it is a real issue. Thanks for your report.
+>>>> I think the best way to fix your issue is that remove this verification in
+>>>> psci_acpi_cpu_init_idle().
+>>>> Because it is legal for platform to report one LPI state.
+>>>> This function just needs to verify the LPI states which are FFH.
+>>> Thank you for the prompt feedback.
 >>>
->>> I think it is likely that this interface would change if upstream support is added.
+>>> Would this approach work?
 >>>
+>>> commit 6c9d52840a4f778cc989838ba76ee51416e85de3
+>>> Author: Breno Leitao <leitao@debian.org>
+>>> Date:   Tue Apr 14 03:16:08 2026 -0700
+>>>
+>>>       ACPI: processor: idle: Allow platforms with only one LPI state
+>>>       psci_acpi_cpu_init_idle() rejects platforms where power.count - 1 <= 0
+>>>       by returning -ENODEV. However, having a single LPI state (WFI) is a
+>>>       valid configuration. The function's purpose is to verify FFH idle states,
+>>>       and when count is zero, there are simply no FFH states to validate —
+>>>       this is not an error.
+>>>       On NVIDIA Grace (aarch64) systems with PSCIv1.1, power.count is 1 for
+>>>       all 72 CPUs, so the probe fails with -ENODEV. After commit cac173bea57d
+>>>       ("ACPI: processor: idle: Rework the handling of
+>>>       acpi_processor_ffh_lpi_probe()"), this failure propagates up and prevents
+>>>       cpuidle registration entirely.
+>>>       Change the check from (count <= 0) to (count < 0) so that platforms
+>>>       with only WFI are accepted. The for loop naturally handles count == 0
+>>>       by not iterating.
+>>>       Fixes: cac173bea57d ("ACPI: processor: idle: Rework the handling of acpi_processor_ffh_lpi_probe()")
+>>>       Signed-off-by: Breno Leitao <leitao@debian.org>
+>>>
+>>> diff --git a/drivers/acpi/arm64/cpuidle.c b/drivers/acpi/arm64/cpuidle.c
+>>> index 801f9c4501425..7791b751042ce 100644
+>>> --- a/drivers/acpi/arm64/cpuidle.c
+>>> +++ b/drivers/acpi/arm64/cpuidle.c
+>>> @@ -31,7 +31,7 @@ static int psci_acpi_cpu_init_idle(unsigned int cpu)
+>>>    		return -EOPNOTSUPP;
+>>>    	count = pr->power.count - 1;
+>>> -	if (count <= 0)
+>>> +	if (count < 0)
+>>>    		return -ENODEV;
+>>>    	for (i = 0; i < count; i++) {
+>> This count already verified in acpi_processor_get_lpi_info.
 >>
->> I have done some work in this direction before, and I will release an
->> RFC later for further discussion.:-)
-> 
-> Looking forward to seeing it.
-> 
-> Ben
-> 
+>> I suggest modifing it as below:
+>>
+>> -->
+>>
+>> git diff
+>> diff --git a/drivers/acpi/arm64/cpuidle.c b/drivers/acpi/arm64/cpuidle.c
+>> index 801f9c450142..c68a5db8ebba 100644
+>> --- a/drivers/acpi/arm64/cpuidle.c
+>> +++ b/drivers/acpi/arm64/cpuidle.c
+>> @@ -16,7 +16,7 @@
+>>
+>>   static int psci_acpi_cpu_init_idle(unsigned int cpu)
+>>   {
+>> -       int i, count;
+>> +       int i;
+>>          struct acpi_lpi_state *lpi;
+>>          struct acpi_processor *pr = per_cpu(processors, cpu);
+>>
+>> @@ -30,14 +30,10 @@ static int psci_acpi_cpu_init_idle(unsigned int cpu)
+>>          if (!psci_ops.cpu_suspend)
+>>                  return -EOPNOTSUPP;
+>>
+>> -       count = pr->power.count - 1;
+>> -       if (count <= 0)
+>> -               return -ENODEV;
+>> -
+> It was intentionally designed this way, as there is little value in defining
+> only WFI in the _LPI tables. In the absence of a cpuidle driver/LPI entry,
+> arch_cpu_idle() is invoked, which is sufficient and avoids unnecessary
+> complexity, only to ultimately execute wfi() anyway.
+Yeah, it's correct. The code flow will be more simple and high-efficiency.
+This looks good to me.
 
-Following the current SMMU approach, I've submitted several bugfix
-patches for the MPAM driver, but haven't received any review feedback
-yet.
 
-To avoid these being overlooked, I'd like to kindly remind to take a
-look:
-v2: 
-https://lore.kernel.org/all/20260414032610.1523958-1-zengheng4@huawei.com/
-v1: 
-https://lore.kernel.org/all/20251107063300.1580046-1-zengheng4@huawei.com/
-
-Additionally, I'd like to check on the status of this branch — is it
-still actively maintained? It would be helpful to understand the future
-plans for MPAM development.
-
-
-Thanks for your time,
-Zeng Heng
+But cpuidle sysfs under per CPU is created when firmware just reports 
+WFI state before
+my commit cac173bea57d ("ACPI: processor: idle: Rework the handling of 
+acpi_processor_ffh_lpi_probe()").
+However, these platforms will no longer be created now and some 
+statistics for state0 are also missing.
+This change in behavor is visiable to user space.I'm not sure if it is 
+acceptable.
+What do you think, Rafael?
+> So while I understand that the kernel did not report an error previously, that
+> does not mean the _LPI table is merely moot on this platform when it contains
+> only a WFI state.
+>
+>
 
