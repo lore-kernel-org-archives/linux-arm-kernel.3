@@ -4,117 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 279A4F41998
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 12:49:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96D06F419A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 12:56:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gMZa5KV+tcE5YO64Vp+w5NphVdK43kPGymBMgeLWk5g=; b=3PqYgLwnGx1IJgvMI7Qxd8PEau
-	yTO1O7w/VhXc2xG8Y532hqNE3k5daLApyG/o6UAGBsqPc5NQJDTK6ggB3xmJNq39hxWt0QPkawI7T
-	bzFcGZgFVpi3G4IpPCW0w5JUVQLR3Yrv4k4AbFq/4s8+elcFgfkKjWFO6fDOX8Sox6jLFCgvA4gDI
-	oLlE/Drw8Tr79cZ2pbrELShWdBPaP5LG6DAhUKNr4ZKj6aIE2cYNbB3JYs7PhKyxpwrpiQIDxGxFc
-	fFFRZURDhsuaNqpfuWblm85rMfUW9krlJd+AH0Q4jAvXP/fCuDqTQs1U+/i0TdZaT1WQWldoHnqa1
-	IBB8XF4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H6Fvhuo4DkldsPVDo20mT9bIWk6orSSbm77N0GIMwrE=; b=c8Bx64juWI4eKw7CmA6Sztavdh
+	uGCRpbVIZFIOgl5d9+p2V9Aj1TlIMW+uA8+mEt2h+KfqENVdNxmGT6qAYaex4AW8AVFiL7RKQo8RE
+	qop9r1XLYmoi5Xl6eJ7Llv3cBLY5wE8KjYZ9HRTKxECT+HytxPjTIU/QbGRRcu9zK7X9jthCIbs90
+	NbWG2kiNGzrEbjU50UI0XLkxqa1Xdd5MxHF4ELLJRCuqKGxi9HVhdf+vvG7m0bkhY+1avd3/MGH/H
+	Qa7c2UyCa40X++B/MF7TVKGkDsBXI7U7H6chnTpAJdYMW2JdHvS6r46f+VU4BW/iZMLuZblLSs5jB
+	3bA3WvlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCzg5-000000019E9-27EU;
-	Wed, 15 Apr 2026 12:49:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wCznY-000000019fH-3ZtL;
+	Wed, 15 Apr 2026 12:56:52 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCzg4-000000019Dr-3FaF
+	id 1wCznV-000000019eX-47iw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 12:49:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C2024600AD;
-	Wed, 15 Apr 2026 12:49:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF21DC19424;
-	Wed, 15 Apr 2026 12:48:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776257347;
-	bh=z0QU7fIOckdevNLl67N0jcDETXgA9vaaD8hk9Cxb5qw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CXZiN4ZqESEYgUFpVgLn6tlcj+2qfkWqnd43zukiIHbjVv2ZE4SxZ6zDVRTEcVnvq
-	 3hri9KVxRpa7GkD0tvkUgf+ziy+2LNNYtQfklJ+lii2z2GHW4LUeA0qwmM8txAokwc
-	 MTmB7AEeBJZseE++VGbhqHuPq5aywAxF9etEtKNwedUPNbMXcwfvf5uig7hQP5/laP
-	 lpLSB+yzM2Em7R43Asp4sVRT978MX0ODbqO3SsOK47wAAiZKA1Z5SZSSomUVxZf4dZ
-	 ClbT7G0fzTDeI3zPLamwjM0vxQzw6an4+SVJoKIdx2Ql6S2PM+TaIBFiXGWR5MBvGM
-	 Q0WVKdiDDmzXg==
-Message-ID: <1c8e2cd6-4b50-4891-8a2d-6a45623e805f@kernel.org>
-Date: Wed, 15 Apr 2026 14:48:54 +0200
+	Wed, 15 Apr 2026 12:56:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=H6Fvhuo4DkldsPVDo20mT9bIWk6orSSbm77N0GIMwrE=; b=dWBpN9W92CDVnlfI9sNMjT5Nup
+	JZZr7ViAfsir0I9K6wpLBymyIbaZrNqLVEncxmeoyrEmefVQx7IhCxsxsA5RA+PPZr1Vp7/tPot+/
+	CNq1cS1u1XN7i74+5/oWt2v3wIU+JnvA96qNZqXevQeFrcHyl4X+VDDYaJ6cxAeVdrkAaMG+we0FV
+	ZXvq2uOOkLEjwBqqYmrl312E3o6thrmT8yV4ABjwsdjOte3koAReDrFLyf/P3jaVST3w0zHAYJura
+	UxsOuj4rT/nTFDH/FrtIOzQmiXFoDo/SIH3tF+ckt/9k2qQ2dP1q+zdfdHxatZQjI9zf6Lt/ekFr+
+	ZkJ1enaw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:36538)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1wCznH-00000000267-27zv;
+	Wed, 15 Apr 2026 13:56:35 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1wCznE-000000002ED-2SR5;
+	Wed, 15 Apr 2026 13:56:32 +0100
+Date: Wed, 15 Apr 2026 13:56:32 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Sam Edwards <cfsworks@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Baruch Siach <baruch@tkos.co.il>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH net v5] net: stmmac: Prevent NULL deref when RX memory
+ exhausted
+Message-ID: <ad-LAB08-_rpmMzK@shell.armlinux.org.uk>
+References: <20260415023947.7627-1-CFSworks@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 00/30] pkeys-based page table hardening
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-hardening@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- Andy Lutomirski <luto@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
- Ira Weiny <ira.weiny@intel.com>, Jann Horn <jannh@google.com>,
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
- Kees Cook <kees@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Marc Zyngier <maz@kernel.org>,
- Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>,
- Maxwell Bland <mbland@motorola.com>, "Mike Rapoport (IBM)"
- <rppt@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- Quentin Perret <qperret@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- Yang Shi <yang@os.amperecomputing.com>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org
-References: <20260227175518.3728055-1-kevin.brodsky@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260227175518.3728055-1-kevin.brodsky@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260415023947.7627-1-CFSworks@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260415_055650_026548_AFD480DC 
+X-CRM114-Status: GOOD (  26.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,102 +92,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/27/26 18:54, Kevin Brodsky wrote:
-> NEW in v6: support for large block mappings through a dedicated page table
-> allocator (patch 14-17)
-
-Heh, I had to read till the very end to realize that this is an RFC, and
-then saw your other mail.
-
-I can recommend using b4 for patch management, where you can configure a
-sticky prefix through
-
-	b4 prep --set-prefixes RFC
-
-And using "b4 send" to automate all the rest.
-
-
+On Tue, Apr 14, 2026 at 07:39:47PM -0700, Sam Edwards wrote:
+> The CPU receives frames from the MAC through conventional DMA: the CPU
+> allocates buffers for the MAC, then the MAC fills them and returns
+> ownership to the CPU. For each hardware RX queue, the CPU and MAC
+> coordinate through a shared ring array of DMA descriptors: one
+> descriptor per DMA buffer. Each descriptor includes the buffer's
+> physical address and a status flag ("OWN") indicating which side owns
+> the buffer: OWN=0 for CPU, OWN=1 for MAC. The CPU is only allowed to set
+> the flag and the MAC is only allowed to clear it, and both must move
+> through the ring in sequence: thus the ring is used for both
+> "submissions" and "completions."
 > 
-> Threat model
-> ============
+> In the stmmac driver, stmmac_rx() bookmarks its position in the ring
+> with the `cur_rx` index. The main receive loop in that function checks
+> for rx_descs[cur_rx].own=0, gives the corresponding buffer to the
+> network stack (NULLing the pointer), and increments `cur_rx` modulo the
+> ring size. After the loop exits, stmmac_rx_refill(), which bookmarks its
+> position with `dirty_rx`, allocates fresh buffers and rearms the
+> descriptors (setting OWN=1). If it fails any allocation, it simply stops
+> early (leaving OWN=0) and will retry where it left off when next called.
 > 
-> The proposed scheme aims at mitigating data-only attacks (e.g.
-> use-after-free/cross-cache attacks). In other words, it is assumed that
-> control flow is not corrupted, and that the attacker does not achieve
-> arbitrary code execution. Nothing prevents the pkey register from being
-> set to its most permissive state - the assumption is that the register
-> is only modified on legitimate code paths.
+> This means descriptors have a three-stage lifecycle (terms my own):
+> - `empty` (OWN=1, buffer valid)
+> - `full` (OWN=0, buffer valid and populated)
+> - `dirty` (OWN=0, buffer NULL)
 > 
-> A few related notes:
+> But because stmmac_rx() only checks OWN, it confuses `full`/`dirty`. In
+> the past (see 'Fixes:'), there was a bug where the loop could cycle
+> `cur_rx` all the way back to the first descriptor it dirtied, resulting
+> in a NULL dereference when mistaken for `full`. The aforementioned
+> commit resolved that *specific* failure by capping the loop's iteration
+> limit at `dma_rx_size - 1`, but this is only a partial fix: if the
+> previous stmmac_rx_refill() didn't complete, then there are leftover
+> `dirty` descriptors that the loop might encounter without needing to
+> cycle fully around. The current code therefore panics (see 'Closes:')
+> when stmmac_rx_refill() is memory-starved long enough for `cur_rx` to
+> catch up to `dirty_rx`.
 > 
-> - Functions that set the pkey register are all implemented inline.
->   Besides performance considerations, this is meant to avoid creating
->   a function that can be used as a straightforward gadget to set the
->   pkey register to an arbitrary value.
+> Fix this by further tightening the clamp from `dma_rx_size - 1` to
+> `dma_rx_size - stmmac_rx_dirty() - 1`, subtracting any remnant dirty
+> entries and limiting the loop so that `cur_rx` cannot catch back up to
+> `dirty_rx`. This carries no risk of arithmetic underflow: since the
+> maximum possible return value of stmmac_rx_dirty() is `dma_rx_size - 1`,
+> the worst the clamp can do is prevent the loop from running at all.
 > 
-> - kpkeys_set_level() only accepts a compile-time constant as argument,
->   as a variable could be manipulated by an attacker. This could be
->   relaxed but it seems unlikely that a variable kpkeys level would be
->   needed in practice.
-> 
+> Fixes: b6cb4541853c7 ("net: stmmac: avoid rx queue overrun")
+> Closes: https://bugzilla.kernel.org/show_bug.cgi?id=221010
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Sam Edwards <CFSworks@gmail.com>
 
-I see a lot of value for that also as a debugging mechanism. I hear that
-other people had private patches that would attempt to only map leaf
-pages in the direct map in pte_offset_map_lock() and friends. I assume
-there are some tricky bits to that (concurrent access to page tables).
+Locally, while debugging my issues, I used this to prevent cur_rx
+catching up with dirty_rx:
 
-What's the general take regarding the thread model you describe vs. MTE?
+                status = stmmac_rx_status(priv, &priv->xstats, p);
+                /* check if managed by the DMA otherwise go ahead */
+                if (unlikely(status & dma_own))
+                        break;
 
-Regarding use-after-free, I'd assume KASAN would achieve something
-similar. And with MTE "reasonably" fast. Or what is the biggest
-difference you see, there?
+                next_entry = STMMAC_NEXT_ENTRY(rx_q->cur_rx,
+                                               priv->dma_conf.dma_rx_size);
+                if (unlikely(next_entry == rx_q->dirty_rx))
+                        break;
 
-I'd assume that one difference would be, that not even match-all
-pointers could accidentally modify page tables.
+                rx_q->cur_rx = next_entry;
 
-In the future, would you think that both mechanisms (pkey PT table
-protection + KASAN) would be active at the same time, or wouldn't there
-really be a lot of value in having both enabled?
+If we care about the cost of reloading rx_q->dirty_rx on every
+iteration, then I'd suggest that the cost we already incur reading and
+writing rx_q->cur_rx is something that should be addressed, and
+eliminating that would counter the cost of reading rx_q->dirty_rx. I
+suspect, however, that the cost is minimal, as cur_tx and dirty_rx are
+likely in the same cache line.
 
-[...]
-
-> 
-> 
-> Open questions
-> ==============
-> 
-> A few aspects in this RFC that are debatable and/or worth discussing:
-> 
-> - Can the pkeys block allocator be abstracted into something more
->   generic? This seems desirable considering other use-cases for changing
->   attributes of regions of the linear map, but the handling of page
->   tables while splitting may be difficult to integrate in a generic
->   allocator.
-> 
-> - There is currently no restriction on how kpkeys levels map to pkeys
->   permissions. A typical approach is to allocate one pkey per level and
->   make it writable at that level only. As the number of levels
->   increases, we may however run out of pkeys, especially on arm64 (just
->   8 pkeys with POE). Depending on the use-cases, it may be acceptable to
->   use the same pkey for the data associated to multiple levels.
-> 
-> 
-> Any comment or feedback is highly appreciated, be it on the high-level
-> approach or implementation choices!
-
-How crucial would the dedicated page table allocator be for a first up
-streamed version?
-
-Assuming we introduce this as a debugging feature first, it would be
-perfectly reasonable to just disallow large block mappings in the direct
-map when enabled.
-
-That means, we could merge basic support first and think about how to
-deal with page tables in a different way with most of the pkey details
-out of the picture.
+It looks like any fix to stmmac_rx() will also need a corresponding
+fix for stmmac_rx_zc().
 
 -- 
-Cheers,
-
-David
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
