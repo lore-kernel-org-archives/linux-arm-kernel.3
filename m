@@ -4,65 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD61DF43826
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 14:23:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00F5FF43821
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 14:29:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lL7mCvK+q0xGQs3fJVfkD8uIV04NWks6Q4iAT/RCikU=; b=wu45tslRV9+XKRMszaQA3DDToH
-	SpTPD86Pvg61JpaA6+IOOqIVh79YlGg55tYh0b7DpXKBXUWM2KEsUwFJkBgTqYdqHQ6hq5hfqTTb7
-	GDj8Hb6va45qYCRdPUvOCFoOtgHCOpogFRWfDhCZjabIYNrqypsdyPRUW1sKU24vdzW2wCxOPQeAp
-	11SzIFA2VKpzxSS13jDKB923k/oVmvnpb8inMaWhOqP12yqWrxxJ1sM6u1fS4C+FWy2JKMwbHC/XU
-	F2QcA1uv/NcfZ16NL0LICO+gtteIKlX10JOsYkxdPFGpIWn5OktQZsqYjofJB6bZb1GVfMQ+u+DTr
-	IvZ+ej6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ee7S1C7CW9QXX3hiuXvnlueBA+ocQbUcyBQidGRH/6U=; b=BtDeebpRbTQVpO10buzBDTL2Np
+	jVp1psgQE1CNvloJ3HzJb4nRE2oQyXjME2fxBiVra2AC9dXKLwX/9SPZ66p7md3J8qonPhaPcFDR+
+	OXQiYk4fayaSsORbzfjlBqKup1VEIr6nt6zU1G2HIsZrgBy0v5Jb0JpwXo3jCu+SXtKzjGKwpJCPU
+	zBO265R06oOCJnLR9BDgOUryPd1DsZn8DI01h+QLpCDrMPPpQAmLsLnIBsSZhSnw3vDM5kwZ0GPjA
+	MFP33Xg0tLn9BfjcU8ooz4NhXKSzOaxEoJjrwMmRpUp6XOc2VM/sBkBnvvT348MSMJZSHaeDS0cfL
+	w9fRhfTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD19l-00000001EOt-0VZk;
-	Wed, 15 Apr 2026 14:23:53 +0000
-Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
+	id 1wD1Ep-00000001Ele-2sOe;
+	Wed, 15 Apr 2026 14:29:07 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD19i-00000001EOF-2Avh
+	id 1wD1El-00000001Ekc-1W8H
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 14:23:52 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1776263024;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=lL7mCvK+q0xGQs3fJVfkD8uIV04NWks6Q4iAT/RCikU=;
-	b=PPHL3fohQaJmiY4FQ3bGdoLlnkxD3DisK+130lYMNRBUr9ElwIamQCUE8La68uEnzBM9ll
-	Ez9FAtf7bXKW1YLoUZj3crkEVO5b9gunKXpt4z3HN23XsFJ/repsr5s0Qc78hxFvogqE1R
-	cF1nPBz/cCsp9zaBAu2oba32v+2j4yHKzLuiAL77aqjiDdZcIJuesxvIyKjN+Nn6kFnCpZ
-	vwqUzBhXnf+Bv/tWItCWac1wUOFmqa6ih3jzxcbL2qke2xl374U4NftWpEBUn/8oDX+8LC
-	KmBqOC4QwmROWCuofnsiizJBZBK1pvMI5aWI+6vsn0/hSXw2Q2+MZbIPL1YJ0g==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 15 Apr 2026 16:23:41 +0200
-Message-Id: <DHTSOV43O2EX.38TGASN7SQEZL@cknow-tech.com>
-Cc: "Arnd Bergmann" <arnd@arndb.de>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- "Quentin Schulz" <quentin.schulz@cherry.de>, "Jonas Karlman"
- <jonas@kwiboo.se>, "Tianling Shen" <cnsztl@gmail.com>
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Replace deprecated snps,*
- props for NanoPi R5S
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Diederik de Haas" <diederik@cknow-tech.com>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>
-References: <20260401131551.734456-1-diederik@cknow-tech.com>
- <20260401131551.734456-3-diederik@cknow-tech.com>
-In-Reply-To: <20260401131551.734456-3-diederik@cknow-tech.com>
-X-Migadu-Flow: FLOW_OUT
+	Wed, 15 Apr 2026 14:29:05 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-488c2690057so69459235e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Apr 2026 07:29:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1776263341; x=1776868141; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ee7S1C7CW9QXX3hiuXvnlueBA+ocQbUcyBQidGRH/6U=;
+        b=f9y40bQ+acGFbrE46lJFRR93et6yvcCdygPHtRUoDHPabEAK0Aq3k0uXlrpOQYwKyf
+         N3Cmp04xeSzVjhifAy3utcaCZWgNmxLY/Epw9EAfHljAim4QGFmkXi7Q5zc6mrgZHO3Z
+         X7BeCZB3RKKXICVrNcDx7tAilvlAMhVGxLKNUEbXuap8Om417KAfID+iP6tkO2876l/p
+         NYz3LvPQLeUGr9OR004JyYAAHcxrLrwdLBTtw0flAV5XX2PAu879UQNDjLViYsyyiNNE
+         nFpzoNM4VEI6gLpfnaYPnO0D9qW2Ksk7vo6Kkaaq2j1TVcceFJVdjQmF5Ce0vG9mOegD
+         CZBQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776263341; x=1776868141;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=ee7S1C7CW9QXX3hiuXvnlueBA+ocQbUcyBQidGRH/6U=;
+        b=rYbecp084BZBYgsxMKgIfcWK66SHJdyJFJpQLsuhnhPA6sdIzLWpUJbFcS3uxDLZQQ
+         UKb5y+x2lRhvMc1D9DELmAdQmerLC1wOYAn8RVUx1A244mXFfWf5xf8+Pb1tLd2AEfRQ
+         TKVa37bkYDVnUNGjfVIwNzY9S9t98Wz4NThruNuR6gTlgY0ENbMIDJB0traZCuYBvEd2
+         0+VxiO9yMgSSSiOvS/Cq2qyNhSAcAifAM7tZEiWLiW7XIjwHu8WOgR/hGnsFFT47RaS2
+         nTr1ttEf3vBRa97spcDWChqy2UnErSo0kPeMJ+/wRPgoAn/DSRGDD740MX9oQmTwa9tm
+         +rKQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8q8jr5IEe6IVIrYrX08tvO17WvAukB1eARCH5UPJhyEQBoXqYMnKJcf+jRw4KuSOKFBWpOuJergftEiLobDnQ+@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJQek+fK2lA+II96jwL+/Mqy4AlDllHmAUkmI4duHU0PgPRRUV
+	Z3kFCFXeZisaKHjW2sQmsNPGZfJTqbcZgUYgGiq5UlUIhwYBm4b088i8ucbAXCOZQy0=
+X-Gm-Gg: AeBDietFdT6ueuzbi5IWQTgqjI7H2u8I8Af4MaQZthF2csi+MiQReP0+Du/Oiv+otMF
+	YDqoZeUTUeATHF3DBtlIndIhYEyyCrRv9Aj7DcW1IoLEKaZx34BF3DIiz4nsxBYkle5AwwUacFW
+	raw1yK24UCJRBmXc6v74rY1ALjL7LAWHKMyX+VLO5U5fMddxpBhzQkGGZUt6pdkMXX8eKfPixWd
+	LoFD8yO8s5+XYgDdWS+1iOZ13GLCZf5Stqd0GISoWNJspQXFeyIfn4gkOxCrEblGwlKzIGp5Gfw
+	CZHEp48FjwToJXOPBbDojund6ltloIXdfsXbDPiMlCxmYV75O3ZhKBWkn9WwkZGkkOWqx2sWvDY
+	DYoGD4xsQCzRBlsuGipzBE1exUMo9rvRVousMVr3fkIm28tA5zU/D3bwgSbC2nROqEv/meB0JR9
+	FHTkaqBPiM06+XY1aT0N8QGE9swEQs2Qdq
+X-Received: by 2002:a05:600c:5249:b0:488:c40b:c8a4 with SMTP id 5b1f17b1804b1-488d68057cdmr284525805e9.1.1776263341086;
+        Wed, 15 Apr 2026 07:29:01 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:e64b:985d:5292:5ef5])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-488f096d110sm28244435e9.11.2026.04.15.07.29.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Apr 2026 07:29:00 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Valerio Setti <vsetti@baylibre.com>,  Liam Girdwood
+ <lgirdwood@gmail.com>,  Jaroslav Kysela <perex@perex.cz>,  Takashi Iwai
+ <tiwai@suse.com>,  Neil Armstrong <neil.armstrong@linaro.org>,  Kevin
+ Hilman <khilman@baylibre.com>,  Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>,  Rob Herring <robh@kernel.org>,
+  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
+ <conor+dt@kernel.org>,  linux-kernel@vger.kernel.org,
+  linux-sound@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+  linux-amlogic@lists.infradead.org,  devicetree@vger.kernel.org
+Subject: Re: [PATCH RFC v2 02/11] ASoC: meson: aiu-encoder-i2s: use gx_iface
+ and gx_stream structures
+In-Reply-To: <58d1df89-7c97-4e2f-af15-93d1f7bce5a7@sirena.org.uk> (Mark
+	Brown's message of "Tue, 14 Apr 2026 17:13:48 +0100")
+References: <20260411-audin-rfc-v2-0-4c8a6ec5fcab@baylibre.com>
+	<20260411-audin-rfc-v2-2-4c8a6ec5fcab@baylibre.com>
+	<58d1df89-7c97-4e2f-af15-93d1f7bce5a7@sirena.org.uk>
+User-Agent: mu4e 1.12.9; emacs 30.1
+Date: Wed, 15 Apr 2026 16:28:58 +0200
+Message-ID: <1jy0ios3f9.fsf@starbuckisacylon.baylibre.com>
+MIME-Version: 1.0
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_072351_017949_CC975567 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20260415_072903_557886_25285CB8 
+X-CRM114-Status: GOOD (  17.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,54 +108,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Apr 1, 2026 at 3:11 PM CEST, Diederik de Haas wrote:
-> The various snps,reset-* properties are deprecated, so convert them into
-> their replacements.
+On mar. 14 avril 2026 at 17:13, Mark Brown <broonie@kernel.org> wrote:
+
+> On Sat, Apr 11, 2026 at 04:57:27PM +0200, Valerio Setti wrote:
 >
-> Signed-off-by: Diederik de Haas <diederik@cknow-tech.com>
-> ---
->  arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts | 7 +++----
->  1 file changed, 3 insertions(+), 4 deletions(-)
+>> @@ -200,13 +200,17 @@ static int aiu_encoder_i2s_hw_params(struct snd_pcm_substream *substream,
 >
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts b/arch/ar=
-m64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
-> index 90ce6f0e1dcf..92d044ec696b 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
-> @@ -85,10 +85,6 @@ &gmac0_tx_bus2
->  		     &gmac0_rx_bus2
->  		     &gmac0_rgmii_clk
->  		     &gmac0_rgmii_bus>;
-> -	snps,reset-gpio =3D <&gpio0 RK_PC5 GPIO_ACTIVE_LOW>;
-> -	snps,reset-active-low;
-> -	/* Reset time is 15ms, 50ms for rtl8211f */
-> -	snps,reset-delays-us =3D <0 15000 50000>;
->  	tx_delay =3D <0x3c>;
->  	rx_delay =3D <0x2f>;
->  	status =3D "okay";
-> @@ -100,6 +96,9 @@ rgmii_phy0: ethernet-phy@1 {
->  		reg =3D <1>;
->  		pinctrl-0 =3D <&gmac0_rstn_gpio0_c5_pin>;
->  		pinctrl-names =3D "default";
-> +		reset-assert-us =3D <15000>;
-> +		reset-deassert-us =3D <50000>;
-> +		reset-gpios =3D <&gpio0 RK_PC5 GPIO_ACTIVE_LOW>;
->  	};
->  };
-> =20
+>> -	aiu_encoder_i2s_divider_enable(component, true);
+>> +	ret = gx_stream_set_cont_clocks(ts, iface->fmt);
+>> +	if (ret)
+>> +		dev_err(dai->dev, "failed to apply continuous clock setting\n");
+>> +
+>> +	aiu_encoder_i2s_divider_enable(component, 1);
+>
+> If we're checking the error here we should probably return it as well.
+> Including the error code in the log message is also generally helpful.
+>
+>> @@ -214,16 +218,20 @@ static int aiu_encoder_i2s_hw_params(struct snd_pcm_substream *substream,
+>>  static int aiu_encoder_i2s_hw_free(struct snd_pcm_substream *substream,
+>>  				   struct snd_soc_dai *dai)
+>>  {
+>> +	struct gx_stream *ts = snd_soc_dai_get_dma_data(dai, substream);
+>>  	struct snd_soc_component *component = dai->component;
+>>  
+>> -	aiu_encoder_i2s_divider_enable(component, false);
+>> -
+>> -	return 0;
+>> +	/* This is the last substream open and that is going to be closed. */
+>> +	if (snd_soc_dai_active(dai) <= 1)
+>> +		aiu_encoder_i2s_divider_enable(component, 0);
+>> +	return gx_stream_set_cont_clocks(ts, 0);
+>>  }
+>
+> Note that we only hw_free() if we preprared, but we enable in
+> hw_params().
 
-Please disregard/drop this patch.
+Huh interresting, I had not thought of that. Valerio and I discussed the
+clock part a lot for this rework. It is the crux since since the
+interface and clock setting lives in the AIU subsys but serves both the
+AIU and AUDIN subsys.
 
-I was recently made aware of 'sashiko.dev' and checked whether it had
-also checked my patch, which it did:
-https://sashiko.dev/#/patchset/20260401131551.734456-1-diederik%40cknow-tec=
-h.com
+Valerio maybe you could keep function above just to set the rate, but
+enabling the clocks through a DAPM supply widget ? This is kind of what
+the AXG is doing.
 
-And it turns out that the concern raised is valid (thanks Quentin!), so
-this patch could introduce a regression.
-So it looks like staying with the deprecated properties is actually
-better (in this case?).
+what do you think ?
 
-Cheers,
-  Diederik
+(actually in the AXG the each formatter widget call CCF
+clk_prepare_enable() but a supply widget poking the register would do
+the same thing)
+
+>
+>> @@ -284,6 +295,8 @@ static int aiu_encoder_i2s_set_sysclk(struct snd_soc_dai *dai, int clk_id,
+>>  	if (ret)
+>>  		dev_err(dai->dev, "Failed to set sysclk to %uHz", freq);
+>>  
+>> +	aiu->i2s.iface.mclk_rate = freq;
+>> +
+>>  	return ret;
+>>  }
+>
+> This means we store the new rate even if the set above failed.
+
+-- 
+Jerome
 
