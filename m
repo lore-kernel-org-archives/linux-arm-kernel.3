@@ -4,114 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B83CFF428F5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 20:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFA84F428F6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 20:59:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A7UDYGzKJJe/bdquUBaYKdQJ1gprhVLDRlL+WM3sRcQ=; b=qaMBPtJ271BsovDsa4jimrojNi
-	WkjLa6v2CZkXGGou4oqw98PfR8uT4/aUTR6tPv8/ZxyBRethhSHnIhe04mHy/AyMNYDDT8HaxmesS
-	lLbHrHroMowYHRgh50G6meJLVEByZJpLrSzaSMP0qdcB0o9DkhP9xR6u/mZ8d2ClKdrjIngLosaLC
-	y+jM1wwl5JnAddZ9yz6PM5GS9XtFROAzG0gHCr043KOYaD56vJCTCGi6B+xn9fWav64kaPFbJNH0J
-	LQbbGyBqoqEDnuDIjur5gzmle/MxE+vweUmt0ZHKBIBquSvwh6yxDleX6bGKECPT0bNYu0RCfvik1
-	rV3hIymA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5+bfc2+8Hc2NimyZMAaU/n9eO1y9TQTxtnr/WOjHM8E=; b=uuNEreMVuuMI7B62eJHozZo9T/
+	TrN892ehjqbY3C/AuZBvDxRLaWJKHnuvfOCc/ioYg0hp+GXt2GHm1o5lbsunTPB/KyTGXIX/rFB47
+	VlArOXtS03Upnq0M//iW9f7hkohWZbSsdmUs+7jbODFL61tsLvIDdDzVyWvYNl2LJ2yng8kESiwel
+	q/UHivS8ibvfI/h6g3fHn/Hnjhz1tX4Sd5+Nl1di07K2Oid2BARFO/FK0vYw3Afxa425AVswBXGAG
+	gSR0rKr9wliEjcEkHEcPjxtmsIVTUAKGgW7TB6t4m8HPbdCCIGu7vTzqtsyXbY+yc28/lypmRbrV7
+	jGQ7mfww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD7CY-00000001bWh-2W9A;
-	Wed, 15 Apr 2026 20:51:11 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1wD7KD-00000001bpI-1FR2;
+	Wed, 15 Apr 2026 20:59:11 +0000
+Received: from mail-eastus2azon11011068.outbound.protection.outlook.com ([52.101.57.68] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD7CV-00000001bWG-3LdW
+	id 1wD7Jn-00000001bo5-1l4g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 20:51:09 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-43cfe71e5d3so5619060f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Apr 2026 13:51:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776286265; cv=none;
-        d=google.com; s=arc-20240605;
-        b=X599ei8aYZvL2hHDAe1dLtOwpVX2pxDRTK+vqUuDysHpNEyERzGRFyoGC2wlCSKYyM
-         i7DGG7rwxiiiTtg3/4l+tijSr30pbX1KTG4Fr99GvxhgbfMzvl4r0GkoOPLiK+NyC4rX
-         PFK3Mv0Q1eRhw2P8igA8fj6GHq2DrxG3SHAUr6g0ebhG516mMwnMtyrxIQnLtOOOno/q
-         jQ5Np2DtlNG0sry5vtFlysWUEPD1fTkB0AoyUu4hLhM0SGj0qrJCYFhVOhUFC3w4W7xb
-         1BeR6xRZp3+BsunLgvL4qcA59jqRge/rfVr1yQKLAnvE8KM/ywO22noI+UCOhgLDPAEN
-         PjFA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=A7UDYGzKJJe/bdquUBaYKdQJ1gprhVLDRlL+WM3sRcQ=;
-        fh=ui7KEHwlDtnl1mECNsdbjIpqofwvdMfsCTxXbhHXk7w=;
-        b=SdQNnEG6sBrSojRvTWr9QMXJ6YZ6y2S+OP6v5Gr6TFPZT5iZHD3k2PLNnykQYjgITw
-         QUSyHGc3tSmBmAl6n06Be4a7P4VAHAq7fpEN3nliXG3u47+dsnUFqLgrVT/esxGI4bId
-         uqvXdNeKOy7hu3tXbwPVqhYJw8HDu3I4x14X7hBDEU/wy02VkgdY5/zAAMdt9YpqJ2X6
-         8aQZRyRNJ7bSPypqetxFZzjGxu1LItPiBOhpWip24d6chRevkXYAXU3lh5g36lCsRJef
-         dTgoVUbVVu8leb0CnojtKFwwHN1+R/GFQLJMJonIde/8WOrv/pOnnnFsTHHoo/kOnc4U
-         HBWw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776286265; x=1776891065; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=A7UDYGzKJJe/bdquUBaYKdQJ1gprhVLDRlL+WM3sRcQ=;
-        b=Ji6W9rwQOlSF6D/rYeS3lkCC1rADtXdRFZkRx4rFPgsYVi12/Drm3Mgb26NzB9Edxv
-         M+UIKqs3r1pfkYm9Q4YlxQmFtZa2tlgwp1NGAV/fia1pbJqSiZf8yRxfP6cGEZ4HFKKK
-         Jaf3mAC710Cht2227r7WtZ68rSuUVt2+WxNnj9aSxxllqLd+hs2bhzDNRFu+0tgnBpFd
-         G8DQHPjg4ITKYvk+vEDmB6kseHxjM8gMrh2k6zM1UTBPOF60RA0TXNZ19k2D0Ui44pZ6
-         XBRKTy/ZwbSxShI0BzvIUqeEhqQQFq5w0WFuPddoPdnNARLSzXy7GSlt7DiMJp/FeZQF
-         o/VA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776286265; x=1776891065;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=A7UDYGzKJJe/bdquUBaYKdQJ1gprhVLDRlL+WM3sRcQ=;
-        b=CEGoH5bUYpXCI1H58gtNTA+gX/jvMk6Qlo1+i3lcAEBNwD38x8jCjCxiqORjSivvMy
-         C1Oy1dZuCAFImMp60t+d2PZluwvyUXmzJkCa0wBhmjcy+KVIPCEevFWQQmyBHupMjaLY
-         R/ksoKZKKEcD+BXtSpApJhN+GbfamIloZQgJUFCA/O8oJwqjrj9gw2BeJYOcS8I4t6/U
-         2QuEeVjVTpq5+MjNNjlPyQnhCTdM6SWFK40QpeDvmaQgRg4ovmN/DJaq1zxt37vyWJBS
-         /e2hGtCAeo0NvHf4enrefIjAsFcyDIcjcoIOh+k1ZXX6NwadbvmaQ3mVKkvgF0X0+Z4F
-         euFw==
-X-Forwarded-Encrypted: i=1; AFNElJ9TyhpRDjv/ltH8MXhdRw2zZXbF22eoKyMaCfNj/JSyTuTe3S8vkDYiwK7DsJP5p5YpddT72YASdVkb3dqwtq8B@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnzQCkoq4A6IQBXXh7rpV3UkoNFX+szV/8Y39OeCUWzGBLPk2I
-	WFIrx5DYpId8hqFFahhy8JMicXiyU5Sv7o1MSvBD66jOvrVZy5Z4jd1WkTw91q1q2kJuD1d8nvo
-	SvRxy81qDgfEChsSKJ5hRwrwBHdb+JKY=
-X-Gm-Gg: AeBDiesDEkFKeybNikPY/lj5jy2Ud9ZKC7NDXM2Mdw1Y41XnvF9Gg9gvddng3fTf8gL
-	lpy0be0zmBuP8Wy2OPTTaHZ3FxHTyhLHD57ZiCrl+zp22Mi/b0voiDLk/vZqZIfqJ5EP3NA5StM
-	ABc8WbJXEXkPwik3Ji+255pXlaQXEdkMw92EtetXtPHj83k4zNVxP3ozGiRYLzjKqI6YivYsVT+
-	J2pASCr5o8ShyEqacWESv1FWNcaMe2RaEFHVHedjHMT1lYoYIgBVVxBcAJon8ADn1fP5V6j8D9L
-	6acY7z4L271niDYCOVYhcJeB5ejjrEvIq4xvM9qNWF0cLxud5jc=
-X-Received: by 2002:a05:6000:220b:b0:43d:30b4:1859 with SMTP id
- ffacd0b85a97d-43d64235cf5mr34620475f8f.7.1776286265230; Wed, 15 Apr 2026
- 13:51:05 -0700 (PDT)
+	Wed, 15 Apr 2026 20:58:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Pfk4ELNQFyt2a9AHDcK5ahVcOUhga0hJXeFOJiJBztQ2J49fO99VRDBNyHH4rxKo6UIJat6E58uJokF+5OHIF5EsBbl2lXoWIVKrSW55GFcvVVEq11QSXTx8IjjoI7LvNnQNmzACqOvMDVPzAFMJMlaLncrF+8RH+1fjzDwcef8J+OvXC48KCoSCUAUE5b+cDQTv2wcfKwJ48Eduimi532cfZWYmLnHoTvGk3Y3WwlD54FYQ0Oe4p3U8uMyj7rHPqLg6SEZfHEHoEymUIxW34juDj5JGqp0lqj9ijINDmC2f3WRJ9eDeYL8T6BKzRAhu978lh9/3UdHZXaeNKQZhAA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5+bfc2+8Hc2NimyZMAaU/n9eO1y9TQTxtnr/WOjHM8E=;
+ b=Lj4C0KzgPpcqTK6EkqDoifj80GhP8xer6kcQXWagdbU9U/fPBCVRgICl3i2nOi8GXyeb6wg6xlOmKXuCXjNtM96E/zz6+rJG0KiVjOFCkCoF/HKaar403ySd0t5kJZjVACyAgTlSAA8O9aaiinOY3awxOc2rbZldiTogT+M9SYgX1NI//Cr5O1RjUmP1xhk3GpiUba5XmagRDM3kUzfWRvp+lsJJ202qux3XWejtol4OAFZRv+ETqYdc7N11ptXKeJ1yTiYkoNsJNSTVA8uq9IjuOoZ4Gje86i5cPVzCyTpZPttySlBd9NIzpiAhL7xo/9D8ZnQlUbekMxTWaNOuWw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5+bfc2+8Hc2NimyZMAaU/n9eO1y9TQTxtnr/WOjHM8E=;
+ b=bWYvVT7vU3UvqBqRdfyqPFYa8YO5M6G94xXcwc2QhgpH4HKDckPPkrgQQi3ovnEIoQAE0crkMYPbnjmm1IY+Ek448e0VKEqIicTKh9ikQXOxRjeCdhDCx7s3JGVnXf2CW2ZhaiDKoBA2du4x7uMgqKRdIGHDfOgxQkwES49KwXW3yecmrSJIC4bx4qT8KMCV/yrmrgXP4+6P0DtR6JDwapOC2piij37t6gcqSGG+Hb2UO0M339dTfdauY0dW7x/EpG3LVUQ+XwhxkdJuTSOrGYDY38zTHaC7vamVW8l5GyEningQsX5wAzzGbSLKHwim/pOn/Dgt8AttQ8I6i6I2vQ==
+Received: from CH0PR04CA0081.namprd04.prod.outlook.com (2603:10b6:610:74::26)
+ by IA0PR12MB8421.namprd12.prod.outlook.com (2603:10b6:208:40f::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.21; Wed, 15 Apr
+ 2026 20:58:16 +0000
+Received: from CH2PEPF00000149.namprd02.prod.outlook.com
+ (2603:10b6:610:74:cafe::49) by CH0PR04CA0081.outlook.office365.com
+ (2603:10b6:610:74::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.48 via Frontend Transport; Wed,
+ 15 Apr 2026 20:58:16 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ CH2PEPF00000149.mail.protection.outlook.com (10.167.244.106) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9769.17 via Frontend Transport; Wed, 15 Apr 2026 20:58:16 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 15 Apr
+ 2026 13:58:00 -0700
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Wed, 15 Apr 2026 13:57:59 -0700
+Received: from Asurada-Nvidia (10.127.8.10) by mail.nvidia.com
+ (10.126.190.180) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 15 Apr 2026 13:57:59 -0700
+Date: Wed, 15 Apr 2026 13:57:57 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <jgg@nvidia.com>, <will@kernel.org>, <robin.murphy@arm.com>
+CC: <jamien@nvidia.com>, <joro@8bytes.org>, <praan@google.com>,
+	<baolu.lu@linux.intel.com>, <kevin.tian@intel.com>, <smostafa@google.com>,
+	<miko.lenczewski@arm.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<stable@vger.kernel.org>
+Subject: Re: [PATCH rc v1 1/4] iommu/arm-smmu-v3: Add arm_smmu_adopt_strtab()
+ for kdump
+Message-ID: <ad/71ZSRFgm+x3p5@Asurada-Nvidia>
+References: <cover.1775763475.git.nicolinc@nvidia.com>
+ <30c7c51c8771722813a9cf54dae7a1b5d0aeb65d.1775763475.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-References: <E1wBBaR-0000000GZHR-1dbM@rmk-PC.armlinux.org.uk>
- <20260413110222.49fc3759@kernel.org> <ad06yiZZbLC9k3jY@shell.armlinux.org.uk>
- <CAH5Ym4i7VV53hQGY3AjAUW3B8g_ffgmw69kPhPrk2CmcRbguuQ@mail.gmail.com>
- <ad5LlXzeQ8j14Mjg@shell.armlinux.org.uk> <ad7nsUQvksJF7JFK@shell.armlinux.org.uk>
- <CAH5Ym4jA8w9=UxMT4vKJpnXkuDHtkFtMcg4u2sy_0S+8wgy-9w@mail.gmail.com>
- <ad-ID2WaPgPJqdsa@shell.armlinux.org.uk> <CAH5Ym4jKdzDeYwCfkMLmUz0FsiD2vFwfuAvqFE=uvMtPmakeMQ@mail.gmail.com>
- <ad_o4aDP0UBY_8i4@shell.armlinux.org.uk>
-In-Reply-To: <ad_o4aDP0UBY_8i4@shell.armlinux.org.uk>
-From: Sam Edwards <cfsworks@gmail.com>
-Date: Wed, 15 Apr 2026 13:50:53 -0700
-X-Gm-Features: AQROBzD5XBS99VCDwyzmkg2_ABsUHqZK9kvqTm38xxMES7dhJirfHEs2edhZQVs
-Message-ID: <CAH5Ym4j3GePEMEMmg1Z27gYfQ0N8Sc1BMW1rnvNZ4aLQ+cfFyQ@mail.gmail.com>
-Subject: Re: [PATCH net-next] net: stmmac: enable RPS and RBU interrupts
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	Linux Network Development Mailing List <netdev@vger.kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <30c7c51c8771722813a9cf54dae7a1b5d0aeb65d.1775763475.git.nicolinc@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF00000149:EE_|IA0PR12MB8421:EE_
+X-MS-Office365-Filtering-Correlation-Id: ad1773d3-6bcd-48e0-7eb4-08de9b31b73a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|7416014|376014|36860700016|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: ju5VZTcHOUzUd8oaDloOzaEqaZJ2iHnVhO0w65wLD7/PpptK+FS6gFSebX7QTfDaZVyzKe8FgOxVRz8ToyzqkZYYDgbC8vj7xy0yaJpkWIyd8w88G959A9ynDeAZZcuoyYPKSNpEGIJZQszSA2Bs62idSyd2cEQujT/SZ0Ic53auldzA0Ha7trRVhQj7deZ3NQfOxI4iiaNTASrMoKjQt81xOt4uWi2MkR8Ho58R7ZIkoM625sdXHWhN0HE4A6rbgZfBOco01Gmb7653BUnnmzLsWT4emta/i8lVJa95ECajOHOwehd3e98s23VQMBBXZKGDbyE9D2Kyk20cOXUJzFYBsJg116Sk21apXLaFpdYl8SBWmyEEfO26zRLmsAFFeZuXFSJUdtt7nkK+UR5Zw6geuwhYh6H0ku3Sc4L43hB2WpofaaRxdaPoSMWmCOCFdPH3fqRxNMhl0lbFrmuD/tZCaO6CmKrzpvFkhSidMUtdWMwWyCIiCfrLHlVYKhFvdDSD8sKkxLPEM2ryuZSX9K+iMjEh2MV080elxxgSHzwkJkfdzFbI/nXY2Pr4sONH4KNO6ith5gDQdCyCA5fw3Py9k/M77e8KIrVZgpdGbwI6m5AEjCYFzWV1SNvruPTGOGlyxKt+b2cm8slUjHxVvv/moGZ5udMz4CU4vObh9smEqHCryJ9Rk/eq33gnRGXSE2GRIi0LO+urnAiSveDZP4dSEoG+5D+ZYEfdISikCTEGHla2BHXsWt+7vMJlPHOVCIKsTcVQWhzzeckQsT1Dew==
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(7416014)(376014)(36860700016)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: LpexONwVAsVVOD33vxeOXL0BZ9GhXU2IeJUTA4PInDYBXOjDX6ZnGUgWXL+vEbj6S8SYj5v8fDDyPHKfoVfLjtKV/b/Zv/A1zOk/xpgofwmbiRoZkQasiG82eObfcGXr4FC7oz1ELpLmiTDvOKJzHL/fYqtlys5VvIZmbpAo3CNep0DQbaWqOBtuAHjwAhX+eQfzzjfm7zBwNfXVhIMobd+eSfGtv4PRAnx+clYDL68hLcO4XlaPWnqpLImwQuoqktn9Ts4BBkltTQFu0CJdYvhQZKyLr22YrgiFE3BewyR2TcTBHu6OVApQGcyz54RIcSzckpQBRhwb9ncylQR2k60C+UCEyrkWtO7yyvsVS8tAbCTvMO/J6h5NyjvJUsRpy08a9j5wcPzpzAKsziikFK0G3Bcp+mmQiLNHKpYfxMbScFhGoP32YaCBsUH7okvz
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Apr 2026 20:58:16.1421
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ad1773d3-6bcd-48e0-7eb4-08de9b31b73a
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF00000149.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8421
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_135108_157493_D686AB8C 
-X-CRM114-Status: GOOD (  44.23  )
+X-CRM114-CacheID: sfid-20260415_135851_072709_19C55C16 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,110 +131,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 15, 2026 at 12:37=E2=80=AFPM Russell King (Oracle)
-<linux@armlinux.org.uk> wrote:
->
-> It's not a question about how I define RBU - this is defined by Synopsys
-> and I'm using it *exactly* that way as stated in the documentation.
->
-> "This bit indicates that the host owns the Next Descriptor in the
-> Receive List and the DMA cannot acquire it. The Receive Process is
-> suspended. ... This bit is set only when the previous Receive
-> Descriptor is owned by the DMA."
->
-> In other words, DMA has processed the previous receive descriptor which
-> _was_ owned by the hardware, written back to clear the OWN bit, and
-> then fetches the next descriptor and finds that the OWN bit is also
-> clear.
+On Thu, Apr 09, 2026 at 12:46:50PM -0700, Nicolin Chen wrote:
+> +	if (fmt == STRTAB_BASE_CFG_FMT_2LVL) {
+> +		/* Enforce 2-level feature flag to match the adopted table */
+> +		smmu->features |= ARM_SMMU_FEAT_2_LVL_STRTAB;
+> +		ret = arm_smmu_adopt_strtab_2lvl(smmu, cfg_reg, dma);
+> +	} else if (fmt == STRTAB_BASE_CFG_FMT_LINEAR) {
+> +		/* Force linear feature flag to match the adopted table */
+> +		smmu->features &= ~ARM_SMMU_FEAT_2_LVL_STRTAB;
+> +		ret = arm_smmu_adopt_strtab_linear(smmu, cfg_reg, dma);
 
-I'm only trying to leave open the possibility that the Synopsys
-technical writer and the hardware implementation team weren't
-communicating clearly. We already have a situation where RPS isn't
-behaving as documented (even if that's likely just hardware
-misconfiguration), so while I'm currently pretty sure RBU carries no
-other (actual) meaning than "DMA caught up to OWN=3D0," I'm only about
-75% confident.
+Made a small fix here. Including it in v2.
 
-> > It would seem* that the kernel isn't really failing to keep up with
-> > the packet rate. If RBU is firing with a ring that's not even close to
-> > empty, that tells me there's another way for it to fire. So I suspect
-> > the hardware designers implemented it to mean:
-> > "We couldn't read the next descriptor, _or_ it wasn't owned by hardware=
-."
-> >
-> > (* However, if bit 31 is clear everywhere, wouldn't that mean the ring
-> > is actually completely depleted, not full? If count=3D=3Dbudget, wouldn=
-'t
-> > that mean the whole ring hasn't been visited, so we only refilled 64
-> > entries and not necessarily the entire ring? Maybe the kernel isn't
-> > keeping up after all.)
->
-> Ah, I think that's where our terminology differs.
->
-> You seem to define full as "populated with empty buffers". I define
-> full to mean "the hardware has filled every buffer with a packet that
-> it has received and handed it over to software to process." Note even
-> the terminology there - filling buffers with data. That ultimately
-> ends up filling the ring, and when completely filled, it is full.
->
-> I think of buffers like buckets. If a buffer contains no data, it
-> is empty. If a buffer contains data, it has been filled or is full.
-> Apply that to a list of buffers and you get the same thing. Many
-> ethernet driver documentation uses this same terminology, so I
-> thought it would be widely understood.
+@@ -4662,11 +4662,18 @@ static int arm_smmu_adopt_strtab(struct arm_smmu_device *smmu)
+        dev_info(smmu->dev, "kdump: adopting crashed kernel's stream table\n");
 
-Ah okay, I was beginning to suspect the same. In my defense: though I
-also think of buffers in the same way, this driver calls the process
-of supplying empty buffers "refilling," which is also the terminology
-we've both been using throughout this exchange, and when something is
-"completely refilled" I generally call it "full." But I'm realizing
-now that the bidirectional (submissions+completions) nature of this
-ring means that "full" and "empty" aren't really well-defined
-concepts. I'll try to read more carefully (and switch to saying
-"completely dirty" and "completely clean") going forward.
+        if (fmt == STRTAB_BASE_CFG_FMT_2LVL) {
+-               /* Enforce 2-level feature flag to match the adopted table */
+-               smmu->features |= ARM_SMMU_FEAT_2_LVL_STRTAB;
++               /*
++                * Both kernels run on the same hardware, so it's impossible for
++                * kdump kernel to see the support for linear stream table only.
++                */
++               if (WARN_ON(!(smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB)))
++                       return -EINVAL;
+                ret = arm_smmu_adopt_strtab_2lvl(smmu, cfg_reg, dma);
+        } else if (fmt == STRTAB_BASE_CFG_FMT_LINEAR) {
+-               /* Force linear feature flag to match the adopted table */
++               /*
++                * In case that the old kernel for some reason used the linear
++                * format, enforce the same format to match the adopted table.
++                */
+                smmu->features &= ~ARM_SMMU_FEAT_2_LVL_STRTAB;
+                ret = arm_smmu_adopt_strtab_linear(smmu, cfg_reg, dma);
+        } else {
 
-So the kernel is able to supply clean buffers without issue, but it
-somehow falls behind the incoming packet rate and the DMA is left with
-a completely dirty ring. I agree that stmmac_rx() is therefore just
-not running fast enough: either it's got really bad scheduler jitter
-for the ~6.3ms minimum it takes for 512x full-sized Ethernet frames to
-arrive from the PHY (your scenario 1), or -- more likely -- the NAPI
-budgets gradually fall behind the hardware (your scenario 2).
-
-> Right, 40KiB. Sorry, I'm getting interrupted almost constantly while
-> trying to do anything.
->
-> However, I've tested with 0x7f in both fields, and it still falls flat
-> on its face. I've also tried other values, but because I had to unplug
-> the laptop from the nvidia board to use the laptop portably due to the
-> medical emergency situation, that caused screen to quit, so I've lost
-> all that. Chaos reigns supreme here :/
-
-I'm sorry to hear about that, please prioritize you/yours and don't
-feel like you owe me speedy replies.
-
-> So, I'm not sure we understand what's going on - I don't think it's that
-> the FIFOs are smaller than specified. I suspect that the 9KiB vs 36KiB
-> results in some kind of throttling that prevents the condition which
-> hangs the hardware.
-
-I'll try playing with the FIFO configuration on my end to learn:
-a) If a suitably-configured FIFO size makes the RPS status arrive as docume=
-nted
-b) If I can safely fill the FIFO slowly (by manually stalling the
-driver and adding frames one at a time) and have it drain on resume
-c) Whether the TQS value can be adjusted independently of this
-problem's prevalence
-d) The maximum RQS value that allows the problem to happen
-
-> I'm not getting as much time as I'd like to really test out scenarios
-> due to everything that is going on, and honestly I feel like just
-> writing this week off now and giving up.
-
-I have the same hardware, observe the same issue, and find this
-interesting enough to keep plugging away at it. I would have no hard
-feelings if you left me alone with this problem for a bit. :)
-
-Be well,
-Sam
+Nicolin
 
