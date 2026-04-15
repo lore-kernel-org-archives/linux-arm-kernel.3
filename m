@@ -4,125 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70053F428CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 20:02:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E2C4F428EC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Apr 2026 20:44:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QN+m/SC6FSjWpX9y+8goQIhqVtjzyGE3j5DK0NVFuSU=; b=eTdxpUmKMw7F0KnQYRDH9895cf
-	7cmXml0HHtQhg1Z/YAYAkAIFerDIhcY2UDyXhV0r9a5PiGXlifIyrp3iCtXtw4BW2r/y1ntZ4mqL/
-	kBFbEVcaOdoZ28P2IvXM5MgjuE1UFN22cN0eDbVrlx/Ks/v/xjLGKspMH50XriOXHyn/t7mWdbVHm
-	8PPJwY4s2HWCPBrQf/XjS0ZI/V9QLZGM+RHS6cZMKaZo3sot21X5AmaJZQyu2FLHiq7STKK0XDAhr
-	SyNiUAm59PHwo1knsstg5bEv+jT817PMs+oHzbTRQxxsdP21GRtPbhtB1/RXj8qn+FreXfGwxoMi/
-	+QUKgG7g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jVDNzdmCcUlsrcDPwenbU6oXuaJkJzPJ3CKGZdPSExw=; b=pLBPdsCyGQZDyJesVDe/X7Du+H
+	LMjEm72iKsf6amXvbAT3wFG8aTEHPgSEZDl5w8u1oXuRyh40TXF2GI1ENVI+P/9ck9tDOXegx+fj4
+	Tt6GtCebtmy4495KrJYqDeyFVg/zxp8kLhOl5EYPgepze5pPG6qZoGn+XX3mRKGZpyjlGPZUqj5Va
+	iRefDzbObqJaSGTojZ3y9CqG5JhHdZs5Vhjk3t8+royK5LcqsHS+uVrMpOFxIfJMe0iReBggpnoYL
+	3V6f/v7Gc9GVEyJnN59otBLSDahrUFAU7r0uD5jKZE7lj7rO9xr7PiwsJppOpq3V2IlqCr2q/SjYb
+	SxtXgbsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD6Pr-00000001ZXX-1UEU;
-	Wed, 15 Apr 2026 20:01:31 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD6Po-00000001ZWj-15nZ
+	id 1wD75f-00000001b7g-11A1;
+	Wed, 15 Apr 2026 20:44:14 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wD75S-00000001b6A-1qyT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Apr 2026 20:00:49 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63FFQJlD1702619
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Apr 2026 20:00:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=QN+m/SC6FSjWpX9y+8goQIhqVtjzyGE3j5D
-	K0NVFuSU=; b=Cs5uBIMppMbLGAeNqVngfVIF/NUPVNA3ZPQt3NM8fOixplzVRYM
-	spbj52zJ/nbB+zAuDAhdRH2aEHyxwYTPfwU8l1Plv/q4CSiLCyRHWjG7Hrs5U7In
-	K7WyToOHTAGlHOYdjtnT+4X6mWYjMNlGxfGqRaijShl+Tq8oY5JOrMPZGQ8Tn8te
-	4GI6XBCSljnBu1xmniNC/ZLgVzRVQxEEWvP4tEs5/si3WVOyZiYBfG9f3g/PwuCg
-	qA3D19PLUavnASCaXbVZ2thRRtzrUGyNGScQMJpI5vUtmbLW7XZQpjeYGnviwFch
-	kjLOU27DHpCGHv+hyrizctPgbGs2oq07o2w==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4djdamgwkq-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Apr 2026 20:00:44 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2a90510a6d1so58247635ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Apr 2026 13:00:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1776283243; x=1776888043; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=QN+m/SC6FSjWpX9y+8goQIhqVtjzyGE3j5DK0NVFuSU=;
-        b=iDirbbJRB3hmNtAvYp1+V+AxfPSod8ZrBrmrhO5Tf2bViLHuddTkGUIio0DdbuIcov
-         NcrFtLE6Rk0BEKWRfcvqRMTmek/+P1Vqy+ZhnjgkXVV7XADWc7fMF10mi9KRHKlJOWTU
-         CBQf9EkEXW0s9tJDQGx8NjEECn78PuzP7Gz/hAbzMeSSt37WPRyfb00PeK3sYprT9Ahp
-         THarp+xqj6/VwlBW4FYZ6kyeNojszCWomOM1LJtFca6iJXCGSpXL9u7SvwJN2n5Ez5jt
-         Wj9QPtIPx/0bI3lyvVY7AO+RQwwjtLoBmu3zp8ZLhmUbLqitwThSawRaeS10eVDcpkcO
-         k+yQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776283243; x=1776888043;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QN+m/SC6FSjWpX9y+8goQIhqVtjzyGE3j5DK0NVFuSU=;
-        b=SymvKzl0RDHaM48NRnN/F4M1MByUjnZJY0ZuqvtvLlpWwbWzKEh3uobJGUqql6jnu2
-         OpSw1y1wxO+7swvISiccPWUroMgO6aRZq494H3xUdnKLlvNTrGqik+ntD2g+ieg/tope
-         XOyXYB6XFUozxnVJ8XEYdeyjtWLBIWb576qf2carLlpDJ0db7/JKjsXqzlRMYrM+HeKd
-         JGdznTb3Y42wQToO9UBPL4NsLovsbzNvWifTPU/xRh73fCqrSculdDIIsx5daRTBQTnF
-         vl5kPPo2Gw8A8cnXN2PlvTHSQnAqS3JyOD3DWGbmdJKYShA4DA3cjCpSrQhfRJM38H5R
-         JgDw==
-X-Gm-Message-State: AOJu0YyHmHdmJ9hXQ2UnZiyxiRqoYfQeL59aQ42N6lgker6yeoXCt6Yb
-	Prw9n5G6UTHW0foGCRMLegVC4Apy+rGi0k/wtyx/+vif5Zbpq5kis8zViPEVEJizNT7DwTnlKFa
-	3n7WsyVNg76foTSyTo0EBxJtqbadKJUh5JejgZ+b8gBPNPPqglGJk6cksqLsDfSU0wW7tb6HLPE
-	4kZA==
-X-Gm-Gg: AeBDies6+OtmSKkwHH7Yi5djS/J6up86UvGoa+dhz7IjfS1IyaoR9WIIyalPfsvaFhH
-	e6iEfp3z4iyr+2ndYl4e72EOtSsqTnkmAguV/D2GwA7kYDxAWIxuziGg5tY/+c1fvruWd3Yq18+
-	HT7tvLtewbiIpqsJMLseVOMI8sgdjA1SjpkLnECsY5rWtb3d1fiHPDeNBjn5FMuVxBPSTwGYOBL
-	1AMxgkmZ5xqXzqsPPl5/xbCw3INT7b072EQa59JzKsuJEzAVsV1IP7VlA/hqkUrxGjNbUINJMiG
-	y9hGfdfis+g63KkRz66n5gWXBC7NYArtC0+FAmWG1JLo7w0BAoInlIJTxNbkjtWjqOHcFcb59S9
-	/Cd03cd5Gv91sXZKqqNdwEbxMG2gj+MAilc5jn0z5nNfC0B63
-X-Received: by 2002:a17:902:be02:b0:2b2:5070:8b with SMTP id d9443c01a7336-2b5eaa1ef15mr5414645ad.1.1776283243231;
-        Wed, 15 Apr 2026 13:00:43 -0700 (PDT)
-X-Received: by 2002:a17:902:be02:b0:2b2:5070:8b with SMTP id d9443c01a7336-2b5eaa1ef15mr5414295ad.1.1776283242544;
-        Wed, 15 Apr 2026 13:00:42 -0700 (PDT)
-Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b47826e232sm27423905ad.48.2026.04.15.13.00.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Apr 2026 13:00:42 -0700 (PDT)
-From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-        Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-Subject: [PATCH] arm64: cpufeature: Fix GCIE field ordering in ftr_id_aa64pfr2
-Date: Thu, 16 Apr 2026 01:30:31 +0530
-Message-ID: <20260415200031.1885440-1-mukesh.ojha@oss.qualcomm.com>
-X-Mailer: git-send-email 2.53.0
+	Wed, 15 Apr 2026 20:44:01 +0000
+Received: from [10.17.149.54] (unknown [131.107.1.246])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 4E13420B7128;
+	Wed, 15 Apr 2026 13:43:49 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 4E13420B7128
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1776285829;
+	bh=jVDNzdmCcUlsrcDPwenbU6oXuaJkJzPJ3CKGZdPSExw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=aB9LsrWeWonZLUidOWbtG+WGecMNAQ0eEYn9NBQlFTgSPnPJnP9+gXG098if1T0Ll
+	 frn/9fedhMNADi5Q1gSjQ9lzDqwn2CDBGr7Th+5iEJ+79wx5H5/eovbgmm+hckQVKq
+	 kp2rqn8yySVuHYODVKqM3J8fz3AR/KHhBuXdQZVE=
+Message-ID: <58294850-4ed4-4fb4-8f46-186063b76a2f@linux.microsoft.com>
+Date: Wed, 15 Apr 2026 13:43:46 -0700
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] mmc: host: sdhci-iproc: implement the .hw_reset
+ callback
+To: Scott Branden <scott.branden@broadcom.com>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>, rjui@broadcom.com,
+ sbranden@broadcom.com, linux-arm-kernel@lists.infradead.org,
+ tgopinath@linux.microsoft.com, adrian.hunter@intel.com,
+ linux-mmc@vger.kernel.org, kernel-list@raspberrypi.com
+References: <20260327222150.2108111-1-meaganlloyd@linux.microsoft.com>
+ <3305684d-8517-47dd-8852-2e34d40fc712@linux.microsoft.com>
+ <702c52e4-b0b3-4e1e-a40d-29e136e46d7d@broadcom.com>
+ <448010ef-278c-4711-a244-447a2b1a22c1@linux.microsoft.com>
+ <CA+Jzhd+_CKn1X0YDsoh9-OFeCG9sc2Q0OFfphkRaXpEA647xyQ@mail.gmail.com>
+Content-Language: en-US
+From: Meagan Lloyd <meaganlloyd@linux.microsoft.com>
+In-Reply-To: <CA+Jzhd+_CKn1X0YDsoh9-OFeCG9sc2Q0OFfphkRaXpEA647xyQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: ImFkpY5ZwmzGqTkS7YFRnV_HPFAWbMVD
-X-Authority-Analysis: v=2.4 cv=HMjz0Itv c=1 sm=1 tr=0 ts=69dfee6c cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=EUspDBNiAAAA:8
- a=J9pcbZUIVKvfiMDc_lMA:9 a=324X-CrmTo6CU4MGRt3R:22
-X-Proofpoint-GUID: ImFkpY5ZwmzGqTkS7YFRnV_HPFAWbMVD
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE1MDE4NyBTYWx0ZWRfX36Ilvizth/BK
- 3TMguSnLkXBVjrm0+9uHvJ6WZ5+uwCTcRWfAsKLizqpsAcq0qYNNwmJN5sTK4e63DVe+nCyHDoa
- IducH/op5Rh9qEYS/LZPzyvK2C1yZgnFLqQ4d3k/sLJs+59JeJ+rwQcUS8IR5i401czZwvues7u
- UAl0rrVYMXNIZE9R77v8Q61A6lS5+xuAdkxalvnZEh9Ir57j8jQYNYK+UgafBK2zY5CBjprm3MV
- pWi77a1GhMlbntro0nO3Tj7758el0rpumDTHKOCFpulJcXqMFa+O5QRGedIfGNh0lX6qgB01S6i
- nm/aYRWDaZC+nnOl6hJtQkRolLRX6Q+WdTOHSCnSRoQ8AAaDu7RPcDG/5G7ZpH9J2PZguZkka41
- h1S9MZ/z3P6wKM0PkQ4nAyOIRLvSPHi5/NIPBDi+l3r2X6VcAYml+d2hgxX3K21R6MG/m1e1Vud
- LaW3Nt2WZN+/XenEEEw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-15_01,2026-04-13_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 lowpriorityscore=0 phishscore=0 bulkscore=0 priorityscore=1501
- clxscore=1015 impostorscore=0 spamscore=0 malwarescore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604150187
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_130048_430607_62969960 
-X-CRM114-Status: GOOD (  15.17  )
+X-CRM114-CacheID: sfid-20260415_134354_847071_2844B425 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,60 +76,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ftr_id_aa64pfr2[] array must be sorted in descending order of
-shift value so that the overlap validation in init_cpu_features()
-works correctly. The GCIE field (bits 15:12, shift=12) was placed
-last in the array, after MTEFAR (bits 11:8, shift=8) and
-MTESTOREONLY (bits 7:4, shift=4), causing a spurious warning at
-boot:
 
-[    0.000000] SYS_ID_AA64PFR2_EL1 has feature overlap at shift 12
-[    0.000000] WARNING: arch/arm64/kernel/cpufeature.c:989 at init_cpu_features+0x144/0x3d0, CPU#0:
-swapper/0
-..
+On 4/15/2026 1:23 PM, Scott Branden wrote:
+> Hi Meagan,
+>
+> On Wed, Apr 15, 2026 at 11:08 AM Meagan Lloyd <
+> meaganlloyd@linux.microsoft.com> wrote:
+>
+>> On 4/13/2026 10:43 AM, Florian Fainelli wrote:
+>>> On 4/13/26 10:38, Meagan Lloyd wrote:
+>>>> On 3/27/2026 3:21 PM, Meagan Lloyd wrote:
+>>>>> Implement the .hw_reset callback so that the eMMC can be reset as
+>>>>> needed
+>>>>> given cap-mmc-hw-reset is set in the devicetree and the
+>>>>> functionality is
+>>>>> enabled on the eMMC.
+>>>>>
+>>>>> Signed-off-by: Meagan Lloyd <meaganlloyd@linux.microsoft.com>
+>>>>> ---
+>>>>>
+>>>>> SDHCI_POWER_CONTROL[4] (SD Host Controller Standard) has been
+>>>>> repurposed
+>>>>> on my Broadcomm processor to be eMMC hardware reset
+>>>>> (SDIO*_eMMCSDXC_CTRL[12], HRESET).
+>>>>>
+>>>>> Can you confirm this repurposed bit is consistent across the Broadcomm
+>>>>> iProc processors and thus the .hw_reset callback can be uniformly
+>>>>> applied in this driver?
+>>>> Hi Ray & Scott,
+>>>>
+>>>> I hope you're doing well. This bit looks to have been repurposed from
+>>>> the SD Host Controller Standard's VDD2 Power Control to being used for
+>>>> toggling the hardware reset signal to eMMCs. Can you verify that it
+>>>> applies across the iProc processors so that I may finalize this patch?
+>>> Which iProc process are you using? If you are not sure this applies
+>>> broadly, can you at least make it specific to the SoC you are using?
+>> Yes, if it comes to that I can. I think it's overkill to roll a new
+>> compat string/associated structures over this small change, hence
+>> checking with Broadcomm iProc maintainers on this thread.
+>>
+> Which iProc processor are you using?  You will have to check with
+> RaspberryPI as I think they use this driver as well.
+> If that family also supports it then you probably don't need a
+> compatibility string.
 
-[    0.000000] pc : init_cpu_features+0x144/0x3d0
-[    0.000000] lr : init_cpu_features+0x144/0x3d0
-[    0.000000] sp : ffffc08678f03dc0
-
-...
-    0.000000] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffffc08678f14000
-[    0.000000] Call trace:
-[    0.000000]  init_cpu_features+0x144/0x3d0 (P)
-[    0.000000]  cpuinfo_store_boot_cpu+0x4c/0x5c
-[    0.000000]  smp_prepare_boot_cpu+0x28/0x38
-[    0.000000]  start_kernel+0x1d4/0x848
-[    0.000000]  __primary_switched+0x88/0x90
-
-This is because the overlap check computes (shift + width) > prev_shift,
-i.e. (12 + 4) > 8, which triggers since GCIE occupies bits above MTEFAR
-but was listed after it.
-
-Fix the ordering to match the register layout: FPMR(35:32), GCIE(15:12),
-MTEFAR(11:8), MTESTOREONLY(7:4).
-
-Fixes: 899ff451fcee ("KVM: arm64: Advertise ID_AA64PFR2_EL1.GCIE")
-Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
----
- arch/arm64/kernel/cpufeature.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 48f2d894101d..6d53bb15cf7b 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -328,9 +328,9 @@ static const struct arm64_ftr_bits ftr_id_aa64pfr1[] = {
- 
- static const struct arm64_ftr_bits ftr_id_aa64pfr2[] = {
- 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_FPMR_SHIFT, 4, 0),
-+	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_GCIE_SHIFT, 4, ID_AA64PFR2_EL1_GCIE_NI),
- 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_MTEFAR_SHIFT, 4, ID_AA64PFR2_EL1_MTEFAR_NI),
- 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_MTESTOREONLY_SHIFT, 4, ID_AA64PFR2_EL1_MTESTOREONLY_NI),
--	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_GCIE_SHIFT, 4, ID_AA64PFR2_EL1_GCIE_NI),
- 	ARM64_FTR_END,
- };
- 
--- 
-2.53.0
+The processor I am using is the BCM58732. Can you help direct me to
+someone who could comment from the RaspberryPi side?
 
 
