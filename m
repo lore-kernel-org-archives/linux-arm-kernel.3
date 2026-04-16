@@ -4,73 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1669EF43841
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 06:39:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68240F43841
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 06:42:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3gl0Q5lzwMmxfxn+nsop3W8hwu06PK5GdVZhuc+ngXw=; b=Fk5yyYybY+GZLNpXE/5CaOOMJH
-	M8jaCUnznY8mG7RtGkH+aolc6sS4WfQqgt5SDmCEwtrLZy2XaQovPH2CvsIus3MVZr9QJ9i89ikfM
-	/PEq3iO3q4SDupkdc66VRsHW7R6mINFKR2qATz6Ie/rTmf/YG24808go8mbBhfNtSXhrdF7y0Uj94
-	RIQk+QaU9ttg7MaILq1nZiBNHR9vICfoabLU2oIuVJd6Z1bs2QEpDkn6i+dY75bym56jtznAb5Th+
-	4d/ZVlrXyNtr0IFtZWA98aD0uYrY8odNgxKxKgoKp3UKLIxVRdpik4NkqzlP3CS5lyhqKGl5nudXe
-	hZTOl3cQ==;
+	bh=WBoqQFk0kGAZEELbWTBYVcv8C6wujAcOmZOUKJ4PXys=; b=4Hq+CikHLucHSnBVsmXZn/W1DH
+	oaAsf34XXu4s1erL06I5mXvAptAMasRgpT+ZNNX/JVm06qW02uQF6ZiauFpNYFFN6h1/CD68YdAje
+	nHvlaQFtE+OvSEu8iMeOPi+GeTtUVfSou+ITPdtIKgmzrfQmso7QqzkUSGOh7CaMkmkUP6HZwyfzl
+	4j8jDZZZz9Mol1d0D6hI0G0V4n1m0FG3S4sJ4+2RnAYk4lurByEZd5JJCDeK969J0RELavKV0n//s
+	Ky6EXn66CnG1u0gFDOTm1yc+nkSagIT02lHCL4NcA7xhtb+D0LkE391Ntel1FfUEY5pdKhGWW0T62
+	vOp4lnNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDGO4-000000023iX-18WN;
-	Thu, 16 Apr 2026 06:39:40 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1wDGQf-000000023yN-1oP1;
+	Thu, 16 Apr 2026 06:42:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDGO1-000000023iC-34VR
+	id 1wDGQc-000000023xu-2h5Q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 06:39:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=3gl0Q5lzwMmxfxn+nsop3W8hwu06PK5GdVZhuc+ngXw=; b=P4OgWa9GwqfivTYMTkIqYFa4np
-	aEWtzTILtPjzT9EZxk5Qk8REDpF4dp9C175bvElGoSsevjD3j5OI/JZvJd2Z9qufuhGQkmHseIpug
-	lf39E6fx9xUrSCfU2/rGtLMAh8O7X08yE+PkuVQ1B7LLeeLy4Uh49eTGMahdNJ6i8OGlqBX3X+hDl
-	tf7PJZyL7wT2XDldld2WW6Yf+B2hGdYdWDnf8EnJfTSPpS+tSKLcl3Q7MfMvhnjeXO98At2jqIoDB
-	SegQtrwVi/nz0L1gWAsNfkibkq2Y4ZeszKb/NzQOdAvqoI/0/28vA57BYCT0hlQKzhZh9NI++u5I1
-	kZkEGfVw==;
-Received: from sslproxy04.your-server.de ([78.46.152.42])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wDGNz-000GxI-2s;
-	Thu, 16 Apr 2026 08:39:35 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy04.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wDGNz-0007Zf-0Z;
-	Thu, 16 Apr 2026 08:39:35 +0200
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Nora Schiffer <nora.schiffer@ew.tq-group.com>
-Subject: Re: [PATCH 0/7] TQMLX2160A-MBLS2160A DT fixes/updates
-Date: Thu, 16 Apr 2026 08:39:34 +0200
-Message-ID: <5096354.31r3eYUQgx@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20260331141915.2918927-1-alexander.stein@ew.tq-group.com>
-References: <20260331141915.2918927-1-alexander.stein@ew.tq-group.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Virus-Scanned: Clear (ClamAV 1.4.3/27972/Wed Apr 15 08:24:27 2026)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_233937_902402_538BE123 
-X-CRM114-Status: UNSURE (   9.66  )
-X-CRM114-Notice: Please train this message.
+	Thu, 16 Apr 2026 06:42:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B7FC860123;
+	Thu, 16 Apr 2026 06:42:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A545C2BCAF;
+	Thu, 16 Apr 2026 06:42:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776321737;
+	bh=11cXnqD9GuL+mka2cp1BbcZk3peWIaUxxgMncaij/+s=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=PLKp00Zr5dadzQFoljLd6Cm9omkmkvx6d9k0rj403CsyzaqWMLTU04dYM8P8WLeHr
+	 9D1jEbYpRjhevYoQ+GM3OmCYn0GHLOpZQ0u7XRh9qTT1Ltk+myc37kDDIpA9hFgJae
+	 SqC6TbNf3PMXrgGbGfNxAs9kMzfjvVko60yPvNa5C/cLm+yAJcUhizLRKIP3YqMl9G
+	 TVaNF+oJPo6E7IlSAdpOmzNgH5MmNp1GWNDFGxRPFSi0qxtfBPUQanaaHCABAJ/FiA
+	 vMtsIhEsuRf6aDOwBGvB2WZhkslxWgrXHLJUWm0jVE3ZLSpqJ7iuijdYqCN8m2bkci
+	 mnsKpVd0XI5gg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wDGQZ-0000000C3cH-0QHP;
+	Thu, 16 Apr 2026 06:42:15 +0000
+Date: Thu, 16 Apr 2026 07:42:14 +0100
+Message-ID: <868qan2ypl.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: cpufeature: Fix GCIE field ordering in ftr_id_aa64pfr2
+In-Reply-To: <20260415200031.1885440-1-mukesh.ojha@oss.qualcomm.com>
+References: <20260415200031.1885440-1-mukesh.ojha@oss.qualcomm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mukesh.ojha@oss.qualcomm.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,54 +82,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+On Wed, 15 Apr 2026 21:00:31 +0100,
+Mukesh Ojha <mukesh.ojha@oss.qualcomm.com> wrote:
+> 
+> The ftr_id_aa64pfr2[] array must be sorted in descending order of
+> shift value so that the overlap validation in init_cpu_features()
+> works correctly. The GCIE field (bits 15:12, shift=12) was placed
+> last in the array, after MTEFAR (bits 11:8, shift=8) and
+> MTESTOREONLY (bits 7:4, shift=4), causing a spurious warning at
+> boot:
+> 
+> [    0.000000] SYS_ID_AA64PFR2_EL1 has feature overlap at shift 12
+> [    0.000000] WARNING: arch/arm64/kernel/cpufeature.c:989 at init_cpu_features+0x144/0x3d0, CPU#0:
+> swapper/0
+> ..
+> 
+> [    0.000000] pc : init_cpu_features+0x144/0x3d0
+> [    0.000000] lr : init_cpu_features+0x144/0x3d0
+> [    0.000000] sp : ffffc08678f03dc0
+> 
+> ...
+>     0.000000] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffffc08678f14000
+> [    0.000000] Call trace:
+> [    0.000000]  init_cpu_features+0x144/0x3d0 (P)
+> [    0.000000]  cpuinfo_store_boot_cpu+0x4c/0x5c
+> [    0.000000]  smp_prepare_boot_cpu+0x28/0x38
+> [    0.000000]  start_kernel+0x1d4/0x848
+> [    0.000000]  __primary_switched+0x88/0x90
+> 
+> This is because the overlap check computes (shift + width) > prev_shift,
+> i.e. (12 + 4) > 8, which triggers since GCIE occupies bits above MTEFAR
+> but was listed after it.
+> 
+> Fix the ordering to match the register layout: FPMR(35:32), GCIE(15:12),
+> MTEFAR(11:8), MTESTOREONLY(7:4).
+> 
+> Fixes: 899ff451fcee ("KVM: arm64: Advertise ID_AA64PFR2_EL1.GCIE")
+> Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
 
-Am Dienstag, 31. M=E4rz 2026, 16:19:01 CEST schrieb Alexander Stein:
-> Hi,
->=20
-> this series adds small fixes and improvements for TQMLX2160A DTs.
-> The DT overlays address specific hardware behaviour when serdes is config=
-ured
-> differently.
+This was present in next-20260403, identified the following day, a fix
+proposed in [1], and the fixed commit appeared in next-20260407 (which
+was the subsequent -next build) as 7e629348df81b.
 
-Any feedback here?
+May I humbly suggest that you check with the latest -next branch
+before spending time on this sort of things? Two weeks is a pretty
+long time...
 
-Thanks and best regards
-Alexander
+Thanks,
 
->=20
-> Best regards,
-> Alexander
->=20
-> Alexander Stein (1):
->   arm64: dts: fsl-lx2160a-tqmlx2160a: Remove deprecated properties
->=20
-> Nora Schiffer (6):
->   arm64: dts: fsl-lx2160a-tqmlx2160a: fix LED polarity
->   arm64: dts: fsl-lx2160a-tqmlx2160a-mblx2160a: use DPMAC 17 and 18 for
->     SGMII in SERDES2 configs 7 and 11
->   arm64: dts: fsl-lx2160a-tqmlx2160a: add aliases for all 18 DPMAC
->     instances
->   arm64: dts: fsl-lx2160a-tqmlx2160a-mbls2160a: add various GPIO hogs
->   arm64: dts: fsl-lx2160a-tqmlx2160a-mbls2160a: enable pcs_mdio17 and
->     pcs_mdio18 in appropriate overlays
->   arm64: dts: fsl-lx2160a-tqmlx2160a-mbls2160a: specify Ethernet PHY
->     reset GPIOs
->=20
->  .../fsl-lx2160a-tqmlx2160a-mblx2160a.dts      | 306 +++++++++++++++++-
->  ...l-lx2160a-tqmlx2160a-mblx2160a_x_11_x.dtso |  20 ++
->  ...sl-lx2160a-tqmlx2160a-mblx2160a_x_7_x.dtso |  20 ++
->  .../dts/freescale/fsl-lx2160a-tqmlx2160a.dtsi |  23 +-
->  4 files changed, 357 insertions(+), 12 deletions(-)
->=20
->=20
+	M.
 
+[1] https://lore.kernel.org/all/874ilqcu3c.wl-maz@kernel.org/
 
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
-
+-- 
+Without deviation from the norm, progress is not possible.
 
