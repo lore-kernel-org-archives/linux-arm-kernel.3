@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16B22F8D76E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 20:19:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17E20F8D778
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 20:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8x1tfBa9GBrx6AqH/jEGu51e9qcovSpp1FPQ93EZUqY=; b=dd2vBWOZAXSE/xbwSLa5MVUqRf
-	zb61L+zk8PF4sQYwKQaFJAtg/9lQb7pH/IeFElOKv6YtfTPhEPyjhrxpi1PR73jogNm880GxJWID6
-	U7SODp3FUyW6MiFC+eUupXnuDUNVK4fl/7nBw/kYS98Fn1Y4uuF819mPJxPlOsxKfbx9UCpgNGWxM
-	GI9Ue6InRfNaNjkGO/Au9InYc0p8RXgnply9dwN0RZASmZ/hQf+BG04VZVF3yV6HQf9AA7KA0CQdY
-	pFuPSyosPbRcV9ireb1hChJOtR/lcZ2nZfvHZbVX/vp541mPp5+ocpSYFAEYiN9p2jUK1fkET/4vX
-	9w0Wxijw==;
+	bh=DSDzJLueNM5BDkJGvQ06iAymY05gESKPpDr8vISvvJs=; b=d9aaNrsxrl1lT0eA69vbMapBFe
+	3sBD8G8yhRAYPEtkOKpW5/XzA2L7JmY0iyYTNfkqz7HNATjky+JhJGLOrD6vHWsejukE6nRNfeYhp
+	RW2wtX43XbuZm2c//JmrwgKmh7b/YWMoqhfsBGhiP/8Muc0XOYT/UXjM8hl02Nev9BjCQP//351HT
+	7LhtQhMClt8SMxm3DvSkLXKDLV/gRXVGh9TEvcwBDtfqk4Ny2AtVBiqAx6FvTQAo4AJiCEFi7pENI
+	ih0J/JFw6xdRU4mblPE9TwWAgKDJPDZRuDSzyceuchVARHuZRewnwp8aZqwhfGQE+FstV+OSHw7tn
+	un5I7txg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDTBZ-00000002xw5-3cCb;
-	Thu, 16 Apr 2026 20:19:37 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1wDTBf-00000002xyL-0eAf;
+	Thu, 16 Apr 2026 20:19:43 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDTBW-00000002xuW-3lHj
+	id 1wDTBc-00000002xwt-15Kl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 20:19:36 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-43cf8fe9c2aso5187989f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 13:19:34 -0700 (PDT)
+	Thu, 16 Apr 2026 20:19:41 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-43d7650202fso3964263f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 13:19:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776370773; x=1776975573; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1776370778; x=1776975578; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=8x1tfBa9GBrx6AqH/jEGu51e9qcovSpp1FPQ93EZUqY=;
-        b=olePeqtGh2qtHOTmb0tLWsiS+MPAZODg5btuBnA6ZkD43E08juYNGH+BJltrxTODq/
-         6+EPIsEAgwswqognR3/pMxQcrtAQUU3GuCti2EnPsyZbOjNarLRHdgDo5WH6G/dtMXCm
-         CZhobge90+h2VUTnSB4e7GSvOzhbYlAc3CAFsUKCCHTozS2pgXJRiecPRjQywxWFiAni
-         ahSrJV2ztNSWpHeSEhzVD7n+LZgm3AAmrf6Cd5KJvmfwgxXXXiF1/4wNzSPwZj26QbO2
-         KRyvYt5YjAK54h7YS7kvCV4HTXv76cDVoSfqCJDjV260xnjIVYZsLLlOq++7R1qBXRHp
-         d4EA==
+        bh=DSDzJLueNM5BDkJGvQ06iAymY05gESKPpDr8vISvvJs=;
+        b=ogY3urOzJJdDnn3A7uDP47cOyoWgNAtjPCUclyfZIplkEmLryqz2Ys2T40+wGgh0ac
+         480lBqNrrJNf7J5mTjQqBwhwkQBMKYCLsHqioS/P5imNUjZEUF9OtkiT/Z7kKzZxbTh3
+         hF6Ird2muVpOwQJ6E2rbZ8RPoV8gU/IRm0b0nvNx7+ZtG3hAdEx8aoI/IhJ+XS4cTLhH
+         AS7C2UVXExUqHbIpce/qjePop/ObeTISANZTLXywfWZ0leYuTli2touNraTFoVQcvACG
+         WQgEO4jn/BN+QR9Zl9n84LJFLkBkZEYlLflSStfI7nNuoayJuRtiY7gaqcIzn+CBlGPU
+         8gNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776370773; x=1776975573;
+        d=1e100.net; s=20251104; t=1776370778; x=1776975578;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=8x1tfBa9GBrx6AqH/jEGu51e9qcovSpp1FPQ93EZUqY=;
-        b=K863AxfTb8ryP+TOq6sik+xAjQYdJ0/gM50ex6xXyh3ubYzdeZ5LZEYfOcRmWuUFSs
-         VDHjhPsKCHlVaSsqwHHlI6RmmR9u1FNq4iFGWAvyVTwmkpcfl/Y2zBaNTyBSH8Lv+FGn
-         twsnPXEmkk8lg2JYiSiflmosPC3We3Hbfm8KacAE+qeIdtagA4xHYQR9yhmsBkprOFjh
-         jJSBo2l+4ArV7+2UD9l94V+8d240bLD26U7apy+9Q6RDEvcf1y1IIR4EkKii3Kj8tWFN
-         Mg87cHlAMyZ8AjE19ix3lF88Bn24RDCLFGKyPV+k3XxLgNWqAPxYVtQCFL3e18bnZjEM
-         nRYw==
-X-Forwarded-Encrypted: i=1; AFNElJ+NsAOF26NVtIAUlcLy2oTSsGMqCiw+fN8OTHu0Ds1f4SVQUBFOsg7M8pr4clvDQ0RyP28fGplLkwUpI+xYrQBt@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5lzR3rx8TaHVbCWQV1Ucq1tCjXWFAEvp/qF/nL7L8ZRCH/z7b
-	iOQ9SiidR5CnnSZGmekkz5uAWE4Fp5MLazItwOs3TUlmYTbs5f+LHPzV
-X-Gm-Gg: AeBDievMqLx/b5lRqC9UBirnqZQxW8oazWj1kXQoCzFMJtQorv6P+JSYCnXWM/52uNo
-	0pHiTflX2Wiw0b3YlXGUXxVjSV9fUvTdf/Dxon6w5UEAIzNSWr0KcDROI2Vuyh80SzfmztDBruR
-	QWO/1U7SVMLaS2724NMBqkISMB5ppfzKbNOT4uTIfX44w2Ko7JzdilI9S/tidxkTNt0Ax03B0W1
-	2tL3CRdhjaDC/efjdmaPXWkaWNVLvY+EJl8bDB3FLJKbJu4cRTy4tKHWiOODxTY4aG3fEoE7Kxo
-	ivVrXzNFICHaTexxONqg8DMuu97PiqXXOr1+csePgUz6Vk8+SSHJaLhwPUZpi/kdXyjczttz0V5
-	1Upsu8er2pefpM/7/7P5XbsNf3aTfo4Wx7OmbyfKBvN6GhsQqhS85PTG5zTF5Oj4E7AfjXGsJ0r
-	TUKmlWreen3GJmsvbzmrdIILdjTrFYJdlNbEZzsPzYikLMHw==
-X-Received: by 2002:a05:6000:22c1:b0:43d:1c39:593c with SMTP id ffacd0b85a97d-43fe149179amr1138509f8f.30.1776370772892;
-        Thu, 16 Apr 2026 13:19:32 -0700 (PDT)
+        bh=DSDzJLueNM5BDkJGvQ06iAymY05gESKPpDr8vISvvJs=;
+        b=boPUwW+NglOSdBGCoRIvVXIrulJfXFV//SpRAOInfV1nGtPR2/fQKdpgzdycrQfYtH
+         oiKMOu+sFL81AGZenDw1Y1qYHSRCs/oeyJGyJ9SUWy5q9YZ1a7NCZpC14G3T35HVEvMw
+         gjYUS/N1d0DPj1XVVl87R2SU2g0sPvfQfSUDdRWMiW4bk4flFEw2r2h3g2Bvt02o7RB2
+         NQ+q/VBrerB98JQ69QT8gwHaRanF/K6WuPBOXLgUpZI2jaLLsdnbhg69M0yCWQX3jqzy
+         vrHEP2o4o+ouB88TiQunxTxceaj/nkONZN1vQa4/XTSUNcqWDrGjzR7QjSgJ72rR/oMA
+         PhCA==
+X-Forwarded-Encrypted: i=1; AFNElJ+9C+McZJjyMx9RZKDGVpk82tJ1CsPd7OAmBYezKTTxUWEW9agqfJ7qKsDnJheKMjDqwSD1lfYfveVV+rCphu6s@lists.infradead.org
+X-Gm-Message-State: AOJu0YxytTUXtTv2wS3ooxxdD0imwNjV05d3Xi4K3lTgfRc35xZfi2Y1
+	tKQ1GwDjqSbGSJ9dG1cj3dwvFYeSeJJF+53jZqZsp6UO4i7d7/i/uPj6
+X-Gm-Gg: AeBDies5oR5BBh/6/zBkVMh/hO0LGs/Anarf7701Ve6V3BinyHSsa0UiXCvyR+hXEz+
+	clCGEnGNqZ3jvPoxe3kGDL/xGoBUqCU51Eo5oyorOR/GW5FdneYCx7c3BaPkyNHVw0brsLn+aJJ
+	ea/e3T2sIQrRTloXC/Dn09INNX93kt5zpXgjYz1iCSiZhDUMXrlVwcx9yHxsfneqdxUoMKXdL0Q
+	WlkIXpn5bhndEp2+EvSsmRaE1uE+0hbIAChoUmy/0ZGQB3nGALPpkS+aJO2j7kE0ha5HGUyRfUI
+	hw/+zD3TDVHp8Rjz+5TQV2j0mW0UV+epLofGcO6rlbb75cJgsydAHHGqoCBl46HOYiN3+q/tOEy
+	P2SmKKlHtwY9pLinBj0Qcx+JjqO/VVyExKBUFB5nYEG7QOMJu19Pg1SRkARtBAoz1DsU5FxI3mH
+	u7AcxAZWhf46klDwYSkcJB/GCvmBYLX3ZpOq4Hfpf7g/KBcQ==
+X-Received: by 2002:a05:6000:144a:b0:43d:7854:32e7 with SMTP id ffacd0b85a97d-43fe1392aecmr1108057f8f.15.1776370778227;
+        Thu, 16 Apr 2026 13:19:38 -0700 (PDT)
 Received: from [192.168.0.2] ([197.250.227.196])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43ead35c026sm16180624f8f.15.2026.04.16.13.19.28
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43ead35c026sm16180624f8f.15.2026.04.16.13.19.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Apr 2026 13:19:32 -0700 (PDT)
+        Thu, 16 Apr 2026 13:19:37 -0700 (PDT)
 From: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-Date: Thu, 16 Apr 2026 23:19:09 +0300
-Subject: [PATCH v4 1/8] ARM: zte: Add zx297520v3 platform support
+Date: Thu, 16 Apr 2026 23:19:10 +0300
+Subject: [PATCH v4 2/8] dt-bindings: arm: Add zx297520v3 board binding
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260416-send-v4-1-e19d02b944ec@gmail.com>
+Message-Id: <20260416-send-v4-2-e19d02b944ec@gmail.com>
 References: <20260416-send-v4-0-e19d02b944ec@gmail.com>
 In-Reply-To: <20260416-send-v4-0-e19d02b944ec@gmail.com>
 To: Jonathan Corbet <corbet@lwn.net>, 
@@ -93,26 +93,26 @@ Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
  soc@lists.linux.dev, linux-serial@vger.kernel.org, 
  =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=10835;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1764;
  i=stefandoesinger@gmail.com; h=from:subject:message-id;
- bh=hk7gHqziEvl2uxbuMiqD2c3qOIkx82OYMM6dUc4onOI=;
- b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBp4URKVRp9LPZBhue2GOaHomSTeD/Gp1fHCTg41
- Uz6tG26J2KJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCaeFEShsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiJfrQ/+P3fGJXzxn1sflX5Pjfuy7W4TtLxwSKi
- fSnS/XOTr0Eel5I62azooXZtop3ZAmSFEXw3vKRNBidG6WMgt+mFw4+Tma+y4AE55u6WQ7GDe1C
- xwF9JbjxH+6ver2B7pIsSZeUPW79COb6f80ualn23iZOkN80+4gSjk46Osf3GYWCvcLDTZsEa9q
- 5AGpOX4qYHTSTpTeasAP4YQx8lgBPUGKLgfA9di5S+a1iBYduufAbcUudl/czmEzNPYIbXax5E6
- V+8CqcPIP+LtpU5mbouvUCBmmFcRDsw4hwrTNaZkjO+FpeQSrKuF3L4uwUjHp7QQD6JjFK8OrES
- +l8ef3bFseEvd1EhnEkkJDy5kkgHdnQVO4fQl2dkN9vrg94nZhkEiqc91YqfRc/TtPkMDhjXg6L
- HZbgpOnP6XG0xIPGiZsWWl9UqGuA9sPaoKdYIhRQL8k6wtK3qEwNabtlOXC0imFYECdku+bG6Vb
- 8pYcm1gstCs1lxJL/WEjyLL+vKWCxeGqlyWhIRTWURvw5cbOzVQZpRxFSO6ERfW6fiHQVOFWTb6
- ANF4NH+npF+jpoG9Lovv61isMzG6xLpouDtEL8VphAE5dRfUrWYWW3d9BLsB2sk0ZpoWljvci/4
- mOvpHg8VFq78szjpdUYvUc71kZZr8UTq5jYUtXlN5HC97QFGNzqg=
+ bh=46b0d4orT0aFf/zmndY3q3fyMYlikWkR7T7rELFj7TY=;
+ b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBp4URKNXItypZCu+0613kDJOV5XH377NxspoqvX
+ ektAEKCaPqJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCaeFEShsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiJTsw/+OzuVq9TxsOikjXZ/JIJLrvVQWw4U3G4
+ lFVXZwrJ96neS2IhLYGs5ckWpmoublfmEre09aaZ6mKnC5jENPA92KpELewz3m7NDdSf8PJvbfF
+ fMWoLHL82F9gFJNMpqu5dOpRmpqrTcx8d/iXRl/cmiFyE0D49uPMWVZpjIrcky4fKIbjYSDGGs6
+ Vm3r5QAtjq5nflrL/acVTVNWrPkTRkLFDxntlj2iAHJFeI3l3Qh885HR83Rq6UflGUB3QoyVQ/+
+ 5P4Z8FzAkJPS8kWxP1OjcexDP2dD5t/QniwflyHIBkFaPV83mjcsU9OZQ4f4m8KuhwUOtPbeVNX
+ +7bFP7dBC7nKrl2x39Ab+Jc4QXhYNprHJUPGvYelRsGyDdcgSII2xojIKlJ/riLl6G049StRNB3
+ 0EtIqw7Sfl+oEbVV7vpNquivq/rNc+Mo7Lv7GSzPEXFYJOoxLD8XgyBE5A6HNmyVy074XADzU3H
+ tEBhks0B7h2rIetyIxQ4GYzdLlSTYYt88zeB209x/Bi9m0E4QvGR0J7wUJEzpuqFazRexblTE4+
+ LHts/uYe8HAs4GcQszFFyxZkTpQySVAvBteSAoma/TDumkjdBZGcq05/icfPJxAeJg62oGYzSwO
+ S0QBR4ZrLatyv9ivQBdfS5kVWx7zTF6Q/1/BQq5Pd3M0+CzMiCmw=
 X-Developer-Key: i=stefandoesinger@gmail.com; a=openpgp;
  fpr=4F9C2C8728019633893EBBB98CB81F9A72BBA155
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_131935_024843_BEFF91F7 
-X-CRM114-Status: GOOD (  34.00  )
+X-CRM114-CacheID: sfid-20260416_131940_315961_CC175884 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,294 +127,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This SoC is used in low end LTE-to-WiFi routers, for example some D-Link
-DWR 932 revisions, ZTE K10, ZLT S10 4G, but also models that are branded
-and sold by ISPs themselves. They are widespread in Africa, China,
-Russia and Eastern Europe.
-
-This SoC is a relative of the zx296702 and zx296718 that had some
-upstream support until commit 89d4f98ae90d ("ARM: remove zte zx
-platform"). My eventual goal is to enable OpenWRT to run on these
-devices.
+Add a compatible for boards based on the ZTE zx297520v3 SoC.
 
 Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
----
- Documentation/arch/arm/zte/zx297520v3.rst | 158 ++++++++++++++++++++++++++++++
- MAINTAINERS                               |   4 +
- arch/arm/Kconfig                          |   2 +
- arch/arm/Makefile                         |   1 +
- arch/arm/mach-zte/Kconfig                 |  24 +++++
- arch/arm/mach-zte/Makefile                |   2 +
- arch/arm/mach-zte/zx297520v3.c            |  19 ++++
- 7 files changed, 210 insertions(+)
 
-diff --git a/Documentation/arch/arm/zte/zx297520v3.rst b/Documentation/arch/arm/zte/zx297520v3.rst
+---
+
+The list of devices is the devices I have access to for testing. There
+are many more devices based on this board and it is not always easy to
+identify them. Often they are sold without any branding ("4G home
+router") or with mobile carrier branding.
+---
+ Documentation/devicetree/bindings/arm/zte.yaml | 25 +++++++++++++++++++++++++
+ MAINTAINERS                                    |  1 +
+ 2 files changed, 26 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/zte.yaml b/Documentation/devicetree/bindings/arm/zte.yaml
 new file mode 100644
-index 000000000000..a0f25ade0a3d
+index 000000000000..6eba09edd2c5
 --- /dev/null
-+++ b/Documentation/arch/arm/zte/zx297520v3.rst
-@@ -0,0 +1,158 @@
-+.. SPDX-License-Identifier: GPL-2.0
++++ b/Documentation/devicetree/bindings/arm/zte.yaml
+@@ -0,0 +1,25 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/arm/zte.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+====================================
-+Booting Linux on ZTE zx297520v3 SoCs
-+====================================
++title: ZTE zx29
 +
-+...............................................................................
++maintainers:
++  - Stefan Dösinger <stefandoesinger@gmail.com>
 +
-+Author:	Stefan Dösinger
++properties:
++  $nodename:
++    const: "/"
++  compatible:
++    oneOf:
++      - items:
++          - enum:
++            - dlink,dwr932m
++            - hgsd,r310
++            - tecno,tr118
++            - zte,k10
++          - const: zte,zx297520v3
 +
-+Date  : 27 Jan 2026
-+
-+1. Hardware description
-+---------------------------
-+Zx297520v3 SoCs use a 64 bit capable Cortex-A53 CPU and GICv3, although they
-+run in aarch32 mode only. The CPU has support EL3, but no hypervisor (EL2) and
-+it seems to lack VFP and NEON.
-+
-+The SoC is used in a number of cheap LTE to Wifi routers, both battery powered
-+MiFis and stationary CPEs. In addition to the CPU these devices usually have
-+64 MB Ram (although some is shared with the LTE chip), 128 MB NAND flash, an
-+SDIO connected RTL8192-type Wifi chip limited to 2.4 ghz operation, USB 2,
-+and buttons. Devices with as low as 32 MB or as high as 128 MB ram exist, as
-+do devices with 8 or 16 MB of NOR flash.
-+
-+Some devices, especially the stationary ones, have 100 mbit Ethernet and an
-+Ethernet switch.
-+
-+Usually the devices have LEDs for status indication, although some have SPI or
-+i2c connected displays
-+
-+Some have an SD card slot. If it exists, it is a better choice for the root
-+file system because it easily outperforms the built-in NAND.
-+
-+The LTE interface runs on a separate DSP called ZSP880. It is probably derived
-+from LSI ZSPs and has an undocumented instruction set. The ZSP communicates
-+with the main CPU via SRAM and DRAM and a mailbox hardware that can generate
-+IRQs on either ends.
-+
-+There is also a Cortex M0 CPU, which is responsible for early HW initialization
-+and starting the Cortex A53 CPU. It does not have any essential purpose once
-+U-Boot is started. A SRAM-Based handover protocol exists to run custom code on
-+this CPU.
-+
-+2. Booting via USB
-+---------------------------
-+
-+The Boot ROM has support for booting custom code via USB. This mode can be
-+entered by connecting a Boot PIN to GND or by modifying the third byte on NAND
-+(set it to anything other than 0x5A aka 'Z'). A free software tool to start
-+custom uboot and kernels can be found here:
-+
-+https://github.com/zx297520v3-mainline/zx297520v3-loader
-+
-+If USB download mode is entered but no boot commands are sent through USB, the
-+device will proceed to boot normally after a few seconds. It is therefore
-+possible to enable USB boot permanently and still leave the default boot files
-+in place.
-+
-+3. Building for built-in U-Boot
-+---------------------------
-+The devices come with an ancient U-Boot that loads legacy uImages from NAND and
-+boots them without a chance for the user to interrupt. The images are stored in
-+files ap_cpuap.bin and ap_recovery.bin on a jffs2 partition named imagefs,
-+usually mtd4. A file named "fotaflag" switches between the two modes.
-+
-+In addition to the uImage header, those files have a 384 byte signature header,
-+which is used for authenticating the images on some devices. Most devices have
-+this authentication disabled and it is enough to pad the uImage files with 384
-+zero bytes.
-+
-+Builtin U-Boot also poorly sets up the CPU. Read the next section for details
-+on this. It has no support for loading DTBs, so CONFIG_ARM_APPENDED_DTB is
-+needed.
-+
-+So to build an image that boots from NAND the following steps are necessary:
-+
-+1) Patch the assembly code from section 3 into arch/arm/kernel/head.S.
-+2) make zx29_defconfig
-+3) make [-j x]
-+4) cat arch/arm/boot/zImage arch/arm/boot/dts/zte/[device].dtb > kernel+dtb
-+5) mkimage -A arm -O linux -T kernel -C none -a 0x20008000 -d kernel+dtb uimg
-+6) dd if=/dev/zero bs=1 count=384 of=ap_recovery.bin
-+7) cat uimg >> ap_recovery.bin
-+8) Place this file onto imagefs on the device. Delete ap_cpuap.bin if the
-+free space is not enough.
-+9) Create the file fotaflag: echo -n FOTA-RECOVERY > fotaflag
-+
-+For development, booting ap_recovery.bin is recommended because the normal boot
-+mode arms the watchdog before starting the kernel.
-+
-+4. CPU and GIC Setup
-+---------------------------
-+
-+Generally CPU and GICv3 need to be set up according to the requirements spelled
-+out in Documentation/arch/arm64/booting.rst. For zx297520v3 this means:
-+
-+1. GICD_CTLR.DS=1 to disable GIC security
-+2. Enable access to ICC_SRE
-+3. Disable trapping IRQs into monitor mode
-+4. Configure EL2 and below to run in insecure mode.
-+5. Configure timer PPIs to active-low.
-+
-+The kernel sources provided by ZTE do not boot either (interrupts do not work
-+at all). They are incomplete in other aspects too, so it is assumed that there
-+is some workaround similar to the one described in this document somewhere in
-+the binary blobs.
-+
-+The assembly code below is given as an example of how to achieve this:
-+
-+```
-+#include <linux/irqchip/arm-gic-v3.h>
-+#include <asm/assembler.h>
-+#include <asm/cp15.h>
-+
-+@ This allows EL1 to handle ints hat are normally handled by EL2/3.
-+ldr     r3, =0xf2000000
-+ldr     r4, =#(GICD_CTLR_ARE_NS | GICD_CTLR_DS)
-+str     r4, [r3]
-+
-+cps     #MON_MODE
-+
-+@ Work in non-secure physical address space: SCR_EL3.NS = 1. At least the UART
-+@ seems to respond only to non-secure addresses. I have taken insipiration from
-+@ Raspberry pi's armstub7.S here.
-+@
-+@ ARM docs say modify this bit in monitor mode only...
-+mov	r3, #0x131			@ non-secure, Make F, A bits in CPSR writeable
-+					@ Allow hypervisor call.
-+mcr     p15, 0, r3, c1, c1, 0
-+
-+@ AP_PPI_MODE_REG: Configure timer PPIs (10, 11, 13, 14) to active-low.
-+ldr	r3, =0xF22020a8
-+ldr	r4, =0x50
-+str	r4, [r3]
-+ldr	r3, =0xF22020ac
-+ldr	r4, =0x14
-+str	r4, [r3]
-+
-+@ Enable EL2 access to ICC_SRE (bit 3, ICC_SRE_EL3.Enable). Enable system reg
-+@ access to GICv3 registers (bit 0, ICC_SRE_EL3.SRE) for EL1 and EL3.
-+mrc     p15, 6, r3, c12, c12, 5         @ ICC_SRE_EL3
-+orr     r3, #0x9                        @ FIXME: No defines for SRE_EL3 values?
-+mcr     p15, 6, r3, c12, c12, 5
-+mrc     p15, 0, r3, c12, c12, 5         @ ICC_SRE_EL1
-+orr     r3, #(ICC_SRE_EL1_SRE)
-+mcr     p15, 0, r3, c12, c12, 5
-+
-+@ Like ICC_SRE_EL3, enable EL1 access to ICC_SRE and system register access
-+@ for EL2.
-+mrc     p15, 4, r3, c12, c9, 5          @ ICC_SRE_EL2 aka ICC_HSRE
-+orr     r3, r3, #(ICC_SRE_EL2_ENABLE | ICC_SRE_EL2_SRE)
-+mcr     p15, 4, r3, c12, c9, 5
-+isb
-+
-+@ Back to SVC mode. TODO: Doesn't safe_svcmode_maskall do this for us anyway?
-+cps     #SVC_MODE
-+```
++additionalProperties: true
 diff --git a/MAINTAINERS b/MAINTAINERS
-index d1cc0e12fe1f..974d7a98956a 100644
+index 974d7a98956a..bcade90ca14e 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -29200,6 +29200,10 @@ F:	include/linux/zswap.h
- F:	mm/zswap.c
- F:	tools/testing/selftests/cgroup/test_zswap.c
+@@ -29202,6 +29202,7 @@ F:	tools/testing/selftests/cgroup/test_zswap.c
  
-+ZX29
-+M:	Stefan Dösinger <stefandoesinger@gmail.com>
-+F:	arch/arm/mach-zte/
-+
+ ZX29
+ M:	Stefan Dösinger <stefandoesinger@gmail.com>
++F:	Documentation/devicetree/bindings/arm/zte.yaml
+ F:	arch/arm/mach-zte/
+ 
  SENARYTECH AUDIO CODEC DRIVER
- M:	bo liu <bo.liu@senarytech.com>
- S:	Maintained
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index ec33376f8e2b..4217ed704e48 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -464,6 +464,8 @@ source "arch/arm/mach-versatile/Kconfig"
- 
- source "arch/arm/mach-vt8500/Kconfig"
- 
-+source "arch/arm/mach-zte/Kconfig"
-+
- source "arch/arm/mach-zynq/Kconfig"
- 
- # ARMv7-M architecture
-diff --git a/arch/arm/Makefile b/arch/arm/Makefile
-index b7de4b6b284c..573813ef5e77 100644
---- a/arch/arm/Makefile
-+++ b/arch/arm/Makefile
-@@ -223,6 +223,7 @@ machine-$(CONFIG_ARCH_SUNXI)		+= sunxi
- machine-$(CONFIG_ARCH_TEGRA)		+= tegra
- machine-$(CONFIG_ARCH_U8500)		+= ux500
- machine-$(CONFIG_ARCH_VT8500)		+= vt8500
-+machine-$(CONFIG_ARCH_ZTE)		+= zte
- machine-$(CONFIG_ARCH_ZYNQ)		+= zynq
- machine-$(CONFIG_PLAT_VERSATILE)	+= versatile
- machine-$(CONFIG_PLAT_SPEAR)		+= spear
-diff --git a/arch/arm/mach-zte/Kconfig b/arch/arm/mach-zte/Kconfig
-new file mode 100644
-index 000000000000..24699256863b
---- /dev/null
-+++ b/arch/arm/mach-zte/Kconfig
-@@ -0,0 +1,24 @@
-+# SPDX-License-Identifier: GPL-2.0
-+menuconfig ARCH_ZTE
-+	bool "ZTE zx family"
-+	depends on ARCH_MULTI_V7
-+	help
-+	  Support for ZTE zx-based family of processors.
-+
-+if ARCH_ZTE
-+
-+config SOC_ZX297520V3
-+	default y if ARCH_ZTE
-+	bool "ZX297520v3"
-+	select ARM_GIC_V3
-+	select ARM_AMBA
-+	select HAVE_ARM_ARCH_TIMER
-+	select PM_GENERIC_DOMAINS if PM
-+	help
-+	  Support for ZTE zx297520v3 SoC. It a single core SoC used in cheap LTE to WiFi routers.
-+	  These devices can be Identified by the occurrence of the string "zx297520v3" in the boot
-+	  output and /proc/cpuinfo of their stock firmware.
-+
-+	  Please read Documentation/arch/arm/zte/zx297520v3.rst on how to boot the kernel.
-+
-+endif
-diff --git a/arch/arm/mach-zte/Makefile b/arch/arm/mach-zte/Makefile
-new file mode 100644
-index 000000000000..1bfe4fddd6af
---- /dev/null
-+++ b/arch/arm/mach-zte/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+obj-$(CONFIG_SOC_ZX297520V3) += zx297520v3.o
-diff --git a/arch/arm/mach-zte/zx297520v3.c b/arch/arm/mach-zte/zx297520v3.c
-new file mode 100644
-index 000000000000..c11c7e836f91
---- /dev/null
-+++ b/arch/arm/mach-zte/zx297520v3.c
-@@ -0,0 +1,19 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright 2026 Stefan Dösinger
-+ */
-+
-+#include <asm/mach/arch.h>
-+#include <asm/mach/map.h>
-+
-+#include <linux/of_address.h>
-+#include <linux/of_platform.h>
-+
-+static const char *const zx297520v3_dt_compat[] __initconst = {
-+	"zte,zx297520v3",
-+	NULL,
-+};
-+
-+DT_MACHINE_START(ZX, "ZTE zx297520v3 (Device Tree)")
-+	.dt_compat	= zx297520v3_dt_compat,
-+MACHINE_END
 
 -- 
 2.52.0
