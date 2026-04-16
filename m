@@ -4,60 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ADECF8A16B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 12:11:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBA43F8A16A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 12:13:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9CEgH5vfDA9csfkXtI2eF457OuAkLzLscnTydYlyUXw=; b=YyoAR7TpEkZBxlNLm8kzQESu1M
-	16CHk8uzu6DnBSbilUpG4Bx1LfljevH720yqPj/9U2qxbZavXdtdJNq8ZAjMHPuxqJJeX3Bcr1wgA
-	9V/waS3HABH5Qk/tXXqupht4eYx6EEWWZYb2exT5Elc02FVTpScFzSt8Fdm+n7UybkFZY0pXwoqFj
-	K6Ymqt4ei+MMYaQLlxPo53UOTDCGFQ+om/S80DnfrYB5h9dVPCAbr93fQlwBlQCxrxkUKjFGG/FpJ
-	qV+fjRri0Otv9hKAUT/qAd75Im17Jp/4fUYNScSm3YsHUKbBesblXAxPurQXailiblBkPv7rBHnfs
-	Zqvntksg==;
+	bh=AIZQJPYeD4Klv4nLBvyqUTztK6P7r8ggtIOdUjT5wQA=; b=fT+jN/FRoau4kOJ3Xu9KO3Y+GG
+	34/5HH9n5FWgWdIaF7GjEaNeDEzPvAOSgDmfFIO+ZotGMESt6j0x3F28oyhQUXjRKOhDpFE/UrWNr
+	BXe9HZ03/J3brq1tSgXnCn0ClNVTNGNmwey1e+DbcE3j9pz6sZctfzyjL9DUIaTFJOuJ1QYjkF0AI
+	Omd8nrglDIl0dyIUmQYBVuPGVNXp+CY2kgAv8/bPCB66MkUIGvkYUvp+pNLWRSbZIovsgI0ICCRrg
+	BQjN6vUmdGW3GkXE4sI86NYeb9SUp8LFK5epaD39LrbIiRO/zKvma5f3/jlXfuudse5TbSTo6K0Nr
+	q7BEy2OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDLZX-00000002QMb-1tfo;
-	Thu, 16 Apr 2026 12:11:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wDLas-00000002QUf-3XOS;
+	Thu, 16 Apr 2026 12:13:14 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDLZV-00000002QMT-3a09
+	id 1wDLap-00000002QTp-2Z5U
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 12:11:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D4C2A60127;
-	Thu, 16 Apr 2026 12:11:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AC6DC2BCAF;
-	Thu, 16 Apr 2026 12:11:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776341508;
-	bh=G/ZOfwn4xRS/lG0O2EK4Ai08HHVkXUmq9KdtaDg5v5w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ThIvKKCIybtUgEJT1YM8xw7G99TisDIF9oIIX2J5iag8Fj9v0veZJIZNT9TtVlq5h
-	 9P7FQR0V8CLktCzBhf+pLiJtqVHkHS1yBchLtyA7tAT6R1aM3/df4sA1sl0hhvNC7W
-	 Jy3Di2XfS4YUtHrvekwGLaU5IUXgwjaVf3L9QoEPzIxxsaNe84R43D3e2dSMOBMqon
-	 1+tn57KSMDGO/SRh8n8x71+sHNDWltbX+E1QMxD474Tf7YhYCiBTG6Byv0lhhzc6on
-	 bxYiqDoFKsTZJaDJaeWh7SrfGM+qZlJZAcUbaa78iFQHVcRsyIlh+TqFj7Jrhv/4ti
-	 3UPIW9XKr9EFQ==
-Date: Thu, 16 Apr 2026 07:11:46 -0500
-From: Rob Herring <robh@kernel.org>
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/5] dt-bindings: interrupt-controller: Add support for
- secure donated SGIs
-Message-ID: <20260416121146.GA2736962-robh@kernel.org>
-References: <20260412-b4-ffa_ns_sgi_gicv3-v1-0-af61243eb405@kernel.org>
- <20260412-b4-ffa_ns_sgi_gicv3-v1-1-af61243eb405@kernel.org>
+	Thu, 16 Apr 2026 12:13:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=AIZQJPYeD4Klv4nLBvyqUTztK6P7r8ggtIOdUjT5wQA=; b=h4m/JvhyZfSGI5OiZCL3DDxSfr
+	KzDrb1zIsDmWivUkIcaB/o06a0iSDM456JwtObAttrJ9Kch0WEo4lE9fhZSQwfc7nhQ46PWfSgiya
+	4VwSXQVl2ZRSFgnD+BfqfqDmgP7hGeso+VI7ifD5LoRYIyyQNHtqL3T1CI1YUO25fOIn02KBlmagI
+	roY6lN70L99orwRNf2k2tgRmE/2mtoV0F0w6nZwmfvyPxOUWxyfGWkIvEe2aWqcOLf20LCS6O81yA
+	fZ9+/Vv2XZkP0LJkjJzISYuXk77beeNx+LNNpTcIxKbpr6XfbFC9niKJ8C4OVBtBTBGyKk5l2Aokn
+	/gVKcPvg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:35374)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1wDLah-000000003Bs-1WLm;
+	Thu, 16 Apr 2026 13:13:03 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1wDLae-000000003C1-2Ds6;
+	Thu, 16 Apr 2026 13:13:00 +0100
+Date: Thu, 16 Apr 2026 13:13:00 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 5/6] net: stmmac: move PHY handling out of
+ __stmmac_open()/release()
+Message-ID: <aeDSTIS9-TDSihbX@shell.armlinux.org.uk>
+References: <aNKDqqI7aLsuDD52@shell.armlinux.org.uk>
+ <5987484.DvuYhMxLoT@steina-w>
+ <aeC-tc2CooYDoBok@shell.armlinux.org.uk>
+ <2410317.ElGaqSPkdT@steina-w>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260412-b4-ffa_ns_sgi_gicv3-v1-1-af61243eb405@kernel.org>
+In-Reply-To: <2410317.ElGaqSPkdT@steina-w>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260416_051311_651766_DF4734B0 
+X-CRM114-Status: GOOD (  40.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,113 +90,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 12, 2026 at 06:04:37PM +0100, Sudeep Holla wrote:
-> In GICv3, SGI security is defined by interrupt grouping and configuration
-> rather than by SGI number alone. Linux conventionally reserves SGIs 0-7
-> for non-secure internal kernel IPIs, while higher SGIs is assumed to be
-> owned/stolen by the Secure world unless explicitly made available.
+On Thu, Apr 16, 2026 at 02:02:53PM +0200, Alexander Stein wrote:
+> Hi Russel,
 > 
-> Document secure donated SGI interrupt specifiers for the GICv3 binding.
-> It describes "arm,secure-donated-ns-sgi-ranges" for SGIs donated by the
-> secure world to non-secure software. It excludes SGIs 0-7, which are
-> already used by the kernel for internal IPI purposes.
+> Am Donnerstag, 16. April 2026, 12:49:25 CEST schrieb Russell King (Oracle):
+> > On Thu, Apr 16, 2026 at 08:20:13AM +0200, Alexander Stein wrote:
+> > > Am Mittwoch, 15. April 2026, 14:59:32 CEST schrieb Russell King (Oracle):
+> > > > On Wed, Apr 15, 2026 at 08:08:40AM +0200, Alexander Stein wrote:
+> > > > > Hi,
+> > > > > 
+> > > > > Am Dienstag, 23. September 2025, 13:26:19 CEST schrieb Russell King (Oracle):
+> > > > > > Move the PHY attachment/detachment from the network driver out of
+> > > > > > __stmmac_open() and __stmmac_release() into stmmac_open() and
+> > > > > > stmmac_release() where these actions will only happen when the
+> > > > > > interface is administratively brought up or down. It does not make
+> > > > > > sense to detach and re-attach the PHY during a change of MTU.
+> > > > > 
+> > > > > Sorry for coming up now. But I recently noticed this commit breaks changing
+> > > > > the MTU on i.MX8MP. Once I simply change the MTU I run into some DMA error:
+> > > > > $ ip link set dev end1 mtu 1400
+> > > > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-0
+> > > > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-1
+> > > > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-2
+> > > > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-3
+> > > > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-4
+> > > > > imx-dwmac 30bf0000.ethernet end1: Link is Down
+> > > > > imx-dwmac 30bf0000.ethernet end1: Failed to reset the dma
+> > > > > imx-dwmac 30bf0000.ethernet end1: stmmac_hw_setup: DMA engine initialization failed
+> > > > 
+> > > > This basically means that a clock is missing. Please provide more
+> > > > information:
+> > > > 
+> > > > - what kernel version are you using?
+> > > 
+> > > Currently I am using v6.18.22.
+> > > $ ethtool -i end1
+> > > driver: st_gmac
+> > > version: 6.18.22
+> > > firmware-version: 
+> > > expansion-rom-version: 
+> > > bus-info: 30bf0000.ethernet
+> > > supports-statistics: yes
+> > > supports-test: no
+> > > supports-eeprom-access: no
+> > > supports-register-dump: yes
+> > > supports-priv-flags: no
+> > > 
+> > > > - has EEE been negotiated?
+> > > 
+> > > No. It is marked as not supported
+> > > 
+> > > $ ethtool --show-eee end1
+> > > EEE settings for end1:
+> > >         EEE status: not supported
+> > > 
+> > > > - does the problem persist when EEE is disabled?
+> > > 
+> > > As EEE is not supported the problem occurs even with EEE disabled.
+> > > 
+> > > > - which PHY is attached to stmmac?
+> > > 
+> > > It is a TI DP83867.
+> > > 
+> > > imx-dwmac 30bf0000.ethernet eth1: PHY [stmmac-1:03] driver [TI DP83867] (irq=136)
+> > > 
+> > > > - which PHY interface mode is being used to connect the PHY to stmmac?
+> > > 
+> > > For this interface
+> > > > phy-mode = "rgmii-id";
+> > > is set.
+> > > 
+> > > In case it is helpful. My platform is arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
+> > > Thanks for assisting. If there a further questions, don't hesitate to ask.
+> > 
+> > Thanks.
+> > 
+> > So, as best I can determine at the moment, we end up with the following
+> > sequence:
+> > 
+> > stmmac_change_mtu()
+> >  __stmmac_release()
+> >   phylink_stop()
+> >    phy_stop()
+> >     phy->state = PHY_HALTED
+> >     _phy_state_machine() returns PHY_STATE_WORK_SUSPEND
+> >     _phy_state_machine_post_work()
+> >      phy_suspend()
+> >       genphy_suspend()
+> >        phy_set_bits(phydev, MII_BMCR, BMCR_PDOWN)
+> > 
+> > With the DP83867, this causes most of the PHY to be powered down, thus
+> > stopping the clocks, and this causes the stmmac reset to time out.
+> > 
+> > Prior to this commit, we would have called phylink_disconnect_phy()
+> > immediately after phylink_stop(), but I can see nothing that would
+> > be affected by this change there (since that also calls
+> > phy_suspend(), but as the PHY is already suspended, this becomes a
+> > no-op.)
+> > 
+> > However, __stmmac_open() would have called stmmac_init_phy(), which
+> > would reattach the PHY. This would have called phy_init_hw(), 
+> > resetting the PHY, and phy_resume() which would ensure that the
+> > PDOWN bit is clear - thus clocks would be running.
+> > 
+> > As a hack, please can you try calling phylink_prepare_resume()
+> > between the __stmmac_release() and __stmmac_open() in
+> > stmmac_change_mtu(). This should resume the PHY, thus restoring the
+> > clocks necessary for stmmac to reset.
 > 
-> Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
-> ---
->  .../bindings/interrupt-controller/arm,gic-v3.yaml  | 27 +++++++++++++++++++++-
->  include/dt-bindings/interrupt-controller/arm-gic.h |  1 +
->  2 files changed, 27 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/arm,gic-v3.yaml b/Documentation/devicetree/bindings/interrupt-controller/arm,gic-v3.yaml
-> index bfd30aae682b..664727d071c9 100644
-> --- a/Documentation/devicetree/bindings/interrupt-controller/arm,gic-v3.yaml
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/arm,gic-v3.yaml
-> @@ -45,17 +45,24 @@ description: |
->  
->        The 1st cell is the interrupt type; 0 for SPI interrupts, 1 for PPI
->        interrupts, 2 for interrupts in the Extended SPI range, 3 for the
-> -      Extended PPI range. Other values are reserved for future use.
-> +      Extended PPI range, and 4 for SGI interrupts. Other values are
-> +      reserved for future use.
->  
->        The 2nd cell contains the interrupt number for the interrupt type.
->        SPI interrupts are in the range [0-987]. PPI interrupts are in the
->        range [0-15]. Extended SPI interrupts are in the range [0-1023].
->        Extended PPI interrupts are in the range [0-127].
->  
-> +      SGI interrupts are in the range [8-15] which overlaps with the SGIs
-> +      assigned to/reserved for the secure world but donated to the non
-> +      secure world to use. Refer "arm,secure-donated-ns-sgi-ranges" for
-> +      more details.
-> +
->        The 3rd cell is the flags, encoded as follows:
->        bits[3:0] trigger type and level flags.
->          1 = edge triggered
->          4 = level triggered
-> +      SGIs are edge triggered and must be described as such.
->  
->        The 4th cell is a phandle to a node describing a set of CPUs this
->        interrupt is affine to. The interrupt must be a PPI, and the node
-> @@ -136,6 +143,24 @@ description: |
->        - $ref: /schemas/types.yaml#/definitions/uint32
->        - $ref: /schemas/types.yaml#/definitions/uint64
->  
-> +  arm,secure-donated-ns-sgi-ranges:
-> +    description:
-> +      A list of pairs <sgi span>, where "sgi" is the first SGI INTID of a
-> +      range donated by the secure side to non-secure software, and "span" is
-> +      the size of that range. Multiple ranges can be provided.
-> +
-> +      SGIs described by interrupt specifiers with type 4 (SGI) must fall
-> +      within one of these ranges. SGIs(0-7) reserved by non-secure world
-> +      for internal IPIs must not be listed here. "sgi" must be in the
-> +      range [8-15], "span" must be in the range [1-8], and the range must
-> +      not extend past SGI 15.
-> +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-> +    items:
+> I tried the following patch. This works as you suspected.
 
-As a matrix, you need:
+Brilliant, thanks for proving the theory why it broke.
 
-items:
-  items:
-    - ...
-    - ...
+I'll have a think about the best way to solve this, because
+phylink_prepare_resume() is supposed to be paired with phylink_resume()
+and that isn't the case here.
 
-However, given this is at most 8 entries, I would just do an array:
+Please bear with me as my availability for looking at the kernel is
+very unpredictable at present (family health issues.)
 
-minItems: 1
-maxItems: 8
-uniqueItems: true
-items:
-  minimum: 8
-  maximum: 15
-
-Unless we need more flexibility in GICv5?
-
-Is there an example we can stick this property into so it gets tested?
-
-> +      - minimum: 8
-> +        maximum: 15
-> +      - minimum: 1
-> +        maximum: 8
-> +
->    ppi-partitions:
->      type: object
->      additionalProperties: false
-> diff --git a/include/dt-bindings/interrupt-controller/arm-gic.h b/include/dt-bindings/interrupt-controller/arm-gic.h
-> index 887f53363e8a..52c2f3f090c5 100644
-> --- a/include/dt-bindings/interrupt-controller/arm-gic.h
-> +++ b/include/dt-bindings/interrupt-controller/arm-gic.h
-> @@ -14,6 +14,7 @@
->  #define GIC_PPI 1
->  #define GIC_ESPI 2
->  #define GIC_EPPI 3
-> +#define GIC_SGI 4
->  
->  /*
->   * Interrupt specifier cell 2.
-> 
-> -- 
-> 2.43.0
-> 
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
