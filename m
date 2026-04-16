@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A403F8809D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 07:53:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE841F8A140
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 07:57:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h03d3L3RIMbRysrs7PXhRcaB+z8iT2+PHrt8ol9UKlQ=; b=e79XRv2v5auLboD/fTQ6G+5GvD
-	jrPmpuJ0n+fKoGeQCxD0AXTCHUEm+NLAZ7iRDrwBkTf0nDasAgJd5OYnj/fEY33aiPaX0PJpA45i6
-	omjZ+GQ/qb2iZ/L0Y3erxWRqZ6cGjerwalY1PzBlIhyv4YKIzBxf4DeQrq0BsGtK+oXtMAgKfC6IH
-	0vubWiAYiLNMrZodpNQJyTOU1nqV/K5swbQdBxfzeejhAo5BLDw2mh5OAs9aE7eCbnTehocCq2jO2
-	yjqByuOczg/LQJDs095VDe6xO72rHA9q3V/YnQZAIOChZHBmjVV9WECew/AdR1zqy41aGtfoRDmXH
-	0m0GZdvA==;
+	bh=wDw1aA0aJGL5LVw4zkko2JKL4HHId3Bi3Out6Lm4kEs=; b=i0WTJUwrsaTRgT2Ij/Na2PXunm
+	VRomFGAUW4aPI5HuYEb1BRrk3+S5TkVfIgOObBvOQ3zK73hiO2/Nq21T24wjUklK1UphxsUKSln9v
+	hP4+3inuwLOLvBfN/brMeIItBr5/GpHspJrv2qLAL2YkRxBM0BbWEq3HadN7ey8Q1b4yfnIZ6DagK
+	x6k3nzm1J9RX8yZ7tfsoUpvd8LpHQtpB3aau0jJh534JUzCmRcYPjT6XWpzE3fJvqRdgax2rPMb9w
+	l/bU2vbfFh+pSgzRlL28gQV+43GlaNOkCqgBqySIRUVaPkEdShBmAIhDn54KK/74ooh7GeGFSj6VN
+	mqSaGp2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDHXk-0000000298Q-1ptD;
-	Thu, 16 Apr 2026 07:53:44 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wDHbg-000000029L0-2R7m;
+	Thu, 16 Apr 2026 07:57:48 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDHXg-0000000297T-3Spb
+	id 1wDHbe-000000029KU-1T6I
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 07:53:43 +0000
+	Thu, 16 Apr 2026 07:57:47 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 7897C1A3292;
-	Thu, 16 Apr 2026 07:53:35 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id EC70FC5C3C8;
+	Thu, 16 Apr 2026 07:58:19 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 3CF705FDEB;
-	Thu, 16 Apr 2026 07:53:35 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E73201045936D;
-	Thu, 16 Apr 2026 09:53:27 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0AEF75FDEB;
+	Thu, 16 Apr 2026 07:57:42 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BC9FB10459AF6;
+	Thu, 16 Apr 2026 09:57:37 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1776326013; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1776326260; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=h03d3L3RIMbRysrs7PXhRcaB+z8iT2+PHrt8ol9UKlQ=;
-	b=SPLZAtjOOVFFttf7YFKDyMkF85FLMp+oUYehGNS/3yYv6BnsZNHiDZweyk61gPg/5u2loZ
-	ZTsznKSaRNahkQQJMI7nQJMsvZRblqE7uA+MKCSPcCLcmC5J1OkI5lJXuzcu4e5EPrsNfa
-	EZ3GtZ8Z5TUcAf17ySdRY0/l2ruDnpQdsnmG8iGKzmKspp4esZ/FMekJvoiGL4Ma/LRSnv
-	1xyKNnF3quzE6ld+Suk0f6awGXxZEPfxa88Y+58aiSaLiN3vrvO6+mPcj+je3+dVyS+lzi
-	p/Up8SWgzJ1vV8ApdnIkz/rkM22OdD5DDEIKuZGkaTvsMIydkICaN4uV/AFhRA==
-Message-ID: <26f86593-a561-497e-bd47-b9cbda67bbf4@bootlin.com>
-Date: Thu, 16 Apr 2026 09:53:27 +0200
+	bh=wDw1aA0aJGL5LVw4zkko2JKL4HHId3Bi3Out6Lm4kEs=;
+	b=M0udllnPe/Q05WsEcZoNNjkjkms1oP8gEzoT+kTRbsnB3G+xO7wJC8G82V8NOMQ7XTjqDR
+	hl9ME7re9eBX6y0YUJp6YzSi3z2MuLHtzG51zeADDzJu98xrahg7l/uFMHMNPy0Wi1VLYD
+	3SGPAU3zNltVXqPG6gDcVn8saRrwdG9/YJg8DzrJWmA8PrcAjD/7n3vgYfKGhHMtexwCgt
+	2BooONaf+eB9JdAS4kQ5BQ5FhIJtAsOzYgcevff94hwkcUZSbXbegLHcoIkFYyznIbQjlQ
+	BjUy0AqcvXmtWzEtXLW5j7vZk8BYCR8QYRRm0dVcNsH88fSogZs8Advp6ozidA==
+Message-ID: <2721356a-e905-4074-a5c5-025f18b8fb27@bootlin.com>
+Date: Thu, 16 Apr 2026 09:57:37 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v4 2/4] pwm: sun50i: Add H616 PWM support
-To: Paul Kocialkowski <paulk@sys-base.io>
-Cc: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- John Stultz <jstultz@google.com>, Joao Schim <joao@schimsalabim.eu>,
- linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20260305091959.2530374-1-richard.genoud@bootlin.com>
- <20260305091959.2530374-3-richard.genoud@bootlin.com>
- <adfiPo4Jq1IRMM0h@shepard>
+To: bigunclemax@gmail.com
+Cc: conor+dt@kernel.org, devicetree@vger.kernel.org,
+ jernej.skrabec@gmail.com, joao@schimsalabim.eu, jstultz@google.com,
+ krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+ linux-sunxi@lists.linux.dev, p.zabel@pengutronix.de, paulk@sys-base.io,
+ robh@kernel.org, samuel@sholland.org, thomas.petazzoni@bootlin.com,
+ u.kleine-koenig@baylibre.com, wens@csie.org
+References: <20260305091959.2530374-3-richard.genoud@bootlin.com>
+ <20260413123920.2459916-1-bigunclemax@gmail.com>
 From: Richard GENOUD <richard.genoud@bootlin.com>
 Content-Language: en-US, fr
 Organization: Bootlin
-In-Reply-To: <adfiPo4Jq1IRMM0h@shepard>
+In-Reply-To: <20260413123920.2459916-1-bigunclemax@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_005341_003926_E7014BDB 
-X-CRM114-Status: GOOD (  29.27  )
+X-CRM114-CacheID: sfid-20260416_005746_534048_065CFA24 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,331 +84,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
-Le 09/04/2026 à 19:30, Paul Kocialkowski a écrit :
+Le 13/04/2026 à 14:39, bigunclemax@gmail.com a écrit :
 > Hi Richard,
 > 
-> On Thu 05 Mar 26, 10:19, Richard Genoud wrote:
->> +/* PWM IRQ Enable Register */
->> +#define H616_PWM_IER				0x0
-> 
-> I think it would make more sense to keep the full register names from the
-> manual after the suffix and stick to them. It makes things easier when
-> comparing the code with documentation or the reference implementation.
-> 
-> So something like SUN8I_PWM_PIER here.
-Ok, that make sense.
-
-> 
->> +
->> +/* PWM IRQ Status Register */
->> +#define H616_PWM_ISR				0x4
->> +
->> +/* PWM Capture IRQ Enable Register */
->> +#define H616_PWM_CIER				0x10
->> +
->> +/* PWM Capture IRQ Status Register */
->> +#define H616_PWM_CISR				0x14
->> +
->> +/* PWMCC Pairs Clock Configuration Registers */
->> +#define H616_PWM_XY_CLK_CR(pair)		(0x20 + ((pair) * 0x4))
->> +#define H616_PWM_XY_CLK_CR_SRC_SHIFT		7
->> +#define H616_PWM_XY_CLK_CR_SRC_MASK		1
->> +#define H616_PWM_XY_CLK_CR_GATE_BIT		4
->> +#define H616_PWM_XY_CLK_CR_BYPASS_BIT(chan)	((chan) % 2 + 5)
->> +#define H616_PWM_XY_CLK_CR_DIV_M_SHIFT		0
->> +
->> +/* PWMCC Pairs Dead Zone Control Registers */
->> +#define H616_PWM_XY_DZ(pair)			(0x30 + ((pair) * 0x4))
->> +
->> +/* PWM Enable Register */
->> +#define H616_PWM_ENR				0x40
->> +#define H616_PWM_ENABLE(x)			BIT(x)
->> +
->> +/* PWM Capture Enable Register */
->> +#define H616_PWM_CER				0x44
->> +
->> +/* PWM Control Register */
->> +#define H616_PWM_CTRL_REG(chan)		(0x60 + (chan) * 0x20)
-> 
-> You're sometimes calling the register offset _REG and sometimes not.
-> Both options are fine but you need to keep it consistent across the whole
-> definitions. I would be enclined to not use it after using the register names
-> coming from the manual as suggested above.
-I see what you mean, so H616_PWM_CTRL_REG() would become SUN8I_PWM_PCR()
-
-> 
-> Also you're sometimes using "chan", sometimes "ch" for the argument to the
-> register macros. This is inconsistent and you might as well just use "c"
-> everywhere so it doesn't take too much space.
-Indeed.
-
-> 
->> +#define H616_PWM_CTRL_PRESCAL_K_SHIFT	0
->> +#define H616_PWM_CTRL_PRESCAL_K_WIDTH	8
->> +#define H616_PWM_CTRL_ACTIVE_STATE	BIT(8)
->> +
->> +/* PWM Period Register */
->> +#define H616_PWM_PERIOD_REG(ch)		(0x64 + (ch) * 0x20)
->> +#define H616_PWM_PERIOD_MASK		GENMASK(31, 16)
->> +#define H616_PWM_DUTY_MASK		GENMASK(15, 0)
->> +#define H616_PWM_REG_PERIOD(reg)	(FIELD_GET(H616_PWM_PERIOD_MASK, reg) + 1)
->> +#define H616_PWM_REG_DUTY(reg)		FIELD_GET(H616_PWM_DUTY_MASK, reg)
->> +#define H616_PWM_PERIOD(prd)		FIELD_PREP(H616_PWM_PERIOD_MASK, (prd) - 1)
->> +#define H616_PWM_DUTY(dty)		FIELD_PREP(H616_PWM_DUTY_MASK, dty)
->> +#define H616_PWM_PERIOD_MAX		(FIELD_MAX(H616_PWM_PERIOD_MASK) + 1)
-> 
-> Using REG as a prefix feels a bit confusing here. I would rather see:
-> #define SUN8I_PWM_PPR(c)		(0x64 + (c) * 0x20)
-> #define SUN8I_PWM_PPR_PERIOD(p)		FIELD_PREP(...)
-> #define SUN8I_PWM_PPR_PERIOD_VALUE(r)	FIELD_GET(...)
-> #define SUN8I_PWN_PPR_PERIOD_MAX	FIELD_MAX(...)
-> #define SUN8I_PWM_PPR_DUTY(d)		FIELD_PREP(...)
-> #define SUN8I_PWM_PPR_DUTY_VALUE(r)	FIELD_GET(...)
-That's right, that would be less confusing.
-
-> 
->> +
->> +/* PWM Count Register */
->> +#define H616_PWM_CNT_REG(x)		(0x68 + (x) * 0x20)
->> +
->> +/* PWM Capture Control Register */
->> +#define H616_PWM_CCR(x)			(0x6c + (x) * 0x20)
->> +
->> +/* PWM Capture Rise Lock Register */
->> +#define H616_PWM_CRLR(x)		(0x70 + (x) * 0x20)
 >> +
 >> +/* PWM Capture Fall Lock Register */
 >> +#define H616_PWM_CFLR(x)		(0x74 + (x) * 0x20)
 >> +
 >> +#define H616_PWM_PAIR_IDX(chan)		((chan) >> 2)
 >> +
->> +/*
->> + * Block diagram of the PWM clock controller:
->> + *
->> + *             _____      ______      ________
->> + * OSC24M --->|     |    |      |    |        |
->> + * APB1 ----->| Mux |--->| Gate |--->| /div_m |-----> H616_PWM_clock_src_xy
->> + *            |_____|    |______|    |________|
->> + *                               ________
->> + *                              |        |
->> + *                           +->| /div_k |---> H616_PWM_clock_x
->> + *                           |  |________|
->> + *                           |    ______
->> + *                           |   |      |
->> + *                           +-->| Gate |----> H616_PWM_bypass_clock_x
->> + *                           |   |______|
->> + * H616_PWM_clock_src_xy ----+   ________
->> + *                           |  |        |
->> + *                           +->| /div_k |---> H616_PWM_clock_y
->> + *                           |  |________|
->> + *                           |    ______
->> + *                           |   |      |
->> + *                           +-->| Gate |----> H616_PWM_bypass_clock_y
->> + *                               |______|
->> + *
->> + * NB: when the bypass is set, all the PWM logic is bypassed.
->> + * So, the duty cycle and polarity can't be modified (we just have a clock).
->> + * The bypass in PWM mode is used to achieve a 1/2 relative duty cycle with the
->> + * fastest clock.
->> + *
->> + * H616_PWM_clock_x/y serve for the PWM purpose.
->> + * H616_PWM_bypass_clock_x/y serve for the clock-provider purpose.
->> + *
->> + */
->> +
->> +/*
->> + * Table used for /div_m (diviser before obtaining H616_PWM_clock_src_xy)
->> + * It's actually CLK_DIVIDER_POWER_OF_TWO, but limited to /256
->> + */
->> +#define CLK_TABLE_DIV_M_ENTRY(i) { \
->> +	.val = (i), .div = 1 << (i) \
->> +}
->> +
->> +static const struct clk_div_table clk_table_div_m[] = {
->> +	CLK_TABLE_DIV_M_ENTRY(0),
->> +	CLK_TABLE_DIV_M_ENTRY(1),
->> +	CLK_TABLE_DIV_M_ENTRY(2),
->> +	CLK_TABLE_DIV_M_ENTRY(3),
->> +	CLK_TABLE_DIV_M_ENTRY(4),
->> +	CLK_TABLE_DIV_M_ENTRY(5),
->> +	CLK_TABLE_DIV_M_ENTRY(6),
->> +	CLK_TABLE_DIV_M_ENTRY(7),
->> +	CLK_TABLE_DIV_M_ENTRY(8),
->> +	{ /* sentinel */ }
->> +};
->> +
->> +#define H616_PWM_XY_SRC_GATE(_pair, _reg)		\
->> +struct clk_gate gate_xy_##_pair = {			\
->> +	.reg = (void *)(_reg),				\
->> +	.bit_idx = H616_PWM_XY_CLK_CR_GATE_BIT,		\
->> +	.hw.init = &(struct clk_init_data){		\
->> +		.ops = &clk_gate_ops,			\
->> +	}						\
->> +}
->> +
->> +#define H616_PWM_XY_SRC_MUX(_pair, _reg)		\
->> +struct clk_mux mux_xy_##_pair = {			\
->> +	.reg = (void *)(_reg),				\
->> +	.shift = H616_PWM_XY_CLK_CR_SRC_SHIFT,		\
->> +	.mask = H616_PWM_XY_CLK_CR_SRC_MASK,		\
->> +	.flags = CLK_MUX_ROUND_CLOSEST,			\
->> +	.hw.init = &(struct clk_init_data){		\
->> +		.ops = &clk_mux_ops,			\
->> +	}						\
->> +}
->> +
->> +#define H616_PWM_XY_SRC_DIV(_pair, _reg)		\
->> +struct clk_divider rate_xy_##_pair = {			\
->> +	.reg = (void *)(_reg),				\
->> +	.shift = H616_PWM_XY_CLK_CR_DIV_M_SHIFT,	\
->> +	.table = clk_table_div_m,			\
->> +	.hw.init = &(struct clk_init_data){		\
->> +		.ops = &clk_divider_ops,		\
->> +	}						\
->> +}
->> +
->> +#define H616_PWM_X_DIV(_idx, _reg)			\
->> +struct clk_divider rate_x_##_idx = {			\
->> +	.reg = (void *)(_reg),				\
->> +	.shift = H616_PWM_CTRL_PRESCAL_K_SHIFT,		\
->> +	.width = H616_PWM_CTRL_PRESCAL_K_WIDTH,		\
->> +	.hw.init = &(struct clk_init_data){		\
->> +		.ops = &clk_divider_ops,		\
->> +	}						\
->> +}
->> +
->> +#define H616_PWM_X_BYPASS_GATE(_idx)			\
->> +struct clk_gate gate_x_bypass_##_idx = {		\
->> +	.reg = (void *)H616_PWM_ENR,			\
->> +	.bit_idx = _idx,				\
->> +	.hw.init = &(struct clk_init_data){		\
->> +		.ops = &clk_gate_ops,			\
->> +	}						\
->> +}
->> +
->> +#define H616_PWM_XY_CLK_SRC(_pair, _reg)			\
->> +	static H616_PWM_XY_SRC_MUX(_pair, _reg);		\
->> +	static H616_PWM_XY_SRC_GATE(_pair, _reg);		\
->> +	static H616_PWM_XY_SRC_DIV(_pair, _reg)
->> +
->> +#define H616_PWM_X_CLK(_idx)					\
->> +	static H616_PWM_X_DIV(_idx, H616_PWM_CTRL_REG(_idx))
->> +
->> +#define H616_PWM_X_BYPASS_CLK(_idx)				\
->> +	H616_PWM_X_BYPASS_GATE(_idx)
->> +
->> +#define REF_CLK_XY_SRC(_pair)						\
->> +	{								\
->> +		.name = "pwm-clk-src" #_pair,				\
->> +		.mux_hw = &mux_xy_##_pair.hw,				\
->> +		.gate_hw = &gate_xy_##_pair.hw,				\
->> +		.rate_hw = &rate_xy_##_pair.hw,				\
->> +	}
->> +
->> +#define REF_CLK_X(_idx, _pair)						\
->> +	{								\
->> +		.name = "pwm-clk" #_idx,				\
->> +		.parent_names = (const char *[]){ "pwm-clk-src" #_pair }, \
->> +		.num_parents = 1,					\
->> +		.rate_hw = &rate_x_##_idx.hw,				\
->> +		.flags = CLK_SET_RATE_PARENT,				\
->> +	}
->> +
->> +#define REF_CLK_BYPASS(_idx, _pair)					\
->> +	{								\
->> +		.name = "pwm-clk-bypass" #_idx,				\
->> +		.parent_names = (const char *[]){ "pwm-clk-src" #_pair }, \
->> +		.num_parents = 1,					\
->> +		.gate_hw = &gate_x_bypass_##_idx.hw,			\
->> +		.flags = CLK_SET_RATE_PARENT,	\
->> +	}
->> +
->> +/*
->> + * H616_PWM_clock_src_xy generation:
->> + *             _____      ______      ________
->> + * OSC24M --->|     |    |      |    |        |
->> + * APB1 ----->| Mux |--->| Gate |--->| /div_m |-----> H616_PWM_clock_src_xy
->> + *            |_____|    |______|    |________|
->> + */
->> +H616_PWM_XY_CLK_SRC(01, H616_PWM_XY_CLK_CR(0));
->> +H616_PWM_XY_CLK_SRC(23, H616_PWM_XY_CLK_CR(1));
->> +H616_PWM_XY_CLK_SRC(45, H616_PWM_XY_CLK_CR(2));
->> +
->> +/*
->> + * H616_PWM_clock_x_div generation:
->> + *                            ________
->> + *                           |        | H616_PWM_clock_x/y
->> + * H616_PWM_clock_src_xy --->| /div_k |--------------->
->> + *                           |________|
->> + */
->> +H616_PWM_X_CLK(0);
->> +H616_PWM_X_CLK(1);
->> +H616_PWM_X_CLK(2);
->> +H616_PWM_X_CLK(3);
->> +H616_PWM_X_CLK(4);
->> +H616_PWM_X_CLK(5);
->> +
->> +/*
->> + * H616_PWM_bypass_clock_xy generation:
->> + *                             ______
->> + *                            |      |
->> + * H616_PWM_clock_src_xy ---->| Gate |-------> H616_PWM_bypass_clock_x
->> + *                            |______|
->> + *
->> + * The gate is actually H616_PWM_ENR register.
->> + */
->> +H616_PWM_X_BYPASS_CLK(0);
->> +H616_PWM_X_BYPASS_CLK(1);
->> +H616_PWM_X_BYPASS_CLK(2);
->> +H616_PWM_X_BYPASS_CLK(3);
->> +H616_PWM_X_BYPASS_CLK(4);
->> +H616_PWM_X_BYPASS_CLK(5);
->> +
->> +struct clk_pwm_data {
->> +	const char *name;
->> +	const char **parent_names;
->> +	unsigned int num_parents;
->> +	struct clk_hw *mux_hw;
->> +	struct clk_hw *rate_hw;
->> +	struct clk_hw *gate_hw;
->> +	unsigned long flags;
->> +};
->> +
->> +#define CLK_BYPASS(h616chip, ch) ((h616chip)->data->npwm + (ch))
->> +#define CLK_XY_SRC_IDX(h616chip, ch) ((h616chip)->data->npwm * 2 + ((ch) >> 1))
->> +static struct clk_pwm_data pwmcc_data[] = {
->> +	REF_CLK_X(0, 01),
->> +	REF_CLK_X(1, 01),
->> +	REF_CLK_X(2, 23),
->> +	REF_CLK_X(3, 23),
->> +	REF_CLK_X(4, 45),
->> +	REF_CLK_X(5, 45),
->> +	REF_CLK_BYPASS(0, 01),
->> +	REF_CLK_BYPASS(1, 01),
->> +	REF_CLK_BYPASS(2, 23),
->> +	REF_CLK_BYPASS(3, 23),
->> +	REF_CLK_BYPASS(4, 45),
->> +	REF_CLK_BYPASS(5, 45),
->> +	REF_CLK_XY_SRC(01),
->> +	REF_CLK_XY_SRC(23),
->> +	REF_CLK_XY_SRC(45),
->> +	{ /* sentinel */ }
->> +};
 > 
-> We'll probably need a way to tie these static definitions to a particular
-> instance of the unit for a given chip. But I guess that can be done later
-> when adding more chips to the driver.
-> 
-> I'm not too versed in the clk and pwm APIs but the rest generally looks good
-> to me.
+> It looks like there's a typo or a mistake in the PAIR_IDX calculation.
+> It should be like ((chan) >> 1).
+> For example, for the 5th channel the result will be 1, but it should be 2.
+Good catch!
+
+I mainly tested with PWM1 as it's the only one easily accessible with a 
+scope.
+
+I'll change that in the next iteration.
 
 Thanks!
 
 > 
-> All the best,
-> 
-> Paul
+> Best regards
+> Maksim
 > 
 
 
