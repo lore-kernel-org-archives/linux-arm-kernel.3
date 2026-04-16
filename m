@@ -4,147 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F454F433F7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 06:01:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE6E4F428F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 06:20:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vGhXB48BuSQmy2H0Hdg1xhGtDPivDgOVO9iq+YeKlGQ=; b=XWYYU8BrxQu5q6zrvtv4H1vJx5
-	0Es/FNmNRJCjd0F7TiF0n1Tfxa5T2/pna5MxKLXv+47aMmOyCgV55g1vahNpcRulzsFZIHoIE5qT/
-	Rxn/w1ypyE8xJqdKmk94dVLePrFzN4CY9KI2RUebLKTeko4xl/MmDRbWA9UhLAB5aLRfn+xaDFo/y
-	AoQT1tNL6Vl8yoMdOWTB5/KO8+Y0BF/j8DvRsKsebJSI/zLvusGt9YEQxmtc6L8mUw0POcAqD/SJQ
-	sqynn6VHsioh35Djjtc0hKpYzebBLaVfST0KKjzC/5V66nZHDAX0OKV+NTQF3ubRXNN1WXQeDehVI
-	pvzfqOaA==;
+	bh=QVEWApQ8SGzvLOzKWrNmtTuBW8dEI9SRhim1vQtgHE4=; b=L8uXAq1xs1+49jU38HyEgg7YlT
+	rxMQcrUKv7vyd3EK5DvkcorgD9gMnc0sagqCOe9ruBvCDLIXbjCqdmTCBnCrOE1AjXARhWiFEZ+b3
+	u/M9RVIjx2Q8qQJxoPRxpS0XTe0pti6PcdbGU8leLYtWm4t/cnP/6SfmCCxQMr53cUQGSZZ+Zd8/c
+	Wzyf6esiL+n51K6ZccNWfNRmW/xKD7A2GST72WJlbvOaeBjxFk1M/myPioLzoInVIZoQCfVNekqFn
+	NlQs7GTlQJr0A+obHA7kHxjOMdYCBSwtwdVzpP0owmNfGSPTGTxjwC7eixAjRv/tJ04N6oJoZgK4x
+	x7/11RIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDFmd-000000021gR-1Hcf;
-	Thu, 16 Apr 2026 06:00:59 +0000
-Received: from mail-northeuropeazon11010031.outbound.protection.outlook.com ([52.101.84.31] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wDG5X-000000022WY-47re;
+	Thu, 16 Apr 2026 06:20:32 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDFmb-000000021g1-1b6L
+	id 1wDG5V-000000022Vy-0CVg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 06:00:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sHJbptTydvY8FBPp5tgwDl17MOI4XErWialMDAupRP04N3ZJ2JlXsVqeMhKvdZAYqlU6m+e/fzgc5L7MS8iMvQwb65jBFQpXGRdonNmw05Vt/e15taqIdHaQO1psiSZS+78ZS1HczjT1WGvAVZiRF+4BYhJBbTtFyOV6eOBqvkQ+uA6YsorUdoWrd3PZkoxlpcCLM5AVhpQE4izSoV+Ng7n2NLfUiY70hIt+fCqfMfQ+lrHrLYZslWeQJ/VcMgIyZ8h8M7mmlZDJR4jvwD1T/YqE5Wfs+JTr0JjTudvaAqMqjGMSgQoMfDeycjjmbuKOTTLS16LFvCW95ktkT9MJ5A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vGhXB48BuSQmy2H0Hdg1xhGtDPivDgOVO9iq+YeKlGQ=;
- b=mjgq9f2hPu/kLCIlInvRuE3O+WfhB0aVDzRlLLz29iTXTn2vDepyi82GRFs5wg8HG6sdNRsePykSAmc7Jw54o4BTTaMlSOd8Lg7U1eaDvfd5HEWljVhjN0qFid+alTGzzSXe1iw58t0wRYa/l/sOYfRcSWCLKxSlaAwD+EGStptV8pxV2PVFg3hcrCWmANC+UPvO5wvHlRC9+Su/Ls31JoIONaoaMBXQl9W6EMJI9VLKH6j23JckoYZn9KyD/ZRs0kCMWITDMPB4Ea+ej/3N/kC6LFngMVdD+GfKemDmXX4XTeh5q4p1Q1uXsApcNP2t0iOND0HdMOJ1zzUwFjNUWQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vGhXB48BuSQmy2H0Hdg1xhGtDPivDgOVO9iq+YeKlGQ=;
- b=aJVq8CjaO3aXFqa7eTe6QJThtpnHlNmvrOqeCVfgaLt7B6JPXcephhq1lzphxD/4BMxsRRE0mGRwkYt/io6POG8TIXck+WDkNEBKS3YeG906fxeUj7reEa15qGhpObWAVW8pAup+hRjh9hBlf/XIdfxXJitm7FpkijsjkXbc/Qll8GLF1FLpRpXHMUCFYXMBiXrS919XHZs2eHr2ZjHYMYYOH+1I4aNSSHDNeXuozWupL3pL4F/sJaizmH0rF/Iav7x9+vuxCqSDezyDJFAiJaz2pObwzLFwCybgb3NNBWacbMX5nB1IGn5tX6vjwx5jdf6EBwydTl/bZ68hoh+gQw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
- by AS4PR04MB9506.eurprd04.prod.outlook.com (2603:10a6:20b:4c9::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Thu, 16 Apr
- 2026 06:00:49 +0000
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9769.046; Thu, 16 Apr 2026
- 06:00:49 +0000
-Message-ID: <d44a60ff-c8a3-4347-9199-def61e855066@oss.nxp.com>
-Date: Thu, 16 Apr 2026 09:04:01 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [EXT] Re: [PATCH v2] pmdomain: imx: Make IMX8M/IMX9 BLK_CTRL
- tristate
-To: Zhipeng Wang <zhipeng.wang_1@nxp.com>,
- Marco Felsch <m.felsch@pengutronix.de>
-Cc: "ulfh@kernel.org" <ulfh@kernel.org>, Frank Li <frank.li@nxp.com>,
- "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
- Xuegang Liu <xuegang.liu@nxp.com>, Jindong Yue <jindong.yue@nxp.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "kernel@pengutronix.de" <kernel@pengutronix.de>,
- "festevam@gmail.com" <festevam@gmail.com>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20260413053049.3041177-1-zhipeng.wang_1@nxp.com>
- <ql2c6m54fjjwifycaan3hcr3p3bp4phva2vdux2qcramt7wrvy@4dsvpyct5tqx>
- <AMBPR04MB123344C1F802528A10CEA7FADEB252@AMBPR04MB12334.eurprd04.prod.outlook.com>
-Content-Language: en-US
-From: Daniel Baluta <daniel.baluta@oss.nxp.com>
-In-Reply-To: <AMBPR04MB123344C1F802528A10CEA7FADEB252@AMBPR04MB12334.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AS4P192CA0033.EURP192.PROD.OUTLOOK.COM
- (2603:10a6:20b:658::27) To GVXPR04MB12316.eurprd04.prod.outlook.com
- (2603:10a6:150:2c6::8)
+	Thu, 16 Apr 2026 06:20:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=QVEWApQ8SGzvLOzKWrNmtTuBW8dEI9SRhim1vQtgHE4=; b=R//Cr3VV3lQasZ26REI5zhDcVn
+	v2b0sJZIvov1K3dg/i6Mbv2ra5hbvuM4Kn7jhhiynrNDyeyUWf2kQArF2zxZo0iMAQahMd3fDQShK
+	XBtyVxMXMzJKXAuDMTeZAw4SRrqDPiGUOXAWCJiQLZVDZ7mwPt7/m0I/967IM177d+hrj9UglRasE
+	hSk525hrA9eRobjS535sMqEu+eyU8VbObLJ5XvgCwbUM6yp/TI8p+rbBF4BAWTm7fAQhymLZFAOPK
+	XABd8Vltp37V3mjgBRNu4UEUvILxywBP8r5AWchJ16yhhzRnZKFwNUx+L40V3E+rkfW1sLb7Ffpbd
+	ZvF4K7Ug==;
+Received: from sslproxy06.your-server.de ([78.46.172.3])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wDG5G-000Fp1-21;
+	Thu, 16 Apr 2026 08:20:14 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy06.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wDG4i-000Oj6-2s;
+	Thu, 16 Apr 2026 08:20:14 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+ Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 5/6] net: stmmac: move PHY handling out of
+ __stmmac_open()/release()
+Date: Thu, 16 Apr 2026 08:20:13 +0200
+Message-ID: <5987484.DvuYhMxLoT@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <ad-LtOBrKREM1tCk@shell.armlinux.org.uk>
+References: <aNKDqqI7aLsuDD52@shell.armlinux.org.uk> <8409022.LvFx2qVVIh@steina-w>
+ <ad-LtOBrKREM1tCk@shell.armlinux.org.uk>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|AS4PR04MB9506:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1da6c3a0-6930-412e-51f6-08de9b7d8262
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|376014|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: Ppc+kHtFcqQ9SuU+Un2rEdlH+dTQu08wjp+zTAHneLwcjdtL7m6Ez17TdgQi4xgN551tZOS93pmp8+1WmkzHVxy+hyNRxzR6p4G0Tr43LWDFOzPimYl/q2oXr3LgnQaypMriSXrnGcU0tEKTXxOEqb5tkVQXRv1Tob+rezx7yWVDUbmnauC47TaN6ujPK55zlBbq9u+hMAsjGLYXK28gjJQI8zU6NRGZxOgKzjU3ILH879p3pTY5UjHrA5hgQds9CIPt+nkATlEbLW/Z8XKwXXJQdwnliMOIjNgRLVTPUzCuGfztjoj/D8Hz8IiWAyiLiDDUwTD40+aGznTXC/pzLiJTbLxmwXFW7Rh9dmIt+zQYefrCGwxcavggOf7nvt+Mv716WeuCEzNGTaZGBQw9yb/HjwSEf1MxULNw7MsN0s9wLdkEifLS+n7EB1UDMrgZ8PaPbsv1o13hG2/uBjuFv4tIDY0VyZyyv+afoLQXul/Rp1tERNataObvC3FRm5h3P5MMxqMnGTqqNQ5uD/OJRFS9SufrSAW8KddeRh2fDMExhSdLqq4tK9C/XDK2pJKbGk7N0yLKNeZ69wGGIp7j3A2N96zVvMc1U1wchOg6/RAbJcLLcLdUUt99EHB3KPKvKV0/eYTF7Z3wtoFxpbKI0zh/GdNQx88JcbwUdqsa5tl8JxwJCw1SJMRb1NkPr8UfGZle0tbQJDScVZlivXGql0FASFQdMRIwWwDU8Qo2m18=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(376014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TmJ0cWxDc3RJUCt4dnBaSVN1dlBrR1JrekZUeUl5ZEhEUTRGL0s1ZzF5S1lU?=
- =?utf-8?B?aTBtY1FWaXBpUTVZa29qRy9WQ1JMUzZodFlNT2ltdGt0bW1IRnFEMjhaa3Yx?=
- =?utf-8?B?TndWWUFPdGZBZER5YlMwTGdVOEk3d2ROeURPVm0wRkYyUkJQM0huaEtNWmhK?=
- =?utf-8?B?TnFTNUREL3Q2MzQ1SUwrUHBRVkpkaEpoclpBSTBlWUFqVkxEVTJmVFY5NFEr?=
- =?utf-8?B?MDloc213eGJoenJqRUljUFdkYk1STU9ieUZlNG1JNjMzamNSTXQveExubEtS?=
- =?utf-8?B?aVh1c0d3VUFUT3NlQ3lScmIvd0R0TXFXOXZSSW1uRW56Y0NqY01oZWdLZS9Q?=
- =?utf-8?B?RFFEeXF5Z0ZVaWxFM2xGY2p3UCtrb2ZqY2tNZmFvakFWM3FBYTFQaUNydWQy?=
- =?utf-8?B?TGkwMjdSb21Ed3FXV3Z3clI4RFd2NTVuMG95cnlhS0U0YXV3eW1tTG1OQnZy?=
- =?utf-8?B?NjRLbDNhc0E5YzZ3OS9mb28yQ1dYeEdPWVV5WXVWeWdndHY0ZzdMMDQ5K0hC?=
- =?utf-8?B?ZTk1VkZDZldMRml2Nll2YTRyejMwV1c4T1JGRVNzMjlZaXlKcXo3aXdBRGND?=
- =?utf-8?B?b2NQMmVXSGVZdmUxZWYyeThVSFcrdzdmWFRRR2RGSEY1RU1yZmFJMzFsQkh4?=
- =?utf-8?B?NmlNdVNJaEpiWFZkdGFTYUhlUWNrbXRPTHU2Z2luZEl5NmJWTituL0czL2pO?=
- =?utf-8?B?YUpIRGhnNzlxeEcyamU0b3YvcmlhbC9jNlJ5ZUF5Y2g0ZER3emJNLzlnRXZ2?=
- =?utf-8?B?dEpiRWM0UThsTGpuQTd6YWZacnhaRUh0aDNlN29jbE5TYWVyWmc1ZEQ1bzZw?=
- =?utf-8?B?TTh0dHhyVFRJL1c2VVdtK3RHdXpUcFM3K1pkM05yNVJuNzFoZEhWKzlUbnBG?=
- =?utf-8?B?WStZeHRPcFkyWW05WFRmcGR2dTJHWkI0WHlBZ0k4alMvOUdGWWlweWVaZHYy?=
- =?utf-8?B?aWtHSGluZGY5bUJMQkx6Ti9MZ2ovZWNLS3RvcEFZRllBMncxSitoNy91anVT?=
- =?utf-8?B?MENCdEc1U2QrM01jV1FYY2tQS21aR0lYcVFGTndkR3hvSHZBZDdmN2ljVFZw?=
- =?utf-8?B?ZldXZm9aUHZrRXpjOXJqZVdVN25MT3VkK3c3ak5Xd0s0N2Vib3BzN0QrV2RU?=
- =?utf-8?B?bXAzWFRKMVp3YkxKZVNQSWM3K09jbjAvUWZBMnlhTTU3cHphUlM4eStGNCtF?=
- =?utf-8?B?cm9BRllSc0FXaVBvS01mUG12WGdUYVRCYytwWnlQOXhzaGZFL2toL2JqdW11?=
- =?utf-8?B?aURRdjZzMlFIOTJpV0dUYnVKejRvQ2N4emJyL2tXaFcyaGVldWZHVi9GTk5H?=
- =?utf-8?B?OGk3Uy9wS0xzcWQ0a0QyM1dvZ1A0RHZ4ZHBmU3owMXJoOEp1Q3BBdDYyOFkz?=
- =?utf-8?B?RTdTRkRGNldWRjJmbWFZQ3laM1Y0dUs1T0tYSUlNbVNVa3VMT3dzTnN5ZGVq?=
- =?utf-8?B?bTVydDRvd1lBc09rbi9JWHJ5Wmt3aDJSbmczR0ROMWZEYkQvb1A4Vmo5dWli?=
- =?utf-8?B?LzlaM0pkOU5UeHA3M09kZGJhZTIyQUN5ZGh6NlpNRTI5NUwwMVlGM0hsRSts?=
- =?utf-8?B?bnMzZkR5Zk81dnFiNk1lTUJYV0pmUWdVMnkxRlFXTWFNeEt2aUNQeVpZLzNQ?=
- =?utf-8?B?MEpITDF6TWcxL3dyQWM0dDk0S2N3UWNKNkxNeTU0WjlwVzhPblowbjlISlda?=
- =?utf-8?B?WThyVTBraXZCMGZKa21HZFdKNGJGTHROd0ZSNGt1UTBhb1UrdDd0dHVpbHhP?=
- =?utf-8?B?NGdpOWloQXcxaDd1ZGtrZWlpTkRJeEpMMVAzSHY5Tko5S28rZlVxRGxJYmd6?=
- =?utf-8?B?NTNpUXVSVndQd0JqSTlxa1VaRW5yVG5NTlhDSnhMQ3JBeGlQRldDTnluQXgx?=
- =?utf-8?B?aXU1ejM2b0xmVG8xMmZSTWRjbkhzQ3FFci9HY1JwTmU0ZUxxMGlPWVJYV1FE?=
- =?utf-8?B?UytRSXphRjEyM0NrTU9LQk9uamYwWG5oNy9SS2gxbUNFLy9PTHp6TFF2c0Fr?=
- =?utf-8?B?Ukt2UHF0cCtEK0hDZHN5TE9JVHJzd05KekpGWnJMd3lqQjFZSTFmenNEQTg0?=
- =?utf-8?B?RzhCUW8rMS9LOFQyQmVHOTF1VVZ6SWpubmhqZWhEcDhsR1VuWEpNdTZpVUMr?=
- =?utf-8?B?U1ozNGZqVFVJaitlbkhpKzV4UjdIVjQzMnBiRXNMblhaMm9lMUwxVi8rVmZD?=
- =?utf-8?B?MElEVVdhZXFka0QyOUVvSFluNHlDRVh0L3BOOWtuczRJT3dBM2E3dXNTY25V?=
- =?utf-8?B?ZVZHalVBczZSK000MDduajBmdURpS2VSY21oU2NRODZ1QmYrRWJuTDJ5Rmps?=
- =?utf-8?B?YmRnTGRXcWp4d3RFTHFsOCsybkZJYW5SRDVDMHY2OWVUSC83RGJBdz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1da6c3a0-6930-412e-51f6-08de9b7d8262
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2026 06:00:49.6553
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BGAjzHKfAtNqe0CBLylrPt9LMhtTl9S7uhxVItLqUctK8fW6DMpJiy+l82Xv+/rsniO+SDX9DSHiFZFmaEU4dw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9506
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Virus-Scanned: Clear (ClamAV 1.4.3/27972/Wed Apr 15 08:24:27 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_230057_424032_D0BA83C8 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20260415_232029_201051_F7B7C506 
+X-CRM114-Status: GOOD (  20.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,40 +89,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/14/26 04:59, Zhipeng Wang wrote:
->  > On 26-04-13, Zhipeng Wang wrote:
->>> Convert IMX8M_BLK_CTRL and IMX9_BLK_CTRL from bool to tristate to
->>> allow building as loadable modules.
->> Out of curiosity, why do you want to have a PM driver to be buildable as
->> module?
->>
->> Regards,
->>   Marco
->>
-> Hi Marco,
->
-> Thank you for your question.
->
-> The primary motivation is to support Google's GKI (Generic Kernel Image)
-> requirement for Android devices.
->
-> GKI separates the kernel into two parts:
-> 1. A unified kernel image (GKI) that is common across all Android devices
-> 2. Vendor-specific drivers that must be built as loadable modules
->
-> Under the GKI architecture, SoC-specific drivers like IMX8M/IMX9 BLK_CTRL
-> cannot be built into the core kernel image. Instead, they must be loadable
-> modules that vendors can ship separately. This allows:
->
-> - A single kernel binary to support multiple hardware platforms
-> - Vendors to update their drivers independently without rebuilding the entire kernel
-> - Better compliance with Android's kernel update and security policies
->
-Can you please add the below line in the commit message?
-> For i.MX8M/i.MX9 devices running Android with GKI kernels, the BLK_CTRL
-> drivers need to be loaded as modules during boot. Without tristate support,
-> these devices cannot properly initialize their power domains, making them
-> non-functional under GKI.
+Am Mittwoch, 15. April 2026, 14:59:32 CEST schrieb Russell King (Oracle):
+> On Wed, Apr 15, 2026 at 08:08:40AM +0200, Alexander Stein wrote:
+> > Hi,
+> >=20
+> > Am Dienstag, 23. September 2025, 13:26:19 CEST schrieb Russell King (Or=
+acle):
+> > > Move the PHY attachment/detachment from the network driver out of
+> > > __stmmac_open() and __stmmac_release() into stmmac_open() and
+> > > stmmac_release() where these actions will only happen when the
+> > > interface is administratively brought up or down. It does not make
+> > > sense to detach and re-attach the PHY during a change of MTU.
+> >=20
+> > Sorry for coming up now. But I recently noticed this commit breaks chan=
+ging
+> > the MTU on i.MX8MP. Once I simply change the MTU I run into some DMA er=
+ror:
+> > $ ip link set dev end1 mtu 1400
+> > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-0
+> > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-1
+> > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-2
+> > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-3
+> > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-4
+> > imx-dwmac 30bf0000.ethernet end1: Link is Down
+> > imx-dwmac 30bf0000.ethernet end1: Failed to reset the dma
+> > imx-dwmac 30bf0000.ethernet end1: stmmac_hw_setup: DMA engine initializ=
+ation failed
+>=20
+> This basically means that a clock is missing. Please provide more
+> information:
+>=20
+> - what kernel version are you using?
+
+Currently I am using v6.18.22.
+$ ethtool -i end1
+driver: st_gmac
+version: 6.18.22
+firmware-version:=20
+expansion-rom-version:=20
+bus-info: 30bf0000.ethernet
+supports-statistics: yes
+supports-test: no
+supports-eeprom-access: no
+supports-register-dump: yes
+supports-priv-flags: no
+
+> - has EEE been negotiated?
+
+No. It is marked as not supported
+
+$ ethtool --show-eee end1
+EEE settings for end1:
+        EEE status: not supported
+
+> - does the problem persist when EEE is disabled?
+
+As EEE is not supported the problem occurs even with EEE disabled.
+
+> - which PHY is attached to stmmac?
+
+It is a TI DP83867.
+
+imx-dwmac 30bf0000.ethernet eth1: PHY [stmmac-1:03] driver [TI DP83867] (ir=
+q=3D136)
+
+> - which PHY interface mode is being used to connect the PHY to stmmac?
+
+=46or this interface
+> phy-mode =3D "rgmii-id";
+is set.
+
+In case it is helpful. My platform is arch/arm64/boot/dts/freescale/imx8mp-=
+tqma8mpql-mba8mpxl.dts
+Thanks for assisting. If there a further questions, don't hesitate to ask.
+
+Thanks and best regards
+Alexander
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
 
 
 
