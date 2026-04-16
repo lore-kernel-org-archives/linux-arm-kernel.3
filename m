@@ -4,132 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7C5DF433D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 02:00:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A03BF433D9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 03:03:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ley9z5WRcvPIWjwtcVGhLftQMmDvtzud6GdHZe+3oUw=; b=wavd9pkJt0CvXA0VPlor0jmyTd
-	Trxy0H+qh6t+rFgIO5mcYNOLiNfnBnts6pzCpC24/FCuAo25tWQQNmS8t99YHLrSeaQX3N1mLjPWJ
-	sPv4NAyyz6i/szWIWrNVAZeIITsqUAkkYmD8rkL5mVoYOSBNt0FOQqTO1f65GU0b09dUz76Kk8ffz
-	umGL3aoK/zqdQcbh1hCjZFAtK14HrizksJDCX/lLSTkgAcZQBthoqjr+yKBdKa35WklyGf3+Y6Y1U
-	XX98xLNDzNUQMd3Bx5+NStMCsxhbDJckq85f00taRFiKQcMNC9f5kKUuFxnawNIWBtmTMhMoy676s
-	SjUMFygw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4mb3ZAQhsea54q8p8RFMNsDARhntx+n9OVpSYKpoRno=; b=XVmlbZcu3mShdL41LObG25ib2r
+	immktkQezihzRoyMtJ30jiJ8lQIAoI3eTjIJV6P6PIW8K9X86AisEGjk3M93J7ef+tvfr30vtDNOy
+	FYAr+BtN7A4xc6/b2OIpp6jaA2PRiuvP+kleDzuVZ8tbHLNUfga1qojNptOs1AJ9t1FS9YyptmVJo
+	cWr8YyaZ65ABN1yNKXFyaADXVKchJjzHq5zbvOG1O7GSV80euWWpCqS15gNJ6iPjJB28kIxDeXKQF
+	vtx6e+5R9sEIMFZ30gs4dQidlrPdDueVlfKu4SYMneaGNBo9SVGko9rDWF+TSDC/hJ5NVjRebjO1H
+	xYJz69mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDC1W-00000001rfP-2BLV;
-	Thu, 16 Apr 2026 02:00:06 +0000
-Received: from mail-westeuropeazon11010062.outbound.protection.outlook.com ([52.101.69.62] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wDD0Z-00000001tmd-0SqU;
+	Thu, 16 Apr 2026 03:03:11 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDC1T-00000001reM-49yR
+	id 1wDD0U-00000001tlh-3NNS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 02:00:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Q4gv7n8a782CtSP7xnNyTfl1o+L/7FAuHNP2TZXzrw59EwZpjJk6eyfiezFSGDsQe4SBN+s9/vNgKw2j0pkWUqjvl14fyIA8NCdcrhdMPuJ8Qlq1+5nfS05uI3azQfQaNpTTAcaQxMKMPOOhwt3nj1vr+vz7SzF3Dmd8b9ltD2nMr2PMzf6TKi+bDRjMe4iKHC8hji2GAHhrhnCLxJsVAlSB5I9cDx71XlxOC/WEcWcu9cN+cJkEZqHtBK5fyZ7trSpPaz4MDb1uRECjLRMwf97PL6BrEOUCjpGaYkOCGKjedYU7p/A3NLZD1u6KL9bNh5SJV4L8BjRjl9eKjtqyHQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ley9z5WRcvPIWjwtcVGhLftQMmDvtzud6GdHZe+3oUw=;
- b=zSwUSbjhVohpnnmWTAj2KhLbxblUWWhYHskug+s6YcU1VV8RcDM2n9e3pj807gLAXsTwaVIhYd0IPsd34NJzj7JY7CgfERHLoSpWI+Ap4Kos3r3JxN8CNAhEiD+++nzdxrQb0jspC0a2GcxQcqIKfg5Yv+VmWfctVMnR+WO3RWqn8FGKyrJX0Z0uOTFYpBu5rXZxzEAP85BeOLDyKWlcfDBiTSYeLXHPfDDOfoXFzmh8619PgYde2LW/E57JTjMAG7i41DYdXJOMTgzwrZfgyf8ZbVnhs+AARbUlUEt6l66ik6bj5BzqFfNUHGnjmEm5PJFQ124DWZ3bdc0KKyQ+rA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ley9z5WRcvPIWjwtcVGhLftQMmDvtzud6GdHZe+3oUw=;
- b=bYc+1/Ty+ouuWcNmNZwxe/vqZQaJ54i/l5+MMoSxGdxqT2YEegA2FasW1gzV9cKL2QuSuVcKRn219zoyQixcw/OlIorSFseBIuEndOJwG0dR6S4LSsXsXxoLCDqhW7jD1Qm4g97ZTItdd3yIogwhTU3GXN9Y4VNHGqsRD56W2HHyez2Ey8QTPah/G2CrZITOPfuXPqDUfDXnvNAx/LTOzzrM7qIq/Av/vl2g8d+nDLhnPQXor+a5Wm1OCHGeN2/ZqIKVoMCdJNNGFTaShyfChXEVbFEAVUnNNxDZ5WYPiGshGsoPbgw/WCDx5ZyBRNnY4H445mFT0C8Ot5j+r5RHxw==
-Received: from AMBPR04MB12334.eurprd04.prod.outlook.com (2603:10a6:20b:732::5)
- by PA1PR04MB10700.eurprd04.prod.outlook.com (2603:10a6:102:48e::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Thu, 16 Apr
- 2026 01:59:58 +0000
-Received: from AMBPR04MB12334.eurprd04.prod.outlook.com
- ([fe80::9b4f:ab4e:94c3:c457]) by AMBPR04MB12334.eurprd04.prod.outlook.com
- ([fe80::9b4f:ab4e:94c3:c457%6]) with mapi id 15.20.9769.046; Thu, 16 Apr 2026
- 01:59:58 +0000
-From: Zhipeng Wang <zhipeng.wang_1@nxp.com>
-To: Frank Li <frank.li@nxp.com>
-CC: "ulfh@kernel.org" <ulfh@kernel.org>, "s.hauer@pengutronix.de"
-	<s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>, "linux-pm@vger.kernel.org"
-	<linux-pm@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Xuegang Liu <xuegang.liu@nxp.com>, Jindong
- Yue <jindong.yue@nxp.com>
-Subject: RE: [PATCH v2] pmdomain: imx: Make IMX8M/IMX9 BLK_CTRL tristate
-Thread-Topic: [PATCH v2] pmdomain: imx: Make IMX8M/IMX9 BLK_CTRL tristate
-Thread-Index: AQHcywa8jFjWeOFOMEiinevo9PMwILXftJwAgAE+XrA=
-Date: Thu, 16 Apr 2026 01:59:58 +0000
-Message-ID: <AMBPR04MB12334512DAE9D0EFE084C241DEB232@AMBPR04MB12334.eurprd04.prod.outlook.com>
-References: <20260413053049.3041177-1-zhipeng.wang_1@nxp.com>
- <ad83MtdMP4rci3Ya@lizhi-Precision-Tower-5810>
-In-Reply-To: <ad83MtdMP4rci3Ya@lizhi-Precision-Tower-5810>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AMBPR04MB12334:EE_|PA1PR04MB10700:EE_
-x-ms-office365-filtering-correlation-id: 95335396-593e-43ce-7ce9-08de9b5bdcef
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|38070700021|18002099003|56012099003|22082099003;
-x-microsoft-antispam-message-info: orutSyxKYQK4fkuWYis45+LFzRI7uO03JEpFcmYqUiEHJZKN/j/TjC24RaVLIAkarekADXd2PHjBHpNq2M48lZDrfaypHzFmmRWu1kujs9lmaETP0egjp8eqj1SaJB3wiSoSzFzgicekhe4XKxLWlS/2VlLNZCKynCdOqHmm7ae9zQQR7CYEl4ZNlHrrU+piim+GEooVAZnMmYhbdWlOnKvs7SEFXLlRfu/fRjcFQF3WC36Wd1OhSWLCU5C8OsCyOy2cFG/8pglDRWWMDuLx5fPBoc8bNwyC7ttZDWzfWchhGni7PLEDPJex2ODQRa2hf1j/XayrDE+lSrA6rRNvbTar7zLnO3Qh6yzAFRUuU/yKkifDUAYYyssP5l88YMIjQWnK2wY2mn6TIDSURbZAzisdmcRxq75zHnzH0uLfBXJgqZuvT5qtwUfepqoFEBtP9Q0e8qdWTQ9jmreThm2NdPdl6FZLvb7hI/j/1H/JZYWQhNeM63R+tWXyxkqCmo6kmZ5m9jUaEwLc9kLw1WtdH1Qs9P3o6nTJGiKb5vxb6wtCM8y1EW5bhY2H6qvqkq/wYoo0i8BqxzFr7CIx6UNkDGBrZxXcmXH9MUMFUwOYuZhdh2lC7DOCPW4b4LfiQN0DN+gJkrJJUJhkwnUYBHP0J04akWpjMnhRvqFmJFcXZiI8sRD54CqP6dPIqA4a9B6X6WdiasgqvI+pKRxVgiRVI6cgOwlFiSseqhlL8EJZJ5XAbKdMgoSP/f3mK1f6DgccbzxgZ91dCe1ryQ5ob/Y7chYB7ZMPG/DFupj3Rj4D2Kg=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AMBPR04MB12334.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(38070700021)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?m+YFIiEbss1QjgzAeYS1vwgi5iR8fLvYpSHB3KT1/UInDtjJIbWS0GHSnEH4?=
- =?us-ascii?Q?d4cQ38ySKPDnhTBGMLm01GVvlS1Bg1cmbbzXE1NLt20h2tpGYunqNdmJUjsz?=
- =?us-ascii?Q?YlcJocc19IKuktJcpHGXo/2otYKBlZ8sTqE8Xv+PlhO0ybcSwDUfziyMS9i4?=
- =?us-ascii?Q?lQSD+o1fRyON6/woSx7gLtWhCVoaK0CacBtc8/OE0Wq9PqPokxQc/TfYvOqR?=
- =?us-ascii?Q?P7Larl5oUR+wpQKKL9rDhSsdnj3PEyj6bceX0ZXIBae/9+LEsXo9bHbOc3gd?=
- =?us-ascii?Q?OH5KXxAmxXHUVCGGS96UL8pUEFT5x6yU6YH2N6j+aiVqnv2V1nnhH4kQ4cJ+?=
- =?us-ascii?Q?dYJ/e/xbPRpm5x+8E6tACEnUWFFQlrLyKBXAe3DGHcCXlHKjqiP/O90RQEWO?=
- =?us-ascii?Q?21cvo2VWhvDK/pVLtz9Y88Y9eC4QEzEU7st5IOPPSVlUcKiHbq+NR2ebUfzR?=
- =?us-ascii?Q?9xLC+6NiW3GTFNj60TFXhwEYdtVgBwVYijEm9RYVL4bQQc2UtFgXlZLi6gEo?=
- =?us-ascii?Q?Zb6yeafHPkcaBekcIzDbwMaYHky7gdu7lmKTrjZjFty5AlAMkvURu5wI1JvT?=
- =?us-ascii?Q?+qg4AiXNRmY09iT6i84SIYxyDx0XzoMfN3vxvfpS4iST6AZXBMR8hjOLa9rk?=
- =?us-ascii?Q?OPv7MFsSxTrECZOeP8TjRq2O4z5b0k7X9XDBqulpMEo84oUYxNxLtvFgY+zA?=
- =?us-ascii?Q?HrJ6kZK9k+5R4x3k1nU4r8XgTrI1/RdTCAby6MgD0pC/fS62bVwBMcmsQ9HG?=
- =?us-ascii?Q?enw76J70MsUSSQyhn9tLM8JUzr2jG8OapYnlkidlMFaJDt8h+qAyHkj+VhdO?=
- =?us-ascii?Q?FSwIyfkRlqLb5p6ZvOlLMALdoS3dGXIqde93kzWcOcVnvU1L5n243Sbr7mVf?=
- =?us-ascii?Q?V0UNXtS2ncXfLDqIf5kWaaPF8U2G0hU/ljgHevyCKp1vSzoRWqbSvClOcnNY?=
- =?us-ascii?Q?TFseHjifOMbJR66JxGa2ui4RkHL/6j4Scfshk6gvOfwGz3hkua6aJytzJBpI?=
- =?us-ascii?Q?35x4Rtj2aS/Y3Rd5y/Lfwv5nAGcJlyp0GGlWrjBVnC1yQGmrg4JianZ54O0P?=
- =?us-ascii?Q?aOEVUwW3zFOHLRHJDs2jBxHC8IawNppasI+mPkWdwRotOou0J5vyYweJ8uh8?=
- =?us-ascii?Q?ziG/LZjzXhFdvCywfCEqbvQllcEW1WRZsTNRZK2t1CrrBr/JXxk3gKzCHX0w?=
- =?us-ascii?Q?j+Dv+le1arHObAx128mEll6Jc10/C86cyCKuHRLcFQjHmKS1QCoF4M/nxlA9?=
- =?us-ascii?Q?e+SJNpiV51UQzTrVu/CH8QQbrKOyrz7aBvgSBs2bqTSpNLmC6lIo/xR438FN?=
- =?us-ascii?Q?l6vQN/S9FkgWat8amRdpNFDqFkzXakjKvijyvc6NmqjjJK/fKGClNIaeN1gc?=
- =?us-ascii?Q?d7AGrGGQ1OFizt+DJXvVy3KwIxjV4JKDJmP9LpOdyRZnVRTERjj65QVcCueB?=
- =?us-ascii?Q?WT1g7a/nV6kGLEc4eQxuRY4IfmXi/4ir9E+1bMdUqxX6erMcAZvx8oIHW0Ns?=
- =?us-ascii?Q?gxUWT2gm/uOYhG8Qiw6r8/XtuTWMAGHIviRZx5KAYruavPnClxRsFJHKm9Ou?=
- =?us-ascii?Q?QFGnWZ0SraxZN4rTQzcVKr4d8vVEm1WSx3jMaCS6TSrJcrXUOZQFagPf4Iog?=
- =?us-ascii?Q?xT18ie1EO4F9zUQY4m6NgfgM4JsYIX8qEuqbyBbliXq6p3DMGilRZQ+pifo3?=
- =?us-ascii?Q?jJWw9v1KakMxz6BfuJRzr9eppUSYZiUUGCes6UrGGztihQ5evxN1EbrKugpQ?=
- =?us-ascii?Q?Ln+ngU7thw=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 16 Apr 2026 03:03:09 +0000
+dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=4mb3ZAQhsea54q8p8RFMNsDARhntx+n9OVpSYKpoRno=;
+	b=Ij1RBAcwL2Gv87YRSgvNTfb95nZhHfEHy5x+0gjxcvWZy+N6pDk/Jh/15fY5EMv/+0AoEvo7h
+	0enegr0sJfnc5mHao97xkU5ygqkdOWKIfMHsJ8ynvHhxnUxNqshRKbmD4scQudHe/4EWPxImcTo
+	+vsA2leP5sr+RYNRF6k1/h8=
+Received: from mail.maildlp.com (unknown [172.19.163.15])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4fx2hs6kXPzLlYX;
+	Thu, 16 Apr 2026 10:56:29 +0800 (CST)
+Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
+	by mail.maildlp.com (Postfix) with ESMTPS id EC54F40571;
+	Thu, 16 Apr 2026 11:02:47 +0800 (CST)
+Received: from [10.174.179.37] (10.174.179.37) by
+ kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Thu, 16 Apr 2026 11:02:46 +0800
+Message-ID: <7e69034d-ff8e-f0ed-1c79-59f4449d74ab@huawei.com>
+Date: Thu, 16 Apr 2026 11:02:45 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AMBPR04MB12334.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 95335396-593e-43ce-7ce9-08de9b5bdcef
-X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Apr 2026 01:59:58.4073
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: pFXQiXLGrBt1yxrgM7WY/AtkW4sFyH4lTK9qyXmPzfQ1soO1Iqe/wEWf1yic0GWSAmFiNebnMkcIa6popkk24Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10700
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [Question mpam mpam/snapshot+extras/v6.18-rc1] Question with
+ Configuring iommu_group in 'task'
+Content-Language: en-US
+To: Ben Horgan <ben.horgan@arm.com>, James Morse <james.morse@arm.com>
+CC: Qinxin Xia <xiaqinxin@huawei.com>, <amitsinght@marvell.com>,
+	<baisheng.gao@unisoc.com>, <baolin.wang@linux.alibaba.com>,
+	<carl@os.amperecomputing.com>, <dave.martin@arm.com>, <david@kernel.org>,
+	<dfustini@baylibre.com>, <fenghuay@nvidia.com>, <gshan@redhat.com>,
+	<jonathan.cameron@huawei.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
+	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
+	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
+	<sdonthineni@nvidia.com>, <xhao@linux.alibaba.com>, Linuxarm
+	<linuxarm@huawei.com>
+References: <d13fdc75-b647-44f3-9657-d592353e8a1a@huawei.com>
+ <08aacacc-e3e5-4e97-858b-cbcbdb9a1fcf@arm.com>
+ <7b2681c3-9ef7-4882-ba57-2503934e2759@huawei.com>
+ <0d578c61-1341-4149-9e8c-936ea0ce0c50@arm.com>
+ <d5918112-0c9f-ecf3-226c-8c3cdd5cd508@huawei.com>
+ <f800f0d5-7a00-4dad-95fe-a2aac2ece5ef@arm.com>
+From: Zeng Heng <zengheng4@huawei.com>
+In-Reply-To: <f800f0d5-7a00-4dad-95fe-a2aac2ece5ef@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.174.179.37]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_190004_034860_7FF5FA6A 
-X-CRM114-Status: GOOD (  21.06  )
+X-CRM114-CacheID: sfid-20260415_200307_494655_161D6D90 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,70 +94,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Mon, Apr 13, 2026 at 02:30:49PM +0900, Zhipeng Wang wrote:
-> > Convert IMX8M_BLK_CTRL and IMX9_BLK_CTRL from bool to tristate to
-> > allow building as loadable modules.
-> >
-> > Add prompt strings to make these options visible and configurable in
-> > menuconfig, keeping them enabled by default on appropriate platforms.
-> >
-> > Also remove the IMX_GPCV2_PM_DOMAINS dependency from
-> IMX9_BLK_CTRL.
-> > This dependency was incorrect from the beginning - i.MX93 uses a
->=20
-> s/-/because
->=20
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
->=20
 
-Hi Frank,
 
-Thank you! v3 sent.
+On 2026/4/15 20:42, Ben Horgan wrote:
+> Hi Zeng,
+> 
+> On 4/15/26 02:27, Zeng Heng wrote:
+>> Hi Ben,
+>>
+>> On 2026/4/13 23:02, Ben Horgan wrote:
+>>> Hi Qinxin,
+>>>
+>>> On 4/3/26 03:44, Qinxin Xia wrote:
+>>>>
+>>>>
+>>>> On 2026/3/27 18:47:49, Ben Horgan <ben.horgan@arm.com> wrote:
+>>>>> Hi Qinxin,
+>>>>>
+>>>>> On 3/27/26 10:21, Qinxin Xia wrote:
+>>>>>>
+>>>>>> Hello everyone!
+>>>>>>
+>>>>>> In earlier versions, mpam supports the configuration of iommu_groups.
+>>>>>>
+>>>>>>     823 static ssize_t rdtgroup_tasks_write(struct kernfs_open_file *of,
+>>>>>>     824                                     char *buf, size_t nbytes,
+>>>>>> loff_t off)
+>>>>>>     825 {
+>>>>>>     826         struct rdtgroup *rdtgrp;
+>>>>>>     827         int iommu_group_id;
+>>>>>>     828         bool is_iommu;
+>>>>>>     829         char *pid_str;
+>>>>>>     830         int ret = 0;
+>>>>>>     831         pid_t pid;
+>>>>>>     832
+>>>>>>     833         rdtgrp = rdtgroup_kn_lock_live(of->kn);
+>>>>>>     834         if (!rdtgrp) {
+>>>>>>     835                 rdtgroup_kn_unlock(of->kn);
+>>>>>>     836                 return -ENOENT;
+>>>>>>     837         }
+>>>>>>     838         rdt_last_cmd_clear();
+>>>>>>     839
+>>>>>>     840         if (rdtgrp->mode == RDT_MODE_PSEUDO_LOCKED ||
+>>>>>>     841             rdtgrp->mode == RDT_MODE_PSEUDO_LOCKSETUP) {
+>>>>>>     842                 ret = -EINVAL;
+>>>>>>     843                 rdt_last_cmd_puts("Pseudo-locking in progress\n");
+>>>>>>     844                 goto unlock;
+>>>>>>     845         }
+>>>>>>     846
+>>>>>>     847         while (buf && buf[0] != '\0' && buf[0] != '\n') {
+>>>>>>     848                 pid_str = strim(strsep(&buf, ","));
+>>>>>>     849
+>>>>>>     850                 is_iommu = string_is_iommu_group(pid_str, &iommu_group_id);
+>>>>>>
+>>>>>> What puzzles me is why we would put it under 'task'—this seems a little
+>>>>>>     strange to users.It seems they are not related.Why don't we add a new
+>>>>>> interface like 'iommu'?
+>>>>>
+>>>>> I think it is likely that this interface would change if upstream support is added.
+>>>>>
+>>>>
+>>>> I have done some work in this direction before, and I will release an
+>>>> RFC later for further discussion.:-)
+>>>
+>>> Looking forward to seeing it.
+>>>
+>>> Ben
+>>>
+>>
+>> Following the current SMMU approach, I've submitted several bugfix
+>> patches for the MPAM driver, but haven't received any review feedback
+>> yet.
+>>
+>> To avoid these being overlooked, I'd like to kindly remind to take a
+>> look:
+>> v2: https://lore.kernel.org/all/20260414032610.1523958-1-zengheng4@huawei.com/
+>> v1: https://lore.kernel.org/all/20251107063300.1580046-1-zengheng4@huawei.com/
+>>
+>> Additionally, I'd like to check on the status of this branch — is it
+>> still actively maintained? It would be helpful to understand the future
+>> plans for MPAM development.
+> 
+> The MPAM snapshot and extras branches are no longer maintained. Work on these has stopped so that we can focus on
+> upstream. Apologies for not making this clear earlier.
+> 
 
-BRs,
-Zhipeng
-> > different power domain architecture compared to i.MX8M series:
-> >
-> > - i.MX8M uses GPCv2 (General Power Controller v2) for power domain
-> >   management, hence IMX8M_BLK_CTRL correctly depends on it.
-> >
-> > - i.MX93 uses BLK_CTRL directly without GPCv2. The hardware doesn't
-> >   have GPCv2 at all.
-> >
-> > Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
-> > ---
-> >  drivers/pmdomain/imx/Kconfig | 11 +++++++----
-> >  1 file changed, 7 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/drivers/pmdomain/imx/Kconfig
-> > b/drivers/pmdomain/imx/Kconfig index 00203615c65e..9168d183b0c5
-> 100644
-> > --- a/drivers/pmdomain/imx/Kconfig
-> > +++ b/drivers/pmdomain/imx/Kconfig
-> > @@ -10,15 +10,18 @@ config IMX_GPCV2_PM_DOMAINS
-> >  	default y if SOC_IMX7D
-> >
-> >  config IMX8M_BLK_CTRL
-> > -	bool
-> > -	default SOC_IMX8M && IMX_GPCV2_PM_DOMAINS
-> > +	tristate "i.MX8M BLK CTRL driver"
-> > +	depends on SOC_IMX8M
-> > +	depends on IMX_GPCV2_PM_DOMAINS
-> >  	depends on PM_GENERIC_DOMAINS
-> >  	depends on COMMON_CLK
-> > +	default y
-> >
-> >  config IMX9_BLK_CTRL
-> > -	bool
-> > -	default SOC_IMX9 && IMX_GPCV2_PM_DOMAINS
-> > +	tristate "i.MX93 BLK CTRL driver"
-> > +	depends on SOC_IMX9
-> >  	depends on PM_GENERIC_DOMAINS
-> > +	default y
-> >
-> >  config IMX_SCU_PD
-> >  	bool "IMX SCU Power Domain driver"
-> > --
-> > 2.34.1
-> >
+
+Ack. If the extras branch scheme mentioned above is rebased onto
+upstream, these bugfix patches would remain applicable and worth
+reviewing.
+
+
+Best regards,
+Zeng Heng
 
