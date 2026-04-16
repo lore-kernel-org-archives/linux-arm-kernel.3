@@ -4,68 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 808BFF8D74B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 14:10:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A0AFF8D74A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 14:20:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kq4Vb8eWBama88yf+CUt9J5fZmyyuqk1BrgdCs9SIl8=; b=Nn5EiuFcu1xEGxWOnHoXwKobyJ
-	FBVIjLRTvM3Ty9yAtNqZA8Sfpm7JYLZfA0wWpZhAJXPuzoOBiHgK2lArmQNd/zCzr+39QEyBGoqFj
-	+SQewNLtdv3oV0ETnDg1FuNlXy5/NMwI8EjFJisWjuPTtwx8Nko1joyOk3N0U+uoagyv+GFg9BTQL
-	16NJkQ/2xERfeZV12NIPTVSNfYd8i7m+EV/w/vttEJ++wbdM645/KFE2H9xR2WedZHpHL5HO7A7zz
-	qmKgvPauEblLizrPbOu5KikQXIl3GxURyfhOXRiRGM4Eu34sA/hUzI+IxJc5Y+H5sPjCqwew4RY35
-	VYrT373Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B6jl1TJ2xNpO75ijRUMeCvXa+I280T1Nb2EfHpuqAT0=; b=AKUD/BX/wAteSFYBLmMc79+2hY
+	z7P+vWo7qH4a2X9B9csrenlnM0XGF7WT4ra83PDFESTh8LH8BevQHjaSFaWuNPBO3xMJcvfBbZ2/6
+	wWvAlQQat1v4xD/DyZVmStwyQSZbeG87CNeKFOQ+Ybz+hR4CCNjtqhhR/T0fUh6J6kM75Ccj7Sncu
+	hS8FuQA1SEO4FolgUIUS1YC2CD5rbypgFay6HY2t/ZmjRlQxPV1L2MZxUEKHx5Sn65Wdbq3lsCuKg
+	pe9fw86Ldn6wmfuXU9n6A6wsXTWDlVvxpF2X1AmEqNj82yfDOiQAESTMxtibmDl4gLbxsrYofpCpY
+	216y4EyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDNQc-00000002Y1G-107O;
-	Thu, 16 Apr 2026 14:10:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wDNZg-00000002YY2-419x;
+	Thu, 16 Apr 2026 14:20:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDNQb-00000002Y11-3300
+	id 1wDNZf-00000002YXu-3iOC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 14:10:45 +0000
+	Thu, 16 Apr 2026 14:20:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BD6B460130;
-	Thu, 16 Apr 2026 14:10:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A624C2BCAF;
-	Thu, 16 Apr 2026 14:10:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DD1166012A;
+	Thu, 16 Apr 2026 14:20:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C44BC2BCAF;
+	Thu, 16 Apr 2026 14:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776348644;
-	bh=pX7i/5+LnUDc6Duofn2BILOt1Pooo9KnzAacs/0u3mc=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=qbQZX91Sd215h+Ii0G9MyMrp1sFoxhOe8u2y/puzg+ZYxqg0xm3EhwJvuCA/u5VtC
-	 7CghDvGUyP8TBsM+zm/eUu+dSS7gmPD5J0B6bdyiYCGQtXFTdNveDjPop9poLtw3F6
-	 /lHb28E1fLBZhgTrVKpod42Q0Ga+WSBGYlpRbKfYJeQYbE6Df+ASgGeiDuFfV4/Wxi
-	 J89STjeG5ZSjR0JsPEj94nnuhdE30xG4IFvUvzRjwEW1B4czQfjPyxmbhEnfaUyvIj
-	 5Iry5Ci71iVVbWVT5sVreZaFkOBXKnU6++eg6A3s5pHzCJQzPNcyomhTVE4OrxfrBs
-	 UgGhllICwEx8g==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FE13380AA61;
-	Thu, 16 Apr 2026 14:10:14 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH bpf v15 0/5] emit ENDBR/BTI instructions for indirect
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <177634861305.3246567.7251798812226371156.git-patchwork-notify@kernel.org>
-Date: Thu, 16 Apr 2026 14:10:13 +0000
-References: <20260416064341.151802-1-xukuohai@huaweicloud.com>
-In-Reply-To: <20260416064341.151802-1-xukuohai@huaweicloud.com>
-To: Xu Kuohai <xukuohai@huaweicloud.com>
-Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, ast@kernel.org, daniel@iogearbox.net,
- andrii@kernel.org, martin.lau@linux.dev, eddyz87@gmail.com, memxor@gmail.com,
- yonghong.song@linux.dev, puranjay@kernel.org, a.s.protopopov@gmail.com,
- alexis.lothore@bootlin.com, list+bpf@vahedi.org, linux@armlinux.org.uk,
- yangtiezhu@loongson.cn, hengqi.chen@gmail.com,
- johan.almbladh@anyfinetworks.com, paulburton@kernel.org,
- hbathini@linux.ibm.com, chleroy@kernel.org, naveen@kernel.org,
- luke.r.nels@gmail.com, xi.wang@gmail.com, bjorn@kernel.org,
- pulehui@huawei.com, iii@linux.ibm.com, hca@linux.ibm.com, gor@linux.ibm.com,
- davem@davemloft.net, udknight@gmail.com
+	s=k20201202; t=1776349206;
+	bh=RZuDXw+JiK6q6buh+87zhYDDJVKlnTY4BAiLSYnFAnw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Wnrj4HaQioAqql2JiUoVFNbDaNJECfQmKpB6ww0lhWxdspI1oBPGYEeEi/m4yIpeo
+	 z5wd9tHlkizhYQJCpY4zjtMYUchFm0vIi9JZKrrWIgUNWzHts6aap8ISQStiYuCrB2
+	 SAnB3WtP2eYIAoGPxnJm901QZMcOOWpaQ9jenaBVIhDaSKbei2h3XzN52VcyRhBbND
+	 3cKEkjoMSxE4SlWnFqwMrtRnoq9kL5X8hKVWaG5FFhPmowd0wx+x6gysPyN3TRLwqs
+	 vvYMoYcMgrzhpwlQvMDCTV/H186bXcSxHyRcsa3giGWs+P8lbV3an/9KJKIr7ZnJcB
+	 B3EPJledMvYPQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wDNZc-0000000CATP-1O6U;
+	Thu, 16 Apr 2026 14:20:04 +0000
+Date: Thu, 16 Apr 2026 15:20:03 +0100
+Message-ID: <865x5r2dik.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Deepanshu Kartikey <kartikey406@gmail.com>
+Cc: oupton@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	drjones@redhat.com,
+	christoffer.dall@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	syzbot+12b178b7c756664d2518@syzkaller.appspotmail.com
+Subject: Re: [PATCH] arm64: KVM: Initialize vGIC before preempt-disabled section in kvm_reset_vcpu()
+In-Reply-To: <20260412080437.38782-1-kartikey406@gmail.com>
+References: <20260412080437.38782-1-kartikey406@gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kartikey406@gmail.com, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, drjones@redhat.com, christoffer.dall@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, syzbot+12b178b7c756664d2518@syzkaller.appspotmail.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,42 +90,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to bpf/bpf.git (master)
-by Alexei Starovoitov <ast@kernel.org>:
-
-On Thu, 16 Apr 2026 06:43:36 +0000 you wrote:
-> On architectures with CFI protection enabled that require landing pad
-> instructions at indirect jump targets, such as x86 with CET/IBT enabled
-> and arm64 with BTI enabled, kernel panics when an indirect jump lands on
-> a target without landing pad. Therefore, the JIT must emit landing pad
-> instructions for indirect jump targets.
+On Sun, 12 Apr 2026 09:04:37 +0100,
+Deepanshu Kartikey <kartikey406@gmail.com> wrote:
 > 
-> The verifier already recognizes which instructions are indirect jump
-> targets during the verification phase. So we can store this information
-> in env->insn_aux_data and pass it to the JIT as new parameter, allowing
-> the JIT to consult env->insn_aux_data to determine which instructions are
-> indirect jump targets.
+> kvm_reset_vcpu() calls kvm_timer_vcpu_reset() inside a preempt-disabled
+> section to avoid races with preempt notifiers that also call vcpu put/load.
 > 
-> [...]
+> However, kvm_timer_vcpu_reset() eventually calls kvm_vgic_inject_irq()
+> which triggers vgic_lazy_init() if the vGIC has not been initialized yet.
+> vgic_lazy_init() acquires a mutex and calls vgic_init() which invokes
+> synchronize_srcu_expedited() -- both of which may sleep. Sleeping inside
+> a preempt-disabled section is illegal and causes:
+> 
+>   BUG: scheduling while atomic: syz.1.49/3699/0x00000002
+> 
+> Fix this by calling vgic_lazy_init() before preempt_disable(). On the
+> second call inside kvm_vgic_inject_irq(), vgic_initialized() will return
+> true and vgic_lazy_init() will return immediately without sleeping.
+>
 
-Here is the summary with links:
-  - [bpf,v15,1/5] bpf: Move constants blinding out of arch-specific JITs
-    https://git.kernel.org/bpf/bpf/c/d3e945223e01
-  - [bpf,v15,2/5] bpf: Pass bpf_verifier_env to JIT
-    https://git.kernel.org/bpf/bpf/c/d9ef13f72711
-  - [bpf,v15,3/5] bpf: Add helper to detect indirect jump targets
-    https://git.kernel.org/bpf/bpf/c/07ae6c130b46
-  - [bpf,v15,4/5] bpf, x86: Emit ENDBR for indirect jump targets
-    https://git.kernel.org/bpf/bpf/c/9a0e89dcc9be
-  - [bpf,v15,5/5] bpf, arm64: Emit BTI for indirect jump target
-    https://git.kernel.org/bpf/bpf/c/f6606a44bc43
+I think this really goes in the wrong direction. Forcing the vgic (a
+global resource) to initialise when the vcpu's timer (a local
+resource) is reset feels at best bizarre. Now you are promoting it to
+be forced at vcpu reset. This makes things worse.
 
-You are awesome, thank you!
+You probably want to take a step back and look at *why* we end-up
+here. The core reason seems to be that the timer emulation caches the
+level in a per-timer structure, and tries hard not call into the vgic
+unless the level changes. Which means that unless the vgic is
+initialised and is able to latch that state, the initial pending state
+will not be propagated to the guest.
+
+But do we need this optimisation? I don't think so. Other emulated
+devices don't require it. We can let the vgic know the state of the
+timer at every vcpu entry, just like we do for other virtual
+interrupts that the kernel injects (PMU, vgic MI).
+
+Once you remove the this cache and the need for the vgic to buffer
+things outside of normal execution, you can also drop the magic init
+from the interrupt injection path, because the injection will happen
+on the run path, just like any other PPI.
+
+That'd be a much better approach IMO.
+
+Thanks,
+
+	M.
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Without deviation from the norm, progress is not possible.
 
