@@ -4,73 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04DADF8D75B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 15:46:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D289F8D75E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 15:49:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CyPmSGyK816MUuWcKPWra66rWlqz/gSBtKUFepuyfsQ=; b=2WvuXmfzELOSUQbC49b4F/QYf6
-	pzmSvmBb4bcDs8uvF/lX+7fkLX8paDS77r4XZBrb79DjON+VuxAf1+Ia4lStq8J0iFnJ/SxydyROr
-	r0QdV0yg1yiYAHKalUmev4gVoYu1EdMckiDX/ugdnQD8VO6ThXZDnWREVq7DnEqDsESo2YR7uLZ5m
-	x0tJY1auck+8ruySvC7hauxZu0GsFmOre/LbSDRBWzm/gu+nQSI/0ODoIOTi+snSffzpIw5vKdqe3
-	Ntwg8o5P6Hr8DiswtBrc2yZGyZZD59WlVhRPVhyMbROmMAj/4/ZxnD9RjsVwWYqoikmbRSMbLiiBL
-	c19GP5IA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iZdfqgTzXtA3fPbIpl8GLH8neb3096MRhShKVT67buk=; b=x6TOBLD0p6LslGp/pd9I8sjkTP
+	brz5RtKWxrew4Qhzuk4dhhaTHGTK2W7DurnvapIxEtrQmr2xcWr8XDZgur4qO6D68ATAUAP7Uyrlb
+	WfCv470AikRroSxK7SheJ3t4LsSplbObPjN399bAtsi29i+F51WtJCpJVrgNdXtkU5okNpR8zx1Ws
+	HPRVwiyhS3q3PzFBkcttmMxawGQ5LTVREe7PIBfsf3dNnxlRnlF3Dd07FLJStbBflfznUfUM+LQ3w
+	s7xNQU/Lvo5r955kWStD92qcMmJvPQwxeQlYzbU69bwj9ss0c22Bu8YobjVxK6DFbzBAqc5YaYadW
+	KgyBYLbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDOv0-00000002dTn-2QRW;
-	Thu, 16 Apr 2026 15:46:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wDOyN-00000002ddO-20KM;
+	Thu, 16 Apr 2026 15:49:43 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDOuy-00000002dTR-1L5i;
-	Thu, 16 Apr 2026 15:46:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DDD8443860;
-	Thu, 16 Apr 2026 15:46:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16150C2BCAF;
-	Thu, 16 Apr 2026 15:46:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776354370;
-	bh=fZETXYu0oWCsWiHimS0OA/TAWz0pKdtdcNhYZKxuwdQ=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=ho9Truf9ExiGsv2biQrqDWEdZ3vfKdwLsLgn6qcAq0yRfny/3O+OCgJfKh+RAetrx
-	 Dhb9qdBUb/9bjbHdP9LmUY+NkuHR8Dm1JG+qCBLWRRctmPEIKxvM0WgY3oo1wYJ8QY
-	 zVAhIfQchi930aM5q8WF34gDm7Ke3ecjmH3siJ7V12K7DuOpR1i3QxxU08/HDZ8HHo
-	 050hHfMyQDux65WsVE0ZQoi8qR7lkVzu/92zM8NW66ktpXC+M5/xTo9wYy/FPXircA
-	 InugFvlU3Lk0STI/an1ejUHhVMwbooR2juvR/b2Et+loAjvSLLYDM3GIO/2W0uJIqf
-	 kyePIWT4ZHh4A==
-From: Mark Brown <broonie@kernel.org>
-To: Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Xiangsheng Hou <xiangsheng.hou@mediatek.com>, Felix Gu <ustc.gu@gmail.com>
-Cc: linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-In-Reply-To: <20260416-mtk-snfi-v2-1-3f487689dacb@gmail.com>
-References: <20260416-mtk-snfi-v2-1-3f487689dacb@gmail.com>
-Subject: Re: [PATCH v2] spi: mtk-snfi: fix memory leak in probe
-Message-Id: <177635127007.43536.11128592640404935803.b4-ty@b4>
-Date: Thu, 16 Apr 2026 15:54:30 +0100
+	id 1wDOyK-00000002dca-1gwL
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Apr 2026 15:49:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From; q=dns/txt; s=fe-e1b5cab7be; t=1776354578;
+ bh=iZdfqgTzXtA3fPbIpl8GLH8neb3096MRhShKVT67buk=;
+ b=MCl0POvdl4KVnynmurGEdVkDtm/c1qW5AF5DkD8NZh0TJg6D0xeNwzgvfsaKgi8IHVM3/b2YI
+ /wYXvw2MmtY0qwObW/yAYFUYtx6JkyH90KmU5A09wvxv6IvsGpXT6qLHd69Cg8RY5TShEnlB20D
+ dOveg6hE8AZ4JtSGStHf++HVSOL4vjc/CzD77wkBNs/m0dbVb5pHXm8dFeJJATLeuWyON4UgyG+
+ bkpKwHV6XAxuoaR5FO/XWZe8YNnrK4wKiKq4d7w1vBGLG8VdgasSptSHU5u+Gq+vL9X1uRJT5kr
+ fatwDmtQ9PVRVPJp8W75HOFombXGiedXnRkF1l0FIwJA==
+X-Forward-Email-ID: 69e1050d06b3fda24d33d578
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 2.7.3
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Shawn Lin <shawn.lin@rock-chips.com>
+Cc: Jonas Karlman <jonas@kwiboo.se>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] gpio: rockchip: Fix GPIO after convert to dynamic base allocation
+Date: Thu, 16 Apr 2026 15:49:28 +0000
+Message-ID: <20260416154928.2103388-1-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1088; i=broonie@kernel.org;
- h=from:subject:message-id; bh=fZETXYu0oWCsWiHimS0OA/TAWz0pKdtdcNhYZKxuwdQ=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBp4QRALDdqFpSWntj953+kCEe/VleFyxyWZA5MS
- nBVKNSokdKJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaeEEQAAKCRAk1otyXVSH
- 0FifB/9XMPkENhGcZcoP0IMp2qLmCOAxnJR28C+LRnrKISS01bhd/THZdf+sg08r/TC/SRM1dIl
- bnmrWNcHji0BDMZGNzGxqkjx7y7pFjenjr0duKNMpw2kIpyDIfcd81EPJ+p1jwMdLImels0Kc9q
- 8OVODeNGdCRC33VgQfBId4erOzbwpGr1XisGMuvj9Qp9RSWkHfhBiGvcl2gUGn6lpl9ZxGairbL
- pnvy0yz4vscFJx3EW1PgNWOrF1ZQSSFtOtkXc2BcYrfsF9ionXHSofv3z8fs4aXz/B0KSNZhak8
- t3J6scRq8IcjCA5Pq6MlCo8X+x3EsbJoW7hX6HyPU9MKAWHY
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_084612_390923_B1ABAE9B 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260416_084940_833582_A2044D0B 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,35 +78,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 16 Apr 2026 21:00:08 +0800, Felix Gu wrote:
-> spi: mtk-snfi: fix memory leak in probe
+The commit c8079f83e0bf ("gpio: rockchip: convert to dynamic GPIO base
+allocation") broke GPIO on devices using device trees which don't set
+the gpio-ranges property, something only Rockchip RK35xx SoC DTs do.
 
-Applied to
+On a Rockchip RK3399 device something like following is now observed:
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.1
+[    0.082771] rockchip-gpio ff720000.gpio: probed /pinctrl/gpio@ff720000
+[    0.083531] rockchip-gpio ff730000.gpio: probed /pinctrl/gpio@ff730000
+[    0.084110] rockchip-gpio ff780000.gpio: probed /pinctrl/gpio@ff780000
+[    0.084746] rockchip-gpio ff788000.gpio: probed /pinctrl/gpio@ff788000
+[    0.085389] rockchip-gpio ff790000.gpio: probed /pinctrl/gpio@ff790000
+--
+[    0.212208] rockchip-pinctrl pinctrl: pin 637 is not registered so it cannot be requested
+[    0.212271] rockchip-pinctrl pinctrl: error -EINVAL: pin-637 (gpio3:637)
+[    0.212344] leds-gpio leds: error -EINVAL: Failed to get GPIO '/leds/led-0'
+[    0.212389] leds-gpio leds: probe with driver leds-gpio failed with error -22
+--
+[    0.607545] rockchip-pinctrl pinctrl: pin 519 is not registered so it cannot be requested
+[    0.608775] rockchip-pinctrl pinctrl: error -EINVAL: pin-519 (gpio0:519)
+[    0.610003] dwmmc_rockchip fe320000.mmc: probe with driver dwmmc_rockchip failed with error -22
+--
+[    0.805882] rockchip-pinctrl pinctrl: pin 547 is not registered so it cannot be requested
+[    0.806672] rockchip-pinctrl pinctrl: error -EINVAL: pin-547 (gpio1:547)
+[    0.807301] reg-fixed-voltage regulator-vbus-typec: error -EINVAL: can't get GPIO
+[    0.807307] rockchip-pinctrl pinctrl: pin 602 is not registered so it cannot be requested
+[    0.807970] reg-fixed-voltage regulator-vbus-typec: probe with driver reg-fixed-voltage failed with error -22
+[    0.808692] rockchip-pinctrl pinctrl: error -EINVAL: pin-602 (gpio2:602)
+[    0.810279] reg-fixed-voltage regulator-vcc3v3-pcie: error -EINVAL: can't get GPIO
+[    0.810284] rockchip-pinctrl pinctrl: pin 665 is not registered so it cannot be requested
+[    0.810299] rockchip-pinctrl pinctrl: error -EINVAL: pin-665 (gpio4:665)
+[    0.810960] reg-fixed-voltage regulator-vcc3v3-pcie: probe with driver reg-fixed-voltage failed with error -22
+[    0.811679] reg-fixed-voltage regulator-vcc5v0-host: error -EINVAL: can't get GPIO
+[    0.813943] reg-fixed-voltage regulator-vcc5v0-host: probe with driver reg-fixed-voltage failed with error -22
+--
+[    0.867788] rockchip-pinctrl pinctrl: pin 522 is not registered so it cannot be requested
+[    0.868537] rockchip-pinctrl pinctrl: error -EINVAL: pin-522 (gpio0:522)
+[    0.869166] pwrseq_simple sdio-pwrseq: error -EINVAL: reset GPIOs not ready
+[    0.869798] pwrseq_simple sdio-pwrseq: probe with driver pwrseq_simple failed with error -22
+--
+[    0.940365] rockchip-pinctrl pinctrl: pin 623 is not registered so it cannot be requested
+[    0.941084] rockchip-pinctrl pinctrl: error -EINVAL: pin-623 (gpio3:623)
+[    0.941823] rk_gmac-dwmac fe300000.ethernet: error -EINVAL: Cannot register the MDIO bus
+[    0.942542] rk_gmac-dwmac fe300000.ethernet: error -EINVAL: MDIO bus (id: 0) registration failed
+[    0.943772] rk_gmac-dwmac fe300000.ethernet: probe with driver rk_gmac-dwmac failed with error -22
 
-Thanks!
+Restore GPIO to a working state on devices using older Rockchip SoCs
+and/or DTs not having the gpio-ranges property set by restoring prior
+use of bank->pin_base as the pin_offset value.
 
-[1/1] spi: mtk-snfi: fix memory leak in probe
-      https://git.kernel.org/broonie/spi/c/51942b77f443
+Also change to use bank->nr_pins as the npins value to align and prevent
+a possible future breakage if gc->ngpio is ever changed to match the 32
+GPIOs each controller theoretically can handle.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+Fixes: c8079f83e0bf ("gpio: rockchip: convert to dynamic GPIO base allocation")
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+---
+ drivers/gpio/gpio-rockchip.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+diff --git a/drivers/gpio/gpio-rockchip.c b/drivers/gpio/gpio-rockchip.c
+index 08ea64434f8f..44d7ebd12724 100644
+--- a/drivers/gpio/gpio-rockchip.c
++++ b/drivers/gpio/gpio-rockchip.c
+@@ -617,7 +617,7 @@ static int rockchip_gpiolib_register(struct rockchip_pin_bank *bank)
+ 			return -ENODEV;
+ 
+ 		ret = gpiochip_add_pin_range(gc, dev_name(pctldev->dev), 0,
+-					     gc->base, gc->ngpio);
++					     bank->pin_base, bank->nr_pins);
+ 		if (ret) {
+ 			dev_err(bank->dev, "Failed to add pin range\n");
+ 			goto fail;
+-- 
+2.53.0
 
 
