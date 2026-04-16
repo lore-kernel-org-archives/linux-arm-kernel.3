@@ -4,103 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A555F8A171
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 13:40:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5C8FF8A171
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 13:41:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O1sTpd7zgs6A8RDoBfZLFLWJ7N8U8AmlZljaetEWitc=; b=ggaTAM21RPqaCRvigcMDnju5cN
-	kS/yqwv6ny8C2hvKILZjdTRCgPWEGDHLSbWxGZ0DGSfCKpwjviOOey9jS7KEAW7li6lPoJdw5l39P
-	rYGl2U4bN4uWK6e/A6L3jR/QMolMuqBRMZIslptemo9P+MAz3jBgQ0gfNm56MUPk91erTjM6tXRlU
-	1yo6ScGeP8PAyR3Tl9e7ZuXkXohe22NLYg4UfeRD+b3O24j7dluAh+DGxV5xgidz6jmQJj7z8dIy1
-	86GHwYzD4qrEy2HbYhepCuo0NYBdL7OtqX7eFRXNuem2WmyQGID9La7L1TeLY+KeFIWF6+uf2/zPL
-	qkPsoEUw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JmeDH1C+TChiUEEAvCZY7BpLUkWXbXyiCVPuzrN7nzw=; b=CpIeHc6nrcCqfxSIq/MU5TTiML
+	z6byZIz5hR17Mgw8QdBKTgE2l3+YRaCx6KhzXQ217m33EDIYijlYPs0nqy6gamtFFyI92f6lLImGE
+	wd2lE91kapYAo8/MNTNa6x9i4hPTdEkK3L9L+q0ITmIEbgzRk9K79U5MnCHPhtIvAgfqoB+5VRI76
+	Tl6oHgKWfCHCkX0Q9IACy4apD655ojFNjIeg8voBaLbuK4mv3hjGErUmSRPB1op0lxe2zX9PofgVh
+	lgIooFNhmuzT/lMSFB0Ph5FKiBSOLUbqWFoMwtwl78EIKw3LlrVXEoTJ8rZh/eLNXMKPWCpI+XWHm
+	DEhKRP0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDMx9-00000002Vdn-3jsm;
-	Thu, 16 Apr 2026 13:40:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wDMxp-00000002ViK-12zn;
+	Thu, 16 Apr 2026 13:41:01 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDMx7-00000002Vdg-47CE
+	id 1wDMxl-00000002VhF-2eIb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 13:40:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0706B60128;
-	Thu, 16 Apr 2026 13:40:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 524C0C2BCB3;
-	Thu, 16 Apr 2026 13:40:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776346816;
-	bh=0NpdKvM+D6ZzMOSi3MCcQoz79uQMzAPRQOfP9LfksO0=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=qPpT1hSj5WKfgNwaXLDH60GMIxQywunHEShZB3TzdogGITiATESBQUQEzL8n+ymXn
-	 fzSGBAb0yHhzH4J5zEkJ4BmU1o5re5u74WvmULWHzjMADqLtAKpP9YX2xt7wzZ4giA
-	 CqwpgyHTjRWrOTU4IGfeOszAj0ZZBQBr2Bq2eRZhyH+QZaOsYuUJFDB/yrsd1qaaAE
-	 kvyQ5mfy8nSKm1J1LLod/Y4wDQxVYuq2FlYUnuCAOMgyCu3oiPrch7SFBnric2c1UB
-	 OfHKFOPNovN4ujG0MRzvtpI7jdGceoOyV+UX6TkQuHwe8M6HTiJ/xZ1i7deEFTL55w
-	 zcuCmp+cnCtOw==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 64F25F4006D;
-	Thu, 16 Apr 2026 09:40:15 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-01.internal (MEProxy); Thu, 16 Apr 2026 09:40:15 -0400
-X-ME-Sender: <xms:v-bgaS5Aha0NUk2vcC7vjuJ883wVPYXa_rHZ2EDIWnOgTmX3mZGDaQ>
-    <xme:v-bgaWt7XIPZM8eXZXYRdQEH-Ew2X-0qGeZaiGXjCx-9EqDZBef-3GlaAfoLV_IUo
-    Ot8GqoCVcPb_WfIbo3VOyeBLz8l6tTLa9wTabw9h7o519BDPBTY6V3R>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdegjeduhecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhguuceu
-    ihgvshhhvghuvhgvlhdfuceorghruggssehkvghrnhgvlhdrohhrgheqnecuggftrfgrth
-    htvghrnhepjefhteevheevhfetkeeglefftdfggfdvtdekgeduvddvudduvdeiteejffev
-    feejnecuffhomhgrihhnpehgihhthhhusgdrtghomhenucevlhhushhtvghrufhiiigvpe
-    dtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhguodhmvghsmhhtphgruhhthhhpvghr
-    shhonhgrlhhithihqdduieejtdehtddtjeelqdeffedvudeigeduhedqrghruggspeepkh
-    gvrhhnvghlrdhorhhgseifohhrkhhofhgrrhgurdgtohhmpdhnsggprhgtphhtthhopedu
-    fedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinh
-    grshesrghrmhdrtghomhdprhgtphhtthhopehmrghrkhdrrhhuthhlrghnugesrghrmhdr
-    tghomhdprhgtphhtthhopehrohgsihhnrdhmuhhrphhhhiesrghrmhdrtghomhdprhgtph
-    htthhopeihuhhkuhgrihesfhhnnhgrshdrtghomhdprhgtphhtthhopeguvghmhigrnhhs
-    hhesghhmrghilhdrtghomhdprhgtphhtthhopehlihhnrghnuddvvdeshhhurgifvghird
-    gtohhmpdhrtghpthhtohepsghrohhonhhivgeskhgvrhhnvghlrdhorhhgpdhrtghpthht
-    ohepshhonhhgsehkvghrnhgvlhdrohhrghdprhgtphhtthhopeifihhllheskhgvrhhnvg
-    hlrdhorhhg
-X-ME-Proxy: <xmx:v-bgaQqld1-38blCmpDeA4NjkfVsn42TQcrK4U4WkNuoMhvGk61m4Q>
-    <xmx:v-bgaaU0NpMKJeKioDdDOZ2UqyZcIwNY6Ws5tPXBUA2IM8NX-ny50g>
-    <xmx:v-bgad3188ZkE_nU_Xpj0z8tb0bABNVOVSgJGPThv3i7WAWc2KB1ug>
-    <xmx:v-bgaZSEAGOGrl_DKacd0sp4W62kmqlfxa0VhIf5M8pcjgqgMCjv0Q>
-    <xmx:v-bgaRTzL05UME20sGgNj8ZInmhGttlEBj-tox9OyrGGFG5HMzB53Mxn>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 332E1700065; Thu, 16 Apr 2026 09:40:15 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 16 Apr 2026 13:40:59 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id ABC7AC5C3CC;
+	Thu, 16 Apr 2026 13:41:33 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 9201B60495;
+	Thu, 16 Apr 2026 13:40:55 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BCAE3104591FB;
+	Thu, 16 Apr 2026 15:40:50 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1776346854; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=JmeDH1C+TChiUEEAvCZY7BpLUkWXbXyiCVPuzrN7nzw=;
+	b=M85td3UB9vvYAePJgAnZ5ZFLUg79jXMMfletwmbRmgvEMoUihQVvC9PrTs9G79QIkClkzt
+	b5IVstW7A90vWQEogjezjhhpM3LQ6GI8pyT54Sda0d9F0koUB9wr7syjrhrxZNDh/HzdTw
+	/eI5/tjZ8oJ9+cjbvdLxSbLtPE6Yb1Q5jrMcfg9D2zFoCm1Qbru5vfvpusCuJl7xqc7AtW
+	v7J9lrRbDh0krg+AoibOLqiC/MkOIVW9HFbNKeMGaRb48Ym+dWYeuTyvgGDchNKbHwY1j9
+	LM76lkBWk14rLnKHo2Fc4iJ7EeOqbLjngDPviJ/1U4iEI3AweBwELFpB5ESxzA==
+From: Richard Genoud <richard.genoud@bootlin.com>
+To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Paul Kocialkowski <paulk@sys-base.io>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	John Stultz <jstultz@google.com>,
+	Joao Schim <joao@schimsalabim.eu>,
+	bigunclemax@gmail.com,
+	linux-pwm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Richard Genoud <richard.genoud@bootlin.com>
+Subject: [PATCH v6 0/4] Introduce Allwinner H616 PWM controller
+Date: Thu, 16 Apr 2026 15:40:33 +0200
+Message-ID: <20260416134037.3160537-1-richard.genoud@bootlin.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Date: Thu, 16 Apr 2026 15:39:53 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Demian Shulhan" <demyansh@gmail.com>, "Christoph Hellwig" <hch@lst.de>
-Cc: "Mark Rutland" <mark.rutland@arm.com>, "Song Liu" <song@kernel.org>,
- "Yu Kuai" <yukuai@fnnas.com>, "Will Deacon" <will@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Mark Brown" <broonie@kernel.org>, linux-arm-kernel@lists.infradead.org,
- "Robin Murphy" <robin.murphy@arm.com>, "Li Nan" <linan122@huawei.com>,
- linux-raid@vger.kernel.org, linux-kernel@vger.kernel.org
-Message-Id: <5158e4e0-3275-4c29-a8fc-2dfabc13a69d@app.fastmail.com>
-In-Reply-To: <CAOLeWCtxPk7q_bVvrcKaipSKr+_=57Auobcj0cFRvXxXMdH58g@mail.gmail.com>
-References: <20260318150245.3080719-1-demyansh@gmail.com>
- <f9bc0534-4b7a-4b14-974b-4d7811ccd899@app.fastmail.com>
- <acJhCCPfVxjFUZ5R@J2N7QTR9R3>
- <CAOLeWCsxhzdxQviizJ4X4VOp_28LCtO-RjWoCcZG29rQw86NVg@mail.gmail.com>
- <9a12e043-8200-4650-bfe2-cbece57a4f87@app.fastmail.com>
- <20260331063659.GA2061@lst.de>
- <CAOLeWCtnZz=kHGk4C2f9Mbfi3tEBE100iCkMBhcG47dmR9eDWw@mail.gmail.com>
- <CAOLeWCtxPk7q_bVvrcKaipSKr+_=57Auobcj0cFRvXxXMdH58g@mail.gmail.com>
-Subject: Re: [PATCH v2] raid6: arm64: add SVE optimized implementation for syndrome
- generation
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260416_064057_957279_D6DE5B24 
+X-CRM114-Status: GOOD (  23.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,138 +87,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Demian,
+Allwinner H616 PWM controller is quite different from the A10 one.
 
-On Thu, 16 Apr 2026, at 14:40, Demian Shulhan wrote:
-> Hi all,
->
-> Sorry for the delay. The tests became more complex than I initially
-> thought, so I needed to gather more data and properly validate the
-> results across different hardware configurations.
->
-> Firstly, I want to clarify the results from my March 29 tests. I found
-> a flaw in my initial custom benchmark. The massive 2x throughput gap on
-> 24 disks wasn't solely due to SVE's superiority, but rather a severe L1
-> D-Cache thrashing issue that disproportionately penalized NEON.
->
-> My custom test lacked memset() initialization, causing all data buffers
-> to map to the Linux Zero Page (Virtually Indexed, Physically Tagged
-> cache aliasing).
+It can drive 6 PWM channels, and like for the A10, each channel has a
+bypass that permits to output a clock, bypassing the PWM logic, when
+enabled.
 
-D-caches always behave as PIPT on arm64. This is complex stuff, so please
-don't present conjecture as fact.
+But, the channels are paired 2 by 2, sharing a first set of
+MUX/prescaler/gate.
+Then, for each channel, there's another prescaler (that will be bypassed
+if the bypass is enabled for this channel).
 
-> Furthermore, even with memset(), allocating contiguous
-> page-aligned buffers can causes severe Cache Address Sharing (a known
-> issue that Andrea Mazzoleni solved in SnapRAID 13 years ago using
-> RAID_MALLOC_DISPLACEMENT).
->
-> Because SVE (svex4) uses 256-bit registers on Neoverse-V1, it performs
-> exactly half the number of memory load instructions compared to 128-bit
-> NEON. This dramatically reduced the L1 cache alias thrashing, allowing
-> SVE to survive the memory bottleneck while NEON choked:
->
+It looks like that:
+            _____      ______      ________
+OSC24M --->|     |    |      |    |        |
+APB1 ----->| Mux |--->| Gate |--->| /div_m |-----> PWM_clock_src_xy
+           |_____|    |______|    |________|
+                          ________
+                         |        |
+                      +->| /div_k |---> PWM_clock_x
+                      |  |________|
+                      |    ______
+                      |   |      |
+                      +-->| Gate |----> PWM_bypass_clock_x
+                      |   |______|
+PWM_clock_src_xy -----+   ________
+                      |  |        |
+                      +->| /div_k |---> PWM_clock_y
+                      |  |________|
+                      |    ______
+                      |   |      |
+                      +-->| Gate |----> PWM_bypass_clock_y
+                          |______|
 
-You are drawing some conclusions here without disclosing the actual
-information that you based this on. D-caches are non-aliasing on arm64.
+Where xy can be 0/1, 2/3, 4/5
 
-So what exactly did you fix in your test case?
+PWM_clock_x/y serve for the PWM purpose.
+PWM_bypass_clock_x/y serve for the clock-provider purpose.
+The common clock framework has been used to manage those clocks.
 
-> Custom test without memset (4kb block):
->  | algo=neonx4 ndisks=24 iterations=1M time=11.014s MB/s=7802.57
->  | algo=svex4  ndisks=24 iterations=1M time=5.719s  MB/s=15026.92
->
+This PWM driver serves as a clock-provider for PWM_bypass_clocks.
+This is needed for example by the embedded AC300 PHY which clock comes
+from PMW5 pin (PB12).
 
-This is the result where all data buffer pointers point to the same
-memory, right? I.e., the zero page? So this is an unrealistic use
-case that we can disregard.
+Usually, to get a clock from a PWM driver, we use the pwm-clock driver
+so that the PWM driver doesn't need to be a clk-provider itself.
+While this works in most cases, here it just doesn't.
+That's because the pwm-clock request a period from the PWM driver,
+without any clue that it actually wants a clock at a specific frequency,
+and not a PWM signal with duty cycle capability.
+So, the PWM driver doesn't know if it can use the bypass or not, it
+doesn't even have the real accurate frequency information (23809524 Hz
+instead of 24MHz) because PWM drivers only deal with periods.
 
-> Custom test with memset (4kb block):
->  | algo=neonx4 ndisks=24 iterations=1M time=6.165s  MB/s=13939.08
->  | algo=svex4  ndisks=24 iterations=1M time=5.839s  MB/s=14718.23
->
-> Even with the corrected memory setup, the throughput gap narrowed, but
-> the fundamental CPU-efficiency result remained fully intact.
->
+With pwm-clock, we loose a precious information along the way (that we
+actually want a clock and not a PWM signal).
+That's ok with simple PWM drivers that don't have multiple input clocks,
+but in this case, without this information, we can't know for sure which
+clock to use.
+And here, for instance, if we ask for a 24MHz clock, pwm-clock will
+requests 42ns (assigned-clocks doesn't help for that matter). The logic
+is to select the highest clock (100MHz) with no prescaler and a duty
+cycle value of 2/4 => we have 25MHz instead of 24MHz.
+And that's a perfectly fine choice for a PMW, because we still can
+change the duty cycle in the range [0-4]/4.
+But obviously for a clock, we don't care about the duty cycle, but more
+about the clock accuracy.
 
-Sorry but your result that SVE is 2x faster does not remain fully intact,
-right? Given that the speedup is now 5.5%?
+And actually, this PWM is really a PWM AND a real clock when the bypass
+is set.
 
-Should we just disregard the above results (and explanations) and focus
-on the stuff below?
+This series is based onto v7.0
 
-> To completely isolate these variables and provide accurate real-world
-> data, the following test campaigns were done based on the SnapRAID
-> project (https://github.com/amadvance/snapraid) using its
-> perf_bench.c tool with proper memory displacement and a 256 KiB block
-> size.
->
-> Test configurations:
-> - c7g.medium (AWS Graviton3, 1 vCPU): Neoverse-V1, 256-bit SVE
-> - c7g.xlarge (AWS Graviton3, 4 vCPUs): Neoverse-V1, 256-bit SVE
-> - c8g.xlarge (AWS Graviton4, 4 vCPUs): Neoverse-V2, 128-bit SVE
->
->
-> =========================================================
-> Section 1: SnapRAID Validation on Graviton3 / Neoverse-V1
-> =========================================================
->
-...
->
-> 1.3 Main Graviton3 Conclusions
->  - On 256-bit SVE hardware, svex4 consistently retires about ~34% fewer
->    instructions and ~10-15% fewer CPU cycles than neonx4.
->
-> =========================================================
-> Section 2: SnapRAID Validation on Graviton4 / Neoverse-V2
-> =========================================================
->
-...
->
-> 2.3 Main Graviton4 Conclusions
->  - On Neoverse-V2, SVE vector length is 128-bit (same as NEON).
->  - Without the 256-bit width, NEON outperforms SVE.
->  - svex4 retires ~32% MORE instructions here and is consistently slower.
->
-> =========================================================
-> Section 3: Validation on c7g.medium (1 vCPU)
-> =========================================================
->
-...
-> 3.3 Main c7g.medium Conclusions
->  - The instruction count reduction (~34%) perfectly matches the 4-vCPU
->    instance.
->  - The single vCPU is heavily memory-bandwidth constrained (cycle counts
->    are much higher waiting for RAM).
->
+NB: checkpatch is not happy with patch 2, but it's a false positive.
+It doesn't detect that PWM_XY_SRC_MUX/GATE/DIV are structures, but as
+it's more readable like that, I prefer keeping it that way.
 
-OK, so the takeaway here is that SVE is only worth the hassle if the vector
-length is at least 256 bits. This is not entirely surprising, but given that
-Graviton4 went back to 128 bit vectors from 256, I wonder what the future
-expectation is here.
+Changes since v5:
+- remove trailing junk after commit message in patch 4
+- remove Tested-by when it doesn't make sense.
+(sorry for the noise)
 
-But having these numbers is definitely a good first step. Now we need to
-quantify the overhead associated with having kernel mode SVE state that
-needs to be preserved/restored.
+Changes since v4:
+- Fix a bug on bypass for channels greater than 1
+- add colons to clarify 2 debug messages
+- switch from H616 to sun8i prefix (in code, filename, module name)
+- fix consistency issues in macro parameters
+- rename some macros with a confusing naming
+- rebase on v7.0
 
-However, 10%-15% speedup that can only be achieved on SVE implementations
-with 256 bit vectors or more may not be that enticing in the end. (The
-fact that you are retiring 34% instructions less does not really matter
-here unless there is some meaningful SMT-like sharing of functional units
-going on in the meantime, which seems unlikely on a CPU that is maxed out
-on the data side)
+Changes since v3:
+- gather Acked-by/Tested-by
+- fix cast from pointer to integer of different size (kernel test robot
+  with arc platform)
+- add devm_action for clk_hw_unregister_composite as suggested by Philipp
+- remove now unused pwm_remove as suggested by Philipp
 
+Changes since v2:
+- use U32_MAX instead of defining UINT32_MAX
+- add a comment on U32_MAX usage in clk_round_rate()
+- change clk_table_div_m (use macros)
+- fix formatting (double space, superfluous comma, extra line feed)
+- fix the parent clock order
+- simplify code by using scoped_guard()
+- add missing const in to_h616_pwm_chip() and rename to
+h616_pwm_from_chip()
+- add/remove missing/superfluous error messages
+- rename cnt->period_ticks, duty_cnt->duty_ticks
+- fix PWM_PERIOD_MAX
+- add .remove() callback
+- fix DIV_ROUND_CLOSEST_ULL->DIV_ROUND_UP_ULL
+- add H616_ prefix
+- protect _reg in macros
+- switch to waveforms instead of apply/get_state
+- shrink struct h616_pwm_channel
+- rebase on v6.19-rc4
 
-> =========================================================
-> Section 4: The Pitfalls of the Current Kernel Benchmark
-> =========================================================
->
+Changes since v1:
+- rebase onto v6.19-rc1
+- add missing headers
+- remove MODULE_ALIAS (suggested by Krzysztof)
+- use sun4i-pwm binding instead of creating a new one (suggested by Krzysztof)
+- retrieve the parent clocks from the devicetree
+- switch num_parents to unsigned int
 
-These results seem very relevant - perhaps Christoph can give some guidance
-on how we might use these to improve the built-in benchmarks to be more
-accurate.
+Richard Genoud (4):
+  dt-bindings: pwm: allwinner: add h616 pwm compatible
+  pwm: sun8i: Add H616 PWM support
+  arm64: dts: allwinner: h616: add PWM controller
+  MAINTAINERS: Add entry on Allwinner sun8i/H616 PWM driver
+
+ .../bindings/pwm/allwinner,sun4i-a10-pwm.yaml |  19 +-
+ MAINTAINERS                                   |   5 +
+ .../arm64/boot/dts/allwinner/sun50i-h616.dtsi |  47 +
+ drivers/pwm/Kconfig                           |  12 +
+ drivers/pwm/Makefile                          |   1 +
+ drivers/pwm/pwm-sun8i.c                       | 938 ++++++++++++++++++
+ 6 files changed, 1021 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/pwm/pwm-sun8i.c
 
 
-Thanks,
-
+base-commit: 028ef9c96e96197026887c0f092424679298aae8
 
