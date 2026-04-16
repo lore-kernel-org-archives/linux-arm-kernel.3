@@ -4,70 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 196C7F8D750
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 14:23:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EF84F8D757
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 14:58:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+l7kv+rSnvW+MHciA/lpab1uUs3dd1TMko96Ol/cH48=; b=c1/xILwe0/6OkYzCr6JRx1DXqb
-	wNLM6nRpTsMKYd8twvhRkK9VOFzvKNgmmY9QBtSuNpWLq8IfaOcT8y+xQGi3CRO12ze4We7m8vMN0
-	+G70bKBC38NaLRHKT0zc8gRHZVwsgkFnWenKIWvncO45ilnMabdjRTorUCflls89EKV3eRrWW7JIC
-	FjxIfWpfel0JyO1fcN6gTrx70yw1iz+G+6pILQe8VFS2X8k2FGjK+QrkAypExoL8wXWsfsq6klrTP
-	gyAszw07rKG7NuxAIj+RaXHfpXRrj7iOPtl5b1Yx8udX8/V0/yOj40mp513xmh2EZAhfubjxUD92A
-	qd+NHvYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IiFTqNRsW+CS1xyti7DFe/0/7O0KPEJESBzPaT2EaKY=; b=1aStTkr/WJzYVR9vDXxHKEfOw3
+	pj2crCzaZEd1JSybSTqqYCfCqlRSirBwbg0UXzFvrD2qXRlsiFbUZqK0w2jzYVK7BkvreXk8fFqC/
+	If83tBTvQ9IZMV8Au8f9X0V15xTS3V3V2d1Nf8cMmHY/ZkK4+QM1/Xd6LTFObxy0jh1qFbBJlZ32g
+	BvhVJolfj6h7AfOJ3q2cTTH5G9gC9g0pvSZVh5wdfvWn8UMOJX+1eK1cqhpRziuqcHk1tWWlIiqXG
+	Fh73Hps7Yw45vtju4x9P4h1qjv6cLCisaAjPRLMnQev6TmMYfcen8m1MeUz2SZ/JmhFunLC/gPLVa
+	/tEyo/JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDNcn-00000002YkN-2EtC;
-	Thu, 16 Apr 2026 14:23:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wDOAZ-00000002aAi-2rqX;
+	Thu, 16 Apr 2026 14:58:15 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDNcm-00000002YkB-3BX1;
-	Thu, 16 Apr 2026 14:23:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1E1D560127;
-	Thu, 16 Apr 2026 14:23:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE7B6C2BCAF;
-	Thu, 16 Apr 2026 14:23:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776349399;
-	bh=opPcvVlYuRkjUIo32RRgDtwtOOlKtMIz0mFBSIY2WOY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jVrlTw+ieUMT7xieZztjtWdV9B4SLOVadxtgetiQvQ10dPMK3yLwWgFj/ErgtsypQ
-	 7K6oCS1unszJLViIhMWpRKmXQYvBNHQB+83K+8jiMmibL/Tbf8Zuc5OpN7Q6YBeEvP
-	 CM0r12aTEh4AHtIaRKhKAUsOV+NkWA3uozMpCQcGw7E5wrsZzgE8ajythEAEyzyet3
-	 wV125yHnUauN3vOpKQGpiIlfIqy7ggqjLtuvB8QtFPG+GPMmrC0ORLPaG6xYAUvruB
-	 zir98diHX3X34+aUz3CNNDJK2RteQHg68tYu7ll/ULdr9O+6R7fOkgOHEUJKlFKveD
-	 3t27gyXEZoPXg==
-Date: Thu, 16 Apr 2026 15:23:13 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Cyril Chao <Cyril.Chao@mediatek.com>, Arnd Bergmann <arnd@arndb.de>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
-	Eugen Hristev <eugen.hristev@linaro.org>,
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 5/9] ASoC: mediatek: mt2701: add HDMI audio memif, FE and
- BE DAIs
-Message-ID: <4601e621-69f3-44f2-8a77-37d53b5daca5@sirena.org.uk>
-References: <cover.1776265610.git.daniel@makrotopia.org>
- <975f39291cffc5d3f201d2ec7fdc2cfdd1fed6aa.1776265610.git.daniel@makrotopia.org>
+	id 1wDOAX-00000002aAN-0V6X
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Apr 2026 14:58:14 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63FNsdiF123217;
+	Thu, 16 Apr 2026 14:57:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=IiFTqN
+	RsW+CS1xyti7DFe/0/7O0KPEJESBzPaT2EaKY=; b=OEwhZ5K5GzpnqOsL6J8tzX
+	orFny0soLKWrR5LMVi98dWuUKoeVo3nn8171NgQ+qgYRyLyg4cGQxwgKtnJ21+Be
+	cqjlyIMt2Ig6vIRSwDJijFtP4G1rGQsR3yWocHYn1f5FZlqqq5JoOc/ey3FDzSOK
+	mesMB73/4dE3k7mWs59ei41cfj5EcpDqJGLAnjjRE7fm0FUPeAtHhRshqkXauMJ5
+	W6GGVg7t5GXWBSQbCRrQbK+PolaU1gDmv/6bt9vm1mXBFbm1LKWYC2Cstd2jb4Rz
+	olFlWGIUs2U7XLCrC+Niz357DACz608+ogPr8MWII8xnxBn/DWKM8NagLXvjqaiQ
+	==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dh89pn4wh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 16 Apr 2026 14:57:46 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 63GBGvSx015206;
+	Thu, 16 Apr 2026 14:57:45 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4dg0msuhkh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 16 Apr 2026 14:57:45 +0000
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63GEviiY44040564
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 16 Apr 2026 14:57:44 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 044E920043;
+	Thu, 16 Apr 2026 14:57:44 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 207B820040;
+	Thu, 16 Apr 2026 14:57:43 +0000 (GMT)
+Received: from [9.111.199.83] (unknown [9.111.199.83])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 16 Apr 2026 14:57:43 +0000 (GMT)
+Message-ID: <52b8f4c6-baa6-4163-8dbd-4b0789389455@linux.ibm.com>
+Date: Thu, 16 Apr 2026 16:57:40 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="jxRr5EZNrsglGDN6"
-Content-Disposition: inline
-In-Reply-To: <975f39291cffc5d3f201d2ec7fdc2cfdd1fed6aa.1776265610.git.daniel@makrotopia.org>
-X-Cookie: Process promptly.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 5/8] sframe: Allow unsorted FDEs.
+To: Dylan Hatch <dylanbhatch@google.com>,
+        Roman Gushchin <roman.gushchin@linux.dev>,
+        Weinan Liu <wnliu@google.com>, Will Deacon <will@kernel.org>,
+        Josh Poimboeuf <jpoimboe@kernel.org>,
+        Indu Bhagat <indu.bhagat@oracle.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Steven Rostedt <rostedt@goodmis.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Jiri Kosina <jikos@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+        Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+        Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>,
+        joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org,
+        linux-kernel@vger.kernel.org, live-patching@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        Heiko Carstens <hca@linux.ibm.com>
+References: <20260406185000.1378082-1-dylanbhatch@google.com>
+ <20260406185000.1378082-6-dylanbhatch@google.com>
+Content-Language: en-US
+From: Jens Remus <jremus@linux.ibm.com>
+Organization: IBM Deutschland Research & Development GmbH
+In-Reply-To: <20260406185000.1378082-6-dylanbhatch@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: ZM9UdjMfRQTtwPFkdWXaQp2GrTAo940S
+X-Proofpoint-ORIG-GUID: YfFfJ_XYa4519ZbQXfQQ9UzoQjC4ENhB
+X-Authority-Analysis: v=2.4 cv=WbE8rUhX c=1 sm=1 tr=0 ts=69e0f8eb cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8
+ a=1XWaLZrsAAAA:8 a=LFt20mCCc4CE-LtB3JUA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE2MDEzNyBTYWx0ZWRfXwHEumePO8J3y
+ +bEHaemOIo9ZzaNBvXdmjlh1I7YlodIIZ/JXgqyJc1jYGRLACpwnznCPgaqx6IbKbWPzSe9zAsV
+ SvviQYO6I0WO6pVbojGXktjEE73Msfz1+H1rgdZ5IOdIlNoYZHf401kgFrHgicutvvZMb+x5B+M
+ 0eB+R4DrbgPsPCj1LyafgubYeEEQyS7qZ58MUXIikdb30EYr0J3wV9wx0B/uH6Obmn5Zr6yUL6D
+ bLaKn3TNiL14x9A+wRDEpZAjggto9tc8d9gGfLAydBht0PK2OuQLkOOTFHnqY4a9cKi99kDK2M2
+ xR/Qo577BcxhQnc8yVNtEoXjJW+ZZwZNIh8yIVq7dcllxF1dfFpXVwXEqtOHzVPNrIVJmCV9csm
+ 19NMbEjojO+hDNAiN3A4sqxx4yFnDkM3+RTjcr+1DksCFjMrVpAXUInYKz/PgsFIpPUnC31OxKG
+ dMzZXrrbVuhhjq7Flow==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-16_03,2026-04-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 bulkscore=0 priorityscore=1501 spamscore=0 clxscore=1015
+ phishscore=0 impostorscore=0 adultscore=0 malwarescore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604160137
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260416_075813_278326_048972F8 
+X-CRM114-Status: GOOD (  17.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,55 +135,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 4/6/2026 8:49 PM, Dylan Hatch wrote:
+> The .sframe in kernel modules is built without SFRAME_F_FDE_SORTED set.
+> In order to allow sframe PC lookup in modules, add a code path to handle
+> unsorted FDE tables by doing a simple linear search.
+> 
+> Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
 
---jxRr5EZNrsglGDN6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+With my below two minor comments considered:
 
-On Wed, Apr 15, 2026 at 04:23:59PM +0100, Daniel Golle wrote:
-> Extend the MT2701/MT7623N AFE driver with the HDMI playback path:
+Reviewed-by: Jens Remus <jremus@linux.ibm.com>
 
-> +static int mt2701_afe_hdmi_hw_params(struct snd_pcm_substream *substream,
-> +				     struct snd_pcm_hw_params *params,
-> +				     struct snd_soc_dai *dai)
+> diff --git a/include/linux/sframe.h b/include/linux/sframe.h
+
+> @@ -64,6 +64,7 @@ struct sframe_section {
+>  	unsigned long		text_start;
+>  	unsigned long		text_end;
+>  
+> +	bool			fdes_sorted;
+>  	unsigned long		fdes_start;
+>  	unsigned long		fres_start;
+>  	unsigned long		fres_end;
+
+The struct would be smaller if the bool fdes_sorted flag would be
+inserted after the unsigned int num_fdes field:
+
+$ pahole -C sframe_section kernel/unwind/sframe.o
+
+Yours:
+size: 96
+
+With bool fdes_sorted moved after unsigned int num_fdes:
+size: 88
+
+> diff --git a/kernel/unwind/sframe.c b/kernel/unwind/sframe.c
+
+> @@ -179,9 +179,34 @@ static __always_inline int __read_fde(struct sframe_section *sec,
+>  	return -EFAULT;
+>  }
+>  
+> -static __always_inline int __find_fde(struct sframe_section *sec,
+> -				      unsigned long ip,
+> -				      struct sframe_fde_internal *fde)
+> +static __always_inline int __find_fde_unsorted(struct sframe_section *sec,
+> +					       unsigned long ip,
+> +					       struct sframe_fde_internal *fde)
 > +{
+> +	struct sframe_fde_v3 *cur, *start, *end;
+> +
+> +	start = (struct sframe_fde_v3 *)sec->fdes_start;
+> +	end = start + sec->num_fdes;
+> +
+> +	for (cur = start; cur < end; cur++) {
+> +		s64 func_off;
+> +		u32 func_size;
+> +		unsigned long func_addr;
+> +
+> +		DATA_GET(sec, func_off, &cur->func_start_off, s64, Efault);
+> +		DATA_GET(sec, func_size, &cur->func_size, u32, Efault);
+> +		func_addr = (unsigned long)cur + func_off;
+> +
+> +		if (ip >= func_addr && ip < func_addr + func_size)
+> +			return __read_fde(sec, cur - start, fde);
+> +	}
 
-> +	/* Channel count into the HDMI output memif (bits [7:4]). */
-> +	regmap_update_bits(afe->regmap, AFE_HDMI_OUT_CON0,
-> +			   0x000000f0, channels << 4);
+__find_fde() (now __find_fde_sorted()) returns -EINVAL, if no FDE is found:
 
-Are the other fields guaranteed to be already set up properly?
+	return -EINVAL;
 
-> +	/*
-> +	 * 8-channel I2S framing: standard I2S, 32-bit slots,
-> +	 * LRCK/BCK inverted. The wire protocol is fixed.
-> +	 */
-> +	regmap_update_bits(afe->regmap, AFE_8CH_I2S_OUT_CON,
-> +			   AFE_8CH_I2S_OUT_CON_WLEN_MASK |
-> +			   AFE_8CH_I2S_OUT_CON_I2S_DELAY |
-> +			   AFE_8CH_I2S_OUT_CON_LRCK_INV |
-> +			   AFE_8CH_I2S_OUT_CON_BCK_INV,
-> +			   AFE_8CH_I2S_OUT_CON_WLEN_32BIT |
-> +			   AFE_8CH_I2S_OUT_CON_I2S_DELAY |
-> +			   AFE_8CH_I2S_OUT_CON_LRCK_INV |
-> +			   AFE_8CH_I2S_OUT_CON_BCK_INV);
+> +Efault:
+> +	return -EFAULT;
+> +}
+Regards,
+Jens
+-- 
+Jens Remus
+Linux on Z Development (D3303)
+jremus@de.ibm.com / jremus@linux.ibm.com
 
-Does this need suspend/resume handling?
+IBM Deutschland Research & Development GmbH; Vorsitzender des Aufsichtsrats: Wolfgang Wendt; Geschäftsführung: David Faller; Sitz der Gesellschaft: Ehningen; Registergericht: Amtsgericht Stuttgart, HRB 243294
+IBM Data Privacy Statement: https://www.ibm.com/privacy/
 
---jxRr5EZNrsglGDN6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmng8NAACgkQJNaLcl1U
-h9Dn3wf+Mnx8MVoz/CoB0OxIak3Sw/h8KczHapNPRJnhvDiRg4IpMHe539ZCHTwX
-6fAQBc1V8g1+G/Up6I639OfuGz026oE9/V93dWIKJRYE8NhPi3cUXi3/GjXAXn/H
-LgTZa7BudOMrHznrHlottyg4Y97CDNJXegfoD+lh3D6zoPoMdjjnFgHTmZ1lYeMW
-Mg31QIIls9Optj4OAYqHuju/70vVXGAyH9tvijMo/WFsxt8rzjRgvLQGrA/ZiRAl
-XGRUq5w/a0eB3i6OcUkeo8OiGssjUVRcQMdzqPBox0HyQNKVcIWgY8O4pP7bJGpU
-rfvO0oI2IN/iTzTORd+PAeO9QPQtaQ==
-=WwxQ
------END PGP SIGNATURE-----
-
---jxRr5EZNrsglGDN6--
 
