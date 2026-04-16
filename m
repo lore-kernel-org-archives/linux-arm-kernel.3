@@ -4,83 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC5B3F8A15B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 10:49:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12F47F8A14D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 10:49:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=p+BdHshRdDBzIgmYo7x3AfQXwIjmxwkuyzWSkGfreww=; b=R/+Z4VxrxhGrRMqUKy7bMZu5Iv
-	AIZqWarQvgtRuh1XBGSiR8jx/pkxaAycHYK+jUFTMGnnNpIPKnx/1nxUS1tw9BYq2hEqzfVeXRLDA
-	rE26jXQcwkM2lHN8gekaKmAUZsVb2CBcv28jglX2aRMgHY8MSBonbYavr/qWkjqiCFJ7+cdqOx9t1
-	Haikr7xr2iscAn65fNn+6C4go1yhHzfFpbKmmo3N5G2zCwVwAcbqKuuQnC20ydYbhzu1tHWiYc1DG
-	u4CHqmMN4jjicaqguM503XuaVdmOA1spquhBHZeX5oY40KoUN1bdT0qArMehqbY5z7CvSFVTRlKdq
-	3CBQxqXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iTecCTUOjCT2Rh+35c/jBL17rubrlvWXt7j7t5fyE4A=; b=SnHhn7PilIX9MdSlqAI/8Aaajz
+	K+HWhGCG68n3czVrDsnuAErLC7KIfbPTFBI/UjDyBv2ZEnNkkoM8ZkzSWG5pMlPZfD12qpbl3vI6Y
+	vSNPZKLdFAoP+HVmWiRUOfnGAa4QoiF0Mc1otQugTdCZQ7Pq5LQIF4y8pm/ll+JQti1vvkS0YkWYe
+	Jw8JNTu7Xmx4bcsbCA0bquXiQHxoOLQzlNOMpj1B/YibEJ1LLlVnYS2PXrkjPHoGXofZFDAXvs5a+
+	7dEHhoKK/3aijpsxCoDtn2NKBXUw3fShzjV+jE3nsXCP4RiX3Qzpa8L0pqfS2GO1TgMxGnGWPPkus
+	zw98SArg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDKHM-00000002KQN-3wBA;
-	Thu, 16 Apr 2026 10:49:00 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1wDKI4-00000002KUw-1Iul;
+	Thu, 16 Apr 2026 10:49:44 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDKHK-00000002KPp-3XUj
+	id 1wDKI1-00000002KUJ-1TaA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 10:49:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1776336539; x=1807872539;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=wXkfIYpS6b/Rm6RISVw0uD+Z7OPzR8Gm6AByQPr0xkc=;
-  b=NL84u2OhkPNfRRvfD2LrlBtc1gq/PwWguvNGirBaA/UqQOrbcrhkcbor
-   xaHltEeX/zdYcAjRNLEh6GurXigTSCv2mleSXyvFUzMI1viV/jSW5cLcx
-   kvxgSOWWRYL054ZibYtR41m7bWRz+y/2SduE/zsSBOh4bkbt0Ae+8z+Nk
-   Y80IpJ5LcDj/kTBG/anF2ouwCeuyv9gKesCx64oOZURIUAsCA6CSGhqjg
-   VGr1OfPu299HBBOgOs6u/ZnPLGUD+4ToSTfOax+y3u9hncy8/bumEWXE0
-   8fviOvFI21+O30gVQHn4NCZ03CnwlJsyry0M938rDYLhs0fSO6xgXZJ69
-   A==;
-X-CSE-ConnectionGUID: b30aQzDZTHinH7BrjUZbHQ==
-X-CSE-MsgGUID: AQorlTChREiptIBVVRai+Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11760"; a="88410756"
-X-IronPort-AV: E=Sophos;i="6.23,181,1770624000"; 
-   d="scan'208";a="88410756"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Apr 2026 03:48:56 -0700
-X-CSE-ConnectionGUID: EuPlTi58RSGNxq0lcRmGWQ==
-X-CSE-MsgGUID: imgnVKh1QGqItlImdg15EQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,181,1770624000"; 
-   d="scan'208";a="235076890"
-Received: from unknown (HELO localhost.png.intel.com) ([10.107.255.31])
-  by orviesa004.jf.intel.com with ESMTP; 16 Apr 2026 03:48:52 -0700
-From: KhaiWenTan <khai.wen.tan@intel.com>
-To: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk,
-	maxime.chevallier@bootlin.com
-Cc: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	Thu, 16 Apr 2026 10:49:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=iTecCTUOjCT2Rh+35c/jBL17rubrlvWXt7j7t5fyE4A=; b=hS+zERdx785E7w8JuVhIqIUjqo
+	rfTzzmGwWX/PzAGKN9P/mq5ofpIaokW6Naxsd3Ouod8CcSBoL8YWAadvltn2AtDOzWPioFgM3W23v
+	Q5V2vsauwwB7RZ2YexHer3u5vyh7euHUKU2rzvgV9PdVtbEJLLuJicgrkCOfdvGGVSY9FQEmuT38O
+	81dAcc0BC83k8bFEmZOvAW7fKXhSVgEb7U0L1T5zR/uJpFRUP321srKZKF/YHgCOLflE8d09edYbj
+	fBA/wHJ3iQWgZOYuYhy15KCeJUdJ6s+4ZH/aBdCVzE0WtuP0TEUB7ihUZzfk17611Ex3gsTduFa57
+	pydTVpKg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:60888)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1wDKHp-0000000035z-1EzG;
+	Thu, 16 Apr 2026 11:49:29 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1wDKHl-0000000038b-3rco;
+	Thu, 16 Apr 2026 11:49:25 +0100
+Date: Thu, 16 Apr 2026 11:49:25 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	yoong.siang.song@intel.com,
-	hong.aun.looi@intel.com,
-	khai.wen.tan@intel.com,
-	KhaiWenTan <khai.wen.tan@linux.intel.com>
-Subject: [PATCH net,v3 1/1] net: stmmac: Update default_an_inband before passing value to phylink_config
-Date: Thu, 16 Apr 2026 18:26:09 +0800
-Message-ID: <20260416102609.7953-1-khai.wen.tan@intel.com>
-X-Mailer: git-send-email 2.43.0
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 5/6] net: stmmac: move PHY handling out of
+ __stmmac_open()/release()
+Message-ID: <aeC-tc2CooYDoBok@shell.armlinux.org.uk>
+References: <aNKDqqI7aLsuDD52@shell.armlinux.org.uk>
+ <8409022.LvFx2qVVIh@steina-w>
+ <ad-LtOBrKREM1tCk@shell.armlinux.org.uk>
+ <5987484.DvuYhMxLoT@steina-w>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <5987484.DvuYhMxLoT@steina-w>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_034858_956076_3088E489 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20260416_034941_392120_E5B51960 
+X-CRM114-Status: GOOD (  32.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,57 +90,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: KhaiWenTan <khai.wen.tan@linux.intel.com>
+On Thu, Apr 16, 2026 at 08:20:13AM +0200, Alexander Stein wrote:
+> Am Mittwoch, 15. April 2026, 14:59:32 CEST schrieb Russell King (Oracle):
+> > On Wed, Apr 15, 2026 at 08:08:40AM +0200, Alexander Stein wrote:
+> > > Hi,
+> > > 
+> > > Am Dienstag, 23. September 2025, 13:26:19 CEST schrieb Russell King (Oracle):
+> > > > Move the PHY attachment/detachment from the network driver out of
+> > > > __stmmac_open() and __stmmac_release() into stmmac_open() and
+> > > > stmmac_release() where these actions will only happen when the
+> > > > interface is administratively brought up or down. It does not make
+> > > > sense to detach and re-attach the PHY during a change of MTU.
+> > > 
+> > > Sorry for coming up now. But I recently noticed this commit breaks changing
+> > > the MTU on i.MX8MP. Once I simply change the MTU I run into some DMA error:
+> > > $ ip link set dev end1 mtu 1400
+> > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-0
+> > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-1
+> > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-2
+> > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-3
+> > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-4
+> > > imx-dwmac 30bf0000.ethernet end1: Link is Down
+> > > imx-dwmac 30bf0000.ethernet end1: Failed to reset the dma
+> > > imx-dwmac 30bf0000.ethernet end1: stmmac_hw_setup: DMA engine initialization failed
+> > 
+> > This basically means that a clock is missing. Please provide more
+> > information:
+> > 
+> > - what kernel version are you using?
+> 
+> Currently I am using v6.18.22.
+> $ ethtool -i end1
+> driver: st_gmac
+> version: 6.18.22
+> firmware-version: 
+> expansion-rom-version: 
+> bus-info: 30bf0000.ethernet
+> supports-statistics: yes
+> supports-test: no
+> supports-eeprom-access: no
+> supports-register-dump: yes
+> supports-priv-flags: no
+> 
+> > - has EEE been negotiated?
+> 
+> No. It is marked as not supported
+> 
+> $ ethtool --show-eee end1
+> EEE settings for end1:
+>         EEE status: not supported
+> 
+> > - does the problem persist when EEE is disabled?
+> 
+> As EEE is not supported the problem occurs even with EEE disabled.
+> 
+> > - which PHY is attached to stmmac?
+> 
+> It is a TI DP83867.
+> 
+> imx-dwmac 30bf0000.ethernet eth1: PHY [stmmac-1:03] driver [TI DP83867] (irq=136)
+> 
+> > - which PHY interface mode is being used to connect the PHY to stmmac?
+> 
+> For this interface
+> > phy-mode = "rgmii-id";
+> is set.
+> 
+> In case it is helpful. My platform is arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
+> Thanks for assisting. If there a further questions, don't hesitate to ask.
 
-get_interfaces() will update both the plat->phy_interfaces and
-mdio_bus_data->default_an_inband based on reading a SERDES register. As
-get_interfaces() will be called after default_an_inband had already been
-read, dwmac-intel regressed as a result with incorrect default_an_inband
-value in phylink_config.
+Thanks.
 
-Therefore, we moved the priv->plat->get_interfaces() to be executed first
-before assigning priv->plat->default_an_inband to config->default_an_inband
-to ensure default_an_inband is in correct value.
+So, as best I can determine at the moment, we end up with the following
+sequence:
 
-Fixes: d3836052fe09 ("net: stmmac: intel: convert speed_mode_2500() to get_interfaces()")
-Signed-off-by: KhaiWenTan <khai.wen.tan@linux.intel.com>
-Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
-v3:
-  - rebase on the latest net tree (Paolo Abeni)
+stmmac_change_mtu()
+ __stmmac_release()
+  phylink_stop()
+   phy_stop()
+    phy->state = PHY_HALTED
+    _phy_state_machine() returns PHY_STATE_WORK_SUSPEND
+    _phy_state_machine_post_work()
+     phy_suspend()
+      genphy_suspend()
+       phy_set_bits(phydev, MII_BMCR, BMCR_PDOWN)
 
-v2: https://patchwork.kernel.org/project/netdevbpf/patch/20260413020339.68426-1-khai.wen.tan@linux.intel.com/
-  - update commit message for better understanding (Russell King)
-  - corrected the blamed commit (Russell King)
+With the DP83867, this causes most of the PHY to be powered down, thus
+stopping the clocks, and this causes the stmmac reset to time out.
 
-v1: https://patchwork.kernel.org/project/netdevbpf/patch/20260410020735.327590-1-khai.wen.tan@linux.intel.com/
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Prior to this commit, we would have called phylink_disconnect_phy()
+immediately after phylink_stop(), but I can see nothing that would
+be affected by this change there (since that also calls
+phy_suspend(), but as the PHY is already suspended, this becomes a
+no-op.)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 01a983001ab4..ca68248dbc78 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1410,8 +1410,6 @@ static int stmmac_phylink_setup(struct stmmac_priv *priv)
- 	priv->tx_lpi_clk_stop = priv->plat->flags &
- 				STMMAC_FLAG_EN_TX_LPI_CLOCKGATING;
- 
--	config->default_an_inband = priv->plat->default_an_inband;
--
- 	/* Get the PHY interface modes (at the PHY end of the link) that
- 	 * are supported by the platform.
- 	 */
-@@ -1419,6 +1417,8 @@ static int stmmac_phylink_setup(struct stmmac_priv *priv)
- 		priv->plat->get_interfaces(priv, priv->plat->bsp_priv,
- 					   config->supported_interfaces);
- 
-+	config->default_an_inband = priv->plat->default_an_inband;
-+
- 	/* Set the platform/firmware specified interface mode if the
- 	 * supported interfaces have not already been provided using
- 	 * phy_interface as a last resort.
+However, __stmmac_open() would have called stmmac_init_phy(), which
+would reattach the PHY. This would have called phy_init_hw(), 
+resetting the PHY, and phy_resume() which would ensure that the
+PDOWN bit is clear - thus clocks would be running.
+
+As a hack, please can you try calling phylink_prepare_resume()
+between the __stmmac_release() and __stmmac_open() in
+stmmac_change_mtu(). This should resume the PHY, thus restoring the
+clocks necessary for stmmac to reset.
+
+Thanks.
+
 -- 
-2.43.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
