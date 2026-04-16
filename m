@@ -4,46 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E06B4F8E489
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 22:44:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8CD3F8E491
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 23:29:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xOejhf2JTlBUOqRfxdf0lvXpMeOShPqCZFMc+hUVVlA=; b=ATPek0OhyswMNdaQkBLQDysf3B
-	O+wvy3DdPD9sWSh9R8h1jYTlRzN28w0PZAmgu1MNvUhE3rAVTeWFt5QQ2FGEbSGpfP63s8VDqLMnb
-	evybOS+bmDQlZMEyYQ6Dcv3PuVjtHe7sJPwgFER+CyJ8fnv8yDpUNcQ796HGdS3MAa2bWa58l1DH4
-	m3ZDqcYjs9S3m6MW2TXhw2yg1IJWISYpk0xAh+AQjCUIBZFDWNrKHxqtZxyjRg2WzlWHs8k/qeapI
-	LE+NVq1qLM7vFFloeiorp7oeydVexTR0FEqALWhEZYpsIxLCCjL814YpQQEgrW5WxdBGSf1IqfzKe
-	G5taRkqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CN8hbv/elaf0hJ3YpvguhlPnRN3VTlsGV4Clg9+Dvlw=; b=wxv412Mv5FV858jGOUCawgErdK
+	KilM3Y+hZxkMAm6ipux8vffGi0pYmPAXHXIZPFLCZsP/eEgRmvOtzSZIO6YOpl/+Wr2iWgTpmvVFR
+	hdH6kpKqyC6Dbb4rccgVJDP6vax5g5mH5J0fTAGu1KEnef/asYVK0CD+lAGh8PNUwGZdWMSZYZykI
+	axnITKcF1ka70FhHtOln+jG7BW973sOQgMAhCP6OqJNKReWu/QZyMsaYV/p8Vm68zNCkK2DrQd0gO
+	+KDB/SJ0ACnhStT7ChoqrYvIX0CoR8YhLeUMKmDICFKy48pfb7KEH715wj+caKiHpjoFQVp1MS0F2
+	BsfOEh1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDVS2-000000039Y3-3o1i;
-	Thu, 16 Apr 2026 22:44:46 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDVS0-000000039Xq-1DLf;
-	Thu, 16 Apr 2026 22:44:44 +0000
-Message-ID: <e2b309c3-c287-43cf-9ee3-6d092086924b@infradead.org>
-Date: Thu, 16 Apr 2026 15:44:43 -0700
+	id 1wDW9E-00000003B35-0l1g;
+	Thu, 16 Apr 2026 23:29:24 +0000
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDW9A-00000003B2L-1cJU
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Apr 2026 23:29:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=q03PO6eh11rNcgZ+f5c4sagGCZSnWr1znPRyac3aMdAc6fuTvXVegCZLLRvvu/CSnjfEmttuXm3ueJnT4ucx8X6gNI1FaXEovuyYsgpRuWDM51KEU1kKBoNBYJYmbt6V/03m7VGJdJXtqk7C8PEF+TSULYY318BwLuHJ2+SOuUw/jVb9wm7w0YwWRJ41x3gEQx+yW+kuDSYAKeV9tZdFeufwaI7IpvEgI7dIOygX/HxYqGt7qCeydpbOmqQ0h0exz6jDlv1eOGjeP+o64iaOb9nUd/jluxBS+XBzQ/2v35cjvuCI2PyerTuhtFnbsNkplulNcSs0ibJQksk4pEdsyg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CN8hbv/elaf0hJ3YpvguhlPnRN3VTlsGV4Clg9+Dvlw=;
+ b=kEJBNUiXuGWxMqG9/61bsT/Cvf1SoSw3WIu0uAfGlgJwUdqhkVEQGUgTWX1GA5kaCRRr0UAH1JD74/y3DvKCuKwFwxAXeL5bp0/2VGUBVWEeDtnN8MJ0Vj8VQV8yAho89VCaWJpFbwOjD6U9r1CB7nG8mZF8RljIS4eRkvohLGl4U2H12euZmqHvJD8SZ6eTcJk6W5Q8yDjWunbPRKW2JawtkTYqcsm5MZnbumwKyH6pMljH/fEMb2VUk4n4y86UOebByk9Kdy2urpi5vSqA16uMbYt+vwOtUP8H7GdrJpBYRuBHGF9d3qBkLIb8CXEbGBYoYbHJfJwDV0imFRFIDw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CN8hbv/elaf0hJ3YpvguhlPnRN3VTlsGV4Clg9+Dvlw=;
+ b=iFDoX1thw4xQ+fVjE6y6Z+6KzPzXM11I45ki/IGn1eZG75BtUXBGQgZJZ+iBXQw0bmm8hOak48+Zi193tv41p6eUCer6/cha8VCtBrTPFgqKsFF3PkJnAC4nw553+GVDj0HtdOqk/uQVo6ug5ePvXa4BiVvLJC6oitVo+4RR3ZkiSWsjj06Dva5Xf9KpTWlWqTNvUOoUQP44tNr9QXev2SdcHI4gNtJ5IET9R2SYT9ggaKrKrSWT5hFYi372E1llM8xdqez7V5zC64ELx/HHojgoBCNN+jghDRdjhCfmfrA5LXuhOEmdp5XwMFJXEFVHKhBa8im4N8am3BuKB1266g==
+Received: from BY5PR17CA0043.namprd17.prod.outlook.com (2603:10b6:a03:167::20)
+ by SA1PR12MB7270.namprd12.prod.outlook.com (2603:10b6:806:2b9::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.21; Thu, 16 Apr
+ 2026 23:29:07 +0000
+Received: from CO1PEPF00012E7F.namprd03.prod.outlook.com
+ (2603:10b6:a03:167:cafe::df) by BY5PR17CA0043.outlook.office365.com
+ (2603:10b6:a03:167::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.51 via Frontend Transport; Thu,
+ 16 Apr 2026 23:29:06 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ CO1PEPF00012E7F.mail.protection.outlook.com (10.167.249.54) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9769.17 via Frontend Transport; Thu, 16 Apr 2026 23:29:06 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 16 Apr
+ 2026 16:28:47 -0700
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 16 Apr
+ 2026 16:28:47 -0700
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.11) by mail.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
+ Transport; Thu, 16 Apr 2026 16:28:43 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
+ Roedel" <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>, "Jason
+ Gunthorpe" <jgg@nvidia.com>
+CC: "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+	Pranjal Shrivastava <praan@google.com>, Mostafa Saleh <smostafa@google.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>, Kevin Tian <kevin.tian@intel.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-pci@vger.kernel.org>, <vsethi@nvidia.com>, Shuai Xue
+	<xueshuai@linux.alibaba.com>
+Subject: [PATCH v3 00/11] iommu/arm-smmu-v3: Quarantine device upon ATC invalidation timeout
+Date: Thu, 16 Apr 2026 16:28:29 -0700
+Message-ID: <cover.1776381841.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] gpu: ipu-v3: clean up kernel-doc warnings
-To: dri-devel@lists.freedesktop.org
-Cc: Philipp Zabel <p.zabel@pengutronix.de>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- Helge Deller <deller@gmx.de>, linux-fbdev@vger.kernel.org
-References: <20260219215211.459108-1-rdunlap@infradead.org>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20260219215211.459108-1-rdunlap@infradead.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF00012E7F:EE_|SA1PR12MB7270:EE_
+X-MS-Office365-Filtering-Correlation-Id: 930ae050-fa76-416e-2f98-08de9c0ff427
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|82310400026|36860700016|13003099007|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: 66CcvihgFq6SU9VIbIo/LssZOYa11c25RZcB1idNpykOBDzjrXk4KB/du+DzN2O3jv8znEGlgcyfGRDQijMvPMNZFVBWmG6dEyleb6io5iKOG0c9+aXis8JGCznlM4xmLqt3b0EhvD42ucM+uJ0QO1OsIP6pR8c9tcZe3GqOXZRAsIUHN2D9b3i42kjeBCCOEsdwk//HOeAp+HC76K9FAmnyZnnWbeLGXUT4uSf2sEIrbL3PpIG6VNL7nWUhkgOsBicNsXL/Ya5BgFqG3gie0BFUviAGaCQgMsazoT51J7aRBA/1g9vMgAryi2+YGDYgBG2gVTUCS0xe2VeWnoWys64RPNqrwIXgyACYANK4bq2bCAd+AbjJQfB44HY0EhxUtQsNjF/wFNiJjBgsbGCIuytGq0ECb+ThANu7EokA4dvoHvt0ZrtBn4WyuRM04NtQB8JFp5zAbdXymrAPmYsbMC2dc9rdPinw7o8UDwJKqZOqN0Zak8IT7flb0dS9eLUq/E1UFOd4EivdYaIpGWVz4aPk843iYLk9/Jgl9Tc3Tdi7uN0AdQh84ZZqkmB9ooYNwVwgwvrHWhOXq6sGDlZ4/yxdQpLhOjiy3h+8Joc7Gan2/L/FcjzM6fxUCJZ+ul+AS31Zg6zHVQ3d4McBqLNa1pW4KCh5I46WsaXMUFHX0VpMH9gsBZ/WUGt8Cgp7Sdph2H+CBpmRvlIAX5fX07ZE0kghnFb/pjbvKewQasuOBjRmUMZxPjbeJdUx8OhMmQD5WqAK9WTWjbN/Y06UMalSrQ==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(82310400026)(36860700016)(13003099007)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: U64+25db3RyvvqyyMeQvSWkZDe4+2sOpAxbY6w7B8kEedvJXoG07S8j/j6zq8iu91UAmIXGXeFLP9iV0OCjNEcAOmfN1/DzH/s8mrtqcS/iUeozZ7mT7XK5Z9EZ4kwLGkvvO5yX6hcUoafi5GgATOIKpAH9Lcxtv1o8WwhpguT+EqvVUUWHYNmIT/T9neCzet8CVdc5xI41sBzdECdibUruSfrgsl31eb6t+wyqpG+S0wC2jAYMTLY6EHnER4/icAWleo+w0bnMo4uvqwWXO5Sb6swhYCvNYS4NFadz6IYRh/gP1+ewwt/y7rUpwTwJsPTwJhvlyFo3JS4kdWR80YvgncaswuPikDxRwdy5jBsv7Wc0yv0S0Cc0TlKwD7Q4W1JQtGIOIIgM26v63nIrkiQ0VZsrdQWG0n+SCKXWnqrhD6/brF/TSzpg5mK+oh4FS
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2026 23:29:06.6767
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 930ae050-fa76-416e-2f98-08de9c0ff427
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF00012E7F.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7270
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260416_162920_657712_1ADAAECA 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,110 +131,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ping.
+Hi all,
 
-On 2/19/26 1:52 PM, Randy Dunlap wrote:
-> Correct all kernel-doc warnings:
-> - fix a typedef kernel-doc comment
-> - mark a list_head as private
-> - use Returns: for function return values
-> 
-> Warning: include/video/imx-ipu-image-convert.h:31 struct member 'list' not
->  described in 'ipu_image_convert_run'
-> Warning: include/video/imx-ipu-image-convert.h:40 function parameter
->  'ipu_image_convert_cb_t' not described in 'void'
-> Warning: include/video/imx-ipu-image-convert.h:40 expecting prototype for
->  ipu_image_convert_cb_t(). Prototype was for void() instead
-> Warning: include/video/imx-ipu-image-convert.h:66 No description found for
->  return value of 'ipu_image_convert_verify'
-> Warning: include/video/imx-ipu-image-convert.h:90 No description found for
->  return value of 'ipu_image_convert_prepare'
-> Warning: include/video/imx-ipu-image-convert.h:125 No description found for
->  return value of 'ipu_image_convert_queue'
-> Warning: include/video/imx-ipu-image-convert.h:163 No description found for
->  return value of 'ipu_image_convert'
-> 
-> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
-> Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
-> ---
-> v2: add Reviewed-by, update Cc: list, rebase, resend
-> 
-> Cc: Philipp Zabel <p.zabel@pengutronix.de>
-> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> Cc: Maxime Ripard <mripard@kernel.org>
-> Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> Cc: David Airlie <airlied@gmail.com>
-> Cc: Simona Vetter <simona@ffwll.ch>
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: Helge Deller <deller@gmx.de>
-> Cc: linux-fbdev@vger.kernel.org
-> 
->  include/video/imx-ipu-image-convert.h |   16 +++++++++++-----
->  1 file changed, 11 insertions(+), 5 deletions(-)
-> 
-> --- linux-next-20260218.orig/include/video/imx-ipu-image-convert.h
-> +++ linux-next-20260218/include/video/imx-ipu-image-convert.h
-> @@ -27,12 +27,13 @@ struct ipu_image_convert_run {
->  
->  	int status;
->  
-> +	/* private: */
->  	/* internal to image converter, callers don't touch */
->  	struct list_head list;
->  };
->  
->  /**
-> - * ipu_image_convert_cb_t - conversion callback function prototype
-> + * typedef ipu_image_convert_cb_t - conversion callback function prototype
->   *
->   * @run:	the completed conversion run pointer
->   * @ctx:	a private context pointer for the callback
-> @@ -60,7 +61,7 @@ void ipu_image_convert_adjust(struct ipu
->   * @out:	output image format
->   * @rot_mode:	rotation mode
->   *
-> - * Returns 0 if the formats and rotation mode meet IPU restrictions,
-> + * Returns: 0 if the formats and rotation mode meet IPU restrictions,
->   * -EINVAL otherwise.
->   */
->  int ipu_image_convert_verify(struct ipu_image *in, struct ipu_image *out,
-> @@ -77,11 +78,11 @@ int ipu_image_convert_verify(struct ipu_
->   * @complete:	run completion callback
->   * @complete_context:	a context pointer for the completion callback
->   *
-> - * Returns an opaque conversion context pointer on success, error pointer
-> + * In V4L2, drivers should call ipu_image_convert_prepare() at streamon.
-> + *
-> + * Returns: an opaque conversion context pointer on success, error pointer
->   * on failure. The input/output formats and rotation mode must already meet
->   * IPU retrictions.
-> - *
-> - * In V4L2, drivers should call ipu_image_convert_prepare() at streamon.
->   */
->  struct ipu_image_convert_ctx *
->  ipu_image_convert_prepare(struct ipu_soc *ipu, enum ipu_ic_task ic_task,
-> @@ -122,6 +123,8 @@ void ipu_image_convert_unprepare(struct
->   * In V4L2, drivers should call ipu_image_convert_queue() while
->   * streaming to queue the conversion of a received input buffer.
->   * For example mem2mem devices this would be called in .device_run.
-> + *
-> + * Returns: 0 on success or -errno on error.
->   */
->  int ipu_image_convert_queue(struct ipu_image_convert_run *run);
->  
-> @@ -155,6 +158,9 @@ void ipu_image_convert_abort(struct ipu_
->   * On successful return the caller can queue more run requests if needed, using
->   * the prepared context in run->ctx. The caller is responsible for unpreparing
->   * the context when no more conversion requests are needed.
-> + *
-> + * Returns: pointer to the created &struct ipu_image_convert_run that has
-> + * been queued on success; an ERR_PTR(errno) on error.
->   */
->  struct ipu_image_convert_run *
->  ipu_image_convert(struct ipu_soc *ipu, enum ipu_ic_task ic_task,
+This series addresses a critical vulnerability and stability issue where an
+unresponsive PCIe device failing to process ATC (Address Translation Cache)
+invalidation requests leads to silent data corruption and continuous SMMU
+CMDQ error spam.
+
+[ As Jason pointed out, because this series fundamentally introduces a new
+  RAS feature to quarantine and recover from hardware faults and relies on
+  a recently accepted SMMU driver rework, it is not treated as a standard
+  bug fix. Thus, none of the patches here carries a "Fixes" tag. ]
+
+Currently, when an ATC invalidation times out, the SMMUv3 driver skips the
+CMDQ_ERR_CERROR_ATC_INV_IDX error. This leaves the device's ATS cache state
+desynchronized from the SMMU: the device cache may retain stale ATC entries
+for memory pages that the OS has already reclaimed and reassigned, creating
+a direct vector for data corruption. Furthermore, the driver might continue
+issuing ATC_INV commands, resulting in constant CMDQ errors:
+    unexpected global error reported (0x00000001), this could be serious
+    CMDQ error (cons 0x0302bb84): ATC invalidate timeout
+    unexpected global error reported (0x00000001), this could be serious
+    CMDQ error (cons 0x0302bb88): ATC invalidate timeout
+    unexpected global error reported (0x00000001), this could be serious
+    CMDQ error (cons 0x0302bb8c): ATC invalidate timeout
+    ...
+
+To resolve this, introduce a mechanism to quarantine a broken device in the
+SMMUv3 driver and the IOMMU core. To achieve this, add preparatory changes:
+ - Tighten the semantics of pci_dev_reset_iommu_done() that is now strictly
+   called only upon a successful hardware reset
+ - Introduce a reset_device_done op, allowing the core to signal the driver
+   when the physical hardware has been cleanly recovered (e.g., via AER or
+   a manual reset) so the quarantine can be lifted
+ - Utilize a per-group_device WQ via an iommu_report_device_broken() helper
+
+On the SMMUv3 driver side, retry the timedout ATC_INV batch to identify the
+faulty device(s) via an atc_sync_timeouts tracker. Perform a surgical STE
+update and flag the ATS as broken to reject further ATS/ATC requests at the
+hardware level and suppress further timeout spam.
+
+This is on Github:
+https://github.com/nicolinc/iommufd/commits/smmuv3_atc_timeout-v3
+
+Note that patches are rebased on bug-fix under review:
+https://lore.kernel.org/all/20260407194644.171304-1-nicolinc@nvidia.com/
+
+Changelog
+v3:
+ * Rebase on arm/smmu/updates branch + bug fix
+ * Update commit messages and inline comments
+ * [iommu] Drop unnecessary ops validation
+ * [iommu] Add missed function stub when !CONFIG_IOMMU_API
+ * [iommu] Change iommu_report_device_broken() to per gdev
+ * [iommu] Separate quarantine from pci_dev_reset_prepare()
+ * [iommu] Check reset failure in pci_dev_reset_iommu_done()
+ * [smmuv3] Fix STE update with try_cmpxchg64()
+ * [smmuv3] Fix "continue" bug when skipping ATC commands
+ * [smmuv3] Replace atomic_t prod_err with a lockless bitmap
+ * [smmuv3] Drop master->invs_domain; disable ATS per-master directly
+ * [smmuv3] Return -EIO for ATC timeout v.s. -ETIMEDOUT for poll timeout
+ * [smmuv3] Replace INV_TYPE_ATS_DISABLED with per-master ats_broken flag
+v2:
+ https://lore.kernel.org/all/cover.1773774441.git.nicolinc@nvidia.com/
+ * Rebase on arm_smmu_invs-v13 series [0]
+ * Bisect batched atc invalidation commands
+ * Drop the direct pci_reset_function() call
+ * Move the work queue from SMMUv3 to the core
+ * Proceed a surgical STE update to disable EATS
+ * Wait for pci_dev_reset_iommu_done() to signal a recovery
+v1:
+ https://lore.kernel.org/all/cover.1772686998.git.nicolinc@nvidia.com/
+
+[0] https://lore.kernel.org/all/cover.1773733797.git.nicolinc@nvidia.com/
+
+Thanks
+Nicolin
+
+Nicolin Chen (11):
+  PCI: Propagate FLR return values to callers
+  iommu: Pass in reset result to pci_dev_reset_iommu_done()
+  iommu: Add reset_device_done callback for hardware fault recovery
+  iommu: Add __iommu_group_block_device helper
+  iommu: Change group->devices to RCU-protected list
+  iommu: Defer __iommu_group_free_device() to be outside group->mutex
+  iommu: Add iommu_report_device_broken() to quarantine a broken device
+  iommu/arm-smmu-v3: Mark ATC invalidate timeouts via lockless bitmap
+  iommu/arm-smmu-v3: Replace smmu with master in arm_smmu_inv
+  iommu/arm-smmu-v3: Introduce master->ats_broken flag
+  iommu/arm-smmu-v3: Block ATS upon an ATC invalidation timeout
+
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |   4 +-
+ include/linux/iommu.h                         |  15 +-
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  |  34 ++-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 193 +++++++++++-
+ drivers/iommu/iommu.c                         | 284 ++++++++++++++----
+ drivers/pci/pci-acpi.c                        |   2 +-
+ drivers/pci/pci.c                             |  10 +-
+ drivers/pci/quirks.c                          |  24 +-
+ 8 files changed, 454 insertions(+), 112 deletions(-)
 
 -- 
-~Randy
+2.43.0
 
 
