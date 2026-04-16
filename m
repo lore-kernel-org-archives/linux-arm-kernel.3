@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17E20F8D778
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 20:19:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08E50F8D778
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 20:19:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DSDzJLueNM5BDkJGvQ06iAymY05gESKPpDr8vISvvJs=; b=d9aaNrsxrl1lT0eA69vbMapBFe
-	3sBD8G8yhRAYPEtkOKpW5/XzA2L7JmY0iyYTNfkqz7HNATjky+JhJGLOrD6vHWsejukE6nRNfeYhp
-	RW2wtX43XbuZm2c//JmrwgKmh7b/YWMoqhfsBGhiP/8Muc0XOYT/UXjM8hl02Nev9BjCQP//351HT
-	7LhtQhMClt8SMxm3DvSkLXKDLV/gRXVGh9TEvcwBDtfqk4Ny2AtVBiqAx6FvTQAo4AJiCEFi7pENI
-	ih0J/JFw6xdRU4mblPE9TwWAgKDJPDZRuDSzyceuchVARHuZRewnwp8aZqwhfGQE+FstV+OSHw7tn
-	un5I7txg==;
+	bh=rKL1UApwli0vBwJCTHGaBiJ+JuL3QPXRKM4vGc8erbQ=; b=EAh7XPq18KUjUcNZZfF9WyDz8i
+	iw/u+E0bbTmvxA5knJg6n+bk12ce0grCDF0Fa+BjDgw/WZRjqDUfjvoK41UrwhwXHBK6Xo4qU5ZOx
+	8cbQF6KBflqbPs9b/uDi2cI98Dg2KQzYzFCrgM7+0Ne+ESR+wHckcIXD+vwjoiYOt5LhfanR7P5bb
+	QyZ8RmGKKPv9524vDxHCWIqD3Zke0jZg9AGM8sA61r99r0sobFIuxtEsxGxgp0xZS1cRVGp8NMSlx
+	1GKSLJubrW0thXWIzKfCwAcotxIshXUh6CsOCuvuzQOgp8UOSwZViBZlLt876rJHzYCrp7EZQHrjo
+	LlijpoWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDTBf-00000002xyL-0eAf;
-	Thu, 16 Apr 2026 20:19:43 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1wDTBj-00000002y0Y-1wr1;
+	Thu, 16 Apr 2026 20:19:47 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDTBc-00000002xwt-15Kl
+	id 1wDTBh-00000002xyx-16RY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 20:19:41 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-43d7650202fso3964263f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 13:19:39 -0700 (PDT)
+	Thu, 16 Apr 2026 20:19:46 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-488b8bc6bc9so60071835e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 13:19:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776370778; x=1776975578; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1776370783; x=1776975583; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=DSDzJLueNM5BDkJGvQ06iAymY05gESKPpDr8vISvvJs=;
-        b=ogY3urOzJJdDnn3A7uDP47cOyoWgNAtjPCUclyfZIplkEmLryqz2Ys2T40+wGgh0ac
-         480lBqNrrJNf7J5mTjQqBwhwkQBMKYCLsHqioS/P5imNUjZEUF9OtkiT/Z7kKzZxbTh3
-         hF6Ird2muVpOwQJ6E2rbZ8RPoV8gU/IRm0b0nvNx7+ZtG3hAdEx8aoI/IhJ+XS4cTLhH
-         AS7C2UVXExUqHbIpce/qjePop/ObeTISANZTLXywfWZ0leYuTli2touNraTFoVQcvACG
-         WQgEO4jn/BN+QR9Zl9n84LJFLkBkZEYlLflSStfI7nNuoayJuRtiY7gaqcIzn+CBlGPU
-         8gNQ==
+        bh=rKL1UApwli0vBwJCTHGaBiJ+JuL3QPXRKM4vGc8erbQ=;
+        b=KdHUs1dYMxiF0j0XlKriNGbF6bDvQbBGBDM8FEwoMrmvJ3BxKROu9jw/rOXR2aE1ga
+         9Uf8fbT41nCBBJKVFUbU1F5GMnMvkH7UjLusS6/M/0oCMvw2z8mlaLmXqjfVsuOdfrgL
+         FKFunKSYypJ6miHonezi+izsN8YPbqJ211h3ZEwHGOuLDDe1XYWRwYcxqNZcbl+ZXsa1
+         VGLnthWJnpJKE2sruSAgyGYpZoB/jrrwqktgArjINjaBLhmlYTxNwF732MSG7NJo26w/
+         7+WFWTce/fuhDVB367/2W9aEV4QC6vJ61dTiVx13mEjLAQnBZ4LDh8Q7UrbMfbF0PpeE
+         Fodg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776370778; x=1776975578;
+        d=1e100.net; s=20251104; t=1776370783; x=1776975583;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=DSDzJLueNM5BDkJGvQ06iAymY05gESKPpDr8vISvvJs=;
-        b=boPUwW+NglOSdBGCoRIvVXIrulJfXFV//SpRAOInfV1nGtPR2/fQKdpgzdycrQfYtH
-         oiKMOu+sFL81AGZenDw1Y1qYHSRCs/oeyJGyJ9SUWy5q9YZ1a7NCZpC14G3T35HVEvMw
-         gjYUS/N1d0DPj1XVVl87R2SU2g0sPvfQfSUDdRWMiW4bk4flFEw2r2h3g2Bvt02o7RB2
-         NQ+q/VBrerB98JQ69QT8gwHaRanF/K6WuPBOXLgUpZI2jaLLsdnbhg69M0yCWQX3jqzy
-         vrHEP2o4o+ouB88TiQunxTxceaj/nkONZN1vQa4/XTSUNcqWDrGjzR7QjSgJ72rR/oMA
-         PhCA==
-X-Forwarded-Encrypted: i=1; AFNElJ+9C+McZJjyMx9RZKDGVpk82tJ1CsPd7OAmBYezKTTxUWEW9agqfJ7qKsDnJheKMjDqwSD1lfYfveVV+rCphu6s@lists.infradead.org
-X-Gm-Message-State: AOJu0YxytTUXtTv2wS3ooxxdD0imwNjV05d3Xi4K3lTgfRc35xZfi2Y1
-	tKQ1GwDjqSbGSJ9dG1cj3dwvFYeSeJJF+53jZqZsp6UO4i7d7/i/uPj6
-X-Gm-Gg: AeBDies5oR5BBh/6/zBkVMh/hO0LGs/Anarf7701Ve6V3BinyHSsa0UiXCvyR+hXEz+
-	clCGEnGNqZ3jvPoxe3kGDL/xGoBUqCU51Eo5oyorOR/GW5FdneYCx7c3BaPkyNHVw0brsLn+aJJ
-	ea/e3T2sIQrRTloXC/Dn09INNX93kt5zpXgjYz1iCSiZhDUMXrlVwcx9yHxsfneqdxUoMKXdL0Q
-	WlkIXpn5bhndEp2+EvSsmRaE1uE+0hbIAChoUmy/0ZGQB3nGALPpkS+aJO2j7kE0ha5HGUyRfUI
-	hw/+zD3TDVHp8Rjz+5TQV2j0mW0UV+epLofGcO6rlbb75cJgsydAHHGqoCBl46HOYiN3+q/tOEy
-	P2SmKKlHtwY9pLinBj0Qcx+JjqO/VVyExKBUFB5nYEG7QOMJu19Pg1SRkARtBAoz1DsU5FxI3mH
-	u7AcxAZWhf46klDwYSkcJB/GCvmBYLX3ZpOq4Hfpf7g/KBcQ==
-X-Received: by 2002:a05:6000:144a:b0:43d:7854:32e7 with SMTP id ffacd0b85a97d-43fe1392aecmr1108057f8f.15.1776370778227;
-        Thu, 16 Apr 2026 13:19:38 -0700 (PDT)
+        bh=rKL1UApwli0vBwJCTHGaBiJ+JuL3QPXRKM4vGc8erbQ=;
+        b=cxOp8o8ejD6XOvPMwe5LGvX6K1U+2jEYFpgVyRvgEVP85Y1U8C2Chpnf73Tj5xdIS8
+         ZU0AKgQmb7QEEnnH1FIozKmpEP5uGcc5bc6uTkSp5BlQcr7q6OGfLhNtPnpue1qjpV/Y
+         rvjxEgbAa4RZgwa2hBA7Nzp6D/GFPdNB0w4nDsHYM2RmZeEPePRp9XwJMVMp+EofDdvS
+         Bz24X5C2rRAsy/s4rVJNbArjwtDumV2ff4TsmkTIRM1b8mCX/1YVOStaWK33XRhPshF2
+         /iWrRfHi5Hrqbgba+i2ZPBCsMAJrfV44fziZn3Kl0WWBks/tR/60KtLlynH92b3qmRiq
+         bg9g==
+X-Forwarded-Encrypted: i=1; AFNElJ/90sHNCbq3pMw+TE3VHcleqi+192ut6HObYyggOF8uqqOiLWJBEe5Ac0mmui88854sIuNWfyC8oxq6XoGGLsqo@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPqBLzPtwrWR/DUTM7cICwtYDqLEWzdSuxOTyQ7ZJNW32/0H9Z
+	ClV3JUQSYQkDnTITkc5hXg5X2BYgBxyvRgK/satAzNhvfN/ruhwqLXK7
+X-Gm-Gg: AeBDiet6Is2ylDX+mu45pBOAsSmSH/j+zaM/B0nwpcGn1U1JmiOyOOKd2QDkQf8xPvn
+	kMdeJdWXyj3Afp5JgnqGEytyGPnrbTA7VnhsOy/tiV6BbeSZm763Q2xGKKBpexUbXOQG7A2Ln6a
+	4EX/ARlg/qPb2NoBBJh/+MlEF1KhAnkTCyHhFcB49Y5ho0j/GdUqsEGTzu7z2G6O1v3ZFRwRFTK
+	7Ovudo4wiBrUA7f1DRSMvZon9rm2gbFaKG+3lQsXPFO4MlrATw85U8zUANnfsJnc0fDYKagwdZe
+	klzP+jkPd4H+lYQKQ4qaliYBoIykCobOySyCW95KEJlV31w2r0IFDlQdEUPxbu8DXLHrb4v6P8L
+	0PQcbYhiO9vRKIbl+5TFLMI1NHa6Po07Pq7P1RjEbO4utoRQTSQZkIJ3GFP2UkmxxC5YGyrrM28
+	/nnbGP/80Jsndlo13gKq2AZGq3fm/4nPQrMeq39FX+LpLYEA==
+X-Received: by 2002:a05:600c:c0c8:b0:488:ab1d:dcc5 with SMTP id 5b1f17b1804b1-488fb787ba3mr732015e9.27.1776370783286;
+        Thu, 16 Apr 2026 13:19:43 -0700 (PDT)
 Received: from [192.168.0.2] ([197.250.227.196])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43ead35c026sm16180624f8f.15.2026.04.16.13.19.33
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43ead35c026sm16180624f8f.15.2026.04.16.13.19.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Apr 2026 13:19:37 -0700 (PDT)
+        Thu, 16 Apr 2026 13:19:42 -0700 (PDT)
 From: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-Date: Thu, 16 Apr 2026 23:19:10 +0300
-Subject: [PATCH v4 2/8] dt-bindings: arm: Add zx297520v3 board binding
+Date: Thu, 16 Apr 2026 23:19:11 +0300
+Subject: [PATCH v4 3/8] ARM: dts: Add D-Link DWR-932M support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260416-send-v4-2-e19d02b944ec@gmail.com>
+Message-Id: <20260416-send-v4-3-e19d02b944ec@gmail.com>
 References: <20260416-send-v4-0-e19d02b944ec@gmail.com>
 In-Reply-To: <20260416-send-v4-0-e19d02b944ec@gmail.com>
 To: Jonathan Corbet <corbet@lwn.net>, 
@@ -93,26 +93,26 @@ Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
  soc@lists.linux.dev, linux-serial@vger.kernel.org, 
  =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1764;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3027;
  i=stefandoesinger@gmail.com; h=from:subject:message-id;
- bh=46b0d4orT0aFf/zmndY3q3fyMYlikWkR7T7rELFj7TY=;
- b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBp4URKNXItypZCu+0613kDJOV5XH377NxspoqvX
- ektAEKCaPqJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCaeFEShsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiJTsw/+OzuVq9TxsOikjXZ/JIJLrvVQWw4U3G4
- lFVXZwrJ96neS2IhLYGs5ckWpmoublfmEre09aaZ6mKnC5jENPA92KpELewz3m7NDdSf8PJvbfF
- fMWoLHL82F9gFJNMpqu5dOpRmpqrTcx8d/iXRl/cmiFyE0D49uPMWVZpjIrcky4fKIbjYSDGGs6
- Vm3r5QAtjq5nflrL/acVTVNWrPkTRkLFDxntlj2iAHJFeI3l3Qh885HR83Rq6UflGUB3QoyVQ/+
- 5P4Z8FzAkJPS8kWxP1OjcexDP2dD5t/QniwflyHIBkFaPV83mjcsU9OZQ4f4m8KuhwUOtPbeVNX
- +7bFP7dBC7nKrl2x39Ab+Jc4QXhYNprHJUPGvYelRsGyDdcgSII2xojIKlJ/riLl6G049StRNB3
- 0EtIqw7Sfl+oEbVV7vpNquivq/rNc+Mo7Lv7GSzPEXFYJOoxLD8XgyBE5A6HNmyVy074XADzU3H
- tEBhks0B7h2rIetyIxQ4GYzdLlSTYYt88zeB209x/Bi9m0E4QvGR0J7wUJEzpuqFazRexblTE4+
- LHts/uYe8HAs4GcQszFFyxZkTpQySVAvBteSAoma/TDumkjdBZGcq05/icfPJxAeJg62oGYzSwO
- S0QBR4ZrLatyv9ivQBdfS5kVWx7zTF6Q/1/BQq5Pd3M0+CzMiCmw=
+ bh=DfFTCD7dR9UzG1/YZiQHT6WP9Ms5CofApjF0auiCUpM=;
+ b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBp4URKMjgP0rIgBZerMAS04qD7fxmmvb4Dtqzzl
+ qq0lJcpsFeJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCaeFEShsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiKSgRAAhITFO+PosbwvE3BtTizQCM5HaxtoiNN
+ PcknQEsqTA0dbu2+zLAYugjmebCwIo0Gd6QwM4l1TWj0iW9ti9QM9G+SQQBXFxrohZyh+U9ouIm
+ gVclMgJnT86r4gWMVEf/f/VCzxERJsNXencypr3FPpTorY2YrTYv98MPNEHMAlEdmeCiLImCzqG
+ LP+2Yf4fi8t3ki97W6CjCRgTbUL7vFRFhBn5IHugKznpqcXqnFsc0qqn+NIyaEzS7DGYgCjFz1a
+ D9BujFr3Ghcugdx9NxwyQBFxKk3EtnYdakq8lYFVTRKRj/ux7Ga4R1WgybucAHe3a2lz3n9ZVUd
+ kH7JDkBMMTCHQV0KNSQsg71IFEB2ERUsQhzrHMtqDTFc1D6bWOYYCO4+TtNBi0y7ysD1da4bR1S
+ kPd+om15RV4vPr6mUec3rPMmOPE2fvcp58LRYTqgErhXquMJAWt0+vq9N2EIATPyH/4a+oAZsxJ
+ XWi7/qA1mdWYbZ59qWN90uayMpSsOkB1xEPoCBo5N7zYwR0K7aHwqW6QyfTRuvrKumb/CRN3I5i
+ xf1YgbgpQrElLCF8kX8qy+Np61GmIS2MelINW+r34WUPytspWVh//Z7/Y/zPEzNGLuFRLxuVD37
+ 5P2OFcYy1ygGF8H2pGUny4dT3RJT9+e+JDpnItIQnI3U28+fPFSg=
 X-Developer-Key: i=stefandoesinger@gmail.com; a=openpgp;
  fpr=4F9C2C8728019633893EBBB98CB81F9A72BBA155
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_131940_315961_CC175884 
-X-CRM114-Status: GOOD (  14.59  )
+X-CRM114-CacheID: sfid-20260416_131945_500623_EC08D003 
+X-CRM114-Status: GOOD (  15.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,64 +127,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a compatible for boards based on the ZTE zx297520v3 SoC.
+This adds DT bindings for zx297520v3 and one board that consumes it.
 
 Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
-
 ---
+ MAINTAINERS                              |  1 +
+ arch/arm/boot/dts/Makefile               |  1 +
+ arch/arm/boot/dts/zte/Makefile           |  3 +++
+ arch/arm/boot/dts/zte/dlink-dwr-932m.dts | 21 ++++++++++++++++++
+ arch/arm/boot/dts/zte/zx297520v3.dtsi    | 37 ++++++++++++++++++++++++++++++++
+ 5 files changed, 63 insertions(+)
 
-The list of devices is the devices I have access to for testing. There
-are many more devices based on this board and it is not always easy to
-identify them. Often they are sold without any branding ("4G home
-router") or with mobile carrier branding.
----
- Documentation/devicetree/bindings/arm/zte.yaml | 25 +++++++++++++++++++++++++
- MAINTAINERS                                    |  1 +
- 2 files changed, 26 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/arm/zte.yaml b/Documentation/devicetree/bindings/arm/zte.yaml
-new file mode 100644
-index 000000000000..6eba09edd2c5
---- /dev/null
-+++ b/Documentation/devicetree/bindings/arm/zte.yaml
-@@ -0,0 +1,25 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/arm/zte.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: ZTE zx29
-+
-+maintainers:
-+  - Stefan Dösinger <stefandoesinger@gmail.com>
-+
-+properties:
-+  $nodename:
-+    const: "/"
-+  compatible:
-+    oneOf:
-+      - items:
-+          - enum:
-+            - dlink,dwr932m
-+            - hgsd,r310
-+            - tecno,tr118
-+            - zte,k10
-+          - const: zte,zx297520v3
-+
-+additionalProperties: true
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 974d7a98956a..bcade90ca14e 100644
+index bcade90ca14e..f7ca0d478e81 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -29202,6 +29202,7 @@ F:	tools/testing/selftests/cgroup/test_zswap.c
- 
+@@ -29203,6 +29203,7 @@ F:	tools/testing/selftests/cgroup/test_zswap.c
  ZX29
  M:	Stefan Dösinger <stefandoesinger@gmail.com>
-+F:	Documentation/devicetree/bindings/arm/zte.yaml
+ F:	Documentation/devicetree/bindings/arm/zte.yaml
++F:	arch/arm/boot/dts/zte
  F:	arch/arm/mach-zte/
  
  SENARYTECH AUDIO CODEC DRIVER
+diff --git a/arch/arm/boot/dts/Makefile b/arch/arm/boot/dts/Makefile
+index efe38eb25301..28fba538d552 100644
+--- a/arch/arm/boot/dts/Makefile
++++ b/arch/arm/boot/dts/Makefile
+@@ -39,3 +39,4 @@ subdir-y += unisoc
+ subdir-y += vt8500
+ subdir-y += xen
+ subdir-y += xilinx
++subdir-y += zte
+diff --git a/arch/arm/boot/dts/zte/Makefile b/arch/arm/boot/dts/zte/Makefile
+new file mode 100644
+index 000000000000..416c24a489cd
+--- /dev/null
++++ b/arch/arm/boot/dts/zte/Makefile
+@@ -0,0 +1,3 @@
++# SPDX-License-Identifier: GPL-2.0
++dtb-$(CONFIG_SOC_ZX297520V3) += \
++	dlink-dwr-932m.dtb
+diff --git a/arch/arm/boot/dts/zte/dlink-dwr-932m.dts b/arch/arm/boot/dts/zte/dlink-dwr-932m.dts
+new file mode 100644
+index 000000000000..7b2a26aaaecb
+--- /dev/null
++++ b/arch/arm/boot/dts/zte/dlink-dwr-932m.dts
+@@ -0,0 +1,21 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * D-Link DWR-932M Board
++ *
++ * (C) Copyright 2026 Stefan Dösinger
++ *
++ */
++
++/dts-v1/;
++
++#include "zx297520v3.dtsi"
++
++/ {
++	model = "D-Link DWR-932M";
++	compatible = "dlink,dwr932m", "zte,zx297520v3";
++
++	memory@20000000 {
++		device_type = "memory";
++		reg = <0x20000000 0x04000000>;
++	};
++};
+diff --git a/arch/arm/boot/dts/zte/zx297520v3.dtsi b/arch/arm/boot/dts/zte/zx297520v3.dtsi
+new file mode 100644
+index 000000000000..d6c71d52b26c
+--- /dev/null
++++ b/arch/arm/boot/dts/zte/zx297520v3.dtsi
+@@ -0,0 +1,37 @@
++// SPDX-License-Identifier: GPL-2.0-only
++
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++
++/ {
++	#address-cells = <1>;
++	#size-cells = <1>;
++
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		cpu@0 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a53";
++			reg = <0>;
++		};
++	};
++
++	soc {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		compatible = "simple-bus";
++		interrupt-parent = <&gic>;
++		ranges;
++
++		gic: interrupt-controller@f2000000 {
++			compatible = "arm,gic-v3";
++			interrupt-controller;
++			#interrupt-cells = <3>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			reg = <0xf2000000 0x10000>,
++			      <0xf2040000 0x20000>;
++		};
++	};
++};
 
 -- 
 2.52.0
