@@ -4,73 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3DFBF8A146
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 08:25:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDF3FF8A143
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 08:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pFOmuggUuSRoz8cJkPKGP7DvDQuCHyf5KhKmxv5ivoA=; b=wQafhVKzcGkDJt/jBeFuWJGopj
-	CiNDURzZuxn9/+pqloia9cCpZ+CUD7IMT248+oVG8ju3p1j0B01hnm1VMT/Bo+XkEfwlKw+z6NeaA
-	9+qq+lEmqj4+PLmZNdY0VCcPcvkiS4AVKA0qJBkfXsg7bxZKUC7MWryOzThyY4NyxKWKRZZ4tmIaw
-	XPdaq7Istm9Ln6D6l7bq17TwG2K7pp8sY32XuCROxo+855IML6qIY84lBaQH2vVCoNG1DNgb6qh8Z
-	0lpqf7H/Vk6ks0zbHX+1ezL08oXpv3WuRICAN7KPlsJRT/jJ0AU4FKq1BhSmZIKbzGOuHl6ybUeIR
-	neq887Sg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=A8KwIRBAxcL/Nko4wwgY9WARhqxl2Sh933ZVC+mUoA4=; b=PU4aPxCHxNxPz6JP4f2GkiFh/S
+	u0I8fx06huTVnBlzmVbWtXD/Yn9UVY8fkP4u9xQY4MflGMLGlTmJKebrYxenb/yQ5M5GdGhehKLid
+	Z5a2C1qmuEOmRrjyl37F8F/jzkNQN4vHJGCh+cDyXTaRKx0X6YYjb96kc3egReizSc2FrDV14CLyR
+	DT177u02az6uZPSTC2eWaf7dPUr3S9/56ZMd2QNbYpP2KgumA95rCEmmC3L6mLRKsEbU4zRkLy2rH
+	hfvlSKdQrps2rVicvC/sLUThT6XQvx1Shy8n6BBIVckO3bJbhSt7lfioPR4nYq/uCPpG4bMgoYr6z
+	AzGHwo2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDI2U-00000002AvP-2via;
-	Thu, 16 Apr 2026 08:25:30 +0000
-Received: from 12.546.mail-out.ovh.net ([188.165.57.92])
+	id 1wDI9r-00000002BEg-2baF;
+	Thu, 16 Apr 2026 08:33:07 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDI2R-00000002AuR-14FC
+	id 1wDI9o-00000002BDv-3KrK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 08:25:30 +0000
-Received: from ex.mail.ovh.net (unknown [10.111.174.41])
-	by mo546.mail-out.ovh.net (Postfix) with SMTP id 4fxB0K1fYFz658n;
-	Thu, 16 Apr 2026 08:25:21 +0000 (UTC)
-Message-ID: <6fc8ddeb-d54d-473d-94d2-49dc78a07154@aliel.fr>
-Date: Thu, 16 Apr 2026 10:25:19 +0200
+	Thu, 16 Apr 2026 08:33:05 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-488b8efed61so4026385e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 01:33:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776328382; x=1776933182; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=A8KwIRBAxcL/Nko4wwgY9WARhqxl2Sh933ZVC+mUoA4=;
+        b=jyp2W1d5dLtN230Cjk5aTMGfhTinB6oHdWfYn9e3u7FTPJWWG6ArxdGZ1p8tnnEGz/
+         furekoooupdpe3Rw84Us3RtSdIMTbbakx+rQVjAu6rERjZHesAxw3RL7zT0GsU7TEfxC
+         VH7iURy0ix2j6HPhKSR4RDs3GSLQyKg6iaFevh618dH6rli/7q7cthRtGQRtaUlYKa/u
+         Zb9Z4eJgW4xQ9TRjbhdwHc14EhxTDVFGuJEzHjcwyxwXlqy5/dhsiNx+9st/Acfw+0l1
+         ybeGHRL8anv8NqwGpOK4roIAiXTnNH936ecl+kB8PJyVSCNzkfYp3Wgs8puEusVE8hSc
+         A+Og==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776328382; x=1776933182;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=A8KwIRBAxcL/Nko4wwgY9WARhqxl2Sh933ZVC+mUoA4=;
+        b=Se7Yw+NZm+SuSXAnTJja0v7hmlc05OGnb9q86WWlCEmiBxT2ULx3zSiv3pbVnyvUMq
+         yMndy964u0teG33x71MFJ3gZ8y7sL34DeSActyVQk4v8mCgJ33gdMeBLFedBrEMKSpuX
+         gFQmuiE/BKxcMpSkxnZNF/iM/KD6drSk1WAlpen1Xb2Wn5R5htS5A3NWnwB/7inBHdpd
+         7dpT376WN01urV+yCMFLmBcvuifv17zLbyHldFT/6DYkP1ffq1Ld/nNXMJN52IWBeyg5
+         81WtF3GNt/fi0pvxEIuzwHeT3QKfOHTsKgMx3x+muRV2HSucaHhARLALqN1F6WfWO3o8
+         6Chg==
+X-Forwarded-Encrypted: i=1; AFNElJ+Vjfh80BWZ6VRYJCAQJURyZoQia5I8tJY5EHeNhv6erpotfzW2K8GUvs1q7/6y+vCs4jhN5mCwpyuGTUiBHBpY@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNOknEWd9xxFj8Ss/sUXEqkds2CtylboqwsI6e4ErK9GGGoLQZ
+	2AYoPlCnvqTS0RqedcYxHbAGM7euJDJAdKpjrZC931pnkufLHZBCMjYo
+X-Gm-Gg: AeBDiescoK0Bla5xt5ZD57uwJAPX4ZaWm6oHIp9plBRF9uuKoZ7jOmdow+8xyr13mMn
+	6wXczIqolIciYOzxZLiapLi3LC4jq+QHOFH4iqryOy5m1bjygm49/lrFXmIkp0lDGVbECGeOg16
+	IpcfjD/VbWtAFjygYGzz9XhLVCKT/4msJ+AeVKw4F7e+jrhuk2txq5Ng2b8B1amZ1A8JtZm/k5g
+	Dc3GkuuIQRCA6KEnAq6a1JHJTbgs2i2pSkOGGpDf4Lv59bJp0r/EnRMd8HBTuhe5a8ZlA2JjWWF
+	jS3hwPjMfZp7sFPL/P4CzAZMHkDrUkCkTTkZl3mqVQ+xkkjYA2Rftph79NONMB/w7nnVm7V9Czc
+	zxorkaff+s6X+aJK1WNKNvDIW/+thrOyu7xyHvwypeMzbqN5kfv+PasYagqelJu7ifQr1qOo8mB
+	qO1x5qlDo+tn5ihh38GqpECPqwpVFi0Q==
+X-Received: by 2002:a05:600c:1549:b0:485:3cef:d6ea with SMTP id 5b1f17b1804b1-488f4823c3dmr34362705e9.13.1776328382058;
+        Thu, 16 Apr 2026 01:33:02 -0700 (PDT)
+Received: from fedora-dev ([46.10.223.24])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488f5854097sm41107735e9.12.2026.04.16.01.33.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 16 Apr 2026 01:33:01 -0700 (PDT)
+From: "Nikola Z. Ivanov" <zlatistiv@gmail.com>
+To: gregkh@linuxfoundation.org,
+	jirislaby@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	"Nikola Z. Ivanov" <zlatistiv@gmail.com>
+Subject: [PATCH] serial: mxs-auart: Compare the return value of gpiod_get_direction against GPIO_LINE_DIRECTION_IN
+Date: Thu, 16 Apr 2026 11:32:54 +0300
+Message-ID: <20260416083254.1798-1-zlatistiv@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-Subject: Re: [PATCH v2 1/8] dt-bindings: mfd: khadas: Add new compatible for
- Khadas VIM4 MCU
-To: Rob Herring <robh@kernel.org>
-CC: Neil Armstrong <neil.armstrong@linaro.org>, Lee Jones <lee@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl
-	<martin.blumenstingl@googlemail.com>, Beniamino Galvani
-	<b.galvani@gmail.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Daniel
- Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz
- Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown
-	<broonie@kernel.org>, <linux-amlogic@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-i2c@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-pm@vger.kernel.org>
-References: <20260403-add-mcu-fan-khadas-vim4-v2-0-70536b22439a@aliel.fr>
- <20260403-add-mcu-fan-khadas-vim4-v2-1-70536b22439a@aliel.fr>
- <20260415214815.GA602572-robh@kernel.org>
-Content-Language: en-US
-In-Reply-To: <20260415214815.GA602572-robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [92.91.227.71]
-X-ClientProxiedBy: CAS6.indiv.local (172.16.1.6) To DAG11EX2.indiv.local
- (172.16.2.112)
-DKIM-Signature: v=1; a=rsa-sha256; d=aliel.fr; s=ovhex24454-selector1;
- c=relaxed/relaxed; t=1776327921; h=from:to:subject:date;
- bh=pFOmuggUuSRoz8cJkPKGP7DvDQuCHyf5KhKmxv5ivoA=;
- b=WJj2u3Sw9klNHCmqWBIBwUAd6tng48dLg+QKWHtKreX2JXQ67wigXe0TQP09NrQdmjUdwYsVTIyNXg4WsMawW2PmYK7jooYwzgx8we3T9RfQx1UZQXMpaipb4jkwQp18llokPWqyMOVBtBgrQPBrHmwTjeESar/AykfbQnBZNwp/pjzaIaW2WNcDq+ayKr+VpdIATbkHVjJTpB8++FJGaLn7Ol1tFFkyi1AGSgG98ENB42Y/mEsn2aeqTPV3QhE3SaopbBg7OcaxLDOhjq5VrsoBVb3M/ZQ9d/J23gPci+pOIg9idifu9W/UraOS+CQDDiVvyayR3TcF4gkqOf5YNw==
-x-ovh-tracer-id: 11309101614479183212
-X-VR-SPAMSTATE: OK
-X-VR-SPAMSCORE: -100
-X-VR-SPAMCAUSE: dmFkZTGn1Zxn7wlgRAk3Ls9HCSQIM4J7NsCvDBxD4MAUEzQ319Tl8D+J9DRCSxDWfnhZBirHrMBroybDTW/ifa7s/TX61Cq1qD7Plv4j4gqth9jElM8m8lL5uZaot7/CIcLhbmDQcxKVaGwJGKieR33WAaBijrVQPO30sMw94oTcS2ML8nPtfAsVfoiIzbsyHLnkFodLJa+IaEAujtZ7TULWFAR2dvLjd+30CuJOFupt+NPg60/KJvm8NS0WNT7b27RGiIs28KQWG7dLvMPlvP203CJnbo58FK18k6MC9luvcwxFxMp7VK/Kyynji+k+emjUreeA7ZNLd0jKJE7AShi72O9EK/Py+Qj7pqHOcFu0v99QnkqMJB32b0PzsZz78C1xa5o+Td1459KqjlMRtaidgNCiyUnIa8snrN6JAZTHZBdOpyJ1t0Qdgod0GBU+oll1AWzKYOB8WMck4/vqyf366h54XV3csqSAvMGnXmVieYrkzkzjxFkOilGcLN4Do2dalN99LVDjx3GW1UyV3b11o665Rqt4Kk8izf+4QDtdFIv/38vVISb7nnEqxHw+xQnEDwhZSW1Sh81XUad8bUy2pNAHeasPX5qPHxqLlVDYlmDV/weFzND9AK0qthn2R1CijJ4b9zO59gyCXlabD/w6m9y4Z7iNMp9G3Oyn1f7Ntu5iJA
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_012528_443846_3FFA21C0 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20260416_013304_843517_0E8D8B9D 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,57 +103,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/15/26 11:48 PM, Rob Herring wrote:
-> On Fri, Apr 03, 2026 at 06:08:34PM +0200, Ronald Claveau wrote:
->> The Khadas VIM4 MCU register is slightly different
->> from previous boards' MCU.
->> This board also features a switchable power source for its fan.
->>
->> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
->> ---
->>  Documentation/devicetree/bindings/mfd/khadas,mcu.yaml | 5 +++++
->>  1 file changed, 5 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/mfd/khadas,mcu.yaml b/Documentation/devicetree/bindings/mfd/khadas,mcu.yaml
->> index 084960fd5a1fd..67769ef5d58b1 100644
->> --- a/Documentation/devicetree/bindings/mfd/khadas,mcu.yaml
->> +++ b/Documentation/devicetree/bindings/mfd/khadas,mcu.yaml
->> @@ -18,6 +18,7 @@ properties:
->>    compatible:
->>      enum:
->>        - khadas,mcu # MCU revision is discoverable
-> 
-> The revision is no longer discoverable as was claimed?
-> 
+The GPIO_LINE_DIRECTION_* definitions have just recently been exposed to
+gpio consumers.h by breaking them out in a separate defs.h file.
 
-The firmware revision is still discoverable, and via the same register,
-but the VIM4 MCU has a different register layout (eg: no DEVICE_NO
-register). The new compatible is needed to describe a different MCU
-variant, not a different revision of the same MCU.
-I will remove the comment as it is confusing with new boards.
+Use this to validate the gpio direction instead of the hard-coded literal.
 
->> +      - khadas,vim4-mcu
->>  
->>    "#cooling-cells": # Only needed for boards having FAN control feature
->>      const: 2
->> @@ -25,6 +26,10 @@ properties:
->>    reg:
->>      maxItems: 1
->>  
->> +  fan-supply:
->> +    description: Phandle to the regulator that powers the fan.
->> +    $ref: /schemas/types.yaml#/definitions/phandle
->> +
->>  required:
->>    - compatible
->>    - reg
->>
->> -- 
->> 2.49.0
->>
+Signed-off-by: Nikola Z. Ivanov <zlatistiv@gmail.com>
+---
+ drivers/tty/serial/mxs-auart.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-
+diff --git a/drivers/tty/serial/mxs-auart.c b/drivers/tty/serial/mxs-auart.c
+index cc65c9fb6446..6c6df4d5c21f 100644
+--- a/drivers/tty/serial/mxs-auart.c
++++ b/drivers/tty/serial/mxs-auart.c
+@@ -1519,7 +1519,7 @@ static int mxs_auart_init_gpios(struct mxs_auart_port *s, struct device *dev)
+ 
+ 	for (i = 0; i < UART_GPIO_MAX; i++) {
+ 		gpiod = mctrl_gpio_to_gpiod(s->gpios, i);
+-		if (gpiod && (gpiod_get_direction(gpiod) == 1))
++		if (gpiod && (gpiod_get_direction(gpiod) == GPIO_LINE_DIRECTION_IN))
+ 			s->gpio_irq[i] = gpiod_to_irq(gpiod);
+ 		else
+ 			s->gpio_irq[i] = -EINVAL;
 -- 
-Best regards,
-Ronald
+2.53.0
+
 
