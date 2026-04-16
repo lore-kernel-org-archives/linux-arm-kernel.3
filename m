@@ -4,57 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADA96F8D75F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 16:24:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 015D5F8D762
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 16:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jTqTkrmbgUx1RiSdH5IwyezXcSZLW1HO+PTj3QHXYsk=; b=OQsldPbw50hbjqv5YTPngnoBhv
-	oEoNWPwt4GrI8VbLP6QZX7e7fpHFu/6WFHw6CHXXovJFwQ7rSdqdXhaYH5riDBWGgfT78yO+Fy+FW
-	qFfTjPTJOf5OW36kXtMbmLGAxiFvBxjdgAX3Ys+CEBSbmpir8M4Yk9+dtGXKGSvgLc0IcyXcKMN/v
-	rduSCJGzPQBjB7d+M9XNX2k5moCmQto4bTWoiyjRdwm8E4vlh5I8QEa+i9ghv926l9GvGhROpidHq
-	mKDhTgrzJaZfdYnXgUB1bPAy1dd7VNtxki8ksBngjEhWDsX5cktCk1HdsVOogSvX8qatUaRT9aKLs
-	+LWTBGYQ==;
+	bh=MG8x/P7FYy9t+ug3teKQtJSr4P+rKfywTJuuPxzM4Pg=; b=StO2VsJEYNym8ki3YZExmEfHPp
+	wDCEUSyi9GgPNFpB57F6vxBIBiddCoU8Fu+ULajY9kn8zZXT+iTKmwAx5mV07de83MpCwqysZsF/L
+	CBn2IpIQAUGkSAKlrSLgJtjqrX9S5bdGvuMEGP9kySs0RiDP6kR624awDbQqLgOXlSQjebO1qbT7+
+	UjKXY6pkZ81nH7is+5nvbUQ/jTtm3OQSJ0rJaYnPiGbV1niRRbJamSVcKxMlIzTp5aTsiZgCssNd2
+	sOV/4Dt3Or/UKaT4LVHwHtjVSpx5EPB224LNoGHTl4pNLB3q47ahWcOOCGCoflsYTflOLmtkko3bf
+	d5l+L10Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDPW7-00000002fCA-084W;
-	Thu, 16 Apr 2026 16:24:35 +0000
-Received: from mail-244119.protonmail.ch ([109.224.244.119])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDPW3-00000002fBL-32lq
+	id 1wDPXq-00000002fMn-21hf;
+	Thu, 16 Apr 2026 16:26:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDPXn-00000002fMS-2a44
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 16:24:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=emersion.fr;
-	s=protonmail; t=1776356665; x=1776615865;
-	bh=jTqTkrmbgUx1RiSdH5IwyezXcSZLW1HO+PTj3QHXYsk=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=D4khchrlNlRMmQes0Zc+6u7wNiV7q7OxB9wXxwGpJVlyyxfrJ8tcCw9zNYfq1iV6i
-	 +c3iBiTy01DQsCkBbTrf4PFIB4bj2Iz6CEHxEruaMNEDUJa2MbiTpNttdKM1tT/hd7
-	 G/dXRPkcoUHkeSxp4Lg1WCpuriUOATsMRP01JRRTSHPDTPUoygXLmLaG/IgvCZZWtv
-	 nKZIM6+VWleCaC20gEBRPTUHerxTFiD9kekU3meTFXOkP0yqBAR28CBSb60pM3lDBq
-	 DraoVL1yQuvFB/OpcocX9axnhWgaPPoOevcYmzgwm5FZmvJuVb4jPZGZ9esq5TwvIB
-	 sdxB+1xupr6Pg==
-Date: Thu, 16 Apr 2026 16:24:18 +0000
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-From: Simon Ser <contact@emersion.fr>
-Cc: Vishal Sagar <vishal.sagar@amd.com>, Anatoliy Klymenko <anatoliy.klymenko@amd.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Geert Uytterhoeven <geert@linux-m68k.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Pekka Paalanen <ppaalanen@gmail.com>
-Subject: Re: [PATCH v9 05/11] drm/fourcc: Add DRM_FORMAT_X403
-Message-ID: <SQRHbzJxi9A-aeEnsDNGLR894I12tg2scl2pctpSh-TkMc0l9DvzXUmuvYAk9br0__ixXrxPE3k5qa0IhKDrLpKTX04fNUAlWEzl-vzssCw=@emersion.fr>
-In-Reply-To: <6abc165b-4220-422c-8190-283a3dea1f62@ideasonboard.com>
-References: <20260325-xilinx-formats-v9-0-d03b7e3752e4@ideasonboard.com> <20260325-xilinx-formats-v9-5-d03b7e3752e4@ideasonboard.com> <jCbIrZ5-fvx73de8DmjQ7xpuEw63kTCQ5p88cdF7yRcUk7uNbE9y0YU7uZbPXNotQAB9y6c0u5n3TrnXckvQ8Oje_J3QGxEwBSr_liQVDK0=@emersion.fr> <94283390-29cb-4640-b5b4-6a332dd7f2a4@ideasonboard.com> <6abc165b-4220-422c-8190-283a3dea1f62@ideasonboard.com>
-Feedback-ID: 1358184:user:proton
-X-Pm-Message-ID: 34605617869f672ea6b1b08b3c7caddeb1ffba54
+	Thu, 16 Apr 2026 16:26:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8DD721D6F;
+	Thu, 16 Apr 2026 09:26:09 -0700 (PDT)
+Received: from [10.1.196.85] (e121345-lin.cambridge.arm.com [10.1.196.85])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D30E93F7D8;
+	Thu, 16 Apr 2026 09:26:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776356775; bh=IpHmhIKcFtFTL5blw5DxAjGhE4roEnncKzqyQVORCNo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=p8VSsgziWdjQDkWgARFcGwknEpZUnjzYks5NJOljDIVgZLwVaaKigTKXlj+B23RZ7
+	 FE+MuLfmW9WOfLa4l0Kva8vEl+FCeqq5RUJmleJhDN5MaXJ2KSYdMsk860w4MubTAG
+	 ITtKPDoKrQjJOn72RfBsYcJQJf1D5NTRH5Ot3zbg=
+Message-ID: <8db4defe-8b5e-4cc3-880b-72d46510b034@arm.com>
+Date: Thu, 16 Apr 2026 17:26:08 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] raid6: arm64: add SVE optimized implementation for
+ syndrome generation
+To: Demian Shulhan <demyansh@gmail.com>, Ard Biesheuvel <ardb@kernel.org>
+Cc: Christoph Hellwig <hch@lst.de>, Mark Rutland <mark.rutland@arm.com>,
+ Song Liu <song@kernel.org>, Yu Kuai <yukuai@fnnas.com>,
+ Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Brown <broonie@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ Li Nan <linan122@huawei.com>, linux-raid@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260318150245.3080719-1-demyansh@gmail.com>
+ <f9bc0534-4b7a-4b14-974b-4d7811ccd899@app.fastmail.com>
+ <acJhCCPfVxjFUZ5R@J2N7QTR9R3>
+ <CAOLeWCsxhzdxQviizJ4X4VOp_28LCtO-RjWoCcZG29rQw86NVg@mail.gmail.com>
+ <9a12e043-8200-4650-bfe2-cbece57a4f87@app.fastmail.com>
+ <20260331063659.GA2061@lst.de>
+ <CAOLeWCtnZz=kHGk4C2f9Mbfi3tEBE100iCkMBhcG47dmR9eDWw@mail.gmail.com>
+ <CAOLeWCtxPk7q_bVvrcKaipSKr+_=57Auobcj0cFRvXxXMdH58g@mail.gmail.com>
+ <5158e4e0-3275-4c29-a8fc-2dfabc13a69d@app.fastmail.com>
+ <CAOLeWCtf2rZyPeJH-LuZ2A+c7mC9M2r-Ya0VjyOJFpun3TFMnw@mail.gmail.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <CAOLeWCtf2rZyPeJH-LuZ2A+c7mC9M2r-Ya0VjyOJFpun3TFMnw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_092432_968035_1168DBCC 
-X-CRM114-Status: GOOD (  32.30  )
+X-CRM114-CacheID: sfid-20260416_092619_753483_46D51150 
+X-CRM114-Status: GOOD (  38.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,86 +84,220 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday, April 10th, 2026 at 08:54, Tomi Valkeinen <tomi.valkeinen@ideaso=
-nboard.com> wrote:
+On 16/04/2026 3:59 pm, Demian Shulhan wrote:
+> Hi Ard!
+> 
+>> So what exactly did you fix in your test case?
+> 
+> I just added the missing memset. You're right, "aliasing" was the
+> wrong term for PIP.
+> 
+>> This is the result where all data buffer pointers point to the same
+>> memory, right? I.e., the zero page? So this is an unrealistic use
+>> case that we can disregard.
+> 
+> Yes, that's right. It was a flaw in my previous test setup.
+> 
+>> Sorry but your result that SVE is 2x faster does not remain fully intact,
+>> right? Given that the speedup is now 5.5%?
+>> Should we just disregard the above results (and explanations) and focus
+>> on the stuff below?
+> 
+> Yes, it's better to focus on the data from SnapRAID. It was made on
+> larger blocks and a wider range of disks, providing more realistic
+> metrics.
+> 
+>> OK, so the takeaway here is that SVE is only worth the hassle if the vector
+>> length is at least 256 bits. This is not entirely surprising, but given that
+>> Graviton4 went back to 128 bit vectors from 256, I wonder what the future
+>> expectation is here.
+> 
+> I agree. The results from the SnapRAID tests are not as impressive as
+> I hoped, and the fact that Neoverse-V2 went back to 128-bit is a red
+> flag. It suggests that wide SVE registers might not be a priority in
+> future architecture versions.
 
-> On 10/04/2026 09:07, Tomi Valkeinen wrote:
-> > Hi,
-> >
-> > On 26/03/2026 16:43, Simon Ser wrote:
-> >> On Wednesday, March 25th, 2026 at 15:02, Tomi Valkeinen
-> >> <tomi.valkeinen@ideasonboard.com> wrote:
-> >>
-> >>> +/*
-> >>> + * 3 plane non-subsampled (444) YCbCr
-> >>> + * 10 bpc, 30 bits per sample image data in a single contiguous buff=
-er.
-> >>> + * index 0: Y plane,  [31:0] x:Y2:Y1:Y0    [2:10:10:10] little endia=
-n
-> >>> + * index 1: Cb plane, [31:0] x:Cb2:Cb1:Cb0 [2:10:10:10] little endia=
-n
-> >>> + * index 2: Cr plane, [31:0] x:Cr2:Cr1:Cr0 [2:10:10:10] little endia=
-n
-> >>> + */
-> >>> +#define DRM_FORMAT_X403        fourcc_code('X', '4', '0', '3')
-> >>
-> >> So, this one is different from the Q family, because Q has padding in
-> >
-> > Any idea where the letters (P, Q, S) come from?
-> >
-> >> LSB rather than MSB. Speaking of, maybe we should add "LSB aligned" to
-> >> the doc comment to make that clear?
-> >
-> > Yes, I can add that.
-> >
-> >> Re-reading the sibling thread about DRM_FORMAT_XV20, sounds like the
-> >> first digit matches my expectations for sub-sampling. How did you pick
-> >
-> > I just used the name in Xilinx's BSP kernel.
-> >
-> >> the last two digits? I think I would've expected "30" here rather than
-> >> "03", since the last two planes are Cb Cr rather than Cr Cb.
-> >
-> > Hmm, but X403 is Cb:Cr, and P030 is Cr:Cb, so doesn't 03 make sense
-> > here? Oh, but Q401 is Cr:Cb, and it's 01...
-> >
-> > Now that I look at this... I think I have to go back and do more
-> > testing. From the Xilinx docs, it looks to me that the XV15/XV20 should
-> > have the same CrCb order than X403. But the comments in these patches
-> > say otherwise. I'm pretty sure my tests conformed to the comments here,
-> > but now I don't feel so sure anymore. It's been more than a year since =
-I
-> > wrote the tests and properly tested these, so I have to spend a bit tim=
-e
-> > to get everything up again.
->=20
-> I think the comments are correct. I guess it depends on which way you
-> look at this: for P030 etc, starting from the lowest bit, the order is
-> Cb:Cr. For X403, starting from the lowest plane, the order is Cb:Cr. And
-> that's probably how Xilinx HW "sees" it and thus they use the same Cb:Cr
-> order.
->=20
-> But in the comments we describe P030's components starting from the
-> highest bit, and thus it's Cr:Cb.
+If you look at the Neoverse V1 software optimisation guide[1], the SVE 
+instructions generally have half the throughput of their ASIMD 
+equivalents (i.e. presumably the vector pipes are still only 128 bits 
+wide and SVE is just using them in pairs), so indeed the total 
+instruction count is largely meaningless - IPC might be somewhat more 
+relevant, but I'd say the only performance number that's really 
+meaningful is the end-to-end MB/s measure of how fast the function 
+implementation as a whole can process data.
 
-Thanks for checking!
+Unless you've got a CPU with truly big wide vector units that _can't_ be 
+fully utilised by ASMID ops, then SVE is only really offering whatever 
+incidental benefits fall out of smaller code size. However, if you do 
+have those wider vectors, then the cost of correctly saving/restoring 
+the SVE state - of which a userspace benchmark isn't likely to be very 
+representative - is also going to scale up significantly.
 
-> >> Has the first "X" letter been picked arbitrarily? It's already used to
-> >> denote padding in other formats so I wonder if we should pick that
-> >> instead of, say, "T".
-> > I didn't invent the name, I just took the naming Xilinx used. I don't
-> > know the history behind it. I assume the "X" is for Xilinx, but I could
-> > be wrong here. What would "T" be for? "Tomi"? =3D)
-> So... While the Cb:Cr order can be seen both ways, perhaps the Q formats
-> are a good reference here to follow, and thus it should be "430", not
-> "403", as you suggest. As for the letter... Anything that's not
-> currently in use is fine for me =3D).
+>> These results seem very relevant - perhaps Christoph can give some guidance
+>> on how we might use these to improve the built-in benchmarks to be more
+>> accurate.
+> 
+> This is the most important part of this report, I think. SVE looks
+> good only like my first idea on paper but in the real scenario it
+> brings more problems than benefits.
+> 
+> I’m happy to drop the SVE implementation for now and instead focus on
+> modernizing the built-in benchmarks to ensure the kernel chooses the
+> best available NEON path for actual storage workloads.
 
-P, Q, S are used for other YCbCr layouts, R is used for red, and T was the =
-next
-letter in the alphabet=E2=80=A6 But I really like the "Tomi" format layout
-explanation! :)
+It's probably also worth checking whether the current NEON routines 
+themselves are actually optimal for modern big CPUs - things have moved 
+on quite a bit since Cortex-A57 (whose ASIMD performance could also be 
+described as "esoteric" at the best of times...)
 
-I'd also be fine with pretty much any letter not currently in use in other
-formats.
+Thanks,
+Robin.
+
+[1] https://developer.arm.com/documentation/110659/
+
+> 
+> If you give me the green flag for it, I can start working on improving
+> these built-in tests.
+> 
+> Best regards,
+> Demian
+> 
+> 
+> чт, 16 квіт. 2026 р. о 16:40 Ard Biesheuvel <ardb@kernel.org> пише:
+>>
+>> Hi Demian,
+>>
+>> On Thu, 16 Apr 2026, at 14:40, Demian Shulhan wrote:
+>>> Hi all,
+>>>
+>>> Sorry for the delay. The tests became more complex than I initially
+>>> thought, so I needed to gather more data and properly validate the
+>>> results across different hardware configurations.
+>>>
+>>> Firstly, I want to clarify the results from my March 29 tests. I found
+>>> a flaw in my initial custom benchmark. The massive 2x throughput gap on
+>>> 24 disks wasn't solely due to SVE's superiority, but rather a severe L1
+>>> D-Cache thrashing issue that disproportionately penalized NEON.
+>>>
+>>> My custom test lacked memset() initialization, causing all data buffers
+>>> to map to the Linux Zero Page (Virtually Indexed, Physically Tagged
+>>> cache aliasing).
+>>
+>> D-caches always behave as PIPT on arm64. This is complex stuff, so please
+>> don't present conjecture as fact.
+>>
+>>> Furthermore, even with memset(), allocating contiguous
+>>> page-aligned buffers can causes severe Cache Address Sharing (a known
+>>> issue that Andrea Mazzoleni solved in SnapRAID 13 years ago using
+>>> RAID_MALLOC_DISPLACEMENT).
+>>>
+>>> Because SVE (svex4) uses 256-bit registers on Neoverse-V1, it performs
+>>> exactly half the number of memory load instructions compared to 128-bit
+>>> NEON. This dramatically reduced the L1 cache alias thrashing, allowing
+>>> SVE to survive the memory bottleneck while NEON choked:
+>>>
+>>
+>> You are drawing some conclusions here without disclosing the actual
+>> information that you based this on. D-caches are non-aliasing on arm64.
+>>
+>> So what exactly did you fix in your test case?
+>>
+>>> Custom test without memset (4kb block):
+>>>   | algo=neonx4 ndisks=24 iterations=1M time=11.014s MB/s=7802.57
+>>>   | algo=svex4  ndisks=24 iterations=1M time=5.719s  MB/s=15026.92
+>>>
+>>
+>> This is the result where all data buffer pointers point to the same
+>> memory, right? I.e., the zero page? So this is an unrealistic use
+>> case that we can disregard.
+>>
+>>> Custom test with memset (4kb block):
+>>>   | algo=neonx4 ndisks=24 iterations=1M time=6.165s  MB/s=13939.08
+>>>   | algo=svex4  ndisks=24 iterations=1M time=5.839s  MB/s=14718.23
+>>>
+>>> Even with the corrected memory setup, the throughput gap narrowed, but
+>>> the fundamental CPU-efficiency result remained fully intact.
+>>>
+>>
+>> Sorry but your result that SVE is 2x faster does not remain fully intact,
+>> right? Given that the speedup is now 5.5%?
+>>
+>> Should we just disregard the above results (and explanations) and focus
+>> on the stuff below?
+>>
+>>> To completely isolate these variables and provide accurate real-world
+>>> data, the following test campaigns were done based on the SnapRAID
+>>> project (https://github.com/amadvance/snapraid) using its
+>>> perf_bench.c tool with proper memory displacement and a 256 KiB block
+>>> size.
+>>>
+>>> Test configurations:
+>>> - c7g.medium (AWS Graviton3, 1 vCPU): Neoverse-V1, 256-bit SVE
+>>> - c7g.xlarge (AWS Graviton3, 4 vCPUs): Neoverse-V1, 256-bit SVE
+>>> - c8g.xlarge (AWS Graviton4, 4 vCPUs): Neoverse-V2, 128-bit SVE
+>>>
+>>>
+>>> =========================================================
+>>> Section 1: SnapRAID Validation on Graviton3 / Neoverse-V1
+>>> =========================================================
+>>>
+>> ...
+>>>
+>>> 1.3 Main Graviton3 Conclusions
+>>>   - On 256-bit SVE hardware, svex4 consistently retires about ~34% fewer
+>>>     instructions and ~10-15% fewer CPU cycles than neonx4.
+>>>
+>>> =========================================================
+>>> Section 2: SnapRAID Validation on Graviton4 / Neoverse-V2
+>>> =========================================================
+>>>
+>> ...
+>>>
+>>> 2.3 Main Graviton4 Conclusions
+>>>   - On Neoverse-V2, SVE vector length is 128-bit (same as NEON).
+>>>   - Without the 256-bit width, NEON outperforms SVE.
+>>>   - svex4 retires ~32% MORE instructions here and is consistently slower.
+>>>
+>>> =========================================================
+>>> Section 3: Validation on c7g.medium (1 vCPU)
+>>> =========================================================
+>>>
+>> ...
+>>> 3.3 Main c7g.medium Conclusions
+>>>   - The instruction count reduction (~34%) perfectly matches the 4-vCPU
+>>>     instance.
+>>>   - The single vCPU is heavily memory-bandwidth constrained (cycle counts
+>>>     are much higher waiting for RAM).
+>>>
+>>
+>> OK, so the takeaway here is that SVE is only worth the hassle if the vector
+>> length is at least 256 bits. This is not entirely surprising, but given that
+>> Graviton4 went back to 128 bit vectors from 256, I wonder what the future
+>> expectation is here.
+>>
+>> But having these numbers is definitely a good first step. Now we need to
+>> quantify the overhead associated with having kernel mode SVE state that
+>> needs to be preserved/restored.
+>>
+>> However, 10%-15% speedup that can only be achieved on SVE implementations
+>> with 256 bit vectors or more may not be that enticing in the end. (The
+>> fact that you are retiring 34% instructions less does not really matter
+>> here unless there is some meaningful SMT-like sharing of functional units
+>> going on in the meantime, which seems unlikely on a CPU that is maxed out
+>> on the data side)
+>>
+>>
+>>> =========================================================
+>>> Section 4: The Pitfalls of the Current Kernel Benchmark
+>>> =========================================================
+>>>
+>>
+>> These results seem very relevant - perhaps Christoph can give some guidance
+>> on how we might use these to improve the built-in benchmarks to be more
+>> accurate.
+>>
+>>
+>> Thanks,
+>>
+
 
