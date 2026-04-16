@@ -4,44 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC290F8A14B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 08:55:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67EA0F8A14E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 08:55:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zKl+bQNpWD9JU/8BGD9cASqBRqdtlUW4I0VqiWU4D+0=; b=vkPTQrAGuWMDfXo5gl85k/X/8b
-	Bdo1IbJ2KSu/eJkE2EyU66dM7HypuwAk+WO7EwX3ePpW5Iw3JIP5q+scNxC1x4U6Xv99DazVML2/r
-	fFYXjflqGARe/mhuFTodZQwJhJkcM3KZNUDknC2xySkM5WkbsZ3CGQ540S6knXoFfCUWkVuR8p9yP
-	pwvpI6udW5UzgKrrsmlT82ziN6KPcXnlZRXN/DU0WS6Wk+xjYpfPrXIwwWNTvC3YkpmFjmtK2u+cq
-	RzHP6xMGC6XcdtJUl6rWoIwko+DS1UaylSOV67lMMkXkKoBD5/wiaA1DURAfNH+uXB3gvO5DuhSUE
-	jCnNYMRA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sHY/pr77LF/Sp632Lgdpg5zJm4hqirQJzcY0pCdVrQU=; b=N7m254v9GZcOUp
+	v7a4ncQitoJR1UB4i3jz5sb7JzJOM1AZHA3Ns9k8BwDpf07IYwfKFzBsbgSOO8ex9fZkCTBocC6+l
+	IdViWg/qbNI2XDsIOy/WGzf/RoMoBJeNZi+aDaEhRSOfZjkrX0IHWrQ53C7cmkiaEsderK7Z8slCA
+	kYHAzO9bjb9cpl5BYwxoFQKPrpeASnXYtqq619kzJSiOcFsPI0P3j6asdgNgTtD22oiuQMEpFpJe7
+	y+LL3Zuqt5T2NpIH0eM1pqN71ENbneCmIWISjZXVEtpdsyTmL7WxL0lyFh9I1JZQMU5Hen0Szt5Ek
+	tS6Z+0WQlKj6K1mykDVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDIVK-00000002CDn-0sDl;
-	Thu, 16 Apr 2026 08:55:18 +0000
-Received: from courrier.aliel.fr ([65.21.61.41])
+	id 1wDIVL-00000002CEt-1bis;
+	Thu, 16 Apr 2026 08:55:19 +0000
+Received: from courrier.aliel.fr ([2a01:4f9:c011:1c83::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDIVD-00000002CAq-1B1S;
+	id 1wDIVD-00000002CAf-3kcI;
 	Thu, 16 Apr 2026 08:55:14 +0000
 From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1776329705;
-	bh=1WmAgn/FyzsKhMv+YbDwDX6oHzK8g6LX2ZrR/tJNlRw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Ap0mdqLXPoVHLRYCl76YKsNpDbZn5YfKfldzTvMxIrM7QCFa/F6DBeyGvtdwPUBpK
-	 SCjkdPkmnXR9qeUFo8qglUFi1W9sAdOYRnI27FQbvm1LCwkXAvz/25QQc/nFVkYliO
-	 mhHEKyBfViG3PH41bV0exMQrAephqxwwG2dck5ek=
-Date: Thu, 16 Apr 2026 10:54:41 +0200
-Subject: [PATCH v2 2/3] arm64: dts: amlogic: t7: Add UART controllers nodes
+	s=courrier-s1; t=1776329703;
+	bh=0AnzjODYKSvj6YY8pPamvrp8pomTzD/WgVtAmSE50Aw=;
+	h=From:Subject:Date:To:Cc;
+	b=kClKD4jh624GykVfDnywccZMKG1f9OaQF9hoanGAJqYXv5w/Qs985aEl6y3vJ8+u5
+	 Typ4PhPxeUEB/h3jH5PkbBmtr1xfctmduEYshklW6bGzH09uYI++0Rsxu3uAdl3sUc
+	 vtA8Pb3wU48kXE67WZdIdKy1eOPX33SyUKcBc88w=
+Subject: [PATCH v2 0/3] arm64: dts: amlogic: t7: Add UART support and
+ enable Bluetooth on VIM4
+Date: Thu, 16 Apr 2026 10:54:39 +0200
+Message-Id: <20260416-add-bluetooth-t7-vim4-v2-0-9a57098fd055@aliel.fr>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260416-add-bluetooth-t7-vim4-v2-2-9a57098fd055@aliel.fr>
-References: <20260416-add-bluetooth-t7-vim4-v2-0-9a57098fd055@aliel.fr>
-In-Reply-To: <20260416-add-bluetooth-t7-vim4-v2-0-9a57098fd055@aliel.fr>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WOQQ6CMBBFr0Jm7Zi2VEhYeQ/DopRBJgGqbSEYw
+ t1FYOvy/cn78xcI5JkCFMkCniYO7IYN1CUB25rhScj1xqCEyoSWGk1dY9WNFJ2LLcYcJ+41NkK
+ SSK0mqwxs7stTw/Pe+ygP9vQet/p4hFCZQGhd33MskoHmiOeLFH5CyyE6/9l3TXI3zvvtz4RJo
+ kBRGZHrzFpZZ3fTMXXXxkO5rusXTM/sWOoAAAA=
+X-Change-ID: 20260414-add-bluetooth-t7-vim4-f01e03c4ec2a
 To: Neil Armstrong <neil.armstrong@linaro.org>, 
  Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
  Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
@@ -51,18 +55,18 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openssh-sha256; t=1776329702; l=3650;
+X-Developer-Signature: v=1; a=openssh-sha256; t=1776329701; l=1839;
  i=linux-kernel-dev@aliel.fr; s=id_ed25519; h=from:subject:message-id;
- bh=1WmAgn/FyzsKhMv+YbDwDX6oHzK8g6LX2ZrR/tJNlRw=;
+ bh=0AnzjODYKSvj6YY8pPamvrp8pomTzD/WgVtAmSE50Aw=;
  b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgMGec55oxeeisqykQiUedekMYyOnR9
  BG9E/7rDWyqdNoAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
- QLjJHrGlL9+ss4EoBdJB4v7Nr8YPXCzxy4YdWepYFV6zwoJmZ90W7XRHvjUGMLmLsmcyj2D2FJg
- dP9stuSNnnQQ=
+ QK7L8feog0r9OwoBubcH0DzrRCO4DZaT/fDtCUbOaRPTMmWvFr0YxYvpnesLJq48MZUcmSp5ecr
+ 6aOXtgU6mYQ0=
 X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openssh;
  fpr=SHA256:kch4osYZ6A1BrPps5AUs6KnfdE2wm4ocMtyTc8TmZMs
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_015511_571155_FB86507C 
-X-CRM114-Status: UNSURE (   7.67  )
+X-CRM114-CacheID: sfid-20260416_015512_091188_FA3748F2 
+X-CRM114-Status: UNSURE (   7.83  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,103 +82,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree nodes for UART B through F (serial@7a000 to
-serial@82000), completing the UART controller description for the T7
-SoC. Each node includes the peripheral clock.
+This series adds all UART controllers for the Amlogic T7 SoC and enables
+the Bluetooth controller on the Khadas VIM4 board.
 
-While at it, move the uart_a node to its correct position in the
-bus address order (0x78000) to comply with the DT requirement that
-nodes be sorted by their reg address. Complete the
-uart_a node with its peripheral clock (CLKID_SYS_UART_A) and the
-associated clock-names, matching the vendor default clock assignment,
-consistent with the other UART nodes.
+The T7 SoC ships with six UART controllers (A through F), but only
+uart_a was previously described in the device tree.
+
+  - Patch 1 adds the pinctrl group for UART C, which is needed to route
+    its four signals (TX, RX, CTS, RTS) through the correct pads.
+
+  - Patch 2 completes the uart_a node (peripheral clock) and
+    repositions it to respect the ascending reg address order required
+    by the DT specification. It then adds nodes for UART B through F,
+    each with their respective peripheral clock.
+
+  - Patch 3 enables UART C on the Khadas VIM4 board and attaches the
+    on-board BCM43438 Bluetooth controller to it, with hardware flow
+    control, wakeup GPIOs, LPO clock and power supplies.
 
 Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 ---
- arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 61 +++++++++++++++++++++++++----
- 1 file changed, 54 insertions(+), 7 deletions(-)
+Changes in v2:
+- PATCH 1: change underscore to dash in pin node name,
+           according to Xianwei's feedback.
+- PATCH 3: remove clocks and clock-names as already defined in DTSI,
+           according to Xianwei's feedback.
+- Link to v1: https://lore.kernel.org/r/20260415-add-bluetooth-t7-vim4-v1-0-0ba0746cc1d6@aliel.fr
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-index 4a55d9641bc9b..81c26b1e3e7a4 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-@@ -577,13 +577,6 @@ gpio_intc: interrupt-controller@4080 {
- 					<10 11 12 13 14 15 16 17 18 19 20 21>;
- 			};
- 
--			uart_a: serial@78000 {
--				compatible = "amlogic,t7-uart", "amlogic,meson-s4-uart";
--				reg = <0x0 0x78000 0x0 0x18>;
--				interrupts = <GIC_SPI 168 IRQ_TYPE_EDGE_RISING>;
--				status = "disabled";
--			};
--
- 			gp0: clock-controller@8080 {
- 				compatible = "amlogic,t7-gp0-pll";
- 				reg = <0x0 0x8080 0x0 0x20>;
-@@ -713,6 +706,60 @@ pwm_ao_cd: pwm@60000 {
- 				status = "disabled";
- 			};
- 
-+			uart_a: serial@78000 {
-+				compatible = "amlogic,t7-uart", "amlogic,meson-s4-uart";
-+				reg = <0x0 0x78000 0x0 0x18>;
-+				interrupts = <GIC_SPI 168 IRQ_TYPE_EDGE_RISING>;
-+				clocks = <&xtal>, <&clkc_periphs CLKID_SYS_UART_A>, <&xtal>;
-+				clock-names = "xtal", "pclk", "baud";
-+				status = "disabled";
-+			};
-+
-+			uart_b: serial@7a000 {
-+				compatible = "amlogic,t7-uart", "amlogic,meson-s4-uart";
-+				reg = <0x0 0x7a000 0x0 0x18>;
-+				interrupts = <GIC_SPI 169 IRQ_TYPE_EDGE_RISING>;
-+				clocks = <&xtal>, <&clkc_periphs CLKID_SYS_UART_B>, <&xtal>;
-+				clock-names = "xtal", "pclk", "baud";
-+				status = "disabled";
-+			};
-+
-+			uart_c: serial@7c000 {
-+				compatible = "amlogic,t7-uart", "amlogic,meson-s4-uart";
-+				reg = <0x0 0x7c000 0x0 0x18>;
-+				interrupts = <GIC_SPI 170 IRQ_TYPE_EDGE_RISING>;
-+				clocks = <&xtal>, <&clkc_periphs CLKID_SYS_UART_C>, <&xtal>;
-+				clock-names = "xtal", "pclk", "baud";
-+				status = "disabled";
-+			};
-+
-+			uart_d: serial@7e000 {
-+				compatible = "amlogic,t7-uart", "amlogic,meson-s4-uart";
-+				reg = <0x0 0x7e000 0x0 0x18>;
-+				interrupts = <GIC_SPI 171 IRQ_TYPE_EDGE_RISING>;
-+				clocks = <&xtal>, <&clkc_periphs CLKID_SYS_UART_D>, <&xtal>;
-+				clock-names = "xtal", "pclk", "baud";
-+				status = "disabled";
-+			};
-+
-+			uart_e: serial@80000 {
-+				compatible = "amlogic,t7-uart", "amlogic,meson-s4-uart";
-+				reg = <0x0 0x80000 0x0 0x18>;
-+				interrupts = <GIC_SPI 172 IRQ_TYPE_EDGE_RISING>;
-+				clocks = <&xtal>, <&clkc_periphs CLKID_SYS_UART_E>, <&xtal>;
-+				clock-names = "xtal", "pclk", "baud";
-+				status = "disabled";
-+			};
-+
-+			uart_f: serial@82000 {
-+				compatible = "amlogic,t7-uart", "amlogic,meson-s4-uart";
-+				reg = <0x0 0x82000 0x0 0x18>;
-+				interrupts = <GIC_SPI 173 IRQ_TYPE_EDGE_RISING>;
-+				clocks = <&xtal>, <&clkc_periphs CLKID_SYS_UART_F>, <&xtal>;
-+				clock-names = "xtal", "pclk", "baud";
-+				status = "disabled";
-+			};
-+
- 			sd_emmc_a: mmc@88000 {
- 				compatible = "amlogic,t7-mmc", "amlogic,meson-axg-mmc";
- 				reg = <0x0 0x88000 0x0 0x800>;
+---
+Ronald Claveau (3):
+      arm64: dts: amlogic: t7: Add uart_c pinctrl pins group
+      arm64: dts: amlogic: t7: Add UART controllers nodes
+      arm64: dts: amlogic: t7: khadas-vim4: Enable Bluetooth
 
+ .../dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts  | 21 ++++++-
+ arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi        | 73 +++++++++++++++++++---
+ 2 files changed, 85 insertions(+), 9 deletions(-)
+---
+base-commit: 6aa9edb4f8266cfb913ee74f5e55116550b5574d
+change-id: 20260414-add-bluetooth-t7-vim4-f01e03c4ec2a
+
+Best regards,
 -- 
-2.49.0
+Ronald Claveau <linux-kernel-dev@aliel.fr>
 
 
