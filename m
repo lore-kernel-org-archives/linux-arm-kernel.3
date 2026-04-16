@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D5E2F8A146
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 09:06:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08930F8A145
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 09:09:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OkhT0SJSXNUabO8sjsvBTtSy3/Xnqv7M3gz/N6ysxEk=; b=rZvHyfW8xmOsZpe62onC0NL958
-	eLCn8sMXAHrSd/1KdAcUtxBX8Duun//rmzN/WZIvAfNRdo6ZvUbODXRB/ItILklb76i0NPgJKc2rr
-	aQmUl+I1AkymRKvaRZSOH3cdsqB2k6FCkYkM4jMbk+6+/c7xW1+pJ+X0h59KhCF7r8F6s5antb91w
-	yyojK8TPFHX5uuE3Ac+gcRLtw1xgxbDzO/H6MGU7gNNISKNJwFbBAkvghGOi3i9V9+Cay1LHj2H57
-	KTbG7OSGpX8G5huK2wo+imZvgfC/PuvyJi83pI6wLAfYTS5rPL6oYqi/88sUiOAe82TIHFn2a98Ba
-	EYOjndfw==;
+	bh=TixMsx0BPtUUqZSYORuHKunvvHdtwvU6CPQXYjdpSlc=; b=Pmk64O12OaxThZW3hihSMXSxHw
+	tLXGGFjy6hIxRMelzE/X7Vy9I7r6gYFUzJIVfou/nHbii8M7IiIeZsZxF2sN0we5f05WBP/NTD8wF
+	IazcfpOdwcLWqSSfPlgLOm5XpfdkYKpd2E0ZCzkhFQH7A0o1kHNNU0AFL3X7J3xWmGNP+F3qtkJ5x
+	ruxnynlFLdDM+utFgC9GouWCqb5uldtZl8eodz6QKCqQpbSTuDt/uh0mdGbnj6hf2kn1vzFW7lfvA
+	glp2TYwlQUBHpRYli/bSS3F1By1lS3t4WPSlMfPgt+HRZCDoc2Hk+pc8Mfv+vLpLFoFgT4CQfbOzY
+	luKa+8Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDIgX-00000002Die-1EL7;
-	Thu, 16 Apr 2026 09:06:53 +0000
+	id 1wDIiw-00000002Dv2-35NK;
+	Thu, 16 Apr 2026 09:09:22 +0000
 Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDIgU-00000002DhK-1f2M
+	id 1wDIit-00000002Duf-40TL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 09:06:51 +0000
+	Thu, 16 Apr 2026 09:09:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=OkhT0SJSXNUabO8sjsvBTtSy3/Xnqv7M3gz/N6ysxEk=; 
-	b=m8rWVK+PwBbAdMiq6WjvcnjUrVYIDVYXKcOy6mTtCJlAEJtwJkBCJdxz5RIU3kMXpU3ZhfEUcZb
-	wn4/cNzbPVSr//Y2ZQrtBGlimJj9XABAoSoXVJQzosGBT4Ngh8R+D8hMqPZjdTboLmXAYrkGiPZXA
-	QXK91HiP8IEkJg6THPulcf+ph0ylUPrW0iKa3F2X0Jc63OR7XgppS0SX/MJNpqimYsqkqr6jhULuc
-	5A5OQxZZY3HDdl/n1n8Lgkf92BnXyNzZw8Cd2Ssan69gOQX8TdWxDSWreNQfMkIEn0L5R64Dw0BDv
-	ZtbD1uAdACjTfvGsLTgAXT1HLotOKDT/eQOg==;
+	from:content-type:reply-to; bh=TixMsx0BPtUUqZSYORuHKunvvHdtwvU6CPQXYjdpSlc=; 
+	b=ErtA4N6ex00IG5sZ4R0/6XrK72MfXtk43TUatl9ZTOD3lft947oTiyFT0exBCmptfvdJdoU1VvZ
+	Wt08uMK3BhnbLjof2cfOrdkxCsqmKuEaXQNNlou2dFrB6jujgDNmvrTc123nKdNtttyh9tFndMcmq
+	5+Ii13rLjyYRHJ6/kztKxajGxgZTUUoaKYzvUVWqknnd/rQswOFCSI7/sC9L3ZJt+p9Y+wdPuxgcr
+	2NN7tsnBqVUr48q/0zB64Khuc24EmMw4LufBb+QNIO83m3WkKT1gpDpSDRw2EOvnZ8c0WT5l7JllM
+	cv+avDHc4qKLlvNOWWfDT/stzw4FR7KDXhaA==;
 Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
 	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1wDIg7-006VCE-2a;
-	Thu, 16 Apr 2026 17:06:28 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Thu, 16 Apr 2026 17:06:27 +0800
-Date: Thu, 16 Apr 2026 17:06:27 +0800
+	id 1wDIik-006VE2-0F;
+	Thu, 16 Apr 2026 17:09:11 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Thu, 16 Apr 2026 17:09:10 +0800
+Date: Thu, 16 Apr 2026 17:09:10 +0800
 From: Herbert Xu <herbert@gondor.apana.org.au>
 To: Hamza Mahfooz <hamzamahfooz@linux.microsoft.com>
 Cc: linux-crypto@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
@@ -52,18 +52,18 @@ Cc: linux-crypto@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
 	Jeff Barnes <jeffbarnes@linux.microsoft.com>,
 	Paul Monson <paul.monson@capgemini.com>
 Subject: Re: [PATCH] crypto: tstmgr - guard xxhash tests
-Message-ID: <aeCmk6LbLFT4Keo2@gondor.apana.org.au>
+Message-ID: <aeCnNsNrK5o2JcMu@gondor.apana.org.au>
 References: <20260407192859.270745-1-hamzamahfooz@linux.microsoft.com>
  <adYNClYB6RY820Xl@gondor.apana.org.au>
  <adffSYxKIuaDLZit@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+ <aeCmk6LbLFT4Keo2@gondor.apana.org.au>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <adffSYxKIuaDLZit@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+In-Reply-To: <aeCmk6LbLFT4Keo2@gondor.apana.org.au>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_020650_432339_E58D9AB8 
-X-CRM114-Status: UNSURE (   8.21  )
+X-CRM114-CacheID: sfid-20260416_020919_997723_3081FF11 
+X-CRM114-Status: UNSURE (   8.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,23 +79,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 09, 2026 at 10:18:01AM -0700, Hamza Mahfooz wrote:
-> 
-> alg: hash: failed to allocate transform for xxhash64: -2
-> Kernel panic - not syncing: alg: self-tests for xxhash64 (xxhash64) failed in fips mode!
-> CPU: 0 PID: 425 Comm: modprobe Not tainted 6.6.130.2-2.azl3 #1
-> Hardware name: Microsoft Corporation Virtual Machine/Virtual Machine, BIOS Hyper-V UEFI Release v4.1 01/08/2026
-> Call Trace:
->  <TASK>
->  dump_stack_lvl+0x4c/0x70
->  dump_stack+0x14/0x20
->  panic+0x179/0x330
->  alg_test+0x678/0x680
->  ? __alloc_pages+0x1e2/0x340
->  do_test+0x26f8/0x7670 [tcrypt]
+On Thu, Apr 16, 2026 at 05:06:27PM +0800, Herbert Xu wrote:
+>
+> So the error is coming from tcrypt.  I think that's where the ifdef
+> should be added.
 
-So the error is coming from tcrypt.  I think that's where the ifdef
-should be added.
+On second thought, fips_allowed should not mean that an algorithm
+must be present.
+
+So we should change it such that an -ENOENT is not fatal, or at least
+when it's called from tcrypt.
 
 Thanks,
 -- 
