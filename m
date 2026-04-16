@@ -4,152 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4301BF43841
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 06:29:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86F98F4384C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 06:35:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iIKJpCLDT//e7JGdWyU7PR+XaF31JFRzw47Kspbo3mU=; b=0rQxaOy0vOGNa6Kkm5hRYB47hI
-	uco15pHSDmIaYrK2zoLKPudw5m3J/YJrOuFoGQluiBQivbOUOs0pMEClGcsebzunxlWI0EqlzVfGB
-	qXA+h8zbzCWc5fOUmJG6BKfqwHrKBVA9WXCjpHELhfaUiKrColWVfQJfKrpucxdmu6Q4knnRWEGxb
-	LD+L2spUGPVMpUn1yCH2U1YHkWz9lxLz6R9ePxHZARvfzb/YdAoPUGESgVFpBpjlRnjTkXo2rWe9k
-	rW0bh2exRRXhfkTpKiHkiK+R8XaFas9rBeTvU4PyPNkmHk9vkAQIsvRagnbwwERkT35qPv9Z0v+xD
-	4xCloYnQ==;
+	bh=6WBIGgQfqXhM97YbaJTI7B6LyiqfGzNm6rs6snpZKzw=; b=js8yEB1xwLV1unALJ7eJu12UTe
+	AJB42K9TXUZ/JdC8+BLfcrqO7DiqgXy3tenOXkJFiDCKLuksuSzwxjCg/cd9QiriinzeYR3LBAl+C
+	IyuyhATUlyo4qEurJL6zeFnEb5hkEko6qqNGOLw1AR6PiYxfuE3MqOvRhVEQ+JdOV96m1zH/ziuRy
+	0c69VJr+mweq40m0wvhZ9aLuatqGBwhnnC4fSXap9UrzhS9EzJFdjH2Cv7QevOpcjJPKLoriI99G2
+	vq0oO8kXyafb+KR9tZ3Ru7ff6NeVprm9bnjEh2LAYGSYg4+CBkCAT5ub+P2Z1b4PgmZXbf3Rj+fA0
+	gL0KDk2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDGEX-0000000239E-3h8r;
-	Thu, 16 Apr 2026 06:29:49 +0000
-Received: from mail-japanwestazlp170100003.outbound.protection.outlook.com ([2a01:111:f403:c407::3] helo=OS0P286CU011.outbound.protection.outlook.com)
+	id 1wDGJW-000000023TT-3WSu;
+	Thu, 16 Apr 2026 06:34:58 +0000
+Received: from mail-yx1-xb12a.google.com ([2607:f8b0:4864:20::b12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDGEV-0000000238s-0c5b
+	id 1wDGJV-000000023T9-0vRT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 06:29:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AfH4L1ZeLiLXzEl/0/I3WIPu0SME2wnXX0Pjmb9Wuel/fxGg2vwwaH0dt95x4HTBknDGzwNvOXFMPTMdEU9wMlLttw9XzqaLEInsJj1VxcW5ye87JIHUBSnzwv8m6N9HLerNS+wZ6uTap3z7c8qjwT6bjuZk58vhbgzC6WJ52+Q/JdI940UkOu5q9zuDpNM8xRsBH93+PXEuIYEwrpqt9wTE6wgRl4z0KHOUo4cPv10SYOi9i+S3SsxdJ25BrO8bWpdsGUteXlp+TVvRZvYM2ub8X/E5YDmb8e1HardE3SHux8hKcLhogvwV1rNIwKLmu/Sgf9rqOWpGcLGwQh9Asg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iIKJpCLDT//e7JGdWyU7PR+XaF31JFRzw47Kspbo3mU=;
- b=EE9DK38VrVGmSJPEnHgSa2tpCSU7EKJGXDRhYgazdbSRLHYbU4mXw8VHhTmeeq8FCKQnq9w6hzljbK9u0mLBcfHgBht/j9vJTckO8yiqavzD35Z06WHKuVfjQ5d779I2VsyqajOwGNOirRgRwV8UCkUFMYl6j8axTivCj8Jdo5bi40SwUxRDvoYSElUfLKGwwCenOFwSPgm50qcMvs0AApkvYLC3u8Me0J64bv1BH/ffCHdsndwq2bElQKJRIDWem0hkXlWDj4AR8OwFpXsF2JC30Y/p5ZfN1b/WJNm+YfAVT5NjILgsfqAWfstZQNPkXpLcVaNxKr3EMGawbbvagw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
- dkim=pass header.d=fujitsu.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fujitsu.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iIKJpCLDT//e7JGdWyU7PR+XaF31JFRzw47Kspbo3mU=;
- b=FNeOz0HJ6VIpcIynDpydjfegmMiDDJ2LlVW7zLahZlDMGF9iAcRkuO9asOeikI7CeZju1gnrKsBdKHwRxSkIwtkk2JYWsAKWJeRCkeSM/w6DVStb+wXwAhBvtLgEbwfMPtw9jqICAc0tR79XyP+dwcoQhHesfkeTI1CybAEMCkT6xodNNHIaJCXENuc6/kotfRTmG759YFqfvZq91LVpriRLa7lJnRLOFskjNuFUnGSm9cxQjRkgAiyItPj9EqrJFyvE23xeL7TAr50N2yTDTPQwQbzZKJd8DHfpiC1/M9lXZfe1zO7HFbqroL6eg/7gGrkExMzTwQDEeBJErBdOFw==
-Received: from TY4PR01MB16930.jpnprd01.prod.outlook.com
- (2603:1096:405:338::19) by OSOPR01MB12440.jpnprd01.prod.outlook.com
- (2603:1096:604:2dc::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.21; Thu, 16 Apr
- 2026 06:29:34 +0000
-Received: from TY4PR01MB16930.jpnprd01.prod.outlook.com
- ([fe80::38bc:7870:6f23:a957]) by TY4PR01MB16930.jpnprd01.prod.outlook.com
- ([fe80::38bc:7870:6f23:a957%4]) with mapi id 15.20.9818.017; Thu, 16 Apr 2026
- 06:29:34 +0000
-From: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
-To: "ben.horgan@arm.com" <ben.horgan@arm.com>, "Dave.Martin@arm.com"
-	<Dave.Martin@arm.com>, "james.morse@arm.com" <james.morse@arm.com>,
-	"reinette.chatre@intel.com" <reinette.chatre@intel.com>,
-	"fenghuay@nvidia.com" <fenghuay@nvidia.com>, "tglx@kernel.org"
-	<tglx@kernel.org>, "will@kernel.org" <will@kernel.org>, "hpa@zytor.com"
-	<hpa@zytor.com>, "bp@alien8.de" <bp@alien8.de>, "babu.moger@amd.com"
-	<babu.moger@amd.com>, "dave.hansen@linux.intel.com"
-	<dave.hansen@linux.intel.com>, "mingo@redhat.com" <mingo@redhat.com>,
-	"tony.luck@intel.com" <tony.luck@intel.com>, "gshan@redhat.com"
-	<gshan@redhat.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "x86@kernel.org" <x86@kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"wangkefeng.wang@huawei.com" <wangkefeng.wang@huawei.com>
-Subject: Re: [PATCH v8 next 00/10] arm_mpam: Introduce Narrow-PARTID feature
-Thread-Topic: [PATCH v8 next 00/10] arm_mpam: Introduce Narrow-PARTID feature
-Thread-Index: AQHczWlOc1sZm8p1sU2G3k2Gi3Y/3bXhOJ9y
-Date: Thu, 16 Apr 2026 06:29:34 +0000
-Message-ID: <TY4PR01MB16930EB1ACB3A3356A92169BC8B232@TY4PR01MB16930.jpnprd01.prod.outlook.com>
-References: <20260413085405.1166412-1-zengheng4@huawei.com>
-In-Reply-To: <20260413085405.1166412-1-zengheng4@huawei.com>
-Accept-Language: ja-JP, en-US
-Content-Language: ja-JP
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Enabled=True;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SetDate=2026-04-16T06:29:34.118Z;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Name=FUJITSU-RESTRICTED;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ContentBits=1;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Method=Standard;
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=fujitsu.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY4PR01MB16930:EE_|OSOPR01MB12440:EE_
-x-ms-office365-filtering-correlation-id: 99d0c1b0-fdcd-4287-b436-08de9b8186b0
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024|18002099003|56012099003|22082099003|38070700021|1580799027|921020;
-x-microsoft-antispam-message-info: YytwHUxVxh75QesgOr+2/fVEkWI+4exfjxo7iqVEduWT29mqjbUrOwIpf3V1WQzouQidXWG/6cDM30mS/PqDTX2m0sipzJgG/JNzFt/8VYP7ExLaAc5Ho4MlExG1mCe/LeiADdUN/2MvLRtoo7vVTg1DrmPtvishW1mW89yTD8P6Qac/XKAFfMm++3cJV6jF4yrfU6Mba32HD/MLsVqC5rR5I2a/R9EUn9SlpmqRsIOteiz2MnnL3CZr4+fJTHn8OEihBQ7YkDOS8yAgSaluts4ujn9MeM+wsC68fwnb84+8fN+PWPDq3UaQXOYzg2nhAL5moRQAHd1znJMrfg/X5C0DzXFnaOEA2B7sNi1Vxf9ji9pF+No5kA3zYeGKC6kG94Y1Bi8hgGNxJyJteZCa9T+hRIKkZsfuaQKwHxXvmldsGFjiAhSoXVVZ5ShU2OfLpGutUt07hS+TQaLi16K7oNmbvc8Ae8CeINTAdJmg8Eejt9cAmp0LccDDZcYH2/bClXIG3v9rhYo5wzrO/ddaS+GQ8NRHQxQ/0hiMt+mlz/cTo/fomdIcNIj1zaage7NaRsL2RDeLoL7VdbeUmzrrwydtTm0y3Korrs76IyEWgUoardRidYOiBqLURfFk6T9rf719hXvNMmM1CEltBm0NDsUlh3Sm9+K/T1VDBi4x8DTQ5zcstorXJ081IP/F24KJlSC7aNO1AzshaDTssRIRnoTRe0KzjEa4zZQ3t5DPjO07J6tRcUWeMnpnboRRJDUbuzOXyp72nFG4ZONm1DIE1lWloX3Ji86J48ASHHjp4C+tHrh2R7AMERfCn6MgTIZhmYtspWMdsrCRgXp5vteIqg==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY4PR01MB16930.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024)(18002099003)(56012099003)(22082099003)(38070700021)(1580799027)(921020);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?ZTR3NjVUQzhFaUdiL05scEw1a3NZNW02d3NrM2YzZjBBV3lhbGgwUStR?=
- =?iso-2022-jp?B?TktTN1VDR2liaWhuN0NtbVZRWFg2QUgvU3I1M3NQRXpWZEpsODNMcS9w?=
- =?iso-2022-jp?B?bVFyTjBVcDBmbDZGRjJZbnZXVzhYYnRhMXlrMVMwN2JpeGU1WFBKUWpT?=
- =?iso-2022-jp?B?QlAzVUR0QkxRMnZjc3NHZU8rZ21NMFplaDdjcW44bDIzUHlCaHhCM1A0?=
- =?iso-2022-jp?B?cTJxQzlmSVJaWituM3pmVTNjL0VRQ2FCU3UzOW5VYnNaREttV3A3WVR2?=
- =?iso-2022-jp?B?SjhDK2JGM0dXODRPb0hCVm9CaWdYNjRHak85b2RkWjRTa1BzTFFxOTYw?=
- =?iso-2022-jp?B?eTAvdHdxYjdmUXFNRkltNkx0WTBPdWVIVnJhK05CTk94Zjd3ZGl6clRG?=
- =?iso-2022-jp?B?eCtPNVB3VXRHOUhHZG5DWkpaU1VqekNSNTMydHY0VEVGNERRenVIeHAv?=
- =?iso-2022-jp?B?a2ZEbnBPQStDZHdrcEpBalZGV3N3cEVFQVpkSFRMVWdqSk1raUZWV29G?=
- =?iso-2022-jp?B?ZHZyZkROb3NmV3N4NlNtcGwzSlIxYnFUYVN0K0djNU9WQm1KVHRmNE82?=
- =?iso-2022-jp?B?c1FsbTl0VTBZS2wyTlpWbW1xSlhwUW92a3dZLytmZUJsWWdKbHhYZjRO?=
- =?iso-2022-jp?B?c0tkazY0M1BldXFpR0FMZkhQZm5wTGk3QVhwUkJBZVdOY3poMk1TU09r?=
- =?iso-2022-jp?B?dmtRYWlTaU1hL3hpMjNGRnV4V0NCbDRGaDJ0L2NlRm1nM2pVY0IzVEs0?=
- =?iso-2022-jp?B?SURJVjZpdVZDUjNXY3RwSEhSaitvZzIyL0ZOQzFWallmZmhhSHU0OEE2?=
- =?iso-2022-jp?B?czEvYUxNbVJVNDJsZXg2dzVoZjJBMEYwemZkZXM5bmE5SDI0Qm1GTnFk?=
- =?iso-2022-jp?B?aGQ2N3UveE1hNUtXT0NSdWlKaXRRaDViYllvT1FMKzlaZkU1bkxmditv?=
- =?iso-2022-jp?B?VTI4S3JVVlF2ODVXQUpFeXI2RTM0Qy9jVHJNNEY2aVdxZ0tLZzZGeHNI?=
- =?iso-2022-jp?B?eUd6dVVMcTF6d3IxOEtKd1dGR2p1UVRSVjFTYnMzR0xLUUsyRkxIRko0?=
- =?iso-2022-jp?B?MVFnTmcva2VrQnE2RDNRb2dOQnJkRVZkMlJBOVVHZnU0S0hLRk1RTVFL?=
- =?iso-2022-jp?B?UzZQZkNzUGFCckw5TlJoV28wRWlLZ0dxRjMyVnYyc0dIRkhNMUwvdWJk?=
- =?iso-2022-jp?B?b3JwSnhMNVlaRysrTDJqZ0lIQk1KQ0ZyR0ZWWHRoRjdJYVlYaklwT0VE?=
- =?iso-2022-jp?B?ZXIvZ3VBMWNpYVRqNGg1MnRSbDd4OXZ1TWhlOXdGTmtzc1A0RlhCbC9X?=
- =?iso-2022-jp?B?UDBNOTdnaXdmaXNWQlJReWJTRmg4MXcvOEF6ZVlXbEFKeVFSMGFqajBj?=
- =?iso-2022-jp?B?N01UMzZvczg0L2NUVVJBMzlsbVQ4UlYrWlVDcnBVSzAwSWlHUWc5TUF4?=
- =?iso-2022-jp?B?RWtLV0RPbDFZRVh2czU2cFE3SVFzWEp5V3JwZzRSd20ySEZsZXF0bTBu?=
- =?iso-2022-jp?B?OEVnNjM4Snc1ZFc3WGtMR0Vaa2ZDaVNTUGtrNDVJRmFuQldxeUpmUEEy?=
- =?iso-2022-jp?B?NnArcUo1Q3c5NlQ2ZnBWZ0syaDZOalk4eWVEVXlNMGRxWWJXQ0pHb1dJ?=
- =?iso-2022-jp?B?VXpQallQQWJ6WUl4M0hIR29TVDVHbmpYL2lqN0xSUXZVT0FFQXc3cXNJ?=
- =?iso-2022-jp?B?SEdHaWxIQXJleFZ4Vm4wWk9uZ2R3a1dFT0Y2bWhJMzA4aVMyUzB0M1NP?=
- =?iso-2022-jp?B?Mm4wN2d6d014aWcvSnVkM0ZxVmRreE02UERrejdYZlBPQ1d6Y1NKMDRi?=
- =?iso-2022-jp?B?MFFlaXdyVnhvVmNaRXpuMEEvTWR4REV4anYwaVp1a0FoMmh2S1BnSjM1?=
- =?iso-2022-jp?B?bVFHSVhQU0FqOTdTbWs5RUZnZ0pJWnZRQzNsR2JXYVpoV24yOTdHTVVF?=
- =?iso-2022-jp?B?WW00WVlnbGpOSEFHaHluSXJBWG4veDhZV3hNTS85TElwMEdtVXErdENF?=
- =?iso-2022-jp?B?a21Dc3VlbkFGTTZYRGkzUjlkSVFlNXYxRTUweEw4cjROQzU1d1VmaVFt?=
- =?iso-2022-jp?B?UG9XUDh2ZisvQm41VnA4Vno5ZklnckNZUkZlZUJkVDd4Q25LamV3S3ZE?=
- =?iso-2022-jp?B?bHgwZjlSa3pWYkRKRmw3OHAzeFg0U2N4TFpzOXB6c2tGaGZFekxLZnNN?=
- =?iso-2022-jp?B?SHB0TEk1YURnTlN4cUdVbWY5TXhuRFo4eXpUZ2NrNHllTFExZmNjZDZz?=
- =?iso-2022-jp?B?WkRLdkhzSk5vQU9XaFdTWXp0UGpIZDE4YkltS0FBM2t2ZXJaU0VCcDls?=
- =?iso-2022-jp?B?bStSRE5IVDdyTzZqQnV1MEg4dVkwMFJMY2xXUGR0MkxWYm4wUklVSVhw?=
- =?iso-2022-jp?B?TyswYVRLUXk4aDRuU0h3KzljNitwTE1PMVd5TUFFczBSMVBQbzlIM3Rz?=
- =?iso-2022-jp?B?aW8ydS91ZHlaV2YydlMybXZ4Q1dyY0pHd3ltYThpQ3J4Y3NEdGdWTE1T?=
- =?iso-2022-jp?B?YVVvbVVlVFcyYmhSR1RYNHloRzJzc2FQODd5QT09?=
-Content-Type: text/plain; charset="iso-2022-jp"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 16 Apr 2026 06:34:58 +0000
+Received: by mail-yx1-xb12a.google.com with SMTP id 956f58d0204a3-651bc8f864fso3269530d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Apr 2026 23:34:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776321296; cv=none;
+        d=google.com; s=arc-20240605;
+        b=XPr4OdeHfJwxFDZzu6QwiLesHVMS5SSuCtGhnJsi7WFB5a3PIK47GE3CYwbHhxx2UR
+         Rcb+xlH0ZDKnn73vcyzZPaQa+9ESGOnCwQM990NTHAaI1hRXMioURUWFeORDx0ACxwz4
+         TPqCCYXl5FQLfBu81xZ3D+fyhrwhcPyaS70j/yYGxTA5N2nDqd4d0tEwrtWoILyAg2HV
+         epMcyKJ3RkeX9pqD0NB4F7zCbqBkdFRuUgt9Y2O8N0t7pT3W/Y+o/J0A0eGfYHXGzdBc
+         WGhjFraolVJvuX9og0R6cW3At9W0pw93/kHcrA/pcRPdsaY4RTlkq/k3mPFYTDRfLVH9
+         o8mg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=6WBIGgQfqXhM97YbaJTI7B6LyiqfGzNm6rs6snpZKzw=;
+        fh=KuxSaLNfZaADV3fYd/K6s5GvjQUiVELw5xzrXKsGe4M=;
+        b=Mel0y7OCNN1GSAlu/YUd1XTjgg99xp5O2s6KzOVz5A36FcQ+V5xMWPfsEZ5v6GWcr9
+         gPfZs6bp1OGxcF90kRu/1qP8njO1EyNRzF1AJWLm7pC65+hMoT9t1sx3CPIXsQSgOVtO
+         lRj6fN0p1wiZMEugZJ4aaBgmsnjcwrUYzcjC2R97cKWOcDyGGrK9PPib1peUl2RLVRQV
+         b3C/LFoilJEpnKeV37XJWvg1LorZbGNfohgzoZsy5Oo5lpqizHt1Hh+wyETGJHoJoCOR
+         AfXtis6IpPQ6MpqYIzLqP3MF4pVhgByJfGJxcffcVSnBGvwYDYNJ0J/y++vodaDB+Opj
+         wOPQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776321296; x=1776926096; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=6WBIGgQfqXhM97YbaJTI7B6LyiqfGzNm6rs6snpZKzw=;
+        b=WdnTFARtGntB+gin4Dhw6VkKDb+eWaqT4bHxLbHPd8PPeb8kTm2+SJVAyXi4UPhf3U
+         jWSXVXAWqtp7w973nILGXXA8Zu2ombU1Mw6MyUSeEWr0EnqWkr3kJUHwybGH2jvCqT5D
+         SsSIph8nXc3NUzrvLB0Yrj5tje/wu59yt9p2OiKxU/53Z0DNK0hgXR3ZIvoMwwxGKZ6Z
+         6xUaCnXg04GPsHkNrgaEEC86Cec3eQwGuiEZ87CGlHCvQikLjGxvP4YnZkVmvrbrhKYy
+         fkzsCwVh3d02E+L0mmQlMJAENs7qKwwpICt44FuyzLjIcnnSZ4fi8eDbnMGARBjdJ5A5
+         2mIA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776321296; x=1776926096;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6WBIGgQfqXhM97YbaJTI7B6LyiqfGzNm6rs6snpZKzw=;
+        b=VVRPdZO6opbG8SBEai06JGRJkFE0tOvuG9di9ep12qiE18iDRXTIdNubYUWWNyaaT6
+         cbFn0JaC5fMMX7djWrQaLonMqreKs5cs8afITdKrHEVB19rf/gkjVsr45/oyCwfRZmtu
+         0lwhlfqeLi/O7OSiaXSFXrk++Y3IlY/ieqO8BSzSEaj1Cl+G6WD7YP6MFY7zXJBPigTv
+         ZSD9/Qfm0SKv+Kr2VXAHaEHuY70QKU61PQYqTeaisN2O8AySxFx2HhWovwB/o5tp3C6P
+         8dPYtR88/DC3T//BoB/vdXTZnbg6cZCmupUPM2LVmkNOHjD0GD3jMv39ZBVhW7NUeFon
+         6rTw==
+X-Forwarded-Encrypted: i=1; AFNElJ8RV5OJdcSfPhPC+FMhQVi17QRH2F9b1Dd+6vQ3nGR8YJ6paY7c87E3JF8ZIAHqBznEgX+XeoTmetxWe4dEmMBk@lists.infradead.org
+X-Gm-Message-State: AOJu0YykLZAk+ZYA8DX/Pj5PFlBm6OT7pTH2mduf4V8zS39yXXXE7DHL
+	1GZ9CkVYbq8cr1Zx/MIwC73/F75hO9/uaT51t7QCkGUpH15FVvHGM+TC9Q0p+WHkfVTGcIlucpR
+	ZzCjNjvsXNDWC3797qDT8G9cqbE3usw8=
+X-Gm-Gg: AeBDieugTooYG810zL/TC79Z/TDNz8BE3u2YniYMwCZ+9gg+GUnfdlAHXMyfFmVjhiJ
+	+a3utoy/3gb6zWa9bsJ8/9ZqAoRMYekj/M92NqB7i4j10tmKg+KfvWYnli0uTmPMq5oKaROMkc8
+	lgcJBaxMOCwWHEkSJxmAeYpjC9mq1wOmi2B1bVL3hmy3A+zYAO3aP1zZuTgvJtMD74sfE+69Pym
+	3KleDIU3B9XSPvuBVJ0IXAo534t99Jp4zgU1d0+lN8jT3jkiNp5ilYVP2jFTUUtbMo92r8b6MOB
+	yB1MAgk7nt6f5FJxXQ==
+X-Received: by 2002:a05:690e:1209:b0:651:d23c:3d70 with SMTP id
+ 956f58d0204a3-651d23c47afmr12655185d50.16.1776321295868; Wed, 15 Apr 2026
+ 23:34:55 -0700 (PDT)
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: RiTXd0WmHxWqwAc/vntPfR/z17GCLKM27hI9gIO+729704PpA9ZLgUeOGTm0+WZkFu+UIXl2NhRPTaQPOpD7YEd+dRT9PcmvarHiZAjErNLPTtJdB97gwqqkHUaijR9m6LmDEfXqnpoEgxuIfxBHWD3LBGl2a36qmt1+zzaWn1pbIs6K58KeI7kShijFyrXtwQfX0uD/vsSQT2gNnXubJM+mkzA3G1eolMHpwHpA7plMoitfaTfjZDS7Ca19Bpkqw5tVf2YTn+VqCjtycf25ZomWWyTqfNva9fDknsK2YqImQeEyJWRJJzdXFvnjFoV8TaWmMwfjum2RQerEb8QWVA==
-X-OriginatorOrg: fujitsu.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY4PR01MB16930.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 99d0c1b0-fdcd-4287-b436-08de9b8186b0
-X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Apr 2026 06:29:34.5932
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: URQW0GF8pzaOHEWrvnpm6ieCb7raFecurqknaL6gQFxuc7TIBjLaIek1R4NzTc8ypa3gxtiKaJkozRco2mTJKu2GB+7p1eqoeh8xD0zyrsc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSOPR01MB12440
+References: <20260415174159.3625777-1-lgs201920130244@gmail.com>
+ <ad_WmuauLJ3xDKqh@J2N7QTR9R3> <2026041603-guts-crested-ef76@gregkh>
+In-Reply-To: <2026041603-guts-crested-ef76@gregkh>
+From: Guangshuo Li <lgs201920130244@gmail.com>
+Date: Thu, 16 Apr 2026 14:34:41 +0800
+X-Gm-Features: AQROBzCOpZzRmD41Y6QW8paZXFQAYd1mYTjiI8Mq73St9Vcp-8vYTmlQsIfc7_Q
+Message-ID: <CANUHTR89FUUFxL-TKxOOAugNFp9oR3dc9Zf87-kEEXSrRWxk5g@mail.gmail.com>
+Subject: Re: [PATCH] arm_pmu: acpi: fix reference leak on failed device registration
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, 
+	Anshuman Khandual <anshuman.khandual@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_232947_188791_4676E322 
-X-CRM114-Status: UNSURE (   4.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260415_233457_270534_2E804E2B 
+X-CRM114-Status: GOOD (  46.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,10 +117,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Zeng Heng,=0A=
-=0A=
-Could you tell me which branch this patch series based on?=0A=
-=0A=
-Best regards,=0A=
-Shaopent TAN=
+Hi Mark, Greg,
+
+Thanks for the feedback.
+
+On Thu, 16 Apr 2026 at 12:41, Greg Kroah-Hartman
+<gregkh@linuxfoundation.org> wrote:
+>
+> On Wed, Apr 15, 2026 at 07:19:06PM +0100, Mark Rutland wrote:
+> > Hi,
+> >
+> > Thanks for the patch, but from a quick skim, I don't think this is the right
+> > fix.
+> >
+> > Greg, I think we might want to rework the core API here; question for
+> > you at the end.
+> >
+> > On Thu, Apr 16, 2026 at 01:41:59AM +0800, Guangshuo Li wrote:
+> > > When platform_device_register() fails in arm_acpi_register_pmu_device(),
+> > > the embedded struct device in pdev has already been initialized by
+> > > device_initialize(), but the failure path only unregisters the GSI and
+> > > does not drop the device reference for the current platform device:
+> > >
+> > >   arm_acpi_register_pmu_device()
+> > >     -> platform_device_register(pdev)
+> > >        -> device_initialize(&pdev->dev)
+> > >        -> setup_pdev_dma_masks(pdev)
+> > >        -> platform_device_add(pdev)
+> > >
+> > > This leads to a reference leak when platform_device_register() fails.
+> >
+> > AFAICT you're saying that the reference was taken *within*
+> > platform_device_register(), and then platform_device_register() itself
+> > has failed. I think it's surprising that platform_device_register()
+> > doesn't clean that up itself in the case of an error.
+> >
+> > There are *tonnes* of calls to platform_device_register() throughout the
+> > kernel that don't even bother to check the return value, and many that
+> > just pass the return onto a caller that can't possibly know to call
+> > platform_device_put().
+> >
+> > Code in the same file as platform_device_register() expects it to clean up
+> > after itself, e.g.
+> >
+> > | int platform_add_devices(struct platform_device **devs, int num)
+> > | {
+> > |         int i, ret = 0;
+> > |
+> > |         for (i = 0; i < num; i++) {
+> > |                 ret = platform_device_register(devs[i]);
+> > |                 if (ret) {
+> > |                         while (--i >= 0)
+> > |                                 platform_device_unregister(devs[i]);
+> > |                         break;
+> > |                 }
+> > |         }
+> > |
+> > |         return ret;
+> > | }
+> >
+> > That's been there since the initial git commit, and back then,
+> > platform_device_register() didn't mention that callers needed to perform
+> > any cleanup.
+> >
+> > I see a comment was added to platform_device_register() in commit:
+> >
+> >   67e532a42cf4 ("driver core: platform: document registration-failure requirement")
+> >
+> > ... and that copied the commend added for device_register() in commit:
+> >
+> >   5739411acbaa ("Driver core: Clarify device cleanup.")
+> >
+> > ... but the potential brokenness is so widespread, and the behaviour is
+> > so surprising, that I'd argue the real but is that device_register()
+> > doesn't clean up in case of error. I don't think it's worth changing
+> > this single instance given the prevalance and churn fixing all of that
+> > would involve.
+> >
+> > I think it would be far better to fix the core driver API such that when
+> > those functions return an error, they've already cleaned up for
+> > themselves.
+> >
+> > Greg, am I missing some functional reason why we can't rework
+> > device_register() and friends to handle cleanup themselves? I appreciate
+> > that'll involve churn for some callers, but AFAICT the majority of
+> > callers don't have the required cleanup.
+>
+> Yes, we should fix the platform core code here, this should not be
+> required to do everywhere as obviously we all got it wrong.
+>
+> Guangshuo, can you submit a patch to do that instead and ask for all of
+> your other patches to not be applied as well?
+>
+> thanks,
+>
+> greg k-h
+
+I agree that fixing this in the platform core makes more sense than
+handling it in individual callers.
+
+I'll look into the core code and send a patch for that instead. I'll
+also ask for my other related patches not to be applied.
+
+Thanks,
+Guangshuo
 
