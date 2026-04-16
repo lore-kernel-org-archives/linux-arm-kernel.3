@@ -4,62 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B5DAF8806B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 06:54:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE3B0F88090
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 07:05:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KOt+j3VusrDqrcfLG/AfmnG5Yl0s9VBituC7/CrFtb0=; b=SngSjTP6x5SxzB23/MzS88h6R5
-	pABP5lovU9N+55d3BegsQ0K6EKTsk7fDBGSQK8co1XNiV24SkhcZCmJCNunQeOaubG8Uu56UvWFgw
-	RyXwtIBvMEAXBOUoqDyTrMNN9soCUEfjfwabmTiV1HDH3ObRvh3EDNJZROViVtT0joc01F9EEILre
-	wmNxXj7svj6SFuBVY2nB0Xmg4jqy5bMZYYzchkWSiHIirMzBkBRBItL0mKr9flpjFWOTs5LClyGz/
-	aShK4fFj2p1Q/wdutsjUwaTI1nh5jWopMumg9zGsomgrC9qIjR76SxAsBIlbi7d4JOaK0vKcpC5nc
-	Vb5Sy/rw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gK2cUKGb7zaIt08EzqUV7OzfWojiEhI12f2EclJ30HY=; b=O1CNpHYOoCb0Mw6CKsN36ZYYrX
+	EhnCvZ4luSm9IrTZYkrRn9UrQQmDfX6ipOC1PHSRQPvPBuitJXC2eWtauSVjNdXC241oNw1U1be+/
+	tzE410+UChTJzgb72yROoTEYpf9lyltAFEx3kdj+qRf73AEWY933glzaZPvLr9c4ioTXg4vKZOCzV
+	KisRzC3Mp13bLaDKgc591XIYyg+gB/Ue3MMJYsSPYzMByiuNPVzd3pE5pCnHRuearyH/LNc9zm/fm
+	gFVFH/0EFq5ZKw8mN9tTfnxnueLX8txJZ2exr/q9Dh+s3GdgHZEP+ZO60e6C3/4cc3EAOrfzrgp6W
+	ealDoOtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDGcR-0000000251u-18iH;
-	Thu, 16 Apr 2026 06:54:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDGcO-0000000251Y-19k5
+	id 1wDGn8-000000025ac-2NYU;
+	Thu, 16 Apr 2026 07:05:34 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDGn3-000000025Wu-2vXH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 06:54:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C68F25E9;
-	Wed, 15 Apr 2026 23:54:20 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3A6FA3F7D8;
-	Wed, 15 Apr 2026 23:54:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776322465; bh=uqD/dt6liEaUaBZRxwhT8lly7nB6+86rIhs4gDGLvFM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DFUsjQ1m2zhRIw4w1aAVNWMoy5NZM+jg0re5Ugxqx0mvooWG3J0q7WFLP+rbyq7uQ
-	 8al3mPjbBQIcApP7zOkeK7LOIazLmIlhEVytUA+kGaJP2/xdrFByz1UupNyT90VVJx
-	 kpq1Dv4d1f8dF/3z9Af90od6BZ5UT1Qto0cbbJ+k=
-Date: Thu, 16 Apr 2026 07:54:21 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
-	mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com, leo.yan@arm.com
-Subject: Re: [PATCH v5 04/12] coresight: etm4x: exclude ss_status from
- drvdata->config
-Message-ID: <aeCHnToKG43oKQNF@e129823.arm.com>
-References: <20260415165528.3369607-1-yeoreum.yun@arm.com>
- <20260415165528.3369607-5-yeoreum.yun@arm.com>
- <778a826b-918d-4f7c-95a9-1cdb013618d8@oss.qualcomm.com>
+	Thu, 16 Apr 2026 07:05:32 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.177])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4fx8C02bbWzYQtpR
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 15:04:28 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id ABAE34058F
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 15:05:15 +0800 (CST)
+Received: from localhost.huawei.com (unknown [10.67.174.243])
+	by APP1 (Coremail) with SMTP id cCh0CgDHawYniuBpdFBbAg--.51915S6;
+	Thu, 16 Apr 2026 15:05:15 +0800 (CST)
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+To: bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Anton Protopopov <a.s.protopopov@gmail.com>,
+	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+	Shahab Vahedi <list+bpf@vahedi.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>,
+	Hengqi Chen <hengqi.chen@gmail.com>,
+	Johan Almbladh <johan.almbladh@anyfinetworks.com>,
+	Paul Burton <paulburton@kernel.org>,
+	Hari Bathini <hbathini@linux.ibm.com>,
+	Christophe Leroy <chleroy@kernel.org>,
+	Naveen N Rao <naveen@kernel.org>,
+	Luke Nelson <luke.r.nels@gmail.com>,
+	Xi Wang <xi.wang@gmail.com>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Pu Lehui <pulehui@huawei.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Wang YanQing <udknight@gmail.com>
+Subject: [PATCH bpf v15 4/5] bpf, x86: Emit ENDBR for indirect jump targets
+Date: Thu, 16 Apr 2026 06:43:40 +0000
+Message-ID: <20260416064341.151802-5-xukuohai@huaweicloud.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260416064341.151802-1-xukuohai@huaweicloud.com>
+References: <20260416064341.151802-1-xukuohai@huaweicloud.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <778a826b-918d-4f7c-95a9-1cdb013618d8@oss.qualcomm.com>
+X-CM-TRANSID: cCh0CgDHawYniuBpdFBbAg--.51915S6
+X-Coremail-Antispam: 1UD129KBjvJXoWxZr4DXF1DAFW8Jw13WFW3KFg_yoWrKF13pa
+	9xJ3sIyrZ8WFs8KF1kXF47CFy7AF4qgryfGr4rt3yruw42grnYgF15Ka4FqFyYkrWrKrn7
+	XFyjkr1DWw1ku37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPvb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUAV
+	Cq3wA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0
+	rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcVCY1x0267
+	AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E
+	14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7
+	xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Y
+	z7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2
+	AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAq
+	x4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6r
+	W5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF
+	7I0E14v26r4UJVWxJr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14
+	v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuY
+	vjxUI-eODUUUU
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_235428_392700_2F3BF2F5 
-X-CRM114-Status: GOOD (  31.84  )
+X-CRM114-CacheID: sfid-20260416_000530_101450_67760DDD 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,115 +112,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jie,
+From: Xu Kuohai <xukuohai@huawei.com>
 
->
->
-> On 4/16/2026 12:55 AM, Yeoreum Yun wrote:
-> > The purpose of TRCSSCSRn register is to show status of
-> > the corresponding Single-shot Comparator Control and input supports.
-> > That means writable field's purpose for reset or restore from idle status
-> > not for configuration.
-> >
-> > Therefore, exclude ss_status from drvdata->config, move it to etm4x_caps
-> > and rename it to ss_smp.
-> >
-> > This includes remove TRCSSCRn from configurable item and
-> > remove saving in etm4_disable_hw().
-> >
-> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > ---
-> >   .../hwtracing/coresight/coresight-etm4x-cfg.c |  1 -
-> >   .../coresight/coresight-etm4x-core.c          | 19 ++++++-------------
-> >   .../coresight/coresight-etm4x-sysfs.c         |  7 ++-----
-> >   drivers/hwtracing/coresight/coresight-etm4x.h |  7 ++++++-
-> >   4 files changed, 14 insertions(+), 20 deletions(-)
-> >
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> > index c302072b293a..d14d7c8a23e5 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> > @@ -86,7 +86,6 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
-> >   		off_mask =  (offset & GENMASK(11, 5));
-> >   		do {
-> >   			CHECKREGIDX(TRCSSCCRn(0), ss_ctrl, idx, off_mask);
-> > -			CHECKREGIDX(TRCSSCSRn(0), ss_status, idx, off_mask);
-> >   			CHECKREGIDX(TRCSSPCICRn(0), ss_pe_cmp, idx, off_mask);
-> >   		} while (0);
-> >   	} else if ((offset >= TRCCIDCVRn(0)) && (offset <= TRCVMIDCVRn(7))) {
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > index b2b092a76eb5..f55338a4989d 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > @@ -91,7 +91,7 @@ static bool etm4x_sspcicrn_present(struct etmv4_drvdata *drvdata, int n)
-> >   	const struct etmv4_caps *caps = &drvdata->caps;
-> >   	return (n < caps->nr_ss_cmp) && caps->nr_pe_cmp &&
-> > -	       (drvdata->config.ss_status[n] & TRCSSCSRn_PC);
-> > +	       (caps->ss_cmp[n] & TRCSSCSRn_PC);
-> >   }
-> >   u64 etm4x_sysreg_read(u32 offset, bool _relaxed, bool _64bit)
-> > @@ -573,11 +573,9 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
-> >   		etm4x_relaxed_write32(csa, config->res_ctrl[i], TRCRSCTLRn(i));
-> >   	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> > -		/* always clear status bit on restart if using single-shot */
-> > -		if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
-> > -			config->ss_status[i] &= ~TRCSSCSRn_STATUS;
-> >   		etm4x_relaxed_write32(csa, config->ss_ctrl[i], TRCSSCCRn(i));
-> > -		etm4x_relaxed_write32(csa, config->ss_status[i], TRCSSCSRn(i));
-> > +		/* always clear status and pending bits on restart if using single-shot */
-> > +		etm4x_relaxed_write32(csa, 0x0, TRCSSCSRn(i));
-> >   		if (etm4x_sspcicrn_present(drvdata, i))
-> >   			etm4x_relaxed_write32(csa, config->ss_pe_cmp[i], TRCSSPCICRn(i));
-> >   	}
-> > @@ -1055,12 +1053,6 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
-> >   	etm4_disable_trace_unit(drvdata);
-> > -	/* read the status of the single shot comparators */
-> > -	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> > -		config->ss_status[i] =
-> > -			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
-> > -	}
-> > -
-> >   	/* read back the current counter values */
-> >   	for (i = 0; i < caps->nr_cntr; i++) {
-> >   		config->cntr_val[i] =
-> > @@ -1503,8 +1495,9 @@ static void etm4_init_arch_data(void *info)
-> >   	 */
-> >   	caps->nr_ss_cmp = FIELD_GET(TRCIDR4_NUMSSCC_MASK, etmidr4);
-> >   	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> > -		drvdata->config.ss_status[i] =
-> > -			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
-> > +		caps->ss_cmp[i] = etm4x_relaxed_read32(csa, TRCSSCSRn(i));
-> > +		caps->ss_cmp[i] &= (TRCSSCSRn_PC | TRCSSCSRn_DV |
-> > +				    TRCSSCSRn_DA | TRCSSCSRn_INST);
->
-> Just re-go through this patch and had a question here:
->
-> I’m not sure whether this new change should be documented in the ABI, given
-> that the TRCSSCSRn_STATUS bit is masked. In my opinion, this change breaks
-> the existing ABI description.
->
-> Description from the ABI document:
->
-> What:           /sys/bus/coresight/devices/etm<N>/sshot_status
-> Date:           December 2019
-> KernelVersion:  5.5
-> Contact:        Mathieu Poirier <mathieu.poirier@linaro.org>
-> Description:    (Read) Print the current value of the selected single
->                 shot status register.
+On CPUs that support CET/IBT, the indirect jump selftest triggers
+a kernel panic because the indirect jump targets lack ENDBR
+instructions.
 
-But, as I mentioned another thread:
-  - https://lore.kernel.org/all/ad5yV2FoNbGGLE6R@e129823.arm.com/
+To fix it, emit an ENDBR instruction to each indirect jump target. Since
+the ENDBR instruction shifts the position of original jited instructions,
+fix the instruction address calculation wherever the addresses are used.
 
-Till now, sysfs doesn't show the *current value* of the single shot
-state since the config->ss_status is updated enabled/disabled sysfs
-session. an I think once the session is disabled, other status bits
-(currently STATUS and PENDING bits) don't have any meaning.
+For reference, below is a sample panic log.
 
-I think it's enough to change the doc's Description for this.
+ Missing ENDBR: bpf_prog_2e5f1c71c13ac3e0_big_jump_table+0x97/0xe1
+ ------------[ cut here ]------------
+ kernel BUG at arch/x86/kernel/cet.c:133!
+ Oops: invalid opcode: 0000 [#1] SMP NOPTI
 
-Any thought?
+ ...
 
---
-Sincerely,
-Yeoreum Yun
+  ? 0xffffffffc00fb258
+  ? bpf_prog_2e5f1c71c13ac3e0_big_jump_table+0x97/0xe1
+  bpf_prog_test_run_syscall+0x110/0x2f0
+  ? fdget+0xba/0xe0
+  __sys_bpf+0xe4b/0x2590
+  ? __kmalloc_node_track_caller_noprof+0x1c7/0x680
+  ? bpf_prog_test_run_syscall+0x215/0x2f0
+  __x64_sys_bpf+0x21/0x30
+  do_syscall_64+0x85/0x620
+  ? bpf_prog_test_run_syscall+0x1e2/0x2f0
+
+Fixes: 493d9e0d6083 ("bpf, x86: add support for indirect jumps")
+Reviewed-by: Anton Protopopov <a.s.protopopov@gmail.com> # v8
+Reviewed-by: Emil Tsalapatis <emil@etsalapatis.com> # v12
+Acked-by: Leon Hwang <leon.hwang@linux.dev>
+Signed-off-by: Xu Kuohai <xukuohai@huawei.com>
+---
+ arch/x86/net/bpf_jit_comp.c | 28 +++++++++++++++-------------
+ 1 file changed, 15 insertions(+), 13 deletions(-)
+
+diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
+index 72d9a5faa230..ea9e707e8abf 100644
+--- a/arch/x86/net/bpf_jit_comp.c
++++ b/arch/x86/net/bpf_jit_comp.c
+@@ -58,8 +58,8 @@ static u8 *emit_code(u8 *ptr, u32 bytes, unsigned int len)
+ #define EMIT_ENDBR()		EMIT(gen_endbr(), 4)
+ #define EMIT_ENDBR_POISON()	EMIT(gen_endbr_poison(), 4)
+ #else
+-#define EMIT_ENDBR()
+-#define EMIT_ENDBR_POISON()
++#define EMIT_ENDBR()		do { } while (0)
++#define EMIT_ENDBR_POISON()	do { } while (0)
+ #endif
+ 
+ static bool is_imm8(int value)
+@@ -1649,8 +1649,8 @@ static int emit_spectre_bhb_barrier(u8 **pprog, u8 *ip,
+ 	return 0;
+ }
+ 
+-static int do_jit(struct bpf_prog *bpf_prog, int *addrs, u8 *image, u8 *rw_image,
+-		  int oldproglen, struct jit_context *ctx, bool jmp_padding)
++static int do_jit(struct bpf_verifier_env *env, struct bpf_prog *bpf_prog, int *addrs, u8 *image,
++		  u8 *rw_image, int oldproglen, struct jit_context *ctx, bool jmp_padding)
+ {
+ 	bool tail_call_reachable = bpf_prog->aux->tail_call_reachable;
+ 	struct bpf_insn *insn = bpf_prog->insnsi;
+@@ -1663,7 +1663,7 @@ static int do_jit(struct bpf_prog *bpf_prog, int *addrs, u8 *image, u8 *rw_image
+ 	void __percpu *priv_stack_ptr;
+ 	int i, excnt = 0;
+ 	int ilen, proglen = 0;
+-	u8 *prog = temp;
++	u8 *ip, *prog = temp;
+ 	u32 stack_depth;
+ 	int err;
+ 
+@@ -1734,6 +1734,11 @@ static int do_jit(struct bpf_prog *bpf_prog, int *addrs, u8 *image, u8 *rw_image
+ 				dst_reg = X86_REG_R9;
+ 		}
+ 
++		if (bpf_insn_is_indirect_target(env, bpf_prog, i - 1))
++			EMIT_ENDBR();
++
++		ip = image + addrs[i - 1] + (prog - temp);
++
+ 		switch (insn->code) {
+ 			/* ALU */
+ 		case BPF_ALU | BPF_ADD | BPF_X:
+@@ -2440,8 +2445,6 @@ st:			if (is_imm8(insn->off))
+ 
+ 			/* call */
+ 		case BPF_JMP | BPF_CALL: {
+-			u8 *ip = image + addrs[i - 1];
+-
+ 			func = (u8 *) __bpf_call_base + imm32;
+ 			if (src_reg == BPF_PSEUDO_CALL && tail_call_reachable) {
+ 				LOAD_TAIL_CALL_CNT_PTR(stack_depth);
+@@ -2465,7 +2468,8 @@ st:			if (is_imm8(insn->off))
+ 			if (imm32)
+ 				emit_bpf_tail_call_direct(bpf_prog,
+ 							  &bpf_prog->aux->poke_tab[imm32 - 1],
+-							  &prog, image + addrs[i - 1],
++							  &prog,
++							  ip,
+ 							  callee_regs_used,
+ 							  stack_depth,
+ 							  ctx);
+@@ -2474,7 +2478,7 @@ st:			if (is_imm8(insn->off))
+ 							    &prog,
+ 							    callee_regs_used,
+ 							    stack_depth,
+-							    image + addrs[i - 1],
++							    ip,
+ 							    ctx);
+ 			break;
+ 
+@@ -2639,7 +2643,7 @@ st:			if (is_imm8(insn->off))
+ 			break;
+ 
+ 		case BPF_JMP | BPF_JA | BPF_X:
+-			emit_indirect_jump(&prog, insn->dst_reg, image + addrs[i - 1]);
++			emit_indirect_jump(&prog, insn->dst_reg, ip);
+ 			break;
+ 		case BPF_JMP | BPF_JA:
+ 		case BPF_JMP32 | BPF_JA:
+@@ -2729,8 +2733,6 @@ st:			if (is_imm8(insn->off))
+ 			ctx->cleanup_addr = proglen;
+ 			if (bpf_prog_was_classic(bpf_prog) &&
+ 			    !ns_capable_noaudit(&init_user_ns, CAP_SYS_ADMIN)) {
+-				u8 *ip = image + addrs[i - 1];
+-
+ 				if (emit_spectre_bhb_barrier(&prog, ip, bpf_prog))
+ 					return -EINVAL;
+ 			}
+@@ -3791,7 +3793,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
+ 	for (pass = 0; pass < MAX_PASSES || image; pass++) {
+ 		if (!padding && pass >= PADDING_PASSES)
+ 			padding = true;
+-		proglen = do_jit(prog, addrs, image, rw_image, oldproglen, &ctx, padding);
++		proglen = do_jit(env, prog, addrs, image, rw_image, oldproglen, &ctx, padding);
+ 		if (proglen <= 0) {
+ out_image:
+ 			image = NULL;
+-- 
+2.43.0
+
 
