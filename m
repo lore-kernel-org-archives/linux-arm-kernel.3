@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FA42F8A140
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 08:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3DFBF8A146
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 08:25:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vf1NAEo8S9OwitHAGAehGzHb+5Xj0NkwKk+qLaje2K4=; b=aw5iIPzoT3b2dkHYwMgo7rh7om
-	Ml07gTYYqndQrRb/z4dqoj+lKAwcO0yvoerjpBBU1QhxkvjMJ/sUDGIWb1ZiLKufIUR7x8cPzy/I6
-	dvg9wS+Oe1Vh9FEiOVkCNUWPh8bPht9s9poXHV02OWA4/8G3zkFtXzaV04y/KVZeyRPR5TTMpzuyc
-	1I3PHC2bV6jo4bf/V4wIJ7E+XfT7capY83pz6H4hBqWgo6BwHVsvI7NJoOxEWBhzTOk3+orvsSi5D
-	l+aM7wAF4AxorBF61C7l9L7s6D+O4w8bLGAZY12WaJ3dlhKdOdTFr3tpIB6XzLrtwmTUiaig8gclw
-	AIs7Yyiw==;
+	bh=pFOmuggUuSRoz8cJkPKGP7DvDQuCHyf5KhKmxv5ivoA=; b=wQafhVKzcGkDJt/jBeFuWJGopj
+	CiNDURzZuxn9/+pqloia9cCpZ+CUD7IMT248+oVG8ju3p1j0B01hnm1VMT/Bo+XkEfwlKw+z6NeaA
+	9+qq+lEmqj4+PLmZNdY0VCcPcvkiS4AVKA0qJBkfXsg7bxZKUC7MWryOzThyY4NyxKWKRZZ4tmIaw
+	XPdaq7Istm9Ln6D6l7bq17TwG2K7pp8sY32XuCROxo+855IML6qIY84lBaQH2vVCoNG1DNgb6qh8Z
+	0lpqf7H/Vk6ks0zbHX+1ezL08oXpv3WuRICAN7KPlsJRT/jJ0AU4FKq1BhSmZIKbzGOuHl6ybUeIR
+	neq887Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDI08-00000002Afd-0nuN;
-	Thu, 16 Apr 2026 08:23:04 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wDI2U-00000002AvP-2via;
+	Thu, 16 Apr 2026 08:25:30 +0000
+Received: from 12.546.mail-out.ovh.net ([188.165.57.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDI02-00000002Aet-3Dvc
+	id 1wDI2R-00000002AuR-14FC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 08:23:03 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 90103C5C3C5;
-	Thu, 16 Apr 2026 08:23:34 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 9605B5FDEB;
-	Thu, 16 Apr 2026 08:22:56 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EB1FD10459ECE;
-	Thu, 16 Apr 2026 10:22:50 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1776327775; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=vf1NAEo8S9OwitHAGAehGzHb+5Xj0NkwKk+qLaje2K4=;
-	b=IQOoASDjygSK/g57J/TKAASub60SdimIF6ESLFnep0UEYz75Noo9cFiE+IeunJPxCsUH6W
-	PVLAv7DRh04P+0Pli7o7n/QeXE7ojTi2BVzWzgehw2bGWPal4dqx7oekXOgHs4ldQ4Rn8E
-	l3jBqsY34iqG1U2AlGSipzQ945alsXEJmLzJaHOEo9c7FieaLiPSMH3mv9QBb/W72DnLUg
-	1B9bSOWckxHBmYXvyDKkNxvy66UYIicEXq8TUOPIE4dAZu8oPzbId01oQ7F71Itq6b6zan
-	Ju5h9IKbufhA05Jk3mCng0d4mUulXbzE4QxLKTjEx5hrnRjA4H3F3FVmvjeZCg==
-Message-ID: <068e2f41-33fd-4627-826f-83eb0770cc3c@bootlin.com>
-Date: Thu, 16 Apr 2026 10:22:42 +0200
+	Thu, 16 Apr 2026 08:25:30 +0000
+Received: from ex.mail.ovh.net (unknown [10.111.174.41])
+	by mo546.mail-out.ovh.net (Postfix) with SMTP id 4fxB0K1fYFz658n;
+	Thu, 16 Apr 2026 08:25:21 +0000 (UTC)
+Message-ID: <6fc8ddeb-d54d-473d-94d2-49dc78a07154@aliel.fr>
+Date: Thu, 16 Apr 2026 10:25:19 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/4] Introduce Allwinner H616 PWM controller
-To: Paul Kocialkowski <paulk@sys-base.io>
-Cc: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- John Stultz <jstultz@google.com>, Joao Schim <joao@schimsalabim.eu>,
- linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20260305091959.2530374-1-richard.genoud@bootlin.com>
- <adfe2z2YeBxm_6oR@shepard>
-From: Richard GENOUD <richard.genoud@bootlin.com>
-Content-Language: en-US, fr
-Organization: Bootlin
-In-Reply-To: <adfe2z2YeBxm_6oR@shepard>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird Beta
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+Subject: Re: [PATCH v2 1/8] dt-bindings: mfd: khadas: Add new compatible for
+ Khadas VIM4 MCU
+To: Rob Herring <robh@kernel.org>
+CC: Neil Armstrong <neil.armstrong@linaro.org>, Lee Jones <lee@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl
+	<martin.blumenstingl@googlemail.com>, Beniamino Galvani
+	<b.galvani@gmail.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Daniel
+ Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz
+ Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown
+	<broonie@kernel.org>, <linux-amlogic@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-i2c@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-pm@vger.kernel.org>
+References: <20260403-add-mcu-fan-khadas-vim4-v2-0-70536b22439a@aliel.fr>
+ <20260403-add-mcu-fan-khadas-vim4-v2-1-70536b22439a@aliel.fr>
+ <20260415214815.GA602572-robh@kernel.org>
+Content-Language: en-US
+In-Reply-To: <20260415214815.GA602572-robh@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [92.91.227.71]
+X-ClientProxiedBy: CAS6.indiv.local (172.16.1.6) To DAG11EX2.indiv.local
+ (172.16.2.112)
+DKIM-Signature: v=1; a=rsa-sha256; d=aliel.fr; s=ovhex24454-selector1;
+ c=relaxed/relaxed; t=1776327921; h=from:to:subject:date;
+ bh=pFOmuggUuSRoz8cJkPKGP7DvDQuCHyf5KhKmxv5ivoA=;
+ b=WJj2u3Sw9klNHCmqWBIBwUAd6tng48dLg+QKWHtKreX2JXQ67wigXe0TQP09NrQdmjUdwYsVTIyNXg4WsMawW2PmYK7jooYwzgx8we3T9RfQx1UZQXMpaipb4jkwQp18llokPWqyMOVBtBgrQPBrHmwTjeESar/AykfbQnBZNwp/pjzaIaW2WNcDq+ayKr+VpdIATbkHVjJTpB8++FJGaLn7Ol1tFFkyi1AGSgG98ENB42Y/mEsn2aeqTPV3QhE3SaopbBg7OcaxLDOhjq5VrsoBVb3M/ZQ9d/J23gPci+pOIg9idifu9W/UraOS+CQDDiVvyayR3TcF4gkqOf5YNw==
+x-ovh-tracer-id: 11309101614479183212
+X-VR-SPAMSTATE: OK
+X-VR-SPAMSCORE: -100
+X-VR-SPAMCAUSE: dmFkZTGn1Zxn7wlgRAk3Ls9HCSQIM4J7NsCvDBxD4MAUEzQ319Tl8D+J9DRCSxDWfnhZBirHrMBroybDTW/ifa7s/TX61Cq1qD7Plv4j4gqth9jElM8m8lL5uZaot7/CIcLhbmDQcxKVaGwJGKieR33WAaBijrVQPO30sMw94oTcS2ML8nPtfAsVfoiIzbsyHLnkFodLJa+IaEAujtZ7TULWFAR2dvLjd+30CuJOFupt+NPg60/KJvm8NS0WNT7b27RGiIs28KQWG7dLvMPlvP203CJnbo58FK18k6MC9luvcwxFxMp7VK/Kyynji+k+emjUreeA7ZNLd0jKJE7AShi72O9EK/Py+Qj7pqHOcFu0v99QnkqMJB32b0PzsZz78C1xa5o+Td1459KqjlMRtaidgNCiyUnIa8snrN6JAZTHZBdOpyJ1t0Qdgod0GBU+oll1AWzKYOB8WMck4/vqyf366h54XV3csqSAvMGnXmVieYrkzkzjxFkOilGcLN4Do2dalN99LVDjx3GW1UyV3b11o665Rqt4Kk8izf+4QDtdFIv/38vVISb7nnEqxHw+xQnEDwhZSW1Sh81XUad8bUy2pNAHeasPX5qPHxqLlVDYlmDV/weFzND9AK0qthn2R1CijJ4b9zO59gyCXlabD/w6m9y4Z7iNMp9G3Oyn1f7Ntu5iJA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_012300_783147_88D740E1 
-X-CRM114-Status: GOOD (  47.74  )
+X-CRM114-CacheID: sfid-20260416_012528_443846_3FFA21C0 
+X-CRM114-Status: GOOD (  13.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,191 +85,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 09/04/2026 à 19:16, Paul Kocialkowski a écrit :
-> Hi Richard,
+On 4/15/26 11:48 PM, Rob Herring wrote:
+> On Fri, Apr 03, 2026 at 06:08:34PM +0200, Ronald Claveau wrote:
+>> The Khadas VIM4 MCU register is slightly different
+>> from previous boards' MCU.
+>> This board also features a switchable power source for its fan.
+>>
+>> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+>> ---
+>>  Documentation/devicetree/bindings/mfd/khadas,mcu.yaml | 5 +++++
+>>  1 file changed, 5 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/mfd/khadas,mcu.yaml b/Documentation/devicetree/bindings/mfd/khadas,mcu.yaml
+>> index 084960fd5a1fd..67769ef5d58b1 100644
+>> --- a/Documentation/devicetree/bindings/mfd/khadas,mcu.yaml
+>> +++ b/Documentation/devicetree/bindings/mfd/khadas,mcu.yaml
+>> @@ -18,6 +18,7 @@ properties:
+>>    compatible:
+>>      enum:
+>>        - khadas,mcu # MCU revision is discoverable
 > 
-> On Thu 05 Mar 26, 10:19, Richard Genoud wrote:
->> Allwinner H616 PWM controller is quite different from the A10 one.
-> 
-> As I've mentionned before, this PWM controller is not specific to the H616
-> but also appears in other chips, so the name of the driver and registers
-> should not mention H616.
-> 
-> After further investigation, I can see multiple versions of this new PWM IP
-> being used in different chips, starting with the R40/V40 (sun8iw11) in 2016.
-> 
-> The latest downstream BSP driver has a list of the different generations:
-> https://github.com/radxa/allwinner-bsp/blob/cubie-aiot-v1.4.6/drivers/pwm/pwm-sunxi.c#L1901
-> 
-> We have a first generation called v100/v101 for the following chips:
-> H616, R328 and R40. A second generation is called v200 and brings slight
-> register layout differences for A133, D1/T113-S3 and V851. Subsequent
-> iterations (v201-5) are used in more recent chips like A527 and A733 and
-> seem register-compatible with v200 (from a quick look).
-> 
-> So what I suggest here is to rename the driver "sun8i-pwm" and eventually add
-> a list of generations to the driver and different registers when needed, with
-> an appropriate suffix in their name.
-> 
-> But since you're currently only dealing with H616, this work can be done later
-> when introducing support for more chips.
-ok, I'm fine with that :)
-
-> 
->> It can drive 6 PWM channels, and like for the A10, each channel has a
->> bypass that permits to output a clock, bypassing the PWM logic, when
->> enabled.
->>
->> But, the channels are paired 2 by 2, sharing a first set of
->> MUX/prescaler/gate.
->> Then, for each channel, there's another prescaler (that will be bypassed
->> if the bypass is enabled for this channel).
->>
->> It looks like that:
->>              _____      ______      ________
->> OSC24M --->|     |    |      |    |        |
->> APB1 ----->| Mux |--->| Gate |--->| /div_m |-----> PWM_clock_src_xy
->>             |_____|    |______|    |________|
->>                            ________
->>                           |        |
->>                        +->| /div_k |---> PWM_clock_x
->>                        |  |________|
->>                        |    ______
->>                        |   |      |
->>                        +-->| Gate |----> PWM_bypass_clock_x
->>                        |   |______|
->> PWM_clock_src_xy -----+   ________
->>                        |  |        |
->>                        +->| /div_k |---> PWM_clock_y
->>                        |  |________|
->>                        |    ______
->>                        |   |      |
->>                        +-->| Gate |----> PWM_bypass_clock_y
->>                            |______|
->>
->> Where xy can be 0/1, 2/3, 4/5
->>
->> PWM_clock_x/y serve for the PWM purpose.
->> PWM_bypass_clock_x/y serve for the clock-provider purpose.
->> The common clock framework has been used to manage those clocks.
->>
->> This PWM driver serves as a clock-provider for PWM_bypass_clocks.
->> This is needed for example by the embedded AC300 PHY which clock comes
->> from PMW5 pin (PB12).
->>
->> Usually, to get a clock from a PWM driver, we use the pwm-clock driver
->> so that the PWM driver doesn't need to be a clk-provider itself.
->> While this works in most cases, here it just doesn't.
->> That's because the pwm-clock request a period from the PWM driver,
->> without any clue that it actually wants a clock at a specific frequency,
->> and not a PWM signal with duty cycle capability.
-> 
->  From what I understand the pwm-clock driver will either assume a fixed rate
-> set in device-tree or deduce the rate from the pwm period. In any case it will
-> check that the pwm period (which it cannot change) is the same as the requested
-> clock period.
-> 
-> So I agree that pwm-clock is unable to change the clock rate at runtime and will
-> just use whatever frequency the pwm is running at (which is typically set
-> in the device-tree consumer property).
-> 
->> So, the PWM driver doesn't know if it can use the bypass or not, it
->> doesn't even have the real accurate frequency information (23809524 Hz
->> instead of 24MHz) because PWM drivers only deal with periods.
-> 
-> I agree that the driver needs to register as a proper clock provider in
-> addition to pwm. But what happens if the same PWM clock is requested both from
-> the clk side and the pwm side?
-
-The first to request it is the winner :)
-The other ones will receive a -EBUSY
-In h616_pwm_request() and h616_pwm_of_clk_get(), the channel mode is 
-checked, and if it's free to use, it's set as either PWM or CLK mode so 
-that it can't be requested a second time.
-
-> 
->> With pwm-clock, we loose a precious information along the way (that we
->> actually want a clock and not a PWM signal).
->> That's ok with simple PWM drivers that don't have multiple input clocks,
->> but in this case, without this information, we can't know for sure which
->> clock to use.
->> And here, for instance, if we ask for a 24MHz clock, pwm-clock will
->> requests 42ns (assigned-clocks doesn't help for that matter). The logic
->> is to select the highest clock (100MHz) with no prescaler and a duty
->> cycle value of 2/4 => we have 25MHz instead of 24MHz.
->> And that's a perfectly fine choice for a PMW, because we still can
->> change the duty cycle in the range [0-4]/4.
->> But obviously for a clock, we don't care about the duty cycle, but more
->> about the clock accuracy.
->>
->> And actually, this PWM is really a PWM AND a real clock when the bypass
->> is set.
-> 
-> Make sense to me.
-> 
->> This series is based onto v6.19-rc4
->>
->> NB: checkpatch is not happy with patch 2, but it's a false positive.
->> It doesn't detect that PWM_XY_SRC_MUX/GATE/DIV are structures, but as
->> it's more readable like that, I prefer keeping it that way.
->>
->> NB2: for geopolitical reasons, I didn't re-use the old series that Paul
->> was referring to.
->>
->> Changes since v3:
->> - gather Acked-by/Tested-by
->> - fix cast from pointer to integer of different size (kernel test robot
->>    with arc platform)
->> - add devm_action for clk_hw_unregister_composite as suggested by Philipp
->> - remove now unused pwm_remove as suggested by Philipp
->>
->> Changes since v2:
->> - use U32_MAX instead of defining UINT32_MAX
->> - add a comment on U32_MAX usage in clk_round_rate()
->> - change clk_table_div_m (use macros)
->> - fix formatting (double space, superfluous comma, extra line feed)
->> - fix the parent clock order
->> - simplify code by using scoped_guard()
->> - add missing const in to_h616_pwm_chip() and rename to
->> h616_pwm_from_chip()
->> - add/remove missing/superflous error messages
->> - rename cnt->period_ticks, duty_cnt->duty_ticks
->> - fix PWM_PERIOD_MAX
->> - add .remove() callback
->> - fix DIV_ROUND_CLOSEST_ULL->DIV_ROUND_UP_ULL
->> - add H616_ prefix
->> - protect _reg in macros
->> - switch to waveforms instead of apply/get_state
->> - shrink struct h616_pwm_channel
->> - rebase on v6.19-rc4
->>
->> Changes since v1:
->> - rebase onto v6.19-rc1
->> - add missing headers
->> - remove MODULE_ALIAS (suggested by Krzysztof)
->> - use sun4i-pwm binding instead of creating a new one (suggested by Krzysztof)
->> - retrieve the parent clocks from the devicetree
->> - switch num_parents to unsigned int
->>
->> Richard Genoud (4):
->>    dt-bindings: pwm: allwinner: add h616 pwm compatible
->>    pwm: sun50i: Add H616 PWM support
->>    arm64: dts: allwinner: h616: add PWM controller
->>    MAINTAINERS: Add entry on Allwinner H616 PWM driver
->>
->>   .../bindings/pwm/allwinner,sun4i-a10-pwm.yaml |  19 +-
->>   MAINTAINERS                                   |   5 +
->>   .../arm64/boot/dts/allwinner/sun50i-h616.dtsi |  47 +
->>   drivers/pwm/Kconfig                           |  12 +
->>   drivers/pwm/Makefile                          |   1 +
->>   drivers/pwm/pwm-sun50i-h616.c                 | 936 ++++++++++++++++++
->>   6 files changed, 1019 insertions(+), 1 deletion(-)
->>   create mode 100644 drivers/pwm/pwm-sun50i-h616.c
->>
->>
->> base-commit: 11439c4635edd669ae435eec308f4ab8a0804808
+> The revision is no longer discoverable as was claimed?
 > 
 
-Regards,
-Richard
+The firmware revision is still discoverable, and via the same register,
+but the VIM4 MCU has a different register layout (eg: no DEVICE_NO
+register). The new compatible is needed to describe a different MCU
+variant, not a different revision of the same MCU.
+I will remove the comment as it is confusing with new boards.
+
+>> +      - khadas,vim4-mcu
+>>  
+>>    "#cooling-cells": # Only needed for boards having FAN control feature
+>>      const: 2
+>> @@ -25,6 +26,10 @@ properties:
+>>    reg:
+>>      maxItems: 1
+>>  
+>> +  fan-supply:
+>> +    description: Phandle to the regulator that powers the fan.
+>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>> +
+>>  required:
+>>    - compatible
+>>    - reg
+>>
+>> -- 
+>> 2.49.0
+>>
+
+
+-- 
+Best regards,
+Ronald
 
