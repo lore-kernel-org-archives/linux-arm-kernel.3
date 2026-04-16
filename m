@@ -4,83 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68B66F433CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 00:03:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18143F433CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 00:27:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b1XEqYLz+VFVxVLLY5sh99l0d3isS+L35SSH4/U236E=; b=a3dQkfTZuo4ubpGBQdyoWH/0ns
-	cFtnxj3tD0acC1C22Y2st9Y6UwB6+CR/bS3qi1nw2aGy6ZyUk8VzvW5el4kNJH+Ar9iNIDEaL8bya
-	QH/CK9fKf9HvUZgPVQzIGfOgdk+ZV4C2RnH2rFxUZwUkYURduExLcF9XOx/9yW8dMdfMVmKxhyYBI
-	o9RHde5C1XkwmFBR+Vo7e8M9QStbhxqP6Oh9opEucf92BFO5XexSiOuVIJT8uDRzByBSPI3Jrw3GD
-	XSgcnRHIeFKOTO1uOE733iQdix8iFaHbXcd/CuzuparSn6fCoIBwccMCRx/15TVlp8zKo4Zpl+bGO
-	NqXSt/mw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nKA5dmo91yCLapXpWOigMm3bpFe+GNmIfRh+PO4vxzk=; b=H38L4JrQV+3O3pKJijzm4wFzm9
+	+pu1pwJSdGDVudoJSn3oJxIHyTmemJpSC5P3jFLW+MWY1FBrKVJrwT0sxNQF9YrJU9fIsKEQq5GiR
+	twrtdpJnXevrrNNZa85Gdm3lMKknK5IMqZrZjVvpZyIxs7tgRw089k/anIpzpYhuOtQYamMpJTx+i
+	QQClUMtnCCAYyf31r6fK2ZGZiFkNFqZFDzexuAw46V5bO40fAy5UuAgnsxlZH2BeJPpNW+QCHboiz
+	3EV3JouIpbMNFthrd6ymFNjLJTK4OsiK2M28MU474H3qeQVpq2bf8O759L084NqRcXPwpfvnpy8Qi
+	+ah7PCOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDACR-00000001mXN-3SMb;
-	Thu, 16 Apr 2026 00:03:15 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1wDAa7-00000001oZf-1raK;
+	Thu, 16 Apr 2026 00:27:43 +0000
+Received: from mail-m128168.netease.com ([103.209.128.168])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDACO-00000001mVw-2VAf
+	id 1wDAa4-00000001oZH-1NpH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 00:03:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=b1XEqYLz+VFVxVLLY5sh99l0d3isS+L35SSH4/U236E=; b=K147q+AkNu7v6MOBFr/Kx4ZCS/
-	T0csGRKPmVl/FJDc2YFb2Bzm5v5cwtje9EpZ6KgxOUb2amWuMMo0wFreTVxnU9hsCKzKZb8RoaQHl
-	brC5TGP5MX2BvqHZZbg0QvpD/1swD/EJRWAX42+71zg6jBg1xF4SJQXJbyRXn3kAnIFt1JH+uCXpc
-	9v1IJV3rorGpFxGr8ACW0UEYa0ON60Wya88Na71bjBSjJsSzSDVSulraB1IHGeRO1fSdrFIsbSJPj
-	fIH6YoeI2nxlJ8Jq5a5ex2QOji0i6GP8TDSCVBqVReHYCT7BbDB7H9x04siYBRQdMsk7X7FYrgbbp
-	2bzSa/2g==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:55132)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1wDACE-000000002d7-1Y8c;
-	Thu, 16 Apr 2026 01:03:03 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1wDACA-000000002fX-2zo6;
-	Thu, 16 Apr 2026 01:02:58 +0100
-Date: Thu, 16 Apr 2026 01:02:57 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Sam Edwards <cfsworks@gmail.com>
-Cc: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Linux Network Development Mailing List <netdev@vger.kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next] net: stmmac: enable RPS and RBU interrupts
-Message-ID: <aeAnMTU6iiPPE0_W@shell.armlinux.org.uk>
-References: <20260413110222.49fc3759@kernel.org>
- <ad06yiZZbLC9k3jY@shell.armlinux.org.uk>
- <CAH5Ym4i7VV53hQGY3AjAUW3B8g_ffgmw69kPhPrk2CmcRbguuQ@mail.gmail.com>
- <ad5LlXzeQ8j14Mjg@shell.armlinux.org.uk>
- <ad7nsUQvksJF7JFK@shell.armlinux.org.uk>
- <CAH5Ym4jA8w9=UxMT4vKJpnXkuDHtkFtMcg4u2sy_0S+8wgy-9w@mail.gmail.com>
- <ad-ID2WaPgPJqdsa@shell.armlinux.org.uk>
- <CAH5Ym4jKdzDeYwCfkMLmUz0FsiD2vFwfuAvqFE=uvMtPmakeMQ@mail.gmail.com>
- <ad_o4aDP0UBY_8i4@shell.armlinux.org.uk>
- <CAH5Ym4j3GePEMEMmg1Z27gYfQ0N8Sc1BMW1rnvNZ4aLQ+cfFyQ@mail.gmail.com>
+	Thu, 16 Apr 2026 00:27:42 +0000
+Received: from [172.16.12.17] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3ae6eaf4f;
+	Thu, 16 Apr 2026 08:27:29 +0800 (GMT+08:00)
+Message-ID: <5243585c-2fcf-dc68-54e9-cd8afc74fb5d@rock-chips.com>
+Date: Thu, 16 Apr 2026 08:27:27 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.13.1
+Cc: shawn.lin@rock-chips.com, linux-mmc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] mmc: dw_mmc: implement option for configuring DMA
+ threshold
+To: Kaustabh Chakraborty <kauschluss@disroot.org>,
+ Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jaehoon Chung <jh80.chung@samsung.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+References: <20260415-dwmmc-dma-thr-v3-0-31014d36b6ee@disroot.org>
+ <20260415-dwmmc-dma-thr-v3-1-31014d36b6ee@disroot.org>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <20260415-dwmmc-dma-thr-v3-1-31014d36b6ee@disroot.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAH5Ym4j3GePEMEMmg1Z27gYfQ0N8Sc1BMW1rnvNZ4aLQ+cfFyQ@mail.gmail.com>
+X-HM-Tid: 0a9d93af8e1e09cckunmbbec6de61a99b1
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQk1DGlZKGRgeShgaTBgfQ0NWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=QLVWHamEtWPXbOyxhHmQ1CXl+jZhKt7agdGVtiD3HhXO7faGFVEG8aNlFWSU+wKYkw3bwvLTyBCJKwBwOTisumx3PDWl3M+xF2p7rG1YWHSE8MDYPWI7uzHrlVvXHVfX1pzRJ19JFUlqEU/f1XLcmv+2iaI4nBHV5pXdZi0X8XE=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=nKA5dmo91yCLapXpWOigMm3bpFe+GNmIfRh+PO4vxzk=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_170312_638495_458E4048 
-X-CRM114-Status: GOOD (  23.60  )
+X-CRM114-CacheID: sfid-20260415_172740_954745_A252706C 
+X-CRM114-Status: GOOD (  21.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,63 +78,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 15, 2026 at 01:50:53PM -0700, Sam Edwards wrote:
-> On Wed, Apr 15, 2026 at 12:37 PM Russell King (Oracle)
-> <linux@armlinux.org.uk> wrote:
-> >
-> > It's not a question about how I define RBU - this is defined by Synopsys
-> > and I'm using it *exactly* that way as stated in the documentation.
-> >
-> > "This bit indicates that the host owns the Next Descriptor in the
-> > Receive List and the DMA cannot acquire it. The Receive Process is
-> > suspended. ... This bit is set only when the previous Receive
-> > Descriptor is owned by the DMA."
-> >
-> > In other words, DMA has processed the previous receive descriptor which
-> > _was_ owned by the hardware, written back to clear the OWN bit, and
-> > then fetches the next descriptor and finds that the OWN bit is also
-> > clear.
+
+在 2026/04/15 星期三 23:02, Kaustabh Chakraborty 写道:
+> Some controllers, such as certain Exynos SDIO ones, are unable to
+> perform DMA transfers of small amount of bytes properly. Following the
+> device tree schema, implement the property to define the DMA transfer
+> threshold (from a hard coded value of 16 bytes) so that lesser number of
+> bytes can be transferred safely skipping DMA in such controllers. The
+> value of 16 bytes stays as the default for controllers which do not
+> define it. This value can be overridden by implementation-specific init
+> sequences.
+
+Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
+
 > 
-> I'm only trying to leave open the possibility that the Synopsys
-> technical writer and the hardware implementation team weren't
-> communicating clearly. We already have a situation where RPS isn't
-> behaving as documented (even if that's likely just hardware
-> misconfiguration), so while I'm currently pretty sure RBU carries no
-> other (actual) meaning than "DMA caught up to OWN=0," I'm only about
-> 75% confident.
-
-It doesn't make sense for RPS to be set though. RPS is "Receive Process
-Stopped" and it's documented as being raised when the receive process
-enters the stopped state.
-
-If we look at the DMA Debug Status 0 register at 0x100c, then this
-gives us a four bit bitfield for channels 0, 1 and 2. Further channels
-are in 0x1010. I've added code to dump these when RBU occurs:
-
-dwc-eth-dwmac 2490000.ethernet eth0: debug status: 0x00006400 0x00000000
-
-bits 11:8 are RPS0, which indiciates that the DMA channel 0 receive
-process state is "Suspended (Rx Descriptor Unavailable)". If this were
-0, then it would be "Stopped (Reset or Stop Receive Command issued)".
-
-So, RPS isn't being raised because the process state isn't entering
-the stopped state, which makes sense - because we haven't issued a
-stop command, nor have we caused a reset, and the documented recovery
-from this condition is to merely advance the tail pointer, rather than
-issuing a command to re-start the receive process.
-
-When this is done (because stmmac_rx() continues to periodically run
-because of NAPI) RPS0 does change back to 3 "Running (Waiting for Rx
-packet)" but it seems that although there are packets waiting to be
-written out, that never happens (the Queue 0 Receive Debug register
-indicates that there are packets in the receive queue, the receive
-queue fill level is above the flow control activate threshold, and
-the MAC itself hammers the network with pause frames as a result.)
-
-Thus, I think that the fact that RPS isn't being signalled is entirely
-reasonable and consistent with the available documentation.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+> ---
+>   drivers/mmc/host/dw_mmc.c | 4 ++--
+>   drivers/mmc/host/dw_mmc.h | 2 ++
+>   2 files changed, 4 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/mmc/host/dw_mmc.c b/drivers/mmc/host/dw_mmc.c
+> index 20193ee7b73eb..3b4157f34d11f 100644
+> --- a/drivers/mmc/host/dw_mmc.c
+> +++ b/drivers/mmc/host/dw_mmc.c
+> @@ -40,7 +40,6 @@
+>   				 SDMMC_INT_RESP_ERR | SDMMC_INT_HLE)
+>   #define DW_MCI_ERROR_FLAGS	(DW_MCI_DATA_ERROR_FLAGS | \
+>   				 DW_MCI_CMD_ERROR_FLAGS)
+> -#define DW_MCI_DMA_THRESHOLD	16
+>   
+>   #define DW_MCI_FREQ_MAX	200000000	/* unit: HZ */
+>   #define DW_MCI_FREQ_MIN	100000		/* unit: HZ */
+> @@ -821,7 +820,7 @@ static int dw_mci_pre_dma_transfer(struct dw_mci *host,
+>   	 * non-word-aligned buffers or lengths. Also, we don't bother
+>   	 * with all the DMA setup overhead for short transfers.
+>   	 */
+> -	if (data->blocks * data->blksz < DW_MCI_DMA_THRESHOLD)
+> +	if (data->blocks * data->blksz < host->dma_threshold)
+>   		return -EINVAL;
+>   
+>   	if (data->blksz & 3)
+> @@ -3185,6 +3184,7 @@ struct dw_mci *dw_mci_alloc_host(struct device *dev)
+>   	host = mmc_priv(mmc);
+>   	host->mmc = mmc;
+>   	host->dev = dev;
+> +	host->dma_threshold = 16;
+>   
+>   	return host;
+>   }
+> diff --git a/drivers/mmc/host/dw_mmc.h b/drivers/mmc/host/dw_mmc.h
+> index 42e58be74ce09..f29d40158dc59 100644
+> --- a/drivers/mmc/host/dw_mmc.h
+> +++ b/drivers/mmc/host/dw_mmc.h
+> @@ -107,6 +107,7 @@ struct dw_mci_dma_slave {
+>    * @ciu_clk: Pointer to card interface unit clock instance.
+>    * @fifo_depth: depth of FIFO.
+>    * @data_addr_override: override fifo reg offset with this value.
+> + * @dma_threshold: data threshold value in bytes to carry out a DMA transfer.
+>    * @wm_aligned: force fifo watermark equal with data length in PIO mode.
+>    *	Set as true if alignment is needed.
+>    * @data_shift: log2 of FIFO item size.
+> @@ -163,6 +164,7 @@ struct dw_mci {
+>   	void __iomem		*regs;
+>   	void __iomem		*fifo_reg;
+>   	u32			data_addr_override;
+> +	u32			dma_threshold;
+>   	bool			wm_aligned;
+>   
+>   	struct scatterlist	*sg;
+> 
 
