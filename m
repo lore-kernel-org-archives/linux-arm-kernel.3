@@ -4,43 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B630F8E489
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 22:41:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E06B4F8E489
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 22:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZYzUQK3HvwVrA9+IJXuQqcU5jzSAy6sh4Hl6HOc0JvY=; b=RL3WDmESrocMGndOnf2i9EH4e5
-	Qk9jjr9SCrWs//7ZgWeF8250K5BDA+bHQ5nYKOngBUWyOpB73/2yIeLoe5RMi0h9ohu3ynYl9nO7w
-	AG0I5VZM/O9BPez39Eco+5SlLcsJMQnVEPULliWwd2OYM6lRyiW1dhNxwHx4cveszXckDTsZ7+rw2
-	2I3VjqHzS/J5NnNnWiDcXpDjmcSghhnn9RaPvywUyG3mQVfZ2aB1wVUvsdCJYrWD+y9b4gVagfmn4
-	WKSN2NcpISQt/GES+n76ozPKLNmTzmkG/d1am558vt9LHpl+VMc+U2kx0mJ4GISs0OC3gUI8ox+nJ
-	6dmh99jA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xOejhf2JTlBUOqRfxdf0lvXpMeOShPqCZFMc+hUVVlA=; b=ATPek0OhyswMNdaQkBLQDysf3B
+	O+wvy3DdPD9sWSh9R8h1jYTlRzN28w0PZAmgu1MNvUhE3rAVTeWFt5QQ2FGEbSGpfP63s8VDqLMnb
+	evybOS+bmDQlZMEyYQ6Dcv3PuVjtHe7sJPwgFER+CyJ8fnv8yDpUNcQ796HGdS3MAa2bWa58l1DH4
+	m3ZDqcYjs9S3m6MW2TXhw2yg1IJWISYpk0xAh+AQjCUIBZFDWNrKHxqtZxyjRg2WzlWHs8k/qeapI
+	LE+NVq1qLM7vFFloeiorp7oeydVexTR0FEqALWhEZYpsIxLCCjL814YpQQEgrW5WxdBGSf1IqfzKe
+	G5taRkqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDVON-000000039Jx-1Jll;
-	Thu, 16 Apr 2026 22:40:59 +0000
-Received: from [50.53.43.113] (helo=bombadil.infradead.org)
+	id 1wDVS2-000000039Y3-3o1i;
+	Thu, 16 Apr 2026 22:44:46 +0000
+Received: from [50.53.43.113] (helo=[192.168.254.34])
 	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDVOL-000000039Je-11nU;
-	Thu, 16 Apr 2026 22:40:57 +0000
-From: Randy Dunlap <rdunlap@infradead.org>
-To: linux-kernel@vger.kernel.org
-Cc: Randy Dunlap <rdunlap@infradead.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	linux-spi@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2] spi: s3c64xx: fix all kernel-doc warnings
-Date: Thu, 16 Apr 2026 15:40:56 -0700
-Message-ID: <20260416224056.985233-1-rdunlap@infradead.org>
-X-Mailer: git-send-email 2.53.0
+	id 1wDVS0-000000039Xq-1DLf;
+	Thu, 16 Apr 2026 22:44:44 +0000
+Message-ID: <e2b309c3-c287-43cf-9ee3-6d092086924b@infradead.org>
+Date: Thu, 16 Apr 2026 15:44:43 -0700
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] gpu: ipu-v3: clean up kernel-doc warnings
+To: dri-devel@lists.freedesktop.org
+Cc: Philipp Zabel <p.zabel@pengutronix.de>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Helge Deller <deller@gmx.de>, linux-fbdev@vger.kernel.org
+References: <20260219215211.459108-1-rdunlap@infradead.org>
+Content-Language: en-US
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <20260219215211.459108-1-rdunlap@infradead.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -55,46 +58,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add kernel-doc for one struct member and use the correct function name
-to eliminate kernel-doc warnings:
+ping.
 
-Warning: include/linux/platform_data/spi-s3c64xx.h:40 struct member
- 'polling' not described in 's3c64xx_spi_info'
-Warning: include/linux/platform_data/spi-s3c64xx.h:51 expecting prototype
- for s3c64xx_spi_set_platdata(). Prototype was for
- s3c64xx_spi0_set_platdata() instead
+On 2/19/26 1:52 PM, Randy Dunlap wrote:
+> Correct all kernel-doc warnings:
+> - fix a typedef kernel-doc comment
+> - mark a list_head as private
+> - use Returns: for function return values
+> 
+> Warning: include/video/imx-ipu-image-convert.h:31 struct member 'list' not
+>  described in 'ipu_image_convert_run'
+> Warning: include/video/imx-ipu-image-convert.h:40 function parameter
+>  'ipu_image_convert_cb_t' not described in 'void'
+> Warning: include/video/imx-ipu-image-convert.h:40 expecting prototype for
+>  ipu_image_convert_cb_t(). Prototype was for void() instead
+> Warning: include/video/imx-ipu-image-convert.h:66 No description found for
+>  return value of 'ipu_image_convert_verify'
+> Warning: include/video/imx-ipu-image-convert.h:90 No description found for
+>  return value of 'ipu_image_convert_prepare'
+> Warning: include/video/imx-ipu-image-convert.h:125 No description found for
+>  return value of 'ipu_image_convert_queue'
+> Warning: include/video/imx-ipu-image-convert.h:163 No description found for
+>  return value of 'ipu_image_convert'
+> 
+> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+> Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+> ---
+> v2: add Reviewed-by, update Cc: list, rebase, resend
+> 
+> Cc: Philipp Zabel <p.zabel@pengutronix.de>
+> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+> Cc: Maxime Ripard <mripard@kernel.org>
+> Cc: Thomas Zimmermann <tzimmermann@suse.de>
+> Cc: David Airlie <airlied@gmail.com>
+> Cc: Simona Vetter <simona@ffwll.ch>
+> Cc: imx@lists.linux.dev
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: Helge Deller <deller@gmx.de>
+> Cc: linux-fbdev@vger.kernel.org
+> 
+>  include/video/imx-ipu-image-convert.h |   16 +++++++++++-----
+>  1 file changed, 11 insertions(+), 5 deletions(-)
+> 
+> --- linux-next-20260218.orig/include/video/imx-ipu-image-convert.h
+> +++ linux-next-20260218/include/video/imx-ipu-image-convert.h
+> @@ -27,12 +27,13 @@ struct ipu_image_convert_run {
+>  
+>  	int status;
+>  
+> +	/* private: */
+>  	/* internal to image converter, callers don't touch */
+>  	struct list_head list;
+>  };
+>  
+>  /**
+> - * ipu_image_convert_cb_t - conversion callback function prototype
+> + * typedef ipu_image_convert_cb_t - conversion callback function prototype
+>   *
+>   * @run:	the completed conversion run pointer
+>   * @ctx:	a private context pointer for the callback
+> @@ -60,7 +61,7 @@ void ipu_image_convert_adjust(struct ipu
+>   * @out:	output image format
+>   * @rot_mode:	rotation mode
+>   *
+> - * Returns 0 if the formats and rotation mode meet IPU restrictions,
+> + * Returns: 0 if the formats and rotation mode meet IPU restrictions,
+>   * -EINVAL otherwise.
+>   */
+>  int ipu_image_convert_verify(struct ipu_image *in, struct ipu_image *out,
+> @@ -77,11 +78,11 @@ int ipu_image_convert_verify(struct ipu_
+>   * @complete:	run completion callback
+>   * @complete_context:	a context pointer for the completion callback
+>   *
+> - * Returns an opaque conversion context pointer on success, error pointer
+> + * In V4L2, drivers should call ipu_image_convert_prepare() at streamon.
+> + *
+> + * Returns: an opaque conversion context pointer on success, error pointer
+>   * on failure. The input/output formats and rotation mode must already meet
+>   * IPU retrictions.
+> - *
+> - * In V4L2, drivers should call ipu_image_convert_prepare() at streamon.
+>   */
+>  struct ipu_image_convert_ctx *
+>  ipu_image_convert_prepare(struct ipu_soc *ipu, enum ipu_ic_task ic_task,
+> @@ -122,6 +123,8 @@ void ipu_image_convert_unprepare(struct
+>   * In V4L2, drivers should call ipu_image_convert_queue() while
+>   * streaming to queue the conversion of a received input buffer.
+>   * For example mem2mem devices this would be called in .device_run.
+> + *
+> + * Returns: 0 on success or -errno on error.
+>   */
+>  int ipu_image_convert_queue(struct ipu_image_convert_run *run);
+>  
+> @@ -155,6 +158,9 @@ void ipu_image_convert_abort(struct ipu_
+>   * On successful return the caller can queue more run requests if needed, using
+>   * the prepared context in run->ctx. The caller is responsible for unpreparing
+>   * the context when no more conversion requests are needed.
+> + *
+> + * Returns: pointer to the created &struct ipu_image_convert_run that has
+> + * been queued on success; an ERR_PTR(errno) on error.
+>   */
+>  struct ipu_image_convert_run *
+>  ipu_image_convert(struct ipu_soc *ipu, enum ipu_ic_task ic_task,
 
-Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
----
-v2: add tag; rebase & resend
+-- 
+~Randy
 
-Cc: Andi Shyti <andi.shyti@kernel.org>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: linux-spi@vger.kernel.org
-Cc: linux-samsung-soc@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-
- include/linux/platform_data/spi-s3c64xx.h |    3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
---- linux-next-20260415.orig/include/linux/platform_data/spi-s3c64xx.h
-+++ linux-next-20260415/include/linux/platform_data/spi-s3c64xx.h
-@@ -30,6 +30,7 @@ struct s3c64xx_spi_csinfo {
-  * @src_clk_nr: Clock source index for the CLK_CFG[SPI_CLKSEL] field.
-  * @num_cs: Number of CS this controller emulates.
-  * @no_cs: Used when CS line is not connected.
-+ * @polling: Using polling mode when %true (no 'dmas' property in devicetree)
-  * @cfg_gpio: Configure pins for this SPI controller.
-  */
- struct s3c64xx_spi_info {
-@@ -41,7 +42,7 @@ struct s3c64xx_spi_info {
- };
- 
- /**
-- * s3c64xx_spi_set_platdata - SPI Controller configure callback by the board
-+ * s3c64xx_spi0_set_platdata - SPI Controller configure callback by the board
-  *				initialization code.
-  * @src_clk_nr: Clock the SPI controller is to use to generate SPI clocks.
-  * @num_cs: Number of elements in the 'cs' array.
 
