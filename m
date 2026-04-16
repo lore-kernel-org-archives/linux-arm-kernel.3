@@ -4,179 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B4FFF433DD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 03:46:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDEA5F433C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 04:36:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lIB+8qp0uWHHGX2QcwjdpwhYAqSoayseP+8JHJIHOvg=; b=eenaZi2OXpfExSinIqGRTrAkF6
-	HojXzYEdZFjBIoKjIxVKSZ5Ck8WTk0LmXwCctGF+u3bYmM3RgCg/FIpEGwPaMjpIhiIbyjGllTqlY
-	6+B0aCBHgf1JNUJrkNvkx2ShrQ8GKKspEgYbx6aywnCHwvNrfvuKeyaPRxVHwXHERlvfUNBqcBTG7
-	GmoVY865AH1ZsSUUprPfzKiTfw+nSVL5v7eE5SUKDYPNQNP7hJBJminj8VH5qbx9ruHrM3ERKJ2FS
-	qXgsbeqTmlX7L7FExVddf9XR/h9eoTnPbyYnKS8UzRaruxLGrRbbY/31RNdFRtRxyQrxXa5aqmUgE
-	VM6CHfKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n1Z4zrndv/0iQBsD4yH07AAxm7EVA3gZOU+lMyyMdH4=; b=n4dipRfY0+yy0x102HU2Z7IJPS
+	cUfBmWPpLStDv1P4oQSyIuRS8AlMHwXBsHTYikuq+lK7hWuVSNctthm8XFOiZLwgpJBBepwSgbAhs
+	ZVv1zETeAAxsk9smv6s7pfFeGYgiTOhQtQJAZm6oazGBidRCdFPGb852vYcC+wsBfHzIskogWe8ep
+	FLSZAfxB1ce8kJGTOhfwSajP+0yaPafv2UgPKFSCsbcTlpc0thcGthtCN5r8mXDztDoG0zvragv5B
+	iCpJvOKp+pZd2kRhgrcreVoZ0VCcG3RITMKK4iD3KUIf6a5te8Pl3cdoWuAMG11uPK+fqMEozkvzn
+	SAwNiH9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDDg8-00000001wFN-39J2;
-	Thu, 16 Apr 2026 03:46:08 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1wDESP-00000001xee-12xW;
+	Thu, 16 Apr 2026 04:36:01 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDDg5-00000001wEs-39NE;
-	Thu, 16 Apr 2026 03:46:06 +0000
-X-UUID: c628d6fe394611f1a6de359d7043e138-20260415
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=lIB+8qp0uWHHGX2QcwjdpwhYAqSoayseP+8JHJIHOvg=;
-	b=nXOpSjT35Onc6iXPemof2Jiq/gfpa8ZyE2gORQs5oYS0VZGqBf5VAHw6NA92NbIkai1ApKGbpU55jszCIMdz2BAWtYPkHgnZvkhYU1u36xZNafbi58IPcg2zvhFs+HsdKN/ZYYzY4Rnf3JzKp1Y+xkgd2sIxWyLcnfkJ4YD1F9k=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:56d14e62-111e-4cb4-9fcc-2b36ef9c3e15,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:af6efe94-f8ef-4ca8-bea0-143568f9ca1d,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
-	898,TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:ni
-	l,BEC:-1,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: c628d6fe394611f1a6de359d7043e138-20260415
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 164918922; Wed, 15 Apr 2026 20:45:56 -0700
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Thu, 16 Apr 2026 11:45:39 +0800
-Received: from SI4PR04CU001.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Thu, 16 Apr 2026 11:45:39 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YpIyQEuTo87RQ7qz7Ry4cV8kIjh8ED9sE2VsX41rokGb/LFhoTRTwmCNBicO6Vdh9FLvoJ/2mQKOdOvH+78RpX28I63/xsrWowbWJJIxrify3WuJYVGprGT56voOIZBZC9ZeCPj1GoOXrvb30U7L8bRlHGTlaxIZKn6fG0V1rNKZzwsRSQAlj687p1RDlO9smJHbwipAonsPwO+y5jwZ85GoK3RBjq6v/t2kpcr0Epk4tn1PTXryJnzqcm5tuWrZ+54eNBp93JMJJ01UFLPLkw9CGIGtNjbcKtJtvBz3zYIcrJ3GAUCM3PGwbtJaidappVCsozdoiazEJP5pGvTv0g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lIB+8qp0uWHHGX2QcwjdpwhYAqSoayseP+8JHJIHOvg=;
- b=roT/pj15YCXU0NyYAQ8320IvzmqRREAlMlyyv75A6OmTC0jqjPW5sK9I+0jqP60HreV/1tUo2c+Q4gejCU4YZij2MNnqGk00weKmJaMk1yNB4x8vYQidNKOZuna/wTYGuYj/zfq5adWwHL+rldAqJOZ2C/ypR4KoaqkBM0mHvY59f4cM7o5KOFomz0dPmN2hFGxnDADMEvYL6UcZ0IeDq6FrS46T9v654tGxxVRC/I+Q5mALP8E11Nnx0b3KjVXkLrBxSvSMUpjUzYFctf1AX5HDwHTHZH6r7S4KbZotg4DLVutlkrp5yXSHdyiF0zg/xfCpoG0/4yz7OrtXjWx1Aw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
+	id 1wDESN-00000001xeH-1E7b
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Apr 2026 04:36:00 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63G0PWT82972580
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 04:35:55 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	n1Z4zrndv/0iQBsD4yH07AAxm7EVA3gZOU+lMyyMdH4=; b=Wx4JxlJ5z1SGVk8j
+	qWs7e4CtOAz1y7kf8TF0kvQAxPo8xDdetr/DMgMsHBi0QXrC7JfhdYSGQ4KGnukl
+	o567uQuhSAQrUephy7rh/vv1m56SF/LO3pNg8VA6etJyo2+dIAtIht8pLFBeV5v0
+	hTqjjrsz0Q9ktdkjit3ELXbxIYW66jZil9luro+mHlk3C2VNsx8SAaPJvn4hvloA
+	JF8Y+fB9ujZAHUfIpdGiSsilCKAllUKxux2ftVLTfwlz2ONTjQ4WFsWH1+WnZHTS
+	nh/lOr4LL2ZYBSYhsW05tEKVlhcB7mZHlyOEe5QrS0T0I0v8sR/LGWt5AxkANQNw
+	rQt+7A==
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dj74gbp54-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 04:35:55 +0000 (GMT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3595485abbbso7666840a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Apr 2026 21:35:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lIB+8qp0uWHHGX2QcwjdpwhYAqSoayseP+8JHJIHOvg=;
- b=a1FiZYm7djENJ5T0n4dwK9LiSs0tSh6yiqsJzgIhSmSGVE13Vsbn4j0A+O3hUeicRrAk2ICFisyPXZIltsINWzKoLo8ju7saTXRuGLeVrVWSV4pHTMjM881Cg65Yfd67NijEVFTUWbr4HVjqBA03AVjqQAIcOt3kJl5pBYqct2Y=
-Received: from SEYPR03MB6626.apcprd03.prod.outlook.com (2603:1096:101:83::7)
- by KU2PPFD33A87D41.apcprd03.prod.outlook.com (2603:1096:d18::427) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.41; Thu, 16 Apr
- 2026 03:45:36 +0000
-Received: from SEYPR03MB6626.apcprd03.prod.outlook.com
- ([fe80::bca6:6e1d:33c7:b8fc]) by SEYPR03MB6626.apcprd03.prod.outlook.com
- ([fe80::bca6:6e1d:33c7:b8fc%4]) with mapi id 15.20.9769.046; Thu, 16 Apr 2026
- 03:45:36 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: "robh@kernel.org" <robh@kernel.org>,
-	=?utf-8?B?WGlhb3NodW4gWHUgKOW+kOaZk+mhuik=?= <Xiaoshun.Xu@mediatek.com>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, =?utf-8?B?U2lyaXVzIFdhbmcgKOeOi+eak+aYsSk=?=
-	<Sirius.Wang@mediatek.com>, Project_Global_Chrome_Upstream_Group
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	=?utf-8?B?VmluY2UtV0wgTGl1ICjlionmlofpvo0p?= <Vince-WL.Liu@mediatek.com>
-Subject: Re: [PATCH v3 1/6] soc: mediatek: mtk-devapc: refine devapc interrupt
- handler
-Thread-Topic: [PATCH v3 1/6] soc: mediatek: mtk-devapc: refine devapc
- interrupt handler
-Thread-Index: AQHczU8I2LC2DaxlekSb8EMJ9ak2MLXhDFiA
-Date: Thu, 16 Apr 2026 03:45:35 +0000
-Message-ID: <e63f462b3db415f1a3380e72734c269608f9a36d.camel@mediatek.com>
-References: <20260416031231.2932493-1-xiaoshun.xu@mediatek.com>
-	 <20260416031231.2932493-2-xiaoshun.xu@mediatek.com>
-In-Reply-To: <20260416031231.2932493-2-xiaoshun.xu@mediatek.com>
-Accept-Language: zh-TW, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SEYPR03MB6626:EE_|KU2PPFD33A87D41:EE_
-x-ms-office365-filtering-correlation-id: ccc49317-a391-48db-c704-08de9b6a9e5a
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|42112799006|1800799024|366016|22082099003|18002099003|56012099003|38070700021;
-x-microsoft-antispam-message-info: L6SLYwxAf0Cz9YFT7YTCCBm/7Lsz8B/fY2fc4CkQED3SCde8p6uobM7RQAONeU1DjMj+rLbSeGKoKa6CbRSg+mM8XnHKJ0Q8gBW5rTVWUh73X5AyJ9rMILnOPMyUOihU7v3mF4iJeZpt0QgeKI7qONbhdQuO3RebL13Km6YdlBmffHYZW7nW40iC6AeYBKaKNEcfo1hcQN2JL6KEm+aQRAIVxhcEIXbVvtVVzWktsHdQH0bgvZWMG3iyqEQSJbaNqt0HeREXxllojSOZAxloo4lvwQQEXeO6V68VF3twg3sDwUEFsIfgPzMbNZj8E6ofYOLm1jrCOBiI/X50ZYxnJVFXW+q+s1Bk35PGt+kivBzo3ZRnYMooGjwkJ5VqXux49erQYip0ac+Uv++4YIzktPoKaow0z1m13hVyl90Rfdck4h9X0xwY/7xwklEbNrGobYaPMRHlN9X81XMZnFQ4csxOi7dK40lnt6mflycTDE3PBtTPAU0r6UMEQVOjoylqD8AKRyo1yXL5sUhahwhWmqMC8yhKGsTQMe1xMRgX2/BH70lAONIIyVwl1vROyLdIIAP7Jyv5e0DipFjIi1kMAihFzBcCZnyOGm9z9TvZLd/oYMamhb69yF15/ZuShK4oCTmOVrgWBDEk/cRnKa00+0S4sZQW7cSVwHhD64OqpYp6sBVJkZL0TZRXlqBz7v8kpKi6v+z2/KxMI/5+0fAw6Gw8O+lhF06CHqnh/VpQNAifmF/5LfqUHuupyKGfWkz8X/5hbVAy5BsxmI1gJnZT85JAl7Gm0O1vZyD82H6TFPY=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR03MB6626.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(42112799006)(1800799024)(366016)(22082099003)(18002099003)(56012099003)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?a1NYYm4raHRtWjMwWExJMGUzR3cyS0w3OTJIN1FWUm9oRm5OZ1lwVTRTc0Uy?=
- =?utf-8?B?WXRGVXJsTS9aVlRIOG5aYjgwaUtCY0lGb1AybVlwMlNoN2JCWGlsT3Jib1F2?=
- =?utf-8?B?c2h4Ym9kWlFqcnU4cXNRcDNMZ2NNL0l4amJvL09kNWRMcXJhdDFlSnZ2NEpt?=
- =?utf-8?B?NFVGMVhJN0o1M0sycjdIbWp3aTZwSkFDcHgzQ1FoeGtuYnhOWDlpZnQzN0x4?=
- =?utf-8?B?UG1RalAyZE1VRzRLc1B3b2hxRXhNb0JQQmY4VlkwVVl0eFNuZjU0eWpmaThK?=
- =?utf-8?B?bHJscXZ5NGhNTkRJYXAvVWh2ck9CdFFuZXN2UnFmMnJFQTVadGY5RGNhS3Y2?=
- =?utf-8?B?MGc5aWJ0eUFWS3RNRXZkcDcwN0JoOXBBZVlOeVdnRzVMRWd6VUtjNXRmdTRK?=
- =?utf-8?B?UGwrbzVKdkpnY0doY1JudkZMbW1GZ3hIdHRMZVlHQmFGTisxczJCV0lISUE4?=
- =?utf-8?B?TUw2bWtsVi9rWnZ0TVZJQVFFMjliVWgvTEFiRWhHckZWZ3VyMGw3YjY2WDRs?=
- =?utf-8?B?eldSckRRRVhJRE1FVm5nQzU5WlZpWFpKNFlZSk15Y0twZmNwMytHSXdJYnVP?=
- =?utf-8?B?eGRrNHlOcWp4UU1KUnN5UklPcnlqWXlIMEEyTDdOaUdhb1ZPMm03bnFZcjlL?=
- =?utf-8?B?V1hhN0dXZzRqcTBLeEtBMzl5RUhLQkF3TDlBQXo2UStRQWhyelQvaW5hbGJQ?=
- =?utf-8?B?TldRNUx1MmFyVmVFTTZzcjlzT2JqeFVmV2h2dVBjLzAwdGJ5bitSSXJZSHhq?=
- =?utf-8?B?cGRQT0s3eTkyR0xwaG1leHkyblRNZ0Fkdml1eGJQR1hUMDRnQVJPY1owTENy?=
- =?utf-8?B?L2FycEYrZ1IwQUhMaytEYlFCSDdsYjg2T2hlTlpJNUZLbDc3VERWVXlQcEtp?=
- =?utf-8?B?ZEJzQUZOdTEyTUQyakoxYXhicnFFN0twZ0YrRy82YTUzTmU5QUczeUlvaXZn?=
- =?utf-8?B?ei9Ha1dPZkFRWVdSekFzN1hPU0RPUC9ueTdhUWE0MVdCeGpqMmd3ZGdSenE1?=
- =?utf-8?B?OUhaN1l2VEhSRGhPL3pzYWN3VDI1ZE9aekpUNzQ5YXhZelU2Q0ZVcFFxdzhX?=
- =?utf-8?B?d2FRamsyUmVPaWl1L0VvV0RxcVdaeXRNaTY1dW9GZmtNc3pSMGlZYzVXVXBU?=
- =?utf-8?B?ZG54VmJoTHlXa2tncmZCRUpySmtIZ0JCeURVRkRGTEFXSWsxRkV1eXRDZDRE?=
- =?utf-8?B?SjhCVVJ4Qjd1R0s1cnFxMkp2SUZ0RVd3TzV4R2NzYTVQdzZTeWI4V1p2M09D?=
- =?utf-8?B?NXM2ZUdPNm1YNXhiTnI1OFpCd3hPKzFURU1SOXBvMlRmZVJJTHdtazhXUTJS?=
- =?utf-8?B?alQ3R0xSNk1VbzNiQ01xMkpNWjlKeDJEdlQvREJic0lPbC93bkFsNmpjWUcx?=
- =?utf-8?B?OG5DSllweFIydmFKbVNTSGFzMkpSQWRvUkVIei9HdEkvaFdlK2dObFJ4V29E?=
- =?utf-8?B?dWk1YkR6Q3Y1OXoxaUMzY1JvdFA0UEU5cWl4YTlzRW1ldFpVaisxUHNYbUpt?=
- =?utf-8?B?QllkS0tHZkFpNjB1Yk5oWVZRVmVPcVE1Z2s5NkowcVdvQmljTTRocG54czVQ?=
- =?utf-8?B?bElaQ29lV2pHUjVmUldVSHlST3pzY2gyRFdFaWlQTmxBNWxyQk9HdnRPRmxy?=
- =?utf-8?B?a0NIN3ZzVWhwVmVCamx5ZWJPWmpyWE9HaGJCRGoyNlZWWmlHaDB1OWRQdS9S?=
- =?utf-8?B?R0dmMFpwYTJWNGZGeVo5ZFZ0QkU5a1gzTnptdWkxOVhvdTN0am42cW9Nem1M?=
- =?utf-8?B?RW5Ka2VZTjNpdVE0cTVFNzJtOXpSRzd5ai90Sy9wbmVRWTN4V1Q3SEppbW5Z?=
- =?utf-8?B?SE10a3ZCZk9ubUt6Z3NiTXNUd2I0YUFXRWNjUExsb1hkdTVxM01JVHdhc1NZ?=
- =?utf-8?B?R1J5SkNQQjZySWJtU2ZZaUZHRmpwUEllaUVhWFFuUVZyS2U2OHArc1g1L3Jp?=
- =?utf-8?B?SXpqRkNqZFJqNzhZamc2VnM3YlJtQ05nSUgzZVNLdlVvNVN3NzE3QXZ3L2F5?=
- =?utf-8?B?S25pYkZnbnoybW9UNGx3dTdBMmhlVXBmaFRqN1NNWTVrWldNKzFnSVV0ZDBT?=
- =?utf-8?B?QVFaWWJtYjMxdkZlS3ZvSGhIOEdDQ3BWTEFhSzhRbWxCZkhFM2FFRkFTajFr?=
- =?utf-8?B?S0RXbFV4L2tuSnc4MmN1eTB2Vm8vbGE4ZUJPbmN3UHpGQ3lsRFhNOGtqSXFT?=
- =?utf-8?B?VEh2RUN2SFlMR1lWd09PSlgwdEdZZUxNWXcxaG10WjZVRmVlMGJFM21ncWJh?=
- =?utf-8?B?Wk41OVh3d2syUzlRWmRTR0svSGZmRjV4M3BycHhKMlFtanhHaEtobUpMbHFH?=
- =?utf-8?B?NG1LNnNMV05iQ003UVZab09Jd3l4U3hrbDY1REIrQmJTdFVzWW8wdz09?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <254A11B1646E1047BBE015EA9A4C4EDA@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+        d=oss.qualcomm.com; s=google; t=1776314155; x=1776918955; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=n1Z4zrndv/0iQBsD4yH07AAxm7EVA3gZOU+lMyyMdH4=;
+        b=ChhZ+8gdfjeDIzT6qZW+c4mdGkWGjErgYxjAm+qAMDr/cwARUtq8cffoW3usewR/MG
+         fB/obgwg+poj4k3NV6zQiSV1Jf8d/uXi2nRVWKGbPWj5FVIIjCBKLW6MIOWY6+bjr4Cl
+         NWcHm0QZoGDhNyBvKUeXkYhDM6envFWDHmtxQDWilVi2BLnwcLPSQZSrXaWa2QuPprPr
+         SSq5OLAkOHOiNQtV4qu705RcbE4TriFTaGX944v3MYNi0zchCh/h8iA0Ik0GQCCLhbmy
+         sL350fKBR92vCnXye6aNM0culIOInhu60mpnFAHQ7p812CMaLySLJHyn4NWbueOpzfKe
+         n26g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776314155; x=1776918955;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=n1Z4zrndv/0iQBsD4yH07AAxm7EVA3gZOU+lMyyMdH4=;
+        b=m1+GPjTNFqUxuN6H+X9agwSbOfVCtahgKMb/njaThx9uxtaXgcVLToAbc68erGTEzQ
+         QdT0HTkJTu8Ru1IHTXHN7v1QQPv5rJtmQzRZFeyYDQvMA1kpzylyhVG6NbFCkTZdQ6kX
+         tMSIWUGoF49znUGU8EYVOTjCQs4aKKCj4fuSP7zfq8s7eWwxgnaAwxQ9wkVmAvp4Wnib
+         WpYmMDs3oEcvUFzdYkz45G7Qz7wp6h6G6mvbS9Xm+J5/N0tZCJ+0KWySUWeYth+wjngL
+         7ohlL5mrX+EyJcG65yhBZNDioeMja3/pV37X3dzMlTbyqqm/1ZDo5Y71pv3kHQVI5EJK
+         uD7w==
+X-Forwarded-Encrypted: i=1; AFNElJ8i7W9TVLYX5LeISheWk+O8o+HD/eXAM49Y95uN7hIQzXQGP+6kCgfnll7+8ssE9j0Vod9yc3NDdbXAZN/A2Thf@lists.infradead.org
+X-Gm-Message-State: AOJu0YydWMhHNqjvN6apQY5UrC7nku6e3FIjPkQm5v4j/oQmwYPa2bU7
+	1j+ttHjGYikmLZvXbbVSIJwNCJXri+0Fz/xovC1OzGdpJIbQDJCt7rJTEnvqzZCH5prAWfhuLsK
+	x/1HB/3YFMKf8sZTM0hCjwEuu9mjd8/xmZqopFppnK7OPUX+C9Zu/EIAHR+cuuOx+98mbsQhHB/
+	e+SQ==
+X-Gm-Gg: AeBDievR5h14mQLetTbVL9vJSpu8668JBZEfSl3EYD7WXBIa7SLNeP0LvjtA7e+4wNF
+	Jaf9bB2VLNzX1jVRx+2fEm/TjX+Q2SF3iWcaz1ZbP4mYuYCN8HOnCLshyCMrbqwjyi+NqJX/9g0
+	FSXEdnuGf/pWITDGeZKqBwQua4+h7t3E8kztxpegFZqlcd7xQ5Lmr69HdTwhBUko91PFXgKLWT4
+	HBv6srrot2IIFlNT+In+UmIhsHsG4mcuUhX0V9nD8MC+czt82UcruR2TSAg7wd1eReXrocKhMVY
+	goTxWnq10mwsmI/rG1WO449rltaZUiZaWKh7PR9hBePvDB4FrfZh3NKhIA2toFyhfButbbR0gtn
+	S9fcoqtqy4jEC/LDRScsu+LHda4CEmpBLN2EdWKgC7zFeCiaDltrrueC+C/UOPeftt6nvV6vsHk
+	pKCvvALnKpNsc=
+X-Received: by 2002:a17:902:ce0f:b0:2b0:708f:4dc7 with SMTP id d9443c01a7336-2b2d5a2a1a4mr273077775ad.29.1776314154549;
+        Wed, 15 Apr 2026 21:35:54 -0700 (PDT)
+X-Received: by 2002:a17:902:ce0f:b0:2b0:708f:4dc7 with SMTP id d9443c01a7336-2b2d5a2a1a4mr273077525ad.29.1776314154009;
+        Wed, 15 Apr 2026 21:35:54 -0700 (PDT)
+Received: from [10.133.33.185] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b4782ace42sm48196185ad.68.2026.04.15.21.35.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 15 Apr 2026 21:35:53 -0700 (PDT)
+Message-ID: <b9528488-b0c7-410b-b91b-b05c21fd0c08@oss.qualcomm.com>
+Date: Thu, 16 Apr 2026 12:35:49 +0800
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: oaYTZ6m2hiaGQQbgvFh41InXfA9r9QectCVGDW3fBi1g2L6yqlKwiyUSFBShK5YDM/hsJolwjIQVWtIm+BEVg9JhRsdzO+3ZUD+zSmQi0raTzuCymEp1IIAHig7mXdPW2nAGVrJL45he8EChW8TWhY/CGPf9yse+EHhYDPlM6CQCb+C9Kg4qrwRaIdqhdOGBnUP78Q8MKESskQiZe1y8LABhss160OdnYFhcpB9JGTCC5EeyGtYOPYVQL/oPgskDxWVEFRSsa2DmU3YGlblPnFFgRfGGG2BFX/40waC4lLsnhnVEk5Z6J63jeNNCwCnf0pIHY2gT5p12xnP8WExhNQ==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SEYPR03MB6626.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ccc49317-a391-48db-c704-08de9b6a9e5a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Apr 2026 03:45:35.7771
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: j3zk9xPILP++pGCQD49RVATbGFJd6i2x2cLnUzXX80t6KQceQ091Xy1yU6DnCNZK+6N7NvjeZYZXdkoLyACJoA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KU2PPFD33A87D41
-X-MTK: N
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 07/12] coresight: etm4x: fix inconsistencies with sysfs
+ configuration
+To: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: suzuki.poulose@arm.com, mike.leach@arm.com, james.clark@linaro.org,
+        alexander.shishkin@linux.intel.com, leo.yan@arm.com
+References: <20260415165528.3369607-1-yeoreum.yun@arm.com>
+ <20260415165528.3369607-8-yeoreum.yun@arm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20260415165528.3369607-8-yeoreum.yun@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE2MDA0MSBTYWx0ZWRfXz4Cn8btVB+sN
+ JKy45xJrEaAubglZ+HemIMvlIVoXuiP/rsoEzg5JRBiLnSlnPlBLC/IE4N8HLeEi1xG90NMg477
+ vz43u8BBQR2TwRQnkOgScOhaPgtT1s/fIk1EENvuvJhZ9P3bND5pYatNjZOg1Y3dwoZCQUObUyq
+ mK48LAn7hQAwvAREOe8cEu1yjRHjwo0fiFNT5lDZQk+EsxQZLKtsf+G4GajYZWqNMqsnnEdBvr7
+ QOaPHCZ4xItDDVE907GapMCwGUimxTuQlRcX2vE/ZQY3LhUzr00bD97T732SotMVbHK8xWEWRjW
+ Jc4osCTrJdJJhhkC5m5lxJvWqD+/lfV26nWsr1giLQfN0P99+3JRktc2Mim+mAOG5MFxVxc7WIU
+ dj9VMGkUVJfoJpFPjpDxBWGnwIQMQG4mmv+GIRu77l5Bpi1ab74h8TRMW/8dnAdtQswBtl0XOKc
+ k1VtevIJxhaM+rQ4hvg==
+X-Proofpoint-ORIG-GUID: POfgv6vw2F7GB1MA2XIEVJwGGm4GAdfv
+X-Authority-Analysis: v=2.4 cv=ZIfnX37b c=1 sm=1 tr=0 ts=69e0672b cx=c_pps
+ a=vVfyC5vLCtgYJKYeQD43oA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=7CQSdrXTAAAA:8 a=rqivyBB3Y2tn8cSkOZkA:9 a=QEXdDO2ut3YA:10
+ a=rl5im9kqc5Lf4LNbBjHf:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: POfgv6vw2F7GB1MA2XIEVJwGGm4GAdfv
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-16_01,2026-04-13_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 suspectscore=0 lowpriorityscore=0 spamscore=0 bulkscore=0
+ phishscore=0 clxscore=1015 malwarescore=0 adultscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604160041
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_204605_807494_FFD75454 
-X-CRM114-Status: GOOD (  19.67  )
+X-CRM114-CacheID: sfid-20260415_213559_482534_E2952894 
+X-CRM114-Status: GOOD (  28.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,34 +149,302 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCAyMDI2LTA0LTE2IGF0IDExOjEyICswODAwLCBYaWFvc2h1biBYdSB3cm90ZToNCj4g
-QmVjYXVzZSB0aGUgdmlvbGF0aW9uIElSUSB1c2VzIGEgd2hpbGUgbG9vcCwgaXQgbWlnaHQgY2F1
-c2UgdGhlDQo+IHN5c3RlbSB0byByZW1haW4gaW4gdGhlIGludGVycnVwdCBoYW5kbGVyIGluZGVm
-aW5pdGVseS4gV2UgYXJlDQo+IGN1cnJlbnRseSBvcHRpbWl6aW5nIHRoaXMgcGFydCBvZiB0aGUg
-cHJvY2VzcyB0byBoYW5kbGUgb25seSAyMA0KPiB2aW9sYXRpb25zIGZvciBkZWJ1ZyB2aW9sYXRp
-b24gaXNzdWVzLCBhbmQgdGhlbiBleGl0IHRoZSBsb29wDQo+IA0KPiBTaWduZWQtb2ZmLWJ5OiBY
-aWFvc2h1biBYdSA8eGlhb3NodW4ueHVAbWVkaWF0ZWsuY29tPg0KPiAtLS0NCj4gIGRyaXZlcnMv
-c29jL21lZGlhdGVrL210ay1kZXZhcGMuYyB8IDggKysrKysrKy0NCj4gIDEgZmlsZSBjaGFuZ2Vk
-LCA3IGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkNCj4gDQo+IGRpZmYgLS1naXQgYS9kcml2
-ZXJzL3NvYy9tZWRpYXRlay9tdGstZGV2YXBjLmMgYi9kcml2ZXJzL3NvYy9tZWRpYXRlay9tdGst
-ZGV2YXBjLmMNCj4gaW5kZXggZjU0Yzk2NjEzOGI1Li5jOWUxNDAxMzE1YWQgMTAwNjQ0DQo+IC0t
-LSBhL2RyaXZlcnMvc29jL21lZGlhdGVrL210ay1kZXZhcGMuYw0KPiArKysgYi9kcml2ZXJzL3Nv
-Yy9tZWRpYXRlay9tdGstZGV2YXBjLmMNCj4gQEAgLTEyLDYgKzEyLDcgQEANCj4gICNpbmNsdWRl
-IDxsaW51eC9vZl9pcnEuaD4NCj4gICNpbmNsdWRlIDxsaW51eC9vZl9hZGRyZXNzLmg+DQo+ICAN
-Cj4gKyNkZWZpbmUgTUFYX1ZJT19OVU0gMjANCj4gICNkZWZpbmUgVklPX01PRF9UT19SRUdfSU5E
-KG0pCSgobSkgLyAzMikNCj4gICNkZWZpbmUgVklPX01PRF9UT19SRUdfT0ZGKG0pCSgobSkgJSAz
-MikNCj4gIA0KPiBAQCAtMTg4LDEzICsxODksMTggQEAgc3RhdGljIHZvaWQgZGV2YXBjX2V4dHJh
-Y3RfdmlvX2RiZyhzdHJ1Y3QgbXRrX2RldmFwY19jb250ZXh0ICpjdHgpDQo+ICAgKi8NCj4gIHN0
-YXRpYyBpcnFyZXR1cm5fdCBkZXZhcGNfdmlvbGF0aW9uX2lycShpbnQgaXJxX251bWJlciwgdm9p
-ZCAqZGF0YSkNCj4gIHsNCj4gKwl1MzIgdmlvX251bSA9IDA7DQo+ICAJc3RydWN0IG10a19kZXZh
-cGNfY29udGV4dCAqY3R4ID0gZGF0YTsNCj4gIA0KPiAtCXdoaWxlIChkZXZhcGNfc3luY192aW9f
-ZGJnKGN0eCkpDQo+ICsJbWFza19tb2R1bGVfaXJxKGN0eCwgdHJ1ZSk7DQoNCm1hc2sgaXJxIGlz
-IG5vdCByZWxhdGVkIHRvIHRoaXMgcGF0Y2guIFRoaXMgcGF0Y2ggY2FyZSBhYm91dCB0aGUgaW5m
-aW5pdGUgbG9vcC4NClNvIHNlcGFyYXRlIG1hc2sgaXJxIHBhcnQgdG8gYW4gaW5kZXBlbmRlbnQg
-cGF0Y2ggYW5kIGRlc2NyaWJlIHdoeSBkbyB0aGlzLg0KDQpSZWdhcmRzLA0KQ0sNCg0KPiArDQo+
-ICsJZm9yICh2aW9fbnVtID0gMDsgKHZpb19udW0gPCBNQVhfVklPX05VTSkgJiYgKGRldmFwY19z
-eW5jX3Zpb19kYmcoY3R4KSk7ICsrdmlvX251bSkNCj4gIAkJZGV2YXBjX2V4dHJhY3RfdmlvX2Ri
-ZyhjdHgpOw0KPiAgDQo+ICAJY2xlYXJfdmlvX3N0YXR1cyhjdHgpOw0KPiAgDQo+ICsJbWFza19t
-b2R1bGVfaXJxKGN0eCwgZmFsc2UpOw0KPiArDQo+ICAJcmV0dXJuIElSUV9IQU5ETEVEOw0KPiAg
-fQ0KPiAgDQoNCg==
+
+
+On 4/16/2026 12:55 AM, Yeoreum Yun wrote:
+> The current ETM4x configuration via sysfs can lead to
+> several inconsistencies:
+> 
+>    - If the configuration is modified via sysfs while a perf session is
+>      active, the running configuration may differ before a sched-out and
+>      after a subsequent sched-in.
+> 
+>    - If a perf session and a sysfs session enable tracing concurrently,
+>      the configuration from configfs may become corrupted.
+> 
+>    - There is a risk of corrupting drvdata->config if a perf session enables
+>      tracing while cscfg_csdev_disable_active_config() is being handled in
+>      etm4_disable_sysfs().
+> 
+> To resolve these issues, separate the configuration into:
+> 
+>    - active_config: the configuration applied to the current session
+>    - config: the configuration set via sysfs
+> 
+> Additionally:
+> 
+>    - Apply the configuration from configfs after taking the appropriate mode.
+> 
+>    - Since active_config and related fields are accessed only by the local CPU
+>      in etm4_enable/disable_sysfs_smp_call() (similar to perf enable/disable),
+>      remove the lock/unlock from the sysfs enable/disable path and
+>      startup/dying_cpu except when to access config fields.
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+
+<...>
+
+> @@ -618,23 +624,45 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+>   static void etm4_enable_sysfs_smp_call(void *info)
+>   {
+>   	struct etm4_enable_arg *arg = info;
+> +	struct etmv4_drvdata *drvdata;
+>   	struct coresight_device *csdev;
+>   
+>   	if (WARN_ON(!arg))
+>   		return;
+>   
+> -	csdev = arg->drvdata->csdev;
+> +	drvdata = arg->drvdata;
+> +	csdev = drvdata->csdev;
+>   	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
+>   		/* Someone is already using the tracer */
+>   		arg->rc = -EBUSY;
+>   		return;
+>   	}
+>   
+> -	arg->rc = etm4_enable_hw(arg->drvdata);
+> +	drvdata->active_config = arg->config;
+>   
+> -	/* The tracer didn't start */
+> +	if (arg->cfg_hash) {
+> +		arg->rc = cscfg_csdev_enable_active_config(csdev,
+> +							   arg->cfg_hash,
+> +							   arg->preset);
+> +		if (arg->rc)
+> +			goto err;
+> +	}
+> +
+> +	drvdata->trcid = arg->trace_id;
+> +
+> +	/* Tracer will never be paused in sysfs mode */
+> +	drvdata->paused = false;
+> +
+> +	arg->rc = etm4_enable_hw(drvdata);
+>   	if (arg->rc)
+> -		coresight_set_mode(csdev, CS_MODE_DISABLED);
+
+needs disable the active config in error path:
+cscfg_csdev_disable_active_config(drvdata->csdev);
+
+Thanks,
+Jie
+
+> +		goto err;
+> +
+> +	drvdata->sticky_enable = true;
+> +
+> +	return;
+> +err:
+> +	/* The tracer didn't start */
+> +	coresight_set_mode(csdev, CS_MODE_DISABLED);
+>   }
+>   
+>   /*
+> @@ -672,7 +700,7 @@ static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata,
+>   	int ctridx;
+>   	int rselector;
+>   	const struct etmv4_caps *caps = &drvdata->caps;
+> -	struct etmv4_config *config = &drvdata->config;
+> +	struct etmv4_config *config = &drvdata->active_config;
+>   
+>   	/* No point in trying if we don't have at least one counter */
+>   	if (!caps->nr_cntr)
+> @@ -756,7 +784,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
+>   	int ret = 0;
+>   	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>   	const struct etmv4_caps *caps = &drvdata->caps;
+> -	struct etmv4_config *config = &drvdata->config;
+> +	struct etmv4_config *config = &drvdata->active_config;
+>   	struct perf_event_attr max_timestamp = {
+>   		.ATTR_CFG_FLD_timestamp_CFG = U64_MAX,
+>   	};
+> @@ -918,40 +946,29 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+>   
+>   	/* enable any config activated by configfs */
+>   	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
+> -	if (cfg_hash) {
+> -		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
+> -		if (ret) {
+> -			etm4_release_trace_id(drvdata);
+> -			return ret;
+> -		}
+> -	}
+> -
+> -	raw_spin_lock(&drvdata->spinlock);
+> -
+> -	drvdata->trcid = path->trace_id;
+> -
+> -	/* Tracer will never be paused in sysfs mode */
+> -	drvdata->paused = false;
+>   
+>   	/*
+>   	 * Executing etm4_enable_hw on the cpu whose ETM is being enabled
+>   	 * ensures that register writes occur when cpu is powered.
+>   	 */
+>   	arg.drvdata = drvdata;
+> +	arg.cfg_hash = cfg_hash;
+> +	arg.preset = preset;
+> +	arg.trace_id = path->trace_id;
+> +
+> +	raw_spin_lock(&drvdata->spinlock);
+> +	arg.config = drvdata->config;
+> +	raw_spin_unlock(&drvdata->spinlock);
+> +
+>   	ret = smp_call_function_single(drvdata->cpu,
+>   				       etm4_enable_sysfs_smp_call, &arg, 1);
+>   	if (!ret)
+>   		ret = arg.rc;
+>   	if (!ret)
+> -		drvdata->sticky_enable = true;
+> -
+> -	if (ret)
+> +		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
+> +	else
+>   		etm4_release_trace_id(drvdata);
+>   
+> -	raw_spin_unlock(&drvdata->spinlock);
+> -
+> -	if (!ret)
+> -		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
+>   	return ret;
+>   }
+>   
+> @@ -1038,7 +1055,7 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
+>   {
+>   	u32 control;
+>   	const struct etmv4_caps *caps = &drvdata->caps;
+> -	struct etmv4_config *config = &drvdata->config;
+> +	struct etmv4_config *config = &drvdata->active_config;
+>   	struct coresight_device *csdev = drvdata->csdev;
+>   	struct csdev_access *csa = &csdev->access;
+>   	int i;
+> @@ -1074,6 +1091,8 @@ static void etm4_disable_sysfs_smp_call(void *info)
+>   
+>   	etm4_disable_hw(drvdata);
+>   
+> +	cscfg_csdev_disable_active_config(drvdata->csdev);
+> +
+>   	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
+>   }
+>   
+> @@ -1124,7 +1143,6 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
+>   	 * DYING hotplug callback is serviced by the ETM driver.
+>   	 */
+>   	cpus_read_lock();
+> -	raw_spin_lock(&drvdata->spinlock);
+>   
+>   	/*
+>   	 * Executing etm4_disable_hw on the cpu whose ETM is being disabled
+> @@ -1133,10 +1151,6 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
+>   	smp_call_function_single(drvdata->cpu, etm4_disable_sysfs_smp_call,
+>   				 drvdata, 1);
+>   
+> -	raw_spin_unlock(&drvdata->spinlock);
+> -
+> -	cscfg_csdev_disable_active_config(csdev);
+> -
+>   	cpus_read_unlock();
+>   
+>   	/*
+> @@ -1379,6 +1393,7 @@ static void etm4_init_arch_data(void *info)
+>   	struct etm4_init_arg *init_arg = info;
+>   	struct etmv4_drvdata *drvdata;
+>   	struct etmv4_caps *caps;
+> +	struct etmv4_config *config;
+>   	struct csdev_access *csa;
+>   	struct device *dev = init_arg->dev;
+>   	int i;
+> @@ -1386,6 +1401,7 @@ static void etm4_init_arch_data(void *info)
+>   	drvdata = dev_get_drvdata(init_arg->dev);
+>   	caps = &drvdata->caps;
+>   	csa = init_arg->csa;
+> +	config = &drvdata->active_config;
+>   
+>   	/*
+>   	 * If we are unable to detect the access mechanism,
+> @@ -1446,7 +1462,7 @@ static void etm4_init_arch_data(void *info)
+>   
+>   	/* EXLEVEL_S, bits[19:16] Secure state instruction tracing */
+>   	caps->s_ex_level = FIELD_GET(TRCIDR3_EXLEVEL_S_MASK, etmidr3);
+> -	drvdata->config.s_ex_level = caps->s_ex_level;
+> +	config->s_ex_level = caps->s_ex_level;
+>   	/* EXLEVEL_NS, bits[23:20] Non-secure state instruction tracing */
+>   	caps->ns_ex_level = FIELD_GET(TRCIDR3_EXLEVEL_NS_MASK, etmidr3);
+>   	/*
+> @@ -1692,7 +1708,7 @@ static void etm4_set_default(struct etmv4_config *config)
+>   static int etm4_get_next_comparator(struct etmv4_drvdata *drvdata, u32 type)
+>   {
+>   	int nr_comparator, index = 0;
+> -	struct etmv4_config *config = &drvdata->config;
+> +	struct etmv4_config *config = &drvdata->active_config;
+>   
+>   	/*
+>   	 * nr_addr_cmp holds the number of comparator _pair_, so time 2
+> @@ -1733,7 +1749,7 @@ static int etm4_set_event_filters(struct etmv4_drvdata *drvdata,
+>   {
+>   	int i, comparator, ret = 0;
+>   	u64 address;
+> -	struct etmv4_config *config = &drvdata->config;
+> +	struct etmv4_config *config = &drvdata->active_config;
+>   	struct etm_filters *filters = event->hw.addr_filters;
+>   
+>   	if (!filters)
+> @@ -1851,13 +1867,11 @@ static int etm4_starting_cpu(unsigned int cpu)
+>   	if (!etmdrvdata[cpu])
+>   		return 0;
+>   
+> -	raw_spin_lock(&etmdrvdata[cpu]->spinlock);
+>   	if (!etmdrvdata[cpu]->os_unlock)
+>   		etm4_os_unlock(etmdrvdata[cpu]);
+>   
+>   	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
+>   		etm4_enable_hw(etmdrvdata[cpu]);
+> -	raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
+>   	return 0;
+>   }
+>   
+> @@ -1866,10 +1880,8 @@ static int etm4_dying_cpu(unsigned int cpu)
+>   	if (!etmdrvdata[cpu])
+>   		return 0;
+>   
+> -	raw_spin_lock(&etmdrvdata[cpu]->spinlock);
+>   	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
+>   		etm4_disable_hw(etmdrvdata[cpu]);
+> -	raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
+>   	return 0;
+>   }
+>   
+> @@ -2255,7 +2267,8 @@ static int etm4_add_coresight_dev(struct etm4_init_arg *init_arg)
+>   	if (!desc.name)
+>   		return -ENOMEM;
+>   
+> -	etm4_set_default(&drvdata->config);
+> +	etm4_set_default(&drvdata->active_config);
+> +	drvdata->config = drvdata->active_config;
+>   
+>   	pdata = coresight_get_platform_data(dev);
+>   	if (IS_ERR(pdata))
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+> index cbd8890d166a..9b50aaa368cf 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+> @@ -1069,6 +1069,7 @@ struct etmv4_save_state {
+>    *		allows tracing at all ELs. We don't want to compute this
+>    *		at runtime, due to the additional setting of TRFCR_CX when
+>    *		in EL2. Otherwise, 0.
+> + * @active_config:	structure holding current applied configuration parameters.
+>    * @config:	structure holding configuration parameters.
+>    * @save_state:	State to be preserved across power loss
+>    * @paused:	Indicates if the trace unit is paused.
+> @@ -1089,6 +1090,7 @@ struct etmv4_drvdata {
+>   	bool				os_unlock : 1;
+>   	bool				paused : 1;
+>   	u64				trfcr;
+> +	struct etmv4_config		active_config;
+>   	struct etmv4_config		config;
+>   	struct etmv4_save_state		*save_state;
+>   	DECLARE_BITMAP(arch_features, ETM4_IMPDEF_FEATURE_MAX);
+
 
