@@ -4,59 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C76F0F8D758
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 15:11:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31322F8D759
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 15:28:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wJogIQfNen53UecFcH2yMQFrXxkjQxMA/QO/syWM1Vw=; b=MQSjcH6iB7N3AZinB6d/bw9jZ8
-	4sqSQJjennp1PpwQ0AP6xsZVPkufHmDAZbW8THIeKYCYAW+4LBKkuXSJK8IJtYaHl94iLlZfcsE7J
-	AZUAMJgTzvdW2Fuh3dNG5cQT2/0vInZoJvVfEzQwXqUAB7kt5Ip/a3xWIEglYuOKd8eB725+0FQRP
-	ksIZS6vjzKXM6vNDtNUAKnRYxvTIK+EakWgFVY45DNIgCx6/vD12LltZrrYvfIJiy2JlS+9IDkLSo
-	enMlNsAXCiU92see9XuM/y16YZfzjiUcnFezhPVu03pUotSmt6zx5qqpZCz9asScV0jOijkfpSNoE
-	kfan+/mg==;
+	bh=4WZaxG1fEkAWFHy6pQUBEmVvWmVwiU42yXOGl7cFeSk=; b=RICHaxMRoSBdFckgonrJa+v15P
+	9SzcwC5BLIq9IT4b5XwodFwAt+V4JlLCFk5XTCLCDYIrPmrxK8Zt204nl/TbnZ7coE4EcmcjFrnhn
+	7akpQMs9TsGpneMLedQ9wzNt9IDWAa20QDQHmF6VSBMID3aKZpE7PMWQWu0sqjXG0wLPQ24tm6Bq0
+	2sexb1BPWA9mV2qqS3XMR2QHFbxvG3vfhiQmCYSqHhZoUOzw4oQnWV+aFqQLGhq+BGyQj30gsZ4zY
+	Hoxa2JtCjdNR+xY9lLQdW2HcyRF+xDZuH62F2Glj/vcC/bd/W7UUJ/o/ElFOp1fV/ad4GyXwk/29V
+	pim3gdHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDON1-00000002bNu-2h6q;
-	Thu, 16 Apr 2026 15:11:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDOMz-00000002bNP-3vVH
+	id 1wDOde-00000002cda-2j4N;
+	Thu, 16 Apr 2026 15:28:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDOdc-00000002cdC-0ZiA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 15:11:07 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C109A2574;
-	Thu, 16 Apr 2026 08:10:58 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0669A3F7B4;
-	Thu, 16 Apr 2026 08:11:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776352264; bh=krNOmdR6RwpLOzyXWjHfsuZMKqOBvSItCgTMpAtAuKY=;
+	Thu, 16 Apr 2026 15:28:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0E29E43870;
+	Thu, 16 Apr 2026 15:28:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B4E4C2BCAF;
+	Thu, 16 Apr 2026 15:28:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776353294;
+	bh=4WZaxG1fEkAWFHy6pQUBEmVvWmVwiU42yXOGl7cFeSk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jKWtHQS077IJqK8KCGZjVVyNStj7binMrHh0DKQUcdPkrTVe8hhLTgCyaOnd3cM93
-	 yYALX0y9jb2j5WXIdRrKHpkitdDvGpnEsbWGG5PrNj08ZlVeoWxXocwPX/uWzz4SgL
-	 hrl4TA/+QArHuk1TQSlPbqdc5i6ePFd3YHshyrqE=
-Date: Thu, 16 Apr 2026 16:11:02 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
-	mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v5 02/12] coresight: etm4x: fix underflow for nrseqstate
-Message-ID: <20260416151102.GL356832@e132581.arm.com>
-References: <20260415165528.3369607-1-yeoreum.yun@arm.com>
- <20260415165528.3369607-3-yeoreum.yun@arm.com>
+	b=HmgbCebd2RitIoCeB7ERlNcoigI2gcNXIffpcWBwxmLR/49fdBOVNJt43biViZruQ
+	 SUxGBh7k0G0+wUXdh9iAWP2GMgN6StMoLwDDS5LGh5Br1Cnwm33Q/GStVLVjEZOIlQ
+	 w4hkE+GR/0jbKoJ4US5vFm4g4MEeg+Xs6V5PrgCcI/qnLLqTpeTaFSF5XPdoBUlHQ2
+	 OjpamUayO88WsFM/TR5a+osY+4ti1WMJ2OCRkJZrcPFP9f4h0m23q9sY1PQ1TMJ4kC
+	 cgEcCgwOlRGZnDk/Yrr1KZlHj28bd1M2LC6/jqPfz6Y+HbJ6veLochyGSMDRZYe4RG
+	 lXhGLPSAhcYRw==
+Date: Thu, 16 Apr 2026 17:28:12 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+	Richard Genoud <richard.genoud@bootlin.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Paul Kocialkowski <paulk@sys-base.io>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	John Stultz <jstultz@google.com>, Joao Schim <joao@schimsalabim.eu>, bigunclemax@gmail.com, 
+	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 4/4] MAINTAINERS: Add entry on Allwinner sun8i/H616
+ PWM driver
+Message-ID: <aeD-BA95CGZ9lWLv@monoceros>
+References: <20260416131419.3152419-1-richard.genoud@bootlin.com>
+ <20260416131419.3152419-5-richard.genoud@bootlin.com>
+ <e9904440-b08d-4f9d-8d66-121633289695@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="fqfb3daydof4iavs"
 Content-Disposition: inline
-In-Reply-To: <20260415165528.3369607-3-yeoreum.yun@arm.com>
+In-Reply-To: <e9904440-b08d-4f9d-8d66-121633289695@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_081106_014837_EAC931E0 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20260416_082816_212535_EB1A4E85 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,25 +82,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 15, 2026 at 05:55:18PM +0100, Yeoreum Yun wrote:
-> TCRSEQEVR<n> is implemented only when TCRIDR5.NUMSEQSTATE is 0b100,
-> in which case n ranges from 0 to 2; otherwise, TCRIDR5.NUMSEQSTATE is 0b000.
 
-My suggestion in previous version is not quite right, thanks for
-making this correct.
+--fqfb3daydof4iavs
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v5 4/4] MAINTAINERS: Add entry on Allwinner sun8i/H616
+ PWM driver
+MIME-Version: 1.0
 
-[...]
+Hello,
 
-> @@ -1395,6 +1395,8 @@ static ssize_t seq_idx_store(struct device *dev,
->  	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
->  	struct etmv4_config *config = &drvdata->config;
->  
-> +	if (!drvdata->nrseqstate)
-> +		return -EINVAL;
+On Thu, Apr 16, 2026 at 03:23:49PM +0200, Krzysztof Kozlowski wrote:
+> On 16/04/2026 15:14, Richard Genoud wrote:
+> > Add myself as maintainer of Allwinner SUN8I PWM driver.
+> >=20
+> > Tested-by: John Stultz <jstultz@google.com>
+>=20
+> Please drop or help me understand how one can test maintainers change?
+> Build process tools are not testing.
 
-For "nrseqstate = 0" case, would it return -EOPNOTSUPP instead?
+For me that is fine. This is the only way we have to record that John
+tested the series. Also if I applied the original series I would have
+let b4 add it to all patches in reply to a "tested-by" send in reply to
+the cover letter.
 
-Otherwise, LGTM:
+My feedback here would be more: Don't send a new revision for such
+comments within 30 min, also not for
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
+> And you have commit msg trailing junk.
+
+=2E Maintainers differ, but if this is the only concern and the series is
+fine otherwise, I'd just fix that when applying. (But I think the "don't
+send a new iteration on the same day" is more universal, also for more
+fundamental feedback.) There is no need to bother all subscribers of 5
+mailing lists with a new thread in such quick sequence.
+
+Best regards
+Uwe
+
+--fqfb3daydof4iavs
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmnhAAIACgkQj4D7WH0S
+/k6omQf/fppjti0PwQfUvki6ep25HnMUxzrIDQixXrcONd4YKG2bL+/sxUnYrLwY
+ukm9qWvvJw9leMaHqxnuRqIHxgTB0tKN0R364W6nr9xyBHfbXER9NK25QzUB4USM
+W8+vyaRHiUXAiahSIN59lgCVGsJW54KtAIrLsNFS0Z1ce6pF6ArOsMPEhE4kPGHd
+GADqRwF1yFAZrshePxLacCVXaGLm31vyApgbxlfPAWdKJkedr4QkSehLup7d0Bwz
+AvW4lFK0BziW4LQv3p7l9ad/5BnaXSEdAIxbnqLzt0HRJmKBwBNBgY9+BlEMsTOP
+S8f8Grt1iBVpX1llaBvN2D7db1Ipng==
+=55Kz
+-----END PGP SIGNATURE-----
+
+--fqfb3daydof4iavs--
 
