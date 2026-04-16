@@ -4,60 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB0C6FA0C23
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 07:28:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A24AF43841
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 07:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LWFEcI/wuyFmjdNmmbNGWZG9T0fMDyAYdDfU8PbhbYA=; b=NfM5gnto9SRM8gFysy32XnuX2e
-	k0n6N7Lq0zuZu6Y8u4wlTXHPp/jH3cQ7RYqbDNYa3t0yFiL0r/wp9laV1LsFeX7tvKW5mLm4wIGhM
-	B1E15fMe3tvIpo+xPJfHVyCDWMEbtfytv05D9d8UobJskcPHfYBi4U04QsXImDzm/MgUrZpK8ux1E
-	ZINVnvqUtO3T8dckWMTQpzALI0Z7lztNN88PR3Lj+NGxqPUZ2RQd5qpEzzsH9LbvFadnB0S+oJewT
-	0RaVbb7kwUDaZKUkgc+GTDIGd/z8kA3zcpIGgUw2ssZ1qS5MJlwYZvvNDyYW4K9hvBY5WnmMamvUR
-	VorisveQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=4HIoWyygi1WO3JpIBSkDxugKJRpbMe2kEbPzXksIka0=; b=q+LLzSwKt8KIbN
+	/vVWQQSyfOra8qOWeOb05rdkzKHeHMKhfQZp566ft3kTXX3Nw+fN41NJren1xHkiOu/HSU6mI2seN
+	EHexI6ui0lU0ZHRmBwb0/+ChVP1u+fr40v9IQHiuIPnms0mNleLND8Y9geYOhCiQeBZJCTFFHssBd
+	svPCghuGvzp9h/jsxDhfnkn493d2wpBG5gClStXAc35V9ZJisrm9G74YVgefD5P2uFKWsSy3TmOEg
+	ES0gJZTIwhwoaz2PpmWdQO6KM8Uet8xu0TSJLEOve6VRB06ZwifNXikXpCj1mvF4EUmP+kIs/slc0
+	RxDhKigK+xJd0asNmyFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDH8t-000000027Sw-3xE4;
-	Thu, 16 Apr 2026 07:28:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wDHBL-000000027vG-2vWo;
+	Thu, 16 Apr 2026 07:30:35 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDH8r-000000027QY-1E3G;
-	Thu, 16 Apr 2026 07:28:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6FC6E6012A;
-	Thu, 16 Apr 2026 07:28:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9A3DC2BCAF;
-	Thu, 16 Apr 2026 07:27:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776324480;
-	bh=D7Cxemf7toPxHK5bmLoIZKJO9NzRia6nXorlx/QM1yM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=pMZ+VgawOTwpxLLbUPzBSsn8UUzFu8NUhlB/JTY2bnilIutmv46GU5hWQ8cvmMtO8
-	 z6iUaDDP+oBBhfMj54PT9rIXZa3xaviy9PyJSF1tkDXNEQtFG9cA4Rn5F9q6WiKMc5
-	 qwPue8wIX540PNPNXNzvEqrmqvmHfUmXDIcKrIYStq0k4W+nuf1p++/g+wwjKQwZBg
-	 W8EaJBZiDfXt/TQO5YbNTYk3H0t46+2iUEUPnsH0Fy/G24KDzTvJ4Suw7MABYgNMa/
-	 ew2QjgZFDgoWJLN532YQvd6AjjyCddDGNjzgXvyxqxADvUblD3mvfhUkFeDBuL2QzH
-	 TbdpHVzzCbo6w==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 16 Apr 2026 09:27:41 +0200
-Subject: [PATCH net v3 3/3] net: airoha: Add missing bits in
- airoha_qdma_cleanup_tx_queue()
+	id 1wDHBI-000000027uU-4Bxy
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Apr 2026 07:30:34 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 16 Apr
+ 2026 15:30:26 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Thu, 16 Apr 2026 15:30:26 +0800
+From: Billy Tsai <billy_tsai@aspeedtech.com>
+Subject: [PATCH v7 0/3] pinctrl: aspeed: Add AST2700 SoC0 support
+Date: Thu, 16 Apr 2026 15:29:42 +0800
+Message-ID: <20260416-upstream_pinctrl-v7-0-d72762253163@aspeedtech.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260416-airoha_qdma_cleanup_tx_queue-fix-net-v3-3-2b69f5788580@kernel.org>
-References: <20260416-airoha_qdma_cleanup_tx_queue-fix-net-v3-0-2b69f5788580@kernel.org>
-In-Reply-To: <20260416-airoha_qdma_cleanup_tx_queue-fix-net-v3-0-2b69f5788580@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>, Simon Horman <horms@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+X-B4-Tracking: v=1; b=H4sIAOaP4GkC/23OS27DIBSF4a1EjEt0eRnIqPuoqgibS43kl4Baj
+ SLvvTiDtmo8/Afn07mTjCliJpfTnSRcY47zVEO/nEjXu+kDafS1CQeuGGeKfi65JHTjdYlTV9J
+ ATWBW+QDOakXqbEkY4teDfHuvHdI80tLXzQ8EFiQDIYGdjeFGU0bbOAy3a8kuvrq8IPqCXX/u5
+ nEn+5jLnG6Pk6vc4Z1pQEDz/GeVFKjzEo1rTSuN/Q/up1b1RxHsQFFVMdbKoGwIotGHSvOrSCY
+ PlKYqGmzgjGvvhHhStm37BrdpnBaEAQAA
+X-Change-ID: 20251215-upstream_pinctrl-8f195df0a975
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Joel
+ Stanley" <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	"Linus Walleij" <linusw@kernel.org>, Billy Tsai <billy_tsai@aspeedtech.com>,
+	"Bartosz Golaszewski" <brgl@kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>
+CC: Andrew Jeffery <andrew@aj.id.au>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-kernel@vger.kernel.org>, <openbmc@lists.ozlabs.org>,
+	<linux-gpio@vger.kernel.org>, <linux-clk@vger.kernel.org>
 X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1776324626; l=5173;
+ i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
+ bh=s0Uee544d8Y8UeDEhFT2j5bRdmHyoh8nkEiGKrh+4Q0=;
+ b=oR9Y70ZfwcKzgOXpsH7KvVfePbF+th98K7Rje3F5asU8LmizZTKK+96vs0joMzcLRdnh7xfQp
+ 0nht2/m8bsbAOSVcpNB+gGTEDb3dzmz1W0hLuKFjGpb/9wLjDuD0+xE
+X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
+ pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260416_003033_068743_EA54612E 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,74 +81,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Similar to airoha_qdma_cleanup_rx_queue(), reset DMA TX descriptors in
-airoha_qdma_cleanup_tx_queue routine. Moreover, reset TX_DMA_IDX to
-TX_CPU_IDX to notify the NIC the QDMA TX ring is empty.
+AST2700 is composed of two interconnected SoC instances, each providing
+its own pin control hardware. This series introduces bindings describing
+the AST2700 pinctrl architecture and adds pinctrl driver support for the
+SoC0 instance.
 
-Fixes: 23020f0493270 ("net: airoha: Introduce ethernet support for EN7581 SoC")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+The bindings document the AST2700 dual-SoC design and follow common
+pinctrl conventions, while the SoC0 driver implementation builds upon
+the existing ASPEED pinctrl infrastructure.
+
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 32 ++++++++++++++++++++++++++++++--
- 1 file changed, 30 insertions(+), 2 deletions(-)
+Changes in v7:
+- Fix schema validation error by ensuring if/then/else keywords are used
+  correctly.
+- Remove unnecessary restrictions on AST2700 SoC0 pinctrl pin configuration
+  properties.
+- Link to v6: https://lore.kernel.org/r/20260414-upstream_pinctrl-v6-0-709f2127da33@aspeedtech.com
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index dfe8a0bd2abd..903682e88e89 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -1039,12 +1039,15 @@ static int airoha_qdma_init_tx(struct airoha_qdma *qdma)
- 
- static void airoha_qdma_cleanup_tx_queue(struct airoha_queue *q)
- {
--	struct airoha_eth *eth = q->qdma->eth;
--	int i;
-+	struct airoha_qdma *qdma = q->qdma;
-+	struct airoha_eth *eth = qdma->eth;
-+	int i, qid = q - &qdma->q_tx[0];
-+	u16 index = 0;
- 
- 	spin_lock_bh(&q->lock);
- 	for (i = 0; i < q->ndesc; i++) {
- 		struct airoha_queue_entry *e = &q->entry[i];
-+		struct airoha_qdma_desc *desc = &q->desc[i];
- 
- 		if (!e->dma_addr)
- 			continue;
-@@ -1055,8 +1058,33 @@ static void airoha_qdma_cleanup_tx_queue(struct airoha_queue *q)
- 		e->dma_addr = 0;
- 		e->skb = NULL;
- 		list_add_tail(&e->list, &q->tx_list);
-+
-+		/* Reset DMA descriptor */
-+		WRITE_ONCE(desc->ctrl, 0);
-+		WRITE_ONCE(desc->addr, 0);
-+		WRITE_ONCE(desc->data, 0);
-+		WRITE_ONCE(desc->msg0, 0);
-+		WRITE_ONCE(desc->msg1, 0);
-+		WRITE_ONCE(desc->msg2, 0);
-+
- 		q->queued--;
- 	}
-+
-+	if (!list_empty(&q->tx_list)) {
-+		struct airoha_queue_entry *e;
-+
-+		e = list_first_entry(&q->tx_list, struct airoha_queue_entry,
-+				     list);
-+		index = e - q->entry;
-+	}
-+	/* Set TX_DMA_IDX to TX_CPU_IDX to notify the hw the QDMA TX ring is
-+	 * empty.
-+	 */
-+	airoha_qdma_rmw(qdma, REG_TX_CPU_IDX(qid), TX_RING_CPU_IDX_MASK,
-+			FIELD_PREP(TX_RING_CPU_IDX_MASK, index));
-+	airoha_qdma_rmw(qdma, REG_TX_DMA_IDX(qid), TX_RING_DMA_IDX_MASK,
-+			FIELD_PREP(TX_RING_DMA_IDX_MASK, index));
-+
- 	spin_unlock_bh(&q->lock);
- }
- 
+Changes in v6:
+- Restrict AST2700 SoC0 pinctrl pin configuration properties
+  (`drive-strength` and `bias-*`) to `pins`-based state nodes in the
+  binding schema.
+- Move `memory-region` and `memory-region-names` in the AST2x00 SCU
+  binding to top-level descriptions, and keep the conditional schema
+  only to disallow them for non-AST2700 SCU0 compatibles.
+- Add bias pull-up, pull-down, and disable support for AST2700 SoC0
+  GPIO18A/GPIO18B pins in the pinctrl driver.
+- Fix the USB2 Port B XH/XHP mux selector definitions to use the
+  correct `PORTB_U2_XH_DESC` setting.
+- Link to v5: https://lore.kernel.org/r/20260331-upstream_pinctrl-v5-0-8994f59ff367@aspeedtech.com
 
+Changes in v5:
+- Complete the AST2700 SCU0 binding and disallow child nodes that are
+  not relevant for the hardware (p2a-control and smp-memram).
+- Add examples for both the AST2700 SCU0 binding and the pinctrl binding,
+  ensuring they are valid against the schema.
+- Rework the pinctrl binding example to be self-contained and independent
+  of the SCU binding.
+- Reorder the binding patches so the pinctrl binding is introduced before
+  the SCU binding update, allowing the SCU example to be added cleanly.
+- Adjust the binding accordingly to restrict drive-strength to the
+  supported values.
+- Update the drive-strength table to match hardware-defined values.
+- Link to v4: https://lore.kernel.org/r/20260306-upstream_pinctrl-v4-0-ad4e8ab8b489@aspeedtech.com
+
+Changes in v4:
+- Rename series title to "pinctrl: aspeed: Add AST2700 SoC0 support"
+  to make it specific to SoC0.
+- Remove unnecessary SCU example from bindings.
+- Fix Makefile newline to avoid patch warning.
+- Make pinctrl data structures const and align with existing Aspeed drivers.
+- Sort the arrays and enums alphabetically.
+- Minor cleanups for consistency, no functional changes.
+- Link to v3: https://lore.kernel.org/r/20260120-upstream_pinctrl-v3-0-868fbf8413b5@aspeedtech.com
+
+Changes in v3:
+dt-bindings: pinctrl: aspeed: AST2700 pinctrl improvements
+- Improved binding descriptions for SoC0 and SoC1 to better explain the
+  AST2700 dual-SoC architecture with independent pin control blocks
+- Switched from additionalProperties to patternProperties using the
+  '-state$' suffix to restrict child node naming
+- Removed per-binding examples based on review feedback
+- Added additionalProperties: false at the top level for stricter schema
+  validation
+- Dropped the aspeed,ast2700-soc1-pinctrl binding, as the SoC1 pinctrl
+  registers follow a regular layout and can be described using an
+  existing generic pinctrl binding
+- Updated the function and group enum lists to match the definitions
+  used by the AST2700 pinctrl driver
+
+dt-bindings: mfd: aspeed: Add AST2700 SCU example with pinctrl
+- Added a complete AST2700 SCU0 example demonstrating pinctrl integration
+- Example covers both pin function/group configuration and pin
+  drive-strength settings
+- Updated child node naming to use the '-state' suffix, following common
+  pinctrl conventions
+
+pinctrl: aspeed: AST2700 SoC0 driver improvements
+- Refactored pin and signal declarations to use common ASPEED pinmux
+  macros (SIG_EXPR_LIST_DECL_SEMG, SIG_EXPR_LIST_DECL_SESG, PIN_DECL_*)
+- Added SCU010 register definition for hardware strap control
+- Reworked code structure to better align with existing ASPEED pinctrl
+  drivers
+
+- Link to v2: https://lore.kernel.org/r/20250904103401.88287-1-billy_tsai@aspeedtech.com
+
+Changes in v2:
+- Update pinctrl aspeed binding files.
+- Update the commit message for pinctrl binding patch.
+- Link to v1: https://lore.kernel.org/r/20250829073030.2749482-1-billy_tsai@aspeedtech.com
+
+---
+Billy Tsai (3):
+      dt-bindings: pinctrl: Add aspeed,ast2700-soc0-pinctrl
+      dt-bindings: mfd: aspeed,ast2x00-scu: Describe AST2700 SCU0
+      pinctrl: aspeed: Add AST2700 SoC0 support
+
+ .../bindings/mfd/aspeed,ast2x00-scu.yaml           | 113 ++++
+ .../pinctrl/aspeed,ast2700-soc0-pinctrl.yaml       | 162 +++++
+ drivers/pinctrl/aspeed/Kconfig                     |   9 +
+ drivers/pinctrl/aspeed/Makefile                    |   1 +
+ drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc0.c    | 749 +++++++++++++++++++++
+ 5 files changed, 1034 insertions(+)
+---
+base-commit: af4e9ef3d78420feb8fe58cd9a1ab80c501b3c08
+change-id: 20251215-upstream_pinctrl-8f195df0a975
+
+Best regards,
 -- 
-2.53.0
+Billy Tsai <billy_tsai@aspeedtech.com>
 
 
