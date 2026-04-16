@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4944FF8A174
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 13:24:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28300F8A174
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 13:25:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RrlmpKBYossi+LYWfEa0tZW/9IvKa94ja++mhAaBibo=; b=YJayFV1xtlb5WPPYqjZw5Mwyqz
-	q2lBzV/bspk8BVVs9VkMvb6t74sUO8w+u8LbhC+ephHu2ZDNtcFzGQEmv2THr01j9K4pgUyUIm/FT
-	bPK2pXrEal3nwpDSWCNksnIWLBYsDPDTakPVvjlB8Ps32kRx+1NBjkDccXWvvaotjVua9NGH3fvB+
-	tPzNKUTz+j7Zt4evqp7KNsr5/HLsNFOjWGfwBuOZWmjw1lG4WRXDKFp5fzn8tEmN544IQDL/SC5BU
-	+GBUsZo9GREfYlxdMyDzyI1JixiHGponK6F0sgw8AFe3GStCSyF7GmudC7ejdMdtrVVjMgZurctoS
-	nZJ4Q0ww==;
+	bh=mr34atg8RGqmKg9qijCSU97PcCwzOtHvZin50VkviK4=; b=LuTZV8PNSnHaWEPh1bxyWvwvO1
+	c2Ia8V6oyD9ckWScpyfPSsQJTytL50RLpIb9Fs3yofpd8tTpAaqlG+Q7+gbcky2O+id2PJH8jsQG3
+	ZGHmj5E6MEHA8cG8d73sQuTFlvAJozO9mEi+frPJ6Bn+zm5EWX3NH3t2lps4yGgeaP0vi5jW83ckn
+	AxdowZtfnHQJf/87mVQ6FxhoRFN0GgdaL3k4jP8Aw/uD65XmlCgjIo6Pw0hL818KophdQCP2pm9vD
+	uwpPyksxJZXzz6aE7a9q8XpUUx1Z7x7i2/6xQXearN/ONK4mwM+Oz1mg8mWoZ6GIN8BaIKPszj0wd
+	iX+FMYGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDMhq-00000002Uk9-3BqW;
-	Thu, 16 Apr 2026 13:24:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wDMiM-00000002Urt-2Wlf;
+	Thu, 16 Apr 2026 13:25:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDMhl-00000002UjI-1Qc4
+	id 1wDMiL-00000002UrI-2xuE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 13:24:27 +0000
+	Thu, 16 Apr 2026 13:25:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 11478403CD;
-	Thu, 16 Apr 2026 13:24:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78FAAC2BCAF;
-	Thu, 16 Apr 2026 13:24:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9DBA360127;
+	Thu, 16 Apr 2026 13:25:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C427C2BCB3;
+	Thu, 16 Apr 2026 13:24:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776345864;
-	bh=So18fWYUJPi+8pxch5HDhbtM/r2zyEI6RevbEtDfr7k=;
+	s=k20201202; t=1776345900;
+	bh=3mxnZpYe+DxBCQxN7iRoeBbXRFs+cHXzX4/V+Yq/VIw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=R1PbFdr5+E9Kl2J4tb4SlIbBZmhJvGQloYDgqncCyHVgMmZ6kq0aTiUhrH45mId7a
-	 o37uNXEGFku/0qpVpWySoWFicjCp625AXY3FrZemyxX0k+VfuMUpvMwE8UoxsdTWFn
-	 PgxqEgxFxASWON3AsbyVSrxC1FqA1IY2FnqKl4UNSowEoTGBeoK6f2Kga19XO2yMKi
-	 KBGP3iObjpHL1ttIGRchI3dmvjmAApv7nWrjX9ObL4KRCkyxetMT2nwiEda2ZEUuHZ
-	 KQurO+tTVwAigwu0sMxHbCexsTbOH3QqC5slHZrrS+z3C2CaqRVs6XL7D+vOYTsRZG
-	 4C1hyu9nTry6Q==
-Message-ID: <8918c9bb-f62d-482e-ad0f-6515c6e9a78b@kernel.org>
-Date: Thu, 16 Apr 2026 15:24:18 +0200
+	b=gKA/dHzmX+ZOc2t2bY6SVjyntjsEOnuoOYR4ww7qoNN3QBmmtEsk+MU1yoJHvE1Yr
+	 KdmXGGd8KkedAipCmIgOU2A+vYaSNZVmoad4RevOn89bl45G4acpGueRNdSav2ocVs
+	 puQ8Qn6y/lWWV3IilSWug/ts9sjqTcE7JapKTP9wmpI/EQwFV2TYPknGWr1mYoFFC1
+	 QfPICQyOnyhLUmb+1/In6l7s2hX7G7xgq6XEGgHFx0hNLfIysiojUgns1ikWGQ9X0F
+	 eCSKnHnXeda+qT1qddEXp4KIvFDqKG5pLnCyvx81StybHibEdSW8wZRtU7ptBfzKeu
+	 A2SUPxoaMcG8Q==
+Message-ID: <b40125d3-bad1-4cf5-b2f7-2c4a0df4d201@kernel.org>
+Date: Thu, 16 Apr 2026 15:24:54 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/4] dt-bindings: pwm: allwinner: add h616 pwm
- compatible
+Subject: Re: [PATCH v5 4/4] MAINTAINERS: Add entry on Allwinner sun8i/H616 PWM
+ driver
 To: Richard Genoud <richard.genoud@bootlin.com>,
  =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -59,10 +59,9 @@ Cc: Paul Kocialkowski <paulk@sys-base.io>,
  John Stultz <jstultz@google.com>, Joao Schim <joao@schimsalabim.eu>,
  bigunclemax@gmail.com, linux-pwm@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- Conor Dooley <conor.dooley@microchip.com>
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
 References: <20260416131419.3152419-1-richard.genoud@bootlin.com>
- <20260416131419.3152419-2-richard.genoud@bootlin.com>
+ <20260416131419.3152419-5-richard.genoud@bootlin.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,13 +107,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260416131419.3152419-2-richard.genoud@bootlin.com>
+In-Reply-To: <20260416131419.3152419-5-richard.genoud@bootlin.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_062426_956985_D93B2B1F 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,22 +125,15 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 16/04/2026 15:14, Richard Genoud wrote:
-> Allwinner H616 PWM block is quite different from the A10 or H6, but at
-> the end, it uses the same clocks as the H6; so the sun4i pwm binding can
-> be used.
-> It has 6 channels than can generate PWM waveforms.
-> If the bypass is enabled (one bypass per channel) the output is no more
-> a PWM waveform, but a clock that can (and is) used as input for other
-> devices, like the AC300 PHY.
+> Add myself as maintainer of Allwinner SUN8I PWM driver.
 > 
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
 > Tested-by: John Stultz <jstultz@google.com>
+> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
+> 
+> maintainer
+> ---
 
-
-Please drop or help me understand how one can test bindings on the
-device? Build process tools are not testing.
-
-Don't blindly copy tags from cover letter.
+And you have commit msg trailing junk.
 
 Best regards,
 Krzysztof
