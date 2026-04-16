@@ -4,58 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EC59F433C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 04:41:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21E6BF433E2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 05:26:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=95h5f1j2G+teb3sQTEAwYScg31BhNT8uEHWAJ/hqs9c=; b=RYE9s5McLzfv9U9Dkgw3V3HYfu
-	gYH3UHTYKzMmMSpiGkHu88EpKo80IoOfxhdCNmVHvcL23yHABBDX6po7qV+ySxKs1CWoY4wUZQH0u
-	EPzM00ySxIyXYE0wnvvwGWbcuyr7OVKfJ7WDlxDc20UXBjxVa3pHcmdxZZ5tXMsN662ss+MxG/uEH
-	dXTCx+0/iiMExn8ETmyyTGNVk2MAZG+3GkppPyfLzrJrjZ5OtVi8uuNovWsBxZS4+o//I9vFV2JJ3
-	aHQA+CP5acTz/vh+XJRNugcqsZ3giZ/hKhlS2VPsktZCPk3Ql4yKoFj3EPDiXZRtF48mJOkaGkeGS
-	5VU/I+Rg==;
+	bh=uFgJ6GMv5D/Q8Q4S2P5logCH1hUIVmuaJuhWwLdggns=; b=2sqhvDGj3wQWG26pL7Suj+4GIs
+	oF/7lJyMAMwaF/4KbNfVdjXxpEuzZEMhXZAlKdcpp7134aYJEHw1IJC3Bzi7CzMBZc95oPxcv6T7E
+	IS6kzCh87FD4pVZs0dvLirw7ISohAxeSzPf04QoNvE/xw3GWLfcbXiw2ynJ1VJzuFKmzEUgWA0Myv
+	p7uJXQmkk+G4xA2ju3d5hixbwEn8J3l2XDiPQs8/cb11CwwSJLjErp6LJAwt6GNYm7OZKElgdDinV
+	nVIyJz0+I00EZwEIwWsz8IqtLhU1UUMP1DHrWYqOSIug7PZht++lpDp0VZbgE6BRdEdHq96FejIFq
+	ZI+cd7vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDEXm-00000001xrZ-0AjJ;
-	Thu, 16 Apr 2026 04:41:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wDFEc-0000000201G-3hlH;
+	Thu, 16 Apr 2026 05:25:50 +0000
+Received: from mail-koreacentralazon11021139.outbound.protection.outlook.com ([40.107.42.139] helo=SE2P216CU007.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDEXk-00000001xrR-02vE
+	id 1wDFEZ-0000000200s-0J1G
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 04:41:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 435B760120;
-	Thu, 16 Apr 2026 04:41:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66387C2BCAF;
-	Thu, 16 Apr 2026 04:41:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1776314490;
-	bh=Nx3FPp307bRF+OmCf8vNAag4l0D0r7KGIDqlOm4AOTo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KzcjidpCjKSDvmec513yuSootriZjtm3YAi7IRphMf4UD9s9ybxcIuebVzRmpN7CN
-	 zcdoRJMDXZn5TW8iAmlQS/054jjinA8ZE1kd59n1a2iJod+IIAx33jeYK27xonYGXw
-	 wZIMPl1V6o8bSof9jOvHOADwOCzrPJBG56yt8edY=
-Date: Thu, 16 Apr 2026 06:40:55 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Guangshuo Li <lgs201920130244@gmail.com>, Will Deacon <will@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] arm_pmu: acpi: fix reference leak on failed device
- registration
-Message-ID: <2026041603-guts-crested-ef76@gregkh>
-References: <20260415174159.3625777-1-lgs201920130244@gmail.com>
- <ad_WmuauLJ3xDKqh@J2N7QTR9R3>
+	Thu, 16 Apr 2026 05:25:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MqFDEhCI7zydtyiH/GCit2b94TFdwfA2UO2yrBRTsnV0+kHhkOoFsiEiaboX3pjJ3YbTgg1nQ+oZMorcHmKuRePrR/26KqErMOCA+M8rroqkHiULKcD62e2iIhJ/+WMr9ghgcnq0IGD17KuuQv8NkkKg320t1RSCxFGGhgmLh3NeNXt1gvv/JuJsonPbG70ro9ISWv9uSWkNshhlGfD0wZTCglLAvUqGeE1djm5XQVg24gvZE7LxS7GYnSjIpFxmlfDzRgK8nxLMMYa+ODAFMMhvuBwu6hkd/TBkqRo2WYrFJMdScZj6zIZIzCySPGm2cNBiq2WqaJJ8cZwXaYbvQQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uFgJ6GMv5D/Q8Q4S2P5logCH1hUIVmuaJuhWwLdggns=;
+ b=DO99EmxI9WcPG+3DIpai1FosfADi0YoVT8ockt0gvylW2AFueP/goy7Hzj1NUGyrJZItieMVgKE+5FwWFg2Tcplu4f8v8XQwTY4zjk3b7SeJqajs+LCszYI2YdjW1ub1hD9kH1sDu6gqQPSttDjdNXNBEQ2leyqpiX8sQK9USLMLUXtRZPtF1wpGzeHfDKHgPmROxpz1kW+7FZm3ApRHOrxyM4rtqf/zH3H4OdfEOb0NUexrvpBpgpgzHZAfpTJc1PWcWFASjCm/ejdDg46jQ1HF0WClG+iX7MyzS7h0MR22a/p+j9VLA96VOXjKlxrtPTsyMASZWAE/fGHR5fp3ow==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
+ header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uFgJ6GMv5D/Q8Q4S2P5logCH1hUIVmuaJuhWwLdggns=;
+ b=DzzIGpjXGpEvA2EnHpIFI4eM2hIL3eHiHfEzO3TSxj2TJhfch9N+MsHJgxHgxQmt7G9NkWM0uNtXxUme3yLZf+wGOT088qCFIQbwJcpf+KVG+R6YQwpQM5AptxFWIlAYVuLuw6kmNV1bVZN0NkTGse595DR67RLDPTbCYkcJxJc=
+Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM (2603:1096:101:1b9::8)
+ by SL2P216MB2974.KORP216.PROD.OUTLOOK.COM (2603:1096:101:287::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.21; Thu, 16 Apr
+ 2026 05:25:38 +0000
+Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
+ ([fe80::f234:3bc6:9197:8232]) by SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
+ ([fe80::f234:3bc6:9197:8232%5]) with mapi id 15.20.9818.017; Thu, 16 Apr 2026
+ 05:25:38 +0000
+From: Nas Chung <nas.chung@chipsnmedia.com>
+To: Nicolas Dufresne <nicolas@ndufresne.ca>, "mchehab@kernel.org"
+	<mchehab@kernel.org>, "hverkuil@xs4all.nl" <hverkuil@xs4all.nl>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de"
+	<s.hauer@pengutronix.de>
+CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-imx@nxp.com" <linux-imx@nxp.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, jackson.lee
+	<jackson.lee@chipsnmedia.com>, lafley.kim <lafley.kim@chipsnmedia.com>,
+	"marek.vasut@mailbox.org" <marek.vasut@mailbox.org>, Ming Qian
+	<ming.qian@oss.nxp.com>
+Subject: RE: [PATCH v4 3/9] media: chips-media: wave6: Add Wave6 VPU interface
+Thread-Topic: [PATCH v4 3/9] media: chips-media: wave6: Add Wave6 VPU
+ interface
+Thread-Index: AQHcQygbwPgPL4VUWk2ynBZ+eD7wh7UblwiAgMZnzJA=
+Date: Thu, 16 Apr 2026 05:25:38 +0000
+Message-ID: <SL2P216MB244147720D30CEA2730D459BFB232@SL2P216MB2441.KORP216.PROD.OUTLOOK.COM>
+References: <20251022074710.575-1-nas.chung@chipsnmedia.com>
+	 <20251022074710.575-4-nas.chung@chipsnmedia.com>
+ <7306c00b626f4030d92b908022b9a39669b07bb7.camel@ndufresne.ca>
+In-Reply-To: <7306c00b626f4030d92b908022b9a39669b07bb7.camel@ndufresne.ca>
+Accept-Language: en-US, ko-KR
+Content-Language: ko-KR
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SL2P216MB2441:EE_|SL2P216MB2974:EE_
+x-ms-office365-filtering-correlation-id: 90d48382-284a-4136-b280-08de9b789853
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|56012099003|22082099003|18002099003|38070700021;
+x-microsoft-antispam-message-info: ABD2LLgtRXogwXQGnD3ruFwOAI/eWN1t08iRsYZAoumsQtaeZvQMFlpnZepEvwc6JqbMn5JFQevWngobJwbcfeDhVVVAsXuOteSr0g/NTSwSdjMICJAfpGUp0PqnSEV19AM85AjUurZHDDpzZBlJ6BP7uBqUrYM80aycEMrt8Fe8XSf/wlG7d3OyruE1w2/Jaz8ldSHoHIu+5TL66V5quk1GgIPeElWocgOJwgKIw31JVeqXpzbWGpZ2DgmCV7QjP1gUDjfbThCGKjyYEZaStTNvj3cmWi/Q01LJYfmVguclityNg6wqyxSBqBllub6wwR42xPzFSih9waELOjlCGehmz2+W09DkUxOFhmd7dX+sY3wdAHUOVcILPdRfikvgTu/ham5NRBugbyiXZSM6LbliK85hetg67T9INmKw15lpt6uMHP2FQxZbPZn1PeD9ZxvUSCj0cxP+gtWRnZ2psZtxQvmg2eeoKlRcowG54LieBbW1vBS1UyIiqVzGira3lQplAwVXj1tFb73m1Ffh3nhLZnUXXreIacNjncP/nzXEbTwpbe2YeZxwMHZ0eNsv9JK7NC7gaNQ/DdIbWx52axD8ABM9g5AF2E+UbLJ4IzVGRj39f6OIdmjxgYWvbOoGFJL+ZD4krEmrnYCVE8jfa/0j67VFLDseuAJwwbu8JsZ5sP+U4venKXPZfvSsIj9Gpr/UVx8UTyg2HSi7vJi4IKoZk9q79+IvI6LVHm1DgRGkrSB+X/KENxJJxB+bqo/eoO9vaBE4TNzjd6gm0BAgrUjdJXrK0mbZzKNK03rOM8o=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ko;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB2441.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(56012099003)(22082099003)(18002099003)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?h66ruLH5NwH+SAx7nlUAeOOY0XtB8GEXmYMaIjASjFGrHlUuy9kKOrOmou?=
+ =?iso-8859-1?Q?3LJwY9Gf1LyMoP/HdZl2ybmwb9/v4XmVJJbP7W6caW/jpbycxYfX+K3oHp?=
+ =?iso-8859-1?Q?E11iZLX1zcGbWoUAki7WpR2hZMCnx2yoTb6M+Ky3bh5RL2k/FJG35fdPTM?=
+ =?iso-8859-1?Q?cPeYELpMc5R5kCOJlRdWNOrI6IA8M+7Umo0bRgKRIHOSWacyQ+P2VPHFZq?=
+ =?iso-8859-1?Q?OnmaI2zrhUq1a4SRolDrDdd6/Th4kc9BBK+pggz/LSbY3vNNGvydev7rD8?=
+ =?iso-8859-1?Q?PcRag8nKh1uH02dJc0eGZvb66OV95KMsQ/gnD7y553byHLfv8Ea3GMMoxR?=
+ =?iso-8859-1?Q?GLTqwV2xIi7XB9105jJw8rWinBTgiey6oQxHMm82o09llmtaH/9IRRa5/a?=
+ =?iso-8859-1?Q?PfWM55qLKY8TOON15qXNyTETlUOzeYUne/GFhEB7NihC9ET1T3v8PaussY?=
+ =?iso-8859-1?Q?dsRyXlwmIwbDsJeLmE7TncUIt9PcLEEgt2fw9/fkO03dj9luMoOCj49O4y?=
+ =?iso-8859-1?Q?6tiDSwqD5Qus5XD7ZSzhODvmmESQwEbvJEnxFH/jFvJdZoWYwC+OzCQ34B?=
+ =?iso-8859-1?Q?wG3RhswbhZJTzCf7iQxo0gHe+OcOk8dEZAycIcqFvvinQBzNtwZvGIrToh?=
+ =?iso-8859-1?Q?ZB0ETXAl2CDtpcfqlj+jWN0+o8b/VUmAbMn7FiVKsR6vtaqtExgE/L/9Xf?=
+ =?iso-8859-1?Q?60AzUtbBZ2xnZnm6KJizChmlEuowheJh/dqdOF8DlTBu/YU4It4COpliYs?=
+ =?iso-8859-1?Q?3FLpXNPqaRNK9xPEVsHFPeyOucd8TBtjWJOmGQ/kWhSOWvSCIxXr+BpEnS?=
+ =?iso-8859-1?Q?apfbWyE/ezZDXoAUD5xYtcUrj7jB0TZ7Nt9QAQeXZVbs682r5QGzMOgmO6?=
+ =?iso-8859-1?Q?vfZvFwFYwU5ccK/VH/irwoaafeRmlTFsz/seXalHc2WfWAketOUuW3BW3R?=
+ =?iso-8859-1?Q?LQCICyuIqtRMHIHNGWqL0joamDbEQht7TA9CHj7L9CQnXBDHCXFDoeQhtj?=
+ =?iso-8859-1?Q?zkJ4spCj66Ra+ke4DSSLEmJY1hzwoxpd4ywwuTHMOenhEbGv2lsKb6Zy7J?=
+ =?iso-8859-1?Q?UkCavqJHZuGiSudayDt67dSjT0vqXMxNyRpwwv8/u5N83+0fOgW8clBbnG?=
+ =?iso-8859-1?Q?c11HE9HoPETxWBkMBX21GGNWoZkUd5a/bytV+k9Osgc3A04ICyDmQ8CzqP?=
+ =?iso-8859-1?Q?N2Pwn7kH+GKfJea/zkCRNXu6CxLqmADddOMUQQvIxemaZw7vlBn4HJtTaq?=
+ =?iso-8859-1?Q?waZ5S5fRGAnJpgfGHbQ72zkIkxBjT4F/Z1R1w+iEIxQ7Tk7PHSNzYDz2TJ?=
+ =?iso-8859-1?Q?srx2Itp9MqSu9pQiRRi2zk6D9n+kEqCJzdoaMV/aB2cGFzJTiL8oAnbWCn?=
+ =?iso-8859-1?Q?G8JO8yeFG4NrwIdIJBF5pMwbSWlTbpUrdmlNQ6bDuTd/W9JP5jOfQGC7md?=
+ =?iso-8859-1?Q?vY07qFlde5jv/sprSOEtVGxhzONGWwCRvs9IltBWjpJ7t4bB7oHTWYBRWL?=
+ =?iso-8859-1?Q?xG0oRkKae+WZZHQjVWp+ZUTrMg8gS7cct/woodtxftMrdKFTor0ont8aI5?=
+ =?iso-8859-1?Q?p8DOFfEmgOAjL+hsaZPtHc/iSyN1m7G/mFAAJ/WLWWUgMu42SxRLHKFHns?=
+ =?iso-8859-1?Q?6ndq6Z1R+pLHUNQNgEpJvRaTlZ2Pr1QNludRODOcKB5cKU+UcKKj2rNrAX?=
+ =?iso-8859-1?Q?szb1bkWVdqavTb3KizqaxR5zqIdKrx5uzVGdegfNc9gXjthvMLd8uwCRS/?=
+ =?iso-8859-1?Q?qU8NWQ+LU5HJHOQU3ZSc3AeoYdVW2nNs+HbUP/d4m3fgD/KGwTQT6pQk7v?=
+ =?iso-8859-1?Q?TIkwLC12Ig=3D=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ad_WmuauLJ3xDKqh@J2N7QTR9R3>
+X-OriginatorOrg: chipsnmedia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 90d48382-284a-4136-b280-08de9b789853
+X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Apr 2026 05:25:38.7064
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: niHDSQkYdCLOOlA7/3clCDo2qYeRTCDdHmt9eemKrJNvFOxKOj8yXoW4L8xpPAhgxBFOaSrWb6AZuuEngWyxKJK0sRLQ89zinO6egU/gg8o=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SL2P216MB2974
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260415_222548_213640_C76A4660 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,92 +154,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 15, 2026 at 07:19:06PM +0100, Mark Rutland wrote:
-> Hi,
-> 
-> Thanks for the patch, but from a quick skim, I don't think this is the right
-> fix.
-> 
-> Greg, I think we might want to rework the core API here; question for
-> you at the end.
-> 
-> On Thu, Apr 16, 2026 at 01:41:59AM +0800, Guangshuo Li wrote:
-> > When platform_device_register() fails in arm_acpi_register_pmu_device(),
-> > the embedded struct device in pdev has already been initialized by
-> > device_initialize(), but the failure path only unregisters the GSI and
-> > does not drop the device reference for the current platform device:
-> > 
-> >   arm_acpi_register_pmu_device()
-> >     -> platform_device_register(pdev)
-> >        -> device_initialize(&pdev->dev)
-> >        -> setup_pdev_dma_masks(pdev)
-> >        -> platform_device_add(pdev)
-> > 
-> > This leads to a reference leak when platform_device_register() fails.
-> 
-> AFAICT you're saying that the reference was taken *within*
-> platform_device_register(), and then platform_device_register() itself
-> has failed. I think it's surprising that platform_device_register()
-> doesn't clean that up itself in the case of an error.
-> 
-> There are *tonnes* of calls to platform_device_register() throughout the
-> kernel that don't even bother to check the return value, and many that
-> just pass the return onto a caller that can't possibly know to call
-> platform_device_put().
-> 
-> Code in the same file as platform_device_register() expects it to clean up
-> after itself, e.g.
-> 
-> | int platform_add_devices(struct platform_device **devs, int num) 
-> | {
-> |         int i, ret = 0; 
-> | 
-> |         for (i = 0; i < num; i++) {
-> |                 ret = platform_device_register(devs[i]);
-> |                 if (ret) {
-> |                         while (--i >= 0)
-> |                                 platform_device_unregister(devs[i]);
-> |                         break;
-> |                 }    
-> |         }    
-> | 
-> |         return ret; 
-> | }
-> 
-> That's been there since the initial git commit, and back then,
-> platform_device_register() didn't mention that callers needed to perform
-> any cleanup.
-> 
-> I see a comment was added to platform_device_register() in commit:
-> 
->   67e532a42cf4 ("driver core: platform: document registration-failure requirement")
-> 
-> ... and that copied the commend added for device_register() in commit:
-> 
->   5739411acbaa ("Driver core: Clarify device cleanup.")
-> 
-> ... but the potential brokenness is so widespread, and the behaviour is
-> so surprising, that I'd argue the real but is that device_register()
-> doesn't clean up in case of error. I don't think it's worth changing
-> this single instance given the prevalance and churn fixing all of that
-> would involve.
-> 
-> I think it would be far better to fix the core driver API such that when
-> those functions return an error, they've already cleaned up for
-> themselves.
-> 
-> Greg, am I missing some functional reason why we can't rework
-> device_register() and friends to handle cleanup themselves? I appreciate
-> that'll involve churn for some callers, but AFAICT the majority of
-> callers don't have the required cleanup.
+Hi, Nicolas.
 
-Yes, we should fix the platform core code here, this should not be
-required to do everywhere as obviously we all got it wrong.
+Sorry, I just realized that I never replied to your earlier email.
 
-Guangshuo, can you submit a patch to do that instead and ask for all of
-your other patches to not be applied as well?
+>-----Original Message-----
+>From: Nicolas Dufresne <nicolas@ndufresne.ca>
+>Sent: Thursday, December 11, 2025 4:54 AM
+>To: Nas Chung <nas.chung@chipsnmedia.com>; mchehab@kernel.org;
+>hverkuil@xs4all.nl; robh@kernel.org; krzk+dt@kernel.org;
+>conor+dt@kernel.org; shawnguo@kernel.org; s.hauer@pengutronix.de
+>Cc: linux-media@vger.kernel.org; devicetree@vger.kernel.org; linux-
+>kernel@vger.kernel.org; linux-imx@nxp.com; linux-arm-
+>kernel@lists.infradead.org; jackson.lee <jackson.lee@chipsnmedia.com>;
+>lafley.kim <lafley.kim@chipsnmedia.com>; marek.vasut@mailbox.org; Ming Qia=
+n
+><ming.qian@oss.nxp.com>
+>Subject: Re: [PATCH v4 3/9] media: chips-media: wave6: Add Wave6 VPU
+>interface
+>
+>Hi,
+>
+>Le mercredi 22 octobre 2025 =E0 16:47 +0900, Nas Chung a =E9crit=A0:
+>> Add an interface layer to manage hardware register configuration
+>> and communication with the Chips&Media Wave6 video codec IP.
+>>
+>> The interface provides low-level helper functions used by the
+>> Wave6 core driver to implement video encoding and decoding operations.
+>> It handles command submission to the firmware via MMIO registers,
+>> and waits for a response by polling the firmware busy flag.
+>>
+>> Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
+>> Tested-by: Ming Qian <ming.qian@oss.nxp.com>
+>> Tested-by: Marek Vasut <marek.vasut@mailbox.org>
+>> ---
 
-thanks,
+[...]
 
-greg k-h
+>
+>[...]
+>
+>stopping there for now. I feel like we did a big mistake in wave5 by
+>allowing a
+>heavy abstraction, its a lot harder to fix and it served no purpose since
+>you
+>went for a fresh driver for wave6. I think its proper to ask for a slimmer
+>interface.
+>
+>The V4L2 API is the front-end, and where all the validation should take
+>place.
+>The HW interface should simply manage the HW in a readable and non-
+>redundant
+>way. In V4L2, strides and buffer size are part of the try/s/g_fmt API, so
+>these
+>should not be duplicated here and they should clearly use the common code.
+
+I agree that the HW interface should be slimmer and should not duplicate
+validation handled in the V4L2 layer.
+
+>
+>I know its painful to ear, but you will be remove 50% of the code, which
+>long
+>term will be a massive win on maintenance.
+
+I am reworking the series to address your earlier feedback as well, and I w=
+ill
+include that in the next patch version.
+
+Thanks again for your feedback.
+
+Thanks.
+Nas.
+
+>
+>regards,
+>Nicolas
 
