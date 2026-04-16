@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AFA2F8E48F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 23:29:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 168A9F8E48F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 23:29:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v98KoNOsXSoGeFPVYMYy1ve31A6imaK8SVF0nJNIZYU=; b=kc+qJRPaxWLCOM4KaK0nMyYJbk
-	6sBbTeqjaMmP8ru93PrzSny9sWoZ1RtbtTp/XfLyeAoYk45x0l62iIP2dSIC0EDZYhwzHmEfL2iTy
-	U9PFLVUu15jOXrQi85Y9h9YjbGXhygnECnm6WRc/4xFAYNtj1hFJnAurkGeI9CBPFd8fG91DFLG0V
-	RyD9pi4jjo/Mah+nQAlplfRWbmIQM5ZpQmsLmamfL1/tVDG1CUZji1pHqY/6InuTYpCXlGRYfRkyf
-	NJBbfs76JvGlcmPAdo94JTDBs6EKebmEAz8tK1rTQgxkduEm0ovdV6O8CadCSpmy3CstbG9zZygHf
-	npi6dODA==;
+	bh=CcDnQBtV4VSwFPkSDwK7rACLhmfoGxP1/Q82L8zAcOM=; b=gD1Oo33Eygo1SmIjzvYOv5g/UW
+	aMBTfqh94UuMQnCqI/OeVSVDDT8Qckc7BFxxQ0VhlcVOtrYwjqRGcwCq+drKxLtxWRtjFdCk5wlGP
+	67QR5qxfEvpyJhherWmyTqCX1k8p1sM8Dnb2vBWoo/jcw6hM7msCLfTnVO+8oHEkD6LXYGP3GRZ66
+	FHaQGzcKoqK3f+u4jC0Nj9hcz+uRJI+LpxBQm4Tl9hBQ7wfSFoEyzHIHZfAlq/RKZE+azN8jdWnYb
+	XBLCim7gn9iJIr3/aAIki6XoEfuJj7kA4jgWgK879Agw69D//TYQ9nYHlAxL0OLrtFvsHybRF8P6k
+	pR2WzAog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDW9U-00000003BA6-3fvX;
-	Thu, 16 Apr 2026 23:29:40 +0000
-Received: from mail-westus3azon11010056.outbound.protection.outlook.com ([52.101.201.56] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1wDW9Y-00000003BCi-12Pa;
+	Thu, 16 Apr 2026 23:29:44 +0000
+Received: from mail-northcentralusazon11010060.outbound.protection.outlook.com ([52.101.193.60] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDW9S-00000003B8b-11oI
+	id 1wDW9W-00000003BB0-2U5z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 23:29:39 +0000
+	Thu, 16 Apr 2026 23:29:43 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WgtfLaqw+Kmr/A6bbWyvJgMkpApb5sF7dFS+GeElckpw0fwvytcnWPqiRgru1f2ZcUycVMz+nVAA7aNTOQnh7zyh+z0qyLIpdlqMQQ6EUtJLa1DcuqTZk8nwJIbUb6mMSYsOU5A9E5/aHWSv/6LUItwpud5aHHU9vJk9FQmxE5hl7v1vHoEPSZGEPeAwt9IwQjEKiR+g70j5CYihpmGZ6aGR41QqqXVpLLNwA11sjcI19si6J2vh661t9lZ83QSc9n2oh0Tx0W5O0kT5gQqBfzGDKAr+InMxcWLMBfkhF7KXbrxkABNasrtWL2YmBg9wW1o/GQ3piJk4JVBqtdr8GQ==
+ b=qq/U6Mi4ywIsiU/rWhmdSqMLV735vSpm9dNorsdZNmn4Q/T0esUcdYJWqkFFIYbFSYR+gCVdC3DXOeWRkqlnMMMdgALSwFsA6PZXGhQgsEbm3+Nu/PuKWU1c7fb9lfWxHwMz11i5k3ya/zuou2moPAG+RMwVqZhhX4nBlNQsOMVu86JvuXClFf+TGS6oiMvKHjyLsrM+2r525zYsV1SB3z4Ai/Itbos801P/4mud7AVaRIyosyKoCsoutiUXxDTRRcADBoXz1CunDfo8j3vwyZUK/HM5KzBtJg+sbpPgJ75hRuUOq6Aq8ItMh2f618UsDiFhj7lUFHUFmFhVZcSmdA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=v98KoNOsXSoGeFPVYMYy1ve31A6imaK8SVF0nJNIZYU=;
- b=TPOEt24K1MSHgI5IQh55gKPoHsz9p+VFUHg8KKn8UUseSNrzbCbGLcD5YHuP6MI3+IhR/qv7JmmVWPz/Oks0BmCX9mxvKYzGHDG7u7B6kBg8gG/1EQjWvr8mqZp167jz0VmmC+HXj7oF2V5M2WkfW0tkWseq9067hwWj+UhxqEEtc2pDEAwHMSIywOrKb+zgsTxCRiy6fUY9myVgwHT+DHvuRUuFkLf43VJ7S+W6eexi4lUox9NnyNqavbUKcmd37nowzt7np/6GE6QxfVXtCOHAJjcQEWoanLREc60FSLTsMn3topAD6PmJGuLtUMJeaZ6ZwTtBltNUkaPzQhh0NA==
+ bh=CcDnQBtV4VSwFPkSDwK7rACLhmfoGxP1/Q82L8zAcOM=;
+ b=h45W99vsQqOayIXEPj8XrUBWj/H5X2T6rJ8b+HpMgPsHA07qtIZBHraeH3xGSi1SrZipNM2IPK6oQ8j0U3W+U7KDLsbjqnVbWGj0EzK99bHrakcrF7UQiWgWHPcZeFOlpUFtXYJLBWDTnway7OfFc8BscUoTnDkDxhk6WnjS3SkBTkGfxcKO/53fG3X6uCDd2V4PwPcbhTNSNnq2DXxk7wScMZU0Tu1PnP+WRtpxRQjeRzz7CQG+/J64AwTxqO432efpwtmeI+1Xo/1xcSWL8jMIHyxBC/PNzkaVc3o6o+3RpUaaAeeD/NNf/QSG9oy1c+LDrlDIQdULA3YduNlzIw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=v98KoNOsXSoGeFPVYMYy1ve31A6imaK8SVF0nJNIZYU=;
- b=QkkrE/iPPNP2xihADeZp5dZ0cnV1kq6tD0zRf1QAN36tosyxk3D1zikRwhCOathyXSjKLVYxCfX2ZBFmEkOF8Googj380k1txim8FCDsTd088nBvz63YlzWjPcmOI5T12Wdx6091UiF7x9wRYtegu0CXgbMwYJz8AfdUqXH0tRqf+tzeSKcLGX/qFz722IvIrukhoCjaSeM3z8ai9uI1xzQTs117aVYPY304YjUiiySkMiGCCc4l+Q5LyavFm4NbYHJT7ojwYqgZEQkJ1SgZqwg0I27zZbkX4TuC9jacV5G6Tc0GzQDn5uFMyrTX8wZaVfv+7v/rYiVaKm0OvpP0Eg==
-Received: from SJ2PR07CA0021.namprd07.prod.outlook.com (2603:10b6:a03:505::23)
- by CH3PR12MB9217.namprd12.prod.outlook.com (2603:10b6:610:195::10) with
+ bh=CcDnQBtV4VSwFPkSDwK7rACLhmfoGxP1/Q82L8zAcOM=;
+ b=tZgIEqisjbXUI/QJAj6gGbInNMx7A6rVWkI2mHp/38gNy3qnKZdKUL+725RCLDJjL403g/VYy140OI6R9+hXZ3YVqB5VLS2zc/xMkTxJaIqJy5Ve91t/47Waf4Z93aavN+yGBb9HBF/XUwzkQJJ3VKF1y5o+v/hhWbspH0Wy5Y8twWYsdSqgl16FSUtxU7B7fnXISfV1O6iIWk+a5pgFu6fr5kwEu6623HTyimMOLk/rl+x1rINWy4D8yAdXirkg5rqHfW5CRSVp3PA9wAntHki0/2bHXnbRHdQZ6TZ6+Ejz0yLA0zKmIhdsbUWfrOWkNAjq+Pmyds0SRg95R1UMCg==
+Received: from BY5PR17CA0054.namprd17.prod.outlook.com (2603:10b6:a03:167::31)
+ by CY5PR12MB6406.namprd12.prod.outlook.com (2603:10b6:930:3d::18) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.25; Thu, 16 Apr
- 2026 23:29:28 +0000
-Received: from SJ1PEPF00002315.namprd03.prod.outlook.com
- (2603:10b6:a03:505:cafe::9c) by SJ2PR07CA0021.outlook.office365.com
- (2603:10b6:a03:505::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.20; Thu, 16 Apr
+ 2026 23:29:31 +0000
+Received: from CO1PEPF00012E83.namprd03.prod.outlook.com
+ (2603:10b6:a03:167:cafe::dc) by BY5PR17CA0054.outlook.office365.com
+ (2603:10b6:a03:167::31) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.52 via Frontend Transport; Thu,
- 16 Apr 2026 23:29:28 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ 16 Apr 2026 23:29:31 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
 Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- SJ1PEPF00002315.mail.protection.outlook.com (10.167.242.169) with Microsoft
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ CO1PEPF00012E83.mail.protection.outlook.com (10.167.249.58) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9769.17 via Frontend Transport; Thu, 16 Apr 2026 23:29:28 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ 15.20.9769.17 via Frontend Transport; Thu, 16 Apr 2026 23:29:31 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 16 Apr
- 2026 16:29:08 -0700
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 16:29:12 -0700
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 16 Apr
- 2026 16:29:08 -0700
+ 2026 16:29:11 -0700
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.11) by mail.nvidia.com
  (10.129.68.9) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Thu, 16 Apr 2026 16:29:02 -0700
+ Transport; Thu, 16 Apr 2026 16:29:08 -0700
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
  Roedel" <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>, "Jason
@@ -85,9 +85,9 @@ CC: "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
 	<linux-pci@vger.kernel.org>, <vsethi@nvidia.com>, Shuai Xue
 	<xueshuai@linux.alibaba.com>
-Subject: [PATCH v3 05/11] iommu: Change group->devices to RCU-protected list
-Date: Thu, 16 Apr 2026 16:28:34 -0700
-Message-ID: <12a224061de4fff9e0725909fd0ba4e14996ff08.1776381841.git.nicolinc@nvidia.com>
+Subject: [PATCH v3 06/11] iommu: Defer __iommu_group_free_device() to be outside group->mutex
+Date: Thu, 16 Apr 2026 16:28:35 -0700
+Message-ID: <3f5d229267d1f4d918641bc5b896f54b5c4b7782.1776381841.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1776381841.git.nicolinc@nvidia.com>
 References: <cover.1776381841.git.nicolinc@nvidia.com>
@@ -97,28 +97,28 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00002315:EE_|CH3PR12MB9217:EE_
-X-MS-Office365-Filtering-Correlation-Id: b9d50827-81c4-45b4-9464-08de9c10012a
+X-MS-TrafficTypeDiagnostic: CO1PEPF00012E83:EE_|CY5PR12MB6406:EE_
+X-MS-Office365-Filtering-Correlation-Id: 91f09374-ca9b-463a-aebf-08de9c1002f0
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700016|82310400026|1800799024|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: ar4FtKo+QGeP4I7FLvChpx4QXC8eNBF9epcMYm87z17EnaygXXDt++8/5zUIice34ZaMhuGvn1SLlUj7M/MptD/cRMm250+kNjtJ6GZLHSuqW806asxmwPlfwXavRM80Ma+pMo94V/UT60GPLws/H3iIIzfrH9puWhEdjjeo6lzzUrEhVaCkePs/Dbp6VLfxplCRkLDjnJwjpr8ubP8F6lKY033MTwSF9LrTzpdLHJ/eRKPDR6xQRFHPz1YHd6e27zsdraW4Y/M5sDCbX9gBoWP5AMlm+8uEy2oMogxr3bCkAJLunp7Tl176bdBgZGp+hQZjKem+4sv+L/kvabjt1clj1mGm7UBWwvpU/6xa2uX7eC0/HidnpthgrJIdkhJ4A2fxYWVsso1wC29uBKt0BFvAZs0In3EAVyMxdP2qiGnWafl+JpJZkv+/6aJnGKl4Tl2paeHOgMVVBWRHz+5gn3GwIoH+EQa4qQnMxqRmrbaywed7trS4LTVsbYdtmKQUOexYrPCc6ukNLinB4RCAxBH3iDMWx2Uk6Z4p4S5Pwf5dCFLLz0d/hdj42WcIfgMzyi1Nnyqr2ZmYuMLxr8G7gxGJGpe9zKwn/jalKx3C4c2AkE7prkse70A+IvntHV5OdqbaEqDUxLM+wkSzgAQRcCo+Uk0nIQ4pUGEVDlaWW2+2QTxvQTw8+lLtpTmuVhv5Afdk9D//o19LPtI8hRDSz9vlKgxnRwZKbHhNP4ysGLUG+vd0VXRLtDtOMvqUj7SOlXzy4OSniVYWOJo6VlOvXQ==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700016)(82310400026)(1800799024)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|376014|7416014|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: rrbdDCNUge75TZ1914UUaTqRfQKwqXPldboUtDhXxxALSqLJKHIK6uaQtnhJmcqawnf/01aXGgAkEshUZRf/9cDrdYQVBpvT91/BAsucy1oIJkLZYv11pZgPoubo8KBaG21/0d27xsIVo2enQCSst8PGJrxOP/XeUekOAh9BjhuuzUoWg4WjkqHN9Vfh9XEvNqXXX9OHUvsODGx52owhTzGTT558cSug+O9/rznp3NgbkaD8+zKV7wwtqG76dYB6SbxjjEZWreV4XW4xY+r7k6Db3C/BjR6Z+CUEEOxNSnRSQSaE/llCjhMXQ0Uc5RRVdSuYCTXzG8ubiqpyAgx1qkI03//Yc/qWO3LIMriJ+iEtkZ+ytk4uEyxuRTMArteRZWZ/1bTuWHOq66fWl7nxTOat8zsCBW4kO3XrQc+u8JgU2BZeK8dbupT2I13kIK3k/aaw24mXnD6kt+Zkt8elXqE2iRx4AhsIWF9moo9a976dFxsdFF7XdVDd7/B3ohOv0LkhldvUVnEJ6ljJJEXJGRxzAYZ5Sv+Uq4XnuWrxFISh4psmYtlSdlbEn31tCBTvSVhTLk3BIrFQG/RVkdzYwzzwappLMcgcBxNxHYxObMD234cKLM8GVq9fmtwX8fUXrTIjYuyAzuoRf3bcdQaHsNL6HSgHh/GK+cR1Jl0NxYI2J+uyrm5qfcgihrmAsWaDfCDEn/isH80V1nees9yh7Zqpiu5jLaCuC911KrTGE4AcHujjbl7IfhEdzBewaL835xWJvGLvf02Zlr8VaOZGwA==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(376014)(7416014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: R+a7cUsTqsfN5ONYdFhoWchu2GHPlEpIqSX8M8EZCF27MxhuJYPVM7lpdv2m32CgAY0NHbOjZQPtpneiXVPvtPORpD3gJe3nBl6SRB4hQrHSQHdVKcrZK2HBM8VOqJ5hRnR/d5MMxry4LQ9a36fFIQ9E0D1ShLNkMrB7jYfEA5P+NDFbQ+bK19jOL/9dX7FuphzKSbT9VwVdJD3B1TriVOvQRQHLRkSP1eTdyPuzyZd5Rf4l92iHGrFevWzQpBwbFQFFfnIF5OQNuSs0iTpSo3lrtJpfrqJ8s4T67ePm9HFY6mcuejcfzESV6afRl9rJ1okRM/gS2sR2cE5XIDuEB8teqi75f3Ink3VesGJ4Rd/AmHZyBlXM8kNOUAP6meg+D7agk8upkIuTDz9ijlib73/GP087NEVFIqoD/W/MaVMSsaoC3BrMptYmiuX8yadj
+X-MS-Exchange-AntiSpam-MessageData-0: os7agqf34mPecweExe+OIEBp8GwocEy/KZez7ZlGh3WTUuX4t1/X+ihltYyaBfcMwnrDv6DsA3jr0fyZo2iGWymV79AqFQRbXzf29ig+IgS5+O3ydSUEnJWf3SplM3+ll6oKsoJVolTQnyAjtmvqZs1YOksE2qvVkiWaYg32CQTS7792E9LYcNVP71elmsPUWp6nB8cdaDxtAAcnL7BEacXRWXXQABU9+8DkdF1ZeUACpFXfTpSeM2yQFmk+MLkCh/VHkeCypAqMU81wfwwKo1INvn6tD0FfPQFMl5MVtfsPBDFOIAosHXTJsw89SAxZfiZ9+LvUXEWm8Wgo6YDDNZv1uLoLX70DAcNOnu7mrU/h4a0bMHbRwTYlZmFsXogHq7RdJ+r7BzNDS3TfKphb9FA76PBZdbM7OUacIdJ7pguDcfA1+haPfBMAGgaKESY4
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2026 23:29:28.4851
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2026 23:29:31.5004
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b9d50827-81c4-45b4-9464-08de9c10012a
+X-MS-Exchange-CrossTenant-Network-Message-Id: 91f09374-ca9b-463a-aebf-08de9c1002f0
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002315.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF00012E83.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9217
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6406
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_162938_286123_35B94C86 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20260416_162942_642426_CD98C434 
+X-CRM114-Status: GOOD (  15.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,86 +133,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To allow lockless iterations of the group->devices list in an ISR context
-that cannot hold the group->mutex, change the list to be RCU protected.
+__iommu_group_remove_device() holds group->mutex across the entire call to
+__iommu_group_free_device() that performs sysfs removals, tracing, and the
+final kfree_rcu(). But in fact, most of these operations don't really need
+the group->mutex.
+
+The group_device structure will support a work_struct to quarantine broken
+devices asynchronously. The work function must hold group->mutex to safely
+update group state. cancel_work_sync() must be called, to cancel that work
+before freeing the device. But doing so under group->mutex would deadlock
+if the worker is already running and waiting to acquire the same lock.
+
+Separate the assertion from __iommu_group_free_device() to another helper
+__iommu_group_empty_assert_owner_cnt().
+
+Defer the __iommu_group_free_device() until the mutex is released.
+
+This is a preparatory refactor with no functional change.
 
 Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
- drivers/iommu/iommu.c | 16 +++++++++-------
- 1 file changed, 9 insertions(+), 7 deletions(-)
+ drivers/iommu/iommu.c | 35 +++++++++++++++++++++++------------
+ 1 file changed, 23 insertions(+), 12 deletions(-)
 
 diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-index 768ac728b4cc3..d1be62a07904a 100644
+index d1be62a07904a..810e7b94a1ae2 100644
 --- a/drivers/iommu/iommu.c
 +++ b/drivers/iommu/iommu.c
-@@ -84,18 +84,20 @@ struct group_device {
- 	 */
- 	bool blocked;
- 	unsigned int reset_depth;
-+	struct rcu_head rcu;
- };
+@@ -627,6 +627,19 @@ static struct iommu_domain *pasid_array_entry_to_domain(void *entry)
  
- /* Iterate over each struct group_device in a struct iommu_group */
- #define for_each_group_device(group, pos) \
--	list_for_each_entry(pos, &(group)->devices, list)
-+	list_for_each_entry_rcu(pos, &(group)->devices, list, \
-+				lockdep_is_held(&(group)->mutex))
+ DEFINE_MUTEX(iommu_probe_device_lock);
  
- static struct group_device *__dev_to_gdev(struct device *dev)
++static void __iommu_group_empty_assert_owner_cnt(struct iommu_group *group)
++{
++	lockdep_assert_held(&group->mutex);
++	/*
++	 * If the group has become empty then ownership must have been
++	 * released, and the current domain must be set back to NULL or
++	 * the default domain.
++	 */
++	if (list_empty(&group->devices))
++		WARN_ON(group->owner_cnt ||
++			group->domain != group->default_domain);
++}
++
+ static int __iommu_probe_device(struct device *dev, struct list_head *group_list)
  {
- 	struct iommu_group *group = dev->iommu_group;
- 	struct group_device *gdev;
- 
--	lockdep_assert_held(&group->mutex);
-+	lockdep_assert(lockdep_is_held(&group->mutex) || rcu_read_lock_held());
- 
- 	for_each_group_device(group, gdev) {
- 		if (gdev->dev == dev)
-@@ -666,7 +668,7 @@ static int __iommu_probe_device(struct device *dev, struct list_head *group_list
- 	 * The gdev must be in the list before calling
- 	 * iommu_setup_default_domain()
- 	 */
--	list_add_tail(&gdev->list, &group->devices);
-+	list_add_tail_rcu(&gdev->list, &group->devices);
- 	WARN_ON(group->default_domain && !group->domain);
- 	if (group->default_domain)
- 		iommu_create_device_direct_mappings(group->default_domain, dev);
-@@ -697,7 +699,7 @@ static int __iommu_probe_device(struct device *dev, struct list_head *group_list
- 	return 0;
+ 	struct iommu_group *group;
+@@ -700,10 +713,12 @@ static int __iommu_probe_device(struct device *dev, struct list_head *group_list
  
  err_remove_gdev:
--	list_del(&gdev->list);
-+	list_del_rcu(&gdev->list);
- 	__iommu_group_free_device(group, gdev);
+ 	list_del_rcu(&gdev->list);
+-	__iommu_group_free_device(group, gdev);
++	__iommu_group_empty_assert_owner_cnt(group);
  err_put_group:
  	iommu_deinit_device(dev);
-@@ -745,7 +747,7 @@ static void __iommu_group_free_device(struct iommu_group *group,
- 			group->domain != group->default_domain);
+ 	mutex_unlock(&group->mutex);
++	if (!IS_ERR(gdev))
++		__iommu_group_free_device(group, gdev);
+ 	iommu_group_put(group);
  
+ 	return ret;
+@@ -732,20 +747,13 @@ static void __iommu_group_free_device(struct iommu_group *group,
+ {
+ 	struct device *dev = grp_dev->dev;
+ 
++	lockdep_assert_not_held(&group->mutex);
++
+ 	sysfs_remove_link(group->devices_kobj, grp_dev->name);
+ 	sysfs_remove_link(&dev->kobj, "iommu_group");
+ 
+ 	trace_remove_device_from_group(group->id, dev);
+ 
+-	/*
+-	 * If the group has become empty then ownership must have been
+-	 * released, and the current domain must be set back to NULL or
+-	 * the default domain.
+-	 */
+-	if (list_empty(&group->devices))
+-		WARN_ON(group->owner_cnt ||
+-			group->domain != group->default_domain);
+-
  	kfree(grp_dev->name);
--	kfree(grp_dev);
-+	kfree_rcu(grp_dev, rcu);
+ 	kfree_rcu(grp_dev, rcu);
  }
- 
- /* Remove the iommu_group from the struct device. */
-@@ -759,7 +761,7 @@ static void __iommu_group_remove_device(struct device *dev)
- 		if (device->dev != dev)
- 			continue;
- 
--		list_del(&device->list);
-+		list_del_rcu(&device->list);
- 		__iommu_group_free_device(group, device);
- 		if (dev_has_iommu(dev))
- 			iommu_deinit_device(dev);
-@@ -1335,7 +1337,7 @@ int iommu_group_add_device(struct iommu_group *group, struct device *dev)
- 	dev->iommu_group = group;
+@@ -754,7 +762,7 @@ static void __iommu_group_free_device(struct iommu_group *group,
+ static void __iommu_group_remove_device(struct device *dev)
+ {
+ 	struct iommu_group *group = dev->iommu_group;
+-	struct group_device *device;
++	struct group_device *device, *to_free = NULL;
  
  	mutex_lock(&group->mutex);
--	list_add_tail(&gdev->list, &group->devices);
-+	list_add_tail_rcu(&gdev->list, &group->devices);
+ 	for_each_group_device(group, device) {
+@@ -762,15 +770,18 @@ static void __iommu_group_remove_device(struct device *dev)
+ 			continue;
+ 
+ 		list_del_rcu(&device->list);
+-		__iommu_group_free_device(group, device);
++		__iommu_group_empty_assert_owner_cnt(group);
+ 		if (dev_has_iommu(dev))
+ 			iommu_deinit_device(dev);
+ 		else
+ 			dev->iommu_group = NULL;
++		to_free = device;
+ 		break;
+ 	}
  	mutex_unlock(&group->mutex);
- 	return 0;
- }
+ 
++	if (to_free)
++		__iommu_group_free_device(group, to_free);
+ 	/*
+ 	 * Pairs with the get in iommu_init_device() or
+ 	 * iommu_group_add_device()
 -- 
 2.43.0
 
