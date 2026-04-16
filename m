@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BE5BF43841
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 07:28:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A765F43841
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 07:28:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jycj6Hi7Qn9dBfyHjXzaWFzw2EJbYRCbIJTiZrxWcEM=; b=TGIvuHaq1SMlwLsRZcNzQjHTML
-	axicWHj8VXLGx42CYPIETsmHtVOJ3DBurdlsiDn2dk7PAcjFP0erpfc8U3tk3kYmKD3pLfR76WcC6
-	Afc4nELZIEtjztw7gsqTbut7Fubi4YhiW8BsbEJUa0yHdZWYSvg34uIQRsA0q1HeVtYZpJMptcRDr
-	DEGokabIK1AvQ2Nadc5q8dbYnSB/+NxgfPMsbzFFi6bURM/fo6mVx68R4zglg8dTCX8XqgL33RN0L
-	EyFj+WGSeME1mX4IVFV2HdEGlgDo3YV2QKKONgrVTVJ6hhFwgv0JaswmqwqyTLfA34ct3J9407GBT
-	dzKlgu3Q==;
+	bh=j5mLb8fLTUo8bD5KUH9FX6VLQbLqS3Mi567W+9mQZ3g=; b=00cAhFhnz8P8gVghZsex95l/YY
+	U93sT+jUFTvjI8gkCe4BciTFiSu7HSPp9lO7J7heNGKnJ22VkFd107inb2rnxaqpHeeLgTV0xMTAq
+	Fl3vy3ZcQYmKJ6VHICfp44bZFe5j7kP1mcDSttZagnFkqLGmsKQiJz5N2JM+abaZGV1kVCV4/gIJ/
+	f6pdZrH85I+1c+b9XuTXwCo441pynTk5kFPW2WdkL+qYj7osUZ6XuJ+Xw6HMlAWyggs8qOgS/wNsV
+	fl0+X9CcVGuZcWHON3SZN0ZCQjA1O5tVdvGckQF3jRyBTNU6uhOI3sKH3VlWl2qg1JXRnDElDKRgr
+	YucaY2FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDH8m-000000027NQ-160O;
-	Thu, 16 Apr 2026 07:27:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wDH8q-000000027Po-1Ry5;
+	Thu, 16 Apr 2026 07:28:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDH8l-000000027Mw-2mgT;
-	Thu, 16 Apr 2026 07:27:55 +0000
+	id 1wDH8o-000000027OD-0X33;
+	Thu, 16 Apr 2026 07:27:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2326C6012A;
-	Thu, 16 Apr 2026 07:27:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A988C2BCAF;
-	Thu, 16 Apr 2026 07:27:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B293443F2E;
+	Thu, 16 Apr 2026 07:27:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 206C4C2BCB8;
+	Thu, 16 Apr 2026 07:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776324474;
-	bh=xnA99lEk24eFu5lu4XONa125B5SYET6G9LGPg2c6iYM=;
+	s=k20201202; t=1776324477;
+	bh=1RyKXEg9w7ciA1MUXVCuKlalb/RGHXZGMtXCmpwPV5I=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=FcugYh46xO/1o+DGDNuqbzII092MzRwrrE39xlazpcwMUOes4a8URJZE7jYa9BDxH
-	 1PqUgbu46qAY9DHK/etaAkUrQS0RKPd76YPB9dphpM/ymeIjcSOeDzutmy5PkrSfRk
-	 ZCOrmedv0D0wgxc6Qu2rEzsYH0bOEvjfoGtMLMllSltd06VmuBTSujGLES4G5qrus2
-	 JO5FAP7sbguHqxjumXTXcNSOikDtlEqckcrCDhL+7twzoqy6fw+RGvxtPzvTwwQNxx
-	 IKU/VYVAf243RnIydVpitQA80TfmJVU0Dr5pJTW1UwDtnBMtqJwblDcwGzZbYtwW1s
-	 Qg5fXX6uxGj1w==
+	b=d3ZXGZj0peE+uz8kz7teFb70pJG5LKSZIOqwTPYFraq9qwcA8WNw0yYvyP9JjZuC+
+	 Cx9osbM7qzALaIrpuwZ/Z9RfWNq0JFM1OR5OcPszOAPvlTMQ7THeZZEvd6nWp103JX
+	 wEt9fGdimjaO0nwTXWhDaO0vNOfaUbN1HL2cKSoFKVd3WcVfzEbxgA5nPOe2CQdpl/
+	 9jPgGoP4QdpExjCUgl4AuNTcIqPQYYjYWr3Zree0F7NBmQ8YTI1lZWcH2O6KGQNBeE
+	 kEAB2jcxYbdatNBN/yjSsvwcfhBr25QVsJoyljreehQmU4eXZuithSByrAxc/Mjzx4
+	 fRtOuids4Dd9A==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 16 Apr 2026 09:27:39 +0200
-Subject: [PATCH net v3 1/3] net: airoha: Move ndesc initialization at end
- of airoha_qdma_init_tx()
+Date: Thu, 16 Apr 2026 09:27:40 +0200
+Subject: [PATCH net v3 2/3] net: airoha: Move entries to queue head in case
+ of DMA mapping failure in airoha_dev_xmit()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260416-airoha_qdma_cleanup_tx_queue-fix-net-v3-1-2b69f5788580@kernel.org>
+Message-Id: <20260416-airoha_qdma_cleanup_tx_queue-fix-net-v3-2-2b69f5788580@kernel.org>
 References: <20260416-airoha_qdma_cleanup_tx_queue-fix-net-v3-0-2b69f5788580@kernel.org>
 In-Reply-To: <20260416-airoha_qdma_cleanup_tx_queue-fix-net-v3-0-2b69f5788580@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -58,6 +58,9 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>,
 Cc: linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
 X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260416_002758_209965_ADB1BA18 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,54 +75,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If queue entry list allocation fails in airoha_qdma_init_tx_queue routine,
-airoha_qdma_cleanup_tx_queue() will trigger a NULL pointer dereference
-accessing the queue entry array. The issue is due to the early ndesc
-initialization in airoha_qdma_init_tx_queue(). Fix the issue moving ndesc
-initialization at end of airoha_qdma_init_tx routine.
+In order to respect the original descriptor order and avoid any
+potential IOMMU fault or memory corruption, move pending queue entries
+to the head of hw queue tx_list if the DMA mapping of current inflight
+packet fails in airoha_dev_xmit routine.
 
 Fixes: 3f47e67dff1f7 ("net: airoha: Add the capability to consume out-of-order DMA tx descriptors")
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ drivers/net/ethernet/airoha/airoha_eth.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index e1ab15f1ee7d..690bfaf8d7d9 100644
+index 690bfaf8d7d9..dfe8a0bd2abd 100644
 --- a/drivers/net/ethernet/airoha/airoha_eth.c
 +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -954,27 +954,27 @@ static int airoha_qdma_init_tx_queue(struct airoha_queue *q,
- 	dma_addr_t dma_addr;
- 
- 	spin_lock_init(&q->lock);
--	q->ndesc = size;
- 	q->qdma = qdma;
- 	q->free_thr = 1 + MAX_SKB_FRAGS;
- 	INIT_LIST_HEAD(&q->tx_list);
- 
--	q->entry = devm_kzalloc(eth->dev, q->ndesc * sizeof(*q->entry),
-+	q->entry = devm_kzalloc(eth->dev, size * sizeof(*q->entry),
- 				GFP_KERNEL);
- 	if (!q->entry)
- 		return -ENOMEM;
- 
--	q->desc = dmam_alloc_coherent(eth->dev, q->ndesc * sizeof(*q->desc),
-+	q->desc = dmam_alloc_coherent(eth->dev, size * sizeof(*q->desc),
- 				      &dma_addr, GFP_KERNEL);
- 	if (!q->desc)
- 		return -ENOMEM;
- 
--	for (i = 0; i < q->ndesc; i++) {
-+	for (i = 0; i < size; i++) {
- 		u32 val = FIELD_PREP(QDMA_DESC_DONE_MASK, 1);
- 
- 		list_add_tail(&q->entry[i].list, &q->tx_list);
- 		WRITE_ONCE(q->desc[i].ctrl, cpu_to_le32(val));
+@@ -2053,7 +2053,7 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
+ 		dma_unmap_single(dev->dev.parent, e->dma_addr, e->dma_len,
+ 				 DMA_TO_DEVICE);
+ 		e->dma_addr = 0;
+-		list_move_tail(&e->list, &q->tx_list);
++		list_move(&e->list, &q->tx_list);
  	}
-+	q->ndesc = size;
  
- 	/* xmit ring drop default setting */
- 	airoha_qdma_set(qdma, REG_TX_RING_BLOCKING(qid),
+ 	spin_unlock_bh(&q->lock);
 
 -- 
 2.53.0
