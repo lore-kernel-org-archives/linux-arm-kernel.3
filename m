@@ -4,112 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3F9CF8A16E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 12:40:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29BFCF8A16F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 12:42:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gt5UxFqFmposyiXB67dSfbbvPP7N/0sqBvz1FsBQ0nY=; b=NmZwhk5xYsZO025G6aaMg6lUKb
-	FcHxOhnSS0IWxjLfOgmpjrCvcUmGdZ4+xbaKcxIPDfY8Bf+INNaaibSZQyyF1ep2f3Aqmy/pjE5qs
-	z0WscOHbcHUh6s/yVUAcQlwq3Ddbkt/odI//+BEKlmoSOmHm0kYWDeyqNgmd1yRShJBNPDNKRJBIE
-	+dbXp6aLl7KPjZ2cYjIGu1AIM+KwMDdCQP33bs7Ojps3U9CzI1EWF/R5iwdWSPS1Tx7CjKZwz/Eac
-	oCNxklRfnrES6WaSRp9/7Wz0QhxQpYmUUewfDZ5xvPl/nLna5IndN9GFGLGCrsaYkFmWHiQZedy9K
-	ft+6sSHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yNf09G54e9ValPOEcaOYfq4n8BkeieF1+CIG1xQv1hw=; b=3s1+8cBiyxInn/B7Ds9dPcKYjq
+	b955dyf7xUdFwAJLFnPUb1cWJDcUs0hpwAMueX+rlxuFFIiN94uGq2Iagqc0zGpjMhA2kaeV6gemI
+	Yuhd/I11CQS4bGD7Xbj4ndL82g+wDg3N9yE1heVL0raO2vnYjP49gYPOPm8eKtWhK5e3waT34SqV1
+	r9Z66Ciim6Zgl8spzsbkjksthC81b/qfLX6SoziD5dEu+/NBndQ6ZDn07b5IGRcFrWD0QNqEsGyBu
+	DerSzJaVxuFDVGv2rvYL7OUtc2e8/igzb4rLqJOk8IUzFRFKPFkANx9epUV+ymeITacniiv/9Ks41
+	rQ1JQI5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDM1Y-00000002RiZ-0KKl;
-	Thu, 16 Apr 2026 12:40:48 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1wDM3E-00000002RsG-03Es;
+	Thu, 16 Apr 2026 12:42:32 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDM1W-00000002RiB-0USN
+	id 1wDM39-00000002Rrr-2uxS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 12:40:47 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-43d76dd4ee8so3981094f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 05:40:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776343243; cv=none;
-        d=google.com; s=arc-20240605;
-        b=TLeGKNHwm+ctDsPn6Z1mHWOcUaix+YNq2k+4k0h6bcgiOJBUoL1KCoJkgm3Z0M32cN
-         20N4k9jwgCzt3gy2As6U7V+ifo90LiPgvOcAJHW1EEJECKszcLLBNRybYV+fmF53f9wE
-         qVSU3uSA+NEI5gEvQYE9d4tv2FNFcgrqGb3mMccfH3Tx1QHc0/vNGHlutrxB2VQb8SnZ
-         62znDH740n43AXNK9cqSf0Yet3y1dYMVR5i2fGR7DuGgxCy+WhTiOLClHdK8aGZDyO+s
-         DE8+fUrN5EbHVKW4QcZeq71TiYLTMCr3j4Ms+mPqbxPEhwASaVwfdY3rqgFuel7mh6Pf
-         U2LQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Gt5UxFqFmposyiXB67dSfbbvPP7N/0sqBvz1FsBQ0nY=;
-        fh=YEgSxb9cYtMvCgJGxzVDPlYhw+d2k+ovFkiyAauKQak=;
-        b=YzkFjQIFIklqy8EatN7dlGEvSJz2H8vGaAqw9BoXZA4fKlS5vu7oliGk2yBKdfEa/p
-         Lhof+14Xj61Y4Cdqwnrf4xpCDTDZzfgBivYUGTiTL8nZYLfLu2XnjSFuAhIkk+hszl7M
-         4Rjf+4IbWWJbxbPthbD2L92HqvDh09c3R1lNFxhGSMhfjAq1RSYwbvJaHkANwz3A58Oe
-         wa9F3Nvo3M7F6XxvLaOwY3iXaUqKfIN/pXp6iv0lY9vM0RXX+KCj31ShLMQKyPfC2IuG
-         0SlHyQ7HEetCkT8EVLNp6P5FdGLE0zh4y93s5Ele+bqNcUXguChDWWOTb/olaq2luBpT
-         MM4g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 16 Apr 2026 12:42:28 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63G7IiId3733636
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 12:42:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=yNf09G54e9ValPOEcaOYfq4n
+	8BkeieF1+CIG1xQv1hw=; b=ovaUI+Zc00Mtw8ph0OGEqzRKBgHeZS0/wZXvp2ej
+	Kelyi/NS+yOywPqEFy+nmd2LxCvMvi54rt4bVfCnzOwgFqRDIMrcVUavVsPBx2Io
+	2ZBhQyRDy8HYU0xMPIjSDltdjaH67fWKRasS5IIKePgAt4zY8XpbpNHxiqJagz0A
+	8fi3vRCF4Ui+8qm/0Dc9IIFw9qIh6XSpGytSPgUe1fHgtgwh1JwIz0D4tNliBFGT
+	DvVcX6Tzz1NzIA4cBJHyrMDYb3l0nWupvVOhNmyh5T0ELGBKb9+WE78XbSXwNEHZ
+	hcixJLb/0dkXFwlCW65+d6R4rE7+sTF+nr54yL0XsrmWgw==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4djcqwm162-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 12:42:26 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2b2e06219cbso60886875ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 05:42:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776343243; x=1776948043; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Gt5UxFqFmposyiXB67dSfbbvPP7N/0sqBvz1FsBQ0nY=;
-        b=TqmZ3PypgOq064u0h6shdqZmqO7+JlK/a+YPBKO+DOU4TzJMbY+l5HHeNliJ6Lk6eS
-         bHFuY/u/Jm/O07Z2OPCRORmEMJ9/xDSavac1s21hb1zMnA0Yty5cgkgC7OnBuUy+V4Pr
-         58xJLZZWBhx9lbLSk2N8mPF2kas81Aqx17I8hoHAuLf/CcTjc/4V1tO03DfL8tUpnizX
-         iu4+PiFH/SecY21AJ3vTNqyQbqnOa8eZDC/9LCdoqzXUeVXGPOEXvWxmmBM0at5YA5Zk
-         hGCN3U0cL2USR5rRstUe5mj9yYagmMXIdci2nj841J8wtnXZKJA3I+w5aRwwipV5HOkA
-         muxg==
+        d=oss.qualcomm.com; s=google; t=1776343346; x=1776948146; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=yNf09G54e9ValPOEcaOYfq4n8BkeieF1+CIG1xQv1hw=;
+        b=cKHuWbZIJ3ObhuLh1YaATceo6H22ya9l9rCladzpwOn1jxnRvP6kWLthdw91qoRL5a
+         H6jH0alZqb6rmo9LEpZbUTug7FHS6n6fGPBo0tipDJ0jjWzpDX9RsaO+PAxHk8wVR5yg
+         o+2v1lNEf2x23sJ1qsbRwbJIVDSm1ELtc3Uwrp53gFJ6vB3tCl7kclnV3NKzyA4U0536
+         OM3CuN9K6b7kvh8LJPmXxFM4As72RkHIcdl3vFQ2G0TWQis6dDoRPcpDDigHKs6yn6Zc
+         GB1cToLYZmuV/4YroHPrcOEZm0vi+9bov7gmixSQ+dN0N1GRlDo9J+VEc5k5KXLogkph
+         NG8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776343243; x=1776948043;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Gt5UxFqFmposyiXB67dSfbbvPP7N/0sqBvz1FsBQ0nY=;
-        b=jKAgUfjbU/TCljY63bDOc3PyYjNSdJjVWmiQoxEuvdnhy7YbqMMizMGQaegP+4Mw21
-         S+0CH1D9QQ6TV4Rpt2wLs5kb0l2RSibtIok7yTWo5xACLZHJ04oAelD/PL2bGTX0SN+H
-         Zo/ykBTvc9mII+giADANNw6JS8SLXGrtCvU98Y29RCC4i1fm5COPfW1Hs7c0QhLcVMHz
-         ZZ/mfcJHmTt85i+7OQeE4/roptKrjxN77oT5rSS3kxHNsRLPPGgOKGnMGjd/FGkwtVep
-         k+FdKn87yNXCX7KCIsYMwuVY54OB0Tekj71M29yeJbZwl5MREhy2dfgL6O+lBcrA7cMt
-         igOQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8zI9tfvaTKp3AHnfY/3ebc+fnaF/fbu0MxjSJwVeeJDRwAzIWUfzKxkJq9UBtfmiRhbKi5FlRPFJW+qBjgqs7j@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywkne1QbZOMGSZfXOSZszaCxhjcsxUPngAffX/pWMc1Or0O4Qo7
-	/iY5QDG7K/ddbWVUuzJ7BJmTLIVG1g5gijxb7yyJ2DQbWhrMSx8PRJVj9DsGm5xOoEQSD4NaMVB
-	np97e9HQPnAYJSs3i4x6IofK9icdz64o=
-X-Gm-Gg: AeBDievVQqIciUihvzF6naKx9CHmKOWY8LoOlGcA83xp/LFYnaKZFRvleF0KEA9slOr
-	FSGO+mQqzzR7hoqwmc7y27b4lC5cC72pdY1nixtEdHdCo93jK1xY9kt4itmDZWVJH6rFNedheKj
-	qgN6h6fioBR0ODthrXuIByfiayHliuNM/UEswnKibr7jhXiAmDicPUWCoWHxoFWe6XDp3RDOkRw
-	VNbMtqk4E6Fmp6JOrX/8QMgCNLt/EF2H0fRWXMmjrRavQ6VhNdIGu0mtMrpbgh8xL4I5s0hdwcw
-	yei4GefofbV7XcqP/g==
-X-Received: by 2002:a05:6000:2888:b0:43b:3d44:6624 with SMTP id
- ffacd0b85a97d-43d6427bad1mr38790937f8f.2.1776343242885; Thu, 16 Apr 2026
- 05:40:42 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1776343346; x=1776948146;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=yNf09G54e9ValPOEcaOYfq4n8BkeieF1+CIG1xQv1hw=;
+        b=La6tySQOSz23f3uaoA3ybZBVM/qeIY3meKjWfgBhYnQm2YZBbE4qymlaF5QDFo8r+D
+         OUfLP2yL8G5dardCecQjgQyr7oHbymFTedjpTHlmMcKZXQU56Oec2WpELjaidP9dKr3k
+         v+LxgmOthPS0Y4HeafZzlHiYBjCaUmtHj7WWmep2qkdSQqxl+C4eJslos0zLtRheanlZ
+         d3B3EOWXL7m7Q9oTNDsZVY8f9/vYnmiLA7qRz5q1lqu4SPPiOG0TPg6iixk0eJw1t05r
+         8QpJXmUYY6YMPtK8EC6dEZFDXB4Ml2NirRs+5f1FctSYSVE+gvtW7gfA+tHxiL53mqKI
+         n2aA==
+X-Forwarded-Encrypted: i=1; AFNElJ8Hb2mXtPSx4L5I0GKv1tDd6miXNXIp1oJOgZtYoANi60GBaqWOAyBjk9trSvHlMkVqc9iklXIA4PXP3gKUiySn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1uaeuc6KvClKAkonVZv4YDcrOphiW3G10HC+KPX1MXWx6iHkI
+	6CabZABl6wwP7ha4bW/b80g/tmWgybfarWQCs1iwy4aJTLM+L9J3oKVMJDHlniT6Wt54l+n7OOU
+	B6SgMcYv+4YvxVDD2TLodxpp5Dzq9UP8WZjrtoQBOwpe2vx9nzcllAjuT7pdzlCkXGIqJoDN/OW
+	iJWJ5GkZZYNA==
+X-Gm-Gg: AeBDietjftKX17Tul+2LowPTrr4JwsbPqeJKb/I9YfZjxHaCkWCovR4ahvQHXkCI9Ao
+	RfZKQCzXy+UwYM2o7sQ9fisXMgRkQMuwURGgelKnTKb9GM1j/cI1Dar+sbnVBVBemSjV+PNM83e
+	WKgEpdHfiFczB9nz41s3v8Juq6urLF8lMaReTaWZdimLgadZY7Jg5N1enXiAVT8eEApu7Br7Mca
+	aOTaQPihWue3puGggk6ptS/efXwbzJByIl96FOq1+m/MiDFh7VawYq1aNLDQ5Dw8yCCIs/GffxN
+	yQeExn9vIFXqhaJZju1E3+swEttVVkuLyaNpVze+d2RFm8R9H0UEAzqvxgshrBUtxUOBUxCq0VL
+	QpgzSK3gkRfJaBtYjKZa0JESZwCnKBc/K3Y4VW5BKNPtXc0O7
+X-Received: by 2002:a17:903:acf:b0:2b2:497e:3f6d with SMTP id d9443c01a7336-2b2d5940e59mr265748075ad.8.1776343345678;
+        Thu, 16 Apr 2026 05:42:25 -0700 (PDT)
+X-Received: by 2002:a17:903:acf:b0:2b2:497e:3f6d with SMTP id d9443c01a7336-2b2d5940e59mr265747565ad.8.1776343344952;
+        Thu, 16 Apr 2026 05:42:24 -0700 (PDT)
+Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b47810ae96sm71237925ad.21.2026.04.16.05.42.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 16 Apr 2026 05:42:24 -0700 (PDT)
+Date: Thu, 16 Apr 2026 18:12:19 +0530
+From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: cpufeature: Fix GCIE field ordering in
+ ftr_id_aa64pfr2
+Message-ID: <20260416124219.mxpuh5saxsphzxpi@hu-mojha-hyd.qualcomm.com>
+References: <20260415200031.1885440-1-mukesh.ojha@oss.qualcomm.com>
+ <868qan2ypl.wl-maz@kernel.org>
 MIME-Version: 1.0
-References: <20260318150245.3080719-1-demyansh@gmail.com> <f9bc0534-4b7a-4b14-974b-4d7811ccd899@app.fastmail.com>
- <acJhCCPfVxjFUZ5R@J2N7QTR9R3> <CAOLeWCsxhzdxQviizJ4X4VOp_28LCtO-RjWoCcZG29rQw86NVg@mail.gmail.com>
- <9a12e043-8200-4650-bfe2-cbece57a4f87@app.fastmail.com> <20260331063659.GA2061@lst.de>
- <CAOLeWCtnZz=kHGk4C2f9Mbfi3tEBE100iCkMBhcG47dmR9eDWw@mail.gmail.com>
-In-Reply-To: <CAOLeWCtnZz=kHGk4C2f9Mbfi3tEBE100iCkMBhcG47dmR9eDWw@mail.gmail.com>
-From: Demian Shulhan <demyansh@gmail.com>
-Date: Thu, 16 Apr 2026 15:40:30 +0300
-X-Gm-Features: AQROBzBfLRqpsaS7WIxbfvj5ZmxrkpyJ_BsR2KBilP4YLw0uKGQ6RYk7R3C9d8U
-Message-ID: <CAOLeWCtxPk7q_bVvrcKaipSKr+_=57Auobcj0cFRvXxXMdH58g@mail.gmail.com>
-Subject: Re: [PATCH v2] raid6: arm64: add SVE optimized implementation for
- syndrome generation
-To: Christoph Hellwig <hch@lst.de>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Song Liu <song@kernel.org>, 
-	Yu Kuai <yukuai@fnnas.com>, Will Deacon <will@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Mark Brown <broonie@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, robin.murphy@arm.com, 
-	Li Nan <linan122@huawei.com>, linux-raid@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <868qan2ypl.wl-maz@kernel.org>
+X-Proofpoint-ORIG-GUID: zTn98L45V2SmuvgclpGwo9Q1C4dJr-Nh
+X-Proofpoint-GUID: zTn98L45V2SmuvgclpGwo9Q1C4dJr-Nh
+X-Authority-Analysis: v=2.4 cv=XOIAjwhE c=1 sm=1 tr=0 ts=69e0d932 cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=kj9zAlcOel0A:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=bQMiDylAtxGVbSI6-P0A:9 a=CjuIK1q_8ugA:10
+ a=uG9DUKGECoFWVXl0Dc02:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE2MDExOSBTYWx0ZWRfX6/c1LZJiGKOA
+ 0dmJmZGAHuHJYbg7P24BdiKxcmhpdRsZ21D41V4CdGhPaHVZ9gUj8WGZ2ztm9wF789ZYn7jCyWq
+ Xe9/PvSrK9CWcAik3771h0ocUSoH7kkPKUcSt7k8q8Tbxn5orcTYiNEOvHhJzBkmO5iK3z0urA3
+ vR0WBiK9xe68WVqSHKGrLkTuZ6Cv8SI2cOz5Uz/Nr0mSBjGh0AH49UcHRxJNeAWQhcqM4lbVnd0
+ E2qdETttu9oW2w/3Qtcl/hbEEY9x/W2i5HjTdie3c1qr67j1mbGyF3qT2CkIdnahENRklGDdTw3
+ E4suiJV7VeQX98qV1vy7RW5Ie89eG6G0D7AL+rQTEeflApEbt1kaIzWArct6/5y7PkbkqNd+1ds
+ e2FppdwleKukIobtzjNquF2SOFLsFwz2qpRjI7pN0hwyVzlthWrwK1XzN1ET+xokbQSi8F3YTE4
+ TDORMAUzxckAQUgyrhw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-16_03,2026-04-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 adultscore=0 suspectscore=0 spamscore=0 malwarescore=0
+ bulkscore=0 impostorscore=0 phishscore=0 clxscore=1015 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604160119
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_054046_255458_DD39EEC5 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20260416_054227_739032_7AF7CCD3 
+X-CRM114-Status: GOOD (  22.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,289 +142,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+On Thu, Apr 16, 2026 at 07:42:14AM +0100, Marc Zyngier wrote:
+> On Wed, 15 Apr 2026 21:00:31 +0100,
+> Mukesh Ojha <mukesh.ojha@oss.qualcomm.com> wrote:
+> > 
+> > The ftr_id_aa64pfr2[] array must be sorted in descending order of
+> > shift value so that the overlap validation in init_cpu_features()
+> > works correctly. The GCIE field (bits 15:12, shift=12) was placed
+> > last in the array, after MTEFAR (bits 11:8, shift=8) and
+> > MTESTOREONLY (bits 7:4, shift=4), causing a spurious warning at
+> > boot:
+> > 
+> > [    0.000000] SYS_ID_AA64PFR2_EL1 has feature overlap at shift 12
+> > [    0.000000] WARNING: arch/arm64/kernel/cpufeature.c:989 at init_cpu_features+0x144/0x3d0, CPU#0:
+> > swapper/0
+> > ..
+> > 
+> > [    0.000000] pc : init_cpu_features+0x144/0x3d0
+> > [    0.000000] lr : init_cpu_features+0x144/0x3d0
+> > [    0.000000] sp : ffffc08678f03dc0
+> > 
+> > ...
+> >     0.000000] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffffc08678f14000
+> > [    0.000000] Call trace:
+> > [    0.000000]  init_cpu_features+0x144/0x3d0 (P)
+> > [    0.000000]  cpuinfo_store_boot_cpu+0x4c/0x5c
+> > [    0.000000]  smp_prepare_boot_cpu+0x28/0x38
+> > [    0.000000]  start_kernel+0x1d4/0x848
+> > [    0.000000]  __primary_switched+0x88/0x90
+> > 
+> > This is because the overlap check computes (shift + width) > prev_shift,
+> > i.e. (12 + 4) > 8, which triggers since GCIE occupies bits above MTEFAR
+> > but was listed after it.
+> > 
+> > Fix the ordering to match the register layout: FPMR(35:32), GCIE(15:12),
+> > MTEFAR(11:8), MTESTOREONLY(7:4).
+> > 
+> > Fixes: 899ff451fcee ("KVM: arm64: Advertise ID_AA64PFR2_EL1.GCIE")
+> > Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+> 
+> This was present in next-20260403, identified the following day, a fix
+> proposed in [1], and the fixed commit appeared in next-20260407 (which
+> was the subsequent -next build) as 7e629348df81b.
+> 
+> May I humbly suggest that you check with the latest -next branch
+> before spending time on this sort of things? Two weeks is a pretty
+> long time...
 
-Sorry for the delay. The tests became more complex than I initially
-thought, so I needed to gather more data and properly validate the
-results across different hardware configurations.
+Sure, Thank you.
 
-Firstly, I want to clarify the results from my March 29 tests. I found
-a flaw in my initial custom benchmark. The massive 2x throughput gap on
-24 disks wasn't solely due to SVE's superiority, but rather a severe L1
-D-Cache thrashing issue that disproportionately penalized NEON.
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> [1] https://lore.kernel.org/all/874ilqcu3c.wl-maz@kernel.org/
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
-My custom test lacked memset() initialization, causing all data buffers
-to map to the Linux Zero Page (Virtually Indexed, Physically Tagged
-cache aliasing). Furthermore, even with memset(), allocating contiguous
-page-aligned buffers can causes severe Cache Address Sharing (a known
-issue that Andrea Mazzoleni solved in SnapRAID 13 years ago using
-RAID_MALLOC_DISPLACEMENT).
-
-Because SVE (svex4) uses 256-bit registers on Neoverse-V1, it performs
-exactly half the number of memory load instructions compared to 128-bit
-NEON. This dramatically reduced the L1 cache alias thrashing, allowing
-SVE to survive the memory bottleneck while NEON choked:
-
-Custom test without memset (4kb block):
- | algo=3Dneonx4 ndisks=3D24 iterations=3D1M time=3D11.014s MB/s=3D7802.57
- | algo=3Dsvex4  ndisks=3D24 iterations=3D1M time=3D5.719s  MB/s=3D15026.92
-
-Custom test with memset (4kb block):
- | algo=3Dneonx4 ndisks=3D24 iterations=3D1M time=3D6.165s  MB/s=3D13939.08
- | algo=3Dsvex4  ndisks=3D24 iterations=3D1M time=3D5.839s  MB/s=3D14718.23
-
-Even with the corrected memory setup, the throughput gap narrowed, but
-the fundamental CPU-efficiency result remained fully intact.
-
-To completely isolate these variables and provide accurate real-world
-data, the following test campaigns were done based on the SnapRAID
-project (https://github.com/amadvance/snapraid) using its
-perf_bench.c tool with proper memory displacement and a 256 KiB block
-size.
-
-Test configurations:
-- c7g.medium (AWS Graviton3, 1 vCPU): Neoverse-V1, 256-bit SVE
-- c7g.xlarge (AWS Graviton3, 4 vCPUs): Neoverse-V1, 256-bit SVE
-- c8g.xlarge (AWS Graviton4, 4 vCPUs): Neoverse-V2, 128-bit SVE
-
-
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
-Section 1: SnapRAID Validation on Graviton3 / Neoverse-V1
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
-
-These runs are the most representative userspace validation. The tests
-were run with standard -O2 optimizations.
-
-1.1 SnapRAID speedtest, O2, c7g.xlarge (Raw Throughput)
-
- disks  neonx4  neonx8   svex4  delta(nx4)  delta(nx8)
- -----  ------  ------  ------  ----------  ----------
-     8   21394   21138   23601      +10.3%      +11.6%
-    24   20368   19850   21009       +3.1%       +5.8%
-    48   16727   19290   20222      +20.9%       +4.8%
-    96   15562   18925   17549      +12.8%       -7.3%
-
-1.2 perf_bench, O2, c7g.xlarge (Hardware Efficiency)
-
- disks  neonx4 inst  svex4 inst  reduction | neonx4 cyc  svex4 cyc | MB/s (=
-N/S)
- -----  -----------  ----------  --------- | ----------  --------- | ------=
------
-     8       4.02 B      2.61 B     -35.1% |     1.01 B     0.92 B | 20304/=
-22346
-    24      12.16 B      8.00 B     -34.2% |     3.20 B     3.11 B | 19354/=
-19933
-    48      24.37 B     16.08 B     -34.0% |     7.73 B     6.51 B | 16048/=
-19047
-    96      48.80 B     32.24 B     -33.9% |    16.94 B    15.11 B | 14638/=
-16421
-
-1.3 Main Graviton3 Conclusions
- - On 256-bit SVE hardware, svex4 consistently retires about ~34% fewer
-   instructions and ~10-15% fewer CPU cycles than neonx4.
-
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
-Section 2: SnapRAID Validation on Graviton4 / Neoverse-V2
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
-
-2.1 SnapRAID speedtest, O2, c8g.xlarge (Raw Throughput)
-
- disks  neonx4  neonx8   svex4  delta(nx4)  delta(nx8)
- -----  ------  ------  ------  ----------  ----------
-     8   24802   25409   20451      -17.5%      -19.5%
-    24   22607   24026   18577      -17.8%      -22.7%
-    48   20984   22171   18019      -14.1%      -18.7%
-    96   21254   21690   17108      -19.5%      -21.1%
-
-2.2 perf_bench, O2, c8g.xlarge (Hardware Efficiency)
-
- disks  neonx4 inst  svex4 inst   overhead | neonx4 cyc  svex4 cyc | MB/s (=
-N/S)
- -----  -----------  ----------  --------- | ----------  --------- | ------=
------
-     8       4.02 B      5.22 B     +29.9% |     0.95 B     1.14 B | 23529/=
-19512
-    24      12.16 B     15.98 B     +31.4% |     3.11 B     3.79 B | 21621/=
-17777
-    48      24.37 B     32.12 B     +31.8% |     6.70 B     7.81 B | 20000/=
-17204
-    96      48.78 B     64.40 B     +32.0% |    13.24 B    16.32 B | 20253/=
-16410
-
-2.3 Main Graviton4 Conclusions
- - On Neoverse-V2, SVE vector length is 128-bit (same as NEON).
- - Without the 256-bit width, NEON outperforms SVE.
- - svex4 retires ~32% MORE instructions here and is consistently slower.
-
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
-Section 3: Validation on c7g.medium (1 vCPU)
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
-
-3.1 SnapRAID speedtest, O2, c7g.medium (Raw Throughput)
-
- disks  neonx4  neonx8   svex4  delta(nx4)  delta(nx8)
- -----  ------  ------  ------  ----------  ----------
-     8   16768   17466   17310       +3.2%       -0.9%
-    24   15843   16684   16205       +2.3%       -2.9%
-    48   14032   14475   15389       +9.7%       +6.3%
-    96   13404   13045   14677       +9.5%      +12.5%
-
-3.2 perf_bench, O2, c7g.medium (Hardware Efficiency)
-
- disks  neonx4 inst  svex4 inst  reduction | neonx4 cyc  svex4 cyc | MB/s (=
-N/S)
- -----  -----------  ----------  --------- | ----------  --------- | ------=
------
-     8       3.99 B      2.61 B     -34.6% |     1.30 B     1.25 B | 16000/=
-16666
-    24      12.13 B      8.00 B     -34.0% |     4.08 B     4.02 B | 15189/=
-15483
-    48      24.34 B     16.08 B     -33.9% |     9.23 B     8.35 B | 13445/=
-14860
-    96      48.76 B     32.24 B     -33.9% |    19.34 B    17.92 B | 12834/=
-13852
-
-3.3 Main c7g.medium Conclusions
- - The instruction count reduction (~34%) perfectly matches the 4-vCPU
-   instance.
- - The single vCPU is heavily memory-bandwidth constrained (cycle counts
-   are much higher waiting for RAM).
-
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
-Section 4: The Pitfalls of the Current Kernel Benchmark
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
-
-As Christoph pointed out, the current in-kernel benchmark setup
-(hardcoded to 8 disks and a PAGE_SIZE buffer) can be not representative
-of real-life arrays.
-
-Because 8 disks * 4 KiB =3D 32 KiB total data, the entire benchmark fits
-into the 64 KiB L1 D-Cache of Neoverse-V1, masking memory bandwidth limits
-and register spilling. This leads to objectively wrong selections.
-
----------------------------------------------------
-Case 1: Wrong NEON unrolling selection (Graviton3)
---------------------------------------------------
-The kernel benchmark tests 8 disks and locks in neonx4. However, on
-real-world wide arrays (48-96 disks), neonx8 is significantly faster.
-
- disks     neonx4 MB/s    neonx8 MB/s    Actual Winner  Kernel's Choice
- --------  -------------  -------------  -------------  ---------------
-  8 (Boot) 21,394         21,138         neonx4         neonx4 (Locked)
- 48        16,727         19,290         neonx8         neonx4 (-15.3%)
- 96        15,562         18,925         neonx8         neonx4 (-21.6%)
-
-Result: Users lose up to 21% NEON throughput because of the 8-disk test.
-
----------------------------------------------------
-Case 2: Wrong SVE vs NEON selection (Graviton3)
---------------------------------------------------
-If SVE is enabled, the 8-disk benchmark strongly prefers svex4. But on
-extreme wide arrays (96 disks), the heavily unrolled neonx8 actually
-overtakes SVE.
-
- disks     neonx8 MB/s    svex4 MB/s     Actual Winner  Kernel's Choice
- --------  -------------  -------------  -------------  ---------------
-  8 (Boot) 21,138         23,601         svex4          svex4 (Locked)
- 96        18,925         17,549         neonx8         svex4 (-7.8%)
-
-Result: On extreme workloads, forcing svex4 loses ~7.8% throughput.
-
-Conclusion: The kernel benchmark requires testing with larger buffers
-(exceeding L1 capacity) or simulated wide arrays to guarantee the optimal
-algorithm is chosen for actual storage workloads.
-
----------------------------------------------------
-Case 3: Buffer size distortion (Graviton3, 8 disks)
----------------------------------------------------
-Even on the exact same 8-disk array, testing with a 4 KiB buffer (which
-fits entirely in the L1 cache) yields a completely different winner than
-testing with 256 KiB buffer (which exercises L2/L3/RAM).
-
- buffer      neonx4 MB/s    svex4 MB/s     Actual Winner  Kernel's Choice
- ----------  -------------  -------------  -------------  ---------------
- 4 KiB       20211          19818          neonx4         neonx4 (Locked)
- 256 KiB     21394          23601          svex4          neonx4 (-9.3%)
-
-Result: By benchmarking exclusively in the L1 cache (4 KiB buffer), the
-kernel incorrectly chooses neonx4, losing ~9.3% throughput for
-larger I/O block sizes.
-
-
-Thanks again for your time and review!
-
-=D0=B2=D1=82, 31 =D0=B1=D0=B5=D1=80. 2026=E2=80=AF=D1=80. =D0=BE 16:18 Demi=
-an Shulhan <demyansh@gmail.com> =D0=BF=D0=B8=D1=88=D0=B5:
-
->
-> Hi all,
->
-> Ard, your questions regarding real-world I/O bottlenecks and SVE power
-> efficiency versus raw throughput are entirely valid. I agree that
-> introducing SVE support requires solid real-world data to justify the
-> added complexity.
->
-> Due to my current workload, I won't be able to run the necessary
-> hardware tests and prepare the benchmark code immediately. I will get
-> back to the list in about 1 week with the requested source code,
-> unmangled test results, and further analysis.
->
-> Thanks!
->
->
-> =D0=B2=D1=82, 31 =D0=B1=D0=B5=D1=80. 2026=E2=80=AF=D1=80. =D0=BE 09:37 Ch=
-ristoph Hellwig <hch@lst.de> =D0=BF=D0=B8=D1=88=D0=B5:
-> >
-> > On Mon, Mar 30, 2026 at 06:39:49PM +0200, Ard Biesheuvel wrote:
-> > > I think the results are impressive, but I'd like to better understand
-> > > its implications on a real-world scenario. Is this code only a
-> > > bottleneck when rebuilding an array?
-> >
-> > The syndrome generation is run every time you write data to a RAID6
-> > array, and if you do partial stripe writes it (or rather the XOR
-> > variant) is run twice.  So this is the most performance critical
-> > path for writing to RAID6.
-> >
-> > Rebuild usually runs totally different code, but can end up here as wel=
-l
-> > when both parity disks are lost.
-> >
-> > > > Furthermore, as Christoph suggested, I tested scalability on wider
-> > > > arrays since the default kernel benchmark is hardcoded to 8 disks,
-> > > > which doesn't give the unrolled SVE loop enough data to shine. On a
-> > > > 16-disk array, svex4 hits 15.1 GB/s compared to 8.0 GB/s for neonx4=
-.
-> > > > On a 24-disk array, while neonx4 chokes and drops to 7.8 GB/s, svex=
-4
-> > > > maintains a stable 15.0 GB/s =E2=80=94 effectively doubling the thr=
-oughput.
-> > >
-> > > Does this mean the kernel benchmark is no longer fit for purpose? If
-> > > it cannot distinguish between implementations that differ in performa=
-nce
-> > > by a factor of 2, I don't think we can rely on it to pick the optimal=
- one.
-> >
-> > It is not good, and we should either fix it or run more than one.
-> > The current setup is not really representative of real-life array.
-> > It also leads to wrong selections on x86, but only at the which unroll
-> > level to pick level, and only for minor differences so far.  I plan
-> > to add this to the next version of the raid6 lib patches.
-> >
+-- 
+-Mukesh Ojha
 
