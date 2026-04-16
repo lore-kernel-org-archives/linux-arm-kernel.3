@@ -4,79 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32F8EF8A17A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 13:48:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BF04F8A17B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 13:48:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zOnYPi75gzmQEwbyZJqH4NCjwCJ3I8rG438d8AQ1+0U=; b=HtdldXuFk8LvMrQyUa0mko+W96
-	IIwDGAuGjKUdIviAM4Sp/Z7lekdxfw0b2m5t690VdYI5QZB/4VJwJPtzW80h/CpuRw8OmFR34PeqV
-	xzPCg2Xy6pO/UchZWIhQ4xfRUkwTX/YNuNxKg/VtvURgZDZfF14Sxl4uCN0xz3I/0tH+UytOimm8L
-	fH5aOYUvKsS+TE8LBseOnqqfpsBZRtQJOdrPmKjOHEivXb8bmnNL0xczeCmHzFe4ADPFm0OrxVJIt
-	4GfNttfXBs0YXsE3Mw9ZkXL+rcCDKGQkBcGdROWYBzM34UOB1Sb+r8AGAnfJl/autkk5datm0OGl8
-	Wjo8MsEQ==;
+	bh=sc3m+b0lLWMgaMleDRp2o2Rjl7TabIK2d50OhnN2sRs=; b=Pd1gIQDVTW4Gabt1FoZqf6IEJD
+	Q8mYhsufLhnAtdaZaPSx4+1RjWNj8h+3YgDfmUS8pErAxc5kDY2JvDMua5xrI8McGuTt6Y3SYjWL3
+	pCe8n8CXvqtSj0Z6D59ykTIVKNIRASuUhicnMuO1XRwm8+rDczCCxnYFycNAP+RYzucWuMoRhCa6h
+	sCGRsSPNd8AU5Oq41o5agIEMt/XLtfm3d9Echw9YJ8SzB5jkH4c7ESLZkL9XA6bDaiUjf6mttPMla
+	jB2WMRUyU448EwI4vL+Fz5DCxN2Mk7y3EXKcaoFO6aYkp6RKAgup1AB0/HpLiAzkmFugD+0p9gL+P
+	ja+pOm9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDN4p-00000002Wk6-3ijo;
-	Thu, 16 Apr 2026 13:48:15 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1wDN4u-00000002Wle-2qA6;
+	Thu, 16 Apr 2026 13:48:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDN4m-00000002Wjl-0QD9
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 13:48:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=zOnYPi75gzmQEwbyZJqH4NCjwCJ3I8rG438d8AQ1+0U=; b=n6F771f72013HJNfmIqPEmVhNi
-	QE0xN6gU/HImq42GSRXuZgq3TjaGa1aeKVavGBIdDNRHPsdHZUUoouucS9r/v2FuVAQlDW+l1Gv8N
-	Y7iaE43hAGc7wNNDYHUh3DapeKFaYEgnKAQxoGl46yX63qHZNyt0lSXLHMfSvnW/3JkUG6trNUN02
-	2C2B2POZuW7NtIFVdNXpYrAzp64+nhJpeK+1zaosi936fktn8foNbfBwpegMLNwxidI3r/bhg6mJT
-	mfmRxjueya3O/l0jhchVIxwIbwZvqG43tq/tjFuBe7SZC0njfOuEPPQhvmzqyfVv8OPtoV0TmrW6Z
-	/Rrnc21g==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:53316)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1wDN4b-000000003Gr-0UCP;
-	Thu, 16 Apr 2026 14:48:01 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1wDN4X-000000003FZ-3ckE;
-	Thu, 16 Apr 2026 14:47:57 +0100
-Date: Thu, 16 Apr 2026 14:47:57 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 5/6] net: stmmac: move PHY handling out of
- __stmmac_open()/release()
-Message-ID: <aeDojTdDTELfpT0X@shell.armlinux.org.uk>
-References: <aNKDqqI7aLsuDD52@shell.armlinux.org.uk>
- <5987484.DvuYhMxLoT@steina-w>
- <aeC-tc2CooYDoBok@shell.armlinux.org.uk>
- <2410317.ElGaqSPkdT@steina-w>
- <aeDSTIS9-TDSihbX@shell.armlinux.org.uk>
+	id 1wDN4t-00000002WlH-1cFw;
+	Thu, 16 Apr 2026 13:48:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8C7026012B;
+	Thu, 16 Apr 2026 13:48:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD6ACC2BCB3;
+	Thu, 16 Apr 2026 13:48:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776347298;
+	bh=uTJD2gM29MtP9GMelRFqj+IKtjoMn9+Dn//dWVAgy88=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fm6vBwCgh/orJ+Veej0NxOgBPBdM3c4HilOYT/mTK3zbRqgF+VgPtMAckcXiE9En9
+	 qzeqYh49dgiDhZ6p6vr5eIj7LlktJJHzed4z5ZpLPJN5hBjT+8DX7wGRgy8tpt3zKy
+	 alM1wVycCERuFhcU0uGVLzBvxdhTX6LQNWxCVsSTjUFJVTgfKNVH1qJqdYeCowTF5u
+	 WzAy9pQI+UeHqW9R0in129XTFMGU9A3Qu7V0GpuYT1EfgIdnKdMSg4PxAqdbcq7TW5
+	 JY6QSpQGb96OYRUS4mqKYVKEiy7L38JtF6CMmA7E67dgEDKUdirh0CdAh+rsOwGzcO
+	 JVm7phy6y5CuA==
+Date: Thu, 16 Apr 2026 15:48:15 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Andrea della Porta <andrea.porta@suse.com>
+Cc: linux-pwm@vger.kernel.org, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Naushir Patuck <naush@raspberrypi.com>, Stanimir Varbanov <svarbanov@suse.de>, mbrugger@suse.com
+Subject: Re: [PATCH v2 2/3] pwm: rp1: Add RP1 PWM controller driver
+Message-ID: <aeDmk-t5Lc1zpkg9@monoceros>
+References: <cover.1775829499.git.andrea.porta@suse.com>
+ <0d99317b9150310dfbd98de1cb2a890f0bffe7cd.1775829499.git.andrea.porta@suse.com>
+ <adkrHkANCzxO8KUP@monoceros>
+ <aeC6U7D6TfWm8JPx@apocalypse>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="53ygmt545ulvux3v"
 Content-Disposition: inline
-In-Reply-To: <aeDSTIS9-TDSihbX@shell.armlinux.org.uk>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_064812_314827_0F7CEB2D 
-X-CRM114-Status: GOOD (  47.28  )
+In-Reply-To: <aeC6U7D6TfWm8JPx@apocalypse>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,139 +75,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 16, 2026 at 01:13:00PM +0100, Russell King (Oracle) wrote:
-> On Thu, Apr 16, 2026 at 02:02:53PM +0200, Alexander Stein wrote:
-> > Hi Russel,
-> > 
-> > Am Donnerstag, 16. April 2026, 12:49:25 CEST schrieb Russell King (Oracle):
-> > > On Thu, Apr 16, 2026 at 08:20:13AM +0200, Alexander Stein wrote:
-> > > > Am Mittwoch, 15. April 2026, 14:59:32 CEST schrieb Russell King (Oracle):
-> > > > > On Wed, Apr 15, 2026 at 08:08:40AM +0200, Alexander Stein wrote:
-> > > > > > Hi,
-> > > > > > 
-> > > > > > Am Dienstag, 23. September 2025, 13:26:19 CEST schrieb Russell King (Oracle):
-> > > > > > > Move the PHY attachment/detachment from the network driver out of
-> > > > > > > __stmmac_open() and __stmmac_release() into stmmac_open() and
-> > > > > > > stmmac_release() where these actions will only happen when the
-> > > > > > > interface is administratively brought up or down. It does not make
-> > > > > > > sense to detach and re-attach the PHY during a change of MTU.
-> > > > > > 
-> > > > > > Sorry for coming up now. But I recently noticed this commit breaks changing
-> > > > > > the MTU on i.MX8MP. Once I simply change the MTU I run into some DMA error:
-> > > > > > $ ip link set dev end1 mtu 1400
-> > > > > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-0
-> > > > > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-1
-> > > > > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-2
-> > > > > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-3
-> > > > > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-4
-> > > > > > imx-dwmac 30bf0000.ethernet end1: Link is Down
-> > > > > > imx-dwmac 30bf0000.ethernet end1: Failed to reset the dma
-> > > > > > imx-dwmac 30bf0000.ethernet end1: stmmac_hw_setup: DMA engine initialization failed
-> > > > > 
-> > > > > This basically means that a clock is missing. Please provide more
-> > > > > information:
-> > > > > 
-> > > > > - what kernel version are you using?
-> > > > 
-> > > > Currently I am using v6.18.22.
-> > > > $ ethtool -i end1
-> > > > driver: st_gmac
-> > > > version: 6.18.22
-> > > > firmware-version: 
-> > > > expansion-rom-version: 
-> > > > bus-info: 30bf0000.ethernet
-> > > > supports-statistics: yes
-> > > > supports-test: no
-> > > > supports-eeprom-access: no
-> > > > supports-register-dump: yes
-> > > > supports-priv-flags: no
-> > > > 
-> > > > > - has EEE been negotiated?
-> > > > 
-> > > > No. It is marked as not supported
-> > > > 
-> > > > $ ethtool --show-eee end1
-> > > > EEE settings for end1:
-> > > >         EEE status: not supported
-> > > > 
-> > > > > - does the problem persist when EEE is disabled?
-> > > > 
-> > > > As EEE is not supported the problem occurs even with EEE disabled.
-> > > > 
-> > > > > - which PHY is attached to stmmac?
-> > > > 
-> > > > It is a TI DP83867.
-> > > > 
-> > > > imx-dwmac 30bf0000.ethernet eth1: PHY [stmmac-1:03] driver [TI DP83867] (irq=136)
-> > > > 
-> > > > > - which PHY interface mode is being used to connect the PHY to stmmac?
-> > > > 
-> > > > For this interface
-> > > > > phy-mode = "rgmii-id";
-> > > > is set.
-> > > > 
-> > > > In case it is helpful. My platform is arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
-> > > > Thanks for assisting. If there a further questions, don't hesitate to ask.
-> > > 
-> > > Thanks.
-> > > 
-> > > So, as best I can determine at the moment, we end up with the following
-> > > sequence:
-> > > 
-> > > stmmac_change_mtu()
-> > >  __stmmac_release()
-> > >   phylink_stop()
-> > >    phy_stop()
-> > >     phy->state = PHY_HALTED
-> > >     _phy_state_machine() returns PHY_STATE_WORK_SUSPEND
-> > >     _phy_state_machine_post_work()
-> > >      phy_suspend()
-> > >       genphy_suspend()
-> > >        phy_set_bits(phydev, MII_BMCR, BMCR_PDOWN)
-> > > 
-> > > With the DP83867, this causes most of the PHY to be powered down, thus
-> > > stopping the clocks, and this causes the stmmac reset to time out.
-> > > 
-> > > Prior to this commit, we would have called phylink_disconnect_phy()
-> > > immediately after phylink_stop(), but I can see nothing that would
-> > > be affected by this change there (since that also calls
-> > > phy_suspend(), but as the PHY is already suspended, this becomes a
-> > > no-op.)
-> > > 
-> > > However, __stmmac_open() would have called stmmac_init_phy(), which
-> > > would reattach the PHY. This would have called phy_init_hw(), 
-> > > resetting the PHY, and phy_resume() which would ensure that the
-> > > PDOWN bit is clear - thus clocks would be running.
-> > > 
-> > > As a hack, please can you try calling phylink_prepare_resume()
-> > > between the __stmmac_release() and __stmmac_open() in
-> > > stmmac_change_mtu(). This should resume the PHY, thus restoring the
-> > > clocks necessary for stmmac to reset.
-> > 
-> > I tried the following patch. This works as you suspected.
-> 
-> Brilliant, thanks for proving the theory why it broke.
-> 
-> I'll have a think about the best way to solve this, because
-> phylink_prepare_resume() is supposed to be paired with phylink_resume()
-> and that isn't the case here.
-> 
-> Please bear with me as my availability for looking at the kernel is
-> very unpredictable at present (family health issues.)
 
-I have some patches which passed build testing, but more chaos means
-I can't post them nor test them. I'll do something when I'm next able
-to, whenever that will be.
+--53ygmt545ulvux3v
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 2/3] pwm: rp1: Add RP1 PWM controller driver
+MIME-Version: 1.0
 
-The next problem will be netdev's policy over reviews vs patches
-balance which I'm already in deficit, and I have *NO* *TIME*
-what so ever to review patches - let alone propose patches to
-fix people's problems.
+Hello Andrea,
 
-So I'm going to say this plainly: if netdev wants to enforce that
-rule, then I won't be fixing people's problems.
+one thing I forgot to ask: Is there a public reference manual covering
+the hardware. If yes, please add a link at the top of the driver.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+On Thu, Apr 16, 2026 at 12:30:43PM +0200, Andrea della Porta wrote:
+> On 19:31 Fri 10 Apr     , Uwe Kleine-K=F6nig wrote:
+> > I assume there is a glitch if I update two channels and the old
+> > configuration of the first channel ends while I'm in the middle of
+> > configuring the second?
+>=20
+> The configuration registers are per-channel but the update flag is global.
+> I don't have details of the hw insights, my best guess is that anything t=
+hat
+> you set in the registers before updating the flag will take effect, so th=
+ere
+> should be no glitches.
+
+Would be great if you could test that. (Something along the lines of:
+configure a very short period and wait a bit to be sure the short
+configuration is active. Configure something with a long period and wait
+shortly to be sure that the long period started, then change the duty,
+toggle the update bit and modify a 2nd channel without toggling update
+again. Then check the output of the 2nd channel after the first
+channel's period ended.
+
+> > > +	if (ticks > U32_MAX)
+> > > +		ticks =3D U32_MAX;
+> > > +	wfhw->period_ticks =3D ticks;
+> >=20
+> > What happens if wf->period_length_ns > 0 but ticks =3D=3D 0?
+>=20
+> I've added a check, returning 1 to signal teh round-up, and a minimum tic=
+k of 1
+> in this case.
+
+Sounds good. Are you able to verify that there is no +1 missing in the
+calculation, e.g. using 1 as register value really gives you a period of
+1 tick and not 2?
+
+> > > +	if (wf->duty_offset_ns + wf->duty_length_ns >=3D wf->period_length_=
+ns) {
+> >=20
+> > The maybe surprising effect here is that in the two cases
+> >=20
+> > 	wf->duty_offset_ns =3D=3D wf->period_length_ns and wf->duty_length_ns =
+=3D=3D 0
+> >=20
+> > and
+> > =09
+> > 	wf->duty_length_ns =3D=3D wf->period_length_ns and wf->duty_offset_ns =
+=3D=3D 0
+> >=20
+> > you're configuring inverted polarity. I doesn't matter technically
+> > because the result is the same, but for consumers still using pwm_state
+> > this is irritating. That's why pwm-stm32 uses inverted polarity only if
+> > also wf->duty_length_ns and wf->duty_offset_ns are non-zero.
+
+Please align to the pwm-stm32 algorithm (as of
+https://patch.msgid.link/c5e7767cee821b5f6e00f95bd14a5e13015646fb.177626410=
+4.git.u.kleine-koenig@baylibre.com)
+here to decide when to select inverted polarity.
+
+> > > +	}
+> > > +
+> > > +	return 0;
+> > > +
+> > > +err_disable_clk:
+> > > +	clk_disable_unprepare(rp1->clk);
+> > > +
+> > > +	return ret;
+> > > +}
+> >=20
+> > On remove you miss to balance the call to clk_prepare_enable() (if no
+> > failed call to clk_prepare_enable() in rp1_pwm_resume() happend).
+>=20
+> Since this driver now exports a syscon, it's only builtin (=3DY) so
+> it cannot be unloaded.
+> I've also avoided the .remove callback via .suppress_bind_attrs.
+
+Oh no, please work cleanly here and make the driver unbindable. This
+yields better code quality and also helps during development and
+debugging.
+
+Best regards
+Uwe
+
+--53ygmt545ulvux3v
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmng6J0ACgkQj4D7WH0S
+/k7hMggAn8rENjZtWE1kj1D/NlWx5jd1LB+UVOUTfUUHjZwhyEqvw7BXYQ42LooK
+ONSs3zBv+kpBp8ZVk5oON1Qw7Cjp7WXon5ePWM4adZE96cqdp62lExHO873C/2f1
+LJcEvluoxNyDLtSoDKvlhlnYfxi/Cww2aMEa+Mm2n/NWbkEQAnI8zW8WWifBr16/
+xKaZDUHJKyxfAq2wrgqWwersaJTsx4OQ3slVTLraUQ9nG3bJmuhde3NcSRLzXlcg
+1Be+aAYFggvG10IjVlmiqaRAVEa4jTMo42ep/xQH+Lqr1BYgVFwbYHvpFQ7kmPep
+4VBRQjnRDS5So3LCp7p3VgT3IkAGGg==
+=S8mZ
+-----END PGP SIGNATURE-----
+
+--53ygmt545ulvux3v--
 
