@@ -4,84 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CCECF8D75F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 16:15:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADA96F8D75F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 16:24:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D9gNtLdocXB8kWkdIM6h2vfikY0DRDzC2RZHuEpWRyQ=; b=3IYIwptgKgYOkrRqyx2TMOjQFZ
-	tRACRe7rkrFCKz7WDmd6Et9Bw/3tj71ieo+RzJsLzb7CKJBFfEp+aymMp2f//C68RvIV6o8ybeoVN
-	ya44WNWCkVOpshrpiI2tPfZeP0pymqTpOKySPv5AjrGTto1veza/Gkl0NJgHYTwL2T4ki/BjmITQU
-	i5zF9f1cPMoJMM2pfxUfAYgwsCB3p5km8Z2JiWnuQA4wHjeE4QzrqetrpiEMkGgZhO1/ricIWXBh3
-	uXrmoZajAynDlMZp//7IhHZ/2rewCifyYlns5wl/DXoFpPMz8u34HobfUjWj9KZvAw6OPvBx8n9x/
-	Gvid9DZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jTqTkrmbgUx1RiSdH5IwyezXcSZLW1HO+PTj3QHXYsk=; b=OQsldPbw50hbjqv5YTPngnoBhv
+	oEoNWPwt4GrI8VbLP6QZX7e7fpHFu/6WFHw6CHXXovJFwQ7rSdqdXhaYH5riDBWGgfT78yO+Fy+FW
+	qFfTjPTJOf5OW36kXtMbmLGAxiFvBxjdgAX3Ys+CEBSbmpir8M4Yk9+dtGXKGSvgLc0IcyXcKMN/v
+	rduSCJGzPQBjB7d+M9XNX2k5moCmQto4bTWoiyjRdwm8E4vlh5I8QEa+i9ghv926l9GvGhROpidHq
+	mKDhTgrzJaZfdYnXgUB1bPAy1dd7VNtxki8ksBngjEhWDsX5cktCk1HdsVOogSvX8qatUaRT9aKLs
+	+LWTBGYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDPN3-00000002ekg-0Gj8;
-	Thu, 16 Apr 2026 16:15:13 +0000
-Received: from mail-vk1-f170.google.com ([209.85.221.170])
+	id 1wDPW7-00000002fCA-084W;
+	Thu, 16 Apr 2026 16:24:35 +0000
+Received: from mail-244119.protonmail.ch ([109.224.244.119])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDPN0-00000002ejz-122A
+	id 1wDPW3-00000002fBL-32lq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 16:15:11 +0000
-Received: by mail-vk1-f170.google.com with SMTP id 71dfb90a1353d-5674d8be45eso2579889e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 09:15:09 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776356107; x=1776960907;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=D9gNtLdocXB8kWkdIM6h2vfikY0DRDzC2RZHuEpWRyQ=;
-        b=Iyir4mwpN8VII389pKavRZ115Z/cl8XtDkNNVlPW53+ggDK/iGVaPwJo0yBIp6Ribs
-         ebz3Uxb7VAkUNQqiePsoGHfMHHctSsNc5f8yKUYtAOVhx48MaRTP9dXExaTE4JEu71GO
-         FcZZQK7UOystW/BDIfTqQMej3AIATpj3lvZDU3NYfsHO/XntMXt8l79uFv4Glyu+/Awm
-         2hArjFwjdGBAAaW9j9H6BxFt28lveKmvaVrSLsB4rqyChmTLWB3rUy5ovhA5+TegHgwU
-         kbFT4Dyqa1Nl0ZE1SC7yESa0cjrlSt4oCseQ0oqKq24+6ZBuUO0ACzkX0kKGDnulxmbM
-         29OA==
-X-Forwarded-Encrypted: i=1; AFNElJ94E1QmT/Qs/LJt5kgi1cgqqGcJ0A99gqqYxiFxGN65vB+jjPfXYJwXn4AS3ORaH0dhYcjYGnkyLalmyJqaa/GR@lists.infradead.org
-X-Gm-Message-State: AOJu0YzuJ0ZOS2DxkmOWN2aPxbjQUBmYEkEeUrcwmlNXA7ky0SMXAFFZ
-	GamSNHR2WQHACJMrX2IsygvdVAeKV6byiEEPR3W9OgWdfNwFxW/RELXpYyL6XJCY
-X-Gm-Gg: AeBDietiR7TbMth26Puelov3PQhfTyWc+d6AC85LKB86BQXxxzI7XdRjJcG90xBlVnp
-	1pvU0rCj60Dgnx6bzoJzVuIm3QsiE7eWBBUksNK0zlOgydBwhLV3ImsIq6Bs0pYqP+2nnS6eCGv
-	XhFf9LOZ7rARYO/OoLgywxbXcAmmZZ6uqsN1ZqPRBtxEFCeJ3uWWv0VsuLLFRe7J1PmHfxyLPHF
-	Sp2DZj0Twhy9DWzLpD1Xnb5v4sAZo04wqR75cJsC+H0SKZJaOf9AfAtFChIkZGZAAXgEcfNzwjD
-	98rexiIaFnurhu9XoJmaBrzdjAnsp2dTcPg3d0TEu1HllEnhncrjKMMNPJakjPcE5En4HsPrwOC
-	TWuD/bqec4/1woK81sK2JAx87y92Amd4kAfO6pXFLIwCCNu0DLesXJ1r7+G9Gi8bsP9uLhoM7Sm
-	nLywi7GuxAYZO7uX4uRxwXiSeVLdJP8x0QLI+MLCeCi2zVZKW5lHE3xVGq1i27c/kam+u7Uh0Wa
-	ruGCExN7qBhvQ==
-X-Received: by 2002:a05:6122:1815:b0:56e:f1c7:cdbf with SMTP id 71dfb90a1353d-56f3bca6071mr11693500e0c.9.1776356107145;
-        Thu, 16 Apr 2026 09:15:07 -0700 (PDT)
-Received: from mail-vk1-f174.google.com (mail-vk1-f174.google.com. [209.85.221.174])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-95888170a74sm213131241.0.2026.04.16.09.15.06
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 16 Apr 2026 09:15:06 -0700 (PDT)
-Received: by mail-vk1-f174.google.com with SMTP id 71dfb90a1353d-5673804da95so3347017e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 09:15:06 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/HzmbacOnK+b0+jiTOepMHWRLtcY0GuJMyHGfCocyzu8rWNHIZGUr6Dyrnj95A3D3qAsQwCpX3F9ruoVYEWweH@lists.infradead.org
-X-Received: by 2002:a05:6123:10b:b0:56f:7300:37c9 with SMTP id
- 71dfb90a1353d-56f73003aadmr7479196e0c.10.1776356105740; Thu, 16 Apr 2026
- 09:15:05 -0700 (PDT)
+	Thu, 16 Apr 2026 16:24:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=emersion.fr;
+	s=protonmail; t=1776356665; x=1776615865;
+	bh=jTqTkrmbgUx1RiSdH5IwyezXcSZLW1HO+PTj3QHXYsk=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=D4khchrlNlRMmQes0Zc+6u7wNiV7q7OxB9wXxwGpJVlyyxfrJ8tcCw9zNYfq1iV6i
+	 +c3iBiTy01DQsCkBbTrf4PFIB4bj2Iz6CEHxEruaMNEDUJa2MbiTpNttdKM1tT/hd7
+	 G/dXRPkcoUHkeSxp4Lg1WCpuriUOATsMRP01JRRTSHPDTPUoygXLmLaG/IgvCZZWtv
+	 nKZIM6+VWleCaC20gEBRPTUHerxTFiD9kekU3meTFXOkP0yqBAR28CBSb60pM3lDBq
+	 DraoVL1yQuvFB/OpcocX9axnhWgaPPoOevcYmzgwm5FZmvJuVb4jPZGZ9esq5TwvIB
+	 sdxB+1xupr6Pg==
+Date: Thu, 16 Apr 2026 16:24:18 +0000
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+From: Simon Ser <contact@emersion.fr>
+Cc: Vishal Sagar <vishal.sagar@amd.com>, Anatoliy Klymenko <anatoliy.klymenko@amd.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Geert Uytterhoeven <geert@linux-m68k.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Pekka Paalanen <ppaalanen@gmail.com>
+Subject: Re: [PATCH v9 05/11] drm/fourcc: Add DRM_FORMAT_X403
+Message-ID: <SQRHbzJxi9A-aeEnsDNGLR894I12tg2scl2pctpSh-TkMc0l9DvzXUmuvYAk9br0__ixXrxPE3k5qa0IhKDrLpKTX04fNUAlWEzl-vzssCw=@emersion.fr>
+In-Reply-To: <6abc165b-4220-422c-8190-283a3dea1f62@ideasonboard.com>
+References: <20260325-xilinx-formats-v9-0-d03b7e3752e4@ideasonboard.com> <20260325-xilinx-formats-v9-5-d03b7e3752e4@ideasonboard.com> <jCbIrZ5-fvx73de8DmjQ7xpuEw63kTCQ5p88cdF7yRcUk7uNbE9y0YU7uZbPXNotQAB9y6c0u5n3TrnXckvQ8Oje_J3QGxEwBSr_liQVDK0=@emersion.fr> <94283390-29cb-4640-b5b4-6a332dd7f2a4@ideasonboard.com> <6abc165b-4220-422c-8190-283a3dea1f62@ideasonboard.com>
+Feedback-ID: 1358184:user:proton
+X-Pm-Message-ID: 34605617869f672ea6b1b08b3c7caddeb1ffba54
 MIME-Version: 1.0
-References: <20260413-arm64-hwcap-gen-fix-v1-1-26c56aed6908@kernel.org>
-In-Reply-To: <20260413-arm64-hwcap-gen-fix-v1-1-26c56aed6908@kernel.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 16 Apr 2026 18:14:54 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVwTQKrWx2rj9ex=a1wcVc_GVN6ii0Tk61-BHgT8wB7mw@mail.gmail.com>
-X-Gm-Features: AQROBzDtvYul6C2R0_nVVRWBmwsQihnizqmUiq_xTAHZz4o6U9w2tkR5DOBzIv8
-Message-ID: <CAMuHMdVwTQKrWx2rj9ex=a1wcVc_GVN6ii0Tk61-BHgT8wB7mw@mail.gmail.com>
-Subject: Re: [PATCH] arm64/hwcap: Include kernel-hwcap.h in list of generated files
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Marek Vasut <marex@nabladev.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_091510_318346_5929912B 
-X-CRM114-Status: GOOD (  20.65  )
+X-CRM114-CacheID: sfid-20260416_092432_968035_1168DBCC 
+X-CRM114-Status: GOOD (  32.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,30 +69,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 13 Apr 2026 at 17:46, Mark Brown <broonie@kernel.org> wrote:
-> When adding generation for the kernel internal constants for hwcaps the
-> generated file was not explicitly flagged as such in the build system,
-> causing it to be regenerated on each build. This wasn't obvious when the
-> series the change was included in was developed since it was all about
-> changes that trigger rebuilds anyway.
->
-> Fixes: abed23c3c44f5 (arm64/hwcap: Generate the KERNEL_HWCAP_ definitions for the hwcaps)
-> Reported-by: Marek Vasut <marex@nabladev.com>
-> Signed-off-by: Mark Brown <broonie@kernel.org>
+On Friday, April 10th, 2026 at 08:54, Tomi Valkeinen <tomi.valkeinen@ideaso=
+nboard.com> wrote:
 
-Just noticed the issue, bisected it, and found a link to the fix...
+> On 10/04/2026 09:07, Tomi Valkeinen wrote:
+> > Hi,
+> >
+> > On 26/03/2026 16:43, Simon Ser wrote:
+> >> On Wednesday, March 25th, 2026 at 15:02, Tomi Valkeinen
+> >> <tomi.valkeinen@ideasonboard.com> wrote:
+> >>
+> >>> +/*
+> >>> + * 3 plane non-subsampled (444) YCbCr
+> >>> + * 10 bpc, 30 bits per sample image data in a single contiguous buff=
+er.
+> >>> + * index 0: Y plane,  [31:0] x:Y2:Y1:Y0    [2:10:10:10] little endia=
+n
+> >>> + * index 1: Cb plane, [31:0] x:Cb2:Cb1:Cb0 [2:10:10:10] little endia=
+n
+> >>> + * index 2: Cr plane, [31:0] x:Cr2:Cr1:Cr0 [2:10:10:10] little endia=
+n
+> >>> + */
+> >>> +#define DRM_FORMAT_X403        fourcc_code('X', '4', '0', '3')
+> >>
+> >> So, this one is different from the Q family, because Q has padding in
+> >
+> > Any idea where the letters (P, Q, S) come from?
+> >
+> >> LSB rather than MSB. Speaking of, maybe we should add "LSB aligned" to
+> >> the doc comment to make that clear?
+> >
+> > Yes, I can add that.
+> >
+> >> Re-reading the sibling thread about DRM_FORMAT_XV20, sounds like the
+> >> first digit matches my expectations for sub-sampling. How did you pick
+> >
+> > I just used the name in Xilinx's BSP kernel.
+> >
+> >> the last two digits? I think I would've expected "30" here rather than
+> >> "03", since the last two planes are Cb Cr rather than Cr Cb.
+> >
+> > Hmm, but X403 is Cb:Cr, and P030 is Cr:Cb, so doesn't 03 make sense
+> > here? Oh, but Q401 is Cr:Cb, and it's 01...
+> >
+> > Now that I look at this... I think I have to go back and do more
+> > testing. From the Xilinx docs, it looks to me that the XV15/XV20 should
+> > have the same CrCb order than X403. But the comments in these patches
+> > say otherwise. I'm pretty sure my tests conformed to the comments here,
+> > but now I don't feel so sure anymore. It's been more than a year since =
+I
+> > wrote the tests and properly tested these, so I have to spend a bit tim=
+e
+> > to get everything up again.
+>=20
+> I think the comments are correct. I guess it depends on which way you
+> look at this: for P030 etc, starting from the lowest bit, the order is
+> Cb:Cr. For X403, starting from the lowest plane, the order is Cb:Cr. And
+> that's probably how Xilinx HW "sees" it and thus they use the same Cb:Cr
+> order.
+>=20
+> But in the comments we describe P030's components starting from the
+> highest bit, and thus it's Cr:Cb.
 
-Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
+Thanks for checking!
 
-Gr{oetje,eeting}s,
+> >> Has the first "X" letter been picked arbitrarily? It's already used to
+> >> denote padding in other formats so I wonder if we should pick that
+> >> instead of, say, "T".
+> > I didn't invent the name, I just took the naming Xilinx used. I don't
+> > know the history behind it. I assume the "X" is for Xilinx, but I could
+> > be wrong here. What would "T" be for? "Tomi"? =3D)
+> So... While the Cb:Cr order can be seen both ways, perhaps the Q formats
+> are a good reference here to follow, and thus it should be "430", not
+> "403", as you suggest. As for the letter... Anything that's not
+> currently in use is fine for me =3D).
 
-                        Geert
+P, Q, S are used for other YCbCr layouts, R is used for red, and T was the =
+next
+letter in the alphabet=E2=80=A6 But I really like the "Tomi" format layout
+explanation! :)
 
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+I'd also be fine with pretty much any letter not currently in use in other
+formats.
 
