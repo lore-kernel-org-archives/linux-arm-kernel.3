@@ -4,74 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B04F4F8D74C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 14:02:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3251CF8D74B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 14:10:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GaO2O7goIGjknZyz6ub5mllUYrSjwri8+OOD1vuGZbc=; b=383/+2d5ZfJ+9toFcvRnQwyaWf
-	qxHq1wxnrL3yYyOL1oH0gZUBo10CWkJLeIj5uQ3kNt9jdOJUXVeeyfSACIiFbVPvCUj9J9yHPHlx4
-	frU5FIED1lP3fGbqZyL9PZLKml9jFdrt5JsS9JuAoIgdFuQXz8p8gpNn0E5L+Sca6w/OywlSYj0Xj
-	tr4Cdb/+3R/GFO8Oyc3Tw1ySb+bCYB5KjjzSR2cJSbqD2Di12EWwBJiz7su5NFxc8ktjYmgzNbG79
-	e1WbBaJg3R1cJesS7ko+aRf9lCz+o9HqxxhJc5kSCLeFzEzPM+GrGVb1kFxG68q0v0Ca7AEEVmMAq
-	eeZA+zUA==;
+	bh=5bZFO/ATD56HUcWaef/684HTeBS057i0wylAFAirXVc=; b=Sr6oSTvX74egbFkgGuDZPD/ypb
+	Nvah7nH4xf7dS8+5PjUodwqHfYTSjkK/qUQsPhYwSqUjk+SFUEKmb2A4z4M6PFlTm0wsoAi8fGBzx
+	UmQ1/dTc43+5zQDA68nWDuIqqzqZgNn/xNn3NkTNLHmppOrI+oPvt0/w5DBGXzCn6Fb9JOWdCZ5PK
+	5m2/DB9Uka2BZWHV4jOkwsPIAFcjFeBZpmCVoAEeuDabVwbEmrqI6gGWvMk7kLOS3HpbNteMV/x5y
+	YLDeUMty9mxoexylmQ8TVKH1+iQsPMcqaZ+opcJpztki3psyn5Ku2+ts+8bD3q4uvIBSa/0bE8kc+
+	BX5LavQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDNIr-00000002XTs-0KdQ;
-	Thu, 16 Apr 2026 14:02:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wDNQ7-00000002Xwc-1pnx;
+	Thu, 16 Apr 2026 14:10:15 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDNIo-00000002XTW-2qlZ
+	id 1wDNQ5-00000002XwI-0S0u
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 14:02:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DFAFA402C3
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 14:02:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF24DC2BCAF
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 14:02:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776348161;
-	bh=eFW8dHy6Zg23j5JB3FyPdcRYGKquzdaBg6ZNicFYOK4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ULwq7BDmQp2vdyNdvoOqZzBcQ759Wsn5hGIEVpy3iUuJCqEB+fg/lW6lY9vCezxKZ
-	 u+mpNmiaZlMctGRpXJR3NX5P6Bt0EMGpznhrNaRkewDvsdhrXgpeBMp6Qh8+7VF20Y
-	 Yqp+SX8dTrpHpMUUSpXzZxpzM54Um8ybPDeMqqdR5laEIVE+8vgxMw1q4/kRZcpsIB
-	 WNtXckt0914ImHUCRBjImqE42fPc0XQBRwBHsX8ObFYnIc8wSIkRzgcn2QRocxcFXy
-	 TYjgspWdWk/e1F0jPxeu81LnIc3VzF4mT9WiXC/nxoDfV6ZmXsDRL/1h9xw+87DKy8
-	 ZUuYhaZ0HRZvA==
-Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-6725295a113so3196528a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 07:02:41 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+A+Q7ZGCXR36mhda4BkxlNtxepFMhLduXgSqsgysb4Z4khjdITZQv8eIeTFXJIJM0l2fKNYPZIqrxMgUBW0cR0@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQl68OtqxuAWKeTZZ/lFcBGLL5BPsDUVQbd2+1uR/KSvllRz4F
-	Ul0MgmsXKGIQm4AlSDR+Bh7v39seaa1Yn08mcPTA0syfFxKVDTT2hTK5SHYS4+e+saA2aSOeHhy
-	Juej+kK77EdSWZeKGCSRDG7mYcOhaeQ==
-X-Received: by 2002:a05:6402:24d2:b0:66f:a7e2:b28b with SMTP id
- 4fb4d7f45d1cf-670795072cbmr9644507a12.9.1776348160222; Thu, 16 Apr 2026
- 07:02:40 -0700 (PDT)
+	Thu, 16 Apr 2026 14:10:14 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63G9n7TV1833223;
+	Thu, 16 Apr 2026 14:09:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=5bZFO/
+	ATD56HUcWaef/684HTeBS057i0wylAFAirXVc=; b=RgjVHinU04ToUnjOesbBne
+	lYE3sPOTg06LlBCJNZqTr/FnchZKKavVwKUTG2G3LnCSL0nz2WE4BOUEcO3gBAXB
+	vWiHN/Tq0djeztB1M4eyGdV7j0I9q7F6tw0WRu4nKFGzMqRgNvynkSimtV3ATiFc
+	PNpj1/iA4SPgmNW0Y2e5dFBkSHKWGNgO1QnxkNSvbqMJtUA8e+TXmYMyd6+HUgvR
+	g3AJper26ANO0klMGM9Qfy6Q8IefdhnMxG3Z7xXgXZlPRIzURfMuEEs29vY/eSLU
+	cmJSYzEjIrov7p9Bx3hyiMh6qDZPQwb+YvtSGXtkKrxYpDXCasGRK7jKcMohbYjQ
+	==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dh89rnu06-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 16 Apr 2026 14:09:56 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 63GAqLum015164;
+	Thu, 16 Apr 2026 14:09:55 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4dg0msuceh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 16 Apr 2026 14:09:55 +0000
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63GE9pV550921886
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 16 Apr 2026 14:09:51 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 88B1B2004B;
+	Thu, 16 Apr 2026 14:09:51 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 9A95020040;
+	Thu, 16 Apr 2026 14:09:50 +0000 (GMT)
+Received: from [9.111.199.83] (unknown [9.111.199.83])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 16 Apr 2026 14:09:50 +0000 (GMT)
+Message-ID: <2891ad39-20c2-4c21-8a74-4a09032421e2@linux.ibm.com>
+Date: Thu, 16 Apr 2026 16:09:48 +0200
 MIME-Version: 1.0
-References: <20260412-b4-ffa_ns_sgi_gicv3-v1-0-af61243eb405@kernel.org>
- <20260412-b4-ffa_ns_sgi_gicv3-v1-1-af61243eb405@kernel.org>
- <20260416121146.GA2736962-robh@kernel.org> <20260416-true-prophetic-centipede-3ad8e5@sudeepholla>
-In-Reply-To: <20260416-true-prophetic-centipede-3ad8e5@sudeepholla>
-From: Rob Herring <robh@kernel.org>
-Date: Thu, 16 Apr 2026 09:02:27 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqLdSi2x-KibY7WXTEot8Bj=54XeE1VACtLTujxn0VTxRw@mail.gmail.com>
-X-Gm-Features: AQROBzBIbU1scggnZL1CVMnkgU8q8vOpAVBM10XITxPhsoofCMIRMJjnOpjom_Y
-Message-ID: <CAL_JsqLdSi2x-KibY7WXTEot8Bj=54XeE1VACtLTujxn0VTxRw@mail.gmail.com>
-Subject: Re: [PATCH 1/5] dt-bindings: interrupt-controller: Add support for
- secure donated SGIs
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Marc Zyngier <maz@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/8] arm64: entry: add unwind info for various kernel
+ entries
+To: Dylan Hatch <dylanbhatch@google.com>,
+        Roman Gushchin <roman.gushchin@linux.dev>,
+        Weinan Liu <wnliu@google.com>, Will Deacon <will@kernel.org>,
+        Josh Poimboeuf <jpoimboe@kernel.org>,
+        Indu Bhagat <indu.bhagat@oracle.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Steven Rostedt <rostedt@goodmis.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Jiri Kosina <jikos@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+        Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+        Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>,
+        joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org,
+        linux-kernel@vger.kernel.org, live-patching@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>
+References: <20260406185000.1378082-1-dylanbhatch@google.com>
+ <20260406185000.1378082-4-dylanbhatch@google.com>
+Content-Language: en-US
+From: Jens Remus <jremus@linux.ibm.com>
+Organization: IBM Deutschland Research & Development GmbH
+In-Reply-To: <20260406185000.1378082-4-dylanbhatch@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE2MDEzMiBTYWx0ZWRfX7wUwuGzmgzsP
+ /KEso6kqsNQqn+I8+hB9aNbbXGrrh/Nv9K9VjMnSfROHSDUWFPIwqvZfeHbtkl0zJVBeAwBuVvA
+ 15doAB5Y4qG+chKjxZP91ej3OVavcK/0A97+c+SmKDMK8n0VYbw+fIWA0i8QqKVMcTitXOVlFoa
+ d/zp0Ws54vAyjl674t9SwDjw5pkTyGItFP84ZPjyaKe2nABPqM/aHc4H15YhKO2QWQ8iwdw2mBO
+ AvoyDcx/bf4TGoyFpjHyU0wo2tQSz8MkwEDXG6naCqbQ+dmCawB9KTgGPdMPhxO4pFuOS23CJ25
+ B7eZbi77c42hXgeOPmQKlfcWNH0RdonWBTda3FmQv+/O2W/ad9ldoi7Z268SIwq5TSaKzdhcefA
+ 4DSAV48asEkdp0LF83SYvM9yABibP0opNgS4RQstmE/4KTCMDqWYVVHQurFxAsFF+ttisSaXSXP
+ Lf/PV1MNYJe3CryMi7A==
+X-Proofpoint-ORIG-GUID: 4Gha3kbwBkiKeqQfF-mKgAuzYTE4yDcp
+X-Proofpoint-GUID: Y3Vo8Hhn1UhIuSvCotDIhk7Si54VAtsB
+X-Authority-Analysis: v=2.4 cv=fYidDUQF c=1 sm=1 tr=0 ts=69e0edb4 cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8
+ a=1XWaLZrsAAAA:8 a=bLnNlr2ELYzO25Cx3yEA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-16_03,2026-04-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 impostorscore=0 clxscore=1015 malwarescore=0 phishscore=0
+ bulkscore=0 priorityscore=1501 spamscore=0 suspectscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604160132
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_070242_765737_7014D55C 
-X-CRM114-Status: GOOD (  39.16  )
+X-CRM114-CacheID: sfid-20260416_071013_153697_0CD4A10C 
+X-CRM114-Status: GOOD (  20.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,142 +137,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 16, 2026 at 8:09=E2=80=AFAM Sudeep Holla <sudeep.holla@kernel.o=
-rg> wrote:
->
-> On Thu, Apr 16, 2026 at 07:11:46AM -0500, Rob Herring wrote:
-> > On Sun, Apr 12, 2026 at 06:04:37PM +0100, Sudeep Holla wrote:
-> > > In GICv3, SGI security is defined by interrupt grouping and configura=
-tion
-> > > rather than by SGI number alone. Linux conventionally reserves SGIs 0=
--7
-> > > for non-secure internal kernel IPIs, while higher SGIs is assumed to =
-be
-> > > owned/stolen by the Secure world unless explicitly made available.
-> > >
-> > > Document secure donated SGI interrupt specifiers for the GICv3 bindin=
-g.
-> > > It describes "arm,secure-donated-ns-sgi-ranges" for SGIs donated by t=
-he
-> > > secure world to non-secure software. It excludes SGIs 0-7, which are
-> > > already used by the kernel for internal IPI purposes.
-> > >
-> > > Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
-> > > ---
-> > >  .../bindings/interrupt-controller/arm,gic-v3.yaml  | 27 ++++++++++++=
-+++++++++-
-> > >  include/dt-bindings/interrupt-controller/arm-gic.h |  1 +
-> > >  2 files changed, 27 insertions(+), 1 deletion(-)
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/interrupt-controller/a=
-rm,gic-v3.yaml b/Documentation/devicetree/bindings/interrupt-controller/arm=
-,gic-v3.yaml
-> > > index bfd30aae682b..664727d071c9 100644
-> > > --- a/Documentation/devicetree/bindings/interrupt-controller/arm,gic-=
-v3.yaml
-> > > +++ b/Documentation/devicetree/bindings/interrupt-controller/arm,gic-=
-v3.yaml
-> > > @@ -45,17 +45,24 @@ description: |
-> > >
-> > >        The 1st cell is the interrupt type; 0 for SPI interrupts, 1 fo=
-r PPI
-> > >        interrupts, 2 for interrupts in the Extended SPI range, 3 for =
-the
-> > > -      Extended PPI range. Other values are reserved for future use.
-> > > +      Extended PPI range, and 4 for SGI interrupts. Other values are
-> > > +      reserved for future use.
-> > >
-> > >        The 2nd cell contains the interrupt number for the interrupt t=
-ype.
-> > >        SPI interrupts are in the range [0-987]. PPI interrupts are in=
- the
-> > >        range [0-15]. Extended SPI interrupts are in the range [0-1023=
-].
-> > >        Extended PPI interrupts are in the range [0-127].
-> > >
-> > > +      SGI interrupts are in the range [8-15] which overlaps with the=
- SGIs
-> > > +      assigned to/reserved for the secure world but donated to the n=
-on
-> > > +      secure world to use. Refer "arm,secure-donated-ns-sgi-ranges" =
-for
-> > > +      more details.
-> > > +
-> > >        The 3rd cell is the flags, encoded as follows:
-> > >        bits[3:0] trigger type and level flags.
-> > >          1 =3D edge triggered
-> > >          4 =3D level triggered
-> > > +      SGIs are edge triggered and must be described as such.
-> > >
-> > >        The 4th cell is a phandle to a node describing a set of CPUs t=
-his
-> > >        interrupt is affine to. The interrupt must be a PPI, and the n=
-ode
-> > > @@ -136,6 +143,24 @@ description: |
-> > >        - $ref: /schemas/types.yaml#/definitions/uint32
-> > >        - $ref: /schemas/types.yaml#/definitions/uint64
-> > >
-> > > +  arm,secure-donated-ns-sgi-ranges:
-> > > +    description:
-> > > +      A list of pairs <sgi span>, where "sgi" is the first SGI INTID=
- of a
-> > > +      range donated by the secure side to non-secure software, and "=
-span" is
-> > > +      the size of that range. Multiple ranges can be provided.
-> > > +
-> > > +      SGIs described by interrupt specifiers with type 4 (SGI) must =
-fall
-> > > +      within one of these ranges. SGIs(0-7) reserved by non-secure w=
-orld
-> > > +      for internal IPIs must not be listed here. "sgi" must be in th=
-e
-> > > +      range [8-15], "span" must be in the range [1-8], and the range=
- must
-> > > +      not extend past SGI 15.
-> > > +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-> > > +    items:
-> >
-> > As a matrix, you need:
-> >
-> > items:
-> >   items:
-> >     - ...
-> >     - ...
-> >
-> > However, given this is at most 8 entries, I would just do an array:
-> >
-> > minItems: 1
-> > maxItems: 8
-> > uniqueItems: true
-> > items:
-> >   minimum: 8
-> >   maximum: 15
-> >
->
-> Makes sense.
->
-> > Unless we need more flexibility in GICv5?
-> >
->
-> IIUC, there are not SGIs in GICv5 and we may need to use one software PPI
-> as a replacement for SGIs. LPIs are used for IPIs.
->
-> I am assuming Marc will soon post his opinion/rejection on this series =
-=F0=9F=98=89
-> based on some offline discussion we had with respect to how it fits with
-> GICv5.
->
-> > Is there an example we can stick this property into so it gets tested?
-> >
->
-> Not sure if [1] serves as an example or you are looking for something els=
-e.
+Hello Dylan and Weinan!
 
-In the binding example, but don't add a whole new example for it.
+On 4/6/2026 8:49 PM, Dylan Hatch wrote:
+> From: Weinan Liu <wnliu@google.com>
+> 
+> DWARF CFI (Call Frame Information) specifies how to recover the return
+> address and callee-saved registers at each PC in a given function.
+> Compilers are able to generate the CFI annotations when they compile
+> the code to assembly language. For handcrafted assembly, we need to
+> annotate them by hand.
+> 
+> Annotate CFI unwind info for assembly for interrupt and exception
+> handlers.
 
-Did [1] pass validation? If it did, it shouldn't have and I need to
-investigate. If you didn't run it, then that would be the reason I
-want it in the binding example.
+It took me a while to figure, why CFI annotations are uncommonly only
+added to selected instruction (ranges) and not the whole functions.  I
+guess you only want to enable stacktracing using SFrame through
+el1*_64_*() (from el1*_64_*_handler()) and call_on_irq_stack(), that is
+why the added CFI annotations start after the bl/blr instructions, so
+that whenever an unwound return address points after those bl/blr
+SFrame can recover the stack pointer, frame pointer, and return address.
 
-Rob
+Wouldn't that be worth to be documented in the commit message?
+
+> Signed-off-by: Weinan Liu <wnliu@google.com>
+> Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
+
+> diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+
+> @@ -575,7 +575,12 @@ SYM_CODE_START_LOCAL(el\el\ht\()_\regsize\()_\label)
+>  	.if \el == 0
+>  	b	ret_to_user
+>  	.else
+
+	/* Minimal DWARF CFI for unwinding across call above. */
+
+> +	.cfi_startproc
+> +	.cfi_def_cfa_offset PT_REGS_SIZE
+> +	.cfi_offset 29, S_FP - PT_REGS_SIZE
+> +	.cfi_offset 30, S_LR - PT_REGS_SIZE
+>  	b	ret_to_kernel
+> +	.cfi_endproc
+>  	.endif
+>  SYM_CODE_END(el\el\ht\()_\regsize\()_\label)
+>  	.endm
+
+> @@ -889,6 +894,10 @@ SYM_FUNC_START(call_on_irq_stack)
+>  	add	sp, x16, #IRQ_STACK_SIZE
+>  	restore_irq x9
+>  	blr	x1
+
+	/* Minimal DWARF CFI for unwinding across indirect call above. */
+
+> +	.cfi_startproc
+> +	.cfi_def_cfa 29, 16
+> +	.cfi_offset 29, -16
+> +	.cfi_offset 30, -8
+>  
+>  	save_and_disable_daif x9
+>  	/*
+> @@ -900,6 +909,7 @@ SYM_FUNC_START(call_on_irq_stack)
+>  	scs_load_current
+>  	restore_irq x9
+>  	ret
+> +	.cfi_endproc
+>  SYM_FUNC_END(call_on_irq_stack)
+>  NOKPROBE(call_on_irq_stack)
+
+While above minimal DWARF CFI works for your use case, the following
+minor issue should probably be better corrected (excerpt from
+call_on_irq_stack with your patch applied):
+
+	blr	x1
+	.cfi_startproc
+	.cfi_def_cfa 29, 16   <-- CFA is defined as FP + 16
+	.cfi_offset 29, -16
+	.cfi_offset 30, -8
+
+	save_and_disable_daif x9
+	/*
+	 * Restore the SP from the FP, and restore the FP and LR from the frame
+	 * record.
+	 */
+	mov	sp, x29
+	ldp	x29, x30, [sp], #16   <-- FP is restored, so that the CFA definition is no longer valid
+[CORRECTION]
+	.cfi_restore 29
+	.cfi_restore 30
+	.cfi_def_cfa 31, 0
+[/CORRECTION]
+	scs_load_current
+	restore_irq x9
+	ret
+	.cfi_endproc
+SYM_FUNC_END(call_on_irq_stack)
+
+
+Would it alternatively make sense to add complete DWARF CFI annotations
+to call_on_irq_stack()?  I think the following would do:
+
+SYM_FUNC_START(call_on_irq_stack)
+	.cfi_startproc
+...
+	/* Create a frame record to save our LR and SP (implicit in FP) */
+	stp	x29, x30, [sp, #-16]!
+	mov	x29, sp
+	.cfi_def_cfa 29, 16
+	.cfi_offset 29, -16
+	.cfi_offset 30, -8
+...
+	/*
+	 * Restore the SP from the FP, and restore the FP and LR from the frame
+	 * record.
+	 */
+	mov	sp, x29
+	ldp	x29, x30, [sp], #16
+	.cfi_restore 29
+	.cfi_restore 30
+	.cfi_def_cfa 31, 0
+...
+	ret
+	.cfi_endproc
+SYM_FUNC_END(call_on_irq_stack)
+
+Thanks and regards,
+Jens
+-- 
+Jens Remus
+Linux on Z Development (D3303)
+jremus@de.ibm.com / jremus@linux.ibm.com
+
+IBM Deutschland Research & Development GmbH; Vorsitzender des Aufsichtsrats: Wolfgang Wendt; Geschäftsführung: David Faller; Sitz der Gesellschaft: Ehningen; Registergericht: Amtsgericht Stuttgart, HRB 243294
+IBM Data Privacy Statement: https://www.ibm.com/privacy/
+
 
