@@ -4,131 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D81B6F8A179
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 13:43:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32F8EF8A17A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 13:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f/UjitU2IRDQkjyHmpVEhuknZxwT4yOWmcb/zMeZnjE=; b=1AXNs96nUc65XZYl/QdMrwwR45
-	vm1+53cEk0yCCVGLV7MDvClDimJX/USK3voomL2KTnEdztCYL5pz3BY9p4cEKY3nEMHpUM4GK2Shr
-	MWxgH/gd9zZvcsFFtsdescPXmBRymYv7rpnwLdAOZhP74KVP9YLQ/U94XtIMw4fKunuGRv9JueI0S
-	m2bMxrIrKbOnoGxHoK3vaaFfvqjbOWw9yCItk9aEc7w2bdsG8+N7ILnpO63i8gZaX3Bv0rs54owIG
-	qTI1nxdqM4EyRBSFukV5/Nofa1+0MIAzfQggDPgl3LtLGS4t5hPNEkgiUK0a8mwdN+udwyBsH7J2h
-	mK+ppEVg==;
+	bh=zOnYPi75gzmQEwbyZJqH4NCjwCJ3I8rG438d8AQ1+0U=; b=HtdldXuFk8LvMrQyUa0mko+W96
+	IIwDGAuGjKUdIviAM4Sp/Z7lekdxfw0b2m5t690VdYI5QZB/4VJwJPtzW80h/CpuRw8OmFR34PeqV
+	xzPCg2Xy6pO/UchZWIhQ4xfRUkwTX/YNuNxKg/VtvURgZDZfF14Sxl4uCN0xz3I/0tH+UytOimm8L
+	fH5aOYUvKsS+TE8LBseOnqqfpsBZRtQJOdrPmKjOHEivXb8bmnNL0xczeCmHzFe4ADPFm0OrxVJIt
+	4GfNttfXBs0YXsE3Mw9ZkXL+rcCDKGQkBcGdROWYBzM34UOB1Sb+r8AGAnfJl/autkk5datm0OGl8
+	Wjo8MsEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDN0D-00000002WIh-3Gj7;
-	Thu, 16 Apr 2026 13:43:29 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wDN4p-00000002Wk6-3ijo;
+	Thu, 16 Apr 2026 13:48:15 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDN0B-00000002WI7-0P9Q;
-	Thu, 16 Apr 2026 13:43:28 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63G7sGgI1833152;
-	Thu, 16 Apr 2026 13:42:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=f/UjitU2IRDQkjyHmpVEhuknZxwT4y
-	OWmcb/zMeZnjE=; b=oxq0L3dyylrzBDUlyV4jJBA8jSxvo6zyTFu2eZGBSWIf1F
-	0ksXNAaZF1WFKO90vuj3ti8LrXkR4WMFD+veRWCanALiSvqIPx5mj6AiZqVUTeh6
-	tnOUDFD8eG7uVm2ujOQXyKpmzLTf5Owa4nae6JyebU1il+cvOG4GPAishf31nirE
-	QHj8T3NZ/YPFd6hNRv9PVtfbIxtnQmC5vDBXeXZfk1L1NOqO7IX91VEsi/on5hTf
-	swPZjWAsNymtPrfj22h1nP6023klHtGdpOwHkZzHB+qFWDGTjvfilGSiiCmKXonp
-	ZKuwp6xlgpdmgU9LP0G+HpY0nEqSmz/YWYI5xffQ==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dh89rnpks-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 16 Apr 2026 13:42:45 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 63GCrstO003393;
-	Thu, 16 Apr 2026 13:42:44 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4djbh94p47-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 16 Apr 2026 13:42:44 +0000
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63GDggEf46530868
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 16 Apr 2026 13:42:42 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6D9BD20040;
-	Thu, 16 Apr 2026 13:42:42 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E411920043;
-	Thu, 16 Apr 2026 13:42:41 +0000 (GMT)
-Received: from osiris (unknown [9.52.214.206])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Thu, 16 Apr 2026 13:42:41 +0000 (GMT)
-Date: Thu, 16 Apr 2026 15:42:38 +0200
-From: Heiko Carstens <hca@linux.ibm.com>
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, linux-s390@vger.kernel.org,
-        Arnd Bergmann <arnd@arndb.de>, x86@kernel.org,
-        Lu Baolu <baolu.lu@linux.intel.com>, iommu@lists.linux.dev,
-        Michael Grzeschik <m.grzeschik@pengutronix.de>, netdev@vger.kernel.org,
-        linux-wireless@vger.kernel.org,
-        Herbert Xu <herbert@gondor.apana.org.au>, linux-crypto@vger.kernel.org,
-        Vlastimil Babka <vbabka@kernel.org>, linux-mm@kvack.org,
-        David Woodhouse <dwmw2@infradead.org>,
-        Bernie Thompson <bernie@plugable.com>, linux-fbdev@vger.kernel.org,
-        Theodore Tso <tytso@mit.edu>, linux-ext4@vger.kernel.org,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Uladzislau Rezki <urezki@gmail.com>, Marco Elver <elver@google.com>,
-        Dmitry Vyukov <dvyukov@google.com>, kasan-dev@googlegroups.com,
-        Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-        Thomas Sailer <t.sailer@alumni.ethz.ch>, linux-hams@vger.kernel.org,
-        "Jason A. Donenfeld" <Jason@zx2c4.com>,
-        Richard Henderson <richard.henderson@linaro.org>,
-        linux-alpha@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
-        linux-arm-kernel@lists.infradead.org,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev,
-        Geert Uytterhoeven <geert@linux-m68k.org>,
-        linux-m68k@lists.linux-m68k.org, Dinh Nguyen <dinguyen@kernel.org>,
-        Jonas Bonn <jonas@southpole.se>, linux-openrisc@vger.kernel.org,
-        Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
-        Michael Ellerman <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org,
-        Paul Walmsley <pjw@kernel.org>, linux-riscv@lists.infradead.org,
-        "David S. Miller" <davem@davemloft.net>, sparclinux@vger.kernel.org
-Subject: Re: [patch 35/38] s390: Select ARCH_HAS_RANDOM_ENTROPY
-Message-ID: <20260416134238.9230Ba6-hca@linux.ibm.com>
-References: <20260410120044.031381086@kernel.org>
- <20260410120319.924028412@kernel.org>
+	id 1wDN4m-00000002Wjl-0QD9
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Apr 2026 13:48:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=zOnYPi75gzmQEwbyZJqH4NCjwCJ3I8rG438d8AQ1+0U=; b=n6F771f72013HJNfmIqPEmVhNi
+	QE0xN6gU/HImq42GSRXuZgq3TjaGa1aeKVavGBIdDNRHPsdHZUUoouucS9r/v2FuVAQlDW+l1Gv8N
+	Y7iaE43hAGc7wNNDYHUh3DapeKFaYEgnKAQxoGl46yX63qHZNyt0lSXLHMfSvnW/3JkUG6trNUN02
+	2C2B2POZuW7NtIFVdNXpYrAzp64+nhJpeK+1zaosi936fktn8foNbfBwpegMLNwxidI3r/bhg6mJT
+	mfmRxjueya3O/l0jhchVIxwIbwZvqG43tq/tjFuBe7SZC0njfOuEPPQhvmzqyfVv8OPtoV0TmrW6Z
+	/Rrnc21g==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:53316)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1wDN4b-000000003Gr-0UCP;
+	Thu, 16 Apr 2026 14:48:01 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1wDN4X-000000003FZ-3ckE;
+	Thu, 16 Apr 2026 14:47:57 +0100
+Date: Thu, 16 Apr 2026 14:47:57 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 5/6] net: stmmac: move PHY handling out of
+ __stmmac_open()/release()
+Message-ID: <aeDojTdDTELfpT0X@shell.armlinux.org.uk>
+References: <aNKDqqI7aLsuDD52@shell.armlinux.org.uk>
+ <5987484.DvuYhMxLoT@steina-w>
+ <aeC-tc2CooYDoBok@shell.armlinux.org.uk>
+ <2410317.ElGaqSPkdT@steina-w>
+ <aeDSTIS9-TDSihbX@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260410120319.924028412@kernel.org>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE2MDEyNyBTYWx0ZWRfX8JpaMjFpMFNj
- wT/gcAkcZviN6PAKMrtow2zaUGLfcmRJE1Hmlajk6nmzRCOPN3b0RjfUSbBfZ4kcpBQKzFkFpH2
- rBdoNFGP+ENma7o4H4KbJVfdl551lLtrUhXHjq9OwNJzXZ+me9M1v1uiIYgnebcgn173Z5tfoDR
- wlQdz0La24p7XZm2254oSjajXGSASA40rSmgRE/jrWjf8LX+uVSsnpdh3XNIiRv8V/PTkKj6EBp
- iBYTVRyCnznRY5uSBKmAQ36JyfUCJkrEoSNgw47/6thxuZYcD3Vho/t2EjbWxo9/yoIVwBhLMiA
- KDHNz3gXJ52J3z8Lw3ApjdhxznJ9LyQJp5nCQBfITC+W8sZcyql8UU+3NCgtkDEKALiOvDUmzX8
- cTJk9dj+/qvxdwTfyZTWoW7vy+HckV57wQs+QYABEOJZttft9F9OCKr+PfGIpmBZixsJntlLk+Y
- lz3L+7/h8eZbcTrAKmg==
-X-Proofpoint-ORIG-GUID: rje87_dJEfU9HQ1lSMRsbGj9D9EjeiT6
-X-Proofpoint-GUID: mvWCwZrNw9W7TL82vJ98uT3DrwWfuFPP
-X-Authority-Analysis: v=2.4 cv=fYidDUQF c=1 sm=1 tr=0 ts=69e0e756 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=kj9zAlcOel0A:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VwQbUJbxAAAA:8
- a=VnNF1IyMAAAA:8 a=1gfdoSPoDaBUdwTi8XQA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-16_03,2026-04-16_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 impostorscore=0 clxscore=1011 malwarescore=0 phishscore=0
- bulkscore=0 priorityscore=1501 spamscore=0 suspectscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604160127
+In-Reply-To: <aeDSTIS9-TDSihbX@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_064327_152327_BA0651DD 
-X-CRM114-Status: GOOD (  24.75  )
+X-CRM114-CacheID: sfid-20260416_064812_314827_0F7CEB2D 
+X-CRM114-Status: GOOD (  47.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,66 +91,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 10, 2026 at 02:21:19PM +0200, Thomas Gleixner wrote:
-> The only remaining non-architecture usage of get_cycles() is to provide
-> random_get_entropy().
+On Thu, Apr 16, 2026 at 01:13:00PM +0100, Russell King (Oracle) wrote:
+> On Thu, Apr 16, 2026 at 02:02:53PM +0200, Alexander Stein wrote:
+> > Hi Russel,
+> > 
+> > Am Donnerstag, 16. April 2026, 12:49:25 CEST schrieb Russell King (Oracle):
+> > > On Thu, Apr 16, 2026 at 08:20:13AM +0200, Alexander Stein wrote:
+> > > > Am Mittwoch, 15. April 2026, 14:59:32 CEST schrieb Russell King (Oracle):
+> > > > > On Wed, Apr 15, 2026 at 08:08:40AM +0200, Alexander Stein wrote:
+> > > > > > Hi,
+> > > > > > 
+> > > > > > Am Dienstag, 23. September 2025, 13:26:19 CEST schrieb Russell King (Oracle):
+> > > > > > > Move the PHY attachment/detachment from the network driver out of
+> > > > > > > __stmmac_open() and __stmmac_release() into stmmac_open() and
+> > > > > > > stmmac_release() where these actions will only happen when the
+> > > > > > > interface is administratively brought up or down. It does not make
+> > > > > > > sense to detach and re-attach the PHY during a change of MTU.
+> > > > > > 
+> > > > > > Sorry for coming up now. But I recently noticed this commit breaks changing
+> > > > > > the MTU on i.MX8MP. Once I simply change the MTU I run into some DMA error:
+> > > > > > $ ip link set dev end1 mtu 1400
+> > > > > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-0
+> > > > > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-1
+> > > > > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-2
+> > > > > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-3
+> > > > > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-4
+> > > > > > imx-dwmac 30bf0000.ethernet end1: Link is Down
+> > > > > > imx-dwmac 30bf0000.ethernet end1: Failed to reset the dma
+> > > > > > imx-dwmac 30bf0000.ethernet end1: stmmac_hw_setup: DMA engine initialization failed
+> > > > > 
+> > > > > This basically means that a clock is missing. Please provide more
+> > > > > information:
+> > > > > 
+> > > > > - what kernel version are you using?
+> > > > 
+> > > > Currently I am using v6.18.22.
+> > > > $ ethtool -i end1
+> > > > driver: st_gmac
+> > > > version: 6.18.22
+> > > > firmware-version: 
+> > > > expansion-rom-version: 
+> > > > bus-info: 30bf0000.ethernet
+> > > > supports-statistics: yes
+> > > > supports-test: no
+> > > > supports-eeprom-access: no
+> > > > supports-register-dump: yes
+> > > > supports-priv-flags: no
+> > > > 
+> > > > > - has EEE been negotiated?
+> > > > 
+> > > > No. It is marked as not supported
+> > > > 
+> > > > $ ethtool --show-eee end1
+> > > > EEE settings for end1:
+> > > >         EEE status: not supported
+> > > > 
+> > > > > - does the problem persist when EEE is disabled?
+> > > > 
+> > > > As EEE is not supported the problem occurs even with EEE disabled.
+> > > > 
+> > > > > - which PHY is attached to stmmac?
+> > > > 
+> > > > It is a TI DP83867.
+> > > > 
+> > > > imx-dwmac 30bf0000.ethernet eth1: PHY [stmmac-1:03] driver [TI DP83867] (irq=136)
+> > > > 
+> > > > > - which PHY interface mode is being used to connect the PHY to stmmac?
+> > > > 
+> > > > For this interface
+> > > > > phy-mode = "rgmii-id";
+> > > > is set.
+> > > > 
+> > > > In case it is helpful. My platform is arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
+> > > > Thanks for assisting. If there a further questions, don't hesitate to ask.
+> > > 
+> > > Thanks.
+> > > 
+> > > So, as best I can determine at the moment, we end up with the following
+> > > sequence:
+> > > 
+> > > stmmac_change_mtu()
+> > >  __stmmac_release()
+> > >   phylink_stop()
+> > >    phy_stop()
+> > >     phy->state = PHY_HALTED
+> > >     _phy_state_machine() returns PHY_STATE_WORK_SUSPEND
+> > >     _phy_state_machine_post_work()
+> > >      phy_suspend()
+> > >       genphy_suspend()
+> > >        phy_set_bits(phydev, MII_BMCR, BMCR_PDOWN)
+> > > 
+> > > With the DP83867, this causes most of the PHY to be powered down, thus
+> > > stopping the clocks, and this causes the stmmac reset to time out.
+> > > 
+> > > Prior to this commit, we would have called phylink_disconnect_phy()
+> > > immediately after phylink_stop(), but I can see nothing that would
+> > > be affected by this change there (since that also calls
+> > > phy_suspend(), but as the PHY is already suspended, this becomes a
+> > > no-op.)
+> > > 
+> > > However, __stmmac_open() would have called stmmac_init_phy(), which
+> > > would reattach the PHY. This would have called phy_init_hw(), 
+> > > resetting the PHY, and phy_resume() which would ensure that the
+> > > PDOWN bit is clear - thus clocks would be running.
+> > > 
+> > > As a hack, please can you try calling phylink_prepare_resume()
+> > > between the __stmmac_release() and __stmmac_open() in
+> > > stmmac_change_mtu(). This should resume the PHY, thus restoring the
+> > > clocks necessary for stmmac to reset.
+> > 
+> > I tried the following patch. This works as you suspected.
 > 
-> Switch s390 over to the new scheme of selecting ARCH_HAS_RANDOM_ENTROPY and
-> providing random_get_entropy() in asm/random.h.
+> Brilliant, thanks for proving the theory why it broke.
 > 
-> Add 'asm/timex.h' includes to the relevant files, so the global include can
-> be removed once all architectures are converted over.
+> I'll have a think about the best way to solve this, because
+> phylink_prepare_resume() is supposed to be paired with phylink_resume()
+> and that isn't the case here.
 > 
-> Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-> Cc: Heiko Carstens <hca@linux.ibm.com>
-> Cc: linux-s390@vger.kernel.org
-> ---
->  arch/s390/Kconfig              |    1 +
->  arch/s390/include/asm/random.h |   12 ++++++++++++
->  arch/s390/include/asm/timex.h  |    6 ------
->  arch/s390/kernel/time.c        |    1 +
->  arch/s390/kernel/vtime.c       |    1 +
->  5 files changed, 15 insertions(+), 6 deletions(-)
+> Please bear with me as my availability for looking at the kernel is
+> very unpredictable at present (family health issues.)
 
-Acked-by: Heiko Carstens <hca@linux.ibm.com>
+I have some patches which passed build testing, but more chaos means
+I can't post them nor test them. I'll do something when I'm next able
+to, whenever that will be.
 
-Thomas, would you mind adding the below as minor improvement to this
-series?
+The next problem will be netdev's policy over reviews vs patches
+balance which I'm already in deficit, and I have *NO* *TIME*
+what so ever to review patches - let alone propose patches to
+fix people's problems.
 
-From 7072e5d66b99a7fa666d17c6ad8cb254f2d8f473 Mon Sep 17 00:00:00 2001
-From: Heiko Carstens <hca@linux.ibm.com>
-Date: Thu, 16 Apr 2026 15:08:15 +0200
-Subject: [PATCH] s390: Use get_tod_clock_fast() for random_get_entropy()
+So I'm going to say this plainly: if netdev wants to enforce that
+rule, then I won't be fixing people's problems.
 
-Use get_tod_clock_fast() instead of get_tod_clock_monotonic() to implement
-random_get_entropy().
-
-There is no need for random_get_entropy() to provide monotonic increasing
-values, nor is there any need to provide (close to) nanosecond granularity
-timestamps by shifting the result.
-
-This slightly reduces the execution time of random_get_entropy() and adds
-two bits of randomness.
-
-Signed-off-by: Heiko Carstens <hca@linux.ibm.com>
----
- arch/s390/include/asm/random.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/s390/include/asm/random.h b/arch/s390/include/asm/random.h
-index 7daf42dbed32..f6d9312efdbf 100644
---- a/arch/s390/include/asm/random.h
-+++ b/arch/s390/include/asm/random.h
-@@ -6,7 +6,7 @@
- 
- static inline unsigned long random_get_entropy(void)
- {
--	return (unsigned long)get_tod_clock_monotonic() >> 2;
-+	return get_tod_clock_fast();
- }
- 
- #endif
 -- 
-2.51.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
