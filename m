@@ -4,96 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 157D1F8DFD0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 22:16:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A777F8DFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 22:16:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=piyZZ06NisopB4fbJpzoJpYSQ4Dnz66ZsdJFLpE4gk8=; b=vwcTkwsM6xZlpFygQzc1XmOzaj
-	dqe87L/eADgA0BTFAoDOE/7d8ROTSeM8fYIN5Ow6wB/X/6l5md+ATwBXr0BamrvfhaWx9VGivDwe5
-	sHS+JfhA8lq8rTug1XKOL26cgfRddCJTz50deV6CZfMkcGYvVK1qlkbxar00qYSzwlsG6peCQNpO8
-	KjC1z8GE31/kS9Re90h6ShZSjBPmZS3/hHFHQTeBCF25jfsHq0v8PHx6cJ18h5LomUY/rovTtEUb+
-	8D/g7pVGZRT1kkGJ793cxrrZQqT5nL3lzprt+0GcVRRiqevdFhclk9EBRL/WDjD2gOOp4BB2OHnPb
-	ixNFX9ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S7mWr2/KZdGk4XRIIecxd3nObkFSbPl2FiN2KNnQZvE=; b=KDJGqgi6RmYtW6CueqZ6wuO9NU
+	JZvgdj9elE2HaetIQeJ8AXzEwZ37wQ/vOZo7kXMcNYNzdR8yEHcWcBK0T7A0E1wNjdkLnWfD0rQ+h
+	QOiAmKjzFwcK5/jwqCSZfAmQKqVw7dKlPbDoeKsKSXxkOvZW4fFj72lM72WEx/hCxWouIwRKNnSka
+	rOkmn+MygI99kcnwUsvIBp0Wpp0+RrmP+Bug2KIUPQZy6OI4PDaTQVRdu939swWWJKnts+IjqDici
+	jQw0vADQf9+CAJjkc5R35fc1llt4lwiHF+J7hBSabI3Z9s3qskUZSXVGqYXQq8NE5z2We21eqhsbf
+	Mg85v5hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDV0A-0000000385u-1CLU;
-	Thu, 16 Apr 2026 22:15:58 +0000
-Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDV07-0000000385X-068y
+	id 1wDV0P-00000003881-2RkJ;
+	Thu, 16 Apr 2026 22:16:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDV0O-0000000387B-0XGu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 22:15:56 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id 7210E1D000F0;
-	Thu, 16 Apr 2026 18:15:51 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Thu, 16 Apr 2026 18:15:51 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm1; t=1776377751; x=1776464151; bh=pi
-	yZZ06NisopB4fbJpzoJpYSQ4Dnz66ZsdJFLpE4gk8=; b=mzqpl7Cseiz481dz+9
-	PGC2wpQJV3ZsSaHc6hUlCjM53IBH50DGyds1o2whwd6H/NXFSNqYJ/SOSYZx17TW
-	y+USGIFCLmOUOcbU304WTOYEbu4M8HlPUI4IgvvM5WbM0xvFQokPDnt0jqcX0G+l
-	pe3EHVlV6FngOXKpMug908VedhdGz1ZYxOy2J7mft/4Bi7NuA1GeQiWF4SVf8IZi
-	qv3E/Bi0WyipEEtMrTS9ATzuA/SdyOIV1U4qpUczdTEf+JrEqBjI38zCSRrMKXTN
-	tXonoK6pUmD/bxATZmmG8vH+J5xyWgvNkx2OyFK8SIA3IIHNPQ9FjbrAFdismJQ1
-	863w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm2; t=1776377751; x=1776464151; bh=piyZZ06NisopB4fbJpzoJpYSQ4Dn
-	z66ZsdJFLpE4gk8=; b=ghvdtKno2W7jqQJfrBfhMl/N+Njtd/FEGhOE8VtryPo8
-	U00Xnjw6oV/iZBlkfN+vW5rUgAtzJUPVWj++jt+DJykEmMe9s45nT6mnxJV5qmg8
-	umbAHV1kMpxFB8nfXtzo4SAT6hAYDuGrShLWxM6kXcLml/e3MlfFONZSndA4ILfI
-	mCIkgowxllRVAkbFdS8xmQaiRIg3vVs/ijw1mPUy9oxf9L1gEvRIx+OerAxb/xTi
-	9YoLzL7yhEZanUJudaRYrplrXhkdVEuRx5C10Nx/V6XxNzjKlT/zFhjqVUp8mU2T
-	5PbwFRE2f+3hFeHkw1TreP5vF0YHuV57t+8d5EuSVg==
-X-ME-Sender: <xms:ll_haeZo6Y4tMcg2rRIafWhbkMGZfEyI08t6EQogOUG6lNYW5XjuFQ>
-    <xme:ll_hacMhN5EKqWP4FT1Bv0_444Twtcm5BsIVG-jcCDk6ehtczSyT6RsCPvBbFQFjz
-    br3FGkBTqKZdfm0fCTUvJ5flU5bosv2EUIDjAXNeBOIXpkm1pUChQE>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdegkedukecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkufgtgfesthhqredtredtjeenucfhrhhomhepfdetrhhnugcuuegv
-    rhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrhhnpe
-    elveehkeffgfdtheekveehhfdtheefkefggeekheeuhffgheejteevgfdtuddvkeenucev
-    lhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrg
-    hrnhgusgdruggvpdhnsggprhgtphhtthhopeegpdhmohguvgepshhmthhpohhuthdprhgt
-    phhtthhopehtohhrvhgrlhgusheslhhinhhugidqfhhouhhnuggrthhiohhnrdhorhhgpd
-    hrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgr
-    uggvrggurdhorhhgpdhrtghpthhtohepshhotgeslhhishhtshdrlhhinhhugidruggvvh
-    dprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhr
-    gh
-X-ME-Proxy: <xmx:l1_haYHuBdi1uJR1lkO1i4HTUhv4Y4kdwTvk-9dQORss55iPw0jAgQ>
-    <xmx:l1_haYNZ5yY6G2103pb5qmTR_dn5iGX-6rSWSeE0wvlyVmJeJ7q58w>
-    <xmx:l1_haadhwyyhkZ7ZRKK7L5a9l5f5PlYeTr3Axj-TJZqoPU4N4yanWQ>
-    <xmx:l1_haVvIgfbT8TTSbewnkhdxN55j3NC5VcKXg42UgEm-A7euZFSpbA>
-    <xmx:l1_hafdUv1FbhA9McM7-uoNAqG960JwbUY66z1FUt5sXXzt1jUATO2cJ>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id DF08D700065; Thu, 16 Apr 2026 18:15:50 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 16 Apr 2026 22:16:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 616BB244C;
+	Thu, 16 Apr 2026 15:16:03 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4FFBD3F7B4;
+	Thu, 16 Apr 2026 15:16:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776377769; bh=V8ec0TpsIUgqsbX+KSePjrEUrQK13ZrEMxo9eEDXamg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AqBWiK7jYMpMWOTFv77VS5U+6k5kJHBT6GdTe//HY5cihe9/pVBCJsGAWC2ycvJDN
+	 R5AUaYZ+2H2I0EbLDIes8OGryXdeEoeg20yuOd/mZN8HzB9Q1K7B1Z06u3olwzbv1H
+	 wsguujqQW5AGTmGsyl1/98eCNv6IiHcU5PzZtwxc=
+Date: Thu, 16 Apr 2026 23:15:57 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Shuah Khan <shuah@kernel.org>
+Subject: Re: [PATCH v2 2/4] KVM: arm64: sefltests: Add helpers for guest
+ hypervisors
+Message-ID: <2grav6nkabbab3e4gm4vtca63kqrpaegq4xqlhdhwc4l32v65i@x5ksiimtk4er>
+References: <20260412142216.3806482-1-weilin.chang@arm.com>
+ <20260412142216.3806482-3-weilin.chang@arm.com>
+ <ad68VjnGQ3trs7AN@sm-arm-grace07>
 MIME-Version: 1.0
-Date: Fri, 17 Apr 2026 00:14:57 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Linus Torvalds" <torvalds@linux-foundation.org>
-Cc: soc@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Message-Id: <c595dc8e-6367-4922-98ed-90bdd4c3c24f@app.fastmail.com>
-Subject: [GIT PULL 0/4] soc branches for 7.1
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ad68VjnGQ3trs7AN@sm-arm-grace07>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_151555_326531_B8D2F81E 
-X-CRM114-Status: UNSURE (   5.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260416_151612_247960_61B2DC54 
+X-CRM114-Status: GOOD (  23.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,85 +76,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is another larger set of changes from the soc tree after a rather
-quiet 7.0 merge window. In total, we merged 88 branches with over
-1000 non-merge changesets, in large parts due to massive devicetree
-updates on both Qualcomm and NXP platforms. These include a total of
-12 new SoCs, all of them part of an already supported chip family.
+On Wed, Apr 15, 2026 at 07:14:46AM +0900, Itaru Kitayama wrote:
+> On Sun, Apr 12, 2026 at 03:22:14PM +0100, Wei-Lin Chang wrote:
+> > Add helpers so that guest hypervisors can run nested guests. SP_EL1
+> > save/restore is added to allow nested guests to use a stack.
+> > 
+> > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> > ---
+> >  .../selftests/kvm/include/arm64/nested.h      | 17 +++++++
+> >  tools/testing/selftests/kvm/lib/arm64/entry.S |  5 ++
+> >  .../testing/selftests/kvm/lib/arm64/nested.c  | 46 +++++++++++++++++++
+> >  3 files changed, 68 insertions(+)
+> > 
+> > diff --git a/tools/testing/selftests/kvm/include/arm64/nested.h b/tools/testing/selftests/kvm/include/arm64/nested.h
+> > index 86d931facacb..7928ef89494a 100644
+> > --- a/tools/testing/selftests/kvm/include/arm64/nested.h
+> > +++ b/tools/testing/selftests/kvm/include/arm64/nested.h
+> > @@ -21,8 +21,17 @@
+> >  
+> >  extern char hyp_vectors[];
+> >  
+> > +enum vcpu_sysreg {
+> > +	__INVALID_SYSREG__,   /* 0 is reserved as an invalid value */
+> > +
+> > +	SP_EL1,
+> > +
+> > +	NR_SYS_REGS
+> > +};
+> > +
+> >  struct cpu_context {
+> >  	struct user_pt_regs regs;	/* sp = sp_el0 */
+> > +	u64 sys_regs[NR_SYS_REGS];
+> >  };
+> >  
+> >  struct vcpu {
+> > @@ -37,9 +46,17 @@ struct hyp_data {
+> >  	struct cpu_context hyp_context;
+> >  };
+> 
+> I am not sure of these structs you introduced only for nested guest feature
+> testing, as the KVM arm64 code they are quite complex and involved, 
+> extracring part of those and add members as hello_nested or simliar
+> tests evolve, then add test cases to me seems fragile. 
+> But if you have strong reason to add these would you mind explaining a bit?
 
-The most active contributors by number of patches were
+Sorry, I don't quite get all of your points. I understand your argument
+being evolving these structs as time goes is fragile. For this didn't
+KVM itself evolve like this?
 
-     43 Krzysztof Kozlowski
-     27 Frank Li
-     26 Dmitry Baryshkov
-     25 Alexander Stein
-     23 Marek Vasut
-     20 Thierry Reding
-     18 Josua Mayer
-     17 Stefano Radaelli
-     17 Sherry Sun
-     17 Fabio Estevam
-     17 Bartosz Golaszewski
-     17 Abel Vesa
-     16 Luca Weiss
-     16 Barnab=C3=A1s Cz=C3=A9m=C3=A1n
-     14 Konrad Dybcio
-     13 Lad Prabhakar
-     13 Gatien Chevallier
-     12 Francesco Dolcini
-     11 Svyatoslav Ryhel
-     11 Rosen Penev
-     11 Jon Hunter
-     11 Christophe Parant
+As for having these structs, how can we make L1 a small hypervisor
+without them?
 
-and this is the corresponding dirstat:
+Thanks,
+Wei-Lin Chang
 
-   0.8% Documentation/devicetree/bindings/arm/
-   0.9% Documentation/devicetree/bindings/clock/
-   0.3% Documentation/devicetree/bindings/soc/
-   0.7% Documentation/devicetree/bindings/
-   0.2% arch/arm/boot/dts/aspeed/
-   0.3% arch/arm/boot/dts/broadcom/
-   0.4% arch/arm/boot/dts/nvidia/
-   2.7% arch/arm/boot/dts/nxp/imx/
-   0.9% arch/arm/boot/dts/qcom/
-   0.2% arch/arm/boot/dts/renesas/
-   1.0% arch/arm/boot/dts/rockchip/
-   0.4% arch/arm/boot/dts/samsung/
-   2.1% arch/arm/boot/dts/st/
-   1.1% arch/arm/boot/dts/ti/omap/
-   0.2% arch/arm/
-   0.3% arch/arm64/boot/dts/allwinner/
-   0.9% arch/arm64/boot/dts/arm/
-   0.2% arch/arm64/boot/dts/broadcom/
-   0.3% arch/arm64/boot/dts/exynos/axis/
-   0.5% arch/arm64/boot/dts/exynos/google/
-   1.0% arch/arm64/boot/dts/exynos/
-  17.4% arch/arm64/boot/dts/freescale/
-   1.1% arch/arm64/boot/dts/microchip/
-   0.6% arch/arm64/boot/dts/nvidia/
-  37.2% arch/arm64/boot/dts/qcom/
-   1.4% arch/arm64/boot/dts/renesas/
-   2.1% arch/arm64/boot/dts/rockchip/
-   0.3% arch/arm64/boot/dts/st/
-   3.3% arch/arm64/boot/dts/ti/
-   0.4% arch/arm64/boot/dts/
-   1.5% arch/riscv/boot/dts/microchip/
-   0.8% arch/riscv/boot/dts/spacemit/
-   0.4% drivers/bus/
-   0.3% drivers/firmware/
-   1.1% drivers/memory/tegra/
-   0.3% drivers/memory/
-   1.8% drivers/reset/
-   0.2% drivers/soc/microchip/
-   0.5% drivers/soc/qcom/
-   0.2% drivers/soc/tegra/cbb/
-   1.3% drivers/soc/tegra/
-   0.3% drivers/
-   1.4% include/dt-bindings/clock/
-   0.5% include/dt-bindings/reset/
-   0.3% include/linux/
-   7.4% include/soc/tegra/
- 977 files changed, 90981 insertions(+), 15252 deletions(-)
-
+> 
+> Thanks,
+> Itaru.
+> 
+> >  
+> > +void prepare_hyp(void);
+> > +void init_vcpu(struct vcpu *vcpu, vm_paddr_t l2_pc, vm_paddr_t l2_stack_top);
+> > +int run_l2(struct vcpu *vcpu, struct hyp_data *hyp_data);
+> > +
+> > +void do_hvc(void);
+> >  u64 __guest_enter(struct vcpu *vcpu, struct cpu_context *hyp_context);
+> >  void __hyp_exception(u64 type);
+> >  
+> > +void __sysreg_save_el1_state(struct cpu_context *ctxt);
+> > +void __sysreg_restore_el1_state(struct cpu_context *ctxt);
+> > +
+> >  #endif /* !__ASSEMBLER__ */
+> >  
+> >  #endif /* SELFTEST_KVM_NESTED_H */
+> > diff --git a/tools/testing/selftests/kvm/lib/arm64/entry.S b/tools/testing/selftests/kvm/lib/arm64/entry.S
+> > index 33bedf5e7fb2..df3af3463c6c 100644
+> > --- a/tools/testing/selftests/kvm/lib/arm64/entry.S
+> > +++ b/tools/testing/selftests/kvm/lib/arm64/entry.S
+> > @@ -3,6 +3,11 @@
+> >   * adapted from arch/arm64/kvm/hyp/entry.S
+> >   */
+> >  
+> > + .globl do_hvc
+> > + do_hvc:
+> > +	hvc	#0
+> > +	ret
+> > +
+> >  /*
+> >   * Manually define these for now
+> >   */
+> > diff --git a/tools/testing/selftests/kvm/lib/arm64/nested.c b/tools/testing/selftests/kvm/lib/arm64/nested.c
+> > index 06ddaab2436f..b30d20b101c4 100644
+> > --- a/tools/testing/selftests/kvm/lib/arm64/nested.c
+> > +++ b/tools/testing/selftests/kvm/lib/arm64/nested.c
+> > @@ -4,7 +4,53 @@
+> >   */
+> >  
+> >  #include "nested.h"
+> > +#include "processor.h"
+> >  #include "test_util.h"
+> > +#include <asm/sysreg.h>
+> > +
+> > +void prepare_hyp(void)
+> > +{
+> > +	write_sysreg(HCR_EL2_E2H | HCR_EL2_RW, hcr_el2);
+> > +	write_sysreg(hyp_vectors, vbar_el2);
+> > +	isb();
+> > +}
+> > +
+> > +void init_vcpu(struct vcpu *vcpu, vm_paddr_t l2_pc, vm_paddr_t l2_stack_top)
+> > +{
+> > +	memset(vcpu, 0, sizeof(*vcpu));
+> > +	vcpu->context.regs.pc = l2_pc;
+> > +	vcpu->context.regs.pstate = PSR_MODE_EL1h | PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT;
+> > +	vcpu->context.sys_regs[SP_EL1] = l2_stack_top;
+> > +}
+> > +
+> > +void __sysreg_save_el1_state(struct cpu_context *ctxt)
+> > +{
+> > +	ctxt->sys_regs[SP_EL1] = read_sysreg(sp_el1);
+> > +}
+> > +
+> > +void __sysreg_restore_el1_state(struct cpu_context *ctxt)
+> > +{
+> > +	write_sysreg(ctxt->sys_regs[SP_EL1], sp_el1);
+> > +}
+> > +
+> > +int run_l2(struct vcpu *vcpu, struct hyp_data *hyp_data)
+> > +{
+> > +	u64 ret;
+> > +
+> > +	__sysreg_restore_el1_state(&vcpu->context);
+> > +
+> > +	write_sysreg(vcpu->context.regs.pstate, spsr_el2);
+> > +	write_sysreg(vcpu->context.regs.pc, elr_el2);
+> > +
+> > +	ret =  __guest_enter(vcpu, &hyp_data->hyp_context);
+> > +
+> > +	vcpu->context.regs.pc = read_sysreg(elr_el2);
+> > +	vcpu->context.regs.pstate = read_sysreg(spsr_el2);
+> > +
+> > +	__sysreg_save_el1_state(&vcpu->context);
+> > +
+> > +	return ret;
+> > +}
+> >  
+> >  void __hyp_exception(u64 type)
+> >  {
+> > -- 
+> > 2.43.0
+> > 
 
