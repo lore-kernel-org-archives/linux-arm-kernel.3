@@ -4,83 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3FB5F8A142
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 08:10:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 254A8F8A140
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 08:12:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TGeosueFdZ43vSfHm4QNFrG2zEy0QWi5pbd8zgH6eCU=; b=0VU6zJxHv5QZE2Ue/Y4RB6sAYZ
-	qGrtMqdK/XbT6a8VMOIJft4JVnGqSHHWEC+LeMgfB5N29Lhr11noKRtKzk4EI5E1JuOu740zwBu2L
-	EFVnE6ri6hbFSymT8HmR7SoVjMAQ/wjzcgSvGQQU+VKBAnF7LPnQBafVYB4BVCiS9XoKDQ5Ya9+ih
-	Av9nMySnhU9WufTU7w3L3tuoQBAbQzDr4K67dUUyB4D2scGirpsVlN1YMhsp5wbuwW4bRP0IHFXch
-	IPTkfOhgneUgkgyN5oknO/bD6+4OR0Ddlk1D/I2NUWotwvAc8vAh1Y9PLx1kHiu8hjzsh0eytOwZU
-	4MRTnLDg==;
+	bh=dCw/fk1scpcEI5fTg9Hp2YTuYcflg1hd7U/WW44L5U8=; b=iGtMbWfGd5Q0KOGPFenIbbJK0M
+	dv3PcWdc3vZG0iSfzh3PV6YIWrc4WIp7DyMuStYW6PUuKTNFZdoRpG2ll5smErC01XfHbc4Gv3qhw
+	6Py0AggWd33q3SOeO/EGjdraaG91BttlrpwUSGO0zWxAL3QclIUc+ogeDKY9/XtzRPWtsn1LJ4M9E
+	xcYvhTDEoM/z4PD5Kb+vHFjl3WKPrhlSPIcUe7sB7uWx1K93COuIEoz99HN2iol2a/UI9xeLIWLU/
+	T/4WY93sTZawwmdjJsW87C5hHVPeAWiVAdDxx3jyxVNR3Yd+eYjNkcNx0EcqqLbcD1wM/GH3s5wSV
+	gM7hSxNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDHnm-000000029tB-1sCn;
-	Thu, 16 Apr 2026 08:10:18 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wDHpd-00000002A56-1TGU;
+	Thu, 16 Apr 2026 08:12:13 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDHni-000000029sX-3RuP;
-	Thu, 16 Apr 2026 08:10:16 +0000
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 14C9DC6C;
-	Thu, 16 Apr 2026 10:08:33 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1776326915;
-	bh=g7f/Flf2ul/YLdxmLv00ymzR+4jdIi46fIJJ0uhUQ7Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pWjsSEEGtmYTjmh1L3vxjLjJOdT9c2tbeZUNXWjczBqPbKqdjpZMp4rqczxJP58Jf
-	 zLFaAukADLLma/Vw4PR1ekKd/GJOEikDsklce9HMwHIqA6dJSLu3TaWUZStlGcDAtB
-	 up2qmcbfrGPR9jIeuRwjWAgLZdc7PMji46McCOyU=
-Message-ID: <51b7c44e-36c9-461f-983a-eaa86eeb8cfd@ideasonboard.com>
-Date: Thu, 16 Apr 2026 11:10:03 +0300
+	id 1wDHpa-00000002A4k-21GG
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Apr 2026 08:12:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1776327127;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dCw/fk1scpcEI5fTg9Hp2YTuYcflg1hd7U/WW44L5U8=;
+	b=MB3xNR6KYko5QQkOYxUURByIW6M7+RGW0jMdhSkO//sIJ33Pf/avp/ReSMjTo4gpsNajnj
+	gFCF6phvPj5iSSQ76cb/4WvVa239KtGw2eYydiTgmxqkrm7aoxYAvZNOv7juZ5g/tASKYS
+	ziqqCVSvhDnJssFkXvLkl96JsBdBQw0=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-177-bT98mmQVPnCKyAWEZ6rCzQ-1; Thu, 16 Apr 2026 04:12:06 -0400
+X-MC-Unique: bT98mmQVPnCKyAWEZ6rCzQ-1
+X-Mimecast-MFC-AGG-ID: bT98mmQVPnCKyAWEZ6rCzQ_1776327125
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-43d744128b9so3468634f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 01:12:06 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776327125; x=1776931925;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=dCw/fk1scpcEI5fTg9Hp2YTuYcflg1hd7U/WW44L5U8=;
+        b=nwWtd3meA4bAdaysTfTVQsVao5l0yQdxscZVf1mlviR8ONYPUN3IHYN+WmeLT4qgiu
+         XeL3smaT3yTQCMFfE4SMk1Bbsgx4398bJKwdeb0jEhE7U19xLQi+HHHSBODp83sdK7lx
+         DraF70W+s+jao2qU5kihxlyd6kPoQy060+T8+F9xhy+vBpwfuTddz5NERwpO/u25s4Ug
+         wokKHDfvyn83bSWRMq35CqxLa8lCYwZR5aPDiqEk1kYOWkoeCM8I0BfEM7BaXgQhGyVm
+         eMomzHQp2K61yQvB9bobrDHsd1FKTQxzwrxqcLggLuVcVEbXVD6tekzxGpNRft/9Imf7
+         lauA==
+X-Forwarded-Encrypted: i=1; AFNElJ8zSuIf44ljulCEpWMVetHB5i/ZfqcT7Ci28LIPEhBCBq071gBG3EVi2X2YDULInCU39r117Uon6yghRweUaVxc@lists.infradead.org
+X-Gm-Message-State: AOJu0YwsMtCXEKu6A1yK4wMMIfdV6DaQjTF6Ut6Kx9TO+GHFRIxxT3PW
+	/jsNxY1LoBJvs45ABMUOFnkN2qIGMhnjqZ7SBblo2QyxxjE2rNqdPF0VqsUYy01P+HetdYCT6F+
+	qmcp1bzcpsTHnu7/2CehOJDh5J0PC3SbhbazBwFFXJlWfOCgbqRCHtbPYWePmPnle3F9BzW726R
+	/x
+X-Gm-Gg: AeBDiettt6PkCpgv1FGwlsILT8079/hp6ikhIAgWf+vmV8DnR3hy8es5S54DNfu+SX/
+	QBD/222gPrL3EdKOD0Yu3anMX3g6wvWWQ4A9HMFAcZSxjxoexwnjVaHcPcYApbfk0QUWA7ulD6C
+	awU6SwwZFystARMTo2xuPvFTTpe5uay907bd/lrD5e+RwqoOZpKG9eBn1r/STt6/490/yXnbVIh
+	mmpC3UridP2OIOaFZ9VqorrChE84iuEC1mCZqSJquq82FD1Jso8lgaFLOThRSARbLUrM2JJYgCM
+	71eOZnI342xQW7vIGjX9IS3/YUmgm0wnzs/e/bNqRXUa9LbHtU0/YelCTEyoEbgoNKUqTZPazHZ
+	tN62LBuuX/EEIj/l+74nqpOoEpiu7auLvJy+FntYhLVEZPR1R3m2u/t0DlOeku/d3oTk=
+X-Received: by 2002:a05:6000:2c02:b0:43d:75a2:44a1 with SMTP id ffacd0b85a97d-43d75a2463emr24016078f8f.47.1776327124806;
+        Thu, 16 Apr 2026 01:12:04 -0700 (PDT)
+X-Received: by 2002:a05:6000:2c02:b0:43d:75a2:44a1 with SMTP id ffacd0b85a97d-43d75a2463emr24016016f8f.47.1776327124289;
+        Thu, 16 Apr 2026 01:12:04 -0700 (PDT)
+Received: from [192.168.88.32] ([150.228.93.122])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43ead3d5ea9sm11794717f8f.21.2026.04.16.01.12.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 16 Apr 2026 01:12:03 -0700 (PDT)
+Message-ID: <72d1b0b7-c8df-463e-a2d9-bf5ff04ba33c@redhat.com>
+Date: Thu, 16 Apr 2026 10:12:01 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/6] drm/connector: report IRQ_HPD events to
- drm_connector_oob_hotplug_event()
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-usb@vger.kernel.org, intel-gfx@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- freedreno@lists.freedesktop.org,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Adrien Grassein <adrien.grassein@gmail.com>,
- Jani Nikula <jani.nikula@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Tvrtko Ursulin <tursulin@ursulin.net>, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov
- <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>,
- Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
- Marijn Suijten <marijn.suijten@somainline.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Pengyu Luo <mitltlatltl@gmail.com>,
- Nikita Travkin <nikita@trvn.ru>, Yongxing Mou <yongxing.mou@oss.qualcomm.com>
-References: <20260416-hpd-irq-events-v1-0-1ab1f1cfb2b2@oss.qualcomm.com>
- <20260416-hpd-irq-events-v1-1-1ab1f1cfb2b2@oss.qualcomm.com>
+Subject: Re: [PATCH net,v2 1/1] net: stmmac: Update default_an_inband before
+ passing value to phylink_config
+To: KhaiWenTan <khai.wen.tan@linux.intel.com>, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ rmk+kernel@armlinux.org.uk, maxime.chevallier@bootlin.com,
+ ovidiu.panait.rb@renesas.com, vladimir.oltean@nxp.com
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ yoong.siang.song@intel.com, hong.aun.looi@intel.com, khai.wen.tan@intel.com
+References: <20260413020339.68426-1-khai.wen.tan@linux.intel.com>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20260413020339.68426-1-khai.wen.tan@linux.intel.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: zCl0TShKw3fTe7ZIEX7agM_DGTywRrboWvWsYIbU-fA_1776327125
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-In-Reply-To: <20260416-hpd-irq-events-v1-1-1ab1f1cfb2b2@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_011015_036358_92C6BC83 
-X-CRM114-Status: GOOD (  21.40  )
+X-CRM114-CacheID: sfid-20260416_011210_616962_058444CF 
+X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,57 +118,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 4/13/26 4:03 AM, KhaiWenTan wrote:
+> get_interfaces() will update both the plat->phy_interfaces and
+> mdio_bus_data->default_an_inband based on reading a SERDES register. As
+> get_interfaces() will be called after default_an_inband had already been
+> read, dwmac-intel regressed as a result with incorrect default_an_inband
+> value in phylink_config.
+> 
+> Therefore, we moved the priv->plat->get_interfaces() to be executed first
+> before assigning mdio_bus_data->default_an_inband to
+> config->default_an_inband to ensure default_an_inband is in correct value.
+> 
+> Fixes: d3836052fe09 ("net: stmmac: intel: convert speed_mode_2500() to get_interfaces()")
+> Signed-off-by: KhaiWenTan <khai.wen.tan@linux.intel.com>
 
-On 16/04/2026 02:22, Dmitry Baryshkov wrote:
-> The DisplayPort standard defines a special kind of events called IRQ.
-> These events are used to notify DP Source about the events on the Sink
-> side. It is extremely important for DP MST handling, where the MST
-> events are reported through this IRQ.
-> 
-> In case of the USB-C DP AltMode there is no actual HPD pulse, but the
-> events are ported through the bits in the AltMode VDOs.
-> 
-> Extend the drm_connector_oob_hotplug_event() interface and report IRQ
-> events to the DisplayPort Sink drivers.
-> 
-> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> ---
->   drivers/gpu/drm/drm_connector.c          |  4 +++-
->   drivers/usb/typec/altmodes/displayport.c | 12 ++++++++----
->   include/drm/drm_connector.h              |  3 ++-
->   3 files changed, 13 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
-> index 47dc53c4a738..5fdacbd84bd7 100644
-> --- a/drivers/gpu/drm/drm_connector.c
-> +++ b/drivers/gpu/drm/drm_connector.c
-> @@ -3510,6 +3510,7 @@ struct drm_connector *drm_connector_find_by_fwnode(struct fwnode_handle *fwnode)
->    * drm_connector_oob_hotplug_event - Report out-of-band hotplug event to connector
->    * @connector_fwnode: fwnode_handle to report the event on
->    * @status: hot plug detect logical state
-> + * @irq_hpd: HPD pulse detected
->    *
->    * On some hardware a hotplug event notification may come from outside the display
->    * driver / device. An example of this is some USB Type-C setups where the hardware
-> @@ -3520,7 +3521,8 @@ struct drm_connector *drm_connector_find_by_fwnode(struct fwnode_handle *fwnode)
->    * a drm_connector reference through calling drm_connector_find_by_fwnode().
->    */
->   void drm_connector_oob_hotplug_event(struct fwnode_handle *connector_fwnode,
-> -				     enum drm_connector_status status)
-> +				     enum drm_connector_status status,
-> +				     bool irq_hpd)
-I find the "IRQ HPD" naming always confusing, even if I'm somewhat 
-familiar with DP, but if someone has mainly worked on HDMI, I'm sure 
-it's even worse.
+Since Jakub sent the net-next PR and forwarded the trees, this patch
+does not apply anymore. Please rebase and repost. You can retain
+Russell's reviewed-by tag.
 
-Can we define this a bit more precisely? Is 'irq_hpd' only for 
-displayport?  If so, perhaps 'dp_irq_hpd' or 'displayport_irq_hpd'. I 
-might even call it 'dp_hpd_pulse', but maybe that's not good as the spec 
-talks about HPD pulse for both short and long ones (although in the 
-kernel doc you just write "HPD pulse")... The kernel doc could be 
-expanded a bit to make it clear what this flag indicates.
+Thanks,
 
-  Tomi
+Paolo
 
 
