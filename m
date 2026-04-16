@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12F47F8A14D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 10:49:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB83BF8A15B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 10:50:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iTecCTUOjCT2Rh+35c/jBL17rubrlvWXt7j7t5fyE4A=; b=SnHhn7PilIX9MdSlqAI/8Aaajz
-	K+HWhGCG68n3czVrDsnuAErLC7KIfbPTFBI/UjDyBv2ZEnNkkoM8ZkzSWG5pMlPZfD12qpbl3vI6Y
-	vSNPZKLdFAoP+HVmWiRUOfnGAa4QoiF0Mc1otQugTdCZQ7Pq5LQIF4y8pm/ll+JQti1vvkS0YkWYe
-	Jw8JNTu7Xmx4bcsbCA0bquXiQHxoOLQzlNOMpj1B/YibEJ1LLlVnYS2PXrkjPHoGXofZFDAXvs5a+
-	7dEHhoKK/3aijpsxCoDtn2NKBXUw3fShzjV+jE3nsXCP4RiX3Qzpa8L0pqfS2GO1TgMxGnGWPPkus
-	zw98SArg==;
+	bh=LsMXnOaAzdjlEVtSKtMZDS5kwusBm9SAqdWyqCgxO0s=; b=XaulYL34EETTbDWRqUEOn+jchD
+	xwfJwelooeRnJMeX3oN0FRNQg2F6rNuz/+5ZPJzWixnO8SA6B8VEVfu2o+qERV+kLoJ6l1WxIcNfr
+	psxGKkbJsSZTcxaSR+3zZz4x2jwhVYNod8memdra3LWgD3cpDJ8eAUBwe7thgbEhfovSibQoG+ob8
+	+uOwIzXuNht9ljDQsyzz/Jn+yHacFcWffn6DYSy0M3huZhtHJE93AFf8LWZZOY2ClrOc0weJMTAEm
+	0++5ngHmkEoGwOMX+aENo+xNBINMRNVKxTofyBrSwQ5hLjvMJFUcMYjS49F7Ld5CNlfRJlWQa+RIb
+	f+402pqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDKI4-00000002KUw-1Iul;
-	Thu, 16 Apr 2026 10:49:44 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1wDKJ1-00000002Kcd-3TiZ;
+	Thu, 16 Apr 2026 10:50:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDKI1-00000002KUJ-1TaA
+	id 1wDKIz-00000002KcT-4AMl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 10:49:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=iTecCTUOjCT2Rh+35c/jBL17rubrlvWXt7j7t5fyE4A=; b=hS+zERdx785E7w8JuVhIqIUjqo
-	rfTzzmGwWX/PzAGKN9P/mq5ofpIaokW6Naxsd3Ouod8CcSBoL8YWAadvltn2AtDOzWPioFgM3W23v
-	Q5V2vsauwwB7RZ2YexHer3u5vyh7euHUKU2rzvgV9PdVtbEJLLuJicgrkCOfdvGGVSY9FQEmuT38O
-	81dAcc0BC83k8bFEmZOvAW7fKXhSVgEb7U0L1T5zR/uJpFRUP321srKZKF/YHgCOLflE8d09edYbj
-	fBA/wHJ3iQWgZOYuYhy15KCeJUdJ6s+4ZH/aBdCVzE0WtuP0TEUB7ihUZzfk17611Ex3gsTduFa57
-	pydTVpKg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:60888)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	Thu, 16 Apr 2026 10:50:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4CD0B60126;
+	Thu, 16 Apr 2026 10:50:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D38B5C2BCAF;
+	Thu, 16 Apr 2026 10:50:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776336641;
+	bh=L15S26xrdFa2h2DdyQPiDB+su+8bDUbpFsvk71cGpik=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=DLfZZ8p1k8JcGemnaTdhhaa8qpw5hKyiZer/ftvpUCUCAgr7TmsDRoT99vXUwHJ1a
+	 0tlJQISIbmayCmCo0nEPkz0Iq/6uujur9QX9yVrIG4wrOpl69JAXuVRO9HIFnLYGuF
+	 d1PFhHfG1ZYTUnOFSX4nJwWDqfrtXQXa34dYC1lgwTAXT+kkIHF8nqVxRzSjKv0jIJ
+	 a5W/3jIKX9QDaYc9eTwp1N4mSPv/rO2QUApoYG90fjeTTIUSiY1b8mJNxfHN3Zam2Y
+	 IV9x4rNqeRLBdC3G+0pdioCJccrUlXrw2kAqIwnCwJanznKG7hZmQ5XZJ3u3rknjeP
+	 Gc/StuQ55p14Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1wDKHp-0000000035z-1EzG;
-	Thu, 16 Apr 2026 11:49:29 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1wDKHl-0000000038b-3rco;
-	Thu, 16 Apr 2026 11:49:25 +0100
-Date: Thu, 16 Apr 2026 11:49:25 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 5/6] net: stmmac: move PHY handling out of
- __stmmac_open()/release()
-Message-ID: <aeC-tc2CooYDoBok@shell.armlinux.org.uk>
-References: <aNKDqqI7aLsuDD52@shell.armlinux.org.uk>
- <8409022.LvFx2qVVIh@steina-w>
- <ad-LtOBrKREM1tCk@shell.armlinux.org.uk>
- <5987484.DvuYhMxLoT@steina-w>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5987484.DvuYhMxLoT@steina-w>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_034941_392120_E5B51960 
-X-CRM114-Status: GOOD (  32.11  )
+	(envelope-from <maz@kernel.org>)
+	id 1wDKIw-0000000C7Bj-27sh;
+	Thu, 16 Apr 2026 10:50:38 +0000
+Date: Thu, 16 Apr 2026 11:50:38 +0100
+Message-ID: <867bq72n7l.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH 1/1] KVM: arm64: nv: Avoid full shadow s2 unmap
+In-Reply-To: <tozhyzmwfddgx5fgfejracv6tskgs7xhs4fs6yvmvff74m7gwy@eq3oh35tokj4>
+References: <20260411125024.3735989-1-weilin.chang@arm.com>
+	<20260411125024.3735989-2-weilin.chang@arm.com>
+	<86eckg39eo.wl-maz@kernel.org>
+	<tozhyzmwfddgx5fgfejracv6tskgs7xhs4fs6yvmvff74m7gwy@eq3oh35tokj4>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: weilin.chang@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,113 +91,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 16, 2026 at 08:20:13AM +0200, Alexander Stein wrote:
-> Am Mittwoch, 15. April 2026, 14:59:32 CEST schrieb Russell King (Oracle):
-> > On Wed, Apr 15, 2026 at 08:08:40AM +0200, Alexander Stein wrote:
-> > > Hi,
-> > > 
-> > > Am Dienstag, 23. September 2025, 13:26:19 CEST schrieb Russell King (Oracle):
-> > > > Move the PHY attachment/detachment from the network driver out of
-> > > > __stmmac_open() and __stmmac_release() into stmmac_open() and
-> > > > stmmac_release() where these actions will only happen when the
-> > > > interface is administratively brought up or down. It does not make
-> > > > sense to detach and re-attach the PHY during a change of MTU.
-> > > 
-> > > Sorry for coming up now. But I recently noticed this commit breaks changing
-> > > the MTU on i.MX8MP. Once I simply change the MTU I run into some DMA error:
-> > > $ ip link set dev end1 mtu 1400
-> > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-0
-> > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-1
-> > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-2
-> > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-3
-> > > imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-4
-> > > imx-dwmac 30bf0000.ethernet end1: Link is Down
-> > > imx-dwmac 30bf0000.ethernet end1: Failed to reset the dma
-> > > imx-dwmac 30bf0000.ethernet end1: stmmac_hw_setup: DMA engine initialization failed
-> > 
-> > This basically means that a clock is missing. Please provide more
-> > information:
-> > 
-> > - what kernel version are you using?
-> 
-> Currently I am using v6.18.22.
-> $ ethtool -i end1
-> driver: st_gmac
-> version: 6.18.22
-> firmware-version: 
-> expansion-rom-version: 
-> bus-info: 30bf0000.ethernet
-> supports-statistics: yes
-> supports-test: no
-> supports-eeprom-access: no
-> supports-register-dump: yes
-> supports-priv-flags: no
-> 
-> > - has EEE been negotiated?
-> 
-> No. It is marked as not supported
-> 
-> $ ethtool --show-eee end1
-> EEE settings for end1:
->         EEE status: not supported
-> 
-> > - does the problem persist when EEE is disabled?
-> 
-> As EEE is not supported the problem occurs even with EEE disabled.
-> 
-> > - which PHY is attached to stmmac?
-> 
-> It is a TI DP83867.
-> 
-> imx-dwmac 30bf0000.ethernet eth1: PHY [stmmac-1:03] driver [TI DP83867] (irq=136)
-> 
-> > - which PHY interface mode is being used to connect the PHY to stmmac?
-> 
-> For this interface
-> > phy-mode = "rgmii-id";
-> is set.
-> 
-> In case it is helpful. My platform is arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
-> Thanks for assisting. If there a further questions, don't hesitate to ask.
+On Thu, 16 Apr 2026 00:05:40 +0100,
+Wei-Lin Chang <weilin.chang@arm.com> wrote:
+>=20
+> On Wed, Apr 15, 2026 at 09:38:55AM +0100, Marc Zyngier wrote:
 
-Thanks.
+[...]
 
-So, as best I can determine at the moment, we end up with the following
-sequence:
+> > > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/a=
+sm/kvm_host.h
+> > > index 851f6171751c..a97bd461c1e1 100644
+> > > --- a/arch/arm64/include/asm/kvm_host.h
+> > > +++ b/arch/arm64/include/asm/kvm_host.h
+> > > @@ -217,6 +217,10 @@ struct kvm_s2_mmu {
+> > >  	 */
+> > >  	bool	nested_stage2_enabled;
+> > > =20
+> > > +	/* canonical IPA to nested IPA range lookup */
+> > > +	struct maple_tree nested_revmap_mt;
+> > > +	bool	nested_revmap_broken;
+> > > +
+> >=20
+> > Consider moving this boolean next to the other ones so that you don't
+> > create too many holes in the kvm_s2_mmu structure (use pahole to find o=
+ut).
+> >=20
+> > But I have some misgivings about the way things are structured
+> > here. Only NV needs a revmap, yet this is present irrelevant of the
+> > nature of the VM and bloats the data structure a bit.
+> >=20
+> > My naive approach would have been to only keep a pointer to the
+> > revmap, and make that pointer NULL when the tree is "broken", and
+> > freed under RCU if the context isn't the correct one.
+>=20
+> Can you explain what you mean by "if the context isn't the correct one"?
+> If this refers to when selecting a specific kvm_s2_mmu instance for
+> another context, then IIUC refcnt would already be 0 and there would be
+> no other user of the tree.
 
-stmmac_change_mtu()
- __stmmac_release()
-  phylink_stop()
-   phy_stop()
-    phy->state = PHY_HALTED
-    _phy_state_machine() returns PHY_STATE_WORK_SUSPEND
-    _phy_state_machine_post_work()
-     phy_suspend()
-      genphy_suspend()
-       phy_set_bits(phydev, MII_BMCR, BMCR_PDOWN)
+Sorry, "context" is an overloaded word. I meant a situation in which
+you couldn't immediately free the maple-tree because you're holding
+locks and freeing (hypothetically) requires a sleeping "context". in
+this case, freeing under RCU, purely as a deferring mechanism, might
+be useful.
 
-With the DP83867, this causes most of the PHY to be powered down, thus
-stopping the clocks, and this causes the stmmac reset to time out.
+[...]
 
-Prior to this commit, we would have called phylink_disconnect_phy()
-immediately after phylink_stop(), but I can see nothing that would
-be affected by this change there (since that also calls
-phy_suspend(), but as the PHY is already suspended, this becomes a
-no-op.)
+> > > +/*
+> > > + * Per shadow S2 reverse map (IPA -> nested IPA range) maple tree pa=
+yload
+> > > + * layout:
+> > > + *
+> > > + * bit 63: valid, 1 for non-polluted entries, prevents the case wher=
+e the
+> > > + *         nested IPA is 0 and turns the whole value to 0
+> > > + * bits 55-12: nested IPA bits 55-12
+> > > + * bit 0: polluted, 1 for polluted, 0 for not
+> > > + */
+> > > +#define VALID_ENTRY		BIT(63)
+> > > +#define NESTED_IPA_MASK		GENMASK_ULL(55, 12)
+> > > +#define UNKNOWN_IPA		BIT(0)
+> > > +
+> >=20
+> > This only works because you are using the "advanced" API, right?
+> > Otherwise, you'd be losing the high bit. It'd be good to add a comment
+> > so that people keep that in mind.
+>=20
+> Sorry, I can't find any relationship between the advanced API and the
+> top most bit of the maple tree value, what am I missing?
 
-However, __stmmac_open() would have called stmmac_init_phy(), which
-would reattach the PHY. This would have called phy_init_hw(), 
-resetting the PHY, and phy_resume() which would ensure that the
-PDOWN bit is clear - thus clocks would be running.
+=46rom Documentation/core-api/maple_tree.rst:
 
-As a hack, please can you try calling phylink_prepare_resume()
-between the __stmmac_release() and __stmmac_open() in
-stmmac_change_mtu(). This should resume the PHY, thus restoring the
-clocks necessary for stmmac to reset.
+<quote>
+The Maple Tree can store values between ``0`` and ``ULONG_MAX``.  The Maple
+Tree reserves values with the bottom two bits set to '10' which are below 4=
+096
+(ie 2, 6, 10 .. 4094) for internal use.  If the entries may use reserved
+entries then the users can convert the entries using xa_mk_value() and conv=
+ert
+them back by calling xa_to_value().  If the user needs to use a reserved
+value, then the user can convert the value when using the
+:ref:`maple-tree-advanced-api`, but are blocked by the normal API.
+</quote>
 
-Thanks.
+So depending how you read this, you can conclude that the bit patterns
+you encode in the MT may be considered as invalid. xa_mk_value() would
+make things always work, but that shifts the value left by one bit,
+hence you'd lose bit 63 (see how we use trap_config in
+emulate-nested.c to deal with this).
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+I think you are lucky that bits [11:1] are always 0 here, but that
+looks extremely fragile to me, so you never hit the [1:0]=3D=3D10
+condition, but that's really fragile.
+
+>=20
+> >=20
+> > >  void kvm_init_nested(struct kvm *kvm)
+> > >  {
+> > >  	kvm->arch.nested_mmus =3D NULL;
+> > > @@ -769,12 +783,57 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(str=
+uct kvm_vcpu *vcpu)
+> > >  	return s2_mmu;
+> > >  }
+> > > =20
+> > > +void kvm_record_nested_revmap(gpa_t ipa, struct kvm_s2_mmu *mmu,
+> > > +			      gpa_t fault_ipa, size_t map_size)
+> > > +{
+> > > +	struct maple_tree *mt =3D &mmu->nested_revmap_mt;
+> > > +	gpa_t start =3D ipa;
+> > > +	gpa_t end =3D ipa + map_size - 1;
+> > > +	u64 entry, new_entry =3D 0;
+> > > +	MA_STATE(mas, mt, start, end);
+> > > +
+> > > +	if (mmu->nested_revmap_broken)
+> > > +		return;
+> > > +
+> > > +	mtree_lock(mt);
+> > > +	entry =3D (u64)mas_find_range(&mas, end);
+> > > +
+> > > +	if (entry) {
+> > > +		/* maybe just a perm update... */
+> > > +		if (!(entry & UNKNOWN_IPA) && mas.index =3D=3D start &&
+> > > +		    mas.last =3D=3D end &&
+> > > +		    fault_ipa =3D=3D (entry & NESTED_IPA_MASK))
+> > > +			goto unlock;
+> > > +		/*
+> > > +		 * Create a "polluted" range that spans all the overlapping
+> > > +		 * ranges and store it.
+> > > +		 */
+> > > +		while (entry && mas.index <=3D end) {
+> > > +			start =3D min(mas.index, start);
+> > > +			end =3D max(mas.last, end);
+> > > +			entry =3D (u64)mas_find_range(&mas, end);
+> > > +		}
+> > > +		new_entry |=3D UNKNOWN_IPA;
+> > > +	} else {
+> > > +		new_entry |=3D fault_ipa;
+> > > +		new_entry |=3D VALID_ENTRY;
+> > > +	}
+> > > +
+> > > +	mas_set_range(&mas, start, end);
+> > > +	if (mas_store_gfp(&mas, (void *)new_entry, GFP_NOWAIT | __GFP_ACCOU=
+NT))
+> > > +		mmu->nested_revmap_broken =3D true;
+> >=20
+> > Can we try and minimise the risk of allocation failure here?
+> >=20
+> > user_mem_abort() tries very hard to pre-allocate pages for page
+> > tables by maintaining an memcache. Can we have a similar approach for
+> > the revmap?
+>=20
+> Unfortunately, as I understand the maple tree can only pre-allocate for
+> a store when the range and the entry to be stored is given, but in this
+> case we must inspect the tree to get that information after we hold the
+> mmu and maple tree locks. It is possible to do a two pass approach:
+>=20
+> pre-allocate -> take MMU lock -> take maple tree lock -> revalidate what
+> we pre-allocated is still usable (nobody changed the tree before we took
+> the maple tree lock)
+>=20
+> But I am not fond of this extra complexity..
+
+Fair enough. It would at least be interesting to get a feel for how
+often this happens, because if we fail often, it won't help much.
+
+[...]
+
+> > My other concern here is related to TLB invalidation. As the guest
+> > performs TLB invalidations that remove entries from the shadow S2,
+> > there is no way to update the revmap to account for this.
+> >=20
+> > This obviously means that the revmap becomes more and more inaccurate
+> > over time, and that is likely to accumulate conflicting entries.
+> >=20
+> > What is the plan to improve the situation on this front?
+>=20
+> Right now I think using a direct map which goes from nested IPA to
+> canonical IPA could work while not generating too much complexity, if we
+> keep the reverse map and direct map in lockstep (direct map keeping the
+> same mappings as the reverse map but just in reverse).
+
+Right, so that'd effectively a mirror of the guest's page tables at
+the point of taking the fault.
+
+> I'll try to do that and include it in the next iteration.
+
+Thanks,
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
