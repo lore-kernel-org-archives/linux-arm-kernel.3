@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7E5AF8D761
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 16:08:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CCECF8D75F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 16:15:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZbTzyQR7VFkrRaQR+omuVgOle2hiVBW88xTP8/GIGxw=; b=i66fRzHVHMP9eDG8jWf5OXhIou
-	jObUkZ4SCYnOP41QivcTyMDAGUr+ZSfhUZTAU7WGE1ptJVmJ3eqdCmJWm67rBuM7/56ymOluXsQ5l
-	P5oFd4WUu25n5lo9gpgOiuThM8HiGSY482j4OEzMNrYPicxcsHEMrANA/cRuz3lvpHyRt37hLd5AN
-	tMUhVyxZ6jm946bhq/e8gt5jNYklJOkX1s+jBCHcoVao0kdBlYtmToYoDLvoF7kHmMqW2GsYjNJJh
-	rJWHopbDnwO5utY1h/1jgSRiq2SkHBTdNLwh6AahLslqffKTNnvMqzNUPnw83jKu+/syEADdOVDWm
-	vjWD1n5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D9gNtLdocXB8kWkdIM6h2vfikY0DRDzC2RZHuEpWRyQ=; b=3IYIwptgKgYOkrRqyx2TMOjQFZ
+	tRACRe7rkrFCKz7WDmd6Et9Bw/3tj71ieo+RzJsLzb7CKJBFfEp+aymMp2f//C68RvIV6o8ybeoVN
+	ya44WNWCkVOpshrpiI2tPfZeP0pymqTpOKySPv5AjrGTto1veza/Gkl0NJgHYTwL2T4ki/BjmITQU
+	i5zF9f1cPMoJMM2pfxUfAYgwsCB3p5km8Z2JiWnuQA4wHjeE4QzrqetrpiEMkGgZhO1/ricIWXBh3
+	uXrmoZajAynDlMZp//7IhHZ/2rewCifyYlns5wl/DXoFpPMz8u34HobfUjWj9KZvAw6OPvBx8n9x/
+	Gvid9DZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDPGj-00000002ePu-0t8b;
-	Thu, 16 Apr 2026 16:08:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wDPN3-00000002ekg-0Gj8;
+	Thu, 16 Apr 2026 16:15:13 +0000
+Received: from mail-vk1-f170.google.com ([209.85.221.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDPGi-00000002ePi-0u1D
+	id 1wDPN0-00000002ejz-122A
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 16:08:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4D06860126;
-	Thu, 16 Apr 2026 16:08:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 777B4C2BCAF;
-	Thu, 16 Apr 2026 16:08:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776355718;
-	bh=blfLhEBoi0Jo2O7QmaSG1KknkwFty/RTOwjSNlNAq2g=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=lCQwztZ6rZGKQF3hDG1tpdLN32/+spbnaWx/az7G37E7GpPped5+BEE9XJEPnA2y5
-	 fpTn2r+zI1yF5jnpvdLMT6LGbKCXxApZ547uyUsZFNGtT5ydINPmkfpFjhSk47NpXY
-	 1AJknVDSbjv8yb7HOQwTzGBofXg9eFUw1ti09WYmOdLYfoYWd8hqr1YCYzV8trtvfL
-	 5dASKr46AG33P5ttniZLBrRCQLJzDf/YJueqy8WQEqmCQD3AgGfrtLKYPs7drulcuf
-	 WDq2lsU2EFjpK8zlNrmcxLV7hKSUeSVKEfHPmEp/ZJaD8KnWmGuPz77HLmoDmfNAW9
-	 lSaB1mZ37GlRA==
-Date: Thu, 16 Apr 2026 09:08:26 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>, Andrew Lunn
- <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
- S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org, Paolo Abeni
- <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 5/6] net: stmmac: move PHY handling out of
- __stmmac_open()/release()
-Message-ID: <20260416090826.1c5ca018@kernel.org>
-In-Reply-To: <aeDojTdDTELfpT0X@shell.armlinux.org.uk>
-References: <aNKDqqI7aLsuDD52@shell.armlinux.org.uk>
-	<5987484.DvuYhMxLoT@steina-w>
-	<aeC-tc2CooYDoBok@shell.armlinux.org.uk>
-	<2410317.ElGaqSPkdT@steina-w>
-	<aeDSTIS9-TDSihbX@shell.armlinux.org.uk>
-	<aeDojTdDTELfpT0X@shell.armlinux.org.uk>
+	Thu, 16 Apr 2026 16:15:11 +0000
+Received: by mail-vk1-f170.google.com with SMTP id 71dfb90a1353d-5674d8be45eso2579889e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 09:15:09 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776356107; x=1776960907;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=D9gNtLdocXB8kWkdIM6h2vfikY0DRDzC2RZHuEpWRyQ=;
+        b=Iyir4mwpN8VII389pKavRZ115Z/cl8XtDkNNVlPW53+ggDK/iGVaPwJo0yBIp6Ribs
+         ebz3Uxb7VAkUNQqiePsoGHfMHHctSsNc5f8yKUYtAOVhx48MaRTP9dXExaTE4JEu71GO
+         FcZZQK7UOystW/BDIfTqQMej3AIATpj3lvZDU3NYfsHO/XntMXt8l79uFv4Glyu+/Awm
+         2hArjFwjdGBAAaW9j9H6BxFt28lveKmvaVrSLsB4rqyChmTLWB3rUy5ovhA5+TegHgwU
+         kbFT4Dyqa1Nl0ZE1SC7yESa0cjrlSt4oCseQ0oqKq24+6ZBuUO0ACzkX0kKGDnulxmbM
+         29OA==
+X-Forwarded-Encrypted: i=1; AFNElJ94E1QmT/Qs/LJt5kgi1cgqqGcJ0A99gqqYxiFxGN65vB+jjPfXYJwXn4AS3ORaH0dhYcjYGnkyLalmyJqaa/GR@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuJ0ZOS2DxkmOWN2aPxbjQUBmYEkEeUrcwmlNXA7ky0SMXAFFZ
+	GamSNHR2WQHACJMrX2IsygvdVAeKV6byiEEPR3W9OgWdfNwFxW/RELXpYyL6XJCY
+X-Gm-Gg: AeBDietiR7TbMth26Puelov3PQhfTyWc+d6AC85LKB86BQXxxzI7XdRjJcG90xBlVnp
+	1pvU0rCj60Dgnx6bzoJzVuIm3QsiE7eWBBUksNK0zlOgydBwhLV3ImsIq6Bs0pYqP+2nnS6eCGv
+	XhFf9LOZ7rARYO/OoLgywxbXcAmmZZ6uqsN1ZqPRBtxEFCeJ3uWWv0VsuLLFRe7J1PmHfxyLPHF
+	Sp2DZj0Twhy9DWzLpD1Xnb5v4sAZo04wqR75cJsC+H0SKZJaOf9AfAtFChIkZGZAAXgEcfNzwjD
+	98rexiIaFnurhu9XoJmaBrzdjAnsp2dTcPg3d0TEu1HllEnhncrjKMMNPJakjPcE5En4HsPrwOC
+	TWuD/bqec4/1woK81sK2JAx87y92Amd4kAfO6pXFLIwCCNu0DLesXJ1r7+G9Gi8bsP9uLhoM7Sm
+	nLywi7GuxAYZO7uX4uRxwXiSeVLdJP8x0QLI+MLCeCi2zVZKW5lHE3xVGq1i27c/kam+u7Uh0Wa
+	ruGCExN7qBhvQ==
+X-Received: by 2002:a05:6122:1815:b0:56e:f1c7:cdbf with SMTP id 71dfb90a1353d-56f3bca6071mr11693500e0c.9.1776356107145;
+        Thu, 16 Apr 2026 09:15:07 -0700 (PDT)
+Received: from mail-vk1-f174.google.com (mail-vk1-f174.google.com. [209.85.221.174])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-95888170a74sm213131241.0.2026.04.16.09.15.06
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 16 Apr 2026 09:15:06 -0700 (PDT)
+Received: by mail-vk1-f174.google.com with SMTP id 71dfb90a1353d-5673804da95so3347017e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 09:15:06 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/HzmbacOnK+b0+jiTOepMHWRLtcY0GuJMyHGfCocyzu8rWNHIZGUr6Dyrnj95A3D3qAsQwCpX3F9ruoVYEWweH@lists.infradead.org
+X-Received: by 2002:a05:6123:10b:b0:56f:7300:37c9 with SMTP id
+ 71dfb90a1353d-56f73003aadmr7479196e0c.10.1776356105740; Thu, 16 Apr 2026
+ 09:15:05 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <20260413-arm64-hwcap-gen-fix-v1-1-26c56aed6908@kernel.org>
+In-Reply-To: <20260413-arm64-hwcap-gen-fix-v1-1-26c56aed6908@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 16 Apr 2026 18:14:54 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVwTQKrWx2rj9ex=a1wcVc_GVN6ii0Tk61-BHgT8wB7mw@mail.gmail.com>
+X-Gm-Features: AQROBzDtvYul6C2R0_nVVRWBmwsQihnizqmUiq_xTAHZz4o6U9w2tkR5DOBzIv8
+Message-ID: <CAMuHMdVwTQKrWx2rj9ex=a1wcVc_GVN6ii0Tk61-BHgT8wB7mw@mail.gmail.com>
+Subject: Re: [PATCH] arm64/hwcap: Include kernel-hwcap.h in list of generated files
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Marek Vasut <marex@nabladev.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260416_091510_318346_5929912B 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,17 +96,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 16 Apr 2026 14:47:57 +0100 Russell King (Oracle) wrote:
-> The next problem will be netdev's policy over reviews vs patches
-> balance which I'm already in deficit, and I have *NO* *TIME*
-> what so ever to review patches - let alone propose patches to
-> fix people's problems.
-> 
-> So I'm going to say this plainly: if netdev wants to enforce that
-> rule, then I won't be fixing people's problems.
+On Mon, 13 Apr 2026 at 17:46, Mark Brown <broonie@kernel.org> wrote:
+> When adding generation for the kernel internal constants for hwcaps the
+> generated file was not explicitly flagged as such in the build system,
+> causing it to be regenerated on each build. This wasn't obvious when the
+> series the change was included in was developed since it was all about
+> changes that trigger rebuilds anyway.
+>
+> Fixes: abed23c3c44f5 (arm64/hwcap: Generate the KERNEL_HWCAP_ definitions for the hwcaps)
+> Reported-by: Marek Vasut <marex@nabladev.com>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
 
-Do you have a better proposal?
-I'm under the same pressure of million stupid projects from my employer
-as you are. Do y'all think that upstream maintainers have time given by
-their employers to do the reviews? SMH.
+Just noticed the issue, bisected it, and found a link to the fix...
+
+Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
