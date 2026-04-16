@@ -4,60 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A7D1F8D763
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 17:07:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3826F8D762
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 17:20:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RukyPoOZ9qo8mxPquRbIiUvY88OfoFmZHRJ2dPg6rc0=; b=heDVw4ChgkOt77yn9neckOv1Qg
-	o2jKExVrmZqfA2uVcKfuPDZDte0z+jn82HCU9OTjx2QS6y/SUzPbpQxzrVy6EV/LSOQggObcrlPSZ
-	tl0AUS6DYPTr+scjjiU1ki9t5axgL6GK84B4BQC3KjgNCCPKTXVzCyAC8YhQqDA9lQF5oxZGjjzyl
-	3TNF/o20ObmpBw+2JEF4LgMNvadGeZMvuuNGeEm+eV9sFs9D/Unp1LP5TYugZ9XtNScDQcWkhqtCt
-	WNHEke5kX/qdahJGdhEPjF3Zo+G9Sg+7uZ7SKlEWMf3F65Y0Fmya7Hklt2vafe8+vqAvpmpd7nOBl
-	0DmOxpxA==;
+	bh=EynX7LWe0jADze8xwwyGtRY20HODjvbHdumAOUoPCFI=; b=DbUankHvEbBUv480hslKe4PlfK
+	vij/HVTJUcFlVCBTdNygzYSTWrXZWWv6Pdafp4AmphPW1ky6qKWguqpNlrlQfrIqjnSRMB7+33mVL
+	A0YVleNr8OklTWJ8j+WCszZ0TmsnJNqTMVBaakasvKceZXtc1wc22RZiekIF21a2/LS6hqo7k4U2D
+	Ol7ZNQnPPf83eKGV8RkSkR2Bex+hOU7aB1S7wXvEi4RNix+muGxLm+aehjU/PUwIrw28YtdN2+M44
+	QNAp1/h3MBNYJ57ip7PSk2R0gOMZ0EQ2vNRZvDGU9fvCmiJUwaCDBrOoYLdnJ4viHomTLg3ty3yv0
+	SOym2joA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDQBu-00000002hd9-26RB;
-	Thu, 16 Apr 2026 17:07:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDQBs-00000002hcd-29jx
+	id 1wDQO2-00000002i9I-2pGd;
+	Thu, 16 Apr 2026 17:20:18 +0000
+Received: from mail-westus2azon11012019.outbound.protection.outlook.com ([52.101.48.19] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDQNz-00000002i8w-1rNQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 17:07:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 36CBF24E9;
-	Thu, 16 Apr 2026 10:07:37 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 634C13F7B4;
-	Thu, 16 Apr 2026 10:07:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776359262; bh=nDteDOdJ6WLwX1WgNSqExb0QSln8I4f8AiInBzL0914=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nn07vt5TJP1Doge5mqk1fbgOpaHirrwXWwE0rEsPhtJt6BjthqZakDg2KW1qLgBgg
-	 CgrzpNmsYRGMB7XeiXn4B/tU9OjvwOku/aGvaqZ4rbPVKX4caimqgPAE5NAalW3LiO
-	 7tw/7/dooFJBfN/uNdAEvEmkCx4BGEMvOVu/6UHg=
-Date: Thu, 16 Apr 2026 18:07:38 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
-	mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v5 02/12] coresight: etm4x: fix underflow for nrseqstate
-Message-ID: <aeEXWnrFEwgja3al@e129823.arm.com>
-References: <20260415165528.3369607-1-yeoreum.yun@arm.com>
- <20260415165528.3369607-3-yeoreum.yun@arm.com>
- <20260416151102.GL356832@e132581.arm.com>
-MIME-Version: 1.0
+	Thu, 16 Apr 2026 17:20:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QKzKsXt1xWybhi8Ex8xjJVqU1U+aA05qBrkUlCizure4bA96cIiS62NQ9rDNO4TNrdstTXR3PHrmCeYfErs5up44TuLQnMvDhkyVFOYSRpjcIet/lQBpE/PRjWvGoIRqJNILXJNhk9BDQdUZ8JYIbr1WRr2DhkVGaQVaC2wgEi4LhIpae0RRAdGh47SekCYaectl0CpGuHLqFhIzuzNo4Qpwh1tPHV7AOxlhgZRM5/ey17N31234fjaJOqZMPO7NmjXfk60NT+Ew96lwN4wjt/gXsKu0hfC4AKLKXZvPyFPC6pj3OpZ3QqD5KhWtHbHjj3t7Bza/odYEdKUB/exZbA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EynX7LWe0jADze8xwwyGtRY20HODjvbHdumAOUoPCFI=;
+ b=fDTpp+102OvlG9/RXk/nnYVPrhqji5x5RwgZI63AWVDcUS02SPV4+x26ZTml2M63ffGUQ6dQFXSQFMja/1KnVd2JBdRTgorlJoe175xmaYyit/j3e6OBTxTgPH9IuebbdV1dWWq/RH6Qjvk/u1Dym0K+/Yqa2nGVbPZ5pXhAQsUqB3LC4I1pqLy50CHeoNWjPYBKap1gF19TwAWGSxLDtbo7K6u2X3TV255j52c2GhpZNl+t/hSIbTtSNQ7HNBKwdBhKt18EtwAoHSAPcdyHiTXGTSVLckiz2iUlRtrjLLRHTRjjA1/zjcugiyog0H2cY9ZSn/YCUcwItydoKhxc+w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EynX7LWe0jADze8xwwyGtRY20HODjvbHdumAOUoPCFI=;
+ b=EBrMU9w8h/rMynGF1teTb9Fj3xfH7cAdjddAd5xqhJAYZ3Pl1nViQb3i1u5spqjfFTsTr38jJZI7YmAibe1FYKm192Qx5YJMXYI0mPm7QV74hdvBoHhZfsiFdf+1lvwXt6DOdxZvlv24trGn50VOrMDQQnCsVMcT8C2QPbMTbf4nJl/qAZzVRn6WTzgovZSpQco+UKaaJBXFS9rTISWYOEJkSNgCNs/eIgyp8PvfDmLuNuUt9/s+ctwTr/ke0ANQzbmutB/8uDr9FeELmsYC8Bh2qzro/Rqxe9tgYZ2XLbqvRmWEztORTq1DMYBStYW1ovuNlG8whbkbANtRYROhog==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by IA0PPF84D37DD5C.namprd12.prod.outlook.com (2603:10b6:20f:fc04::bd6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.20; Thu, 16 Apr
+ 2026 17:20:07 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9818.017; Thu, 16 Apr 2026
+ 17:20:07 +0000
+Date: Thu, 16 Apr 2026 14:20:05 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
+	kevin.tian@intel.com, joro@8bytes.org, praan@google.com,
+	baolu.lu@linux.intel.com, miko.lenczewski@arm.com,
+	smostafa@google.com, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, jamien@nvidia.com
+Subject: Re: [PATCH rc v2 0/5] iommu/arm-smmu-v3: Fix device crash on kdump
+ kernel
+Message-ID: <20260416172005.GB761338@nvidia.com>
+References: <cover.1776286352.git.nicolinc@nvidia.com>
+ <3eaf217f-8e1e-4d64-983a-6b888886f157@arm.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260416151102.GL356832@e132581.arm.com>
+In-Reply-To: <3eaf217f-8e1e-4d64-983a-6b888886f157@arm.com>
+X-ClientProxiedBy: MN0PR05CA0018.namprd05.prod.outlook.com
+ (2603:10b6:208:52c::30) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|IA0PPF84D37DD5C:EE_
+X-MS-Office365-Filtering-Correlation-Id: 78f5cb78-4da9-41b3-41a4-08de9bdc67bb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|56012099003|22082099003|18002099003|18096099003;
+X-Microsoft-Antispam-Message-Info: G5OemyOQyGyzLvIRlr+edWqnSwlp8g1O5YyKmmnrTwKTdU9txF5s8oYWjQYkWCigA1oA6Vgn43pja29bZ1B2B02cpQZfg6/a8OX6Msa4iNEsGckp7uV/W3wBkKxT6u9ukYfOl5pC6lX4B6H7/PwlcrDRoR2uz+BIS4oxzLbCsCZgs3yfAeujKyghZJ3LN2kpgS+avV8AP2w6I4iyigdrpSGQKXpd5WXSpkZ3KWCCi1ReLdin5lhyL7PMBmdReSri78bpcC4zYDuewRZ3CjmXyWByjl6TLyXn+EIg7AUyQrazlUQsNFWwMn95TNSR7BpqJwMf+awg8p08SUzgyp6aWt4f3NGO8IYOT4B+prpDmS+oBER4wKeIf8/sMbuJB1wFVaJc8VarXxU7CjFHhVx+zeWefejGyvL6VTY39/D1BbRIYknK6/O1ZiaW3zdGwQqH63clRKFg475V/4/MxVoywBYsXYL8zI3SrSCdtViz8eJRTEmQB5rNbxWdpe6meZbwCrvGpzqpWtrtaUDdO+CNCiCLagpjB7yn29Fj82ZfudUEwXLdYoPs2YlJex1rdViOMfgepeaCKP2VbpeKlSO8qav9gEXsrkrALmzTj13dkq1J09GPCghsxVLAemzEgqxguT3+c/9zYGz447pb1SsH9uiMHQ5XM18AOSu/Y2Muxh3x+eNZoMywGNMhYC3A/UJqJ9wX9QXqfxpMxlfgoK50R6yyhbYwdIBVjdXiuknOhys=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(56012099003)(22082099003)(18002099003)(18096099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Sd77nMoFRN8mXODcPmQhY7umLB1xjyHzfWXHyi+AsszQgb5y/lUtzdRv+2Cg?=
+ =?us-ascii?Q?bVLTyG6CutPdSgcEeShk8q0OuwCRsyEMiPXfQSehby/CErx6h3G7xgsd8o8U?=
+ =?us-ascii?Q?MhqC/XKQl1L9KQxhhkfJA2kFwKkO9Od69UAQFa5dJKiQHMVsrG/eDrTtRxhw?=
+ =?us-ascii?Q?MgJh9XUBD0Zr709UPTNva4IFtFM9G7B9UicaoyZrnKEK0VTevol6D76uWMEE?=
+ =?us-ascii?Q?MUyPH9sezQMygMGbIGQxrAifdHzWbX5Mg4gtj9loTIOADZZuiOhkvZMVotLP?=
+ =?us-ascii?Q?ZB1Ey6Gro9zJy2KKyphOluOEfb+/Hfo+4b5KcrNpi9UpwjV+XBCrPafbSOkg?=
+ =?us-ascii?Q?1Xw8cXOAwjfoFoVi+6HCILwJS3vODBZo/73nodP1JNz5XZcC6bO5GsniCTvY?=
+ =?us-ascii?Q?JERQZfb9Zalc+zzM9+SCuGMkfnGsBgJHlG8GCxvNAAj33U9zd3xfYJi80c1W?=
+ =?us-ascii?Q?0C0YJGxkT7aOcPfn8M0BjQoxHtndScZ6wQM/wz0ri5CUmsT+nIiMkVbp0H5R?=
+ =?us-ascii?Q?y9M9kvHFg3jm9p/es4NMwXCQg3Rtd4hEj7Zx00a4NeDc+gD4IIvFsUSkSsWL?=
+ =?us-ascii?Q?x4I5Ar2o9vK/kTMGSHnKG4gl57DCuICEqhpLqYMIufFeTdbp/T0APho04fnU?=
+ =?us-ascii?Q?HENUI98R5fdyEaKuIifAwkHq+6VV3fv2XWlCR62dlVtGw/f25hiy1LNpqHlV?=
+ =?us-ascii?Q?2Uw/WoGep+cfhGlVAK87TLge4Il5hA84HM+FAQMg5c+8RKqH40pbB7+eRq+T?=
+ =?us-ascii?Q?FGqoicvlHGYYpIjH4ydeLIY/075YoMWq2eJyCYe3nXngZDEcmbcaJOFsQo24?=
+ =?us-ascii?Q?7z7U16kmEStQ/ZPFdiLVVyR1SECUmsyT8Kys03q1kYwndeot/YGrOwKOgrDN?=
+ =?us-ascii?Q?5VamwaUEhjVR4e9PW4L7+oqqIb8rEXWR9cuVELFjyQtWnJp1VvaEd2bHBFPA?=
+ =?us-ascii?Q?68ZJUO+zNJABs6LbAqsOLGg2xxK/avkUW6UcDbYnnaJdeaGe0RbCMsmb+4e5?=
+ =?us-ascii?Q?qwT+VvU4yswpkISIka/+bYGhtq7imI6ukrHmKNao1/Lha47caE8H8IUq1ISI?=
+ =?us-ascii?Q?3bbpAO4piwSAy3UAygJxS+qwBfBwaEoAxnigmqu0Xido/WQ6AgmWQlEqdU/P?=
+ =?us-ascii?Q?IhrSmnAw5h1bWvZNsstvHyS+jd+d0GuNwTjO853XULf9TvEOPF2A0AF9hCKe?=
+ =?us-ascii?Q?hxlLpQKOzkhYKTon2JhkOEMq5FvmpHygxu69+gLhanSqygfMmVR/VoL0WvlE?=
+ =?us-ascii?Q?4HFJCOn4O2bRl6JnRTd8HDgM9KFODMsqZHe9TP16Q9/HT+IR4I82cVbzabho?=
+ =?us-ascii?Q?OlyG6otoY9k4sgbpW9Hfgukro/3ClcTkGOtJzvwgvb0/DB07YwKqEtIed6QS?=
+ =?us-ascii?Q?VTuutIdJl+u5kY/rDY8b6O2jI6zRb1so1lxPl/yAN3F/a74ZuFc+dNxzRNNK?=
+ =?us-ascii?Q?l+R/u+vkx/trXo9u7znfU54QIqoueyDAuF9WmQSg3LznQtoHxs+hSNxr/grh?=
+ =?us-ascii?Q?nYxKPkFxiV1tc3fFLby2mEoA1P3kBuV374VD35ZR00lIDLW9G4/QLOZs+sWn?=
+ =?us-ascii?Q?RGpYNY7gvF4+El6X6AmTSOewgXYG5skcMuWCbW6pqqDeOrVawXwVG5vFn8CR?=
+ =?us-ascii?Q?ELROtPTOMobRBOJ80NO831oui+Ik6sYsI6fiM3kXu9WEZbn5OwsdMNsBYFeB?=
+ =?us-ascii?Q?uFM9s4ToCxptB0A7Mcdb7eznqgp2VbMBzEGvqPaohN8U1M6Y?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 78f5cb78-4da9-41b3-41a4-08de9bdc67bb
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2026 17:20:06.9795
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: e8t5EXH5rXXLcUdOecMx72Jh5RL4YDdMC63pI90Ff3tjWT4Z2mILOlzxXmqtayEg
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPF84D37DD5C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_100744_594046_B558862D 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20260416_102015_500085_6C559E4E 
+X-CRM114-Status: GOOD (  23.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,34 +140,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo,
+On Thu, Apr 16, 2026 at 05:49:24PM +0100, Robin Murphy wrote:
+> On 15/04/2026 10:17 pm, Nicolin Chen wrote:
+> > When transitioning to a kdump kernel, the primary kernel might have crashed
+> > while endpoint devices were actively bus-mastering DMA. Currently, the SMMU
+> > driver aggressively resets the hardware during probe by clearing CR0_SMMUEN
+> > and setting the Global Bypass Attribute (GBPA) to ABORT.
+> > 
+> > In a kdump scenario, this aggressive reset is highly destructive:
+> > a) If GBPA is set to ABORT, in-flight DMA will be aborted, generating fatal
+> >     PCIe AER or SErrors that may panic the kdump kernel
+> > b) If GBPA is set to BYPASS, in-flight DMA targeting some IOVAs will bypass
+> >     the SMMU and corrupt the physical memory at those 1:1 mapped IOVAs.
+> 
+> But wasn't that rather the point? Th kdump kernel doesn't know the scope of
+> how much could have gone wrong (including potentially the SMMU configuration
+> itself), so it just blocks everything, resets and reenables the devices it
+> cares about, and ignores whatever else might be on fire.
 
-> On Wed, Apr 15, 2026 at 05:55:18PM +0100, Yeoreum Yun wrote:
-> > TCRSEQEVR<n> is implemented only when TCRIDR5.NUMSEQSTATE is 0b100,
-> > in which case n ranges from 0 to 2; otherwise, TCRIDR5.NUMSEQSTATE is 0b000.
->
-> My suggestion in previous version is not quite right, thanks for
-> making this correct.
->
-> [...]
->
-> > @@ -1395,6 +1395,8 @@ static ssize_t seq_idx_store(struct device *dev,
-> >  	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> >  	struct etmv4_config *config = &drvdata->config;
-> >
-> > +	if (!drvdata->nrseqstate)
-> > +		return -EINVAL;
->
-> For "nrseqstate = 0" case, would it return -EOPNOTSUPP instead?
->
-> Otherwise, LGTM:
->
-> Reviewed-by: Leo Yan <leo.yan@arm.com>
+The purpose of kdump is to have the maximum chance to capture a dump
+from the blown up kernel.
 
-Yeap. It's much better to return -ENOTSUPP in here.
-I'll change it.
+Yes, on a perfect platform aborting the entire SMMU should improve the
+chance of getting that dump.
 
---
-Sincerely,
-Yeoreum Yun
+But sadly there are so many busted up platforms where if you start
+messing with the IOMMU they will explode and blow up the kdump. x86
+and "firmware first" error handling systems are particularly notorious
+for nasty behavior like this.
+
+Seems like there are now ARM systems too. :(
+
+So, the iommu drivers have been preserving the IOMMU and not
+disrupting the DMAs on x86 for a long time. This is established kdump
+practice.
+
+> If AER can panic a kdump kernel, that seems like a failing of the kdump
+> kernel itself more than anything else (especially given the likelihood that
+> additional AER events could follow from whatever initial crash/failure
+> triggered kdump to begin with).
+
+Probably the kdump wasn't triggered by AER. You want kdump to not
+trigger more RAS events that might blow up the kdump while it is
+trying to run.. That increases the chance of success
+
+> And frankly if some device getting a
+> translation fault could directly SError the whole system, then I'd say that
+> system is pretty doomed in general, kdump or not.
+
+Aborting the SMMU while ATS is enabled also fails all ATS and
+translated requests which is a catastrophic event for a CXL type
+device that a correct OS should never trigger. The catastrophic
+explosion of the CXL device also unplugs all it's RAM from the system
+and the kdump kernel just cannot handle the resulting cascade of RAS
+failures. Plus you loose all that CXL RAM you may have wanted to dump..
+
+Regardless, the platform has this flaw and to make kdump work it has
+to avoid triggering these errors like x86 does.
+
+Jason
 
