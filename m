@@ -4,100 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB197F8A16F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 13:00:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A943F8A171
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 13:04:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=17r2Zj41sTJHtEDMLkRaAXUCQQ2ej07SXH4WFnjsKcE=; b=WWqGXqBUDyD8ihiVeFXiMzcjPN
-	kreKvi+s1dEdQDw94qF2eFCSQvPmOnBT8DJ4B7sTv9SsNnb+7uxjKxcMfuSmK7sEFDtTuhwZXyzCv
-	LDy/nMVpslXJb5HyHRJJw4xLe0dmh7+BXO7M1WJbyVWLd0u+7sRlzg/G/CKIvzrCEw+7zKU4GIANm
-	sAHSWv169ThqUoXgAl4bideQiS51vB/+n4GHiNBo2luS1ZrNa+WSmJ1qf2aD2CvLiLTnc43T9yToP
-	9lYkx1TKD6NkXg/EwW/d3LV5s6tbdcivIwqwzQSNx4JM08cg5lEBWRUvLkdJ0wY5cdn4B+EkVZgp4
-	wKj8D7WA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9keKW5p4++WsVuxHmBqHxADE1ZcTw3Q0sJGd/F983YY=; b=y8L4CnaKfUgeXvjqTIZxt3T8nq
+	VypXQy0PHHOZ5B5QxO3HX/KW0nVY4B5WeJQ3W8Nt9hhK2P10QjedEHJ8MaOxXc6KTc5DiwsCUrZVg
+	WgDp5XLWG5rVx7SE+fPjWdBp9Zxl85nLmcSUCtTqQFypwr/4JAZhMfhUi5hZxWbtkUIbOlsDWaUV6
+	T7M1X+TsxsTc69PwxlUh7fLdnHsBzn+ZaJvWQ8aMUyJOydw+lODuXinrgu/SDguKxS1SQ3B+BnfjX
+	97a3mqFRKrdfeK0yHBSkIbXO7EPJYi9vxdUxLHRtcAW9fJHkfWaGgSGxj/CG/z/AZqodk3XQCJn3A
+	qZVTYwkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDMKN-00000002Ss8-1nK7;
-	Thu, 16 Apr 2026 13:00:15 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1wDMOp-00000002TCq-41KA;
+	Thu, 16 Apr 2026 13:04:51 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDMKK-00000002SqS-1lRk
+	id 1wDMOo-00000002TCA-00Nd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 13:00:14 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-82cebbdbdccso400690b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 06:00:12 -0700 (PDT)
+	Thu, 16 Apr 2026 13:04:51 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2aae4816912so53292075ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 06:04:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776344689; cv=none;
+        d=google.com; s=arc-20240605;
+        b=k5Z03bmIYTXAiewE+oZx7N2qIKMLjGiRNgulTEhdDowi1w+ZQWTQEaN6fz9Rrr8yMP
+         jjvhkAlT+ktYbuJoehtl9b/OgXWO8Gqk28AYBrbG0huCtYZUnIvHeMQl2ccD7R9ZnAby
+         VSOYShPZzmv2Qiau/Iz9mbIIoPBzKrtcrmf1Htk5X9t/8ZejMrFeXxEkkdOR0UNFb3u0
+         WOvZMtDOKo/BXu1gPdJnzWWtwkJpbroek1BbZ23VA8vwmAHFPcqRBRFwIuwF1SMgRIwG
+         zYrOuGt2YsIXuucHtCOZnkw4L+labcNSG7ViVP6tbMqrHokq+WzqKSaGgDTPcSKQQ6vk
+         EEUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=9keKW5p4++WsVuxHmBqHxADE1ZcTw3Q0sJGd/F983YY=;
+        fh=9jrdUgvgPWVbs5qPsP0KoTvUoIHTf71+yumcfXQj6K4=;
+        b=d0zhHyCmpttFr/FflqrCRxoY605EWQx1x91S7m9yf+eK/nW7/tQhPUfR/udqwIxk/i
+         gDIrrweuaA1ChYKweNNm/SptdPy46uOMg+tmvSSp3EtYT2fpN4A0wHdqwfcLMnDnyssx
+         lRm+R4DCGA44bLxFjSnWyUk75VVoNDCRAA+EbEr4PaVP9B1bujjlpwM/7iOPt7zu+tPB
+         hJOXmmalQnJy9LcjfwI8R7NDAlVzvGzcVhpybRXcYGGbF/Pt1GP/Sp9trJdrZLfX+iUh
+         LWvbvSTqhDWCfArxj6Vwu5ir30KhPGeQ53TjneWOByFXoklapQJ3X4jvKVXjMK8UwtQW
+         fG6g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776344411; x=1776949211; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=17r2Zj41sTJHtEDMLkRaAXUCQQ2ej07SXH4WFnjsKcE=;
-        b=WLpkf8mpvhsFHzqnIkB7GtpwdlOdm1yhzYO5ERbq/SCSBD88Cc932LhIs90dF2dOX7
-         glguBmhYjAuPvsXOT5/PDX2BvRPtfXz+ciCBXCHL2HW7NvQrswYWXhUrMe0IAiaQDUHU
-         9u1zhyEJXdGjGGhNfzo0/xJErjAO4zLh/xfg1EltbJ9wh/CFK6XQ1WhFAFFsC8Vq+g0l
-         /WvjkyB4LvbXJ5tKFTAG6MSjwMaastII5HOEPldOHztB0X6hknsrYu9wddcsFNd5dkV5
-         UU3MoOAwmntJiSD6+7HbxS/xMoBX2gORg3Qii5IxSi/4CaaljDsMlZ0U++/qUxbsqvjZ
-         DK8Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776344411; x=1776949211;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1776344689; x=1776949489; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=17r2Zj41sTJHtEDMLkRaAXUCQQ2ej07SXH4WFnjsKcE=;
-        b=E5m6DwS80VhwNjp3cjM2sCjz/VObrTIWIaDSLzReoLZ5spufg6QhN+FOdQT5hOU1pw
-         re0vs00NRUFOSauPcN68xUzRsWE2/sEzqqajI+Yx5xv3AMPPI90dxx7Hzpd9L2eiPxhl
-         pWhd1NW7XpP/q+dc5XCrhmRkXyYLsOFzsN9eqyNMnsBARUPCHsmnYdcBIC1qpFliCaa3
-         6FyHCih44o/isxKzJ48+sPLR9ScH4ktTB2fgPzsU7Zmm2vOMyovHbo6w2qeelsLcOn8/
-         77pxcBHfY11AWUT/qgLx5jpWQqClVLTW1qpjYvluqBKUlm/hSB/kQG8hJQ5bov9sj3mu
-         X7Vw==
-X-Forwarded-Encrypted: i=1; AFNElJ8zQxv44oBzLXdHAUVoHKlrrAVAR8fnY9ojdncP7jBWoLvWdewJav9IjgB05xRjKO6dOiijyCGIXqCyHEl6/xa2@lists.infradead.org
-X-Gm-Message-State: AOJu0YygX5o+VOLOHZwgG+T71p+s9IsD10pDrs+gr9KwujWZIG/OGMl0
-	+J2ReHygZTrRQWPLJ301Q8Jp35rc/MtBHZzENYR9Z8b5CKFcTYzi2zEN
-X-Gm-Gg: AeBDieujPrNO8WXBe/rZ4qo2sP8UtLzhqewKIxzHAp81Bqma5Haly7bdhyzWauWu7nu
-	s0WNe3g212cx7B/XAd+ZAi/XptRMzAA+JRhBcc8783xRsgcBbLumBQ6KCQMivvG7aSRvNJHSDe/
-	FZySITQUY+l+7t2E2gij0yFGVXZ8AJ63sWgZPc3NWtrKlSQ5um6/GZVjq1SvRLORcD8g2oZqlNt
-	pOMOaqohkpS1FDJxyp4Qn++r5UiPFKh0FtJijsehb/de+2RLtZi1+jkbvQVD8ztyx7kp3PgbDyO
-	xF7C4o2Role+BLmkgJn588yfXYuKmIdZqQb/D0pp3IhgFIIgFeU4SEkSBqIE/3WQFmbXkadjAC5
-	70h1QE0sJd/5J4rdFlfFPsSdbh9UALKbyEZjXX1MY/26KZONGQYI+lbWwzynHSdWAjFn/QIy1Nf
-	X9v/+ypyZoN9veGj8crDahafubTKPQ7+PufndmiC9haSkvc7Vdj0Tl0vPUHRKOMvkP6MoQ95ckd
-	WI/jgn+Va64nIrVijfoMx86oZe2urg6cxcYvTVyjg==
-X-Received: by 2002:a05:6a00:4b4f:b0:822:69b2:7ed0 with SMTP id d2e1a72fcca58-82f7edb955emr1537377b3a.6.1776344411297;
-        Thu, 16 Apr 2026 06:00:11 -0700 (PDT)
-Received: from junjungu-PC.localdomain ([223.167.147.125])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f6744c923sm5260199b3a.52.2026.04.16.06.00.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Apr 2026 06:00:10 -0700 (PDT)
-From: Felix Gu <ustc.gu@gmail.com>
-Date: Thu, 16 Apr 2026 21:00:08 +0800
-Subject: [PATCH v2] spi: mtk-snfi: fix memory leak in probe
+        bh=9keKW5p4++WsVuxHmBqHxADE1ZcTw3Q0sJGd/F983YY=;
+        b=mfIpfOrCU/0u278hgRApG2LUfjKA8/C0XQFhYsc+VZaFZtVLxo8cjypXWBOg9uVXvM
+         DV1nAMDIfbsVn+7DAm2LJcX7sADUkn//yj3lYV77g1P6LqKRbDch8pLgJsppBtNGGRVH
+         azhdj5wXLavPIuMIxk/LT4JdTCRnUul9/eEuCgfRipqLRWLOStGwPeGk1gkw0CLR+JWk
+         laO8PQ+yAdxwfcaSrPZlVrmhIdwSLQg/nFBKGwEiHdOERUYRzRKUiHnfq/jwfX7KDtNl
+         Fjaapx4ms5sGyyfZi2xRsTWp/hK02kmoCZJvVzT2tc3jI1MYPHLVy1kztP2H2FLJ/aFR
+         aRyg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776344689; x=1776949489;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=9keKW5p4++WsVuxHmBqHxADE1ZcTw3Q0sJGd/F983YY=;
+        b=jkDudW7WowVDVmognJ3q0EFziRRHstN8OyC8KUkrpjijwcsR6SsVNlhmVDnW0rF445
+         n1txw1A5N2qUIxCRbhVz6seTyWcTWI/5ZzyR5+Zaqef4m713qRG1SyQCyKaetNiDQF7/
+         vk47Og9GbjAH0Uib8VHnNC8Po3qsDrb5FRLR9lLO3FT/jjch0UJu5DrlRPgkm8NWtqLt
+         t988lBQZUq6lKEP0JAHfjIeEBlbML2/XCZ1nQFRF64sX/CRmrpOWnSxBf8znD/OLkHaD
+         05KRnq28XPJrrxbTPyc/hpVnEyJnkQDR8x7CvYRXQ3O1pz5KjT+E+hEujYHIVNvExNdc
+         IWsQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9/d3z9wTcwP3TEN4chgfjqwe7qEALlSc6tD9YiDZV98sc1D+SpPw93yaKjj1tUHRn6HFCOyhJNO3xxwzHlTtaQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzIr+nkJOGEF22Z/IHRd475f0XqTByv/IBWGe2Kd8gHI4eHxFs1
+	bwWE72WMwzzX8sOQCKhqESi8Eqry7IbZ16mlCcsk99JTNGnCRBOSjgOnJQ5T/0uBRioIvkrSEQc
+	0ImCd2ZDneGKFmdWcP+Bj9UyEi3UpiaE=
+X-Gm-Gg: AeBDievonok1SvyNPYdBCClx2a8ZEyX3gyi//w/uk6lpUgPKx/ahIXshCthNhBYz75U
+	t21X00TGpp0GfeaiKdeZPpbVrSkxBvWM9cLF1fZROdUkDBEy8LnXNxl1m3twARBJom2G/fIZr88
+	+OwogItIOc1/GD13+/dFIv5hql4CNVD8vDbd3yH//LOzgbzF3QjMMl3gNL5luvLOKmKVZYLt1i8
+	3DfpPdGJ54CkQZNrS0/WAonnaFftvqF9pSRegrUcT/9euGtAEcKz8IkSKWjoOMT659DDDLtIayw
+	JQerBeX69CSQY9RFMnLHTye+cWsV6co1MKwwt8NnvZo0ceX57xPm5PP88jNyPJNUO35yK8bUw58
+	=
+X-Received: by 2002:a17:902:d507:b0:2b4:5cd0:b6c3 with SMTP id
+ d9443c01a7336-2b45cd0bb63mr212259795ad.29.1776344688850; Thu, 16 Apr 2026
+ 06:04:48 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260416-mtk-snfi-v2-1-3f487689dacb@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAFfd4GkC/0XMQQrDIBCF4auEWdeikojpqvcoWVjjJEOrCRqkJ
- Xj32kDp8n88vh2Si+QSXJodosuUaAk15KkBO5swOUZjbZBcKt6KjvntwVJAYqoTptct5/JuoN7
- X6JBeB3Ubas+UtiW+DzmL7/pD1B/JggmGBq3FUWqN/XXyhp5nu3gYSikfnCK+3aAAAAA=
-X-Change-ID: 20260415-mtk-snfi-651a984002ba
-To: Mark Brown <broonie@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Xiangsheng Hou <xiangsheng.hou@mediatek.com>
-Cc: linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Felix Gu <ustc.gu@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1776344408; l=1691;
- i=ustc.gu@gmail.com; h=from:subject:message-id;
- bh=XkYW2/z4LPsF75ss8CCVDNVzt3DbKPrtELWOw2qUNpY=;
- b=hvqwwc8rcn4/DHqZxkGuqafbHwwzm216tkjP8vosgvZYpH2kNLzP/08UlMoon7Cbdmk3csCV9
- 2O2P1E4mabXD2roZXFjRAoh6MQB/XqRSgyNA6jP0ZBdKRjQIYEwkB0X
-X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
- pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
+References: <20260415-imx-v2-0-aeacff9e72b2@gmail.com> <20260415-imx-v2-1-aeacff9e72b2@gmail.com>
+In-Reply-To: <20260415-imx-v2-1-aeacff9e72b2@gmail.com>
+From: Felix Gu <ustc.gu@gmail.com>
+Date: Thu, 16 Apr 2026 21:04:38 +0800
+X-Gm-Features: AQROBzAHfswAILDPJrZ03lSCXQzT-HPAwyhO5aKUzw0OdIQTV7XQ9Ww0qLogIkk
+Message-ID: <CAN4SLj3rH1q-jd6ccdo2qVNuNUoqfpsiS0KXJ3b=b7m_bh2QBw@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] thermal/drivers/imx: Fix thermal zone leak on
+ probe error path
+To: "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Oleksij Rempel <o.rempel@pengutronix.de>
+Cc: linux-pm@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_060012_757190_E5D3F6CC 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20260416_060450_042654_B73B0541 
+X-CRM114-Status: GOOD (  24.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,61 +121,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ms->buf is allocated in mtk_snand_setup_pagefmt() but was not freed on
-the following error paths.
+On Wed, Apr 15, 2026 at 9:10=E2=80=AFPM Felix Gu <ustc.gu@gmail.com> wrote:
+>
+> If pm_runtime_resume_and_get() fails after the thermal zone has been
+> registered, the probe error path cleans up runtime PM but skips
+> thermal_zone_device_unregister(), leaking the thermal zone device.
+>
+> Switch to use devm_thermal_of_zone_register() to fix the problem.
+>
+> Fixes: 4cf2ddf16e17 ("thermal/drivers/imx: Implement runtime PM support")
+> Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+> ---
+>  drivers/thermal/imx_thermal.c | 35 +++++++++++++++++++----------------
+>  1 file changed, 19 insertions(+), 16 deletions(-)
+>
+> diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.=
+c
+> index 38c993d1bcb3..3729c3eac748 100644
+> --- a/drivers/thermal/imx_thermal.c
+> +++ b/drivers/thermal/imx_thermal.c
+> @@ -216,6 +216,20 @@ struct imx_thermal_data {
+>         const char *temp_grade;
+>  };
+>
+> +static int imx_thermal_sync_zone_trip(struct thermal_trip *trip, void *a=
+rg)
+> +{
+> +       struct imx_thermal_data *data =3D arg;
+> +       int temp;
+> +
+> +       if (trip->type !=3D THERMAL_TRIP_PASSIVE && trip->type !=3D THERM=
+AL_TRIP_CRITICAL)
+> +               return 0;
+> +
+> +       temp =3D trips[trip->type].temperature;
+> +       thermal_zone_set_trip_temp(data->tz, trip, temp);
+> +
+> +       return 0;
+> +}
+> +
+>  static void imx_set_panic_temp(struct imx_thermal_data *data,
+>                                int panic_temp)
+>  {
+> @@ -679,13 +693,8 @@ static int imx_thermal_probe(struct platform_device =
+*pdev)
+>                 goto legacy_cleanup;
+>         }
+>
+> -       data->tz =3D thermal_zone_device_register_with_trips("imx_thermal=
+_zone",
+> -                                                          trips,
+> -                                                          ARRAY_SIZE(tri=
+ps),
+> -                                                          data,
+> -                                                          &imx_tz_ops, N=
+ULL,
+> -                                                          IMX_PASSIVE_DE=
+LAY,
+> -                                                          IMX_POLLING_DE=
+LAY);
+> +       data->irq_enabled =3D true;
+> +       data->tz =3D devm_thermal_of_zone_register(dev, 0, data, &imx_tz_=
+ops);
+>         if (IS_ERR(data->tz)) {
+>                 ret =3D PTR_ERR(data->tz);
+>                 dev_err(dev, "failed to register thermal zone device %d\n=
+",
+> @@ -693,6 +702,8 @@ static int imx_thermal_probe(struct platform_device *=
+pdev)
+>                 goto clk_disable;
+>         }
+>
+> +       thermal_zone_for_each_trip(data->tz, imx_thermal_sync_zone_trip, =
+data);
+> +
+>         dev_info(dev, "%s CPU temperature grade - max:%dC"
+>                  " critical:%dC passive:%dC\n", data->temp_grade,
+>                  data->temp_max / 1000, trips[IMX_TRIP_CRITICAL].temperat=
+ure / 1000,
+> @@ -724,25 +735,18 @@ static int imx_thermal_probe(struct platform_device=
+ *pdev)
+>         if (ret < 0)
+>                 goto disable_runtime_pm;
+>
+> -       data->irq_enabled =3D true;
+> -       ret =3D thermal_zone_device_enable(data->tz);
+> -       if (ret)
+> -               goto thermal_zone_unregister;
+> -
+>         ret =3D devm_request_threaded_irq(dev, data->irq,
+>                         imx_thermal_alarm_irq, imx_thermal_alarm_irq_thre=
+ad,
+>                         0, "imx_thermal", data);
+>         if (ret < 0) {
+>                 dev_err(dev, "failed to request alarm irq: %d\n", ret);
+> -               goto thermal_zone_unregister;
+> +               goto disable_runtime_pm;
+>         }
+>
+>         pm_runtime_put(data->dev);
+>
+>         return 0;
+>
+> -thermal_zone_unregister:
+> -       thermal_zone_device_unregister(data->tz);
+>  disable_runtime_pm:
+>         pm_runtime_put_noidle(data->dev);
+>         pm_runtime_disable(data->dev);
+> @@ -761,7 +765,6 @@ static void imx_thermal_remove(struct platform_device=
+ *pdev)
+>         pm_runtime_put_noidle(data->dev);
+>         pm_runtime_disable(data->dev);
+>
+> -       thermal_zone_device_unregister(data->tz);
+>         imx_thermal_unregister_legacy_cooling(data);
+>  }
+>
+>
+> --
+> 2.43.0
+>
 
-Fixes: 2b1e19811a8e ("spi: mtk-snfi: Change default page format to setup default setting")
-Signed-off-by: Felix Gu <ustc.gu@gmail.com>
----
-Changes in v2:
-- Fix Mark's comment.
-- Link to v1: https://lore.kernel.org/r/20260416-mtk-snfi-v1-1-fafccfd288f9@gmail.com
----
- drivers/spi/spi-mtk-snfi.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/spi/spi-mtk-snfi.c b/drivers/spi/spi-mtk-snfi.c
-index 73fa84475f0e..e616e6800e92 100644
---- a/drivers/spi/spi-mtk-snfi.c
-+++ b/drivers/spi/spi-mtk-snfi.c
-@@ -1447,14 +1447,14 @@ static int mtk_snand_probe(struct platform_device *pdev)
- 	ret = nand_ecc_register_on_host_hw_engine(&ms->ecc_eng);
- 	if (ret) {
- 		dev_err(&pdev->dev, "failed to register ecc engine.\n");
--		goto release_ecc;
-+		goto free_buf;
- 	}
- 
- 	ret = devm_add_action_or_reset(&pdev->dev, mtk_unregister_ecc_engine,
- 				       &ms->ecc_eng);
- 	if (ret) {
- 		dev_err_probe(&pdev->dev, ret, "failed to add ECC unregister action\n");
--		goto release_ecc;
-+		goto free_buf;
- 	}
- 
- 	ctlr->num_chipselect = 1;
-@@ -1465,10 +1465,12 @@ static int mtk_snand_probe(struct platform_device *pdev)
- 	ret = spi_register_controller(ctlr);
- 	if (ret) {
- 		dev_err(&pdev->dev, "spi_register_controller failed.\n");
--		goto release_ecc;
-+		goto free_buf;
- 	}
- 
- 	return 0;
-+free_buf:
-+	kfree(ms->buf);
- release_ecc:
- 	mtk_ecc_release(ms->ecc);
- 	return ret;
-
----
-base-commit: 936c21068d7ade00325e40d82bfd2f3f29d9f659
-change-id: 20260415-mtk-snfi-651a984002ba
+Hi all,
+This patch has a problem, I will fix it and send v3.
 
 Best regards,
--- 
-Felix Gu <ustc.gu@gmail.com>
-
+Felix
 
