@@ -4,142 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21E6BF433E2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 05:26:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D581DF433E7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 05:42:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uFgJ6GMv5D/Q8Q4S2P5logCH1hUIVmuaJuhWwLdggns=; b=2sqhvDGj3wQWG26pL7Suj+4GIs
-	oF/7lJyMAMwaF/4KbNfVdjXxpEuzZEMhXZAlKdcpp7134aYJEHw1IJC3Bzi7CzMBZc95oPxcv6T7E
-	IS6kzCh87FD4pVZs0dvLirw7ISohAxeSzPf04QoNvE/xw3GWLfcbXiw2ynJ1VJzuFKmzEUgWA0Myv
-	p7uJXQmkk+G4xA2ju3d5hixbwEn8J3l2XDiPQs8/cb11CwwSJLjErp6LJAwt6GNYm7OZKElgdDinV
-	nVIyJz0+I00EZwEIwWsz8IqtLhU1UUMP1DHrWYqOSIug7PZht++lpDp0VZbgE6BRdEdHq96FejIFq
-	ZI+cd7vQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8F6Azec1WYo+9bbBakMF5My1/jTHBTGlfYnF5W0e0X0=; b=L+2gCttNrw17oW/NP1pUr+jDfK
+	j426r20hoJc6ZN+DhBop7pAy2XHM6cth7Bq/SAImLUxzJToHkG5tfN4BjonkQbs1czsBTCkm3dffe
+	/DIlNyNeazRBMMLZ5SxSrH4QTBUkBYF8fzEL5MvhafsZfx7HqlAXEl+t3FDyuUfeHtAIGIp3ysFeL
+	BvwGr1Q0UuFYnTl4D762zN2o+8Hj93tni0RDrg3lZ/jXXWCn7LYLTSukJnLTjOgrQORSaIWgaKDkl
+	BygxVInpnL1Ojgi86tl/aMq+N26JJLYnJXLlVb81SIk8d4fOtdFE9JJmZJjULYJmXenCoyHjvOg2l
+	nxJ856wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDFEc-0000000201G-3hlH;
-	Thu, 16 Apr 2026 05:25:50 +0000
-Received: from mail-koreacentralazon11021139.outbound.protection.outlook.com ([40.107.42.139] helo=SE2P216CU007.outbound.protection.outlook.com)
+	id 1wDFV5-000000020f9-3PLd;
+	Thu, 16 Apr 2026 05:42:51 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDFEZ-0000000200s-0J1G
+	id 1wDFV2-000000020eo-3jRk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 05:25:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MqFDEhCI7zydtyiH/GCit2b94TFdwfA2UO2yrBRTsnV0+kHhkOoFsiEiaboX3pjJ3YbTgg1nQ+oZMorcHmKuRePrR/26KqErMOCA+M8rroqkHiULKcD62e2iIhJ/+WMr9ghgcnq0IGD17KuuQv8NkkKg320t1RSCxFGGhgmLh3NeNXt1gvv/JuJsonPbG70ro9ISWv9uSWkNshhlGfD0wZTCglLAvUqGeE1djm5XQVg24gvZE7LxS7GYnSjIpFxmlfDzRgK8nxLMMYa+ODAFMMhvuBwu6hkd/TBkqRo2WYrFJMdScZj6zIZIzCySPGm2cNBiq2WqaJJ8cZwXaYbvQQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uFgJ6GMv5D/Q8Q4S2P5logCH1hUIVmuaJuhWwLdggns=;
- b=DO99EmxI9WcPG+3DIpai1FosfADi0YoVT8ockt0gvylW2AFueP/goy7Hzj1NUGyrJZItieMVgKE+5FwWFg2Tcplu4f8v8XQwTY4zjk3b7SeJqajs+LCszYI2YdjW1ub1hD9kH1sDu6gqQPSttDjdNXNBEQ2leyqpiX8sQK9USLMLUXtRZPtF1wpGzeHfDKHgPmROxpz1kW+7FZm3ApRHOrxyM4rtqf/zH3H4OdfEOb0NUexrvpBpgpgzHZAfpTJc1PWcWFASjCm/ejdDg46jQ1HF0WClG+iX7MyzS7h0MR22a/p+j9VLA96VOXjKlxrtPTsyMASZWAE/fGHR5fp3ow==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
- header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uFgJ6GMv5D/Q8Q4S2P5logCH1hUIVmuaJuhWwLdggns=;
- b=DzzIGpjXGpEvA2EnHpIFI4eM2hIL3eHiHfEzO3TSxj2TJhfch9N+MsHJgxHgxQmt7G9NkWM0uNtXxUme3yLZf+wGOT088qCFIQbwJcpf+KVG+R6YQwpQM5AptxFWIlAYVuLuw6kmNV1bVZN0NkTGse595DR67RLDPTbCYkcJxJc=
-Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM (2603:1096:101:1b9::8)
- by SL2P216MB2974.KORP216.PROD.OUTLOOK.COM (2603:1096:101:287::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.21; Thu, 16 Apr
- 2026 05:25:38 +0000
-Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
- ([fe80::f234:3bc6:9197:8232]) by SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
- ([fe80::f234:3bc6:9197:8232%5]) with mapi id 15.20.9818.017; Thu, 16 Apr 2026
- 05:25:38 +0000
-From: Nas Chung <nas.chung@chipsnmedia.com>
-To: Nicolas Dufresne <nicolas@ndufresne.ca>, "mchehab@kernel.org"
-	<mchehab@kernel.org>, "hverkuil@xs4all.nl" <hverkuil@xs4all.nl>,
-	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de"
-	<s.hauer@pengutronix.de>
-CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-imx@nxp.com" <linux-imx@nxp.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, jackson.lee
-	<jackson.lee@chipsnmedia.com>, lafley.kim <lafley.kim@chipsnmedia.com>,
-	"marek.vasut@mailbox.org" <marek.vasut@mailbox.org>, Ming Qian
-	<ming.qian@oss.nxp.com>
-Subject: RE: [PATCH v4 3/9] media: chips-media: wave6: Add Wave6 VPU interface
-Thread-Topic: [PATCH v4 3/9] media: chips-media: wave6: Add Wave6 VPU
- interface
-Thread-Index: AQHcQygbwPgPL4VUWk2ynBZ+eD7wh7UblwiAgMZnzJA=
-Date: Thu, 16 Apr 2026 05:25:38 +0000
-Message-ID: <SL2P216MB244147720D30CEA2730D459BFB232@SL2P216MB2441.KORP216.PROD.OUTLOOK.COM>
-References: <20251022074710.575-1-nas.chung@chipsnmedia.com>
-	 <20251022074710.575-4-nas.chung@chipsnmedia.com>
- <7306c00b626f4030d92b908022b9a39669b07bb7.camel@ndufresne.ca>
-In-Reply-To: <7306c00b626f4030d92b908022b9a39669b07bb7.camel@ndufresne.ca>
-Accept-Language: en-US, ko-KR
-Content-Language: ko-KR
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SL2P216MB2441:EE_|SL2P216MB2974:EE_
-x-ms-office365-filtering-correlation-id: 90d48382-284a-4136-b280-08de9b789853
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|56012099003|22082099003|18002099003|38070700021;
-x-microsoft-antispam-message-info: ABD2LLgtRXogwXQGnD3ruFwOAI/eWN1t08iRsYZAoumsQtaeZvQMFlpnZepEvwc6JqbMn5JFQevWngobJwbcfeDhVVVAsXuOteSr0g/NTSwSdjMICJAfpGUp0PqnSEV19AM85AjUurZHDDpzZBlJ6BP7uBqUrYM80aycEMrt8Fe8XSf/wlG7d3OyruE1w2/Jaz8ldSHoHIu+5TL66V5quk1GgIPeElWocgOJwgKIw31JVeqXpzbWGpZ2DgmCV7QjP1gUDjfbThCGKjyYEZaStTNvj3cmWi/Q01LJYfmVguclityNg6wqyxSBqBllub6wwR42xPzFSih9waELOjlCGehmz2+W09DkUxOFhmd7dX+sY3wdAHUOVcILPdRfikvgTu/ham5NRBugbyiXZSM6LbliK85hetg67T9INmKw15lpt6uMHP2FQxZbPZn1PeD9ZxvUSCj0cxP+gtWRnZ2psZtxQvmg2eeoKlRcowG54LieBbW1vBS1UyIiqVzGira3lQplAwVXj1tFb73m1Ffh3nhLZnUXXreIacNjncP/nzXEbTwpbe2YeZxwMHZ0eNsv9JK7NC7gaNQ/DdIbWx52axD8ABM9g5AF2E+UbLJ4IzVGRj39f6OIdmjxgYWvbOoGFJL+ZD4krEmrnYCVE8jfa/0j67VFLDseuAJwwbu8JsZ5sP+U4venKXPZfvSsIj9Gpr/UVx8UTyg2HSi7vJi4IKoZk9q79+IvI6LVHm1DgRGkrSB+X/KENxJJxB+bqo/eoO9vaBE4TNzjd6gm0BAgrUjdJXrK0mbZzKNK03rOM8o=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ko;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB2441.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(56012099003)(22082099003)(18002099003)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?h66ruLH5NwH+SAx7nlUAeOOY0XtB8GEXmYMaIjASjFGrHlUuy9kKOrOmou?=
- =?iso-8859-1?Q?3LJwY9Gf1LyMoP/HdZl2ybmwb9/v4XmVJJbP7W6caW/jpbycxYfX+K3oHp?=
- =?iso-8859-1?Q?E11iZLX1zcGbWoUAki7WpR2hZMCnx2yoTb6M+Ky3bh5RL2k/FJG35fdPTM?=
- =?iso-8859-1?Q?cPeYELpMc5R5kCOJlRdWNOrI6IA8M+7Umo0bRgKRIHOSWacyQ+P2VPHFZq?=
- =?iso-8859-1?Q?OnmaI2zrhUq1a4SRolDrDdd6/Th4kc9BBK+pggz/LSbY3vNNGvydev7rD8?=
- =?iso-8859-1?Q?PcRag8nKh1uH02dJc0eGZvb66OV95KMsQ/gnD7y553byHLfv8Ea3GMMoxR?=
- =?iso-8859-1?Q?GLTqwV2xIi7XB9105jJw8rWinBTgiey6oQxHMm82o09llmtaH/9IRRa5/a?=
- =?iso-8859-1?Q?PfWM55qLKY8TOON15qXNyTETlUOzeYUne/GFhEB7NihC9ET1T3v8PaussY?=
- =?iso-8859-1?Q?dsRyXlwmIwbDsJeLmE7TncUIt9PcLEEgt2fw9/fkO03dj9luMoOCj49O4y?=
- =?iso-8859-1?Q?6tiDSwqD5Qus5XD7ZSzhODvmmESQwEbvJEnxFH/jFvJdZoWYwC+OzCQ34B?=
- =?iso-8859-1?Q?wG3RhswbhZJTzCf7iQxo0gHe+OcOk8dEZAycIcqFvvinQBzNtwZvGIrToh?=
- =?iso-8859-1?Q?ZB0ETXAl2CDtpcfqlj+jWN0+o8b/VUmAbMn7FiVKsR6vtaqtExgE/L/9Xf?=
- =?iso-8859-1?Q?60AzUtbBZ2xnZnm6KJizChmlEuowheJh/dqdOF8DlTBu/YU4It4COpliYs?=
- =?iso-8859-1?Q?3FLpXNPqaRNK9xPEVsHFPeyOucd8TBtjWJOmGQ/kWhSOWvSCIxXr+BpEnS?=
- =?iso-8859-1?Q?apfbWyE/ezZDXoAUD5xYtcUrj7jB0TZ7Nt9QAQeXZVbs682r5QGzMOgmO6?=
- =?iso-8859-1?Q?vfZvFwFYwU5ccK/VH/irwoaafeRmlTFsz/seXalHc2WfWAketOUuW3BW3R?=
- =?iso-8859-1?Q?LQCICyuIqtRMHIHNGWqL0joamDbEQht7TA9CHj7L9CQnXBDHCXFDoeQhtj?=
- =?iso-8859-1?Q?zkJ4spCj66Ra+ke4DSSLEmJY1hzwoxpd4ywwuTHMOenhEbGv2lsKb6Zy7J?=
- =?iso-8859-1?Q?UkCavqJHZuGiSudayDt67dSjT0vqXMxNyRpwwv8/u5N83+0fOgW8clBbnG?=
- =?iso-8859-1?Q?c11HE9HoPETxWBkMBX21GGNWoZkUd5a/bytV+k9Osgc3A04ICyDmQ8CzqP?=
- =?iso-8859-1?Q?N2Pwn7kH+GKfJea/zkCRNXu6CxLqmADddOMUQQvIxemaZw7vlBn4HJtTaq?=
- =?iso-8859-1?Q?waZ5S5fRGAnJpgfGHbQ72zkIkxBjT4F/Z1R1w+iEIxQ7Tk7PHSNzYDz2TJ?=
- =?iso-8859-1?Q?srx2Itp9MqSu9pQiRRi2zk6D9n+kEqCJzdoaMV/aB2cGFzJTiL8oAnbWCn?=
- =?iso-8859-1?Q?G8JO8yeFG4NrwIdIJBF5pMwbSWlTbpUrdmlNQ6bDuTd/W9JP5jOfQGC7md?=
- =?iso-8859-1?Q?vY07qFlde5jv/sprSOEtVGxhzONGWwCRvs9IltBWjpJ7t4bB7oHTWYBRWL?=
- =?iso-8859-1?Q?xG0oRkKae+WZZHQjVWp+ZUTrMg8gS7cct/woodtxftMrdKFTor0ont8aI5?=
- =?iso-8859-1?Q?p8DOFfEmgOAjL+hsaZPtHc/iSyN1m7G/mFAAJ/WLWWUgMu42SxRLHKFHns?=
- =?iso-8859-1?Q?6ndq6Z1R+pLHUNQNgEpJvRaTlZ2Pr1QNludRODOcKB5cKU+UcKKj2rNrAX?=
- =?iso-8859-1?Q?szb1bkWVdqavTb3KizqaxR5zqIdKrx5uzVGdegfNc9gXjthvMLd8uwCRS/?=
- =?iso-8859-1?Q?qU8NWQ+LU5HJHOQU3ZSc3AeoYdVW2nNs+HbUP/d4m3fgD/KGwTQT6pQk7v?=
- =?iso-8859-1?Q?TIkwLC12Ig=3D=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 16 Apr 2026 05:42:50 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63G275X51792394
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 05:42:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	8F6Azec1WYo+9bbBakMF5My1/jTHBTGlfYnF5W0e0X0=; b=G2Bqbrjv/0/L5Qvg
+	rwdOFCPgjHuK/trUWLgs0jKHP/az2Php/mdXUhSnwlwNfdRZbIvX4uvolBaEIvf8
+	+DCfjpz6D9m7VbJq1s6fzv9tLttfpvAmqPb1rlIaspQIZKzKCSAN71TDHiSUtxQA
+	C6XFMh12jLUhzbx9eIZ0mxzQqeYTLR6vfiaQXH7mbPcj9YgcdMHRBOPCCb1IKQII
+	HCLtj8tt2sYRGaVLt6khPnXAVFiSTkJbFmq6/V03rRLcvJlKX4gVslGqOvC/5yyz
+	3r/TkOhGgV8pfqvzDBFKNXNvovQFILDjXEnc9gSSqtfCZ8Rf+sHaQ1lMklqsvs0+
+	NaTKQQ==
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4djd5ptdgh-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 05:42:46 +0000 (GMT)
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-82f220f1dabso2981999b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Apr 2026 22:42:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1776318166; x=1776922966; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=8F6Azec1WYo+9bbBakMF5My1/jTHBTGlfYnF5W0e0X0=;
+        b=ceS3nWk2oWB/gP3jATf1jpq6desFIiwkVUTqrApKuFlVc5SWrrv64mru7iwWtyYnUU
+         HbO5J7PtJs3+TOVqPw8uwnPNstXSFkp+8SiGqzCJR98dmdSQicaJMuMrVCTAYQMfxAoO
+         38f6dH7y4T9tuZu9BBFY1TPR7o+m40lHgLcp4J+uLEVCgDl2nfJakNIsTFieTuVwtZki
+         bYIOJPgZyu/3c9vismfxTRaxEa93UMbaoERlN+4OjcZX8Z7EBtHJcg7+CKnNX4nKowSB
+         z2o+F9CYFvmDdALrBPOLGT0zf47pzJdxB3y5rT3rougLqF/VELq48vMh+sxHdxlhiQ8V
+         nOvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776318166; x=1776922966;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8F6Azec1WYo+9bbBakMF5My1/jTHBTGlfYnF5W0e0X0=;
+        b=Ovs+9g63Ob//92mP7Hhrns9EKxGl1v5DDpUOlQwtzsG99gbBv3X0ZKZRfcQYIqNGrV
+         NvtZk6U9AmyeB/3mYhqDNqruE7LUoMTjSY0EA8ZwV5bphVN9hGneT0LW+ydsASWUh2eg
+         MQiHQ9ErZKCIIZRn7HVCrXJ1ci7g0Rxgn6eMtfphlG3ZohhlaV55r1ci0cXQuKKEJq/B
+         eWwZ5Us6d8+o7iF8vM4oku5gdY3yMrcbZUzkkovks9cQRFGyRH3C65+mfP1V1KJHT+T+
+         5psYLUarUTFNjPBdgGIdt42Y8or6VlO3Fze2YpN2tA6/RoU1JtImaCwD1qn3W5BXB2Gn
+         kYQQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+G7W0ajoYGwVLVgLzrbL/A/jgZo4QwFLTQIxlwYy0pvlGEC4PLNlBognxP+Pv3CUyh07uz0t4YAWuU3BS8DEzt@lists.infradead.org
+X-Gm-Message-State: AOJu0YwS775MeIx/vAJSSdt0grHyeCfgdFhLboB0aoiELiSWzs2OD5vi
+	YK5JTP0kbn0I9RWW/zXT3y8rFgpuesWNsT8M7U/DPd84nCXLMb/rGQLYhHTMTBaSuhhhqYIQ0Sp
+	dt3jH0Hq77H/O0uRrxxFdz5F9rjCfCKOc2uJZ7jGAHqdP0xstY05uuAmSAatyOrNzmxzLJANDWu
+	Xozw==
+X-Gm-Gg: AeBDieuZGbp1ndE/Y8nDyLdP2g/oirOBSxkD/AdqEoP1DEJOwO1ZLpSK7AEjU/LnE8D
+	kPLq1ECDxcfGIKOEsq6RrWhPkfKyH9fqBpCyXwgIJUOqVKIyh1jE9XTrT66NrpsLLUTxnHWS9Qr
+	cvuUg/Hw6gN+dr4uQvQsJd0wJyUyZCSfCNEjsX9rA0GIlNNt2I5FaDseRx/reOiAnIefDQTa/uK
+	4KTN4GIgzeL4w/jUhrUGhIPP1iUQhMJH1uiAAQlG7KwDpQPfKp0X1dzPmrOk2lxZskAVDYRlInb
+	OgiCs5T1BlQisPuj5SCyhWjTe7fj6FnRyX3yBetq3aDQ5LOQKHK9hcKNySCcm8Wk2O344Aho4cp
+	eLdniMMeaQUdlaRIw+haJ0Je2DQR70yfkzvvXW4QcSDqbp/sRP8rUsOE0/NwKoDL47+piKmVm71
+	rkaJQ7/KUKs7A=
+X-Received: by 2002:a05:6a00:12c1:b0:82c:e1a3:986f with SMTP id d2e1a72fcca58-82f0c324538mr25650496b3a.43.1776318165431;
+        Wed, 15 Apr 2026 22:42:45 -0700 (PDT)
+X-Received: by 2002:a05:6a00:12c1:b0:82c:e1a3:986f with SMTP id d2e1a72fcca58-82f0c324538mr25650472b3a.43.1776318164847;
+        Wed, 15 Apr 2026 22:42:44 -0700 (PDT)
+Received: from [10.133.33.185] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f6744c923sm3959387b3a.52.2026.04.15.22.42.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 15 Apr 2026 22:42:44 -0700 (PDT)
+Message-ID: <778a826b-918d-4f7c-95a9-1cdb013618d8@oss.qualcomm.com>
+Date: Thu, 16 Apr 2026 13:42:40 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: chipsnmedia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: 90d48382-284a-4136-b280-08de9b789853
-X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Apr 2026 05:25:38.7064
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: niHDSQkYdCLOOlA7/3clCDo2qYeRTCDdHmt9eemKrJNvFOxKOj8yXoW4L8xpPAhgxBFOaSrWb6AZuuEngWyxKJK0sRLQ89zinO6egU/gg8o=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SL2P216MB2974
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 04/12] coresight: etm4x: exclude ss_status from
+ drvdata->config
+To: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: suzuki.poulose@arm.com, mike.leach@arm.com, james.clark@linaro.org,
+        alexander.shishkin@linux.intel.com, leo.yan@arm.com
+References: <20260415165528.3369607-1-yeoreum.yun@arm.com>
+ <20260415165528.3369607-5-yeoreum.yun@arm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20260415165528.3369607-5-yeoreum.yun@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-ORIG-GUID: agOVtpQiV02EOO0Xcvg1oOFyprbj2eKc
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE2MDA1MSBTYWx0ZWRfX91r340ueCv/O
+ NK36ULG3KYTobSwKOu3lSc/Yxav7yK5jYssn2eZ41GgetOh468KPQs5th1tDRkLfhL9R82feZBR
+ 8UlAs51hMCwcJG9+NCUHN5tRH26MQqa0lOByL+NkGw0/2tImtcVXtmmjiCt/vWtKOrJtM1uRQkm
+ Wq3lnkmRffvil6adO/2IDyLwvHsqAAIE+6/2IdLEzQmNFmYnf3Is1UJwtfZJ4ikBi2FiCRfsPRI
+ qil6tJnKZsDl1OQbNrXv4jbTA8CfB/k6eyej1SjddVMDJCWcJOf74B9fa5vXYa+vpnAx9tjduF6
+ dY7R2zsu+clCj7CuojL4sLdQ/7DBFipNjgVWWqem6pzK8uNdvAoR8TJS/Gak5Id/cteqhU+TEz1
+ KNtjoL2RnjpBw2jDyQOzzwnQgZlZsJkK2HtvfiONAcqt+ZWdhU0pFR6I3yKSQp8Tcb2iEfbIKYR
+ X5iKyqa9zoAU/gslDqA==
+X-Authority-Analysis: v=2.4 cv=AcmB2XXG c=1 sm=1 tr=0 ts=69e076d6 cx=c_pps
+ a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=7CQSdrXTAAAA:8 a=KKAkSRfTAAAA:8 a=LI8sGVgq26al4nlOv0QA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=OpyuDcXvxspvyRM73sMx:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+ a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-GUID: agOVtpQiV02EOO0Xcvg1oOFyprbj2eKc
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-16_01,2026-04-13_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 lowpriorityscore=0 spamscore=0 adultscore=0 priorityscore=1501
+ phishscore=0 malwarescore=0 impostorscore=0 clxscore=1015 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604160051
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_222548_213640_C76A4660 
-X-CRM114-Status: GOOD (  15.62  )
+X-CRM114-CacheID: sfid-20260415_224249_052495_0825CD6C 
+X-CRM114-Status: GOOD (  31.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,79 +150,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Nicolas.
 
-Sorry, I just realized that I never replied to your earlier email.
 
->-----Original Message-----
->From: Nicolas Dufresne <nicolas@ndufresne.ca>
->Sent: Thursday, December 11, 2025 4:54 AM
->To: Nas Chung <nas.chung@chipsnmedia.com>; mchehab@kernel.org;
->hverkuil@xs4all.nl; robh@kernel.org; krzk+dt@kernel.org;
->conor+dt@kernel.org; shawnguo@kernel.org; s.hauer@pengutronix.de
->Cc: linux-media@vger.kernel.org; devicetree@vger.kernel.org; linux-
->kernel@vger.kernel.org; linux-imx@nxp.com; linux-arm-
->kernel@lists.infradead.org; jackson.lee <jackson.lee@chipsnmedia.com>;
->lafley.kim <lafley.kim@chipsnmedia.com>; marek.vasut@mailbox.org; Ming Qia=
-n
-><ming.qian@oss.nxp.com>
->Subject: Re: [PATCH v4 3/9] media: chips-media: wave6: Add Wave6 VPU
->interface
->
->Hi,
->
->Le mercredi 22 octobre 2025 =E0 16:47 +0900, Nas Chung a =E9crit=A0:
->> Add an interface layer to manage hardware register configuration
->> and communication with the Chips&Media Wave6 video codec IP.
->>
->> The interface provides low-level helper functions used by the
->> Wave6 core driver to implement video encoding and decoding operations.
->> It handles command submission to the firmware via MMIO registers,
->> and waits for a response by polling the firmware busy flag.
->>
->> Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
->> Tested-by: Ming Qian <ming.qian@oss.nxp.com>
->> Tested-by: Marek Vasut <marek.vasut@mailbox.org>
->> ---
+On 4/16/2026 12:55 AM, Yeoreum Yun wrote:
+> The purpose of TRCSSCSRn register is to show status of
+> the corresponding Single-shot Comparator Control and input supports.
+> That means writable field's purpose for reset or restore from idle status
+> not for configuration.
+> 
+> Therefore, exclude ss_status from drvdata->config, move it to etm4x_caps
+> and rename it to ss_smp.
+> 
+> This includes remove TRCSSCRn from configurable item and
+> remove saving in etm4_disable_hw().
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>   .../hwtracing/coresight/coresight-etm4x-cfg.c |  1 -
+>   .../coresight/coresight-etm4x-core.c          | 19 ++++++-------------
+>   .../coresight/coresight-etm4x-sysfs.c         |  7 ++-----
+>   drivers/hwtracing/coresight/coresight-etm4x.h |  7 ++++++-
+>   4 files changed, 14 insertions(+), 20 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> index c302072b293a..d14d7c8a23e5 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> @@ -86,7 +86,6 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
+>   		off_mask =  (offset & GENMASK(11, 5));
+>   		do {
+>   			CHECKREGIDX(TRCSSCCRn(0), ss_ctrl, idx, off_mask);
+> -			CHECKREGIDX(TRCSSCSRn(0), ss_status, idx, off_mask);
+>   			CHECKREGIDX(TRCSSPCICRn(0), ss_pe_cmp, idx, off_mask);
+>   		} while (0);
+>   	} else if ((offset >= TRCCIDCVRn(0)) && (offset <= TRCVMIDCVRn(7))) {
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index b2b092a76eb5..f55338a4989d 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -91,7 +91,7 @@ static bool etm4x_sspcicrn_present(struct etmv4_drvdata *drvdata, int n)
+>   	const struct etmv4_caps *caps = &drvdata->caps;
+>   
+>   	return (n < caps->nr_ss_cmp) && caps->nr_pe_cmp &&
+> -	       (drvdata->config.ss_status[n] & TRCSSCSRn_PC);
+> +	       (caps->ss_cmp[n] & TRCSSCSRn_PC);
+>   }
+>   
+>   u64 etm4x_sysreg_read(u32 offset, bool _relaxed, bool _64bit)
+> @@ -573,11 +573,9 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+>   		etm4x_relaxed_write32(csa, config->res_ctrl[i], TRCRSCTLRn(i));
+>   
+>   	for (i = 0; i < caps->nr_ss_cmp; i++) {
+> -		/* always clear status bit on restart if using single-shot */
+> -		if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
+> -			config->ss_status[i] &= ~TRCSSCSRn_STATUS;
+>   		etm4x_relaxed_write32(csa, config->ss_ctrl[i], TRCSSCCRn(i));
+> -		etm4x_relaxed_write32(csa, config->ss_status[i], TRCSSCSRn(i));
+> +		/* always clear status and pending bits on restart if using single-shot */
+> +		etm4x_relaxed_write32(csa, 0x0, TRCSSCSRn(i));
+>   		if (etm4x_sspcicrn_present(drvdata, i))
+>   			etm4x_relaxed_write32(csa, config->ss_pe_cmp[i], TRCSSPCICRn(i));
+>   	}
+> @@ -1055,12 +1053,6 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
+>   
+>   	etm4_disable_trace_unit(drvdata);
+>   
+> -	/* read the status of the single shot comparators */
+> -	for (i = 0; i < caps->nr_ss_cmp; i++) {
+> -		config->ss_status[i] =
+> -			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
+> -	}
+> -
+>   	/* read back the current counter values */
+>   	for (i = 0; i < caps->nr_cntr; i++) {
+>   		config->cntr_val[i] =
+> @@ -1503,8 +1495,9 @@ static void etm4_init_arch_data(void *info)
+>   	 */
+>   	caps->nr_ss_cmp = FIELD_GET(TRCIDR4_NUMSSCC_MASK, etmidr4);
+>   	for (i = 0; i < caps->nr_ss_cmp; i++) {
+> -		drvdata->config.ss_status[i] =
+> -			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
+> +		caps->ss_cmp[i] = etm4x_relaxed_read32(csa, TRCSSCSRn(i));
+> +		caps->ss_cmp[i] &= (TRCSSCSRn_PC | TRCSSCSRn_DV |
+> +				    TRCSSCSRn_DA | TRCSSCSRn_INST);
 
-[...]
+Just re-go through this patch and had a question here:
 
->
->[...]
->
->stopping there for now. I feel like we did a big mistake in wave5 by
->allowing a
->heavy abstraction, its a lot harder to fix and it served no purpose since
->you
->went for a fresh driver for wave6. I think its proper to ask for a slimmer
->interface.
->
->The V4L2 API is the front-end, and where all the validation should take
->place.
->The HW interface should simply manage the HW in a readable and non-
->redundant
->way. In V4L2, strides and buffer size are part of the try/s/g_fmt API, so
->these
->should not be duplicated here and they should clearly use the common code.
+I’m not sure whether this new change should be documented in the ABI, 
+given that the TRCSSCSRn_STATUS bit is masked. In my opinion, this 
+change breaks the existing ABI description.
 
-I agree that the HW interface should be slimmer and should not duplicate
-validation handled in the V4L2 layer.
+Description from the ABI document:
 
->
->I know its painful to ear, but you will be remove 50% of the code, which
->long
->term will be a massive win on maintenance.
+What:           /sys/bus/coresight/devices/etm<N>/sshot_status
+Date:           December 2019
+KernelVersion:  5.5
+Contact:        Mathieu Poirier <mathieu.poirier@linaro.org>
+Description:    (Read) Print the current value of the selected single
+                 shot status register.
 
-I am reworking the series to address your earlier feedback as well, and I w=
-ill
-include that in the next patch version.
+Thanks,
+Jie
 
-Thanks again for your feedback.
+>   	}
+>   	/* NUMCIDC, bits[27:24] number of Context ID comparators for tracing */
+>   	caps->numcidc = FIELD_GET(TRCIDR4_NUMCIDC_MASK, etmidr4);
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> index 8bd28e71d4c9..5e26c2ec8f7b 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> @@ -1829,8 +1829,6 @@ static ssize_t sshot_ctrl_store(struct device *dev,
+>   	raw_spin_lock(&drvdata->spinlock);
+>   	idx = config->ss_idx;
+>   	config->ss_ctrl[idx] = FIELD_PREP(TRCSSCCRn_SAC_ARC_RST_MASK, val);
+> -	/* must clear bit 31 in related status register on programming */
+> -	config->ss_status[idx] &= ~TRCSSCSRn_STATUS;
+>   	raw_spin_unlock(&drvdata->spinlock);
+>   	return size;
+>   }
+> @@ -1841,10 +1839,11 @@ static ssize_t sshot_status_show(struct device *dev,
+>   {
+>   	unsigned long val;
+>   	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> +	const struct etmv4_caps *caps = &drvdata->caps;
+>   	struct etmv4_config *config = &drvdata->config;
+>   
+>   	raw_spin_lock(&drvdata->spinlock);
+> -	val = config->ss_status[config->ss_idx];
+> +	val = caps->ss_cmp[config->ss_idx];
+>   	raw_spin_unlock(&drvdata->spinlock);
+>   	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
+>   }
+> @@ -1879,8 +1878,6 @@ static ssize_t sshot_pe_ctrl_store(struct device *dev,
+>   	raw_spin_lock(&drvdata->spinlock);
+>   	idx = config->ss_idx;
+>   	config->ss_pe_cmp[idx] = FIELD_PREP(TRCSSPCICRn_PC_MASK, val);
+> -	/* must clear bit 31 in related status register on programming */
+> -	config->ss_status[idx] &= ~TRCSSCSRn_STATUS;
+>   	raw_spin_unlock(&drvdata->spinlock);
+>   	return size;
+>   }
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+> index 8168676f2945..db56c4414873 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+> @@ -213,6 +213,7 @@
+>   #define TRCACATRn_EXLEVEL_MASK			GENMASK(14, 8)
+>   
+>   #define TRCSSCSRn_STATUS			BIT(31)
+> +#define TRCSSCSRn_PENDING			BIT(30)
+>   #define TRCSSCCRn_SAC_ARC_RST_MASK		GENMASK(24, 0)
+>   
+>   #define TRCSSPCICRn_PC_MASK			GENMASK(7, 0)
+> @@ -729,6 +730,9 @@ static inline u32 etm4_res_sel_pair(u8 res_sel_idx)
+>   #define ETM_DEFAULT_ADDR_COMP		0
+>   
+>   #define TRCSSCSRn_PC			BIT(3)
+> +#define TRCSSCSRn_DV			BIT(2)
+> +#define TRCSSCSRn_DA			BIT(1)
+> +#define TRCSSCSRn_INST			BIT(0)
+>   
+>   /* PowerDown Control Register bits */
+>   #define TRCPDCR_PU			BIT(3)
+> @@ -861,6 +865,7 @@ enum etm_impdef_type {
+>    * @lpoverride:	If the implementation can support low-power state over.
+>    * @skip_power_up: Indicates if an implementation can skip powering up
+>    *		   the trace unit.
+> + * @ss_cmp:	Indicates supported single-shot comparators.
+>    */
+>   struct etmv4_caps {
+>   	u8	nr_pe;
+> @@ -899,6 +904,7 @@ struct etmv4_caps {
+>   	bool	atbtrig : 1;
+>   	bool	lpoverride : 1;
+>   	bool	skip_power_up : 1;
+> +	u32	ss_cmp[ETM_MAX_SS_CMP];
+>   };
+>   
+>   /**
+> @@ -977,7 +983,6 @@ struct etmv4_config {
+>   	u32				res_ctrl[ETM_MAX_RES_SEL]; /* TRCRSCTLRn */
+>   	u8				ss_idx;
+>   	u32				ss_ctrl[ETM_MAX_SS_CMP];
+> -	u32				ss_status[ETM_MAX_SS_CMP];
+>   	u32				ss_pe_cmp[ETM_MAX_SS_CMP];
+>   	u8				addr_idx;
+>   	u64				addr_val[ETM_MAX_SINGLE_ADDR_CMP];
 
-Thanks.
-Nas.
-
->
->regards,
->Nicolas
 
