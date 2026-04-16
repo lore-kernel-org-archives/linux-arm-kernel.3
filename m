@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BF04F8A17B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 13:48:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B04F4F8D74C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 14:02:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sc3m+b0lLWMgaMleDRp2o2Rjl7TabIK2d50OhnN2sRs=; b=Pd1gIQDVTW4Gabt1FoZqf6IEJD
-	Q8mYhsufLhnAtdaZaPSx4+1RjWNj8h+3YgDfmUS8pErAxc5kDY2JvDMua5xrI8McGuTt6Y3SYjWL3
-	pCe8n8CXvqtSj0Z6D59ykTIVKNIRASuUhicnMuO1XRwm8+rDczCCxnYFycNAP+RYzucWuMoRhCa6h
-	sCGRsSPNd8AU5Oq41o5agIEMt/XLtfm3d9Echw9YJ8SzB5jkH4c7ESLZkL9XA6bDaiUjf6mttPMla
-	jB2WMRUyU448EwI4vL+Fz5DCxN2Mk7y3EXKcaoFO6aYkp6RKAgup1AB0/HpLiAzkmFugD+0p9gL+P
-	ja+pOm9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GaO2O7goIGjknZyz6ub5mllUYrSjwri8+OOD1vuGZbc=; b=383/+2d5ZfJ+9toFcvRnQwyaWf
+	qxHq1wxnrL3yYyOL1oH0gZUBo10CWkJLeIj5uQ3kNt9jdOJUXVeeyfSACIiFbVPvCUj9J9yHPHlx4
+	frU5FIED1lP3fGbqZyL9PZLKml9jFdrt5JsS9JuAoIgdFuQXz8p8gpNn0E5L+Sca6w/OywlSYj0Xj
+	tr4Cdb/+3R/GFO8Oyc3Tw1ySb+bCYB5KjjzSR2cJSbqD2Di12EWwBJiz7su5NFxc8ktjYmgzNbG79
+	e1WbBaJg3R1cJesS7ko+aRf9lCz+o9HqxxhJc5kSCLeFzEzPM+GrGVb1kFxG68q0v0Ca7AEEVmMAq
+	eeZA+zUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDN4u-00000002Wle-2qA6;
-	Thu, 16 Apr 2026 13:48:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wDNIr-00000002XTs-0KdQ;
+	Thu, 16 Apr 2026 14:02:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDN4t-00000002WlH-1cFw;
-	Thu, 16 Apr 2026 13:48:19 +0000
+	id 1wDNIo-00000002XTW-2qlZ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Apr 2026 14:02:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8C7026012B;
-	Thu, 16 Apr 2026 13:48:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD6ACC2BCB3;
-	Thu, 16 Apr 2026 13:48:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DFAFA402C3
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 14:02:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF24DC2BCAF
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 14:02:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776347298;
-	bh=uTJD2gM29MtP9GMelRFqj+IKtjoMn9+Dn//dWVAgy88=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fm6vBwCgh/orJ+Veej0NxOgBPBdM3c4HilOYT/mTK3zbRqgF+VgPtMAckcXiE9En9
-	 qzeqYh49dgiDhZ6p6vr5eIj7LlktJJHzed4z5ZpLPJN5hBjT+8DX7wGRgy8tpt3zKy
-	 alM1wVycCERuFhcU0uGVLzBvxdhTX6LQNWxCVsSTjUFJVTgfKNVH1qJqdYeCowTF5u
-	 WzAy9pQI+UeHqW9R0in129XTFMGU9A3Qu7V0GpuYT1EfgIdnKdMSg4PxAqdbcq7TW5
-	 JY6QSpQGb96OYRUS4mqKYVKEiy7L38JtF6CMmA7E67dgEDKUdirh0CdAh+rsOwGzcO
-	 JVm7phy6y5CuA==
-Date: Thu, 16 Apr 2026 15:48:15 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: linux-pwm@vger.kernel.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Naushir Patuck <naush@raspberrypi.com>, Stanimir Varbanov <svarbanov@suse.de>, mbrugger@suse.com
-Subject: Re: [PATCH v2 2/3] pwm: rp1: Add RP1 PWM controller driver
-Message-ID: <aeDmk-t5Lc1zpkg9@monoceros>
-References: <cover.1775829499.git.andrea.porta@suse.com>
- <0d99317b9150310dfbd98de1cb2a890f0bffe7cd.1775829499.git.andrea.porta@suse.com>
- <adkrHkANCzxO8KUP@monoceros>
- <aeC6U7D6TfWm8JPx@apocalypse>
+	s=k20201202; t=1776348161;
+	bh=eFW8dHy6Zg23j5JB3FyPdcRYGKquzdaBg6ZNicFYOK4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ULwq7BDmQp2vdyNdvoOqZzBcQ759Wsn5hGIEVpy3iUuJCqEB+fg/lW6lY9vCezxKZ
+	 u+mpNmiaZlMctGRpXJR3NX5P6Bt0EMGpznhrNaRkewDvsdhrXgpeBMp6Qh8+7VF20Y
+	 Yqp+SX8dTrpHpMUUSpXzZxpzM54Um8ybPDeMqqdR5laEIVE+8vgxMw1q4/kRZcpsIB
+	 WNtXckt0914ImHUCRBjImqE42fPc0XQBRwBHsX8ObFYnIc8wSIkRzgcn2QRocxcFXy
+	 TYjgspWdWk/e1F0jPxeu81LnIc3VzF4mT9WiXC/nxoDfV6ZmXsDRL/1h9xw+87DKy8
+	 ZUuYhaZ0HRZvA==
+Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-6725295a113so3196528a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 07:02:41 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+A+Q7ZGCXR36mhda4BkxlNtxepFMhLduXgSqsgysb4Z4khjdITZQv8eIeTFXJIJM0l2fKNYPZIqrxMgUBW0cR0@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQl68OtqxuAWKeTZZ/lFcBGLL5BPsDUVQbd2+1uR/KSvllRz4F
+	Ul0MgmsXKGIQm4AlSDR+Bh7v39seaa1Yn08mcPTA0syfFxKVDTT2hTK5SHYS4+e+saA2aSOeHhy
+	Juej+kK77EdSWZeKGCSRDG7mYcOhaeQ==
+X-Received: by 2002:a05:6402:24d2:b0:66f:a7e2:b28b with SMTP id
+ 4fb4d7f45d1cf-670795072cbmr9644507a12.9.1776348160222; Thu, 16 Apr 2026
+ 07:02:40 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="53ygmt545ulvux3v"
-Content-Disposition: inline
-In-Reply-To: <aeC6U7D6TfWm8JPx@apocalypse>
+References: <20260412-b4-ffa_ns_sgi_gicv3-v1-0-af61243eb405@kernel.org>
+ <20260412-b4-ffa_ns_sgi_gicv3-v1-1-af61243eb405@kernel.org>
+ <20260416121146.GA2736962-robh@kernel.org> <20260416-true-prophetic-centipede-3ad8e5@sudeepholla>
+In-Reply-To: <20260416-true-prophetic-centipede-3ad8e5@sudeepholla>
+From: Rob Herring <robh@kernel.org>
+Date: Thu, 16 Apr 2026 09:02:27 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqLdSi2x-KibY7WXTEot8Bj=54XeE1VACtLTujxn0VTxRw@mail.gmail.com>
+X-Gm-Features: AQROBzBIbU1scggnZL1CVMnkgU8q8vOpAVBM10XITxPhsoofCMIRMJjnOpjom_Y
+Message-ID: <CAL_JsqLdSi2x-KibY7WXTEot8Bj=54XeE1VACtLTujxn0VTxRw@mail.gmail.com>
+Subject: Re: [PATCH 1/5] dt-bindings: interrupt-controller: Add support for
+ secure donated SGIs
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Marc Zyngier <maz@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260416_070242_765737_7014D55C 
+X-CRM114-Status: GOOD (  39.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,115 +86,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---53ygmt545ulvux3v
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 2/3] pwm: rp1: Add RP1 PWM controller driver
-MIME-Version: 1.0
-
-Hello Andrea,
-
-one thing I forgot to ask: Is there a public reference manual covering
-the hardware. If yes, please add a link at the top of the driver.
-
-On Thu, Apr 16, 2026 at 12:30:43PM +0200, Andrea della Porta wrote:
-> On 19:31 Fri 10 Apr     , Uwe Kleine-K=F6nig wrote:
-> > I assume there is a glitch if I update two channels and the old
-> > configuration of the first channel ends while I'm in the middle of
-> > configuring the second?
->=20
-> The configuration registers are per-channel but the update flag is global.
-> I don't have details of the hw insights, my best guess is that anything t=
-hat
-> you set in the registers before updating the flag will take effect, so th=
-ere
-> should be no glitches.
-
-Would be great if you could test that. (Something along the lines of:
-configure a very short period and wait a bit to be sure the short
-configuration is active. Configure something with a long period and wait
-shortly to be sure that the long period started, then change the duty,
-toggle the update bit and modify a 2nd channel without toggling update
-again. Then check the output of the 2nd channel after the first
-channel's period ended.
-
-> > > +	if (ticks > U32_MAX)
-> > > +		ticks =3D U32_MAX;
-> > > +	wfhw->period_ticks =3D ticks;
-> >=20
-> > What happens if wf->period_length_ns > 0 but ticks =3D=3D 0?
->=20
-> I've added a check, returning 1 to signal teh round-up, and a minimum tic=
-k of 1
-> in this case.
-
-Sounds good. Are you able to verify that there is no +1 missing in the
-calculation, e.g. using 1 as register value really gives you a period of
-1 tick and not 2?
-
-> > > +	if (wf->duty_offset_ns + wf->duty_length_ns >=3D wf->period_length_=
-ns) {
-> >=20
-> > The maybe surprising effect here is that in the two cases
-> >=20
-> > 	wf->duty_offset_ns =3D=3D wf->period_length_ns and wf->duty_length_ns =
-=3D=3D 0
-> >=20
-> > and
-> > =09
-> > 	wf->duty_length_ns =3D=3D wf->period_length_ns and wf->duty_offset_ns =
-=3D=3D 0
-> >=20
-> > you're configuring inverted polarity. I doesn't matter technically
-> > because the result is the same, but for consumers still using pwm_state
-> > this is irritating. That's why pwm-stm32 uses inverted polarity only if
-> > also wf->duty_length_ns and wf->duty_offset_ns are non-zero.
-
-Please align to the pwm-stm32 algorithm (as of
-https://patch.msgid.link/c5e7767cee821b5f6e00f95bd14a5e13015646fb.177626410=
-4.git.u.kleine-koenig@baylibre.com)
-here to decide when to select inverted polarity.
-
-> > > +	}
+On Thu, Apr 16, 2026 at 8:09=E2=80=AFAM Sudeep Holla <sudeep.holla@kernel.o=
+rg> wrote:
+>
+> On Thu, Apr 16, 2026 at 07:11:46AM -0500, Rob Herring wrote:
+> > On Sun, Apr 12, 2026 at 06:04:37PM +0100, Sudeep Holla wrote:
+> > > In GICv3, SGI security is defined by interrupt grouping and configura=
+tion
+> > > rather than by SGI number alone. Linux conventionally reserves SGIs 0=
+-7
+> > > for non-secure internal kernel IPIs, while higher SGIs is assumed to =
+be
+> > > owned/stolen by the Secure world unless explicitly made available.
+> > >
+> > > Document secure donated SGI interrupt specifiers for the GICv3 bindin=
+g.
+> > > It describes "arm,secure-donated-ns-sgi-ranges" for SGIs donated by t=
+he
+> > > secure world to non-secure software. It excludes SGIs 0-7, which are
+> > > already used by the kernel for internal IPI purposes.
+> > >
+> > > Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+> > > ---
+> > >  .../bindings/interrupt-controller/arm,gic-v3.yaml  | 27 ++++++++++++=
++++++++++-
+> > >  include/dt-bindings/interrupt-controller/arm-gic.h |  1 +
+> > >  2 files changed, 27 insertions(+), 1 deletion(-)
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/interrupt-controller/a=
+rm,gic-v3.yaml b/Documentation/devicetree/bindings/interrupt-controller/arm=
+,gic-v3.yaml
+> > > index bfd30aae682b..664727d071c9 100644
+> > > --- a/Documentation/devicetree/bindings/interrupt-controller/arm,gic-=
+v3.yaml
+> > > +++ b/Documentation/devicetree/bindings/interrupt-controller/arm,gic-=
+v3.yaml
+> > > @@ -45,17 +45,24 @@ description: |
+> > >
+> > >        The 1st cell is the interrupt type; 0 for SPI interrupts, 1 fo=
+r PPI
+> > >        interrupts, 2 for interrupts in the Extended SPI range, 3 for =
+the
+> > > -      Extended PPI range. Other values are reserved for future use.
+> > > +      Extended PPI range, and 4 for SGI interrupts. Other values are
+> > > +      reserved for future use.
+> > >
+> > >        The 2nd cell contains the interrupt number for the interrupt t=
+ype.
+> > >        SPI interrupts are in the range [0-987]. PPI interrupts are in=
+ the
+> > >        range [0-15]. Extended SPI interrupts are in the range [0-1023=
+].
+> > >        Extended PPI interrupts are in the range [0-127].
+> > >
+> > > +      SGI interrupts are in the range [8-15] which overlaps with the=
+ SGIs
+> > > +      assigned to/reserved for the secure world but donated to the n=
+on
+> > > +      secure world to use. Refer "arm,secure-donated-ns-sgi-ranges" =
+for
+> > > +      more details.
 > > > +
-> > > +	return 0;
+> > >        The 3rd cell is the flags, encoded as follows:
+> > >        bits[3:0] trigger type and level flags.
+> > >          1 =3D edge triggered
+> > >          4 =3D level triggered
+> > > +      SGIs are edge triggered and must be described as such.
+> > >
+> > >        The 4th cell is a phandle to a node describing a set of CPUs t=
+his
+> > >        interrupt is affine to. The interrupt must be a PPI, and the n=
+ode
+> > > @@ -136,6 +143,24 @@ description: |
+> > >        - $ref: /schemas/types.yaml#/definitions/uint32
+> > >        - $ref: /schemas/types.yaml#/definitions/uint64
+> > >
+> > > +  arm,secure-donated-ns-sgi-ranges:
+> > > +    description:
+> > > +      A list of pairs <sgi span>, where "sgi" is the first SGI INTID=
+ of a
+> > > +      range donated by the secure side to non-secure software, and "=
+span" is
+> > > +      the size of that range. Multiple ranges can be provided.
 > > > +
-> > > +err_disable_clk:
-> > > +	clk_disable_unprepare(rp1->clk);
-> > > +
-> > > +	return ret;
-> > > +}
-> >=20
-> > On remove you miss to balance the call to clk_prepare_enable() (if no
-> > failed call to clk_prepare_enable() in rp1_pwm_resume() happend).
->=20
-> Since this driver now exports a syscon, it's only builtin (=3DY) so
-> it cannot be unloaded.
-> I've also avoided the .remove callback via .suppress_bind_attrs.
+> > > +      SGIs described by interrupt specifiers with type 4 (SGI) must =
+fall
+> > > +      within one of these ranges. SGIs(0-7) reserved by non-secure w=
+orld
+> > > +      for internal IPIs must not be listed here. "sgi" must be in th=
+e
+> > > +      range [8-15], "span" must be in the range [1-8], and the range=
+ must
+> > > +      not extend past SGI 15.
+> > > +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
+> > > +    items:
+> >
+> > As a matrix, you need:
+> >
+> > items:
+> >   items:
+> >     - ...
+> >     - ...
+> >
+> > However, given this is at most 8 entries, I would just do an array:
+> >
+> > minItems: 1
+> > maxItems: 8
+> > uniqueItems: true
+> > items:
+> >   minimum: 8
+> >   maximum: 15
+> >
+>
+> Makes sense.
+>
+> > Unless we need more flexibility in GICv5?
+> >
+>
+> IIUC, there are not SGIs in GICv5 and we may need to use one software PPI
+> as a replacement for SGIs. LPIs are used for IPIs.
+>
+> I am assuming Marc will soon post his opinion/rejection on this series =
+=F0=9F=98=89
+> based on some offline discussion we had with respect to how it fits with
+> GICv5.
+>
+> > Is there an example we can stick this property into so it gets tested?
+> >
+>
+> Not sure if [1] serves as an example or you are looking for something els=
+e.
 
-Oh no, please work cleanly here and make the driver unbindable. This
-yields better code quality and also helps during development and
-debugging.
+In the binding example, but don't add a whole new example for it.
 
-Best regards
-Uwe
+Did [1] pass validation? If it did, it shouldn't have and I need to
+investigate. If you didn't run it, then that would be the reason I
+want it in the binding example.
 
---53ygmt545ulvux3v
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmng6J0ACgkQj4D7WH0S
-/k7hMggAn8rENjZtWE1kj1D/NlWx5jd1LB+UVOUTfUUHjZwhyEqvw7BXYQ42LooK
-ONSs3zBv+kpBp8ZVk5oON1Qw7Cjp7WXon5ePWM4adZE96cqdp62lExHO873C/2f1
-LJcEvluoxNyDLtSoDKvlhlnYfxi/Cww2aMEa+Mm2n/NWbkEQAnI8zW8WWifBr16/
-xKaZDUHJKyxfAq2wrgqWwersaJTsx4OQ3slVTLraUQ9nG3bJmuhde3NcSRLzXlcg
-1Be+aAYFggvG10IjVlmiqaRAVEa4jTMo42ep/xQH+Lqr1BYgVFwbYHvpFQ7kmPep
-4VBRQjnRDS5So3LCp7p3VgT3IkAGGg==
-=S8mZ
------END PGP SIGNATURE-----
-
---53ygmt545ulvux3v--
+Rob
 
