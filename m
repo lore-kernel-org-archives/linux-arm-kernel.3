@@ -4,154 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D06DF8A15B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 11:05:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84570F8A15E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 11:12:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ALG5GnLmGfFfoegwIP3Lw9ViLOeABCJz4O4Uy8fA0X4=; b=wZ4REEUoXxSG4MLZpdMlD5N0E0
-	86Xbn/w/09duiNPbgiZeY55FlZMrJRdKcW0N7HxIWH0LPVSgaU+7YhzPWwOErPb7pz42sEeLYSacK
-	aKvY9vNOpRi7SLDbc9qOp7RUfRiiKIVjrdcDxBfIPWMqh6R2/BFhNfYf2VysrBORpMZsG1FKD1J4A
-	BqtC1raodqcf4IzYkdLgekDdTuhLPfOCoBexYKZwaJ8vmEIPrK/rvFpUdRi//0B3P5UBr/uQcRgvx
-	H9uFvTnzaTQ8/jsv6YOBPpGRDRQUMcais/EPwBLVrlxg7OJlAQ1rlJAsED2/9ENh1f4/ZmhsEKD+v
-	zXH/CH6Q==;
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VpUfJY0SkOSV8BOOWgmIKTeYhrT/v7kIWkS0ujnuXnA=; b=o9AQsUQzb9Q9pAwbAXuV3zTXzV
+	++hfWEsnChcYOR0KpxTBr4dx6PzjROaBzpRryoE9Sfn7bmZ3op29tQzo11pGG4E2w+rBuFzUvIlH3
+	9zLC0nHP+ZY5rnYSpdPI4MwidCJIJNQPcaaUgieCK7lioExJma9AyUZwC8COFqmBSFbQi8kekVcS1
+	aSvxKdb/ezr22YoPNOaYzixCmdRWEMpBjzIg0A3B8CVxbj/tUF0pi2NW4tUCDMRO/jaGavjSANXJp
+	7exVTxEnKUHDO/djbrcK7QQUlY2m4g8wPNHwUeq0qKlz+V+fKP/79+nW8c8nT9S+0QND1qX/GPim1
+	coDXdCcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDKXN-00000002LLk-1xI2;
-	Thu, 16 Apr 2026 11:05:33 +0000
-Received: from mail-westeuropeazon11013036.outbound.protection.outlook.com ([52.101.72.36] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wDKeP-00000002Lkg-414s;
+	Thu, 16 Apr 2026 11:12:49 +0000
+Received: from mail-northeuropeazon11012026.outbound.protection.outlook.com ([52.101.66.26] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDKXJ-00000002LLL-3BU7
+	id 1wDKeN-00000002LkB-1R85
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 11:05:32 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=AJ2keNtg2ma6L10znLeh142BOsrTQ1s0ILTLoLRZUB9D47qk4ZV/4d/NJU4BpT9130ZQ9DRGHodacxGrTB2STskWhy8socEfXHTMRJWPubWKjIm8e/aGtbZKdkglhyYdlc6iLv5ldlkd43nnCNlKpWiqet36iHYa4vU04ZDmYh0A8rH+1IMCAc9HwkpY18oxQqGNiN2bqLgbyBofPJV6hZ/qwzle1t+7a+swLz7NAPYc4fWnTq86AsMp6kIJhzN0wG541uAMUk1DAWvi/YO5hpVwHUeT6+kVZ8VcSlAmJ3kp6/onyJXYJ+3tEbp3OzhEelirDwx93Ixl87c6JZmCVQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ALG5GnLmGfFfoegwIP3Lw9ViLOeABCJz4O4Uy8fA0X4=;
- b=WqPzs7h09LDDE2jDsvD++52MAjaVc2cgZbl2z03BVF2t2jYQ5xOytrl4qMxxzEKCGKZetmARNGwVylvrxTr44UEQLpFIhNhCpLCpiutdm5WV3DsOq/QA+bDwBTUyCpOUAgArPj/zE24t9wJBCPhV3ejDlWiQ4ZwJKwF45miBZcA3G0N5sCYH8TjPH1xwIpzG2xBXjoCFyHnhkQMzfHt+6tSgPjygWV+92vfzjVi6sHmx3RGQI4UDuAIR1SMMt5DmigvByiLT68MIyVn6sUAqWqdoOrZxbzz9KhhiGclCnajTuskntiSvYgETy9b0bZevizS3XmQmEI/ENxQxq1Sl9g==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=google.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ALG5GnLmGfFfoegwIP3Lw9ViLOeABCJz4O4Uy8fA0X4=;
- b=mj/DqdkIOpSRGdCA/x3ZXKqYedn5+WzP8Fz6svrX7fSuxJLn3OG6oJv+hzVeapqXyYv5h4CPRULjcTJ5S04uA6fJp5tIkDgAPQKumMxt8ustPWed2bmWk7BE886xRA7767WiOll9tzRSj+yB3BCgE/PDbHj6nzsWpGBfFwSVuRQ=
-Received: from CWLP265CA0489.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:18a::10)
- by AS8PR08MB9219.eurprd08.prod.outlook.com (2603:10a6:20b:5a2::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Thu, 16 Apr
- 2026 11:05:22 +0000
-Received: from AM3PEPF0000A794.eurprd04.prod.outlook.com
- (2603:10a6:400:18a:cafe::96) by CWLP265CA0489.outlook.office365.com
- (2603:10a6:400:18a::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.52 via Frontend Transport; Thu,
- 16 Apr 2026 11:05:22 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM3PEPF0000A794.mail.protection.outlook.com (10.167.16.123) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.17
- via Frontend Transport; Thu, 16 Apr 2026 11:05:21 +0000
+	Thu, 16 Apr 2026 11:12:48 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qM6eypYijrx0+mmpugRkdj3cNLtFHFsau3/yD6TytOQIoDpHm9JjdfVf+v17xEPNQQTMBlWn0eAYkbiKctG+inapVC6pFGsTKqafdglXD6Rw1MLSoSlEdcxp1etVoL6iXC/nIgjUSxGMyb5wh1oR9g6aWPmP0Quj313Vbc3J/TWAtxkHtxHOAlnDfoc2oO1/hVHD/uQFcVbmTaXRSO5ASX4w71prtQCaYauHvmZYbTwbZ8OC/gd5n2RVy+na9HWB4yYD8g0PRFGX59cNuX5wxpBopl/XWBlQy5OCRMsV46qSdB51kqSX7Ap1ut+sFe2kiN/+VA4gdjmMgv46WEdXHw==
+ b=bxMdt4sht0ybBpbewTf8/ntQlYnhVdEJZUDAw3M25A9i26ceC538ojpqV62cBRLvm6Nd4/iDDB/shdxsN7EyZi2wFcjA+It44AhfuAGqAGgw26mQoT5TgwBIP4DTuFBGHndOClxhDltxnSgwEC6WR5L+GwJBNZl9qHGnH8TT0KebtvNsdBL6nvEhfQZokI6TCD8K/HpAM9B+CZ4LtkmLRwCP1FySDIbE/xwP547SS3m35SnpPBYY2I4znYDxBF+zGsykj0aVLgP3bqg5EsS0GWGMLfpJSDHjkHM1A6qD4+58E20LbPt/ENN0d622y/njmeTv4l0Pl1FEBuXLL+iaRQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ALG5GnLmGfFfoegwIP3Lw9ViLOeABCJz4O4Uy8fA0X4=;
- b=qBtYNzjPRVMmiTr479s1oaHfdoMyQpkgvFqYarFaJVR9DY3vfWvdu6Pwd9y7DPu+S3Au4kFsdSRhRWjJEcWNl8yb0VtyMhf/8VwztiSlOwpbgN1sqIXgc7VMJvcNenyY+J+TP3QcZDHGw3oEeR7sRTenjCZ4KNhFv1/Pg+gM/GFS6aKd/5bdg/TgQ2f+hEOK1B6pWDKViVDCtfocTs2NZIejwqxDwC55SKis2WUgLXXiTsnKfsRvwEh0eV1cwScKxibIkWqM+R3TS6IgjfHJJoL/+e3oV+eywTYxdjD5ixZ2JI1eh1yE9B0qt5uxqGiUli6Qi/TUUj6K/20qhoEXTw==
+ bh=VpUfJY0SkOSV8BOOWgmIKTeYhrT/v7kIWkS0ujnuXnA=;
+ b=yl37hbUDawEIRDuZ9Unb5W7ZMZ6PXrhrG0nfO4J1bdfcztl87yn6Mn3pDjSfDP6DFjYlN5JdSV7WyKEcKNSWKMMlRz/CrgHy8P5zN7Y8whxqP0tO8kF7h8ESxH1NUpMKuIkVw5FichX8uznDdDsky4vwapSH6WK3PEvwhs+gSuTfCLUwSSV1KGAXH6sgDadC8uZcrQevxGvyKfMjY5+83Yj2jnOpjAnVhKxRNx9rgtF8x/wglKQR8mi2KEyqiIliswlBkbkM63RG5eMgICePevT8BKpQVZfpSkj5LGMHDTOENjHts8eTIfwrPevoGoCe60eL63qfv7eEXoV1Oq0KLQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ALG5GnLmGfFfoegwIP3Lw9ViLOeABCJz4O4Uy8fA0X4=;
- b=mj/DqdkIOpSRGdCA/x3ZXKqYedn5+WzP8Fz6svrX7fSuxJLn3OG6oJv+hzVeapqXyYv5h4CPRULjcTJ5S04uA6fJp5tIkDgAPQKumMxt8ustPWed2bmWk7BE886xRA7767WiOll9tzRSj+yB3BCgE/PDbHj6nzsWpGBfFwSVuRQ=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from DU4PR08MB11769.eurprd08.prod.outlook.com (2603:10a6:10:644::21)
- by DB9PR08MB8409.eurprd08.prod.outlook.com (2603:10a6:10:3d7::10) with
- Microsoft SMTP Server (version=TLS1_2,
+ bh=VpUfJY0SkOSV8BOOWgmIKTeYhrT/v7kIWkS0ujnuXnA=;
+ b=euADaNqwv1Ut6NbO32suMYqEwKqyoB0WoUWFZGjR2S9qerXwDC0Q/O48ZhHyJ7RQOevfj9Q0sKHs3YSPVMM3l0ZjsnKXgiVVYGvHpjBIDYdYikXtt1+UulEhEjd0mhWLReEWKVz38AsCt8wk2NtP+Xk0PgdK910Or5YcSyS9GkL681f/gBTz9v30uXaOMy49OIdz/RtWm1uNMzQ78n6uecHe5f3wyY3lMwtAZIAI/gPIYbcFdcNH5o3IMNSfSvZWNOrzAsxSYvQVsPQ+Nm28XwBVqxIIVi/+LSL19W7MZNklDISoIOJ7HyCXeP8P4ldvjD9l1NcesntzXs3emFFDXQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13) by AS8PR04MB8804.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42f::24) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.25; Thu, 16 Apr
- 2026 11:04:17 +0000
-Received: from DU4PR08MB11769.eurprd08.prod.outlook.com
- ([fe80::d424:cd62:81a8:490f]) by DU4PR08MB11769.eurprd08.prod.outlook.com
- ([fe80::d424:cd62:81a8:490f%5]) with mapi id 15.20.9818.023; Thu, 16 Apr 2026
- 11:04:17 +0000
-Message-ID: <97d26e6e-b565-447f-95eb-2ece0755fe57@arm.com>
-Date: Thu, 16 Apr 2026 12:04:16 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 00/48] arm64: Support for Arm CCA in KVM
-To: Alper Gun <alpergun@google.com>, Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
- Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve <vannapurve@google.com>
-References: <20260318155413.793430-1-steven.price@arm.com>
- <CABpDEukEO4Y_fg8fv5Nr1_Pw_qOK=2UmioXk=WyPEzoEprPcGA@mail.gmail.com>
- <d661a24c-6619-4734-96bd-075d3416e809@arm.com>
- <CABpDEumAVf02uOS5Bj07EDyuU=z9FV-iocQU1j7gFM5z0BeV_w@mail.gmail.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <CABpDEumAVf02uOS5Bj07EDyuU=z9FV-iocQU1j7gFM5z0BeV_w@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+ 2026 11:12:38 +0000
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994%6]) with mapi id 15.20.9818.023; Thu, 16 Apr 2026
+ 11:12:38 +0000
+From: Sherry Sun <sherry.sun@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	bhelgaas@google.com,
+	hongxing.zhu@nxp.com,
+	l.stach@pengutronix.de
+Cc: imx@lists.linux.dev,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH V13 00/12] pci-imx6: Add support for parsing the reset property in new Root Port binding
+Date: Thu, 16 Apr 2026 19:14:10 +0800
+Message-Id: <20260416111422.183860-1-sherry.sun@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: LO4P265CA0325.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:390::14) To DU4PR08MB11769.eurprd08.prod.outlook.com
- (2603:10a6:10:644::21)
+X-ClientProxiedBy: MA0PR01CA0076.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:ad::17) To VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13)
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: DU4PR08MB11769:EE_|DB9PR08MB8409:EE_|AM3PEPF0000A794:EE_|AS8PR08MB9219:EE_
-X-MS-Office365-Filtering-Correlation-Id: d53ed203-c4c1-44b6-4417-08de9ba80d2f
-x-checkrecipientrouted: true
-NoDisclaimer: true
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI0PR04MB12114:EE_|AS8PR04MB8804:EE_
+X-MS-Office365-Filtering-Correlation-Id: 75ea7ee8-8479-4fa8-4600-08de9ba91191
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|56012099003|18096099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info-Original: 0TLkXGZOyQRWM9QcKjXzbDZgB+SmzO8VMuMQWKShl1N3KDHoIOWM1/0IwMtLrjv6yXSdHT0vsPfQRba0/VX1DLiKeNjMdMmgdIOw5RlojSwHXCZqNykK+21U1WWHmlvYqZ2uMQkPhwlhT0FxH9dK0d3ayu6rck2GoURmqp065RuV8VJxucR46W2w8NoSjXmZDf6yB3Znj/BRf8QPwGywXJCVRk27Lq1gFvV0OnJKZVz9bDEMO0hdKdzo31o5pU0osm/L19+Veot70L2FdCNt13YCVIYcgtEXbSNTsuafbvVI4GJ1nhzN4avbEcKd8kEoNVMFVcpk8xAdQ0WY3X6ahH/OQyXsYDoFeVjpRhSIhEG8QCOjMzVZpYPpXjJ8sJIn2ZWdjHLP0S06lq4VzgzbdhXnaEA5nGXWcDN3o9IM7QjFOVrTi4Rhf5MZAV6Mn+B9+HI8S38DznFQ/fbsbm5ibFN49axuI4fvVaNsxMIOrJmdMK9qVj5/JYs7QHfpaxk621GSI/aRGLRgw8Ft85P6XzJLMMuArYiCDUk/a91Xl0Go9TnFMW0aZ5rPIYVfTBV6glCxSBAXTGqw0bJ1Ab5xmcQWClv+lrsxnfASO8NP0a3QSGa2CJ3FNo+GC+/8XsBVhbw+nnVHjOO8jXWpRsqO1ogjcnzywKlLZHxTQVMz3A44OXk02YNy40l7VBxndGfoNMnAk1JSqEmgn7B7IxaS5yGHVXJsYX+j0H2xVxLJy6zHYPfNKnfujp8iQvG0QbJu
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR08MB11769.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(56012099003)(18096099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: In0Rz5Ny0paMZOZ84inQDZBrLdtki4BRe7EkYvW7XwCZyPEak+U1LPN/6hr0F0XoSq+n86qtBuYg2QFIKtM7Tv4165jL0U47Wa+MyTJmKjqCqOzQ35hAGkuj4tc2GO5GGmGCd2kqhxF1Ie914N4tgs1k7c6N8AjfGbuMz3I61q07LDKzH1CVs8zmW2jh8P1ic+S+4RVKw3jVTzi22gsy1XPiiBiyL6E5A5BTO4xaretwpxSQNApEqcdgmgQAnLPyfXSptpOt1xh57HsTF3VtLXjCc3mpKx7QxZOsyPrALhU8EjeSB40pXydt/z7MjLM3mqcQXCTxC9e58MpWCqLy/w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB8409
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF0000A794.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: ea74d898-3c5d-4218-f98c-08de9ba7e74e
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|1800799024|7416014|376014|36860700016|14060799003|82310400026|18002099003|56012099003|18096099003|22082099003;
-X-Microsoft-Antispam-Message-Info: auSCbfsp7fgbSXi7WJEmTvSMLZh/oVV4XVH3tkl8aA0B15PY3Efn9GxhC087WV2M6JXbOUoQtvCOt0Uq4puIXzeTtt4yu49uZoFmHekoRG2S8SBrQZ8JTUHyIJRQ95fBD+2dK+7Wh2BCJTdGLIID/A51gvD6l3f0vVB27BzEEcXT8V8WhrRnjFxYDoRCo9Go3izDEC4zRKVWpUFl96+K3N36VbDo5hwcIqXbhADn8+ggNJ1l3LlNhzRiVxwn3jEGksf1HPWEk7m4jbvFiaAO4qqTdJEolMn4uZ2WmEvGOep3EzZKx8carXqwIAIh2jT4zIAGNM/bAKsfTKjk13sTwcw57hmsf1OGqaDO3OphrjpLt+XG7ERFpVVsJZ8sk2lz3bf9fMf8qZP8yeOu1SWjkIvs67geMaRSwbINgNnhEkdKPDTEaYisvOSCzkrwAYpedaNbH/YVj5byKH+eanCuCwAZ1c2V/cwsK7pc/RGLc0a3qJtfUWaKYHqmORjQuwTVipOgSqq9i/AaXaxKuHdquQ157DgsXhincSPlOUoG9rqkMVu1QBsUpEWteuHzwHGxwvRkXMiaGNiMg3Idbdrd5pVxTBHigkD3CEQmmPsD/eM24ufyV5cWnwzcCmCxodFIljh545j26Nwc29reL0szuX52sweFHJS33/tls/KFVRUdcCNmwxNaivQHj0uHuZ3zNzbFICifn5UTGyP9tqrO/9fFO7xoZ2Zdj67OK/AVLvdTeltnvtgnVf+jmDUT9hQyYhwPVIs7pzqDD+o3kIyikw==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(1800799024)(7416014)(376014)(36860700016)(14060799003)(82310400026)(18002099003)(56012099003)(18096099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|52116014|7416014|1800799024|19092799006|18002099003|56012099003|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: 4ILHi2ZNz7RtzrmCLQ2NSELMKwyQOzh8UtvlJnNAWVATVHD+V52MeGiRgCNPuGSnv7/j+jMR8g2wa0xttOzHjFK//MA2Zm6cUVNzjFiHbyVMeNr2rF6MOm4gN5IDLIbtiKKVPXgk3vfmg4CUL3Py/KkC8yK3CadRYRIYIXqWGOmsqyAxT5rRQF+RyTuNMm541c5hzrBfFVxVn0Kt/DaehORUDaNpk0ETEMXjz6emuEOP3b42IAA1G3p7Z01ih/igmPGWLL47zIDfUfcvNNqyWByich1FrFYQ9kNfpXGrKclezY4XSfEB9xaO3puDRHMBVzz3wx01ag1lI+yJMN8l1ajn41iphqvHkp6j9JSK9Lbkq07Ok4a8+IIOA6SZ2K0CsNSgVFIbu2r68OOUTtHRspy5KSOl0t4+IlGp/kUZ4FWJAn+FJB8fmOw66QbZlx8MhXk05MCJ3zTNF64NDZQodijOVsSOLSPQTjJxUsRQ7kBq9mJOpt6JNQAhJZ5mHoz0TTSMwJ4HRpTZsxyHu+QpA8pRJ8/KYLDkugMxtb48+Nt+yv7T8PCocze/2oKWCqD3ahGh4dt9MDP9WOYFwaxUy0K7/KwAAHpEd4cbp3ae4nFyFvOiulJr98XrueyjC3xVDMMEmlKx9flms26SFxDYBz04yKMv/+d6qbo/tekjUluGl/V5Ya1orykS1utbBkV7BHl2TepA+5kaDGu0zX7B5fP/NjCsObuBx+PHgEiJ6e5muNPnY/1X5IQYCiRyremk+NW7CgAAjHy+QVp+DZAzPSnw/63S3u1PqcvnZVPYmZhHbuAFTZZs/DZvnXB9Dzebi5JWE8ZxJ9FSSbsGp6LMoQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(52116014)(7416014)(1800799024)(19092799006)(18002099003)(56012099003)(38350700014)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: KA1Lp9bgheddSDSPU6by8gzlXVTxl47xp6iU8anlAJacPsUWTTIopqa4CVlgH4r+cj2oRLXwSZd8rS0lAFOTkRk9Vkz2BKjeKLKliu957x9TFqzRhgGSCdvQYGzTNOKF3nCaWYAPy57L8UgmQxQ9z15zCsMeTEpTOqyxhnslfTxyWxoQ3NGUMxPGkvIDgE4FVIMTjG1h+2LJp+mJbWLODmsAJCX8e2y0cOCPsWSPaGlaqBSgv7QRM++UEw/BJucU2H5p2LwME0PczGklX1yNfAz+KRwf28ix1EpcGcL288gwMus6dL0EfIEwLyOVNrAsiJaOiRaJPTMffyMhcjrKN+x4TQ2uBuKz/VMSQ4kpPjIKIut8Yg94Cm2a0gXz4/ZsmMtGqn5Osm8K7kbwWWNO9a/h09KlIoiMOXAN2S4KQKgWoYghBqk+KZieKE+rg7t4
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2026 11:05:21.0108
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MjdScld3RzB5ZXRLS2JIWVFNQ3E4RjByemh5V1FRRjRsVjVNZ3ZzcitLSWxU?=
+ =?utf-8?B?S3A1aDV0UkcrdG4vTVZsd2c1dEZJNlBvbXFsSWxjMlZ2aTg0SDAyT0NQb1Fo?=
+ =?utf-8?B?Mktod0M5eFdab3VXTTZsZm05SVFkdE0yOFpOSmgzWEhJVlhKbzdYQmFQRjdu?=
+ =?utf-8?B?NnNkK3JXV2ZrT1NJNFI5aFZ1U0JmaUVvWnBWd1V3VXdJUTI2REVZZkFFYWt0?=
+ =?utf-8?B?R1F1UE1aSGpYNFBqMjBLckUxY2pVbHNvTnBpdlpoQ3hMTlVuaUR4VGN0eUQz?=
+ =?utf-8?B?WXhuYmg3b29yTnJMWGFzd1U3eWRjZlpTb3BrUnhzT05iNGtseEpPbVpiVk9k?=
+ =?utf-8?B?U0Jha0VCU2VKVTFZZFRCd3EzMGFZanJMK2ZkSHp4MTgyR00vMlFEcnJnbElo?=
+ =?utf-8?B?V21ZbEdWTWtmcVRObG80Mm9CNHE2NmtKdnR3c0d2Wk9EOGpLL0dnalBiVmRC?=
+ =?utf-8?B?TUVUcGlTYmw4Um1LL3RieUNrQjBWWGxDN3ZoMGROQTlZTzN0YlUvN2cydEwx?=
+ =?utf-8?B?bXpLT0lZcFBYUTZmazBBcGlHYTBkbE51V3QzSFV1d09UZURyVHhSVjc3SlBO?=
+ =?utf-8?B?OExPYzQzWk9KNmpyOTd4RzQ2VGNIc2tzblV6WS9ZejQ2L0JzY2VQRW5wajJR?=
+ =?utf-8?B?U0ZITk9DT29oS3RUL2xKTmN0Y0hST0c4RkZXZGJmd0ZZL2NJanZPMzdIemRY?=
+ =?utf-8?B?VkFVZkhlOXI3WWE4OEVxaHpaSDI2ZzVzcFRlNjVKdkpxaTMxVW9LWit4QWFM?=
+ =?utf-8?B?NWNXdmlYamFmU3cxRy81SnVSVlZtSFcrazkwRUVsWWNRb1ZTZC90WWlldHZn?=
+ =?utf-8?B?V1FxR09sYmRXckZRVmh6WWJaRFdiZGNzQ3ZtUVh5NEhEMzFkVTQ5K1FjTVdS?=
+ =?utf-8?B?dldwbXBYWCtGOWNBV0JQcERGUXdyTTI0ZGxyNHhYeVk2bHc5S1B4UzU3MERo?=
+ =?utf-8?B?c3ZtOXE1d0dWeVV2MkszZ2NvQzV1dkxLWWRwZEtnTHpMTEdLelYrMURhMzc5?=
+ =?utf-8?B?aVZQcjdacTBXUjU4S1lYSzNZN0JrSlh3NSs3Vk9QTmNKb3RRcG5FYkE4VnRY?=
+ =?utf-8?B?SXZqMDYxcDlIZk5hV1dOMUxvcjg5WTZEa0Z3T1dHRXhoTFdlN2c2QXpib2Fi?=
+ =?utf-8?B?UDdsQW00QjRMeVV4TWhXSUMwbW9ISXhSUTBGcEJkeDFmN215cHFWUVdEbXBh?=
+ =?utf-8?B?blN5WTg2V0xIbmlZR2xMcnJDVExZc1EwOWFRVG5sY2g3cWJqc01JYlZDeXNX?=
+ =?utf-8?B?Ky9DMDlmSFVTMVhvcFFSL21hZ0hRN0dFSFh0eC9Yd0FEd1ROMDBBREkwdmFh?=
+ =?utf-8?B?L2M5eldUMnhaS1Bka3J3Yk1QZzNsUXBHWFlVSEJDeExLZGNsMlc3NklGcjJZ?=
+ =?utf-8?B?QzN0eE9yNGwxWkVxLzN4cml2UHZnYXNMMG5PbGxoQUFaYzBqWUtYMzg0cGlX?=
+ =?utf-8?B?Vkt2UmZPdlA5azU1bVVaN2lyUmhmNkpScnZmeGM4S1h6R01sRVpyL3NUZDBx?=
+ =?utf-8?B?ODV0dGJhVCtXZ2U4akExQjNMajdBRHpZNW80SzhGeEhQTGpETmpvYnNxaGdF?=
+ =?utf-8?B?K3FjN29yVDhhdU9sb3JFWHd1Y1hzV244QjE2Ykh5VlNuOGtacWt5c1pwOVRK?=
+ =?utf-8?B?ZW1tZjBBYXU3UTRITExiNzVDK3lxZk5tcGxZNVZmZHM1YloyNGJpVzBSUUlI?=
+ =?utf-8?B?K0N5Q1pMemtDeGtPV01hSU5rRUhOaXFVNmttL3JMeXhVWi8wYXBnNmUzNVFt?=
+ =?utf-8?B?c01nNmRDWTU2TlNHN28rWEtwV1U2MFFMUkFCZEw4RXhnMWQwdDE4RVdoZXZY?=
+ =?utf-8?B?WTdHTkE4M1hEa0N3UDNxVFUzdlV0TXg0QUdFZ0lCd0lzOCtCVWdyZGxiUXpJ?=
+ =?utf-8?B?WGlhOXZZUjc4M3plaW1lTlFCVnk4ODZ1bmpQYVA4UHRWOURvV0xzcktLeTF4?=
+ =?utf-8?B?am84T0N1bTJ3U05pZlFJcnlxOHVWMXBxbWpKeG4yODJGV0hqMHZndTQrM0lw?=
+ =?utf-8?B?d0M2WW9kNjF2SDVqSVpxOGFpSW1COVVvN0pNakJHUXZTN2JKOWNGdllmbUNz?=
+ =?utf-8?B?emRJTFRpMXdHbExFK0FrTjgyWDhxZWtsbWVOcldjLzBwTHMxZTMrM1pFMTBq?=
+ =?utf-8?B?VHdtbzV0eXgwWldRRDhmSDNWb2tPN3ovMk42bTM1bXczYXg1dHNkakt3Vm5J?=
+ =?utf-8?B?aFpPellNWC92Q2dPOXUwenRDTjJ5LzRGRzFOZE1HbGxNSHVKZXUwRWJUNzU3?=
+ =?utf-8?B?a2R5Mk1vcVp0ejcvNFlTOU1ORERLRnRabFZaZlhGZHI3L1RORmlmY3EwSHN3?=
+ =?utf-8?B?NEQzOUdha0V4NHgxakdOQUptRCsyY0tibUpPTTRRY3R1QWV1Z2doQT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 75ea7ee8-8479-4fa8-4600-08de9ba91191
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2026 11:12:38.1865
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d53ed203-c4c1-44b6-4417-08de9ba80d2f
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF0000A794.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB9219
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: JeetSXoYnNPWKLLJnFC3MEdNqHJxNHMoJoW/V3pdCIqRALyHFmJTpr1eEFqhHiFq2ckprV2VkqcS5M3Gcs6mKw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8804
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_040530_059128_C6A93948 
-X-CRM114-Status: GOOD (  19.31  )
+X-CRM114-CacheID: sfid-20260416_041247_544861_9687C81F 
+X-CRM114-Status: GOOD (  21.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,175 +157,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/04/2026 00:27, Alper Gun wrote:
-> On Wed, Apr 15, 2026 at 4:01 AM Steven Price <steven.price@arm.com> wrote:
->>
->> On 14/04/2026 22:40, Alper Gun wrote:
->>> On Wed, Mar 18, 2026 at 8:54 AM Steven Price <steven.price@arm.com> wrote:
->>>>
->>>> This series adds support for running protected VMs using KVM under the
->>>> Arm Confidential Compute Architecture (CCA).
->>>>
->>>> New major version number! This now targets RMM v2.0-bet0[1]. And unlike
->>>> for Linux this represents a significant change.
->>>>
->>>> RMM v2.0 brings with it the ability to configure the RMM to have the
->>>> same page size as the host (so no more RMM_PAGE_SIZE and dealing with
->>>> granules being different from host pages). It also introduces range
->>>> based APIs for many operations which should be more efficient and
->>>> simplifies the code in places.
->>>>
->>>> The handling of the GIC has changed, so the system registers are used to
->>>> pass the GIC state rather than memory. This means fewer changes to the
->>>> KVM code as it looks much like a normal VM in this respect.
->>>>
->>>> And of course the new uAPI introduced in the previous v12 posting is
->>>> retained so that also remains simplified compared to earlier postings.
->>>>
->>>> The RMM support for v2.0 is still early and so this series includes a
->>>> few hacks to ease the integration. Of note are that there are some RMM
->>>> v1.0 SMCs added to paper over areas where the RMM implementation isn't
->>>> quite ready for v2.0, and "SROs" (see below) are deferred to the final
->>>> patch in the series.
->>>>
->>>> The PMU in RMM v2.0 requires more handling on the RMM-side (and
->>>> therefore simplifies the implementation on Linux), but this isn't quite
->>>> ready yet. The Linux side is implemented (but untested).
->>>>
->>>> PSCI still requires the VMM to provide the "target" REC for operations
->>>> that affect another vCPU. This is likely to change in a future version
->>>> of the specification. There's also a desire to force PSCI to be handled
->>>> in the VMM for realm guests - this isn't implemented yet as I'm waiting
->>>> for the dust to settle on the RMM interface first.
->>>>
->>>> Stateful RMI Operations
->>>> -----------------------
->>>>
->>>> The RMM v2.0 spec brings a new concept of Stateful RMI Operations (SROs)
->>>> which allow the RMM to complete an operation over several SMC calls and
->>>> requesting/returning memory to the host. This has the benefit of
->>>> allowing interrupts to be handled in the middle of an operation (by
->>>> returning to the host to handle the interrupt without completing the
->>>> operation) and enables the RMM to dynamically allocate memory for
->>>> internal tracking purposes. One example of this is RMI_REC_CREATE no
->>>> longer needs "auxiliary granules" provided upfront but can request the
->>>> memory needed during the RMI_REC_CREATE operation.
->>>>
->>>> There are a fairly large number of operations that are defined as SROs
->>>> in the specification, but current both Linux and RMM only have support
->>>> for RMI_REC_CREATE and RMI_REC_DESTROY. There a number of TODOs/FIXMEs
->>>> in the code where support is missing.
->>>>
->>>> Given the early stage support for this, the SRO handling is all confined
->>>> to the final patch. This patch can be dropped to return to a pre-SRO
->>>> state (albeit a mixture of RMM v1.0 and v2.0 APIs) for testing purposes.
->>>>
->>>> A future posting will reorder the series to move the generic SRO support
->>>> to an early patch and will implement the proper support for this in all
->>>> RMI SMCs.
->>>>
->>>> One aspect of SROs which is not yet well captured is that in some
->>>> circumstances the Linux kernel will need to call an SRO call in a
->>>> context where memory allocation is restricted (e.g. because a spinlock
->>>> is held). In this case the intention is that the SRO will be cancelled,
->>>> the spinlock dropped so the memory allocation can be completed, and then
->>>> the SRO restarted (obviously after rechecking the state that the
->>>> spinlock was protecting). For this reason the code stores the memory
->>>> allocations within a struct rmi_sro_state object - see the final patch
->>>> for more details.
->>>>
->>>> This series is based on v7.0-rc1. It is also available as a git
->>>> repository:
->>>>
->>>> https://gitlab.arm.com/linux-arm/linux-cca cca-host/v13
->>>>
->>>>
->>>
->>> Hi Steven,
->>>
->>> I have a question regarding host kexec and kdump scenarios, and
->>> whether there is any plan to make them work in this initial series.
->>>
->>> Intel TDX and AMD SEV-SNP both have a firmware shutdown command that
->>> is invoked during the kexec or panic code paths to safely bypass
->>> hardware memory protections and boot into the new kernel. As far as
->>> I know, there is no similar global teardown command available for
->>> the RMM.
->>
->> Correct, the RMM specification as it stands doesn't provide a mechanism
->> for the host to do this. The host would have to identify all the realm
->> guests in the system: specifically the address of the RDs (Realm
->> Descriptors) and RECs (Realm Execution Contexts). It needs this to tear
->> down the guests and be able to undelegate the memory.
->>
->> It's an interesting point and I'll raise the idea of a "firmware
->> shutdown command" to make this more possible.
->>
->>> What is the roadmap for supporting both general kexec and
->>> more specifically kdump (panic) scenarios with CCA?
->>
->> I don't have a roadmap I'm afraid for these. kexec in theory would be
->> possible with KVM gracefully terminating all realms. For kdump/panic
->> that sort of graceful shutdown isn't really appropriate (or likely to
->> succeed).
->>
-> 
-> Thanks Steven for the clarification.
-> 
-> For us, kdump is highly critical as it is our primary diagnostic tool
-> for host crashes. Without it, monitoring and debugging at fleet scale
-> would become unmanageable.
-> 
-> To confirm my understanding of the current architecture: if a host
-> panics while no Realms are actively running (and therefore no pages
-> are currently in the delegated state), the standard kdump extraction
-> should work perfectly fine without any modifications, correct?
+This patch set adds support for parsing the reset property in new Root Port
+binding in pci-imx6 driver, similar to the implementation in the qcom pcie
+driver[1].
 
-This may not be true. We could have pages donated to RMM for GPT,
-Tracking etc. So, unless Linux keeps track of them, it may be
-unsafe for a crash kernel to access them.
+Also introduce generic helper functions to parse Root Port device tree
+nodes and extract common properties like reset GPIOs. This allows multiple
+PCI host controller drivers to share the same parsing logic.
 
-> 
-> Regarding the KVM tracking structures (RDs, RECs, RTTs, etc.) when VMs
-> are running, perhaps we could use `vmcoreinfo` to export the physical
-> addresses of these delegated pages. This would allow tools like
+Define struct pci_host_port to hold common Root Port properties
+(currently only reset GPIO descriptor) and add
+pci_host_common_parse_ports() to parse Root Port nodes from device tree.
+Also add the 'ports' list to struct pci_host_bridge for better maintain
+parsed Root Port information.
 
-Thinking of this, do we really need to ? We could access the pages from
-"vmcore" read and handle the GPFs for such accesses and give out 0s
-for the Granules. Anyways, we can't get access to the data on those
-pages that are still in Realm PAS.
+The plan is to add the wake-gpio property to the root port in subsequent
+patches. Also, the vpcie-supply property will be moved to the root port
+node later based on the refactoring patch set for the PCI pwrctrl
+framework[2]. 
 
-> `makedumpfile` to explicitly filter them out. I assume these pages must
-> remain hardware-locked while the VMs are active.
+The initial idea is to adopt the Manivannan’s recent PCIe M.2 KeyE
+connector support patch set[3] and PCI power control framework patches[2],
+and extend them to the pcie-imx6 driver. Since the new M.2/pwrctrl model is
+implemented based on Root Ports and requires the pwrctrl driver to bind to
+a Root Port device, we need to introduce a Root Port child node on i.MX
+boards that provide an M.2 connector.
 
+To follow a more standardized DT structure, it also makes sense to move
+the reset-gpios and wake-gpios properties into the Root Port node. These
+signals logically belong to the Root Port rather than the host bridge,
+and placing them there aligns with the new M.2/pwrctrl model.
 
+Regarding backward compatibility, as Frank suggested, I will not remove
+the old reset-gpio property from existing DTS files to avoid function
+break.
 
-> 
-> Long-term, having an architectural shutdown command - similar to the
-> TDH.SYS.DISABLE command in Intel TDX - would be incredibly useful. It
-> would allow the kdump kernel to safely bypass these hardware security
-> checks, especially when extracting host-side KVM state.
+For new i.MX platforms — such as the upcoming i.MX952-evk will add
+vpcie-supply, reset-gpios, and wake-gpios directly under the Root Port
+node.
+Therefore, driver updates are needed to support both the legacy
+properties and the new standardized Root Port based layout.
 
-For kexec, may be we could do this. Alternatively we could try to
-reclaim everything back, (GPTs, Tracking) before kexec-reboot.
+[1] https://lore.kernel.org/linux-pci/20250702-perst-v5-0-920b3d1f6ee1@qti.qualcomm.com/
+[2] https://lore.kernel.org/linux-pci/20260115-pci-pwrctrl-rework-v5-0-9d26da3ce903@oss.qualcomm.com/
+[3] https://lore.kernel.org/linux-pci/20260112-pci-m2-e-v4-0-eff84d2c6d26@oss.qualcomm.com/
 
-> 
-> As for the protected realm memory, I assume that is an easier problem.
-> We naturally want to exclude guest pages from a host dump regardless
-> of whether they are Realm pages or not. However, accidental touches
-> are still fatal.
-> 
->> There is also some RMM configuration which cannot be repeated (see
->> RMI_RMM_CONFIG_SET) - which implies that the kexec kernel must be
->> similar to the first kernel (i.e. same page size).
+Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+---
+Changes in V13:
+1. Use of_property_present() instead of of_property_read_bool() in patch#2 as
+   reviewed by sashiko.
+2. Add reset Null check in imx_pcie_parse_legacy_binding() to avoid
+   unconditional deassert delays on boards without reset GPIO as reviewed by
+   sashiko.
+3. Delete the pcie@0,0 port defined in imx6q-utilite-pro.dts and use the new
+   pcie_port0 label in imx6qdl.dtsi to avoid to defining the conflicting node as
+   reviewed by sashiko.
 
-That is true, the page sizes must match. RMM spec is updated to probe 
-the state of the RMM and detect if it can do the CONFIG_SET
+Changes in V12:
+1. Improve the pci_host_common_parse_port() to correctly handle three scenarios:
+   PERST# found in Root Port node & PERST# not in Root Port but found in RC node
+   & PERST# not found in either node.
+2. Add documentation noting for pci_host_common_parse_port().
+3. Add err_cleanup handle path for pci_host_common_parse_ports() to clean up any
+   partially parsed Root Port resources.
+4. Optimize imx_pcie_assert_perst() to avoid the linearly increasing deassertion
+   delay if controller has multiple Root Ports.
+5. Use mdelay instead of msleep in imx_pcie_assert_perst() for noirq context
+   safety.
+6. Remove early return in imx_pcie_parse_legacy_binding() when reset is NULL to
+   align with pci_host_common_parse_port(), allowing port creation even without
+   PERST# GPIO.
 
-Suzuki
+Changes in V11:
+1. Call pci_host_common_parse_ports() API from pci-imx6 driver instead of dwc
+   common layer as Mani suggested.
+2. Improve the commit message of patch#3 to avoid confusion as Mani suggested.
 
->>
->> Thanks,
->> Steve
+Changes in V10:
+1. Use gpiod_direction_output() instead of gpiod_set_value_cansleep() to
+   ensure the reset GPIO is properly configured as output before setting
+   its value in patch#5 as now the reset GPIO is obtained with
+   GPIOD_ASIS flag.
+
+Changes in V9:
+1. Improve the error handling in pci_host_common_parse_ports() as Mani suggested. 
+2. Move the list_empty check and the comment to imx_pcie_host_init() to make it
+   clear that imx_pcie_parse_legacy_binding() is a fallback as Mani suggested.
+3. Export pci_host_common_delete_ports() so that it can be called by
+   imx_pcie_parse_legacy_binding().
+
+Changes in V8:
+1. Add back the cleanup function pci_host_common_delete_ports() to properly
+   handles the ports list instead of simply using pci_free_resource_list().
+2. Improve the patch#4 commit message.
+3. Remove the irrelevant code change in patch#4.
+
+Changes in V7:
+1. Change to use GPIOD_ASIS when requesting perst gpio as Mani suggested.
+   using bridge->dev.
+2. Add a seperate patch to move vpcie3v3aux regulator enable from probe to
+   imx_pcie_host_init() and move imx_pcie_assert_perst() before regulator and
+   clock enable for pci-imx6.
+3. Add device pointer parameter for pci_host_common_parse_port() instead of
+
+Changes in V6:
+1. Drop the pre-allocate pci_host_bridge struct changes in dw_pcie_host_init()
+   and imx_pcie_probe().
+2. Parse Root Port nodes in dw_pcie_host_init() as Frank and Mani suggested.
+3. Move the imx_pcie_parse_legacy_binding() from imx_pcie_probe() to
+   imx_pcie_host_init(), so that dw_pcie_host_init() parse Root Port first, if
+   no Root Port nodes were parsed(indicated by empty ports list), then parse
+   legacy binding.
+4. Add device pointer parameter for pci_host_common_parse_ports().
+5. Add NULL pointer check for reset gpio in imx_pcie_parse_legacy_binding().
+
+Changes in V5:
+1. Add the Root Port list(pci_host_port) to struct pci_host_bridge for better
+   maintain parsed Root Port information.
+2. Delete the pci_host_common_delete_ports() as now the Root Port list in
+   pci_host_bridge can be cleared by pci_release_host_bridge_dev().
+3. Change the common API pci_host_common_parse_ports() pass down struct
+   pci_host_bridge *. 
+4. Modify dw_pcie_host_init() to allow drivers to pre-allocate pci_host_bridge
+   struct when needed.
+5. Allocate bridge early in imx_pcie_probe() to parse Root Ports.
+
+Changes in V4:
+1. Add common helpers for parsing Root Port properties in pci-host-common.c in
+   patch#2.
+2. Call common pci_host_common_parse_ports() and pci_host_common_delete_ports()
+   in pci-imx6 driver.
+3. Use PCIE_T_PVPERL_MS and PCIE_RESET_CONFIG_WAIT_MS instead of magic number
+   100 in patch#3 as Manivannan suggested.
+4. Use "PERST#" instead of "PCIe reset" for the reset gpio lable in patch#3.
+
+Changes in V3:
+1. Improve the patch#2 commit message as Frank suggested.
+2. Add Reviewed-by tag for patch#1.
+
+Changes in V2:
+1. Improve the patch#1 commit message as Frank suggested.
+2. Also mark the reset-gpio-active-high property as deprecated in
+   imx6q-pcie DT binding as Rob suggested.
+3. The imx_pcie_delete_ports() has been moved up so that the
+   imx_pcie_parse_ports() can call this helper function in error handling.
+4. Keep the old reset-gpio property in the host bridge node for the
+   existing dts files and add comments to avoid confusion.
+---
+
+Sherry Sun (12):
+  dt-bindings: PCI: fsl,imx6q-pcie: Add reset GPIO in Root Port node
+  PCI: host-generic: Add common helpers for parsing Root Port properties
+  PCI: imx6: Assert PERST# before enabling regulators
+  PCI: imx6: Add support for parsing the reset property in new Root Port
+    binding
+  arm: dts: imx6qdl: Add Root Port node and PERST property
+  arm: dts: imx6sx: Add Root Port node and PERST property
+  arm: dts: imx7d: Add Root Port node and PERST property
+  arm64: dts: imx8mm: Add Root Port node and PERST property
+  arm64: dts: imx8mp: Add Root Port node and PERST property
+  arm64: dts: imx8mq: Add Root Port node and PERST property
+  arm64: dts: imx8dxl/qm/qxp: Add Root Port node and PERST property
+  arm64: dts: imx95: Add Root Port node and PERST property
+
+ .../bindings/pci/fsl,imx6q-pcie.yaml          |  32 +++++
+ .../boot/dts/nxp/imx/imx6q-utilite-pro.dts    |  17 +--
+ .../arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi |   5 +
+ arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi        |  11 ++
+ .../arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts |   5 +
+ arch/arm/boot/dts/nxp/imx/imx6sx-sdb.dtsi     |   5 +
+ arch/arm/boot/dts/nxp/imx/imx6sx.dtsi         |  11 ++
+ arch/arm/boot/dts/nxp/imx/imx7d-sdb.dts       |   5 +
+ arch/arm/boot/dts/nxp/imx/imx7d.dtsi          |  11 ++
+ .../boot/dts/freescale/imx8-ss-hsio.dtsi      |  11 ++
+ arch/arm64/boot/dts/freescale/imx8dxl-evk.dts |   5 +
+ arch/arm64/boot/dts/freescale/imx8mm-evk.dtsi |   5 +
+ arch/arm64/boot/dts/freescale/imx8mm.dtsi     |  11 ++
+ arch/arm64/boot/dts/freescale/imx8mp-evk.dts  |   5 +
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi     |  11 ++
+ arch/arm64/boot/dts/freescale/imx8mq-evk.dts  |  10 ++
+ arch/arm64/boot/dts/freescale/imx8mq.dtsi     |  22 ++++
+ arch/arm64/boot/dts/freescale/imx8qm-mek.dts  |  10 ++
+ .../boot/dts/freescale/imx8qm-ss-hsio.dtsi    |  22 ++++
+ arch/arm64/boot/dts/freescale/imx8qxp-mek.dts |   5 +
+ .../boot/dts/freescale/imx95-15x15-evk.dts    |   5 +
+ .../boot/dts/freescale/imx95-19x19-evk.dts    |  10 ++
+ arch/arm64/boot/dts/freescale/imx95.dtsi      |  22 ++++
+ drivers/pci/controller/dwc/pci-imx6.c         | 120 ++++++++++++++----
+ drivers/pci/controller/pci-host-common.c      | 104 +++++++++++++++
+ drivers/pci/controller/pci-host-common.h      |  16 +++
+ drivers/pci/probe.c                           |   1 +
+ include/linux/pci.h                           |   1 +
+ 28 files changed, 461 insertions(+), 37 deletions(-)
+
+-- 
+2.37.1
 
 
