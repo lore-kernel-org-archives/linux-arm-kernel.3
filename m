@@ -4,145 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB211F8D761
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 16:50:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 399C2F8D761
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 16:55:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zHc+lSM+avvTfjnF92yUxie4jq3JL7nq0ITM4D+8vKs=; b=DE+q8dvq3rdtgeIudDUZ560BWS
-	VSNulkeDfZaZsUd4nwndJuHlJQ5YLsb0SPDYyzvxRQ1ygaTgyb7JaFMv37YRBMblA3ArpDtgXL1b/
-	YpLl6to4WpL6KkZ8ck63nCFYO3//KV73T2DAT2I5gmxyNMEyPqg9SilVHKrRpEDFmxS/OQck7fZAc
-	xDkmSzteK6OQJwSCRj4/n4x2WbRx5Ns+k6tO8vlN+ZceSeUQhG9XHMfB1Lg5/n4S6Rw7zWL9OETS1
-	z8fjmLL6o8pZMS67iVzuK9B7GRlHEcadIe2MNquEjE8qKYOycYNlKZ/csPXhvlB2qVcm82SI/Wsce
-	yaU0ed5w==;
+	bh=BdIaDR8TFqJVx6JmWp9cch/8JaroEjZWgR4/ZRvb+m4=; b=P9HEcAtgK4SczzfeRv60t/nE/X
+	YVWv7nQRAKS0twcDHN7mFTyrHSiL0/HBgZOASDTUpuSg1SyRysWSRGz78BH0+8TwtiU1N9npw/h2T
+	X52sWh5KWVfFMDVbaGiLie/xHSk33uWoMP8sxgHptd3w2AWKSRAPHZXK3k1wxfFJI9OQNJIW4/5pT
+	Tk17bkjIeepO6u7owtNeHiHr/+aAJAE7Ll1mab7E5EFW3zXP+HneYtJ6IViPER9+riYiD+PS+kIyA
+	XcCQoHldNj/yXglIkbo0PpdISAJKCYlNH7ZKYbxFgQnJqwWVutFAzWfo09bqzoZF7mzi0yP82BswV
+	Rr2udDzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDPvT-00000002gRM-1Zdt;
-	Thu, 16 Apr 2026 16:50:47 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDPvQ-00000002gQZ-20Py
+	id 1wDQ0O-00000002ghk-0URg;
+	Thu, 16 Apr 2026 16:55:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDQ0L-00000002ghK-0obI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 16:50:46 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=Ox5dq1W88yhLTE1FLj5+lKaGOvHiRDvbJBC3G2PBfqvcgTmP9ggdCJU97IDNv7oo2w9dooRHr/6t9j0LRQiIHMYnRnmK1061px4ziLJqoFgmo1VwmM5AnCKXq58DBw0cB/UdyEfV/o3/ubeljzgnF+ay4fthKY1fitdQxxQiq2fPbvxq3UXKc3SaUdmHGa+iZ9QYDuYIbKuRssiGCqBVLh1N2RRCGX9zUUVE1Y2P5FGwJHy03y/bIzVMlRkC7v8cP9MuBIdeh1pNJptVmDFlfsvXkVUhoOL7x7FXcnuZyeYt6GDG7aQqOQL6/UwJMyxb0tNSbEwFO1sxdjovu3V9qQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zHc+lSM+avvTfjnF92yUxie4jq3JL7nq0ITM4D+8vKs=;
- b=tF8lZ1zURsyFj5vLcKJuhwsAn/apmV/8m6+3NaaJB5gHUGpfgX34iVbjL5p+webK9R5LbWw16kWG6G4igaxkBaDGizh8X3NV+brcqJZsOxKWfZDYMSRmKfB+0/Q8laxprGwmXZW4/jiL8ZfA3FLo1OhbhnSm3esTl+aBc2FVNRf+EwMgNjM7rPbhuCm13GKQOuMzu4Dp8tMEo/lg4cE/0F73C6f7/2+eiu9EzSkJeTVUZuteBh4YoUY5v+WULk0ZpPB88BuLgjit2BoavihEZtPElb4/e+tj9c/WyCxWmzb+OnjNJNfcTeIh4f6iXVDOISmti7qHmzm1zYvpDjdi7Q==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=nvidia.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zHc+lSM+avvTfjnF92yUxie4jq3JL7nq0ITM4D+8vKs=;
- b=mEruZxD8R3N03f6Aykt+AI+xrMSREw+aM/kA3yioYm6KDSJEtQFrD0lLGwLL+GYTJ2ravg+ta+5sg7phj9RyX649LYRQFkI2ysJ54QVv2KJKSRWKM1dqZLQMYJL9h1jGkXbeIgG0O8vQD+DaQa1V2ZKLei55SxC5c6YMuQMIfXE=
-Received: from DUZPR01CA0081.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:46a::6) by VI0PR08MB11353.eurprd08.prod.outlook.com
- (2603:10a6:800:2fd::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.25; Thu, 16 Apr
- 2026 16:50:33 +0000
-Received: from DB1PEPF000509E9.eurprd03.prod.outlook.com
- (2603:10a6:10:46a:cafe::bb) by DUZPR01CA0081.outlook.office365.com
- (2603:10a6:10:46a::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.51 via Frontend Transport; Thu,
- 16 Apr 2026 16:50:33 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB1PEPF000509E9.mail.protection.outlook.com (10.167.242.59) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.17
- via Frontend Transport; Thu, 16 Apr 2026 16:50:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qLq+cIc+pJ8gwjkiWD+JY7G5COvOnIb1hJ7kulzILXVLMF23XLcHgNXqzelhOrBNHf02BhQPOW1RXU5/y2QHiX3sm5nabh4ywCaUs1K/CJRdaQ1x82ql5UFddoI+fgN7fc2da0kpn+T5Lo2zcO2kCtFo03mA/nwsVjp7aBPrUTcSCCi7K5il/HlgdbMb8dw6zAONuLeUGfV2BqMQWo9MnRTjMRWQKC3arP4mRmiEkOH8YtgBHVf9mbaPvvec+NCf7nxaGi1U822rQRkIE75UNK/GTe+kxHt4m/P+XD601fREbuHiDRpR6IGIgHIYfqLxy5z8grGuLWbJSXan1RlAtg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zHc+lSM+avvTfjnF92yUxie4jq3JL7nq0ITM4D+8vKs=;
- b=JqmhsmMtVZtEy/W3M4ju9cm/CbtmOFb09kpsJWWLjB6+R6zrlX/gvHJ6Za47UER/udhQAHj9ptZIK4gHOeIw+kA1ciGTdQziKpGvZFjaRhXfAEuhVDyS1Rhey/t/hGZjs20BlMeiBch4nGnP4PQEpTN8I8mX0xObTgSptHiiaOZLA12c0COLg+aUB3v01PlqFm+iw1sJ/y0ktMdF9xQ36P0PJKP3fCCcbM8KUU6IORP/OjpT/MfCs7kMXfYcjhIPTJKzvelrpDv9SRigiWrFwWSOtdc1Lqjj97bTIXb6Sn+zKgqUI66r/Ly5nRfZnNipPITAzZ48z97CzibL46NKDg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zHc+lSM+avvTfjnF92yUxie4jq3JL7nq0ITM4D+8vKs=;
- b=mEruZxD8R3N03f6Aykt+AI+xrMSREw+aM/kA3yioYm6KDSJEtQFrD0lLGwLL+GYTJ2ravg+ta+5sg7phj9RyX649LYRQFkI2ysJ54QVv2KJKSRWKM1dqZLQMYJL9h1jGkXbeIgG0O8vQD+DaQa1V2ZKLei55SxC5c6YMuQMIfXE=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB8451.eurprd08.prod.outlook.com (2603:10a6:150:83::17)
- by DB5PR08MB9969.eurprd08.prod.outlook.com (2603:10a6:10:48d::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.25; Thu, 16 Apr
- 2026 16:49:29 +0000
-Received: from GV1PR08MB8451.eurprd08.prod.outlook.com
- ([fe80::bfc2:bb63:61bc:7be6]) by GV1PR08MB8451.eurprd08.prod.outlook.com
- ([fe80::bfc2:bb63:61bc:7be6%5]) with mapi id 15.20.9769.046; Thu, 16 Apr 2026
- 16:49:29 +0000
-Message-ID: <3eaf217f-8e1e-4d64-983a-6b888886f157@arm.com>
-Date: Thu, 16 Apr 2026 17:49:24 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH rc v2 0/5] iommu/arm-smmu-v3: Fix device crash on kdump
- kernel
-To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org, jgg@nvidia.com,
- kevin.tian@intel.com
-Cc: joro@8bytes.org, praan@google.com, baolu.lu@linux.intel.com,
- miko.lenczewski@arm.com, smostafa@google.com,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, jamien@nvidia.com
-References: <cover.1776286352.git.nicolinc@nvidia.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <cover.1776286352.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PR1P264CA0024.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:19f::11) To GV1PR08MB8451.eurprd08.prod.outlook.com
- (2603:10a6:150:83::17)
+	Thu, 16 Apr 2026 16:55:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4434724C0;
+	Thu, 16 Apr 2026 09:55:38 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 794013F7D8;
+	Thu, 16 Apr 2026 09:55:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776358543; bh=/hViHlF5ifQBVvKwNQRn66elzsDuXATBenpBXrMug7Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PpYSzGdWtiIGuSx503F6Zo22Vb9nAWEtPUGJjRP/JYajnWV6jp/UPXgpctrxCkO86
+	 XZtTL5G8T/f0JWC0Rj+3IScB8AEJSxXorlPxC+W5SoFYYc91jVCXNwNEBGoFz146UH
+	 AFbdDHoK83Ii3VH8OwQv+HSKA+sRKQLCfhOWx0Xo=
+Date: Thu, 16 Apr 2026 17:55:41 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
+	mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
+Subject: Re: [PATCH v5 06/12] coresight: etm4x: fix leaked trace id
+Message-ID: <20260416165541.GN356832@e132581.arm.com>
+References: <20260415165528.3369607-1-yeoreum.yun@arm.com>
+ <20260415165528.3369607-7-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB8451:EE_|DB5PR08MB9969:EE_|DB1PEPF000509E9:EE_|VI0PR08MB11353:EE_
-X-MS-Office365-Filtering-Correlation-Id: 483cadce-0b4b-4cea-1fd4-08de9bd84668
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|56012099003|18002099003|22082099003|18096099003;
-X-Microsoft-Antispam-Message-Info-Original: 7opSwe+yBT9dIU+5nTYAwZNRTiGckQv9mt9uJnTTBLUOztwG9qX4g7unGR9LShImiOEsZGAuaG9yjK5Qrc679rmJn8QwcbEDhgC+r6vXLI4GdIvJ2vDS7G2/OSiCI6ridasClBDyG0XKUV4G3H+cD8FhIa2F7e3i9ZfRpfaLzV79lyK592EkWmYPkgVNA8Mckz+lQ8JGX+9vceoE5xSpq0PDdz/KyionMJ6AdcKUfoNBdeH8NBmsuZmZH6modxrggMYp7m3UdcFtKx6/PGo6069ZU9AwVfvqds13tN35PfJYbygodCXCMuEMICVbkPIGb4cMBw7m7NR07MpyPBAuUCXzOoUvLsiZyh4z9btKW7k7Z82+a8nwL4NY4IfLmpGdO7RG7RWQD/lxZR+dvbcHKhGv+m/AxQ4dLL4J8VsutCpn2PcK1WB4fz/3wkcvX6oPXH9l8g7tAMs+O+/3uiVnjI+LB9Drv25DJ554AnZdWjGrtXfxuFe+Js1NW+8VNUP47aiE6bmavlqXxs5z7kSRuwUYqcerwoITylHOx9f5+41NxSF9cFqx/4ttzMKljcd3xhDvkJReopCUnayxxXYToKKL4qGmNDOd4B6MawZUqHj/Udp508R3WNG/w7aoqK/jSKvMOsh2AQ8X8LCn7FSvwkVhLk+7B7wMPUKAg7+hNYK6V+mxhgwUlJRQjO86lb4upikNqPAcNN1ufljDV62SY9xsHKlBIx6CZf8l2X5kRN/G99fickWN8PyDOwj0inud
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB8451.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(56012099003)(18002099003)(22082099003)(18096099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: mYvT/yM8SZ7Eb41nAhkURus8cXfG76vTJ8jnfvLHsG0bxpE6jYRSF0+H/CtnBeOPPnOIAZT1scref8fcmCAA2l9OhQ6lAZ9M5qlHRz6mpElERywJNQ/ZT7GurzO6M4S+e3uX0tufsRPEIHar/z5VBeSQX19YCcruTP5dtF0MTwl3R4qiADBXI7LHy+rqSmbPY38PMGM3Z9be02ydRfwx4odDB91KphoHZH8+YlEqWBrHX3STGB4uvqtLPWMGmEWlZfeZzQhvlrPivSM71qS4dHLYt3bFCyX4KQeu3EdB7xtuTKtQl5jSaEadGftq9k4kDq3QHVBTj9j4P79EjWGnBQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB5PR08MB9969
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509E9.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 6b1c40ca-cd73-4a29-3eca-08de9bd8201e
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|14060799003|7416014|35042699022|376014|36860700016|13003099007|56012099003|18096099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 26I0Ra/pxuqRiP0kb6UEGC5Kvv9q/paDqpHU4YB6SS3r8zgQzHcX8NCfBqtHVWOz7TxD9wFJBStqHbGNIDkNW5p6vmTxEoD8etJnHVHkQeks/Xb8o2iXf/yBYa3WnOkQ47whW3IOp5c5hGBBCbUMu/oSCOkfF2V3ZNnNGgjUYxL2Ck+eiO9B5aLVFzKl82el0LDx1mC/fZtkEunFIkk5R/L84TMaIm9pZ9/57llrA9XZTRWt4nwSUJDIaGhF8ygfS7Odhgu3zJ0Tw40uIbkvN2nzioIsj/t4Ut2yDcWlKjGjQaYmMGxQ3bVtg9XkCZ/qfK+wu/sWlla+sx70O5RwYgZIvK/c56nrmUyiCvuKVsH1GrNJaPuJs/d8rK375F2t6UC08nUoMzrAHgPIqYjmiRqT6aWLOsmelUjRy+89gjbwB83lxMHx3gV3sM5pL9xOKcVlG/dOy7dohTUvz2dQNM8Uak+Szh2KIizFJTu4+iE5YLk9E7u86FkYEgRlGcreKKz/IiiXkCVaLBha+qyFSEOMZ7jMyGLD55yMgkDDo3gS3xe+rQCRpV3eyS8qC9tAFkdFgsYk3aLpfWvngg0pRX8k+GmD97Axds2+cN/55PEUN04Lo3XnDHYIse3ZNEG79TD4yLERVWBZ9/2gdyYZVL1mJ/QXSWWO5YXAL7HocHWCOEDJ5zjBWV7/klAXZ02qmcPcgYU44vWHW0TkA+hub0v4aydA4/AGyXlsHHYMk2vV/Rhp8LK8yeEyixF+L1j3GrW0AMQVuGnDlJRrmt2QfNdvMecfR0VOInyKaksVyc8=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(14060799003)(7416014)(35042699022)(376014)(36860700016)(13003099007)(56012099003)(18096099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: xTAr1uD75z2giqyyY0/toAPi50gOy6WRUwecv/0GCod44SuGoE7anqu1E8Q/MLRHKXdmTcf9i2RvlRbKLA80MqHNfUdAtbP1vMoZk8qZOM7/UJaPL8Q8QFzccXu9BZfu7Ghy965HygakoQVEoqOU4TJVFoDQin3vf9t/TcxQOjsGsUVkM3J7w4Nc62ZVpcnyaqqEl3t2evbuSYZZkqmU4VHWutoyHHMq2QbDM3UvUjDMjjGhcTAzsEaIj4RYv1P7CaVrKSCWtS7bS6lSl5wePktTSpqB0wLdu+8EXWJlm+X6I5q6QUJqDKeb6ymcHENAgb0CfDExfMhPf+YE7nOl+EjOwi04onY2gfimPOcTaxZ+2uvXRbGAljcIS/vD7VSWUjHsz+o0eS8lsiFmHlvHJYPhrqTPuD/8lO74E/zMNW5Ue4y1iX95jmqBgzby6fEh
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2026 16:50:32.8671
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 483cadce-0b4b-4cea-1fd4-08de9bd84668
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509E9.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR08MB11353
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260415165528.3369607-7-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_095044_743756_91FC0552 
-X-CRM114-Status: GOOD (  22.93  )
+X-CRM114-CacheID: sfid-20260416_095549_294722_2598C0F6 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,82 +71,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/04/2026 10:17 pm, Nicolin Chen wrote:
-> When transitioning to a kdump kernel, the primary kernel might have crashed
-> while endpoint devices were actively bus-mastering DMA. Currently, the SMMU
-> driver aggressively resets the hardware during probe by clearing CR0_SMMUEN
-> and setting the Global Bypass Attribute (GBPA) to ABORT.
+On Wed, Apr 15, 2026 at 05:55:22PM +0100, Yeoreum Yun wrote:
+> If etm4_enable_sysfs() fails in cscfg_csdev_enable_active_config(),
+> the trace ID may be leaked because it is not released.
 > 
-> In a kdump scenario, this aggressive reset is highly destructive:
-> a) If GBPA is set to ABORT, in-flight DMA will be aborted, generating fatal
->     PCIe AER or SErrors that may panic the kdump kernel
-> b) If GBPA is set to BYPASS, in-flight DMA targeting some IOVAs will bypass
->     the SMMU and corrupt the physical memory at those 1:1 mapped IOVAs.
+> To address this, call etm4_release_trace_id() when etm4_enable_sysfs()
+> fails in cscfg_csdev_enable_active_config().
+> 
+> Reviewed-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>  drivers/hwtracing/coresight/coresight-etm4x-core.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index f55338a4989d..b199aebbdb60 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -920,8 +920,10 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+>  	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
+>  	if (cfg_hash) {
+>  		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
+> -		if (ret)
+> +		if (ret) {
+> +			etm4_release_trace_id(drvdata);
+>  			return ret;
+> +		}
 
-But wasn't that rather the point? Th kdump kernel doesn't know the scope 
-of how much could have gone wrong (including potentially the SMMU 
-configuration itself), so it just blocks everything, resets and 
-reenables the devices it cares about, and ignores whatever else might be 
-on fire.
+LGTM:
 
-If AER can panic a kdump kernel, that seems like a failing of the kdump 
-kernel itself more than anything else (especially given the likelihood 
-that additional AER events could follow from whatever initial 
-crash/failure triggered kdump to begin with). And frankly if some device 
-getting a translation fault could directly SError the whole system, then 
-I'd say that system is pretty doomed in general, kdump or not.
+Reviewed-by: Leo Yan <leo.yan@arm.com>
+
+Just recording a bit thoughts.  As Suzuki mentioned, it would be better
+to allocate trace IDs within a session.  We might consider maintaining
+the trace ID map in the sink driver data, since the sink driver is
+unique within a session so it is a central place to allocate trace ID.
+
+We should use paired way for allocation and release. For example:
+
+  coresight_enable_sysfs()
+  {
+      ...
+      coresight_path_assign_trace_id(path);
+
+  failed:
+      coresight_path_unassign_trace_id(path);
+  }
+
+  coresight_disable_sysfs()
+  {
+      coresight_path_unassign_trace_id(path);
+  }
+
+But this requires broader refactoring.  E.g., the STM driver currently
+allocates system trace IDs statically during probe, we might need to
+consolidate for all modules to use dynamic allocation.
 
 Thanks,
-Robin.
-
-> To safely absorb in-flight DMA, the kdump kernel must leave SMMUEN=1 intact
-> and avoid modifying STRTAB_BASE. This allows HW to continue translating in-
-> flight DMA using the crashed kernel's page tables until the endpoint device
-> drivers probe and quiesce their respective hardware.
-> 
-> However, the ARM SMMUv3 architecture specification states that updating the
-> SMMU_STRTAB_BASE register while SMMUEN == 1 is UNPREDICTABLE or ignored.
-> 
-> This leaves a kdump kernel no choice but to adopt the stream table from the
-> crashed kernel.
-> 
-> In this series:
->   - Introduce an ARM_SMMU_OPT_KDUMP
->   - Skip SMMUEN and STRTAB_BASE resets in arm_smmu_device_reset()
->   - Map the crashed kernel's stream tables into the kdump kernel [*]
->   - Defer any default domain attachment to retain STEs until device drivers
->     explicitly request it.
-> 
-> [*] This is implemented via memremap, which only works on a coherent SMMU.
-> 
-> Note that the entire series requires Jason's work that was merged in v6.12:
-> 85196f54743d ("iommu/arm-smmu-v3: Reorganize struct arm_smmu_strtab_cfg").
-> I have a backported version that is verified with a v6.8 kernel. I can send
-> if we see a strong need after this version is accepted.
-> 
-> This is on Github:
-> https://github.com/nicolinc/iommufd/commits/smmuv3_kdump-v2
-> 
-> Changelog
-> v2
->   * Add warning in non-coherent SMMU cases
->   * Keep eventq/priq disabled v.s. enabling-and-disabling-later
->   * Check KDUMP option in the beginning of arm_smmu_device_reset()
->   * Validate STRTAB format matches HW capability instead of forcing flags
-> v1:
->   https://lore.kernel.org/all/cover.1775763475.git.nicolinc@nvidia.com/
-> 
-> Nicolin Chen (5):
->    iommu/arm-smmu-v3: Add arm_smmu_adopt_strtab() for kdump
->    iommu/arm-smmu-v3: Implement is_attach_deferred() for kdump
->    iommu/arm-smmu-v3: Retain CR0_SMMUEN during kdump device reset
->    iommu/arm-smmu-v3: Skip EVTQ/PRIQ setup in kdump kernel
->    iommu/arm-smmu-v3: Detect ARM_SMMU_OPT_KDUMP in
->      arm_smmu_device_hw_probe()
-> 
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |   1 +
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 225 ++++++++++++++++++--
->   2 files changed, 207 insertions(+), 19 deletions(-)
-> 
-
+Leo
 
