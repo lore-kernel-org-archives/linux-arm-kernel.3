@@ -4,79 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1DCAF8D775
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 19:32:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E121DF8D76E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 19:46:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=92ERkl7IqZ3D3ZBskV2Dg9cLo0xCsyjyPbt0J7jJ1bo=; b=UfKcP5QBaIUa5owPuogT0R4aU5
-	h2UXpxO97lUpPzLG/6yqBLEMRGDuMxBJEHGbFCn+rKlcCar53MoXz4HqYgcDdJKnDRgjar+9YESL/
-	a9rHC9O/0YtaaDFwNsbxBjRZD2O1QMqkQm5xSUvmEWCwRgZJBoMgas7D1BxMplrpIV/LJ25KvxURK
-	eeZ23oYCzpNXpnpypcHOm4K/pME3HJNDO3ahZNMqoHn1bOrzDNmC9faMKW+wSDlINkZg+LB/5plfw
-	cOOLIs7mt0I7+bZ2p3uc5MQdZ8jyYeVVflWtVOC1LQE49IzSK5Mwo8K3UcptbT4i2HjnJV7prqaj8
-	Fib6WRuw==;
+	bh=HASfmhv4rUG5GHgvnGz8cmO8OTo9CENeqWoVTI5Y+4Q=; b=e5xkp2KcUJNi1aa3q5g7woda7s
+	xOowlOQiab/KNhHB3G44pvMzCjDzcgje4nXxrz6nQ4o7Yoi1hiBMz3AHywD8rwZjnSZT9XuJO4syU
+	NM+lGZxpFSvIuhLQhI4/QqU1z07soBk3Yl8PMF9mF1GS4rrEKMrKAkXIqas8e6BIXZpOOoervVqk+
+	qx3K9VJNyUOSQvpNCzG6TTim2AY8DWWq/xbhmJHSGVuOb81t+5xEeDpvIFIA+hJO1cPBoxrEo6WZE
+	S5TDxU7sWoiSiDWGHR4icXQyqmODsdQ9jLA2MJbusnqycNU2+svpg+8v+fNNsd1EzRcuxQ74e+Js7
+	2EufrBWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDSSI-00000002tFs-2YOi;
-	Thu, 16 Apr 2026 19:32:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wDSfo-00000002uoQ-2N6G;
+	Thu, 16 Apr 2026 19:46:48 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDSSH-00000002tFi-3fHS;
-	Thu, 16 Apr 2026 19:32:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4CDE860128;
-	Thu, 16 Apr 2026 19:32:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36E8AC2BCB0;
-	Thu, 16 Apr 2026 19:32:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776367969;
-	bh=92ERkl7IqZ3D3ZBskV2Dg9cLo0xCsyjyPbt0J7jJ1bo=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=Rw1vIfWy5g39RTrQBVfk7P8+0yZErGWNG5UA9/vEtpQjlFkvwDTSfy9DcHen7/CI1
-	 yvB26rPsstyEixHeRP2kRFTYsbED9hoqdAx8pp9JCjVGtqsECj0BmLbEADz/j0Ea1z
-	 cuKaCVwjWLvXDg/CryubhnWhKyfuiuUjmH8fhvqeL/w/0cvoWWHyuhgdCpeuqDPtkC
-	 KhOKnJGX3lMBUei6zDvHwn/e429dg5HpUaKZZFagDf5a9Cwpgy1mEmtIvUBtm2UV8a
-	 d3rsfZkg4WL5nt8ssrtLumcRxpUUuH7CR13mk1NCsH3yKQQbT7v7wh+ISgR1TJLd7z
-	 vH5LnF1y8pygA==
-From: Thomas Gleixner <tglx@kernel.org>
-To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, LKML
- <linux-kernel@vger.kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, x86@kernel.org, Lu Baolu
- <baolu.lu@linux.intel.com>, iommu@lists.linux.dev, Michael Grzeschik
- <m.grzeschik@pengutronix.de>, netdev@vger.kernel.org,
- linux-wireless@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>,
- linux-crypto@vger.kernel.org, Vlastimil Babka <vbabka@kernel.org>,
- linux-mm@kvack.org, David Woodhouse <dwmw2@infradead.org>, Bernie Thompson
- <bernie@plugable.com>, linux-fbdev@vger.kernel.org, Theodore Tso
- <tytso@mit.edu>, linux-ext4@vger.kernel.org, Andrew Morton
- <akpm@linux-foundation.org>, Uladzislau Rezki <urezki@gmail.com>, Marco
- Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>,
- kasan-dev@googlegroups.com, Andrey Ryabinin <ryabinin.a.a@gmail.com>,
- Thomas Sailer <t.sailer@alumni.ethz.ch>, linux-hams@vger.kernel.org,
- "Jason A. Donenfeld" <Jason@zx2c4.com>, Richard Henderson
- <richard.henderson@linaro.org>, linux-alpha@vger.kernel.org, Russell King
- <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, Catalin
- Marinas <catalin.marinas@arm.com>, Huacai Chen <chenhuacai@kernel.org>,
- loongarch@lists.linux.dev, Geert Uytterhoeven <geert@linux-m68k.org>,
- linux-m68k@lists.linux-m68k.org, Dinh Nguyen <dinguyen@kernel.org>, Jonas
- Bonn <jonas@southpole.se>, linux-openrisc@vger.kernel.org, Helge Deller
- <deller@gmx.de>, linux-parisc@vger.kernel.org, Michael Ellerman
- <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org, Paul Walmsley
- <pjw@kernel.org>, linux-riscv@lists.infradead.org, Heiko Carstens
- <hca@linux.ibm.com>, linux-s390@vger.kernel.org, "David S. Miller"
- <davem@davemloft.net>, sparclinux@vger.kernel.org
-Subject: Re: [patch 07/38] treewide: Consolidate cycles_t
-In-Reply-To: <0758843e-8f75-4c82-b9c0-25fab502e62f@kernel.org>
-References: <20260410120044.031381086@kernel.org>
- <20260410120318.045532623@kernel.org>
- <0758843e-8f75-4c82-b9c0-25fab502e62f@kernel.org>
-Date: Thu, 16 Apr 2026 21:32:45 +0200
-Message-ID: <87v7dqem5e.ffs@tglx>
+	id 1wDSfl-00000002unq-3Yby
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Apr 2026 19:46:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=HASfmhv4rUG5GHgvnGz8cmO8OTo9CENeqWoVTI5Y+4Q=; b=lpA7J4PwOr6GgUySmqbcuobRqj
+	wFji3X5wBStapZ+y3eyYuQcQDu5bAH97dw377gaIYNYl6D00xkjzXiW+6n5G4ujfVqmlTfXJF8yWc
+	azw+sUd9yNQZBV/RJzp5IOHRg0n1iEzaBPqaj3QIsQYKXzluvkqkZXBt+rNZO/oV65DysECG8HKvs
+	Z4csOLuA7UQw6GB0wDUA8woWlMJQJ/t4FoUa+V1xAZJB3mZbLfCplRK9loVN2vlqEQl/ivd7KvnH4
+	2g7u+dVoEBx+RIZt/7gpcR31XcxpcjLYq4EOEBn1CICDaDY5c9tfo+nWCLx8Tm3UMo3mSudzKppN5
+	dk7cQeVA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:37416)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1wDSfd-000000003Vs-0REi;
+	Thu, 16 Apr 2026 20:46:37 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1wDSfa-000000003UF-1AiS;
+	Thu, 16 Apr 2026 20:46:34 +0100
+Date: Thu, 16 Apr 2026 20:46:34 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 5/6] net: stmmac: move PHY handling out of
+ __stmmac_open()/release()
+Message-ID: <aeE8mpXy9FRHvN9q@shell.armlinux.org.uk>
+References: <aNKDqqI7aLsuDD52@shell.armlinux.org.uk>
+ <5987484.DvuYhMxLoT@steina-w>
+ <aeC-tc2CooYDoBok@shell.armlinux.org.uk>
+ <2410317.ElGaqSPkdT@steina-w>
+ <aeDSTIS9-TDSihbX@shell.armlinux.org.uk>
+ <aeDojTdDTELfpT0X@shell.armlinux.org.uk>
+ <20260416090826.1c5ca018@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260416090826.1c5ca018@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260416_124646_211497_C60EFD91 
+X-CRM114-Status: GOOD (  15.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,13 +94,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 15 2026 at 08:43, Christophe Leroy wrote:
->> -typedef unsigned long cycles_t;
->> -
->> -static inline cycles_t get_cycles(void)
->> +ostatic inline cycles_t get_cycles(void)
->
-> What is 'ostatic' ?
+On Thu, Apr 16, 2026 at 09:08:26AM -0700, Jakub Kicinski wrote:
+> On Thu, 16 Apr 2026 14:47:57 +0100 Russell King (Oracle) wrote:
+> > The next problem will be netdev's policy over reviews vs patches
+> > balance which I'm already in deficit, and I have *NO* *TIME*
+> > what so ever to review patches - let alone propose patches to
+> > fix people's problems.
+> > 
+> > So I'm going to say this plainly: if netdev wants to enforce that
+> > rule, then I won't be fixing people's problems.
+> 
+> Do you have a better proposal?
+> I'm under the same pressure of million stupid projects from my employer
+> as you are. Do y'all think that upstream maintainers have time given by
+> their employers to do the reviews? SMH.
 
-That's a really good question :)
+Are you really under the same pressure? I have one of my parents in
+hospital right now, and was in A&E yesterday afternoon through into
+the evening. I've been down at the hospital since 2pm today, only
+just come back to feed the other parent and head back down for what
+could be a long night. Then there's supposed to be an appointment
+that will take up to 3 hours tomorrow morning...
+
+Yea, I'm sure you have the same pressures and worry from your
+employer - except my pressures are medical, looking after my parents.
+
+Thank you for your lack of understanding.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
