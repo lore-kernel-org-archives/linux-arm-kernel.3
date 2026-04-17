@@ -4,101 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39EF0F43697
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 13:06:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E5B9F4369E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 13:11:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ArPcEjtZ9SivxH550C9rk73iUbB8go/eI9x6T8uYRDs=; b=0/Z9jppLlxzb/GU+Y7uMPiq87Y
-	ZVZKGm1sV/oLgJdyjT9KaRQANaLYfowpNrOKxq0nRzX8ciTLDLarRZuKSVCrovhIjk4TrmcKrpTgk
-	/pHKQQLBgtxhjvCfJad6yp3XNr0qG1nfcTuEgGcCVOdQSYUJ7jDIBL7FU0ov4YHlApjq104ZYd8BE
-	/uVlcPic5Xpw2pJEUEiFJUhBz0RAzf0tQ3eSyFwwfjedWDt/M39qsiaeQm5UWQCYhBfTZS56hw4dU
-	/TDWcQn3Cf8WcK1FbGJpWdY3lWRzyczYXrVX7oLQWTQJbm2zIm6MW+pMyi+2nVkT3YzkMNdlU60pk
-	LfPIlrIQ==;
+	bh=UZ+9QdPmSTx/ezgB1oRSxcs6WFStfM5GyAzSgULBfK0=; b=FeZd6V/cj6oHdhB8ccT6ff1qY6
+	ApzHI0BpVwGbKUX0GWk4cs7jBbuUSIIbcpBPEbWf3q3SCyFdx7V5aWpkRRYCUNkaFH2FSRDgyMO/P
+	s4zLwit0mp9YHKORJThMyqq+VaAy+cHiTAZcXiKPhRf7M7/5OOgUTp8WphAQtqZ0sLRaHNobCaR70
+	fGFCJbl7KKtu0WQCP7WwkmHDAUHmC5yWJtZ04Jbn8ihsVI/UDUYgjh1lp1bYu1/CSiNdsQqUz9Dd3
+	Cz5QNEYos8nda1tct5wsIPZnhP5xaAKeCy0VugNCDncGx4zKnyi4impIv8WWLggIB+Qr0K97Vhy0v
+	pPUNmyMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDitv-00000004461-0mRA;
-	Fri, 17 Apr 2026 13:06:27 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDitq-0000000445d-0VHI
+	id 1wDiyU-000000044Gg-3aTq;
+	Fri, 17 Apr 2026 13:11:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDiyS-000000044GI-03M9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 13:06:25 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-43d7a5e77b1so493900f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 06:06:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1776431179; x=1777035979; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=ArPcEjtZ9SivxH550C9rk73iUbB8go/eI9x6T8uYRDs=;
-        b=fdPcfBcASDgcEznnT8xaJeEP6ysw1n8Of83Q65d8sQVFOaPGU26K6iYUInBJN9e+xt
-         s5G5a1mzXKy7pMgPIyiEXN/bd+Hz1LeOKsod/BAtO10QMTs0eDQTrm89YiE3LejGlHeS
-         74N//NsbyeEUPXQbFwcNHa12v2ZJLLYNLPJRivw6CrdI7K4dltlCqSOsFaFsV4s2bFhR
-         RAyMA83fHfkAN0xXWnGxHNsdGywukk6+tPG6iLZA2ul5YQ48xqEfJ6sp/Yi25SYEZ9XC
-         2V9wvOwNjFZ3r7lsDuHEpOi55k43h+9R9PXT7qcKDxffQG/n5Hy/5w9wB4lL1U6oIF51
-         OV9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776431179; x=1777035979;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ArPcEjtZ9SivxH550C9rk73iUbB8go/eI9x6T8uYRDs=;
-        b=kPtuqgf4E+vE1mMew1CKUFvE/jDgEFAdO/AydmTBqySTrHAPnpclmR2SMG7iZ++Hac
-         CAHLkzrA6g2bRPoncdFuMVmJXOCgE6ve10AJ+vkBTT/9UYqsZ9UM83lGzd8l6yYxEXLj
-         1auv7V52gEmmZQGHgEoJzbzcYVjFgOOPoIwzhmzSA/HwkvvdmJvCSqII43sKMOkrXlhT
-         SLwlr32bzC/+VeBU2eJpzL8XMd1uokArVZ4ROw9ovC7XlE8lfFctSdu1s10+ki2QicTM
-         uSZP6oA2HzWxR39E4keGwIpIdsj1GrjldJsuuqzOCxsOImI3Du4izLv1V2GXdsjify9E
-         aL6Q==
-X-Forwarded-Encrypted: i=1; AFNElJ8qZRs+12iHA8WI/gfrK+vkdXjkOpzEX4YcTSxxH8EEMdk0fKEWWKaPdN8U3m7bpCSBaXaJgA60SF24g+cXCJ9C@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyan8FLb1sSX3yrkS1wHd1IPNYjq0lL+LNBpfltKxtzC0sw2GQ6
-	F52lBxjnAb+Ou1biGSXCbHKKYNcHEFH0/ipo4hkQEA2Q74b65VdOMFoKpzdpcpsFWR4=
-X-Gm-Gg: AeBDietLWMhiXBKcqKjmKBa+Ygz5vh16yQTrTxdp+b8bgpX/Z3Cht/hjcs6zAu9BRAl
-	9oYY+hRvC6MmUWNtXrEDc1FZHXt8OJVO7CyKLVjh177GMbrp5lyz94eESJkxoFQ2CrIYXV8krLY
-	KoIXoode/e2Y6yGHjRWWPTdO56gnbX618XqYsIccTxcIzxssvDmlFQgggx0KP02HIcTBLU1BHMG
-	B6gIT2EdlLEsesClEk+345nyVLVXfJ3RyeXNr68QHJ128m4T1QJmpYy90b38ugColszs/BPoOcW
-	kI7QRVxeXMwbG191DbyEtoeTlek2mCuuRdFzjqeWfvohhoSlC6/NXEZgNX2zZKgOUBZki3cwKqq
-	VeedqP8Thp/O/qe0aN3q2BPtXsYyonqnTOXhvdhO3PgeST/50of6PSgOI1O96R34FUu56Us50VP
-	qn3Nd27AYTBJKLWi4jHdyCR0D50Rk175hLs0fyJbtQwA==
-X-Received: by 2002:a05:6000:210d:b0:43f:df55:fe5e with SMTP id ffacd0b85a97d-43fe3de41demr2740203f8f.0.1776431179277;
-        Fri, 17 Apr 2026 06:06:19 -0700 (PDT)
-Received: from [10.11.12.108] ([79.115.63.48])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43fe4cc09b1sm4687367f8f.9.2026.04.17.06.06.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 17 Apr 2026 06:06:17 -0700 (PDT)
-Message-ID: <976440e5-f433-424f-8ff6-c7553799f1d1@linaro.org>
-Date: Fri, 17 Apr 2026 16:06:14 +0300
+	Fri, 17 Apr 2026 13:11:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1216A1C2B;
+	Fri, 17 Apr 2026 06:10:59 -0700 (PDT)
+Received: from [10.57.63.31] (unknown [10.57.63.31])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 312443F7D8;
+	Fri, 17 Apr 2026 06:10:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776431464; bh=UZ+9QdPmSTx/ezgB1oRSxcs6WFStfM5GyAzSgULBfK0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=nLP9+NmOP4Js5PxqLmjA9erzChDc1WNxHz0qocmuG+AsyaZz8t5QVQ1Lo5Rct4eL2
+	 KPNqAe7G2utJg38/pHsrTnSjhvBlhhVTbSoisuYuAhC7ve0hNuyJOThpP/YByANyjN
+	 MdbXC7wVzrfGBlCo2N0+cUxzbDtoHJT7TGqJbU94=
+Message-ID: <5adc64e5-d4e3-42f1-8cf2-6e824bad2bf6@arm.com>
+Date: Fri, 17 Apr 2026 15:10:52 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/7] thermal: samsung: Add support for Google GS101 TMU
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-To: Alexey Klimov <alexey.klimov@linaro.org>, daniel.lezcano@kernel.org
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Kees Cook <kees@kernel.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- willmcvicker@google.com, jyescas@google.com, shin.son@samsung.com,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org
-References: <20260119-acpm-tmu-v2-0-e02a834f04c6@linaro.org>
- <DHNUUPQPD5DR.18P18VV0LNTI8@linaro.org>
- <63087cad-a8d1-4ff0-870a-6e1a738ff8b8@linaro.org>
-Content-Language: en-US
-In-Reply-To: <63087cad-a8d1-4ff0-870a-6e1a738ff8b8@linaro.org>
+Subject: Re: [PATCH v6 01/30] mm: Introduce kpkeys
+To: "David Hildenbrand (Arm)" <david@kernel.org>,
+ linux-hardening@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ Andy Lutomirski <luto@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Ira Weiny <ira.weiny@intel.com>, Jann Horn <jannh@google.com>,
+ Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
+ Kees Cook <kees@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Marc Zyngier <maz@kernel.org>,
+ Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>,
+ Maxwell Bland <mbland@motorola.com>, "Mike Rapoport (IBM)"
+ <rppt@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Pierre Langlois <pierre.langlois@arm.com>,
+ Quentin Perret <qperret@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ Yang Shi <yang@os.amperecomputing.com>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org
+References: <20260227175518.3728055-1-kevin.brodsky@arm.com>
+ <20260227175518.3728055-2-kevin.brodsky@arm.com>
+ <eaca640b-5006-489b-8b2d-148a3c4073da@kernel.org>
+ <fea9c939-f955-4020-bed6-427e592f0024@arm.com>
+ <cf9da9e0-310b-4dc0-81aa-3154077fff85@kernel.org>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <cf9da9e0-310b-4dc0-81aa-3154077fff85@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_060622_185719_DC5A37F8 
-X-CRM114-Status: GOOD (  10.04  )
+X-CRM114-CacheID: sfid-20260417_061108_181817_C3A1C6A1 
+X-CRM114-Status: GOOD (  20.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,18 +90,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 17/04/2026 14:00, David Hildenbrand (Arm) wrote:
+> On 4/15/26 17:50, Kevin Brodsky wrote:
+>> On 15/04/2026 15:00, David Hildenbrand (Arm) wrote:
+>>> On 2/27/26 18:54, Kevin Brodsky wrote:
+>>>> kpkeys is a simple framework to enable the use of protection keys
+>>>> (pkeys) to harden the kernel itself. This patch introduces the basic
+>>>> API in <linux/kpkeys.h>: a couple of functions to set and restore
+>>>> the pkey register and macros to define guard objects.
+>>>>
+>>>> kpkeys introduces a new concept on top of pkeys: the kpkeys level.
+>>>> Each level is associated to a set of permissions for the pkeys
+>>>> managed by the kpkeys framework. kpkeys_set_level(lvl) sets those
+>>>> permissions according to lvl, and returns the original pkey
+>>>> register, to be later restored by kpkeys_restore_pkey_reg(). To
+>>>> start with, only KPKEYS_LVL_DEFAULT is available, which is meant
+>>>> to grant RW access to KPKEYS_PKEY_DEFAULT (i.e. all memory since
+>>>> this is the only available pkey for now).
+>>>>
+>>>> Because each architecture implementing pkeys uses a different
+>>>> representation for the pkey register, and may reserve certain pkeys
+>>>> for specific uses, support for kpkeys must be explicitly indicated
+>>>> by selecting ARCH_HAS_KPKEYS and defining the following functions in
+>>>> <asm/kpkeys.h>, in addition to the macros provided in
+>>>> <asm-generic/kpkeys.h>:
+>>> I don't quite understand the reason for using levels. Levels sounds like
+>>> it would all be in some ordered fashion, where higher levels have access
+>>> to lower levels.
+>> That was originally the idea indeed, but in practice I don't expect
+>> levels to have a strict ordering, as it's not practical for composing
+>> features.
+>>
+>>> Think of that as a key that can unlock all "lower" locks, not just a
+>>> single lock.
+>>>
+>>> Then, the question is about the ordering once we introduce new
+>>> keys/locks. With two, it obviously doesn't matter :)
+>>>
+>>> So naturally I wonder whether levels is really the right abstraction
+>>> here, and why we are not simply using "distinct" keys, like
+>>>
+>>> KPKEY_DEFAULT
+>>> KPKEY_PGTABLE
+>>> KPKEY_SUPER_SECRET1
+>>> KPKEY_SUPER_SECRET2
+>>>
+>>> Is it because you want KPKEY_PGTABLE also be able to write to KPKEY_DEFAULT?
+>> Right, and in general a given level may be able to write to any number
+>> of pkeys. That's why I don't want to conflate pkeys and levels. Agreed
+>> that "level" might not be the clearest term though, since there's no
+>> strict ordering.
+> As discussed offline, maybe the right terminology to use here would be
+> something like a "context".
+>
+> You'd be activating/setting a context.
+>
+> KPKEY_CTX_DEFAULT
+> KPKEY_CTX_PGTABLE
+> KPKEY_CTX_SUPER_SECRET1
 
+Sounds good to me, that's more accurate than "level" if it is possible
+to give access to arbitrary pkeys to each context, which is the current
+assumption.
 
-On 4/9/26 3:22 PM, Tudor Ambarus wrote:
-> No, it's more than that. When I talked with Daniel about this driver, he
-> suggested I shall really focus on using the .set_trips callback instead of
-> .set_trip_temp. I'm not sure if it's possible given the static nature of
-> the ACPM interface. So it needs a bit of investigation, which I couldn't
-> do lately.
+> What is accessible (and how) is defined for each context. For example, I
+> would assume that all context allow for read/write access to everything
+> that KPKEY_CTX_DEFAULT has access to.
 
-FYI, I switched to .set_trips and testing went fine. I'll recheck the
-review feedback and resubmit.
+Most contexts would, although as I mentioned in the previous email,
+unprivileged contexts such as eBPF programs may be further restricted.
 
-Cheers,
-ta
+- Kevin
 
