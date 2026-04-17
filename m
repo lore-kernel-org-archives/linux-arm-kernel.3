@@ -4,67 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E68C5F43683
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 09:27:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16613F4368B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 09:27:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VqR6e7mGEHYAWR3QQWmXJTzL6gO1pRUin2VrxIcFaNY=; b=eJ4j/dYG3WGLRfwf3k+btywz+B
-	1189x3yrMVTAzfPMl1/o9Ac9niED3t3oiZFOZXnKyEbCKlC/6WRYusMhzgL8+em+ilEIakdhN+LJH
-	qcQQpG1P3zfND9E6prCsTLv0fezqrE/G6QOiMr7WACLE2vo6jsIIFIpdEWuykIwkH4XTpjI8xU8U1
-	RaEvNoo366gvtf0LG54jh7SnQCNjDkCLsHDEwSszWnzcvds9pokIa9PH3LxJp9SClxbjqnwNn6dBt
-	v/VPSBfGzyySTzwrbLSopYZOI4vKNdyFQTsg1FDNuAXQGiTJnYXiZsUsrSy6hBlHueViiaYTW6zVG
-	8PVihe8g==;
+	bh=xblrtCxLwf+/T0TXm9xBTi1z7Dp2sZdCkUI6Vueqvmw=; b=jc48UsV4T2yF/vwUoxpiE0ZgLP
+	PwFvDNksmlwozQqnDfA4VWIPSk8cdYfG2XUpE7Bqu/DsS4BVkYP3z7v0jyttwktzJFv4x0tZLI4HD
+	7hwAius4Y3awy0QHAejbJ4zh4SOy8dm4lKl/Km6Im4my/jTGDQbPcF7NQE/Ru95AQge011jkefXm+
+	8fJzCz47JQ+bumBig3++6wbh0jXsr2zQ1BLDibH7cHvpkPJ7r13S+0YL3HHaPDygsyeiNLoUlKu6/
+	DWvRyMKH1vF4SKl4404lP9Pr61my0Lin5x1mjXLzXaE0jQfXMUu0qZt56+w2rWwWPJCNhZ0xGdgg3
+	co8x0jMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDfUC-00000003nTT-0Y2T;
-	Fri, 17 Apr 2026 09:27:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDfSF-00000003l5q-3mnl;
-	Fri, 17 Apr 2026 09:25:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=VqR6e7mGEHYAWR3QQWmXJTzL6gO1pRUin2VrxIcFaNY=; b=J7kfJCdDmVDl6mhWHz1Wjt4nGM
-	1wbO3l+Itdh35XMO1zKIUGQmlI4tg8hv7pgLPVS0Sht3GmNtKh2/agHno0GpoCFfVJ6bMHQF2tSsB
-	ztfmMTYQyeMWh5B7b3UpHGC83R+rCqQPIl/ImgluTl+r6q1e1NHMS8IT+5jHo5RBEOz4Vj4+nBL1D
-	1u7eBPDq9gwsXUct44G3JAxBkAVt/CzMsutGgMnY+2KxT1zYYr9uM7E2Wwfw4W2TcjcXKEZz8ZM8M
-	IdO4Ms7D3PvdjJFtK5qX1HzQWB7luMBFJf209ea4WUomsKSZBGc0O70xxQ0pOibqGn8SV6ZeFdHUW
-	KdIJhHTg==;
+	id 1wDfUD-00000003nWC-3iiC;
+	Fri, 17 Apr 2026 09:27:41 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDfSA-000000054Pn-49Dk;
-	Fri, 17 Apr 2026 09:25:38 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDfSE-00000003l2D-33FU;
+	Fri, 17 Apr 2026 09:25:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1776417933;
-	bh=EZy0iRhW34YjUTSaavNlkSZjuxVOhJZt7v3evV/vx0w=;
+	s=mail; t=1776417936;
+	bh=0WZ67nO2zp4/q1aptEhQfM5nNxA1QDs2Kvu+W6lQ9S4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ESGbskLvBEHqBeEqbRvHjjQK0OF5s6+2RFN2ayhjJrvMg7RGWLiFTMtDqBg7zw+Xo
-	 OWIAJJfWqyNA8YGR7QXGGbPogpR8gIZ4LjEKVo56O7PKeepxsariPdzeB1Gy02vflZ
-	 JR/9RilwrD2ZrF3x54mg9qOqtHYcVGrtJVXBYb3c72ESuyJs+V+cVxQPTOne/uL9rT
-	 7QzREys1MBmBhJAjOAw9QpVtzYmG3Ul5KtBFM1Llh/VZLP3GRalN/bUdfWa/lLCwGN
-	 b1UGGkID9mu8tCWEi60/igzrZQg6e93+aMvolqKuu+7Vd1TZI9O6geGTpOZXR7L8pJ
-	 njDhskrlqJudQ==
+	b=N1N4eH674oexPKWMEVcZxv+SyD9bvJ4WHGdPIdtTmRSfP8tS7yvZtZu9VzHx/kkwr
+	 B2/d/M4boGYKHzMJiIGWCOotH/0KFCjKX9HaNNOpuK4TtNMuE9+CkINb5JEessd8T+
+	 JigYL/N1LO4my54N39sVoT+f9IRMM3pDMrdAJdFEoFVpn4LYrCqUNOhjZ8c6KMIF9w
+	 CVVKtesvMT/BvowCvxQYjyrCSHzqvRW+ZLMtllZyluwyx/NqmGAtzCfWZlz3y5QhOl
+	 g1Oos2IqdXUEp6MTxwoLFjJugk7MffcUX7+nuzEqOZfV53EpAyfNW5BLH9gV5XMQ3I
+	 4megHLtDHnmFw==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3479117E1340;
-	Fri, 17 Apr 2026 11:25:33 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7CBA517E0CA9;
+	Fri, 17 Apr 2026 11:25:36 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Fri, 17 Apr 2026 12:25:05 +0300
-Subject: [PATCH 31/40] arm64: dts: rockchip: Add frl-enable-gpios to
- rk3588s-indiedroid-nova
+Date: Fri, 17 Apr 2026 12:25:09 +0300
+Subject: [PATCH 35/40] arm64: dts: rockchip: Add frl-enable-gpios to
+ rk3588s-orangepi-5
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260417-dts-rk-frl-enable-gpios-v1-31-a19c0dd8c9f6@collabora.com>
+Message-Id: <20260417-dts-rk-frl-enable-gpios-v1-35-a19c0dd8c9f6@collabora.com>
 References: <20260417-dts-rk-frl-enable-gpios-v1-0-a19c0dd8c9f6@collabora.com>
 In-Reply-To: <20260417-dts-rk-frl-enable-gpios-v1-0-a19c0dd8c9f6@collabora.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -74,8 +60,9 @@ Cc: kernel@collabora.com, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_102535_205495_8FA37EE9 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20260417_022538_989956_4B469456 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,29 +87,27 @@ FRL operating modes.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts b/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts
-index 174d299cc6bb..9a98574ecf7d 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts
-@@ -278,8 +278,10 @@ &gpu {
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
+index dafad29f9854..2fb1362ee15c 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
+@@ -181,6 +181,9 @@ &gpu {
+ };
  
  &hdmi0 {
- 	pinctrl-0 = <&hdmim0_tx0_scl>, <&hdmim0_tx0_sda>,
--		    <&hdmim0_tx0_hpd>, <&hdmim0_tx0_cec>;
-+		    <&hdmim0_tx0_hpd>, <&hdmim0_tx0_cec>,
-+		    <&hdmi0_frl_en>;
- 	pinctrl-names = "default";
++	pinctrl-0 = <&hdmim0_tx0_cec &hdmim0_tx0_hpd
++		     &hdmim0_tx0_scl &hdmim0_tx0_sda &hdmi0_frl_en>;
 +	frl-enable-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_LOW>;
  	status = "okay";
  };
  
-@@ -517,6 +519,12 @@ bt_wake_host: bt-wake-host {
- 		};
- 	};
+@@ -381,6 +384,12 @@ &pd_npu {
+ };
  
+ &pinctrl {
 +	hdmi {
 +		hdmi0_frl_en: hdmi0-frl-en {
 +			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
@@ -130,8 +115,8 @@ index 174d299cc6bb..9a98574ecf7d 100644
 +	};
 +
  	hym8563 {
- 
  		hym8563_int: hym8563-int {
+ 			rockchip,pins = <0 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
 
 -- 
 2.53.0
