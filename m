@@ -4,57 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4B30F4368A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 11:32:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E97F43693
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 11:33:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8QyLMvKF44I/UarTwSVYz03wCTTEkLP4ZLZ/bSttUck=; b=DHgSM1Au9B0wi7pQ5RzTcwpmH4
-	irDKFxYNzRe0rkOJIFDfyW9NA3hgDkH9iuwl4Sn5FGYfJ39fhHMy5NxS1ywg5R4dy2SzoCrBMww0t
-	KNk2xhW+JEezB2T3aicrHeBde5GI+z7aoLUPDmpTt6AVltD7x7hOX1dGMYFxrpi5hXCK1ypShDBqN
-	+6N0QcJF0io9U77MHOTpqk3Xc/O8NKYC/moK7Yx6c7hsPjVnOGHEQPFNeL+R45kf/UWSt0sRtjzAW
-	uc/j7153utz3iqHOrCVuMiyUyitVDT+QOqaunsj1g5F8my5MBDJTLyBx/ioZUF2V/AVamfqDHeQWR
-	E39LYqtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EJE1EtDskVc3fllBZ5ebizZXuuApx+bNxnjPDCy6KQM=; b=P7PZEP+Ckl0EtZ3IAKafY/LhoO
+	E+ErD/kNrPkms8sYYYDc2KHMtZZZuWfp/x/jsGoM1gBtYM9VGhaWbNu0XlpnGGLhE9KMVNNxk6fhG
+	Y44qyh3/BCQyOyYqzJ4Ojjm8lKy4LBFy/HONyyqaEJe6TyEgqO/JAPmbkZUcIwBCgzli6+LZiSm7d
+	jG2Pla6R3vphLaKYCdWsxeZb3t7eg87mum1f0DvZE2oKHbN87EQrM2pVoVvE/5yC6B8NGk0ahxG9L
+	pc+IGnCq9DKqSvEW0wl9EseepAVYBN3qlOIM6pLjeNxVI/fQXJCjN2oh9w/R/K+Qat7jpNiEhEScT
+	pMueGwzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDhRK-00000003yzC-33eJ;
-	Fri, 17 Apr 2026 11:32:50 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wDhRr-00000003z4Q-1hxf;
+	Fri, 17 Apr 2026 11:33:23 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDhRI-00000003yyc-1RC3;
-	Fri, 17 Apr 2026 11:32:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=8QyLMvKF44I/UarTwSVYz03wCTTEkLP4ZLZ/bSttUck=; b=ALAyFiqJXMslOeqg+jJlEYthCo
-	UVRDtIAW0JAjYkBK0IDOoG6FsPd84Xv4i1Ede9QYaKCkqHrvMjyCxPlUT/xuVb9WgUwWePUhg62w2
-	uAFTXjOSfnRG2MOjpXKlwHIhHkPAJew55oBzmjYx39aV/86aIp4KZ816pzVVa4U9tdL/3s1kWc8l8
-	7SM7z+MCW0jJyYUOqy+im8sAxJBq0+NDoUYi/DJIogEoJn2gKHhkgJujwM5kyWeEqFekfyTdMWfMI
-	L31z0CTJe/InBk/UkCtZnueMejzmzj9KHjjzzqZUdvzKqNjJ0t1TFpAbujQWTMAP773E/1vGMGqk7
-	HqjjK+WA==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 05/40] arm64: dts: rockchip: Add frl-enable-gpios to
- rk3576-luckfox-core3576
-Date: Fri, 17 Apr 2026 13:32:37 +0200
-Message-ID: <2000470.6tgchFWduM@phil>
-In-Reply-To: <20260417-dts-rk-frl-enable-gpios-v1-5-a19c0dd8c9f6@collabora.com>
-References: <20260417-dts-rk-frl-enable-gpios-v1-0-a19c0dd8c9f6@collabora.com>
- <20260417-dts-rk-frl-enable-gpios-v1-5-a19c0dd8c9f6@collabora.com>
+	id 1wDhRo-00000003z3d-3xO9
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Apr 2026 11:33:22 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-8296d553142so379790b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 04:33:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776425600; x=1777030400; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=EJE1EtDskVc3fllBZ5ebizZXuuApx+bNxnjPDCy6KQM=;
+        b=atbQZOa/nbAKE0gisMKhmGHU7NWdy+0NSaWUInMZahGSUxXae1TCASBddGg6Q90ffp
+         iAjTTrZ0NgWXXDhD6b+yHtDf38i0sXabFqL7MmSMj82levOsUqPI+YIV7J2jOxifei4Q
+         I8Ajrj+UuGclln+Xwxlpgv3GG9aY2Hrx0mdjwzzJdp7RTSsgdbvDA8/VTb+nBlB+CQV7
+         13ZZHqWGtqGJ/KdxeDI3dhAOKFBy0r9vbBP7d5bxP1ONmBRVhynqCN7Ilw3mZCDmE2YM
+         pBrtFrc8wU8TmnQIoIQf5xIgzmQ0gpcemYnkJvdoMi6q8rFfO+v3Z2H8yEin6eUSfGCy
+         uo0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776425600; x=1777030400;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=EJE1EtDskVc3fllBZ5ebizZXuuApx+bNxnjPDCy6KQM=;
+        b=lKnubKOtLdAJ8oS3FqTpq7g1Az5uzLj+H1QMM/ylguOsmOuPcCyF9kXT3QuWAFmU/q
+         /lczMAot05ShbyyC45JmtgRIzwhO2e0hJ6l8UAo+lehdn12TWKCzH5y46mWqj4l7SAtV
+         Qg7qUKKMUpHydg4Tgo6FklZSiZ/sv2DIKH7jYDvkRBXL0mkXASN0qp90gDfX6x8S6MiY
+         XNp/olFi5h7wNDTdbBv4rL3Mn6sBwWlngBMFo8u0yaH47xkXxz1cCmznicB4Ds3Sa/bt
+         Yfp5/bItB4oUsL/Ip2viBrp0YD7HALXyBlNfIXed8toVGl4vMFcxufIu3LljeqGJR450
+         skrQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/jEcAsnA7IhrZxWj1/PbznpwvRQK3irN7s/ZXL+D9/b+ctErUdNRZlmb1dsERNL+cw4syJnyDB1WnWOI6c/RcN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3s/p0962ovjBQcS9K8T3kMiz3/y6/qstxe/rp0WcMwVmHSVPk
+	th9gzuGqwEYz+hb7u4f/9iKOEnBa+H1IeHAc2hJzSxSpB4oQBPSnbhK1
+X-Gm-Gg: AeBDieuhcnW0ff2x36vh65tfN/e9EO94NSmsgz6wCCG4J1dr3oOcmnuCxfjeAOLDazP
+	IzfWlD5v9PFXS6a4ipPADeXHuYXgcCUn9Cxj11649GGaADNKJgXGEsOVAAwPWTXAshL1zkqXnSc
+	/z0hCBP6oUswSdKxwoYA8iCrVSTVqBNB0ZPxlcnlw1F8ZXXmJlOi2STBg/LxkuRpqLWtyxPJ4tu
+	/unnLqdOt2tK9y6A/5SayJOsWespjXuG4rkG3eX9Sk7GJrV99/mO58Zci2+Injp3pj1ZXtYrGOH
+	BFRDQFWUhgOnDjQDhEjJMtpyOxlE+1stRSjlA2uT7ub+x279yNlnm2lAZC3oV/mVhgOI9wqmgu7
+	svJJ+KZtMsUttonuQ2P8nLSguWNsxnUUSiUbIIsCqBfI4fBGeQ3TBb67FXByOOLfm5fp/DHUX4W
+	9kuZEhtAKgGJgVxVsxfOLXoJiaLO7GhUHCjuOJOXK0SVk5FbgpF+YUSA==
+X-Received: by 2002:a05:6a00:bc10:b0:82a:64c7:8c6d with SMTP id d2e1a72fcca58-82f8c8bc5famr2390055b3a.25.1776425599584;
+        Fri, 17 Apr 2026 04:33:19 -0700 (PDT)
+Received: from dbc5pt3-os.ban-spse ([165.204.156.251])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8ebb38f2sm1610998b3a.30.2026.04.17.04.33.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Apr 2026 04:33:19 -0700 (PDT)
+From: sai madhu <suryasaimadhu369@gmail.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	sai madhu <suryasaimadhu369@gmail.com>
+Subject: [PATCH] drm/mediatek: hdmi: Convert DRM_ERROR() to drm_err()
+Date: Fri, 17 Apr 2026 11:33:10 +0000
+Message-Id: <20260417113310.2903091-1-suryasaimadhu369@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_043248_404112_F2778FE1 
-X-CRM114-Status: GOOD (  20.31  )
+X-CRM114-CacheID: sfid-20260417_043320_984570_6859A664 
+X-CRM114-Status: UNSURE (   6.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,87 +100,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cristian,
+The DRM_ERROR() macro is deprecated in favor of drm_err() which
+provides device-specific logging.
 
-the comments below apply sort of to all patches in that series.
+Replace DRM_ERROR() with drm_err() in the Mediatek HDMI bridge
+driver and pass the drm_device pointer via bridge->dev.
 
-Am Freitag, 17. April 2026, 11:24:39 Mitteleurop=C3=A4ische Sommerzeit schr=
-ieb Cristian Ciocaltea:
-> The board exposes the GPIO4_C6 line to control the voltage bias on the
-> HDMI data lines.  It must be asserted when operating in HDMI 2.1 FRL
-> mode and deasserted for HDMI 1.4/2.0 TMDS mode.
->=20
-> Wire up the HDMI node to the GPIO line using the frl-enable-gpios
-> property and drop the line from the vcc_5v0_hdmi regulator to allow
-> adjusting the bias when transitioning between TMDS and FRL operating
-> modes.
->=20
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
->  arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi | 9 ++++-----
->  1 file changed, 4 insertions(+), 5 deletions(-)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi b/=
-arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi
-> index 749f0a54b478..93ae37699366 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3576-luckfox-core3576.dtsi
-> @@ -140,10 +140,7 @@ regulator-state-mem {
-> =20
->  	vcc_5v0_hdmi: regulator-vcc-5v0-hdmi {
->  		compatible =3D "regulator-fixed";
-> -		enable-active-high;
-> -		gpios =3D <&gpio4 RK_PC6 GPIO_ACTIVE_HIGH>;
-> -		pinctrl-names =3D "default";
-> -		pinctrl-0 =3D <&hdmi_con_en>;
-> +		regulator-always-on;
->  		regulator-min-microvolt =3D <5000000>;
->  		regulator-max-microvolt =3D <5000000>;
->  		regulator-name =3D "vcc_5v0_hdmi";
+No functional change intended.
 
-I think this regulator was sort of a complete hack, to set that
-gpio to some sort of default state, by declaring it as hdmi-pwr-supply.
+Signed-off-by: sai madhu <suryasaimadhu369@gmail.com>
 
-Only 2 rk3576 boards seem, to use that hack, so I think as that "regulator"
-is completely functionless now, the whole thing could be removed?
-
-
-
-> @@ -231,6 +228,8 @@ &gpu {
->  };
-> =20
->  &hdmi {
-> +	pinctrl-0 =3D <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda &hdmi_frl_en>;
-> +	frl-enable-gpios =3D <&gpio4 RK_PC6 GPIO_ACTIVE_LOW>;
-
-this should be sorted the other way around I think.
-
-Also please provide a pinctrl-names property too. If for whatever reason
-the dw-hdmi aquires a 2nd pinctrl state in the future, this makes sure
-board DTs are staying in the "old" compatible mode until they are adapted.
-
-
->  	status =3D "okay";
->  };
-> =20
-> @@ -655,7 +654,7 @@ &pcie0 {
-> =20
->  &pinctrl {
->  	hdmi {
-> -		hdmi_con_en: hdmi-con-en {
-> +		hdmi_frl_en: hdmi-frl-en {
-
-pinctrl names should ideally match the naming in schematics, for example
-the "HDMI0_TX_ON_H" for jaguar and tiger. This makes it way easier to
-go from DT to schematics and back.
-
->  			rockchip,pins =3D <4 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
->  		};
->  	};
->=20
->=20
-
-Heiko
-
+diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+index 1ea259854780..f431fc9adca5 100644
+--- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
++++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+@@ -981,8 +981,9 @@ static int mtk_hdmi_bridge_attach(struct drm_bridge *bridge,
+ 	int ret;
+ 
+ 	if (!(flags & DRM_BRIDGE_ATTACH_NO_CONNECTOR)) {
+-		DRM_ERROR("%s: The flag DRM_BRIDGE_ATTACH_NO_CONNECTOR must be supplied\n",
+-			  __func__);
++		drm_err(bridge->dev,
++			"%s: The flag DRM_BRIDGE_ATTACH_NO_CONNECTOR must be supplied\n",
++			__func__);
+ 		return -EINVAL;
+ 	}
+ 
+-- 
+2.34.1
 
 
