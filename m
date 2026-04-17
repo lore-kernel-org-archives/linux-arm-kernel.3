@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 509C4F436B4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 15:59:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A188AF436B7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 16:07:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j8FO8PzF0PieyWhQwCeTDRN7VIBMniarhO6pmXOcNmE=; b=4WESOwMHNWBybM7+J0/n8AX00L
-	QOyv/VQdkImGvPfaGmRWPJfRLpWtTD3gTLX+XCaPnCF/pEiEnqN/m4LnaHGUlAm5B5KzeVuPSPuAg
-	QxG2Mar6FUDsI+egq3hYxvGGXWTAG09NK/o69n6Pxh4jqQbqbzAKXU5kogQw/fvWBg7bwf4uB9W8P
-	nGF1O5IUg3L4JiBFtwWPHrIvT8/I0/fAUneY2MHHYjDoVfZCXv6DOe6q3M0bBvpb1Y7LjmYGZpbxj
-	kNc8i9dbSzHaaR5qzEGBAk0LtJBEoAsl06utTQEWAu1f81jnIb4wRpDW6ZdMHwtv7O6zspqfDiJjr
-	qGj/hJXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UvuIXZik6kpoAEXpZUcN/K8sqk11v8tCmvkFFZ0Cz8o=; b=tjsucsfckx+Xlp+/lU8sGeSIuy
+	JBP5e/TU1UYtWlhnGgPZL02r7sr85i5nsP+tiAlmZi93yQvYCRJWYeHk99u6cpwRkgGfitcFcxuMb
+	OfTqq1dcd99kMcv1s65vvDTu2qlOMWJqHd0KVWQCI/wCeXr0cnLImemEnooBa1Lq80pskwyxkD0JB
+	54a7oHdnBsyZkB0xMzZEyOb7z10SdF0MDge5EMnoyAOD00GCalrrGHCsJpHZ11jS4sLPqe3HMdQkF
+	XctFM4igK+90MsBFXwTWctFDyxtPCwmoB4tptvWxHtY79LjP+q9BKCPWm7xgO53QGStTSqZ0EqFrc
+	01NAhTng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDlbZ-00000004Ejd-03Gn;
-	Fri, 17 Apr 2026 15:59:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDlbV-00000004EjG-3mnf
+	id 1wDlin-00000004F3k-0lKz;
+	Fri, 17 Apr 2026 16:07:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDlik-00000004F3N-3JBk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 15:59:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0B11D1DB5;
-	Fri, 17 Apr 2026 08:59:30 -0700 (PDT)
-Received: from [10.57.63.31] (unknown [10.57.63.31])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 338A23F7D8;
-	Fri, 17 Apr 2026 08:59:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776441575; bh=j8FO8PzF0PieyWhQwCeTDRN7VIBMniarhO6pmXOcNmE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dKqzTM+j4F58kIlpCMfJfslXRAvTIV63Jvs8XKtFPmTHYNKP2Hv8L1yPWqACikmRb
-	 b+TajA/SlxbTw4g2mMiYjf5eL8R/K3voQJzpqhOA7XvIo434idPxeQ4QAJe9tq+kr2
-	 S45xgvtee1/IiZZgthWVd5FLYan71Tu1mwyJ2OjU=
-Message-ID: <913002a5-e002-4001-ad19-037102d1f97d@arm.com>
-Date: Fri, 17 Apr 2026 17:59:26 +0200
+	Fri, 17 Apr 2026 16:07:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3E7894035F;
+	Fri, 17 Apr 2026 16:07:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C29ACC19425;
+	Fri, 17 Apr 2026 16:07:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776442025;
+	bh=NQgku0XmKRU6rgKiAn/DW7pVK31ikSdLl/YitlLG/B0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=O+ZilaRDHbIpuk+btUy0PJqf2nDXeW9zyi9F0lc1bgO07JLLXlhdnIAxV0pt3QMbJ
+	 OZFjEc0Y4ag0wOuAXrdgkKVpb+Ivj0UkYvf9rieoR7CGQXx1W4NmEtWs+AuaMI/nrH
+	 hugHPhq3slfvFe/Yk0er0AkKjCzK1BYcR9U0RlhZmJAaDri7QRdLTGRBBGRu6USD84
+	 HnJe9ERiefV9hM7c0qA11VHA8ZpivyLxv/QjHa5cMtcfm2Aico6mlC+UUyCPz/RVI5
+	 dVsYHkDOne5Z1zIpQyWFf4YLtAkzqyKyOyVcKiyGzyaaZkpHkgMGS9qB/orNZUrrGG
+	 8yLX+nhkmwKeg==
+Date: Fri, 17 Apr 2026 17:06:57 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Billy Tsai <billy_tsai@aspeedtech.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Ryan Chen <ryan_chen@aspeedtech.com>,
+	Andrew Jeffery <andrew@aj.id.au>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
+Subject: Re: [PATCH v7 1/3] dt-bindings: pinctrl: Add
+ aspeed,ast2700-soc0-pinctrl
+Message-ID: <20260417-anemia-borrower-fb90ac02b417@spud>
+References: <20260416-upstream_pinctrl-v7-0-d72762253163@aspeedtech.com>
+ <20260416-upstream_pinctrl-v7-1-d72762253163@aspeedtech.com>
+ <20260416-brutishly-saga-ba7168a4cd14@spud>
+ <OSQPR06MB7252EB0C2A1A3313DE49406B8B202@OSQPR06MB7252.apcprd06.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 01/30] mm: Introduce kpkeys
-To: "David Hildenbrand (Arm)" <david@kernel.org>,
- linux-hardening@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- Andy Lutomirski <luto@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
- Ira Weiny <ira.weiny@intel.com>, Jann Horn <jannh@google.com>,
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
- Kees Cook <kees@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Marc Zyngier <maz@kernel.org>,
- Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>,
- Maxwell Bland <mbland@motorola.com>, "Mike Rapoport (IBM)"
- <rppt@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- Quentin Perret <qperret@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- Yang Shi <yang@os.amperecomputing.com>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org
-References: <20260227175518.3728055-1-kevin.brodsky@arm.com>
- <20260227175518.3728055-2-kevin.brodsky@arm.com>
- <00b24db8-0063-48d6-8bc4-e8b670d8f0d5@kernel.org>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <00b24db8-0063-48d6-8bc4-e8b670d8f0d5@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="/e075MT9JwuwmUji"
+Content-Disposition: inline
+In-Reply-To: <OSQPR06MB7252EB0C2A1A3313DE49406B8B202@OSQPR06MB7252.apcprd06.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_085938_075085_40CC9941 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20260417_090706_881649_345E315B 
+X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,42 +89,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/04/2026 16:37, David Hildenbrand (Arm) wrote:
-> On 2/27/26 18:54, Kevin Brodsky wrote:
->> kpkeys is a simple framework to enable the use of protection keys
->> (pkeys) to harden the kernel itself. This patch introduces the basic
->> API in <linux/kpkeys.h>: a couple of functions to set and restore
->> the pkey register and macros to define guard objects.
->>
->> kpkeys introduces a new concept on top of pkeys: the kpkeys level.
->> Each level is associated to a set of permissions for the pkeys
->> managed by the kpkeys framework. kpkeys_set_level(lvl) sets those
->> permissions according to lvl, and returns the original pkey
->> register, to be later restored by kpkeys_restore_pkey_reg(). To
->> start with, only KPKEYS_LVL_DEFAULT is available, which is meant
->> to grant RW access to KPKEYS_PKEY_DEFAULT (i.e. all memory since
->> this is the only available pkey for now).
->>
->> Because each architecture implementing pkeys uses a different
->> representation for the pkey register, and may reserve certain pkeys
->> for specific uses, support for kpkeys must be explicitly indicated
->> by selecting ARCH_HAS_KPKEYS and defining the following functions in
->> <asm/kpkeys.h>, in addition to the macros provided in
->> <asm-generic/kpkeys.h>:
->>
->> - arch_kpkeys_set_level()
->> - arch_kpkeys_restore_pkey_reg()
->> - arch_kpkeys_enabled()
-> Another thing: why not simply drop the "arch_" stuff from these helpers?
 
-The first two are not meant to be directly called, they're the
-arch-specific implementation of kpkeys_set_level() and
-kpkeys_restore_pkey_reg(), and those generic functions handle some
-generic logic.
+--/e075MT9JwuwmUji
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-arch_kpkeys_enabled() is directly used in generic code, so I suppose it
-could be renamed to kpkeys_enabled()? It's actually implemented in an
-arch header so I wasn't too sure about it.
+On Fri, Apr 17, 2026 at 02:20:25AM +0000, Billy Tsai wrote:
+> > > +=A0=A0=A0 properties:
+> > > +=A0=A0=A0=A0=A0 function:
+> > > +=A0=A0=A0=A0=A0=A0=A0 enum:
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - EMMC
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - JTAGDDR
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - JTAGM0
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - JTAGPCIEA
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - JTAGPCIEB
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - JTAGPSP
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - JTAGSSP
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - JTAGTSP
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - JTAGUSB3A
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - JTAGUSB3B
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - PCIERC0PERST
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - PCIERC1PERST
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - TSPRSTN
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - UFSCLKI
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2AD0
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2AD1
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2AH
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2AHP
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2AHPD0
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2AXH
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2AXH2B
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2AXHD1
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2AXHP
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2AXHP2B
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2AXHPD1
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2BD0
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2BD1
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2BH
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2BHP
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2BHPD0
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2BXH
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2BXH2A
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2BXHD1
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2BXHP
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2BXHP2A
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2BXHPD1
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB3AXH
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB3AXH2B
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB3AXHD
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB3AXHP
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB3AXHP2B
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB3AXHPD
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB3BXH
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB3BXH2A
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB3BXHD
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB3BXHP
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB3BXHP2A
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB3BXHPD
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - VB
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - VGADDC
+> > > +
+> > > +=A0=A0=A0=A0=A0 groups:
+> > > +=A0=A0=A0=A0=A0=A0=A0 enum:
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - EMMCCDN
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - EMMCG1
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - EMMCG4
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - EMMCG8
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - EMMCWPN
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - JTAG0
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - PCIERC0PERST
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - PCIERC1PERST
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - TSPRSTN
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - UFSCLKI
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2A
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2AAP
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2ABP
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2ADAP
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2AH
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2AHAP
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2B
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2BAP
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2BBP
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2BDBP
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2BH
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB2BHBP
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB3A
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB3AAP
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB3ABP
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB3B
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB3BAP
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - USB3BBP
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - VB0
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - VB1
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - VGADDC
+> > > +=A0=A0=A0=A0=A0 pins:
+> > > +=A0=A0=A0=A0=A0=A0=A0 enum:
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - AB13
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - AB14
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - AC13
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - AC14
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - AD13
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - AD14
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - AE13
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - AE14
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - AE15
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - AF13
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - AF14
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - AF15
+>=20
+> > Why do you have groups and pins?
+>=20
+> > Is it valid in your device to have groups and pins in the same node?
+>=20
+> The intent is to support both group-based mux selection and
+> configuration, as well as per-pin configuration.
+>=20
+> In our hardware:
+>=20
+> - `function` + `groups` are used for pinmux selection.
+> - `pins` is used for per-pin configuration (e.g. drive strength,
+>   bias settings).
+> - `groups` may also be used for group-level configuration.
+>=20
+> As a result, both `groups` and `pins` may appear in the same node,
+> but they serve different purposes and do not conflict:
+>=20
+> - `groups` selects the mux function and may apply configuration to
+>   the entire group.
+> - `pins` allows overriding or specifying configuration for individual
+>   pins.
+>=20
+> In most cases, only one of them is needed, but both are allowed when
+> both group-level and per-pin configuration are required.
 
-- Kevin
+To be honest, that sounds like your groups are not sufficiently
+granular and should be reduced such that you can use them for pin
+settings.=20
+
+--/e075MT9JwuwmUji
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaeJaoQAKCRB4tDGHoIJi
+0oi8AQDp1gAb3AolAjABIl6fBvoBypslFDHqFAcNj6E2DlBE3QEA6Q6j2LCAIPOl
+0A+dbl1IvfSrQZC4005IZCZMYdRgOgE=
+=ZteU
+-----END PGP SIGNATURE-----
+
+--/e075MT9JwuwmUji--
 
