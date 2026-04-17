@@ -4,113 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11303F43682
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 09:00:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D06BF43685
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 09:02:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UUvDMgT2JDILnPFp/rQMG5xa0/FbaPkssLGIWBPbYgo=; b=vcbzeiB+BtXrFHo55ZtcN24aJM
-	quD9cJFo1MvIa3g555xHZ1wG8nnXvIHzFCjmQMSSw0Hk5Cd3iIo9+RDScPG3IXFcK3z4edIG1ND5j
-	NP7/HJ+HpbRNJF8F+QN3AWCWNl0XDn0gH9UbfX70Bva60JZutblPBkp0W5wtUgohiHaEejPo0FTiY
-	B/uSM5a+aZEZ11cE9aRJBhleeKZRL0aViBg+/jNWBGHmKW57VWbZElpHGhs3xAZvsEnQQk545BWJb
-	/EJj0O+I+yb4v00JVlHETmcXIO5YYVBns1YdJqlL+yow+wU67BMZMoI8vbAA4JdXCVf1UrRcbelB2
-	m2WvrbYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yaq3oZZPP0zgJO7shSO8Tq5EbFEPwmFPXbYiMglTcK8=; b=RCdh20xqtEAVammgjVxQlIW8Xi
+	JNcHC9WrMUWjDZKB665SKnXqkWZpSIv/LGUNIR+6EftJ0fYu54ukNu3hRMytobcT7I3S6fjMj6F0n
+	C6BIHKyfVhKrjPQu1Wu1OQhF5VX3Mmw+3n2LHv8BKNAqhSZ0DXI0XqCd2709nzIFcZJKrLjGgelo0
+	Wa1NFDhfG2ZNOWzsMVoQVhU7nWIuRaZbaLmo/gKmFhRfFwlXtoXh+3tNfC5hkHUbzalkQKlAExTM6
+	iRPwJFt666l5yAAZjLCRF+pqTChU/G1t1Mx1FGiM97SJLYy86QCJzP66WmnkSIjSBIH7RRtypeWUv
+	S9+Y+RJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDf3U-00000003ixM-04tE;
-	Fri, 17 Apr 2026 09:00:04 +0000
-Received: from fout-b3-smtp.messagingengine.com ([202.12.124.146])
+	id 1wDf68-00000003jAh-2JoK;
+	Fri, 17 Apr 2026 09:02:48 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDf3R-00000003iwT-0V3b
+	id 1wDf64-00000003j9q-14Ld
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 09:00:02 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id 9D3DE1D001E3;
-	Fri, 17 Apr 2026 04:59:58 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Fri, 17 Apr 2026 04:59:59 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1776416398;
-	 x=1776502798; bh=UUvDMgT2JDILnPFp/rQMG5xa0/FbaPkssLGIWBPbYgo=; b=
-	JS/UeliMctoAoIjBE3RhNUS3edBlWLZsyGRgrONFKmz/CiVVFMhHNtetfjM6JtYQ
-	vhFE5tdjK6uy+zuwU2ldiI2TlC18ZZ2YZLLNoJXI6zYYalxRAVDM6HW395y87Q/7
-	Z1+QaKK3TyTsy7wq1vzXIGQBct7+ddSpDmH7EY5xfyxY/EM+MlqAcwaDNnnK104I
-	H8e5gK1lbaSN9/AtAogtApuHRZsCPUEbWWOn5L3j3UBP1BwK4nc8OK43a1iDW8xE
-	5wZNs8Ayo/84JGwpCUxJjcTOg7lYQOoXiQbSg6ZVNSDQ76sMI/UXv4v+tSmuMpIZ
-	uOBsqxQ3NsYY+gSbaH79cA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1776416398; x=
-	1776502798; bh=UUvDMgT2JDILnPFp/rQMG5xa0/FbaPkssLGIWBPbYgo=; b=W
-	aSxT0XqmNdL6YS4/HeSJP2lsDApkXf0O9c9SWzPy8SFX8ZhYhTmisvLzDa0MuAJ2
-	7BrehUxkn7QsZTwGuhl/upRnMcM1UAWrVkvI7LYFJS7ImyG9wHlXkET/m53wU0D3
-	w03IvFqGs6GlgwRv9/BqT453wti6jJIcNrtCysHJmiIYr/0vmFOyEquKD1a62oSc
-	tGhyIZd49KLpeSTvYuk8YQp737LnM6FujUyMG5UVPvuZEqiVugDCDnzfRfz14HiS
-	11DN5i/IoZTW9PHHqOcmJ8yb+3W/ZFP5HBRKl4DiWsYaNIeqGr9jWybv6aNzRUek
-	EU0bgjIorrZ1l0HPF/Hfg==
-X-ME-Sender: <xms:jfbhaVCKzv6Y5_tboWvdprRfSdNQOWe4XLA7ZKJagNGj88goJ1BCPQ>
-    <xme:jfbhaeWXg8sJufOIzqIVXDXeu0gK5r2qqDylP8NBILdyki6WdieNCo7Zvi9XKJnla
-    C5hyto0XjpqfpjHIR9It9u_IpqRGicpVy0ZzLliu9Vi79O125Tk4DI>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdegleegiecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthhqredtredtjeenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpedvhfdvkeeuudevfffftefgvdevfedvleehvddvgeejvdefhedtgeegveehfeeljeen
-    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
-    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopeduledpmhhouggvpehsmhhtphhouhht
-    pdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtth
-    hopegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmpdhrtghp
-    thhtohepshhtvghfrghnughovghsihhnghgvrhesghhmrghilhdrtghomhdprhgtphhtth
-    hopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepfhhushhtihhn
-    iheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhhirhhishhlrggshieskhgvrhhnvg
-    hlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghp
-    thhtohepkhhriihksehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhhsfieskh
-    gvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:jfbhaZkiRndjPCwU6sql-kOX10LyujavQxQBoN4M6zLknn8cqvafOA>
-    <xmx:jfbhaTMbcbJ58fLah-LqrDOHtB4mfjWZqP9VFCwxbPoEjLUNh71LCg>
-    <xmx:jfbhabofCGG5zweFeXghmctJU7-N5LHnIIR6i8bI2NG8mg3lhLoa1Q>
-    <xmx:jfbhacs0yuhPrjhyheW8S6qyVgAWvGv4Ym_2dYXv7pkkkmN5CH0_zg>
-    <xmx:jvbhaTPSJ6wafZHNswkUf5Vf0rZBdqmkwoEVH7znV98AIPrNVgrTg05d>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id C1056700065; Fri, 17 Apr 2026 04:59:57 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 17 Apr 2026 09:02:46 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-488a88aeec9so6623015e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 02:02:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1776416562; x=1777021362; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Yaq3oZZPP0zgJO7shSO8Tq5EbFEPwmFPXbYiMglTcK8=;
+        b=P8cPSQH/8JPlSUx8vE/Z3rX01b07DLXEqqKCBgRYvLmhCyW49EDjhfPd2205RbydgR
+         KDxD1AO7COD2k6ISVyKww5arfaU4QphcCCzHQbYOv8ZFb/IQ5jqJZgWIge8KfBUljQMP
+         +NNTVPTnpTd4SAtPhKErhodl5CJeqvnAxtJIXX0JuUhvpeFc0tffpa3OJiDPD2rCMrV0
+         5Xvq3BwpfoTvHAdBFVhbW7VbAU76PqOSuRhZF5qUFCt11SaRhb8yYzkg8rmzzfDKZ677
+         Q4V1LpxJTEqup6x9vZms6yXVl0Qx7yyDRK/koAZ4A9fDIPAiZi3vOjNbTes0rYx+aL5T
+         3few==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776416562; x=1777021362;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Yaq3oZZPP0zgJO7shSO8Tq5EbFEPwmFPXbYiMglTcK8=;
+        b=Uw+YUCPa2t+U4Z3Jf+MTtWepTTCA9cRxBeEo5aEnjuSQJS9gJapg+YSnKsfHgFRWrQ
+         iSi1P67dx9Nj9FcUCpGkGywEw48DmOp1n8C3857s+8JbGBz32HpqjqpAxCYnkTpzl1gg
+         VM72Jkmsnrw84AV8wera89Wcb2erGGCJxg1MIBb8GJgqfpZi9GGOwTuc0djdBDZfeU2G
+         ciha8QOfCyfBCXsw7JMO/7VXNUvpXPzPJ2vVZMFaynPVVSSoyF7g4pEwweb/351UuQYr
+         y39ZlTyyLCGLGHGfc8VrsFW99RBb+MHCznB71i7GMNrX7/AwPNVrCeEIn7gkGhlwkqHd
+         4HHQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+7DrLkNBjskZmsYxPRSTPPwCIIEhucWqdjhKlxitXKVKeTO34FdmZy2b6/0HbKP6o+E1n2Hss/XNwkWwN0/DIS@lists.infradead.org
+X-Gm-Message-State: AOJu0YwV1ZFcuaUVXUex9KSdsWlwDs594xbloRjzOJDLbdFioc7Ymylf
+	BvoeN/sn0oWKLcbF3BD+jlOB0ajJlqI+tsU48Xpc8486jaBwY/WsIub4zQhGetA9rd0=
+X-Gm-Gg: AeBDietB5wLT02wkwIp0DfycNoLVtDwMDvHkrPeUrIa6UK+yC7+uXNME47Vy4PTOWIq
+	TSXxfW81dIqCf75WVCCn8FPWgmxjUuQHbODg7t7OhUE7erlJePsuxFZbPv5EruoxZCIGG5KV+Zz
+	1IBuYWC4EWKPVoBYLM2tur1fQKzA50MC/PNIJbncJTZnsvhDa84UP2aykNGYPxgoPLVKnSN6Cqn
+	jNaynET1lqrqr1XGWBuEbCJq0RFX2whGSSIi1Pn/MLac4graT0j8fNZkxK86uF2JMeoicdypfbz
+	3UhW/YaaSJI/zXG1z1SJeb3WWJRRi9COI/Y5kvg4Z8QkYi3gI508Dr0k+rETJQ2EHyrp/JwZiO2
+	gFlasVFMg901Q5H3q9tsqNC6LDZRGZ3qshn7yu0HoMmjHcdf0tcMAeYWLRDalw5HAUinIQx42Qw
+	eLGPFS9DC2/ye4gWlZ9Eg/Pov3d1qmvoDq7uf49oVI/1oJ1OiDKoKVydsH0Szw8JJImHTqKiZvS
+	8Ck3kA=
+X-Received: by 2002:a05:600c:a30a:b0:488:8d44:bf98 with SMTP id 5b1f17b1804b1-488fb74a5f3mr20968355e9.7.1776416562061;
+        Fri, 17 Apr 2026 02:02:42 -0700 (PDT)
+Received: from localhost (host-79-33-140-232.retail.telecomitalia.it. [79.33.140.232])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488fc1001bdsm49367405e9.6.2026.04.17.02.02.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Apr 2026 02:02:41 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Fri, 17 Apr 2026 11:05:51 +0200
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>
+Cc: Andrea della Porta <andrea.porta@suse.com>, linux-pwm@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Naushir Patuck <naush@raspberrypi.com>,
+	Stanimir Varbanov <svarbanov@suse.de>, mbrugger@suse.com
+Subject: Re: [PATCH v2 2/3] pwm: rp1: Add RP1 PWM controller driver
+Message-ID: <aeH373a_xmr6fnAy@apocalypse>
+References: <cover.1775829499.git.andrea.porta@suse.com>
+ <0d99317b9150310dfbd98de1cb2a890f0bffe7cd.1775829499.git.andrea.porta@suse.com>
+ <adkrHkANCzxO8KUP@monoceros>
+ <aeC6U7D6TfWm8JPx@apocalypse>
+ <aeDmk-t5Lc1zpkg9@monoceros>
 MIME-Version: 1.0
-X-ThreadId: AkOrUqlAGQ43
-Date: Fri, 17 Apr 2026 10:59:17 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: =?UTF-8?Q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>,
- "Jonathan Corbet" <corbet@lwn.net>, "Shuah Khan" <skhan@linuxfoundation.org>,
- "Russell King" <linux@armlinux.org.uk>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>,
- "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
- "Linus Walleij" <linusw@kernel.org>, "Drew Fustini" <fustini@kernel.org>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- "Jiri Slaby" <jirislaby@kernel.org>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- soc@lists.linux.dev, linux-serial@vger.kernel.org
-Message-Id: <0d80dcbe-cb46-45e5-821a-de5299d6a663@app.fastmail.com>
-In-Reply-To: <20260416-send-v4-7-e19d02b944ec@gmail.com>
-References: <20260416-send-v4-0-e19d02b944ec@gmail.com>
- <20260416-send-v4-7-e19d02b944ec@gmail.com>
-Subject: Re: [PATCH v4 7/8] ARM: dts: Declare UART1 on zx297520v3 boards
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aeDmk-t5Lc1zpkg9@monoceros>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_020001_641183_42F2BAA9 
-X-CRM114-Status: GOOD (  15.23  )
+X-CRM114-CacheID: sfid-20260417_020244_346427_BC2E34F5 
+X-CRM114-Status: GOOD (  47.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,50 +113,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 16, 2026, at 22:19, Stefan D=C3=B6singer wrote:
->
-> The reason why I add the serial1=3Duart1 alias is to keep console=3Dtt=
-yAMA1
-> stable regardless of the other enabled UARTs. UART0, as the name
-> implies, has a lower MMIO address, but uart1 is the one that usually h=
-as
-> the boot output and console.
+Hi Uwe,
 
-I'm not sure I'm following here. You generally want to either make
-sure the alias matches whatever number is printed on the product
-if there are multiple numbered ports, or you just use 'serial0'
-as the only alias if there is only one port.
+On 15:48 Thu 16 Apr     , Uwe Kleine-König wrote:
+> Hello Andrea,
+> 
+> one thing I forgot to ask: Is there a public reference manual covering
+> the hardware. If yes, please add a link at the top of the driver.
 
-> +	aliases {
-> +		serial1 =3D &uart1;
-> +	};
+Sort of, it's already reported in this driver top comment (Datasheet: tag).
+The PWM controller is part of the RP1 chipset and you can find its description
+under the PWM section. This is not a full-fledged datasheet but the registers
+for the controller are somewhow documented.
 
-Either way, the alias should go into the board specific file, not
-the general SoC file, as a board might be using a different
-set of UARTs.
+> 
+> On Thu, Apr 16, 2026 at 12:30:43PM +0200, Andrea della Porta wrote:
+> > On 19:31 Fri 10 Apr     , Uwe Kleine-König wrote:
+> > > I assume there is a glitch if I update two channels and the old
+> > > configuration of the first channel ends while I'm in the middle of
+> > > configuring the second?
+> > 
+> > The configuration registers are per-channel but the update flag is global.
+> > I don't have details of the hw insights, my best guess is that anything that
+> > you set in the registers before updating the flag will take effect, so there
+> > should be no glitches.
+> 
+> Would be great if you could test that. (Something along the lines of:
+> configure a very short period and wait a bit to be sure the short
+> configuration is active. Configure something with a long period and wait
+> shortly to be sure that the long period started, then change the duty,
+> toggle the update bit and modify a 2nd channel without toggling update
+> again. Then check the output of the 2nd channel after the first
+> channel's period ended.
 
-> +
-> +		/* The UART clock defaults to 26 mhz. It will be replaced when the =
-zx29 clock
-> +		 * framework is added.
-> +		 */
-> +		uartclk: uartclk: clock-26000000 {
-> +			#clock-cells =3D <0>;
-> +			compatible =3D "fixed-clock";
-> +			clock-frequency =3D <26000000>;
-> +		};
-> +
-> +		uart1: serial@1408000 {
-> +			compatible =3D "arm,pl011", "arm,primecell";
-> +			arm,primecell-periphid =3D <0x001feffe>;
-> +			reg =3D <0x01408000 0x1000>;
-> +			interrupts =3D <GIC_SPI 1 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks =3D <&uartclk>;
-> +			clock-names =3D "apb_pclk";
-> +		};
+I stand corrected here: after some more investigation it seems that only the
+enable/disable (plus osme other not currently used registers) depends on the
+global update flag, while the period and duty per-channel registers are
+independtly updatable while they are latched on the end of (specific channel)
+period strobe.
+I'd say that this should avoid any cross-channel glitches since they are managed
+independently. Unfortunately I'm not able to test this with my current (and
+rather old) equipment, this would require at least an external trigger channel.
+Regarding the setup of a new value exactly during the strobe: I think this is
+quite hard to achieve.
 
-Since you know the addresses of the other uart instances, I would
-suggest you add all of them at the same time.
+> 
+> > > > +	if (ticks > U32_MAX)
+> > > > +		ticks = U32_MAX;
+> > > > +	wfhw->period_ticks = ticks;
+> > > 
+> > > What happens if wf->period_length_ns > 0 but ticks == 0?
+> > 
+> > I've added a check, returning 1 to signal teh round-up, and a minimum tick of 1
+> > in this case.
+> 
+> Sounds good. Are you able to verify that there is no +1 missing in the
+> calculation, e.g. using 1 as register value really gives you a period of
+> 1 tick and not 2?
 
-       Arnd
+You are right. The scope reveals there's always one extra (low signal) tick at the
+end of each period. Let's say that teh user want 10 tick period, we have to use
+9 instead to account for the extra tick at the end, so that the complete period
+contains that extra tick?
+This also means that if we ask for 100% duty cycle, the output waveform will
+have the high part of the signal lasting one tick less than expected.a I guess
+this is the accepted compromise.
+
+OTOH, the minimum tick period would be 2 tick, less than that will otherwise
+degenerate in a disabled channel.
+
+> 
+> > > > +	if (wf->duty_offset_ns + wf->duty_length_ns >= wf->period_length_ns) {
+> > > 
+> > > The maybe surprising effect here is that in the two cases
+> > > 
+> > > 	wf->duty_offset_ns == wf->period_length_ns and wf->duty_length_ns == 0
+> > > 
+> > > and
+> > > 	
+> > > 	wf->duty_length_ns == wf->period_length_ns and wf->duty_offset_ns == 0
+> > > 
+> > > you're configuring inverted polarity. I doesn't matter technically
+> > > because the result is the same, but for consumers still using pwm_state
+> > > this is irritating. That's why pwm-stm32 uses inverted polarity only if
+> > > also wf->duty_length_ns and wf->duty_offset_ns are non-zero.
+> 
+> Please align to the pwm-stm32 algorithm (as of
+> https://patch.msgid.link/c5e7767cee821b5f6e00f95bd14a5e13015646fb.1776264104.git.u.kleine-koenig@baylibre.com)
+> here to decide when to select inverted polarity.
+
+Yep, I did already done when you sent that patch.
+
+> 
+> > > > +	}
+> > > > +
+> > > > +	return 0;
+> > > > +
+> > > > +err_disable_clk:
+> > > > +	clk_disable_unprepare(rp1->clk);
+> > > > +
+> > > > +	return ret;
+> > > > +}
+> > > 
+> > > On remove you miss to balance the call to clk_prepare_enable() (if no
+> > > failed call to clk_prepare_enable() in rp1_pwm_resume() happend).
+> > 
+> > Since this driver now exports a syscon, it's only builtin (=Y) so
+> > it cannot be unloaded.
+> > I've also avoided the .remove callback via .suppress_bind_attrs.
+> 
+> Oh no, please work cleanly here and make the driver unbindable. This
+> yields better code quality and also helps during development and
+> debugging.
+
+I wish to, but the issue here is that this driver exports a syscon via 
+of_syscon_register_regmap() which I think doesn't have the unregister
+counterpart. So the consumer will break in case we can unbind/unload
+the module and the syscon will leak. 
+If you have any alternative I'll be glad to discuss.
+
+Many thanks,
+Andrea
+
+> 
+> Best regards
+> Uwe
+
+
 
