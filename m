@@ -4,109 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A567EF436B2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 14:43:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02232F436B5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 14:57:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ibwfIFnUUlarXWt/Vd+yl4IfzjwO5SQSWOvdj5rO59o=; b=H1EMyVnsczpMxr5hD6lbWiNfbL
-	zjuh8XDznmwzWpGU+O8XuButbK7dIHR5mt9JIHh887GlOkOUjtmbNTwahdTpaCmzasNghFosiM1JE
-	hIwyUD7GMyQyUDGwm3DTEMgx0gSxKa0C73NMgxiumYkHyV7oit3AECekWmZKJObRcRkrkjo2PJQB5
-	FvwTBBu+kzBQXyG5uhO+ZkSh8BWVS7zKBIWEVncJhphRL/9MMfY+TT6/a23xcJHMzZU/OyjV6PwRq
-	AqPLGLQkiA6fzgIKzp/+Y8WlqO1DEOlYF+7jkyXquFL3yqn5SeDQWGOjzmLpGramrnUs+jSzCnU+g
-	wlbzHDeA==;
+	bh=27eU/J0Zc/hAfFBGC44jb/O35+RxI2J909Uggxl8/vg=; b=V4mc1Fm8ozsYug7uxrCEfKqSBC
+	+TNxkwHBY3Pxaa6uLWi+UIGYUFJp7DeDj2ft+x8di0YEXzUGYgHrW3wZVkpupygfD2X3ZzQ7+7EhO
+	fd7B/jguHIUtKni+xRRiBjaYNQcfOTRAk6Pbt/cexAKfyt2WJvx2TEL+j0hT0F+xRJntqSnZb/MQS
+	ynqoC6Ux51O0XzHjMnnGVGgcy7tWdOjhmSBA3tL5jjBijQmviawftl0kvhvRVxhBE2O1jzQ5iaEoN
+	KlO06FVGqB1uU5MG8AnXZF2ZTl2/Fh9gVQFK9Aeeb34vVaUY6txPvvwDrNkM71kPA6FE3KTf+IItO
+	ezKiz7Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDkPs-000000049K3-01Rr;
-	Fri, 17 Apr 2026 14:43:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wDkdZ-000000049my-1EPI;
+	Fri, 17 Apr 2026 14:57:41 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDkPp-000000049Jg-2iKv
+	id 1wDkdX-000000049ln-0Dyk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 14:43:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 548244440D;
-	Fri, 17 Apr 2026 14:43:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B35F4C4AF0B;
-	Fri, 17 Apr 2026 14:43:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776437008;
-	bh=ibwfIFnUUlarXWt/Vd+yl4IfzjwO5SQSWOvdj5rO59o=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=bl0et/Px8pJXMVYohkGsLalYpIg6KeNK6FKl2fXKNA4s3MOwTvQR3kmz380HGDoLy
-	 cXFghKjGvykoVKwg6HYj9YJR9mCYoY6o+wa9OjqYjcQ3hpSA9jEdJ1Ts0Wv5PisScn
-	 OxtS1EpCayaR/JVmHLE3MxVV1cyeSlXY9qQvFO9BRr7AFb7NficY3H9htgbpSQRlWB
-	 YvzfYDi0Yipy2S0Fh5j+kC+i6pAg/smHfQhn4ZFCsT/T1YTrzyQe62eDNPOsnj2Vjx
-	 OyFXKEB4YFUoeM2Bp0ub7cHP3A+kycuny+lrGUK/kbJyH6B7sC+JzUxbZFcBfTrNNX
-	 FUBleyHyX171Q==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id C1901F40074;
-	Fri, 17 Apr 2026 10:43:26 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-01.internal (MEProxy); Fri, 17 Apr 2026 10:43:26 -0400
-X-ME-Sender: <xms:DkfiaXTbkpP5A8w4pdzr8XrAoDf0lvatJs9502j3293KdgJwHFSZfw>
-    <xme:DkfiaTl8MIkb9Ui3AkHYOl7ClQfdk6seyVPhcsMTn82F7bcjnTGS-PEFUukvR4uHi
-    P7EKpN1PvFR9ERtBVKxjhIIRvwYGt4Egk2Gv6uDa9g_2FJImIRx0Bc>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdehtdduhecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhguuceu
-    ihgvshhhvghuvhgvlhdfuceorghruggssehkvghrnhgvlhdrohhrgheqnecuggftrfgrth
-    htvghrnhepvdeuheeitdevtdelkeduudetgffftdelteefteevjeevjeeiheefhfejieej
-    fedunecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
-    hrugdomhgvshhmthhprghuthhhphgvrhhsohhnrghlihhthidqudeijedthedttdejledq
-    feefvdduieegudehqdgrrhgusgeppehkvghrnhgvlhdrohhrghesfihorhhkohhfrghrug
-    drtghomhdpnhgspghrtghpthhtohepudefpdhmohguvgepshhmthhpohhuthdprhgtphht
-    thhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepmh
-    grrhhkrdhruhhtlhgrnhgusegrrhhmrdgtohhmpdhrtghpthhtoheprhhosghinhdrmhhu
-    rhhphhihsegrrhhmrdgtohhmpdhrtghpthhtohephihukhhurghisehfnhhnrghsrdgtoh
-    hmpdhrtghpthhtohepuggvmhihrghnshhhsehgmhgrihhlrdgtohhmpdhrtghpthhtohep
-    lhhinhgrnhduvddvsehhuhgrfigvihdrtghomhdprhgtphhtthhopegsrhhoohhnihgvse
-    hkvghrnhgvlhdrohhrghdprhgtphhtthhopehsohhngheskhgvrhhnvghlrdhorhhgpdhr
-    tghpthhtohepfihilhhlsehkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:DkfiaaBNfkHHowV89EbpEv0UcFRqubvCBzSkUDnoyuf0llcCiuydPg>
-    <xmx:DkfiaYPAyklSFCAv3ZZM04805p7q1L-ufnUb3xjINtEwPH1wnm7oAA>
-    <xmx:DkfiaWP3hG587E8ctgsmXbZd9_8JKmFSpd8i9R4wVzWoyFnVqF5EnQ>
-    <xmx:DkfiaaKOpJ4OFsQJTe55ckgSSEwzuvTNep34MDZvZvAZgDCGTmKx1w>
-    <xmx:DkfiaQrP-Hzi17D6vFpiJmrydcZ2YswO-z5ScYHlZ1VpO4M74xB76OfG>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 90D9E700065; Fri, 17 Apr 2026 10:43:26 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 17 Apr 2026 14:57:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Cc:To:In-Reply-To:References:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=27eU/J0Zc/hAfFBGC44jb/O35+RxI2J909Uggxl8/vg=; b=mzMy48QVGDIVFYGyu7BE9uQKxQ
+	hXAx6ka7Jy+yD96rfP+cZqCaE6kQPSa+DdZJP6Q3MQpkwIJOuqSSNb6LAAaxXZAHCPdebEcpzngvf
+	uZrdvuSOUB6llYq77QwXOSu4zylE2OS9OMkB7C7U6kxCLHp5uAD0koERRvZG0XQTxE03cBIs6lXH9
+	pMfYyEGkCsZDA9IbHXB2Z3kanJOwM2J4/sA1i+IMs0WF7p1GZMZizstGD1PFXrXFACYjsNqmKM4so
+	L7VxytNBzUI4mUP+ktR7XZnYYeYXbpnVlffTFuRxZbV9W9kO5dkWyFKIbXVJ0lK4T3l11czz4ALlQ
+	dIAyuxaw==;
+Received: from [187.57.76.127] (helo=[192.168.15.100])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
+	id 1wDkcy-00HVwL-Ec; Fri, 17 Apr 2026 16:57:04 +0200
+From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
+Date: Fri, 17 Apr 2026 11:56:10 -0300
+Subject: [PATCH RFC 1/2] arm64: vdso: Prepare for robust futex unlock
+ support
 MIME-Version: 1.0
-Date: Fri, 17 Apr 2026 16:43:06 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Robin Murphy" <robin.murphy@arm.com>,
- "Demian Shulhan" <demyansh@gmail.com>
-Cc: "Christoph Hellwig" <hch@lst.de>, "Mark Rutland" <mark.rutland@arm.com>,
- "Song Liu" <song@kernel.org>, "Yu Kuai" <yukuai@fnnas.com>,
- "Will Deacon" <will@kernel.org>, "Catalin Marinas" <catalin.marinas@arm.com>,
- "Mark Brown" <broonie@kernel.org>, linux-arm-kernel@lists.infradead.org,
- "Li Nan" <linan122@huawei.com>, linux-raid@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Message-Id: <c9362db6-1fef-4e70-9525-29b2936f4887@app.fastmail.com>
-In-Reply-To: <8db4defe-8b5e-4cc3-880b-72d46510b034@arm.com>
-References: <20260318150245.3080719-1-demyansh@gmail.com>
- <f9bc0534-4b7a-4b14-974b-4d7811ccd899@app.fastmail.com>
- <acJhCCPfVxjFUZ5R@J2N7QTR9R3>
- <CAOLeWCsxhzdxQviizJ4X4VOp_28LCtO-RjWoCcZG29rQw86NVg@mail.gmail.com>
- <9a12e043-8200-4650-bfe2-cbece57a4f87@app.fastmail.com>
- <20260331063659.GA2061@lst.de>
- <CAOLeWCtnZz=kHGk4C2f9Mbfi3tEBE100iCkMBhcG47dmR9eDWw@mail.gmail.com>
- <CAOLeWCtxPk7q_bVvrcKaipSKr+_=57Auobcj0cFRvXxXMdH58g@mail.gmail.com>
- <5158e4e0-3275-4c29-a8fc-2dfabc13a69d@app.fastmail.com>
- <CAOLeWCtf2rZyPeJH-LuZ2A+c7mC9M2r-Ya0VjyOJFpun3TFMnw@mail.gmail.com>
- <8db4defe-8b5e-4cc3-880b-72d46510b034@arm.com>
-Subject: Re: [PATCH v2] raid6: arm64: add SVE optimized implementation for syndrome
- generation
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260417-tonyk-robust_arm-v1-1-03aa64e2ff1a@igalia.com>
+References: <20260417-tonyk-robust_arm-v1-0-03aa64e2ff1a@igalia.com>
+In-Reply-To: <20260417-tonyk-robust_arm-v1-0-03aa64e2ff1a@igalia.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, 
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ Carlos O'Donell <carlos@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Florian Weimer <fweimer@redhat.com>, Rich Felker <dalias@aerifal.cx>, 
+ Torvald Riegel <triegel@redhat.com>, Darren Hart <dvhart@infradead.org>, 
+ Ingo Molnar <mingo@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>, 
+ Arnd Bergmann <arnd@arndb.de>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
+ Uros Bizjak <ubizjak@gmail.com>, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-arch@vger.kernel.org, kernel-dev@igalia.com, 
+ LKML <linux-kernel@vger.kernel.org>, 
+ =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
+X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_074329_753781_F568F45B 
-X-CRM114-Status: GOOD (  20.02  )
+X-CRM114-CacheID: sfid-20260417_075739_426573_9F3CFF51 
+X-CRM114-Status: GOOD (  16.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,64 +87,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+There will be a VDSO function to unlock non-contended robust futexes in
+user space. The unlock sequence is racy vs. clearing the list_pending_op
+pointer in the task's robust list head. To plug this race the kernel needs
+to know the critical section window so it can clear the pointer when the
+task is interrupted within that race window. The window is determined by
+labels in the inline assembly.
 
-On Thu, 16 Apr 2026, at 18:26, Robin Murphy wrote:
-> On 16/04/2026 3:59 pm, Demian Shulhan wrote:
->> Hi Ard!
-...
->>> OK, so the takeaway here is that SVE is only worth the hassle if the
->>> vector length is at least 256 bits. This is not entirely surprising,
->>> but given that Graviton4 went back to 128 bit vectors from 256, I
->>> wonder what the future expectation is here.
->>
->> I agree. The results from the SnapRAID tests are not as impressive as
->> I hoped, and the fact that Neoverse-V2 went back to 128-bit is a red
->> flag. It suggests that wide SVE registers might not be a priority in
->> future architecture versions.
->
-> If you look at the Neoverse V1 software optimisation guide[1], the SVE
-> instructions generally have half the throughput of their ASIMD
-> equivalents (i.e. presumably the vector pipes are still only 128 bits
-> wide and SVE is just using them in pairs), so indeed the total
-> instruction count is largely meaningless - IPC might be somewhat more
-> relevant, but I'd say the only performance number that's really
-> meaningful is the end-to-end MB/s measure of how fast the function
-> implementation as a whole can process data.
+Signed-off-by: André Almeida <andrealmeid@igalia.com>
+---
+RFC: Those symbols can't be found by the linker after patch 2/2, it fails with:
 
-On arm64, kernel mode NEON is mostly used to gain access to AES and SHA
-instructions, and only to a lesser degree to speed up ordinary
-arithmetic, and so XOR is somewhat of an outlier here.
+ld: arch/arm64/kernel/vdso.o: in function `vdso_futex_robust_unlock_update_ips':
+arch/arm64/kernel/vdso.c:72:(.text+0x200): undefined reference to `__futex_list64_try_unlock_cs_success'
+ld: arch/arm64/kernel/vdso.o: relocation R_AARCH64_ADR_PREL_PG_HI21 against symbol `__futex_list64_try_unlock_cs_success' which may bind externally can not be used when making a shared object; recompile with -fPIC
+arch/arm64/kernel/vdso.c:72:(.text+0x200): dangerous relocation: unsupported relocation
+---
+ arch/arm64/include/asm/vdso.h |  4 ++++
+ arch/arm64/kernel/vdso.c      | 29 +++++++++++++++++++++++++++++
+ 2 files changed, 33 insertions(+)
 
-Given that Neoverse V1 apparently already carves up ordinary arithmetic
-performed on 256-bit vectors and operates on 128 bits at a time, I am
-rather skeptical that we're likely to see any SVE implementations of the
-crypto extensions soon that are meaningfully faster, given that these
-are presumably much costlier to implement in terms of gate count, and
-therefore likely to be split up even on SVE implementations that can
-perform ordinary arithmetic on 256+ bit vectors in a single cycle. Note
-that even the arm64 SIMD accelerated CRC implementations rely heavily on
-64x64->128 polynomial multiplication.
+diff --git a/arch/arm64/include/asm/vdso.h b/arch/arm64/include/asm/vdso.h
+index 232b46969088..182fde1df3dd 100644
+--- a/arch/arm64/include/asm/vdso.h
++++ b/arch/arm64/include/asm/vdso.h
+@@ -18,6 +18,10 @@
+ 
+ extern char vdso_start[], vdso_end[];
+ extern char vdso32_start[], vdso32_end[];
++extern char __futex_list64_try_unlock_cs_success[], __futex_list64_try_unlock_cs_end[];
++#ifdef CONFIG_COMPAT
++extern char __futex_list32_try_unlock_cs_success[], __futex_list32_try_unlock_cs_end[];
++#endif
+ 
+ #endif /* !__ASSEMBLER__ */
+ 
+diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
+index 592dd8668de4..42a82e73a774 100644
+--- a/arch/arm64/kernel/vdso.c
++++ b/arch/arm64/kernel/vdso.c
+@@ -11,6 +11,7 @@
+ #include <linux/clocksource.h>
+ #include <linux/elf.h>
+ #include <linux/err.h>
++#include <linux/futex.h>
+ #include <linux/errno.h>
+ #include <linux/gfp.h>
+ #include <linux/kernel.h>
+@@ -57,6 +58,32 @@ static struct vdso_abi_info vdso_info[] __ro_after_init = {
+ #endif /* CONFIG_COMPAT_VDSO */
+ };
+ 
++#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
++static void vdso_futex_robust_unlock_update_ips(enum vdso_abi abi, struct mm_struct *mm)
++{
++	unsigned long vdso = (unsigned long) mm->context.vdso;
++	struct futex_mm_data *fd = &mm->futex;
++
++	/*
++	 * RFC: won't compile due to undefined reference to `__futex_list64_try_unlock_cs_...`
++
++	if (abi == VDSO_ABI_AA64) {
++		futex_set_vdso_cs_range(fd, 0, vdso, (uintptr_t) __futex_list64_try_unlock_cs_success,
++					(uintptr_t) __futex_list64_try_unlock_cs_end, false);
++	}
++
++#ifdef CONFIG_COMPAT
++	if (abi == VDSO_ABI_AA32) {
++		futex_set_vdso_cs_range(fd, 1, vdso, (uintptr_t) __futex_list32_try_unlock_cs_success,
++					(uintptr_t) __futex_list32_try_unlock_cs_end, true);
++	}
++#endif
++	*/
++}
++#else
++static inline void vdso_futex_robust_unlock_update_ips(enum vdso_abi abi, struct mm_struct *mm) { }
++#endif /* CONFIG_FUTEX_ROBUST_UNLOCK */
++
+ static int vdso_mremap(const struct vm_special_mapping *sm,
+ 		struct vm_area_struct *new_vma)
+ {
+@@ -134,6 +161,8 @@ static int __setup_additional_pages(enum vdso_abi abi,
+ 	if (IS_ERR(ret))
+ 		goto up_fail;
+ 
++	vdso_futex_robust_unlock_update_ips(abi, mm);
++
+ 	return 0;
+ 
+ up_fail:
 
-IOW, before we consider kernel mode SVE, I'd like to see some benchmarks
-for other algorithms too.
+-- 
+2.53.0
 
-> It's probably also worth checking whether the current NEON routines
-> themselves are actually optimal for modern big CPUs - things have
-> moved on quite a bit since Cortex-A57 (whose ASIMD performance could
-> also be described as "esoteric" at the best of times...)
->
-
-Some of those crypto routines could definitely be made faster, but it
-highly depends on the context whether that actually helps: for instance,
-there was a proposal a while ago to incorporate the AES-GCM code from
-the OpenSSL project (authored by ARM) but at the time, it slightly
-regressed the ~1500 byte case and only gave a substantial improvement
-for much larger block sizes, which aren't that common in the kernel for
-this particular algorithm.
-
-IOW, any contributions that improve the existing code (or outright
-replace it with something faster, for all I care) are highly
-appreciated, but they should be motivated by benchmarks that reflect
-the use cases that we actually consider important for the algorithm
-in question.
 
