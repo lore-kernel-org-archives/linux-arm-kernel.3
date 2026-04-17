@@ -4,75 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 610CBF436B7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 14:57:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB6A5F436B2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 15:08:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1NGdwlYbSqtyrzey1R4pNywcB64VCt682zZe8IioClA=; b=OOmJGhcVHKhXZ8xLYcOYdyBXVc
-	y0hjLFkqcwgYVdxZBERWJ1xnGxDLnTaAPAbnvaZ1ULLWSVkfJAfuhFLte3byz+aZq85whyDS2s6Ip
-	DXWV32rqSRHodSgxvuocGAqIcula+rbZhBFhet6LFB2qCNquw4pc+Jj8M8QSVNq/454mMJongHHVb
-	48CZLik2NNLDifOYwDE8WDzdNdcES2ZWPED4VdIGdPDjzk1QXoEYEE8/70HPsalfA0opLi1+r4d58
-	X3KWhvLr1vse/ktl2lsh9Q9HRBFO371sDg88mnlX0gWKXlZr+4ie7tGXr6Cfz7/oFzvwKRYXeqSlJ
-	cqNd6pcg==;
+	bh=UKca5QJQ1hxgTQwHYK4x+LZXd06rJ/B93mnhlgY1RYI=; b=G2JsmMo7cdNcmXsLoSju6BhMH8
+	MBiGdWUtfps9sv7AJF2c7Xvz0J2AEd+JCIEUnz/nEJBDfgQu1F8oMtv7B9D+RMrtSfhlQkVR+sg3r
+	xUyGQtDsZvCOJSC1Mil9S81WLOsYtZONvbGvMDXH20bTcf9Rb4zGOno4xrhQ6mcgoHJW9oKVLBM8u
+	UsrdpSQO/JDN23o+omo1YIdTa8STHMthVS3/KBbwUOsRKJCcl1w4BStioB4UZuSARt8jjrUmHSMC6
+	TaFNfjJJDr0yGqhNkefDJ2P1NmGIGW43ReN3e/kHBAjyTCXmRXJjkQvqaZcuquMD0dNr1AU52dUCT
+	TjQ7hP1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDkdc-000000049o8-3o3r;
-	Fri, 17 Apr 2026 14:57:44 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1wDkoM-00000004Apl-1oAs;
+	Fri, 17 Apr 2026 15:08:50 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDkdX-000000049lm-0GU8
+	id 1wDkoJ-00000004Anx-0BJ3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 14:57:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Cc:To:In-Reply-To:References:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=1NGdwlYbSqtyrzey1R4pNywcB64VCt682zZe8IioClA=; b=BPyQ1CFrIFaCQ6gx5O7A+2+t66
-	kOWYt9BMVPD1JGB/owLsKm/+f1Snl/KNd2wcv/bLHt98rmUWK+6FTReZm1kNZE/ClrjLMVriQ/v9q
-	6P98MS1F1FF6Mx1vdN+YM0C7SxB1gCFmvocsaO93qRbmGv0ys3RG4OOyNBp7QUMcajXY+p5jQnUiv
-	QWF7lohayDR+7SvVCX3sXy28e0kWENOLCqx4t7IvYyTnLYARc/KapOmmS0GawqpLKpnhASIUepwoj
-	udyRRejNOR7PQb/eMHneW38FX/yCZHx7KT5pmx1/sbmR1TjrHAsq7HLrXezGs3rpI0T/tcSY+oAv2
-	YFwbS08w==;
-Received: from [187.57.76.127] (helo=[192.168.15.100])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1wDkd4-00HVwL-1y; Fri, 17 Apr 2026 16:57:10 +0200
-From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-Date: Fri, 17 Apr 2026 11:56:11 -0300
-Subject: [PATCH RFC 2/2] arm64: vdso: Implement
- __vdso_futex_robust_try_unlock()
+	Fri, 17 Apr 2026 15:08:48 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63H9fZku1733164;
+	Fri, 17 Apr 2026 15:08:35 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=UKca5QJQ1hxgTQwHY
+	K4x+LZXd06rJ/B93mnhlgY1RYI=; b=XtWcRed5o6MfKsH6GiH1k3GOFR1dcvfHd
+	N8kuTawPEG3JQy5Qigxb4ABu4RjjQXsfWeMaogbBNUl0GzUtLSJvSmSHAkmvfwt2
+	A1AsV0fyxJfeCKgh7z4njQB43ndofe+1xpxHT6LGNq6R7Fj7QQJV3tGDVl7IHuZT
+	FXxyRuwhuLJUNCErvwpp9o4SLtHGxD+jdNl/P5jJFedTzjNLZsBnncP9LFAKwHsu
+	P4+z9EfEPgxgiOLTvx2bRwUfwlvkOpu88Z3YVjS9w9K7gik3vSqASOPSK6hMdWlG
+	/2zyKnKJyRJFEH1y6L8zypQ28O5tFFFUrECsYa3ErEkeg5RhznTzQ==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dh89mhw5h-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 17 Apr 2026 15:08:34 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 63HCQfqh003586;
+	Fri, 17 Apr 2026 15:08:34 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dg1mnqpda-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 17 Apr 2026 15:08:33 +0000
+Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63HF8U8737421500
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 17 Apr 2026 15:08:30 GMT
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 0B8A120043;
+	Fri, 17 Apr 2026 15:08:30 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D09E42004B;
+	Fri, 17 Apr 2026 15:08:29 +0000 (GMT)
+Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
+	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 17 Apr 2026 15:08:29 +0000 (GMT)
+From: Jens Remus <jremus@linux.ibm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+        Steven Rostedt <rostedt@kernel.org>,
+        Josh Poimboeuf <jpoimboe@kernel.org>,
+        Indu Bhagat <ibhagatgnu@gmail.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Dylan Hatch <dylanbhatch@google.com>, Weinan Liu <wnliu@google.com>
+Cc: Jens Remus <jremus@linux.ibm.com>, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, Heiko Carstens <hca@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>
+Subject: [PATCH v1 2/4] arm64/uaccess: Add unsafe_copy_from_user() implementation
+Date: Fri, 17 Apr 2026 17:08:25 +0200
+Message-ID: <20260417150827.1183376-3-jremus@linux.ibm.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260417150827.1183376-1-jremus@linux.ibm.com>
+References: <20260417150827.1183376-1-jremus@linux.ibm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260417-tonyk-robust_arm-v1-2-03aa64e2ff1a@igalia.com>
-References: <20260417-tonyk-robust_arm-v1-0-03aa64e2ff1a@igalia.com>
-In-Reply-To: <20260417-tonyk-robust_arm-v1-0-03aa64e2ff1a@igalia.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Carlos O'Donell <carlos@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
- Florian Weimer <fweimer@redhat.com>, Rich Felker <dalias@aerifal.cx>, 
- Torvald Riegel <triegel@redhat.com>, Darren Hart <dvhart@infradead.org>, 
- Ingo Molnar <mingo@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>, 
- Arnd Bergmann <arnd@arndb.de>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
- Uros Bizjak <ubizjak@gmail.com>, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-arch@vger.kernel.org, kernel-dev@igalia.com, 
- LKML <linux-kernel@vger.kernel.org>, 
- =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-X-Mailer: b4 0.15.1
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=I/dVgtgg c=1 sm=1 tr=0 ts=69e24cf3 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=V8glGbnc2Ofi9Qvn3v5h:22 a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8
+ a=DR0qyCAueFOdPjQfhtcA:9
+X-Proofpoint-GUID: VN9voE7jdsiIXsDy1wB_9tHxLAk6-xBY
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE3MDE0OSBTYWx0ZWRfX8Y4dfi4g+C4l
+ LIqjVSU/ldhZASrP7sosUM6uB6+TgFVMy765zyYhcLmysM5RhlC8VYnven32mUaUdk4pua/womj
+ gTxVXgAbZdPPcFxMYgG3qeZZmP7hbcXKIU2T7vGAMvUoBsp0XB8NggB5oLxiiNZLVGHIasS+Smg
+ yhQ/I74huTn/vfD+J9FSlX3sFsjeZR+X7mn4bE68+2wCJO58Lru7yFFBJltds7yfzqDek88nOad
+ /nX75gbqcQhFMBXTifZ9H8EiXqt50j+oZeafMgcsHYsrbp5EW5UiPMTMBLitr3PWJUcoRLppgLD
+ MW84nipmN1R71sLWTapTUzwFNtgdq36L/p08qi6yaZBcOXWxdlKOeTRD5XLe0nUOREn2H5nKoqP
+ 6bwlttkIRVyLcRNBPvwQ1gg5BOdrno1dskGEwJOlB1oJyR4lz2KJBSHeEPvkRAhIA7y3Pq1dLTV
+ GeOKM04tNJAcY6MVxUA==
+X-Proofpoint-ORIG-GUID: baHr-ceya3FGTbt7zWUuPEtJIg5w4-or
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-17_01,2026-04-17_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 bulkscore=0 clxscore=1011 adultscore=0 lowpriorityscore=0
+ suspectscore=0 impostorscore=0 phishscore=0 spamscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604170149
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_075739_426716_818CFACD 
-X-CRM114-Status: GOOD (  19.21  )
+X-CRM114-CacheID: sfid-20260417_080847_197126_BD3B53AF 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,221 +123,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Based on the x86 implementation, implement the vDSO function for unlocking
-a robust futex correctly.
+This replicates Josh's x86 patch "x86/uaccess:
+Add unsafe_copy_from_user() implementation" [1] for arm64.
 
-Commit xxxxxxxxxxxx ("x86/vdso: Implement __vdso_futex_robust_try_unlock()") has
-the full explanation about why this mechanism is needed.
+Add an arm64 implementation of unsafe_copy_from_user() similar to the
+existing unsafe_copy_to_user().
 
-The unlock assembly sequence for arm64 is:
+For this purpose rename the unsafe_copy_loop() helper to
+unsafe_copy_to_user_loop() and introduce a unsafe_copy_from_user_loop()
+helper.
 
-	__futex_list64_try_unlock_cs_start:
-		ldxr	x3, [x0] // Load the value at *futex
-		cmp	x1, x3   // Compare with TID
-		b.ne	__futex_list64_try_unlock_cs_end
-		stlxr	w1, xzr, [x0] // Try to clear *futex
-		cbnz	w1, __futex_list64_try_unlock_cs_start
-	__futex_list64_try_unlock_cs_success:
-		str	xzr, [x2] // After clearing *futex, clear *op_pending
-	__futex_list64_try_unlock_cs_end:
+While at it rename the unsafe_copy_to_user() local variables
+__ucu_{dst|src|len} to __{dst|src|len} and change their pointer
+type to void * to align to the x86 patch.
 
-The decision regarding if the pointer should be cleared or not lies on checking
-the condition flag zero:
+[1]: x86/uaccess: Add unsafe_copy_from_user() implementation,
+     https://lore.kernel.org/all/20251119132323.1281768-4-jremus@linux.ibm.com/
 
-	return (regs->user_regs.pstate & PSR_Z_BIT) ?
-		(void __user *) regs->user_regs.regs[2] : NULL;
-
-If it's not zero, that means that the comparassion worked and the kernel should
-clear op_pending (if userspace didn't managed to) stored at x2.
-
-Signed-off-by: André Almeida <andrealmeid@igalia.com>
+Signed-off-by: Jens Remus <jremus@linux.ibm.com>
 ---
-RFC:
- - Should I duplicate the explanation found in the x86 commit or can I just
- point to it?
- - Only LL/SC for now but I can add LSE later if this looks good
- - It the objdump I see that op_pending is store at x2. But how stable is this,
- how can I write it in a way that's always x2?
----
- arch/arm64/Kconfig                                 |  1 +
- arch/arm64/include/asm/futex_robust.h              | 35 +++++++++++++
- arch/arm64/kernel/vdso/Makefile                    |  9 +++-
- arch/arm64/kernel/vdso/vdso.lds.S                  |  4 ++
- .../kernel/vdso/vfutex_robust_list_try_unlock.c    | 59 ++++++++++++++++++++++
- 5 files changed, 107 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/uaccess.h | 39 ++++++++++++++++++++++++--------
+ 1 file changed, 29 insertions(+), 10 deletions(-)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 427151a9db7f..e10cb97a51c7 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -249,6 +249,7 @@ config ARM64
- 	select HAVE_RELIABLE_STACKTRACE
- 	select HAVE_POSIX_CPU_TIMERS_TASK_WORK
- 	select HAVE_FUNCTION_ARG_ACCESS_API
-+	select HAVE_FUTEX_ROBUST_UNLOCK
- 	select MMU_GATHER_RCU_TABLE_FREE
- 	select HAVE_RSEQ
- 	select HAVE_RUST if RUSTC_SUPPORTS_ARM64
-diff --git a/arch/arm64/include/asm/futex_robust.h b/arch/arm64/include/asm/futex_robust.h
-new file mode 100644
-index 000000000000..f2b7a2b15cb5
---- /dev/null
-+++ b/arch/arm64/include/asm/futex_robust.h
-@@ -0,0 +1,35 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_ARM64_FUTEX_ROBUST_H
-+#define _ASM_ARM64_FUTEX_ROBUST_H
-+
-+#include <asm/ptrace.h>
-+
-+static __always_inline void __user *arm64_futex_robust_unlock_get_pop(struct pt_regs *regs)
-+{
-+	/*
-+	 * RFC: According to the objdump bellow, x2 is the address of
-+	 * op_pending. How stable is this?
-+
-+	 <__futex_list64_try_unlock_cs_start>:
-+		ldxr	x3, [x0]
-+		cmp	x1, x3
-+		b.ne	d7c <__futex_list64_try_unlock_cs_end>  // b.any
-+		stlxr	w1, xzr, [x0]
-+		cbnz	w1, d64 <__futex_list64_try_unlock_cs_start>
-+
-+	<__futex_list64_try_unlock_cs_success>:
-+		str	xzr, [x2]
-+
-+	<__futex_list64_try_unlock_cs_end>:
-+		mov	w0, w3
-+		ret
-+	*/
-+
-+	return (regs->user_regs.pstate & PSR_Z_BIT) ? NULL
-+		: (void __user *) regs->user_regs.regs[2];
-+}
-+
-+#define arch_futex_robust_unlock_get_pop(regs)	\
-+	arm64_futex_robust_unlock_get_pop(regs)
-+
-+#endif /* _ASM_ARM64_FUTEX_ROBUST_H */
-diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makefile
-index 7dec05dd33b7..a65893d8100e 100644
---- a/arch/arm64/kernel/vdso/Makefile
-+++ b/arch/arm64/kernel/vdso/Makefile
-@@ -9,7 +9,8 @@
- # Include the generic Makefile to check the built vdso.
- include $(srctree)/lib/vdso/Makefile.include
+diff --git a/arch/arm64/include/asm/uaccess.h b/arch/arm64/include/asm/uaccess.h
+index 9810106a3f66..37d7d16b86a9 100644
+--- a/arch/arm64/include/asm/uaccess.h
++++ b/arch/arm64/include/asm/uaccess.h
+@@ -437,7 +437,7 @@ static inline void user_access_restore(unsigned long enabled) { }
+  * We want the unsafe accessors to always be inlined and use
+  * the error labels - thus the macro games.
+  */
+-#define unsafe_copy_loop(dst, src, len, type, label)				\
++#define unsafe_copy_to_user_loop(dst, src, len, type, label)			\
+ 	while (len >= sizeof(type)) {						\
+ 		unsafe_put_user(*(type *)(src),(type __user *)(dst),label);	\
+ 		dst += sizeof(type);						\
+@@ -445,15 +445,34 @@ static inline void user_access_restore(unsigned long enabled) { }
+ 		len -= sizeof(type);						\
+ 	}
  
--obj-vdso := vgettimeofday.o note.o sigreturn.o vgetrandom.o vgetrandom-chacha.o
-+obj-vdso := vgettimeofday.o note.o sigreturn.o vgetrandom.o vgetrandom-chacha.o \
-+	    vfutex_robust_list_try_unlock.o
+-#define unsafe_copy_to_user(_dst,_src,_len,label)			\
+-do {									\
+-	char __user *__ucu_dst = (_dst);				\
+-	const char *__ucu_src = (_src);					\
+-	size_t __ucu_len = (_len);					\
+-	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u64, label);	\
+-	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u32, label);	\
+-	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u16, label);	\
+-	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u8, label);	\
++#define unsafe_copy_to_user(_dst, _src, _len, label)				\
++do {										\
++	void __user *__dst = (_dst);						\
++	const void *__src = (_src);						\
++	size_t __len = (_len);							\
++	unsafe_copy_to_user_loop(__dst, __src, __len, u64, label);		\
++	unsafe_copy_to_user_loop(__dst, __src, __len, u32, label);		\
++	unsafe_copy_to_user_loop(__dst, __src, __len, u16, label);		\
++	unsafe_copy_to_user_loop(__dst, __src, __len, u8,  label);		\
++} while (0)
++
++#define unsafe_copy_from_user_loop(dst, src, len, type, label)			\
++	while (len >= sizeof(type)) {						\
++		unsafe_get_user(*(type *)(dst), (type __user *)(src), label);	\
++		dst += sizeof(type);						\
++		src += sizeof(type);						\
++		len -= sizeof(type);						\
++	}
++
++#define unsafe_copy_from_user(_dst, _src, _len, label)				\
++do {										\
++	void *__dst = (_dst);							\
++	void __user *__src = (_src);						\
++	size_t __len = (_len);							\
++	unsafe_copy_from_user_loop(__dst, __src, __len, u64, label);		\
++	unsafe_copy_from_user_loop(__dst, __src, __len, u32, label);		\
++	unsafe_copy_from_user_loop(__dst, __src, __len, u16, label);		\
++	unsafe_copy_from_user_loop(__dst, __src, __len, u8,  label);		\
+ } while (0)
  
- # Build rules
- targets := $(obj-vdso) vdso.so vdso.so.dbg
-@@ -45,9 +46,11 @@ CC_FLAGS_ADD_VDSO := -O2 -mcmodel=tiny -fasynchronous-unwind-tables
- 
- CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_REMOVE_VDSO)
- CFLAGS_REMOVE_vgetrandom.o = $(CC_FLAGS_REMOVE_VDSO)
-+CFLAGS_REMOVE_vfutex_robust_list_try_unlock.o = $(CC_FLAGS_REMOVE_VDSO)
- 
- CFLAGS_vgettimeofday.o = $(CC_FLAGS_ADD_VDSO)
- CFLAGS_vgetrandom.o = $(CC_FLAGS_ADD_VDSO)
-+CFLAGS_vfutex_robust_list_try_unlock.o = $(CC_FLAGS_ADD_VDSO)
- 
- ifneq ($(c-gettimeofday-y),)
-   CFLAGS_vgettimeofday.o += -include $(c-gettimeofday-y)
-@@ -57,6 +60,10 @@ ifneq ($(c-getrandom-y),)
-   CFLAGS_vgetrandom.o += -include $(c-getrandom-y)
- endif
- 
-+ifneq ($(c-vfutex_robust_list_try_unlock-y),)
-+  CFLAGS_vfutex_robust_list_try_unlock.o += -include $(c-vfutex_robust_list_try_unlock-y)
-+endif
-+
- targets += vdso.lds
- CPPFLAGS_vdso.lds += -P -C -U$(ARCH)
- 
-diff --git a/arch/arm64/kernel/vdso/vdso.lds.S b/arch/arm64/kernel/vdso/vdso.lds.S
-index 52314be29191..33ce58516580 100644
---- a/arch/arm64/kernel/vdso/vdso.lds.S
-+++ b/arch/arm64/kernel/vdso/vdso.lds.S
-@@ -104,6 +104,10 @@ VERSION
- 		__kernel_clock_gettime;
- 		__kernel_clock_getres;
- 		__kernel_getrandom;
-+		__vdso_futex_robust_list64_try_unlock;
-+#ifdef CONFIG_COMPAT
-+		__vdso_futex_robust_list32_try_unlock;
-+#endif
- 	local: *;
- 	};
- }
-diff --git a/arch/arm64/kernel/vdso/vfutex_robust_list_try_unlock.c b/arch/arm64/kernel/vdso/vfutex_robust_list_try_unlock.c
-new file mode 100644
-index 000000000000..a9089d3cacfc
---- /dev/null
-+++ b/arch/arm64/kernel/vdso/vfutex_robust_list_try_unlock.c
-@@ -0,0 +1,59 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+#include <vdso/futex.h>
-+#include <linux/stringify.h>
-+
-+#define LABEL(name, sz) __stringify(__futex_list##sz##_try_unlock_cs_##name)
-+
-+#define GLOBLS(sz) ".globl " LABEL(start, sz) ", " LABEL(success, sz) ", " LABEL(end, sz) "\n"
-+
-+__u32 __vdso_futex_robust_list64_try_unlock(__u32 *lock, __u32 tid, __u64 *pop)
-+{
-+	__u32 val, result;
-+
-+	asm volatile (
-+		GLOBLS(64)
-+		"	prfm pstl1strm, %[lock]			\n"
-+		LABEL(start, 64)":				\n"
-+		"	ldxr %[val], %[lock]			\n"
-+		"	cmp %[tid], %[val]			\n"
-+		"	bne " LABEL(end, 64)"			\n"
-+		"	stlxr %w[result], xzr, %[lock]		\n"
-+		"	cbnz %w[result], " LABEL(start, 64)"	\n"
-+		LABEL(success, 64)":				\n"
-+		"	str xzr, %[pop]				\n"
-+		LABEL(end, 64)":				\n"
-+
-+		: [val] "=&r" (val), [result] "=r" (result)
-+		: [tid] "r" (tid), [lock] "Q" (*lock), [pop] "Q" (*pop)
-+		: "memory"
-+	);
-+
-+	return val;
-+}
-+
-+#ifdef CONFIG_COMPAT
-+__u32 __vdso_futex_robust_list32_try_unlock(__u32 *lock, __u32 tid, __u32 *pop)
-+{
-+	__u32 val, result;
-+
-+	asm volatile (
-+		GLOBLS(32)
-+		"	prfm pstl1strm, %[lock]			\n"
-+		LABEL(start, 32)":				\n"
-+		"	ldxr %w[val], %[lock]			\n"
-+		"	cmp %w[tid], %w[val]			\n"
-+		"	bne " LABEL(end, 32)"			\n"
-+		"	stlxr %w[result], wzr, %w[lock]		\n"
-+		"	cbnz %w[result], " LABEL(start, 32)"	\n"
-+		LABEL(success, 32)":				\n"
-+		"	str wzr, %w[pop]			\n"
-+		LABEL(end, 32)":				\n"
-+
-+		: [val] "=&r" (val), [result] "=r" (result)
-+		: [tid] "r" (tid), [lock] "Q" (*lock), [pop] "Q" (*pop)
-+		: "memory"
-+	);
-+
-+	return val;
-+}
-+#endif
-
+ #define INLINE_COPY_TO_USER
 -- 
-2.53.0
+2.51.0
 
 
