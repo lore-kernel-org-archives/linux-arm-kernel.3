@@ -4,72 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B6EF99C60
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 19:55:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D88F99C63
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 21:08:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=OF3pHR3W4s1vzUhbiYevPwTfmnMPMtytKCOBp/UQXF8=; b=jHhRUmZI49xVzU
-	QKblJq0KuWRYL0n/PPHBDYChXxZ9pNkiXfQ4k4Meo1camb8hy9vU9rMzPqMYpMj4IDDxsErqPWGKm
-	Dvlua4JxeSiuOThXuM1tp5JL4pX3VqiYz5ErB1fsiqMl025nvo32NhQZNHMZxH+qE+i+fi+tBqgl/
-	Fw7ZyBm1+Tc8Q6+AXe7mWiLQDSQrUpFkY3tUzcdjmZRVM3mLrGPzjtj2N2uyRXWvmw8CI+yeVg4UD
-	zbBjZ1kTX9jQP0sTT8OhjpNE14cq84d2h4fZUI849qux51lK7sEtx2lIzvcRwU/JST+p+Ndl9PaV9
-	pTdWWVRWKFEjkMd9HJrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PferZXItiTPVFBRS0IK+uOWQB/jVSQNLOY1v0D1zpyc=; b=3Rz+42fbIX7FvNZIX8S7QrHoUn
+	2Jt/UTQcsjK2hkvBoqYtLworWWXftFf96ElSei1F/nAWlX+loD2o1iZo6eWADUahg96MpGNiWd8SL
+	8TLPYjJbhVySomX1G12RWTESipVyi7+jwejW3t3oGSysKzRi6RNW1QtK2/H6+GasUrg3erYomPlKI
+	yrkOnFKrcScnwqPFkCQrFTSLYw+FjpukfMYhhKrxRO2lVp3nXYDpY5jm2zKz/f0Rt1pvwLDM22A3r
+	zKAWu7tWSsMD+klbfgZtLpkFrmGej2DZkwMzfZhFGgaRV3KAFosTcjRdrbFXdOnnb/GDM/HprWFYN
+	E7oY6+PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDpHv-00000004QcV-0xR9;
-	Fri, 17 Apr 2026 19:55:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wDqQk-00000004TXC-3RGb;
+	Fri, 17 Apr 2026 21:08:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDpHt-00000004QcO-2nv4
+	id 1wDqQi-00000004TWm-12KW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 19:55:37 +0000
+	Fri, 17 Apr 2026 21:08:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 62BAD60052;
-	Fri, 17 Apr 2026 19:55:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4050C19425;
-	Fri, 17 Apr 2026 19:55:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B3A0243CA1;
+	Fri, 17 Apr 2026 21:08:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5371EC19425;
+	Fri, 17 Apr 2026 21:08:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776455735;
-	bh=l+dL+bsfkqpxw8vBZ2qjjX1NYJoorXmurqTXyqgMrXM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=oeyODZQ7mydKqug4mEFFqwgFy2wf0FKAlp7sEFJNQSbj1jDtm1VgmE/QiQPf6wMmb
-	 D6zt0jL2JMD8k/PnfFAHGgbQYWawCD76DJ6c1cxShv6ZsPixx+NHg+fAHLDx6wWtSo
-	 j6P1XSuE4JxbkM/JjIL41MapnGeDAPaBqhHqJ5fdrx+owkVvW5RBdGMUu8YzGH5uMv
-	 rr5BQnn8via7fKYmj89e3OfqaLe0mNoiG+3E1vhRhcFZpC42zQZ4HxSVrQXPGd21h5
-	 XFp0/tLX+i+3NsVPU0mCh+pOoCIROYgYzKM7j/B3RMf8AwiLoqUpuHStC6GxYRdvl/
-	 RcVvpgff6WYVQ==
-Date: Fri, 17 Apr 2026 14:55:33 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Sherry Sun <sherry.sun@nxp.com>
-Cc: "robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	Frank Li <frank.li@nxp.com>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"kwilczynski@kernel.org" <kwilczynski@kernel.org>,
-	"mani@kernel.org" <mani@kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	Hongxing Zhu <hongxing.zhu@nxp.com>,
-	"l.stach@pengutronix.de" <l.stach@pengutronix.de>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH V13 02/12] PCI: host-generic: Add common helpers for
- parsing Root Port properties
-Message-ID: <20260417195533.GA92707@bhelgaas>
+	s=k20201202; t=1776460126;
+	bh=MlXq0E4vLxLPXAKEw640HPvJY2bMGUevY4/dF94aKgE=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=mxb3+uSnxRr6/OVoGFDF+IlJsrhMEDLoS0wDed5eHAjq1x+30saw+3SIduDnjaC5d
+	 3hVGIaFFLmKFGTVrq5qedL/dzA2W20siQL2K4NZGa+Enw909+/oCIzOzkUjVMzZvbR
+	 g+qA95jspvty4OByC0mjMd5ET1rXoKF6DJaejQVD/LDLWSH/KA1SWhITNBYLYRL/e8
+	 RGj5VfrkYP3KDokJ1SVSkrf0v3zZE0FqB4zgSJQ0860XqsTosUgeDGSxwJELX3fwKB
+	 taHhcy73LJ6fgVvU02Ay3wrDb/AI85FICnrpQ3BEnicEg/8NyD8IiuwmGTYXwZi2G3
+	 eKvLQ+0ZbAXmA==
+Date: Fri, 17 Apr 2026 16:08:44 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <VI0PR04MB1211449884AC3BC8E3711F1AB92202@VI0PR04MB12114.eurprd04.prod.outlook.com>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-doc@vger.kernel.org, 
+ devicetree@vger.kernel.org, Drew Fustini <fustini@kernel.org>, 
+ Linus Walleij <linusw@kernel.org>, Jiri Slaby <jirislaby@kernel.org>, 
+ Russell King <linux@armlinux.org.uk>, soc@lists.linux.dev, 
+ Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, linux-serial@vger.kernel.org, 
+ Shuah Khan <skhan@linuxfoundation.org>
+To: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
+In-Reply-To: <20260416-send-v4-2-e19d02b944ec@gmail.com>
+References: <20260416-send-v4-0-e19d02b944ec@gmail.com>
+ <20260416-send-v4-2-e19d02b944ec@gmail.com>
+Message-Id: <177646012448.2165534.5760108355183774935.robh@kernel.org>
+Subject: Re: [PATCH v4 2/8] dt-bindings: arm: Add zx297520v3 board binding
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260417_140848_308356_01F9C1BE 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,69 +81,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 17, 2026 at 03:17:16AM +0000, Sherry Sun wrote:
-> > On Thu, Apr 16, 2026 at 07:14:12PM +0800, Sherry Sun wrote:
-> > > Introduce generic helper functions to parse Root Port device
-> > > tree nodes and extract common properties like reset GPIOs. This
-> > > allows multiple PCI host controller drivers to share the same
-> > > parsing logic.
-> > >
-> > > Define struct pci_host_port to hold common Root Port properties
-> > > (currently only reset GPIO descriptor) and add
-> > > pci_host_common_parse_ports() to parse Root Port nodes from
-> > > device tree.
-> > 
-> > Are the Root Port and the RC the only possible places for 'reset'
-> > GPIO descriptions in DT?  I think PERST# routing is outside the
-> > PCIe spec, so it seems like a system could provide a PERST# GPIO
-> > routed to any Switch Upstream Port or Endpoint (I assume a PERST#
-> > connected to a switch would apply to both the upstream port and
-> > the downstream ports).
+
+On Thu, 16 Apr 2026 23:19:10 +0300, Stefan Dösinger wrote:
+> Add a compatible for boards based on the ZTE zx297520v3 SoC.
 > 
-> Thanks for the feedback. You're right that PERST# routing could
-> theoretically be connected to any device in the hierarchy. However,
-> for this patch series, I've focused on the most common use case in
-> practice: use Root Port level PERST# instead of the legacy Root
-> Complex level PERST#.
+> Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
 > 
-> Root Port level PERST# - This is the primary target, where each Root
-> Port has individual control over devices connected to it.  RC level
-> PERST# - Legacy binding support, where a single GPIO controls all
-> ports.
+> ---
 > 
-> We can extend this framework later if real hardware emerges that
-> needs Switch or EP-level PERST# control. I can add a comment
-> documenting this limitation if needed.
+> The list of devices is the devices I have access to for testing. There
+> are many more devices based on this board and it is not always easy to
+> identify them. Often they are sold without any branding ("4G home
+> router") or with mobile carrier branding.
+> ---
+>  Documentation/devicetree/bindings/arm/zte.yaml | 25 +++++++++++++++++++++++++
+>  MAINTAINERS                                    |  1 +
+>  2 files changed, 26 insertions(+)
 > 
-> BTW, Mani and Rob had some great discussions in dt-schema about
-> PERST# and WAKE# sideband signals settings.
 
-> You can check here:
-> https://github.com/devicetree-org/dt-schema/issues/168
-> https://github.com/devicetree-org/dt-schema/pull/126
-> https://github.com/devicetree-org/dt-schema/pull/170
+My bot found errors running 'make dt_binding_check' on your patch:
 
-The upshot of all those conversations is that WAKE# and PERST# can be
-routed to arbitrary devices independent of the PCI topology.
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/arm/zte.yaml:19:13: [warning] wrong indentation: expected 14 but found 12 (indentation)
 
-I think extending host-generic to look for 'reset' in Root Port nodes
-is the right thing.  My concern is more about where we store it.  This
-patch saves it in a new "pci_host_port" struct, but someday we'll want
-a place to save the PERST# GPIOs for several slots behind a switch.
-Then we'll have two different ways to save the same information.
+dtschema/dtc warnings/errors:
 
-WAKE# signals might be more pertinent -- we definitely need to support
-multiple WAKE# signals below a single Root Port, and it seems like
-PERST# and WAKE# GPIOs should be saved the same place.
+doc reference errors (make refcheckdocs):
 
-I'm wondering if both should go in the pci_dev itself.  I guess the
-implication is that a pci_dev->reset GPIO would describe a PERST#
-connected to the device *below* the pci_dev, at least for Downstream
-Ports.
+See https://patchwork.kernel.org/project/devicetree/patch/20260416-send-v4-2-e19d02b944ec@gmail.com
 
-I don't know about WAKE# signals.  When it's in a connector, there's
-probably only a single possible WAKE# per Downstream Port.  But is it
-possible have multiple WAKE# signals from a multi-function device
-that's on the motherboard?  Saving the WAKE# GPIO in the Downstream
-Port wouldn't accommodate that case.
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
