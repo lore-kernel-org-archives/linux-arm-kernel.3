@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFD74F436B8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 15:25:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27E9DF436B7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 15:29:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kR/IuqR4zpU+dmtxH2bcLYT3gUoL/56LmGEsd7GJzmE=; b=J7H9XOkSbDRFBH+4yG5xd8cAkP
-	lKbh8lqLfnOh7jVfrw/HdwthxeL70LmmnljgkDB5ZjZUUGLqqIw3kAUcOEVd3f4vYhQ0KiUIHeFXP
-	SmPiM/e1B3BqRL0S171xtrWQPQz0bcq0Tf4pm0k6OLuX/DYnSWCeh5CcA3g9jWDiserVY62dF2fPe
-	99hjCQFB+mM0goyNvbaaqqHJYf720HHDl0oFIZYNqeE+T8y4P7c5OfjZnZOdu42gkSXreeTc/GHS5
-	kenvdwzt7Zeqh3JOrnXZCYDjGDUgLvMnVGe3I7CL/2frSMjpcpkP1yQSfLv4r7iQjDOlqLisE2SeY
-	JilgswqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6+DK1UmeIswFbsgqvCxobY1iypq/44Q4fqG3hVrciwM=; b=B5GH+eEyYya7W++3+xZbSJRunk
+	bISQuUjFCuLW7XDo1O2y3v71i1eWzPizEFof0sTCrhAjPx0X7sfBE1oQl+ml4VclaVZI7o8dJGUBP
+	5XXcztcK/qRm/IDLL1jkeYyYH4PIasyl0N9HYwF9gky+zUgP8KRiSEYaaeXBZB7vaFf3TIv1vEziu
+	2vVdzmyYshuAy9iUG0SNQmX6YolLj/KijqMCfxZKDLc1zCZeVbJ4hx+YYrXaP9c47FWosW2mGGH2p
+	NW32D9ZBSRmTBr/wYEXv6dl21iWkgRHPB4zhfAl5HgeCOAO9xHMK8vVyyHMOW3G9kmBpcRiJGa0Q6
+	uRcZoSrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDl4N-00000004CwP-2IIW;
-	Fri, 17 Apr 2026 15:25:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDl4K-00000004Cvk-3Qd6;
-	Fri, 17 Apr 2026 15:25:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0025843E78;
-	Fri, 17 Apr 2026 15:25:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27025C19425;
-	Fri, 17 Apr 2026 15:25:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776439519;
-	bh=MoXDICb71/sK4BHUlXqttpDfMwpW49pJQj3fKijhdDA=;
-	h=From:Date:Subject:To:Cc:From;
-	b=SMvjzMljAZHauG6gD0bNqhWYyjuipEdsveuZypTmI1dB586xX3HPhKbRGExqAPnjg
-	 L2eDN+HgK4QL40hNV4HtfgrhHUPxxBTmbBx8DkQuBbvox6JYfVjVEQ2GCHxRSF5Fr2
-	 Wb5MGyM48jRrLEBquhS5lPSNTaLdwg9AU0+9dAAfWbByfKfefKQcNy7IGzEOXD7U6M
-	 IB41S0mMZFiu4vxHqPTv1uSrc+LNEKgwIIGeNP9IxC94fAdzwbPUOuciqJZ8bu+ALw
-	 ZE575ZLkwfNdzg2qYGkrnKapWAsP0pir1swtq4RFLzhQ+v4ntTAeXLlFKQ2eUT1UMM
-	 Xa/4lVdPNTegQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 17 Apr 2026 17:24:41 +0200
-Subject: [PATCH net] net: airoha: Fix PPE cpu port configuration for GDM2
- loopback path
+	id 1wDl8X-00000004DJv-01Y9;
+	Fri, 17 Apr 2026 15:29:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDl8U-00000004DJR-1E6K
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Apr 2026 15:29:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 46F1C1C25;
+	Fri, 17 Apr 2026 08:29:30 -0700 (PDT)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8A4B83F7D8;
+	Fri, 17 Apr 2026 08:29:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776439775; bh=wcGMZozAsLV99EU8C+5KOdPZvcpUqDFWXQ1NY3TqZQE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cVkeV0iLONQ1/hrMFbrkQKa53f8amGrFR7rdEwPeNI7WmfoAQsZ9+4AZCq1xvwO71
+	 4Whf/irnYBxohsiJRawXc0MGDFWo/UL2oTNA71wewXAUeSDZY2kNU3T+TAeCvGb3/2
+	 YLJ+MoiCS9ob9LxtsVQue9erNzJwVbGyQHhcscU0=
+Date: Fri, 17 Apr 2026 16:29:31 +0100
+From: Joey Gouly <joey.gouly@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+	Sascha Bischoff <sascha.bischoff@arm.com>
+Subject: Re: [PATCH 15/18] Documentation: KVM: Fix typos in VGICv5
+ documentation
+Message-ID: <20260417152931.GB3311048@e124191.cambridge.arm.com>
+References: <20260415115559.2227718-1-maz@kernel.org>
+ <20260415115559.2227718-16-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260417-airoha-ppe-cpu-port-for-gdm2-loopback-v1-1-c7a9de0f6f57@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3NwQrCMAyA4VcZORtYi27UVxEPbZdtQW1COkUYe
- 3eLx+/y/ztUMqYK124How9XltLgTh3kNZaFkKdm8L0f+rMbMbLJGlGVMOsbVWzDWQyX6eXxKaI
- p5geGIYV08W4M2UFrqdHM3//nBoU2uB/HDzmgfZB8AAAA
-X-Change-ID: 20260417-airoha-ppe-cpu-port-for-gdm2-loopback-96b9b52179c1
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Simon Horman <horms@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260415115559.2227718-16-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_082520_902053_506C7008 
-X-CRM114-Status: GOOD (  14.07  )
+X-CRM114-CacheID: sfid-20260417_082938_367252_7D5157E1 
+X-CRM114-Status: GOOD (  18.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,102 +72,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When QoS loopback is enabled for GDM3 or GDM4, incoming packets are
-forwarded to GDM2. However, the PPE cpu port for GDM2 is not configured
-in this path, causing traffic originating from GDM3/GDM4, which may
-be set up as WAN ports backed by QDMA1, to be incorrectly directed
-to QDMA0 instead.
-Configure the PPE cpu port for GDM2 when QoS loopback is active on
-GDM3 or GDM4 to ensure traffic is routed to the correct QDMA instance.
+On Wed, Apr 15, 2026 at 12:55:56PM +0100, Marc Zyngier wrote:
+> From: Sascha Bischoff <sascha.bischoff@arm.com>
+> 
+> Fix two typos in the VGICv5 documentation.
+> 
+> Fixes: d51c978b7d3e ("KVM: arm64: gic-v5: Communicate userspace-driveable PPIs via a UAPI")
+> Fixes: eb3c4d2c9a4d ("Documentation: KVM: Introduce documentation for VGICv5")
+> Link: https://sashiko.dev/#/patchset/20260319154937.3619520-1-sascha.bischoff%40arm.com
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  Documentation/virt/kvm/devices/arm-vgic-v5.rst | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/Documentation/virt/kvm/devices/arm-vgic-v5.rst b/Documentation/virt/kvm/devices/arm-vgic-v5.rst
+> index 29335ea823fc5..1985b2d880322 100644
+> --- a/Documentation/virt/kvm/devices/arm-vgic-v5.rst
+> +++ b/Documentation/virt/kvm/devices/arm-vgic-v5.rst
+> @@ -12,8 +12,8 @@ Only one VGIC instance may be instantiated through this API.  The created VGIC
+>  will act as the VM interrupt controller, requiring emulated user-space devices
+>  to inject interrupts to the VGIC instead of directly to CPUs.
+>  
+> -Creating a guest GICv5 device requires a host GICv5 host.  The current VGICv5
+> -device only supports PPI interrupts.  These can either be injected from emulated
+> +Creating a guest GICv5 device requires a GICv5 host.  The current VGICv5 device
+> +only supports PPI interrupts.  These can either be injected from emulated
+>  in-kernel devices (such as the Arch Timer, or PMU), or via the KVM_IRQ_LINE
+>  ioctl.
+>  
+> @@ -25,7 +25,7 @@ Groups:
+>        request the initialization of the VGIC, no additional parameter in
+>        kvm_device_attr.addr. Must be called after all VCPUs have been created.
+>  
+> -   KVM_DEV_ARM_VGIC_USERPSPACE_PPIs
+> +   KVM_DEV_ARM_VGIC_USERPSPACE_PPIS
 
-Fixes: 9cd451d414f6 ("net: airoha: Add loopback support for GDM2")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 8 ++++++--
- drivers/net/ethernet/airoha/airoha_eth.h | 3 ++-
- drivers/net/ethernet/airoha/airoha_ppe.c | 6 +++---
- 3 files changed, 11 insertions(+), 6 deletions(-)
+This still has a typo! There's a P lurking between USER and SPACE!
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index e1ab15f1ee7d..d2b7c437a782 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -1727,7 +1727,7 @@ static int airoha_set_gdm2_loopback(struct airoha_gdm_port *port)
- {
- 	struct airoha_eth *eth = port->qdma->eth;
- 	u32 val, pse_port, chan;
--	int src_port;
-+	int i, src_port;
- 
- 	/* Forward the traffic to the proper GDM port */
- 	pse_port = port->id == AIROHA_GDM3_IDX ? FE_PSE_PORT_GDM3
-@@ -1769,6 +1769,9 @@ static int airoha_set_gdm2_loopback(struct airoha_gdm_port *port)
- 		      SP_CPORT_MASK(val),
- 		      __field_prep(SP_CPORT_MASK(val), FE_PSE_PORT_CDM2));
- 
-+	for (i = 0; i < eth->soc->num_ppe; i++)
-+		airoha_ppe_set_cpu_port(port, i, AIROHA_GDM2_IDX);
-+
- 	if (port->id == AIROHA_GDM4_IDX && airoha_is_7581(eth)) {
- 		u32 mask = FC_ID_OF_SRC_PORT_MASK(port->nbq);
- 
-@@ -1807,7 +1810,8 @@ static int airoha_dev_init(struct net_device *dev)
- 	}
- 
- 	for (i = 0; i < eth->soc->num_ppe; i++)
--		airoha_ppe_set_cpu_port(port, i);
-+		airoha_ppe_set_cpu_port(port, i,
-+					airoha_get_fe_port(port));
- 
- 	return 0;
- }
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index 95e557638617..715aa26cbac8 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -653,7 +653,8 @@ int airoha_get_fe_port(struct airoha_gdm_port *port);
- bool airoha_is_valid_gdm_port(struct airoha_eth *eth,
- 			      struct airoha_gdm_port *port);
- 
--void airoha_ppe_set_cpu_port(struct airoha_gdm_port *port, u8 ppe_id);
-+void airoha_ppe_set_cpu_port(struct airoha_gdm_port *port, u8 ppe_id,
-+			     u8 fport);
- bool airoha_ppe_is_enabled(struct airoha_eth *eth, int index);
- void airoha_ppe_check_skb(struct airoha_ppe_dev *dev, struct sk_buff *skb,
- 			  u16 hash, bool rx_wlan);
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index 859818676b69..5c9dff6bccd1 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -85,10 +85,9 @@ static u32 airoha_ppe_get_timestamp(struct airoha_ppe *ppe)
- 	return FIELD_GET(AIROHA_FOE_IB1_BIND_TIMESTAMP, timestamp);
- }
- 
--void airoha_ppe_set_cpu_port(struct airoha_gdm_port *port, u8 ppe_id)
-+void airoha_ppe_set_cpu_port(struct airoha_gdm_port *port, u8 ppe_id, u8 fport)
- {
- 	struct airoha_qdma *qdma = port->qdma;
--	u8 fport = airoha_get_fe_port(port);
- 	struct airoha_eth *eth = qdma->eth;
- 	u8 qdma_id = qdma - &eth->qdma[0];
- 	u32 fe_cpu_port;
-@@ -182,7 +181,8 @@ static void airoha_ppe_hw_init(struct airoha_ppe *ppe)
- 			if (!port)
- 				continue;
- 
--			airoha_ppe_set_cpu_port(port, i);
-+			airoha_ppe_set_cpu_port(port, i,
-+						airoha_get_fe_port(port));
- 		}
- 	}
- }
+>        request the mask of userspace-drivable PPIs. Only a subset of the PPIs can
+>        be directly driven from userspace with GICv5, and the returned mask
+>        informs userspace of which it is allowed to drive via KVM_IRQ_LINE.
+> -- 
+> 2.47.3
+> 
 
----
-base-commit: 82c21069028c5db3463f851ae8ac9cc2e38a3827
-change-id: 20260417-airoha-ppe-cpu-port-for-gdm2-loopback-96b9b52179c1
-
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
-
+Thanks,
+Joey
 
