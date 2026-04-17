@@ -4,130 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69042F8E4A4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 03:34:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B269F8E4A1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 03:56:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dCER12a8AX4KI+qktc+coveVq7UcxKaCuFiBXc8NcHM=; b=tu+llx/TZd4/JtSnZFMJFO2EWL
-	6R+YVUy0px0O6EliB+j+3gcNzJfq06hHnguGMmAm/dS8d9BBWctsNkF5hcFj8go4wRdNW7EyINru8
-	OAByo0vLNcnGMyjFjiyZtR9XUcoqluaUGmNyVyPihvKq6R9vNTDkP2ZBw/cwLXBdexLuoS1fVeXcV
-	ter2gZYTh8uCh2p+185NWmS8lbprug2U7974wBkBjUG6yF1l5GtW+b5zld5cIig7quG3wfKXxbT4+
-	rHgednzhMhbSUP4vAlZaWsCCbkkohxe0agSu7fTLIoscT1tvlNLlS3Z0hnq9dcxRj+2jxGQMpynnp
-	sQ+XBcWw==;
+	bh=uep00RZ20m9hqEUltmLDIss2gfgFCB/WV8qm+AZ7DaY=; b=2gna5wTiTdOvP7rIUVLS4FQQiu
+	rNJZNy4wUoWO4vHdV9d1ZyMAWGrnCq6+mJwZkBP7xvkoLMR0SVR5rkbrmcHf9JktQJPRHTH+80qgV
+	5QexOYCWHfHR8gwrGyYlVbZ/dMpSFMXXun9nbW7umeGjieJFa3ToVc3JLE+pzQkKz4xgRdSUuBTAs
+	DbUHakesA3kvQFy9VbOUY3ygvrM3LAPq38ugne56kJtq2WJsgdoM77cwQuzwGrplf5p29ZdO7Fhvx
+	zwlC9iwCBnOyvHYVTQpDdGCTHXuffSAMfVOFyfHaCa4WAfl84VNEpS86XAMF/o7+qWDm700zZzF5H
+	Ga0b26oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDZyn-00000003NhP-0y3M;
-	Fri, 17 Apr 2026 03:34:53 +0000
-Received: from mail-southcentralusazon11012037.outbound.protection.outlook.com ([40.93.195.37] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1wDaJa-00000003OjV-0UmP;
+	Fri, 17 Apr 2026 03:56:22 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDZyk-00000003Nh0-039e
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 03:34:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=egUrqwBKDJElVLX+J+0PKqKgv+UKNnnzFTkjIq+PuHtdggdQysUiylZqN6hW/Pvn4UQbhXPXAL3iQ7la7ugrKTO+wtqIRnfVj2DGJeBYM8JQW1hammc45sQQ7c0rL11SdNv2SONJprgwvmQ9d+M0qdk91zTcIvEFNohk4bPRpUvskZjhV3YtWrn2ZFFT4r5yeR7hIzLxk+zXwog4bm/Qo2tdWuEySLGwuIs/pEovfi3Nq0DS7Seeu94Y6zI4SrFz/xVcz2M8B7W8UL/blexnxQhVSAdvOp2UQ72dWE+PY2qaBdw7F5bIhiTRZ+ZDgpTHnoMbK4MlaW3xlSR6pKBd/g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dCER12a8AX4KI+qktc+coveVq7UcxKaCuFiBXc8NcHM=;
- b=qQggyPqMZQXoLyzw+5MDhk7TRJD18Bvgv4v/ol/Wp8i0wk3eqAaODqmErEplQTTQFaNgQkKlyustAnITOOyUdGYlH6bVqpcBsIRuc2o8GUyxWpN167OqeYoa1tVl51vmck/RkNpHXNjpRUI+6aaNj4RqswCcNOyhxVtuCPHhW/B/mdCma4ccdYvJKLeY56T4oNRKteKeDVizg4A75eGVQq5Hrv2rc01TuDMA/Jxh5/ugDASq6/s0DJWNw79cyjt3AeqotGzKHtz3ipUptxRypa5iCkuSq+a5o3AF/nTZTn68vUA6A/F3Jlqfn6ZktsBcMZfJaooo89aciJYSU3ZhIQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dCER12a8AX4KI+qktc+coveVq7UcxKaCuFiBXc8NcHM=;
- b=CgTE3UV7pPNNsImIRks+qkS7eCOo/pq6DvkdkUEXQbGYnu9MaPi768Bs7SKp2BYWT6+UoUQGBv9QinOYTbo+wVWpn4L4dyZ7+TFs0tWx5MFX66zHhgSApIKfndS5NO4AwHRLWkgHe5XgoNZvQ/NE5xDf9xkgrdtS4Ff20tPlNVqMptiTKDBCG+d8q7oX/xeEBjG7ZKAWfvUm1chT4a+kmKnRB7t3+rS83/nsD96p07eoywHl5qoq5DveRVdc+ghnOkGMeAnfc4ARAwNn/ARKfdssl+bTX0f6mBlsOYlXgPK/GqLxPbUSQLKhxfVfMR9HI98tNcS8/XwLVF+1RLNN5g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CY8PR12MB8300.namprd12.prod.outlook.com (2603:10b6:930:7d::16)
- by SJ0PR12MB6926.namprd12.prod.outlook.com (2603:10b6:a03:485::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.20; Fri, 17 Apr
- 2026 03:34:43 +0000
-Received: from CY8PR12MB8300.namprd12.prod.outlook.com
- ([fe80::ce75:8187:3ac3:c5de]) by CY8PR12MB8300.namprd12.prod.outlook.com
- ([fe80::ce75:8187:3ac3:c5de%3]) with mapi id 15.20.9818.023; Fri, 17 Apr 2026
- 03:34:43 +0000
-From: Yury Norov <ynorov@nvidia.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	Srinivas Neeli <srinivas.neeli@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Yury Norov <ynorov@nvidia.com>
-Subject: [PATCH] gpio: drop bitmap_complement() where feasible
-Date: Thu, 16 Apr 2026 23:34:38 -0400
-Message-ID: <20260417033439.318930-1-ynorov@nvidia.com>
-X-Mailer: git-send-email 2.51.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BN0PR03CA0043.namprd03.prod.outlook.com
- (2603:10b6:408:e7::18) To CY8PR12MB8300.namprd12.prod.outlook.com
- (2603:10b6:930:7d::16)
+	id 1wDaJW-00000003Oil-3YAA;
+	Fri, 17 Apr 2026 03:56:20 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.99)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1wDaJE-000000008VK-2ntw;
+	Fri, 17 Apr 2026 03:56:00 +0000
+Date: Fri, 17 Apr 2026 04:55:57 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: "Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>, Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Christian Marangi <ansuelsmth@gmail.com>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+	John Crispin <john@phrozen.org>
+Subject: [PATCH net] net: dsa: mt7530: fix .get_stats64 sleeping in atomic
+ context
+Message-ID: <79dc0ec5b6be698b14cb66339d6f63033ca2934a.1776397542.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY8PR12MB8300:EE_|SJ0PR12MB6926:EE_
-X-MS-Office365-Filtering-Correlation-Id: c8bec062-12de-4552-2677-08de9c324381
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|10070799003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 4b5010M8q6eGMVra4FNJh5mWqaeLqz++6Qyrk+gdpLl+cys8MAhzON6Q9Av2kxHQUaNKCwm/Oc8u/zZY98XdmmrECFpLOsCFK/0KeGY+XF1TiHlIfPethdzUSwYrq8qz6E1YxEhx9+2bLo8T5e9KyM60/WYaeux76XNSUT2DLBKBH6buee5JMgjoYM1ItteDN65laIORurqTvtYxNGnUnj8vxjwz4+jbAlf5nZAzG76hq6XCcisBXOXuhnrOfWlSbEC8rofjT4W/5y+EXDdUJu/PqE5ZyePl+tiHsO6wzq4sx4tSuaB8zZXIDbhU3YNWP4GYPbo0ir3ptzTpXzXKt7YErTJL6KPbRfwZ3A459SS+Pxj5HpHrVrp/v5axK4FmO28aYxwDY2pi02DbyRlCL7BiCFBxP2fZtLknW/32o8A5rbVy61lEUyGw22c8JR1wLjD8WD97losglnmaRnSF37iqiCmQI3bFhb328fwxjf1ZX+eEDmfg1xcSALmCVBACUcFxBkWP+HTtLcqD3/AnEr9rN7ZG3kht+2i8mYi5ekOuH64eO54w81+JYbK2PUddydzLTDK6uO2tzKkiO/BWjTaVI9JXmF9OQvo75oFtQKEeWb7GYa7+aI6UB6Y/MONhaDY8tGpT9/4dwb9pdvaEDqfgcp9cA7EEZ+L/BhSLn5aGXarGtxUTiBSf76W6r734DsaqEKGddvPyKzyftpDPB5rAuCT3XlDR+Jq7i5xDdNc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB8300.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(10070799003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cSmvakymKhZXjvcrQNatp9ZdEBgOruj+NqE9m0PxzNGzl8iHv36cqSkK3W/X?=
- =?us-ascii?Q?APtYcUYcBW2N4yYa3Rx8NGsRsbQupmURLh9xtATniQadpZsvnXhmUpxkkaT4?=
- =?us-ascii?Q?GoIyH10N4/aTzmylkY7PTbXTLefhgG0hkhfTqN/IcJUqMZQsmS/HOi6FvvaW?=
- =?us-ascii?Q?s+kEfND+yC2NwUsDWBIAhQbuX7fdorBRX88Jh6z0to5np4mD87z3/OBDsitW?=
- =?us-ascii?Q?F7ZKtcikffGCJ8Odp4JP3cUFGUR83yk1A6UYguKB3poRZKwMsAA5hTfjzk+I?=
- =?us-ascii?Q?omb/aXfEw3QtaxnplvnJpT1nJGIzwrlKLUDM1TnZZbRkwwnsWGFwNjd5UfaC?=
- =?us-ascii?Q?jCQKQWkivBKGe+WumF6N5drhUvjsKVK2HWMH7jaRcB/IAJL8jncdnkmmRjXX?=
- =?us-ascii?Q?h2DRIamVr5fdF5Xa9euxGyQVHWjkMTZ1dnmay9zlBEkvz9PSYEm0gJu5dH0P?=
- =?us-ascii?Q?JTu/IZCSZjKcBBHuTkQ0c1jgof7RSiLqJsC2Qf9KSHi01+lm+D5+O9ny+Lct?=
- =?us-ascii?Q?7sfHbqlnIFIsWofdATRsINCx7eP8ctU7UdyJjFOyKIK9Zw4JGaldt6oW91Z3?=
- =?us-ascii?Q?OJRnE4BJ1Vz7pLDYn2kg7z6jFdPj21oFD4dMpsdGXmgq5VOVYcEHTYgVsBr4?=
- =?us-ascii?Q?XVRN1CZeS6EOcbCyn2AscD+PEyIjqvEKolF5fxVO4e13F7arENvJo9ArwMKu?=
- =?us-ascii?Q?EIEv2qYLJ3F4jzjB4lFt9WiQOHXWGghtt77IqCOkx8jGMNZ4oqDWYJ2N+g8M?=
- =?us-ascii?Q?J4jKnApG8WE+GDLxFUHM6MNa9MJ4oE+HadAidm+dni843EUKN4nWgpwA5rbY?=
- =?us-ascii?Q?fildTHtUmWEvCre8CnSSZGO9Vkiukc0ahscdLjYsadZL/U/l5RxBF4+9hIcm?=
- =?us-ascii?Q?skbmmkktJeJyL6PS2sJ+fnEzZ2+8JauFAaOdVLmwfCfQDNIpd6QieYxJzxPe?=
- =?us-ascii?Q?6u9TuenIF6LQKwp5Dkn2Idyv4cQGWt93uDPEmrSOBGGs7mIFcsiUuDTRjGoH?=
- =?us-ascii?Q?cas8XX7R2fY/NZUW6nu2c8NHIAHqRcbPpn9ful9AcbPx1/Cx9MiKx+J190bQ?=
- =?us-ascii?Q?tcumjISFT1KBG4UhTqy3kgvubttwAiQdjC/Rf1lmgXYqKj3wy9NAznO5G2g6?=
- =?us-ascii?Q?73QkzBXcrdtS7+0y+mwUCf68pq8Js6oG/GxpQsMttcJQ+h368hOs32tuen5E?=
- =?us-ascii?Q?ALVQsXafIcBxSGzOrBev/JRTAtukpFPKLtRaTpQ31eYA+SaDjqyqahCVSCag?=
- =?us-ascii?Q?2tor278z88CjFHgVHtkB4qm4wds74zFqp/cPs5gdzlUZKkE/I5JQYSgPZ+Cy?=
- =?us-ascii?Q?/W1Z5EQ7UNUpyF3VPCly5UgGmUle0iCNnZZezs57H6JIb19QFcm9E3osHTly?=
- =?us-ascii?Q?F0Pazc8yB2UjyyZGN+STnSPh+aTfVch79tCLsK9qqrojOfyJ3P+t5p7C/b+M?=
- =?us-ascii?Q?9oRwsJhS/N2XLp+tEAygnx7mck+4EXEpYEbZx2a7AlJUBBnFj0vlmlsWYJ7V?=
- =?us-ascii?Q?rczitXaWHT3tp10S2m+1Azo2rSjhOGPONgL/so2bAON1VD8TH3kA1NnD3fgs?=
- =?us-ascii?Q?jTmUoYLnivTR3Sr3tIrrQgKV+ySD02GP8JyloErqSkdZg4a/ckvDMufZIbWy?=
- =?us-ascii?Q?lp1w/pU4w5rVIEmyg7LhJWhBu3S2BPQ1HxG9tjWPLFkzhmc8DZjXBtJCA+nP?=
- =?us-ascii?Q?cIuIV+bqJZPsdgvTWRmNm4Aj153mV+yk71rLlN6lyZCeY+7lWbpRWIj4CQel?=
- =?us-ascii?Q?1S/u3vlheKvMM9FI64b5wQkauB2BwLTZ4LR7QISFlKJCcunzyqWR?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c8bec062-12de-4552-2677-08de9c324381
-X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB8300.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Apr 2026 03:34:42.9183
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: CDapGFg721j0sZX9IXd8ZQ/tNV/WfcBL9+5uREcx1z6SFGhy2WkXZygUElKzF41JGu0dxtgWA66ZZzyvXS9nWg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB6926
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_203450_065526_89DB0DAB 
-X-CRM114-Status: UNSURE (   7.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260416_205619_068340_0A7BB360 
+X-CRM114-Status: GOOD (  16.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,69 +71,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The gpio drivers reproduce the following pattern:
+The .get_stats64 callback runs in atomic context, but on
+MDIO-connected switches every register read acquires the MDIO bus
+mutex, which can sleep:
+[   12.645973] BUG: sleeping function called from invalid context at kernel/locking/mutex.c:609
+[   12.654442] in_atomic(): 0, irqs_disabled(): 0, non_block: 0, pid: 759, name: grep
+[   12.663377] preempt_count: 0, expected: 0
+[   12.667410] RCU nest depth: 1, expected: 0
+[   12.671511] INFO: lockdep is turned off.
+[   12.675441] CPU: 0 UID: 0 PID: 759 Comm: grep Tainted: G S      W           7.0.0+ #0 PREEMPT
+[   12.675453] Tainted: [S]=CPU_OUT_OF_SPEC, [W]=WARN
+[   12.675456] Hardware name: Bananapi BPI-R64 (DT)
+[   12.675459] Call trace:
+[   12.675462]  show_stack+0x14/0x1c (C)
+[   12.675477]  dump_stack_lvl+0x68/0x8c
+[   12.675487]  dump_stack+0x14/0x1c
+[   12.675495]  __might_resched+0x14c/0x220
+[   12.675504]  __might_sleep+0x44/0x80
+[   12.675511]  __mutex_lock+0x50/0xb10
+[   12.675523]  mutex_lock_nested+0x20/0x30
+[   12.675532]  mt7530_get_stats64+0x40/0x2ac
+[   12.675542]  dsa_user_get_stats64+0x2c/0x40
+[   12.675553]  dev_get_stats+0x44/0x1e0
+[   12.675564]  dev_seq_printf_stats+0x24/0xe0
+[   12.675575]  dev_seq_show+0x14/0x3c
+[   12.675583]  seq_read_iter+0x37c/0x480
+[   12.675595]  seq_read+0xd0/0xec
+[   12.675605]  proc_reg_read+0x94/0xe4
+[   12.675615]  vfs_read+0x98/0x29c
+[   12.675625]  ksys_read+0x54/0xdc
+[   12.675633]  __arm64_sys_read+0x18/0x20
+[   12.675642]  invoke_syscall.constprop.0+0x54/0xec
+[   12.675653]  do_el0_svc+0x3c/0xb4
+[   12.675662]  el0_svc+0x38/0x200
+[   12.675670]  el0t_64_sync_handler+0x98/0xdc
+[   12.675679]  el0t_64_sync+0x158/0x15c
 
-	bitmap_complement(tmp, data1, nbits);
-	bitmap_and(dst, data2, tmp, nbits);
+For MDIO-connected switches, poll MIB counters asynchronously using a
+delayed workqueue every second and let .get_stats64 return the cached
+values under a per-port spinlock. A mod_delayed_work() call on each
+read triggers an immediate refresh so counters stay responsive when
+queried more frequently.
 
-This can be done in a single pass:
+MMIO-connected switches (MT7988, EN7581, AN7583) are not affected
+because their regmap does not sleep, so they continue to read MIB
+counters directly in .get_stats64.
 
-	bitmap_andnot(dst, data2, data1t, nbits);
-
-Signed-off-by: Yury Norov <ynorov@nvidia.com>
+Fixes: 88c810f35ed5 ("net: dsa: mt7530: implement .get_stats64")
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 ---
- drivers/gpio/gpio-pca953x.c | 7 ++-----
- drivers/gpio/gpio-xilinx.c  | 6 ++----
- 2 files changed, 4 insertions(+), 9 deletions(-)
+This bug highlights a bigger problem and the actual cause:
+Locking in the mt7530 driver deserves a cleanup, and refactoring
+towards cleanly and directly using the regmap API.
+I've prepared this already and am going to submit a series doing
+most of that using Coccinelle semantic patches once net-next opens
+again.
 
-diff --git a/drivers/gpio/gpio-pca953x.c b/drivers/gpio/gpio-pca953x.c
-index 52e96cc5f67b..1fef733fe1f0 100644
---- a/drivers/gpio/gpio-pca953x.c
-+++ b/drivers/gpio/gpio-pca953x.c
-@@ -877,11 +877,9 @@ static void pca953x_irq_bus_sync_unlock(struct irq_data *d)
- 	bitmap_or(irq_mask, chip->irq_trig_fall, chip->irq_trig_raise, gc->ngpio);
- 	bitmap_or(irq_mask, irq_mask, chip->irq_trig_level_high, gc->ngpio);
- 	bitmap_or(irq_mask, irq_mask, chip->irq_trig_level_low, gc->ngpio);
--	bitmap_complement(reg_direction, reg_direction, gc->ngpio);
--	bitmap_and(irq_mask, irq_mask, reg_direction, gc->ngpio);
+ drivers/net/dsa/mt7530.c | 54 +++++++++++++++++++++++++++++++++++++---
+ drivers/net/dsa/mt7530.h |  6 +++++
+ 2 files changed, 57 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+index b9423389c2ef0..786d3a8492bcb 100644
+--- a/drivers/net/dsa/mt7530.c
++++ b/drivers/net/dsa/mt7530.c
+@@ -25,6 +25,8 @@
  
- 	/* Look for any newly setup interrupt */
--	for_each_set_bit(level, irq_mask, gc->ngpio)
-+	for_each_andnot_bit(level, irq_mask, reg_direction, gc->ngpio)
- 		pca953x_gpio_direction_input(&chip->gpio_chip, level);
+ #include "mt7530.h"
  
- 	mutex_unlock(&chip->irq_lock);
-@@ -1005,8 +1003,7 @@ static bool pca953x_irq_pending(struct pca953x_chip *chip, unsigned long *pendin
- 	bitmap_and(cur_stat, cur_stat, chip->irq_mask, gc->ngpio);
- 	bitmap_or(pending, pending, cur_stat, gc->ngpio);
++#define MT7530_STATS_POLL_INTERVAL	(1 * HZ)
++
+ static struct mt753x_pcs *pcs_to_mt753x_pcs(struct phylink_pcs *pcs)
+ {
+ 	return container_of(pcs, struct mt753x_pcs, pcs);
+@@ -906,10 +908,9 @@ static void mt7530_get_rmon_stats(struct dsa_switch *ds, int port,
+ 	*ranges = mt7530_rmon_ranges;
+ }
  
--	bitmap_complement(cur_stat, new_stat, gc->ngpio);
--	bitmap_and(cur_stat, cur_stat, reg_direction, gc->ngpio);
-+	bitmap_andnot(cur_stat, reg_direction, new_stat, gc->ngpio);
- 	bitmap_and(old_stat, cur_stat, chip->irq_trig_level_low, gc->ngpio);
- 	bitmap_and(old_stat, old_stat, chip->irq_mask, gc->ngpio);
- 	bitmap_or(pending, pending, old_stat, gc->ngpio);
-diff --git a/drivers/gpio/gpio-xilinx.c b/drivers/gpio/gpio-xilinx.c
-index be4b4d730547..532205175827 100644
---- a/drivers/gpio/gpio-xilinx.c
-+++ b/drivers/gpio/gpio-xilinx.c
-@@ -495,13 +495,11 @@ static void xgpio_irqhandler(struct irq_desc *desc)
+-static void mt7530_get_stats64(struct dsa_switch *ds, int port,
+-			       struct rtnl_link_stats64 *storage)
++static void mt7530_read_port_stats64(struct mt7530_priv *priv, int port,
++				     struct rtnl_link_stats64 *storage)
+ {
+-	struct mt7530_priv *priv = ds->priv;
+ 	uint64_t data;
  
- 	xgpio_read_ch_all(chip, XGPIO_DATA_OFFSET, hw);
+ 	/* MIB counter doesn't provide a FramesTransmittedOK but instead
+@@ -951,6 +952,43 @@ static void mt7530_get_stats64(struct dsa_switch *ds, int port,
+ 			       &storage->rx_crc_errors);
+ }
  
--	bitmap_complement(rising, chip->last_irq_read, 64);
--	bitmap_and(rising, rising, hw, 64);
-+	bitmap_andnot(rising, hw, chip->last_irq_read, 64);
- 	bitmap_and(rising, rising, chip->enable, 64);
- 	bitmap_and(rising, rising, chip->rising_edge, 64);
++static void mt7530_stats_poll(struct work_struct *work)
++{
++	struct mt7530_priv *priv = container_of(work, struct mt7530_priv,
++						stats_work.work);
++	struct rtnl_link_stats64 stats = {};
++	struct dsa_port *dp;
++	int port;
++
++	dsa_switch_for_each_user_port(dp, priv->ds) {
++		port = dp->index;
++
++		mt7530_read_port_stats64(priv, port, &stats);
++
++		spin_lock(&priv->stats_lock);
++		priv->ports[port].stats = stats;
++		spin_unlock(&priv->stats_lock);
++	}
++
++	schedule_delayed_work(&priv->stats_work,
++			      MT7530_STATS_POLL_INTERVAL);
++}
++
++static void mt7530_get_stats64(struct dsa_switch *ds, int port,
++			       struct rtnl_link_stats64 *storage)
++{
++	struct mt7530_priv *priv = ds->priv;
++
++	if (priv->bus) {
++		spin_lock(&priv->stats_lock);
++		*storage = priv->ports[port].stats;
++		spin_unlock(&priv->stats_lock);
++		mod_delayed_work(system_wq, &priv->stats_work, 0);
++	} else {
++		mt7530_read_port_stats64(priv, port, storage);
++	}
++}
++
+ static void mt7530_get_eth_ctrl_stats(struct dsa_switch *ds, int port,
+ 				      struct ethtool_eth_ctrl_stats *ctrl_stats)
+ {
+@@ -3137,6 +3175,13 @@ mt753x_setup(struct dsa_switch *ds)
+ 	if (ret && priv->irq_domain)
+ 		mt7530_free_mdio_irq(priv);
  
--	bitmap_complement(falling, hw, 64);
--	bitmap_and(falling, falling, chip->last_irq_read, 64);
-+	bitmap_andnot(falling, chip->last_irq_read, hw, 64);
- 	bitmap_and(falling, falling, chip->enable, 64);
- 	bitmap_and(falling, falling, chip->falling_edge, 64);
++	if (!ret && priv->bus) {
++		spin_lock_init(&priv->stats_lock);
++		INIT_DELAYED_WORK(&priv->stats_work, mt7530_stats_poll);
++		schedule_delayed_work(&priv->stats_work,
++				      MT7530_STATS_POLL_INTERVAL);
++	}
++
+ 	return ret;
+ }
  
+@@ -3404,6 +3449,9 @@ EXPORT_SYMBOL_GPL(mt7530_probe_common);
+ void
+ mt7530_remove_common(struct mt7530_priv *priv)
+ {
++	if (priv->bus)
++		cancel_delayed_work_sync(&priv->stats_work);
++
+ 	if (priv->irq_domain)
+ 		mt7530_free_mdio_irq(priv);
+ 
+diff --git a/drivers/net/dsa/mt7530.h b/drivers/net/dsa/mt7530.h
+index 3e0090bed298d..44c1dc75baea8 100644
+--- a/drivers/net/dsa/mt7530.h
++++ b/drivers/net/dsa/mt7530.h
+@@ -796,6 +796,7 @@ struct mt7530_fdb {
+  * @pvid:	The VLAN specified is to be considered a PVID at ingress.  Any
+  *		untagged frames will be assigned to the related VLAN.
+  * @sgmii_pcs:	Pointer to PCS instance for SerDes ports
++ * @stats:	Cached port statistics for MDIO-connected switches
+  */
+ struct mt7530_port {
+ 	bool enable;
+@@ -803,6 +804,7 @@ struct mt7530_port {
+ 	u32 pm;
+ 	u16 pvid;
+ 	struct phylink_pcs *sgmii_pcs;
++	struct rtnl_link_stats64 stats;
+ };
+ 
+ /* Port 5 mode definitions of the MT7530 switch */
+@@ -875,6 +877,8 @@ struct mt753x_info {
+  * @create_sgmii:	Pointer to function creating SGMII PCS instance(s)
+  * @active_cpu_ports:	Holding the active CPU ports
+  * @mdiodev:		The pointer to the MDIO device structure
++ * @stats_lock:		Protects cached per-port stats from concurrent access
++ * @stats_work:		Delayed work for polling MIB counters on MDIO switches
+  */
+ struct mt7530_priv {
+ 	struct device		*dev;
+@@ -900,6 +904,8 @@ struct mt7530_priv {
+ 	int (*create_sgmii)(struct mt7530_priv *priv);
+ 	u8 active_cpu_ports;
+ 	struct mdio_device *mdiodev;
++	spinlock_t stats_lock; /* protects cached stats counters */
++	struct delayed_work stats_work;
+ };
+ 
+ struct mt7530_hw_vlan_entry {
 -- 
-2.51.0
-
+2.53.0
 
