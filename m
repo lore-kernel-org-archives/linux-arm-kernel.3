@@ -4,79 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE6F5F8DFF7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 08:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD7B8F8DFFB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 08:47:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:
+	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l58XSNH8R/mwB60BqCvoOIYMvGSIH31wM+Rks1CFbpc=; b=FDePnu8lpp1g5FZtSYIzGprLDc
-	sq51rf9HJukIYSV/m/4JrwG+BF/pemvWUXTRGFEBlkZ2VgU7nJvuXnExP6UGxBuDDmqdjt89cYP4n
-	GF3tGHTZ6cyjFQ3sIqqvpcLe1/pndkkVFOCcwHnnroQB/dz5ee4U+NZA/GkZRJjFz49pcHBThYAva
-	ycZ1JQZutz5YGVa5oK8xFI6QXN6pgBSPBsWZhrmXHC4PGUW4afBRVrI0FRQHrDK8Eyom5M0lg5xpr
-	HV2oxKvgBvW11agYhmTmvkzBU13qIe8simjZVgNSdHNiaXa7uvI9Cu6AEBwYyMeE5N2psXhDTrbOz
-	60XtKmGA==;
+	bh=QAqSCBsmg7LkYFKFwxiSbG+2c8wiA0mcTIFPmjOUECM=; b=WpaLkhNCME0gZRU3vrS8shKkj8
+	KONwTr6Vrq57Jbza7VPjWs5Sq6vvuvz3gMtsgjQ0ky32Rp2ly6ikXVhCH5XfSvVXqpucnvH4/0yNC
+	qhGP9pTLEQzVKyDadfa9+moK/WHZcsmDDoqgy+90nyLGVhJiBSr55tbuIX9rkM/O1TmQtp7ZEay2F
+	p9Mp7wOEqMDSM5ytDxxSvq1n8fAlNsXJW4HFrmJA6qVA6wM8JePYrXm+j6+QxXKtsbrE5KCWqXmgX
+	kHYrmbdQjXSqXzNWSb6ymqT29x7E6nxXQjJqEVVY2GutVOwkRVyzhm6py2neNSIputWoYJ1purO9S
+	jmNCjWgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDerd-00000003hhF-2Jlt;
-	Fri, 17 Apr 2026 08:47:49 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1wDerg-00000003hi1-3X86;
+	Fri, 17 Apr 2026 08:47:52 +0000
+Received: from mail-westus3azon11022077.outbound.protection.outlook.com ([40.107.209.77] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDera-00000003hgW-0RU6
+	id 1wDerd-00000003hh1-0hBh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 08:47:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=l58XSNH8R/mwB60BqCvoOIYMvGSIH31wM+Rks1CFbpc=; b=Yxg6prFE+rhlPUeg5StCJV+gQM
-	mTb7z1pMiSEwSlRHUUkv/yzPxIDjbUf65/dR9QpFvSa/3p5U991X4shATrwkuGb5gTxL0x7nCHuqZ
-	qNFn7LW5usVSeTlSW26q7KOc4yjxfg/O6UXCUNiK9xJY8s8PifSM06UMHECY3TEbS6SXHy/NqoXQW
-	rOZ6YLh58nMyw743cdgcQayPEv0sei9cdhl07OXbqYB7VOXYhd3BxE9d7CidC/ZE+EE5sLUDZu652
-	+5lDKnKX6TDqnLOhDa3mNnMFTSsphmlhOTZf1gkqyYo5X4JSdHUS5YCxpTiVEVFn+fXluhz2ZtaX1
-	9ZIx+6Dg==;
-Received: from sslproxy03.your-server.de ([88.198.220.132])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wDerM-000PCr-0s;
-	Fri, 17 Apr 2026 10:47:32 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wDerL-0006uB-1S;
-	Fri, 17 Apr 2026 10:47:31 +0200
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 5/6] net: stmmac: move PHY handling out of
- __stmmac_open()/release()
-Date: Fri, 17 Apr 2026 10:47:30 +0200
-Message-ID: <13939918.O9o76ZdvQC@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <680c384c-135f-44cd-a2cd-7e4fd0ec4bf7@bootlin.com>
-References: <aNKDqqI7aLsuDD52@shell.armlinux.org.uk>
- <aeDSTIS9-TDSihbX@shell.armlinux.org.uk>
- <680c384c-135f-44cd-a2cd-7e4fd0ec4bf7@bootlin.com>
+	Fri, 17 Apr 2026 08:47:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UON3VR83TQlsQUgLeR12X1fWePwlzx+kMNBqXAdIv/z3M/H84JYcNew163EmovtWA1CoJ9laJp+I7ONlkcSsOdDIMHB+yjd+TYiBpmqxUdJdl5IP/p3daq/rRIqJTArz1x+yYE0dZL9/wuFbp6PqiEF+4NO73jELYvBqhTJeeX/QxZACssHK9JotvwHnbTq9nTuLLGgYzcg9SpZMH6HkNt88oV4shJEwf5m1TSONDQ8SG7+Dju4Nyzw1JHIdqhL2/j5bFmQFMgG7SksdgR26C2oN4jTvh93Y5zaPE0XgeyelCPdoAuJ1cTCIKCggOEEN6Jr0SHW2IB55SV8807O2yg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QAqSCBsmg7LkYFKFwxiSbG+2c8wiA0mcTIFPmjOUECM=;
+ b=crPQU/5FERMxkz2qV2dg0HHNLsG2i4ERo43yZ0sVNP8kjr4wsYGTteh9XdPXk/sDgXGrYyGhLHQSg1oTqyMPpNzAlF8qNRl8PkC8xVYSNDA+G/o+nhEa10nqtq8KyZg5e9vENTF93YkwLvYaB+5PoXsFytgXMJCF0HOBfOfC06vZCdYlKZcVEdrOtCv6unbyzVq0JMA71XLO29DYs7CY6GdZCifTqUUZswK6mMNcZBy6Adty4XKRM3BAGCeD+BRIHy2SAPGnqrpQylSZGNp0ah+9+550ttc8iNWNRbQWdBR5yBTms05S0Ml8nPrtYCzhbYqcL4APnOhuPaBiglsYjA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=bst.ai; dmarc=pass action=none header.from=bst.ai; dkim=pass
+ header.d=bst.ai; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=blacksesame.onmicrosoft.com; s=selector2-blacksesame-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QAqSCBsmg7LkYFKFwxiSbG+2c8wiA0mcTIFPmjOUECM=;
+ b=efJ8qD6lEdcMa9CaHsT9wwxdrAM+oXljnfY1O9JtQ20ie4q68mRBSpoOI+VWjLl9wx0iwYy7jUrtuFN5/Ac7vTPgBkSM2YVrgkRNLtf42haE+hpOuivBF41DL4k/ZvFHhSwSC6SueWsV7b+JMI6lN52vWxsDhJHmPFGaMR4aDlo=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=bst.ai;
+Received: from CO6PR18MB4434.namprd18.prod.outlook.com (2603:10b6:5:35d::16)
+ by DSWPR18MB988345.namprd18.prod.outlook.com (2603:10b6:8:36b::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.25; Fri, 17 Apr
+ 2026 08:47:43 +0000
+Received: from CO6PR18MB4434.namprd18.prod.outlook.com
+ ([fe80::66c:c77f:192a:f885]) by CO6PR18MB4434.namprd18.prod.outlook.com
+ ([fe80::66c:c77f:192a:f885%7]) with mapi id 15.20.9818.023; Fri, 17 Apr 2026
+ 08:47:43 +0000
+From: gordon.ge@bst.ai
+To: yangzh0906@thundersoft.com
+Cc: krzk@kernel.org, arnd@arndb.de, krzk+dt@kernel.org, robh@kernel.org,
+ conor+dt@kernel.org, bst-upstream@bstai.top,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 1/2] arm64: dts: bst: enable eMMC controller in C1200
+ CDCU1.0 board
+Message-ID: 20260417.164709-gordon.ge@bst.ai
+In-Reply-To: <20260310091211.4171307-2-yangzh0906@thundersoft.com>
+References: <20260310091211.4171307-1-yangzh0906@thundersoft.com>
+ <20260310091211.4171307-2-yangzh0906@thundersoft.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Date: Fri, 17 Apr 2026 08:47:40 +0000
+X-ClientProxiedBy: SI2PR02CA0043.apcprd02.prod.outlook.com
+ (2603:1096:4:196::12) To CO6PR18MB4434.namprd18.prod.outlook.com
+ (2603:10b6:5:35d::16)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Virus-Scanned: Clear (ClamAV 1.4.3/27974/Fri Apr 17 08:24:08 2026)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO6PR18MB4434:EE_|DSWPR18MB988345:EE_
+X-MS-Office365-Filtering-Correlation-Id: b1477b45-5cc5-4a5d-f0a6-08de9c5dfda1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: oCh6mqXT7+wHJm8JU4P3rNaaD/upxSJUnU3Sceq2EGdHyVwV4IHGPl/DE1l3ivFUWUNM0ImFtP5JC+ywIoUgDpxSCPZQQPlYD3f3Qr4rT7zwwO5tWWWFlAet7GtiCPtj7JBunBfiHsNDOFo/tWhRXjvBg61jJLxG3N6JLPGsEE17KksS55iP3vKbSA24RuEdEm9V55MGnnbnyytALojOzy5f3JXp3+o0/l5WSJHX+PzJs8hdEvDfk6HpW+Pb9agUeiZeo1MvODAj8RdTNClclFzBFs+kJrOM2rYovCXoipYrwKL35fGUNeUVeW3F7c+XEjL9Y4Js4A5/cjIrKKx5gvlLQvcSVa6fIHrUfqKoUZ31ZtIufwMRG8RfOwvg+wilWIDcuiAfSi3cpPaNSSCu5obIMCBQ6XbIxOFlvWDH07ah12hFXdjVqPgblKRisfo0fzkLuIG1nExiOP5JAEPc2zfLsIxMq5CIcVLEYumFEexzAVxMG/1lGpuAOai5UO+tPd5E8w/GMDCm6Lov/9bHfoyO3K1QDIkupY0lynm83M1fF4DY1UFjmmZ9Y0CpKHuMHxf8FoLKJVFsr+cTtXx+Wzu1xJZTOJC114GKpTNzLoV8S5x0rKdbvVMN6xZfIGsT3Rw4YwE00xqTy5WfSs8NSZOXWlbeN0AgJtnBIcqrE6T3Zis+q0yly7cZ1fi5ZpiTvvPlSY+YTRlf10WhmbsbcFJ3yhvMKD7NKeDqnilFZ34=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR18MB4434.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?elZ0OUdmWTRtczE0anBjRkU4NW9OUnJFVmtvbW1VSTVnK1ltL2tuajgzWVJF?=
+ =?utf-8?B?SkQrcTlEOUpreEpFQ0p5VG83SkJZcGxPc1VHOUJWUGF2bE9ldWhNTVd2RGhR?=
+ =?utf-8?B?STNMdzRiYVZiV3BoNysvSzBrc1BNcUI4Q3dJTFZQcWNlbHRtaGhwSzVwZ0Iw?=
+ =?utf-8?B?SUZjbUpjOGZVZHhsRVlMSHc3NCtWU0FtVlE0TCsxQzlQMHJuUllzc096M2JV?=
+ =?utf-8?B?MDFmaGVhMGdaL3BnbGR6cFltTlVUVk50NmFBOXROLzJKckNKOUhyTGpDUXF1?=
+ =?utf-8?B?M21FbGpNaDRvTmlZK1BGY1NlcjN4Tmg4dXFZYmpsSWVVb0VqVG5nWC9tVUkv?=
+ =?utf-8?B?NWRadDFMN1N4cUpSUkZGR3VsakxLQkkzUlUxNXZZSTJkUE5OQUlOdDB5K3pw?=
+ =?utf-8?B?VkdqdHUzN0lYUkZPa1J3RVBhZVVSNzZhckJBMmZrdEJVNXFmNlV0WTR0a1Ar?=
+ =?utf-8?B?ZUJZTUNmblVNd2xLemxaam16QzlxN21GV1kwUkN4aGthNTgvelhJZHN3OCtV?=
+ =?utf-8?B?ci9MdDVJOHo5Z3JqdWhOeHROT09IeEpJcDB5RU1HKzRTQUQ5L2QyS01XQXp0?=
+ =?utf-8?B?YzJIR2VSVXpCWW9mOUdURmIxY1U2cWRWcGRRQ3RxOUprWXIxTTBna0V6MHFB?=
+ =?utf-8?B?b3BUd1NLV2hoVE1zSDVXWW4rMVhiRk50YjFxQnZ3ZWtoSHpvZjZTUWt5UVhj?=
+ =?utf-8?B?M2ZtUFUrMG1vVllpdHhFeENOY2ZHeXhKQnNzQ0FKdXR6RXE2R0ZMbTFmc1Ey?=
+ =?utf-8?B?eEZpV1hPV090SEExWEFhV2NmRzU1c29YU2hpYzNEczY5U0hrRTU0NERlNndF?=
+ =?utf-8?B?bzdUQVVWL3BicGQwMTYrd1Q3SlNCem1qaTlNTlJaMm5ncGR3NWlheVB0dGkw?=
+ =?utf-8?B?RTRQak1xU3pONzRkY2FOWTVpSmlyVlc2bVZKbGtCMnZ1YzhqWGFaU1VzS2Qr?=
+ =?utf-8?B?Tlh3dmR6SnR4MlFwNitzNDJjNjB3UzB5UGRkY21rVUxHVXQ2SVNqSlJ0NFNP?=
+ =?utf-8?B?NVhGSWRnVUE4TTZ3cC9Fak00Tk5mR1ZkWmNwbHM5RTluN0kzaFh6dWpmTEti?=
+ =?utf-8?B?WHNhU2EybHVUandZdWJ1R0ZneU9yMEl6TnRvTHIxTmI2aHBPT3MyMzZoVmlm?=
+ =?utf-8?B?R0tSZFlMNEJXME51cWQyL1A5OHVXbFNaaEdVUWpWYzRsQ25PbXNOYUE0M2JD?=
+ =?utf-8?B?MUJsTkhiclJOLzcwcmhDY29hNmpCYzZGMllwTWtIY3VqTDJscktPY3ZlZGVR?=
+ =?utf-8?B?VG9TMjZReG9Ta0FkOXd5TEcvTndIaVZHY3NLUUpVNm5xU21kRVFIVEtodTNa?=
+ =?utf-8?B?Wjk2Y0VsRHVKbXJ6K09rWEkxbUZVTWJELytBTUJZVXZPVlpUZk0rRXhHUjcv?=
+ =?utf-8?B?Yk9sVVdMRTdmMWZnOVY0eWdtcml0bjEwVlZVMFp1Y2NMU2RGZzdZNnpYa1Zi?=
+ =?utf-8?B?KytTMWh2ZlZGaGdnSnhuZ1c5dUcvNGtiSjRJQjMycENzdFlSWU53bzZUdEwr?=
+ =?utf-8?B?YVF1Zk4yNFdoWmNxUnhRd05URStwN0Y2cllENHR3dG5qWmc1OWlHYXBzZVNs?=
+ =?utf-8?B?d0p3LzN2dmNta2lCWG5Dc0F2SWU4b01JcjIxWVZBNWdFdXg5ZHhUSE01NVlC?=
+ =?utf-8?B?Qzdkd2dEM3hrQTVaTW5sYWhHRTFtZkhQLzlndkcwNlpCc0xQSDFNd2lwVmhN?=
+ =?utf-8?B?T2l1MSs1R1VSZU5iKzdoeW4vWCtHbDJvVUVPd3U0ekpMMm5ZcTROOG13bWh3?=
+ =?utf-8?B?MW56aXhEbEFOU2grdTNWWjZmMlB4L0l4bzlYaEtGSVRGY2p3bmdMVFVQR2ZY?=
+ =?utf-8?B?NjZrdkd1S2dXOUtNdjVFbEczWFh4S3g5eTgxNERMeUpwME1JeGxaZENUUHlZ?=
+ =?utf-8?B?dDUrYVlFOE12NnNhZExUeFBXU3lxaG0rcTR6RTJzdDJUWW1jbG9KOUdtZDIr?=
+ =?utf-8?B?Z1c2c0FoeXBtQmt1ZExDT2lhakkxYW1HSGU1R1lnSTdneDQrR1pYcHpmeUpr?=
+ =?utf-8?B?cm9CNlNBa0tjYzNJNFpPaENFQkxhOTZaaFU4c1dDQkJoeE5jOVBXQmM3SUZq?=
+ =?utf-8?B?d1paM2lya2tMWXlrQWV6SGRIWUNOeHRvWExBZmZTeFRqeGlVbDdQcERCUW81?=
+ =?utf-8?B?ZUVFdG0vWVlWY0NycldTZ2ZKMUQyaEx5Zk1TejdId3d5eVlxSENOS0VIWGFV?=
+ =?utf-8?B?RFAzTUc5M3BpalA5Tm9NdlIxQm1ZaktxQjFpMmNscGdqWGhVazRTM1JBK0VS?=
+ =?utf-8?B?ZXczRHdOa1gxR1IydnlKalczN0thTGtVVVYyenQxa0c3MGR2RjNNbmUzU2RM?=
+ =?utf-8?B?WnJjZVcrd0VncTFkemFUd1ZBa3lCZk5YUW4xbXVHUk9iTTFIRkRtUT09?=
+X-OriginatorOrg: bst.ai
+X-MS-Exchange-CrossTenant-Network-Message-Id: b1477b45-5cc5-4a5d-f0a6-08de9c5dfda1
+X-MS-Exchange-CrossTenant-AuthSource: CO6PR18MB4434.namprd18.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Apr 2026 08:47:43.5304
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 00dc1a43-b766-4686-8706-33adb3b74360
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wbP9oYcujElWuQWSdRjDj307auN7VHqLVBXdSIRpyGB8zXturBalv2/GW2dtlT1ihYDY3XvAOzikKgIk9Zxppg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSWPR18MB988345
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_014746_420764_76654001 
-X-CRM114-Status: GOOD (  37.35  )
+X-CRM114-CacheID: sfid-20260417_014749_198262_A94B659C 
+X-CRM114-Status: UNSURE (   3.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,157 +149,5 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 17. April 2026, 09:11:59 CEST schrieb Maxime Chevallier:
-> Hi,
->=20
-> On 16/04/2026 14:13, Russell King (Oracle) wrote:
-> > On Thu, Apr 16, 2026 at 02:02:53PM +0200, Alexander Stein wrote:
-> >> Hi Russel,
-> >>
-> >> Am Donnerstag, 16. April 2026, 12:49:25 CEST schrieb Russell King (Ora=
-cle):
-> >>> On Thu, Apr 16, 2026 at 08:20:13AM +0200, Alexander Stein wrote:
-> >>>> Am Mittwoch, 15. April 2026, 14:59:32 CEST schrieb Russell King (Ora=
-cle):
-> >>>>> On Wed, Apr 15, 2026 at 08:08:40AM +0200, Alexander Stein wrote:
-> >>>>>> Hi,
-> >>>>>>
-> >>>>>> Am Dienstag, 23. September 2025, 13:26:19 CEST schrieb Russell Kin=
-g (Oracle):
-> >>>>>>> Move the PHY attachment/detachment from the network driver out of
-> >>>>>>> __stmmac_open() and __stmmac_release() into stmmac_open() and
-> >>>>>>> stmmac_release() where these actions will only happen when the
-> >>>>>>> interface is administratively brought up or down. It does not make
-> >>>>>>> sense to detach and re-attach the PHY during a change of MTU.
-> >>>>>>
-> >>>>>> Sorry for coming up now. But I recently noticed this commit breaks=
- changing
-> >>>>>> the MTU on i.MX8MP. Once I simply change the MTU I run into some D=
-MA error:
-> >>>>>> $ ip link set dev end1 mtu 1400
-> >>>>>> imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-0
-> >>>>>> imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-1
-> >>>>>> imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-2
-> >>>>>> imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-3
-> >>>>>> imx-dwmac 30bf0000.ethernet end1: Register MEM_TYPE_PAGE_POOL RxQ-4
-> >>>>>> imx-dwmac 30bf0000.ethernet end1: Link is Down
-> >>>>>> imx-dwmac 30bf0000.ethernet end1: Failed to reset the dma
-> >>>>>> imx-dwmac 30bf0000.ethernet end1: stmmac_hw_setup: DMA engine init=
-ialization failed
-> >>>>>
-> >>>>> This basically means that a clock is missing. Please provide more
-> >>>>> information:
-> >>>>>
-> >>>>> - what kernel version are you using?
-> >>>>
-> >>>> Currently I am using v6.18.22.
-> >>>> $ ethtool -i end1
-> >>>> driver: st_gmac
-> >>>> version: 6.18.22
-> >>>> firmware-version:=20
-> >>>> expansion-rom-version:=20
-> >>>> bus-info: 30bf0000.ethernet
-> >>>> supports-statistics: yes
-> >>>> supports-test: no
-> >>>> supports-eeprom-access: no
-> >>>> supports-register-dump: yes
-> >>>> supports-priv-flags: no
-> >>>>
-> >>>>> - has EEE been negotiated?
-> >>>>
-> >>>> No. It is marked as not supported
-> >>>>
-> >>>> $ ethtool --show-eee end1
-> >>>> EEE settings for end1:
-> >>>>         EEE status: not supported
-> >>>>
-> >>>>> - does the problem persist when EEE is disabled?
-> >>>>
-> >>>> As EEE is not supported the problem occurs even with EEE disabled.
-> >>>>
-> >>>>> - which PHY is attached to stmmac?
-> >>>>
-> >>>> It is a TI DP83867.
-> >>>>
-> >>>> imx-dwmac 30bf0000.ethernet eth1: PHY [stmmac-1:03] driver [TI DP838=
-67] (irq=3D136)
-> >>>>
-> >>>>> - which PHY interface mode is being used to connect the PHY to stmm=
-ac?
-> >>>>
-> >>>> For this interface
-> >>>>> phy-mode =3D "rgmii-id";
-> >>>> is set.
-> >>>>
-> >>>> In case it is helpful. My platform is arch/arm64/boot/dts/freescale/=
-imx8mp-tqma8mpql-mba8mpxl.dts
-> >>>> Thanks for assisting. If there a further questions, don't hesitate t=
-o ask.
-> >>>
-> >>> Thanks.
-> >>>
-> >>> So, as best I can determine at the moment, we end up with the followi=
-ng
-> >>> sequence:
-> >>>
-> >>> stmmac_change_mtu()
-> >>>  __stmmac_release()
-> >>>   phylink_stop()
-> >>>    phy_stop()
-> >>>     phy->state =3D PHY_HALTED
-> >>>     _phy_state_machine() returns PHY_STATE_WORK_SUSPEND
-> >>>     _phy_state_machine_post_work()
-> >>>      phy_suspend()
-> >>>       genphy_suspend()
-> >>>        phy_set_bits(phydev, MII_BMCR, BMCR_PDOWN)
-> >>>
-> >>> With the DP83867, this causes most of the PHY to be powered down, thus
-> >>> stopping the clocks, and this causes the stmmac reset to time out.
-> >>>
-> >>> Prior to this commit, we would have called phylink_disconnect_phy()
-> >>> immediately after phylink_stop(), but I can see nothing that would
-> >>> be affected by this change there (since that also calls
-> >>> phy_suspend(), but as the PHY is already suspended, this becomes a
-> >>> no-op.)
-> >>>
-> >>> However, __stmmac_open() would have called stmmac_init_phy(), which
-> >>> would reattach the PHY. This would have called phy_init_hw(),=20
-> >>> resetting the PHY, and phy_resume() which would ensure that the
-> >>> PDOWN bit is clear - thus clocks would be running.
-> >>>
-> >>> As a hack, please can you try calling phylink_prepare_resume()
-> >>> between the __stmmac_release() and __stmmac_open() in
-> >>> stmmac_change_mtu(). This should resume the PHY, thus restoring the
-> >>> clocks necessary for stmmac to reset.
-> >>
-> >> I tried the following patch. This works as you suspected.
-> >=20
-> > Brilliant, thanks for proving the theory why it broke.
-> >=20
-> > I'll have a think about the best way to solve this, because
-> > phylink_prepare_resume() is supposed to be paired with phylink_resume()
-> > and that isn't the case here.
-> >=20
-> > Please bear with me as my availability for looking at the kernel is
-> > very unpredictable at present (family health issues.)
->=20
-> FWIW I am able to reproduce this with imx8mp + ksz9131
->=20
-> I can give this a try as Russell isn't available.
-
-Thanks for conforming this for another PHY. What I'm wondering right now:
-Why is the PHY stopped in the first place? We are just changing the MTU, no?
-This has no effect on the PHY itself. "all" we need to do is reconfiguring
-the DMA. I have a proof of concept running, but it needs more cleanup due
-to code duplication.
-
-Best regards
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
-
+Acked-by: Gordon Ge <gordon.ge@bst.ai>
 
