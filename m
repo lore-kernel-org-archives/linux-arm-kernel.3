@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA719F8DFE9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 08:41:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55DB9F8DFE9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 08:41:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kJbijBDttFNCz2nTXq97GCNnHKIGfW45DMlLADuw610=; b=xwmVv0yQIfQARFAYdInGB7NOrQ
-	zr+ZOrQRKmL4zW7PFd4WeXs4rtNF5HRR9mVotrM2nlb5xGYoLMvkhoMn3/SPbzGcuOlKEJ7THbJAJ
-	/lo0oB1LiMXU3MuTLCmmxjBlVkUExN+W8NkrS6KN6tg26YvMnoZZCepwRcKLYqJlETdojl2JcXErA
-	DNbO4Ht4uex1gynO6+sO9Q6FC11Duyl0IqEjyb1OxWwCpEjHoGZq3ok6K1JcSdwdRjWXvz8W4vuNt
-	Goif+AlSKGa6NQOv2DrmOBFcOJ/uM8aPnAwarj9bj5Q/3zT+Vo9+HphUg5BgY50rS5Z9PjJJrf3Ry
-	bv3l2vcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v8QspruT5jjGLL3FrDL/uQ2QNGs2WwlmHKjn/j9gl1s=; b=BbvuWNg82/S73OYgbHrHAtHMU0
+	At4raFuwf6SctZZw3bspQyyTvXedO2IjzEtaSsnjwowvNCRx70k20nH3OwLyvJZhjEIkzpMkRzazs
+	jLXKYA05CXS2NmdzJlTr/abAT0yF6S8x5N+0XmcEI7sTeFzZnVTvZ2xPozwuSFndttFyCiazyUR0e
+	nEzBTskkj0VO6xRLTip9ow2mowrW6wjDL7lkAW2nEMUdbHoEv2lmMGjLgEGz3H0dv2hzdOm893nI3
+	/zJNGAazaa1jSx87XuZFYeRz2a6ym6nIVYjaF3ewFA40z2FBy0DIYl6EczxXW0xDFnAww4dD0Vc6S
+	xL6am4dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDel3-00000003gm3-1oZ6;
-	Fri, 17 Apr 2026 08:41:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDeky-00000003gj1-0djh;
-	Fri, 17 Apr 2026 08:40:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9831460139;
-	Fri, 17 Apr 2026 08:40:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1568C2BCB4;
-	Fri, 17 Apr 2026 08:40:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776415255;
-	bh=/bR7VjWpqFgfa6L8lgi5/ItZRSv3tGrpAuLfLnEUdNY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=X3Ro8H85p1t8j3dSdfqT0dwKe92lMtz5f3Xhr9c8g3bmjt4my8QxJyQFIKrbasIsf
-	 Q7eMv2avzwVW9KubiZCB3WR74Pie1xfoTIULmPgfSEaYVHK1KV3KSdlY1fEN24XPJi
-	 ghcPuPoR4knU/Tt5JJGHLuQmOhaQOEGmWcDZTO3/+BL8Y5WCA9Yktn233g4yjPou6J
-	 dPDQK7QF3myHqFSH2RjQNnRHIjeAGUIUqBzVBnFYmfjaa1IfL+KreD3OBf/6ITpfCj
-	 TsFyYwKBB9gudFdUL/UhR7hhfQhD23CcyF4pRV8Ip3CsjqfWQU04CfusvQMHMi+Wpr
-	 JSATGwM/LNweQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 17 Apr 2026 10:40:37 +0200
-Subject: [PATCH net 2/2] net: airoha: Add size check for TX NAPIs in
- airoha_qdma_cleanup()
+	id 1wDelR-00000003gta-03q9;
+	Fri, 17 Apr 2026 08:41:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDelN-00000003gsM-3Idy
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Apr 2026 08:41:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3882A1E7D;
+	Fri, 17 Apr 2026 01:41:15 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 667673F641;
+	Fri, 17 Apr 2026 01:41:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776415280; bh=AE9tGvDnku39vfxAUF/4mX5MIkxJb3p3tylUEbtf31E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oqqZ49dCyA2UnmFgbaQIh5ScjTi1wPbBSHQHRFYpY2xu7Ane3PVMjz+x3aMVxdJHw
+	 zaWLmbeH+Y1r9Vc7WMYlFbPLgJme/0Yrzgt6hmgXiyArjMc3E4zM/SxfhENJJJ7O+b
+	 oVxFtPI/+V6W1kKyKMqGEPU8lQAG/6grpzzuwuRQ=
+Date: Fri, 17 Apr 2026 09:41:18 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	suzuki.poulose@arm.com, mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com
+Subject: Re: [PATCH v5 06/12] coresight: etm4x: fix leaked trace id
+Message-ID: <20260417084118.GP356832@e132581.arm.com>
+References: <20260415165528.3369607-1-yeoreum.yun@arm.com>
+ <20260415165528.3369607-7-yeoreum.yun@arm.com>
+ <20260416165541.GN356832@e132581.arm.com>
+ <e994bf83-a66c-453e-aee6-c15b6888499c@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260417-airoha_qdma_init_rx_queue-fix-v1-2-db9fa5e468e5@kernel.org>
-References: <20260417-airoha_qdma_init_rx_queue-fix-v1-0-db9fa5e468e5@kernel.org>
-In-Reply-To: <20260417-airoha_qdma_init_rx_queue-fix-v1-0-db9fa5e468e5@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Simon Horman <horms@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e994bf83-a66c-453e-aee6-c15b6888499c@oss.qualcomm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260417_014122_374523_09960218 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,38 +74,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If airoha_qdma_init routine fails before airoha_qdma_tx_irq_init() runs
-successfully for all TX NAPIs, airoha_qdma_cleanup() will
-unconditionally runs netif_napi_del() on TX NAPIs, triggering a NULL
-pointer dereference. Fix the issue relying on q_tx_irq size value to
-check if the TX NAPIs is properly initialized in airoha_qdma_cleanup().
+Hi Jie,
 
-Fixes: 23020f049327 ("net: airoha: Introduce ethernet support for EN7581 SoC")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+On Fri, Apr 17, 2026 at 09:01:17AM +0800, Jie Gan wrote:
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index a6f8b231583d..1ca4087e675d 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -1398,8 +1398,12 @@ static void airoha_qdma_cleanup(struct airoha_qdma *qdma)
- 		}
- 	}
- 
--	for (i = 0; i < ARRAY_SIZE(qdma->q_tx_irq); i++)
-+	for (i = 0; i < ARRAY_SIZE(qdma->q_tx_irq); i++) {
-+		if (!qdma->q_tx_irq[i].size)
-+			continue;
-+
- 		netif_napi_del(&qdma->q_tx_irq[i].napi);
-+	}
- 
- 	for (i = 0; i < ARRAY_SIZE(qdma->q_tx); i++) {
- 		if (!qdma->q_tx[i].ndesc)
+[...]
 
--- 
-2.53.0
+> ... we still need support static trace ID allocation in parallel for
+> the dummy sources and we should not break this logic in future refactor.
 
+Just confirm what is the reason you need to use static trace ID for the
+dummy sources?
+
+I am wandering if we could use dev->devt as trace ID for dummy
+devices.  Since the device's MAJOR number is non-zero and occupies the
+upper bits (see MINORBITS), it is naturally separated from the hardware
+trace ID range.  If so, we even don't need to bother ID alloc/release.
+
+Thanks,
+Leo
 
