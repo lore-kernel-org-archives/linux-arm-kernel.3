@@ -4,136 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 408EAF436A8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 14:10:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83CF9F436A9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 14:16:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o0F2o4Dk3iiYwIY3r8uAaLKA55qkddrf0NWv552CW8U=; b=2TFb+z53jQEC/P5+hbJbD6tPg8
-	XPXjnD6nsi6Y/LtS+4u/SA8iCA1rPPlkR6qxS2fsOFlsePhZtxjm8mTMMq+KdqS98iP2sznta6hET
-	bsI2pfo+DDL07jfgJPNisSqUcjdvuLgqXp7QiL4vbbRkLWp28tIcQ+BTSzaISDVtTOEWVy2RteEHg
-	i1PbmxAJLWNx8QmXN2ngPQ5S8FftYbU0Yutihj3hT5j1r75cGVboVZles+nX0Un2rS/y7ZzuTAqHE
-	qxAI/RpKYCfHDdcPBMjW9LcnE6ZXnh4au47hK8c7gUdfJsq6zxR+NZuE39y+bR39zdhqs/b2Fz/WX
-	JEDyoWHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UGzzQs2uZZdZYND8MnY8Zz4KYy2T9nTawA/A8pPTQ04=; b=WwwYVZtzK0peP3fjOR+o7mXMCc
+	GRTRckdchBzGFFRMSPr7Wfm/ONBx1yChAkAH+FFe2aBaGL70CbpUywKC+7WUaHG1uQChRFvtkRR8H
+	zpJxQJDOZpHgAvBwOdBz4MExTY8uzXdwKBH12cnTprZ7U5KWVwS15fuf9/iqxEZs9soQq5t7eTvtV
+	cS+quzCGtgxo7gFmjrkIj6XImqV5QqAAbBANBZY0RltFTQ3cjauwyIb7cfdxhVK2SCn3iZYDoN2kc
+	JLcSkj6Y8/08h1Z0HNwPHGIv4GCSptAZbXu0FG9lDYLudCy9zunsu2a+i04seHKSKVg+wLhJwrHFw
+	t2dGY0sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDjtc-000000047JS-1BgI;
-	Fri, 17 Apr 2026 14:10:12 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wDjzz-000000047kW-2jrz;
+	Fri, 17 Apr 2026 14:16:47 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDjta-000000047Im-14BS
+	id 1wDjzx-000000047k5-0Jas
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 14:10:11 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63HDBvVu3438201
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 14:10:09 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	o0F2o4Dk3iiYwIY3r8uAaLKA55qkddrf0NWv552CW8U=; b=VChwwG/2FWGSCTBx
-	Q7wfayNUO7wd03dW3G1G6tSCl+MEf5YnVHCtR/kz8UyuBEVtTr9WrmI3EeRNczAZ
-	OmaYCqXLhyvQWwBav1q19M8R/s4OxWOnqm6+GLU8SuSZLJkZr4FXrL1yML0HnxGx
-	VchGyjEwRiuWnokUkdF0ltrTOej55GgXf0npFuzPZJu7/w5ihTM/1gaA4TMz6klo
-	TlwDUmG5Ew8J6GIxhGrgniMaciwH7mF6awqNyw3DrH8PxJbLAnxb4sQrUe5vJWRo
-	pcw/YVgteXrkVDQ1sYg7HNWObdotjL5Crg8tsYM1IbFsr1Zn1uQ91IvdfEi8mB/+
-	fI8s3A==
-Received: from mail-dl1-f69.google.com (mail-dl1-f69.google.com [74.125.82.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dkg88shqh-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 14:10:08 +0000 (GMT)
-Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-1270dcd11c1so1112465c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 07:10:08 -0700 (PDT)
+	Fri, 17 Apr 2026 14:16:46 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-671d60ef9c6so967600a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 07:16:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776435402; cv=none;
+        d=google.com; s=arc-20240605;
+        b=aPgRuAYZOA/1TGx9vjItfE4Y56ZyyvU6nr5Hxa8ndbA+eGLWng0EXdwHcVMTFdJK1M
+         bUbLzwWbOdXm2GrXeEr80ykgggqdmxQwWNjRxcoK7VjgFdbrVvPoybAY6+sqjPcoWFTx
+         Pf4h2a31M5xaE4Y42HWQNbQSn0W+W6MeXayX/Qz3bYPjK7bp34tBcpKzSvOh0Lg2fETZ
+         0/98qPLMf9V4WPIm1gVAgY5NfqmjozbYUaBGyMh1Wr3dVZUVBARk7i3dFISDqGntNr5v
+         ue2fxucdZL+BXcg1cM/mYyb0zGlGz6sBbaPQiEt8Woj5KkKd6Dj/in5p+CNz2CfI3+Ob
+         Ehdw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=UGzzQs2uZZdZYND8MnY8Zz4KYy2T9nTawA/A8pPTQ04=;
+        fh=LqbfzFHYEhj6rmeyUS8UinEEdo+GmHyVTpn21SYhcv0=;
+        b=QhuwS4aFd27GN1DQz9vf4EgFNfBTY6getokARVcQMpaa4CgWT9shsBmuzIBa7FU5Ce
+         oCxVCedHn/QrZtC/aI+EfPi4pRM3+uu5uOKVHI5P1Hh/9Of+JoUOK43tunzsez4TQJSB
+         IfF1j8/yVh3lGSX9r6H3MM+jdX3OgQ9JwL5uYIaYWBqVogEFJPVuuOnTBtl+djIlYCHb
+         Dc99j5TAw2v6E3goXe/4XiBcsCxgfF/ITlafAsWv45c4Zmp74nU2Sp640kZ8jKaky9Nw
+         OoTvxKiGplL77yeSlIHpvPJAVbyKe3cRqPupIUQ1ksHibVnYWWn8vVZf1IUnRUxp+vWH
+         zdzg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1776435007; x=1777039807; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=o0F2o4Dk3iiYwIY3r8uAaLKA55qkddrf0NWv552CW8U=;
-        b=ckeeqPgXKaZijEcHpaB1hS+qTDhvPtYzpCnGPAfbEkuSz+TEdtk6ZkxTJEKJsoUTAq
-         YgjYzA5ZObLw1c05w5PMb993nBWDQNPiMkv0omZUWlfkhmjDU3uB/GxQPtF8E/HtHHPK
-         Ai7rycghQ6C9HI7BRzlbhgSSbF6ejCXKRLMzI2svpGJZbP3zfzMoUnytOYeGhOgSZFVq
-         7hRfO4kx49TMdjHkiq+wA3tK6Mk47EvuNu4jcAgND+xuIVUlK+EMILkuV/vT9Kp5xtkQ
-         SQugDRTzXkmmeGEEN4qL0N+74B13oefFQcXEvVyx9eNE8SnaffWq+BK3SOTD85d9KLSp
-         xMWg==
+        d=gmail.com; s=20251104; t=1776435402; x=1777040202; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UGzzQs2uZZdZYND8MnY8Zz4KYy2T9nTawA/A8pPTQ04=;
+        b=U6VQT7CCUhSF0OYn4Nu7cvOtXF/wHMTJEKBpxVBwBHKWBoDfy8ZL4No2i1/j4Kpr3D
+         pNIlystqVqL+jKcY1x+rt3pv24NWOqTgoDLYb3rsKFQ2gseIqCtec+v+ylJy5tBVc3Zo
+         WrK0/mdGVuXS8srLwTbnbS7j/NiRKnRzttQKUNIIDBImQQM7sIme4s6c4lq+yGYp79+v
+         RkUBC0BUToGrFTPE1nyTyvLTgbwrmFGyoM9ubcOt5WweFjeDtsJfQRuBAWaZCYuXrk2o
+         dSXbSPDut9DoTSL6pBoDHJEIqAzga3TelxusSgdBwgt9n/HEOKplK4fUDcNYpeXVbpXZ
+         R7Rg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776435007; x=1777039807;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=o0F2o4Dk3iiYwIY3r8uAaLKA55qkddrf0NWv552CW8U=;
-        b=ew/1QjJixVCcCrotELWMI4FACVm4QHg3ilVobdzzXhOLBWcvane+Q+EiJxgf9llzCW
-         MF/JRtMT3eKIBnPwttCk9vjlnFUmhxWZJS1Owx8rWU3eyaa1Wz8Q+Ka+EST9pZzxSiRj
-         AB3HWPVcs7SYDDIHRGvXVR9E1Q6boq01+mcAk7npJAc97WQUBn1c4vXkWMXHR1NQ+I/W
-         h/TNriRhyv64ncekERON2L96iQnmG1dzt+8VoalOnQTF5JMQolhWbJngX+VfH2BSzFz0
-         AHEFjPonVL18eYyR2Bp3A/r7rkRSzG2h36YTl4hPIfLkP4URdbt47lgA3uoQGJD5RboN
-         9C8w==
-X-Forwarded-Encrypted: i=1; AFNElJ848ushIg49dfzoa38CZmhwZrhwIbCTrB795YMI6VF6GYSG830twzxjeQzLQSlB9TeFjT4NP449e1asdsD2IHH0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlAivqY3gaSFY/lLU2PiF+pRksS4Dvf9dpGrPp+dwRQmZ+9SaW
-	I1jt81WYbEJgdYi9fXgPrgmv32UYqp0+7MqAkhfe7mYLUX3/WV/EkY77qHzarbSvucn+wDd8tGp
-	4mecsTu7/G+dYs+6L9Jos8PUaxO8IQqM5IzjIxXri8n81lScfOBXTSMUvQJs7FOGsrD/W84ww9j
-	iNuA==
-X-Gm-Gg: AeBDieugLm6SP6MpSu8MvWU1ZplkafhLbCep657/hOXGbDbAci2wZD2/K8PLYzLWjjW
-	gHfl8RZJRulHICNMJnbau7dkect+qPaKSyoMrP7YvpNlQgePn+4HbTVnvMDgiFKKGb5zvAblJDq
-	c23CgQsy7YAUQUgw0E/a6RsaSC5gtrFlTsBZlWccPFc80LrNwIJGWBzCbB3Jo2jzJRjNb+4hEsE
-	4v03NxUm5P21U/PBLdLxZEl0trd2xrGDALLCC/T7s5smHx5FBW2eQICfvssaaaMPnSeKrfulRAU
-	Ty9D46Ykzm58sW9Z2xscPmFjRz2qafZABpqfMI+VTQyq37iJvAvKVhVOvAuJeL/3c1ox+bkiITA
-	13P3FqYusmEh3oSsJdy5WaLb0h2/U7Cw5OMR4+75XwW0a3YY9OVsYu0SuP+xSoTGvZuBrMK+FHX
-	k=
-X-Received: by 2002:a05:7022:6728:b0:12a:6902:ddce with SMTP id a92af1059eb24-12c73f75d0cmr1432465c88.10.1776435007250;
-        Fri, 17 Apr 2026 07:10:07 -0700 (PDT)
-X-Received: by 2002:a05:7022:6728:b0:12a:6902:ddce with SMTP id a92af1059eb24-12c73f75d0cmr1432394c88.10.1776435006470;
-        Fri, 17 Apr 2026 07:10:06 -0700 (PDT)
-Received: from QCOM-aGQu4IUr3Y (i-global052.qualcomm.com. [199.106.103.52])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-12c74a2ac32sm2243346c88.15.2026.04.17.07.10.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Apr 2026 07:10:06 -0700 (PDT)
-Date: Fri, 17 Apr 2026 22:10:00 +0800
-From: Shawn Guo <shengchao.guo@oss.qualcomm.com>
-To: bibek.patro@oss.qualcomm.com
-Cc: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-        Dmitry Baryshkov <lumag@kernel.org>, iommu@lists.linux.dev,
-        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, srinivas.kandagatla@oss.qualcomm.com
-Subject: Re: [PATCH] iommu/arm-smmu-qcom: Fix fastrpc compatible string in
- ACTLR client match table
-Message-ID: <aeI_OPSESxxz8WMR@QCOM-aGQu4IUr3Y>
-References: <20260408130825.3268733-1-bibek.patro@oss.qualcomm.com>
+        d=1e100.net; s=20251104; t=1776435402; x=1777040202;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=UGzzQs2uZZdZYND8MnY8Zz4KYy2T9nTawA/A8pPTQ04=;
+        b=b7mI0JJK0ZHVmsBW/KLNtkp338P6IjVsxTd5bdAxmv937jRDF0GUZlUK92rjySfSs5
+         JOu39Rc6yVQ1NKXOzee4jtnmsgAW9OPK5uwvPL9QDp7pXT7xUTZLUPAm1wLIwWT176MO
+         H7H2CczzqGWgfjrfEaQF1BOdruA8HhiCW+BqP/1VEgrkHxNnwczNZw9FMYJBOdDD452Y
+         4WfzL61NBiruBimvY78ZV+8ws2mqBAHsni16fptGUSlMXAD63Y+xc/gaf/D94fmLYZ37
+         KStfS+ohHQ1xy/Bz8hAxgoQ7gFHi1F0Gzcf6AkP7Ev+66G8pQrBqn8ESnh1mTzZaw0c0
+         m6DA==
+X-Forwarded-Encrypted: i=1; AFNElJ9U8hmBDbI3bexYguaWy/0Vn3coaqgZtunfede0/7N9s5LsDky7Wq9PaAVW4Jeoj9g2mw0iOv3ydBh1kFCtBmIJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyDVDL3rAtuPq2pjbF+yzuMFwbhY9R4ARCdnlzb1/A0QDjPHLIL
+	cy9y2ePeWxwAo9asWc5Baz2PUmtzrIjy91YfDb/NXPVECSc3FdwmKeEh2aaPyGKVyD9yArd5PDY
+	yUjmTvcgdNJHjQ0hr/bgOkkMVgYl35DA=
+X-Gm-Gg: AeBDiesni96+SHiH3NPwHkZCWUSGOKNLc5yUUfK54HTk0TNvUEIOsC7mYBhGKgVfjET
+	NV56biu6s6dy6CFiV0+wMx2DPNOKD/LA51c/d9/QHNbnrvK9nJfKKbnBInsOzctRewS/T0CMxnI
+	9eN9vIqWub4Zx6Nv0adH282gE2rA/SEfLg2Sj3iXHT0hw4p4VznwXq0yz+BJ10P7Rs7N/7QxQw0
+	zNuMl5U1EepFpYdjcLJUpUSuzsDW2j1BlS0SQAmRx8l0CJiUYlnzqWXzNkRKs1CY/nORreig8ei
+	PehGqzmb8qBe0LuHGl/EKZrwqDFL97Mdyw==
+X-Received: by 2002:a05:6402:35c6:b0:66f:9480:c1e6 with SMTP id
+ 4fb4d7f45d1cf-672bfed996dmr1742162a12.26.1776435401576; Fri, 17 Apr 2026
+ 07:16:41 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260408130825.3268733-1-bibek.patro@oss.qualcomm.com>
-X-Proofpoint-ORIG-GUID: zBFVqHidmJ3_7W9zGGKdqEZkCiqomZI0
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE3MDE0MiBTYWx0ZWRfX3tcww8E5u1zd
- wYgtK7J+nda/3MgFasT1WxuaFjoFnrgQQQoxWkS44iKeb3E2U49SXGlOB+ugyP+FOABbI6u7FAM
- TRlHcoZnKkFN5kAH9IQSEISouRvHUEYzhwQR84HRpq8nhoEEhKByUrcHYlIB+vcOMAhBPv6iM/u
- E7GBCreYqz/XoPYVM4mGnWGPZnkauHnslKOknfTTO1FVf1TofA2d0mSYHPAq3wKyiAyMz0S9uP5
- 7KhziPv61KvdAGIhZZILTokpKOREJ7pIGHPzCiNUW5t0fJJ6EIWdL6QFQzzEHdWmUoP3yflr1Hj
- HVVAvDKLa6v6Q4hsm2VX7G7dC0GwVd4gWmYyQQWQFjuuVsCD2Ks/xH7/BZFKAKB3j/5JBLjHlfO
- lodLmI4H4QuLg021stEvWCTAjWMyWen40LCOP4TW/6jIgal1TIVzsgNGzFkNplMfcNFSCjDsXTn
- pnzLgVy/5w2z65wPG6A==
-X-Authority-Analysis: v=2.4 cv=X+Fi7mTe c=1 sm=1 tr=0 ts=69e23f40 cx=c_pps
- a=kVLUcbK0zfr7ocalXnG1qA==:117 a=b9+bayejhc3NMeqCNyeLQQ==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=EUspDBNiAAAA:8 a=pfcpBET5JRzwQ_8xOogA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=vr4QvYf-bLy2KjpDp97w:22
-X-Proofpoint-GUID: zBFVqHidmJ3_7W9zGGKdqEZkCiqomZI0
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-17_01,2026-04-17_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 clxscore=1011 spamscore=0 impostorscore=0 lowpriorityscore=0
- bulkscore=0 priorityscore=1501 malwarescore=0 adultscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604170142
+References: <20260417103004.3552500-1-puranjay@kernel.org> <0e7bf7fc588d9c45349a7b5b7b7a86504bf39069d9b7a043b53138604547f267@mail.kernel.org>
+In-Reply-To: <0e7bf7fc588d9c45349a7b5b7b7a86504bf39069d9b7a043b53138604547f267@mail.kernel.org>
+From: Puranjay Mohan <puranjay12@gmail.com>
+Date: Fri, 17 Apr 2026 15:16:27 +0100
+X-Gm-Features: AQROBzAEa93FzLfWVDmPW8ghL64r6d2f8zAAX9cm4hvIEfOffFG3de6w0DRmHAA
+Message-ID: <CANk7y0g9V2uK=162OMN3gwDZ1161nd+pRXZWDEt=2VOybO2M6g@mail.gmail.com>
+Subject: Re: [PATCH bpf-next] bpf, arm32: Reject BPF_PSEUDO_CALL in the JIT
+To: bot+bpf-ci@kernel.org
+Cc: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	jre@pengutronix.de, ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org, 
+	martin.lau@linux.dev, eddyz87@gmail.com, memxor@gmail.com, song@kernel.org, 
+	linux@armlinux.org.uk, kernel@pengutronix.de, martin.lau@kernel.org, 
+	yonghong.song@linux.dev, clm@meta.com, ihor.solodrai@linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_071010_410267_473FEEC8 
-X-CRM114-Status: GOOD (  17.91  )
+X-CRM114-CacheID: sfid-20260417_071645_150457_2A315450 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,44 +119,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 08, 2026 at 06:38:25PM +0530, bibek.patro@oss.qualcomm.com wrote:
-> From: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
-> 
-> The qcom_smmu_actlr_client_of_match table contained "qcom,fastrpc" as
-> the compatible string for applying ACTLR prefetch settings to FastRPC
-> devices. However, "qcom,fastrpc" is the compatible string for the parent
-> rpmsg channel node, which is not an IOMMU client — it carries no
-> "iommus" property in the device tree and is never attached to an SMMU
-> context bank.
-> 
-> The actual IOMMU clients are the compute context bank (CB) child nodes,
-> which use the compatible string "qcom,fastrpc-compute-cb". These nodes
-> carry the "iommus" property and are probed by fastrpc_cb_driver via
-> fastrpc_cb_probe(), which sets up the DMA mask and IOMMU mappings for
-> each FastRPC session. The device tree structure is:
-> 
->   fastrpc {
->       compatible = "qcom,fastrpc";        /* rpmsg channel, no iommus */
->       ...
->       compute-cb@3 {
->           compatible = "qcom,fastrpc-compute-cb";
->           iommus = <&apps_smmu 0x1823 0x0>;  /* actual IOMMU client */
->       };
->   };
-> 
-> Since qcom_smmu_set_actlr_dev() calls of_match_device() against the
-> device being attached to the SMMU context bank, the "qcom,fastrpc"
-> entry was never matching any device. As a result, the ACTLR prefetch
-> settings (PREFETCH_DEEP | CPRE | CMTLB) were silently never applied
-> for FastRPC compute context banks.
-> 
-> Fix this by replacing "qcom,fastrpc" with "qcom,fastrpc-compute-cb"
-> in the match table so that the ACTLR settings are correctly applied
-> to the compute CB devices that are the true IOMMU clients.
-> 
-> Assisted-by: Anthropic:claude-4-6-sonnet
-> Fixes: 3e35c3e725de ("iommu/arm-smmu: Add ACTLR data and support for qcom_smmu_500")
-> Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+On Fri, Apr 17, 2026 at 12:17=E2=80=AFPM <bot+bpf-ci@kernel.org> wrote:
+>
+> > Fixes: 1c2a088a6626 ("bpf: x64: add JIT support for multi-function prog=
+rams")
+>
+> Is this the correct Fixes tag? That commit only modified x64 JIT code
+> and BPF core infrastructure for BPF-to-BPF calls - it never touched
+> arch/arm/net/bpf_jit_32.c.
+>
+> The actual bug was introduced by commit 39c13c204bb1 ("arm: eBPF JIT
+> compiler") from August 2017, which added the ARM32 eBPF JIT with
+> BPF_CALL handling but failed to reject BPF_PSEUDO_CALL. The code has
+> been incorrectly computing function addresses as 'func =3D __bpf_call_bas=
+e
+> + imm' for BPF_PSEUDO_CALL since the ARM32 JIT was first introduced.
+>
+> Suggested: Fixes: 39c13c204bb1 ("arm: eBPF JIT compiler")
 
-Reviewed-by: Shawn Guo <shengchao.guo@oss.qualcomm.com>
+I knew Claude would say this!
+
+39c13c204bb1 ("arm: eBPF JIT compiler")  came before BPF_PSEUDO_CALL
+was introduced, so the bug was introduced when jit_subprogs() was
+added.
+The fixes tag in the patch is correct!
 
