@@ -4,133 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C394F43687
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 09:21:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8EFAF43683
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 09:25:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HRRbipzDpgD89DT3DxLM9+gzBUTdpnDtktEgZc3z2T0=; b=ioDzXwvnJvfuPOjN/LNK/EoNgE
-	4QV2Snvpgi39yrvgFIC2QT5GIj2GTtj7aAbzJMW5BoxWvWz5WuAy+V0Xarfj20xuiLepfwj+bX0Yp
-	/NnHzAIhcccfjQcs1JObAjM25rDtw+gjqDWg1qQ/wl1IAo/3OBBs8JriqACTOuMyW3ymQ4/sJZZcn
-	G0dZnC70V8Wt6sX1OE6yYRJKqnZ25s97nmJmGmLODrK5vv9c/4bBk9DaETr/qlv/RaZzsd0Sf7ajk
-	P/hlKtO/WGxydpaeafjWHz069T5Qptq+5w3+Qw377zRACrwI75HOARlukj/LqPPbeEFDiCyylwm2J
-	GO4p+8Vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6546mEfBYNWITTwe3HY0OTZ3Vm1VtVkfL9q8SCmr/4w=; b=SbQ2gOobG3vc6xuFVEaPd4DmFy
+	pbWQ7G1YU+lSwumcFM1JxBwhIgiB7mp4s55UbJbP9Xrtb3WNz0lplSldYKKdyZifSfEEhHFtwHsbJ
+	/0iMV4CMZKma9iylDHPd454LUEIJ8BxM2NQeOSwG9JQ/Mnd4gsVSzOECLjYJecgCyjgq9dZko4jQE
+	8f4MJS4CsPiLc0yHkbR9sjpdaCkeNOGRaxXR8yaDU0ZDRz8VTR8SgqWh+l//AvnV5F5GlVOb3aWoj
+	EIhYc1dchRF+dtvG+JylvQ9usU/P/XdPrySBov/bG3c8HuFzsKQp2P8jl9c+YSBINebTBVI4oi3Sh
+	/tdW76DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDfOT-00000003kK0-3cFK;
-	Fri, 17 Apr 2026 09:21:45 +0000
-Received: from mail-norwayeastazon11013001.outbound.protection.outlook.com ([40.107.159.1] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wDfRr-00000003kbX-0XSr;
+	Fri, 17 Apr 2026 09:25:15 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDfOR-00000003kJW-2Z4H
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 09:21:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fZDYbjT3lhkB8nPojiCq2HSzDrxx0eQhTI+It2pIoq1ijYsIYKcpWoG6+T7uYiqhhXanlfV6/qGOpFX2xggSaeaeYQKo+0OT6ByU2KnoS6WGAeRtEJd5Ya07aSCTDIjXB3CRO7zg21pO3Rsds7YV1Bz6fGjLHI//Q7kjNSOqkBhk2JfcsFp+NeLVp+u73fNsKL6UilhyMLZfT+iwhhjoQtl32BlwOzxnkKYGWOGvGOG8h3hcIf6j64GNrLHRN1KO2Y7ZWENlReyCQHRl/dosNlOb2FhjQckQK6t3yoFi8yxzSI6sUjLbxMaBQgPLK+ajDwPRuPUqBdr6skpBUF2v9w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HRRbipzDpgD89DT3DxLM9+gzBUTdpnDtktEgZc3z2T0=;
- b=T+xwBgP5x/g5mmHSTaWIOnBGaLUdMXMauP+Q+g3y30MbMJM3FLxBW8JWuhyraPQKHVgGSk7OgX0GV7dYNe6O/Hf9cTMugHMrVlE5tFGf6R9MGNwTpbOEnlQP5ctvLr6rfF3Fx2Jj4U/lyqyT5UmSYdVaaaRhl8w3Ssv80+4Gbyyh3iap79eTd0HTzzTCQwoN4emQJRms+tQnyJRJASpLQC5rlQnzrKlenGg8Xe2hVbmiqloZw88KjwNShCdGAvVhxFwBI6hmpclrN1Q8kpsjeMLUTqdWBqM+8s0LhkXFFdodhU/K25XGKysP2Wax/TPAXN4oy90V0gJPU8qh63B9xg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HRRbipzDpgD89DT3DxLM9+gzBUTdpnDtktEgZc3z2T0=;
- b=IhziePyYS/wAT5tSqOu1EvE9jQ2AH44A7cwi5cCFZldmgtg2fGhiR9AG479z/OpZhdl45vCQ2+RUDDrWtG2decFaAzDtDD0q530iRV+XOfqVAY4AANOJJtPaDkD98A11lPQaDg2I9kXqZEIWXj65G9LcJCvNeR9PDyRJ0rjEm/LCx49SWdJeOaX3uxZ7gr6m1Txmi9IRyfFsb4U7q3zGIXW4AvtSnKkfEptYHqkZ5LhkTiHyAdSpJcsRUQgLrmCM5aYbGNfuGMDDY2IbRs02fefxvMABKNvEto4jtu2TohyRGNRS8Mhbdg9wtvPxChHjrp/ACNBRm2IrifB0anKRAA==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PA1PR04MB11406.eurprd04.prod.outlook.com (2603:10a6:102:4f1::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.25; Fri, 17 Apr
- 2026 09:21:35 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%3]) with mapi id 15.20.9818.023; Fri, 17 Apr 2026
- 09:21:35 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Hongxing Zhu <hongxing.zhu@nxp.com>, "abelvesa@kernel.org"
-	<abelvesa@kernel.org>, "mturquette@baylibre.com" <mturquette@baylibre.com>,
-	"sboyd@kernel.org" <sboyd@kernel.org>, Frank Li <frank.li@nxp.com>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com"
-	<festevam@gmail.com>
-CC: "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>, "imx@nxp.com"
-	<imx@nxp.com>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "kernel@pengutronix.de"
-	<kernel@pengutronix.de>
-Subject: RE: [PATCH v1] clk: imx95-blk-ctl: Fix REFCLK rise-fall mismatch on
- i.MX95
-Thread-Topic: [PATCH v1] clk: imx95-blk-ctl: Fix REFCLK rise-fall mismatch on
- i.MX95
-Thread-Index: AQHczkQAtZZGian1QUyioBwQdiK9xrXi+mLA
-Date: Fri, 17 Apr 2026 09:21:35 +0000
-Message-ID: <PAXPR04MB845979CEDF7426A07BCB6FA388202@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20260417082910.489995-1-hongxing.zhu@nxp.com>
-In-Reply-To: <20260417082910.489995-1-hongxing.zhu@nxp.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|PA1PR04MB11406:EE_
-x-ms-office365-filtering-correlation-id: 527e6a6e-c35a-46a0-d725-08de9c62b8f0
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|19092799006|38070700021|56012099003|22082099003|18002099003;
-x-microsoft-antispam-message-info: q/jwTXnZSDjtj5N9n73/mJIMuh1JVZjPLzRiF3HOMEIGOuzgD4ulPxZg0wd6ap6rzvdeYbY2B4NpHtKp1Kw8EUnWQKMUKCzbkal9zI1WMVh9HIGH+8UvmLGVIr05BkO69x/Skn5FOSWU1HnBgPe/QdGfaum1AgGO9cHITSTEv0SYeucn1Zvb6bqG646thxbscDdC10ANJpZ2BF/b6zjZdk1clcEz5njI0eT14+G5nMOPZ68MdAmtmDREJzvCsxLXMtOwvaXMhdJuipYGP3XS5WtiTGJt9uJWbgTqlDPsoQUz779zY5kbYdCAAENB8YKRt6Dke9FAOavDuc38O7r3dYLxPgwjNoWNJeQN6pG60wB2ePEi9igJV0WMffQAT1jhLne6TTmy37JTYYqEQST143kCf/OIhA8WVGHYridRqzcBgXwSoJNlLHBCYSpHPMhyoJcThOKfQ+6qXeqPIcxTqM07HaqDRG2OV76gY6YZKMe9khiKATBKvd36A/7yEAmtOjG7JUs6uAC6Qt9OXEUe8cnQoygkWYwasFJFd2aI7e3YW1/eWv/L3nLHWLnFMY2aVRrODzRjWHX01guoxOZgFSLCj4hXJbqxpG6QBmVKjxRvIdQvfacpfDE1eWpsIkTGAJfc481z1ygTUNgsMjBZo9qCSMfPeQbGfNW7wftulHZqwu7b6XYHsmEzqge5p4SjnDonbkh1ZFWDWfvGjk7XFiMKvwlLsilGcVnVe/dhq6AciXKsrbo6Wk4YSgJAArk2EHYQhyJdqphKSiydTEBOiIsh7CrgI6dli+BoYPcJYDo=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(19092799006)(38070700021)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Bsfbet5vOkuwMOI4Wntc6z01xI1O0ZMiJOn6dp5OmkTyteSZxMLtVunsdcNO?=
- =?us-ascii?Q?XWIPkNZkboaDP3hCv6dA/q91EWzvoqr1fLDsKN5ehuZFUqD13fkmGkP9scV0?=
- =?us-ascii?Q?ltfw6PeOZNQvv+9Nw4y+GzZUT/VCAhz+g+kG8VzzOecTJAFtjOMC8rUAez8a?=
- =?us-ascii?Q?RgRRtpESez7b2nkcCiUZCEKh0uMk67pTQMwJG2dBEhxg2gF5mX9DM/IGuEfO?=
- =?us-ascii?Q?/uXg5mFq7efGMsrkQsNFo6jRyTmhNJwzzGqWMqiQ/Z+zqND4VPsJoIMwyhxa?=
- =?us-ascii?Q?ffZ5T0ApBMaYvQ4cMh4n6DGcYxXu/sfNgfY++2FKOYb8BBxE3MdcsNW8KBIe?=
- =?us-ascii?Q?8tuEk1BZ000/DDwZ+wSPselrAAfnoQsq+Z9ZPGYXhpJR3Du31UdzLA7oAkxA?=
- =?us-ascii?Q?K+/3EmF3wRyYucLj/5rhr8MjSGNfbUebc0NhDuxwoI9ebtAljIiSNDd1kBU/?=
- =?us-ascii?Q?UAiDiQaLZNzZnXj1/xAk9Hd9PM6kU68HS69t1OBTC0blOokDkLocRQhX8z5g?=
- =?us-ascii?Q?dGU5/NZyzaazwgRyeCztNla4dlnMu0H9L4Dkvs7xipiqjLbt7tXMg77tXhEt?=
- =?us-ascii?Q?UrKDHJAfTksDYlFAtwAP/AqpdRZO/eu6M84IcXPr2UFLhZ6MpoatTnBxmwfF?=
- =?us-ascii?Q?wKswfpQJwFpmQo03MvBJRopDYEQsK5DkytJGBnHf37uv5sEobsTh9bJcVbSI?=
- =?us-ascii?Q?yL5T8orwez/WmXmAY1PVjZnj5c8aEssKwKRBhdctnQI+yAh61/2VGkDPxz4Z?=
- =?us-ascii?Q?07gVHJEkbXt7wvD2XofrBsMmvRXhE0GmxgeuHVFWBe5Vyt8lAEyzlZ8/Wr5Z?=
- =?us-ascii?Q?MQFA8l+zmhGXY2QMMfZZDv6aP+CcB8BrIaBuqVXlAWUbcZLlfM20G824CM1S?=
- =?us-ascii?Q?y34y3iPr+Wl1sdd/cFhw0/wEvzub1e4oItOAzOUAvIlPEC8wJFjBT7G0cjMs?=
- =?us-ascii?Q?KL4DIVOF8v3oAyUAQru+TCesjICM7MFBmZw24ytIE0Urp3wGNIkhHjSSspDB?=
- =?us-ascii?Q?Ld1+SVUltAaaBuNxfX+oW18IJ+9wTYkfujY03SZ6iSLV0kHROISaoUOpmQWf?=
- =?us-ascii?Q?kIDREgYelsAH3GfTzBBhs8UyjX8nQs219PlQ35vjpjfzIOFgc6XFPOGJICMP?=
- =?us-ascii?Q?ZnbK57truvdJSE7bSsHNdwS0ySKIse5fXQt2zlLKuL7DDvivmFwNK++kj+4k?=
- =?us-ascii?Q?41PJuoO36o8526+mHKEUR4TaywwNTKWxTM2UWvUrWGHtKJ8cyeVWcSWT9OLP?=
- =?us-ascii?Q?1opqWEKfX65Y7aRu4SbwTVDNxLbUqn0TWxKl/6mAiPfhrVO90RupfIRf+Lsx?=
- =?us-ascii?Q?v4cwdFN6oBV2n7wlpLzD69Lhv/x1xIiqmYaIjnMTjk17y5tz/FOw2b7+yeqw?=
- =?us-ascii?Q?P0QaQz+0A1tUCEZfjgWhYqpfTZg/S78rh+daMexSCCBOGrX+4HUjboqVW9gS?=
- =?us-ascii?Q?xR51RF7K9mtWc54ic1j+unJXXQSaa6UXaX8btJ6TgYDDxwbW4kGFI/xt3PPs?=
- =?us-ascii?Q?YRyge5FMVx1oFIQph/ityhCkxn8C2rWRY5pjCQ1FAyUUmud7PNZiyGhz4NmP?=
- =?us-ascii?Q?lKlNk4ef5B7mJAD25BccSdljkxyvLdjhGhy+PRlCODL9fYxnIAJkDpGwJQB7?=
- =?us-ascii?Q?H/TRzIVm1tw49bBimdSeJ1sSA9DNc/Gx0nWfHh5U1u7pimejtz7QXW54TLLJ?=
- =?us-ascii?Q?VWFWGdg5ipRZU4YqSN5uDSkYflkiR/vqYmJHDUuhnTGtsFPm?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1wDfRp-00000003ka6-0BUL;
+	Fri, 17 Apr 2026 09:25:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1776417910;
+	bh=pIkr2lvmVoiMJarejipGAoVFydRK9sYCHg56kEfAWiI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=JtY6+cDqZPSv0LM5EWwQuGVclhFlfcSBVDKECLaI3lxcPunZvR1QS9fxoA5xJVe5C
+	 w7C01O6KiBGWszgM3gfgv8c7EGZWFjyaqwCn7D6VOfPK39RjT7A4jMg+6izzWK8HSY
+	 8bj1IRKybURM++38vS4XsUUzfwv7g2W6pSY6wvC5Woj0ap3ccSbbH5d2g1GwPccUna
+	 8TwmYjx9mpFO+LT0djemEiF8Khx19Oj3x6dYHyAC+bBY/GSzs7JZo6eS1Ia8Hj67mx
+	 /V8AWbxUvqrupDhdB2ty4SNHq9RV074V5yvQFx4WRtx2+fWaCh88sFzeLmHwQvX4Hw
+	 MavJSytWW3g4w==
+Received: from localhost (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5257217E137E;
+	Fri, 17 Apr 2026 11:25:10 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Fri, 17 Apr 2026 12:24:37 +0300
+Subject: [PATCH 03/40] arm64: dts: rockchip: Add frl-enable-gpios to
+ rk3576-evb1-v10
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 527e6a6e-c35a-46a0-d725-08de9c62b8f0
-X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Apr 2026 09:21:35.6687
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: aqL0BhN5HG+7ID8J9iePLsUPw+KK8bjUZmnE/Tf7SkHV9shuNoohryEt8CeGxaAqYrK9GTebjGJhc5WKDhNRjA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11406
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260417-dts-rk-frl-enable-gpios-v1-3-a19c0dd8c9f6@collabora.com>
+References: <20260417-dts-rk-frl-enable-gpios-v1-0-a19c0dd8c9f6@collabora.com>
+In-Reply-To: <20260417-dts-rk-frl-enable-gpios-v1-0-a19c0dd8c9f6@collabora.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_022143_686689_EE88B162 
-X-CRM114-Status: GOOD (  19.25  )
+X-CRM114-CacheID: sfid-20260417_022513_226833_C6D876B5 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,73 +77,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Richard,
+The board exposes the GPIO2_B0 line to control the voltage bias on the
+HDMI data lines.  It must be asserted when operating in HDMI 2.1 FRL
+mode and deasserted for HDMI 1.4/2.0 TMDS mode.
 
-> Subject: [PATCH v1] clk: imx95-blk-ctl: Fix REFCLK rise-fall mismatch on
-> i.MX95
->=20
-> When the internal PLL is used as the PCIe reference clock source on
-> i.MX95, a REFCLK rise-fall time mismatch is observed during PCIe Gen1
-> compliance testing with the Lfast IO analyzer.
->=20
-> Fix this issue by configuring the IREF_TX field to 0xF (15), which adjust=
-s
-> the transmitter current reference to meet the PCIe specification timing
-> requirements.
+Wire up the HDMI node to the GPIO line using the frl-enable-gpios
+property to allow adjusting the bias when transitioning between TMDS and
+FRL operating modes.
 
-BLK CTRL in HSIOMIX should be save/restore for the settings you configured
-in probe phase.
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-Regards
-Peng.
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
+index fb0dd1bc5148..b112432528ed 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
+@@ -370,6 +370,8 @@ &gpu {
+ };
+ 
+ &hdmi {
++	pinctrl-0 = <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda &hdmi_frl_en>;
++	frl-enable-gpios = <&gpio2 RK_PB0 GPIO_ACTIVE_LOW>;
+ 	status = "okay";
+ };
+ 
+@@ -895,6 +897,12 @@ host_wake_bt: host-wake-bt {
+ 		};
+ 	};
+ 
++	hdmi {
++		hdmi_frl_en: hdmi-frl-en {
++			rockchip,pins = <2 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	hym8563 {
+ 		rtc_int: rtc-int {
+ 			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
 
->=20
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> ---
->  drivers/clk/imx/clk-imx95-blk-ctl.c | 7 +++++++
->  1 file changed, 7 insertions(+)
->=20
-> diff --git a/drivers/clk/imx/clk-imx95-blk-ctl.c b/drivers/clk/imx/clk-
-> imx95-blk-ctl.c
-> index 1f9259f45607..bc6957299cec 100644
-> --- a/drivers/clk/imx/clk-imx95-blk-ctl.c
-> +++ b/drivers/clk/imx/clk-imx95-blk-ctl.c
-> @@ -44,6 +44,8 @@ struct imx95_blk_ctl_clk_dev_data {
->  	const char * const *parent_names;
->  	u32 num_parents;
->  	u32 reg;
-> +	u32 reg_init_msk;
-> +	u32 reg_init_val;
->  	u32 bit_idx;
->  	u32 bit_width;
->  	u32 clk_type;
-> @@ -289,6 +291,8 @@ static const struct imx95_blk_ctl_clk_dev_data
-> hsio_blk_ctl_clk_dev_data[] =3D {
->  		.parent_names =3D (const char *[]){ "func_out_en", },
->  		.num_parents =3D 1,
->  		.reg =3D 0,
-> +		.reg_init_msk =3D GENMASK(10, 7),
-> +		.reg_init_val =3D GENMASK(10, 7),
->  		.bit_idx =3D 6,
->  		.bit_width =3D 1,
->  		.type =3D CLK_GATE,
-> @@ -410,6 +414,9 @@ static int imx95_bc_probe(struct
-> platform_device *pdev)
->  		const struct imx95_blk_ctl_clk_dev_data *data =3D &bc-
-> >pdata->clk_dev_data[i];
->  		void __iomem *reg =3D base + data->reg;
->=20
-> +		if (data->reg_init_msk)
-> +			writel((readl(reg) & ~data->reg_init_msk) |
-> data->reg_init_val,
-> +reg);
-> +
->  		if (data->type =3D=3D CLK_MUX) {
->  			hws[i] =3D clk_hw_register_mux(dev, data-
-> >name, data->parent_names,
->  						     data-
-> >num_parents, data->flags, reg,
-> --
-> 2.37.1
+-- 
+2.53.0
 
 
