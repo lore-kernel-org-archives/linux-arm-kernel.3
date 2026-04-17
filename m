@@ -4,64 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60AC4F436AD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 14:34:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28ACDF436B0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 14:38:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=B40Tc7dJH4rg3YoXGiiHW5iAcwEOUPSqipLIG3uL0Bs=; b=OEt/IzX9Q7iGzF1l3SOXpvL+Oh
-	DAZKT9OlFWWFBhp0r2vonY+ilXDeMAT5TLq8QbZ08xDcMW4teTreNejmabnERGzL8d/UWqpinh65Q
-	hCBXCk06YI0D5NX7twHat+86QrxONwQqmGtwxP7VcHLqjADNqqfX6qME4bruesuqg+mxxZ/WKAkDL
-	ppRjcZgj8bpLJ2ggOUR1lSzcerXWAwvig/I9u/8wDlMj7eeyp1J0on4eKFD9uQnzQ1V2qip7ECwu8
-	lcQCxaFhFJUpk7gpjBAz/5+ByuDM9K/NuPnakhnTg7kYcxcvtPA9phS5rOAcN2pfAijyUiVeE5WSa
-	u9D7c2Sw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hg2ltvWZcWrq0NSxfyQlEt416hVNkQB2bTM+mhiTYlE=; b=vPdhBC74v5x1QHkd5BqU8pILcK
+	7i4FLQfQUBQNx9r3bhxG00+8xo3lGTj1eLGlls4yV+jgk1O2/HI4QBymlKUKmT9eMNc/MFsfMIKNT
+	/jPhHTcqT9HNWx+IHazrev1KzTG0KZdH3PAyF6/Oe+kt2XuOOl5SHjhHC+IuNl2DR6P1V+7uJrXeK
+	1E1bc+/MfoxtmUF76cjDmWqcMXZsasSb1TnbaF8xRJO8TD1nb9YGtCEDjvEgV5sfGoCd1s/uOIl4D
+	ZL9G71yc6ho6UA3Obl09qfDEN74KxaiA6G9CgDar3Cv254t9eA/d7RAipuPqF7Cy8oF882/Fz4vOK
+	0DUlwmgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDkGx-000000048nB-3wq6;
-	Fri, 17 Apr 2026 14:34:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wDkKh-0000000492X-2btf;
+	Fri, 17 Apr 2026 14:38:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDkGw-000000048n3-28cQ
+	id 1wDkKe-0000000492A-2zuM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 14:34:18 +0000
+	Fri, 17 Apr 2026 14:38:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4A3266013A;
-	Fri, 17 Apr 2026 14:34:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF39FC19425;
-	Fri, 17 Apr 2026 14:34:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 74E3640BFF;
+	Fri, 17 Apr 2026 14:38:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5B2EC19425;
+	Fri, 17 Apr 2026 14:38:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776436457;
-	bh=6lFrV0Kxuw3w+OJK4u6i+vEPG0MGSRXRYCqYEaZOWXw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=oYyIABYQePjYduahiiY3ku9Rbi3nROJIHbEQFvWciGFArMwJUrzs1dDcpk0vMwTyO
-	 c/A/AEdkSFJBj24NC+vWvWsc2f93i0EVIwyKuShqf2A7cG8/3FySxctWfqvJ+R3Oqn
-	 Ge+M0c5vO934VjQM57jfB/+H72ACagGdWOarOdTYXS3oCrZxrL+jdi4NRIr1LsoYmw
-	 P4+x7yM13ImVlzzDH/WOWZ02HOC8hawaWA6wrWk4hqV5M6kcOesVvmgQJZ73jzOz6P
-	 APsnt13y37N6yj2b4lnftDkh1ZzF0i+Yy/cL1FYikU3jh9fjUEoapny0aP/fPN4NNC
-	 7YNb0gvQHnEzw==
-From: Puranjay Mohan <puranjay@kernel.org>
-To: bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Puranjay Mohan <puranjay@kernel.org>,
-	Jonas Rebmann <jre@pengutronix.de>,
-	"Alexei Starovoitov" <ast@kernel.org>,
-	"Daniel Borkmann" <daniel@iogearbox.net>,
-	"Andrii Nakryiko" <andrii@kernel.org>,
-	"Martin KaFai Lau" <martin.lau@linux.dev>,
-	"Eduard Zingerman" <eddyz87@gmail.com>,
-	"Kumar Kartikeya Dwivedi" <memxor@gmail.com>,
-	"Song Liu" <song@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	kernel@pengutronix.de
-Subject: [PATCH bpf-next v2] arm32, bpf: Reject BPF-to-BPF calls and callbacks in the JIT
-Date: Fri, 17 Apr 2026 07:33:52 -0700
-Message-ID: <20260417143353.838911-1-puranjay@kernel.org>
-X-Mailer: git-send-email 2.52.0
+	s=k20201202; t=1776436687;
+	bh=71fI7RYCKU2/+pXbICCBe4Ry1z/5h9g3tXZ1OoB1U/0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qhWujADdKcxaZq684kVHsaixqi43r/+f8Y1XaTTTq0IwyZ1W8nBK3UeRlRM0uD1uJ
+	 fqC8lfgLKFwv9mL88pW9wUWubXkwgxoNc1nUFE/KuuZ5kkHdvYSaj2uMPk4v/6SBBv
+	 4txQqVgAu3KAqmGjtbj4R+96nromnLjZEMjnjXYM9K0FpYVHZdU0pwOKAisqNhm3qz
+	 jyTOHmjPpWKs0hUO4y4T+SptGdjS8GWMR8i9xS4ylx/9AK/Ac49ghXdwZJUcv0rpqj
+	 mOwZ9DEkTWYl9yCe9TZTgKMZD3LgrupjSR9NB52nHpKDt7Fz3l3IUzRH7rohQsAtni
+	 NO+5o5ZDjWo7w==
+Message-ID: <00b24db8-0063-48d6-8bc4-e8b670d8f0d5@kernel.org>
+Date: Fri, 17 Apr 2026 16:37:58 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 01/30] mm: Introduce kpkeys
+To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-hardening@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ Andy Lutomirski <luto@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Ira Weiny <ira.weiny@intel.com>, Jann Horn <jannh@google.com>,
+ Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
+ Kees Cook <kees@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Marc Zyngier <maz@kernel.org>,
+ Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>,
+ Maxwell Bland <mbland@motorola.com>, "Mike Rapoport (IBM)"
+ <rppt@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Pierre Langlois <pierre.langlois@arm.com>,
+ Quentin Perret <qperret@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ Yang Shi <yang@os.amperecomputing.com>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org
+References: <20260227175518.3728055-1-kevin.brodsky@arm.com>
+ <20260227175518.3728055-2-kevin.brodsky@arm.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260227175518.3728055-2-kevin.brodsky@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260417_073808_798444_D5362F65 
+X-CRM114-Status: GOOD (  14.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,98 +133,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARM32 BPF JIT does not support BPF-to-BPF function calls
-(BPF_PSEUDO_CALL) or callbacks (BPF_PSEUDO_FUNC), but it does
-not reject them either.
+On 2/27/26 18:54, Kevin Brodsky wrote:
+> kpkeys is a simple framework to enable the use of protection keys
+> (pkeys) to harden the kernel itself. This patch introduces the basic
+> API in <linux/kpkeys.h>: a couple of functions to set and restore
+> the pkey register and macros to define guard objects.
+> 
+> kpkeys introduces a new concept on top of pkeys: the kpkeys level.
+> Each level is associated to a set of permissions for the pkeys
+> managed by the kpkeys framework. kpkeys_set_level(lvl) sets those
+> permissions according to lvl, and returns the original pkey
+> register, to be later restored by kpkeys_restore_pkey_reg(). To
+> start with, only KPKEYS_LVL_DEFAULT is available, which is meant
+> to grant RW access to KPKEYS_PKEY_DEFAULT (i.e. all memory since
+> this is the only available pkey for now).
+> 
+> Because each architecture implementing pkeys uses a different
+> representation for the pkey register, and may reserve certain pkeys
+> for specific uses, support for kpkeys must be explicitly indicated
+> by selecting ARCH_HAS_KPKEYS and defining the following functions in
+> <asm/kpkeys.h>, in addition to the macros provided in
+> <asm-generic/kpkeys.h>:
+> 
+> - arch_kpkeys_set_level()
+> - arch_kpkeys_restore_pkey_reg()
+> - arch_kpkeys_enabled()
 
-When a program with subprograms is loaded (e.g. libxdp's XDP
-dispatcher uses __noinline__ subprograms, or any program using
-callbacks like bpf_loop or bpf_for_each_map_elem), the verifier
-invokes bpf_jit_subprogs() which calls bpf_int_jit_compile()
-for each subprogram.
+Another thing: why not simply drop the "arch_" stuff from these helpers?
 
-For BPF_PSEUDO_CALL, since ARM32 does not reject it, the JIT
-silently emits code using the wrong address computation:
-
-    func = __bpf_call_base + imm
-
-where imm is a pc-relative subprogram offset, producing a bogus
-function pointer.
-
-For BPF_PSEUDO_FUNC, the ldimm64 handler ignores src_reg and
-loads the immediate as a normal 64-bit value without error.
-
-In both cases, build_body() reports success and a JIT image is
-allocated. ARM32 lacks the jit_data/extra_pass mechanism needed
-for the second JIT pass in bpf_jit_subprogs(). On the second
-pass, bpf_int_jit_compile() performs a full fresh compilation,
-allocating a new JIT binary and overwriting prog->bpf_func. The
-first allocation is never freed. bpf_jit_subprogs() then detects
-the function pointer changed and aborts with -ENOTSUPP, but the
-original JIT binary has already been leaked. Each program
-load/unload cycle leaks one JIT binary allocation, as reported
-by kmemleak:
-
-    unreferenced object 0xbf0a1000 (size 4096):
-      backtrace:
-        bpf_jit_binary_alloc+0x64/0xfc
-        bpf_int_jit_compile+0x14c/0x348
-        bpf_jit_subprogs+0x4fc/0xa60
-
-Fix this by rejecting both BPF_PSEUDO_CALL in the BPF_CALL
-handler and BPF_PSEUDO_FUNC in the BPF_LD_IMM64 handler, falling
-through to the existing 'notyet' path. This causes build_body()
-to fail before any JIT binary is allocated, so
-bpf_int_jit_compile() returns the original program unjitted.
-bpf_jit_subprogs() then sees !prog->jited and cleanly falls
-back to the interpreter with no leak.
-
-Acked-by: Daniel Borkmann <daniel@iogearbox.net>
-Fixes: 1c2a088a6626 ("bpf: x64: add JIT support for multi-function programs")
-Reported-by: Jonas Rebmann <jre@pengutronix.de>
-Closes: https://lore.kernel.org/bpf/b63e9174-7a3d-4e22-8294-16df07a4af89@pengutronix.de
-Tested-by: Jonas Rebmann <jre@pengutronix.de>
-Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
----
-
-Changelog:
-v1: https://lore.kernel.org/all/20260417103004.3552500-1-puranjay@kernel.org/
-Changes in v2:
-- Add Acked-by: Daniel Borkmann <daniel@iogearbox.net>
-- Reject BPF_PSEUDO_FUNC in the BPF_LD | BPF_IMM | BPF_DW handler
-- Move code below declarations
-
----
- arch/arm/net/bpf_jit_32.c | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/arch/arm/net/bpf_jit_32.c b/arch/arm/net/bpf_jit_32.c
-index deeb8f292454..a900aa973885 100644
---- a/arch/arm/net/bpf_jit_32.c
-+++ b/arch/arm/net/bpf_jit_32.c
-@@ -1852,6 +1852,9 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx)
- 	{
- 		u64 val = (u32)imm | (u64)insn[1].imm << 32;
- 
-+		if (insn->src_reg == BPF_PSEUDO_FUNC)
-+			goto notyet;
-+
- 		emit_a32_mov_i64(dst, val, ctx);
- 
- 		return 1;
-@@ -2055,6 +2058,9 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx)
- 		const s8 *r5 = bpf2a32[BPF_REG_5];
- 		const u32 func = (u32)__bpf_call_base + (u32)imm;
- 
-+		if (insn->src_reg == BPF_PSEUDO_CALL)
-+			goto notyet;
-+
- 		emit_a32_mov_r64(true, r0, r1, ctx);
- 		emit_a32_mov_r64(true, r1, r2, ctx);
- 		emit_push_r64(r5, ctx);
-
-base-commit: 1f5ffc672165ff851063a5fd044b727ab2517ae3
 -- 
-2.52.0
+Cheers,
 
+David
 
