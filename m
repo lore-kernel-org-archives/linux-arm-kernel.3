@@ -4,104 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E3C0F436A2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 13:31:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAC48F436AC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 14:08:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yP43LVUbNS6gGNJtlMHBKpP7X3d/8IsFX56UHBlJ47E=; b=gym4oY/Yo8VxPgvED5I4xLpi3L
-	+MV+sXOAc4e7x9+t6WnlE5Rn6cRhM4P3NfBxUVvq1dJbO05t3qnpe96V36Mho7poia5srJzmR3376
-	4ysEHUq1ZJ35H+JOaf7SDTIOXkJ6zccxGNi5dn0xLndGb2XfywzpqGyFy/0IVnKX/1BPSqdI87Tb0
-	8uinQJJnicYhOHYwgpK5iLLuOYWlkDI0s5n2PxvEHIrF7zxgOHX9xf9A6EDrF64nYHRurX+YPUsy9
-	KHNO7ArIdXrscWvV+QFuWtqMa1SvgOtGOMTGic2ga9UNotF1q2YhA31PXGn1D7dpQMDpwF950AhUX
-	4M234svQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TlNuUkMMEWzUg5xgSeUvQAPo/uuSpi+KlN/YiH0P+dU=; b=MBsHF/ZALtLoiBAdMFiy/0meV3
+	uldCckAjkhwFUQtFVgw/JuVd13kt9I8D9SfiyAqzqXHGqo0wfzeG3aSs3T1Lm8yY7L1gFV/GHGBLC
+	Zg0q3l+9ZvQnkSxJQMLTtrsBTBosYO1oDH2MSZaQZl2XRlmHpZUb+Lu6phzA78aVEFbPbGJvTfhdV
+	ylve9Xi6Dln2TYHGfMuH7v7XjvSKb6jhtcP+v1z7nZTB5Bx9dkBVY7DBgHUbV5QehXW956l+XgnSj
+	tGA2AmzSiARtiI2WeAJXQpVzr/scQqpfH3zYFrS9394JCOG2BvsZahqbc56Xe0wnTt3HRprzkwh2D
+	xXy0fAfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDjHh-000000045TN-3jvf;
-	Fri, 17 Apr 2026 13:31:01 +0000
-Received: from mail-yx1-xb12f.google.com ([2607:f8b0:4864:20::b12f])
+	id 1wDjrX-000000046nH-404h;
+	Fri, 17 Apr 2026 14:08:03 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDjHe-000000045SQ-2Sg4
+	id 1wDjrV-000000046mZ-0FoB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 13:31:00 +0000
-Received: by mail-yx1-xb12f.google.com with SMTP id 956f58d0204a3-651cfaa21e6so696474d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 06:30:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1776432657; x=1777037457; darn=lists.infradead.org;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=yP43LVUbNS6gGNJtlMHBKpP7X3d/8IsFX56UHBlJ47E=;
-        b=rTIC4xNCS+DVijxew4smn4kfLuLAyEWN3ok6my1jaAWNBjbnIjNoALxXTbRApzGF97
-         lk1yoj7d6w/uMhptLPonTP5FcQjkZpqJKS7Wiy+KBz23qRvs5le4Zr5yH78gfNLit5sT
-         RKijCa5zeCT0gZrIBCxmk2mOuKp4+f7boB0E6uuZTXa/ZHHVc2SCGt7oVYMwCIsqF00A
-         QpIZ0v92y8M5mpy2g7mRUXxcNHL3CTdb8MPkSqLswVrze7MZbaqhh/7WMMnrn4U17ROS
-         fJrU9azVzx6T9gmxZJI6xLrGswiYdY4tstAKExOvQRWlUEZOxpyK0GsvAFnYBR+SG2Dv
-         6icQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776432657; x=1777037457;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=yP43LVUbNS6gGNJtlMHBKpP7X3d/8IsFX56UHBlJ47E=;
-        b=MZKSX7bxebAE5d/lC+l/ZYijHKGz+mVaUHjPHeiiCecl/2fyYHtm7YWiL38up/Y38U
-         gnExhY9I6GMlRusK2McWfgdOiweDL0CLrYIeN12PTDjANjESPyzcyi5l2eAfaamYBpVE
-         jrAwjOVxM2dRDycAqV2S10/+HT1YkUEiccfZ9VUWcVKfrIy83ooXBAXtE8PeILF+lPq9
-         E/5fhY3BtKld/f4jzAlroV4jrt3hAiYQBqnBNbBoxCDn8q++DqqyxPK4XagZdD+/wQ/G
-         2LwhZ76YskEaWDxCgepws2MijIJcnHD2ukI3JpW7ex2wkH9JMOMYO8yE6xbYyWJ7yjEX
-         5rWQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9n86M8N7OkKAw5Ltbs50T2PkjEeCqLEg71Zz+mC0Z+D+N2OkyXb59o2aMozLidShetEaiCkFLXsLNQmlGbwACb@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCFZu3kyJjHvXUqwJcOQAg9bpf7PHL98Id9wevXWv+/mDy/5IU
-	mgDVfJw1IK8SOk27i3e82Bd88yZBlquX7qQxb6aVJh6p0v1gnEJ7H0CiMmVm29eWnAM=
-X-Gm-Gg: AeBDieu5DM4v3cip5i07HKqqq3PYbAKtV93Z6bhpRCYCeKzYAMRecDab/wMwoYmUlmK
-	nV18ovZSS/YybVrkD5kAOvR+Ty3Rbu1K+Sb4x9Y2o3+8ITNUBXLBKl+aSPs8ur+21nDfOvptLE9
-	3cHOYEH24lATYaNQGkXQKdXxVAgZr8lUI71SnUBmsfYWD877hAplAe2hVu8FQaqQL+JRWOh7JC6
-	8+vD3lok65uT5beuoz6oWkRvQf/DYGTBEHHwQOrRIxdZYqvOmtDJDB5Bj8zh+PxBSQn17e1nEMs
-	B4UwN7UBoSqtjxME8oGeVAve4lNFtgElMxSSXW2QepeawkW0x44DgF1EBB0yvL0L+4jFI8+Fow1
-	F454TEP/4C7gWA1G8vXXzqGh2Zko9+iC9GxQq0ScHsF1AcOHE2qhmpt1BtOzRc7hZnEZCJlKwyA
-	3Bvl/dtU+xHG41e8g1OZoux/oTgGKfE6lToCF/gmc=
-X-Received: by 2002:a05:690e:4850:b0:64c:ec30:9dd8 with SMTP id 956f58d0204a3-65311c8b52fmr1160833d50.47.1776432656675;
-        Fri, 17 Apr 2026 06:30:56 -0700 (PDT)
-Received: from ?IPv6:2606:6d00:15:e06b::c41? ([2606:6d00:15:e06b::c41])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8b02ac77546sm10334746d6.17.2026.04.17.06.30.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Apr 2026 06:30:55 -0700 (PDT)
-Message-ID: <5b4cf8f7951cc2766901b09f2e886ef73d48671b.camel@ndufresne.ca>
-Subject: Re: [PATCH v7 0/3] Mediatek MT8189 JPEG support
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Jianhua Lin <jianhua.lin@mediatek.com>, mchehab@kernel.org,
- robh@kernel.org, 	krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, 	angelogioacchino.delregno@collabora.com
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com,
- sirius.wang@mediatek.com, 	vince-wl.liu@mediatek.com, jh.hsu@mediatek.com
-Date: Fri, 17 Apr 2026 09:30:53 -0400
-In-Reply-To: <20260417100519.1043-1-jianhua.lin@mediatek.com>
-References: <20260417100519.1043-1-jianhua.lin@mediatek.com>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-Ge/8Q+z1/L/Ug2FhDTGi"
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	Fri, 17 Apr 2026 14:08:02 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63GNTMiG1733620;
+	Fri, 17 Apr 2026 14:07:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=TlNuUk
+	MMEWzUg5xgSeUvQAPo/uuSpi+KlN/YiH0P+dU=; b=alGSQWaJeN8chMi4PAqZat
+	nN7h7iKO3g/K4j10eDx0mRVbsDvwFkVosmSDgV+v8kFgvCru1YXmuOyZyyukKVj9
+	Rngl+oJIzujpKhzj5aE7CBr4H6Qpog+PWqQjtKkIYv5UISKxe7QGbZZTUrRYInZj
+	2684JLtW/3yYqV8hMxQ95+ndYvnlqL4ssbvxvCsz+/oSvEL2MymC/Px/M+eTw6Va
+	pRkFmnZQiPKdQYhFxiwBArStAv0c+9uNhRAxOo4Ch1Sr5Jns10AAchM9zVYiSNRB
+	VBPaLt2vp2uWnMjpSRx5aMEBiaqDTzLwTHQ8+8qZIV4tIunD9PiCGVagpAQcTeeg
+	==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dh89mhngs-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 17 Apr 2026 14:07:43 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 63HDSsiZ004180;
+	Fri, 17 Apr 2026 14:07:43 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dg24kqdrj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 17 Apr 2026 14:07:42 +0000
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63HE7e1c48824612
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 17 Apr 2026 14:07:41 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id E31CD20049;
+	Fri, 17 Apr 2026 14:07:40 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A1D1720040;
+	Fri, 17 Apr 2026 14:07:39 +0000 (GMT)
+Received: from [9.111.133.81] (unknown [9.111.133.81])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 17 Apr 2026 14:07:39 +0000 (GMT)
+Message-ID: <8038ee8e-7ae1-4e78-bc9e-b4be3c45b9fe@linux.ibm.com>
+Date: Fri, 17 Apr 2026 16:07:37 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 6/8] arm64/module, sframe: Add sframe support for
+ modules.
+To: Dylan Hatch <dylanbhatch@google.com>,
+        Roman Gushchin <roman.gushchin@linux.dev>,
+        Weinan Liu <wnliu@google.com>, Will Deacon <will@kernel.org>,
+        Josh Poimboeuf <jpoimboe@kernel.org>,
+        Indu Bhagat <indu.bhagat@oracle.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Steven Rostedt <rostedt@goodmis.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Jiri Kosina <jikos@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+        Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+        Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>,
+        joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org,
+        linux-kernel@vger.kernel.org, live-patching@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org
+References: <20260406185000.1378082-1-dylanbhatch@google.com>
+ <20260406185000.1378082-7-dylanbhatch@google.com>
+Content-Language: en-US
+From: Jens Remus <jremus@linux.ibm.com>
+Organization: IBM Deutschland Research & Development GmbH
+In-Reply-To: <20260406185000.1378082-7-dylanbhatch@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=I/dVgtgg c=1 sm=1 tr=0 ts=69e23eb0 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8
+ a=1XWaLZrsAAAA:8 a=Zg_fgM-7fzLk7_7bOdYA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: GbpJRiYixfWQ4y6ZTEhjhUUyzJYrr6MQ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE3MDEzOSBTYWx0ZWRfX1yf790PESF22
+ Rk4dB9PWxBX1aYnZNMA6AbEQ06fzvYXrD+K5Tb/Jy5LDj6Sr3qkqzFm6iIqe0oowI5Qf+pIIaeB
+ rqb6M5b79YL61Mv8paZZ0Mu9qFpTla0aujYW1xHxHjTfbBda8bvzXKRD9rVg5Hcz71P+a7LixUN
+ jZZAEqilRtxirTWzRKk0Nk5RQp4ahFbYBxVcRS61q6kpdtmxHfV8rza03SQ0wz/qW7bWkxwEckk
+ PvQeLsFLrKOhZvHREgVaadDZT7EVwSSSedc0zpheH1YQJtANAfNNPXjbwi4HBiwl21pLI6VUo9I
+ aWsJ+sKoeCcARJlJDH+yJypjssqXptoDKx/SsQnLD1juQU058jBICxAp2IcwZPLFKtFVV2ubcoJ
+ tLc7ZCTqMOUemxnyOtjenHqQSVWRY+d6xsh1gKd7EMHbPJ7UvGMFE1BYpaXvK9TWs9uEE/n92lS
+ DP2gqh8aLM3Cj1yYOhQ==
+X-Proofpoint-ORIG-GUID: lPa8A0_fWUVbig-FNGkSf7Bd5o1dLrF_
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-17_01,2026-04-17_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 bulkscore=0 clxscore=1015 adultscore=0 lowpriorityscore=0
+ suspectscore=0 impostorscore=0 phishscore=0 spamscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604170139
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_063058_783991_5A694689 
-X-CRM114-Status: GOOD (  15.92  )
+X-CRM114-CacheID: sfid-20260417_070801_223407_6DFA8607 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,130 +135,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 4/6/2026 8:49 PM, Dylan Hatch wrote:
+> Add sframe table to mod_arch_specific and support sframe PC lookups when
+> an .sframe section can be found on incoming modules.
+> 
+> Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
+> Signed-off-by: Weinan Liu <wnliu@google.com>
 
---=-Ge/8Q+z1/L/Ug2FhDTGi
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Reviewed-by: Jens Remus <jremus@linux.ibm.com>
 
-Hi,
+> ---
+>  arch/arm64/include/asm/module.h |  6 +++++
+>  arch/arm64/kernel/module.c      |  8 +++++++
+>  include/linux/sframe.h          |  2 ++
+>  kernel/unwind/sframe.c          | 39 +++++++++++++++++++++++++++++++--
+>  4 files changed, 53 insertions(+), 2 deletions(-)
+Regards,
+Jens
+-- 
+Jens Remus
+Linux on Z Development (D3303)
+jremus@de.ibm.com / jremus@linux.ibm.com
 
-Le vendredi 17 avril 2026 =C3=A0 18:05 +0800, Jianhua Lin a =C3=A9crit=C2=
-=A0:
-> This series is based on tag: next-20260410, linux-next/master
+IBM Deutschland Research & Development GmbH; Vorsitzender des Aufsichtsrats: Wolfgang Wendt; Geschäftsführung: David Faller; Sitz der Gesellschaft: Ehningen; Registergericht: Amtsgericht Stuttgart, HRB 243294
+IBM Data Privacy Statement: https://www.ibm.com/privacy/
 
-What dependencies justify not submitting based on media-committers/next as =
-usual
-? Its fine to say you tested against linux-next of course, and if its only
-working there, its really nice to explain why.
-
-Nicolas
-
->=20
-> Changes compared with v6:
-> - Patches 1/3 (dt-bindings: decoder):
-> =C2=A0 update the existing `allOf` condition for mediatek,mt8189-jpgdec t=
-o
-> =C2=A0 make the 'mediatek,larb' property strictly required for MT8189 SoC=
-.
-> - Patches 2/3 (dt-bindings: encoder):
-> =C2=A0 Add an `allOf` condition to enforce that the `mediatek,larb` prope=
-rty
-> =C2=A0 is strictly required when the compatible string contains
-> =C2=A0 mediatek,mt8189-jpgenc.
->=20
-> Changes compared with v5:
-> - Patches 1/3 (dt-bindings: decoder):
-> =C2=A0 - Drop top-level minItems/maxItems for clock-names per Krzysztof's
-> =C2=A0=C2=A0=C2=A0 review.
-> =C2=A0 - Refine allOf block to strictly enforce clock constraints.
->=20
-> Changes compared with v4:
-> - Refines the device tree bindings for JPEG decoder and encoder.
-> =C2=A0 - Patches 1/3 (dt-bindings: decoder):
-> =C2=A0=C2=A0=C2=A0 Moved the standalone compatible string mediatek,mt8189=
--jpgdec
-> =C2=A0=C2=A0=C2=A0 into the first oneOf entry along with mt2701 and mt817=
-3, as
-> =C2=A0=C2=A0=C2=A0 suggested by Rob Herring. This correctly groups all in=
-dependent
-> =C2=A0=C2=A0=C2=A0 ICs and removes the redundant items wrapper.
-> =C2=A0 - Patches 2/3 (dt-bindings: encoder):
-> =C2=A0=C2=A0=C2=A0 Applied the same logic suggested by Rob Herring to the=
- encoder
-> =C2=A0=C2=A0=C2=A0 binding. Restructured the compatible property to clear=
-ly
-> =C2=A0=C2=A0=C2=A0 distinguish between the standalone IC (mediatek,mt8189=
--jpgenc)
-> =C2=A0=C2=A0=C2=A0 and the ICs that must fallback to mediatek,mtk-jpgenc.
->=20
-> Changes compared with v3:
-> - The v4 is resending the cover-letter, because the v3 cover-letter was
-> =C2=A0 not sent successfully.
->=20
-> Changes compared with v2:
-> - Dropped the dts patch (arm64: dts: mt8188: update JPEG encoder/decoder
-> =C2=A0 compatible) as it belongs to a different tree/series.
-> - Patches 1/3 (dt-bindings: decoder):
-> =C2=A0 - Changed the MT8189 compatible to be a standalone `const` instead=
- of
-> =C2=A0=C2=A0=C2=A0 an `enum`.
-> =C2=A0 - Added an `allOf` block with conditional checks to enforce the si=
-ngle
-> =C2=A0=C2=A0=C2=A0 clock ("jpgdec") requirement for MT8189, while preserv=
-ing the
-> =C2=A0=C2=A0=C2=A0 two-clock requirement for older SoCs.
-> =C2=A0 - Updated commit message to reflect the schema structure changes a=
-nd
-> =C2=A0=C2=A0=C2=A0 hardware differences.
-> - Patches 2/3 (dt-bindings: encoder):
-> =C2=A0 - Changed the MT8189 compatible to be a standalone `const` instead=
- of
-> =C2=A0=C2=A0=C2=A0 an `enum` inside the `items` list, as it does not fall=
-back to
-> =C2=A0=C2=A0=C2=A0 "mediatek,mtk-jpgenc" due to 34-bit IOVA requirements.
-> =C2=A0 - Updated commit message to explain the standalone compatible desi=
-gn.
-> - Patches 3/3 (media: mediatek: jpeg):
-> =C2=A0 - Refined commit message for better clarity regarding 34-bit IOVA =
-and
-> =C2=A0=C2=A0=C2=A0 single clock configuration.
->=20
-> Changes compared with v1:
-> - Patches 1/4:
-> =C2=A0 - Updating commit message
-> - Patches 2/4, 3/4:=20
-> =C2=A0 - Updating commit message
-> =C2=A0 - Adjusted property descriptions acorrding to hardware requirement=
-s
-> =C2=A0 - Improved formatting for better readability and consistency
-> - Patches 4/4:
-> =C2=A0 - Updating commit message
->=20
-> Jianhua Lin (3):
-> =C2=A0 dt-bindings: media: mediatek-jpeg-decoder: add MT8189 compatible
-> =C2=A0=C2=A0=C2=A0 string
-> =C2=A0 dt-bindings: media: mediatek-jpeg-encoder: add MT8189 compatible
-> =C2=A0=C2=A0=C2=A0 string
-> =C2=A0 media: mediatek: jpeg: add compatible for MT8189 SoC
->=20
-> =C2=A0.../bindings/media/mediatek-jpeg-decoder.yaml | 48 +++++++++++++++-=
----
-> =C2=A0.../bindings/media/mediatek-jpeg-encoder.yaml | 29 ++++++++---
-> =C2=A0.../platform/mediatek/jpeg/mtk_jpeg_core.c=C2=A0=C2=A0=C2=A0 | 44 +=
-++++++++++++++++
-> =C2=A03 files changed, 107 insertions(+), 14 deletions(-)
-
---=-Ge/8Q+z1/L/Ug2FhDTGi
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaeI2DQAKCRDZQZRRKWBy
-9FAeAP9hNlBMJeDwrd4Q36uw0NTXVgqg2wu5S1txSqHzY2sxkgD/dIedXuzuO0AL
-3iduYnYusZ1QaDh8eK2hofWngg9wdAc=
-=4Pdh
------END PGP SIGNATURE-----
-
---=-Ge/8Q+z1/L/Ug2FhDTGi--
 
