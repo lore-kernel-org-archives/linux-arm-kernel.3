@@ -4,110 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E050F436B4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 15:09:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C5BAF436B2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 15:09:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hZ3/ORV9RtymMCSRua+nR0oD5sT1rbjTBBVsIvLeDmI=; b=KRPA+bY4cAE7pbNv/gO+eKKLla
-	wpeys7LQHc8r/eWqFjLdZfNXyzaJgoy+zFiFGCu0uOqvPpqRd5/5ysg7sXwlwhlp/WX4VMx54Hicr
-	9Z9DcI4ovUmfPVLT9YJZ83HVqLGBcy6AUEbUCRQ9tIyjdaW5tejIGvTtbV9bXWUBGOwlR2Lv8p/Hv
-	xQ7uJhDVoZl5I+/Z9n99nSGeWyHIohJlnw0tdWvRF8u81KzDo+YPsvnJOnJ5B/2LqIpmi4gGKOW1U
-	QZLnxF1leVVAB/pLCsgIHtQPbHG2kxow75Y/x6d0iRDC6kK+1Rs8sQPYGikAN/PjWToUXqqFVEK38
-	wvD4B3jQ==;
+	bh=wD8oNR3xCf7EhjHndl/KRVLr7LRyQ9LNjpsrj9J4Ttk=; b=LKX+9Qx2QYnx7Mu49RU3VIZBz+
+	h9Yfea2msJwGbIYK1JRoj41DvyzpqLxtVXNco1ypsSkaVkd5sb1jZBGOMcJc0wYK4qnH2okPqTxUd
+	NCir5NIo+TAXVxPxtCDpw5gZ7lI2k1Q4+8uQtilLYuGdzcFIlVN4LIkOzbNF7kNuly4/qL2aIzSK0
+	f/I2cTUIaro/ga2omryew8mUlsHj3gAJS98GisRXHC52YnMGgX8M5Mt/B6jbebaxD4tAKvDhkOHjD
+	MCSInnatyzWISD11btgozyFZ9kkHKyy8oLl2KXnpsx32a+OXZyw3G1xKCoFJ636Zw4lYaAedgb3eN
+	1qD/JepA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDkoM-00000004Apc-0Ued;
-	Fri, 17 Apr 2026 15:08:50 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wDkoa-00000004Auj-0WUY;
+	Fri, 17 Apr 2026 15:09:04 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDkoJ-00000004Anv-015H
+	id 1wDkoZ-00000004Au3-0R4a
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 17 Apr 2026 15:09:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=wD8oNR3xCf7EhjHndl/KRVLr7LRyQ9LNjpsrj9J4Ttk=; b=VRXtofX6K0ml0NMM5UGTx9TbnM
+	SgHCjKxJt8Fa9BZnpFgho3mVmuuBtJtLRVE0bnuv4Aat5KvF2xqNoG5fF3Mf5SKtvD16GIbszPomI
+	DhCEe9hZL7KH2TSpZnLAnH8UFpBUVxJ8BnepycMzSk/aGcOx5fVrTeGPO95u09Lm/0ow/py66ImVz
+	/DL+s6fMVgVyavIRksoRzVpBQrkbYE6kZp2OUa3Nz3uXlHsWa8FePlwcr8IEWIIOBUCV1nelHJj1l
+	17C4+Lt3V4soBUzDIPJuwda8v9EkmBhERneED7rxvf++MWIK6BoXJu6NIrjJM87LrVAmDuzd+qrM3
+	gKw8i24w==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDkoW-00000005WQ0-1YSc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 15:08:48 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63HEYWbW1804477;
-	Fri, 17 Apr 2026 15:08:35 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=hZ3/ORV9RtymMCSRu
-	a+nR0oD5sT1rbjTBBVsIvLeDmI=; b=IVJU2MgtNtdl8k7XKk+x8hM8YCITAqs+u
-	VBzN+2qfsz97p+QMav64omqQ9/jyTgj9oyqLCXRMAl6xZrAZUn47RsmgXaZQBP8R
-	8cV8I63fLrMwyMZo0yMC20cZuBCR0B2taINZOGgOLrt9QPKtaSH/VrpFU+X/9L61
-	se2pXBPrpxAZyS1N08Pzfnav9EYv3INYdS3Z0ZjlsYN59mnAWsXEVR/ANj4o9pSv
-	0v52YWlvYompQu7h7bwfEfdALuXgninCSnrAMYg7JU6Wm/wABnUXnWJJttZVbyLX
-	smMRwo2zmyPZFSKcDKRpv1IPyYbwDCtDy5bZJ64qVflN6gUt7g61g==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dh89khxeq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 17 Apr 2026 15:08:34 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 63HDKHwg025643;
-	Fri, 17 Apr 2026 15:08:34 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4dg2ujyg5c-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 17 Apr 2026 15:08:33 +0000
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63HF8Um348365950
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 17 Apr 2026 15:08:30 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 7E0DB20043;
-	Fri, 17 Apr 2026 15:08:30 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 49DC92004B;
-	Fri, 17 Apr 2026 15:08:30 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 17 Apr 2026 15:08:30 +0000 (GMT)
-From: Jens Remus <jremus@linux.ibm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-        Steven Rostedt <rostedt@kernel.org>,
-        Josh Poimboeuf <jpoimboe@kernel.org>,
-        Indu Bhagat <ibhagatgnu@gmail.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Dylan Hatch <dylanbhatch@google.com>, Weinan Liu <wnliu@google.com>
-Cc: Jens Remus <jremus@linux.ibm.com>, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, Heiko Carstens <hca@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>
-Subject: [PATCH v1 4/4] arm64/unwind_user/sframe: Enable sframe unwinding on arm64
-Date: Fri, 17 Apr 2026 17:08:27 +0200
-Message-ID: <20260417150827.1183376-5-jremus@linux.ibm.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260417150827.1183376-1-jremus@linux.ibm.com>
-References: <20260417150827.1183376-1-jremus@linux.ibm.com>
+	Fri, 17 Apr 2026 15:09:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1776438531;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wD8oNR3xCf7EhjHndl/KRVLr7LRyQ9LNjpsrj9J4Ttk=;
+	b=c1tpzMo+Z0Km5hbRrcagv1afo3UD+TMrr8HrPJ7swmQWaKtGPh25kBbQciZXmd4UYrqxqi
+	S5nbHq66P/qgWIuZSJa/eMQnMFDXLiXEotOorww3wJ1zCi/oP9r/eRmuL8MoMDlANRzA78
+	uknECQgzWasUviraL0tJSQIokselgV0=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1776438539;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wD8oNR3xCf7EhjHndl/KRVLr7LRyQ9LNjpsrj9J4Ttk=;
+	b=QcLCEj0M11mVWzQW7qRNonu0O1s6mOQXEpFNbjmLFTZB/PLBt7RhCRqjsKeOQd94a0ehME
+	kaL4zaywnmqj+GIWUCNFZlyjhDqimtmYUIGZkp0jCw60DlwixOR5Dtvetug5ZbuYOx6ukO
+	O+u7/k4NiJvxMXsTuKj4I4FymNvNWxg=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-86-8Hf6sgXsNnycF4J_K7Zeyg-1; Fri,
+ 17 Apr 2026 11:08:47 -0400
+X-MC-Unique: 8Hf6sgXsNnycF4J_K7Zeyg-1
+X-Mimecast-MFC-AGG-ID: 8Hf6sgXsNnycF4J_K7Zeyg_1776438525
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9907D1956066;
+	Fri, 17 Apr 2026 15:08:43 +0000 (UTC)
+Received: from fweimer-oldenburg.csb.redhat.com (unknown [10.44.32.186])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 92AE030001BE;
+	Fri, 17 Apr 2026 15:08:35 +0000 (UTC)
+From: Florian Weimer <fweimer@redhat.com>
+To: =?utf-8?Q?Andr=C3=A9?= Almeida <andrealmeid@igalia.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
+ <will@kernel.org>,  Thomas Gleixner <tglx@kernel.org>,  Mark Rutland
+ <mark.rutland@arm.com>,  Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>,  Sebastian Andrzej Siewior
+ <bigeasy@linutronix.de>,  Carlos O'Donell <carlos@redhat.com>,  Peter
+ Zijlstra <peterz@infradead.org>,  Rich Felker <dalias@aerifal.cx>,
+  Torvald Riegel <triegel@redhat.com>,  Darren Hart <dvhart@infradead.org>,
+  Ingo Molnar <mingo@kernel.org>,  Davidlohr Bueso <dave@stgolabs.net>,
+  Arnd Bergmann <arnd@arndb.de>,  "Liam R . Howlett"
+ <Liam.Howlett@oracle.com>,  Uros Bizjak <ubizjak@gmail.com>,  Thomas
+ =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>,
+  linux-arm-kernel@lists.infradead.org,
+  linux-kernel@vger.kernel.org,  linux-arch@vger.kernel.org,
+  kernel-dev@igalia.com
+Subject: Re: [PATCH RFC 1/2] arm64: vdso: Prepare for robust futex unlock
+ support
+In-Reply-To: <20260417-tonyk-robust_arm-v1-1-03aa64e2ff1a@igalia.com>
+ (=?utf-8?Q?=22Andr=C3=A9?=
+	Almeida"'s message of "Fri, 17 Apr 2026 11:56:10 -0300")
+References: <20260417-tonyk-robust_arm-v1-0-03aa64e2ff1a@igalia.com>
+	<20260417-tonyk-robust_arm-v1-1-03aa64e2ff1a@igalia.com>
+Date: Fri, 17 Apr 2026 17:08:32 +0200
+Message-ID: <lhu1pgd8w0f.fsf@oldenburg.str.redhat.com>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: BfedFkVZO-xnB-Fo-fQ4KpLIcJFkapuE
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE3MDE0OSBTYWx0ZWRfX67ZZy41hE9XF
- NVV+6dQU1UONeBOOqW+BZOWiydgr8aOfnE86SBbqe1xH1ukpNTzU3PgiFTOy0oxwpOQ1e0OpTLD
- qjhsGcq8Oowb4vnDlfFeQVqm3C7SpfCeWLt+Bi2dQQAx6oJyOqEoPiQuggfYnDqD8gSmPvHdxl+
- 0NnUTOvt7RtKOoteh83gTzaLoNNVXKRXj7FGrzuzOz2yISt+FOtPgbDMLa3Y/Y6ckoqFgd6CGWk
- 8yeFuK3pAmbDw+lrhK8fEkDet2+2CACH9UAHS0kxIQd9BtBANAISabpvyMEDuxAvhAn+DFvN42k
- Zb5mtRqrfz49XZPnuVTKjmucfqZDB+2CxAyvNTwN5xGfUXyVpX2l6EzAQut2rSJG4Nh9/qNUYJz
- Bd7e/NE/tNcGZIJK+XfD0yKO8ATdRGam7EwvQrm5cOVsm8axx8Z6wYF1+eYduGNIsRmk04UOB/N
- c77UZwOJhWtLTFgz1iQ==
-X-Proofpoint-ORIG-GUID: dlX5btp-3IlROH6HW2RI-JoRUw0W6BWx
-X-Authority-Analysis: v=2.4 cv=W60IkxWk c=1 sm=1 tr=0 ts=69e24cf3 cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=RzCfie-kr_QcCd8fBx8p:22 a=VnNF1IyMAAAA:8 a=8cyZKrTVTJG3FlwYzZ0A:9
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-17_01,2026-04-17_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 clxscore=1015 priorityscore=1501 spamscore=0 bulkscore=0
- adultscore=0 phishscore=0 lowpriorityscore=0 suspectscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604170149
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+X-Mimecast-MFC-PROC-ID: KW-m-TS0BDNb-zCM1HYnnDxiiLMXNdzDewftqGIO4Fs_1776438525
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_080847_163081_3CF43C9E 
-X-CRM114-Status: GOOD (  22.35  )
+X-CRM114-CacheID: sfid-20260417_160900_564918_6AAFC45B 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,101 +127,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add arm64 support for unwinding of user space using SFrame.
+* Andr=C3=A9 Almeida:
 
-This leverages the unwind user (sframe) support for s390 which
-enables architectures that pass the return address in a register,
-may not necessarily save the return address on the stack (for
-instance in leaf functions), and have SP at call site equal
-SP at entry.
+> There will be a VDSO function to unlock non-contended robust futexes in
+> user space. The unlock sequence is racy vs. clearing the list_pending_op
+> pointer in the task's robust list head. To plug this race the kernel need=
+s
+> to know the critical section window so it can clear the pointer when the
+> task is interrupted within that race window. The window is determined by
+> labels in the inline assembly.
+>
+> Signed-off-by: Andr=C3=A9 Almeida <andrealmeid@igalia.com>
+> ---
+> RFC: Those symbols can't be found by the linker after patch 2/2, it fails=
+ with:
+>
+> ld: arch/arm64/kernel/vdso.o: in function `vdso_futex_robust_unlock_updat=
+e_ips':
+> arch/arm64/kernel/vdso.c:72:(.text+0x200): undefined reference to `__fute=
+x_list64_try_unlock_cs_success'
+> ld: arch/arm64/kernel/vdso.o: relocation R_AARCH64_ADR_PREL_PG_HI21 again=
+st symbol `__futex_list64_try_unlock_cs_success' which may bind externally =
+can not be used when making a shared object; recompile with -fPIC
+> arch/arm64/kernel/vdso.c:72:(.text+0x200): dangerous relocation: unsuppor=
+ted relocation
 
-For this purpose provide arm64-specific unwind_user_get_ra_reg() and
-unwind_user_get_reg() implementations, which return the value of the
-link register (LR) or an arbitrary register in the topmost user space
-frame.  Define the arm64 SP and FP DWARF register numbers.
+I think your GLOBLS definition adds a 64 suffix.  That shouldn't be
+necessary on AArch64.  It's not reflected in the references, so you end
+up with an undefined symbol error.
 
-Signed-off-by: Jens Remus <jremus@linux.ibm.com>
----
-
-Notes (jremus):
-    Note:  An arm64 implementation of unwind_user_get_reg() is strictly
-    only needed, if SFrame V3 flexible FDE would get generated for aarch64,
-    which is currently not the case in GNU Binutils 2.46.
-
- arch/arm64/Kconfig                          |  1 +
- arch/arm64/include/asm/unwind_user.h        | 23 +++++++++++++++++++++
- arch/arm64/include/asm/unwind_user_sframe.h |  8 +++++++
- 3 files changed, 32 insertions(+)
- create mode 100644 arch/arm64/include/asm/unwind_user_sframe.h
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 994fd5162a1d..641a3a5fe5c9 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -254,6 +254,7 @@ config ARM64
- 	select HAVE_STACKPROTECTOR
- 	select HAVE_SYSCALL_TRACEPOINTS
- 	select HAVE_UNWIND_USER_FP
-+	select HAVE_UNWIND_USER_SFRAME
- 	select HAVE_KPROBES
- 	select HAVE_KRETPROBES
- 	select HAVE_GENERIC_VDSO
-diff --git a/arch/arm64/include/asm/unwind_user.h b/arch/arm64/include/asm/unwind_user.h
-index 0641d4d97b0f..3c7fd8c4ba5b 100644
---- a/arch/arm64/include/asm/unwind_user.h
-+++ b/arch/arm64/include/asm/unwind_user.h
-@@ -4,6 +4,7 @@
- 
- #include <linux/sched/task_stack.h>
- #include <linux/types.h>
-+#include <asm/insn.h>
- 
- #ifdef CONFIG_UNWIND_USER
- 
-@@ -16,6 +17,28 @@ static inline int unwind_user_word_size(struct pt_regs *regs)
- 	return sizeof(long);
- }
- 
-+static inline int unwind_user_get_ra_reg(unsigned long *val)
-+{
-+	struct pt_regs *regs = task_pt_regs(current);
-+	*val = regs->regs[AARCH64_INSN_REG_LR];
-+	return 0;
-+}
-+#define unwind_user_get_ra_reg unwind_user_get_ra_reg
-+
-+static inline int unwind_user_get_reg(unsigned long *val, unsigned int regnum)
-+{
-+	const struct pt_regs *regs = task_pt_regs(current);
-+
-+	if (regnum <= 30)
-+		/* DWARF register numbers 0..15 */
-+		*val = regs->regs[regnum];
-+	else
-+		return -EINVAL;
-+
-+	return 0;
-+}
-+#define unwind_user_get_reg unwind_user_get_reg
-+
- #endif /* CONFIG_UNWIND_USER */
- 
- #ifdef CONFIG_HAVE_UNWIND_USER_FP
-diff --git a/arch/arm64/include/asm/unwind_user_sframe.h b/arch/arm64/include/asm/unwind_user_sframe.h
-new file mode 100644
-index 000000000000..65c0a6b6c835
---- /dev/null
-+++ b/arch/arm64/include/asm/unwind_user_sframe.h
-@@ -0,0 +1,8 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_ARM64_UNWIND_USER_SFRAME_H
-+#define _ASM_ARM64_UNWIND_USER_SFRAME_H
-+
-+#define SFRAME_REG_SP	31
-+#define SFRAME_REG_FP	29
-+
-+#endif /* _ASM_ARM64_UNWIND_USER_SFRAME_H */
--- 
-2.51.0
+Thanks,
+Florian
 
 
