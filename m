@@ -4,84 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC5CAF8E4BB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 07:56:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33287F433D6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 08:07:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sYGvKR169qobRnTdQfak1Kyzy8QQtDe/iStEp2kI73Y=; b=hSO865isicJj5017Gw+v6Sf4eE
-	DcUA5wpE6hSGcba+1yIrQbe0Eq8Ikz90DvMKkXxp9Y8xqKe97CIJge+FCcIzAsJzdsk/uDO02wQtq
-	yo1k51fqV1rdoTEd1IzM+jEg3I+3uscCn7TGo9kwgza10uG6AO41YgaU6DgW2oMd9LeXGWaCZvj1Z
-	0xmV2Pct6/tDpLi/wLIQRGAamehBiYeBMnGo2acaDvyYSIXkwrxC+/fD8X73HMWQzVZtA6beEqLpj
-	lGWvpEJK08z/pUL9TMuo7IXHoQnkVZ1bqdkTq0AdHA37qKp/ejyDnwLK1GLe7TTZcxDAc3F22liAk
-	Zy5F19Mg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=drHDymCWpvc3sbhDRK7SJeJv4ip5FFYCjVL+uqV6g1c=; b=WXZNm6QRnuQh+miuVzWDyembY5
+	Epwh8J0WRuBi4PoA4hy79AxP47+7PKB/lbfpLZ6W0roqOtjo+m1lh04INWid009Xxdlv8RTFg0HZl
+	DAv4jbhU3YQIqMmE1QtE8FPoaLrxs8VVFuIJAMgc5wjVjKDwFVsXoW1c1dbZJzGnpqa25OGBt3K82
+	IpKPG4tFvyIff8+ENV7NLJyqU52XpTJGbZ/ZbSJ1UqCSyRZW/fAD9LdOo6Em4Nuqu5EwpwDYa93iM
+	hNeypq6cjTIjjvuw76ZuskfqLurddO8dIo9FZsNx0QnnONsz6u+mm6lWDfERewP4A740jmYlIJ8cP
+	RbWxG3QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDe3Q-00000003daN-3AXU;
-	Fri, 17 Apr 2026 07:55:56 +0000
-Received: from mail-ua1-f53.google.com ([209.85.222.53])
+	id 1wDeE8-00000003eIn-0HBb;
+	Fri, 17 Apr 2026 08:07:00 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDe3N-00000003dZg-2529
+	id 1wDeE5-00000003eIO-0DiS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 07:55:55 +0000
-Received: by mail-ua1-f53.google.com with SMTP id a1e0cc1a2514c-94ac8cbf3feso237538241.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 00:55:53 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776412552; x=1777017352;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sYGvKR169qobRnTdQfak1Kyzy8QQtDe/iStEp2kI73Y=;
-        b=n8nA/8e640So8makRu/J67HnqTzMjXTSw7Exyr/xQT7yQbPm0eTwVY0KtVXd/jJfc8
-         u2s7QB1GjXRmz3TTIo+EZC/xQGiRsTamaPRN23i5QgBal0kYy9r6UxJ9yiT4YoBq0SE9
-         W2MPnFwl7D+8Gq89G02swb5B3rYxTovGYzA3H+5FK3aTZGV+JSYblWXQaV6hJ6Hn9ud+
-         dJV8nGtWrGNaiZQjWjKPewjAFxLyeVOqRdOLEGy8NXYlDLgUHnbzvVUgE4BIcBu1tMsY
-         EXahbBWKXv6XNJ2wPyfmNf/1rVSQ6hd7x1e2fIIw+DOKW7WMn8qZgwHYSqAniiIZDAKN
-         uvew==
-X-Forwarded-Encrypted: i=1; AFNElJ9ByaNNmS5w/W32OdbpDpScjCU/lpVjW/gRQFGx3X6/e986eSc91JUMaNEVMO3v13sjl0o7ZcCsJXGqw0rfrEMl@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhB90hT+TO+aUVia6zLEE7ydo0yOQ/5MiwKoaBaDoq09VF4hd7
-	gKGkz5jh2PDelknzM9i5zvuxUj7s7TO1tFmfb7hS49fXU5X7pCVZCJ5HHG3MaKat
-X-Gm-Gg: AeBDieuCtRAV6ycZ78fylsHUtNV0cY9CRz9853WLABoNwsxHGq4qzVl0OLlAKLsSM3T
-	EurnF8OjQ+I6gpSN5I7s8uiBX9eYbNbcz2yrmi0QMcAsR5D6zpemdXxTCgpg2LOvemJSmvXu/+I
-	lFsyCun2Q7oyTSNq8xNNsoa1mMafcppbaNBIeEDKTKcY7I8nCZVCwExS+vhMj7bYO32FgzPoUSI
-	XQbyaXS4Anz07dQ0ZraFmgtt4n1wV59Z9W94m0UaRz+2MB1gz+5Fpw/DWdil4qlI98DUYfHLV/Z
-	eLH7xT82/bqaPoYAAiYxSTYsRaCioA9pH8Ui5ye+BNsV1DgULFtMp+lmVkXYAMmg17EtAs80DmF
-	tQTqEiAu/AxzV+sszX+2gCU+q5H2wjXrcHf1+pGXj5R0rfMTtGXnmBlvKbQ41aC3xjAOR2h/e3q
-	ifFB7uCuJ1igM66ndBLxAd05bxyR9sw6FAojiz5XaVyzrLy+/s50oGLI6XXYqiPPXdt5/YwwU=
-X-Received: by 2002:a05:6102:50a7:b0:601:f85b:efeb with SMTP id ada2fe7eead31-616f518b494mr643701137.9.1776412551756;
-        Fri, 17 Apr 2026 00:55:51 -0700 (PDT)
-Received: from mail-vs1-f46.google.com (mail-vs1-f46.google.com. [209.85.217.46])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-61747cb501asm306749137.7.2026.04.17.00.55.51
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 17 Apr 2026 00:55:51 -0700 (PDT)
-Received: by mail-vs1-f46.google.com with SMTP id ada2fe7eead31-6058ac0ebceso276657137.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 00:55:51 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/UpqNRX1WGRZWkQY+X6Two/wKQ+f/6nA1Q500pPRKWE/nIb6hrW6Ynd9tQtOqvKyp9yiB4ZhXFmkv6Z4dTfNDX@lists.infradead.org
-X-Received: by 2002:a05:6102:4a84:b0:604:f29d:84be with SMTP id
- ada2fe7eead31-616f4b50373mr742219137.3.1776412551117; Fri, 17 Apr 2026
- 00:55:51 -0700 (PDT)
+	Fri, 17 Apr 2026 08:06:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UM6gE2LmU5x3O2NW6yWZT/hCA2N3F9uZ2kaNauiaas85WihqdxCKlESy82+W3tJhLdZJYtReSMUkmR3N5AuBggPCNm2feZ0lbZynAOpeJn9BwVuLN6KXLugiIi4oz4iMk5OrbPRCeOjDv8jOVf5O8GIjpeTh89UPxbnx9xKWoSq4Pfb7w2DGiZU2bwcfkKR8jSyqi1NQk9r+9DIextJpUxb/ZVef++9+4NmhVZdTy1N8FhOX1Ien8hwRgWRFV+lRbkdax/RvIdDplF2pJPRrjJ5gYbRQfhBFNLqX4TGmzffN2KXHkvVtA+G9ma7+XVFLjlTyDl3xDz9vbbHV573uTA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=drHDymCWpvc3sbhDRK7SJeJv4ip5FFYCjVL+uqV6g1c=;
+ b=htniT6iCaJt8JbUVIH9+WxInW5gpSkMBQjc6sLuGlJ7eE2axL6zNs0fQivip1hCc5ud21Nb0o4kPJpyxRJIjfLtjf3JGFzL4+AuION0v0o3VCaiVamORqTKUrRuWdXEvhAffd5LSkAT7LiOaRkpajU1+MymGmNJSu9AX0Xj28STt88nCCeB+n2bQ3WXgpyscCnyxmgy932IySnxv6am1P4njmdv1PULe2ndsMjNJJpWOMUkJdxM4AKOCbhK66kyXQq79VJ4o/8y9zr8SuGYsLmXy14vYQj42HrC5tMz6J2GMX/ezOJ26vmlTJt6AxDhRQ4Q0y9wDM/jl3dFO1hZd0g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=drHDymCWpvc3sbhDRK7SJeJv4ip5FFYCjVL+uqV6g1c=;
+ b=lBl42riFp9pLyiII2sQKOjS/V9qa2TQiRwtZ+CL18ra9wUAqoM71L8nlJQmOERPEFSZzWZurTindnN6bUNBlag7b4yBrC0A+/9EMeGP2UqYjrivqg6lZ1DK5oWSLVJjCAwai0MBEbb4IGGUSZm+hFhlnm6QhBhdCosAweM3Lso7ORMsfdB9ZWh8izVAQ0TNu/UrzXu9R9asY0R+p8pOXQUmZv+m++ADtMTuj/rZbZ5h1tceiAAnvDrTrbRPUv0I+fBim61Ii26B3999DtwdjW/YDVzczIJaoi5LJuRsfUCECbpuHYsaymtvgzOf9Ajz5LD6t+vDeEHWyi9GoHG/XDw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB7821.eurprd04.prod.outlook.com (2603:10a6:102:c5::5)
+ by PA2PR04MB10158.eurprd04.prod.outlook.com (2603:10a6:102:404::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.25; Fri, 17 Apr
+ 2026 08:06:50 +0000
+Received: from PA4PR04MB7821.eurprd04.prod.outlook.com
+ ([fe80::67dc:4bd2:8552:9b50]) by PA4PR04MB7821.eurprd04.prod.outlook.com
+ ([fe80::67dc:4bd2:8552:9b50%5]) with mapi id 15.20.9818.023; Fri, 17 Apr 2026
+ 08:06:50 +0000
+From: Robby Cai <robby.cai@nxp.com>
+To: p.zabel@pengutronix.de,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com
+Cc: krzk+dt@kernel.org,
+	andrew.smirnov@gmail.com,
+	kernel@pengutronix.de,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	aisheng.dong@nxp.com,
+	guoniu.zhou@nxp.com
+Subject: [PATCH v2 1/1] reset: imx7: Correct polarity of MIPI CSI resets on i.MX8MQ
+Date: Fri, 17 Apr 2026 16:08:51 +0800
+Message-Id: <20260417080851.489303-1-robby.cai@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2P153CA0033.APCP153.PROD.OUTLOOK.COM
+ (2603:1096:4:190::21) To PA4PR04MB7821.eurprd04.prod.outlook.com
+ (2603:10a6:102:c5::5)
 MIME-Version: 1.0
-References: <20260416131810.3116408-1-thierry.reding@kernel.org> <aeEm5DavehkPmSgl@darkstar.musicnaut.iki.fi>
-In-Reply-To: <aeEm5DavehkPmSgl@darkstar.musicnaut.iki.fi>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 17 Apr 2026 09:55:40 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVxkOeAZqPsVRecOmQV+n=+ey=nFcdduiXvs9LBj-nNQQ@mail.gmail.com>
-X-Gm-Features: AQROBzAxAj1dJZMvY5l2s199UA8tSOX5OgUQyonlFdS__wBHgEBXO25Dv2sGHpo
-Message-ID: <CAMuHMdVxkOeAZqPsVRecOmQV+n=+ey=nFcdduiXvs9LBj-nNQQ@mail.gmail.com>
-Subject: Re: [PATCH] MAINTAINERS: Move Peter De Schrijver to CREDITS
-To: Aaro Koskinen <aaro.koskinen@iki.fi>
-Cc: Thierry Reding <thierry.reding@kernel.org>, linux-tegra@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
-	linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Paul Walmsley <pjw@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB7821:EE_|PA2PR04MB10158:EE_
+X-MS-Office365-Filtering-Correlation-Id: d6b67f2f-addb-49e4-8c4f-08de9c58476d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|52116014|376014|38350700014|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: y6lJOoOd2mwszVm6+EOh3aFs04JIiDUTDEQ0z+LKfb4rrKtBMyXYCXdm/XGxOTwb0jMkcDHDJYTsdIMdPLQm4wjdXhR/3dvB1Ckki2HVe0wY4X0TorUbPYoACVBT2XlEct2MS2Ck6n5IN83bxYdP7dBZ4ptZS7xdaYdxA6Obl+PDi6bnEHFJIy74rlEKHSRoX+CDl4UMxt5yNFVFESCvSmmOIAaNIh3yAX3sMeL+pKN4sT8uFKdbDOR5W9iyC5FDvCznBKRuRjI+aTlrrOdZFZq8eawr69Qh+xmkcYvn7OBFKYKDfgybUCKdNZh2ipgK6vTafFDE3DzIMvZsd8wfprE9aCquPhwQgpYiJ1k+0Es3vJLCIZXaxa3wTx2GNQ73s3n0/+/j8XOCPJzEq+gT/zmhTBCkk+IFZYqAKjX2/rWVsgvby1UC42K3uo/DlVv+soz26YiOPplrF6Hrqlf2UqAV5zEoJ+5JwiBbT/xmRW1w54Fc3GZsxnalRMZ9mhHdU3jX6+sCVs0SrQLff3hZ/2KiVPX2F2FDvKs1QaU0dkjazlUU+MzDtJLaXySHXeTZ89zZb/4KTvtmtGEZ95PDZpzKukKWHNdiaU52Tpd2U4uMk1zWyXQpT7VHVhM4vDmCrTbB8P4lPt18gytvK1naDkXMrbjyzMNzU0wts5gLPNihbXvs0V9IFJ5bmG0EQqQNnUECkEHQADvl02AUBBVUp+88gkfk7zoZjLyDJ+0zfnD60aS/PmYFQy6NHNgpuHTPGopIz6GEGJPWT4tM5tyWVgh4J/fN/oqkSSecNTtiWr8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB7821.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(52116014)(376014)(38350700014)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OB27sD15BBRIAT6vtEYCKJwLekLBrd9B8cQENudIoczkNlEHRSc8I20GDZae?=
+ =?us-ascii?Q?wxSeICcr8/emc2aF8sV2Xs6FIoKPV1K5e8fVvXKfausulmXBlRX9Xasl9SyR?=
+ =?us-ascii?Q?4GnKIseHc7s92UNCyi9TTVjFCauqymCgt6F/oq+xadtF3PQydXQ2nyBca6zR?=
+ =?us-ascii?Q?yfDFZG/39eHJ/TvcFtclVf3yQTQ6dYx+lSpmKpZ2UTcUZb2OdBWbefNiENsT?=
+ =?us-ascii?Q?s4AR6mQ8aBQIqp8eryFKiBPUKdwkXPn9Ufo0sZgggCs7XEEP6hP1eCSovbBS?=
+ =?us-ascii?Q?mBJ4EkVkIaF3Z3NgXaqou+qoTXFqt4YRSsNWbir64Pp1WKBeZOq0Pn5X0k3x?=
+ =?us-ascii?Q?5994cCu1omL6x6FlkWbQBF/mNqHIZSYwLDtPpk74iJsOeWPHfkk1AentX2+h?=
+ =?us-ascii?Q?c4rh4IlSd9TMbXk3Ozpiyc9X/UdC/54V2swUwqHWYXFAtMvHGYnay9HPnUEg?=
+ =?us-ascii?Q?H01pyeTG4vcs8FhADUmFj0wmaWipx9DbzZ4iVsbkd7+PCdQEVhVM7X866A+M?=
+ =?us-ascii?Q?fe5CmIdIVch9gYDUp/sCnn2SSp5L0ZdLfE0Cz4jI5csRg+ZmerLr5XxL1ulG?=
+ =?us-ascii?Q?w+8BE5CjfBa+ZScnZ0X4C2RYC2xk9phFmI6w0DczB4+LS/ww2K5f/OrJVEUo?=
+ =?us-ascii?Q?ec7adF6o7F7Q63A/VzGRMHxt7mGVV0L4Qr4vmuGH6gRDe//tWqJA1TE1A4pi?=
+ =?us-ascii?Q?Lztu2DJSWpL1YxWNwsb5cn6xHbHkVj7OjjSs3GIPpc8bWzrKl9u0h/Qu5+os?=
+ =?us-ascii?Q?gVomtwIb5ntyIQugHVkJdGdnrcOmOEmtvUzQqIwU1o7RvtvXt1BXlDdnMLiv?=
+ =?us-ascii?Q?9OhWz1/4/gFpT9qm4ZC5ZZFb7QPUWl+bijbKeSrI83OU6nFHqLJtyqajGpp6?=
+ =?us-ascii?Q?R9oFaGwK5l4G7715Wvc3sIiTJucX4Xy2wVpKJFEsPdazDyyKS5aJ4qyY8rYx?=
+ =?us-ascii?Q?LFv9rpzQqOMcfzHpaA9J94UGwvNGTFl0fSzpNlcii+js/xPAVOORwbK7WzID?=
+ =?us-ascii?Q?/zJHnzh93BBXWWi73/m1k8Q9siUX16X94xbC9MIOkxq6nrO4C/O7ux1YRcN8?=
+ =?us-ascii?Q?wV6d3Rmr/5dgcuI/te5L3Y1L6x37NkBTsgTeD30+Ye3ptT8BFX0pyoU5qvk/?=
+ =?us-ascii?Q?zfJhPl9cY1j6xkHXspJ2M1iOXPrlQrY3xlSVAgL+JR++AMr2rO6yVvXZAbnx?=
+ =?us-ascii?Q?1d/7DIscKXAnrrgmq5oKfY0fgbKzg7AH1SbcVkQ6/pe2yMCCHma3XdMQ58jL?=
+ =?us-ascii?Q?0Dtz0YduhxPr3aJb2vAhedj1sXledNISBgD1MVTStalGkxcQG240iVTWpqOP?=
+ =?us-ascii?Q?6FSFJijJk7levc1X1we1AAQEVzAhyVA169DDwmDSYbMezQbcpyKTkqWrgcgj?=
+ =?us-ascii?Q?F5oqp3LN9f+d1zKCqTR5sNcECuqGEP8UTtOt7U2DYe6oLmCnhtzd9WoXSFfU?=
+ =?us-ascii?Q?Jg3a6YzF0OMcSnTvr9hVHQUy+M4oM1GZCPCv/EMlRYaO/+Nbz/bbjvl8q43Z?=
+ =?us-ascii?Q?4Vy4ZiFr/jN/mUWNrLdUCiLoqBeCQSphP8d7faBI/dzdwdr0vlTZ0ybd+5K2?=
+ =?us-ascii?Q?G4OvPr/qcGwYRx+sB90WLFQqZ8orQ772iVUYAB7Zz5dTw4xOpLL/opDQeTAy?=
+ =?us-ascii?Q?5bOfb5r5QzkZTtmnAMANqLfyhCbbAEi8oGh2CtiOuA8par4d6p9VWPbPFmcf?=
+ =?us-ascii?Q?cE8X4ZiGmx5wHI5RiNEfDapZVF1x9K2Tq3HaK56FbVfR/52KZUiFiNmXn6TK?=
+ =?us-ascii?Q?lvILlbR1qw=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d6b67f2f-addb-49e4-8c4f-08de9c58476d
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB7821.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Apr 2026 08:06:50.6445
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KP50CJ+BzXnbCXhcuM/kNnysGUGZ1s+QZXKVsA6ce/QUrsP2j2nIwy67oSXTX8L+z4xiClyQM/O4Z9qNhxPcFw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10158
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_005553_593425_C57806CD 
-X-CRM114-Status: GOOD (  22.36  )
+X-CRM114-CacheID: sfid-20260417_010657_129124_98A80839 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,71 +142,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 16 Apr 2026 at 20:14, Aaro Koskinen <aaro.koskinen@iki.fi> wrote:
-> On Thu, Apr 16, 2026 at 03:18:10PM +0200, Thierry Reding wrote:
-> > From: Thierry Reding <treding@nvidia.com>
-> >
-> > Peter sadly passed away a while back. Paul did a much better job at
-> > finding the right words to mourn this loss than I ever could, so I will
-> > leave this link here:
-> >
-> >   https://lore.kernel.org/lkml/alpine.DEB.2.21.999.2407240345480.11116@utopia.booyaka.com/T/#u
-> >
-> > Co-developed-by: Paul Walmsley <pjw@kernel.org>
-> > Signed-off-by: Thierry Reding <treding@nvidia.com>
->
-> Thanks for doing this. I think also the m68k work should be mentioned?
+On i.MX8MQ, the MIPI CSI reset lines are active-low and not self-clearing.
+Writing '0' asserts reset and it remains asserted until explicitly
+deasserted by software.
 
-Indeed: Apollo Domain workstations, and Ariadne and Hydra Amiga
-Ethernet.
+This driver previously treated the MIPI CSI reset signals as active-high,
+which led to incorrect reset assert/deassert sequencing. This issue was
+exposed by commit 6d79bb8fd2aa ("media: imx8mq-mipi-csi2: Explicitly
+release reset").
 
-Also: IBM PS/2, Microchannel, and Token Ring support.
+Fix this by reflecting the correct reset polarity and ensuring proper
+reset handling.
 
-Peter is also still listed as the contact info in
-Documentation/ABI/testing/sysfs-driver-tegra-fuse
-and as DT bindings maintainer in
-Documentation/devicetree/bindings/reserved-memory/nvidia,tegra264-bpmp-shmem.yaml
+Fixes: c979dbf59987 ("reset: imx7: Add support for i.MX8MQ IP block variant")
+Signed-off-by: Robby Cai <robby.cai@nxp.com>
+---
 
-Thanks!
+Changes in v2:
+ - Drop the naming change in response to feedback from Krzysztof Kozlowski
+ - Refine the patch subject and commit message
 
-> > --- a/CREDITS
-> > +++ b/CREDITS
-> > @@ -3645,7 +3645,13 @@ D: Macintosh IDE Driver
-> >
-> >  N: Peter De Schrijver
-> >  E: stud11@cc4.kuleuven.ac.be
-> > +E: p2@mind.be
-> > +E: peter.de-schrijver@nokia.com
-> > +E: pdeschrijver@nvidia.com
-> > +E: p2@psychaos.be
-> >  D: Mitsumi CD-ROM driver patches March version
-> > +D: OMAP power management
-> > +D: NVIDIA Tegra clock and BPMP drivers, among many other things
-> >  S: Molenbaan 29
-> >  S: B2240 Zandhoven
-> >  S: Belgium
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index ef978bfca514..ffe20d770249 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -26145,7 +26145,6 @@ T:    git git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git
-> >  N:   [^a-z]tegra
-> >
-> >  TEGRA CLOCK DRIVER
-> > -M:   Peter De Schrijver <pdeschrijver@nvidia.com>
-> >  M:   Prashant Gaikwad <pgaikwad@nvidia.com>
-> >  S:   Supported
-> >  F:   drivers/clk/tegra/
+Link to v1: https://lore.kernel.org/imx/20260331101331.1405588-1-robby.cai@nxp.com/
 
-Gr{oetje,eeting}s,
+---
+ drivers/reset/reset-imx7.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-                        Geert
+diff --git a/drivers/reset/reset-imx7.c b/drivers/reset/reset-imx7.c
+index dd01fe11c5cb..a3cb8244d76a 100644
+--- a/drivers/reset/reset-imx7.c
++++ b/drivers/reset/reset-imx7.c
+@@ -236,6 +236,12 @@ static int imx8mq_reset_set(struct reset_controller_dev *rcdev,
+ 
+ 	case IMX8MQ_RESET_PCIE_CTRL_APPS_EN:
+ 	case IMX8MQ_RESET_PCIE2_CTRL_APPS_EN:
++	case IMX8MQ_RESET_MIPI_CSI1_CORE_RESET:
++	case IMX8MQ_RESET_MIPI_CSI1_PHY_REF_RESET:
++	case IMX8MQ_RESET_MIPI_CSI1_ESC_RESET:
++	case IMX8MQ_RESET_MIPI_CSI2_CORE_RESET:
++	case IMX8MQ_RESET_MIPI_CSI2_PHY_REF_RESET:
++	case IMX8MQ_RESET_MIPI_CSI2_ESC_RESET:
+ 	case IMX8MQ_RESET_MIPI_DSI_PCLK_RESET_N:
+ 	case IMX8MQ_RESET_MIPI_DSI_ESC_RESET_N:
+ 	case IMX8MQ_RESET_MIPI_DSI_DPI_RESET_N:
+-- 
+2.37.1
 
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
