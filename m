@@ -4,67 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5FCCF4368B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 10:30:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31A4EF43683
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 10:31:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=U5C1KSkyvOgFs4XnY7a0EvJjvZ6uYt8N8OOUk4JhUXE=; b=DrR6AZr308cJEGgLtcPXgRaYfX
-	gDOcAhiCMG1Ug1lLVrsfOorJudCQXoFeVWZTxRfyUZH7u+k8Ia7RfWsr33a88k48csg+b0Fgqdm54
-	ZL1/qndOSgDqKHv9lLuD+ilYzYWVXH54bmRg48rsQWRhjWHS39zv3D2mBdL6KSxk84LVnaN61+N1Y
-	1ISbDu0D/RHZRnn2GOo1CO8sIYiFuZcyA4h5ja/KOm7ob18N9pmN2SQvxcBWzWxgJLx3dov7fIrLs
-	K/eEr3Z1HW8KGWc/7lQ/nyIQWhvXKDWuxBTJMyKbiKTWBunkhnct5cGZ/CN9nfMg2+Jxrxictv0Sq
-	68/cPvQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8V0sKRaGugdPRfgBxOWGPVQJT/lDSXt8mAzgJrdxpYk=; b=ymmbmV2cZiWW0Lyytz9wZDgQZG
+	OjyEaUAkMYpZfLJN16w6+qyj7KuYBcmxqFwtdIYIf5NYwGcVCuzxbbiWLzq9WqJN5PGy3ZA6mSQsM
+	3VvfViwDvkjq9H0+PldfdL3RJWyMUqZ7SdG0BC6chvMQ5yD++okBGlzE8FW5m48vEoaSV7dCqNiEy
+	t4p/nMRzARwB1KW9WBF1q/PCiJIAo4j9aBpi2wXkadLPTJJ2iPoCBkkP7VU2hgpR/gdCcTtA1UsuV
+	U+Vl3LJyPB6wyPjdsqYxzna0YCgUelNMafkCIatSwVGfsvLANtb+xhAoIYw3uzXEfzxHFGxXWWdHR
+	waJtAmPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDgT5-00000003uOd-2NT8;
-	Fri, 17 Apr 2026 10:30:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wDgTd-00000003uSY-3iQD;
+	Fri, 17 Apr 2026 10:31:09 +0000
+Received: from mail-northeuropeazon11012049.outbound.protection.outlook.com ([52.101.66.49] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDgT2-00000003uOD-3i1g
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 10:30:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BFFDE44242;
-	Fri, 17 Apr 2026 10:30:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 744DAC19425;
-	Fri, 17 Apr 2026 10:30:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776421831;
-	bh=2E4d1qouBPXWGfdzHg/+sJ/fKFP5VEVndh+tz3UYOQo=;
-	h=From:To:Cc:Subject:Date:From;
-	b=u7PT3mhbdOslKrKsXaF7exF4cOmFaso6kJ2h7mDwokYiJ+cHmAw18Ng0QQTieDaWN
-	 4gIKZT87Y+D/+FdDPD1twGXHrktYfY70F3d0/6ES9a2pjTElF5qPIAa5Z5deyjfuY7
-	 6esmP3oSM9XVTSiK8RhcVneHCjZlVyLVLv66edYnfVNzfDzHFvIjaZ/2ylY2xL5Thv
-	 f2voW9UeaoAKgSGguTlTj56Gmu/U1XwFznGly4UmntVbBdS0+g0R3Oh/+jMLnh49bu
-	 inAtGQ5GJ7ok+bN0lrmIs4urIQqLbT7IxhdMb3matqIu9QI0ArLiEtgEzZLuecSPIm
-	 dSWE434p/2tKA==
-From: Puranjay Mohan <puranjay@kernel.org>
-To: bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Puranjay Mohan <puranjay@kernel.org>,
-	Jonas Rebmann <jre@pengutronix.de>,
-	"Alexei Starovoitov" <ast@kernel.org>,
-	"Daniel Borkmann" <daniel@iogearbox.net>,
-	"Andrii Nakryiko" <andrii@kernel.org>,
-	"Martin KaFai Lau" <martin.lau@linux.dev>,
-	"Eduard Zingerman" <eddyz87@gmail.com>,
-	"Kumar Kartikeya Dwivedi" <memxor@gmail.com>,
-	"Song Liu" <song@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	kernel@pengutronix.de
-Subject: [PATCH bpf-next] bpf, arm32: Reject BPF_PSEUDO_CALL in the JIT
-Date: Fri, 17 Apr 2026 03:30:02 -0700
-Message-ID: <20260417103004.3552500-1-puranjay@kernel.org>
-X-Mailer: git-send-email 2.52.0
+	id 1wDgTa-00000003uRv-2odc;
+	Fri, 17 Apr 2026 10:31:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=goxJmfY0jH7Gpyr8gmSxL9g0vuzwUpy24EhwGZB+22v3dypHZ/XvFKq8ImAhUrEwHpuDvEYaYF94rez03Y6lDHL8umBZxe9gnf6DSphMnRz5tHdGUurKE+OXqV3ydVgyytiO2nZtDsbQ/kJ8wofMNaZeuPP0vBmG78qA9mjpjolBR5xTUpnhH2G75XTWmgzVRrYb7Chqz7vpV7eZ6jgxDhQi7SyZk7RjxVIoi1MBUA4oEFBO8oT8f4MQ6WwstqVbmF3lhKz4SRI4fq//rylBfUKg8RgyYBmdxcSclXqZrschrm5VtS4rK8BR/+LphAqokIaFT5oNU9iN7mqkf2rU4A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8V0sKRaGugdPRfgBxOWGPVQJT/lDSXt8mAzgJrdxpYk=;
+ b=odYitE0fRZ+YMJ31upiMdH6hw5VidNHBmG9Ku5kTjiN2PXC6oBt103mPUlWSLpiKS2La/NWozyiHl81jSYLfA9ggmeJ8usT0/3EyGedq6zO2L6hvMX4/mWyNGBo+dNu7oCiJPKhgi/ufIEs2Tf9YlOhbC9rTXCLzd/fcpBRtkkwXtm5rSyuELpbVAMurEvb1VlR/y2p57vO60CMOoavGSMa8QPRL/coynfXtEBCwZiHHRByDAr3pw4Wk3so/rmi4WOTdu4vzB27wBTSuBDjV0I9RPsfI50L72IXps43qLs3K/QbX1gY6Y9ZE8EGgM5zukPdDhMkSPP7gjsQarfDemg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8V0sKRaGugdPRfgBxOWGPVQJT/lDSXt8mAzgJrdxpYk=;
+ b=lgvqgbQSoyZigZ81WWmrkBOdu5IaP4v6dS0IS5cYjCl6Sz3LktgsdPAg4JpIWH5Dt+82N1skL5XcX1i+hVBKxaNidVOlo0/+fYuOmGLdfu2+lQkKBygM01GeF/pB1LSD4PlDnobiMF1XGG0qJf/Azay/3BTEuRSLXVT/74XLERSzq2YMHhEciX/pdoKw5hGDesoOZ3dT3SvtpdS90tdmiqMEZiJ7ywgeK3338JBqmW4nGr3Ag2uD6hGOe/fA5+FkiBIeOSt7BejpKKPP55G6F4z8QbWG6iVBy2hRrdGOm5EB5dz/+Bepp4uycYBxiVXys1moGpOFJPEoA+64fHGQ9g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by AM8PR04MB7940.eurprd04.prod.outlook.com (2603:10a6:20b:240::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.25; Fri, 17 Apr
+ 2026 10:31:01 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9818.023; Fri, 17 Apr 2026
+ 10:31:01 +0000
+Date: Fri, 17 Apr 2026 06:30:53 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: "G.N. Zhou (OSS)" <guoniu.zhou@oss.nxp.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Michael Riesch <michael.riesch@collabora.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>
+Subject: Re: [PATCH 4/5] media: dt-bindings: add NXP i.MX95 compatible string
+Message-ID: <aeIL3XFtLrPzEK67@lizhi-Precision-Tower-5810>
+References: <20260415-csi2_imx95-v1-0-7d63f3508719@oss.nxp.com>
+ <20260415-csi2_imx95-v1-4-7d63f3508719@oss.nxp.com>
+ <20260415-glaring-premium-nuthatch-ce00fc@quoll>
+ <DU2PR04MB9081CE0130B8924A2B3C9E14FA222@DU2PR04MB9081.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <DU2PR04MB9081CE0130B8924A2B3C9E14FA222@DU2PR04MB9081.eurprd04.prod.outlook.com>
+X-ClientProxiedBy: PH2PEPF0000385C.namprd17.prod.outlook.com
+ (2603:10b6:518:1::6a) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AM8PR04MB7940:EE_
+X-MS-Office365-Filtering-Correlation-Id: 476f5a97-18e2-46e2-b5bd-08de9c6c6bf2
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|52116014|376014|19092799006|38350700014|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 3mMZfgOUGgJxEYmNa+gszDtSEaeaf/8bxMtytkJ+YPHYZ0Dp0HllC+J1cjtrtIPBydLn4f6HtZ0iOc9mFvRqKECGRXZqqwSByRnETFGoRNvKqX6s2eevCwh7M8hwRffMn/uvT/akNldkGi/y5ihju/0gimTR8hY7hQSbzoHmrAfLjqTsJqrxoxy6IrVKeDMrg53h5Td2AQTkS2U6Yp4t6TC2wnEepHnfY39Pv30Cnv+l/cJFjtN/zO2T80e4BI/K8adz6w4ktqVQdO9kdkpA9VMkZDvZFb1+eQYE4o/iuTJTF9+sPEUyZsVOoUVFamHCNg9GHTJHBC52oOXQWt/ZHOwLBda6ohKmK+taiPAa73DkDKil71Lg3qVprs+n6gpdlQBYNi7tEbpd/qtBs3pAWQyn83s+FA5GMDehzJO/ab1i/F++tfpZDGFBdLHaoyshaLzmoGfWFXJSQsbxsIB/tcQJw1+7x6XhaioIri0UpZkrIy7o/b270XDZq4HtBEUXwaccNrF6rdKP5Yv2jtCSPr1tbSNYW865/ayhHt3zorm7Z+4dhf+tnz6b2bfmK/m6nNVXHWurv/ftM3GOsTgFROR0snaAWkrBzPdAmLmvFXxDZWuJIaxnfgUplth9sRtV0HyuKG4yzF78xOEgy8nnJki+0Qn0ZVL2oRq5Ml0qpsrfXyFrCg1S4hAgKHOROiK/ycS9x+djO99IjEnK+3svrpkXbLkRJFsyj5nINsUfClBr3jQZ5i69wuQtBXGQUpTLaDk26qFXv+0wU1ON+Beve644fXOEkUm6nJJ/FYYbt7E=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(52116014)(376014)(19092799006)(38350700014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LJkDx5oSwh5eKtkgdDI7/sVt7Z/YgMV+0ZVkuMWNOmWNiWk2Yu+hryS5Fhga?=
+ =?us-ascii?Q?5KeWye7jc4oh3IFDj40GNnRuRcmdLaxUHGes5ldFieIdc4iectFoR2fo+BkV?=
+ =?us-ascii?Q?Yfy2WraIgLUvBDzCXfcTSCru5ZAcCMTOPz9Ri80JDKJlP6y9JPv4UYv3mgU1?=
+ =?us-ascii?Q?r+kuyDP59EhL2QpVkkERXN5+INEvFN+c+7j0+4Atryct5SJ0stWDg/92Fc8s?=
+ =?us-ascii?Q?OyJmZN+KEUlzm86pmytb5JIWbistA/YBfK2Ec+f3djmRXKMFE/x6PUchhKOH?=
+ =?us-ascii?Q?aRo+B6h9nIL8qeLf/SHtyzVwV6GTGmSu2qw2uWrp3YBiuR58GKAe470sxtVs?=
+ =?us-ascii?Q?yN+wWgHWXVwnMYZdoLD/0ACF+Fn2INdvhphHVFodJmy23ap7rQ7Vqxp6uGX1?=
+ =?us-ascii?Q?jNLBYmJwOu3rdQfcB1onDcCoaHVNYr6ok1YzRuBWpvsjhMI6Uv6eeKckEsW/?=
+ =?us-ascii?Q?xXLc+38pK+QW/OUL+UJVniBqOaS9CYLPkfYFMWJJwxxKGMU+ep40464fnFvK?=
+ =?us-ascii?Q?3CX6tHgmvtj6VM2DnWuaEinAwWfTwl1cLFsTCmTQYVcmwgu3fB55j+cLZi7a?=
+ =?us-ascii?Q?6G5eIEwZ6Hvr1vaoDm/WTzs693lxShsMcZUdmSijQzkFMIf2eDoMRQA1tRTD?=
+ =?us-ascii?Q?NH/awiZZm/VWPe2zPvJ1JdMYVI6/2WPykLA7UG1kOEGQ980Te+NOv8jo+uch?=
+ =?us-ascii?Q?r1jVOOQZwa9PsoHGqIOLr5XhZ1LPbPag3p22zLjAjH01Rum8o9XJaaqsm4Pm?=
+ =?us-ascii?Q?kSVeXWscmcnQOMZTMznPH0QlPfQU5TfubBzbY9IM/a/HoJHPnNTqlN4qMMpw?=
+ =?us-ascii?Q?flgOvmRXWFOF/0SwzQEfhDM0aXcOYRJW4XslhMHbIq5jfFnJrTqgNAkYNbBB?=
+ =?us-ascii?Q?2I7Z2F6qcMD2pk5B3pdwSh5B1p0JuQWE5WrBq/UaHh4V9J94+DFnK1mF+isH?=
+ =?us-ascii?Q?X99yTvizT3QsgfE1bUOBfogNfVscEq0YJVOq87Wlpi4JV3P2NimUaqorzF2V?=
+ =?us-ascii?Q?2WoQz27nhy9EIFrRBcod5Agq6ylr3XryXPiJn9XAmoFm1hdkoy39bwtL+wT9?=
+ =?us-ascii?Q?E8Zddu8C1HeQMwFkDNPhWZCzYl6tvy16gTEtJM2D41sdvX+U0gzj55XoiOCz?=
+ =?us-ascii?Q?84JMA/wAKyxK3udm7JOwRjOFJSyE02ozpPFs5hVbd/iwvLiNZFYwaV0nzIkz?=
+ =?us-ascii?Q?ShG6zh6A3964iLp98WsBw60Z5/MLCPtjK3I1TBJh0j3jKm3B4yn2dZ0XZJPd?=
+ =?us-ascii?Q?NPcQQYHMdwfGeAta/eb1jnKBaCMjFuHOojqFHEY1ZLPalWt5Du3ovuEUbONu?=
+ =?us-ascii?Q?0YJhETaIcqPEKdOcpuT3OLVGXOOLOTSVBWUI5eXbUUHfe1gfOEtVTsz9ENk1?=
+ =?us-ascii?Q?0s2obxd2LbeXunwsvG+3OPPtjwcQ8FmykoovkEULbTMmppaQOV7al+vDqvZg?=
+ =?us-ascii?Q?GLePNOR3LNmAaC80RjPLA0NM33kT7bBk+GzwiYYl6V/Pj2m9NPUm3IQvBSp0?=
+ =?us-ascii?Q?d14Vpc3OlIEYywSkmAuUBo2L58Rpb4u5M8f/+6WI7HJq8Cm71kFvS2gMAHfi?=
+ =?us-ascii?Q?KRZYzNsVU/gxiupYM9gDBGQLpCoRmwPqzuz3Kw/2bM29jSP8JmNuHCuGPsKe?=
+ =?us-ascii?Q?78OGDR8IRMwi9Q7zluTDHOxZc2F4rGJHO+HzhAVxEFknt/IrPXgGgCtUoZ7G?=
+ =?us-ascii?Q?pW+D1tN74q1XObdoFyGxCscELm5YGKRyRHCQUmrpN2aPNLMRsvBGu57uQ0gN?=
+ =?us-ascii?Q?Y/yf3VxyWg=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 476f5a97-18e2-46e2-b5bd-08de9c6c6bf2
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Apr 2026 10:31:01.6587
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MVKsjz65cpXyXQBBVoI2mDlSDWZFt7q4NnuEzAbgRydG+oDGqPYZ+C5iCYYT1Z5ePeSiTu+ape3wvAdHQUTFtw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7940
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_033033_501314_41267679 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20260417_033106_734383_C497FF83 
+X-CRM114-Status: GOOD (  21.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,70 +149,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARM32 BPF JIT does not support BPF-to-BPF function calls
-(subprogram calls). When insn->src_reg == BPF_PSEUDO_CALL, the
-imm field contains a pc-relative offset to another BPF function,
-not a helper function index.
+On Wed, Apr 15, 2026 at 09:21:44AM +0000, G.N. Zhou (OSS) wrote:
+> Hi Krzysztof Kozlowski
+>
+> Thanks for your review.
+>
+> > -----Original Message-----
+> > From: Krzysztof Kozlowski <krzk@kernel.org>
+> > Sent: Wednesday, April 15, 2026 4:10 PM
+> > To: G.N. Zhou (OSS) <guoniu.zhou@oss.nxp.com>
+> > Cc: Michael Riesch <michael.riesch@collabora.com>; Mauro Carvalho Chehab
+> > <mchehab@kernel.org>; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
+> > <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Heiko Stuebner
+> > <heiko@sntech.de>; Laurent Pinchart <laurent.pinchart@ideasonboard.com>;
+> > Frank Li <frank.li@nxp.com>; linux-media@vger.kernel.org; linux-
+> > kernel@vger.kernel.org; devicetree@vger.kernel.org; imx@lists.linux.dev; linux-
+> > arm-kernel@lists.infradead.org; linux-rockchip@lists.infradead.org
+> > Subject: Re: [PATCH 4/5] media: dt-bindings: add NXP i.MX95 compatible string
+> >
+> > On Wed, Apr 15, 2026 at 11:46:55AM +0800, Guoniu Zhou wrote:
+> > > The i.MX95 CSI-2 controller is nearly identical to i.MX93, with the
+> > > only difference being the use of IDI (Image Data Interface) instead of
+> > > IPI (Image Pixel Interface). The binding constraints are otherwise the
+> > > same.
+> >
+> > Nearly identical with some difference really, really suggests they are
+> > compatible. Express compatibility or explain why they are not compatible
+> > (difference between IDI and IPI unfortunately does not help me).
+>
+> You're right that they are very similar. The key difference between IDI and IPI
+> is in the software interface:
+>
+> - IPI (Image Pixel Interface) on i.MX93 requires software configuration through
+>   a set of registers to enable the interface and configure data routing.
+>
+> - IDI (Image Data Interface) on i.MX95 is software transparent - it requires no
+>   register configuration and the data routing is handled automatically by hardware.
+>
+> Because of this difference in register layout and initialization requirements,
+> they cannot share the same compatible string. The driver needs to know which
+> interface is present
 
-When a program containing BPF-to-BPF calls is loaded, the verifier
-invokes bpf_jit_subprogs() which calls bpf_int_jit_compile() for each
-subprogram. Since ARM32 does not reject BPF_PSEUDO_CALL, the JIT
-silently emits code for the call using the wrong address computation:
+Just include these key information into commit message to do judgement
+it is not compatible with imx93.
 
-    func = __bpf_call_base + imm
+Frank
 
-where imm is actually a pc-relative subprogram offset, producing
-a bogus function pointer. Because build_body() reports success,
-bpf_jit_binary_alloc() is reached and a JIT image is allocated.
 
-ARM32 also lacks the jit_data/extra_pass mechanism needed for
-the second JIT pass in bpf_jit_subprogs(). On the second pass,
-bpf_int_jit_compile() performs a full fresh compilation,
-allocating a new JIT binary and overwriting prog->bpf_func. The
-first allocation is never freed. bpf_jit_subprogs() then detects
-the function pointer changed and aborts with -ENOTSUPP, but the
-original JIT binary has already been leaked. Each program
-load/unload cycle leaks one JIT binary allocation, as reported
-by kmemleak:
-
-    unreferenced object 0xbf0a1000 (size 4096):
-      backtrace:
-        bpf_jit_binary_alloc+0x64/0xfc
-        bpf_int_jit_compile+0x14c/0x348
-        bpf_jit_subprogs+0x4fc/0xa60
-
-Fix this by rejecting BPF_PSEUDO_CALL early in build_insn(),
-falling through to the existing 'notyet' path. This causes
-build_body() to fail before any JIT binary is allocated, so
-bpf_int_jit_compile() returns the original program unjitted.
-bpf_jit_subprogs() then sees !prog->jited and cleanly falls
-back to the interpreter.
-
-Fixes: 1c2a088a6626 ("bpf: x64: add JIT support for multi-function programs")
-Reported-by: Jonas Rebmann <jre@pengutronix.de>
-Closes: https://lore.kernel.org/bpf/b63e9174-7a3d-4e22-8294-16df07a4af89@pengutronix.de
-Tested-by: Jonas Rebmann <jre@pengutronix.de>
-Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
----
- arch/arm/net/bpf_jit_32.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/arch/arm/net/bpf_jit_32.c b/arch/arm/net/bpf_jit_32.c
-index deeb8f292454..91fef10e88bc 100644
---- a/arch/arm/net/bpf_jit_32.c
-+++ b/arch/arm/net/bpf_jit_32.c
-@@ -2047,6 +2047,8 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx)
- 	/* function call */
- 	case BPF_JMP | BPF_CALL:
- 	{
-+		if (insn->src_reg == BPF_PSEUDO_CALL)
-+			goto notyet;
- 		const s8 *r0 = bpf2a32[BPF_REG_0];
- 		const s8 *r1 = bpf2a32[BPF_REG_1];
- 		const s8 *r2 = bpf2a32[BPF_REG_2];
-
-base-commit: 1f5ffc672165ff851063a5fd044b727ab2517ae3
--- 
-2.52.0
-
+>
+> >
+> > Best regards,
+> > Krzysztof
+>
 
