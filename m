@@ -4,61 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81DC3F43695
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 12:08:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D3FF43697
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 12:18:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tjpGNp21pxfsQzkG2LPNFYZA2ZEfPjizwMSu6qyomN8=; b=3/DhpGtag2P3ODrTHr506tL5RD
-	u0CGfmJRbP0ZXJ1GfcdpanVjf3p9OvwiMdDhE/LldlpYsSrIf3C4VncrqpmfR+zcODyP/pu1GbZVK
-	q+uPse+5PcjsVZ+3Xllufw4TgUpaBT50n8oL0PMA9AKryUqPCOSrrnbOsIs7wZ9ADKOT47WSQXOQO
-	DKayG/FPMIAHq9kjXwelA98PawP4LaCd/yW/psD2WR7PxPJ5e2ZRDtlzOChaSmqzt4yHKF9KKPYaq
-	Yvsivioijy0GIIpkXtLtk+JtHt9JYldeoDxzPk2t5CM/kaMI6LVldbESvIo0NwStobm5Pdd2rT3jf
-	H+JZxwNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cDMhKxQZOBW41kLl446l1EJd+PVPbWKyXfIiDzkTED4=; b=gHnP/SYk6YwT3PjHw6qq8mY1BB
+	x9sED06Gn/3gR17ZeMEq4X2gWH9k7YV3hPKqoZM2NGlffKiU7LuOKzSRyXabeN8Ftw8N3rFUdr39t
+	4YsC6iGZPLUqsCZ+DCOJzR3nQKp1fe0wd2tZCYoAVBBM8eIxXeMilLmBe3tXy2ahAiucskqdYZUrc
+	DJoPfzlY7MnRYR9udv3H98/UNssrGizg4pwG4CBEbiirX7chB9NTzKEdpk1rTvaWTqTNnZbya/LKv
+	5e2YuIBSIVQIkp2bWAd6rer+74qPQIhIeRDG8k/axL1YNpBZ+TGUYFaM/pZHrKSiZT2PKFThOSZVu
+	HNis1QvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDi0A-000000041UO-2np3;
-	Fri, 17 Apr 2026 12:08:50 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1wDi9G-000000041yT-0zkV;
+	Fri, 17 Apr 2026 12:18:14 +0000
+Received: from mail-ua1-x934.google.com ([2607:f8b0:4864:20::934])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDi08-000000041Tn-4AZb;
-	Fri, 17 Apr 2026 12:08:50 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.99)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1wDhzt-000000004Gm-0SZ7;
-	Fri, 17 Apr 2026 12:08:33 +0000
-Date: Fri, 17 Apr 2026 13:08:29 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: "Chester A. Unal" <chester.a.unal@arinc9.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Christian Marangi <ansuelsmth@gmail.com>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Frank Wunderlich <frank-w@public-files.de>,
-	John Crispin <john@phrozen.org>
-Subject: Re: [PATCH net] net: dsa: mt7530: fix .get_stats64 sleeping in
- atomic context
-Message-ID: <aeIivb0AwRoCOezc@makrotopia.org>
-References: <79dc0ec5b6be698b14cb66339d6f63033ca2934a.1776397542.git.daniel@makrotopia.org>
- <C88911FE-2012-4D29-B7F2-6BEA28122854@arinc9.com>
+	id 1wDi9D-000000041xN-47Tn
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Apr 2026 12:18:13 +0000
+Received: by mail-ua1-x934.google.com with SMTP id a1e0cc1a2514c-9589125e047so205447241.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 05:18:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776428290; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Q6pP6hucVPvtVxVm5xodY5eTnCkXk8IHdOtqkVTeh9Z528hJNO6Hz1No7AR26jqRdL
+         g55iGf7OWfIyRHhNGtnspbHz6OAgajottcliV2kb2whEoyykXl+H524siDYRPZ4cw5wO
+         Ce0AkGJOesrCTLdwTeYm+3cpAkdABbaQjQAiekk/9WHva2NCfm6OZYjyAZ1bRUW5prry
+         aAeByEVTQ0TrxNsWoD5JQlRQ6HCkxo720Z7IrndjQWmZLMx5ZnDKBNy0QlMDPCvbz18y
+         X1LWVgwx3B2CjvQE5feunNhzyK+51CYrjmEAstJbJf7ahn+7dR6YuX2JSc6l3BdGgDWX
+         ZULw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=cDMhKxQZOBW41kLl446l1EJd+PVPbWKyXfIiDzkTED4=;
+        fh=TC2jdvl+H3eGxdRh5BXJ0VQBCvA8kmK11OKiSYZ2GuY=;
+        b=k8B3iSGOp5n/NUg0+sjqGvX3X6JK0v2mtdbfiNgy4iDW8P0VwILURusseTn5QkDFG3
+         zC6vADkqBuOarK4Kf+YoogsVgvH4ZAd4C8/C4/5+7zQO4LpX5cBqvxn9PSmYf7S7r0DK
+         HHwobP2xDY8Z9lP9SDFT6nglN4+E5jKo7+0aBT8tLoj8IJxeA4OH/z5e/K+nT+gH6uSD
+         3lgJjfUKMLH1UJ5TG2YWw2Kwkia/T7KrNPU95cH2AAUWikYjp9YjkPJQlGXK/sLu/57X
+         6PgGLVqBVFMQt2JTP/z4RXJzEhsFZHCBtxqUHmOp/bsIZLiOe77keaAJYZzGEQtirx6i
+         c7ZQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776428290; x=1777033090; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cDMhKxQZOBW41kLl446l1EJd+PVPbWKyXfIiDzkTED4=;
+        b=QL3KvrsUEGvosDAZhGvg6haNaFBHpxXylQ9MQxM641NnNzjvESeg91oJqA0svEQMrS
+         bN37C564LCksChzUAzN5T7T9mUUNAF3MyZ4ckuNsQdao8os3/kTCW05wephrR8iKyYnB
+         /ax+FGRIFWgJu4LPlO3weadL0uJmiU85VtCXYfRpXAkN2/7f/b2SQKEIDMxKkPjTG8OD
+         FxxNDeheON9ZAzHPJHV8ncXb0ZJRoUUw2hmTTuDAVLaB6Nnne8859d3RmQAal7NWZrsc
+         9Ek9B4zcr84NOg+VXPus/801vtMZR5rolpJZFCyfm6wWA8ExazjV/74OR4pb5tiDm8CU
+         jhEg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776428290; x=1777033090;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=cDMhKxQZOBW41kLl446l1EJd+PVPbWKyXfIiDzkTED4=;
+        b=pX7RvDhkqipZAcsROR48eD6IEm81aMP9AP75VeBPBaXYv9jwHFCXaV0AowIt2k74wh
+         WS4UIsHZk37CPuUc8GHuiEDIY31GtUxNs2z9Xe8M6ZyqnSsX6l3epgzwNmSEnnYJ3MLJ
+         X5q6AroULCJn8c+BB/F02B3SXgkgUInR6Z1KSOyFpURVvK8flQ21o7dISjhMTo+tqtU+
+         fobgq91ngvT8gVUZnIAA58qnAz0vlR5iVzQselq8/KsNOlVCQ6uEhVnI2wpSVh0O/Jsg
+         upWArcrCzRY0vIUKITVymPB8PucIQvNgYogrknr7AuB9OkFIOoNVd6ui06u5Tg20xrGU
+         JV9g==
+X-Forwarded-Encrypted: i=1; AFNElJ/Q/DMue6Mrm2PdDwJyMCeURCgrpEc0ULYWl0reGk40E+R/W/9yj7SSF3cRcXXBFcqnj4qhnLeM0keAbvcKD+B0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxwlw0CxvzxF75rlykKv18TTLMtPNneFygS2wE3BIz8kTkwmBbO
+	us9EzVQedA40g1xZ1H93gZJh2VqjF6jxDj8U0ktccyXlK2p+3mJi+/LVsTohvloj9N+nnvEpcms
+	K2GX7TSn4JtyDHmt+kTwQaHxaqkz5GgE=
+X-Gm-Gg: AeBDieurlsY2O/YfyReNipGkg2ExSxladYssNiHQ036S1hIIfmUxMDj6TAL+W3yWUd7
+	uf1i7lAeeIT0y5x4zYr3tXt0orOG8gOd1rSDLbX8Rgw8KoIDZep3uIjlzBwQuyx9XojXu7JxKMI
+	k6WHzwC2uFRbfq8T4Huailq21qy8qcyD9QhU+odrA7r06Af/PJTsJvqAAbFeRuLS1OmOuGpEKUw
+	Uhklkra0BMAp50V8LQONuDIv7fcMtKfTJ6VKhgUKH6CnqioJJhK+wmegYCd93VvYl7E5K398+V8
+	Tg/HsRyjvwik7DlxeA==
+X-Received: by 2002:a67:e703:0:b0:602:afbc:ae78 with SMTP id
+ ada2fe7eead31-616fb89ea6emr791230137.2.1776428289898; Fri, 17 Apr 2026
+ 05:18:09 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <C88911FE-2012-4D29-B7F2-6BEA28122854@arinc9.com>
+References: <20260416-hpd-irq-events-v1-0-1ab1f1cfb2b2@oss.qualcomm.com> <20260416-hpd-irq-events-v1-6-1ab1f1cfb2b2@oss.qualcomm.com>
+In-Reply-To: <20260416-hpd-irq-events-v1-6-1ab1f1cfb2b2@oss.qualcomm.com>
+From: Pengyu Luo <mitltlatltl@gmail.com>
+Date: Fri, 17 Apr 2026 20:17:26 +0800
+X-Gm-Features: AQROBzDTVswzyUjJ6xkXYjkzbvzXgr8nk22CVU17PBSoxKtVUOrPnYmdya4d4B0
+Message-ID: <CAH2e8h4rLZB3E8Rdwy_LtfwtwAKZCOgL18fRFVqGBx32Cm2N2Q@mail.gmail.com>
+Subject: Re: [PATCH 6/6] usb: typec: ucsi: huawei-gaokun: pass down HPD_IRQ events
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Adrien Grassein <adrien.grassein@gmail.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+	Abhinav Kumar <abhinav.kumar@linux.dev>, Jessica Zhang <jesszhan0024@gmail.com>, 
+	Sean Paul <sean@poorly.run>, Marijn Suijten <marijn.suijten@somainline.org>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Nikita Travkin <nikita@trvn.ru>, 
+	Yongxing Mou <yongxing.mou@oss.qualcomm.com>, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+	linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_050849_053660_2BD2EC84 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20260417_051812_053690_5176A962 
+X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,72 +136,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 17, 2026 at 07:35:46AM +0000, Chester A. Unal wrote:
-> On 17 April 2026 04:55:57 WEST, Daniel Golle <daniel@makrotopia.org> wrote:
-> >The .get_stats64 callback runs in atomic context, but on
-> >MDIO-connected switches every register read acquires the MDIO bus
-> >mutex, which can sleep:
-> >[   12.645973] BUG: sleeping function called from invalid context at kernel/locking/mutex.c:609
-> >[   12.654442] in_atomic(): 0, irqs_disabled(): 0, non_block: 0, pid: 759, name: grep
-> >[   12.663377] preempt_count: 0, expected: 0
-> >[   12.667410] RCU nest depth: 1, expected: 0
-> >[   12.671511] INFO: lockdep is turned off.
-> >[   12.675441] CPU: 0 UID: 0 PID: 759 Comm: grep Tainted: G S      W           7.0.0+ #0 PREEMPT
-> >[   12.675453] Tainted: [S]=CPU_OUT_OF_SPEC, [W]=WARN
-> >[   12.675456] Hardware name: Bananapi BPI-R64 (DT)
-> >[   12.675459] Call trace:
-> >[   12.675462]  show_stack+0x14/0x1c (C)
-> >[   12.675477]  dump_stack_lvl+0x68/0x8c
-> >[   12.675487]  dump_stack+0x14/0x1c
-> >[   12.675495]  __might_resched+0x14c/0x220
-> >[   12.675504]  __might_sleep+0x44/0x80
-> >[   12.675511]  __mutex_lock+0x50/0xb10
-> >[   12.675523]  mutex_lock_nested+0x20/0x30
-> >[   12.675532]  mt7530_get_stats64+0x40/0x2ac
-> >[   12.675542]  dsa_user_get_stats64+0x2c/0x40
-> >[   12.675553]  dev_get_stats+0x44/0x1e0
-> >[   12.675564]  dev_seq_printf_stats+0x24/0xe0
-> >[   12.675575]  dev_seq_show+0x14/0x3c
-> >[   12.675583]  seq_read_iter+0x37c/0x480
-> >[   12.675595]  seq_read+0xd0/0xec
-> >[   12.675605]  proc_reg_read+0x94/0xe4
-> >[   12.675615]  vfs_read+0x98/0x29c
-> >[   12.675625]  ksys_read+0x54/0xdc
-> >[   12.675633]  __arm64_sys_read+0x18/0x20
-> >[   12.675642]  invoke_syscall.constprop.0+0x54/0xec
-> >[   12.675653]  do_el0_svc+0x3c/0xb4
-> >[   12.675662]  el0_svc+0x38/0x200
-> >[   12.675670]  el0t_64_sync_handler+0x98/0xdc
-> >[   12.675679]  el0t_64_sync+0x158/0x15c
-> >
-> >For MDIO-connected switches, poll MIB counters asynchronously using a
-> >delayed workqueue every second and let .get_stats64 return the cached
-> >values under a per-port spinlock. A mod_delayed_work() call on each
-                 ^^^^^^^^^^^^^^^^^^^
-Just noticed I forgot to update the commit message when changing the
-implementation to use a single shared spinlock for all ports...
+On Thu, Apr 16, 2026 at 7:22=E2=80=AFAM Dmitry Baryshkov
+<dmitry.baryshkov@oss.qualcomm.com> wrote:
+>
+> Pass IRQ_HPD events to the HPD bridge, letting those to be delivered to
+> the DisplayPort driver.
+>
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
-I'll send v2 tomorrow fixing that, and what ever else comes up, if
-anything.
+Reviewed-by: Pengyu Luo <mitltlatltl@gmail.com>
 
-> >read triggers an immediate refresh so counters stay responsive when
-> >queried more frequently.
-> >
-> >MMIO-connected switches (MT7988, EN7581, AN7583) are not affected
-> >because their regmap does not sleep, so they continue to read MIB
-> >counters directly in .get_stats64.
-> >
-> >Fixes: 88c810f35ed5 ("net: dsa: mt7530: implement .get_stats64")
-> >Signed-off-by: Daniel Golle <daniel@makrotopia.org>
-> >---
-> >This bug highlights a bigger problem and the actual cause:
-> >Locking in the mt7530 driver deserves a cleanup, and refactoring
-> >towards cleanly and directly using the regmap API.
-> >I've prepared this already and am going to submit a series doing
-> >most of that using Coccinelle semantic patches once net-next opens
-> >again.
-> 
-> Acked-by: Chester A. Unal <chester.a.unal@arinc9.com>
-> 
-> Chester A.
+Best wishes,
+Pengyu
 
