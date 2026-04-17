@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6135CF8DFFF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 17:55:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84639F8DFFF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 17:58:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ntz/oKTV3YCcdhi0idjBTJxGMsRA7Je4Bb5Q2/ho+pI=; b=2fea1ionobw8PclsOzoIIDnDJD
-	RtQNt/tj3ylkB6VU1QtSrmw9sj0XYtfHlVzEzXaJoCc5I7So63Xa/xKpAC1IuCpa7jhF2nBsMcr1w
-	XcAt5Rbf026KlXpVhV+KUPD4mHm7l2mZUKS5PT8WuTHmOZ1p3WGIow4kEcsvaSiVF5V/SugzDJksY
-	HelhZMux0nQcv2B0xTb7/MSAM4FfohYB15IAG4+KnQoCbo3Vf0o3Y/sPu5ThGGvFgs57vc7H+dhHK
-	Ks5HiUBOmPl2YPNFBqS/Pgv/1GOI0XpVPFuVRHuMGIrbdN46h1Fy2tF+v4MRrKsFhVL7dK2/1IO2L
-	xgxwroSg==;
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2dKdBXgrUGZ+KxSo8/NU9Tv3mDPs/XLGr/23Fxb2gTo=; b=SV37PceL+F86v+ZZPPeV5o7Q4v
+	atv8JZjfViwortj17uX7LC2v04zOWtJrflrbeUXmcoAUxDplcyRDCRGw/Aop64zhUiLSKPjV/ra8/
+	Yr0DDcD4kQo3nAIMYL0aoP0NXFbUbVkJvWoZCs4AFAAK40uIt3nBmQnoV6kcrIf9iQwLUIcFX5DuT
+	VxhdQJWlV3DuRUhZqrovnWFrkWQbi49nBDHMUlY1WSaF1OZfNLokTzc4z9hCdi4sbnlRSMC+BmETW
+	Z2PQea/RsKIrrPpVa+CRFdZ9Dk7xazmpiuN4cqNcELb6UByoIs0v3qgKwkckRC0zj+5PDhQXTxAG9
+	7RzBy/Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDnPY-00000004L9e-3Byw;
-	Fri, 17 Apr 2026 17:55:24 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDnPW-00000004L9B-1adC;
-	Fri, 17 Apr 2026 17:55:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1776448518;
-	bh=Q/GzuWIQEHuvkg9yZh9vcQC8AxPXoccLErnZodAciHk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ud7SICimNN1HnVxsVZ3WfMCv8BI5OB7UvQ9beJebQtQmpu+coTXWZz8u7N0GISF5O
-	 Oxdrr9Eczp15S4lJpmFXUQU2OZ15f43hE3z/CvimwKyeySfmkLQAlYYlUvKC0RUUes
-	 mu7PLc6arQL9Um1iQErLyMZke9U2PRElA9D9fddK792XireuYepTaVW+5EyUfTM7tf
-	 2PYtNFlkW6fwEIOUWFstvW2mXmVXhfWZ4VYzPKTlGAYavKcM8RMrcNU0rruRYJT1X7
-	 yjc5xpzNKjI5rGsHXqSnYgMXQ13OjkCSv/BDX096cBXQHqEizTRnGJ/zALBlESGop1
-	 X6cTELVcasb0Q==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 67BBC17E131F;
-	Fri, 17 Apr 2026 19:55:18 +0200 (CEST)
-Message-ID: <70e9a8a0-414d-428f-8da8-9b65cc764849@collabora.com>
-Date: Fri, 17 Apr 2026 20:55:17 +0300
+	id 1wDnSG-00000004LNA-18Fk;
+	Fri, 17 Apr 2026 17:58:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDnSD-00000004LMR-0Xx3
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Apr 2026 17:58:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 19B381D70;
+	Fri, 17 Apr 2026 10:57:59 -0700 (PDT)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 673183F7D8;
+	Fri, 17 Apr 2026 10:58:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776448684; bh=tsQy6qMxsa5wjMUuqspAU/D38Z+x2rhzlE1+ZI76oYs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=sU2B9iWdqNy2qZpmdMvrPLtnrYEgCQBpmBdwpnWijSItJl8tytKgc0Jql+QiSx43R
+	 zaEjGkUxmpc4kFClz0FjWLjiaBsf06MeWnkNvOGcDCypTryA+GZ5bx9w8Ys/Oexc8C
+	 C3l5LnRs2B6aw1babPLRKbfONNLltApGHEBC5a5Q=
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: linux-security-module@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Cc: paul@paul-moore.com,
+	jmorris@namei.org,
+	serge@hallyn.com,
+	zohar@linux.ibm.com,
+	roberto.sassu@huawei.com,
+	dmitry.kasatkin@gmail.com,
+	eric.snowberg@oracle.com,
+	peterhuewe@gmx.de,
+	jarkko@kernel.org,
+	jgg@ziepe.ca,
+	sudeep.holla@kernel.org,
+	maz@kernel.org,
+	oupton@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [RFC PATCH 0/4] fix FF-A call failed with pKVM when ff-a driver is built-in
+Date: Fri, 17 Apr 2026 18:57:55 +0100
+Message-Id: <20260417175759.3191279-1-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/40] arm64: dts: rockchip: Wire up frl-enable-gpios for
- RK3576/RK3588 boards
-To: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260417-dts-rk-frl-enable-gpios-v1-0-a19c0dd8c9f6@collabora.com>
- <2297365.1BCLMh4Saa@phil>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <2297365.1BCLMh4Saa@phil>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_105522_630414_268DC8B1 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20260417_105809_348351_6FE8DEEF 
+X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,35 +89,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+commit 0e0546eabcd6 ("firmware: arm_ffa: Change initcall level of ffa_init() to rootfs_initcall")
+changed the initcall level of ffa_init() to rootfs_initcall to address
+an issue where IMA could not properly recognize the TPM device
+when FF-A driver is built as built-in.
 
-On 4/17/26 2:34 PM, Heiko Stuebner wrote:
-> Hi Cristan,
-> 
-> Am Freitag, 17. April 2026, 11:24:34 Mitteleuropäische Sommerzeit schrieb Cristian Ciocaltea:
-> 
-> [...]
-> 
->> Cristian Ciocaltea (40):
->>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-100ask-dshanpi-a1
->>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-armsom-sige5
->>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-evb1-v10
->>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-evb2-v10
->>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-luckfox-core3576
->>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-nanopi-m5
->>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-nanopi-r76s
->>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-roc-pc
->>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-rock-4d
-> 
-> I do think one patch per SoC (rk3576, rk3588, rk3588s) would make more
-> sense, because these patches really are mostly identical :-)
+However, this introduces another problem: pKVM fails to handle FF-A calls
+because it cannot trap the FFA_VERSION call invoked by ffa_init().
 
-Yeah, apologies for the large number of patches, I went this way to allow
-per-board reviews.  As previously noted, I tried to identify the GPIO pins from
-multiple sources, so I'm not entirely sure about the accuracy in every case.
+To ensure the TPM device is recognized when present in the system,
+it is preferable to invoke ima_init() at a later stage.
+Deferred probing is resolved by deferred_probe_initcall(),
+which runs at the late_initcall level.
+Therefore, introduce an LSM initcall at late_initcall_sync and
+move ima_init() to this level.
 
-Would it be preferable to squash the patches per SoC and board vendor, instead?
+With this change, revert the initcall level of ffa_init() back to
+device_initcall. Additionally, to handle the case where ffa_init() runs
+before kvm_init(), check whether pKVM has been initialized during ffa_init().
+If not, defer initialization to prevent failures of FF-A calls
+due to the inability to trap FFA_VERSION and FFA_RXTX_MAP in pKVM.
 
-Thanks,
-Cristian
+This patch is based on v7.0
+
+Yeoreum Yun (4):
+  security: ima: move ima_init into late_initcall_sync
+  tpm: tpm_crb_ffa: revert defered_probed when tpm_crb_ffa is built-in
+  firmware: arm_ffa: revert ffa_init() initcall level to device_initcall
+  firmware: arm_ffa: check pkvm initailised when initailise ffa driver
+
+ arch/arm64/kvm/arm.c              |  1 +
+ drivers/char/tpm/tpm_crb_ffa.c    | 18 +++---------------
+ drivers/firmware/arm_ffa/driver.c | 14 +++++++++++++-
+ include/linux/lsm_hooks.h         |  2 ++
+ security/integrity/ima/ima_main.c |  2 +-
+ security/lsm_init.c               | 13 +++++++++++--
+ 6 files changed, 31 insertions(+), 19 deletions(-)
+
+
+base-commit: 028ef9c96e96197026887c0f092424679298aae8
+--
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+
 
