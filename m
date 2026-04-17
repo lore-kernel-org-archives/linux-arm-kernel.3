@@ -4,134 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2B0BF8E4B6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 07:35:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C5CDF8E4B7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 07:36:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DrhUtaBSTzsU8W96kBFiB35356EKBZpAIWMjLMD2QpU=; b=MEL/ZjpOrVMnSM8Ib9x2t3ewW/
-	z8/gZ9wiJXtY8AN+QEN8BGKu/jJI/IziqARsGRod92koNQGeYI3jz7q2DZbvmZR4CQPtD2qZWRDI4
-	FEeY1l+R2JFJ0JhcPJxJJrAntcCqWUisfvO8VB1vmRamH1JW7BiKzKXTfOKEGLJISECFtnx6581SD
-	o4lndOphN1HV64Aj487N6XE1WwjQjJmcg9JbATiwJgZ7FzfXCYI99fgWuRggF9m01b3RslFkiL0ek
-	wdzwLDtGGhzMvs9IU4Jathv7aKVv9XrbkUCDlkURec/AvxFSpfj2bR0L8cmTNsmsCwq8Kj0+Yrfau
-	T7djjZ+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=sZFa0Y6SNH7feOYzK068DAaPycmuuvoLtoILesXaXIs=; b=U2HU4KPWhl5P2E
+	UdSEAo/wid6tO212ZeLdDK+Ox2Nx04kPC3BxiXjthbGET58FFetGdq9hVYs7zorPEUMdfww8y953B
+	A7b+BehAY97c8nYNthpY+KJTEMutc7iweOEBKqYjlXCPu7Dn3IGvFRFPwCfPdJKQ6o9AfR4bu3kTe
+	QXh4dVXfywKi+X28TpU04WrXLmhMrUCMeWbmFsF+h7wsCz8PpeqbX6GmETJyuzxzmxelcAHvfigSg
+	sijElu3nmwB+BOdWI5ag+DkUierRK1UwSCr+xhCwn9BjVGTA8L06UnNGbnIsB0kWpBZ1In33QIHYK
+	Q1xhZ+5j+SDj2eu9Qrrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDdk0-00000003bDL-0Inv;
-	Fri, 17 Apr 2026 07:35:52 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wDdkB-00000003bIP-3r9U;
+	Fri, 17 Apr 2026 07:36:03 +0000
+Received: from crocodile.elm.relay.mailchannels.net ([23.83.212.45])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDdjs-00000003bB8-1XzK
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 07:35:45 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63H79TIb3942119
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 07:35:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=DrhUtaBSTzs
-	U8W96kBFiB35356EKBZpAIWMjLMD2QpU=; b=QrQGF8tvSW+CXiEpxM0RycE+tM7
-	tcQAz7PP9TYrnhUd58GjxYoPin0+uladLptA8UuaSSW4BPqKYS0WceXfoeLTxRSy
-	x/0kF+dKwQKyoMlwTX0T461C6ssDK32I/tCvbhHc0wErW4upNftvBKVuEfiP1BHW
-	AaH4Ajq+xKNtcDB/hDaZPe3Zq2VQjWJjv5p/XW0XTNccQj7ML+pyHWK/nuRfEpsa
-	Z8RVmnJF1oTGRPyJEoRmPC+7OUWbpWrH0vFPQy8e7zgSR5ES8cXYKwBnteLRQ3/O
-	EPpHgCMWFEzjlI5HKtQb/EDf7/FCTb3fKyhl11hoccMLXfxcbR7QFebjlIg==
-Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dkg7rr4f2-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 07:35:43 +0000 (GMT)
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-2dd6fb4c867so492191eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 00:35:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1776411249; x=1777016049; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DrhUtaBSTzsU8W96kBFiB35356EKBZpAIWMjLMD2QpU=;
-        b=Zy+GqBa0TNDrnssEfe3FlqEzl2jLHZTFS8eIRGQN25srRmagIOdY2WLChMYD2vRvOT
-         k0MTNQpS8BjSqIfPVoJwQGtbyvM784SYUPq5gzSUCuNstdgd02YqURnMSna1ex4QPtrP
-         8pW5NWDVDfI9NxJrg5sfUc2UR6wNPpQuREGdNgAhopQPBbJRV13Q1uZjddUWSu3eBSO8
-         oKLkLcvIncKlrXz+LFB4iKiqi+Ehhe4YaDqpD4ybCVMzgiggBsmASiZkhcjYoA4YpP23
-         SGG00TVqKD+gyKILB4bheHtdQsLirEia9fYV43qmbZ8Dm+YljZRooKM+ilkJZx6kz5De
-         FU8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776411249; x=1777016049;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=DrhUtaBSTzsU8W96kBFiB35356EKBZpAIWMjLMD2QpU=;
-        b=j9HJdXTLOlNGrwmjU181N241TLf1iZF0ZlZ03Re45ad1RoNtHYWE/GbohbwNidgLxZ
-         txdUh1j+hbhPuvmBuG9aMI9zrjHQAhb10JCg8Unqlmr573Z+x0s6P61m0Yz6yEzT2fap
-         bcYOYmnJT+2uJZm+ePZ3mM2WwbhNiDPdk2mbQAOQWIqhtYTPO8DTrltOr/V3Oya7D7Ea
-         fmIOZWt3hJoxj34IR81gu6NLt0kMqXjoz3SF4Giy3B7dowmJrt/FS0uxIqKbfYb8VDWN
-         3H5kqaahXxxT6973dkUcF99Latb4Pi+bBhLjfPEJRT8IrVtLeJX9pU4KLnxE2UiFId21
-         6rCw==
-X-Forwarded-Encrypted: i=1; AFNElJ9xhJdTu4U1EqkmRvI0a8yb+mzKL53flcBaO3cycU0T3CLXVEj0VXm1BBybFGgG0v3lsGJdgpktNz7NRT817mC/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzs1Hr0Nhly1ZfqzktlBZSr4xney6qWxyq0W+Th7F3iWMl3MXuC
-	hT623evQ+IKG48oYd34A9smDtA9irwoaEl+8BdlzrZN+mduk1rO1khDLWf6FB6pPagGkAH8cNYp
-	6GZgOhsCCjiXPb7mVH0ULoRCZjtNUTrpV7fMmoCnLKPMevOCjwts+M+KmXt5HxavRMzNk0qk/+d
-	vQug==
-X-Gm-Gg: AeBDiesGCLP4abrtRijCzNl1NC5RpiqpCy4EU5EJHU6Lm3pVJkkc7AxgneGwaU8CvBM
-	iL3hcOGu5MVT5N6C9BNpUAzpLlrcElINjFdfsR0m+ec7JZwLnz32SiS1OOU9vxCUWw/rEmhITig
-	HjlAq9VIkUxmKBSQ0Bpgn6+oGFbfw6A22YDzKos7SAq0NBhlRestOG8VcqwdA8NzVmVK6wGLxHP
-	gHSvaB5jQBNxwQjdxK4MM5SqOYmw3I+ovBYFfJlPnxkjtJkHTL3ibhA2xnj8vemnpGlIz9Zx51y
-	B0UCotD9AODrBATTuIEPJLMht+ZGvgouipXkrISBl5K3Ti2mNAewM6NWRCLbL62GfSYM5YbhEcn
-	Or1hKjrN3V0aIXy9MZbUB5szRVJ0klh2TURkObctL7UvMJjGIPQvYTd8pR9oAbrLxrkQHUrYOBZ
-	Qi0G5+h+2VV8Q=
-X-Received: by 2002:a05:693c:2b15:b0:2d9:b466:5e19 with SMTP id 5a478bee46e88-2e47a1058a2mr897625eec.21.1776411249015;
-        Fri, 17 Apr 2026 00:34:09 -0700 (PDT)
-X-Received: by 2002:a05:693c:2b15:b0:2d9:b466:5e19 with SMTP id 5a478bee46e88-2e47a1058a2mr897603eec.21.1776411248400;
-        Fri, 17 Apr 2026 00:34:08 -0700 (PDT)
-Received: from hu-songchai-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2e53ccd2564sm1135168eec.18.2026.04.17.00.34.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Apr 2026 00:34:07 -0700 (PDT)
-From: Songwei Chai <songwei.chai@oss.qualcomm.com>
-To: andersson@kernel.org, alexander.shishkin@linux.intel.com,
-        mike.leach@linaro.org, konrad.dybcio@oss.qualcomm.com,
-        suzuki.poulose@arm.com, james.clark@arm.com, krzk+dt@kernel.org,
-        conor+dt@kernel.org
-Cc: Songwei Chai <songwei.chai@oss.qualcomm.com>, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        coresight@lists.linaro.org, devicetree@vger.kernel.org,
-        gregkh@linuxfoundation.org, Jie Gan <jie.gan@oss.qualcomm.com>
-Subject: [PATCH v14 6/7] qcom-tgu: Add timer/counter functionality for TGU
-Date: Fri, 17 Apr 2026 00:33:35 -0700
-Message-Id: <20260417073336.2712426-7-songwei.chai@oss.qualcomm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260417073336.2712426-1-songwei.chai@oss.qualcomm.com>
-References: <20260417073336.2712426-1-songwei.chai@oss.qualcomm.com>
+	id 1wDdk8-00000003bE4-3cF2;
+	Fri, 17 Apr 2026 07:36:02 +0000
+X-Sender-Id: hostingeremail|x-authuser|chester.a.unal@arinc9.com
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id DAA32223A24;
+	Fri, 17 Apr 2026 07:35:51 +0000 (UTC)
+Received: from de-fra-smtpout6.hostinger.io (trex-green-7.trex.outbound.svc.cluster.local [100.102.173.237])
+	(Authenticated sender: hostingeremail)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 7D046224550;
+	Fri, 17 Apr 2026 07:35:48 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; d=mailchannels.net; s=arc-2022; cv=none;
+	t=1776411351;
+	b=xwqOTTHuxZqySqgXbolI7aGsz2fNhJV3L1ETsaC4yE+dp7CvqvuiQ+rBrVMdsPq+zGk+b5
+	A9Ri/iwgpGloCikYMGfKtA/hs/P+Pl95vX7Y+VeqykxF7an5PtyTVsM2oSebZqogfzkXgE
+	D2w3orsAshuICG+bQhvhrQ2rmslNG79hSJXyHYDPOKNzB6nfthTgEKaqwnpubY9QBmGNb3
+	9OK85+yGnu51XaBiJkGrOzex5M6B1KmCovwcaXSWJ4kI8n2ItY4iVUl4fCMhEtJO8O6r0M
+	nkLTBJmNNsn/3hRTvOgFNeVYj59NzGBS9MsuICPhYC9qB0JLEPDw/XZuIXNxyg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1776411351;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=sZFa0Y6SNH7feOYzK068DAaPycmuuvoLtoILesXaXIs=;
+	b=W6mziUDblUsuJWbUr81pUGH5B3dd5ZLiCCX9iIUPTeScaqldXtzsSrt/cGWhdSY8KqEgov
+	KeiDdTZ1S7f9jfEitG2dbZBKVdv8ENvpwq3o2jPVWWWBApXUlwGbs9Gtyk0RcIPTNnut+F
+	1q+ZoBtQ+DM/kfOH7w4xI98jszighe9nxAM4Yt6HckYktJOe1on6HUHkcrg8gnUCLmoLai
+	YZrapebMRXp/nakF1aTVL+P3aoiM/bkj1Eg7aGKONZsRHAkM+aLNF//Hr5FmiF/B+FpooC
+	gGoIc26hNUIt+Aesf3JPMdx0HlcxAC6+AvOLapZi5Mcbsnn9grhupRnqY9pl/A==
+ARC-Authentication-Results: i=1;
+	rspamd-7d86dcc447-npfvn;
+	auth=pass smtp.auth=hostingeremail smtp.mailfrom=chester.a.unal@arinc9.com
+X-Sender-Id: hostingeremail|x-authuser|chester.a.unal@arinc9.com
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: hostingeremail|x-authuser|chester.a.unal@arinc9.com
+X-MailChannels-Auth-Id: hostingeremail
+X-Inform-Slimy: 41d77b480404f0d9_1776411351723_2444533645
+X-MC-Loop-Signature: 1776411351723:3074567578
+X-MC-Ingress-Time: 1776411351723
+Received: from de-fra-smtpout6.hostinger.io (de-fra-smtpout6.hostinger.io
+ [148.222.55.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.102.173.237 (trex/7.1.5);
+	Fri, 17 Apr 2026 07:35:51 +0000
+Received: from ehlo.thunderbird.net (188-125-220-177.ptr188.nosmadeira.net [188.125.220.177])
+	(Authenticated sender: chester.a.unal@arinc9.com)
+	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4fxmrf1kvbz3wbs;
+	Fri, 17 Apr 2026 07:35:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arinc9.com;
+	s=hostingermail-a; t=1776411346;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=sZFa0Y6SNH7feOYzK068DAaPycmuuvoLtoILesXaXIs=;
+	b=XGQ818jgpQF9iqR/beBmkyF9WPzcyfS5cxybvBAN/xMIyUhWjaayDqcTSjN7Ljy+Us8ipX
+	iil2jK79/jf7kXnJFQkkU0PR3PftpGUnaxyIC5mgYhWt+B20ZMLZ3pwNFRAYCE7j2xiBqx
+	RAkVX6/cu+ZBKJabkMx9BoKf6PNeIMX4cYeLfa0bnVTjekBY3EmEdpkH4JjbJdA6vh4Npl
+	2e3b0rA5u+eNZiGpfT+z3i4S/b7xOC9ZtIfCXVp5ji0DH5DIEcidaylM2QowPW8FWCB0Ci
+	pGRyUxXxkyiRxEqJlVHWiuUPqD279LruHQ06Choi4XcRn0lEkhyxWD6EHsPNlA==
+From: "Chester A. Unal" <chester.a.unal@arinc9.com>
+To: Daniel Golle <daniel@makrotopia.org>, Andrew Lunn <andrew@lunn.ch>,
+ Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Russell King <linux@armlinux.org.uk>,
+ Christian Marangi <ansuelsmth@gmail.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+CC: Frank Wunderlich <frank-w@public-files.de>, John Crispin <john@phrozen.org>
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_net=5D_net=3A_dsa=3A_mt7530=3A_fix_?=
+ =?US-ASCII?Q?=2Eget=5Fstats64_sleeping_in_atomic_context?=
+User-Agent: Thunderbird for Android
+In-Reply-To: <79dc0ec5b6be698b14cb66339d6f63033ca2934a.1776397542.git.daniel@makrotopia.org>
+References: <79dc0ec5b6be698b14cb66339d6f63033ca2934a.1776397542.git.daniel@makrotopia.org>
+Message-ID: <C88911FE-2012-4D29-B7F2-6BEA28122854@arinc9.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: 9-sY-01ZfsIkJA9HPIWR44t9bfBSrY5u
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE3MDA3NSBTYWx0ZWRfX91BVEAb5IIpR
- Jw4ojrV83R5bylNroUyrXMqdjsCscgXJ+uT1WyFuY5XbzTx1DDKSXQTzIazfw0meBaV+jTMLl1X
- tZTqyrjU8vekyGUDgwWU4+leGJHuhNcgohfNQOQRTjYJW+av/HltoUwMC/BUDxtH19e0MNkGp9J
- alUR8GB2iqZa+wB5RO52Ea58QL7rpOZXu2l1u6HBpmYOW2DqI3soMntflCRJM09sJtbewfgKnlZ
- /cEcdVKcs4kP85vXH45hi39S1LF9BMKGATHvVdfcnBUtLiqzGPfjxOv/vhmzdBPpJCyBVkpJl7A
- 4rmAhHNIvriJgvFgyQ/Bse8RZ/i4EE+7tI893EhD9RN7k329chgHifO67IymAxZdkBBekeh4xnO
- 7VvW6dSdl6qkR9trEjS70SmxL9Gb0PD19E2+fwJBfZHSxbwJ5m4N8dLW3lUww9w6EVKiFIo42p2
- 5yWnmcdWFMETAfaQVRA==
-X-Authority-Analysis: v=2.4 cv=b4mCJNGx c=1 sm=1 tr=0 ts=69e1e2cf cx=c_pps
- a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=EUspDBNiAAAA:8
- a=eGDQztGCVwpQsGOtWZEA:9 a=bBxd6f-gb0O0v-kibOvt:22
-X-Proofpoint-GUID: 9-sY-01ZfsIkJA9HPIWR44t9bfBSrY5u
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-16_04,2026-04-16_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 suspectscore=0 priorityscore=1501 adultscore=0 bulkscore=0
- phishscore=0 clxscore=1015 spamscore=0 impostorscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604170075
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 17 Apr 2026 07:35:46 +0000 (UTC)
+X-CM-Envelope: MS4xfGMnf4xyOlqFiRWYPA7TjCq6fCjtOr83QCRHuakxWqjqJwYwN6buyRH81bL23RSsr91fdHIOrfSjLmrK7Ol1NauHM6b3Zs9t5MxTSk8z23WCRZ8oWOFD 3uTgX5R+ddPKZ4JC25csEc5ZsC9zLPUNY+1YwKSQJbvvWE+4keGwIIfkg3dKtawMm6MoGvebUjz4bCYUzePzaEELTFrOXHmYQNPY5h1dAFcPQpkGIfslaS+X XnbWog820YKIfl4aBu8AfepTFF6a6w9ZrDu4kkd4/RUPr8vSK6p0WBD8OpdC3LzaQP6N9POCPQKlG3DV1d5gG2ppmIhyu0y9HnK8ZcrMMhsjd9yBzIFw9S/F 5db+aYm3DKzjREHtclLjoLjdOgGXkuQHIoe8sHdShqGogVuoDXKBkRkAYh+axsNpOSqdkt7aCW8AWzu3RL8opJ4hCkAYZUs3KgfXmW6lRmdQqjoyIP/kxXLC KsVBc342cmx2eH680j6qPXMtnggUya22vSccCuQNhnznCwYCUcABcRJcc6ThsmOsRS76gtu1+zAGyB3dYj7WQ5gF0IiL/gq/kdjg/QWK/VGmNfbdn07k/PUJ Y9ZH77LjBmCGgWP1K2RsqVarQrcVSVqOsdsMbggPlQacKnfN4pE6Ni8IBSOjNQvfV7GfR0XpMZ89BwxiopcmSc/wTRFwY4grXIzxGSVcFOpw9M/s9hhhPsWq iBmr76jcr0Gh7XIxax18HRDNkFqpHl5SvjbXVcsRpChsevnVbHomk00jKoVjjZnp7I8ZcdNXfFg=
+X-CM-Analysis: v=2.4 cv=etGNzZpX c=1 sm=1 tr=0 ts=69e1e2d2 a=KoLBVwjZwhb06KCzuzBB7w==:117 a=KoLBVwjZwhb06KCzuzBB7w==:17 a=IkcTkHD0fZMA:10 a=puQWGBksFvoA:10 a=VT4XjZGOAAAA:8 a=GvHEsTVZAAAA:8 a=zaLEu0xVIz8BohAw39kA:9 a=QEXdDO2ut3YA:10 a=6CpsfURP9XNmmWg3j1mJ:22 a=aajZ2D0djhd3YR65f-bR:22
+X-AuthUser: chester.a.unal@arinc9.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_003544_413046_AC0B3B7F 
-X-CRM114-Status: GOOD (  21.62  )
+X-CRM114-CacheID: sfid-20260417_003601_035687_F7495F2D 
+X-CRM114-Status: UNSURE (   4.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,368 +128,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add counter and timer node for each step which could be
-programed if they are to be utilized in trigger event/sequence.
+On 17 April 2026 04:55:57 WEST, Daniel Golle <daniel@makrotopia=2Eorg> wrot=
+e:
+>The =2Eget_stats64 callback runs in atomic context, but on
+>MDIO-connected switches every register read acquires the MDIO bus
+>mutex, which can sleep:
+>[   12=2E645973] BUG: sleeping function called from invalid context at ke=
+rnel/locking/mutex=2Ec:609
+>[   12=2E654442] in_atomic(): 0, irqs_disabled(): 0, non_block: 0, pid: 7=
+59, name: grep
+>[   12=2E663377] preempt_count: 0, expected: 0
+>[   12=2E667410] RCU nest depth: 1, expected: 0
+>[   12=2E671511] INFO: lockdep is turned off=2E
+>[   12=2E675441] CPU: 0 UID: 0 PID: 759 Comm: grep Tainted: G S      W   =
+        7=2E0=2E0+ #0 PREEMPT
+>[   12=2E675453] Tainted: [S]=3DCPU_OUT_OF_SPEC, [W]=3DWARN
+>[   12=2E675456] Hardware name: Bananapi BPI-R64 (DT)
+>[   12=2E675459] Call trace:
+>[   12=2E675462]  show_stack+0x14/0x1c (C)
+>[   12=2E675477]  dump_stack_lvl+0x68/0x8c
+>[   12=2E675487]  dump_stack+0x14/0x1c
+>[   12=2E675495]  __might_resched+0x14c/0x220
+>[   12=2E675504]  __might_sleep+0x44/0x80
+>[   12=2E675511]  __mutex_lock+0x50/0xb10
+>[   12=2E675523]  mutex_lock_nested+0x20/0x30
+>[   12=2E675532]  mt7530_get_stats64+0x40/0x2ac
+>[   12=2E675542]  dsa_user_get_stats64+0x2c/0x40
+>[   12=2E675553]  dev_get_stats+0x44/0x1e0
+>[   12=2E675564]  dev_seq_printf_stats+0x24/0xe0
+>[   12=2E675575]  dev_seq_show+0x14/0x3c
+>[   12=2E675583]  seq_read_iter+0x37c/0x480
+>[   12=2E675595]  seq_read+0xd0/0xec
+>[   12=2E675605]  proc_reg_read+0x94/0xe4
+>[   12=2E675615]  vfs_read+0x98/0x29c
+>[   12=2E675625]  ksys_read+0x54/0xdc
+>[   12=2E675633]  __arm64_sys_read+0x18/0x20
+>[   12=2E675642]  invoke_syscall=2Econstprop=2E0+0x54/0xec
+>[   12=2E675653]  do_el0_svc+0x3c/0xb4
+>[   12=2E675662]  el0_svc+0x38/0x200
+>[   12=2E675670]  el0t_64_sync_handler+0x98/0xdc
+>[   12=2E675679]  el0t_64_sync+0x158/0x15c
+>
+>For MDIO-connected switches, poll MIB counters asynchronously using a
+>delayed workqueue every second and let =2Eget_stats64 return the cached
+>values under a per-port spinlock=2E A mod_delayed_work() call on each
+>read triggers an immediate refresh so counters stay responsive when
+>queried more frequently=2E
+>
+>MMIO-connected switches (MT7988, EN7581, AN7583) are not affected
+>because their regmap does not sleep, so they continue to read MIB
+>counters directly in =2Eget_stats64=2E
+>
+>Fixes: 88c810f35ed5 ("net: dsa: mt7530: implement =2Eget_stats64")
+>Signed-off-by: Daniel Golle <daniel@makrotopia=2Eorg>
+>---
+>This bug highlights a bigger problem and the actual cause:
+>Locking in the mt7530 driver deserves a cleanup, and refactoring
+>towards cleanly and directly using the regmap API=2E
+>I've prepared this already and am going to submit a series doing
+>most of that using Coccinelle semantic patches once net-next opens
+>again=2E
 
-Reviewed-by: Jie Gan <jie.gan@oss.qualcomm.com>
-Signed-off-by: Songwei Chai <songwei.chai@oss.qualcomm.com>
----
- .../ABI/testing/sysfs-bus-amba-devices-tgu    |  14 +++
- drivers/hwtracing/qcom/tgu.c                  | 116 +++++++++++++++++-
- drivers/hwtracing/qcom/tgu.h                  |  57 +++++++++
- 3 files changed, 185 insertions(+), 2 deletions(-)
+Acked-by: Chester A=2E Unal <chester=2Ea=2Eunal@arinc9=2Ecom>
 
-diff --git a/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
-index 786cb852bbe5..7a3573e03e27 100644
---- a/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
-+++ b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
-@@ -28,3 +28,17 @@ KernelVersion:	7.1
- Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai <songwei.chai@oss.qualcomm.com>
- Description:
- 		(RW) Set/Get the next action with specific step for TGU.
-+
-+What:		/sys/bus/amba/devices/<tgu-name>/step[0:7]_timer/reg[0:1]
-+Date:		April 2026
-+KernelVersion:	7.1
-+Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai <songwei.chai@oss.qualcomm.com>
-+Description:
-+		(RW) Set/Get the timer value with specific step for TGU.
-+
-+What:		/sys/bus/amba/devices/<tgu-name>/step[0:7]_counter/reg[0:1]
-+Date:		April 2026
-+KernelVersion:	7.1
-+Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai <songwei.chai@oss.qualcomm.com>
-+Description:
-+		(RW) Set/Get the counter value with specific step for TGU.
-diff --git a/drivers/hwtracing/qcom/tgu.c b/drivers/hwtracing/qcom/tgu.c
-index fefe932059cb..6d5bf2621cb0 100644
---- a/drivers/hwtracing/qcom/tgu.c
-+++ b/drivers/hwtracing/qcom/tgu.c
-@@ -32,6 +32,10 @@ static int calculate_array_location(struct tgu_drvdata *drvdata,
- 	case TGU_CONDITION_SELECT:
- 		return step_index * (drvdata->num_condition_select) +
- 			reg_index;
-+	case TGU_COUNTER:
-+		return step_index * (drvdata->num_counter) + reg_index;
-+	case TGU_TIMER:
-+		return step_index * (drvdata->num_timer) + reg_index;
- 	default:
- 		break;
- 	}
-@@ -77,6 +81,12 @@ static ssize_t tgu_dataset_show(struct device *dev,
- 	case TGU_CONDITION_SELECT:
- 		return sysfs_emit(buf, "0x%x\n",
- 				drvdata->value_table->condition_select[index]);
-+	case TGU_TIMER:
-+		return sysfs_emit(buf, "0x%x\n",
-+				drvdata->value_table->timer[index]);
-+	case TGU_COUNTER:
-+		return sysfs_emit(buf, "0x%x\n",
-+				drvdata->value_table->counter[index]);
- 	default:
- 		break;
- 	}
-@@ -122,6 +132,14 @@ static ssize_t tgu_dataset_store(struct device *dev,
- 		tgu_drvdata->value_table->condition_select[index] = val;
- 		ret = size;
- 		break;
-+	case TGU_TIMER:
-+		tgu_drvdata->value_table->timer[index] = val;
-+		ret = size;
-+		break;
-+	case TGU_COUNTER:
-+		tgu_drvdata->value_table->counter[index] = val;
-+		ret = size;
-+		break;
- 	default:
- 		ret = -EINVAL;
- 		break;
-@@ -163,6 +181,18 @@ static umode_t tgu_node_visible(struct kobject *kobject,
- 		if (tgu_attr->reg_num < drvdata->num_condition_select)
- 			return attr->mode;
- 		break;
-+	case TGU_COUNTER:
-+		if (!drvdata->num_counter)
-+			break;
-+		if (tgu_attr->reg_num < drvdata->num_counter)
-+			return attr->mode;
-+		break;
-+	case TGU_TIMER:
-+		if (!drvdata->num_timer)
-+			break;
-+		if (tgu_attr->reg_num < drvdata->num_timer)
-+			return attr->mode;
-+		break;
- 	default:
- 		break;
- 	}
-@@ -213,6 +243,30 @@ static ssize_t tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
- 				drvdata->base + CONDITION_SELECT_STEP(i, j));
- 		}
- 	}
-+
-+	for (i = 0; i < drvdata->num_step; i++) {
-+		for (j = 0; j < drvdata->num_timer; j++) {
-+			index = check_array_location(drvdata, i, TGU_TIMER, j);
-+
-+			if (index == -EINVAL)
-+				goto exit;
-+
-+			writel(drvdata->value_table->timer[index],
-+				drvdata->base + TIMER_COMPARE_STEP(i, j));
-+		}
-+	}
-+
-+	for (i = 0; i < drvdata->num_step; i++) {
-+		for (j = 0; j < drvdata->num_counter; j++) {
-+			index = check_array_location(drvdata, i, TGU_COUNTER, j);
-+
-+			if (index == -EINVAL)
-+				goto exit;
-+
-+			writel(drvdata->value_table->counter[index],
-+				drvdata->base + COUNTER_COMPARE_STEP(i, j));
-+		}
-+	}
- 	/* Enable TGU to program the triggers */
- 	writel(1, drvdata->base + TGU_CONTROL);
- exit:
-@@ -256,6 +310,27 @@ static void tgu_set_conditions(struct tgu_drvdata *drvdata)
- 	drvdata->num_condition_select = TGU_DEVID_CONDITIONS(devid) + 1;
- }
- 
-+static void tgu_set_timer_counter(struct tgu_drvdata *drvdata)
-+{
-+	int num_timers = 0, num_counters = 0;
-+	u32 devid2;
-+
-+	devid2 = readl(drvdata->base + CORESIGHT_DEVID2);
-+
-+	if (TGU_DEVID2_TIMER0(devid2))
-+		num_timers++;
-+	if (TGU_DEVID2_TIMER1(devid2))
-+		num_timers++;
-+
-+	if (TGU_DEVID2_COUNTER0(devid2))
-+		num_counters++;
-+	if (TGU_DEVID2_COUNTER1(devid2))
-+		num_counters++;
-+
-+	drvdata->num_timer = num_timers;
-+	drvdata->num_counter = num_counters;
-+}
-+
- static int tgu_enable(struct device *dev)
- {
- 	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
-@@ -405,6 +480,22 @@ static const struct attribute_group *tgu_attr_groups[] = {
- 	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(5),
- 	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(6),
- 	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(7),
-+	TIMER_ATTRIBUTE_GROUP_INIT(0),
-+	TIMER_ATTRIBUTE_GROUP_INIT(1),
-+	TIMER_ATTRIBUTE_GROUP_INIT(2),
-+	TIMER_ATTRIBUTE_GROUP_INIT(3),
-+	TIMER_ATTRIBUTE_GROUP_INIT(4),
-+	TIMER_ATTRIBUTE_GROUP_INIT(5),
-+	TIMER_ATTRIBUTE_GROUP_INIT(6),
-+	TIMER_ATTRIBUTE_GROUP_INIT(7),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(0),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(1),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(2),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(3),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(4),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(5),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(6),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(7),
- 	NULL,
- };
- 
-@@ -412,8 +503,8 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
- {
- 	struct device *dev = &adev->dev;
- 	struct tgu_drvdata *drvdata;
--	unsigned int *priority, *condition, *select;
--	size_t priority_size, condition_size, select_size;
-+	unsigned int *priority, *condition, *select, *timer, *counter;
-+	size_t priority_size, condition_size, select_size, timer_size, counter_size;
- 	int ret;
- 
- 	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
-@@ -432,6 +523,7 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
- 	tgu_set_reg_number(drvdata);
- 	tgu_set_steps(drvdata);
- 	tgu_set_conditions(drvdata);
-+	tgu_set_timer_counter(drvdata);
- 
- 	ret = sysfs_create_groups(&dev->kobj, tgu_attr_groups);
- 	if (ret) {
-@@ -474,6 +566,26 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
- 
- 	drvdata->value_table->condition_select = select;
- 
-+	timer_size = drvdata->num_step * drvdata->num_timer;
-+
-+	timer = devm_kcalloc(dev, timer_size,
-+			    sizeof(*(drvdata->value_table->timer)),
-+			    GFP_KERNEL);
-+	if (!timer)
-+		return -ENOMEM;
-+
-+	drvdata->value_table->timer = timer;
-+
-+	counter_size = drvdata->num_step * drvdata->num_counter;
-+
-+	counter = devm_kcalloc(dev, counter_size,
-+			      sizeof(*(drvdata->value_table->counter)),
-+			      GFP_KERNEL);
-+	if (!counter)
-+		return -ENOMEM;
-+
-+	drvdata->value_table->counter = counter;
-+
- 	drvdata->enabled = false;
- 
- 	pm_runtime_put(&adev->dev);
-diff --git a/drivers/hwtracing/qcom/tgu.h b/drivers/hwtracing/qcom/tgu.h
-index c61aa8dc51b0..1bcbc99169de 100644
---- a/drivers/hwtracing/qcom/tgu.h
-+++ b/drivers/hwtracing/qcom/tgu.h
-@@ -11,6 +11,7 @@
- #define TGU_LAR		0xfb0
- #define TGU_UNLOCK_OFFSET	0xc5acce55
- #define TGU_DEVID		0xfc8
-+#define CORESIGHT_DEVID2	0xfc0
- 
- #define TGU_DEVID_SENSE_INPUT(devid_val) \
- 	((int)FIELD_GET(GENMASK(17, 10), devid_val))
-@@ -18,6 +19,16 @@
- 	((int)FIELD_GET(GENMASK(6, 3), devid_val))
- #define TGU_DEVID_CONDITIONS(devid_val) \
- 	((int)FIELD_GET(GENMASK(2, 0), devid_val))
-+#define TGU_DEVID2_TIMER0(devid_val)	\
-+	((int)FIELD_GET(GENMASK(23, 18), devid_val))
-+#define TGU_DEVID2_TIMER1(devid_val)	\
-+	((int)FIELD_GET(GENMASK(17, 13), devid_val))
-+#define TGU_DEVID2_COUNTER0(devid_val)	\
-+	((int)FIELD_GET(GENMASK(11, 6), devid_val))
-+#define TGU_DEVID2_COUNTER1(devid_val)	\
-+	((int)FIELD_GET(GENMASK(5, 0), devid_val))
-+
-+
- #define TGU_BITS_PER_SIGNAL 4
- #define LENGTH_REGISTER 32
- 
-@@ -53,6 +64,8 @@
- #define PRIORITY_START_OFFSET 0x0074
- #define CONDITION_DECODE_OFFSET 0x0050
- #define CONDITION_SELECT_OFFSET 0x0060
-+#define TIMER_START_OFFSET 0x0040
-+#define COUNTER_START_OFFSET 0x0048
- #define PRIORITY_OFFSET 0x60
- #define REG_OFFSET 0x4
- 
-@@ -67,6 +80,12 @@
- #define CONDITION_SELECT_STEP(step, select) \
- 	(CONDITION_SELECT_OFFSET + REG_OFFSET * select + STEP_OFFSET * step)
- 
-+#define TIMER_COMPARE_STEP(step, timer) \
-+	(TIMER_START_OFFSET + REG_OFFSET * timer + STEP_OFFSET * step)
-+
-+#define COUNTER_COMPARE_STEP(step, counter) \
-+	(COUNTER_START_OFFSET + REG_OFFSET * counter + STEP_OFFSET * step)
-+
- #define tgu_dataset_rw(name, step_index, type, reg_num)                  \
- 	(&((struct tgu_attribute[]){ {                                   \
- 		__ATTR(name, 0644, tgu_dataset_show, tgu_dataset_store), \
-@@ -82,6 +101,10 @@
- 	tgu_dataset_rw(reg##reg_num, step_index, TGU_CONDITION_DECODE, reg_num)
- #define STEP_SELECT(step_index, reg_num) \
- 	tgu_dataset_rw(reg##reg_num, step_index, TGU_CONDITION_SELECT, reg_num)
-+#define STEP_TIMER(step_index, reg_num) \
-+	tgu_dataset_rw(reg##reg_num, step_index, TGU_TIMER, reg_num)
-+#define STEP_COUNTER(step_index, reg_num) \
-+	tgu_dataset_rw(reg##reg_num, step_index, TGU_COUNTER, reg_num)
- 
- #define STEP_PRIORITY_LIST(step_index, priority) \
- 	{STEP_PRIORITY(step_index, 0, priority), \
-@@ -122,6 +145,18 @@
- 	 NULL               \
- 	}
- 
-+#define STEP_TIMER_LIST(n) \
-+	{STEP_TIMER(n, 0), \
-+	 STEP_TIMER(n, 1), \
-+	 NULL              \
-+	}
-+
-+#define STEP_COUNTER_LIST(n) \
-+	{STEP_COUNTER(n, 0), \
-+	 STEP_COUNTER(n, 1), \
-+	 NULL                \
-+	}
-+
- #define PRIORITY_ATTRIBUTE_GROUP_INIT(step, priority)\
- 	(&(const struct attribute_group){\
- 		.attrs = (struct attribute*[])STEP_PRIORITY_LIST(step, priority),\
-@@ -143,6 +178,20 @@
- 		.name = "step" #step "_condition_select" \
- 	})
- 
-+#define TIMER_ATTRIBUTE_GROUP_INIT(step)\
-+	(&(const struct attribute_group){\
-+		.attrs = (struct attribute*[])STEP_TIMER_LIST(step),\
-+		.is_visible = tgu_node_visible,\
-+		.name = "step" #step "_timer" \
-+	})
-+
-+#define COUNTER_ATTRIBUTE_GROUP_INIT(step)\
-+	(&(const struct attribute_group){\
-+		.attrs = (struct attribute*[])STEP_COUNTER_LIST(step),\
-+		.is_visible = tgu_node_visible,\
-+		.name = "step" #step "_counter" \
-+	})
-+
- enum operation_index {
- 	TGU_PRIORITY0,
- 	TGU_PRIORITY1,
-@@ -150,6 +199,8 @@ enum operation_index {
- 	TGU_PRIORITY3,
- 	TGU_CONDITION_DECODE,
- 	TGU_CONDITION_SELECT,
-+	TGU_TIMER,
-+	TGU_COUNTER,
- };
- 
- /* Maximum priority that TGU supports */
-@@ -166,6 +217,8 @@ struct value_table {
- 	unsigned int *priority;
- 	unsigned int *condition_decode;
- 	unsigned int *condition_select;
-+	unsigned int *timer;
-+	unsigned int *counter;
- };
- 
- static inline void TGU_LOCK(void __iomem *addr)
-@@ -197,6 +250,8 @@ static inline void TGU_UNLOCK(void __iomem *addr)
-  * @num_step: Maximum step size
-  * @num_condition_decode: Maximum number of condition_decode
-  * @num_condition_select: Maximum number of condition_select
-+ * @num_timer: Maximum number of timers
-+ * @num_counter: Maximum number of counters
-  *
-  * This structure defines the data associated with a TGU device,
-  * including its base address, device pointers, clock, spinlock for
-@@ -213,6 +268,8 @@ struct tgu_drvdata {
- 	int num_step;
- 	int num_condition_decode;
- 	int num_condition_select;
-+	int num_timer;
-+	int num_counter;
- };
- 
- #endif
--- 
-2.34.1
-
+Chester A=2E
 
