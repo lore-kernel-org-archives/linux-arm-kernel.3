@@ -4,64 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84DA5F43690
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 11:07:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7997DF43691
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 11:14:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VIVr4civFt31Q4UG1btJRVgNKZQNEyrGI/O9+phoHgA=; b=WGK4vxpTJRe463XrBbeb5sbHm4
-	Ke3KsCqVrcl8xk77wIjXuiGkRbLNavTkUGaBr6PnI98PMfARcongy3N/ZAh09B/Z/lZYq7qgbVDQK
-	675amehJ77m/UH3n+7NtgLkMBGJPXTPGy+9T8Zm1AHf0xk65+eLfIj5Uov0dpU5lRctau3JF+xPKU
-	82uv/x1bk9QypBb31L1DxdJY25zikqThpe21og7KZxqFSaqZoDbyKQ/Y1M0EN2HuBx51K0rhm2jyO
-	J8NhbVabPjLzDYKNPwvPbL8vj+tK2t/lVbSfq0hRpwL42HI9TDebDartgBJV8zTTE72dCPkQ7e311
-	b/g4OT5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bH6jMbcTJb5ej+R0a9MCxG7qrcx/3nMs2OEMFRxEA/Y=; b=vmuaBEmj6jfgcMwURDJEDakA5r
+	Ram9o46fgWwFxSGaaezwhNvmA/I7+UACwrzqhS0+n5abfKj95MX6mkmOR0oqy7CSxpdzhrQOk/gue
+	9v9NFPuZKr+W8MIf0Crh/fFmbzvEyGI5J42Q0hwYsfOn7l4mYtH6T2yNtL8RYgpAuzwKnPk5w0r2M
+	lVDb7eLCGtVymptHUUzWKGUS6kJ+v5HsIJRu3QLPxOpE2Rb1qZSs4keA3sfMcFkO2f7pdNoAr4kPf
+	+UCiT/dw9YIQ/Wt2ZB3FzwSHKd1zbD2ZAQZ8quEOeAShHJCKLEB5E6taXwdgCMpZyfyf3eFOnKFS/
+	F1xWa24A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDh2e-00000003xDB-42ZY;
-	Fri, 17 Apr 2026 11:07:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wDh94-00000003xsB-0ifm;
+	Fri, 17 Apr 2026 11:13:58 +0000
+Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDh2d-00000003xD3-0LVw
+	id 1wDh91-00000003xro-0fnp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 11:07:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2601160128
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 11:07:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 637BBC19425;
-	Fri, 17 Apr 2026 11:07:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776424037;
-	bh=OGK/zzlf7s1Dj09xNmuiNKmF9xD2r6v8ccJ78dfRJlU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CCQpGuG94nCyCtZoshLDxP+GwjQ7pEZRNcQ5vbXp1rYAOWwV4oe+nPH9FyxPAIGGw
-	 5cgvPahTPc8xpCGgi7CKDWDgovC3DcXiqoY4mmFjY7+4UWRMsILXrg2Wev862scKao
-	 VDE2Tw4qQjJ1fcVOv8qN0zpsjj2eQW30xsOmLWWczyinQ4Lupna8hM+x+BOfMhGXpe
-	 25Zk+yObc/WzHLv1+X0G2wqy857SZ1p4VHeAYwKXFqTw+JXTP3R6rfarMU2LU3JcDt
-	 zDzqqaqQn5j8ev21bDQP7zo0op+I5I++Wd/H4ornBM/PJdwDQyog2hXe3TiKraAi1C
-	 jEPEzKbQ+ds5A==
-Date: Fri, 17 Apr 2026 12:07:14 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/5] dt-bindings: interrupt-controller: Add support for
- secure donated SGIs
-Message-ID: <20260417-ruddy-pompous-rooster-b6d6de@sudeepholla>
-References: <20260412-b4-ffa_ns_sgi_gicv3-v1-0-af61243eb405@kernel.org>
- <20260412-b4-ffa_ns_sgi_gicv3-v1-1-af61243eb405@kernel.org>
- <20260416121146.GA2736962-robh@kernel.org>
- <20260416-true-prophetic-centipede-3ad8e5@sudeepholla>
- <CAL_JsqLdSi2x-KibY7WXTEot8Bj=54XeE1VACtLTujxn0VTxRw@mail.gmail.com>
+	Fri, 17 Apr 2026 11:13:56 +0000
+Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-38cc8708d76so4405951fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 04:13:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1776424432; x=1777029232; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=bH6jMbcTJb5ej+R0a9MCxG7qrcx/3nMs2OEMFRxEA/Y=;
+        b=SIEOUplN8Gs2n1G/v+e7tQfvqhL9UWZVE1awDBEecWgn1CXcGtz+IScQEtuExU//ZS
+         d20xa/YovXd4xnPf2o8w0Aw7bD0ukv7yKmmin3kdcsiSHdDuLNLaqlqYnj+xZnvOrI3G
+         NyPhs9iEsosimcVo82AOlGm57FDIGTrRJyT0h2lARq8PRKVt2sK1lzCFVKGEbZgRBPj6
+         LqO+Lc71q/iCm59pvwM73gITDdSEqiI9Mu01v/p5ql0JZruc2+WMyUiba3Nj2rep3kkL
+         HXOaDITtnqN8THDBEh9gYoTCiGmq5phYFKBrKdRhhMK5LM0RK9vIVcPpM7/P7AfKievW
+         28/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776424432; x=1777029232;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bH6jMbcTJb5ej+R0a9MCxG7qrcx/3nMs2OEMFRxEA/Y=;
+        b=Fhg3XnZLAfe0S6QWRC1b2bam8GqPoPb2880GUvrPHuhqveltvM2nytsuBU9cVi7EUc
+         DVOU5h0j/H1C8fM1km+X21Lzad4mGztjRJD6TZY4uhT4dT2EFvFk7zB1AAL10kCa1GAv
+         qe0HxnFE9O9PjeVQT85vijhQF2UDBdcryeLbX8vixTwojx+jnpxpstg1M3ORmSIOIZBZ
+         H+34rIO89zs0N4AitZebfQKp0yKX/cwyGuU/8lckO7D52svTInu2vTbwoXXWdewve/Th
+         0N581/ciefEZUVls8Y3wxYW+dZs6JJuhf7X29uxCqyVjLPCKLsmStxweoX94zbkhwarO
+         jWpA==
+X-Forwarded-Encrypted: i=1; AFNElJ+n3ZWnsVcTN0ufF6HEl5sl83n2MU0eblALfh4NEYWf1phB10YMrvh5hd1OruXLTncffMMalujtA6N9CTNfudUD@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXvXtfdEGy7dujxWvCY9BTFl19K9rqeV4+emr6YnJLaKxpfN4T
+	iU1QPEJ9Ixtv34qmYJoT2KpBovC/x6ylTmTKCOFVG3mb6vv0kXTtCFL31DNtC7TfnwWrv5/MLlr
+	Ru0hm
+X-Gm-Gg: AeBDiev3L9iNfAlFBptmYHeoUPYY1BtgQa9d20WrYtxqIKCP3Oy8LwKpn3+KZxun2AG
+	V1kDAnU7Az7udeSV6a3rNxU8Ra4mYNwZ+76UGEEOjxpCIMUsIGu1jSOEjcwlNycNtKGxNbhySjb
+	+xXf+WLrhiAPrWRZ3xJepfrdDnD65O2dP/wYAvSbNnYeVnX5heZMhVLsvgBg/VFaHUirAMPROa3
+	g4zOB6w3/Lnx3usoDlNtMYIWh8Yy5u3pWcyDEdU4yszxgqyyJLEof66JZs97zr2NGyut0VzwV2Z
+	nlyPKYWx6d0ArBYV1CE+fRWmFBN68A/6QzLvJaMZiEwUHs9P7ML3z/VwkBY512ZgVfz5FkHXFoj
+	jHe43iKf/jpQBbZIUmpK7/veSK9oPHahagNQ6l2B2GjBh73y4Cv2D8tA3y9PyOj7dDmV340hLMH
+	KLochVllciaMuLqhvgm06fAIl3/v4Dt49UpeIexLR5qJfbcUDVlJ8txq5c3uFZdMFgWW43dSnHH
+	ZrgMMIRLMk=
+X-Received: by 2002:a2e:bc26:0:b0:38e:58f1:99f7 with SMTP id 38308e7fff4ca-38ec7b61afcmr6554131fa.33.1776424432285;
+        Fri, 17 Apr 2026 04:13:52 -0700 (PDT)
+Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-38ecb733847sm3086691fa.34.2026.04.17.04.13.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Apr 2026 04:13:51 -0700 (PDT)
+From: Ulf Hansson <ulf.hansson@linaro.org>
+To: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Ulf Hansson <ulfh@kernel.org>,
+	linux-pm@vger.kernel.org
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+	Frank Binns <frank.binns@imgtec.com>,
+	Matt Coster <matt.coster@imgtec.com>,
+	Marek Vasut <marek.vasut@mailbox.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	stable@vger.kernel.org
+Subject: [PATCH] pmdomain: core: Fix detach procedure for virtual devices in genpd
+Date: Fri, 17 Apr 2026 13:13:31 +0200
+Message-ID: <20260417111331.158190-1-ulf.hansson@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAL_JsqLdSi2x-KibY7WXTEot8Bj=54XeE1VACtLTujxn0VTxRw@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260417_041355_365066_B3860722 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,122 +106,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 16, 2026 at 09:02:27AM -0500, Rob Herring wrote:
-> On Thu, Apr 16, 2026 at 8:09 AM Sudeep Holla <sudeep.holla@kernel.org> wrote:
-> >
-> > On Thu, Apr 16, 2026 at 07:11:46AM -0500, Rob Herring wrote:
-> > > On Sun, Apr 12, 2026 at 06:04:37PM +0100, Sudeep Holla wrote:
-> > > > In GICv3, SGI security is defined by interrupt grouping and configuration
-> > > > rather than by SGI number alone. Linux conventionally reserves SGIs 0-7
-> > > > for non-secure internal kernel IPIs, while higher SGIs is assumed to be
-> > > > owned/stolen by the Secure world unless explicitly made available.
-> > > >
-> > > > Document secure donated SGI interrupt specifiers for the GICv3 binding.
-> > > > It describes "arm,secure-donated-ns-sgi-ranges" for SGIs donated by the
-> > > > secure world to non-secure software. It excludes SGIs 0-7, which are
-> > > > already used by the kernel for internal IPI purposes.
-> > > >
-> > > > Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
-> > > > ---
-> > > >  .../bindings/interrupt-controller/arm,gic-v3.yaml  | 27 +++++++++++++++++++++-
-> > > >  include/dt-bindings/interrupt-controller/arm-gic.h |  1 +
-> > > >  2 files changed, 27 insertions(+), 1 deletion(-)
-> > > >
-> > > > diff --git a/Documentation/devicetree/bindings/interrupt-controller/arm,gic-v3.yaml b/Documentation/devicetree/bindings/interrupt-controller/arm,gic-v3.yaml
-> > > > index bfd30aae682b..664727d071c9 100644
-> > > > --- a/Documentation/devicetree/bindings/interrupt-controller/arm,gic-v3.yaml
-> > > > +++ b/Documentation/devicetree/bindings/interrupt-controller/arm,gic-v3.yaml
-> > > > @@ -45,17 +45,24 @@ description: |
-> > > >
-> > > >        The 1st cell is the interrupt type; 0 for SPI interrupts, 1 for PPI
-> > > >        interrupts, 2 for interrupts in the Extended SPI range, 3 for the
-> > > > -      Extended PPI range. Other values are reserved for future use.
-> > > > +      Extended PPI range, and 4 for SGI interrupts. Other values are
-> > > > +      reserved for future use.
-> > > >
-> > > >        The 2nd cell contains the interrupt number for the interrupt type.
-> > > >        SPI interrupts are in the range [0-987]. PPI interrupts are in the
-> > > >        range [0-15]. Extended SPI interrupts are in the range [0-1023].
-> > > >        Extended PPI interrupts are in the range [0-127].
-> > > >
-> > > > +      SGI interrupts are in the range [8-15] which overlaps with the SGIs
-> > > > +      assigned to/reserved for the secure world but donated to the non
-> > > > +      secure world to use. Refer "arm,secure-donated-ns-sgi-ranges" for
-> > > > +      more details.
-> > > > +
-> > > >        The 3rd cell is the flags, encoded as follows:
-> > > >        bits[3:0] trigger type and level flags.
-> > > >          1 = edge triggered
-> > > >          4 = level triggered
-> > > > +      SGIs are edge triggered and must be described as such.
-> > > >
-> > > >        The 4th cell is a phandle to a node describing a set of CPUs this
-> > > >        interrupt is affine to. The interrupt must be a PPI, and the node
-> > > > @@ -136,6 +143,24 @@ description: |
-> > > >        - $ref: /schemas/types.yaml#/definitions/uint32
-> > > >        - $ref: /schemas/types.yaml#/definitions/uint64
-> > > >
-> > > > +  arm,secure-donated-ns-sgi-ranges:
-> > > > +    description:
-> > > > +      A list of pairs <sgi span>, where "sgi" is the first SGI INTID of a
-> > > > +      range donated by the secure side to non-secure software, and "span" is
-> > > > +      the size of that range. Multiple ranges can be provided.
-> > > > +
-> > > > +      SGIs described by interrupt specifiers with type 4 (SGI) must fall
-> > > > +      within one of these ranges. SGIs(0-7) reserved by non-secure world
-> > > > +      for internal IPIs must not be listed here. "sgi" must be in the
-> > > > +      range [8-15], "span" must be in the range [1-8], and the range must
-> > > > +      not extend past SGI 15.
-> > > > +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-> > > > +    items:
-> > >
-> > > As a matrix, you need:
-> > >
-> > > items:
-> > >   items:
-> > >     - ...
-> > >     - ...
-> > >
-> > > However, given this is at most 8 entries, I would just do an array:
-> > >
-> > > minItems: 1
-> > > maxItems: 8
-> > > uniqueItems: true
-> > > items:
-> > >   minimum: 8
-> > >   maximum: 15
-> > >
-> >
-> > Makes sense.
-> >
-> > > Unless we need more flexibility in GICv5?
-> > >
-> >
-> > IIUC, there are not SGIs in GICv5 and we may need to use one software PPI
-> > as a replacement for SGIs. LPIs are used for IPIs.
-> >
-> > I am assuming Marc will soon post his opinion/rejection on this series 😉
-> > based on some offline discussion we had with respect to how it fits with
-> > GICv5.
-> >
-> > > Is there an example we can stick this property into so it gets tested?
-> > >
-> >
-> > Not sure if [1] serves as an example or you are looking for something else.
-> 
-> In the binding example, but don't add a whole new example for it.
-> 
-> Did [1] pass validation? If it did, it shouldn't have and I need to
-> investigate. If you didn't run it, then that would be the reason I
-> want it in the binding example.
->
+If a device is attached to a PM domain through genpd_dev_pm_attach_by_id(),
+genpd calls pm_runtime_enable() for the corresponding virtual device that
+it registers. While this avoids boilerplate code in drivers, there is no
+corresponding call to pm_runtime_disable() in genpd_dev_pm_detach().
 
-By validation, do you mean `dtbs_check` ? If so, yes I didn't see any
-warnings. But it is likely that I might have missed some flags as I was
-doing `dtbs_check` and `dt_bindings_check` after very long time. I will
-check again. But the commands did produce warnings in other files.
+This means these virtual devices are typically detached from its genpd,
+while runtime PM remains enabled for them, which is not how things are
+designed to work. In worst cases it may lead to critical errors, like a
+NULL pointer dereference bug in genpd_runtime_suspend(), which was recently
+reported. For another case, we may end up keeping an unnecessary vote for a
+performance state for the device.
 
+To fix these problems, let's add this missing call to pm_runtime_disable()
+in genpd_dev_pm_detach().
+
+Reported-by: Geert Uytterhoeven <geert@linux-m68k.org>
+Fixes: 3c095f32a92b ("PM / Domains: Add support for multi PM domains per device to genpd")
+Cc: stable@vger.kernel.org
+Closes: https://lore.kernel.org/all/CAMuHMdWapT40hV3c+CSBqFOW05aWcV1a6v_NiJYgoYi0i9_PDQ@mail.gmail.com/
+Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+---
+ drivers/pmdomain/core.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+index 4d32fc676aaf..71e930e80178 100644
+--- a/drivers/pmdomain/core.c
++++ b/drivers/pmdomain/core.c
+@@ -3089,6 +3089,7 @@ static const struct bus_type genpd_bus_type = {
+ static void genpd_dev_pm_detach(struct device *dev, bool power_off)
+ {
+ 	struct generic_pm_domain *pd;
++	bool is_virt_dev;
+ 	unsigned int i;
+ 	int ret = 0;
+ 
+@@ -3098,6 +3099,13 @@ static void genpd_dev_pm_detach(struct device *dev, bool power_off)
+ 
+ 	dev_dbg(dev, "removing from PM domain %s\n", pd->name);
+ 
++	/* Check if the device was created by genpd at attach. */
++	is_virt_dev = dev->bus == &genpd_bus_type;
++
++	/* Disable runtime PM if we enabled it at attach. */
++	if (is_virt_dev)
++		pm_runtime_disable(dev);
++
+ 	/* Drop the default performance state */
+ 	if (dev_gpd_data(dev)->default_pstate) {
+ 		dev_pm_genpd_set_performance_state(dev, 0);
+@@ -3123,7 +3131,7 @@ static void genpd_dev_pm_detach(struct device *dev, bool power_off)
+ 	genpd_queue_power_off_work(pd);
+ 
+ 	/* Unregister the device if it was created by genpd. */
+-	if (dev->bus == &genpd_bus_type)
++	if (is_virt_dev)
+ 		device_unregister(dev);
+ }
+ 
 -- 
-Regards,
-Sudeep
+2.43.0
+
 
