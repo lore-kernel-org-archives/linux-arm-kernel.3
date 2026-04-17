@@ -4,65 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2B4FF4368A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 10:51:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 823F2F4368B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 10:54:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xOEjg9H4WHmfDp+/GfeO6AbXlJ+ZvwEfMwwkt6HZ3i0=; b=N5LKg2hKRrOpQALY74UhXJi+pZ
-	v1VaXReDGehyx4Y5aWBhhAmfQ1TwMZXlooIPHu7AAsWBzLfq/5Ekg7hRtZIPslePiNymL5uffzM5Z
-	Oz+P6VIWUv2Z/tS8VNoUEQJWSLOXrbHMaQNZn53FHlYko8AIDEYqSpXylQh7qFi+VLtadHOLsyIry
-	32gpZBFEXqYwfxiVYFgkygLEjQvX020ZQ6o9Oi+SE+Em9ppVpu7QN141eJzkUJRjc7T/mOdsAEuNV
-	2LGvs6/ItdESAjEND8AGRmod8PQEKIinowo0whHvZEnIoGEzBEHJ+esQkVbZDDVREtKVwZ3KkuJpx
-	nxDkdzag==;
+	bh=woQfhFEn5FSa0ppfe9qWJsXaXn0pHCOU3cNM2c2E3iE=; b=gXdgQgpVCtx/xM/kRAXY9yxPWg
+	f6jG2vvUT967gU7qJNcqnz+ivjDkrQjk0NYF9mKCOQ6yfpgCViqMRDKzambX1fickJWR1q+rjf++N
+	14qTGUPuKCmyN4D7CPhrtVRmpQ50afNXVaBzV0nTsHr17IvixD+/EOP5ka+gd2oLF9JVHPCrt0IuO
+	1GH7C69d/aEKeAcANli1muSjpL7EaQ9ER7+3rnQJrg5lzNHLPlLwR86MNyQ1c1bUhzps01IAnX9fO
+	T57hPmsyl66nIkYWb4KrQso2hMj3X82UR30Q4a/xkIxkkr9txb6AGLLvOvhojeEa9Bj3OYjRYsZTP
+	hiTcriJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDgmt-00000003vtH-1a9I;
-	Fri, 17 Apr 2026 10:51:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wDgqK-00000003w7d-0Ace;
+	Fri, 17 Apr 2026 10:54:36 +0000
+Received: from mail-swedencentralazon11013052.outbound.protection.outlook.com ([52.101.83.52] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDgms-00000003vt6-02S4;
-	Fri, 17 Apr 2026 10:51:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 33BF36012A;
-	Fri, 17 Apr 2026 10:51:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 598B2C19425;
-	Fri, 17 Apr 2026 10:51:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776423060;
-	bh=kSJnzsPBw1lwFdGqflMCj/6BVcSbCNpP00or8JnwiYg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=A/e0wyp+Xc6NNHKUyHtFrHHPGSo6IYdvVQvKiDzzKeC09oFmSMfadNFHPXN/Yx+gi
-	 u/J79Qs35UD/m8ifRZk6uCHcXJYx6fYIG1Oy+OL7BLUciEYV1FpgdyDp/0pvRyDY/D
-	 cKeG2UO2VIB1CGiVNZuxEgAlk1Fe09ijL0DBvcyDzPO5IgxF7XZJ2+wiRUWQsrIW0H
-	 W08bE2dxVEjnUXH9cj696C9n3Sua6P48Jhi4OipIhipTQeO/Qt7ICdenouvHvYNmpx
-	 kvgT50OSWf1rdnhGbvgbzZElNmXPGLELxCUZsxK1XB7tYzmm2ulYiS8tqAgw9S6XM/
-	 ApVbtfcb+FHhg==
-Date: Fri, 17 Apr 2026 12:50:58 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: linux-pwm@vger.kernel.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Naushir Patuck <naush@raspberrypi.com>, Stanimir Varbanov <svarbanov@suse.de>, mbrugger@suse.com
-Subject: Re: [PATCH v2 2/3] pwm: rp1: Add RP1 PWM controller driver
-Message-ID: <aeIGxfQ7AoIVR5n6@monoceros>
-References: <cover.1775829499.git.andrea.porta@suse.com>
- <0d99317b9150310dfbd98de1cb2a890f0bffe7cd.1775829499.git.andrea.porta@suse.com>
- <adkrHkANCzxO8KUP@monoceros>
- <aeC6U7D6TfWm8JPx@apocalypse>
- <aeDmk-t5Lc1zpkg9@monoceros>
- <aeH373a_xmr6fnAy@apocalypse>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="nnaiyhbmq7n4v5c7"
+	id 1wDgqH-00000003w7F-2cmz;
+	Fri, 17 Apr 2026 10:54:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vYjhPKaJ3OQfcXSOyYu5LfHuPfWSCxJZN/Y60pFSbHfy/VvV6jGXQ6fSNSRpAJBU+1alFLJSN7AokyWJjsagLdEcyuAzQ7qYlv/qNP2jOPjx6ymqhx92z5HSBLPpSdcjP1HIcfyJVHLRoKVEFOPSVckQkUB/KTP5l8Aa1x8Z/D8Ikny7ui6Xg4yMawHnAH0NixcJZ9+afa+md2h7uKXanoEum1o1MS9yfe+zQ1nXngW9VaRFrM5/FQ//fS0nP48A8cPqnxnirDs3FlWiM/GeR4gcRNSDvF0R+uOHYz+gnZBuTbLr6o9K8/+GrCs/x3Sr1dck8QSxJsK07qHHHn+XMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=woQfhFEn5FSa0ppfe9qWJsXaXn0pHCOU3cNM2c2E3iE=;
+ b=BUKA1V3ut9M6MU3R+YwkedaFryVuc20t9B9Geu8q2Ua86p67RC3vVwYYma/nW7LGipGeJH5I1WFaVg3wkXmQaOk1DS4Ac7tiSHs1wcs6TcxpiabM391/G9zc3I7/g62d9dbOJwmGsPgnEsBFSKtKcILt6eLF2NHKyWbRP4Aop+5Lsp0fMZXw6XaXl3CI2uk15t0/uCshLAOxTwBuJEUsbkvjnQ59zX9k0uTROUHcIOYcER0OQ5WK89e+WFAOZaK6jVEjAA9MG0Y4SgTT/FoBy/EivMFckFNlS7KyB34riut9QKTgiAQjNq0x7YSERdrTbAKjTUPi4M0fqsrLa0wLqg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=woQfhFEn5FSa0ppfe9qWJsXaXn0pHCOU3cNM2c2E3iE=;
+ b=mOmOUxYX0cS5En1cGLriucj/fs99HUGfawwuUG3BCMtC627zA+/V6BjH3neeqZXXdYkF9OUpXk+MHYDMOXImI18zSu+MgnCq5wTpWOTbofAxoHr+dR7mr2F0f+xnTwrZPaGNAwsRR2zUJ6wiy/dgFPzPL/dwgtrO8L/qWGKAt4vtoyrxvG3nwFr8WTEaMtq4IeWbprcHdL2ulEHkNbpiqiWTIIlsXEWUvZW2MzHsrKU2U0q48sM8YPVmFXPGLEsns8tpmqXJWLgtfcl/7OmOrY01pqiOeJiC2JDH7Ys3rmJEPa6R+SlL9uTMrqkSomBVpCqp1WqeRKcttmNYo7S1HQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by PA6PR04MB11871.eurprd04.prod.outlook.com (2603:10a6:102:518::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.25; Fri, 17 Apr
+ 2026 10:54:27 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9818.023; Fri, 17 Apr 2026
+ 10:54:27 +0000
+Date: Fri, 17 Apr 2026 06:54:17 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Cc: nicolas.dufresne@collabora.com, p.zabel@pengutronix.de,
+	mchehab@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, heiko@sntech.de, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, wens@kernel.org,
+	jernej.skrabec@gmail.com, samuel@sholland.org,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev, kernel@collabora.com
+Subject: Re: [PATCH v3 1/2] media: verisilicon: Simplify motion vectors and
+ rfc buffers allocation
+Message-ID: <aeIRWW937ev_F8zF@lizhi-Precision-Tower-5810>
+References: <20260415140420.282084-1-benjamin.gaignard@collabora.com>
+ <20260415140420.282084-2-benjamin.gaignard@collabora.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aeH373a_xmr6fnAy@apocalypse>
+In-Reply-To: <20260415140420.282084-2-benjamin.gaignard@collabora.com>
+X-ClientProxiedBy: SJ0PR13CA0035.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c2::10) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA6PR04MB11871:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3ce48139-5e1b-48b8-9626-08de9c6fb1b9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|376014|52116014|1800799024|22082099003|18002099003|38350700014|56012099003;
+X-Microsoft-Antispam-Message-Info: zrbV9YjNvoQfgZI89YypY3LJl2K+YwuhcmqEPx58swgqJk+BXMEQO1d33756gMrcBxjFTK5yanWI3qAyl2lq6dcmDQl08hJz1iHZqZ7PAA0N+eXnoXpJt0kkJ5eXDS03eFGqgICi8CXTPvoW7C8fQidvPEHD3Wh4IsiTiFovz5PI5163o6FmOMlTc06TTpkPkpveHA/PPo2vYCnCWpoStCLU/8aa57/qaYrG1tY4alaQinx6D/I5rOYYDOr2QhiVazNJ1V/Plmd39d86Av7LQbAufpdX5HqlPptWMSFlAHOdJtQD501AvJk4iFJoAh41qpUDtSx0kvIMXWCnZYjOIWrDnD+MRzG49On/h69YLJEGdfaYiK/m7KanRigavtjOZWeuSw5ZpgcJ3MfjfgQBdE9PDBiDMWTx/kO+HDqWFZ4a4qN9nfSCtwoT/esAwV/7gGzO53Hibek8c678H1gwpUhud0KjlTSpnyX+eTMjDDESNCj2h087INrd23RY8mSMUh4e17lv9VgsSUyBZqZA31KYYvC7e05G52rZm1B2zrMW1Bd0QatIdZGuOmmivJtkTftPUWIaC8nno9Pm3AeKt+weVsUUl3qxfzH8jq7kFy85XuVd7NaEJR+7MK4boCD04filkHx0A0zTu+R8zT0FTQB4KEvh5KLn2x5KNCQ+E67tTzozFWGoBZZj+8stuTgzHKG9h5D7pqz0s/EwQBC+USA5nYIcW7W33AFURA17ucvVfHNl7l2TV3IFY+LgecjCtCijJY67OC+Q3DrfOMOjH8q6j7Iq/A6cgM1WFqeFOnE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(376014)(52116014)(1800799024)(22082099003)(18002099003)(38350700014)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?xFCPMzoAPf/CaT4cgZIpDOf8UZ7mGpl33g0BddHCTUPKuMtVyyaUCyOCLrsF?=
+ =?us-ascii?Q?gaZ2YcRSlIl14cakx2QVX11f/w20u9ChUcvLGCQGPiTSRPaBenJt7xZnZc2k?=
+ =?us-ascii?Q?lrzuxW/GXaj1ryLKG53uufjrhXSOCzwFETv/vHhPsI4V5cpv8uBW1yzqoziT?=
+ =?us-ascii?Q?XFGWK/x1U8WhgO+5QQ7QQ2QM3g+iaBRkoPXXGrzN9JVT1FFJF+rzBERyDbdd?=
+ =?us-ascii?Q?GJQgHTLKUWJvMq8dPbrmJkjijgo9CfcXra4K4BNeXWZiUDmD9X/CwHoiwDhR?=
+ =?us-ascii?Q?8sZjuz7iA30efmWM9Ki64Uz46b4wfzpiau975yN3CHe/+AW7l2t7Y3Ae4U94?=
+ =?us-ascii?Q?XUJmf40olqyCxXF6mc/pBXYHy/llQuTPj47P58HwQP6FIILBezH4TI6DiNUn?=
+ =?us-ascii?Q?P7SfGGiFx1trddJO2nq2QC820JTgslC/J6iH2ps4eLEDLSb/aqB6Ls6DTdnY?=
+ =?us-ascii?Q?FcBxgKT3PDJKNoDxcmeAaDb+kfXTPJNIOrZoXFQEichd+ot0w+48yBSn+AoG?=
+ =?us-ascii?Q?djjcGaIgICN3I8kLom97KfS5VHHqflOpSMRRNhFft7RTG+zrIUAD3gd45pBT?=
+ =?us-ascii?Q?5bHjqkNQhIfEYce1UMY13UAI8UDQJnMaJdPQ7dO/ny68XivReAgdr6QwUJ00?=
+ =?us-ascii?Q?3+IO5Gymi61cqKDxb5x6aqVvE1lrLiz5JoO5na7fGzL75TyqCiguF9VfchTJ?=
+ =?us-ascii?Q?m2kGiHlLD32FcFM3PXCnfg4qZC8VPmQpW/2i64l34b5dZiNl/RqZly6+8WqP?=
+ =?us-ascii?Q?6FUsgGfhcfCpe9x2HVBXDcbI6ZqjXZK+N31JtckcvhFNlToy4QORMmsONRWk?=
+ =?us-ascii?Q?rrAsE1vhCk1pcIGKibfFQrtiZFexeJ1dxo7RQJtLZfCmd3I4xakQ7r/uAryg?=
+ =?us-ascii?Q?PKBvfUAxbj4HImG9TYd1BmuOwfIvRM7htX9DG8hvcVLgWK3XUQrQWJcbjYRd?=
+ =?us-ascii?Q?gJviENnBy8V0a0uwAEinPWi87q9elmHjU/vdqfUlC9N1Z1IU6neu9d+3ACQZ?=
+ =?us-ascii?Q?nOucBhs2tfwQWIjkBOaNdOpuUig4vrdEVVHZifov5WRveOUl9QTVWXqIejO+?=
+ =?us-ascii?Q?AWxKCRMNsEvLqRoLAG2faFsUSIumkrIh6yNLEGFwXGbAPmi2GrBdpWK+QWo5?=
+ =?us-ascii?Q?ME4g1IpMqzQaHEveAgk0wSCaoX74ih8CUAuL5QrULS5qLtabyJ9Hk+o5wERT?=
+ =?us-ascii?Q?LXzhNQ+Se0433uKSGpr7pKQN9K77UBU++/3w0k5TlYlc9MXghFztXF4KwW18?=
+ =?us-ascii?Q?3BkbbwpKFsWSH2hF7pIOZy0wxvwjXM7GZ3d29uIlpORUaUPUlBHneGZhBpQz?=
+ =?us-ascii?Q?m4fuQGYMnNuiNN+TUVfQxJ+JG6eVZ7htsBs4sYOaUVLFOoOKmQPhhvdx8JCZ?=
+ =?us-ascii?Q?Z5wYwBgDqmtXzYWU2BDIHr6nEUjkTgvMi5hJ5SvOTZMDtZttSBSqlhZSg/MR?=
+ =?us-ascii?Q?ujxXo5mcqCL22WVKwm68FkTeZWLzkEt68lSU9au5CWVPit2maLCkFnNi39cX?=
+ =?us-ascii?Q?FQvVMcCEX/uzT6Z5qtif3CX4BC06nQ75Ig3fnfiOH07cy7u7bHEbcW1pC6vD?=
+ =?us-ascii?Q?CR8n7+yW5S2Q4//C8PW03ngvMS2UjUn2AZfPuqJa/9cl1jgN6p4NCyjy6HzI?=
+ =?us-ascii?Q?osmGSk/rmY2ASJmUHjyiVk3Hy1fxJZ8DVjT5AXDrmT+9PVR8kuBvF/nEo3+3?=
+ =?us-ascii?Q?lOvHYFf0w8F9S5uUE3fqHNqSemGASEn/y+VcEQ9x0mGB2wSJ?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3ce48139-5e1b-48b8-9626-08de9c6fb1b9
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Apr 2026 10:54:27.1958
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: q0NXFuSXBA9Q6Ru7tHndJjIBlQhiQ9Qf9d8FJ2M/9MhsBvehY9aJOfeMSpBswe7CWpnV+3G87nNubufaNB6RtA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA6PR04MB11871
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260417_035433_665269_E1CD83CA 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,205 +142,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Apr 15, 2026 at 04:04:19PM +0200, Benjamin Gaignard wrote:
+> Until now we reserve the space needed for motion vectors and reference
+> frame compression at the end of the frame buffer.
+> Disentanglement mv and rfc from frame buffers by allocating
+> distinct buffers for each purpose.
+> That simplify the code by removing lot of offset computation.
 
---nnaiyhbmq7n4v5c7
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 2/3] pwm: rp1: Add RP1 PWM controller driver
-MIME-Version: 1.0
+Can you try split to more small and straight forward patches, for example
 
-Hello Andrea,
+for example create patch just move hantro_h264_mv_size() to header file,
 
-On Fri, Apr 17, 2026 at 11:05:51AM +0200, Andrea della Porta wrote:
-> On 15:48 Thu 16 Apr     , Uwe Kleine-K=F6nig wrote:
-> > one thing I forgot to ask: Is there a public reference manual covering
-> > the hardware. If yes, please add a link at the top of the driver.
->=20
-> Sort of, it's already reported in this driver top comment (Datasheet: tag=
-).
-> The PWM controller is part of the RP1 chipset and you can find its descri=
-ption
-> under the PWM section. This is not a full-fledged datasheet but the regis=
-ters
-> for the controller are somewhow documented.
+...
+> +++ b/drivers/media/platform/verisilicon/hantro_hevc.c
+> @@ -44,30 +44,49 @@ dma_addr_t hantro_hevc_get_ref_buf(struct hantro_ctx *ctx,
+>  	int i;
+>
+>  	/* Find the reference buffer in already known ones */
+> -	for (i = 0;  i < NUM_REF_PICTURES; i++) {
+> +	for (i = 0; i < NUM_REF_PICTURES; i++) {
+>  		if (hevc_dec->ref_bufs_poc[i] == poc) {
+>  			hevc_dec->ref_bufs_used |= 1 << i;
+>  			return hevc_dec->ref_bufs[i].dma;
+>  		}
+>  	}
+> -
+>  	return 0;
 
-Ah, then I missed something different than I thought :-)
+Move this code style change to new patches.
 
-> > On Thu, Apr 16, 2026 at 12:30:43PM +0200, Andrea della Porta wrote:
-> > > On 19:31 Fri 10 Apr     , Uwe Kleine-K=F6nig wrote:
-> > > > I assume there is a glitch if I update two channels and the old
-> > > > configuration of the first channel ends while I'm in the middle of
-> > > > configuring the second?
-> > >=20
-> > > The configuration registers are per-channel but the update flag is gl=
-obal.
-> > > I don't have details of the hw insights, my best guess is that anythi=
-ng that
-> > > you set in the registers before updating the flag will take effect, s=
-o there
-> > > should be no glitches.
-> >=20
-> > Would be great if you could test that. (Something along the lines of:
-> > configure a very short period and wait a bit to be sure the short
-> > configuration is active. Configure something with a long period and wait
-> > shortly to be sure that the long period started, then change the duty,
-> > toggle the update bit and modify a 2nd channel without toggling update
-> > again. Then check the output of the 2nd channel after the first
-> > channel's period ended.
->=20
-> I stand corrected here: after some more investigation it seems that only =
-the
-> enable/disable (plus osme other not currently used registers) depends on =
-the
-> global update flag, while the period and duty per-channel registers are
-> independtly updatable while they are latched on the end of (specific chan=
-nel)
-> period strobe.
-> I'd say that this should avoid any cross-channel glitches since they are =
-managed
-> independently. Unfortunately I'm not able to test this with my current (a=
-nd
-> rather old) equipment, this would require at least an external trigger ch=
-annel.
-> Regarding the setup of a new value exactly during the strobe: I think thi=
-s is
-> quite hard to achieve.
-
-To sum up: period and duty_cycle changes might result in glitches unless
-the channel is disabled. This is ok, please just document it.
-
-The purpose of the update flag then is only to start several channels in
-sync? What happens if sync is asserted while a disabled channel didn't
-complete the last period yet?
-
-Maybe it's worth to test the following procedure for updating duty and
-period:
-
-	disable channel
-	configure duty
-	configure period
-	enable
-	set update flag
-
-Assumint disable is delayed until the end of the currently running
-period, the effect of this procedure might be that no glitch happens if
-the update flag is asserted before the currently running period ends and
-the anormality is reduced to a longer inactive state if the updates are
-not that lucky (in contrast to more severe glitches).
-
-If you can configure a short and a long period that is distinguishable
-"manually" with an LED I think this should be testable even without
-further equipment.
-
-> > > > > +	if (ticks > U32_MAX)
-> > > > > +		ticks =3D U32_MAX;
-> > > > > +	wfhw->period_ticks =3D ticks;
-> > > >=20
-> > > > What happens if wf->period_length_ns > 0 but ticks =3D=3D 0?
-> > >=20
-> > > I've added a check, returning 1 to signal teh round-up, and a minimum=
- tick of 1
-> > > in this case.
-> >=20
-> > Sounds good. Are you able to verify that there is no +1 missing in the
-> > calculation, e.g. using 1 as register value really gives you a period of
-> > 1 tick and not 2?
->=20
-> You are right. The scope reveals there's always one extra (low signal) ti=
-ck at the
-> end of each period.
-
-So the hardware cannot do 100% relative duty, right? Please document
-that.
-
-> Let's say that teh user want 10 tick period, we have to use
-> 9 instead to account for the extra tick at the end, so that the complete =
-period
-> contains that extra tick?
-
-I would describe that a bit differently, but in general: yes.
-
-The more straight forward description is that setting
-
-	RP1_PWM_RANGE(pwm->hwpwm) :=3D x
-
-results in a period of x + 1 ticks.
-
-> This also means that if we ask for 100% duty cycle, the output waveform w=
-ill
-> have the high part of the signal lasting one tick less than expected.a I =
-guess
-> this is the accepted compromise.
-
-I assume you considered something like:
-
-	RP1_PWM_RANGE(pwm->hwpwm) :=3D 17
-	RP1_PWM_DUTY(pwm->hwpwm) :=3D 18
-
-to get a 100% relative duty?
-
-If this doesn't work that means that this has to be formalized in the
-callbacks. That is the fromhw function has to always report
-duty_length_ns less than period_length_ns.
-
-> OTOH, the minimum tick period would be 2 tick, less than that will otherw=
-ise
-> degenerate in a disabled channel.
-
-It's expected that in general for a period_length of 1 tick you can only
-have 0% and 100% relative duty. IIUC for this hardware you cannot do the
-100% case so there is only a single valid duty_length for period_length
-=3D 1 tick.
-
-I think it would be more complicated to consistently filter out
-period_length =3D 1 tick in the driver than to just accept the conceptual
-limitations. (Otherwise: What would you report in the fromhw callback if
-period_length =3D 1 tick is configured in wfhw? Would you refuse to commit
-that wfhw to hardware in .write_waveform()? The pwm core handles that
-just fine and consumers have all the means to detect and prevent that if
-they care enough.)
-
-> > > > On remove you miss to balance the call to clk_prepare_enable() (if =
-no
-> > > > failed call to clk_prepare_enable() in rp1_pwm_resume() happend).
-> > >=20
-> > > Since this driver now exports a syscon, it's only builtin (=3DY) so
-> > > it cannot be unloaded.
-> > > I've also avoided the .remove callback via .suppress_bind_attrs.
-> >=20
-> > Oh no, please work cleanly here and make the driver unbindable. This
-> > yields better code quality and also helps during development and
-> > debugging.
->=20
-> I wish to, but the issue here is that this driver exports a syscon via=20
-> of_syscon_register_regmap() which I think doesn't have the unregister
-> counterpart. So the consumer will break in case we can unbind/unload
-> the module and the syscon will leak.=20
-> If you have any alternative I'll be glad to discuss.
-
-My (not so well articulated) point is: Please be stringent about clock
-handling to not bank up technical dept more than necessary and such that
-the driver can be made unbindable if and when syscons grow
-that feature. Optionally wail at the syscon guys :-)
-
-Best regards
-Uwe
-
---nnaiyhbmq7n4v5c7
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmniEI8ACgkQj4D7WH0S
-/k580Qf/SO3OiWMc9QDwejdP76mKbZJN81A0PEMT1XqTsTsB04ePmAQV8kf4+BrG
-fmv8hLQCTDUCRLXxdAaveYUiefKqE7oArFXJO4FJYs8R+BOCO1jK58OawmjxlCA7
-k6K4ccZp0ZrMdo6OwkQ+0N1rN/Wxuxmo2faGwkaVwacC7Ot/yobuE+hKfBVram3I
-/qBpp04vKsNmxBKGxi1ziUIKajDkE/VvPd98qWGEp5mI2JpLQFeHXLnHQyHPEwhU
-LJeXkbClLqYLhkobqw0f/etJZzFFGWyGQEeEuS9gBjufT2H3cQMplqRt/wemSjlR
-uSf1kc+4Z7NqJrm17G3PgBJDLbOj8w==
-=lj2I
------END PGP SIGNATURE-----
-
---nnaiyhbmq7n4v5c7--
+Frank
 
