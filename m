@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A5AEF8DFF9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 17:47:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6135CF8DFFF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 17:55:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k8m/KTTmnq5PY9ru1DsdH08IpJYZRyWyKs1/HT27WEs=; b=W0KTb38fBnAH9OAz0BEjlz2oeh
-	UACl0pXtTyskBQQt9mTpoirzHBmCBAjlo4Ov85k+C34Q+tR43I5cq6NpGpY0d4L6FoJuAVCz7fQsU
-	hxpsnrgyjOGEWZP/A9Ix/r2X79vH7MkSRrCiE3kz6681utfexPM+weXlFmHNWfu8esUEEGQq0+84X
-	ASWth9jM0dRPkta97wzDfnFTlUPpenO/CU+AYtNGA4vYcPepdfaD5q9Djee99a5ZZhakjLmNJxgcR
-	aNNi+aIPNEyVZo8maftaCyt8N/iwADvItbJj3t6TiO4UIGAziykvreNOM6EOE94qMlfD9HFGZcbwS
-	7v0DMC9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ntz/oKTV3YCcdhi0idjBTJxGMsRA7Je4Bb5Q2/ho+pI=; b=2fea1ionobw8PclsOzoIIDnDJD
+	RtQNt/tj3ylkB6VU1QtSrmw9sj0XYtfHlVzEzXaJoCc5I7So63Xa/xKpAC1IuCpa7jhF2nBsMcr1w
+	XcAt5Rbf026KlXpVhV+KUPD4mHm7l2mZUKS5PT8WuTHmOZ1p3WGIow4kEcsvaSiVF5V/SugzDJksY
+	HelhZMux0nQcv2B0xTb7/MSAM4FfohYB15IAG4+KnQoCbo3Vf0o3Y/sPu5ThGGvFgs57vc7H+dhHK
+	Ks5HiUBOmPl2YPNFBqS/Pgv/1GOI0XpVPFuVRHuMGIrbdN46h1Fy2tF+v4MRrKsFhVL7dK2/1IO2L
+	xgxwroSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDnHV-00000004KoD-2Jub;
-	Fri, 17 Apr 2026 17:47:05 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1wDnPY-00000004L9e-3Byw;
+	Fri, 17 Apr 2026 17:55:24 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDnHT-00000004Kne-0pLY;
-	Fri, 17 Apr 2026 17:47:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=k8m/KTTmnq5PY9ru1DsdH08IpJYZRyWyKs1/HT27WEs=; b=G8ioTg1PqKwL/Klcpomt6dE9Xa
-	JPpL9IJjXkGPag8r3o9xajKGIy4+9OeXkj2D8YjNECvgQYyIqbGBNLkfK8n0v2zLaNpkkzbUeWsIO
-	UdQ7d8v4rw1Tr9oyOhpJcCg2Is/sNrdSW4x9Tl3TeSuoaCOxBHZbd+3k5tlxVQdswdWacHoXN71uh
-	uO3smsPJZN8s46HtaAOfNz6/wHDxoox2OaYKSBtgqw3khAoHH6vZ2xn7YAMFylVphR5FxO6N7ya/A
-	EgTsq2S/5sPLv3+4mXLX6Jn1Tg0EvE9JbVMvk5LXYzKaqRYWvmB2KYPhd1F1GQxm7Fpa772McW2xo
-	klQbWTaQ==;
-Received: from authenticated user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1wDnH2-00FY4p-1L;
-	Fri, 17 Apr 2026 17:46:36 +0000
-Date: Fri, 17 Apr 2026 10:46:29 -0700
-From: Breno Leitao <leitao@debian.org>
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: "Chester A. Unal" <chester.a.unal@arinc9.com>, 
-	Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Russell King <linux@armlinux.org.uk>, 
-	Christian Marangi <ansuelsmth@gmail.com>, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	Frank Wunderlich <frank-w@public-files.de>, John Crispin <john@phrozen.org>
-Subject: Re: [PATCH net] net: dsa: mt7530: fix .get_stats64 sleeping in
- atomic context
-Message-ID: <aeJjcoHyezEgUG_Q@gmail.com>
-References: <79dc0ec5b6be698b14cb66339d6f63033ca2934a.1776397542.git.daniel@makrotopia.org>
+	id 1wDnPW-00000004L9B-1adC;
+	Fri, 17 Apr 2026 17:55:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1776448518;
+	bh=Q/GzuWIQEHuvkg9yZh9vcQC8AxPXoccLErnZodAciHk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Ud7SICimNN1HnVxsVZ3WfMCv8BI5OB7UvQ9beJebQtQmpu+coTXWZz8u7N0GISF5O
+	 Oxdrr9Eczp15S4lJpmFXUQU2OZ15f43hE3z/CvimwKyeySfmkLQAlYYlUvKC0RUUes
+	 mu7PLc6arQL9Um1iQErLyMZke9U2PRElA9D9fddK792XireuYepTaVW+5EyUfTM7tf
+	 2PYtNFlkW6fwEIOUWFstvW2mXmVXhfWZ4VYzPKTlGAYavKcM8RMrcNU0rruRYJT1X7
+	 yjc5xpzNKjI5rGsHXqSnYgMXQ13OjkCSv/BDX096cBXQHqEizTRnGJ/zALBlESGop1
+	 X6cTELVcasb0Q==
+Received: from [100.64.0.241] (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 67BBC17E131F;
+	Fri, 17 Apr 2026 19:55:18 +0200 (CEST)
+Message-ID: <70e9a8a0-414d-428f-8da8-9b65cc764849@collabora.com>
+Date: Fri, 17 Apr 2026 20:55:17 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <79dc0ec5b6be698b14cb66339d6f63033ca2934a.1776397542.git.daniel@makrotopia.org>
-X-Debian-User: leitao
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/40] arm64: dts: rockchip: Wire up frl-enable-gpios for
+ RK3576/RK3588 boards
+To: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260417-dts-rk-frl-enable-gpios-v1-0-a19c0dd8c9f6@collabora.com>
+ <2297365.1BCLMh4Saa@phil>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <2297365.1BCLMh4Saa@phil>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_104703_276018_6C53F835 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260417_105522_630414_268DC8B1 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,27 +78,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 17, 2026 at 04:55:57AM +0100, Daniel Golle wrote:
-> @@ -3404,6 +3449,9 @@ EXPORT_SYMBOL_GPL(mt7530_probe_common);
->  void
->  mt7530_remove_common(struct mt7530_priv *priv)
->  {
-> +	if (priv->bus)
-> +		cancel_delayed_work_sync(&priv->stats_work);
-> +
+Hi Heiko,
 
-Shouldn't you cancel the work later, after dsa_unregister_switch()?
+On 4/17/26 2:34 PM, Heiko Stuebner wrote:
+> Hi Cristan,
+> 
+> Am Freitag, 17. April 2026, 11:24:34 Mitteleuropäische Sommerzeit schrieb Cristian Ciocaltea:
+> 
+> [...]
+> 
+>> Cristian Ciocaltea (40):
+>>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-100ask-dshanpi-a1
+>>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-armsom-sige5
+>>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-evb1-v10
+>>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-evb2-v10
+>>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-luckfox-core3576
+>>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-nanopi-m5
+>>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-nanopi-r76s
+>>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-roc-pc
+>>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-rock-4d
+> 
+> I do think one patch per SoC (rk3576, rk3588, rk3588s) would make more
+> sense, because these patches really are mostly identical :-)
 
-I am wondering if the following race cannot happen:
+Yeah, apologies for the large number of patches, I went this way to allow
+per-board reviews.  As previously noted, I tried to identify the GPIO pins from
+multiple sources, so I'm not entirely sure about the accuracy in every case.
 
- mt7530_remove_common()                  someone reading /proc/net/dev
-    cancel_delayed_work_sync()
-      /* returns: work neither pending
-         nor executing - true at this
-         instant */
-                                          mt7530_get_stats64()
-                                            mod_delayed_work(...)
-                                            /* work is queued again */
-    dsa_unregister_switch()
-    return
+Would it be preferable to squash the patches per SoC and board vendor, instead?
+
+Thanks,
+Cristian
 
