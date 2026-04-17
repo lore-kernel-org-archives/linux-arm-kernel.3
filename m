@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D91FF8E4B4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 07:29:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73BC2F8E4B7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 07:33:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CyUOOCVHhcafAepl3vLASavyzTR7QmR3C8wwgf4j/ms=; b=bjgZd4DooB/VsCLkcM4z+9GKvK
-	Ciw0pHFpQMHJD8NPAGfippnhjMFv0305ZONKKubrA65N5MPxgbNw+vngO51yg30krjFr7OZ1DHfMf
-	WvFqUqKRzbQgbozHw5s/ZytU57IiQuZl6fb3dRIi7QnR6vwD1znvEcfJbtVTf4uTGVqRUNY1tuO8J
-	pO72ysmAuUUBd3Y85SDIhH4Y9jcYW47pTRUX4aa8vAJVzotRP5F3yfoSCvXCHzbXSnMc1o/RDliJ0
-	c+TXV+D3fSsjGmm9jAoMwmA/QMT1k/Eo4XWZZuaoOZQjg3CmrJVOjArLl0yIlV18IerVctKYHUIqu
-	KG6nxakQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j8VYutXWUS0/Ljz4V4OKySPUTUnL8mhsVw2lKA4P2Pk=; b=IyqL3OXK4ylZTgJ1/m9qh/To2n
+	oSkAAomITODMEGi/CJXw4TZmWRCn7RFkvyYNcMCIkn9vIRxCkk++xtjlkks98HO29matsgwqodeQD
+	XSzTtNDM12U2/fNeSOYxeJYrKEO2/LaNiBPsJRGhA2yEUtU4cXc9yzUeZq4cmCIC+TZ+hO0W+qfyt
+	pfpWJ+ACvvWoYAvMIMTh67w5Fwd9PVNTI32zGQgwl7kiM6q8jjQavPS6o7Rixed4zQXhW6uJApvol
+	i85linAyneUPILJOkT+IqqDfqRPW5a99fIJmYcwxau3322XtzRTcTbkTenV+Y/2gKh8QDAeKRniH4
+	RzmgtJyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDddO-00000003aOV-1e8p;
-	Fri, 17 Apr 2026 07:29:02 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wDdhj-00000003af2-1N5a;
+	Fri, 17 Apr 2026 07:33:31 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDddJ-00000003aO8-1Wnm
+	id 1wDdhg-00000003aeU-1ygW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 07:29:01 +0000
-Received: from localhost.localdomain (unknown [111.196.245.116])
-	by APP-05 (Coremail) with SMTP id zQCowABn9gkr4eFpn77XDQ--.24145S2;
-	Fri, 17 Apr 2026 15:28:44 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Russell King <linux@armlinux.org.uk>,
-	Jiri Bohac <jbohac@suse.cz>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] ARM: setup: NUL-terminate the fpe emulator type
-Date: Fri, 17 Apr 2026 15:28:41 +0800
-Message-ID: <20260417072841.88838-1-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
+	Fri, 17 Apr 2026 07:33:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1776411209; x=1807947209;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=0y/r0BPgfQrMIEgn+iiajBjp+LB9k0B/72E03JTlTDY=;
+  b=TWfXOmLHS/dsO/DPH/PTm9pTpq4wumZw+lSfhi1fvkRSVKZ9pbGqW+9L
+   QP7m0Wua6odXbKJuMkOzVKtTx0PXstBtqU9eCVR+uawpmnOetzZH4IhQa
+   9he+AUv1gCM/pjlAx1dTWctuAEDxHo3IxFwrrclQiDP8BpuHYKRIdmhnE
+   AdsV307XXF/UMQ1aL0UV/wjI++/xZxbkuKz/cK79hl0v3A7iQ5tTyoBBB
+   SISgXEJ/T+SG1JWyOXeODemurK1cLqjiQLJqy6XzokV2cm6lpy/+UPc9I
+   uOZ4f8Vt+gUkf2pB3FX/S2pjmAtPeftcaQsPAVEKhTsTheeptVSGDDSwd
+   w==;
+X-CSE-ConnectionGUID: aeobcDxjTEugEOOy9OFlsw==
+X-CSE-MsgGUID: t4e2VH9lRSSxbEz4cqDSsA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11761"; a="77332044"
+X-IronPort-AV: E=Sophos;i="6.23,183,1770624000"; 
+   d="scan'208";a="77332044"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Apr 2026 00:33:26 -0700
+X-CSE-ConnectionGUID: GKlm/5d3SL+NJtdbR5rOAw==
+X-CSE-MsgGUID: KbXWwPcaQQKeZaZiDooZGw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,183,1770624000"; 
+   d="scan'208";a="230109306"
+Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.78])
+  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Apr 2026 00:33:23 -0700
+Date: Fri, 17 Apr 2026 10:33:20 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Yury Norov <ynorov@nvidia.com>
+Cc: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Srinivas Neeli <srinivas.neeli@amd.com>,
+	Michal Simek <michal.simek@amd.com>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] gpio: drop bitmap_complement() where feasible
+Message-ID: <aeHiQJa93I6RgkUg@ashevche-desk.local>
+References: <20260417033439.318930-1-ynorov@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowABn9gkr4eFpn77XDQ--.24145S2
-X-Coremail-Antispam: 1UD129KBjvdXoWruF48JFy7Ar43Cr4DXr4xZwb_yoWDXFgEqr
-	93t34DGw10v3WIvFW7tw43ZryxKa1UWF1vgr93Kw47Arn8Xr15u3s5ZF9aywn3Wrs7Kr9a
-	vw4DGFWagr10gjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbcAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s
-	1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0
-	cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJVW8Jw
-	ACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_JF0_
-	Jw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxV
-	WUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r126r1DMIIYrxkI
-	7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r
-	1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJwCI
-	42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUejjgDUUUU
-X-Originating-IP: [111.196.245.116]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260417033439.318930-1-ynorov@nvidia.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_002858_818773_F964C91E 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20260417_003328_552069_CE2AC199 
+X-CRM114-Status: UNSURE (   7.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,38 +90,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-fpe_setup() copies up to 8 bytes from the boot command line into the
-fixed fpe_type[8] buffer with memcpy() and leaves the array without a
-terminating NUL when the parameter is exactly 8 bytes long.
+On Thu, Apr 16, 2026 at 11:34:38PM -0400, Yury Norov wrote:
+> The gpio drivers reproduce the following pattern:
+> 
+> 	bitmap_complement(tmp, data1, nbits);
+> 	bitmap_and(dst, data2, tmp, nbits);
+> 
+> This can be done in a single pass:
+> 
+> 	bitmap_andnot(dst, data2, data1t, nbits);
 
-fpe_init() later compares that buffer against "nwfpe" with strcmp(),
-which can read past the end of fpe_type.
+Split on per-driver basis.
+With this being done,
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 
-Use strscpy() so the boot parameter stays NUL-terminated before it is
-used as a C string.
-
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Cc: stable@vger.kernel.org
-
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
----
- arch/arm/kernel/setup.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm/kernel/setup.c b/arch/arm/kernel/setup.c
-index 0bfd66c7ada0..c07bc6a380c5 100644
---- a/arch/arm/kernel/setup.c
-+++ b/arch/arm/kernel/setup.c
-@@ -69,7 +69,7 @@ char fpe_type[8];
- 
- static int __init fpe_setup(char *line)
- {
--	memcpy(fpe_type, line, 8);
-+	strscpy(fpe_type, line, sizeof(fpe_type));
- 	return 1;
- }
- 
 -- 
-2.50.1 (Apple Git-155)
+With Best Regards,
+Andy Shevchenko
+
 
 
