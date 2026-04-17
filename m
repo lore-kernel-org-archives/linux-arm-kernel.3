@@ -4,70 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88BA5F43699
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 12:46:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39EF0F43697
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 13:06:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6sFF6mcnsdlClJfMzyYFul3iRT90Rsqxmeolnoc7CqU=; b=EApYXlojIc4kr15nxzN3d1fDsr
-	LZOtc1F/opM7yHfrOqnr4WFvaAHTw3vhXtTEJSL0TtneDkFo339QZ2e+sJA/Q5w19KvDkCqNLAoMd
-	m4i11Xk8vULahqKi+gW8lhB3+1Xx344Lgsfjr/NgACZ+kBw1ZAy2RTBo2LC1c0p6wNBlk0QtPOJ9f
-	EGdbslaB4X7dQCJEZv7lZ0aKZjszTrLCl42N+8SE4bBM3y1J7E30Sfq1Na5Q/qLaxfgOlSbVaOA48
-	VdFYj87kSl55eghtAuqfQ3st2IWYAikjXLY0pywcOArr2Rnu9KcEwfescjLJTMr76nkm8VSDXYk2p
-	jA1NyvLg==;
+	bh=ArPcEjtZ9SivxH550C9rk73iUbB8go/eI9x6T8uYRDs=; b=0/Z9jppLlxzb/GU+Y7uMPiq87Y
+	ZVZKGm1sV/oLgJdyjT9KaRQANaLYfowpNrOKxq0nRzX8ciTLDLarRZuKSVCrovhIjk4TrmcKrpTgk
+	/pHKQQLBgtxhjvCfJad6yp3XNr0qG1nfcTuEgGcCVOdQSYUJ7jDIBL7FU0ov4YHlApjq104ZYd8BE
+	/uVlcPic5Xpw2pJEUEiFJUhBz0RAzf0tQ3eSyFwwfjedWDt/M39qsiaeQm5UWQCYhBfTZS56hw4dU
+	/TDWcQn3Cf8WcK1FbGJpWdY3lWRzyczYXrVX7oLQWTQJbm2zIm6MW+pMyi+2nVkT3YzkMNdlU60pk
+	LfPIlrIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDiaU-000000043Ar-0TYx;
-	Fri, 17 Apr 2026 12:46:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wDitv-00000004461-0mRA;
+	Fri, 17 Apr 2026 13:06:27 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDiaS-0000000439q-1EWu
+	id 1wDitq-0000000445d-0VHI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 12:46:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A67AB6013A;
-	Fri, 17 Apr 2026 12:46:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 599D5C19425;
-	Fri, 17 Apr 2026 12:46:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776429979;
-	bh=ydJDYUjgybLlO9ISnWIIvpjgy9hzClj2miPHNIqLbo8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VcEN800/Y+pym/j0vQtweSLITtYEYNtGwcA7AQYcQ+cviUOlNOsjQFtGfUV8fs4Bf
-	 y34BkdlUWrFFKEx2aJQ50Q+pu8MiLibP9RBoWnzlwQyCVy9hUMvCR28zsE1a0Veh+T
-	 8pvl1dVW1LN2SFrdtZIq+ZKevrh8xa2KJbHM/lE6hQX94XVwXAok6BAJPcltpV9y5Q
-	 vFyIP5+n5ztsDw7wc5d2cHI2kCNjXbq5Dz1zO0Y2gEO9hnw0iFCmHNKiWOVh20m+TY
-	 sb9c5gbNANDXtsgZImI+L7gxRtTQCnZbZs+67PY7sQRSkDbcczKOfsSHSdArjBHfyZ
-	 o7q5ZxdSfBbrw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wDiaP-0000000CRo5-1V07;
-	Fri, 17 Apr 2026 12:46:17 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Deepanshu Kartikey <kartikey406@gmail.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH 4/4] KVM: arm64: vgic-v2: Don't init the vgic on in-kernel interrupt injection
-Date: Fri, 17 Apr 2026 13:46:12 +0100
-Message-ID: <20260417124612.2770268-5-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260417124612.2770268-1-maz@kernel.org>
-References: <20260417124612.2770268-1-maz@kernel.org>
+	Fri, 17 Apr 2026 13:06:25 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-43d7a5e77b1so493900f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 06:06:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1776431179; x=1777035979; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=ArPcEjtZ9SivxH550C9rk73iUbB8go/eI9x6T8uYRDs=;
+        b=fdPcfBcASDgcEznnT8xaJeEP6ysw1n8Of83Q65d8sQVFOaPGU26K6iYUInBJN9e+xt
+         s5G5a1mzXKy7pMgPIyiEXN/bd+Hz1LeOKsod/BAtO10QMTs0eDQTrm89YiE3LejGlHeS
+         74N//NsbyeEUPXQbFwcNHa12v2ZJLLYNLPJRivw6CrdI7K4dltlCqSOsFaFsV4s2bFhR
+         RAyMA83fHfkAN0xXWnGxHNsdGywukk6+tPG6iLZA2ul5YQ48xqEfJ6sp/Yi25SYEZ9XC
+         2V9wvOwNjFZ3r7lsDuHEpOi55k43h+9R9PXT7qcKDxffQG/n5Hy/5w9wB4lL1U6oIF51
+         OV9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776431179; x=1777035979;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ArPcEjtZ9SivxH550C9rk73iUbB8go/eI9x6T8uYRDs=;
+        b=kPtuqgf4E+vE1mMew1CKUFvE/jDgEFAdO/AydmTBqySTrHAPnpclmR2SMG7iZ++Hac
+         CAHLkzrA6g2bRPoncdFuMVmJXOCgE6ve10AJ+vkBTT/9UYqsZ9UM83lGzd8l6yYxEXLj
+         1auv7V52gEmmZQGHgEoJzbzcYVjFgOOPoIwzhmzSA/HwkvvdmJvCSqII43sKMOkrXlhT
+         SLwlr32bzC/+VeBU2eJpzL8XMd1uokArVZ4ROw9ovC7XlE8lfFctSdu1s10+ki2QicTM
+         uSZP6oA2HzWxR39E4keGwIpIdsj1GrjldJsuuqzOCxsOImI3Du4izLv1V2GXdsjify9E
+         aL6Q==
+X-Forwarded-Encrypted: i=1; AFNElJ8qZRs+12iHA8WI/gfrK+vkdXjkOpzEX4YcTSxxH8EEMdk0fKEWWKaPdN8U3m7bpCSBaXaJgA60SF24g+cXCJ9C@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyan8FLb1sSX3yrkS1wHd1IPNYjq0lL+LNBpfltKxtzC0sw2GQ6
+	F52lBxjnAb+Ou1biGSXCbHKKYNcHEFH0/ipo4hkQEA2Q74b65VdOMFoKpzdpcpsFWR4=
+X-Gm-Gg: AeBDietLWMhiXBKcqKjmKBa+Ygz5vh16yQTrTxdp+b8bgpX/Z3Cht/hjcs6zAu9BRAl
+	9oYY+hRvC6MmUWNtXrEDc1FZHXt8OJVO7CyKLVjh177GMbrp5lyz94eESJkxoFQ2CrIYXV8krLY
+	KoIXoode/e2Y6yGHjRWWPTdO56gnbX618XqYsIccTxcIzxssvDmlFQgggx0KP02HIcTBLU1BHMG
+	B6gIT2EdlLEsesClEk+345nyVLVXfJ3RyeXNr68QHJ128m4T1QJmpYy90b38ugColszs/BPoOcW
+	kI7QRVxeXMwbG191DbyEtoeTlek2mCuuRdFzjqeWfvohhoSlC6/NXEZgNX2zZKgOUBZki3cwKqq
+	VeedqP8Thp/O/qe0aN3q2BPtXsYyonqnTOXhvdhO3PgeST/50of6PSgOI1O96R34FUu56Us50VP
+	qn3Nd27AYTBJKLWi4jHdyCR0D50Rk175hLs0fyJbtQwA==
+X-Received: by 2002:a05:6000:210d:b0:43f:df55:fe5e with SMTP id ffacd0b85a97d-43fe3de41demr2740203f8f.0.1776431179277;
+        Fri, 17 Apr 2026 06:06:19 -0700 (PDT)
+Received: from [10.11.12.108] ([79.115.63.48])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43fe4cc09b1sm4687367f8f.9.2026.04.17.06.06.16
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 17 Apr 2026 06:06:17 -0700 (PDT)
+Message-ID: <976440e5-f433-424f-8ff6-c7553799f1d1@linaro.org>
+Date: Fri, 17 Apr 2026 16:06:14 +0300
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kartikey406@gmail.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/7] thermal: samsung: Add support for Google GS101 TMU
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+To: Alexey Klimov <alexey.klimov@linaro.org>, daniel.lezcano@kernel.org
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Kees Cook <kees@kernel.org>,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ willmcvicker@google.com, jyescas@google.com, shin.son@samsung.com,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org
+References: <20260119-acpm-tmu-v2-0-e02a834f04c6@linaro.org>
+ <DHNUUPQPD5DR.18P18VV0LNTI8@linaro.org>
+ <63087cad-a8d1-4ff0-870a-6e1a738ff8b8@linaro.org>
+Content-Language: en-US
+In-Reply-To: <63087cad-a8d1-4ff0-870a-6e1a738ff8b8@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260417_060622_185719_DC5A37F8 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,43 +113,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We how have the lazy init on three paths:
 
-- on first run of a vcpu
-- on first injection of an interrupt from userspace
-- on first injection of an interrupt from kernel space
 
-Given that we recompute the state of each in-kernel interrupt
-every time we are about to enter the guest, we can drop the lazy
-init from the kernel injection path.
+On 4/9/26 3:22 PM, Tudor Ambarus wrote:
+> No, it's more than that. When I talked with Daniel about this driver, he
+> suggested I shall really focus on using the .set_trips callback instead of
+> .set_trip_temp. I'm not sure if it's possible given the static nature of
+> the ACPM interface. So it needs a bit of investigation, which I couldn't
+> do lately.
 
-This solves a bunch of issues related to vgic_lazy_init() being called
-in non-preemptible context.
+FYI, I switched to .set_trips and testing went fine. I'll recheck the
+review feedback and resubmit.
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/vgic/vgic.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
-
-diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-index 1e9fe8764584d..9e29f03d3463c 100644
---- a/arch/arm64/kvm/vgic/vgic.c
-+++ b/arch/arm64/kvm/vgic/vgic.c
-@@ -534,11 +534,9 @@ int kvm_vgic_inject_irq(struct kvm *kvm, struct kvm_vcpu *vcpu,
- {
- 	struct vgic_irq *irq;
- 	unsigned long flags;
--	int ret;
- 
--	ret = vgic_lazy_init(kvm);
--	if (ret)
--		return ret;
-+	if (unlikely(!vgic_initialized(kvm)))
-+		return 0;
- 
- 	if (!vcpu && irq_is_private(kvm, intid))
- 		return -EINVAL;
--- 
-2.47.3
-
+Cheers,
+ta
 
