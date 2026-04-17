@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C795BF4369E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 13:16:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 578FCF4369E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 13:16:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F0cuNn+7Cw+AZ8bkjjfmvttTnU9EirNcnNgtvx97n8s=; b=foBUfg2fpJAkzyZmTMxdW8oUjV
-	+6pHpI0L6LNXRyEg3gVK3OUGP5HdUVJ+rAznXCh34rpAlhmo5+pnUqgxbkNxNFCVBRvqq1N20HL1M
-	ULGHcqX6/oUIUld8IAs4eiPt/uF+PZ2HrMeseVc+395HPHUyKDDqU7M1gdsTJi77LE4Cvn9QQ7M8N
-	ZO3B7B4BFRGq/ugl+gBX9hKOXt3oGKbF277vJuMnPLXQgrKu8fApT95goJ/y6XESOCqEqSCKRprEK
-	KinlHKu2ibr9jkcQyeyk8sKabcs2kAzdEVCQ7Oayb+Tk8mAYC9tnd8ncWrLeLXwHkeUF+0FH8YfI5
-	aemxoTtA==;
+	bh=Zl+c4Shb2wYk5ZcB+RauhBC6rlb1gBsMvB1Tds2EYy8=; b=IOgbv7SGJrAEYOeQbZYs2Gav12
+	aa+sRp2MTo9uU2Rt6c5i85ugQ5Jq68TdwLY7XiqXqbz1l4zfJcMuLhXJKQHeEY/7kS8yH+P1+AJ22
+	yIBi17gp45zd9S2mLkVy83x85ynbnhRbViesexXe/GFeC7QAtI3HRCbaXb/0BLonHcLnPao2DizpX
+	6/5itxHk9W8JbUJjhi57WXWTB0/eTjzQfrTBZz4IefbKaZ34suMYMhixGClZzBPuRNrqDYCmBo6cF
+	uE+l8smJ+NNtIkTZQmLWd80EBXa/3tnF4++wfKntepddq5MOswVjs+KpBeVsli1anxMqj5OOQpSFw
+	prlzPvLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDj3D-000000044b7-3JiW;
-	Fri, 17 Apr 2026 13:16:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wDj3H-000000044c1-0Kms;
+	Fri, 17 Apr 2026 13:16:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDj3A-000000044a7-28WL
+	id 1wDj3D-000000044ag-0xuG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 13:16:00 +0000
+	Fri, 17 Apr 2026 13:16:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C22D060139;
-	Fri, 17 Apr 2026 13:15:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 266BEC19425;
-	Fri, 17 Apr 2026 13:15:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AB4A56013B;
+	Fri, 17 Apr 2026 13:16:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0C3CC2BCB0;
+	Fri, 17 Apr 2026 13:16:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776431759;
-	bh=3t8CdW+2lbkqrvxvlVhufeih1j58VNK7Gp9uCsojClc=;
+	s=k20201202; t=1776431762;
+	bh=ZwXQ0B97mAqYw+Pj4q1qkn3w0VEkp8PC3RW3zFe6OsA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=UVbqZkQEN53h7akJNXk0j+ukEncZxIVmMr39H0JMt4EnZrnvgAvMcWbdTPE8sEgCo
-	 VVg4LEWgAVvd09IV4ADTUmZMGVCuDxQkefWwciaRfMQlRtgGtDOY5SIWgAtDf90SMN
-	 4UYl0y9UVy2CWHtZ+COl6V07Ob4WBKZ0DYfpVLo/5yM84Gs67gklmCinv6Qu9m7VgP
-	 2knHhAT4cUe7cVDLyhcxCov0g15C0s30is4RkHhmRbQyyesFNKD0RlQD+0lZeDD71p
-	 EASAEbI4aTmaf+cJunQsXB4ZESNHabuvmWqb35FM78tS1pEKAhTM2AKT/nuyzs0+tP
-	 rLZZGIKztzPsg==
+	b=cas8tNl9CxmcLPr+klpYOiOUpWw43pvARwfWzkMhAldp4ZiMUUD85xhwTjq7t6hVg
+	 bIcshTUeASvThAOLJ6gi/HwyuE/Dir1wBYF/Hj5q8lgD/slBp7IQ7i63f0qexpV3wJ
+	 Dpdik+ZOT2LUCaDE9CzA3t21t9MAph0JK/phP//57EZbMMfSI9howf1iEOjXKH+sGI
+	 wHm+HbRaq2FdZdHUEirPh/MOgchAVjivRph3vR+xdxflx0o/dn8vCQediYu6KxEK78
+	 e7BzDvigmM3Xpx9AtOQL++z/+7AN13/idhGEszTreTBLHfZ6xObY5Sgu3f+zx0TmNO
+	 CMyLhJqHZ9Drw==
 From: Thierry Reding <thierry.reding@kernel.org>
 To: Thierry Reding <thierry.reding@kernel.org>
 Cc: Aaro Koskinen <aaro.koskinen@iki.fi>,
@@ -53,9 +53,9 @@ Cc: Aaro Koskinen <aaro.koskinen@iki.fi>,
 	linux-m68k@lists.linux-m68k.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/3] Documentation: ABI: Take over as contact for sysfs-driver-tegra-fuse
-Date: Fri, 17 Apr 2026 15:15:47 +0200
-Message-ID: <20260417131549.3154534-2-thierry.reding@kernel.org>
+Subject: [PATCH v2 3/3] dt-bindings: reserved-memory: Change maintainer for BPMP SHMEM
+Date: Fri, 17 Apr 2026 15:15:48 +0200
+Message-ID: <20260417131549.3154534-3-thierry.reding@kernel.org>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260417131549.3154534-1-thierry.reding@kernel.org>
 References: <20260417131549.3154534-1-thierry.reding@kernel.org>
@@ -77,27 +77,29 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Thierry Reding <treding@nvidia.com>
 
-Peter sadly passed away a while ago, so I'll be taking over as contact
-for this ABI documentation.
+Peter sadly passed away a while ago, so change the maintainers for BPMP
+SHMEM to Jon and myself.
 
 Suggested-by: Geert Uytterhoeven <geert@linux-m68k.org>
 Signed-off-by: Thierry Reding <treding@nvidia.com>
 ---
- Documentation/ABI/testing/sysfs-driver-tegra-fuse | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../bindings/reserved-memory/nvidia,tegra264-bpmp-shmem.yaml   | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/ABI/testing/sysfs-driver-tegra-fuse b/Documentation/ABI/testing/sysfs-driver-tegra-fuse
-index b8936fad2ccf..47d5513100f6 100644
---- a/Documentation/ABI/testing/sysfs-driver-tegra-fuse
-+++ b/Documentation/ABI/testing/sysfs-driver-tegra-fuse
-@@ -1,6 +1,6 @@
- What:		/sys/devices/*/<our-device>/fuse
- Date:		February 2014
--Contact:	Peter De Schrijver <pdeschrijver@nvidia.com>
-+Contact:	Thierry Reding <thierry.reding@kernel.org>
- Description:	read-only access to the efuses on Tegra20, Tegra30, Tegra114
- 		and Tegra124 SoC's from NVIDIA. The efuses contain write once
- 		data programmed at the factory. The data is laid out in 32bit
+diff --git a/Documentation/devicetree/bindings/reserved-memory/nvidia,tegra264-bpmp-shmem.yaml b/Documentation/devicetree/bindings/reserved-memory/nvidia,tegra264-bpmp-shmem.yaml
+index 4380f622f9a9..6efadc5f8078 100644
+--- a/Documentation/devicetree/bindings/reserved-memory/nvidia,tegra264-bpmp-shmem.yaml
++++ b/Documentation/devicetree/bindings/reserved-memory/nvidia,tegra264-bpmp-shmem.yaml
+@@ -7,7 +7,8 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ title: Tegra CPU-NS - BPMP IPC reserved memory
+ 
+ maintainers:
+-  - Peter De Schrijver <pdeschrijver@nvidia.com>
++  - Thierry Reding <thierry.reding@kernel.org>
++  - Jonathan Hunter <jonathanh@nvidia.com>
+ 
+ description: |
+   Define a memory region used for communication between CPU-NS and BPMP.
 -- 
 2.52.0
 
