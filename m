@@ -4,56 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D27F0F43693
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 11:34:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68AEFF43693
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 12:00:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QXvq8NzDZEj8/tjI1g8fgGcQb8v00hPinRstwIxPQYQ=; b=jtALxPiGb75g0FBfq98OHO1h84
-	uvqeigiohnh70TJvwLMYPddFztPOmLGBTH1IgkMC89eYuqLllKrbWG8+EMA74IIkc6ASIPhPKN4K8
-	h+5kmQu/YY29SMKFSGXyUQ8EYXNo9sOxtwd9gFcMD7Jfq/yCsZeB91k5eH99xJAlWrbdlW7EaLSpX
-	xK+ECrzxsT7IeBzoJSJbl37jK4vS5MCKqls1ujyb44sEuCAUvWh6X3cJL92wDJf+WOrO+DFshkXvu
-	dUPIxHtnMZ9FPayW8+WVqHnxt3sg73/A6stLecJtpHvJ4HNzg0PIHaulibwBX3Rn80T6GNwT4j9O0
-	1A/jXSMg==;
+	bh=qf4/PptYrWrkqrMhg6IPO7W2cBk2pY4WWM9BjQBQvhM=; b=UiYIDysMO8ThVxYnTf2WHyibLq
+	aOS5hktCIVGDEuO0KB2JSgOYuEBhN2m19yr68zFYhS8FIUEFigyI06FUw0ea2VMLAIuKgkCmhl8qR
+	8yoFlBAeUyRZcOziAjxvPVCaDlKWmGrhYGRGoEAJ7LfYEZzzi312QmEbkU139RqHey5Uv0owPbnjK
+	2nrTOOXQwiXBeDVntHXckV5rVVyfnECdKPBzBILAh63jSgZpLLe3vd52DYmZ0a/7bKP+1ZF7ZaZYE
+	4B3FUMEwZKBTs+n7HmvZCYtzciY4/2DsJuxw7sqQSTBnWEukmY9bVlnBPqQS9ejPQIKGZInvunS8f
+	pWJTf7Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDhSu-00000003zDp-019z;
-	Fri, 17 Apr 2026 11:34:28 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wDhrl-000000040MQ-1Pxs;
+	Fri, 17 Apr 2026 12:00:09 +0000
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDhSr-00000003zD2-3DYJ;
-	Fri, 17 Apr 2026 11:34:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=QXvq8NzDZEj8/tjI1g8fgGcQb8v00hPinRstwIxPQYQ=; b=w5VNETAyPX2dbqVYamJZo5ns+r
-	y/IlzoPTW8Vzs69XHiAOmhhZ2tF3MuxfWeAbDVOE7sjw6YeX9ZowrVeCnlwDZlcjFUuw6BCvkCWWa
-	G3hEOJnLKhbLoyzjDDq8J6mFIsLdaqcYDQqXKHg1xmobjAeBk0kuXbgXZfizJdMi9InKbLdKY4Kyk
-	jinajrccSJEf9XBjFV8qL3/UBeTzxJacsl2VoOA01j9Z0aIAhGFjm140KbkvqHO8Kzx3XBohr3mAz
-	dYE0PcCYpMkq65XjH1dLhT9lejH5my67Uyiy2xg11AQeYFJP8hAmlAMYvUPIEUcvVz81+dX12ymLr
-	vydfxFZA==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 00/40] arm64: dts: rockchip: Wire up frl-enable-gpios for
- RK3576/RK3588 boards
-Date: Fri, 17 Apr 2026 13:34:18 +0200
-Message-ID: <2297365.1BCLMh4Saa@phil>
-In-Reply-To: <20260417-dts-rk-frl-enable-gpios-v1-0-a19c0dd8c9f6@collabora.com>
-References: <20260417-dts-rk-frl-enable-gpios-v1-0-a19c0dd8c9f6@collabora.com>
+	id 1wDhrg-000000040Ll-3ssU
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Apr 2026 12:00:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KFc+BN4DuAMt6vgUji77mNS4GUfQVKmXMf8NHtuxSRJ4hi+BP02klxkJZcAO6ewTgomvW2K/3xhF7bCxHhfalMGjWtgDLwwks6HGIUyF4QsEu+i5svbawAN6HnET8hazE1vizLFzAF/xXwwYHt8h50YXP6Vai8HRSX1htYJotkOvmw6Ef2d3L9VoKUa8Re+gmxpqjnyUCssGpRgrU6dQ+7oSck7K1F/OsIUgvQZ6Dj9QLP9n5Fck42LOmVbEDoAbAMkplx0HgogthKhgLb+6VUFuzuCDCWlsD2Vyp0poXFtZ6Q0zTv9UmSnQgfsSTs/qBvEwhOTdiWMWryFdQi4qkw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qf4/PptYrWrkqrMhg6IPO7W2cBk2pY4WWM9BjQBQvhM=;
+ b=nugaTWr/3DJmqhI1C0n2dmOXb89eObYmaEl1EU8+ffXWN0xGKn8PCnHx8txRI+e6PgtP4diYuCUYcLILzmKtX363YnUcclYBcCS2aShjSMXJj5I0DgqhSwGcNV7K9OyhIVl65JU4sgkWyFeY9shgp4sOapt5YX/7bIISOUbA44nDFoK+fzzaebjjUSVH4DxgWM7vsI0HZwElNu1Pw/mjVfEpUzavJqnijtnUF97T8e6mCbeY34dcfHk9v5H9Gn1PEClO7f20cQyzwojOYmZ05kLF5P5OQhjScRSSqc6pS8mkVI8SAgqVFNnZRal+L/7I7f9PpyidOydhMd9I58R91A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qf4/PptYrWrkqrMhg6IPO7W2cBk2pY4WWM9BjQBQvhM=;
+ b=AwIIx7sZFBvKvxrmE2vLtfF528giCNF3VleKyIFxLvbW3T6UG++gMnhRtcT5ZJmgIQLFM5zG7NFezVa0fO+8thcdvAFkK3pET2BkmXU3jAHxR7Kn/jPbczXAvJXy49cDH0BgHPCnn00IiThkbXGHWOxKRNYFVXbPKGLsWBoqXzwZqBhsXfUfapjRjV29cFjoBHlMZ8goUEKrUAwqmtUUbd+rSlV07KpX9nqhZxuLnwJ03A/QftHweKcEqRVQgbS8LTpIpGM4ySZeS1QnGF5Aevz8p+LBACtg5XmNfrcIy9bIVXnJpZ7b3Lox0oMVLFRB0FrQ9n1fNq9etso7ruv3Bg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by IA1PR12MB6308.namprd12.prod.outlook.com (2603:10b6:208:3e4::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.25; Fri, 17 Apr
+ 2026 11:59:55 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9818.017; Fri, 17 Apr 2026
+ 11:59:55 +0000
+Date: Fri, 17 Apr 2026 08:59:53 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: "Tian, Kevin" <kevin.tian@intel.com>
+Cc: Robin Murphy <robin.murphy@arm.com>, Nicolin Chen <nicolinc@nvidia.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"joro@8bytes.org" <joro@8bytes.org>,
+	"praan@google.com" <praan@google.com>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
+	"smostafa@google.com" <smostafa@google.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"stable@vger.kernel.org" <stable@vger.kernel.org>,
+	"jamien@nvidia.com" <jamien@nvidia.com>
+Subject: Re: [PATCH rc v2 0/5] iommu/arm-smmu-v3: Fix device crash on kdump
+ kernel
+Message-ID: <20260417115953.GE761338@nvidia.com>
+References: <cover.1776286352.git.nicolinc@nvidia.com>
+ <3eaf217f-8e1e-4d64-983a-6b888886f157@arm.com>
+ <20260416172005.GB761338@nvidia.com>
+ <BN9PR11MB5276A13A8014C5C6403FB4EC8C202@BN9PR11MB5276.namprd11.prod.outlook.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <BN9PR11MB5276A13A8014C5C6403FB4EC8C202@BN9PR11MB5276.namprd11.prod.outlook.com>
+X-ClientProxiedBy: YT4P288CA0075.CANP288.PROD.OUTLOOK.COM
+ (2603:10b6:b01:d0::8) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|IA1PR12MB6308:EE_
+X-MS-Office365-Filtering-Correlation-Id: 191e914c-c20e-415f-e6e1-08de9c78d6e0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: KJZUceRqcqFznDkjj4xr2aCJOjGKNSWCw1skmfjiwcTqmy18mizl4BNYdnWfiRFPAIaNO3DTRnyze76u40DrR/BZnJGap9ZkIxsXbswbIql0EBpZffVkjiO/kVR1/vv91uEb/qmivEFhlUMwwYvbYrAFinH7VnbRTZL6wsEMGLQumvfGN0MMiB9Z66SQx6cvyVvgGVY+bvFo4PPLwqYUWM7/AcVWgM7+QTbnJ+6tbmazkAeIKdFhn8LZiQhz1ZXOQ5jgWlMkR3tpEBBDi8WIqc3/6yS3PBj+tEcAsKzv5tKlBPKPfZi84wJSKGS1JvYd+WC6xyV0PLgQZ4ASkpURIaiAPpFj8ZeQ5BIoXJtBRYnt84v1XuCpRThFW1+fa8rmedpjaQuJDIYdHWNmPXpWu47CUKCYmvtHRbDTd6yDULdufFxKupq99XO5fE/0T43yUMefIVJqL6ZrzUwaj6qE0kajhLg51oKJlBosEtHqeNohfYH+hhZ/1Uk8UcUMTVTQId2SCw8BH0FIL8+oCs7U1grGvydtC8YFJq+14TuXUBe5TjxYmfXl/UcMUF9fgnh3OArdMJh5JN6huC5trxxPJUtxoZLEW4KxtpTbsk2W9m36wWVj41Fg3Ct18TXFakqsim9EnK5QwdX0Z3NuH6pcY6E2XDDxx6UKU2Y4wmdMrTcQLpUWJlqw8Adp4njUp8rWR2VDrwK3wco2oFw2ucDStVoNji8qANUCioQwnpaQwZk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EGmvuirLtEpBK3vGJz9SDQo8DaKKw+Pa+OgPEe5VxuJbXDSiJ9bWpCEwauOQ?=
+ =?us-ascii?Q?ahkCH8BAvTZzYOC6sNXvoI+/WtXlUMwIp2ksoDRypDpBkXUTSvg/KmSd3msy?=
+ =?us-ascii?Q?GvvXDrnpgRYfrCwqIRktXTJF8nAfZeOrUDmkon5PXQd4rzYisgJKG5yZWaIz?=
+ =?us-ascii?Q?OcO1NPv/lxin/of77CPQx3tuQodhf2PTkxcRpp4VJq9kHrgqGAlRXD0EYK4+?=
+ =?us-ascii?Q?KlmV5GSlZojx+ZFpYQV5iAu3BreowtQRYv4ZM8Sz4vnyhyGRvUZnc7+UgWYw?=
+ =?us-ascii?Q?91r9uWDQqFDHaGBpDcb9sX2AlszCrx0emJrig+qbAZaZVWUX7MeyfX+8pHNI?=
+ =?us-ascii?Q?q9duIEWJ9gh2weKUTCMisppeaZOKwaOMVMcJyKUWHMcsInbMFI6CHIR0UZqO?=
+ =?us-ascii?Q?QHZ6RccdmZDwK0677rs67Ou8zf1uii1jLWNC4PIBempUY8U1Tf/PpZIzDQJA?=
+ =?us-ascii?Q?viVaFxbbyj6ey3KHqRLpOyzcyZn9fiz4K/EhAWfXT04iMAsTkMXZD2u5SVKm?=
+ =?us-ascii?Q?L0Dhq5xOau6gFA6HvaYDrMmCyL19ffpclzNps77Of+f+4/8K799A/UKrqvsA?=
+ =?us-ascii?Q?c8vx0/x/2gn0mi4nbLfe9Oj8KUbGArscyJKdIaIfNwFXyHYaadpmtz0dcJCB?=
+ =?us-ascii?Q?Zi5iJeUFg+JeSOxOHPc3CqiNMYamGHR4EbJ2s6+n6p+8lNeL5RlR0p44IgEz?=
+ =?us-ascii?Q?dJ+ElHzVMAbGBzJa8pa2V9if2q/Nck0fkUdPUmhHImuuS4l2xTKVhkYr7J/H?=
+ =?us-ascii?Q?W5D93OqRs/f5Hg9aTgtAgspo1yvp69qsO22i3uLZgw1aKWyrSAdd4bbOEe07?=
+ =?us-ascii?Q?PSIenQ9AyDz+yS50oSaSIo838aAWW1cfPIehIRbeYMu4yiqq+xULgcWSQW3l?=
+ =?us-ascii?Q?t4/aqW1s8zBdd2QQ2/RhZr+6fzK9ovTVNpoTEnC1tNSiqyOx4cQKA5mzHNo6?=
+ =?us-ascii?Q?77/wPaRxL+oqpHHdgaHcKCyr4O+l4z3dCdTCJ6Mxf+L+XJkAoHJTUcnAG5Ex?=
+ =?us-ascii?Q?xhWLqbf1ALbR7gr3zPOm+jUrIiSG1aZHbodOZJ4tzrP9s/rMYplHRPcYaT7l?=
+ =?us-ascii?Q?2vLV3QkfaNw71zWJaqWQm0QzJ6d46B3FEzKpJ9bUvQ+uczkxWv3AA4PntNBT?=
+ =?us-ascii?Q?rCPANP2cMzoO8/tYZ1pCc0AOgz+IvnBVK67KeHFwWE0O5woycdLaRYMh0qRJ?=
+ =?us-ascii?Q?InOVLzcD3DCwAN+ihD1JTBgD5c4HLZwts3v0Xm8kMGYCWG17mVXt5XJICJiN?=
+ =?us-ascii?Q?B48Rl9cqBbqotBJXj4HSW58hrezuZDeEJNHpdAJBb3SW7Hx9PL4PO+/7LO29?=
+ =?us-ascii?Q?nxUvQkiqtHJI+RrReSrtYFJMzDNDxh3h0bQOsUMikJeFrszCCPzTp3Vjc6ex?=
+ =?us-ascii?Q?Pe4B3xMy6QHtagkBIJCo5NySVid5r1U2RffVSSMXak4QT3xLShMGzflszaHT?=
+ =?us-ascii?Q?liufT1e5WUXY+qOLXBCyjMhmdrHNDTjwG+FXDj2ifOTlxUvPnYz4fcL+ntLf?=
+ =?us-ascii?Q?UziZsV8XzeJyAF8TWCVLl0O/2yCW7dTn2d6sZh9tUu36aYEJhsbVvXZ12rn8?=
+ =?us-ascii?Q?z7yPlA/rD8KehPjkQDgyXPShUaSnHwsJRybfoop4pSLIVYPyDUY2N2P2x0iV?=
+ =?us-ascii?Q?yEC9rBtG4naObttzwZkSfiIfuXLnbY0gp+1WWDvSCMXuxCjlOT63KWJFXsqE?=
+ =?us-ascii?Q?0CkIGLXKvfQLeqd+1MJrsE6ubbLTq2nd7MMIiw/AdagqCKwW?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 191e914c-c20e-415f-e6e1-08de9c78d6e0
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Apr 2026 11:59:55.0483
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: POt+Z3JM/gxLHtJJEtAcrDtGXch9oXiK63eX6vyyFquKaWqJQka3kXXy/4I+yW8/
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6308
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_043425_809214_5880DFFB 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20260417_050004_983066_BE8FD449 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,130 +148,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cristan,
+On Fri, Apr 17, 2026 at 07:48:46AM +0000, Tian, Kevin wrote:
+> is there any report on such systems? It might be informational to include
+> a link to the report so it's clear that this series fixes real issues instead of
+> a preparation for coming systems...
 
-Am Freitag, 17. April 2026, 11:24:34 Mitteleurop=C3=A4ische Sommerzeit schr=
-ieb Cristian Ciocaltea:
+Yeah, we have an internal report and this was confirmed to fix it.
 
-[...]
+> btw the DMA is allowed after the previous kernel is hung til the point
+> where smmu driver blocks it. In cases where in-fly DMAs are considered
+> dangerous to kdump, this series just make it worse instead of creating
+> a new issue. While for majority other failures not related to DMAs, 
+> unblocking then increases the chance of success...
 
-> Cristian Ciocaltea (40):
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-100ask-dshanpi=
-=2Da1
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-armsom-sige5
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-evb1-v10
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-evb2-v10
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-luckfox-core35=
-76
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-nanopi-m5
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-nanopi-r76s
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-roc-pc
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-rock-4d
+Right, exactly.
 
-I do think one patch per SoC (rk3576, rk3588, rk3588s) would make more
-sense, because these patches really are mostly identical :-)
+If DMA's are splattering over the kdump carve out memory its is
+probably dead no matter what.
 
-
-Heiko
-
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588-armsom-sige7
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588-armsom-w3
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588-coolpi-cm5-evb
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588-coolpi-cm5-gen=
-book
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588-evb1-v10
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588-evb2-v10
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588-firefly-itx-35=
-88j
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588-friendlyelec-c=
-m3588-nas
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588-h96-max-v58
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588-jaguar
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588-mnt-reform2
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588-nanopc-t6
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588-orangepi-5-max
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588-orangepi-5-plus
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588-orangepi-5-ult=
-ra
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588-roc-rt
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588-rock-5-itx
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588-rock-5b-5bp-5t
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588-tiger
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-coolpi-4b
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-gameforce-ace
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-indiedroid-no=
-va
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-khadas-edge2
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-nanopi-r6
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-odroid-m2
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-orangepi-5
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-orangepi-cm5-=
-base
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-radxa-cm5-io
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-roc-pc
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-rock-5a
->       arm64: dts: rockchip: Add frl-enable-gpios to rk3588s-rock-5c
->=20
->  .../boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts      |  8 ++++++++
->  arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts    |  8 ++++++++
->  arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts        |  8 ++++++++
->  arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts        |  8 ++++++++
->  .../boot/dts/rockchip/rk3576-luckfox-core3576.dtsi      |  9 ++++-----
->  arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts       |  8 ++++++++
->  arch/arm64/boot/dts/rockchip/rk3576-nanopi-r76s.dts     |  9 ++++-----
->  arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dts          |  8 ++++++++
->  arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts         |  8 ++++++++
->  arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts    |  9 +++++++++
->  arch/arm64/boot/dts/rockchip/rk3588-armsom-w3.dts       | 16 +++++++++++=
-+++++
->  arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts  | 17 +++++++++++=
-+++++-
->  .../boot/dts/rockchip/rk3588-coolpi-cm5-genbook.dts     | 10 +++++++++-
->  arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts        | 16 +++++++++++=
-+++++
->  arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts        |  9 +++++++++
->  .../boot/dts/rockchip/rk3588-firefly-itx-3588j.dts      |  9 +++++++++
->  .../dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts     | 16 +++++++++++=
-+++++
->  arch/arm64/boot/dts/rockchip/rk3588-h96-max-v58.dts     |  9 +++++++++
->  arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts          | 10 +++++++++-
->  arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dts     |  9 +++++++++
->  arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi      | 16 +++++++++++=
-+++++
->  arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts  | 15 +++++++++++=
-+++-
->  arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts | 16 +++++++++++=
-+++++
->  .../arm64/boot/dts/rockchip/rk3588-orangepi-5-ultra.dts |  9 ++++++++-
->  arch/arm64/boot/dts/rockchip/rk3588-roc-rt.dts          | 16 +++++++++++=
-+++++
->  arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts      |  9 ++++++++-
->  arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi | 16 +++++++++++=
-++++-
->  arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts    |  3 ++-
->  arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi          |  9 ++++++++-
->  arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts      |  9 +++++++++
->  arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dts  |  8 +++-----
->  .../arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts | 10 +++++++++-
->  arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts   | 13 +++++++++--=
-=2D-
->  arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi     |  9 +++++++++
->  arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts      |  9 +++++++++
->  arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi    |  9 +++++++++
->  .../boot/dts/rockchip/rk3588s-orangepi-cm5-base.dts     |  3 ++-
->  arch/arm64/boot/dts/rockchip/rk3588s-radxa-cm5-io.dts   |  9 +++++++++
->  arch/arm64/boot/dts/rockchip/rk3588s-roc-pc.dts         | 15 +++++++++++=
-+---
->  arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts        | 10 +++++++++-
->  arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts        | 10 +++++++++-
->  41 files changed, 392 insertions(+), 35 deletions(-)
-> ---
-> base-commit: 452c3b1ea875276105ac90ba474f72b4cd9b77a2
-> change-id: 20260417-dts-rk-frl-enable-gpios-ce9930dbf5ca
->=20
->=20
-
-
-
-
+Jason
 
