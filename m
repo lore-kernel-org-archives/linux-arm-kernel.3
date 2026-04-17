@@ -4,78 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 351F8F99C69
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 22:53:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F013F99C6B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 22:59:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Frw2WIcsMXau1lzNqvo61mU42MBSPeG0i7j4l0PnqU8=; b=0OR3CEKlF0WQ5PJjVfhQf6gNcJ
-	X3SEWYWzzTkOPtSZT31O8scqXXEqqQ+3JZolTUe9h4xOJrA5HJGRU0+l5+0lt184cO9gV5emLQ6na
-	DQl76omaERKgNNT9ZgFrd6/eyUhJyHwVEv2YVjxC6QLnYWRUhPB5HdH1k8BUxdUixnZK+aNf9IHrC
-	oxX4QiO4Cpjr/5JeIH+YTupH6yaGJtDcGeTpUQBiQLp7DngUFq0KnwPPl0FI2c3Av4p5xi2isNSKt
-	qYXhb6GUdCGwopkhWM2Xr2hHuamjg9+xjDohcFjRvcr70n2Sx+l+KZaBeMlhB1PHllzqCkrw3OJSZ
-	l7Pjhnlg==;
+	bh=GHtVHx2nhBSquGSPYryXKtY4F20htfrr0aJ1VzWLVGE=; b=SRuq1ghHik3nWKl+AZlxX+2kUa
+	DiW2bJc5l/KvgwrlDrzkMUMCGBBI+YAXuZ+qPpk/0NRUDy2rP8dtUUKeCfVLJm9NbmtVwY1NYpYHX
+	iBcIC49cRAaBiXbmCrRvXLDeYX7Bu1m9uXWC96JHbpjtkx81Beh8/SfZcALHWQXukRuSuz0/m2wai
+	OqtX7/8Nz+h6bJlCBfcNiqS8gKIqKQaHI8jB1sfBn49heciHyUIs5g/JpkQlMHSBvKAC0Sl9kAWVc
+	dcBPGSZYMIZeTBSrHUOkRYqgdPgYJfhjjLMPUmRME6NlkMWuKlhhNBiZRxJxu2cB7DnAJlPCIyw4g
+	RXvXWwbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDs3d-00000004XW8-3Mlb;
-	Fri, 17 Apr 2026 22:53:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wDsAD-00000004XnT-3MEq;
+	Fri, 17 Apr 2026 22:59:53 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDs3a-00000004XVh-3xII;
-	Fri, 17 Apr 2026 22:53:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8B14640E27;
-	Fri, 17 Apr 2026 22:53:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AEE8C19425;
-	Fri, 17 Apr 2026 22:53:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776466381;
-	bh=Frw2WIcsMXau1lzNqvo61mU42MBSPeG0i7j4l0PnqU8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WD+AArgDs+vyowQlE5XeV2t9ZJObt/J1PFD4+zhCh6pjvkZOkeoXeGlT4FIcuTw5d
-	 6KOggY7yyvLsa/1jBjN3oYKmfuPg6aRAEc1FjGGRfsMhpwJH4JR3XFR/SJQ/i5buOr
-	 qBefF7+8NhwuMHxxCC/vuAg+nJcsbFwbIgeZ9nY7KqnRbVrLq4EbrnvFJlz4B3QNeA
-	 w8vHjVGd1bLmbjN1VPlzPpyd8PFVKr9QsgM5qcBB4niTWCjQNzt+7851Rp+s10t0e6
-	 7qlfMxBT4PPAPYsPiV0pMnI48o7oUnxCe+BeYGRWyF25EwJMaxaPQepQK/IyHnirWU
-	 zXKGRPvcAlgyg==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 3C6671AC57F2; Fri, 17 Apr 2026 23:52:57 +0100 (BST)
-Date: Fri, 17 Apr 2026 23:52:57 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Cyril Chao =?utf-8?B?KOmSnuaCpik=?= <Cyril.Chao@mediatek.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	Darren Ye =?utf-8?B?KOWPtumjnik=?= <Darren.Ye@mediatek.com>,
-	"linux-sound@vger.kernel.org" <linux-sound@vger.kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"tiwai@suse.com" <tiwai@suse.com>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"lgirdwood@gmail.com" <lgirdwood@gmail.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Project_Global_Chrome_Upstream_Group <Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"perex@perex.cz" <perex@perex.cz>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH v8 08/10] ASoC: mediatek: mt8196: add platform driver
-Message-ID: <aeK5ySqgvHdBvuuB@sirena.co.uk>
-References: <20260324015719.17543-1-Cyril.Chao@mediatek.com>
- <20260324015719.17543-9-Cyril.Chao@mediatek.com>
- <892468cc-7eb4-411e-b91b-f14789d8da0c@sirena.org.uk>
- <da5752796e1774b6bbc24f5ef1ab2529e24a384f.camel@mediatek.com>
+	id 1wDsAB-00000004Xn3-1xHj;
+	Fri, 17 Apr 2026 22:59:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=GHtVHx2nhBSquGSPYryXKtY4F20htfrr0aJ1VzWLVGE=; b=1d4HoLrRxJTUT549vCErRSXE70
+	0tfVdMU83O5FAnRlau6P8+hP7nQ3Knk6e87RPoVtssg0Un1B3CiDi66pWPsnCY+Mr7DdQ4/rRw+hm
+	VSTXWGL+G8J9BBN5jllkygiIzB++sl/LItzoLrRoJ4LkiT0jh96TDceoME1ZKseMxraK6eRl1fbDt
+	4uBpjV07uxv5I5PGP8fggQII+EXNs58iIA1TF/Byrw2786NDjng+bQBBsdFQLXwO5qFNWVpsnCvPt
+	xrpTaFrCnGV+Ee9MK4NEngorGHIW66HU+PDk21STzHn40EReIP0Odvn9hoGTO434b6PsFjZLMp2Mp
+	RfLZXSsQ==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+ Alexey Charkov <alchark@flipper.net>
+Cc: Pavel Zhovner <pavel@flipper.net>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Andy Yan <andy.yan@rock-chips.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+ Alexey Charkov <alchark@flipper.net>
+Subject: Re: [PATCH RFC 2/4] clk: rockchip: pll: use round-nearest in determine_rate
+Date: Sat, 18 Apr 2026 00:59:40 +0200
+Message-ID: <39479281.XM6RcZxFsP@phil>
+In-Reply-To: <20260417-rk3576-dclk-v1-2-26a9d0dcb2de@flipper.net>
+References: <20260417-rk3576-dclk-v1-0-26a9d0dcb2de@flipper.net>
+ <20260417-rk3576-dclk-v1-2-26a9d0dcb2de@flipper.net>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="1Z+JCqeY2FxPdfrp"
-Content-Disposition: inline
-In-Reply-To: <da5752796e1774b6bbc24f5ef1ab2529e24a384f.camel@mediatek.com>
-X-Cookie: Victory uber allies!
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_155303_036300_2CD74196 
-X-CRM114-Status: GOOD (  10.04  )
+X-CRM114-CacheID: sfid-20260417_155951_660005_D6EB8776 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,35 +72,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Alexey,
 
---1Z+JCqeY2FxPdfrp
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Am Freitag, 17. April 2026, 17:11:45 Mitteleurop=C3=A4ische Sommerzeit schr=
+ieb Alexey Charkov:
+> rockchip_pll_determine_rate() walks the rate table in descending order
+> and picks the first entry <=3D the requested rate. This floor-rounding
+> interacts poorly with consumers that use CLK_SET_RATE_PARENT: a divider
+> iterating candidates asks the PLL for rate*div, and a tiny undershoot
+> causes the PLL to snap to a much lower entry.
+>=20
+> For example, requesting 1991.04 MHz (248.88 MHz * 8) causes the PLL to
+> return 1968 MHz instead of 1992 MHz =E2=80=94 a 24 MHz table gap that pro=
+duces
+> a 1.2% pixel clock error when divided back down.
+>=20
+> Change to round-to-nearest: for each table entry compute the absolute
+> distance from the request, and pick the entry with the smallest delta.
+> The CCF's divider and composite logic handle over/undershoot preferences
+> via their own ROUND_CLOSEST flags.
+>=20
+> Signed-off-by: Alexey Charkov <alchark@flipper.net>
 
-On Thu, Apr 16, 2026 at 05:53:25AM +0000, Cyril Chao (=E9=92=9E=E6=82=A6) w=
-rote:
-> Thank you for your assistance in reviewing. Could you please also
-> review the modifications in the diff? If everything is okay, I will
-> include them in v9 in the next update.
+as Sebastian said, this could cause overclocking in a number of areas.
+The rate you get should always be lower or equal to the requested rate.
 
-That looks OK from a scan through, though it's possible I'd see
-something else if I review in full context.
+Additionally, such a core behaviour change, would affect 13 years of
+SoCs with unknown side-effects.
 
---1Z+JCqeY2FxPdfrp
-Content-Type: application/pgp-signature; name="signature.asc"
+If you're missing specific clock rates, you can always add them to the
+list :-) . The vendor-kernel does have code that can calculate the
+rate params itself, so this could give you a hint where to start.
 
------BEGIN PGP SIGNATURE-----
+=3D=3D=3D=3D=3D=3D=3D just to explain =3D=3D=3D=3D=3D=3D=3D
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmniucgACgkQJNaLcl1U
-h9DACwf9H2I11k4JlXEGCoDjtI4sgy3/SrHG9jWgFJ4N+WaSWg5a00Cs1icay7Lz
-CrAmRcjVbCuLniYSP18LS3Mbv8dtKs98W60KdDGGHDz3pxFCKGYr4pnhkXdM/SFz
-D0PbcBHlaj11Abd4kUSeTG3JO4GiEUidCja0vZX+YYGVaPJjWeA3SJwZuvkSjUcM
-FJ6hhGnvDJcyhwt29fV+FTYVe8gYxUYQFELH0vKUwsk5gj58vi6ZFHo+1GDSwBbC
-KfCAO2nvkF1mJhLJckU2xca67RoYdMULyNCkh5ig/8g6/u54TuD5smI4wByhHmwK
-Qw+KSoMw96DdwqNqYYb0Ewhh9pl92w==
-=Ugrc
------END PGP SIGNATURE-----
+Though I still don't think that code should be in the mainline-kernel,
+as a curated PLL rates allows more control, where that algorithm
+creates parameters that are programmatically correct, but essentially
+untested.
 
---1Z+JCqeY2FxPdfrp--
+On the two Chromebook projects, they actually measured things like
+clock jitter, which got us more specific params for some rates.
+
+
+Heiko
+
+
+
 
