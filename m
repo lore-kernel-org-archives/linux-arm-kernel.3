@@ -4,76 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21CA5F8E4AF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 06:41:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24FAAF8E4A7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 07:00:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=j2zHQiwS+fAyZ8BA4NB+rKHXCimGldG+ejgu1ghuEGI=; b=yrv6X80BtTbuHrDCpvoZbfFqNR
-	RSM5uFtDd2jTZGdQHu9j0E8MfgNP8+3JvqWLChZFHkqcLz0p1nqTjqVpnnjhCG66tivoegECelzp7
-	88tGb2qRaK9MG/N8xorXXI7XapUCMW+gfhh1jmaSuu++LtB4kuhGFVz7a3q4b3rFcN9SXPybapyaZ
-	i2vlbNbs6a47QHE6FXXVdx8CULWu3YAKBZsHKQMcl1O0jUhv0eN53xiRIYN9d1vkQ7xc4VlS/Zqxs
-	EJzAkIsN1GHN2DKlDq9vTCcrb74r0qcqGq+Q9MhT/QhGLqgQlVcDro5x0P8TUCe7PQ04P3SsLyj5L
-	LjPnV8EA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UDQ3e422iz75+H385lB4Ltg4ZCuj0AWc/XEDoyVgtKA=; b=p3rG49Alleg0nj91RPt45KMBcP
+	9njWnfJaue8chsMhz3nYz+MTo8mynjzI6HvGgl6eYL5poL0paaWh7hFPyP43kS+BqG2XZnOrsr/7Z
+	oNDwZCQ3w02X96cxHPNh0twzg97DXaVlkDxeLGGS/5m0MxuLQ+nZh4fPCgdY24lVQljincnJlRTdb
+	mMbHiSsivErYk6GwXcv10Wv3wLQB4pIwzY/5+9Ra6FtDKGsl7Op9DwDNUHZ7Nv7kXlQnorlCLYNXV
+	WilUdsWJmtv8tK9r7tcbvaEVVh6N3MyNb2vxlL0W+PlX3C4fJTZI2Q+1RfbkxQFx/nmMF8aGEjfnc
+	k+BvFTRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDctk-00000003YQ9-2fm5;
-	Fri, 17 Apr 2026 06:41:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDctj-00000003YQ2-1kSz
+	id 1wDdBU-00000003ZAQ-0i9Y;
+	Fri, 17 Apr 2026 07:00:12 +0000
+Received: from [101.204.27.37] (helo=mailgw1.hygon.cn)
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDdBQ-00000003Z8J-1FFE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 06:41:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CC4116012A;
-	Fri, 17 Apr 2026 06:41:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 74632C19425;
-	Fri, 17 Apr 2026 06:41:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776408110;
-	bh=5ILW9ovCD9rkcdvfce9O9NVrQf0affa8qsElbU+IUSU=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=NBGoPoO/ysm/6kB1rqLeSuI0cda6XCijr57MuJr48/DLaikWp+TxXklLuhWiur8aa
-	 ZW4UxAwNr07BWcxpa3h8hYtNuVx+znRS+lHzb031Jrv8UJ/X47I54EUj1J20R16pz4
-	 7155x4O7LNQ/Zb78Nv89nGwmyjtvP1+oedUrIDKzT4QEAs23zsZO5LbeiiJgvp+rdX
-	 OebX2KXEs182I3WZ3hCOaYbYb846LkCdyMVaIor7Cod1iUgWbBwZNP8F8y5gNuQa/Q
-	 MXM7JO4hm8ZnoxoW6TFxhv3dAHDx1gkv2PG6/kn1Xk1DVe3inXml88N9/7uAcx29RH
-	 yn8kZSaE5C7LQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 69D51F8E49D;
-	Fri, 17 Apr 2026 06:41:50 +0000 (UTC)
-From: Rex Fu via B4 Relay <devnull+Rex.Fu.amd.com@kernel.org>
-Date: Fri, 17 Apr 2026 14:41:49 +0800
-Subject: [PATCH] ARM: dts: aspeed: anacapa: add interrupt properties for
- PDB PCA9555
+	Fri, 17 Apr 2026 07:00:11 +0000
+Received: from maildlp1.hygon.cn (unknown [127.0.0.1])
+	by mailgw1.hygon.cn (Postfix) with ESMTP id 4fxm355c3TzwvXZ;
+	Fri, 17 Apr 2026 14:59:45 +0800 (CST)
+Received: from maildlp1.hygon.cn (unknown [172.23.18.60])
+	by mailgw1.hygon.cn (Postfix) with ESMTP id 4fxm342Yk4zvkdy;
+	Fri, 17 Apr 2026 14:59:44 +0800 (CST)
+Received: from cncheex04.Hygon.cn (unknown [172.23.18.114])
+	by maildlp1.hygon.cn (Postfix) with ESMTPS id 1F23A16E2;
+	Fri, 17 Apr 2026 14:59:44 +0800 (CST)
+Received: from hsj-2U-Workstation (172.19.20.61) by cncheex04.Hygon.cn
+ (172.23.18.114) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Fri, 17 Apr
+ 2026 14:59:42 +0800
+Date: Fri, 17 Apr 2026 14:59:41 +0800
+From: Huang Shijie <huangsj@hygon.cn>
+To: Mateusz Guzik <mjguzik@gmail.com>
+CC: <akpm@linux-foundation.org>, <viro@zeniv.linux.org.uk>,
+	<brauner@kernel.org>, <linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-fsdevel@vger.kernel.org>,
+	<muchun.song@linux.dev>, <osalvador@suse.de>,
+	<linux-trace-kernel@vger.kernel.org>, <linux-perf-users@vger.kernel.org>,
+	<linux-parisc@vger.kernel.org>, <nvdimm@lists.linux.dev>,
+	<zhongyuan@hygon.cn>, <fangbaoshun@hygon.cn>, <yingzhiwei@hygon.cn>
+Subject: Re: [PATCH 0/3] mm: split the file's i_mmap tree for NUMA
+Message-ID: <aeHaXXB2+mla7u2F@hsj-2U-Workstation>
+References: <20260413062042.804-1-huangsj@hygon.cn>
+ <76pfiwabdgsej6q2yxfh3efuqvsyg7mt7rvl5itzzjyhdrto5r@53viaxsackzv>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260417-anacapa-pca9555-irq-v1-1-9a6d28b1b656@amd.com>
-X-B4-Tracking: v=1; b=H4sIACzW4WkC/yXMQQ6CMBCF4auQWTvJFKhNvYpxMZRRx0WtLRISw
- t0puvyS9/4VimSVApdmhSyzFn3HCnNqIDw5PgR1rIaW2jP1xiFHDpwYU2BvrUXNH+zI09ibunE
- E9Zmy3HX5Va+3v8t3eEmYjhRs2w40R47BdwAAAA==
-X-Change-ID: 20260417-anacapa-pca9555-irq-3090d4120270
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Rex Fu <Rex.Fu@amd.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1776408109; l=2007;
- i=Rex.Fu@amd.com; s=20260417; h=from:subject:message-id;
- bh=o8qWPDdSQIz2wmiJKXl6X/Ju2Iig3de8Ah1xPVk1Lb4=;
- b=9MQxnVgP2xpf8cl0ReSJT9bCAGSgrGLhuJrX1lJDGwcxn2Z0N5+8gjRkpTj50taQzIWiLxU4L
- Rb3uKLvuM8zCiSq+XVL/I8mP31UxsiKnatCzhTZShNcZeUVeGzJucDu
-X-Developer-Key: i=Rex.Fu@amd.com; a=ed25519;
- pk=26ECoh24fxrbXDKgA4hCmgg0xjQ+IxU97kXb46ovwgc=
-X-Endpoint-Received: by B4 Relay for Rex.Fu@amd.com/20260417 with
- auth_id=738
-X-Original-From: Rex Fu <Rex.Fu@amd.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <76pfiwabdgsej6q2yxfh3efuqvsyg7mt7rvl5itzzjyhdrto5r@53viaxsackzv>
+X-Originating-IP: [172.19.20.61]
+X-ClientProxiedBy: cncheex06.Hygon.cn (172.23.18.116) To cncheex04.Hygon.cn
+ (172.23.18.114)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260417_000009_025233_72EF4878 
+X-CRM114-Status: GOOD (  28.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,74 +75,61 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Rex.Fu@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rex Fu <Rex.Fu@amd.com>
+On Mon, Apr 13, 2026 at 05:33:21PM +0200, Mateusz Guzik wrote:
+> On Mon, Apr 13, 2026 at 02:20:39PM +0800, Huang Shijie wrote:
+> >   In NUMA, there are maybe many NUMA nodes and many CPUs.
+> > For example, a Hygon's server has 12 NUMA nodes, and 384 CPUs.
+> > In the UnixBench tests, there is a test "execl" which tests
+> > the execve system call.
+> > 
+> >   When we test our server with "./Run -c 384 execl",
+> > the test result is not good enough. The i_mmap locks contended heavily on
+> > "libc.so" and "ld.so". For example, the i_mmap tree for "libc.so" can have 
+> > over 6000 VMAs, all the VMAs can be in different NUMA mode.
+> > The insert/remove operations do not run quickly enough.
+> > 
+> > patch 1 & patch 2 are try to hide the direct access of i_mmap.
+> > patch 3 splits the i_mmap into sibling trees, and we can get better 
+> > performance with this patch set:
+> >     we can get 77% performance improvement(10 times average)
+> > 
+> 
+> To my reading you kept the lock as-is and only distributed the protected
+> state.
+> 
+> While I don't doubt the improvement, I'm confident should you take a
+> look at the profile you are going to find this still does not scale with
+> rwsem being one of the problems (there are other global locks, some of
+> which have experimental patches for).
+> 
+> Apart from that this does nothing to help high core systems which are
+> all one node, which imo puts another question mark on this specific
+> proposal.
+> 
+> Of course one may question whether a RB tree is the right choice here,
+> it may be the lock-protected cost can go way down with merely a better
+> data structure.
+> 
+> Regardless of that, for actual scalability, there will be no way around
+> decentralazing locking around this and partitioning per some core count
+> (not just by numa awareness).
+> 
+> Decentralizing locking is definitely possible, but I have not looked
+> into specifics of how problematic it is. Best case scenario it will
+> merely with separate locks. Worst case scenario something needs a fully
+> stabilized state for traversal, in that case another rw lock can be
+> slapped around this, creating locking order read lock -> per-subset
+> write lock -- this will suffer scalability due to the read locking, but
+> it will still scale drastically better as apart from that there will be
+> no serialization. In this setting the problematic consumer will write
+> lock the new thing to stabilize the state.
+For your proposal in no-numa, I hope you can create a patch set for it.
+I can test it in our machine.
 
-Add interrupt-parent and interrupts properties to the PDB PCA9555
-nodes in the anacapa DTS.
-
-Signed-off-by: Rex Fu <Rex.Fu@amd.com>
----
-Single DTS update for the PDB PCA9555 interrupt wiring on anacapa.
----
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
-
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-index 2cb7bd128d24..7319f2319bb7 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-@@ -481,6 +481,9 @@ gpio@22 {
- 				gpio-controller;
- 				#gpio-cells = <2>;
- 
-+				interrupt-parent = <&sgpiom0>;
-+				interrupts = <174 IRQ_TYPE_LEVEL_LOW>;
-+
- 				gpio-line-names =
- 					"RPDB_FAN_FULL_SPEED_R_N", "RPDB_I2C_TEMP75_U8_ALERT_R_N",
- 					"RPDB_I2C_TMP432_U29_ALERT_R_N", "RPDB_GLOBAL_WP",
-@@ -500,6 +503,9 @@ gpio@24 {
- 				gpio-controller;
- 				#gpio-cells = <2>;
- 
-+				interrupt-parent = <&sgpiom0>;
-+				interrupts = <174 IRQ_TYPE_LEVEL_LOW>;
-+
- 				gpio-line-names =
- 					"RPDB_EAM2_PRSNT_MOS_N_R", "RPDB_EAM3_PRSNT_MOS_N_R",
- 					"RPDB_PWRGD_P50V_HSC4_SYS_R",
-@@ -529,6 +535,9 @@ gpio@22 {
- 				gpio-controller;
- 				#gpio-cells = <2>;
- 
-+				interrupt-parent = <&sgpiom0>;
-+				interrupts = <174 IRQ_TYPE_LEVEL_LOW>;
-+
- 				gpio-line-names =
- 					"LPDB_FAN_FULL_SPEED_R_N","LPDB_I2C_TEMP75_U8_ALERT_R_N",
- 					"LPDB_I2C_TMP432_U29_ALERT_R_N","LPDB_GLOBAL_WP",
-@@ -546,6 +555,9 @@ gpio@24 {
- 				gpio-controller;
- 				#gpio-cells = <2>;
- 
-+				interrupt-parent = <&sgpiom0>;
-+				interrupts = <174 IRQ_TYPE_LEVEL_LOW>;
-+
- 				gpio-line-names =
- 					"LPDB_P50V_FAN1_R2_PG","LPDB_P50V_FAN2_R2_PG",
- 					"LPDB_P50V_FAN3_R2_PG","LPDB_P50V_FAN4_R2_PG",
-
----
-base-commit: 76b4ec8efdc3887cdbf730da2e55881fc1a18770
-change-id: 20260417-anacapa-pca9555-irq-3090d4120270
-
-Best regards,
---  
-Rex Fu <Rex.Fu@amd.com>
-
+Thanks
+Huang Shijie
 
 
