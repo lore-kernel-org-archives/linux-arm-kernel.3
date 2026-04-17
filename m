@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE637F8E497
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 01:11:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F6BCF8E499
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 02:10:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rexyT2iehtBU3zUQ4xS3C+FH42ieixAKEaurXUl26T8=; b=g8Of06QSYkjDftJJ2klPDbwC4g
-	bBZfIL4+Km+VYfLWVWmsBr0hkv0kROpM+PHiUi+B50vPC6STKypTbXHn3l4SaEwM6/uTlJKXKt/T2
-	n81ikP1Ph34L8+TFgNnQBEJg30X0hJtEl0V/OTrLn3X795DwcfxyDFhI1tCquP7vAbgbD0zztmaf/
-	RwZcfHjnMR8CRUcizdgHrBuOPaoCW26nnBi/cWpyq5ENUC0n4jXkYFDWmevmpka5ZLwIqVgXyc9UC
-	kXeZy+JLljYW/t05hoi3/BGElJp4a19++sKlOjjUMErnU0uT/ZmVyIIC4JELCpI/XNYSsqRnu2e48
-	V+e06O1w==;
+	bh=MJa8pdLEdVqabC8vwNoSVmX2YrTRj9w7t3c5Vn/uyLY=; b=Nul1v1d9MY8c4ofKIe5rwZ4KRg
+	yLNUU9liIX5VEKWmmK/XXhgr+5yAJOKOcY4yx9EJrWLDmS8onFavejklvNIF7POrCoGsQ7KmN8pXe
+	jFHaUUaiwm4X8IgCIyGMfdBZVMVtgDc2Ydl6SRmk/itsLf130ZYxCRT8v+aTncN6jeXU860y9oN2E
+	VlRY4O/jLU+Swb9gZsMJXkt7+dZTYg9wye2n37Csl+RmCI5cSy/jpza15tz84BiYSdOuOcpErotRE
+	dTwGuUjrmtnmIZrZuPGhnYCpuEBtDZqDMpA39DlFG/IIk+S42QxPIXrz+VlI0wBS8hooiwGq4HrSJ
+	oeJZ4+eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDXjh-00000003GhS-0KRc;
-	Fri, 17 Apr 2026 01:11:09 +0000
-Received: from out-173.mta1.migadu.com ([95.215.58.173])
+	id 1wDYfN-00000003JWi-3ibz;
+	Fri, 17 Apr 2026 02:10:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDXjd-00000003Gge-0ugR
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 01:11:07 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=postmarketos.org;
-	s=key1; t=1776388258;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rexyT2iehtBU3zUQ4xS3C+FH42ieixAKEaurXUl26T8=;
-	b=sUBToCGQ1iXmIap+JS4K/AzIK1YlVeuLGoCFhuDd89LlSMm5Isyk01MvFNjFRXiZEABGII
-	Zn0sJQZeq0p5aVA87wveRR2iDbnrmpkl2gBF4zquNQUA08NPoMIS+X78YfVBfSaBocmGDO
-	FJnjRqtjVwg7zzx0RwG+wMRq08RwJaPJT7YCJ/GmEMW97dYZH1OZDzzDN7RwoSRMUBxfdA
-	DH+Z9pMUu43iMmoT4euXm9WHRqImWMQpOTbI1YJg7m8/sPLzA8dlldFITNVEBY2K6dAK8O
-	MlRcN1dRVy0YI/9mkry1U4cWJMVLWKsds9ktvHGXPiy/s0DCegWuLUZHy19EPQ==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 16 Apr 2026 18:10:45 -0700
-Message-Id: <DHV12UBOCLQR.1QIPQVFI10VDB@postmarketos.org>
-Cc: <craftyguy@postmarketos.org>
-Subject: Re: arm64: Supporting DYNAMIC_FTRACE_WITH_CALL_OPS with CLANG_CFI
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Clayton Craft" <craftyguy@postmarketos.org>
-To: "Puranjay Mohan" <puranjay12@gmail.com>, <catalin.marinas@arm.com>,
- <ast@kernel.org>, <daniel@iogearbox.net>, <mark.rutland@arm.com>,
- <broonie@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>
-References: <mb61ph6hsxj94.fsf@gmail.com> <mb61pedcvxdhw.fsf@gmail.com>
-In-Reply-To: <mb61pedcvxdhw.fsf@gmail.com>
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_181105_898010_0DDB2D92 
-X-CRM114-Status: UNSURE (   7.62  )
-X-CRM114-Notice: Please train this message.
+	id 1wDYfM-00000003JWX-0NLz;
+	Fri, 17 Apr 2026 02:10:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 20B2060181;
+	Fri, 17 Apr 2026 02:10:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E78A7C2BCB3;
+	Fri, 17 Apr 2026 02:10:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776391842;
+	bh=/bgy00+4dQ+qdVqSAhqIMgVG2c+nPIoBLaK7Cx2GAZM=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=qE1Vv+EVo5h4eXbn8veFGVomCLLA1gDOOcpiaeHoxK0sNI2x8YDPlhvRIYUehdM/u
+	 RDgpzqs9eZn8UMSkCXZAU1DxAHDDPyVqugxfRJIgdj/vGS8UQDMoL74HiJPSKPUoLy
+	 7ecnGFwge0/zDdR2uom1oa1rNm3NiJCoDuiE54RS80VNUXTh8Wye7RlR6bR6jURZhP
+	 jbMektIYQxKzfRBvuRga3lLIqvaxtIh8ZQV2312YwOyTbIA/KIb2+OakRvY46fJ2fQ
+	 RsI8kkMLXlFK9TfV0wPwGx+ner4mpGwFkBgTLARbgKzSAO8fR7nCQRF2TwkM2GtA3k
+	 Onhr/3VQnHA1w==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FD38380AA76;
+	Fri, 17 Apr 2026 02:10:12 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v2] net: airoha: Wait for NPU PPE configuration to
+ complete in airoha_ppe_offload_setup()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <177639181104.3482475.13335009889872843570.git-patchwork-notify@kernel.org>
+Date: Fri, 17 Apr 2026 02:10:11 +0000
+References: <20260414-airoha-wait-for-npu-config-offload-setup-v2-1-5a9bf6d43aee@kernel.org>
+In-Reply-To: <20260414-airoha-wait-for-npu-config-offload-setup-v2-1-5a9bf6d43aee@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,22 +72,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu Feb 29, 2024 at 11:43 AM PST, Puranjay Mohan wrote:
-> puranjay12@gmail.com writes:
+Hello:
 
-> I hacked some patches and tried the above approach:
->
-> Here are the patches(RFC) that I created:
->
-> LLVM Patch:
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Hi Puranjay,
+On Tue, 14 Apr 2026 16:08:52 +0200 you wrote:
+> In order to properly enable flowtable hw offloading, poll
+> REG_PPE_FLOW_CFG register in airoha_ppe_offload_setup routine and
+> wait for NPU PPE configuration triggered by ppe_init callback to complete
+> before running airoha_ppe_hw_init().
+> 
+> Fixes: 00a7678310fe3 ("net: airoha: Introduce flowtable offload support")
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> 
+> [...]
 
-Did this LLVM patch ever make it upstream? I'd like to use CFI together
-with BPF LSM on arm64 and wondering what the current state of this
-effort is.
+Here is the summary with links:
+  - [net,v2] net: airoha: Wait for NPU PPE configuration to complete in airoha_ppe_offload_setup()
+    https://git.kernel.org/netdev/net/c/f3206328bb52
 
-Thanks,
-Clayton
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
