@@ -4,91 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8674F8E4B6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 07:46:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B554CF8E4B9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 07:49:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BYbv53LE8/LhMGLZZozxK2INqCGiYtH4XKtdiuLZJPQ=; b=0lGe9iw9f7SUw3HIIq6zRpnON+
-	3N74+Z7QzrrTzWq+w0BaMX3cZYPVbuiVBbYIT5enIBn/bMpZAFNEJbj8982TL5lLKChDRzl5BL+x3
-	LF71wRyQ2o6QYbTszlWH58UrRHivT5alclBl0LT+CRzoNqFGgIXC5GI1z/fdsBJdafOcc88q9N4eO
-	MFP+JHDQi/51h8r21p4PQXArXTCx9qiMaIJFSlB9pYtCQe+tWCCMBzyE9TiZo02LH5N+K0++X3XSE
-	UnQKPwqI+EUNQlxEQwz6d7vjfng8PYr5jAIaQKuOxUdTMyilTEemCnQV/R0MwGX95lQHtHQCfJSFm
-	CtNuKYcA==;
+	bh=9Zed2KxeqHQf/hqIIsV4OPmOshq6obcm/zwz5gfMF4I=; b=0kJHgjMmHMcKFYQGVjjBVCIfNv
+	GYogdGXGw/ORDs9is6p/3qu0JXDWqNtNqc9kPOrX4xM2jp0efSKGbhEXBJWVT7KGFXP+/z7sGK6iE
+	6G0z+wbzgJGoZA+pIxKHazUTBzkdxOw3JL6OB3diCqcrSrpQtw7GJ4Yw3lgDy7zCwsmlyLJoVGfjb
+	Nzf5q56f9dTrlfVX3QTGh/FlF58sd80820OSwhBa17OcgJIXKN6XSJEHwughOKbc1/Hp6XsEDJBV3
+	9x5I+Eg+21JChQ7DYYzMiIUPkQMRSp9lyr/GMikoOyNbxazSQAGgBoUu8oYQogYnSIqPEEDoeoWM4
+	a9GtoQrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDdtq-00000003cP0-0OCd;
-	Fri, 17 Apr 2026 07:46:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wDdwi-00000003ciK-0xZp;
+	Fri, 17 Apr 2026 07:49:00 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDdto-00000003cOp-2It6;
-	Fri, 17 Apr 2026 07:46:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=BYbv53LE8/LhMGLZZozxK2INqCGiYtH4XKtdiuLZJPQ=; b=aMtoKTOWBvG1JEt0VIqvAvvtD6
-	TC8t4rb9SL3vOjjnJqD7o8vg1que/Wx3qf7fUXW2cN6Y8LyN9fCk+dpYtD7vmYGavfS8YMXP331iO
-	LPfPnDr76Oz0U0F3hJMl1s42pyCRpCyQYEk6bWw+p1saoHFSazzJ0tl8BKoQq0AHqOy2qbb+xDow+
-	imi/3ew1mEeMA6NI6GHqG4KuuiSOSoeMi5HR0aS/UrXCZiKOngxEI+eTIlO0B+3KlGUuzdMOl23Gt
-	HHcIkWBhOVs00sNqrTKPWDMbtttf1Gwa7nIBxOufyjJGagYQquBYOyq6GRhuDIsP2N1cSueu08JMA
-	HLr1VFeg==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDdtl-00000004vGM-0DRM;
-	Fri, 17 Apr 2026 07:45:59 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 63H7jnV633464891, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1776411949; bh=BYbv53LE8/LhMGLZZozxK2INqCGiYtH4XKtdiuLZJPQ=;
-	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=MMIifCz81wM57VwrsvswbuK0z/4MdMW/mw7DNEp9T+L5dk38xISJS5hD0CL1aievc
-	 8B94pZDjoKLmi4nmG0xGJGA9izN5MFwSeTAd7xips7pS/fO+Eadf4FCF2D0cHnV/hK
-	 NaUfAvZWTmR0w5gv4/d2T6oLP4o5hdm+WzRbvBXh8pBKm0v+hnQDHpZ/Sk5IcJLwmi
-	 /uCL+Bj9i6yH98f0RYYrRo5kgFrF7ZiZvakzznHwzQjK8tZFl2Hr18vhQmtvky/ifT
-	 dWYq2VeDlOViRvN1u2cxniZ0JdKfwhNVDTJ0P8sC1bmr0prn8Nnnp3Ru1xMvbI1li8
-	 i5O9vgs08w9kQ==
-Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.26/5.94) with ESMTPS id 63H7jnV633464891
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 17 Apr 2026 15:45:49 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
+	id 1wDdwe-00000003cht-0pky
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Apr 2026 07:48:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1776412136; x=1807948136;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=MbtHiKAP6jhUFRpSINvwmRN/OFPwwB1emiRO3ThdBj0=;
+  b=bMwIjYoWb1kkP/UmH8c8arZxLGdlUsQrfqgraaEqMer5gmKKn2Q/ZsBW
+   m79gQL6y5L+HctsB1/indEvJIyOGpvTsKHrCojMXob/+qV6eQQ+2i9PhT
+   /RyuvM/FcmttsSApMpgl6wjCYcQUn3D6IL5Ym3+VMYh8o9OYmGz4CYJzj
+   ymqPamFdlb1c03nQk8QgpKfeQL4kZZ8ud3ZGpjmc489IFDA5jrNgo3oTk
+   AGuWFUrbFrmq1Jk1eJfYMwxV4ptSYoD+juit8oRcaIxQ6huoFrGlVBAAh
+   6q7MHpvFR2s+3oK41zA8xSohye5eEEUJaLcV3K41Is9FS3te6bpOGrKxw
+   w==;
+X-CSE-ConnectionGUID: FxqGQtCQSx+yzYccacHmdg==
+X-CSE-MsgGUID: R5xsIc+oTFKDbesABn0r1w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11761"; a="88806883"
+X-IronPort-AV: E=Sophos;i="6.23,183,1770624000"; 
+   d="scan'208";a="88806883"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Apr 2026 00:48:54 -0700
+X-CSE-ConnectionGUID: 8Dsj+vdvQdqvWJn5d9n9jA==
+X-CSE-MsgGUID: 9rZRqAf8RKuLz9xxPNdIMg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,183,1770624000"; 
+   d="scan'208";a="226614478"
+Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
+  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Apr 2026 00:48:54 -0700
+Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
+ fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Fri, 17 Apr 2026 15:45:49 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
+ 15.2.2562.37; Fri, 17 Apr 2026 00:48:53 -0700
+Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
+ FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Fri, 17 Apr 2026 15:45:48 +0800
-Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS05.realtek.com.tw
- (10.21.1.55) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Fri, 17 Apr 2026 15:45:48 +0800
-From: Yu-Chun Lin <eleanor.lin@realtek.com>
-To: <bmasney@redhat.com>
-CC: <afaerber@suse.com>, <conor+dt@kernel.org>, <cy.huang@realtek.com>,
-        <cylee12@realtek.com>, <devicetree@vger.kernel.org>,
-        <eleanor.lin@realtek.com>, <james.tai@realtek.com>,
-        <jyanchou@realtek.com>, <krzk+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-clk@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>,
-        <linux-realtek-soc@lists.infradead.org>, <mturquette@baylibre.com>,
-        <p.zabel@pengutronix.de>, <robh@kernel.org>, <sboyd@kernel.org>,
-        <stanley_chang@realtek.com>
-Subject: Re: [PATCH v6 08/10] clk: realtek: Add RTD1625-CRT clock controller driver
-Date: Fri, 17 Apr 2026 15:45:48 +0800
-Message-ID: <20260417074548.1605550-1-eleanor.lin@realtek.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <ac_bsflBlSGf9M-h@redhat.com>
-References: <ac_bsflBlSGf9M-h@redhat.com>
+ 15.2.2562.37 via Frontend Transport; Fri, 17 Apr 2026 00:48:53 -0700
+Received: from DM1PR04CU001.outbound.protection.outlook.com (52.101.61.45) by
+ edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Fri, 17 Apr 2026 00:48:53 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LpYhAzFi4HlN1MJzwM36eun6/oXihEkGRsQ6S5P2LVmRKOZTa/2KbABSZxPhZwcFxi6gL3Klg0j+hgucMPDH8WQUI5L0mcPSYt212dGmP3GQICODk5fW/qaCTp+L0OPX0R2BzAKuRcweqWSLr274B5+lR2XqrQFHbNd0O/h7IXUuVv7ywuLVtkBBaFb/O0W7fw8SGUAkcdXi6tWHTgNSzhhENya1vbEvbdTKrCO6MhU2PdPm/3s+tK3BnttDz2toVACrvqn+XgHdXNbKGzQ2kcL7mX++1WYTqUv2Fl6aUyfW2a6zmQBr4r699ZYN4cWAAXYhUb2GNBhnsmBge0if9Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9Zed2KxeqHQf/hqIIsV4OPmOshq6obcm/zwz5gfMF4I=;
+ b=n8Sw2DriBDg+jfdNsYVew85tSzYGf1/MqnXm5DWOlpfHA+QQ2/yQmcwJC7bS8xQsrj38r83J0pWvXqP01uLsyA4iSRbHQFwp/9r/YgLe0W7P6tqKxOP8oVNSId610jvNgmpDBD6Dq1MwS9BMQ/qRzqRNdKN6XUtC4Xso0NNi8+mPTZvBWh6Db6Lmq9jTEZF2c1mGPu3AFS2BPvCD3wYpu/45tC67aMqKR5PGVJjeMKHtJ2trLiRBsdEipWIQ2WNFSkPzvjCSckUmx13WQffCEdlcI7/5v3qcMuVOGHJk+6Y8Uk5BW6uYVVja9iYOKQhOBpWZERwMOF9lxgHRaBGgOQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
+ by DM3PR11MB8714.namprd11.prod.outlook.com (2603:10b6:0:b::18) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9818.25; Fri, 17 Apr 2026 07:48:46 +0000
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::f997:762f:f079:134f]) by BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::f997:762f:f079:134f%5]) with mapi id 15.20.9818.023; Fri, 17 Apr 2026
+ 07:48:46 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Jason Gunthorpe <jgg@nvidia.com>, Robin Murphy <robin.murphy@arm.com>
+CC: Nicolin Chen <nicolinc@nvidia.com>, "will@kernel.org" <will@kernel.org>,
+	"joro@8bytes.org" <joro@8bytes.org>, "praan@google.com" <praan@google.com>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>, "smostafa@google.com"
+	<smostafa@google.com>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
+	<stable@vger.kernel.org>, "jamien@nvidia.com" <jamien@nvidia.com>
+Subject: RE: [PATCH rc v2 0/5] iommu/arm-smmu-v3: Fix device crash on kdump
+ kernel
+Thread-Topic: [PATCH rc v2 0/5] iommu/arm-smmu-v3: Fix device crash on kdump
+ kernel
+Thread-Index: AQHczR1sEKPCjS3ZBU6Ku3g92e0vebXh57oAgAAIk4CAAPA4cA==
+Date: Fri, 17 Apr 2026 07:48:46 +0000
+Message-ID: <BN9PR11MB5276A13A8014C5C6403FB4EC8C202@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <cover.1776286352.git.nicolinc@nvidia.com>
+ <3eaf217f-8e1e-4d64-983a-6b888886f157@arm.com>
+ <20260416172005.GB761338@nvidia.com>
+In-Reply-To: <20260416172005.GB761338@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|DM3PR11MB8714:EE_
+x-ms-office365-filtering-correlation-id: 0c476944-a06b-4d55-6e88-08de9c55c148
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700021|18096099003|18002099003|56012099003|22082099003;
+x-microsoft-antispam-message-info: htDw75oAmD//x09Ii4ge/B4EP/3RVQ84dgtQzsa06cpdhQy8XzxhXHKt9KdvbkoVUbr94Ei5w34QGxpM/B4YYRTdqXk2FGDBr1J8b7wSqxV+1AZO7QySiR6zw9CMfvGS83fNxUYB+vi0QZ+PqiN/6FvXL/oa7sza7gK9Ufi3ePdWF83YylgxFc/BEjZhHBBmnc2ZZxif2nxaBE0NCohaJ+bD5pg63dWHkuJFBhRlwSIgTG2tlFxZ8vrwRWco+MBNSlZvXhqEvdXhQMsvF7zMU/Rx+iYik+xiEnJifr9IE8l8XSAmB+g+hw50Pot+08aH4DN9rbQG5mq1B+gISIDP72zw55OwMh+POJF8SHnckDgxWQE5I37Lv9c2THVGVybIXuQ66YFnHsgiPa4Lf76pELvJ46hrlxzLVLKJY13vG46PsTRJTOzKqelLmXw6zkHJmD+1svbpVJy7lf4qUolROfeiXTnhvFC3J7uucLU3xCQCEOzIdxh0Kdg4edLHrg7dvh687IGF+bT3w5ZeQ/Kx2gX6EtfocRWBCZ0MSnke3DxWTIOlKmVKWS6NX8gpStWN6EI0UbrS8oRBY+MxypLDotvCAVBvTltBY1E2WAtcTBZNWWadwxEXsT5mCDIZKcQjEw1iiWxzgoRtUK31gvY0MxPAp6fs7VGROC7BU5ufdriJUHLJoKrBd0A30wzcnKrmt4jqbha9CGtK4O2jN+cul5ZL1YbXpk1Zf8hTS3duawKYn+IduerkmdnpClCjlAi+aHID7gjFr31tolOUkdNNEQyJF9UkbekW5t0Wrpdycag=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700021)(18096099003)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?jHM7AzQ+0JOd9Gv8R36BKt2qtTzhfRdvzXbYn4/mKM6WiGRR1m9orMb94mx7?=
+ =?us-ascii?Q?I4ynNtLBkLQrVxnhRyn0XKCXNhOeUuqGl9QLdHOr42h8sqmtHkbRbpyD8wd2?=
+ =?us-ascii?Q?8hDsRmFFW5C/UkTS47/I1K5/jInHibnQmVdOrGQsVbCXfpSTm+AkrkKkcM+W?=
+ =?us-ascii?Q?TtfthWTWIP/YmyXTx4otcaXMx3rwy55PvEy9eZ4EllxBroO5uSata16ujzrw?=
+ =?us-ascii?Q?Rw1KwpkvJMpxFqAUpP4Zzfd7xGuGTk+ubs8G2SabyigLmOOMf3Eqt5h5MfiU?=
+ =?us-ascii?Q?nH0xjzdkxeFQlauGgNMsmfHA6g+YOpmahyXczo/opKFtoUpq2+n2wEm5yr5e?=
+ =?us-ascii?Q?0BN4sViD6WkMo/hLB4i5H/p0zQvmQAy9ldX9DMbjQjZmBjJJwRskaHfyCJM5?=
+ =?us-ascii?Q?ydgRf/hhsh75kqVU9e49XYR0RsrDoYZjRtLG1tqBWad7BvN9DHzkhj/MmZdl?=
+ =?us-ascii?Q?1WCosA/gtxG5kaP8GxaVHYbd9UftC/TEXmr+mz0oEoSUMjgOr6xrGKiP8LNd?=
+ =?us-ascii?Q?alTwaQ3DR8btsP8dRNZLUQllVw4Y/8Ox8/rsGjRcl0Bf51G7lv2UQ+p07Xad?=
+ =?us-ascii?Q?Dlj8Z91+C0akddUXC6S6R/3j1/MeGIowvaVhLqGlIvGRBwVEunq8nTLGbUrn?=
+ =?us-ascii?Q?xUX0GAEJMFPQChIPtBvF/yp29wlHvIi/1A2MJ+EH/TUlpWJxxqEOq7RoHuS8?=
+ =?us-ascii?Q?sBXhNdikwqnoiZIjJy82z8DKKGeyt7waB4AEMliGBLAV9pzLxR7hWVzdfkeS?=
+ =?us-ascii?Q?DiTkah764KpVsWliw4RNmLj5tzB7D7xztN2FnoEsvbpMuJaxs5d7kQ1svPQe?=
+ =?us-ascii?Q?kqE471s7mluQwWp5UXEd7A9/78FHokrbFDCWqeUUaGkHJN+Zg4Qi+j/Q5Vfq?=
+ =?us-ascii?Q?lrit+El7vDBlewff2BejePoUKeZq/2iKsGLmB6vFALAZVTTH/1IbPAeZ5+MO?=
+ =?us-ascii?Q?9Wf5ZzPKwbxA12CmAkJjxXgXan2mlNLZkINpkMCtuY4TwPzbqtHdDbqkS5sN?=
+ =?us-ascii?Q?GKR68i2CgHL+h4ePLARJFBNyRJjBULFZxnBkhTfxIq6vrszW2YtuaKLOcKxJ?=
+ =?us-ascii?Q?WbVPZhRYvTxgcpblNOaWlN1uhjCZ17ls1J9RVgR34XjmC7Eri9rvftN8uWpC?=
+ =?us-ascii?Q?SxBGvl6zeYlO1o3U5+WWE0qnFVN9tLj4+PcQipjOnUJ6G1uUOilH7LZ1nl1X?=
+ =?us-ascii?Q?MTZwFb/C2NrtdVD7yOVI94j4BPAjD6oEq5nY5+WzUE/1tfYuI1UxjO8bq4M5?=
+ =?us-ascii?Q?TSiRMxPWPCiMBMfunRIKA+jSaZbH2BFxT38640CDozScJO2yt8foxUH76WKQ?=
+ =?us-ascii?Q?G69X6yf4ErMpzALOobWiCU8Y4t3hGp8pEDUHegS7uIEXpmDZ2QDxyZnMVMDo?=
+ =?us-ascii?Q?dy5SD2YR9ySjx5SN2kxij6Pqjc3i+zfr08wMLcnTh3J90jI5uLJUCCufrbMP?=
+ =?us-ascii?Q?FQF+78+vfz74R+pdR5mUcr0/w0RhWHUKs+wf/he24bG7kMOjgAJXb+cwlTLD?=
+ =?us-ascii?Q?1Jp5EBoe1eIiOXUwIYlCcM/zng9Vk0lzdVE6pqzj8ahkx/dVzYRqEgNoRiNZ?=
+ =?us-ascii?Q?UN2sK8XlX+mZpuN0yfWaWwwUDx96UtnKm2LiTMLdmj9cXANky2CmCcvKBmkA?=
+ =?us-ascii?Q?Jm41BxXDhQPnQfLBn1iZHLS6WPkJvkZTjRxkYGX6TVFBD+ip/VwsAi4b9pBB?=
+ =?us-ascii?Q?iyD4mOm5/3PXNywaflpkfL0XZoVycLyG/8mpOik5Yu3z1SNO?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-Exchange-RoutingPolicyChecked: VqWGMYXYrbzf3huA4175pDiBTkSNWQbhIiKC36r/go1Bl4QbRF2kIYKM2+rmyrjslqoM42hEuFRJirZ51iXYm1GkB/qqv4BQoLIuhV5ucdf7eLk3jXGf2yHxgoe4nxQ2rqK14wzmc8d4cIPQsgvbOgVgd8eIuY4sAkY4Q1LUZaZcM7Xgyab0rDPRBM765x6WB5kAadDJGzmvBn2DNClEXVcebXIcbZqcYJcnJIHTDFDwEpnQl8tq8BMLeI99qtBesOB7mNAOhVIIqKqdB0Bdn+waeGB3Ge0BIjLxfNlfh+kKFQKEHBFsQGPYB7+K6dyGablYKAccrO+RiL5cIBSK7w==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0c476944-a06b-4d55-6e88-08de9c55c148
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Apr 2026 07:48:46.1600
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: hlZgb46WkJiuJZafruJnM0T8RiMrI+c9zMeJwOu2DIzvmDheVeq5VaWRMlazSiap9KOZwRl+vStlYC/VcH8yQg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PR11MB8714
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_084557_705011_D1883E43 
-X-CRM114-Status: GOOD (  31.53  )
+X-CRM114-CacheID: sfid-20260417_004856_255638_1FF57AC2 
+X-CRM114-Status: GOOD (  27.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,235 +182,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Brian,
+> From: Jason Gunthorpe <jgg@nvidia.com>
+> Sent: Friday, April 17, 2026 1:20 AM
+>=20
+> On Thu, Apr 16, 2026 at 05:49:24PM +0100, Robin Murphy wrote:
+> > On 15/04/2026 10:17 pm, Nicolin Chen wrote:
+> > > When transitioning to a kdump kernel, the primary kernel might have
+> crashed
+> > > while endpoint devices were actively bus-mastering DMA. Currently, th=
+e
+> SMMU
+> > > driver aggressively resets the hardware during probe by clearing
+> CR0_SMMUEN
+> > > and setting the Global Bypass Attribute (GBPA) to ABORT.
+> > >
+> > > In a kdump scenario, this aggressive reset is highly destructive:
+> > > a) If GBPA is set to ABORT, in-flight DMA will be aborted, generating=
+ fatal
+> > >     PCIe AER or SErrors that may panic the kdump kernel
+> > > b) If GBPA is set to BYPASS, in-flight DMA targeting some IOVAs will
+> bypass
+> > >     the SMMU and corrupt the physical memory at those 1:1 mapped
+> IOVAs.
+> >
+> > But wasn't that rather the point? Th kdump kernel doesn't know the scop=
+e
+> of
+> > how much could have gone wrong (including potentially the SMMU
+> configuration
+> > itself), so it just blocks everything, resets and reenables the devices=
+ it
+> > cares about, and ignores whatever else might be on fire.
+>=20
+> The purpose of kdump is to have the maximum chance to capture a dump
+> from the blown up kernel.
+>=20
+> Yes, on a perfect platform aborting the entire SMMU should improve the
+> chance of getting that dump.
+>=20
+> But sadly there are so many busted up platforms where if you start
+> messing with the IOMMU they will explode and blow up the kdump. x86
+> and "firmware first" error handling systems are particularly notorious
+> for nasty behavior like this.
+>=20
+> Seems like there are now ARM systems too. :(
 
-> Hi Yu-Chun,
-> 
+is there any report on such systems? It might be informational to include
+a link to the report so it's clear that this series fixes real issues inste=
+ad of
+a preparation for coming systems...
 
-(snip)
+>=20
+> So, the iommu drivers have been preserving the IOMMU and not
+> disrupting the DMAs on x86 for a long time. This is established kdump
+> practice.
+>=20
+> > If AER can panic a kdump kernel, that seems like a failing of the kdump
+> > kernel itself more than anything else (especially given the likelihood =
+that
+> > additional AER events could follow from whatever initial crash/failure
+> > triggered kdump to begin with).
+>=20
+> Probably the kdump wasn't triggered by AER. You want kdump to not
+> trigger more RAS events that might blow up the kdump while it is
+> trying to run.. That increases the chance of success
+>=20
 
-> > +
-> > +static const struct reg_sequence pll_acpu_seq_power_off[] = {
-> > +	{RTD1625_REG_PLL_ACPU2,         0x4},
-> > +};
-> > +
-> > +static const struct reg_sequence pll_acpu_seq_pre_set_freq[] = {
-> > +	{RTD1625_REG_PLL_SSC_DIG_ACPU0, 0x4},
-> > +};
-> > +
-> > +static const struct reg_sequence pll_acpu_seq_post_set_freq[] = {
-> > +	{RTD1625_REG_PLL_SSC_DIG_ACPU0, 0x5},
-> > +};
-> > +
-> > +static struct clk_pll pll_acpu = {
->
-> static const?
->
-
-The clock object should not be declared as const.
-
-> > +	.clkr.hw.init = CLK_HW_INIT("pll_acpu", "osc27m", &rtk_clk_pll_ops, CLK_GET_RATE_NOCACHE),
-> > +	.seq_power_on          = pll_acpu_seq_power_on,
-> > +	.num_seq_power_on      = ARRAY_SIZE(pll_acpu_seq_power_on),
-> > +	.seq_power_off         = pll_acpu_seq_power_off,
-> > +	.num_seq_power_off     = ARRAY_SIZE(pll_acpu_seq_power_off),
-> > +	.seq_pre_set_freq      = pll_acpu_seq_pre_set_freq,
-> > +	.num_seq_pre_set_freq  = ARRAY_SIZE(pll_acpu_seq_pre_set_freq),
-> > +	.seq_post_set_freq     = pll_acpu_seq_post_set_freq,
-> > +	.num_seq_post_set_freq = ARRAY_SIZE(pll_acpu_seq_post_set_freq),
-> > +	.freq_reg              = RTD1625_REG_PLL_SSC_DIG_ACPU1,
-> > +	.freq_tbl              = acpu_tbl,
-> > +	.freq_mask             = FREQ_NF_MASK,
-> > +	.freq_ready_reg        = RTD1625_REG_PLL_SSC_DIG_ACPU_DBG2,
-> > +	.freq_ready_mask       = BIT(20),
-> > +	.freq_ready_val        = BIT(20),
-> > +	.power_reg             = RTD1625_REG_PLL_ACPU2,
-> > +	.power_mask            = 0x7,
-> > +	.power_val_on          = 0x3,
-> > +};
-
-(snip)
-
-> > +
-> > +static const struct reg_sequence pll_ve1_seq_post_set_freq[] = {
-> > +	{RTD1625_REG_PLL_SSC_DIG_VE1_0, 0x5},
-> > +};
-> > +
-> > +static struct clk_pll pll_ve1 = {
-> 
-> Same here about static const, plus some others below?
->
-
-No. The clock object cannot be const.
-
-(snip)
-
-> > +static const struct of_device_id rtd1625_crt_match[] = {
-> > +	{.compatible = "realtek,rtd1625-crt-clk", .data = &rtd1625_crt_desc,},
-> > +	{/* sentinel */}
->
-> Add a space around the comment like so:
->
-> { /* sentinel */ }
->
-
-Ack.
-
->
-> > +};
-> > +
-> > +static struct platform_driver rtd1625_crt_driver = {
-> > +	.probe = rtd1625_crt_probe,
-> > +	.driver = {
-> > +		.name = "rtk-rtd1625-crt-clk",
-> > +		.of_match_table = rtd1625_crt_match,
-> > +	},
-> > +};
-> > +
-> > +static int __init rtd1625_crt_init(void)
-> > +{
-> > +	return platform_driver_register(&rtd1625_crt_driver);
-> > +}
-> > +subsys_initcall(rtd1625_crt_init);
-> > +
-> > +MODULE_DESCRIPTION("Reatek RTD1625 CRT Controller Driver");
->
->s/Reatek/Realtex/
->
-
-Will fix it.
-
-> > +MODULE_AUTHOR("Cheng-Yu Lee <cylee12@realtek.com>");
-> > +MODULE_LICENSE("GPL");
-> > +MODULE_IMPORT_NS("REALTEK_CLK");
-> > diff --git a/drivers/reset/realtek/Kconfig b/drivers/reset/realtek/Kconfig
-> > index 99a14d355803..a44c7834191c 100644
-> > --- a/drivers/reset/realtek/Kconfig
-> > +++ b/drivers/reset/realtek/Kconfig
-> > @@ -1,3 +1,5 @@
-> >  # SPDX-License-Identifier: GPL-2.0-only
-> >  config RESET_RTK_COMMON
-> >  	bool
-> > +	select AUXILIARY_BUS
-> > +	default COMMON_CLK_RTD1625
-> > diff --git a/drivers/reset/realtek/Makefile b/drivers/reset/realtek/Makefile
-> > index b59a3f7f2453..8ca1fa939f10 100644
-> > --- a/drivers/reset/realtek/Makefile
-> > +++ b/drivers/reset/realtek/Makefile
-> > @@ -1,2 +1,2 @@
-> >  # SPDX-License-Identifier: GPL-2.0-only
-> > -obj-$(CONFIG_RESET_RTK_COMMON) += common.o
-> > +obj-$(CONFIG_RESET_RTK_COMMON) += common.o reset-rtd1625-crt.o
->
->CONFIG_RESET_RTK_COMMON is supposed to be common, right? If so, the
-> SoC-specific driver shouldn't be included here.
->
-
-This Makefile will change to
-
-obj-$(CONFIG_RESET_RTK_COMMON) += common.o
-obj-$(CONFIG_RESET_RTD1625) += reset-rtd1625-crt.o
-
-> > diff --git a/drivers/reset/realtek/reset-rtd1625-crt.c b/drivers/reset/realtek/reset-rtd1625-crt.c
-> > new file mode 100644
-> > index 000000000000..ebb15bb68885
-> > --- /dev/null
-> > +++ b/drivers/reset/realtek/reset-rtd1625-crt.c
-> > @@ -0,0 +1,186 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only
-> > +/*
-> > + * Copyright (C) 2026 Realtek Semiconductor Corporation
-> > + */
-> > +
-> > +#include <dt-bindings/reset/realtek,rtd1625.h>
-> > +#include <linux/auxiliary_bus.h>
-> > +#include <linux/device.h>
-> > +#include <linux/errno.h>
-> > +#include <linux/slab.h>
-> > +#include "common.h"
-> > +
-> > +#define RTD1625_CRT_RSTN_MAX	123
-> > +
-> > +static struct rtk_reset_desc rtd1625_crt_reset_descs[] = {
-> > +	/* Bank 0: offset 0x0 */
-> > +	[RTD1625_CRT_RSTN_MISC]         = { .ofs = 0x0, .bit = 0,  .write_en = 1 },
-> > +	[RTD1625_CRT_RSTN_DIP]          = { .ofs = 0x0, .bit = 2,  .write_en = 1 },
-> > +	[RTD1625_CRT_RSTN_GSPI]         = { .ofs = 0x0, .bit = 4,  .write_en = 1 },
-> > +	[RTD1625_CRT_RSTN_SDS]          = { .ofs = 0x0, .bit = 6,  .write_en = 1 },
-> > +	[RTD1625_CRT_RSTN_SDS_REG]      = { .ofs = 0x0, .bit = 8,  .write_en = 1 },
-> > +	[RTD1625_CRT_RSTN_SDS_PHY]      = { .ofs = 0x0, .bit = 10, .write_en = 1 },
-> > +	[RTD1625_CRT_RSTN_GPU2D]        = { .ofs = 0x0, .bit = 12, .write_en = 1 },
-> > +	[RTD1625_CRT_RSTN_DC_PHY]       = { .ofs = 0x0, .bit = 22, .write_en = 1 },
-> > +	[RTD1625_CRT_RSTN_DCPHY_CRT]    = { .ofs = 0x0, .bit = 24, .write_en = 1 },
-> > +	[RTD1625_CRT_RSTN_LSADC]        = { .ofs = 0x0, .bit = 26, .write_en = 1 },
-> > +	[RTD1625_CRT_RSTN_SE]           = { .ofs = 0x0, .bit = 28, .write_en = 1 },
-> > +	[RTD1625_CRT_RSTN_DLA]          = { .ofs = 0x0, .bit = 30, .write_en = 1 },
->
-> Sashiko reports:
-> https://sashiko.dev/#/patchset/20260402073957.2742459-1-eleanor.lin%40realtek.com
->
->    Can this cause undefined behavior during reset mask computation?
->    
->    Several reset array entries set .bit = 30 and .write_en = 1. In
->    rtk_reset_assert() and rtk_reset_deassert(), if the bitmask is computed as
->    0x3 << desc->bit, 0x3 is a signed 32-bit integer literal. Left-shifting it by
->    30 results in 0xC0000000, which exceeds the maximum positive value for a
->    signed 32-bit integer.
->
->    Modifying the sign bit via left-shift on a signed type invokes undefined
->    behavior in C. Would an unsigned literal (e.g., 0x3U << desc->bit) be needed
->    to safely construct the mask?
-
-Agreed, Will make it 0x3U.
-
-(snip)
-
-> > +
-> > +static int rtd1625_crt_reset_probe(struct auxiliary_device *adev,
-> > +				   const struct auxiliary_device_id *id)
-> > +{
-> > +	struct device *dev = &adev->dev;
-> > +	struct rtk_reset_data *data;
-> > +
-> > +	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
-> > +	if (!data)
-> > +		return -ENOMEM;
-> > +
-> > +	data->descs           = rtd1625_crt_reset_descs;
-> > +	data->rcdev.nr_resets = RTD1625_CRT_RSTN_MAX;
-> > +	return rtk_reset_controller_add(dev, data);
->
-> Sashiko reports:
-> https://sashiko.dev/#/patchset/20260402073957.2742459-1-eleanor.lin%40realtek.com
->
->    Will the reset controller driver unconditionally fail to probe with -ENODEV
->    due to an incompatible regmap acquisition method?
->
->    The rtk_reset_controller_add() helper attempts to retrieve the shared regmap
->    from the parent clock device using dev_get_regmap(parent, NULL). However, the
->    parent clock driver (rtk_clk_probe()) acquires its regmap via
->    device_node_to_regmap().
->
->    This syscon helper creates the regmap but does not associate it with the
->    parent struct device via devres. Because the regmap is absent from the
->    parent's devres list, dev_get_regmap() will always return NULL, causing the
->    reset driver probe to fail unconditionally and leaving dependent peripherals
->    without reset control.
->
-> Brian
->
-
-Thanks for identifying this issue. I've fixed the regmap passing mechanism:
-
-Changes:
-1. 'rtk_reset_controller_register()' in clk/realtek/common.c passes the
-regmap as platform data via 'devm_auxiliary_device_create()'
-2. 'rtk_reset_controller_add()' in reset/realtek/common.c retrieves it
-using 'dev_get_platdata()' instead of 'dev_get_regmap()'
-
-This ensures the reset controller can access the shared regmap regardless
-of how the parent clock driver acquired it
-
-Best Regards,
-Yu-Chun
+btw the DMA is allowed after the previous kernel is hung til the point
+where smmu driver blocks it. In cases where in-fly DMAs are considered
+dangerous to kdump, this series just make it worse instead of creating
+a new issue. While for majority other failures not related to DMAs,=20
+unblocking then increases the chance of success...
 
