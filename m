@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 606F4F8DFE9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 16:37:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BE23F436BD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 16:40:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6GR9/A/hNZTXKhRvSR861tqyCyThHRTUkf4TwCWShFA=; b=urqrSmSgOHQdV0W/vr6NI/RPEB
-	Wpp92C+UzaJM8K5+wq1CGitlzfqfwlgMz/aOkoRIrCLp4v7f64/UjbhJ3aEErDQWODSLa6XA30A1c
-	GRylD6P10VF0i1rB0mkuKuk/EJvz445X/09sjoA9+AftPf/k0KfyX6afiQlHc3ZAXwWjlKFzhK/Y3
-	7A2JVWmhWQK5Dsm55FmrmWWWqreeH9OlO123Ef4H12wEhZOIsP2tE6JvLBkXAGkw8MdQXNMiMQBw5
-	lHGPWYpcIJlgkyPd4DGrZKcMGWXzMSrrxelfdGHXEeywJ14KVyHsiJrXE63e7ZWNbC2wfonBNAszC
-	cojIYnAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lrJMlkRjepbR2+v734nOnTQCfqKwaJyhX1Le4Qo3DI4=; b=g3xlrTVFUp8PFbyV6q61hUBC1j
+	fggPH3EebiGVY9kEDy6dzyvmepocjPhjQAbGZpXi2g3Glic/8fQpVicTn9CjUnHSi3Mm42SIIKhKV
+	Are4UsiDpblBi7sLVP0iJLgv6uLEV1hgMzWdd5QYv1FPbI/5o73I8+T5/Mh6C7mTmSMj0yM5D3B4g
+	EUD1C8VMEwwhr33hDPq3iQJ8Q1znscpk4774gZZ2WF0ktA8z5MKHdADvI8lOygaye9LLCFZkyxQcG
+	4w89BcaD/hB1doo5w4Mz0gHEB4cVQNSgQFxeXEnJ2iHYm+WQRCGq1jumebtuQLsbKit1Ucwc+a859
+	4L6+i+BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDmBz-00000004H3P-3i7Y;
-	Fri, 17 Apr 2026 16:37:19 +0000
-Received: from courrier.aliel.fr ([65.21.61.41])
+	id 1wDmFC-00000004Hth-1rFW;
+	Fri, 17 Apr 2026 16:40:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDmBr-00000004GrK-0UyZ;
-	Fri, 17 Apr 2026 16:37:13 +0000
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1776443828;
-	bh=tWFcpje6b/UPuUaynpp5o+HzSsytJcZL6uVNyAgG8qQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=UKyaeMjWUcKnD9zAv8zJPBSrnqk2n1SMU4oVAjw9yGbs0yL6FDVhoo0Ric2waZGe4
-	 hU+M+CY4LNI23hIXLtuDmxtraU8btUsAvPfa/ZYQbvn2BYSliD+8DZYPg9+RiUAD6z
-	 IbSm8Gw5L8PY1mio8dSEBIoojMvYTcvZ9Xj0kaPw=
-Date: Fri, 17 Apr 2026 18:27:24 +0200
-Subject: [PATCH v3 8/8] arm64: dts: amlogic: t7: khadas-vim4: Add i2c MCU
- fan node
+	id 1wDmFA-00000004HtY-3ZbL;
+	Fri, 17 Apr 2026 16:40:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E9DCF60145;
+	Fri, 17 Apr 2026 16:40:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B168FC19425;
+	Fri, 17 Apr 2026 16:40:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776444035;
+	bh=vS+6JjIgSwATnAo0FDNGd2EBykmQuR1wkqPKp83GKMk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=J9GWZ1tk5cd9ZwIhZsBOpKbe1Wt4MbDlnyOBqRcBM3Z2ySyLmocXF9Y4f2eXQ0Gzi
+	 Nvv6xCB4ZZKL+TEgTyYg3Uj78qNZWG38cCwP/8dPab0YZmsVGkoX4vqzN6g7PB/ARa
+	 YLxVw8QCDZnVxh6cZcVhOlG4QNM6klXU4/OqYM6JDfGaqjdDzqSZjqohcZgelD9Uas
+	 KnWYQkGlov7sgzkeE8zyidF4Ot5QbarZ23UnlHKMF+sGQP3BLfLDheRiE6EnoFGDix
+	 6L1DypqMLaqlpISnowtoZBeVggsS6xPcZy/YJoMyb+Xb8T3grFgqw1hpzFaJbWSMjA
+	 ZD84jBXaSRrVA==
+Date: Fri, 17 Apr 2026 17:40:30 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Binbin Shi <binbin.shi@mediatek.com>
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Hector Yuan <hector.yuan@mediatek.com>, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Project_Global_Chrome_Upstream_Group@mediatek.com,
+	vince-wl.liu@mediatek.com
+Subject: Re: [PATCH] dt-bindings: cpufreq: add mt8189 cpufreq hw dt-bindings
+Message-ID: <20260417-heat-broom-3ffd6419fa07@spud>
+References: <20260417080648.3692438-1-binbin.shi@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260417-add-mcu-fan-khadas-vim4-v3-8-a6a7f570b11b@aliel.fr>
-References: <20260417-add-mcu-fan-khadas-vim4-v3-0-a6a7f570b11b@aliel.fr>
-In-Reply-To: <20260417-add-mcu-fan-khadas-vim4-v3-0-a6a7f570b11b@aliel.fr>
-To: Neil Armstrong <neil.armstrong@linaro.org>, Lee Jones <lee@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Beniamino Galvani <b.galvani@gmail.com>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>
-Cc: linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
- Ronald Claveau <linux-kernel-dev@aliel.fr>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openssh-sha256; t=1776443818; l=969;
- i=linux-kernel-dev@aliel.fr; s=id_ed25519; h=from:subject:message-id;
- bh=tWFcpje6b/UPuUaynpp5o+HzSsytJcZL6uVNyAgG8qQ=;
- b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgMGec55oxeeisqykQiUedekMYyOnR9
- BG9E/7rDWyqdNoAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
- QN/dYkD2B0h67pd/skbXv2YwanXlJWZMFNrSgKAnH7oN6KvpXQkf4z2/bVVV+yiQemeyiyg6rem
- mlbNijAs0cwo=
-X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openssh;
- fpr=SHA256:kch4osYZ6A1BrPps5AUs6KnfdE2wm4ocMtyTc8TmZMs
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_093711_397201_52930FE9 
-X-CRM114-Status: UNSURE (   7.19  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="O16sYH1P8rELRFuU"
+Content-Disposition: inline
+In-Reply-To: <20260417080648.3692438-1-binbin.shi@mediatek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,39 +79,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable and configure i2c MCU node to get fan working on Khadas VIM4.
 
-Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
----
- .../boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts      | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+--O16sYH1P8rELRFuU
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-index 69d6118ba57e7..5d7f5390f3a66 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-@@ -157,6 +157,19 @@ wifi32k: wifi32k {
- 	};
- };
- 
-+&i2c_m_ao_a {
-+	status = "okay";
-+	pinctrl-0 = <&i2c0_ao_d_pins>;
-+	pinctrl-names = "default";
-+
-+	khadas_mcu: system-controller@18 {
-+		compatible = "khadas,vim4-mcu";
-+		reg = <0x18>;
-+		fan-supply = <&vcc5v>;
-+		#cooling-cells = <2>;
-+	};
-+};
-+
- &pwm_ab {
- 	status = "okay";
- 	pinctrl-0 = <&pwm_a_pins>;
+On Fri, Apr 17, 2026 at 04:06:17PM +0800, Binbin Shi wrote:
+> Add mt8189 cpufreq hw compatible in dt-bindings.
 
--- 
-2.49.0
+Why's this not compatible with the existing device? You've got no driver
+change with this so I can't even guess as why. The incompatibility should
+be explained in the commit message.
 
+pw-bot: changes-requested
+
+Cheers,
+Conor.
+
+>=20
+> Signed-off-by: Binbin Shi <binbin.shi@mediatek.com>
+> ---
+>  .../devicetree/bindings/cpufreq/cpufreq-mediatek-hw.yaml      | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/cpufreq/cpufreq-mediatek-h=
+w.yaml b/Documentation/devicetree/bindings/cpufreq/cpufreq-mediatek-hw.yaml
+> index d0aecde2b89b..cff52fffc6b8 100644
+> --- a/Documentation/devicetree/bindings/cpufreq/cpufreq-mediatek-hw.yaml
+> +++ b/Documentation/devicetree/bindings/cpufreq/cpufreq-mediatek-hw.yaml
+> @@ -16,7 +16,9 @@ description:
+> =20
+>  properties:
+>    compatible:
+> -    const: mediatek,cpufreq-hw
+> +    enum:
+> +      - mediatek,cpufreq-hw
+> +      - mediatek,mt8189-cpufreq-hw
+> =20
+>    reg:
+>      minItems: 1
+> --=20
+> 2.45.2
+>=20
+
+--O16sYH1P8rELRFuU
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaeJifgAKCRB4tDGHoIJi
+0s9TAQD+qCFWSseJi4hwmF+JLmEE23ceOhV1OauB+CRT623n9AD/UTVQllhEmCr7
+1OjjOwDL92kHJhFrA7d6dYxHqxkLqQ8=
+=VuKY
+-----END PGP SIGNATURE-----
+
+--O16sYH1P8rELRFuU--
 
