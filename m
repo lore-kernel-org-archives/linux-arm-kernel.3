@@ -4,124 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D3FF43697
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 12:18:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 565B0F43699
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 12:27:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cDMhKxQZOBW41kLl446l1EJd+PVPbWKyXfIiDzkTED4=; b=gHnP/SYk6YwT3PjHw6qq8mY1BB
-	x9sED06Gn/3gR17ZeMEq4X2gWH9k7YV3hPKqoZM2NGlffKiU7LuOKzSRyXabeN8Ftw8N3rFUdr39t
-	4YsC6iGZPLUqsCZ+DCOJzR3nQKp1fe0wd2tZCYoAVBBM8eIxXeMilLmBe3tXy2ahAiucskqdYZUrc
-	DJoPfzlY7MnRYR9udv3H98/UNssrGizg4pwG4CBEbiirX7chB9NTzKEdpk1rTvaWTqTNnZbya/LKv
-	5e2YuIBSIVQIkp2bWAd6rer+74qPQIhIeRDG8k/axL1YNpBZ+TGUYFaM/pZHrKSiZT2PKFThOSZVu
-	HNis1QvA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7B1zAJzyc2aJm8FtQJrwknWWRUXny98vqjyGldOGID0=; b=p+bqTglwAaGYHXJgUT7mDGLiE7
+	yXfGMr4dmesPOZmvx51rHhZxcJjhY1kGptJIxnGBBzxbS1H1YjdqOdgkU/+O9FfpcqQtUDDAq6R/R
+	OnAQZn5fyTz0mdS4+C7L4iX4EGcZvIr2+OSX/dZVeswpLmTkew14iW0mrvtYvZx+ezilWxcGzDoUV
+	yKt9RnPcFUIJlBV7D/3IUL2QFLP4Qz2CN3VtlClK5oJw2Pm20bNBPZZ/aTAFkGqddF3onXbaREkoA
+	5VCeCWUK9FUcTxh793EXnrgdZSqAiGqbK6411MfLFT2t4Mpw3KQZui5pZlh6pHpUCRE4xdLejbJ+e
+	WlVFhxvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDi9G-000000041yT-0zkV;
-	Fri, 17 Apr 2026 12:18:14 +0000
-Received: from mail-ua1-x934.google.com ([2607:f8b0:4864:20::934])
+	id 1wDiIP-000000042Ng-0dlJ;
+	Fri, 17 Apr 2026 12:27:41 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDi9D-000000041xN-47Tn
+	id 1wDiIN-000000042N3-25YE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 12:18:13 +0000
-Received: by mail-ua1-x934.google.com with SMTP id a1e0cc1a2514c-9589125e047so205447241.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 05:18:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776428290; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Q6pP6hucVPvtVxVm5xodY5eTnCkXk8IHdOtqkVTeh9Z528hJNO6Hz1No7AR26jqRdL
-         g55iGf7OWfIyRHhNGtnspbHz6OAgajottcliV2kb2whEoyykXl+H524siDYRPZ4cw5wO
-         Ce0AkGJOesrCTLdwTeYm+3cpAkdABbaQjQAiekk/9WHva2NCfm6OZYjyAZ1bRUW5prry
-         aAeByEVTQ0TrxNsWoD5JQlRQ6HCkxo720Z7IrndjQWmZLMx5ZnDKBNy0QlMDPCvbz18y
-         X1LWVgwx3B2CjvQE5feunNhzyK+51CYrjmEAstJbJf7ahn+7dR6YuX2JSc6l3BdGgDWX
-         ZULw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=cDMhKxQZOBW41kLl446l1EJd+PVPbWKyXfIiDzkTED4=;
-        fh=TC2jdvl+H3eGxdRh5BXJ0VQBCvA8kmK11OKiSYZ2GuY=;
-        b=k8B3iSGOp5n/NUg0+sjqGvX3X6JK0v2mtdbfiNgy4iDW8P0VwILURusseTn5QkDFG3
-         zC6vADkqBuOarK4Kf+YoogsVgvH4ZAd4C8/C4/5+7zQO4LpX5cBqvxn9PSmYf7S7r0DK
-         HHwobP2xDY8Z9lP9SDFT6nglN4+E5jKo7+0aBT8tLoj8IJxeA4OH/z5e/K+nT+gH6uSD
-         3lgJjfUKMLH1UJ5TG2YWw2Kwkia/T7KrNPU95cH2AAUWikYjp9YjkPJQlGXK/sLu/57X
-         6PgGLVqBVFMQt2JTP/z4RXJzEhsFZHCBtxqUHmOp/bsIZLiOe77keaAJYZzGEQtirx6i
-         c7ZQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Fri, 17 Apr 2026 12:27:40 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-35fb7c1a455so277178a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 05:27:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776428290; x=1777033090; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cDMhKxQZOBW41kLl446l1EJd+PVPbWKyXfIiDzkTED4=;
-        b=QL3KvrsUEGvosDAZhGvg6haNaFBHpxXylQ9MQxM641NnNzjvESeg91oJqA0svEQMrS
-         bN37C564LCksChzUAzN5T7T9mUUNAF3MyZ4ckuNsQdao8os3/kTCW05wephrR8iKyYnB
-         /ax+FGRIFWgJu4LPlO3weadL0uJmiU85VtCXYfRpXAkN2/7f/b2SQKEIDMxKkPjTG8OD
-         FxxNDeheON9ZAzHPJHV8ncXb0ZJRoUUw2hmTTuDAVLaB6Nnne8859d3RmQAal7NWZrsc
-         9Ek9B4zcr84NOg+VXPus/801vtMZR5rolpJZFCyfm6wWA8ExazjV/74OR4pb5tiDm8CU
-         jhEg==
+        d=gmail.com; s=20251104; t=1776428858; x=1777033658; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7B1zAJzyc2aJm8FtQJrwknWWRUXny98vqjyGldOGID0=;
+        b=TQyBmzyLdtQxefCrD1tM5MaILqwaLbbdsitLG9nTf9s+q2bYSq2MCx/eDNxAZBUhRw
+         qAqS16SKDQWQ4dAJps3K6RC32JxzDKMMYuimqk6NqDWrSkbh9wzLMeXsRgyzwEwW33Iz
+         ngOWbN48tWpHNEJalHTCevUU1q94NIyfKtD/WXceIHqJgRH0kj+ezh2Le+0a6HfHp20z
+         715HxXPRh8eZHv/6fk+2MHCWMdZ0daJoB2U27kgRrzCmrtlxzK9NO50zU1Wknsn3rY9+
+         xlO4xJSGfhNLpwyzSxZ9otBYxPNNGiqyxt42Z7ny1zMvcBMKppE+waNcAvfoRtHOyI3f
+         Da7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776428290; x=1777033090;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=cDMhKxQZOBW41kLl446l1EJd+PVPbWKyXfIiDzkTED4=;
-        b=pX7RvDhkqipZAcsROR48eD6IEm81aMP9AP75VeBPBaXYv9jwHFCXaV0AowIt2k74wh
-         WS4UIsHZk37CPuUc8GHuiEDIY31GtUxNs2z9Xe8M6ZyqnSsX6l3epgzwNmSEnnYJ3MLJ
-         X5q6AroULCJn8c+BB/F02B3SXgkgUInR6Z1KSOyFpURVvK8flQ21o7dISjhMTo+tqtU+
-         fobgq91ngvT8gVUZnIAA58qnAz0vlR5iVzQselq8/KsNOlVCQ6uEhVnI2wpSVh0O/Jsg
-         upWArcrCzRY0vIUKITVymPB8PucIQvNgYogrknr7AuB9OkFIOoNVd6ui06u5Tg20xrGU
-         JV9g==
-X-Forwarded-Encrypted: i=1; AFNElJ/Q/DMue6Mrm2PdDwJyMCeURCgrpEc0ULYWl0reGk40E+R/W/9yj7SSF3cRcXXBFcqnj4qhnLeM0keAbvcKD+B0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxwlw0CxvzxF75rlykKv18TTLMtPNneFygS2wE3BIz8kTkwmBbO
-	us9EzVQedA40g1xZ1H93gZJh2VqjF6jxDj8U0ktccyXlK2p+3mJi+/LVsTohvloj9N+nnvEpcms
-	K2GX7TSn4JtyDHmt+kTwQaHxaqkz5GgE=
-X-Gm-Gg: AeBDieurlsY2O/YfyReNipGkg2ExSxladYssNiHQ036S1hIIfmUxMDj6TAL+W3yWUd7
-	uf1i7lAeeIT0y5x4zYr3tXt0orOG8gOd1rSDLbX8Rgw8KoIDZep3uIjlzBwQuyx9XojXu7JxKMI
-	k6WHzwC2uFRbfq8T4Huailq21qy8qcyD9QhU+odrA7r06Af/PJTsJvqAAbFeRuLS1OmOuGpEKUw
-	Uhklkra0BMAp50V8LQONuDIv7fcMtKfTJ6VKhgUKH6CnqioJJhK+wmegYCd93VvYl7E5K398+V8
-	Tg/HsRyjvwik7DlxeA==
-X-Received: by 2002:a67:e703:0:b0:602:afbc:ae78 with SMTP id
- ada2fe7eead31-616fb89ea6emr791230137.2.1776428289898; Fri, 17 Apr 2026
- 05:18:09 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1776428858; x=1777033658;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7B1zAJzyc2aJm8FtQJrwknWWRUXny98vqjyGldOGID0=;
+        b=WECBoQmjV1p4hNuOt17aQDut5gewfK9AGBSAEqbuB5SsLCjK2v3w+ino4QzMTMlfSE
+         kd6E1WQZH7OshgFOLD3tcZNNHNR9HW9CI5GwlTB5LJjZsNE+poD7maXC36Cyc3SiRwyT
+         idnH4ro2GoMS73WbJwWxOkCzHjJAgR3pXWD8KHJBr+g9+FYRXpZhcVbdsnGStyXL8cKf
+         ykWsWOFGyzDqg8Cywf/fBPfLdYYpOuP9I/k0kkSy44N2fB5n5QaIUjGtS1BIhvjS4JX1
+         ZiAP4YA1Xrw+Liads9iESaBVxMi2xmMTlByK7xP8pt60IL5yqaKQJdybsUXiPMMBys7A
+         WTkg==
+X-Forwarded-Encrypted: i=1; AFNElJ9LDRn95rgUOQmSvoEALY+eXheMRgsBpUdNUEOFcfgph36/VLaIgfQV/333fj9453vA0CMaSftr1toyXEkRkgG8@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywb/qciGXqOCTTtvhFjxv9FW1Zg9qARg+fpvpdsIExl7lD5TQOw
+	3oyrSHhcM1Oa/J6z/RZbKih1KqYFwr8pPbBOeQ9stsAHux7Q7Cjts3n0
+X-Gm-Gg: AeBDiethdYllfBHqMkMo2xsN8FiPhFKXkbT64GzddFKIwv/V4+jLebZsDnOParEmGsx
+	6sMqxh1aVo3qRtmpXExn4jZcpPhtc8XoGMamjnSOdhPpczvT61vMbGR0DURvEs0UgiWA94uix4U
+	8QaYbsnzIjbI/1zqJzDTPXdyQ+/DPbyLhIpjG0C/LB4kIt7isThpNwuO92nsQnnyKTret8l3oLx
+	Z5FU5ZlIyWtoU1HVWxYlSdTbLjvgxSaTVHypFLyIrHvYIDNiaSfVpQpnwKdNqz0Gq0dMPFAyyzl
+	XAbZtfAFaWwwiGd/+SyUGfbajpuPxzdPszDtG5lW4XBJlz4YLI/0etE6gcFsJkuYR4JUE0/qZVP
+	flh11Yb94QDbII2xOgRf0qTQaCXW3qKz7pyYShhxgbfeqfAJoeYN38RMlXhNScsNwRVvwSL41WJ
+	wvXcxdoHq7CxfvltfIZnTjF9ImLHBBWS+sWRWMN2BsPQDMAaO+qE9/MQ==
+X-Received: by 2002:a17:90b:1e0b:b0:35d:a542:2dcb with SMTP id 98e67ed59e1d1-3614048a731mr2630632a91.16.1776428858176;
+        Fri, 17 Apr 2026 05:27:38 -0700 (PDT)
+Received: from dbc5pt3-os.ban-spse ([165.204.156.251])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-361410cc196sm2074491a91.17.2026.04.17.05.27.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Apr 2026 05:27:37 -0700 (PDT)
+From: sai madhu <suryasaimadhu369@gmail.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	sai madhu <suryasaimadhu369@gmail.com>
+Subject: [PATCH v2] drm/mediatek: hdmi: Convert DRM_ERROR() to drm_err()
+Date: Fri, 17 Apr 2026 12:27:26 +0000
+Message-Id: <20260417122726.2948518-1-suryasaimadhu369@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20260416-hpd-irq-events-v1-0-1ab1f1cfb2b2@oss.qualcomm.com> <20260416-hpd-irq-events-v1-6-1ab1f1cfb2b2@oss.qualcomm.com>
-In-Reply-To: <20260416-hpd-irq-events-v1-6-1ab1f1cfb2b2@oss.qualcomm.com>
-From: Pengyu Luo <mitltlatltl@gmail.com>
-Date: Fri, 17 Apr 2026 20:17:26 +0800
-X-Gm-Features: AQROBzDTVswzyUjJ6xkXYjkzbvzXgr8nk22CVU17PBSoxKtVUOrPnYmdya4d4B0
-Message-ID: <CAH2e8h4rLZB3E8Rdwy_LtfwtwAKZCOgL18fRFVqGBx32Cm2N2Q@mail.gmail.com>
-Subject: Re: [PATCH 6/6] usb: typec: ucsi: huawei-gaokun: pass down HPD_IRQ events
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Adrien Grassein <adrien.grassein@gmail.com>, 
-	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
-	Abhinav Kumar <abhinav.kumar@linux.dev>, Jessica Zhang <jesszhan0024@gmail.com>, 
-	Sean Paul <sean@poorly.run>, Marijn Suijten <marijn.suijten@somainline.org>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Nikita Travkin <nikita@trvn.ru>, 
-	Yongxing Mou <yongxing.mou@oss.qualcomm.com>, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
-	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
-	linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_051812_053690_5176A962 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260417_052739_543106_29BF6282 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,16 +99,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 16, 2026 at 7:22=E2=80=AFAM Dmitry Baryshkov
-<dmitry.baryshkov@oss.qualcomm.com> wrote:
->
-> Pass IRQ_HPD events to the HPD bridge, letting those to be delivered to
-> the DisplayPort driver.
->
-> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+The DRM_ERROR() macro is deprecated in favor of drm_err() which
+provides device-specific logging.
 
-Reviewed-by: Pengyu Luo <mitltlatltl@gmail.com>
+Replace DRM_ERROR() with drm_err() in the Mediatek HDMI bridge
+driver and pass the drm_device pointer via bridge->dev.
 
-Best wishes,
-Pengyu
+No functional change intended.
+
+Signed-off-by: sai madhu <suryasaimadhu369@gmail.com>
+---
+ drivers/gpu/drm/mediatek/mtk_hdmi.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+index 1ea259854780..4ddcdbf7bc8c 100644
+--- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
++++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+@@ -981,8 +981,8 @@ static int mtk_hdmi_bridge_attach(struct drm_bridge *bridge,
+ 	int ret;
+ 
+ 	if (!(flags & DRM_BRIDGE_ATTACH_NO_CONNECTOR)) {
+-		DRM_ERROR("%s: The flag DRM_BRIDGE_ATTACH_NO_CONNECTOR must be supplied\n",
+-			  __func__);
++		drm_err(bridge->dev,
++			"DRM_BRIDGE_ATTACH_NO_CONNECTOR must be supplied\n");
+ 		return -EINVAL;
+ 	}
+ 
+-- 
+2.34.1
+
 
