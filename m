@@ -4,106 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A7CF43683
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 09:29:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DEBBF43680
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 09:34:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DJ5VTzzADEOQOXFJCPdSyMCR8UJZ4vCLNXaTwf7HcDk=; b=Gu5Zz+y2ntBRe59U3CRUHIrzB/
-	Iy8LM7ykW9Dz4r6ElVLtpUsdf4dVyXWDT1+Eyv4ZXLqoxJEtV7SwjiSn7XeDAUpWp5Gzu8TJ0ae/E
-	z4PIoYUUtopju9vo2zsfMZpulpVoVSJvyZ/p4TlgeM4cMfXqsFyKZV1MswTerKlMyeUjLYNu+hlAL
-	HnqJx/ytsSHsZgeulkjxM0xX3rP4ld5qNj/LH3X/ed1l7bmxsN7CB+AJBiKkerT9bSvJAGSTmB+VT
-	51843mD+pAwXkxHeWr8N/M8e6DpwLbIOPSZczHobJomP4SuGkMvd2qoUJF4P+GDJ78SX4L3EAPbTS
-	MZmDwgdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CDsx8X2jiZoGka5IIv690r2oNsb+R5D9h2yeJUsEwu4=; b=Z2an0z0avCZf27r4zrP+JNvvYa
+	POdsmGAIOoAj2kLLuLjrGR2hGYVBAEKdOrVnmSQhbaxISL1Kd+OGSoSj/gHpV4rGJ9EOF9xwa3YPO
+	F/DQDP18bzlGo+W3m0oWxzbN/4IU0CQLAwjFBDJ7S3im3LEfZl06g/J3eAkQ3eoFGAqrKLb4pDJAR
+	ikrt7Mb1Up73G95ae22nfVgh6JDb5MNey6rbNlzCAzvAAn/uw3RwiLlLr04fSXWckTvHeSDE1pelj
+	8VfeDGCa8j8R7MxxYtY3TqvsvE7UhsXFw/SX6EHl+EVWY6ChWjX/jZcIy77zOHlQ9wRXVXPtHCePI
+	psH9JYIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDfWB-00000003paz-20uG;
-	Fri, 17 Apr 2026 09:29:43 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1wDfaO-00000003q2X-1OI9;
+	Fri, 17 Apr 2026 09:34:04 +0000
+Received: from courrier.aliel.fr ([2a01:4f9:c011:1c83::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDfW9-00000003pZr-0BLF;
-	Fri, 17 Apr 2026 09:29:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1776418181; x=1807954181;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=qC+sy+TbfVbQqd4P/J3aO52mIqEN7Qgp8Zj1bnODJ7s=;
-  b=Ft0pl/vy2q+KW73rsgQuzyPD9nZjuFSd2p74NTd48QCvguzi6YYh3aZp
-   rzC87BEbOt88tQDJSlY5S/A5sTOxkFDc3XqTQgfr0mo/Pcn1LfmufFKL0
-   zOqcEPY9QJ6vVZU4iX+i70k/QGUY3ZkLsGtjKFfD0sG7I6syYyfe7lEyl
-   whquEnnNEI1RS1GNTpeZI2KYYwyuUFG8U5CHXcsAirzWDzwiWYi7LxiuI
-   Yv+/ft5CWeRtRBYPGL3HMdJXtT6SeEqvUzbF6p/Q1TBnNI9XpCNG6/tL8
-   xdmdD4vO5ugW4QZ3a3iss5GK5ES+E59zTeIGHQ3TXWOe8sUPxTbeh5KTF
-   A==;
-X-CSE-ConnectionGUID: D62HofagTmeSy4ERIpD8cA==
-X-CSE-MsgGUID: SWb8Ue3ZRrOR4rFNReJlSQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11761"; a="77550741"
-X-IronPort-AV: E=Sophos;i="6.23,184,1770624000"; 
-   d="scan'208";a="77550741"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Apr 2026 02:29:39 -0700
-X-CSE-ConnectionGUID: 5lmnra43SHGoKNY16mjc4g==
-X-CSE-MsgGUID: gcHNK5CaSOWz7P7ldgMCWQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,184,1770624000"; 
-   d="scan'208";a="229980212"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by orviesa006.jf.intel.com with ESMTP; 17 Apr 2026 02:29:29 -0700
-Received: by black.igk.intel.com (Postfix, from userid 1008)
-	id B928F95; Fri, 17 Apr 2026 11:29:27 +0200 (CEST)
-Date: Fri, 17 Apr 2026 12:29:26 +0300
-From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Adrien Grassein <adrien.grassein@gmail.com>,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Rob Clark <robin.clark@oss.qualcomm.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Abhinav Kumar <abhinav.kumar@linux.dev>,
-	Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Pengyu Luo <mitltlatltl@gmail.com>, Nikita Travkin <nikita@trvn.ru>,
-	Yongxing Mou <yongxing.mou@oss.qualcomm.com>,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	linux-usb@vger.kernel.org, intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	freedreno@lists.freedesktop.org
-Subject: Re: [PATCH 6/6] usb: typec: ucsi: huawei-gaokun: pass down HPD_IRQ
- events
-Message-ID: <aeH9dpLv-ZVTfhty@kuha>
-References: <20260416-hpd-irq-events-v1-0-1ab1f1cfb2b2@oss.qualcomm.com>
- <20260416-hpd-irq-events-v1-6-1ab1f1cfb2b2@oss.qualcomm.com>
+	id 1wDfaJ-00000003ptq-3pIh;
+	Fri, 17 Apr 2026 09:34:02 +0000
+Message-ID: <5514acb2-f4cd-499d-aabd-8f5d7a311be0@aliel.fr>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1776418310;
+	bh=k2/NtjpEqjtp2ZMPsfxKYGQQDyh1+0ETw/LyMjy9rUk=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To;
+	b=tLkFPJYlW4M7Y+rvGQG9WBzFs13d68haPvQJ2LRKkkR/r5yeZdVM953uDuGHwnlky
+	 FXxNU8iXJ26PB2EBBuzXfCF0KMhhYWBcsHlmtVA8KBa+FEO7Crv69u8/mLOcwjzoWT
+	 KKtDdFdd+ts0aTqVaEGF2HTGwIjAYuwvZ59WyfWs=
+Date: Fri, 17 Apr 2026 11:31:49 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260416-hpd-irq-events-v1-6-1ab1f1cfb2b2@oss.qualcomm.com>
+User-Agent: Mozilla Thunderbird Beta
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+Subject: Re: [PATCH v2 1/8] dt-bindings: mfd: khadas: Add new compatible for
+ Khadas VIM4 MCU
+To: Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>
+Cc: Lee Jones <lee@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Beniamino Galvani <b.galvani@gmail.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, linux-amlogic@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-pm@vger.kernel.org
+References: <20260403-add-mcu-fan-khadas-vim4-v2-0-70536b22439a@aliel.fr>
+ <20260403-add-mcu-fan-khadas-vim4-v2-1-70536b22439a@aliel.fr>
+ <20260415214815.GA602572-robh@kernel.org>
+ <6fc8ddeb-d54d-473d-94d2-49dc78a07154@aliel.fr>
+ <6758aaa2-ac1a-4751-aece-2b445b84f2bc@linaro.org>
+Content-Language: en-US
+In-Reply-To: <6758aaa2-ac1a-4751-aece-2b445b84f2bc@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_022941_094636_67433A2F 
-X-CRM114-Status: GOOD (  13.90  )
+X-CRM114-CacheID: sfid-20260417_023400_412594_E55C8A23 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,42 +79,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thu, Apr 16, 2026 at 02:22:37AM +0300, Dmitry Baryshkov kirjoitti:
-> Pass IRQ_HPD events to the HPD bridge, letting those to be delivered to
-> the DisplayPort driver.
+On 4/17/26 9:53 AM, Neil Armstrong wrote:
+> On 4/16/26 10:25, Ronald Claveau wrote:
+>> On 4/15/26 11:48 PM, Rob Herring wrote:
+>>> On Fri, Apr 03, 2026 at 06:08:34PM +0200, Ronald Claveau wrote:
+>>>> The Khadas VIM4 MCU register is slightly different
+>>>> from previous boards' MCU.
+>>>> This board also features a switchable power source for its fan.
+>>>>
+>>>> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+>>>> ---
+>>>>   Documentation/devicetree/bindings/mfd/khadas,mcu.yaml | 5 +++++
+>>>>   1 file changed, 5 insertions(+)
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/mfd/khadas,mcu.yaml
+>>>> b/Documentation/devicetree/bindings/mfd/khadas,mcu.yaml
+>>>> index 084960fd5a1fd..67769ef5d58b1 100644
+>>>> --- a/Documentation/devicetree/bindings/mfd/khadas,mcu.yaml
+>>>> +++ b/Documentation/devicetree/bindings/mfd/khadas,mcu.yaml
+>>>> @@ -18,6 +18,7 @@ properties:
+>>>>     compatible:
+>>>>       enum:
+>>>>         - khadas,mcu # MCU revision is discoverable
+>>>
+>>> The revision is no longer discoverable as was claimed?
+>>>
+>>
+>> The firmware revision is still discoverable, and via the same register,
+>> but the VIM4 MCU has a different register layout (eg: no DEVICE_NO
+>> register). The new compatible is needed to describe a different MCU
+>> variant, not a different revision of the same MCU.
+>> I will remove the comment as it is confusing with new boards.
 > 
-> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> Yes basically it was discoverable for earlier MCU version, but is not
+> for this particular board version.
+> 
+> Keep the comment, but add a comment on the vim4 entry saying this variant
+> is not discoverable.
+> 
+> Neil
+> 
 
-Acked-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Ok make sense, I will do that.
 
-> ---
->  drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c | 9 +++++----
->  1 file changed, 5 insertions(+), 4 deletions(-)
+>>
+>>>> +      - khadas,vim4-mcu
+>>>>       "#cooling-cells": # Only needed for boards having FAN control
+>>>> feature
+>>>>       const: 2
+>>>> @@ -25,6 +26,10 @@ properties:
+>>>>     reg:
+>>>>       maxItems: 1
+>>>>   +  fan-supply:
+>>>> +    description: Phandle to the regulator that powers the fan.
+>>>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>>>> +
+>>>>   required:
+>>>>     - compatible
+>>>>     - reg
+>>>>
+>>>> -- 
+>>>> 2.49.0
+>>>>
+>>
+>>
 > 
-> diff --git a/drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c b/drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c
-> index ca749fde49bd..328ba92e1b44 100644
-> --- a/drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c
-> +++ b/drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c
-> @@ -299,10 +299,11 @@ static void gaokun_ucsi_handle_altmode(struct gaokun_ucsi_port *port)
->  
->  	/* UCSI callback .connector_status() have set orientation */
->  	if (port->bridge)
-> -		drm_aux_hpd_bridge_notify(&port->bridge->dev,
-> -					  port->hpd_state ?
-> -					  connector_status_connected :
-> -					  connector_status_disconnected);
-> +		drm_aux_hpd_bridge_notify_with_irq(&port->bridge->dev,
-> +						   port->hpd_state ?
-> +						   connector_status_connected :
-> +						   connector_status_disconnected,
-> +						   port->hpd_irq);
->  
->  	gaokun_ec_ucsi_pan_ack(uec->ec, port->idx);
->  }
-> 
-> -- 
-> 2.47.3
+
 
 -- 
-heikki
+Best regards,
+Ronald
 
