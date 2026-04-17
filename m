@@ -4,83 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82188F436B4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 15:12:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0804F436B2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 15:12:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=sQg7mK9oWEfVQ2/f5M3NYZgfP1n9UD9hwZDhumEKaq0=; b=vu5l5x8/bVTNm/
-	ui/j9C7lKpJS2letK0KppTDEoa5RAm8sSMg8j8M89qscafQbgngxg0AVlHUOzu/HfJdmUGvq75aO0
-	1mRzEtJOnHSJGfsXFEDwwILpRvoUqJChMEUDiYIyhfjvM/yk6jtQCBS52GRS72Q9KRZXQzvMdOYCf
-	IGdFA3RrjsBqTtszUKQ6wuTTwWNVhf9s8dQRr7M4ESy1Th/OJnlUAl8CihGw9rPcKgBEqYLk39pr6
-	702ar/8GjI2i++Odm7/1DQDWfRIg1bbcNTW7PzZV3yXTguFc3VfvGbnoY7qLC3AVe72ZL3He2lUt+
-	pcfnJ6doDMarC6exykng==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9FDj+1Kksm8urlrZ9+RrkwbXsGoKIaMKcDpK7X2i8Zs=; b=nuLQ2G6oXO/r57PmkkwwlhKVDZ
+	GuckqN83fe9+W7awGKq8oN7s79dwRRWicK8BQUUoReRz3SuL2ZWs7jQ8Py68vHXH2bylh78f1nrve
+	RyKlxbPzyMTwYNYxFwGzHxeNJPGGKmmEZciQcoNjZc7FzUgtrCQ0JuzT8U3ie7GVTDtFrCODG2AEX
+	i66I/AVl1R1xxxbAKtlFLbuzD6Iru6vpmWdJsJvOie+RbceVJku2goCV5Z4eeh87RAB/OyC8oztKq
+	8aIJjE5JLOgwwkoUAsQWlPfjpxtdXEUgndLgCIoRyrjQ73bZq2+1G2sEHi1ht5QVRBvSKObcraUC8
+	JdDIkkxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDkrQ-00000004BdK-2Xvd;
-	Fri, 17 Apr 2026 15:12:00 +0000
+	id 1wDkrT-00000004BfQ-2tXn;
+	Fri, 17 Apr 2026 15:12:03 +0000
 Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDkrN-00000004BcR-1uot
+	id 1wDkrR-00000004BdI-0ig0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 15:11:58 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-43cff5dafc3so581492f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 08:11:56 -0700 (PDT)
+	Fri, 17 Apr 2026 15:12:02 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-43d01d6b50cso813100f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 08:12:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=flipper.net; s=google; t=1776438715; x=1777043515; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=sQg7mK9oWEfVQ2/f5M3NYZgfP1n9UD9hwZDhumEKaq0=;
-        b=SLCL0/FczCsqcAxLsxl5mfrEcZCpdpV2TxIUrlNnsbH+6UyKjslTvcmSu7EMMI6HfV
-         +h+AFcKeh2wSt/4TXjVoW7ImyTPuMRNXjIqCSWUmlxrMCuAgkD5Otqd58dGaaGHY1/H9
-         uro4pJeEy1/46U86t16ioLc+vkFjC/Ex/vGnouNVZF2Reg0GuHz2Gy+7Gso32k2XiOy6
-         ksJRN5QcKrRuyOaFsGitxR5bC3XqaGZYFRcsQBQCgsn9sECQpkdwTlYy1RMwOCIp5Boc
-         06bTUxVw00M+cwYHOAQFUJOXVDjYsiKto01lnMVkiK5727bjxICmkzdq+r9Ye4XwTlAl
-         s2ew==
+        d=flipper.net; s=google; t=1776438719; x=1777043519; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9FDj+1Kksm8urlrZ9+RrkwbXsGoKIaMKcDpK7X2i8Zs=;
+        b=AGp7Gy/BQbh3AN6e4okwmbu4dE3bPl900Ct6KjsNEPNJ1Cg+XGd5gjyup3RrU1UA+s
+         6zDTM9+fBC79wVwXfDOQK7PedeyMjWJgARFrPNnt6580SSFsenvtqcrhrVc53BnhNx4l
+         IBeraTLe3BYbnqeKQWs7LD/WL8zqhnJTMlrh6MtF6fvT0mnysYYpq8b/Vyqj7CQkIbBV
+         PGBM8UCskXk+oiSJM6iAYGteeXFtyd2qGmKY51d4zeoaCTmsWOUDGIVxDGj+Lkh2dfk9
+         yo8rpGpvyReTEkn+D5gc675dNWUicK5WGXeRjuwEJw2I3hH3OquzolCaGOotlDNB9C2+
+         0+Zw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776438715; x=1777043515;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sQg7mK9oWEfVQ2/f5M3NYZgfP1n9UD9hwZDhumEKaq0=;
-        b=lac8Ivp1C0lRHf1d1f5VSz5ibwfkRLw/oK7sHyogowAxohRz1uurZpekZcVYDQN/mu
-         cwsv2EChnoZnjxxdtHsssPHpXXHmFKBrbv3beJaUIPLUWkK372D03WjmvKerLdC58Wc9
-         MteAOVIBrS5ANMcB6IxfajK812p/YArA6FgnZILXbGvCT3laoKkJk7/CyBSneevCB7LD
-         u8uVrcy55oUH+rzTyiq2PI5CXzmchKqDxZhG9QfIswranap0DCp0zvtt+AEbihBn/pxl
-         YlTq2uWp6YKS106HWlX3w+PMSvNJ8aVyUMW40WBJh4/d8diHfGva8Qudn58XB3+xtdHT
-         Wcjg==
-X-Forwarded-Encrypted: i=1; AFNElJ966RBmmp9g5PGklRra7OyqhTlR11t1ZeR65RzAQEoHDQb5rfQTxdb749nXUmfNrhB5tPpMzyiNxRVd88n9eKtf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyd9gp2s+DrX73iAGSr1nEJEiq62QqLvr3eMb6lujLUMor45QgF
-	dl7MM2dZ823YZ8V56+yz2g61nbMV7jUOnuhv/wIA1leESt8iy2+/pcWyRUbf8bgNPyI=
-X-Gm-Gg: AeBDiesDM2Ml/e3KO+Fn1hCLEk2kPGCTcsh1KaFw+F4sEdwc/hSefKY3IRSG+xi+0Jn
-	jA0P1e2/k+n9J29nM4RX/S6LP+NWbGWzt6I50HHvnrH3AqEmPKw8Q2msVigDZM7DDn6a4Uka6eK
-	JqdM08AqzuoGkkZVGmb765RGS/zA/4C70+X2rICRuCJGjyOOfNpC5nju88A+oFcAO86Eh2BenP7
-	oWHEhiOotxxhzqmGe1RDYuxDsWjk5SvDqqmjFM1Kvt247EWKcIzn4wS+QJt10SFyvxsn7hXhuBb
-	82HNERi7Neh7M3K68g42j1ooBIm19bmbgcpyI0vCB9LTlo8gt06tLCPTE8eLL7jw8Gc3ceEyyGQ
-	7vgDsD7VzDGG0NKuhiRPnlsRNnZLcGSQs7JR7W9Zx2Cpw4cOtvrAaseXjnPXe+nax8IPLkFPPST
-	61udzl2xYjrHuCdG+i2DQQp41h5TowMAXcHOo/mGOR4w5M093rgnol8rvWyQmvD3kMYrJsZFDjf
-	6hXSXxqv3PgsxsD
-X-Received: by 2002:a05:6000:25c6:b0:43d:7af0:3a7c with SMTP id ffacd0b85a97d-43fe3e0d44emr5071076f8f.29.1776438714844;
-        Fri, 17 Apr 2026 08:11:54 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1776438719; x=1777043519;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=9FDj+1Kksm8urlrZ9+RrkwbXsGoKIaMKcDpK7X2i8Zs=;
+        b=K9AlTJJcuPBIjdHbSH/h5vmTNkHuRwsigiLdn9ohtlxTFR1CsrhQTjqhCh4Nq+XYvX
+         Nwjl81biiApCwdT0wpu6PqlkqdQGlWc6+cXVjalaYM7rXmvXJpqCKbtQ5o7FWxV1rK43
+         1Hbqojb7ylzxW/znneVcONJRLdfEtaKYdJU27zECww01u7C3lgfuabgnA5cGaFVWfTrX
+         fnKhXUk2NVMx6ln7eKov1XLQPmTUA7mV1k1Boc3QtD2NIjmfoIAwCqzidGps8TrZCr/z
+         96amttU6/x6cYSLA684zSpiEcDZGEQ9lOwSZISeP3THmWHWWH4JrclNBJuSXo60fWH01
+         rQPA==
+X-Forwarded-Encrypted: i=1; AFNElJ+xschTn8SSOznxRnN4X+4zATUO26AGVGfjRQPR1ridKSUnXG2UjbgbNWIga/g/OaKupcKq1s9cd6MWiDIneCVj@lists.infradead.org
+X-Gm-Message-State: AOJu0YwI8zslAuSSeB45E8O9ABu8MzT0SV4XcH0knKlbyKngRLQGjh9F
+	1UbqCBpTjuJX1NpwU5ZGqQByROdv85EZwyqN8n4onZFv63gI1wTRh7it00r71JsDtQ8=
+X-Gm-Gg: AeBDieu3kJLgfcouyvXGQ9dr7j5rS7QxVLQnGx/8295OZYuBsbHz7aaznXjgfWNnUNc
+	7+oK1Fopo5AXfrynv4zqsHtF2hCLSuuQB+1GYpD+FPjutADVQ4lewDg3RXPbZFfpo5WZv0kfLqU
+	xFakgzIFJMZSNcDuOZ/Ug5bX6ita10aewL3Kbj3Li/V0+G8Z6oMyWW+Xpa9rQyCfLafhzGtUy8e
+	KxsbsHoaH2d/UYCiEuWGyEt11JFNtAsq5RPvVXhZapRqRzKIubkxGKAtyIcvuojK+LS7bKrr4KW
+	raV1s6u6u50ScamWNM7xygthNZukq/iWKHQ56ffQDG+To/RsU8Or1hON4WPzcLuSjXORmYHEVf7
+	kindUuHp/wpWxYZuNRCKNMCr64uiniGK1D39Cf6Czu/SHxzLKI8wGnAHcgjPSC4rhTxu8yoIHjf
+	Q86xX3gVKtueENlEgX1NE+ZPkPbfin0UzUTnuDWvmGoa+YloMdPMilk1T9+cbGbiIW8fTG3H+9N
+	nl/e5RPNvFbelC5WFgKqN25Hs0=
+X-Received: by 2002:a5d:5850:0:b0:43e:a69b:d803 with SMTP id ffacd0b85a97d-43fe3e23f23mr5312603f8f.47.1776438719544;
+        Fri, 17 Apr 2026 08:11:59 -0700 (PDT)
 Received: from alchark-surface.localdomain (bba-86-98-192-109.alshamil.net.ae. [86.98.192.109])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43fe4e591cesm7376426f8f.36.2026.04.17.08.11.50
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43fe4e591cesm7376426f8f.36.2026.04.17.08.11.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Apr 2026 08:11:54 -0700 (PDT)
+        Fri, 17 Apr 2026 08:11:59 -0700 (PDT)
 From: Alexey Charkov <alchark@flipper.net>
-Subject: [PATCH RFC 0/4] arm64: rockchip: The hunt for exact pixel clocks
- on RK3576
-Date: Fri, 17 Apr 2026 19:11:43 +0400
-Message-Id: <20260417-rk3576-dclk-v1-0-26a9d0dcb2de@flipper.net>
+Date: Fri, 17 Apr 2026 19:11:44 +0400
+Subject: [PATCH RFC 1/4] arm64: dts: rockchip: rk3576: assign dclk_vp1_src
+ to VPLL
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAK9N4mkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDE0Nz3aJsY1NzM92U5JxsXZNkS9OkpCQzc1MLQyWgjoKi1LTMCrBp0Up
- Bbs5KsbW1AIDnryliAAAA
-X-Change-ID: 20260417-rk3576-dclk-4c95bbb67581
+Message-Id: <20260417-rk3576-dclk-v1-1-26a9d0dcb2de@flipper.net>
+References: <20260417-rk3576-dclk-v1-0-26a9d0dcb2de@flipper.net>
+In-Reply-To: <20260417-rk3576-dclk-v1-0-26a9d0dcb2de@flipper.net>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
  Michael Turquette <mturquette@baylibre.com>, 
@@ -92,17 +91,18 @@ Cc: Pavel Zhovner <pavel@flipper.net>,
  linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
  Alexey Charkov <alchark@flipper.net>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5622; i=alchark@flipper.net;
- h=from:subject:message-id; bh=eG6IXyh4y0jftfvJQuYeuV3rZuFLFef4kpCOHmG+mBg=;
- b=owGbwMvMwCW2adGNfoHIK0sZT6slMWQ+8t2WWV9R/clycvGR0/uPTWCN3dJ9VT99gcTL/Hd5f
- GmKaUv4OiayMIhxMViKKbLM/bbEdqoR36xdHh5fYeawMoEMkRZpYAACFga+3MS8UiMdIz1TbUM9
- QyMdYx0jBi5OAZjq9xmMDGuFlPK4MlSmfOu6l9yp8VWFYYnYIr53Sd8+n/vLFHqtfTsjw/UZxlM
- 2PbvjOunWdh5h59QtF+ewbtocl+W88rtRnJeeISsA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=922; i=alchark@flipper.net;
+ h=from:subject:message-id; bh=Iv35X0YItRmd6w3u4XU1Hvta1/Hwj6onkb318swFieU=;
+ b=owGbwMvMwCW2adGNfoHIK0sZT6slMWQ+8t0WUda9/sCcx2V/UpPvama3/LOLkZC4de2NsUV4w
+ d15/X6HOiayMIhxMViKKbLM/bbEdqoR36xdHh5fYeawMoEMkRZpYAACFga+3MS8UiMdIz1TbUM9
+ QyMdYx0jBi5OAZjq4+8Z/pm8++hxhGN95La0mM1spzbpKOYuyp9U1rHvy478JHtJVxVGholr+4q
+ Yj3reCPmh7DNllRFXmllP+SNzNldHgX9nbs1ZxwcA
 X-Developer-Key: i=alchark@flipper.net; a=openpgp;
  fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_081157_546231_1C308C1A 
-X-CRM114-Status: GOOD (  32.10  )
+X-CRM114-CacheID: sfid-20260417_081201_238114_B8895C04 
+X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,113 +117,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear all,
-
-Need the help of the collective wisdom of the community.
-
-The problem I'm trying to solve is reliably obtaining the exact pixel
-clock for arbitrary display modes supported by the RK3576 SoC.
-
-Rockchip RK3576 has three display output processors VP0~VP2, each
-supporting different ranges of display modes, roughly as follows:
-- VP0: 4K 120Hz
-- VP1: 2.5k 60Hz
-- VP2: 1080p 60Hz
-
-Each one obviously needs a pixel clock. The required frequencies for the
-pixel clocks vary greatly depending on the display mode, and need to be
-matched within a tight tolerance, or else many displays will refuse to
-work. E.g. the preferred (maximum) display mode out of VP1 is particularly
-awkward, because it requires a pixel clock of 248.88 MHz, which cannot
-be obtained using integer dividers from its default clock source (GPLL
-at 1188 MHz), and the nearest approximation is 237.6 MHz, which is well
-outside the tolerance of e.g. DP specification, resulting in a blank
-screen on most displays by default.
-
-The clock sources are of course configurable, in particular there are muxes
-connected to each VP for selecting the source of the pixel clock:
-- Each VP can take the clock either from the (single!) HDMI PHY or from
-  its dedicated dclk_vpX_src mux
-- The dclk_vpX_src mux can select the clock from a number of system PLLs
-  (GPLL, CPLL, VPLL, BPLL, LPLL)
-
-While the system PLLs can be configured to output a wide range of
-frequencies, they are shared between many system components. E.g. on the
-current mainline kernel on one of my RK3576 boards I've got the following:
-GPLL: 1188 MHz, enable count 20
-CPLL: 1000 MHz, enable count 17
-VPLL: 594 MHz, enable count 0 (yaay!)
-BPLL, LPLL: 816 MHz, enable count 0 (but these last ones don't have
-            predividers, so are less flexible)
-
-So ultimately there is exactly one free fractional PLL (VPLL) which can be
-used to generate arbitrary pixel clocks, but we have up to three consumers
-trying to drive different display modes from it (e.g. HDMI on VP0, DP on
-VP1 and MIPI DSI on VP2). We also want to be able to adjust the PLL output
-frequency on the fly to satisfy the requirements of the selected display
-mode.
-
-And this is where I'm stuck. Trying to satisfy the requirements of up to
-three consumers while changing the PLL frequency on the fly sounds like
-a poorly tractable mathematical problem (is it 3-SAT?). We can take the
-HDMI output out of the equation, because it can be driven from the HDMI
-PHY (which is capable of arbitrary rates) instead of the mux, but that
-makes the decision of which dclk source to use for a VP block dependent on
-which downstream consumer is connected to it (HDMI vs. something else).
-Even then we somehow need two devices to cooperate in picking a PLL
-frequency that satisfies the requirements of both of them, and change to it
-without display corruption. I'm not even sure if the CCF has mechanisms
-for that?..
-
-What follows is a brief set of patches which illustrate a partial solution
-for the case of "I just need 2.5k60Hz on VP1 via DP and don't care about
-the rest". It switches the VP1 unconditionally to use VPLL as the source
-for its dclk mux, allows changing the VPLL frequency on the fly, and also
-changes the frequency calculation logic to allow for nearest-match
-frequencies which are not necessarily rounded down. These are not meant
-to be merged as-is, as I see the following issues:
-- The flag allowing the PLL to change rate is in the clock driver, while
-  the reparenting to an unused PLL is in the device tree. If these go out
-  of sync, we might end up trying to change the frequency of a PLL which
-  is used by other consumers (I presume that could be dangerous)
-- If VP0 happens to be driving DP output, it won't be able to produce the
-  2560x1440@60Hz mode for the same reasons as VP1 - then it must also be
-  reparented to VPLL and allowed to change its frequency on the fly
-
-It does bring me from a state of "always blank screen on DP output until
-the mode is switched to something magically working" to a state of
-"most monitors work at the default preferred mode" though.
-
-It is tempting to just reparent both VP0 and VP1 to VPLL and allow both of
-them to change its frequency, while leaving VP2 on the default (fixed)
-GPLL and relying on the fact that 148.5 MHz (the required frequency for
-its maximum supported mode of 1920x1080@60Hz) is conveniently 1188/8 MHz -
-just what GPLL can provide. Then also force whichever VP is driving HDMI
-output to use the HDMI PHY as its clock source. But we still have the
-problem of DT vs. driver coordination, and I'm not sure how to define
-the policy for "if you've got HDMI connected, you must use the HDMI PHY
-clock for the respective VP, whichever VP that is".
-
-I would very much appreciate any thoughts on how to approach this.
+Reparent dclk_vp1_src from GPLL to VPLL at the SoC level. VPLL is a
+programmable PLL with no other consumers, allowing the CRU to synthesize
+accurate pixel clocks for VP1's output with arbitrary display modes.
 
 Signed-off-by: Alexey Charkov <alchark@flipper.net>
 ---
-Alexey Charkov (4):
-      arm64: dts: rockchip: rk3576: assign dclk_vp1_src to VPLL
-      clk: rockchip: pll: use round-nearest in determine_rate
-      clk: rockchip: rk3576: allow dclk_vp1_src to propagate rate to parent PLL
-      clk: rockchip: rk3576: add ROUND_CLOSEST to dclk_vp1_src divider
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
 
- arch/arm64/boot/dts/rockchip/rk3576.dtsi |  2 ++
- drivers/clk/rockchip/clk-pll.c           | 16 ++++++++--------
- drivers/clk/rockchip/clk-rk3576.c        |  4 ++--
- 3 files changed, 12 insertions(+), 10 deletions(-)
----
-base-commit: c7275b05bc428c7373d97aa2da02d3a7fa6b9f66
-change-id: 20260417-rk3576-dclk-4c95bbb67581
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index e12a2a0cfb89..2b05900c6c1c 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -1338,6 +1338,8 @@ vop: vop@27d00000 {
+ 				      "dclk_vp1",
+ 				      "dclk_vp2",
+ 				      "pll_hdmiphy0";
++			assigned-clocks = <&cru DCLK_VP1_SRC>;
++			assigned-clock-parents = <&cru PLL_VPLL>;
+ 			iommus = <&vop_mmu>;
+ 			power-domains = <&power RK3576_PD_VOP>;
+ 			rockchip,grf = <&sys_grf>;
 
-Best regards,
 -- 
-Alexey Charkov <alchark@flipper.net>
+2.52.0
 
 
