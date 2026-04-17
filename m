@@ -4,75 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EC81F99C6B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 22:25:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE5FFF99C69
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 22:33:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+zBBLCkgMkRnprkfPkN/u+UeorTqdWoVN2pXiolVZQc=; b=umcW3s5b4YeD1JRIIFHTD8wfov
-	q19EiCYhncjlImsJblgPUnbDTCcJsDWXG9A0xuSGHXnZLLxgBH/z8TMa00ues9DsyKLm7k4YxTTwS
-	tSU1XcgZFcLuW5ibqAmp5Qhzt1z0S5o7iqjfPVwQ3blS8pBjeoeuclGtd+MfkzC8VPLgjPqYzOJbU
-	IYCm1kDbPKJiZA4Puo2tEb1Vl7ckvdS6CAB9+tIOcTavxUZAVsC530d61Hyt3wljV0Nz/4Hgi7o5T
-	zfxL5cNk6pDi3lc7uhw6ijTfMOK7wH/GuTgW/wUzyoG+IRqXbZh/L2rHWO6hJJPkzWEeA8smEvahx
-	MR+Q9RZw==;
+	bh=TSEGKQzB1WAe4mG6RsOQMGtvhysGI/AKv3U5JbVIAVQ=; b=QXhKexvKhEk+iIM0PJDeiQzmX6
+	AS3vVWMxL2iGmhJwED66U5ZqULfZIoX2PEL81WDgAnHg0LtcN/jXBG3j7ynRfm+u6WQOJ303cWk8d
+	6USa3E6KhHrFTxVPZ7olu1uuRHFPJgCxZpp/0Z2ctrRFKjdzm9lVA0c9KfOaFAikhTgrkONy/aNXt
+	KlXfsR/tuuqJP5jm0Ff+VsAN97BGcuPtgE5tbGT2M9j8iP43io4FtJDVjdHxVw99jgPaKfkaNXFCw
+	uPkiKBpm5F/++YbOvya4cuzUXKVnvKsxSpzjZJEEn+t80NTAUiZBJgyzvddLQgbYtjmp171cMXTYc
+	jnGx0FAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDrcl-00000004WON-1ig3;
-	Fri, 17 Apr 2026 22:25:19 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1wDrkK-00000004WuV-3E7r;
+	Fri, 17 Apr 2026 22:33:08 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDrcj-00000004WNz-0p09;
-	Fri, 17 Apr 2026 22:25:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1776464704; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=EMtDlA47WytILsQiJHXFMfsGWLQe3mkc8kqd3YUaHC+h8lzn9p63CR/XWc4vxIUCXUZ1gPgISPRmbJzTY+xoJaSwymJ6D8OKKhjtnjDDUxvByfypxj38Fgw0qKhZDvhnqQZfgDnHbOrCPEpDk9Pv85pSjwhhT1x/0BA1Fjz2xps=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1776464704; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=+zBBLCkgMkRnprkfPkN/u+UeorTqdWoVN2pXiolVZQc=; 
-	b=oL1R4vBq3IoWkluq2slvzZEt0lPPdtkCDgoVWEgGhftPZJYg5grfcMqM0vmeQ2FiQv/G3p5RzyMpqzHKbqL0p4kpvZyVnkNTHGFhh663Q1EFyT1M1IdfDuBcY2+2X6XpCwdwvmcc1txb7VVcwnsk4FE0ggIqbZzfjl09s9C0xSs=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1776464704;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=+zBBLCkgMkRnprkfPkN/u+UeorTqdWoVN2pXiolVZQc=;
-	b=jGM36SBPyQyrj76EO6boBdfflIRp+muoNNJhnM+itHMXeRtFhsw9iVQRePlUXd/w
-	3o/2GhadrZiI7yGUymFfMPRG72fyFvc9BZayLjgFitcPOgMDAa9nZ2K5NUPQx8ESpvm
-	g6x7e004R1f5zmL+On8jyykLbF0JJL05bbsAtCGU=
-Received: by mx.zohomail.com with SMTPS id 1776464702393585.2516640397748;
-	Fri, 17 Apr 2026 15:25:02 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id 03312182620; Sat, 18 Apr 2026 00:24:58 +0200 (CEST)
-Date: Sat, 18 Apr 2026 00:24:57 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Alexey Charkov <alchark@flipper.net>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Pavel Zhovner <pavel@flipper.net>, 
-	Andy Yan <andy.yan@rock-chips.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Subject: Re: [PATCH RFC 0/4] arm64: rockchip: The hunt for exact pixel clocks
- on RK3576
-Message-ID: <aeKtNf8CCAWduI-f@venus>
-References: <20260417-rk3576-dclk-v1-0-26a9d0dcb2de@flipper.net>
+	id 1wDrkH-00000004Wtn-3tYF
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Apr 2026 22:33:07 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63HG4Gpb4068652
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 22:33:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=TSEGKQzB1WAe4mG6RsOQMGtv
+	hysGI/AKv3U5JbVIAVQ=; b=oXzhYDK1rSLLAp2XIHAVvLo4AVqqKnlswar189HN
+	e+rnzd4BME96QgsFztG5BU63Zk4j9KXEQIVcmjKW62Fgday+sRMm+JAzN6ghiRE3
+	qGy7XqnmhAb+dW6JF6f8mBCHJhY6uOzwvjvwHmQ2fvZThDOhhdt5pHzfFGvSFGk0
+	S2+qFTh9QuNk9UzDeBYPyuGuCTkFUKp+RFM7tLZIN4r1X7e8M318vOz97z/C4u1h
+	aUSUQedy+DVpgc6grFsf6oIw83sKg8qamfYAzbPTY3uivt3TAVkJvqtDjR0q0oQn
+	DVCMtAKCPXWR2gl8TLA/hrybVLumaootglztDdTC2Vp1OA==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dkhpu2ggj-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 22:33:03 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-50d9d52ad9aso24266801cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 15:33:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1776465183; x=1777069983; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=TSEGKQzB1WAe4mG6RsOQMGtvhysGI/AKv3U5JbVIAVQ=;
+        b=bcJoPFC8Mut719dpZIk3JYGNzWkzNzGBgiFQ47bwuqXNDysZIiSZOZF48LWfQfgPoE
+         opI4AxY69mQRR65SwcUsosY8hqWBaHCQPxBZBOOdjajUQIFFYSUSftYJ3Qs9smE5l6gj
+         4zgltY8HJNzoJhQ3iNGfRQLUNuohLTEsH2SQoKUO8IYB+s5fSlFhPvrLpMs09etaEQyo
+         Jdx4o+nhR46Gg9CJIT9AFhcae3vtPezUzqXrbR+8DDPa/7PjrDzwWjJpz44R2edYEht0
+         N/G3YsWW9TeD+2vYNqbWEdzLDJ0Rkc2HHCGhlKdLppWxkKgS7i2yhQut+alEY+pFu+4W
+         2FfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776465183; x=1777069983;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TSEGKQzB1WAe4mG6RsOQMGtvhysGI/AKv3U5JbVIAVQ=;
+        b=SINzVAidrTvh2qst3CHSVbWH54WAiTcIDAavZ44U5MXt3IieCcaWqhGRV43yaPJB5Z
+         Z0+z29c1UlJjRa5fR3T+Cb6SdDtfLSpEjMBqYbWb9INQUMWCgDPd48hWqEEzqTx7cElJ
+         oRoiKdWyvKpD6pVjsstSUi6FupO2QNLnaEjlqkXFK2soCDKbRRzKfBnhndQk8qY0W5qL
+         4PVUt3QhgKA7uTQbn9GTnvmcgd9cS87KufWgssLGebLGnw1UAl6jiok4hnoFTMVEfBU6
+         FfP8kaT67M+RFKBxl5uzd6n50qdDhpPZjpQEGY+VZ/gkqij7S99Hpbn3fdY2K1BH/ZKj
+         k5Ow==
+X-Forwarded-Encrypted: i=1; AFNElJ9cpIsPvfE4KHNviaFOl3HruxxGeM9NM6/4U7ROOFLpn8hq/ZFgXySn+3zR/7M6CDNODTLk2ug0Yft2o7RrFhpW@lists.infradead.org
+X-Gm-Message-State: AOJu0YxyD/+9VnavSRvLgVBbydyJ1zIHnZWEJCgAAwXrTPjSpYHrmZ7U
+	273CNEXo4LvGDF1H4KBFijRE6V6cuIgdraet2Vm0xKvzXaHNpKmmHZG0ynLA5DprCy0HvXJPQIb
+	LraS5RpPLHmN4LNbI+B1EsgYEjL6EGQfqssMeEW9hj6evDRONW+gxp2OVr/LEZDXb44WEEZoJdH
+	j7zw==
+X-Gm-Gg: AeBDievftaDzL8L9Tu1i9r78/u8+rwxZzQ10GlRG8yfU7TA30u6oAb26axCFprAqAnR
+	SoZYu3Ue3m8GsM3fbYfo4E418G2um2CcqV1tu9RA8mWdBVFHc8hAxmj5dWAsl7hdUqL+PNzdUsy
+	xrll0/Qwc9jtzLaEUl+KaEBWfGFFMwQZiTlBQRb1kadOosbIuRhnoVXDBi9kM951KkEi4utpH15
+	io/6wQ68+kWWqOO+GT2XbnxBv0ly6CINhvVno+/R6WWGxRum2v9IQjHlJjVAtDo6Sxhef0F2jF2
+	gz6UBEcvh2iTDEscStIEDdTYacz6AnKqR8Fcww3Vg0Hd43F4kQ+91/TSjNfkQqxTdxP8/eNvBoT
+	695nYGTr0aVfJE4WCMpQ9/X1pPf4y1XVIXJV1Rptk0iRqQeFMheU1QnAx6uOSsnF2G6QqoaRpFy
+	Ti3ddvODRobED0uQckddfsGECpcax17XGnkcY4AQ2LlKvQnw==
+X-Received: by 2002:a05:622a:345:b0:50d:82ca:7c9c with SMTP id d75a77b69052e-50e3693d29amr70717821cf.14.1776465182686;
+        Fri, 17 Apr 2026 15:33:02 -0700 (PDT)
+X-Received: by 2002:a05:622a:345:b0:50d:82ca:7c9c with SMTP id d75a77b69052e-50e3693d29amr70717191cf.14.1776465182179;
+        Fri, 17 Apr 2026 15:33:02 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a4185bc297sm770798e87.18.2026.04.17.15.33.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Apr 2026 15:33:01 -0700 (PDT)
+Date: Sat, 18 Apr 2026 01:32:59 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+        linux-usb@vger.kernel.org, intel-gfx@lists.freedesktop.org,
+        intel-xe@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        freedreno@lists.freedesktop.org,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Andrzej Hajda <andrzej.hajda@intel.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Robert Foss <rfoss@kernel.org>,
+        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+        Jonas Karlman <jonas@kwiboo.se>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Adrien Grassein <adrien.grassein@gmail.com>,
+        Jani Nikula <jani.nikula@linux.intel.com>,
+        Rodrigo Vivi <rodrigo.vivi@intel.com>,
+        Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+        Tvrtko Ursulin <tursulin@ursulin.net>,
+        Kevin Hilman <khilman@baylibre.com>,
+        Jerome Brunet <jbrunet@baylibre.com>,
+        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Pengyu Luo <mitltlatltl@gmail.com>, Nikita Travkin <nikita@trvn.ru>,
+        Yongxing Mou <yongxing.mou@oss.qualcomm.com>
+Subject: Re: [PATCH 1/6] drm/connector: report IRQ_HPD events to
+ drm_connector_oob_hotplug_event()
+Message-ID: <6z572fdjkvjqvedifwvotgdy4lcrifiqvkjpnutousjqc6764r@zepfzkqy2kbu>
+References: <20260416-hpd-irq-events-v1-0-1ab1f1cfb2b2@oss.qualcomm.com>
+ <20260416-hpd-irq-events-v1-1-1ab1f1cfb2b2@oss.qualcomm.com>
+ <51b7c44e-36c9-461f-983a-eaa86eeb8cfd@ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="oavuqxz2xzcieowj"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260417-rk3576-dclk-v1-0-26a9d0dcb2de@flipper.net>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.2.1.5.2/276.440.67
-X-ZohoMailClient: External
+In-Reply-To: <51b7c44e-36c9-461f-983a-eaa86eeb8cfd@ideasonboard.com>
+X-Authority-Analysis: v=2.4 cv=Kd7idwYD c=1 sm=1 tr=0 ts=69e2b51f cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=EUspDBNiAAAA:8
+ a=VTJl8P6_mujMtk0GPeUA:9 a=CjuIK1q_8ugA:10 a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-GUID: JT4eZqGEgowtU6aDG5et47Giot09liuY
+X-Proofpoint-ORIG-GUID: JT4eZqGEgowtU6aDG5et47Giot09liuY
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE3MDIyNiBTYWx0ZWRfX4ezi0km73eOx
+ kbUTYvzprraiG9BKIWYwC987F/CpLQnjRjwtjPYTF4JffY1QVIUxaPDGwGXtIj0ljyy+vLcUuIa
+ 3h5DzoPfiUqORT9+MvQTi0HTwLsEbklqSAQ9o2DLbWXJul/vL00Q2HsPLYLCxHRuMYUOQnHJ/wr
+ 4Fkq4emknRYPruwqEts4slKUW1zHuKJ/oABVZbVEO9fXurfpwfO4aB/Bt/bd8coQItpctkYj91W
+ cYsleKO7znT4dBxLft+DzDJEucFi502cOQXhhOnwsD0ehGWnkOGAPJMkuUi8IAC4Do7LIUV04ou
+ 2GsX/bXF0zMn68LFdPR3z5suXZLdJ9wOimcUNdgcYXgYqx9m0rZTVs8rJGJ3aNtz6uahe+G5CKR
+ wmwoFVou/UdSS7nY+GE+CyEZnjnpSPHJ5KqNFjELNjp7Sy64LE4bYNF0CGm7JDKHi0bhZTJMxL6
+ Aq82zMtXVMvfOr4b/ZA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-17_02,2026-04-17_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 bulkscore=0 priorityscore=1501 lowpriorityscore=0
+ adultscore=0 spamscore=0 phishscore=0 suspectscore=0 malwarescore=0
+ clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604070000
+ definitions=main-2604170226
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_152517_302156_3B3EE856 
-X-CRM114-Status: GOOD (  53.10  )
+X-CRM114-CacheID: sfid-20260417_153306_143117_7DA880C5 
+X-CRM114-Status: GOOD (  34.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,182 +176,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Apr 16, 2026 at 11:10:03AM +0300, Tomi Valkeinen wrote:
+> Hi,
+> 
+> On 16/04/2026 02:22, Dmitry Baryshkov wrote:
+> > The DisplayPort standard defines a special kind of events called IRQ.
+> > These events are used to notify DP Source about the events on the Sink
+> > side. It is extremely important for DP MST handling, where the MST
+> > events are reported through this IRQ.
+> > 
+> > In case of the USB-C DP AltMode there is no actual HPD pulse, but the
+> > events are ported through the bits in the AltMode VDOs.
+> > 
+> > Extend the drm_connector_oob_hotplug_event() interface and report IRQ
+> > events to the DisplayPort Sink drivers.
+> > 
+> > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> > ---
+> >   drivers/gpu/drm/drm_connector.c          |  4 +++-
+> >   drivers/usb/typec/altmodes/displayport.c | 12 ++++++++----
+> >   include/drm/drm_connector.h              |  3 ++-
+> >   3 files changed, 13 insertions(+), 6 deletions(-)
+> > 
+> > diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+> > index 47dc53c4a738..5fdacbd84bd7 100644
+> > --- a/drivers/gpu/drm/drm_connector.c
+> > +++ b/drivers/gpu/drm/drm_connector.c
+> > @@ -3510,6 +3510,7 @@ struct drm_connector *drm_connector_find_by_fwnode(struct fwnode_handle *fwnode)
+> >    * drm_connector_oob_hotplug_event - Report out-of-band hotplug event to connector
+> >    * @connector_fwnode: fwnode_handle to report the event on
+> >    * @status: hot plug detect logical state
+> > + * @irq_hpd: HPD pulse detected
+> >    *
+> >    * On some hardware a hotplug event notification may come from outside the display
+> >    * driver / device. An example of this is some USB Type-C setups where the hardware
+> > @@ -3520,7 +3521,8 @@ struct drm_connector *drm_connector_find_by_fwnode(struct fwnode_handle *fwnode)
+> >    * a drm_connector reference through calling drm_connector_find_by_fwnode().
+> >    */
+> >   void drm_connector_oob_hotplug_event(struct fwnode_handle *connector_fwnode,
+> > -				     enum drm_connector_status status)
+> > +				     enum drm_connector_status status,
+> > +				     bool irq_hpd)
+> I find the "IRQ HPD" naming always confusing, even if I'm somewhat familiar
+> with DP, but if someone has mainly worked on HDMI, I'm sure it's even worse.
+> 
+> Can we define this a bit more precisely? Is 'irq_hpd' only for displayport?
+> If so, perhaps 'dp_irq_hpd' or 'displayport_irq_hpd'. I might even call it
+> 'dp_hpd_pulse', but maybe that's not good as the spec talks about HPD pulse
+> for both short and long ones (although in the kernel doc you just write "HPD
+> pulse")... The kernel doc could be expanded a bit to make it clear what this
+> flag indicates.
 
---oavuqxz2xzcieowj
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH RFC 0/4] arm64: rockchip: The hunt for exact pixel clocks
- on RK3576
-MIME-Version: 1.0
+I attempted to stay away from defining a DP-specific flag, keeping it
+generic enough. HDMI is pretty close (IMO) to requiring separate flag in
+Linux. Likewise I'd rather not use "pulse". The DP AltMode defines a bit
+in the VDO rather than a pulse.
 
-Hello Alexey,
+Anyway, if irq_hpd doesn't sound precise enough, what about "bool
+extra_irq"? This would convey that this is the extra hpd-related IRQ,
+but it would also be obvious that it's not related to the HPD pin
+itself.
 
-On Fri, Apr 17, 2026 at 07:11:43PM +0400, Alexey Charkov wrote:
-> Dear all,
->=20
-> Need the help of the collective wisdom of the community.
->=20
-> The problem I'm trying to solve is reliably obtaining the exact pixel
-> clock for arbitrary display modes supported by the RK3576 SoC.
->=20
-> Rockchip RK3576 has three display output processors VP0~VP2, each
-> supporting different ranges of display modes, roughly as follows:
-> - VP0: 4K 120Hz
-> - VP1: 2.5k 60Hz
-> - VP2: 1080p 60Hz
->=20
-> Each one obviously needs a pixel clock. The required frequencies for the
-> pixel clocks vary greatly depending on the display mode, and need to be
-> matched within a tight tolerance, or else many displays will refuse to
-> work. E.g. the preferred (maximum) display mode out of VP1 is particularly
-> awkward, because it requires a pixel clock of 248.88 MHz, which cannot
-> be obtained using integer dividers from its default clock source (GPLL
-> at 1188 MHz), and the nearest approximation is 237.6 MHz, which is well
-> outside the tolerance of e.g. DP specification, resulting in a blank
-> screen on most displays by default.
->=20
-> The clock sources are of course configurable, in particular there are mux=
-es
-> connected to each VP for selecting the source of the pixel clock:
-> - Each VP can take the clock either from the (single!) HDMI PHY or from
->   its dedicated dclk_vpX_src mux
-> - The dclk_vpX_src mux can select the clock from a number of system PLLs
->   (GPLL, CPLL, VPLL, BPLL, LPLL)
->=20
-> While the system PLLs can be configured to output a wide range of
-> frequencies, they are shared between many system components. E.g. on the
-> current mainline kernel on one of my RK3576 boards I've got the following:
-> GPLL: 1188 MHz, enable count 20
-> CPLL: 1000 MHz, enable count 17
-> VPLL: 594 MHz, enable count 0 (yaay!)
-> BPLL, LPLL: 816 MHz, enable count 0 (but these last ones don't have
->             predividers, so are less flexible)
->=20
-> So ultimately there is exactly one free fractional PLL (VPLL) which can be
-> used to generate arbitrary pixel clocks, but we have up to three consumers
-> trying to drive different display modes from it (e.g. HDMI on VP0, DP on
-> VP1 and MIPI DSI on VP2). We also want to be able to adjust the PLL output
-> frequency on the fly to satisfy the requirements of the selected display
-> mode.
->=20
-> And this is where I'm stuck. Trying to satisfy the requirements of up to
-> three consumers while changing the PLL frequency on the fly sounds like
-> a poorly tractable mathematical problem (is it 3-SAT?). We can take the
-> HDMI output out of the equation, because it can be driven from the HDMI
-> PHY (which is capable of arbitrary rates) instead of the mux, but that
-> makes the decision of which dclk source to use for a VP block dependent on
-> which downstream consumer is connected to it (HDMI vs. something else).
 
-It becomes more messy: The HDMI PHY cannot be used as clock source
-for modes exceeding 4K@60Hz.
-
-> Even then we somehow need two devices to cooperate in picking a PLL
-> frequency that satisfies the requirements of both of them, and change to =
-it
-> without display corruption. I'm not even sure if the CCF has mechanisms
-> for that?..
->=20
-> What follows is a brief set of patches which illustrate a partial solution
-> for the case of "I just need 2.5k60Hz on VP1 via DP and don't care about
-> the rest". It switches the VP1 unconditionally to use VPLL as the source
-> for its dclk mux, allows changing the VPLL frequency on the fly, and also
-> changes the frequency calculation logic to allow for nearest-match
-> frequencies which are not necessarily rounded down. These are not meant
-> to be merged as-is, as I see the following issues:
-> - The flag allowing the PLL to change rate is in the clock driver, while
->   the reparenting to an unused PLL is in the device tree. If these go out
->   of sync, we might end up trying to change the frequency of a PLL which
->   is used by other consumers (I presume that could be dangerous)
-
-It is a problem, see e.g. this patch from Heiko removing the flag
-for an RK3588 VOP source clock:
-
-https://lore.kernel.org/linux-rockchip/20251008133135.3745785-1-heiko@sntec=
-h.de/
-
-Also note, that there is some more general ongoing work regarding
-this:
-
-See: https://lore.kernel.org/linux-clk/20260327-clk-scaling-v8-0-86cd0aba3c=
-5f@redhat.com/
-
-> - If VP0 happens to be driving DP output, it won't be able to produce the
->   2560x1440@60Hz mode for the same reasons as VP1 - then it must also be
->   reparented to VPLL and allowed to change its frequency on the fly
-
-There is also the problem that nearest match might be sensible for the
-display, but is not generally safe. For other clocks you might
-effectively overclock, which shouldn't be done by default.
-
-> It does bring me from a state of "always blank screen on DP output until
-> the mode is switched to something magically working" to a state of
-> "most monitors work at the default preferred mode" though.
->=20
-> It is tempting to just reparent both VP0 and VP1 to VPLL and allow both of
-> them to change its frequency, while leaving VP2 on the default (fixed)
-> GPLL and relying on the fact that 148.5 MHz (the required frequency for
-> its maximum supported mode of 1920x1080@60Hz) is conveniently 1188/8 MHz -
-> just what GPLL can provide. Then also force whichever VP is driving HDMI
-> output to use the HDMI PHY as its clock source. But we still have the
-> problem of DT vs. driver coordination, and I'm not sure how to define
-> the policy for "if you've got HDMI connected, you must use the HDMI PHY
-> clock for the respective VP, whichever VP that is".
-
-Sorry, I don't have any complete solutions - except that I can tell
-you that the VOP2 driver already automatically switches the clock
-source to the HDMI PHY for HDMI outputs if the pixel rates allows it:
-
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/dri=
-vers/gpu/drm/rockchip/rockchip_drm_vop2.c#n1757
-
-Greetings,
-
--- Sebastian
-
-> I would very much appreciate any thoughts on how to approach this.
->=20
-> Signed-off-by: Alexey Charkov <alchark@flipper.net>
-> ---
-> Alexey Charkov (4):
->       arm64: dts: rockchip: rk3576: assign dclk_vp1_src to VPLL
->       clk: rockchip: pll: use round-nearest in determine_rate
->       clk: rockchip: rk3576: allow dclk_vp1_src to propagate rate to pare=
-nt PLL
->       clk: rockchip: rk3576: add ROUND_CLOSEST to dclk_vp1_src divider
->=20
->  arch/arm64/boot/dts/rockchip/rk3576.dtsi |  2 ++
->  drivers/clk/rockchip/clk-pll.c           | 16 ++++++++--------
->  drivers/clk/rockchip/clk-rk3576.c        |  4 ++--
->  3 files changed, 12 insertions(+), 10 deletions(-)
-> ---
-> base-commit: c7275b05bc428c7373d97aa2da02d3a7fa6b9f66
-> change-id: 20260417-rk3576-dclk-4c95bbb67581
->=20
-> Best regards,
-> --=20
-> Alexey Charkov <alchark@flipper.net>
->=20
-
---oavuqxz2xzcieowj
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmniszUACgkQ2O7X88g7
-+pqLmQ//bIF1BfX8fP/unwatE/Nz4LyMh7NRPqn4bmRvdo7GivZPWcmoM4/4VRgk
-P4UFajrspzeLuLd0ve7vaJOjsp7rz7Dax+/GQVdBYODO52cXkIFmRfiRFxqgnfGd
-ZAmgvW47Ib5bbi4rUETncsx3JBKJEyBuoPOlhLwW9q8rQffPPx2R/x8J5wWjWSEA
-cxl6jOnxtHAIoEO3WiHW2YI7bCbvhzEQ3SYwjw01R7/bVMGAJT1VmpDIh/+UZsN7
-SLYqgCKrPMhBgGXG+8GWP9cx4mk4PekA3tFfcLS2ypxYmfaqPJyE+VCTd/1jPK04
-HrijXux1cSNXy2Ut7azCJ04bqCmCGUoYrzvUVZjHT4M88jE+45KLbATrb9htMnnz
-QQngIWTlUPYT6z6IItTYDz/Y28yOezmGe9NeVgzhYtd+mYL9WqEEHy7jzIjEqho7
-IZT5F8mk0I0URqWPAftcnlFljlIAk0TeHaxB2erPhGFOgQfvVdocRpQhrPzS+q9m
-1cZoVntJX/NB1kqkfnnA6b0ufKRXhwwLavigHfGnzunKhgFDvGMEAn08IUw0q9rA
-d/zVeWLu0D5+U94iR5VHkp9nPSlKi4K+l97OCT2UKZvWktjklZaCPvu3jks2h6rJ
-J8EpXrdem/c8gJ/eYIsjxx0NMK0/JTzRVaZXoCWkEjH0NJFsi7Q=
-=8+Q/
------END PGP SIGNATURE-----
-
---oavuqxz2xzcieowj--
+-- 
+With best wishes
+Dmitry
 
