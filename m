@@ -4,60 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27E9DF436B7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 15:29:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E55EBF436B8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 15:36:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6+DK1UmeIswFbsgqvCxobY1iypq/44Q4fqG3hVrciwM=; b=B5GH+eEyYya7W++3+xZbSJRunk
-	bISQuUjFCuLW7XDo1O2y3v71i1eWzPizEFof0sTCrhAjPx0X7sfBE1oQl+ml4VclaVZI7o8dJGUBP
-	5XXcztcK/qRm/IDLL1jkeYyYH4PIasyl0N9HYwF9gky+zUgP8KRiSEYaaeXBZB7vaFf3TIv1vEziu
-	2vVdzmyYshuAy9iUG0SNQmX6YolLj/KijqMCfxZKDLc1zCZeVbJ4hx+YYrXaP9c47FWosW2mGGH2p
-	NW32D9ZBSRmTBr/wYEXv6dl21iWkgRHPB4zhfAl5HgeCOAO9xHMK8vVyyHMOW3G9kmBpcRiJGa0Q6
-	uRcZoSrA==;
+	bh=sbMVlQS0lRAZ/ZBrlztbGqdGMddTU1wc54B8NGqwM8I=; b=th2vwAESLyvGKHBniHv+5nQWr8
+	tiaeJudU5AZgbN/h2g9i4j86Kz3/c8py1huTas7AiEk6WF0ghrLgU27lCEMHSbFAwHWUOgMhQHgXF
+	Dr8QQveZL9FpdfQl5eF0buJ9c7F9eMGz53vYGI69myfoI6wpSMlVuV/0fvHcKXhpadfTxEMkcqrOg
+	KmGFfS/KBoSimukU8p5d4c7VEwHdIvMDODIEEZdYedmCZ1c7U9Msw5JFJbvD6xT82NNltfV2PW+If
+	cXNT7LBB4eIyI/dao+gMmEmE+93HfMCO3ZRfLvyRjhW+wETAbjB7h80KbG5/EjJMR41/TN5pM5xRH
+	yBg9INVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDl8X-00000004DJv-01Y9;
-	Fri, 17 Apr 2026 15:29:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDl8U-00000004DJR-1E6K
+	id 1wDlFU-00000004DfD-1Q6v;
+	Fri, 17 Apr 2026 15:36:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDlFS-00000004Df5-3tpH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 15:29:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 46F1C1C25;
-	Fri, 17 Apr 2026 08:29:30 -0700 (PDT)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8A4B83F7D8;
-	Fri, 17 Apr 2026 08:29:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776439775; bh=wcGMZozAsLV99EU8C+5KOdPZvcpUqDFWXQ1NY3TqZQE=;
+	Fri, 17 Apr 2026 15:36:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 197B760138;
+	Fri, 17 Apr 2026 15:36:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57671C19425;
+	Fri, 17 Apr 2026 15:36:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776440209;
+	bh=FcCWGPrk9R7P1cPiUZKS/mKU1dNaQ59sANhzcCbnuFQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cVkeV0iLONQ1/hrMFbrkQKa53f8amGrFR7rdEwPeNI7WmfoAQsZ9+4AZCq1xvwO71
-	 4Whf/irnYBxohsiJRawXc0MGDFWo/UL2oTNA71wewXAUeSDZY2kNU3T+TAeCvGb3/2
-	 YLJ+MoiCS9ob9LxtsVQue9erNzJwVbGyQHhcscU0=
-Date: Fri, 17 Apr 2026 16:29:31 +0100
-From: Joey Gouly <joey.gouly@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
-	Sascha Bischoff <sascha.bischoff@arm.com>
-Subject: Re: [PATCH 15/18] Documentation: KVM: Fix typos in VGICv5
- documentation
-Message-ID: <20260417152931.GB3311048@e124191.cambridge.arm.com>
-References: <20260415115559.2227718-1-maz@kernel.org>
- <20260415115559.2227718-16-maz@kernel.org>
+	b=cl9GvVzWvXXyBspphHKbtR9Jla4/6r+9qD3boEHEa7N7GXm/jzvQmjv0+2ElM1oSf
+	 7ft4o+c6anFmHwLaXK9JHIpy/gmSHbb+z3dznRq+xAuxRN7PScBO4ACYvafevJ3SIk
+	 VGrF39ngUkh6sgG6wOIB/xdbgGhh5ev/NbXACAIm1m+Whw1jm9VVyfDnYl8d0j61t3
+	 x9J7GSDxdn73gJjWUCahrQv+LCzB2VkPy4L8lkD0akswdkqFm9XWC/z97jIXLQOhV8
+	 5rpt5afyRv5C1EmwCW+vhtP216j6AcfWHfMAQQ8Jv2x9Mfb3EJ/HoyPZS7MtSscd9x
+	 28GPeqfhvnw4g==
+Date: Fri, 17 Apr 2026 16:36:44 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Robin Murphy <robin.murphy@arm.com>,
+	Demian Shulhan <demyansh@gmail.com>, Christoph Hellwig <hch@lst.de>,
+	Mark Rutland <mark.rutland@arm.com>, Song Liu <song@kernel.org>,
+	Yu Kuai <yukuai@fnnas.com>, Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, Li Nan <linan122@huawei.com>,
+	linux-raid@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] raid6: arm64: add SVE optimized implementation for
+ syndrome generation
+Message-ID: <2c2eb793-c0a4-4b65-93f1-0ece5cf820d7@sirena.org.uk>
+References: <acJhCCPfVxjFUZ5R@J2N7QTR9R3>
+ <CAOLeWCsxhzdxQviizJ4X4VOp_28LCtO-RjWoCcZG29rQw86NVg@mail.gmail.com>
+ <9a12e043-8200-4650-bfe2-cbece57a4f87@app.fastmail.com>
+ <20260331063659.GA2061@lst.de>
+ <CAOLeWCtnZz=kHGk4C2f9Mbfi3tEBE100iCkMBhcG47dmR9eDWw@mail.gmail.com>
+ <CAOLeWCtxPk7q_bVvrcKaipSKr+_=57Auobcj0cFRvXxXMdH58g@mail.gmail.com>
+ <5158e4e0-3275-4c29-a8fc-2dfabc13a69d@app.fastmail.com>
+ <CAOLeWCtf2rZyPeJH-LuZ2A+c7mC9M2r-Ya0VjyOJFpun3TFMnw@mail.gmail.com>
+ <8db4defe-8b5e-4cc3-880b-72d46510b034@arm.com>
+ <c9362db6-1fef-4e70-9525-29b2936f4887@app.fastmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="h+PLrOwUQ0SPNQK2"
 Content-Disposition: inline
-In-Reply-To: <20260415115559.2227718-16-maz@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_082938_367252_7D5157E1 
-X-CRM114-Status: GOOD (  18.09  )
+In-Reply-To: <c9362db6-1fef-4e70-9525-29b2936f4887@app.fastmail.com>
+X-Cookie: Uh-oh!!  I'm having TOO MUCH FUN!!
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,51 +85,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 15, 2026 at 12:55:56PM +0100, Marc Zyngier wrote:
-> From: Sascha Bischoff <sascha.bischoff@arm.com>
-> 
-> Fix two typos in the VGICv5 documentation.
-> 
-> Fixes: d51c978b7d3e ("KVM: arm64: gic-v5: Communicate userspace-driveable PPIs via a UAPI")
-> Fixes: eb3c4d2c9a4d ("Documentation: KVM: Introduce documentation for VGICv5")
-> Link: https://sashiko.dev/#/patchset/20260319154937.3619520-1-sascha.bischoff%40arm.com
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  Documentation/virt/kvm/devices/arm-vgic-v5.rst | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/Documentation/virt/kvm/devices/arm-vgic-v5.rst b/Documentation/virt/kvm/devices/arm-vgic-v5.rst
-> index 29335ea823fc5..1985b2d880322 100644
-> --- a/Documentation/virt/kvm/devices/arm-vgic-v5.rst
-> +++ b/Documentation/virt/kvm/devices/arm-vgic-v5.rst
-> @@ -12,8 +12,8 @@ Only one VGIC instance may be instantiated through this API.  The created VGIC
->  will act as the VM interrupt controller, requiring emulated user-space devices
->  to inject interrupts to the VGIC instead of directly to CPUs.
->  
-> -Creating a guest GICv5 device requires a host GICv5 host.  The current VGICv5
-> -device only supports PPI interrupts.  These can either be injected from emulated
-> +Creating a guest GICv5 device requires a GICv5 host.  The current VGICv5 device
-> +only supports PPI interrupts.  These can either be injected from emulated
->  in-kernel devices (such as the Arch Timer, or PMU), or via the KVM_IRQ_LINE
->  ioctl.
->  
-> @@ -25,7 +25,7 @@ Groups:
->        request the initialization of the VGIC, no additional parameter in
->        kvm_device_attr.addr. Must be called after all VCPUs have been created.
->  
-> -   KVM_DEV_ARM_VGIC_USERPSPACE_PPIs
-> +   KVM_DEV_ARM_VGIC_USERPSPACE_PPIS
 
-This still has a typo! There's a P lurking between USER and SPACE!
+--h+PLrOwUQ0SPNQK2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
->        request the mask of userspace-drivable PPIs. Only a subset of the PPIs can
->        be directly driven from userspace with GICv5, and the returned mask
->        informs userspace of which it is allowed to drive via KVM_IRQ_LINE.
-> -- 
-> 2.47.3
-> 
+On Fri, Apr 17, 2026 at 04:43:06PM +0200, Ard Biesheuvel wrote:
 
-Thanks,
-Joey
+> On arm64, kernel mode NEON is mostly used to gain access to AES and SHA
+> instructions, and only to a lesser degree to speed up ordinary
+> arithmetic, and so XOR is somewhat of an outlier here.
+
+> Given that Neoverse V1 apparently already carves up ordinary arithmetic
+> performed on 256-bit vectors and operates on 128 bits at a time, I am
+> rather skeptical that we're likely to see any SVE implementations of the
+> crypto extensions soon that are meaningfully faster, given that these
+> are presumably much costlier to implement in terms of gate count, and
+> therefore likely to be split up even on SVE implementations that can
+> perform ordinary arithmetic on 256+ bit vectors in a single cycle. Note
+> that even the arm64 SIMD accelerated CRC implementations rely heavily on
+> 64x64->128 polynomial multiplication.
+
+I'd not be surprised to see something that delivers useful benefits
+using SVE at some point.
+
+> IOW, before we consider kernel mode SVE, I'd like to see some benchmarks
+> for other algorithms too.
+
+Definitely, it needs a solid win to merge anything.  I do want to get
+back to the situation where we've got out of tree infrastructure patches
+so that people working on algorithms have something to base their work
+on (and see the overheads using SVE incurs) but unless theres's a
+practical user they should stay out of tree.
+
+--h+PLrOwUQ0SPNQK2
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmniU4sACgkQJNaLcl1U
+h9B/2Af/TY2x6C29q51viQsIQR8AqsXh0E7IX7IOqJXFpXWDc29gFjdyz/b+ScmF
+hJBLBAq0+VL99Fqm2/uwLs0yvgU6xhfzSqLy7Y/eZ8BAFMthU+BAyt2FwXYcFv7b
+lWjyhddMsXJG341/X4k8WsqQ6R8O89UAyZ3apu9rAPZAPXJgkFxXQmypikpEqU+M
+5FIbf7mTZZicf9/uWcbK8qayKuUIc/NAtET3IZidHsLkQPalICs2Zv5ae6DWZ1dk
+ELeHqZCLdrKq+KaoH4kXqomFfway1oEFOYQqHsdrcL1tHB7EvP6Y7ISsa/0LTL0q
+AUuF65vn4L4sYBXPoYdpOg2asYgTvA==
+=Z3VX
+-----END PGP SIGNATURE-----
+
+--h+PLrOwUQ0SPNQK2--
 
