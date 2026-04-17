@@ -4,133 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E1BF8E49F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 18:00:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DF92F8DFF9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 18:04:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eKnuqK5gxXv4kVl8+1xi85Th1iksv24OjLJBXHj7S2s=; b=ibBn0Ek9XTByeE6NEngNxyIwW6
-	PPibjYRAyraJSDLs78qhShw6lVFRa6jHFOh/6xgX1STQdbRMPajlQjMS6i6NpRKFDPScWRrbVT1zj
-	rct1IG7akat8lG6WJvTV1UYpa5ENJZGce+DY8MoTq+NH9B1boXj4p8zidkaFKXM1AHT9MOp2LIgUl
-	UJbNMwQ/U0hKyCg9vKPFpMNRVQKILlX3D2w59BrNGNOyghfknNQNvo0axBGQgvMI61okhuVUdNztr
-	RkwE5qF+yHYgTvy7PnZf3QKWpH8d43zfJDwLa8sm6gyVdFjjpbEhmhPx3IatGeK6Plmz8RB59XyCI
-	I/vry3YQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RgGLav7Gb6QvovV50XxB4tm3UuKBSRBem6o7kf7SUp0=; b=yJZfWMYhBxEDp9Hts8dQI0+Tdr
+	uMnT7fOI0TGhRluP/uaEDxUBvuCdA91vfkzffqAdzTZtB0JQetUPQdE5DUAgNaKKPhNUk0/6TUK9y
+	E8pI7wNblBlehjas+R6+z085GosMvSpyJhV58CxQRLrkyEn5vW6lGPVUJB+G7YaADkc3xVEAw18gA
+	DoRazPZV52krVHjPzTSyvsIHr7pr0y35SluwjjWrA358LoK1ldBqrDk6IwRAR87CV0lHFYL+Wi4ti
+	2kMuiZG6GV8FxehsrV7n5aHJN1BmvYeNRLPN1DKpuFwAI1YE5dluI13WgnHo5Z4w27ae+J0nREkst
+	MCSpRrxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDnUF-00000004Lta-0xjd;
-	Fri, 17 Apr 2026 18:00:15 +0000
-Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1wDnYF-00000004MGN-1cuC;
+	Fri, 17 Apr 2026 18:04:23 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDnUC-00000004Lr3-1eku
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 18:00:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mLU6AKLAexVtYwDV+mNVT38yQtqXhh6t5cmYkNzN4z3LnMJvEQRUPlU4H68TohLad5TDyxQIhefOl9ufiuFMgIdjdr0RqGwujOPTuSv2CMOdzQzDpHy+VF8wq8xZBD3ZML39mhkF4PBwZdf4b1UAk92jwunRnOTF3zRGMzMY0Gq5UMzqbt6HnBkjWnW4O+cVmZKqoDPCB1YIByrcMXdoW0DWduuPU6ChbsHUFqOFrvWfu/l9itg8QltUyaUIEU6G+EXczfhMzBvIb/VG8tjs61q3ZE2NB8Oj7Ynd0qe+BK7a84wzmE8ULoQNB2BjI9r0cq/bIYFCc6SQ5UCooFmG0g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eKnuqK5gxXv4kVl8+1xi85Th1iksv24OjLJBXHj7S2s=;
- b=oGVLzT5SjhrupIpRtHxvrdGnNyoartiw/D1OI95n6W8ketEjFYhaV6cyoreYpxa6TTSLN0rsSbmo0jUWjzqvLj4LCNM9vLashHJ8ZgDmUxRhDJWbYbiOqRLLC8PyCAzDatXuVHwGEuihEAhv8kpHFpYRjPwh0rk60je0Ttk6NxeYgsU3wcRLf7O+G1fi4JKyw5WVtzMJyumCbNsWUQhgFHJkPU0pF2rV67K68kIIwCK0+j5AhS3gwYvwbmrQN8tLSSfq7vUMA6ib4Eyms8vgOYzhv7rh2CiFUyWBA0QK071EM0wWB9z66fVIVWxg33Moh+IbAMcD0Pie2a0BSKhj4Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eKnuqK5gxXv4kVl8+1xi85Th1iksv24OjLJBXHj7S2s=;
- b=XGt88K/ek9/ZeXgLY78bpyqNSap51Udeu7gwoDL5moYUW7hP609t0JFRYLcmhVbw5590KmtAA1DuXn9ApdIeEx6UENuaQCoxwYcm3Sld/8IxyKcF7VixIKDkeCWGUvAWP3DVVe86mJUfUs2vBzUfhxDremirm5p4xw71iOWFyweQ/XP1iAraDM8gAaqHBMl1SFfNlpAnOjAE8IA+xDdtRtxhsxd9nyAAG8M/oY44HqBE4GA8RBQHLDHgFXt8XE/J05JnoSXdOKnXM84T846bplPXx6yWhGTVfmSwZ/lgf7KXuPWQGeTGJ/hH+bglc1HxoGWZgMXOsd1gXAGPB4eAFw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CY8PR12MB8300.namprd12.prod.outlook.com (2603:10b6:930:7d::16)
- by MN0PR12MB5737.namprd12.prod.outlook.com (2603:10b6:208:370::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.21; Fri, 17 Apr
- 2026 18:00:02 +0000
-Received: from CY8PR12MB8300.namprd12.prod.outlook.com
- ([fe80::ce75:8187:3ac3:c5de]) by CY8PR12MB8300.namprd12.prod.outlook.com
- ([fe80::ce75:8187:3ac3:c5de%3]) with mapi id 15.20.9818.023; Fri, 17 Apr 2026
- 18:00:02 +0000
-From: Yury Norov <ynorov@nvidia.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	Srinivas Neeli <srinivas.neeli@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Yury Norov <yury.norov@gmail.com>,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Yury Norov <ynorov@nvidia.com>
-Subject: [PATCH v2 2/2] gpio: xilinx: drop bitmap_complement() where feasible
-Date: Fri, 17 Apr 2026 13:59:54 -0400
-Message-ID: <20260417175955.375275-3-ynorov@nvidia.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260417175955.375275-1-ynorov@nvidia.com>
-References: <20260417175955.375275-1-ynorov@nvidia.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BN0PR04CA0003.namprd04.prod.outlook.com
- (2603:10b6:408:ee::8) To CY8PR12MB8300.namprd12.prod.outlook.com
- (2603:10b6:930:7d::16)
+	id 1wDnYB-00000004MFv-3xxX;
+	Fri, 17 Apr 2026 18:04:21 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.99)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1wDnXv-000000007HL-0Cuh;
+	Fri, 17 Apr 2026 18:04:03 +0000
+Date: Fri, 17 Apr 2026 19:03:58 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Breno Leitao <leitao@debian.org>
+Cc: "Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Christian Marangi <ansuelsmth@gmail.com>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Frank Wunderlich <frank-w@public-files.de>,
+	John Crispin <john@phrozen.org>
+Subject: Re: [PATCH net] net: dsa: mt7530: fix .get_stats64 sleeping in
+ atomic context
+Message-ID: <aeJ2Di7tuIQ5RniE@makrotopia.org>
+References: <79dc0ec5b6be698b14cb66339d6f63033ca2934a.1776397542.git.daniel@makrotopia.org>
+ <aeJjcoHyezEgUG_Q@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY8PR12MB8300:EE_|MN0PR12MB5737:EE_
-X-MS-Office365-Filtering-Correlation-Id: fc4d9610-e520-4cbb-149d-08de9cab2622
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|366016|1800799024|376014|7416014|921020|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: OfWYIHm9AvgkKgxtJ/4bHLZc3gxARy1WvrDZIoKxDUjJGEG7ktEzRqFgfFv60D7V9eLZTrGWySpzztVx7/6rEHNYlo3mGgy4r/FVZyMChKkqTRb8E64FxNtjtfxEsXQ+smRQziueO6kfnXsiDK7WZj+3quyglik52xCbU8jfU8JlWVczgLr6kREzT3cbMoDBIqFiaSYwTx8PV4tII8ut04tmVqg/nE/mV88usqPjl4yxTyqJoyMwVWrcPBekDMrQOdtNoFoZu9NIuhLtqVnOQYxevIb9jh7bcqT3R8Wvpy5IJbe9yoktO2+A+/J6jOopvJaifNsxu0h1j91/6BpZXwz9679UeQcAWwm9zlTk2UVlyBMF2jQSAcFTNRv7tA6GE0D7xtt5s4ZRJ6gRIf8SyVQ37f93DXPH1i6USkffQlcr5Z5+ysRdHRkhgBL/kCzvn2EEO198u89OTBblNTBVPCfdkf6GBNJuH3xUfAJep1wtalg5RyZYQigeaKbup4GZMu5glE5AQ8pwR3CBdNX1DZVToM0K5GejHxMX0zTXl24DPtNfSPkhl6rYsIMz5siHMB76KbsPbl5ZPcBIhhgssN1zrJJf2GDYz/UiTG2BUtCiTq8ceFaP+DJ64TC40n+sgPre86UJnZU8clitf9su9vLA+ipB9+lswBK+fonM3t8Z0o2h7aNt0cUEMcnJG9XmkpZ8EgiRROC3mDJsBdVkGAXNxKWX0BSIfIzEai0VmxPb2HPa3J5iOblQXczoHp36PDvQkRMf8Uh/g6QuqIq1tw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB8300.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(366016)(1800799024)(376014)(7416014)(921020)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?x5KmoIJ1xgUaz36zafzxcO14ofBD4vS69lcS6Z02JcghrPw9ZcsLHH2XUBGA?=
- =?us-ascii?Q?bWXxY7ntqifnN1X6L4Kv4S5cJ3BCoNMbYOHBivkMyitjYC8wUdVrsGmmUpGT?=
- =?us-ascii?Q?AqIEzEJCC7iK79UnSJO6OMQB8BSkaqVK5FeAYE+mLEFrCk6F7BibMd0lE3pt?=
- =?us-ascii?Q?B31PtQVCd3TH2UqfwQH6UZzvIBwQe2sNkDLu6VdDLKbNPyjfskcn1gPjkj+H?=
- =?us-ascii?Q?Jpu403WYmt24UVRY6XGMfYpAMjepuNAQkMJr0D3tKyMbL0J5YCklHLGC3ssa?=
- =?us-ascii?Q?x/MtAPT3Nkj46QnmxrKH/7KK9U32d7VjW0T3wAu1Aaf6PedxV6iZXstlo03K?=
- =?us-ascii?Q?BtSPZVtlFQ7dflWcxmtfwV2JAi/HgC8TVSARrmdyXGfilCdbcXd9xK3Cg20G?=
- =?us-ascii?Q?7OISdm2zokcjnFUv+BT8nxpy32LQB0LlfPOpYxsOx3Y2q5mnTrV9Bnb8JkAy?=
- =?us-ascii?Q?UEiGf7ojuj39rB3I2mLCa5tPKi1KJuB3G2tkbCaUs9bsj+T8cQQWZWrbp2Gs?=
- =?us-ascii?Q?GJecHhdiwg6/nkfwf93Qtu33t6TVCa2r4rS0zZPAAIRjleO4gPMJFQEmGSFo?=
- =?us-ascii?Q?sBxDps9wC1CAa5rzIIb2ayjx6ZoeokXlcQfT61HHl/cf16lJVmnyoX2rZYjH?=
- =?us-ascii?Q?xb0i3qwQgvDdHB95v3Y/FQnwnFD+wXwqJ53Y36BCJueEbClcsAs9IqwbRv/S?=
- =?us-ascii?Q?0Ivpltu9hlaaSnSp38V7uupEXPkss8OGMTx5VfH577+493F2PZsPvYTke7GC?=
- =?us-ascii?Q?cgOi7u+UmMpDWMnpDuVrSJsNSgv0EjckiDEVrMYlYAlhPkyWVy5A018Pmbut?=
- =?us-ascii?Q?rSCX4ranuxyavGR5oeuzu55Jig1OV4HZ/ByMJ+38FXdn3AZAxjolh1ac+8W9?=
- =?us-ascii?Q?C2VjrCciJcVBd2kzu8HDO1bI5l4nnQ8ROyMdKtVuZzKgGMAAdBoFvs9negVQ?=
- =?us-ascii?Q?xUHI7st6LAZnbIhuxMGUVHhFXWi+87dzb57L+nIzKDXNNxf7ROOR9nwRUThP?=
- =?us-ascii?Q?EcbIO2ANgXRT8MWtQuLoHqlW5vonmO0gb9dlxrLy5FDj/GMh/0JUKebjclMW?=
- =?us-ascii?Q?AoeSYaUu41PzLz4Cfq+pbQk//x/hU4JVuLS4aaFdCsXqT6ZO4Yi1+tjDc5KK?=
- =?us-ascii?Q?+okvOFSd83CwiRlRdXehAB9DoZMWfqg+T639RcNlR+CFZ4M4rA3QRclAS9of?=
- =?us-ascii?Q?cBuhHwdj+N1i3YLGuKXV3msQrq7o92avBfGHPdhf1dhQpISJJgxg4FQHdvvu?=
- =?us-ascii?Q?krCPznViMejNZCM30YYUfsua9U1yQFskoW7smma0CIu1aYrJjpe7eDSuX2Oj?=
- =?us-ascii?Q?waqC7iinm9CYwZD7Lq2pUzteuJ+U+h2MGy+CxhCCPI3GXSp7aWFuV23uLEPw?=
- =?us-ascii?Q?Ts06EQhiuxM3nMrbjPJsan96vGW1u8rmFT5lwxzrmLBlQfys3Y+QBTXGj4gH?=
- =?us-ascii?Q?5LxKM3UINzIFS8HT4HIn67PYpBrGZgD4iwLVz5x2A7TF3TeNV3OYCpGxB9sD?=
- =?us-ascii?Q?qOFZdhz699KYyy8IyYyZwG6dcnqIqesHrtMMTboFNX/NvJHJ3ybweXzEvuTQ?=
- =?us-ascii?Q?nkvxZWd8GM/LzLi4sKhQNaebsjJTcWystMTtrL/vQbzrvksjrCH0EWmpCH17?=
- =?us-ascii?Q?fBwpjSgzdswV+X0ERBSH8EiuzW6f0ZZXzy0mRluX+LRYBuf7IVCuIiKWz1r+?=
- =?us-ascii?Q?fl7cQ/umVisZx2oCM53bOcGSkx8Kh0BsF23kpcJBki698qEkxa+KjT/UKMsg?=
- =?us-ascii?Q?2yUHyK3QoiwgcbRIeynwMyr2GR2PzlJTE69XjNolvIDfV7rsWZ47?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fc4d9610-e520-4cbb-149d-08de9cab2622
-X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB8300.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Apr 2026 18:00:02.7501
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zyrlVo8/6vBbbOfMJ4cUJU24AKsTbVY3RAvsa6AGshB6HvBNtGql3h9ZRZaMxtYvlPtBUm9FOsblfodqNOvs/w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5737
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aeJjcoHyezEgUG_Q@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_110012_438503_F5F6D361 
-X-CRM114-Status: UNSURE (   8.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260417_110419_989480_D3D8B6C5 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,42 +74,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The drivers reproduces the following pattern:
+On Fri, Apr 17, 2026 at 10:46:29AM -0700, Breno Leitao wrote:
+> On Fri, Apr 17, 2026 at 04:55:57AM +0100, Daniel Golle wrote:
+> > @@ -3404,6 +3449,9 @@ EXPORT_SYMBOL_GPL(mt7530_probe_common);
+> >  void
+> >  mt7530_remove_common(struct mt7530_priv *priv)
+> >  {
+> > +	if (priv->bus)
+> > +		cancel_delayed_work_sync(&priv->stats_work);
+> > +
+> 
+> Shouldn't you cancel the work later, after dsa_unregister_switch()?
+> 
+> I am wondering if the following race cannot happen:
+> 
+>  mt7530_remove_common()                  someone reading /proc/net/dev
+>     cancel_delayed_work_sync()
+>       /* returns: work neither pending
+>          nor executing - true at this
+>          instant */
+>                                           mt7530_get_stats64()
+>                                             mod_delayed_work(...)
+>                                             /* work is queued again */
+>     dsa_unregister_switch()
+>     return
 
-	bitmap_complement(tmp, data1, nbits);
-	bitmap_and(dst, data2, tmp, nbits);
-
-This can be done in a single pass:
-
-	bitmap_andnot(dst, data2, data1, nbits);
-
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Signed-off-by: Yury Norov <ynorov@nvidia.com>
----
- drivers/gpio/gpio-xilinx.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/gpio/gpio-xilinx.c b/drivers/gpio/gpio-xilinx.c
-index be4b4d730547..532205175827 100644
---- a/drivers/gpio/gpio-xilinx.c
-+++ b/drivers/gpio/gpio-xilinx.c
-@@ -495,13 +495,11 @@ static void xgpio_irqhandler(struct irq_desc *desc)
- 
- 	xgpio_read_ch_all(chip, XGPIO_DATA_OFFSET, hw);
- 
--	bitmap_complement(rising, chip->last_irq_read, 64);
--	bitmap_and(rising, rising, hw, 64);
-+	bitmap_andnot(rising, hw, chip->last_irq_read, 64);
- 	bitmap_and(rising, rising, chip->enable, 64);
- 	bitmap_and(rising, rising, chip->rising_edge, 64);
- 
--	bitmap_complement(falling, hw, 64);
--	bitmap_and(falling, falling, chip->last_irq_read, 64);
-+	bitmap_andnot(falling, chip->last_irq_read, hw, 64);
- 	bitmap_and(falling, falling, chip->enable, 64);
- 	bitmap_and(falling, falling, chip->falling_edge, 64);
- 
--- 
-2.51.0
-
+Thanks you for pointing this out.
+cancel_delayed_work_sync() should be moved after dsa_unregister_switch()
+to avoid this kind of race.
 
