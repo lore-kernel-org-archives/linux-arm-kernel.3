@@ -4,73 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E55EBF436B8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 15:36:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B6FAF436B7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 15:45:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sbMVlQS0lRAZ/ZBrlztbGqdGMddTU1wc54B8NGqwM8I=; b=th2vwAESLyvGKHBniHv+5nQWr8
-	tiaeJudU5AZgbN/h2g9i4j86Kz3/c8py1huTas7AiEk6WF0ghrLgU27lCEMHSbFAwHWUOgMhQHgXF
-	Dr8QQveZL9FpdfQl5eF0buJ9c7F9eMGz53vYGI69myfoI6wpSMlVuV/0fvHcKXhpadfTxEMkcqrOg
-	KmGFfS/KBoSimukU8p5d4c7VEwHdIvMDODIEEZdYedmCZ1c7U9Msw5JFJbvD6xT82NNltfV2PW+If
-	cXNT7LBB4eIyI/dao+gMmEmE+93HfMCO3ZRfLvyRjhW+wETAbjB7h80KbG5/EjJMR41/TN5pM5xRH
-	yBg9INVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Osxna4FtHQotwv8pLUx2HpWt2BMJy2W8k3FN7VIJSWs=; b=C5uUjm8gl414X57i3uSzW7RgrE
+	wiE/eY0rA07r5X/aJ7jZaDFWZUYhrbQL1h4NZR9nfCnWwSqNfAE5Qekm0O9/n3I4ICcVJGjlV4vr3
+	bOJtKu6Esrb2F46R7+OTjKJzs735V3iaCKHdXT/YHCjVJWBZeQjSlz6eyT5CfTMnO5MkOdHTON4PS
+	aB2cmA3wvoy492zDtG/UuNEZpKQ2qq4dH+IMD0t0wOIqJTtizuoXDuq6Skl3ujgelH53igb8Wf/95
+	Os8s1w3wSqu7de92a6oq+gVE1O0OTKcFHx9XlvW7AuJjmVdkixU6W89i9kje0RxoupvSlpaJDlljM
+	MhaqW6Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDlFU-00000004DfD-1Q6v;
-	Fri, 17 Apr 2026 15:36:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wDlOC-00000004E2c-1Rsf;
+	Fri, 17 Apr 2026 15:45:52 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDlFS-00000004Df5-3tpH
+	id 1wDlOA-00000004E1t-2Kd7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 15:36:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 197B760138;
-	Fri, 17 Apr 2026 15:36:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57671C19425;
-	Fri, 17 Apr 2026 15:36:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776440209;
-	bh=FcCWGPrk9R7P1cPiUZKS/mKU1dNaQ59sANhzcCbnuFQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cl9GvVzWvXXyBspphHKbtR9Jla4/6r+9qD3boEHEa7N7GXm/jzvQmjv0+2ElM1oSf
-	 7ft4o+c6anFmHwLaXK9JHIpy/gmSHbb+z3dznRq+xAuxRN7PScBO4ACYvafevJ3SIk
-	 VGrF39ngUkh6sgG6wOIB/xdbgGhh5ev/NbXACAIm1m+Whw1jm9VVyfDnYl8d0j61t3
-	 x9J7GSDxdn73gJjWUCahrQv+LCzB2VkPy4L8lkD0akswdkqFm9XWC/z97jIXLQOhV8
-	 5rpt5afyRv5C1EmwCW+vhtP216j6AcfWHfMAQQ8Jv2x9Mfb3EJ/HoyPZS7MtSscd9x
-	 28GPeqfhvnw4g==
-Date: Fri, 17 Apr 2026 16:36:44 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Robin Murphy <robin.murphy@arm.com>,
-	Demian Shulhan <demyansh@gmail.com>, Christoph Hellwig <hch@lst.de>,
-	Mark Rutland <mark.rutland@arm.com>, Song Liu <song@kernel.org>,
-	Yu Kuai <yukuai@fnnas.com>, Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org, Li Nan <linan122@huawei.com>,
-	linux-raid@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] raid6: arm64: add SVE optimized implementation for
- syndrome generation
-Message-ID: <2c2eb793-c0a4-4b65-93f1-0ece5cf820d7@sirena.org.uk>
-References: <acJhCCPfVxjFUZ5R@J2N7QTR9R3>
- <CAOLeWCsxhzdxQviizJ4X4VOp_28LCtO-RjWoCcZG29rQw86NVg@mail.gmail.com>
- <9a12e043-8200-4650-bfe2-cbece57a4f87@app.fastmail.com>
- <20260331063659.GA2061@lst.de>
- <CAOLeWCtnZz=kHGk4C2f9Mbfi3tEBE100iCkMBhcG47dmR9eDWw@mail.gmail.com>
- <CAOLeWCtxPk7q_bVvrcKaipSKr+_=57Auobcj0cFRvXxXMdH58g@mail.gmail.com>
- <5158e4e0-3275-4c29-a8fc-2dfabc13a69d@app.fastmail.com>
- <CAOLeWCtf2rZyPeJH-LuZ2A+c7mC9M2r-Ya0VjyOJFpun3TFMnw@mail.gmail.com>
- <8db4defe-8b5e-4cc3-880b-72d46510b034@arm.com>
- <c9362db6-1fef-4e70-9525-29b2936f4887@app.fastmail.com>
+	Fri, 17 Apr 2026 15:45:51 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63HF9A9V2614144;
+	Fri, 17 Apr 2026 15:45:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=Osxna4
+	FtHQotwv8pLUx2HpWt2BMJy2W8k3FN7VIJSWs=; b=rMjm/3fvPnSDN4nhV/W89X
+	k5pduLyXcMB1QDFJVGL1QNN+RIxegSfZQovUJRWhEvSP/AHQdbvq9sO06qcBfANH
+	0Xe2ggjJmekLUew3q7TxBbWpzFr2ePv6+k4p+zIeT74RDONzlTUHbHy9OcO2N6D4
+	zywFjhSQUvmnHGlohOCZ5sPZjS+isd9aIZViWBUKEjzIAHDwX0LmpfjTbjhyVyCR
+	KMCzD9chSmLoMche9tLSNNS61iyYqlclNd8qGvj8eDf8Kw8U5DeetZN9Ux4Rttot
+	Vgmf4v5caf5jedmmugVBcwusmlcL7zoanP8hI+IumkprfQOnJctN75TbACHlefNw
+	==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dh89nuepd-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 17 Apr 2026 15:45:16 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 63HBN97Z015666;
+	Fri, 17 Apr 2026 15:45:15 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4dg0mt014d-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 17 Apr 2026 15:45:15 +0000
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63HFjDJ731129898
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 17 Apr 2026 15:45:14 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D18B220040;
+	Fri, 17 Apr 2026 15:45:13 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 185572004D;
+	Fri, 17 Apr 2026 15:45:13 +0000 (GMT)
+Received: from [9.111.133.81] (unknown [9.111.133.81])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 17 Apr 2026 15:45:13 +0000 (GMT)
+Message-ID: <95f9d11a-dd92-433e-a8db-cbebe94e1611@linux.ibm.com>
+Date: Fri, 17 Apr 2026 17:45:10 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="h+PLrOwUQ0SPNQK2"
-Content-Disposition: inline
-In-Reply-To: <c9362db6-1fef-4e70-9525-29b2936f4887@app.fastmail.com>
-X-Cookie: Uh-oh!!  I'm having TOO MUCH FUN!!
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 8/8] unwind: arm64: Use sframe to unwind interrupt
+ frames.
+To: Dylan Hatch <dylanbhatch@google.com>,
+        Roman Gushchin <roman.gushchin@linux.dev>,
+        Weinan Liu <wnliu@google.com>, Will Deacon <will@kernel.org>,
+        Josh Poimboeuf <jpoimboe@kernel.org>,
+        Indu Bhagat <indu.bhagat@oracle.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Steven Rostedt <rostedt@goodmis.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Jiri Kosina <jikos@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+        Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+        Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>,
+        joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org,
+        linux-kernel@vger.kernel.org, live-patching@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        Heiko Carstens <hca@linux.ibm.com>
+References: <20260406185000.1378082-1-dylanbhatch@google.com>
+ <20260406185000.1378082-9-dylanbhatch@google.com>
+Content-Language: en-US
+From: Jens Remus <jremus@linux.ibm.com>
+Organization: IBM Deutschland Research & Development GmbH
+In-Reply-To: <20260406185000.1378082-9-dylanbhatch@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: GziO2qAoQXMAKU75LAHCq6QCKakEObnC
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE3MDE1NCBTYWx0ZWRfXwj4yVYlgPM5P
+ 9q0i5MbP3ABLecmm/eXE5Nv0YwynTtAdr5WsYuTOc27/Tupm5aIdOHRuXvi8LS++6OM+STqBN2F
+ wNOtFCqqI7mlzPjB/VxuNuk6ZEW2OFbqeJ0W7ulO2ukXkXxmB3SUVnE3xyCuN697dNJXuxvmk9G
+ 0+wrv2PNapDr3+crortwjQS908yg8FaEhLV535Idoi0iTSE2bXPSdSZK3UaN0aLDwVfbGKyXcTF
+ uAbNEslCSGAr8S73caMi3cpry2enYGjmLPQaKsxCNGayeU1CZan+mfCrSGwemjM1V1BmQkEmrRj
+ yPrqYlRXnyfV5okgjBOCxzSAgTjfjoGN0UxkL7/o70wVIG8qKtaS+ohNptnW/2JClPyZWo3A4Yx
+ HjvKmiFKe2MvKWryjnj0Bh9zFG9QtnRHdFAsBQt7QFL2ENrwYsWuh52PbpyrNxw0iqNUe5XMGfy
+ Ee5IZ+525w1rYtpteBA==
+X-Proofpoint-ORIG-GUID: mqaiSIGtoWLV696juffMrFiV03naceXz
+X-Authority-Analysis: v=2.4 cv=FY4HAp+6 c=1 sm=1 tr=0 ts=69e2558d cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8
+ a=1XWaLZrsAAAA:8 a=yMhMjlubAAAA:8 a=jKjX_6A9mCPruwacPsgA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-17_01,2026-04-17_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 priorityscore=1501 bulkscore=0 impostorscore=0 spamscore=0
+ lowpriorityscore=0 suspectscore=0 clxscore=1015 malwarescore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604170154
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260417_084550_625185_370BA3D9 
+X-CRM114-Status: GOOD (  29.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,53 +137,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Dylan and Weinan!
 
---h+PLrOwUQ0SPNQK2
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On 4/6/2026 8:50 PM, Dylan Hatch wrote:
+> Add unwind_next_frame_sframe() function to unwind by sframe info if
+> present. Use this method at exception boundaries, falling back to
+> frame-pointer unwind only on failure. In such failure cases, the
+> stacktrace is considered unreliable.
+> 
+> During normal unwind, prefer frame pointer unwind (for better
+> performance) with sframe as a backup.
+> 
+> This change restores the LR behavior originally introduced in commit
+> c2c6b27b5aa14fa2 ("arm64: stacktrace: unwind exception boundaries"),
+> But later removed in commit 32ed1205682e ("arm64: stacktrace: Skip
+> reporting LR at exception boundaries")
+> 
+> This can be done because the sframe data can be used to determine
+> whether the LR is current for the PC value recovered from pt_regs at the
+> exception boundary.
+> 
+> Signed-off-by: Weinan Liu <wnliu@google.com>
+> Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
+> Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
 
-On Fri, Apr 17, 2026 at 04:43:06PM +0200, Ard Biesheuvel wrote:
+> diff --git a/arch/arm64/kernel/stacktrace.c b/arch/arm64/kernel/stacktrace.c
 
-> On arm64, kernel mode NEON is mostly used to gain access to AES and SHA
-> instructions, and only to a lesser degree to speed up ordinary
-> arithmetic, and so XOR is somewhat of an outlier here.
+> +/*
+> + * Unwind to the next frame according to sframe.
+> + */
+> +static __always_inline int
+> +unwind_next_frame_sframe(struct kunwind_state *state)
+> +{
+> +	struct unwind_frame frame;
+> +	unsigned long cfa, fp, ra;
+> +	enum kunwind_source source = KUNWIND_SOURCE_FRAME;
+> +	struct pt_regs *regs = state->regs;
+> +
+> +	int err;
+> +
+> +	/* FP/SP alignment 8 bytes */
+> +	if (state->common.fp & 0x7 || state->common.sp & 0x7)
+> +		return -EINVAL;
+> +
+> +	/*
+> +	 * Most/all outermost functions are not visible to sframe. So, check for
+> +	 * a meta frame record if the sframe lookup fails.
+> +	 */
+> +	err = sframe_find_kernel(state->common.pc, &frame);
+> +	if (err)
+> +		return kunwind_next_frame_record_meta(state);
+> +
+> +	if (frame.outermost)
+> +		return -ENOENT;
+> +
+> +	/* Get the Canonical Frame Address (CFA) */
+> +	switch (frame.cfa.rule) {
+> +	case UNWIND_CFA_RULE_SP_OFFSET:
+> +		cfa = state->common.sp;
+> +		break;
+> +	case UNWIND_CFA_RULE_FP_OFFSET:
+> +		if (state->common.fp < state->common.sp)
+> +			return -EINVAL;
 
-> Given that Neoverse V1 apparently already carves up ordinary arithmetic
-> performed on 256-bit vectors and operates on 128 bits at a time, I am
-> rather skeptical that we're likely to see any SVE implementations of the
-> crypto extensions soon that are meaningfully faster, given that these
-> are presumably much costlier to implement in terms of gate count, and
-> therefore likely to be split up even on SVE implementations that can
-> perform ordinary arithmetic on 256+ bit vectors in a single cycle. Note
-> that even the arm64 SIMD accelerated CRC implementations rely heavily on
-> 64x64->128 polynomial multiplication.
+I wonder whether that check is valid in kernel?  Looking at
+call_on_irq_stack() saving SP in FP and then loading SP with the IRQ SP.
+Is that condition always true then?
 
-I'd not be surprised to see something that delivers useful benefits
-using SVE at some point.
+> +		cfa = state->common.fp;
+> +		break;
+> +	case UNWIND_CFA_RULE_REG_OFFSET:
+> +	case UNWIND_CFA_RULE_REG_OFFSET_DEREF:
+> +		if (!regs)
 
-> IOW, before we consider kernel mode SVE, I'd like to see some benchmarks
-> for other algorithms too.
+		if (!regs || frame.cfa.regnum > 30)
 
-Definitely, it needs a solid win to merge anything.  I do want to get
-back to the situation where we've got out of tree infrastructure patches
-so that people working on algorithms have something to base their work
-on (and see the overheads using SVE incurs) but unless theres's a
-practical user they should stay out of tree.
+> +			return -EINVAL;
+> +		cfa = regs->regs[frame.cfa.regnum];
 
---h+PLrOwUQ0SPNQK2
-Content-Type: application/pgp-signature; name="signature.asc"
+In unwind user this is guarded by a topmost frame check, as arbitrary
+registers are otherwise not available.  Isn't this necessary in the
+kernel case?
 
------BEGIN PGP SIGNATURE-----
+> +		break;
+> +	default:
+> +		WARN_ON_ONCE(1);
+> +		return -EINVAL;
+> +	}
+> +	cfa += frame.cfa.offset;
+> +
+> +	/*
+> +	 * CFA typically points to a higher address than RA or FP, so don't
+> +	 * consume from the stack when we read it.
+> +	 */
+> +	if (frame.cfa.rule & UNWIND_RULE_DEREF &&
+> +	    !get_word(&state->common, &cfa))
+> +		return -EINVAL;
+> +
+> +	/* CFA alignment 8 bytes */
+> +	if (cfa & 0x7)
+> +		return -EINVAL;
+> +
+> +	/* Get the Return Address (RA) */
+> +	switch (frame.ra.rule) {
+> +	case UNWIND_RULE_RETAIN:
+> +		if (!regs)
+> +			return -EINVAL;
+> +		ra = regs->regs[30];
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmniU4sACgkQJNaLcl1U
-h9B/2Af/TY2x6C29q51viQsIQR8AqsXh0E7IX7IOqJXFpXWDc29gFjdyz/b+ScmF
-hJBLBAq0+VL99Fqm2/uwLs0yvgU6xhfzSqLy7Y/eZ8BAFMthU+BAyt2FwXYcFv7b
-lWjyhddMsXJG341/X4k8WsqQ6R8O89UAyZ3apu9rAPZAPXJgkFxXQmypikpEqU+M
-5FIbf7mTZZicf9/uWcbK8qayKuUIc/NAtET3IZidHsLkQPalICs2Zv5ae6DWZ1dk
-ELeHqZCLdrKq+KaoH4kXqomFfway1oEFOYQqHsdrcL1tHB7EvP6Y7ISsa/0LTL0q
-AUuF65vn4L4sYBXPoYdpOg2asYgTvA==
-=Z3VX
------END PGP SIGNATURE-----
+Likewise: Topmost frame check not required to access arbitrary registers
+(including RA/LR)?  Furthermore, provided don't have a thinko, LR may
+only be in LR in the topmost frame.  In any other frame it must have
+been saved.  Otherwise there would be an endless return loop.
 
---h+PLrOwUQ0SPNQK2--
+> +		source = KUNWIND_SOURCE_REGS_LR;
+> +		break;
+> +	/* UNWIND_USER_RULE_CFA_OFFSET not implemented on purpose */
+> +	case UNWIND_RULE_CFA_OFFSET_DEREF:
+> +		ra = cfa + frame.ra.offset;
+> +		break;
+> +	case UNWIND_RULE_REG_OFFSET:
+> +	case UNWIND_RULE_REG_OFFSET_DEREF:
+> +		if (!regs)
+
+		if (!regs || frame.cfa.regnum > 30)
+
+> +			return -EINVAL;
+> +		ra = regs->regs[frame.cfa.regnum];
+
+Likewise: Topmost frame check not required to access arbitrary registers?
+
+> +		ra += frame.ra.offset;
+> +		break;
+> +	default:
+> +		WARN_ON_ONCE(1);
+> +		return -EINVAL;
+> +	}
+> +
+> +	/* Get the Frame Pointer (FP) */
+> +	switch (frame.fp.rule) {
+> +	case UNWIND_RULE_RETAIN:
+> +		fp = state->common.fp;
+> +		break;
+> +	/* UNWIND_USER_RULE_CFA_OFFSET not implemented on purpose */
+> +	case UNWIND_RULE_CFA_OFFSET_DEREF:
+> +		fp = cfa + frame.fp.offset;
+> +		break;
+> +	case UNWIND_RULE_REG_OFFSET:
+> +	case UNWIND_RULE_REG_OFFSET_DEREF:
+> +		if (!regs)
+
+		if (!regs || frame.cfa.regnum > 30)
+
+> +			return -EINVAL;
+> +		fp = regs->regs[frame.fp.regnum];
+
+Likewise: Topmost frame check not required to access arbitrary registers?
+
+> +		fp += frame.fp.offset;
+> +		break;
+> +	default:
+> +		WARN_ON_ONCE(1);
+> +		return -EINVAL;
+> +	}
+> +
+> +	/*
+> +	 * Consume RA and FP from the stack. The frame record puts FP at a lower
+> +	 * address than RA, so we always read FP first.
+> +	 */
+> +	if (frame.fp.rule & UNWIND_RULE_DEREF &&
+> +	    !get_word(&state->common, &fp))
+> +		return -EINVAL;
+> +
+> +	if (frame.ra.rule & UNWIND_RULE_DEREF &&
+> +	    get_consume_word(&state->common, &ra))
+> +		return -EINVAL;
+> +
+> +	state->common.pc = ra;
+> +	state->common.sp = cfa;
+> +	state->common.fp = fp;
+> +
+> +	state->source = source;
+> +
+> +	return 0;
+> +}
+Thanks and regards,
+Jens
+-- 
+Jens Remus
+Linux on Z Development (D3303)
+jremus@de.ibm.com / jremus@linux.ibm.com
+
+IBM Deutschland Research & Development GmbH; Vorsitzender des Aufsichtsrats: Wolfgang Wendt; Geschäftsführung: David Faller; Sitz der Gesellschaft: Ehningen; Registergericht: Amtsgericht Stuttgart, HRB 243294
+IBM Data Privacy Statement: https://www.ibm.com/privacy/
+
 
