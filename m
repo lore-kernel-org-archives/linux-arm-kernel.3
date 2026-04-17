@@ -4,170 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B554CF8E4B9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 07:49:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AC7AF8E4B9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 07:53:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Zed2KxeqHQf/hqIIsV4OPmOshq6obcm/zwz5gfMF4I=; b=0kJHgjMmHMcKFYQGVjjBVCIfNv
-	GYogdGXGw/ORDs9is6p/3qu0JXDWqNtNqc9kPOrX4xM2jp0efSKGbhEXBJWVT7KGFXP+/z7sGK6iE
-	6G0z+wbzgJGoZA+pIxKHazUTBzkdxOw3JL6OB3diCqcrSrpQtw7GJ4Yw3lgDy7zCwsmlyLJoVGfjb
-	Nzf5q56f9dTrlfVX3QTGh/FlF58sd80820OSwhBa17OcgJIXKN6XSJEHwughOKbc1/Hp6XsEDJBV3
-	9x5I+Eg+21JChQ7DYYzMiIUPkQMRSp9lyr/GMikoOyNbxazSQAGgBoUu8oYQogYnSIqPEEDoeoWM4
-	a9GtoQrw==;
+	bh=Fpxp29leS73wOStfPTj4yNCDV4Cy4Cm+kHYvfTMPm1Y=; b=GHvcG7GWjtI+BIBeaJWhGRbR4W
+	EjeAiLw2/gXI0RngHjKoJGi0eKDspjHchY1eHtN//uX5PM1t3Rb9sY+Q4LWQ358sy4Nf1ckrpgiFI
+	Zyg/MXm15wUE+hKH+PT44LgMa/ZjkDzdgWAoASIR8KjFR6qz2Y0wopUsuSnORZUM6rZ5G5EWY3qI+
+	UB0lVgVY+I14FXJH7MbxXlQHbbazspE6kBT1WDCdzwG5M6O2NqIxUzZsYU4/TGkN5MR7EklgeSXhT
+	nrlD2YWMoP/8jzYqvO1DfpnESlw/G99e+O9ZcDkzkGVnFBgH6OE+fes5L4B2Qham/g13IDjSeBTRZ
+	s/JvKOpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDdwi-00000003ciK-0xZp;
-	Fri, 17 Apr 2026 07:49:00 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDdwe-00000003cht-0pky
+	id 1wDe0e-00000003cxH-0n8j;
+	Fri, 17 Apr 2026 07:53:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDe0a-00000003cvX-2Pgo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 07:48:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1776412136; x=1807948136;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=MbtHiKAP6jhUFRpSINvwmRN/OFPwwB1emiRO3ThdBj0=;
-  b=bMwIjYoWb1kkP/UmH8c8arZxLGdlUsQrfqgraaEqMer5gmKKn2Q/ZsBW
-   m79gQL6y5L+HctsB1/indEvJIyOGpvTsKHrCojMXob/+qV6eQQ+2i9PhT
-   /RyuvM/FcmttsSApMpgl6wjCYcQUn3D6IL5Ym3+VMYh8o9OYmGz4CYJzj
-   ymqPamFdlb1c03nQk8QgpKfeQL4kZZ8ud3ZGpjmc489IFDA5jrNgo3oTk
-   AGuWFUrbFrmq1Jk1eJfYMwxV4ptSYoD+juit8oRcaIxQ6huoFrGlVBAAh
-   6q7MHpvFR2s+3oK41zA8xSohye5eEEUJaLcV3K41Is9FS3te6bpOGrKxw
-   w==;
-X-CSE-ConnectionGUID: FxqGQtCQSx+yzYccacHmdg==
-X-CSE-MsgGUID: R5xsIc+oTFKDbesABn0r1w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11761"; a="88806883"
-X-IronPort-AV: E=Sophos;i="6.23,183,1770624000"; 
-   d="scan'208";a="88806883"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Apr 2026 00:48:54 -0700
-X-CSE-ConnectionGUID: 8Dsj+vdvQdqvWJn5d9n9jA==
-X-CSE-MsgGUID: 9rZRqAf8RKuLz9xxPNdIMg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,183,1770624000"; 
-   d="scan'208";a="226614478"
-Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
-  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Apr 2026 00:48:54 -0700
-Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
- fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Fri, 17 Apr 2026 00:48:53 -0700
-Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
- FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37 via Frontend Transport; Fri, 17 Apr 2026 00:48:53 -0700
-Received: from DM1PR04CU001.outbound.protection.outlook.com (52.101.61.45) by
- edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Fri, 17 Apr 2026 00:48:53 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LpYhAzFi4HlN1MJzwM36eun6/oXihEkGRsQ6S5P2LVmRKOZTa/2KbABSZxPhZwcFxi6gL3Klg0j+hgucMPDH8WQUI5L0mcPSYt212dGmP3GQICODk5fW/qaCTp+L0OPX0R2BzAKuRcweqWSLr274B5+lR2XqrQFHbNd0O/h7IXUuVv7ywuLVtkBBaFb/O0W7fw8SGUAkcdXi6tWHTgNSzhhENya1vbEvbdTKrCO6MhU2PdPm/3s+tK3BnttDz2toVACrvqn+XgHdXNbKGzQ2kcL7mX++1WYTqUv2Fl6aUyfW2a6zmQBr4r699ZYN4cWAAXYhUb2GNBhnsmBge0if9Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9Zed2KxeqHQf/hqIIsV4OPmOshq6obcm/zwz5gfMF4I=;
- b=n8Sw2DriBDg+jfdNsYVew85tSzYGf1/MqnXm5DWOlpfHA+QQ2/yQmcwJC7bS8xQsrj38r83J0pWvXqP01uLsyA4iSRbHQFwp/9r/YgLe0W7P6tqKxOP8oVNSId610jvNgmpDBD6Dq1MwS9BMQ/qRzqRNdKN6XUtC4Xso0NNi8+mPTZvBWh6Db6Lmq9jTEZF2c1mGPu3AFS2BPvCD3wYpu/45tC67aMqKR5PGVJjeMKHtJ2trLiRBsdEipWIQ2WNFSkPzvjCSckUmx13WQffCEdlcI7/5v3qcMuVOGHJk+6Y8Uk5BW6uYVVja9iYOKQhOBpWZERwMOF9lxgHRaBGgOQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
- by DM3PR11MB8714.namprd11.prod.outlook.com (2603:10b6:0:b::18) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9818.25; Fri, 17 Apr 2026 07:48:46 +0000
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::f997:762f:f079:134f]) by BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::f997:762f:f079:134f%5]) with mapi id 15.20.9818.023; Fri, 17 Apr 2026
- 07:48:46 +0000
-From: "Tian, Kevin" <kevin.tian@intel.com>
-To: Jason Gunthorpe <jgg@nvidia.com>, Robin Murphy <robin.murphy@arm.com>
-CC: Nicolin Chen <nicolinc@nvidia.com>, "will@kernel.org" <will@kernel.org>,
-	"joro@8bytes.org" <joro@8bytes.org>, "praan@google.com" <praan@google.com>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>, "smostafa@google.com"
-	<smostafa@google.com>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
-	<stable@vger.kernel.org>, "jamien@nvidia.com" <jamien@nvidia.com>
-Subject: RE: [PATCH rc v2 0/5] iommu/arm-smmu-v3: Fix device crash on kdump
- kernel
-Thread-Topic: [PATCH rc v2 0/5] iommu/arm-smmu-v3: Fix device crash on kdump
- kernel
-Thread-Index: AQHczR1sEKPCjS3ZBU6Ku3g92e0vebXh57oAgAAIk4CAAPA4cA==
-Date: Fri, 17 Apr 2026 07:48:46 +0000
-Message-ID: <BN9PR11MB5276A13A8014C5C6403FB4EC8C202@BN9PR11MB5276.namprd11.prod.outlook.com>
-References: <cover.1776286352.git.nicolinc@nvidia.com>
- <3eaf217f-8e1e-4d64-983a-6b888886f157@arm.com>
- <20260416172005.GB761338@nvidia.com>
-In-Reply-To: <20260416172005.GB761338@nvidia.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|DM3PR11MB8714:EE_
-x-ms-office365-filtering-correlation-id: 0c476944-a06b-4d55-6e88-08de9c55c148
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700021|18096099003|18002099003|56012099003|22082099003;
-x-microsoft-antispam-message-info: htDw75oAmD//x09Ii4ge/B4EP/3RVQ84dgtQzsa06cpdhQy8XzxhXHKt9KdvbkoVUbr94Ei5w34QGxpM/B4YYRTdqXk2FGDBr1J8b7wSqxV+1AZO7QySiR6zw9CMfvGS83fNxUYB+vi0QZ+PqiN/6FvXL/oa7sza7gK9Ufi3ePdWF83YylgxFc/BEjZhHBBmnc2ZZxif2nxaBE0NCohaJ+bD5pg63dWHkuJFBhRlwSIgTG2tlFxZ8vrwRWco+MBNSlZvXhqEvdXhQMsvF7zMU/Rx+iYik+xiEnJifr9IE8l8XSAmB+g+hw50Pot+08aH4DN9rbQG5mq1B+gISIDP72zw55OwMh+POJF8SHnckDgxWQE5I37Lv9c2THVGVybIXuQ66YFnHsgiPa4Lf76pELvJ46hrlxzLVLKJY13vG46PsTRJTOzKqelLmXw6zkHJmD+1svbpVJy7lf4qUolROfeiXTnhvFC3J7uucLU3xCQCEOzIdxh0Kdg4edLHrg7dvh687IGF+bT3w5ZeQ/Kx2gX6EtfocRWBCZ0MSnke3DxWTIOlKmVKWS6NX8gpStWN6EI0UbrS8oRBY+MxypLDotvCAVBvTltBY1E2WAtcTBZNWWadwxEXsT5mCDIZKcQjEw1iiWxzgoRtUK31gvY0MxPAp6fs7VGROC7BU5ufdriJUHLJoKrBd0A30wzcnKrmt4jqbha9CGtK4O2jN+cul5ZL1YbXpk1Zf8hTS3duawKYn+IduerkmdnpClCjlAi+aHID7gjFr31tolOUkdNNEQyJF9UkbekW5t0Wrpdycag=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700021)(18096099003)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?jHM7AzQ+0JOd9Gv8R36BKt2qtTzhfRdvzXbYn4/mKM6WiGRR1m9orMb94mx7?=
- =?us-ascii?Q?I4ynNtLBkLQrVxnhRyn0XKCXNhOeUuqGl9QLdHOr42h8sqmtHkbRbpyD8wd2?=
- =?us-ascii?Q?8hDsRmFFW5C/UkTS47/I1K5/jInHibnQmVdOrGQsVbCXfpSTm+AkrkKkcM+W?=
- =?us-ascii?Q?TtfthWTWIP/YmyXTx4otcaXMx3rwy55PvEy9eZ4EllxBroO5uSata16ujzrw?=
- =?us-ascii?Q?Rw1KwpkvJMpxFqAUpP4Zzfd7xGuGTk+ubs8G2SabyigLmOOMf3Eqt5h5MfiU?=
- =?us-ascii?Q?nH0xjzdkxeFQlauGgNMsmfHA6g+YOpmahyXczo/opKFtoUpq2+n2wEm5yr5e?=
- =?us-ascii?Q?0BN4sViD6WkMo/hLB4i5H/p0zQvmQAy9ldX9DMbjQjZmBjJJwRskaHfyCJM5?=
- =?us-ascii?Q?ydgRf/hhsh75kqVU9e49XYR0RsrDoYZjRtLG1tqBWad7BvN9DHzkhj/MmZdl?=
- =?us-ascii?Q?1WCosA/gtxG5kaP8GxaVHYbd9UftC/TEXmr+mz0oEoSUMjgOr6xrGKiP8LNd?=
- =?us-ascii?Q?alTwaQ3DR8btsP8dRNZLUQllVw4Y/8Ox8/rsGjRcl0Bf51G7lv2UQ+p07Xad?=
- =?us-ascii?Q?Dlj8Z91+C0akddUXC6S6R/3j1/MeGIowvaVhLqGlIvGRBwVEunq8nTLGbUrn?=
- =?us-ascii?Q?xUX0GAEJMFPQChIPtBvF/yp29wlHvIi/1A2MJ+EH/TUlpWJxxqEOq7RoHuS8?=
- =?us-ascii?Q?sBXhNdikwqnoiZIjJy82z8DKKGeyt7waB4AEMliGBLAV9pzLxR7hWVzdfkeS?=
- =?us-ascii?Q?DiTkah764KpVsWliw4RNmLj5tzB7D7xztN2FnoEsvbpMuJaxs5d7kQ1svPQe?=
- =?us-ascii?Q?kqE471s7mluQwWp5UXEd7A9/78FHokrbFDCWqeUUaGkHJN+Zg4Qi+j/Q5Vfq?=
- =?us-ascii?Q?lrit+El7vDBlewff2BejePoUKeZq/2iKsGLmB6vFALAZVTTH/1IbPAeZ5+MO?=
- =?us-ascii?Q?9Wf5ZzPKwbxA12CmAkJjxXgXan2mlNLZkINpkMCtuY4TwPzbqtHdDbqkS5sN?=
- =?us-ascii?Q?GKR68i2CgHL+h4ePLARJFBNyRJjBULFZxnBkhTfxIq6vrszW2YtuaKLOcKxJ?=
- =?us-ascii?Q?WbVPZhRYvTxgcpblNOaWlN1uhjCZ17ls1J9RVgR34XjmC7Eri9rvftN8uWpC?=
- =?us-ascii?Q?SxBGvl6zeYlO1o3U5+WWE0qnFVN9tLj4+PcQipjOnUJ6G1uUOilH7LZ1nl1X?=
- =?us-ascii?Q?MTZwFb/C2NrtdVD7yOVI94j4BPAjD6oEq5nY5+WzUE/1tfYuI1UxjO8bq4M5?=
- =?us-ascii?Q?TSiRMxPWPCiMBMfunRIKA+jSaZbH2BFxT38640CDozScJO2yt8foxUH76WKQ?=
- =?us-ascii?Q?G69X6yf4ErMpzALOobWiCU8Y4t3hGp8pEDUHegS7uIEXpmDZ2QDxyZnMVMDo?=
- =?us-ascii?Q?dy5SD2YR9ySjx5SN2kxij6Pqjc3i+zfr08wMLcnTh3J90jI5uLJUCCufrbMP?=
- =?us-ascii?Q?FQF+78+vfz74R+pdR5mUcr0/w0RhWHUKs+wf/he24bG7kMOjgAJXb+cwlTLD?=
- =?us-ascii?Q?1Jp5EBoe1eIiOXUwIYlCcM/zng9Vk0lzdVE6pqzj8ahkx/dVzYRqEgNoRiNZ?=
- =?us-ascii?Q?UN2sK8XlX+mZpuN0yfWaWwwUDx96UtnKm2LiTMLdmj9cXANky2CmCcvKBmkA?=
- =?us-ascii?Q?Jm41BxXDhQPnQfLBn1iZHLS6WPkJvkZTjRxkYGX6TVFBD+ip/VwsAi4b9pBB?=
- =?us-ascii?Q?iyD4mOm5/3PXNywaflpkfL0XZoVycLyG/8mpOik5Yu3z1SNO?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 17 Apr 2026 07:53:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7279B1FC7;
+	Fri, 17 Apr 2026 00:52:52 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A3DD03F7B4;
+	Fri, 17 Apr 2026 00:52:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776412378; bh=JeVqxJf/IWIdjjFYdX/EzgOh5qNuv0u1m7eLpaiUOzw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FrPDRkwRnK/Md38TY+WIZJh3m1M9DuW+2bANAD0vZkUFQyvvPfsbMx6m/OweRO4Ky
+	 gdC4JHOFkxCkCjRg9p2tnEQa9mefuM5MpgmjBSX5lH3nJ+VHvrwBqo35lj3j2/gqcS
+	 JdU+hqmP8S2MPFCBfHdXadBgSWJzxZl26fFAOHE8=
+Date: Fri, 17 Apr 2026 08:52:55 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
+	mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
+Subject: Re: [PATCH v5 06/12] coresight: etm4x: fix leaked trace id
+Message-ID: <20260417075255.GO356832@e132581.arm.com>
+References: <20260415165528.3369607-1-yeoreum.yun@arm.com>
+ <20260415165528.3369607-7-yeoreum.yun@arm.com>
+ <20260416165541.GN356832@e132581.arm.com>
+ <aeEXIfEA5NpqhGX1@e129823.arm.com>
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: VqWGMYXYrbzf3huA4175pDiBTkSNWQbhIiKC36r/go1Bl4QbRF2kIYKM2+rmyrjslqoM42hEuFRJirZ51iXYm1GkB/qqv4BQoLIuhV5ucdf7eLk3jXGf2yHxgoe4nxQ2rqK14wzmc8d4cIPQsgvbOgVgd8eIuY4sAkY4Q1LUZaZcM7Xgyab0rDPRBM765x6WB5kAadDJGzmvBn2DNClEXVcebXIcbZqcYJcnJIHTDFDwEpnQl8tq8BMLeI99qtBesOB7mNAOhVIIqKqdB0Bdn+waeGB3Ge0BIjLxfNlfh+kKFQKEHBFsQGPYB7+K6dyGablYKAccrO+RiL5cIBSK7w==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0c476944-a06b-4d55-6e88-08de9c55c148
-X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Apr 2026 07:48:46.1600
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: hlZgb46WkJiuJZafruJnM0T8RiMrI+c9zMeJwOu2DIzvmDheVeq5VaWRMlazSiap9KOZwRl+vStlYC/VcH8yQg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PR11MB8714
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aeEXIfEA5NpqhGX1@e129823.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_004856_255638_1FF57AC2 
-X-CRM114-Status: GOOD (  27.30  )
+X-CRM114-CacheID: sfid-20260417_005300_762865_26E43435 
+X-CRM114-Status: GOOD (  17.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,75 +73,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> From: Jason Gunthorpe <jgg@nvidia.com>
-> Sent: Friday, April 17, 2026 1:20 AM
->=20
-> On Thu, Apr 16, 2026 at 05:49:24PM +0100, Robin Murphy wrote:
-> > On 15/04/2026 10:17 pm, Nicolin Chen wrote:
-> > > When transitioning to a kdump kernel, the primary kernel might have
-> crashed
-> > > while endpoint devices were actively bus-mastering DMA. Currently, th=
-e
-> SMMU
-> > > driver aggressively resets the hardware during probe by clearing
-> CR0_SMMUEN
-> > > and setting the Global Bypass Attribute (GBPA) to ABORT.
-> > >
-> > > In a kdump scenario, this aggressive reset is highly destructive:
-> > > a) If GBPA is set to ABORT, in-flight DMA will be aborted, generating=
- fatal
-> > >     PCIe AER or SErrors that may panic the kdump kernel
-> > > b) If GBPA is set to BYPASS, in-flight DMA targeting some IOVAs will
-> bypass
-> > >     the SMMU and corrupt the physical memory at those 1:1 mapped
-> IOVAs.
+Hi Levi,
+
+On Thu, Apr 16, 2026 at 06:06:41PM +0100, Yeoreum Yun wrote:
+
+[...]
+
+> > We should use paired way for allocation and release. For example:
 > >
-> > But wasn't that rather the point? Th kdump kernel doesn't know the scop=
-e
-> of
-> > how much could have gone wrong (including potentially the SMMU
-> configuration
-> > itself), so it just blocks everything, resets and reenables the devices=
- it
-> > cares about, and ignores whatever else might be on fire.
->=20
-> The purpose of kdump is to have the maximum chance to capture a dump
-> from the blown up kernel.
->=20
-> Yes, on a perfect platform aborting the entire SMMU should improve the
-> chance of getting that dump.
->=20
-> But sadly there are so many busted up platforms where if you start
-> messing with the IOMMU they will explode and blow up the kdump. x86
-> and "firmware first" error handling systems are particularly notorious
-> for nasty behavior like this.
->=20
-> Seems like there are now ARM systems too. :(
+> >   coresight_enable_sysfs()
+> >   {
+> >       ...
+> >       coresight_path_assign_trace_id(path);
+> >
+> >   failed:
+> >       coresight_path_unassign_trace_id(path);
+> >   }
+> >
+> >   coresight_disable_sysfs()
+> >   {
+> >       coresight_path_unassign_trace_id(path);
+> >   }
+> >
+> > But this requires broader refactoring.  E.g., the STM driver currently
+> > allocates system trace IDs statically during probe, we might need to
+> > consolidate for all modules to use dynamic allocation.
+> 
+> So IIUC, Do we want to "map" per "session" and save this map information
+> in the "sink" driver? or just use "global" map but locate it in sink
+> driver?
 
-is there any report on such systems? It might be informational to include
-a link to the report so it's clear that this series fixes real issues inste=
-ad of
-a preparation for coming systems...
+I prefer to save map in the sink's driver data, this is more scalable
+as the trace ID is allocated within a session rather than system wide.
 
->=20
-> So, the iommu drivers have been preserving the IOMMU and not
-> disrupting the DMAs on x86 for a long time. This is established kdump
-> practice.
->=20
-> > If AER can panic a kdump kernel, that seems like a failing of the kdump
-> > kernel itself more than anything else (especially given the likelihood =
-that
-> > additional AER events could follow from whatever initial crash/failure
-> > triggered kdump to begin with).
->=20
-> Probably the kdump wasn't triggered by AER. You want kdump to not
-> trigger more RAS events that might blow up the kdump while it is
-> trying to run.. That increases the chance of success
->=20
+> I totally agree for above suggestion -- unsigned trace id
+> in the coresight_XXX function -- (but we need to add another callback
+> for this) but I think we don't need to sustain map per session
+> and it seems enough to use current storage for trace_id not move to
+> sink driver.
+> 
+> Anyway It would be better to refactorying wiht another patchset...
 
-btw the DMA is allowed after the previous kernel is hung til the point
-where smmu driver blocks it. In cases where in-fly DMAs are considered
-dangerous to kdump, this series just make it worse instead of creating
-a new issue. While for majority other failures not related to DMAs,=20
-unblocking then increases the chance of success...
+Yeah, we can come back to these ideas when work on it.
+
+Thanks,
+Leo
 
