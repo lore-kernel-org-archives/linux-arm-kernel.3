@@ -4,121 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28ACDF436B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 14:38:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A567EF436B2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 14:43:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hg2ltvWZcWrq0NSxfyQlEt416hVNkQB2bTM+mhiTYlE=; b=vPdhBC74v5x1QHkd5BqU8pILcK
-	7i4FLQfQUBQNx9r3bhxG00+8xo3lGTj1eLGlls4yV+jgk1O2/HI4QBymlKUKmT9eMNc/MFsfMIKNT
-	/jPhHTcqT9HNWx+IHazrev1KzTG0KZdH3PAyF6/Oe+kt2XuOOl5SHjhHC+IuNl2DR6P1V+7uJrXeK
-	1E1bc+/MfoxtmUF76cjDmWqcMXZsasSb1TnbaF8xRJO8TD1nb9YGtCEDjvEgV5sfGoCd1s/uOIl4D
-	ZL9G71yc6ho6UA3Obl09qfDEN74KxaiA6G9CgDar3Cv254t9eA/d7RAipuPqF7Cy8oF882/Fz4vOK
-	0DUlwmgw==;
+	bh=ibwfIFnUUlarXWt/Vd+yl4IfzjwO5SQSWOvdj5rO59o=; b=H1EMyVnsczpMxr5hD6lbWiNfbL
+	zjuh8XDznmwzWpGU+O8XuButbK7dIHR5mt9JIHh887GlOkOUjtmbNTwahdTpaCmzasNghFosiM1JE
+	hIwyUD7GMyQyUDGwm3DTEMgx0gSxKa0C73NMgxiumYkHyV7oit3AECekWmZKJObRcRkrkjo2PJQB5
+	FvwTBBu+kzBQXyG5uhO+ZkSh8BWVS7zKBIWEVncJhphRL/9MMfY+TT6/a23xcJHMzZU/OyjV6PwRq
+	AqPLGLQkiA6fzgIKzp/+Y8WlqO1DEOlYF+7jkyXquFL3yqn5SeDQWGOjzmLpGramrnUs+jSzCnU+g
+	wlbzHDeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDkKh-0000000492X-2btf;
-	Fri, 17 Apr 2026 14:38:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wDkPs-000000049K3-01Rr;
+	Fri, 17 Apr 2026 14:43:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDkKe-0000000492A-2zuM
+	id 1wDkPp-000000049Jg-2iKv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 14:38:09 +0000
+	Fri, 17 Apr 2026 14:43:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 74E3640BFF;
-	Fri, 17 Apr 2026 14:38:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5B2EC19425;
-	Fri, 17 Apr 2026 14:38:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 548244440D;
+	Fri, 17 Apr 2026 14:43:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B35F4C4AF0B;
+	Fri, 17 Apr 2026 14:43:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776436687;
-	bh=71fI7RYCKU2/+pXbICCBe4Ry1z/5h9g3tXZ1OoB1U/0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qhWujADdKcxaZq684kVHsaixqi43r/+f8Y1XaTTTq0IwyZ1W8nBK3UeRlRM0uD1uJ
-	 fqC8lfgLKFwv9mL88pW9wUWubXkwgxoNc1nUFE/KuuZ5kkHdvYSaj2uMPk4v/6SBBv
-	 4txQqVgAu3KAqmGjtbj4R+96nromnLjZEMjnjXYM9K0FpYVHZdU0pwOKAisqNhm3qz
-	 jyTOHmjPpWKs0hUO4y4T+SptGdjS8GWMR8i9xS4ylx/9AK/Ac49ghXdwZJUcv0rpqj
-	 mOwZ9DEkTWYl9yCe9TZTgKMZD3LgrupjSR9NB52nHpKDt7Fz3l3IUzRH7rohQsAtni
-	 NO+5o5ZDjWo7w==
-Message-ID: <00b24db8-0063-48d6-8bc4-e8b670d8f0d5@kernel.org>
-Date: Fri, 17 Apr 2026 16:37:58 +0200
+	s=k20201202; t=1776437008;
+	bh=ibwfIFnUUlarXWt/Vd+yl4IfzjwO5SQSWOvdj5rO59o=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=bl0et/Px8pJXMVYohkGsLalYpIg6KeNK6FKl2fXKNA4s3MOwTvQR3kmz380HGDoLy
+	 cXFghKjGvykoVKwg6HYj9YJR9mCYoY6o+wa9OjqYjcQ3hpSA9jEdJ1Ts0Wv5PisScn
+	 OxtS1EpCayaR/JVmHLE3MxVV1cyeSlXY9qQvFO9BRr7AFb7NficY3H9htgbpSQRlWB
+	 YvzfYDi0Yipy2S0Fh5j+kC+i6pAg/smHfQhn4ZFCsT/T1YTrzyQe62eDNPOsnj2Vjx
+	 OyFXKEB4YFUoeM2Bp0ub7cHP3A+kycuny+lrGUK/kbJyH6B7sC+JzUxbZFcBfTrNNX
+	 FUBleyHyX171Q==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id C1901F40074;
+	Fri, 17 Apr 2026 10:43:26 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-01.internal (MEProxy); Fri, 17 Apr 2026 10:43:26 -0400
+X-ME-Sender: <xms:DkfiaXTbkpP5A8w4pdzr8XrAoDf0lvatJs9502j3293KdgJwHFSZfw>
+    <xme:DkfiaTl8MIkb9Ui3AkHYOl7ClQfdk6seyVPhcsMTn82F7bcjnTGS-PEFUukvR4uHi
+    P7EKpN1PvFR9ERtBVKxjhIIRvwYGt4Egk2Gv6uDa9g_2FJImIRx0Bc>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdehtdduhecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhguuceu
+    ihgvshhhvghuvhgvlhdfuceorghruggssehkvghrnhgvlhdrohhrgheqnecuggftrfgrth
+    htvghrnhepvdeuheeitdevtdelkeduudetgffftdelteefteevjeevjeeiheefhfejieej
+    fedunecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
+    hrugdomhgvshhmthhprghuthhhphgvrhhsohhnrghlihhthidqudeijedthedttdejledq
+    feefvdduieegudehqdgrrhgusgeppehkvghrnhgvlhdrohhrghesfihorhhkohhfrghrug
+    drtghomhdpnhgspghrtghpthhtohepudefpdhmohguvgepshhmthhpohhuthdprhgtphht
+    thhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepmh
+    grrhhkrdhruhhtlhgrnhgusegrrhhmrdgtohhmpdhrtghpthhtoheprhhosghinhdrmhhu
+    rhhphhihsegrrhhmrdgtohhmpdhrtghpthhtohephihukhhurghisehfnhhnrghsrdgtoh
+    hmpdhrtghpthhtohepuggvmhihrghnshhhsehgmhgrihhlrdgtohhmpdhrtghpthhtohep
+    lhhinhgrnhduvddvsehhuhgrfigvihdrtghomhdprhgtphhtthhopegsrhhoohhnihgvse
+    hkvghrnhgvlhdrohhrghdprhgtphhtthhopehsohhngheskhgvrhhnvghlrdhorhhgpdhr
+    tghpthhtohepfihilhhlsehkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:DkfiaaBNfkHHowV89EbpEv0UcFRqubvCBzSkUDnoyuf0llcCiuydPg>
+    <xmx:DkfiaYPAyklSFCAv3ZZM04805p7q1L-ufnUb3xjINtEwPH1wnm7oAA>
+    <xmx:DkfiaWP3hG587E8ctgsmXbZd9_8JKmFSpd8i9R4wVzWoyFnVqF5EnQ>
+    <xmx:DkfiaaKOpJ4OFsQJTe55ckgSSEwzuvTNep34MDZvZvAZgDCGTmKx1w>
+    <xmx:DkfiaQrP-Hzi17D6vFpiJmrydcZ2YswO-z5ScYHlZ1VpO4M74xB76OfG>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 90D9E700065; Fri, 17 Apr 2026 10:43:26 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 01/30] mm: Introduce kpkeys
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-hardening@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- Andy Lutomirski <luto@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
- Ira Weiny <ira.weiny@intel.com>, Jann Horn <jannh@google.com>,
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
- Kees Cook <kees@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Marc Zyngier <maz@kernel.org>,
- Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>,
- Maxwell Bland <mbland@motorola.com>, "Mike Rapoport (IBM)"
- <rppt@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- Quentin Perret <qperret@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- Yang Shi <yang@os.amperecomputing.com>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org
-References: <20260227175518.3728055-1-kevin.brodsky@arm.com>
- <20260227175518.3728055-2-kevin.brodsky@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260227175518.3728055-2-kevin.brodsky@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Date: Fri, 17 Apr 2026 16:43:06 +0200
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Robin Murphy" <robin.murphy@arm.com>,
+ "Demian Shulhan" <demyansh@gmail.com>
+Cc: "Christoph Hellwig" <hch@lst.de>, "Mark Rutland" <mark.rutland@arm.com>,
+ "Song Liu" <song@kernel.org>, "Yu Kuai" <yukuai@fnnas.com>,
+ "Will Deacon" <will@kernel.org>, "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Mark Brown" <broonie@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ "Li Nan" <linan122@huawei.com>, linux-raid@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Message-Id: <c9362db6-1fef-4e70-9525-29b2936f4887@app.fastmail.com>
+In-Reply-To: <8db4defe-8b5e-4cc3-880b-72d46510b034@arm.com>
+References: <20260318150245.3080719-1-demyansh@gmail.com>
+ <f9bc0534-4b7a-4b14-974b-4d7811ccd899@app.fastmail.com>
+ <acJhCCPfVxjFUZ5R@J2N7QTR9R3>
+ <CAOLeWCsxhzdxQviizJ4X4VOp_28LCtO-RjWoCcZG29rQw86NVg@mail.gmail.com>
+ <9a12e043-8200-4650-bfe2-cbece57a4f87@app.fastmail.com>
+ <20260331063659.GA2061@lst.de>
+ <CAOLeWCtnZz=kHGk4C2f9Mbfi3tEBE100iCkMBhcG47dmR9eDWw@mail.gmail.com>
+ <CAOLeWCtxPk7q_bVvrcKaipSKr+_=57Auobcj0cFRvXxXMdH58g@mail.gmail.com>
+ <5158e4e0-3275-4c29-a8fc-2dfabc13a69d@app.fastmail.com>
+ <CAOLeWCtf2rZyPeJH-LuZ2A+c7mC9M2r-Ya0VjyOJFpun3TFMnw@mail.gmail.com>
+ <8db4defe-8b5e-4cc3-880b-72d46510b034@arm.com>
+Subject: Re: [PATCH v2] raid6: arm64: add SVE optimized implementation for syndrome
+ generation
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_073808_798444_D5362F65 
-X-CRM114-Status: GOOD (  14.74  )
+X-CRM114-CacheID: sfid-20260417_074329_753781_F568F45B 
+X-CRM114-Status: GOOD (  20.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,36 +121,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/27/26 18:54, Kevin Brodsky wrote:
-> kpkeys is a simple framework to enable the use of protection keys
-> (pkeys) to harden the kernel itself. This patch introduces the basic
-> API in <linux/kpkeys.h>: a couple of functions to set and restore
-> the pkey register and macros to define guard objects.
-> 
-> kpkeys introduces a new concept on top of pkeys: the kpkeys level.
-> Each level is associated to a set of permissions for the pkeys
-> managed by the kpkeys framework. kpkeys_set_level(lvl) sets those
-> permissions according to lvl, and returns the original pkey
-> register, to be later restored by kpkeys_restore_pkey_reg(). To
-> start with, only KPKEYS_LVL_DEFAULT is available, which is meant
-> to grant RW access to KPKEYS_PKEY_DEFAULT (i.e. all memory since
-> this is the only available pkey for now).
-> 
-> Because each architecture implementing pkeys uses a different
-> representation for the pkey register, and may reserve certain pkeys
-> for specific uses, support for kpkeys must be explicitly indicated
-> by selecting ARCH_HAS_KPKEYS and defining the following functions in
-> <asm/kpkeys.h>, in addition to the macros provided in
-> <asm-generic/kpkeys.h>:
-> 
-> - arch_kpkeys_set_level()
-> - arch_kpkeys_restore_pkey_reg()
-> - arch_kpkeys_enabled()
 
-Another thing: why not simply drop the "arch_" stuff from these helpers?
+On Thu, 16 Apr 2026, at 18:26, Robin Murphy wrote:
+> On 16/04/2026 3:59 pm, Demian Shulhan wrote:
+>> Hi Ard!
+...
+>>> OK, so the takeaway here is that SVE is only worth the hassle if the
+>>> vector length is at least 256 bits. This is not entirely surprising,
+>>> but given that Graviton4 went back to 128 bit vectors from 256, I
+>>> wonder what the future expectation is here.
+>>
+>> I agree. The results from the SnapRAID tests are not as impressive as
+>> I hoped, and the fact that Neoverse-V2 went back to 128-bit is a red
+>> flag. It suggests that wide SVE registers might not be a priority in
+>> future architecture versions.
+>
+> If you look at the Neoverse V1 software optimisation guide[1], the SVE
+> instructions generally have half the throughput of their ASIMD
+> equivalents (i.e. presumably the vector pipes are still only 128 bits
+> wide and SVE is just using them in pairs), so indeed the total
+> instruction count is largely meaningless - IPC might be somewhat more
+> relevant, but I'd say the only performance number that's really
+> meaningful is the end-to-end MB/s measure of how fast the function
+> implementation as a whole can process data.
 
--- 
-Cheers,
+On arm64, kernel mode NEON is mostly used to gain access to AES and SHA
+instructions, and only to a lesser degree to speed up ordinary
+arithmetic, and so XOR is somewhat of an outlier here.
 
-David
+Given that Neoverse V1 apparently already carves up ordinary arithmetic
+performed on 256-bit vectors and operates on 128 bits at a time, I am
+rather skeptical that we're likely to see any SVE implementations of the
+crypto extensions soon that are meaningfully faster, given that these
+are presumably much costlier to implement in terms of gate count, and
+therefore likely to be split up even on SVE implementations that can
+perform ordinary arithmetic on 256+ bit vectors in a single cycle. Note
+that even the arm64 SIMD accelerated CRC implementations rely heavily on
+64x64->128 polynomial multiplication.
+
+IOW, before we consider kernel mode SVE, I'd like to see some benchmarks
+for other algorithms too.
+
+> It's probably also worth checking whether the current NEON routines
+> themselves are actually optimal for modern big CPUs - things have
+> moved on quite a bit since Cortex-A57 (whose ASIMD performance could
+> also be described as "esoteric" at the best of times...)
+>
+
+Some of those crypto routines could definitely be made faster, but it
+highly depends on the context whether that actually helps: for instance,
+there was a proposal a while ago to incorporate the AES-GCM code from
+the OpenSSL project (authored by ARM) but at the time, it slightly
+regressed the ~1500 byte case and only gave a substantial improvement
+for much larger block sizes, which aren't that common in the kernel for
+this particular algorithm.
+
+IOW, any contributions that improve the existing code (or outright
+replace it with something faster, for all I care) are highly
+appreciated, but they should be motivated by benchmarks that reflect
+the use cases that we actually consider important for the algorithm
+in question.
 
