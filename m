@@ -4,86 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AEA2F4368A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 10:24:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5FCCF4368B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 10:30:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sT89vdNi1tSkKoKmWLBjgb2FXe2g6tBONEq1VPMnDwU=; b=sRWL4DjYyw/in7MPlbB5EktQAs
-	5CpdxHaX4jn1gAZju1a0u5C2LpWN5C966tYFnZamBKzfwKZViejnHupAJ4WhhhCFwU7nm4moqFyak
-	G99OsT6ZLGbdKPjsnnTjb+Vlvbg4JBao1jY0AfpV+P9LLIABiIQscKLaUscpTVSshlViFGv8RpDDk
-	eDKKZxgzI4JyjlbBfgL6/ExvttuT+94VukptJIvYxsoH9XcrPYXdYQADB1YXR/V1lVYkayF5MYxeq
-	udQBgrzb3iZQtoAGAD7UzlPI7+i6/Mij5Ud9Gol2M0xe9HQ1kSplyIzuSQ+i8s3SdLc7j8VMjqZHQ
-	8qDficLg==;
+	bh=U5C1KSkyvOgFs4XnY7a0EvJjvZ6uYt8N8OOUk4JhUXE=; b=DrR6AZr308cJEGgLtcPXgRaYfX
+	gDOcAhiCMG1Ug1lLVrsfOorJudCQXoFeVWZTxRfyUZH7u+k8Ia7RfWsr33a88k48csg+b0Fgqdm54
+	ZL1/qndOSgDqKHv9lLuD+ilYzYWVXH54bmRg48rsQWRhjWHS39zv3D2mBdL6KSxk84LVnaN61+N1Y
+	1ISbDu0D/RHZRnn2GOo1CO8sIYiFuZcyA4h5ja/KOm7ob18N9pmN2SQvxcBWzWxgJLx3dov7fIrLs
+	K/eEr3Z1HW8KGWc/7lQ/nyIQWhvXKDWuxBTJMyKbiKTWBunkhnct5cGZ/CN9nfMg2+Jxrxictv0Sq
+	68/cPvQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDgNR-00000003tzt-2Alx;
-	Fri, 17 Apr 2026 10:24:45 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wDgT5-00000003uOd-2NT8;
+	Fri, 17 Apr 2026 10:30:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDgNO-00000003typ-3Ulq
+	id 1wDgT2-00000003uOD-3i1g
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 10:24:44 +0000
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1776421464;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=sT89vdNi1tSkKoKmWLBjgb2FXe2g6tBONEq1VPMnDwU=;
-	b=sVYorXF1yw9POGgD1GvSzasC9FsBfzUA53utmab5zqdwZK09rO+r3uPwzEpQyEYAeLf3yR
-	eXDLqT33zCItMiS7JxvQMSHMUET4Wkx6Pewb1RLEVX2rKls19HyK/3ogBxzsN74VdYmftR
-	NU6p4B9WLYGVCqqWZTb0epZ+mq839WiX9ptIUN4hO6NxdBMyxxo5lOmaE8Jy3JdbFg+l33
-	/IVaLuMEG8/+iBh517EXEgMO0FOIwt4yJsjeHhtbRAycsMG2pBGbNGd5zRIurDQleytEX8
-	Xt+HuK1GwBj+5Ob1HSUJyNzbk6cjt7ukNgndGos3sRiPv6fBGzCq0L8Az9hiBA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1776421464;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=sT89vdNi1tSkKoKmWLBjgb2FXe2g6tBONEq1VPMnDwU=;
-	b=Oeidtc+T3Qo4Nmp1Qb9eB2oio0COfltJZ2ZdzoWqP+QM7mOtmHpofaaeXCHCAWtMukIEmu
-	XA3ALkr512woVkBQ==
-To: "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>
-Cc: linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Thomas Fourier <fourier.thomas@gmail.com>,
-	Kees Cook <kees@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Thierry Bultel <thierry.bultel.yh@bp.renesas.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Osama Abdelkader <osama.abdelkader@gmail.com>,
-	Xin Zhao <jackzxcui1989@163.com>,
-	Ingo Molnar <mingo@kernel.org>,
-	Andy Shevchenko <andy.shevchenko@gmail.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Gerhard Engleder <eg@keba.com>,
-	Lukas Wunner <lukas@wunner.de>,
-	"Dr. David Alan Gilbert" <linux@treblig.org>,
-	Joseph Tilahun <jtilahun@astranis.com>
-Subject: [PATCH tty v3 0/6] 8250: Add console flow control
-Date: Fri, 17 Apr 2026 12:30:13 +0206
-Message-ID: <20260417102423.40984-1-john.ogness@linutronix.de>
+	Fri, 17 Apr 2026 10:30:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BFFDE44242;
+	Fri, 17 Apr 2026 10:30:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 744DAC19425;
+	Fri, 17 Apr 2026 10:30:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776421831;
+	bh=2E4d1qouBPXWGfdzHg/+sJ/fKFP5VEVndh+tz3UYOQo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=u7PT3mhbdOslKrKsXaF7exF4cOmFaso6kJ2h7mDwokYiJ+cHmAw18Ng0QQTieDaWN
+	 4gIKZT87Y+D/+FdDPD1twGXHrktYfY70F3d0/6ES9a2pjTElF5qPIAa5Z5deyjfuY7
+	 6esmP3oSM9XVTSiK8RhcVneHCjZlVyLVLv66edYnfVNzfDzHFvIjaZ/2ylY2xL5Thv
+	 f2voW9UeaoAKgSGguTlTj56Gmu/U1XwFznGly4UmntVbBdS0+g0R3Oh/+jMLnh49bu
+	 inAtGQ5GJ7ok+bN0lrmIs4urIQqLbT7IxhdMb3matqIu9QI0ArLiEtgEzZLuecSPIm
+	 dSWE434p/2tKA==
+From: Puranjay Mohan <puranjay@kernel.org>
+To: bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Puranjay Mohan <puranjay@kernel.org>,
+	Jonas Rebmann <jre@pengutronix.de>,
+	"Alexei Starovoitov" <ast@kernel.org>,
+	"Daniel Borkmann" <daniel@iogearbox.net>,
+	"Andrii Nakryiko" <andrii@kernel.org>,
+	"Martin KaFai Lau" <martin.lau@linux.dev>,
+	"Eduard Zingerman" <eddyz87@gmail.com>,
+	"Kumar Kartikeya Dwivedi" <memxor@gmail.com>,
+	"Song Liu" <song@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	kernel@pengutronix.de
+Subject: [PATCH bpf-next] bpf, arm32: Reject BPF_PSEUDO_CALL in the JIT
+Date: Fri, 17 Apr 2026 03:30:02 -0700
+Message-ID: <20260417103004.3552500-1-puranjay@kernel.org>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_032443_014842_56195AB5 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20260417_033033_501314_41267679 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,115 +79,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The ARM32 BPF JIT does not support BPF-to-BPF function calls
+(subprogram calls). When insn->src_reg == BPF_PSEUDO_CALL, the
+imm field contains a pc-relative offset to another BPF function,
+not a helper function index.
 
-This is v3 of a series to implement console flow control for the
-8250 serial driver. v2 is here [0].
+When a program containing BPF-to-BPF calls is loaded, the verifier
+invokes bpf_jit_subprogs() which calls bpf_int_jit_compile() for each
+subprogram. Since ARM32 does not reject BPF_PSEUDO_CALL, the JIT
+silently emits code for the call using the wrong address computation:
 
-The 8250 driver already has code in place to support console flow
-control. However, there is no way to activate it and it is
-incomplete. This series provides the necessary missing pieces while
-attempting to be as conservative as possible, so as not to introduce
-any side effects into the many 8250 variants or other non-8250 serial
-drivers.
+    func = __bpf_call_base + imm
 
-Note that as of v3 I am now deprecating UPF_CONS_FLOW in favor of a
-separate boolean field. In the commit message (patch 1) I explain my
-reasoning for this decision.
+where imm is actually a pc-relative subprogram offset, producing
+a bogus function pointer. Because build_body() reports success,
+bpf_jit_binary_alloc() is reached and a JIT image is allocated.
 
-For patch 2 I used the following Coccinelle script to perform the
-modifications...
+ARM32 also lacks the jit_data/extra_pass mechanism needed for
+the second JIT pass in bpf_jit_subprogs(). On the second pass,
+bpf_int_jit_compile() performs a full fresh compilation,
+allocating a new JIT binary and overwriting prog->bpf_func. The
+first allocation is never freed. bpf_jit_subprogs() then detects
+the function pointer changed and aborts with -ENOTSUPP, but the
+original JIT binary has already been leaked. Each program
+load/unload cycle leaks one JIT binary allocation, as reported
+by kmemleak:
 
-===== BEGIN cons_flow.cocci =====
-// SPDX-License-Identifier: GPL-2.0-only
-// Options: --all-includes
+    unreferenced object 0xbf0a1000 (size 4096):
+      backtrace:
+        bpf_jit_binary_alloc+0x64/0xfc
+        bpf_int_jit_compile+0x14c/0x348
+        bpf_jit_subprogs+0x4fc/0xa60
 
-virtual patch
+Fix this by rejecting BPF_PSEUDO_CALL early in build_insn(),
+falling through to the existing 'notyet' path. This causes
+build_body() to fail before any JIT binary is allocated, so
+bpf_int_jit_compile() returns the original program unjitted.
+bpf_jit_subprogs() then sees !prog->jited and cleanly falls
+back to the interpreter.
 
-@r1@
-type T1;
-identifier U;
-@@
+Fixes: 1c2a088a6626 ("bpf: x64: add JIT support for multi-function programs")
+Reported-by: Jonas Rebmann <jre@pengutronix.de>
+Closes: https://lore.kernel.org/bpf/b63e9174-7a3d-4e22-8294-16df07a4af89@pengutronix.de
+Tested-by: Jonas Rebmann <jre@pengutronix.de>
+Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+---
+ arch/arm/net/bpf_jit_32.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-T1 {
-   ...
-   struct uart_port U;
-   ...
-};
+diff --git a/arch/arm/net/bpf_jit_32.c b/arch/arm/net/bpf_jit_32.c
+index deeb8f292454..91fef10e88bc 100644
+--- a/arch/arm/net/bpf_jit_32.c
++++ b/arch/arm/net/bpf_jit_32.c
+@@ -2047,6 +2047,8 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx)
+ 	/* function call */
+ 	case BPF_JMP | BPF_CALL:
+ 	{
++		if (insn->src_reg == BPF_PSEUDO_CALL)
++			goto notyet;
+ 		const s8 *r0 = bpf2a32[BPF_REG_0];
+ 		const s8 *r1 = bpf2a32[BPF_REG_1];
+ 		const s8 *r2 = bpf2a32[BPF_REG_2];
 
-@r2@
-r1.T1 *E;
-@@
-
-- (E->port.flags & UPF_CONS_FLOW)
-+ uart_get_cons_flow(&E->port)
-
-@r3@
-struct uart_port *U;
-@@
-
-- (U->flags & UPF_CONS_FLOW)
-+ uart_get_cons_flow(U)
-
-@r4@
-struct uart_port *U;
-@@
-
-- U->flags |= UPF_CONS_FLOW
-+ uart_set_cons_flow(U, true)
-===== END cons_flow.cocci =====
-
-Changes since v2:
-
-- Deprecate UPF_CONS_FLOW. Provide separate boolean with wrappers as
-  alternative.
-
-- Update all UPF_CONS_FLOW users to new cons_flow wrappers.
-
-- Use irqsave variant of spin lock for status update.
-
-- When 8250 console flow control is not specified, clear the policy.
-
-Changes since v1:
-
-- Prepend a patch to perform an extra LSR wait after CTS assertion if
-  the initial LSR wait timed out.
-
-- Close a window in serial8250_register_8250_port() where console
-  flow control was briefly disabled.
-
-- Add port lock synchronization to the port->status RMW update in
-  uart_set_options().
-
-John Ogness
-
-[0] https://lore.kernel.org/lkml/20260410144949.16581-1-john.ogness@linutronix.de
-
-John Ogness (6):
-  serial: core: Add dedicated uart_port field for console flow
-  serial: Replace driver usage of UPF_CONS_FLOW
-  serial: sh-sci: Avoid deprecated UPF_CONS_FLOW
-  serial: 8250: Set cons_flow on port registration
-  serial: 8250: Check LSR timeout on console flow control
-  serial: 8250: Add support for console flow control
-
- drivers/tty/serial/8250/8250_core.c |  6 ++++++
- drivers/tty/serial/8250/8250_port.c | 21 +++++++++++++++++----
- drivers/tty/serial/bcm63xx_uart.c   |  2 +-
- drivers/tty/serial/omap-serial.c    |  2 +-
- drivers/tty/serial/pch_uart.c       |  2 +-
- drivers/tty/serial/pxa.c            |  2 +-
- drivers/tty/serial/samsung_tty.c    |  8 ++++----
- drivers/tty/serial/serial_core.c    | 21 ++++++++++++++++++++-
- drivers/tty/serial/serial_txx9.c    |  4 ++--
- drivers/tty/serial/sh-sci.c         |  5 ++++-
- drivers/tty/serial/sunsu.c          |  2 +-
- include/linux/serial_core.h         | 20 ++++++++++++++++++++
- 12 files changed, 78 insertions(+), 17 deletions(-)
-
-
-base-commit: a1a81aef99e853dec84241d701fbf587d713eb5b
+base-commit: 1f5ffc672165ff851063a5fd044b727ab2517ae3
 -- 
-2.47.3
+2.52.0
 
 
