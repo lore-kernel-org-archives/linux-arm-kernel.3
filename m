@@ -4,106 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5B96F99C6A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 21:38:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31022F99C69
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 21:40:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZfbRBXQJE7XBqTPyM/9pBB24pVjmhOJfH/25m2T2XAw=; b=qqNpYDCD2YGl0QsMiEUtr536Aa
-	Vw6OLd/XNu2KXrBgo1r0QmlV4FAU+6ZAhiyox7OV9YRWSFW6ynJuvSa6CEkWhMpcS3PWCT7iabAuz
-	dLQII+G9kHSfjs8EIrRyXitpp3f7f3XNhQLYSJOOHyJ6VJ5JQA6nTKT3WX7I9IovKYrpRXK4d+/H6
-	8ga8YPDM6t4K+VndP4TN0YUxmuNNi9zKB2Xgccr00wrh0GXgdEsbH9NhTZT4sWABJ1Yd9D89QMJzr
-	JlgZGFqgbhNCstZaXji7QJhNeRASyD87PZikjY+hQeFqy19yrEgic1t1g7+IefY7lthSmJx1yVP5X
-	l87Ub/jw==;
+	bh=KWCzpmzASw4Ab0cq5xuJ53RDaa0+TkwxheEhNU451uo=; b=b9diaQZYbJH96y/kEgLgxwd/2J
+	XVaJSdFFV9kWqmF0BWhtASiCGnf251ARU3leGMDQ4p6K2MKexRW1P9YMWFOAP4UGULvtXL53gcjpt
+	4Qe12RxNDEIPM0dHG7UuHohYejRuMfkLpuuvQPdJwteshSj2n+1vugp58jTNEWfvJcRH1VbtreKUH
+	MPRpCVmoGWFUql/aizdZW3z45wpCuXI/aUQ74eJ8YBevCSeYq9QRVpgVm6Zn+jIlAxrVEESXnL6rl
+	/dhk8+yO9kXNptYLlt57u6nuYcpSJuf+g5Xqzk4Jwcs8MHyfbA9y6PzINLBnlJOcHgtS8V4Bcpe88
+	8kyoU+HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDqtE-00000004Uiz-3O7j;
-	Fri, 17 Apr 2026 21:38:16 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDqtA-00000004Uic-2TlP
+	id 1wDqvJ-00000004UrW-12xE;
+	Fri, 17 Apr 2026 21:40:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDqvG-00000004UrC-0Gvj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 21:38:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1776461890;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZfbRBXQJE7XBqTPyM/9pBB24pVjmhOJfH/25m2T2XAw=;
-	b=g0R9R2fmYDGjrFd4dp3kjBbkjGrGZQAqymD3+GHO0fer1yK15IxLzefAa9XO89ObOgniwN
-	xEM9ERAXDyX1FzOnQviGibRBb7X+L7roHPCJBQHSkydryJgke3ciHvzfYAkGaNcVThsmbo
-	L6rkUABzAuTcMSKhSDuxMJzWWlOUxJE=
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com
- [209.85.160.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-678-3ORYxlQHMbWUOn1Hv3ANsg-1; Fri, 17 Apr 2026 17:36:30 -0400
-X-MC-Unique: 3ORYxlQHMbWUOn1Hv3ANsg-1
-X-Mimecast-MFC-AGG-ID: 3ORYxlQHMbWUOn1Hv3ANsg_1776461790
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-50d9a6a853bso30100291cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 14:36:30 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776461790; x=1777066590;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZfbRBXQJE7XBqTPyM/9pBB24pVjmhOJfH/25m2T2XAw=;
-        b=EZkPjaX1SxMPEwmbm8d/T6jxHOOD+jd7+7WO5+Y7dwGDrLHgDrY9p8tl8ycfC419KV
-         qXXmsx573koQASZwHhOW2Y8N14/a1YKyiZF18IyFzB2ZrBHQtWhZFg9WtjDw4Dz6rFvz
-         N9Pymquu2DTgnXqxnJB4X8xvEed/ySGzH/xjl3h95AMLyE/LFFzDnKOHrU//q56qPepb
-         evMRcwxeeyfqohrB/Q/AlEaxrW7NQE57cGyVGZVc60qvoIyBLcxBphPRo8RztdyANOHW
-         j971WwxC5pbqJDynKLUxJk2oGb1HjC4Cfc/pel5Rjb5GcpfiNOzBaLrZngkuL19+/dUy
-         wWRw==
-X-Forwarded-Encrypted: i=1; AFNElJ9TU1OX2xp9Jva/RUk+lBtSkrBYEQqmcx/RbbDK3Q6G8y00Lk3G53d5Y05sR/nNNzFGr3HHVBxdV0hbH7YqqSjx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzo2b5TIomhsvffvzOC8zD2JU/HVbU0DDsdfQvMYahUy7zXJho+
-	s+K0O5GP7wxT19e6r3rU4+dBVTACPr4s7hEt6AJ0PTHpsQ4V5/e8Z3wPWUbWQYCilTRddqBFZh9
-	5CQmrtvz7eBN3539ovCBySm21jZfNO4X52fdUEBsqoBfDF60Ue3DC5DJ2DBCwq/pGTE/eDtTZ5L
-	pE
-X-Gm-Gg: AeBDiesazqRLHKayiXjay5m93s5YLoV7v0zZXQ09kBQ6S9eFAw3TTmNs3uVay5p7t5u
-	cv6DmTUR9Hmj/NeeG3fze4SzkqqHGyW6Jfo9vim4IQKDz6LiPSFJq/ZJcyz0yGjYzwhNT30eT+P
-	upmPWpS2emjN/wZXftCSXynC0U7CBmgmGrTecIFmCk79Nsd6KZpxh00EtnPLq7R5CTzZiqXCHXq
-	h7MEXB1k8G7OeJT0IcMzb7oQHs0ufIM5mJn2KvGq7ywikzXvnKSg4ZrwK9Uous2u0KVokk6suJd
-	iHo8jRLp2OYbUduF9YQKtXxmjxYlq32BnWij5qZKdzILSKIrkFqApwPcZkXd5bpl/XkdcTCMrTe
-	Bi11oX6Del7o3Mfpr8i7k18IKFgyyR8v+NcPpHX6NEhEB11MrJQSQmFf/HeHogg6O
-X-Received: by 2002:a05:622a:1650:b0:50b:2eef:c8fb with SMTP id d75a77b69052e-50e36effb95mr67588511cf.56.1776461789560;
-        Fri, 17 Apr 2026 14:36:29 -0700 (PDT)
-X-Received: by 2002:a05:622a:1650:b0:50b:2eef:c8fb with SMTP id d75a77b69052e-50e36effb95mr67588171cf.56.1776461789124;
-        Fri, 17 Apr 2026 14:36:29 -0700 (PDT)
-Received: from jkangas-thinkpadp1gen3.rmtuswa.csb ([2601:1c2:4400:6bf0:7677:bcee:4ef0:e09d])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-50e393ff941sm20825251cf.19.2026.04.17.14.36.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Apr 2026 14:36:28 -0700 (PDT)
-Date: Fri, 17 Apr 2026 14:36:25 -0700
-From: Jared Kangas <jkangas@redhat.com>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linaro-s32@linaro.org, netdev@vger.kernel.org
-Subject: Re: [PATCH v6 3/3] dts: s32g: Add GPR syscon region
-Message-ID: <aeKn2dvOOO43zdev@jkangas-thinkpadp1gen3.rmtuswa.csb>
-References: <cover.1769764941.git.dan.carpenter@linaro.org>
- <0e922537c02d1c47734142090f98eb78e921ed34.1769764941.git.dan.carpenter@linaro.org>
+	Fri, 17 Apr 2026 21:40:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1BE3E1BD0;
+	Fri, 17 Apr 2026 14:40:13 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1B76C3F7D8;
+	Fri, 17 Apr 2026 14:40:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776462018; bh=WsfNRJHIMag1juS0hfrqDkFPrRUI7x7lEdf+xWkiknE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pc+EUiD3wlJxc/vsBETzbSJ479fmYwh7QWAdV0IK19uLVoUlIY5lAuT7djwCfzUi6
+	 m7b1UCEv8E4vaEac0PaznxiR1gPJNsQ/hAnClRS6oL0WCTp4G7OTjyzoXQ6fEpcqlo
+	 WLmAI4hOGY/0LEgAB6f9pt61sU99aWO+kqphqpG8=
+Date: Fri, 17 Apr 2026 22:40:05 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Oliver Upton <oupton@kernel.org>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH 1/1] KVM: arm64: nv: Avoid full shadow s2 unmap
+Message-ID: <cy4rd5q4t6pgcjthv4c6f2e2nzm5gum5omc273jewbukteye4a@ocfvy6rsyisf>
+References: <20260411125024.3735989-1-weilin.chang@arm.com>
+ <20260411125024.3735989-2-weilin.chang@arm.com>
+ <86eckg39eo.wl-maz@kernel.org>
+ <tozhyzmwfddgx5fgfejracv6tskgs7xhs4fs6yvmvff74m7gwy@eq3oh35tokj4>
+ <867bq72n7l.wl-maz@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <0e922537c02d1c47734142090f98eb78e921ed34.1769764941.git.dan.carpenter@linaro.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ngEWVGpqLCpMMZBeLFxpb4hVQoOs7ef81v_LWMaRprA_1776461790
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <867bq72n7l.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_143812_759213_8107177E 
-X-CRM114-Status: GOOD (  17.76  )
+X-CRM114-CacheID: sfid-20260417_144022_334572_520FF507 
+X-CRM114-Status: GOOD (  63.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,95 +75,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dan,
-
-On Fri, Jan 30, 2026 at 04:19:52PM +0300, Dan Carpenter wrote:
-> Add the GPR syscon region for the s32 chipset.
+On Thu, Apr 16, 2026 at 11:50:38AM +0100, Marc Zyngier wrote:
+> On Thu, 16 Apr 2026 00:05:40 +0100,
+> Wei-Lin Chang <weilin.chang@arm.com> wrote:
+> > 
+> > On Wed, Apr 15, 2026 at 09:38:55AM +0100, Marc Zyngier wrote:
 > 
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-> ---
->
-> [snip]
->
-> diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-> index e314f3c7d61d..be03db737384 100644
-> --- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-> @@ -383,6 +383,11 @@ usdhc0-200mhz-grp4 {
->  			};
->  		};
->  
-> +		gpr: syscon@4007c000 {
-> +			compatible = "nxp,s32g3-gpr", "syscon";
-> +			reg = <0x4007c000 0x3000>;
-> +		};
-> +
->  		ocotp: nvmem@400a4000 {
->  			compatible = "nxp,s32g3-ocotp", "nxp,s32g2-ocotp";
->  			reg = <0x400a4000 0x400>;
-> @@ -808,6 +813,7 @@ gmac0: ethernet@4033c000 {
->  			compatible = "nxp,s32g2-dwmac";
->  			reg = <0x4033c000 0x2000>, /* gmac IP */
->  			      <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
-> +			nxp,phy-sel = <&gpr 0x4>;
->  			interrupt-parent = <&gic>;
->  			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
->  			interrupt-names = "macirq";
+> [...]
+> 
+> > > > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > > > index 851f6171751c..a97bd461c1e1 100644
+> > > > --- a/arch/arm64/include/asm/kvm_host.h
+> > > > +++ b/arch/arm64/include/asm/kvm_host.h
+> > > > @@ -217,6 +217,10 @@ struct kvm_s2_mmu {
+> > > >  	 */
+> > > >  	bool	nested_stage2_enabled;
+> > > >  
+> > > > +	/* canonical IPA to nested IPA range lookup */
+> > > > +	struct maple_tree nested_revmap_mt;
+> > > > +	bool	nested_revmap_broken;
+> > > > +
+> > > 
+> > > Consider moving this boolean next to the other ones so that you don't
+> > > create too many holes in the kvm_s2_mmu structure (use pahole to find out).
+> > > 
+> > > But I have some misgivings about the way things are structured
+> > > here. Only NV needs a revmap, yet this is present irrelevant of the
+> > > nature of the VM and bloats the data structure a bit.
+> > > 
+> > > My naive approach would have been to only keep a pointer to the
+> > > revmap, and make that pointer NULL when the tree is "broken", and
+> > > freed under RCU if the context isn't the correct one.
+> > 
+> > Can you explain what you mean by "if the context isn't the correct one"?
+> > If this refers to when selecting a specific kvm_s2_mmu instance for
+> > another context, then IIUC refcnt would already be 0 and there would be
+> > no other user of the tree.
+> 
+> Sorry, "context" is an overloaded word. I meant a situation in which
+> you couldn't immediately free the maple-tree because you're holding
+> locks and freeing (hypothetically) requires a sleeping "context". in
+> this case, freeing under RCU, purely as a deferring mechanism, might
+> be useful.
 
-I gave this a test on an S32G-VNP-RDB3 and didn't see any issues on the
-dwmac-s32 side, but this appears to trigger a panic when reading the new
-debugfs regmap/*/registers file for the syscon node:
+Oh ok! I get your point now.
 
-    # grep 4007c000 /proc/vmallocinfo
-    0xffff800083da8000-0xffff800083dac000   16384 ioremap_prot+0x74/0xe0 phys=0x000000004007c000 ioremap
-    # cat /sys/kernel/debug/regmap/dummy-syscon@0x000000004007c000/registers
-    Internal error: synchronous external abort: 0000000096000210 [#1]  SMP
-    [...]
-    CPU: 0 UID: 0 PID: 4344 Comm: cat Tainted: G   M        E  X   ------  ---  6.12.0+ #226 PREEMPT_RT
-    Tainted: [M]=MACHINE_CHECK, [E]=UNSIGNED_MODULE, [X]=AUX
-    [...]
-    pc : regmap_mmio_read32le+0x44/0xa0
-    lr : regmap_mmio_read32le+0x44/0xa0
-    [...]
-    x23: ffff00080c080000 x22: ffff000802ac4c00 x21: ffff800087b13c9c
-    x20: ffff800080a46494 x19: ffff800083da810c x18: 0000000000000004
-    [...]
-    x5 : ffff800080a46448 x4 : ffff800083da8000 x3 : ffff800080a46494
-    x2 : ffff800080a47230 x1 : ffff800083da810c x0 : 0000000000000020
-    Call trace:
-     regmap_mmio_read32le+0x44/0xa0 (P)
-     regmap_mmio_read+0x4c/0x80
-     [...]
-    Code: 52800400 8b214093 aa1303e1 97f4caf0 (b9400275)
-    ---[ end trace 0000000000000000 ]---
-    Kernel panic - not syncing: synchronous external abort: Fatal exception
+> 
+> [...]
+> 
+> > > > +/*
+> > > > + * Per shadow S2 reverse map (IPA -> nested IPA range) maple tree payload
+> > > > + * layout:
+> > > > + *
+> > > > + * bit 63: valid, 1 for non-polluted entries, prevents the case where the
+> > > > + *         nested IPA is 0 and turns the whole value to 0
+> > > > + * bits 55-12: nested IPA bits 55-12
+> > > > + * bit 0: polluted, 1 for polluted, 0 for not
+> > > > + */
+> > > > +#define VALID_ENTRY		BIT(63)
+> > > > +#define NESTED_IPA_MASK		GENMASK_ULL(55, 12)
+> > > > +#define UNKNOWN_IPA		BIT(0)
+> > > > +
+> > > 
+> > > This only works because you are using the "advanced" API, right?
+> > > Otherwise, you'd be losing the high bit. It'd be good to add a comment
+> > > so that people keep that in mind.
+> > 
+> > Sorry, I can't find any relationship between the advanced API and the
+> > top most bit of the maple tree value, what am I missing?
+> 
+> From Documentation/core-api/maple_tree.rst:
+> 
+> <quote>
+> The Maple Tree can store values between ``0`` and ``ULONG_MAX``.  The Maple
+> Tree reserves values with the bottom two bits set to '10' which are below 4096
+> (ie 2, 6, 10 .. 4094) for internal use.  If the entries may use reserved
+> entries then the users can convert the entries using xa_mk_value() and convert
+> them back by calling xa_to_value().  If the user needs to use a reserved
+> value, then the user can convert the value when using the
+> :ref:`maple-tree-advanced-api`, but are blocked by the normal API.
+> </quote>
+> 
+> So depending how you read this, you can conclude that the bit patterns
+> you encode in the MT may be considered as invalid. xa_mk_value() would
+> make things always work, but that shifts the value left by one bit,
+> hence you'd lose bit 63 (see how we use trap_config in
+> emulate-nested.c to deal with this).
 
-Running this through decodecode gives:
+Thanks! I haven't looked at what xa_{mk, to}_value do until now.
 
-    All code
-    ========
-       0:   52800400        mov     w0, #0x20                       // #32
-       4:   8b214093        add     x19, x4, w1, uxtw
-       8:   aa1303e1        mov     x1, x19
-       c:   97f4caf0        bl      0xffffffffffd32bcc
-      10:*  b9400275        ldr     w21, [x19]              <-- trapping instruction
+> 
+> I think you are lucky that bits [11:1] are always 0 here, but that
+> looks extremely fragile to me, so you never hit the [1:0]==10
+> condition, but that's really fragile.
 
-    Code starting with the faulting instruction
-    ===========================================
-       0:   b9400275        ldr     w21, [x19]
+I'll change the bits and switch to using xa_{mk, to}_value consistently.
 
-x19's offset from the base address in /proc/vmallocinfo is 0x10c, which
-points to a bad read at physical address 0x4007c10c; I also confirmed
-that the preceding memory reads back without issues:
+> 
+> > 
+> > > 
+> > > >  void kvm_init_nested(struct kvm *kvm)
+> > > >  {
+> > > >  	kvm->arch.nested_mmus = NULL;
+> > > > @@ -769,12 +783,57 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
+> > > >  	return s2_mmu;
+> > > >  }
+> > > >  
+> > > > +void kvm_record_nested_revmap(gpa_t ipa, struct kvm_s2_mmu *mmu,
+> > > > +			      gpa_t fault_ipa, size_t map_size)
+> > > > +{
+> > > > +	struct maple_tree *mt = &mmu->nested_revmap_mt;
+> > > > +	gpa_t start = ipa;
+> > > > +	gpa_t end = ipa + map_size - 1;
+> > > > +	u64 entry, new_entry = 0;
+> > > > +	MA_STATE(mas, mt, start, end);
+> > > > +
+> > > > +	if (mmu->nested_revmap_broken)
+> > > > +		return;
+> > > > +
+> > > > +	mtree_lock(mt);
+> > > > +	entry = (u64)mas_find_range(&mas, end);
+> > > > +
+> > > > +	if (entry) {
+> > > > +		/* maybe just a perm update... */
+> > > > +		if (!(entry & UNKNOWN_IPA) && mas.index == start &&
+> > > > +		    mas.last == end &&
+> > > > +		    fault_ipa == (entry & NESTED_IPA_MASK))
+> > > > +			goto unlock;
+> > > > +		/*
+> > > > +		 * Create a "polluted" range that spans all the overlapping
+> > > > +		 * ranges and store it.
+> > > > +		 */
+> > > > +		while (entry && mas.index <= end) {
+> > > > +			start = min(mas.index, start);
+> > > > +			end = max(mas.last, end);
+> > > > +			entry = (u64)mas_find_range(&mas, end);
+> > > > +		}
+> > > > +		new_entry |= UNKNOWN_IPA;
+> > > > +	} else {
+> > > > +		new_entry |= fault_ipa;
+> > > > +		new_entry |= VALID_ENTRY;
+> > > > +	}
+> > > > +
+> > > > +	mas_set_range(&mas, start, end);
+> > > > +	if (mas_store_gfp(&mas, (void *)new_entry, GFP_NOWAIT | __GFP_ACCOUNT))
+> > > > +		mmu->nested_revmap_broken = true;
+> > > 
+> > > Can we try and minimise the risk of allocation failure here?
+> > > 
+> > > user_mem_abort() tries very hard to pre-allocate pages for page
+> > > tables by maintaining an memcache. Can we have a similar approach for
+> > > the revmap?
+> > 
+> > Unfortunately, as I understand the maple tree can only pre-allocate for
+> > a store when the range and the entry to be stored is given, but in this
+> > case we must inspect the tree to get that information after we hold the
+> > mmu and maple tree locks. It is possible to do a two pass approach:
+> > 
+> > pre-allocate -> take MMU lock -> take maple tree lock -> revalidate what
+> > we pre-allocated is still usable (nobody changed the tree before we took
+> > the maple tree lock)
+> > 
+> > But I am not fond of this extra complexity..
+> 
+> Fair enough. It would at least be interesting to get a feel for how
+> often this happens, because if we fail often, it won't help much.
 
-    # head -c 990 /sys/kernel/debug/regmap/dummy-syscon@0x000000004007c000/registers | tail -1
-    0104: 00000000
-    # head -c 1005 /sys/kernel/debug/regmap/dummy-syscon@0x000000004007c000/registers | tail -1
-    0108: 00000000
-    # head -c 1020 /sys/kernel/debug/regmap/dummy-syscon@0x000000004007c000/registers | tail -1
-    <panic>
+Ack. I agree.
 
-Best,
-Jared
+Thanks,
+Wei-Lin Chang
 
+> 
+> [...]
+> 
+> > > My other concern here is related to TLB invalidation. As the guest
+> > > performs TLB invalidations that remove entries from the shadow S2,
+> > > there is no way to update the revmap to account for this.
+> > > 
+> > > This obviously means that the revmap becomes more and more inaccurate
+> > > over time, and that is likely to accumulate conflicting entries.
+> > > 
+> > > What is the plan to improve the situation on this front?
+> > 
+> > Right now I think using a direct map which goes from nested IPA to
+> > canonical IPA could work while not generating too much complexity, if we
+> > keep the reverse map and direct map in lockstep (direct map keeping the
+> > same mappings as the reverse map but just in reverse).
+> 
+> Right, so that'd effectively a mirror of the guest's page tables at
+> the point of taking the fault.
+> 
+> > I'll try to do that and include it in the next iteration.
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
