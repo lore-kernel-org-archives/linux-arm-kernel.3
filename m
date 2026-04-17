@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95DA8F8E4AF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 06:38:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCDDFF8E4AF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 06:38:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jycj6Hi7Qn9dBfyHjXzaWFzw2EJbYRCbIJTiZrxWcEM=; b=NSZqsiu2+98voxjH4BvkkDlP8e
-	+w9TDVY4mZjCVluWNy0wqpgsFjwGTb9/TrH1vJRYj31D0r/nNroV3Vf+3kINvH/cP7cPr/Ez2YiJ2
-	viFuRghVdTEIwidGgARB6rcQursgUoq2a4Q9HFeqex3nOlvxvrbB1K28OSwVdIQI5kXxn/y8zMlZ2
-	jZGSNkqsrCPiYn+FGL1+5XlLf41C48TM5e28w1vuAr8g8qtzFwFH6DU76/2jbbL4U8nCNGaykdkbK
-	z/wySKqyrvzMzt5hCjYTW8a8xKyIRc/aBVVjFwdcJi0ek16f++eDxZqp5m7dfJh7e22zvh2uD6z1e
-	GsUgUaFQ==;
+	bh=mFFVvPkdADRuERrXiXoq3ADdwuv0fXrqSCXuIlv0AJA=; b=L4gYLUaMZDU7uaQfa9hAnu9lJ5
+	sGGhAiU/IYMqkb1B0KkHAXtWaUzaIQFigd2QG2lLhDP4zmmuwc0bY9oIyksDLj/kRhO8CMVKfVpjA
+	Vhj+EVD2rC7vptputotJ9PW16d9H8Chf9DuKgri21RT7O08pxc/0LzMaqxutanw6omtZqwPpag8+a
+	WUFNEP/icwKk5QhDyM5ot9VahQGc2tQp+PS5lAy2dZ4aIphC7VXUPa5rzE361TDsw9i9bFhjop3ll
+	rgCtMyanlfHSdFxsqMuE7FKdMXcktMK2rG2A1VQxZ5WR+Ff0hyHfWJGwG/CZ6YubIr27ji01IwwTg
+	EXEQmkkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDcqC-00000003XwL-2N9U;
-	Fri, 17 Apr 2026 06:38:12 +0000
+	id 1wDcqF-00000003Xz3-0tiC;
+	Fri, 17 Apr 2026 06:38:15 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDcqA-00000003Xui-0OiE;
-	Fri, 17 Apr 2026 06:38:11 +0000
+	id 1wDcqC-00000003Xw2-2hoC;
+	Fri, 17 Apr 2026 06:38:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 94BBF4434F;
-	Fri, 17 Apr 2026 06:38:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20E9DC19425;
-	Fri, 17 Apr 2026 06:38:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 281C944207;
+	Fri, 17 Apr 2026 06:38:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A672DC19425;
+	Fri, 17 Apr 2026 06:38:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776407889;
-	bh=xnA99lEk24eFu5lu4XONa125B5SYET6G9LGPg2c6iYM=;
+	s=k20201202; t=1776407892;
+	bh=Z7oCi67s+UIvW6RHxfyBFr2akdeR2wnrV1Cz1XBiANA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=TxoQeiDEVjSHullntG9HbL2NRx5KNzWI0IwXvkJUBzsETe9Si4n2Ub5eZMYYtXn+A
-	 7tQzwgUdkD/RDQe4Pw3RK959VpGqo42/eNJSEuMmG5aMD3ipGPteiehEKhSmCLSaFp
-	 ltT2LMMD71DByOfBxhMf64mvVBNvEe0e3Co4viTJEIMX81jaM+XkTERFMz5tlqBJGL
-	 dcQnbyfHp1RfGcJFWRv470Ld7A1wc29il1Obl+wnKoa3MN093aFGHTyntkvfSKsxbu
-	 m7h9ysIzBsyy6PWhjeeoRerPbv6GTcf2GE8GtcqSXtJBDvvAPVNq2bs3CPMeUJ5sLp
-	 aYY30XN/+LzOw==
+	b=HGvbvYG+BQHBleQfWUTUZ0EJM7fMY9laOrXwUiHkxoH4jJhfBejIpLoyUre6scfn8
+	 HpzvplHuJ/gCPduC2bmLYpfDuy7AvkNuRQ1SYqjQ3V3Vb9wOtF66yRkniK1O62ONk4
+	 A4wTFtHvMqTcmJNzWp1uNhdXfxyPujoLOuaL73WmJpjaxuoeyuT5xbBDoRcVhdBRhT
+	 PDwr0i7JXYR5us3p0U9AP3Rw5kcIXQLNq9y3V5V+8tY9caxdN/rMxsQEXivRKnph49
+	 nmRu6a825PxpxZwGG8gLCUG41JA0vndGrJPxb+LoCRpFJ/+mfY9DYq15HFRtTotbQq
+	 BSTdo9zPKKT2g==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 17 Apr 2026 08:36:31 +0200
-Subject: [PATCH net v4 1/2] net: airoha: Move ndesc initialization at end
- of airoha_qdma_init_tx()
+Date: Fri, 17 Apr 2026 08:36:32 +0200
+Subject: [PATCH net v4 2/2] net: airoha: Add missing bits in
+ airoha_qdma_cleanup_tx_queue()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260417-airoha_qdma_cleanup_tx_queue-fix-net-v4-1-e04bcc2c9642@kernel.org>
+Message-Id: <20260417-airoha_qdma_cleanup_tx_queue-fix-net-v4-2-e04bcc2c9642@kernel.org>
 References: <20260417-airoha_qdma_cleanup_tx_queue-fix-net-v4-0-e04bcc2c9642@kernel.org>
 In-Reply-To: <20260417-airoha_qdma_cleanup_tx_queue-fix-net-v4-0-e04bcc2c9642@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -59,8 +59,8 @@ Cc: linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_233810_157908_E8976649 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20260416_233813_076674_62D6AEBB 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,54 +75,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If queue entry list allocation fails in airoha_qdma_init_tx_queue routine,
-airoha_qdma_cleanup_tx_queue() will trigger a NULL pointer dereference
-accessing the queue entry array. The issue is due to the early ndesc
-initialization in airoha_qdma_init_tx_queue(). Fix the issue moving ndesc
-initialization at end of airoha_qdma_init_tx routine.
+Similar to airoha_qdma_cleanup_rx_queue(), reset DMA TX descriptors in
+airoha_qdma_cleanup_tx_queue routine. Moreover, reset TX_DMA_IDX to
+TX_CPU_IDX to notify the NIC the QDMA TX ring is empty.
 
-Fixes: 3f47e67dff1f7 ("net: airoha: Add the capability to consume out-of-order DMA tx descriptors")
+Fixes: 23020f0493270 ("net: airoha: Introduce ethernet support for EN7581 SoC")
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ drivers/net/ethernet/airoha/airoha_eth.c | 32 ++++++++++++++++++++++++++++++--
+ 1 file changed, 30 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index e1ab15f1ee7d..690bfaf8d7d9 100644
+index 690bfaf8d7d9..6d9f82c677a0 100644
 --- a/drivers/net/ethernet/airoha/airoha_eth.c
 +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -954,27 +954,27 @@ static int airoha_qdma_init_tx_queue(struct airoha_queue *q,
- 	dma_addr_t dma_addr;
+@@ -1039,12 +1039,15 @@ static int airoha_qdma_init_tx(struct airoha_qdma *qdma)
  
- 	spin_lock_init(&q->lock);
--	q->ndesc = size;
- 	q->qdma = qdma;
- 	q->free_thr = 1 + MAX_SKB_FRAGS;
- 	INIT_LIST_HEAD(&q->tx_list);
+ static void airoha_qdma_cleanup_tx_queue(struct airoha_queue *q)
+ {
+-	struct airoha_eth *eth = q->qdma->eth;
+-	int i;
++	struct airoha_qdma *qdma = q->qdma;
++	struct airoha_eth *eth = qdma->eth;
++	int i, qid = q - &qdma->q_tx[0];
++	u16 index = 0;
  
--	q->entry = devm_kzalloc(eth->dev, q->ndesc * sizeof(*q->entry),
-+	q->entry = devm_kzalloc(eth->dev, size * sizeof(*q->entry),
- 				GFP_KERNEL);
- 	if (!q->entry)
- 		return -ENOMEM;
+ 	spin_lock_bh(&q->lock);
+ 	for (i = 0; i < q->ndesc; i++) {
+ 		struct airoha_queue_entry *e = &q->entry[i];
++		struct airoha_qdma_desc *desc = &q->desc[i];
  
--	q->desc = dmam_alloc_coherent(eth->dev, q->ndesc * sizeof(*q->desc),
-+	q->desc = dmam_alloc_coherent(eth->dev, size * sizeof(*q->desc),
- 				      &dma_addr, GFP_KERNEL);
- 	if (!q->desc)
- 		return -ENOMEM;
- 
--	for (i = 0; i < q->ndesc; i++) {
-+	for (i = 0; i < size; i++) {
- 		u32 val = FIELD_PREP(QDMA_DESC_DONE_MASK, 1);
- 
- 		list_add_tail(&q->entry[i].list, &q->tx_list);
- 		WRITE_ONCE(q->desc[i].ctrl, cpu_to_le32(val));
+ 		if (!e->dma_addr)
+ 			continue;
+@@ -1055,8 +1058,33 @@ static void airoha_qdma_cleanup_tx_queue(struct airoha_queue *q)
+ 		e->dma_addr = 0;
+ 		e->skb = NULL;
+ 		list_add_tail(&e->list, &q->tx_list);
++
++		/* Reset DMA descriptor */
++		WRITE_ONCE(desc->ctrl, 0);
++		WRITE_ONCE(desc->addr, 0);
++		WRITE_ONCE(desc->data, 0);
++		WRITE_ONCE(desc->msg0, 0);
++		WRITE_ONCE(desc->msg1, 0);
++		WRITE_ONCE(desc->msg2, 0);
++
+ 		q->queued--;
  	}
-+	q->ndesc = size;
++
++	if (!list_empty(&q->tx_list)) {
++		struct airoha_queue_entry *e;
++
++		e = list_first_entry(&q->tx_list, struct airoha_queue_entry,
++				     list);
++		index = e - q->entry;
++	}
++	/* Set TX_DMA_IDX to TX_CPU_IDX to notify the hw the QDMA TX ring is
++	 * empty.
++	 */
++	airoha_qdma_rmw(qdma, REG_TX_CPU_IDX(qid), TX_RING_CPU_IDX_MASK,
++			FIELD_PREP(TX_RING_CPU_IDX_MASK, index));
++	airoha_qdma_rmw(qdma, REG_TX_DMA_IDX(qid), TX_RING_DMA_IDX_MASK,
++			FIELD_PREP(TX_RING_DMA_IDX_MASK, index));
++
+ 	spin_unlock_bh(&q->lock);
+ }
  
- 	/* xmit ring drop default setting */
- 	airoha_qdma_set(qdma, REG_TX_RING_BLOCKING(qid),
 
 -- 
 2.53.0
