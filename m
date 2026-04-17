@@ -4,150 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B88F4F8E498
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Apr 2026 23:41:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96AA7F8E498
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 01:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rhaXRPXdMCtt5j+SWTRY8sV4gV2JYYzQG7a2loqjY+4=; b=mWf1AKObZmcNzi+HiUeMG69rHS
-	ieB/irA5iv1KBukLDigi1nKnK83wQRJgjD1cJ4iNVhsDwwCtn4DGiaA/JI0vUk/7uKLeIBTmAzUUt
-	hjOC+QRZF/rs/A8gOkzIp537Ibu9VlFDI//FtiITnQYk6mesCvT+/nZULD+FvwM56fyhXA7Jar8rX
-	vcKgfYlCrPplegUD/ACTtgs3485lGkO+haDSrcmUyOny5gZH7RZxaC+ghaodnoZKuTcdV8zf2je1e
-	2xgexQgn/TXIoUzyRSYQWmLhQQuxW2c/zs3Ui6tjl+0mr0fwYqhy7ZHx5DkxG90RDsO7pJgkkkBsS
-	Y7rmYCTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d/u9RhBo3JBBNTyMzBllN+ZTtf/E9vfpiyWfUGP0fBo=; b=Ji3KciNjHJJmqUAeA6qIbCQiBQ
+	oYvpaobMduqGpAk4RVMtqoHfi77ndpnHcGb2FpUWyte/juKWaDxI03w9LO8h4oHnaZz4MbKXA4NJS
+	6SR68/2VsSUHybEGGt2gT1MICxUVXzWN/gV7nwry4IsJICcvCCtusL5WHE6vhjlqkVVCFL9oRPABn
+	5+yLGhSYkwnq6Xyl1yaFIQ/kXkUJgga8vR1QrObEr5njgG/rxIAafhIg2mo7h2kg2fvxczwRw164X
+	Ox5eNYuHohCQnGrZJS/5XTptZXAO4vgMbbpdmZ7gWEfezd8hGuZP792QUd7cyUYV3BrxuDSUZGtKY
+	pjFYiHbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDWL3-00000003D1O-3SQO;
-	Thu, 16 Apr 2026 23:41:37 +0000
-Received: from mail-northcentralusazon11022073.outbound.protection.outlook.com ([40.107.200.73] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1wDXaK-00000003GFx-2A0E;
+	Fri, 17 Apr 2026 01:01:28 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDWL0-00000003D0F-3hWe
+	id 1wDXaI-00000003GFC-0K7F
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Apr 2026 23:41:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VJvOH4mnDVo/VVSv9N2XpC9BR2W7bTkY2F62/4wxqXprs2oTuOz4YXqHX8JB/EnUHhtxRbOLWuyGkXmqMmVkXw9ONGtfqQSu2RT1bVEAGePxcjVENU7NTjGI0R0TNlAKVc1UxAu6zRY6gDZRSXd79y5oXQfNp9i2QQNKCsLWYy6jC3Icb34pKWqf/jGm3H8JEFF/+ZYNzrnMWdWHd9UlB/vb9A+ON4SDwTyvG8Dthakm5OGXTk8wlNAnh863ZvLccitk7SL+zNjIumxz666RPWaij/vGEIhqnRXXxauZ6681C+pOjcSB/YCMf1JVS+dhcQx5zyjO+BSZrLHyeBsNPQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rhaXRPXdMCtt5j+SWTRY8sV4gV2JYYzQG7a2loqjY+4=;
- b=rCKQSw9ff/Bb0/Qc/HSKNWTUt0b2s/tYZP6FOpamGsNIYtgbZYy7IXwSHZlr8TjmzTw7YK7LepWtZMp8Iw6Hia7wMNBGuA+iS7tOlNDS8A6ZjeUKx1eWGuwsZa+9MBJYUzo16Ty+Fy5dnUUSWNiJcD2G5lZL9S7kOAv9DrbsuRp3RFb8pv+dhSOfdfXfmCL1X8AZscyIT/JtIgl1wmg1TQf6dJwmHtZltkbhOR6WpLlOFedc9vaFV+nP4TC+T7RjUyTgxq4wLvmIjamvR7s4vfBhbz8BrangJVM6gvKi1Qphklaa3M2X22dPe02hJE5fgiWk2s0iJPDjzJnGtNNLVQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	Fri, 17 Apr 2026 01:01:27 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63H0fkNP2593567
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 01:01:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	d/u9RhBo3JBBNTyMzBllN+ZTtf/E9vfpiyWfUGP0fBo=; b=YkdTYqXZoMXU3R/h
+	dEbZ8WUDAWXiOYmRoeiismBDOWfoWvlEVi8g1LC+mGRMbhkmG57zV3mNR4MLobCF
+	o4hdaTy2S0XIu6pyjYKajLIxALQ0ZkVGqEpr77jGEL87vTVZJM/uBzB55zMlS3+n
+	TN0lDoQGhkqU+fouSwQsu4Xzd+tjRMBRt6tCdD1LkgprZMY6FPtOJ18ZzDr0uSwh
+	SG/lxRTv549ImYyE51S9N8Ad14TNd08bhFSK7t7d3Ni5h9g6ofa6hyBZJ7PF1kB8
+	mM+XUYihLGcjb3Yps3Ec1UbOkPnZVrlUfa/6dRH8TD8vMTitGifezXYh+iyAarQd
+	bONhPQ==
+Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4djtuykjd2-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 01:01:24 +0000 (GMT)
+Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-b6097ca315bso280992a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Apr 2026 18:01:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rhaXRPXdMCtt5j+SWTRY8sV4gV2JYYzQG7a2loqjY+4=;
- b=Zv3H7fPVKbp0sI/88GhlyzJEzNwh4CmAqlby9aQhoWGuYRxKobCsSHEEPubGsheG85ul4kQMBhjlFaLA5HmZJHttAOavAMPp0/TVKQ2mFnz45JUAQqbXn8xErRW/JZsvKgBmI6HuJ37uJHy3J5jPBFynSSEyBSKwryguF7YlA+0=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from BN0PR01MB6877.prod.exchangelabs.com (2603:10b6:408:161::22) by
- PH7PR01MB8053.prod.exchangelabs.com (2603:10b6:510:270::10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9818.25; Thu, 16 Apr 2026 23:41:27 +0000
-Received: from BN0PR01MB6877.prod.exchangelabs.com
- ([fe80::3a8e:b149:407d:a9ee]) by BN0PR01MB6877.prod.exchangelabs.com
- ([fe80::3a8e:b149:407d:a9ee%6]) with mapi id 15.20.9818.023; Thu, 16 Apr 2026
- 23:41:27 +0000
-Message-ID: <8661fe28-a651-4624-b0dc-7c32817c9670@os.amperecomputing.com>
-Date: Thu, 16 Apr 2026 16:41:24 -0700
+        d=oss.qualcomm.com; s=google; t=1776387683; x=1776992483; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=d/u9RhBo3JBBNTyMzBllN+ZTtf/E9vfpiyWfUGP0fBo=;
+        b=XWPp7A6jGkeAewomtdpFcHeUpOxZBdy/gD6+JsL1e8jddrsn8WyIgpr3rPhpkrNHEG
+         6ctYdnNoLuELVMvvD3bxe+x+3M93YTM5RI9p9nxmg+/BmOx9/LryWA6gANncFyQ5wwMy
+         Uy9dm1k2nRx81lDttKCq7bkewvXhKw0YCrucAHo/RvuYdym++486Fzf5m3WjWUJ5Uj6o
+         nku2IkWTQUqVWaL/KbdBCKAagJnBnEwoE9qQznAIpM2f/zunhpGcJSg1Lv/4ua5j5gb+
+         aqM6Ubnd5A+5kfKo1i5twax6gcClqqtn8fKiSauBMS7I/BoV+Nd+wcv8TSdwfnEf2poE
+         6aYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776387683; x=1776992483;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=d/u9RhBo3JBBNTyMzBllN+ZTtf/E9vfpiyWfUGP0fBo=;
+        b=Iw90R2FypxBSn8CYy27dKbdLL1mayMcOmQpa+enz8MyTswW5E3bU/THKSn4qvZ2PN8
+         SX30iY2Xo1BcTFuVN9R7X0ad27dnhDc09BmwmsWliXsDuH2EC3eeq6P7SibWybFhvcbq
+         XX0VCyycg5N/pRBrkW9ZtZ3XFJ4qBgmYA6NDfbM5Jql8HD+a7EoKj+tFkNu5b3ldjy+U
+         ZGvgwEUvjgNXvUPgRtk/YdMGLuU8wMvK53Wd11FPtc/x+awxF4GQ5o6S1TNlyzMxN/E6
+         jf7HU56QfF0zOKsUp3wd0+6cx7ANhcxv66Bp3Rlyg5+dvTmBWvTgZ0VHsRQ+HFNPn+IU
+         V0cg==
+X-Forwarded-Encrypted: i=1; AFNElJ+fLDjsvmAKwPVfY1aRBb5seh2Q9nsoSsLFSi1SsZ/bCRsPSmYiKQkNStIunEh5PByg418dn00RRHzniVybwa8K@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUr5XdrNFXihaKbyB/PnkhUacTFqc0R/gBS/WQ4OYW80I/jXVQ
+	QDzgk9/bGWUk0mZMqwIUnvYr9bhTxMNd6fL9TKx8ZRAB3Y/FRB88Ptr3vYk9PukdJU4Vw7nG6XU
+	LzE3Hpt37aO/dlPNp0i1rjbH5ecPZC4+E/YZrAJunvMvi7++pSBRs6eQsh4ZY8J4FTwWAaOiddH
+	Cx1PxEcwv0ag==
+X-Gm-Gg: AeBDievb4p+eszwxcrSU5FsdkcoQi2wMFt0qD1ETOxzeOdlTnvJI/tdB0g5s4sjGdk1
+	fD84FForI4CGMWygCo8ZFsNMB8285kdBVxxnig60c9TenDWeQSQ7EFeOD7LACZMFply7LxhjRN2
+	01yP0+VWW4F6koMKuO7aphIEv95dSkm+P+t0H6cVVJAFcnEWAOnb+loz1zym4Pm9ibdl0+3tZne
+	bIejzZAu1sLDpmGRYQtyy/F4QXr2vbZavxxXoFfCelHZTDsV0KG/KR3OMtaQVPGb4td79zlR59O
+	QTsRuySRQgk8/Xf+LgmlMSLIYnyMGOQZ6yxGqMHK7elNMTJbUqeI8vv2f/jvFKCTzsUhxvuCJFa
+	Xf7wXQqhUOU1gtnkU4GV0vYNs4Nqx8T0l8+9zdWBIG6BVXzyxhW3LQFFspMJGMgHymoHe8x/6h1
+	2ZL26gfrRHqctTC+6J6hPHoQ==
+X-Received: by 2002:a05:6a20:9185:b0:398:9a90:65ae with SMTP id adf61e73a8af0-3a08d89ae6amr652305637.30.1776387682829;
+        Thu, 16 Apr 2026 18:01:22 -0700 (PDT)
+X-Received: by 2002:a05:6a20:9185:b0:398:9a90:65ae with SMTP id adf61e73a8af0-3a08d89ae6amr652222637.30.1776387682230;
+        Thu, 16 Apr 2026 18:01:22 -0700 (PDT)
+Received: from [10.133.33.185] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c7976f8f4e8sm49890a12.1.2026.04.16.18.01.19
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 16 Apr 2026 18:01:21 -0700 (PDT)
+Message-ID: <e994bf83-a66c-453e-aee6-c15b6888499c@oss.qualcomm.com>
+Date: Fri, 17 Apr 2026 09:01:17 +0800
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Yang Shi <yang@os.amperecomputing.com>
-Subject: Re: [PATCH v2 1/3] arm64: mm: Fix rodata=full block mapping support
- for realm guests
-To: Kevin Brodsky <kevin.brodsky@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
- "David Hildenbrand (Arm)" <david@kernel.org>, Dev Jain <dev.jain@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Jinjiang Tu <tujinjiang@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- "Kalyazin, Nikita" <kalyazin@amazon.co.uk>
-References: <20260330161705.3349825-2-ryan.roberts@arm.com>
- <ac7VD4Z85nS30GCp@arm.com> <ac-W9oNM_O5RTtaf@arm.com>
- <beacee23-c177-47a1-b8b5-743844b617a8@arm.com> <adTPFrlVCEt-hioX@arm.com>
- <bc4a0246-33bb-443e-a885-a31b24d4a022@arm.com> <adTh8d9k3y5ybemL@arm.com>
- <567dff89-9f0f-40a0-ab10-22e061b4faaf@arm.com> <adfDoatH8hj6zN7_@arm.com>
- <07054475-6b07-4b19-a393-cbe037adef8b@os.amperecomputing.com>
- <adfw_hNDsIWwSAIv@arm.com>
- <e4682b9a-9c18-44c5-a892-b12ce4745474@os.amperecomputing.com>
- <315131b7-237b-4705-ba84-e03a484128da@arm.com>
+Subject: Re: [PATCH v5 06/12] coresight: etm4x: fix leaked trace id
+To: Leo Yan <leo.yan@arm.com>, Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
+        mike.leach@arm.com, james.clark@linaro.org,
+        alexander.shishkin@linux.intel.com
+References: <20260415165528.3369607-1-yeoreum.yun@arm.com>
+ <20260415165528.3369607-7-yeoreum.yun@arm.com>
+ <20260416165541.GN356832@e132581.arm.com>
 Content-Language: en-US
-In-Reply-To: <315131b7-237b-4705-ba84-e03a484128da@arm.com>
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20260416165541.GN356832@e132581.arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR03CA0009.namprd03.prod.outlook.com
- (2603:10b6:a03:33a::14) To BN0PR01MB6877.prod.exchangelabs.com
- (2603:10b6:408:161::22)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN0PR01MB6877:EE_|PH7PR01MB8053:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5370b30c-a95d-47f1-05ff-08de9c11adc3
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|55112099003|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: cSzVtfbh9hrwoVyx6iqG830j/rSwEYEwViAzZyjkFGMpkfndz/myiFA7PAcLu1Eq9m7O0HwYQujou3vgnhPu6y+/hhxyMeoI/WOlPYjTjHm8wsM2TVDlK9ddIcwA3Yfh3kw40rzAfyKg5v8n2+DTo7x02H5siaijmvpZZ5iWUuo6TlID0tKjDKCFHDIghKk87HrHCdPGvjZHSMmqN73RxgZmYiwI+cxp2tzqTjWouIVuIgbfvZBmK18VG9N9dUkrohfS74wzJPA0xtoGWP/GwOYHXC09J2x1Ei2Ov+PusbU3u8mWYJkngnw8uIKeFX77M2zcqUkwNLFy2o3+kSxAUQwVAByyUeLwpHxxCKtJW5OzBbP3DtoJ7Ntc+poTKm5VZaviNDgQ3rvVKNPgx45EO9AG+V7vnKOqW2AB0veFrAOC/saioJB0KctXbHBkS9zFwpFvzsh2/NQyTD4XFar/dEhVCt6fGP6W1bWEIB0UC4Q74xKy8/rRKlItWsUEwfd+rbASZSM+tDrwfKhkpRCTZKYMjgl3QiyBAEukJ4GPYl2zHU79SafWcC47j1uZBkL/4oipQvWJ3fJ0wLfMpyvLVtnYf/uQWfQKoZK4TcwrkKmPLvHxBPDIFEwHs8V2p+Lwd7OyiyVbvtoNErfdLkRbd9rAgaAybmTXZj4DaEtgIO2QhjErOEHe7JQCbzhLNOcYIDzjzsEcPuWXu60JrHzS/h6bc33qvhSlP1540nVXaJE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN0PR01MB6877.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(55112099003)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U1ZRU1BxYTlmTW1MdFFaVks5TU5ZaUFtdlc0ZUxrUmhYSTdDYVVuOUR1RUoz?=
- =?utf-8?B?d3BtRndFOEhRWk9SSk14NklLMUFiRUdIWlRvMWptRFpQeHJoY2Y2WXJFSFpX?=
- =?utf-8?B?YS9jWFB4N2tXT0RORm8zSU9VTHNnT2xHbjFhSStLNjV3QVJDa2JJOWtUMk5y?=
- =?utf-8?B?bGNJWjlGODFtTHdqcTdxbE5PcW5jcE10RG9rN0kzTzdSTGhFYjB6eFV3a1l3?=
- =?utf-8?B?K0Y0dG5sNkJmQk41TXJQVmUvYU9xUmZCR3diUDRvdmlwWGNpd1BPRnZKeWMz?=
- =?utf-8?B?b1k4SHFwc0kwbzB1Tnh0ekRuTVJZMkh6U2JRZmRsN2p3MHdtVi9xM3V0NkR6?=
- =?utf-8?B?MGE1Q2E2cUFDS216eXZvSFNwWkxSU0toaGJQaVlWdVBqQmpYVVdLOGMzNDFu?=
- =?utf-8?B?SW9JbFVxWU5GM0tDd2tlaUZrNC9mWCt1NUdobjFtQmhlY2ZXbjBKRkcwZk1t?=
- =?utf-8?B?L0pTb3pTQU9ZTVZnSDc1ZlIrMjcrdkh4WHMwMVZXMk00MmVXUzEzMUdjK3V5?=
- =?utf-8?B?bWx5Q2ltVTlhTURBRXZmZzVsQTNuSVJzRTlwNUVyY0JlcmdBdlJJNFpSaXJP?=
- =?utf-8?B?ZnQvcUd1R2N4WktNdC9aU0l5RDlHWURjNWY3ejh5aVFuejUzR1ZseEUzTkM5?=
- =?utf-8?B?dkQ3LzduVlN2WVoxRVE3OVNXMXpvcVl2OWhVWUVWODFLaXRUUjRJTkZJVWNm?=
- =?utf-8?B?QUZBTVphZGVvbllVV2NXUzlDR1FvbUtLVExtQnpVSnZja0dDUnlvb2F6SGVs?=
- =?utf-8?B?T1pnY2pCbXM5bW1DZERYSUQ2TUdzalVtdVdUTTBoM1EyNFJ6enhPMWpub1NL?=
- =?utf-8?B?QVROckdRcEVCK01qeVhzUU4yMFJ0V1RWc25CSnRyWis4RG5namZUNFY0Nzcx?=
- =?utf-8?B?MCtEQmZzckphQ05nQ2tyZ0F2UkpGZWVCdE51d0t6YlFTMkVyUUh1dlBqejNa?=
- =?utf-8?B?RlNnUlVZRmhJOVphNlhBSk5tV1RHODJPQlZCSFozVDA3b2FlQlA2RFR5TzJH?=
- =?utf-8?B?RlZWK3ZFL0pEb2ZoU3VDdy9sSkhrL1FKTUM4RzJHb01PK1B4VjdkcnVJTVEz?=
- =?utf-8?B?c3h6TGhMb0VhMmRJSWh5MnVqZWhxYWRpcDh1U0dXZTFLME85QWl0VTBUUk9E?=
- =?utf-8?B?ZlhadWQzQVZ6MWFsUG5iYU9YNGFPR25CZEhiZlArOW0wV0RCN3pMQjR4YVRF?=
- =?utf-8?B?dU1MUVhCTnBUS090YUtjbC9sQis2ZFlTL0JvQlE3aXBoK2JORFJsL2R3WVdQ?=
- =?utf-8?B?YkYxZXJuWGl3TEpMRmc4RFJzR09hQVBxODMvWkpVOHFNTHpmcTB0L3FWRGZz?=
- =?utf-8?B?WVhZNHM1RmVvVDkxVldnK1EwNWZrQmZjQXhCaEhybm1kOEdpbHB6dzgxMVVp?=
- =?utf-8?B?SEM0RW9iRytiYVJGck93RVNhS0Jobm5hL2c3Z2NxRFV1aFhqK0N0TXF1VWR2?=
- =?utf-8?B?YWxuSFMrL0Erdm04b3ZYOW0wdGJhTlBRdHBQQzQrbzhRVm1OWmZNclZMVUtB?=
- =?utf-8?B?aWVZdkR3ZTNlYnducTR5YzVWM09ZRDk1WDk4NkVOS25uTEd4eDIwY3VVMXhR?=
- =?utf-8?B?Z2l1WmxMTnQ1UG9Vd3dlWUhMR0NsRGUxSk9WSFFvczF5TmdVUnVqeTFHNTU4?=
- =?utf-8?B?dHBRQ3F3VjR5VzdycXE1TEozSkZ5dnVYMWlxVnQ2TkFoUllrUHlmdmlhTnhN?=
- =?utf-8?B?S3kvTzVlWTFrV3E1SFIxcjBDWVExWmlFbGliOEQxS1ZOQkE2NWJvZ2dKRjNi?=
- =?utf-8?B?Y1gxVWEwamltenh2Tkt1RmpyVnBNbmJpV1RmQ1VIV0ZpR1JhMTdmUVluSHBG?=
- =?utf-8?B?ZG5RQTJhekVUeHVWMlIrUjRHeFh6TGoyYjRqdWdMT25MUW1tZjV5R2lQRjBM?=
- =?utf-8?B?WC9TNjlQNkowSG1wODBxbVNIM0FiYWNwWnhIZ2hnUlI2alJhbS80MU1tV0xh?=
- =?utf-8?B?WGs2OUJudGV3bExPbmNmTTZzaFBQT1A5bkgzTm0vR0N1aUltamlGdDdXYmdU?=
- =?utf-8?B?QU1Zd1Q3djlXOE15emdPWkw0aVdJa2w2NC94UG12a2VmN0NxQTJscUgvdENz?=
- =?utf-8?B?OC9pczhoNmFGOXFZQ2IyV09kZ2pHMzdRUStyRW85bUd2eVBLMm1GOFRUN2Yz?=
- =?utf-8?B?SkNFVHprSEFVQlBJcjJIWjVUVkZabDJBLzRvQ1h2QzNQZHJxQS8wV2Z1YWFk?=
- =?utf-8?B?RC8xQVE0ZVBuOVNBM3VQTmJ4SWV1azdoTlhxVDJlcEhtMmo5V3h5c1B5bHNs?=
- =?utf-8?B?VXNYSWp2M3VrRzU3dVdWcVBiMFBXaDA3cW9MSDhBSGNzMjdjcm4wOHVFVDNp?=
- =?utf-8?B?Wmd1OXBEWXc3OXpPR1NWcVE5SEs4ZDhiMHpmRy94dkd2NHN5MGdtOXFLckkx?=
- =?utf-8?Q?sD+xSNkxeyq8GoI8=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5370b30c-a95d-47f1-05ff-08de9c11adc3
-X-MS-Exchange-CrossTenant-AuthSource: BN0PR01MB6877.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2026 23:41:27.7473
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TWgsFvk5TxyMr2cxM6EY3u+/LFe5oyl/qTqQBK+P4U9DGTNNnBsqtwKhVJ3/kUloistTzkvLY71wFmyLU+tLhdZcgOFRv/qGs26omjEsgJA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR01MB8053
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE3MDAwOCBTYWx0ZWRfX1qvVQ/pivpby
+ aGXJg5gmpGRc1icMG4l1DsXmsc7HkjU9ZEZKQVRkZxkWTNnM/NxlhKWfV21OyFuItdqXj6qDZyr
+ R3iWdQRunn0LKuIjf70RP3ff115GiUneXd4/9KCB1fTtrvr97GlIyqBH51UwjCsW1BnjKG6T/2C
+ 513jLCTpGTMGtg9dy5H27CJmI6egFywRgjn3mu6ljBGnXrCPCcHTc4kq6+cvy+h4hGildj0JU4m
+ UAxo80MilbrI0lbV8r90cHI3NLUmqsS6apSI/zkepxtU/lVWx+sW7Y3sGkEBYORCUljHhUQ1mZG
+ Ko61SNlMYUC5h1iTFTUqD5TDNwSCzJl/pyMI787Ou4l1GjAndxfKgEXxLAkdV2aXt0iNus51qAJ
+ yC3Fb68Z5rVA/ksctH3IX/wLIFZcZOfB37vOQiXzpXSm8gaBZcKA+DqcjH2r/HZMtcFZKXJWICC
+ aA68nd19GRspXU15YTg==
+X-Proofpoint-ORIG-GUID: iN2NIsf5Uh2fF_oP42jApyKKhoIJO_Kr
+X-Authority-Analysis: v=2.4 cv=Ipgutr/g c=1 sm=1 tr=0 ts=69e18664 cx=c_pps
+ a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=EUspDBNiAAAA:8 a=7CQSdrXTAAAA:8 a=g7HzkWLkDZsDcvuO9ksA:9 a=QEXdDO2ut3YA:10
+ a=x9snwWr2DeNwDh03kgHS:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: iN2NIsf5Uh2fF_oP42jApyKKhoIJO_Kr
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-16_04,2026-04-16_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 bulkscore=0 clxscore=1015 impostorscore=0
+ lowpriorityscore=0 adultscore=0 malwarescore=0 phishscore=0 spamscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604070000
+ definitions=main-2604170008
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_164134_937891_0B0688EC 
-X-CRM114-Status: GOOD (  23.37  )
+X-CRM114-CacheID: sfid-20260416_180126_322400_30E78B88 
+X-CRM114-Status: GOOD (  24.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,75 +153,74 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 4/13/26 7:57 AM, Kevin Brodsky wrote:
-> On 10/04/2026 01:08, Yang Shi wrote:
->> On 4/9/26 11:33 AM, Catalin Marinas wrote:
->>> On Thu, Apr 09, 2026 at 09:48:58AM -0700, Yang Shi wrote:
->>>> On 4/9/26 8:20 AM, Catalin Marinas wrote:
->>>>> On Thu, Apr 09, 2026 at 11:53:41AM +0200, Kevin Brodsky wrote:
->>>>>> What would make more sense to me is to enable the use of
->>>>>> BBML2-noabort
->>>>>> unconditionally if !force_pte_mapping(). We can then have
->>>>>> can_set_direct_map() return true if we have BBML2-noabort, and we no
->>>>>> longer need to check it in map_mem().
->>>>> Indeed.
->>>> I'm trying to wrap up my head for this discussion. IIUC, if none of the
->>>> features is enabled, it means we don't need do anything because the
->>>> direct
->>>> map is not changed. For example, if vmalloc doesn't change direct map
->>>> permission when rodata != full, there is no need to call
->>>> set_direct_map_*_noflush(). So unconditionally checking
->>>> BBML2_NOABORT will
->>>> change the behavior unnecessarily. Did I miss something?
->>>>
->>>> I think the only exception is secretmem if I don't miss something.
->>>> Currently, secretmem is actually not supported if none of the
->>>> features is
->>>> enabled. But BBML2_NOABORT allows to lift the restriction.
->>> Yes, it's secretmem only AFAICT. I think execmem will only change the
->>> linear map if rodata_full anyway.
->> Yes, execmem calls set_memory_rox(), which won't change linear map
->> permission if rodata_full is not enabled.
-> That is a good point, AFAICT set_direct_map_*_noflush() are only used by
-> execmem and secretmem. excmem only modifies the direct map if
-> rodata=full, so the proposed change would only be useful for secretmem.
->
-> The current situation with execmem is pretty strange: if rodata!=full,
-> but another feature is enabled (say kfence), then set_memory_rox() won't
-> touch the direct map but we will still use set_direct_map_*_noflush() to
-> reset it (directly or via VM_FLUSH_RESET_PERMS). Checking BBML2-noabort
-> in can_set_direct_map() would make these unnecessary calls more likely,
-> but it doesn't fundamentally change the situation.
->
-> It's also worth considering the series unmapping parts of the direct map
-> for guest_memfd [1], since it gates the use of
-> set_direct_map_*_noflush() on can_set_direct_map().
->
-> I think it makes complete sense to enable secretmem and the guest_memfd
-> use-case if BBML2-noabort is available, regardless of the other
-> features. The question is: are we worried about the overhead of
+On 4/17/2026 12:55 AM, Leo Yan wrote:
+> On Wed, Apr 15, 2026 at 05:55:22PM +0100, Yeoreum Yun wrote:
+>> If etm4_enable_sysfs() fails in cscfg_csdev_enable_active_config(),
+>> the trace ID may be leaked because it is not released.
+>>
+>> To address this, call etm4_release_trace_id() when etm4_enable_sysfs()
+>> fails in cscfg_csdev_enable_active_config().
+>>
+>> Reviewed-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+>> ---
+>>   drivers/hwtracing/coresight/coresight-etm4x-core.c | 4 +++-
+>>   1 file changed, 3 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+>> index f55338a4989d..b199aebbdb60 100644
+>> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+>> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+>> @@ -920,8 +920,10 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+>>   	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
+>>   	if (cfg_hash) {
+>>   		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
+>> -		if (ret)
+>> +		if (ret) {
+>> +			etm4_release_trace_id(drvdata);
+>>   			return ret;
+>> +		}
+> 
+> LGTM:
+> 
+> Reviewed-by: Leo Yan <leo.yan@arm.com>
+> 
+> Just recording a bit thoughts.  As Suzuki mentioned, it would be better
+> to allocate trace IDs within a session.  We might consider maintaining
+> the trace ID map in the sink driver data, since the sink driver is
+> unique within a session so it is a central place to allocate trace ID.
+> 
+> We should use paired way for allocation and release. For example:
+> 
+>    coresight_enable_sysfs()
+>    {
+>        ...
+>        coresight_path_assign_trace_id(path);
+> 
+>    failed:
+>        coresight_path_unassign_trace_id(path);
+>    }
+> 
+>    coresight_disable_sysfs()
+>    {
+>        coresight_path_unassign_trace_id(path);
+>    }
+> 
+> But this requires broader refactoring.  E.g., the STM driver currently
+> allocates system trace IDs statically during probe, we might need to
+> consolidate for all modules to use dynamic allocation.
 
-Yes, agreed.
-
-> needlessly calling set_direct_map_*_noflush() for execmem mappings? If
-> so, it seems that the right solution is to introduce a new API to check
-> whether set_memory_ro() and friends actually modify the direct map or not.
-
-I don't have data regarding the overhead. The set_direct_map_*_noflush() 
-does walk the page table and they will be called for each page for the 
-area. It sounds not cheap anyway. In addition, it may split direct map 
-into smaller granules unnecessarily, it may result in unexpected direct 
-map fragmentation when rodata != full.
-
-So it seems like introducing a new API is worth it.
+Agree. That's making sense. Currently, the trace ID of some devices is 
+allocated during probe, and never to be released. It's kind of waste of 
+our trace ID resource if the device never to be enabled. But we still 
+need support static trace ID allocation in parallel for the dummy 
+sources and we should not break this logic in future refactor.
 
 Thanks,
-Yang
+Jie
 
-
->
-> - Kevin
->
-> [1] https://lore.kernel.org/lkml/20260317141031.514-1-kalyazin@amazon.com/
+> 
+> Thanks,
+> Leo
 
 
