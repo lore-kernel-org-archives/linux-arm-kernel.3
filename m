@@ -4,78 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E5B9F4369E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 13:11:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D4F6F4369C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 13:16:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UZ+9QdPmSTx/ezgB1oRSxcs6WFStfM5GyAzSgULBfK0=; b=FeZd6V/cj6oHdhB8ccT6ff1qY6
-	ApzHI0BpVwGbKUX0GWk4cs7jBbuUSIIbcpBPEbWf3q3SCyFdx7V5aWpkRRYCUNkaFH2FSRDgyMO/P
-	s4zLwit0mp9YHKORJThMyqq+VaAy+cHiTAZcXiKPhRf7M7/5OOgUTp8WphAQtqZ0sLRaHNobCaR70
-	fGFCJbl7KKtu0WQCP7WwkmHDAUHmC5yWJtZ04Jbn8ihsVI/UDUYgjh1lp1bYu1/CSiNdsQqUz9Dd3
-	Cz5QNEYos8nda1tct5wsIPZnhP5xaAKeCy0VugNCDncGx4zKnyi4impIv8WWLggIB+Qr0K97Vhy0v
-	pPUNmyMw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CKc3usujYeMuu0NSGxZWjY+cxk3QBhiT4E/fvjJLs4E=; b=bj1++jhYPghZf8nX4/IxvVB7E1
+	9pZPMeBSWve1gd+57CixQiuPUGqEr3QmBLGXMTwO5lDWcwTUfBk3UoizaQmQwEiPjLB6pI5Oh6+D5
+	k3EcgQWAVs9vzjLQJE/WH7I/7zvvszOR5BL1tLyeBxfD7roGNlOSh2JHLsGc6KKfh/xBrnBbvH5aH
+	1N8pdEGsZ1mQA0Hdhgj4NbzbO5rZFTrLa/7xuej5+0on7dPHE02v+vGT27lJ7EOAeKOOaHrP6aZvG
+	L/eldNBAFYqiYoIhk0rvqqcdF+4/1H2typBnl31ixHtAmFfqFzGHv8Zdaxq6NmjrzokwlXH/b9UF8
+	1bznbiIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDiyU-000000044Gg-3aTq;
-	Fri, 17 Apr 2026 13:11:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDiyS-000000044GI-03M9
+	id 1wDj3A-000000044a8-2119;
+	Fri, 17 Apr 2026 13:16:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDj37-000000044a0-3guV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 13:11:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1216A1C2B;
-	Fri, 17 Apr 2026 06:10:59 -0700 (PDT)
-Received: from [10.57.63.31] (unknown [10.57.63.31])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 312443F7D8;
-	Fri, 17 Apr 2026 06:10:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776431464; bh=UZ+9QdPmSTx/ezgB1oRSxcs6WFStfM5GyAzSgULBfK0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nLP9+NmOP4Js5PxqLmjA9erzChDc1WNxHz0qocmuG+AsyaZz8t5QVQ1Lo5Rct4eL2
-	 KPNqAe7G2utJg38/pHsrTnSjhvBlhhVTbSoisuYuAhC7ve0hNuyJOThpP/YByANyjN
-	 MdbXC7wVzrfGBlCo2N0+cUxzbDtoHJT7TGqJbU94=
-Message-ID: <5adc64e5-d4e3-42f1-8cf2-6e824bad2bf6@arm.com>
-Date: Fri, 17 Apr 2026 15:10:52 +0200
+	Fri, 17 Apr 2026 13:15:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1529E60128;
+	Fri, 17 Apr 2026 13:15:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43CB6C19425;
+	Fri, 17 Apr 2026 13:15:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776431756;
+	bh=CsBxhNpzoUuwJOaSktkuM40YkzYY3O1cx/QZRXjUfYg=;
+	h=From:To:Cc:Subject:Date:From;
+	b=aDPkPTvwZG04fqo4mIKgpkVPZbA68bs1sNugmqJla/lLngqRlab2hsE8cLO2NtNhz
+	 qAwEx8uDqhlt+GuJqyAv+sJwUQ+FLDKcVor3el0rnxPTA/x29Je9LcBBJf0qeZ5hjA
+	 uMCqPr47ZEYQ+Hit5XRg3ydS/Aq8W/h0kl/fwHNUvU1UJcLnyt/thctCtvEKGOjmUL
+	 Vz1p38C43OeJKU2+4UyqkQ6ZLUF0eCwDtz1qrJ7X6zyDDiVS+1SAFVa0Bs93HpPZLT
+	 Dirva2dVzmH6AUxZhh/emecHUCHIvQFLupvvJmky0nW4muLdTTottnd9JLJaB7rTJ1
+	 HaIQcHqLStxXQ==
+From: Thierry Reding <thierry.reding@kernel.org>
+To: Thierry Reding <thierry.reding@kernel.org>
+Cc: Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	linux-tegra@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	linux-omap@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Paul Walmsley <pjw@kernel.org>
+Subject: [PATCH v2 1/3] MAINTAINERS: Move Peter De Schrijver to CREDITS
+Date: Fri, 17 Apr 2026 15:15:46 +0200
+Message-ID: <20260417131549.3154534-1-thierry.reding@kernel.org>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 01/30] mm: Introduce kpkeys
-To: "David Hildenbrand (Arm)" <david@kernel.org>,
- linux-hardening@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- Andy Lutomirski <luto@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
- Ira Weiny <ira.weiny@intel.com>, Jann Horn <jannh@google.com>,
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
- Kees Cook <kees@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Marc Zyngier <maz@kernel.org>,
- Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>,
- Maxwell Bland <mbland@motorola.com>, "Mike Rapoport (IBM)"
- <rppt@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- Quentin Perret <qperret@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- Yang Shi <yang@os.amperecomputing.com>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org
-References: <20260227175518.3728055-1-kevin.brodsky@arm.com>
- <20260227175518.3728055-2-kevin.brodsky@arm.com>
- <eaca640b-5006-489b-8b2d-148a3c4073da@kernel.org>
- <fea9c939-f955-4020-bed6-427e592f0024@arm.com>
- <cf9da9e0-310b-4dc0-81aa-3154077fff85@kernel.org>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <cf9da9e0-310b-4dc0-81aa-3154077fff85@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_061108_181817_C3A1C6A1 
-X-CRM114-Status: GOOD (  20.29  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,75 +74,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/04/2026 14:00, David Hildenbrand (Arm) wrote:
-> On 4/15/26 17:50, Kevin Brodsky wrote:
->> On 15/04/2026 15:00, David Hildenbrand (Arm) wrote:
->>> On 2/27/26 18:54, Kevin Brodsky wrote:
->>>> kpkeys is a simple framework to enable the use of protection keys
->>>> (pkeys) to harden the kernel itself. This patch introduces the basic
->>>> API in <linux/kpkeys.h>: a couple of functions to set and restore
->>>> the pkey register and macros to define guard objects.
->>>>
->>>> kpkeys introduces a new concept on top of pkeys: the kpkeys level.
->>>> Each level is associated to a set of permissions for the pkeys
->>>> managed by the kpkeys framework. kpkeys_set_level(lvl) sets those
->>>> permissions according to lvl, and returns the original pkey
->>>> register, to be later restored by kpkeys_restore_pkey_reg(). To
->>>> start with, only KPKEYS_LVL_DEFAULT is available, which is meant
->>>> to grant RW access to KPKEYS_PKEY_DEFAULT (i.e. all memory since
->>>> this is the only available pkey for now).
->>>>
->>>> Because each architecture implementing pkeys uses a different
->>>> representation for the pkey register, and may reserve certain pkeys
->>>> for specific uses, support for kpkeys must be explicitly indicated
->>>> by selecting ARCH_HAS_KPKEYS and defining the following functions in
->>>> <asm/kpkeys.h>, in addition to the macros provided in
->>>> <asm-generic/kpkeys.h>:
->>> I don't quite understand the reason for using levels. Levels sounds like
->>> it would all be in some ordered fashion, where higher levels have access
->>> to lower levels.
->> That was originally the idea indeed, but in practice I don't expect
->> levels to have a strict ordering, as it's not practical for composing
->> features.
->>
->>> Think of that as a key that can unlock all "lower" locks, not just a
->>> single lock.
->>>
->>> Then, the question is about the ordering once we introduce new
->>> keys/locks. With two, it obviously doesn't matter :)
->>>
->>> So naturally I wonder whether levels is really the right abstraction
->>> here, and why we are not simply using "distinct" keys, like
->>>
->>> KPKEY_DEFAULT
->>> KPKEY_PGTABLE
->>> KPKEY_SUPER_SECRET1
->>> KPKEY_SUPER_SECRET2
->>>
->>> Is it because you want KPKEY_PGTABLE also be able to write to KPKEY_DEFAULT?
->> Right, and in general a given level may be able to write to any number
->> of pkeys. That's why I don't want to conflate pkeys and levels. Agreed
->> that "level" might not be the clearest term though, since there's no
->> strict ordering.
-> As discussed offline, maybe the right terminology to use here would be
-> something like a "context".
->
-> You'd be activating/setting a context.
->
-> KPKEY_CTX_DEFAULT
-> KPKEY_CTX_PGTABLE
-> KPKEY_CTX_SUPER_SECRET1
+From: Thierry Reding <treding@nvidia.com>
 
-Sounds good to me, that's more accurate than "level" if it is possible
-to give access to arbitrary pkeys to each context, which is the current
-assumption.
+Peter sadly passed away a while back. Paul did a much better job at
+finding the right words to mourn this loss than I ever could, so I will
+leave this link here:
 
-> What is accessible (and how) is defined for each context. For example, I
-> would assume that all context allow for read/write access to everything
-> that KPKEY_CTX_DEFAULT has access to.
+  https://lore.kernel.org/lkml/alpine.DEB.2.21.999.2407240345480.11116@utopia.booyaka.com/T/#u
 
-Most contexts would, although as I mentioned in the previous email,
-unprivileged contexts such as eBPF programs may be further restricted.
+Co-developed-by: Paul Walmsley <pjw@kernel.org>
+Co-developed-by: Aaro Koskinen <aaro.koskinen@iki.fi>
+Co-developed-by: Geert Uytterhoeven <geert@linux-m68k.org>
+Signed-off-by: Thierry Reding <treding@nvidia.com>
+---
+Changes in v2:
+- add more missing entries
 
-- Kevin
+ CREDITS     | 10 ++++++++++
+ MAINTAINERS |  1 -
+ 2 files changed, 10 insertions(+), 1 deletion(-)
+
+diff --git a/CREDITS b/CREDITS
+index 885fb05d8816..afd1f70b41cf 100644
+--- a/CREDITS
++++ b/CREDITS
+@@ -3645,7 +3645,17 @@ D: Macintosh IDE Driver
+ 
+ N: Peter De Schrijver
+ E: stud11@cc4.kuleuven.ac.be
++E: p2@mind.be
++E: peter.de-schrijver@nokia.com
++E: pdeschrijver@nvidia.com
++E: p2@psychaos.be
++D: Apollo Domain workstations
++D: Ariadne and Hydra Amiga Ethernet drivers
++D: IBM PS/2, Microchannel, and Token Ring support
+ D: Mitsumi CD-ROM driver patches March version
++D: TWL4030 power management and audio codec driver
++D: OMAP power management
++D: NVIDIA Tegra clock and BPMP drivers, among many other things
+ S: Molenbaan 29
+ S: B2240 Zandhoven
+ S: Belgium
+diff --git a/MAINTAINERS b/MAINTAINERS
+index ef978bfca514..ffe20d770249 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -26145,7 +26145,6 @@ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git
+ N:	[^a-z]tegra
+ 
+ TEGRA CLOCK DRIVER
+-M:	Peter De Schrijver <pdeschrijver@nvidia.com>
+ M:	Prashant Gaikwad <pgaikwad@nvidia.com>
+ S:	Supported
+ F:	drivers/clk/tegra/
+-- 
+2.52.0
+
 
