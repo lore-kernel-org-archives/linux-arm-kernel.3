@@ -4,117 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B1AEF4368A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 11:22:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46117F4368A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 11:22:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5rJ8QjCz8tAOoHk7zoU38Y9W/nUxy5PN6rGyzWZqcRg=; b=qZmyWGHDw2VPkdqbac9fP5S45k
-	83n+a6c4PwwfgcYFiX5Bclu/USdp2kpfdWyIoTmgDG+jTOT3tDAzPBaOpooetMRFrd7bXAv5pSolS
-	gSVEFeLof8WArDkYcBzMpVOsLCaMz7B8g8/W2NnJdjZ5WWgLbpoVQynPbP+Q8KMdU457V3Cqo/KB6
-	KJpdjaCGunAROGjQv+AwzgkO8HVMArTAka1KeZhCkQVzSU6dEy49fnCy22X16FXdYJvz9poVOkNZ8
-	AIQyXDi/jDUO7qotWcxLP3xwyhQeGvCP0alSfTQTZHZw+UfpitwyuTAsmwtktZ8aTpuKeyCZHcQRc
-	1GXz3TRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vGbSXclm7AmYENt3Vu+eUOF4lyYxN8bRKYs+wlkU5Kw=; b=q6+r9VE19kVhLApqKkqUD8SAz/
+	R+eWoDCL65INUnoXKTBUrSwE9N0aocD6uhhtRoxe0xsHDNxBOnOeRk8KtkCkwATvUVMQ0Blbjuhpf
+	aw1cd+vSFTIXSKw/TYDzcoz7ww4UAptxO4y4NrK/1ueZ46lgytKr1zwl86Ztcsks7V382Ukm2Ojc+
+	BqHpd3aHm4iy8igG0Ne0fup3xcyhm/vDzLWMT0GxotWrxh7UQzcHsJXGIiAXnYJfaKDQEVBRbmRm2
+	s4dHdMpgymixrqVXgkPwssMVq3wg7aGt+vvbM1GxYzCRmefYPbWQxVadg7g9B/ymO/r/U5GMGKqYP
+	a++quMqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDhH9-00000003yPl-1Amv;
-	Fri, 17 Apr 2026 11:22:19 +0000
-Received: from www62.your-server.de ([213.133.104.62])
+	id 1wDhHb-00000003ySy-2aQV;
+	Fri, 17 Apr 2026 11:22:47 +0000
+Received: from mail-northeuropeazon11012050.outbound.protection.outlook.com ([52.101.66.50] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDhH5-00000003yPP-32uO
+	id 1wDhHZ-00000003ySS-1a8g
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 11:22:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=iogearbox.net; s=default2302; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=5rJ8QjCz8tAOoHk7zoU38Y9W/nUxy5PN6rGyzWZqcRg=; b=qnLFjkwSjBnsUbR+wn5PJJanst
-	phPMyK1vqVlKoy9cZ2TNGVK2mgobhM9XJ6727Y7HaP/GmTU46QqD6jkvSOYx0F8mlD2pPSjE4Yz/S
-	N65756DUcABYvVe9uI4XyPUTO2Zr9zqA0oPMUIFj/Kpw6GVqEodjTUkrSirtEx1yHwJYG/6WU+Rfo
-	VXnGCxeqs8EfwuVG6ICD7UrjClVT+rv55GCVuzuXiTizddbG9LvC8R3OiguwyK2h9/2Q0rMpEQevy
-	yYa/58tir/lDBiU7DL0cgdgJFE/KsVG8LIIcTCk8BygHZ0dh/jKe9w/zZFjx5WFbK/SgYSpjmZhvw
-	ZAqKZddA==;
-Received: from sslproxy05.your-server.de ([78.46.172.2])
-	by www62.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <daniel@iogearbox.net>)
-	id 1wDhGn-000Opx-1M;
-	Fri, 17 Apr 2026 13:21:57 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy05.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <daniel@iogearbox.net>)
-	id 1wDhGn-0002md-0E;
-	Fri, 17 Apr 2026 13:21:56 +0200
-Message-ID: <b64a9ba4-2af7-45d5-8f68-6a64cc498364@iogearbox.net>
-Date: Fri, 17 Apr 2026 13:21:55 +0200
+	Fri, 17 Apr 2026 11:22:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=I/Ci38UqnzatI0mnOxFj3VEaUMMSZ0h6FVs1k96Nh/gCO0gLWY3nymFzWYKj9JQoI7jBb6CrpWR0sx2TQUTdlvFGl8YXmufUJDhbsDWYXUqWaN0Jz5ZMJOHHr+lCIDApoI200TdEYaEkPF8Gndu2d6HmoMZrPMTB2TJV2kJTY/2XP4YiYMSIkUtaZlF5zaI1eViau2lVMefARoO4/1qzEl9PK45mtD/311Y3HL5BuqncvvJCzhRUvBF6p1U5ttJGUVcxubuByNsLgyxx1gda7tWCze6sCvRf4/mLfQlD+aA4sMBA2yeRKVtm0hn6cRlwjMv8JcmuXJ4YshVSUob7hA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vGbSXclm7AmYENt3Vu+eUOF4lyYxN8bRKYs+wlkU5Kw=;
+ b=h3gbl52wqj6JSsM/6rvG+U15a6UzkQ+kbU/w/h+KAZEeKDQ3/z7t02D1J9Ptm0oji3xhAHz30FIYd5QK2TAxmEULJ4MLejLHRq84GbqxCD/5UtnjYGUsdGpXKKNCTT6XH4/S2Nl5HeEuhsf67mfoR7npQ5NqG6ekJtXyX9i2bkU+7sUMR+Rm/TrnFrkCpj1w1YLqXlxOMQr+UdRwc4emJbgccp2Zz2SE4Fjh5NQpZ1FD90aQzii4AOcgMrHkRlJlftQmq1GF+Yxe84Nu/LLsBalEt2PWbEKK1PBrYqEp3bEZ3713VUvIIKpvuWtQxbEsBML3UKOx6dHeHWX6pDspyw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vGbSXclm7AmYENt3Vu+eUOF4lyYxN8bRKYs+wlkU5Kw=;
+ b=IqfYFI8adepWTXIYx93jgZPn2bCMMTnhOJkfCBhGREuEIaQiCUTD7do4n+357uorStR4cOzc/WgfEajMP6MYZpe8JOmpg9gCZTtVFCp6/kBhnqeinLg+gvH8HZFRNm4m4rc8l9n/Kn5sohyl08QvbTJxrTK3a8fFOz3kBV4pu2Xp0a7lG4YSe9JVnppsNe05ObaQPWPtDpdkbgf13KbDSOUkH1Bv8+//Du+Abt08oy2WMbWjeRHz6rjrxt4BL/sxLqO5pfKZpGW+9s8fyeIxOrPcwJG8n1OYZOZYwljERQThobn/TKXX/vpQaTvJbiWpXCLDotWydQXnv7vDYUhvDA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by DU2PR04MB8933.eurprd04.prod.outlook.com (2603:10a6:10:2e0::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.25; Fri, 17 Apr
+ 2026 11:22:40 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9818.023; Fri, 17 Apr 2026
+ 11:22:40 +0000
+Date: Fri, 17 Apr 2026 07:22:33 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Robby Cai <robby.cai@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	s.hauer@pengutronix.de, festevam@gmail.com, shawnguo@kernel.org,
+	martin.kepplinger@puri.sm, kernel@pengutronix.de,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] arm64: dts: imx8mq: Correct MIPI CSI clocks
+Message-ID: <aeIX-YbSwhmuJwst@lizhi-Precision-Tower-5810>
+References: <20260417110200.753678-1-robby.cai@nxp.com>
+ <20260417110200.753678-2-robby.cai@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260417110200.753678-2-robby.cai@nxp.com>
+X-ClientProxiedBy: SA0PR13CA0028.namprd13.prod.outlook.com
+ (2603:10b6:806:130::33) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next] bpf, arm32: Reject BPF_PSEUDO_CALL in the JIT
-To: Puranjay Mohan <puranjay@kernel.org>, bpf@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: Jonas Rebmann <jre@pengutronix.de>, Alexei Starovoitov <ast@kernel.org>,
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
- <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>,
- Russell King <linux@armlinux.org.uk>, kernel@pengutronix.de
-References: <20260417103004.3552500-1-puranjay@kernel.org>
-Content-Language: en-US
-From: Daniel Borkmann <daniel@iogearbox.net>
-Autocrypt: addr=daniel@iogearbox.net; keydata=
- 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
-In-Reply-To: <20260417103004.3552500-1-puranjay@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Virus-Scanned: Clear (ClamAV 1.4.3/27974/Fri Apr 17 08:24:08 2026)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DU2PR04MB8933:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9b64d7f0-b3c5-492f-a4b4-08de9c73a2ba
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|52116014|376014|19092799006|38350700014|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: jOnQiDk6IlKdmPGe0w+YlWYVl1xSIzP3fHHFQHYgBJhYwXxXHL/bepWmkMg2g6iBgvx2zM6gdF3po/BhcZhbYinPQRIADRCpXEKn354uZFfQk1qdlgS4kgDzddVwor811y6qzEb+TKOenobEwK+Vti7YPJ0etrHnaltBAPzO2wcbi7tT6E/+37oiEhpiciGo/NUQ6c0fRa1UiOR0mXzjRJWgZOnvXjv0cqCkTpJaIoYHhq7eBon3AGuLdldC/Vjs5kEkMJrehQUMig6qs4mb3lzmFVsC+f5DT+3uUZaS+C4lFxVcSl4c7jLQotA6aw3qIlOcA5G/AV7/QFR2U4YODk/sWzQ7Bh70w2ZjbFRFJbk4lEmwlntE0ztvKy+elNVNn/k3Rh9/EaOjgVdgOMgwp+9cPrixkiMVhhDC0LufClRaAD97Syx8LIv+9CsF5VfckoZdhGSg39BdfhSwb0sLq9+tE7U+0KI5ax//a26MUfQmQU4n/RK7dZWLRrY/Y+JeBWUO0rt+/8i/PZaDEO5CLGti4Qf55HPrqNEtTfx3+l3t0MOUlVC3Tk+kACI0QzdCiHitGlp7acR8vhO2TBn3xo/hGWcfwkviZjFuT0Y1QMc72B+R79QJwvaJXIfZA3wLY2a4Z1PKy0FNsnJELx5EQMpbbW2mdsi2XNWey9APHLO7agubt1PbkL1WzOPoBt12iLwQBso7L0uGZypq9Z891W8+rOlF75+MoFd/qsqHd0c4P8mKAiH/Ok/9OxtqFVY7uYPoNngVM5urHrABWJ6NgwOrs7UAtjR4sSZ/XKnB+Eg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(52116014)(376014)(19092799006)(38350700014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?osT3CtGpz+Iswsx8S3wL3PJ/UyBfukbm9y9s80Ml3zbkxMUOxm7MhPzeS7bd?=
+ =?us-ascii?Q?4UhjELuIBNZtasIwadY12KSN2yZLegPw3/jwdCjy82rH0FnYLEUf85LFog7X?=
+ =?us-ascii?Q?DsuWJHTu7Lo3oCAe+m6166hrPj1Xjw0+2djCdWCM7TePO6873J3Kz3/dQ6Bj?=
+ =?us-ascii?Q?CbCHzI3lBqtz6A4NYbLJHx1eipPjVSonmAZXGhii+3bl37UUAQ69QFpmfxqn?=
+ =?us-ascii?Q?RxYLlR2fouIk0uK2W4Oy5NXFKWGEBvAikrJ1K+0mXH2H41Qu9t+j0aOT8ZKh?=
+ =?us-ascii?Q?FC5BqJZOtICpcVJRiss3PFBe6vEeaaWM7zKxGm3GNNkjdV/x52TwV+8d41Tr?=
+ =?us-ascii?Q?0q+2u6H5U0sJzig+qql1M34gIeYiaDF93m1c62GU+LYT3fqS1PtC1G+IvhbU?=
+ =?us-ascii?Q?6RI2GnJg+4aUFwUfTZBUuCaZSVdQ+w84583XRTg6ZKr1Mwhz1UyFs6yYmTqK?=
+ =?us-ascii?Q?Nf/sSPg2N7JenVGxzyttG2n8zDGsXid1ETm2P2VKBwRtceycXh10Wu8QDGPp?=
+ =?us-ascii?Q?NdonqTzGwlJVGg8r+VVy6yHnpaZvCwPex4Krs6aoQx2qhoz/7/87+scAQy6K?=
+ =?us-ascii?Q?Y55a7UylwfhpkHePcWvip1LAizzky0DverIcHINQSuYNLxen0/wN7lVbuzAR?=
+ =?us-ascii?Q?Y4ucMEFu3SYDw0Z9dYfG9SQFZIgnFkQFkQDuDzmrC/8teT7TKfD+r7luyZg2?=
+ =?us-ascii?Q?mlGbaHgK5MMPoHhm8r0BW5d58T0+TL+qvY5wJY2gebP2zQloGw8WJXsozlXn?=
+ =?us-ascii?Q?YyllbBztMfZ3QMh7ZAEpf/liehCu+/5B7FrQpENu9grA18Ebnln9HBUPYN7F?=
+ =?us-ascii?Q?CoWtwP/qipzdDmmcRz2V/B9Rtukg5ZvdxbYGX/PF73K0OD2r+WeNxkrmY7+F?=
+ =?us-ascii?Q?/yBjWLw20Fzhl75bctDY8ooS6xKW0XBWQhpkLd5m+i+tux6oLUBFeptFXEoA?=
+ =?us-ascii?Q?pU1saKkafoGRJJFU2Obw8TEIItaO8JcBprpQLlg/iLRWkzjjIGvYddJ30Xff?=
+ =?us-ascii?Q?0OnSzjEWTJ44I/IxzCl90E7n1IqAHkhdRHqfNuXp09xanFQ3kyAGmZfd3dze?=
+ =?us-ascii?Q?KM5RIPlg0phjqEBbR9hlH9BVjCKsr3XmCmZQd+CenTrpLFjVaXWQ/Tt9fWa7?=
+ =?us-ascii?Q?zPTNtXoP21A7BcHYU0UNsHeMS3EwBuEUyZNgv2GC8RJ1stesGbdLT8RQRr02?=
+ =?us-ascii?Q?zSNIJZ3fX0lOaB9B2VBxd05hKWHS0Uvl028Xpl671TIlE7uSy3pIgIV/6eHP?=
+ =?us-ascii?Q?5Os5CN8cMmiCaUPmP+Oy8oPgDGbBf+DcfGdTr8r7SzeCa8gmxDSVelQ06Oos?=
+ =?us-ascii?Q?6FekzR+m1FNKMuYp+eC3+TaoIT/ZTontbNkLDTrnOw74R9FcAO6iB9HAWvwq?=
+ =?us-ascii?Q?xNTWIfLUACDaOYubiGOF6CIqY6BOlrhkx+u0Dvj3kJIgDWyZ2VXyhMXC0r22?=
+ =?us-ascii?Q?DX/XchVIAZ4RV3RqOMhU3mY6kDJItMCIxMXbWEwIY4c3yS6Jj9cf9zhH8hu3?=
+ =?us-ascii?Q?OwYQ7bF2p5rDppk/xlYDVRqOM77l5N/H6oVyjKlVKVXI4iRABGX0y9e5tKn9?=
+ =?us-ascii?Q?f9xwYMe9VXjrM0iJDXKWw64hObpydehytmziJUYywg//3XqWTnAdfs37dXwz?=
+ =?us-ascii?Q?ukY7qS0gOgb8+1sxH3H/ZnNKQ5Wx+5dG04L9Gi262VXJWLgaHFRyKMgnlRgL?=
+ =?us-ascii?Q?GlCWs7cBMM8eavoF58HhEqPsWpUzeqYEZTBHWukuKq959TQT?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9b64d7f0-b3c5-492f-a4b4-08de9c73a2ba
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Apr 2026 11:22:39.9441
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: o+ElVXT5v+iHa0dRdLjUuDGZ6S8U8p2k4XaBUkh4OfXrniesBiYYVA9MXapoCz/XAzoUGjlIQrmk5Ml2bfLRrw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8933
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_042216_096655_31AC79AC 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20260417_042245_419709_A4B97A79 
+X-CRM114-Status: GOOD (  18.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,51 +137,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/17/26 12:30 PM, Puranjay Mohan wrote:
-> The ARM32 BPF JIT does not support BPF-to-BPF function calls
-> (subprogram calls). When insn->src_reg == BPF_PSEUDO_CALL, the
-> imm field contains a pc-relative offset to another BPF function,
-> not a helper function index.
-> 
-> When a program containing BPF-to-BPF calls is loaded, the verifier
-> invokes bpf_jit_subprogs() which calls bpf_int_jit_compile() for each
-> subprogram. Since ARM32 does not reject BPF_PSEUDO_CALL, the JIT
-> silently emits code for the call using the wrong address computation:
-> 
->      func = __bpf_call_base + imm
-> 
-> where imm is actually a pc-relative subprogram offset, producing
-> a bogus function pointer. Because build_body() reports success,
-> bpf_jit_binary_alloc() is reached and a JIT image is allocated.
-> 
-> ARM32 also lacks the jit_data/extra_pass mechanism needed for
-> the second JIT pass in bpf_jit_subprogs(). On the second pass,
-> bpf_int_jit_compile() performs a full fresh compilation,
-> allocating a new JIT binary and overwriting prog->bpf_func. The
-> first allocation is never freed. bpf_jit_subprogs() then detects
-> the function pointer changed and aborts with -ENOTSUPP, but the
-> original JIT binary has already been leaked. Each program
-> load/unload cycle leaks one JIT binary allocation, as reported
-> by kmemleak:
-> 
->      unreferenced object 0xbf0a1000 (size 4096):
->        backtrace:
->          bpf_jit_binary_alloc+0x64/0xfc
->          bpf_int_jit_compile+0x14c/0x348
->          bpf_jit_subprogs+0x4fc/0xa60
-> 
-> Fix this by rejecting BPF_PSEUDO_CALL early in build_insn(),
-> falling through to the existing 'notyet' path. This causes
-> build_body() to fail before any JIT binary is allocated, so
-> bpf_int_jit_compile() returns the original program unjitted.
-> bpf_jit_subprogs() then sees !prog->jited and cleanly falls
-> back to the interpreter.
-> 
-> Fixes: 1c2a088a6626 ("bpf: x64: add JIT support for multi-function programs")
-> Reported-by: Jonas Rebmann <jre@pengutronix.de>
-> Closes: https://lore.kernel.org/bpf/b63e9174-7a3d-4e22-8294-16df07a4af89@pengutronix.de
-> Tested-by: Jonas Rebmann <jre@pengutronix.de>
-> Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+On Fri, Apr 17, 2026 at 07:01:59PM +0800, Robby Cai wrote:
+> CSI capture may intermittently fail due to mismatched clock rates. The
+> previous configuration violated the timing requirement stated in the
+> i.MX8MQ Reference Manual:
+>
+>   "The frequency of clk must be exactly equal to or greater than the RX
+>    byte clock coming from the RX DPHY."
+>
+> Update the clock configuration to ensure that the CSI core clock rate is
+> equal to or greater than the incoming DPHY byte clock.
 
-Acked-by: Daniel Borkmann <daniel@iogearbox.net>
+You reduce clock, how to make sure it >= ?
+
+> The updated clock
+> ratios are consistent with those used in NXP's downstream BSP.
+
+"downstream BSP" is not solidate reference for clock rate, it'd better
+refer to date sheet, dose datasheet require such frequecy
+
+Frank
+>
+> Fixes: bcadd5f66c2a ("arm64: dts: imx8mq: add mipi csi phy and csi bridge descriptions")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Robby Cai <robby.cai@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx8mq.dtsi | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mq.dtsi b/arch/arm64/boot/dts/freescale/imx8mq.dtsi
+> index 6a25e219832c..165716d08e64 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mq.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mq.dtsi
+> @@ -1377,7 +1377,7 @@ mipi_csi1: csi@30a70000 {
+>  				assigned-clocks = <&clk IMX8MQ_CLK_CSI1_CORE>,
+>  				    <&clk IMX8MQ_CLK_CSI1_PHY_REF>,
+>  				    <&clk IMX8MQ_CLK_CSI1_ESC>;
+> -				assigned-clock-rates = <266000000>, <333000000>, <66000000>;
+> +				assigned-clock-rates = <133000000>, <100000000>, <66000000>;
+>  				assigned-clock-parents = <&clk IMX8MQ_SYS1_PLL_266M>,
+>  					<&clk IMX8MQ_SYS2_PLL_1000M>,
+>  					<&clk IMX8MQ_SYS1_PLL_800M>;
+> @@ -1429,7 +1429,7 @@ mipi_csi2: csi@30b60000 {
+>  				assigned-clocks = <&clk IMX8MQ_CLK_CSI2_CORE>,
+>  				    <&clk IMX8MQ_CLK_CSI2_PHY_REF>,
+>  				    <&clk IMX8MQ_CLK_CSI2_ESC>;
+> -				assigned-clock-rates = <266000000>, <333000000>, <66000000>;
+> +				assigned-clock-rates = <133000000>, <100000000>, <66000000>;
+>  				assigned-clock-parents = <&clk IMX8MQ_SYS1_PLL_266M>,
+>  					<&clk IMX8MQ_SYS2_PLL_1000M>,
+>  					<&clk IMX8MQ_SYS1_PLL_800M>;
+> --
+> 2.37.1
+>
 
