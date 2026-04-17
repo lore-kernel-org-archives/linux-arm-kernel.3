@@ -4,125 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B6FAF436B7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 15:45:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E359F436B7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 15:48:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Osxna4FtHQotwv8pLUx2HpWt2BMJy2W8k3FN7VIJSWs=; b=C5uUjm8gl414X57i3uSzW7RgrE
-	wiE/eY0rA07r5X/aJ7jZaDFWZUYhrbQL1h4NZR9nfCnWwSqNfAE5Qekm0O9/n3I4ICcVJGjlV4vr3
-	bOJtKu6Esrb2F46R7+OTjKJzs735V3iaCKHdXT/YHCjVJWBZeQjSlz6eyT5CfTMnO5MkOdHTON4PS
-	aB2cmA3wvoy492zDtG/UuNEZpKQ2qq4dH+IMD0t0wOIqJTtizuoXDuq6Skl3ujgelH53igb8Wf/95
-	Os8s1w3wSqu7de92a6oq+gVE1O0OTKcFHx9XlvW7AuJjmVdkixU6W89i9kje0RxoupvSlpaJDlljM
-	MhaqW6Qw==;
+	bh=t14vhZSjmGxogVnlCT4l5sQln05+hcpZfQZufv0lCmU=; b=VFA4hqEsowuO+zbFm+wh44BfUr
+	yYOlStIZ3Nt/MkJnWMVZvxWjdgqnPIPj5kxL/oHPsqfjVEEeIcxeiXE1WBptF1DLWCAov4z9LhvqA
+	2MjrIq0z0jWdtI9YYeBOv1A3okdsrv9OuTxp4/7pE7dWGYkp2RtEgRwfufsLtib2Y99WH+KLUZFQK
+	W90RzrMg7rvI+SjAczVCc/6AaXc9uCbODsUSBbUDoVbI+RHSC6d30AvdvpWZvAYg+0D2UzoRQlRVD
+	jbBRmxzYzRW+Kq3VI3nTaGQxq1hWKIQlRuuDPoV6JvGt5P+HudKqtek9TX+Qoqw8Dq/F7Hf3IFE6y
+	tmcP/mNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDlOC-00000004E2c-1Rsf;
-	Fri, 17 Apr 2026 15:45:52 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wDlQg-00000004ECW-3h9X;
+	Fri, 17 Apr 2026 15:48:26 +0000
+Received: from mail-dl1-x1243.google.com ([2607:f8b0:4864:20::1243])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDlOA-00000004E1t-2Kd7
+	id 1wDlQc-00000004EBm-2CRS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Apr 2026 15:45:51 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63HF9A9V2614144;
-	Fri, 17 Apr 2026 15:45:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=Osxna4
-	FtHQotwv8pLUx2HpWt2BMJy2W8k3FN7VIJSWs=; b=rMjm/3fvPnSDN4nhV/W89X
-	k5pduLyXcMB1QDFJVGL1QNN+RIxegSfZQovUJRWhEvSP/AHQdbvq9sO06qcBfANH
-	0Xe2ggjJmekLUew3q7TxBbWpzFr2ePv6+k4p+zIeT74RDONzlTUHbHy9OcO2N6D4
-	zywFjhSQUvmnHGlohOCZ5sPZjS+isd9aIZViWBUKEjzIAHDwX0LmpfjTbjhyVyCR
-	KMCzD9chSmLoMche9tLSNNS61iyYqlclNd8qGvj8eDf8Kw8U5DeetZN9Ux4Rttot
-	Vgmf4v5caf5jedmmugVBcwusmlcL7zoanP8hI+IumkprfQOnJctN75TbACHlefNw
-	==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dh89nuepd-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 17 Apr 2026 15:45:16 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 63HBN97Z015666;
-	Fri, 17 Apr 2026 15:45:15 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4dg0mt014d-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 17 Apr 2026 15:45:15 +0000
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63HFjDJ731129898
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 17 Apr 2026 15:45:14 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D18B220040;
-	Fri, 17 Apr 2026 15:45:13 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 185572004D;
-	Fri, 17 Apr 2026 15:45:13 +0000 (GMT)
-Received: from [9.111.133.81] (unknown [9.111.133.81])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 17 Apr 2026 15:45:13 +0000 (GMT)
-Message-ID: <95f9d11a-dd92-433e-a8db-cbebe94e1611@linux.ibm.com>
-Date: Fri, 17 Apr 2026 17:45:10 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 8/8] unwind: arm64: Use sframe to unwind interrupt
- frames.
-To: Dylan Hatch <dylanbhatch@google.com>,
-        Roman Gushchin <roman.gushchin@linux.dev>,
-        Weinan Liu <wnliu@google.com>, Will Deacon <will@kernel.org>,
-        Josh Poimboeuf <jpoimboe@kernel.org>,
-        Indu Bhagat <indu.bhagat@oracle.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Steven Rostedt <rostedt@goodmis.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Jiri Kosina <jikos@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-        Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
-        Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>,
-        joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org,
-        linux-kernel@vger.kernel.org, live-patching@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        Heiko Carstens <hca@linux.ibm.com>
-References: <20260406185000.1378082-1-dylanbhatch@google.com>
- <20260406185000.1378082-9-dylanbhatch@google.com>
-Content-Language: en-US
-From: Jens Remus <jremus@linux.ibm.com>
-Organization: IBM Deutschland Research & Development GmbH
-In-Reply-To: <20260406185000.1378082-9-dylanbhatch@google.com>
+	Fri, 17 Apr 2026 15:48:25 +0000
+Received: by mail-dl1-x1243.google.com with SMTP id a92af1059eb24-12c45281a06so1139222c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 08:48:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=etsalapatis-com.20251104.gappssmtp.com; s=20251104; t=1776440901; x=1777045701; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=t14vhZSjmGxogVnlCT4l5sQln05+hcpZfQZufv0lCmU=;
+        b=XC26aH9p2Zm7cxJSF1clWQA46dqOjPNcaNlvd3vLotTswcnMlzjIEW3YaecWRK+Rl5
+         A0DuUQrOMbGyoIfO1OwIk0Kwk+j/YPWnPnSQ+hZnrjhFiFkhJ0hsQMvyUrhWmA4h90UF
+         n0m4Z+TiSws7OBvzdHMv/Qq+uNVJ4nDVsTBcBtGYhs/4PYvQ2yy9lsxJpT4gAX6moF4O
+         G31nTOBa21cpIbdN+hHRFmRQawVNjZdkfaeEdk/mnsegyVyrwtzX78Nfs1VZeWmfjHTZ
+         lzCwUMdioo+OC26jz5oTLtYNPZN0ZwTW8db0wSWgATDOewiiuXnr9l/NzC0o4DcSWrcJ
+         VXZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776440901; x=1777045701;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=t14vhZSjmGxogVnlCT4l5sQln05+hcpZfQZufv0lCmU=;
+        b=F2ypBxmsTd9WYf4RM7QoGd4ggKd0nGdC1diN/reG+uXy5luePHDi1FXFEVXCIEM8pM
+         vXcUYDPHttjrosVo860C5om+NDx7J5BgXFgnZCWloNhWqvKpqTfdE/rkqzTFtQb3sjSk
+         V2T8H35mfZ7Ho5snJEw02KagNqhTawpWpGmbzfO6R7IX8qQ/MzSFkxYb3B98DT7GnTuX
+         MNuRALCZTZGLpLw8YLlzEHeFm8+Fe7RVeHr33b94v+fn+haOL6evIt3cwZZAwWNzsbit
+         qP22PeGbV/uMwYl5wsHHn5saLZZf5GspP5BA+L0Yh1xaobpS+p9I8erMjJLmYYlIIpOj
+         W7XA==
+X-Forwarded-Encrypted: i=1; AFNElJ/Fh/qRBLYIU0oL4CMaHyt04z40+42X0tHvNLXfmsD0UATZA0GurzcAYwhY+Xn/T//mKq+qeflGoCgFrnpVKF5I@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0H/dwW/RmTdzdVmZEbAPru33Q3BdcbLBhKqkKpXxL8g6LxAlh
+	1UNhM0tFwpXOLlDcsqFWQ7K2rAC4q7jWPnu9Wry27E3MvtFb9wRNnGCwCHkZN7eQrsA=
+X-Gm-Gg: AeBDiesdm9mwL07R/Ybv7orI38bjhEQGcldTIKSHJVPDn6or2A+cRMjsSTRSc+k3vrA
+	fq1Y9+wU9yGZrpaP+vVxga5XUOqj2EqirO6qsSCoXbRzX2TbMBx3M8KoAVLJYf01JkjPP0TutxW
+	bh/JwI3US9iGJb1m4PXsGgbzlLvHtvWS++fZoJWNtMrs/mRGBD18Sp9HiIwW2SqIOOUP3Dbbvis
+	fnNG1T1OnWEKMczhYSDj1296ycrxCTFsI1s5qrrT8/fZUL3peaYrAaSchCZRVPmaeIgAAkH2cJQ
+	3S1PS2xgrCobrkbPbk5ZPaCyB8gdsMqA/h11LYzslkMj2T49MUGml2FsMjp6VD+Trh2PpzwD132
+	1+nfOmlYc1357N2T8/7pK2RsPvnSg/ErsGCuv+5qRvjMsj9NzuW433OuOoFHZsRFfwGhCTgVmrW
+	CL7Uzmk7aJHJ37nrk=
+X-Received: by 2002:a05:7022:6882:b0:11b:923d:7753 with SMTP id a92af1059eb24-12c73f6d69dmr1640615c88.3.1776440900906;
+        Fri, 17 Apr 2026 08:48:20 -0700 (PDT)
+Received: from localhost ([2620:10d:c090:600::5d38])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-12c74a18a2bsm3803928c88.10.2026.04.17.08.48.19
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 17 Apr 2026 08:48:20 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: GziO2qAoQXMAKU75LAHCq6QCKakEObnC
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE3MDE1NCBTYWx0ZWRfXwj4yVYlgPM5P
- 9q0i5MbP3ABLecmm/eXE5Nv0YwynTtAdr5WsYuTOc27/Tupm5aIdOHRuXvi8LS++6OM+STqBN2F
- wNOtFCqqI7mlzPjB/VxuNuk6ZEW2OFbqeJ0W7ulO2ukXkXxmB3SUVnE3xyCuN697dNJXuxvmk9G
- 0+wrv2PNapDr3+crortwjQS908yg8FaEhLV535Idoi0iTSE2bXPSdSZK3UaN0aLDwVfbGKyXcTF
- uAbNEslCSGAr8S73caMi3cpry2enYGjmLPQaKsxCNGayeU1CZan+mfCrSGwemjM1V1BmQkEmrRj
- yPrqYlRXnyfV5okgjBOCxzSAgTjfjoGN0UxkL7/o70wVIG8qKtaS+ohNptnW/2JClPyZWo3A4Yx
- HjvKmiFKe2MvKWryjnj0Bh9zFG9QtnRHdFAsBQt7QFL2ENrwYsWuh52PbpyrNxw0iqNUe5XMGfy
- Ee5IZ+525w1rYtpteBA==
-X-Proofpoint-ORIG-GUID: mqaiSIGtoWLV696juffMrFiV03naceXz
-X-Authority-Analysis: v=2.4 cv=FY4HAp+6 c=1 sm=1 tr=0 ts=69e2558d cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8
- a=1XWaLZrsAAAA:8 a=yMhMjlubAAAA:8 a=jKjX_6A9mCPruwacPsgA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-17_01,2026-04-17_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 priorityscore=1501 bulkscore=0 impostorscore=0 spamscore=0
- lowpriorityscore=0 suspectscore=0 clxscore=1015 malwarescore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604170154
+Date: Fri, 17 Apr 2026 11:48:18 -0400
+Message-Id: <DHVJQQK6L83L.13DDK8BJXQFXG@etsalapatis.com>
+Cc: "Jonas Rebmann" <jre@pengutronix.de>, "Alexei Starovoitov"
+ <ast@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii
+ Nakryiko" <andrii@kernel.org>, "Martin KaFai Lau" <martin.lau@linux.dev>,
+ "Eduard Zingerman" <eddyz87@gmail.com>, "Kumar Kartikeya Dwivedi"
+ <memxor@gmail.com>, "Song Liu" <song@kernel.org>, "Russell King"
+ <linux@armlinux.org.uk>, <kernel@pengutronix.de>
+Subject: Re: [PATCH bpf-next v2] arm32, bpf: Reject BPF-to-BPF calls and
+ callbacks in the JIT
+From: "Emil Tsalapatis" <emil@etsalapatis.com>
+To: "Puranjay Mohan" <puranjay@kernel.org>, <bpf@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260417143353.838911-1-puranjay@kernel.org>
+In-Reply-To: <20260417143353.838911-1-puranjay@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_084550_625185_370BA3D9 
-X-CRM114-Status: GOOD (  29.46  )
+X-CRM114-CacheID: sfid-20260417_084822_567835_109100D8 
+X-CRM114-Status: GOOD (  25.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,198 +105,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Dylan and Weinan!
+On Fri Apr 17, 2026 at 10:33 AM EDT, Puranjay Mohan wrote:
+> The ARM32 BPF JIT does not support BPF-to-BPF function calls
+> (BPF_PSEUDO_CALL) or callbacks (BPF_PSEUDO_FUNC), but it does
+> not reject them either.
+>
+> When a program with subprograms is loaded (e.g. libxdp's XDP
+> dispatcher uses __noinline__ subprograms, or any program using
+> callbacks like bpf_loop or bpf_for_each_map_elem), the verifier
+> invokes bpf_jit_subprogs() which calls bpf_int_jit_compile()
+> for each subprogram.
+>
+> For BPF_PSEUDO_CALL, since ARM32 does not reject it, the JIT
+> silently emits code using the wrong address computation:
+>
+>     func =3D __bpf_call_base + imm
+>
+> where imm is a pc-relative subprogram offset, producing a bogus
+> function pointer.
+>
+> For BPF_PSEUDO_FUNC, the ldimm64 handler ignores src_reg and
+> loads the immediate as a normal 64-bit value without error.
+>
+> In both cases, build_body() reports success and a JIT image is
+> allocated. ARM32 lacks the jit_data/extra_pass mechanism needed
+> for the second JIT pass in bpf_jit_subprogs(). On the second
+> pass, bpf_int_jit_compile() performs a full fresh compilation,
+> allocating a new JIT binary and overwriting prog->bpf_func. The
+> first allocation is never freed. bpf_jit_subprogs() then detects
+> the function pointer changed and aborts with -ENOTSUPP, but the
+> original JIT binary has already been leaked. Each program
+> load/unload cycle leaks one JIT binary allocation, as reported
+> by kmemleak:
+>
+>     unreferenced object 0xbf0a1000 (size 4096):
+>       backtrace:
+>         bpf_jit_binary_alloc+0x64/0xfc
+>         bpf_int_jit_compile+0x14c/0x348
+>         bpf_jit_subprogs+0x4fc/0xa60
+>
+> Fix this by rejecting both BPF_PSEUDO_CALL in the BPF_CALL
+> handler and BPF_PSEUDO_FUNC in the BPF_LD_IMM64 handler, falling
+> through to the existing 'notyet' path. This causes build_body()
+> to fail before any JIT binary is allocated, so
+> bpf_int_jit_compile() returns the original program unjitted.
+> bpf_jit_subprogs() then sees !prog->jited and cleanly falls
+> back to the interpreter with no leak.
 
-On 4/6/2026 8:50 PM, Dylan Hatch wrote:
-> Add unwind_next_frame_sframe() function to unwind by sframe info if
-> present. Use this method at exception boundaries, falling back to
-> frame-pointer unwind only on failure. In such failure cases, the
-> stacktrace is considered unreliable.
-> 
-> During normal unwind, prefer frame pointer unwind (for better
-> performance) with sframe as a backup.
-> 
-> This change restores the LR behavior originally introduced in commit
-> c2c6b27b5aa14fa2 ("arm64: stacktrace: unwind exception boundaries"),
-> But later removed in commit 32ed1205682e ("arm64: stacktrace: Skip
-> reporting LR at exception boundaries")
-> 
-> This can be done because the sframe data can be used to determine
-> whether the LR is current for the PC value recovered from pt_regs at the
-> exception boundary.
-> 
-> Signed-off-by: Weinan Liu <wnliu@google.com>
-> Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
-> Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+Reviewed-by: Emil Tsalapatis <emil@etsalapatis.com>
 
-> diff --git a/arch/arm64/kernel/stacktrace.c b/arch/arm64/kernel/stacktrace.c
+The Fixes tag is a bit unrelated since it's for x64 but the original
+commit that adds the file (ddecdfcea0ae8 ?) is so far back it probably
+doesn't matter.
 
-> +/*
-> + * Unwind to the next frame according to sframe.
-> + */
-> +static __always_inline int
-> +unwind_next_frame_sframe(struct kunwind_state *state)
-> +{
-> +	struct unwind_frame frame;
-> +	unsigned long cfa, fp, ra;
-> +	enum kunwind_source source = KUNWIND_SOURCE_FRAME;
-> +	struct pt_regs *regs = state->regs;
+>
+> Acked-by: Daniel Borkmann <daniel@iogearbox.net>
+> Fixes: 1c2a088a6626 ("bpf: x64: add JIT support for multi-function progra=
+ms")
+> Reported-by: Jonas Rebmann <jre@pengutronix.de>
+> Closes: https://lore.kernel.org/bpf/b63e9174-7a3d-4e22-8294-16df07a4af89@=
+pengutronix.de
+> Tested-by: Jonas Rebmann <jre@pengutronix.de>
+> Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+> ---
+>
+> Changelog:
+> v1: https://lore.kernel.org/all/20260417103004.3552500-1-puranjay@kernel.=
+org/
+> Changes in v2:
+> - Add Acked-by: Daniel Borkmann <daniel@iogearbox.net>
+> - Reject BPF_PSEUDO_FUNC in the BPF_LD | BPF_IMM | BPF_DW handler
+> - Move code below declarations
+>
+> ---
+>  arch/arm/net/bpf_jit_32.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+>
+> diff --git a/arch/arm/net/bpf_jit_32.c b/arch/arm/net/bpf_jit_32.c
+> index deeb8f292454..a900aa973885 100644
+> --- a/arch/arm/net/bpf_jit_32.c
+> +++ b/arch/arm/net/bpf_jit_32.c
+> @@ -1852,6 +1852,9 @@ static int build_insn(const struct bpf_insn *insn, =
+struct jit_ctx *ctx)
+>  	{
+>  		u64 val =3D (u32)imm | (u64)insn[1].imm << 32;
+> =20
+> +		if (insn->src_reg =3D=3D BPF_PSEUDO_FUNC)
+> +			goto notyet;
 > +
-> +	int err;
+>  		emit_a32_mov_i64(dst, val, ctx);
+> =20
+>  		return 1;
+> @@ -2055,6 +2058,9 @@ static int build_insn(const struct bpf_insn *insn, =
+struct jit_ctx *ctx)
+>  		const s8 *r5 =3D bpf2a32[BPF_REG_5];
+>  		const u32 func =3D (u32)__bpf_call_base + (u32)imm;
+> =20
+> +		if (insn->src_reg =3D=3D BPF_PSEUDO_CALL)
+> +			goto notyet;
 > +
-> +	/* FP/SP alignment 8 bytes */
-> +	if (state->common.fp & 0x7 || state->common.sp & 0x7)
-> +		return -EINVAL;
-> +
-> +	/*
-> +	 * Most/all outermost functions are not visible to sframe. So, check for
-> +	 * a meta frame record if the sframe lookup fails.
-> +	 */
-> +	err = sframe_find_kernel(state->common.pc, &frame);
-> +	if (err)
-> +		return kunwind_next_frame_record_meta(state);
-> +
-> +	if (frame.outermost)
-> +		return -ENOENT;
-> +
-> +	/* Get the Canonical Frame Address (CFA) */
-> +	switch (frame.cfa.rule) {
-> +	case UNWIND_CFA_RULE_SP_OFFSET:
-> +		cfa = state->common.sp;
-> +		break;
-> +	case UNWIND_CFA_RULE_FP_OFFSET:
-> +		if (state->common.fp < state->common.sp)
-> +			return -EINVAL;
-
-I wonder whether that check is valid in kernel?  Looking at
-call_on_irq_stack() saving SP in FP and then loading SP with the IRQ SP.
-Is that condition always true then?
-
-> +		cfa = state->common.fp;
-> +		break;
-> +	case UNWIND_CFA_RULE_REG_OFFSET:
-> +	case UNWIND_CFA_RULE_REG_OFFSET_DEREF:
-> +		if (!regs)
-
-		if (!regs || frame.cfa.regnum > 30)
-
-> +			return -EINVAL;
-> +		cfa = regs->regs[frame.cfa.regnum];
-
-In unwind user this is guarded by a topmost frame check, as arbitrary
-registers are otherwise not available.  Isn't this necessary in the
-kernel case?
-
-> +		break;
-> +	default:
-> +		WARN_ON_ONCE(1);
-> +		return -EINVAL;
-> +	}
-> +	cfa += frame.cfa.offset;
-> +
-> +	/*
-> +	 * CFA typically points to a higher address than RA or FP, so don't
-> +	 * consume from the stack when we read it.
-> +	 */
-> +	if (frame.cfa.rule & UNWIND_RULE_DEREF &&
-> +	    !get_word(&state->common, &cfa))
-> +		return -EINVAL;
-> +
-> +	/* CFA alignment 8 bytes */
-> +	if (cfa & 0x7)
-> +		return -EINVAL;
-> +
-> +	/* Get the Return Address (RA) */
-> +	switch (frame.ra.rule) {
-> +	case UNWIND_RULE_RETAIN:
-> +		if (!regs)
-> +			return -EINVAL;
-> +		ra = regs->regs[30];
-
-Likewise: Topmost frame check not required to access arbitrary registers
-(including RA/LR)?  Furthermore, provided don't have a thinko, LR may
-only be in LR in the topmost frame.  In any other frame it must have
-been saved.  Otherwise there would be an endless return loop.
-
-> +		source = KUNWIND_SOURCE_REGS_LR;
-> +		break;
-> +	/* UNWIND_USER_RULE_CFA_OFFSET not implemented on purpose */
-> +	case UNWIND_RULE_CFA_OFFSET_DEREF:
-> +		ra = cfa + frame.ra.offset;
-> +		break;
-> +	case UNWIND_RULE_REG_OFFSET:
-> +	case UNWIND_RULE_REG_OFFSET_DEREF:
-> +		if (!regs)
-
-		if (!regs || frame.cfa.regnum > 30)
-
-> +			return -EINVAL;
-> +		ra = regs->regs[frame.cfa.regnum];
-
-Likewise: Topmost frame check not required to access arbitrary registers?
-
-> +		ra += frame.ra.offset;
-> +		break;
-> +	default:
-> +		WARN_ON_ONCE(1);
-> +		return -EINVAL;
-> +	}
-> +
-> +	/* Get the Frame Pointer (FP) */
-> +	switch (frame.fp.rule) {
-> +	case UNWIND_RULE_RETAIN:
-> +		fp = state->common.fp;
-> +		break;
-> +	/* UNWIND_USER_RULE_CFA_OFFSET not implemented on purpose */
-> +	case UNWIND_RULE_CFA_OFFSET_DEREF:
-> +		fp = cfa + frame.fp.offset;
-> +		break;
-> +	case UNWIND_RULE_REG_OFFSET:
-> +	case UNWIND_RULE_REG_OFFSET_DEREF:
-> +		if (!regs)
-
-		if (!regs || frame.cfa.regnum > 30)
-
-> +			return -EINVAL;
-> +		fp = regs->regs[frame.fp.regnum];
-
-Likewise: Topmost frame check not required to access arbitrary registers?
-
-> +		fp += frame.fp.offset;
-> +		break;
-> +	default:
-> +		WARN_ON_ONCE(1);
-> +		return -EINVAL;
-> +	}
-> +
-> +	/*
-> +	 * Consume RA and FP from the stack. The frame record puts FP at a lower
-> +	 * address than RA, so we always read FP first.
-> +	 */
-> +	if (frame.fp.rule & UNWIND_RULE_DEREF &&
-> +	    !get_word(&state->common, &fp))
-> +		return -EINVAL;
-> +
-> +	if (frame.ra.rule & UNWIND_RULE_DEREF &&
-> +	    get_consume_word(&state->common, &ra))
-> +		return -EINVAL;
-> +
-> +	state->common.pc = ra;
-> +	state->common.sp = cfa;
-> +	state->common.fp = fp;
-> +
-> +	state->source = source;
-> +
-> +	return 0;
-> +}
-Thanks and regards,
-Jens
--- 
-Jens Remus
-Linux on Z Development (D3303)
-jremus@de.ibm.com / jremus@linux.ibm.com
-
-IBM Deutschland Research & Development GmbH; Vorsitzender des Aufsichtsrats: Wolfgang Wendt; Geschäftsführung: David Faller; Sitz der Gesellschaft: Ehningen; Registergericht: Amtsgericht Stuttgart, HRB 243294
-IBM Data Privacy Statement: https://www.ibm.com/privacy/
+>  		emit_a32_mov_r64(true, r0, r1, ctx);
+>  		emit_a32_mov_r64(true, r1, r2, ctx);
+>  		emit_push_r64(r5, ctx);
+>
+> base-commit: 1f5ffc672165ff851063a5fd044b727ab2517ae3
 
 
