@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCDDFF8E4AF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 06:38:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21CA5F8E4AF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Apr 2026 06:41:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mFFVvPkdADRuERrXiXoq3ADdwuv0fXrqSCXuIlv0AJA=; b=L4gYLUaMZDU7uaQfa9hAnu9lJ5
-	sGGhAiU/IYMqkb1B0KkHAXtWaUzaIQFigd2QG2lLhDP4zmmuwc0bY9oIyksDLj/kRhO8CMVKfVpjA
-	Vhj+EVD2rC7vptputotJ9PW16d9H8Chf9DuKgri21RT7O08pxc/0LzMaqxutanw6omtZqwPpag8+a
-	WUFNEP/icwKk5QhDyM5ot9VahQGc2tQp+PS5lAy2dZ4aIphC7VXUPa5rzE361TDsw9i9bFhjop3ll
-	rgCtMyanlfHSdFxsqMuE7FKdMXcktMK2rG2A1VQxZ5WR+Ff0hyHfWJGwG/CZ6YubIr27ji01IwwTg
-	EXEQmkkw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=j2zHQiwS+fAyZ8BA4NB+rKHXCimGldG+ejgu1ghuEGI=; b=yrv6X80BtTbuHrDCpvoZbfFqNR
+	RSM5uFtDd2jTZGdQHu9j0E8MfgNP8+3JvqWLChZFHkqcLz0p1nqTjqVpnnjhCG66tivoegECelzp7
+	88tGb2qRaK9MG/N8xorXXI7XapUCMW+gfhh1jmaSuu++LtB4kuhGFVz7a3q4b3rFcN9SXPybapyaZ
+	i2vlbNbs6a47QHE6FXXVdx8CULWu3YAKBZsHKQMcl1O0jUhv0eN53xiRIYN9d1vkQ7xc4VlS/Zqxs
+	EJzAkIsN1GHN2DKlDq9vTCcrb74r0qcqGq+Q9MhT/QhGLqgQlVcDro5x0P8TUCe7PQ04P3SsLyj5L
+	LjPnV8EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDcqF-00000003Xz3-0tiC;
-	Fri, 17 Apr 2026 06:38:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wDctk-00000003YQ9-2fm5;
+	Fri, 17 Apr 2026 06:41:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDcqC-00000003Xw2-2hoC;
-	Fri, 17 Apr 2026 06:38:14 +0000
+	id 1wDctj-00000003YQ2-1kSz
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Apr 2026 06:41:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 281C944207;
-	Fri, 17 Apr 2026 06:38:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A672DC19425;
-	Fri, 17 Apr 2026 06:38:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CC4116012A;
+	Fri, 17 Apr 2026 06:41:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 74632C19425;
+	Fri, 17 Apr 2026 06:41:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776407892;
-	bh=Z7oCi67s+UIvW6RHxfyBFr2akdeR2wnrV1Cz1XBiANA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=HGvbvYG+BQHBleQfWUTUZ0EJM7fMY9laOrXwUiHkxoH4jJhfBejIpLoyUre6scfn8
-	 HpzvplHuJ/gCPduC2bmLYpfDuy7AvkNuRQ1SYqjQ3V3Vb9wOtF66yRkniK1O62ONk4
-	 A4wTFtHvMqTcmJNzWp1uNhdXfxyPujoLOuaL73WmJpjaxuoeyuT5xbBDoRcVhdBRhT
-	 PDwr0i7JXYR5us3p0U9AP3Rw5kcIXQLNq9y3V5V+8tY9caxdN/rMxsQEXivRKnph49
-	 nmRu6a825PxpxZwGG8gLCUG41JA0vndGrJPxb+LoCRpFJ/+mfY9DYq15HFRtTotbQq
-	 BSTdo9zPKKT2g==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 17 Apr 2026 08:36:32 +0200
-Subject: [PATCH net v4 2/2] net: airoha: Add missing bits in
- airoha_qdma_cleanup_tx_queue()
+	s=k20201202; t=1776408110;
+	bh=5ILW9ovCD9rkcdvfce9O9NVrQf0affa8qsElbU+IUSU=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=NBGoPoO/ysm/6kB1rqLeSuI0cda6XCijr57MuJr48/DLaikWp+TxXklLuhWiur8aa
+	 ZW4UxAwNr07BWcxpa3h8hYtNuVx+znRS+lHzb031Jrv8UJ/X47I54EUj1J20R16pz4
+	 7155x4O7LNQ/Zb78Nv89nGwmyjtvP1+oedUrIDKzT4QEAs23zsZO5LbeiiJgvp+rdX
+	 OebX2KXEs182I3WZ3hCOaYbYb846LkCdyMVaIor7Cod1iUgWbBwZNP8F8y5gNuQa/Q
+	 MXM7JO4hm8ZnoxoW6TFxhv3dAHDx1gkv2PG6/kn1Xk1DVe3inXml88N9/7uAcx29RH
+	 yn8kZSaE5C7LQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 69D51F8E49D;
+	Fri, 17 Apr 2026 06:41:50 +0000 (UTC)
+From: Rex Fu via B4 Relay <devnull+Rex.Fu.amd.com@kernel.org>
+Date: Fri, 17 Apr 2026 14:41:49 +0800
+Subject: [PATCH] ARM: dts: aspeed: anacapa: add interrupt properties for
+ PDB PCA9555
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260417-airoha_qdma_cleanup_tx_queue-fix-net-v4-2-e04bcc2c9642@kernel.org>
-References: <20260417-airoha_qdma_cleanup_tx_queue-fix-net-v4-0-e04bcc2c9642@kernel.org>
-In-Reply-To: <20260417-airoha_qdma_cleanup_tx_queue-fix-net-v4-0-e04bcc2c9642@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>, Simon Horman <horms@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_233813_076674_62D6AEBB 
-X-CRM114-Status: GOOD (  13.72  )
+Message-Id: <20260417-anacapa-pca9555-irq-v1-1-9a6d28b1b656@amd.com>
+X-B4-Tracking: v=1; b=H4sIACzW4WkC/yXMQQ6CMBCF4auQWTvJFKhNvYpxMZRRx0WtLRISw
+ t0puvyS9/4VimSVApdmhSyzFn3HCnNqIDw5PgR1rIaW2jP1xiFHDpwYU2BvrUXNH+zI09ibunE
+ E9Zmy3HX5Va+3v8t3eEmYjhRs2w40R47BdwAAAA==
+X-Change-ID: 20260417-anacapa-pca9555-irq-3090d4120270
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ Rex Fu <Rex.Fu@amd.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1776408109; l=2007;
+ i=Rex.Fu@amd.com; s=20260417; h=from:subject:message-id;
+ bh=o8qWPDdSQIz2wmiJKXl6X/Ju2Iig3de8Ah1xPVk1Lb4=;
+ b=9MQxnVgP2xpf8cl0ReSJT9bCAGSgrGLhuJrX1lJDGwcxn2Z0N5+8gjRkpTj50taQzIWiLxU4L
+ Rb3uKLvuM8zCiSq+XVL/I8mP31UxsiKnatCzhTZShNcZeUVeGzJucDu
+X-Developer-Key: i=Rex.Fu@amd.com; a=ed25519;
+ pk=26ECoh24fxrbXDKgA4hCmgg0xjQ+IxU97kXb46ovwgc=
+X-Endpoint-Received: by B4 Relay for Rex.Fu@amd.com/20260417 with
+ auth_id=738
+X-Original-From: Rex Fu <Rex.Fu@amd.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,77 +85,74 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Rex.Fu@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Similar to airoha_qdma_cleanup_rx_queue(), reset DMA TX descriptors in
-airoha_qdma_cleanup_tx_queue routine. Moreover, reset TX_DMA_IDX to
-TX_CPU_IDX to notify the NIC the QDMA TX ring is empty.
+From: Rex Fu <Rex.Fu@amd.com>
 
-Fixes: 23020f0493270 ("net: airoha: Introduce ethernet support for EN7581 SoC")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Add interrupt-parent and interrupts properties to the PDB PCA9555
+nodes in the anacapa DTS.
+
+Signed-off-by: Rex Fu <Rex.Fu@amd.com>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 32 ++++++++++++++++++++++++++++++--
- 1 file changed, 30 insertions(+), 2 deletions(-)
+Single DTS update for the PDB PCA9555 interrupt wiring on anacapa.
+---
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 690bfaf8d7d9..6d9f82c677a0 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -1039,12 +1039,15 @@ static int airoha_qdma_init_tx(struct airoha_qdma *qdma)
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
+index 2cb7bd128d24..7319f2319bb7 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
+@@ -481,6 +481,9 @@ gpio@22 {
+ 				gpio-controller;
+ 				#gpio-cells = <2>;
  
- static void airoha_qdma_cleanup_tx_queue(struct airoha_queue *q)
- {
--	struct airoha_eth *eth = q->qdma->eth;
--	int i;
-+	struct airoha_qdma *qdma = q->qdma;
-+	struct airoha_eth *eth = qdma->eth;
-+	int i, qid = q - &qdma->q_tx[0];
-+	u16 index = 0;
++				interrupt-parent = <&sgpiom0>;
++				interrupts = <174 IRQ_TYPE_LEVEL_LOW>;
++
+ 				gpio-line-names =
+ 					"RPDB_FAN_FULL_SPEED_R_N", "RPDB_I2C_TEMP75_U8_ALERT_R_N",
+ 					"RPDB_I2C_TMP432_U29_ALERT_R_N", "RPDB_GLOBAL_WP",
+@@ -500,6 +503,9 @@ gpio@24 {
+ 				gpio-controller;
+ 				#gpio-cells = <2>;
  
- 	spin_lock_bh(&q->lock);
- 	for (i = 0; i < q->ndesc; i++) {
- 		struct airoha_queue_entry *e = &q->entry[i];
-+		struct airoha_qdma_desc *desc = &q->desc[i];
++				interrupt-parent = <&sgpiom0>;
++				interrupts = <174 IRQ_TYPE_LEVEL_LOW>;
++
+ 				gpio-line-names =
+ 					"RPDB_EAM2_PRSNT_MOS_N_R", "RPDB_EAM3_PRSNT_MOS_N_R",
+ 					"RPDB_PWRGD_P50V_HSC4_SYS_R",
+@@ -529,6 +535,9 @@ gpio@22 {
+ 				gpio-controller;
+ 				#gpio-cells = <2>;
  
- 		if (!e->dma_addr)
- 			continue;
-@@ -1055,8 +1058,33 @@ static void airoha_qdma_cleanup_tx_queue(struct airoha_queue *q)
- 		e->dma_addr = 0;
- 		e->skb = NULL;
- 		list_add_tail(&e->list, &q->tx_list);
++				interrupt-parent = <&sgpiom0>;
++				interrupts = <174 IRQ_TYPE_LEVEL_LOW>;
 +
-+		/* Reset DMA descriptor */
-+		WRITE_ONCE(desc->ctrl, 0);
-+		WRITE_ONCE(desc->addr, 0);
-+		WRITE_ONCE(desc->data, 0);
-+		WRITE_ONCE(desc->msg0, 0);
-+		WRITE_ONCE(desc->msg1, 0);
-+		WRITE_ONCE(desc->msg2, 0);
-+
- 		q->queued--;
- 	}
-+
-+	if (!list_empty(&q->tx_list)) {
-+		struct airoha_queue_entry *e;
-+
-+		e = list_first_entry(&q->tx_list, struct airoha_queue_entry,
-+				     list);
-+		index = e - q->entry;
-+	}
-+	/* Set TX_DMA_IDX to TX_CPU_IDX to notify the hw the QDMA TX ring is
-+	 * empty.
-+	 */
-+	airoha_qdma_rmw(qdma, REG_TX_CPU_IDX(qid), TX_RING_CPU_IDX_MASK,
-+			FIELD_PREP(TX_RING_CPU_IDX_MASK, index));
-+	airoha_qdma_rmw(qdma, REG_TX_DMA_IDX(qid), TX_RING_DMA_IDX_MASK,
-+			FIELD_PREP(TX_RING_DMA_IDX_MASK, index));
-+
- 	spin_unlock_bh(&q->lock);
- }
+ 				gpio-line-names =
+ 					"LPDB_FAN_FULL_SPEED_R_N","LPDB_I2C_TEMP75_U8_ALERT_R_N",
+ 					"LPDB_I2C_TMP432_U29_ALERT_R_N","LPDB_GLOBAL_WP",
+@@ -546,6 +555,9 @@ gpio@24 {
+ 				gpio-controller;
+ 				#gpio-cells = <2>;
  
++				interrupt-parent = <&sgpiom0>;
++				interrupts = <174 IRQ_TYPE_LEVEL_LOW>;
++
+ 				gpio-line-names =
+ 					"LPDB_P50V_FAN1_R2_PG","LPDB_P50V_FAN2_R2_PG",
+ 					"LPDB_P50V_FAN3_R2_PG","LPDB_P50V_FAN4_R2_PG",
 
--- 
-2.53.0
+---
+base-commit: 76b4ec8efdc3887cdbf730da2e55881fc1a18770
+change-id: 20260417-anacapa-pca9555-irq-3090d4120270
+
+Best regards,
+--  
+Rex Fu <Rex.Fu@amd.com>
+
 
 
