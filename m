@@ -4,71 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46018F99C7C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 11:24:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A164BF99C7C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 11:55:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Content-Transfer-Encoding:Mime-Version:From:To:Cc:Subject:Message-Id:Date:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MPEjuovbiV7/b+fXiZeM8LNZerCWd7HSB3MwzPR4JEU=; b=ChToNsc8I/FNihe/2znIg0UVk7
-	0BcE2E0KKxCTXXyGkmKFVwx2ZvHzH/1pW5X3vz1HWM5MeC92lGpQ0XbF+GW+SbK70y8qYirAG3l7Z
-	QwMbfTFB341X8BsTEH0PWi4HqP/nkRxHd65b3XmROsIw1qQraMIlmVtc2abXBE4pa7oevwzPSQAoW
-	mTsf3ci5Efd969i8iUV2/Ehy7wMZE2AU0y69hj8lojTZMJlTn6bik5uIqkIPq4umIJMCNgGWVcf9F
-	4k+sy7Yzc4EhhLF4ASuPcZL240rO9asyRReXf7BiVNH+8G2uRkBsoPHSAZfDmj8Zkn/bELlFrSjMC
-	VIVDt6Sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SiyR+njkeuBu2oS92njlUUsvQDTNdSraiu30/CsDGfg=; b=K5JxN+D5yiFfiUOKzd8yb8t8sr
+	OKW6GA2z/hVL5E+rIMqqMLin81Co1MjImdPFYuYbJ+BFqMnyyjjeKJTWawMcl+0Mkh58COf4TMTLs
+	L32PfJaPxeiwxETQu0Y42IDIzZcquLWJAavlSwklZlRqJ8xZ3EhdHUM21XHcR5NNEKxjrL+R2Qife
+	6FpUjydnWOp4c2TBBViWl/0V7kWIe9anQESgFSHLqHlMiyvGzSOFXcQi1Ly68X3i+xOfdHi2yqGBE
+	7aEAgrVbKTW96DSyatruCdqezi+0i+9UkGRFbnzxLan2Wsy6hq3rqdBysNCTeIZ4t3Qb2zIJxZAy4
+	tFSMXKeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wE3mO-00000004wBm-2rwr;
-	Sat, 18 Apr 2026 11:24:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wE3mN-00000004wBS-1a8Q
+	id 1wE4Gu-00000004xc6-2YzF;
+	Sat, 18 Apr 2026 11:55:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wE4Gq-00000004xbl-2NnD
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Apr 2026 11:24:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CCB8D6013A;
-	Sat, 18 Apr 2026 11:24:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06CECC2BCB4;
-	Sat, 18 Apr 2026 11:23:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776511442;
-	bh=eEo8recsYatthAVX8i3XpCfdJmBlTwOldwA5txXfTHA=;
-	h=Date:Subject:Cc:To:From:References:In-Reply-To:From;
-	b=PRUaJJ1iM6epHYiOIjQlTfnjmSXbddoHrBtt1ltAbN8rOdRMRccEq7H6dQsuNspFe
-	 dKTAU22L1zT79Ep2tGhkisCBV+bI2NhFXAvaok+Qgd8T4kgn+KhGextsxgg7WLKHKE
-	 5McNFB8vAl2Br290cEOG4n1VlEll25WdcSUiT6IYDt7tZmEKjW9GWkJpUngHqpLtP/
-	 kMtiA1BcYlAF5Re21Y7z6B94KtjLtN8uC0FLh0BKtqirknbUn3ueKY57qOpoiTBzQp
-	 NqsvOm0jka03qFk0llNq6mfZMIFpq+oTv857iVmDNkFInzSrCstNod5Y/wde4A59Ym
-	 wQXG2pr17Sb/A==
-Content-Type: text/plain; charset=UTF-8
-Date: Sat, 18 Apr 2026 13:23:56 +0200
-Message-Id: <DHW8QV8K3CM1.307C6PW2BM5RN@kernel.org>
-Subject: Re: [PATCH v2 2/9] driver core: Add dev_set_drv_queue_sync_state()
-Cc: "Saravana Kannan" <saravanak@kernel.org>, "Rafael J . Wysocki"
- <rafael@kernel.org>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- <linux-pm@vger.kernel.org>, "Sudeep Holla" <sudeep.holla@kernel.org>,
- "Cristian Marussi" <cristian.marussi@arm.com>, "Kevin Hilman"
- <khilman@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Marek
- Szyprowski" <m.szyprowski@samsung.com>, "Bjorn Andersson"
- <andersson@kernel.org>, "Abel Vesa" <abel.vesa@oss.qualcomm.com>, "Peng
- Fan" <peng.fan@oss.nxp.com>, "Tomi Valkeinen"
- <tomi.valkeinen@ideasonboard.com>, "Maulik Shah"
- <maulik.shah@oss.qualcomm.com>, "Konrad Dybcio" <konradybcio@kernel.org>,
- "Thierry Reding" <thierry.reding@gmail.com>, "Jonathan Hunter"
- <jonathanh@nvidia.com>, "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "Dmitry Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- "Geert Uytterhoeven" <geert+renesas@glider.be>,
- <driver-core@lists.linux.dev>
-To: "Ulf Hansson" <ulf.hansson@linaro.org>
-From: "Danilo Krummrich" <dakr@kernel.org>
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-References: <20260410104058.83748-1-ulf.hansson@linaro.org>
- <20260410104058.83748-3-ulf.hansson@linaro.org>
-In-Reply-To: <20260410104058.83748-3-ulf.hansson@linaro.org>
+	Sat, 18 Apr 2026 11:55:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 82A901A32;
+	Sat, 18 Apr 2026 04:55:22 -0700 (PDT)
+Received: from arm.com (unknown [10.57.89.252])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EB7AE3F7B4;
+	Sat, 18 Apr 2026 04:55:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776513328; bh=VqmTXRTORJkbDoNWA9yhBVoDBff2QWw2M+4+UlpEc/I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kWYTDNqDGl9Su3Lk8W7qmydTSHNzPJvnRJbmi5jeNZzilHwMXIGBztncdBPA0lqBx
+	 UZETXjlo6Shd9bTdjAdfuiv9kbShKklGLF6qOKdTrs8wML72BaNd7AVbn9+sOOAl6a
+	 jiN2ggL+csRfhVhuJwZFNjPfWaehcxFIJhjc4/20=
+Date: Sat, 18 Apr 2026 12:55:22 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: tglx@kernel.org, peterz@infradead.org, sudeep.holla@kernel.org,
+	yangyicong@hisilicon.com, dietmar.eggemann@arm.com,
+	Jonathan.Cameron@huawei.com, linux-kernel@vger.kernel.org,
+	James Morse <james.morse@arm.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] cpu/hotplug: Fix NULL kobject warning in
+ cpuhp_smt_enable()
+Message-ID: <aeNxKpHzTQX4_kId@arm.com>
+References: <20260417075534.3745793-1-ruanjinjie@huawei.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260417075534.3745793-1-ruanjinjie@huawei.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260418_045532_783580_5AB02813 
+X-CRM114-Status: GOOD (  30.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,42 +72,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri Apr 10, 2026 at 12:40 PM CEST, Ulf Hansson wrote:
-> diff --git a/include/linux/device.h b/include/linux/device.h
-> index e65d564f01cd..f812e70bdf22 100644
-> --- a/include/linux/device.h
-> +++ b/include/linux/device.h
-> @@ -994,6 +994,18 @@ static inline int dev_set_drv_sync_state(struct devi=
-ce *dev,
->  	return 0;
->  }
-> =20
-> +static inline int dev_set_drv_queue_sync_state(struct device *dev,
-> +					       void (*fn)(struct device *dev))
++ James Morse, linux-arm-kernel
 
-As this is a public function, please add some documentation.
-
-> +{
-> +	if (!dev || !dev->driver)
-> +		return 0;
-> +	if (dev->driver->queue_sync_state && dev->driver->queue_sync_state !=3D=
- fn)
-> +		return -EBUSY;
-> +	if (!dev->driver->queue_sync_state)
-> +		dev->driver->queue_sync_state =3D fn;
-
-I think this follows dev_set_drv_sync_state(), but I think it is worth poin=
-ting
-out that it is yet another blocker for moving towards
-const struct device_driver.
-
-> +	return 0;
-> +}
+On Fri, Apr 17, 2026 at 03:55:34PM +0800, Jinjie Ruan wrote:
+> When booting with `maxcpus` greater than the number of present CPUs (e.g.,
+> QEMU -smp cpus=4,maxcpus=8), some CPUs are marked as 'present' but have not
+> yet been registered via register_cpu(). Consequently, the per-cpu device
+> objects for these CPUs are not yet initialized.
+> 
+> In cpuhp_smt_enable(), the code iterates over all present CPUs. Calling
+> _cpu_up() for these unregistered CPUs eventually leads to
+> sysfs_create_group() being called with a NULL kobject (or a kobject
+> without a directory), triggering the following warning in
+> fs/sysfs/group.c:
+> 
+> 	if (WARN_ON(!kobj || (!update && !kobj->sd)))
+> 		return -EINVAL;
+> 
+> Fix this by adding a check for get_cpu_device(cpu). This ensures that
+> SMT is only enabled for CPUs that have successfully completed their
+> base device registration in sysfs.
+> 
+> How to reproduce:
+> 
+> 	1. echo off > /sys/devices/system/cpu/smt/control
+> 		psci: CPU1 killed (polled 0 ms)
+> 		psci: CPU3 killed (polled 0 ms)
+> 
+> 	2. echo 2 > /sys/devices/system/cpu/smt/control
+> 
+> 	Detected PIPT I-cache on CPU1
+> 	GICv3: CPU1: found redistributor 1 region 0:0x00000000080c0000
+> 	CPU1: Booted secondary processor 0x0000000001 [0x410fd082]
+> 	Detected PIPT I-cache on CPU3
+> 	GICv3: CPU3: found redistributor 3 region 0:0x0000000008100000
+> 	CPU3: Booted secondary processor 0x0000000003 [0x410fd082]
+> 	------------[ cut here ]------------
+> 	WARNING: fs/sysfs/group.c:137 at internal_create_group+0x41c/0x4bc, CPU#2: sh/181
+> 	Modules linked in:
+> 	CPU: 2 UID: 0 PID: 181 Comm: sh Not tainted 7.0.0-rc1-00010-g8d13386c7624 #142 PREEMPT
+> 	Hardware name: QEMU KVM Virtual Machine, BIOS 0.0.0 02/06/2015
+> 	pstate: 20000005 (nzCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> 	pc : internal_create_group+0x41c/0x4bc
+> 	lr : sysfs_create_group+0x18/0x24
+> 	sp : ffff80008078ba40
+> 	x29: ffff80008078ba40 x28: ffff296c980ad000 x27: ffff00007fb94128
+> 	x26: 0000000000000054 x25: ffffd693e845f3f0 x24: 0000000000000001
+> 	x23: 0000000000000001 x22: 0000000000000004 x21: 0000000000000000
+> 	x20: ffffd693e845fc10 x19: 0000000000000004 x18: 00000000ffffffff
+> 	x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+> 	x14: 0000000000000358 x13: 0000000000000007 x12: 0000000000000350
+> 	x11: 0000000000000008 x10: 0000000000000407 x9 : 0000000000000400
+> 	x8 : ffff00007fbf3b60 x7 : 0000000000000000 x6 : ffffd693e845f3f0
+> 	x5 : ffff00007fb94128 x4 : 0000000000000000 x3 : ffff000000f4eac0
+> 	x2 : ffffd693e7095a08 x1 : 0000000000000000 x0 : 0000000000000000
+> 	Call trace:
+> 	 internal_create_group+0x41c/0x4bc (P)
+> 	 sysfs_create_group+0x18/0x24
+> 	 topology_add_dev+0x1c/0x28
+> 	 cpuhp_invoke_callback+0x104/0x20c
+> 	 __cpuhp_invoke_callback_range+0x94/0x11c
+> 	 _cpu_up+0x200/0x37c
+> 	 cpuhp_smt_enable+0xbc/0x114
+> 	 control_store+0xe8/0x1d4
+> 	 dev_attr_store+0x18/0x2c
+> 	 sysfs_kf_write+0x7c/0x94
+> 	 kernfs_fop_write_iter+0x128/0x1b8
+> 	 vfs_write+0x2b0/0x354
+> 	 ksys_write+0x68/0xfc
+> 	 __arm64_sys_write+0x1c/0x28
+> 	 invoke_syscall+0x48/0x10c
+> 	 el0_svc_common.constprop.0+0x40/0xe8
+> 	 do_el0_svc+0x20/0x2c
+> 	 el0_svc+0x34/0x124
+> 	 el0t_64_sync_handler+0xa0/0xe4
+> 	 el0t_64_sync+0x198/0x19c
+> 	---[ end trace 0000000000000000 ]---
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: eed4583bcf9a6 ("arm64: Kconfig: Enable HOTPLUG_SMT")
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> ---
+>  kernel/cpu.c | 7 +++++++
+>  1 file changed, 7 insertions(+)
+> 
+> diff --git a/kernel/cpu.c b/kernel/cpu.c
+> index bc4f7a9ba64e..df725d92ad4f 100644
+> --- a/kernel/cpu.c
+> +++ b/kernel/cpu.c
+> @@ -2706,6 +2706,13 @@ int cpuhp_smt_enable(void)
+>  	cpu_maps_update_begin();
+>  	cpu_smt_control = CPU_SMT_ENABLED;
+>  	for_each_present_cpu(cpu) {
+> +		/*
+> +		 * Skip CPUs that have not been registered in sysfs yet.
+> +		 * This avoids triggering NULL kobject warnings for maxcpus.
+> +		 */
+> +		if (!get_cpu_device(cpu))
+> +			continue;
 > +
->  static inline void dev_set_removable(struct device *dev,
->  				     enum device_removable removable)
->  {
-> --=20
-> 2.43.0
+>  		/* Skip online CPUs and CPUs on offline nodes */
+>  		if (cpu_online(cpu) || !node_online(cpu_to_node(cpu)))
+>  			continue;
 
+I spent some time trying to understand how we can get into this
+situation. It seems to be an ACPI only thing.
+
+Since commit eba4675008a6 ("arm64: arch_register_cpu() variant to check
+if an ACPI handle is now available.") as part of the virtual CPU hotplug
+series, arch_register_cpu() can defer registering the CPU devices. IIUC
+this is done later via acpi_processor_hotadd_init(). smp_prepare_cpus(),
+however, still marks them as present.
+
+cpuhp_smt_enable(), if triggered later, walks the present cpus and
+attempts _cpu_up(). cpuhp_up_callbacks() will call topology_add_dev()
+(registered as a CPUHP_TOPOLOGY_PREPARE callback) and warn since
+get_cpu_device() returns NULL. I think this can't happen during early
+_cpu_up() calls since smp_init() is called before the topology callback
+has been registered (slightly later during do_basic_setup()).
+
+I'm not sure what the best fix should be. If we go with something along
+the lines of the above, I wonder whether we should instead return an
+error in the topology_add_dev() callback if get_cpu_device() returns
+NULL. It feels a bit wrong to add a check for sysfs in
+cpuhp_smt_enable() just because of some callbacks attempted by
+_cpu_up(). There's precedent in cpu_capacity_sysctl_add() returning
+-ENOENT. However, this messes up the smt control enabling since
+cpuhp_smt_enable() will bail out early and return an error.
+
+Another option would have been to avoid marking such CPUs present but I
+think this will break other things. Yet another option is to register
+all CPU devices even if they never come up (like maxcpus greater than
+actual CPUs).
+
+Opinions? It might be an arm64+ACPI-only thing.
+
+-- 
+Catalin
 
