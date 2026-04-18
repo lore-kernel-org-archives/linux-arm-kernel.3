@@ -4,113 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27899F99C6E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 00:21:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DD7AF99C6D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 00:21:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jG0p0yq8quIKGtqOiuFn9k0lGMjmC+bQB/Uy9ctLaug=; b=NkxPTKOSTr2GoCH0F8XKOqB8ei
-	1JSsFL58Jz7NCELlOULW8YBQeFok6S0EjwvI56v48gncGS76H4eAxk/+rHE56L6Mf/MGUx39bYEJ5
-	/xDDWFxyOiWMti8m6no/pLjpNBLSel3YNMHT6V21Fv8H0q/eeCpkhAW7nfyujGY4+PTxcKaMc5KYW
-	Pk5TeoVEvt7oA9NxNsTCbWewMDxypSDNmE4y3aF5aLIeEEZ9J4KCmhjc6yH0KytGg9EjR6WutbYva
-	C47tErgKQ/og2grrg4Y3QlSdiLDz57HImCHAlPMaKIEoDTObkTwbJIF3fDzQHAGh6bKxMR9H9yvKF
-	Xw22MInA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sC8zO7WisB/BVnpXYeCbasCeuuyH1ggPcPQwQiSAKEk=; b=hk95QLEQhJ5W1OdgQP7jfX5er3
+	BeLvq876O63kMUY3k6mcgpEHYASqnA/80gltcd9PXEsal0P2iK1r1tZ3FSNpooXmoK8x4FBfwe0lH
+	m/f3dgOfzoXqLg9lpWEZ77auSwn81ZapuC+QN8BnuTKtBQaozOYe0hKUDT0HsVInTnswWSP+i/H0w
+	M9ROSjBZ1kOYw9+TBZwp8Owxv2OJhUp0pxVwzeQfHQK5iaeb+cgJBWm6UYxK29jIyV9YB4VCm/9p4
+	uoNDCgY7VsBiT1yeXUAzvW4VKKBoKU+byKDkpkzHdxZ6LuuoEnUcu1k/vyrwdxkc062of9ucxE3la
+	VOoqqXWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDtQo-00000004aOj-2ylH;
-	Sat, 18 Apr 2026 00:21:06 +0000
-Received: from mail-ua1-x92e.google.com ([2607:f8b0:4864:20::92e])
+	id 1wDtR5-00000004aVg-2LAn;
+	Sat, 18 Apr 2026 00:21:23 +0000
+Received: from pdx-out-005.esa.us-west-2.outbound.mail-perimeter.amazon.com ([52.13.214.179])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDtQk-00000004aLn-1jid
+	id 1wDtQp-00000004aP6-2nc6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Apr 2026 00:21:04 +0000
-Received: by mail-ua1-x92e.google.com with SMTP id a1e0cc1a2514c-94aaa5d3bfcso739240241.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 17:21:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776471660; cv=none;
-        d=google.com; s=arc-20240605;
-        b=ZsCzQX/ABqzu9YRXB2V8RvWUQdS/PPUxm/abWXVJCbUGTpHQrrx/vj+eZPr/mdSk4l
-         zOcvhIjHbxAfqsgGvwhvndPqPFfscEnxjzPOPLec8FdyYjLkgjk0sIimhfwX1piid4HM
-         n0zhKTDaBIduatOrnOJyqZXMRYr7zXpfdFjmDS+/vSPDgb5vT19rZZ8ly2D155/P+71c
-         AkeMHtManpU1TYaUO+JTM7Rv72yLxGpb7B5jlB7UjG0keQMqkeL2A6xEZX0YNtf5r2I6
-         A3GzMLFENrjYJUEF4ujcr1Eb95SxEmbNuboHsHLhYZTfeBsiWLNhQNbpQRIEMTaR1s+M
-         mHOQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=jG0p0yq8quIKGtqOiuFn9k0lGMjmC+bQB/Uy9ctLaug=;
-        fh=QR1+zLZYlUO65rJdZ28Lf//imdWXo4/fGPJZuuCk8jA=;
-        b=MWfl60q5UZwwBnmYGavtSfRhe5tSW+Q2Bf+qctAPNiC98L1GVSqcYjJWRKqMnxN0nD
-         EYBM1jkM5pOqMuqQrKVXjuR2k6KFFCui+xVDoNJYH3l3kkoV80l9In9TD57Cceu7syKt
-         7sdzRpBRDu+ygqwTbv97+/hCrEGAfboLDyOLlQT/ORTVF00SlUWEe7lkO1XhuILkZdPo
-         x/OGYgnFq7WloT8axXax3vPl+5gg535ST9T4ehfChXZs0mqdpScBBimu+6kccEfCgred
-         SDm7Eag4mYXAh2kIhUDvNW0X1Iga10SfQgHExtTvM/fQgvZFFlA/vDqrTq9ae9dvnZwb
-         RkDg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Sat, 18 Apr 2026 00:21:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1776471660; x=1777076460; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jG0p0yq8quIKGtqOiuFn9k0lGMjmC+bQB/Uy9ctLaug=;
-        b=PakPlAM6YcPE2rravxM0HmbV88Q+lOJauz8mar8DuVu7wr6QaePEngqb25lyaLn/M6
-         YQLj/MFct2YK17yeaJYM2OtN+OmeYlb7xuq/60T/0beP/WmtGq0GyW/0GzoHhM6CE2YP
-         MIzhWIYm7/CHIAPJ2BeCquG+WXKfnJYZc1cs39EAtS+n3nnGT1ZTVaJwS2hfzFbzLwkd
-         r18tWrJiIKCEWJ8h/RmaYQJHb7WaFxi2cBo8fD0y5ijPktbipahkGjoZW6GDVQ2I4mnn
-         f5LChyHABu1WXsVEQUWLagLYXkuBqbpVzxO56lOSBihR/1BAy9/1ZOtqjBLxXZQaTNzg
-         B0aQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776471660; x=1777076460;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=jG0p0yq8quIKGtqOiuFn9k0lGMjmC+bQB/Uy9ctLaug=;
-        b=fd42lRbthiuEcMjNh9SGzrZpCHJa3lgH7Adqw+LWe6P1k0Wx9eyV6MpYgzd8zsv4jm
-         siVHK9fmxDAjaR6HwTiEBV1ibO+2uSl0k9jQ90LAiNSbIUy36PdCVqmxtrybC+K5cwgd
-         jpRf4zAPBP8/QYnC0p/+0pFpLwrS3+Qvt0oDgJ80ih2+AaEM+GWwUJZP6lwUbsYK0jtc
-         0SqGjMxuP39zY091rQXSowm+YfQYm9MHaOeNOjDIVY6hZ3BLywK7/QI4Z41jla2CecQ4
-         CGSuf3cEmR8f2sPS3Q/xdQFTzYOCgZCoSJxLY9qgY/Dc28iuSC/anphvBjZ68tfhAmCU
-         iiDw==
-X-Forwarded-Encrypted: i=1; AFNElJ9Mj3JDblQK3HJ2777/xFk3/enLlJewTd/u6sN4I+VzWq1PMLkg5Hh4EkTW0TYUoSn1se+w9/khhf8ILclm/IFN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyc2EDYpS47lpAKtJO/QS+BGZxeU1BNmARgIUkSVxcoxyFRfgDS
-	DoBEObywy2Xc/lsUINhPArJaKxAjS97Fz1taeY6RXfE2OIdCA96wSLiEf2TQJhaIUhHQ2tOSkTJ
-	Mf6+YojR7CIloi0U8dZqwgFZX0fSzteO2Zsokx49W
-X-Gm-Gg: AeBDievMy5iW54CMFMqI34qCeWMAG7L2ory8dOBDlv1t5OhHjjZMuJOT/W4DO9FfeAI
-	hrRpgxvjsz4suy7pWGC7YZR2JTU5R35zxFz5iXF95CyCKQBFPWLX4Ro7/w14eu/LP/vCr3UVYKy
-	Pbvog5MZyBXnekN4FzAADQ8q+7eb8FLUtCm35ou5goYQy3zWb6ld83Zxx9GRUlpMhzWjK7NejsP
-	HfV7waRss4X95eKqrKNpSi8w0227D0cGJKDuVEgP/1HYwcrRzx8gOUF/E8pkOr6lOWZN6Uyj0Wf
-	sEA0347Ry7BhB/+QpE3X17Lsb/sHJJk5YrPCzY0=
-X-Received: by 2002:a05:6102:604b:b0:605:1070:231d with SMTP id
- ada2fe7eead31-616f69cf882mr2387773137.17.1776471659198; Fri, 17 Apr 2026
- 17:20:59 -0700 (PDT)
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1776471667; x=1808007667;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=sC8zO7WisB/BVnpXYeCbasCeuuyH1ggPcPQwQiSAKEk=;
+  b=p1TTkosnQhJP1UwfDxk3UYkLnFgD2RMZfGuPgHj0MJZEnk2yLfb0x+a7
+   xHyXoEOjG9aPjh0bQBslQ3/yMooaBsNbzM8uwYZDECGXIwN/8Q4SuhCAQ
+   eL5tPMAqRhuH/7WRQVlTXHcHVDx/WbXZicVkkJat9zXJuHeUdfyUpxLYx
+   kZSAQNhUuc6J5ftSDGvKuFUnEMfAeZ1SXO/ybIY3FZAHFgli1SaXPTg/Y
+   bLdn2U/jwZ7p3yiuJTN0enMTdRvXmzRWX2qvBsb8mxVFId4ReTvRN+UMv
+   qLW9KvVF3DrsXtRSQKpG/DtP3x2nDyKmCm85HVobJY6++ZFTv2GQxbKXM
+   g==;
+X-CSE-ConnectionGUID: duxKE2eBSmq5n0oRXlLEGQ==
+X-CSE-MsgGUID: bmvgKGJDSZ+60DrIR2R09g==
+X-IronPort-AV: E=Sophos;i="6.23,185,1770595200"; 
+   d="scan'208";a="17587111"
+Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
+  by internal-pdx-out-005.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Apr 2026 00:21:05 +0000
+Received: from EX19MTAUWC001.ant.amazon.com [205.251.233.105:7812]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.60.232:2525] with esmtp (Farcaster)
+ id 563553b0-9fd4-4e32-be57-b68618a85df0; Sat, 18 Apr 2026 00:21:04 +0000 (UTC)
+X-Farcaster-Flow-ID: 563553b0-9fd4-4e32-be57-b68618a85df0
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
+ Sat, 18 Apr 2026 00:21:04 +0000
+Received: from dev-dsk-wanjay-2c-d25651b4.us-west-2.amazon.com (172.19.198.4)
+ by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
+ Sat, 18 Apr 2026 00:21:04 +0000
+From: Jay Wang <wanjay@amazon.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
+	<davem@davemloft.net>, <linux-crypto@vger.kernel.org>, Masahiro Yamada
+	<masahiroy@kernel.org>, <linux-kbuild@vger.kernel.org>
+CC: Jay Wang <jay.wang.upstream@gmail.com>, Vegard Nossum
+	<vegard.nossum@oracle.com>, Nicolai Stange <nstange@suse.de>, Ilia Okomin
+	<ilya.okomin@oracle.com>, Hazem Mohamed Abuelfotoh <abuehaze@amazon.com>,
+	Bjoern Doebel <doebel@amazon.de>, Martin Pohlack <mpohlack@amazon.de>,
+	Benjamin Herrenschmidt <benh@amazon.com>, Nathan Chancellor
+	<nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Thomas Gleixner
+	<tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
+	<bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "H . Peter Anvin"
+	<hpa@zytor.com>, Luis Chamberlain <mcgrof@kernel.org>, Petr Pavlu
+	<petr.pavlu@suse.com>, Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen
+	<samitolvanen@google.com>, David Howells <dhowells@redhat.com>, "David
+ Woodhouse" <dwmw2@infradead.org>, Jarkko Sakkinen <jarkko@kernel.org>, "Ignat
+ Korchagin" <ignat@linux.win>, Lukas Wunner <lukas@wunner.de>, "Alexei
+ Starovoitov" <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+	"Andrii Nakryiko" <andrii@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
+	<linux-modules@vger.kernel.org>
+Subject: [PATCH v2 02/19] crypto: add module entry for standalone crypto kernel module
+Date: Sat, 18 Apr 2026 00:20:10 +0000
+Message-ID: <20260418002032.2877-3-wanjay@amazon.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260418002032.2877-1-wanjay@amazon.com>
+References: <20260418002032.2877-1-wanjay@amazon.com>
 MIME-Version: 1.0
-References: <20260406185000.1378082-1-dylanbhatch@google.com>
- <20260406185000.1378082-3-dylanbhatch@google.com> <cc7f741c-41a0-4620-b5d5-3428aaa7648f@linux.ibm.com>
-In-Reply-To: <cc7f741c-41a0-4620-b5d5-3428aaa7648f@linux.ibm.com>
-From: Dylan Hatch <dylanbhatch@google.com>
-Date: Fri, 17 Apr 2026 17:20:48 -0700
-X-Gm-Features: AQROBzDJREPHzvzsRYQqEASREPSDUbQGxoXWvTmDMaigTLPH3oGDcoCo6QgsWe0
-Message-ID: <CADBMgpyFd=id0M0Q+nZouBt9Ph6T=0PfP9xWuKOFWoLQd7zvng@mail.gmail.com>
-Subject: Re: [PATCH v3 2/8] arm64, unwind: build kernel with sframe V3 info
-To: Jens Remus <jremus@linux.ibm.com>
-Cc: Roman Gushchin <roman.gushchin@linux.dev>, Weinan Liu <wnliu@google.com>, 
-	Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	Indu Bhagat <indu.bhagat@oracle.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Jiri Kosina <jikos@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Prasanna Kumar T S M <ptsm@linux.microsoft.com>, Puranjay Mohan <puranjay@kernel.org>, 
-	Song Liu <song@kernel.org>, joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, live-patching@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>, 
-	Vasily Gorbik <gor@linux.ibm.com>, Ilya Leoshkevich <iii@linux.ibm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [172.19.198.4]
+X-ClientProxiedBy: EX19D036UWB001.ant.amazon.com (10.13.139.133) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_172102_514076_C134CBBB 
-X-CRM114-Status: GOOD (  37.69  )
+X-CRM114-CacheID: sfid-20260417_172108_551238_CA10DED5 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,185 +109,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 14, 2026 at 5:43=E2=80=AFAM Jens Remus <jremus@linux.ibm.com> w=
-rote:
->
->
-> Good catch!  Should we rather add the following in the series you are
-> basing on, as there are already arch-specific unwind_user.h and
-> unwind_user_sframe.h?
->
-> F:      arch/*/include/asm/unwind*.h
+Add the module entry for the standalone FIPS kernel crypto module.
+This creates the basic structure for fips140.ko that will be linked
+with built-in crypto implementations in later patches.
 
-Thanks for the suggestion, this works for me.
+The implementation includes module initialization and exit functions
+and add into build system.
 
->
-> On the other hand I wonder whether the arch-specific headers should
-> remain maintained by the respective arch maintainers?  How is that
-> handled in general?
+Signed-off-by: Jay Wang <wanjay@amazon.com>
+---
+ crypto/Makefile                 |  5 +++++
+ crypto/fips140/Makefile         |  3 +++
+ crypto/fips140/fips140-module.c | 36 +++++++++++++++++++++++++++++++++
+ crypto/fips140/fips140-module.h | 14 +++++++++++++
+ 4 files changed, 58 insertions(+)
+ create mode 100644 crypto/fips140/Makefile
+ create mode 100644 crypto/fips140/fips140-module.c
+ create mode 100644 crypto/fips140/fips140-module.h
 
-I had the same question. My scan of MAINTAINERS shows both patterns
-are present, so I defer to those who know more about this kind of
-maintainership configuration.
+diff --git a/crypto/Makefile b/crypto/Makefile
+index d9bec7c6dc417..b48017ca84cc0 100644
+--- a/crypto/Makefile
++++ b/crypto/Makefile
+@@ -207,3 +207,8 @@ obj-$(CONFIG_CRYPTO_KDF800108_CTR) += kdf_sp800108.o
+ obj-$(CONFIG_CRYPTO_DF80090A) += df_sp80090a.o
+ 
+ obj-$(CONFIG_CRYPTO_KRB5) += krb5/
++
++# FIPS 140 kernel module
++obj-$(CONFIG_CRYPTO_FIPS140_EXTMOD) += fips140/
++
++
+diff --git a/crypto/fips140/Makefile b/crypto/fips140/Makefile
+new file mode 100644
+index 0000000000000..364ef52c190fb
+--- /dev/null
++++ b/crypto/fips140/Makefile
+@@ -0,0 +1,3 @@
++
++
++	
+\ No newline at end of file
+diff --git a/crypto/fips140/fips140-module.c b/crypto/fips140/fips140-module.c
+new file mode 100644
+index 0000000000000..a942de8780efb
+--- /dev/null
++++ b/crypto/fips140/fips140-module.c
+@@ -0,0 +1,36 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * FIPS 140 Kernel Cryptographic Module
++ *
++ * This file is the module entry point for fips140.ko, which is linked with previously built-in cryptos
++ * to generate the fips140.ko module.
++ * At load time, this module plugs the previously built-in implementations contained within itself back to the kernel.
++ * It also runs self-tests on these algorithms and verifies the integrity of its code and data.
++ * If either of these steps fails, the kernel will panic.
++ */
++
++#include "fips140-module.h"
++
++#define FIPS140_MODULE_NAME "FIPS 140 Kernel Cryptographic Module"
++#define FIPS140_MODULE_VERSION "1.0.0"
++
++#define CRYPTO_INTERNAL "CRYPTO_INTERNAL"
++
++/* Initialize the FIPS 140 module */
++static int __init fips140_init(void)
++{
++    return 0;
++}
++
++static void __exit fips140_exit(void)
++{
++    pr_info("Unloading " FIPS140_MODULE_NAME "\n");
++}
++
++module_init(fips140_init);
++module_exit(fips140_exit);
++
++MODULE_IMPORT_NS(CRYPTO_INTERNAL);
++MODULE_LICENSE("GPL v2");
++MODULE_DESCRIPTION(FIPS140_MODULE_NAME);
++MODULE_VERSION(FIPS140_MODULE_VERSION);
+diff --git a/crypto/fips140/fips140-module.h b/crypto/fips140/fips140-module.h
+new file mode 100644
+index 0000000000000..ed2b6e17969fc
+--- /dev/null
++++ b/crypto/fips140/fips140-module.h
+@@ -0,0 +1,14 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * FIPS 140 Kernel Cryptographic Module - Header File
++ */
++
++#ifndef _CRYPTO_FIPS140_MODULE_H
++#define _CRYPTO_FIPS140_MODULE_H
++
++#include <linux/module.h>
++#include <linux/crypto.h>
++#include <crypto/algapi.h>
++#include <linux/init.h>
++
++#endif /* _CRYPTO_FIPS140_MODULE_H */
+-- 
+2.47.3
 
->
-> > diff --git a/arch/Kconfig b/arch/Kconfig
->
-> > @@ -520,6 +520,13 @@ config SFRAME_VALIDATION
-> >
-> >         If unsure, say N.
-> >
-> > +config ARCH_SUPPORTS_SFRAME_UNWINDER
-> > +     bool
-> > +     help
-> > +       An architecture can select this if it  enables the sframe (Simp=
-le
-> > +       Frame) unwinder for unwinding kernel stack traces. It uses unwi=
-nd
-> > +       table that is directly generatedby toolchain based on DWARF CFI=
- information.
->
-> Nit: s/sframe/SFrame/
->
-> > +
-> >  config HAVE_PERF_REGS
-> >       bool
-> >       help
->
-> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
->
-> > @@ -112,6 +112,7 @@ config ARM64
-> >       select ARCH_SUPPORTS_SCHED_SMT
-> >       select ARCH_SUPPORTS_SCHED_CLUSTER
-> >       select ARCH_SUPPORTS_SCHED_MC
-> > +     select ARCH_SUPPORTS_SFRAME_UNWINDER
-> >       select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
-> >       select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
-> >       select ARCH_WANT_DEFAULT_BPF_JIT
->
-> > diff --git a/arch/arm64/Kconfig.debug b/arch/arm64/Kconfig.debug
->
-> > @@ -20,4 +20,17 @@ config ARM64_RELOC_TEST
-> >       depends on m
-> >       tristate "Relocation testing module"
-> >
-> > +config SFRAME_UNWINDER
->
-> Why do you introduce this for arm64 (and debug) only?  If s390 were to
-> add support (as replacement for s390 backchain), this would have to be
-> moved or duplicated.  It would not suffice to enable
-> ARCH_SUPPORTS_SFRAME_UNWINDER to also enable SFRAME_UNWINDER.
-
-Makes sense, I'll look into introducing this as arch-generic.
-
->
-> As mentioned in my feedback on the previous patch in this series:
-> Would it make sense to align the naming to the existing
-> HAVE_UNWIND_USER_SFRAME, for instance:
->
->   HAVE_UNWIND_KERNEL_SFRAME
->
-> > +     bool "Sframe unwinder"
-> > +     depends on AS_SFRAME3
-> > +     depends on 64BIT
-> > +     depends on ARCH_SUPPORTS_SFRAME_UNWINDER
-> > +     select SFRAME_LOOKUP
-> > +     help
-> > +       This option enables the sframe (Simple Frame) unwinder for unwi=
-nding
-> > +       kernel stack traces. It uses unwind table that is directly gene=
-rated
-> > +       by toolchain based on DWARF CFI information. In, practice this =
-can
-> > +       provide more reliable stacktrace results than unwinding with fr=
-ame
-> > +       pointers alone.
->
-> Nit: s/sframe/SFrame/
->
-> > +
-> >  source "drivers/hwtracing/coresight/Kconfig"
->
-> You are introducing two new Kconfig options (SFRAME_UNWINDER and
-> ARCH_SUPPORTS_SFRAME_UNWINDER).  I wonder whether they could somehow be
-> combined into a single new option.  Although I am not sure how an option
-> can be both selectable and depending at the same time, so that the ARM64
-> config could select it, but it would also depend on the above.
-
-I don't think this is recommended, since the behavior of 'select'
-appears to override a 'depends' requirement.
-
-From Documentation/kbuild/kconfig-language.rst: "select should be used
-with care. select will force a symbol to a value without visiting the
-dependencies. By abusing select you are able to select a symbol FOO
-even if FOO depends on BAR that is not set. In general use select only
-for non-visible symbols (no prompts anywhere) and for symbols with no
-dependencies. That will limit the usefulness but on the other hand
-avoid the illegal configurations all over."
-
->
-> > diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vm=
-linux.lds.h
->
-> > @@ -491,6 +491,8 @@
-> >               *(.rodata1)                                             \
-> >       }                                                               \
-> >                                                                       \
-> > +     SFRAME                                                          \
-> > +                                                                     \
-> >       /* PCI quirks */                                                \
-> >       .pci_fixup        : AT(ADDR(.pci_fixup) - LOAD_OFFSET) {        \
-> >               BOUNDED_SECTION_PRE_LABEL(.pci_fixup_early,  _pci_fixups_=
-early,  __start, __end) \
-> > @@ -911,6 +913,19 @@
-> >  #define TRACEDATA
-> >  #endif
-> >
-> > +#ifdef CONFIG_SFRAME_UNWINDER
-> > +#define SFRAME                                                       \
-> > +     /* sframe */                                            \
-> > +     .sframe : AT(ADDR(.sframe) - LOAD_OFFSET) {             \
-> > +             __start_sframe_header =3D .;                      \
->
->                 __start_sframe[_section] =3D .;
->
-> > +             KEEP(*(.sframe))                                \
-> > +             KEEP(*(.init.sframe))                           \
-> > +             __stop_sframe_header =3D .;                       \
->
->                 __stop_sframe[_section] =3D .;
->
-> Unless I am missing something both are not the start/stop of the .sframe
-> header (in the .sframe section) but the .sframe section itself (see also
-> your subsequent "[PATCH v3 4/8] sframe: Provide PC lookup for vmlinux
-> .sframe section." where you assign both to kernel_sfsec.sframe_start
-> and kernel_sfsec.sframe_end.
->
-> > +     }
-> > +#else
-> > +#define SFRAME
-> > +#endif
-> > +
-> >  #ifdef CONFIG_PRINTK_INDEX
-> >  #define PRINTK_INDEX                                                 \
-> >       .printk_index : AT(ADDR(.printk_index) - LOAD_OFFSET) {         \
->
-> Regards,
-> Jens
-> --
-> Jens Remus
-> Linux on Z Development (D3303)
-> jremus@de.ibm.com / jremus@linux.ibm.com
->
-> IBM Deutschland Research & Development GmbH; Vorsitzender des Aufsichtsra=
-ts: Wolfgang Wendt; Gesch=C3=A4ftsf=C3=BChrung: David Faller; Sitz der Gese=
-llschaft: Ehningen; Registergericht: Amtsgericht Stuttgart, HRB 243294
-> IBM Data Privacy Statement: https://www.ibm.com/privacy/
->
-
-I'm working on a new version that I'm hoping to be able to send
-sometime next week, which should address your other comments.
-
-Thanks,
-Dylan
 
