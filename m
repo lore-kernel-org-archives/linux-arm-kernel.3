@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC741F99C6D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 00:24:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC5FF99C6D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 00:24:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C8ML/v8CMjKBgMZ6fCfb/wXQKu3jynI5XrRaMAZACdQ=; b=vLtoDo8fkH4zQ7w/nxjWJW/3YU
-	4dDO+WEGOukMoq+uKJ6/5b+PY8SOCeT5BBNtvGKwyhyU/1p5sBYxwY18qX8XkqV5Tl2En66NX1jcq
-	44gVte1U+F2fMvZgT6Di0YpjhjfUKWoBqGM+LgIDDmseyw5OvzA38IV1JPFB6192e8prHy7dpp8iP
-	cyfM2CklrmOWALXisRaPrrdE+OCPgJwBjuJy5bMosE0EZXXTSM5tr1RTrUQ4rmJpg3F/JbxV9SSfi
-	8u6BChDYkkUSbNxBVzk6XSl+B55CbEWOUSMamC1RgEJZTSkBaNPszDrZPWeZjDiKuiXOQDOv+BIU/
-	iSCpzNwA==;
+	bh=KVKTXmAukyORC4lyQHCe+lV38lmczCr4CInk3yMLjAk=; b=YpNuk8hGa2KPa2ktPyX2b2UDqq
+	2iqvofL+mAaTAcsrQph/jFjt4uLFQddKx3vtKXgrnkthv7Wgku87uzF1GRTxEWidJo7h956f4aChg
+	nEqiq6jLYNnot2Y1UhwcSiZ1ar9x5BVzyvNRJocNpnLDaoU02NKIgFHs3AuMKgLW7yuBL8Ce3HXLN
+	d7l9H/kl/p1ynMnLPkymdspUI6kXQNrDpVz8OYks5tNxu2MqC7P51MNQG8cxXGLIF9Ey1NELe3eUp
+	XUTYZABsmSqtRbSkpDFz3Qh4oZ6KKKCGB+OXQTyCoPxNWb9DVzlpCkZ2+unj/vh/XTqPe3pUvHn/l
+	erfSZzjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDtTc-00000004bj4-37VV;
-	Sat, 18 Apr 2026 00:24:00 +0000
-Received: from pdx-out-001.esa.us-west-2.outbound.mail-perimeter.amazon.com ([44.245.243.92])
+	id 1wDtTs-00000004bqF-0SBx;
+	Sat, 18 Apr 2026 00:24:16 +0000
+Received: from pdx-out-003.esa.us-west-2.outbound.mail-perimeter.amazon.com ([44.246.68.102])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDtTZ-00000004bhD-0dha
+	id 1wDtTp-00000004bp5-1g70
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Apr 2026 00:23:59 +0000
+	Sat, 18 Apr 2026 00:24:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1776471837; x=1808007837;
+  t=1776471853; x=1808007853;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=C8ML/v8CMjKBgMZ6fCfb/wXQKu3jynI5XrRaMAZACdQ=;
-  b=DT9KRl63gL07WX5RGcRb61diLV+LyVYoT96QxWaFXgR8TRDMNWUVjda3
-   qLguBssbD8IAKxStl1Cn1w/0LX5h6GyCMW+zr3jsC6ufsB9jsH6EoNcgC
-   KPNdir3CMOVAgbnvTgKB27GZIsDykqprLO8XLqgVt8MdNntGZCpwJt51b
-   ry0m6j6Ery4kCTJtiL5oFONylkJM6mWmaa1E750v+HKAqe/JAPhnBKhtW
-   T8xEC+iRw37B8Omy+SoNc55PLTSMKrIY+bj9gR6+gb/SgGAIPxdMFcxwI
-   EyxEFAU4iBcpI7mgcfKxjcuuaGci9QB/qkpR65k2nA5h+sHv2gCJBKzep
-   Q==;
-X-CSE-ConnectionGUID: f33gnUlnSVu+tK+dYfk13A==
-X-CSE-MsgGUID: O+kysqVoTwSziLUuks6ZnA==
+  bh=KVKTXmAukyORC4lyQHCe+lV38lmczCr4CInk3yMLjAk=;
+  b=TwCPdKUsbf5WlZDA+q7DFvG+1KW8/4OnqSo7woN3lgsEOfJywO5IS9JK
+   c9jl9oMNLuP4b1sgC3HVlTXGT3AiAIJGibdWYgv1pipTKj9qWDi95wZ30
+   LY1EBSUKslYHyFZRcqDbX5mKH88MTCj5so0+tA/Pki9he/mG6dE6pjuEu
+   d/8/xu+yCbJwCZy0G2SZXpmKPoHfPt4gJuQ8w/F9bKkDlrheiwJx/vYqc
+   6cGkBREdq1uwTdj7ZvGfnizN3IS44/u3X723GaZRKfZzycSeXafNqlz5N
+   pBxOQbWUl49Bf56O54YZ5S19Pgxo/8pz0wEbCpC1ZbiqOg7w2E51GtSlo
+   w==;
+X-CSE-ConnectionGUID: CLsZSSiwR6GM6/Hh42vRHw==
+X-CSE-MsgGUID: VVf2Vc+KTkKVWYOXKyQ5NA==
 X-IronPort-AV: E=Sophos;i="6.23,185,1770595200"; 
-   d="scan'208";a="17123698"
-Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
-  by internal-pdx-out-001.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Apr 2026 00:23:56 +0000
-Received: from EX19MTAUWC001.ant.amazon.com [205.251.233.105:19226]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.6.131:2525] with esmtp (Farcaster)
- id 5cc596c0-8d7c-4ff2-883f-4c39741ad746; Sat, 18 Apr 2026 00:23:56 +0000 (UTC)
-X-Farcaster-Flow-ID: 5cc596c0-8d7c-4ff2-883f-4c39741ad746
+   d="scan'208";a="17612850"
+Received: from ip-10-5-0-115.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.0.115])
+  by internal-pdx-out-003.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Apr 2026 00:24:12 +0000
+Received: from EX19MTAUWB002.ant.amazon.com [205.251.233.111:9319]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.47.173:2525] with esmtp (Farcaster)
+ id 582258c8-0fd9-499f-ba9f-37b75f99c57a; Sat, 18 Apr 2026 00:24:12 +0000 (UTC)
+X-Farcaster-Flow-ID: 582258c8-0fd9-499f-ba9f-37b75f99c57a
 Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
+ EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Sat, 18 Apr 2026 00:23:56 +0000
+ Sat, 18 Apr 2026 00:24:11 +0000
 Received: from dev-dsk-wanjay-2c-d25651b4.us-west-2.amazon.com (172.19.198.4)
  by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Sat, 18 Apr 2026 00:23:55 +0000
+ Sat, 18 Apr 2026 00:24:11 +0000
 From: Jay Wang <wanjay@amazon.com>
 To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
 	<davem@davemloft.net>, <linux-crypto@vger.kernel.org>, Masahiro Yamada
@@ -80,9 +80,9 @@ CC: Jay Wang <jay.wang.upstream@gmail.com>, Vegard Nossum
 	"Andrii Nakryiko" <andrii@kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
 	<linux-modules@vger.kernel.org>
-Subject: [PATCH v2 13/19] Execute crypto initcalls during module initialization
-Date: Sat, 18 Apr 2026 00:20:21 +0000
-Message-ID: <20260418002032.2877-14-wanjay@amazon.com>
+Subject: [PATCH v2 14/19] crypto/algapi.c: skip crypto_check_module_sig() for the standalone crypto module
+Date: Sat, 18 Apr 2026 00:20:22 +0000
+Message-ID: <20260418002032.2877-15-wanjay@amazon.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260418002032.2877-1-wanjay@amazon.com>
 References: <20260418002032.2877-1-wanjay@amazon.com>
@@ -90,11 +90,11 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-Originating-IP: [172.19.198.4]
-X-ClientProxiedBy: EX19D038UWB002.ant.amazon.com (10.13.139.185) To
+X-ClientProxiedBy: EX19D040UWA003.ant.amazon.com (10.13.139.6) To
  EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_172357_483319_50767104 
-X-CRM114-Status: GOOD (  25.07  )
+X-CRM114-CacheID: sfid-20260417_172413_493716_7F198C66 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,272 +109,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After moving builtin cryptos into the standalone crypto module, to ensure
-all such cryptos are properly initialized as they were builtin, the
-initcalls of the cryptos should be executed at proper booting time.
+From: Vegard Nossum <vegard.nossum@oracle.com>
 
-To do so, this patch adds run_initcalls() function to execute the
-initialization calls of the collected cryptos right after the module is
-loaded. The function iterates through initcalls in the __fips_initcalls
-section (which stores all function addresses of the collected crypto
-initcalls) and executes them.
+The signature check in regular module verification process
+`crypto_check_module_sig()` is skipped for this standalone crypto module
+because its signature has already been checked during load (as described
+in later patch).
 
-A key consideration is to ensure the crypto initcalls are executed in
-proper order, for instance, some crypto initcalls are ought to execute
-at `late_initcall` boot time level while some should be executed at
-`module_init` boot time level. To do so, this patch enables coordination
-between kernel and the crypto module initialization to preserve proper
-execution order by hijacking the kernel initialization function
-`do_initcall_level` with added synchronization helpers.
-
+Signed-off-by: Vegard Nossum <vegard.nossum@oracle.com>
+[Revise commit message]
 Signed-off-by: Jay Wang <wanjay@amazon.com>
 ---
- crypto/fips140/fips140-loader.c | 93 +++++++++++++++++++++++++++++++++
- crypto/fips140/fips140-module.c | 67 ++++++++++++++++++++++++
- crypto/fips140/fips140-module.h | 12 +++++
- include/linux/init.h            | 10 ++++
- init/main.c                     |  4 ++
- 5 files changed, 186 insertions(+)
+ crypto/algapi.c | 14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
 
-diff --git a/crypto/fips140/fips140-loader.c b/crypto/fips140/fips140-loader.c
-index 490fb7276befb..ab9a3f9c5599e 100644
---- a/crypto/fips140/fips140-loader.c
-+++ b/crypto/fips140/fips140-loader.c
-@@ -100,3 +100,96 @@ static int fips_loader_init(void)
- 	vfree(vmalloc_mem); // Free after successful module loading
- 	return ret;
- }
-+
-+/* FIPS140 synchronization between kernel and module
-+ *
-+ * Synchronization levels map kernel initcall levels to FIPS module levels:
-+ * - Level 0: subsys_initcall (kernel init level 4) - Basic subsystem initialization
-+ * - Level 1: device_initcall (kernel init level 6) - Device driver initialization  
-+ * - Level 2: late_initcall (kernel init level 7) - Late system initialization
-+ *
-+ * The kernel marks each level complete and waits for the FIPS module to
-+ * complete the corresponding level before proceeding to ensure proper
-+ * initialization ordering between kernel crypto and FIPS module.
-+ */
-+atomic_t fips140_kernel_level_complete = ATOMIC_INIT(0);
-+atomic_t fips140_module_level_complete = ATOMIC_INIT(0);
-+
-+/* Wait queues for efficient synchronization */
-+DECLARE_WAIT_QUEUE_HEAD(fips140_kernel_wq);
-+DECLARE_WAIT_QUEUE_HEAD(fips140_module_wq);
-+
-+void fips140_mark_kernel_level_complete(int level)
-+{
-+	atomic_or(1 << level, &fips140_kernel_level_complete);
-+	wake_up(&fips140_kernel_wq);
-+}
-+
-+bool fips140_is_kernel_level_complete(int level)
-+{
-+	return atomic_read(&fips140_kernel_level_complete) & (1 << level);
-+}
-+
-+bool fips140_is_module_level_complete(int level)
-+{
-+	return atomic_read(&fips140_module_level_complete) & (1 << level);
-+}
-+
-+void fips140_mark_module_level_complete(int level)
-+{
-+	atomic_or(1 << level, &fips140_module_level_complete);
-+	wake_up(&fips140_module_wq);
-+}
-+
-+static int fips140_sync_thread(void *data)
-+{
-+	pr_info("FIPS 140: starting sync thread\n");
-+	
-+	/* Call FIPS loader explicitly */
-+	int ret = fips_loader_init();
-+	if (ret)
-+		panic("FIPS 140: loader initialization failed: %d\n", ret);
-+	
-+	pr_info("FIPS 140: sync thread finished\n");
-+	return 0;
-+}
-+
-+void __init start_fips140_loader(void)
-+{
-+	struct task_struct *task;
-+	
-+	task = kthread_run(fips140_sync_thread, NULL, "fips140_sync");
-+	if (IS_ERR(task)) {
-+		panic("FIPS 140: failed to create sync thread\n");
-+	}
-+}
-+
-+void __init wait_until_fips140_level_sync(int level)
-+{
-+	/* Map kernel initcall levels to FIPS module levels */
-+	int fips_level = -1;
-+	if (level == 3) { /* Start FIPS loader thread at arch_initcall_sync level */
-+		start_fips140_loader();
-+		fips_level = 0;
-+	} else if (level == 4) /* subsys_initcall */
-+		fips_level = 1;
-+	else if (level == 6) /* device_initcall */
-+		fips_level = 2;
-+	else if (level == 7) /* late_initcall */
-+		fips_level = 3;
-+
-+	if (fips_level >= 0) {
-+		/* Mark kernel level complete and wait for module level completion */
-+		fips140_mark_kernel_level_complete(fips_level);
-+		wait_event(fips140_module_wq, fips140_is_module_level_complete(fips_level));
-+	}
-+}
-+
-+EXPORT_SYMBOL(fips140_kernel_level_complete);
-+EXPORT_SYMBOL(fips140_module_level_complete);
-+EXPORT_SYMBOL(fips140_kernel_wq);
-+EXPORT_SYMBOL(fips140_module_wq);
-+EXPORT_SYMBOL(fips140_mark_kernel_level_complete);
-+EXPORT_SYMBOL(fips140_is_kernel_level_complete);
-+EXPORT_SYMBOL(fips140_is_module_level_complete);
-+EXPORT_SYMBOL(fips140_mark_module_level_complete);
-\ No newline at end of file
-diff --git a/crypto/fips140/fips140-module.c b/crypto/fips140/fips140-module.c
-index a942de8780efb..8767d98baacd9 100644
---- a/crypto/fips140/fips140-module.c
-+++ b/crypto/fips140/fips140-module.c
-@@ -16,9 +16,76 @@
+diff --git a/crypto/algapi.c b/crypto/algapi.c
+index 37de377719aec..663698e0cd658 100644
+--- a/crypto/algapi.c
++++ b/crypto/algapi.c
+@@ -24,7 +24,19 @@ static LIST_HEAD(crypto_template_list);
  
- #define CRYPTO_INTERNAL "CRYPTO_INTERNAL"
- 
-+/*
-+ * Run FIPS module initcalls level by level, synchronizing with the
-+ * kernel's initcall progression.
-+ *
-+ * Initcall section mapping (see include/linux/module.h):
-+ *   Level 0 (.fips_initcall0) <- subsys_initcall()
-+ *                                Syncs with kernel subsys_initcall (initcall level 4)
-+ *   Level 1 (.fips_initcall1) <- module_init()
-+ *                                Syncs with kernel device_initcall (initcall level 6)
-+ *   Level 2 (.fips_initcall2) <- late_initcall()
-+ *                                Syncs with kernel late_initcall (initcall level 7)
-+ */
-+
-+static int __init run_initcalls(void)
-+{
-+	typedef int (*initcall_t)(void);
-+	
-+	extern initcall_t __fips140_initcall0_start[], __fips140_initcall0_end[];
-+	extern initcall_t __fips140_initcall1_start[], __fips140_initcall1_end[];
-+	extern initcall_t __fips140_initcall2_start[], __fips140_initcall2_end[];
-+
-+	initcall_t *starts[] = {
-+		__fips140_initcall0_start,
-+		__fips140_initcall1_start,
-+		__fips140_initcall2_start,
-+	};
-+	
-+	initcall_t *ends[] = {
-+		__fips140_initcall0_end,
-+		__fips140_initcall1_end,
-+		__fips140_initcall2_end,
-+	};
-+
-+	pr_info("FIPS 140: run_initcalls starting\n");
-+
-+	for (int level = 0; level < ARRAY_SIZE(starts); level++) {
-+		
-+		/* Run FIPS initcalls for this level */
-+		for (initcall_t *initcall = starts[level]; initcall < ends[level]; ++initcall) {
-+			int ret;
-+			initcall_t fn = *initcall;
-+			
-+			ret = fn();
-+			if (!ret || ret == -ENODEV)
-+				continue;
-+
-+			pr_err("FIPS 140: initcall %pS failed: %d\n", fn, ret);
-+		}
-+	
-+		if (level < 2)
-+			fips140_mark_module_level_complete(level + 1);
-+		/* Wait for kernel to complete this level */
-+		wait_event(fips140_kernel_wq, fips140_is_kernel_level_complete(level + 1));
-+	}
-+
-+	pr_info("FIPS 140: run_initcalls finished\n");
-+	return 0;
-+}
-+
- /* Initialize the FIPS 140 module */
- static int __init fips140_init(void)
+ static inline void crypto_check_module_sig(struct module *mod)
  {
-+	/* Signal that module is loaded and address placeholders are populated */
-+	fips140_mark_module_level_complete(0);
-+	wait_event(fips140_kernel_wq, fips140_is_kernel_level_complete(0));
-+
-+    pr_info("loading " FIPS140_MODULE_NAME "\n");
-+
-+	run_initcalls();
-+	fips140_mark_module_level_complete(3);
-     return 0;
- }
- 
-diff --git a/crypto/fips140/fips140-module.h b/crypto/fips140/fips140-module.h
-index ed2b6e17969fc..e95dac8eeda9e 100644
---- a/crypto/fips140/fips140-module.h
-+++ b/crypto/fips140/fips140-module.h
-@@ -10,5 +10,17 @@
- #include <linux/crypto.h>
- #include <crypto/algapi.h>
- #include <linux/init.h>
-+#include <linux/atomic.h>
-+#include <linux/wait.h>
-+
-+/* FIPS140 synchronization between kernel and module */
-+extern atomic_t fips140_kernel_level_complete;
-+extern atomic_t fips140_module_level_complete;
-+extern wait_queue_head_t fips140_kernel_wq;
-+
-+void fips140_mark_kernel_level_complete(int level);
-+bool fips140_is_kernel_level_complete(int level);
-+bool fips140_is_module_level_complete(int level);
-+void fips140_mark_module_level_complete(int level);
- 
- #endif /* _CRYPTO_FIPS140_MODULE_H */
-diff --git a/include/linux/init.h b/include/linux/init.h
-index 40331923b9f4a..eefbdfac1d41b 100644
---- a/include/linux/init.h
-+++ b/include/linux/init.h
-@@ -392,4 +392,14 @@ void __init parse_early_options(char *cmdline);
- #define __exit_p(x) NULL
- #endif
- 
-+#if defined(CONFIG_CRYPTO_FIPS140_EXTMOD) && !defined(__ASSEMBLY__)
-+/* FIPS140 synchronization between kernel and module */
-+void fips140_mark_kernel_level_complete(int level);
-+bool fips140_is_kernel_level_complete(int level);
-+bool fips140_is_module_level_complete(int level);
-+void fips140_mark_module_level_complete(int level);
-+void start_fips140_loader(void);
-+void wait_until_fips140_level_sync(int level);
-+#endif /* CONFIG_CRYPTO_FIPS140_EXTMOD && !__ASSEMBLY__ */
-+
- #endif /* _LINUX_INIT_H */
-diff --git a/init/main.c b/init/main.c
-index 96f93bb06c490..8ef50419b42e4 100644
---- a/init/main.c
-+++ b/init/main.c
-@@ -1452,6 +1452,10 @@ static void __init do_initcall_level(int level, char *command_line)
- 	do_trace_initcall_level(initcall_level_names[level]);
- 	for (fn = initcall_levels[level]; fn < initcall_levels[level+1]; fn++)
- 		do_one_initcall(initcall_from_entry(fn));
-+
-+#ifdef CONFIG_CRYPTO_FIPS140_EXTMOD
-+	wait_until_fips140_level_sync(level);
+-	if (fips_enabled && mod && !module_sig_ok(mod))
++#ifdef FIPS_MODULE
++	/*
++	 * The FIPS module should ignore its own signature check, as it was
++	 * already been verified elsewhere during loading.
++	 */
++	if (mod == THIS_MODULE)
++		return;
++#else
++	if (!fips_enabled)
++		return;
 +#endif
++
++	if (mod && !module_sig_ok(mod))
+ 		panic("Module %s signature verification failed in FIPS mode\n",
+ 		      module_name(mod));
  }
- 
- static void __init do_initcalls(void)
 -- 
 2.47.3
 
