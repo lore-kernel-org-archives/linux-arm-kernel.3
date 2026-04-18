@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C6D0F99C6E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 00:23:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE083F99C6E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 00:23:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q1nzHQ+8MQZYNvUBriyrkYx1UabojV9zAK9fXoyicWw=; b=0foVmqEvY02TAKN7spHGTVZtGz
-	8EpaEJosYTQ16ZJL3FH5aEKpf1e/Veitv2whoMPPd7QTXTmcXfZkn7Tcmiy6NbCsJ/MxDnLvpE+P4
-	j5o54wQgdcBSTI3dfnbpsCS8WWRcFLtHKZZ3G8dhlRzymfw/UyNbx7ZQ8bW3EiuvzDZ2MjcMg8faP
-	jP086vBeOoMT1g7w3TnaL9kMZNyxgysN/vTu6xE8itxLOBKDT1goDgRlOZ9Vd+cU0oeAeR6AgfM8l
-	3Op1DTWVhrsTAJt7IXEorJTGP7+94lUMNbT31ayI/kBeZnYMTpmcc1fCE7BWr2Fpb25QIpPYysNz0
-	EIqm4CIQ==;
+	bh=Ji+fZcApZbwV30sxJjgqiMMSZkP+FHnBrLUTS/vdrl8=; b=sc6Y1W4RWEC1stGY7rh57cwK84
+	2xRpfGdvOOhHHdnBj5XppPh83ZLNaU2hjoBT8jZ0whvohDFOv9jb8ytzHAP5MTA3jAuUoyEasQQbN
+	+U9gbT3+LiffpSjgPcJv7cItjYldW17uYoQrqehEMS7CBdLMjeCXGVDWuwJNV5G0UNV0E8Upfk6S+
+	GBicsUe/VcBesUKOKpKwB6ZRHPamh5E258gjjMZ2f1+xtAeu0vNTdCL/lOplsiW/AjU3QpzlBJ03M
+	st3kIA0IUqPE4Juk/pnZIw61GKrXlXwfO1bNjtgVk+YxLw7Z/JM4kOLa7TyfnJO1UWHCxhRHWapAm
+	H7T3md0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDtSe-00000004bIj-3GyR;
-	Sat, 18 Apr 2026 00:23:00 +0000
+	id 1wDtSt-00000004bPZ-0QOP;
+	Sat, 18 Apr 2026 00:23:15 +0000
 Received: from pdx-out-008.esa.us-west-2.outbound.mail-perimeter.amazon.com ([52.42.203.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDtSa-00000004bGg-1as1
+	id 1wDtSp-00000004bNY-0OGE
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Apr 2026 00:22:59 +0000
+	Sat, 18 Apr 2026 00:23:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1776471776; x=1808007776;
+  t=1776471791; x=1808007791;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=q1nzHQ+8MQZYNvUBriyrkYx1UabojV9zAK9fXoyicWw=;
-  b=dHaBZliMNy6W96OIDTELiykD+nLdpeNtjbVveeW6sH6KQtojjaNgYRAq
-   3VJ28tV65Bj4vsPuc9v6eyvSF7GDHIHM0Z2rdOWQrhgV5FyXnL5WzYdfc
-   GJR1ooiH+gGIJFGFnl3IMDNv5KIHjwKjIM86+ltz5Xzu1HgRnyDem7rh1
-   aib4ysswCTrzjU5KoPu0gtVXxowCpD/gJbjoP2FLkIaTOkZjSZ2/tHs0l
-   OCX7kKBWo7ZnXSoDNwGf3v3rxxpXXpLUgCHBTVwGTD/9cQwAi2pSOZPCh
-   K2bMW3BXbNZPB+FXttp5iSq3tX0JsHElUOh3fIDIYAz8aXfWUd7e0Ht56
-   w==;
-X-CSE-ConnectionGUID: DuGuYirdR/Oc3mhGAhN/gg==
-X-CSE-MsgGUID: fTv9hllkRlC0fUrPBmZtkg==
+  bh=Ji+fZcApZbwV30sxJjgqiMMSZkP+FHnBrLUTS/vdrl8=;
+  b=V3oqjWQOENOCCcyJzYLSaTkwkleDgghWwuKF/OWPSV3EmDJ2qp27FC+r
+   S9g2XyF5epiJwcXqIK47rhMVuIWhIdcbDHH0n320y2tbCMROicIcqRclS
+   43PA7X2Oee6DW9r5Kx5bhXIKby8enXb5Lzsg1/X8ivk20pg1IZ1nW+8cY
+   NeOHZ9l2FCq2H28FdyxW+9EqdW3ZnYbak/9bJYCt5RYKCmb9n7BNmzkMa
+   rxmjq1Hlio2pf+5mIr6SJTn25VDnlAnerWiZ73uNVK24k/Mz7VVeLpawi
+   lwDElCcbnviGSUBIpPV1m5oYMxGoac1MaqOc2UkLJcT+AoG3yI3a6W9G4
+   A==;
+X-CSE-ConnectionGUID: VNOMiFDbRem8NFxOqKt1zA==
+X-CSE-MsgGUID: pwiLiAizSteMZHEAhgMsXA==
 X-IronPort-AV: E=Sophos;i="6.23,185,1770595200"; 
-   d="scan'208";a="17609377"
-Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
-  by internal-pdx-out-008.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Apr 2026 00:22:54 +0000
-Received: from EX19MTAUWB002.ant.amazon.com [205.251.233.111:15350]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.25.2:2525] with esmtp (Farcaster)
- id c57742ec-163f-4d8d-bed5-307531d48cf5; Sat, 18 Apr 2026 00:22:54 +0000 (UTC)
-X-Farcaster-Flow-ID: c57742ec-163f-4d8d-bed5-307531d48cf5
+   d="scan'208";a="17609398"
+Received: from ip-10-5-0-115.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.0.115])
+  by internal-pdx-out-008.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Apr 2026 00:23:10 +0000
+Received: from EX19MTAUWB001.ant.amazon.com [205.251.233.51:25735]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.1.88:2525] with esmtp (Farcaster)
+ id 3cca9a26-2992-45ba-a8b0-7ecdaa6684cc; Sat, 18 Apr 2026 00:23:10 +0000 (UTC)
+X-Farcaster-Flow-ID: 3cca9a26-2992-45ba-a8b0-7ecdaa6684cc
 Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
+ EX19MTAUWB001.ant.amazon.com (10.250.64.248) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Sat, 18 Apr 2026 00:22:53 +0000
+ Sat, 18 Apr 2026 00:23:09 +0000
 Received: from dev-dsk-wanjay-2c-d25651b4.us-west-2.amazon.com (172.19.198.4)
  by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Sat, 18 Apr 2026 00:22:53 +0000
+ Sat, 18 Apr 2026 00:23:08 +0000
 From: Jay Wang <wanjay@amazon.com>
 To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
 	<davem@davemloft.net>, <linux-crypto@vger.kernel.org>, Masahiro Yamada
@@ -80,9 +80,9 @@ CC: Jay Wang <jay.wang.upstream@gmail.com>, Vegard Nossum
 	"Andrii Nakryiko" <andrii@kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
 	<linux-modules@vger.kernel.org>
-Subject: [PATCH v2 09/19] build: embed the standalone crypto module into vmlinux
-Date: Sat, 18 Apr 2026 00:20:17 +0000
-Message-ID: <20260418002032.2877-10-wanjay@amazon.com>
+Subject: [PATCH v2 10/19] module: skip modversion checks for crypto modules
+Date: Sat, 18 Apr 2026 00:20:18 +0000
+Message-ID: <20260418002032.2877-11-wanjay@amazon.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260418002032.2877-1-wanjay@amazon.com>
 References: <20260418002032.2877-1-wanjay@amazon.com>
@@ -90,11 +90,11 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-Originating-IP: [172.19.198.4]
-X-ClientProxiedBy: EX19D040UWB001.ant.amazon.com (10.13.138.82) To
+X-ClientProxiedBy: EX19D033UWC001.ant.amazon.com (10.13.139.218) To
  EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_172256_490730_76C3ED9B 
-X-CRM114-Status: GOOD (  19.74  )
+X-CRM114-CacheID: sfid-20260417_172311_180588_B05383C5 
+X-CRM114-Status: GOOD (  19.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,301 +109,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As mentioned in earlier patch, in order to load standalone crypto module
-in early boot before filesystem is ready, the module needs to be embedded
-into vmlinux image. This patch intends to make such embedded process a
-seamless process that will automatically trigger as building vmlinux (i.e.,
-during `make vmlinux`). So it adds make dependency rule such that vmlinux
-will depend on the `fips140.ko` and its signature `.fips140.hmac`
-generation rule. It also modifies vmlinux link rule to finally link them
-with vmlinux.o.
+The standalone crypto module feature allows loading pre-built crypto
+modules from an external build to preserve FIPS certification across
+kernel updates. Since these externally built modules have different
+modversion CRCs than the running kernel, the module_layout and per-symbol
+version checks will fail.
 
-The high level idea of embedding fips140.ko into vmlinux stems from
-Vegard Nossum <vegard.nossum@oracle.com>.
+Add a flags field to struct load_info and bypass check_version() and
+check_modstruct_version() for crypto modules. For fips140.ko loaded
+from embedded kernel memory, the MODULE_INIT_CRYPTO_FROM_MEM flag is set
+by the loader. For individual crypto algorithm modules (e.g., authenc.ko,
+ccm.ko) built with the crypto-objs-m rule, a .fips140_crypto_marker ELF
+section is detected during early_mod_check() and the
+MODULE_INIT_CRYPTO_OBJS_M flag is set accordingly.
 
 Signed-off-by: Jay Wang <wanjay@amazon.com>
 ---
- Makefile                        | 32 +++++++++++++++++++++++++++++---
- arch/arm64/kernel/vmlinux.lds.S | 16 ++++++++++++++++
- arch/x86/kernel/vmlinux.lds.S   | 16 ++++++++++++++++
- crypto/fips140/Kconfig          | 29 +++++++++++++++++++++++++++++
- crypto/fips140/Makefile         |  4 +++-
- crypto/fips140/fips140-loader.c |  9 +++++++++
- scripts/Makefile.modfinal       | 18 +++++++++++++++++-
- scripts/Makefile.vmlinux        |  6 +++++-
- scripts/link-vmlinux.sh         |  5 +++++
- 9 files changed, 129 insertions(+), 6 deletions(-)
+ include/uapi/linux/module.h |  1 +
+ kernel/module/internal.h    |  1 +
+ kernel/module/main.c        | 17 +++++++++++++++++
+ kernel/module/version.c     |  9 +++++++++
+ 4 files changed, 28 insertions(+)
 
-diff --git a/Makefile b/Makefile
-index f3c43f87d6786..bd0e4034927c6 100644
---- a/Makefile
-+++ b/Makefile
-@@ -1306,12 +1306,21 @@ quiet_cmd_ar_vmlinux.a = AR      $@
- 	$(AR) mPiT $$($(AR) t $@ | sed -n 1p) $@ $$($(AR) t $@ | grep -F -f $(srctree)/scripts/head-object-list.txt)
+diff --git a/include/uapi/linux/module.h b/include/uapi/linux/module.h
+index 6941497350893..7c6b3ae55c8d7 100644
+--- a/include/uapi/linux/module.h
++++ b/include/uapi/linux/module.h
+@@ -10,6 +10,7 @@
+ #ifdef __KERNEL__
+ /* Internal flags */
+ #define MODULE_INIT_CRYPTO_FROM_MEM		(1 << 8)
++#define MODULE_INIT_CRYPTO_OBJS_M		(1 << 9)
+ #endif
  
- ifdef CONFIG_CRYPTO_FIPS140_EXTMOD
-+fips140_build = .
-+ifeq ($(CONFIG_CRYPTO_FIPS140_EXTMOD_SOURCE),y)
-+fips140_build = fips140_build
-+endif
- 
- # Generate exported symbol list from fips140.o (no vmlinux.o dependency)
- quiet_cmd_gen_fips140_exported = 
-       cmd_gen_fips140_exported = $(NM) $< 2>/dev/null | \
- 		sed -n 's/.*__export_symbol_//p' | sort | \
--		awk '{print "0x00000000\t" $$1 "\tcrypto/fips140/fips140\tEXPORT_SYMBOL_GPL\t"}' > $@
-+		awk '{print "0x00000000\t" $$1 "\tcrypto/fips140/fips140\tEXPORT_SYMBOL_GPL\t"}' > $@ \
-+		$(fips140_cp_exported)
-+
-+ifeq ($(CONFIG_CRYPTO_FIPS140_EXTMOD_SOURCE),y)
-+fips140_cp_exported = ; cp "$(fips140_build)/crypto/fips140/.fips140.exported" crypto/fips140/.fips140.exported
-+endif
- 
- crypto/fips140/.fips140.exported: crypto/fips140/fips140.o FORCE
- 	$(call if_changed,gen_fips140_exported)
-@@ -1357,7 +1366,22 @@ PHONY += vmlinux
- vmlinux: private _LDFLAGS_vmlinux := $(LDFLAGS_vmlinux)
- vmlinux: export LDFLAGS_vmlinux = $(_LDFLAGS_vmlinux)
- ifdef CONFIG_CRYPTO_FIPS140_EXTMOD
--vmlinux: fips140-ready
-+vmlinux: crypto/fips140/fips140-embedded.o crypto/fips140/fips140-digest.o
-+crypto/fips140/fips140-embedded.o: fips140-ready
-+	@echo "  LD      $@"
-+	@$(LD) -r -b binary -o $@ $(fips140_build)/crypto/fips140/fips140.ko
-+	@$(OBJCOPY) --rename-section .data=.fips140_module_data $@
-+
-+crypto/fips140/.fips140.hmac: crypto/fips140/fips140-embedded.o
-+	@echo "  HMAC    $@"
-+	@hmac_key=$$(awk -F'"' '/^CONFIG_CRYPTO_FIPS140_HMAC_KEY=/{print $$2}' .config); \
-+	openssl dgst -sha256 -hmac "$$hmac_key" -binary -out $@ $(fips140_build)/crypto/fips140/fips140.ko
-+
-+crypto/fips140/fips140-digest.o: crypto/fips140/.fips140.hmac
-+	@echo "  LD      $@"
-+	@$(LD) -r -b binary -o $@ crypto/fips140/.fips140.hmac
-+	@$(OBJCOPY) --rename-section .data=.fips140_digest $@
-+
- # Ensure fips140.ko is built before embedding
- fips140-ready: crypto/fips140/fips140.o crypto/fips140/.fips140.order crypto/fips140/fips140.mod vmlinux.o | modules_prepare
- 	$(Q)$(MAKE) KBUILD_MODULES= -f $(srctree)/scripts/Makefile.modpost
-@@ -1365,7 +1389,9 @@ fips140-ready: crypto/fips140/fips140.o crypto/fips140/.fips140.order crypto/fip
- ifneq ($(KBUILD_MODPOST_NOFINAL),1)
- 	$(Q)$(MAKE) KBUILD_MODULES=y crypto-module-gen=1 -f $(srctree)/scripts/Makefile.modfinal
- endif
--	@:
-+ifeq ($(CONFIG_CRYPTO_FIPS140_EXTMOD_SOURCE),y)
-+	cp "$(fips140_build)/crypto/fips140/fips140.ko" crypto/fips140/fips140.ko;
-+endif
- 
- # Generate fips140.o from crypto-module.a files
- crypto/fips140/fips140.o: crypto-module.a FORCE
-diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
-index 2d1e75263f033..8d7905b9207ef 100644
---- a/arch/arm64/kernel/vmlinux.lds.S
-+++ b/arch/arm64/kernel/vmlinux.lds.S
-@@ -201,6 +201,22 @@ SECTIONS
- 	/* everything from this point to __init_begin will be marked RO NX */
- 	RO_DATA(PAGE_SIZE)
+ #endif /* _UAPI_LINUX_MODULE_H */
+diff --git a/kernel/module/internal.h b/kernel/module/internal.h
+index 061161cc79d90..b75b19e0b5dcf 100644
+--- a/kernel/module/internal.h
++++ b/kernel/module/internal.h
+@@ -69,6 +69,7 @@ struct load_info {
+ 	char *secstrings, *strtab;
+ 	unsigned long symoffs, stroffs, init_typeoffs, core_typeoffs;
+ 	bool sig_ok;
++	int flags;
+ #ifdef CONFIG_KALLSYMS
+ 	unsigned long mod_kallsyms_init_off;
+ #endif
+diff --git a/kernel/module/main.c b/kernel/module/main.c
+index 6152b9b39e6b1..69949069dc5f5 100644
+--- a/kernel/module/main.c
++++ b/kernel/module/main.c
+@@ -3446,6 +3446,22 @@ static int early_mod_check(struct load_info *info, int flags)
+ 	if (err)
+ 		return err;
  
 +#ifdef CONFIG_CRYPTO_FIPS140_EXTMOD
-+	/* FIPS 140 embedded module data */
-+	.fips140_embedded : {
-+		. = ALIGN(8);
-+		_binary_fips140_ko_start = .;
-+		KEEP(*(.fips140_module_data))
-+		_binary_fips140_ko_end = .;
-+	}
-+	.fips140_digest : {
-+		. = ALIGN(8);
-+		_binary_fips140_hmac_start = .;
-+		KEEP(*(.fips140_digest))
-+		_binary_fips140_hmac_end = .;
++	/* Detect crypto-objs-m modules by .fips140_crypto_marker section */
++	if (!(info->flags & MODULE_INIT_CRYPTO_FROM_MEM)) {
++		unsigned int i;
++
++		for (i = 1; i < info->hdr->e_shnum; i++) {
++			const char *sname = info->secstrings + info->sechdrs[i].sh_name;
++
++			if (strcmp(sname, ".fips140_crypto_marker") == 0) {
++				info->flags |= MODULE_INIT_CRYPTO_OBJS_M;
++				break;
++			}
++		}
 +	}
 +#endif
 +
- 	HYPERVISOR_RODATA_SECTIONS
+ 	/* Check module struct version now, before we try to use module. */
+ 	if (!check_modstruct_version(info, info->mod))
+ 		return -ENOEXEC;
+@@ -3678,6 +3694,7 @@ int load_crypto_module_mem(const char *mem, size_t size)
+ 	}
  
- 	.got : { *(.got) }
-diff --git a/arch/x86/kernel/vmlinux.lds.S b/arch/x86/kernel/vmlinux.lds.S
-index 4711a35e706cd..392d209082427 100644
---- a/arch/x86/kernel/vmlinux.lds.S
-+++ b/arch/x86/kernel/vmlinux.lds.S
-@@ -171,6 +171,22 @@ SECTIONS
- 	RO_DATA(PAGE_SIZE)
- 	X86_ALIGN_RODATA_END
+ 	info.sig_ok = true;
++	info.flags = MODULE_INIT_CRYPTO_FROM_MEM;
+ 	info.hdr = (Elf_Ehdr *) mem;
+ 	info.len = size;
  
-+#ifdef CONFIG_CRYPTO_FIPS140_EXTMOD
-+	/* FIPS 140 embedded module data */
-+	.fips140_embedded : AT(ADDR(.fips140_embedded) - LOAD_OFFSET) {
-+		. = ALIGN(8);
-+		_binary_fips140_ko_start = .;
-+		KEEP(*(.fips140_module_data))
-+		_binary_fips140_ko_end = .;
-+	}
-+	.fips140_digest : AT(ADDR(.fips140_digest) - LOAD_OFFSET) {
-+		. = ALIGN(8);
-+		_binary_fips140_hmac_start = .;
-+		KEEP(*(.fips140_digest))
-+		_binary_fips140_hmac_end = .;
-+	}
-+#endif
+diff --git a/kernel/module/version.c b/kernel/module/version.c
+index 2beefeba82d94..3c5b5fceb73a9 100644
+--- a/kernel/module/version.c
++++ b/kernel/module/version.c
+@@ -8,6 +8,7 @@
+ #include <linux/module.h>
+ #include <linux/string.h>
+ #include <linux/printk.h>
++#include <uapi/linux/module.h>
+ #include "internal.h"
+ 
+ int check_version(const struct load_info *info,
+@@ -21,6 +22,10 @@ int check_version(const struct load_info *info,
+ 	struct modversion_info *versions;
+ 	struct modversion_info_ext version_ext;
+ 
++	/* Skip version checks for FIPS crypto modules */
++	if (info->flags & (MODULE_INIT_CRYPTO_FROM_MEM | MODULE_INIT_CRYPTO_OBJS_M))
++		return 1;
 +
- 	/* Data */
- 	.data : AT(ADDR(.data) - LOAD_OFFSET) {
- 		/* Start of data section */
-diff --git a/crypto/fips140/Kconfig b/crypto/fips140/Kconfig
-index 0665e94b9fe05..68b877f0dbab7 100644
---- a/crypto/fips140/Kconfig
-+++ b/crypto/fips140/Kconfig
-@@ -12,4 +12,33 @@ config CRYPTO_FIPS140_EXTMOD
- 	  can be enabled to restrict crypto algorithm usage to only
- 	  those provided by this module.
+ 	/* Exporting module didn't supply crcs?  OK, we're already tainted. */
+ 	if (!crc)
+ 		return 1;
+@@ -81,6 +86,10 @@ int check_modstruct_version(const struct load_info *info,
+ 	};
+ 	bool have_symbol;
  
-+	  If unsure, say N.
-+config CRYPTO_FIPS140_HMAC_KEY
-+	string "FIPS 140-3 external module HMAC key"
-+	depends on CRYPTO_FIPS140_EXTMOD
-+	default "The quick brown fox jumps over the lazy dog while the sphinx of black quartz judges my vow"
-+	help
-+	  This is the HMAC key used to build and verify the integrity of
-+	  the FIPS module.
++	/* Skip module_layout version check for FIPS crypto modules */
++	if (info->flags & (MODULE_INIT_CRYPTO_FROM_MEM | MODULE_INIT_CRYPTO_OBJS_M))
++		return 1;
 +
-+	  Must be at least 80 characters.
-+config CRYPTO_FIPS140_EXTMOD_SOURCE
-+	bool "Use external FIPS module source"
-+	depends on CRYPTO_FIPS140_EXTMOD
-+	default n
-+	help
-+	  Use pre-built FIPS modules from an external build directory instead
-+	  of freshly built modules from the current kernel build.
-+	  
-+	  If N, the kernel uses freshly generated crypto modules from the
-+	  current build directory:
-+	    - crypto/fips140/fips140.ko
-+	    - crypto/aes.ko
-+	    - crypto/sha256.ko
-+	  
-+	  If Y, pre-built modules from fips140_build/ are used:
-+	    - fips140_build/crypto/fips140/fips140.ko
-+	    - fips140_build/crypto/aes.ko
-+	    - fips140_build/crypto/sha256.ko
-+	  
- 	  If unsure, say N.
-diff --git a/crypto/fips140/Makefile b/crypto/fips140/Makefile
-index 6a3dcc224e828..db61f1113d686 100644
---- a/crypto/fips140/Makefile
-+++ b/crypto/fips140/Makefile
-@@ -2,7 +2,9 @@
- crypto-objs-y += \
- 	fips140-module.o 
- 
-+obj-y += fips140-loader.o
-+
- CFLAGS_fips140-fn-redirect.o += -I$(obj)
- CFLAGS_fips140-module.o += -DFIPS140_CORE
- 
--clean-files:= .fips140.order .fips140.symvers .fips140-fn-redirect.h .fips140.exported
-\ No newline at end of file
-+clean-files:= .fips140.order .fips140.symvers .fips140-fn-redirect.h .fips140.exported .fips140.hmac
-\ No newline at end of file
-diff --git a/crypto/fips140/fips140-loader.c b/crypto/fips140/fips140-loader.c
-index 369ab3ceede9c..d2eb14f406d6e 100644
---- a/crypto/fips140/fips140-loader.c
-+++ b/crypto/fips140/fips140-loader.c
-@@ -14,10 +14,17 @@
- 
- extern const u8 _binary_fips140_ko_start[];
- extern const u8 _binary_fips140_ko_end[];
-+extern const u8 _binary_fips140_hmac_start[];
-+extern const u8 _binary_fips140_hmac_end[];
-+
- const u8 *_binary_crypto_ko_start;
- EXPORT_SYMBOL_GPL(_binary_crypto_ko_start);
- const u8 *_binary_crypto_ko_end;
- EXPORT_SYMBOL_GPL(_binary_crypto_ko_end);
-+const u8 *_binary_crypto_hmac_start;
-+EXPORT_SYMBOL_GPL(_binary_crypto_hmac_start);
-+const u8 *_binary_crypto_hmac_end;
-+EXPORT_SYMBOL_GPL(_binary_crypto_hmac_end);
- 
- /* Function to load crypto module from memory */
- extern int load_crypto_module_mem(const char *mem, size_t size);
-@@ -26,6 +33,8 @@ static void load_prepare(void)
- {
- 	_binary_crypto_ko_start = _binary_fips140_ko_start;
- 	_binary_crypto_ko_end = _binary_fips140_ko_end;
-+	_binary_crypto_hmac_start = _binary_fips140_hmac_start;
-+	_binary_crypto_hmac_end = _binary_fips140_hmac_end;
- }
- 
- static int fips_loader_init(void)
-diff --git a/scripts/Makefile.modfinal b/scripts/Makefile.modfinal
-index 2e087355988ba..f9b9c798db1a7 100644
---- a/scripts/Makefile.modfinal
-+++ b/scripts/Makefile.modfinal
-@@ -69,12 +69,28 @@ ifeq ($(crypto-module-gen),1)
- 	+$(call if_changed,ld_ko_o)
- else
- %.ko: %.o %.mod.o .module-common.o $(objtree)/scripts/module.lds $(and $(CONFIG_DEBUG_INFO_BTF_MODULES),$(KBUILD_BUILTIN),$(objtree)/vmlinux) FORCE
--	+$(call if_changed_except,ld_ko_o,$(objtree)/vmlinux)
-+	+$(call if_changed_except,ld_ko_o_and_cp_extmod,$(objtree)/vmlinux)
- ifdef CONFIG_DEBUG_INFO_BTF_MODULES
- 	+$(if $(newer-prereqs),$(call cmd,btf_ko))
- endif
- 	+$(call cmd,check_tracepoint)
- endif
-+
-+fips140_build = .
-+ifeq ($(CONFIG_CRYPTO_FIPS140_EXTMOD_SOURCE),y)
-+fips140_build = fips140_build
-+endif
-+
-+quiet_cmd_ld_ko_o_and_cp_extmod = LD [M]  $@
-+      cmd_ld_ko_o_and_cp_extmod = \
-+	$(LD) -r $(KBUILD_LDFLAGS) \
-+		$(KBUILD_LDFLAGS_MODULE) $(LDFLAGS_MODULE) \
-+		-T $(objtree)/scripts/module.lds -o $@ $(filter %.o, $^); \
-+	if [ "$(CONFIG_CRYPTO_FIPS140_EXTMOD_SOURCE)" = "y" ] && \
-+	   [ -f "$(fips140_build)/$@" ]; then \
-+		echo "  CP [M]  $@"; \
-+		cp "$(fips140_build)/$@" "$@"; \
-+	fi
- else
- %.ko: %.o %.mod.o .module-common.o $(objtree)/scripts/module.lds $(and $(CONFIG_DEBUG_INFO_BTF_MODULES),$(KBUILD_BUILTIN),$(objtree)/vmlinux) FORCE
- 	+$(call if_changed_except,ld_ko_o,$(objtree)/vmlinux)
-diff --git a/scripts/Makefile.vmlinux b/scripts/Makefile.vmlinux
-index fcae1e432d9ad..93b382e08892d 100644
---- a/scripts/Makefile.vmlinux
-+++ b/scripts/Makefile.vmlinux
-@@ -67,8 +67,12 @@ cmd_link_vmlinux =							\
- 	$< "$(LD)" "$(KBUILD_LDFLAGS)" "$(LDFLAGS_vmlinux)" "$@";	\
- 	$(if $(ARCH_POSTLINK), $(MAKE) -f $(ARCH_POSTLINK) $@, true)
- 
-+ifdef CONFIG_CRYPTO_FIPS140_EXTMOD
-+fips140-deps := crypto/fips140/fips140-embedded.o crypto/fips140/fips140-digest.o
-+endif
-+
- targets += vmlinux.unstripped .vmlinux.export.o
--vmlinux.unstripped: scripts/link-vmlinux.sh vmlinux.o .vmlinux.export.o $(KBUILD_LDS) FORCE
-+vmlinux.unstripped: scripts/link-vmlinux.sh vmlinux.o .vmlinux.export.o $(KBUILD_LDS) $(fips140-deps) FORCE
- 	+$(call if_changed_dep,link_vmlinux)
- ifdef CONFIG_DEBUG_INFO_BTF
- vmlinux.unstripped: $(RESOLVE_BTFIDS) $(srctree)/scripts/gen-btf.sh
-diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
-index ee83d54a7cd0f..e5f0eef865f78 100755
---- a/scripts/link-vmlinux.sh
-+++ b/scripts/link-vmlinux.sh
-@@ -75,6 +75,11 @@ vmlinux_link()
- 	fi
- 
- 	objs="${objs} .vmlinux.export.o"
-+
-+	if is_enabled CONFIG_CRYPTO_FIPS140_EXTMOD; then
-+		objs="${objs} crypto/fips140/fips140-embedded.o crypto/fips140/fips140-digest.o"
-+	fi
-+
- 	objs="${objs} init/version-timestamp.o"
- 
- 	if [ "${SRCARCH}" = "um" ]; then
+ 	/*
+ 	 * Since this should be found in kernel (which can't be removed), no
+ 	 * locking is necessary. Regardless use a RCU read section to keep
 -- 
 2.47.3
 
