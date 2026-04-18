@@ -4,97 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99CF0F99C6E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 00:21:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 300D5F99C6D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 00:21:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YKqhp+h5tr1j1YyBp1e3IhdY0y212x/JXc1mTvz9lyw=; b=FRgKWFj7S4TAJI0MH4Xvflw+2b
-	ZN7DNOF+3F0JZt3aauP1VLyDlb0MPSz6M6gLEMhPDWHbi/v7UHUw0MxQtcJ9Tqi/B6kZ0Ole5/YDd
-	EXdHuZI/aJnmTc45ZFbZstV14h62zq+YtIoSHJQ48l9d4exJ+QIetcN/mnxFS6bnjpgYj4ZXV41Or
-	NwH7grvr4DFq4PruXF0En0pMaRsWPrktkvv9fNtaasQzmXGhpu8D1YDfYjR7PLNPP8jn37/nsNHcQ
-	wx1x/Mz94OFZefBl5+M4Xf8ey0XI9Y+NsL5HeJ2MMek0M3spEdB64BIJKIQCvcTBCjHbdadjTwZPO
-	hQDXOi3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GVHuT39vJFq3z9p9Y8P4lQnO5Ygvg1D3+qSvKG01gbY=; b=tnnyi3ij7W8tvNUsig+thTVZHa
+	DdGvRkHljhI+POCxsv7paPOHTxdc+X9IweFIljcTWb9QXefiw6xq8uZy9WK7D1tv/nHqs4R1D4aqT
+	JH8grXZGnTP3pAKypeD+57xwOVuFqaXMYiVhoFnHKPojwiY+pBpzSi/shOxCcSrRa4Aco4JGHgXkg
+	27SzLfyZ90LAgO/yMx7zdtw8VtMmgyFPfu4y/hORCoKO47jmBXaCog9LjwAkm7iyWosZrNVGZ9wGG
+	rcJ1CYCxchibzbArAKOfQNup8RrxgP8XZETC/Q7hkMrJeywaMqZBG7iqu/qBY8oGERynNpA86LuwK
+	agc11XDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDtQc-00000004aKU-3YEU;
-	Sat, 18 Apr 2026 00:20:54 +0000
-Received: from pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com ([35.162.73.231])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDtQZ-00000004aJd-3BUq
+	id 1wDtQl-00000004aNS-0g7o;
+	Sat, 18 Apr 2026 00:21:03 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDtQj-00000004aLl-1dix
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Apr 2026 00:20:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1776471651; x=1808007651;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=YKqhp+h5tr1j1YyBp1e3IhdY0y212x/JXc1mTvz9lyw=;
-  b=aOWg+0/T+ydcALOzzsoggvx579z+p3dX72Zc9THIRonwWMDN8Qn9Whr/
-   NrQX7GyBiato23lIW45XBYMa5DOF9yDdf0sSGlTZCEpfoJJyZXMMskt0h
-   LuW4kVlssJzZFrBS6n1hiDwFlVefDIRjLyYmH2yQ4nakMwpEmobhOsKZd
-   ymyc6Raz45Uel2QHw/r4Y/JoUj4cOGeGSSnjkNjYpPYUQOpTkHwu7JbKK
-   XdcRKfhj4LlqCsgIwT1tE+KqBtSFDX+6/8hVbgxY+ooVW/jWqAZtRnYfd
-   zHh6zde4HBK8rEDkP+tGZVfCfh0Gtpg12pSHh1ogH81DZZvAgAItidntY
-   A==;
-X-CSE-ConnectionGUID: d7/VvQ+pR0OAUcKUhTLGdw==
-X-CSE-MsgGUID: cff9/EewQPqqtx4+8XbMlQ==
-X-IronPort-AV: E=Sophos;i="6.23,185,1770595200"; 
-   d="scan'208";a="17401470"
-Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
-  by internal-pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Apr 2026 00:20:49 +0000
-Received: from EX19MTAUWA001.ant.amazon.com [205.251.233.236:9370]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.17.68:2525] with esmtp (Farcaster)
- id c1392d9f-f0b6-4027-b02a-fb741f7f05ff; Sat, 18 Apr 2026 00:20:49 +0000 (UTC)
-X-Farcaster-Flow-ID: c1392d9f-f0b6-4027-b02a-fb741f7f05ff
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWA001.ant.amazon.com (10.250.64.217) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Sat, 18 Apr 2026 00:20:49 +0000
-Received: from dev-dsk-wanjay-2c-d25651b4.us-west-2.amazon.com (172.19.198.4)
- by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Sat, 18 Apr 2026 00:20:48 +0000
-From: Jay Wang <wanjay@amazon.com>
-To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
-	<davem@davemloft.net>, <linux-crypto@vger.kernel.org>, Masahiro Yamada
-	<masahiroy@kernel.org>, <linux-kbuild@vger.kernel.org>
-CC: Jay Wang <jay.wang.upstream@gmail.com>, Vegard Nossum
-	<vegard.nossum@oracle.com>, Nicolai Stange <nstange@suse.de>, Ilia Okomin
-	<ilya.okomin@oracle.com>, Hazem Mohamed Abuelfotoh <abuehaze@amazon.com>,
-	Bjoern Doebel <doebel@amazon.de>, Martin Pohlack <mpohlack@amazon.de>,
-	Benjamin Herrenschmidt <benh@amazon.com>, Nathan Chancellor
-	<nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Thomas Gleixner
-	<tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
-	<bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "H . Peter Anvin"
-	<hpa@zytor.com>, Luis Chamberlain <mcgrof@kernel.org>, Petr Pavlu
-	<petr.pavlu@suse.com>, Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen
-	<samitolvanen@google.com>, David Howells <dhowells@redhat.com>, "David
- Woodhouse" <dwmw2@infradead.org>, Jarkko Sakkinen <jarkko@kernel.org>, "Ignat
- Korchagin" <ignat@linux.win>, Lukas Wunner <lukas@wunner.de>, "Alexei
- Starovoitov" <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
-	"Andrii Nakryiko" <andrii@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
-	<linux-modules@vger.kernel.org>
-Subject: [PATCH v2 01/19] crypto: add Kconfig options for standalone crypto module
-Date: Sat, 18 Apr 2026 00:20:09 +0000
-Message-ID: <20260418002032.2877-2-wanjay@amazon.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260418002032.2877-1-wanjay@amazon.com>
-References: <20260418002032.2877-1-wanjay@amazon.com>
+	Sat, 18 Apr 2026 00:21:02 +0000
+Received: from [192.168.0.88] (192-184-212-33.fiber.dynamic.sonic.net [192.184.212.33])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 3B96520B7128;
+	Fri, 17 Apr 2026 17:20:58 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 3B96520B7128
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1776471659;
+	bh=GVHuT39vJFq3z9p9Y8P4lQnO5Ygvg1D3+qSvKG01gbY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=dYT9ZNDuycE39Rmok1I6PkVn+1fRDnnVG7AQULHoh8ka9lRpuZZfVcN3GE476KHCm
+	 7q9IKowPidbuXTYdIZorG3mFjFlT9roQFkhQcwZt5HmGQogAfGL0LjONAQykbCKjkF
+	 8HrR1mr46rqVdmR18Z3suICKceYTvClPyPCcdPKY=
+Message-ID: <ffe33ce4-0a1b-44af-9e17-7f641fef9339@linux.microsoft.com>
+Date: Fri, 17 Apr 2026 17:20:57 -0700
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [172.19.198.4]
-X-ClientProxiedBy: EX19D033UWA002.ant.amazon.com (10.13.139.10) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.13.1
+Subject: Re: [PATCH v0 07/15] mshv: Add ioctl support for MSHV-VFIO bridge
+ device
+Content-Language: en-US
+To: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-pci@vger.kernel.org, linux-arch@vger.kernel.org, kys@microsoft.com,
+ haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
+ longli@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
+ tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
+ lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+ robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
+ nunodasneves@linux.microsoft.com, mhklinux@outlook.com,
+ romank@linux.microsoft.com
+References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
+ <20260120064230.3602565-8-mrathor@linux.microsoft.com>
+ <aW-pw7GlQdFv-lf5@skinsburskii.localdomain>
+From: Mukesh R <mrathor@linux.microsoft.com>
+In-Reply-To: <aW-pw7GlQdFv-lf5@skinsburskii.localdomain>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_172051_859334_F0C1B314 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20260417_172101_536923_033AC3EE 
+X-CRM114-Status: GOOD (  20.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,53 +82,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Kconfig option `CRYPTO_FIPS140_EXTMOD` to enable standalone crypto
-module support that can override built-in cryptographic implementations.
+On 1/20/26 08:13, Stanislav Kinsburskii wrote:
+> On Mon, Jan 19, 2026 at 10:42:22PM -0800, Mukesh R wrote:
+>> From: Mukesh Rathor <mrathor@linux.microsoft.com>
+>>
+>> Add ioctl support for creating MSHV devices for a paritition. At
+>> present only VFIO device types are supported, but more could be
+>> added. At a high level, a partition ioctl to create device verifies
+>> it is of type VFIO and does some setup for bridge code in mshv_vfio.c.
+>> Adapted from KVM device ioctls.
+>>
+>> Credits: Original author: Wei Liu <wei.liu@kernel.org>
+>> NB: Slightly modified from the original version.
+>>
+>> Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
+>> ---
+>>   drivers/hv/mshv_root_main.c | 126 ++++++++++++++++++++++++++++++++++++
+>>   1 file changed, 126 insertions(+)
+>>
+>> diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
+>> index 83c7bad269a0..27313419828d 100644
+>> --- a/drivers/hv/mshv_root_main.c
+>> +++ b/drivers/hv/mshv_root_main.c
+>> @@ -1551,6 +1551,129 @@ mshv_partition_ioctl_initialize(struct mshv_partition *partition)
+>>   	return ret;
+>>   }
+>>   
+>> +static long mshv_device_attr_ioctl(struct mshv_device *mshv_dev, int cmd,
+>> +				   ulong uarg)
+>> +{
+>> +	struct mshv_device_attr attr;
+>> +	const struct mshv_device_ops *devops = mshv_dev->device_ops;
+>> +
+>> +	if (copy_from_user(&attr, (void __user *)uarg, sizeof(attr)))
+>> +		return -EFAULT;
+>> +
+>> +	switch (cmd) {
+>> +	case MSHV_SET_DEVICE_ATTR:
+>> +		if (devops->device_set_attr)
+>> +			return devops->device_set_attr(mshv_dev, &attr);
+>> +		break;
+>> +	case MSHV_HAS_DEVICE_ATTR:
+>> +		if (devops->device_has_attr)
+>> +			return devops->device_has_attr(mshv_dev, &attr);
+>> +		break;
+>> +	}
+>> +
+>> +	return -EPERM;
+>> +}
+>> +
+>> +static long mshv_device_fop_ioctl(struct file *filp, unsigned int cmd,
+>> +				  ulong uarg)
+>> +{
+>> +	struct mshv_device *mshv_dev = filp->private_data;
+>> +
+>> +	switch (cmd) {
+>> +	case MSHV_SET_DEVICE_ATTR:
+>> +	case MSHV_HAS_DEVICE_ATTR:
+>> +		return mshv_device_attr_ioctl(mshv_dev, cmd, uarg);
+>> +	}
+>> +
+>> +	return -ENOTTY;
+>> +}
+>> +
+>> +static int mshv_device_fop_release(struct inode *inode, struct file *filp)
+>> +{
+>> +	struct mshv_device *mshv_dev = filp->private_data;
+>> +	struct mshv_partition *partition = mshv_dev->device_pt;
+>> +
+>> +	if (mshv_dev->device_ops->device_release) {
+>> +		mutex_lock(&partition->pt_mutex);
+>> +		hlist_del(&mshv_dev->device_ptnode);
+>> +		mshv_dev->device_ops->device_release(mshv_dev);
+>> +		mutex_unlock(&partition->pt_mutex);
+>> +	}
+>> +
+>> +	mshv_partition_put(partition);
+>> +	return 0;
+>> +}
+>> +
+>> +static const struct file_operations mshv_device_fops = {
+>> +	.owner = THIS_MODULE,
+>> +	.unlocked_ioctl = mshv_device_fop_ioctl,
+>> +	.release = mshv_device_fop_release,
+>> +};
+>> +
+>> +long mshv_partition_ioctl_create_device(struct mshv_partition *partition,
+>> +					void __user *uarg)
+>> +{
+>> +	long rc;
+>> +	struct mshv_create_device devargk;
+>> +	struct mshv_device *mshv_dev;
+>> +	const struct mshv_device_ops *vfio_ops;
+>> +	int type;
+>> +
+>> +	if (copy_from_user(&devargk, uarg, sizeof(devargk))) {
+>> +		rc = -EFAULT;
+>> +		goto out;
+>> +	}
+>> +
+>> +	/* At present, only VFIO is supported */
+>> +	if (devargk.type != MSHV_DEV_TYPE_VFIO) {
+>> +		rc = -ENODEV;
+>> +		goto out;
+>> +	}
+>> +
+>> +	if (devargk.flags & MSHV_CREATE_DEVICE_TEST) {
+>> +		rc = 0;
+>> +		goto out;
+>> +	}
+>> +
+>> +	mshv_dev = kzalloc(sizeof(*mshv_dev), GFP_KERNEL_ACCOUNT);
+>> +	if (mshv_dev == NULL) {
+>> +		rc = -ENOMEM;
+>> +		goto out;
+>> +	}
+>> +
+>> +	vfio_ops = &mshv_vfio_device_ops;
+>> +	mshv_dev->device_ops = vfio_ops;
+>> +	mshv_dev->device_pt = partition;
+>> +
+>> +	rc = vfio_ops->device_create(mshv_dev, type);
+>> +	if (rc < 0) {
+>> +		kfree(mshv_dev);
+>> +		goto out;
+>> +	}
+>> +
+>> +	hlist_add_head(&mshv_dev->device_ptnode, &partition->pt_devices);
+>> +
+>> +	mshv_partition_get(partition);
+>> +	rc = anon_inode_getfd(vfio_ops->device_name, &mshv_device_fops,
+>> +			      mshv_dev, O_RDWR | O_CLOEXEC);
+>> +	if (rc < 0) {
+>> +		mshv_partition_put(partition);
+>> +		hlist_del(&mshv_dev->device_ptnode);
+>> +		vfio_ops->device_release(mshv_dev);
+>> +		goto out;
+>> +	}
+>> +
+>> +	devargk.fd = rc;
+>> +	rc = 0;
+>> +
+>> +	if (copy_to_user(uarg, &devargk, sizeof(devargk))) {
+> 
+> Shouldn't the partition be put here?
 
-Currently supports X86_64 and ARM64 architectures and requires CRYPTO
-and MODULES to be enabled.
+No. anon_inode_getfd was successful and so it installed the fd already..
+As a result the cleanup will happen in the file op release.
 
-Signed-off-by: Jay Wang <wanjay@amazon.com>
----
- crypto/Kconfig         |  1 +
- crypto/fips140/Kconfig | 15 +++++++++++++++
- 2 files changed, 16 insertions(+)
- create mode 100644 crypto/fips140/Kconfig
+Thanks,
+-Mukesh
 
-diff --git a/crypto/Kconfig b/crypto/Kconfig
-index b54a1bef6adef..d792ff01298b7 100644
---- a/crypto/Kconfig
-+++ b/crypto/Kconfig
-@@ -1387,6 +1387,7 @@ endif
- endif
- 
- source "drivers/crypto/Kconfig"
-+source "crypto/fips140/Kconfig"
- source "crypto/asymmetric_keys/Kconfig"
- source "certs/Kconfig"
- source "crypto/krb5/Kconfig"
-diff --git a/crypto/fips140/Kconfig b/crypto/fips140/Kconfig
-new file mode 100644
-index 0000000000000..0665e94b9fe05
---- /dev/null
-+++ b/crypto/fips140/Kconfig
-@@ -0,0 +1,15 @@
-+config CRYPTO_FIPS140_EXTMOD
-+	bool "FIPS 140 compliant algorithms as a kernel module"
-+	depends on CRYPTO && (X86_64 || ARM64) && MODULES
-+	select CRYPTO_FIPS
-+	help
-+	  This option enables building a kernel module that contains
-+	  copies of crypto algorithms that are built in a way that
-+	  complies with the FIPS 140 standard.
-+
-+	  The module registers the algorithms it contains with the
-+	  kernel crypto API, and the kernel crypto API's FIPS 140 mode
-+	  can be enabled to restrict crypto algorithm usage to only
-+	  those provided by this module.
-+
-+	  If unsure, say N.
--- 
-2.47.3
+> Thanks,
+> Stanislav
+> 
+>> +		rc = -EFAULT;
+>> +		goto out;
+>> +	}
+>> +out:
+>> +	return rc;
+>> +}
+>> +
+>>   static long
+>>   mshv_partition_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+>>   {
+>> @@ -1587,6 +1710,9 @@ mshv_partition_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+>>   	case MSHV_ROOT_HVCALL:
+>>   		ret = mshv_ioctl_passthru_hvcall(partition, true, uarg);
+>>   		break;
+>> +	case MSHV_CREATE_DEVICE:
+>> +		ret = mshv_partition_ioctl_create_device(partition, uarg);
+>> +		break;
+>>   	default:
+>>   		ret = -ENOTTY;
+>>   	}
+>> -- 
+>> 2.51.2.vfs.0.1
+>>
 
 
