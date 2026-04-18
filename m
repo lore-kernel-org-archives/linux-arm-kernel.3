@@ -4,90 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73E37F436BC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 05:29:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A8E1F436B1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 05:32:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OqIGWzZtvPAAeCWKpwkY2/edDBYVB2pJE2Twv+s/yFw=; b=FYYCo53OK9tWbpug57pVN8pjs3
-	MRjLWr5bawvIEpPG1CVsqcJGhPFFt0gGuLuge3kHhUvG6BWV/RnMvn2ehMQZbAjn+AS9rDp7NWfRT
-	zKcYyQXYwGtkM9bOtcIg9kzEkQHVXKNLwHlcSZ57ZMnysD/2dz7rXFg0R++bG2qDQps56Q6JVTaFY
-	EEuuC3x/ncFPPFF6+KzuePa5vhE/fhGh+Yc2PUUj+0horZdL96Ks5hey9MHo2CpVVuJHaWgojbNRm
-	aXjNkXQotEfQbSpkdQzpnjJ69arsQHFJapTOUF5b0zusQgVlaZc5P0+zlSqC36kj0ZipFfSEfn5OK
-	rXUOn52Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LdrA3t6CKBZ6X0V7Cw36ls6aaMYWbmXBN3bXm4X4X7k=; b=g0jJfUPtmkXASft1DihKuYsuN/
+	zZM9vkYHOOQALOf0EADWjAPvw3/b7CWs9WUydYnymayO+EWAawoYQABfMCcKWYOsXYej2ry5ST/d8
+	EQI6yaTEWZg1ZwaJMIKWvB37+eicSSSkR7Xui6J5vFdguZPnainjq6xYhlvSEqcIt7IeHy2QUbYnk
+	ILCQKkUAlNtgEuSfDAAoHTxbwHDnYEJdcs61SImbzjnw/hXO2iJQByaO/Rl+RKbXdTV0HPmO861rK
+	sV3x9H68RXxEqpl0D1eh03bI2DjaMpN187lMepg5VEDyQesi2DsJ5rIunPx6IBFA34NSHuK8TtLTq
+	Yh6ZPSQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDyFW-00000004l2v-1ubw;
-	Sat, 18 Apr 2026 05:29:46 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wDyHs-00000004lBU-3oHN;
+	Sat, 18 Apr 2026 05:32:12 +0000
+Received: from xmbghk7.mail.qq.com ([43.163.128.44])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDyFU-00000004l2W-3O5q
+	id 1wDyHp-00000004lAj-2oe0
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Apr 2026 05:29:45 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-488a8ca4aadso16530855e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Apr 2026 22:29:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776490183; x=1777094983; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OqIGWzZtvPAAeCWKpwkY2/edDBYVB2pJE2Twv+s/yFw=;
-        b=YZ/GLF/UcQs+gyjjZhiTNMGiCA1Ptnh3UuXot0794zNtnP41y8lQ08frK8WY9UPxPC
-         aBLSpmC+w2bCnmhv3O37o1pHSYMCaYY56f+08ZOMQFTpGy4oV2jfD/It2JFlgND8iB/q
-         r11Ge2fVpBlI3Ufyy254mlYqQvBRipB12lG7c/T6E0SWVVNStqTFLhYnafjFd6UB2HEH
-         us0AoBaqVSSuF3P2Kpm2pQBYfzdSweGhTviq5/lw5gmR1JBSxnpu58C92GpxkXbU3e3T
-         E+xzgxAwUEDMCkklKcTJX4kjI50zMnFbC1+sCUoCx3fyrb2fT5mjLg04MnX/NcknfcvT
-         /XBQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776490183; x=1777094983;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=OqIGWzZtvPAAeCWKpwkY2/edDBYVB2pJE2Twv+s/yFw=;
-        b=sh92C/FyNZs3gUwsqTbjoONRr3HZR1nfdOadO83ZqqjncX9LEn+Q3iW0twKDuBrrsi
-         dGiPRLtB0x4E9Usf5QZh+AADK4l7xBhTNXta6spiMGEz9XamP9ZLOvwaIaMw10lQrmXO
-         pSWh7jnleb1Q6vcRj+zeny08NQ7d4GjsyVLEt3avOHdzHFPXA0FQhg/wyO6KprcWf4fe
-         cleYEoEEsNYyc6vEY/nhGiDe1ECNsHru5pDPwZqWu0yvGcj5YXoUu4Ft5okq24B8IG7v
-         bKVuzfLJHW0igPcy8AIT9S4XEzrOUxCWYEEc7Gz/uu29XCHHfJCw459m03tWdtx407KR
-         Blog==
-X-Forwarded-Encrypted: i=1; AFNElJ/xI6H2xGlZtlXEO7aMDVkYE3bFwUqe+AQEQd7gacir3xgjG1UC9ZCMlzBSos2c0fTiQnyq6xV5dOKyCqWSuw9G@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvuWkEz1a0AppZLgUeTJKREWLNmd8HaGbrAC4WmcEpG9lxyHnq
-	eO/AQ5p/Xc84SzR7ebe26h25PZgC5Td2JFiCP0jY+WScqbj5l8LhSepXrQ7vnDe3
-X-Gm-Gg: AeBDiesda0PAIRv4hmsyPMiYIYFo8MJgU2hlkwaM/UTRpLrqcvV6XTy9zOaApAFx24/
-	fx4+HX96KNlgTcKMcE6Vp3/oERdWLGN2gB6kTfldj4fbnZvTADXDUBeGEUmAlBDRlBx91Yg3xgx
-	sW++Qq/5Qmr5B7yh4AgLDh2mySBvh12GxURSHgLoJgk8u8Dufbk68wqKmewYPzW9h5Jq9B17dA1
-	xSoF0BdD7umH2u0SeXnJ3AAv++2L8YJdUEhAIQ8pDfltDYb60bbXZVMRajRbovTPsxcZll+PJMY
-	+ZvoUnwvbIuUh+tocw7SXgyKZH63QYsKMLQRPNCOEpqpKxZ+YSerpfoliNzQsbNAPUwJ4ds3CUE
-	FD6J3/L8Giwn/PRJPCJSIoRTdjEuH/AOBHZ3gh2c3xVFsVfesCIOPrv4MSRbRROJT4K0H1o3iwJ
-	aUGLfyLemLS45YLiSyA9tqUTHV83cXY2Wb21VZczHJE23LRUoUYb0dftU=
-X-Received: by 2002:a05:600c:3110:b0:488:8c89:cfaa with SMTP id 5b1f17b1804b1-488fb73841dmr76103025e9.3.1776490182315;
-        Fri, 17 Apr 2026 22:29:42 -0700 (PDT)
-Received: from jernej-laptop.localnet ([188.159.248.16])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488fb75ab25sm33521165e9.11.2026.04.17.22.29.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Apr 2026 22:29:41 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Samuel Holland <samuel@sholland.org>,
- Michal Piekos <michal.piekos@mmpsystems.pl>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- Michal Piekos <michal.piekos@mmpsystems.pl>
-Subject: Re: [PATCH] arm: dts: allwinner: t113s mangopi: enable watchdog for reboot
-Date: Fri, 17 Apr 2026 20:19:20 +0200
-Message-ID: <2825865.mvXUDI8C0e@jernej-laptop>
-In-Reply-To: <20260412-t113-mangopi-reboot-hang-v1-1-5002cfa6e0cc@mmpsystems.pl>
-References: <20260412-t113-mangopi-reboot-hang-v1-1-5002cfa6e0cc@mmpsystems.pl>
+	Sat, 18 Apr 2026 05:32:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
+	s=s201512; t=1776490318;
+	bh=LdrA3t6CKBZ6X0V7Cw36ls6aaMYWbmXBN3bXm4X4X7k=;
+	h=From:To:Cc:Subject:Date;
+	b=Q5LRrIG01ub5uM1CVFpaP7FAg6Rw1AZCWKlHX11rD2ZZxNj+jLFB0I5ZBCD1cwD9x
+	 Jxg3qR3RlQD16yS9oXvu16amL+LHhwVF9YoknDO4A4MSpQEWncly/7NWmMteAx+g5W
+	 M/SZeSOGcXGYHMeHccMaGhsv15WHw9S/MgEblABs=
+Received: from LAPTOP-P7BTVCHO.localdomain ([139.226.117.101])
+	by newxmesmtplogicsvrsza63-0.qq.com (NewEsmtp) with SMTP
+	id 7F7AB6F5; Sat, 18 Apr 2026 13:31:55 +0800
+X-QQ-mid: xmsmtpt1776490315tkgb75b7n
+Message-ID: <tencent_F6E384A40D990A279B460A0CDE1927FDF509@qq.com>
+X-QQ-XMAILINFO: MjYvZRNXAeJ25d95iAtKQZf3C0ExXzZ1i0gnEKyxm1V6xRD0sB01FGsAFyfH9g
+	 KzUNLG3t03F/3P9HzZdQxabE26gbbh3uPlZoeYruRowKZz0rOQ3dRQmLkliVLYQAvI8qbmEi4GJg
+	 vZeR0J+o74er4xVgNWdLyVC9X52YT/F8ZKH/CQOa+SQw36fwY+Nv4LtlHJFNxtdoTzWvay8yk0mZ
+	 B9Y55K8qVbpSJp5lTWWfR9tWzmPSC8lYmnEdRRXDlc+NZnzhkGgrpLhNsvciKQzuWgdkpFrAiDpz
+	 b6Z3VwTrLGGmsA0k8OifW6XutuqudsvaqNvyl4kGr0hrjgZm/ALVlRN2Naxgn1fTHjpXH5wqeEel
+	 cwQ/aoao3S2zBOXE1knBfyUbrrXotcBddI45AZSsGUnCAWPVtxd6KjscnGdPYZCWnOPSiYGEGODl
+	 F9Aq8d82+5y65TsSt+PyA1hYEHaydEwnVMV1MSkhxz7o0LXW+WExELZFvpQ196FPR+2Yu+y6h/eJ
+	 utwA9IwOVqP8p1LVGS6OAkeo+CwNwN/KorAccULi73wvS5l9v9uvReOuAiVWTH9AzIqr5/XP4acl
+	 A08N1ukRIg+pXvKI5rh0zAAxftpLbkiIKV+9Nz5skxi67yNtysqmokATKAH/DjurWMrr53wzrnyB
+	 ZHr8lC1QH/kO6dADlAsW2oGY9McUnKUNBuFThQymG3V9xTL30zj9pr4O3pzYMDebQFcK/hRGMX+B
+	 fvnLa49at/Yo2eyUBzZyhKIbDE1OnSBm3Wala/q/9+fw7A+yqfnCNmxIllB654Dga14rwGyj5OQZ
+	 cjv4q7KHv8ZZYljSnQ5DwvoE2BYTDTc9sy2WNo+QbOEgZBDt7e9ZCbglqgATxnW2Kj68IAeboEmf
+	 endak0IcMcczHLBCgyi4ZI+qv9PHFJFKO0XgspwEnJPi59bWVvfU1O5hMS9hr5UeFUJcRt+eLLo7
+	 5mNeeSkrl0QB6hBfO+ooRVQxSUOa8Xy6S7ACYmlscApaTLDhTA8fdIdFAfl+VaN+RnLYCmYC4D5I
+	 ww68xyJibIMpsJ3c0m6Sw5ggUNA95WRN/xqWatHeIORhohTMfqVHuaRDm0lS/AZN99S/vPjE7lzm
+	 Dwe+/gq9Tqe3l5mUSbzvV+4wRpEBGHy0T7UVz7K5YY5802VVgxSVmk5KIdeaTZFmpBgdSk
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+From: leo.jiang1224@foxmail.com
+To: will@kernel.org
+Cc: robin.murphy@arm.com,
+	joro@8bytes.org,
+	iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	LoserJL <leo.jiang1224@foxmail.com>
+Subject: [PATCH] iommu/arm-smmu-v3: Stop queue allocation retry at PAGE_SIZE
+Date: Sat, 18 Apr 2026 13:31:43 +0800
+X-OQ-MSGID: <20260418053143.27878-1-leo.jiang1224@foxmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_222944_851164_4527411A 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20260417_223210_070281_1F72E2C8 
+X-CRM114-Status: UNSURE (   8.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,42 +87,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: LoserJL <leo.jiang1224@foxmail.com>
 
-Dne nedelja, 12. april 2026 ob 19:42:10 Srednjeevropski poletni =C4=8Das je=
- Michal Piekos napisal(a):
-> Reboot hangs on MangoPi MQ-R T113s because no restart handler is
-> available.
->=20
-> Enable the SoC watchdog whose driver registers a restart handler.
->=20
-> Tested on MangoPi MQ-R T113s.
->=20
-> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
-> ---
->  arch/arm/boot/dts/allwinner/sun8i-t113s-mangopi-mq-r-t113.dts | 4 ++++
->  1 file changed, 4 insertions(+)
->=20
-> diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s-mangopi-mq-r-t113.dt=
-s b/arch/arm/boot/dts/allwinner/sun8i-t113s-mangopi-mq-r-t113.dts
-> index 8b3a75383816..f0232a5e903b 100644
-> --- a/arch/arm/boot/dts/allwinner/sun8i-t113s-mangopi-mq-r-t113.dts
-> +++ b/arch/arm/boot/dts/allwinner/sun8i-t113s-mangopi-mq-r-t113.dts
-> @@ -33,3 +33,7 @@ rtl8189ftv: wifi@1 {
->  		interrupt-names =3D "host-wake";
->  	};
->  };
-> +
-> +&wdt {
-> +	status =3D "okay";
-> +};
+In arm_smmu_init_one_queue(), the loop reduces max_n_shift if
+dmam_alloc_coherent() fails. However, since dmam_alloc_coherent()
+allocates at least PAGE_SIZE, retrying with a smaller size after
+a PAGE_SIZE failure is logically redundant.
 
-Move this to sun8i-t113s.dtsi. All t113 boards have the same issue.
-Watchdog should be always enabled on ARM.
+Moreover, if a sub-page retry were to succeed due to concurrent memory
+release, the hardware would be configured with a smaller queue depth
+despite a full page being allocated. This leads to inefficient memory
+usage and unnecessary hardware performance limitation.
 
-Best regards,
-Jernej
+Terminate the loop once qsz reaches PAGE_SIZE to ensure logical
+consistency and optimal hardware configuration.
 
+Signed-off-by: LoserJL <leo.jiang1224@foxmail.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index e8d7dbe495f0..e0ec118ff560 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -4418,7 +4418,14 @@ int arm_smmu_init_one_queue(struct arm_smmu_device *smmu,
+ 		qsz = ((1 << q->llq.max_n_shift) * dwords) << 3;
+ 		q->base = dmam_alloc_coherent(smmu->dev, qsz, &q->base_dma,
+ 					      GFP_KERNEL);
+-		if (q->base || qsz < PAGE_SIZE)
++		/*
++		 * If allocation succeeds, we're done. If it fails, only retry
++		 * if the requested size is still larger than a page. Since
++		 * dmam_alloc_coherent() allocates at least PAGE_SIZE, retrying
++		 * with a sub-page size is logically redundant and could lead
++		 * to sub-optimal hardware configuration.
++		 */
++		if (q->base || qsz <= PAGE_SIZE)
+ 			break;
+ 
+ 		q->llq.max_n_shift--;
+-- 
+2.43.0
 
 
