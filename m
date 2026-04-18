@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CEB7F99C88
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 18:04:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B03E3F99C81
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 19:21:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pN0o7BK1pIZ9sDYdlJZcQbTL9p/fjnp83EDBt8ccDu8=; b=JjGjhpvmglMtlCA8A3bCNnvDy3
-	ret3IShKL/1YDc9irF/bSZlwg4AIGRaNMdkIND+Zqgq1avP/VgfLkoVJ6gouEu03ysab6+TWfAlM6
-	lMswBrLjOvKlHAjno3eYjf5oMuson8DYGCYHqKlD6wGKQs2GTIwCU54tVeIzB96nC0EecdANR4v4A
-	c3803pMqZMRIJ/FDMGpxaGid/srE5KFqbbJd+IcNGzy33cV8vC1q0vntn0ydaOcgGPHG3PucylEzg
-	2W5seVy7K4SlDoKd21bngwz/m75lRVFE3TtYTMnNlw8cSrBKDDPxnRd/nAznyzFtV5++y59zJqoYt
-	tTsEdnyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5kGEx+pOJo+o9N2lIQM4Ucna8+1jei3bmdPtmEyy1xU=; b=KrBBzHIKwSLyRa0YHbkYeROgvU
+	7jwfqLcwD4DP/25IYpGcblvPJS0BHno0J51bPldN3zjLBqWKbfqu3/CPzhvvVBlKWugLcl6H5sVFW
+	t7L3+D7Bkk33LlPHqqwTdl0qPp3xpJrNkJQKCy5XhxML0yGLAs/hdIuWn3kf4/xluS5LCFxpa5ngx
+	49ANmwJ7G1aDsy1JiwSYsMA0s2+TmTWG07Wy7RlNlWjbrn8Lfn25sR7f6Kvb+7Cb3eAxrs3QtAShC
+	bowW5eQH/P6ke5tmPX4sfJEe67nGkO+gza1S31e29x/JmhZhwsKsusQQnERxo5cPVsyRzrssErpzU
+	67LilQfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEA2F-000000058Sr-2YyJ;
-	Sat, 18 Apr 2026 18:04:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wEBDs-00000005AXX-1PhM;
+	Sat, 18 Apr 2026 19:20:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEA2D-000000058SU-0rJG;
-	Sat, 18 Apr 2026 18:04:50 +0000
+	id 1wEBDp-00000005AXA-37wJ
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 18 Apr 2026 19:20:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 171164385D;
-	Sat, 18 Apr 2026 18:04:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D2F5C19424;
-	Sat, 18 Apr 2026 18:04:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3A10843E6F;
+	Sat, 18 Apr 2026 19:20:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B4EAC19424;
+	Sat, 18 Apr 2026 19:20:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776535487;
-	bh=qwrArXkdKtSRP17F8YTE6Be+Z4mkpURZ8OCUdqmMrNw=;
-	h=From:Date:Subject:To:Cc:From;
-	b=PPs/65VX7qqQVRib0R5OJoUhtdtF6UU/qIxhe9Gh3dvI/QiuHH1gHD5qH9YEHcx3v
-	 90C4KOUYiWkCifeTJgx0eu7uDdrCn8omRwi+8eevtlMCdemrvUPDT5LNPI9+z//2s6
-	 EkFPdyewqLZ7rx4NlLAuKg2sOezM1gNLVRKFzOi0zu5feVLULmDnJK4c6mBaqQwLZW
-	 pb5yXhtW0osP/05lrJUc+hXzK3QOOY2kG1aeZ7s4bEYTixXkq3bUbWHt/CmNPFhmaU
-	 VnXfiPT/B6ab9XIR6tjkb97Q7zMtKXvP0eSp12fHDx+IvBpvEV+8090eeKkFsnLsdl
-	 c8NgjbllYUXZw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Sat, 18 Apr 2026 20:04:16 +0200
-Subject: [PATCH wireless] wifi: mt76: mt7996: Fix NULL pointer dereference
- in mt7996_init_tx_queues()
-MIME-Version: 1.0
+	s=k20201202; t=1776540045;
+	bh=s5SdtgrqQaWGvxyOocfvVTmGIyntRJLtgQ7WiZdv5dA=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=KR42lGXBR2U6rgtVc+mVv2nfkFkQqXVvjj6lIs3eeP7BN6+pjMTpZoG2xmm4O2NxI
+	 bCecK9lqwrDGr7x2UDoHNqhVZWziKmWUFuJXl+1wLTnEOr7rhdPErL7ND0EqBssiTE
+	 QtUNdnZJJWaJoeVco4whegzjlHJ2SH7rfmdlNrZ9iqKSjTFiE7FjzRgXqC0zC3RDDH
+	 uFMJDxFLJTRhtD3tJ6QkRQPMjL0qIdJbHEAes2uoHywvFt0ebdxhFn/XFl+7zVTLhc
+	 V3JGnF31gHB4Bp3s+j1Ms6KOyfY0DiYlJxcCAHkLPSPYagoOCLoAK39QOFRqUtHv3i
+	 Jq7vDs6YOxTag==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA055380CEDD;
+	Sat, 18 Apr 2026 19:20:12 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260418-mt7996-dma-init-npu-fix-v1-1-6b8dcffbcb57@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MSQqAMAwAvyI5G6ilaOtXxEPRqAGt0riB+HeLx
- xmYeUAoMgnU2QORThZeQ4Iiz6CbfBgJuU8MWulSmcLislfOldgvHjnwjmE7cOAbq0FbozrjtLK
- Q6i1S0v+5gYsjzSQC7ft+jba15XMAAAA=
-X-Change-ID: 20260418-mt7996-dma-init-npu-fix-7f2840c49208
-To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
- Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Johannes Berg <johannes@sipsolutions.net>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-X-Mailer: b4 0.14.3
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net,v3 1/1] net: stmmac: Update default_an_inband before
+ passing value to phylink_config
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <177654001129.508728.16812510297262829320.git-patchwork-notify@kernel.org>
+Date: Sat, 18 Apr 2026 19:20:11 +0000
+References: <20260416102609.7953-1-khai.wen.tan@intel.com>
+In-Reply-To: <20260416102609.7953-1-khai.wen.tan@intel.com>
+To: KhaiWenTan <khai.wen.tan@intel.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+ maxime.chevallier@bootlin.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ yoong.siang.song@intel.com, hong.aun.looi@intel.com,
+ khai.wen.tan@linux.intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260418_110449_291836_0222F713 
-X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-CacheID: sfid-20260418_122053_858826_83C4FE05 
+X-CRM114-Status: UNSURE (   8.16  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,37 +82,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When MT76_NPU and CONFIG_NET_MEDIATEK_SOC_WED are enabled and
-mt76 detects properly the Airoha NPU SoC, mt7996_init_tx_queues() will
-dereference a NULL WED pointer.
-Fix the issue by always passing the WED pointer from mt7996_dma_init().
+Hello:
 
-Fixes: cd7951f242a7 ("wifi: mt76: mt7996: Integrate MT7990 dma configuration for NPU")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/wireless/mediatek/mt76/mt7996/dma.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/dma.c b/drivers/net/wireless/mediatek/mt76/mt7996/dma.c
-index 8f5d297dafce..3d9353811a02 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/dma.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/dma.c
-@@ -683,7 +683,7 @@ int mt7996_dma_init(struct mt7996_dev *dev)
- 		ret = mt7996_init_tx_queues(&dev->phy, MT_TXQ_ID(0),
- 					    MT7996_NPU_TX_RING_SIZE,
- 					    MT_TXQ_RING_BASE(0) + hif1_ofs,
--					    NULL);
-+					    wed);
- 	else
- 		ret = mt7996_init_tx_queues(&dev->phy,
- 					    MT_TXQ_ID(dev->mphy.band_idx),
+On Thu, 16 Apr 2026 18:26:09 +0800 you wrote:
+> From: KhaiWenTan <khai.wen.tan@linux.intel.com>
+> 
+> get_interfaces() will update both the plat->phy_interfaces and
+> mdio_bus_data->default_an_inband based on reading a SERDES register. As
+> get_interfaces() will be called after default_an_inband had already been
+> read, dwmac-intel regressed as a result with incorrect default_an_inband
+> value in phylink_config.
+> 
+> [...]
 
----
-base-commit: 1f5ffc672165ff851063a5fd044b727ab2517ae3
-change-id: 20260418-mt7996-dma-init-npu-fix-7f2840c49208
+Here is the summary with links:
+  - [net,v3,1/1] net: stmmac: Update default_an_inband before passing value to phylink_config
+    https://git.kernel.org/netdev/net/c/8cff9dbe89d8
 
-Best regards,
+You are awesome, thank you!
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
