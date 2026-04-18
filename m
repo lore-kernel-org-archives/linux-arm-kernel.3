@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A8E1F436B1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 05:32:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 603C3F8DFFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 08:15:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LdrA3t6CKBZ6X0V7Cw36ls6aaMYWbmXBN3bXm4X4X7k=; b=g0jJfUPtmkXASft1DihKuYsuN/
-	zZM9vkYHOOQALOf0EADWjAPvw3/b7CWs9WUydYnymayO+EWAawoYQABfMCcKWYOsXYej2ry5ST/d8
-	EQI6yaTEWZg1ZwaJMIKWvB37+eicSSSkR7Xui6J5vFdguZPnainjq6xYhlvSEqcIt7IeHy2QUbYnk
-	ILCQKkUAlNtgEuSfDAAoHTxbwHDnYEJdcs61SImbzjnw/hXO2iJQByaO/Rl+RKbXdTV0HPmO861rK
-	sV3x9H68RXxEqpl0D1eh03bI2DjaMpN187lMepg5VEDyQesi2DsJ5rIunPx6IBFA34NSHuK8TtLTq
-	Yh6ZPSQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y+sZrQAT5sl0rgEx/XygAhgEwYefEMRbED57gjaRUBQ=; b=H6UtXCoyUZY7PuZfGrqI2zcHaT
+	FtnDG8GiuVAuwjAlXxUmyn+sou5u64sKejdD3JXFvm4U2vZe0sOcKGC7nRXUCLVrmkINL3q5SmnqG
+	/1/lyf1aREJEZAJgtWzal7UvEnf9Y5PG1M7YVbJ862Et/hRd0gS0T5zj0StHX+OKz5IC7c5QU8lio
+	uujQknYVOVpWFuX1YTFqnAGaWdbTIHRkl29m4I0mYMyT8buXaa7l1/OI+AXhv0t3kPKqwcYa0hh12
+	VvR7+iLCyTYhHSR5w29+jIZ9ELjbkDoGEOPPkgDaaAXSSciFMfJCYTUSo5RMNWcIHv8CpADuBZr5U
+	0+16LCGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDyHs-00000004lBU-3oHN;
-	Sat, 18 Apr 2026 05:32:12 +0000
-Received: from xmbghk7.mail.qq.com ([43.163.128.44])
+	id 1wE0qD-00000004pxv-1r7j;
+	Sat, 18 Apr 2026 08:15:49 +0000
+Received: from www3579.sakura.ne.jp ([49.212.243.89])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDyHp-00000004lAj-2oe0
+	id 1wE0qA-00000004pwQ-1jLT
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Apr 2026 05:32:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
-	s=s201512; t=1776490318;
-	bh=LdrA3t6CKBZ6X0V7Cw36ls6aaMYWbmXBN3bXm4X4X7k=;
-	h=From:To:Cc:Subject:Date;
-	b=Q5LRrIG01ub5uM1CVFpaP7FAg6Rw1AZCWKlHX11rD2ZZxNj+jLFB0I5ZBCD1cwD9x
-	 Jxg3qR3RlQD16yS9oXvu16amL+LHhwVF9YoknDO4A4MSpQEWncly/7NWmMteAx+g5W
-	 M/SZeSOGcXGYHMeHccMaGhsv15WHw9S/MgEblABs=
-Received: from LAPTOP-P7BTVCHO.localdomain ([139.226.117.101])
-	by newxmesmtplogicsvrsza63-0.qq.com (NewEsmtp) with SMTP
-	id 7F7AB6F5; Sat, 18 Apr 2026 13:31:55 +0800
-X-QQ-mid: xmsmtpt1776490315tkgb75b7n
-Message-ID: <tencent_F6E384A40D990A279B460A0CDE1927FDF509@qq.com>
-X-QQ-XMAILINFO: MjYvZRNXAeJ25d95iAtKQZf3C0ExXzZ1i0gnEKyxm1V6xRD0sB01FGsAFyfH9g
-	 KzUNLG3t03F/3P9HzZdQxabE26gbbh3uPlZoeYruRowKZz0rOQ3dRQmLkliVLYQAvI8qbmEi4GJg
-	 vZeR0J+o74er4xVgNWdLyVC9X52YT/F8ZKH/CQOa+SQw36fwY+Nv4LtlHJFNxtdoTzWvay8yk0mZ
-	 B9Y55K8qVbpSJp5lTWWfR9tWzmPSC8lYmnEdRRXDlc+NZnzhkGgrpLhNsvciKQzuWgdkpFrAiDpz
-	 b6Z3VwTrLGGmsA0k8OifW6XutuqudsvaqNvyl4kGr0hrjgZm/ALVlRN2Naxgn1fTHjpXH5wqeEel
-	 cwQ/aoao3S2zBOXE1knBfyUbrrXotcBddI45AZSsGUnCAWPVtxd6KjscnGdPYZCWnOPSiYGEGODl
-	 F9Aq8d82+5y65TsSt+PyA1hYEHaydEwnVMV1MSkhxz7o0LXW+WExELZFvpQ196FPR+2Yu+y6h/eJ
-	 utwA9IwOVqP8p1LVGS6OAkeo+CwNwN/KorAccULi73wvS5l9v9uvReOuAiVWTH9AzIqr5/XP4acl
-	 A08N1ukRIg+pXvKI5rh0zAAxftpLbkiIKV+9Nz5skxi67yNtysqmokATKAH/DjurWMrr53wzrnyB
-	 ZHr8lC1QH/kO6dADlAsW2oGY9McUnKUNBuFThQymG3V9xTL30zj9pr4O3pzYMDebQFcK/hRGMX+B
-	 fvnLa49at/Yo2eyUBzZyhKIbDE1OnSBm3Wala/q/9+fw7A+yqfnCNmxIllB654Dga14rwGyj5OQZ
-	 cjv4q7KHv8ZZYljSnQ5DwvoE2BYTDTc9sy2WNo+QbOEgZBDt7e9ZCbglqgATxnW2Kj68IAeboEmf
-	 endak0IcMcczHLBCgyi4ZI+qv9PHFJFKO0XgspwEnJPi59bWVvfU1O5hMS9hr5UeFUJcRt+eLLo7
-	 5mNeeSkrl0QB6hBfO+ooRVQxSUOa8Xy6S7ACYmlscApaTLDhTA8fdIdFAfl+VaN+RnLYCmYC4D5I
-	 ww68xyJibIMpsJ3c0m6Sw5ggUNA95WRN/xqWatHeIORhohTMfqVHuaRDm0lS/AZN99S/vPjE7lzm
-	 Dwe+/gq9Tqe3l5mUSbzvV+4wRpEBGHy0T7UVz7K5YY5802VVgxSVmk5KIdeaTZFmpBgdSk
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
-From: leo.jiang1224@foxmail.com
-To: will@kernel.org
-Cc: robin.murphy@arm.com,
-	joro@8bytes.org,
-	iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	LoserJL <leo.jiang1224@foxmail.com>
-Subject: [PATCH] iommu/arm-smmu-v3: Stop queue allocation retry at PAGE_SIZE
-Date: Sat, 18 Apr 2026 13:31:43 +0800
-X-OQ-MSGID: <20260418053143.27878-1-leo.jiang1224@foxmail.com>
-X-Mailer: git-send-email 2.43.0
+	Sat, 18 Apr 2026 08:15:48 +0000
+Received: from h205.csg.ci.i.u-tokyo.ac.jp (h205.csg.ci.i.u-tokyo.ac.jp [133.11.54.205])
+	(authenticated bits=0)
+	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 63I8EbAf001871
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Sat, 18 Apr 2026 17:15:02 +0900 (JST)
+	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
+DKIM-Signature: a=rsa-sha256; bh=y+sZrQAT5sl0rgEx/XygAhgEwYefEMRbED57gjaRUBQ=;
+        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
+        h=From:Message-Id:To:Subject:Date;
+        s=rs20250326; t=1776500102; v=1;
+        b=Xz66r8Qg0/zVlkTjNC5uzAVewL1IwJGOL+60B/CazMd8aGAysrZMr8+FvUNPY6HD
+         HQat39MdYcRo3+z+jc7/c1crn9T26KBNuY9WihUspLVywY+RNABy2s/dqsE85kgP
+         u8NmKJDv064guvTg6iw+zduaK4dIIhahN6JZ64M4XiFNLuxsGMR5cgTpKl0OOb3c
+         Q7Lp3X2xb4/uZwUKfQH4u87aYKWJ7L+TzBnIOJ9f5jbR1iUSap8F6aB5N3DnWpnc
+         K1afLlY4+JD/UytVEybKUgLh7agDCpj7W9+jRXXaH+C8B8aqLE0R+aaDgRyvdUi+
+         C/ebx585KM3RwIolkbe1og==
+From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Date: Sat, 18 Apr 2026 17:14:24 +0900
+Subject: [PATCH v7 2/4] KVM: arm64: PMU: Protect the list of PMUs with RCU
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260418-hybrid-v7-2-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
+References: <20260418-hybrid-v7-0-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
+In-Reply-To: <20260418-hybrid-v7-0-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+        Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu <yuzenghui@huawei.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <shuah@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+        linux-kselftest@vger.kernel.org,
+        Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+X-Mailer: b4 0.15-dev-5ab4c
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_223210_070281_1F72E2C8 
-X-CRM114-Status: UNSURE (   8.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260418_011546_673955_D9B498E4 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,47 +84,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: LoserJL <leo.jiang1224@foxmail.com>
+Convert the list of PMUs to a RCU-protected list that has primitives to
+avoid read-side contention.
 
-In arm_smmu_init_one_queue(), the loop reduces max_n_shift if
-dmam_alloc_coherent() fails. However, since dmam_alloc_coherent()
-allocates at least PAGE_SIZE, retrying with a smaller size after
-a PAGE_SIZE failure is logically redundant.
-
-Moreover, if a sub-page retry were to succeed due to concurrent memory
-release, the hardware would be configured with a smaller queue depth
-despite a full page being allocated. This leads to inefficient memory
-usage and unnecessary hardware performance limitation.
-
-Terminate the loop once qsz reaches PAGE_SIZE to ensure logical
-consistency and optimal hardware configuration.
-
-Signed-off-by: LoserJL <leo.jiang1224@foxmail.com>
+Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/pmu-emul.c | 14 ++++++--------
+ 1 file changed, 6 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index e8d7dbe495f0..e0ec118ff560 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4418,7 +4418,14 @@ int arm_smmu_init_one_queue(struct arm_smmu_device *smmu,
- 		qsz = ((1 << q->llq.max_n_shift) * dwords) << 3;
- 		q->base = dmam_alloc_coherent(smmu->dev, qsz, &q->base_dma,
- 					      GFP_KERNEL);
--		if (q->base || qsz < PAGE_SIZE)
-+		/*
-+		 * If allocation succeeds, we're done. If it fails, only retry
-+		 * if the requested size is still larger than a page. Since
-+		 * dmam_alloc_coherent() allocates at least PAGE_SIZE, retrying
-+		 * with a sub-page size is logically redundant and could lead
-+		 * to sub-optimal hardware configuration.
-+		 */
-+		if (q->base || qsz <= PAGE_SIZE)
- 			break;
+diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+index 59ec96e09321..ef5140bbfe28 100644
+--- a/arch/arm64/kvm/pmu-emul.c
++++ b/arch/arm64/kvm/pmu-emul.c
+@@ -7,9 +7,9 @@
+ #include <linux/cpu.h>
+ #include <linux/kvm.h>
+ #include <linux/kvm_host.h>
+-#include <linux/list.h>
+ #include <linux/perf_event.h>
+ #include <linux/perf/arm_pmu.h>
++#include <linux/rculist.h>
+ #include <linux/uaccess.h>
+ #include <asm/kvm_emulate.h>
+ #include <kvm/arm_pmu.h>
+@@ -26,7 +26,6 @@ static bool kvm_pmu_counter_is_enabled(struct kvm_pmc *pmc);
  
- 		q->llq.max_n_shift--;
+ bool kvm_supports_guest_pmuv3(void)
+ {
+-	guard(mutex)(&arm_pmus_lock);
+ 	return !list_empty(&arm_pmus);
+ }
+ 
+@@ -808,7 +807,7 @@ void kvm_host_pmu_init(struct arm_pmu *pmu)
+ 		return;
+ 
+ 	entry->arm_pmu = pmu;
+-	list_add_tail(&entry->entry, &arm_pmus);
++	list_add_tail_rcu(&entry->entry, &arm_pmus);
+ }
+ 
+ static struct arm_pmu *kvm_pmu_probe_armpmu(void)
+@@ -817,7 +816,7 @@ static struct arm_pmu *kvm_pmu_probe_armpmu(void)
+ 	struct arm_pmu *pmu;
+ 	int cpu;
+ 
+-	guard(mutex)(&arm_pmus_lock);
++	guard(rcu)();
+ 
+ 	/*
+ 	 * It is safe to use a stale cpu to iterate the list of PMUs so long as
+@@ -837,7 +836,7 @@ static struct arm_pmu *kvm_pmu_probe_armpmu(void)
+ 	 * carried here.
+ 	 */
+ 	cpu = raw_smp_processor_id();
+-	list_for_each_entry(entry, &arm_pmus, entry) {
++	list_for_each_entry_rcu(entry, &arm_pmus, entry) {
+ 		pmu = entry->arm_pmu;
+ 
+ 		if (cpumask_test_cpu(cpu, &pmu->supported_cpus))
+@@ -1088,9 +1087,9 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
+ 	int ret = -ENXIO;
+ 
+ 	lockdep_assert_held(&kvm->arch.config_lock);
+-	mutex_lock(&arm_pmus_lock);
++	guard(rcu)();
+ 
+-	list_for_each_entry(entry, &arm_pmus, entry) {
++	list_for_each_entry_rcu(entry, &arm_pmus, entry) {
+ 		arm_pmu = entry->arm_pmu;
+ 		if (arm_pmu->pmu.type == pmu_id) {
+ 			if (kvm_vm_has_ran_once(kvm) ||
+@@ -1106,7 +1105,6 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
+ 		}
+ 	}
+ 
+-	mutex_unlock(&arm_pmus_lock);
+ 	return ret;
+ }
+ 
+
 -- 
-2.43.0
+2.53.0
 
 
