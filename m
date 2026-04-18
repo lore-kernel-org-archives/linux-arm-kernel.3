@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87BDAF99C7C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 11:55:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29026F99C89
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 15:06:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X8rrSqvI84yxcy6+fk+ghAExFVSWPfMgcozLKdCjGYk=; b=K80uwhHN03QYmTtKU3KnT/ANiw
-	MZxPf0J0h1XIcq9FeH8y/G6U0MhxsfoRwkynrAtI7xxoFmJYeRC7S+77i74EH9n9G8aKziusNM7i6
-	jNO6WQ7Y8MvQDL6BNMSAzLCS9iuC8/hwVg5H3UsR0IdKDYui5P7L9WJIs8JgDOY2/Jy0HaLPDkF/Y
-	jlmwJVR5uDbJVkRWXZJNccAF94rN0WwGxItQf45GIoWKNx8n7wr4aJodA01ncbO6FC8ezSPtArqG7
-	czS0los2R4cA0ioi/g7j5n94uBXaAUERE8jQimzM/IMBCgfj/G0OISLsCpR3Wub6WflElVTPgCvKH
-	0a39deAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DapRuM5udVveUcJxR+UfWp0c+7OhnQEhRpxl6NRxZQA=; b=C6eTNU+8YuKrp9g4OoJeyjkbr8
+	266ALFZ3aVSA4z1dZOefVf5GBHapsmYBM2bqtYTvCJG0fpeCcpCYVT2wDcMgu7Ecly66D65G9Q+No
+	q06gs24I7/kjVUg/IAo/74hKuJrxBAZs8IYvMj4N3l34z/J/MG9n6y11xrix/Ep+yvv1sFJlZt06p
+	ufbGosekzkfwaTJ/EwpIXbGhNVtzCyuY+IieeulQW3r1HdN7qj4+5ZFOqhgxFa4xdZFD8H9ZZTNJx
+	GyuiCWV/KxHYcKrEVu3EEpqagjenY6vkiQyGV+3RJhTtYzlMQPNPIoCQ4ke6RsLxcHBJ7+IL+zJF/
+	Zls6wgEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wE4H6-00000004xdH-0Dz5;
-	Sat, 18 Apr 2026 11:55:48 +0000
+	id 1wE7FE-0000000531R-1QEy;
+	Sat, 18 Apr 2026 15:06:04 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wE4H1-00000004xcj-0oNz
+	id 1wE7FB-00000005316-2Xwk
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Apr 2026 11:55:44 +0000
+	Sat, 18 Apr 2026 15:06:03 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5E42E1A32;
-	Sat, 18 Apr 2026 04:55:34 -0700 (PDT)
-Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C79563F7B4;
-	Sat, 18 Apr 2026 04:55:37 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7B4EA1A2D;
+	Sat, 18 Apr 2026 08:05:52 -0700 (PDT)
+Received: from arm.com (unknown [10.57.88.248])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E46063F7B4;
+	Sat, 18 Apr 2026 08:05:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776513340; bh=cGEAy3W2Hgjbx+Rpgzb/NTGU3TEbtjntAU+pNGtk3uo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=I77IGIhfG2oOTNKY29yxyRzy03ikR066Bf0UIC+xT0+oE5iDSQmGJsRT10wsFPrz9
-	 a7stl6AZSe1Zo6+3IRh0kqsUl2qmZZ72nnDjWTdskqAGAHZKaDTvrfDfx0nVIPaVVz
-	 GkhaABXQM85B71RsWimBNtjtlIVlY83Q3wV1GUeY=
-Date: Sat, 18 Apr 2026 13:55:19 +0200
-From: Andre Przywara <andre.przywara@arm.com>
-To: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Samuel
- Holland <samuel@sholland.org>, Michal Piekos <michal.piekos@mmpsystems.pl>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm: dts: allwinner: t113s mangopi: enable watchdog for
- reboot
-Message-ID: <20260418135519.16e41490@ryzen.lan>
-In-Reply-To: <2825865.mvXUDI8C0e@jernej-laptop>
-References: <20260412-t113-mangopi-reboot-hang-v1-1-5002cfa6e0cc@mmpsystems.pl>
-	<2825865.mvXUDI8C0e@jernej-laptop>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+	t=1776524758; bh=QjkMgdtnnr6QyAbjVKb3oOqBzdDyc0QvQhg3gnVrWj0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UbNeVP1CiWfhKFVx05XTZeDzgYuoXzfA3WIb3LiMZkWsdFza6zq6qf104MV8waZWn
+	 xllyegoeZz1kyGDCRdtJzmW4W7K393qkMYc1MVLWlbVWI9GNn9+adHsAhexdYJHC53
+	 5yb+klqyuMlaDz5PlOdJ0eeZtxZALwnX8rzhnTic=
+Date: Sat, 18 Apr 2026 16:05:52 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: tglx@kernel.org, peterz@infradead.org, sudeep.holla@kernel.org,
+	yangyicong@hisilicon.com, dietmar.eggemann@arm.com,
+	Jonathan.Cameron@huawei.com, linux-kernel@vger.kernel.org,
+	James Morse <james.morse@arm.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] cpu/hotplug: Fix NULL kobject warning in
+ cpuhp_smt_enable()
+Message-ID: <aeOd0Ndec2rQe2J8@arm.com>
+References: <20260417075534.3745793-1-ruanjinjie@huawei.com>
+ <aeNxKpHzTQX4_kId@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aeNxKpHzTQX4_kId@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260418_045543_271303_55D394ED 
-X-CRM114-Status: GOOD (  17.77  )
+X-CRM114-CacheID: sfid-20260418_080601_827024_3C35BD2C 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,52 +73,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 17 Apr 2026 20:19:20 +0200
-Jernej =C5=A0krabec <jernej.skrabec@gmail.com> wrote:
+On Sat, Apr 18, 2026 at 12:55:22PM +0100, Catalin Marinas wrote:
+> On Fri, Apr 17, 2026 at 03:55:34PM +0800, Jinjie Ruan wrote:
+> > When booting with `maxcpus` greater than the number of present CPUs (e.g.,
+> > QEMU -smp cpus=4,maxcpus=8), some CPUs are marked as 'present' but have not
+> > yet been registered via register_cpu(). Consequently, the per-cpu device
+> > objects for these CPUs are not yet initialized.
+[...]
+> Another option would have been to avoid marking such CPUs present but I
+> think this will break other things. Yet another option is to register
+> all CPU devices even if they never come up (like maxcpus greater than
+> actual CPUs).
 
-> Hi,
->=20
-> Dne nedelja, 12. april 2026 ob 19:42:10 Srednjeevropski poletni =C4=8Das =
-je Michal Piekos napisal(a):
-> > Reboot hangs on MangoPi MQ-R T113s because no restart handler is
-> > available.
-> >=20
-> > Enable the SoC watchdog whose driver registers a restart handler.
-> >=20
-> > Tested on MangoPi MQ-R T113s.
-> >=20
-> > Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
-> > ---
-> >  arch/arm/boot/dts/allwinner/sun8i-t113s-mangopi-mq-r-t113.dts | 4 ++++
-> >  1 file changed, 4 insertions(+)
-> >=20
-> > diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s-mangopi-mq-r-t113.=
-dts b/arch/arm/boot/dts/allwinner/sun8i-t113s-mangopi-mq-r-t113.dts
-> > index 8b3a75383816..f0232a5e903b 100644
-> > --- a/arch/arm/boot/dts/allwinner/sun8i-t113s-mangopi-mq-r-t113.dts
-> > +++ b/arch/arm/boot/dts/allwinner/sun8i-t113s-mangopi-mq-r-t113.dts
-> > @@ -33,3 +33,7 @@ rtl8189ftv: wifi@1 {
-> >  		interrupt-names =3D "host-wake";
-> >  	};
-> >  };
-> > +
-> > +&wdt {
-> > +	status =3D "okay";
-> > +}; =20
->=20
-> Move this to sun8i-t113s.dtsi. All t113 boards have the same issue.
-> Watchdog should be always enabled on ARM.
+Something like below, untested (and I don't claim I properly understand
+this code; just lots of tokens used trying to make sense of it ;))
 
-We actually have that line in U-Boot:
-https://github.com/u-boot/u-boot/blob/master/arch/arm/dts/sunxi-u-boot.dtsi=
-#L22-L27
-
-IIRC, the idea was that it is *firmware* that chooses the watchdog, so
-the generic DT should not be the place to set this.
-
-If people use $fdtcontroladdr as the DT source, everything falls in
-place neatly, no need for changes or runtime patching.
-
-Cheers,
-Andre
+------------------------8<-------------------------
+diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
+index a9d884fd1d00..4c0a5ed906ea 100644
+--- a/arch/arm64/kernel/acpi.c
++++ b/arch/arm64/kernel/acpi.c
+@@ -448,12 +448,14 @@ int acpi_map_cpu(acpi_handle handle, phys_cpuid_t physid, u32 apci_id,
+ 		return *pcpu;
+ 	}
+ 
++	set_cpu_present(*pcpu, true);
+ 	return 0;
+ }
+ EXPORT_SYMBOL(acpi_map_cpu);
+ 
+ int acpi_unmap_cpu(int cpu)
+ {
++	set_cpu_present(cpu, false);
+ 	return 0;
+ }
+ EXPORT_SYMBOL(acpi_unmap_cpu);
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 1aa324104afb..751a74d997e1 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -510,8 +510,10 @@ int arch_register_cpu(int cpu)
+ 	struct cpu *c = &per_cpu(cpu_devices, cpu);
+ 
+ 	if (!acpi_disabled && !acpi_handle &&
+-	    IS_ENABLED(CONFIG_ACPI_HOTPLUG_CPU))
++	    IS_ENABLED(CONFIG_ACPI_HOTPLUG_CPU)) {
++		set_cpu_present(cpu, false);
+ 		return -EPROBE_DEFER;
++	}
+ 
+ #ifdef CONFIG_ACPI_HOTPLUG_CPU
+ 	/* For now block anything that looks like physical CPU Hotplug */
 
