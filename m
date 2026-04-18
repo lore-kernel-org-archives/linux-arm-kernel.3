@@ -4,97 +4,228 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A508F99C6E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 00:25:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB93EF99C6D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 00:29:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eTK65wWs5teF9/9WDiKb4aTfxH1l6C4r63tyX9s6kNM=; b=iZ9Lw03+kEQS3FKZhmL5P0hn9p
-	47Hhh9lCuDWX67KKRuLA03B13xOgMlI1Rer76Gq9Ib3r4/nmp/4wrtjUyEsoMjeO85Di8BEFgozsk
-	6jWK3d5WVufF53S1vcfAycaRYneMiNbl4q66lyzM2dnJOS4MQJ8bE4R6QpvGRk8jXOEzmI14ulekV
-	5viqsSBZO1tDGpGYVkvcIzkO5Wmu7TYX9shIFMoay7z2FMNbUWQ6xCaFtnB2//Q2qkbxXYzX/e4ij
-	o11Uha7+YUgn3bNs1YF2TMyUUf/s64ty+0H5LmwBU9LjcnRWQqTYqYdafvamsegAC2qAns2gRYQnV
-	ZG05zv+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RpwUVID6SpkO3IsmnEnDBYcyp2Gv/YpT+QjoGbZCdF4=; b=JB7LkjaOwadYmJUEywQVwjhqS4
+	qKsKRlAURJeQDdqvFMWUXVwhW+HW9UzUNM4wKbU391T6u8AFujAp7viW1vG0HhiFl6+TS2gxK6y/L
+	FFhdlI+R/uhZZmANjv5rPtVf9aU45RK5e39KpDb1keGGgsKMYVpR9i81ySVR4QGLGWELfnCLaGmox
+	OtvcH0ALGZxEXHH5K1NEvbBTfHdfUWWLXEHZsd4Q3uGn/5oeMP/MpAt+F2ON6DJEdvueG4IVEgkfF
+	BEb5nvgeb6rCkHhZi+oiKy6u6R3rh0gmIGI05CnqS090xwEuZJGEHswuieIdBGk8kMlfYUqDeJ9mv
+	4X6J8Mfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDtV7-00000004cNs-48HS;
-	Sat, 18 Apr 2026 00:25:33 +0000
-Received: from pdx-out-008.esa.us-west-2.outbound.mail-perimeter.amazon.com ([52.42.203.116])
+	id 1wDtYc-00000004chn-2jcB;
+	Sat, 18 Apr 2026 00:29:10 +0000
+Received: from mx0a-00230701.pphosted.com ([148.163.156.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDtV4-00000004cMn-3WyW
+	id 1wDtYZ-00000004cgx-0nhI
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Apr 2026 00:25:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1776471930; x=1808007930;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=eTK65wWs5teF9/9WDiKb4aTfxH1l6C4r63tyX9s6kNM=;
-  b=eExBnYU3ogPRGWXYjnkr/62hTeB1ccNzLAmvAVOypsekrVRAjdiaKHAD
-   iH6Ye7O7cIdTPswl+yZIqfLSocVhZOirfsfH/6EKfiI/L/ldPkOEtbDyH
-   hr2dkouDnO6G0ag88WhwH7YlclmR0XBT5jFWbasg9RFPXmdAx8IcqHujw
-   mqe+DyqNlqZUF8E4yDPI5fEilpdC845VAjvnQSpTaDrU6VyO79Fo0Bq45
-   H7EKe0TflcrWAk9y7E7uwVPsArVFXlJLLjrIHpL3FuE7zPRAFowRN9kf8
-   UkdZUf6mqvDecobGEaXp2vbw5qeO9CEdfUIIIyij2Nivps8yruu3V/xXc
-   w==;
-X-CSE-ConnectionGUID: QzaxBGk2RUOYsVCruBBB5A==
-X-CSE-MsgGUID: VbK0LokASdqhbhn7dY71Jg==
-X-IronPort-AV: E=Sophos;i="6.23,185,1770595200"; 
-   d="scan'208";a="17609474"
-Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
-  by internal-pdx-out-008.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Apr 2026 00:25:30 +0000
-Received: from EX19MTAUWB001.ant.amazon.com [205.251.233.51:31570]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.60.232:2525] with esmtp (Farcaster)
- id 997114c3-0acc-455c-8c9f-3b938cf13dc6; Sat, 18 Apr 2026 00:25:30 +0000 (UTC)
-X-Farcaster-Flow-ID: 997114c3-0acc-455c-8c9f-3b938cf13dc6
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWB001.ant.amazon.com (10.250.64.248) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Sat, 18 Apr 2026 00:25:29 +0000
-Received: from dev-dsk-wanjay-2c-d25651b4.us-west-2.amazon.com (172.19.198.4)
- by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Sat, 18 Apr 2026 00:25:29 +0000
-From: Jay Wang <wanjay@amazon.com>
-To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
-	<davem@davemloft.net>, <linux-crypto@vger.kernel.org>, Masahiro Yamada
-	<masahiroy@kernel.org>, <linux-kbuild@vger.kernel.org>
-CC: Jay Wang <jay.wang.upstream@gmail.com>, Vegard Nossum
-	<vegard.nossum@oracle.com>, Nicolai Stange <nstange@suse.de>, Ilia Okomin
-	<ilya.okomin@oracle.com>, Hazem Mohamed Abuelfotoh <abuehaze@amazon.com>,
-	Bjoern Doebel <doebel@amazon.de>, Martin Pohlack <mpohlack@amazon.de>,
-	Benjamin Herrenschmidt <benh@amazon.com>, Nathan Chancellor
-	<nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Thomas Gleixner
-	<tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
-	<bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "H . Peter Anvin"
-	<hpa@zytor.com>, Luis Chamberlain <mcgrof@kernel.org>, Petr Pavlu
-	<petr.pavlu@suse.com>, Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen
-	<samitolvanen@google.com>, David Howells <dhowells@redhat.com>, "David
- Woodhouse" <dwmw2@infradead.org>, Jarkko Sakkinen <jarkko@kernel.org>, "Ignat
- Korchagin" <ignat@linux.win>, Lukas Wunner <lukas@wunner.de>, "Alexei
- Starovoitov" <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
-	"Andrii Nakryiko" <andrii@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
-	<linux-modules@vger.kernel.org>
-Subject: [PATCH v2 19/19] Add standalone crypto kernel module technical documentation
-Date: Sat, 18 Apr 2026 00:20:27 +0000
-Message-ID: <20260418002032.2877-20-wanjay@amazon.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260418002032.2877-1-wanjay@amazon.com>
-References: <20260418002032.2877-1-wanjay@amazon.com>
+	Sat, 18 Apr 2026 00:29:08 +0000
+Received: from pps.filterd (m0098571.ppops.net [127.0.0.1])
+	by mx0a-00230701.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63HLfFLn1585196;
+	Fri, 17 Apr 2026 17:28:31 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com; h=
+	cc:content-id:content-transfer-encoding:content-type:date:from
+	:in-reply-to:message-id:mime-version:references:subject:to; s=
+	pfptdkimsnps; bh=RpwUVID6SpkO3IsmnEnDBYcyp2Gv/YpT+QjoGbZCdF4=; b=
+	sKX3T5s7P1qaWRsmHF3ruP9mIYPfmmuoKQYSS2IS+OYdKB1TuDhYYDZQCxprzBGG
+	4zWzCIq8QzyZZuHh5KTSRxOD1OflZ4CVK+h10UOoBcC40VPR5eZEt1agB4hXgZxG
+	ltKfBPlTqDCe1k29RKUI4G2JJDJdEXm5WBQx01F6ccng+Ot3M0nTqQ/I0TJslXcY
+	YmAtXpI+QekOR63XwWTW7gvapS7Qk18in2I+NrJXsT4c3vRChdkHYmCHuh1H1xfw
+	kytIv5RDjYLXnfwPJArAI0gn+lIyONwYpiBe9FT+9a3EGxmKm1GrbTJo/2CUk2zv
+	Hpi/h47DeBCK/R4GtkKnew==
+Received: from smtprelay-out1.synopsys.com (smtprelay-out1.synopsys.com [149.117.73.133])
+	by mx0a-00230701.pphosted.com (PPS) with ESMTPS id 4dkrdgj06n-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 17 Apr 2026 17:28:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
+	t=1776472111; bh=RpwUVID6SpkO3IsmnEnDBYcyp2Gv/YpT+QjoGbZCdF4=;
+	h=From:To:CC:Subject:Date:References:In-Reply-To:From;
+	b=MR3CW1KvkuMU8IZ3mPh21oza4oSx/vrEdfb+y9J9Hx5+mxL3UpwTQihtCWbJSkPLc
+	 F4fFmSLnuwirTwowtEbUy7TbKDHVwAExy5mI+GurRbCF7RfcjzSHqOVPMAL1v+Ltq7
+	 C24ssNgTWgKYpgotXEfWEu/wAN3rmjo303O8TyKWaqPXmpg2KjSDscJlwE+DukG6j7
+	 8y4/A/YboxhIB2YHnZVmifLJ9fXJU63s35BzL0qNXcJmXd/F4JFbUvUuSGeJKsqMzN
+	 mSakk36YMmZhP4FTuiru24rvQ/+mCbXW5rLVJIckKYjUpiH9+JomPe1HWcDqRygpUp
+	 R0E73dd256GkQ==
+Received: from mailhost.synopsys.com (sv1-mailhost2.synopsys.com [10.205.2.132])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits)
+	 client-signature RSA-PSS (2048 bits))
+	(Client CN "mailhost.synopsys.com", Issuer "SNPSica2" (verified OK))
+	by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id 05E7040346;
+	Sat, 18 Apr 2026 00:28:31 +0000 (UTC)
+Received: from o365relay-in.synopsys.com (us03-o365relay3.synopsys.com [10.4.161.139])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits)
+	 client-signature RSA-PSS (2048 bits))
+	(Client CN "o365relay-in.synopsys.com", Issuer "Sectigo Public Server Authentication CA OV R36" (not verified))
+	by mailhost.synopsys.com (Postfix) with ESMTPS id 9D509A00A9;
+	Sat, 18 Apr 2026 00:28:30 +0000 (UTC)
+Authentication-Results: o365relay-in.synopsys.com; dmarc=pass (p=reject dis=none) header.from=synopsys.com
+Authentication-Results: o365relay-in.synopsys.com; spf=pass smtp.mailfrom=synopsys.com
+Authentication-Results: o365relay-in.synopsys.com;
+	dkim=pass (1024-bit key; unprotected) header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=selector1 header.b=YeEAFfVe;
+	dkim-atps=neutral
+Received: from DM5PR08CU004.outbound.protection.outlook.com (mail-dm5pr08cu00402.outbound.protection.outlook.com [40.93.13.98])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-384) server-signature RSA-PSS (2048 bits) server-digest SHA256
+	 client-signature RSA-PSS (2048 bits) client-digest SHA256)
+	(Client CN "mail.protection.outlook.com", Issuer "DigiCert Cloud Services CA-1" (verified OK))
+	by o365relay-in.synopsys.com (Postfix) with ESMTPS id 5104940818;
+	Sat, 18 Apr 2026 00:28:30 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mG7VTK6R2jwu4S/oqsF4aLDh+NJOkVnEPgiToo1yyod0CnlbzANyhUxqfSIxf99gpLyMOznUc3odfmmddmoTJxNqVcei7KA+3T9ZUuT81kpE+bmh28kAMwvxtCK5+B2ySBV7y/yDWsKV1Ownkm1iAWEKPXrUkQBFqk+Mk/d7kdrQIk2LV101I5ik8P+IJxOOjvKvYye8yNGYIT5kYfQCdzmV9YnCSvdcRWdvHts2LTWsiKpIt8MbpsxSjU2XmoqC7CTKNqgAbOW1EmJHBu4ArLocijbhFrwyMM3uzZbzM5LKOv0urK8BsYHq8qcAu4oWk0VFZBHJDLj4xXq1rmHikg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RpwUVID6SpkO3IsmnEnDBYcyp2Gv/YpT+QjoGbZCdF4=;
+ b=T4egLWadVvFxMsBsrliTcwCSWJdTdd/Y9cT0wozaWWXh1gr3MpZSS9XxxcygU0G8OSffBK4dTuGKrheP8vwcEaEnC62UoZel1S15FJxcmCmOKZYllSeQi4ZLqgsKFXMH8Sh5CmzS6R+O+Cu6Qhxg6jC9K7dj2xq0UbabHOfAUBhExdMkmyxiVTGdBFwVbPGfLSIl+PJ8Bj6wTuHuMYsg0bhrh6E4D6GSMkfQZphjjBPW0rv4HFpdRouUbXrX3P8c0qOZfHbORkbNVfYvY0+6kvuA44juZoT+TLWJLEVtbg/F48zHS0mDGdx9tZoXjgUSCFelvP7+ph9xCDYXxzNK7A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=synopsys.com; dmarc=pass action=none header.from=synopsys.com;
+ dkim=pass header.d=synopsys.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RpwUVID6SpkO3IsmnEnDBYcyp2Gv/YpT+QjoGbZCdF4=;
+ b=YeEAFfVek+bTbWteHs/uiG44L+Zn+nROkMsUqGH+ZifY3xO50r7FG2fogh4sEXCmMoEyV3FvDobb/C7BUo+mau7Zn3Tn98aSCik8sF65xHbhEPuM1o3Os09psmlq43HzPZSnen+KQHAoma00it9R+4yi03S51wV1sBOCcAFgpEk=
+Received: from LV2PR12MB5990.namprd12.prod.outlook.com (2603:10b6:408:170::16)
+ by DS5PPF8B1E59479.namprd12.prod.outlook.com (2603:10b6:f:fc00::659) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.41; Sat, 18 Apr
+ 2026 00:28:26 +0000
+Received: from LV2PR12MB5990.namprd12.prod.outlook.com
+ ([fe80::7b72:b921:b9bd:4899]) by LV2PR12MB5990.namprd12.prod.outlook.com
+ ([fe80::7b72:b921:b9bd:4899%6]) with mapi id 15.20.9818.023; Sat, 18 Apr 2026
+ 00:28:26 +0000
+X-SNPS-Relay: synopsys.com
+From: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+CC: "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+        "robh@kernel.org" <robh@kernel.org>,
+        "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+        "conor+dt@kernel.org" <conor+dt@kernel.org>,
+        "michal.simek@amd.com" <michal.simek@amd.com>,
+        Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+        "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+        "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+        "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+        "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "git@amd.com" <git@amd.com>
+Subject: Re: [PATCH v2 4/4] usb: dwc3: xilinx: Add support to program MMI USB
+ TX deemphasis
+Thread-Topic: [PATCH v2 4/4] usb: dwc3: xilinx: Add support to program MMI USB
+ TX deemphasis
+Thread-Index: AQHcwHfyHWUlWe9p8Um3cCUXqDWygLXkE5KA
+Date: Sat, 18 Apr 2026 00:28:26 +0000
+Message-ID: <20260418002819.noh6sd4smuierrf5@synopsys.com>
+References: <20260330190304.1841593-1-radhey.shyam.pandey@amd.com>
+ <20260330190304.1841593-5-radhey.shyam.pandey@amd.com>
+In-Reply-To: <20260330190304.1841593-5-radhey.shyam.pandey@amd.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: LV2PR12MB5990:EE_|DS5PPF8B1E59479:EE_
+x-ms-office365-filtering-correlation-id: aa189c67-f012-4a96-d3b3-08de9ce1683f
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700021|18002099003|56012099003|22082099003;
+x-microsoft-antispam-message-info: ljONYKgD+YAN0yMnwP7dyVHcz+6u6iaUQTdbjwG1uax3tuZtmBU/7xiS7EeJFCCUokJA7s6S8bXDSbSejmKBefL/YKZ78n6qKDjIwREV+gGR+67HCj13mXxgDqWk3njh2XSf7aIGoAcTi3O1ibPKxA8zg7gPquAkc8haeFYjSxIDCjeH2yvWyJJCtFnp7571upxgFKhU982J+NTkRxidYcVgvVUddzvbZEaid94Lgw+5cVMMKTrf7aJxR9x3ltW/I8bdBaMu17uQuassMqnR9H7i/oSyFsJh/wX6gznJFKrSbBmD+VhvmZ14/uuEaGHErW8/idBRYnxCwFUSvdtXv6MePxFl7Ihm1l4PfzHRGPl1+2cLnEBYWfBiypEr0922xDCXhAfQuKChnQNhkTjAkeimNFfoQU5id6rMajrdOxL3HwWIa1AwxmFCCJHBdCQO04uyz2Vk2Fr1xFfYLwb6dOm3hznTHm7NWuopiQlYoVvemRQfR2CqIQTZshA2iaErfW6tnXAKBY34KRb98iB6WlpvJAzsDLjytAJxGvRfO9Yzwn8HGtSbLjYhJExkguXnEuz3yP1MaXtPpzeI3HFhe/hCbgkReBvXogCnEaZuy5ROOL8aQrgNrQqVYMmyS5uhOHm+1sbxVd3XHJvqGD1fIIoP019U98t4I3yzbWSfOQT7fIf7pptuo2ePmg1wiG/78We59xMy1BKBkhJB5dgR03BDAqwVCGW1PTYo4sTGZTkIWXGq3xb2MTOH+1nxKFbccq8IKfHgk1jUsaQ6XSoCIDjK9CJqeQCBHXJdIlzM+eA=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR12MB5990.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700021)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?VzY1eFA1NHN6Z2MyOWVEK3k3bnRxaWNHQnZyaFJndHlTRmVXdVNLdjZPZnJ4?=
+ =?utf-8?B?QS9SNDVrOTVRaVI1L1dTN3NxRHZEVGdNRmNicHJDNGllK3RhYzZIbStyd0Ny?=
+ =?utf-8?B?MzNUY2FtK3lKK01VZFJnODNVdUJkL2tOT0RZNS9iRUZzcEJqTklJcDlSNW53?=
+ =?utf-8?B?YlVsTmF4UEExWnMxc2dURGROWUJ2T2M2Y0VYbFZmd0p0SVBjN0h2VzF1Z2th?=
+ =?utf-8?B?a1JPanQvVm1tSkdvSU1xczQ3ZVZtSUQ4c2duODNQWWdjcTdUYTQwWlhqNHgx?=
+ =?utf-8?B?N2hHTXh4L1kwYmZMVU55cU9zT1JaVjI3NU1CUHg3anNERlRuRm81RGtMWHlp?=
+ =?utf-8?B?aXpOYzZlUEt1ODNtMnVSSlZESSszM2ozZUUvV3lmTklYQzNadVZoZ3Q2Ly9S?=
+ =?utf-8?B?eUc1ZUJTa0NPQUlOWHdQZG9kOS9uWnNNODFmbFdKelRGWTExMTM1MVRESEVz?=
+ =?utf-8?B?UU5DelQrSHg2eTdTTll6NnViNzNLQWFoNUtzMXpJcjVYYWRuYVprYTBQTGhL?=
+ =?utf-8?B?UGRvdHcvLzVUVUNSTFZ1TGJxTjJNRW41SG5SZkw2QVhyU0V0Zm9scTZnZnUx?=
+ =?utf-8?B?YWlyYjllQ1VuMmtXUWhZYmthVG9OYmhIbWg0U0JXZG5xN2Uyb1l2T003eHNk?=
+ =?utf-8?B?cTdNOGRJekhVQW1ieXpzMnNkMG1QSW4zd0hpMmY2Y0Z6ZnZKUFIvem9wRlF1?=
+ =?utf-8?B?RlVlUmIwL1QzcDZsMVBQVUdKeGw3Y3IxTkJOWURVQXMwMEg5R3pnaWxWL1Y4?=
+ =?utf-8?B?QURUaXo2ZHpsT0d4UUNLVktsMFJRa2p4TlEya25ZUjhHZ1RKK1h5ZStSaVRp?=
+ =?utf-8?B?NXd6d1dINVgxVUg0THVQREhRWWw3bVN6RGI4aSszaXZyd0ExSkIwamw4MGxK?=
+ =?utf-8?B?RkFRWitmdnZFUnJ6VEREMXF2clFyVjFwWjVXK0FuUmZnNVZOczAvL0RnUXZl?=
+ =?utf-8?B?Zy92U1hzMjMvaUU3SDVhNWxoQWFNdmJrU08rMjMvUXhORy9DdGJDdW8rWmZZ?=
+ =?utf-8?B?K21qVmgxVVR0OXNRMXU2dm1HK0s3SzV0cWNOeUN2L0FJTFRIKzMxYW9vemJS?=
+ =?utf-8?B?QXlLMGZ3UU5TVmNnWE5HcmhKdU4ydXF4TU5WTnBvZU9XbGpKVXBuUzJmbGZM?=
+ =?utf-8?B?eVh5cVFjem44WUZ5MG9TM0dJd3YyV0tnbWkrbFJKMXFPYTQxL2JBV3U3RjNF?=
+ =?utf-8?B?N3YyM0V0cnM3YTBnNjlJZnVtQ2JYVjVmVVlJMDh4M2p2S0tRMGo4NDRpYkpS?=
+ =?utf-8?B?L0piMW9Qdm1OcFE5M3VSZ0ZvaWRDUTQ0eG9CblI5SE5RYzJicU5wU2ZQTU4x?=
+ =?utf-8?B?eGlLeU52MXk0WTJvMVlCUFMzYmpveGoyQk4yT3k2eWdDeDc0ckloZldiOFB1?=
+ =?utf-8?B?NEF0YkM5U1FvRU5OV2ZZL3BNYzN0WUJuWlNyYmVnaWlkVFpzWWxoYTZscy9s?=
+ =?utf-8?B?ZUVKSUtNU21SeGpxaUd5WUs1Wmh3aVpsWU54bm5uaWVwb1FLZHkvZWFVYjcz?=
+ =?utf-8?B?YWI3WEc1TGNXZWJsdHVuUlM5Skw5U3JncjlHWDVlM043SDRYcTZGNGFtK0Zy?=
+ =?utf-8?B?ZGpacURmenYycVU4RW5yTXU1WEt1Y3lvSDkwU2lxSUtmSVVpWWsyMDJCWm0r?=
+ =?utf-8?B?amRYcTdJTUpieDNDb2dHejBqcStYbUpkNmt3eURCMVc1WTcxTStJSkdKWXNU?=
+ =?utf-8?B?MS9QK2JjQTJVOXdIMHduSTVuQUoyeUtNTENTdEt4SkNrV0w1SDMydnU3ZGtK?=
+ =?utf-8?B?WGZhem05WHJZSG9SdHNNdE5EMXgrUWZyUUxMTW5La1FkYmNzMzJWZEU2VkpG?=
+ =?utf-8?B?Sjh3ZFRUQWh0WlpJUk4rZXNxd2N3SUd4Mm9VZStNNElLNVlkOGpnbnhROWFC?=
+ =?utf-8?B?TzQvZjBlK1ZuV2c1b3RuNXR2QmxkbWFRY0ZhM1QvNWNWRkhOMlNIa0x1SlZw?=
+ =?utf-8?B?LzhyTkViOFdaM0VaRUtrVndUbEJDUk9KWi9EajJYMWlEMjZmT1h6Q0NiZTVM?=
+ =?utf-8?B?VytVdDM2TFBOdnp1S0MvaWJqY0dwQ1hqMFJobXBubnhYRXBpSDZGNDZJMktD?=
+ =?utf-8?B?cDJwREdxZUh4dVA3ZU5sSWc0VkN5M20vMnJCenh1N092WklaZi9GZTlUV3Jq?=
+ =?utf-8?B?ZlpLdXhNeGhIMmxjY0lBclZZczBiSk9Db080ZHNQeTU4cDd0cGtKOUdEWm83?=
+ =?utf-8?B?ZU1ZZ3dUQUgzTTlMN3Y3Q2ltSHBVVThzdlhnSnpiKzF6dUlwSUY3ZlpGckl5?=
+ =?utf-8?B?czl3RFd1R3hqa000bWwzZllSdEJ2K2c3T1RralBZQlBHb0lleE5waEd3cDkz?=
+ =?utf-8?B?OXRiS01uTnZDc3F6S3Rjd0tiQTdzNFFweGtlQUJQL3FHaml6eXJnQT09?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <1BB597DCA4DC93448F6F7AE7F0920740@namprd12.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [172.19.198.4]
-X-ClientProxiedBy: EX19D035UWB003.ant.amazon.com (10.13.138.85) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
+X-Exchange-RoutingPolicyChecked: qiRPXXunso73NtYsJcZ+00ODu23Ab1DolUYcQVf3etBlK+gdWbRpmvMrllPPPeybpH6LbNRmXrqXnwzOjOaBonALQKzUnzkq+qTDnc9/q4h1HVF4kDljV80iG83JxrYj1FRBiQOQubl+Mu0kTTUB+dKwoxDOf0VW+f1dOd3XafdRRB/x/PNIjPIbUxlz6Q8Qw8wItgnN7s2omb3wpWlAVBsac333INC0Xgi3GK85pPXB/u1VnCvv6a+gxiLTyVQVWwlerOBBpoDD8yrSDaDqGx/z3AuKcXwgXLzW5nHA42aEboF8NVS/ZMrS+OH1q+a/Qn+MW4NP139x8BdFxu3QUg==
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: hL+weIUSflGT2OTRZHK5xW5jle/fEKUBMRAzb/4+nsaXNMsqwhX6f/WsEHa6h7cd0HGJriO+lKX/x/+NIsZlcACCmbkdDNzAim6B/ricrjPEMJYpipTXm8bQewP0jYqAwnz6jJmzJ1P6DxsoheT4IUVBl8T4u8SUQU7UzGKmC537OxtkAvdUmzsDI0fsj+x5uqO3022+TJhNQxAEQBN8IH6hoUBG4ys63yesHCZtZpvkffYtsBoSomJ0amZEpns637V20MHF/uBMHXp0tJBhO4Xa/ClkRoTB7A7gKMiTsATgoIa8trbrdcZ0pNEN2/eAacfPGMa3/j5WHboAPBmQhth9Jnwu8bwRyc34sqmeLTuo2akuCAG51sQ1m87O1TEdXQJNGhOS80meSS1nMSE2j+PnuNJq6Z2tb74CQiw1Lp1yt6Q7HQqqrqrOCCMlorr4v4RiA+oXU4mPE+TvopllWTdCqmkxgxNJxjx0DPjdRRtDf92jAROdhFVLUCnJgaUkmCkTgwqQovTI39s/cc0NILKWbGWtBklfb6wDkyO6DRk6ZzYJoY1vDVb+Vp+qyjViMJOJwtvDjN2KSlqK7DwCk0V6YGtKhGdXDO+Ovmgh0C7DL9MVaAGblZdc7AUWZSp49jn5I1mCpd4+1Nv2bRmb9A==
+X-OriginatorOrg: synopsys.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: LV2PR12MB5990.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: aa189c67-f012-4a96-d3b3-08de9ce1683f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Apr 2026 00:28:26.3437
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: c33c9f88-1eb7-4099-9700-16013fd9e8aa
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: FMnShbh0xKrLhCTLrISREsLFOMIIXRxdWUknJgr+PWf9trPuFXEk1urV8bJGYbrC6WY6zf2V7naSRpHDfRaU3Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS5PPF8B1E59479
+X-Authority-Analysis: v=2.4 cv=GptyPE1C c=1 sm=1 tr=0 ts=69e2d02f cx=c_pps
+ a=8EbXvwLXkpGsT4ql/pYRAw==:117 a=8EbXvwLXkpGsT4ql/pYRAw==:17
+ a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
+ a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=qPHU084jO2kA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=tU_645BZ7FZt8VqRJtHG:22 a=xKlp24NoqlmsZ8y70KjX:22
+ a=zd2uoN0lAAAA:8 a=L2fQkmWq4GwRT8lHDsMA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: NNQJWqpmTlq9V79SvRRU-CyJZ5YrEf5x
+X-Proofpoint-GUID: NNQJWqpmTlq9V79SvRRU-CyJZ5YrEf5x
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE4MDAwMyBTYWx0ZWRfX1WKg7O9L+C++
+ wdocxfhlkJhsYSjatuRq/WcXLLaM6V/Al9cbOTbDzlgr8m5yZmX9un4KYiU7oNKmlgqf1uP6DzV
+ AKcfp//iDRYDpjygH+vEWn8MigktihIJXreVgPGNFMLzML82cciJ2//FvB2udQ7L7xepOG/RhQD
+ T5g8ppCovJxAoTNYa6mPIEu0iX9igZNAD6l2pqWKrPzsdnww9yQ2Mytq3cuqEb3EiFrknDH4Kqh
+ W+K7AU8j8D3+Qgkf1rwZQq2HnvQUbKf9k85xBqPPMQbQYPkPV39cxfVly/sz3XH+iU4sqrojb8s
+ ARfTYHPC/v/O4cmrplpGBED6E66E35XkF+0oHpCKv00VXJrWSm2mJkyLg6kMj0/eP4CP6+zWyXq
+ rf4MDKOSbOv4GaCiY63qExj9hyp0RrnE+7IIY1112Wk/GVV1zy7D/24FVP5lbNXGN/RhkmCVgpl
+ 5bOKsRDAXvyVnQDObJg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-17_03,2026-04-17_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_active_cloned_notspam
+ policy=outbound_active_cloned score=0 spamscore=0 malwarescore=0
+ clxscore=1015 priorityscore=1501 impostorscore=0 adultscore=0 bulkscore=0
+ phishscore=0 suspectscore=0 lowpriorityscore=0 classifier=typeunknown
+ authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.22.0-2604070000 definitions=main-2604180003
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_172531_003108_4DA33113 
-X-CRM114-Status: GOOD (  37.24  )
+X-CRM114-CacheID: sfid-20260417_172907_262955_9BB0898F 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,427 +240,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Technical guide covering implementation details and usage of the
-standalone crypto kernel module feature.
-
-Signed-off-by: Jay Wang <wanjay@amazon.com>
----
- crypto/fips140/README | 404 ++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 404 insertions(+)
- create mode 100644 crypto/fips140/README
-
-diff --git a/crypto/fips140/README b/crypto/fips140/README
-new file mode 100644
-index 0000000000000..52488d5726d25
---- /dev/null
-+++ b/crypto/fips140/README
-@@ -0,0 +1,404 @@
-+## 1. Introduction
-+
-+Amazon Linux is releasing a new kernel feature that converts the previously built-in kernel crypto subsystem into a standalone kernel module. This module becomes the carrier of the kernel crypto subsystem and can be loaded at early boot to provide the same functionality as the original built-in crypto. The primary motivation for this modularization is to streamline Federal Information Processing Standards (FIPS) validation, a critical cryptographic certification for cloud computing users doing business with the U.S. government.
-+ 
-+In a bit more detail, previously, FIPS certification was tied to the entire kernel image, meaning non-crypto updates could potentially invalidate certification. With this feature, FIPS certification is tied only to the crypto module. Therefore, once the module is certified, loading this certified module on newer kernels automatically makes those kernels FIPS-certified. As a result, this approach can save re-certification costs and 12-18 months of waiting time by reducing the need for repeated FIPS re-certification cycles.
-+
-+This document provides technical details on how this feature is designed and implemented for users or developers who are interested in developing upon it, and is organized as follows:
-+- Section 2 - Getting Started: Quick start on how to enable the feature
-+- Section 3 - Workflow Overview: Changes this feature brings to build and runtime
-+- Section 4 - Design Implementation Details: Technical deep-dive into each component
-+- Section 5 - Customizing and Extending Crypto Module: How to select crypto to be included and extend to new crypto/architectures
-+- Section 6 - Reusing a Certified Module in Practice: Different reuse and maintenance strategies and their tradeoffs
-+
-+## 2. Getting Started
-+
-+This section provides a quick start guide for developers on how to enable, compile and use the standalone cryptography module feature.
-+
-+### 2.1 Basic Configuration
-+
-+The feature is controlled by a single configuration option:
-+```
-+CONFIG_CRYPTO_FIPS140_EXTMOD=y
-+```
-+What it does: When enabled, automatically redirects a set of cryptographic algorithms from the main kernel into a standalone module `crypto/fips140/fips140.ko`. The cryptographic algorithms that are redirected need to satisfy all the following conditions, otherwise the cryptography will remain in its original form:
-+1. Must be configured as built-in (i.e., `CONFIG_CRYPTO_*=y`). This means cryptography already configured as modular (i.e., `CONFIG_CRYPTO_*=m`) are not redirected as they are already modularized.
-+2. Must be among a list, which can be customized by developers as described in Section 5.
-+
-+When disabled, the kernel behaves as before.
-+
-+### 2.2 Build Process
-+
-+Once `CONFIG_CRYPTO_FIPS140_EXTMOD=y` is set, no additional steps are required. The standalone module will be built automatically as part of the standard kernel build process:
-+```
-+make -j$(nproc)
-+# or
-+make vmlinux
-+```
-+**What happens automatically (No user action required):**
-+1. Build the module as `crypto/fips140/fips140.ko`
-+2. The cryptography module will be loaded at boot time
-+3. All kernel cryptographic services will provide the same functionality as before (i.e., prior to introducing this new feature) once boot completes.
-+
-+### 2.3 Advanced Configuration Options
-+
-+**Using External Cryptography Module:**
-+```
-+CONFIG_CRYPTO_FIPS140_EXTMOD_SOURCE=y
-+```
-+By default, `CONFIG_CRYPTO_FIPS140_EXTMOD_SOURCE` is not set, meaning the freshly built cryptography module is used. Otherwise, the pre-built standalone cryptography module from `fips140_build/crypto/fips140/fips140.ko` and modular cryptography such as `fips140_build/crypto/aes.ko` (need to manually place pre-built modules in these locations before the build) are included in kernel packaging (e.g., during `make modules_install`) and are used at later boot time.
-+
-+**Dual Version Support:**
-+```
-+CONFIG_CRYPTO_FIPS140_DUAL_VERSION=y
-+```
-+Encapsulate two versions of `fips140.ko` into kernel: one is freshly built for non-FIPS mode usage, another is pre-built specified by `fips140_build/crypto/fips140/fips140.ko` for FIPS mode usage. The appropriate version is selected and loaded at boot time based on boot time FIPS mode status.
-+
-+### 2.4 Verification
-+
-+To verify the feature is working, after install and boot with the new kernel:
-+```
-+# Check if fips140.ko module is loaded
-+lsmod | grep fips140
-+# Check if crypto algorithms are served by the fips140 module
-+cat /proc/crypto | grep module | grep fips140
-+```
-+
-+## 3. Workflow Overview
-+
-+This section provides an overview without delving into deep technical details of the changes the standalone cryptography module feature introduces. When this feature is enabled, it introduces changes to both the kernel build and booting process. 
-+
-+3.1 Build-Time Changes
-+
-+Kernel cryptography subsystem consists of both cryptography management infrastructure (e.g., `crypto/api.c`, `crypto/algapi.c`, etc), along with hundreds of different cryptography algorithms (e.g., `crypto/arc4.c`).
-+
-+**Traditional Build Process:**
-+Traditionally, cryptography management infrastructure are always built-in to the kernel, while cryptographic algorithms can be configured to be built either as built-in (`CONFIG_CRYPTO_*=y`) or as separate modular (`CONFIG_CRYPTO_*=m`) `.ko` file depending on kernel configuration:
-+As a result, the builtin cryptography management infrastructure and cryptographic algorithms are statically linked into the kernel binary:
-+```
-+cryptographic algorithms source files → compiled as .o objfiles →  linked into vmlinux → single kernel binary
-+```
-+**With Standalone Cryptography Module:**
-+This feature automatically transforms the builtin cryptographic components into a standalone cryptography module, `fips140.ko`. To do so, it develops a new kernel build rule `crypto-objs-$(CONFIG_CRYPTO_*)` such that, once this build rule is applied to a cryptographic algorithm, such cryptographic algorithm will be automatically collected into the cryptography module if it is configured as built-in (i.e, `CONFIG_CRYPTO_*=y`), for example:
-+```
-+// in crypto/asymmetric_keys/Makefile
-+- obj-$(CONFIG_ASYMMETRIC_KEY_TYPE) += asymmetric_keys.o
-++ crypto-objs-$(CONFIG_ASYMMETRIC_KEY_TYPE) += asymmetric_keys.o
-+```
-+Such build change allows the modularization transformation to only affect selected cryptographic algorithms (i.e, where the `crypto-objs-$(CONFIG_CRYPTO_*`) is applied).
-+
-+Then, after the `fips140.ko` is generated, it will be embedded back into main kernel vmlinux as a replacement part. The purpose of this embedding, instead of traditionally putting the `fips140.ko` into filesystem, is a preparation to allow the module to be loaded early enough even before the filesystem is ready.
-+
-+The new build process is illustrated below.
-+```
-+cryptographic algorithms source files → compiled as .o objfiles → automatically collected and linked into fips140.ko → embedded fips140.ko into vmlinux as a replaceable binary
-+```
-+
-+### 3.2 Runtime Changes
-+
-+**Traditional Boot Process:**
-+The kernel initializes the cryptographic subsystem early during boot, executing each cryptographic initialization routine accordingly. These initialization routines may depend on other cryptographic components or other kernel subsystems, so their invocation follows a well-defined execution order to ensure they are initialized before their first use.
-+```
-+kernel starts → cryptography subsystem initialization → cryptography subsystem available → other components use cryptography
-+```
-+**With Standalone Cryptography Module:**
-+At the start of kernel boot, compared to a regular kernel, the first major change introduced by this feature is that no cryptography services are initially available — since the entire cryptography subsystem has been decoupled from the main kernel.
-+To ensure that the cryptography subsystem becomes available early enough (before the first kernel component that requires cryptography services), the standalone cryptography kernel module must be loaded at a very early stage, even before the filesystem becomes available.
-+
-+However, the regular module loading mechanism relies on placing kernel modules in the filesystem and loading them from there, which creates a chicken-and-egg problem — the cryptography module cannot be loaded until the filesystem is ready, yet some kernel components may require cryptography services even before that point.
-+
-+To address this, the second change introduced by this feature is that the cryptography kernel module is loaded directly from memory, leveraging the earlier compilation changes that embed the module binary into the main kernel image. Afterward, the feature includes a “plug-in” mechanism that connects the decoupled cryptography subsystem back to the main kernel, ensuring that kernel cryptography users can correctly locate and invoke the cryptography routine entry points.
-+
-+Finally, to ensure proper initialization, the feature guarantees that all cryptography algorithms and the cryptography management infra execute their initialization routines in the exact same order as they would if they were built-in.
-+
-+The process described above is illustrated below.
-+```
-+kernel starts → no cryptography available → load fips140.ko from memory → plug cryptography back to kernel → module initialization → cryptographic services available → other components use cryptography
-+```
-+
-+## 4. Design Implementation Details
-+
-+While the earlier sections provide a holistic view of how this feature shapes the kernel, this section provides deeper design details on how these functionalities are realized. There are three key design components:
-+1. A specialized compile rule that automatically compiles and collects all built-in cryptographic algorithm object files to generate the final module binary under arbitrary kernel configurations, and then embeds the generated binary into the main kernel image for early loading.
-+2. A mechanism to convert interactions between the cryptography subsystem and the main kernel into a pluggable interface.
-+3. A module loading and initialization process that ensures the cryptography subsystem is properly initialized as if it were built-in.
-+
-+### 4.1. Specialized Compilation System
-+
-+**Automatic Collection and Linking of Built-in Cryptographic Algorithm Objects:**
-+The first step in generating the `fips140.ko` module is to compile and collect built-in cryptographic components (i.e., those specified by `CONFIG_CRYPTO_*=y`).
-+Traditionally, the existing module build process requires all module components (e.g., source files) to reside in a single directory. However, this approach is not suitable for our case, where hundreds of cryptographic algorithm source files are scattered across multiple directories.
-+
-+A naïve approach would be to create a separate Makefile that duplicates the original build rules with adjusted paths.
-+However, this method is not scalable due to the large number of cryptographic build rules, many of which are highly customized and can vary under different Kconfig settings, making such a separate Makefile even more complex.
-+Moreover, this approach cannot ensure that built-in cryptographic algorithms are completely removed from the main kernel, which would result in redundant cryptographic code being included in both the kernel and the module.
-+
-+To tackle this challenge, we automated the object collection and linking process by introducing special build logic for the kernel cryptography subsystem.
-+Specifically, to automatically collect cryptography object files while preserving their original compilation settings (such as flags, headers, and paths), we introduced a new compilation rule:
-+```
-+crypto-objs-y += *.o
-+```
-+This replaces the original `obj-y += *.o` rule in cryptography Makefiles later, for example:
-+```
-+// in crypto/asymmetric_keys/Makefile
-+- obj-$(CONFIG_ASYMMETRIC_KEY_TYPE) += asymmetric_keys.o
-++ crypto-objs-$(CONFIG_ASYMMETRIC_KEY_TYPE) += asymmetric_keys.o
-+asymmetric_keys-y := \
-+    asymmetric_type.o \
-+    restrict.o \
-+    signature.o
-+```
-+in the cryptography subsystem Makefiles, allowing most of the existing Makefile logic to be reused.
-+As a result, when the standalone cryptography module feature is enabled, any cryptographic algorithm configured as built-in (for example, `crypto-objs-$(CONFIG_ASYMMETRIC_KEY_TYPE) += asymmetric_keys.o` where `CONFIG_ASYMMETRIC_KEY_TYPE=y`) will be automatically collected and linked into a single final object binary, `fips140.o`.
-+During this process, a special compilation flag (`-DFIPS_MODULE=1`) is applied to instruct each object file to be compiled in a module-specific manner. This flag will later be used to generate the pluggable interface on both the main kernel side and the module side from the same source code.
-+
-+The implementation details are as follows: it follows a similar methodology used by the `obj-y` collection process for building `vmlinux.o`. The `crypto-objs-y` rule is placed in `scripts/Makefile.build`, which is executed by each directory Makefile to collect the corresponding crypto object files. Each directory then creates a `crypto-module.a` archive that contains all `crypto-objs-y += <object>.o` files under that directory. In the parent directories, these `crypto-module.a` archives are recursively included into the parent’s own `crypto-module.a`, and this process continues upward until the final `fips140.o` is generated.
-+
-+**A Separate Module Generation Pipeline for Building the Final Kernel Module from Linked Cryptographic Algorithm Object:**
-+With the linked cryptographic algorithm object (i.e., `fips140.o`), the next step is to generate the final kernel module, `fips140.ko`.
-+
-+A direct approach would be to inject the `fips140.ko` module build into the existing modules generation pipeline (i.e., `make modules`) by providing our pre-generated `fips140.o`. However, we choose not to do this because it would create a circular make rule dependency (which is invalid in Makefiles and causes build failures), resulting in mutual dependencies between the modules and vmlinux targets (i.e., `modules:vmlinux` and `vmlinux:modules` at the same time).
-+This happens for the following reasons:
-+1. Since we will later embed `fips140.ko` into the final kernel image (as described in the next section), we must make vmlinux depend on `fips140.ko`. In other words: `vmlinux: fips140.ko`.
-+2. When the kernel is built with `CONFIG_DEBUG_INFO_BTF_MODULES=y`, it requires: modules: vmlinux. This is because `CONFIG_DEBUG_INFO_BTF_MODULES=y` takes vmlinux as input to generate BTF info for the module, and inserts such info into the `.ko` module by default.
-+3. If we choose to inject `fips140.ko` into make modules, this would create a make rule dependency: `fips140.ko: modules`. Combined with items 1 and 2, this eventually creates an invalid circular dependency between vmlinux and modules.
-+
-+Due to these reasons, the design choice is to use a separate make pipeline (defined as `fips140-ready` in the Makefile). This new pipeline reuses the same module generation scripts used by make modules but adds additional logic in `scripts/Makefile.{modfinal|modinst|modpost}` and `scripts/mod/modpost.c` to handle module symbol generation and verification correctly. 
-+
-+**A Seamless Process That Embeds the Generated Binary Into the Main Kernel Image for Early Loading:**
-+As mentioned earlier, in order to load the standalone cryptography module early in the boot process—before the filesystem is ready—the module binary must be embedded into the final kernel image (i.e., vmlinux) so that it can be loaded directly from memory.
-+We intend for this embedding process to be completely seamless and automatically triggered whenever vmlinux is built (i.e., during `make vmlinux`).
-+
-+To achieve this, the feature adds a Make dependency rule so that vmlinux depends on `fips140.ko`.
-+It also modifies the vmlinux link rules (i.e., `arch/<arch>/kernel/vmlinux.lds.S`, `scripts/Makefile.vmlinux`, and `scripts/link-vmlinux.sh`) so that the generated module binary is finally combined with `vmlinux.o`.
-+
-+In addition, we allow multiple cryptography module binary versions (for example, a certified cryptography binary and a latest, up-to-date but uncertified one) to be embedded into the main kernel image to serve different user needs. This design allows regular (non-FIPS) users to benefit from the latest cryptographic updates, while FIPS-mode users continue to use the certified cryptography module.
-+
-+To support this, we introduce an optional configuration, `CONFIG_CRYPTO_FIPS140_DUAL_VERSION`. When enabled, this option allows two cryptography module versions to be embedded within a single kernel build and ensures that the appropriate module is selected and loaded at boot time based on the system’s FIPS mode status.
-+
-+### 4.2. Pluggable Interface Between the Built-in Cryptography Subsystem and the Main Kernel
-+
-+Although the module binary (`fips140.ko`) has been embedded into the final kernel image (`vmlinux`) as described in the previous section, it is not linked to the kernel in any way. This is because `fips140.ko` is embedded in a data-only manner, so the main kernel cannot directly call any functions or access any data defined in the module binary. Since the main kernel and modules can only interact through exported symbols (i.e., via `EXPORT_SYMBOL()`), this also applies to the crypto kernel module — the main kernel can only interact with the crypto functions and variables defined in the crypto module through exported symbols, meaning these functions and variables must also have their symbols exported in the module after they are moved from the main kernel to the module.
-+
-+However, simply making these crypto symbols symbol-exported in the module without additional handling would cause the kernel to fail to compile. This is because the existing kernel module symbol resolution mechanism is essentially one-way: it supports symbols defined in the main kernel and referenced by kernel modules. However, it does not support the reverse case — symbols defined in a kernel module but used by the main kernel — which is exactly the crypto module case, as there are many crypto users still residing in the main kernel. The reason is that compilation of the main kernel requires all symbol addresses to be known to achieve a successful linking phase.
-+
-+To address this, we introduce a pluggable interface to support this reverse-direction symbol resolution between crypto symbols defined in the module and referenced by the main kernel, by placing **address placeholders** at all crypto usage points in the main kernel. These address placeholders are initially set to NULL during compilation to provide a concrete address that satisfies the linking phase. Then, during runtime, once the cryptography kernel module is loaded, these placeholders are updated to the correct addresses before their first use in the main kernel. In the rest of this section, we first introduce this pluggable interface mechanism, and then explain how to apply it to the built-in cryptographic algorithms and variables.
-+
-+**The Pluggable Interface Mechanism:**
-+There are two types of address holders used to achieve this pluggable interface:
-+- Function addresses (the majority): We use a trampoline to redirect the original jump instruction to another location whose target destination is held by the value of a function pointer. To avoid additional security concerns, such as the function pointer being arbitrarily modified, these function pointers are made `__ro_after_init` to ensure they cannot be modified after kernel init. We implement this function-address placeholder as the `DEFINE_CRYPTO_FN_REDIRECT()` wrapper.
-+- Variable addresses (the remaining smaller portion): For these, we use a pointer of the corresponding data type. We implement this address placeholder as the `DECLARE_CRYPTO_VAR()` and `DEFINE_CRYPTO_API_STUB()` wrappers:
-+
-+These wrappers are applied to each symbol-exported (i.e., `EXPORT_SYMBOL()`) cryptographic function and variable (details on how to apply them are described later). Once applied, the wrappers are compiled differently for the main kernel and for the built-in cryptographic algorithm source code—acting as the “outlet” and the “plug,” respectively—using different compilation flags (`-DFIPS_MODULE`) introduced by our customized build rules described earlier.
-+
-+As a result, the kernel can successfully compile even when the built-in cryptographic algorithms are removed, thanks to these address placeholders. At boot time, the placeholders initially hold NULL, but since no cryptography users exist at that stage, the kernel can still start booting correctly. After the cryptography module is loaded, the placeholders are dynamically updated to the correct addresses later (by `do_crypto_var()` and `do_crypto_fn()`, described in a later section).
-+
-+**Applying the Pluggable Interface Mechanism to Cryptographic Algorithms:**
-+
-+To apply these pluggable interface wrappers to a cryptographic algorithm and make them take effect, we follow the steps below (using `crypto/asymmetric_keys/asymmetric_type.c` as an example):
-+1. **Apply `crypto-objs-y` compile rule to the cryptographic algorithm:**
-+```
-+// in crypto/asymmetric_keys/Makefile
-+- obj-$(CONFIG_ASYMMETRIC_KEY_TYPE) += asymmetric_keys.o
-++ crypto-objs-$(CONFIG_ASYMMETRIC_KEY_TYPE) += asymmetric_keys.o
-+asymmetric_keys-y := \
-+    asymmetric_type.o \
-+    restrict.o \
-+    signature.o
-+```
-+2. **Locate the communication point between the cryptographic algorithm and the main kernel:**
-+
-+The cryptography subsystem is designed such that most interactions between the main kernel and cryptographic algorithms occur through exported symbols using `EXPORT_SYMBOL()` wrappers.
-+This kernel design exists because most cryptographic algorithm implementations must support both built-in and modular modes. 
-+
-+Consequently, the cryptographic functions and variables exported by `EXPORT_SYMBOL()` are a well-defined and identifiable interface between the cryptography subsystem and the main kernel: 
-+```
-+// in crypto/asymmetric_keys/asymmetric_type.c 
-+//Exported cryptographic function:
-+bool asymmetric_key_id_same(const struct asymmetric_key_id *kid1,
-+                const struct asymmetric_key_id *kid2) {...}
-+EXPORT_SYMBOL_GPL(asymmetric_key_id_same); 
-+//Exported cryptographic variable:
-+struct key_type key_type_asymmetric = {...};
-+EXPORT_SYMBOL_GPL(key_type_asymmetric); 
-+```
-+
-+3. **Redirect crypto symbol references in the main kernel to address placeholders:**
-+
-+With the placeholders in place, the remaining problem is directing the main kernel to use them rather than the original symbols. Since all crypto users must include the corresponding header files to obtain function and variable declarations, the headers are a natural place to perform this redirection. Each declaration is transformed using a macro that hooks it to the corresponding placeholder.
-+
-+For exported variable symbols (a small number, ~10 symbols), their declaration in the header file is replaced with the `DECLARE_CRYPTO_VAR()` wrapper to redirect variable access from a concrete address to a placeholder:
-+```
-+// in include/keys/asymmetric-type.h
-+// for exported cryptographic variables:
-+- struct key_type key_type_asymmetric;
-++ DECLARE_CRYPTO_VAR(CONFIG_ASYMMETRIC_KEY_TYPE, key_type_asymmetric, struct key_type, );
-++ #if defined(CONFIG_CRYPTO_FIPS140_EXTMOD) && !defined(FIPS_MODULE) && IS_BUILTIN(CONFIG_ASYMMETRIC_KEY_TYPE)
-++ #define key_type_asymmetric (*((struct key_type*)CRYPTO_VAR_NAME(key_type_asymmetric)))
-++ #endif 
-+```
-+By doing so, we can automatically force all cryptography users to go through the placeholders, because those users already include the same header file.
-+The wrapper also takes the cryptographic algorithm Kconfig symbol as a parameter, so that when a cryptographic algorithm is built as a module (for example, `CONFIG_ASYMMETRIC_KEY_TYPE=m`), the original function declarations remain unchanged and are not affected.
-+
-+For exported function symbols (the majority, ~hundreds), a similar approach could be taken, but instead we use an automated method to redirect function address usage to placeholders during the kernel compilation process. This makes the crypto module implementation less intrusive to the kernel source tree, as no header file modifications are needed. To achieve this, a linker option `--wrap=<symbols-to-redirect>` is leveraged to rename all uses of crypto functions in the main kernel to dedicated trampolines that act as address placeholders. As a consequence, all references to crypto function symbols are automatically redirected to the address placeholders, avoiding mass intrusive changes to the mainline kernel source tree.
-+
-+4. **Add the address-placeholder definition wrappers into a dedicated file `fips140-var-redirect.c`:**
-+
-+After redirecting crypto users to use address placeholders, we also need to add the definitions of those address placeholders.
-+
-+For exported variable symbols (a small number, ~10 symbols), add the placeholder definition wrapper `DEFINE_CRYPTO_VAR_STUB` to a dedicated file `fips140-var-redirect.c`.
-+```
-+// in crypto/fips140/fips140-var-redirect.c
-+// for exported cryptographic variables:
-++ #undef key_type_asymmetric
-++ DEFINE_CRYPTO_VAR_STUB(key_type_asymmetric);
-++ #endif
-+```
-+This file will be compiled separately and acts as both the “outlet” and the “plug” for the main kernel and the cryptography module, respectively.
-+
-+For exported function symbols (the majority, ~hundreds), a similar wrapper `DEFINE_CRYPTO_FN_REDIRECT()` is used, but again, the application of this wrapper is automated, so there is no need to manually apply it. Instead, it is generated automatically by the script `crypto/fips140/gen-fips140-fn-redirect.sh` on every kernel build.
-+
-+We apply the above steps to both architecture-independent and architecture-specific cryptographic algorithms.
-+
-+### 4.3. Initialization Synchronization
-+
-+To ensure the embedded `fips140.ko` module binary provides the same cryptography functionality as the regular kernel, the kernel needs:
-+1. A module loader to load the module binary directly from memory,
-+2. A mechanism to plug the module back into the kernel by updating the address placeholders, and
-+3. Correct cryptography subsystem initialization, as if the cryptographic algorithms were still built-in.
-+
-+**Directly Load Module Binary from Memory:**
-+Regular modules are loaded from the filesystem and undergo signature verification on the module binary, which relies on cryptographic operations. However, since we have already fully decoupled the cryptography subsystem, we must skip this step for this `fips140.ko` module.
-+To achieve this, we add a new loader function `load_crypto_module_mem()` that can load the module binary directly from memory at the designed address without checking the signature. Since the module binary is embedded into main kernel in an ELF section, as specified in the linker script:
-+```
-+// in arch/<arch>/kernel/vmlinux.lds.S
-+    .fips140_embedded : AT(ADDR(.fips140_embedded) - LOAD_OFFSET) {
-+        . = ALIGN(8);
-+        _binary_fips140_ko_start = .;
-+        KEEP(*(.fips140_module_data))
-+        _binary_fips140_ko_end = .;
-+    }
-+```
-+Therefore, the runtime memory address of the module can be accessed directly by the module loader to invoke the new loader function `load_crypto_module_mem()`.
-+
-+**Plug Back the Module by Updating Address Placeholder Values:**
-+To update the address placeholders in the main kernel to the correct addresses matching the loaded module, after compilation the placeholder values are placed into dedicated key-value data structures, which reside in ELF sections `__crypto_fn_keys` and `__crypto_var_keys`.
-+This can be seen from the definition of the placeholder's key-value data structure:
-+```
-+#define __CRYPTO_FN_KEY(sym)					\
-+	extern void *__fips140_fn_ptr_##sym;			\
-+	static struct _crypto_fn_key __##sym##_fn_key		\
-+		__used						\
-+		__section("__crypto_fn_keys")			\ // Place in a dedicated ELF Section
-+		__aligned(__alignof__(struct _crypto_fn_key)) = {	\
-+		.ptr = (void **)&__fips140_fn_ptr_##sym,		\
-+		.func = (void *)&sym,				\
-+	};
-+
-+#define DEFINE_CRYPTO_VAR_STUB(name) \
-+    static struct crypto_var_key __crypto_##name##_var_key \
-+        __used \
-+        __section("__crypto_var_keys") \ // Place in a dedicated ELF Section
-+        __aligned(__alignof__(struct crypto_var_key)) = \
-+    { \
-+        .ptr = &CRYPTO_VAR_NAME(name), \
-+        .var = (void*)&name, \
-+    };
-+```
-+The purpose of doing this is to allow the main kernel to quickly locate the placeholders and update them to the correct addresses. The update functions are defined as `do_crypto_var()` and `do_crypto_fn()`, which are executed at module load.
-+
-+As a result, all cryptography users in the main kernel can now call the cryptographic functions as if they were built-in.
-+
-+**Initialize Cryptography Subsystem as if it Were Built-in:**
-+Cryptographic components must be properly initialized before use, and this initialization is typically achieved through dedicated initialization functions (e.g., `module_init(crypto_init_func)` or `late_initcall(crypto_init_func)`). Traditionally, these init functions are executed automatically as part of the kernel boot phase. However, now that they are moved to a crypto module, there needs to be a way to collect and execute them.
-+
-+To collect these init functions, the init wrappers (e.g., `module_init()` and `late_initcall`) are modified to automatically place the wrapped crypto init function into a dedicated list in the crypto module, for example:
-+```
-+// in include/linux/module.h
-+#define subsys_initcall(fn) \
-+	static initcall_t __used __section(".fips_initcall0") \ // a dedicated list
-+		__fips_##fn = fn;
-+
-+#define module_init(initfn) \
-+	static initcall_t __used __section(".fips_initcall1") \ // a dedicated list
-+		__fips_##initfn = initfn;
-+```
-+By doing so, all init functions are now aggregated for execution by `run_initcalls()` at module load.
-+
-+Besides collecting these crypto init functions, rather than simply executing them, another key consideration is that their execution order often has strict requirements. In other words, for these collected crypto init functions, we must ensure that their initialization order is preserved as before because failure to follow the correct order can result in kernel panic.
-+
-+To address this, we introduce a synchronization mechanism between the main kernel and the module to ensure all cryptographic algorithms are executed in the correct kernel boot phase. In more details, we spawn the module initialization process `fips_loader_init()` as an async thread `fips140_sync_thread()`, in which we call `run_initcalls()` to execute the initialization calls of each cryptographic algorithm.
-+Then, we introduce synchronization helpers such as `wait_until_fips140_level_sync(int level)` to ensure the initialization order of all cryptographic algorithms is synchronized with the main kernel.
-+
-+## 5. Customization and Extension of Cryptography Module
-+
-+This section describes how developers can customize which cryptographic algorithms are included in the standalone cryptography module, as well as extend this feature to other cryptographic algorithms or hardware architectures.
-+
-+### 5.1. Cryptography Selection Mechanism
-+
-+The feature automatically includes cryptographic algorithms that meet specific criteria:
-+1. **Built-in Configuration**: Only cryptographic algorithms configured as `CONFIG_CRYPTO_*=y` are candidates for inclusion
-+2. **Explicit Inclusion**: Cryptographic algorithms must be explicitly converted using the `crypto-objs-$(CONFIG__CRYPTO_*`) build rule
-+
-+### 5.2. Extend Support to New Cryptographic Algorithms
-+
-+To extend support to a new cryptographic algorithm in the standalone module, follow these steps:
-+
-+**Step 1: Update the Makefile**
-+```
-+# in crypto/[algorithm]/Makefile
-+- obj-$(CONFIG_CRYPTO_ALGORITHM) += algorithm.o
-++ crypto-objs-$(CONFIG_CRYPTO_ALGORITHM) += algorithm.o
-+```
-+For Architecture-Specific Cryptographic Algorithms:
-+- Apply the `crypto-objs-` rule in the appropriate `arch/*/crypto/Makefile`
-+
-+**Step 2: Add Pluggable Interface Support**
-+If the cryptographic algorithm has symbol-exported variables via `EXPORT_SYMBOL()`, add the pluggable interface wrappers. There is no need to manually apply wrappers for symbol-exported functions:
-+```
-+// Example: in include/keys/asymmetric-type.h
-+// for exported cryptographic variables:
-+- struct key_type key_type_asymmetric;
-++ DECLARE_CRYPTO_VAR(CONFIG_ASYMMETRIC_KEY_TYPE, key_type_asymmetric, struct key_type, );
-++ #if defined(CONFIG_CRYPTO_FIPS140_EXTMOD) && !defined(FIPS_MODULE) && IS_BUILTIN(CONFIG_ASYMMETRIC_KEY_TYPE)
-++ #define key_type_asymmetric (*((struct key_type*)CRYPTO_VAR_NAME(key_type_asymmetric)))
-++ #endif 
-+```
-+Then, add the corresponding stubs in `crypto/fips140/fips140-var-redirect.c`:
-+```
-++ #undef key_type_asymmetric
-++ DEFINE_CRYPTO_VAR_STUB(key_type_asymmetric);
-++ #endif
-+```
-+For Architecture-Specific Cryptographic Algorithms:
-+- Include architecture-specific stubs in `arch/*/crypto/fips140/fips140-var-redirect.c`:
-+
-+### 5.3. Architecture-Specific Extensions
-+
-+**Extending to New Architectures:**
-+Currently supported architectures are x86_64 and ARM64. To extend this feature to additional architectures:
-+1. **Update Linker Scripts**: Add ELF sections in `arch/[new-arch]/kernel/vmlinux.lds.S`:
-+```
-+.fips140_embedded : AT(ADDR(.fips140_embedded) - LOAD_OFFSET) {
-+    . = ALIGN(8);
-+    _binary_fips140_ko_start = .;
-+    KEEP(*(.fips140_module_data))
-+    _binary_fips140_ko_end = .;
-+}
-+```
-+2. **Create Architecture-Specific Files**: Set up `arch/[new-arch]/crypto/fips140/` directory with Makefile and `fips140-var-redirect.c` following the pattern used in x86_64 and ARM64.
-+
-+## 6. Reusing a certified module in practice
-+
-+With the crypto subsystem restructured as a loadable module, a previously certified module can be reused across kernel updates. Crypto development does not freeze in the meantime — updated modules can always be submitted for fresh certification. The reuse of an already-certified module is intended to simply bridge the gap until the new certification arrives, that is, using the old one before the new one gets certified. How much of the certified module to reuse, however, involves a tradeoff between crypto feature availability, certification turnaround time, and engineering effort.
-+
-+The most conservative option is no reuse at all: abandon the previous certification and submit the updated crypto module for a full FIPS certification. This allows the crypto subsystem to benefit from the latest upstream changes, but at the cost of the full 12-to-18-month waiting period, according to experiences from downstream distributions.
-+
-+At the opposite end, distributions can choose to reuse the certified module binary entirely on a newer kernel. This enables the new kernel to be validated on day one. The tradeoff is clear: besides forgoing crypto updates, engineers must ensure ABI compatibility between the updated kernel and the module.
-+
-+A middle ground is to reuse only the source code of the certified module, freezing it and recompiling against the updated main kernel. Since the source code remains unchanged, the new module can go through a Non-Security Relevant ([NSRL](https://csrc.nist.gov/csrc/media/Projects/cryptographic-module-validation-program/documents/fips%20140-3/FIPS-140-3-CMVP%20Management%20Manual.pdf)) process — a simpler FIPS re-certification that typically reduces the waiting time from 12–18 months down to 3–4 months. Compared to reusing the binary entirely, this option requires less engineering effort, since engineers need only maintain source-level API compatibility (i.e., by patching the main kernel source code) rather than binary-level ABI compatibility between the crypto module and the main kernel.
-+
-+In summary, converting the kernel crypto subsystem into a loadable module enables reuse of a certified module across kernel updates. Whether through binary reuse, source-code reuse, or fresh certification, different choices represent different tradeoffs, and distributions can balance crypto feature availability, certification turnaround time, and engineering effort according to their needs.
-+
-+---
-+Written by Jay Wang <wanjay@amazon.com> <jay.wang.upstream@gmail.com>, Amazon Linux
-\ No newline at end of file
--- 
-2.47.3
-
+T24gVHVlLCBNYXIgMzEsIDIwMjYsIFJhZGhleSBTaHlhbSBQYW5kZXkgd3JvdGU6DQo+IEludHJv
+ZHVjZXMgc3VwcG9ydCBmb3IgcHJvZ3JhbW1pbmcgdGhlIDE4LWJpdCBUWCBEZWVtcGhhc2lzIHZh
+bHVlIHRoYXQNCj4gZHJpdmVzIHRoZSBwaXBlX1R4RGVlbXBoIHNpZ25hbCwgYXMgZGVmaW5lZCBp
+biB0aGUgUElQRTQgc3BlY2lmaWNhdGlvbi4NCj4gDQo+IFRoZSBjb25maWd1cmVkIHZhbHVlIGlz
+IHJlY29tbWVuZGVkIGJ5IFN5bm9wc3lzIGFuZCBpcyBpbnRlbmRlZCBmb3INCj4gc3RhbmRhcmQg
+KG5vbi1jb21wbGlhbmNlKSBvcGVyYXRpb24uIFRoZXNlIEdlbjIgZXF1YWxpemF0aW9uIHNldHRp
+bmdzDQo+IGhhdmUgYmVlbiB2YWxpZGF0ZWQgdGhyb3VnaCBib3RoIGludGVybmFsIGFuZCBleHRl
+cm5hbCBjb21wbGlhbmNlDQo+IHRlc3RpbmcuIEJ5IGFwcGx5aW5nIHRoaXMgc2V0dGluZywgdGhl
+IHN0YWJpbGl0eSBvZiBVU0IgMy4yIGVudW1lcmF0aW9uDQo+IGlzIGltcHJvdmVkIGFuZCBub3cg
+U3VwZXJTcGVlZFBsdXMgZGV2aWNlcyBhcmUgY29uc2lzdGVudGx5IHJlY29nbml6ZWQgYXMNCj4g
+VVNCIDMuMiBHZW4gMiBieSB0aGUgTU1JIFVTQiBIb3N0IGNvbnRyb2xsZXIuDQo+IA0KPiBTaWdu
+ZWQtb2ZmLWJ5OiBSYWRoZXkgU2h5YW0gUGFuZGV5IDxyYWRoZXkuc2h5YW0ucGFuZGV5QGFtZC5j
+b20+DQo+IC0tLQ0KPiBDaGFuZ2VzIGZvciB2MjoNCj4gLSBEb24ndCB1c2UgY29tcGF0aWJsZSBj
+aGVjayBmb3IgZGVlbXBoYXNpcyBwcm9ncmFtbWluZy4NCj4gLSBSZW5hbWUgcHJvcGVydHkgInNu
+cHMsbGNzcl90eF9kZWVtcGgiIHRvICJzbnBzLGxjc3ItdHgtZGVlbXBoIg0KPiAgIChoeXBoZW5z
+IHBlciBrZXJuZWwgY29udmVudGlvbikuDQo+IC0gRml4IGRvdWJsZSBzcGFjZSBpbiBMQ1NSX1RY
+X0RFRU1QSCByZWdpc3RlciBjb21tZW50Lg0KPiAtIEFkZCBibGFuayBsaW5lIGJldHdlZW4gcmVn
+aXN0ZXIgb2Zmc2V0IGRlZmluZSBhbmQgIkJpdCBmaWVsZHMiIHNlY3Rpb24uDQo+IC0tLQ0KPiAg
+ZHJpdmVycy91c2IvZHdjMy9jb3JlLmMgICAgICAgIHwgMTcgKysrKysrKysrKysrKysrKysNCj4g
+IGRyaXZlcnMvdXNiL2R3YzMvY29yZS5oICAgICAgICB8ICA4ICsrKysrKysrDQo+ICBkcml2ZXJz
+L3VzYi9kd2MzL2R3YzMteGlsaW54LmMgfCAxNSArKysrKysrKysrKystLS0NCj4gIDMgZmlsZXMg
+Y2hhbmdlZCwgMzcgaW5zZXJ0aW9ucygrKSwgMyBkZWxldGlvbnMoLSkNCj4gDQo+IGRpZmYgLS1n
+aXQgYS9kcml2ZXJzL3VzYi9kd2MzL2NvcmUuYyBiL2RyaXZlcnMvdXNiL2R3YzMvY29yZS5jDQo+
+IGluZGV4IDE2MWE0ZDU4YjJjZS4uZTY3OGE1M2E5MGIzIDEwMDY0NA0KPiAtLS0gYS9kcml2ZXJz
+L3VzYi9kd2MzL2NvcmUuYw0KPiArKysgYi9kcml2ZXJzL3VzYi9kd2MzL2NvcmUuYw0KPiBAQCAt
+NjQ2LDYgKzY0NiwxNSBAQCBzdGF0aWMgdm9pZCBkd2MzX2NvbmZpZ19zb2NfYnVzKHN0cnVjdCBk
+d2MzICpkd2MpDQo+ICAJCXJlZyB8PSBEV0MzX0dTQlVTQ0ZHMF9SRVFJTkZPKGR3Yy0+Z3NidXNj
+ZmcwX3JlcWluZm8pOw0KPiAgCQlkd2MzX3dyaXRlbChkd2MsIERXQzNfR1NCVVNDRkcwLCByZWcp
+Ow0KPiAgCX0NCj4gKw0KPiArCWlmIChkd2MtPmNzcl90eF9kZWVtcGhfZmllbGRfMSAhPSBEV0Mz
+X0xDU1JfVFhfREVFTVBIX1VOU1BFQ0lGSUVEKSB7DQo+ICsJCXUzMiByZWc7DQo+ICsNCj4gKwkJ
+cmVnID0gZHdjM19yZWFkbChkd2MsIERXQzNfTENTUl9UWF9ERUVNUEgpOw0KPiArCQlyZWcgJj0g
+fkRXQzNfTENTUl9UWF9ERUVNUEhfTUFTSyh+MCk7DQo+ICsJCXJlZyB8PSBEV0MzX0xDU1JfVFhf
+REVFTVBIX01BU0soZHdjLT5jc3JfdHhfZGVlbXBoX2ZpZWxkXzEpOw0KPiArCQlkd2MzX3dyaXRl
+bChkd2MsIERXQzNfTENTUl9UWF9ERUVNUEgsIHJlZyk7DQo+ICsJfQ0KPiAgfQ0KPiAgDQo+ICBz
+dGF0aWMgaW50IGR3YzNfY29yZV91bHBpX2luaXQoc3RydWN0IGR3YzMgKmR3YykNCj4gQEAgLTE2
+NzEsMTEgKzE2ODAsMTMgQEAgc3RhdGljIHZvaWQgZHdjM19jb3JlX2V4aXRfbW9kZShzdHJ1Y3Qg
+ZHdjMyAqZHdjKQ0KPiAgc3RhdGljIHZvaWQgZHdjM19nZXRfc29mdHdhcmVfcHJvcGVydGllcyhz
+dHJ1Y3QgZHdjMyAqZHdjLA0KPiAgCQkJCQkgY29uc3Qgc3RydWN0IGR3YzNfcHJvcGVydGllcyAq
+cHJvcGVydGllcykNCj4gIHsNCj4gKwl1MzIgY3NyX3R4X2RlZW1waF9maWVsZF8xOw0KPiAgCXN0
+cnVjdCBkZXZpY2UgKnRtcGRldjsNCj4gIAl1MTYgZ3NidXNjZmcwX3JlcWluZm87DQo+ICAJaW50
+IHJldDsNCj4gIA0KPiAgCWR3Yy0+Z3NidXNjZmcwX3JlcWluZm8gPSBEV0MzX0dTQlVTQ0ZHMF9S
+RVFJTkZPX1VOU1BFQ0lGSUVEOw0KPiArCWR3Yy0+Y3NyX3R4X2RlZW1waF9maWVsZF8xID0gRFdD
+M19MQ1NSX1RYX0RFRU1QSF9VTlNQRUNJRklFRDsNCj4gIA0KPiAgCWlmIChwcm9wZXJ0aWVzLT5n
+c2J1c2NmZzBfcmVxaW5mbyAhPQ0KPiAgCSAgICBEV0MzX0dTQlVTQ0ZHMF9SRVFJTkZPX1VOU1BF
+Q0lGSUVEKSB7DQo+IEBAIC0xNjkzLDYgKzE3MDQsMTIgQEAgc3RhdGljIHZvaWQgZHdjM19nZXRf
+c29mdHdhcmVfcHJvcGVydGllcyhzdHJ1Y3QgZHdjMyAqZHdjLA0KPiAgCQkJCQkgICAgICAgJmdz
+YnVzY2ZnMF9yZXFpbmZvKTsNCj4gIAkJaWYgKCFyZXQpDQo+ICAJCQlkd2MtPmdzYnVzY2ZnMF9y
+ZXFpbmZvID0gZ3NidXNjZmcwX3JlcWluZm87DQo+ICsNCj4gKwkJcmV0ID0gZGV2aWNlX3Byb3Bl
+cnR5X3JlYWRfdTMyKHRtcGRldiwNCj4gKwkJCQkJICAgICAgICJzbnBzLGxjc3ItdHgtZGVlbXBo
+IiwNCj4gKwkJCQkJICAgICAgICZjc3JfdHhfZGVlbXBoX2ZpZWxkXzEpOw0KPiArCQlpZiAoIXJl
+dCkNCj4gKwkJCWR3Yy0+Y3NyX3R4X2RlZW1waF9maWVsZF8xID0gY3NyX3R4X2RlZW1waF9maWVs
+ZF8xOw0KPiAgCX0NCj4gIH0NCj4gIA0KPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy91c2IvZHdjMy9j
+b3JlLmggYi9kcml2ZXJzL3VzYi9kd2MzL2NvcmUuaA0KPiBpbmRleCBhMzViM2RiMWY5ZjMuLjk5
+ODc0YWQwOTczMCAxMDA2NDQNCj4gLS0tIGEvZHJpdmVycy91c2IvZHdjMy9jb3JlLmgNCj4gKysr
+IGIvZHJpdmVycy91c2IvZHdjMy9jb3JlLmgNCj4gQEAgLTE4MSw2ICsxODEsOCBAQA0KPiAgDQo+
+ICAjZGVmaW5lIERXQzNfTExVQ1RMKG4pCQkoMHhkMDI0ICsgKChuKSAqIDB4ODApKQ0KPiAgDQo+
+ICsjZGVmaW5lIERXQzNfTENTUl9UWF9ERUVNUEgJMHhkMDYwDQo+ICsNCg0KVGhpcyBzaG91bGQg
+YmUgRFdDM19MQ1NSX1RYX0RFRU1QSChuKSB3aGVyZSBuIGlzIHRoZSBVU0IzIHBvcnQgbnVtYmVy
+DQoNCj4gIC8qIEJpdCBmaWVsZHMgKi8NCj4gIA0KPiAgLyogR2xvYmFsIFNvQyBCdXMgQ29uZmln
+dXJhdGlvbiBJTkNSeCBSZWdpc3RlciAwICovDQo+IEBAIC0xOTgsNiArMjAwLDEwIEBADQo+ICAj
+ZGVmaW5lIERXQzNfR1NCVVNDRkcwX1JFUUlORk8obikJKCgobikgJiAweGZmZmYpIDw8IDE2KQ0K
+PiAgI2RlZmluZSBEV0MzX0dTQlVTQ0ZHMF9SRVFJTkZPX1VOU1BFQ0lGSUVECTB4ZmZmZmZmZmYN
+Cj4gIA0KPiArLyogTENTUl9UWF9ERUVNUEggUmVnaXN0ZXI6IHNldHRpbmcgVFggZGVlbXBoYXNp
+cyB1c2VkIGluIG5vcm1hbCBvcGVyYXRpb24gaW4gZ2VuMiAqLw0KPiArI2RlZmluZSBEV0MzX0xD
+U1JfVFhfREVFTVBIX01BU0sobikJCSgobikgJiAweDNmZmZmKQ0KPiArI2RlZmluZSBEV0MzX0xD
+U1JfVFhfREVFTVBIX1VOU1BFQ0lGSUVECQkweGZmZmZmZmZmDQo+ICsNCj4gIC8qIEdsb2JhbCBE
+ZWJ1ZyBMU1AgTVVYIFNlbGVjdCAqLw0KPiAgI2RlZmluZSBEV0MzX0dEQkdMU1BNVVhfRU5EQkMJ
+CUJJVCgxNSkJLyogSG9zdCBvbmx5ICovDQo+ICAjZGVmaW5lIERXQzNfR0RCR0xTUE1VWF9IT1NU
+U0VMRUNUKG4pCSgobikgJiAweDNmZmYpDQo+IEBAIC0xMTgwLDYgKzExODYsNyBAQCBzdHJ1Y3Qg
+ZHdjM19nbHVlX29wcyB7DQo+ICAgKiBAd2FrZXVwX3BlbmRpbmdfZnVuY3M6IEluZGljYXRlcyB3
+aGV0aGVyIGFueSBpbnRlcmZhY2UgaGFzIHJlcXVlc3RlZCBmb3INCj4gICAqCQkJIGZ1bmN0aW9u
+IHdha2V1cCBpbiBiaXRtYXAgZm9ybWF0IHdoZXJlIGJpdCBwb3NpdGlvbg0KPiAgICoJCQkgcmVw
+cmVzZW50cyBpbnRlcmZhY2VfaWQuDQo+ICsgKiBAY3NyX3R4X2RlZW1waF9maWVsZF8xOiBzdG9y
+ZXMgVFggZGVlbXBoYXNpcyB1c2VkIGluIEdlbjIgb3BlcmF0aW9uLg0KDQpIb3cgZG8geW91IHBs
+YW4gdG8gYXBwbHkgdGhpcyBmb3IgdGhlIGNhc2Ugb2YgbXVsdGlwbGUgVVNCMyBwb3J0cy4gT25s
+eQ0KdG8gdGhlIGZpcnN0IFVTQjMgcG9ydDAgb3IgYWxsIG9mIHRoZW0/IERvY3VtZW50IGhvdyB5
+b3Ugd2FudCB0byBoYW5kbGUNCnRoaXMuDQoNCj4gICAqLw0KPiAgc3RydWN0IGR3YzMgew0KPiAg
+CXN0cnVjdCB3b3JrX3N0cnVjdAlkcmRfd29yazsNCj4gQEAgLTE0MTcsNiArMTQyNCw3IEBAIHN0
+cnVjdCBkd2MzIHsNCj4gIAlzdHJ1Y3QgZGVudHJ5CQkqZGVidWdfcm9vdDsNCj4gIAl1MzIJCQln
+c2J1c2NmZzBfcmVxaW5mbzsNCj4gIAl1MzIJCQl3YWtldXBfcGVuZGluZ19mdW5jczsNCj4gKwl1
+MzIJCQljc3JfdHhfZGVlbXBoX2ZpZWxkXzE7DQo+ICB9Ow0KPiAgDQo+ICAjZGVmaW5lIElOQ1JY
+X0JVUlNUX01PREUgMA0KPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy91c2IvZHdjMy9kd2MzLXhpbGlu
+eC5jIGIvZHJpdmVycy91c2IvZHdjMy9kd2MzLXhpbGlueC5jDQo+IGluZGV4IGYyZGVlMjhiZGM2
+NS4uNDQwMDg4NTZlZTczIDEwMDY0NA0KPiAtLS0gYS9kcml2ZXJzL3VzYi9kd2MzL2R3YzMteGls
+aW54LmMNCj4gKysrIGIvZHJpdmVycy91c2IvZHdjMy9kd2MzLXhpbGlueC5jDQo+IEBAIC00MSwx
+MSArNDEsMTMgQEANCj4gICNkZWZpbmUgUElQRV9DTEtfU0VMRUNUCQkJCTANCj4gICNkZWZpbmUg
+WExOWF9VU0JfRlBEX1BPV0VSX1BSU05UCQkweDgwDQo+ICAjZGVmaW5lIEZQRF9QT1dFUl9QUlNO
+VF9PUFRJT04JCQlCSVQoMCkNCj4gKyNkZWZpbmUgWExOWF9NTUlfVVNCX1RYX0RFRU1QSF9ERUYJ
+CTB4OGM0NQ0KPiAgDQo+ICBzdHJ1Y3QgZHdjM194bG54Ow0KPiAgDQo+ICBzdHJ1Y3QgZHdjM194
+bG54X2NvbmZpZyB7DQo+ICAJaW50CQkJCSgqcGx0Zm1faW5pdCkoc3RydWN0IGR3YzNfeGxueCAq
+ZGF0YSk7DQo+ICsJdTMyCQkJCXR4X2RlZW1waDsNCj4gIAlib29sCQkJCW1hcF9yZXNvdXJjZTsN
+Cj4gIH07DQo+ICANCj4gQEAgLTI4NCw2ICsyODYsNyBAQCBzdGF0aWMgY29uc3Qgc3RydWN0IGR3
+YzNfeGxueF9jb25maWcgdmVyc2FsX2NvbmZpZyA9IHsNCj4gIA0KPiAgc3RhdGljIGNvbnN0IHN0
+cnVjdCBkd2MzX3hsbnhfY29uZmlnIHZlcnNhbDJfY29uZmlnID0gew0KPiAgCS5wbHRmbV9pbml0
+ID0gZHdjM194bG54X2luaXRfdmVyc2FsMiwNCj4gKwkudHhfZGVlbXBoID0gWExOWF9NTUlfVVNC
+X1RYX0RFRU1QSF9ERUYsDQo+ICB9Ow0KPiAgDQo+ICBzdGF0aWMgY29uc3Qgc3RydWN0IG9mX2Rl
+dmljZV9pZCBkd2MzX3hsbnhfb2ZfbWF0Y2hbXSA9IHsNCj4gQEAgLTMwMywxMCArMzA2LDEyIEBA
+IHN0YXRpYyBjb25zdCBzdHJ1Y3Qgb2ZfZGV2aWNlX2lkIGR3YzNfeGxueF9vZl9tYXRjaFtdID0g
+ew0KPiAgfTsNCj4gIE1PRFVMRV9ERVZJQ0VfVEFCTEUob2YsIGR3YzNfeGxueF9vZl9tYXRjaCk7
+DQo+ICANCj4gLXN0YXRpYyBpbnQgZHdjM19zZXRfc3dub2RlKHN0cnVjdCBkZXZpY2UgKmRldikN
+Cj4gK3N0YXRpYyBpbnQgZHdjM19zZXRfc3dub2RlKHN0cnVjdCBkd2MzX3hsbnggKnByaXZfZGF0
+YSkNCj4gIHsNCj4gKwlzdHJ1Y3QgZGV2aWNlICpkZXYgPSBwcml2X2RhdGEtPmRldjsNCj4gKwlj
+b25zdCBzdHJ1Y3QgZHdjM194bG54X2NvbmZpZyAqY29uZmlnID0gcHJpdl9kYXRhLT5kd2MzX2Nv
+bmZpZzsNCj4gIAlzdHJ1Y3QgZGV2aWNlX25vZGUgKm5wID0gZGV2LT5vZl9ub2RlLCAqZHdjM19u
+cDsNCj4gLQlzdHJ1Y3QgcHJvcGVydHlfZW50cnkgcHJvcHNbMl07DQo+ICsJc3RydWN0IHByb3Bl
+cnR5X2VudHJ5IHByb3BzWzNdOw0KPiAgCWludCBwcm9wX2lkeCA9IDAsIHJldCA9IDA7DQo+ICAN
+Cj4gIAlkd2MzX25wID0gb2ZfZ2V0X2NvbXBhdGlibGVfY2hpbGQobnAsICJzbnBzLGR3YzMiKTsN
+Cj4gQEAgLTMyMCw2ICszMjUsMTAgQEAgc3RhdGljIGludCBkd2MzX3NldF9zd25vZGUoc3RydWN0
+IGRldmljZSAqZGV2KQ0KPiAgCWlmIChvZl9kbWFfaXNfY29oZXJlbnQoZHdjM19ucCkpDQo+ICAJ
+CXByb3BzW3Byb3BfaWR4KytdID0gUFJPUEVSVFlfRU5UUllfVTE2KCJzbnBzLGdzYnVzY2ZnMC1y
+ZXFpbmZvIiwNCj4gIAkJCQkJCSAgICAgICAweGZmZmYpOw0KPiArCWlmIChjb25maWctPnR4X2Rl
+ZW1waCkNCg0KV2Ugc2hvdWxkIHNldCB0aGUgdHhfZGVlbXBoIHRvIHRoZSBEV0MzX0xDU1JfVFhf
+REVFTVBIX1VOU1BFQ0lGSUVEIGJ5DQpkZWZhdWx0IGFuZCBjaGVjayBhZ2FpbnN0IHRoYXQgaW5z
+dGVhZC4NCg0KPiArCQlwcm9wc1twcm9wX2lkeCsrXSA9IFBST1BFUlRZX0VOVFJZX1UzMigic25w
+cyxsY3NyLXR4LWRlZW1waCIsDQo+ICsJCQkJCQkgICAgICAgY29uZmlnLT50eF9kZWVtcGgpOw0K
+PiArDQo+ICAJb2Zfbm9kZV9wdXQoZHdjM19ucCk7DQo+ICANCj4gIAlpZiAocHJvcF9pZHgpDQo+
+IEBAIC0zNjgsNyArMzc3LDcgQEAgc3RhdGljIGludCBkd2MzX3hsbnhfcHJvYmUoc3RydWN0IHBs
+YXRmb3JtX2RldmljZSAqcGRldikNCj4gIAlpZiAocmV0KQ0KPiAgCQlnb3RvIGVycl9jbGtfcHV0
+Ow0KPiAgDQo+IC0JcmV0ID0gZHdjM19zZXRfc3dub2RlKGRldik7DQo+ICsJcmV0ID0gZHdjM19z
+ZXRfc3dub2RlKHByaXZfZGF0YSk7DQo+ICAJaWYgKHJldCkNCj4gIAkJZ290byBlcnJfY2xrX3B1
+dDsNCj4gIA0KPiAtLSANCj4gMi40My4wDQo+IA0KDQpCUiwNClRoaW5o
 
