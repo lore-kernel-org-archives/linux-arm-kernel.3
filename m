@@ -4,61 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29026F99C89
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 15:06:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9CFEF99C88
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 18:01:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DapRuM5udVveUcJxR+UfWp0c+7OhnQEhRpxl6NRxZQA=; b=C6eTNU+8YuKrp9g4OoJeyjkbr8
-	266ALFZ3aVSA4z1dZOefVf5GBHapsmYBM2bqtYTvCJG0fpeCcpCYVT2wDcMgu7Ecly66D65G9Q+No
-	q06gs24I7/kjVUg/IAo/74hKuJrxBAZs8IYvMj4N3l34z/J/MG9n6y11xrix/Ep+yvv1sFJlZt06p
-	ufbGosekzkfwaTJ/EwpIXbGhNVtzCyuY+IieeulQW3r1HdN7qj4+5ZFOqhgxFa4xdZFD8H9ZZTNJx
-	GyuiCWV/KxHYcKrEVu3EEpqagjenY6vkiQyGV+3RJhTtYzlMQPNPIoCQ4ke6RsLxcHBJ7+IL+zJF/
-	Zls6wgEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/FnOo4DBqc9z3yprR5F+4D1BbbX9kRlkofnogug2d28=; b=wS+jJ7JLl2usXtesLRZvMDqaCt
+	GGhmcOfn+04RHhLGCVKsY92S7tZuSqH4hQizEfokFDAFGrHFzjhK9/OQF1nF9w1tpjBe3XkgXMUZu
+	YveTbrRxldx8OoWpmmzy2U0VC6UuGsP9CVzom3Z1d/xrUNRqYhw9/Ec1h04fZ+wyjbB30Z00/nFUM
+	L5k4mrMqLarbWP7vtn4T+p7293/UINExJPt+VoAFquEDp2agjGlV4wPKM2PVKj6EwEHlzz1XiDGgR
+	ZZK5jHXTcXagWfr8qCSvggzlnJQpxvq78f4d8FAOV7eJnA6ZI3EJd5mxTiEf3VdJFGWsP3mGWxwNE
+	DcSCrB1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wE7FE-0000000531R-1QEy;
-	Sat, 18 Apr 2026 15:06:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wE7FB-00000005316-2Xwk
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Apr 2026 15:06:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7B4EA1A2D;
-	Sat, 18 Apr 2026 08:05:52 -0700 (PDT)
-Received: from arm.com (unknown [10.57.88.248])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E46063F7B4;
-	Sat, 18 Apr 2026 08:05:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776524758; bh=QjkMgdtnnr6QyAbjVKb3oOqBzdDyc0QvQhg3gnVrWj0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UbNeVP1CiWfhKFVx05XTZeDzgYuoXzfA3WIb3LiMZkWsdFza6zq6qf104MV8waZWn
-	 xllyegoeZz1kyGDCRdtJzmW4W7K393qkMYc1MVLWlbVWI9GNn9+adHsAhexdYJHC53
-	 5yb+klqyuMlaDz5PlOdJ0eeZtxZALwnX8rzhnTic=
-Date: Sat, 18 Apr 2026 16:05:52 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: tglx@kernel.org, peterz@infradead.org, sudeep.holla@kernel.org,
-	yangyicong@hisilicon.com, dietmar.eggemann@arm.com,
-	Jonathan.Cameron@huawei.com, linux-kernel@vger.kernel.org,
-	James Morse <james.morse@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] cpu/hotplug: Fix NULL kobject warning in
- cpuhp_smt_enable()
-Message-ID: <aeOd0Ndec2rQe2J8@arm.com>
-References: <20260417075534.3745793-1-ruanjinjie@huawei.com>
- <aeNxKpHzTQX4_kId@arm.com>
+	id 1wE9yc-000000058Gd-3zao;
+	Sat, 18 Apr 2026 18:01:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wE9ya-000000058GS-1FFG;
+	Sat, 18 Apr 2026 18:01:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CA8256013A;
+	Sat, 18 Apr 2026 18:01:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B89E5C19424;
+	Sat, 18 Apr 2026 18:01:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776535262;
+	bh=gfCnfVv+6IRcfetQm4ukDI1hhxp2kXNRzZ9OCpuJKNs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=SL4xBmWncX6eqD+Qm1sWsTokqcFl7OJjdnW78wvTqznlWwnlGOPgAeYOdt+tSHreM
+	 lucAOmker/15lTJ7qHtbOpD8KvLvJ6T/SwIK+MEqob6e8rQLm/OPXS7ARA876Rj4aF
+	 3MdICvlTEnFiyfk+e4b1PnnQ2oduHC4CMHzMRBmEIbJ0ti51rSd8GR6jxDfT7BJnRZ
+	 ya58Xw3R4RQgt2fQ43dT16NkQkmD/bk5c6E6Ipn9HEJzLtgDPsn2GFuNCIg/+8W0c7
+	 oXVvGWTi89TJagM34DfJKpQEK9lNBAZyiEU619mdHuA/fWvdPk13LUq0SGbu/B9bp3
+	 qfbmo9fCekeYw==
+From: Jakub Kicinski <kuba@kernel.org>
+To: daniel@makrotopia.org
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	chester.a.unal@arinc9.com,
+	andrew@lunn.ch,
+	olteanv@gmail.com,
+	davem@davemloft.net,
+	edumazet@google.com,
+	pabeni@redhat.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux@armlinux.org.uk,
+	ansuelsmth@gmail.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	frank-w@public-files.de,
+	john@phrozen.org
+Subject: Re: [PATCH net] net: dsa: mt7530: fix .get_stats64 sleeping in atomic context
+Date: Sat, 18 Apr 2026 11:01:00 -0700
+Message-ID: <20260418180100.131392-1-kuba@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <79dc0ec5b6be698b14cb66339d6f63033ca2934a.1776397542.git.daniel@makrotopia.org>
+References: <79dc0ec5b6be698b14cb66339d6f63033ca2934a.1776397542.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aeNxKpHzTQX4_kId@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260418_080601_827024_3C35BD2C 
-X-CRM114-Status: GOOD (  16.06  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,55 +82,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 18, 2026 at 12:55:22PM +0100, Catalin Marinas wrote:
-> On Fri, Apr 17, 2026 at 03:55:34PM +0800, Jinjie Ruan wrote:
-> > When booting with `maxcpus` greater than the number of present CPUs (e.g.,
-> > QEMU -smp cpus=4,maxcpus=8), some CPUs are marked as 'present' but have not
-> > yet been registered via register_cpu(). Consequently, the per-cpu device
-> > objects for these CPUs are not yet initialized.
-[...]
-> Another option would have been to avoid marking such CPUs present but I
-> think this will break other things. Yet another option is to register
-> all CPU devices even if they never come up (like maxcpus greater than
-> actual CPUs).
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
+---
+Subject: net: dsa: mt7530: fix .get_stats64 sleeping in atomic context
 
-Something like below, untested (and I don't claim I properly understand
-this code; just lots of tokens used trying to make sense of it ;))
+This commit addresses a sleep-in-atomic bug when reading MDIO-connected
+switch port statistics by delegating the register reads to a delayed
+workqueue. The get_stats64 callback now returns cached values protected
+by a spinlock instead of synchronously reading from the MDIO bus.
+MMIO-connected switches are unaffected and continue to read counters
+directly.
 
-------------------------8<-------------------------
-diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
-index a9d884fd1d00..4c0a5ed906ea 100644
---- a/arch/arm64/kernel/acpi.c
-+++ b/arch/arm64/kernel/acpi.c
-@@ -448,12 +448,14 @@ int acpi_map_cpu(acpi_handle handle, phys_cpuid_t physid, u32 apci_id,
- 		return *pcpu;
- 	}
- 
-+	set_cpu_present(*pcpu, true);
- 	return 0;
- }
- EXPORT_SYMBOL(acpi_map_cpu);
- 
- int acpi_unmap_cpu(int cpu)
- {
-+	set_cpu_present(cpu, false);
- 	return 0;
- }
- EXPORT_SYMBOL(acpi_unmap_cpu);
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 1aa324104afb..751a74d997e1 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -510,8 +510,10 @@ int arch_register_cpu(int cpu)
- 	struct cpu *c = &per_cpu(cpu_devices, cpu);
- 
- 	if (!acpi_disabled && !acpi_handle &&
--	    IS_ENABLED(CONFIG_ACPI_HOTPLUG_CPU))
-+	    IS_ENABLED(CONFIG_ACPI_HOTPLUG_CPU)) {
-+		set_cpu_present(cpu, false);
- 		return -EPROBE_DEFER;
-+	}
- 
- #ifdef CONFIG_ACPI_HOTPLUG_CPU
- 	/* For now block anything that looks like physical CPU Hotplug */
+> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+> index b9423389c2ef0..786d3a8492bcb 100644
+> --- a/drivers/net/dsa/mt7530.c
+> +++ b/drivers/net/dsa/mt7530.c
+
+[ ... ]
+
+> @@ -951,6 +952,43 @@ static void mt7530_get_stats64(struct dsa_switch *ds, int port,
+>  			       &storage->rx_crc_errors);
+>  }
+>  
+> +static void mt7530_stats_poll(struct work_struct *work)
+> +{
+> +	struct mt7530_priv *priv = container_of(work, struct mt7530_priv,
+> +						stats_work.work);
+> +	struct rtnl_link_stats64 stats = {};
+> +	struct dsa_port *dp;
+> +	int port;
+> +
+> +	dsa_switch_for_each_user_port(dp, priv->ds) {
+> +		port = dp->index;
+> +
+> +		mt7530_read_port_stats64(priv, port, &stats);
+> +
+> +		spin_lock(&priv->stats_lock);
+
+Are we at risk of a deadlock here?
+
+The get_stats64 callback can be called by dev_get_stats(), which runs in
+softirq context.
+
+If this delayed work runs in process context and is preempted by a softirq
+that attempts to acquire the lock via dev_get_stats(), a deadlock could
+occur. Both paths should likely use spin_lock_bh() and spin_unlock_bh().
+
+> +		priv->ports[port].stats = stats;
+> +		spin_unlock(&priv->stats_lock);
+> +	}
+> +
+> +	schedule_delayed_work(&priv->stats_work,
+> +			      MT7530_STATS_POLL_INTERVAL);
+> +}
+> +
+> +static void mt7530_get_stats64(struct dsa_switch *ds, int port,
+> +			       struct rtnl_link_stats64 *storage)
+> +{
+> +	struct mt7530_priv *priv = ds->priv;
+> +
+> +	if (priv->bus) {
+> +		spin_lock(&priv->stats_lock);
+> +		*storage = priv->ports[port].stats;
+> +		spin_unlock(&priv->stats_lock);
+> +		mod_delayed_work(system_wq, &priv->stats_work, 0);
+
+Could this unconditional background refresh cause a denial of service on
+the MDIO bus?
+
+If an unprivileged user continually reads network statistics in a tight
+loop, mt7530_stats_poll() will execute continuously, potentially starving
+other MDIO tasks like PHY link-state monitoring.
+
+Additionally, is it possible for this call to re-arm the workqueue during
+teardown?
+
+In mt7530_remove_common(), cancel_delayed_work_sync() is called before
+dsa_unregister_switch(). If get_stats64() is called during or after
+dsa_unregister_switch(), it would re-arm the workqueue after it was
+explicitly cancelled, potentially causing a use-after-free when priv is
+freed.
+
+> +	} else {
+> +		mt7530_read_port_stats64(priv, port, storage);
+> +	}
+> +}
+
+[ ... ]
+
+> @@ -3137,6 +3175,13 @@ mt753x_setup(struct dsa_switch *ds)
+>  	if (ret && priv->irq_domain)
+>  		mt7530_free_mdio_irq(priv);
+>  
+> +	if (!ret && priv->bus) {
+> +		spin_lock_init(&priv->stats_lock);
+> +		INIT_DELAYED_WORK(&priv->stats_work, mt7530_stats_poll);
+> +		schedule_delayed_work(&priv->stats_work,
+> +				      MT7530_STATS_POLL_INTERVAL);
+
+If dsa_register_switch() encounters an error after this setup callback
+completes successfully, the DSA core will attempt to clean up.
+
+Since mt7530_switch_ops does not implement a teardown callback to cancel
+this delayed work, will the work remain scheduled and eventually
+dereference freed priv memory once the driver core frees it via devres?
+
+> +	}
+> +
+>  	return ret;
+>  }
+-- 
+pw-bot: cr
 
