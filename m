@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B03E3F99C81
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 19:21:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08495F99C89
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Apr 2026 20:07:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5kGEx+pOJo+o9N2lIQM4Ucna8+1jei3bmdPtmEyy1xU=; b=KrBBzHIKwSLyRa0YHbkYeROgvU
-	7jwfqLcwD4DP/25IYpGcblvPJS0BHno0J51bPldN3zjLBqWKbfqu3/CPzhvvVBlKWugLcl6H5sVFW
-	t7L3+D7Bkk33LlPHqqwTdl0qPp3xpJrNkJQKCy5XhxML0yGLAs/hdIuWn3kf4/xluS5LCFxpa5ngx
-	49ANmwJ7G1aDsy1JiwSYsMA0s2+TmTWG07Wy7RlNlWjbrn8Lfn25sR7f6Kvb+7Cb3eAxrs3QtAShC
-	bowW5eQH/P6ke5tmPX4sfJEe67nGkO+gza1S31e29x/JmhZhwsKsusQQnERxo5cPVsyRzrssErpzU
-	67LilQfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bbLXe4Og5GCtNFoJgU/iohm65MD7uV97LErFdEaEF7E=; b=UdVPf9IWlUb8TyWQ7auHFSbKGT
+	6Tuv73+xnDP1zUaZPkfrgfMtfJzLLHUB/A23LwRI5BjdlnDLJlU2/lrmEk7KxQS9tA7jQM+Cig/zL
+	oMMy3NTQtTZYENGXiHYBves+P0c1jipjh0U5td8LXOaGwtH4JPqPNANTU7QxbYOcjdJaut2KMALpH
+	zAKDqpLcb5MOu02p+8nlTRUVYQblIXKLBwkYGHzwBei45BESJ1pvWbv1c875pvxxtzhwfUQMozxiD
+	j9YgHKdir1ZGtF3kdmE0gMFLW7bVb36QaW6Vq3i9OP28/JdmLimVX5DI9oupK1ix+Q2xP/XsU4BSz
+	3aV66+sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEBDs-00000005AXX-1PhM;
-	Sat, 18 Apr 2026 19:20:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wEBx5-00000005BvO-0mCe;
+	Sat, 18 Apr 2026 20:07:39 +0000
+Received: from lahtoruutu.iki.fi ([2a0b:5c81:1c1::37])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEBDp-00000005AXA-37wJ
+	id 1wEBx1-00000005Bur-2S5z
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Apr 2026 19:20:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3A10843E6F;
-	Sat, 18 Apr 2026 19:20:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B4EAC19424;
-	Sat, 18 Apr 2026 19:20:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776540045;
-	bh=s5SdtgrqQaWGvxyOocfvVTmGIyntRJLtgQ7WiZdv5dA=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=KR42lGXBR2U6rgtVc+mVv2nfkFkQqXVvjj6lIs3eeP7BN6+pjMTpZoG2xmm4O2NxI
-	 bCecK9lqwrDGr7x2UDoHNqhVZWziKmWUFuJXl+1wLTnEOr7rhdPErL7ND0EqBssiTE
-	 QtUNdnZJJWaJoeVco4whegzjlHJ2SH7rfmdlNrZ9iqKSjTFiE7FjzRgXqC0zC3RDDH
-	 uFMJDxFLJTRhtD3tJ6QkRQPMjL0qIdJbHEAes2uoHywvFt0ebdxhFn/XFl+7zVTLhc
-	 V3JGnF31gHB4Bp3s+j1Ms6KOyfY0DiYlJxcCAHkLPSPYagoOCLoAK39QOFRqUtHv3i
-	 Jq7vDs6YOxTag==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA055380CEDD;
-	Sat, 18 Apr 2026 19:20:12 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Sat, 18 Apr 2026 20:07:37 +0000
+Received: from darkstar.musicnaut.iki.fi (unknown [83.245.248.121])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: aaro.koskinen)
+	by lahtoruutu.iki.fi (Postfix) with ESMTPSA id 4fyjTG4pT0z49PyQ;
+	Sat, 18 Apr 2026 23:07:14 +0300 (EEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi; s=lahtoruutu;
+	t=1776542836;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bbLXe4Og5GCtNFoJgU/iohm65MD7uV97LErFdEaEF7E=;
+	b=Kb/eSYaTGUs55bvEsMxccKvCe1lUD/sC5KPz52uNr/U8hOF93wi3MJ/ppCQzVraZzFgRSf
+	NpbRguOwXxqkeAal1VE5DkM0YUkMeOOSm0b2kbTRx5Wn+bX6swZUBHk4lh29SsSTZk77jQ
+	Mzv3ulGDMEVOV5fx744CmMbp0OwNLWupT+/2EXWypmaU20OQXi/cqeD8BhJGXrc7daAZ0O
+	3a497Evvq0bC3XQVGjzncJo95Nxp64oByLOahYDQPAjtfkJ4RAxPEUdXH1K6047WHeGFCt
+	cTnzSg7cYlVtnN8bqzTZWwbHbuIHQ5JYsjgVx2Ldhh56Sb2FWpuG5/Ew6OVcLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi;
+	s=lahtoruutu; t=1776542836;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bbLXe4Og5GCtNFoJgU/iohm65MD7uV97LErFdEaEF7E=;
+	b=OzG0N6MLYgpi1aRsblyHfoGw+pLJtJWCg2i8myzuMiQHgjQpE1b3ERF/7QzQ+DVFBBV98S
+	eZFBGjKghztB7FKssj0DxIHoOAq02h1PDRTB4ILQtVrdOa4GfO8HpVjzOveNlPqCvZKjHf
+	uUR1QP9Mm7sWsbpbhmzi7ylUWdy79YGZw0NMaA1Pe9OhaoFiBqj6IJxykjbGrw5TTLyACi
+	Vef8no+A8Oe1cbnG2sNk40s2M6pefcWSxkk7ohZsWG3wgMkBhdIpY1ovKPCJSwAMu+bgaf
+	T/qWkC9ydIY9j3wIvP8ffGOiAGX5n9OAKRiK1pZkS9TlRMdyDH2uvZyI/INq9Q==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=aaro.koskinen smtp.mailfrom=aaro.koskinen@iki.fi
+ARC-Seal: i=1; a=rsa-sha256; d=iki.fi; s=lahtoruutu; cv=none; t=1776542836;
+	b=eshlC+o2K2l5qT1L/SCjR+WV73Bxk3OnqYzN/ng9ZtWmLTCyGx4qWO0cj+sY3un7wD+DWF
+	MIP3JwY4ccDiOSgOBlDBrCiDbsuKg5rQfQRsHgPRr2U6MQ3X8fQhxnqSfdAtPVXB6faeIN
+	16RlXbFjoaeE0McGG6MI1iZ2Q3RmknYSgKIffA8i/SDklYeP4I2UHkA5sigaZmBd5Fr02U
+	pXCen5Yb7Y2rCQya5YQLIRq3jKAY7ZrLVPIjThjfrC+Zjqn4GNR8QJdgko2rkq9FRWbRBi
+	5/rhq39AbpRw5jUl2aGeuR57k23EZq+je5P9F9ullBxU4UZlhJ9erQa5rmyl7Q==
+Date: Sat, 18 Apr 2026 23:07:11 +0300
+From: Aaro Koskinen <aaro.koskinen@iki.fi>
+To: Thierry Reding <thierry.reding@kernel.org>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>, linux-tegra@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+	linux-omap@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Paul Walmsley <pjw@kernel.org>
+Subject: Re: [PATCH v2 1/3] MAINTAINERS: Move Peter De Schrijver to CREDITS
+Message-ID: <aePkb1qTEvnMhkDg@darkstar.musicnaut.iki.fi>
+References: <20260417131549.3154534-1-thierry.reding@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net,v3 1/1] net: stmmac: Update default_an_inband before
- passing value to phylink_config
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <177654001129.508728.16812510297262829320.git-patchwork-notify@kernel.org>
-Date: Sat, 18 Apr 2026 19:20:11 +0000
-References: <20260416102609.7953-1-khai.wen.tan@intel.com>
-In-Reply-To: <20260416102609.7953-1-khai.wen.tan@intel.com>
-To: KhaiWenTan <khai.wen.tan@intel.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
- maxime.chevallier@bootlin.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- yoong.siang.song@intel.com, hong.aun.looi@intel.com,
- khai.wen.tan@linux.intel.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260417131549.3154534-1-thierry.reding@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260418_122053_858826_83C4FE05 
-X-CRM114-Status: UNSURE (   8.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260418_130735_906136_519C7CCF 
+X-CRM114-Status: GOOD (  15.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,30 +97,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hi,
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Thu, 16 Apr 2026 18:26:09 +0800 you wrote:
-> From: KhaiWenTan <khai.wen.tan@linux.intel.com>
+On Fri, Apr 17, 2026 at 03:15:46PM +0200, Thierry Reding wrote:
+> From: Thierry Reding <treding@nvidia.com>
 > 
-> get_interfaces() will update both the plat->phy_interfaces and
-> mdio_bus_data->default_an_inband based on reading a SERDES register. As
-> get_interfaces() will be called after default_an_inband had already been
-> read, dwmac-intel regressed as a result with incorrect default_an_inband
-> value in phylink_config.
+> Peter sadly passed away a while back. Paul did a much better job at
+> finding the right words to mourn this loss than I ever could, so I will
+> leave this link here:
 > 
-> [...]
+>   https://lore.kernel.org/lkml/alpine.DEB.2.21.999.2407240345480.11116@utopia.booyaka.com/T/#u
+> 
+> Co-developed-by: Paul Walmsley <pjw@kernel.org>
+> Co-developed-by: Aaro Koskinen <aaro.koskinen@iki.fi>
+> Co-developed-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> Signed-off-by: Thierry Reding <treding@nvidia.com>
 
-Here is the summary with links:
-  - [net,v3,1/1] net: stmmac: Update default_an_inband before passing value to phylink_config
-    https://git.kernel.org/netdev/net/c/8cff9dbe89d8
+Reviewed-by: Aaro Koskinen <aaro.koskinen@iki.fi>
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+A.
 
-
+> ---
+> Changes in v2:
+> - add more missing entries
+> 
+>  CREDITS     | 10 ++++++++++
+>  MAINTAINERS |  1 -
+>  2 files changed, 10 insertions(+), 1 deletion(-)
+> 
+> diff --git a/CREDITS b/CREDITS
+> index 885fb05d8816..afd1f70b41cf 100644
+> --- a/CREDITS
+> +++ b/CREDITS
+> @@ -3645,7 +3645,17 @@ D: Macintosh IDE Driver
+>  
+>  N: Peter De Schrijver
+>  E: stud11@cc4.kuleuven.ac.be
+> +E: p2@mind.be
+> +E: peter.de-schrijver@nokia.com
+> +E: pdeschrijver@nvidia.com
+> +E: p2@psychaos.be
+> +D: Apollo Domain workstations
+> +D: Ariadne and Hydra Amiga Ethernet drivers
+> +D: IBM PS/2, Microchannel, and Token Ring support
+>  D: Mitsumi CD-ROM driver patches March version
+> +D: TWL4030 power management and audio codec driver
+> +D: OMAP power management
+> +D: NVIDIA Tegra clock and BPMP drivers, among many other things
+>  S: Molenbaan 29
+>  S: B2240 Zandhoven
+>  S: Belgium
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index ef978bfca514..ffe20d770249 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -26145,7 +26145,6 @@ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git
+>  N:	[^a-z]tegra
+>  
+>  TEGRA CLOCK DRIVER
+> -M:	Peter De Schrijver <pdeschrijver@nvidia.com>
+>  M:	Prashant Gaikwad <pgaikwad@nvidia.com>
+>  S:	Supported
+>  F:	drivers/clk/tegra/
+> -- 
+> 2.52.0
+> 
+> 
 
