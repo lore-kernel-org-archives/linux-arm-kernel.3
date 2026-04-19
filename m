@@ -4,58 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F0C5EA7199
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 12:05:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1B63EA718A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 12:22:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qkBXWnw960ow9siVIQCoubYJkv1b/GWuubEwCJ0znok=; b=CM/sfuh6PPB0a6+IqNOBtGlnLE
-	J93kfGIInw7hbVOz/INWrafiecUyHw5YM3+tm5dJlqEYcajQaP7n3UwG+7ft+f9qWpecoG0wXiCm3
-	UuHm3vrNzaUTlJRUAZqbDDTkK0ewSLjiy0AwV2yEx9iyvXW7oUnlJsLgCCRRiSnaquyAdmfxVB9XA
-	KYEll6rwbG3aTq4UkIMHzu54kopO4PUttBSlg/bk7Di6F1OUW/rDGjm7CdnMoRYBdk0zVD5iedoEN
-	bl+zImDnxLI7V5zxBGfJCmHIqw8N4ZTkO4zHYboNbBgxGs23CJU8+aHzKysYbU+xZAVy60GVkusN+
-	+dYdyqVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pmWG7OM2EB7RxxwskQ0/zeTI1Kmre4JByGl1ksiUCqU=; b=OsqQRlGzMeHoldUQB5UoKGx3dW
+	76sAkidJ6oXSBqtKE+1Dk6XX+MnzsimRNLfinbOWRysXphkVHeMoLXtSuNKUa0nGg+x591bN0TLk6
+	R1PxRLR8izgfOQktxXq/6p6teVgjUZX07BFy5CPXC1AwCQxUx97Y3CHUTGo5JMWd5DG/G7jreOpbd
+	iNaY1AvxDCJGViKjVriS/6dZjJam/Ff7ndzOK46vLXm5xh6k9mfPcgFL2EGfri8MnNnXm1wlnGBNG
+	dyCGJ48lYxqfTcHPVOIDeJXMLZldDmSkSiNVEX6SqdTJeUGXbykVQ8v7quSl+xLcqi8DmtHc7SnDF
+	1f9ySh4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEQu0-00000005lQz-3X88;
-	Sun, 19 Apr 2026 12:05:28 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1wER9z-00000005mF5-2wVD;
+	Sun, 19 Apr 2026 12:21:59 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEQtx-00000005lPj-3os3;
-	Sun, 19 Apr 2026 12:05:27 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.99)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1wEQtn-000000006Hd-3fA8;
-	Sun, 19 Apr 2026 12:05:15 +0000
-Date: Sun, 19 Apr 2026 13:05:13 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Olivia Mackall <olivia@selenic.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Daniel Golle <daniel@makrotopia.org>, linux-crypto@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	id 1wER9x-00000005mEk-1GGy
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 19 Apr 2026 12:21:58 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-82f6b592fc7so964764b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 05:21:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776601316; x=1777206116; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=pmWG7OM2EB7RxxwskQ0/zeTI1Kmre4JByGl1ksiUCqU=;
+        b=dB2sUDlgQYtBi2gLBcwA6GDsT9Ahn15Q/5TzU0yobhUDiguD4DHYOUUuW9khZS8sIh
+         2D0TwjHHycmRrwvxfzF5XOpiWEJJXgwY/hsWJK5teqtQxpgqJJ8K6mOSxPbUVwU5ilM0
+         Pc3ib77qYxQhH7QqPzjvd0JmztzWdjfb6DKH8zrtgOxy7yQRq8eOBNoYl+pJvQ7gT72s
+         43J5M7g3Dwd/g7eDVsOxfs+RrptakcHRHNYgpC9m4BB9twAhh2LmQmpO/4f3B08xPUOP
+         KRjXT8tavCYHnb3HYXSYYcb3n9LYQZ7MSOHhEim2XunChmt1IiWSSLB4knvAuSsOJvpq
+         2L9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776601316; x=1777206116;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pmWG7OM2EB7RxxwskQ0/zeTI1Kmre4JByGl1ksiUCqU=;
+        b=Zy1sQj8JUx6Af+mlUyT2cggAbqjgKk9dYtQDH0y1STNyp7Z+nH8rU1QJeHqOx0PBib
+         rX6aeUhxarR6+TCdb39us6Iu6B54wbd210LfmIXml6568jyS9Ls0P3sGH0u662txH8Di
+         VwJA8xqzERmjLAUG0nHXvGACnmc5RsQ+NmHYej6v9puxUkP9YcdQX2Yp4t82z4n0t8IS
+         uaypnuxNAxAX5l9mCeK8Cqq52sVppB6FayXxINF5jKF7wuT8vuGQ+tDRAyKy0cslI7Fg
+         9LJUui5jsC1R58PKYatqUC7XHNPyzraREUY8BLUasx568vEh6fQEyhmSRjw4J9Afp96U
+         SpwQ==
+X-Forwarded-Encrypted: i=1; AFNElJ88sH/8Nu/JFApk0aaUJg1yLBbeab6smVOZlPCX8HCrdqAqswRn7ozvfNrGk+lvgfwwladLiuRaX7IdfRoHP0+Z@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzS5JxY6kto7ezkBWfHOYp9GFAg+3Vq9dn8baEhbCJPOUKLPeY
+	Sc86evuOErUGVvrgk3fOpfmy3p4slVQVmg3Zphn5gCjCC3RKtT+ehgNE
+X-Gm-Gg: AeBDiesK0gR/QVsapMNPs8ZcbETZUfPhpQQ+J5Nb6IWBkFj55k6MzoWSNLBqxmGUvfz
+	rnZsxs4opVMMwkEqGA2+tVpDEj2tmi7Fo9n9XGdurBNgCvNyXvKol6xmkkyCd+KXR7ELWmBe5lU
+	DomkO8RGxE8yXbbS5atFUoDXr6Y0/yulqmL2M1CIcHhD3pjcQAph60IkYWPdpfNATQxGsyxMJc6
+	iaVUlcCljekigRt1VThG+xtzg4gzuR/9kYuPtDe8ImMdy/y40E5e3HVf7pL7caz0bCA7GC4MR4l
+	bJt3d7V7X3CdlqSJBESdFcdaTXbijoyZQz0Vw6m/PNU27c4Du3RfjqiKHb4QDH1YKUFLSZg8Fva
+	mOrQ6+mu9qUMtZm7ngHOiG8tHBicfJ90O7Zkrx+7tESOiK+ZTuZLBzwHTpgH18dYf4e8OQVTEQ4
+	Bz4YZmV99FH2AHgtox275HhBfCPSOE6BW+
+X-Received: by 2002:a05:6a00:2d8d:b0:82f:1d38:f68f with SMTP id d2e1a72fcca58-82f8c8bee86mr10893475b3a.31.1776601315542;
+        Sun, 19 Apr 2026 05:21:55 -0700 (PDT)
+Received: from lgs.. ([2408:8417:d50:4775:fc0:88de:ed15:556b])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8e9d2fa9sm7700034b3a.16.2026.04.19.05.21.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 19 Apr 2026 05:21:55 -0700 (PDT)
+From: Guangshuo Li <lgs201920130244@gmail.com>
+To: Liu Ying <victor.liu@nxp.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v3 2/2] hwrng: mtk - add support for hw access via SMCC
-Message-ID: <7ebe4162e0e150cbe092c9e254bc933bb91b4989.1776600269.git.daniel@makrotopia.org>
-References: <585fc832e4e5d3656bd25ecee6bafb636993104a.1776600269.git.daniel@makrotopia.org>
+	linux-kernel@vger.kernel.org
+Cc: Guangshuo Li <lgs201920130244@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] drm/bridge: imx8qxp-pxl2dpi: avoid of_node_put() on ERR_PTR()
+Date: Sun, 19 Apr 2026 20:21:34 +0800
+Message-ID: <20260419122134.97529-1-lgs201920130244@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <585fc832e4e5d3656bd25ecee6bafb636993104a.1776600269.git.daniel@makrotopia.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260419_050526_041890_E2BB111A 
-X-CRM114-Status: GOOD (  21.90  )
+X-CRM114-CacheID: sfid-20260419_052157_388103_37C95B62 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,221 +115,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Newer versions of ARM TrustedFirmware-A on MediaTek's ARMv8 SoCs no longer
-allow accessing the TRNG from outside of the trusted firmware.
-Instead, a vendor-defined custom Secure Monitor Call can be used to
-acquire random bytes.
+imx8qxp_pxl2dpi_get_available_ep_from_port() may return ERR_PTR(-ENODEV)
+or ERR_PTR(-EINVAL). imx8qxp_pxl2dpi_find_next_bridge() stores that
+value in a __free(device_node) variable and then immediately checks
+IS_ERR(ep).
 
-Add support for newer SoCs (MT7981, MT7987, MT7988).
+On the error path, returning from the function triggers the cleanup
+handler for __free(device_node). Since the device_node cleanup helper
+only checks for NULL before calling of_node_put(), this results in
+of_node_put(ERR_PTR(...)), which may lead to an invalid kobject_put()
+dereference and crash the kernel.
 
-As TF-A for the MT7986 may either follow the old or the new
-convention, the best bet is to test if firmware blocks direct access
-to the hwrng and if so, expect the SMCC interface to be usable.
+Fix it by avoiding __free(device_node) for the endpoint pointer and
+releasing it explicitly after obtaining the remote port parent.
 
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+This issue was found by a custom static analysis tool.
+
+Fixes: ceea3f7806a10 ("drm/bridge: imx8qxp-pxl2dpi: simplify put of device_node pointers")
+Cc: stable@vger.kernel.org
+Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
 ---
-v3: unchanged
-v2: unchanged
+ drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
- drivers/char/hw_random/mtk-rng.c | 127 ++++++++++++++++++++++++++-----
- 1 file changed, 106 insertions(+), 21 deletions(-)
-
-diff --git a/drivers/char/hw_random/mtk-rng.c b/drivers/char/hw_random/mtk-rng.c
-index 5808d09d12c45..8f5856b59ad66 100644
---- a/drivers/char/hw_random/mtk-rng.c
-+++ b/drivers/char/hw_random/mtk-rng.c
-@@ -3,6 +3,7 @@
-  * Driver for Mediatek Hardware Random Number Generator
-  *
-  * Copyright (C) 2017 Sean Wang <sean.wang@mediatek.com>
-+ * Copyright (C) 2026 Daniel Golle <daniel@makrotopia.org>
-  */
- #define MTK_RNG_DEV KBUILD_MODNAME
+diff --git a/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c b/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
+index 441fd32dc91c..3610ca94a8e6 100644
+--- a/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
++++ b/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
+@@ -264,12 +264,15 @@ imx8qxp_pxl2dpi_get_available_ep_from_port(struct imx8qxp_pxl2dpi *p2d,
  
-@@ -17,6 +18,8 @@
- #include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-+#include <linux/arm-smccc.h>
-+#include <linux/soc/mediatek/mtk_sip_svc.h>
- 
- /* Runtime PM autosuspend timeout: */
- #define RNG_AUTOSUSPEND_TIMEOUT		100
-@@ -30,6 +33,11 @@
- 
- #define RNG_DATA			0x08
- 
-+/* Driver feature flags */
-+#define MTK_RNG_SMC			BIT(0)
-+
-+#define MTK_SIP_KERNEL_GET_RND		MTK_SIP_SMC_CMD(0x550)
-+
- #define to_mtk_rng(p)	container_of(p, struct mtk_rng, rng)
- 
- struct mtk_rng {
-@@ -37,6 +45,7 @@ struct mtk_rng {
- 	struct clk *clk;
- 	struct hwrng rng;
- 	struct device *dev;
-+	unsigned long flags;
- };
- 
- static int mtk_rng_init(struct hwrng *rng)
-@@ -103,6 +112,56 @@ static int mtk_rng_read(struct hwrng *rng, void *buf, size_t max, bool wait)
- 	return retval || !wait ? retval : -EIO;
- }
- 
-+static int mtk_rng_read_smc(struct hwrng *rng, void *buf, size_t max,
-+			    bool wait)
-+{
-+	struct arm_smccc_res res;
-+	int retval = 0;
-+
-+	while (max >= sizeof(u32)) {
-+		arm_smccc_smc(MTK_SIP_KERNEL_GET_RND, 0, 0, 0, 0, 0, 0, 0,
-+			      &res);
-+		if (res.a0)
-+			break;
-+
-+		*(u32 *)buf = res.a1;
-+		retval += sizeof(u32);
-+		buf += sizeof(u32);
-+		max -= sizeof(u32);
-+	}
-+
-+	return retval || !wait ? retval : -EIO;
-+}
-+
-+static bool mtk_rng_hw_accessible(struct mtk_rng *priv)
-+{
-+	u32 val;
-+	int err;
-+
-+	err = clk_prepare_enable(priv->clk);
-+	if (err)
-+		return false;
-+
-+	val = readl(priv->base + RNG_CTRL);
-+	val |= RNG_EN;
-+	writel(val, priv->base + RNG_CTRL);
-+
-+	val = readl(priv->base + RNG_CTRL);
-+
-+	if (val & RNG_EN) {
-+		/* HW is accessible, clean up: disable RNG and clock */
-+		writel(val & ~RNG_EN, priv->base + RNG_CTRL);
-+		clk_disable_unprepare(priv->clk);
-+		return true;
-+	}
-+
-+	/*
-+	 * If TF-A blocks direct access, the register reads back as 0.
-+	 * Leave the clock enabled as TF-A needs it.
-+	 */
-+	return false;
-+}
-+
- static int mtk_rng_probe(struct platform_device *pdev)
+ static int imx8qxp_pxl2dpi_find_next_bridge(struct imx8qxp_pxl2dpi *p2d)
  {
- 	int ret;
-@@ -114,23 +173,42 @@ static int mtk_rng_probe(struct platform_device *pdev)
- 
- 	priv->dev = &pdev->dev;
- 	priv->rng.name = pdev->name;
--#ifndef CONFIG_PM
--	priv->rng.init = mtk_rng_init;
--	priv->rng.cleanup = mtk_rng_cleanup;
--#endif
--	priv->rng.read = mtk_rng_read;
- 	priv->rng.quality = 900;
--
--	priv->clk = devm_clk_get(&pdev->dev, "rng");
--	if (IS_ERR(priv->clk)) {
--		ret = PTR_ERR(priv->clk);
--		dev_err(&pdev->dev, "no clock for device: %d\n", ret);
--		return ret;
-+	priv->flags = (unsigned long)device_get_match_data(&pdev->dev);
+-	struct device_node *ep __free(device_node) =
+-		imx8qxp_pxl2dpi_get_available_ep_from_port(p2d, 1);
++	struct device_node *ep;
 +
-+	if (!(priv->flags & MTK_RNG_SMC)) {
-+		priv->clk = devm_clk_get(&pdev->dev, "rng");
-+		if (IS_ERR(priv->clk)) {
-+			ret = PTR_ERR(priv->clk);
-+			dev_err(&pdev->dev, "no clock for device: %d\n", ret);
-+			return ret;
-+		}
++	ep = imx8qxp_pxl2dpi_get_available_ep_from_port(p2d, 1);
+ 	if (IS_ERR(ep))
+ 		return PTR_ERR(ep);
+ 
+ 	struct device_node *remote __free(device_node) = of_graph_get_remote_port_parent(ep);
++	of_node_put(ep);
 +
-+		priv->base = devm_platform_ioremap_resource(pdev, 0);
-+		if (IS_ERR(priv->base))
-+			return PTR_ERR(priv->base);
-+
-+		if (IS_ENABLED(CONFIG_HAVE_ARM_SMCCC) &&
-+		    of_device_is_compatible(pdev->dev.of_node,
-+					    "mediatek,mt7986-rng") &&
-+		    !mtk_rng_hw_accessible(priv)) {
-+			priv->flags |= MTK_RNG_SMC;
-+			dev_info(&pdev->dev,
-+				 "HW RNG not MMIO accessible, using SMC\n");
-+		}
- 	}
- 
--	priv->base = devm_platform_ioremap_resource(pdev, 0);
--	if (IS_ERR(priv->base))
--		return PTR_ERR(priv->base);
-+	if (priv->flags & MTK_RNG_SMC) {
-+		if (!IS_ENABLED(CONFIG_HAVE_ARM_SMCCC))
-+			return -ENODEV;
-+		priv->rng.read = mtk_rng_read_smc;
-+	} else {
-+#ifndef CONFIG_PM
-+		priv->rng.init = mtk_rng_init;
-+		priv->rng.cleanup = mtk_rng_cleanup;
-+#endif
-+		priv->rng.read = mtk_rng_read;
-+	}
- 
- 	ret = devm_hwrng_register(&pdev->dev, &priv->rng);
- 	if (ret) {
-@@ -139,12 +217,15 @@ static int mtk_rng_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
--	dev_set_drvdata(&pdev->dev, priv);
--	pm_runtime_set_autosuspend_delay(&pdev->dev, RNG_AUTOSUSPEND_TIMEOUT);
--	pm_runtime_use_autosuspend(&pdev->dev);
--	ret = devm_pm_runtime_enable(&pdev->dev);
--	if (ret)
--		return ret;
-+	if (!(priv->flags & MTK_RNG_SMC)) {
-+		dev_set_drvdata(&pdev->dev, priv);
-+		pm_runtime_set_autosuspend_delay(&pdev->dev,
-+						 RNG_AUTOSUSPEND_TIMEOUT);
-+		pm_runtime_use_autosuspend(&pdev->dev);
-+		ret = devm_pm_runtime_enable(&pdev->dev);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	dev_info(&pdev->dev, "registered RNG driver\n");
- 
-@@ -181,8 +262,11 @@ static const struct dev_pm_ops mtk_rng_pm_ops = {
- #endif	/* CONFIG_PM */
- 
- static const struct of_device_id mtk_rng_match[] = {
--	{ .compatible = "mediatek,mt7986-rng" },
- 	{ .compatible = "mediatek,mt7623-rng" },
-+	{ .compatible = "mediatek,mt7981-rng", .data = (void *)MTK_RNG_SMC },
-+	{ .compatible = "mediatek,mt7986-rng" },
-+	{ .compatible = "mediatek,mt7987-rng", .data = (void *)MTK_RNG_SMC },
-+	{ .compatible = "mediatek,mt7988-rng", .data = (void *)MTK_RNG_SMC },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, mtk_rng_match);
-@@ -200,4 +284,5 @@ module_platform_driver(mtk_rng_driver);
- 
- MODULE_DESCRIPTION("Mediatek Random Number Generator Driver");
- MODULE_AUTHOR("Sean Wang <sean.wang@mediatek.com>");
-+MODULE_AUTHOR("Daniel Golle <daniel@makrotopia.org>");
- MODULE_LICENSE("GPL");
+ 	if (!remote || !of_device_is_available(remote)) {
+ 		DRM_DEV_ERROR(p2d->dev, "no available remote\n");
+ 		return -ENODEV;
 -- 
-2.53.0
+2.43.0
+
 
