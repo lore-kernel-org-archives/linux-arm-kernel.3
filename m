@@ -4,64 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10989EA71AF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 22:39:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48D18EA71AA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 22:51:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I6gX7EdaBOGbDKyKiMzgyWhMltnLtRwmWqrkmLqntNk=; b=ot0BzaO9HD9NtEkOAc4CqgarAj
-	rJ89Ec57QfT7ROEAIevQHwSu5+wYAScWwbes9gt26uVHOjUZhHoyBya1prhYsKTxEBrDmdHjr9xxW
-	KsRX0DCH2tADZOkAGSy/EZId1WwhHTif28hQD0P8FyVUyvq6H1fuVzyS7W7y+Db2NOYkpVQx2PjGX
-	yfuw/MnCzVSX9dk78kzIZxO0OP/oLaloSszGXHADUmxWd4WkGIIcLhvU2SR25Zb7e+bbni6gVCQgt
-	dFsC1MgMbpHubvdRs4AyKo9l72r1dtQPvYXp5fY4l75zKqUO52wBVkn0yd7iO0JqnHWPdCI4YpzQF
-	GQMZ8v1g==;
+	bh=nGI8q1vIW2YCqL8DB2swQpMBunXNj9M7QpTu5vxe99c=; b=Alw/cU8grI/eoVylw3C62L8sL7
+	7uicW2BZhwin5skhUztD82Q5SN2FEqqb+DxvsUlppkysaW+n9qynuHUU5+6izX1T7t7Tjtzipx0rm
+	PtvIKdLvZ+yKV3RhX38rEb4miByUePK6ZuABihcQe1Lj9ILs6bXulrwYw/8rAgR73f3fR+UpoU0Rt
+	OOKAznU0nuBijfzGeendDKqU9okcDiufSsuReiHIlJoinafPi7Xoq/1+7rmmyZn3oQRKoeTC8m75U
+	aOJUqy0+V72Af2CIxW8WSVXoliqBDqpAiBGA/zHmyEc80AlKwbKhh799PAA3OAEmf1t1tacygDCcO
+	8uwayeKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEann-000000068PN-06Dv;
-	Sun, 19 Apr 2026 22:39:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEank-000000068P1-0KY1
+	id 1wEazR-000000068la-0Hyc;
+	Sun, 19 Apr 2026 22:51:45 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wEazO-000000068lF-2Ovd
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Apr 2026 22:39:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0B5D41596;
-	Sun, 19 Apr 2026 15:39:32 -0700 (PDT)
-Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DC21E3F915;
-	Sun, 19 Apr 2026 15:39:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776638377; bh=tZlc1dVMVc8vW4uGAZJcag9m8q5W1bX9AFx/oA9k8L4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=vQOe0g74c2CHoG+BqnFikOOPTwz5LN8/h4X9uqXxxx4gkMhyECe18zAQdmSfTH74n
-	 uI5EnqqpsQC4i9/+aDRnIVHXvuYOM30EMA+i2oYbfPR91IBsoDS6jdN5p5qstFI2Ps
-	 /3I0ugo8Lmyv8onj/Mo6uJGHzHE/up1DKDXRBnxY=
-Date: Mon, 20 Apr 2026 00:39:15 +0200
-From: Andre Przywara <andre.przywara@arm.com>
-To: Michal Piekos <michal.piekos@mmpsystems.pl>
-Cc: Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas Gleixner
- <tglx@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai
- <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
- Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH 2/4] clocksource/drivers/sun5i: add H616 hstimer support
-Message-ID: <20260420003915.18c0d5f7@ryzen.lan>
-In-Reply-To: <20260419-h616-t113s-hstimer-v1-2-1af74ebef7c5@mmpsystems.pl>
-References: <20260419-h616-t113s-hstimer-v1-0-1af74ebef7c5@mmpsystems.pl>
-	<20260419-h616-t113s-hstimer-v1-2-1af74ebef7c5@mmpsystems.pl>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+	Sun, 19 Apr 2026 22:51:43 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-43fe62837baso1340117f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 15:51:41 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776639100; cv=none;
+        d=google.com; s=arc-20240605;
+        b=QcvmomhN6fbSKnpm3oCAwoJZqjSy3nrL+VA32JgL6YF4yB7ROeuZdzpZ96LDW1S0cZ
+         6SNw1NX1MwQ3E4g5n6Yp/aV+L/D/VoAh53PFV6pYBkASwBl1sXs80skUWOz+RrG1Bn6a
+         ZXLfCPuF8L4LfV+jQW0V9Iw8yOUjd9pc0HvfCllTPwYBbsRzdWj2uEPi01u0BsxffYoi
+         7yltQPgajfETEG7tldpMmngHz4laFdqbESLVP0o5WqJvvxd/KNfAuPAZgKFt9GCwXdFc
+         7bEBCo6DqFV7WOSF7UU6R9HP45zjDjN0YgB3vDLSDX4tXn61rqwQJ7A4pInzdrgdFAzX
+         CWew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=nGI8q1vIW2YCqL8DB2swQpMBunXNj9M7QpTu5vxe99c=;
+        fh=E+89ps01e0mn54ln4keXkhTrE16QUuQR6pmpZsePZyM=;
+        b=ZH3FiIeW0boShmTVLDnm0JckABq1ubdgfNXLp9xmVTpuQPQY+k32+4Bc3ZkYg3mKIU
+         vru8DNhjFKgQSIDPmZyMg+yJzcfF1oTAF/TwN4N5xyHlKA825gNntkJn+e0SWVQ3o0xW
+         W9kRzJtD4PgW7RP9dCFPE30+21QmVkMs+dGIHpqr3vHbWGmUmuAX+cW7UYVWFgzBnUPG
+         C27MuYmnAn12fPY+C21XsbE19XmZJtl6y7kd93d5/wyNz2n8UBB00F2HP5sjZRcW9vzr
+         dTY9dramEvJvVfvMWIEJBgkwCuEgaiBum2mz7eE/5WBYRItM18XZcs/+CQKfQWDVFlWL
+         Ci8g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776639100; x=1777243900; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nGI8q1vIW2YCqL8DB2swQpMBunXNj9M7QpTu5vxe99c=;
+        b=ARH1ITbLzYdgMR8rk+VA34VKhJpPLQH6mGKjr3ixWagblVCSeLufUKgSkVYcNAEFRL
+         3MBVP74dpA1gqfOcHSvF8O9MIHAM8BnzMguQm7QCDo5yhXNIWPjVtIt2leNscFCwObU4
+         Q2zIMpFoif1tt+1avc/HJJhn3EVzaA1ZamAV2yeWBkFzHk+K2ivRdWCdHpKXU3B/m4WH
+         kirUIHmCw1kJQIYMlSM9cjYoZydxq5gXHPyuLNJ77OpIWMmc4aS+CLiNHYDR4Pd6VyR8
+         xv/h9TRvFAzRgYpRbnJf/1PObENpGPYIrlh+JnPH3uaP0xcAWvXVilOeYr+bubbO8Mn7
+         PEqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776639100; x=1777243900;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=nGI8q1vIW2YCqL8DB2swQpMBunXNj9M7QpTu5vxe99c=;
+        b=q0w/lH0bRqxuIXubgdMnz9ZWd0gXcH+rzHha+ApAbgmaseRywnsSGD4XLa6RqmX1sP
+         hRnWgSqt1iANwGEmQ2+dM5sDqEslXqBcp2JzTilsRaCjto5z9Q40+m8NDUeVSeTmHnng
+         vl/xoRxLDr7Cc6Pywi9Q3N78pHXUhrBFrNQXocSfUcir4J0QRKN6HXOfVa6slCcKIvnx
+         dbhgTp301llYvea5dz9hAx3pn5kwX5s4OBGtUxnE0ZSuS9FzXH+ZN2NS7nUm8sFqIy3q
+         X+UkD29B9gmQ0BBeVpyhSe+HCzT/zC73Ry0ssDtnhvxfa2LB6u0TUzUgQrh2/uWNNoA8
+         Q6Gw==
+X-Forwarded-Encrypted: i=1; AFNElJ9lvfXVMM9q8zXg1I6HboTr2+4O2cCX+N5cz3s8c3SJ4nKtJSC97qvc9hm5+w8WHo50YxTI8WqAKigKqAX3WP8Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUEJMkA7gadhZ5R89wIU9S4kBS1EKhbqg33A/DyntA9jIXdVN4
+	2l4rGk6xlveiS80za5ckZedkYAdB5iw32MmLjufV1QgSWcmyp/HT3cEKI3fbxfz//gvj+SMzszP
+	7t/Vs7wEn4DxUvQhVZNBgIny4MbxP33o=
+X-Gm-Gg: AeBDieu2S3LJBD/03Bd41yeO9BVnHEljMJENkjOKZxQD3/M71MVdZLmZGVKNBBaDsmw
+	soZCi6cqRZulNR/JtwQTb9UgJ2mggGKhj+zLhkdyJZlH4Gzg+mOWquCoXROE8fpBqP1NlN2NGTS
+	zeqNueGftthD76yfAJWfuDigEVxjbLM0Xa5U1ZHRXWuzxtrAD4I27GM/SdsRmorHbygyq1nuzNM
+	GpcSiAqfbTNYZY0xwyRcWmosFtLZkCCk7YtVu9FjAZlbljE9FQyWREP/CwNzpmuB0m7oNs6nQC2
+	CzV5qq0gNUIww6gxmQaiorL3K0cs6FrhSLHtSTlDYUreQcnVld2dea2Ll0W5+Uxdvu8fKpIGK4H
+	dH1PxQcuwH8Rn9q4V5HiSw3qXvdoUah9Ae1H6
+X-Received: by 2002:a05:6000:22ca:b0:43d:7883:87ce with SMTP id
+ ffacd0b85a97d-43fe3dfd265mr15420059f8f.34.1776639099627; Sun, 19 Apr 2026
+ 15:51:39 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <20260413-kasan-v1-0-1a5831230821@bootlin.com> <20260413-kasan-v1-1-1a5831230821@bootlin.com>
+ <CA+fCnZfubV6LgRjO3NQvhrG2Q5o0ftkFFupLWVYS50XDnmCaog@mail.gmail.com>
+ <DHSWK17EZUDP.GIJ6BX2NFR6U@bootlin.com> <CAADnVQLJ=fJ7t1i2+_RYqU1gqYqiLP9Zrwo4vdZsgzjK_yzJTQ@mail.gmail.com>
+ <CA+fCnZd31GzdpEqR8VhfK4JtUKyyRMgbBoAbeGACJgm7WvB6Vw@mail.gmail.com>
+ <CAADnVQKv5y+gq=TnOAEXSqgBRpmHNjwqCfxpLaw5XkcbQ+23bg@mail.gmail.com> <CA+fCnZe-b0Qqbo5gGv3HN20twquQETDfYYkE1r9tPr9zUFbW9Q@mail.gmail.com>
+In-Reply-To: <CA+fCnZe-b0Qqbo5gGv3HN20twquQETDfYYkE1r9tPr9zUFbW9Q@mail.gmail.com>
+From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Date: Sun, 19 Apr 2026 15:51:28 -0700
+X-Gm-Features: AQROBzDew-foTfJLq_z3E45rMJ3PdE7WT5G5Kb1cNLd7o7s_NLhMVNDGxKf8D94
+Message-ID: <CAADnVQKuptG_opA12O=Xb9_+cHf3f=ycAZdfUp17P2HBYQzdsg@mail.gmail.com>
+Subject: Re: [PATCH RFC bpf-next 1/8] kasan: expose generic kasan helpers
+To: Andrey Konovalov <andreyknvl@gmail.com>
+Cc: =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+	John Fastabend <john.fastabend@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
+	David Ahern <dsahern@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>, 
+	"H. Peter Anvin" <hpa@zytor.com>, Shuah Khan <shuah@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Alexander Potapenko <glider@google.com>, 
+	Dmitry Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, ebpf@linuxfoundation.org, 
+	Bastien Curutchet <bastien.curutchet@bootlin.com>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Xu Kuohai <xukuohai@huawei.com>, 
+	bpf <bpf@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	Network Development <netdev@vger.kernel.org>, 
+	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	kasan-dev <kasan-dev@googlegroups.com>, linux-mm <linux-mm@kvack.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260419_153940_281361_5C517FBD 
-X-CRM114-Status: GOOD (  23.80  )
+X-CRM114-CacheID: sfid-20260419_155142_676476_1C2F9B76 
+X-CRM114-Status: GOOD (  27.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,133 +139,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 19 Apr 2026 14:46:08 +0200
-Michal Piekos <michal.piekos@mmpsystems.pl> wrote:
+On Sun, Apr 19, 2026 at 2:49=E2=80=AFPM Andrey Konovalov <andreyknvl@gmail.=
+com> wrote:
+>
+> On Tue, Apr 14, 2026 at 5:58=E2=80=AFPM Alexei Starovoitov
+> <alexei.starovoitov@gmail.com> wrote:
+> >
+> > I think we're talking past each other.
+> > We're not interested in KASAN_SW_TAGS or KASAN_HW_TAGS.
+> > We're not going to modify arm64 JIT at all.
+> >
+> > This is purely KASAN_GENRIC and only on x86-64.
+> > JIT will emit exactly what compilers emit for generic
+> > which is __asan_load/store. This is as stable ABI as it can get
+> > and we don't want to deviate from it.
+>
+> OK, I supposed that's fair. You did throw me off point with your
+> performance comment. But if you decide to add SW_TAGS support at some
+> point, I think this discussion needs to be revisited.
+>
+> But please add a comment saying that those functions are only exposed
+> for BPF JIT and they are not supposed to be used by other parts of the
+> kernel. And in case you do end up adding a new config option, guard
+> the public declarations by a corresponding ifdef.
 
-Hi,
+I feel concerns of misuse are overblown.
+Being in include/linux/kasan.h doesn't make them free-for-all
+all of a sudden, but if you prefer we can just copy paste:
++void __asan_load1(void *p);
++void __asan_store1(void *p);
+into bpf_jit_comp.c
 
-> H616 high speed timer differs from existing timer-sun5i by register base
-> offset.
-> 
-> Add selectable register layout structures.
-> Add H616 compatible string to OF match table.
-> 
-> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
-> ---
->  drivers/clocksource/timer-sun5i.c | 56 ++++++++++++++++++++++++++++++++++-----
->  1 file changed, 50 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/clocksource/timer-sun5i.c b/drivers/clocksource/timer-sun5i.c
-> index f827d3f98f60..125abc11c3c3 100644
-> --- a/drivers/clocksource/timer-sun5i.c
-> +++ b/drivers/clocksource/timer-sun5i.c
-> @@ -21,18 +21,52 @@
->  #define TIMER_IRQ_EN_REG		0x00
->  #define TIMER_IRQ_EN(val)			BIT(val)
->  #define TIMER_IRQ_ST_REG		0x04
-> -#define TIMER_CTL_REG(val)		(0x20 * (val) + 0x10)
->  #define TIMER_CTL_ENABLE			BIT(0)
->  #define TIMER_CTL_RELOAD			BIT(1)
-> -#define TIMER_CTL_CLK_PRES(val)			(((val) & 0x7) << 4)
->  #define TIMER_CTL_ONESHOT			BIT(7)
-> -#define TIMER_INTVAL_LO_REG(val)	(0x20 * (val) + 0x14)
-> -#define TIMER_INTVAL_HI_REG(val)	(0x20 * (val) + 0x18)
-> -#define TIMER_CNTVAL_LO_REG(val)	(0x20 * (val) + 0x1c)
-> -#define TIMER_CNTVAL_HI_REG(val)	(0x20 * (val) + 0x20)
-> +#define TIMER_CTL_CLK_PRES(val)		(((val) & 0x7) << 4)
-> +#define TIMER_CTL_REG(val)		\
-> +	(soc_base->stride * (val) + soc_base->ctl_base)
-> +#define TIMER_INTVAL_LO_REG(val)	\
-> +	(soc_base->stride * (val) + soc_base->intval_lo_base)
-> +#define TIMER_INTVAL_HI_REG(val)	\
-> +	(soc_base->stride * (val) + soc_base->intval_hi_base)
-> +#define TIMER_CNTVAL_LO_REG(val)	\
-> +	(soc_base->stride * (val) + soc_base->cntval_lo_base)
-> +#define TIMER_CNTVAL_HI_REG(val)	\
-> +	(soc_base->stride * (val) + soc_base->cntval_hi_base)
->  
->  #define TIMER_SYNC_TICKS	3
->  
-> +struct sunxi_timer_base {
-> +	u32 ctl_base;
-> +	u32 intval_lo_base;
-> +	u32 intval_hi_base;
-> +	u32 cntval_lo_base;
-> +	u32 cntval_hi_base;
-> +	u32 stride;
-> +};
-> +
-> +static const struct sunxi_timer_base sun5i_base = {
-> +	.ctl_base = 0x10,
-> +	.intval_lo_base = 0x14,
-> +	.intval_hi_base = 0x18,
-> +	.cntval_lo_base = 0x1c,
-> +	.cntval_hi_base = 0x20,
+> > The goal here is to find bugs in the verifier.
+> > If something got past it, that shouldn't have,
+> > kasan generic on x86-64 is enough.
+>
+> FWIW, I suspect HW_TAGS KASAN already just works with JITed BPF code.
 
-Mmmh, why all these members? Aren't those all the same, just offset by
-0x10? So we just need a single value reg_offs, being either 0x0 or 0x10?
-
-> +	.stride = 0x20
-
-What it this about? It's the same stride for both versions, so why is
-this a field?
-
-> +};
-> +
-> +static const struct sunxi_timer_base sun50i_base = {
-> +	.ctl_base = 0x20,
-> +	.intval_lo_base = 0x24,
-> +	.intval_hi_base = 0x28,
-> +	.cntval_lo_base = 0x2c,
-> +	.cntval_hi_base = 0x30,
-> +	.stride = 0x20
-> +};
-> +
-> +static const struct sunxi_timer_base *soc_base;
-
-This doesn't look right. Differentiating between slightly different
-hardware revision via the compatible string is a common pattern, look
-at for instance drivers/media/rc/sunxi-cir.c and its usage of quirks for
-an example how to handle this more nicely.
-
-Cheers,
-Andre
-
-> +
->  struct sun5i_timer {
->  	void __iomem		*base;
->  	struct clk		*clk;
-> @@ -238,6 +272,7 @@ static int sun5i_setup_clockevent(struct platform_device *pdev,
->  static int sun5i_timer_probe(struct platform_device *pdev)
->  {
->  	struct device *dev = &pdev->dev;
-> +	struct device_node *node = dev_of_node(&pdev->dev);
->  	struct sun5i_timer *st;
->  	struct reset_control *rstc;
->  	void __iomem *timer_base;
-> @@ -251,6 +286,14 @@ static int sun5i_timer_probe(struct platform_device *pdev)
->  
->  	platform_set_drvdata(pdev, st);
->  
-> +	if (!node)
-> +		return -EINVAL;
-> +
-> +	if (of_device_is_compatible(node, "allwinner,sun50i-h616-hstimer"))
-> +		soc_base = &sun50i_base;
-> +	else
-> +		soc_base = &sun5i_base;
-> +
->  	timer_base = devm_platform_ioremap_resource(pdev, 0);
->  	if (IS_ERR(timer_base)) {
->  		dev_err(dev, "Can't map registers\n");
-> @@ -314,6 +357,7 @@ static void sun5i_timer_remove(struct platform_device *pdev)
->  static const struct of_device_id sun5i_timer_of_match[] = {
->  	{ .compatible = "allwinner,sun5i-a13-hstimer" },
->  	{ .compatible = "allwinner,sun7i-a20-hstimer" },
-> +	{ .compatible = "allwinner,sun50i-h616-hstimer" },
->  	{},
->  };
->  MODULE_DEVICE_TABLE(of, sun5i_timer_of_match);
-> 
-
+Ohh. Good point. Looks like modern arm64 cpus in public clouds
+don't have that enabled, so one would need pixel phone to
+catch verifier bugs via hw_tags.
+So we still need this x86-specific jit kasan.
+I guess eventually it can be removed when hw_tags support is widespread.
 
