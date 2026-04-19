@@ -4,95 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE204EA71A1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 19:38:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 183D5EA719D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 19:53:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qy0yAxKlTm0kWqvDMnrH60Ig9RrzlJ71Kbc+KTUPLHA=; b=LK2xaIcN86C7ADJnWWgqTicIMQ
-	fg1zDtrdUcFnWB5VyzMaroc/TD7cSTFvQvIxlsvDuXy/N1g72jzniyd0ht6O1nkOxy/lGGLtX2dxx
-	cdbBSBkWoc8vpJBmY4pmOwloiAwKgN8RETaB9/6RWAgEGI8PE6VpMXCfHP96kYA0FIg/6zxLE+MY8
-	/3bqiIlzYWL92Ye5iT4Gm4KIKg7oRHVpyVWF5C3vUFEJeRJJhHQzntyb9mKeUAst7MtGlPd3bEBYD
-	5sMtAmeJMxE1z41wuN6PiHiMI1J9cTk2DOLt68FDrJrlc2/Cm5+PWldTvKB6+MEGjGEJC1XuvfKMd
-	ES7eyUXA==;
+	bh=Yv0rJLbh1UROWDenVdSFqMDYps6cJWmt3g4FVjQwqIc=; b=uu0ACGXJ0GDzIh4hmX/z1ZqC38
+	jEbaJdpkz8a71Cn+IL6jyz2z3Fb7Ztu3OTsFNq+y78nGe9gbU4jiycUqQTjKy4qUyMybNZBugTSoS
+	kuEMLlg8EsdpRdrhV9D/2L7SoCWEn4+kWS7WJR532s/fcnGZmFrr7Hiaq0GxA0Ap/WT6Z5F8I1kms
+	3rtB+fVWaQyHIdW/S8Uti0T+blhFlGP2mw80GeDLQrcoRM3hEcAHf6MN7XsklfJLxQ3DK6MwP09dl
+	pnfXOtlibKGCd+G6J4vbJrJkw6wYmnJGNVTwIl4EWNP8+Y8M+PE5/lIimcdTKiAhMVnXpWfWW+nb9
+	G/n3MvHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEXyF-000000062US-3aGq;
-	Sun, 19 Apr 2026 19:38:19 +0000
-Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
+	id 1wEYCx-000000063Mt-2x3n;
+	Sun, 19 Apr 2026 19:53:31 +0000
+Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEXyD-000000062SR-2ddt
+	id 1wEYCu-000000063MV-2tQt
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Apr 2026 19:38:19 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4fzJnM5ZRmz9v1W;
-	Sun, 19 Apr 2026 21:38:15 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1776627495;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qy0yAxKlTm0kWqvDMnrH60Ig9RrzlJ71Kbc+KTUPLHA=;
-	b=glL3ZUfDoJWgOZmSPJjh/p3y95Z73wctzYU07TwOnMEOxQJ1grsmrpl//tJi68+4RBe9fg
-	kcOs8SA4pPcTLaDLX1Y2e7SSrVdBMWRf0EUajun3kwW0X8N1z4cYoXg+HFITSALmpt7Jmk
-	p58isiIa0qmsTRsucVs91Une/cIHIvzZWDJPF2Mo8yWrtcaOPczwOePNowxqKnjVaJaLn9
-	XkwWYEECGpqO0t56+XpFqZdKX3W7L8B1utQMfMuFwqqDYhshMLrFVlByWnomFogDfYbQyA
-	ECkYsjob9gPslBeTiDAJFHukq4wOIUvrTXoKZiR27vdepMpkFbcMVm05gcIQkg==
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1776627494;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qy0yAxKlTm0kWqvDMnrH60Ig9RrzlJ71Kbc+KTUPLHA=;
-	b=QRNBLXICY7kXs9nCC22Ylw8iQrrbkqni8RTy/YahBk6jBNh9/yw7frD/pqW6/Jx5/bM3i6
-	flQATiKsKsiGikuI0qsvFUZB9BbvCz7E2sjli5H9gUI7UIgGAw6JWcRxliodBptRdlbYWZ
-	w/KvpAcamE7MAgL4o+GM8IF5oV9TH/F2DNdxjwJFWrR8aHx56vHl7LgpBgYQE+ggy1xSNu
-	HbCi9lz91HuC8CPUbvqCVCyUGZwmQwU+fdLIss0pW5xxndlSgBTCJfh/nwAkzuXl9opoxq
-	yP8XAEYSAXdIN5OVbmyaIzyr1Bf/MdwFTi4l5GbuxDgNs+r/aDpU6R8SmG56Og==
-To: linux-arm-kernel@lists.infradead.org
-Cc: Nguyen Tran <nguyen.tran.pz@bp.renesas.com>,
-	Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Airlie <airlied@gmail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Simona Vetter <simona@ffwll.ch>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
-	devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH 7/7] arm64: dts: renesas: r8a779md: Add support for R-Car M3Le R8A779MD Geist
-Date: Sun, 19 Apr 2026 21:35:38 +0200
-Message-ID: <20260419193718.133174-8-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260419193718.133174-1-marek.vasut+renesas@mailbox.org>
-References: <20260419193718.133174-1-marek.vasut+renesas@mailbox.org>
+	Sun, 19 Apr 2026 19:53:30 +0000
+Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-3870778358aso16363871fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 12:53:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776628406; cv=none;
+        d=google.com; s=arc-20240605;
+        b=PNAyZq9qlyVVb673Cos9/i3JAG58/p47CaEL+YsEBGqNmH4HSlCuhilKCh+AeIyo2C
+         6sMRM6j/jPsf7fQz6A74ITemv8kgSj2S4eF1iP/lnskf78o78lodS6YP4iY3ltSjgUFj
+         71aUgK7MrkUTS0mHKULou3yaNxT5CX0w1VtXtVTlZxMMslcsbQh7GT8WZI4W0vQW7KqA
+         3XcqPZo8/Hn7Z9LjjByWfv9LE6ejensYH+PLyECulCEoOhZh2PZ9OaLUkL5sUIvKGRl9
+         6pk+F+ziKQRQzWO5ox2pRbwMrMGMeqh7JGOpoL+ardDMdMffFe8D+8RieOeaxf591b9K
+         E27A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Yv0rJLbh1UROWDenVdSFqMDYps6cJWmt3g4FVjQwqIc=;
+        fh=9YFjG0UBTV7bYjrb6kJZKHSrQBQhfYvrdLJgc18Ddbk=;
+        b=EEY51uMfcqym1f62HqOBf2bmLeQ7PktrLPzgKnH2CxQrgYZrKz4KXxNZXrM1IeZPie
+         WgCLrWLQvGUH6xdS8HIhygEZ9eZ0X8lXIoriz//moPwYFAAZ2tqw8mOCQnRljN8pxIhg
+         Vkz6z8oXtWGCLYO0vtOhhZKmc3lKMaToFE8PlS6hxAdWvgg6LseN6wByGLCwIX1ADKit
+         iu4OUlgLjx0ZXvQnsTH44oVQdvInNTUP25V6l/fsr7Oh4DO2M5E807z/ED3Yj3YtGjfm
+         mx9uaB5ZgViM/1mhmcO9Ul9/THTQI/+XikbpLQ3InbFKquBzWSMp+ULLxRA9BGcyMmY+
+         FdXg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776628406; x=1777233206; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Yv0rJLbh1UROWDenVdSFqMDYps6cJWmt3g4FVjQwqIc=;
+        b=D84zfW8nZHy95pLDxjhCpCJHL+5XS1PfByZowiMpGO8I8IvEM0d1oTpYdlW2iihaFw
+         figBC+l4wSLMPj1SJJbPEYNsIsSWCCC/1U4j3PPSMjIK3L85Wxum984n+JA7K++MFpV2
+         CnPiiYQ5klolVrO+t3VFxFha5h9ANyLk1U/ITvnsB8Z6HZtcIFJ78j/7Zs0iF+rlsra+
+         mwBYcUSFdpoN2p6OU1ed69cqeV6a0+erPmQWlLqOA7GOFudpKji5sOO3xA/Fd6B9BEl4
+         0zijLocDptGK3zGRjLW/1/bldikiwrPA3BajI5X75aEiAgxAZrzPi6BKErngqlbxmKSi
+         kswQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776628406; x=1777233206;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Yv0rJLbh1UROWDenVdSFqMDYps6cJWmt3g4FVjQwqIc=;
+        b=pvAtmngF0bWSvSKZznbfyAs0i1u3CNx9pEOftg7kQszJewv/4jismZv0ZSJ9205Ogd
+         366Q3WQvXjIp6W8YTH5Ew/LPTWvltzdm+sdLgVnZyE9lr/bZaTtRC0IyEefRRO9qZgcS
+         oHg/xs48i3nvGzhgpQTm6TceZQZB3OxyEgoZP/s60IdoXmdPIBf8LwRyMAaz9L7nlFMb
+         yTINJw+9T8YO4yWyyX1Usp0nw9WmzhN2qekLPf2eT4tQ8hPG/yL47clcvasDPUJMmHFa
+         eMfnmnBGhi4I6UCLybaqxBKmN0HrsD2SHBohjsR8ZEk6cF41qypY/ZXZW3Oho3xhUKlS
+         1hkQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/YjaIPO7W/4ZK3h4ChKy5ND4EBRbKn0fDUujD9uLHKPg1mWRcP8bHxxdHSHb5/ebmv/9LuiH7GFRzeS20NS46f@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxz2UP8uT4z/vsQpYInKFvkAVE4/FVw/6UPWV/B95GC505yFt0I
+	EFYPJ0dU6b0nl88Q7lqjnv2aafUQbLGbR0UUv3nd19MwhyAx7piXxfzL/Vs/HgYHrVIS/7CfCen
+	hTL2YjucC5xTtS1im9kuhsEVLMdUB09s=
+X-Gm-Gg: AeBDietDpaMue0zOvrZWa0cayxZbJCtz0CjrCAnLZGgBTbF3YQEtHSXVwONc/B4wmWw
+	sGIFOAU412m6pGkInF+cZF+E+ebcZUaH+eB/bF4VRzDvIS0FpSsRKwQdbs8Qq6bfqdsO15joJ4A
+	pn1NEgCpGBuXmkophbafqTPMNsV8UOUrVfMtlvWWF0y27S3IpCZOqhGRGsOgSTpyVboL/RX2LYw
+	8LAfwm8mRSl4R2+kgdxMIKlhEYeihTBOgLzfBhfEZhvkTmJPtreYFnOmrorfziniA4fDl4vBwcD
+	m+OA/hiNZBdBhtpUZIvs+/p0QKYqJhM8JICUxlvi0P5i1gaKwaFcjcHqdpy8W2ZD6oLXktBAshI
+	dJa104A==
+X-Received: by 2002:a05:651c:b10:b0:38e:7c63:57b with SMTP id
+ 38308e7fff4ca-38ec7b4f659mr30733761fa.32.1776628405403; Sun, 19 Apr 2026
+ 12:53:25 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: gunbr4d7szq363up4u964aroz8oz7nhj
-X-MBO-RS-ID: 27954b95d5fdb8f3964
+References: <CAOMZO5CSzvBdgN5b5E0v0DB1FT4481pRTwoQJ9YzC8yMt81kmA@mail.gmail.com>
+In-Reply-To: <CAOMZO5CSzvBdgN5b5E0v0DB1FT4481pRTwoQJ9YzC8yMt81kmA@mail.gmail.com>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Sun, 19 Apr 2026 16:53:14 -0300
+X-Gm-Features: AQROBzA-gAphu-v55YBp8axcKiNPna_wNmYf-pyZUNcFOkUsM9HhOBWFmmAsxaQ
+Message-ID: <CAOMZO5C8SyLCmWo-y8X_Qu-WpTd51G93oxFqXeBza8hnov84=Q@mail.gmail.com>
+Subject: Re: Testing remoteproc on imx8mp-evk
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: NXP Linux Team <linux-imx@nxp.com>, 
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260419_123818_020671_64121731 
-X-CRM114-Status: GOOD (  17.61  )
+X-CRM114-CacheID: sfid-20260419_125328_750976_655A5E6C 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,920 +117,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nguyen Tran <nguyen.tran.pz@bp.renesas.com>
+On Wed, Mar 25, 2026 at 10:48=E2=80=AFPM Fabio Estevam <festevam@gmail.com>=
+ wrote:
+>
+> Hi Peng,
+>
+> I'm trying to use remoteproc on an imx8mp-evk board running mainline
+> U-Boot and the mainline kernel.
+>
+> Could you please share a simple Cortex-M7 .elf file I can use for
+> testing? Even a simple Hello World will suffice.
+>
+> It would be helpful if we add an imx8mp-evk devicetree overlay that
+> includes the described remoteproc nodes.
+>
+> Could you please share the remoteproc devicetree?
 
-Add support for the Geist board based on the Renesas R-Car R8A779MD (M3Le)
-SoC, a register-compatible variant of the R8A77965 (M3-N) with reduced set
-of peripherals. The Geist board design references the Renesas Salvator-X/XS
-boards, adapting their configuration for the R8A779MD SoC.
+I used the remoteproc description as the one sent by Marek for
+imx8mp-data-modul-edm-sbc-overlay-cm7.dtso:
 
-Signed-off-by: Nguyen Tran <nguyen.tran.pz@bp.renesas.com>
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: David Airlie <airlied@gmail.com>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Cc: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-Cc: Magnus Damm <magnus.damm@gmail.com>
-Cc: Maxime Ripard <mripard@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Simona Vetter <simona@ffwll.ch>
-Cc: Stephen Boyd <sboyd@kernel.org>
-Cc: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>
-Cc: devicetree@vger.kernel.org
-Cc: dri-devel@lists.freedesktop.org
-Cc: linux-clk@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-renesas-soc@vger.kernel.org
----
- arch/arm64/boot/dts/renesas/Makefile          |   3 +
- .../dts/renesas/geist-panel-aa104xd12.dtso    |  17 +
- .../arm64/boot/dts/renesas/r8a779md-geist.dts | 832 ++++++++++++++++++
- 3 files changed, 852 insertions(+)
- create mode 100644 arch/arm64/boot/dts/renesas/geist-panel-aa104xd12.dtso
- create mode 100644 arch/arm64/boot/dts/renesas/r8a779md-geist.dts
+https://lore.kernel.org/linux-arm-kernel/20260407211850.79881-4-marex@nabla=
+dev.com/
 
-diff --git a/arch/arm64/boot/dts/renesas/Makefile b/arch/arm64/boot/dts/renesas/Makefile
-index ca45d2857ea7f..0b8fbc7b00c6e 100644
---- a/arch/arm64/boot/dts/renesas/Makefile
-+++ b/arch/arm64/boot/dts/renesas/Makefile
-@@ -60,6 +60,9 @@ r8a77965-salvator-xs-panel-aa104xd12-dtbs := r8a77965-salvator-xs.dtb salvator-p
- dtb-$(CONFIG_ARCH_R8A77965) += r8a77965-salvator-xs-panel-aa104xd12.dtb
- dtb-$(CONFIG_ARCH_R8A77965) += r8a77965-ulcb.dtb
- dtb-$(CONFIG_ARCH_R8A77965) += r8a77965-ulcb-kf.dtb
-+dtb-$(CONFIG_ARCH_R8A77965) += r8a779md-geist.dtb
-+r8a779md-geist-panel-aa104xd12-dtbs := r8a779md-geist.dtb geist-panel-aa104xd12.dtbo
-+dtb-$(CONFIG_ARCH_R8A77965) += r8a779md-geist-panel-aa104xd12.dtb
- 
- dtb-$(CONFIG_ARCH_R8A77970) += r8a77970-eagle.dtb
- dtb-$(CONFIG_ARCH_R8A77970) += r8a77970-eagle-function-expansion.dtbo
-diff --git a/arch/arm64/boot/dts/renesas/geist-panel-aa104xd12.dtso b/arch/arm64/boot/dts/renesas/geist-panel-aa104xd12.dtso
-new file mode 100644
-index 0000000000000..c8e39811eb051
---- /dev/null
-+++ b/arch/arm64/boot/dts/renesas/geist-panel-aa104xd12.dtso
-@@ -0,0 +1,17 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Device Tree overlay for the AA104XD12 panel connected to LVDS0 on a Geist board
-+ *
-+ * Copyright 2026 Marek Vasut
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+
-+#include "salvator-panel-aa104xd12.dtso"
-+
-+&{/panel} {
-+	data-mapping = "jeida-24";
-+};
-diff --git a/arch/arm64/boot/dts/renesas/r8a779md-geist.dts b/arch/arm64/boot/dts/renesas/r8a779md-geist.dts
-new file mode 100644
-index 0000000000000..1a25acf638ea1
---- /dev/null
-+++ b/arch/arm64/boot/dts/renesas/r8a779md-geist.dts
-@@ -0,0 +1,832 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+/*
-+ * Device Tree Source for the Geist board with R-Car M3Le
-+ *
-+ * Copyright (C) 2025-2026 Renesas Electronics Corp.
-+ */
-+
-+/dts-v1/;
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+#include "r8a779md.dtsi"
-+
-+/ {
-+	model = "Renesas Geist board based on r8a779md";
-+	compatible = "renesas,geist", "renesas,r8a779md", "renesas,r8a77965";
-+
-+	aliases {
-+		serial0 = &scif2;
-+		serial1 = &hscif1;
-+		ethernet0 = &avb;
-+		mmc0 = &sdhi2;
-+		mmc1 = &sdhi0;
-+	};
-+
-+	chosen {
-+		bootargs = "ignore_loglevel rw root=/dev/nfs ip=on";
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	memory@48000000 {
-+		device_type = "memory";
-+		/* first 128MB is reserved for secure area. */
-+		reg = <0x0 0x48000000 0x0 0x78000000>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		/* Device specific region for Lossy Decompression */
-+		lossy_decompress: linux,lossy_decompress@54000000 {
-+			no-map;
-+			reg = <0x00000000 0x54000000 0x0 0x03000000>;
-+		};
-+	};
-+
-+	audio_clkout: audio-clkout {
-+		/*
-+		 * FIXME
-+		 * This is same as <&rcar_sound 0>
-+		 * but needed to avoid cs2500/rcar_sound probe dead-lock
-+		 */
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <12288000>;
-+	};
-+
-+	backlight: backlight {
-+		compatible = "pwm-backlight";
-+		pwms = <&pwm1 0 50000>;
-+
-+		brightness-levels = <256 128 64 16 8 4 0>;
-+		default-brightness-level = <6>;
-+
-+		power-supply = <&reg_12v>;
-+		enable-gpios = <&gpio6 7 GPIO_ACTIVE_HIGH>;
-+	};
-+
-+	cvbs-in {
-+		compatible = "composite-video-connector";
-+		label = "CVBS IN";
-+
-+		port {
-+			cvbs_con: endpoint {
-+				remote-endpoint = <&adv7482_ain7>;
-+			};
-+		};
-+	};
-+
-+	hdmi-in {
-+		compatible = "hdmi-connector";
-+		label = "HDMI IN";
-+		type = "a";
-+
-+		port {
-+			hdmi_in_con: endpoint {
-+				remote-endpoint = <&adv7482_hdmi>;
-+			};
-+		};
-+	};
-+
-+	keys {
-+		compatible = "gpio-keys";
-+
-+		pinctrl-0 = <&keys_pins>;
-+		pinctrl-names = "default";
-+
-+		key-1 {
-+			gpios = <&gpio5 17 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_1>;
-+			label = "SW4-1";
-+			wakeup-source;
-+			debounce-interval = <20>;
-+		};
-+
-+		key-2 {
-+			gpios = <&gpio5 20 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_2>;
-+			label = "SW4-2";
-+			wakeup-source;
-+			debounce-interval = <20>;
-+		};
-+
-+		key-3 {
-+			gpios = <&gpio5 22 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_3>;
-+			label = "SW4-3";
-+			wakeup-source;
-+			debounce-interval = <20>;
-+		};
-+
-+		key-4 {
-+			gpios = <&gpio5 23 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_4>;
-+			label = "SW4-4";
-+			wakeup-source;
-+			debounce-interval = <20>;
-+		};
-+
-+		key-a {
-+			gpios = <&gpio6 11 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_A>;
-+			label = "TSW0";
-+			wakeup-source;
-+			debounce-interval = <20>;
-+		};
-+
-+		key-b {
-+			gpios = <&gpio6 12 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_B>;
-+			label = "TSW1";
-+			wakeup-source;
-+			debounce-interval = <20>;
-+		};
-+
-+		key-c {
-+			gpios = <&gpio6 13 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_C>;
-+			label = "TSW2";
-+			wakeup-source;
-+			debounce-interval = <20>;
-+		};
-+	};
-+
-+	reg_1p8v: regulator0 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "fixed-1.8V";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	reg_3p3v: regulator1 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "fixed-3.3V";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	reg_12v: regulator2 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "fixed-12V";
-+		regulator-min-microvolt = <12000000>;
-+		regulator-max-microvolt = <12000000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	sound_card: sound {
-+		compatible = "audio-graph-card";
-+
-+		label = "rcar-sound";
-+		dais = <&rsnd_port0>; /* AK4619 Audio Codec */
-+	};
-+
-+	vbus0_usb2: regulator-vbus0-usb2 {
-+		compatible = "regulator-fixed";
-+
-+		regulator-name = "USB20_VBUS0";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+
-+		gpio = <&gpio6 16 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	vcc_sdhi0: regulator-vcc-sdhi0 {
-+		compatible = "regulator-fixed";
-+
-+		regulator-name = "SDHI0 Vcc";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+
-+		gpio = <&gpio5 2 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	vccq_sdhi0: regulator-vccq-sdhi0 {
-+		compatible = "regulator-gpio";
-+
-+		regulator-name = "SDHI0 VccQ";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+
-+		gpios = <&gpio5 1 GPIO_ACTIVE_HIGH>;
-+		gpios-states = <1>;
-+		states = <3300000 1>, <1800000 0>;
-+	};
-+
-+	vga {
-+		compatible = "vga-connector";
-+
-+		port {
-+			vga_in: endpoint {
-+				remote-endpoint = <&adv7123_out>;
-+			};
-+		};
-+	};
-+
-+	vga-encoder {
-+		compatible = "adi,adv7123";
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+				adv7123_in: endpoint {
-+					remote-endpoint = <&du_out_rgb>;
-+				};
-+			};
-+			port@1 {
-+				reg = <1>;
-+				adv7123_out: endpoint {
-+					remote-endpoint = <&vga_in>;
-+				};
-+			};
-+		};
-+	};
-+
-+	x12_clk: x12 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <24576000>;
-+	};
-+
-+	/* External DU dot clocks */
-+	x21_clk: x21-clock {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <33000000>;
-+	};
-+
-+	x22_clk: x22-clock {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <33000000>;
-+	};
-+
-+	x23_clk: x23-clock {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <25000000>;
-+	};
-+
-+	x3013_clk: x3013-clock {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <25000000>;
-+	};
-+};
-+
-+&audio_clk_a {
-+	clock-frequency = <22579200>;
-+};
-+
-+&avb {
-+	pinctrl-0 = <&avb_pins>;
-+	pinctrl-names = "default";
-+	phy-handle = <&phy0>;
-+	tx-internal-delay-ps = <2000>;
-+	status = "okay";
-+
-+	phy0: ethernet-phy@0 {
-+		rxc-skew-ps = <1500>;
-+		reg = <0>;
-+		interrupt-parent = <&gpio2>;
-+		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
-+		reset-gpios = <&gpio2 10 GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <100>;
-+		reset-deassert-us = <100>;
-+	};
-+};
-+
-+&csi40 {
-+	status = "okay";
-+
-+	ports {
-+		port@0 {
-+			csi40_in: endpoint {
-+				clock-lanes = <0>;
-+				data-lanes = <1 2 3 4>;
-+				remote-endpoint = <&adv7482_txa>;
-+			};
-+		};
-+	};
-+};
-+
-+&du {
-+	pinctrl-0 = <&du_pins>;
-+	pinctrl-names = "default";
-+	clocks = <&cpg CPG_MOD 724>,
-+		 <&cpg CPG_MOD 723>,
-+		 <&cpg CPG_MOD 721>,
-+		 <&versaclock5 1>,
-+		 <&x21_clk>,
-+		 <&versaclock5 2>;
-+	clock-names = "du.0", "du.1", "du.3",
-+		      "dclkin.0", "dclkin.1", "dclkin.3";
-+	status = "okay";
-+
-+	ports {
-+		port@0 {
-+			du_out_rgb: endpoint {
-+				remote-endpoint = <&adv7123_in>;
-+			};
-+		};
-+	};
-+};
-+
-+&ehci0 {
-+	dr_mode = "otg";
-+	status = "okay";
-+};
-+
-+&ehci1 {
-+	status = "okay";
-+};
-+
-+&extalr_clk {
-+	clock-frequency = <32768>;
-+};
-+
-+&extal_clk {
-+	clock-frequency = <16666666>;
-+};
-+
-+&hscif1 {
-+	pinctrl-0 = <&hscif1_pins>;
-+	pinctrl-names = "default";
-+
-+	uart-has-rtscts;
-+	/* Please only enable hscif1 or scif1 */
-+	status = "okay";
-+};
-+
-+&hsusb {
-+	dr_mode = "otg";
-+	status = "okay";
-+};
-+
-+&i2c2 {
-+	pinctrl-0 = <&i2c2_pins>;
-+	pinctrl-names = "default";
-+	clock-frequency = <100000>;
-+	status = "okay";
-+
-+	ak4619: codec@10 {
-+		compatible = "asahi-kasei,ak4619";
-+		reg = <0x10>;
-+		clocks = <&rcar_sound 3>;
-+		clock-names = "mclk";
-+		#sound-dai-cells = <0>;
-+
-+		port {
-+			ak4619_endpoint: endpoint {
-+				remote-endpoint = <&rsnd_endpoint0>;
-+			};
-+		};
-+	};
-+
-+	/* Pin-to-pin, register map, and control compatible with CS2000 and CS2200 */
-+	cs2500: clk_multiplier@4f {
-+		#clock-cells = <0>;
-+		compatible = "cirrus,cs2500-cp", "cirrus,cs2000-cp";
-+		reg = <0x4f>;
-+		clocks = <&audio_clkout>, <&x12_clk>;
-+		clock-names = "clk_in", "ref_clk";
-+
-+		assigned-clocks = <&cs2500>;
-+		assigned-clock-rates = <24576000>; /* 1/1 divide */
-+	};
-+};
-+
-+&i2c4 {
-+	clock-frequency = <400000>;
-+	status = "okay";
-+
-+	versaclock3: clock-generator@68 {
-+		compatible = "renesas,5p35023";
-+		reg = <0x68>;
-+		#clock-cells = <1>;
-+		clocks = <&x3013_clk>;
-+		assigned-clocks = <&versaclock3 4>, <&versaclock3 5>;
-+		assigned-clock-rates = <100000000>, <100000000>;
-+	};
-+
-+	versaclock5: clock-generator@6a {
-+		compatible = "idt,5p49v5923";
-+		reg = <0x6a>;
-+		#clock-cells = <1>;
-+		clocks = <&x23_clk>;
-+		clock-names = "xin";
-+	};
-+
-+	video-receiver@70 {
-+		compatible = "adi,adv7482";
-+		reg = <0x70 0x71 0x72 0x73 0x74 0x75
-+		       0x60 0x61 0x62 0x63 0x64 0x65>;
-+		reg-names = "main", "dpll", "cp", "hdmi", "edid", "repeater",
-+			    "infoframe", "cbus", "cec", "sdp", "txa", "txb" ;
-+
-+		interrupt-parent = <&gpio6>;
-+		interrupts = <30 IRQ_TYPE_LEVEL_LOW>,
-+			     <31 IRQ_TYPE_LEVEL_LOW>;
-+		interrupt-names = "intrq1", "intrq2";
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@7 {
-+				reg = <7>;
-+
-+				adv7482_ain7: endpoint {
-+					remote-endpoint = <&cvbs_con>;
-+				};
-+			};
-+
-+			port@8 {
-+				reg = <8>;
-+
-+				adv7482_hdmi: endpoint {
-+					remote-endpoint = <&hdmi_in_con>;
-+				};
-+			};
-+
-+			port@a {
-+				reg = <10>;
-+
-+				adv7482_txa: endpoint {
-+					clock-lanes = <0>;
-+					data-lanes = <1 2 3 4>;
-+					remote-endpoint = <&csi40_in>;
-+				};
-+			};
-+		};
-+	};
-+
-+	csa_vdd: adc@7c {
-+		compatible = "maxim,max9611";
-+		reg = <0x7c>;
-+
-+		shunt-resistor-micro-ohms = <5000>;
-+	};
-+
-+	csa_dvfs: adc@7f {
-+		compatible = "maxim,max9611";
-+		reg = <0x7f>;
-+
-+		shunt-resistor-micro-ohms = <5000>;
-+	};
-+};
-+
-+&i2c_dvfs {
-+	status = "okay";
-+
-+	clock-frequency = <400000>;
-+
-+	eeprom@50 {
-+		compatible = "rohm,br24t01", "atmel,24c01";
-+		reg = <0x50>;
-+		pagesize = <8>;
-+	};
-+};
-+
-+&ohci0 {
-+	dr_mode = "otg";
-+	status = "okay";
-+};
-+
-+&ohci1 {
-+	status = "okay";
-+};
-+
-+&pcie_bus_clk {
-+	status = "disabled";
-+};
-+
-+&pciec0 {
-+	clocks = <&cpg CPG_MOD 319>, <&versaclock3 4>;
-+	status = "okay";
-+};
-+
-+&pciec0_rp {
-+	clocks = <&versaclock3 5>;
-+};
-+
-+&pfc {
-+	pinctrl-0 = <&scif_clk_pins>;
-+	pinctrl-names = "default";
-+
-+	avb_pins: avb {
-+		mux {
-+			groups = "avb_link", "avb_mdio", "avb_mii";
-+			function = "avb";
-+		};
-+
-+		pins_mdio {
-+			groups = "avb_mdio";
-+			drive-strength = <24>;
-+		};
-+
-+		pins_mii_tx {
-+			pins = "PIN_AVB_TX_CTL", "PIN_AVB_TXC", "PIN_AVB_TD0",
-+			       "PIN_AVB_TD1", "PIN_AVB_TD2", "PIN_AVB_TD3";
-+			drive-strength = <12>;
-+		};
-+	};
-+
-+	du_pins: du {
-+		groups = "du_rgb888", "du_sync", "du_oddf", "du_clk_out_0";
-+		function = "du";
-+	};
-+
-+	hscif1_pins: hscif1 {
-+		groups = "hscif1_data_a", "hscif1_ctrl_a";
-+		function = "hscif1";
-+	};
-+
-+	i2c2_pins: i2c2 {
-+		groups = "i2c2_a";
-+		function = "i2c2";
-+	};
-+
-+	irq0_pins: irq0 {
-+		groups = "intc_ex_irq0";
-+		function = "intc_ex";
-+	};
-+
-+	keys_pins: keys {
-+		pins = "GP_5_17", "GP_5_20", "GP_5_22";
-+		bias-pull-up;
-+	};
-+
-+	pwm1_pins: pwm1 {
-+		groups = "pwm1_a";
-+		function = "pwm1";
-+	};
-+
-+	pwm2_pins: pwm2 {
-+		groups = "pwm2_a";
-+		function = "pwm2";
-+	};
-+
-+	scif1_pins: scif1 {
-+		groups = "scif1_data_a", "scif1_ctrl";
-+		function = "scif1";
-+	};
-+
-+	scif2_pins: scif2 {
-+		groups = "scif2_data_a";
-+		function = "scif2";
-+	};
-+
-+	scif_clk_pins: scif_clk {
-+		groups = "scif_clk_a";
-+		function = "scif_clk";
-+	};
-+
-+	sdhi0_pins: sd0 {
-+		groups = "sdhi0_data4", "sdhi0_ctrl";
-+		function = "sdhi0";
-+		power-source = <3300>;
-+	};
-+
-+	sdhi0_pins_uhs: sd0_uhs {
-+		groups = "sdhi0_data4", "sdhi0_ctrl";
-+		function = "sdhi0";
-+		power-source = <1800>;
-+	};
-+
-+	sdhi2_pins: sd2 {
-+		groups = "sdhi2_data8", "sdhi2_ctrl", "sdhi2_ds";
-+		function = "sdhi2";
-+		power-source = <1800>;
-+	};
-+
-+	sound_pins: sound {
-+		groups = "ssi01239_ctrl", "ssi0_data", "ssi1_data_a";
-+		function = "ssi";
-+	};
-+
-+	sound_clk_pins: sound_clk {
-+		groups = "audio_clk_a_a", "audio_clk_b_a", "audio_clk_c_a",
-+			 "audio_clkout_a", "audio_clkout3_a";
-+		function = "audio_clk";
-+	};
-+
-+	usb0_pins: usb0 {
-+		groups = "usb0";
-+		function = "usb0";
-+	};
-+
-+	usb1_pins: usb1 {
-+		mux {
-+			groups = "usb1";
-+			function = "usb1";
-+		};
-+
-+		ovc {
-+			pins = "GP_6_27";
-+			bias-pull-up;
-+		};
-+
-+		pwen {
-+			pins = "GP_6_26";
-+			bias-pull-down;
-+		};
-+	};
-+};
-+
-+&pwm1 {
-+	pinctrl-0 = <&pwm1_pins>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+&pwm2 {
-+	pinctrl-0 = <&pwm2_pins>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+&rcar_sound {
-+	pinctrl-0 = <&sound_pins>, <&sound_clk_pins>;
-+	pinctrl-names = "default";
-+
-+	/* Single DAI */
-+	#sound-dai-cells = <0>;
-+
-+	/* audio_clkout0/1/2/3 */
-+	#clock-cells = <1>;
-+	clock-frequency = <12288000 11289600>;
-+
-+	status = "okay";
-+
-+	/* update <audio_clk_b> to <cs2500> */
-+	clocks = <&cpg CPG_MOD 1005>,
-+		 <&cpg CPG_MOD 1006>, <&cpg CPG_MOD 1007>,
-+		 <&cpg CPG_MOD 1008>, <&cpg CPG_MOD 1009>,
-+		 <&cpg CPG_MOD 1010>, <&cpg CPG_MOD 1011>,
-+		 <&cpg CPG_MOD 1012>, <&cpg CPG_MOD 1013>,
-+		 <&cpg CPG_MOD 1014>, <&cpg CPG_MOD 1015>,
-+		 <&cpg CPG_MOD 1022>, <&cpg CPG_MOD 1023>,
-+		 <&cpg CPG_MOD 1024>, <&cpg CPG_MOD 1025>,
-+		 <&cpg CPG_MOD 1026>, <&cpg CPG_MOD 1027>,
-+		 <&cpg CPG_MOD 1028>, <&cpg CPG_MOD 1029>,
-+		 <&cpg CPG_MOD 1030>, <&cpg CPG_MOD 1031>,
-+		 <&cpg CPG_MOD 1020>, <&cpg CPG_MOD 1021>,
-+		 <&cpg CPG_MOD 1020>, <&cpg CPG_MOD 1021>,
-+		 <&cpg CPG_MOD 1019>, <&cpg CPG_MOD 1018>,
-+		 <&audio_clk_a>, <&cs2500>,
-+		 <&audio_clk_c>,
-+		 <&cpg CPG_MOD 922>;
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		rsnd_port0: port {
-+			rsnd_endpoint0: endpoint {
-+				remote-endpoint = <&ak4619_endpoint>;
-+				dai-format = "left_j";
-+				bitclock-master = <&rsnd_endpoint0>;
-+				frame-master = <&rsnd_endpoint0>;
-+				playback = <&ssi0>, <&src0>, <&dvc0>;
-+				capture = <&ssi1>, <&src1>, <&dvc1>;
-+			};
-+		};
-+	};
-+};
-+
-+&rwdt {
-+	timeout-sec = <60>;
-+	status = "okay";
-+};
-+
-+&scif1 {
-+	pinctrl-0 = <&scif1_pins>;
-+	pinctrl-names = "default";
-+
-+	uart-has-rtscts;
-+	/* Please only enable hscif1 or scif1 */
-+	/* status = "okay"; */
-+};
-+
-+&scif2 {
-+	pinctrl-0 = <&scif2_pins>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+&scif_clk {
-+	clock-frequency = <14745600>;
-+};
-+
-+&sdhi0 {
-+	pinctrl-0 = <&sdhi0_pins>;
-+	pinctrl-1 = <&sdhi0_pins_uhs>;
-+	pinctrl-names = "default", "state_uhs";
-+
-+	vmmc-supply = <&vcc_sdhi0>;
-+	vqmmc-supply = <&vccq_sdhi0>;
-+	cd-gpios = <&gpio3 12 GPIO_ACTIVE_LOW>;
-+	wp-gpios = <&gpio3 13 GPIO_ACTIVE_HIGH>;
-+	bus-width = <4>;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	status = "okay";
-+};
-+
-+&sdhi2 {
-+	/* used for on-board 8bit eMMC */
-+	pinctrl-0 = <&sdhi2_pins>;
-+	pinctrl-1 = <&sdhi2_pins>;
-+	pinctrl-names = "default", "state_uhs";
-+
-+	iommus = <&ipmmu_ds1 34>;
-+
-+	vmmc-supply = <&reg_3p3v>;
-+	vqmmc-supply = <&reg_1p8v>;
-+	bus-width = <8>;
-+	mmc-hs200-1_8v;
-+	no-sd;
-+	no-sdio;
-+	non-removable;
-+	fixed-emmc-driver-type = <1>;
-+	full-pwr-cycle-in-suspend;
-+	status = "okay";
-+};
-+
-+&ssi1 {
-+	shared-pin;
-+};
-+
-+&usb_extal_clk {
-+	clock-frequency = <50000000>;
-+};
-+
-+&usb2_phy0 {
-+	pinctrl-0 = <&usb0_pins>;
-+	pinctrl-names = "default";
-+
-+	vbus-supply = <&vbus0_usb2>;
-+	status = "okay";
-+};
-+
-+&usb2_phy1 {
-+	pinctrl-0 = <&usb1_pins>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+&vin0 {
-+	status = "okay";
-+};
-+
-+&vin1 {
-+	status = "okay";
-+};
-+
-+&vin2 {
-+	status = "okay";
-+};
-+
-+&vin3 {
-+	status = "okay";
-+};
-+
-+&vin4 {
-+	status = "okay";
-+};
-+
-+&vin5 {
-+	status = "okay";
-+};
-+
-+&vin6 {
-+	status = "okay";
-+};
-+
-+&vin7 {
-+	status = "okay";
-+};
-+
-+&vspb {
-+	status = "okay";
-+};
-+
-+&vspi0 {
-+	status = "okay";
-+};
--- 
-2.53.0
+I had to manually build the hello_world_cm7 SDK example, and now it
+loads successfully:
 
+# cat  /sys/class/remoteproc/remoteproc0/state
+offline
+# echo hello_world_cm7.elf > /sys/class/remoteproc/remoteproc0/firmware
+# echo start > /sys/class/remoteproc/remoteproc0/state
+# echo stop > /sys/class/remoteproc/remoteproc0/state
+
+# dmesg | grep remoteproc
+[    0.197328] remoteproc remoteproc0: imx-rproc is available
+[   82.061452] remoteproc remoteproc0: powering up imx-rproc
+[   82.066846] remoteproc remoteproc0: Booting fw image
+hello_world_cm7.elf, size 232592
+[   82.067105] remoteproc remoteproc0: remote processor imx-rproc is now up
+[   99.565501] remoteproc remoteproc0: stopped remote processor imx-rproc
 
