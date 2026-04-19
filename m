@@ -4,81 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72ED0EA718A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 11:24:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5F82EA7199
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 11:41:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Cc:To:References:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CVIi4BTXGqRWLbaF1AjKsZST1JQete5I/BbrbNbXtW8=; b=LwGNLb60spzM23SUBFH7NuH83t
-	cJXBbezSYFHqUuwB7NVV+auJ4oh7IRkxj/L1vj88bTtIxveFT/CfJW6/A9Jmu6eb08NPVIImFoC83
-	ovBXSGFb+9rBedUVuaj+Bvdgrq02PCBa2dYhhRyKHPGZnWC2fLkl0Glaqk/+NSLEpAROCd6lcfBee
-	9w/d80yZP9TP9fw/mUVT8QmCE9rKwweU6rxCY50Osg6wi/2KznA3ItCh3ACgPkRPOnE5YwfuJUof7
-	HbMAdyAaVAEavw5S5a8dIxMUXdvnxS0djBewByIAknZxM7lF2Uvu3v8RiQeJc3X/lCay72YzxJcVs
-	5hrXjmFQ==;
+	bh=w/AOOji5H/H94/JhqjPLabF0j7yCM0LUwvT3tEVvAxc=; b=yb95zTnS2mxgTLJ2c2urbms3KQ
+	B4ow1sugZ0tc58rTMtLA+r92gEEGXDbujUWpUxXrFNKg7g5sKtGeb6+spDtZWGpKPYtoj6g0IhjRs
+	Q71N7uqfhOAVDhc3zTFNj0UtwidB3bmQUT5JbApu0VUKaJ6s82Tv0e0HbTwYfLP8UXpf8ChFenilo
+	GlhTXIk2/Q5omtKloon0lW21acbqDoaTaputagZNUewY0ayGMcM+pKs8/Zlf4TzYx15uQ3vQH5ao+
+	WK4h4nBJTIXO4cL05uszG7vgEz3SMx4RTJnPRHQ7flPBv5wRQ39UwX44FVDZT7Up05sFzfyyM2/mw
+	sl6ehELg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEQGG-00000005jpg-27JY;
-	Sun, 19 Apr 2026 11:24:24 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1wEQX5-00000005kZT-0ceP;
+	Sun, 19 Apr 2026 11:41:47 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEQGC-00000005jpG-46Tk
+	id 1wEQX1-00000005kZ7-3lyt
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Apr 2026 11:24:22 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2b299b3c739so9422515ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 04:24:20 -0700 (PDT)
+	Sun, 19 Apr 2026 11:41:45 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-82735a41920so847338b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 04:41:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776597859; x=1777202659; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:cc:to:references
-         :content-language:subject:user-agent:mime-version:date:message-id
+        d=gmail.com; s=20251104; t=1776598903; x=1777203703; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=CVIi4BTXGqRWLbaF1AjKsZST1JQete5I/BbrbNbXtW8=;
-        b=M4JeiIWhP8Sx1YPx1sk8YrGHMHSxypEwcmgYHSEN+oJwINrE8OcNHoeq0+w59xVqvQ
-         MbWKRKoN+3hZfkoSj1UIAuMI3JI6vLmX0/A4GIfwQYZWtP2FGtWlQHrctFr3Q/TWyEnT
-         O2/JMR6PnykR4o34t0g0m9paldTpPvrc7dDzirIFuGM1z+sUgtI6fTjf2jSvhtkGOFej
-         hbvPuvbYBMfy6gm4HXBLZlDezPgGJ7UsTBZh/5k64mX9kaGcG/OIhCX1X8n3AO+x5ANR
-         DN2fiQXX6/4B8rfQI8IgdYcHuMuiC7bEaDX5T8kEyvlmvSmyrHgofhLnsNsZ48EWy+SH
-         sa6Q==
+        bh=w/AOOji5H/H94/JhqjPLabF0j7yCM0LUwvT3tEVvAxc=;
+        b=r1c0v+mGGSt4maNb5L7bU5dmFd86twnSs2SY0A10KViw7UQNgKfB5BorBRtHlOCt2N
+         KepyMVQIktFUp4OvFzXn+CdwjBiJJC+v1Xi1zWr8Dyc2uk2gaT7MDZkDQ0f339ZX2S9m
+         QdjLCOhO9bZMk0i0EItCBsSloeQ0dMbwYV6H4972a0Lx4t5SxWLcbuL4PG4INEisoAjE
+         F3uiDYTpg9/nagwwsTx4OlKT4jcR+IoWYnd/tpX8VYeEi+ivuSOCnHV2HwKXfrjl8L6p
+         t6WGMJXe2ko2sfa2/0Ze1RXS/6A2jAu77liTC44P0v2x5wf7PfYw4HLftJWemtdVSHbA
+         aveg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776597859; x=1777202659;
-        h=content-transfer-encoding:in-reply-to:from:cc:to:references
-         :content-language:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20251104; t=1776598903; x=1777203703;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=CVIi4BTXGqRWLbaF1AjKsZST1JQete5I/BbrbNbXtW8=;
-        b=NGQpL3l4dZ2J4ftmuZuDJdn7Nj7eorg89nd40asbtv6HQ0hArnCOtaz/ngaCgeHbjY
-         XpV2i/op8kcmpc0M5eoW+Pn8Bs4qi5zsQmubZPt0DFTPaiTI3m5C0v4zKwHrRLPEhIsm
-         axGVBg+DYFqRNd1lc7IDSyi160OeI6H6CpgsiPHN5oy5U+59G9p7XMixZkT4S+ioemhi
-         S+HP5v+fU/JrBXgYnZZ/IC0Tr9FAcmH1GxnyDSOPG7sFsN33tQg/phqbDfvJ/CA32fWx
-         hR/swUqWR13crjjqrelYJMVZRs5s/hpw7Gp/MtL/ig3G/QtCL1XOvD+4A/kscbQhM1t8
-         hLbA==
-X-Forwarded-Encrypted: i=1; AFNElJ9p4aAtl3mKGe8A9oD59S2QzY6zz7qyEDZ0PpTIVobyznYDwWzgflZH51jmUJurr6vrixMmugS2hm6tR8QSnHTV@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPkw/19uXqbYDB2FZA1kwkVyc9Zk9LLJBgwc6P2QezJUPtsytI
-	x3j72J7rt2nQoxQZYt1LAOS+9uqGlODiQjO3wbG5eB8CUuTDbENrtvP4
-X-Gm-Gg: AeBDietlu1kOVy+L3TvVkDPCA/5q2MFGAiPpYJjSxAcp0E17sYKkXQVLoKft4n7Rn0y
-	nRKJrDhOfgMNGiKe0V3npvTlu5UvkIc1Moiel6OETh2Yq2/b1PkU2+b+Mwobv+4g5l10Db0rExO
-	HwSUVwQK1x7ocvrMW29yFGARJe6u3IwxVXLj+iTMgVuMsY6iVaRCsoNN2pMR2a49y5UyOaZMMVD
-	CEoLbz2ni9YzNcIDvnS+mvEldgskRTrXSXQeuZyved31O7UkvHJFxfdfp9ACJib3PCHFFI6UTN2
-	Q3kANM7K4xKQmROWmITlNqRKa5XqJv8Y0z3wvuIn30owLGmDNOXQDmUFefU5wDPKaKojP9jCzc8
-	Qrj4DdUisIPlpbCVHctWHPlmrOBJrAvvHyZbAtOcBBgKkmSgUcs5YzepbKZvl2WSTxvCXoknSA1
-	lblV0ty/FtxR2wVthmcWQdfrASlH4ZRzgkMEoYpHtvs4p8F5EWU3QkFYKLL5B+i88Iw4Y3O378z
-	jFqXFkvWU2Uoda/SJ5vQBw7XlxCRNBH29obEXaI2gsKU/WZyu84ADQGZHKCzGoU
-X-Received: by 2002:a17:903:198c:b0:2b2:90f3:d774 with SMTP id d9443c01a7336-2b5f9e85c92mr103655085ad.2.1776597859436;
-        Sun, 19 Apr 2026 04:24:19 -0700 (PDT)
-Received: from [127.0.0.1] (211-76-176-101.dynamic-ip.pni.tw. [211.76.176.101])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b5fab29398sm72897605ad.66.2026.04.19.04.24.06
+        bh=w/AOOji5H/H94/JhqjPLabF0j7yCM0LUwvT3tEVvAxc=;
+        b=Mbx1VP7gSEbXNDN9Pei6mZGC+0CfhNkTKOAXbYUNokviHOofwwpJQf+zr2VoyzJXYV
+         6iDjjgD9FGH56N+AUF/NDRub9vfkwMss7rSa6PJs1zHFBAPS9mfUZ/XiJzOpjatS8vW8
+         KX80qe90gHP0EOljoyWiXchomjL2hiON61ErFG8n9if1OMFNjDi3lHktx7zqrrmdpG0g
+         ylVVP9JqgVFOp5NclFKuUEy6Knt6fI4C4u1hkwZM6LvgggwFNHNl6Cy95lekR8SotTdl
+         VU22IcggyIRPveb9bO86S2Y6j2PtLZHJovB+orqWQzNiEB1QKdMEphtHJGDDbuGTwpYk
+         NBYw==
+X-Forwarded-Encrypted: i=1; AFNElJ9t7ECFn/oIyiP/6DC9FITcXB+psH0GiqN+l45SEhfVChQcLQC8FtYK2tXZYAcWwN+B4Wdy4wTbrNodGz+9LGz7@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIMFz/4Mw9Aj7uXEirfqC1zX3Om6hPdPmB8P6AzBjMAbYehrZc
+	BQN04HWI+0TMEeKZDY08m3cVRxxk+3W+3DfHHPOg1LFLTBXGcEmh5PnJ
+X-Gm-Gg: AeBDietXPbMEm0z9YBSUOGMxxXJSuaw+k6m3lJbaKOtWjGoU/wt9jugclTK8+551H5I
+	nFKXbrlBPROBPM3YvpVJEuD3iTMfwER8WziDvxlNdL3J245CWowYakcByKWGqbaCf50bONCorPY
+	z6n6yHM6AuIQxOKZtf8XAop1YrjhjRT3DWBCpqH1inew/m6apEtHdn3BdWwQru9C2NDmivZC9s3
+	ExJ6SF+UJgf7/MfeooTG8TFXkh773IiDnRK6Gl6K6RWHSy/TXC61N0mNae2/QcNaRhn2GZtVOFS
+	akTECVzG928HbW/+YGfVne0gyieWfs1cvUITIyqAD1spaDh5QQI0ABw6QNTPQtjQXocx70JUCHJ
+	oYlu72LVyi7hm0P2c4lJa66ZXRyz1CXWbngIBLk83atj9KQSxIsO/3YCev3ZA2m7MG9s9d10IgF
+	nmmciOa1upklNHzA482EFsNrJOJyhmW3i7r7JhPeQ4yEP07P9KcQunGvWGXyA58tVE1Rdf0Ria6
+	7TvRbNNAXERt2X1tf8qI9pyA5Ub6AM4uu0IukQZrVgaMX7QgHAb7Q==
+X-Received: by 2002:a05:6a00:2d28:b0:829:8942:2c93 with SMTP id d2e1a72fcca58-82f8c7d10a9mr9456710b3a.9.1776598902602;
+        Sun, 19 Apr 2026 04:41:42 -0700 (PDT)
+Received: from [127.0.0.1] (211-76-176-103.dynamic-ip.pni.tw. [211.76.176.103])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8ebb3fa2sm7324521b3a.29.2026.04.19.04.41.28
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 19 Apr 2026 04:24:18 -0700 (PDT)
-Message-ID: <07686318-dfdc-43d0-bfb4-5635e2eb70da@gmail.com>
-Date: Sun, 19 Apr 2026 19:24:03 +0800
+        Sun, 19 Apr 2026 04:41:42 -0700 (PDT)
+Message-ID: <39dac497-220c-4e71-9d3e-d9cf32357400@gmail.com>
+Date: Sun, 19 Apr 2026 19:41:25 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v3 4/4] mm: add PMD-level huge page support for
- remap_pfn_range()
-Content-Language: en-US
-References: <5d04929b-576f-4926-9f3b-be9a41a3e010@gmail.com>
+Subject: [RESEND] Re: [PATCH RFC v3 4/4] mm: add PMD-level huge page support
+ for remap_pfn_range()
 To: "David Hildenbrand (Arm)" <david@kernel.org>, lorenzo.stoakes@oracle.com
 Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org,
  linux-arm-kernel@lists.infradead.org, willy@infradead.org, jgross@suse.com,
@@ -92,17 +90,20 @@ Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org,
  kevin.brodsky@arm.com, apopple@nvidia.com, ajd@linux.ibm.com,
  pasha.tatashin@soleen.com, bhe@redhat.com, thuth@redhat.com,
  coxu@redhat.com, dan.j.williams@intel.com, yu-cheng.yu@intel.com,
- yangyicong@hisilicon.com, baolu.lu@linux.intel.com,
- conor.dooley@microchip.com, Jonathan.Cameron@huawei.com, riel@surriel.com,
- wangkefeng.wang@huawei.com, chenjun102@huawei.com
+ baolu.lu@linux.intel.com, conor.dooley@microchip.com,
+ Jonathan.Cameron@huawei.com, riel@surriel.com, wangkefeng.wang@huawei.com,
+ chenjun102@huawei.com
+References: <20260228070906.1418911-1-yintirui@huawei.com>
+ <20260228070906.1418911-5-yintirui@huawei.com>
+ <9886b2c6-5516-4be8-ac31-db3133455af2@kernel.org>
+Content-Language: en-US
 From: Yin Tirui <yintirui@gmail.com>
-In-Reply-To: <5d04929b-576f-4926-9f3b-be9a41a3e010@gmail.com>
-X-Forwarded-Message-Id: <5d04929b-576f-4926-9f3b-be9a41a3e010@gmail.com>
+In-Reply-To: <9886b2c6-5516-4be8-ac31-db3133455af2@kernel.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260419_042421_085836_BB11602A 
-X-CRM114-Status: GOOD (  43.13  )
+X-CRM114-CacheID: sfid-20260419_044144_036604_FB41B668 
+X-CRM114-Status: GOOD (  42.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,6 +117,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
+
+(Resending to keep the thread intact, sorry for the noise)
 
 Hi David,
 
@@ -135,26 +138,26 @@ On 4/14/26 04:02, David Hildenbrand (Arm) wrote:
 >>
 >> Signed-off-by: Yin Tirui <yintirui@huawei.com>
 >> ---
-> 
+>
 > [...]
-> 
->>  
+>
+>>
 >>  	if (!vma_is_anonymous(vma)) {
 >>  		old_pmd = pmdp_huge_clear_flush(vma, haddr, pmd);
 >> +
 >> +		if (!vma_is_dax(vma) && vma_is_special_huge(vma)) {
-> 
+>
 > These magical vma checks are really bad. This all needs a cleanup
 > (Lorenzo is doing some, hoping it will look better on top of that).
-> 
+>
 Agreed. I am following Lorenzo's recent cleanups closely.
 
 >> +			pte_t entry;
 >> +
 >> +			if (!pmd_special(old_pmd)) {
-> 
+>
 > If you are using pmd_special(), you are doing something wrong.
-> 
+>
 > Hint: vm_normal_page_pmd() is usually what you want.
 
 Spot on.
@@ -169,8 +172,8 @@ zap_huge_pmd().
 My idea is to flatten both functions into a pmd_present()-driven
 decision tree:
 1. Branch strictly on pmd_present().
-2. For present PMDs, rely exclusively on vm_normal_folio_pmd() to
-determine the underlying memory type, rather than guessing from VMA flags.
+2. For present PMDs, use vm_normal_folio_pmd() as the single source of
+truth.
 3. If !folio (and not a huge zero page), it cleanly identifies special
 mappings (like PFNMAPs) without relying on vma_is_special_huge(). We can
 handle the split/copy directly and return early.
@@ -182,7 +185,7 @@ appended the diffs at the end of this email. Does this direction look
 reasonable to you? If so, I will iron out the implementation details and
 include these refactoring patches in my upcoming v4 series.
 
-> 
+>
 >> +				zap_deposited_table(mm, pmd);
 >> +				return;
 >> +			}
@@ -211,27 +214,28 @@ include these refactoring patches in my upcoming v4 series.
 >> +
 >>  		if (unlikely(pmd_is_migration_entry(old_pmd))) {
 >>  			const softleaf_t old_entry = softleaf_from_pmd(old_pmd);
->>  
+>>
 >> diff --git a/mm/memory.c b/mm/memory.c
 >> index 07778814b4a8..affccf38cbcf 100644
 >> --- a/mm/memory.c
 >> +++ b/mm/memory.c
->> @@ -2890,6 +2890,40 @@ static int remap_pte_range(struct mm_struct *mm, pmd_t *pmd,
+>> @@ -2890,6 +2890,40 @@ static int remap_pte_range(struct mm_struct
+*mm, pmd_t *pmd,
 >>  	return err;
 >>  }
->>  
+>>
 >> +#ifdef CONFIG_ARCH_SUPPORTS_PMD_PFNMAP
-> 
+>
 > Why exactly do we need arch support for that in form of a Kconfig.
-> 
+>
 > Usually, we guard pmd support by CONFIG_TRANSPARENT_HUGEPAGE.
-> 
+>
 > And then, we must check at runtime if PMD leaves are actually supported.
-> 
+>
 > Luiz is working on a cleanup series:
-> 
+>
 > https://lore.kernel.org/r/cover.1775679721.git.luizcap@redhat.com
-> 
+>
 > pgtable_has_pmd_leaves() is what you would want to check.
 
 Makes sense. This Kconfig was inherited from Peter Xu's earlier
@@ -239,19 +243,19 @@ proposal, but depending on CONFIG_TRANSPARENT_HUGEPAGE and
 pgtable_has_pmd_leaves() is indeed the correct standard. I will rebase
 on Luiz's series.
 
-> 
-> 
+>
+>
 >> +static int remap_try_huge_pmd(struct mm_struct *mm, pmd_t *pmd,
 >> +			unsigned long addr, unsigned long end,
 >> +			unsigned long pfn, pgprot_t prot)
-> 
-> Use two-tab indent. (currently 3? :) )
-> 
+>
+> Use two-tab indent. (currently 3? 🙂 )
+>
 > Also, we tend to call these things now "pmd leaves". Call it
 >  "remap_try_pmd_leaf" or something even more expressive like
-> 
+>
 > "remap_try_install_pmd_leaf()"
-> 
+>
 
 Noted. Will fix the indentation and rename it.
 
@@ -260,40 +264,40 @@ Noted. Will fix the indentation and rename it.
 >> +	spinlock_t *ptl;
 >> +
 >> +	if ((end - addr) != PMD_SIZE)
-> 
+>
 > 	if (end - addr != PMD_SIZE)
-> 
+>
 > Should work
 
 Noted.
 
-> 
+>
 >> +		return 0;
 >> +
 >> +	if (!IS_ALIGNED(addr, PMD_SIZE))
 >> +		return 0;
 >> +
-> 
+>
 > You could likely combine both things into a
-> 
+>
 > 	if (!IS_ALIGNED(addr | end, PMD_SIZE))
-> 
+>
 >> +	if (!IS_ALIGNED(pfn, HPAGE_PMD_NR))
-> 
-> Another sign that you piggy-back on THP support ;)
+>
+> Another sign that you piggy-back on THP support 😉
 
-Indeed! :)
+Indeed! 🙂
 
-> 
+>
 >> +		return 0;
 >> +
 >> +	if (pmd_present(*pmd) && !pmd_free_pte_page(pmd, addr))
 >> +		return 0;
-> 
-> Ripping out a page table?! That doesn't sound right :)
-> 
+>
+> Ripping out a page table?! That doesn't sound right 🙂
+>
 > Why is that required? We shouldn't be doing that here. Gah.
-> 
+>
 > Especially, without any pmd locks etc.
 
 ...oops. That is indeed a silly one. Thanks for catching it.
@@ -302,7 +306,7 @@ I will fix this to:
 	if (!pmd_none(*pmd))
 		return 0;
 
-> 
+>
 >> +
 >> +	pgtable = pte_alloc_one(mm);
 >> +	if (unlikely(!pgtable))
@@ -310,7 +314,8 @@ I will fix this to:
 >> +
 >> +	mm_inc_nr_ptes(mm);
 >> +	ptl = pmd_lock(mm, pmd);
->> +	set_pmd_at(mm, addr, pmd, pmd_mkspecial(pmd_mkhuge(pfn_pmd(pfn, prot))));
+>> +	set_pmd_at(mm, addr, pmd, pmd_mkspecial(pmd_mkhuge(pfn_pmd(pfn,
+prot))));
 >> +	pgtable_trans_huge_deposit(mm, pmd, pgtable);
 >> +	spin_unlock(ptl);
 >> +
@@ -321,23 +326,22 @@ I will fix this to:
 >>  static inline int remap_pmd_range(struct mm_struct *mm, pud_t *pud,
 >>  			unsigned long addr, unsigned long end,
 >>  			unsigned long pfn, pgprot_t prot)
->> @@ -2905,6 +2939,12 @@ static inline int remap_pmd_range(struct mm_struct *mm, pud_t *pud,
+>> @@ -2905,6 +2939,12 @@ static inline int remap_pmd_range(struct
+mm_struct *mm, pud_t *pud,
 >>  	VM_BUG_ON(pmd_trans_huge(*pmd));
 >>  	do {
 >>  		next = pmd_addr_end(addr, end);
 >> +#ifdef CONFIG_ARCH_SUPPORTS_PMD_PFNMAP
 >> +		if (remap_try_huge_pmd(mm, pmd, addr, next,
 >> +				pfn + (addr >> PAGE_SHIFT), prot)) {
-> 
+>
 > Please provide a stub instead so we don't end up with ifdef in this code.
 
 Will do.
 
-> 
+>
 
 Appendix:
-
-Based on the mm-stable branch.
 
 1. copy_huge_pmd()
 
@@ -489,6 +493,9 @@ src_vma))) {
  out_zero_page:
  	mm_inc_nr_ptes(dst_mm);
  	pgtable_trans_huge_deposit(dst_mm, dst_pmd, pgtable);
+-- 
+2.43.0
+
 
 
 2. __split_huge_pmd_locked()
