@@ -4,127 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48D18EA71AA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 22:51:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3664EA71AD
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 23:17:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nGI8q1vIW2YCqL8DB2swQpMBunXNj9M7QpTu5vxe99c=; b=Alw/cU8grI/eoVylw3C62L8sL7
-	7uicW2BZhwin5skhUztD82Q5SN2FEqqb+DxvsUlppkysaW+n9qynuHUU5+6izX1T7t7Tjtzipx0rm
-	PtvIKdLvZ+yKV3RhX38rEb4miByUePK6ZuABihcQe1Lj9ILs6bXulrwYw/8rAgR73f3fR+UpoU0Rt
-	OOKAznU0nuBijfzGeendDKqU9okcDiufSsuReiHIlJoinafPi7Xoq/1+7rmmyZn3oQRKoeTC8m75U
-	aOJUqy0+V72Af2CIxW8WSVXoliqBDqpAiBGA/zHmyEc80AlKwbKhh799PAA3OAEmf1t1tacygDCcO
-	8uwayeKw==;
+	bh=1XuBQKvXNK5+webbjEv2fpeV1So3IXoLTLJe+5+zXCM=; b=NHdKrBCBZMMA+i17xau0pfGuBt
+	FW/R51HO8yizAl/LJFOoeNLWWhQt0lLL2IiF5razgpRf2XNAF+aMiwHuOQ28JqN92I/YQzNddBFFa
+	A44FnIDfLBXBxRRryh/j6POx1AfSv0tN3fQUIE37AJ0iLR0S7wwXwdGxnF3v3bxvs8HvPNaNkSono
+	HxHDacZCJbqFIHY2UjOzaP+KsE076kWJ5sm0VMj7AUYt1oP7/87hYjT5q507YlNpjdRmSgdMP04Wb
+	ervvbaSr+knxLtOYp64dbmtp9rpqwyeeBRo7qJYCrByMdz4ogB3DJEhtOuKQtvWZj9Fsf6Zq5W+kU
+	IioCh7FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEazR-000000068la-0Hyc;
-	Sun, 19 Apr 2026 22:51:45 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1wEbOT-00000006BxU-3aHN;
+	Sun, 19 Apr 2026 23:17:37 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEazO-000000068lF-2Ovd
+	id 1wEbOP-00000006BwY-0PkP
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Apr 2026 22:51:43 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-43fe62837baso1340117f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 15:51:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776639100; cv=none;
-        d=google.com; s=arc-20240605;
-        b=QcvmomhN6fbSKnpm3oCAwoJZqjSy3nrL+VA32JgL6YF4yB7ROeuZdzpZ96LDW1S0cZ
-         6SNw1NX1MwQ3E4g5n6Yp/aV+L/D/VoAh53PFV6pYBkASwBl1sXs80skUWOz+RrG1Bn6a
-         ZXLfCPuF8L4LfV+jQW0V9Iw8yOUjd9pc0HvfCllTPwYBbsRzdWj2uEPi01u0BsxffYoi
-         7yltQPgajfETEG7tldpMmngHz4laFdqbESLVP0o5WqJvvxd/KNfAuPAZgKFt9GCwXdFc
-         7bEBCo6DqFV7WOSF7UU6R9HP45zjDjN0YgB3vDLSDX4tXn61rqwQJ7A4pInzdrgdFAzX
-         CWew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=nGI8q1vIW2YCqL8DB2swQpMBunXNj9M7QpTu5vxe99c=;
-        fh=E+89ps01e0mn54ln4keXkhTrE16QUuQR6pmpZsePZyM=;
-        b=ZH3FiIeW0boShmTVLDnm0JckABq1ubdgfNXLp9xmVTpuQPQY+k32+4Bc3ZkYg3mKIU
-         vru8DNhjFKgQSIDPmZyMg+yJzcfF1oTAF/TwN4N5xyHlKA825gNntkJn+e0SWVQ3o0xW
-         W9kRzJtD4PgW7RP9dCFPE30+21QmVkMs+dGIHpqr3vHbWGmUmuAX+cW7UYVWFgzBnUPG
-         C27MuYmnAn12fPY+C21XsbE19XmZJtl6y7kd93d5/wyNz2n8UBB00F2HP5sjZRcW9vzr
-         dTY9dramEvJvVfvMWIEJBgkwCuEgaiBum2mz7eE/5WBYRItM18XZcs/+CQKfQWDVFlWL
-         Ci8g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Sun, 19 Apr 2026 23:17:35 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-48896199cbaso26150245e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 16:17:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776639100; x=1777243900; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nGI8q1vIW2YCqL8DB2swQpMBunXNj9M7QpTu5vxe99c=;
-        b=ARH1ITbLzYdgMR8rk+VA34VKhJpPLQH6mGKjr3ixWagblVCSeLufUKgSkVYcNAEFRL
-         3MBVP74dpA1gqfOcHSvF8O9MIHAM8BnzMguQm7QCDo5yhXNIWPjVtIt2leNscFCwObU4
-         Q2zIMpFoif1tt+1avc/HJJhn3EVzaA1ZamAV2yeWBkFzHk+K2ivRdWCdHpKXU3B/m4WH
-         kirUIHmCw1kJQIYMlSM9cjYoZydxq5gXHPyuLNJ77OpIWMmc4aS+CLiNHYDR4Pd6VyR8
-         xv/h9TRvFAzRgYpRbnJf/1PObENpGPYIrlh+JnPH3uaP0xcAWvXVilOeYr+bubbO8Mn7
-         PEqQ==
+        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1776640650; x=1777245450; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=1XuBQKvXNK5+webbjEv2fpeV1So3IXoLTLJe+5+zXCM=;
+        b=p7XN2UN7vLbpf6RddkhU3kCSyOk+xS63DD1reE3Gv32Wu/5beL9Dv/quyX5ZG86dwH
+         gzZ+HoZfK05Ar625yqFdFIxq3sdv5mleA2t0XOLglHYySbLEEgIFyN+zWKXKa1MCWYdm
+         uSbxuNRdlcVRG4f7R6cyrTXdK5s2kiEuV1/uZ8VazJtN/xoExcovR3CivvbdNyF09i2U
+         35gAGopP6GfLkh+NNcmlYzr2Fvn8OSgNdSvB9W09/C8g/0bLHBe4fb5+F8OIAaxhsbUx
+         THbzECLCmrG/JBEeybvvZy/YRqQ0St6cKdGx88VzTP0XjUK2w5ejR5y0LgLNyO4SyhMY
+         6qkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776639100; x=1777243900;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=nGI8q1vIW2YCqL8DB2swQpMBunXNj9M7QpTu5vxe99c=;
-        b=q0w/lH0bRqxuIXubgdMnz9ZWd0gXcH+rzHha+ApAbgmaseRywnsSGD4XLa6RqmX1sP
-         hRnWgSqt1iANwGEmQ2+dM5sDqEslXqBcp2JzTilsRaCjto5z9Q40+m8NDUeVSeTmHnng
-         vl/xoRxLDr7Cc6Pywi9Q3N78pHXUhrBFrNQXocSfUcir4J0QRKN6HXOfVa6slCcKIvnx
-         dbhgTp301llYvea5dz9hAx3pn5kwX5s4OBGtUxnE0ZSuS9FzXH+ZN2NS7nUm8sFqIy3q
-         X+UkD29B9gmQ0BBeVpyhSe+HCzT/zC73Ry0ssDtnhvxfa2LB6u0TUzUgQrh2/uWNNoA8
-         Q6Gw==
-X-Forwarded-Encrypted: i=1; AFNElJ9lvfXVMM9q8zXg1I6HboTr2+4O2cCX+N5cz3s8c3SJ4nKtJSC97qvc9hm5+w8WHo50YxTI8WqAKigKqAX3WP8Q@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUEJMkA7gadhZ5R89wIU9S4kBS1EKhbqg33A/DyntA9jIXdVN4
-	2l4rGk6xlveiS80za5ckZedkYAdB5iw32MmLjufV1QgSWcmyp/HT3cEKI3fbxfz//gvj+SMzszP
-	7t/Vs7wEn4DxUvQhVZNBgIny4MbxP33o=
-X-Gm-Gg: AeBDieu2S3LJBD/03Bd41yeO9BVnHEljMJENkjOKZxQD3/M71MVdZLmZGVKNBBaDsmw
-	soZCi6cqRZulNR/JtwQTb9UgJ2mggGKhj+zLhkdyJZlH4Gzg+mOWquCoXROE8fpBqP1NlN2NGTS
-	zeqNueGftthD76yfAJWfuDigEVxjbLM0Xa5U1ZHRXWuzxtrAD4I27GM/SdsRmorHbygyq1nuzNM
-	GpcSiAqfbTNYZY0xwyRcWmosFtLZkCCk7YtVu9FjAZlbljE9FQyWREP/CwNzpmuB0m7oNs6nQC2
-	CzV5qq0gNUIww6gxmQaiorL3K0cs6FrhSLHtSTlDYUreQcnVld2dea2Ll0W5+Uxdvu8fKpIGK4H
-	dH1PxQcuwH8Rn9q4V5HiSw3qXvdoUah9Ae1H6
-X-Received: by 2002:a05:6000:22ca:b0:43d:7883:87ce with SMTP id
- ffacd0b85a97d-43fe3dfd265mr15420059f8f.34.1776639099627; Sun, 19 Apr 2026
- 15:51:39 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1776640650; x=1777245450;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1XuBQKvXNK5+webbjEv2fpeV1So3IXoLTLJe+5+zXCM=;
+        b=pg1yLDtDk74p8N6FEKDiiaLmPdhD2zGMfd735yM7O6tsEG4LzNXwbZcsz5k31qHycP
+         NYIhqI4T4jG15v5kx1O/CN2g64yq3X1O3Lk+q0vjHV+gxfbol1vLKdtg2Qv765btJoKW
+         TxYkNgnKN9RCxn8WNJg2O+decQOWJAblJn3anex7VDQyVlktpEFX6wJN6HtEX0/DYGWW
+         m8u6WqJrAan4YLI1Pb2y5Sc+KJtKkpj0H/SdPa0i21vYFaLGQpHJRhrhaYmBIgeGfFXj
+         /V7CNSUn1U1p/uHHprz32na6POOWkv7igtHCHLvGTdw+SuKzIM+NceC8d2yvL4oevD+2
+         BJdQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+W6P0cxRzmnaSnqowv05QmnMyyhV2OeJJV2gFEi7jGtR/ZCIESb6wnmjqqwo3j3HVQPHxEwT0fQllDtrQ0W7+G@lists.infradead.org
+X-Gm-Message-State: AOJu0Yykoz1r9XLHUDqPci0S5AJZHZE8oKrk4rrHORqdOXZEVRV5aAEG
+	GCA34Oa+7D0qFyCLj/Cr8zsnzn77xCyN0qm07vsTPmkaoCpt2DHZReQV0s9as4xvtL8=
+X-Gm-Gg: AeBDiev1g4W2y8vxTlsZEWdd/dnIp+ABPCzr0tI3td4trOMbusWON/T8uqsH9K2R+AN
+	wxOG5eEnsxUPv1nONLc0hn9Ukm5iJzPmv33teLUXUQUqLNf1MZ2mQ0z8lXLGdKUo96A5TopXWfA
+	k7rV6kdimbbn+pR2s/pVE8J3TI4yoS06VW3PUs89YKdcTmTQcyabCNq5dDpd9LMOfrgKpytdNUy
+	hT3awVcKxasjrEoW1i6QFd+0O/JHDD13atSSEaJ7dY/TeC+34wYLbBvakuqf93qNLpWzgqEGt2o
+	graxqU/rSG5fOxWxqr1ijqNUmvBWY8wOydoBPLK6Pgoe7ewzwjbXMNx/K4pg8KsLqXb/nKhMONt
+	VZ9brAOOakLs31LJusK6R9Vg2XB78Iu7ItDjDfBxGL8uxwI4yfC+4IE08gfUTO6K8xpvXLWdSxe
+	7plmp/OHgaDKWCePFv4Qe4dp8u3o6tz94HgxA=
+X-Received: by 2002:a05:600c:c0d5:b0:488:c683:be89 with SMTP id 5b1f17b1804b1-488fb74dffemr121458935e9.9.1776640650424;
+        Sun, 19 Apr 2026 16:17:30 -0700 (PDT)
+Received: from [192.168.3.100] ([151.41.218.6])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488fc177dafsm296195175e9.4.2026.04.19.16.17.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 19 Apr 2026 16:17:30 -0700 (PDT)
+Message-ID: <463ab3cf-2ef2-4ba1-9f3b-7dfad523d91e@baylibre.com>
+Date: Mon, 20 Apr 2026 01:17:27 +0200
 MIME-Version: 1.0
-References: <20260413-kasan-v1-0-1a5831230821@bootlin.com> <20260413-kasan-v1-1-1a5831230821@bootlin.com>
- <CA+fCnZfubV6LgRjO3NQvhrG2Q5o0ftkFFupLWVYS50XDnmCaog@mail.gmail.com>
- <DHSWK17EZUDP.GIJ6BX2NFR6U@bootlin.com> <CAADnVQLJ=fJ7t1i2+_RYqU1gqYqiLP9Zrwo4vdZsgzjK_yzJTQ@mail.gmail.com>
- <CA+fCnZd31GzdpEqR8VhfK4JtUKyyRMgbBoAbeGACJgm7WvB6Vw@mail.gmail.com>
- <CAADnVQKv5y+gq=TnOAEXSqgBRpmHNjwqCfxpLaw5XkcbQ+23bg@mail.gmail.com> <CA+fCnZe-b0Qqbo5gGv3HN20twquQETDfYYkE1r9tPr9zUFbW9Q@mail.gmail.com>
-In-Reply-To: <CA+fCnZe-b0Qqbo5gGv3HN20twquQETDfYYkE1r9tPr9zUFbW9Q@mail.gmail.com>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Sun, 19 Apr 2026 15:51:28 -0700
-X-Gm-Features: AQROBzDew-foTfJLq_z3E45rMJ3PdE7WT5G5Kb1cNLd7o7s_NLhMVNDGxKf8D94
-Message-ID: <CAADnVQKuptG_opA12O=Xb9_+cHf3f=ycAZdfUp17P2HBYQzdsg@mail.gmail.com>
-Subject: Re: [PATCH RFC bpf-next 1/8] kasan: expose generic kasan helpers
-To: Andrey Konovalov <andreyknvl@gmail.com>
-Cc: =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
-	Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
-	John Fastabend <john.fastabend@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
-	David Ahern <dsahern@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>, 
-	"H. Peter Anvin" <hpa@zytor.com>, Shuah Khan <shuah@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Alexander Potapenko <glider@google.com>, 
-	Dmitry Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, ebpf@linuxfoundation.org, 
-	Bastien Curutchet <bastien.curutchet@bootlin.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Xu Kuohai <xukuohai@huawei.com>, 
-	bpf <bpf@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	Network Development <netdev@vger.kernel.org>, 
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	kasan-dev <kasan-dev@googlegroups.com>, linux-mm <linux-mm@kvack.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v2 02/11] ASoC: meson: aiu-encoder-i2s: use gx_iface
+ and gx_stream structures
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org
+References: <20260411-audin-rfc-v2-0-4c8a6ec5fcab@baylibre.com>
+ <20260411-audin-rfc-v2-2-4c8a6ec5fcab@baylibre.com>
+ <58d1df89-7c97-4e2f-af15-93d1f7bce5a7@sirena.org.uk>
+ <1jy0ios3f9.fsf@starbuckisacylon.baylibre.com>
+Content-Language: en-US
+From: Valerio Setti <vsetti@baylibre.com>
+In-Reply-To: <1jy0ios3f9.fsf@starbuckisacylon.baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260419_155142_676476_1C2F9B76 
-X-CRM114-Status: GOOD (  27.06  )
+X-CRM114-CacheID: sfid-20260419_161733_465597_98818E93 
+X-CRM114-Status: GOOD (  20.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,46 +112,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 19, 2026 at 2:49=E2=80=AFPM Andrey Konovalov <andreyknvl@gmail.=
-com> wrote:
->
-> On Tue, Apr 14, 2026 at 5:58=E2=80=AFPM Alexei Starovoitov
-> <alexei.starovoitov@gmail.com> wrote:
-> >
-> > I think we're talking past each other.
-> > We're not interested in KASAN_SW_TAGS or KASAN_HW_TAGS.
-> > We're not going to modify arm64 JIT at all.
-> >
-> > This is purely KASAN_GENRIC and only on x86-64.
-> > JIT will emit exactly what compilers emit for generic
-> > which is __asan_load/store. This is as stable ABI as it can get
-> > and we don't want to deviate from it.
->
-> OK, I supposed that's fair. You did throw me off point with your
-> performance comment. But if you decide to add SW_TAGS support at some
-> point, I think this discussion needs to be revisited.
->
-> But please add a comment saying that those functions are only exposed
-> for BPF JIT and they are not supposed to be used by other parts of the
-> kernel. And in case you do end up adding a new config option, guard
-> the public declarations by a corresponding ifdef.
 
-I feel concerns of misuse are overblown.
-Being in include/linux/kasan.h doesn't make them free-for-all
-all of a sudden, but if you prefer we can just copy paste:
-+void __asan_load1(void *p);
-+void __asan_store1(void *p);
-into bpf_jit_comp.c
+On 4/15/26 16:28, Jerome Brunet wrote:
 
-> > The goal here is to find bugs in the verifier.
-> > If something got past it, that shouldn't have,
-> > kasan generic on x86-64 is enough.
->
-> FWIW, I suspect HW_TAGS KASAN already just works with JITed BPF code.
+> 
+> Huh interresting, I had not thought of that. Valerio and I discussed the
+> clock part a lot for this rework. It is the crux since since the
+> interface and clock setting lives in the AIU subsys but serves both the
+> AIU and AUDIN subsys.
+> 
+> Valerio maybe you could keep function above just to set the rate, but
+> enabling the clocks through a DAPM supply widget ? This is kind of what
+> the AXG is doing.
+> 
+> what do you think ?
+> 
+> (actually in the AXG the each formatter widget call CCF
+> clk_prepare_enable() but a supply widget poking the register would do
+> the same thing)
+> 
 
-Ohh. Good point. Looks like modern arm64 cpus in public clouds
-don't have that enabled, so one would need pixel phone to
-catch verifier bugs via hw_tags.
-So we still need this x86-specific jit kasan.
-I guess eventually it can be removed when hw_tags support is widespread.
+Hi Jerome,
+
+thanks for your review and suggestion.
+I took some time to investigate it and I think I have a different 
+proposal that reduces the amount of changes compared to the current 
+implementation, but gets to the same result.
+
+The thing is in "axg-tdm-interface.c" MCLK is enabled/disabled using 
+"set_bias_level()" callback which works fine because in that case the 
+interface driver is also a standalone component. On the GX platform the 
+interface is a DAI which is part of the AIU component, so this callback 
+isn't available. To get the same behavior I would need to add a new DAPM 
+widget in "aiu_cpu_dapm_widgets[]" and then add it to both 
+"aiu_cpu_dapm_routes[]" both in "aiu.c" and in the device-tree for AUDIN.
+
+What if instead I add the "prepare()" callback to 
+"aiu_encoder_i2s_dai_ops" and enable MCLK and I2S clock divider there? 
+This would match "hw_free()" calls and it would be a change only 
+internal to "aiu-encoder-i2s.c".
+To support this I will:
+- remove calls to "gx_stream_set_cont_clocks" which are arguably not 
+very useful for the GX platform;
+- use the "clk_enabled" field of "struct gx_stream" (unused after 
+removal of "gx_stream_set_cont_clocks" calls) to track the status of 
+MCLK and enable/disable it only when necessary (ex: prevent multiple 
+calls to "prepare" to enable MCLK multiple times, etc);
+- keep using "snd_soc_dai_active" in "hw_free" to know when to disable 
+the I2S clock divider. Or perhaps I can rely on "clk_enabled" also for 
+this one so that I can manage these 2 clocks uniformly.
+
+Is this an acceptable alternative approach for you?
+
+-- 
+Valerio
+
 
