@@ -4,89 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1545DEA7197
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 17:19:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37649EA719A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 18:00:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QrO5wfSlNybV2jE9nD4lr0F8/QiAH73330BEUbssu1s=; b=ZqJH06br/k8b0y6zBxumVXGVOz
-	eq6z7hoaJGDOU23JovptYbftf0IE/0eni7EHioy/R9GkcVQYwznEVfpMW0ee+7B4VgG/g0wXT4ioS
-	3I1c+rv5lcDSICd8VOU3qPyOjlQ2j4rnLC5HKnwWCnzSj0UIHOdG+/PfecgStnKsqztJqzgP6zwMy
-	WtuPRLYaJIWLLjg2yjOt8efteffcZcnnz5Uz+7D9NxB2m3FPcs5FZPmNG+14oh9fKufbuYuEgJutM
-	kznkLBNzUuaG8Y96vtCnr0oQCSCAF26D3uJPss4UHL8q3ZS7dfMAkT9ekzKD9FXinfY8S3JRK7qh2
-	5NOqFObg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=15ujJrbfiJmfJjBaBgqicGTeT16AP0wC9KkXzsx8QfI=; b=r6IOLK1HawqQGw9oupqhdQPFnu
+	AOSMA+p47yTXpBC+SccufD9q/5ShCWVCtqevE/UFEIhqjRdj8V1Tcv8uvS5d8wZ4jjsukRsRnaz+c
+	jdX1x9ORSEFOYruYOV4OtY1r+xIGSIWLCt96QiXwCmzpMFA3xTmiJBRXOAPHewULMTkOj8yhmafVC
+	neRx7o+ZKOF438O5KHKegnfYgSwiXxgBqmcG4GP0tGnkEoyfruv7dwTPMsfAVFJR586PY8OwA+gBF
+	ggMZxqX921jjDkKIeMA5UU8HZztGqD/4irC+Hws10BVHoxJB5wf86lxdQlXT+l39waLemPEfAD9He
+	gSCLCn8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEVnu-00000005x2X-3Yis;
-	Sun, 19 Apr 2026 17:19:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wEWRM-00000005yL5-0HPt;
+	Sun, 19 Apr 2026 18:00:16 +0000
+Received: from smtp.uibk.ac.at ([138.232.1.140])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEVns-00000005x29-0mbn
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Apr 2026 17:19:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6CAA4417BF;
-	Sun, 19 Apr 2026 17:19:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F12F4C2BCAF;
-	Sun, 19 Apr 2026 17:19:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776619167;
-	bh=2CwC4Vn7ztmj//74bYUVGn7SYcQe8ES/A/kctks28yQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=X9o87yeQh8SGQZ+v7j+Gd0uqa0xJs7u5OIdrKgzZw/xoNxDR+wQRLcoTxujiwMcFc
-	 oKbPf4UxDLRKN+IcffQOuYwGav30ElNG727bvm26FftDm8kVwBerqbXN8OFHLWXA8z
-	 jCj8vLl1Hh4QlKs7GVMsFWEBY06Yropw9PyFPfeN0Fnk9AxbvewIzOR04BDtKJExsH
-	 ehZyiN9tS8GbFSxjsElA3nyeVFtUJutYMutmY7yiue2qPhT6bTmIHcgKL2s0yegeJ/
-	 3m+zD861alIcG/Yw2Gl+hrZNuCYN30wuVATGFeTE0teVlbsx4hMfEzr3BYTnmQ0/vG
-	 2e8s6pZS0PUpw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wEVno-0000000Crmd-1Wu9;
-	Sun, 19 Apr 2026 17:19:24 +0000
-Date: Sun, 19 Apr 2026 18:19:23 +0100
-Message-ID: <87ldeic1gk.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	devel@daynix.com,
-	kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v7 3/4] KVM: arm64: PMU: Introduce FIXED_COUNTERS_ONLY
-In-Reply-To: <20260418-hybrid-v7-3-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
-References: <20260418-hybrid-v7-0-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
-	<20260418-hybrid-v7-3-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: odaki@rsg.ci.i.u-tokyo.ac.jp, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kees@kernel.org, gustavoars@kernel.org, pbonzini@redhat.com, corbet@lwn.net, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1wEWRI-00000005yKY-21z9;
+	Sun, 19 Apr 2026 18:00:14 +0000
+Received: from [192.168.1.4] (178.165.183.24.wireless.dyn.drei.com [178.165.183.24])
+	(authenticated bits=0)
+	by smtp.uibk.ac.at (8.15.2/8.15.2/F1) with ESMTPSA id 63JHxv7q938343
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Sun, 19 Apr 2026 19:59:57 +0200
+DKIM-Filter: OpenDKIM Filter v2.11.0 smtp.uibk.ac.at 63JHxv7q938343
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=student.uibk.ac.at;
+	s=prod24a; t=1776621598;
+	bh=15ujJrbfiJmfJjBaBgqicGTeT16AP0wC9KkXzsx8QfI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=RujNVn4D8KKml8Des+IZmAJx4xiX+MIppgeJCR8x7vLhowhy0ZkcJ958ITy+DjoQt
+	 0qXqJ7i2qrMnnfQMa6WsuhuwUGvazXElcU3qFvhXOwYmPSk6jR2b4SaCB7IiK23qsI
+	 5ghe4M8JBL4YJ2fnQQyKdEq/lVjFaBZhWBP6m08Y=
+Message-ID: <3445250e-cac4-40ca-aa62-d1a6a063b26d@student.uibk.ac.at>
+Date: Sun, 19 Apr 2026 19:59:56 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: amlogic: add support for Amedia X98Q
+To: Ferass El Hafidi <funderscore@postmarketos.org>,
+        linux-amlogic@lists.infradead.org, neil.armstrong@linaro.org,
+        khilman@baylibre.com
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260419150855.121136-1-christian.koever-draxl@student.uibk.ac.at>
+ <tdqzjg.e0dtukngm56y@postmarketos.org>
+Content-Language: en-US
+From: =?UTF-8?Q?Christian_Stefan_K=C3=B6ver-Draxl?=
+ <christian.koever-draxl@student.uibk.ac.at>
+In-Reply-To: <tdqzjg.e0dtukngm56y@postmarketos.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang_3.2_at_uibk.ac.at
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260419_101928_311376_6F6B0E14 
-X-CRM114-Status: GOOD (  62.58  )
+X-CRM114-CacheID: sfid-20260419_110013_300832_179B2182 
+X-CRM114-Status: GOOD (  35.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,503 +74,425 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 18 Apr 2026 09:14:25 +0100,
-Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
-> 
-> On a heterogeneous arm64 system, KVM's PMU emulation is based on the
-> features of a single host PMU instance. When a vCPU is migrated to a
-> pCPU with an incompatible PMU, counters such as PMCCNTR_EL0 stop
-> incrementing.
-> 
-> Although this behavior is permitted by the architecture, Windows does
-> not handle it gracefully and may crash with a division-by-zero error.
-> 
-> The current workaround requires VMMs to pin vCPUs to a set of pCPUs
-> that share a compatible PMU. This is difficult to implement correctly in
-> QEMU/libvirt, where pinning occurs after vCPU initialization, and it
-> also restricts the guest to a subset of available pCPUs.
-> 
-> Introduce the KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY attribute to
-> create a "fixed-counters-only" PMU. When set, KVM exposes a PMU that is
-> compatible with all pCPUs but that does not support programmable
-> event counters which may have different feature sets on different PMUs.
-> 
-> This allows Windows guests to run reliably on heterogeneous systems
-> without crashing, even without vCPU pinning, and enables VMMs to
-> schedule vCPUs across all available pCPUs, making full use of the host
-> hardware.
+
+On 4/19/26 17:19, Ferass El Hafidi wrote:
+> Hi, some drive-by feedback
 >
-> Much like KVM_ARM_VCPU_PMU_V3_IRQ and other read-write attributes, this
-> attribute provides a getter that facilitates kernel and userspace
-> debugging/testing.
+> On Sun, 19 Apr 2026 15:08, christian.koever-draxl@student.uibk.ac.at 
+> wrote:
+>> From: Christian Stefan Kövér-Draxl 
+>> <christian.koever-draxl@student.uibk.ac.at>
+>>
+>> The X98Q is a TV box based on the Amlogic S4 (S905W2) SoC.
+>> Add the device tree for this board and document the compatible string.
+>>
+>> Supported features:
+>> - 1GB/2GB RAM (via U-Boot memory fixup)
+>> - 10/100 Ethernet (Internal PHY)
+>> - eMMC and SD card storage
+>> - PWM-based CPU voltage regulation
+>> - UART (Serial console)
+>>
+>> Signed-off-by: Christian Stefan Kövér-Draxl 
+>> <christian.koever-draxl@student.uibk.ac.at>
+>> ---
+>> - The Wi-Fi chip on this board is Amlogic W150S1. I have left the 
+>> SDIO node enabled
+>>  but omitted the specific chip sub-node due to lack of mainline 
+>> drivers (yet).
+>> - The console uses uart_b at 921600 baud.
+>> - Verified memory via /proc/device-tree; U-Boot patches the node to 
+>> around 2GB if board supports more than 1GB.
+>> - Tested on the 2GB RAM plus 16GB EMMC variant.
+>>
+>> .../devicetree/bindings/arm/amlogic.yaml      |   7 +
+>> arch/arm64/boot/dts/amlogic/Makefile          |   1 +
+>> .../boot/dts/amlogic/meson-s4-s905w2-x98q.dts | 244 ++++++++++++++++++
+>> 3 files changed, 252 insertions(+)
+>> create mode 100644 arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
+>>
+>> diff --git a/Documentation/devicetree/bindings/arm/amlogic.yaml 
+>> b/Documentation/devicetree/bindings/arm/amlogic.yaml
+>> index a885278bc4e2..82671d58d1da 100644
+>> --- a/Documentation/devicetree/bindings/arm/amlogic.yaml
+>> +++ b/Documentation/devicetree/bindings/arm/amlogic.yaml
+>> @@ -254,6 +254,13 @@ properties:
+>>               - khadas,vim1s
+>>           - const: amlogic,s905y4
+>>           - const: amlogic,s4
+>> +      +      - description: Boards with the Amlogic Meson S4 S905W2 SoC
+>> +        items:
+>> +          - enum:
+>> +              - amediatech,x98q
+>> +          - const: amlogic,s905w2
+>> +          - const: amlogic,s4
+>>
+>>       - description: Boards with the Amlogic S6 S905X5 SoC
+>>         items:
+>
+> It is better to send the dt-binding changes separate from the actual
+> DTS. The golden rule is one commit per change.
+>
+> You can (and should) send both patches as part of a patch series.
 
-OK, so that's the sales pitch. But how is it implemented? I would like
-to be able to read a high-level description of the implementation
-trade-offs.
 
-> 
-> Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-> ---
->  Documentation/virt/kvm/devices/vcpu.rst |  29 ++++++
->  arch/arm64/include/asm/kvm_host.h       |   2 +
->  arch/arm64/include/uapi/asm/kvm.h       |   1 +
->  arch/arm64/kvm/arm.c                    |   1 +
->  arch/arm64/kvm/pmu-emul.c               | 155 +++++++++++++++++++++++---------
->  include/kvm/arm_pmu.h                   |   2 +
->  6 files changed, 147 insertions(+), 43 deletions(-)
-> 
-> diff --git a/Documentation/virt/kvm/devices/vcpu.rst b/Documentation/virt/kvm/devices/vcpu.rst
-> index 60bf205cb373..e0aeb1897d77 100644
-> --- a/Documentation/virt/kvm/devices/vcpu.rst
-> +++ b/Documentation/virt/kvm/devices/vcpu.rst
-> @@ -161,6 +161,35 @@ explicitly selected, or the number of counters is out of range for the
->  selected PMU. Selecting a new PMU cancels the effect of setting this
->  attribute.
->  
-> +1.6 ATTRIBUTE: KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY
-> +------------------------------------------------------
-> +
-> +:Parameters: no additional parameter in kvm_device_attr.addr
-> +
-> +:Returns:
-> +
-> +	 =======  =====================================================
-> +	 -EBUSY   Attempted to set after initializing PMUv3 or running
-> +		  VCPU, or attempted to set for the first time after
-> +		  setting an event filter
-> +	 -ENXIO   Attempted to get before setting
-> +	 -ENODEV  Attempted to set while PMUv3 not supported
-> +	 =======  =====================================================
-> +
-> +If set, PMUv3 will be emulated without programmable event counters. The VCPU
-> +will use any compatible hardware PMU. This attribute is particularly useful on
+Thanks for the Review! I have split this for v2.
 
-Not quite "any PMU". It will use *the* PMU of the physical CPU,
-irrespective of the implementation.
 
-> +heterogeneous systems where different hardware PMUs cover different physical
-> +CPUs. The compatibility of hardware PMUs can be checked with
-> +KVM_ARM_VCPU_PMU_V3_SET_PMU. All VCPUs in a VM share this attribute. It isn't
-> +possible to set it for the first time if a PMU event filter is already present.
+>
+>> diff --git a/arch/arm64/boot/dts/amlogic/Makefile 
+>> b/arch/arm64/boot/dts/amlogic/Makefile
+>> index 15f9c817e502..6f0bdd5bdca2 100644
+>> --- a/arch/arm64/boot/dts/amlogic/Makefile
+>> +++ b/arch/arm64/boot/dts/amlogic/Makefile
+>> @@ -86,6 +86,7 @@ dtb-$(CONFIG_ARCH_MESON) += meson-gxm-vega-s96.dtb
+>> dtb-$(CONFIG_ARCH_MESON) += meson-gxm-wetek-core2.dtb
+>> dtb-$(CONFIG_ARCH_MESON) += meson-s4-s805x2-aq222.dtb
+>> dtb-$(CONFIG_ARCH_MESON) += meson-s4-s905y4-khadas-vim1s.dtb
+>> +dtb-$(CONFIG_ARCH_MESON) += meson-s4-s905w2-x98q.dtb
+>
+> Keep this file in alphabetic order.
 
-"for the first time" gives the impression that it will work if you try
-again. I'd rather we say that "This feature is incompatible with the
-existence of a PMU event filter".
 
-Furthermore, the architecture currently describes *two* fixed-function
-counters (cycles and instructions), while KVM only expose the cycle
-counter. I'm all for the extra abstraction, but what does it mean for
-migration if we enable FEAT_PMUv3_ICNTR?
+Thanks, i have fixed it!
 
-> +
-> +Note that KVM will not make any attempts to run the VCPU on the physical CPUs
-> +with compatible hardware PMUs. This is entirely left to userspace. However,
-> +attempting to run the VCPU on an unsupported CPU will fail and KVM_RUN will
-> +return with exit_reason = KVM_EXIT_FAIL_ENTRY and populate the fail_entry struct
-> +by setting hardware_entry_failure_reason field to
-> +KVM_EXIT_FAIL_ENTRY_CPU_UNSUPPORTED and the cpu field to the processor id.
-> +
 
-This is mostly a copy-paste of the previous section. How relevant is
-this to the fixed-counters-only feature? If the whole point of this
-stuff is to ensure compatibility across CPUs with different PMU
-implementations, surely what you describe here is the opposite of what
-you want.
+>
+>> dtb-$(CONFIG_ARCH_MESON) += meson-sm1-a95xf3-air-gbit.dtb
+>> dtb-$(CONFIG_ARCH_MESON) += meson-sm1-a95xf3-air.dtb
+>> dtb-$(CONFIG_ARCH_MESON) += meson-sm1-bananapi-m2-pro.dtb
+>> diff --git a/arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts 
+>> b/arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
+>> new file mode 100644
+>> index 000000000000..f2db01730a3d
+>> --- /dev/null
+>> +++ b/arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
+>> @@ -0,0 +1,244 @@
+>> +
+>> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+>> +/*
+>> + * Copyright (c) 2026 Christian Stefan Köver-Draxl
+>> + */
+>
+> Did you base this DTS on another DTS that is already upstream? This
+> looks a lot like
+> https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git/tree/arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts?h=v7.1/arm64-dt 
+>
+>
+> If so, then you should keep their copyright. Something like:
+>
+> /*
+> * Copyright (c) 2026 Christian Stefan Köver-Draxl
+> * Based on <...>:
+> *  - Copyright (c) <authors of the DTB this one is based on>
+> */
+>
+> Correct me if I'm wrong.
 
-My preference would be to move this to a separate patch in any case,
-more on that below.
 
->  2. GROUP: KVM_ARM_VCPU_TIMER_CTRL
->  =================================
->  
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 59f25b85be2b..b59e0182472c 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -353,6 +353,8 @@ struct kvm_arch {
->  #define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
->  	/* Unhandled SEAs are taken to userspace */
->  #define KVM_ARCH_FLAG_EXIT_SEA				11
-> +	/* PMUv3 is emulated without progammable event counters */
-> +#define KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY	12
->  	unsigned long flags;
->  
->  	/* VM-wide vCPU feature set */
-> diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-> index a792a599b9d6..474c84fa757f 100644
-> --- a/arch/arm64/include/uapi/asm/kvm.h
-> +++ b/arch/arm64/include/uapi/asm/kvm.h
-> @@ -436,6 +436,7 @@ enum {
->  #define   KVM_ARM_VCPU_PMU_V3_FILTER		2
->  #define   KVM_ARM_VCPU_PMU_V3_SET_PMU		3
->  #define   KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS	4
-> +#define   KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY	5
->  #define KVM_ARM_VCPU_TIMER_CTRL		1
->  #define   KVM_ARM_VCPU_TIMER_IRQ_VTIMER		0
->  #define   KVM_ARM_VCPU_TIMER_IRQ_PTIMER		1
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 620a465248d1..dca16ca26d32 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -634,6 +634,7 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
->  	if (has_vhe())
->  		kvm_vcpu_load_vhe(vcpu);
->  	kvm_arch_vcpu_load_fp(vcpu);
-> +	kvm_vcpu_load_pmu(vcpu);
->  	kvm_vcpu_pmu_restore_guest(vcpu);
->  	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
->  		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
-> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-> index ef5140bbfe28..d1009c144581 100644
-> --- a/arch/arm64/kvm/pmu-emul.c
-> +++ b/arch/arm64/kvm/pmu-emul.c
-> @@ -326,7 +326,10 @@ u64 kvm_pmu_implemented_counter_mask(struct kvm_vcpu *vcpu)
->  
->  static void kvm_pmc_enable_perf_event(struct kvm_pmc *pmc)
->  {
-> -	if (!pmc->perf_event) {
-> +	struct kvm_vcpu *vcpu = kvm_pmc_to_vcpu(pmc);
-> +
-> +	if (!pmc->perf_event ||
-> +	    !cpumask_test_cpu(vcpu->cpu, &to_arm_pmu(pmc->perf_event->pmu)->supported_cpus)) {
->  		kvm_pmu_create_perf_event(pmc);
->  		return;
->  	}
-> @@ -667,10 +670,8 @@ static bool kvm_pmc_counts_at_el2(struct kvm_pmc *pmc)
->  	return kvm_pmc_read_evtreg(pmc) & ARMV8_PMU_INCLUDE_EL2;
->  }
->  
-> -static int kvm_map_pmu_event(struct kvm *kvm, unsigned int eventsel)
-> +static int kvm_map_pmu_event(struct arm_pmu *pmu, unsigned int eventsel)
->  {
-> -	struct arm_pmu *pmu = kvm->arch.arm_pmu;
-> -
->  	/*
->  	 * The CPU PMU likely isn't PMUv3; let the driver provide a mapping
->  	 * for the guest's PMUv3 event ID.
+Yes, I used the VIM1S as a base. I will update the copyright header to 
+include the original authors.
 
-This refactor should be in its own patch. This sort of minor change is
-adding noise to the mean of the patch, for no good reason.
 
-> @@ -681,6 +682,23 @@ static int kvm_map_pmu_event(struct kvm *kvm, unsigned int eventsel)
->  	return eventsel;
->  }
->  
-> +static struct arm_pmu *kvm_pmu_probe_armpmu(int cpu)
-> +{
-> +	struct arm_pmu_entry *entry;
-> +	struct arm_pmu *pmu;
-> +
-> +	guard(rcu)();
-> +
-> +	list_for_each_entry_rcu(entry, &arm_pmus, entry) {
-> +		pmu = entry->arm_pmu;
-> +
-> +		if (cpumask_test_cpu(cpu, &pmu->supported_cpus))
-> +			return pmu;
-> +	}
-> +
-> +	return NULL;
-> +}
-> +
->  /**
->   * kvm_pmu_create_perf_event - create a perf event for a counter
->   * @pmc: Counter context
-> @@ -694,6 +712,12 @@ static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
->  	int eventsel;
->  	u64 evtreg;
->  
-> +	if (test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &vcpu->kvm->arch.flags)) {
-> +		arm_pmu = kvm_pmu_probe_armpmu(vcpu->cpu);
-> +		if (!arm_pmu)
-> +			return;
+>
+>> +
+>> +/dts-v1/;
+>> +
+>> +#include "meson-s4.dtsi"
+>> +
+>> +/ {
+>> +    model = "Shenzhen Amedia X98Q";
+>
+> Shouldn't this be
+>     model = "Shenzhen Amediatech Technology Co., Ltd X98Q";
+> ?
+>
+> There are other Amediatech boards supported currently:
+>
+> dts/amlogic/meson-g12a-x96-max.dts:     model = "Shenzhen Amediatech 
+> Technology Co., Ltd X96 Max";
+> dts/amlogic/meson-sm1-x96-air-gbit.dts: model = "Shenzhen Amediatech 
+> Technology Co., Ltd X96 Air";
+> dts/amlogic/meson-sm1-x96-air.dts:      model = "Shenzhen Amediatech 
+> Technology Co., Ltd X96 Air";
+>
+> I think it might be preferable to use a similar model format for
+> consistency.
+>
+> It is also the documented vendor prefix for amediatech. (see
+> Documentation/devicetree/bindings/vendor-prefixes.yaml)
 
-How is it possible to not get a PMU here? We don't expose the PMU to a
-guest at all if there are CPUs without PMUs, see the comment in
-kvm_host_pmu_init(). So I'd expect this to never fail.
 
-> +	}
-> +
->  	evtreg = kvm_pmc_read_evtreg(pmc);
->  
->  	kvm_pmu_stop_counter(pmc);
-> @@ -722,7 +746,7 @@ static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
->  	 * Don't create an event if we're running on hardware that requires
->  	 * PMUv3 event translation and we couldn't find a valid mapping.
->  	 */
-> -	eventsel = kvm_map_pmu_event(vcpu->kvm, eventsel);
-> +	eventsel = kvm_map_pmu_event(arm_pmu, eventsel);
->  	if (eventsel < 0)
->  		return;
->  
-> @@ -810,42 +834,6 @@ void kvm_host_pmu_init(struct arm_pmu *pmu)
->  	list_add_tail_rcu(&entry->entry, &arm_pmus);
->  }
->  
-> -static struct arm_pmu *kvm_pmu_probe_armpmu(void)
-> -{
-> -	struct arm_pmu_entry *entry;
-> -	struct arm_pmu *pmu;
-> -	int cpu;
-> -
-> -	guard(rcu)();
-> -
-> -	/*
-> -	 * It is safe to use a stale cpu to iterate the list of PMUs so long as
-> -	 * the same value is used for the entirety of the loop. Given this, and
-> -	 * the fact that no percpu data is used for the lookup there is no need
-> -	 * to disable preemption.
-> -	 *
-> -	 * It is still necessary to get a valid cpu, though, to probe for the
-> -	 * default PMU instance as userspace is not required to specify a PMU
-> -	 * type. In order to uphold the preexisting behavior KVM selects the
-> -	 * PMU instance for the core during vcpu init. A dependent use
-> -	 * case would be a user with disdain of all things big.LITTLE that
-> -	 * affines the VMM to a particular cluster of cores.
-> -	 *
-> -	 * In any case, userspace should just do the sane thing and use the UAPI
-> -	 * to select a PMU type directly. But, be wary of the baggage being
-> -	 * carried here.
-> -	 */
-> -	cpu = raw_smp_processor_id();
-> -	list_for_each_entry_rcu(entry, &arm_pmus, entry) {
-> -		pmu = entry->arm_pmu;
-> -
-> -		if (cpumask_test_cpu(cpu, &pmu->supported_cpus))
-> -			return pmu;
-> -	}
-> -
-> -	return NULL;
-> -}
-> -
+I have updated the vendor prefix accordingly.
 
-Same thing for the refactoring of this function. Moving it, changing
-the signature and moving the comment somewhere else would be better
-placed on its own.
 
->  static u64 __compute_pmceid(struct arm_pmu *pmu, bool pmceid1)
->  {
->  	u32 hi[2], lo[2];
-> @@ -888,6 +876,9 @@ u64 kvm_pmu_get_pmceid(struct kvm_vcpu *vcpu, bool pmceid1)
->  	u64 val, mask = 0;
->  	int base, i, nr_events;
->  
-> +	if (test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &vcpu->kvm->arch.flags))
-> +		return 0;
-> +
->  	if (!pmceid1) {
->  		val = compute_pmceid0(cpu_pmu);
->  		base = 0;
-> @@ -915,6 +906,26 @@ u64 kvm_pmu_get_pmceid(struct kvm_vcpu *vcpu, bool pmceid1)
->  	return val & mask;
->  }
->  
-> +void kvm_vcpu_load_pmu(struct kvm_vcpu *vcpu)
-> +{
-> +	unsigned long mask = kvm_pmu_enabled_counter_mask(vcpu);
-> +	struct kvm_pmc *pmc;
-> +	struct arm_pmu *cpu_pmu;
+>
+>> +    compatible = "amediatech,x98q", "amlogic,s905w2", "amlogic,s4";
+>> +    interrupt-parent = <&gic>;
+>> +    #address-cells = <2>;
+>> +    #size-cells = <2>;
+>> +
+>> +    aliases {
+>> +        mmc0 = &emmc; /* eMMC */
+>> +        mmc1 = &sd; /* SD card */
+>> +        mmc2 = &sdio; /* SDIO */
+>> +        serial0 = &uart_b;
+>> +    };
+>> +
+>> +    memory@0 {
+>> +        device_type = "memory";
+>> +        reg = <0x0 0x0 0x0 0x40000000>;
+>> +    };
+>> +
+>> +    reserved-memory {
+>> +        #address-cells = <2>;
+>> +        #size-cells = <2>;
+>> +        ranges;
+>> +
+>> +        /* 52 MiB reserved for ARM Trusted Firmware */
+>> +        secmon_reserved: secmon@5000000 {
+>> +            reg = <0x0 0x05000000 0x0 0x3400000>;
+>> +            no-map;
+>> +        };
+>> +    };
+>> +
+>> +    emmc_pwrseq: emmc-pwrseq {
+>> +        compatible = "mmc-pwrseq-emmc";
+>> +        reset-gpios = <&gpio GPIOB_9 GPIO_ACTIVE_LOW>;
+>> +    };
+>> +
+>> +    sdio_32k: sdio-32k {
+>> +        compatible = "pwm-clock";
+>> +        #clock-cells = <0>;
+>> +        clock-frequency = <32768>;
+>> +        pwms = <&pwm_ef 0 30518 0>; /* PWM_E at 32.768KHz */
+>> +    };
+>> +
+>> +    sdio_pwrseq: sdio-pwrseq {
+>> +        compatible = "mmc-pwrseq-simple";
+>> +        reset-gpios = <&gpio GPIOX_6 GPIO_ACTIVE_LOW>;
+>> +        clocks = <&sdio_32k>;
+>> +        clock-names = "ext_clock";
+>> +    };
+>> +
+>> +    main_5v: regulator-main-5v {
+>> +        compatible = "regulator-fixed";
+>> +        regulator-name = "5V";
+>> +        regulator-min-microvolt = <5000000>;
+>> +        regulator-max-microvolt = <5000000>;
+>> +        regulator-always-on;
+>> +    };
+>> +
+>> +    sd_3v3: regulator-sd-3v3 {
+>> +        compatible = "regulator-fixed";
+>> +        regulator-name = "SD_3V3";
+>> +        regulator-min-microvolt = <3300000>;
+>> +        regulator-max-microvolt = <3300000>;
+>> +        gpio = <&gpio GPIOD_4 GPIO_ACTIVE_LOW>;
+>> +        regulator-always-on;
+>> +    };
+>> +
+>> +    vddio_sd: regulator-vddio-sd {
+>> +        compatible = "regulator-gpio";
+>> +        regulator-name = "VDDIO_SD";
+>> +        regulator-min-microvolt = <1800000>;
+>> +        regulator-max-microvolt = <3300000>;
+>> +        gpios = <&gpio GPIOD_9 GPIO_ACTIVE_HIGH>;
+>> +        gpios-states = <1>;
+>> +        states = <1800000 1
+>> +                3300000 0>;
+>
+> nit: keep this in one line.
 
-Move these to be inside the loop.
 
-> +	int i;
-> +
-> +	for_each_set_bit(i, &mask, 32) {
-> +		pmc = kvm_vcpu_idx_to_pmc(vcpu, i);
-> +		if (!pmc->perf_event)
-> +			continue;
-> +
-> +		cpu_pmu = to_arm_pmu(pmc->perf_event->pmu);
-> +		if (!cpumask_test_cpu(vcpu->cpu, &cpu_pmu->supported_cpus)) {
-> +			kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
-> +			break;
-> +		}
-> +	}
-> +}
-> +
+Done for v2!
+BTW: I applied this part from the VIM1S. So maybe that dts needs to be 
+adjusted too in the future.
 
-Why do we need to inflict this on VMs that do not have the fixed
-counter restriction?
 
-And even then, all you have to reconfigure is the cycle counter. So
-why the loop? All we want to find out is whether the cycle counter is
-instantiated on the PMU that matches the current CPU.
+>
+>> +    };
+>> +
+>> +    vddao_3v3: regulator-vddao-3v3 {
+>> +        compatible = "regulator-fixed";
+>> +        regulator-name = "VDDAO_3V3";
+>> +        regulator-min-microvolt = <3300000>;
+>> +        regulator-max-microvolt = <3300000>;
+>> +        vin-supply = <&main_5v>;
+>> +        regulator-always-on;
+>> +    };
+>> +
+>> +    vddio_ao1v8: regulator-vddio-ao1v8 {
+>> +        compatible = "regulator-fixed";
+>> +        regulator-name = "VDDIO_AO1V8";
+>> +        regulator-min-microvolt = <1800000>;
+>> +        regulator-max-microvolt = <1800000>;
+>> +        vin-supply = <&vddao_3v3>;
+>> +        regulator-always-on;
+>> +    };
+>> +
+>> +    /* SY8120B1ABC DC/DC Regulator. */
+>> +    vddcpu: regulator-vddcpu {
+>> +        compatible = "pwm-regulator";
+>> +
+>> +        regulator-name = "VDDCPU";
+>> +        regulator-min-microvolt = <689000>;
+>> +        regulator-max-microvolt = <1049000>;
+>> +
+>> +        vin-supply = <&main_5v>;
+>> +
+>> +        pwms = <&pwm_ij 1 1500 0>;
+>> +        pwm-dutycycle-range = <100 0>;
+>> +
+>> +        regulator-boot-on;
+>> +        regulator-always-on;
+>> +        /* Voltage Duty-Cycle */
+>> +        voltage-table = <1049000 0>,
+>> +                <1039000 3>,
+>> +                <1029000 6>,
+>> +                <1019000 9>,
+>> +                <1009000 12>,
+>> +                <999000 14>,
+>> +                <989000 17>,
+>> +                <979000 20>,
+>> +                <969000 23>,
+>> +                <959000 26>,
+>> +                <949000 29>,
+>> +                <939000 31>,
+>> +                <929000 34>,
+>> +                <919000 37>,
+>> +                <909000 40>,
+>> +                <899000 43>,
+>> +                <889000 45>,
+>> +                <879000 48>,
+>> +                <869000 51>,
+>> +                <859000 54>,
+>> +                <849000 56>,
+>> +                <839000 59>,
+>> +                <829000 62>,
+>> +                <819000 65>,
+>> +                <809000 68>,
+>> +                <799000 70>,
+>> +                <789000 73>,
+>> +                <779000 76>,
+>> +                <769000 79>,
+>> +                <759000 81>,
+>> +                <749000 84>,
+>> +                <739000 87>,
+>> +                <729000 89>,
+>> +                <719000 92>,
+>> +                <709000 95>,
+>> +                <699000 98>,
+>> +                <689000 100>;
+>> +    };
+>> +};
+>> +
+>> +&emmc {
+>> +    status = "okay";
+>> +    pinctrl-0 = <&emmc_pins>, <&emmc_ds_pins>;
+>> +    pinctrl-1 = <&emmc_clk_gate_pins>;
+>> +    pinctrl-names = "default", "clk-gate";
+>> +
+>> +    bus-width = <8>;
+>> +    cap-mmc-highspeed;
+>> +    mmc-ddr-1_8v;
+>> +    mmc-hs200-1_8v;
+>> +    max-frequency = <200000000>;
+>> +    non-removable;
+>> +    disable-wp;
+>> +
+>> +    mmc-pwrseq = <&emmc_pwrseq>;
+>> +    vmmc-supply = <&vddao_3v3>;
+>> +    vqmmc-supply = <&vddio_ao1v8>;
+>> +};
+>> +
+>> +&ethmac {
+>> +    status = "okay";
+>> +    phy-handle = <&internal_ephy>;
+>> +    phy-mode = "rmii";
+>> +};
+>> +
+>> +&ir {
+>> +    status = "okay";
+>> +    pinctrl-0 = <&remote_pins>;
+>> +    pinctrl-names = "default";
+>> +};
+>> +
+>> +&pwm_ef {
+>> +    status = "okay";
+>> +    pinctrl-0 = <&pwm_e_pins1>;
+>> +    pinctrl-names = "default";
+>> +};
+>> +
+>> +&pwm_ij {
+>> +    status = "okay";
+>> +};
+>> +
+>> +&sd {
+>> +    status = "okay";
+>> +    pinctrl-0 = <&sdcard_pins>;
+>> +    pinctrl-1 = <&sdcard_clk_gate_pins>;
+>> +    pinctrl-names = "default", "clk-gate";
+>> +    bus-width = <4>;
+>> +    cap-sd-highspeed;
+>> +    max-frequency = <50000000>;
+>> +    disable-wp;
+>> +
+>> +    cd-gpios = <&gpio GPIOC_6 GPIO_ACTIVE_LOW>;
+>> +
+>> +    vmmc-supply = <&vddao_3v3>;
+>> +    vqmmc-supply = <&vddao_3v3>;
+>> +};
+>> +
+>> +&sdio {
+>> +    status = "okay";
+>> +    pinctrl-0 = <&sdio_pins>;
+>> +    pinctrl-1 = <&sdio_clk_gate_pins>;
+>> +    pinctrl-names = "default", "clk-gate";
+>> +    #address-cells = <1>;
+>> +    #size-cells = <0>;
+>> +    bus-width = <4>;
+>> +    cap-sd-highspeed;
+>> +    sd-uhs-sdr50;
+>> +    sd-uhs-sdr104;
+>> +    max-frequency = <200000000>;
+>> +    non-removable;
+>> +    disable-wp;
+>> +
+>> +    no-sd;
+>> +    no-mmc;
+>> +    mmc-pwrseq = <&sdio_pwrseq>;
+>> +    vmmc-supply = <&vddao_3v3>;
+>> +    vqmmc-supply = <&vddio_ao1v8>;
+>> +};
+>
+> I suppose that's the Wi-Fi module you're talking about. I would put a 
+> comment
+> above to specify that it is indeed Wi-Fi and not yet supported.
+>
+> Something like:
+>
+>     /*
+>      * Wireless SDIO Module (Amlogic W150S1)
+>      * Note: There is no driver for this at the moment.
+>      */
+>
 
->  void kvm_vcpu_reload_pmu(struct kvm_vcpu *vcpu)
->  {
->  	u64 mask = kvm_pmu_implemented_counter_mask(vcpu);
-> @@ -1016,6 +1027,9 @@ u8 kvm_arm_pmu_get_max_counters(struct kvm *kvm)
->  {
->  	struct arm_pmu *arm_pmu = kvm->arch.arm_pmu;
->  
-> +	if (test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &kvm->arch.flags))
-> +		return 0;
-> +
->  	/*
->  	 * PMUv3 requires that all event counters are capable of counting any
->  	 * event, though the same may not be true of non-PMUv3 hardware.
-> @@ -1070,7 +1084,24 @@ static void kvm_arm_set_pmu(struct kvm *kvm, struct arm_pmu *arm_pmu)
->   */
->  int kvm_arm_set_default_pmu(struct kvm *kvm)
->  {
-> -	struct arm_pmu *arm_pmu = kvm_pmu_probe_armpmu();
-> +	/*
-> +	 * It is safe to use a stale cpu to iterate the list of PMUs so long as
-> +	 * the same value is used for the entirety of the loop. Given this, and
-> +	 * the fact that no percpu data is used for the lookup there is no need
-> +	 * to disable preemption.
-> +	 *
-> +	 * It is still necessary to get a valid cpu, though, to probe for the
-> +	 * default PMU instance as userspace is not required to specify a PMU
-> +	 * type. In order to uphold the preexisting behavior KVM selects the
-> +	 * PMU instance for the core during vcpu init. A dependent use
-> +	 * case would be a user with disdain of all things big.LITTLE that
-> +	 * affines the VMM to a particular cluster of cores.
-> +	 *
-> +	 * In any case, userspace should just do the sane thing and use the UAPI
-> +	 * to select a PMU type directly. But, be wary of the baggage being
-> +	 * carried here.
-> +	 */
-> +	struct arm_pmu *arm_pmu = kvm_pmu_probe_armpmu(raw_smp_processor_id());
->  
->  	if (!arm_pmu)
->  		return -ENODEV;
-> @@ -1098,6 +1129,7 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
->  				break;
->  			}
->  
-> +			clear_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &kvm->arch.flags);
+Yes that makes sense. I will add that.
 
-Why does this need to be cleared? I'd rather we make sure it is never
-set the first place.
 
->  			kvm_arm_set_pmu(kvm, arm_pmu);
->  			cpumask_copy(kvm->arch.supported_cpus, &arm_pmu->supported_cpus);
->  			ret = 0;
-> @@ -1108,11 +1140,42 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
->  	return ret;
->  }
->  
-> +static int kvm_arm_pmu_v3_set_pmu_fixed_counters_only(struct kvm_vcpu *vcpu)
-> +{
-> +	struct kvm *kvm = vcpu->kvm;
-> +	struct arm_pmu_entry *entry;
-> +	struct arm_pmu *arm_pmu;
-> +	struct cpumask *supported_cpus = kvm->arch.supported_cpus;
-> +
-> +	lockdep_assert_held(&kvm->arch.config_lock);
-> +
-> +	if (kvm_vm_has_ran_once(kvm) ||
-> +	    (kvm->arch.pmu_filter &&
-> +	     !test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &kvm->arch.flags)))
-> +		return -EBUSY;
-> +
-> +	set_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &kvm->arch.flags);
-> +	kvm_arm_set_nr_counters(kvm, 0);
-> +	cpumask_clear(supported_cpus);
+>> +
+>> +&uart_b {
+>> +    status = "okay";
+>> +};
+>> -- 
+>> 2.53.0
+>
+> -- 
+> Best regards,
+> Ferass
 
-What is the purpose of this cpumask_clear()? Under what conditions can
-you have something else?
+Thanks again,
+Christian
 
-> +
-> +	guard(rcu)();
-> +
-> +	list_for_each_entry_rcu(entry, &arm_pmus, entry) {
-> +		arm_pmu = entry->arm_pmu;
-> +		cpumask_or(supported_cpus, supported_cpus, &arm_pmu->supported_cpus);
-
-Why isn't supported_cpus directly set to possible_cpus? Isn't that the
-base requirement that you can run on any CPU at all?
-
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->  static int kvm_arm_pmu_v3_set_nr_counters(struct kvm_vcpu *vcpu, unsigned int n)
->  {
->  	struct kvm *kvm = vcpu->kvm;
->  
-> -	if (!kvm->arch.arm_pmu)
-> +	lockdep_assert_held(&kvm->arch.config_lock);
-> +
-> +	if (!kvm->arch.arm_pmu &&
-> +	    !test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &kvm->arch.flags))
->  		return -EINVAL;
->  
->  	if (n > kvm_arm_pmu_get_max_counters(kvm))
-> @@ -1227,6 +1290,8 @@ int kvm_arm_pmu_v3_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
->  
->  		return kvm_arm_pmu_v3_set_nr_counters(vcpu, n);
->  	}
-> +	case KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY:
-> +		return kvm_arm_pmu_v3_set_pmu_fixed_counters_only(vcpu);
->  	case KVM_ARM_VCPU_PMU_V3_INIT:
->  		return kvm_arm_pmu_v3_init(vcpu);
->  	}
-> @@ -1253,6 +1318,9 @@ int kvm_arm_pmu_v3_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
->  		irq = vcpu->arch.pmu.irq_num;
->  		return put_user(irq, uaddr);
->  	}
-> +	case KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY:
-> +		if (test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &vcpu->kvm->arch.flags))
-
-With 6 occurrences of this test_bit(), it feels like it'd be valuable
-to have a dedicate predicate to help with readability.
-
-> +			return 0;
->  	}
->  
->  	return -ENXIO;
-> @@ -1266,6 +1334,7 @@ int kvm_arm_pmu_v3_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
->  	case KVM_ARM_VCPU_PMU_V3_FILTER:
->  	case KVM_ARM_VCPU_PMU_V3_SET_PMU:
->  	case KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS:
-> +	case KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY:
->  		if (kvm_vcpu_has_pmu(vcpu))
->  			return 0;
->  	}
-> diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
-> index 96754b51b411..1375cbaf97b2 100644
-> --- a/include/kvm/arm_pmu.h
-> +++ b/include/kvm/arm_pmu.h
-> @@ -56,6 +56,7 @@ void kvm_pmu_software_increment(struct kvm_vcpu *vcpu, u64 val);
->  void kvm_pmu_handle_pmcr(struct kvm_vcpu *vcpu, u64 val);
->  void kvm_pmu_set_counter_event_type(struct kvm_vcpu *vcpu, u64 data,
->  				    u64 select_idx);
-> +void kvm_vcpu_load_pmu(struct kvm_vcpu *vcpu);
->  void kvm_vcpu_reload_pmu(struct kvm_vcpu *vcpu);
->  int kvm_arm_pmu_v3_set_attr(struct kvm_vcpu *vcpu,
->  			    struct kvm_device_attr *attr);
-> @@ -161,6 +162,7 @@ static inline u64 kvm_pmu_get_pmceid(struct kvm_vcpu *vcpu, bool pmceid1)
->  static inline void kvm_pmu_update_vcpu_events(struct kvm_vcpu *vcpu) {}
->  static inline void kvm_vcpu_pmu_restore_guest(struct kvm_vcpu *vcpu) {}
->  static inline void kvm_vcpu_pmu_restore_host(struct kvm_vcpu *vcpu) {}
-> +static inline void kvm_vcpu_load_pmu(struct kvm_vcpu *vcpu) {}
->  static inline void kvm_vcpu_reload_pmu(struct kvm_vcpu *vcpu) {}
->  static inline u8 kvm_arm_pmu_get_pmuver_limit(void)
->  {
-> 
-
-In conclusion, I find this patch to be rather messy. For a start, it
-needs to be split in at least 5 patches:
-
-- at least two for the refactoring
-- one for the PMU core changes
-- one for the UAPI
-- one for documentation
-
-I'd also like some clarification on how this is intended to work if we
-enable FEAT_PMUv3_ICNTR, because the definition seems to be designed
-to encompass all fixed-function counters, and I expect this to grow
-over time.
-
-I'm also not planning to look at the selftest at this stage.
-
-Thanks,
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
 
