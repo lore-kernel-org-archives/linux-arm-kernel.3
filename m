@@ -4,91 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58D2BEA7195
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 10:39:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2022DEA7195
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 10:41:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aSNMSL2yf7R55Mkk0U6fT14ULpUWkywT0FjbSBd+zG4=; b=MynCP1doMbZ2+OVVrDzvI7SfRb
-	pzgXfsu2fctfOm3wFUO/Sh/bIFs2s+p6h/PAXKlQp214uPMJxWCXXFFWCICotlg3vORfrUr+jSggJ
-	QWAsGX0VFPJb0khzXOGxONC/2Hwo/yi+L8BOHTNV8HOE8Ye5gNx4urDyg7jiew1A8t5O/eO/Ph5CS
-	8i6+gP3n4nk7Uw6KV7P4Pni7lXCtYJEKlzf7jMENXDTm5kvoxgjvd7BaqR6HCfyfOE+GTvsrzPQgz
-	1MP9RTf6BOrLFA5YtFvASJjrZQ50T/LG1rNAcDYpdAwsi7je3hVal/aBdn9a6gTfdMiPSfiwG9xNW
-	y2Ov8YLw==;
+	bh=Swi5niYl9xhApFDvsEd2yMgnr0uOBrYnJ6H/IS3AgIY=; b=UUY4zepQV7mQH2LI76Mpu6rK5F
+	kUwHujpy4b8IXyUk4vb3x7aQxymQ5X9V70iHB6ebt8/47CwojAMTNUeO1TjgpT1e4QyeXXT+fZPYT
+	ZpYrmHg2uX4MYYHiGJ/B96c6MPCfAt/D0YVIAupwKAya45mdgOxiPx20IS5VyndfV2XwYeS3z1mI6
+	t3BoPgqV/qP48Vuit5ttvIiYNojHZhabomf6tVN0NqLXsSa2aQzxEiup5TrXecHYfhu1PMu5fZ8jV
+	w1YxdN8HU+oJYuucJQE/gsiAlVYpcXqskwaf7ZYtIbsdszLPISWPJMHh/yirncHVMh8GuicbQMhhO
+	+lEOsk7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEPYL-00000005hwO-4AUK;
-	Sun, 19 Apr 2026 10:39:01 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1wEPah-00000005i7P-0ZDo;
+	Sun, 19 Apr 2026 10:41:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEPYJ-00000005hvy-1RMs
+	id 1wEPae-00000005i71-1RFx
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Apr 2026 10:39:00 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-43d64313c39so1625960f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 03:38:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776595137; x=1777199937; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aSNMSL2yf7R55Mkk0U6fT14ULpUWkywT0FjbSBd+zG4=;
-        b=J56PQUC19PhF8PM4bF04NQrXgnFDRyCvDFzdhP/RP/zhWsM2HDRO487x/3TpTZkzR3
-         AHbHodBoPLkhOe9axqESPduOpj7pYSerex+TfJ1tqFmgI022/PnnZrQTHOaMyhl8mhLX
-         Qoe5rPcr3wMNCEWRGkTfntamEDh8zlTFnnRqJjFqj4o+RxYHGd5qyvAeUlIx0jEi3CR4
-         DFweIKYGp+0tTy5LNpgGASjACzmaGWav7r1GxYEOFyyM7D8J7ZgCNeQMzrJG+DfiWjVd
-         2K16MjwlzJg0tUoUWpWaVl21Yqq9Nmm7ckZXZ0xjL4XRX/E1HNoLio2BWkwtORVTNrh2
-         ZPVw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776595137; x=1777199937;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=aSNMSL2yf7R55Mkk0U6fT14ULpUWkywT0FjbSBd+zG4=;
-        b=Cy4dOfg/lCAQqMbpg+5FGKNiwvJfR9o657dGi4GkU8Rg5tdi+ZhsNVuYZyFHsTrFsn
-         /6CHjOwh+jYTxKlIF1VzF0QuYOp4OKuTDMbMc/2ReaHaOr2yQXpzJ/3XXsxwKcCq+pOJ
-         5f81ORbh6pJjvGxAc9lPxXvjEANRx8x1NC7ZohD6FERFVx8zp7+QdTPTgDemKma5lpR6
-         TBLX2zSF1Q9T4Q4RZrUvMzMSZ7Tvyoj28iRhe8zORZNpSmal4/hHv4LMLIyAd3/tR1uv
-         5AOlnaeOOUdK7piNAQFzguBGJ+vtN4wo7YGwc3HP3ZC/BnX3IZ0oFdN/crGJFh5j1yOs
-         tvGQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/LlUXMgrGVQ6HvTcZ5jLSIuRnOXzu5rq4Yl5cj4HqaqGoYQ2KnnCEWzHPYYJ4zmYYl8uVdpSLw2qEa/EyTOfnK@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMUnEJJhdnNm9WRCp2yEkczvZsEveDsVtK+elou2XsqroSPweM
-	46kJth6iC6uqg6N4MKTp/cM16SpQQqRPHV4XeGEZmF8atuumqLDzSiRD
-X-Gm-Gg: AeBDiesrb//ebVmG9Dqp6ghDKBsfjWsBINZjUbfVbin2zbVH4R/GaOohno0yUAV2ESv
-	jIDGbD2F/6DSoHr/9mNaSOYuqRhHSGuRX7tnXlx7UAU54d0cBJ5tLUb09E62LHHvrMyYHcU/IWN
-	se1KOhxR8kq+4BIj00rdNXyOSH5YjLolsataA07a4lpBsirZJq/o5H6JJNW2OVX/lhfHcox3WYo
-	LKdmi76j6i6FRNPaJ9xQywnQEBFZ8m8mHix4o2849Gz+tvjCb91nDALjfAiHYKSPfLHfmHVj+Rc
-	ESaoEw85DNkFHZVTDa0VuRdnHRpsuDCJX08unpbB14/X4jhsgf0q6vbX3KtZ4+YKJUb5BhvqM9m
-	0vFTqMWyO4b12MwO+j2kihlh+41SYkHUKmvr0w6JPg+rtnVR+4woiE+uq1fqzyQWSCisStj6X08
-	kdKHwA+uFCVU6CVHHCVrv2FQUUOc7MCpD+UW/6xCmEzNlx9doA8xGGhKk=
-X-Received: by 2002:a5d:5849:0:b0:43e:a8ad:975e with SMTP id ffacd0b85a97d-43fe3dfbedbmr14792261f8f.27.1776595136543;
-        Sun, 19 Apr 2026 03:38:56 -0700 (PDT)
-Received: from jernej-laptop.localnet ([188.159.248.16])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43fe4e46898sm20259211f8f.27.2026.04.19.03.38.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 19 Apr 2026 03:38:55 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Samuel Holland <samuel@sholland.org>,
- Michal Piekos <michal.piekos@mmpsystems.pl>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm: dts: allwinner: t113s mangopi: enable watchdog for reboot
-Date: Sun, 19 Apr 2026 12:38:53 +0200
-Message-ID: <ar7Vj6maR5aXgp7KQK7v1A@gmail.com>
-In-Reply-To: <20260418135519.16e41490@ryzen.lan>
-References: <20260412-t113-mangopi-reboot-hang-v1-1-5002cfa6e0cc@mmpsystems.pl>
- <2825865.mvXUDI8C0e@jernej-laptop> <20260418135519.16e41490@ryzen.lan>
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+	Sun, 19 Apr 2026 10:41:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 137F74333A;
+	Sun, 19 Apr 2026 10:41:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7CF6C2BCB7;
+	Sun, 19 Apr 2026 10:41:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776595280;
+	bh=LAIQFEbnaUquFHk2b6GIMNU7b8Bu+5PRFwtbx+UqY0o=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=gB0CKlByXWXs8jyP6JohfSBJudqFkFOMTl5zUyKA+qzXWnnJiWQ1bQJdiIFrtxGvL
+	 34bx74gukoDmNYcCm9NOUSGFjZo1mZUBAcNB3XGEpc4Xho2+e0ZMpDS8bYpskzNDCc
+	 00UBjh75dX6I1N2lOYCzAqZFaD3TFSEbd+geF5UyWADAnjRjqqQjuKSlKD7dIkO2sj
+	 1hhSWRO+FOyO38e8840rl/lHtGhixcUJYi/ehKfsSZfRDYHrD4R4dVT0uJQkT1XMgI
+	 eli3Nba4lqpuNzE40Cr8t3TdCjgcOytWiFQxE7cyKRgBQufFZdjgiOmL3epkRfyl3N
+	 TL6wsRl7bqC+w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wEPaY-0000000Cocy-0x2N;
+	Sun, 19 Apr 2026 10:41:18 +0000
+Date: Sun, 19 Apr 2026 11:41:17 +0100
+Message-ID: <87pl3vb5bm.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: linux-security-module@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	paul@paul-moore.com,
+	jmorris@namei.org,
+	serge@hallyn.com,
+	zohar@linux.ibm.com,
+	roberto.sassu@huawei.com,
+	dmitry.kasatkin@gmail.com,
+	eric.snowberg@oracle.com,
+	peterhuewe@gmx.de,
+	jarkko@kernel.org,
+	jgg@ziepe.ca,
+	sudeep.holla@kernel.org,
+	oupton@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org
+Subject: Re: [RFC PATCH 4/4] firmware: arm_ffa: check pkvm initailised when initailise ffa driver
+In-Reply-To: <aeNeNjfO7i128TIP@e129823.arm.com>
+References: <20260417175759.3191279-1-yeoreum.yun@arm.com>
+	<20260417175759.3191279-5-yeoreum.yun@arm.com>
+	<87se8sbozv.wl-maz@kernel.org>
+	<aeNeNjfO7i128TIP@e129823.arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: yeoreum.yun@arm.com, linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com, zohar@linux.ibm.com, roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com, peterhuewe@gmx.de, jarkko@kernel.org, jgg@ziepe.ca, sudeep.holla@kernel.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260419_033859_494855_50466974 
-X-CRM114-Status: GOOD (  22.91  )
+X-CRM114-CacheID: sfid-20260419_034124_473199_7E4C012D 
+X-CRM114-Status: GOOD (  22.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,68 +106,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne sobota, 18. april 2026 ob 13:55:19 Srednjeevropski poletni =C4=8Das je =
-Andre Przywara napisal(a):
-> On Fri, 17 Apr 2026 20:19:20 +0200
-> Jernej =C5=A0krabec <jernej.skrabec@gmail.com> wrote:
->=20
-> > Hi,
-> >=20
-> > Dne nedelja, 12. april 2026 ob 19:42:10 Srednjeevropski poletni =C4=8Da=
-s je Michal Piekos napisal(a):
-> > > Reboot hangs on MangoPi MQ-R T113s because no restart handler is
-> > > available.
-> > >=20
-> > > Enable the SoC watchdog whose driver registers a restart handler.
-> > >=20
-> > > Tested on MangoPi MQ-R T113s.
-> > >=20
-> > > Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
-> > > ---
-> > >  arch/arm/boot/dts/allwinner/sun8i-t113s-mangopi-mq-r-t113.dts | 4 ++=
-++
-> > >  1 file changed, 4 insertions(+)
-> > >=20
-> > > diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s-mangopi-mq-r-t11=
-3.dts b/arch/arm/boot/dts/allwinner/sun8i-t113s-mangopi-mq-r-t113.dts
-> > > index 8b3a75383816..f0232a5e903b 100644
-> > > --- a/arch/arm/boot/dts/allwinner/sun8i-t113s-mangopi-mq-r-t113.dts
-> > > +++ b/arch/arm/boot/dts/allwinner/sun8i-t113s-mangopi-mq-r-t113.dts
-> > > @@ -33,3 +33,7 @@ rtl8189ftv: wifi@1 {
-> > >  		interrupt-names =3D "host-wake";
-> > >  	};
-> > >  };
+On Sat, 18 Apr 2026 11:34:30 +0100,
+Yeoreum Yun <yeoreum.yun@arm.com> wrote:
+> 
+> > > @@ -2035,6 +2037,16 @@ static int __init ffa_init(void)
+> > >  	u32 buf_sz;
+> > >  	size_t rxtx_bufsz = SZ_4K;
+> > >
+> > > +	/*
+> > > +	 * When pKVM is enabled, the FF-A driver must be initialized
+> > > +	 * after pKVM initialization. Otherwise, pKVM cannot negotiate
+> > > +	 * the FF-A version or obtain RX/TX buffer information,
+> > > +	 * which leads to failures in FF-A calls.
+> > > +	 */
+> > > +	if (IS_ENABLED(CONFIG_KVM) && is_protected_kvm_enabled() &&
+> > > +	    !is_kvm_arm_initialised())
+> > > +		return -EPROBE_DEFER;
 > > > +
-> > > +&wdt {
-> > > +	status =3D "okay";
-> > > +}; =20
-> >=20
-> > Move this to sun8i-t113s.dtsi. All t113 boards have the same issue.
-> > Watchdog should be always enabled on ARM.
->=20
-> We actually have that line in U-Boot:
-> https://github.com/u-boot/u-boot/blob/master/arch/arm/dts/sunxi-u-boot.dt=
-si#L22-L27
->=20
-> IIRC, the idea was that it is *firmware* that chooses the watchdog, so
-> the generic DT should not be the place to set this.
+> >
+> > That's still fundamentally wrong: pkvm is not ready until
+> > finalize_pkvm() has finished, and that's not indicated by
+> > is_kvm_arm_initialised().
+> 
+> Thanks. I miss the TSC bit set in here.
 
-Why would firmware need to select watchdog? We only had issue on H6
-with it, so I kind of get it for that, but in general, all ARM based SoCs
-have it enabled by default which is IMO how it should be.
+That's the least of the problems. None of the infrastructure is in
+place at this stage...
 
-Best regards,
-Jernej
+> IMHO, I'd like to make an new state check function --
+> is_pkvm_arm_initialised() so that ff-a driver to know whether
+> pkvm is initialised.
 
->=20
-> If people use $fdtcontroladdr as the DT source, everything falls in
-> place neatly, no need for changes or runtime patching.
->=20
-> Cheers,
-> Andre
->=20
+Doesn't sound great, TBH.
 
+> or any other suggestion?
 
+Instead of adding more esoteric predicates, I'd rather you build on an
+existing infrastructure. You have a dependency on KVM, use something
+that is designed to enforce dependencies. Device links spring to mind
+as something designed for that.
 
+Can you look into enabling this for KVM? If that's possible, then it
+should be easy enough to delay the actual KVM registration after pKVM
+is finalised.
 
+Thanks,
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
