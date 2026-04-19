@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 909B2EA7197
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 20:23:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA22AEA719D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 20:56:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YslpqwAUlqk2IVojGwVrggbXsHD7anRXPzWPJnX3NKw=; b=RYxGhxs746gjX0sMm71Ox+0M38
-	0wlcFnNyO/Vk4P8SBW8Vq8kSEU41Wf1PySnkeENQTAE6VZnYhSS9UCTmo5k/vurkFKHDqfU2kp9g1
-	6wMoCoUEdtgxDYXzjWYoaGegc6HtPzLD7PlHP559VxtJksY8sAS6bxe9uPDzW6xsKDf9RF2gx7FRD
-	gs11viUjotiYOXAsuH3wRnmI61ga8PdfgFUYvYj7TZVki0n4k14/g8YattngkXnmN1TdqacYLf0ZE
-	qRBumS5N6e3QUbGssM8BzZ8WXz/7hWQPhMqPGfe1Aw0jpn/vW7nkChP3VXU4Jxkav6/RxRsi6L46Y
-	3SYRU6Sw==;
+	bh=fxoXwic2XwYF0J4MT6OnAwKbD/+Lo9Q4BB5HynXsudw=; b=yr7RQT5R1f9VOUPKGQIl9moNbj
+	ZOgVG86PY8WhSPQ97bSIhcxtytF7f+SZwlDnKFagy0Rlc/mlX+o/HnOPvgeqxZ1M5MC/ngYNU5HdX
+	M30N+gljPf9I+n4U1lTf4IPuxMrrPPTuA3s7jqSf8I3JkNbT3jlSVjyzHpv1PCbFn6wvo80ddaAFe
+	xNkn8yl06owgax/0F8p4bvhUDCKS2kWzpEGH2WsaE5Tmo0bPfabKT4BtcjnPd6uNjYhGBDL0LVnUZ
+	5q5wNyiKtZ931Ntyv9pLKol4cBBqpypY4loVBPzNqGwTL4NAtqbFV0EjS26kbnQY3GY3DCHLbRumr
+	Ac4OUxvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEYfM-000000064B8-32hD;
-	Sun, 19 Apr 2026 20:22:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEYfK-000000064Ax-33ta
+	id 1wEZBZ-00000006532-01GC;
+	Sun, 19 Apr 2026 20:56:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wEZBV-0000000652a-0GVo
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Apr 2026 20:22:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 94D3860133
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 20:22:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D011C2BCC4
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 20:22:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776630169;
-	bh=9DkN4UJECtm0IFZQ7IDjwr8Jt5qlKg5Pn6HXQqREXsk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=vK7UZk2UyG2Jz0oLDq53e2PvG0I4WWUNVC6bjR2qL6aL7weGb9athuVfk8h6iuWuN
-	 PlfKOmWibQC9V0CsrCZHZV4WG+ad0M7QNhe2LUmWpyQ29P6r+ZA0vilEMoVS+jWJKa
-	 CRnQ71mwtMsj2NrqktCsYrJvLAlNWN07BUPBz9N2weCwd+OQOfy37E5x10MK/e8wvj
-	 lM/4i+hPZGvMkUlcxJS+qbNmE1N2IMcv4WAc1/kSQGpg1XGB2bjdqbEZMD7zQUxd7W
-	 qtk8MDSjqlz4Fu8TsgS7f/LGRILXDfFJGspor3W8Gik8mqLmjaYOd5ELljP98bfLnp
-	 za95zo8EfUtiQ==
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5a283c44478so4016296e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 13:22:49 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/TQ/BPd4lWmJBwt/tDn8KbbP/YXjOUGI6tK94EQRjx34t1noCqZ8Ju0S7nYynioAs80oM/tUp4kDx7DD0bU+Dm@lists.infradead.org
-X-Gm-Message-State: AOJu0YwF+rVO+AarJ2KXNmhnNFPOKb5DyPzxyDLltBwRidMpp4PsV/6C
-	khuO3ppOv3xe2Lo0cognCax5RRtTsVus1GNj71/aoGhvuqbLVHPP+qJhaRVHOsr4wZ5Y2wtMQON
-	4hcnFC238E+SMTypQ1UnNkDY0HiZEy+Q=
-X-Received: by 2002:a05:6512:3e05:b0:5a3:fcb2:c6aa with SMTP id
- 2adb3069b0e04-5a4172bfee7mr3442408e87.13.1776630167775; Sun, 19 Apr 2026
- 13:22:47 -0700 (PDT)
+	Sun, 19 Apr 2026 20:56:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3A8481596;
+	Sun, 19 Apr 2026 13:55:55 -0700 (PDT)
+Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7A8483F915;
+	Sun, 19 Apr 2026 13:55:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776632160; bh=10s7haxDAajQ345wnYTnCiGJYIwWQeORgzsvCDfqHlM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=MNtCF8tvy8WdHuo8nDQCjkb6kVlS7Tlumm9GF9N22x7MmJE+MxVinmbK9IfyAHt4P
+	 +OnWVARYj7m1U0Dmu392HZMkadjj0YDsE7jMoRmOMZJ/46dJbgzv8xk/3KV/bO8dRG
+	 lZqbfLxDLDRtsE74r0JvPEOYF3cw+wT2k9Z+ljnk=
+Date: Sun, 19 Apr 2026 22:55:39 +0200
+From: Andre Przywara <andre.przywara@arm.com>
+To: Michal Piekos <michal.piekos@mmpsystems.pl>
+Cc: Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas Gleixner
+ <tglx@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai
+ <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
+ Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH 0/4] Add hstimer support for H616 and T113-S3
+Message-ID: <20260419225539.718367e0@ryzen.lan>
+In-Reply-To: <20260419-h616-t113s-hstimer-v1-0-1af74ebef7c5@mmpsystems.pl>
+References: <20260419-h616-t113s-hstimer-v1-0-1af74ebef7c5@mmpsystems.pl>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-References: <20260413154727.3051321-1-lgs201920130244@gmail.com>
-In-Reply-To: <20260413154727.3051321-1-lgs201920130244@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Sun, 19 Apr 2026 22:22:34 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnC5MGg1e_Suv6BD_=XKbsn1aLxHxRfCdD3Nos+2XRzfw@mail.gmail.com>
-X-Gm-Features: AQROBzCDUCdqQVnjQAyYtn99zG1zFrnsiXSLX3a_nvy_WJ_NdEcr9JskY4IufVw
-Message-ID: <CAD++jLnC5MGg1e_Suv6BD_=XKbsn1aLxHxRfCdD3Nos+2XRzfw@mail.gmail.com>
-Subject: Re: [PATCH] watchdog: ixp4xx: fix reference leak on
- platform_device_register() failure
-To: Guangshuo Li <lgs201920130244@gmail.com>
-Cc: Imre Kaloz <kaloz@openwrt.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Guenter Roeck <linux@roeck-us.net>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260419_135605_338559_47013CF8 
+X-CRM114-Status: GOOD (  16.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,31 +75,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Guangshuo,
+On Sun, 19 Apr 2026 14:46:06 +0200
+Michal Piekos <michal.piekos@mmpsystems.pl> wrote:
 
-thanks for your patch!
+Hi Michal,
 
-On Mon, Apr 13, 2026 at 5:47=E2=80=AFPM Guangshuo Li <lgs201920130244@gmail=
-.com> wrote:
+> Add support for Allwinner H616 high speed timer in sun5i hstimer driver
+> and describe corresponding nodes in dts for H616 and T113-S3.
+> 
+> H616 uses same model as existing driver except register shift compared
+> to older variants. 
+> 
+> Added register layout abstraction in the driver, extended the binding
+> with new compatibles and wired up dts nodes for H616 and T113-S3 which
+> uses H616 as fallback compatible.
 
-> ixp4xx_timer_probe() directly returns the result of
-> platform_device_register(&ixp4xx_watchdog_device). When registration
-> fails, the embedded struct device in ixp4xx_watchdog_device has already
-> been initialized by device_initialize(), but the failure path does not
-> drop the device reference, leading to a reference leak.
-(...)
+Can you say *why* we need this? IIUC Linux only ever uses one clock
+source, and selects the (non-optional) Generic Timer (aka arch timer)
+for that? So can you say what this hstimer clock source adds? I guess
+higher resolution, but what is your use case, so why would you need the
+200 MHz? And does this offset the higher access cost of an MMIO
+access, compared to the arch timer's sysreg based access? Also, IIUC,
+people would need to manually select this as the clocksource, why and
+when would they do so? (Given they even know about it in the first
+place).
+Also the hstimer hasn't been used since the A20, so nobody seemed to
+have missed it meanwhile?
 
-> -       return platform_device_register(&ixp4xx_watchdog_device);
-> +       ret =3D platform_device_register(&ixp4xx_watchdog_device);
-> +       if (ret)
-> +               platform_device_put(&ixp4xx_watchdog_device);
+Cheers,
+Andre
 
-If the problem in the description is indeed there, it seems the bug
-is inside platform_device_register(), surely a function returning an
-error code is supposed to clean up any resources it takes before
-returning an error. It seems wrong to try to fix this in all the
-consumers.
+> 
+> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+> ---
+> Michal Piekos (4):
+>       dt-bindings: timer: allwinner,sun5i-a13-hstimer: add H616 and T113-S3
+>       clocksource/drivers/sun5i: add H616 hstimer support
+>       arm64: dts: allwinner: h616: add hstimer node
+>       arm: dts: allwinner: t113s: add hstimer node
+> 
+>  .../timer/allwinner,sun5i-a13-hstimer.yaml         |  8 +++-
+>  arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi       | 12 +++++
+>  arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi     |  9 ++++
+>  drivers/clocksource/timer-sun5i.c                  | 56 +++++++++++++++++++---
+>  4 files changed, 78 insertions(+), 7 deletions(-)
+> ---
+> base-commit: faeab166167f5787719eb8683661fd41a3bb1514
+> change-id: 20260413-h616-t113s-hstimer-62939948f91c
+> 
+> Best regards,
 
-Yours,
-Linus Walleij
 
