@@ -4,60 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98BB5EA7195
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 10:57:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0419BEA7199
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 11:13:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cIZIKbQ7Pd7y7RJcmWQkxedzciWlUxN3kKs/Q4+MAz0=; b=tpRQftNGa/vq7iLpu2Lq/LQD5G
-	o3Pa8MBGVtQ1eK7x95abpN78VBembA1u6K9FbZfTOlMi12wscXFH8SXN2b1mNKWRbVYAgXnpbzR4p
-	uLRRms+lUno8NsYkMaphfhzLDPb9tLFZIlQSUl6U102Ir6sCs/fTyhnXRLgrt2+TYLriAr+Q4KLBE
-	9z0uVtKmVjpPn5y5m/fe8RWVRj0Fgm5/iWL7PBJ+imyfP7eBOKddvmfwwCLRskMeLEIv7JlF4Rqxz
-	HbqlDj+tIdnsIkUNiJ8FpALtcK/p1+5B6kL0+FztVszUSTKdLgwwG0gYAAujmiD2rbzDUOma3OkAW
-	aUQz+hyA==;
+	bh=KNS9PDYLsSa4ho+1ib4V6wgCsT+trXEJb2vA/QaD0lc=; b=ygU1CSA0g4KfTd2ELB8hguSSLP
+	QnYsgzEZ7Z/9b4u6YX85F4K4gKpKWX2mKeYBniqXjZ1wMWGHCVdYwZOUCKOc2t3KqI5mHVTtghINc
+	lQcBh4cd1iRfDAqW2Qp7k+TsdMyIJ7i4/u9pTSJ57RpenYblFzGL5Ff9FC/dNLn+zWHSOoYBm9FGC
+	cl+XSTvytSS7v+sqgJvlTQCa+sggglCvEsWXxlvjsMl1jmwLCd9eMePDA4L/H7UQH4w0nskKEGS6I
+	Xxx9nsHlJEIjIiZOz3FJ6RonTPpRlL318yeO7brXd+/k2WRqJ7u+QhmYiSqtzqFYHAROMcEdfgaon
+	kNJc0f7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEPpl-00000005ikU-1tSh;
-	Sun, 19 Apr 2026 10:57:02 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEPpi-00000005ik6-1XjC;
-	Sun, 19 Apr 2026 10:56:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=cIZIKbQ7Pd7y7RJcmWQkxedzciWlUxN3kKs/Q4+MAz0=; b=MHxs90zGbqPvKk41a0Pz2yFw8n
-	M5HpOm9sgLU6c8D+ARSrjAO1tFJNcL1tJZuox9rkk25ktrMkCx27cNjp1ISV3QXG+NKnyft09219U
-	YWi76jKMZzD+eBYXZ5NzIkSaaIUPqIrmyoEKKQDihWKWoAQLFyJsoWh8P+eIBVX44JWHD0ThK+kkh
-	kSzFhitwem0vjviDtBtDLtSJtsSEXK9Q9xLqBDXErYtJysAGFi3THtq96JOwe4tm3hKBUh81aHBpi
-	aRIRpIZABE/stPGgWt5T0/8iwTyMskTPeKUCthG1VMB8cVjRtrs8o3fgY9migxrF4wtH27H0Zdwph
-	wRPRLHJQ==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Daniele Briguglio <hello@superkali.me>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Daniele Briguglio <hello@superkali.me>,
- Ricardo Pardini <ricardo@pardini.net>
-Subject: Re: [PATCH v3 4/4] clk: rockchip: rk3588: add GATE_GRF clocks for I2S MCLK
- output to IO
-Date: Sun, 19 Apr 2026 12:56:50 +0200
-Message-ID: <3399175.N7aMVyhfb1@phil>
-In-Reply-To: <20260320-rk3588-mclk-gate-grf-v3-4-980338eacd2c@superkali.me>
-References: <20260320-rk3588-mclk-gate-grf-v3-0-980338eacd2c@superkali.me>
- <20260320-rk3588-mclk-gate-grf-v3-4-980338eacd2c@superkali.me>
+	id 1wEQ5B-00000005jDy-3WMT;
+	Sun, 19 Apr 2026 11:12:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wEQ58-00000005jDY-2kaq
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 19 Apr 2026 11:12:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8D53D1758;
+	Sun, 19 Apr 2026 04:12:44 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0153D3F7D8;
+	Sun, 19 Apr 2026 04:12:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776597170; bh=T+vbr4chV9cggPos+uUjAlusV7otX0Vrov18mP9n3X8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fMHsKQdMYihhxfL83zudG/gJAAj0LtCF8cJcMRlcMw9st9x2BMpOcmjgu5y51B8J3
+	 90mGwLOuDAbBvPt6Q5LMD4sD6ReM2doB753cyJ2Y6Z2EvH7s48ObMURMzx6gaNmKTB
+	 I6NC27LPfOhvw98rmpXpt9arUsO8N4OhGOFoufXg=
+Date: Sun, 19 Apr 2026 12:12:44 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
+	zohar@linux.ibm.com, roberto.sassu@huawei.com,
+	dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com,
+	peterhuewe@gmx.de, jarkko@kernel.org, jgg@ziepe.ca,
+	sudeep.holla@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org
+Subject: Re: [RFC PATCH 4/4] firmware: arm_ffa: check pkvm initailised when
+ initailise ffa driver
+Message-ID: <aeS4rAeVQ0yJIPYw@e129823.arm.com>
+References: <20260417175759.3191279-1-yeoreum.yun@arm.com>
+ <20260417175759.3191279-5-yeoreum.yun@arm.com>
+ <87se8sbozv.wl-maz@kernel.org>
+ <aeNeNjfO7i128TIP@e129823.arm.com>
+ <87pl3vb5bm.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87pl3vb5bm.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260419_035658_411799_2D292C98 
-X-CRM114-Status: GOOD (  23.79  )
+X-CRM114-CacheID: sfid-20260419_041254_906741_C79C3F0D 
+X-CRM114-Status: GOOD (  31.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,173 +81,249 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniele,
+Hi Marc,
 
-Am Freitag, 20. M=C3=A4rz 2026, 11:34:16 Mitteleurop=C3=A4ische Sommerzeit =
-schrieb Daniele Briguglio:
-> The I2S MCLK outputs on RK3588 are gated by bits in the SYS_GRF
-> register SOC_CON6 (offset 0x318). These gates control whether the
-> internal CRU MCLK signals reach the external IO pins connected to
-> audio codecs.
->=20
-> The kernel should explicitly manage these gates so that audio
-> functionality does not depend on bootloader register state. This is
-> analogous to what was done for RK3576 SAI MCLK outputs [1].
->=20
-> Register the SYS_GRF as an auxiliary GRF with grf_type_sys in the
-> early clock init, and add GATE_GRF entries for all four I2S MCLK
-> output gates:
->=20
->   - I2S0_8CH_MCLKOUT_TO_IO (bit 0)
->   - I2S1_8CH_MCLKOUT_TO_IO (bit 1)
->   - I2S2_2CH_MCLKOUT_TO_IO (bit 2)
->   - I2S3_2CH_MCLKOUT_TO_IO (bit 7)
->=20
-> Board DTS files that need MCLK on an IO pin can reference these
-> clocks, e.g.:
->=20
->     clocks =3D <&cru I2S0_8CH_MCLKOUT_TO_IO>;
->=20
-> Tested on the Youyeetoo YY3588 (RK3588) with an ES8388 codec on I2S0.
->=20
-> [1] https://lore.kernel.org/r/20250305-rk3576-sai-v1-2-64e6cf863e9a@colla=
-bora.com/
->=20
-> Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> Tested-by: Ricardo Pardini <ricardo@pardini.net>
-> Signed-off-by: Daniele Briguglio <hello@superkali.me>
-> ---
->  drivers/clk/rockchip/clk-rk3588.c | 24 ++++++++++++++++++++++++
->  1 file changed, 24 insertions(+)
->=20
-> diff --git a/drivers/clk/rockchip/clk-rk3588.c b/drivers/clk/rockchip/clk=
-=2Drk3588.c
-> index 1694223f4f84..2cc85fb5b2cc 100644
-> --- a/drivers/clk/rockchip/clk-rk3588.c
-> +++ b/drivers/clk/rockchip/clk-rk3588.c
-> @@ -5,11 +5,14 @@
->   */
-> =20
->  #include <linux/clk-provider.h>
-> +#include <linux/mfd/syscon.h>
->  #include <linux/of.h>
-> +#include <linux/slab.h>
->  #include <linux/of_address.h>
->  #include <linux/platform_device.h>
->  #include <linux/syscore_ops.h>
->  #include <dt-bindings/clock/rockchip,rk3588-cru.h>
-> +#include <soc/rockchip/rk3588_grf.h>
->  #include "clk.h"
-> =20
->  #define RK3588_GRF_SOC_STATUS0		0x600
-> @@ -892,6 +895,8 @@ static struct rockchip_clk_branch rk3588_early_clk_br=
-anches[] __initdata =3D {
->  			RK3588_CLKGATE_CON(8), 0, GFLAGS),
->  	MUX(I2S2_2CH_MCLKOUT, "i2s2_2ch_mclkout", i2s2_2ch_mclkout_p, CLK_SET_R=
-ATE_PARENT,
->  			RK3588_CLKSEL_CON(30), 2, 1, MFLAGS),
-> +	GATE_GRF(I2S2_2CH_MCLKOUT_TO_IO, "i2s2_2ch_mclkout_to_io", "i2s2_2ch_mc=
-lkout",
-> +			0, RK3588_SYSGRF_SOC_CON6, 2, GFLAGS, grf_type_sys),
-> =20
->  	COMPOSITE(CLK_I2S3_2CH_SRC, "clk_i2s3_2ch_src", gpll_aupll_p, 0,
->  			RK3588_CLKSEL_CON(30), 8, 1, MFLAGS, 3, 5, DFLAGS,
-> @@ -907,6 +912,8 @@ static struct rockchip_clk_branch rk3588_early_clk_br=
-anches[] __initdata =3D {
->  			RK3588_CLKGATE_CON(8), 4, GFLAGS),
->  	MUX(I2S3_2CH_MCLKOUT, "i2s3_2ch_mclkout", i2s3_2ch_mclkout_p, CLK_SET_R=
-ATE_PARENT,
->  			RK3588_CLKSEL_CON(32), 2, 1, MFLAGS),
-> +	GATE_GRF(I2S3_2CH_MCLKOUT_TO_IO, "i2s3_2ch_mclkout_to_io", "i2s3_2ch_mc=
-lkout",
-> +			0, RK3588_SYSGRF_SOC_CON6, 7, GFLAGS, grf_type_sys),
->  	GATE(PCLK_ACDCDIG, "pclk_acdcdig", "pclk_audio_root", 0,
->  			RK3588_CLKGATE_CON(7), 11, GFLAGS),
->  	GATE(HCLK_I2S0_8CH, "hclk_i2s0_8ch", "hclk_audio_root", 0,
-> @@ -935,6 +942,8 @@ static struct rockchip_clk_branch rk3588_early_clk_br=
-anches[] __initdata =3D {
->  			RK3588_CLKGATE_CON(7), 10, GFLAGS),
->  	MUX(I2S0_8CH_MCLKOUT, "i2s0_8ch_mclkout", i2s0_8ch_mclkout_p, CLK_SET_R=
-ATE_PARENT,
->  			RK3588_CLKSEL_CON(28), 2, 2, MFLAGS),
-> +	GATE_GRF(I2S0_8CH_MCLKOUT_TO_IO, "i2s0_8ch_mclkout_to_io", "i2s0_8ch_mc=
-lkout",
-> +			0, RK3588_SYSGRF_SOC_CON6, 0, GFLAGS, grf_type_sys),
-> =20
->  	GATE(HCLK_PDM1, "hclk_pdm1", "hclk_audio_root", 0,
->  			RK3588_CLKGATE_CON(9), 6, GFLAGS),
-> @@ -2220,6 +2229,8 @@ static struct rockchip_clk_branch rk3588_early_clk_=
-branches[] __initdata =3D {
->  			RK3588_PMU_CLKGATE_CON(2), 13, GFLAGS),
->  	MUX(I2S1_8CH_MCLKOUT, "i2s1_8ch_mclkout", i2s1_8ch_mclkout_p, CLK_SET_R=
-ATE_PARENT,
->  			RK3588_PMU_CLKSEL_CON(9), 2, 2, MFLAGS),
-> +	GATE_GRF(I2S1_8CH_MCLKOUT_TO_IO, "i2s1_8ch_mclkout_to_io", "i2s1_8ch_mc=
-lkout",
-> +			0, RK3588_SYSGRF_SOC_CON6, 1, GFLAGS, grf_type_sys),
->  	GATE(PCLK_PMU1, "pclk_pmu1", "pclk_pmu0_root", CLK_IS_CRITICAL,
->  			RK3588_PMU_CLKGATE_CON(1), 0, GFLAGS),
->  	GATE(CLK_DDR_FAIL_SAFE, "clk_ddr_fail_safe", "clk_pmu0", CLK_IGNORE_UNU=
-SED,
-> @@ -2439,6 +2450,8 @@ static struct rockchip_clk_branch rk3588_clk_branch=
-es[] =3D {
->  static void __init rk3588_clk_early_init(struct device_node *np)
->  {
->  	struct rockchip_clk_provider *ctx;
-> +	struct rockchip_aux_grf *sys_grf_e;
-> +	struct regmap *sys_grf;
->  	unsigned long clk_nr_clks, max_clk_id1, max_clk_id2;
->  	void __iomem *reg_base;
-> =20
-> @@ -2479,6 +2492,17 @@ static void __init rk3588_clk_early_init(struct de=
-vice_node *np)
->  			&rk3588_cpub1clk_data, rk3588_cpub1clk_rates,
->  			ARRAY_SIZE(rk3588_cpub1clk_rates));
-> =20
-> +	/* Register SYS_GRF for I2S MCLK output to IO gate clocks */
-> +	sys_grf =3D syscon_regmap_lookup_by_compatible("rockchip,rk3588-sys-grf=
-");
-> +	if (!IS_ERR(sys_grf)) {
-> +		sys_grf_e =3D kzalloc_obj(*sys_grf_e);
-> +		if (sys_grf_e) {
-> +			sys_grf_e->grf =3D sys_grf;
-> +			sys_grf_e->type =3D grf_type_sys;
-> +			hash_add(ctx->aux_grf_table, &sys_grf_e->node, grf_type_sys);
-> +		}
-> +	}
-> +
+> On Sat, 18 Apr 2026 11:34:30 +0100,
+> Yeoreum Yun <yeoreum.yun@arm.com> wrote:
+> >
+> > > > @@ -2035,6 +2037,16 @@ static int __init ffa_init(void)
+> > > >  	u32 buf_sz;
+> > > >  	size_t rxtx_bufsz = SZ_4K;
+> > > >
+> > > > +	/*
+> > > > +	 * When pKVM is enabled, the FF-A driver must be initialized
+> > > > +	 * after pKVM initialization. Otherwise, pKVM cannot negotiate
+> > > > +	 * the FF-A version or obtain RX/TX buffer information,
+> > > > +	 * which leads to failures in FF-A calls.
+> > > > +	 */
+> > > > +	if (IS_ENABLED(CONFIG_KVM) && is_protected_kvm_enabled() &&
+> > > > +	    !is_kvm_arm_initialised())
+> > > > +		return -EPROBE_DEFER;
+> > > > +
+> > >
+> > > That's still fundamentally wrong: pkvm is not ready until
+> > > finalize_pkvm() has finished, and that's not indicated by
+> > > is_kvm_arm_initialised().
+> >
+> > Thanks. I miss the TSC bit set in here.
+>
+> That's the least of the problems. None of the infrastructure is in
+> place at this stage...
+>
+> > IMHO, I'd like to make an new state check function --
+> > is_pkvm_arm_initialised() so that ff-a driver to know whether
+> > pkvm is initialised.
+>
+> Doesn't sound great, TBH.
+>
+> > or any other suggestion?
+>
+> Instead of adding more esoteric predicates, I'd rather you build on an
+> existing infrastructure. You have a dependency on KVM, use something
+> that is designed to enforce dependencies. Device links spring to mind
+> as something designed for that.
+>
+> Can you look into enabling this for KVM? If that's possible, then it
+> should be easy enough to delay the actual KVM registration after pKVM
+> is finalised.
 
-sorry, took me a bit to articulate, what "issue" I have with this, which
-is only that it open-codes adding GRFs. I.e. over time this likely won't
-be the only place this might happen, so I envision a more central
-function in the rockchip clock code, aka something like:
+or what about some event notifier? Just like:
 
-(1)
-rockchip_clk_add_grf(struct rockchip_clk_provider *ctx,
-		struct regmap *grf, enum rockchip_grf_type type)
+----------&<-----------
+
+diff --git a/arch/arm64/include/asm/virt.h b/arch/arm64/include/asm/virt.h
+index b51ab6840f9c..ad038a3b8727 100644
+--- a/arch/arm64/include/asm/virt.h
++++ b/arch/arm64/include/asm/virt.h
+@@ -68,6 +68,8 @@
+ #include <asm/sysreg.h>
+ #include <asm/cpufeature.h>
+
++struct notifier_block;
++
+ /*
+  * __boot_cpu_mode records what mode CPUs were booted in.
+  * A correctly-implemented bootloader must start all CPUs in the same mode:
+@@ -166,6 +168,15 @@ static inline bool is_hyp_nvhe(void)
+ 	return is_hyp_mode_available() && !is_kernel_in_hyp_mode();
+ }
+
++enum kvm_arm_event {
++	PKVM_INITIALISED,
++	KVM_ARM_EVENT_MAX,
++};
++
++extern int kvm_arm_event_notifier_call_chain(enum kvm_arm_event event, void *data);
++extern int kvm_arm_event_notifier_register(struct notifier_block *nb);
++extern int kvm_arm_event_notifier_unregister(struct notifier_block *nb);
++
+ #endif /* __ASSEMBLER__ */
+
+ #endif /* ! __ASM__VIRT_H */
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 410ffd41fd73..8da10049ab65 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -14,6 +14,7 @@
+ #include <linux/vmalloc.h>
+ #include <linux/fs.h>
+ #include <linux/mman.h>
++#include <linux/notifier.h>
+ #include <linux/sched.h>
+ #include <linux/kvm.h>
+ #include <linux/kvm_irqfd.h>
+@@ -111,6 +112,8 @@ DECLARE_KVM_NVHE_PER_CPU(struct kvm_nvhe_init_params, kvm_init_params);
+
+ DECLARE_KVM_NVHE_PER_CPU(struct kvm_cpu_context, kvm_hyp_ctxt);
+
++BLOCKING_NOTIFIER_HEAD(kvm_arm_event_notifier_head);
++
+ static bool vgic_present, kvm_arm_initialised;
+
+ static DEFINE_PER_CPU(unsigned char, kvm_hyp_initialized);
+@@ -3064,4 +3067,22 @@ enum kvm_mode kvm_get_mode(void)
+ 	return kvm_mode;
+ }
+
++int kvm_arm_event_notifier_call_chain(enum kvm_arm_event event, void *data)
++{
++	return blocking_notifier_call_chain(&kvm_arm_event_notifier_head,
++					    event, data);
++}
++
++int kvm_arm_event_notifier_register(struct notifier_block *nb)
++{
++	return blocking_notifier_chain_register(&kvm_arm_event_notifier_head, nb);
++}
++EXPORT_SYMBOL_GPL(kvm_arm_event_notifier_register);
++
++int kvm_arm_event_notifier_unregister(struct notifier_block *nb)
++{
++	return blocking_notifier_chain_unregister(&kvm_arm_event_notifier_head, nb);
++}
++EXPORT_SYMBOL_GPL(kvm_arm_event_notifier_unregister);
++
+ module_init(kvm_arm_init);
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index d7a0f69a9982..e76562b0a45a 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -280,6 +280,8 @@ static int __init finalize_pkvm(void)
+ 	ret = pkvm_drop_host_privileges();
+ 	if (ret)
+ 		pr_err("Failed to finalize Hyp protection: %d\n", ret);
++	else
++		kvm_arm_event_notifier_call_chain(PKVM_INITIALISED, NULL);
+
+ 	return ret;
+ }
+diff --git a/drivers/firmware/arm_ffa/common.h b/drivers/firmware/arm_ffa/common.h
+index 9c6425a81d0d..5cdf4bd222c6 100644
+--- a/drivers/firmware/arm_ffa/common.h
++++ b/drivers/firmware/arm_ffa/common.h
+@@ -18,9 +18,9 @@ bool ffa_device_is_valid(struct ffa_device *ffa_dev);
+ void ffa_device_match_uuid(struct ffa_device *ffa_dev, const uuid_t *uuid);
+
+ #ifdef CONFIG_ARM_FFA_SMCCC
+-int __init ffa_transport_init(ffa_fn **invoke_ffa_fn);
++int ffa_transport_init(ffa_fn **invoke_ffa_fn);
+ #else
+-static inline int __init ffa_transport_init(ffa_fn **invoke_ffa_fn)
++static inline int ffa_transport_init(ffa_fn **invoke_ffa_fn)
+ {
+ 	return -EOPNOTSUPP;
+ }
+diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+index 02c76ac1570b..67df053e65b8 100644
+--- a/drivers/firmware/arm_ffa/driver.c
++++ b/drivers/firmware/arm_ffa/driver.c
+@@ -35,6 +35,7 @@
+ #include <linux/module.h>
+ #include <linux/mm.h>
+ #include <linux/mutex.h>
++#include <linux/notifier.h>
+ #include <linux/of_irq.h>
+ #include <linux/scatterlist.h>
+ #include <linux/slab.h>
+@@ -42,6 +43,8 @@
+ #include <linux/uuid.h>
+ #include <linux/xarray.h>
+
++#include <asm/virt.h>
++
+ #include "common.h"
+
+ #define FFA_DRIVER_VERSION	FFA_VERSION_1_2
+@@ -2029,7 +2032,7 @@ static void ffa_notifications_setup(void)
+ 	ffa_notifications_cleanup();
+ }
+
+-static int __init ffa_init(void)
++static int __ffa_init(void)
+ {
+ 	int ret;
+ 	u32 buf_sz;
+@@ -2105,11 +2108,42 @@ static int __init ffa_init(void)
+ free_drv_info:
+ 	kfree(drv_info);
+ 	return ret;
++
++}
++
++static int ffa_kvm_arm_event_handler(struct notifier_block *nb,
++				     unsigned long event, void *unused)
++{
++	if (event == PKVM_INITIALISED)
++		__ffa_init();
++
++	return NOTIFY_DONE;
++}
++
++static struct notifier_block ffa_kvm_arm_event_notifier = {
++	.notifier_call = ffa_kvm_arm_event_handler,
++};
++
++static int __init ffa_init(void)
++{
++	/*
++	 * When pKVM is enabled, the FF-A driver must be initialized
++	 * after pKVM initialization. Otherwise, pKVM cannot negotiate
++	 * the FF-A version or obtain RX/TX buffer information,
++	 * which leads to failures in FF-A calls.
++	 */
++	if (IS_ENABLED(CONFIG_KVM) && is_protected_kvm_enabled() &&
++	    !is_pkvm_initialized())
++		return kvm_arm_event_notifier_register(&ffa_kvm_arm_event_notifier);
++
++	return __ffa_init();
+ }
+ device_initcall(ffa_init);
+
+ static void __exit ffa_exit(void)
+ {
++	if (IS_ENABLED(CONFIG_KVM))
++		kvm_arm_event_notifier_unregister(&ffa_kvm_arm_event_notifier);
+ 	ffa_notifications_cleanup();
+ 	ffa_partitions_cleanup();
+ 	ffa_rxtx_unmap();
+diff --git a/drivers/firmware/arm_ffa/smccc.c b/drivers/firmware/arm_ffa/smccc.c
+index 4d85bfff0a4e..e6125dd9f58f 100644
+--- a/drivers/firmware/arm_ffa/smccc.c
++++ b/drivers/firmware/arm_ffa/smccc.c
+@@ -17,7 +17,7 @@ static void __arm_ffa_fn_hvc(ffa_value_t args, ffa_value_t *res)
+ 	arm_smccc_1_2_hvc(&args, res);
+ }
+
+-int __init ffa_transport_init(ffa_fn **invoke_ffa_fn)
++int ffa_transport_init(ffa_fn **invoke_ffa_fn)
+ {
+ 	enum arm_smccc_conduit conduit;
 
 
-I'm still unsure, if we want the sycon lookup also in there, like:
+> --
+> Jazz isn't dead. It just smells funny.
 
-(2)
-rockchip_clk_add_grf(struct rockchip_clk_provider *ctx,
-		const char *compat, enum rockchip_grf_type type)
-
-but then we would end up having to also define if it's optional, so I
-guess variant (1) is the nicer one, as it at least abstracts away all
-the struct rockchip_aux_grf handling from the clock driver itself.
-
-
-Heiko
-
-
->  	rockchip_clk_register_branches(ctx, rk3588_early_clk_branches,
->  				       ARRAY_SIZE(rk3588_early_clk_branches));
-> =20
->=20
->=20
-
-
-
-
+--
+Sincerely,
+Yeoreum Yun
 
