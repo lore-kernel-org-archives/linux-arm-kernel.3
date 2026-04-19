@@ -4,105 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 183D5EA719D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 19:53:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 909B2EA7197
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 20:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yv0rJLbh1UROWDenVdSFqMDYps6cJWmt3g4FVjQwqIc=; b=uu0ACGXJ0GDzIh4hmX/z1ZqC38
-	jEbaJdpkz8a71Cn+IL6jyz2z3Fb7Ztu3OTsFNq+y78nGe9gbU4jiycUqQTjKy4qUyMybNZBugTSoS
-	kuEMLlg8EsdpRdrhV9D/2L7SoCWEn4+kWS7WJR532s/fcnGZmFrr7Hiaq0GxA0Ap/WT6Z5F8I1kms
-	3rtB+fVWaQyHIdW/S8Uti0T+blhFlGP2mw80GeDLQrcoRM3hEcAHf6MN7XsklfJLxQ3DK6MwP09dl
-	pnfXOtlibKGCd+G6J4vbJrJkw6wYmnJGNVTwIl4EWNP8+Y8M+PE5/lIimcdTKiAhMVnXpWfWW+nb9
-	G/n3MvHg==;
+	bh=YslpqwAUlqk2IVojGwVrggbXsHD7anRXPzWPJnX3NKw=; b=RYxGhxs746gjX0sMm71Ox+0M38
+	0wlcFnNyO/Vk4P8SBW8Vq8kSEU41Wf1PySnkeENQTAE6VZnYhSS9UCTmo5k/vurkFKHDqfU2kp9g1
+	6wMoCoUEdtgxDYXzjWYoaGegc6HtPzLD7PlHP559VxtJksY8sAS6bxe9uPDzW6xsKDf9RF2gx7FRD
+	gs11viUjotiYOXAsuH3wRnmI61ga8PdfgFUYvYj7TZVki0n4k14/g8YattngkXnmN1TdqacYLf0ZE
+	qRBumS5N6e3QUbGssM8BzZ8WXz/7hWQPhMqPGfe1Aw0jpn/vW7nkChP3VXU4Jxkav6/RxRsi6L46Y
+	3SYRU6Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEYCx-000000063Mt-2x3n;
-	Sun, 19 Apr 2026 19:53:31 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	id 1wEYfM-000000064B8-32hD;
+	Sun, 19 Apr 2026 20:22:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEYCu-000000063MV-2tQt
+	id 1wEYfK-000000064Ax-33ta
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Apr 2026 19:53:30 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-3870778358aso16363871fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 12:53:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776628406; cv=none;
-        d=google.com; s=arc-20240605;
-        b=PNAyZq9qlyVVb673Cos9/i3JAG58/p47CaEL+YsEBGqNmH4HSlCuhilKCh+AeIyo2C
-         6sMRM6j/jPsf7fQz6A74ITemv8kgSj2S4eF1iP/lnskf78o78lodS6YP4iY3ltSjgUFj
-         71aUgK7MrkUTS0mHKULou3yaNxT5CX0w1VtXtVTlZxMMslcsbQh7GT8WZI4W0vQW7KqA
-         3XcqPZo8/Hn7Z9LjjByWfv9LE6ejensYH+PLyECulCEoOhZh2PZ9OaLUkL5sUIvKGRl9
-         6pk+F+ziKQRQzWO5ox2pRbwMrMGMeqh7JGOpoL+ardDMdMffFe8D+8RieOeaxf591b9K
-         E27A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Yv0rJLbh1UROWDenVdSFqMDYps6cJWmt3g4FVjQwqIc=;
-        fh=9YFjG0UBTV7bYjrb6kJZKHSrQBQhfYvrdLJgc18Ddbk=;
-        b=EEY51uMfcqym1f62HqOBf2bmLeQ7PktrLPzgKnH2CxQrgYZrKz4KXxNZXrM1IeZPie
-         WgCLrWLQvGUH6xdS8HIhygEZ9eZ0X8lXIoriz//moPwYFAAZ2tqw8mOCQnRljN8pxIhg
-         Vkz6z8oXtWGCLYO0vtOhhZKmc3lKMaToFE8PlS6hxAdWvgg6LseN6wByGLCwIX1ADKit
-         iu4OUlgLjx0ZXvQnsTH44oVQdvInNTUP25V6l/fsr7Oh4DO2M5E807z/ED3Yj3YtGjfm
-         mx9uaB5ZgViM/1mhmcO9Ul9/THTQI/+XikbpLQ3InbFKquBzWSMp+ULLxRA9BGcyMmY+
-         FdXg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776628406; x=1777233206; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Yv0rJLbh1UROWDenVdSFqMDYps6cJWmt3g4FVjQwqIc=;
-        b=D84zfW8nZHy95pLDxjhCpCJHL+5XS1PfByZowiMpGO8I8IvEM0d1oTpYdlW2iihaFw
-         figBC+l4wSLMPj1SJJbPEYNsIsSWCCC/1U4j3PPSMjIK3L85Wxum984n+JA7K++MFpV2
-         CnPiiYQ5klolVrO+t3VFxFha5h9ANyLk1U/ITvnsB8Z6HZtcIFJ78j/7Zs0iF+rlsra+
-         mwBYcUSFdpoN2p6OU1ed69cqeV6a0+erPmQWlLqOA7GOFudpKji5sOO3xA/Fd6B9BEl4
-         0zijLocDptGK3zGRjLW/1/bldikiwrPA3BajI5X75aEiAgxAZrzPi6BKErngqlbxmKSi
-         kswQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776628406; x=1777233206;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Yv0rJLbh1UROWDenVdSFqMDYps6cJWmt3g4FVjQwqIc=;
-        b=pvAtmngF0bWSvSKZznbfyAs0i1u3CNx9pEOftg7kQszJewv/4jismZv0ZSJ9205Ogd
-         366Q3WQvXjIp6W8YTH5Ew/LPTWvltzdm+sdLgVnZyE9lr/bZaTtRC0IyEefRRO9qZgcS
-         oHg/xs48i3nvGzhgpQTm6TceZQZB3OxyEgoZP/s60IdoXmdPIBf8LwRyMAaz9L7nlFMb
-         yTINJw+9T8YO4yWyyX1Usp0nw9WmzhN2qekLPf2eT4tQ8hPG/yL47clcvasDPUJMmHFa
-         eMfnmnBGhi4I6UCLybaqxBKmN0HrsD2SHBohjsR8ZEk6cF41qypY/ZXZW3Oho3xhUKlS
-         1hkQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/YjaIPO7W/4ZK3h4ChKy5ND4EBRbKn0fDUujD9uLHKPg1mWRcP8bHxxdHSHb5/ebmv/9LuiH7GFRzeS20NS46f@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxz2UP8uT4z/vsQpYInKFvkAVE4/FVw/6UPWV/B95GC505yFt0I
-	EFYPJ0dU6b0nl88Q7lqjnv2aafUQbLGbR0UUv3nd19MwhyAx7piXxfzL/Vs/HgYHrVIS/7CfCen
-	hTL2YjucC5xTtS1im9kuhsEVLMdUB09s=
-X-Gm-Gg: AeBDietDpaMue0zOvrZWa0cayxZbJCtz0CjrCAnLZGgBTbF3YQEtHSXVwONc/B4wmWw
-	sGIFOAU412m6pGkInF+cZF+E+ebcZUaH+eB/bF4VRzDvIS0FpSsRKwQdbs8Qq6bfqdsO15joJ4A
-	pn1NEgCpGBuXmkophbafqTPMNsV8UOUrVfMtlvWWF0y27S3IpCZOqhGRGsOgSTpyVboL/RX2LYw
-	8LAfwm8mRSl4R2+kgdxMIKlhEYeihTBOgLzfBhfEZhvkTmJPtreYFnOmrorfziniA4fDl4vBwcD
-	m+OA/hiNZBdBhtpUZIvs+/p0QKYqJhM8JICUxlvi0P5i1gaKwaFcjcHqdpy8W2ZD6oLXktBAshI
-	dJa104A==
-X-Received: by 2002:a05:651c:b10:b0:38e:7c63:57b with SMTP id
- 38308e7fff4ca-38ec7b4f659mr30733761fa.32.1776628405403; Sun, 19 Apr 2026
- 12:53:25 -0700 (PDT)
+	Sun, 19 Apr 2026 20:22:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 94D3860133
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 20:22:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D011C2BCC4
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 20:22:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776630169;
+	bh=9DkN4UJECtm0IFZQ7IDjwr8Jt5qlKg5Pn6HXQqREXsk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=vK7UZk2UyG2Jz0oLDq53e2PvG0I4WWUNVC6bjR2qL6aL7weGb9athuVfk8h6iuWuN
+	 PlfKOmWibQC9V0CsrCZHZV4WG+ad0M7QNhe2LUmWpyQ29P6r+ZA0vilEMoVS+jWJKa
+	 CRnQ71mwtMsj2NrqktCsYrJvLAlNWN07BUPBz9N2weCwd+OQOfy37E5x10MK/e8wvj
+	 lM/4i+hPZGvMkUlcxJS+qbNmE1N2IMcv4WAc1/kSQGpg1XGB2bjdqbEZMD7zQUxd7W
+	 qtk8MDSjqlz4Fu8TsgS7f/LGRILXDfFJGspor3W8Gik8mqLmjaYOd5ELljP98bfLnp
+	 za95zo8EfUtiQ==
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5a283c44478so4016296e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 13:22:49 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/TQ/BPd4lWmJBwt/tDn8KbbP/YXjOUGI6tK94EQRjx34t1noCqZ8Ju0S7nYynioAs80oM/tUp4kDx7DD0bU+Dm@lists.infradead.org
+X-Gm-Message-State: AOJu0YwF+rVO+AarJ2KXNmhnNFPOKb5DyPzxyDLltBwRidMpp4PsV/6C
+	khuO3ppOv3xe2Lo0cognCax5RRtTsVus1GNj71/aoGhvuqbLVHPP+qJhaRVHOsr4wZ5Y2wtMQON
+	4hcnFC238E+SMTypQ1UnNkDY0HiZEy+Q=
+X-Received: by 2002:a05:6512:3e05:b0:5a3:fcb2:c6aa with SMTP id
+ 2adb3069b0e04-5a4172bfee7mr3442408e87.13.1776630167775; Sun, 19 Apr 2026
+ 13:22:47 -0700 (PDT)
 MIME-Version: 1.0
-References: <CAOMZO5CSzvBdgN5b5E0v0DB1FT4481pRTwoQJ9YzC8yMt81kmA@mail.gmail.com>
-In-Reply-To: <CAOMZO5CSzvBdgN5b5E0v0DB1FT4481pRTwoQJ9YzC8yMt81kmA@mail.gmail.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Sun, 19 Apr 2026 16:53:14 -0300
-X-Gm-Features: AQROBzA-gAphu-v55YBp8axcKiNPna_wNmYf-pyZUNcFOkUsM9HhOBWFmmAsxaQ
-Message-ID: <CAOMZO5C8SyLCmWo-y8X_Qu-WpTd51G93oxFqXeBza8hnov84=Q@mail.gmail.com>
-Subject: Re: Testing remoteproc on imx8mp-evk
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: NXP Linux Team <linux-imx@nxp.com>, 
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+References: <20260413154727.3051321-1-lgs201920130244@gmail.com>
+In-Reply-To: <20260413154727.3051321-1-lgs201920130244@gmail.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Sun, 19 Apr 2026 22:22:34 +0200
+X-Gmail-Original-Message-ID: <CAD++jLnC5MGg1e_Suv6BD_=XKbsn1aLxHxRfCdD3Nos+2XRzfw@mail.gmail.com>
+X-Gm-Features: AQROBzCDUCdqQVnjQAyYtn99zG1zFrnsiXSLX3a_nvy_WJ_NdEcr9JskY4IufVw
+Message-ID: <CAD++jLnC5MGg1e_Suv6BD_=XKbsn1aLxHxRfCdD3Nos+2XRzfw@mail.gmail.com>
+Subject: Re: [PATCH] watchdog: ixp4xx: fix reference leak on
+ platform_device_register() failure
+To: Guangshuo Li <lgs201920130244@gmail.com>
+Cc: Imre Kaloz <kaloz@openwrt.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Guenter Roeck <linux@roeck-us.net>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260419_125328_750976_655A5E6C 
-X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,42 +82,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026 at 10:48=E2=80=AFPM Fabio Estevam <festevam@gmail.com>=
- wrote:
->
-> Hi Peng,
->
-> I'm trying to use remoteproc on an imx8mp-evk board running mainline
-> U-Boot and the mainline kernel.
->
-> Could you please share a simple Cortex-M7 .elf file I can use for
-> testing? Even a simple Hello World will suffice.
->
-> It would be helpful if we add an imx8mp-evk devicetree overlay that
-> includes the described remoteproc nodes.
->
-> Could you please share the remoteproc devicetree?
+Hi Guangshuo,
 
-I used the remoteproc description as the one sent by Marek for
-imx8mp-data-modul-edm-sbc-overlay-cm7.dtso:
+thanks for your patch!
 
-https://lore.kernel.org/linux-arm-kernel/20260407211850.79881-4-marex@nabla=
-dev.com/
+On Mon, Apr 13, 2026 at 5:47=E2=80=AFPM Guangshuo Li <lgs201920130244@gmail=
+.com> wrote:
 
-I had to manually build the hello_world_cm7 SDK example, and now it
-loads successfully:
+> ixp4xx_timer_probe() directly returns the result of
+> platform_device_register(&ixp4xx_watchdog_device). When registration
+> fails, the embedded struct device in ixp4xx_watchdog_device has already
+> been initialized by device_initialize(), but the failure path does not
+> drop the device reference, leading to a reference leak.
+(...)
 
-# cat  /sys/class/remoteproc/remoteproc0/state
-offline
-# echo hello_world_cm7.elf > /sys/class/remoteproc/remoteproc0/firmware
-# echo start > /sys/class/remoteproc/remoteproc0/state
-# echo stop > /sys/class/remoteproc/remoteproc0/state
+> -       return platform_device_register(&ixp4xx_watchdog_device);
+> +       ret =3D platform_device_register(&ixp4xx_watchdog_device);
+> +       if (ret)
+> +               platform_device_put(&ixp4xx_watchdog_device);
 
-# dmesg | grep remoteproc
-[    0.197328] remoteproc remoteproc0: imx-rproc is available
-[   82.061452] remoteproc remoteproc0: powering up imx-rproc
-[   82.066846] remoteproc remoteproc0: Booting fw image
-hello_world_cm7.elf, size 232592
-[   82.067105] remoteproc remoteproc0: remote processor imx-rproc is now up
-[   99.565501] remoteproc remoteproc0: stopped remote processor imx-rproc
+If the problem in the description is indeed there, it seems the bug
+is inside platform_device_register(), surely a function returning an
+error code is supposed to clean up any resources it takes before
+returning an error. It seems wrong to try to fix this in all the
+consumers.
+
+Yours,
+Linus Walleij
 
