@@ -4,96 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A390EA7188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 08:30:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EE84EA7193
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 09:52:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XwKzTLRiHs5eANohxZZBlyVS97g8sNagXG2LtuYayk8=; b=0nsySR8yPJzq/w+8uP3Be8u9xW
-	PQSrqP+cUfoQHdgIhIRoHQp2V7yvD2vOlLFSU/txL608+XeCZRap1pLKaecXTfQk52pkoSeJ6aWnL
-	cVScjGYGuMSkUsSG4kURi75kJjjju95BBhnkhGELP7cY2NoYSwBw9UOzw3Ze1RLAhAg4WRFeq/PFN
-	y77ap8Dh4UA8+Y1jHcR+6Xzu7FKvE4QyoYJ9eiPmSpyBvrLMiFPi5yN43dFAAooWReBngyQRfkp/a
-	blJgEpsxgo7+S58Hndidg8WkWv2lomjONFyp8voQXQKHdfGPy8egtkFMXcaUEESx8Z0VS1elxPfNQ
-	Tzo7lFaw==;
+	bh=XEo2oTEcsG7l3+0lO7xxDJBTjTSe7sGpcaQQHTUMBQ4=; b=inAKRzn2mTCNFZM5hz3wC297gO
+	gm7eiGb8KHIAHKTKf7b06CnfcoZQlSx5Ct/vt0TWgDbJ/hnschN8zU7rZnzrRLbMtTBgqRQkX9+Ld
+	E0zv9T2VAlZnNgZGGu9V5nKC6hx0YMMbarmNFEavc6118nj86EA7VN3je4HYh2Fx/Zu2IJ8lncAN8
+	EafOtghsX1l/cUghzE7c9H2AxsJY/N0ENQBNYAWZs3wPIcgzJa55BTaY4VeTnABddAKEyXuzJ8qfN
+	joXudKz9q/AR5Ox1J9esXsYh8pD4CmyrrJH3NUaxf+M3XigLaG1ZHY/GmDmNbrdzX7fI7L3bsf6YC
+	Eaub1SHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wENXq-00000005eLA-4AXk;
-	Sun, 19 Apr 2026 08:30:23 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wEOpD-00000005gaj-2P7E;
+	Sun, 19 Apr 2026 09:52:23 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wENXm-00000005eKg-1lIw
+	id 1wEOpA-00000005gaL-40DD
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Apr 2026 08:30:21 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-488af96f6b2so26523275e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 01:30:17 -0700 (PDT)
+	Sun, 19 Apr 2026 09:52:22 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63J2PVZZ967469
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 09:52:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=XEo2oTEcsG7l3+0lO7xxDJBT
+	jTSe7sGpcaQQHTUMBQ4=; b=al+xqVad34Y/bw7J9fDIIbwH24QaohImnwDm6pGa
+	gx6jPzlcOjHPgGY0a9S84+nvdXyfkcizkgdraOpsrljazqANG/kOaPgStN9sXt+e
+	EHrJphjGkh74TcCUIe7gVJ/s8CO2Tqkbe4EHDZjPTZznH6WSFrYAI+EJBCtmRhPj
+	4xFnc7anee0zBmWvqhSE8/mYqRyidloYwxtWPbvoS5IdpIXFb3khqRjKYwMD/A04
+	Ld+nEu41Ot/Qrmhh/4Cdi2Z6nGl43YaDAzUKiKtmg6H0hOdIozkChRF4BMohoOnY
+	Xm0E0ZdY1aKIO1dQiFTPRR9xnFWouvPhLNduqQyEsCqqXw==
+Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dm388j7ek-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 09:52:18 +0000 (GMT)
+Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1273dfdaf5dso1700880c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 02:52:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776587416; x=1777192216; darn=lists.infradead.org;
-        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=XwKzTLRiHs5eANohxZZBlyVS97g8sNagXG2LtuYayk8=;
-        b=lvmDbbXwQQ5IpeOySnxydpUbr3zv1JIWQO9wYJPL75cXAmcuLIqoEYcaW07Levr+qc
-         pmmQy7KaKfBsuYQgBWnkIthaVBzjLfOHz+o2I1/QcDpdO89NgatAQN9RUZLj4OfgADwD
-         7VGLyLSKSeV1B98qoINtrAkVzmZr4fRxy70/BiJ58kpcyd7lbxEexOH8xsAzJSkvs1SG
-         +xj7cBiaXZDmzME0h+01kvjbOAwDmuksKLjn+W+kx6UXLQ5uC9TEFvRt+QOw+D4vNAdd
-         n63IL0TzLj+ORNvwTi4XGqYw17S3DxRo8HAYshiAO9URPaPGpY+g1CZbUjkMZBOlGhXI
-         4fPg==
+        d=oss.qualcomm.com; s=google; t=1776592338; x=1777197138; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=XEo2oTEcsG7l3+0lO7xxDJBTjTSe7sGpcaQQHTUMBQ4=;
+        b=Hy1Y9347lEbwnwb2BcmumIbmlEsfxuwDSs45yvGjFafq8cbpjezTi8Tjb150uf4b2o
+         n8Nafoyo1Mkj2vQZojJSORFBW96lK6nhRmEGvzbcj6jlseGZ6xTixatB7pY3EtqaMpz5
+         BINqc+AIa3bfEajRIIQ5RO/zoizH66fH7zLU7uOzeNRftgGcw+KLnMWFZQQR+Fw7Xziw
+         0w62ilyAjduZL1kCoaaPmH+Ai+BYwKQNpuGR5xiHIueEKF2w049IBKLbu4fkV71l38UW
+         4cLajgHB7eclBYBEAt54OKvkVC/Fra5c3vOqdof4xi8qIbbf68RGjLlQ6BeyeWynlWFH
+         Wxlw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776587416; x=1777192216;
-        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=XwKzTLRiHs5eANohxZZBlyVS97g8sNagXG2LtuYayk8=;
-        b=HI676GfEPiYlAWnaLVlBbgv4dW/D7cyzrT/60URxICaOh3l1w7fRvO29VQEgbWrGmV
-         Fdeyt2fB5nZT60mN0u037rABfBnhhmYnWmKa2ZKBTBYYRvtVstK/dqGYTzfw1esCOfRg
-         Cmtb/eQa+tJBFssRci4cEVgmDC3D3b6+g+WGTzl4YgkTSspY1wE4hqB2sp0XvSGU52r8
-         e3T80TFGTvv+NW09wPKFstPqWlf8F56ZQ18LUOYRjdxznjbzPVMGqBFgns9jNorXfQ7y
-         9W+NEFdu2/apCZMGXJMKtYYNAmYvGFWMtFlGn4xc/yfMzQD4k2PJHhE8cefD9sf7J6mZ
-         g9sQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9rW/K4b1el//ghKOpXbfF3w6f/Org5zq/Y8mfyoaNMg2ouftAsmEX0n8UKuxOhxftA1OJjV0kSCAvpMkHtZUya@lists.infradead.org
-X-Gm-Message-State: AOJu0YxODeRHYS6TxMDpc5dvY2ueaPe28KjWLZbxK2YeUm315J3EZiz0
-	xjbI05Sxi2q+iYfjROZcJK3ZNPyBhVn69fJK+ChS3FG9vVQ6Mng6ruER
-X-Gm-Gg: AeBDievDqPx6E7Ct6KskzqiaSzkYjndU2RzcJESXmur8Nn0dHB2/POBgRErtf3szbyK
-	u6vqzzcJcrWxiWTal85431XcgG6RQ83XLEtqSoP3j6tiY0SMFKS7PDLkor83q+ypgmi18WFSlaK
-	JMHqsFJEPObww7VVaH7DMoPuDRxiuQO3tt7PyiDtaENEnN4tiCtLhCvEZCgXxB08E5ILbi+bpkk
-	gYpwnkWhUDQzS61xIULZXuMNlrkOK5UPFxp1CrC7cFrJHljXalnDQ9HgFGxAfQlul+4V9YyGwlr
-	XqTM684O/xZDXaSXEHz2/2N2IEgZFNSvnbxlhBbaG5cGplCh8htfltdX6M9MKVkFivO/Do63ZoU
-	ubGwtb7L02CQnWTE2QSeeB5YZL+WJPB/1t7N+jLORYr4jqCCKMbpih4K4jlH94SNGvShIoEIJNS
-	mLMrjTo5YN4YKlRQ8uJeTVjerBZj3BwRYt0ibUJBTbT4t8ViWmRgPvL8PIxQ==
-X-Received: by 2002:a05:600c:a108:b0:488:a82f:bbb4 with SMTP id 5b1f17b1804b1-488fb78a0famr104158265e9.26.1776587415722;
-        Sun, 19 Apr 2026 01:30:15 -0700 (PDT)
-Received: from strix.localnet ([197.250.227.196])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488fc11ced7sm183002605e9.0.2026.04.19.01.30.11
+        d=1e100.net; s=20251104; t=1776592338; x=1777197138;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=XEo2oTEcsG7l3+0lO7xxDJBTjTSe7sGpcaQQHTUMBQ4=;
+        b=nf0NTGqh5K+OVW6zopyurOmzsRpb1Z+ZQRxOZiWyBJwwTD1O+CYE1dHpUqpPgKEEQU
+         3eCFfZspLf300/KuSx5cpzcaJEgdeT4H/uFyIdRAhUWM9+AjMeV0bfKVeAtHCNavUAjn
+         Wy7+N6xpmwzAaBTlIhuOOdOIqpfH6e+cgadREZW7hmbq130DO7ttJ5nSDbEUilfo6OMV
+         R/Nkj9BoZZML2Jq6MFHdsk+ehd4OsXTg9i/K/r/fWOXgUa19Po5mrluv7svpNmgqVSNz
+         GfqKYx7T4Bs6flg6MOv2jVIxQh7+oHbrIOI9Dhgjo3+y0tYw8/BP2QuC6fFi1LNmcqZa
+         XRLg==
+X-Forwarded-Encrypted: i=1; AFNElJ/tX5Qhlld2W8CdbmKymKrnWVb6G/Ks/v5dSN8lZfv4uoxWdtsriQG9FXz6rvS7n4PtFT75N1RhjyAOhesWBSzu@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFZwgWNnaIYo8mfY4GDm71N/8Bc9jLqoQB7mck5Q242YDxqXaS
+	lKZ66POWxujydvwfhQvXx6/tzbaR2tkq6tiN37FiPTgGxe3B4NcaPojvZY1ITqcmbpkFJ9mnVYs
+	NIXac/9RhZygYatKDOo+PUunOn4Ai1xtcAuNHPfacWQDN7xsuxylnQfV7QWStz2ofOd2UQasFN/
+	pXMA==
+X-Gm-Gg: AeBDievBkx+tCybrpv/58QlCoERdbDPlltkqd2GGtECyNI40oCd7nxFYH3oi85yNR/z
+	a73cWK9qfgiJycKZyE1wp9Am+vgbbquwgxKntoA1Hj+20QxlJXqJTS2A5MuWsN2BLZEamRjxkIw
+	lPLVT6RggAR1RucagfXo1XVN0t5rKg9ZXdgjru1jlDdDzz3c/M4RN34YyvrHsL+0vwFpDono0yc
+	JS6z1qDwy7sVii/6pkJ3iB4Ggp3pa79i6zuncGFyHKz4Z+Sv25BPLOgNIWfAbKaHb3PxHsnlzHH
+	2TYFY+qn7x+2mUw6FLiGdFtRtt/aZXGQ/2rtojVCK5igIqrdO4IHdy4XaEWuUy/+0Zt4Zk+R03H
+	hDl/RGEYgJZf6mfbF9pFvP8PO5lIUeJroCouZIYgivKsVIJIX3JDyqvQBjmPd61NwiSqohX1rCv
+	A=
+X-Received: by 2002:a05:7022:4186:b0:12c:3d1c:b325 with SMTP id a92af1059eb24-12c73b2bd66mr3631737c88.14.1776592337877;
+        Sun, 19 Apr 2026 02:52:17 -0700 (PDT)
+X-Received: by 2002:a05:7022:4186:b0:12c:3d1c:b325 with SMTP id a92af1059eb24-12c73b2bd66mr3631727c88.14.1776592337343;
+        Sun, 19 Apr 2026 02:52:17 -0700 (PDT)
+Received: from QCOM-aGQu4IUr3Y (i-global052.qualcomm.com. [199.106.103.52])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2e53d2cfd3esm9308003eec.21.2026.04.19.02.52.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 19 Apr 2026 01:30:14 -0700 (PDT)
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-doc@vger.kernel.org,
- devicetree@vger.kernel.org, Drew Fustini <fustini@kernel.org>,
- Linus Walleij <linusw@kernel.org>, Jiri Slaby <jirislaby@kernel.org>,
- Russell King <linux@armlinux.org.uk>, soc@lists.linux.dev,
- Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-serial@vger.kernel.org,
- Shuah Khan <skhan@linuxfoundation.org>
-Subject: Re: [PATCH v4 2/8] dt-bindings: arm: Add zx297520v3 board binding
-Date: Sun, 19 Apr 2026 11:30:04 +0300
-Message-ID: <6264667.lOV4Wx5bFT@strix>
-In-Reply-To: <177646012448.2165534.5760108355183774935.robh@kernel.org>
-References: <20260416-send-v4-0-e19d02b944ec@gmail.com>
- <20260416-send-v4-2-e19d02b944ec@gmail.com>
- <177646012448.2165534.5760108355183774935.robh@kernel.org>
+        Sun, 19 Apr 2026 02:52:17 -0700 (PDT)
+Date: Sun, 19 Apr 2026 17:52:11 +0800
+From: Shawn Guo <shengchao.guo@oss.qualcomm.com>
+To: bibek.patro@oss.qualcomm.com
+Cc: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+        Dmitry Baryshkov <lumag@kernel.org>, iommu@lists.linux.dev,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, srinivas.kandagatla@oss.qualcomm.com
+Subject: Re: [PATCH] iommu/arm-smmu-qcom: Fix fastrpc compatible string in
+ ACTLR client match table
+Message-ID: <aeSly0N7IkXHYExB@QCOM-aGQu4IUr3Y>
+References: <20260408130825.3268733-1-bibek.patro@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPart5099586.31r3eYUQgx";
- micalg="pgp-sha256"; protocol="application/pgp-signature"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260408130825.3268733-1-bibek.patro@oss.qualcomm.com>
+X-Authority-Analysis: v=2.4 cv=GthyPE1C c=1 sm=1 tr=0 ts=69e4a5d2 cx=c_pps
+ a=SvEPeNj+VMjHSW//kvnxuw==:117 a=b9+bayejhc3NMeqCNyeLQQ==:17
+ a=kj9zAlcOel0A:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=EUspDBNiAAAA:8 a=R4lqVJv_ZxSicD1_n0oA:9 a=CjuIK1q_8ugA:10
+ a=Kq8ClHjjuc5pcCNDwlU0:22
+X-Proofpoint-GUID: gmRMHozsdawUn2Qz61PTLzkpuU1-COgU
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE5MDEwMiBTYWx0ZWRfX3HsYP3EzixET
+ A1mfSEV08bZgOMpx1MpdJL769gF1yLI3G4erX7oWbTYdeAAPtC2zIbxqbDVH8TQDnV++hxz997d
+ IUuSntz8jU4kkuU4pH9K9W03eTtNuV1/4C6RT925eAifQ/PD8ChD+Ip2hhiQVlpc3jVAs1+Wa1I
+ DLn1wuziXoteXbSnLRMXATLZvUoEP0PFHwgGllJ5l89Vq9ka957w14xtPUsrt0TciOZU+zlx5PF
+ OliYvjFJ9M+SnhiuoW+kaJBqoyAN7Mz9OFwe70Mqc1azW1ZHhEMshBpQ2sEP6UdeSNMbkJ9UoCq
+ +wAhUEBJBVn/alMmqZgbSBQ7rhGFqu3W5fsVOsPeES+VbANk+prjBoAfhvJksogQmjGNNbewG5s
+ dgNufYVCgyA58eHodZHVHFNFXGdWPJvGi83+w++IxGdEMhdvM0MruoA+UA1Gs537yBDWIlWpyQF
+ 9jzipvQvcV/IuHxEldw==
+X-Proofpoint-ORIG-GUID: gmRMHozsdawUn2Qz61PTLzkpuU1-COgU
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-19_03,2026-04-17_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 adultscore=0 phishscore=0 lowpriorityscore=0 clxscore=1015
+ priorityscore=1501 malwarescore=0 spamscore=0 bulkscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604190102
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260419_013018_583476_481DE966 
-X-CRM114-Status: GOOD (  15.83  )
+X-CRM114-CacheID: sfid-20260419_025221_046582_CCDD7245 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,60 +145,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPart5099586.31r3eYUQgx
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Sun, 19 Apr 2026 11:30:04 +0300
-Message-ID: <6264667.lOV4Wx5bFT@strix>
-MIME-Version: 1.0
+On Wed, Apr 08, 2026 at 06:38:25PM +0530, bibek.patro@oss.qualcomm.com wrote:
+> From: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+...
+> Assisted-by: Anthropic:claude-4-6-sonnet
 
-Hi Rob,
+Nit - coding-assistants.rst suggests format:
 
-Am Samstag, 18. April 2026, 00:08:44 Ostafrikanische Zeit schrieben Sie:
+  Assisted-by: AGENT_NAME:MODEL_VERSION
 
-> If you already ran 'make dt_binding_check' and didn't see the above
-> error(s), then make sure 'yamllint' is installed and dt-schema is up to
-> date:
+So I guess this might be better?
 
-Here is a new PEBKAC issue for your mail template: I ran dt_binding_check, it 
-wrote the warning you pointed out, but I only checked the return value - which 
-indicated success. Which I guess makes sense for a warning, since there seem 
-to be a few preexisting ones. The warning itself was somewhere in the 
-scrollback because I let dt_binding_check check all the files.
+  Assisted-by: Claude:claude-4-6-sonnet
 
-So I learned I have to actually look at the output to see if there are any 
-warnings.
+Shawn
 
-Cheers,
-Stefan
-
---nextPart5099586.31r3eYUQgx
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmnkkowbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyAAoJED0TvMhUTxoiU8AP/33cFyCxCEyOMxTZRv29
-5Ypqo+NuvryxWrpo7I7s2VQvp5/q6NlSpNpmQXLcgkV9mGS6axv15mCZ6py1gJMc
-HSIKkTqWZjzxeHoLZ2oZQCyFbMcPwvGhNK0qP/ckwWkv/4g/UFB9ujycOTFXVERG
-RWQyIvROo7Lb9IN8ozKehzOvD7ga+AjD0i4RQLlaGS/TbHUcDZKWr6+WqJ8SicVV
-wbiQU3cr4lAG7uCbKiAt2Jpcw1Aeuyfyci1hX4jL6KrY+MK6yG39ksq84DPUOgLI
-xR+5Rxitj449eH0hPE20fkrE5UvivbYiCNzkrhyqWn42ahIj5DIBrSayWB0KUjff
-lm6wYdL+yh/9760hh92rYCeNFYOz+kEQECsAHhTwqX73gCWFL5rYXJzFpNudFqXi
-24Yx9+vZm7OhMi+lGJjM1Tn51ztC7MsP0ozz+PAMpuiEl6luLD3ybO3XO0eTEvhZ
-oSylCbtelCVkO3KnW44cSdAspNidQ5Mr1EEXtLxUXOSSFQrmAGXmqmph3vSws7vi
-X3G+z1WQ3VQkpUUfYyzV5AD1IORM+TfeZtFbKUrbr2Brk54ib7UxztFqfuizV2V4
-9FuBUwZE1uXCLz3m7cB5yp+2zNX1AtkF/5STPQJh2hUC+mpbA68beyv6lefWIOKC
-NohR6Eo79ZapFjltX76P8lbO
-=NAGE
------END PGP SIGNATURE-----
-
---nextPart5099586.31r3eYUQgx--
-
-
-
+> Fixes: 3e35c3e725de ("iommu/arm-smmu: Add ACTLR data and support for qcom_smmu_500")
+> Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
 
