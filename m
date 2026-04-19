@@ -4,103 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1B63EA718A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 12:22:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACFE3EA719A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 12:47:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pmWG7OM2EB7RxxwskQ0/zeTI1Kmre4JByGl1ksiUCqU=; b=OsqQRlGzMeHoldUQB5UoKGx3dW
-	76sAkidJ6oXSBqtKE+1Dk6XX+MnzsimRNLfinbOWRysXphkVHeMoLXtSuNKUa0nGg+x591bN0TLk6
-	R1PxRLR8izgfOQktxXq/6p6teVgjUZX07BFy5CPXC1AwCQxUx97Y3CHUTGo5JMWd5DG/G7jreOpbd
-	iNaY1AvxDCJGViKjVriS/6dZjJam/Ff7ndzOK46vLXm5xh6k9mfPcgFL2EGfri8MnNnXm1wlnGBNG
-	dyCGJ48lYxqfTcHPVOIDeJXMLZldDmSkSiNVEX6SqdTJeUGXbykVQ8v7quSl+xLcqi8DmtHc7SnDF
-	1f9ySh4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CKOtsXDJcG0jDyOs/E1laUSgylmDBg7JVi69SXGBKH0=; b=eZFkPrsJrwPH1J
+	JHZHS4hrsWWDKd46fpZxUYbzYt7wPNlfK+gQynVt92FhJ2bIEa1MF7kdjhu6mfKrynhRV4BR8iewb
+	3QW36Gl+FX9JCXgmJKcV+UjIzm+MOoltXN7OjLjRbY9ZrTxa68MhuQxrX4qZiYh2Au3vQyV/lV4P3
+	sP20Hx+h4+g54hxI53LSLlF4KQ1wJRSQFSh+h7M7dpg3ZshssI0GC3qHiAOgrTBhtDn22B2vULOXF
+	khP3ZyY8nLbQTwqMz0I5IVZH2O8LGA1V7PDzfZzpzW/QSNlcN0yeIARlUAMeklApPQMQM/kaSYYCu
+	RShElF5L5a5V4H5nvRgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wER9z-00000005mF5-2wVD;
-	Sun, 19 Apr 2026 12:21:59 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1wERYc-00000005n1g-3wkv;
+	Sun, 19 Apr 2026 12:47:26 +0000
+Received: from s106b.cyber-folks.pl ([195.78.66.88])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wER9x-00000005mEk-1GGy
+	id 1wERYW-00000005n03-3bcV
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Apr 2026 12:21:58 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-82f6b592fc7so964764b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 05:21:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776601316; x=1777206116; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=pmWG7OM2EB7RxxwskQ0/zeTI1Kmre4JByGl1ksiUCqU=;
-        b=dB2sUDlgQYtBi2gLBcwA6GDsT9Ahn15Q/5TzU0yobhUDiguD4DHYOUUuW9khZS8sIh
-         2D0TwjHHycmRrwvxfzF5XOpiWEJJXgwY/hsWJK5teqtQxpgqJJ8K6mOSxPbUVwU5ilM0
-         Pc3ib77qYxQhH7QqPzjvd0JmztzWdjfb6DKH8zrtgOxy7yQRq8eOBNoYl+pJvQ7gT72s
-         43J5M7g3Dwd/g7eDVsOxfs+RrptakcHRHNYgpC9m4BB9twAhh2LmQmpO/4f3B08xPUOP
-         KRjXT8tavCYHnb3HYXSYYcb3n9LYQZ7MSOHhEim2XunChmt1IiWSSLB4knvAuSsOJvpq
-         2L9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776601316; x=1777206116;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pmWG7OM2EB7RxxwskQ0/zeTI1Kmre4JByGl1ksiUCqU=;
-        b=Zy1sQj8JUx6Af+mlUyT2cggAbqjgKk9dYtQDH0y1STNyp7Z+nH8rU1QJeHqOx0PBib
-         rX6aeUhxarR6+TCdb39us6Iu6B54wbd210LfmIXml6568jyS9Ls0P3sGH0u662txH8Di
-         VwJA8xqzERmjLAUG0nHXvGACnmc5RsQ+NmHYej6v9puxUkP9YcdQX2Yp4t82z4n0t8IS
-         uaypnuxNAxAX5l9mCeK8Cqq52sVppB6FayXxINF5jKF7wuT8vuGQ+tDRAyKy0cslI7Fg
-         9LJUui5jsC1R58PKYatqUC7XHNPyzraREUY8BLUasx568vEh6fQEyhmSRjw4J9Afp96U
-         SpwQ==
-X-Forwarded-Encrypted: i=1; AFNElJ88sH/8Nu/JFApk0aaUJg1yLBbeab6smVOZlPCX8HCrdqAqswRn7ozvfNrGk+lvgfwwladLiuRaX7IdfRoHP0+Z@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzS5JxY6kto7ezkBWfHOYp9GFAg+3Vq9dn8baEhbCJPOUKLPeY
-	Sc86evuOErUGVvrgk3fOpfmy3p4slVQVmg3Zphn5gCjCC3RKtT+ehgNE
-X-Gm-Gg: AeBDiesK0gR/QVsapMNPs8ZcbETZUfPhpQQ+J5Nb6IWBkFj55k6MzoWSNLBqxmGUvfz
-	rnZsxs4opVMMwkEqGA2+tVpDEj2tmi7Fo9n9XGdurBNgCvNyXvKol6xmkkyCd+KXR7ELWmBe5lU
-	DomkO8RGxE8yXbbS5atFUoDXr6Y0/yulqmL2M1CIcHhD3pjcQAph60IkYWPdpfNATQxGsyxMJc6
-	iaVUlcCljekigRt1VThG+xtzg4gzuR/9kYuPtDe8ImMdy/y40E5e3HVf7pL7caz0bCA7GC4MR4l
-	bJt3d7V7X3CdlqSJBESdFcdaTXbijoyZQz0Vw6m/PNU27c4Du3RfjqiKHb4QDH1YKUFLSZg8Fva
-	mOrQ6+mu9qUMtZm7ngHOiG8tHBicfJ90O7Zkrx+7tESOiK+ZTuZLBzwHTpgH18dYf4e8OQVTEQ4
-	Bz4YZmV99FH2AHgtox275HhBfCPSOE6BW+
-X-Received: by 2002:a05:6a00:2d8d:b0:82f:1d38:f68f with SMTP id d2e1a72fcca58-82f8c8bee86mr10893475b3a.31.1776601315542;
-        Sun, 19 Apr 2026 05:21:55 -0700 (PDT)
-Received: from lgs.. ([2408:8417:d50:4775:fc0:88de:ed15:556b])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8e9d2fa9sm7700034b3a.16.2026.04.19.05.21.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 19 Apr 2026 05:21:55 -0700 (PDT)
-From: Guangshuo Li <lgs201920130244@gmail.com>
-To: Liu Ying <victor.liu@nxp.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Guangshuo Li <lgs201920130244@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] drm/bridge: imx8qxp-pxl2dpi: avoid of_node_put() on ERR_PTR()
-Date: Sun, 19 Apr 2026 20:21:34 +0800
-Message-ID: <20260419122134.97529-1-lgs201920130244@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Sun, 19 Apr 2026 12:47:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=mmpsystems.pl; s=x; h=Cc:To:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=CKOtsXDJcG0jDyOs/E1laUSgylmDBg7JVi69SXGBKH0=; b=alQhAJP7tyqN5X1VDvX2dghx0W
+	y4sLfD6xuynMppx31aUOAh9CREt/zRHnaKGUmixMvZJUZmjmNOH/osTRoUCFpK42/cuy6t9ktxuBi
+	qBR9vUQHAG0RgZO42koXO1zGPJDviDWD3iyli6jgcdTZgDtKys3RevFB7eqHEn1qA5FffOBEFWztq
+	pIf4etKKee5W4AgkZ6/2r+c/boYWZWlCt8GgQInk5PkQRNnm+PfSPV5kgeP6bdmwMC0ndSVxnsTm0
+	fW3cvWmVq0eZV5FoLNE/beSpQJr6WVD1WxhJk0mVBbjoyd3Xr7/4idJCjMpk1GL92yPhiwgGEw7++
+	Z0ofq9Fg==;
+Received: from user-5-173-16-91.play-internet.pl ([5.173.16.91] helo=localhost)
+	by s106.cyber-folks.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <michal.piekos@mmpsystems.pl>)
+	id 1wERYT-0000000Fbcq-0WDP;
+	Sun, 19 Apr 2026 14:47:17 +0200
+From: Michal Piekos <michal.piekos@mmpsystems.pl>
+Subject: [PATCH 0/4] Add hstimer support for H616 and T113-S3
+Date: Sun, 19 Apr 2026 14:46:06 +0200
+Message-Id: <20260419-h616-t113s-hstimer-v1-0-1af74ebef7c5@mmpsystems.pl>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAI7O5GkC/x3MPQqAMAxA4atIZgOmlWK9ijiIpjaDPzQiQvHuF
+ sdveC+DchJW6KsMiW9ROfYCqiuY47SvjLIUg2mMa1qyGB05vIisYtRLNk7ojLfet13wNEMJz8R
+ Bnn86jO/7AQpxxBNkAAAA
+To: Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ Michal Piekos <michal.piekos@mmpsystems.pl>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1776602788; l=1244;
+ i=michal.piekos@mmpsystems.pl; s=20260301; h=from:subject:message-id;
+ bh=Ig02Ia886PvDCutXjdfrwpVcl7mRn3EDpKbJ7k34tmk=;
+ b=P72Zmpvb3tqGJ3FjNsRAhiu1NsSrvHIbMbWLAUANOSfQweRTZEGoFDQVDqlCouTp48oQ3stJJ
+ +t02yiKhdCYCrX/sRv5S9eZa4852+xqmhA7UtsvwEfODiQxp4aQA1/+
+X-Developer-Key: i=michal.piekos@mmpsystems.pl; a=ed25519;
+ pk=Aixyx03If7ZDamiKKN0lsa+0mtA+WjIuIf2ZQVYNBqg=
+X-Authenticated-Id: michal.piekos@mmpsystems.pl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260419_052157_388103_37C95B62 
-X-CRM114-Status: GOOD (  13.09  )
+X-CRM114-CacheID: sfid-20260419_054721_463774_237DA07C 
+X-CRM114-Status: UNSURE (   8.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,52 +91,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-imx8qxp_pxl2dpi_get_available_ep_from_port() may return ERR_PTR(-ENODEV)
-or ERR_PTR(-EINVAL). imx8qxp_pxl2dpi_find_next_bridge() stores that
-value in a __free(device_node) variable and then immediately checks
-IS_ERR(ep).
+Add support for Allwinner H616 high speed timer in sun5i hstimer driver
+and describe corresponding nodes in dts for H616 and T113-S3.
 
-On the error path, returning from the function triggers the cleanup
-handler for __free(device_node). Since the device_node cleanup helper
-only checks for NULL before calling of_node_put(), this results in
-of_node_put(ERR_PTR(...)), which may lead to an invalid kobject_put()
-dereference and crash the kernel.
+H616 uses same model as existing driver except register shift compared
+to older variants. 
 
-Fix it by avoiding __free(device_node) for the endpoint pointer and
-releasing it explicitly after obtaining the remote port parent.
+Added register layout abstraction in the driver, extended the binding
+with new compatibles and wired up dts nodes for H616 and T113-S3 which
+uses H616 as fallback compatible.
 
-This issue was found by a custom static analysis tool.
-
-Fixes: ceea3f7806a10 ("drm/bridge: imx8qxp-pxl2dpi: simplify put of device_node pointers")
-Cc: stable@vger.kernel.org
-Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
 ---
- drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+Michal Piekos (4):
+      dt-bindings: timer: allwinner,sun5i-a13-hstimer: add H616 and T113-S3
+      clocksource/drivers/sun5i: add H616 hstimer support
+      arm64: dts: allwinner: h616: add hstimer node
+      arm: dts: allwinner: t113s: add hstimer node
 
-diff --git a/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c b/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
-index 441fd32dc91c..3610ca94a8e6 100644
---- a/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
-+++ b/drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c
-@@ -264,12 +264,15 @@ imx8qxp_pxl2dpi_get_available_ep_from_port(struct imx8qxp_pxl2dpi *p2d,
- 
- static int imx8qxp_pxl2dpi_find_next_bridge(struct imx8qxp_pxl2dpi *p2d)
- {
--	struct device_node *ep __free(device_node) =
--		imx8qxp_pxl2dpi_get_available_ep_from_port(p2d, 1);
-+	struct device_node *ep;
-+
-+	ep = imx8qxp_pxl2dpi_get_available_ep_from_port(p2d, 1);
- 	if (IS_ERR(ep))
- 		return PTR_ERR(ep);
- 
- 	struct device_node *remote __free(device_node) = of_graph_get_remote_port_parent(ep);
-+	of_node_put(ep);
-+
- 	if (!remote || !of_device_is_available(remote)) {
- 		DRM_DEV_ERROR(p2d->dev, "no available remote\n");
- 		return -ENODEV;
+ .../timer/allwinner,sun5i-a13-hstimer.yaml         |  8 +++-
+ arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi       | 12 +++++
+ arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi     |  9 ++++
+ drivers/clocksource/timer-sun5i.c                  | 56 +++++++++++++++++++---
+ 4 files changed, 78 insertions(+), 7 deletions(-)
+---
+base-commit: faeab166167f5787719eb8683661fd41a3bb1514
+change-id: 20260413-h616-t113s-hstimer-62939948f91c
+
+Best regards,
 -- 
-2.43.0
+Michal Piekos <michal.piekos@mmpsystems.pl>
 
 
