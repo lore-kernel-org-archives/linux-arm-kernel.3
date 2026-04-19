@@ -4,133 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EE84EA7193
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 09:52:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFFC6EA7195
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Apr 2026 10:16:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XEo2oTEcsG7l3+0lO7xxDJBTjTSe7sGpcaQQHTUMBQ4=; b=inAKRzn2mTCNFZM5hz3wC297gO
-	gm7eiGb8KHIAHKTKf7b06CnfcoZQlSx5Ct/vt0TWgDbJ/hnschN8zU7rZnzrRLbMtTBgqRQkX9+Ld
-	E0zv9T2VAlZnNgZGGu9V5nKC6hx0YMMbarmNFEavc6118nj86EA7VN3je4HYh2Fx/Zu2IJ8lncAN8
-	EafOtghsX1l/cUghzE7c9H2AxsJY/N0ENQBNYAWZs3wPIcgzJa55BTaY4VeTnABddAKEyXuzJ8qfN
-	joXudKz9q/AR5Ox1J9esXsYh8pD4CmyrrJH3NUaxf+M3XigLaG1ZHY/GmDmNbrdzX7fI7L3bsf6YC
-	Eaub1SHg==;
+	bh=3hALoF0Oo7o1hFUzR9bl3PUJDzj00xQhW5r1yoXZYQs=; b=jq4eqhKHTdymuEtQb636Ppbn+R
+	QleC79W/IZXl1Hvy7kHR7DF5oA0l2UBFImd4ilXrhuFNM0hzmkOSN8L+/oa10E3Ui2k9I9UmwvJCp
+	6kEVdss+e3fYVK/k9mIF/B/uDggnT3fdVrxUV6JusnL61BWZIygosfSk8kJtSeT/vy2sW9Jyj+8sK
+	uoNRkVIuEeVWLFvJW/B6WWY20y3nq7DmEatMFzNDrQB4CFbsf3raBKkkjrWKa9+0lAjDDxSHtnrx3
+	xqG9gcU53dx1ZTpF/LMEJl9dD4pTEzKfn3LX+U5CT7Cs5J209Pg3VgZ+zZ9gz4Co+5zVcNbNkrGhp
+	dBuBiL9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEOpD-00000005gaj-2P7E;
-	Sun, 19 Apr 2026 09:52:23 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wEPC1-00000005hHu-1vmM;
+	Sun, 19 Apr 2026 10:15:57 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEOpA-00000005gaL-40DD
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Apr 2026 09:52:22 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63J2PVZZ967469
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 09:52:18 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=XEo2oTEcsG7l3+0lO7xxDJBT
-	jTSe7sGpcaQQHTUMBQ4=; b=al+xqVad34Y/bw7J9fDIIbwH24QaohImnwDm6pGa
-	gx6jPzlcOjHPgGY0a9S84+nvdXyfkcizkgdraOpsrljazqANG/kOaPgStN9sXt+e
-	EHrJphjGkh74TcCUIe7gVJ/s8CO2Tqkbe4EHDZjPTZznH6WSFrYAI+EJBCtmRhPj
-	4xFnc7anee0zBmWvqhSE8/mYqRyidloYwxtWPbvoS5IdpIXFb3khqRjKYwMD/A04
-	Ld+nEu41Ot/Qrmhh/4Cdi2Z6nGl43YaDAzUKiKtmg6H0hOdIozkChRF4BMohoOnY
-	Xm0E0ZdY1aKIO1dQiFTPRR9xnFWouvPhLNduqQyEsCqqXw==
-Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dm388j7ek-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 09:52:18 +0000 (GMT)
-Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1273dfdaf5dso1700880c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 02:52:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1776592338; x=1777197138; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XEo2oTEcsG7l3+0lO7xxDJBTjTSe7sGpcaQQHTUMBQ4=;
-        b=Hy1Y9347lEbwnwb2BcmumIbmlEsfxuwDSs45yvGjFafq8cbpjezTi8Tjb150uf4b2o
-         n8Nafoyo1Mkj2vQZojJSORFBW96lK6nhRmEGvzbcj6jlseGZ6xTixatB7pY3EtqaMpz5
-         BINqc+AIa3bfEajRIIQ5RO/zoizH66fH7zLU7uOzeNRftgGcw+KLnMWFZQQR+Fw7Xziw
-         0w62ilyAjduZL1kCoaaPmH+Ai+BYwKQNpuGR5xiHIueEKF2w049IBKLbu4fkV71l38UW
-         4cLajgHB7eclBYBEAt54OKvkVC/Fra5c3vOqdof4xi8qIbbf68RGjLlQ6BeyeWynlWFH
-         Wxlw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776592338; x=1777197138;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XEo2oTEcsG7l3+0lO7xxDJBTjTSe7sGpcaQQHTUMBQ4=;
-        b=nf0NTGqh5K+OVW6zopyurOmzsRpb1Z+ZQRxOZiWyBJwwTD1O+CYE1dHpUqpPgKEEQU
-         3eCFfZspLf300/KuSx5cpzcaJEgdeT4H/uFyIdRAhUWM9+AjMeV0bfKVeAtHCNavUAjn
-         Wy7+N6xpmwzAaBTlIhuOOdOIqpfH6e+cgadREZW7hmbq130DO7ttJ5nSDbEUilfo6OMV
-         R/Nkj9BoZZML2Jq6MFHdsk+ehd4OsXTg9i/K/r/fWOXgUa19Po5mrluv7svpNmgqVSNz
-         GfqKYx7T4Bs6flg6MOv2jVIxQh7+oHbrIOI9Dhgjo3+y0tYw8/BP2QuC6fFi1LNmcqZa
-         XRLg==
-X-Forwarded-Encrypted: i=1; AFNElJ/tX5Qhlld2W8CdbmKymKrnWVb6G/Ks/v5dSN8lZfv4uoxWdtsriQG9FXz6rvS7n4PtFT75N1RhjyAOhesWBSzu@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFZwgWNnaIYo8mfY4GDm71N/8Bc9jLqoQB7mck5Q242YDxqXaS
-	lKZ66POWxujydvwfhQvXx6/tzbaR2tkq6tiN37FiPTgGxe3B4NcaPojvZY1ITqcmbpkFJ9mnVYs
-	NIXac/9RhZygYatKDOo+PUunOn4Ai1xtcAuNHPfacWQDN7xsuxylnQfV7QWStz2ofOd2UQasFN/
-	pXMA==
-X-Gm-Gg: AeBDievBkx+tCybrpv/58QlCoERdbDPlltkqd2GGtECyNI40oCd7nxFYH3oi85yNR/z
-	a73cWK9qfgiJycKZyE1wp9Am+vgbbquwgxKntoA1Hj+20QxlJXqJTS2A5MuWsN2BLZEamRjxkIw
-	lPLVT6RggAR1RucagfXo1XVN0t5rKg9ZXdgjru1jlDdDzz3c/M4RN34YyvrHsL+0vwFpDono0yc
-	JS6z1qDwy7sVii/6pkJ3iB4Ggp3pa79i6zuncGFyHKz4Z+Sv25BPLOgNIWfAbKaHb3PxHsnlzHH
-	2TYFY+qn7x+2mUw6FLiGdFtRtt/aZXGQ/2rtojVCK5igIqrdO4IHdy4XaEWuUy/+0Zt4Zk+R03H
-	hDl/RGEYgJZf6mfbF9pFvP8PO5lIUeJroCouZIYgivKsVIJIX3JDyqvQBjmPd61NwiSqohX1rCv
-	A=
-X-Received: by 2002:a05:7022:4186:b0:12c:3d1c:b325 with SMTP id a92af1059eb24-12c73b2bd66mr3631737c88.14.1776592337877;
-        Sun, 19 Apr 2026 02:52:17 -0700 (PDT)
-X-Received: by 2002:a05:7022:4186:b0:12c:3d1c:b325 with SMTP id a92af1059eb24-12c73b2bd66mr3631727c88.14.1776592337343;
-        Sun, 19 Apr 2026 02:52:17 -0700 (PDT)
-Received: from QCOM-aGQu4IUr3Y (i-global052.qualcomm.com. [199.106.103.52])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2e53d2cfd3esm9308003eec.21.2026.04.19.02.52.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 19 Apr 2026 02:52:17 -0700 (PDT)
-Date: Sun, 19 Apr 2026 17:52:11 +0800
-From: Shawn Guo <shengchao.guo@oss.qualcomm.com>
-To: bibek.patro@oss.qualcomm.com
-Cc: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-        Dmitry Baryshkov <lumag@kernel.org>, iommu@lists.linux.dev,
-        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, srinivas.kandagatla@oss.qualcomm.com
-Subject: Re: [PATCH] iommu/arm-smmu-qcom: Fix fastrpc compatible string in
- ACTLR client match table
-Message-ID: <aeSly0N7IkXHYExB@QCOM-aGQu4IUr3Y>
-References: <20260408130825.3268733-1-bibek.patro@oss.qualcomm.com>
+	id 1wEPBy-00000005hHU-1SxO;
+	Sun, 19 Apr 2026 10:15:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=3hALoF0Oo7o1hFUzR9bl3PUJDzj00xQhW5r1yoXZYQs=; b=acoJCEHcollrpbOxAJevsKGWUM
+	LbUHHMHCGAuFK9Z1DikrcPh+8Wl/rD3Md3X2Cx/OdphYPfYvGyUTnEULIcJlK7THYu0mgSX8w529Z
+	em9wMX672M6pQNVNreXnvxDyY/FMX4NypD/Tm36Sd16YjCT5/dKva42QICdwpLWVdM3lPhij07qwb
+	zh6NKZTZFn3inHqyKY0QU59vai1k73gSPggLD6GlpM+4Bz3tf6sZb5ut8Pa3UJ97Ns6hJlAojACsX
+	TObHyVOp7ZG34IqpGJeY34RtyzH814kHmCZKP4ZYT4QYlBhU5+99/bQF8DVhPpaVU5DLfzltto3cl
+	mapE4tZQ==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+ Shawn Lin <shawn.lin@rock-chips.com>, Jonas Karlman <jonas@kwiboo.se>
+Cc: Jonas Karlman <jonas@kwiboo.se>,
+ Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+ linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] gpio: rockchip: Fix GPIO after convert to dynamic base allocation
+Date: Sun, 19 Apr 2026 12:15:35 +0200
+Message-ID: <3847682.RUnXabflUD@phil>
+In-Reply-To: <20260416154928.2103388-1-jonas@kwiboo.se>
+References: <20260416154928.2103388-1-jonas@kwiboo.se>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260408130825.3268733-1-bibek.patro@oss.qualcomm.com>
-X-Authority-Analysis: v=2.4 cv=GthyPE1C c=1 sm=1 tr=0 ts=69e4a5d2 cx=c_pps
- a=SvEPeNj+VMjHSW//kvnxuw==:117 a=b9+bayejhc3NMeqCNyeLQQ==:17
- a=kj9zAlcOel0A:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=EUspDBNiAAAA:8 a=R4lqVJv_ZxSicD1_n0oA:9 a=CjuIK1q_8ugA:10
- a=Kq8ClHjjuc5pcCNDwlU0:22
-X-Proofpoint-GUID: gmRMHozsdawUn2Qz61PTLzkpuU1-COgU
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE5MDEwMiBTYWx0ZWRfX3HsYP3EzixET
- A1mfSEV08bZgOMpx1MpdJL769gF1yLI3G4erX7oWbTYdeAAPtC2zIbxqbDVH8TQDnV++hxz997d
- IUuSntz8jU4kkuU4pH9K9W03eTtNuV1/4C6RT925eAifQ/PD8ChD+Ip2hhiQVlpc3jVAs1+Wa1I
- DLn1wuziXoteXbSnLRMXATLZvUoEP0PFHwgGllJ5l89Vq9ka957w14xtPUsrt0TciOZU+zlx5PF
- OliYvjFJ9M+SnhiuoW+kaJBqoyAN7Mz9OFwe70Mqc1azW1ZHhEMshBpQ2sEP6UdeSNMbkJ9UoCq
- +wAhUEBJBVn/alMmqZgbSBQ7rhGFqu3W5fsVOsPeES+VbANk+prjBoAfhvJksogQmjGNNbewG5s
- dgNufYVCgyA58eHodZHVHFNFXGdWPJvGi83+w++IxGdEMhdvM0MruoA+UA1Gs537yBDWIlWpyQF
- 9jzipvQvcV/IuHxEldw==
-X-Proofpoint-ORIG-GUID: gmRMHozsdawUn2Qz61PTLzkpuU1-COgU
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-19_03,2026-04-17_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 adultscore=0 phishscore=0 lowpriorityscore=0 clxscore=1015
- priorityscore=1501 malwarescore=0 spamscore=0 bulkscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604190102
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260419_025221_046582_CCDD7245 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20260419_031554_448037_14E59F59 
+X-CRM114-Status: GOOD (  18.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,21 +67,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 08, 2026 at 06:38:25PM +0530, bibek.patro@oss.qualcomm.com wrote:
-> From: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
-...
-> Assisted-by: Anthropic:claude-4-6-sonnet
+Am Donnerstag, 16. April 2026, 17:49:28 Mitteleurop=C3=A4ische Sommerzeit s=
+chrieb Jonas Karlman:
+> The commit c8079f83e0bf ("gpio: rockchip: convert to dynamic GPIO base
+> allocation") broke GPIO on devices using device trees which don't set
+> the gpio-ranges property, something only Rockchip RK35xx SoC DTs do.
+>=20
+> On a Rockchip RK3399 device something like following is now observed:
+>=20
+> [    0.082771] rockchip-gpio ff720000.gpio: probed /pinctrl/gpio@ff720000
+> [    0.083531] rockchip-gpio ff730000.gpio: probed /pinctrl/gpio@ff730000
+> [    0.084110] rockchip-gpio ff780000.gpio: probed /pinctrl/gpio@ff780000
+> [    0.084746] rockchip-gpio ff788000.gpio: probed /pinctrl/gpio@ff788000
+> [    0.085389] rockchip-gpio ff790000.gpio: probed /pinctrl/gpio@ff790000
+> --
+> [    0.212208] rockchip-pinctrl pinctrl: pin 637 is not registered so it =
+cannot be requested
+> [    0.212271] rockchip-pinctrl pinctrl: error -EINVAL: pin-637 (gpio3:63=
+7)
+> [    0.212344] leds-gpio leds: error -EINVAL: Failed to get GPIO '/leds/l=
+ed-0'
+> [    0.212389] leds-gpio leds: probe with driver leds-gpio failed with er=
+ror -22
+> --
+> [    0.607545] rockchip-pinctrl pinctrl: pin 519 is not registered so it =
+cannot be requested
+> [    0.608775] rockchip-pinctrl pinctrl: error -EINVAL: pin-519 (gpio0:51=
+9)
+> [    0.610003] dwmmc_rockchip fe320000.mmc: probe with driver dwmmc_rockc=
+hip failed with error -22
+> --
+> [    0.805882] rockchip-pinctrl pinctrl: pin 547 is not registered so it =
+cannot be requested
+> [    0.806672] rockchip-pinctrl pinctrl: error -EINVAL: pin-547 (gpio1:54=
+7)
+> [    0.807301] reg-fixed-voltage regulator-vbus-typec: error -EINVAL: can=
+'t get GPIO
+> [    0.807307] rockchip-pinctrl pinctrl: pin 602 is not registered so it =
+cannot be requested
+> [    0.807970] reg-fixed-voltage regulator-vbus-typec: probe with driver =
+reg-fixed-voltage failed with error -22
+> [    0.808692] rockchip-pinctrl pinctrl: error -EINVAL: pin-602 (gpio2:60=
+2)
+> [    0.810279] reg-fixed-voltage regulator-vcc3v3-pcie: error -EINVAL: ca=
+n't get GPIO
+> [    0.810284] rockchip-pinctrl pinctrl: pin 665 is not registered so it =
+cannot be requested
+> [    0.810299] rockchip-pinctrl pinctrl: error -EINVAL: pin-665 (gpio4:66=
+5)
+> [    0.810960] reg-fixed-voltage regulator-vcc3v3-pcie: probe with driver=
+ reg-fixed-voltage failed with error -22
+> [    0.811679] reg-fixed-voltage regulator-vcc5v0-host: error -EINVAL: ca=
+n't get GPIO
+> [    0.813943] reg-fixed-voltage regulator-vcc5v0-host: probe with driver=
+ reg-fixed-voltage failed with error -22
+> --
+> [    0.867788] rockchip-pinctrl pinctrl: pin 522 is not registered so it =
+cannot be requested
+> [    0.868537] rockchip-pinctrl pinctrl: error -EINVAL: pin-522 (gpio0:52=
+2)
+> [    0.869166] pwrseq_simple sdio-pwrseq: error -EINVAL: reset GPIOs not =
+ready
+> [    0.869798] pwrseq_simple sdio-pwrseq: probe with driver pwrseq_simple=
+ failed with error -22
+> --
+> [    0.940365] rockchip-pinctrl pinctrl: pin 623 is not registered so it =
+cannot be requested
+> [    0.941084] rockchip-pinctrl pinctrl: error -EINVAL: pin-623 (gpio3:62=
+3)
+> [    0.941823] rk_gmac-dwmac fe300000.ethernet: error -EINVAL: Cannot reg=
+ister the MDIO bus
+> [    0.942542] rk_gmac-dwmac fe300000.ethernet: error -EINVAL: MDIO bus (=
+id: 0) registration failed
+> [    0.943772] rk_gmac-dwmac fe300000.ethernet: probe with driver rk_gmac=
+=2Ddwmac failed with error -22
+>=20
+> Restore GPIO to a working state on devices using older Rockchip SoCs
+> and/or DTs not having the gpio-ranges property set by restoring prior
+> use of bank->pin_base as the pin_offset value.
+>=20
+> Also change to use bank->nr_pins as the npins value to align and prevent
+> a possible future breakage if gc->ngpio is ever changed to match the 32
+> GPIOs each controller theoretically can handle.
+>=20
+> Fixes: c8079f83e0bf ("gpio: rockchip: convert to dynamic GPIO base alloca=
+tion")
+> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 
-Nit - coding-assistants.rst suggests format:
+Acked-by: Heiko Stuebner <heiko@sntech.de>
 
-  Assisted-by: AGENT_NAME:MODEL_VERSION
+> ---
+>  drivers/gpio/gpio-rockchip.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/gpio/gpio-rockchip.c b/drivers/gpio/gpio-rockchip.c
+> index 08ea64434f8f..44d7ebd12724 100644
+> --- a/drivers/gpio/gpio-rockchip.c
+> +++ b/drivers/gpio/gpio-rockchip.c
+> @@ -617,7 +617,7 @@ static int rockchip_gpiolib_register(struct rockchip_=
+pin_bank *bank)
+>  			return -ENODEV;
+> =20
+>  		ret =3D gpiochip_add_pin_range(gc, dev_name(pctldev->dev), 0,
+> -					     gc->base, gc->ngpio);
+> +					     bank->pin_base, bank->nr_pins);
+>  		if (ret) {
+>  			dev_err(bank->dev, "Failed to add pin range\n");
+>  			goto fail;
+>=20
 
-So I guess this might be better?
 
-  Assisted-by: Claude:claude-4-6-sonnet
 
-Shawn
 
-> Fixes: 3e35c3e725de ("iommu/arm-smmu: Add ACTLR data and support for qcom_smmu_500")
-> Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
 
