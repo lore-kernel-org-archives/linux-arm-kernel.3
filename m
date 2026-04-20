@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 478BFF588C3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:26:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B4BEF588C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:27:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K2LGdNSGtGjHxcMbk1EISweJG6PP5pNPfFgGRdosh7w=; b=NoeFvIxMTQ/kzEePVDlgcBwly8
-	+RntiVhBHvcE2/FrLYeXYiHsJUK526xBRGCItQ1Kc6pGrAlTtTNmP5+YAbvqz6t0VqJKcfMGTGEwh
-	+A/R/yIkpSzHt99aHkecy4lQDuz8Udb75r+bDdrILB46ZcY19Rfowd771OtshbseTeAIikS3PvkTN
-	ZtOP5jcEN/9n8jK3fkkKRNeKiT1A/uF6l/W4XeDUDKIGXEuGNaN3H1Dk1jQJ0SA94KvobNtRfCN2v
-	PqMGQVOvRYSIY0VzOOA3V1qK9z8T92fy9lVsPwe60QdwG8wY9RbdGZ0mvJIqIK4HMFBkgSxE3efPD
-	9d47QPCg==;
+	bh=UqZjhKKK5BXlnzEBbkAP+FiLDVOyq8/UoyFAekWMOlk=; b=0kPSTQwYlrJ0KzCTq9/14FsMFY
+	/aS0oEwKip4bTro6wLvv0q6dYSDor+X/RpdioiJIKIW2qVlcDngg4ZAzvInxgynOgdzua9AYisoKi
+	v1Vbv4lgP7p6W7D4SBbB0y/rKxBGJ5r2c25AM+j4xwlj3xi9u9UHabsohD8ty1z5+9yUT/25Tn5dW
+	ciqObcGEWwuMOt5rmWUKt0sVlg0Y8YdDAcuq5h+DouaJt+uctlD9pyUIubITw8wXfQRgCcCVwIJSp
+	rf7Ny19BdyGEfgs+tBrYDncMfS9SieRgtnpeH3phW5qB30ykAhE1bJA81mRjPY/4RmfazT1qxLKIS
+	TZG8L3Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEoe3-000000070Tu-2hAX;
-	Mon, 20 Apr 2026 13:26:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wEoeO-000000070gf-2odh;
+	Mon, 20 Apr 2026 13:26:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEoe1-000000070S5-1oMw;
-	Mon, 20 Apr 2026 13:26:33 +0000
+	id 1wEoeM-000000070fi-3fY8;
+	Mon, 20 Apr 2026 13:26:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CEC0960580;
-	Mon, 20 Apr 2026 13:26:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B64BC2BCB4;
-	Mon, 20 Apr 2026 13:26:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 12D5560180;
+	Mon, 20 Apr 2026 13:26:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 735F8C19425;
+	Mon, 20 Apr 2026 13:26:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776691592;
-	bh=8W9KPgsSAYJmRhFtq/1x0/cV+rNs9gHlmHkDL8Wy/x0=;
+	s=k20201202; t=1776691613;
+	bh=PPUIx66EefomAExyC7+f52diEldPURBFAue1OxHTY50=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Jng+qS7c5Bvf3iHdlas6DToCfPgQbMgqM2yUpgDVsiAcftzeaaYQQnFMRsjCw6ZLr
-	 M/POHwxPyJfIGoaixAzx4AcKvMd9m1wMD1PUvWGMX8t49A/eJklp0YpRcoyQubS559
-	 41wCWxKdNDTfSm/jL3snLZ4q0muVzCb7S4AUyriA5xRctetUsxHWVoI4fduSeS1Iyx
-	 NDjSlY2Zo6UrfaqrUdokLdf5B9CVt7AKDbR/2XEhsij+9LFvtiyqk83vpJR2UY0aAc
-	 bLPa7EAH5jFSMZ7HqW5Dl2SnWpTZhSzt16LRFG7I5JiRehIbjYGL6flrU4ne7mvUco
-	 SLVjsvwfhiuMg==
+	b=gLaVJudbL3QP1gyJn1YUmrvDpFRg8xzQRT5e22+sixQCyZSkXSayP1BQTlbT/4QWY
+	 20PDfisxNxypFdvEFh7lqFpvDAMuu1QDYAelAj6BNEES71mBFcx2I9CFpPFo4K3BaW
+	 IyMYm2pfkDqNBSiHPRoN+M8TWlt3KJwasAbiiBTuXNaNe/muLUZPLUCQO9ybnSMkXI
+	 BppOSwDyB2rayqaJ7E4hQzo0eOr9HCjR+J7gaNgrKKxcyvVss6/B4tp9ocV4k3PBsi
+	 rYh4S+n0TYcvssOdxYWIULbZqHsVaOzMiFVHHE9c8d96y94kpFACxtQ9FIEyHq5f94
+	 xpic9HESs9Mpg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Sean Wang <sean.wang@mediatek.com>,
-	Luiz Augusto von Dentz <luiz.von.dentz@intel.com>,
+Cc: Felix Fietkau <nbd@nbd.name>,
 	Sasha Levin <sashal@kernel.org>,
-	marcel@holtmann.org,
-	luiz.dentz@gmail.com,
+	lorenzo@kernel.org,
+	ryder.lee@mediatek.com,
 	matthias.bgg@gmail.com,
 	angelogioacchino.delregno@collabora.com,
-	linux-bluetooth@vger.kernel.org,
+	linux-wireless@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 7.0-6.12] Bluetooth: btmtk: add MT7902 MCU support
-Date: Mon, 20 Apr 2026 09:18:34 -0400
-Message-ID: <20260420132314.1023554-120-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 7.0-6.18] wifi: mt76: flush pending TX before channel switch
+Date: Mon, 20 Apr 2026 09:18:46 -0400
+Message-ID: <20260420132314.1023554-132-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260420132314.1023554-1-sashal@kernel.org>
 References: <20260420132314.1023554-1-sashal@kernel.org>
@@ -65,6 +64,7 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 7.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,369 +80,451 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sean Wang <sean.wang@mediatek.com>
+From: Felix Fietkau <nbd@nbd.name>
 
-[ Upstream commit aab25984e55972e53f3e58821cb85a7101876056 ]
+[ Upstream commit 0dcef1cbae27d806cd29c296cc03ad6e8ece771d ]
 
-Add MT7902 device ID and firmware filename to enable MCU firmware
-loading.
+mt76_tx() queues frames on wcid->tx_pending for async processing by
+tx_worker. In __mt76_set_channel(), the worker gets disabled before it
+may have run, and the subsequent wait only checks DMA ring queues, not
+the software pending list. This means frames like nullfunc PS frames
+from mt76_offchannel_notify() may never be transmitted on the correct
+channel.
 
-Signed-off-by: Sean Wang <sean.wang@mediatek.com>
-Signed-off-by: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>
+Fix this by running mt76_txq_schedule_pending() synchronously after
+disabling the tx_worker but before setting MT76_RESET, which would
+otherwise cause mt76_txq_schedule_pending_wcid() to bail out.
+
+Link: https://patch.msgid.link/20260309060730.87840-8-nbd@nbd.name
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-Now I have enough information for a thorough analysis. Let me compile my
-findings.
+Good. I now have a complete picture. Let me compile the full analysis.
 
 ---
 
 ## PHASE 1: COMMIT MESSAGE FORENSICS
 
-**Step 1.1: PARSE THE SUBJECT LINE**
-Record: [Bluetooth: btmtk] [add] [MT7902 MCU support - adds device ID
-and firmware filename for MT7902 chip]
+### Step 1.1: Subject Line
+- **Subsystem**: wifi: mt76 (MediaTek WiFi driver)
+- **Action verb**: "flush" — implies fixing missing work that should
+  have been done
+- **Summary**: Flush pending TX frames before channel switch to ensure
+  they're sent on the correct channel
 
-**Step 1.2: PARSE ALL COMMIT MESSAGE TAGS**
-- Signed-off-by: Sean Wang <sean.wang@mediatek.com> - Author, MediaTek
-  employee, regular Bluetooth/WiFi contributor
-- Signed-off-by: Luiz Augusto von Dentz <luiz.von.dentz@intel.com> -
-  Bluetooth subsystem maintainer, applied the patch
-- No Fixes: tag (expected for this type of commit)
-- No Reported-by: (this is hardware enablement, not a bug report)
-- No Cc: stable (expected)
+Record: [wifi: mt76] [flush] [Ensure pending TX frames are transmitted
+before channel switch]
 
-Record: Author is MediaTek developer. Applied by Bluetooth subsystem
-maintainer.
+### Step 1.2: Tags
+- **Link**:
+  `https://patch.msgid.link/20260309060730.87840-8-nbd@nbd.name` — part
+  of a series (patch 8)
+- **Signed-off-by**: Felix Fietkau `<nbd@nbd.name>` — the mt76
+  maintainer and original author
 
-**Step 1.3: ANALYZE THE COMMIT BODY TEXT**
-The commit message is straightforward: "Add MT7902 device ID and
-firmware filename to enable MCU firmware loading." This is new hardware
-enablement for the MT7902 Bluetooth chip.
+Record: No Fixes: tag (expected for autosel candidates). No Reported-by.
+No Cc: stable. Author is subsystem maintainer. Part number "8" in msgid
+suggests this is part of a series.
 
-Record: No bug description - this is a device ID addition for hardware
-enablement.
+### Step 1.3: Commit Body Analysis
+The commit clearly explains the bug:
+- `mt76_tx()` queues frames on `wcid->tx_pending` for async processing
+  by `tx_worker`
+- In `__mt76_set_channel()`, the worker gets disabled *after*
+  `MT76_RESET` is set
+- `mt76_txq_schedule_pending_wcid()` bails out when `MT76_RESET` is set
+  (line 626 of tx.c)
+- The `wait_event_timeout` only checks DMA ring queues via
+  `mt76_has_tx_pending()`, NOT the software pending list
+- Result: Frames like nullfunc PS frames may never be transmitted on the
+  correct channel
 
-**Step 1.4: DETECT HIDDEN BUG FIXES**
-Without this patch, MT7902 devices that are matched by the vendor
-wildcard USB entry `USB_VENDOR_AND_INTERFACE_INFO(0x0e8d, 0xe0, 0x01,
-0x01)` will hit the `default:` case in `btmtk_usb_setup()` and return
--ENODEV with "Unsupported hardware variant". This effectively makes the
-hardware non-functional.
+Record: Bug = TX frames lost during channel switch due to ordering issue
+between MT76_RESET flag and tx_worker disable. Symptom = nullfunc power-
+save frames not transmitted. Root cause = MT76_RESET set before
+schedule_pending runs, causing bail-out.
 
-Record: This is a hardware enablement commit, not a hidden bug fix. But
-it prevents -ENODEV for real hardware.
+### Step 1.4: Hidden Bug Fix Detection
+This is an explicit bug fix, not disguised. The commit clearly describes
+lost TX frames.
+
+Record: Explicit bug fix — not a hidden fix.
 
 ---
 
 ## PHASE 2: DIFF ANALYSIS
 
-**Step 2.1: INVENTORY THE CHANGES**
-- `drivers/bluetooth/btmtk.h`: +1 line (FIRMWARE_MT7902 define)
-- `drivers/bluetooth/btmtk.c`: +1 line (case 0x7902: in switch)
-- Total: 2 lines added, 0 removed
-- Functions modified: `btmtk_usb_setup()` (new case label in switch)
-- Scope: single-file surgical addition
+### Step 2.1: Inventory
+- **mac80211.c**: 3 lines reordered (moved `mt76_worker_disable` before
+  `set_bit(MT76_RESET)`, added `mt76_txq_schedule_pending()` call)
+- **mt76.h**: 1 line added (function declaration)
+- **tx.c**: 1 line changed (`static void` → `void`)
+- **Total**: ~5 lines of meaningful change
+- **Functions modified**: `__mt76_set_channel()`,
+  `mt76_txq_schedule_pending()` (visibility only)
 
-Record: 2 files, 2 lines added, scope is minimal.
+Record: [3 files, ~5 lines changed] [__mt76_set_channel reordering,
+mt76_txq_schedule_pending visibility] [Single-subsystem surgical fix]
 
-**Step 2.2: UNDERSTAND THE CODE FLOW CHANGE**
-- Before: `btmtk_usb_setup()` switch on dev_id has cases for 0x7663,
-  0x7668, 0x7922, 0x7925, 0x7961. Device ID 0x7902 falls to `default:`
-  -> returns -ENODEV.
-- After: 0x7902 falls through to the same path as 0x7922/0x7925/0x7961,
-  which calls `btmtk_fw_get_filename()` to generate firmware name and
-  `btmtk_setup_firmware_79xx()` to load it.
+### Step 2.2: Code Flow Change
 
-Record: Adds a case label to fall through to existing firmware loading
-code. No new execution paths.
+**Before** (`__mt76_set_channel()`):
+1. `set_bit(MT76_RESET, &phy->state)` — blocks
+   `mt76_txq_schedule_pending_wcid`
+2. `mt76_worker_disable(&dev->tx_worker)` — stops worker
+3. `wait_event_timeout(... !mt76_has_tx_pending ...)` — only checks DMA
+   queues
 
-**Step 2.3: IDENTIFY THE BUG MECHANISM**
-Category: Hardware workaround / Device ID addition.
-The change adds chip ID 0x7902 to a switch statement and a firmware
-filename define. The firmware name generation function
-`btmtk_fw_get_filename()` already handles 0x7902 correctly via its
-`else` branch, producing `"mediatek/BT_RAM_CODE_MT7902_1_%x_hdr.bin"`.
+**After**:
+1. `mt76_worker_disable(&dev->tx_worker)` — stops worker first
+2. `mt76_txq_schedule_pending(phy)` — synchronously flush software
+   pending list to DMA
+3. `set_bit(MT76_RESET, &phy->state)` — now safe to set
+4. `wait_event_timeout(... !mt76_has_tx_pending ...)` — DMA queues now
+   include flushed frames
 
-Record: Device ID addition pattern. Existing code infrastructure handles
-0x7902 without changes.
+Record: Fix reorders operations so pending frames get flushed to DMA
+rings before MT76_RESET blocks further processing.
 
-**Step 2.4: ASSESS THE FIX QUALITY**
-- Obviously correct: new case label falls through to identical handling
-  as 0x7922/0x7925/0x7961
-- Minimal and surgical: 2 lines
-- Regression risk: essentially zero - this code path was unreachable
-  before (would hit default case)
-- No red flags
+### Step 2.3: Bug Mechanism
+This is a **logic/ordering bug** leading to **TX frame loss**. The
+`MT76_RESET` flag acts as a gate in `mt76_txq_schedule_pending_wcid()`
+(line 626), and it was being set too early, preventing software-queued
+frames from ever reaching the hardware.
 
-Record: Trivially correct, zero regression risk.
+Record: [Logic/ordering bug] [MT76_RESET set too early prevents software
+TX queue flushing → frame loss]
+
+### Step 2.4: Fix Quality
+- Obviously correct: The reordering is logically sound — disable worker,
+  flush pending, then set reset flag
+- Minimal and surgical: ~5 lines changed
+- Regression risk: Very low — the only new code path is calling
+  `mt76_txq_schedule_pending()` synchronously, which already runs as
+  part of `mt76_txq_schedule_all()` via the tx_worker. The worker is
+  already disabled at this point, so no concurrency concern.
+
+Record: [High quality fix, obviously correct, minimal scope, very low
+regression risk]
 
 ---
 
 ## PHASE 3: GIT HISTORY INVESTIGATION
 
-**Step 3.1: BLAME THE CHANGED LINES**
-- `case 0x7922:` introduced by Chris Lu in 5c5e8c52e3cafa (2024-07-04) -
-  the btmtk refactoring commit
-- `case 0x7961:` introduced by Hao Qin in a7208610761ae9 (2025-01-10) -
-  same pattern of adding device ID
-- The switch statement and firmware loading infrastructure have been in
-  the tree since mid-2024
+### Step 3.1: Blame
+The buggy code pattern (`set_bit` before `mt76_worker_disable`) was
+introduced by:
+- `f4fdd7716290a2` ("wifi: mt76: partially move channel change code to
+  core") — v6.12
+- `0b3be9d1d34e21` ("wifi: mt76: add separate tx scheduling queue for
+  off-channel tx") — v6.12
 
-Record: Code infrastructure stable since mid-2024. Existing device IDs
-added via same pattern.
+These two commits together created the bug: one added the off-channel TX
+pending mechanism, the other moved channel change code to core with the
+wrong ordering.
 
-**Step 3.2: FOLLOW THE FIXES TAG**
-No Fixes: tag present (expected for device ID additions).
+Record: Bug introduced in v6.12 by commits f4fdd7716290a2 and
+0b3be9d1d34e21.
 
-**Step 3.3: CHECK FILE HISTORY**
-Recent changes to btmtk.c are mostly refactoring (btusb -> btmtk moves)
-and bug fixes (UAF, shutdown timeout). The device ID infrastructure is
-stable.
+### Step 3.2: Fixes Tag
+No Fixes: tag present (expected for autosel). However, the bug clearly
+traces back to `0b3be9d1d34e` — two related fixes (228bc0e79c852 and
+49fba87205bec) already reference it with `Fixes:` tags.
 
-Record: Standalone commit, no prerequisites needed.
+Record: Related fixes 228bc0e79c852 and 49fba87205bec both fix
+0b3be9d1d34e — this is a third fix for the same problematic commit.
 
-**Step 3.4: CHECK AUTHOR**
-Sean Wang is a MediaTek developer, regular contributor to both Bluetooth
-and WiFi subsystems. Multiple recent commits in drivers/bluetooth/.
+### Step 3.3: File History
+Related recent commits:
+- `228bc0e79c852` (v6.14): "only enable tx worker after setting the
+  channel" — Fixes: 0b3be9d1d34e
+- `49fba87205bec`: "fix linked list corruption" — Fixes: 0b3be9d1d34e
+- `bdeac7815629c`: "free pending offchannel tx frames on wcid cleanup"
 
-Record: Author is domain expert from the hardware vendor.
+Record: Multiple follow-up fixes to the same offchannel TX code. This
+commit is standalone — only needs the pre-existing
+mt76_txq_schedule_pending function.
 
-**Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS**
-This is patch 2/4 in a series, but it is standalone for USB devices. The
-other patches add SDIO device ID (1/4), USB VID/PID for third-party
-module (3/4), and SDIO support code (4/4). This patch is sufficient for
-USB devices matched by the vendor wildcard
-`USB_VENDOR_AND_INTERFACE_INFO(0x0e8d, ...)`.
+### Step 3.4: Author
+Felix Fietkau (`nbd@nbd.name`) is the mt76 subsystem maintainer and
+original author of the driver. Very high confidence in fix correctness.
 
-Record: Standalone for USB devices via vendor wildcard matching.
+Record: Author is the mt76 maintainer — highest trust level.
+
+### Step 3.5: Dependencies
+- `mt76_txq_schedule_pending()` exists since v6.12 (commit 0b3be9d1d34e)
+- `__mt76_set_channel()` exists since v6.14 (commit 82334623af0cd2)
+- For v6.12 backport: function is called `mt76_set_channel()` with
+  different context — needs adaptation
+- For v6.14+/7.0: should apply cleanly or with minimal context
+  adjustment
+- Commit `228bc0e79c852` (v6.14) should ideally be present first, as it
+  repositions `mt76_worker_enable()`. The v6.12 code has enable before
+  `set_channel`, which was moved by that fix.
+
+Record: Dependencies on 0b3be9d1d34e (present since v6.12) and
+82334623af0cd2 (v6.14). For v6.12 backport, adaptation is needed.
 
 ---
 
 ## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
 
-**Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION**
-Found via spinics.net. This is [PATCH 2/4] in Sean Wang's MT7902 series
-posted 2026-02-19. The series includes:
-1. mmc: sdio: add MediaTek MT7902 SDIO device ID
-2. Bluetooth: btmtk: add MT7902 MCU support (THIS commit)
-3. Bluetooth: btusb: Add new VID/PID 13d3/3579 for MT7902
-4. Bluetooth: btmtk: add MT7902 SDIO support
+### Step 4.1: Patch Discussion
+b4 dig could not find the exact commit by the Link msgid. The msgid
+suggests this is patch 8 of a series from Felix Fietkau dated
+2026-03-09.
 
-Record: Part of 4-patch series. This specific patch is standalone for
-USB via vendor wildcard.
+Record: Part of a larger series. Could not retrieve full lore discussion
+due to lore anti-bot protections.
 
-**Step 4.2: CHECK WHO REVIEWED**
-Applied by Luiz Augusto von Dentz, the Bluetooth subsystem maintainer.
-Sent to linux-bluetooth and linux-mediatek mailing lists.
+### Step 4.2: Reviewers
+Felix Fietkau is both author and maintainer — self-reviewed. This is
+normal for mt76 where he is the primary maintainer.
 
-Record: Applied by subsystem maintainer.
+Record: Author is subsystem maintainer.
 
-**Step 4.3: SEARCH FOR BUG REPORT**
-No specific bug report - this is proactive hardware enablement by the
-chip vendor.
+### Step 4.3-4.5: Bug Report
+No Reported-by tag, no syzbot report. This appears to be found through
+code review by the maintainer. No stable-specific discussion found.
 
-**Step 4.4: RELATED PATCHES**
-A separate patch from OnlineLearningTutorials also attempted to add
-MT7902 USB IDs (with the same case 0x7902 addition). This confirms real
-user demand for MT7902 support.
-
-Record: Multiple independent submissions for MT7902 support indicate
-real hardware availability.
-
-**Step 4.5: STABLE MAILING LIST**
-No specific stable discussion found.
+Record: Found by maintainer code review.
 
 ---
 
 ## PHASE 5: CODE SEMANTIC ANALYSIS
 
-**Step 5.1: KEY FUNCTIONS**
-Modified: `btmtk_usb_setup()` - only a new case label added.
+### Step 5.1-5.2: Key Functions
+- `__mt76_set_channel()` — called from `mt76_set_channel()`
+  (mac80211.c:1071) and `mt76_chanctx_assign_vif()` (channel.c:29)
+- `mt76_set_channel()` is the mac80211 callback for channel changes
+- This is called during every channel switch, scan, remain-on-channel —
+  a **common operation**
 
-**Step 5.2: TRACE CALLERS**
-`btmtk_usb_setup()` <- `btusb_mtk_setup()` <- assigned to `hdev->setup`
-for all BTUSB_MEDIATEK devices. Called during device initialization for
-every MediaTek Bluetooth USB device.
+### Step 5.3-5.4: Call Chain
+`mac80211 → mt76_set_channel() → __mt76_set_channel()` — this is the
+standard channel switch path, reachable during normal WiFi operation
+(scanning, roaming, channel changes).
 
-**Step 5.3-5.4: CALL CHAIN**
-USB device probes -> btusb_probe() -> sets hdev->setup = btusb_mtk_setup
--> HCI core calls hdev->setup() -> btusb_mtk_setup() ->
-btmtk_usb_setup() -> switch(dev_id). This is a standard device
-initialization path, triggered on every device connection.
+Record: Commonly triggered during WiFi scanning and channel switching.
 
-**Step 5.5: SIMILAR PATTERNS**
-The same pattern is used for MT7922, MT7925, MT7961 - all case labels in
-the same switch with identical fall-through behavior.
+### Step 5.5: Similar Patterns
+The MT76_RESET bail-out pattern in `mt76_txq_schedule_pending_wcid()`
+(line 626) is the direct cause. The same flag check exists in other TX
+scheduling paths (lines 492, 546) which are also affected by the
+ordering.
 
----
-
-## PHASE 6: CROSS-REFERENCING AND STABLE TREE ANALYSIS
-
-**Step 6.1: DOES THE BUGGY CODE EXIST IN STABLE?**
-The switch statement and all 79xx case labels exist in the 7.0 tree. The
-firmware loading infrastructure is present. Only the 0x7902 case is
-missing.
-
-Record: Infrastructure exists in stable. Only the device ID is missing.
-
-**Step 6.2: BACKPORT COMPLICATIONS**
-The diff context shows a retry mechanism (`BTMTK_FIRMWARE_DL_RETRY`)
-that doesn't exist in the 7.0 tree. The patch will need minor context
-adjustment for the btmtk.c hunk. The btmtk.h hunk applies cleanly.
-
-Record: Minor context conflict expected; trivial manual resolution
-needed.
-
-**Step 6.3: RELATED FIXES IN STABLE**
-No MT7902 support exists in stable at all.
+Record: MT76_RESET acts as gating mechanism in multiple TX paths.
 
 ---
 
-## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
+## PHASE 6: STABLE TREE ANALYSIS
 
-**Step 7.1: SUBSYSTEM CRITICALITY**
-Bluetooth (drivers/bluetooth/) - IMPORTANT subsystem. Bluetooth is
-widely used in laptops, phones, and IoT devices.
+### Step 6.1: Bug Existence in Stable
+- **v6.6 and earlier**: Bug does NOT exist —
+  `mt76_txq_schedule_pending()` and the offchannel TX mechanism weren't
+  added until v6.12
+- **v6.12**: Bug EXISTS — has both the offchannel TX pending mechanism
+  and the wrong ordering in `mt76_set_channel()`
+- **v6.14+**: Bug EXISTS — has `__mt76_set_channel()` with the wrong
+  ordering
 
-**Step 7.2: SUBSYSTEM ACTIVITY**
-Actively developed with regular commits. Device ID additions are a
-common pattern.
+Record: Bug exists in v6.12+ stable trees.
+
+### Step 6.2: Backport Complications
+- **v7.0**: Should apply cleanly
+- **v6.14**: Should apply cleanly or near-cleanly (function name same)
+- **v6.12**: Needs adaptation — different function name
+  (`mt76_set_channel` vs `__mt76_set_channel`), different surrounding
+  code (mutex_lock, cancel_delayed_work), may also need 228bc0e79c852 as
+  prerequisite
+
+Record: Clean for v6.14+; needs rework for v6.12.
+
+---
+
+## PHASE 7: SUBSYSTEM CONTEXT
+
+### Step 7.1: Subsystem Criticality
+WiFi driver (mt76) — **IMPORTANT**. MediaTek MT76xx chipsets are
+extremely common in consumer routers, laptops (mt7921/mt7922), and
+access points (mt7915, mt7996). This is one of the most widely used WiFi
+driver families in Linux.
+
+Record: [drivers/net/wireless/mediatek/mt76] [IMPORTANT — very common
+WiFi hardware]
+
+### Step 7.2: Activity
+Very active subsystem with frequent fixes from the maintainer.
 
 ---
 
 ## PHASE 8: IMPACT AND RISK ASSESSMENT
 
-**Step 8.1: WHO IS AFFECTED**
-Users with MT7902 Bluetooth hardware. The MT7902 is a MediaTek wireless
-chip used in laptops and embedded devices. It appears to be a
-recent/current-generation chip.
+### Step 8.1: Affected Users
+All users of MT76-based WiFi devices (mt7603, mt76x0, mt76x2, mt7615,
+mt7915, mt7921/mt7922, mt7996) — a very large user base including laptop
+users, router users, and embedded systems.
 
-**Step 8.2: TRIGGER CONDITIONS**
-Triggered when a user has MT7902 hardware and the device is enumerated
-via USB. The vendor wildcard USB entry matches MediaTek devices, so the
-driver binds but fails at firmware loading without this patch.
+Record: [Driver-specific but very widely used]
 
-**Step 8.3: FAILURE MODE**
-Without this patch: `bt_dev_err(hdev, "Unsupported hardware variant
-(%08x)")` and return -ENODEV. Bluetooth is completely non-functional for
-these devices.
+### Step 8.2: Trigger Conditions
+- Triggered during any channel switch (scanning, roaming, offchannel
+  operations)
+- WiFi scanning happens automatically and frequently
+- The bug window is when frames are queued on `tx_pending` just before a
+  channel switch
 
-Record: Severity: MEDIUM-HIGH (complete loss of Bluetooth functionality
-for affected hardware).
+Record: [Common trigger — scanning happens regularly on all WiFi
+devices]
 
-**Step 8.4: RISK-BENEFIT RATIO**
-- BENEFIT: Enables Bluetooth for MT7902 hardware users on stable
-  kernels. High benefit.
-- RISK: 2 lines, falls through to well-tested existing code path.
-  Essentially zero risk.
+### Step 8.3: Failure Mode
+- TX frame loss — nullfunc PS frames not transmitted → AP may not know
+  client is going off-channel → potential packet loss, connectivity
+  issues
+- Not a crash, but a functional correctness issue affecting WiFi
+  reliability
 
-Record: Very high benefit-to-risk ratio.
+Record: [Failure mode: TX frame loss during channel switch] [Severity:
+MEDIUM-HIGH — affects WiFi reliability]
+
+### Step 8.4: Risk-Benefit
+- **Benefit**: Fixes TX frame loss during channel switch on widely-used
+  WiFi hardware. Medium-high benefit.
+- **Risk**: Very low — 5 lines of reordering, obviously correct,
+  authored by maintainer
+- **Ratio**: Strong benefit, minimal risk
+
+Record: [Benefit: medium-high] [Risk: very low] [Favorable ratio]
 
 ---
 
 ## PHASE 9: FINAL SYNTHESIS
 
-**Step 9.1: EVIDENCE**
+### Step 9.1: Evidence
 
-FOR backporting:
-- Classic device ID addition to existing driver (explicit exception
-  category)
-- Only 2 lines changed
-- Falls through to well-tested code path (same as MT7922/MT7925/MT7961)
-- Author is the chip vendor's engineer
-- Applied by Bluetooth subsystem maintainer
-- Enables real hardware that would otherwise be completely non-
-  functional
-- Multiple independent submissions for MT7902 confirm real user demand
-- Zero regression risk (new case label, previously unreachable code
-  path)
+**FOR backporting**:
+- Fixes a real bug: TX frames lost during channel switch
+- Small, surgical fix: ~5 lines of meaningful change
+- Authored by the mt76 maintainer (Felix Fietkau)
+- Affects widely-used WiFi hardware
+- Common trigger (WiFi scanning)
+- Obviously correct: just reordering operations and adding a synchronous
+  flush
+- Very low regression risk
+- Related to same code that already has two other Fixes: tagged commits
 
-AGAINST backporting:
-- Part of a 4-patch series (but this patch is standalone for USB via
-  vendor wildcard)
-- Minor context conflict may need resolution for btmtk.c hunk
-- No Fixes: tag or Cc: stable (expected for device ID additions)
+**AGAINST backporting**:
+- No Fixes: tag (expected for autosel)
+- No Reported-by (found by maintainer review)
+- Part of a larger series (patch 8) — but the fix is self-contained
+- v6.12 backport would need adaptation
+- Not a crash — "just" frame loss (but impacts WiFi reliability)
 
-**Step 9.2: STABLE RULES CHECKLIST**
-1. Obviously correct and tested? YES - trivial fall-through case label
-2. Fixes a real bug? YES - enables hardware that returns -ENODEV
-3. Important issue? YES - complete Bluetooth non-functionality for
-   affected hardware
-4. Small and contained? YES - 2 lines across 2 files
-5. No new features or APIs? YES - just enables existing infrastructure
-   for new chip ID
-6. Can apply to stable? YES - with minor context adjustment
+### Step 9.2: Stable Rules Checklist
+1. Obviously correct? **YES** — ordering fix is straightforward
+2. Fixes a real bug? **YES** — TX frame loss during channel switch
+3. Important issue? **YES** — WiFi reliability on common hardware
+4. Small and contained? **YES** — ~5 lines across 3 files in same
+   subsystem
+5. No new features? **YES** — just fixes ordering
+6. Can apply to stable? **YES** for v6.14+; **needs rework** for v6.12
 
-**Step 9.3: EXCEPTION CATEGORY**
-YES - Device ID addition to existing driver. This is an explicitly
-allowed exception.
+### Step 9.3: Exception Categories
+Not an exception category — this is a straightforward bug fix.
+
+### Step 9.4: Decision
+The fix addresses a real TX frame loss bug during WiFi channel switching
+on widely-used MT76 hardware. It is small, obviously correct, authored
+by the subsystem maintainer, and carries minimal regression risk. The
+bug affects WiFi reliability for a large user base.
 
 ---
 
 ## Verification
 
-- [Phase 1] Parsed tags: Sean Wang (MediaTek) authored, Luiz von Dentz
-  (BT maintainer) applied
-- [Phase 2] Diff analysis: +1 case label in switch, +1 firmware define.
-  2 lines total.
-- [Phase 3] git blame: switch infrastructure from 5c5e8c52e3cafa
-  (2024-07-04), present in stable
-- [Phase 3] git log: confirmed 0x7902 does not exist anywhere in the
-  current tree
-- [Phase 4] Found original submission on spinics.net: [PATCH 2/4] in
-  MT7902 series dated 2026-02-19
-- [Phase 4] Multiple submissions: both Sean Wang (MediaTek) and an
-  independent user submitted MT7902 support
-- [Phase 5] Traced call chain: USB probe -> btusb_probe ->
-  btusb_mtk_setup -> btmtk_usb_setup -> switch(dev_id)
-- [Phase 5] Verified `btmtk_fw_get_filename()` handles 0x7902 via
-  existing `else` branch
-- [Phase 5] Verified vendor wildcard USB entry
-  `USB_VENDOR_AND_INTERFACE_INFO(0x0e8d, ...)` matches MT7902
-- [Phase 6] Confirmed switch statement and firmware loading
-  infrastructure exist in 7.0 tree
-- [Phase 6] Identified minor context conflict: retry mechanism in diff
-  not present in stable
-- [Phase 8] Without patch: "Unsupported hardware variant" error, -ENODEV
-  returned, Bluetooth non-functional
-
-This is a textbook device ID addition - minimal, obviously correct,
-enabling real hardware for real users on stable kernels, with
-essentially zero regression risk.
+- [Phase 1] Parsed tags: Link to patch.msgid.link, Signed-off-by Felix
+  Fietkau (mt76 maintainer)
+- [Phase 2] Diff analysis: Reorders
+  set_bit(MT76_RESET)/mt76_worker_disable, adds
+  mt76_txq_schedule_pending() call, makes function non-static
+- [Phase 2] Confirmed MT76_RESET bail-out at tx.c line 626:
+  `test_bit(MT76_RESET, &phy->state)` causes schedule_pending_wcid to
+  return -1
+- [Phase 2] Confirmed mt76_has_tx_pending() only checks DMA queues
+  (q->queued), not software pending list
+- [Phase 3] git blame: `set_bit(MT76_RESET)` ordering from
+  f4fdd7716290a2 (v6.12), offchannel pending from 0b3be9d1d34e21 (v6.12)
+- [Phase 3] git show 228bc0e79c852: Related fix "only enable tx worker
+  after setting the channel", Fixes: 0b3be9d1d34e (v6.14)
+- [Phase 3] git show 49fba87205bec: Related fix "fix linked list
+  corruption", Fixes: 0b3be9d1d34e
+- [Phase 3] Confirmed __mt76_set_channel() introduced in 82334623af0cd2
+  (v6.14)
+- [Phase 3] Felix Fietkau confirmed as mt76 maintainer via git log
+  --author
+- [Phase 5] mt76_txq_schedule_pending called from mt76_txq_schedule_all
+  → mt76_tx_worker_run → tx_worker — normal TX path
+- [Phase 6] Confirmed mt76_txq_schedule_pending does NOT exist in v6.6
+  (bug not present pre-v6.12)
+- [Phase 6] Confirmed v6.12 has the same bug pattern (set_bit before
+  worker_disable, no schedule_pending call)
+- [Phase 6] v6.12 uses `mt76_set_channel()` not `__mt76_set_channel()` —
+  backport needs adaptation
+- UNVERIFIED: Could not access lore.kernel.org discussion thread due to
+  anti-bot protections
 
 **YES**
 
- drivers/bluetooth/btmtk.c | 1 +
- drivers/bluetooth/btmtk.h | 1 +
- 2 files changed, 2 insertions(+)
+ drivers/net/wireless/mediatek/mt76/mac80211.c | 5 +++--
+ drivers/net/wireless/mediatek/mt76/mt76.h     | 1 +
+ drivers/net/wireless/mediatek/mt76/tx.c       | 2 +-
+ 3 files changed, 5 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
-index 0ada5a12130dc..c56c9e077040d 100644
---- a/drivers/bluetooth/btmtk.c
-+++ b/drivers/bluetooth/btmtk.c
-@@ -1332,6 +1332,7 @@ int btmtk_usb_setup(struct hci_dev *hdev)
- 	case 0x7922:
- 	case 0x7925:
- 	case 0x7961:
-+	case 0x7902:
- 		btmtk_fw_get_filename(fw_bin_name, sizeof(fw_bin_name), dev_id,
- 				      fw_version, fw_flavor);
+diff --git a/drivers/net/wireless/mediatek/mt76/mac80211.c b/drivers/net/wireless/mediatek/mt76/mac80211.c
+index d0c522909e980..73d252e0a7bf3 100644
+--- a/drivers/net/wireless/mediatek/mt76/mac80211.c
++++ b/drivers/net/wireless/mediatek/mt76/mac80211.c
+@@ -1030,9 +1030,10 @@ int __mt76_set_channel(struct mt76_phy *phy, struct cfg80211_chan_def *chandef,
+ 	int timeout = HZ / 5;
+ 	int ret;
  
-diff --git a/drivers/bluetooth/btmtk.h b/drivers/bluetooth/btmtk.h
-index 5df7c32966247..b4506186b2f70 100644
---- a/drivers/bluetooth/btmtk.h
-+++ b/drivers/bluetooth/btmtk.h
-@@ -5,6 +5,7 @@
- #define FIRMWARE_MT7663		"mediatek/mt7663pr2h.bin"
- #define FIRMWARE_MT7668		"mediatek/mt7668pr2h.bin"
- #define FIRMWARE_MT7922		"mediatek/BT_RAM_CODE_MT7922_1_1_hdr.bin"
-+#define FIRMWARE_MT7902		"mediatek/BT_RAM_CODE_MT7902_1_1_hdr.bin"
- #define FIRMWARE_MT7961		"mediatek/BT_RAM_CODE_MT7961_1_2_hdr.bin"
- #define FIRMWARE_MT7925		"mediatek/mt7925/BT_RAM_CODE_MT7925_1_1_hdr.bin"
+-	set_bit(MT76_RESET, &phy->state);
+-
+ 	mt76_worker_disable(&dev->tx_worker);
++	mt76_txq_schedule_pending(phy);
++
++	set_bit(MT76_RESET, &phy->state);
+ 	wait_event_timeout(dev->tx_wait, !mt76_has_tx_pending(phy), timeout);
+ 	mt76_update_survey(phy);
  
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wireless/mediatek/mt76/mt76.h
+index d05e83ea1cacc..7bba0831bc0eb 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76.h
++++ b/drivers/net/wireless/mediatek/mt76/mt76.h
+@@ -1518,6 +1518,7 @@ void mt76_stop_tx_queues(struct mt76_phy *phy, struct ieee80211_sta *sta,
+ void mt76_tx_check_agg_ssn(struct ieee80211_sta *sta, struct sk_buff *skb);
+ void mt76_txq_schedule(struct mt76_phy *phy, enum mt76_txq_id qid);
+ void mt76_txq_schedule_all(struct mt76_phy *phy);
++void mt76_txq_schedule_pending(struct mt76_phy *phy);
+ void mt76_tx_worker_run(struct mt76_dev *dev);
+ void mt76_tx_worker(struct mt76_worker *w);
+ void mt76_release_buffered_frames(struct ieee80211_hw *hw,
+diff --git a/drivers/net/wireless/mediatek/mt76/tx.c b/drivers/net/wireless/mediatek/mt76/tx.c
+index 0753acf2eccb8..ab62591b7a260 100644
+--- a/drivers/net/wireless/mediatek/mt76/tx.c
++++ b/drivers/net/wireless/mediatek/mt76/tx.c
+@@ -660,7 +660,7 @@ mt76_txq_schedule_pending_wcid(struct mt76_phy *phy, struct mt76_wcid *wcid,
+ 	return ret;
+ }
+ 
+-static void mt76_txq_schedule_pending(struct mt76_phy *phy)
++void mt76_txq_schedule_pending(struct mt76_phy *phy)
+ {
+ 	LIST_HEAD(tx_list);
+ 	int ret = 0;
 -- 
 2.53.0
 
