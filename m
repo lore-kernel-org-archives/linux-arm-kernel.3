@@ -4,83 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70CB0F588C3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 12:32:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2CDEF588C3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 12:36:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=syaahfr1AvjeTrgpecRtNBtBP+GrrbQJ3jcGHB9nAds=; b=Wdd0+quXcEr3k/2l+DDzi7RHOS
-	D9+04pBMhLmnkqNWG/KJxsCSkiZFBgtt9ThA7YMtdry+DF5Eg9IYW/mIVR37iIZKDvMcgHrBahGYL
-	iyOd81L0CMdWC+wEmmEV3Y51oQyl3BY2gYX+CmaPUqKLmrcfRp6DHyVAUXK4NeYWWINRtu0wjAy7K
-	1zjkV4qbfAaExv6zpZ+pUR7WmICxT8sIJyAWTyQN9mZeOlK3COERfVepTQFsYjtvZZRam5PhXxvR0
-	egfNulUXLlAaHT6S8Q4NMf2f+7XjQDdzr1NiNpTT1WfLyI/k91uSBNGwSGGJ5RqK7JcjAWmeG04z3
-	+Vw8kXow==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aMXGpa2t06SlgNty8s43Rjg5XVC27sa0mGwOgV/VuWU=; b=w6ezCIRuzJ4bWBLG91QoArlAuw
+	kgsY/Y7SmyyAviESG01vXB11Yq+W0gfpB7Cyp4B0KS4pBSwAoCVbTOv7CUv3U+OJqtKSofYJg/tM7
+	0ZZENrzLaQ7N/mZE/PYu9ghkRUVLUzQePm2AdioxtIVEna9MwlWWrj7LoS+/s8QN8cQzphEMtwOKK
+	WYIWxQsocIfPtjr5z/KdZ3xsFkbTnIHexCQ982UTYqoa414EGowVafs0c6SEAyM+5KZEIpn/cSwyV
+	HrzyYftCC4nG/Alx8X5XXhbfzNFu1FE/T+4wBL4uM/2GYARWBwPIhVcxoqpqnR1x7V58M9VPKTxGu
+	u0gcvrxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEno0-00000006t2k-1lMF;
-	Mon, 20 Apr 2026 12:32:48 +0000
-Received: from pdx-out-014.esa.us-west-2.outbound.mail-perimeter.amazon.com ([35.83.148.184])
+	id 1wEnrS-00000006tLZ-0EIq;
+	Mon, 20 Apr 2026 12:36:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEnnw-00000006t1H-0v3C
+	id 1wEnrP-00000006tLE-2nkb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 12:32:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
-  t=1776688364; x=1808224364;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=syaahfr1AvjeTrgpecRtNBtBP+GrrbQJ3jcGHB9nAds=;
-  b=YyEShXTQJ5T7g9cH89Paz9azRxkiqj1q0w19SGVwSs+fj3YZY7l8SJAZ
-   C9BKxURohwYCYM4MVNr7ICewhQ1gtssZMQiSZ2NSUTscPlED5q1LkATOk
-   sszoQzbBYqnPkVCbTFg4Hs84y4iBpZCZDG9tfCvMopiB4w4Ybtfo92hYW
-   G76ggFTqR1tg5YcAzGpC/TYv4ODHDY/YV3xidMJVpv5Pr2oYb+rLxpgqO
-   4XIsKDFTrZMfNtrJtvuT5EiKfBql6SntHiRsiIIcqVqYtX15RwqUXbH4z
-   THB5kFpPWhos5jpgNR6o5QghFWleg+TUVEP3ImzgXp2jVwN3w9hN5QZgN
-   Q==;
-X-CSE-ConnectionGUID: QzW1fbjyTASzVH90g2euCQ==
-X-CSE-MsgGUID: TT2won87QKSxh/RpnfGOUw==
-X-IronPort-AV: E=Sophos;i="6.23,189,1770595200"; 
-   d="scan'208";a="17503804"
-Received: from ip-10-5-0-115.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.0.115])
-  by internal-pdx-out-014.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Apr 2026 12:32:38 +0000
-Received: from EX19MTAUWB001.ant.amazon.com [205.251.233.51:30295]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.29.81:2525] with esmtp (Farcaster)
- id 057c323d-5e62-472c-83db-4447edd78fdd; Mon, 20 Apr 2026 12:32:38 +0000 (UTC)
-X-Farcaster-Flow-ID: 057c323d-5e62-472c-83db-4447edd78fdd
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWB001.ant.amazon.com (10.250.64.248) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Mon, 20 Apr 2026 12:32:37 +0000
-Received: from dev-dsk-epetron-1c-1d4d9719.eu-west-1.amazon.com
- (10.253.109.105) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37; Mon, 20 Apr 2026
- 12:32:35 +0000
-From: Evangelos Petrongonas <epetron@amazon.de>
-To: Will Deacon <will@kernel.org>
-CC: Evangelos Petrongonas <epetron@amazon.de>, Robin Murphy
-	<robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, Jason Gunthorpe
-	<jgg@ziepe.ca>, Nicolin Chen <nicolinc@nvidia.com>, Pranjal Shrivastava
-	<praan@google.com>, Lu Baolu <baolu.lu@linux.intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <nh-open-source@amazon.com>, Zeev Zilberman
-	<zeev@amazon.com>
-Subject: [PATCH] iommu/arm-smmu-v3: Allow disabling Stage 1 translation
-Date: Mon, 20 Apr 2026 12:32:01 +0000
-Message-ID: <20260420123221.20801-1-epetron@amazon.de>
-X-Mailer: git-send-email 2.47.3
+	Mon, 20 Apr 2026 12:36:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id ED4AA40210
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 12:36:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDB72C2BCB6
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 12:36:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776688578;
+	bh=aMXGpa2t06SlgNty8s43Rjg5XVC27sa0mGwOgV/VuWU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=E6Umqfij26ygFveQISd8JSv/uVcnhVLtdWW7pTHHTjbxUxUXeWifwD/8w2A/7858m
+	 DgWzsldlgOEB2BXL7RYXmCtvJE0GoUxQQKrR+eqhdIspwqIORIq/y9pwRmItqPO235
+	 qsXJhxFOLdwZR6T3ZZ9Ao6/8htd4fTqrzKIHxDGV71by8wEPQriGM6cQ90ZQfxR5FK
+	 Rz9PGKayPXo9u9BjgbJ2sZj200d71GqxXG10x3BRCNObdTN4XUvG14OKgLLPojd9jw
+	 HgZNLv+wb67j8Cdl02vdGbtg6zCLw9Gwd4gkX/YOyM+3nDqiDwRtTwTODAdiLdXGF7
+	 PgQgnY6dpyENQ==
+Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-3870778358aso21362571fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 05:36:18 -0700 (PDT)
+X-Gm-Message-State: AOJu0Yw2Xo36ULVvRwHAEYjxuyVHspKVxUoXAXURe7EdwArT0xMpw87l
+	yEK8Cbyf4uPX96hr+LjfzTlo8R+UGiPtFDh7XSGbtBm6BTGPB8FBcsXx9ZLWXkU4gNkfoE8n3I6
+	WlMXi+BhZ0zBedVx2I+9249ygeR5T4jc=
+X-Received: by 2002:a05:6512:1dc:b0:5a4:19f3:f2b8 with SMTP id
+ 2adb3069b0e04-5a419f3f3a2mr2500794e87.10.1776688577537; Mon, 20 Apr 2026
+ 05:36:17 -0700 (PDT)
 MIME-Version: 1.0
-X-Originating-IP: [10.253.109.105]
-X-ClientProxiedBy: EX19D032UWA004.ant.amazon.com (10.13.139.56) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+References: <20260414211215.152850-1-stefandoesinger@gmail.com> <20260414211215.152850-2-stefandoesinger@gmail.com>
+In-Reply-To: <20260414211215.152850-2-stefandoesinger@gmail.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Mon, 20 Apr 2026 14:36:05 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmtUUkLh0RFw+pdfDYf6uHsEuXUPu0w6+LeZkPod=vMsQ@mail.gmail.com>
+X-Gm-Features: AQROBzC_ja4hMQnBBqL3fEii_NNOIW8lJd1A9EjlevDJ0pWE_b6J_fAfTEzotLI
+Message-ID: <CAD++jLmtUUkLh0RFw+pdfDYf6uHsEuXUPu0w6+LeZkPod=vMsQ@mail.gmail.com>
+Subject: Re: [PATCH v3 1/8] ARM: zte: Add zx297520v3 platform support
+To: =?UTF-8?Q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_053244_318156_B4E26C0A 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20260420_053619_732084_1B2B9ACC 
+X-CRM114-Status: GOOD (  12.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,66 +81,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the hardware advertises both Stage 1 and Stage 2 translation, the
-driver prefers Stage 1 for DMA domain allocation and only falls back to
-Stage 2 if Stage 1 is not supported.
+On Tue, Apr 14, 2026 at 11:12=E2=80=AFPM Stefan D=C3=B6singer
+<stefandoesinger@gmail.com> wrote:
 
-Some configurations may want to force Stage 2 translation even when the
-hardware supports Stage 1. Introduce a module parameter 'disable_s1'
-that, when set, prevents the driver from advertising
-ARM_SMMU_FEAT_TRANS_S1, causing all DMA domains to use Stage 2 instead.
+> This SoC is used in low end LTE-to-WiFi routers, for example some D-Link
+> DWR 932 revisions, ZTE K10, ZLT S10 4G, but also models that are branded
+> and sold by ISPs themselves. They are widespread in Africa, China,
+> Russia and Eastern Europe.
+>
+> This SoC is a relative of the zx296702 and zx296718 that had some
+> upstream support until commit 89d4f98ae90d ("ARM: remove zte zx
+> platform"). My eventual goal is to enable OpenWRT to run on these
+> devices.
+>
+> Signed-off-by: Stefan D=C3=B6singer <stefandoesinger@gmail.com>
 
-Co-developed-by: Zeev Zilberman <zeev@amazon.com>
-Signed-off-by: Zeev Zilberman <zeev@amazon.com>
-Signed-off-by: Evangelos Petrongonas <epetron@amazon.de>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+From what I have understood the arm64 people would be fine
+with having the A53 hardwired to ARM32 without VFP and NEON
+as an arm32 machine because it makes their life simpler.
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index e8d7dbe495f0..afb21c210e24 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -39,6 +39,11 @@ module_param(disable_msipolling, bool, 0444);
- MODULE_PARM_DESC(disable_msipolling,
- 	"Disable MSI-based polling for CMD_SYNC completion.");
- 
-+static bool disable_s1;
-+module_param(disable_s1, bool, 0444);
-+MODULE_PARM_DESC(disable_s1,
-+	"Disable Stage 1 translation even if supported by hardware.");
-+
- static const struct iommu_ops arm_smmu_ops;
- static struct iommu_dirty_ops arm_smmu_dirty_ops;
- 
-@@ -5087,13 +5092,13 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
- 		smmu->features |= ARM_SMMU_FEAT_STALLS;
- 	}
- 
--	if (reg & IDR0_S1P)
-+	if ((reg & IDR0_S1P) && !disable_s1)
- 		smmu->features |= ARM_SMMU_FEAT_TRANS_S1;
- 
- 	if (reg & IDR0_S2P)
- 		smmu->features |= ARM_SMMU_FEAT_TRANS_S2;
- 
--	if (!(reg & (IDR0_S1P | IDR0_S2P))) {
-+	if (!(smmu->features & (ARM_SMMU_FEAT_TRANS_S1 | ARM_SMMU_FEAT_TRANS_S2))) {
- 		dev_err(smmu->dev, "no translation support!\n");
- 		return -ENXIO;
- 	}
--- 
-2.47.3
+So from my side:
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-
-
-
-Amazon Web Services Development Center Germany GmbH
-Tamara-Danz-Str. 13
-10243 Berlin
-Geschaeftsfuehrung: Christof Hellmis, Andreas Stieger
-Eingetragen am Amtsgericht Charlottenburg unter HRB 257764 B
-Sitz: Berlin
-Ust-ID: DE 365 538 597
-
+Yours,
+Linus Walleij
 
