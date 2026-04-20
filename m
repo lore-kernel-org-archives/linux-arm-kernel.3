@@ -4,76 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D14F36C2C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 07:17:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AA4AF36C39
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 07:22:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Vf/ig+2VJ+qKyawl6wvubkKzkh75f9RwRdOhQAcrwI=; b=z7OtXVwlm39mMgiv+3xuP2tk16
-	CJyIDFoVfXQnTBkcIcl1ieapC4NbCvn9xHySyOt8RbP4v1Bbcj0Gjmu2zajC/hl5fQ2nWw1lf1DkF
-	E3Nl/hMAyiqaGGGLqC+QshXORgzHF8+J3kNuYb/fuT7JC7naJuYirMAsrddxg4e3B9NyKzXZQE6OH
-	Xb36nbqw+qKwKBTicsQvYyBjYOju0+EGU+DcCoGoRGx3d3INixznbgNjTlRZAqITo2+ZLlMzDZwx9
-	gSwvIeD4Iug7EkKP4TsmJwyHbNJfqZWw3jvVObYAG3onB/C5ggsHIEJjcAvDlYk611Zj8ibkq4PBR
-	B+DitGMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hB2A8Esel4sRN2yu0BbSPtSGiw4lRIZUzXIhjNnCO5Q=; b=NUMLIjyyBdBNcJRlhPljbeaNTP
+	mPu8Z4yJt7RIek43+eLYyNo+OmUFraTVruqnElAozjAPHinUhcZWCNeccUuZy71T1ZefTSTxmKwzM
+	qtS+OseAx+VeIiUtffR0uqJ7hs9ul10gBD3cEgZWVCj46+pInR/imh8zLIm/F4ynYlyfA8FY2PmFp
+	zzqKd7+1ht6J0mvB7b1dF/Dauxlye4BFlXLKNlJAIL5srRYnrB1CuN9m7xpRCU1MRsI0HzmC+HC8i
+	lBasxNeGvGMzK2cejJKonCrVBxNQALPbR4YVKLYjNxWg9gDutRbpeCLlqblAHQxLtVuJc9zv3IyUN
+	+tLtF6vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEit7-00000006XYO-2Y50;
-	Mon, 20 Apr 2026 07:17:45 +0000
-Received: from www3579.sakura.ne.jp ([49.212.243.89])
+	id 1wEixY-00000006XpO-3mNW;
+	Mon, 20 Apr 2026 07:22:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEit4-00000006XXz-2SJl
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 07:17:44 +0000
-Received: from [133.11.54.205] (h205.csg.ci.i.u-tokyo.ac.jp [133.11.54.205])
-	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 63K7H3FD094475
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Mon, 20 Apr 2026 16:17:03 +0900 (JST)
-	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=0Vf/ig+2VJ+qKyawl6wvubkKzkh75f9RwRdOhQAcrwI=;
-        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
-        h=From:Message-ID:To:Subject:Date;
-        s=rs20250326; t=1776669423; v=1;
-        b=APXUqz2jiH7GGh4C/kSSbquiyIjX0IN59+Fnp3fr3PwncA0Y2oLV20pYlcaK8kwj
-         crJEWRowgPUz3uPtEc0GdxcNuPoS+Y6JcJHTsoVZSwsCdUQroPb9PAnFolqEzPVq
-         1L4gGQx+oOjniadg5MlGy7YS/zz6eLKcidbwWNxbAiLFzDAxUkTm26Z4+O55FKoW
-         EjRCpoRmCmRY8k+EkBSLvQQvdVnrbA7HKsgZYSZdYviCl7q0+xkuOpU02uWdnvPS
-         pSs+HffGl+YEDz7vbOzPpG+roOp+g15+iJKBt6m4TLMv4o52MK8ENMco4hJbQ0Ws
-         nsNU8L6hbqYUvs+5y5Lvew==
-Message-ID: <2ffd2759-e299-4b3d-9f04-d2ab14d92465@rsg.ci.i.u-tokyo.ac.jp>
-Date: Mon, 20 Apr 2026 16:17:03 +0900
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/4] KVM: arm64: PMU: Protect the list of PMUs with RCU
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu
- <yuzenghui@huawei.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org,
-        kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
-        linux-hardening@vger.kernel.org, devel@daynix.com, kvm@vger.kernel.org,
-        linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-References: <20260418-hybrid-v7-0-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
- <20260418-hybrid-v7-2-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
- <87mryzauib.wl-maz@kernel.org>
- <483e5cf2-a54c-4781-ac6d-49f5bc7128ba@rsg.ci.i.u-tokyo.ac.jp>
- <86se8q15eo.wl-maz@kernel.org>
-Content-Language: en-US
-From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <86se8q15eo.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	id 1wEixW-00000006Xow-3iy2;
+	Mon, 20 Apr 2026 07:22:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 004DD418EF;
+	Mon, 20 Apr 2026 07:22:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 805D0C19425;
+	Mon, 20 Apr 2026 07:22:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776669737;
+	bh=OfvTvpLPvCOhEfrZP20Fdwx6Oml0HCemcKq7lCtxkyE=;
+	h=Date:Subject:Cc:From:To:References:In-Reply-To:From;
+	b=IMey3crYn7faai6rgUGWKlY+8hRpsd9v7aeDXyOpQyfZoHGJbsfz6R50DB40aPfGA
+	 scmZDevIY5KrT+Xtm5F1Q5W7GkcKH3TlcudlihDzXyEZfC4uJ+ID9uoHTpOITXJddl
+	 kPx9P7oi2FNemZrjdUBG2macvC/BHf5ra7cx++oyuddBTo2iO556nLVT08mYazZN8b
+	 kq8Y2FBt/k3RZKnO/cCH2ywt+sead2cswjBkqqCIbMaGQuWEMezh9nYE6zLs2AS0ig
+	 MkwDgIBIrtcF0tjJEpppzUi+REL0BbYUsRRA2xXYQ+DadjTO2xLi/VT7fa+E54lIGL
+	 OczJRz0NsD0+Q==
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=90b98803b27b5277d55f5c028db99ddc444d61087c0fc38a687673f1b0fc;
+ micalg=pgp-sha384; protocol="application/pgp-signature"
+Date: Mon, 20 Apr 2026 09:22:13 +0200
+Message-Id: <DHXSUW3NJU22.1RUYUHQZSZ53S@kernel.org>
+Subject: Re: [PATCH v2 3/4] gpio: realtek: Add driver for Realtek DHC
+ RTD1625 SoC
+Cc: "Bartosz Golaszewski" <brgl@kernel.org>, "linux-gpio@vger.kernel.org"
+ <linux-gpio@vger.kernel.org>, "devicetree@vger.kernel.org"
+ <devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-realtek-soc@lists.infradead.org"
+ <linux-realtek-soc@lists.infradead.org>,
+ =?utf-8?b?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>,
+ =?utf-8?b?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?= <stanley_chang@realtek.com>,
+ =?utf-8?b?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?= <james.tai@realtek.com>,
+ "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "afaerber@suse.com" <afaerber@suse.com>,
+ =?utf-8?b?VFlfQ2hhbmdb5by15a2Q6YC4XQ==?= <tychang@realtek.com>
+From: "Michael Walle" <mwalle@kernel.org>
+To: "Linus Walleij" <linusw@kernel.org>,
+ =?utf-8?b?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
+X-Mailer: aerc 0.20.0
+References: <20260408025243.1155482-1-eleanor.lin@realtek.com>
+ <20260408025243.1155482-4-eleanor.lin@realtek.com>
+ <CAMRc=MfUh_OuxS4SC6QzSOg_PMNc9i9crGYgBASrbVUgHDHSCw@mail.gmail.com>
+ <52bf9ce2b7754af8af69b0afee0d07b2@realtek.com>
+ <CAD++jLkpS-T9yK=ctSwpLvXkj7s7ivmwu1KKwzy4KS40LVYeyA@mail.gmail.com>
+In-Reply-To: <CAD++jLkpS-T9yK=ctSwpLvXkj7s7ivmwu1KKwzy4KS40LVYeyA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_001743_370408_DBBD39F3 
-X-CRM114-Status: GOOD (  26.41  )
+X-CRM114-CacheID: sfid-20260420_002218_967121_5CC7D133 
+X-CRM114-Status: GOOD (  30.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,112 +90,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/04/20 16:01, Marc Zyngier wrote:
-> On Mon, 20 Apr 2026 07:21:45 +0100,
-> Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
->>
->> On 2026/04/19 23:34, Marc Zyngier wrote:
->>> On Sat, 18 Apr 2026 09:14:24 +0100,
->>> Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
->>>>
->>>> Convert the list of PMUs to a RCU-protected list that has primitives to
->>>> avoid read-side contention.
->>>>
->>>> Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
->>>> ---
->>>>    arch/arm64/kvm/pmu-emul.c | 14 ++++++--------
->>>>    1 file changed, 6 insertions(+), 8 deletions(-)
->>>>
->>>> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
->>>> index 59ec96e09321..ef5140bbfe28 100644
->>>> --- a/arch/arm64/kvm/pmu-emul.c
->>>> +++ b/arch/arm64/kvm/pmu-emul.c
->>>> @@ -7,9 +7,9 @@
->>>>    #include <linux/cpu.h>
->>>>    #include <linux/kvm.h>
->>>>    #include <linux/kvm_host.h>
->>>> -#include <linux/list.h>
->>>>    #include <linux/perf_event.h>
->>>>    #include <linux/perf/arm_pmu.h>
->>>> +#include <linux/rculist.h>
->>>>    #include <linux/uaccess.h>
->>>>    #include <asm/kvm_emulate.h>
->>>>    #include <kvm/arm_pmu.h>
->>>> @@ -26,7 +26,6 @@ static bool kvm_pmu_counter_is_enabled(struct kvm_pmc *pmc);
->>>>      bool kvm_supports_guest_pmuv3(void)
->>>>    {
->>>> -	guard(mutex)(&arm_pmus_lock);
->>>>    	return !list_empty(&arm_pmus);
->>>
->>> Please read include/linux/rculist.h and the discussion about the
->>> interaction of list_empty() with RCU-protected lists. How about using
->>> list_first_or_null_rcu() for peace of mind?
->>
->> list_first_or_null_rcu() is useful to replace a sequence of
->> list_empty() and list_first_entry() that is protected by a lock, but
->> this function instead requires the invariant that nobody deletes an
->> element from the list, and list_first_or_null_rcu() does not allow
->> removing the requirement.
->>
->> The header file says:
->>> Where are list_empty_rcu() and list_first_entry_rcu()?
->>>
->>> They do not exist because they would lead to subtle race conditions:
->>>
->>> if (!list_empty_rcu(mylist)) {
->>> 	struct foo *bar = list_first_entry_rcu(mylist, struct foo,
->>> 					       list_member);
->>> 	do_something(bar);
->>> }
->>>
->>> The list might be non-empty when list_empty_rcu() checks it, but it
->>> might have become empty by the time that list_first_entry_rcu()
->>> rereads the ->next pointer, which would result in a SEGV.
->>>
->>> When not using RCU, it is OK for list_first_entry() to re-read that
->>> pointer because both functions should be protected by some lock that
->>> blocks writers.
->>>
->>> When using RCU, list_empty() uses READ_ONCE() to fetch the
->>> RCU-protected ->next pointer and then compares it to the address of
->>> the  list head.  However, it neither dereferences this pointer nor
->>> provides  this pointer to its caller.  Thus, READ_ONCE() suffices
->>> (that is,  rcu_dereference() is not needed), which means that
->>> list_empty() can be used anywhere you would want to use
->>> list_empty_rcu().  Just don't expect anything useful to happen if you
->>> do a subsequent lockless call to list_first_entry_rcu()!!!
->>>
->>> See list_first_or_null_rcu for an alternative.
->>
->> However, kvm_supports_guest_pmuv3() locked a mutex when calling
->> list_empty() and unlocked it immediately after that, instead of
->> re-reading list_first_entry(). This construct inherently had a race
->> condition with code that deletes an element; when the caller of
->> kvm_supports_guest_pmuv3() decides to enable guest PMUv3, the host PMU
->> may have been gone. But it was still safe because no one deletes an
->> element.
->>
->> The same logic also applies when using RCU. As the comment says, we
->> can use list_empty() instead of the hypothetical list_empty_rcu()
->> macro because we don't expect it to magically enable something like
->> list_first_entry_rcu(). This function instead keep relying on the fact
->> that no one deletes an element of the list.
-> 
-> And that's exactly the sort of thing I am trying to plan for. *Should*
-> we introduce a way to remove PMUs from the list, this predicate
-> becomes unsafe.
+--90b98803b27b5277d55f5c028db99ddc444d61087c0fc38a687673f1b0fc
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Perhaps so. In regards to this series, I'd rather like to keep it out of 
-scope as the requirement is not new.
+Hi,
 
-> 
-> So I want at least a comment explaining this to the unsuspecting
-> reader, as this is rather subtle.
+On Sun Apr 19, 2026 at 11:19 PM CEST, Linus Walleij wrote:
+> Hi Yu-Chun,
+>
+> On Fri, Apr 10, 2026 at 11:39=E2=80=AFAM Yu-Chun Lin [=E6=9E=97=E7=A5=90=
+=E5=90=9B]
+> <eleanor.lin@realtek.com> wrote:
+>
+>> We did look into gpio-mmio and gpio-regmap, but they are not quite suita=
+ble for
+>> our platform due to the specific hardware design:
+>>
+>> 1. Per-GPIO Dedicated Registers: Unlike typical GPIO controllers that pa=
+ck 32 pins
+>> into a single 32-bit register (1 bit per pin), our hardware uses a dedic=
+ated 32-bit
+>> register for each individual GPIO. This single register controls the
+>> input/output state, direction, and interrupt trigger type for that speci=
+fic pin.
+>
+> Isn't that attainable by:
+>
+> - setting .ngpio_per_reg to 1 in struct gpio_regmap_config
 
-I agree. I had to put some effort to understand the previous 
-mutex-protected implementation and to design the new RCU-protected one. 
-I'll add one with the next version.
+Which is just used by the gpio_regmap_simple_xlate() anyway. So it
+doesn't really matter. But yeah, 1 would be the correct value here,
+assuming that the registers are consecutive.
 
-Regards,
-Akihiko Odaki
+> - extend .reg_mask_xlate callback with an enum for each operation
+>   (need to change all users of the .reg_mask_xlate callback but
+>   who cares, they are not many):
+>
+> e.g.
+>
+> enum gpio_regmap_operation {
+>     GPIO_REGMAP_GET_OP,
+>     GPIO_REGMAP_SET_OP,
+>     GPIO_REGMAP_SET_WITH_CLEAR_OP,
+>     GPIO_REGMAP_GET_DIR_OP,
+>     GPIO_REGMAP_SET_DIR_OP,
+> };
+>
+>  int (*reg_mask_xlate)(struct gpio_regmap *gpio,
+>                               enum_gpio_regmap_operation op,
+>                               unsigned int base,
+>                               unsigned int offset, unsigned int *reg,
+>                               unsigned int *mask);
+>
+> This way .reg_mask_xlate() can hit different bits in the returned
+> *mask depending on operation and it will be find to pack all of
+> the bits into one 32bit register.
+>
+> Added Michael Walle to the the thread, he will know if this is a
+> good idea.
+
+Nice idea, though the information is then redundant in the usual
+case, i.e. drivers which need to translate specific registers
+will do a "switch (base)" at the moment. These should be converted
+to "switch (op)" just to keep all the drivers aligned and prevent
+new drivers from using the old method. You'd need to touch them
+anyway.
+
+I was briefly thinking about making it somewhat possible to embed
+the op into the base, if it would otherwise be all the same. That
+way, you could gpio-regmap as is. A special case like
+GPIO_REGMAP_ADDR_ZERO, that could be used by these kind of drivers,
+but that is probably too hacky.
+
+I'm fine with either way.
+
+>> 2. Write-Enable (WREN) Mask Mechanism: Our hardware requires a specific =
+Write-Enable
+>> mask to be written simultaneously when updating the register values.
+>
+> Which is to just set bit 31.
+>
+> With the above scheme your .reg_mask_xlate callback can just set bit 31
+> no matter what operating you're doing. Piece of cake.
+
+Keep in mind, that this will make reading and writing somewhat
+different. reading assumes there is only one bit set in mask,
+because of the "!!(val & mask)" op, which is hardcoded. I'm not
+against using the write like that though.
+
+-michael
+
+>> 3. Hardware Debounce: We also need to support hardware debounce settings=
+ per pin,
+>> which requires custom configuration via set_config mapped to these speci=
+fic per-pin
+>> registers.
+>
+> Just add a version of an optional .set_config() call to gpio-regmap.c
+> to handle this using .reg_mask_xlate() per above and add a new
+> GPIO_REGMAP_CONFIG_OP to the above enum, problem solved.
+>
+> If it seems too hard I can write patch 1 & 2 adding this infrastructure
+> but I bet you can easily see what can be done with gpio-regmap.c
+> here provided Michael W approves the idea.
+>
+> Yours,
+> Linus Walleij
+
+
+--90b98803b27b5277d55f5c028db99ddc444d61087c0fc38a687673f1b0fc
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCaeXUJhIcbXdhbGxlQGtl
+cm5lbC5vcmcACgkQEic87j4CH/gYPAGA38kF6k0QPnHqbuf0F8snMjubpa3TOjs3
+G9onuKDYzjTIsUAnEIkP2OGyzFeQDyiSAX9GSJK/SNrLRYFKwB25HIvNQffrfllE
+mYvy1Hm1NFWYVTeAs8zKhOWZ1siJfgpLSHg=
+=VBJf
+-----END PGP SIGNATURE-----
+
+--90b98803b27b5277d55f5c028db99ddc444d61087c0fc38a687673f1b0fc--
 
