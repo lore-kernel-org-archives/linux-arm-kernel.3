@@ -4,71 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 108FDF5A8BC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 21:17:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76A18F5A8BC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 21:20:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ns1DV6x0fHsLnc3zRjkL0inNdeAPzDm/07YqeMaVlZs=; b=kvU7XxMXx+8zWOhQSag5PNO6GE
-	BeDSEl2DKHBtDshMQFipDQkGt/b7i0AY3CxiiuXwNuQOpRLi6rP8urYF4Xffq3sJ38za6qOHYzKFC
-	6757sDoDWBZn0TFpPEVimSTM0Af+D+zYLqIlWD/nBYWTsWK/JtJ4p1glFW+OEw5QdSvOdmgdHV/vC
-	mF+JSUACE5xeSK7DcpxMR10L/BaEWS8beJKuF8MRlFMWWj32X/pKrecsqxVVOtgc+hgxrzIJV1Vd3
-	lFNpVh0Qk76hxrmLBrBiG3stgYJaDg4zRPdPnyHvzUR7ynH3WrSEmrCpxO0DT6q5K0ywWrCN8jrfs
-	d91bS23g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
+	From:Subject:Message-ID:Mime-Version:Date:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ay36onivd4dX+Z1a2tz7QaER4k6wTnDl5SDdSR+0YAI=; b=ipjZhEhFdcQGctmPvpgpdBgWhs
+	yzxegJZ1Pp2IsPLLNrIfICHfeTenatrNEsaAZ6WHqAtJDW47HgRCLbBRRleIetxo6xb26CtMBFs4b
+	0yY+846hbTLgosKvCrXcWK9KQHR6S8GgwhApKPTPCdAoqsiebdnlwNpI8U22XE7O32JU27u1FTM+s
+	z2DJxJjxP3RRiDCqD5UmGrCSTCaeIIVq6AaZ814EZqkpfXncDFSLxtGbnClCzFdVLCRFUEXBMeRZK
+	WpiSnR+7yDqEcN/H34qzv69UC3snx2UaIRU+XtiE7+YnRuF7xakloTqNTgkq5BXG3VSdC1vg9mmv3
+	IRBkiBoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEvzF-00000007fD0-3aMl;
-	Mon, 20 Apr 2026 21:16:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wEw2N-00000007fTw-1ukU;
+	Mon, 20 Apr 2026 21:20:11 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEvzD-00000007fCK-1Tf3
+	id 1wEw2K-00000007fRE-1ixt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 21:16:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 86C6043E94;
-	Mon, 20 Apr 2026 21:16:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 812B1C19425;
-	Mon, 20 Apr 2026 21:16:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776719814;
-	bh=1ICWP0aN3tVVPF3/42lRvuEcmakoBEeZExkl+2SI7Ww=;
-	h=From:Date:Subject:To:Cc:From;
-	b=IuNxAYrNXUb9BmToowo6po+Fxyb9mtPdJmisDUt1BHHZMx7xAEvRO5WOjADqoigxn
-	 mCGqO4Sf4iw34SOxhzT8gxgsxLt+TTFb2Cy2EW7mGxjkMeJUw1FN4MHVuEcZ475lF2
-	 GJnFJyZIPRqVbGDO0vwIrNUYA5ZI2nJ29h+PpsVao10354j+ORUIypyOZCkqMGmgXM
-	 5IhdFIiUQA9JjnKPo/z2nZ23kp9dZG9f0b1TxOlmqbG654sPuNtXTCKsonNpEtjRqI
-	 BQeQ9otxY37/bIYeec8vJ4Ha0RzZzGSCHYxn2g9zL9Skt0cseGJha8UPwMfqEKt7Jb
-	 U0KKMfWexADoA==
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Date: Mon, 20 Apr 2026 23:16:46 +0200
-Subject: [PATCH] mm/page_alloc: fix initialization of tags of the huge zero
- folio with init_on_free
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260420-zerotags-v1-1-3edc93e95bb4@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAL2X5mkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDE0Nz3arUovySxPRiXWMT40RjM3PjVEOLFCWg8oKi1LTMCrBR0bG1tQC
- gW2W7WgAAAA==
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
- Lorenzo Stoakes <ljs@kernel.org>, 
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
- Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
- Brendan Jackman <jackmanb@google.com>, Johannes Weiner <hannes@cmpxchg.org>, 
- Zi Yan <ziy@nvidia.com>, Lance Yang <lance.yang@linux.dev>, 
- Ryan Roberts <ryan.roberts@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-mm@kvack.org, stable@vger.kernel.org, 
- "David Hildenbrand (Arm)" <david@kernel.org>
-X-Mailer: b4 0.13.0
+	Mon, 20 Apr 2026 21:20:10 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2b2d83e7461so59622775ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 14:20:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1776720006; x=1777324806; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ay36onivd4dX+Z1a2tz7QaER4k6wTnDl5SDdSR+0YAI=;
+        b=v1PhXw+t2crxV4PVt0TKs6G39HKLtwWU/pXkPdYHJwYTeWj6eeh6nuwfBZ6eXXTgjn
+         1TwkoKWx+n8wtaNMD4o3SfxvTWZJYFD9X1aFoJ7yq81NqnGmJqpwO41VlkHm3GfJyPqz
+         5mdR059e48vNKUjg4Ly/KNNd33je709hkDTUv61FTVhm1rX+4y0csIybGxcxxRUo8Qzr
+         vE58J7MuzRWZ9x/yEqQ/ojUTeN7XbfNSli8AYTPMa2+oly+lI5wqnWWLwJay9LIRFFAi
+         gfP7y26TiQ6Q+av8pUMR+lIDSjK0qF/q0vc3fY52LDSoMarNJUIexSmdGcckn1HwVnAD
+         1bcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776720006; x=1777324806;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ay36onivd4dX+Z1a2tz7QaER4k6wTnDl5SDdSR+0YAI=;
+        b=mfxqubCpLafDs+IQj78rAOS2YY9L6V4B0AuH9W/t2C2eVzdan3OcaO+9uIxbwNH97W
+         1jZdBk0asgEy0HC8GdSKDOY5l7S44oH8C5jiYfsfzCoMI/3x8gvYvzwppoLbdsXfWawU
+         P4cbpbPz3u73jkCgRy7QwsgQD34A1lY4AhMfnfOQpi4JL/ocWzxedaAFP/SXu5ajK/IT
+         CrCMMFFXWClB5/ZGF8wXUOoHMAq65Orlzcwj0ZosuDH58t7Ch3WYfQewDpr+2OoJA3nt
+         EJ7w0hoZe3UafL9HrpKeOquplxV+f4zR1Wd3BDXcciODQodBgMqh9LDohsozReXjb4dc
+         4vng==
+X-Forwarded-Encrypted: i=1; AFNElJ/YSwxIdl0UTqu9F9/zMz9IJyHj2I1wOsU1aasKEwlJAHyIhniocfXAesm5wl4eSPTPca8VfG6wNU5SymHI/R8S@lists.infradead.org
+X-Gm-Message-State: AOJu0YwP3BWVZIBtqpJ4yh8gvaFg1lhpbdF7zi19H4CMSaXgo3OjXXSZ
+	c4zPwS4g7d3EVmrJfqBEPExXDl84qgmNIRQBUgmme19vSiHbUg+hISJE0P1vNLAXAKCHxV5Z2vE
+	pS1u4cg==
+X-Received: from pgam23.prod.google.com ([2002:a05:6a02:2b57:b0:c76:a4b1:60cf])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:3947:b0:3a2:e26b:2940
+ with SMTP id adf61e73a8af0-3a2e26c9037mr1652980637.0.1776720006241; Mon, 20
+ Apr 2026 14:20:06 -0700 (PDT)
+Date: Mon, 20 Apr 2026 14:19:45 -0700
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.54.0.rc1.555.g9c883467ad-goog
+Message-ID: <20260420212004.3938325-1-seanjc@google.com>
+Subject: [PATCH v3 00/19] KVM: selftests: Use kernel-style integer and
+ g[vp]a_t types
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Sean Christopherson <seanjc@google.com>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, loongarch@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_141655_462935_67195620 
-X-CRM114-Status: GOOD (  23.44  )
+X-CRM114-CacheID: sfid-20260420_142008_459120_5D09C890 
+X-CRM114-Status: GOOD (  15.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,195 +92,272 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__GFP_ZEROTAGS semantics are currently a bit weird, but effectively this
-flag is only ever set alongside __GFP_ZERO and __GFP_SKIP_KASAN.
+David's series to renames types across all KVM selftests.  I'm going to apply
+this ~now in order to get it into -next ASAP.  Unless someone screams in the
+next few days, I'm going to send a pull request on Thursday, with the goal of
+getting this into -rc1 so that all architectures (and developers) can use the
+new types straightaway.
 
-If we run with init_on_free, we will zero out pages during
-__free_pages_prepare(), to skip zeroing on the allocation path.
+Fully tested on x86, and I verified a handful of tests generate identical
+code.  I tried to do the same for other architectures, but gcc at least doesn't
+seem to provide reproducible builds for other architectures.  E.g. on arm64 and
+LoongArch, a completely benign vaddr_t => gva_t rename would sometimes result
+in different offsets in the generated code.  But based on manual diffs from
+objdump, I'm fairly confident in the result.
 
-However, when allocating with __GFP_ZEROTAG set, post_alloc_hook() will
-consequently not only skip clearing page content, but also skip
-clearing tag memory.
+The primary goal is to more closely align KVM selftests with the types used in
+the kernel proper (selftests are mostly developed by kernel developers):
 
-Not clearing tags through __GFP_ZEROTAGS is irrelevant for most pages that
-will get mapped to user space through set_pte_at() later: set_pte_at() and
-friends will detect that the tags have not been initialized yet
-(PG_mte_tagged not set), and initialize them.
+  vm_vaddr_t -> gva_t
+  vm_paddr_t -> gpa_t
 
-However, for the huge zero folio, which will be mapped through a PMD
-marked as special, this initialization will not be performed, ending up
-exposing whatever tags were still set for the pages.
+  uint64_t -> u64
+  uint32_t -> u32
+  uint16_t -> u16
+  uint8_t  -> u8
 
-The docs (Documentation/arch/arm64/memory-tagging-extension.rst) state
-that allocation tags are set to 0 when a page is first mapped to user
-space. That no longer holds with the huge zero folio when init_on_free
-is enabled.
+  int64_t -> s64
+  int32_t -> s32
+  int16_t -> s16
+  int8_t  -> s8
 
-Fix it by decoupling __GFP_ZEROTAGS from __GFP_ZERO, passing to
-tag_clear_highpages() whether we want to also clear page content.
+As a bonus, the new type names are shorter and thus make the KVM selftests code
+more concise.
 
-As we are touching the interface either way, just clean it up by
-only calling it when HW tags are enabled, dropping the return value, and
-dropping the common code stub.
+v3:
+ - Use vm_alloc() instead of gva_alloc(), and put the API renames in a separate
+   patch.
+ - Rename vaddr => gva and paddr => gpa throughout KVM selftests.
+ - Convert a pile of "u64" variables to gva_t or gpa_t as appropriate.
+ - Clarify ambiguous variables and function names in arm64's inject_uer()
+   and translate_to_host_paddr().
+ - Rename pread_uint64() => pread_u64().
 
-Reproduced with the huge zero folio by modifying the check_buffer_fill
-arm64/mte selftest to use a 2 MiB area, after making sure that pages have
-a non-0 tag set when freeing (note that, during boot, we will not
-actually initialize tags, but only set KASAN_TAG_KERNEL in the page
-flags).
+v2: https://lore.kernel.org/all/20260220004223.4168331-1-dmatlack@google.com
 
-	$ ./check_buffer_fill
-	1..20
-	...
-	not ok 17 Check initial tags with private mapping, sync error mode and mmap memory
-	not ok 18 Check initial tags with private mapping, sync error mode and mmap/mprotect memory
-	...
+v1: https://lore.kernel.org/kvm/20250501183304.2433192-1-dmatlack@google.com
 
-This code needs more cleanups; we'll tackle that next, like
-decoupling __GFP_ZEROTAGS from __GFP_SKIP_KASAN, moving all the
-KASAN magic into a separate helper, and consolidating HW-tag handling.
+David Matlack (10):
+  KVM: selftests: Use gva_t instead of vm_vaddr_t
+  KVM: selftests: Use gpa_t instead of vm_paddr_t
+  KVM: selftests: Use gpa_t for GPAs in Hyper-V selftests
+  KVM: selftests: Use u64 instead of uint64_t
+  KVM: selftests: Use s64 instead of int64_t
+  KVM: selftests: Use u32 instead of uint32_t
+  KVM: selftests: Use s32 instead of int32_t
+  KVM: selftests: Use u16 instead of uint16_t
+  KVM: selftests: Use s16 instead of int16_t
+  KVM: selftests: Use u8 instead of uint8_t
 
-Fixes: adfb6609c680 ("mm/huge_memory: initialise the tags of the huge zero folio")
-Cc: stable@vger.kernel.org
-Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
----
- arch/arm64/include/asm/page.h |  3 ---
- arch/arm64/mm/fault.c         | 16 +++++-----------
- include/linux/gfp_types.h     | 10 +++++-----
- include/linux/highmem.h       | 10 +---------
- mm/page_alloc.c               | 12 +++++++-----
- 5 files changed, 18 insertions(+), 33 deletions(-)
+Sean Christopherson (9):
+  KVM: selftests: Drop "vaddr_" from APIs that allocate memory for a
+    given VM
+  KVM: selftests: Rename vm_vaddr_unused_gap() => vm_unused_gva_gap()
+  KVM: selftests: Rename vm_vaddr_populate_bitmap() =>
+    vm_populate_gva_bitmap()
+  KVM: selftests: Rename translate_to_host_paddr() =>
+    translate_hva_to_hpa()
+  KVM: selftests: Clarify that arm64's inject_uer() takes a host PA, not
+    a guest PA
+  KVM: selftests: Replace "vaddr" with "gva" throughout
+  KVM: selftests: Replace "u64 gpa" with "gpa_t" throughout
+  KVM: selftests: Replace "u64 nested_paddr" with "gpa_t l2_gpa"
+  KVM: selftests: Replace "paddr" with "gpa" throughout
 
-diff --git a/arch/arm64/include/asm/page.h b/arch/arm64/include/asm/page.h
-index e25d0d18f6d7..5c6cbfbbd34c 100644
---- a/arch/arm64/include/asm/page.h
-+++ b/arch/arm64/include/asm/page.h
-@@ -33,9 +33,6 @@ struct folio *vma_alloc_zeroed_movable_folio(struct vm_area_struct *vma,
- 						unsigned long vaddr);
- #define vma_alloc_zeroed_movable_folio vma_alloc_zeroed_movable_folio
- 
--bool tag_clear_highpages(struct page *to, int numpages);
--#define __HAVE_ARCH_TAG_CLEAR_HIGHPAGES
--
- #define copy_user_page(to, from, vaddr, pg)	copy_page(to, from)
- 
- typedef struct page *pgtable_t;
-diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-index 0f3c5c7ca054..32a3723f2d34 100644
---- a/arch/arm64/mm/fault.c
-+++ b/arch/arm64/mm/fault.c
-@@ -1018,21 +1018,15 @@ struct folio *vma_alloc_zeroed_movable_folio(struct vm_area_struct *vma,
- 	return vma_alloc_folio(flags, 0, vma, vaddr);
- }
- 
--bool tag_clear_highpages(struct page *page, int numpages)
-+void tag_clear_highpages(struct page *page, int numpages, bool clear_pages)
- {
--	/*
--	 * Check if MTE is supported and fall back to clear_highpage().
--	 * get_huge_zero_folio() unconditionally passes __GFP_ZEROTAGS and
--	 * post_alloc_hook() will invoke tag_clear_highpages().
--	 */
--	if (!system_supports_mte())
--		return false;
--
- 	/* Newly allocated pages, shouldn't have been tagged yet */
- 	for (int i = 0; i < numpages; i++, page++) {
- 		WARN_ON_ONCE(!try_page_mte_tagging(page));
--		mte_zero_clear_page_tags(page_address(page));
-+		if (clear_pages)
-+			mte_zero_clear_page_tags(page_address(page));
-+		else
-+			mte_clear_page_tags(page_address(page));
- 		set_page_mte_tagged(page);
- 	}
--	return true;
- }
-diff --git a/include/linux/gfp_types.h b/include/linux/gfp_types.h
-index 6c75df30a281..fd53a6fba33f 100644
---- a/include/linux/gfp_types.h
-+++ b/include/linux/gfp_types.h
-@@ -273,11 +273,11 @@ enum {
-  *
-  * %__GFP_ZERO returns a zeroed page on success.
-  *
-- * %__GFP_ZEROTAGS zeroes memory tags at allocation time if the memory itself
-- * is being zeroed (either via __GFP_ZERO or via init_on_alloc, provided that
-- * __GFP_SKIP_ZERO is not set). This flag is intended for optimization: setting
-- * memory tags at the same time as zeroing memory has minimal additional
-- * performance impact.
-+ * %__GFP_ZEROTAGS zeroes memory tags at allocation time. This flag is intended
-+ * for optimization: setting memory tags at the same time as zeroing memory
-+ * (e.g., with __GPF_ZERO) has minimal additional performance impact. However,
-+ * __GFP_ZEROTAGS also zeroes the tags even if memory is not getting zeroed at
-+ * allocation time (e.g., with init_on_free).
-  *
-  * %__GFP_SKIP_KASAN makes KASAN skip unpoisoning on page allocation.
-  * Used for userspace and vmalloc pages; the latter are unpoisoned by
-diff --git a/include/linux/highmem.h b/include/linux/highmem.h
-index af03db851a1d..62f589baa343 100644
---- a/include/linux/highmem.h
-+++ b/include/linux/highmem.h
-@@ -345,15 +345,7 @@ static inline void clear_highpage_kasan_tagged(struct page *page)
- 	kunmap_local(kaddr);
- }
- 
--#ifndef __HAVE_ARCH_TAG_CLEAR_HIGHPAGES
--
--/* Return false to let people know we did not initialize the pages */
--static inline bool tag_clear_highpages(struct page *page, int numpages)
--{
--	return false;
--}
--
--#endif
-+void tag_clear_highpages(struct page *to, int numpages, bool clear_pages);
- 
- /*
-  * If we pass in a base or tail page, we can zero up to PAGE_SIZE.
-diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-index 65e205111553..8c6821d25a00 100644
---- a/mm/page_alloc.c
-+++ b/mm/page_alloc.c
-@@ -1808,9 +1808,9 @@ static inline bool should_skip_init(gfp_t flags)
- inline void post_alloc_hook(struct page *page, unsigned int order,
- 				gfp_t gfp_flags)
- {
-+	const bool zero_tags = kasan_hw_tags_enabled() && (gfp_flags & __GFP_ZEROTAGS);
- 	bool init = !want_init_on_free() && want_init_on_alloc(gfp_flags) &&
- 			!should_skip_init(gfp_flags);
--	bool zero_tags = init && (gfp_flags & __GFP_ZEROTAGS);
- 	int i;
- 
- 	set_page_private(page, 0);
-@@ -1832,11 +1832,13 @@ inline void post_alloc_hook(struct page *page, unsigned int order,
- 	 */
- 
- 	/*
--	 * If memory tags should be zeroed
--	 * (which happens only when memory should be initialized as well).
-+	 * Clearing tags can efficiently clear the memory for us as well, if
-+	 * required.
- 	 */
--	if (zero_tags)
--		init = !tag_clear_highpages(page, 1 << order);
-+	if (zero_tags) {
-+		tag_clear_highpages(page, 1 << order, /* clear_pages= */init);
-+		init = false;
-+	}
- 
- 	if (!should_skip_kasan_unpoison(gfp_flags) &&
- 	    kasan_unpoison_pages(page, order, init)) {
+ .../selftests/kvm/access_tracking_perf_test.c |  44 +--
+ tools/testing/selftests/kvm/arch_timer.c      |   6 +-
+ .../selftests/kvm/arm64/aarch32_id_regs.c     |  14 +-
+ .../testing/selftests/kvm/arm64/arch_timer.c  |   8 +-
+ .../kvm/arm64/arch_timer_edge_cases.c         | 161 ++++----
+ .../selftests/kvm/arm64/debug-exceptions.c    |  72 ++--
+ .../testing/selftests/kvm/arm64/hypercalls.c  |  24 +-
+ .../testing/selftests/kvm/arm64/idreg-idst.c  |   4 +-
+ tools/testing/selftests/kvm/arm64/no-vgic.c   |   8 +-
+ .../selftests/kvm/arm64/page_fault_test.c     |  82 ++--
+ tools/testing/selftests/kvm/arm64/psci_test.c |  26 +-
+ .../testing/selftests/kvm/arm64/sea_to_user.c |  41 +-
+ .../testing/selftests/kvm/arm64/set_id_regs.c |  70 ++--
+ .../selftests/kvm/arm64/smccc_filter.c        |  10 +-
+ tools/testing/selftests/kvm/arm64/vgic_init.c |  56 +--
+ tools/testing/selftests/kvm/arm64/vgic_irq.c  | 137 +++----
+ .../selftests/kvm/arm64/vgic_lpi_stress.c     |  20 +-
+ tools/testing/selftests/kvm/arm64/vgic_v5.c   |  10 +-
+ .../selftests/kvm/arm64/vpmu_counter_access.c |  56 +--
+ .../testing/selftests/kvm/coalesced_io_test.c |  38 +-
+ .../selftests/kvm/demand_paging_test.c        |  10 +-
+ .../selftests/kvm/dirty_log_perf_test.c       |  14 +-
+ tools/testing/selftests/kvm/dirty_log_test.c  |  82 ++--
+ tools/testing/selftests/kvm/get-reg-list.c    |   2 +-
+ .../testing/selftests/kvm/guest_memfd_test.c  |  18 +-
+ .../testing/selftests/kvm/guest_print_test.c  |  22 +-
+ .../selftests/kvm/hardware_disable_test.c     |   6 +-
+ .../selftests/kvm/include/arm64/arch_timer.h  |  30 +-
+ .../selftests/kvm/include/arm64/delay.h       |   4 +-
+ .../testing/selftests/kvm/include/arm64/gic.h |   8 +-
+ .../selftests/kvm/include/arm64/gic_v3_its.h  |   7 +-
+ .../selftests/kvm/include/arm64/processor.h   |  22 +-
+ .../selftests/kvm/include/arm64/ucall.h       |   4 +-
+ .../selftests/kvm/include/arm64/vgic.h        |  22 +-
+ .../testing/selftests/kvm/include/kvm_util.h  | 344 ++++++++---------
+ .../selftests/kvm/include/kvm_util_types.h    |   8 +-
+ .../kvm/include/loongarch/arch_timer.h        |   4 +-
+ .../selftests/kvm/include/loongarch/ucall.h   |   4 +-
+ .../testing/selftests/kvm/include/memstress.h |  30 +-
+ .../selftests/kvm/include/riscv/arch_timer.h  |  22 +-
+ .../selftests/kvm/include/riscv/processor.h   |   9 +-
+ .../selftests/kvm/include/riscv/ucall.h       |   4 +-
+ .../kvm/include/s390/diag318_test_handler.h   |   2 +-
+ .../selftests/kvm/include/s390/facility.h     |   4 +-
+ .../selftests/kvm/include/s390/ucall.h        |   4 +-
+ .../testing/selftests/kvm/include/sparsebit.h |   6 +-
+ .../testing/selftests/kvm/include/test_util.h |  40 +-
+ .../selftests/kvm/include/timer_test.h        |  18 +-
+ .../selftests/kvm/include/ucall_common.h      |  22 +-
+ .../selftests/kvm/include/userfaultfd_util.h  |   6 +-
+ .../testing/selftests/kvm/include/x86/apic.h  |  22 +-
+ .../testing/selftests/kvm/include/x86/evmcs.h |  22 +-
+ .../selftests/kvm/include/x86/hyperv.h        |  28 +-
+ .../selftests/kvm/include/x86/kvm_util_arch.h |  36 +-
+ tools/testing/selftests/kvm/include/x86/pmu.h |   9 +-
+ .../selftests/kvm/include/x86/processor.h     | 292 +++++++-------
+ tools/testing/selftests/kvm/include/x86/sev.h |  20 +-
+ tools/testing/selftests/kvm/include/x86/smm.h |   3 +-
+ .../selftests/kvm/include/x86/svm_util.h      |  12 +-
+ .../testing/selftests/kvm/include/x86/ucall.h |   2 +-
+ tools/testing/selftests/kvm/include/x86/vmx.h |  70 ++--
+ .../selftests/kvm/kvm_page_table_test.c       |  54 +--
+ tools/testing/selftests/kvm/lib/arm64/gic.c   |   6 +-
+ .../selftests/kvm/lib/arm64/gic_private.h     |  26 +-
+ .../testing/selftests/kvm/lib/arm64/gic_v3.c  |  90 ++---
+ .../selftests/kvm/lib/arm64/gic_v3_its.c      |  11 +-
+ .../selftests/kvm/lib/arm64/processor.c       | 163 ++++----
+ tools/testing/selftests/kvm/lib/arm64/ucall.c |  12 +-
+ tools/testing/selftests/kvm/lib/arm64/vgic.c  |  40 +-
+ tools/testing/selftests/kvm/lib/elf.c         |  17 +-
+ tools/testing/selftests/kvm/lib/guest_modes.c |   2 +-
+ .../testing/selftests/kvm/lib/guest_sprintf.c |  18 +-
+ tools/testing/selftests/kvm/lib/kvm_util.c    | 359 +++++++-----------
+ .../selftests/kvm/lib/loongarch/processor.c   | 110 +++---
+ .../selftests/kvm/lib/loongarch/ucall.c       |  12 +-
+ tools/testing/selftests/kvm/lib/memstress.c   |  38 +-
+ .../selftests/kvm/lib/riscv/processor.c       |  91 +++--
+ .../kvm/lib/s390/diag318_test_handler.c       |  12 +-
+ .../testing/selftests/kvm/lib/s390/facility.c |   2 +-
+ .../selftests/kvm/lib/s390/processor.c        |  65 ++--
+ tools/testing/selftests/kvm/lib/sparsebit.c   |  18 +-
+ tools/testing/selftests/kvm/lib/test_util.c   |  30 +-
+ .../testing/selftests/kvm/lib/ucall_common.c  |  34 +-
+ .../selftests/kvm/lib/userfaultfd_util.c      |  14 +-
+ tools/testing/selftests/kvm/lib/x86/apic.c    |   2 +-
+ tools/testing/selftests/kvm/lib/x86/hyperv.c  |  14 +-
+ .../testing/selftests/kvm/lib/x86/memstress.c |  14 +-
+ tools/testing/selftests/kvm/lib/x86/pmu.c     |   8 +-
+ .../testing/selftests/kvm/lib/x86/processor.c | 292 +++++++-------
+ tools/testing/selftests/kvm/lib/x86/sev.c     |  20 +-
+ tools/testing/selftests/kvm/lib/x86/svm.c     |  16 +-
+ tools/testing/selftests/kvm/lib/x86/ucall.c   |   4 +-
+ tools/testing/selftests/kvm/lib/x86/vmx.c     |  44 +--
+ .../selftests/kvm/loongarch/arch_timer.c      |  28 +-
+ .../selftests/kvm/loongarch/pmu_test.c        |  10 +-
+ .../kvm/memslot_modification_stress_test.c    |  10 +-
+ .../testing/selftests/kvm/memslot_perf_test.c | 164 ++++----
+ tools/testing/selftests/kvm/mmu_stress_test.c |  28 +-
+ .../selftests/kvm/pre_fault_memory_test.c     |  12 +-
+ .../testing/selftests/kvm/riscv/arch_timer.c  |   8 +-
+ .../testing/selftests/kvm/riscv/ebreak_test.c |   6 +-
+ .../selftests/kvm/riscv/get-reg-list.c        |   4 +-
+ .../selftests/kvm/riscv/sbi_pmu_test.c        |   8 +-
+ tools/testing/selftests/kvm/s390/debug_test.c |   8 +-
+ .../testing/selftests/kvm/s390/irq_routing.c  |   2 +-
+ tools/testing/selftests/kvm/s390/memop.c      |  94 ++---
+ tools/testing/selftests/kvm/s390/resets.c     |   6 +-
+ .../selftests/kvm/s390/shared_zeropage_test.c |   2 +-
+ tools/testing/selftests/kvm/s390/tprot.c      |  24 +-
+ .../selftests/kvm/s390/ucontrol_test.c        |   8 +-
+ .../selftests/kvm/set_memory_region_test.c    |  40 +-
+ tools/testing/selftests/kvm/steal_time.c      |  74 ++--
+ .../kvm/system_counter_offset_test.c          |  12 +-
+ tools/testing/selftests/kvm/x86/amx_test.c    |  14 +-
+ .../selftests/kvm/x86/aperfmperf_test.c       |  16 +-
+ .../selftests/kvm/x86/apic_bus_clock_test.c   |  24 +-
+ tools/testing/selftests/kvm/x86/cpuid_test.c  |   6 +-
+ tools/testing/selftests/kvm/x86/debug_regs.c  |   4 +-
+ .../kvm/x86/dirty_log_page_splitting_test.c   |  16 +-
+ .../kvm/x86/evmcs_smm_controls_test.c         |   6 +-
+ .../testing/selftests/kvm/x86/fastops_test.c  |  52 +--
+ .../selftests/kvm/x86/feature_msrs_test.c     |  12 +-
+ .../selftests/kvm/x86/fix_hypercall_test.c    |  20 +-
+ .../selftests/kvm/x86/flds_emulation.h        |   6 +-
+ .../testing/selftests/kvm/x86/hwcr_msr_test.c |  10 +-
+ .../testing/selftests/kvm/x86/hyperv_clock.c  |   6 +-
+ .../testing/selftests/kvm/x86/hyperv_evmcs.c  |  10 +-
+ .../kvm/x86/hyperv_extended_hypercalls.c      |  20 +-
+ .../selftests/kvm/x86/hyperv_features.c       |  26 +-
+ tools/testing/selftests/kvm/x86/hyperv_ipi.c  |  12 +-
+ .../selftests/kvm/x86/hyperv_svm_test.c       |  10 +-
+ .../selftests/kvm/x86/hyperv_tlb_flush.c      |  36 +-
+ .../selftests/kvm/x86/kvm_buslock_test.c      |   2 +-
+ .../selftests/kvm/x86/kvm_clock_test.c        |  14 +-
+ tools/testing/selftests/kvm/x86/kvm_pv_test.c |  10 +-
+ .../selftests/kvm/x86/monitor_mwait_test.c    |   2 +-
+ .../selftests/kvm/x86/nested_close_kvm_test.c |   2 +-
+ .../selftests/kvm/x86/nested_dirty_log_test.c |  10 +-
+ .../selftests/kvm/x86/nested_emulation_test.c |  20 +-
+ .../kvm/x86/nested_exceptions_test.c          |   6 +-
+ .../kvm/x86/nested_invalid_cr3_test.c         |   2 +-
+ .../selftests/kvm/x86/nested_set_state_test.c |   4 +-
+ .../kvm/x86/nested_tsc_adjust_test.c          |  12 +-
+ .../kvm/x86/nested_tsc_scaling_test.c         |  24 +-
+ .../kvm/x86/nested_vmsave_vmload_test.c       |   2 +-
+ .../selftests/kvm/x86/nx_huge_pages_test.c    |  18 +-
+ .../selftests/kvm/x86/platform_info_test.c    |   6 +-
+ .../selftests/kvm/x86/pmu_counters_test.c     | 109 +++---
+ .../selftests/kvm/x86/pmu_event_filter_test.c | 102 ++---
+ .../kvm/x86/private_mem_conversions_test.c    |  78 ++--
+ .../kvm/x86/private_mem_kvm_exits_test.c      |  14 +-
+ .../selftests/kvm/x86/set_boot_cpu_id.c       |   6 +-
+ .../selftests/kvm/x86/set_sregs_test.c        |   6 +-
+ .../selftests/kvm/x86/sev_init2_tests.c       |   6 +-
+ .../selftests/kvm/x86/sev_smoke_test.c        |  22 +-
+ .../x86/smaller_maxphyaddr_emulation_test.c   |   8 +-
+ tools/testing/selftests/kvm/x86/smm_test.c    |   8 +-
+ tools/testing/selftests/kvm/x86/state_test.c  |  14 +-
+ .../selftests/kvm/x86/svm_int_ctl_test.c      |   2 +-
+ .../selftests/kvm/x86/svm_lbr_nested_state.c  |   2 +-
+ .../kvm/x86/svm_nested_clear_efer_svme.c      |   2 +-
+ .../kvm/x86/svm_nested_shutdown_test.c        |   2 +-
+ .../kvm/x86/svm_nested_soft_inject_test.c     |  10 +-
+ .../selftests/kvm/x86/svm_nested_vmcb12_gpa.c |  14 +-
+ .../selftests/kvm/x86/svm_vmcall_test.c       |   2 +-
+ .../selftests/kvm/x86/sync_regs_test.c        |   2 +-
+ .../kvm/x86/triple_fault_event_test.c         |   4 +-
+ .../testing/selftests/kvm/x86/tsc_msrs_test.c |   2 +-
+ .../selftests/kvm/x86/tsc_scaling_sync.c      |   4 +-
+ .../selftests/kvm/x86/ucna_injection_test.c   |  45 +--
+ .../selftests/kvm/x86/userspace_io_test.c     |   4 +-
+ .../kvm/x86/userspace_msr_exit_test.c         |  58 +--
+ .../selftests/kvm/x86/vmx_apic_access_test.c  |   4 +-
+ .../kvm/x86/vmx_apicv_updates_test.c          |   4 +-
+ .../kvm/x86/vmx_invalid_nested_guest_state.c  |   2 +-
+ .../testing/selftests/kvm/x86/vmx_msrs_test.c |  22 +-
+ .../kvm/x86/vmx_nested_la57_state_test.c      |   4 +-
+ .../selftests/kvm/x86/vmx_pmu_caps_test.c     |  12 +-
+ .../kvm/x86/vmx_preemption_timer_test.c       |   2 +-
+ .../selftests/kvm/x86/xapic_ipi_test.c        |  64 ++--
+ .../selftests/kvm/x86/xapic_state_test.c      |  20 +-
+ .../selftests/kvm/x86/xapic_tpr_test.c        |  24 +-
+ .../selftests/kvm/x86/xcr0_cpuid_test.c       |   8 +-
+ .../selftests/kvm/x86/xen_shinfo_test.c       |  22 +-
+ .../testing/selftests/kvm/x86/xss_msr_test.c  |   2 +-
+ 185 files changed, 2706 insertions(+), 2817 deletions(-)
 
----
-base-commit: f1541b40cd422d7e22273be9b7e9edfc9ea4f0d7
-change-id: 20260417-zerotags-343a3673e18d
 
-Best regards,
+base-commit: 6b802031877a995456c528095c41d1948546bf45
 -- 
-David Hildenbrand (Arm) <david@kernel.org>
+2.54.0.rc1.555.g9c883467ad-goog
 
 
