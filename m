@@ -4,92 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99690F36C2A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 07:02:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 238C1F36C2A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 07:06:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2BbMSuXILs/YeVoonOxKs/M17r2ztnxX+ybvv6ldj+Q=; b=2wb4VG4VTHdH0/FhcRZkn8+u10
-	TEHpECQE49/e7OnfLT9GQ6V1sBq4TckT7Dx4a109BOQeHCR0noiudY58gPs6Ota1SC6uGPQlPrxTL
-	gLNJLqLaNuhvO+2QBzRzhASOVqxCQqXRcPKqlXfKBOYqXklG34/3kyP9puPc99QjCnHxswbJrPQPV
-	74mOiZFogkBznOlS7U7nHOcORrO+FsDsZ4Mpdae6qKhTl6p05+EPjmZ58L7bDBVT8VXCu/0aGLOBd
-	vXHdIWo11sZfYAYQL3Zs7SWowZO28fCZGCNdC1NpefM3ohDqNXpItN/1VZmT8btegMJtKX29a+lEL
-	+CerGZ+g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=GeJ6fpnU969i6/hRfUoKXDZEOqk6TsNNPMvVeYit3yA=; b=VrK8bs5DLAfKgu
+	lDM34e5V9Q6nu+gfnifXuyvElHGttN6VIL9IHyvCf3KlnYz0k7fZy+PYmuoEopLERLIDWgQy7jLcF
+	pRFBCBO1/FOs3IlvqkxiAzkcl0kl4ZtIa9XgfZEWYG5RHjIrJeLRe44SAlZ4yx9ZOot33Jg9BKawQ
+	2frC4BIKuSmPkOkdVYA38Kog6ttk7aurPtxEuXs0GN1gnUZAXFXEp21+QO+A16ElkVBXcuYhR4m2x
+	D/US2om5yPEfrbcltqleuZnoiLusVnEDvsQuUrDVSgVYhpmuwsDyN8DfJGTQfQ9jkjh8++iQf3uL2
+	BMtxwsZCIL9IAoxwSOiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEidq-00000006WjL-0n5F;
-	Mon, 20 Apr 2026 07:01:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wEihs-00000006X1Y-3hFV;
+	Mon, 20 Apr 2026 07:06:08 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEidn-00000006Wiq-2LW0
+	id 1wEihn-00000006X0J-3QuJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 07:01:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C1F5E43CB8;
-	Mon, 20 Apr 2026 07:01:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95BBFC19425;
-	Mon, 20 Apr 2026 07:01:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776668514;
-	bh=2HubVmemKYFSrpjdVlLvyLMzuA44GJ7AxdEWaTIopnc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=YOoS5Wx6pMZKMZlHW21lbBbviCZhxubZdgxsA5GEOdEF+RMDw+un8C/pDE2dE88W1
-	 QIPOW1WJ9wC+EUw+ikTEoHL/aHm8POBVuM99jhiygKKqp8sluMUIQKxs7Fm8q45l2R
-	 FD/lAPTX3x51DyEOcxfERLKVSxw1mOFWkJ/Q1RDJ6woo8j5PXAMGu76M75jfBaxvMQ
-	 iB5Eg8bM2xbBf1fSvLksohlm4V1RiGmP+aAr4E3Qq5cK5Op3ox663otj5ljWjc1psQ
-	 6c8cEwZgIq1aYGMGHLnhY7HX6UXVDMByfegV4FefqoJqMO0NS8404or0Dzmw/FM0O/
-	 qC9LVkf/tnk6w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wEidk-0000000CylX-00qd;
-	Mon, 20 Apr 2026 07:01:52 +0000
-Date: Mon, 20 Apr 2026 08:01:51 +0100
-Message-ID: <86se8q15eo.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu
- <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	devel@daynix.com,
-	kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v7 2/4] KVM: arm64: PMU: Protect the list of PMUs with RCU
-In-Reply-To: <483e5cf2-a54c-4781-ac6d-49f5bc7128ba@rsg.ci.i.u-tokyo.ac.jp>
-References: <20260418-hybrid-v7-0-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
-	<20260418-hybrid-v7-2-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
-	<87mryzauib.wl-maz@kernel.org>
-	<483e5cf2-a54c-4781-ac6d-49f5bc7128ba@rsg.ci.i.u-tokyo.ac.jp>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: odaki@rsg.ci.i.u-tokyo.ac.jp, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kees@kernel.org, gustavoars@kernel.org, pbonzini@redhat.com, corbet@lwn.net, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 20 Apr 2026 07:06:07 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63K4RnBP915482
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 07:05:59 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=GeJ6fpnU969
+	i6/hRfUoKXDZEOqk6TsNNPMvVeYit3yA=; b=eKWnXsIt6aab9IgZjzG1PRrEM5M
+	9UL7nrrqMsm/z0o24MzL6sR6D7XNVZzUexVXulQcwDMgIpXZ73l6NXZcc2pElH4u
+	TpstcQrf7W60wGSdmdJznejNXVpMN1vER8IFK89lUwzxWAj1OBVUgGaHWYTXtqjR
+	icnVtROKVgqUBxf6U7dquVjFkSxYYi3zZt9g4NhiFzLF14Ug5xYP4fM0syObP+zh
+	x7qAqlZlDREflksgbZf8dU2jlRLEkalcKO6b5b5PZhf8jPxnZqXwKrVqsRlI/bgH
+	jwZKEGrilZT1fJNAIlfIy3jl6KeTq0f4XuV0C3xqLGhNF3xFyKwl0OQBfAQ==
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dm21umj5q-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 07:05:59 +0000 (GMT)
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-82f70ae35c0so1309554b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 00:05:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1776668759; x=1777273559; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GeJ6fpnU969i6/hRfUoKXDZEOqk6TsNNPMvVeYit3yA=;
+        b=OZQUGzac7OSbVQgj0VSnt3q7m7rgerHJfAnBauSnjmjd9/c6oVQ8qbT6c4qFW2zVYH
+         XFWLxjqnvI0flhXbp3r9tluTSqc57ZdPAvAQKB5VedsKEHLFeijgxqF1jnjcnPWe3t8Q
+         esYzzOfk4TIdcXP3lFm1hMJHOKFgm+NXQlwmtIvpp4FPKDklOFjjtXMATmL/SxjS6Sn3
+         HUm9O0+GGh9Hcp8WI3TIJLmu6vatIXSNM+m7p6hV1ftn9CU0ul1sA7gUIiLr0vMVImhG
+         q5h4IUkGMDXvwPSVCHYfehTF5FDB7zwmryakZIg0edxy64vocZO+6ZkWAY+PGw45BTsb
+         YqwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776668759; x=1777273559;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=GeJ6fpnU969i6/hRfUoKXDZEOqk6TsNNPMvVeYit3yA=;
+        b=G1VAMGdB1IYyGFa03Bf1bLasvZJlrd7Jbwq5Tck/NXZVwvA/ohFiN4utKy12AV+XOE
+         39HGvzNXzHbwEp1/gP9oCnZ4xm5flSUfbMVvWBEVz0hL+xeDWB9LZ8y4q6zKdlKmO2o2
+         /FaNPWW9j2K/Mnomjjf4eE90y0Olye8q+uCZRPUi9KH9dXiICGUdCdj7bFZOcaUSfT+7
+         qRNeT73Azjql9O8Bus7/DBLFmGKoufRCN/V4E8L2BdAj8BLFk5qfU/8QLwlIoFfDbj5j
+         9t7O+uXQS3cN11S0dn2BQd3EaOYep5IDx5y3YYd5VTa7b0r9+4+r2vuhHxmsj5lYfRPY
+         gQPA==
+X-Forwarded-Encrypted: i=1; AFNElJ+2SYql/u021Qig0tYoEDjITMaXLb2gV2JD5Psag2AjRnvTn5pNgCm/QstKRnnVOQO7+9oYfI7orfdLSKYRGqtn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyw5HKyuNPjP3Q9Pjg/mmkuOL8c8+8lZQ2S16947GtIOHYLF62l
+	pW12NLeAZM8vixA9/aQZXNfzO6ygeUSzzpI81q5SDzbWpWxpPU42AK14HKySu8KjZ28Kxc9yzi7
+	NtVavMsZcKTwETO5ewqZUulz0t0l/P5r6Eqi+RPRbOe40mQl9rjQFqhcfrwYJP7uyYzTMD9/qcf
+	1bNQ==
+X-Gm-Gg: AeBDiestS/TS6313GBoSeckO03fCCSNCM65Gjmlrg3Rv8XzFM6wjpQPyKDT8ZQsp3xD
+	ncLi94UH6kNZfoomEjPdQ4sR34deKw4/extuEadBEdzVaObd2MwFWMDrJZnkzBz+QzDyR3ujdAt
+	Tllh18q8tK0NM/oYVq63ZNl4Lt3/rzQrTt0kKfJKEO7r2+c0dh1Gtvhqux0WmmxLf8985Uh+Num
+	DicqCYSVTaaA5421dM+LFkt2Wv2Lfz+EI56xJHN1bbKaNjiatMPfWNYOagWHFYhMCo3ueplG0Gu
+	Id0dKYJvUOzPtBiQ/5t+8Br7NeDX2+pkP+8QTwoQgsGKVbZT5aI64z7md6wkG7XuPo/ZaGpcd9f
+	pNsscOJQsmCY/Ppp3A22YJGjmXGgjTjwjV05E+bkPW7AMSP8+36CMgvyTDbGqfzM=
+X-Received: by 2002:a05:6a00:908a:b0:81f:9b4c:81c0 with SMTP id d2e1a72fcca58-82f8c90c380mr13948909b3a.41.1776668758662;
+        Mon, 20 Apr 2026 00:05:58 -0700 (PDT)
+X-Received: by 2002:a05:6a00:908a:b0:81f:9b4c:81c0 with SMTP id d2e1a72fcca58-82f8c90c380mr13948884b3a.41.1776668758194;
+        Mon, 20 Apr 2026 00:05:58 -0700 (PDT)
+Received: from hu-kshaikkh-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8e9fcea9sm11751925b3a.23.2026.04.20.00.05.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 20 Apr 2026 00:05:57 -0700 (PDT)
+From: Khaja Hussain Shaik Khaji <khaja.khaji@oss.qualcomm.com>
+To: mark.rutland@arm.com
+Subject: Re: [PATCH v3 1/1] kernel: kprobes: fix cur_kprobe corruption during re-entrant kprobe_busy_begin() calls
+Date: Mon, 20 Apr 2026 12:35:52 +0530
+Message-Id: <20260420070552.1747992-1-khaja.khaji@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <aaWS20g-jGu8mCKH@J2N7QTR9R3>
+References: <aaWS20g-jGu8mCKH@J2N7QTR9R3>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIwMDA2OCBTYWx0ZWRfX/fbwVEIeyz2D
+ n7aKO2NvPPO2MxLJRRtCWSKMG83Xxl7TfUWzQjxQizLzfpPmsJAuujocQXj/aMblQzdaWbgM9tu
+ be9ltHdN/ahzoJ5yV5rV+8g8hIf+R2t4H+0Qi/5GhFip0NYldwc6EqaVO1QNwY93dVUxQzbCbnq
+ ODEDTq4H+Z6HkcIWDkXAo177vyDWvVxnaS7XbELfb3yt459UqzdnuRropnj4YT0jlh6HIDWiygU
+ HqCz/RrD1zabE1w3PcFqhI6+B3Ys3yI+3ipT/9EhIxDW2qJZ6F3enP3EZWOhF5hW7CvvXYG8Zov
+ EM9VC+r1knhSUq1njopHE2SrtaeTrrppUkziC1VE43TNngrPTzIOwZo9MlhmBYO3yRvcsBVY/h5
+ UogiJmXtPAf257zt5fsRQhbi7tI8qKanvLvBwDCfl0pjY3m3Jn/WTFYeSH2CiJuJpWTqFrcoxus
+ Upz/6NElW4CVKJWmfsA==
+X-Proofpoint-GUID: X4ehzheSep0zWPAKCSZkoDdLJWLqyR1y
+X-Proofpoint-ORIG-GUID: X4ehzheSep0zWPAKCSZkoDdLJWLqyR1y
+X-Authority-Analysis: v=2.4 cv=WK1PmHsR c=1 sm=1 tr=0 ts=69e5d057 cx=c_pps
+ a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=CdHHS4RwY1IrjTjwd6gA:9
+ a=OpyuDcXvxspvyRM73sMx:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-20_01,2026-04-17_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 adultscore=0 spamscore=0 malwarescore=0 bulkscore=0
+ suspectscore=0 phishscore=0 clxscore=1015 priorityscore=1501 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604200068
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_000155_645130_18FDF50C 
-X-CRM114-Status: GOOD (  41.60  )
+X-CRM114-CacheID: sfid-20260420_000606_475660_3B963D29 
+X-CRM114-Status: GOOD (  17.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,108 +135,58 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: catalin.marinas@arm.com, dev.jain@arm.com, linux-kernel@vger.kernel.org, mhiramat@kernel.org, linux-arm-msm@vger.kernel.org, will@kernel.org, linux-arm-kernel@lists.infradead.org, yang@os.amperecomputing.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Apr 2026 07:21:45 +0100,
-Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
-> 
-> On 2026/04/19 23:34, Marc Zyngier wrote:
-> > On Sat, 18 Apr 2026 09:14:24 +0100,
-> > Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
-> >> 
-> >> Convert the list of PMUs to a RCU-protected list that has primitives to
-> >> avoid read-side contention.
-> >> 
-> >> Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-> >> ---
-> >>   arch/arm64/kvm/pmu-emul.c | 14 ++++++--------
-> >>   1 file changed, 6 insertions(+), 8 deletions(-)
-> >> 
-> >> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-> >> index 59ec96e09321..ef5140bbfe28 100644
-> >> --- a/arch/arm64/kvm/pmu-emul.c
-> >> +++ b/arch/arm64/kvm/pmu-emul.c
-> >> @@ -7,9 +7,9 @@
-> >>   #include <linux/cpu.h>
-> >>   #include <linux/kvm.h>
-> >>   #include <linux/kvm_host.h>
-> >> -#include <linux/list.h>
-> >>   #include <linux/perf_event.h>
-> >>   #include <linux/perf/arm_pmu.h>
-> >> +#include <linux/rculist.h>
-> >>   #include <linux/uaccess.h>
-> >>   #include <asm/kvm_emulate.h>
-> >>   #include <kvm/arm_pmu.h>
-> >> @@ -26,7 +26,6 @@ static bool kvm_pmu_counter_is_enabled(struct kvm_pmc *pmc);
-> >>     bool kvm_supports_guest_pmuv3(void)
-> >>   {
-> >> -	guard(mutex)(&arm_pmus_lock);
-> >>   	return !list_empty(&arm_pmus);
-> > 
-> > Please read include/linux/rculist.h and the discussion about the
-> > interaction of list_empty() with RCU-protected lists. How about using
-> > list_first_or_null_rcu() for peace of mind?
-> 
-> list_first_or_null_rcu() is useful to replace a sequence of
-> list_empty() and list_first_entry() that is protected by a lock, but
-> this function instead requires the invariant that nobody deletes an
-> element from the list, and list_first_or_null_rcu() does not allow
-> removing the requirement.
+On Mon, Mar 02, 2026 at 01:38:35PM +0000, Mark Rutland wrote:
+> That suggests that something is going wrong *within* your entry handler
+> that causes IRQs to be unmasked unexpectedly.
 >
-> The header file says:
-> > Where are list_empty_rcu() and list_first_entry_rcu()?
-> >
-> > They do not exist because they would lead to subtle race conditions:
-> >
-> > if (!list_empty_rcu(mylist)) {
-> >	struct foo *bar = list_first_entry_rcu(mylist, struct foo,
-> >					       list_member);
-> >	do_something(bar);
-> > }
-> >
-> > The list might be non-empty when list_empty_rcu() checks it, but it
-> > might have become empty by the time that list_first_entry_rcu()
-> > rereads the ->next pointer, which would result in a SEGV.
-> >
-> > When not using RCU, it is OK for list_first_entry() to re-read that
-> > pointer because both functions should be protected by some lock that
-> > blocks writers.
-> >
-> > When using RCU, list_empty() uses READ_ONCE() to fetch the
-> > RCU-protected ->next pointer and then compares it to the address of
-> > the  list head.  However, it neither dereferences this pointer nor
-> > provides  this pointer to its caller.  Thus, READ_ONCE() suffices
-> > (that is,  rcu_dereference() is not needed), which means that
-> > list_empty() can be used anywhere you would want to use
-> > list_empty_rcu().  Just don't expect anything useful to happen if you
-> > do a subsequent lockless call to list_first_entry_rcu()!!!
-> >
-> > See list_first_or_null_rcu for an alternative.
-> 
-> However, kvm_supports_guest_pmuv3() locked a mutex when calling
-> list_empty() and unlocked it immediately after that, instead of
-> re-reading list_first_entry(). This construct inherently had a race
-> condition with code that deletes an element; when the caller of
-> kvm_supports_guest_pmuv3() decides to enable guest PMUv3, the host PMU
-> may have been gone. But it was still safe because no one deletes an
-> element.
-> 
-> The same logic also applies when using RCU. As the comment says, we
-> can use list_empty() instead of the hypothetical list_empty_rcu()
-> macro because we don't expect it to magically enable something like
-> list_first_entry_rcu(). This function instead keep relying on the fact
-> that no one deletes an element of the list.
+> Please can we find out *exactly* where IRQs get unmasked for the first
+> time?
 
-And that's exactly the sort of thing I am trying to plan for. *Should*
-we introduce a way to remove PMUs from the list, this predicate
-becomes unsafe.
+Thanks for the pointer -- that was the right direction to look.
 
-So I want at least a comment explaining this to the unsuspecting
-reader, as this is rather subtle.
+You are correct. I confirmed that arm64_enter_el1_dbg() does NOT re-enable
+IRQs; it only manages lockdep and context-tracking state. The IRQ unmask
+originates entirely within our kretprobe entry_handler itself.
 
-	M.
+The exact call chain is:
 
--- 
-Without deviation from the norm, progress is not possible.
+pre_handler_kretprobe()
+  entry_dwc3_gadget_pullup()          <- kretprobe entry_handler
+    dwc3_msm_notify_event()
+      _raw_spin_unlock_irq()          <- first IRQ unmask (spin_unlock_irq)
+
+dwc3_msm_notify_event() is called from within the entry_handler while
+holding a spinlock acquired with spin_lock_irq() (i.e. IRQs were disabled
+on lock, and re-enabled unconditionally on unlock via spin_unlock_irq /
+_raw_spin_unlock_irq). This is the first point at which IRQs become
+unmasked.
+
+From that point, a hardware IRQ fires, softirq processing runs, and
+kprobe_flush_task() -> kprobe_busy_begin()/end() is invoked while the
+kretprobe entry_handler is still on the stack -- triggering the cur_kprobe
+corruption described in the patch.
+
+Regarding documentation: the kprobes documentation in
+Documentation/trace/kprobes.rst (section "Kretprobe entry-handler") does
+not mention any restriction on enabling IRQs within an entry_handler. The
+only constraint documented is:
+
+  "Probe handlers are run with preemption disabled or interrupt disabled,
+   which depends on the architecture and optimization state."
+
+This is stated for kprobe/kretprobe handlers in general, but there is no
+explicit warning that an entry_handler must not re-enable IRQs for arm64.
+Given that entry_handlers are user-supplied callbacks, a note
+here would help future users avoid this class of bug.
+
+As for the fix itself: we plan to carry this as a downstream patch for our
+platform. We are not planning to push it upstream at this time.
+
+Thanks again for the detailed review.
+
+Khaja
 
