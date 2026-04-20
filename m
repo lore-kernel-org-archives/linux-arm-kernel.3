@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B770F588C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:32:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E35BBF588C4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:33:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S8+m3mKsAbgnERbsc1mYS35qk7nuKf9yDbLSpVIlcCA=; b=EraZvUQKBXUvM+1hcyaho6zMKJ
-	PV9JhZRHjT4IfUvfNDJlkpIBCkLitI44jzucIiVOhEzemuTmMKQ99+LUri5Jwgm59UkpDnctOuqtE
-	9ZK/I9rA8k+3yO5PMo5tjrwvozAvB5rkWPEI33xuGuQ3MLOyb3L1/DriikpjP7Zj3oRutQBDS81kI
-	Gx9ai+q5/H6jNuO8cAq8IxHWZO66BOXlGHTVS3S6X7gxpNu9+QSSmg8xW6HUyUyIjxJnbgYjtyY2k
-	n7Fe3P+RmN16Cre4zwSvbiOGsFNHef6jjjH0OJI6SOts76R3BBXwS3BOp8iw0LAv10rXPCuNsTyTu
-	mgogVMWA==;
+	bh=xXCbdJebo0B+zrwACAidBc4ya+1HLtxvMrtrqOHVIEc=; b=2xhDG7FiUw8q1hJYFJN97SP4mk
+	Ts8pru1H5gSeaKMoD1KnyTxmwJ9D947WkkelPWvoEgmhuwhOD3sT+t8lg/DZnqdQjjHeI/twAlq4J
+	7hd4lDENBYwmoaDEKairxOcqrzozNSbK2lRy01uHB6x1DGSHL/BfUF8ZXtCSBLL2zPKziPnz8Cf+C
+	K7GLgITk6dXuQcy4bGer9n3irxXGil2Zfz1XHOg0lJWrJN7v73HNrDWVmojH2L7cA2H6R3K9qCtBC
+	EKgIpUtCcVW7u7CMo8stRo2sevEXwqQAShdAslV/ftrHTDMEzyAauODhcLlM+XJK5KPzeIQCdJTrB
+	uoje7I0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEojI-000000072xb-13zA;
-	Mon, 20 Apr 2026 13:32:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wEokb-000000073Py-3Xq6;
+	Mon, 20 Apr 2026 13:33:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEojH-000000072wk-0Nvs;
-	Mon, 20 Apr 2026 13:31:59 +0000
+	id 1wEokY-000000073Oo-1b7t;
+	Mon, 20 Apr 2026 13:33:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7489B6014C;
-	Mon, 20 Apr 2026 13:31:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77FB9C2BCB9;
-	Mon, 20 Apr 2026 13:31:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0391C41974;
+	Mon, 20 Apr 2026 13:33:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35A96C2BCB4;
+	Mon, 20 Apr 2026 13:33:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776691918;
-	bh=ySf/LE2O06y+dCF/bB7jvsvf0tUNgkD8x1b2qFu+YiA=;
+	s=k20201202; t=1776691997;
+	bh=BePUomKvvkrM4BNzUrfaEwFz9bdlcwZGtKaMzr9TL2E=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=U4JmStDpodyleQ2ZevNgGLFlAdoYfFRV+GVamMFnHM4UfCJi2yUJSuuJXrOiste1D
-	 uYuMFBikhAW/g2PQABkR44509iM8vTVbUplXWQjTB+OTJj5lyz4z5Ou+Uz1bT0n2L2
-	 bCXz7IzgsmVkgzGw/D3B1Wn7AdU0UX6/NPAOdQ4c2QZ5H7oGwFXlga6UbbzO2yl9n0
-	 G8ov+SmVOtOBbd9I0qSqGT+fGO9+hRy7wavR6P4//na+dvAP8WG0CA118cmAQjPH8i
-	 wufY7zVZScIS7uJ6QkQl5UL5Uq9Gys6+o1WxJZ+vCeZnRfUdBUqBjg/U7ySxX93asX
-	 aA8MhjFp8CIfA==
+	b=hipX0xjKlSz5QyIV03cdH2iHNbOUrgeY4tVkPRNF59kZn7ttDpppJ3PQL9TP76yer
+	 lSNNH679RcIxA9SdaV0qE5p/WUKAWsQI5KiVxcmbhxwuIQt7YbBRCBgVeW0C0CcqbG
+	 /jTyBMVM39kf9Mm1bn7eyjMqF8P6xtoAXomUIZBQ4PBdQJF+VMnTGxINO1NK727n1L
+	 M7vVrfTLkah8QRIxS3/HS0RhX01/e9Jn+lEV9ehgxgQH7pOmsVRdcj9NYJK2Emf9F5
+	 4Gysktro777TCEUOa+iXcGxJZf85/Vqr45LEMJlYdp7Nn/8axhpCmMKO43HKwvNyJU
+	 3skkTf/o2oUYg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Gary Bisson <bisson.gary@gmail.com>,
-	CK Hu <ck.hu@mediatek.com>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+Cc: Peter Chiu <chui-hao.chiu@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Felix Fietkau <nbd@nbd.name>,
 	Sasha Levin <sashal@kernel.org>,
-	p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
+	ryder.lee@mediatek.com,
 	matthias.bgg@gmail.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
+	angelogioacchino.delregno@collabora.com,
+	linux-wireless@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 7.0-5.10] drm/mediatek: mtk_dsi: enable hs clock during pre-enable
-Date: Mon, 20 Apr 2026 09:21:02 -0400
-Message-ID: <20260420132314.1023554-268-sashal@kernel.org>
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 7.0-6.18] wifi: mt76: mt7996: fix frequency separation for station STR mode
+Date: Mon, 20 Apr 2026 09:21:47 -0400
+Message-ID: <20260420132314.1023554-313-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260420132314.1023554-1-sashal@kernel.org>
 References: <20260420132314.1023554-1-sashal@kernel.org>
@@ -68,7 +65,11 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 7.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260420_063318_574541_00977646 
+X-CRM114-Status: GOOD (  23.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,352 +84,298 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Gary Bisson <bisson.gary@gmail.com>
+From: Peter Chiu <chui-hao.chiu@mediatek.com>
 
-[ Upstream commit 76255024cadbe8c40462953f8193d2d78cd3b0ac ]
+[ Upstream commit 59a295335021f6973a34566554b2b9371f1c6f7d ]
 
-Some bridges, such as the TI SN65DSI83, require the HS clock to be
-running in order to lock its PLL during its own pre-enable function.
+Fix frequency separation field for STR in MLD capabilities to get the
+correct chip capability.
 
-Without this change, the bridge gives the following error:
-sn65dsi83 14-002c: failed to lock PLL, ret=-110
-sn65dsi83 14-002c: Unexpected link status 0x01
-sn65dsi83 14-002c: reset the pipe
-
-Move the necessary functions from enable to pre-enable.
-
-Signed-off-by: Gary Bisson <bisson.gary@gmail.com>
-Reviewed-by: CK Hu <ck.hu@mediatek.com>
-Tested-by: Chen-Yu Tsai <wenst@chromium.org> # Chromebooks
-Tested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Link: https://patchwork.kernel.org/project/dri-devel/patch/20260120-mtkdsi-v1-1-b0f4094f3ac3@gmail.com/
-Signed-off-by: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Signed-off-by: Peter Chiu <chui-hao.chiu@mediatek.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Link: https://patch.msgid.link/20260316-mt7996-sta-str-v1-1-666814e6ab2d@kernel.org
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-Good. Now I have all the information needed for a comprehensive
-analysis.
+Now I have enough information to complete the full analysis.
 
 ---
 
-## Complete Analysis
+## PHASE 1: COMMIT MESSAGE FORENSICS
 
-### PHASE 1: COMMIT MESSAGE FORENSICS
+### Step 1.1: Subject Line
+- **Subsystem**: `wifi: mt76: mt7996:` — MediaTek mt7996 WiFi 7 wireless
+  driver
+- **Action verb**: "fix" — explicitly a bug fix
+- **Summary**: Corrects frequency separation field for station STR mode
+  in MLD capabilities
 
-**Step 1.1: Subject Line**
-- Subsystem: `drm/mediatek: mtk_dsi`
-- Action: "enable" (HS clock during pre-enable)
-- Summary: Move HS clock activation from the bridge enable phase to pre-
-  enable so downstream bridges can use it.
-Record: [drm/mediatek] [enable] [Move HS clock setup earlier to fix
-bridge PLL locking]
+### Step 1.2: Tags
+- `Signed-off-by: Peter Chiu <chui-hao.chiu@mediatek.com>` — author from
+  MediaTek (the chip vendor)
+- `Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>` — co-
+  author/maintainer of mt76
+- `Link:` to patch.msgid.link — mailing list submission link
+- `Signed-off-by: Felix Fietkau <nbd@nbd.name>` — mt76 maintainer
+  applied the patch
+- No Fixes: tag, no Cc: stable, no Reported-by — expected for candidate
+  review
 
-**Step 1.2: Tags**
-- Signed-off-by: Gary Bisson (author)
-- Reviewed-by: CK Hu (MediaTek DSI maintainer)
-- Tested-by: Chen-Yu Tsai (Chromium developer) on 5 Chromebook variants
-- Tested-by: AngeloGioacchino Del Regno (Collabora, regular MTK
-  contributor)
-- Reviewed-by: AngeloGioacchino Del Regno
-- Link: to patchwork entry
-- Signed-off-by: Chun-Kuang Hu (subsystem maintainer, merged it)
+### Step 1.3: Commit Body
+The message says: "Fix frequency separation field for STR in MLD
+capabilities to get the correct chip capability." The bug is that the
+station's MLD capabilities struct was missing the `FREQ_SEP_TYPE_IND`
+field, causing the driver to advertise incorrect STR capabilities during
+(Re)Association Request frames.
 
-Record: Strong review and testing from 3 independent testers across 7+
-hardware platforms. Maintainer reviewed and approved.
+### Step 1.4: Hidden Bug Fix?
+This is an explicit fix — the word "fix" is in the subject. The missing
+capability field causes incorrect WiFi frame content to be advertised to
+the AP during MLD association.
 
-**Step 1.3: Commit Body**
-- Bug: SN65DSI83 bridge chip fails to lock its PLL during pre-enable,
-  resulting in errors: "failed to lock PLL, ret=-110" / "Unexpected link
-  status 0x01" / "reset the pipe"
-- Root cause: HS clock not running during the pre-enable phase
-- Fix: Move `mtk_dsi_lane_ready()` and `mtk_dsi_clk_hs_mode(dsi, 1)`
-  from enable to pre-enable (poweron)
-Record: Clear bug description with error messages. Display completely
-fails without fix.
-
-**Step 1.4: Hidden Bug Fix?**
-This is NOT hidden - it's explicitly a fix for display not working with
-certain DSI bridges.
-
-### PHASE 2: DIFF ANALYSIS
-
-**Step 2.1: Inventory**
-- 1 file: `drivers/gpu/drm/mediatek/mtk_dsi.c`
-- +17 / -18 lines (net -1 line)
-- Functions modified: `mtk_dsi_lane_ready()` (moved earlier),
-  `mtk_dsi_poweron()` (added 2 calls), `mtk_output_dsi_enable()`
-  (removed 3 lines)
-Record: Single-file surgical fix, minimal scope.
-
-**Step 2.2: Code Flow Change**
-- `mtk_dsi_lane_ready()` function definition moved earlier (before
-  `mtk_dsi_poweron`) - this is purely for forward declaration ordering
-- In `mtk_dsi_poweron()` (called during bridge pre_enable): added
-  `mtk_dsi_lane_ready(dsi)` and `mtk_dsi_clk_hs_mode(dsi, 1)` at end
-- In `mtk_output_dsi_enable()` (called during bridge enable): removed
-  `mtk_dsi_lane_ready(dsi)` and `mtk_dsi_clk_hs_mode(dsi, 1)`, kept
-  `mtk_dsi_set_mode(dsi)` and `mtk_dsi_start(dsi)`
-
-Before: Lane ready + HS clock in enable phase
-After: Lane ready + HS clock in pre-enable phase
-
-**Step 2.3: Bug Mechanism**
-Category: Hardware interoperability / timing issue. The SN65DSI83 bridge
-requires HS clock from the DSI host during its pre_enable to lock its
-PLL. Without HS clock, the bridge fails completely.
-
-**Step 2.4: Fix Quality**
-- Obviously correct: just moves existing function calls earlier in the
-  init sequence
-- Minimal: no new logic, no new code paths
-- Regression risk is LOW: extensively tested on 7+ platforms with
-  different bridges/panels, all confirmed no regressions
-
-### PHASE 3: GIT HISTORY
-
-**Step 3.1: Blame**
-- `mtk_dsi_lane_ready()` introduced by commit `39e8d062b03c3d` (Jitao
-  Shi, 2022-05-20) - present since ~v5.19
-- `mtk_dsi_clk_hs_mode(dsi, 1)` in enable path introduced by
-  `80a5cfd60d2a94` (yt.shen@mediatek.com, 2017-03-31) - present since
-  v4.x
-- The buggy ordering has existed since 2022 when lane_ready was moved to
-  enable
-Record: Bug present in all active stable trees (v5.19+)
-
-**Step 3.2: No Fixes: tag** (expected for autosel candidate)
-
-**Step 3.3: File History**
-- Recent changes to mtk_dsi.c include bridge API updates
-  (devm_drm_bridge_alloc, encoder parameter), HS mode support, pre-
-  enable order fix/revert
-- The pre-enable order fix/revert (f5b1819193667 / 33e8150bd32d7) is
-  related but independent - it was about `pre_enable_prev_first` flag
-  management
-
-**Step 3.4: Author**
-- Gary Bisson is a regular contributor to MediaTek platforms (Tungsten
-  boards), actively maintains DT and driver support
-
-**Step 3.5: Dependencies**
-- No dependencies. The commit 8b00951402f74 (HS mode in cmdq) is
-  completely independent
-- The SN65DSI83 driver already sets `pre_enable_prev_first = true`,
-  ensuring correct bridge ordering
-
-### PHASE 4: MAILING LIST DISCUSSION
-
-**Step 4.1: Original Discussion**
-- b4 mbox retrieved 5 messages in the thread
-- CK Hu (MediaTek DSI maintainer) noted "this changes the flow for all
-  SoC and panel, so I would wait for more SoC and more panel test" -
-  then gave Reviewed-by after testing completed
-- AngeloGioacchino Del Regno tested on MT6795 + MT8395, gave both
-  Tested-by and Reviewed-by
-- Chen-Yu Tsai tested on 5 Chromebook models (MT8173, MT8183x2,
-  MT8186x2) - "No regressions observed"
-- Chun-Kuang Hu applied it with message "Applied to mediatek-drm-next"
-
-**Step 4.2: Reviewers**
-All appropriate MediaTek subsystem maintainers were CC'd and reviewed.
-CK Hu explicitly asked for extensive testing, which was provided.
-
-### PHASE 5: CODE SEMANTIC ANALYSIS
-
-**Step 5.1: Functions Modified**
-- `mtk_dsi_poweron()`: called from `mtk_dsi_bridge_atomic_pre_enable()`
-  and `mtk_dsi_ddp_start()`
-- `mtk_output_dsi_enable()`: called from
-  `mtk_dsi_bridge_atomic_enable()`
-- `mtk_dsi_lane_ready()`: also called from `mtk_dsi_host_transfer()`
-  (for DSI command transfers)
-
-**Step 5.2: Impact on mtk_dsi_host_transfer**
-After the patch, `mtk_dsi_lane_ready()` call in
-`mtk_dsi_host_transfer()` becomes a no-op during normal operation (lanes
-already ready from poweron). This is safe because DSI must be powered on
-before any host transfers.
-
-**Step 5.3: Bridge ordering confirmed**
-The SN65DSI83 bridge driver sets `ctx->bridge.pre_enable_prev_first =
-true` (line 1041 of `ti-sn65dsi83.c`), which causes
-`drm_atomic_bridge_chain_pre_enable()` to call the MTK DSI pre_enable
-BEFORE the SN65DSI83's pre_enable. This confirms the fix works
-correctly.
-
-### PHASE 6: STABLE TREE ANALYSIS
-
-**Step 6.1: Code exists in stable trees**
-The buggy code (`mtk_dsi_lane_ready()` being called from enable instead
-of pre_enable) has been present since v5.19, so it affects all active
-stable trees from 6.1 onwards.
-
-**Step 6.2: Backport difficulty**
-The patch should apply cleanly - the context in `mtk_dsi_poweron()` and
-`mtk_output_dsi_enable()` is unchanged in the 7.0 tree.
-
-### PHASE 7: SUBSYSTEM CONTEXT
-
-**Step 7.1: Subsystem**
-- drm/mediatek (DRM display driver) - IMPORTANT category
-- MediaTek SoCs are used extensively in Chromebooks, Android devices,
-  and embedded systems
-
-### PHASE 8: IMPACT AND RISK
-
-**Step 8.1: Affected users**
-Users of MediaTek SoCs with DSI bridges that need HS clock during
-initialization (specifically SN65DSI83, potentially others).
-
-**Step 8.2: Trigger conditions**
-Every display initialization when using SN65DSI83 with MediaTek DSI. The
-display simply doesn't work.
-
-**Step 8.3: Failure mode**
-Without fix: Display completely fails to initialize (PLL lock fails,
-bridge errors, no display output). Severity: HIGH - affects usability.
-
-**Step 8.4: Risk-Benefit**
-- Benefit: HIGH - enables display to work for specific bridge
-  combinations, no regressions observed on 7+ platforms
-- Risk: LOW - moves existing function calls earlier, extensively tested,
-  well-reviewed, single file
-
-### PHASE 9: SYNTHESIS
-
-**Evidence FOR backporting:**
-1. Fixes a real hardware bug: display doesn't work with SN65DSI83 bridge
-2. Small, surgical change (17 insertions, 18 deletions, net -1 line,
-   single file)
-3. Extensive testing: 7+ platforms (Chromebooks, MediaTek boards) - zero
-   regressions
-4. Strong review: MediaTek DSI maintainer, Collabora engineer, Chromium
-   developer
-5. Code is well-understood: simply moves existing calls from enable to
-   pre-enable
-6. Affects popular hardware (Chromebooks use MediaTek SoCs extensively)
-
-**Evidence AGAINST backporting:**
-1. CK Hu noted it "changes the flow for all SoC and panel" - but this
-   concern was addressed by extensive testing
-2. No explicit Cc: stable tag - but this is expected for autosel
-   candidates
-
-**Stable rules checklist:**
-1. Obviously correct and tested? YES - extensively tested on 7+
-   platforms
-2. Fixes a real bug? YES - display completely fails with SN65DSI83
-   bridge
-3. Important issue? YES - hardware doesn't work (no display output)
-4. Small and contained? YES - single file, 35 lines total changed
-5. No new features? YES - just moves existing code to different phase
-6. Can apply to stable? YES - context appears unchanged
+Record: Genuine bug fix — incorrect WiFi capability advertisement.
 
 ---
 
-### Verification
+## PHASE 2: DIFF ANALYSIS
 
-- [Phase 1] Parsed tags: Reviewed-by (CK Hu, AngeloGioacchino), Tested-
-  by (Chen-Yu Tsai on 5 Chromebooks, AngeloGioacchino on 2 platforms)
-- [Phase 2] Diff analysis: mtk_dsi_lane_ready + clk_hs_mode moved from
-  enable to poweron (pre_enable), 17 add / 18 del
-- [Phase 3] git blame: lane_ready introduced in commit 39e8d062b03c3d
-  (2022, v5.19), clk_hs_mode in enable since 80a5cfd60d2a94 (2017)
-- [Phase 3] git show 33e8150bd32d7: revert of pre_enable_prev_first in
-  MediaTek DSI is independent
-- [Phase 3] git show 8b00951402f74: HS mode support in cmdq is
-  independent, no dependency
-- [Phase 4] b4 mbox retrieved thread: CK Hu reviewed, requested more
-  testing, got it; patch applied to mediatek-drm-next
-- [Phase 4] Chen-Yu Tsai tested on MT8173, MT8183, MT8186 Chromebooks -
-  no regressions
-- [Phase 4] AngeloGioacchino tested on MT6795, MT8395 - no regressions
-- [Phase 5] Confirmed SN65DSI83 sets pre_enable_prev_first=true (line
-  1041), so MTK DSI pre_enable runs before SN65DSI83 pre_enable
-- [Phase 5] mtk_dsi_host_transfer's call to lane_ready() becomes no-op
-  (safe)
-- [Phase 6] Buggy code exists in all stable trees since v5.19
-- [Phase 8] Failure mode: display doesn't work at all (PLL lock fails),
-  severity HIGH
+### Step 2.1: Inventory
+- **1 file** changed: `drivers/net/wireless/mediatek/mt76/mt7996/init.c`
+- **1 line added**:
+  `FIELD_PREP_CONST(IEEE80211_MLD_CAP_OP_FREQ_SEP_TYPE_IND, 1) |`
+- Scope: Single-file, static initializer change
 
-The fix is small, surgical, well-tested across multiple platforms, and
-fixes a real hardware bug where display completely fails with SN65DSI83
-bridges on MediaTek DSI.
+### Step 2.2: Code Flow
+- **Before**: Station iftype entry in `iftypes_ext_capa[]` only sets
+  `IEEE80211_MLD_CAP_OP_MAX_SIMUL_LINKS`
+- **After**: Station entry additionally sets
+  `IEEE80211_MLD_CAP_OP_FREQ_SEP_TYPE_IND` to value 1
+- The `mld_capa_and_ops` field is consumed by mac80211 in `mlme.c`
+  (lines 2069 and 10612-10613) and included directly in MLD capability
+  elements of association frames
+
+### Step 2.3: Bug Mechanism
+This is a **logic/correctness fix** — a missing capability field in a
+static const initializer. `IEEE80211_MLD_CAP_OP_FREQ_SEP_TYPE_IND` (mask
+`0x0f80`, bits 7-11) was not set, meaning the station reported frequency
+separation type = 0 to the AP, which does not reflect the actual mt7996
+hardware STR capability.
+
+### Step 2.4: Fix Quality
+- Trivially correct — adding a missing field to a bitfield OR expression
+- Cannot introduce a regression — it's a static const initializer
+- Minimal and surgical
+- No red flags
+
+Record: 1 line added, static initializer, zero regression risk.
+
+---
+
+## PHASE 3: GIT HISTORY INVESTIGATION
+
+### Step 3.1: Blame
+The station entry was introduced by commit `f5160304d57c55` ("wifi:
+mt76: mt7996: Enable MLO support for client interfaces") by Lorenzo
+Bianconi on 2025-09-01. The base `iftypes_ext_capa[]` array was
+introduced by `a9eae65d97f3cb` ("Export MLO AP capabilities to
+mac80211") on 2025-08-27.
+
+### Step 3.2: Fixes Target
+No explicit Fixes: tag, but the implicit target is `f5160304d57c55`
+which first introduced the station MLD capabilities. That commit was
+first present in **v6.18** (confirmed via `git merge-base --is-
+ancestor`). NOT in v6.17 or earlier.
+
+### Step 3.3: File History
+The file has 20 recent commits, many related to MLO/MLD enablement. This
+fix appears standalone — no series dependencies.
+
+### Step 3.4: Author
+- Peter Chiu is from MediaTek (the silicon vendor) — strong authority on
+  hardware capabilities
+- Lorenzo Bianconi is the mt76 co-maintainer who also signed off
+- Felix Fietkau (nbd) is the mt76 maintainer who applied the patch
+
+Record: Author is from the chip vendor. Both mt76 maintainers signed
+off. Bug introduced in v6.18.
+
+### Step 3.5: Dependencies
+The fix only adds a line to an existing OR expression in a static
+initializer. No functional dependencies. The prerequisite code
+(`iftypes_ext_capa` with the station entry) exists in v6.18 and v7.0.
+
+---
+
+## PHASE 4: MAILING LIST
+
+### Step 4.1-4.5
+Lore/WebFetch was blocked by Anubis protection. `b4 dig` for the
+message-id didn't find a match by commit hash (the commit hasn't been
+applied to the tree I'm on). The link
+`https://patch.msgid.link/20260316-mt7996-sta-
+str-v1-1-666814e6ab2d@kernel.org` indicates this was a v1 single-patch
+submission from Lorenzo Bianconi.
+
+Record: Could not fetch discussion. Patch submitted as v1, single patch.
+
+---
+
+## PHASE 5: CODE SEMANTIC ANALYSIS
+
+### Step 5.1-5.4
+The `iftypes_ext_capa[]` array is assigned to `wiphy->iftype_ext_capab`
+at line 497 of `init.c`. This is consumed by mac80211's `mlme.c` via
+`cfg80211_get_iftype_ext_capa()` — the `mld_capa_and_ops` field is
+directly encoded into (Re)Association Request frames and MLD
+reconfiguration frames. This is a hot path for any MLD station
+association.
+
+### Step 5.5: Similar Patterns
+The AP section of the same array does NOT include `FREQ_SEP_TYPE_IND`
+either, but only the station section is fixed here (STR is a station-
+side mode). The mt7925 driver also sets `mld_capa_and_ops` but
+dynamically.
+
+Record: Capability is directly embedded in WiFi management frames during
+association.
+
+---
+
+## PHASE 6: STABLE TREE ANALYSIS
+
+### Step 6.1: Does the buggy code exist in stable trees?
+- The buggy commit `f5160304d57c55` is in **v6.18 and v7.0 only**
+- NOT in v6.17 or earlier — so this fix is irrelevant for all current
+  LTS trees (6.12.y, 6.6.y, 6.1.y, 5.15.y)
+- Only relevant for **7.0.y** stable and potentially 6.18.y if that is
+  still maintained
+
+### Step 6.2: Backport Complications
+- 1 line addition to a static initializer — will apply cleanly to 7.0.y
+- No conflicting changes expected
+
+### Step 6.3: No related fixes already in stable
+
+---
+
+## PHASE 7: SUBSYSTEM CONTEXT
+
+### Step 7.1
+- **Subsystem**: WiFi drivers / MediaTek mt76 / mt7996
+- **Criticality**: PERIPHERAL (specific WiFi hardware) but WiFi is
+  important for many users
+
+### Step 7.2
+- Very active subsystem — 188 mt7996 commits since v6.12
+- mt7996 is a WiFi 7 chip with active MLO development
+
+---
+
+## PHASE 8: IMPACT AND RISK ASSESSMENT
+
+### Step 8.1: Affected Users
+- Mt7996 WiFi 7 hardware users attempting MLD (Multi-Link Device)
+  operation in station mode
+
+### Step 8.2: Trigger Conditions
+- Triggered whenever a mt7996 station performs MLD association (common
+  for WiFi 7 users)
+- The wrong capability is always advertised
+
+### Step 8.3: Failure Mode
+- Incorrect WiFi capability in association frames → potentially
+  incorrect STR mode negotiation, possible performance degradation or
+  failed MLD operation
+- Severity: **MEDIUM** — functional correctness issue, not a crash or
+  security vulnerability
+
+### Step 8.4: Risk-Benefit
+- **Benefit**: Medium — corrects WiFi MLD capability for mt7996 users
+- **Risk**: Very low — 1-line static initializer change, cannot regress
+- **Ratio**: Favorable
+
+---
+
+## PHASE 9: FINAL SYNTHESIS
+
+### Step 9.1: Evidence
+**FOR backporting:**
+- Genuine correctness fix (missing capability field)
+- Trivially small (1 line) and obviously correct
+- Zero regression risk (static const initializer)
+- Written by chip vendor (MediaTek), signed by both mt76 maintainers
+- Fixes real functional issue for WiFi 7 MLD users
+- Buggy code exists in 7.0
+
+**AGAINST backporting:**
+- Not a crash, security, or data corruption fix
+- Only affects mt7996 MLD station mode users (relatively narrow)
+- Relatively new code (v6.18+)
+
+### Step 9.2: Stable Rules Checklist
+1. Obviously correct and tested? **Yes** — trivially correct 1-line
+   addition
+2. Fixes a real bug? **Yes** — incorrect WiFi capability advertisement
+3. Important issue? **Medium** — functional correctness for WiFi MLD
+4. Small and contained? **Yes** — 1 line in 1 file
+5. No new features? **Correct** — fixes existing code
+6. Can apply to stable? **Yes** — clean apply expected
+
+### Step 9.3: Exception Categories
+Not an exception category; this is a standard driver bug fix.
+
+### Step 9.4: Decision
+The fix is a genuine 1-line correctness fix that corrects incorrect WiFi
+MLD capability advertisement for mt7996 hardware. It's written by the
+chip vendor, reviewed by both subsystem maintainers, and has zero
+regression risk. While it's not a crash or security fix, it corrects
+real WiFi functionality for mt7996 users in MLD/STR mode. The extremely
+small scope and zero risk make this appropriate for stable.
+
+---
+
+## Verification
+
+- [Phase 1] Parsed tags: Author from MediaTek, co-signed by mt76 co-
+  maintainer and maintainer
+- [Phase 2] Diff analysis: 1 line added to static const initializer,
+  adds missing `IEEE80211_MLD_CAP_OP_FREQ_SEP_TYPE_IND` field
+- [Phase 3] git blame: Station MLD caps introduced by `f5160304d57c55`
+  (v6.18), confirmed via `git merge-base`
+- [Phase 3] git merge-base: Buggy commit NOT in v6.17 or earlier, IS in
+  v6.18 and v7.0
+- [Phase 5] grep callers: `mld_capa_and_ops` consumed in
+  `net/mac80211/mlme.c` lines 2069 and 10612-10613 for association
+  frames
+- [Phase 5] grep definition: `IEEE80211_MLD_CAP_OP_FREQ_SEP_TYPE_IND` =
+  0x0f80 in `include/linux/ieee80211-eht.h`
+- [Phase 6] Buggy code only in v6.18+ and v7.0; irrelevant for older LTS
+  trees
+- [Phase 7] Peter Chiu confirmed as MediaTek contributor; Lorenzo
+  Bianconi and Felix Fietkau are mt76 maintainers
+- UNVERIFIED: Could not access lore.kernel.org discussion due to Anubis
+  protection
 
 **YES**
 
- drivers/gpu/drm/mediatek/mtk_dsi.c | 35 +++++++++++++++---------------
- 1 file changed, 17 insertions(+), 18 deletions(-)
+ drivers/net/wireless/mediatek/mt76/mt7996/init.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
-index aaf6c9ebd319f..5aa71fcdcfab7 100644
---- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-@@ -673,6 +673,21 @@ static s32 mtk_dsi_switch_to_cmd_mode(struct mtk_dsi *dsi, u8 irq_flag, u32 t)
- 	}
- }
- 
-+static void mtk_dsi_lane_ready(struct mtk_dsi *dsi)
-+{
-+	if (!dsi->lanes_ready) {
-+		dsi->lanes_ready = true;
-+		mtk_dsi_rxtx_control(dsi);
-+		usleep_range(30, 100);
-+		mtk_dsi_reset_dphy(dsi);
-+		mtk_dsi_clk_ulp_mode_leave(dsi);
-+		mtk_dsi_lane0_ulp_mode_leave(dsi);
-+		mtk_dsi_clk_hs_mode(dsi, 0);
-+		usleep_range(1000, 3000);
-+		/* The reaction time after pulling up the mipi signal for dsi_rx */
-+	}
-+}
-+
- static int mtk_dsi_poweron(struct mtk_dsi *dsi)
- {
- 	struct device *dev = dsi->host.dev;
-@@ -725,6 +740,8 @@ static int mtk_dsi_poweron(struct mtk_dsi *dsi)
- 	mtk_dsi_set_vm_cmd(dsi);
- 	mtk_dsi_config_vdo_timing(dsi);
- 	mtk_dsi_set_interrupt_enable(dsi);
-+	mtk_dsi_lane_ready(dsi);
-+	mtk_dsi_clk_hs_mode(dsi, 1);
- 
- 	return 0;
- err_disable_engine_clk:
-@@ -770,30 +787,12 @@ static void mtk_dsi_poweroff(struct mtk_dsi *dsi)
- 	dsi->lanes_ready = false;
- }
- 
--static void mtk_dsi_lane_ready(struct mtk_dsi *dsi)
--{
--	if (!dsi->lanes_ready) {
--		dsi->lanes_ready = true;
--		mtk_dsi_rxtx_control(dsi);
--		usleep_range(30, 100);
--		mtk_dsi_reset_dphy(dsi);
--		mtk_dsi_clk_ulp_mode_leave(dsi);
--		mtk_dsi_lane0_ulp_mode_leave(dsi);
--		mtk_dsi_clk_hs_mode(dsi, 0);
--		usleep_range(1000, 3000);
--		/* The reaction time after pulling up the mipi signal for dsi_rx */
--	}
--}
--
- static void mtk_output_dsi_enable(struct mtk_dsi *dsi)
- {
- 	if (dsi->enabled)
- 		return;
- 
--	mtk_dsi_lane_ready(dsi);
- 	mtk_dsi_set_mode(dsi);
--	mtk_dsi_clk_hs_mode(dsi, 1);
--
- 	mtk_dsi_start(dsi);
- 
- 	dsi->enabled = true;
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/init.c b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
+index 00a8286bd1368..d940ca84bd0f1 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/init.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
+@@ -85,6 +85,7 @@ static const struct wiphy_iftype_ext_capab iftypes_ext_capa[] = {
+ 		.extended_capabilities_mask = if_types_ext_capa_ap,
+ 		.extended_capabilities_len = sizeof(if_types_ext_capa_ap),
+ 		.mld_capa_and_ops =
++			FIELD_PREP_CONST(IEEE80211_MLD_CAP_OP_FREQ_SEP_TYPE_IND, 1) |
+ 			FIELD_PREP_CONST(IEEE80211_MLD_CAP_OP_MAX_SIMUL_LINKS,
+ 					 MT7996_MAX_RADIOS - 1),
+ 	},
 -- 
 2.53.0
 
