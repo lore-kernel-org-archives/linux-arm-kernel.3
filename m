@@ -4,166 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B899FF557FB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 09:50:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F9B4F557FC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 09:52:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kWuPigQBRvg2mmG1YEkZ2x388ocHV9caZV1E1+5l688=; b=zlOqv/d2d7xoVtWSV1IuQzA9u7
-	3QNcjxw3TFOG+9dx4+HHK/sM5v20zkdvTiGZLgOrSegStgSmJH7fJaktHVvnB+Cm9f2k6oZ8Jfcse
-	1gxt6/Lo/v0B7esmLsnyd422b3NNvA9cjs5npYY6+kdqH/QXSuCIDCNq4qlEu4B6pjnroAfeLQ1J4
-	fVBT/7r4RluK3tHuH2Rw+34bC/+ymVxr4/zXK4xjjJTLPX0vGSkLKzieJlVtoj7BtbosedCUsLHX3
-	fHfF86a7EuUq+9juIrcB2Ycjv5G2cemePP9O8KGn5RI/USM/oEoXVdXpYodi8pDIq9HzIEN8zk0pO
-	WKgNaXvA==;
+	bh=Pa0K3K3aQ8abij78TglQ1s1SnLYiBoW+uivbxjLSP18=; b=ShKP4i+r2l/IBkMT+d23FAQNon
+	UTjvtmHZ990zmaGJDue8D6H+yMOkS1OZAYIioxOyvY5qo9zfU6Mutkt2/2cjF0d8bjxXEMIOQtsfJ
+	t1ElMF45uepRSP8gdkpHf6lnjlFHjbddelKGzNWoKHxckIPb6ekpi4cfmUqxCO9VLc+Bj1tfiCI+i
+	AwxpjALWCSaXJKr/WHQhl4qOluQr9bxOts6qzNCtdxP9mbOS4tliEUWzysATbFd4v1vXpSVrGaylC
+	nz4TEPnUA/sAwyrPcwP7zha9mmbx0t5RJWe41Z6pGSj0NbRljt73aAKVaMdZaC821e6t1TUsZnJLo
+	aMVH9PDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wElGf-00000006hDb-2DAn;
-	Mon, 20 Apr 2026 09:50:13 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wElIR-00000006hQw-19uK;
+	Mon, 20 Apr 2026 09:52:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wElGc-00000006hCo-2bnj
+	id 1wElIQ-00000006hQh-1US5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 09:50:11 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63K9mdRh3925869
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 09:50:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=kWuPigQBRvg2mmG1YEkZ2x38
-	8ocHV9caZV1E1+5l688=; b=W57WOtCeOcicX3eqOdiyb3EDavkLG5irwHoXW55M
-	wmRlpJepFltE0GBwDB/eEZBvMRLgtu+23T/xt1DZn4WHzXcrKRfoVPgQut1CClJX
-	VOYHOXibM3WI5SZiwdhnS4DizoNnKO4tGaZ4JSDZcp8Th2Dask97hw6Z7ZhAr1cP
-	aMwPD+EXq8OVfnwV4UiLLWKNWccIeCI0Dub5H2t9t3AcazG6saJukNtykdqRYJkj
-	D4s0lFeY98n8l5NcyXmUp7ALuyhcmg4wVEJt2Z//32LLZZj1qsrLH43JCZX/QjPe
-	A2yRQiUlXqP2y/JQ0XNndxovMBtB55L3BZJYG3/1Jqd95A==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dnhu9r05p-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 09:50:09 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-50eb8bad331so9897451cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 02:50:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1776678609; x=1777283409; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kWuPigQBRvg2mmG1YEkZ2x388ocHV9caZV1E1+5l688=;
-        b=PntSz8CnXBVXMbMyq9jRC6XWXR2bLx/kbNA365gkdwr2cIc8XOprNn/WsM1J56qWC3
-         +hxi4EKxQ1MyUDtTW/naqKYUcdaZonwasc3F7SH/hMS/PkNqUMHdBN7GOdldaafsWoyl
-         n4RIfq35SfqcY6lPBz1TtDbjC70fu12DkHIz7VR71hXGu8aqtjD1zV5LMMw2nm/bG73N
-         4JbeYIoBwAUUO3jT6+UTMO2s+7o2UwN6lLgvPK7XuJ9raKku+E8AQyzcgs5bQ5fQ3wBp
-         IOL8rTF/FLRl1hzUVwHgVtn+GpXXgEKTgZ/MYIwTpAcF1WOBMnc9GzgM7LvdSl0HJHjR
-         jwgQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776678609; x=1777283409;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kWuPigQBRvg2mmG1YEkZ2x388ocHV9caZV1E1+5l688=;
-        b=B0WVgwuK8XumiU4U1tyOZ6aWw8vT3JzxfNnKgDMz6TXH2meN31K/yz6UWz5WYZu5NI
-         aPzVpAPRf7jNLRtbY2b1GDMus1cmvDI3o1tNC93bGudcYSVNUB1P+lm/Gtiz7OAIrfkX
-         e7hhVzClrwg+oIfOTiQY9FN/JfpLzQUDX7WMzhQGcHKirFLN7gsX7jlSlXtuGJvXm/eN
-         OoMnK7C1IsdyHRdiy9coXIUczSuh8h/uadWKt8fd86V/uGyzDqHxNtdI2kVme4DzZerX
-         wbZWoJOa0FADpYXry+akruvE8VxzBjNsL34UmlLY+cmqK0MUr2qDSgdwlT7hqrWV0DmV
-         3vcw==
-X-Forwarded-Encrypted: i=1; AFNElJ+LhLO2IzBqQuc7Sm8M9Mim8tFM/m0VKASEwd+CCqZWqG8sB+g8v0veSr2qJ1+O0A8Gu2P9jQttZ6yqoVHQlXKF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1Ib36x9fDM+yjt8QaROb19G6act8/gcJjdZBeH5Dmt+jslYwB
-	BBOo/RXLckVOYMe3KBEB2ewDvS7TDkkhqo4XvHghDbp/jHB2ocIHC/+GoS1JOJQ8b/RNCYmOx6x
-	grEFnxtWLrY5s8IoRiWu/3XE/emirELYC7mDV2RSNZAwm04OcAGPKq8QEDGSeYzGcGqPCjlHYFN
-	ghlg==
-X-Gm-Gg: AeBDieu3I+I5IAzxzL1Q0Po5cWqHmVfs4JxObjQ+dY/Wg/OZqcz8n80uEaroKx5W4Rv
-	AhqcCdqbvqs0KcnHMQkjnUmrwWM7nh4McNGJVz7MRT4MOD75ye7ovEouQV4e6WYyKqPpKBE6/iR
-	k4FjvUAnoJFiGUL3pjRTsPXTau7N1W46H/LldLxbtuDDPPFT1MrVAJxOjKDDemkS6VKIKMEuwg1
-	66b2qCxoJBfeXLdLZwsAgbi8yJAYbFRotV0I6UtgtlvossEJmOG+XXn+guDBpfA+5YqAuDzizoq
-	grXllYdaaHCCjOXpXl6/ntyhvvQtUrsKc9xryKM6CrSTxsOI0HmcvduE6X5596Q1R+oy7rJ1R9t
-	ZYHFs1WeoHV16e2mABfYMOnWVzjSov79WLn1pykhMi9Q9o0ATPvtsGYp4ZKLqEnBS5ezMldl0vL
-	LQNzDU2eMOeWC9Fu2Z/VfqJo+tDmOqeHHalw/mO9maPorJww==
-X-Received: by 2002:ac8:7f15:0:b0:50e:5f37:a821 with SMTP id d75a77b69052e-50e5f37af22mr37013021cf.36.1776678608859;
-        Mon, 20 Apr 2026 02:50:08 -0700 (PDT)
-X-Received: by 2002:ac8:7f15:0:b0:50e:5f37:a821 with SMTP id d75a77b69052e-50e5f37af22mr37012641cf.36.1776678608356;
-        Mon, 20 Apr 2026 02:50:08 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a4185ad138sm2859553e87.9.2026.04.20.02.50.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Apr 2026 02:50:07 -0700 (PDT)
-Date: Mon, 20 Apr 2026 12:50:05 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-usb@vger.kernel.org, intel-gfx@lists.freedesktop.org,
-        intel-xe@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        freedreno@lists.freedesktop.org,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Adrien Grassein <adrien.grassein@gmail.com>,
-        Jani Nikula <jani.nikula@linux.intel.com>,
-        Rodrigo Vivi <rodrigo.vivi@intel.com>,
-        Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-        Tvrtko Ursulin <tursulin@ursulin.net>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Pengyu Luo <mitltlatltl@gmail.com>, Nikita Travkin <nikita@trvn.ru>,
-        Yongxing Mou <yongxing.mou@oss.qualcomm.com>
-Subject: Re: [PATCH 1/6] drm/connector: report IRQ_HPD events to
- drm_connector_oob_hotplug_event()
-Message-ID: <3vrqk67oivkgo26xdc3r774rvj3jn3t6sfydhlytyrfiftubhg@cipain7xxcjz>
-References: <20260416-hpd-irq-events-v1-0-1ab1f1cfb2b2@oss.qualcomm.com>
- <20260416-hpd-irq-events-v1-1-1ab1f1cfb2b2@oss.qualcomm.com>
- <51b7c44e-36c9-461f-983a-eaa86eeb8cfd@ideasonboard.com>
- <6z572fdjkvjqvedifwvotgdy4lcrifiqvkjpnutousjqc6764r@zepfzkqy2kbu>
- <a2e60e74-a1be-469d-8f4d-ecce1f30b517@ideasonboard.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a2e60e74-a1be-469d-8f4d-ecce1f30b517@ideasonboard.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIwMDA5NCBTYWx0ZWRfX8rUnbd9CUI7r
- 8uNC+qC+wu5earYq2M1Sr0aWuNSqR8xRYr3vrtrhOTukd3mSP75X3AwVUP8Sdswoc2gesN3wz7E
- 1furrqTfK2b9zUu+G24iHPHNteDWIP/xfdSaanUYgrJXepQI4xcKXMaLtBzlQX+G3Ejbuu0S2+5
- tLeRwfKjEoE2ucZGX9wbZiWKBWOjFhKLkbVEC4ilRvLQ3O1Z/SgZgTPUd0MX09L/D8eU9sQJYL3
- VxGLT5Qyz7v9CYbr0AvyVLqy14yeLVeHr9YPLBwAT3KkQlSUG4a8f6GUr0zVSZzo67tZIxgy836
- Ui3Skk4+I6XI80zWKBXE8GDwsG+Y1XB9B9fe5h7ZkLNZ/+xeI4F41v0mtlggL6N4iPTtWj+M6RD
- XYQp5+CezK+dK9cglySp9ssWaqGgbAwYjXoKAqpFq5sgTnJzMSUcdqQISH85pJRmFZf6wAHoGho
- MY/M0FXpcsJtLRYBwEg==
-X-Authority-Analysis: v=2.4 cv=IIoyzAvG c=1 sm=1 tr=0 ts=69e5f6d1 cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22 a=EUspDBNiAAAA:8
- a=VVbN_I7Xu8gywQYyaxkA:9 a=CjuIK1q_8ugA:10 a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-GUID: xVAC0WRE5fy1c4VxMxhU66pJXIWILYT7
-X-Proofpoint-ORIG-GUID: xVAC0WRE5fy1c4VxMxhU66pJXIWILYT7
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-20_02,2026-04-17_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 spamscore=0 bulkscore=0 phishscore=0 lowpriorityscore=0
- malwarescore=0 clxscore=1015 priorityscore=1501 impostorscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604070000
- definitions=main-2604200094
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_025010_744256_EA04FAB1 
-X-CRM114-Status: GOOD (  47.52  )
+	Mon, 20 Apr 2026 09:52:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4269160141;
+	Mon, 20 Apr 2026 09:52:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C80F5C19425;
+	Mon, 20 Apr 2026 09:52:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776678721;
+	bh=XYhx9+CFohe0iWyUB9sZOynfbxZLAMSrZvs0/XibZHw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=gLcSna+Q6Yk8c35tT8OV/c6Mq0u6l8OWNuBwMXESWipUaU6r3wJgKVht+lG4Xmd8M
+	 I1gmZPtEPoqVjEWVHuBFTJSD63ep0KvmMz/riSc+pc9a2cF8/LB/xBjB7zyRT0VE5N
+	 8+Io6FUZzWUGTgn33z9WmPQPZ/y1JI8DIYWUFSAIIMKfJaXfMvSUtfPyI22e6odlsK
+	 yDYKDgQpN3uQ1tKc1CrDteF2V7AUY6l8mmJ7Y1pGC9YjGE8CDPjb5ux8mlAkKYQGIz
+	 1UJGcUO2EoCpnLdlk0r/6wRAiBQiBxoOglYo2DO62tT3vjidQAmwtayWS4ikVqcMp6
+	 S9NxbQOgckMWQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wElIM-0000000D19Y-1hWs;
+	Mon, 20 Apr 2026 09:51:58 +0000
+Date: Mon, 20 Apr 2026 10:51:57 +0100
+Message-ID: <86qzoa0xj6.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu
+ <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	devel@daynix.com,
+	kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v7 3/4] KVM: arm64: PMU: Introduce FIXED_COUNTERS_ONLY
+In-Reply-To: <06c6664c-7f0c-47b2-babf-ba2a541fd9f2@rsg.ci.i.u-tokyo.ac.jp>
+References: <20260418-hybrid-v7-0-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
+	<20260418-hybrid-v7-3-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
+	<87ldeic1gk.wl-maz@kernel.org>
+	<06c6664c-7f0c-47b2-babf-ba2a541fd9f2@rsg.ci.i.u-tokyo.ac.jp>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: odaki@rsg.ci.i.u-tokyo.ac.jp, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kees@kernel.org, gustavoars@kernel.org, pbonzini@redhat.com, corbet@lwn.net, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,111 +101,288 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 20, 2026 at 07:50:46AM +0300, Tomi Valkeinen wrote:
-> Hi,
+On Mon, 20 Apr 2026 09:36:16 +0100,
+Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
 > 
-> On 18/04/2026 01:32, Dmitry Baryshkov wrote:
-> > On Thu, Apr 16, 2026 at 11:10:03AM +0300, Tomi Valkeinen wrote:
-> > > Hi,
-> > > 
-> > > On 16/04/2026 02:22, Dmitry Baryshkov wrote:
-> > > > The DisplayPort standard defines a special kind of events called IRQ.
-> > > > These events are used to notify DP Source about the events on the Sink
-> > > > side. It is extremely important for DP MST handling, where the MST
-> > > > events are reported through this IRQ.
-> > > > 
-> > > > In case of the USB-C DP AltMode there is no actual HPD pulse, but the
-> > > > events are ported through the bits in the AltMode VDOs.
-> > > > 
-> > > > Extend the drm_connector_oob_hotplug_event() interface and report IRQ
-> > > > events to the DisplayPort Sink drivers.
-> > > > 
-> > > > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> > > > ---
-> > > >    drivers/gpu/drm/drm_connector.c          |  4 +++-
-> > > >    drivers/usb/typec/altmodes/displayport.c | 12 ++++++++----
-> > > >    include/drm/drm_connector.h              |  3 ++-
-> > > >    3 files changed, 13 insertions(+), 6 deletions(-)
-> > > > 
-> > > > diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
-> > > > index 47dc53c4a738..5fdacbd84bd7 100644
-> > > > --- a/drivers/gpu/drm/drm_connector.c
-> > > > +++ b/drivers/gpu/drm/drm_connector.c
-> > > > @@ -3510,6 +3510,7 @@ struct drm_connector *drm_connector_find_by_fwnode(struct fwnode_handle *fwnode)
-> > > >     * drm_connector_oob_hotplug_event - Report out-of-band hotplug event to connector
-> > > >     * @connector_fwnode: fwnode_handle to report the event on
-> > > >     * @status: hot plug detect logical state
-> > > > + * @irq_hpd: HPD pulse detected
-> > > >     *
-> > > >     * On some hardware a hotplug event notification may come from outside the display
-> > > >     * driver / device. An example of this is some USB Type-C setups where the hardware
-> > > > @@ -3520,7 +3521,8 @@ struct drm_connector *drm_connector_find_by_fwnode(struct fwnode_handle *fwnode)
-> > > >     * a drm_connector reference through calling drm_connector_find_by_fwnode().
-> > > >     */
-> > > >    void drm_connector_oob_hotplug_event(struct fwnode_handle *connector_fwnode,
-> > > > -				     enum drm_connector_status status)
-> > > > +				     enum drm_connector_status status,
-> > > > +				     bool irq_hpd)
-> > > I find the "IRQ HPD" naming always confusing, even if I'm somewhat familiar
-> > > with DP, but if someone has mainly worked on HDMI, I'm sure it's even worse.
-> > > 
-> > > Can we define this a bit more precisely? Is 'irq_hpd' only for displayport?
-> > > If so, perhaps 'dp_irq_hpd' or 'displayport_irq_hpd'. I might even call it
-> > > 'dp_hpd_pulse', but maybe that's not good as the spec talks about HPD pulse
-> > > for both short and long ones (although in the kernel doc you just write "HPD
-> > > pulse")... The kernel doc could be expanded a bit to make it clear what this
-> > > flag indicates.
+> On 2026/04/20 2:19, Marc Zyngier wrote:
+> > On Sat, 18 Apr 2026 09:14:25 +0100,
+> > Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
+> >> 
+> >> On a heterogeneous arm64 system, KVM's PMU emulation is based on the
+> >> features of a single host PMU instance. When a vCPU is migrated to a
+> >> pCPU with an incompatible PMU, counters such as PMCCNTR_EL0 stop
+> >> incrementing.
+> >> 
+> >> Although this behavior is permitted by the architecture, Windows does
+> >> not handle it gracefully and may crash with a division-by-zero error.
+> >> 
+> >> The current workaround requires VMMs to pin vCPUs to a set of pCPUs
+> >> that share a compatible PMU. This is difficult to implement correctly in
+> >> QEMU/libvirt, where pinning occurs after vCPU initialization, and it
+> >> also restricts the guest to a subset of available pCPUs.
+> >> 
+> >> Introduce the KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY attribute to
+> >> create a "fixed-counters-only" PMU. When set, KVM exposes a PMU that is
+> >> compatible with all pCPUs but that does not support programmable
+> >> event counters which may have different feature sets on different PMUs.
+> >> 
+> >> This allows Windows guests to run reliably on heterogeneous systems
+> >> without crashing, even without vCPU pinning, and enables VMMs to
+> >> schedule vCPUs across all available pCPUs, making full use of the host
+> >> hardware.
+> >> 
+> >> Much like KVM_ARM_VCPU_PMU_V3_IRQ and other read-write attributes, this
+> >> attribute provides a getter that facilitates kernel and userspace
+> >> debugging/testing.
 > > 
-> > I attempted to stay away from defining a DP-specific flag, keeping it
-> > generic enough. HDMI is pretty close (IMO) to requiring separate flag in
+> > OK, so that's the sales pitch. But how is it implemented? I would like
+> > to be able to read a high-level description of the implementation
+> > trade-offs.
 > 
-> If it's not specifically the DP IRQ HPD, then we need to define what it
-> means. I tried to think what it would mean with HDMI, but I didn't come up
-> with anything.
+> Implementation-wise it is very trivial. Essentially the following
+> addition in kvm_arm_pmu_v3_get_attr() is the entire implementation:
+> +	case KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY:
+> +		if (test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY,
+> &vcpu->kvm->arch.flags))
+> +			return 0;
+> 
+> Both its functionality and code complexity is trivial. So we can argue that:
+> - the functionality is too trivial to be useful or
+> - the interface/implementation complexity is so trivial that it does not
+>   incur maintenance burden
+> 
+> In this case the selftest uses the getter so I was more inclined to
+> have it, but adding one just for the selftest sounds too ad-hoc, so
+> here I looked into other attributes to ensure that it was not
+> introducing inconsistency with existing interfaces.
+> 
+> As the result, I found there are other read-write attributes; in fact
+> there are more read-write attributes than write-only ones.
 
-I might be mistaken, but I had someting like HEAC HPD / EDID status
-changes in mind (or HDCP-triggered HPD status changes). But here I
-admit, I hadn't checked if it is actually applicable or not.
+You're completely missing the point. I'm referring to the whole of the
+commit message, which is more of a marketing slide than a technical
+description.
 
-Anyway, for e.g. DVI or VGA that means nothing. But, my point really is
-to abstain from defining someting as DP-only in the top-level API.
+I really don't care about the getter at this stage, which while
+pointless, does not make things more awful than they already are.
 
 > 
-> > Linux. Likewise I'd rather not use "pulse". The DP AltMode defines a bit
-> > in the VDO rather than a pulse.
 > > 
-> > Anyway, if irq_hpd doesn't sound precise enough, what about "bool
-> > extra_irq"? This would convey that this is the extra hpd-related IRQ,
-> > but it would also be obvious that it's not related to the HPD pin
-> > itself.
-> We'd still need to define what exactly it means. I think it might be better
-> to just define it as the DP IRQ HPD, as then the meaning is clear.
+> >> 
+> >> Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+> >> ---
+> >>   Documentation/virt/kvm/devices/vcpu.rst |  29 ++++++
+> >>   arch/arm64/include/asm/kvm_host.h       |   2 +
+> >>   arch/arm64/include/uapi/asm/kvm.h       |   1 +
+> >>   arch/arm64/kvm/arm.c                    |   1 +
+> >>   arch/arm64/kvm/pmu-emul.c               | 155 +++++++++++++++++++++++---------
+> >>   include/kvm/arm_pmu.h                   |   2 +
+> >>   6 files changed, 147 insertions(+), 43 deletions(-)
+> >> 
+> >> diff --git a/Documentation/virt/kvm/devices/vcpu.rst b/Documentation/virt/kvm/devices/vcpu.rst
+> >> index 60bf205cb373..e0aeb1897d77 100644
+> >> --- a/Documentation/virt/kvm/devices/vcpu.rst
+> >> +++ b/Documentation/virt/kvm/devices/vcpu.rst
+> >> @@ -161,6 +161,35 @@ explicitly selected, or the number of counters is out of range for the
+> >>   selected PMU. Selecting a new PMU cancels the effect of setting this
+> >>   attribute.
+> >>   +1.6 ATTRIBUTE: KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY
+> >> +------------------------------------------------------
+> >> +
+> >> +:Parameters: no additional parameter in kvm_device_attr.addr
+> >> +
+> >> +:Returns:
+> >> +
+> >> +	 =======  =====================================================
+> >> +	 -EBUSY   Attempted to set after initializing PMUv3 or running
+> >> +		  VCPU, or attempted to set for the first time after
+> >> +		  setting an event filter
+> >> +	 -ENXIO   Attempted to get before setting
+> >> +	 -ENODEV  Attempted to set while PMUv3 not supported
+> >> +	 =======  =====================================================
+> >> +
+> >> +If set, PMUv3 will be emulated without programmable event counters. The VCPU
+> >> +will use any compatible hardware PMU. This attribute is particularly useful on
+> > 
+> > Not quite "any PMU". It will use *the* PMU of the physical CPU,
+> > irrespective of the implementation.
 > 
-> Also, would an enum flags parameter be better than a bool parameter?
+> I think:
+> 
+> - this comment
+> - one on the KVM_EXIT_FAIL_ENTRY_CPU_UNSUPPORTED note
+> - one on kvm_pmu_create_perf_event()
+> - and one on kvm_arm_pmu_v3_set_pmu_fixed_counters_only()
+> 
+> All boil down into one question: will it support all possible CPUs, or
+> will it support a subset? Let me answer here:
+> 
+> This patch is written to support a subset instead of all possible
+> CPUs. If a pCPU does not have a compatible PMU, the pCPU will not be
+> supported and cause KVM_EXIT_FAIL_ENTRY_CPU_UNSUPPORTED.
 
-Maybe not enum, but u32 param. Then it can become:
+This is not a thing. Either *all* the CPUs have a PMU that can be used
+for KVM, or PMU support is not offered to guests. That's a hard line
+in the sand. And the code already upholds this by checking the
+sanitised PMUVer field.
 
-@extra_status: additional type-specific information provided by the sink
-without changing the HPD state
+>
+> This patch does not enforce all possible CPUs are covered by the
+> compatible PMUs. Theoretically speaking,
+> kvm_arm_pmu_get_pmuver_limit() enables the PMU emulation when real
+> PMUv3 hardware covers all possible CPUs *or* the relevant registers
+> can be trapped with IMPDEF, so some pCPU may not have a compatible PMU
+> and only provide the IMPDEF trapping.
 
-void drm_connector_oob_hotplug_event(..., u32 extra_status);
+How is that possible? Please describe the case where that can happen,
+and I will make sure that such a system stops booting. The intent is
+definitely that that:
 
-/* DP short HPD pulse or corresponding AltMode flag */
-#define DRM_CONNECTOR_OOB_DP_IRQ_HPD BIT(0)
-/* DP long HPD pulse, debounced XXX: do we need this? */
-#define DRM_CONNECTOR_OOB_DP_REPLUG BIT(1)
+- for early CPUs, we take the minimal capability of all CPUs
 
-For HDMI we might want to define:
+- for late CPUs, either they match at least the capability recorded by
+  early CPUs, or they don't boot.
 
-/* HDMI 1.4b 8.5, HPD pulse */
-#define DRM_CONNECTOR_OOB_HDMI_REPLUG BIT(0)
+> Practically, I don't think any sane configuration will ever have such
+> a subset support, so we can explicitly enforce all possible CPUs are
+> covered by the compatible PMUs if desired.
 
-Or might not, 100ms is long enough for all debouncers.
+That's not just desired. This is a requirement. And it is already
+enforced AFAICS.
 
-For HDMI we potentially have another source of OOB events, CDC-messages
-from CEC controller. I have not looked in the details of the HEAC 3.
+> 
+> > 
+> >> +heterogeneous systems where different hardware PMUs cover different physical
+> >> +CPUs. The compatibility of hardware PMUs can be checked with
+> >> +KVM_ARM_VCPU_PMU_V3_SET_PMU. All VCPUs in a VM share this attribute. It isn't
+> >> +possible to set it for the first time if a PMU event filter is already present.
+> > 
+> > "for the first time" gives the impression that it will work if you try
+> > again. I'd rather we say that "This feature is incompatible with the
+> > existence of a PMU event filter".
+> 
+> The following sequence will work:
+> 1. Set KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY
+> 2. Set KVM_ARM_VCPU_PMU_V3_FILTER
+> 3. Set KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY
+> 
+> This is to make the behavior conistent with KVM_ARM_VCPU_PMU_V3_SET_PMU.
+
+I don't think this is correct. Filtering is completely at odds with
+this patch, and I don't want to have to reason about the combination.
+
+[...]
+
+> >> +	int i;
+> >> +
+> >> +	for_each_set_bit(i, &mask, 32) {
+> >> +		pmc = kvm_vcpu_idx_to_pmc(vcpu, i);
+> >> +		if (!pmc->perf_event)
+> >> +			continue;
+> >> +
+> >> +		cpu_pmu = to_arm_pmu(pmc->perf_event->pmu);
+> >> +		if (!cpumask_test_cpu(vcpu->cpu, &cpu_pmu->supported_cpus)) {
+> >> +			kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
+> >> +			break;
+> >> +		}
+> >> +	}
+> >> +}
+> >> +
+> > 
+> > Why do we need to inflict this on VMs that do not have the fixed
+> > counter restriction?
+> 
+> This function is to re-create the perf_event in case the current
+> perf_event does not support the pCPU because e.g., the pCPU is a
+> E-core while the perf_event only covers the P-cores.
+
+That's not what I meant. This code is only here to support the
+fixed-function feature. It makes no sense outside of it, because *we
+don't support counter migration across implementations*.
+
+So what's the purpose of this stuff for the normal KVM setup?
+
+> 
+> > 
+> > And even then, all you have to reconfigure is the cycle counter. So
+> > why the loop? All we want to find out is whether the cycle counter is
+> > instantiated on the PMU that matches the current CPU.
+> 
+> I just wanted to avoid hardcoding assumptions on the fixed
+> counter(s). FEAT_PMUv3_ICNTR will be naturaly handled with a loop, for
+> example.
+
+Well, not that loop, since ICNTR is counter 32. So please let's stop
+the nonsense and only add what is required?
+
+[...]
+
+> >>   +
+> >> clear_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY,
+> >> &kvm->arch.flags);
+> > 
+> > Why does this need to be cleared? I'd rather we make sure it is never
+> > set the first place.
+> 
+> KVM_ARM_VCPU_PMU_V3_SET_PMU and
+> KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY can be set on the same
+> VCPU. The last KVM_ARM_VCPU_PMU_V3_SET_PMU or
+> KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY setting will be effective.
+> 
+> A VMM may try set these attributes to check if the setting is
+> supported. For example, the RFC QEMU patch first uses
+> KVM_ARM_VCPU_PMU_V3_SET_PMU to find a compatible PMU that covers all
+> pCPUs, and then falls back to
+> KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY. The order of such probing is
+> up to the VMM.
+
+KVM_ARM_VCPU_PMU_V3_SET_PMU is not a probing mechanism. You must probe
+the PMUs by looking in /sys/bus/event_source/devices/, like kvmtool
+does.
+
+So there is no reason to support this stuff, and the two flags should
+be made mutually exclusive.
+
+[...]
+
+> >>
+> > 
+> > In conclusion, I find this patch to be rather messy. For a start, it
+> > needs to be split in at least 5 patches:
+> > 
+> > - at least two for the refactoring
+> > - one for the PMU core changes
+> > - one for the UAPI
+> > - one for documentation
+> 
+> That clarifies the expected granurarity of patches. The next version
+> will be in that layout, perhaps with more patches if an additional
+> change. Thanks for the guidance.
+> 
+> > 
+> > I'd also like some clarification on how this is intended to work if we
+> > enable FEAT_PMUv3_ICNTR, because the definition seems to be designed
+> > to encompass all fixed-function counters, and I expect this to grow
+> > over time.
+> 
+> Indeed the UAPI was designed to encompass all fixed-function counters
+> as suggested by Oliver.
+> 
+> To support the UAPI, the implementation avoids hardcoding the
+> assumption on the fixed counter(s). FEAT_PMUv3_INCTR will be naturaly
+> supported once the common code is properly updated (i.e., the size of
+> the event counter bitmask is grown the corresponding registers are
+> wired up with a proper check of the feature.)
+> 
+> I expect migration will be handled with the conventional register
+> getters and setters, but please share if you have a concern.
+
+At the very least I want to see some documentation explaining that.
+
+Thanks,
+
+	M.
 
 -- 
-With best wishes
-Dmitry
+Without deviation from the norm, progress is not possible.
 
