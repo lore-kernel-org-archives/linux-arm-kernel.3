@@ -4,74 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAA68F36C20
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 06:22:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C9DFF36C2A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 06:41:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FJ5CdXSzLkVwwaN2gkjigUMa98BbQG4sZbq6fGjnjvg=; b=y0kRB5Ek5P7hFtPjuumje66BKJ
-	cX9k82WejxY2pqLirbi8TlbQgLFaEVsRZVEV/6JXcCWh3WAok9t5eSmOqJsrfGrrgAyaj4tOsXiVN
-	KTHXNaolTeTqSd1ET4Sk63TWS/SGGmKK8icXqxXArvJSRMRhla0zJ32X+kmkMBcHxwVHyquDmn9OV
-	rsy9BbqG6cQdf4XmT2cqdc/JmSjF1+RsAFh2zDZmHNn8li1NGGMKOwltbjKQcXUgglcgYHxc3MdZK
-	PtAE+XMrxrRKppLlqwyJDUxv3QC68f+NanJ6BNASRCHsvUHWRsKY1Y/ommIW8rzsMoaH0NMLkT97c
-	F75LPodA==;
+	bh=Mrw7URIBnOfrToS+iqPJJEUHnwfTM67mGoZmCht0I3A=; b=MXbus7cQQBvAa19ZbQ6ozMiq0U
+	N4RN3ocAeg0lSRmKM5HtXzpFxiutI5GglM5y1nrhTuweaVLdu6IncAFLl+FyD1IIwBYEXfNmFLqs9
+	J2IOPUSE710RO+W0mzOCGkfN7cHqrGVb2tNQ6876NcJkU+t9zW40FZCEsDW1hsVVOtpytKzkngfNi
+	1xj2/1Fdu/ZQvtsuhrxwBCoVhh+s0eysvQNWnUzTCGQfky0xBYxrf+pMfO2LlAz2i19pEPX8j/Psc
+	1zFjqlXA5z76Mp5VjieiqhVkOM1+GfLa+LUewPX1vlMXxEy1aKXdXfIkz5O7TDM05SzTRHfGDb+xo
+	1BkX5TJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEi1U-00000006UO1-1qgi;
-	Mon, 20 Apr 2026 06:22:20 +0000
-Received: from www3579.sakura.ne.jp ([49.212.243.89])
+	id 1wEiJr-00000006V5G-0Q15;
+	Mon, 20 Apr 2026 06:41:19 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEi1R-00000006UNe-0RWA
+	id 1wEiJm-00000006V1J-0t05
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 06:22:18 +0000
-Received: from [133.11.54.205] (h205.csg.ci.i.u-tokyo.ac.jp [133.11.54.205])
-	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 63K6Lj2B066789
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Mon, 20 Apr 2026 15:21:46 +0900 (JST)
-	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=FJ5CdXSzLkVwwaN2gkjigUMa98BbQG4sZbq6fGjnjvg=;
-        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
-        h=From:Message-ID:To:Subject:Date;
-        s=rs20250326; t=1776666106; v=1;
-        b=Fab4JszZTcVq1Wcnn3GPi67jiAAuyi0vN2G2vLUb9wiEHaXeyWOJkP8k6OKIG/Bc
-         MSLW8jYjzMErRS7+BPGAzAQj37qGFNtOApRCwgTMTfkhtKcrAVGud92dlFVeUf3M
-         waOVb7QFgWsztepP+AjxR8oCG+yuABP9noUYDjyPUIuNlXuFXLU2Ufakz/L5MeEi
-         5dnVj6poWbruKOBnHfQR3bWRS5xFuBh/fEVbPRwR3kCe8bA9K93Cc1OFqoB6KHfI
-         fT64THxfBFME0MahSZA486qwy7PBjndEm7kgZ+ygWf59mGkv/qAIE7bYBie4RBIi
-         J84VxqyKbF5pYOy69uV7tg==
-Message-ID: <483e5cf2-a54c-4781-ac6d-49f5bc7128ba@rsg.ci.i.u-tokyo.ac.jp>
-Date: Mon, 20 Apr 2026 15:21:45 +0900
+	Mon, 20 Apr 2026 06:41:16 +0000
+dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Mrw7URIBnOfrToS+iqPJJEUHnwfTM67mGoZmCht0I3A=;
+	b=JIjSEVb+06We5sYzebMrx/frEYR3n/MmtjPDW4d4GCFk2iVmVAf8YCCntT7LQtg6eIfSQ1pdw
+	cqm87EsoOcGRGp8Zgq0+tcEeY/h+nvNxQ2rvNtgV/cMhJCu2S5M7vT2g30DOt3k29JOq4h4MUJc
+	9eHAvYn/VD51MYBlI01Yyhw=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4fzbJT23H4z12LCb;
+	Mon, 20 Apr 2026 14:32:41 +0800 (CST)
+Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 703AA40571;
+	Mon, 20 Apr 2026 14:38:56 +0800 (CST)
+Received: from kwepemn100009.china.huawei.com (7.202.194.112) by
+ dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 20 Apr 2026 14:38:56 +0800
+Received: from [10.67.121.59] (10.67.121.59) by kwepemn100009.china.huawei.com
+ (7.202.194.112) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 20 Apr
+ 2026 14:38:55 +0800
+Message-ID: <bdaaa661-f5cb-406d-8792-454b057ae9c9@huawei.com>
+Date: Mon, 20 Apr 2026 14:38:54 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/4] KVM: arm64: PMU: Protect the list of PMUs with RCU
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu
- <yuzenghui@huawei.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org,
-        kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
-        linux-hardening@vger.kernel.org, devel@daynix.com, kvm@vger.kernel.org,
-        linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-References: <20260418-hybrid-v7-0-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
- <20260418-hybrid-v7-2-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
- <87mryzauib.wl-maz@kernel.org>
-Content-Language: en-US
-From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <87mryzauib.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH RFC] ACPI: processor: idle: Do not propagate
+ acpi_processor_ffh_lpi_probe() -ENODEV
+To: "Rafael J. Wysocki" <rafael@kernel.org>, Breno Leitao <leitao@debian.org>
+CC: Sudeep Holla <sudeep.holla@kernel.org>, Len Brown <lenb@kernel.org>,
+	<lpieralisi@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	<linux-acpi@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<pjaroszynski@nvidia.com>, <guohanjun@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <rmikey@meta.com>,
+	<kernel-team@meta.com>, <lihuisong@huawei.com>
+References: <20260413-ffh-v1-1-301704f69e2f@debian.org>
+ <af9c679d-899c-4832-b902-e621b5987f12@huawei.com>
+ <ad4UWJ__dnDQtrj8@gmail.com>
+ <6694ca7c-13bf-4e7d-9621-bc992cbf96a7@huawei.com>
+ <20260414-cute-shapeless-dolphin-c5b2fc@sudeepholla>
+ <33c15199-25ea-4d39-bff9-91af0b49633e@huawei.com>
+ <CAJZ5v0hftnagiLTPCEjqviyug5g5NQCztX1o0w5NOY8d=5cz+g@mail.gmail.com>
+From: "lihuisong (C)" <lihuisong@huawei.com>
+In-Reply-To: <CAJZ5v0hftnagiLTPCEjqviyug5g5NQCztX1o0w5NOY8d=5cz+g@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.121.59]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemn100009.china.huawei.com (7.202.194.112)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260419_232217_899395_248BAEE3 
-X-CRM114-Status: GOOD (  26.69  )
+X-CRM114-CacheID: sfid-20260419_234115_293607_520FE2E6 
+X-CRM114-Status: GOOD (  19.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,92 +93,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/04/19 23:34, Marc Zyngier wrote:
-> On Sat, 18 Apr 2026 09:14:24 +0100,
-> Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
+
+On 4/15/2026 10:03 PM, Rafael J. Wysocki wrote:
+> On Wed, Apr 15, 2026 at 3:32 AM lihuisong (C) <lihuisong@huawei.com> wrote:
 >>
->> Convert the list of PMUs to a RCU-protected list that has primitives to
->> avoid read-side contention.
+>> On 4/14/2026 8:25 PM, Sudeep Holla wrote:
+>>> On Tue, Apr 14, 2026 at 07:31:29PM +0800, lihuisong (C) wrote:
+>>>> On 4/14/2026 6:21 PM, Breno Leitao wrote:
+>>>>> Hello Huisong,
+>>>>>
+>>>>> On Tue, Apr 14, 2026 at 05:43:51PM +0800, lihuisong (C) wrote:
+>>>>>> But it is a real issue. Thanks for your report.
+>>>>>> I think the best way to fix your issue is that remove this verification in
+>>>>>> psci_acpi_cpu_init_idle().
+>>>>>> Because it is legal for platform to report one LPI state.
+>>>>>> This function just needs to verify the LPI states which are FFH.
+>>>>> Thank you for the prompt feedback.
+>>>>>
+>>>>> Would this approach work?
+>>>>>
+>>>>> commit 6c9d52840a4f778cc989838ba76ee51416e85de3
+>>>>> Author: Breno Leitao <leitao@debian.org>
+>>>>> Date:   Tue Apr 14 03:16:08 2026 -0700
+>>>>>
+>>>>>        ACPI: processor: idle: Allow platforms with only one LPI state
+>>>>>        psci_acpi_cpu_init_idle() rejects platforms where power.count - 1 <= 0
+>>>>>        by returning -ENODEV. However, having a single LPI state (WFI) is a
+>>>>>        valid configuration. The function's purpose is to verify FFH idle states,
+>>>>>        and when count is zero, there are simply no FFH states to validate —
+>>>>>        this is not an error.
+>>>>>        On NVIDIA Grace (aarch64) systems with PSCIv1.1, power.count is 1 for
+>>>>>        all 72 CPUs, so the probe fails with -ENODEV. After commit cac173bea57d
+>>>>>        ("ACPI: processor: idle: Rework the handling of
+>>>>>        acpi_processor_ffh_lpi_probe()"), this failure propagates up and prevents
+>>>>>        cpuidle registration entirely.
+>>>>>        Change the check from (count <= 0) to (count < 0) so that platforms
+>>>>>        with only WFI are accepted. The for loop naturally handles count == 0
+>>>>>        by not iterating.
+>>>>>        Fixes: cac173bea57d ("ACPI: processor: idle: Rework the handling of acpi_processor_ffh_lpi_probe()")
+>>>>>        Signed-off-by: Breno Leitao <leitao@debian.org>
+>>>>>
+>>>>> diff --git a/drivers/acpi/arm64/cpuidle.c b/drivers/acpi/arm64/cpuidle.c
+>>>>> index 801f9c4501425..7791b751042ce 100644
+>>>>> --- a/drivers/acpi/arm64/cpuidle.c
+>>>>> +++ b/drivers/acpi/arm64/cpuidle.c
+>>>>> @@ -31,7 +31,7 @@ static int psci_acpi_cpu_init_idle(unsigned int cpu)
+>>>>>              return -EOPNOTSUPP;
+>>>>>      count = pr->power.count - 1;
+>>>>> -   if (count <= 0)
+>>>>> +   if (count < 0)
+>>>>>              return -ENODEV;
+>>>>>      for (i = 0; i < count; i++) {
+>>>> This count already verified in acpi_processor_get_lpi_info.
+>>>>
+>>>> I suggest modifing it as below:
+>>>>
+>>>> -->
+>>>>
+>>>> git diff
+>>>> diff --git a/drivers/acpi/arm64/cpuidle.c b/drivers/acpi/arm64/cpuidle.c
+>>>> index 801f9c450142..c68a5db8ebba 100644
+>>>> --- a/drivers/acpi/arm64/cpuidle.c
+>>>> +++ b/drivers/acpi/arm64/cpuidle.c
+>>>> @@ -16,7 +16,7 @@
+>>>>
+>>>>    static int psci_acpi_cpu_init_idle(unsigned int cpu)
+>>>>    {
+>>>> -       int i, count;
+>>>> +       int i;
+>>>>           struct acpi_lpi_state *lpi;
+>>>>           struct acpi_processor *pr = per_cpu(processors, cpu);
+>>>>
+>>>> @@ -30,14 +30,10 @@ static int psci_acpi_cpu_init_idle(unsigned int cpu)
+>>>>           if (!psci_ops.cpu_suspend)
+>>>>                   return -EOPNOTSUPP;
+>>>>
+>>>> -       count = pr->power.count - 1;
+>>>> -       if (count <= 0)
+>>>> -               return -ENODEV;
+>>>> -
+>>> It was intentionally designed this way, as there is little value in defining
+>>> only WFI in the _LPI tables. In the absence of a cpuidle driver/LPI entry,
+>>> arch_cpu_idle() is invoked, which is sufficient and avoids unnecessary
+>>> complexity, only to ultimately execute wfi() anyway.
+>> Yeah, it's correct. The code flow will be more simple and high-efficiency.
+>> This looks good to me.
 >>
->> Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
->> ---
->>   arch/arm64/kvm/pmu-emul.c | 14 ++++++--------
->>   1 file changed, 6 insertions(+), 8 deletions(-)
 >>
->> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
->> index 59ec96e09321..ef5140bbfe28 100644
->> --- a/arch/arm64/kvm/pmu-emul.c
->> +++ b/arch/arm64/kvm/pmu-emul.c
->> @@ -7,9 +7,9 @@
->>   #include <linux/cpu.h>
->>   #include <linux/kvm.h>
->>   #include <linux/kvm_host.h>
->> -#include <linux/list.h>
->>   #include <linux/perf_event.h>
->>   #include <linux/perf/arm_pmu.h>
->> +#include <linux/rculist.h>
->>   #include <linux/uaccess.h>
->>   #include <asm/kvm_emulate.h>
->>   #include <kvm/arm_pmu.h>
->> @@ -26,7 +26,6 @@ static bool kvm_pmu_counter_is_enabled(struct kvm_pmc *pmc);
->>   
->>   bool kvm_supports_guest_pmuv3(void)
->>   {
->> -	guard(mutex)(&arm_pmus_lock);
->>   	return !list_empty(&arm_pmus);
-> 
-> Please read include/linux/rculist.h and the discussion about the
-> interaction of list_empty() with RCU-protected lists. How about using
-> list_first_or_null_rcu() for peace of mind?
+>> But cpuidle sysfs under per CPU is created when firmware just reports
+>> WFI state before
+>> my commit cac173bea57d ("ACPI: processor: idle: Rework the handling of
+>> acpi_processor_ffh_lpi_probe()").
+>> However, these platforms will no longer be created now and some
+>> statistics for state0 are also missing.
+>> This change in behavor is visiable to user space.I'm not sure if it is
+>> acceptable.
+>> What do you think, Rafael?
+> I think that it would be good to restore the previous behavior,
+> especially if it has been changed inadvertently.
+Agreed.
 
-list_first_or_null_rcu() is useful to replace a sequence of list_empty() 
-and list_first_entry() that is protected by a lock, but this function 
-instead requires the invariant that nobody deletes an element from the 
-list, and list_first_or_null_rcu() does not allow removing the requirement.
-
-The header file says:
- > Where are list_empty_rcu() and list_first_entry_rcu()?
- >
- > They do not exist because they would lead to subtle race conditions:
- >
- > if (!list_empty_rcu(mylist)) {
- >	struct foo *bar = list_first_entry_rcu(mylist, struct foo,
- >					       list_member);
- >	do_something(bar);
- > }
- >
- > The list might be non-empty when list_empty_rcu() checks it, but it
- > might have become empty by the time that list_first_entry_rcu()
- > rereads the ->next pointer, which would result in a SEGV.
- >
- > When not using RCU, it is OK for list_first_entry() to re-read that
- > pointer because both functions should be protected by some lock that
- > blocks writers.
- >
- > When using RCU, list_empty() uses READ_ONCE() to fetch the
- > RCU-protected ->next pointer and then compares it to the address of
- > the  list head.  However, it neither dereferences this pointer nor
- > provides  this pointer to its caller.  Thus, READ_ONCE() suffices
- > (that is,  rcu_dereference() is not needed), which means that
- > list_empty() can be used anywhere you would want to use
- > list_empty_rcu().  Just don't expect anything useful to happen if you
- > do a subsequent lockless call to list_first_entry_rcu()!!!
- >
- > See list_first_or_null_rcu for an alternative.
-
-However, kvm_supports_guest_pmuv3() locked a mutex when calling 
-list_empty() and unlocked it immediately after that, instead of 
-re-reading list_first_entry(). This construct inherently had a race 
-condition with code that deletes an element; when the caller of 
-kvm_supports_guest_pmuv3() decides to enable guest PMUv3, the host PMU 
-may have been gone. But it was still safe because no one deletes an element.
-
-The same logic also applies when using RCU. As the comment says, we can 
-use list_empty() instead of the hypothetical list_empty_rcu() macro 
-because we don't expect it to magically enable something like 
-list_first_entry_rcu(). This function instead keep relying on the fact 
-that no one deletes an element of the list.
-
-Regards,
-Akihiko Odaki
+Can you send it again using my proposal, @breno?
+We can send out other patch to discuss it if need to optimize the point 
+Sudeep mentioned.
+>
 
