@@ -4,58 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27812F588E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 15:18:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D444AF588E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 15:18:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1gFNXBO4mkz3Uo0BQPn36ROKj98JwT3Uw9lk0qqRPeI=; b=fvc0iTwohoSZB6y732Iiih309S
-	G47BdEG02mPtm+gkZ93LG0NpxnCztT6xAJtlqLxIO2iUlgK53CZOXaOzzmbties9uJaPdkj3B3Kbi
-	bFNDGBtgUrMcNuHffITxD3OttwfzN182Lk2fK7KCpqiNkE0hLnTfazti0S2+ljC50sdYNElRAn7nG
-	fSiU/q6I3boPs9leuKhi0jQqHhsYdqfp8xZ5Da5PDlEHPmgw/XALGbdTRYAdgLVzRa9oe2hpFdnNl
-	6+M5BHROMLVaIpyW/Tq5Xtq0wEOHf9eYbfAGC4xgpPiGnNzyQS9WNahC1P3O7ljpdj/sJ9MYOj7I3
-	nHKAew5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D4+Tyc9fwC08HtutfCT810YXOpj+67tjCxBitfttl4M=; b=BBgHQ2AmLSw6Ec++zMUhL7cpiT
+	ivmM9GTaxPeSkxNoT4eOeeu2g6pi75e0hFXnkOfTc1mh9w1jFKKW/xOBu2GyV00tmenbJSAQ5plOJ
+	/Hu3yM9rTAzVGaNs702u9m1ClSRJ6XOVMxJcktJtplZuIAujfYOO1/kAyBYtF+LikhvT6JfOQk7W0
+	tMv75oTs4Y+j8VJQa1lvv+tt5M80Bciv17GaasZGd/UYwH/VpEoVSqKVrZ6q42B07jb67v/IHtqFu
+	PP4gnL96Sn4Z1F5LXOHY5WBHebcpbe/aHG0NmFsKdYiGIavEu7nv+tO6ZUB9QEidnwuLakx8H7ND3
+	QcKPYx2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEqOL-00000007EZi-1XWO;
-	Mon, 20 Apr 2026 15:18:29 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wEqOd-00000007EeW-1rXU;
+	Mon, 20 Apr 2026 15:18:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEqOI-00000007EZI-3dhs;
-	Mon, 20 Apr 2026 15:18:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=1gFNXBO4mkz3Uo0BQPn36ROKj98JwT3Uw9lk0qqRPeI=; b=U31pz7AS+pKZlw8DECKWWCdIzm
-	UbVlumxOOeJhtrd4wye+31FIUG3S4SXe8ghNU/eTWKZS/3Gw/H39IDjaCFEP3FcKjfahwPSrCvlsf
-	DdKg0ZRMBC5KS6tniUHoaCBk/w6useh0ouaSV0+CTSkxC8V3lRR86vV/FcPKkeDLofbOR4eR1THqw
-	jBcvFEJeO7DAGRhs+JYGuC5GbJfniMVGbypYN8GoxVgiMqjljvAQxYI5jEwQnwEskn1jirHPf156t
-	Z+3yLTHcAHj8JEsmkHvttsBSrt8Z0+wwIBcLIa/gxvWm+JQedi62FDh2b5SeKIjSC4JWbPnny9YpL
-	omofuhZw==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 05/40] arm64: dts: rockchip: Add frl-enable-gpios to
- rk3576-luckfox-core3576
-Date: Mon, 20 Apr 2026 17:18:20 +0200
-Message-ID: <2480203.yKrmzQ4Hd0@phil>
-In-Reply-To: <401a020f-ca5d-4c7d-941e-f0288e144357@collabora.com>
-References: <20260417-dts-rk-frl-enable-gpios-v1-0-a19c0dd8c9f6@collabora.com>
- <2282688.C4sosBPzcN@phil>
- <401a020f-ca5d-4c7d-941e-f0288e144357@collabora.com>
+	id 1wEqOc-00000007Edq-1PG3
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Apr 2026 15:18:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2563960141;
+	Mon, 20 Apr 2026 15:18:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A757FC19425;
+	Mon, 20 Apr 2026 15:18:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776698323;
+	bh=QYHChXw76c6dJ0PIp/7R1gBDwoTeSchaSZkzCa9xByY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=PSD4Mvm/nJ8M182CkcEeNsaen3SA80oo5n7MLnMn8OfiTRsoEvYNvGWxVAL+B/FI9
+	 5deQDujlsqcj6k88z8eFpClBZN6EkBxvIw/VbRfaQKBBAaa0LGcWBE1jozYiWHEoLC
+	 H+apLIOe0E4EgO+V7W7DASVvnLa0fL5yLSqjDimrIXdfxuX6lAqZwabw7LqV1sfknZ
+	 U75IaS8OOquQ33uWFb1z2e+Xb61OTUgT58y7BZejNGL6p3kNKLqEZMPvCv8v0IFR39
+	 29+eeFnCweArxywBJ3Sx8+flafZgPBMGf8o+ctbZSnXWFT8B3pUQ8UT6RGkE/C5sVn
+	 gTFwY3GaEjECQ==
+Message-ID: <b9117d52-1a12-480b-a762-31d3eab6b827@kernel.org>
+Date: Mon, 20 Apr 2026 17:18:40 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_081826_934781_3059FF4C 
-X-CRM114-Status: GOOD (  33.80  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: exynos850: Add syscon-poweroff node
+To: Alexey Klimov <alexey.klimov@linaro.org>,
+ Sam Protsenko <semen.protsenko@linaro.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+References: <20260325-exynos850-poweroff-v1-1-34c19c06e74d@linaro.org>
+ <DHY2P02B6E6H.J79TDOADC4BS@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <DHY2P02B6E6H.J79TDOADC4BS@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,135 +118,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 20. April 2026, 13:00:25 Mitteleurop=C3=A4ische Sommerzeit schri=
-eb Cristian Ciocaltea:
-> Hi Heiko,
->=20
-> On 4/18/26 2:12 AM, Heiko Stuebner wrote:
-> > Hi Cristian,
-> >=20
-> > Am Freitag, 17. April 2026, 18:34:17 Mitteleurop=C3=A4ische Sommerzeit =
-schrieb Cristian Ciocaltea:
-> >> On 4/17/26 2:32 PM, Heiko Stuebner wrote:
-> >>> the comments below apply sort of to all patches in that series.
-> >>>
-> >>> Am Freitag, 17. April 2026, 11:24:39 Mitteleurop=C3=A4ische Sommerzei=
-t schrieb Cristian Ciocaltea:
-> >>>> The board exposes the GPIO4_C6 line to control the voltage bias on t=
-he
-> >>>> HDMI data lines.  It must be asserted when operating in HDMI 2.1 FRL
-> >>>> mode and deasserted for HDMI 1.4/2.0 TMDS mode.
-> >>>>
-> >>>> Wire up the HDMI node to the GPIO line using the frl-enable-gpios
-> >>>> property and drop the line from the vcc_5v0_hdmi regulator to allow
-> >>>> adjusting the bias when transitioning between TMDS and FRL operating
-> >>>> modes.
->=20
-> [...]
->=20
-> >>>
-> >>>
-> >>>> @@ -231,6 +228,8 @@ &gpu {
-> >>>>  };
-> >>>> =20
-> >>>>  &hdmi {
-> >>>> +	pinctrl-0 =3D <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda &hdmi_frl=
-_en>;
-> >>>> +	frl-enable-gpios =3D <&gpio4 RK_PC6 GPIO_ACTIVE_LOW>;
-> >>>
-> >>> this should be sorted the other way around I think.
-> >>>
-> >>> Also please provide a pinctrl-names property too. If for whatever rea=
-son
-> >>> the dw-hdmi aquires a 2nd pinctrl state in the future, this makes sure
-> >>> board DTs are staying in the "old" compatible mode until they are ada=
-pted.
-> >>
-> >> Just to make sure I fully understand, the convention is that=20
-> >>
-> >>   pinctrl-names =3D "default";
-> >>
-> >> should be always provided, even when the node overrides an existing pi=
-nctrl-0
-> >> property?
-> >>
-> >> E.g. in rk3576.dtsi we have:
-> >>
-> >>   hdmi: hdmi@27da0000 {
-> >>     ...
-> >>     pinctrl-names =3D "default";
-> >>     pinctrl-0 =3D <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda>;
-> >>     ...
-> >>   }
-> >>
-> >> Hence I omitted pinctrl-names which doesn't change and just appended
-> >> &hdmi_frl_en to pinctrl-0's original value.
-> >=20
-> > correct, please always provide a pinctrl-names entry when setting a new
-> > pinctrl-0 .
-> >=20
-> > The background is, imagine you have a base:
-> >=20
-> > pinctrl-names =3D "default";
-> > pinstrl-0 =3D <....>;
-> >=20
-> > and override pinctrl-0 in a board.
-> >=20
-> > Now a newer binding introduces a 2nd pinctrl state "foo". Of course
-> > we're backwards compatible, and both are valid and the driver checks
-> > what states are defined.
-> >=20
-> > So the base sets:
-> > pinctrl-names =3D "default", "foo";
-> > pinctrl-0 =3D <...>;
-> > pinctrl-1 =3D <...>;
-> >=20
-> > in your (old) board you override pinctrl-0, but the driver still sees
-> > the new variant with 2 pinctrl states, where it should've stayed with
-> > the legacy 1-state, until the board-dts might get adapted in the future.
-> >=20
-> >=20
-> > And I know, we're likely not doing that everywhere, and also in most
-> > cases it won't really matter, but still it is safer and sets the better
-> > precedent :-) .
->=20
-> Thanks for the detailed explanation, that clears things up!
->=20
-> There are several other nodes (e.g. i2c, pwm, uart) that also lack
-> pinctrl-names despite providing pinctrl-0 - I can address those in a
-> separate patch.
+On 20/04/2026 17:04, Alexey Klimov wrote:
+> On Wed Mar 25, 2026 at 12:26 AM GMT, Alexey Klimov wrote:
+>> Without poweroff node Exynos850-based board continue to draw current
+>> (around ~60 mA with my test setup) after poweroff. Kernel also reports
+>> different lockup problems and RCU stalls warnings continuosly after
+>> last kernel messages about hardware being switched off.
+>> Turns out we missed a write to PMU's PS_HOLD_CONTROL (PMU + 0x30c)
+>> register that actually switches the SoC off.
+>>
+>> Add poweroff node that implements this.
+>>
+>> With this change the current draw after power off is in range of few
+>> milliampers and lockup messages are no more.
+>>
+>> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+>> ---
+>>  arch/arm64/boot/dts/exynos/exynos850.dtsi | 7 +++++++
+> 
+> Any feedback on this?
 
-As said above it is an ideal to aspire to (having -names together with
-defining states), but if you want to add the "missing" -names,
-go ahead :-) .
+You posted it right before closing tree, so this was waiting for a few
+days for anyone to chime in and then tree is closed. It's merge window
+now, so I don't review anything. Nothing new here...
 
-
-> I also noticed an inconsistency in property ordering: some nodes place
-> pinctrl-names before pinctrl-<n> and others after.  I have always used
-> the former, but we should probably prefer the latter to stay consistent
-> with how clocks, resets, phys, etc. are ordered.
->=20
-> Thoughts?
-
-There is sort of a "conflict" between regular ordering and possibly
-better readability. I.e. the dt-writing guidelines propose alphabetical
-ordering which I guess puts numbers before letters.
-
-On the other hand the semantic definition of list the states and then
-define them (names first, -0, -1, etc second) looks more sensible from
-a understanding standpoint.
-
-
-But there we'd end up with special rules, so just sticking to the
-base sorting will cause less friction in the long run I think.
-Aka, -0, -1 first; -names after, follows the main sorting suggestions
-so it's easy to explain to newcomers.
-
-
-But please don't re-sort existing entries :-)
-
-
-Heiko
-
-
+Best regards,
+Krzysztof
 
