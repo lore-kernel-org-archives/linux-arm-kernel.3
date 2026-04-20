@@ -4,56 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32790F588C3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:29:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59039F588C9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:29:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fp0Q0+XK9sA5Sz/l4C6NsDGjVWfACCHnYUZ38r+2HAw=; b=k8T92qK1YSScatg5pf0VdflImm
-	dt1z4cluF5QeE8fSla66CnLB1/gf3g9fMO8zAESXoknbgU5HC8p7iuSM2PAwO2E4jTfTzZZ0297cc
-	iPFIfyu3Npq7Rg6KreM0Ui3qQtUM3m/mdwX7P3NMgjcE303tWcMmjJqxFEVO5sGFaavF+mmgNbyn1
-	1vjcCFh4KDiTuSNnQbfS9EfqRupPb4wELweLDouESfQ2NOrIM21TV//nnu7uDmiPZecJR6Lo5MfdG
-	0Poe0GSHiJZt4bS2/GrabJxWs+5yJmBlHghGazOJ+glvffUtgkhCNkdzsWfMGihaIrH1aRg19/9Xc
-	ZxYO3Uxg==;
+	bh=pQ9+eYIa3koGa9nJ9xSyRsblWAgk1th0pidYgWpZwSo=; b=BHW/komi/bBDUkkEp1w81aW3zK
+	H0zMzg0oauFjUvPvgvsM+YTj/undjOLNFrPRbOe2G6lnYJShbnHuS+digC+TGGEXfUbKTvTHPY7ki
+	rcudo8UPDunHQFP++6ToU9/yLX91eDJx+uP5pQ+cVHJTtTtHi2qcJQ2Lw6Pgr33qXimrm5KSUuQJY
+	hFb+6GxP3T1MWFv2bn90o6B8A+Dp+9s8u6xqesBxEsodQAMe1x6500HPNvCnciA55lHAhbnLO2Jzw
+	PC/Ymv9Guk7g6tMr4Ydueb5x+IP2toHhyB0sZfrZBHNeiqRG4qwJMx7lXOawqU0gSfdAEdM6M24Oy
+	7pspzuhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEogh-000000071cH-07Ao;
-	Mon, 20 Apr 2026 13:29:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wEogo-000000071dr-1VX8;
+	Mon, 20 Apr 2026 13:29:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEogf-000000071bf-390j
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 13:29:17 +0000
+	id 1wEogm-000000071dV-39Ky;
+	Mon, 20 Apr 2026 13:29:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 273A361141;
-	Mon, 20 Apr 2026 13:29:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1C68C2BCB7;
-	Mon, 20 Apr 2026 13:29:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F001761146;
+	Mon, 20 Apr 2026 13:29:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEFD9C19425;
+	Mon, 20 Apr 2026 13:29:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776691756;
-	bh=D18Cc9bFYdsUDjJ2iA1Kqm9LlIHVtcmPLlo+/TRBsTc=;
+	s=k20201202; t=1776691763;
+	bh=ncGXnGfwyNBIummgKXfDWCBtxlIZHxp6orVYnEbfNTc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DlbWDuZkQNmZQ/sbeKedcbklpcDnSJG4y6V5wISVAMw5KU6Z6u9yVORJt9dgmu+hg
-	 pVLVt757d0CdiETG1o1j7bgUr5HxoMExFGWZqersD5gk7O9exvFwWbMghiLq/L4M3v
-	 wo8aDGhQc2vxrSq/y/4zvZBP2EDlv2j8a2g+i3Yg7kRf6oNxamN30LPs3RMF3r2E/+
-	 Ab0RSpvkhdAkc7rzD8CUKUNwOer+0Shi293HMRSVnCT/Kb/EGHFVS5fSNCAC8eIoVw
-	 +VoYqjicWVYTGwYAwSwmj367JJpbPxONFBbJpCt04oDgnOgSsZ+f3sk7roPMWle5ho
-	 zC244Qvsdk7oQ==
+	b=o26TWoPJW9cR2sRp7tw6yydEGOXvXrtDv0Dk9SVBWafrT1zJVaqAHoxWQLGgcdoGd
+	 ATVJrm5TSXT01hlxtxZ9SQSMB/cr7yhM3Pxw8yX6i0f7wh+xfalc24R9mdKaVpfa52
+	 /Wrb2BZDSIVrgLcw7zJdaGkmi+46H2wGLK5NBSZCTMwJkny9kjisQ08LGU6Su+RqS2
+	 OsODhm9u8GkwKCWqlQ1QHaeOh6q80UR4Ceuj31ZU9ZDoNstXQO3+adf6A1HnspGA2M
+	 yTfn4dN8HJkkqrs4mDGWNiuUXo47oMiEu1xzYTpfZFrDQ4XoNZ6fyN6yKvFdCju0Hl
+	 HSIU8glSFYL9w==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
+Cc: Michael Lo <michael.lo@mediatek.com>,
+	Felix Fietkau <nbd@nbd.name>,
 	Sasha Levin <sashal@kernel.org>,
-	catalin.marinas@arm.com,
+	lorenzo@kernel.org,
+	ryder.lee@mediatek.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 7.0-6.12] drivers/virt: pkvm: Add Kconfig dependency on DMA_RESTRICTED_POOL
-Date: Mon, 20 Apr 2026 09:19:29 -0400
-Message-ID: <20260420132314.1023554-175-sashal@kernel.org>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 7.0-6.12] wifi: mt76: mt7925: Skip scan process during suspend.
+Date: Mon, 20 Apr 2026 09:19:33 -0400
+Message-ID: <20260420132314.1023554-179-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260420132314.1023554-1-sashal@kernel.org>
 References: <20260420132314.1023554-1-sashal@kernel.org>
@@ -77,287 +81,327 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Will Deacon <will@kernel.org>
+From: Michael Lo <michael.lo@mediatek.com>
 
-[ Upstream commit 61135967fa76d37883d90ccccc5a1cb73e90b94d ]
+[ Upstream commit 8c7e19612b01567f641d3ffe21e47fa21c331171 ]
 
-pKVM guests practically rely on CONFIG_DMA_RESTRICTED_POOL=y in order
-to establish shared memory regions with the host for virtio buffers.
+We are experiencing command timeouts because an upper layer triggers
+an unexpected scan while the system/device is in suspend.
+The upper layer should not initiate scans until the NIC has fully resumed.
+We want to prevent scans during suspend and avoid timeouts without harming
+power management or user experience.
 
-Make CONFIG_ARM_PKVM_GUEST depend on CONFIG_DMA_RESTRICTED_POOL to avoid
-the inevitable segmentation faults experience if you have the former but
-not the latter.
-
-Reported-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Will Deacon <will@kernel.org>
-Link: https://patch.msgid.link/20260330144841.26181-39-will@kernel.org
-Signed-off-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Michael Lo <michael.lo@mediatek.com>
+Link: https://patch.msgid.link/20260112114007.2115873-1-leon.yen@mediatek.com
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-Based on my analysis, let me now write up the comprehensive assessment.
+Now I have a comprehensive understanding. Let me compile my analysis.
 
-## Phase 1: Commit Message Forensics
+---
 
-**Step 1.1 - Subject Parse:**
-- Record: [drivers/virt: pkvm] [Add] Adds Kconfig dependency on
-  DMA_RESTRICTED_POOL to prevent misconfiguration.
+## PHASE 1: COMMIT MESSAGE FORENSICS
 
-**Step 1.2 - Tags:**
-- Record: `Reported-by: Marc Zyngier <maz@kernel.org>` (subsystem
-  maintainer hit this); `Signed-off-by: Will Deacon`; `Link:` to lore;
-  `Signed-off-by: Marc Zyngier` as maintainer. No Fixes: tag, no Cc:
-  stable tag.
+**Step 1.1: Subject Line**
+- Subsystem: `wifi: mt76: mt7925:`
+- Action: "Skip" — implies avoiding an undesired operation during a
+  specific state
+- Summary: Skip scan processing during suspend to prevent command
+  timeouts
+- Record: [wifi/mt76/mt7925] [skip/prevent] [avoid scan work execution
+  during suspend to prevent command timeouts]
 
-**Step 1.3 - Body:**
-- Record: Bug description is that pKVM guests use
-  `CONFIG_DMA_RESTRICTED_POOL=y` to establish shared memory regions with
-  host for virtio buffers. Without it, users experience "inevitable
-  segmentation faults". Symptom = segfaults. No version info given.
+**Step 1.2: Tags**
+- `Signed-off-by: Michael Lo <michael.lo@mediatek.com>` — MediaTek
+  employee, driver vendor
+- `Link: https://patch.msgid.link/20260112114007.2115873-1-
+  leon.yen@mediatek.com` — original submission by Leon Yen
+- `Signed-off-by: Felix Fietkau <nbd@nbd.name>` — mt76 subsystem
+  maintainer, applied the patch
+- No Fixes: tag (expected for autosel candidates)
+- No Reported-by: tag
+- Record: Author from MediaTek (driver vendor), applied by subsystem
+  maintainer Felix Fietkau.
 
-**Step 1.4 - Hidden Bug Fix?:**
-- Record: Yes, this is a clear build-time protection against a real
-  runtime failure. The verb "Add" masks what is effectively a fix to
-  prevent crashes from broken configurations.
+**Step 1.3: Commit Body**
+- Bug: Command timeouts during suspend because upper layer triggers a
+  scan while device is suspended
+- Symptom: Command timeouts
+- Root cause: Scan work runs when device is in suspended state and can't
+  respond to firmware commands
+- Record: [Bug: command timeout during suspend from unexpected scan]
+  [Symptom: timeout errors] [Root cause: scan work executing while
+  device is powered down]
 
-## Phase 2: Diff Analysis
+**Step 1.4: Hidden Bug Fix Detection**
+- Despite using "Skip" rather than "fix," this directly addresses a
+  command timeout — a real functional bug. Users would experience
+  suspend failures or WiFi errors after resume.
+- Record: Yes, this is a bug fix. The "skip" phrasing masks a fix for
+  command timeouts during suspend.
 
-**Step 2.1 - Inventory:**
-- Record: 1 file (`drivers/virt/coco/pkvm-guest/Kconfig`), 1 line
-  changed (`depends on ARM64` -> `depends on ARM64 &&
-  DMA_RESTRICTED_POOL`). Scope: minimal / surgical.
+## PHASE 2: DIFF ANALYSIS
 
-**Step 2.2 - Code Flow:**
-- Record: Before: ARM_PKVM_GUEST can be built with only ARM64. After:
-  requires DMA_RESTRICTED_POOL too. Compile-time constraint only; no
-  runtime code changes.
+**Step 2.1: Inventory**
+- 1 file modified: `drivers/net/wireless/mediatek/mt76/mt7925/main.c`
+- +8 lines added (3 variable declarations, 5 lines for the pm->suspended
+  check)
+- Function modified: `mt7925_scan_work()`
+- Scope: Single-file, single-function surgical fix
+- Record: [1 file, +8 lines, mt7925_scan_work(), surgical fix]
 
-**Step 2.3 - Bug Mechanism:**
-- Record: Category (h) Hardware workaround / build-time config fix
-  (Kconfig dependency). Before fix, user could build a pKVM guest kernel
-  lacking `DMA_RESTRICTED_POOL`; virtio buffer sharing via mem_encrypt
-  ops (SHARE/UNSHARE) would then fail at runtime → segfaults described
-  by Marc Zyngier.
+**Step 2.2: Code Flow Change**
+- BEFORE: `mt7925_scan_work()` always processes queued scan events from
+  `scan_event_list`, regardless of device power state
+- AFTER: `mt7925_scan_work()` first checks `pm->suspended`; if true,
+  returns immediately without processing events
+- This affects the scan event processing path during suspend
+- Record: [Before: always processes scan events; After: skips processing
+  if device is suspended]
 
-**Step 2.4 - Fix Quality:**
-- Record: Trivially correct. One-line Kconfig dependency. Zero
-  regression risk: it can only prevent a misconfiguration; existing
-  correct configs (with both enabled) are unaffected.
+**Step 2.3: Bug Mechanism**
+- Category: Logic/correctness fix + timing issue
+- The race: `mt7925_suspend()` cancels scan_work at line 1476, but
+  `mt7925_mcu_scan_event()` can re-queue scan_work after cancellation.
+  Between `cancel_delayed_work_sync()` and full device suspension, the
+  MCU can still generate scan events, re-queuing scan_work. When
+  scan_work runs against the suspended device, firmware commands time
+  out.
+- The `pm->suspended` flag is set in PCI/USB suspend
+  (`mt7925_pci_suspend()` line 452) and cleared in resume
+  (`_mt7925_pci_resume()` line 590)
+- Record: [Logic/timing fix: scan work can run against suspended device
+  causing command timeouts]
 
-## Phase 3: Git History Investigation
+**Step 2.4: Fix Quality**
+- Obviously correct: checks a well-established flag (`pm->suspended`)
+  that is used consistently throughout the mt76 driver family
+- Minimal and surgical: adds only an early return
+- Minor concern: skbs in `scan_event_list` are not freed on early
+  return, but they would be processed on resume or cleaned up on device
+  removal
+- Pattern is consistent with other uses of `pm->suspended` in the driver
+  (e.g., `mt792x_mac.c:278`, `mt76_connac_mac.c:47,73`,
+  `mt7925/regd.c:196`)
+- Record: [Fix is obviously correct, minimal, follows established driver
+  patterns. Minor skb leak concern is acceptable.]
 
-**Step 3.1 - Blame:**
-- Record: File touched only twice: original commit `a06c3fad49a50`
-  (drivers/virt: pkvm: Add initial support..., Aug 2024, v6.12) and this
-  fix. Driver has been stable for ~18 months.
+## PHASE 3: GIT HISTORY INVESTIGATION
 
-**Step 3.2 - Fixes: Tag:**
-- Record: None present. Bug is a design omission from `a06c3fad49a50`
-  (v6.12), not a regression.
+**Step 3.1: Blame**
+- The `mt7925_scan_work()` function was introduced in commit
+  `c948b5da6bbec` by Deren Wu on 2023-09-18, the initial commit adding
+  the mt7925 driver
+- This is the initial code — the bug has existed since the driver was
+  created
+- Record: [Buggy code from c948b5da6bbec (initial mt7925 driver, v6.7)]
 
-**Step 3.3 - File History:**
-- Record: Only 4 commits touch pkvm-guest/ in total. Kconfig file only
-  has 2 commits. Not part of a multi-patch prerequisite chain — this is
-  patch 38/38 of a v5 series but the Kconfig change is self-contained.
+**Step 3.2: Fixes Tag**
+- No Fixes: tag present (expected for autosel candidate)
+- Record: N/A
 
-**Step 3.4 - Author Context:**
-- Record: Will Deacon is a core arm64 / kernel maintainer. Reported by
-  Marc Zyngier (KVM/arm64 maintainer). Both are top-level subsystem
-  authorities for this code.
+**Step 3.3: File History**
+- Multiple related suspend/resume fixes for mt7925 exist:
+  `bf39813599b03` (simplify HIF suspend), `2d5630b0c9466` (fix low power
+  mode entry), `1b97fc8443aea` (fix regd_notifier before suspend)
+- Related scan fix: `122f270aca2c8` (prevent multiple scan commands)
+- No prerequisites identified for this specific fix
+- Record: [Multiple suspend-related fixes indicate ongoing suspend
+  reliability improvements. Fix is standalone.]
 
-**Step 3.5 - Dependencies:**
-- Record: The Kconfig change is entirely self-contained. It does not
-  require any other patch from the 38-patch series to apply or function.
+**Step 3.4: Author**
+- Michael Lo / Leon Yen are MediaTek employees and regular mt76
+  contributors
+- Multiple suspend/resume and scan-related fixes from the same team
+- Record: [Authors are driver vendor engineers with deep knowledge of
+  the hardware]
 
-## Phase 4: Mailing List / External Research
+**Step 3.5: Dependencies**
+- The `pm->suspended` flag and `struct mt76_connac_pm` are well-
+  established infrastructure present since the mt7921 driver
+- No new functions or structures needed
+- Record: [No dependencies. Fix uses existing infrastructure available
+  in all versions with mt7925.]
 
-**Step 4.1 - Original Submission:**
-- Record: `b4 dig -c 61135967fa76d` found the thread at
-  `https://patch.msgid.link/20260330144841.26181-39-will@kernel.org`.
-  Part of v5 series "KVM: arm64: Add support for protected guest memory
-  with pKVM" (38 patches).
+## PHASE 4: MAILING LIST RESEARCH
 
-**Step 4.2 - Reviewers:**
-- Record: Patch applied with `Signed-off-by: Marc Zyngier` as the
-  KVM/arm64 maintainer taking it through his tree. Maintainer was the
-  Reporter — strong trust signal.
+**Step 4.1-4.5**: Lore is blocked by anti-scraping protection. b4 dig
+could not find the commit. However, the patch was applied by Felix
+Fietkau (mt76 maintainer), indicating it passed review.
+- Record: [Could not access lore discussion. Patch was accepted by
+  subsystem maintainer.]
 
-**Step 4.3 - Bug Report:**
-- Record: Marc Zyngier hit this directly while testing; no external
-  syzbot/bugzilla URL.
+## PHASE 5: CODE SEMANTIC ANALYSIS
 
-**Step 4.4 - Series Context:**
-- Record: Series revisions v1→v5. Committed version matches v5/final.
-  The Kconfig patch (38/38) is a standalone cleanup tail of the series;
-  not dependent on other patches.
+**Step 5.1: Functions Modified**
+- `mt7925_scan_work()` — delayed work handler for processing scan events
 
-**Step 4.5 - Stable Discussion:**
-- Record: Not explicitly nominated for stable in the thread (confirmed
-  no `Cc: stable` anywhere in mbox thread for this patch).
+**Step 5.2: Callers**
+- Registered as delayed work via `INIT_DELAYED_WORK(&dev->phy.scan_work,
+  mt7925_scan_work)` in init.c:214
+- Queued by `mt7925_mcu_scan_event()` in mcu.c:415 via
+  `ieee80211_queue_delayed_work()`
+- Cancelled in `mt7925_suspend()` at main.c:1476
 
-## Phase 5: Code Semantic Analysis
+**Step 5.3-5.4: Call Chain**
+- MCU receives scan event from firmware -> `mt7925_mcu_scan_event()`
+  queues skb and schedules `scan_work` -> `mt7925_scan_work()` processes
+  scan results
+- This is a common path triggered during WiFi scanning, which mac80211
+  can trigger automatically
 
-**Step 5.1 - Key Functions:**
-- Record: No function-level changes. Kconfig-only diff.
+**Step 5.5: Similar Patterns**
+- `pm->suspended` checks exist in: `mt792x_mac.c:278` (reset),
+  `mt76_connac_mac.c:47,73` (pm_wake, power_save_sched),
+  `mt7925/regd.c:196` (regd_change), `mt7921/init.c:147`
+- The mt7921 `mt7921_scan_work()` does NOT have this check, which is
+  consistent with it being a fix specific to the mt7925 suspend flow
+  timing
+- Record: [Pattern is well-established across mt76 drivers. mt7921
+  doesn't have this check but has different timing characteristics.]
 
-**Step 5.2 - Callers:**
-- Record: `CONFIG_ARM_PKVM_GUEST` controls build of
-  `drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c` which registers
-  `pkvm_crypt_ops` via `arm64_mem_crypt_ops_register()` (mem_encrypt
-  SHARE/UNSHARE). These operations are invoked when DMA bounce-buffer
-  infrastructure from `DMA_RESTRICTED_POOL` performs shared-memory setup
-  for virtio.
+## PHASE 6: STABLE TREE ANALYSIS
 
-**Step 5.3 - Callees:**
-- Record: `pkvm_init_hyp_services()` hooks
-  `arm64_mem_crypt_ops_register()` and
-  `arm64_ioremap_prot_hook_register()`. Without `DMA_RESTRICTED_POOL`,
-  SWIOTLB restricted pool isn't available so buffers for virtio never
-  get properly set up as shared → faults.
+**Step 6.1: Code Existence**
+- mt7925 driver was added in `c948b5da6bbec` which is in v6.7+
+- Not in v6.6 (verified: `git merge-base` confirms)
+- Present in v6.12 (verified)
+- For stable tree 7.0.y (the target here), the driver definitely exists
+- Record: [mt7925 exists in v6.7+. Bug present since driver creation.
+  Applicable to 6.7.y and later stable trees.]
 
-**Step 5.4 - Reachability:**
-- Record: Any pKVM-protected guest doing virtio I/O is affected —
-  entirely userspace-reachable (network, block, console virtio devices).
+**Step 6.2: Backport Complications**
+- The file has had recent changes (regd_change in scan_work at line
+  1361), but the fix adds code at the beginning of the function, which
+  should apply cleanly to most versions
+- Record: [Expected to apply cleanly — adds code at function entry
+  point]
 
-**Step 5.5 - Similar Patterns:**
-- Record: Similar explicit `depends on` patterns exist for many "coco"
-  guest drivers (TDX, SEV) which have their own DMA infrastructure
-  requirements.
+**Step 6.3: Related Fixes in Stable**
+- No evidence that this specific fix is already in stable
+- Record: [No prior fix for this issue found in stable]
 
-## Phase 6: Cross-referencing and Stable Tree Analysis
+## PHASE 7: SUBSYSTEM CONTEXT
 
-**Step 6.1 - Does buggy code exist in stable?:**
-- Record: `ARM_PKVM_GUEST` driver and its Kconfig entry exist in every
-  stable tree from v6.12 onwards (confirmed `git tag --contains
-  a06c3fad49a50` returns v6.12+). The broken config scenario exists in
-  6.12.y, 6.13+ rolling and 7.0.y.
+**Step 7.1**: WiFi driver (drivers/net/wireless/mediatek/mt76/mt7925) —
+IMPORTANT subsystem
+- MediaTek mt7925 is a common WiFi 7 chip in modern laptops
+- Record: [Driver-specific, but widely deployed WiFi hardware. IMPORTANT
+  criticality.]
 
-**Step 6.2 - Backport Complications:**
-- Record: The stable tree (`stable/linux-7.0.y`, HEAD) currently has
-  `depends on ARM64` only (confirmed by reading the file). Patch will
-  apply with no modifications. Same applies to 6.12.y–6.x.y.
+**Step 7.2**: Actively developed subsystem with many recent commits
+- Record: [Active development, many suspend/resume fixes indicate real-
+  world usage and bug reports]
 
-**Step 6.3 - Related fixes in stable:**
-- Record: No earlier or alternate fix; this is the first and only fix
-  for this dependency issue.
+## PHASE 8: IMPACT AND RISK ASSESSMENT
 
-## Phase 7: Subsystem Context
+**Step 8.1**: Affected: Users of mt7925 WiFi hardware who suspend/resume
+their systems (common laptop use case)
 
-**Step 7.1 - Criticality:**
-- Record: drivers/virt/coco (confidential computing) = PERIPHERAL
-  driver-specific, but failure mode is crash.
+**Step 8.2**: Trigger: System suspend while WiFi is active and mac80211
+triggers a scan. This is a common scenario on laptops.
 
-**Step 7.2 - Activity:**
-- Record: Low activity (only 4 commits total in pkvm-guest/). The driver
-  is relatively new (v6.12+) but stable in terms of scope.
+**Step 8.3**: Failure mode: Command timeouts during suspend — can cause
+suspend failures, WiFi functionality loss after resume. Severity: HIGH
+(suspend/resume reliability).
 
-## Phase 8: Impact / Risk Assessment
+**Step 8.4**:
+- BENEFIT: HIGH — prevents command timeouts during suspend for common
+  laptop hardware
+- RISK: VERY LOW — 8 lines, single early return, follows established
+  driver patterns
+- Ratio: Strongly favorable
 
-**Step 8.1 - Affected:**
-- Record: arm64 users building a kernel with `ARM_PKVM_GUEST=y` and
-  running as a pKVM protected guest, lacking `DMA_RESTRICTED_POOL=y`.
-  arm64 defconfig already sets it since 6.3, so defconfig users are not
-  impacted; the victims are custom-kernel builders (research, vendor
-  builds, embedded).
+## PHASE 9: FINAL SYNTHESIS
 
-**Step 8.2 - Trigger:**
-- Record: Trigger = any virtio I/O in a pKVM guest with the broken
-  config. Happens early at boot for most virtio-equipped guests.
+**Step 9.1: Evidence FOR**
+- Fixes a real command timeout bug during suspend/resume (common laptop
+  scenario)
+- Small, surgical, obviously correct fix (8 lines, single function)
+- Uses well-established `pm->suspended` pattern from the driver family
+- Author is driver vendor (MediaTek), applied by subsystem maintainer
+  (Felix Fietkau)
+- Bug has existed since driver creation (affects all stable trees with
+  mt7925)
+- No dependencies, standalone fix
 
-**Step 8.3 - Severity:**
-- Record: Failure mode = segmentation faults (crashes). Severity = HIGH
-  (system unusable / crash). Upstream maintainer (Marc Zyngier) was
-  personally affected.
+**Evidence AGAINST**
+- No Fixes: tag (expected)
+- Minor concern about queued skbs not being freed on early return
+  (acceptable trade-off)
+- UNVERIFIED: Could not access lore discussion to check for reviewer
+  concerns
 
-**Step 8.4 - Risk vs Benefit:**
-- Record: BENEFIT: prevents crashes for misconfigured pKVM guest builds,
-  and documents the implicit dependency. RISK: near-zero — it's a one-
-  line Kconfig constraint that can only REFUSE previously broken
-  configs; existing working builds (including defconfig) are not
-  affected.
+**Step 9.2: Stable Rules Checklist**
+1. Obviously correct? YES — simple flag check following established
+   pattern
+2. Fixes real bug? YES — command timeouts during suspend
+3. Important issue? YES — suspend/resume reliability on laptop hardware
+4. Small and contained? YES — 8 lines, 1 file, 1 function
+5. No new features? YES — purely defensive check
+6. Can apply to stable? YES — uses existing infrastructure
 
-## Phase 9: Synthesis
+**Step 9.3: Exception Categories**
+- Not an exception category; this is a standard bug fix
 
-**Step 9.1 - Evidence:**
-- FOR: One-line Kconfig dependency; reported by subsystem maintainer;
-  signed off by maintainer; prevents segfaults; obviously correct;
-  applies cleanly; no runtime changes; falls into the documented "Build
-  fixes / Kconfig dependency fixes" stable exception category.
-- AGAINST: Not tagged for stable; part of a large new-feature series
-  (though the patch itself is standalone); niche effect (only
-  misconfigured builds); defconfig users already unaffected.
-
-**Step 9.2 - Rules Checklist:**
-1. Obviously correct: YES (trivial Kconfig edit).
-2. Fixes a real bug: YES (crashes reported).
-3. Important (crashes): YES (segfaults = HIGH severity).
-4. Small / contained: YES (1 line).
-5. No new features: YES (purely a constraint).
-6. Applies cleanly: YES.
-
-**Step 9.3 - Exception Category:**
-- Record: Fits "Build fixes / Kconfig dependency fixes" documented
-  exception.
-
-**Step 9.4 - Decision:**
-- YES: it's a safe, obvious, Kconfig-only crash-prevention fix that
-  applies cleanly to v6.12+ stable trees.
+**Step 9.4: Decision**
+This is a small, well-targeted fix for a real suspend/resume bug
+affecting common WiFi hardware. The fix follows established patterns in
+the driver family, was accepted by the subsystem maintainer, and carries
+minimal regression risk.
 
 ## Verification
 
-- [Phase 1] Parsed commit: `Reported-by: Marc Zyngier`, `Link:` to lore,
-  no `Cc: stable`, no `Fixes:`.
-- [Phase 2] Diff confirmed via `git show 61135967fa76d` — single line
-  `depends on ARM64` → `depends on ARM64 && DMA_RESTRICTED_POOL`.
-- [Phase 3] `git log --oneline -- drivers/virt/coco/pkvm-guest/Kconfig`:
-  only 2 commits (origin + this fix).
-- [Phase 3] `git show a06c3fad49a50` + `git tag --contains
-  a06c3fad49a50`: original driver introduced in v6.12.
-- [Phase 4] `b4 dig -c 61135967fa76d`: matched to v5 38/38 at
-  `https://patch.msgid.link/20260330144841.26181-39-will@kernel.org`.
-- [Phase 4] `b4 dig -a`: patch evolved v1→v5; applied version matches
-  latest.
-- [Phase 4] Inspected mbox thread `/tmp/pkvm-dma-restricted.mbx` for
-  `Cc: stable`/`Fixes:` referencing this patch: none found for 38/38.
-- [Phase 5] Read `drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c` to
-  confirm mem_encrypt SHARE/UNSHARE ops registration explains why
-  DMA_RESTRICTED_POOL is needed for virtio.
-- [Phase 6] `git show HEAD:drivers/virt/coco/pkvm-guest/Kconfig` on
-  `stable/linux-7.0.y` shows `depends on ARM64` only — patch applies
-  cleanly.
-- [Phase 6] `git log --oneline -- drivers/virt/coco/pkvm-guest/` in the
-  current checkout confirms only 4 total commits, no conflicting
-  refactors.
-- [Phase 7] `git log -S"CONFIG_DMA_RESTRICTED_POOL" --
-  arch/arm64/configs/defconfig`: commit `09ea26f1bf31c` added it to
-  defconfig in Jan 2023 (predates the driver).
-- [Phase 8] Failure mode "segmentation faults" taken directly from
-  commit message authored by Will Deacon and reporter Marc Zyngier;
-  severity classification is mine based on described symptom.
-- UNVERIFIED: I did not reproduce the segfault; I rely on the
-  maintainer's description. I did not enumerate every downstream stable
-  tree policy on Kconfig-only fixes — but this change is self-contained
-  and independent.
+- [Phase 1] Parsed tags: SOB from MediaTek author, applied by Felix
+  Fietkau (mt76 maintainer)
+- [Phase 2] Diff: +8 lines in mt7925_scan_work(), adds pm->suspended
+  early return check
+- [Phase 3] git blame: buggy code from c948b5da6bbec (initial mt7925
+  driver, Sep 2023, v6.7)
+- [Phase 3] git merge-base: confirmed mt7925 NOT in v6.6, IS in v6.7 and
+  v6.12
+- [Phase 3] Related commits: multiple suspend fixes (bf39813599b03,
+  2d5630b0c9466, 1b97fc8443aea)
+- [Phase 5] Grep for pm->suspended: found 15+ uses across mt76 driver
+  family, established pattern
+- [Phase 5] Grep for scan_work callers: queued by mcu.c:415, cancelled
+  in suspend main.c:1476
+- [Phase 6] Code exists in v6.7+ stable trees
+- [Phase 8] Failure mode: command timeout during suspend, severity HIGH
+- UNVERIFIED: Could not access lore.kernel.org discussion due to anti-
+  bot protection
 
 **YES**
 
- drivers/virt/coco/pkvm-guest/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/net/wireless/mediatek/mt76/mt7925/main.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/drivers/virt/coco/pkvm-guest/Kconfig b/drivers/virt/coco/pkvm-guest/Kconfig
-index d2f344f1f98f7..928b8e1668ccc 100644
---- a/drivers/virt/coco/pkvm-guest/Kconfig
-+++ b/drivers/virt/coco/pkvm-guest/Kconfig
-@@ -1,6 +1,6 @@
- config ARM_PKVM_GUEST
- 	bool "Arm pKVM protected guest driver"
--	depends on ARM64
-+	depends on ARM64 && DMA_RESTRICTED_POOL
- 	help
- 	  Protected guests running under the pKVM hypervisor on arm64
- 	  are isolated from the host and must issue hypercalls to enable
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/main.c b/drivers/net/wireless/mediatek/mt76/mt7925/main.c
+index 2d358a96640c9..38474cd2c38d6 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7925/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7925/main.c
+@@ -1323,10 +1323,18 @@ void mt7925_mlo_pm_work(struct work_struct *work)
+ void mt7925_scan_work(struct work_struct *work)
+ {
+ 	struct mt792x_phy *phy;
++	struct mt792x_dev *dev;
++	struct mt76_connac_pm *pm;
+ 
+ 	phy = (struct mt792x_phy *)container_of(work, struct mt792x_phy,
+ 						scan_work.work);
+ 
++	dev = phy->dev;
++	pm = &dev->pm;
++
++	if (pm->suspended)
++		return;
++
+ 	while (true) {
+ 		struct sk_buff *skb;
+ 		struct tlv *tlv;
 -- 
 2.53.0
 
