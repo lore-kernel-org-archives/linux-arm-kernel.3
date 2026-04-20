@@ -4,62 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A978F588DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 14:15:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A89EDF588DC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 14:16:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sAfBSQ8VAz+T3MEQfU5/82R3tFozaNIvqC/8V0XY7+I=; b=qqW4eDXGt+nCRPr0xZL4GvORDr
-	CUe3qu1bt15KHkb1u06aiT9nNhmCEPVK9KA2r1MPGQ251RHEJRrTuvNw/m4178WYMEABrgQFexcu/
-	/1RzbDyCN76o2m8+zG9X8PoTXOWMr9FIvMinPOoQeVc3mhoK1KVxtG1zDdG47bP7/3dAwzG8DJ4Xy
-	Rqu7N8pLOJDUhyIXmbd+57YkupCRHZbA3BuBXcwnJFvex6k1HwHiCwID8/k8VGq7odPH/liTSddtT
-	LE8NcjNn/LKkDQDI98f1KJ9D+jamVBayW4vBUg/U9ucjvQQJm0v9nPPYwWhQHTzJ/EracQZFW5Y9K
-	zY7eEIMw==;
+	bh=crEmDvjs5b1DaxkQopC3Ptl3PLa4f/FTz18lnb+EAQ4=; b=u6ma2oG25icwXN13IW6vEoI8vT
+	q9RjD4xP3rtH7FY3wHOlj9TRlvp8S3ZIsIzu4Ot6A/ZfoQ+uElhDZwadsYh33tw2qmBD3u8nvMKLT
+	i3qqNNXunLfLI6crpuS1c2L9cIUctu63F/uaulYyVAq7VzCK4FsIYL4LAB32YMNmaKufECBcJtR0q
+	D3bYTLoqSUdtQZ/JEq7lzzpH/5MnamIhWuf2n+tLBR08liqzOqUq6UbnQLq7lFDqJpHHgxLBA3m+j
+	k5K7r4M6e/lT0AsjdIjU3yt8BmAwbfOoh6qpD1J88lUDhsTqr29/SZ+fExFOMJQ1G0SXZd/CikScx
+	BZbT5CKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEpOr-000000079N1-0o0R;
-	Mon, 20 Apr 2026 14:14:57 +0000
+	id 1wEpPt-000000079Wn-2Pup;
+	Mon, 20 Apr 2026 14:16:01 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEpOp-000000079MS-05lO
+	id 1wEpPq-000000079VX-2Yp2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 14:14:56 +0000
+	Mon, 20 Apr 2026 14:15:59 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0FAF51516;
-	Mon, 20 Apr 2026 07:14:48 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A5A0A3F7B4;
-	Mon, 20 Apr 2026 07:14:51 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 380C71516;
+	Mon, 20 Apr 2026 07:15:50 -0700 (PDT)
+Received: from arm.com (unknown [10.57.89.173])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 881F83F7B4;
+	Mon, 20 Apr 2026 07:15:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776694493; bh=SpGIaEO+7YDPT6wqwPtFUdsz9O2FOsqYjyt7X+bnG/k=;
+	t=1776694555; bh=jpQEW9v4+0iIoT2HmeCsYzjMGkOaNNq+W02ovVUjlLs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=p8nxiXMMinxckJ9ZLOcltuhZulg6xfO98CBq7Tp2DdYdMlKcpampDDAL2zPuQ6aix
-	 KQlG1bUSXOIH61XNE37+ldY3eoXS/27aJ4N2zD7THcQ34VVCAqrInxExB4vbzKhn8a
-	 UzXgffCdno/WGaXqNsvp6PR23jc11+wZ/5/My3kM=
-Date: Mon, 20 Apr 2026 15:14:49 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Breno Leitao <leitao@debian.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, leo.bras@arm.com, leo.yan@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	palmer@dabbelt.com, paulmck@kernel.org, puranjay@kernel.org,
-	usama.arif@linux.dev, kernel-team@meta.com
-Subject: Re: [PATCH RFC] arm64/irqflags: force inline of
- arch_local_irq_enable()
-Message-ID: <aeY02X5MDWPhGPCK@J2N7QTR9R3>
-References: <20260420-arm64_always_inline-v1-1-dba919cf46bc@debian.org>
- <aeYkz_4WKDdb1NTp@J2N7QTR9R3>
- <aeYmHr_lgPJbBoL_@gmail.com>
+	b=GPhXzyfIgTIk7EAZZtS4904HSlVC5tr3Z8GoJBYIiPUoliDV0hjMgyMqo6yoZgx8+
+	 9UR22jvHhg31wVf/jIXqs5R0FUrNBDgLX4m8nDY/tUG+j3en+vcbTAMIPYvRjgNUT/
+	 mlLHdbuqhMNWUHifCuCYl3raj/cdhUzeR9EaKChw=
+Date: Mon, 20 Apr 2026 15:15:51 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: James Morse <james.morse@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, will@kernel.org,
+	Ben Horgan <ben.horgan@arm.com>, Gavin Shan <gshan@redhat.com>,
+	Zeng Heng <zengheng4@huawei.com>
+Subject: Re: [RESEND PATCH 0/3] arm_mpam: resctrl: Fixes for v7.1-rc1
+Message-ID: <aeY1F_QL-vLeDgRa@arm.com>
+References: <20260420140516.3892820-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aeYmHr_lgPJbBoL_@gmail.com>
+In-Reply-To: <20260420140516.3892820-1-james.morse@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_071455_127996_3B17F922 
-X-CRM114-Status: GOOD (  21.27  )
+X-CRM114-CacheID: sfid-20260420_071558_747206_50D8E0BF 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,50 +70,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 20, 2026 at 06:15:24AM -0700, Breno Leitao wrote:
-> On Mon, Apr 20, 2026 at 02:06:23PM +0100, Mark Rutland wrote:
-> > On Mon, Apr 20, 2026 at 05:42:11AM -0700, Breno Leitao wrote:
-> > > arch_local_irq_enable() is a small wrapper that dispatches between two
-> > > unmask paths: __daif_local_irq_enable() on most systems, and
-> > > __pmr_local_irq_enable() on builds that use GIC PMR-based masking
-> > > (Pseudo-NMI). Both leaf primitives are already __always_inline; the
-> > > wrapper itself is plain "static inline".
-> > >
-> > > In practice the compiler does not always inline the wrapper.
-> >
-> > I think this was my mistake, and we should have marked all the helpers
-> > as __always_inline for noinstr safety, as x86 did in commit:
-> >
-> >   7a745be1cc90 ("x86/entry: __always_inline irqflags for noinstr")
-> >
-> > I think we should mark all of the following as __always_inline in one
-> > go:
-> >
-> > * arch_local_irq_enable()
-> > * arch_local_irq_disable()
-> > * arch_local_save_flags()
-> > * arch_irqs_disabled_flags()
-> > * arch_irqs_disabled()
-> > * arch_local_irq_save()
-> > * arch_local_irq_restore()
-> >
-> > ... which then ensures noinstr safety, and has the side benefit of
-> > giving nicer traces as you're suggesting here.
-> >
-> > Are you happy to try that?
+Hi James,
+
+On Mon, Apr 20, 2026 at 03:05:13PM +0100, James Morse wrote:
+> This series is the collected fixes for MPAM series in arm64/for-next/core.
 > 
-> Absolutely, I'll work on testing it that and put together a patch
-> addressing all of them.
+> These fix a unmount->remount problem with the CDP emulation,
+> an uninitialised variable and a checker warning.
 > 
-> Should this be targeted for stable backports as well? If so, which
-> commit should I reference in the Fixes tag?
+> If its easier, there is a branch here:
+> https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/glue/v7.0-rc3
 
-I don't think we need to worry about backporting, and can do this as a
-cleanup for now unless someone shouts that they're seeing brokenness in
-a stable kernel.
+I pulled the mpam/glue/v7.0-rc3+fixes into arm64 for-next/core.
 
-There's no specific commit for a fixes tag; this has always been a bit
-dodgy, but we've evidently been getting away with it in practice.
+Thanks!
 
-Mark.
+-- 
+Catalin
 
