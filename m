@@ -4,75 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43251EA71BC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 05:28:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3650F99C76
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 05:41:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zYqBi5Y7SR8juLwBRICUsdi/c0VzNDgvxNB9NS9Ihhs=; b=SoswPlTYZHs3FYnZWkOakSoUwF
-	xXzU51GgGdd8wnuK5HJgiL5ajojTPaVsyCiFMrHdsiViHCESjotm/mg6xVCAkIwn16XI8I6yNKeZ2
-	ttAAo/5s2bET2cTm00cekKwPaQNp9lPmTQEvRq3c9BIevZtAO75hIoTb1Pn9/z3/N9blqllXCJTkr
-	/XCVOenUUZ9RA0mTIjSTZbdV5cgFni+5FOC/Lp1Cyyp1jOlFtGF8aVlmOofSIL9+7NmwjgxjVOdPr
-	6Z3HOCXqhFY7n5NJ9pwSC/CI28r/WiVmjjUglfOX/cQjWEU0ON/U3CGZ5vFOlJUCt7ylJ1ll30/+/
-	NExLDkTw==;
+	bh=CN0rXWBmzkEFgIqLEHhOXPBNQ+jcsnyYPEtLHAwW1Bs=; b=zHDnUVGjPCFACn/IVfSP0hHsgp
+	6lpUTKL35WEMNX+ipfBtBpiqyhbhYdU0yt4qXaTUKCOHcs+6tCth+ewPC7VUixPDlnyI1+Rn6Oz+5
+	PlYXwZrKcChaJEp/w1z4OdcgfhPmS/4fWy9fL85yYPnXHkJwO6siHxuVzq3SSJL0S+WYqDYt5/adg
+	zfqYpX0V2osjcH1kzeqnJjYuSwkbrnAr60HaGDQzXd1/dtASKtS3UnB05GmACRRagbr6F8b6e3jvP
+	zdWe3HEJsUtoS7TVm+ZrWJOuJ66jQvN/b939EvWH2r/W5jzVMlGrKhsCcHMxbEluAuIwvh/TQIvqD
+	DfxQHtlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEhAv-00000006Ra7-3PCY;
-	Mon, 20 Apr 2026 05:28:01 +0000
-Received: from www3579.sakura.ne.jp ([49.212.243.89])
+	id 1wEhOG-00000006SAz-1FMl;
+	Mon, 20 Apr 2026 05:41:48 +0000
+Received: from mail-vk1-xa2e.google.com ([2607:f8b0:4864:20::a2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEhAs-00000006RZm-3o1P
+	id 1wEhOC-00000006SAa-42vx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 05:28:00 +0000
-Received: from [133.11.54.205] (h205.csg.ci.i.u-tokyo.ac.jp [133.11.54.205])
-	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 63K5R9l2040505
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Mon, 20 Apr 2026 14:27:09 +0900 (JST)
-	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=zYqBi5Y7SR8juLwBRICUsdi/c0VzNDgvxNB9NS9Ihhs=;
-        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
-        h=From:Message-ID:To:Subject:Date;
-        s=rs20250326; t=1776662829; v=1;
-        b=O/7mWMQ/1Txgcq83Zz62yWSSux2cnql95+dF4NKmTQQ36GGq2zOlxgygimjHS7rK
-         QO7SJEiAYsGCw2hyAEfp2dxSbmYksGEpyKjIkX9sAqfsqFOR20VCHYv4OF8mYYJk
-         dn/kGNqtvWlBLp9fo2rwzsgifb1A3Xkmk9OnmIUicx1UuVhgl24WCAT0FuTdxnfw
-         n9R/xRc2LawyKhC0rslMiN+blLIKkm8vjADTYVdqIy74ZkN1uG6yMkBuiaAVDd2u
-         YorDbuNva9Uk1LlmuoiGaPVrt3yrY3OSUzujy4uXsa5F+tVVTRy9a6MYN/c7xjNQ
-         5cBa22eQ/DJCl3bNh4hiTw==
-Message-ID: <73cc9b30-091d-44d6-8a57-d4aa97ad678c@rsg.ci.i.u-tokyo.ac.jp>
-Date: Mon, 20 Apr 2026 14:27:08 +0900
+	Mon, 20 Apr 2026 05:41:46 +0000
+Received: by mail-vk1-xa2e.google.com with SMTP id 71dfb90a1353d-5673804da95so808472e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 22:41:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776663702; cv=none;
+        d=google.com; s=arc-20240605;
+        b=jBIqjfo9tM4S953KbGa1PILXF4wAoKOI7QfhC2BC8weiJ2IH1m4laMWXSFe5Sgm0ST
+         AtEwoW3hLSFE7vyeWzINdbOcfERZeQ2F7CBAZr/9lpgoGFQwfAZx574iZ/SBZPeJaSbJ
+         OFIfzUOp3DFaDGyLEWqphvkXyHdinA7ct4NIc5G2tZS1ACHlHv22JnyZaDrXqLHijwhP
+         GIphi0l7m4cZ/H+N9F5v2fePcP4LQw6Uolj3xvvT5rXndN5T2L29+YoVP9Yo057qk/NF
+         J6wkcO0mGpO7aYsoxsuIneSaaVkTnWmiZ1xOcKCatwDyFB/gQ4ebyh927luNijWrigyP
+         oLXQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=CN0rXWBmzkEFgIqLEHhOXPBNQ+jcsnyYPEtLHAwW1Bs=;
+        fh=8obPqxKDuEPDJU6MnUy9DlO1VzZUznND3Syg/A1lbKg=;
+        b=cXWDFKJfsR4gXaKljt8mAeZbkn3Mz+KKNxqmdWLk0QYupHuevmF4bdChsvpKWfH3LL
+         9WI6JaEPhcwI4rplm6nUO/aTqXlxZD6DLT8S5oWhp8nQU+GFtYaYzIwhGQLEJ1xDkAUA
+         /uJ4h1HSvSOXNImtncQinsxERYAVnLX4No9l6p/Q2NPfFJ6jKeWip+T4+3MD5f+Aa7li
+         bx3BE37n6Wzz6udE1ffP9cq9rguTY8UqHNgGh8gdOlomTZ64OcrlD0ONPspbEnaG/fj2
+         suI33S32j1kkP7UEsj/eXl7+PD+QDOclO9oqTxDCaTua4Hiyt3QWTGP37uHwldUAReDD
+         OpWw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776663702; x=1777268502; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CN0rXWBmzkEFgIqLEHhOXPBNQ+jcsnyYPEtLHAwW1Bs=;
+        b=A2nDIUA4Zy0OjCYDanBKeocKYgwC+R1I4r2xm6OimeEJort4n+NJZG82oadqr0EE+K
+         H3SEtvjRCysNg0cHb/wkCoYwZGYjCvB2Y++BItQryREIBQS17oK/MfYRw7lfFnlEr1gm
+         U1NgJLmpIse4mU7ldwURD513ij092AxXDC7EjByNKRTY0c7jbYCllUSSkXjf9ny5bP4A
+         ivfKSDTBT8xlQlff1kJH2S0kIa9KQWNLjaKOhLqof0DtUNKSuSZ/NwQP1swz4HUNJwWx
+         PVQwBPdN1OUkrXwYYzKsw0gmfXSwQCVCiO129R9GpB5pcYBXg1khjK/Y2ERvk2djmoME
+         ThsA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776663702; x=1777268502;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=CN0rXWBmzkEFgIqLEHhOXPBNQ+jcsnyYPEtLHAwW1Bs=;
+        b=onA0QhBuxlzuN4VMPlK/DpYg3HhNXMfnrWrt6fnBBJp/nQBvJcRB9ZdO8fXaJKK1Bx
+         fzYalgFluTALcjqIdnbfjZvVgBgWa4xZYaxfrA/SFT0RrtPjzr4y8yYUOKIzDmLs0dGY
+         MlC9vpAlUjmjQ/jeQKjl4Sq6bkB6Y0lUHlLMB2saKtJWOykTaqPwvO/8Dd87NJX2llwR
+         MOcaG5G9skTCCEY3UHm2Csh1ZYbZ2/+LWZV+qfmk8XTjvj4ReC9qk6ET2agwaH/CRYEa
+         /o90ITCuQPmddV+Qop4mkeJc+eoRV3gYoeDgDXILyunXRGHldQFOX2UpxBeHl4oqQpqP
+         N2Gw==
+X-Forwarded-Encrypted: i=1; AFNElJ+lcQxwLu4TPpWXW+MUaBDzjdZkJpL04VyEp+dqQ2o+4CELCsPnP6ArSBKpluCh8GXl3VBfAf7BknfEYotOKDue@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/AP0a423/OXxPB0WIczxRh2AHENaNGUAU6WoxEeDo2qqSeD6f
+	JS83HiUBeBUFV/uxO2Tt5xvkg7n9XiAVevdO5hehZ/IVbaL4euTOM2rdK7pVUNWj1hvSe8tCuRR
+	7WEVZ+he9YBIFb/X4ujWzYtQcR1ACflI=
+X-Gm-Gg: AeBDiet1m72/9Vi6ZAMq2Z37mA+vp0JVTt4PZXAU8EAON4arfO6F9LJTGzD6mXr8ESg
+	kAeDjvbfWPU6wXumIIYbJInzTHO9IP51ZY1X61CGSBLQzuXdQTYH0p1XPKh4JmSYmE8eXJ0Z6KK
+	G10094Q7WW9yrmTILFbQwDW1CMWCWa8WNXoYE2DkKpQispKQxkB2wkQ0qr+H24illuF6O9mZoMl
+	QfZvwj1q3qaayV0bNu/D6bJ1VwMoP2svOKrU56UMsZbJCSI6AYmkMyY2ZWA862IbssIf2AF1EXR
+	N7M/3ujrxoYJK+IdGR2ZlVZ8HX0=
+X-Received: by 2002:a05:6102:1591:b0:607:9443:b2ee with SMTP id
+ ada2fe7eead31-616f73ff3e9mr4135707137.15.1776663702601; Sun, 19 Apr 2026
+ 22:41:42 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/4] KVM: arm64: PMU: Add
- kvm_pmu_enabled_counter_mask()
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu
- <yuzenghui@huawei.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org,
-        kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
-        linux-hardening@vger.kernel.org, devel@daynix.com, kvm@vger.kernel.org,
-        linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-References: <20260418-hybrid-v7-0-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
- <20260418-hybrid-v7-1-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
- <87o6jfavhx.wl-maz@kernel.org>
-Content-Language: en-US
-From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <87o6jfavhx.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260409-anacapa-devlop-phase-devicetree-v2-0-68f328671653@gmail.com>
+ <20260409-anacapa-devlop-phase-devicetree-v2-1-68f328671653@gmail.com> <20260409-foster-stability-f77b38c6f7a0@spud>
+In-Reply-To: <20260409-foster-stability-f77b38c6f7a0@spud>
+From: Colin Huang <u8813345@gmail.com>
+Date: Mon, 20 Apr 2026 13:41:30 +0800
+X-Gm-Features: AQROBzCiKd51EWmBsMq2VuVFATQ6pDOW-cn9wWzru-4S9PgURyPGAf8ahBr1njk
+Message-ID: <CAPBH0A_K39218+=QHJuEY+SbFk-nCnM=Z8RQMdHBK7SkCj2QtQ@mail.gmail.com>
+Subject: Re: [PATCH v2 1/3] dt-bindings: arm: aspeed: add Anacapa EVT1 EVT2 board
+To: Conor Dooley <conor@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+	Andrew Jeffery <andrew@codeconstruct.com.au>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, colin.huang2@amd.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260419_222759_477580_A63EF647 
-X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-CacheID: sfid-20260419_224145_029780_2F177996 
+X-CRM114-Status: UNSURE (   8.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,22 +121,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/04/19 23:13, Marc Zyngier wrote:
-> On Sat, 18 Apr 2026 09:14:23 +0100,
-> Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
->>
->> This function will be useful to enumerate enabled counters.
-> 
-> Consider expanding this commit message a bit. Something along the
-> lines of:
-> 
-> "Add kvm_pmu_enabled_counter_mask() as an accessor returning a 64bit
->   mask of the counters enabled on a given vcpu.
-> 
->   This will eventually be useful to iterate over the counters."
+Conor Dooley <conor@kernel.org> =E6=96=BC 2026=E5=B9=B44=E6=9C=889=E6=97=A5=
+=E9=80=B1=E5=9B=9B =E4=B8=8B=E5=8D=8811:36=E5=AF=AB=E9=81=93=EF=BC=9A
+>
+> On Thu, Apr 09, 2026 at 07:40:26PM +0800, Colin Huang wrote:
+> > Document Anacapa BMC EVT1 and EVT2 compatibles.
+> >
+> > Signed-off-by: Colin Huang <u8813345@gmail.com>
+>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> pw-bot: not-applicable
 
-That looks better. I think I'll use that message for the next version.
+Hi
+  Could anyone let me know, what is my next step which I need to do?
+  I can't find the changed in for-next branch of
+https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git .
+  Thanks.
 
-Regards,
-Akihiko Odaki
+Regard,
+Colin Huang
 
