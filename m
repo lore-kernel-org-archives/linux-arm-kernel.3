@@ -4,93 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70EFEF5A8BC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 20:45:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC0B5F5A8BC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 20:47:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NFxnKBIb4rP9HCGv24zgq2DmExS0pP68iWUHvrzRj3k=; b=0yrFxTv8xMvtGPYKX2zB0QM7uL
-	HmubfCONQ+xSqK4056APt6h1d5pwGbiBl57X3cKpXTMcxN8eQibCkscWTb2tJ2PWLfqDWPb9Y7Kh2
-	UUBFC79vGCOMXJLrjGMDaKyMP4WdZNVZdj8OlLZftDmZD4rYdw6a9myePj6PYcpXq+4qDRxo3ymyB
-	yWUC2a8wWxm5YFR0TFuT9LmgJph46FM/2uW67EuVW42j1/UsJTY7p/89c8bCl9z3eSOxp45Rq/so+
-	jmG2Nk7y4hIu7Of+axJefBJnvruLOzXBec9BeqfJ127ilUmq3Yi4MNnFS+6kZtnlisot0mg9eXqSw
-	hJlxg0Pw==;
+	bh=VMggFWx7dYASz3kXTlVBRyuVlZg3W3BNVcMSDh8xWWQ=; b=M72rD3LxnrF9EHXUwlVJ2pXImT
+	8Ci/cSXfCyB2ggemMFh7tkG9lpeYmcYUhg4l4tRORA76g20HCWoOh7jnf336Av1phdJAHIyu5jxIM
+	8tsZEN0SY0zMnlOzxZaWIVQ3U1RJZSTOUp4m/YmFjOX5F0UsUkzm23b1e4Na889J7By0woNCwc98t
+	AG3ZTflspV/D5KfnegRJ5cHEJK5PEjyiiLuAuKPyh7lodrOIVaRUHSkzh9ZlCkUFdKYVb4nmYlOSS
+	WJI1lyw/+WbTPeuB3TpX5FFnrO0/fPs0NJ/uLDPkfECyOMRiTGAGV0xK3Fre9cUNiengnvEy24ppT
+	pbf+Yv6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEvUv-00000007dtc-4BWv;
-	Mon, 20 Apr 2026 20:45:38 +0000
+	id 1wEvWH-00000007e3S-0LWy;
+	Mon, 20 Apr 2026 20:47:01 +0000
 Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEvUu-00000007dsm-1HH7
+	id 1wEvWE-00000007e2y-1kjT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 20:45:37 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4852a9c6309so30970665e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 13:45:35 -0700 (PDT)
+	Mon, 20 Apr 2026 20:47:00 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-48334ee0aeaso34900615e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 13:46:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776717934; x=1777322734; darn=lists.infradead.org;
+        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1776718017; x=1777322817; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=NFxnKBIb4rP9HCGv24zgq2DmExS0pP68iWUHvrzRj3k=;
-        b=D6KBscg0TPl7AywJz5OWmv8ZShTf7c1fZuDQMVo4EVU3hBbeELYJeFloaSqxjURj8H
-         oEGZ4xmXmfYz3a1WHI8DAXgHI5RrLkDNQmoZoB5s4S+i0F1vX2x3HC1C39e7T0Qu9QNu
-         k85IZmOvGaW1ARhCC0OdTNDy5dCpTGpkD+PB0Os0FkC+H5TsoMnUBjCWm0SE+Hf2/Dvq
-         0TmHSkaOAlVs6uqEo0r7cUb1ya7+/jFBzfrNylL44Uv3SJXkOXX7tXPDqn1aE38SBeZm
-         Ag701jmuGHeSjNa3CRaceAht7fdRQDTlPSUaJsLDe5sAxhoDuUsQE7m3pkdUbDtkSDvg
-         rV3Q==
+        bh=VMggFWx7dYASz3kXTlVBRyuVlZg3W3BNVcMSDh8xWWQ=;
+        b=q8umcQSothgpH8fTLr895FZHZPwE/kwROog9NyIbEMvf+DiANhvw4FIM5N4h7CfI4V
+         xlgMt7lWqW/ugYIf+5q+j/GYANAFFtMfaHu8yMBZpntXgyaelPEBoqGtnstGPUz5MZ1j
+         Sj4cwRVg94Ug5fag/F0xyS97SCa6vgCPMsOgxKvwi1tBYBMjKSnj8n8g6mJy1jsFq8Bd
+         QbR8MouFuL7Hyg1TGGnGDB1BWgnbjD47RPSlkpwChkOjS86mrYlgmgQT9WWlnt44ot8E
+         5ZuG8BnIoVxeE78kVJCP3GyAgjJG+4RQ1dNfVyaIwH7DKNYe2wSxiirfJ1oKLLco5gVC
+         1GwA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776717934; x=1777322734;
+        d=1e100.net; s=20251104; t=1776718017; x=1777322817;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=NFxnKBIb4rP9HCGv24zgq2DmExS0pP68iWUHvrzRj3k=;
-        b=O52zPOTrKw/A52ErFVVH2AxZ/JQbgpY8LXo2kQJnAuzaIZomQvE0kZ0MHfaNFICNAo
-         aXhb1HAS06dOY/tErv6I4QUuU/Tzd2ylCx1cKxKrzz3C9XgOGFDvQM8rxQilg+cBE261
-         JEA/e3DtQZXkXsPDED5ka6cyF+IYIWJ0ZUs5pHdvANW1EAh22OuY3amFzkHSeuykpOrA
-         tv+kmm20GTKR7quQmzsBdwal9/jNkdDL9y8QL/MUWkuiEJpseNQ4AfyreHiwAOnUrJKH
-         wFw/82K4/07HLT/JTJO78aiR9gAogO2aj3Q7ISqzoZnSvEtRgNq6z3baY4X8qFjNDAgc
-         FYCQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9OEo4uLgU5Y4fVqSadf88skau0H6+TJzpARIVsTjysjwzMpD2ZjIucbIwciYt1hpSAmh/Gz2R96lEl5J/hY4G4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzSQVv6z60Gf+5SPErLv+N+RV+eP5qpG38NQAGNFbLaTGmca+mB
-	CPFSvIZ+cq82Xet24GVCwrXR4HShdyzUrHFss7Uy+Ur+Ddnb8eeKZO1I
-X-Gm-Gg: AeBDietA4rbRgNA484dsyx4SLvSom0BCMU2lctNQbVSwdvsnh6E8HIDxRhr2YWTlhwJ
-	kgVUtlhugm7IOEVYpuigFOBFw5FbA0eETAPnpWVTpP2ThELdhZGe9ETxxCqkbIOZm+i/56lbTQN
-	G9DPXSI4vb3hY9r8/NSKX9YJT+OhuhCWttcKC2ThDyX6GX+532VVWMyyYSrCWx3W8L7h+WhRIue
-	vkgzQyLQLeaDNrLDla0r+Ee4sljpW0MrzEU8Z3GnFt4Za0f0t0bCF5A6/SJ5WW1NHPU5xohVRbI
-	5c95F12zyWQ/dyJnZHFVbfm2fiQanoGVZC++DMbbIrNLypxA1mhe0Ci+XouLq8d29xZaFQrYMH6
-	4My57ChqMVf+Z1YMJBgWblKxcP1PnCv5qjZONWEwwQii6qvFoSfSU6UkJ05YrKjm2VIf3Oi1SwM
-	CWayGQ6reAgek6Vup+2w4CNMgNIy1h9g==
-X-Received: by 2002:a05:600c:8115:b0:488:ac01:72b6 with SMTP id 5b1f17b1804b1-488fb77d7d3mr176918155e9.21.1776717933714;
-        Mon, 20 Apr 2026 13:45:33 -0700 (PDT)
-Received: from luca-vm.lan ([154.61.61.58])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4891c320084sm170344535e9.2.2026.04.20.13.45.32
+        bh=VMggFWx7dYASz3kXTlVBRyuVlZg3W3BNVcMSDh8xWWQ=;
+        b=nFx/A5gVm4DIZtPkaxmLr/Eds1HzenpucBrw4aiMJf//s2PpOtAJ7tLqYQXqYHm222
+         jblSb29BCMWGIWf0wT02nwGMbe6JvnMOwqV4OSUQiO8vdpb26bnEoQ4VaKIGAqvSMueQ
+         N45mU3P0wCjBuj6/4MlKnaVhZ1k8Vc/kwagOeeXx5rdlTEXJ+PoCoOkVnKY5uE8Go0AB
+         YbbUHsuL34rajtPKYsGtgtkGiur0Uxx/tbr6adTfZmhN8XHt183qYqMXpl//HZx2/ly8
+         rnGQwgFjSQ9mFgeqR98CUyWJthZwKX1NMjHPwg64q6UlYoSAESWD7YCedrT0mjqhzfwK
+         aQQA==
+X-Forwarded-Encrypted: i=1; AFNElJ81L3FtxPAab6rHtBS/+Cfb0y1wVjz65SkU8bSiJWIbi73kU0LcSkH5tr7ihNXVftIG11hlLBuf3ISLBiKTjJnB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yywy+noSqKqGAD687XmMHMjIBwJI/YkcUom5hJSbve3Nwdbugly
+	Cibxx1iktVB1Zm2UoQyVMapYdz4r358/K7WSvtv4rFAiDfaXEAFLW3r5vlm4VUsF+N4=
+X-Gm-Gg: AeBDiesG02hKoRBlz0WxsbIRvdqCQND7lOoDZsRZzmoxdXyNKOUUmz9IB08ciVXnAi7
+	JgI1junmYf2ZhnGVV7OU2Fjp8uEKTgxX3VqVnIIgtFMUSjgeuT4tR+uQ5526uLekb06Q17muRes
+	5tcsJchz4pTIKbFTeo6Zqrm/67qFfmkWL+DlE+ZLCMmmSSu4bLweP8M+v2bM0BvQkYVMumK4UqZ
+	g73nzD2NVK0Xvps3ZIRe7psuoppRP3GHUknev2WyAviqjj8nG4zGIz7GviMTovLYcjiKSVyrJxs
+	VFab0W/Hxhu45MwV9dAjyTW2hvhWuPaqBfYkOYgqwdJ9uJzR8O5itgOUmnxjNF2ZnGeUnEWWGKE
+	fPuXIsqYO9cPorQAnWKxKVvPfD29Rb386LLaULAQ1jjZ9Vn5Uye9TYXb1EHrnjkcLm2Vb34TOHb
+	arV2/+px1mH8MF3b+XR/NzXNBnDUWwF0J2YfoPltE=
+X-Received: by 2002:a05:600c:41d6:b0:487:2439:b7c8 with SMTP id 5b1f17b1804b1-488fb745294mr139309655e9.1.1776718016447;
+        Mon, 20 Apr 2026 13:46:56 -0700 (PDT)
+Received: from localhost ([2a02:8071:b783:6940:1d24:d58d:2b65:c291])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-48a525a0b1asm26426845e9.2.2026.04.20.13.46.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Apr 2026 13:45:33 -0700 (PDT)
-From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-To: linux-sound@vger.kernel.org
-Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] ASoC: dt-bindings: mediatek: Convert mtk-btcvsd-snd to DT Schema
-Date: Mon, 20 Apr 2026 21:44:30 +0100
-Message-ID: <20260420204514.1640995-1-l.scorcia@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        Mon, 20 Apr 2026 13:46:55 -0700 (PDT)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2] ARM: dts: stm32: add board pin documentation stm32mp135f-dk
+Date: Mon, 20 Apr 2026 22:46:48 +0200
+Message-ID: <20260420204647.1713944-2-u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4578; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=RuUj00JzNu8fU+LKSjapTZ5tePNXtbbVLDbLqJadgE0=; b=owGbwMvMwMXY3/A7olbonx/jabUkhsxnE7afuh0buGxPjI7/qzX+rqKPpj79HJb5uuiWmMZdX 7P1lmvmdTIaszAwcjHIiimy2DeuybSqkovsXPvvMswgViaQKQxcnAIwkTx99n+6i9ZIv9BUz/aI WMaosdxeYc2bGcskUhr3fBdjMW4O0orRejynQN+oQXx+m/3SD5q6bJdZZd3EhIOb3+z4tX2lDe+ fu5FdkVxF9hwXtxc7Jc3W9TqtettxUtNNy3s7uZmW1LZk75oSf/b/75XVtvVV3ZcO//RukY1s9p o5+V7jI0GeTZdZl3q1msd+f/IiunXms+aF4Q5v3WaFZFbyxLZ4uz6uLmT2WhjuXDP53IKd09q5Z 88Kaw97dynWnaNEqcZfot5548OJqiv/bhJdE1/TbiS3/dOF+d/5Ip+cni6SemDqKtFte5sbWFKb lsQ0dmm0a9ooF1TItVo4JwfMW6a6IH7zzfjsow6Zuat7AA==
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_134536_369919_0FFCFE43 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20260420_134658_483710_3093E626 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,107 +99,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the mtk-btcvsd-snd.txt DT binding to DT Schema format.
+Relate the devices defined in the device tree to the SoC ports and pins
+and labels available on the board.
 
-Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
 ---
- .../sound/mediatek,mtk-btcvsd-snd.yaml        | 54 +++++++++++++++++++
- .../bindings/sound/mtk-btcvsd-snd.txt         | 24 ---------
- 2 files changed, 54 insertions(+), 24 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mtk-btcvsd-snd.yaml
- delete mode 100644 Documentation/devicetree/bindings/sound/mtk-btcvsd-snd.txt
+Hello,
 
-diff --git a/Documentation/devicetree/bindings/sound/mediatek,mtk-btcvsd-snd.yaml b/Documentation/devicetree/bindings/sound/mediatek,mtk-btcvsd-snd.yaml
-new file mode 100644
-index 000000000000..f423e3a02997
---- /dev/null
-+++ b/Documentation/devicetree/bindings/sound/mediatek,mtk-btcvsd-snd.yaml
-@@ -0,0 +1,54 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/sound/mediatek,mtk-btcvsd-snd.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Mediatek ALSA BT SCO CVSD/MSBC Driver
-+
-+properties:
-+  compatible:
-+    const: mediatek,mtk-btcvsd-snd
-+
-+  reg:
-+    items:
-+      - description: Register location and size of PKV
-+      - description: Register location and size of SRAM_BANK2
-+
-+  interrupts:
-+    items:
-+      - description: BT-SCO interrupt
-+
-+  mediatek,infracfg:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: The phandle of the infracfg controller
-+
-+  mediatek,offset:
-+    description: Array of register offsets and masks
-+    $ref: /schemas/types.yaml#/definitions/uint32-array
-+    items:
-+      - description: infra_misc_offset
-+      - description: infra_conn_bt_cvsd_mask
-+      - description: cvsd_mcu_read_offset
-+      - description: cvsd_mcu_write_offset
-+      - description: cvsd_packet_indicator_offset
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - mediatek,infracfg
-+  - mediatek,offset
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    mtk-btcvsd-snd@18000000 {
-+      compatible = "mediatek,mtk-btcvsd-snd";
-+      reg = <0 0x18000000 0 0x1000>,
-+            <0 0x18080000 0 0x8000>;
-+      interrupts = <GIC_SPI 286 IRQ_TYPE_LEVEL_LOW>;
-+      mediatek,infracfg = <&infrasys>;
-+      mediatek,offset = <0xf00 0x800 0xfd0 0xfd4 0xfd8>;
-+    };
-diff --git a/Documentation/devicetree/bindings/sound/mtk-btcvsd-snd.txt b/Documentation/devicetree/bindings/sound/mtk-btcvsd-snd.txt
-deleted file mode 100644
-index 679e44839b48..000000000000
---- a/Documentation/devicetree/bindings/sound/mtk-btcvsd-snd.txt
-+++ /dev/null
-@@ -1,24 +0,0 @@
--Mediatek ALSA BT SCO CVSD/MSBC Driver
--
--Required properties:
--- compatible = "mediatek,mtk-btcvsd-snd";
--- reg: register location and size of PKV and SRAM_BANK2
--- interrupts: should contain BTSCO interrupt
--- mediatek,infracfg: the phandles of INFRASYS
--- mediatek,offset: Array contains of register offset and mask
--    infra_misc_offset,
--    infra_conn_bt_cvsd_mask,
--    cvsd_mcu_read_offset,
--    cvsd_mcu_write_offset,
--    cvsd_packet_indicator_offset
--
--Example:
--
--	mtk-btcvsd-snd@18000000 {
--		compatible = "mediatek,mtk-btcvsd-snd";
--		reg=<0 0x18000000 0 0x1000>,
--		    <0 0x18080000 0 0x8000>;
--		interrupts = <GIC_SPI 286 IRQ_TYPE_LEVEL_LOW>;
--		mediatek,infracfg = <&infrasys>;
--		mediatek,offset = <0xf00 0x800 0xfd0 0xfd4 0xfd8>;
--	};
+my (implicit) v1 was reviewed by sashiko, see
+https://sashiko.dev/#/patchset/20260416110218.594911-2-u.kleine-koenig%40baylibre.com
+
+The findings were good, this v2 addresses these.
+
+Best regards
+Uwe
+
+ arch/arm/boot/dts/st/stm32mp135f-dk.dts | 28 +++++++++++++++++++++----
+ 1 file changed, 24 insertions(+), 4 deletions(-)
+
+diff --git a/arch/arm/boot/dts/st/stm32mp135f-dk.dts b/arch/arm/boot/dts/st/stm32mp135f-dk.dts
+index 8dcf68b212b4..ffac3c4fd608 100644
+--- a/arch/arm/boot/dts/st/stm32mp135f-dk.dts
++++ b/arch/arm/boot/dts/st/stm32mp135f-dk.dts
+@@ -64,6 +64,7 @@ gpio-keys {
+ 		compatible = "gpio-keys";
+ 
+ 		button-user {
++			/* GPIO on PA13 "User button 2 (B2)" */
+ 			label = "User-PA13";
+ 			linux,code = <BTN_1>;
+ 			gpios = <&gpioa 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+@@ -74,6 +75,7 @@ leds {
+ 		compatible = "gpio-leds";
+ 
+ 		led_blue: led-blue {
++			/* GPIO on PA14 "User LED (LD3)" */
+ 			function = LED_FUNCTION_HEARTBEAT;
+ 			color = <LED_COLOR_ID_BLUE>;
+ 			gpios = <&gpioa 14 GPIO_ACTIVE_LOW>;
+@@ -82,6 +84,7 @@ led_blue: led-blue {
+ 		};
+ 
+ 		led-red {
++			/* GPIO on PA13 "User LED (LD4)" */
+ 			function = LED_FUNCTION_STATUS;
+ 			color = <LED_COLOR_ID_RED>;
+ 			gpios = <&gpioa 13 GPIO_ACTIVE_LOW>;
+@@ -228,6 +231,7 @@ phy0_eth1: ethernet-phy@0 {
+ 
+ &i2c1 {
+ 	pinctrl-names = "default", "sleep";
++	/* SDA on PE8 = CN8.27, SCL on PD12 = CN8.28 */
+ 	pinctrl-0 = <&i2c1_pins_a>;
+ 	pinctrl-1 = <&i2c1_sleep_pins_a>;
+ 	i2c-scl-rising-time-ns = <96>;
+@@ -462,7 +466,10 @@ counter {
+ 		status = "okay";
+ 	};
+ 	pwm {
+-		/* PWM output on pin 7 of the expansion connector (CN8.7) using TIM3_CH4 func */
++		/*
++		 * CH4 on PB1 = CN8.7;
++		 * CH3 on PB0 = CN8.10 is possible (conflicting with usart1)
++		 */
+ 		pinctrl-0 = <&pwm3_pins_a>;
+ 		pinctrl-1 = <&pwm3_sleep_pins_a>;
+ 		pinctrl-names = "default", "sleep";
+@@ -481,7 +488,10 @@ counter {
+ 		status = "okay";
+ 	};
+ 	pwm {
+-		/* PWM output on pin 31 of the expansion connector (CN8.31) using TIM4_CH2 func */
++		/*
++		 * CH2 on PD13 = CN8.31;
++		 * CH1 on PD12 = CN8.28 is possible (conflicting with &i2c1)
++		 */
+ 		pinctrl-0 = <&pwm4_pins_a>;
+ 		pinctrl-1 = <&pwm4_sleep_pins_a>;
+ 		pinctrl-names = "default", "sleep";
+@@ -500,7 +510,12 @@ counter {
+ 		status = "okay";
+ 	};
+ 	pwm {
+-		/* PWM output on pin 32 of the expansion connector (CN8.32) using TIM8_CH3 func */
++		/*
++		 * CH3 on PE5 = CN8.32
++		 * CH1N on PA7 = CN8.36 is possible (conflicting with &usart1)
++		 * CH2N on PB0 = CN8.10 is possible (conflicting with &usart1)
++		 * CH3N on PB1 = CN8.7 is possible (conflicting with &timers3)
++		 */
+ 		pinctrl-0 = <&pwm8_pins_a>;
+ 		pinctrl-1 = <&pwm8_sleep_pins_a>;
+ 		pinctrl-names = "default", "sleep";
+@@ -517,7 +532,7 @@ counter {
+ 		status = "okay";
+ 	};
+ 	pwm {
+-		/* PWM output on pin 33 of the expansion connector (CN8.33) using TIM14_CH1 func */
++		/* CH1 on PF9 = CN8.33 (alternatively on PA7 = CN8.36 (conflicting with &usart1)) */
+ 		pinctrl-0 = <&pwm14_pins_a>;
+ 		pinctrl-1 = <&pwm14_sleep_pins_a>;
+ 		pinctrl-names = "default", "sleep";
+@@ -529,6 +544,7 @@ timer@13 {
+ };
+ 
+ &uart4 {
++	/* Accessible via micro USB ST-LINK USB (CN10) */
+ 	pinctrl-names = "default", "sleep", "idle";
+ 	pinctrl-0 = <&uart4_pins_a>;
+ 	pinctrl-1 = <&uart4_sleep_pins_a>;
+@@ -540,6 +556,7 @@ &uart4 {
+ 
+ &uart8 {
+ 	pinctrl-names = "default", "sleep", "idle";
++	/* TX on PE1 = CN8.37, RX on PF9 = CN8.33 */
+ 	pinctrl-0 = <&uart8_pins_a>;
+ 	pinctrl-1 = <&uart8_sleep_pins_a>;
+ 	pinctrl-2 = <&uart8_idle_pins_a>;
+@@ -550,6 +567,7 @@ &uart8 {
+ 
+ &usart1 {
+ 	pinctrl-names = "default", "sleep", "idle";
++	/* TX on PC0 = CN8.8, RX on PB0 = CN8.10, RTS on PC2 = CN8.11, CTS on PA7 = CN8.36 */
+ 	pinctrl-0 = <&usart1_pins_a>;
+ 	pinctrl-1 = <&usart1_sleep_pins_a>;
+ 	pinctrl-2 = <&usart1_idle_pins_a>;
+@@ -560,6 +578,7 @@ &usart1 {
+ /* Bluetooth */
+ &usart2 {
+ 	pinctrl-names = "default", "sleep", "idle";
++	/* TX on PH12, RX on PD15, RTS on PD4, CTS on PE11 */
+ 	pinctrl-0 = <&usart2_pins_a>;
+ 	pinctrl-1 = <&usart2_sleep_pins_a>;
+ 	pinctrl-2 = <&usart2_idle_pins_a>;
+@@ -589,6 +608,7 @@ hub@1 {
+ };
+ 
+ &usbotg_hs {
++	/* USB Type-C DRP (CN7) */
+ 	phys = <&usbphyc_port1 0>;
+ 	phy-names = "usb2-phy";
+ 	usb-role-switch;
+
+base-commit: 365af1b5923351c59517a79d14d0b4543b79ce3b
 -- 
-2.43.0
+2.47.3
 
 
