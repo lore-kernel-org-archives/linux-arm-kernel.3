@@ -4,94 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B5B6F36C2A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 06:59:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99690F36C2A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 07:02:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T3r02hhZx3Vxqyj1q31IQgqGPj+UcnZ1kBemjU+jdaU=; b=2DpVOa7lE4eelCpxfwdd4TadTP
-	8iEH44Kl4o2vqn0R5gJ53MISmyGT0+DtyRdPLPHIFSEaKibOAO/NV+PfTjVRSE/sVvJhLvKDHSBDg
-	shDPXxgWsaAbZ8FsM3Jo71psG90hSXwtZlp5poFCGVaOiN6oJJuSAUFmFBQlohpIamQs3pmTKme3z
-	e1Xafhr1eAp+KHBVNoShiNPVu5njdPi3cpSvgsvQdiCZLwWpYFTECbTeywIUFo2N3qC0W6zO1eGhw
-	Dv48AfGty2TdEuWRSI8ZMoN6JhkemUaiiKkc18Ba8+2D21uSnSfGjqy/9KumY4o0K68ShDZSkMJmx
-	/9LKs6Dg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2BbMSuXILs/YeVoonOxKs/M17r2ztnxX+ybvv6ldj+Q=; b=2wb4VG4VTHdH0/FhcRZkn8+u10
+	TEHpECQE49/e7OnfLT9GQ6V1sBq4TckT7Dx4a109BOQeHCR0noiudY58gPs6Ota1SC6uGPQlPrxTL
+	gLNJLqLaNuhvO+2QBzRzhASOVqxCQqXRcPKqlXfKBOYqXklG34/3kyP9puPc99QjCnHxswbJrPQPV
+	74mOiZFogkBznOlS7U7nHOcORrO+FsDsZ4Mpdae6qKhTl6p05+EPjmZ58L7bDBVT8VXCu/0aGLOBd
+	vXHdIWo11sZfYAYQL3Zs7SWowZO28fCZGCNdC1NpefM3ohDqNXpItN/1VZmT8btegMJtKX29a+lEL
+	+CerGZ+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEiar-00000006WSM-2YgZ;
-	Mon, 20 Apr 2026 06:58:53 +0000
-Received: from mail-dl1-x1236.google.com ([2607:f8b0:4864:20::1236])
+	id 1wEidq-00000006WjL-0n5F;
+	Mon, 20 Apr 2026 07:01:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEiao-00000006WRU-3sSG
+	id 1wEidn-00000006Wiq-2LW0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 06:58:52 +0000
-Received: by mail-dl1-x1236.google.com with SMTP id a92af1059eb24-12713e56abdso1508299c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 23:58:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776668329; x=1777273129; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=T3r02hhZx3Vxqyj1q31IQgqGPj+UcnZ1kBemjU+jdaU=;
-        b=VB1xQeIpyAqymbttticMhp/qeHn1ZrSmDYFFOyUmbmK/iRbzY45nelNSi2eKaHekPk
-         dnG0iP8E/h97+/D6f44Cloy9r6ahZC4Mgdgw1ktqHC20tg0mre3cxcYG0dwN5UOCR72/
-         045QhTlSUZ5biT6765qhMynLlLUviY7UCnqaRewpIq3oGyd2bbtNqPel/GVXYHRIv1MO
-         uOVRLP7pJtF+vsqKigb3E8gidpk8odJXZMW/fFrOY5jN4/PPLjvQlKsvTlDeyjiunEy3
-         GfA/rHO2MguwlSyftZ3SRWfzYylIQkV5bVqB+z39X4mLIXuDRvfQ91dPiAxpOcSrHYdV
-         v5eg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776668329; x=1777273129;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
-         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=T3r02hhZx3Vxqyj1q31IQgqGPj+UcnZ1kBemjU+jdaU=;
-        b=TT8OYng1uI33wpj2T8vlSn1liPpQBxAoT8VV+gTw5zTYLyDc1eE18DgYbvNN1aYJoP
-         MnMzrnY+RT7NvXqm3qcLUd8AEmJjM9bahHJWjAIobj2WJ8zDYEH3T0sZSbCyJiqz0xdq
-         E31y2Dmu+CULvPjQAJqD18Th/c6U14gcC8fG3Awl6jRZiQOW1m0pc3GspUC+79v7aYWr
-         r0WqROgueowM7LkfrP/R9tiC/HTt+xm1tIakuxE3SupIl6ViesjZ9lPT7b9gvFKBbEZG
-         TuHbbFo3vRLr0+7osOjnbNy9ajn4eVQKnIteT9mA1AcUKXZLIG5rUN0Af3vkyYfLF7CM
-         pdhA==
-X-Forwarded-Encrypted: i=1; AFNElJ86Ry0gjdOQvJpVwVuYqhMljeozWF+Z3+uhjF/K0pgvwA8Mc7zhPbHfi+GU/NbyUAQuh+q7vab+O5ah4RX2GiIP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyw3Nc24uuFGu/TtMBm2sj6tLCiLdQDpLMWdIhlSC+Y5YnTU6mK
-	ROQpCNohT65kurIfjpcRZ2xmr9GDGSG22Q6vKOaa4oaQJdkgyjkAAeAD
-X-Gm-Gg: AeBDieu7Y+yk1mtIp4JxZfCYH0OlxQ/jm+7PByowrVZwMls8MUwcthe8XFLHia6FyWB
-	V3XmSU6NqUlzTv8r9VOr/gilDVGZbh/3nQPtZJi7XdoYGcB0Yco7BV1Ej3XrpnrfAnRe67M1LrE
-	9PhC5I0DyaV9YCuSfbZTdgoxYIqzJbzHl78pEG3WUCl12XekmPo0r/dm0BkdKG+J3O/Afm7Fkce
-	h8GldQdmhJGi98a5vfP6b4AQPgcurejfndSDrKrQ1ksT71gfj+2nq67czS4KXQBOZrKYJCuzCKs
-	5GnnpqPD/8TZM0CnnDLR84V5es5zE46ymkgON/SR/RcsksvY2a2CK7Ix1uz2kdwYsX71AQKge50
-	z641iqhsYno42brSXfjquXwzIbxIyFD6q+J3OvXWZQt64QKUXoukEOy1mf5ui3r8CAq/VnZYq2M
-	9HuF51Ac46
-X-Received: by 2002:a05:7022:4191:b0:12c:427:dacf with SMTP id a92af1059eb24-12c73b05ceamr5070810c88.10.1776668329484;
-        Sun, 19 Apr 2026 23:58:49 -0700 (PDT)
-Received: from CNSZTL-PC.lan ([2607:f130:0:13b::3a])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-12c74a20b9csm13380651c88.12.2026.04.19.23.58.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 19 Apr 2026 23:58:49 -0700 (PDT)
-Message-ID: <2d2b1e17-388f-431a-be86-a0f26b5be6cf@gmail.com>
-Date: Mon, 20 Apr 2026 14:58:44 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Replace deprecated snps,* props
- for NanoPi R5S
-To: Diederik de Haas <diederik@cknow-tech.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: Arnd Bergmann <arnd@arndb.de>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Quentin Schulz <quentin.schulz@cherry.de>,
- Jonas Karlman <jonas@kwiboo.se>
-References: <20260401131551.734456-1-diederik@cknow-tech.com>
- <20260401131551.734456-3-diederik@cknow-tech.com>
- <DHTSOV43O2EX.38TGASN7SQEZL@cknow-tech.com>
-From: Tianling Shen <cnsztl@gmail.com>
-In-Reply-To: <DHTSOV43O2EX.38TGASN7SQEZL@cknow-tech.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	Mon, 20 Apr 2026 07:01:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C1F5E43CB8;
+	Mon, 20 Apr 2026 07:01:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95BBFC19425;
+	Mon, 20 Apr 2026 07:01:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776668514;
+	bh=2HubVmemKYFSrpjdVlLvyLMzuA44GJ7AxdEWaTIopnc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=YOoS5Wx6pMZKMZlHW21lbBbviCZhxubZdgxsA5GEOdEF+RMDw+un8C/pDE2dE88W1
+	 QIPOW1WJ9wC+EUw+ikTEoHL/aHm8POBVuM99jhiygKKqp8sluMUIQKxs7Fm8q45l2R
+	 FD/lAPTX3x51DyEOcxfERLKVSxw1mOFWkJ/Q1RDJ6woo8j5PXAMGu76M75jfBaxvMQ
+	 iB5Eg8bM2xbBf1fSvLksohlm4V1RiGmP+aAr4E3Qq5cK5Op3ox663otj5ljWjc1psQ
+	 6c8cEwZgIq1aYGMGHLnhY7HX6UXVDMByfegV4FefqoJqMO0NS8404or0Dzmw/FM0O/
+	 qC9LVkf/tnk6w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wEidk-0000000CylX-00qd;
+	Mon, 20 Apr 2026 07:01:52 +0000
+Date: Mon, 20 Apr 2026 08:01:51 +0100
+Message-ID: <86se8q15eo.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu
+ <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	devel@daynix.com,
+	kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v7 2/4] KVM: arm64: PMU: Protect the list of PMUs with RCU
+In-Reply-To: <483e5cf2-a54c-4781-ac6d-49f5bc7128ba@rsg.ci.i.u-tokyo.ac.jp>
+References: <20260418-hybrid-v7-0-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
+	<20260418-hybrid-v7-2-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
+	<87mryzauib.wl-maz@kernel.org>
+	<483e5cf2-a54c-4781-ac6d-49f5bc7128ba@rsg.ci.i.u-tokyo.ac.jp>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: odaki@rsg.ci.i.u-tokyo.ac.jp, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kees@kernel.org, gustavoars@kernel.org, pbonzini@redhat.com, corbet@lwn.net, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260419_235851_267440_B6577314 
-X-CRM114-Status: GOOD (  19.46  )
+X-CRM114-CacheID: sfid-20260420_000155_645130_18FDF50C 
+X-CRM114-Status: GOOD (  41.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,66 +104,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/4/15 22:23, Diederik de Haas wrote:
-> On Wed Apr 1, 2026 at 3:11 PM CEST, Diederik de Haas wrote:
->> The various snps,reset-* properties are deprecated, so convert them into
->> their replacements.
->>
->> Signed-off-by: Diederik de Haas <diederik@cknow-tech.com>
->> ---
->>   arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts | 7 +++----
->>   1 file changed, 3 insertions(+), 4 deletions(-)
->>
->> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts b/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
->> index 90ce6f0e1dcf..92d044ec696b 100644
->> --- a/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
->> +++ b/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
->> @@ -85,10 +85,6 @@ &gmac0_tx_bus2
->>   		     &gmac0_rx_bus2
->>   		     &gmac0_rgmii_clk
->>   		     &gmac0_rgmii_bus>;
->> -	snps,reset-gpio = <&gpio0 RK_PC5 GPIO_ACTIVE_LOW>;
->> -	snps,reset-active-low;
->> -	/* Reset time is 15ms, 50ms for rtl8211f */
->> -	snps,reset-delays-us = <0 15000 50000>;
->>   	tx_delay = <0x3c>;
->>   	rx_delay = <0x2f>;
->>   	status = "okay";
->> @@ -100,6 +96,9 @@ rgmii_phy0: ethernet-phy@1 {
->>   		reg = <1>;
->>   		pinctrl-0 = <&gmac0_rstn_gpio0_c5_pin>;
->>   		pinctrl-names = "default";
->> +		reset-assert-us = <15000>;
->> +		reset-deassert-us = <50000>;
->> +		reset-gpios = <&gpio0 RK_PC5 GPIO_ACTIVE_LOW>;
->>   	};
->>   };
->>   
+On Mon, 20 Apr 2026 07:21:45 +0100,
+Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
 > 
-> Please disregard/drop this patch.
+> On 2026/04/19 23:34, Marc Zyngier wrote:
+> > On Sat, 18 Apr 2026 09:14:24 +0100,
+> > Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
+> >> 
+> >> Convert the list of PMUs to a RCU-protected list that has primitives to
+> >> avoid read-side contention.
+> >> 
+> >> Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+> >> ---
+> >>   arch/arm64/kvm/pmu-emul.c | 14 ++++++--------
+> >>   1 file changed, 6 insertions(+), 8 deletions(-)
+> >> 
+> >> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+> >> index 59ec96e09321..ef5140bbfe28 100644
+> >> --- a/arch/arm64/kvm/pmu-emul.c
+> >> +++ b/arch/arm64/kvm/pmu-emul.c
+> >> @@ -7,9 +7,9 @@
+> >>   #include <linux/cpu.h>
+> >>   #include <linux/kvm.h>
+> >>   #include <linux/kvm_host.h>
+> >> -#include <linux/list.h>
+> >>   #include <linux/perf_event.h>
+> >>   #include <linux/perf/arm_pmu.h>
+> >> +#include <linux/rculist.h>
+> >>   #include <linux/uaccess.h>
+> >>   #include <asm/kvm_emulate.h>
+> >>   #include <kvm/arm_pmu.h>
+> >> @@ -26,7 +26,6 @@ static bool kvm_pmu_counter_is_enabled(struct kvm_pmc *pmc);
+> >>     bool kvm_supports_guest_pmuv3(void)
+> >>   {
+> >> -	guard(mutex)(&arm_pmus_lock);
+> >>   	return !list_empty(&arm_pmus);
+> > 
+> > Please read include/linux/rculist.h and the discussion about the
+> > interaction of list_empty() with RCU-protected lists. How about using
+> > list_first_or_null_rcu() for peace of mind?
 > 
-> I was recently made aware of 'sashiko.dev' and checked whether it had
-> also checked my patch, which it did:
-> https://sashiko.dev/#/patchset/20260401131551.734456-1-diederik%40cknow-tech.com
+> list_first_or_null_rcu() is useful to replace a sequence of
+> list_empty() and list_first_entry() that is protected by a lock, but
+> this function instead requires the invariant that nobody deletes an
+> element from the list, and list_first_or_null_rcu() does not allow
+> removing the requirement.
+>
+> The header file says:
+> > Where are list_empty_rcu() and list_first_entry_rcu()?
+> >
+> > They do not exist because they would lead to subtle race conditions:
+> >
+> > if (!list_empty_rcu(mylist)) {
+> >	struct foo *bar = list_first_entry_rcu(mylist, struct foo,
+> >					       list_member);
+> >	do_something(bar);
+> > }
+> >
+> > The list might be non-empty when list_empty_rcu() checks it, but it
+> > might have become empty by the time that list_first_entry_rcu()
+> > rereads the ->next pointer, which would result in a SEGV.
+> >
+> > When not using RCU, it is OK for list_first_entry() to re-read that
+> > pointer because both functions should be protected by some lock that
+> > blocks writers.
+> >
+> > When using RCU, list_empty() uses READ_ONCE() to fetch the
+> > RCU-protected ->next pointer and then compares it to the address of
+> > the  list head.  However, it neither dereferences this pointer nor
+> > provides  this pointer to its caller.  Thus, READ_ONCE() suffices
+> > (that is,  rcu_dereference() is not needed), which means that
+> > list_empty() can be used anywhere you would want to use
+> > list_empty_rcu().  Just don't expect anything useful to happen if you
+> > do a subsequent lockless call to list_first_entry_rcu()!!!
+> >
+> > See list_first_or_null_rcu for an alternative.
 > 
-> And it turns out that the concern raised is valid (thanks Quentin!), so
-> this patch could introduce a regression.
-> So it looks like staying with the deprecated properties is actually
-> better (in this case?).
-
-Well actually we more or less rely on U-Boot to reset the PHY first now. 
-Many rockchip boards in tree require a reset before the PHY can be 
-recognized, but we just use the generic "ethernet-phy-ieee802.3-c22" 
-compatible.
-
-Another option is to move the reset props to mdio node instead of PHY 
-node, though.
-
-Thanks,
-Tianling.
-
+> However, kvm_supports_guest_pmuv3() locked a mutex when calling
+> list_empty() and unlocked it immediately after that, instead of
+> re-reading list_first_entry(). This construct inherently had a race
+> condition with code that deletes an element; when the caller of
+> kvm_supports_guest_pmuv3() decides to enable guest PMUv3, the host PMU
+> may have been gone. But it was still safe because no one deletes an
+> element.
 > 
-> Cheers,
->    Diederik
+> The same logic also applies when using RCU. As the comment says, we
+> can use list_empty() instead of the hypothetical list_empty_rcu()
+> macro because we don't expect it to magically enable something like
+> list_first_entry_rcu(). This function instead keep relying on the fact
+> that no one deletes an element of the list.
 
+And that's exactly the sort of thing I am trying to plan for. *Should*
+we introduce a way to remove PMUs from the list, this predicate
+becomes unsafe.
+
+So I want at least a comment explaining this to the unsuspecting
+reader, as this is rather subtle.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
