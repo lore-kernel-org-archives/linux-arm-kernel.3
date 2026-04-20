@@ -4,79 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C944F588EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 16:17:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89535F588EF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 16:22:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Kt8as8mq2L8x/oiYrn71n4n+iBL8ZBduPggFgHlRBw=; b=CwD2C9T7HtA4sGLkhU0J659A+e
-	j3HhsUUGAqXWkg1gR0c5KjpFrFEyYQzWIH6JklfFz1Sc7LU85XOJNRw2eu6lUP6C6Le9HOBTBUYIv
-	QCEGml17ngv+1v2Az0KER4bm7kr+5XQPscSyYawgzV/Q2VO640c8Zm00yznztsaVjiZGp5b224TLF
-	uMwAQdKoTzHnXmwLgA8snudgueNx0tyC7FvKAmUXzhIdlA30fjOv/YZUHYNnqP/SWl9NWtBo9elmI
-	1oxK6jDFTDW6dI9f18J41SPFD6TLZq/0FolU8bWIzmvhVKpYCG4tTK74K5GmaVIiyPnLENHmsa1a2
-	ekD/VN7g==;
+	bh=OXZRxLpksRJWokk37gmnYS6C20P0B+uiVOhrVPLTe1Q=; b=vxMSVFFS9UwkV6M2H+8eV80uXb
+	OllIt0nXB4oYn0v0K1y9YK6SdtSekWIAt8xCfi0768tICPqk0bT9MGFXerPPsElF8tOzt6jHIYMK9
+	jKDM3N8kgycl+i3+/hz9StGcoMZxnW1HeDF+UMDo6u2nxgfCL93vm0fcdfsjsHK+GZret0iRBUH9K
+	G53CNwGHsQNnCHAdrYVvd6mtLk7ruYQRpU0nrly8zl2rR7U/o44L5/8CEN9oDWsulAh+xa2yuPUpJ
+	rrH+fM+l7dWwsvpruPxQNIPwtfFQbYpZeBHXu3ZzNCeeYhOR736uD9n+XF6NhErUX1eWzNTyVgkDR
+	m0GOogEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wErJH-00000007Pc3-2za2;
-	Mon, 20 Apr 2026 16:17:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wErOg-00000007Pzg-1Qao;
+	Mon, 20 Apr 2026 16:22:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wErJE-00000007Pbj-3tZh
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 16:17:18 +0000
+	id 1wErOe-00000007PzC-0Jku;
+	Mon, 20 Apr 2026 16:22:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 47B81445AB;
-	Mon, 20 Apr 2026 16:17:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D75AC19425;
-	Mon, 20 Apr 2026 16:17:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6298444400;
+	Mon, 20 Apr 2026 16:22:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2870EC19425;
+	Mon, 20 Apr 2026 16:22:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776701836;
-	bh=6Kt8as8mq2L8x/oiYrn71n4n+iBL8ZBduPggFgHlRBw=;
+	s=k20201202; t=1776702171;
+	bh=YEdo/V0QTAr+NW2dlqYidtGFQZDQxJkbLKbUxoyQ7yM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lBZ3xlp+PbuDcHXj3lOpYFdY/2W4q7wYZnaNho+iY/mcUC17oXEZX72D4CSiTEkHH
-	 N3r2cW5D2U2AEVsaWUl+FpbPuZsO5Et5MJnNz3eb8KFIHH9DmgacJQ9qNV6yI6DDTv
-	 ycIvJdZhE0C68y+bVHMvCivfsIAICbY2wPB0ehoMxk7yUqkZrhnFy4qhUnB3O3LE3V
-	 DWNhChfj5k/EWqecpJXkLGbrxTMgi+ACN5Gg8xtdMfFe7xv94rFgaDks8a8JeHd1ug
-	 FRAR3Pik5yo1Eo6Oy+GWV9JCmkbTYGtJU3wgsdJrFyLcBjFxEqiTtIcUkgqCvLXbGx
-	 ci0EgAMj6nrig==
-Date: Mon, 20 Apr 2026 17:17:10 +0100
+	b=nxTKj7PlWluEqHuKTzEen462dAfrv0zZY9/iW/KTchxzdbie0xAcn49tOEIN3vpM5
+	 aGzG0ZJn1mUsntJEkhTrtI3/I5Dz7AvBultI6l5O9IapBABCmY+15Cnw7cVQIQjn2B
+	 uA9xZr93tge3LmcQ+Dz/swtlU+pjx44PshwqpOyyyHC8qWN1NSXlRQXv54p58pOwlZ
+	 1hAXJgHCOBRBt921Q/hIosqWUL1VxjxxrAyohHXLmZ9/EP8WAd3oFDvfXgyWo/AgJ8
+	 hhjg/J1tsBpcEJeSnJfk97FV7kmABYjkdDcVFhmJ1OEGlYpXuP2DYoKnfJkEnwiqjq
+	 nSpyLSq0InXRw==
+Date: Mon, 20 Apr 2026 17:22:44 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Airlie <airlied@gmail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
+To: Ronald Claveau <linux-kernel-dev@aliel.fr>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Rob Herring <robh@kernel.org>, Simona Vetter <simona@ffwll.ch>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
-	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH 1/7] dt-bindings: display: renesas,du: Document Renesas
- R-Car R8A779MD M3Le
-Message-ID: <20260420-petted-hardwired-323bc49c237e@spud>
-References: <20260419193718.133174-1-marek.vasut+renesas@mailbox.org>
- <20260419193718.133174-2-marek.vasut+renesas@mailbox.org>
+	Conor Dooley <conor+dt@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Beniamino Galvani <b.galvani@gmail.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, linux-amlogic@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org
+Subject: Re: [PATCH v3 1/8] dt-bindings: mfd: khadas: Add new compatible for
+ Khadas VIM4 MCU
+Message-ID: <20260420-viable-plot-862e0c545837@spud>
+References: <20260417-add-mcu-fan-khadas-vim4-v3-0-a6a7f570b11b@aliel.fr>
+ <20260417-add-mcu-fan-khadas-vim4-v3-1-a6a7f570b11b@aliel.fr>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="IGrUQItqXndu9owC"
+	protocol="application/pgp-signature"; boundary="EN5NAUw4RNBry5U5"
 Content-Disposition: inline
-In-Reply-To: <20260419193718.133174-2-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260417-add-mcu-fan-khadas-vim4-v3-1-a6a7f570b11b@aliel.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_091717_023598_9491EF72 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260420_092252_204248_C55F9EF2 
+X-CRM114-Status: GOOD (  16.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,31 +89,64 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---IGrUQItqXndu9owC
+--EN5NAUw4RNBry5U5
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Sun, Apr 19, 2026 at 09:35:32PM +0200, Marek Vasut wrote:
-> Extend the Renesas DU display bindings to support the Renesas R-Car
-> R8A779MD M3Le SoC. This SoC is similar to R-Car R8A77965 M3-N SoC,
-> except the HDMI port@1 is not present.
+On Fri, Apr 17, 2026 at 06:27:17PM +0200, Ronald Claveau wrote:
+> The Khadas VIM4 MCU register is slightly different
+> from previous boards' MCU.
+> This board also features a switchable power source for its fan.
 >=20
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+> ---
+>  Documentation/devicetree/bindings/mfd/khadas,mcu.yaml | 5 +++++
+>  1 file changed, 5 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/mfd/khadas,mcu.yaml b/Docu=
+mentation/devicetree/bindings/mfd/khadas,mcu.yaml
+> index 084960fd5a1fd..a80718f7595ce 100644
+> --- a/Documentation/devicetree/bindings/mfd/khadas,mcu.yaml
+> +++ b/Documentation/devicetree/bindings/mfd/khadas,mcu.yaml
+> @@ -18,6 +18,7 @@ properties:
+>    compatible:
+>      enum:
+>        - khadas,mcu # MCU revision is discoverable
+> +      - khadas,vim4-mcu # Different MCU variant, not discoverable
+> =20
+>    "#cooling-cells": # Only needed for boards having FAN control feature
+>      const: 2
+> @@ -25,6 +26,10 @@ properties:
+>    reg:
+>      maxItems: 1
+> =20
+> +  fan-supply:
+> +    description: Phandle to the regulator that powers the fan.
+> +    $ref: /schemas/types.yaml#/definitions/phandle
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+Can you limit this by compatible please?
+pw-bot: changes-requested
 
---IGrUQItqXndu9owC
+> +
+>  required:
+>    - compatible
+>    - reg
+>=20
+> --=20
+> 2.49.0
+>=20
+
+--EN5NAUw4RNBry5U5
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaeZRhgAKCRB4tDGHoIJi
-0vUmAQDMYNW2PseVrsC21cn9Wv1ntbk+NzKXu24VD4tt5g6LPAD9EiJcDYGjU9gz
-EBCGuVdoC1lg6lw4LFmY+kw9vVtH9Ag=
-=c6pp
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaeZS1AAKCRB4tDGHoIJi
+0rq6AQCyNe1h3KXPOtFS9t3ntlaZUO80Ck84GL+I6mmU6358DQEA0hx/x6pQ5aO7
+RXk37eL/R10YB9DDqs+wJN/2TnZoxgw=
+=ak6Z
 -----END PGP SIGNATURE-----
 
---IGrUQItqXndu9owC--
+--EN5NAUw4RNBry5U5--
 
