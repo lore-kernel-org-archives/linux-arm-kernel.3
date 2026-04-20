@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D444AF588E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 15:18:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67775F588E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 15:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D4+Tyc9fwC08HtutfCT810YXOpj+67tjCxBitfttl4M=; b=BBgHQ2AmLSw6Ec++zMUhL7cpiT
-	ivmM9GTaxPeSkxNoT4eOeeu2g6pi75e0hFXnkOfTc1mh9w1jFKKW/xOBu2GyV00tmenbJSAQ5plOJ
-	/Hu3yM9rTAzVGaNs702u9m1ClSRJ6XOVMxJcktJtplZuIAujfYOO1/kAyBYtF+LikhvT6JfOQk7W0
-	tMv75oTs4Y+j8VJQa1lvv+tt5M80Bciv17GaasZGd/UYwH/VpEoVSqKVrZ6q42B07jb67v/IHtqFu
-	PP4gnL96Sn4Z1F5LXOHY5WBHebcpbe/aHG0NmFsKdYiGIavEu7nv+tO6ZUB9QEidnwuLakx8H7ND3
-	QcKPYx2w==;
+	bh=ci6WveLQHZALE331Ksu1m2EV8whHgoO/wtJRpOYsnyk=; b=PlLCtgVOmJd69glB+A0pL3P3OB
+	1+gvUJVo7k0ynFPNVMlVLW+kc7VFqPa2c6Bqyki6DVpvVquqL13/JXU/YqLwlepW/C0HJs3AiocRk
+	sy4YRUNUTyiS8l4jYf30Gfr4YE5OCbybGYK71CP7OiLPthEfv4rRbCi4reGugstPu+MF28hj0hNsw
+	nbBDAf6iu7VyRB1dJoKSl91cQcT2PhjWJQqNnHkmZCWV2e59J+bNI46el7q/YklQwlPa4a1LY6bvO
+	3irSKmZCLK6lXCLhCUjNcawLYjJe4Ldi3VYjL6b4o7w9mwKyOvTahJo0RufW82PewB+BKis18Xo/w
+	W0EsZKUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEqOd-00000007EeW-1rXU;
-	Mon, 20 Apr 2026 15:18:47 +0000
+	id 1wEqQf-00000007Erp-3gEU;
+	Mon, 20 Apr 2026 15:20:53 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEqOc-00000007Edq-1PG3
+	id 1wEqQe-00000007Era-0CF9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 15:18:46 +0000
+	Mon, 20 Apr 2026 15:20:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2563960141;
-	Mon, 20 Apr 2026 15:18:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A757FC19425;
-	Mon, 20 Apr 2026 15:18:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7DEF960141;
+	Mon, 20 Apr 2026 15:20:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05134C2BCB4;
+	Mon, 20 Apr 2026 15:20:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776698323;
-	bh=QYHChXw76c6dJ0PIp/7R1gBDwoTeSchaSZkzCa9xByY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PSD4Mvm/nJ8M182CkcEeNsaen3SA80oo5n7MLnMn8OfiTRsoEvYNvGWxVAL+B/FI9
-	 5deQDujlsqcj6k88z8eFpClBZN6EkBxvIw/VbRfaQKBBAaa0LGcWBE1jozYiWHEoLC
-	 H+apLIOe0E4EgO+V7W7DASVvnLa0fL5yLSqjDimrIXdfxuX6lAqZwabw7LqV1sfknZ
-	 U75IaS8OOquQ33uWFb1z2e+Xb61OTUgT58y7BZejNGL6p3kNKLqEZMPvCv8v0IFR39
-	 29+eeFnCweArxywBJ3Sx8+flafZgPBMGf8o+ctbZSnXWFT8B3pUQ8UT6RGkE/C5sVn
-	 gTFwY3GaEjECQ==
-Message-ID: <b9117d52-1a12-480b-a762-31d3eab6b827@kernel.org>
-Date: Mon, 20 Apr 2026 17:18:40 +0200
+	s=k20201202; t=1776698451;
+	bh=nCoboZkHMjWLSJO0oket3z3iPfJsc7JH1NMHcq+p/1I=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=UILCVWXAA/LtGo8aMZW/dYeEd/mgRDStiUGC9TKpznev6GY8DyoAiT/40eRYnLd7G
+	 aIXA5Lun+0esL4HyBFPBaKsfhLMU5KuhNsP/lLgh485gMMcEjXwnSkF5MmgWjNcyPg
+	 44eztQG8vzHwAOmVuYsUFRpl+PDXNs1FBdH4x4Kf6ez8np7VIkug0jJR/tJtWUNEAu
+	 isYq7sJpqJ85cfOozZNTqENNbONdg3dO7hxcADq26p71RIREpflSivz8+Tr60VUt0D
+	 oJa+ja/pOpxGUqC1nFk9xI/gffO6CBtVJQ7jBmtkYivRfk4OMuLa6oiLFGM0cs8kyZ
+	 iTNbR5uerG5Yw==
+Message-ID: <2064b5bf-68f4-4769-b161-434e34d5b0fc@kernel.org>
+Date: Mon, 20 Apr 2026 17:20:47 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] arm64: dts: exynos850: Add syscon-poweroff node
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Alexey Klimov <alexey.klimov@linaro.org>,
  Sam Protsenko <semen.protsenko@linaro.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>
@@ -56,7 +57,7 @@ Cc: linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Alim Akhtar <alim.akhtar@samsung.com>
 References: <20260325-exynos850-poweroff-v1-1-34c19c06e74d@linaro.org>
  <DHY2P02B6E6H.J79TDOADC4BS@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <b9117d52-1a12-480b-a762-31d3eab6b827@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -101,7 +102,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <DHY2P02B6E6H.J79TDOADC4BS@linaro.org>
+In-Reply-To: <b9117d52-1a12-480b-a762-31d3eab6b827@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -118,29 +119,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/04/2026 17:04, Alexey Klimov wrote:
-> On Wed Mar 25, 2026 at 12:26 AM GMT, Alexey Klimov wrote:
->> Without poweroff node Exynos850-based board continue to draw current
->> (around ~60 mA with my test setup) after poweroff. Kernel also reports
->> different lockup problems and RCU stalls warnings continuosly after
->> last kernel messages about hardware being switched off.
->> Turns out we missed a write to PMU's PS_HOLD_CONTROL (PMU + 0x30c)
->> register that actually switches the SoC off.
+On 20/04/2026 17:18, Krzysztof Kozlowski wrote:
+> On 20/04/2026 17:04, Alexey Klimov wrote:
+>> On Wed Mar 25, 2026 at 12:26 AM GMT, Alexey Klimov wrote:
+>>> Without poweroff node Exynos850-based board continue to draw current
+>>> (around ~60 mA with my test setup) after poweroff. Kernel also reports
+>>> different lockup problems and RCU stalls warnings continuosly after
+>>> last kernel messages about hardware being switched off.
+>>> Turns out we missed a write to PMU's PS_HOLD_CONTROL (PMU + 0x30c)
+>>> register that actually switches the SoC off.
+>>>
+>>> Add poweroff node that implements this.
+>>>
+>>> With this change the current draw after power off is in range of few
+>>> milliampers and lockup messages are no more.
+>>>
+>>> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+>>> ---
+>>>  arch/arm64/boot/dts/exynos/exynos850.dtsi | 7 +++++++
 >>
->> Add poweroff node that implements this.
->>
->> With this change the current draw after power off is in range of few
->> milliampers and lockup messages are no more.
->>
->> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
->> ---
->>  arch/arm64/boot/dts/exynos/exynos850.dtsi | 7 +++++++
+>> Any feedback on this?
 > 
-> Any feedback on this?
+> You posted it right before closing tree, so this was waiting for a few
+> days for anyone to chime in and then tree is closed. It's merge window
+> now, so I don't review anything. Nothing new here...
 
-You posted it right before closing tree, so this was waiting for a few
-days for anyone to chime in and then tree is closed. It's merge window
-now, so I don't review anything. Nothing new here...
+... and the pull to SoC actually happened before. It's public, so you
+could check that.
 
 Best regards,
 Krzysztof
