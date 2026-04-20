@@ -4,121 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C444F557EB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 08:48:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5C78F557E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 08:48:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NaJMjyFqsRA9dHCRFFX9QB7tuTN0E26/VMHzuIS3hEg=; b=IveDb7cwPjC+MeOdGB36j2nw62
-	JaM3rPavoLG6BH+R3Ab7W8Al3Z1FdyZI3DPDd0TFor+aZ35obEstuoW1PlEYeb8ApzZVOtyqdy7mI
-	Qn2jgbMzWUP4EFBBC4w10HZr1ePsFgr5lR3QjTQ+ccpQ9xIC17zzqxL6M251uUQlXsXrIsbxK769O
-	d6b47Wx6b4WtsrAiSAqXdOx7h4MgZ8YVWr9n0xbQqgpGzEPUlLBUO4YdCCdLdTfuM1BQ6ivzNd4py
-	oJogz5Ki9QsryUmwfYfzi5qH1Dfmu3Ah18USTvUDErcpn17HGP+TUUdDWJXsd7wVr19SrtjRfBVCL
-	1YX0kjIA==;
+	bh=9NOeHAESzNyoOLo2eS/PzuPuitQFv2Vq39LTbJUFR2o=; b=ZIN5ezpDXA5I89SYiKhvD0gk4o
+	4EtEdXjOprq1HHfP6vkGUBzzRJKEaU5p7SLzcYs1eOLHMca0g+ZwfGn7HWcKRdFpGx4+n7N9D1DFM
+	4abduAR8NmjpsMQPPL2WOlybWMivT1OLTEqqDtXTHBUw9MsleWayIwL+Y0fO942COgW9wtDsGKADR
+	vQsLxGyUgC2hdqaRkQm3Ikbj9+B36/xD3+5W0Plu0TQQ1UY0cHz/ToEYSc5SYg7vAdMI/EaqR5gWn
+	oa7lni7JzX52hi/GJj7icYc0fIpttZ9gROpL5obLE0sRMXUyARcNNvz5KEOlZt73bqtMxeTUgATmp
+	+lMyInwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEkIP-00000006coI-27JM;
-	Mon, 20 Apr 2026 08:47:57 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wEkJG-00000006d4H-1NR3;
+	Mon, 20 Apr 2026 08:48:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEkIM-00000006cln-1zKk
+	id 1wEkJE-00000006d3q-3lb6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 08:47:56 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4891b0786beso7000915e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 01:47:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1776674872; x=1777279672; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=NaJMjyFqsRA9dHCRFFX9QB7tuTN0E26/VMHzuIS3hEg=;
-        b=xuXwn2i+gNeJG2+2EGoktDPZfnTIOTFtFvYX/7wlo6cfPFw/TyPRFvDGWRYHnvHQLK
-         gCu6prpiKANKtYwPmh3ZzqdMJcaP15PF3Nq0w9z0ao+nErycwHte3vWGRq4z7l74c+QF
-         JVveEu3HzciU7SXHV89NdHvKKqsyPSrskFXXkv/Yo+0ZsjGU6S9JjaEBo9SK8/bbJA2X
-         s72ISDCODtZwuuQh0lxPSjcG0diDbuhBZuxc5wyvUkJ1qRCM5eqhVanhajrYeU7Vqj6x
-         6lP+ywsPTZrXyLDYYhLOiKvG4tFboWSMDs2zr7rvFHBa6AcN28SyfytdS810uaFXrX/+
-         1myA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776674872; x=1777279672;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NaJMjyFqsRA9dHCRFFX9QB7tuTN0E26/VMHzuIS3hEg=;
-        b=bjJeBmRbY8Z3GcMwDMJGSlkfrA4ATtv0dgmjvTbO26MR0bmthYnmKkyfI8/vJp2R8a
-         OugGCzkYcdZ9kI7gQk3alriIZDL6dUlNqgpGQy97bSc1hK/VRVMPjCwyB4rbqc/Cg64M
-         NeMkPotM9FK4Njnben9AmwsOwnbIV3g/726M+WMrkXZCiMUyppU1SEbk7LiVhS6HkaoJ
-         7RfShrELNX4Fs8fju+RMs2HSWqPDUX8M17RkF+0YE1K7YcmQ6110gtsb81AilfAjDvY7
-         zjfAUSkKvzAGCOtRqA3hKrCroWPfRh5be2eKyZldaBiDCAdCA1nj8kcE7y3uD9kM8x0t
-         QidA==
-X-Gm-Message-State: AOJu0YzzFLp8h0TNoh1nJlgHWZFlmp0nO30Tnpb34IlSpBflEmyDSchY
-	GDxMMpjHIPUI7zEQ1hxgmMYb8szOaQIrBMP5DVaV2m4iJ0vPElLRzoQa3NpcVah1v+M=
-X-Gm-Gg: AeBDievrie17nQoqPlsPX66m/qNyziVW/Lya1fdmlDPrP8Vq3nL/5XBz/JgbN1qkTtt
-	zucLR96rDkdDUyxkMUL5UmIKV9g2+nWGdlVmgQL/tN40FFZbljrG6ZfvygKxRwWfal0UtOU68de
-	z6fqqk/qexOfZx0egKtQma3D//U1jnLKlHIkiHQ/2D5RO41sPdgl/ErIUc1VVFymQa7JPRp6xac
-	suoI+X16yhUMpEnELlqLZ8hngTvsI55Du7jHcI9uY/Cob1xXOjayTFxFSK0JFCv8YuvcyNv4Jw8
-	EH5OzeJn50WGP5OGvtwGnX0vhpWRgK0XyWEzDwSuKs9avQjw5XE/ePHbJKtYbjTtHX1g6Kd2BWz
-	x8mBf7NZmTfv0h5TLGB0j0XCegx2gkneInS3mUhNnnA3lmytNCbmXbFvLjzQz9OVTAK5Y0dnqck
-	N2l4AYE2HYH8XjNfdVruQyLX6X5vmaHLIJIm8yPhtIafqYM6zUQ9d46jG/tO8XZnXxdqDuKQxCl
-	ZpD1/mZQt67k/jT1g==
-X-Received: by 2002:a05:600c:c05a:b0:488:80b6:873a with SMTP id 5b1f17b1804b1-488fb771be4mr138962075e9.21.1776674872448;
-        Mon, 20 Apr 2026 01:47:52 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:106d:1080:8290:9fd8:8af0:67dc? ([2a01:e0a:106d:1080:8290:9fd8:8af0:67dc])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488fc17f642sm246815005e9.5.2026.04.20.01.47.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Apr 2026 01:47:52 -0700 (PDT)
-Message-ID: <b6c2615f-74c7-4a08-88e7-0cf0842687df@linaro.org>
-Date: Mon, 20 Apr 2026 10:47:51 +0200
+	Mon, 20 Apr 2026 08:48:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E69F960055;
+	Mon, 20 Apr 2026 08:48:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53FBCC19425;
+	Mon, 20 Apr 2026 08:48:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776674927;
+	bh=qLFgeQwJCkpSSOG98sxSdZSktT3hEJUY9FwxAEoEYcs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=T9vRxeYxFL9cfHlFph+p4HZ7WoGh85kwA61pnA64hopb3JqkEUHIbig41QikVB0o8
+	 prK8HkTDt/Ffs9L9+yWgpZ8m4vNtm2NtKgvqFrHGKZ0kSrCIaIWiX8XFRWTp4AuE0n
+	 5rRHIYxhoMQxEg92Bznbq5kvvr9NtLFa1+jC88YbV/vcS5Nf256U/iPi/x0/kQMUif
+	 dXVbGPzd1qJz/5dHW5nJNtqHKhuEzPHYOIDMMJ/zgr26bjAhEbAWxN1H9vUvNYGDeQ
+	 R5c4ehGomLkv+Eu4Uh3VAGGXsphT6EG7QRTvQj3L+E424MFl6JzHADE8L5FH6Bs8l9
+	 HaSyWBlFLIDsQ==
+Date: Mon, 20 Apr 2026 09:48:35 +0100
+From: Will Deacon <will@kernel.org>
+To: Yin Tirui <yintirui@huawei.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, willy@infradead.org,
+	david@kernel.org, catalin.marinas@arm.com, tglx@kernel.org,
+	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+	hpa@zytor.com, luto@kernel.org, peterz@infradead.org,
+	akpm@linux-foundation.org, lorenzo.stoakes@oracle.com,
+	ziy@nvidia.com, baolin.wang@linux.alibaba.com,
+	Liam.Howlett@oracle.com, npache@redhat.com, ryan.roberts@arm.com,
+	dev.jain@arm.com, baohua@kernel.org, lance.yang@linux.dev,
+	vbabka@suse.cz, rppt@kernel.org, surenb@google.com, mhocko@suse.com,
+	anshuman.khandual@arm.com, rmclure@linux.ibm.com,
+	kevin.brodsky@arm.com, apopple@nvidia.com, ajd@linux.ibm.com,
+	pasha.tatashin@soleen.com, bhe@redhat.com, thuth@redhat.com,
+	coxu@redhat.com, dan.j.williams@intel.com, yu-cheng.yu@intel.com,
+	yangyicong@hisilicon.com, baolu.lu@linux.intel.com, jgross@suse.com,
+	conor.dooley@microchip.com, Jonathan.Cameron@huawei.com,
+	riel@surriel.com, wangkefeng.wang@huawei.com, chenjun102@huawei.com
+Subject: Re: [PATCH RFC v3 2/4] mm/pgtable: Make pfn_pte() filter out huge
+ page attributes
+Message-ID: <aeXoY7lrRJev0P83@willie-the-truck>
+References: <20260228070906.1418911-1-yintirui@huawei.com>
+ <20260228070906.1418911-3-yintirui@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v2 1/3] arm64: dts: amlogic: t7: Add uart_c pinctrl pins
- group
-To: Ronald Claveau <linux-kernel-dev@aliel.fr>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260416-add-bluetooth-t7-vim4-v2-0-9a57098fd055@aliel.fr>
- <20260416-add-bluetooth-t7-vim4-v2-1-9a57098fd055@aliel.fr>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20260416-add-bluetooth-t7-vim4-v2-1-9a57098fd055@aliel.fr>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_014754_598654_4B292AF9 
-X-CRM114-Status: GOOD (  12.85  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260228070906.1418911-3-yintirui@huawei.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,47 +82,46 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/16/26 10:54, Ronald Claveau wrote:
-> Add the pin multiplexing configuration for UART C (TX, RX, CTS, RTS)
-> in the T7 SoC pinctrl node, required to route the UART C signals
-> through the correct pads before enabling the controller.
+On Sat, Feb 28, 2026 at 03:09:04PM +0800, Yin Tirui wrote:
+> A fundamental principle of page table type safety is that `pte_t` represents
+> the lowest level page table entry and should never carry huge page attributes.
 > 
-> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+> Currently, passing a pgprot with huge page bits (e.g., extracted via
+> pmd_pgprot()) into pfn_pte() creates a malformed PTE that retains the huge
+> attribute, leading to the necessity of the ugly `pte_clrhuge()` anti-pattern.
+> 
+> Enforce type safety by making `pfn_pte()` inherently filter out huge page
+> attributes:
+> - On x86: Strip the `_PAGE_PSE` bit.
+> - On ARM64: Mask out the block descriptor bits in `PTE_TYPE_MASK` and
+>   enforce the `PTE_TYPE_PAGE` format.
+> - On RISC-V: No changes required, as RISC-V leaf PMDs and PTEs share the
+>   exact same hardware format and do not use a distinct huge bit.
+> 
+> Signed-off-by: Yin Tirui <yintirui@huawei.com>
 > ---
->   arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 12 ++++++++++++
->   1 file changed, 12 insertions(+)
+>  arch/arm64/include/asm/pgtable.h | 4 +++-
+>  arch/x86/include/asm/pgtable.h   | 4 ++++
+>  2 files changed, 7 insertions(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-> index 7fe72c94ed623..4a55d9641bc9b 100644
-> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-> @@ -553,6 +553,18 @@ mux {
->   						bias-pull-up;
->   					};
->   				};
-> +
-> +				uart_c_pins: uart-c {
-> +					mux {
-> +						groups = "uart_c_tx",
-> +							 "uart_c_rx",
-> +							 "uart_c_cts",
-> +							 "uart_c_rts";
-> +						bias-pull-up;
-> +						output-high;
-> +						function = "uart_c";
-> +					};
-> +				};
->   			};
->   
->   			gpio_intc: interrupt-controller@4080 {
-> 
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index b3e58735c49b..f2a7a40106d2 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -141,7 +141,9 @@ static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
+>  
+>  #define pte_pfn(pte)		(__pte_to_phys(pte) >> PAGE_SHIFT)
+>  #define pfn_pte(pfn,prot)	\
+> -	__pte(__phys_to_pte_val((phys_addr_t)(pfn) << PAGE_SHIFT) | pgprot_val(prot))
+> +	__pte(__phys_to_pte_val((phys_addr_t)(pfn) << PAGE_SHIFT) | \
+> +		((pgprot_val(prot) & ~(PTE_TYPE_MASK & ~PTE_VALID)) | \
+> +		(PTE_TYPE_PAGE & ~PTE_VALID)))
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Why are you touching arch/arm64? We don't implement pte_clrhuge() afaict.
+What does this actually fix?
 
-Thanks,
-Neil
+Will
 
