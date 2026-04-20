@@ -4,57 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D62FF557FE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 09:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A51D6F55804
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 10:00:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:In-Reply-To:References:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/kvD2DikviA++89KX8OaJkmvE5pvGQ/4eoowpnanR1U=; b=LZts65kvwmMq7GDi06FxShu/TP
-	LXDI/9ilW+9dIYk9ey7FRl6P2zSGlCfplmTWq57ZmbyIWUv8mz+zQenPVvbAC+lN6hJ21PY+4eIN5
-	zwtHHZUz42rsrhoINVIr8RzaZKoBsoLHMeCXlcHDZ9s1RT6dnmoCmF+M0XTNh4HCzJi2eqO9jw2nO
-	3IboVsb5rmy1YKR3QOra9pnEZVQ2t2jchyg3GulaFDbStSzZL82DOxHmM9063ZBvFMFxRUmqrYfdW
-	pGZEl8BUfprH+i5HNkRV/Wl8xdw4hLsb40d6VMpXpaBULlWoqczWotlPp7Xx6mUe04FnFRqKVESb5
-	xu/ArUXA==;
+	bh=PFei65dzS0QffTTxSQ6j05eDqgIUhexg4zPay1Ez+4Q=; b=H65ehdnSJJ93XGcwu3YKWDYpYp
+	Wkrftqm8rKj/TtZqBA9XvnQEpJU/4CzRlk3P+H9sVOgOQW5Nf+Bhkn03zfD2HB8n42GkVAaIbip22
+	vJP1I5sS315ioLQ4/vLZuzucnUfUGiQV9LNR/IYSqZurpOotmvwMYerYzlQcvEaQTdvmwPW9+tO+Z
+	KJiwkySUyfXyFnRVmWUEtB+fQfHcrCbiHPmv0WgminpARgU8gPYWOXWIMiP/6IqFBOEUHHofE2YEb
+	xrTMDGVBpN0Pl1ms1fm6uUdNV8KyutojrwastSIrJCTrrk8C84goTm/gEKqNHcdCkPx5H/SXLcDrX
+	tgdrifGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wElP4-00000006hwh-1Ig0;
-	Mon, 20 Apr 2026 09:58:54 +0000
-Received: from out-177.mta1.migadu.com ([95.215.58.177])
+	id 1wElQq-00000006i7q-2NnJ;
+	Mon, 20 Apr 2026 10:00:44 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wElP2-00000006hvi-0jq9
+	id 1wElQo-00000006i7V-14hJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 09:58:53 +0000
-Date: Mon, 20 Apr 2026 09:56:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=postmarketos.org;
-	s=key1; t=1776679119;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/kvD2DikviA++89KX8OaJkmvE5pvGQ/4eoowpnanR1U=;
-	b=l9Q+SfqX30Qbs4KOt9Td3MQlmR+ub2/x8RzsNtI1ikkuTqvGUHqL/7fQSxj4+MPO0w/lPr
-	NEf8ZTUZ4MYvbPtcFkMzHF854I7iUPa+mZO39ehgSm85T6DYrbCa3wF/UtSpqdZ+3MFZU7
-	zMYqG5I2ke+s7B5IWmHES5F8yKqLtickGuWLgp3wu/SRnw7ZUnY8ZN+VNDwG86vPyDjQPJ
-	u4uH795JJPYgjjHH2hfcnr0aFPMtEPAaAs26qfZ6B6zdFa5zN/8Ky4FZjjSM7vLBVgNaie
-	e+7+a7NIDNiCPjbLeaZlH3OMxJ4CK6dzJi2zUmpCmiQ9DNNaBKV3PpIoxEb8Xg==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Ferass El Hafidi <funderscore@postmarketos.org>
-To: linux-amlogic@lists.infradead.org, christian.koever-draxl@student.uibk.ac.at, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, neil.armstrong@linaro.org, khilman@baylibre.com
-Cc: jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, funderscore@postmarketos.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, christian.koever-draxl@student.uibk.ac.at
-Subject: Re: [PATCH v2 0/2] Add support for Amediatech X98Q (Amlogic S905W2)
-References: <20260420061854.5421-1-christian.koever-draxl@student.uibk.ac.at>
-In-Reply-To: <20260420061854.5421-1-christian.koever-draxl@student.uibk.ac.at>
-Message-ID: <tdsedm.2ad0jjpxzfm46@postmarketos.org>
+	Mon, 20 Apr 2026 10:00:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 97F3F4185C;
+	Mon, 20 Apr 2026 10:00:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3098C19425;
+	Mon, 20 Apr 2026 10:00:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776679241;
+	bh=qE5vnpMz5PjcbF4II0JjHIqXhaRvASV/kOwRLiqW5dE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=prevcc+eF3E2z6QeahuwyZUnOj9hgAcWqU09j4Y5As0TSYA7q8DE9iXnKQuubuP5A
+	 URjsqiOL/f7oMAs3Z4yr5LeSjoRGt04OtIN4MlWUfSKO//5y0t23ReUx0aOEUFVs9w
+	 Wi33CfBV4XAg2EvXRil6ZR/ssehA/yjI9lclUcWtje7Y4PhZhJ4Qit7zd3N6LJoc3S
+	 +uvZUrVdH1v4P94VRy3tI0a671iDikOLAOsJ0WdSnyWiRAEHvg+aTdnnkk321koTW1
+	 P9UsuA04wn6O4EiupbMHn1lJkmU0n56gFHJ20lBlg9raPIIUD5oX5Ri6IYHR6/VugM
+	 RIsuM+CcYPpLA==
+Date: Mon, 20 Apr 2026 11:00:35 +0100
+From: Will Deacon <will@kernel.org>
+To: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH 00/30] KVM: arm64: Add support for protected guest memory
+ with pKVM
+Message-ID: <aeX5Q7QNxmBCmsqM@willie-the-truck>
+References: <20260105154939.11041-1-will@kernel.org>
+ <3f52367b-f927-4d4d-9df3-bcd8cd954d47@quicinc.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset=utf-8; format=flowed
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3f52367b-f927-4d4d-9df3-bcd8cd954d47@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_025852_418182_DDE2DAC6 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20260420_030042_352688_CE34E79D 
+X-CRM114-Status: GOOD (  33.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,52 +80,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Mon, Apr 20, 2026 at 01:32:03PM +0530, Pavan Kondeti wrote:
+> Hi Will,
+> 
+> On Mon, Jan 05, 2026 at 03:49:08PM +0000, Will Deacon wrote:
+> > Hi folks,
+> > 
+> > Although pKVM has been shipping in Android kernels for a while now,
+> > protected guest (pVM) support has been somewhat languishing upstream.
+> > This has partly been because we've been waiting for guest_memfd() but
+> > also because it hasn't been clear how to expose pVMs to userspace (which
+> > is necessary for testing) without getting everything in place beforehand.
+> > This has led to frustration on both sides of the fence [1] and so this
+> > patch series attempts to get things moving again by exposing pVM
+> > features in an incremental fashion based on top of anonymous memory,
+> > which is what we have been using in Android. The big difference between
+> > this series and the Android implementation is the graceful handling of
+> > host stage-2 faults arising from accesses made using kernel mappings.
+> > The hope is that this will unblock pKVM upstreaming efforts while the
+> > guest_memfd() work continues to evolve.
+> > 
+> > Specifically, this patch series implements support for protected guest
+> > memory with pKVM, where pages are unmapped from the host as they are
+> > faulted into the guest and can be shared back from the guest using pKVM
+> > hypercalls. Protected guests are created using a new machine type
+> > identifier and can be booted to a shell using the kvmtool patches
+> > available at [2], which finally means that we are able to test the pVM
+> > logic in pKVM. Since this is an incremental step towards full isolation
+> > from the host (for example, the CPU register state and DMA accesses are
+> > not yet isolated), creating a pVM requires a developer Kconfig option to
+> > be enabled in addition to booting with 'kvm-arm.mode=protected' and
+> > results in a kernel taint.
+> > 
+> 
+> Good to see Protected VM support in upstream w/ pKVM.
+> 
+> We (Qualcomm) have been trying to resume Gunyah upstreaming [1] efforts 
+> for some time but the path to re-use guest_memfd is not straight forward as
+> guest_memfd is tightly coupled with KVM. While the efforts to use it for
+> pKVM is pending and refactoring to make it use outside KVM is not
+> happening anytime soon, we plan to send Gunyah series similar to how
+> this series is dealt with pages lent/donated to the Guest. Please let us
+> know if you have any suggestions/comments for us.
 
-On Mon, 20 Apr 2026 06:18, christian.koever-draxl@student.uibk.ac.at wrote:
->From: Christian Stefan Kövér-Draxl <christian.koever-draxl@student.uibk.ac.at>
->
->Supported features:
->- 1GB/2GB RAM (via U-Boot memory fixup)
->- 10/100 Ethernet (Internal PHY)
->- eMMC and SD card storage
->- PWM-based CPU voltage regulation
->- UART (Serial console)
->
->Changes in v2:
->- Split dt-bindings and dts changes into separate patches.
->- Updated model string to match documented vendor prefix.
->- Put vddio_sd states array in a single line.
->- Added a clarifying comment for the unsupported Amlogic W150S1 Wi-Fi module.
->
->Notes:
->- The console uses uart_b at 921600 baud.
->- Verified memory via /proc/device-tree; U-Boot patches the node to around 2GB.
->- Tested on the 2GB RAM plus 16GB eMMC variant.
->
+The major problem I see with this is that the host/hyp interface for
+handling stage-2 faults is internal to pKVM. The exception is injected
+back into the host using a funky ESR encoding and the hypercall used
+to forcefully reclaim the page is not ABI. I have no appetite for
+standardising these mechanisms (the flexibility is one of pKVM's big
+advantages) but I also do not want to complicate EL1 fault handling path
+with hypervisor-specific crap that we have to maintain forever.
 
-Sorry I was not clear, but the patches need to have a description.
-
-checkpatch.pl should complain about this. Please use it to check that
-your patches are in the correct format.
-
-See the kernel docs about sending patches here:
-https://docs.kernel.org/process/submitting-patches.html#describe-your-changes
-
->Christian Stefan Kövér-Draxl (2):
->  dt-bindings: arm: amlogic: add X98Q compatible
->  arm64: dts: amlogic: add support for X98Q
->
-> .../devicetree/bindings/arm/amlogic.yaml      |   7 +
-> arch/arm64/boot/dts/amlogic/Makefile          |   1 +
-> .../boot/dts/amlogic/meson-s4-s905w2-x98q.dts | 250 ++++++++++++++++++
-> 3 files changed, 258 insertions(+)
-> create mode 100644 arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
->
->-- 
->2.53.0
-
---
-Best regards,
-Ferass
+Will
 
