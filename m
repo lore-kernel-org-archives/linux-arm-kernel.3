@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 218C2F36C51
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 08:05:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 960E2F36C41
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 08:08:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/wP4/KJBDU8qUkLu4kWJBh4G/OQO5e1M+1s0MTVghO4=; b=eLftSHE5gzQ0gn2h30p/1Fs9WU
-	i8rHG8BKZXWVvLVkKxtLNIDtnognyEOBmKNXJG2TObRzIHKU5YAja8Vr0+MdtvgS/ve23XVPk3eFp
-	QaEVhbJVSSQrLzwTwQ4i0snQ1BEYBTm705BK0VRG515M/thnS6iO0AR36+EDfZGYUcOpdpRV9YMPI
-	Fuuce8JKZDZGITM9bWRtJVGOux47Xw6nQSgbV4qudBFjcFATzvGeo2S6v+b30YuNGPuaieqm2utIu
-	iXOOaPgy7ZbINcVgibu/OfUILdUS3sMJh0MBCvpL5qo2yFl+6lDIHdu+K6DiaZoNEHLi/+7yHqWwS
-	pMvjNkBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uIxFM4cBCmTZ3VQvCVMagv4DMQBxu6L9h1p7hNWUSU4=; b=31aFFpAbNi2lyu
+	XcDhbCtNu6eyWAE+wy0nKS48NJfaXcfi2Q9u9I3IXXRpb8J7mnBfUETEZRLPZXNBkp3TZoeJgYxm3
+	+dpv7RZlpxa/VftTl1eahWDkW5Tg828Np8awUFpt5HKa7wJxCWRyPpvZ7KFA3bMe7u0w2oWR9aX2y
+	t6/89j40jHOloDyAOk3jaO86v8Fg5Fv2EXHkrrnSpTnLYdHz0bI7uZUrQ2arbIo2adFS6GmM8abTp
+	OmyFYCu4uupTxtB1CvZazFOxVjMr4eeL356kENBykwUw8pqrPqZwBqjmyV5wBdcpASyUZiaFxh7DO
+	C81JWez6+rz4OIWyQ63A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEjdB-00000006Zmi-2tAu;
-	Mon, 20 Apr 2026 08:05:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wEjfu-00000006ZxX-1cg9;
+	Mon, 20 Apr 2026 08:08:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEjd7-00000006Zmb-3CcX
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 08:05:19 +0000
+	id 1wEjfs-00000006Zwe-0qnG;
+	Mon, 20 Apr 2026 08:08:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6ED4160055;
-	Mon, 20 Apr 2026 08:05:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADA67C19425;
-	Mon, 20 Apr 2026 08:05:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1776672316;
-	bh=MMupEMtX6NN4l5jTf+bz3F5R6Vo4CjtgyIq7YTbFxHk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LykavP4pX3GCYTqTdeEIBtIbX2DFZs8B3m6RCglX/J79jIEazMhTA/jfI/Sz6kS0t
-	 EA81PvZXntRDBoIBhWQM68Sk1Inud9l6WkYI/yut6CarTLOqKJAe94IELYel9aIbRM
-	 Hc5HKHnCor3a4biY021qGQM2JgimR27cRrxQmTaw=
-Date: Mon, 20 Apr 2026 10:05:13 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Johan Hovold <johan@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Guangshuo Li <lgs201920130244@gmail.com>,
-	Will Deacon <will@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] arm_pmu: acpi: fix reference leak on failed device
- registration
-Message-ID: <2026042058-charm-storable-4ad8@gregkh>
-References: <20260415174159.3625777-1-lgs201920130244@gmail.com>
- <ad_WmuauLJ3xDKqh@J2N7QTR9R3>
- <2026041603-guts-crested-ef76@gregkh>
- <aeCOdWLaVpH-5w8s@hovoldconsulting.com>
- <aeCsLy-45QyeCwGA@J2N7QTR9R3>
- <aeXVr5enpjb3rfq7@hovoldconsulting.com>
+	by tor.source.kernel.org (Postfix) with ESMTP id 1676860055;
+	Mon, 20 Apr 2026 08:08:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EC22C19425;
+	Mon, 20 Apr 2026 08:08:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776672485;
+	bh=0MlFO6P0m8/NK/SYcNlmOcWF1m2ZQhsuX9z7XL/3XC0=;
+	h=From:Subject:Date:To:Cc:From;
+	b=ZlMNJzI7t0Y0qGiYo1CDXuQmn4Z9R5ZnKzV1cF3a8WLcnF6jN9IUeymCJEf26bo9f
+	 54Zl2NwTEWKJhqVq2ZITZPoTi2M8Ji84oEjt3MXZjPKtUH0FYA1ANzz4dNa7JDYsBC
+	 hpPCbiaTotKQH82YNRxEn+6kc3gtXfqkpsAb+v1ssf2GihHIHAlDmTftjwRVpLVvMB
+	 Mr35MGZV39COFzv57XODIZkzVeWj+EIaMQEVCoonpkGJueu7ORqjbguxmyFIAM0WW4
+	 xZEk/U1A3gznpIApYsWDaZ6Ew0gduJBWnyJUer+dG8tnLbNuL728dCGaVu+zvT6oa3
+	 t8ZXtjaSBDLUw==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Subject: [PATCH net v2 0/2] net: airoha: Fix NULL pointer derefrences in
+ airoha_qdma_cleanup()
+Date: Mon, 20 Apr 2026 10:07:46 +0200
+Message-Id: <20260420-airoha_qdma_init_rx_queue-fix-v2-0-d99347e5c18d@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aeXVr5enpjb3rfq7@hovoldconsulting.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42NWw6CMBBFt0Lm2xpKeIhf7sOQZrADTNRWpkAwh
+ L3bsAI/z7nJuRsEEqYA12QDoYUDexchOyXwGND1pNhGhizNyjTXlUIWP6AZ7RsNO56MrGacaSb
+ V8arauu3QYqHLSkNsfISiPvp3cDRBE+XAYfLyPT4XfUx/5hetUmXbusOC8vJCxe1J4uh19tJDs
+ +/7D/h0LCLQAAAA
+X-Change-ID: 20260417-airoha_qdma_init_rx_queue-fix-b9bfada51671
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Simon Horman <horms@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,90 +75,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 20, 2026 at 09:28:47AM +0200, Johan Hovold wrote:
-> On Thu, Apr 16, 2026 at 10:30:23AM +0100, Mark Rutland wrote:
-> > On Thu, Apr 16, 2026 at 09:23:33AM +0200, Johan Hovold wrote:
-> 
-> > > It's not just the platform code as this directly reflects the behaviour
-> > > of device_register() as Mark pointed out.
-> > > 
-> > > It is indeed an unfortunate quirk of the driver model, but one can argue
-> > > that having a registration function that frees its argument on errors
-> > > would be even worse. And even more so when many (or most) users get this
-> > > right.
-> > 
-> > Ah, sorry; I had missed that the _put() step would actually free the
-> > object (and as you explain below, how that won't work for many callers).
-> > 
-> > > So if we want to change this, I think we would need to deprecate
-> > > device_register() in favour of explicit device_initialize() and
-> > > device_add().
-> > 
-> > Is is possible to have {platfom_,}device_uninitialize() functions that
-> > does everything except the ->release() call? If we had that, then we'd
-> > be able to have a flow along the lines of:
-> > 
-> > 	int some_init_function(void)
-> > 	{
-> > 		int err;
-> > 	
-> > 		platform_device_init(&static_pdev);
-> > 	
-> > 		err = platform_device_add(&static_pdev))
-> > 		if (err)
-> > 			goto out_uninit;
-> > 	
-> > 		return 0;
-> > 	
-> > 	out_uninit:
-> > 		platform_device_uninit(&static_pdev);
-> > 		return err;
-> > 	}
-> > 
-> > ... which I think would align with what people generally expect to have
-> > to do.
-> 
-> The issue here is that platform_device_add() allocates a device name and
-> such resources are not released until the last reference is dropped.
-> 
-> It's been this way since 2008, but some of the static platform devices
-> predates that and they both lack a release callback (explicitly required
-> since 2003) and are not cleaned up on registration failure.
-> 
-> Since registration would essentially only fail during development (e.g.
-> due to name collision or fault injection), this is hardly something to
-> worry about, but we could consider moving towards dynamic objects to
-> address both issues.
+Fix two possible NULL pointer derefrences in airoha_qdma_cleanup routine
+if airoha_qdma_init() fails.
 
-Agreed, this whole thing, including the error handling, is all just
-theoretical as no real user ever hits this, which is why it has been
-_way_ down my priority list.
+---
+Changes in v2:
+- Move page_pool allocation after desc list allocation in
+  airoha_qdma_init_rx_queue()
+- Move netif_napi_add_tx() after irq desc queue allocation in
+  airoha_qdma_tx_irq_init()
+- Link to v1: https://lore.kernel.org/r/20260417-airoha_qdma_init_rx_queue-fix-v1-0-db9fa5e468e5@kernel.org
 
-> We have a few functions for allocating *and* registering platform
-> devices that could be used in many of these cases (and they already
-> clean up after themselves on errors):
-> 
-> 	platform_device_register_simple()
-> 	platform_device_register_data()
-> 	platform_device_register_resndata()
-> 	platform_device_register_full()
-> 
-> and where those do not fit (and cannot be extended) we have the
-> underlying:
-> 
-> 	platform_device_alloc()
-> 	platform_device_add_resources()
-> 	platform_device_add_data()
-> 	plaform_device_add()
-> 
-> But there are some 800 static platform devices left, mostly in legacy
-> platform code and board files that I assume few people care about.
+---
+Lorenzo Bianconi (2):
+      net: airoha: Move ndesc initialization at end of airoha_qdma_init_rx_queue()
+      net: airoha: Add size check for TX NAPIs in airoha_qdma_cleanup()
 
-Yes, I agree that we do have all of the needed apis here already, we
-should just work at converting existing drivers to the new apis OR just
-not caring at all as again, no one will ever hit these code paths :)
+ drivers/net/ethernet/airoha/airoha_eth.c | 25 +++++++++++++++----------
+ 1 file changed, 15 insertions(+), 10 deletions(-)
+---
+base-commit: 0cf004ffb61cd32d140531c3a84afe975f9fc7ea
+change-id: 20260417-airoha_qdma_init_rx_queue-fix-b9bfada51671
 
-thanks,
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
-greg k-h
 
