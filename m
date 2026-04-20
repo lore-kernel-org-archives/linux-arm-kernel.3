@@ -4,131 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 470CEF588CB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:49:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DDEFF588C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:51:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c3G7vl254hKLWmCISgkXy81NC1sunGjVh1MU4tFAFiY=; b=wMfKRtTy+Jl91yikvPlUuXYGpv
-	DXIHAmRT3i6Hb8T03c/TvRn8Tn21QpSR9rPwbyurzpd2eag9SnogpjaGouGM8EDqLosBBZXbUJC2O
-	kxED3yFWDWepsJpD88FEMPu0TI2d5wZtLa1iddZBaynM9vxrcKPey+tbpFGQNNEc/hYghCVf0+V9v
-	6opjx979qg/0l86CLf3v0XTy382Oeb+uPp+ici7MAhygFNYzcUNHz92Fz4nZ72wRik/1gpSyk1q8Y
-	RTHxe8TmF8636Trrtr4ytJCJlQ5Y5rCQcH7nzZsMIOnJlhQ67R9BGu1Ydmv1+1rXQ3i5B0RJ4zCkv
-	Pn5s+R2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DWK8tKh+E9hRu8YV2LCaSkCmHnX32EfWF2Jrj1vWeW0=; b=LHbkFQy3VfHkzgQwBGVqlAqOMM
+	u0aA6seLPOhyZF8iIn2HxHlLGUOpGZ9VzzcHENs/xBxneSWbCTS+rWj3X8s0F6ykoM+FSp16lUWyS
+	4wuW8YXeSG0gYkSDqiQOZ6vvfm5q1WpiCYF80HjA//SWYrbzWjzy/9Q42qSoUT3827cU5/G/s41Bp
+	S+rLc4YOVlAoTjRMg/QBmsxK4UWD0sVC0hVEQg258dDqLt7Ih2uz7bSMZc758hMqZn1dufnc2pgRB
+	IbfSTOuIESQK6qBOkyHvVSUdIFRFz1XbcCttTBBL7A/397fd14TRsDrTCxpUQjlqpkZcYExnoZjjC
+	EnYVHjYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEozi-000000075cN-1trb;
-	Mon, 20 Apr 2026 13:48:58 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1wEp2C-000000075pQ-3khh;
+	Mon, 20 Apr 2026 13:51:32 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEozf-000000075c0-3sdf
+	id 1wEp2A-000000075oz-06e2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 13:48:57 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 883D25BCD1;
-	Mon, 20 Apr 2026 13:48:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1776692932; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=c3G7vl254hKLWmCISgkXy81NC1sunGjVh1MU4tFAFiY=;
-	b=lLOw1NFeI/E4bVnzlRZvuI38z+UOWMiJ6WCTcpZ7bGOxdHC30NjLoPiW+EgsgZl/Pzst6V
-	qqY5/ua481n4ZfLe9BpQM7lLgTHMduMezIRA5R/zGegZWQ2wkp2XrVz3v9snvhnbPIKdkH
-	AZMDGB1IyMTJ/tZtJPo/Maum0DoAIeU=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1776692932;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=c3G7vl254hKLWmCISgkXy81NC1sunGjVh1MU4tFAFiY=;
-	b=pS3fKW/BmxFU27m5F7wLrXMPhRUqPkVS5iBg7mv0bFsGeCijAraUqYAcOgioByN5iNlbUq
-	OJM/4gggnCadI6AA==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=lLOw1NFe;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b="pS3fKW/B"
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1776692932; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=c3G7vl254hKLWmCISgkXy81NC1sunGjVh1MU4tFAFiY=;
-	b=lLOw1NFeI/E4bVnzlRZvuI38z+UOWMiJ6WCTcpZ7bGOxdHC30NjLoPiW+EgsgZl/Pzst6V
-	qqY5/ua481n4ZfLe9BpQM7lLgTHMduMezIRA5R/zGegZWQ2wkp2XrVz3v9snvhnbPIKdkH
-	AZMDGB1IyMTJ/tZtJPo/Maum0DoAIeU=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1776692932;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=c3G7vl254hKLWmCISgkXy81NC1sunGjVh1MU4tFAFiY=;
-	b=pS3fKW/BmxFU27m5F7wLrXMPhRUqPkVS5iBg7mv0bFsGeCijAraUqYAcOgioByN5iNlbUq
-	OJM/4gggnCadI6AA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 61675593AE;
-	Mon, 20 Apr 2026 13:48:51 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id c5N1FMMu5mnXQwAAD6G6ig
-	(envelope-from <pfalcato@suse.de>); Mon, 20 Apr 2026 13:48:51 +0000
-Date: Mon, 20 Apr 2026 14:48:49 +0100
-From: Pedro Falcato <pfalcato@suse.de>
-To: Huang Shijie <huangsj@hygon.cn>
-Cc: Mateusz Guzik <mjguzik@gmail.com>, akpm@linux-foundation.org, 
-	viro@zeniv.linux.org.uk, brauner@kernel.org, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, muchun.song@linux.dev, osalvador@suse.de, 
-	linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	nvdimm@lists.linux.dev, zhongyuan@hygon.cn, fangbaoshun@hygon.cn, yingzhiwei@hygon.cn
-Subject: Re: [PATCH 0/3] mm: split the file's i_mmap tree for NUMA
-Message-ID: <hshxzebq5y4gavo7mbrgn7qitz5j5wyun73wy7ooiiehzzpcui@hlknbp34sgja>
-References: <20260413062042.804-1-huangsj@hygon.cn>
- <76pfiwabdgsej6q2yxfh3efuqvsyg7mt7rvl5itzzjyhdrto5r@53viaxsackzv>
- <aeWLCxru6cLWsxvQ@SH-HV00110.Hygon.cn>
+	Mon, 20 Apr 2026 13:51:31 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 554E6C5C997;
+	Mon, 20 Apr 2026 13:52:06 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6336D5FFA5;
+	Mon, 20 Apr 2026 13:51:26 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id F41031046096B;
+	Mon, 20 Apr 2026 15:51:22 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1776693085; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=DWK8tKh+E9hRu8YV2LCaSkCmHnX32EfWF2Jrj1vWeW0=;
+	b=yT7PnZqqD2I3c/29y0FVPET4nR6b8Ll864ruqDHXfjB9LBrW6JrUreMMtHkdZZPAqE+vS6
+	YTWCV/oX9D/jKfi8CpZS4OBmi3OhWTS11RG+c9Ko1uNH/S1onUtn66i+/qinYzUJQe8JZw
+	K8GqFBqZ8+H2egPPrtXXvuxBRwl2syNkp1GO4n09nxwVj+Papo7+7yjey8C1eqEuyOYtGT
+	kSVmJJCy1B4pwSbSgEd10Rli85dqCraOaqiiqa+n08+Q24qtdF4Pf6oWl4j/dw2hQSk0+J
+	5+c/tb75ZM9sbXLutHFJ/4WQEZRCydv4KdO7wZK0RE2MOifZZ6yGxVjb7zEE4w==
+Message-ID: <cd4c1a0f-0cdb-4de6-9006-f1d58c5e6812@bootlin.com>
+Date: Mon, 20 Apr 2026 15:51:21 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aeWLCxru6cLWsxvQ@SH-HV00110.Hygon.cn>
-X-Spamd-Result: default: False [-4.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	URIBL_BLOCKED(0.00)[suse.de:dkim,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	ARC_NA(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCPT_COUNT_TWELVE(0.00)[18];
-	MIME_TRACE(0.00)[0:+];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FREEMAIL_CC(0.00)[gmail.com,linux-foundation.org,zeniv.linux.org.uk,kernel.org,kvack.org,vger.kernel.org,lists.infradead.org,linux.dev,suse.de,lists.linux.dev,hygon.cn];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from,2a07:de40:b281:106:10:150:64:167:received];
-	MISSING_XM_UA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.de:dkim]
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Rspamd-Queue-Id: 883D25BCD1
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: ti: k3-j722s: use ti,j7200-padconf compatible
+To: Thomas Richard <thomas.richard@bootlin.com>, Nishanth Menon <nm@ti.com>,
+ Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Gregory CLEMENT <gregory.clement@bootlin.com>, Udit Kumar <u-kumar1@ti.com>,
+ Abhash Kumar <a-kumar2@ti.com>, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260420131735.3833993-1-richard.genoud@bootlin.com>
+ <c36821db-2fcb-438c-b54c-a4f2d5b33fa5@bootlin.com>
+Content-Language: en-US, fr
+From: Richard GENOUD <richard.genoud@bootlin.com>
+Organization: Bootlin
+In-Reply-To: <c36821db-2fcb-438c-b54c-a4f2d5b33fa5@bootlin.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_064856_162797_BC3DCACB 
-X-CRM114-Status: GOOD (  39.78  )
+X-CRM114-CacheID: sfid-20260420_065130_241862_BC614B73 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,85 +83,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-BTW you're missing _a lot_ of CC's here, including the whole of mm/rmap.c
-maintainership.
+Hi Thomas,
 
-On Mon, Apr 20, 2026 at 10:10:19AM +0800, Huang Shijie wrote:
-> On Mon, Apr 13, 2026 at 05:33:21PM +0200, Mateusz Guzik wrote:
-> > On Mon, Apr 13, 2026 at 02:20:39PM +0800, Huang Shijie wrote:
-> > >   In NUMA, there are maybe many NUMA nodes and many CPUs.
-> > > For example, a Hygon's server has 12 NUMA nodes, and 384 CPUs.
-> > > In the UnixBench tests, there is a test "execl" which tests
-> > > the execve system call.
-> > > 
-> > >   When we test our server with "./Run -c 384 execl",
-> > > the test result is not good enough. The i_mmap locks contended heavily on
-> > > "libc.so" and "ld.so". For example, the i_mmap tree for "libc.so" can have 
-> > > over 6000 VMAs, all the VMAs can be in different NUMA mode.
-> > > The insert/remove operations do not run quickly enough.
-> > > 
-> > > patch 1 & patch 2 are try to hide the direct access of i_mmap.
-> > > patch 3 splits the i_mmap into sibling trees, and we can get better 
-> > > performance with this patch set:
-> > >     we can get 77% performance improvement(10 times average)
-> > > 
-> > 
-> > To my reading you kept the lock as-is and only distributed the protected
-> > state.
-> > 
-> > While I don't doubt the improvement, I'm confident should you take a
-> > look at the profile you are going to find this still does not scale with
-> > rwsem being one of the problems (there are other global locks, some of
-> > which have experimental patches for).
-> > 
-> > Apart from that this does nothing to help high core systems which are
-> > all one node, which imo puts another question mark on this specific
-> > proposal.
-> > 
-> > Of course one may question whether a RB tree is the right choice here,
-> > it may be the lock-protected cost can go way down with merely a better
-> > data structure.
-> > 
-> > Regardless of that, for actual scalability, there will be no way around
-> > decentralazing locking around this and partitioning per some core count
-> > (not just by numa awareness).
-> > 
-> > Decentralizing locking is definitely possible, but I have not looked
-> > into specifics of how problematic it is. Best case scenario it will
-> > merely with separate locks. Worst case scenario something needs a fully
-> > stabilized state for traversal, in that case another rw lock can be
-> > slapped around this, creating locking order read lock -> per-subset
-> > write lock -- this will suffer scalability due to the read locking, but
-> > it will still scale drastically better as apart from that there will be
-> > no serialization. In this setting the problematic consumer will write
-> > lock the new thing to stabilize the state.
-> > 
-> I thought over again.
-> I can change this patch set to support the non-NUMA case by:
->   1.) Still use one rw lock.
+Le 20/04/2026 à 15:38, Thomas Richard a écrit :
+> Hello Richard,
+> 
+> On 4/20/26 3:17 PM, Richard Genoud (TI) wrote:
+>> From: Abhash Kumar Jha <a-kumar2@ti.com>
+>>
+>> The pinctrl contexts for j722s should be saved and restored during
+>> suspend-to-ram, just like it is done for j7200 and j784s4 SoCs.
+>>
+>> Use ti,j7200-padconf compatible to save and restore pinctrl contexts during
+>> suspend-to-ram.
+>>
+>> Signed-off-by: Abhash Kumar Jha <a-kumar2@ti.com>
+>> Signed-off-by: Richard Genoud (TI) <richard.genoud@bootlin.com>
+>> ---
+>>   arch/arm64/boot/dts/ti/k3-j722s-evm.dts | 2 ++
+>>   1 file changed, 2 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+>> index e66330c71593..757eb6abcd72 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+>> +++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+>> @@ -242,6 +242,7 @@ &phy_gmii_sel {
+>>   };
+>>   
+>>   &main_pmx0 {
+>> +	compatible = "ti,j7200-padconf", "pinctrl-single";
+>>   
+>>   	main_mcan0_pins_default: main-mcan0-default-pins {
+>>   		pinctrl-single,pins = <
+>> @@ -418,6 +419,7 @@ &main_uart5 {
+>>   };
+>>   
+>>   &mcu_pmx0 {
+>> +	compatible = "ti,j7200-padconf", "pinctrl-single";
+>>   
+>>   	mcu_i2c0_pins_default: mcu-i2c0-default-pins {
+>>   		pinctrl-single,pins = <
+> 
+> It should be done at SoC level, not just for the EVM board.
+> You should modify k3-j722s-main.dtsi and create k3-j722s-mcu.dtsi.
+Indeed.
 
-No. This doesn't help anything.
-
->   2.) For NUMA, keep the patch set as it is.
-
-Please no. No NUMA vs non-NUMA case.
-
->   3.) For non-NUMA case, split the i_mmap tree to several subtrees.
->       For example, if a machine has 192 CPUs, split the 32 CPUs as a tree.
-
-If lock contention is the problem, I don't see how splitting the tree helps,
-unless it helps reduce lock hold time in a way that randomly helps your workload.
-But that's entirely random.
+Thanks!
 
 > 
-> So extend the patch set to support both the NUMA and non-NUMA machines.
+> Best Regards,
+> Thomas
 
-FYI I've discussed some concrete ideas for reworking file rmap with Mateusz.
-I'll be giving them a shot. Note that this needs to be done _carefully_,
-particularly as there are some hidden assumptions wrt forking that aren't
-very clear as to how they work[1].
 
-[1] https://lore.kernel.org/all/bnukmnuxxuhdfeasjz33miemgr7w35c4aa6pqdmgupx7oxmeeb@gozgc3yxhcdd/
--- 
-Pedro
 
