@@ -4,152 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67A48EA71B7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 03:06:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF51FEA7185
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 03:25:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rtl+6BW8W96h2knkFuBlb08onlTQOueBJrF/qpTFCGo=; b=LstzUA7PN9WpwdV7IEIOC6KAO1
-	bLVNTbg+RI4M4yVXfotu2M+h6hnW77vtZOv0U9mQNErfVzo6Lbe2JtSsmu4IVUoW2qLCIOYXPOF7h
-	bw7sSUwqwG3IUo+FMSMgLZkKaBq3M9WRsXCNGFXu4KcxlmMT3fjP4hI19VGcS7rLqUuO5lDUy4W1+
-	VasDvHXxcRdyQw+UNj6k4NXImU811fTfPP5bmZ/LhUjStIw5PFAJZ3hW0HwcUjtKh82Pj9vX3TXQp
-	ma4fh2KLwuAeVJUF7lSOJpUDEtljhzdAMV0KDWeDlxFEC/n7GyBKsWFMJDs/pOz+EejVS73xYLlpR
-	gFWX4skw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bg6/qo4RSzChhEAaqABVwolWhwsWHR+Hrc2Y5KLNt5U=; b=vLnYUsiFaHToAgEIREehYAjhXe
+	z+vZP5bLQ1i0MbAlzS4wRCxKtUzWJV+cfMeYUz7ByjxWwbDPtk0yYeeLu6CYnx8/PCLi1RSybcEfT
+	51yEH2KqfrVIvcg6t6QocJvvnt4J/njVUyHdYXAt1XDaczbyTKCA6nYWj8lYvZzdkgDKzHZ+k9osH
+	Eeb8zrJ00RhIl0saXJf19R5PPu2Phjg0J8e5yBuGSpugfwru/jZaMDX4rXxu6oT1z/Q+SJk+ExAtS
+	IycdmVQs5ZE5QIVBHGRTmbjyMNrjTzVD/SchSak+q0tVVqf6/LoBcwJ9dI5HveI+kmNWR5ayFn9/9
+	j8NSmx8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEeyC-00000006LtC-3vYI;
-	Mon, 20 Apr 2026 03:06:44 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wEfGA-00000006Mc5-3jtO;
+	Mon, 20 Apr 2026 03:25:18 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEey9-00000006Ls5-3NQC
+	id 1wEfG6-00000006MbS-2otn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 03:06:43 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63K2IeRh2729383
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 03:06:41 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=rtl+6BW8W96h2knkFuBlb08o
-	nlTQOueBJrF/qpTFCGo=; b=EeAm3O+xDAnsqjBWSwWHXLk5w3dFL5VST11xec3M
-	cJUYoLpE/IFBcdaW2/WljOzUUeBxyoKuGjdMM6G8j1dRsN4CFMGXyZvBdwnTr/rE
-	7GOwa4sBPnBAmAFG29EyLqaSwdYlzw8WZAaAc5VeW8H6UVf5kvs4Cc81H8JvE0Xv
-	oRiUSzF9UPLUhbGVZ52mWGcXfFBY7c6krllIcr5bJr1J+R5Z0W6N2n6RvMeydSN3
-	A50LJttDcwowVNGL+wS95T2fADXR0GOyCkaOWhNvGXzFXx+iwI+2XE/56qmLNa3y
-	LxivIIS/zArdFaR5TDf/ANpnmhHnSHoBzFhVFsZ+8rR8yg==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dm0wr3x94-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 03:06:40 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-50ea1a7a5d0so1251841cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 20:06:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1776654400; x=1777259200; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=rtl+6BW8W96h2knkFuBlb08onlTQOueBJrF/qpTFCGo=;
-        b=Op1/IQlskcuQeeF5gO3hL0Fr2kwASPqCAetg0gfMk2j1CeCfXz7k0hHoBRudgw0f4Q
-         9WxPT0u0RB2kLAyVa55zLKMHQK/GLEVrj5KMqhcFk9l6BGkxjKLvRlqM3s7gTVvJIjU7
-         Bw5xsCbEtPwH9q10Zr5z+VfLm+rpXBxPbqikRrJ7eTNe1dtoLWG4DH9nbhGdinlKgel5
-         kKgLR6q6bA5L1gEmNG8Ede7XdQP2E0EbOjdsTL/ZbBOn66eWkgFkX/TFwYmZa1Z/Q836
-         CVpMgkZQhD3BaTBGfAQLzmLjb/HnLxZQ5vhEmQiIGbGxDBTAk22GBDwvQ106F29pGmOH
-         K1Nw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776654400; x=1777259200;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rtl+6BW8W96h2knkFuBlb08onlTQOueBJrF/qpTFCGo=;
-        b=cQYiePpJr/ycPkIxVc+ctvafRwXaCAsDmqAtPwOD1ya/rslMW5nYsB2beeNqCd9y7v
-         jKunQK2nlhZHpIZ44G6dWwSVSt7yHmsOgnhb2LwUaCnYtG7cByOVVCLx1B+Akqpgq329
-         BG65e5yIprOOeXxygwES4+2Yu6mGu92UXRNFy4TH3FFaZehtfIUfTsCiZEO2EaztrAVf
-         PIPawzMAi8a4NNZXJ26aBfzGrdOr5LzjcNzrxD/KvOP1RlSLRNJNLY4kEti/b1cKrW4o
-         e4h5bw0uhOo/SNRpOl19APGCqBv98MUmf9lQpqJjT1aPqDzCqEn5J1+3qy+6CMvkIspI
-         bSfQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+vkwi2dW4Yni9oYek/34XdPpkrIib8b1u0DiN9Ligb0wEQRPZBrNaY+EJEDFMfY/TPjgB4rdked470jofjxRfX@lists.infradead.org
-X-Gm-Message-State: AOJu0YxoD+OXML5cUqrGf57BtCJVwjYXJH6G24kWYLfzdiC7Hhzz6R6P
-	EtcEqECh+0S6Djri6EIbMiL2yRL4LsUdxRJB2ZFSoeA5fpv3iNBW7lTcfGufbSp5eTnw/cr/sCN
-	aT2J1zzzIMonaUj13LoWouyfye1j1eYwdjPq16Luv5BVhbvr+wbCUsYtcR4xurYSVAYe0NUQLnf
-	9/jg==
-X-Gm-Gg: AeBDieveDuDnHjMqyqbVDyXSikyc4i7kN4893Y72CbBrIl4CqvL+QSLWCcv1TmLmdl/
-	V4Fs0osPO96LrQ71Q9GV1Rc5fvgbgf2zbAuAOm8CDGW92fcqFXTqjyhDYTkWQqNzG+1b0q+dqJ+
-	L79yDNo3ON0v9UdpmNZ1/gwXwzZZVxncVx0gcN1mUxqJ2H7cpbBAZ8rjF764jPeMaUpNYeo+oGy
-	N08Almmq8lgyuVXvd/Y1vICV1uZ3ww+FQ5TGIZQbstY1BxN1OSmTNiZY3Inl0a8EW8tFVdKf6NV
-	tzA2jPrThDTxJTBIN21HZ6s56DHGTLWDokFjAG+cpEZ2MxdKKgyYGhdb3vXKxHf+WdPEWdXqeyU
-	5N8g5h81Lom0FdhrDaDjTG0PfrIH+RAD/JauLZ5KZy8b6P+5/FVMopl66hG2T67+Qf1POomNCwG
-	cDujcXMjoQLQ9TyK12OA9zI1E4+wJxg/Qt0luiVg+TPC460A==
-X-Received: by 2002:a05:622a:4189:b0:509:35d1:ca37 with SMTP id d75a77b69052e-50e3693d07amr181294581cf.16.1776654400029;
-        Sun, 19 Apr 2026 20:06:40 -0700 (PDT)
-X-Received: by 2002:a05:622a:4189:b0:509:35d1:ca37 with SMTP id d75a77b69052e-50e3693d07amr181294201cf.16.1776654399547;
-        Sun, 19 Apr 2026 20:06:39 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a4187e1116sm2667146e87.54.2026.04.19.20.06.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 19 Apr 2026 20:06:38 -0700 (PDT)
-Date: Mon, 20 Apr 2026 06:06:35 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Dennis Gilmore <dennis@ausil.us>
-Cc: Alexey Charkov <alchark@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-        Andrzej Hajda <andrzej.hajda@intel.com>,
-        Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-        Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>,
-        devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        FUKAUMI Naoki <naoki@radxa.com>, Heiko Stuebner <heiko@sntech.de>,
-        Hsun Lai <i@chainsx.cn>, Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Jimmy Hon <honyuenkwun@gmail.com>, John Clark <inindev@gmail.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-rockchip@lists.infradead.org,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-        Michael Riesch <michael.riesch@collabora.com>,
-        Mykola Kvach <xakep.amatop@gmail.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Peter Robinson <pbrobinson@gmail.com>,
-        Quentin Schulz <quentin.schulz@cherry.de>,
-        Robert Foss <rfoss@kernel.org>, Rob Herring <robh@kernel.org>,
-        Simona Vetter <simona@ffwll.ch>,
-        Thomas Zimmermann <tzimmermann@suse.de>
-Subject: Re: [PATCH v7 3/6] drm/bridge: simple: Add the Lontium LT8711UXD
- DP-to-HDMI bridge
-Message-ID: <ilprfltw6ju2jpo4hrrypscljrlw3xqi7h2mf5sv2k2iy3xeu5@4d76innmpoav>
-References: <20260414214104.1363987-1-dennis@ausil.us>
- <20260414214104.1363987-4-dennis@ausil.us>
+	Mon, 20 Apr 2026 03:25:17 +0000
+Received: from ubuntu.. (unknown [202.112.113.208])
+	by APP-05 (Coremail) with SMTP id zQCowADndwt9nOVpj2cbDg--.31217S2;
+	Mon, 20 Apr 2026 11:24:54 +0800 (CST)
+From: Ma Ke <make24@iscas.ac.cn>
+To: vz@mleia.com
+Cc: alexandre.belloni@bootlin.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	make24@iscas.ac.cn,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	piotr.wojtaszczyk@timesys.com,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] net: lpc_eth: Fix a possible memory leak in lpc_mii_probe()
+Date: Mon, 20 Apr 2026 11:24:45 +0800
+Message-ID: <20260420032445.2209758-1-make24@iscas.ac.cn>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <60dea9e5-9890-49ab-b806-713c388d6e08@mleia.com>
+References: <60dea9e5-9890-49ab-b806-713c388d6e08@mleia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260414214104.1363987-4-dennis@ausil.us>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIwMDAyNyBTYWx0ZWRfXzumYkRZAVQ6o
- IlSuxzNH58jtn3cy+hPWLwp727fnH/jGqT8NDDlnmvKZfe262CR27PcWzGH1mULVeIrfYLS9utj
- ZBTVQSxD8/8fsC5C/6/iEc392o4/hhP0RnoLp8wonGa6SnTZNcfWIhJazQIkzy/sQgBz9HbSky7
- kZpgzQDTUm85PyV/MbK8QstHOWCNS6liARbOQOS+gzEj0fYyBxI1u7oEUgUn8VR99LMhhC5u4aN
- IQDHoDSOiDJpVodSr9FIwgVZcAlR9VaYBLOyGsZqGx1iYcQLd5gmOM527nQFBLK6LVVjBOb6Eo2
- xUMNSPTygTazJMmQSSr/ixJ7A88fCaOJATSgAGJduL0UAemlpFN00grdACj3UDZnn6UrRhZKi/x
- 4cHJoYOLGdJqwx6G9F5XHh4l6dj3/d8/wU0CDjPofQfPLBNJ+/P4l6kRp/6KvfLbBh40PE78RKx
- yxbziXr75yJN7EZ7fGw==
-X-Authority-Analysis: v=2.4 cv=G9Ys1dk5 c=1 sm=1 tr=0 ts=69e59840 cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22 a=EUspDBNiAAAA:8
- a=R0GiLmRpmYWNx10LZcEA:9 a=CjuIK1q_8ugA:10 a=a_PwQJl-kcHnX1M80qC6:22
-X-Proofpoint-ORIG-GUID: 0SAZj8rhEqgrAfPrmK6Gu2VkZKs3PNS_
-X-Proofpoint-GUID: 0SAZj8rhEqgrAfPrmK6Gu2VkZKs3PNS_
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-19_07,2026-04-17_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 clxscore=1015 adultscore=0 impostorscore=0 lowpriorityscore=0
- phishscore=0 spamscore=0 priorityscore=1501 malwarescore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604200027
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowADndwt9nOVpj2cbDg--.31217S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxtF15Cr43Xr48Ar17urWDCFg_yoW7Zr47p3
+	yUGa4SkFykGr17Gw4vv3WUAryYvw42yw1rWFyjya45Wrn0qryfAry8trWY9r95CFZ7J3W0
+	vryakFZ3ZaykXaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUB214x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
+	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
+	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I
+	648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2
+	Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s02
+	6x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0x
+	vE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE
+	42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6x
+	kF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUOmhFUUUUU
+X-Originating-IP: [202.112.113.208]
+X-CM-SenderInfo: ppdnvj2u6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260419_200641_876150_E6B0DD3D 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20260419_202515_168093_F33C0740 
+X-CRM114-Status: GOOD (  32.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,21 +88,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 14, 2026 at 04:40:54PM -0500, Dennis Gilmore wrote:
-> The Lontium LT8711UXD is a high performance two lane Type-C/DP1.4
-> to HDMI2.0 converter, designed to connect a USB Type-C source or
-> a DP1.4 source to an HDMI2.0 sink.
-> 
-> Signed-off-by: Dennis Gilmore <dennis@ausil.us>
-> ---
->  drivers/gpu/drm/bridge/simple-bridge.c | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
+>Hello Ma Ke.
+>
+>On 4/1/26 16:18, Ma Ke wrote:
+>> On 3/30/26 13:04, Vladimir Zapolskiy wrote:
+>>> On 3/30/26 11:16, Ma Ke wrote:
+>>>> lpc_mii_probe() calls of_phy_find_device() to obtain a phy_device
+>>>> pointer. of_phy_find_device() increments the refcount of the device.
+>>>> The current implementation does not decrement the refcount after using
+>>>> the pointer, which leads to a memory leak.
+>>>
+>>> this is correct, there is an actual detected bug.
+>>>
+>>>>
+>>>> Add phy_device_free() to balance the refcount.
+>>>
+>>> But this does not sound right, you shoud use of_node_put(pldat->phy_node).
+>>>
+>>>>
+>>>> Found by code review.
+>>>>
+>>>> Signed-off-by: Ma Ke <make24@iscas.ac.cn>
+>>>> Cc: stable@vger.kernel.org
+>>>> Fixes: 3503bf024b3e ("net: lpc_eth: parse phy nodes from device tree")
+>>>> ---
+>>>>    drivers/net/ethernet/nxp/lpc_eth.c | 11 ++++++-----
+>>>>    1 file changed, 6 insertions(+), 5 deletions(-)
+>>>>
+>>>> diff --git a/drivers/net/ethernet/nxp/lpc_eth.c b/drivers/net/ethernet/nxp/lpc_eth.c
+>>>> index 8b9a3e3bba30..8ce7c9bb6dd6 100644
+>>>> --- a/drivers/net/ethernet/nxp/lpc_eth.c
+>>>> +++ b/drivers/net/ethernet/nxp/lpc_eth.c
+>>>> @@ -751,7 +751,7 @@ static void lpc_handle_link_change(struct net_device *ndev)
+>>>>    static int lpc_mii_probe(struct net_device *ndev)
+>>>>    {
+>>>>    	struct netdata_local *pldat = netdev_priv(ndev);
+>>>> -	struct phy_device *phydev;
+>>>> +	struct phy_device *phydev, *phydev_tmp;
+>>>>    
+>>>>    	/* Attach to the PHY */
+>>>>    	if (lpc_phy_interface_mode(&pldat->pdev->dev) == PHY_INTERFACE_MODE_MII)
+>>>> @@ -760,17 +760,18 @@ static int lpc_mii_probe(struct net_device *ndev)
+>>>>    		netdev_info(ndev, "using RMII interface\n");
+>>>>    
+>>>>    	if (pldat->phy_node)
+>>>> -		phydev =  of_phy_find_device(pldat->phy_node);
+>>>> +		phydev_tmp =  of_phy_find_device(pldat->phy_node);
+>>>>    	else
+>>>> -		phydev = phy_find_first(pldat->mii_bus);
+>>>> -	if (!phydev) {
+>>>> +		phydev_tmp = phy_find_first(pldat->mii_bus);
+>>>> +	if (!phydev_tmp) {
+>>>
+>>> I didn't get it, why the new phydev_tmp is needed above, please
+>>> restore the original code above.
+>>>
+>>>>    		netdev_err(ndev, "no PHY found\n");
+>>>>    		return -ENODEV;
+>>>>    	}
+>>>>    
+>>>> -	phydev = phy_connect(ndev, phydev_name(phydev),
+>>>> +	phydev = phy_connect(ndev, phydev_name(phydev_tmp),
+>>>>    			     &lpc_handle_link_change,
+>>>>    			     lpc_phy_interface_mode(&pldat->pdev->dev));
+>>>> +	phy_device_free(phydev_tmp);
+>>>
+>>> This is plainly wrong and has to be dropped or changed to
+>>>
+>>> 	if (pldat->phy_node)
+>>> 		of_node_put(pldat->phy_node);
+>>>
+>>>>    	if (IS_ERR(phydev)) {
+>>>>    		netdev_err(ndev, "Could not attach to PHY\n");
+>>>>    		return PTR_ERR(phydev);
+>>>
+>>> Is it AI generated fix or what?.. The change looks bad, it introduces
+>>> more severe issues than it fixes.
+>>>
+>>> If you think you cannot create a proper change, let me know.
+>>>
+>> Thank you very much for your detailed review and guidance.
+>> 
+>> Now I think your point probably is: you are saying that the real leak
+>> is not from of_phy_find_device(), but from the device node
+>
+>I was pretty indelicate in my comment, let's split the change into parts.
+>
+>1) I still do not understand, why phydev_tmp is introduced, please explain
+>or remove this part of the change;
+>
+>2) phydev = of_phy_find_device() requires phy_device_free(phydev), but
+>I do not see why phy_find_first() requires it, while it was added in your
+>change.
+>
+>Let's start from resolving these two points.
+>
+>> pldat->phy_node which was obtained earlier (probably by
+>> of_parse_phandle()) and never freed by of_node_put(). And you suggest
+>> to add of_node_put(pldat->phy_node) instead of my wrong
+>> phy_device_free().
+>> 
+>> However, I am still a little confused. In lpc_mii_probe(),
+>> of_phy_find_device() is called. From my understanding, this function
+>> increases the reference count of the device. To balance it, I thought
+>> phy_device_free() (which calls put_device()) should be used.
+>> 
+>> Could you please kindly advise the correct patch? I will follow your
+>> guidance and submit a proper fix.
+>> 
+>> I apologize again for my previous wrong patch. Thank you very much for
+>> your help.
+>
+> -- 
+> Best wishes,
+> Vladimir
+Hello Vladimir,
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Thank you for the detailed explanation and for pointing out my mistakes.
 
+> 1) I still do not understand, why phydev_tmp is introduced, please explain
+> or remove this part of the change;
 
--- 
-With best wishes
-Dmitry
+I added phydev_tmp because I thought I needed to keep the original 
+phy_device pointer for releasing after phy_connect(). But as you 
+implied, it's perhaps unnecessary and only makes the code less 
+readable. I will drop this change completely in the next version.
+
+> 2) phydev = of_phy_find_device() requires phy_device_free(phydev), but
+> I do not see why phy_find_first() requires it, while it was added in your
+> change.
+
+You are absolutely right. I mistakenly assumed that both functions 
+return a reference-counted pointer. phy_find_first() does not 
+increment the refcount, so calling phy_device_free() on it is wrong 
+and dangerous. My patch introduced a new bug there.
+
+Now I understand that only the of_phy_find_device() branch needs a 
+corresponding put_device(). I will prepare a corrected patch that only
+releases the reference in that specific path (including on the error 
+path after phy_connect() failure). I will also look at the phy_node 
+reference leak you hinted at.
+
+Thank you again for your guidance. I will send a v2 after fixing it 
+properly.
+
+Best regards,
+Ma Ke
+
 
