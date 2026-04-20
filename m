@@ -4,91 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F1F0F588CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:53:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E154F588C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:53:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FKxxCO4GtkGKUF5BFOk7rxFZ6/dudDJaIJLrfh/08ZM=; b=tKxJNdIuZppt2uhKYvCqyT//rq
-	aI+79kJOVpteLd3jtkDJ7LJmGe/DDGfKT6w3yVulIkDqs12ODTNMHEMTbEpSOPYgH/uIp+xr1r8Sw
-	HQ8kTgutz/A7fjScPtzSzKqM303iSTGDHr2wkL/TBH3equlSxVdbMMqIXJqEjrRdM8ViGKKkO8W49
-	he9WnnDG1ItbMnrq7D6vHzLHCiby9d3H0Q6XhGGVrX9A0iwpMCWNgl+qAWQ3/c/Tec9GZXQkEeTzG
-	4Lum78QwF9rW9qGJb+ZVM26SR2B9pTu1ZA5wwkD8Jcnkk4ep9vekVBrJCGCwiIA88h+TrrVnqgBxe
-	xnBV0TlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Le1fvxwzT+XpTlOORK9GCCBvKqaDoLHsvoJjKJsDdD0=; b=gLEbhqd0aG2imq
+	MWgRkEVwHufgJqFvbXjCCq8UnUErycIx+d9PyLxsRZNFussidYcHWAeoohei3L17HYFuO0ALvRBAj
+	yQUhGlYqu+kfxdACW4yq3fjZP75sZnmzQqKrSIYWPqBcsgl3HKAhV8xcF9sweK52CLuzkXCcx8U9W
+	jhqYesCY81zicb+osp0C2VuPYresZ4hCDoacbvkkL4GNmhGYa+ipcRnA3VfQklyE4KZMn4Ob7z0bO
+	V9taQrD5Jv30xsjDgR2+QNKD6++C/Jk2E+ksyHH+mNNJikPR+yqfkgbulQbMzljC1ovLGvV98N3gp
+	SlCDlJ6ySbMW9xFsM/ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEp3x-000000075z0-1SMz;
-	Mon, 20 Apr 2026 13:53:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wEp4J-0000000762Q-2naV;
+	Mon, 20 Apr 2026 13:53:43 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEp3w-000000075yt-1AGT
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 13:53:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4676B60141;
-	Mon, 20 Apr 2026 13:53:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEB41C19425;
-	Mon, 20 Apr 2026 13:53:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776693199;
-	bh=/2WX7QRrreqNa1lPcnWhMEbZ0TkX/QFlLwzbB3DhuUg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=CLHDrjXdglACtNImEqi28IDMMq7a5VhtuFLdyxVmCXCyceC4zd94riRPfAVgYMPA0
-	 EvhnwhPlhqZSYz1oW/9EpYgcRqCh0KlVGeYyKv0OaJ+I3bcrttEzeUId2W6blRETn6
-	 m47ogPkO9Fvt5G3+IJTKRSl230r0zn/MAa3H5V2XJ7nKn4yOY0wRf2BX6yvvqTy3QP
-	 MzM+0VSDOTi2+sUr92tv5K+/QzK2ZzxE0ur6/57SeB/VszFCS0E3IiRytMNb1KD7pn
-	 iveHZNnTVhLopLxmDmSXERfBw8mGUtEfPMeRPcdm2RvxvO53fB17/KW31sQf6hOor2
-	 FJmdjbmlZxbHw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wEp3s-0000000D5cc-1J1N;
-	Mon, 20 Apr 2026 13:53:16 +0000
-Date: Mon, 20 Apr 2026 14:53:15 +0100
-Message-ID: <86ldeh20xg.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu
- <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	devel@daynix.com,
-	kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v7 3/4] KVM: arm64: PMU: Introduce FIXED_COUNTERS_ONLY
-In-Reply-To: <ad44c69e-2f99-4f31-81b4-faae52eea080@rsg.ci.i.u-tokyo.ac.jp>
-References: <20260418-hybrid-v7-0-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
-	<20260418-hybrid-v7-3-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
-	<87ldeic1gk.wl-maz@kernel.org>
-	<06c6664c-7f0c-47b2-babf-ba2a541fd9f2@rsg.ci.i.u-tokyo.ac.jp>
-	<86qzoa0xj6.wl-maz@kernel.org>
-	<ad44c69e-2f99-4f31-81b4-faae52eea080@rsg.ci.i.u-tokyo.ac.jp>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: odaki@rsg.ci.i.u-tokyo.ac.jp, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kees@kernel.org, gustavoars@kernel.org, pbonzini@redhat.com, corbet@lwn.net, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1wEp4G-0000000761k-2aPz;
+	Mon, 20 Apr 2026 13:53:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1776693208; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=HNcAcjva049tmOftgDfccB0LJdwBE3ils8xoWACsWWwnUpgNwJJFeXselsXuQmxzf5EwdL1PSAlbvpYKntNdgLs0jCD4lxueWVcNTme75fIAK8QyXperFQGpXejM8mNyDfK3SZedGrNjJA2S/fpoyv0wMLzFhlmzjf+T4oKLNCs=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1776693208; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Le1fvxwzT+XpTlOORK9GCCBvKqaDoLHsvoJjKJsDdD0=; 
+	b=mPCWGiTzD+4vejp4cNx0ggmGXqqlHaTvxBpKVXb1+R15hi0zvVG4IsFNkUi89kGMUGXkelPJ9c2USedAQAClJWm437gHWJaXr3XlqCTnyIMPyb6TjJLKzK6TQ2F2HusRNld1xZJtHKol9l3sXpzWwP32iOgtbJdPMEtjWcxnGGU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1776693208;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=Le1fvxwzT+XpTlOORK9GCCBvKqaDoLHsvoJjKJsDdD0=;
+	b=hNZb0nWP8Ht6hp/r5cqgqJEGPn+HoAmPRljkKrOXvMxxEPz5IwzoYmOpyBExzp4E
+	o1b7p0pf6PWNRa6yKKGUTErXFwYTp8QEb7JfHNyeQ2BQGHlK3y93drOCG133ygdliAr
+	T9BM8GfLJ0vJx2+jy9h/H6d7J1ii6aMeBRb8B+zQ=
+Received: by mx.zohomail.com with SMTPS id 1776693206475139.18881717334955;
+	Mon, 20 Apr 2026 06:53:26 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Subject: [PATCH v5 0/6] Add Rockchip RK3576 PWM Support Through MFPWM
+Date: Mon, 20 Apr 2026 15:52:37 +0200
+Message-Id: <20260420-rk3576-pwm-v5-0-ae7cfbbe5427@collabora.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23PTW7DIBAF4KtYrEs1DBjcrHqPKgvA4wY1Ngl2a
+ KrIdy9x+mc1yzfS92bmwkZKgUa2qS4sUQ5jiEMJ9UPF/M4Or8RDWzJDwBoUGJ7eZG00P7z3XGm
+ jhWuhJWtZAYdEXTgvZS/bW050PJXO6TZkzo7Efez7MG2qgc4TL70aFAK7gl0Yp5g+lmOyWMTX3
+ ubv3iw4cKuesNEevW3o2cf93rqY7GMpX6oy/nINuOJ45VpJ5cCTBn+Pyx8uAFdfZ1m4rpWtvRM
+ ku+YeV998eW7FVeEKhZGNN67Df3ye508kfjx7lgEAAA==
+X-Change-ID: 20250407-rk3576-pwm-46761bd0deaa
+To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Lee Jones <lee@kernel.org>, William Breathitt Gray <wbg@kernel.org>, 
+ Damon Ding <damon.ding@rock-chips.com>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>, 
+ Alexey Charkov <alchark@gmail.com>, linux-rockchip@lists.infradead.org, 
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-iio@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260420_065340_722073_9F166C13 
+X-CRM114-Status: GOOD (  49.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,150 +88,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Apr 2026 13:07:15 +0100,
-Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
-> 
-> On 2026/04/20 18:51, Marc Zyngier wrote:
-> > On Mon, 20 Apr 2026 09:36:16 +0100,
-> > Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
-> >> 
-> >> On 2026/04/20 2:19, Marc Zyngier wrote:
-> >>> On Sat, 18 Apr 2026 09:14:25 +0100,
-> >>> Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
-> >>>> 
-> >>>> On a heterogeneous arm64 system, KVM's PMU emulation is based on the
-> >>>> features of a single host PMU instance. When a vCPU is migrated to a
-> >>>> pCPU with an incompatible PMU, counters such as PMCCNTR_EL0 stop
-> >>>> incrementing.
-> >>>> 
-> >>>> Although this behavior is permitted by the architecture, Windows does
-> >>>> not handle it gracefully and may crash with a division-by-zero error.
-> >>>> 
-> >>>> The current workaround requires VMMs to pin vCPUs to a set of pCPUs
-> >>>> that share a compatible PMU. This is difficult to implement correctly in
-> >>>> QEMU/libvirt, where pinning occurs after vCPU initialization, and it
-> >>>> also restricts the guest to a subset of available pCPUs.
-> >>>> 
-> >>>> Introduce the KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY attribute to
-> >>>> create a "fixed-counters-only" PMU. When set, KVM exposes a PMU that is
-> >>>> compatible with all pCPUs but that does not support programmable
-> >>>> event counters which may have different feature sets on different PMUs.
-> >>>> 
-> >>>> This allows Windows guests to run reliably on heterogeneous systems
-> >>>> without crashing, even without vCPU pinning, and enables VMMs to
-> >>>> schedule vCPUs across all available pCPUs, making full use of the host
-> >>>> hardware.
-> >>>> 
-> >>>> Much like KVM_ARM_VCPU_PMU_V3_IRQ and other read-write attributes, this
-> >>>> attribute provides a getter that facilitates kernel and userspace
-> >>>> debugging/testing.
-> >>> 
-> >>> OK, so that's the sales pitch. But how is it implemented? I would like
-> >>> to be able to read a high-level description of the implementation
-> >>> trade-offs.
-> >> 
-> >> Implementation-wise it is very trivial. Essentially the following
-> >> addition in kvm_arm_pmu_v3_get_attr() is the entire implementation:
-> >> +	case KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY:
-> >> +		if (test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY,
-> >> &vcpu->kvm->arch.flags))
-> >> +			return 0;
-> >> 
-> >> Both its functionality and code complexity is trivial. So we can argue that:
-> >> - the functionality is too trivial to be useful or
-> >> - the interface/implementation complexity is so trivial that it does not
-> >>    incur maintenance burden
-> >> 
-> >> In this case the selftest uses the getter so I was more inclined to
-> >> have it, but adding one just for the selftest sounds too ad-hoc, so
-> >> here I looked into other attributes to ensure that it was not
-> >> introducing inconsistency with existing interfaces.
-> >> 
-> >> As the result, I found there are other read-write attributes; in fact
-> >> there are more read-write attributes than write-only ones.
-> > 
-> > You're completely missing the point. I'm referring to the whole of the
-> > commit message, which is more of a marketing slide than a technical
-> > description.
-> 
-> In terms of implementation, the obvious tradeoff is that it adds more
-> code to implement the feature. One thing to note is that
-> kvm_vcpu_load_pmu() is added and is called each time a vCPU migrates
-> across pCPUs. The heavy part, making the KVM_REQ_RELOAD_PMU request,
-> only happens when the feature is enabled.
+This series introduces support for some of the functions of the new PWM
+silicon found on Rockchip's RK3576 SoC. Due to the wide range of
+functionalities offered by it, including many parts which this series'
+first iteration does not attempt to implement for now. The drivers are
+modelled as an MFD, with no leakage of the MFD-ness into the binding, as
+it's a Linux implementation detail.
 
-Well, that's what I want to see. The repeated blurb about Windows
-being broken is cover letter material, but not fir for a commit
-message.
+Here's some of the features of the hardware:
+- Continuous PWM output (implemented in this series)
+- One-shot/Finite repetition PWM output
+- PWM capture by counting high/low cycles (implemented in this series)
+- Sending IR transmissions in several TV remote protocols
+- Generating an interrupt based on the input being one of 16
+  user-specified values ("Power key capture")
+- Biphasic counter support
+- Using the hardware to measure a clock signal's frequency
+- Using the hardware to count a clock signal's pulses
+- Generating PWM output waveforms through a user-specified lookup table
 
-[...]
+As you can tell, there's a lot. I've focused on continuous PWM output
+for now as the most important one for things like controlling fans. The
+PWM capture driver is an added bonus, because I needed at least two
+drivers to test things. Anyone doing consumer electronic devices like
+TVs based on the RK3576 may need to do the power key stuff at some
+stage, as it can be used to wake up the SoC with an IR remote. The IR
+transmission stuff in general may be a funny weekend project for someone
+at some point; I assume it's there so TV boxes can turn on and off TVs
+without needing the HDMI control stuff.
 
-> >>> "for the first time" gives the impression that it will work if you try
-> >>> again. I'd rather we say that "This feature is incompatible with the
-> >>> existence of a PMU event filter".
-> >> 
-> >> The following sequence will work:
-> >> 1. Set KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY
-> >> 2. Set KVM_ARM_VCPU_PMU_V3_FILTER
-> >> 3. Set KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY
-> >> 
-> >> This is to make the behavior conistent with KVM_ARM_VCPU_PMU_V3_SET_PMU.
-> > 
-> > I don't think this is correct. Filtering is completely at odds with
-> > this patch, and I don't want to have to reason about the combination.
-> 
-> kvm_arm_pmu_v3_set_pmu() has the following condition:
-> 
-> if (kvm_vm_has_ran_once(kvm) ||
->     (kvm->arch.pmu_filter && kvm->arch.arm_pmu != arm_pmu)) {
-> 	ret = -EBUSY;
-> 	break;
-> }
-> 
-> kvm_arm_pmu_v3_set_pmu_fixed_counters_only() has the corresponding
-> condition for consistency:
-> 
-> if (kvm_vm_has_ran_once(kvm) ||
->     (kvm->arch.pmu_filter &&
->      !test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY,
-> 	       &kvm->arch.flags)))
-> 	return -EBUSY;
-> 
-> We can of course kill the PMU event filter for
-> FIXED_COUNTERS_ONLY. The filter is effectively no-op with
-> FIXED_COUNTERS_ONLY and I don't think that consistency matters much.
+At first, I considered simply integrating support for this new IP into
+the old pwm-rockchip driver, as the downstream vendor kernel did.
+However, the IP is significantly different from previous iterations.
+Especially if the goal is to support some of the additional
+functionality that the new silicon brings, doing it all in a single pwm
+driver would be untenable. Especially one that already supports other
+hardware with a way different set of registers.
 
-We shouldn't allow weird combinations in the UAPI. Since it makes no
-sense to have both fixed-function *and* filters, we should make them
-mutually exclusive.
+Hence, the mfpwm pattern: each device functionality is its own driver,
+and they all get registered as MFD cells by the parent mfpwm MFD driver,
+which is the one that binds to the DT compatible. Each device function
+driver then has to _acquire and _release the hardware when it needs
+control of it. If some other device function is using the device
+already, -EBUSY is returned, which the device function driver can then
+forward to the user and everyone is happy.
 
-[...]
+The PWM output driver, pwm-rockchip-v4, uses the new waveform APIs. I
+thought while writing a new driver that I might as well use the new
+APIs.
 
-> >> I expect migration will be handled with the conventional register
-> >> getters and setters, but please share if you have a concern.
-> > 
-> > At the very least I want to see some documentation explaining that.
-> 
-> What kind of documentation do you expect?
+The PWM capture driver, implemented as a counter driver, is somewhat
+primitive, in that it doesn't make use of things like the biphasic
+counter support or clock measuring, but it serves as a good way to
+showcase and test the mutual exclusion that the mfpwm framework tries to
+achieve. It directly exposes the HPC/LPC counts as counters. Shoutouts
+to the counter subsystem's documentation by the way, it is some of the
+best subsystem documentation I've come across so far, and was a great
+help.
 
-A description of what counters are exposed by this feature, and what
-architectural features they are dependent on.
+All instances of the PWM controller have three clocks that they can pick
+and choose to derive the PWM signal from. One is the default PLL from
+the CRU, one is the 24 MHz crystal oscillator (gated by the CRU), and
+one is an RC oscillator (also gated by the CRU). Each PWM channel can
+switch between these with a clock selection register in the PWM register
+range, hence this is implemented as a clock mux.
 
-> If we change kvm_vcpu_load_pmu() to avoid for_each_set_bit(), there
-> would be a good chance to forget updating it when mechanically
-> updating existing for_each_set_bit() instances, so it is a candidate
-> for documentation. But I don't have a good idea where to place it
-> either.
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+Changes in v5:
+- Fix the accidentally squashed counter driver patch, please refer to
+  "Changes in v4"
+- Link to v4: https://patch.msgid.link/20260420-rk3576-pwm-v4-0-421738c7bf28@collabora.com
 
-The moment we introduce FEAT_PMUv3_ICNTR, the whole PMUv3 emulation
-will catch fire anyway, as we already limit ourselves to 32 bits for
-reset and nesting switch.
+Changes in v4:
+- Fix MAINTAINERS entry for mfpwm
+- Make mfpwm core driver depend on ARCH_ROCKCHIP || COMPILE_TEST
+- Remove redundant Kconfig deps from pwm output and counter
+- mfpwm core: Introduce mfpwm_get_mode
+- mfpwm core: Rename pwm out to rockchip-pwm-v4
+- mfpwm core: Remove leftover commented out code
+- pwm output: Rename to rockchip-pwm-v4
+- pwm output: Rework round_wf_tohw:
+  - Pass wf/wfhw into round_params
+  - If wfhw->period is 0, don't do the offset clamping calculation to
+    avoid underflow
+  - Return -ERANGE in a theoretical future where the clock is that high
+  - Change debug print
+- pwm output: Change fromhw debug print to conform to other PWM drivers
+- pwm output: Adjust comments at the start of the file
+- pwm output: Store rate in wfhw struct
+- pwm output: Get rid of unnecessary initialization of locals
+- pwm output: Round up in fromhw
+- pwm output: Use common is_enabled helper in read_wf
+- pwm output: put exclusive rate and clk_disable on unlikely error path
+- pwm output: Set of_node_reused on this device, rather than the parent,
+  and set its device node to the parent node
+- pwm output: Make failure to acquire PWM in probe an error rather than
+  a warning
+- pwm output: Re-do error handling in probe function to drop clock and
+  mfpwm on failure
+- counter: Get rid of enable_lock and is_enabled, read this from hw regs
+- counter: Request IRQ after setting up the counter device
+- counter: Acquire mfpwm if counter hardware is enabled at module probe
+  time
+- counter: Rework signals, synapses and counts
+- Add patch to describe the Radxa ROCK 4D's PWM-controlled fan in DT
+- Link to v3: https://lore.kernel.org/r/20251027-rk3576-pwm-v3-0-654a5cb1e3f8@collabora.com
 
-So this will be a major redesign anyway. If you are really worried,
-leave a comment in there.
+Changes in v3:
+- Move drivers to using MFD; MFPWM now lives in the mfd tree as
+  requested by Lee Jones
+- Use the new FIELD_PREP_WM16 macros, and rebase onto next-20251027
+- Get rid of some unused hardware version accessor inline functions
+- pwm-rockchip-v4 pwm output: use devm_pwmchip_add and get rid of the
+  driver remove callback that's no longer needed
+- pwm-rockchip-v4 pwm output: use the parent MFD device's OF node, so
+  that referencing the pwm node in DT works correctly (ty Heiko)
+- pwm-rockchip-v4 pwm output: add link to public TRM for the hardware in
+  comment at the start of the file
+- pwm-rockchip-v4 pwm output: Capitalise first letter in kernel messages
+- pwm-rockchip-v4 pwm output: get rid of unnecessary mul_u64_u64_div_u64
+  calls where the operands cannot produce an overflow, turning it into a
+  regular u64 division
+- pwm-rockchip-v4 pwm output: simplify round_rate functions
+- pwm-rockchip-v4 pwm output: remove redundant duty <= period check
+- pwm-rockchip-v4 pwm output: print input parameters in tohw/fromhw in
+  debug statement
+- pwm-rockchip-v4 pwm output: clarify the offset < (period - duty) thing
+  being dictated by hardware with a comment in the limitations list and
+  near where the check is
+- pwm-rockchip-v4 pwm output: remove pointless mfpwm_acquire/release
+  calls in the fromhw/tohw functions, as they don't actually protect
+  against anything
+- pwm-rockchip-capture counter: expose HPC and LPC directly, and fire a
+  change-of-state event on the appropriate channel on interrupt
+- pwm-rockchip-capture counter: remove all the captures_left and delayed
+  worker cruft
+- pwm-rockchip-capture counter: use MFD parent's OF node
+- pwm-rockchip-capture counter: change intsts ^ clr to != and add a
+  comment explaining why there's no mask here
+- Link to v2: https://lore.kernel.org/r/20250602-rk3576-pwm-v2-0-a6434b0ce60c@collabora.com
 
-	M.
+Changes in v2:
+- bindings: make osc required (as it's present in all instances of the
+  hardware I'm aware of) and add the rc clock as well. I thought it
+  wasn't present on some instances of the PWM IP due to the vendor SoC
+  dtsi, but checking the CRU made me realise those clocks do exist for
+  all instances. Did not include Conor's R-b as this constitutes a
+  substantial enough change to necessitate a re-review
+- move bitfield write-enable mask macros into bitfield.h by replacing
+  the original rockchip-specific utils header patch with a bitfield.h
+  patch.
+- mfpwm: change all instances of WARN to be dev_warn instead, as we have
+  a device pointer.
+- mfpwm: replace the ad-hoc clock mux implementation that used a sysfs
+  interface with a generic clk-mux.
+- mfpwm: add the rc clock
+- mfpwm: rename all the pwmv4_ prefixed functions to have the
+  rockchip_pwm_v4_ prefix instead
+- mfpwm: remove the pwmclk indirection, hand chosen_clk to pwmf
+- mfpwm: move to use the new bitfield macros for the WE mask
+- mfpwm: mark reg access inline functions as static to fix build errors
+- pwm-rockchip-v4 pwm output: replace mult_frac with mul_u64_u64_div_u64
+- pwm-rockchip-v4 pwm output: don't return error if parameters are out
+  of range, just set them to the maximum
+- pwm-rockchip-v4 pwm output: add rate to debug message
+- pwm-rockchip-v4 pwm output: if rate is 0 and pwm is disabled, set
+  waveform parameters to 0. The clock is expected to not have a rate in
+  this case.
+- pwm-rockchip-v4 pwm output: add pwmchip_remove in remove callback,
+  which also necessitated using chip as the platdata instead of the
+  driver private struct
+- pwm-rockchip-v4 pwm output: rework PWMV4_CTRL_UPDATE_EN since it never
+  needs to be set to 0 by the driver
+- pwm-rockchip-v4 pwm output: add a limitations list
+- pwm-rockchip-v4 pwm output: handle initial hardware state during
+  probe, enabling the pwm clock if the PWM is on and in continuous mode
+- pwm-rockchip-v4 pwm output: rename pwmv4_is_enabled to use the
+  rockchip_pwm_v4_ prefix instead
+- pwm-rockchip-v4 pwm output: remove pwmclk indirection, use clk API
+  directly
+- pwm-rockchip-v4 pwm output: no longer claim the chip as being atomic,
+  as the clk_rate_exclusive_get calls may sleep.
+- rockchip-pwm-capture counter: remove pwmclk indirection, use clk API
+  directly
+- rockchip-pwm-capture counter: replace mult_frac with
+  mul_u64_u64_div_u64
+- rockchip-pwm-capture counter: don't output periods/duty cycles if the
+  period is longer than the chosen timeout; this works around the
+  hardware cycle counter seemingly being impossible to clear
+- dts: added osc and rc to every pwm node
+- dts: reordered properties in pwm0 to be sorted
+- Link to v1: https://lore.kernel.org/r/20250408-rk3576-pwm-v1-0-a49286c2ca8e@collabora.com
 
--- 
-Without deviation from the norm, progress is not possible.
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Uwe Kleine-König <ukleinek@kernel.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+To: Lee Jones <lee@kernel.org>
+To: William Breathitt Gray <wbg@kernel.org>
+To: Damon Ding <damon.ding@rock-chips.com>
+Cc: kernel@collabora.com
+Cc: Jonas Karlman <jonas@kwiboo.se>
+Cc: Alexey Charkov <alchark@gmail.com>
+Cc: linux-rockchip@lists.infradead.org
+Cc: linux-pwm@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-iio@vger.kernel.org
+
+---
+Nicolas Frattaroli (6):
+      dt-bindings: pwm: Add a new binding for rockchip,rk3576-pwm
+      mfd: Add Rockchip mfpwm driver
+      pwm: Add rockchip PWMv4 driver
+      counter: Add rockchip-pwm-capture driver
+      arm64: dts: rockchip: add PWM nodes to RK3576 SoC dtsi
+      arm64: dts: rockchip: Add cooling fan to ROCK 4D
+
+ .../bindings/pwm/rockchip,rk3576-pwm.yaml          |  77 ++++
+ MAINTAINERS                                        |  11 +
+ arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts    |  50 +++
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi           | 208 +++++++++
+ drivers/counter/Kconfig                            |  11 +
+ drivers/counter/Makefile                           |   1 +
+ drivers/counter/rockchip-pwm-capture.c             | 307 ++++++++++++++
+ drivers/mfd/Kconfig                                |  16 +
+ drivers/mfd/Makefile                               |   1 +
+ drivers/mfd/rockchip-mfpwm.c                       | 357 ++++++++++++++++
+ drivers/pwm/Kconfig                                |  11 +
+ drivers/pwm/Makefile                               |   1 +
+ drivers/pwm/pwm-rockchip-v4.c                      | 383 +++++++++++++++++
+ include/linux/mfd/rockchip-mfpwm.h                 | 470 +++++++++++++++++++++
+ 14 files changed, 1904 insertions(+)
+---
+base-commit: 77a9bb0193d790fb71c0edfc567bddc1b56fb3ff
+change-id: 20250407-rk3576-pwm-46761bd0deaa
+
+Best regards,
+--  
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+
 
