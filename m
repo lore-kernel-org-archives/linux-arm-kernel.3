@@ -4,112 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 499F5F99C9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 05:56:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F9DFF99C86
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 06:00:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BPEVhn8QEcx6wbVw5CO4dCCDD+tkmOF6Duo+IIAkxXk=; b=E2TMTAc25BStKcRNbTiMlbjEHy
-	qZ3PJycfCLGgApiNN6VKHho+ahbFRJygo1o8ZmG/mEoeg4UOQ9Pa/EebVSrVkx09xb+A+NgMxnMwW
-	n/CIeWVG1gd90q1zx7InkPyM2RK7KnxDQQLCFdTovPkQix6QjHpG0QsOgqzV5ebU2HosyVs9xn7EW
-	1fqB9c3lp/XqORjv39ltezd6XCltcKIZMiz9W8d1EyNnmhlx4qIBd/pcYgRf9UrhZRQsesizRKrSt
-	fLqboVSgF25fAt6Cw0eScvRLbFi0EqIlWSuE+Xgm3PcfWIjPQ878Oz/XJn2vbFu9uRGJ54qmUK11N
-	53wZshuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=INOuIqOO2DXuCcCPwOJTbbflT9V/H8RCp+THv9/937o=; b=yqYofzeWE6dGx40uLkcE+Wew6V
+	ArmXTeunfC+X4gMuC0QfCPqf5eSkcTgu9pHqIyZHlafD33xINan6UFCe0WXVRIjPBsa1N4zwosPOc
+	ON48Z7lf77/qb3+kgMSZUdJqOJlWGJr/xhcWGHVd5TuI+am2eZA/iIrNP2gPMZdQ9G8NuWttfc9rp
+	UURp/alEnEZUMmPz/aDFcGX07y0xDABTy4RxREpoWKXcGK2m6g5V+UVx1IcRrXOZ+M9vQfc8OAs+y
+	P+ewEQGwkjrxreVWbGL0pMhTascARWfCbj8MVIK9Mfq+ZtcXH3AfGGDbJ65/VlDdd/rq4JlrjklPs
+	K1dQ2bgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEhcf-00000006Sr4-3XN1;
-	Mon, 20 Apr 2026 05:56:41 +0000
-Received: from mail-ua1-x931.google.com ([2607:f8b0:4864:20::931])
+	id 1wEhfo-00000006T2G-0NvF;
+	Mon, 20 Apr 2026 05:59:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEhcd-00000006Sqj-1JoQ
+	id 1wEhfl-00000006T1t-2Mcx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 05:56:41 +0000
-Received: by mail-ua1-x931.google.com with SMTP id a1e0cc1a2514c-94ab69af6c8so2308433241.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 22:56:38 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776664598; cv=none;
-        d=google.com; s=arc-20240605;
-        b=cUyqJuIh6y0Z0wxv9hXEsZ/w3DPzzErzGgRVHxsLnIvM7wiVPkzNwmqWz1gQ5zGOxk
-         Zbke1+TCHjwyOCl61eNkFvdqLMZoab6YbDSMfbZjE2sLbpBEi/1Qy/tQffjyiktVprqn
-         TJ9pzZryUfQPkw5vB9ZuAZDfn44+SkpT5v5kSqL3R3odrTNcOR2mxZ+uuv7p4OOwE/MA
-         tRtg64cLiXzcwULVPQka6agNRRtDxJQX9U2KhmZ8+jP+rBvkbh5eWBd4KD6Kb9ipY31s
-         XAP+sHQmXq41hSybmb9dToEJiwu6O4A1G1qiB7JYZJd+r/qQwXBIo51PvOBUaWXik4Zr
-         x8+w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=BPEVhn8QEcx6wbVw5CO4dCCDD+tkmOF6Duo+IIAkxXk=;
-        fh=r0NkE1ipdY94Drq4aJpV0ZqMxtvfTQ6r/0UkFaBptcU=;
-        b=gnvTicHLvii/vuxec+inTQi/Ot3emK+yRqQBCst55JXXaKeqt5A3s8kEV5EXvmGgSV
-         AGVVRx5xmYuQkYhF7dDUgZRHCtAaA9/C20fGMWZV3f0OpMlWS65pVfX3jTTZ/bStxeuO
-         sgtB6B/1QhF8t3WDZvrZtk0cluQx5Qmk6F00V3c9iB4Qe+PYTpfzgf4PFVzq9r6iUTF5
-         TA1cD1xiLYPBEN0DMtcPv3nqeFUqweYgSgjYAE/A21VZaSxt8fiX2qkI/q16uE72XduC
-         TPnqa1Efa9zv8tQiHq4vCtsUuueeJHogtuzM9jUT8qCzP5agAX4KujO6v1QQ4hHLROlI
-         2g8Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1776664598; x=1777269398; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BPEVhn8QEcx6wbVw5CO4dCCDD+tkmOF6Duo+IIAkxXk=;
-        b=EY7wTkw86Ai8cxloCp51N6jKQ4UpsHuyYSkZ4LmYISjTTjMZG4PgyTeOloN9KumXXH
-         LgeYjOkWT3Ct+ZSlOyRzxD/tkNz3l6Ac5DdC2XJoIUYlEG4qGZQ/9s1D95Drd7aOrzpB
-         r0kyUL6cWaW7qOkMMq0f8qJYWsMhUYjOH7WvDioo91LV/7Zlj3ZuaDlL1+N8/KGKKiOK
-         vNtSthtSyzuU8LopTAJ1a/TLeFwBGCCCjW6vFNU8daWcZqlxm2g26v8P4b/hSg6MBHJB
-         7Sk3sVkLA6Im7Avvr1Qwgj+1OpXJsfh7NTr1nwKuPsceX5SsKYcv7ni/x65l4GmgPYaf
-         o4zg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776664598; x=1777269398;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=BPEVhn8QEcx6wbVw5CO4dCCDD+tkmOF6Duo+IIAkxXk=;
-        b=ZMaSkAdmyMbPAdr3TCTsXzsJj1nIyDD+Mqu27WLPl6HnKaRC26OZdHUTtOByk3ZeYj
-         VivlGp5thJXrNm+VtO9YVFtlO/rgP8Zza4KMxVCaZhvrsrEaBtl+xQmgD32W0Fzon/Lv
-         g/X8s6tW97gfqVrR16LhNzWsqwjI0/jAD1yp2FqBjPabybRhAuKvh9UL6NY/FwxTktDx
-         Ao8hQsGwxZWHmSPGvupb1GLyqPB1DeuDB/LGWMLmFvKa1Supj7ZdfqD75Cn073RF6JKy
-         diuWi37iZbCmO6Cd7eAg6V3EMNLOJJn7ESx7p6hDU6vRli86JfNxDmfd4H652EF3lFKc
-         W8ng==
-X-Forwarded-Encrypted: i=1; AFNElJ8ScVhDfO5Zp7iackfTv1xJ2Jc+3BfD7SekS2y4GNOm7i6uFttK5DKBd9jTdcPWxGwUvPVAuRU+WyzWrF1eb4tF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwbQwzP95o8XXkJYyJmdXXsqbWzvh69KSoF9/g6n0CmDnUCQxqb
-	aVbJy+SxxJcXqjK53HF6k6C4PNwXy8TLlxG2wUhiI2QtxKxWIDa28r4xuCL6qEbTyis1aQ17sGR
-	IuaSX9mn0jwC6CCHlju9WmnpspuuqoHwHIexEH1T+
-X-Gm-Gg: AeBDieuSG/qT+OIyhy1QDoSFXJAzuRIUSVR/58ra76FCAII9HQ+zOuDVGz2kxnW4mFR
-	LqAQ7BqAr/Xhe7y1FsGGPWILlYResANFHdTkNxKw3xU3Ui8WSsau0yIvYeWuP4Y4iYsmafKaMUc
-	bLY2ItRlqak8EiebotSFQitUNDI30gZf90G8hda53wGVDTDKB2mpaMv7rdlP3tXBuUe1UYyw8AE
-	y7zr7BP+8W1J/p9+OGJcTPc9dI5AkC1GX5kk5DZ8IQHHCenWwaZLSvR8hw6jxIQ+2zFWnq1OIPw
-	NkuquC/zmqtnREUALuHcKQh2SQK/
-X-Received: by 2002:a05:6102:38cf:b0:5ff:e10e:b9fb with SMTP id
- ada2fe7eead31-616fbea2311mr3560618137.4.1776664597392; Sun, 19 Apr 2026
- 22:56:37 -0700 (PDT)
+	Mon, 20 Apr 2026 05:59:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 66EB0442FF;
+	Mon, 20 Apr 2026 05:59:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97238C19425;
+	Mon, 20 Apr 2026 05:59:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776664792;
+	bh=qvl88XtpdJrz8xvd3WG4vIRbwZ4m+ixBTe9tfI8jYX0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=a70U5ES6AjDceje7rOqIc7JnQIn22gpZdzWbf3e1gVc9efcR1maz9eUKMxJq2DOOa
+	 I8T4UsKNswsirAX8s3GwZtGavjXDUesSVhiMNuHkP9rk4Uw9/UySyDAbO4YjHrsVGX
+	 Gz7HJ3XN9bYIA8we2iuQVq8jtLYiATvFWZSkeo+GZL3oT79t2BlJxY/vmOSaWM0Nfy
+	 /nM55fF4TSFZpAi4z+X4qQ/eSRoIfa8PnfBDWS8AzFdLW5tWaHP6WIqx5MQgNdsmdn
+	 uNVIivsEoINM2+IPspRN1QCp8oiE9H+MrBU/Cm6Peo4A5wyeqfbL38e/MGQ6G5LAy8
+	 hXQUqEFPkmUnw==
+Date: Mon, 20 Apr 2026 11:29:37 +0530
+From: "mani@kernel.org" <mani@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Sherry Sun <sherry.sun@nxp.com>, "robh@kernel.org" <robh@kernel.org>, 
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, 
+	Frank Li <frank.li@nxp.com>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, 
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kwilczynski@kernel.org" <kwilczynski@kernel.org>, 
+	"bhelgaas@google.com" <bhelgaas@google.com>, Hongxing Zhu <hongxing.zhu@nxp.com>, 
+	"l.stach@pengutronix.de" <l.stach@pengutronix.de>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH V13 02/12] PCI: host-generic: Add common helpers for
+ parsing Root Port properties
+Message-ID: <viggqsxczf5d5hok4qpqhknalwb46xapsgdxbbgbqhruhyn2hn@wtck4yajmuw7>
+References: <VI0PR04MB1211449884AC3BC8E3711F1AB92202@VI0PR04MB12114.eurprd04.prod.outlook.com>
+ <20260417195533.GA92707@bhelgaas>
 MIME-Version: 1.0
-References: <20260406185000.1378082-1-dylanbhatch@google.com>
- <20260406185000.1378082-9-dylanbhatch@google.com> <95f9d11a-dd92-433e-a8db-cbebe94e1611@linux.ibm.com>
-In-Reply-To: <95f9d11a-dd92-433e-a8db-cbebe94e1611@linux.ibm.com>
-From: Dylan Hatch <dylanbhatch@google.com>
-Date: Sun, 19 Apr 2026 22:56:25 -0700
-X-Gm-Features: AQROBzAWlVd0Pik6ECU4Kd-qXgzCf38HreKoJT7my4kpOuBpU6_tq6UEX8EHlO0
-Message-ID: <CADBMgpwjDf44p0ApR1=XVStCyN-0Q6tuywJ4ixLcbaLZOSjjBg@mail.gmail.com>
-Subject: Re: [PATCH v3 8/8] unwind: arm64: Use sframe to unwind interrupt frames.
-To: Jens Remus <jremus@linux.ibm.com>
-Cc: Roman Gushchin <roman.gushchin@linux.dev>, Weinan Liu <wnliu@google.com>, 
-	Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	Indu Bhagat <indu.bhagat@oracle.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Jiri Kosina <jikos@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Prasanna Kumar T S M <ptsm@linux.microsoft.com>, Puranjay Mohan <puranjay@kernel.org>, 
-	Song Liu <song@kernel.org>, joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, live-patching@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260417195533.GA92707@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260419_225639_469066_E7540E7B 
-X-CRM114-Status: GOOD (  27.66  )
+X-CRM114-CacheID: sfid-20260419_225954_009730_D7E3DFA5 
+X-CRM114-Status: GOOD (  41.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,167 +82,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 17, 2026 at 8:45=E2=80=AFAM Jens Remus <jremus@linux.ibm.com> w=
-rote:
->
-> > +     case UNWIND_CFA_RULE_FP_OFFSET:
-> > +             if (state->common.fp < state->common.sp)
-> > +                     return -EINVAL;
->
-> I wonder whether that check is valid in kernel?  Looking at
-> call_on_irq_stack() saving SP in FP and then loading SP with the IRQ SP.
-> Is that condition always true then?
+On Fri, Apr 17, 2026 at 02:55:33PM -0500, Bjorn Helgaas wrote:
+> On Fri, Apr 17, 2026 at 03:17:16AM +0000, Sherry Sun wrote:
+> > > On Thu, Apr 16, 2026 at 07:14:12PM +0800, Sherry Sun wrote:
+> > > > Introduce generic helper functions to parse Root Port device
+> > > > tree nodes and extract common properties like reset GPIOs. This
+> > > > allows multiple PCI host controller drivers to share the same
+> > > > parsing logic.
+> > > >
+> > > > Define struct pci_host_port to hold common Root Port properties
+> > > > (currently only reset GPIO descriptor) and add
+> > > > pci_host_common_parse_ports() to parse Root Port nodes from
+> > > > device tree.
+> > > 
+> > > Are the Root Port and the RC the only possible places for 'reset'
+> > > GPIO descriptions in DT?  I think PERST# routing is outside the
+> > > PCIe spec, so it seems like a system could provide a PERST# GPIO
+> > > routed to any Switch Upstream Port or Endpoint (I assume a PERST#
+> > > connected to a switch would apply to both the upstream port and
+> > > the downstream ports).
+> > 
+> > Thanks for the feedback. You're right that PERST# routing could
+> > theoretically be connected to any device in the hierarchy. However,
+> > for this patch series, I've focused on the most common use case in
+> > practice: use Root Port level PERST# instead of the legacy Root
+> > Complex level PERST#.
+> > 
+> > Root Port level PERST# - This is the primary target, where each Root
+> > Port has individual control over devices connected to it.  RC level
+> > PERST# - Legacy binding support, where a single GPIO controls all
+> > ports.
+> > 
+> > We can extend this framework later if real hardware emerges that
+> > needs Switch or EP-level PERST# control. I can add a comment
+> > documenting this limitation if needed.
+> > 
+> > BTW, Mani and Rob had some great discussions in dt-schema about
+> > PERST# and WAKE# sideband signals settings.
+> 
+> > You can check here:
+> > https://github.com/devicetree-org/dt-schema/issues/168
+> > https://github.com/devicetree-org/dt-schema/pull/126
+> > https://github.com/devicetree-org/dt-schema/pull/170
+> 
+> The upshot of all those conversations is that WAKE# and PERST# can be
+> routed to arbitrary devices independent of the PCI topology.
+> 
+> I think extending host-generic to look for 'reset' in Root Port nodes
+> is the right thing.  My concern is more about where we store it.  This
+> patch saves it in a new "pci_host_port" struct, but someday we'll want
+> a place to save the PERST# GPIOs for several slots behind a switch.
+> Then we'll have two different ways to save the same information.
+> 
 
-Good catch. I will double-check this.
+Even if there are PERST# GPIOs from the host, connected to downstream ports of a
+PCIe switch, they could be stored in the Root Port's (pci_host_port) struct as a
+list of PERST#. This is what pcie-qcom driver does.
 
->
-> > +             cfa =3D state->common.fp;
-> > +             break;
-> > +     case UNWIND_CFA_RULE_REG_OFFSET:
-> > +     case UNWIND_CFA_RULE_REG_OFFSET_DEREF:
-> > +             if (!regs)
->
->                 if (!regs || frame.cfa.regnum > 30)
->
-> > +                     return -EINVAL;
-> > +             cfa =3D regs->regs[frame.cfa.regnum];
->
-> In unwind user this is guarded by a topmost frame check, as arbitrary
-> registers are otherwise not available.  Isn't this necessary in the
-> kernel case?
+It is too clumsy to handle PERST# individually for each device. We tried it
+before with pwrctrl, but it always ended up biting us on who gets to control the
+PERST#. We can't let pwrctrl handle PERST# for a switch port and host controller
+driver handle it for RP. And we cannot let pwrctrl handle PERST# for all ports,
+because, host controller drivers also need to control them for RC
+initialization.
 
-It is necessary, though as you point out the way I wrote the check is
-not as obvious as it probably should be.
+That's why it was decided to handle PERST# for all ports in the host controller
+drivers. So following that pattern, this helper could also be extended to parse
+the PERST# from all ports defined in DT and store them in the same Root Port
+struct.
 
-The saved state->regs is set when the current frame is recovered from
-the saved PC of a struct pt_regs, and then immediately set back to
-NULL after the next frame has been recovered. In other words, the
-state->regs is only ever set when it is relevant to the current frame,
-which occurs when state->source =3D=3D KUNWIND_SOURCE_REGS_PC. This only
-happens when the topmost frame is recovered from a pt_regs, or when a
-pt_regs is recovered from the stack due to an interrupt.
+It should be trivial to implement this logic in the current helper. @Sherry:
+Could you please implement this logic?
 
-I can make this more readable by adding an explicit check for
-KUNWIND_SOURCE_REGS_PC in addition to state->regs !=3D NULL.
+> WAKE# signals might be more pertinent -- we definitely need to support
+> multiple WAKE# signals below a single Root Port, and it seems like
+> PERST# and WAKE# GPIOs should be saved the same place.
+> 
+> I'm wondering if both should go in the pci_dev itself.  I guess the
+> implication is that a pci_dev->reset GPIO would describe a PERST#
+> connected to the device *below* the pci_dev, at least for Downstream
+> Ports.
+> 
 
->
-> > +             break;
-> > +     default:
-> > +             WARN_ON_ONCE(1);
-> > +             return -EINVAL;
-> > +     }
-> > +     cfa +=3D frame.cfa.offset;
-> > +
-> > +     /*
-> > +      * CFA typically points to a higher address than RA or FP, so don=
-'t
-> > +      * consume from the stack when we read it.
-> > +      */
-> > +     if (frame.cfa.rule & UNWIND_RULE_DEREF &&
-> > +         !get_word(&state->common, &cfa))
-> > +             return -EINVAL;
-> > +
-> > +     /* CFA alignment 8 bytes */
-> > +     if (cfa & 0x7)
-> > +             return -EINVAL;
-> > +
-> > +     /* Get the Return Address (RA) */
-> > +     switch (frame.ra.rule) {
-> > +     case UNWIND_RULE_RETAIN:
-> > +             if (!regs)
-> > +                     return -EINVAL;
-> > +             ra =3D regs->regs[30];
->
-> Likewise: Topmost frame check not required to access arbitrary registers
-> (including RA/LR)?  Furthermore, provided don't have a thinko, LR may
-> only be in LR in the topmost frame.  In any other frame it must have
-> been saved.  Otherwise there would be an endless return loop.
->
-> > +             source =3D KUNWIND_SOURCE_REGS_LR;
-> > +             break;
-> > +     /* UNWIND_USER_RULE_CFA_OFFSET not implemented on purpose */
-> > +     case UNWIND_RULE_CFA_OFFSET_DEREF:
-> > +             ra =3D cfa + frame.ra.offset;
-> > +             break;
-> > +     case UNWIND_RULE_REG_OFFSET:
-> > +     case UNWIND_RULE_REG_OFFSET_DEREF:
-> > +             if (!regs)
->
->                 if (!regs || frame.cfa.regnum > 30)
->
-> > +                     return -EINVAL;
-> > +             ra =3D regs->regs[frame.cfa.regnum];
->
-> Likewise: Topmost frame check not required to access arbitrary registers?
->
-> > +             ra +=3D frame.ra.offset;
-> > +             break;
-> > +     default:
-> > +             WARN_ON_ONCE(1);
-> > +             return -EINVAL;
-> > +     }
-> > +
-> > +     /* Get the Frame Pointer (FP) */
-> > +     switch (frame.fp.rule) {
-> > +     case UNWIND_RULE_RETAIN:
-> > +             fp =3D state->common.fp;
-> > +             break;
-> > +     /* UNWIND_USER_RULE_CFA_OFFSET not implemented on purpose */
-> > +     case UNWIND_RULE_CFA_OFFSET_DEREF:
-> > +             fp =3D cfa + frame.fp.offset;
-> > +             break;
-> > +     case UNWIND_RULE_REG_OFFSET:
-> > +     case UNWIND_RULE_REG_OFFSET_DEREF:
-> > +             if (!regs)
->
->                 if (!regs || frame.cfa.regnum > 30)
->
-> > +                     return -EINVAL;
-> > +             fp =3D regs->regs[frame.fp.regnum];
->
-> Likewise: Topmost frame check not required to access arbitrary registers?
->
-> > +             fp +=3D frame.fp.offset;
-> > +             break;
-> > +     default:
-> > +             WARN_ON_ONCE(1);
-> > +             return -EINVAL;
-> > +     }
-> > +
-> > +     /*
-> > +      * Consume RA and FP from the stack. The frame record puts FP at =
-a lower
-> > +      * address than RA, so we always read FP first.
-> > +      */
-> > +     if (frame.fp.rule & UNWIND_RULE_DEREF &&
-> > +         !get_word(&state->common, &fp))
-> > +             return -EINVAL;
-> > +
-> > +     if (frame.ra.rule & UNWIND_RULE_DEREF &&
-> > +         get_consume_word(&state->common, &ra))
-> > +             return -EINVAL;
-> > +
-> > +     state->common.pc =3D ra;
-> > +     state->common.sp =3D cfa;
-> > +     state->common.fp =3D fp;
-> > +
-> > +     state->source =3D source;
-> > +
-> > +     return 0;
-> > +}
-> Thanks and regards,
-> Jens
-> --
-> Jens Remus
-> Linux on Z Development (D3303)
-> jremus@de.ibm.com / jremus@linux.ibm.com
->
-> IBM Deutschland Research & Development GmbH; Vorsitzender des Aufsichtsra=
-ts: Wolfgang Wendt; Gesch=C3=A4ftsf=C3=BChrung: David Faller; Sitz der Gese=
-llschaft: Ehningen; Registergericht: Amtsgericht Stuttgart, HRB 243294
-> IBM Data Privacy Statement: https://www.ibm.com/privacy/
->
+Problem is, PERST# needs to be controlled even before 'pci_dev' gets created. We
+create 'pci_dev' only when a device get's detected. But the PERST# assertion and
+deassertion happens even before the pci_host_probe() call, which is the starting
+point for enumeration. That's why storing it as a list in 'pci_host_bridge'
+makes it accessible by the host controller drivers.
 
-Thanks,
-Dylan
+> I don't know about WAKE# signals.  When it's in a connector, there's
+> probably only a single possible WAKE# per Downstream Port.  But is it
+> possible have multiple WAKE# signals from a multi-function device
+> that's on the motherboard?  Saving the WAKE# GPIO in the Downstream
+> Port wouldn't accommodate that case.
+
+AFAIK, a single device can have only one WAKE# irrespective of how many function
+it exposes. PCIe base spec doesn't indicate whether it is per-device or
+per-function, but the form factor specfications like CEM, Mini-CEM define it as
+a per-device signal.
+
+Moreover, unlike PERST#, WAKE# is not driven by the host system. Host just needs
+to register an IRQ handler to service the interrupts raised by the device. So it
+can be parsed *after* enumerating a device and stored in 'pci_dev' as done in
+Krishna's series:
+https://lore.kernel.org/linux-pci/20260403-wakeirq_support-v9-0-1cbecf3b58d7@oss.qualcomm.com/
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
