@@ -4,71 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DDEFF588C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:51:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F1F0F588CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:53:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DWK8tKh+E9hRu8YV2LCaSkCmHnX32EfWF2Jrj1vWeW0=; b=LHbkFQy3VfHkzgQwBGVqlAqOMM
-	u0aA6seLPOhyZF8iIn2HxHlLGUOpGZ9VzzcHENs/xBxneSWbCTS+rWj3X8s0F6ykoM+FSp16lUWyS
-	4wuW8YXeSG0gYkSDqiQOZ6vvfm5q1WpiCYF80HjA//SWYrbzWjzy/9Q42qSoUT3827cU5/G/s41Bp
-	S+rLc4YOVlAoTjRMg/QBmsxK4UWD0sVC0hVEQg258dDqLt7Ih2uz7bSMZc758hMqZn1dufnc2pgRB
-	IbfSTOuIESQK6qBOkyHvVSUdIFRFz1XbcCttTBBL7A/397fd14TRsDrTCxpUQjlqpkZcYExnoZjjC
-	EnYVHjYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FKxxCO4GtkGKUF5BFOk7rxFZ6/dudDJaIJLrfh/08ZM=; b=tKxJNdIuZppt2uhKYvCqyT//rq
+	aI+79kJOVpteLd3jtkDJ7LJmGe/DDGfKT6w3yVulIkDqs12ODTNMHEMTbEpSOPYgH/uIp+xr1r8Sw
+	HQ8kTgutz/A7fjScPtzSzKqM303iSTGDHr2wkL/TBH3equlSxVdbMMqIXJqEjrRdM8ViGKKkO8W49
+	he9WnnDG1ItbMnrq7D6vHzLHCiby9d3H0Q6XhGGVrX9A0iwpMCWNgl+qAWQ3/c/Tec9GZXQkEeTzG
+	4Lum78QwF9rW9qGJb+ZVM26SR2B9pTu1ZA5wwkD8Jcnkk4ep9vekVBrJCGCwiIA88h+TrrVnqgBxe
+	xnBV0TlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEp2C-000000075pQ-3khh;
-	Mon, 20 Apr 2026 13:51:32 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wEp3x-000000075z0-1SMz;
+	Mon, 20 Apr 2026 13:53:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEp2A-000000075oz-06e2
+	id 1wEp3w-000000075yt-1AGT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 13:51:31 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 554E6C5C997;
-	Mon, 20 Apr 2026 13:52:06 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6336D5FFA5;
-	Mon, 20 Apr 2026 13:51:26 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id F41031046096B;
-	Mon, 20 Apr 2026 15:51:22 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1776693085; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=DWK8tKh+E9hRu8YV2LCaSkCmHnX32EfWF2Jrj1vWeW0=;
-	b=yT7PnZqqD2I3c/29y0FVPET4nR6b8Ll864ruqDHXfjB9LBrW6JrUreMMtHkdZZPAqE+vS6
-	YTWCV/oX9D/jKfi8CpZS4OBmi3OhWTS11RG+c9Ko1uNH/S1onUtn66i+/qinYzUJQe8JZw
-	K8GqFBqZ8+H2egPPrtXXvuxBRwl2syNkp1GO4n09nxwVj+Papo7+7yjey8C1eqEuyOYtGT
-	kSVmJJCy1B4pwSbSgEd10Rli85dqCraOaqiiqa+n08+Q24qtdF4Pf6oWl4j/dw2hQSk0+J
-	5+c/tb75ZM9sbXLutHFJ/4WQEZRCydv4KdO7wZK0RE2MOifZZ6yGxVjb7zEE4w==
-Message-ID: <cd4c1a0f-0cdb-4de6-9006-f1d58c5e6812@bootlin.com>
-Date: Mon, 20 Apr 2026 15:51:21 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: k3-j722s: use ti,j7200-padconf compatible
-To: Thomas Richard <thomas.richard@bootlin.com>, Nishanth Menon <nm@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Gregory CLEMENT <gregory.clement@bootlin.com>, Udit Kumar <u-kumar1@ti.com>,
- Abhash Kumar <a-kumar2@ti.com>, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260420131735.3833993-1-richard.genoud@bootlin.com>
- <c36821db-2fcb-438c-b54c-a4f2d5b33fa5@bootlin.com>
-Content-Language: en-US, fr
-From: Richard GENOUD <richard.genoud@bootlin.com>
-Organization: Bootlin
-In-Reply-To: <c36821db-2fcb-438c-b54c-a4f2d5b33fa5@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_065130_241862_BC614B73 
-X-CRM114-Status: GOOD (  12.22  )
+	Mon, 20 Apr 2026 13:53:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4676B60141;
+	Mon, 20 Apr 2026 13:53:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEB41C19425;
+	Mon, 20 Apr 2026 13:53:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776693199;
+	bh=/2WX7QRrreqNa1lPcnWhMEbZ0TkX/QFlLwzbB3DhuUg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=CLHDrjXdglACtNImEqi28IDMMq7a5VhtuFLdyxVmCXCyceC4zd94riRPfAVgYMPA0
+	 EvhnwhPlhqZSYz1oW/9EpYgcRqCh0KlVGeYyKv0OaJ+I3bcrttEzeUId2W6blRETn6
+	 m47ogPkO9Fvt5G3+IJTKRSl230r0zn/MAa3H5V2XJ7nKn4yOY0wRf2BX6yvvqTy3QP
+	 MzM+0VSDOTi2+sUr92tv5K+/QzK2ZzxE0ur6/57SeB/VszFCS0E3IiRytMNb1KD7pn
+	 iveHZNnTVhLopLxmDmSXERfBw8mGUtEfPMeRPcdm2RvxvO53fB17/KW31sQf6hOor2
+	 FJmdjbmlZxbHw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wEp3s-0000000D5cc-1J1N;
+	Mon, 20 Apr 2026 13:53:16 +0000
+Date: Mon, 20 Apr 2026 14:53:15 +0100
+Message-ID: <86ldeh20xg.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu
+ <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	devel@daynix.com,
+	kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v7 3/4] KVM: arm64: PMU: Introduce FIXED_COUNTERS_ONLY
+In-Reply-To: <ad44c69e-2f99-4f31-81b4-faae52eea080@rsg.ci.i.u-tokyo.ac.jp>
+References: <20260418-hybrid-v7-0-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
+	<20260418-hybrid-v7-3-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
+	<87ldeic1gk.wl-maz@kernel.org>
+	<06c6664c-7f0c-47b2-babf-ba2a541fd9f2@rsg.ci.i.u-tokyo.ac.jp>
+	<86qzoa0xj6.wl-maz@kernel.org>
+	<ad44c69e-2f99-4f31-81b4-faae52eea080@rsg.ci.i.u-tokyo.ac.jp>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: odaki@rsg.ci.i.u-tokyo.ac.jp, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kees@kernel.org, gustavoars@kernel.org, pbonzini@redhat.com, corbet@lwn.net, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,56 +103,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas,
-
-Le 20/04/2026 à 15:38, Thomas Richard a écrit :
-> Hello Richard,
+On Mon, 20 Apr 2026 13:07:15 +0100,
+Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
 > 
-> On 4/20/26 3:17 PM, Richard Genoud (TI) wrote:
->> From: Abhash Kumar Jha <a-kumar2@ti.com>
->>
->> The pinctrl contexts for j722s should be saved and restored during
->> suspend-to-ram, just like it is done for j7200 and j784s4 SoCs.
->>
->> Use ti,j7200-padconf compatible to save and restore pinctrl contexts during
->> suspend-to-ram.
->>
->> Signed-off-by: Abhash Kumar Jha <a-kumar2@ti.com>
->> Signed-off-by: Richard Genoud (TI) <richard.genoud@bootlin.com>
->> ---
->>   arch/arm64/boot/dts/ti/k3-j722s-evm.dts | 2 ++
->>   1 file changed, 2 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
->> index e66330c71593..757eb6abcd72 100644
->> --- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
->> +++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
->> @@ -242,6 +242,7 @@ &phy_gmii_sel {
->>   };
->>   
->>   &main_pmx0 {
->> +	compatible = "ti,j7200-padconf", "pinctrl-single";
->>   
->>   	main_mcan0_pins_default: main-mcan0-default-pins {
->>   		pinctrl-single,pins = <
->> @@ -418,6 +419,7 @@ &main_uart5 {
->>   };
->>   
->>   &mcu_pmx0 {
->> +	compatible = "ti,j7200-padconf", "pinctrl-single";
->>   
->>   	mcu_i2c0_pins_default: mcu-i2c0-default-pins {
->>   		pinctrl-single,pins = <
+> On 2026/04/20 18:51, Marc Zyngier wrote:
+> > On Mon, 20 Apr 2026 09:36:16 +0100,
+> > Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
+> >> 
+> >> On 2026/04/20 2:19, Marc Zyngier wrote:
+> >>> On Sat, 18 Apr 2026 09:14:25 +0100,
+> >>> Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
+> >>>> 
+> >>>> On a heterogeneous arm64 system, KVM's PMU emulation is based on the
+> >>>> features of a single host PMU instance. When a vCPU is migrated to a
+> >>>> pCPU with an incompatible PMU, counters such as PMCCNTR_EL0 stop
+> >>>> incrementing.
+> >>>> 
+> >>>> Although this behavior is permitted by the architecture, Windows does
+> >>>> not handle it gracefully and may crash with a division-by-zero error.
+> >>>> 
+> >>>> The current workaround requires VMMs to pin vCPUs to a set of pCPUs
+> >>>> that share a compatible PMU. This is difficult to implement correctly in
+> >>>> QEMU/libvirt, where pinning occurs after vCPU initialization, and it
+> >>>> also restricts the guest to a subset of available pCPUs.
+> >>>> 
+> >>>> Introduce the KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY attribute to
+> >>>> create a "fixed-counters-only" PMU. When set, KVM exposes a PMU that is
+> >>>> compatible with all pCPUs but that does not support programmable
+> >>>> event counters which may have different feature sets on different PMUs.
+> >>>> 
+> >>>> This allows Windows guests to run reliably on heterogeneous systems
+> >>>> without crashing, even without vCPU pinning, and enables VMMs to
+> >>>> schedule vCPUs across all available pCPUs, making full use of the host
+> >>>> hardware.
+> >>>> 
+> >>>> Much like KVM_ARM_VCPU_PMU_V3_IRQ and other read-write attributes, this
+> >>>> attribute provides a getter that facilitates kernel and userspace
+> >>>> debugging/testing.
+> >>> 
+> >>> OK, so that's the sales pitch. But how is it implemented? I would like
+> >>> to be able to read a high-level description of the implementation
+> >>> trade-offs.
+> >> 
+> >> Implementation-wise it is very trivial. Essentially the following
+> >> addition in kvm_arm_pmu_v3_get_attr() is the entire implementation:
+> >> +	case KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY:
+> >> +		if (test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY,
+> >> &vcpu->kvm->arch.flags))
+> >> +			return 0;
+> >> 
+> >> Both its functionality and code complexity is trivial. So we can argue that:
+> >> - the functionality is too trivial to be useful or
+> >> - the interface/implementation complexity is so trivial that it does not
+> >>    incur maintenance burden
+> >> 
+> >> In this case the selftest uses the getter so I was more inclined to
+> >> have it, but adding one just for the selftest sounds too ad-hoc, so
+> >> here I looked into other attributes to ensure that it was not
+> >> introducing inconsistency with existing interfaces.
+> >> 
+> >> As the result, I found there are other read-write attributes; in fact
+> >> there are more read-write attributes than write-only ones.
+> > 
+> > You're completely missing the point. I'm referring to the whole of the
+> > commit message, which is more of a marketing slide than a technical
+> > description.
 > 
-> It should be done at SoC level, not just for the EVM board.
-> You should modify k3-j722s-main.dtsi and create k3-j722s-mcu.dtsi.
-Indeed.
+> In terms of implementation, the obvious tradeoff is that it adds more
+> code to implement the feature. One thing to note is that
+> kvm_vcpu_load_pmu() is added and is called each time a vCPU migrates
+> across pCPUs. The heavy part, making the KVM_REQ_RELOAD_PMU request,
+> only happens when the feature is enabled.
 
-Thanks!
+Well, that's what I want to see. The repeated blurb about Windows
+being broken is cover letter material, but not fir for a commit
+message.
 
+[...]
+
+> >>> "for the first time" gives the impression that it will work if you try
+> >>> again. I'd rather we say that "This feature is incompatible with the
+> >>> existence of a PMU event filter".
+> >> 
+> >> The following sequence will work:
+> >> 1. Set KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY
+> >> 2. Set KVM_ARM_VCPU_PMU_V3_FILTER
+> >> 3. Set KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY
+> >> 
+> >> This is to make the behavior conistent with KVM_ARM_VCPU_PMU_V3_SET_PMU.
+> > 
+> > I don't think this is correct. Filtering is completely at odds with
+> > this patch, and I don't want to have to reason about the combination.
 > 
-> Best Regards,
-> Thomas
+> kvm_arm_pmu_v3_set_pmu() has the following condition:
+> 
+> if (kvm_vm_has_ran_once(kvm) ||
+>     (kvm->arch.pmu_filter && kvm->arch.arm_pmu != arm_pmu)) {
+> 	ret = -EBUSY;
+> 	break;
+> }
+> 
+> kvm_arm_pmu_v3_set_pmu_fixed_counters_only() has the corresponding
+> condition for consistency:
+> 
+> if (kvm_vm_has_ran_once(kvm) ||
+>     (kvm->arch.pmu_filter &&
+>      !test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY,
+> 	       &kvm->arch.flags)))
+> 	return -EBUSY;
+> 
+> We can of course kill the PMU event filter for
+> FIXED_COUNTERS_ONLY. The filter is effectively no-op with
+> FIXED_COUNTERS_ONLY and I don't think that consistency matters much.
 
+We shouldn't allow weird combinations in the UAPI. Since it makes no
+sense to have both fixed-function *and* filters, we should make them
+mutually exclusive.
 
+[...]
+
+> >> I expect migration will be handled with the conventional register
+> >> getters and setters, but please share if you have a concern.
+> > 
+> > At the very least I want to see some documentation explaining that.
+> 
+> What kind of documentation do you expect?
+
+A description of what counters are exposed by this feature, and what
+architectural features they are dependent on.
+
+> If we change kvm_vcpu_load_pmu() to avoid for_each_set_bit(), there
+> would be a good chance to forget updating it when mechanically
+> updating existing for_each_set_bit() instances, so it is a candidate
+> for documentation. But I don't have a good idea where to place it
+> either.
+
+The moment we introduce FEAT_PMUv3_ICNTR, the whole PMUv3 emulation
+will catch fire anyway, as we already limit ourselves to 32 bits for
+reset and nesting switch.
+
+So this will be a major redesign anyway. If you are really worried,
+leave a comment in there.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
