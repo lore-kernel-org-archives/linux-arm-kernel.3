@@ -4,111 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28093F588E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 14:43:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED723F588E2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 14:47:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b8imkQjG5YMMquregEyruiHga8ghPdaCMG4U9nrjEzs=; b=nGikYkxnLs7L2sXQkh0dMAa2yK
-	6710L7RHtTcRI3cvpmnrN77ABObj1MYYJIAd6gpXEX67kIrSm66HrgHwp5kIwDWHxWz9SIBO7hP9+
-	VsSGWF6gFGn2LWQxwG8oQUnTJHO+IG//qOvyxaGdnJhn7kHwMBQGGrOLKfo0qg63QGV1+VVwnT0w7
-	N4h2RPF0PoVSV95HI05u8goVVJLlGh2PsckClAE2q5Lwc8PnzM7BZXQmTtmIlJI1cdQMMpmG12omy
-	TKZiXtHOZkzYtxb+C50TnpwZaAOo/Yp3vs/IBxNC61S3NAQ+QVzPWJpN3rxEtEWHBOsCWmDyOCxon
-	zwr37z6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O7ibaDjJseGlqangzveB9VynH2pKp+LSowkGObgjgio=; b=3wKWst1nMi2WxbnGnrXQ3nP6Gd
+	oa6rdgsRLCHRF3QXZqsgepLPTcIlljj3UrIYYWEXNf470ajD+5rifAKRflWNXM2K9U7kcEtmuxUsj
+	BVQfffxl6KGNwfOO9XGCgII1GlPAWmaRW0yqB9XMY6hFM1D53lRWM11fhh8LgKTVJxOCOAbIDkz8s
+	uJ64AxMZhSZiPpcbL6Mo7l5IUaJsfXO4sQvXif0QgbjGhmx1v8GzDg1HzQBl1AtZmFmrbgN0Mf9ka
+	izrUON4QVsZkUdg3Jl2y6qifBjFzM3wqVHQSXUKLteUYjYaUkEcgPDFBEhZuPEy1J1E6sZf1d1GYQ
+	JC2UghFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEpq9-00000007BeS-0Cdl;
-	Mon, 20 Apr 2026 14:43:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEpq5-00000007Be3-3QMH;
-	Mon, 20 Apr 2026 14:43:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0FF41441EE;
-	Mon, 20 Apr 2026 14:43:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06443C19425;
-	Mon, 20 Apr 2026 14:43:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776696184;
-	bh=LsDV7qkuE9lKCxxya3G3zN2IwwF8bSKk8Q0DL5MK6eY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QjD1ku/fn0yejywTOaecJG9m1Iu8PDWW+XZ0/xy7hOF8yY1jq0pI+u0XIr3KZaJIt
-	 BJblOxW4/H+9H6qo1idLOqpv5ST+hixWoJvQVQ6mlsF1UtNkqtXX0azRwpNoMAXnqs
-	 KJ9CEYk47WuWyCoWeKpwxMw31c6lhoadXst4OfpYqDcJBnbrAk8GKvDCdXLfVm+3n5
-	 f4DQBjPF4uCgYe6r+ZItbVYDGhMMekB3QsJhX0mXqZxBJn2+Dl16WVO7Gz8RfQ2xUA
-	 cKMay4crygjbaBOK4VSWRTAYT8uY/XQeSOEHMgX+zz84pAY7xr5BPjCBTw3zQSxhkF
-	 eFNaR6Ah8ObAQ==
-Message-ID: <e747a3c5-1c43-412b-8ff6-f447ee33995c@kernel.org>
-Date: Mon, 20 Apr 2026 16:43:00 +0200
+	id 1wEpuR-00000007ByJ-3QxD;
+	Mon, 20 Apr 2026 14:47:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wEpuP-00000007Bxy-3CHO
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Apr 2026 14:47:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F11CF1516;
+	Mon, 20 Apr 2026 07:47:24 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1833F3F7B4;
+	Mon, 20 Apr 2026 07:47:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776696450; bh=O7ibaDjJseGlqangzveB9VynH2pKp+LSowkGObgjgio=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=L+B9r/qOOHsKRGrLzuIhK2+5vpLf3w4qwXoOl9kCQvqnkOWQ5+Zow32TpfNVrDtPG
+	 860JlQ9vReiyPUZlJYDMzVQWo2F/FpENb8Gp7LCFkEeSAK4iMW59tInMBLR8WNvil6
+	 Yj7yn1g03HiLuPc/jYd1hNYsr0IXxSoqwG7QNhpI=
+Date: Mon, 20 Apr 2026 15:47:24 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Sebastian Ene <sebastianene@google.com>
+Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
+	zohar@linux.ibm.com, roberto.sassu@huawei.com,
+	dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com,
+	peterhuewe@gmx.de, jarkko@kernel.org, jgg@ziepe.ca,
+	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org
+Subject: Re: [RFC PATCH 4/4] firmware: arm_ffa: check pkvm initailised when
+ initailise ffa driver
+Message-ID: <aeY8fNhtuVzL2X9a@e129823.arm.com>
+References: <20260417175759.3191279-1-yeoreum.yun@arm.com>
+ <20260417175759.3191279-5-yeoreum.yun@arm.com>
+ <aeYbdmshGZJ4GhXd@google.com>
+ <aeYjiaPtAl7SMVkL@e129823.arm.com>
+ <aeYypF4lv6LMH2ch@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] dt-bindings: rng: mtk-rng: add SMC-based TRNG
- variants
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: Olivia Mackall <olivia@selenic.com>,
- Herbert Xu <herbert@gondor.apana.org.au>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Sean Wang <sean.wang@mediatek.com>, linux-crypto@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <585fc832e4e5d3656bd25ecee6bafb636993104a.1776600269.git.daniel@makrotopia.org>
- <20260420-flat-rook-of-hail-bbede5@quoll> <aeY3HuP01VYl5x6X@makrotopia.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <aeY3HuP01VYl5x6X@makrotopia.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aeYypF4lv6LMH2ch@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_074305_938303_00B13D11 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20260420_074733_922939_DA167C56 
+X-CRM114-Status: GOOD (  31.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,30 +81,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/04/2026 16:24, Daniel Golle wrote:
-> On Mon, Apr 20, 2026 at 04:07:33PM +0200, Krzysztof Kozlowski wrote:
->> On Sun, Apr 19, 2026 at 01:05:01PM +0100, Daniel Golle wrote:
->>> +    rng {
->>> +            compatible = "mediatek,mt7981-rng";
->>
->> I asked at v1. Reminded at v2. Nothing serious, but repeating myself is
->> pointless and kind of waste of time.
-> 
-> Replying *once* telling what you would actually want, or replying to
-> me asking back would have helped enormously:
-> https://patchwork.kernel.org/comment/26880354/
-> 
-> All I can see is that you concluded "no improvements" without telling
-> *what it is you would like to see improved*.
-> 
+Hi Sebastian,
 
-Yes, and then you should go to v1 and read the review. There was only
-single comment in this spot, so trivial to find.
+> On Mon, Apr 20, 2026 at 02:00:57PM +0100, Yeoreum Yun wrote:
+>
+> Hi,
+>
+> >
+> > Hi Sebastian,
+> > > On Fri, Apr 17, 2026 at 06:57:59PM +0100, Yeoreum Yun wrote:
+> > >
+> > > Hello Yeoreum,
+> > >
+> > >
+> > > > When pKVM is enabled, the FF-A driver must be initialized after pKVM.
+> > > > Otherwise, pKVM cannot negotiate the FF-A version or
+> > > > obtain RX/TX buffer information, leading to failures in FF-A calls.
+> > >
+> > > At the moment this already happens after you move back ffa_init() to
+> > > device_initcall().
+> >
+> > How? the kvm_arm_init() is device_initcall() if both built as built-in.
+> >
+> > >
+> > > >
+> > > > During FF-A driver initialization, check whether pKVM has been initialized.
+> > > > If not, defer probing of the FF-A driver.
+> > > >
+> > >
+> > > I don't think you need to add this dependency. pKVM is
+> > > installed through KVM's module_init() which ends up calling hyp_ffa_init() to
+> > > do the proxy initialization. The ARM-FFA driver comes after it (since
+> > > pKVM is arch specific code). We don't have to call finalize_pkvm(..) to
+> > > be able to handle smc(FF-A) calls in the hyp-proxy.
+> > >
+> >
+> > As Marc said, the before finalised_pkvm(), smc wouldn't be trapped
+> > to pKVM. IOW, in case when both built as built-in,
+>
+> They are, I tested before replying to this thread. The HCR_EL2 is
+> 0x480080000 so HCR_EL2 TSC bit is set so SMC/FF-A and trapping is enabled.
 
-AGAIN:
+Oh. I've missed cpu_init_hyp_mode() sets up HCR_EL2. So you're right.
+Thanks to correct me ;)
 
-Use four spaces for indentation.
+>
+> In __pkvm_prot_finalize it sets the HCR_VM bit which enables stage-2 and
+> then write the HCR_EL2 from params->hcr_el2. However I wasn't sure that
+> this is seen as a 'hack' and not expected to work.
+>
+> > if ffa_init() is called before finalised_pkvm(),
+> > it couldn't proxy the FFA_VERSION, FFA_RXTX_MAP and FFA_PARTITION_INFO_GET
+> > called by ffa_init().
+> >
+> > How can you gurantee hyp_ffa_init() which is called by kvm_arm_init()
+> > comes first even kvm_arm_init() and ffa_init() are on device_initcall?
+> >
+>
+> While they are both on device_initcall, the only difference is that
+> kvm_arm_init is arch code which appears before the driver/ code in the
+> linker. That's why Marc said it is not a solid construct to rely on
+> this.
 
-Best regards,
-Krzysztof
+Then I think the origin one -- just check kvm_arm_initialised
+is enough to check in ffa_driver. since I misunderstood TSC bit
+is setup after finalised_pkvm().
+
+or Am I missing something?
+
+Thanks.
+
+--
+Sincerely,
+Yeoreum Yun
 
