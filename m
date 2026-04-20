@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B578AF588C9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD847F588C3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:31:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=evaJ5vkDrbqrWw6yH4YpYlxL910zEoGMM830QaFFWDQ=; b=0LJ57UpSiRAQWco42RryNn6WNd
-	I7p6XHgY+in9IHl4LUcEsQanDXDnQx3kRxz4UGlBjsf5hzoHb7CeFNbDZn/0sj1Xi7Ff/ISFnZqG5
-	6zI19eZ9ZsXBLhcKWDIwaQhLCQh6a/4/7BvwirBeHwm7ske0/8gqtIeewA2C0Q/VySq2tOqm4MG9v
-	5l2B0MECngN6qoq9VjpGBzVoWoZ++YyfjJxBSK9ALxJQi8rnT5s4TXzJzDPObo8ApSWfNv7iZ7tEB
-	X+zFqMvOGrdjcz+PTPnkC8z2S17EUIbCQGdbk4DfgJg3YuQ40qph7tX7+UrJPRz+W6A3J8qDlvwhl
-	48+I4/cw==;
+	bh=JqX0Y3tTDqa6f72ZMweZ1pzSOK4bmLqsI3jhP2G9k1I=; b=iujV/07s5T3JlZI9d0vM8/k+vo
+	OLwlgUESCRfY3jlWUXlGFsxGR1v2bt6J43sjlfcy/6Sc6vh4t4MMmfUMfA9XRrtFpxWoa/UnyGb9Y
+	WWkitO0g44oBm8Nxra3yvPmYF2fHYkwft8EHRXUBqdbHhnQE8Qnk5ixEwFxPVcG9XLxdSeimTel3Y
+	C8emyr1aVWcxjE01KLnh5qvgfvn2lerRPZwwdUlVgbnRZn/wIh7OzQCZEzx/wBLXQ4Fbiewg6DN3w
+	2+iTSuamGi6rfiW37tZSNyVYFwt7OMxNfOCfdpe/KFr+jblfB1o3P7wXaR12gnwNM0f2YgaoqUbfA
+	Td5eLeYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEoio-000000072h8-08Fr;
-	Mon, 20 Apr 2026 13:31:30 +0000
+	id 1wEoj5-000000072rh-3pLK;
+	Mon, 20 Apr 2026 13:31:47 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEoik-000000072e2-0tii;
-	Mon, 20 Apr 2026 13:31:28 +0000
+	id 1wEoj3-000000072q4-0XxL
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Apr 2026 13:31:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C99C8435DE;
-	Mon, 20 Apr 2026 13:31:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEC6AC19425;
-	Mon, 20 Apr 2026 13:31:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B53664361B;
+	Mon, 20 Apr 2026 13:31:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4B99C2BCB7;
+	Mon, 20 Apr 2026 13:31:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776691885;
-	bh=Pn9O84j5Gzkkn/+pDkJ16PqPIewq1Dj5WL2dYyGinJI=;
+	s=k20201202; t=1776691904;
+	bh=qp/1FPnW/xz76pRAwuxarVuaWIR6D3YOYIRucDmPU8w=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uRB+RSWfLJmUWoPP6r5iAA9mCImlc25pZdMrkBXQ7kR3fztmXbovGkBQx5gJCuBYd
-	 oRPrV4UDUX+16F2pEzRfVXnTmwCPqj6qVeIcMPoQYfuzdWYNjb+TZhQnmBYb7kw3g/
-	 qyXRroLRETD3T6Ad8HtcTa7Vdh2vhV9DvCn3KYwPGZquqYxUUsaITNPCi43QPhclDT
-	 Mcbkg+MFycqY2lp8f7QIdzQg7AzMpeLgaRSBC6WalQpNUGrDINahAzkX7ETyeJl0n1
-	 TqHhrYMcalUihz4RdnwmvnZXdsEPM/VaxUQH/QvigB3O9nEXXjQ/rBUloZbLCefm4Z
-	 UtLMFBBc7SyqQ==
+	b=X3HTAiQgIw2rsvpprbi1OiSpor6RVJmQn4EcBw6hfd24SEClCYaACOwbToP58z540
+	 J3Ci/gbMAWFUUbL56aZNZ5lz2pMzoBomqMPeT3Y2Ja1jll3hZhxCl8dBJsT9c7P0Vg
+	 4eLMRZif/s+21wFPfefzbbi8Zm8lt1QS5o8EfkA+jvEjtze7RRoxVko7NeUSlgR3Ng
+	 QPN/w1O2MwRDlySeJ5uUT6446rqT7zHI5zkrtrVGxzAlTXIWi4g/SwU4KTKWQDLj2B
+	 aA7nt2XJbECsWZcU6VCLg5I+sTtLff3lBFCUlpdFDwb0KdLywRo9BtUHDg/oJPBTXQ
+	 JZlSZNQ14KT5w==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Chad Monroe <chad@monroe.io>,
-	Felix Fietkau <nbd@nbd.name>,
+Cc: Alain Volmat <alain.volmat@foss.st.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Mark Brown <broonie@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	linux-spi@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 7.0-6.6] wifi: mt76: mt7996: reset device after MCU message timeout
-Date: Mon, 20 Apr 2026 09:20:45 -0400
-Message-ID: <20260420132314.1023554-251-sashal@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 7.0] spi: stm32: fix rx DMA request error handling
+Date: Mon, 20 Apr 2026 09:20:55 -0400
+Message-ID: <20260420132314.1023554-261-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260420132314.1023554-1-sashal@kernel.org>
 References: <20260420132314.1023554-1-sashal@kernel.org>
@@ -68,8 +68,8 @@ X-stable-base: Linux 7.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_063126_615922_D5795882 
-X-CRM114-Status: GOOD (  22.37  )
+X-CRM114-CacheID: sfid-20260420_063145_232082_D003F277 
+X-CRM114-Status: GOOD (  28.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,414 +84,317 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chad Monroe <chad@monroe.io>
+From: Alain Volmat <alain.volmat@foss.st.com>
 
-[ Upstream commit d2b860454ea2df8f336e9b859da7ffb27f43444d ]
+[ Upstream commit 837f6691d5f39ea6453e4489dded40fb17755c60 ]
 
-Trigger a full reset after MCU message timeout.
+Avoid trying to release the RX DMA channel when an error occurs
+during RX dma_request_chan() call. Instead, jump directly to
+release the TX channel, if applicable.
 
-Signed-off-by: Chad Monroe <chad@monroe.io>
-Link: https://patch.msgid.link/6e05ed063f3763ad3457633c56b60a728a49a6f0.1765203753.git.chad@monroe.io
-Signed-off-by: Felix Fietkau <nbd@nbd.name>
+Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
+Closes: https://lore.kernel.org/linux-spi/aYXvY6NH7OlZ-OAF@stanley.mountain/T/#u
+Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
+Link: https://patch.msgid.link/20260212-spi-stm32-fix-dma-rx-release-v1-1-53a37c31626b@foss.st.com
+Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-Now I have all the information needed for the complete analysis. Let me
-compile the findings.
+Now I have all the information needed to complete the analysis. Let me
+compile the full assessment.
 
 ---
 
 ## PHASE 1: COMMIT MESSAGE FORENSICS
 
-**Step 1.1: Subject Line**
-- Subsystem: `wifi: mt76: mt7996`
-- Action verb: "reset" (implies recovery from a failure state)
-- Summary: Trigger a device reset when MCU message timeouts occur on
-  mt7996
-- Record: [wifi/mt76/mt7996] [reset] [Trigger full device recovery after
-  MCU message timeout]
+### Step 1.1: Subject Line
+- **Subsystem:** `spi: stm32`
+- **Action verb:** "fix"
+- **Summary:** Fix incorrect error handling when RX DMA channel request
+  fails during probe.
+- Record: [spi: stm32] [fix] [rx DMA request error handling in probe
+  path]
 
-**Step 1.2: Tags**
-- `Signed-off-by: Chad Monroe <chad@monroe.io>` - patch author
-- `Link: https://patch.msgid.link/...` - reference to lore
-- `Signed-off-by: Felix Fietkau <nbd@nbd.name>` - maintainer/committer
-  of mt76
-- No Fixes: tag (expected for manual review candidates)
-- No Cc: stable (expected)
-- No Reported-by tag
-- Record: Author is Chad Monroe; applied by Felix Fietkau (the mt76
-  subsystem maintainer)
+### Step 1.2: Tags
+- **Reported-by:** Dan Carpenter `<dan.carpenter@linaro.org>` — well-
+  known static analysis expert (Smatch maintainer)
+- **Closes:** `https://lore.kernel.org/linux-spi/aYXvY6NH7OlZ-
+  OAF@stanley.mountain/T/#u` — Dan's bug report
+- **Signed-off-by:** Alain Volmat (author, STM32 SPI subsystem
+  maintainer)
+- **Link:** patch.msgid.link URL for the fix patch
+- **Signed-off-by:** Mark Brown (SPI subsystem maintainer)
+- Record: Reported by Dan Carpenter (Smatch static analysis). Author is
+  the STM32 SPI maintainer. Merged by SPI subsystem maintainer Mark
+  Brown.
 
-**Step 1.3: Commit Body**
-- Body is very brief: "Trigger a full reset after MCU message timeout."
-- No stack traces or reproduction steps given
-- The mt7915 equivalent (commit 10f73bb3938f7c5) provides more context:
-  "MCU hangs do not trigger watchdog interrupts, so they can only be
-  detected through MCU message timeouts. Ensure that the hardware gets
-  restarted when that happens in order to prevent a permanent stuck
-  state."
-- Record: Bug = MCU hang leaves device permanently stuck. Symptom = WiFi
-  device becomes non-functional, requires reboot. Root cause = MCU hang
-  without watchdog interrupt, only detectable via message timeout, no
-  recovery triggered.
+### Step 1.3: Commit Body
+The commit message states: avoid trying to release the RX DMA channel
+when an error occurs during `dma_request_chan()` for RX. Instead, jump
+directly to release the TX channel. This is clearly describing a bug
+where on RX DMA request failure, the cleanup code incorrectly tries to
+release a never-acquired RX DMA channel.
 
-**Step 1.4: Hidden Bug Fix Detection**
-- "reset device after MCU message timeout" - this is clearly a fix for a
-  missing recovery path. Without it, a firmware hang results in a
-  permanent stuck state.
-- Record: This IS a bug fix. The device becomes permanently stuck
-  without it.
+Record: Bug is calling `dma_release_channel()` on an ERR_PTR pointer
+when RX DMA request fails. Symptom: crash/undefined behavior during
+driver probe failure path.
 
----
+### Step 1.4: Hidden Bug Fix Detection
+Not hidden — clearly labeled as "fix" in subject line.
 
 ## PHASE 2: DIFF ANALYSIS
 
-**Step 2.1: Inventory**
-- `mcu.c`: +9 lines (in `mt7996_mcu_parse_response`)
-- `mac.c`: +5 lines (in `mt7996_reset`)
-- Total: ~14 lines added, 0 removed
-- Scope: Single-driver, surgical fix in two closely-related functions
-- Record: 2 files, +14 lines, functions: mt7996_mcu_parse_response,
-  mt7996_reset
+### Step 2.1: Inventory
+- **Files changed:** `drivers/spi/spi-stm32.c` only
+- **Lines changed:** ~6 added, ~6 removed (label and goto target
+  changes)
+- **Functions modified:** `stm32_spi_probe()` — the probe error-handling
+  section
+- **Scope:** Single-file, surgical fix in error path cleanup labels
 
-**Step 2.2: Code Flow Changes**
+### Step 2.2: Code Flow Change
 
-Hunk 1 (mcu.c): In `mt7996_mcu_parse_response()`, when `skb == NULL`
-(MCU timeout):
-- **Before**: Log error, return -ETIMEDOUT. No recovery action.
-- **After**: Log error, atomically set `MT76_MCU_RESET` bit (via
-  `test_and_set_bit` to prevent duplicates), set `recovery.restart =
-  true`, wake up MCU wait queue, queue `reset_work`, wake up
-  `reset_wait`, then return -ETIMEDOUT.
+**Before the fix:** When `dma_request_chan(spi->dev, "rx")` fails with
+an error other than `-ENODEV`, the code does `goto err_dma_release`. At
+that label, `spi->dma_rx` still holds an `ERR_PTR` value (non-NULL), so
+`if (spi->dma_rx)` evaluates to true and
+`dma_release_channel(spi->dma_rx)` is called with an invalid pointer.
 
-Hunk 2 (mac.c): In `mt7996_reset()`, before the existing `queue_work`:
-- **Before**: Always queue reset_work and wake reset_wait
-  unconditionally.
-- **After**: If `MT_MCU_CMD_STOP_DMA` is set, additionally set
-  `MT76_MCU_RESET` bit and wake up MCU wait queue, aborting pending MCU
-  operations before reset.
+**After the fix:** The goto target is changed to `err_dma_tx_release`
+(new label), which skips the RX DMA release and only releases the TX
+channel. The cleanup labels are split: RX release first (only reached
+when RX was successfully acquired), then `err_dma_tx_release` for TX-
+only cleanup.
 
-**Step 2.3: Bug Mechanism**
-- Category: Missing error recovery / permanent hardware stuck state
-- The MCU can hang in a way that doesn't trigger a hardware watchdog
-  interrupt. The only indication is MCU message timeouts. Without this
-  patch, timeouts just return an error code but never trigger device
-  recovery. The device becomes permanently non-functional.
-- Record: Missing recovery mechanism. MCU hang → timeout → error return
-  → no recovery → permanent stuck state.
+### Step 2.3: Bug Mechanism
+**Category:** Error path / resource handling bug leading to invalid
+pointer dereference.
 
-**Step 2.4: Fix Quality**
-- Obviously correct: Mirrors the exact same pattern used in mt7915
-  (commit 10f73bb3938f7c5) and mt7915's STOP_DMA handling (commit
-  b13cd593ef2402).
-- Minimal/surgical: Only adds recovery trigger code at the exact points
-  needed.
-- `test_and_set_bit` prevents duplicate resets.
-- Regression risk: Very low. The reset_work handler already handles
-  `recovery.restart = true` properly. The STOP_DMA path already exists
-  for other triggers.
-- Record: High quality fix, obviously correct, mirrors established
-  patterns.
+The root cause: commit `c266d19b7d4e5` ("spi: stm32: properly fail on
+dma_request_chan error") moved the `spi->dma_rx = NULL` assignment
+inside the `-ENODEV` branch but kept the `goto err_dma_release` in the
+else branch. Before that commit, `spi->dma_rx` was always set to NULL
+before any goto, making the cleanup safe.
 
----
+### Step 2.4: Fix Quality
+- Obviously correct: the fix ensures we skip releasing a channel that
+  was never acquired.
+- Minimal/surgical: only changes a goto label and reorganizes 6 lines of
+  cleanup.
+- Regression risk: extremely low — only affects error paths, and the
+  reordering correctly reverses the acquisition order (TX before RX, so
+  cleanup is RX then TX).
 
 ## PHASE 3: GIT HISTORY INVESTIGATION
 
-**Step 3.1: Blame**
-- `mt7996_mcu_parse_response()`: Unchanged since original driver
-  addition by Shayne Chen (commit 98686cd21624c7, November 2022, v6.2).
-- `mt7996_reset()`: Added by Bo Jiao (commit 27015b6fbcca83, April 2023,
-  v6.4) as "enable full system reset support".
-- The buggy code (missing recovery trigger) has been present since the
-  driver was first created.
-- Record: Bug present since v6.2 (mcu.c) and v6.4 (mac.c had
-  mt7996_reset without STOP_DMA handling).
+### Step 3.1: Blame
+The buggy `goto err_dma_release` at line 2508 is attributed to the
+original Peter Ujfalusi commit `0a454258febb73` (2019), but the actual
+bug was introduced by `c266d19b7d4e5` (Alain Volmat, 2025-12-18) which
+restructured the error handling and removed the safety `spi->dma_rx =
+NULL` before the goto.
 
-**Step 3.2: No Fixes: Tag**
-- N/A - no Fixes: tag present (expected).
+Record: Bug introduced by c266d19b7d4e5 merged in v7.0-rc1 (v7.0 merge
+window, after v6.14).
 
-**Step 3.3: File History**
-- The mt7996 reset infrastructure was significantly improved in v6.18
-  (ace5d3b6b49e8 "improve hardware restart reliability"). However, the
-  basic recovery mechanism has been in place since v6.4.
-- The commit `beb01caa570c52` in v6.18 decreased MCU timeouts to allow
-  faster recovery - this patch's logic works with either timeout value.
-- Record: This commit is standalone; no prerequisites needed beyond the
-  v6.4 reset infrastructure.
+### Step 3.2: Fixes Tag
+No explicit Fixes: tag in the fix commit, but from analysis, the bug was
+introduced by c266d19b7d4e5. This commit exists only in v7.0-rc1+
+(confirmed via `git tag --contains`).
 
-**Step 3.4: Author**
-- Chad Monroe is a contributor to mt76 (5 commits found in the driver).
-- Felix Fietkau (nbd@nbd.name) is THE mt76 subsystem maintainer - he
-  applied the patch.
-- Felix also authored the identical fix for mt7915 (10f73bb3938f7c5).
-- Record: Applied by subsystem maintainer. Author is a regular
-  contributor.
+### Step 3.3: File History
+Dan Carpenter previously reported another probe error path bug in the
+same file (`f4d8438e6a402` — sram pool free). This pattern of error path
+bugs in probe is consistent.
 
-**Step 3.5: Dependencies**
-- All structures/flags used already exist: `MT76_MCU_RESET`,
-  `recovery.restart`, `mcu.wait`, `reset_work`, `reset_wait`,
-  `MT_MCU_CMD_STOP_DMA`.
-- No new functions or data structures introduced.
-- Record: Fully self-contained, no dependencies on other uncommitted
-  patches.
+### Step 3.4: Author
+Alain Volmat is the STM32 SPI subsystem maintainer — 15+ commits to this
+file. He both introduced the bug (c266d19b7d4e5) and wrote the fix. High
+confidence in fix quality.
 
----
+### Step 3.5: Dependencies
+The fix depends on commit c266d19b7d4e5 being present. Since that commit
+is the one that introduced the bug, the fix is only relevant to trees
+containing c266d19b7d4e5, which is v7.0-rc1+.
 
 ## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
 
-**Step 4.1: Original Discussion**
-- lore.kernel.org returned anti-bot protection; direct web access was
-  blocked.
-- b4 dig of the mt7915 equivalent found it was part of a 24-patch series
-  (v2) by Felix Fietkau from August 2024.
-- The mt7996 version is by Chad Monroe and was ported from the mt7915
-  fix.
-- Record: Could not access lore directly due to anti-bot protection. b4
-  confirmed the mt7915 version was part of Felix Fietkau's cleanup
-  series.
+### Step 4.1: Patch Discussion
+The fix patch message ID `20260212-spi-stm32-fix-dma-rx-
+release-v1-1-53a37c31626b@foss.st.com` indicates a v1 patch (single
+revision). It was merged by Mark Brown (SPI maintainer). The "Closes:"
+link references Dan Carpenter's original report.
 
-**Step 4.2: Reviewer**
-- Applied by Felix Fietkau, the mt76 subsystem maintainer.
-- Record: Subsystem maintainer applied the patch directly.
+### Step 4.2: Reviewers
+Merged by Mark Brown (SPI subsystem maintainer). Author is Alain Volmat
+(STM32 SPI maintainer). Dan Carpenter (reporter) is the Smatch static
+analysis maintainer.
 
-**Step 4.3-4.5**: Blocked by lore anti-bot protection. No additional
-information could be gathered.
+### Step 4.3: Bug Report
+The report from Dan Carpenter at Linaro is a static analysis finding
+(Smatch/Smatch-based). Dan is extremely reputable — his static analysis
+findings are almost always real bugs.
 
----
+### Step 4.5: Stable Discussion
+No explicit stable nomination found, which is expected for the commits
+under review.
 
 ## PHASE 5: CODE SEMANTIC ANALYSIS
 
-**Step 5.1: Functions Modified**
-- `mt7996_mcu_parse_response()` - MCU response parser (callback)
-- `mt7996_reset()` - device reset entry point
+### Step 5.1: Functions Modified
+Only `stm32_spi_probe()` — the driver probe function, specifically its
+cleanup/error path labels.
 
-**Step 5.2: Callers of `mt7996_mcu_parse_response`**
-- Registered as `.mcu_parse_response` in `mt7996_mcu_ops` (mcu.c line
-  3363).
-- Called from `mt76_mcu_skb_send_and_get_msg()` in `mcu.c` (core mt76
-  code, line 122).
-- This is the universal MCU message response handler - called for EVERY
-  MCU command the driver issues.
-- Record: Called for every MCU message. Critical, high-frequency path.
+### Step 5.2: Callers
+`stm32_spi_probe` is called by the platform driver framework during
+device enumeration. It is the `.probe` callback for the
+`stm32_spi_driver`. This is a standard driver entry point called when
+device-tree matching finds an STM32 SPI controller.
 
-**Step 5.3: Callers of `mt7996_reset`**
-- Called from interrupt context and error recovery paths.
-- Used by `mt7996_irq_tasklet()` when MCU command interrupts occur.
-- Record: Called from interrupt handler / tasklet context.
-
-**Step 5.4: Call Chain**
-- Any WiFi operation → MCU command → `mt76_mcu_skb_send_and_get_msg()` →
-  wait for response → `mt7996_mcu_parse_response()` → if timeout →
-  trigger reset
-- This path is reachable from normal WiFi operations (scan, associate,
-  channel switch, etc.)
-- Record: Fully reachable from normal user operations.
-
-**Step 5.5: Similar Patterns**
-- mt7915 has identical recovery logic (10f73bb3938f7c5 +
-  b13cd593ef2402).
-- mt7921/mt7925 have similar reset mechanisms.
-- Record: Well-established pattern across the mt76 driver family.
-
----
+### Step 5.4: Reachability
+The bug is reachable during normal device probe when the RX DMA channel
+request fails for reasons other than `-ENODEV` (e.g., `-EBUSY`,
+`-ENOMEM`, `-EPROBE_DEFER` deferred probe). This is a realistic scenario
+on STM32 embedded platforms.
 
 ## PHASE 6: STABLE TREE ANALYSIS
 
-**Step 6.1: Buggy Code in Stable Trees**
-- mt7996 driver added in v6.2.
-- `mt7996_reset()` added in v6.4.
-- `mt7996_mcu_parse_response()` unchanged since v6.2.
-- The mcu.c part of the fix applies to 6.2+. The mac.c part applies to
-  6.4+.
-- Affected stable trees: 6.6.y, 6.12.y, and any other active LTS that
-  includes mt7996.
-- Record: Bug exists in 6.6.y and all later stable trees.
+### Step 6.1: Buggy Code in Stable Trees
+The buggy commit `c266d19b7d4e5` was merged in v7.0-rc1. It is NOT in
+v6.14 or any earlier release. Therefore, this fix is only relevant to
+the **7.0.y stable tree**.
 
-**Step 6.2: Backport Complications**
-- The code being modified is unchanged since original introduction.
-- Should apply cleanly to 6.6.y.
-- Record: Expected clean apply.
+### Step 6.2: Backport Complications
+The fix should apply cleanly to 7.0.y since the buggy code c266d19b7d4e5
+exists there unchanged.
 
-**Step 6.3: No Related Fixes Already in Stable**
-- No similar fix found in stable trees.
-- Record: No existing fix for this issue in stable.
+## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
 
----
-
-## PHASE 7: SUBSYSTEM CONTEXT
-
-**Step 7.1: Subsystem**
-- WiFi driver (drivers/net/wireless/mediatek/mt76/mt7996)
-- MT7996 is MediaTek's Wi-Fi 7 (802.11be) chipset - used in routers and
-  access points.
-- Criticality: IMPORTANT - WiFi is critical infrastructure for many
-  users.
-- Record: [WiFi driver] [IMPORTANT - affects mt7996 hardware users]
-
-**Step 7.2: Activity**
-- Very actively developed - dozens of commits in recent releases.
-- Active MLO/Wi-Fi 7 development ongoing.
-- Record: Highly active subsystem.
-
----
+### Step 7.1: Subsystem
+- **Path:** `drivers/spi/spi-stm32.c`
+- **Subsystem:** SPI driver for STM32 (ARM embedded platform)
+- **Criticality:** PERIPHERAL — affects STM32 embedded/IoT users
+  specifically, but STM32 is a very widely used embedded platform.
 
 ## PHASE 8: IMPACT AND RISK ASSESSMENT
 
-**Step 8.1: Affected Users**
-- All users of mt7996/mt7992 WiFi hardware (routers, access points, PCIe
-  WiFi cards).
-- Record: Hardware-specific, but MT7996 is a current-generation popular
-  WiFi chipset.
+### Step 8.1: Who Is Affected
+STM32 SPI users on v7.0.y where the RX DMA channel request fails during
+probe.
 
-**Step 8.2: Trigger Conditions**
-- Triggers when MCU firmware hangs without issuing a watchdog interrupt.
-- Can happen during normal operation (firmware bugs, hardware glitches).
-- Not user-triggered in the security sense, but can happen during
-  routine WiFi operation.
-- Record: Firmware hang during normal operation. Not predictable but
-  happens in practice (same fix was needed for mt7915).
+### Step 8.2: Trigger Conditions
+Triggered when `dma_request_chan()` for the RX channel returns an error
+other than `-ENODEV` during `stm32_spi_probe()`. This can happen with
+DMA controller misconfiguration, resource contention, or deferred probe
+scenarios.
 
-**Step 8.3: Failure Mode**
-- Without the fix: WiFi device becomes permanently non-functional until
-  reboot.
-- This is a system hang from the WiFi perspective.
-- Severity: HIGH (permanent loss of WiFi connectivity, requires reboot)
-- Record: Permanent device stuck state. Severity: HIGH.
+### Step 8.3: Failure Mode
+Calling `dma_release_channel()` with an ERR_PTR value causes a **kernel
+crash** (invalid pointer dereference inside `dma_release_channel()`).
+Severity: **HIGH** (kernel crash during probe).
 
-**Step 8.4: Risk-Benefit Ratio**
-- Benefit: HIGH - prevents permanent WiFi device failure, enables
-  automatic recovery.
-- Risk: VERY LOW - 14 lines, uses `test_and_set_bit` for safety, mirrors
-  proven mt7915 pattern, no changes to public APIs or data structures.
-- Record: Benefit HIGH, Risk VERY LOW. Excellent ratio.
-
----
+### Step 8.4: Risk-Benefit Ratio
+- **BENEFIT:** Prevents kernel crash on probe failure path — HIGH
+- **RISK:** Very low — 6 lines changed, only in error cleanup labels,
+  obviously correct
+- **Ratio:** Strongly favorable for backporting
 
 ## PHASE 9: FINAL SYNTHESIS
 
-**Step 9.1: Evidence Summary**
+### Step 9.1: Evidence
+**FOR backporting:**
+- Fixes a real crash: `dma_release_channel()` called with ERR_PTR value
+- Found by Dan Carpenter (highly reputable static analysis expert)
+- Author is the STM32 SPI maintainer; merged by SPI subsystem maintainer
+- Tiny, surgical fix (6 lines, single file, only error path labels)
+- Obviously correct — only skips releasing a never-acquired channel
+- Bug is in v7.0.y stable tree (introduced by c266d19b7d4e5)
 
-FOR backporting:
-- Fixes permanent device stuck state (WiFi becomes completely non-
-  functional)
-- Small and surgical fix (14 lines, 2 files in same driver)
-- Mirrors identical fix already applied to sister chip mt7915 (proven
-  pattern)
-- Applied by mt76 subsystem maintainer (Felix Fietkau)
-- No dependencies on other patches
-- Buggy code present since driver introduction (v6.2/v6.4)
-- `test_and_set_bit` prevents duplicate resets (safe concurrent
-  behavior)
-- Should apply cleanly to stable trees
+**AGAINST backporting:**
+- Only affects STM32 platforms (not universal)
+- Only affects v7.0.y (bug was introduced in v7.0 merge window)
+- Only triggers on probe failure path (not normal operation)
 
-AGAINST backporting:
-- Brief commit message (but supplemented by identical mt7915 fix
-  explanation)
-- No explicit stable nomination or Reported-by (but this is expected for
-  manual review candidates)
+### Step 9.2: Stable Rules Checklist
+1. Obviously correct and tested? **YES** — trivially verifiable goto
+   label change
+2. Fixes a real bug? **YES** — crash from invalid pointer in cleanup
+   path
+3. Important issue? **YES** — kernel crash on probe failure
+4. Small and contained? **YES** — 6 lines in one file
+5. No new features/APIs? **YES** — pure bugfix
+6. Can apply to stable? **YES** — should apply cleanly to 7.0.y
 
-**Step 9.2: Stable Rules Checklist**
-1. Obviously correct and tested? **YES** - mirrors proven mt7915
-   pattern, applied by maintainer
-2. Fixes a real bug? **YES** - permanent device stuck state
-3. Important issue? **YES** - device becomes permanently non-functional
-4. Small and contained? **YES** - 14 lines in single driver
-5. No new features or APIs? **YES** - only adds error recovery
-6. Can apply to stable? **YES** - code unchanged since introduction
+### Step 9.3: Exception Categories
+Not applicable — this is a straightforward bugfix.
 
-**Step 9.3: Exception Categories**
-- Not an exception category - this is a standard bug fix.
-
-**Step 9.4: Decision**
-This is a clear bug fix that prevents a permanent device stuck state.
-It's small, obviously correct, follows established patterns, and was
-applied by the subsystem maintainer. The benefit-to-risk ratio is
-excellent.
-
----
+### Step 9.4: Decision
+This is a clear, small, correct bugfix for a crash in a driver probe
+error path. It meets all stable kernel criteria.
 
 ## Verification
 
-- [Phase 1] Parsed tags: Link to patch.msgid, signed by author (Chad
-  Monroe) and maintainer (Felix Fietkau)
-- [Phase 2] Diff analysis: +9 lines in mcu.c (reset trigger on timeout),
-  +5 lines in mac.c (STOP_DMA handling)
-- [Phase 3] git blame: mt7996_mcu_parse_response unchanged since
-  98686cd21624c7 (v6.2); mt7996_reset from 27015b6fbcca83 (v6.4)
-- [Phase 3] git show 10f73bb3938f7c5: confirmed identical mt7915 fix
-  exists with clear explanation of the permanent stuck state bug
-- [Phase 3] git show b13cd593ef2402: confirmed identical mt7915 STOP_DMA
-  handling pattern
-- [Phase 3] git log --author: Chad Monroe has 5 commits in mt76, is a
-  regular contributor
-- [Phase 4] b4 dig: found mt7915 version in Felix Fietkau's series at
-  lore
-- [Phase 4] lore direct access blocked by anti-bot protection
-- [Phase 5] Grep MT76_MCU_RESET: confirmed flag is used across 15+ files
-  in mt76 for reset coordination
-- [Phase 5] Grep mt7996_mcu_parse_response: confirmed it's registered as
-  mcu_ops callback (line 3363)
-- [Phase 5] Grep reset_work: confirmed reset_work/reset_wait
-  infrastructure exists since v6.4
-- [Phase 6] git tag --contains: mt7996_reset present since v6.4; driver
-  since v6.2
-- [Phase 6] Current 7.0 code confirmed: mt7996_reset lacks STOP_DMA
-  handling, parse_response lacks reset trigger
-- [Phase 8] Failure mode: permanent WiFi device stuck state requiring
-  reboot - severity HIGH
-- UNVERIFIED: Exact lore discussion content could not be accessed due to
-  anti-bot protection
+- [Phase 1] Parsed tags: Reported-by Dan Carpenter (Smatch/Linaro),
+  Closes link to lore report, Signed-off-by Mark Brown (SPI maintainer)
+- [Phase 2] Diff analysis: ~6 lines changed in `stm32_spi_probe()`
+  cleanup labels — goto target changed from `err_dma_release` to
+  `err_dma_tx_release`, cleanup split into separate RX/TX labels
+- [Phase 2] Verified bug mechanism: `spi->dma_rx` holds ERR_PTR when
+  goto fires; `if (spi->dma_rx)` is true for ERR_PTR;
+  `dma_release_channel(ERR_PTR)` causes crash
+- [Phase 3] git blame: buggy `goto err_dma_release` at line 2508 traces
+  back through c266d19b7d4e5 (2025-12-18)
+- [Phase 3] git show c266d19b7d4e5: confirmed this commit removed the
+  safety `spi->dma_rx = NULL` before the goto, introducing the bug
+- [Phase 3] `git tag --contains c266d19b7d4e5`: first in v7.0-rc1, not
+  in v6.14 or earlier
+- [Phase 3] Author Alain Volmat has 15+ commits to spi-stm32.c, is the
+  STM32 SPI maintainer
+- [Phase 3] b4 dig -a c266d19b7d4e5: part of "spi: stm32: stability &
+  performance enhancements" series (v2)
+- [Phase 5] `stm32_spi_probe` is the platform driver .probe callback
+  (line 2689), called during device enumeration
+- [Phase 6] Buggy code only exists in v7.0-rc1+ (confirmed via git log
+  v6.14..v7.0-rc1)
+- [Phase 6] Fix should apply cleanly — file unchanged between fix commit
+  and current 7.0 tree (bug still present in current tree at line 2508)
+- [Phase 8] Failure mode: kernel crash from dma_release_channel() on
+  ERR_PTR — severity HIGH
 
 **YES**
 
- drivers/net/wireless/mediatek/mt76/mt7996/mac.c | 5 +++++
- drivers/net/wireless/mediatek/mt76/mt7996/mcu.c | 9 +++++++++
- 2 files changed, 14 insertions(+)
+ drivers/spi/spi-stm32.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-index d4f3ee943b472..b7aa51481ce82 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-@@ -2737,6 +2737,11 @@ void mt7996_reset(struct mt7996_dev *dev)
- 		return;
- 	}
- 
-+	if (READ_ONCE(dev->recovery.state) & MT_MCU_CMD_STOP_DMA) {
-+		set_bit(MT76_MCU_RESET, &dev->mphy.state);
-+		wake_up(&dev->mt76.mcu.wait);
-+	}
-+
- 	queue_work(dev->mt76.wq, &dev->reset_work);
- 	wake_up(&dev->reset_wait);
- }
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-index c0c042de477b8..54776f0703876 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-@@ -209,6 +209,7 @@ static int
- mt7996_mcu_parse_response(struct mt76_dev *mdev, int cmd,
- 			  struct sk_buff *skb, int seq)
- {
-+	struct mt7996_dev *dev = container_of(mdev, struct mt7996_dev, mt76);
- 	struct mt7996_mcu_rxd *rxd;
- 	struct mt7996_mcu_uni_event *event;
- 	int mcu_cmd = FIELD_GET(__MCU_CMD_FIELD_ID, cmd);
-@@ -217,6 +218,14 @@ mt7996_mcu_parse_response(struct mt76_dev *mdev, int cmd,
- 	if (!skb) {
- 		dev_err(mdev->dev, "Message %08x (seq %d) timeout\n",
- 			cmd, seq);
-+
-+		if (!test_and_set_bit(MT76_MCU_RESET, &dev->mphy.state)) {
-+			dev->recovery.restart = true;
-+			wake_up(&dev->mt76.mcu.wait);
-+			queue_work(dev->mt76.wq, &dev->reset_work);
-+			wake_up(&dev->reset_wait);
-+		}
-+
- 		return -ETIMEDOUT;
- 	}
+diff --git a/drivers/spi/spi-stm32.c b/drivers/spi/spi-stm32.c
+index 33f211e159ef1..6d5eefa41f717 100644
+--- a/drivers/spi/spi-stm32.c
++++ b/drivers/spi/spi-stm32.c
+@@ -2505,7 +2505,7 @@ static int stm32_spi_probe(struct platform_device *pdev)
+ 			spi->dma_rx = NULL;
+ 		} else {
+ 			dev_err_probe(&pdev->dev, ret, "failed to request rx dma channel\n");
+-			goto err_dma_release;
++			goto err_dma_tx_release;
+ 		}
+ 	} else {
+ 		ctrl->dma_rx = spi->dma_rx;
+@@ -2574,11 +2574,11 @@ static int stm32_spi_probe(struct platform_device *pdev)
+ 	if (spi->sram_pool)
+ 		gen_pool_free(spi->sram_pool, (unsigned long)spi->sram_rx_buf,
+ 			      spi->sram_rx_buf_size);
+-err_dma_release:
+-	if (spi->dma_tx)
+-		dma_release_channel(spi->dma_tx);
+ 	if (spi->dma_rx)
+ 		dma_release_channel(spi->dma_rx);
++err_dma_tx_release:
++	if (spi->dma_tx)
++		dma_release_channel(spi->dma_tx);
+ err_clk_disable:
+ 	clk_disable_unprepare(spi->clk);
  
 -- 
 2.53.0
