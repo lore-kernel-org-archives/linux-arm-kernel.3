@@ -4,62 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 256EEF36C22
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 06:19:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAA68F36C20
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 06:22:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GIuDalBM65fvAKQrdowCem05OwKL8BgkqSsE6e+glsE=; b=M67eN/NSKzBD5QadGhf1BFXsfg
-	Qqc66ncIMYdRHoZ4eMrp0x9giO1MBrYfFTVYuMiat2KnWCLkmJHgKHUBHa8V/9cXtZK7S+36g1XcA
-	BQkZq6tuSIzMlvQltE/5dgfawKi8sWJL07/+3RTS4z5YMrYmwJOuOE60UvvYQUTgGx9chrHJZTj71
-	P/F27J/9oJzwuzKjsxEciq/SdYmef4F/eN4FY6bOnFI0PJoLNhTtyIdsexDcVoZqpuZSxEQNNDHGw
-	otj8sGf9eAyrgPQaITOtgdWC+kVcsQP5m4CBDBQruNf/fhJk4gQsWSBbZAZM1rHMluSRmkvc6my9X
-	lKBOYBqA==;
+	bh=FJ5CdXSzLkVwwaN2gkjigUMa98BbQG4sZbq6fGjnjvg=; b=y0kRB5Ek5P7hFtPjuumje66BKJ
+	cX9k82WejxY2pqLirbi8TlbQgLFaEVsRZVEV/6JXcCWh3WAok9t5eSmOqJsrfGrrgAyaj4tOsXiVN
+	KTHXNaolTeTqSd1ET4Sk63TWS/SGGmKK8icXqxXArvJSRMRhla0zJ32X+kmkMBcHxwVHyquDmn9OV
+	rsy9BbqG6cQdf4XmT2cqdc/JmSjF1+RsAFh2zDZmHNn8li1NGGMKOwltbjKQcXUgglcgYHxc3MdZK
+	PtAE+XMrxrRKppLlqwyJDUxv3QC68f+NanJ6BNASRCHsvUHWRsKY1Y/ommIW8rzsMoaH0NMLkT97c
+	F75LPodA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEhyh-00000006TrI-3JYJ;
-	Mon, 20 Apr 2026 06:19:27 +0000
-Received: from smtp.uibk.ac.at ([138.232.1.140])
+	id 1wEi1U-00000006UO1-1qgi;
+	Mon, 20 Apr 2026 06:22:20 +0000
+Received: from www3579.sakura.ne.jp ([49.212.243.89])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEhyZ-00000006Tnk-0Bqj;
-	Mon, 20 Apr 2026 06:19:21 +0000
-Received: from surface-pro-5.uibk.ac.at (ydWLT-U1-7-16.uibk.ac.at [172.25.7.16])
+	id 1wEi1R-00000006UNe-0RWA
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Apr 2026 06:22:18 +0000
+Received: from [133.11.54.205] (h205.csg.ci.i.u-tokyo.ac.jp [133.11.54.205])
 	(authenticated bits=0)
-	by smtp.uibk.ac.at (8.15.2/8.15.2/F1) with ESMTPSA id 63K6Ito91297669
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NO);
-	Mon, 20 Apr 2026 08:19:01 +0200
-DKIM-Filter: OpenDKIM Filter v2.11.0 smtp.uibk.ac.at 63K6Ito91297669
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=student.uibk.ac.at;
-	s=prod24a; t=1776665941;
-	bh=GIuDalBM65fvAKQrdowCem05OwKL8BgkqSsE6e+glsE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=tRyQ74d7/eWqw7khUgi9+YzdVrrPvpn4KBQlKGronKruwLaxlhUwAU53YoL6bpvSx
-	 kyXhvOXzYPnokZWUtY8OD/GBtk8grqPMbRbwPYM0B3wUhDAQqu+aCYFzPbaHp98oe2
-	 1jwFqE73gzDAADiVd7+FzDai6cpQtx/G9PfaKzjA=
-From: christian.koever-draxl@student.uibk.ac.at
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-        neil.armstrong@linaro.org, khilman@baylibre.com
-Cc: jbrunet@baylibre.com, martin.blumenstingl@googlemail.com,
-        funderscore@postmarketos.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-amlogic@lists.infradead.org,
-        christian.koever-draxl@student.uibk.ac.at
-Subject: [PATCH v2 2/2] arm64: dts: amlogic: add support for X98Q
-Date: Mon, 20 Apr 2026 08:18:54 +0200
-Message-ID: <20260420061854.5421-3-christian.koever-draxl@student.uibk.ac.at>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260420061854.5421-1-christian.koever-draxl@student.uibk.ac.at>
-References: <20260420061854.5421-1-christian.koever-draxl@student.uibk.ac.at>
+	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 63K6Lj2B066789
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Mon, 20 Apr 2026 15:21:46 +0900 (JST)
+	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
+DKIM-Signature: a=rsa-sha256; bh=FJ5CdXSzLkVwwaN2gkjigUMa98BbQG4sZbq6fGjnjvg=;
+        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
+        h=From:Message-ID:To:Subject:Date;
+        s=rs20250326; t=1776666106; v=1;
+        b=Fab4JszZTcVq1Wcnn3GPi67jiAAuyi0vN2G2vLUb9wiEHaXeyWOJkP8k6OKIG/Bc
+         MSLW8jYjzMErRS7+BPGAzAQj37qGFNtOApRCwgTMTfkhtKcrAVGud92dlFVeUf3M
+         waOVb7QFgWsztepP+AjxR8oCG+yuABP9noUYDjyPUIuNlXuFXLU2Ufakz/L5MeEi
+         5dnVj6poWbruKOBnHfQR3bWRS5xFuBh/fEVbPRwR3kCe8bA9K93Cc1OFqoB6KHfI
+         fT64THxfBFME0MahSZA486qwy7PBjndEm7kgZ+ygWf59mGkv/qAIE7bYBie4RBIi
+         J84VxqyKbF5pYOy69uV7tg==
+Message-ID: <483e5cf2-a54c-4781-ac6d-49f5bc7128ba@rsg.ci.i.u-tokyo.ac.jp>
+Date: Mon, 20 Apr 2026 15:21:45 +0900
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang_3.2_at_uibk.ac.at
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 2/4] KVM: arm64: PMU: Protect the list of PMUs with RCU
+To: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu
+ <yuzenghui@huawei.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org,
+        kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
+        linux-hardening@vger.kernel.org, devel@daynix.com, kvm@vger.kernel.org,
+        linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+References: <20260418-hybrid-v7-0-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
+ <20260418-hybrid-v7-2-2bf39ad009bf@rsg.ci.i.u-tokyo.ac.jp>
+ <87mryzauib.wl-maz@kernel.org>
+Content-Language: en-US
+From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+In-Reply-To: <87mryzauib.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260419_231919_622946_3D87EBB7 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20260419_232217_899395_248BAEE3 
+X-CRM114-Status: GOOD (  26.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,284 +86,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Christian Stefan Kövér-Draxl <christian.koever-draxl@student.uibk.ac.at>
+On 2026/04/19 23:34, Marc Zyngier wrote:
+> On Sat, 18 Apr 2026 09:14:24 +0100,
+> Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
+>>
+>> Convert the list of PMUs to a RCU-protected list that has primitives to
+>> avoid read-side contention.
+>>
+>> Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+>> ---
+>>   arch/arm64/kvm/pmu-emul.c | 14 ++++++--------
+>>   1 file changed, 6 insertions(+), 8 deletions(-)
+>>
+>> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+>> index 59ec96e09321..ef5140bbfe28 100644
+>> --- a/arch/arm64/kvm/pmu-emul.c
+>> +++ b/arch/arm64/kvm/pmu-emul.c
+>> @@ -7,9 +7,9 @@
+>>   #include <linux/cpu.h>
+>>   #include <linux/kvm.h>
+>>   #include <linux/kvm_host.h>
+>> -#include <linux/list.h>
+>>   #include <linux/perf_event.h>
+>>   #include <linux/perf/arm_pmu.h>
+>> +#include <linux/rculist.h>
+>>   #include <linux/uaccess.h>
+>>   #include <asm/kvm_emulate.h>
+>>   #include <kvm/arm_pmu.h>
+>> @@ -26,7 +26,6 @@ static bool kvm_pmu_counter_is_enabled(struct kvm_pmc *pmc);
+>>   
+>>   bool kvm_supports_guest_pmuv3(void)
+>>   {
+>> -	guard(mutex)(&arm_pmus_lock);
+>>   	return !list_empty(&arm_pmus);
+> 
+> Please read include/linux/rculist.h and the discussion about the
+> interaction of list_empty() with RCU-protected lists. How about using
+> list_first_or_null_rcu() for peace of mind?
 
-Signed-off-by: Christian Stefan Kövér-Draxl <christian.koever-draxl@student.uibk.ac.at>
----
- arch/arm64/boot/dts/amlogic/Makefile          |   1 +
- .../boot/dts/amlogic/meson-s4-s905w2-x98q.dts | 250 ++++++++++++++++++
- 2 files changed, 251 insertions(+)
- create mode 100644 arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
+list_first_or_null_rcu() is useful to replace a sequence of list_empty() 
+and list_first_entry() that is protected by a lock, but this function 
+instead requires the invariant that nobody deletes an element from the 
+list, and list_first_or_null_rcu() does not allow removing the requirement.
 
-diff --git a/arch/arm64/boot/dts/amlogic/Makefile b/arch/arm64/boot/dts/amlogic/Makefile
-index 15f9c817e502..c7752684dea6 100644
---- a/arch/arm64/boot/dts/amlogic/Makefile
-+++ b/arch/arm64/boot/dts/amlogic/Makefile
-@@ -85,6 +85,7 @@ dtb-$(CONFIG_ARCH_MESON) += meson-gxm-ugoos-am3.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-gxm-vega-s96.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-gxm-wetek-core2.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-s4-s805x2-aq222.dtb
-+dtb-$(CONFIG_ARCH_MESON) += meson-s4-s905w2-x98q.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-s4-s905y4-khadas-vim1s.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-sm1-a95xf3-air-gbit.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-sm1-a95xf3-air.dtb
-diff --git a/arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts b/arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
-new file mode 100644
-index 000000000000..26c60a4c2a43
---- /dev/null
-+++ b/arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
-@@ -0,0 +1,250 @@
-+
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (c) 2026 Christian Stefan Köver-Draxl
-+ * Based on meson-s4-s905y4-khadas-vim1s.dts:
-+ *  - Copyright (c) 2026 Khadas Technology Co., Ltd.
-+ */
-+
-+/dts-v1/;
-+
-+#include "meson-s4.dtsi"
-+
-+/ {
-+	model = "Shenzhen Amediatech Technology Co., Ltd X98Q";
-+	compatible = "amediatech,x98q", "amlogic,s905w2", "amlogic,s4";
-+	interrupt-parent = <&gic>;
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	aliases {
-+		mmc0 = &emmc; /* eMMC */
-+		mmc1 = &sd; /* SD card */
-+		mmc2 = &sdio; /* SDIO */
-+		serial0 = &uart_b;
-+	};
-+
-+	memory@0 {
-+		device_type = "memory";
-+		reg = <0x0 0x0 0x0 0x40000000>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		/* 52 MiB reserved for ARM Trusted Firmware */
-+		secmon_reserved: secmon@5000000 {
-+			reg = <0x0 0x05000000 0x0 0x3400000>;
-+			no-map;
-+		};
-+	};
-+
-+	emmc_pwrseq: emmc-pwrseq {
-+		compatible = "mmc-pwrseq-emmc";
-+		reset-gpios = <&gpio GPIOB_9 GPIO_ACTIVE_LOW>;
-+	};
-+
-+	sdio_32k: sdio-32k {
-+		compatible = "pwm-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <32768>;
-+		pwms = <&pwm_ef 0 30518 0>; /* PWM_E at 32.768KHz */
-+	};
-+
-+	sdio_pwrseq: sdio-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		reset-gpios = <&gpio GPIOX_6 GPIO_ACTIVE_LOW>;
-+		clocks = <&sdio_32k>;
-+		clock-names = "ext_clock";
-+	};
-+
-+	main_5v: regulator-main-5v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "5V";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+	};
-+
-+	sd_3v3: regulator-sd-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "SD_3V3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpio = <&gpio GPIOD_4 GPIO_ACTIVE_LOW>;
-+		regulator-always-on;
-+	};
-+
-+	vddio_sd: regulator-vddio-sd {
-+		compatible = "regulator-gpio";
-+		regulator-name = "VDDIO_SD";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpios = <&gpio GPIOD_9 GPIO_ACTIVE_HIGH>;
-+		gpios-states = <1>;
-+		states = <1800000 1 3300000 0>;
-+	};
-+
-+	vddao_3v3: regulator-vddao-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "VDDAO_3V3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&main_5v>;
-+		regulator-always-on;
-+	};
-+
-+	vddio_ao1v8: regulator-vddio-ao1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "VDDIO_AO1V8";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&vddao_3v3>;
-+		regulator-always-on;
-+	};
-+
-+	/* SY8120B1ABC DC/DC Regulator. */
-+	vddcpu: regulator-vddcpu {
-+		compatible = "pwm-regulator";
-+
-+		regulator-name = "VDDCPU";
-+		regulator-min-microvolt = <689000>;
-+		regulator-max-microvolt = <1049000>;
-+
-+		vin-supply = <&main_5v>;
-+
-+		pwms = <&pwm_ij 1 1500 0>;
-+		pwm-dutycycle-range = <100 0>;
-+
-+		regulator-boot-on;
-+		regulator-always-on;
-+		/* Voltage Duty-Cycle */
-+		voltage-table = <1049000 0>,
-+				<1039000 3>,
-+				<1029000 6>,
-+				<1019000 9>,
-+				<1009000 12>,
-+				<999000 14>,
-+				<989000 17>,
-+				<979000 20>,
-+				<969000 23>,
-+				<959000 26>,
-+				<949000 29>,
-+				<939000 31>,
-+				<929000 34>,
-+				<919000 37>,
-+				<909000 40>,
-+				<899000 43>,
-+				<889000 45>,
-+				<879000 48>,
-+				<869000 51>,
-+				<859000 54>,
-+				<849000 56>,
-+				<839000 59>,
-+				<829000 62>,
-+				<819000 65>,
-+				<809000 68>,
-+				<799000 70>,
-+				<789000 73>,
-+				<779000 76>,
-+				<769000 79>,
-+				<759000 81>,
-+				<749000 84>,
-+				<739000 87>,
-+				<729000 89>,
-+				<719000 92>,
-+				<709000 95>,
-+				<699000 98>,
-+				<689000 100>;
-+	};
-+};
-+
-+&emmc {
-+	status = "okay";
-+	pinctrl-0 = <&emmc_pins>, <&emmc_ds_pins>;
-+	pinctrl-1 = <&emmc_clk_gate_pins>;
-+	pinctrl-names = "default", "clk-gate";
-+
-+	bus-width = <8>;
-+	cap-mmc-highspeed;
-+	mmc-ddr-1_8v;
-+	mmc-hs200-1_8v;
-+	max-frequency = <200000000>;
-+	non-removable;
-+	disable-wp;
-+
-+	mmc-pwrseq = <&emmc_pwrseq>;
-+	vmmc-supply = <&vddao_3v3>;
-+	vqmmc-supply = <&vddio_ao1v8>;
-+};
-+
-+&ethmac {
-+	status = "okay";
-+	phy-handle = <&internal_ephy>;
-+	phy-mode = "rmii";
-+};
-+
-+&ir {
-+	status = "okay";
-+	pinctrl-0 = <&remote_pins>;
-+	pinctrl-names = "default";
-+};
-+
-+&pwm_ef {
-+	status = "okay";
-+	pinctrl-0 = <&pwm_e_pins1>;
-+	pinctrl-names = "default";
-+};
-+
-+&pwm_ij {
-+	status = "okay";
-+};
-+
-+&sd {
-+	status = "okay";
-+	pinctrl-0 = <&sdcard_pins>;
-+	pinctrl-1 = <&sdcard_clk_gate_pins>;
-+	pinctrl-names = "default", "clk-gate";
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	max-frequency = <50000000>;
-+	disable-wp;
-+
-+	cd-gpios = <&gpio GPIOC_6 GPIO_ACTIVE_LOW>;
-+
-+	vmmc-supply = <&vddao_3v3>;
-+	vqmmc-supply = <&vddao_3v3>;
-+};
-+
-+/*
-+* Wireless SDIO Module (Amlogic W150S1)
-+* Note: There is no driver for this at the moment.
-+*/
-+
-+&sdio {
-+	status = "okay";
-+	pinctrl-0 = <&sdio_pins>;
-+	pinctrl-1 = <&sdio_clk_gate_pins>;
-+	pinctrl-names = "default", "clk-gate";
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	max-frequency = <200000000>;
-+	non-removable;
-+	disable-wp;
-+
-+	no-sd;
-+	no-mmc;
-+	mmc-pwrseq = <&sdio_pwrseq>;
-+	vmmc-supply = <&vddao_3v3>;
-+	vqmmc-supply = <&vddio_ao1v8>;
-+};
-+
-+&uart_b {
-+	status = "okay";
-+};
--- 
-2.53.0
+The header file says:
+ > Where are list_empty_rcu() and list_first_entry_rcu()?
+ >
+ > They do not exist because they would lead to subtle race conditions:
+ >
+ > if (!list_empty_rcu(mylist)) {
+ >	struct foo *bar = list_first_entry_rcu(mylist, struct foo,
+ >					       list_member);
+ >	do_something(bar);
+ > }
+ >
+ > The list might be non-empty when list_empty_rcu() checks it, but it
+ > might have become empty by the time that list_first_entry_rcu()
+ > rereads the ->next pointer, which would result in a SEGV.
+ >
+ > When not using RCU, it is OK for list_first_entry() to re-read that
+ > pointer because both functions should be protected by some lock that
+ > blocks writers.
+ >
+ > When using RCU, list_empty() uses READ_ONCE() to fetch the
+ > RCU-protected ->next pointer and then compares it to the address of
+ > the  list head.  However, it neither dereferences this pointer nor
+ > provides  this pointer to its caller.  Thus, READ_ONCE() suffices
+ > (that is,  rcu_dereference() is not needed), which means that
+ > list_empty() can be used anywhere you would want to use
+ > list_empty_rcu().  Just don't expect anything useful to happen if you
+ > do a subsequent lockless call to list_first_entry_rcu()!!!
+ >
+ > See list_first_or_null_rcu for an alternative.
 
+However, kvm_supports_guest_pmuv3() locked a mutex when calling 
+list_empty() and unlocked it immediately after that, instead of 
+re-reading list_first_entry(). This construct inherently had a race 
+condition with code that deletes an element; when the caller of 
+kvm_supports_guest_pmuv3() decides to enable guest PMUv3, the host PMU 
+may have been gone. But it was still safe because no one deletes an element.
+
+The same logic also applies when using RCU. As the comment says, we can 
+use list_empty() instead of the hypothetical list_empty_rcu() macro 
+because we don't expect it to magically enable something like 
+list_first_entry_rcu(). This function instead keep relying on the fact 
+that no one deletes an element of the list.
+
+Regards,
+Akihiko Odaki
 
