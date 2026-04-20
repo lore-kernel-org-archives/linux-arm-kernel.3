@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E29FF588C4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 12:55:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87714F588C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 12:55:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dlgxi6ALwEVaKpDYOsNUAmoG+w6DDdy6BbapXUTfix0=; b=JJ855obpu3SNwkp0i8fnVTBvHI
-	kUWdcsvEpApLiQ6/dSfozWLmeJT4y1hTW0rwZqaSkB47kuX844+mlghtLiGiJ+XQG7X6RcowmvnSG
-	BVMXJUYPcFdiVR1KlM00cbnayB8UESjPlGfm3MXF7C+kx1xhWS1+gpaKFdiMTB8oAUIXJPRamVR1T
-	/Mmd+wMaDFFHVm0Uhval4Ram724wuWkVV4/WTJMDMmPMAGEZuAawVP50trs5iKNFsONoZTlfWdDZJ
-	Nsa0iZJ6wflHc/EwTYudirn9qxTAjd0Vc4ii1HT8/K9eZQHcNiKBIo22TGXGIVc2l+9YGek6ywK3i
-	IEcJRuRQ==;
+	bh=ShNPgz8bvc4EjhIO0EgziOh+vFIQGa2rXp3i6z0Rnm4=; b=eSbyte0wKoVl7t17Y7dMkhQsKH
+	7gHuN8quN1zVNEAYVN7nfAdzwwqzyb/lm7XkN1xyy6cRAXRxJeQV/IRUhBUDG6LpSzxCtvjjpxa7D
+	0+Fp31iSRrF8dXBeDbjabk4e1VXVGkuaQI+g/c42t9qVGEA5vjwa+gzUhLUBwSt1WFwirq8Jt/7nz
+	Uo6O1dmq5pqBMRcEvoWwCXhfsyk0NBPnWOr1U3TScvJuH56dILBwq5CZ7N/ivzsZ3TsNZtTQF2quc
+	7KteshWGWcM2OKy0734crfjHmZfTRdsRIvOfhphaDJlyxHG3KpaFeXDs2pksLSzEMvz4pXLi+TBJl
+	QrBMF2OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEo9X-00000006vEN-23E5;
-	Mon, 20 Apr 2026 12:55:03 +0000
+	id 1wEo9Y-00000006vFm-1Twr;
+	Mon, 20 Apr 2026 12:55:04 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEo9G-00000006uvt-49ZC
+	id 1wEo9K-00000006uzG-1geD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 12:54:48 +0000
+	Mon, 20 Apr 2026 12:54:52 +0000
 Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id D1CF1265D;
-	Mon, 20 Apr 2026 14:53:07 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 4EB9838CD;
+	Mon, 20 Apr 2026 14:53:11 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1776689588;
-	bh=Og00WFj4OSyuhCTIsPmNlOJpuOxWVUShYLBe9vNBgZY=;
+	s=mail; t=1776689592;
+	bh=ftJA0XjrXWcWh0A9bVVXnc785Y/5czIJavleTc/LMk4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=I5zzBfavt/tVvsu3ljmY1RpIzwLvyb0Bci4E+6uP6IBvvRf3nJnMA3tY0cPU4OWD4
-	 onf9YVzcxJ+R7cPyf7DTbVkBIHJeG4/y/mbBke/jePxCdYAaprJyBCLlutwBOOu0/R
-	 urdTVEa3w+MJcI/q6lqbsFo1PulHRYBdoww5lL1k=
+	b=qLUA7TQMojUxynQ5XHBZDwXDDBzT+yPKmpTNga+zgIocW1v2rQVQY93pLyFsyqNX0
+	 ZutFSG2wGM/o2MZRX4d8k62WYz+dJ/bx0JW+UhfS1eKEhNqjNy9YEfxLMXcicerrcn
+	 EreqsQBedzpqAr422HtMIEzbSEDmNPbYKWkPR8G0=
 From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Mon, 20 Apr 2026 15:54:17 +0300
-Subject: [PATCH 10/15] drm/tidss: Add support for DPIENABLE bit
+Date: Mon, 20 Apr 2026 15:54:20 +0300
+Subject: [PATCH 13/15] drm/tidss: Add support for AM62P display subsystem
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260420-beagley-ai-display-v1-10-f628543dfd14@ideasonboard.com>
+Message-Id: <20260420-beagley-ai-display-v1-13-f628543dfd14@ideasonboard.com>
 References: <20260420-beagley-ai-display-v1-0-f628543dfd14@ideasonboard.com>
 In-Reply-To: <20260420-beagley-ai-display-v1-0-f628543dfd14@ideasonboard.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -59,26 +59,26 @@ Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4194;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1533;
  i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=Og00WFj4OSyuhCTIsPmNlOJpuOxWVUShYLBe9vNBgZY=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBp5iIGQIBd1DXxWqEhnfiFvNkdKsUSWcCMYLMi7
- ulyibyDn7qJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCaeYiBgAKCRD6PaqMvJYe
- 9Y09EACECe4+AKZOh/HTUxOnaZPyWBsHpgXp+wdfsr6f/2F5mQqmQkHOzhMdc4J3zd2HvhQ6ue/
- QYFET7547inKeCIZ2F0ZkO0YuRACPHUe0WNSAvGoSy4U0RGz+IEhDGnkNKzSf0DsC+3D2TIX3sU
- 96GpnsqGmZHVnecZdGWzEnwlwrDj3DTdQ8qbqXmM9MHGPiFg/V6AnoHOa+I60BwLEPuvmXsKXa2
- dFq/v3IFMPM+WWUt3/D24bL8+LNd5C8Zz6pnFfROtLapjlf2eNb8bD/bE4sEzLpNOXAVJR0jJ2i
- v1W/ncLzoDD/jGav+fp7Dyv3iJXEr2j7okvsUdGztDFov2KaEgc6+md+FyvOEFm7M3GsYDvCMsJ
- 5kjemYQoTOVeOSMUDyKOCEgw9S3wrNlHlKH/IzyFvdtKLFgWUuLf+gp9Q9obwEFr+5moNGDk2rx
- JelqS5SwJTfZs6MaL5HeNCwu36cg74Xr1Byw+vxNKp0fQspPeSDIqBX0NKx6viQ4uHwAiwNjmSb
- KTQZlO/lhkBRBQh6RJp4TVMu8Ctr6u/+qa/yxSj3gYneDv9YNA5M52M93ZPSx9MTaU2PYOjUaMx
- JmVh+GHtcl2kQbby3u/MPp3JQQ4kSKThtIDEjZIbv1ncue7WJquUNcTNY0GhadRp96+k5Ps+uTY
- Sn7nqMfUwqDVx6w==
+ bh=Z0/bujOPUdfgWsjguSYf3/7CnQToK2r3sqOLo5iE8kQ=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBp5iIH2cIJoxnlyxCngD5064wiw2Ubg3BDIzIhV
+ /eVKEool8qJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCaeYiBwAKCRD6PaqMvJYe
+ 9Uu/D/47vs5olQNXHdLuxo2dfHwwwxFiMHrN6V/LndDoHvtSpelIr9i+xGvyVr2O73tOXQmEYEw
+ 76rHpoIhdGZXfs/ey+8/FnhoJs5F9gDNxbaOkeEjSS2cCjc6R86AtNWW8x3HbvMxHekubvp/eWc
+ OsqzovwDR3LLBFHjNF05x6VaUA+rxpdtfhUQeZ0TcYBmG3lKgM4P87q7UMCW44UbiGBFVOaMxUg
+ gd2t8wRtECQOKrfWN4fZ3UuEFqD9ehLfKwxqDaXMGl+B5iGKyMWmpWl9ZfiLVYs0odjGGc14OxX
+ Pga+H0cLbacn8nCKMHfey/3zosy3FA8EYKAh/SvrCH/Xyp173F71ffpRsmX/e08aUToZ9d28sS5
+ YMn/2W4BTkZGSKogzvABqNl1KUa8aDPcVX4MYnRwlfxYmB/ZRwwtFuqm+bekUlflLH/BdC+1IPo
+ mQtpKq/JaFXgDueF35CBUKmSf6NbCr2ZjzFJxvLMy+4qkvVcW0t8pbO98CHfsoBA1PZ4DfwixLr
+ qTa5RlFhmMDS/8t9FuRDSicnpuh4E6Wg3w7cAP7LwUed3dIE2TQGhktYzE44326zI+x+oAbOXYa
+ PzJ5AzIeUrXn7AgLRNd+k4aJU0NZhB3hqeLSwfS89Z/RgqFkzWHd1oNoY2I1EscdFzJmfcF36sM
+ evm+Ym3INc95+LA==
 X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
  fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_055447_174606_6E1AAAAC 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20260420_055450_962543_A24E26F3 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,110 +93,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Many (or even all?) K3 SoCs have DSS VP_CONTROL.DPIENABLE bit described
-in their documentation. This bit controls whether the DPI block is
-enabled, and is set to 1 by default (i.e. DPI is enabled at HW reset).
+From: Swamil Jain <s-jain1@ti.com>
 
-However, in almost all SoCs the setting does not actually do anything,
-and at the moment the bit is not managed by the driver.
+The DSS controller on TI's AM62P SoC features two instances of the TI
+DSS. Each DSS instance supports two video ports, similar to the DSS
+controller found on the TI AM62X SoC. This allows three independent
+video streams to be supported: OLDI, DPI, and DSI.
 
-The exception is AM62L, which does have DPIENABLE connected, and
-disabling the DPI block when it is not in use provides power savings.
+Since the DSS instances on AM62P are architecturally similar to those
+on the AM62X DSS controller, the existing dispc_am625_feats
+configuration can be reused for the AM62P DSS support.
 
-Let's add a new feature flag for this, 'has_vp_control_dpienable', and
-implement the support.  Disable DPIENABLE for all videoports at resume
-time, so that it is 0 by default. Specifically enable and disable it in
-dispc_vp_enable() and dispc_vp_disable() for DPI output.
+This commit adds the necessary device tree compatibility entry for
+"ti,am62p-dss" in the tidss driver, pointing to dispc_am625_feats,
+thereby enabling DSS support on AM62P devices.
 
+Signed-off-by: Swamil Jain <s-jain1@ti.com>
 Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 ---
- drivers/gpu/drm/tidss/tidss_dispc.c      | 23 +++++++++++++++++++++--
- drivers/gpu/drm/tidss/tidss_dispc.h      |  2 ++
- drivers/gpu/drm/tidss/tidss_dispc_regs.h |  1 +
- 3 files changed, 24 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/tidss/tidss_drv.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpu/drm/tidss/tidss_dispc.c b/drivers/gpu/drm/tidss/tidss_dispc.c
-index 0f68e60b902b..9edce4a4873a 100644
---- a/drivers/gpu/drm/tidss/tidss_dispc.c
-+++ b/drivers/gpu/drm/tidss/tidss_dispc.c
-@@ -442,6 +442,8 @@ const struct dispc_features dispc_am62l_feats = {
- 	},
- 
- 	.vid_order = {0},
-+
-+	.has_vp_control_dpienable = true,
- };
- 
- static const u16 *dispc_common_regmap;
-@@ -1212,6 +1214,11 @@ void dispc_vp_prepare(struct dispc_device *dispc, u32 hw_videoport,
- 
- void dispc_vp_enable(struct dispc_device *dispc, u32 hw_videoport)
- {
-+	if (dispc->feat->has_vp_control_dpienable &&
-+	    dispc->vp_data[hw_videoport].dpi_output)
-+		VP_REG_FLD_MOD(dispc, hw_videoport, DISPC_VP_CONTROL, 1,
-+			       DISPC_VP_CONTROL_DPIENABLE_MASK);
-+
- 	VP_REG_FLD_MOD(dispc, hw_videoport, DISPC_VP_CONTROL, 1,
- 		       DISPC_VP_CONTROL_ENABLE_MASK);
- }
-@@ -1220,6 +1227,11 @@ void dispc_vp_disable(struct dispc_device *dispc, u32 hw_videoport)
- {
- 	VP_REG_FLD_MOD(dispc, hw_videoport, DISPC_VP_CONTROL, 0,
- 		       DISPC_VP_CONTROL_ENABLE_MASK);
-+
-+	if (dispc->feat->has_vp_control_dpienable &&
-+	    dispc->vp_data[hw_videoport].dpi_output)
-+		VP_REG_FLD_MOD(dispc, hw_videoport, DISPC_VP_CONTROL, 0,
-+			       DISPC_VP_CONTROL_DPIENABLE_MASK);
- }
- 
- void dispc_vp_unprepare(struct dispc_device *dispc, u32 hw_videoport)
-@@ -2443,10 +2455,17 @@ static void dispc_vp_init(struct dispc_device *dispc)
- 
- 	dev_dbg(dispc->dev, "%s()\n", __func__);
- 
--	/* Enable the gamma Shadow bit-field for all VPs*/
--	for (i = 0; i < dispc->feat->num_vps; i++)
-+	for (i = 0; i < dispc->feat->num_vps; i++) {
-+		/* Enable the gamma Shadow bit-field for all VPs*/
- 		VP_REG_FLD_MOD(dispc, i, DISPC_VP_CONFIG, 1,
- 			       DISPC_VP_CONFIG_GAMMAENABLE_MASK);
-+
-+		if (dispc->feat->has_vp_control_dpienable) {
-+			/* Disable DPIENABLE for all VPs */
-+			VP_REG_FLD_MOD(dispc, i, DISPC_VP_CONTROL, 0,
-+				       DISPC_VP_CONTROL_DPIENABLE_MASK);
-+		}
-+	}
- }
- 
- static void dispc_initial_config(struct dispc_device *dispc)
-diff --git a/drivers/gpu/drm/tidss/tidss_dispc.h b/drivers/gpu/drm/tidss/tidss_dispc.h
-index 6f53d554259c..0fbfb86adfbf 100644
---- a/drivers/gpu/drm/tidss/tidss_dispc.h
-+++ b/drivers/gpu/drm/tidss/tidss_dispc.h
-@@ -92,6 +92,8 @@ struct dispc_features {
- 	u32 num_vids;
- 	struct dispc_vid_info vid_info[TIDSS_MAX_PLANES];
- 	u32 vid_order[TIDSS_MAX_PLANES];
-+	/* The DSS has VP_CONTROL.DPIENABLE bit */
-+	bool has_vp_control_dpienable;
- };
- 
- extern const struct dispc_features dispc_k2g_feats;
-diff --git a/drivers/gpu/drm/tidss/tidss_dispc_regs.h b/drivers/gpu/drm/tidss/tidss_dispc_regs.h
-index 4cdde24d8372..4246c72efdd5 100644
---- a/drivers/gpu/drm/tidss/tidss_dispc_regs.h
-+++ b/drivers/gpu/drm/tidss/tidss_dispc_regs.h
-@@ -230,6 +230,7 @@ enum dispc_common_regs {
- 
- #define DISPC_VP_CONTROL			0x4
- #define DISPC_VP_CONTROL_DATALINES_MASK			GENMASK(10, 8)
-+#define DISPC_VP_CONTROL_DPIENABLE_MASK			GENMASK(6, 6)
- #define DISPC_VP_CONTROL_GOBIT_MASK			GENMASK(5, 5)
- #define DISPC_VP_CONTROL_ENABLE_MASK			GENMASK(0, 0)
- 
+diff --git a/drivers/gpu/drm/tidss/tidss_drv.c b/drivers/gpu/drm/tidss/tidss_drv.c
+index aef945101be4..2d056dc1c5ff 100644
+--- a/drivers/gpu/drm/tidss/tidss_drv.c
++++ b/drivers/gpu/drm/tidss/tidss_drv.c
+@@ -246,6 +246,7 @@ static const struct of_device_id tidss_of_table[] = {
+ 	{ .compatible = "ti,am625-dss", .data = &dispc_am625_feats, },
+ 	{ .compatible = "ti,am62a7-dss", .data = &dispc_am62a7_feats, },
+ 	{ .compatible = "ti,am62l-dss", .data = &dispc_am62l_feats, },
++	{ .compatible = "ti,am62p-dss", .data = &dispc_am625_feats, },
+ 	{ .compatible = "ti,am65x-dss", .data = &dispc_am65x_feats, },
+ 	{ .compatible = "ti,j721e-dss", .data = &dispc_j721e_feats, },
+ 	{ }
 
 -- 
 2.43.0
