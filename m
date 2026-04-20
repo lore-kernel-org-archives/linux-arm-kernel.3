@@ -4,89 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82D3DF5580B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 10:57:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D752CF5580B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 11:00:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gy2Q1eop2IeGkganR6b3XIAbAZSLpD1P8kanOPoa6Y0=; b=v50fD2W7r1JN7r/reEK94tGp/1
-	dtl7SIAU+GCpy7cvKAoiG4B8ADb3Gdg2DNqFLOKQ7WZLT8bpx3lHOWM2kWpjx5YPNpznUSSN379pJ
-	9AeWdJAc6lE9YOu2PrF5Ai4RXUmuO1bRohSAbFfwSYuygbo42lQSaKWsxBLBHk/sQ3tEGuJM7+hLl
-	tPtO0csEpFIXtCMATcCz5PsANEZQ4jKvY5ZyrTqjc89LVd8pxuH6FZjXaGOrP7R18iA/CaMlU9w7y
-	toPHw4m3B1RE2OXd9ff27fhPqQUiLuqyIrKiIj4o5KF4I4rIJX7eS5LJG4lGwJ814gGDhUr/x5Isu
-	CpYF2O7w==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mjWQjP4IRSB5Wy14EhVD3hIP7KLN2LrKYzsuKbIxCnc=; b=m245xaRj0JGcYU/hv2tAUEkbUQ
+	TB1OnmH5jzqqe7ttJJmCh0qddu6LhnWXofySCdMXj1paG7DqVZWp2m5KVNURJW6raxeaL5vwfbm7e
+	T48+V+jNU0JGz7CeNRNBalG+9KGfH6T6J8QgDXC2gaKPWppHCoGZs3Ucz8RiI8Q5cCnBIzMZ7d1IJ
+	J8qbrfEOCsOV0NLMxprN5NCpYxl3JW7hu08SDyyIResNilVXpUnG6e3TMlPBHyhIAfXAGMplmjphV
+	nfv/j0ihWeoQnNwB5IKTcOFely9IYdafV56iHYKzrZSBikl7/N4lUy84gzpCYHpypCCwLuKg+UBES
+	veUxJ9kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEmJz-00000006ksh-2egA;
-	Mon, 20 Apr 2026 10:57:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wEmMj-00000006lBg-1iUV;
+	Mon, 20 Apr 2026 11:00:33 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEmJy-00000006ksV-2Oin
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 10:57:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9ADAC60055;
-	Mon, 20 Apr 2026 10:57:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E5A1C2BCB0;
-	Mon, 20 Apr 2026 10:57:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776682661;
-	bh=RV6KLhKQJV9O10vjxbnO2mSqItoj7sx7NBlZB3v6Dsk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=JNdNMpJOs/QU1EDyD5dKvXOmZv1rjh+NBsM6GcdHMLSL/OjW6/S1cLi+eTzoWkvlS
-	 kh+3j0VWnwZwUBAJaEt+MHqgkpOpd2jH8nsaJ8Ozm65otWB/3t5Rrz/rnL4tXlvvOM
-	 GAmEPAb3OJLBECf8AzyvUVxg0+4epkJ/KTW5ed0K9ZsnO1NgkG8mBKBDnH1RhcP+4P
-	 EvFV2PMNLd2iOSJ8tuYJk+x/xfonr7akIF4UPECxO/fFaRB49tzjFwxdzId4cezhZ/
-	 p1+tcPVtySt7bl5NQFMl5wO8jV5KGM/c1hjdXcdwh2Upoi8xPzeD187MKTu1nhKqIw
-	 fz09jetb3gqDw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wEmJu-0000000D2AQ-3mS1;
-	Mon, 20 Apr 2026 10:57:38 +0000
-Date: Mon, 20 Apr 2026 11:57:38 +0100
-Message-ID: <86o6jd2925.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	Andreas Grapentin <Andreas.Grapentin@ibm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Gautam Gala <ggala@linux.ibm.com>,
-	Hendrik Brueckner <brueckner@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-	Oliver Upton <oupton@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v1 00/27] KVM: s390: Introduce arm64 KVM
-In-Reply-To: <20260402042125.3948963-1-seiden@linux.ibm.com>
-References: <20260402042125.3948963-1-seiden@linux.ibm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+	id 1wEmMg-00000006lB6-2o1o;
+	Mon, 20 Apr 2026 11:00:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1776682826;
+	bh=PLPNmgPAxeK5mYLQnnUXuoPE4aCHhmjsyDeuAgufwss=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=K0CY6tvZ839+ED5+JnvY8glBhKFO790KScWfvsNhZDE9pe4jF7PrB2Kic+moM9ZW3
+	 BIMal4m2vnG6ohpyr2fQrSFew483858a5b26SmlEuJbPp8jlIBh/QdXrFNXi3g0oDj
+	 kaJVEkPIdbGwNncdTi+RkrpomJ7ry+gwM7tTMx9SXcwFkTkzzH+boQ1JaWTRz0C2W2
+	 dnmU7FH1m8muVP55ogcfnrHSzuaqVwNda+qefEMeGqYVIovbCSnv0q5ZFz8qr152qg
+	 RXiseB/qzTH0cnFahf7JzeZ5WxXvPCJuXEiQs0d2OiOa7s1ayeC3o0y90v0ZCWapkC
+	 4V3yepyJhcRCg==
+Received: from [100.64.0.241] (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1CAE617E1388;
+	Mon, 20 Apr 2026 13:00:26 +0200 (CEST)
+Message-ID: <401a020f-ca5d-4c7d-941e-f0288e144357@collabora.com>
+Date: Mon, 20 Apr 2026 14:00:25 +0300
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 05/40] arm64: dts: rockchip: Add frl-enable-gpios to
+ rk3576-luckfox-core3576
+To: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260417-dts-rk-frl-enable-gpios-v1-0-a19c0dd8c9f6@collabora.com>
+ <2000470.6tgchFWduM@phil>
+ <62f51359-9d91-4107-917b-cd722c7321c2@collabora.com>
+ <2282688.C4sosBPzcN@phil>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <2282688.C4sosBPzcN@phil>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, Andreas.Grapentin@ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, ggala@linux.ibm.com, brueckner@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, suzuki.poulose@arm.com, Ulrich.Weigand@de.ibm.com, will@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260420_040030_858746_E34BCE81 
+X-CRM114-Status: GOOD (  26.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,162 +80,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Steffen, s390 folks,
+Hi Heiko,
 
-On Thu, 02 Apr 2026 05:20:56 +0100,
-Steffen Eiden <seiden@linux.ibm.com> wrote:
->=20
-> By introducing a novel virtualization acceleration for the ARM architectu=
-re on
-> s390 architecture, we aim to expand the platform's software ecosystem. Th=
-is
-> initial patch series lays the groundwork by enabling KVM-accelerated ARM =
-CPU
-> virtualization on s390. To achieve this, a common KVM layer between s390 =
-and
-> arm64 is introduced (see below for more details). Design considerations of
-> arm64 on the s390 Architecture The s390 virtualization architecture is ex=
-tended
-> with a set of new instructions dedicated to supporting=C2=A0ARM-based vir=
-tual
-> machines. The s390 KVM host acts as EL2 (hypervisor) for a EL1/EL0
-> (OS/application) arm64 guest. To achieve this, the new Start-Arm-Execution
-> (SAE) instruction enables accelerated execution of arm64 VMs.=C2=A0 Addit=
-ional new
-> s390 instructions are introduced to query available arm64 features, used =
-to
-> populate the arm64 ID register contents, as well as, new s390 instruction=
-s to
-> save/restore various arm64 registers in the VM context.
+On 4/18/26 2:12 AM, Heiko Stuebner wrote:
+> Hi Cristian,
+> 
+> Am Freitag, 17. April 2026, 18:34:17 Mitteleuropäische Sommerzeit schrieb Cristian Ciocaltea:
+>> On 4/17/26 2:32 PM, Heiko Stuebner wrote:
+>>> the comments below apply sort of to all patches in that series.
+>>>
+>>> Am Freitag, 17. April 2026, 11:24:39 Mitteleuropäische Sommerzeit schrieb Cristian Ciocaltea:
+>>>> The board exposes the GPIO4_C6 line to control the voltage bias on the
+>>>> HDMI data lines.  It must be asserted when operating in HDMI 2.1 FRL
+>>>> mode and deasserted for HDMI 1.4/2.0 TMDS mode.
+>>>>
+>>>> Wire up the HDMI node to the GPIO line using the frl-enable-gpios
+>>>> property and drop the line from the vcc_5v0_hdmi regulator to allow
+>>>> adjusting the bias when transitioning between TMDS and FRL operating
+>>>> modes.
 
-Apologises for the delay in responding to this, things got delayed a
-bit with the Easter break. Since then, Will and I have been discussing
-this series and what it means for the future of the arm64 port.
+[...]
 
-By way of opening the discussion, we want to be clear that we are
-supportive of the effort. Our comments here should be seen as areas of
-potential improvement and not as rejection of what you are trying to
-achieve.
+>>>
+>>>
+>>>> @@ -231,6 +228,8 @@ &gpu {
+>>>>  };
+>>>>  
+>>>>  &hdmi {
+>>>> +	pinctrl-0 = <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda &hdmi_frl_en>;
+>>>> +	frl-enable-gpios = <&gpio4 RK_PC6 GPIO_ACTIVE_LOW>;
+>>>
+>>> this should be sorted the other way around I think.
+>>>
+>>> Also please provide a pinctrl-names property too. If for whatever reason
+>>> the dw-hdmi aquires a 2nd pinctrl state in the future, this makes sure
+>>> board DTs are staying in the "old" compatible mode until they are adapted.
+>>
+>> Just to make sure I fully understand, the convention is that 
+>>
+>>   pinctrl-names = "default";
+>>
+>> should be always provided, even when the node overrides an existing pinctrl-0
+>> property?
+>>
+>> E.g. in rk3576.dtsi we have:
+>>
+>>   hdmi: hdmi@27da0000 {
+>>     ...
+>>     pinctrl-names = "default";
+>>     pinctrl-0 = <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda>;
+>>     ...
+>>   }
+>>
+>> Hence I omitted pinctrl-names which doesn't change and just appended
+>> &hdmi_frl_en to pinctrl-0's original value.
+> 
+> correct, please always provide a pinctrl-names entry when setting a new
+> pinctrl-0 .
+> 
+> The background is, imagine you have a base:
+> 
+> pinctrl-names = "default";
+> pinstrl-0 = <....>;
+> 
+> and override pinctrl-0 in a board.
+> 
+> Now a newer binding introduces a 2nd pinctrl state "foo". Of course
+> we're backwards compatible, and both are valid and the driver checks
+> what states are defined.
+> 
+> So the base sets:
+> pinctrl-names = "default", "foo";
+> pinctrl-0 = <...>;
+> pinctrl-1 = <...>;
+> 
+> in your (old) board you override pinctrl-0, but the driver still sees
+> the new variant with 2 pinctrl states, where it should've stayed with
+> the legacy 1-state, until the board-dts might get adapted in the future.
+> 
+> 
+> And I know, we're likely not doing that everywhere, and also in most
+> cases it won't really matter, but still it is safer and sets the better
+> precedent :-) .
 
-* Code movement:
+Thanks for the detailed explanation, that clears things up!
 
-  The patches you have posted demonstrate that it is possible to
-  expose a large amount of arm64-specific code and definition to s390,
-  and yet still manage to build both architectures without regression.
-  However, the result looks rather messy and may adversely affect
-  maintainability on the arm64 side.
+There are several other nodes (e.g. i2c, pwm, uart) that also lack
+pinctrl-names despite providing pinctrl-0 - I can address those in a
+separate patch.
 
-  The moving of files into shared locations is particularly painful,
-  and gets in the way of overall maintainability. Not only does it
-  break our comfortable habits, it makes the backporting of fixes
-  harder.  Importantly, these changes come with no benefit on the
-  arm64 side.
+I also noticed an inconsistency in property ordering: some nodes place
+pinctrl-names before pinctrl-<n> and others after.  I have always used
+the former, but we should probably prefer the latter to stay consistent
+with how clocks, resets, phys, etc. are ordered.
 
-  Would it be possible to try some other means of reaching the
-  arm64-specific files *in situ*, either by making use of relative
-  paths, or by using symbolic links? Even better, files that are
-  generated on arm64 (such as the sysreg definitions) should equally
-  be generated for s390, locally to the s390 part of the tree.
+Thoughts?
 
-  But that doesn't mean that we consider that the arm64 tree is
-  immutable and that we are not open to change, quite the opposite.
-  Most of the KVM/arm64 include files are an unholy mix of arch
-  definitions, data structures that have some arch relevance, but also
-  code and data that is strictly implementation specific. Splitting
-  these (as you already have for some include files) could both help
-  with sharing what is actually needed, keep the arm64-specific stuff
-  at bay, *and* benefit arm64's overall maintainability. We would need
-  some tooling to enforce the split and avoid regressing it, something
-  that could happen quickly given the level of activity on arm64. Yet
-  another way to achieve this could be to mechanically process the
-  arm64 files as part of the s390 build to extract the relevant
-  information, and we could help with this.
+> 
+>>>>  	status = "okay";
+>>>>  };
+>>>>  
+>>>> @@ -655,7 +654,7 @@ &pcie0 {
+>>>>  
+>>>>  &pinctrl {
+>>>>  	hdmi {
+>>>> -		hdmi_con_en: hdmi-con-en {
+>>>> +		hdmi_frl_en: hdmi-frl-en {
+>>>
+>>> pinctrl names should ideally match the naming in schematics, for example the
+>>> "HDMI0_TX_ON_H" for jaguar and tiger. This makes it way easier to> go from DT
+>>> to schematics and back.
+>>
+>> I opted for a more descriptive name that could be used consistently across all
+>> boards, given that not all schematics are publicly available.
+>>
+>> You make a fair point though, we should probably stick with the pretty terrible
+>> hdmi[N]_tx_on_h naming instead.
+> 
+> yep, we're doing that everywhere else already too, and sticking to the
+> schematics naming, also prevents any discussions about how something
+> should be named ;-) .
 
-  Looking a bit more into the distance, it is likely that KVM/arm64
-  will grow feature support quicker than s390 can absorb them, and
-  that some feature won't ever make any sense of s390 (pKVM, for
-  example).  We need to establish how these features can be built
-  without arm64 being hindered by s390. This is also true when adding
-  architectural support for features that don't exist in the s390 view
-  of arm64.
-
-* UAPI and guest API:
-
-  Obviously, one of our biggest concerns is the userspace API. We
-  appreciate that you want to reuse it as it is, warts and all, and
-  directly incorporate additional feature support as it becomes
-  available. This means that, should any divergence in UAPI appear,
-  the source of truth must be on the arm64 side. This has the
-  following consequences:
-
-    - s390 cannot add extensions to the UAPI
-
-    - s390 must be compatible with all future arm64 extensions
-
-  Similar concerns exist on the guest/hypervisor API, including:
-
-  - errata mitigation: this is unsurprisingly a hot topic, which keeps
-    causing us some massive headaches. We are particularly concerned
-    about errata that need to be disclosed to the guest and acted upon
-    via a hypercall. Should there be a need for those, how will we
-    coordinate the deployment of such hypercall?
-
-    The way it has been deployed so far is that PSCI has grown an
-    errata discovery mechanism. ARM assigns function numbers and
-    specifies what these hypercalls mitigate. KVM, in turn, takes part
-    in implementing the mitigation. We expect that s390 would follow
-    the same behaviour, including coordination with ARM for the
-    function numbering.
-
-  - device assignment: this is unknown territory for us, as we
-    commonly use vfio-pci (and more occasionally vfio-platform). How
-    would that look for an arm64 guest on s390?
-
-  - s390-specific ISA extension: although we obviously cannot control
-    how you will decide to expose features to your arm64 guests,
-    KVM/arm64 makes a point of forbidding any use of implementation
-    specific instruction or system registers. We expect the s390
-    implementation to uphold this.
-
-  - s390-specific hypercalls: aside from the errata handling
-    mentioned above, we would very much like to avoid anything that is
-    implementation specific, and keep the hypercall space as small as
-    possible. In other words, an unenlightened arm64 guest must work
-    and continue to work.
-
-* Overall maintenance
-
-  Unsurprisingly, we are not totally familiar with s390. To say that
-  there is a learning gap would only be an understatement. So how do
-  we make sure we don't break things out of pure ignorance? Is there
-  any documentation we can refer to when hacking on code that will
-  eventually run on your side of the computing universe?
-
-  We need to be able to build and test what we produce. How do we go
-  about that? We appreciate that you may not be in a position to help
-  with this right now, but at least having a plan would be reassuring.
-  This should include things like automatic testing of our CI branches.
-  We are happy to test build s390 as part of our maintenance flow, if
-  pointed to existing binary toolchains compiled for arm64 and x86,
-  together with a typical configuration.
-
-  What about debugging? We expect that you'd have to help, should an
-  arm64 change cause a regression on s390, as it is fairly unlikely
-  that we would be able to reproduce it.
-
-  Finally, we feel it would be beneficial for both projects to swap
-  prisoners and have cross-reviewers in MAINTAINERS, so that there is
-  an s390 reviewer added to KVM/arm64, and an arm64 reviewer added to
-  KVM/s390.
-
-It probably would be beneficial to work through some of these things
-face-to-face. Maybe around LPC or KVM Forum if you manage to get
-there? Or some other place/time?
-
-Thanks,
-
-	Marc and Will
-
---=20
-Without deviation from the norm, progress is not possible.
+Indeed. :)
 
