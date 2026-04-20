@@ -4,72 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC2D7F588C7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:29:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE87DF588C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:29:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SjOeLt8RQklqXDpYEFgyKBSlehsqHCewYNhEGjC529o=; b=GQvBC38eP8Ig8PDddLfYyWbsGJ
-	qfVx3a4manHTd43dzD0/270D2cB1D4JstE7ra+7k5RHmRiE8G8AqexKslW9HnzNrXWxl/Xjfcp7V1
-	Y2p1umHd2ukTVZdtcKqlRnhxbac5vafFKfDruZN5SXK4neUaCel7FkpgHkXiDUvWL0Xeng7D2Wb30
-	D+gW+Efu4O9QfOgbAu76h/0M5dxJYQDLsrqyPZAylZTBQZQAhQNiSkaOfc35odZMzICetl0d/u5a9
-	6HTPYjrd1N1P+7ckw+7HzEFFcLlEO1bOS+rVHRdgJqERhMrzYnsptI76I15CSD5DyZ9JgPNctGuFr
-	dL20tizw==;
+	bh=fO6Bv48GlQW/gZ/cujzOgLlpdMteDsrc0v7DT/6Qj+Q=; b=QGne9mmSkDD8aUIx5ghYDjKjlN
+	eqWK5e61qzGERLgbhTUkNK6jXcCWj+bctr3CHX3Dm6ZaEUxGOLDkX4t4vMWIx1OSDli7qsipf39R2
+	kpvG7f/5jGz3U1CI6tBzQ750kaV8NMFpEvQhvMDPPiM19yaY1+wLiUAS0V6PTh3l9N77QyuZ3/n5e
+	D2FPxid8OZ70T3neQ3bYm91CtLSUXdPK+mBDt3nAe2vFVcdDCZw79o6jWaoMjWFNfPG+lnCSHZ5fV
+	j1U/QNF3N40MWyIskeOfiumbFh+w9QTnFZwnCKPYqkC4l4/ZTxkSptbC7Mf4jFd0eBwOta7KjxwBI
+	j62IZtgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEoh1-000000071lP-1ODX;
-	Mon, 20 Apr 2026 13:29:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wEoh4-000000071ob-3Koo;
+	Mon, 20 Apr 2026 13:29:42 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEogx-000000071i4-3Chy;
-	Mon, 20 Apr 2026 13:29:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 423F843A4E;
-	Mon, 20 Apr 2026 13:29:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4DCBC2BCB4;
-	Mon, 20 Apr 2026 13:29:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776691775;
-	bh=xbJ0IB4Q5cSCaWoM2HB+vF/YtYqGE5DEOWqKit9ysRY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fWUrYW5qyClb6QL1MZUB4N9e/VrTz5Uo07MEuTNaLpoZZnXQBxcbiS6stVRystzjx
-	 pRBEeLSftbhL6ozAQmg+BwDiV9xC0ctUrMx5uVGQ5hbcm8DKD1skfmNquymI0+Y7XB
-	 c+auk1/zhWFtJgvKqsRs1YEr+3fjbT/RfX/udG4r8US9bJLFA22BG/vRtB9m4n505U
-	 IbccAenmS9fyUB0qm6t6Gw0pG5GXKzinFe/czKAG9d0yA20MySpROYh7IGlv+Jtlo5
-	 SwiYS8A8Is2KwLlbqb798APyyOxghesROU47EVzCWjEkGGlXNHYjQoZCqPwKQAidV/
-	 dl0FX8YxInLWA==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Sean Wang <sean.wang@mediatek.com>,
-	Felix Fietkau <nbd@nbd.name>,
-	Sasha Levin <sashal@kernel.org>,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 7.0-6.12] wifi: mt76: mt7925: resolve link after acquiring mt76 mutex
-Date: Mon, 20 Apr 2026 09:19:40 -0400
-Message-ID: <20260420132314.1023554-186-sashal@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260420132314.1023554-1-sashal@kernel.org>
-References: <20260420132314.1023554-1-sashal@kernel.org>
+	id 1wEoh1-000000071lM-3fsu
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Apr 2026 13:29:41 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63KCxJGR3455879
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 13:29:39 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	fO6Bv48GlQW/gZ/cujzOgLlpdMteDsrc0v7DT/6Qj+Q=; b=eqFmSSkNLdnqkFvo
+	aVaADt1cwOCjtltureMzK+4Bwx0NCa1vP4tnB4xxDm3DJXoGbSiMia9wMTt9+JSF
+	Ou5VYJfNCmI63gRZHzNUfiIrmKsuqVuuq07GwcHfAKX/I3sJ8/L3f11M5f+TbK0S
+	j/TdN7eRiG8IyUUGX4Li/cKuV6YH/bsmjxA0n8MCFd2oBFD8MYOTPdOy/GiGzFG1
+	5EodhUF6iUV64YaSP0rBmgckn9pV+++obLZXURolL/j8eUV++n3De8iy6NN12+KP
+	i78sEuVhZzJ7GQJq8UO9AW4uf0ucFwMfeswQK74Ab9pjawyGqrVe5OcA9Fm0S+sq
+	IIEAfA==
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dnfvjseg9-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 13:29:38 +0000 (GMT)
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-35e5791871fso5807658a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 06:29:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1776691778; x=1777296578; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=fO6Bv48GlQW/gZ/cujzOgLlpdMteDsrc0v7DT/6Qj+Q=;
+        b=Bibjne/1gDRMNIMEXvgAH8p47myp+HKSHZ2AZaCInhZb85SLgsoeLJwPCV824thnsX
+         RAd3+E7vNDgH6SYSCMJuljsB2VGzBNlBouPm32J5RuNqiErxqan7mQcvf9BDOY5i6ij+
+         VDYU/xYsL8yaSNomgW0MG3CpMNqXifqbpt0Mjp+Ktc0hFqZl/hRPLMwCZhZdA94+ghQV
+         lVbZGVb+PO+s1itR1UgdlVYs7SFQRToWuIfp4ut3KmyYMo+FQHBpJn0cejj5wJm2wVm1
+         zgNaUys+VoSBLxn0m7N5UiCwXRQtjfgaiMcJOShhavXPlJSEzYefB+7Ces0ihVIzmjxN
+         6Cfg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776691778; x=1777296578;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fO6Bv48GlQW/gZ/cujzOgLlpdMteDsrc0v7DT/6Qj+Q=;
+        b=i1s+Vl2KObr3yXqJpMFohpNjel63l8N4UaLcOlV7D6Ny0QQs9TTiCoPLgSI7Mvbehe
+         uY1akjqMlW5BwNF+A2fnCmZJF+KxL7HDM2nl5Mw+yXhNhvlryHKhydZNaeYs5OwTxiqw
+         KqLzcglXRZJaFLIbRp64pkmqt9G8QnznxU7PatS1a+Tm34S2MIX1W96VCN8zbpAnsDOu
+         HA+9G4Fxu0LGDPQ3CeAdAfqFJpgGkBpavFxqpNxNjpTrI+epbGkfFIB8vzq2cGPghTjj
+         2Jg33dKFDrribhrnFRFfHFuepzXTIFSXtc+8KlxcxJT+YDZaRIZbArUFVjJgDJX/ql18
+         jpkg==
+X-Forwarded-Encrypted: i=1; AFNElJ92g1CBeOh52rE8I+CoeSNvOkOM+Q39Ld5jzF8lSDo19PAreWF9v1awvcozXB524yFCUZ/GaxhYz9DMQtC5AOrk@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywf9vENkDZGpvxnFzAwv73Ixx00TTnf1v58tELf9PMtV3hzYrYC
+	0Ki+kNgI9evkthVXAqIyXthd7YDrLDWzbC44EawHl2qf6D7kJGB5WHZjcEpFr6Do6qwY9xNieUs
+	cJTf7goHS2iHVGR0qQqsPf6OaIt8rxnRrcSZXYuWXNKX/XQRgjg6SgwfjceLzcz4cmBt/qgePt4
+	xK7BJEMo7VtWzq
+X-Gm-Gg: AeBDiets8mPDzajXkoscf2ky6Yxe+2QlbeG1syyXsNDHqxWSJhrGEMVgF09n+oXSk0O
+	eiZyWx48wbR2/6h3ol4O6CQa0RJPtMyvVEZ3HLww5z26aBRUPt0L4QiDKNYOyDOv+mupZTt70J1
+	RBJEaxeQvUR4SfTYVhdj8zHVaTymQkHXEvfxxNVzuoEqpDCiuJ8a41dCDnJdR2ZLnVbAlnN28Av
+	fz5corOpjtCaBjanYrTVhdOt2LAKMFBKicZcTpTe4aViTYQ8eonmyejGAL1ysb9vneGFaPONXbI
+	WUSU1fofpGs49Vw3kIShrXDKcAL24fdtNWMKDdHvhzJd8MNfQpSkwntcr6r7OZlQq3dENWzFzPG
+	m0Wvtf2BWhCc/72R6AeHWECKYfWyPoCsGBiR6H1p4v9/yJk+jQX0sKl7pqDtGShcQaTOD6YbnND
+	DIj7DKSOcyNhKynlRVIHgl
+X-Received: by 2002:a17:90b:1642:b0:35f:b107:f1ae with SMTP id 98e67ed59e1d1-361403adbcfmr13890628a91.4.1776691777593;
+        Mon, 20 Apr 2026 06:29:37 -0700 (PDT)
+X-Received: by 2002:a17:90b:1642:b0:35f:b107:f1ae with SMTP id 98e67ed59e1d1-361403adbcfmr13890573a91.4.1776691777015;
+        Mon, 20 Apr 2026 06:29:37 -0700 (PDT)
+Received: from [10.133.33.82] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36140fe07c7sm10502749a91.5.2026.04.20.06.29.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 20 Apr 2026 06:29:36 -0700 (PDT)
+Message-ID: <488faf07-3d22-49f5-af7c-cd27d9bc87ec@oss.qualcomm.com>
+Date: Mon, 20 Apr 2026 21:29:30 +0800
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 7.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v14 7/7] qcom-tgu: Add reset node to initialize
+To: Songwei Chai <songwei.chai@oss.qualcomm.com>, andersson@kernel.org,
+        alexander.shishkin@linux.intel.com, mike.leach@linaro.org,
+        konrad.dybcio@oss.qualcomm.com, suzuki.poulose@arm.com,
+        james.clark@arm.com, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
+        devicetree@vger.kernel.org, gregkh@linuxfoundation.org
+References: <20260417073336.2712426-1-songwei.chai@oss.qualcomm.com>
+ <20260417073336.2712426-8-songwei.chai@oss.qualcomm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20260417073336.2712426-8-songwei.chai@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: sb7_WTSjWEVmKCYW2zQov8T50NtAUWDs
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIwMDEzMSBTYWx0ZWRfXzUrVA7L+ubLZ
+ /J1GECxd2cPmajWNHsWtXBLY71+DScgH7ELkePtMxfc+YYE1jNR0yuaimyB/JyVGOO7o0HiTR0p
+ 3JC94o8CtDfNgTeBNXHHr5pjmc+VYf0DkBT1aiyXb+tfA+SQAUVOLtx2swuLiZVgiZ5rp5D+p1P
+ Lgj4Z3ZNoaaZUy2zlwMxHl7K+evkgOUbkpGxBKaTng8g9lB8txzJM7qNLbxqfTRivh29igHNukh
+ xWot+mKZvKekwdC+S5kEZEKrM1e3yxgCBnGKyqXMbSLHcf7cPKvzpVdFUt7HAM7nTj3SMHQO9gD
+ RNXB3bAAIu4BP1yTui/EGwYWkSgEj0ucXbPGvHZhoQtj8V8hKOuX0K0vN5sIN+I+aELF9NSG+VC
+ jEQnSA70dshlw5KiT1UaR0DvJRsoyLgMGKXodQhAvsEKZ3RHlNfCuL0Fvr+cW44i5pJMhySDg5a
+ 5uqjxYf69Z4j7qw2qLA==
+X-Authority-Analysis: v=2.4 cv=XNMAjwhE c=1 sm=1 tr=0 ts=69e62a42 cx=c_pps
+ a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=EUspDBNiAAAA:8 a=XEOHbNyQ1_GqabX02WAA:9 a=QEXdDO2ut3YA:10
+ a=uKXjsCUrEbL0IQVhDsJ9:22
+X-Proofpoint-GUID: sb7_WTSjWEVmKCYW2zQov8T50NtAUWDs
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-20_03,2026-04-17_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 adultscore=0 impostorscore=0 suspectscore=0 clxscore=1015
+ phishscore=0 malwarescore=0 lowpriorityscore=0 priorityscore=1501 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604200131
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_062935_852159_FAC125A7 
-X-CRM114-Status: GOOD (  32.41  )
+X-CRM114-CacheID: sfid-20260420_062940_101749_4B79C126 
+X-CRM114-Status: GOOD (  22.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,373 +151,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sean Wang <sean.wang@mediatek.com>
 
-[ Upstream commit beec58f36983f826fe90287a90edff46b32e8a89 ]
 
-mt792x_sta_to_link() uses rcu_dereference_protected() and therefore
-expects mt76.mutex to be held. Move the lookup after
-mt792x_mutex_acquire() to make the locking explicit and correct.
-
-Signed-off-by: Sean Wang <sean.wang@mediatek.com>
-Link: https://patch.msgid.link/20260306232238.2039675-12-sean.wang@kernel.org
-Signed-off-by: Felix Fietkau <nbd@nbd.name>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
-
-LLM Generated explanations, may be completely bogus:
-
-Now I have all the information needed for a thorough analysis.
-
----
-
-## PHASE 1: COMMIT MESSAGE FORENSICS
-
-### Step 1.1: Subject Line
-- **Subsystem**: `wifi: mt76: mt7925` (MediaTek MT7925 WiFi driver in
-  the mt76 subsystem)
-- **Action verb**: "resolve" — implies correcting something that was
-  wrong
-- **Summary**: Move the `mt792x_sta_to_link()` lookup after acquiring
-  `mt76.mutex`, because the function uses `rcu_dereference_protected()`
-  which requires that lock.
-
-Record: [wifi: mt76: mt7925] [resolve/correct] [Fix locking order:
-acquire mutex before RCU-protected dereference]
-
-### Step 1.2: Tags
-- **Signed-off-by**: Sean Wang <sean.wang@mediatek.com> — the author, a
-  prominent mt76/mt7925 contributor
-- **Link**: https://patch.msgid.link/20260306232238.2039675-12-
-  sean.wang@kernel.org — patch 12 (of 20 messages, patch 11/19)
-- **Signed-off-by**: Felix Fietkau <nbd@nbd.name> — the mt76 subsystem
-  maintainer who applied the patch
-- No Fixes: tag, no Reported-by:, no Cc: stable — expected for candidate
-  review
-
-Record: Author is Sean Wang (regular mt76 contributor), applied by the
-mt76 maintainer Felix Fietkau. No explicit Fixes: or stable tags.
-
-### Step 1.3: Commit Body Analysis
-The body says: "`mt792x_sta_to_link()` uses
-`rcu_dereference_protected()` and therefore expects `mt76.mutex` to be
-held." This directly describes a locking contract violation. The fix:
-"Move the lookup after `mt792x_mutex_acquire()`."
-
-Record: Bug: calling `rcu_dereference_protected()` without holding the
-required lock. Symptom: lockdep warning if `CONFIG_PROVE_LOCKING` is
-enabled; potential race condition for MLO vifs where the RCU pointer
-could be concurrently modified.
-
-### Step 1.4: Hidden Bug Fix Detection
-This IS a bug fix despite not using the word "fix" — the commit corrects
-a lock ordering violation. The `rcu_dereference_protected()` API
-explicitly expects the lock to be held, and calling it without it is
-incorrect.
-
-Record: Yes, this is a real bug fix — locking correctness violation.
-
----
-
-## PHASE 2: DIFF ANALYSIS
-
-### Step 2.1: Inventory
-- **File**: `drivers/net/wireless/mediatek/mt76/mt7925/main.c`
-- **Function**: `mt7925_mac_link_sta_assoc()`
-- **Change**: 2 lines moved (net 0 lines added/removed — pure reorder)
-- **Scope**: Single function, single file, surgical
-
-Record: 1 file changed, ~4 lines reordered within one function. Scope:
-trivially small.
-
-### Step 2.2: Code Flow Change
-**Before**: `msta` and `mlink` were resolved via `mt792x_sta_to_link()`
-before `mt792x_mutex_acquire(dev)` was called.
-
-**After**: `mt792x_mutex_acquire(dev)` is called first, then `msta` and
-`mlink` are resolved.
-
-The `msta` assignment (`(struct mt792x_sta *)link_sta->sta->drv_priv`)
-does not need the lock, but moving it below the mutex acquire is
-harmless and keeps the code cleaner.
-
-### Step 2.3: Bug Mechanism
-This is a **synchronization / locking correctness fix**. The function
-`mt792x_sta_to_link()` uses:
-
-```293:294:drivers/net/wireless/mediatek/mt76/mt792x.h
-return rcu_dereference_protected(msta->link[link_id],
-        lockdep_is_held(&msta->vif->phy->dev->mt76.mutex));
-```
-
-The `rcu_dereference_protected()` call asserts that `mt76.mutex` must be
-held. Calling it without the lock is:
-1. A lockdep assertion violation (runtime warning with
-   `CONFIG_PROVE_LOCKING`)
-2. A potential race: without the mutex, the `msta->link[link_id]` RCU
-   pointer could be concurrently modified (e.g., during link teardown),
-   leading to use-after-free.
-
-Note: For non-MLD (non-WiFi-7-MLO) vifs, the function returns
-`&msta->deflink` early without touching RCU, so the actual RCU race only
-applies to MLO connections.
-
-Record: Synchronization/locking fix. `rcu_dereference_protected()`
-called without required mutex. Race window for concurrent link
-modification on MLO vifs.
-
-### Step 2.4: Fix Quality
-- **Obviously correct**: Yes — just reorders two existing operations.
-- **Minimal**: Yes — net zero lines changed.
-- **Regression risk**: Essentially zero. The mutex is acquired slightly
-  earlier but still released at the same point. No new code is added.
-
-Record: Fix is trivially correct with no regression risk.
-
----
-
-## PHASE 3: GIT HISTORY INVESTIGATION
-
-### Step 3.1: Blame
-From the git blame, the buggy code was introduced by commit
-`89397bccc882a4` ("wifi: mt76: mt7925: add mt7925_mac_link_sta_assoc to
-associate per-link STA") by Sean Wang, dated 2024-06-12. This commit
-first appeared in `v6.11-rc1`.
-
-Record: Buggy code introduced in 89397bccc882a4, first in v6.11-rc1.
-Present in stable trees v6.11+.
-
-### Step 3.2: Fixes Tag
-No explicit Fixes: tag, but the bug was clearly introduced by
-`89397bccc882a4`.
-
-Record: The original commit created the function
-`mt7925_mac_link_sta_assoc` with the lock ordering issue from day one.
-
-### Step 3.3: File History
-The file has had ~46 commits since v6.11. Several are related locking
-fixes (e.g., `9f15701370ec1` "fix locking in
-mt7925_change_vif_links()").
-
-Record: Active file with other locking fixes. This is standalone.
-
-### Step 3.4: Author
-Sean Wang is a prolific contributor to mt76/mt7925 and the author of the
-MLO link support. He's also the author of the original buggy commit, so
-this is the author fixing their own oversight.
-
-Record: Author is the subsystem developer who introduced the bug.
-
-### Step 3.5: Dependencies
-This is patch 11/19 in a series, but the fix itself is **self-
-contained**: it only reorders existing lines within one function. It has
-no dependency on any other patch in the series.
-
-Record: Self-contained, no dependencies.
-
----
-
-## PHASE 4: MAILING LIST RESEARCH
-
-### Step 4.1: Original Discussion
-The patch was submitted as `[PATCH 11/19]` in a series titled "wifi:
-mt76: mt7925: fix up MLO link lifetime and error handling". The series
-includes a mix of refactoring and fixes. This specific patch is a pure
-correctness fix.
-
-Record: Part of a 19-patch series for MLO link lifetime improvements.
-This patch is standalone.
-
-### Step 4.2: Reviewers
-The series was sent to `nbd@nbd.name` (Felix Fietkau, mt76 maintainer)
-and `lorenzo.bianconi@redhat.com`. Applied by Felix Fietkau.
-
-Record: Applied by subsystem maintainer.
-
-### Step 4.3-4.5: Bug Reports / Stable Discussion
-No specific bug report or syzbot link. No specific stable discussion
-found. The kernel test robot reported build issues on patch 2/19 only,
-not on this patch.
-
-Record: No external bug reports. The issue is self-evident from code
-inspection.
-
----
-
-## PHASE 5: CODE SEMANTIC ANALYSIS
-
-### Step 5.1: Key Functions
-- `mt7925_mac_link_sta_assoc()` — the function being fixed
-- `mt792x_sta_to_link()` — the inline function that requires the mutex
-
-### Step 5.2: Callers
-`mt7925_mac_link_sta_assoc()` is called from `mt7925_mac_sta_event()`
-(line 1078), which is exported via `EXPORT_SYMBOL_GPL` and called during
-station association events via the mac80211 callback path. This is a
-common WiFi operational path.
-
-### Step 5.4: Reachability
-The code path is: mac80211 sta_event callback ->
-`mt7925_mac_sta_event()` -> `mt7925_mac_link_sta_assoc()`. This is
-triggered during WiFi association, which is a very common operation.
-
-Record: The buggy code is on a common WiFi association path, reachable
-during normal operation.
-
----
-
-## PHASE 6: STABLE TREE ANALYSIS
-
-### Step 6.1: Presence in Stable Trees
-- Buggy commit `89397bccc882a4` is NOT in v6.10 (verified)
-- It IS in v6.11+ (verified: v6.11-rc1)
-- Relevant stable trees: 6.11.y, 6.12.y, and any later LTS
-
-### Step 6.2: Backport Complications
-The patch is a trivial reorder of existing lines. It should apply
-cleanly to any tree that has the buggy commit.
-
-Record: Clean apply expected for all trees with the buggy code (v6.11+).
-
----
-
-## PHASE 7: SUBSYSTEM CONTEXT
-
-### Step 7.1: Subsystem Criticality
-- Subsystem: `drivers/net/wireless/mediatek/mt76/mt7925/` — WiFi driver
-- Criticality: IMPORTANT — MediaTek MT7925 is a WiFi 7 chip used in many
-  modern laptops
-- The fix is specifically for the MLO (Multi-Link Operation) code path
-
-Record: IMPORTANT subsystem — popular WiFi 7 chip. Bug affects MLO
-connections.
-
----
-
-## PHASE 8: IMPACT AND RISK ASSESSMENT
-
-### Step 8.1: Who Is Affected
-Users of MediaTek MT7925 WiFi 7 hardware using MLO (Multi-Link
-Operation). For non-MLO connections, `mt792x_sta_to_link()` takes the
-early `deflink` return path and doesn't touch RCU.
-
-### Step 8.2: Trigger Conditions
-- Triggered during WiFi association with MLO
-- Common operation for WiFi 7 users
-- With `CONFIG_PROVE_LOCKING`: always triggers a warning
-- Without: race window exists but may be hard to hit
-
-### Step 8.3: Failure Mode Severity
-- **With lockdep**: WARNING (lock assertion failure) — MEDIUM
-- **Without lockdep**: Potential use-after-free if link is concurrently
-  modified — HIGH (crash/corruption risk, though race window is small)
-
-### Step 8.4: Risk-Benefit Ratio
-- **Benefit**: Fixes locking correctness and prevents lockdep warnings +
-  potential UAF for MLO users. LOW-MEDIUM benefit.
-- **Risk**: Essentially ZERO risk — the fix is a trivial reorder of two
-  existing operations.
-- **Ratio**: Very favorable — zero risk for a real correctness fix.
-
----
-
-## PHASE 9: FINAL SYNTHESIS
-
-### Step 9.1: Evidence Summary
-
-**FOR backporting:**
-- Fixes a real locking correctness violation
-  (`rcu_dereference_protected()` without lock)
-- The fix is trivially correct — just reorders 2 lines
-- Zero regression risk
-- Self-contained, no dependencies on other patches
-- Applied by subsystem maintainer
-- Bug exists in stable trees v6.11+
-- On a common WiFi association code path
-
-**AGAINST backporting:**
-- Part of a 19-patch series (though this patch is standalone)
-- Primarily affects WiFi 7 MLO users (subset of mt7925 users)
-- Without lockdep, the actual race is theoretically possible but hard to
-  trigger
-- No user reports or syzbot reports of the issue
-
-### Step 9.2: Stable Rules Checklist
-1. Obviously correct and tested? **YES** — trivial reorder, applied by
-   maintainer
-2. Fixes a real bug? **YES** — locking correctness violation
-3. Important issue? **MEDIUM** — lockdep warning + potential UAF race on
-   MLO
-4. Small and contained? **YES** — ~4 lines reordered in one function
-5. No new features or APIs? **YES** — pure fix
-6. Can apply to stable trees? **YES** — should apply cleanly to v6.11+
-
-### Step 9.3: Exception Categories
-Not an exception category — this is a standard bug fix.
-
-### Step 9.4: Decision
-The fix is a trivially correct locking fix with zero regression risk. It
-fixes a real `rcu_dereference_protected()` locking violation that
-triggers lockdep warnings and has a theoretical UAF race. While the
-impact is limited to WiFi 7 MLO users, the fix is so small and safe that
-the risk-benefit ratio strongly favors backporting.
-
----
-
-## Verification
-
-- [Phase 1] Parsed tags: Author is Sean Wang (MediaTek), applied by
-  Felix Fietkau (mt76 maintainer)
-- [Phase 2] Diff analysis: ~4 lines reordered in
-  `mt7925_mac_link_sta_assoc()` — moves mutex_acquire before
-  `mt792x_sta_to_link()`
-- [Phase 2] Verified `mt792x_sta_to_link()` uses
-  `rcu_dereference_protected()` with `lockdep_is_held(&mt76.mutex)` at
-  lines 293-294 of mt792x.h
-- [Phase 2] Verified `mt792x_mutex_acquire()` expands to
-  `mutex_lock(&dev->mutex)` via `mt76_connac_mutex_acquire()` at line
-  401 of mt76_connac.h
-- [Phase 3] git blame: buggy code introduced by 89397bccc882a4 (Sean
-  Wang, 2024-06-12)
-- [Phase 3] git describe: buggy commit first appears in v6.11-rc1
-- [Phase 3] git merge-base: confirmed NOT in v6.10, YES in v6.11 and
-  v6.12
-- [Phase 4] b4 mbox: found series cover "fix up MLO link lifetime and
-  error handling" (19 patches)
-- [Phase 4] This is patch 11/19, but is self-contained
-- [Phase 5] `mt7925_mac_link_sta_assoc()` called from
-  `mt7925_mac_sta_event()` (line 1078), triggered during WiFi
-  association
-- [Phase 6] Code exists in stable trees v6.11+
-- [Phase 8] Failure mode: lockdep WARNING (MEDIUM) or potential UAF race
-  on MLO (HIGH but hard to trigger)
-- UNVERIFIED: Could not access lore.kernel.org directly due to anti-bot
-  protection to check for reviewer comments on patch 11/19 specifically
-
-**YES**
-
- drivers/net/wireless/mediatek/mt76/mt7925/main.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/main.c b/drivers/net/wireless/mediatek/mt76/mt7925/main.c
-index 38474cd2c38d6..caafac14d97ba 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7925/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7925/main.c
-@@ -1030,11 +1030,11 @@ static void mt7925_mac_link_sta_assoc(struct mt76_dev *mdev,
- 	struct mt792x_link_sta *mlink;
- 	struct mt792x_sta *msta;
- 
-+	mt792x_mutex_acquire(dev);
-+
- 	msta = (struct mt792x_sta *)link_sta->sta->drv_priv;
- 	mlink = mt792x_sta_to_link(msta, link_sta->link_id);
- 
--	mt792x_mutex_acquire(dev);
--
- 	if (ieee80211_vif_is_mld(vif)) {
- 		link_conf = mt792x_vif_to_bss_conf(vif, msta->deflink_id);
- 	} else {
--- 
-2.53.0
+On 4/17/2026 3:33 PM, Songwei Chai wrote:
+> Add reset node to initialize the value of
+> priority/condition_decode/condition_select/timer/counter nodes.
+> 
+
+LGTM.
+
+Reviewed-by: Jie Gan <jie.gan@oss.qualcomm.com>
+
+> Signed-off-by: Songwei Chai <songwei.chai@oss.qualcomm.com>
+> ---
+>   .../ABI/testing/sysfs-bus-amba-devices-tgu    |  7 ++
+>   drivers/hwtracing/qcom/tgu.c                  | 74 +++++++++++++++++++
+>   2 files changed, 81 insertions(+)
+> 
+> diff --git a/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
+> index 7a3573e03e27..a6b6019c8ef1 100644
+> --- a/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
+> +++ b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
+> @@ -42,3 +42,10 @@ KernelVersion:	7.1
+>   Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai <songwei.chai@oss.qualcomm.com>
+>   Description:
+>   		(RW) Set/Get the counter value with specific step for TGU.
+> +
+> +What:		/sys/bus/amba/devices/<tgu-name>/reset_tgu
+> +Date:		April 2026
+> +KernelVersion:	7.1
+> +Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai <songwei.chai@oss.qualcomm.com>
+> +Description:
+> +		(Write) Write 1 to reset the dataset for TGU.
+> diff --git a/drivers/hwtracing/qcom/tgu.c b/drivers/hwtracing/qcom/tgu.c
+> index 6d5bf2621cb0..9fb51f2a912f 100644
+> --- a/drivers/hwtracing/qcom/tgu.c
+> +++ b/drivers/hwtracing/qcom/tgu.c
+> @@ -420,8 +420,82 @@ static ssize_t enable_tgu_store(struct device *dev,
+>   }
+>   static DEVICE_ATTR_RW(enable_tgu);
+>   
+> +/* reset_tgu_store - Reset Trace and Gating Unit (TGU) configuration. */
+> +static ssize_t reset_tgu_store(struct device *dev,
+> +			       struct device_attribute *attr, const char *buf,
+> +			       size_t size)
+> +{
+> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
+> +	struct value_table *vt = drvdata->value_table;
+> +	u32 *cond_decode = drvdata->value_table->condition_decode;
+> +	unsigned long value;
+> +	int i, j, ret;
+> +
+> +	if (kstrtoul(buf, 0, &value) || value != 1)
+> +		return -EINVAL;
+> +
+> +	spin_lock(&drvdata->lock);
+> +	if (!drvdata->enabled) {
+> +		spin_unlock(&drvdata->lock);
+> +		ret = pm_runtime_resume_and_get(drvdata->dev);
+> +		if (ret)
+> +			return ret;
+> +		spin_lock(&drvdata->lock);
+> +	}
+> +
+> +	tgu_do_disable(drvdata);
+> +
+> +	if (vt->priority) {
+> +		size_t size = MAX_PRIORITY * drvdata->num_step *
+> +				drvdata->num_reg * sizeof(unsigned int);
+> +		memset(vt->priority, 0, size);
+> +	}
+> +
+> +	if (vt->condition_decode) {
+> +		size_t size = drvdata->num_condition_decode *
+> +			      drvdata->num_step * sizeof(unsigned int);
+> +		memset(vt->condition_decode, 0, size);
+> +	}
+> +
+> +	/* Initialize all condition registers to NOT(value=0x1000000) */
+> +	for (i = 0; i < drvdata->num_step; i++) {
+> +		for (j = 0; j < drvdata->num_condition_decode; j++) {
+> +			cond_decode[calculate_array_location(drvdata, i,
+> +			TGU_CONDITION_DECODE, j)] = 0x1000000;
+> +		}
+> +	}
+> +
+> +	if (vt->condition_select) {
+> +		size_t size = drvdata->num_condition_select *
+> +			      drvdata->num_step * sizeof(unsigned int);
+> +		memset(vt->condition_select, 0, size);
+> +	}
+> +
+> +	if (vt->timer) {
+> +		size_t size = (drvdata->num_step) * (drvdata->num_timer) *
+> +				sizeof(unsigned int);
+> +		memset(vt->timer, 0, size);
+> +	}
+> +
+> +	if (vt->counter) {
+> +		size_t size = (drvdata->num_step) * (drvdata->num_counter) *
+> +			      sizeof(unsigned int);
+> +		memset(vt->counter, 0, size);
+> +	}
+> +
+> +	spin_unlock(&drvdata->lock);
+> +
+> +	dev_dbg(dev, "Qualcomm-TGU reset complete\n");
+> +
+> +	pm_runtime_put(drvdata->dev);
+> +
+> +	return size;
+> +}
+> +static DEVICE_ATTR_WO(reset_tgu);
+> +
+>   static struct attribute *tgu_common_attrs[] = {
+>   	&dev_attr_enable_tgu.attr,
+> +	&dev_attr_reset_tgu.attr,
+>   	NULL,
+>   };
+>   
 
 
