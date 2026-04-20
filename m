@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B1D2F588C1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:00:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41DA3F588C3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:01:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tUC2t9kCbTutWnz6IuPE32rjpeccnNIrpMgaz4pD0xY=; b=RzABq95srmCRrP3UOBj9cpbPBI
-	Pp2p87nLe0ZjjjeWqD/RnNyNfEpjRiZZ3huA8KqgVlrMiVuezUZtu7cl06fifeYTbn13XIDDxAOzH
-	WsPWnZSOl4XkMkGEHkja9Tpyi+f4IYFrcFFDhylJawZSIXsgP81J+Y76S/ZkBpW/cLXCUzXb/JqQr
-	KrcrAkFxPatcz1VITbkvfm0081ghEqS6IxeMLnsma4Jd/mFiextHf/aJSKEEq8iiXfxqsqDQ4XMn4
-	xH90snygk+ralgQDUGRcVTEbSx0Oo2LJE1CZMwSe9fgZ9gsAVJz5guJ0icpe6oHzDjgmQVHvUPL8K
-	cM/JGpUQ==;
+	bh=iK+dwfs6TTfXk/h7PczKlm40SXBtrA2IbQBGzgNFSkw=; b=TZ9wzEIlDNBeLP2rL8YUysMnV1
+	tyNbKrC283g/yf41tdMmnerFVVWr76qXjjb98tZRIwJHA/3yv+8B0gpN+xmz3xNF9/LZ2ECB+L16+
+	OgzG1h9umHoWhVZ39jICLsevhE8vgLtByYrEiEOp9c6syEynYLuSptY+SvVTGXLe5vo7oZtf1nwUz
+	1XyVkdWB0eUaEKEZi6Y1eGHEI04xLzROp8nkgQAo/vV7GqBanP3WKSvXjW8eWZXPi+tmKPmW2rPv9
+	dIVDJMBPnw9hdK6bhaocdqkhfFJP11eKjeduSVh06fA4vYlI2GOgQCFguJ0wdJFIKTGdUtuRnszdx
+	3VggjLyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEoF4-00000006wUg-0N02;
-	Mon, 20 Apr 2026 13:00:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEoF2-00000006wTu-13Lb
+	id 1wEoFS-00000006wa6-1x1E;
+	Mon, 20 Apr 2026 13:01:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wEoFQ-00000006wZH-1Kpl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 13:00:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 64C5A6014B;
-	Mon, 20 Apr 2026 13:00:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BBE1C2BCB4;
-	Mon, 20 Apr 2026 13:00:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776690043;
-	bh=tUC2t9kCbTutWnz6IuPE32rjpeccnNIrpMgaz4pD0xY=;
+	Mon, 20 Apr 2026 13:01:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 300271516;
+	Mon, 20 Apr 2026 06:00:58 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C43543F7B4;
+	Mon, 20 Apr 2026 06:00:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776690063; bh=iK+dwfs6TTfXk/h7PczKlm40SXBtrA2IbQBGzgNFSkw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YlVcalFzn0PvL+6InUzgqSW+//qTjGG/EfiW0TS8x0zIGJ4uAz3KtlCEIdTY72YTy
-	 SATZbU4nIdedKAryE4IKUikbt2UpAV670DGv37zi22wOPDSq32Z0Zdb/vPQOAHhV7L
-	 R35f+tkpc9jcihD1qrfP0TKz+3uJDOYMmGiwmrFTnnSqiFNSetkcePBGG/xKu5LGnu
-	 asbzNN9TTZLZUbSEsaJ20Fz2H0Z2/jWZQogamuUR9uXs321B0epvjSiYn6Dvex523d
-	 fVOWm2enR6PxWJfmlCw2CuN/R6tbyJzFVc94nrBqhpt1kLO+3wVyNbmb/1ps8rY0Q1
-	 wlb+04KJisEeQ==
-Date: Mon, 20 Apr 2026 15:00:40 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Stefan =?utf-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-Cc: "Rob Herring (Arm)" <robh@kernel.org>, linux-kernel@vger.kernel.org, 
-	Conor Dooley <conor+dt@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	linux-doc@vger.kernel.org, devicetree@vger.kernel.org, Drew Fustini <fustini@kernel.org>, 
-	Linus Walleij <linusw@kernel.org>, Jiri Slaby <jirislaby@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>, soc@lists.linux.dev, Arnd Bergmann <arnd@arndb.de>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-serial@vger.kernel.org, Shuah Khan <skhan@linuxfoundation.org>
-Subject: Re: [PATCH v4 2/8] dt-bindings: arm: Add zx297520v3 board binding
-Message-ID: <20260420-blue-parrot-of-spirit-2b5f6a@quoll>
-References: <20260416-send-v4-0-e19d02b944ec@gmail.com>
- <20260416-send-v4-2-e19d02b944ec@gmail.com>
- <177646012448.2165534.5760108355183774935.robh@kernel.org>
- <6264667.lOV4Wx5bFT@strix>
+	b=BCiadVmkk/gq0W3CAiKpGOYi+LOoZbmvy1ddW8avimGJSFtvgSTnIVhbjkJffqUox
+	 /lwl7p5Mf5Qn+xAXQAzy6glLefm9pQZVFs5BWPVEois8neHP8utP6ztcI7UFKUXOcr
+	 ACneYNTOtEdZKvniPmdSbMHdVAwUr82NOwtr2gXc=
+Date: Mon, 20 Apr 2026 14:00:57 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Sebastian Ene <sebastianene@google.com>
+Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
+	zohar@linux.ibm.com, roberto.sassu@huawei.com,
+	dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com,
+	peterhuewe@gmx.de, jarkko@kernel.org, jgg@ziepe.ca,
+	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org
+Subject: Re: [RFC PATCH 4/4] firmware: arm_ffa: check pkvm initailised when
+ initailise ffa driver
+Message-ID: <aeYjiaPtAl7SMVkL@e129823.arm.com>
+References: <20260417175759.3191279-1-yeoreum.yun@arm.com>
+ <20260417175759.3191279-5-yeoreum.yun@arm.com>
+ <aeYbdmshGZJ4GhXd@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <6264667.lOV4Wx5bFT@strix>
+In-Reply-To: <aeYbdmshGZJ4GhXd@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260420_060108_481682_B50F966B 
+X-CRM114-Status: GOOD (  17.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,31 +79,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 19, 2026 at 11:30:04AM +0300, Stefan D=C3=B6singer wrote:
-> Hi Rob,
->=20
-> Am Samstag, 18. April 2026, 00:08:44 Ostafrikanische Zeit schrieben Sie:
->=20
-> > If you already ran 'make dt_binding_check' and didn't see the above
-> > error(s), then make sure 'yamllint' is installed and dt-schema is up to
-> > date:
->=20
-> Here is a new PEBKAC issue for your mail template: I ran dt_binding_check=
-, it=20
-> wrote the warning you pointed out, but I only checked the return value - =
-which=20
-> indicated success. Which I guess makes sense for a warning, since there s=
-eem=20
-> to be a few preexisting ones. The warning itself was somewhere in the=20
-> scrollback because I let dt_binding_check check all the files.
->=20
-> So I learned I have to actually look at the output to see if there are an=
-y=20
-> warnings.
 
-Same with every other tool warnings, like compiler warnings...
+Hi Sebastian,
+> On Fri, Apr 17, 2026 at 06:57:59PM +0100, Yeoreum Yun wrote:
+>
+> Hello Yeoreum,
+>
+>
+> > When pKVM is enabled, the FF-A driver must be initialized after pKVM.
+> > Otherwise, pKVM cannot negotiate the FF-A version or
+> > obtain RX/TX buffer information, leading to failures in FF-A calls.
+>
+> At the moment this already happens after you move back ffa_init() to
+> device_initcall().
 
-Best regards,
-Krzysztof
+How? the kvm_arm_init() is device_initcall() if both built as built-in.
 
+>
+> >
+> > During FF-A driver initialization, check whether pKVM has been initialized.
+> > If not, defer probing of the FF-A driver.
+> >
+>
+> I don't think you need to add this dependency. pKVM is
+> installed through KVM's module_init() which ends up calling hyp_ffa_init() to
+> do the proxy initialization. The ARM-FFA driver comes after it (since
+> pKVM is arch specific code). We don't have to call finalize_pkvm(..) to
+> be able to handle smc(FF-A) calls in the hyp-proxy.
+>
+
+As Marc said, the before finalised_pkvm(), smc wouldn't be trapped
+to pKVM. IOW, in case when both built as built-in,
+if ffa_init() is called before finalised_pkvm(),
+it couldn't proxy the FFA_VERSION, FFA_RXTX_MAP and FFA_PARTITION_INFO_GET
+called by ffa_init().
+
+How can you gurantee hyp_ffa_init() which is called by kvm_arm_init()
+comes first even kvm_arm_init() and ffa_init() are on device_initcall?
+
+[...]
+
+Thanks
+
+
+--
+Sincerely,
+Yeoreum Yun
 
