@@ -4,93 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AB54EA71BC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 04:48:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1824EA71BC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 04:51:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ivIQYtxBKSYYxLWGWSom7fjyGf+pGkpG586CwmF2GsI=; b=seaYDbCzJqVN4akdmfVfVi8Ub3
-	LJFP5xnQQj1uL5AVdAB2unWoQbUP1TrXYOtaDdglaj/74XOQ3aFLDG8MmWqgeePhJMdsOt5R9ZfoX
-	NMQnyIovR+YzMQPRGLfhg+diKlMxhJAF3rLA7oYrgN9H1Igv2chN8jMWkijVnDPgiGy7SKtA7+UR0
-	pWkHHhEOQm45lCbJraA9s6seAZmCWAgpozwiFQNPKfmlZJRMcvFd2OPxZFNIhM/z5LTX24PwrJFHW
-	WVWWCUh16ItKk6WZquQ1tw3CXpyTNYouOYo2/tv8cUnG2DghZ6efNvgktx7IxMHEXLmWwMi86X47S
-	QuBHkL5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZbZP3ug2EwbGMhwVKjQovHIOnNmz8nAPKjABkE+UcX8=; b=Rm1X2DyQJaOiXJF+GUF4fL02dL
+	Yrt5gWiXnEfGhLVtbFgnVu3cFHY577hbe64EfPIFirwhT1loxSl3PEi6+KgwEcCu5qYzjosaUSsV0
+	hzPEWt1bvfLLJUGuPXOHgBF3fZbUr9o3LT9p3E6BFxLjGRuvRUNH5W5pmczljLtfcBIWiR85M6k5z
+	bNC//kRY+ztWDYHuctFcaiOSFrwfOP0BKFtWJdogVrNAj2lK7/aokuMQpaHidOyGABAFggAwp1gVT
+	EM47Eoznzuc7bMTbKLr7bu36bTWwnu6x3RLcaRmOkzJzLYyhQp12OyApKaS8DaAeOijCYyO7ObMNS
+	uQyJgIFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEgY2-00000006Pj2-3txl;
-	Mon, 20 Apr 2026 04:47:51 +0000
-Received: from mail-dy1-x1329.google.com ([2607:f8b0:4864:20::1329])
+	id 1wEgb6-00000006Pvx-3dsH;
+	Mon, 20 Apr 2026 04:51:01 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEgXy-00000006PiL-1ND7
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 04:47:49 +0000
-Received: by mail-dy1-x1329.google.com with SMTP id 5a478bee46e88-2bdcf5970cdso2175205eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 21:47:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776660465; x=1777265265; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ivIQYtxBKSYYxLWGWSom7fjyGf+pGkpG586CwmF2GsI=;
-        b=Fn8IA7M80U1FL2zHMrwbk1sAiQdlCUXRSKht/p3XCgXmvRsEaA77KJaY2ixZTGkQFO
-         Yk1dsGPPhMzLPXFOopKV+ep62j/vH+B38XbqfgEWSVmAxHR41n3NALMCSsWx5lPvlbXU
-         0C+lWBCP0LkXCOVSkP9ATtk6Sy92ooXCdQvRqhbTFlsew3uu0hdtBK613i213vS15XCk
-         D+PqLKftFZhuYQGs4x9zh0HfeQWXpWE17uDe9JePHl9WYSWKxSylnylnbMZXLxdJEE6H
-         cA5C68rNyAzWepkHrX7O3P74EQIp2JbGnILqBrQRHNUmpz7n5GOP0ZFk/NmRkUc+hyE/
-         kWNw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776660465; x=1777265265;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ivIQYtxBKSYYxLWGWSom7fjyGf+pGkpG586CwmF2GsI=;
-        b=BhoLI3QZBvNe6wzCInjxKx6Kw0mLQKpYcdDcg5yTy6IuCkN9XVHdFRBdzXG2KWUej0
-         P9MkFtftMtijdGJ+iiaRTh0auyVQbmjB5NFRSaee/GsdcnCJ2NP41CggioboWOXGZ9Fu
-         7cszzpmeXyyOD1cPOloaqnC1K34aB/YrpBebrSNKZGd9rTBXMdMpHIhiEWzo8Bh2oWt3
-         Eh7FAcb4WeyMorK2rraNQAJzRWHxYmbnFKPERJoIC/AGdxeEF+TPZaiRgPof5/WJP3i+
-         uX7QX8akr2Yn9dOP0/p7QiFvo2lP3rY6hm3rNr2S8O3LGSSa3WSkO1xkeHv0K7mO1uQp
-         d3Ew==
-X-Forwarded-Encrypted: i=1; AFNElJ/+bUFkngFvxMsqipONmOVwO6JjW7VBjgQkUxbm3ismZsrG9RrIia1N95rlYCAqTtwyC6i9/mygSXDZv7rNPPuO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yymsse+gfQeFtmsCoHIUdemX/oTrwvnRfoWv62VDGe5gmqO+rjV
-	yuAjk8CttJhSTsXdeLtf82fJ1vf0vlSOtySMpRc+axl2P9GCBL5h8H4T
-X-Gm-Gg: AeBDietbL68bo5FSlu8JMBJzRZUORcN62NglCu6Xp/N1idPuH6djuQveffqCDHutMER
-	KFoKYlsh2Fk5+bN5PDEAotG647A59qvbT9/O1s6rI3liJZxmfrVnNHhV/E7F8KV4YA1qMOpgE6w
-	zV9o5K5DkCVoeTTx5RuzUQYL68sQ4L5NCCWF8M31vWi7x2yv43sT7/qrAQH/ZNvWOHAXUgHahzh
-	5ZR8fcFrRuUCMuvgE4y7EF+TVPa/VzyLlYV7Rasx1EhvOl2gBTDvEF/yvfdq7mpXvikyXCd1fbx
-	iKlV0jSqPN9UJKy9onakl630XUqtxaO6+FQtcuxczer6tihr2kqcQ2X8XGg+L3GMiD6luPezyPY
-	/+NTrDYPSyh37XRzx3GnlaidgZFr4w/v8GpyLd+p7eV2ZhmY+xOWbRRgXnurB2M6CZrMggqD1Ci
-	6X+jgz0VPXuKCEmalAfeTjEEIkOuvxAg6jIVKC4tsZDe05k1TCFt+212ZPCLm5dJgn45p07qfwW
-	Xc=
-X-Received: by 2002:a05:7300:72d5:b0:2a4:701a:b9ba with SMTP id 5a478bee46e88-2e42e10aeabmr4580207eec.14.1776660464756;
-        Sun, 19 Apr 2026 21:47:44 -0700 (PDT)
-Received: from google.com ([2a00:79e0:2ebe:8:1a4e:4965:5dff:cdee])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2e53a4a8018sm15897536eec.8.2026.04.19.21.47.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 19 Apr 2026 21:47:43 -0700 (PDT)
-Date: Sun, 19 Apr 2026 21:47:40 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Hugo Villeneuve <hugo@hugovil.com>
-Cc: robin@protonic.nl, andy@kernel.org, geert@linux-m68k.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	hvilleneuve@dimonoff.com, mkorpershoek@kernel.org, matthias.bgg@gmail.com, 
-	angelogioacchino.delregno@collabora.com, lee@kernel.org, alexander.sverdlin@gmail.com, 
-	marek.vasut@gmail.com, akurz@blala.de, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-input@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v5 4/4] Input: charlieplex_keypad: add GPIO charlieplex
- keypad
-Message-ID: <aeWtDA7snjJmiF9K@google.com>
-References: <20260312180304.3865850-1-hugo@hugovil.com>
- <20260312180304.3865850-5-hugo@hugovil.com>
+	id 1wEgb2-00000006PvV-3Bp4;
+	Mon, 20 Apr 2026 04:50:58 +0000
+Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id AF9D778C;
+	Mon, 20 Apr 2026 06:49:12 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1776660554;
+	bh=iwh3N+VethXilsaJ64nNuyiBXMJyYXgfop2Jfia4Qv8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=CmYidhQJFff1Jy2JNWzkMs/4kz+pEMeZH1/ioKbzV/uchyIkn9+05FEWUXLnWC8Vs
+	 QcM0jmCS1SJ7AfsP6G+9nT1W0hvFAwPxDaaDadIXwF1BdzgdVgUA2jyoHdbwIOK8ma
+	 xdDODxQATbV0t+7b6dsvrTR3c1l8ydq0EsPQejfk=
+Message-ID: <a2e60e74-a1be-469d-8f4d-ecce1f30b517@ideasonboard.com>
+Date: Mon, 20 Apr 2026 07:50:46 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260312180304.3865850-5-hugo@hugovil.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/6] drm/connector: report IRQ_HPD events to
+ drm_connector_oob_hotplug_event()
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-usb@vger.kernel.org, intel-gfx@lists.freedesktop.org,
+ intel-xe@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ freedreno@lists.freedesktop.org,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Adrien Grassein <adrien.grassein@gmail.com>,
+ Jani Nikula <jani.nikula@linux.intel.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>,
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+ Tvrtko Ursulin <tursulin@ursulin.net>, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov
+ <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>,
+ Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+ Marijn Suijten <marijn.suijten@somainline.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Pengyu Luo <mitltlatltl@gmail.com>,
+ Nikita Travkin <nikita@trvn.ru>, Yongxing Mou <yongxing.mou@oss.qualcomm.com>
+References: <20260416-hpd-irq-events-v1-0-1ab1f1cfb2b2@oss.qualcomm.com>
+ <20260416-hpd-irq-events-v1-1-1ab1f1cfb2b2@oss.qualcomm.com>
+ <51b7c44e-36c9-461f-983a-eaa86eeb8cfd@ideasonboard.com>
+ <6z572fdjkvjqvedifwvotgdy4lcrifiqvkjpnutousjqc6764r@zepfzkqy2kbu>
+Content-Language: en-US
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+In-Reply-To: <6z572fdjkvjqvedifwvotgdy4lcrifiqvkjpnutousjqc6764r@zepfzkqy2kbu>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260419_214746_612814_9E655755 
-X-CRM114-Status: GOOD (  23.67  )
+X-CRM114-CacheID: sfid-20260419_215057_096201_1D9E6EB6 
+X-CRM114-Status: GOOD (  25.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,195 +97,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Hugo,
+Hi,
 
-On Thu, Mar 12, 2026 at 02:00:58PM -0400, Hugo Villeneuve wrote:
-> +
-> +static void charlieplex_keypad_report_key(struct input_dev *input)
-> +{
-> +	struct charlieplex_keypad *keypad = input_get_drvdata(input);
-> +	const unsigned short *keycodes = input->keycode;
-> +
-> +	if (keypad->current_code > 0) {
-> +		input_event(input, EV_MSC, MSC_SCAN, keypad->current_code);
-> +		input_report_key(input, keycodes[keypad->current_code], 0);
+On 18/04/2026 01:32, Dmitry Baryshkov wrote:
+> On Thu, Apr 16, 2026 at 11:10:03AM +0300, Tomi Valkeinen wrote:
+>> Hi,
+>>
+>> On 16/04/2026 02:22, Dmitry Baryshkov wrote:
+>>> The DisplayPort standard defines a special kind of events called IRQ.
+>>> These events are used to notify DP Source about the events on the Sink
+>>> side. It is extremely important for DP MST handling, where the MST
+>>> events are reported through this IRQ.
+>>>
+>>> In case of the USB-C DP AltMode there is no actual HPD pulse, but the
+>>> events are ported through the bits in the AltMode VDOs.
+>>>
+>>> Extend the drm_connector_oob_hotplug_event() interface and report IRQ
+>>> events to the DisplayPort Sink drivers.
+>>>
+>>> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+>>> ---
+>>>    drivers/gpu/drm/drm_connector.c          |  4 +++-
+>>>    drivers/usb/typec/altmodes/displayport.c | 12 ++++++++----
+>>>    include/drm/drm_connector.h              |  3 ++-
+>>>    3 files changed, 13 insertions(+), 6 deletions(-)
+>>>
+>>> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+>>> index 47dc53c4a738..5fdacbd84bd7 100644
+>>> --- a/drivers/gpu/drm/drm_connector.c
+>>> +++ b/drivers/gpu/drm/drm_connector.c
+>>> @@ -3510,6 +3510,7 @@ struct drm_connector *drm_connector_find_by_fwnode(struct fwnode_handle *fwnode)
+>>>     * drm_connector_oob_hotplug_event - Report out-of-band hotplug event to connector
+>>>     * @connector_fwnode: fwnode_handle to report the event on
+>>>     * @status: hot plug detect logical state
+>>> + * @irq_hpd: HPD pulse detected
+>>>     *
+>>>     * On some hardware a hotplug event notification may come from outside the display
+>>>     * driver / device. An example of this is some USB Type-C setups where the hardware
+>>> @@ -3520,7 +3521,8 @@ struct drm_connector *drm_connector_find_by_fwnode(struct fwnode_handle *fwnode)
+>>>     * a drm_connector reference through calling drm_connector_find_by_fwnode().
+>>>     */
+>>>    void drm_connector_oob_hotplug_event(struct fwnode_handle *connector_fwnode,
+>>> -				     enum drm_connector_status status)
+>>> +				     enum drm_connector_status status,
+>>> +				     bool irq_hpd)
+>> I find the "IRQ HPD" naming always confusing, even if I'm somewhat familiar
+>> with DP, but if someone has mainly worked on HDMI, I'm sure it's even worse.
+>>
+>> Can we define this a bit more precisely? Is 'irq_hpd' only for displayport?
+>> If so, perhaps 'dp_irq_hpd' or 'displayport_irq_hpd'. I might even call it
+>> 'dp_hpd_pulse', but maybe that's not good as the spec talks about HPD pulse
+>> for both short and long ones (although in the kernel doc you just write "HPD
+>> pulse")... The kernel doc could be expanded a bit to make it clear what this
+>> flag indicates.
+> 
+> I attempted to stay away from defining a DP-specific flag, keeping it
+> generic enough. HDMI is pretty close (IMO) to requiring separate flag in
 
-This needs input_sync() as otherwise userspace is free to only recognize
-the last MSC_SCAN event.
+If it's not specifically the DP IRQ HPD, then we need to define what it 
+means. I tried to think what it would mean with HDMI, but I didn't come 
+up with anything.
 
-> +	}
-> +
-> +	if (keypad->debounce_code) {
-> +		input_event(input, EV_MSC, MSC_SCAN, keypad->debounce_code);
-> +		input_report_key(input, keycodes[keypad->debounce_code], 1);
-> +	}
-> +
-> +	input_sync(input);
-> +	keypad->current_code = keypad->debounce_code;
-> +}
-> +
-> +static void charlieplex_keypad_check_switch_change(struct input_dev *input,
-> +						   int code)
-> +{
-> +	struct charlieplex_keypad *keypad = input_get_drvdata(input);
-> +
-> +	if (code != keypad->debounce_code) {
-> +		keypad->debounce_count = 0;
-> +		keypad->debounce_code = code;
-> +	} else if (keypad->debounce_count < keypad->debounce_threshold) {
+> Linux. Likewise I'd rather not use "pulse". The DP AltMode defines a bit
+> in the VDO rather than a pulse.
+> 
+> Anyway, if irq_hpd doesn't sound precise enough, what about "bool
+> extra_irq"? This would convey that this is the extra hpd-related IRQ,
+> but it would also be obvious that it's not related to the HPD pin
+> itself.
+We'd still need to define what exactly it means. I think it might be 
+better to just define it as the DP IRQ HPD, as then the meaning is clear.
 
-This does not work if debouncing is disabled (debounce threshold is 0).
+Also, would an enum flags parameter be better than a bool parameter?
 
-> +		keypad->debounce_count++;
-> +
-> +		if (keypad->debounce_count >= keypad->debounce_threshold &&
-> +		    keypad->debounce_code != keypad->current_code)
-> +			charlieplex_keypad_report_key(input);
-> +	}
-> +}
-> +
-> +static void charlieplex_keypad_poll(struct input_dev *input)
-> +{
-> +	struct charlieplex_keypad *keypad = input_get_drvdata(input);
-> +	int code;
-> +
-> +	code = 0;
-> +	for (unsigned int oline = 0; oline < keypad->nlines; oline++) {
-> +		DECLARE_BITMAP(values, MATRIX_MAX_ROWS);
-> +		int err;
-> +
-> +		/* Activate only one line as output at a time. */
-> +		gpiod_direction_output(keypad->line_gpios->desc[oline], 1);
-> +
-> +		if (keypad->settling_time_us)
-> +			fsleep(keypad->settling_time_us);
-> +
-> +		/* Read input on all other lines. */
-> +		err = gpiod_get_array_value_cansleep(keypad->line_gpios->ndescs,
-> +						     keypad->line_gpios->desc,
-> +						     keypad->line_gpios->info, values);
-> +		if (err)
-> +			return;
+  Tomi
 
-We need to deactivate the line on error too.
-
-> +
-> +		for (unsigned int iline = 0; iline < keypad->nlines; iline++) {
-> +			if (iline == oline)
-> +				continue; /* Do not read active output line. */
-> +
-> +			/* Check if GPIO is asserted. */
-> +			if (test_bit(iline, values)) {
-> +				code = MATRIX_SCAN_CODE(oline, iline,
-> +							get_count_order(keypad->nlines));
-> +				/*
-> +				 * Exit loop immediately since we cannot detect
-> +				 * more than one key press at a time.
-> +				 */
-> +				break;
-> +			}
-> +		}
-> +
-> +		gpiod_direction_input(keypad->line_gpios->desc[oline]);
-> +
-> +		if (code)
-> +			break;
-> +	}
-> +
-> +	charlieplex_keypad_check_switch_change(input, code);
-> +}
-> +
-> +static int charlieplex_keypad_init_gpio(struct platform_device *pdev,
-> +					struct charlieplex_keypad *keypad)
-> +{
-> +	char **pin_names;
-> +	char label[32];
-> +
-> +	snprintf(label, sizeof(label), "%s-pin", pdev->name);
-> +
-> +	keypad->line_gpios = devm_gpiod_get_array(&pdev->dev, "line", GPIOD_IN);
-> +	if (IS_ERR(keypad->line_gpios))
-> +		return PTR_ERR(keypad->line_gpios);
-> +
-> +	keypad->nlines = keypad->line_gpios->ndescs;
-> +
-> +	if (keypad->nlines > MATRIX_MAX_ROWS)
-> +		return -EINVAL;
-> +
-> +	pin_names = devm_kasprintf_strarray(&pdev->dev, label, keypad->nlines);
-> +	if (IS_ERR(pin_names))
-> +		return PTR_ERR(pin_names);
-> +
-> +	for (unsigned int i = 0; i < keypad->line_gpios->ndescs; i++)
-> +		gpiod_set_consumer_name(keypad->line_gpios->desc[i], pin_names[i]);
-> +
-> +	return 0;
-> +}
-> +
-> +static int charlieplex_keypad_probe(struct platform_device *pdev)
-> +{
-> +	struct charlieplex_keypad *keypad;
-> +	unsigned int debounce_interval_ms;
-> +	unsigned int poll_interval_ms;
-> +	struct input_dev *input_dev;
-> +	int err;
-> +
-> +	keypad = devm_kzalloc(&pdev->dev, sizeof(*keypad), GFP_KERNEL);
-> +	if (!keypad)
-> +		return -ENOMEM;
-> +
-> +	input_dev = devm_input_allocate_device(&pdev->dev);
-> +	if (!input_dev)
-> +		return -ENOMEM;
-> +
-> +	keypad->input_dev = input_dev;
-> +
-> +	device_property_read_u32(&pdev->dev, "poll-interval", &poll_interval_ms);
-> +	device_property_read_u32(&pdev->dev, "debounce-delay-ms", &debounce_interval_ms);
-> +	device_property_read_u32(&pdev->dev, "settling-time-us", &keypad->settling_time_us);
-
-Not all of these are required properties. If they are missing the driver
-will operate on garbage values.
-
-> +
-> +	keypad->current_code = -1;
-> +	keypad->debounce_code = -1;
-> +	keypad->debounce_threshold = DIV_ROUND_UP(debounce_interval_ms, poll_interval_ms);
-
-This will bomb if poll interval is 0.
-
-> +
-> +	err = charlieplex_keypad_init_gpio(pdev, keypad);
-> +	if (err)
-> +		return err;
-> +
-> +	input_dev->name		= pdev->name;
-> +	input_dev->id.bustype	= BUS_HOST;
-> +
-> +	err = matrix_keypad_build_keymap(NULL, NULL, keypad->nlines,
-> +					 keypad->nlines, NULL, input_dev);
-> +	if (err)
-> +		dev_err_probe(&pdev->dev, -ENOMEM, "failed to build keymap\n");
-
-Missing "return".
-
-> +
-> +	if (device_property_read_bool(&pdev->dev, "autorepeat"))
-> +		__set_bit(EV_REP, input_dev->evbit);
-> +
-> +	input_set_capability(input_dev, EV_MSC, MSC_SCAN);
-> +
-> +	err = input_setup_polling(input_dev, charlieplex_keypad_poll);
-> +	if (err)
-> +		dev_err_probe(&pdev->dev, err, "unable to set up polling\n");
-
-Missing "return".
-
-I fixed it up and applied, please take a look in my 'next' branch and
-tell me if I messed up.
-
-Thanks.
-
--- 
-Dmitry
 
