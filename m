@@ -4,95 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32B6EF588C3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 12:40:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7399AF588C2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 12:42:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9++LeQrcwEH0Gt4SV/wFhWstBdymLBpMFcQFo0yngto=; b=ueyi5pP7rQe4PJy+YBrQS/TeNs
-	499QNNcqnhAABk5HU/hj1ZLalOJh2BSRQod+e/SvOvct+ll1K1vTE7NULmXHpwycdA9nBvc/pn0/F
-	c4/UnmQW0xLBQcsWjK2qu4JHFju14XKG8lftMfa2KAynJdIyVBNB1d91r2GkPeL9fDSnUEmLBllsK
-	a1ZSppu3pt1zs1rhZh7/iv5xmylzxQQBmgKNWXWrvqEZPeXBpd6ybPgCL7JoSbQePkikxRpCHuByi
-	9RkKzH1TXmFSRBa0Wci+K7M/ByGbAVI/cUYsIOU83J+/fuZBEF7brw/+O1Cd9zAxrqL/SNm/EIaq+
-	xb2ezLVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hBlYexUNc8pBpd537ZoQqmp0AEkwoNJqJ+RE5ujTZPM=; b=JqA1EAYk8Tv2ER7VqQ2ollxG+x
+	qcXqopjjkt5c43sF5FVXW6YwON2grYxLb9Y6r0zY+iiMrtPUWUucDJcG+YWnezH0sa93QfV+b+g2D
+	Vt7GoxoywYNJ7LkZe3h07e6IGyl3dNCRXQpOAEd97wPGJNKrjc9fQEDzzPANk5OMyYJBOTw9Uqh4P
+	fwn5Lx/TP2zG/sqktwGeb+9KaqGilxmnYef97+1NidFvBt+wSh4yryjOtPSyq4Cje9RYV9m5c0V+/
+	gJ0+moYanapsGo6H2zfbn1srRjhHctlKU1CSNSVAvvbYMOSdpv/G4m1Icbvu9wThFIMuOt7rH3Old
+	Izk1sqSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEnve-00000006tfy-0Tl7;
-	Mon, 20 Apr 2026 12:40:42 +0000
-Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
+	id 1wEnxS-00000006tqX-0S3v;
+	Mon, 20 Apr 2026 12:42:34 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEnvb-00000006tfc-1c22
+	id 1wEnxP-00000006tpw-1lIE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 12:40:40 +0000
-Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-8ec9f099fc6so42427185a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 05:40:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1776688834; x=1777293634; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=9++LeQrcwEH0Gt4SV/wFhWstBdymLBpMFcQFo0yngto=;
-        b=FPK5oDkTsLCSjpvVkOK5maoBqeifNkVY5ahzxMMzh62AnSPUfKh7Fh42eHQtRHlGfb
-         sucgnLrG+4xJsfKIsmmlQoz2BSRa+r1wQGzucrMpVfGMUY1ScxoDu0txSrKInNtZaJMv
-         Q5TQa/5fQuupyn1LBJYk6Ka4Xq5+NdJ6Hhg4nPd7lqiioVqK+sICz3MXj0q5OaLeEG2f
-         q0nW7RGhQASHskeFIeflMB0JCnIUVRGMaazTtH75SjusZfc2HebcacGnh4+NYx1t/Ae7
-         podnti4+B+lzzAy+GbRSMOTpVpJYIJuCL12kjJBs/DvS4B9bnnLOAtcBU+qF1Y/la44n
-         TJYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776688834; x=1777293634;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=9++LeQrcwEH0Gt4SV/wFhWstBdymLBpMFcQFo0yngto=;
-        b=rMfAGqvYWyjwJwuElGO/tX/qwa3H7n8Zwra+iadDLxuw/kb65R6A7TcekMWsuFSix6
-         PqhFnhrlnEBX1F4/MEkJpZAIrgg53XEzXmhOTtCrUl3tc0kpVQh8He/2Yb275XdTirSN
-         Bxdy5PJveU0++kUKAxOmG8+PubaoI8ReUS0n3AzqJfZbt6Vp3KHcaKmkegp+UZgSNfEd
-         ZzIhHvsMocYkTmZxMSvxiP8+hlCVSWs1ryIiStFdvf5SWrUViwgcmpSUIHq7KT9ZcTdc
-         jeZ9W50XuNJrxBp2dzUN9HC1beEyyVmviW44dGgqKmzcrFfxMk5XWqgokctxoLuUVX+2
-         ifcQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9GfuUzfgrOQaZKI4gek+c7meqAquWbJWX0lTUZzvf5Uman1VZV9W04D+qY1tzer2fqc5V4QZvSFCnCmVEfqCM3@lists.infradead.org
-X-Gm-Message-State: AOJu0YyP5wJ/MPlsX62zYgTgfQ5+pVD7GSm0MpWCTJ3nFHZ2Cp0DQN7s
-	azzuPL73FfgkRLyILHA1zmAU588Ein6j2b1vkgClmZu63Ol0XPeTgxkq5uX90UTubEw=
-X-Gm-Gg: AeBDiesbjycgXp0gke41C+sEAGRjet/YoGsgkSrO7IuLPvhsZh5f9X8K9BuFfbawVmr
-	L9oAjV7kWmEyWFrI+tZcM5eyp44nlqJBvCX7j36LZPAxYz2wIdJe0fnq7gc3JPqFR5NMwVmPSHs
-	144/VxoTaJ26Am3NvWhpUjfPEROhmf6JeTNqTh4Zo57abd6MYSnWxFyGWz9rvTMSYgunnRaUODB
-	uTtaaj5flB5O4ZKLpwqSkIlrLeayBTWw71CX+9q4GQC6FD8K1cddy+60cYV0rgN2qZuqv6J+gda
-	ssrxBoGGrr0Lya7fdOBHA8WemjpQvJKESEYrBat4Gq28akL7z5oGRBlD6pl9Hwae/u1Vw99lVNJ
-	03BOUupJsPlFFqV/0ahfJzT9tIcWptCNaHRTdEU/Ah69wy0qX4xMF/QME2iV9N2O6+zYihul2Zj
-	jbqMLzQ1krysIXHd+pP+tDU6NbWVzf5P/Cl9yrKxOvsaS4BWTYWKzfNqaxPHKlvF9DM7PBjaFE2
-	KfKC3c+zOT02su6
-X-Received: by 2002:a05:620a:489b:b0:8cf:d804:4569 with SMTP id af79cd13be357-8e7900157dbmr1922464985a.23.1776688834482;
-        Mon, 20 Apr 2026 05:40:34 -0700 (PDT)
-Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8ed54eb91a0sm52800285a.47.2026.04.20.05.40.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Apr 2026 05:40:33 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wEnvU-0000000CImY-0bzn;
-	Mon, 20 Apr 2026 09:40:32 -0300
-Date: Mon, 20 Apr 2026 09:40:32 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Evangelos Petrongonas <epetron@amazon.de>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>, Nicolin Chen <nicolinc@nvidia.com>,
-	Pranjal Shrivastava <praan@google.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, nh-open-source@amazon.com,
-	Zeev Zilberman <zeev@amazon.com>
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow disabling Stage 1 translation
-Message-ID: <20260420124032.GO2577880@ziepe.ca>
-References: <20260420123221.20801-1-epetron@amazon.de>
+	Mon, 20 Apr 2026 12:42:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=hBlYexUNc8pBpd537ZoQqmp0AEkwoNJqJ+RE5ujTZPM=; b=lqi5VH7Q3LGbsjR5ynpxjeT9xd
+	6LHnMskNbb+Pytj5lZEMAapzCP0WUsmZRszZcTXklyrfZWQ/q57jnzIVEJ84U+xOMCS6jvbYTCCoB
+	g7ngJADxiYSA31n1RySzsD1wjy6hqRaZvXezO/B1G4DS888d0G6EQG3VnIn84dooRYxBAb9e/kLyN
+	/lxD+sSqYMlP+fweyroC1Q3GAZhBFnt36ZdFTV+Cv55E0f2uzTERePJjzwElDPVVmS6QOwPfAejPB
+	i2Cm55seiE1UTi+z25mpaxtdllFjsHk2LWDs2SULDbtzmRywBzMmkCVfkidcf5VrzFjON8TDkrPlM
+	4IpjK/LQ==;
+Received: from authenticated user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1wEnxE-0005Rb-2W;
+	Mon, 20 Apr 2026 12:42:21 +0000
+From: Breno Leitao <leitao@debian.org>
+Date: Mon, 20 Apr 2026 05:42:11 -0700
+Subject: [PATCH RFC] arm64/irqflags: force inline of
+ arch_local_irq_enable()
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260420123221.20801-1-epetron@amazon.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260420-arm64_always_inline-v1-1-dba919cf46bc@debian.org>
+X-B4-Tracking: v=1; b=H4sIACMf5mkC/yXMTQrCMBAG0KuEb91AGkvEbAUP4FZKSZNRR2oqm
+ fpH6d1F3b7FmyFUmARezSj0YOExw6u6UojnkE+kOcErWGOdaazRoVxd04XhGd7ScR44k3Z93KS
+ 0ivWaHCqFW6Ejv37rAfvdFu0f5d5fKE7fD8vyAVssf3V8AAAA
+X-Change-ID: 20260420-arm64_always_inline-6bc9dd3c17e6
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>
+Cc: leo.bras@arm.com, mark.rutland@arm.com, leo.yan@arm.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ palmer@dabbelt.com, paulmck@kernel.org, puranjay@kernel.org, 
+ usama.arif@linux.dev, kernel-team@meta.com, 
+ Breno Leitao <leitao@debian.org>
+X-Mailer: b4 0.16-dev-453a6
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3883; i=leitao@debian.org;
+ h=from:subject:message-id; bh=sa6jaJW8VhkpkA8WVNaQ+/lVqhiagfrKify4okg9W60=;
+ b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBp5h8oZzRWuiNUQ6ZF3p6Y2qVpj2yWNfl/OIrru
+ qZBqY9KpkiJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaeYfKAAKCRA1o5Of/Hh3
+ bcueD/9ucwvFKwRx3/XSllb3spiKdNiqM85CPY1/QBStFNFsC1lb2dFbyGKGCl1KAmLFDxnHYSN
+ YeWY5DBbRgyHl8XEpuP+Bbnv4oPj+1RyKlovLlaterD64i+jpirBlpO6Dd+mOFazHOMlUDB3Xjv
+ MGpgiSKkccrJTQL+m4y5ZY19vEDOlg6Efd5UAR7GxltMhHdMSm5u3kjGIKC+QivuWNAnzChdpcO
+ hjnyuktjjQkpUt+j0iWpe3wScwfQKl5RUhBX7fCI3aDHo7m4GtMB+8ZQE1qXibC9vuXmDclh3KF
+ fHXqYtmhE1t/CB34JVLu0rwCq9U0zl3pCF1k2/oHgCyo1SdpwLoMD8YWfosbPjbvU4sGGg0OuqG
+ UyriGnNc6gJ8N0foRPOD1ywC1fD412dj9LKVPHMneNnnHzvO/gkqjBbBs8DqrYEIQpg0KjthiRI
+ Vme2sDNTj27Le8c5b6SJlW3+uk0wiI4LTRVB5saXFSGAtee6h0l6mijD7UcFV2f0BQuaN9225aB
+ O1n4ZvAWqG8ZGHcTNSIP4P95lM5MvYJ1aC3/CUBCMp3GUOKKysqLuco0BTztgin/1oSmcixdrTM
+ Us0lbZOjgI3s8aoQxnETMceyTT1laagbGmbaDxeRrNdRaPcFcCmDu7DuK8H/pw6NsIe6LOH1Buj
+ ibK9ZLMM1jddYLg==
+X-Developer-Key: i=leitao@debian.org; a=openpgp;
+ fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
+X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_054039_426935_93BDAE8A 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20260420_054231_467896_D9A53B3D 
+X-CRM114-Status: GOOD (  18.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,18 +97,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 20, 2026 at 12:32:01PM +0000, Evangelos Petrongonas wrote:
-> When the hardware advertises both Stage 1 and Stage 2 translation, the
-> driver prefers Stage 1 for DMA domain allocation and only falls back to
-> Stage 2 if Stage 1 is not supported.
-> 
-> Some configurations may want to force Stage 2 translation even when the
-> hardware supports Stage 1. 
+arch_local_irq_enable() is a small wrapper that dispatches between two
+unmask paths: __daif_local_irq_enable() on most systems, and
+__pmr_local_irq_enable() on builds that use GIC PMR-based masking
+(Pseudo-NMI). Both leaf primitives are already __always_inline; the
+wrapper itself is plain "static inline".
 
-Why? You really need to explain why for a patch like this.
+In practice the compiler does not always inline the wrapper. When it
+gets emitted out-of-line, samples taken inside it during the post-WFI
+IRQ unmask in default_idle_call() show up as arch_local_irq_enable
+overhead in profiles, with default_idle_call() lost from the unwound
+chain.
 
-If there really is some HW issue I think it is more appropriate to get
-an IORT flag or IDR detection that the HW has a problem.
+This matters most at fleet scale. On a large arm64 fleet, the
+aggregate effect is that idle CPUs show up in fleet-wide profilers as
+"busy stuck in arch_local_irq_enable" instead of as idle
+(default_idle_call / cpu_startup_entry). Engineers looking at
+fleet-wide top-symbol dashboards see what looks like significant
+CPU-bound work in IRQ unmasking and chase a phantom hot path, when in
+fact the cost is the WFI wake-up cycle being attributed to the wrong
+function. Tooling has to special-case this symbol to suppress it,
+which is fragile across kernel versions. Inlining the wrapper makes
+idle CPUs appear idle in profiles - which is what they are.
 
-Jason
+The same misattribution affects driver stalls. arm64 PMU overflow is
+delivered as a regular IRQ (no NMI on default builds), so a driver
+that holds local_irq_disable() for milliseconds defers every PMU
+sample to the moment it calls local_irq_enable(). With the wrapper
+out-of-line, the resulting fat sample is credited to
+arch_local_irq_enable rather than to the driver, and the FP-unwinder
+points the call chain at the driver's caller instead of the driver
+itself (the immediate caller is skipped because arch_local_irq_enable
+is a leaf with no saved frame). The driver is still visible in the
+profile from its other samples, but the stall cost itself is
+mis-attributed and the chain leading to it is one frame off, making
+fleet-wide root-cause analysis harder than it needs to be. Inlining
+the wrapper attributes the stall sample to the driver function that
+actually held IRQs disabled.
+
+Trade-offs:
+
+ - Minor .text effect: every caller now expands the dispatch +
+   underlying primitive at its call site. system_uses_irq_prio_masking()
+   is a static-key check, so on non-pNMI systems the inlined body
+   collapses to a single MSR daifclr; on pNMI systems it collapses to a
+   single sysreg write.
+
+ - Loss of a debugging convenience: there is no longer an
+   arch_local_irq_enable symbol to set a breakpoint on. Callers must be
+   targeted individually.
+
+ - Compiler trust: __always_inline overrides size heuristics. The body
+   is small enough that this should be unobjectionable, but it is a
+   policy change.
+
+This patch only flips arch_local_irq_enable(). The same reasoning
+applies to arch_local_irq_disable()/save()/restore() which share the
+identical static-inline-wrapper-around-__always_inline-primitives
+pattern. Holding those off until profiles motivate them.
+
+Signed-off-by: Breno Leitao <leitao@debian.org>
+---
+ arch/arm64/include/asm/irqflags.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
+index d4d7451c2c129..505ef5be53a71 100644
+--- a/arch/arm64/include/asm/irqflags.h
++++ b/arch/arm64/include/asm/irqflags.h
+@@ -40,7 +40,7 @@ static __always_inline void __pmr_local_irq_enable(void)
+ 	barrier();
+ }
+ 
+-static inline void arch_local_irq_enable(void)
++static __always_inline void arch_local_irq_enable(void)
+ {
+ 	if (system_uses_irq_prio_masking()) {
+ 		__pmr_local_irq_enable();
+
+---
+base-commit: 615aad0f61e0c7a898184a394dc895c610100d4f
+change-id: 20260420-arm64_always_inline-6bc9dd3c17e6
+
+Best regards,
+--  
+Breno Leitao <leitao@debian.org>
+
 
