@@ -4,70 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87519F588E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 15:37:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0757F588E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 15:40:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p30JPmUIi49bzB5guYUW4hjgxmbu+lHiLgYIyKfK5R8=; b=VBcyZ4SkuQl0zQRZmSRN3KyFW2
-	Y+SZjSunAeKQRC5BvFUYrbqVwGYGQDoc88AMHBHlHAF4pS/Q758Y4mrA+dXKgxdAoDEPUnDjPInUO
-	tvYI5TpXANQSuub4tsgrB1VkAanMUFtfuySlZxkmojoYRYb0W1R3sYEi686nFhWLT9zqJEdI/Lm2+
-	Rv5UAFWqt8i2SJcJgiOZQVUjHruN6do5JB84rAQri2QdgbvRb2KA/yeSgkRtLfsfjvFzIBCd09T0b
-	1r3HMTscUPNefPh50CD7agFdUAHm2uQtqa7aeBKnuRE87nMIazxZR1LuIQZHoKuuY8dijGJamrAi4
-	lhwnDKew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M51VxdX8EOGNMZS/Z59lk+fNbIfNSz62XCzvdVnHyZw=; b=O4qZJ2+AwsfVlC0e4TN8IoEsrU
+	f2EEnj345deuTr3vFts/LInAZH963iXXtuQktn/vz5i6Jef+zCTuZHCf5/OjovtjqpAerGNaCTz6O
+	gQQ/vYrcCjFz/WMYJByihRLdhNVXr0+qARo+0sxTqgHIp6wj8SVtG2HxPrefupmY3hCxQ5FM7yfJU
+	l/0yXJR20zpUkdn+lq4HgN0ZbRQx8tylZt37Y5BtrV82JenWEuOLiN8/Ae+a+e0fsTL8Wky/0famb
+	fKZRZfHZVG5PsC8Bz6ElJsLXmXXkAHIkC3+JBnsGbWL+Qny3kq5rNRigMVX4A8qodfPXqC4UMp5UO
+	nLfeJJgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEqg9-00000007K9V-2mvD;
-	Mon, 20 Apr 2026 15:36:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wEqjE-00000007KhZ-1EWK;
+	Mon, 20 Apr 2026 15:40:04 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEqg1-00000007K5r-48g1
+	id 1wEqjB-00000007KgD-0gGh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 15:36:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AEF0D41AB7;
-	Mon, 20 Apr 2026 15:36:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54838C19425;
-	Mon, 20 Apr 2026 15:36:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776699405;
-	bh=KYqn5yIucKslmNtiYcNKrZTl4JOQmWQhcGJiCKBzhfY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=N8O8LaNx20Bh0ubqDSRpK45CsKTghQ0uwPD/jz4zk42RMLBwpnZywXG4QAIXrS0A4
-	 6m2dFv9upDMRjgg1wJCj3dWMxA7kRIAWUhhx6m0PQ43S8IpZsnAmKjU7ENMdXiU8Hs
-	 9J+muvEgZ7N57pnsUHT252JUKAlmzDlkQfME0Wc2UC302iC0kcxZPXDNO/8FPGBEo2
-	 KBVXxx14F1FLXJ+3MRXzl03hd42KlyswM+lIWGpFH6PPoegTslnfGvJak9AiuCEHel
-	 2PNXupmp6wYEznk6tDv39GI9B9df1SQXSaV6SrncbuSXO5kI811Y4V3TqtAYoi1qJc
-	 XAw+ZsiPuXatQ==
-From: Puranjay Mohan <puranjay@kernel.org>
-To: bpf@vger.kernel.org
-Cc: Puranjay Mohan <puranjay@kernel.org>,
-	"Alexei Starovoitov" <ast@kernel.org>,
-	"Daniel Borkmann" <daniel@iogearbox.net>,
-	"Andrii Nakryiko" <andrii@kernel.org>,
-	"Martin KaFai Lau" <martin.lau@linux.dev>,
-	"Eduard Zingerman" <eddyz87@gmail.com>,
-	"Kumar Kartikeya Dwivedi" <memxor@gmail.com>,
-	"Song Liu" <song@kernel.org>,
-	"Yonghong Song" <yonghong.song@linux.dev>,
-	"Xu Kuohai" <xukuohai@huaweicloud.com>,
-	"Catalin Marinas" <catalin.marinas@arm.com>,
-	"Will Deacon" <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH bpf-next 2/3] bpf, arm64: Add JIT support for stack arguments
-Date: Mon, 20 Apr 2026 08:36:00 -0700
-Message-ID: <20260420153603.4097618-3-puranjay@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260420153603.4097618-1-puranjay@kernel.org>
-References: <20260420153603.4097618-1-puranjay@kernel.org>
+	Mon, 20 Apr 2026 15:40:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1776699597;
+	bh=3a4Ypy1u/27PDujt5gseiPmQkXAZYng4hIbE0wEYSIo=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=foCCdtZZ/1xejNmuldd81+RADGJRtFhLL36zX5iKoOqelFoTXez78pbxFT3pBVv0g
+	 Be2FFBv6Kras+cLdG+K+Cj5axodx61S+bMEm+5r4iw/gPSRaM9lE7TphN9nUWZadPp
+	 b/QKOSHmG1HO23GPKMtDX4719enheLviE+SsOtE+udh0SAZqgoW7USfs/DecwSVYUZ
+	 98Qy35orBPU0UAuFTMZ2JADqD6S1PS9qHMiT/x39ZH6bUYr4Py/+JTjJs++W7QJzex
+	 aH3rMSHgSGlrKtomuZVFUGUttbi+WOJcL8X5eEtZHjcwNEXkkg99dNSyxUXxMAdTv5
+	 G3AVGTaNoF31A==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5B8CF17E0FFA;
+	Mon, 20 Apr 2026 17:39:55 +0200 (CEST)
+Message-ID: <90e206fad7bef6052fcf38314889e7ff525d3201.camel@collabora.com>
+Subject: Re: [RFC PATCH v5 1/9] media: v4l2-common: Add YUV24 format info
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Nas Chung <nas.chung@chipsnmedia.com>, mchehab@kernel.org, 
+	hverkuil@xs4all.nl, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, 	shawnguo@kernel.org, s.hauer@pengutronix.de
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-imx@nxp.com, 
+	linux-arm-kernel@lists.infradead.org, marek.vasut@mailbox.org, 
+	ming.qian@oss.nxp.com
+Date: Mon, 20 Apr 2026 11:39:54 -0400
+In-Reply-To: <20260415092529.577-2-nas.chung@chipsnmedia.com>
+References: <20260415092529.577-1-nas.chung@chipsnmedia.com>
+	 <20260415092529.577-2-nas.chung@chipsnmedia.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-2DWc7xt29sTqO4tsb6NB"
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_083646_135148_2ACD76FC 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20260420_084001_378136_18D0997B 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,221 +93,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement stack argument passing for BPF-to-BPF and kfunc calls with
-more than 5 parameters on arm64, following the AAPCS64 calling
-convention.
 
-BPF R1-R5 already map to x0-x4. With BPF_REG_0 moved to x8 by the
-previous commit, x5-x7 are free for arguments 6-8. Arguments 9-12
-spill onto the stack at [SP+0], [SP+8], ... and the callee reads
-them from [FP+16], [FP+24], ... (above the saved FP/LR pair).
+--=-2DWc7xt29sTqO4tsb6NB
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-BPF convention uses fixed offsets from BPF_REG_PARAMS (r11): off=-8 is
-always arg 6, off=-16 arg 7, etc. The verifier invalidates all outgoing
-stack arg slots after each call, so the compiler must re-store before
-every call. This means x5-x7 don't need to be saved on stack.
+Le mercredi 15 avril 2026 =C3=A0 18:25 +0900, Nas Chung a =C3=A9crit=C2=A0:
+> The YUV24 format is missing an entry in the v4l2_format_info().
+> The YUV24 format is the packed YUV 4:4:4 formats with 8 bits
+> per component.
+>=20
+> Fixes: 0376a51fbe5e ("media: v4l: Add packed YUV444 24bpp pixel format")
+> Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
+> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
-Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
----
- arch/arm64/net/bpf_jit_comp.c | 87 +++++++++++++++++++++++++++++++++--
- 1 file changed, 83 insertions(+), 4 deletions(-)
+Unless you disagree, I might cherry-pick this one. Would it be ok with you =
+?
 
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index 085e650662e3..7adf2b0f4610 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -86,6 +86,7 @@ struct jit_ctx {
- 	__le32 *image;
- 	__le32 *ro_image;
- 	u32 stack_size;
-+	u16 stack_arg_size;
- 	u64 user_vm_start;
- 	u64 arena_vm_start;
- 	bool fp_used;
-@@ -533,13 +534,19 @@ static int build_prologue(struct jit_ctx *ctx, bool ebpf_from_cbpf)
- 	 *                        |     |
- 	 *                        +-----+ <= (BPF_FP - prog->aux->stack_depth)
- 	 *                        |RSVD | padding
--	 * current A64_SP =>      +-----+ <= (BPF_FP - ctx->stack_size)
-+	 *                        +-----+ <= (BPF_FP - ctx->stack_size)
-+	 *                        |     |
-+	 *                        | ... | outgoing stack args (9+, if any)
-+	 *                        |     |
-+	 * current A64_SP =>      +-----+
- 	 *                        |     |
- 	 *                        | ... | Function call stack
- 	 *                        |     |
- 	 *                        +-----+
- 	 *                          low
- 	 *
-+	 * Stack args 6-8 are passed in x5-x7, args 9+ at [SP].
-+	 * Incoming args 9+ are at [FP + 16], [FP + 24], ...
- 	 */
- 
- 	emit_kcfi(is_main_prog ? cfi_bpf_hash : cfi_bpf_subprog_hash, ctx);
-@@ -613,6 +620,9 @@ static int build_prologue(struct jit_ctx *ctx, bool ebpf_from_cbpf)
- 	if (ctx->stack_size && !ctx->priv_sp_used)
- 		emit(A64_SUB_I(1, A64_SP, A64_SP, ctx->stack_size), ctx);
- 
-+	if (ctx->stack_arg_size)
-+		emit(A64_SUB_I(1, A64_SP, A64_SP, ctx->stack_arg_size), ctx);
-+
- 	if (ctx->arena_vm_start)
- 		emit_a64_mov_i64(arena_vm_base, ctx->arena_vm_start, ctx);
- 
-@@ -673,6 +683,9 @@ static int emit_bpf_tail_call(struct jit_ctx *ctx)
- 	/* Update tail_call_cnt if the slot is populated. */
- 	emit(A64_STR64I(tcc, ptr, 0), ctx);
- 
-+	if (ctx->stack_arg_size)
-+		emit(A64_ADD_I(1, A64_SP, A64_SP, ctx->stack_arg_size), ctx);
-+
- 	/* restore SP */
- 	if (ctx->stack_size && !ctx->priv_sp_used)
- 		emit(A64_ADD_I(1, A64_SP, A64_SP, ctx->stack_size), ctx);
-@@ -1034,6 +1047,9 @@ static void build_epilogue(struct jit_ctx *ctx, bool was_classic)
- 	const u8 r0 = bpf2a64[BPF_REG_0];
- 	const u8 ptr = bpf2a64[TCCNT_PTR];
- 
-+	if (ctx->stack_arg_size)
-+		emit(A64_ADD_I(1, A64_SP, A64_SP, ctx->stack_arg_size), ctx);
-+
- 	/* We're done with BPF stack */
- 	if (ctx->stack_size && !ctx->priv_sp_used)
- 		emit(A64_ADD_I(1, A64_SP, A64_SP, ctx->stack_size), ctx);
-@@ -1191,6 +1207,41 @@ static int add_exception_handler(const struct bpf_insn *insn,
- 	return 0;
- }
- 
-+static const u8 stack_arg_reg[] = { A64_R(5), A64_R(6), A64_R(7) };
-+
-+#define NR_STACK_ARG_REGS	ARRAY_SIZE(stack_arg_reg)
-+
-+static void emit_stack_arg_load(u8 dst, s16 bpf_off, struct jit_ctx *ctx)
-+{
-+	int idx = bpf_off / sizeof(u64) - 1;
-+
-+	if (idx < NR_STACK_ARG_REGS)
-+		emit(A64_MOV(1, dst, stack_arg_reg[idx]), ctx);
-+	else
-+		emit(A64_LDR64I(dst, A64_FP, (idx - NR_STACK_ARG_REGS) * sizeof(u64) + 16), ctx);
-+}
-+
-+static void emit_stack_arg_store(u8 src_a64, s16 bpf_off, struct jit_ctx *ctx)
-+{
-+	int idx = -bpf_off / sizeof(u64) - 1;
-+
-+	if (idx < NR_STACK_ARG_REGS)
-+		emit(A64_MOV(1, stack_arg_reg[idx], src_a64), ctx);
-+	else
-+		emit(A64_STR64I(src_a64, A64_SP, (idx - NR_STACK_ARG_REGS) * sizeof(u64)), ctx);
-+}
-+
-+static void emit_stack_arg_store_imm(s32 imm, s16 bpf_off, const u8 tmp, struct jit_ctx *ctx)
-+{
-+	int idx = -bpf_off / sizeof(u64) - 1;
-+
-+	emit_a64_mov_i(1, tmp, imm, ctx);
-+	if (idx < NR_STACK_ARG_REGS)
-+		emit(A64_MOV(1, stack_arg_reg[idx], tmp), ctx);
-+	else
-+		emit(A64_STR64I(tmp, A64_SP, (idx - NR_STACK_ARG_REGS) * sizeof(u64)), ctx);
-+}
-+
- /* JITs an eBPF instruction.
-  * Returns:
-  * 0  - successfully JITed an 8-byte eBPF instruction.
-@@ -1646,6 +1697,11 @@ static int build_insn(const struct bpf_verifier_env *env, const struct bpf_insn
- 	case BPF_LDX | BPF_MEM | BPF_H:
- 	case BPF_LDX | BPF_MEM | BPF_B:
- 	case BPF_LDX | BPF_MEM | BPF_DW:
-+		if (insn->src_reg == BPF_REG_PARAMS) {
-+			emit_stack_arg_load(dst, off, ctx);
-+			break;
-+		}
-+		fallthrough;
- 	case BPF_LDX | BPF_PROBE_MEM | BPF_DW:
- 	case BPF_LDX | BPF_PROBE_MEM | BPF_W:
- 	case BPF_LDX | BPF_PROBE_MEM | BPF_H:
-@@ -1671,7 +1727,7 @@ static int build_insn(const struct bpf_verifier_env *env, const struct bpf_insn
- 		}
- 		if (src == fp) {
- 			src_adj = ctx->priv_sp_used ? priv_sp : A64_SP;
--			off_adj = off + ctx->stack_size;
-+			off_adj = off + ctx->stack_size + ctx->stack_arg_size;
- 		} else {
- 			src_adj = src;
- 			off_adj = off;
-@@ -1752,6 +1808,11 @@ static int build_insn(const struct bpf_verifier_env *env, const struct bpf_insn
- 	case BPF_ST | BPF_MEM | BPF_H:
- 	case BPF_ST | BPF_MEM | BPF_B:
- 	case BPF_ST | BPF_MEM | BPF_DW:
-+		if (insn->dst_reg == BPF_REG_PARAMS) {
-+			emit_stack_arg_store_imm(imm, off, tmp, ctx);
-+			break;
-+		}
-+		fallthrough;
- 	case BPF_ST | BPF_PROBE_MEM32 | BPF_B:
- 	case BPF_ST | BPF_PROBE_MEM32 | BPF_H:
- 	case BPF_ST | BPF_PROBE_MEM32 | BPF_W:
-@@ -1762,7 +1823,7 @@ static int build_insn(const struct bpf_verifier_env *env, const struct bpf_insn
- 		}
- 		if (dst == fp) {
- 			dst_adj = ctx->priv_sp_used ? priv_sp : A64_SP;
--			off_adj = off + ctx->stack_size;
-+			off_adj = off + ctx->stack_size + ctx->stack_arg_size;
- 		} else {
- 			dst_adj = dst;
- 			off_adj = off;
-@@ -1814,6 +1875,11 @@ static int build_insn(const struct bpf_verifier_env *env, const struct bpf_insn
- 	case BPF_STX | BPF_MEM | BPF_H:
- 	case BPF_STX | BPF_MEM | BPF_B:
- 	case BPF_STX | BPF_MEM | BPF_DW:
-+		if (insn->dst_reg == BPF_REG_PARAMS) {
-+			emit_stack_arg_store(src, off, ctx);
-+			break;
-+		}
-+		fallthrough;
- 	case BPF_STX | BPF_PROBE_MEM32 | BPF_B:
- 	case BPF_STX | BPF_PROBE_MEM32 | BPF_H:
- 	case BPF_STX | BPF_PROBE_MEM32 | BPF_W:
-@@ -1824,7 +1890,7 @@ static int build_insn(const struct bpf_verifier_env *env, const struct bpf_insn
- 		}
- 		if (dst == fp) {
- 			dst_adj = ctx->priv_sp_used ? priv_sp : A64_SP;
--			off_adj = off + ctx->stack_size;
-+			off_adj = off + ctx->stack_size + ctx->stack_arg_size;
- 		} else {
- 			dst_adj = dst;
- 			off_adj = off;
-@@ -2065,6 +2131,14 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
- 	ctx.user_vm_start = bpf_arena_get_user_vm_start(prog->aux->arena);
- 	ctx.arena_vm_start = bpf_arena_get_kern_vm_start(prog->aux->arena);
- 
-+	if (prog->aux->stack_arg_depth > prog->aux->incoming_stack_arg_depth) {
-+		u16 outgoing = prog->aux->stack_arg_depth - prog->aux->incoming_stack_arg_depth;
-+		int nr_on_stack = outgoing / sizeof(u64) - NR_STACK_ARG_REGS;
-+
-+		if (nr_on_stack > 0)
-+			ctx.stack_arg_size = round_up(nr_on_stack * sizeof(u64), 16);
-+	}
-+
- 	if (priv_stack_ptr)
- 		ctx.priv_sp_used = true;
- 
-@@ -2229,6 +2303,11 @@ bool bpf_jit_supports_kfunc_call(void)
- 	return true;
- }
- 
-+bool bpf_jit_supports_stack_args(void)
-+{
-+	return true;
-+}
-+
- void *bpf_arch_text_copy(void *dst, void *src, size_t len)
- {
- 	if (!aarch64_insn_copy(dst, src, len))
--- 
-2.52.0
+Nicolas
 
+> ---
+> =C2=A0drivers/media/v4l2-core/v4l2-common.c | 1 +
+> =C2=A01 file changed, 1 insertion(+)
+>=20
+> diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-c=
+ore/v4l2-common.c
+> index 554c591e1113..55bcd5975d9f 100644
+> --- a/drivers/media/v4l2-core/v4l2-common.c
+> +++ b/drivers/media/v4l2-core/v4l2-common.c
+> @@ -281,6 +281,7 @@ const struct v4l2_format_info *v4l2_format_info(u32 f=
+ormat)
+> =C2=A0		{ .format =3D V4L2_PIX_FMT_Y212,=C2=A0=C2=A0=C2=A0 .pixel_enc =3D=
+ V4L2_PIXEL_ENC_YUV, .mem_planes =3D 1, .comp_planes =3D 1, .bpp =3D { 4, 0=
+, 0, 0 }, .bpp_div =3D { 1, 1, 1, 1 }, .hdiv =3D 2, .vdiv =3D 1 },
+> =C2=A0		{ .format =3D V4L2_PIX_FMT_Y216,=C2=A0=C2=A0=C2=A0 .pixel_enc =3D=
+ V4L2_PIXEL_ENC_YUV, .mem_planes =3D 1, .comp_planes =3D 1, .bpp =3D { 4, 0=
+, 0, 0 }, .bpp_div =3D { 1, 1, 1, 1 }, .hdiv =3D 2, .vdiv =3D 1 },
+> =C2=A0		{ .format =3D V4L2_PIX_FMT_YUV48_12, .pixel_enc =3D V4L2_PIXEL_EN=
+C_YUV, .mem_planes =3D 1, .comp_planes =3D 1, .bpp =3D { 6, 0, 0, 0 }, .bpp=
+_div =3D { 1, 1, 1, 1 }, .hdiv =3D 1, .vdiv =3D 1 },
+> +		{ .format =3D V4L2_PIX_FMT_YUV24,=C2=A0=C2=A0 .pixel_enc =3D V4L2_PIXE=
+L_ENC_YUV, .mem_planes =3D 1, .comp_planes =3D 1, .bpp =3D { 3, 0, 0, 0 }, =
+.bpp_div =3D { 1, 1, 1, 1 }, .hdiv =3D 1, .vdiv =3D 1 },
+> =C2=A0		{ .format =3D V4L2_PIX_FMT_MT2110T, .pixel_enc =3D V4L2_PIXEL_ENC=
+_YUV, .mem_planes =3D 2, .comp_planes =3D 2, .bpp =3D { 5, 10, 0, 0 }, .bpp=
+_div =3D { 4, 4, 1, 1 }, .hdiv =3D 2, .vdiv =3D 2,
+> =C2=A0		=C2=A0 .block_w =3D { 16, 8, 0, 0 }, .block_h =3D { 32, 16, 0, 0 =
+}},
+> =C2=A0		{ .format =3D V4L2_PIX_FMT_MT2110R, .pixel_enc =3D V4L2_PIXEL_ENC=
+_YUV, .mem_planes =3D 2, .comp_planes =3D 2, .bpp =3D { 5, 10, 0, 0 }, .bpp=
+_div =3D { 4, 4, 1, 1 }, .hdiv =3D 2, .vdiv =3D 2,
+
+--=-2DWc7xt29sTqO4tsb6NB
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaeZIygAKCRDZQZRRKWBy
+9CfdAQCO+MAFLwej7ISQdlHPhX2fvSd7xBKCs0FZF4gVxogKnwD8Dc1yC+H87n/p
+doPKag8f1pxYNb5/Tp1TSSVscskPSg4=
+=uqzt
+-----END PGP SIGNATURE-----
+
+--=-2DWc7xt29sTqO4tsb6NB--
 
