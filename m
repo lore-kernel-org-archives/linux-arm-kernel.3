@@ -4,58 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBE5BF588E4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 15:08:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 382FEF588E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 15:12:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GRPriQZt7VyS6kWuPERur2gAon2Iu5ktl6SXcUzdsKM=; b=ZGJ0rINCAfWJn5Vv1h4VwNNIcS
-	TxUxbywVYEEuI+MEGSEsJ0El0SXKZv4MF19Sl9tjBdVH7ZlyEAjD0htsGLLjzMgJyAZph92O1UIxU
-	1xIvvke8/VOiRzmbVwg8N6OFNpc5XPqwxGzhrmEg1W6hJCfvUdSfjCMhZO7lmF379CO7elkIpH6Qs
-	0S0Teyz0XpDcaC2ecqNDspjikpzyRoR6dmLmzfygEMi49P/6G+xM79QBRkvTGVjQYs56a4BL6tjnW
-	lRQHgZfQm6eLP8kx0E/2sEBBrW0fnSwzM1t1GUliLUJ4fj2RsksJAIaFriPfrKpuKeVObr7LBf48G
-	RZn0GcsA==;
+	bh=1CxDCNUG5qjJktCQIXsGg5yAN9JKuAtZahZxUMTkSBs=; b=dNK0v3mlEM6P9cD27rqdEHu2Pe
+	CYG/xdHFSneTEL1hwZkPov05cLIaL4BKpZxwXMXrpZOeWVJ7vvIl0f+t9xCd96bIFgb+XOZGinERs
+	JKi9CRiPWSFynPh6sN+htUAZ/9+b37630EhF27iQV8GVbIMJ208+TQwRE/BBxWG6fXDdBxm2tDV8Z
+	uqV0RjrE6wXJJEZSrHO9PnFMQj/jU4gH29xhxR1nwNW/ZL7N4nc9yGJQf0aOyeJoclHKK5WO7INxx
+	O9tSFjAK8OEsD6/+4kfiC3v8Bgl0b5TKqCo8E4VolwrDDmNlR7dKYQRkkVt4ChE5K+PxF4TLk84ib
+	9rI0PzMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEqEp-00000007Dsa-3Occ;
-	Mon, 20 Apr 2026 15:08:39 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wEqIp-00000007E7m-36bc;
+	Mon, 20 Apr 2026 15:12:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEqEm-00000007DsA-32Xd;
-	Mon, 20 Apr 2026 15:08:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=GRPriQZt7VyS6kWuPERur2gAon2Iu5ktl6SXcUzdsKM=; b=EcmtL1ko2hxqdMPGOJSmH0gJqF
-	eOk7UIZkvYbg6xm5hhyKFDcKMB5Ol4VdiX1sdFj8JeDpFC2d1q8A9aDcNCNCwFWKLf/K1C7i/J1Vf
-	Zd+VD726MK8NbBhPoyjBqHH/y31NPQLrzsBaZ4oZfmHeJR4TMENXJSyb1eKCK02H+By+M61+jGCSf
-	TFuE1xikDrSziT8gf9Ti+dsFl6uL9bN4JS0mwAFwS4/LOfQ8ydMKPFX3p19RJhSy5wIXuX+mypfgV
-	Kkgv1IbgnFCpDavyRoOIP+Hrijao8TF1S67rwX8r7gGYKHWw+hBGWOhD/2LKYngwfraXASsozlwQT
-	yhGdd50Q==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 00/40] arm64: dts: rockchip: Wire up frl-enable-gpios for
- RK3576/RK3588 boards
-Date: Mon, 20 Apr 2026 17:08:26 +0200
-Message-ID: <2744059.tIAgqjz4sF@phil>
-In-Reply-To: <66f9574c-8dff-4de2-bf54-20f1c1e64c24@collabora.com>
-References: <20260417-dts-rk-frl-enable-gpios-v1-0-a19c0dd8c9f6@collabora.com>
- <2435759.n0HT0TaD9V@phil>
- <66f9574c-8dff-4de2-bf54-20f1c1e64c24@collabora.com>
+	id 1wEqIo-00000007E7Z-1DsS
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Apr 2026 15:12:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9516C60145;
+	Mon, 20 Apr 2026 15:12:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D006C2BCB4;
+	Mon, 20 Apr 2026 15:12:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776697965;
+	bh=AkblC8kko4q96b7WJ+PNC2zvLeLeNj9THfCDY3hArU0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KI7W8t5/ljbsJM5Tc2oIgbBUVLkMg3SXyCjhscPwrECFw59NFmudoplIVD2+dGLGT
+	 /6wkTTvcNyKsAtFe56JTM1Fwf1ntfRyk5dHtILh8aDNPHTiYBsoNfJFmzc0RR+EIUd
+	 Q6NQTY4tu6aAi1nHP+wZ4/ZP01FyrUvZyEvGdEtznlxv3YcKF/dRfw/B4Oh+9iqj91
+	 cSZv5l4fVjO/FZAvxo+cjuABOUEcn8WP1dCPr8Nl2i1s8T9vybTQK4/gGjNfzl0+5z
+	 fd+a73D7/SaFCI3paj2KLhlYRwIgahSdcKapzBUAITpasQvHRGB98G3VOU1IQjpx23
+	 9BhP+0IqF1KPw==
+Date: Mon, 20 Apr 2026 16:12:38 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Breno Leitao <leitao@debian.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Huisong Li <lihuisong@huawei.com>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, pjaroszynski@nvidia.com,
+	rmikey@meta.com, kernel-team@meta.com, stable@vger.kernel.org
+Subject: Re: [PATCH] ACPI: arm64: cpuidle: Tolerate platforms with no deep
+ PSCI idle states
+Message-ID: <20260420-sturdy-unique-shark-c4ca8c@sudeepholla>
+References: <20260420-ffh-v1-1-6b4c10fec442@debian.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_080836_780912_714CAAD1 
-X-CRM114-Status: GOOD (  20.20  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260420-ffh-v1-1-6b4c10fec442@debian.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,65 +78,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cristian,
+On Mon, Apr 20, 2026 at 02:27:13AM -0700, Breno Leitao wrote:
+> Commit cac173bea57d ("ACPI: processor: idle: Rework the handling of
+> acpi_processor_ffh_lpi_probe()") moved the acpi_processor_ffh_lpi_probe()
+> call from acpi_processor_setup_cpuidle_dev(), where its return value was
+> ignored, to acpi_processor_get_power_info(), where it is now treated as
+> a hard failure. As a result, platforms where psci_acpi_cpu_init_idle()
+> returned -ENODEV stopped registering any cpuidle states, forcing CPUs to
+> busy-poll when idle.
+> 
+> On NVIDIA Grace (aarch64) systems with PSCIv1.1, pr->power.count is 1
+> (only WFI, no deep PSCI states beyond it), so the previous
+> "count = pr->power.count - 1; if (count <= 0) return -ENODEV;" check
+> returned -ENODEV for all 72 CPUs and disabled cpuidle entirely.
+> 
+> The lpi_states count is already validated in acpi_processor_get_lpi_info(),
+> so the check here is redundant. Simplify the loop to iterate over
+> lpi_states[1..power.count). When only WFI is present, the loop body
+> simply does not execute and the function returns 0, which is the correct
+> outcome: there is nothing to validate for FFH and no error to report.
+> 
+> Suggested-by: Huisong Li <lihuisong@huawei.com>
+> Cc: stable@vger.kernel.org
+> Fixes: cac173bea57d ("ACPI: processor: idle: Rework the handling of acpi_processor_ffh_lpi_probe()")
+> Signed-off-by: Breno Leitao <leitao@debian.org>
+> ---
+>  drivers/acpi/arm64/cpuidle.c | 10 +++-------
+>  1 file changed, 3 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/acpi/arm64/cpuidle.c b/drivers/acpi/arm64/cpuidle.c
+> index 801f9c4501425..c68a5db8ebba8 100644
+> --- a/drivers/acpi/arm64/cpuidle.c
+> +++ b/drivers/acpi/arm64/cpuidle.c
+> @@ -16,7 +16,7 @@
+>  
+>  static int psci_acpi_cpu_init_idle(unsigned int cpu)
+>  {
+> -	int i, count;
+> +	int i;
+>  	struct acpi_lpi_state *lpi;
+>  	struct acpi_processor *pr = per_cpu(processors, cpu);
+>  
+> @@ -30,14 +30,10 @@ static int psci_acpi_cpu_init_idle(unsigned int cpu)
+>  	if (!psci_ops.cpu_suspend)
+>  		return -EOPNOTSUPP;
+>  
+> -	count = pr->power.count - 1;
+> -	if (count <= 0)
+> -		return -ENODEV;
+> -
 
-Am Montag, 20. April 2026, 13:10:27 Mitteleurop=C3=A4ische Sommerzeit schri=
-eb Cristian Ciocaltea:
-> On 4/18/26 2:18 AM, Heiko Stuebner wrote:
-> > Am Freitag, 17. April 2026, 19:55:17 Mitteleurop=C3=A4ische Sommerzeit =
-schrieb Cristian Ciocaltea:
-> >> On 4/17/26 2:34 PM, Heiko Stuebner wrote:
-> >>> Am Freitag, 17. April 2026, 11:24:34 Mitteleurop=C3=A4ische Sommerzei=
-t schrieb Cristian Ciocaltea:
-> >>>
-> >>> [...]
-> >>>
-> >>>> Cristian Ciocaltea (40):
-> >>>>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-100ask-ds=
-hanpi-a1
-> >>>>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-armsom-si=
-ge5
-> >>>>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-evb1-v10
-> >>>>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-evb2-v10
-> >>>>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-luckfox-c=
-ore3576
-> >>>>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-nanopi-m5
-> >>>>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-nanopi-r7=
-6s
-> >>>>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-roc-pc
-> >>>>       arm64: dts: rockchip: Add frl-enable-gpios to rk3576-rock-4d
-> >>>
-> >>> I do think one patch per SoC (rk3576, rk3588, rk3588s) would make more
-> >>> sense, because these patches really are mostly identical :-)
-> >>
-> >> Yeah, apologies for the large number of patches, I went this way to al=
-low
-> >> per-board reviews.  As previously noted, I tried to identify the GPIO =
-pins from
-> >> multiple sources, so I'm not entirely sure about the accuracy in every=
- case.
-> >>
-> >> Would it be preferable to squash the patches per SoC and board vendor,=
- instead?
-> >=20
-> > I really would just do it per soc .. so 3 patches. That is a size that =
-is
-> > still reviewable for people, who can then check for their board.
-> >=20
-> > If the patch is labeled "Add frl-enable-gpios for all RK3588s boards", I
-> > do expect people to notice it the same as "oh _my_ board gets changed".
-> > ("all" could also be "most" :-) ).
->=20
-> Ack. =20
->=20
-> I would still keep the more invasive changes =E2=80=94 such as those touc=
-hing
-> the regulator hacks =E2=80=94 in separate patches, though.
+Does it make sense to retain this check like
+  if (pr->power.count < 1)
+  	return -EINVAL;
 
-sure, that sounds perfectly reasonable :-) .
+Though I see the assignment to pr->power.count in drivers/acpi/processor_idle.c
+is through unsigned int. So I am fine even without the above check.
 
-Heiko
+Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
 
-
-
+-- 
+Regards,
+Sudeep
 
