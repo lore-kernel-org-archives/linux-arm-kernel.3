@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87714F588C6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79C1BF588C5
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 12:55:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,38 +12,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ShNPgz8bvc4EjhIO0EgziOh+vFIQGa2rXp3i6z0Rnm4=; b=eSbyte0wKoVl7t17Y7dMkhQsKH
-	7gHuN8quN1zVNEAYVN7nfAdzwwqzyb/lm7XkN1xyy6cRAXRxJeQV/IRUhBUDG6LpSzxCtvjjpxa7D
-	0+Fp31iSRrF8dXBeDbjabk4e1VXVGkuaQI+g/c42t9qVGEA5vjwa+gzUhLUBwSt1WFwirq8Jt/7nz
-	Uo6O1dmq5pqBMRcEvoWwCXhfsyk0NBPnWOr1U3TScvJuH56dILBwq5CZ7N/ivzsZ3TsNZtTQF2quc
-	7KteshWGWcM2OKy0734crfjHmZfTRdsRIvOfhphaDJlyxHG3KpaFeXDs2pksLSzEMvz4pXLi+TBJl
-	QrBMF2OQ==;
+	bh=/n+PjgmREYCov2VsypJOAX+b3hc0dFV6vWPJfiHIIZk=; b=ZppTJDUt48MvPkSNU4eT3K0qS1
+	rwGVh6BZYnLC2QOyjavP2uoN/4lfR3TTWiH8xBk0KpyOSDLiZZFnNer4p4sYBe9GKoJKDPuGCCmbB
+	mHPxgDvX9fjZKftQtnz0/QZth/RoCcd5olNoSwrh/dqjiB5V0BGG4dhVsGI2mekxSNvCwMpFtYPPW
+	yf02+m82nYuDuepiG5iYGgvz3zzFCE9XYupqj/cFNQhyoQORWAIBhcMlQxL3ygaS0BeLFt3OoBhCe
+	5vr1WMQxWMFI4Oh3pDaCCsZHZIB2Qsg03tKtWRPpuonYTF9J2iuTkAxkqWWmnXPRhbGsOVnRKQXDc
+	MOqr/Eyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEo9Y-00000006vFm-1Twr;
-	Mon, 20 Apr 2026 12:55:04 +0000
+	id 1wEo9X-00000006vEv-3PMT;
+	Mon, 20 Apr 2026 12:55:03 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEo9K-00000006uzG-1geD
+	id 1wEo9I-00000006uwf-0mvp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 12:54:52 +0000
+	Mon, 20 Apr 2026 12:54:50 +0000
 Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 4EB9838CD;
-	Mon, 20 Apr 2026 14:53:11 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 01B4E2704;
+	Mon, 20 Apr 2026 14:53:08 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1776689592;
-	bh=ftJA0XjrXWcWh0A9bVVXnc785Y/5czIJavleTc/LMk4=;
+	s=mail; t=1776689589;
+	bh=IvwEX2fU924HEbulijRI36HD4eNyDkBbd7Rixi29VYk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=qLUA7TQMojUxynQ5XHBZDwXDDBzT+yPKmpTNga+zgIocW1v2rQVQY93pLyFsyqNX0
-	 ZutFSG2wGM/o2MZRX4d8k62WYz+dJ/bx0JW+UhfS1eKEhNqjNy9YEfxLMXcicerrcn
-	 EreqsQBedzpqAr422HtMIEzbSEDmNPbYKWkPR8G0=
+	b=m0GMfT/J84VzHJ7wqmKBi3OQZtVF+pLpoVGkXAVwpvrWoKBhQ5QM+HaHIleAgBLl1
+	 YR8bYQa64SjUuFDtsrFYXRJqc8W8UabqrqZ1PU2ODStn0fsgxG8NlVymMktihhVRqV
+	 8LaL6tF0V82Nof3kH2a3UERNrssIH7QQu5gWewbo=
 From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Mon, 20 Apr 2026 15:54:20 +0300
-Subject: [PATCH 13/15] drm/tidss: Add support for AM62P display subsystem
+Date: Mon, 20 Apr 2026 15:54:18 +0300
+Subject: [PATCH 11/15] drm/tidss: oldi: Fix OLDI signal polarities
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260420-beagley-ai-display-v1-13-f628543dfd14@ideasonboard.com>
+Message-Id: <20260420-beagley-ai-display-v1-11-f628543dfd14@ideasonboard.com>
 References: <20260420-beagley-ai-display-v1-0-f628543dfd14@ideasonboard.com>
 In-Reply-To: <20260420-beagley-ai-display-v1-0-f628543dfd14@ideasonboard.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -59,26 +59,26 @@ Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1533;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4956;
  i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=Z0/bujOPUdfgWsjguSYf3/7CnQToK2r3sqOLo5iE8kQ=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBp5iIH2cIJoxnlyxCngD5064wiw2Ubg3BDIzIhV
- /eVKEool8qJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCaeYiBwAKCRD6PaqMvJYe
- 9Uu/D/47vs5olQNXHdLuxo2dfHwwwxFiMHrN6V/LndDoHvtSpelIr9i+xGvyVr2O73tOXQmEYEw
- 76rHpoIhdGZXfs/ey+8/FnhoJs5F9gDNxbaOkeEjSS2cCjc6R86AtNWW8x3HbvMxHekubvp/eWc
- OsqzovwDR3LLBFHjNF05x6VaUA+rxpdtfhUQeZ0TcYBmG3lKgM4P87q7UMCW44UbiGBFVOaMxUg
- gd2t8wRtECQOKrfWN4fZ3UuEFqD9ehLfKwxqDaXMGl+B5iGKyMWmpWl9ZfiLVYs0odjGGc14OxX
- Pga+H0cLbacn8nCKMHfey/3zosy3FA8EYKAh/SvrCH/Xyp173F71ffpRsmX/e08aUToZ9d28sS5
- YMn/2W4BTkZGSKogzvABqNl1KUa8aDPcVX4MYnRwlfxYmB/ZRwwtFuqm+bekUlflLH/BdC+1IPo
- mQtpKq/JaFXgDueF35CBUKmSf6NbCr2ZjzFJxvLMy+4qkvVcW0t8pbO98CHfsoBA1PZ4DfwixLr
- qTa5RlFhmMDS/8t9FuRDSicnpuh4E6Wg3w7cAP7LwUed3dIE2TQGhktYzE44326zI+x+oAbOXYa
- PzJ5AzIeUrXn7AgLRNd+k4aJU0NZhB3hqeLSwfS89Z/RgqFkzWHd1oNoY2I1EscdFzJmfcF36sM
- evm+Ym3INc95+LA==
+ bh=IvwEX2fU924HEbulijRI36HD4eNyDkBbd7Rixi29VYk=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBp5iIGnSXSgBcG5idVSXF0ab4UKMWuDuhuI5yb4
+ /wb6GB0fm2JAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCaeYiBgAKCRD6PaqMvJYe
+ 9WYwD/wPS+6ZXwbt7vmlISMMAdElDEPq3phVVnt1LixXC8vIF2gvtU92QmDe+SBHEv+q6Btrt2M
+ pfpTa+s4lFwt4DXmGVsF71b151HTmwAMj7r4GR1m0N72Ry6eO7dPfZMLnRQO14ifE2ssUGimvb4
+ JOVcipMbfOpjd0tnImdeULl2FVdI73Sxz4DuaWyFOLvNZcgdzJ/cdrRjnp5ykS7cR7yntKjUAnX
+ oAwpy6QXCkCSMoU7PLxRqVktXEpejRKhomrWQ1+S3v1/FYNMGAYUehUkhf6DKfOke9EaTXw8kwP
+ A7clvVOiA92GRctkvBrjkmr77u+3Qn21dPSV9YSSPE1B4I4lqTTsSUeoi4UBYWkmdCY01nBO1ID
+ j4GIFq3WbAt96eqp2o8MiBm8NeI774wyVe27HEalg6cw7TMk5bAnQ88Vfqe1dELncN0+/KglROX
+ qTmHyS64+JU6rU3V5rGaldNwQ2rRAPeDnNdnpyrsnwD89GCSCIHMcKK3wO3XHSf4eOnqrZmymeA
+ CTNw9pVa3k0ouhSoAjgCbIOAs/vmXI0+WFZAAQBvYGNOg5sLCljDHmt4h9xm7Xw6LSaRm296blk
+ CesD6QlPPbbstp7Hpsq3t53BtFBzdHFDdXop1z5CmronHBTOwr2J9V38MeBuUJjWag4dVOpQiLe
+ 5MGacCI8helYFSQ==
 X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
  fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_055450_962543_A24E26F3 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20260420_055448_425340_B70C305C 
+X-CRM114-Status: GOOD (  18.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,39 +93,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Swamil Jain <s-jain1@ti.com>
+OLDI has a few issues with how it handles the signal polarities:
 
-The DSS controller on TI's AM62P SoC features two instances of the TI
-DSS. Each DSS instance supports two video ports, similar to the DSS
-controller found on the TI AM62X SoC. This allows three independent
-video streams to be supported: OLDI, DPI, and DSI.
+- It always sets OLDI_DEPOL, which means DE active low
+- It sets DRM_BUS_FLAG_DE_HIGH in struct drm_bridge_timings, i.e.
+  reverse to the OLDI_DEPOL
+- It sets DRM_BUS_FLAG_SYNC_SAMPLE_NEGEDGE in struct drm_bridge_timings,
+  but the TRM says "The DSS interface is clocked on the rising edge of
+  OLDI_FWD_P_CLK pixel clock", which I read as "OLDI samples on rising
+  edge".
+- But the defined drm_bridge_timings is not actually used anywhere, even
+  if it is set to bridge->timings, so the bus flags are just ignored.
 
-Since the DSS instances on AM62P are architecturally similar to those
-on the AM62X DSS controller, the existing dispc_am625_feats
-configuration can be reused for the AM62P DSS support.
+However, based on my testing, OLDI_DEPOL bit or the edge on which data
+and syncs are driven doesn't seem to affect the OLDI output. Possibly
+it's not as robust, but I did not see any effect with an oscilloscope.
 
-This commit adds the necessary device tree compatibility entry for
-"ti,am62p-dss" in the tidss driver, pointing to dispc_am625_feats,
-thereby enabling DSS support on AM62P devices.
+However, the code is still quite broken, so let's fix it:
+- Remove drm_bridge_timings
+- Set the correct input_bus_cfg.flags in tidss_oldi_atomic_check()
+- Set OLDI_DEPOL based on the DE bus flag
 
-Signed-off-by: Swamil Jain <s-jain1@ti.com>
 Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 ---
- drivers/gpu/drm/tidss/tidss_drv.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/gpu/drm/tidss/tidss_oldi.c | 38 ++++++++++++++++++++++++++++----------
+ 1 file changed, 28 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/gpu/drm/tidss/tidss_drv.c b/drivers/gpu/drm/tidss/tidss_drv.c
-index aef945101be4..2d056dc1c5ff 100644
---- a/drivers/gpu/drm/tidss/tidss_drv.c
-+++ b/drivers/gpu/drm/tidss/tidss_drv.c
-@@ -246,6 +246,7 @@ static const struct of_device_id tidss_of_table[] = {
- 	{ .compatible = "ti,am625-dss", .data = &dispc_am625_feats, },
- 	{ .compatible = "ti,am62a7-dss", .data = &dispc_am62a7_feats, },
- 	{ .compatible = "ti,am62l-dss", .data = &dispc_am62l_feats, },
-+	{ .compatible = "ti,am62p-dss", .data = &dispc_am625_feats, },
- 	{ .compatible = "ti,am65x-dss", .data = &dispc_am65x_feats, },
- 	{ .compatible = "ti,j721e-dss", .data = &dispc_j721e_feats, },
- 	{ }
+diff --git a/drivers/gpu/drm/tidss/tidss_oldi.c b/drivers/gpu/drm/tidss/tidss_oldi.c
+index 17c535bfa057..e925ddaa4fd6 100644
+--- a/drivers/gpu/drm/tidss/tidss_oldi.c
++++ b/drivers/gpu/drm/tidss/tidss_oldi.c
+@@ -164,7 +164,8 @@ static void tidss_oldi_tx_power(struct tidss_oldi *oldi, bool enable)
+ 	regmap_update_bits(oldi->io_ctrl, OLDI_PD_CTRL, mask, enable ? 0 : mask);
+ }
+ 
+-static int tidss_oldi_config(struct tidss_oldi *oldi)
++static int tidss_oldi_config(struct tidss_oldi *oldi,
++			     struct drm_bridge_state *bridge_state)
+ {
+ 	const struct oldi_bus_format *bus_fmt = NULL;
+ 	u32 oldi_cfg = 0;
+@@ -183,7 +184,8 @@ static int tidss_oldi_config(struct tidss_oldi *oldi)
+ 			 "OLDI%u: DSS port width %d not supported\n",
+ 			 oldi->oldi_instance, bus_fmt->data_width);
+ 
+-	oldi_cfg |= OLDI_DEPOL;
++	if (bridge_state->input_bus_cfg.flags & DRM_BUS_FLAG_DE_LOW)
++		oldi_cfg |= OLDI_DEPOL; /* 1 = active low */
+ 
+ 	oldi_cfg = (oldi_cfg & (~OLDI_MAP)) | (bus_fmt->oldi_mode_reg_val << 1);
+ 
+@@ -220,6 +222,22 @@ static int tidss_oldi_config(struct tidss_oldi *oldi)
+ 	return ret;
+ }
+ 
++static int tidss_oldi_atomic_check(struct drm_bridge *bridge,
++				   struct drm_bridge_state *bridge_state,
++				   struct drm_crtc_state *crtc_state,
++				   struct drm_connector_state *conn_state)
++{
++	bridge_state->input_bus_cfg.flags &=
++		~(DRM_BUS_FLAG_PIXDATA_SAMPLE_NEGEDGE |
++		  DRM_BUS_FLAG_SYNC_SAMPLE_NEGEDGE);
++
++	bridge_state->input_bus_cfg.flags |=
++		DRM_BUS_FLAG_PIXDATA_SAMPLE_POSEDGE |
++		DRM_BUS_FLAG_SYNC_SAMPLE_POSEDGE;
++
++	return 0;
++}
++
+ static void tidss_oldi_atomic_pre_enable(struct drm_bridge *bridge,
+ 					 struct drm_atomic_state *state)
+ {
+@@ -228,6 +246,7 @@ static void tidss_oldi_atomic_pre_enable(struct drm_bridge *bridge,
+ 	struct drm_connector_state *conn_state;
+ 	struct drm_crtc_state *crtc_state;
+ 	struct drm_display_mode *mode;
++	struct drm_bridge_state *bridge_state;
+ 
+ 	if (oldi->link_type == OLDI_MODE_SECONDARY_CLONE_SINGLE_LINK)
+ 		return;
+@@ -245,10 +264,14 @@ static void tidss_oldi_atomic_pre_enable(struct drm_bridge *bridge,
+ 	if (WARN_ON(!crtc_state))
+ 		return;
+ 
++	bridge_state = drm_atomic_get_new_bridge_state(state, bridge);
++	if (WARN_ON(!bridge_state))
++		return;
++
+ 	mode = &crtc_state->adjusted_mode;
+ 
+ 	/* Configure the OLDI params*/
+-	tidss_oldi_config(oldi);
++	tidss_oldi_config(oldi, bridge_state);
+ 
+ 	/* Set the OLDI serial clock (7 times the pixel clock) */
+ 	tidss_oldi_set_serial_clk(oldi, mode->clock * 7 * 1000);
+@@ -329,7 +352,8 @@ tidss_oldi_mode_valid(struct drm_bridge *bridge,
+ }
+ 
+ static const struct drm_bridge_funcs tidss_oldi_bridge_funcs = {
+-	.attach	= tidss_oldi_bridge_attach,
++	.attach = tidss_oldi_bridge_attach,
++	.atomic_check = tidss_oldi_atomic_check,
+ 	.atomic_pre_enable = tidss_oldi_atomic_pre_enable,
+ 	.atomic_post_disable = tidss_oldi_atomic_post_disable,
+ 	.atomic_get_input_bus_fmts = tidss_oldi_atomic_get_input_bus_fmts,
+@@ -440,11 +464,6 @@ static int get_parent_dss_vp(struct device_node *oldi_tx, u32 *parent_vp)
+ 	return -ENODEV;
+ }
+ 
+-static const struct drm_bridge_timings default_tidss_oldi_timings = {
+-	.input_bus_flags = DRM_BUS_FLAG_SYNC_SAMPLE_NEGEDGE
+-			 | DRM_BUS_FLAG_DE_HIGH,
+-};
+-
+ void tidss_oldi_deinit(struct tidss_device *tidss)
+ {
+ 	for (int i = 0; i < tidss->num_oldis; i++) {
+@@ -598,7 +617,6 @@ int tidss_oldi_init(struct tidss_device *tidss)
+ 		/* Register the bridge. */
+ 		oldi->bridge.of_node = child;
+ 		oldi->bridge.driver_private = oldi;
+-		oldi->bridge.timings = &default_tidss_oldi_timings;
+ 
+ 		tidss->oldis[tidss->num_oldis++] = oldi;
+ 		tidss->is_ext_vp_clk[oldi->parent_vp] = true;
 
 -- 
 2.43.0
