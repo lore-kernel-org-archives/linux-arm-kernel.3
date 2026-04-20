@@ -4,69 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10A28F5A8C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 21:21:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 973C7F5A8C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 21:21:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VsBM9gz9Yie/OJLkO0HZvINMCmSgzzZYsxZAlE1tm0I=; b=MebE/Fvhs1FUKV98iprvX3wxlY
-	vQZQap04OUCFGyY73SiSzczlr8M6BpmYf3Bo/2viNWSzwFfSuCrFYVNu9mUfetmbK7+smtvO6ewmo
-	os3Fp6ijGdO+CdztIUFhRrJLreftY33cNUzXZXZR6pJ1WBFmKZuTXzkM88g8ibKEOocjDRfP28DRx
-	HwSkRcbNaVKY+05diEcIl8J2ZrAwRHsNtsqh7XlateOGfc5VJQ8MpnjD7vu6xNbJnBWQbYeo7byJM
-	BeQuaVNKJ6Ezv8OxHOeivjqa3W7DmiqDC0gxCgmTqkJznJMhrSYAJAkQ9qlSwvOM93BxJCSMZhfBx
-	AUlZCokg==;
+	bh=nGTpsdZingcIJU13AR/rz9Q7jpP4FQBt7uSTt0uhGT8=; b=zQ8wwxmPcky5FE2LTrR/EvEDu+
+	8IOoqby59cBx10YsGOYB0/6UGDTi9kOnieWo1hNTTTtVyCny1NGijbIZZbV3aDVUpQoasEQYjFJBK
+	QneaVjqtGLZT/JpzoPu7E85VfgLZe8tb5eqSx+Sxjrh9F6+vZ0wCv1qveBVZJxS5gJ7tzGZhea+9c
+	owJjcS0rMKiXU+gD7Z1074X1gI9SNK/ZisgErrDafNZclms1Jc8vzVD7www89r1cr/aVwbIkkpXYs
+	B+J2lhpDQu+ZXaxoJGzccGdMDCsHF3CsF5uGM6E3UNsphi8RLad7oWczFCDE5a1qazVLosiGeMKQ5
+	CmlbeR6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEw2r-00000007g2C-2pKH;
-	Mon, 20 Apr 2026 21:20:41 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1wEw3L-00000007gd2-2ong;
+	Mon, 20 Apr 2026 21:21:11 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEw2Y-00000007fff-34hi
+	id 1wEw2t-00000007g2t-0ilQ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 20 Apr 2026 21:20:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=nGTpsdZingcIJU13AR/rz9Q7jpP4FQBt7uSTt0uhGT8=; b=SyW5c8k0RBYuMDSvGYz1R127T/
+	n3vbZrmZP5TCCZI9USdKCxPuVgjPorn7pP5zAKbuh1AodnvVVBFomhOnfTgTBgqYiXAgkE0CmlxhA
+	bfcYTjiROY8DdmbEO2E8YRVP1N6vZKugpbBsB6UqY1SAkKny9TxXCm5FPAX+2PaTLdthQEsfnsMGh
+	Hrx/ciD1KdQ6PnRcU4u0cTctVKbjlkly78c40EqLEPTAdJfb8qmqN6flcqxOmEFhRa9nhRSUhPfMm
+	BZU0sb88V8W0/dr3+BoB+ATafmyJr/7TAOi+E7ip4n94ev51bkEZeBHdvUcizMKcClvZbjy6tT4dI
+	9xKKp0cQ==;
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wEw2p-000000093Ou-3Irg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 21:20:28 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-82fa2165c3eso1590957b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 14:20:22 -0700 (PDT)
+	Mon, 20 Apr 2026 21:20:41 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2b454cac322so32810115ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 14:20:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1776720022; x=1777324822; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1776720033; x=1777324833; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=VsBM9gz9Yie/OJLkO0HZvINMCmSgzzZYsxZAlE1tm0I=;
-        b=R81weWe+OxrrF5t1e+hOQc/q5T/kXwquAi90I+1I4wsh2ifLi7K8bSMOmOVdzxsCb8
-         Sty5PFKZhn8fuubYC7/sopeBNCSNI7yNz32yNnTudc7VkdR9o5SUAptzvYhmG6nXmcrl
-         LAc6ScC/Ygc6s0Op3pORQEwSAv+hQu1XrW56zo/7PIaeazS8VXufeDyI8vwycr0XUMKJ
-         UeHC0TLwMi9baL7tnDDBbxEBdMQBbWWN3TaLKwodrnLqEJt0726Znb3VuBN4ulEoN+Oi
-         JOpYhUAaV7ecdSOwqg+iePEeS+SqewiKBaE685M40RcvYayFQlqlNGLkKj4cuWFb39nq
-         Yrig==
+        bh=nGTpsdZingcIJU13AR/rz9Q7jpP4FQBt7uSTt0uhGT8=;
+        b=Cqm0naYsWOZBuStLbVrhD2JxXkMisudmVaGN4G2XTGCNC5EfGWqj1fG+2hQjtAACjP
+         /V6FwPuZXtY9iVDWHqStMvBfBd49hTxTdJe+2ke5ikLsIBM2Q6+aoP6+kCQMl5dtE66n
+         pTInXFAROnQVdHfjkFc/fU/ImDDMuQgWdzcwUMCIPjd9/JgDfSg7nSJMD+3eSUTX8Lj4
+         fcMzKrpLD2leoudZ2xXrxSgoN7CyVzYFS9jhQKbv14AAiOEurbTUSf/bpMnzF1Xu+/k3
+         nzklU0NhmeSEHE0v5tY4kOc7rJQW7FL9cNEmbj9PmkejY0Rjzchd9/Jq49/rJHHCi8L6
+         ybxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776720022; x=1777324822;
+        d=1e100.net; s=20251104; t=1776720033; x=1777324833;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=VsBM9gz9Yie/OJLkO0HZvINMCmSgzzZYsxZAlE1tm0I=;
-        b=YzHBxh+qhpOZWnHskHr7ITx5rfDeloZaeqaJnCxq3XQqTWqZcUoFW95DPq1dHrLTfJ
-         XhDkNkGS8QYglfF6ECb1Llk73MMjS27H134DIxaxpLiYGrrXZodBiPJytxTumIUklzYK
-         ipy1t6q/rH+ZirSYSmtKPMHsmNjYAqWfBt1hhOjBU5y4ej1oQ54VUSDZCNrIXIAg0h00
-         NBKFveXG0rIgbVrPpOBIb6Hv8+PLgxTUFQxcjMGtZDRFJDdvpT8uyKmXCNfatCwCAHSw
-         tonqYnObV0sLgRvfkNNNuygkzLyyblHZLO4xjD4imQDpLKwwDsj603X0Rhi/lV3P2RDJ
-         1i7w==
-X-Forwarded-Encrypted: i=1; AFNElJ/cV9FbmMieFyl2Q8Fz6lxYgRBYaGffol0h8eGzhAVzK4vrG9BDvWnAJb4At7cQ7zZDmq7bJhcvKs8zQ8MaDVxr@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGbs47INGFtUNTbndaiLCpMSgDq8Lm6AEmagl1fYsgZtM64YxB
-	Agn2OXj6jdS00+OmlI9PFP4OS1IT0BKcxE3DRhcr58bdExA3gxpncAf52wD0WQSGC72QHckBsCX
-	SA4WApw==
-X-Received: from pfna24.prod.google.com ([2002:aa7:80d8:0:b0:82f:5576:285b])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:847:b0:82f:37e3:ae67
- with SMTP id d2e1a72fcca58-82f8c96288amr15742439b3a.27.1776720021487; Mon, 20
- Apr 2026 14:20:21 -0700 (PDT)
-Date: Mon, 20 Apr 2026 14:19:53 -0700
+        bh=nGTpsdZingcIJU13AR/rz9Q7jpP4FQBt7uSTt0uhGT8=;
+        b=I9M1NtEbW/yYbmoVbrdAtDXG1kHhICI63Ut62iQGVO9gtuJk41sLIitzPCV807bSpg
+         K+HGBbLUvv5IA7APCOHDKV9XD50lmh080LnQ6Iz4Icu4+/XXyBV5mP/t9WdjBNaW8XZw
+         cVG6cIeCLOzDSsm/OcUU85WADlyTmrv2SUXsAoxWrGtBHqEUtNWGe/wfZ2CzvLFwcca3
+         799BWQCq+4FvuXd523wswXps/zhAMioyalbeLCTn3fMvQ8srYkY736Q4W24yUof2HVcv
+         j2lJr2gQB9WzE8S3eSCet90Y866wqHUoa2T+VyTGBNyk2JJWWJgfSi0eBaLtdhZnNuLW
+         JJKg==
+X-Forwarded-Encrypted: i=1; AFNElJ8uHKusEDFNX3Hp3mVECzGOcHBDttpeufiR8PxIBEl8669GQY942WxHpbQH8NGSdjfODkKfugSz8kci/spDDGUV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwsyWVCA5ScvRofnpdEA2wvFKVn0hu666lwowyYXyCjHfjbF1f5
+	I8EqsCBUUeXFljlxpL83Wp1u+z3kULse5J1RcxcxW8RwxYHTA9RVgKwEJ55NiekPLLg7XKjGqI/
+	Dvkbaew==
+X-Received: from pldt14.prod.google.com ([2002:a17:903:40ce:b0:2b4:5ded:6ecb])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:d58a:b0:2b0:ac1e:9737
+ with SMTP id d9443c01a7336-2b5f9ec5ea7mr159040275ad.12.1776720033096; Mon, 20
+ Apr 2026 14:20:33 -0700 (PDT)
+Date: Mon, 20 Apr 2026 14:19:59 -0700
 In-Reply-To: <20260420212004.3938325-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20260420212004.3938325-1-seanjc@google.com>
 X-Mailer: git-send-email 2.54.0.rc1.555.g9c883467ad-goog
-Message-ID: <20260420212004.3938325-9-seanjc@google.com>
-Subject: [PATCH v3 08/19] KVM: selftests: Use u16 instead of uint16_t
+Message-ID: <20260420212004.3938325-15-seanjc@google.com>
+Subject: [PATCH v3 14/19] KVM: selftests: Rename translate_to_host_paddr() => translate_hva_to_hpa()
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
@@ -81,8 +96,9 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_142022_829095_FE97362C 
-X-CRM114-Status: GOOD (  18.29  )
+X-CRM114-CacheID: sfid-20260420_222039_870202_AB95DC26 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,341 +114,61 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: David Matlack <dmatlack@google.com>
+Rename arm64's translate_to_host_paddr() to translate_hva_to_hpa() and
+update variable names to match, as using "vaddr" and "paddr" terminology
+is super confusing due to selftests using those exact names for *guest*
+addresses.
 
-Use u16 instead of uint16_t to make the KVM selftests code more concise
-and more similar to the kernel (since selftests are primarily developed
-by kernel developers).
-
-This commit was generated with the following command:
-
-  git ls-files tools/testing/selftests/kvm | xargs sed -i 's/uint16_t/u16/g'
-
-Then by manually adjusting whitespace to make checkpatch.pl happy.
+Opportunisitically drop superfluous local page_addr and paddr variables.
 
 No functional change intended.
 
-Signed-off-by: David Matlack <dmatlack@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- .../selftests/kvm/arm64/page_fault_test.c     |  2 +-
- .../testing/selftests/kvm/include/kvm_util.h  |  2 +-
- .../testing/selftests/kvm/include/x86/evmcs.h |  2 +-
- .../selftests/kvm/include/x86/processor.h     | 58 +++++++++----------
- .../testing/selftests/kvm/lib/guest_sprintf.c |  2 +-
- .../testing/selftests/kvm/lib/x86/processor.c |  8 +--
- tools/testing/selftests/kvm/lib/x86/ucall.c   |  2 +-
- tools/testing/selftests/kvm/lib/x86/vmx.c     |  2 +-
- tools/testing/selftests/kvm/s390/memop.c      |  2 +-
- .../testing/selftests/kvm/x86/fastops_test.c  |  2 +-
- .../selftests/kvm/x86/sync_regs_test.c        |  2 +-
- 11 files changed, 42 insertions(+), 42 deletions(-)
+ tools/testing/selftests/kvm/arm64/sea_to_user.c | 13 +++++--------
+ 1 file changed, 5 insertions(+), 8 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/arm64/page_fault_test.c b/tools/testing/selftests/kvm/arm64/page_fault_test.c
-index cb52ac8aa0a5..b92a9614d7d2 100644
---- a/tools/testing/selftests/kvm/arm64/page_fault_test.c
-+++ b/tools/testing/selftests/kvm/arm64/page_fault_test.c
-@@ -148,7 +148,7 @@ static void guest_at(void)
-  */
- static void guest_dc_zva(void)
+diff --git a/tools/testing/selftests/kvm/arm64/sea_to_user.c b/tools/testing/selftests/kvm/arm64/sea_to_user.c
+index 7285eade4acf..fb06b9dcb3d9 100644
+--- a/tools/testing/selftests/kvm/arm64/sea_to_user.c
++++ b/tools/testing/selftests/kvm/arm64/sea_to_user.c
+@@ -56,13 +56,11 @@ static void *einj_hva;
+ static u64 einj_hpa;
+ static bool far_invalid;
+ 
+-static u64 translate_to_host_paddr(unsigned long vaddr)
++static u64 translate_hva_to_hpa(unsigned long hva)
  {
--	uint16_t val;
-+	u16 val;
+ 	u64 pinfo;
+-	s64 offset = vaddr / getpagesize() * sizeof(pinfo);
++	s64 offset = hva / getpagesize() * sizeof(pinfo);
+ 	int fd;
+-	u64 page_addr;
+-	u64 paddr;
  
- 	asm volatile("dc zva, %0" :: "r" (guest_test_memory));
- 	dsb(ish);
-diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-index bdb91f627433..34c8a7d94997 100644
---- a/tools/testing/selftests/kvm/include/kvm_util.h
-+++ b/tools/testing/selftests/kvm/include/kvm_util.h
-@@ -216,7 +216,7 @@ struct vm_shape {
- 	u32 type;
- 	uint8_t  mode;
- 	uint8_t  pad0;
--	uint16_t pad1;
-+	u16 pad1;
- };
+ 	fd = open("/proc/self/pagemap", O_RDONLY);
+ 	if (fd < 0)
+@@ -77,9 +75,8 @@ static u64 translate_to_host_paddr(unsigned long vaddr)
+ 	if ((pinfo & PAGE_PRESENT) == 0)
+ 		ksft_exit_fail_perror("Page not present");
  
- kvm_static_assert(sizeof(struct vm_shape) == sizeof(u64));
-diff --git a/tools/testing/selftests/kvm/include/x86/evmcs.h b/tools/testing/selftests/kvm/include/x86/evmcs.h
-index 3b0f96b881f9..be79bda024bf 100644
---- a/tools/testing/selftests/kvm/include/x86/evmcs.h
-+++ b/tools/testing/selftests/kvm/include/x86/evmcs.h
-@@ -10,7 +10,7 @@
- #include "hyperv.h"
- #include "vmx.h"
- 
--#define u16 uint16_t
-+#define u16 u16
- #define u32 u32
- #define u64 u64
- 
-diff --git a/tools/testing/selftests/kvm/include/x86/processor.h b/tools/testing/selftests/kvm/include/x86/processor.h
-index 3898665ad2e9..8700d37a5727 100644
---- a/tools/testing/selftests/kvm/include/x86/processor.h
-+++ b/tools/testing/selftests/kvm/include/x86/processor.h
-@@ -399,8 +399,8 @@ struct gpr64_regs {
- };
- 
- struct desc64 {
--	uint16_t limit0;
--	uint16_t base0;
-+	u16 limit0;
-+	u16 base0;
- 	unsigned base1:8, type:4, s:1, dpl:2, p:1;
- 	unsigned limit1:4, avl:1, l:1, db:1, g:1, base2:8;
- 	u32 base3;
-@@ -408,7 +408,7 @@ struct desc64 {
- } __attribute__((packed));
- 
- struct desc_ptr {
--	uint16_t size;
-+	u16 size;
- 	u64 address;
- } __attribute__((packed));
- 
-@@ -476,9 +476,9 @@ static inline void wrmsr(u32 msr, u64 value)
+-	page_addr = (pinfo & PAGE_PHYSICAL) << MIN_PAGE_SHIFT;
+-	paddr = page_addr + (vaddr & (getpagesize() - 1));
+-	return paddr;
++	return ((pinfo & PAGE_PHYSICAL) << MIN_PAGE_SHIFT) +
++	       (hva & (getpagesize() - 1));
  }
  
+ static void write_einj_entry(const char *einj_path, u64 val)
+@@ -303,7 +300,7 @@ static void vm_inject_memory_uer(struct kvm_vm *vm)
+ 	ksft_print_msg("Before EINJect: data=%#lx\n",
+ 		guest_data);
  
--static inline uint16_t inw(uint16_t port)
-+static inline u16 inw(u16 port)
- {
--	uint16_t tmp;
-+	u16 tmp;
+-	einj_hpa = translate_to_host_paddr((unsigned long)einj_hva);
++	einj_hpa = translate_hva_to_hpa((unsigned long)einj_hva);
  
- 	__asm__ __volatile__("in %%dx, %%ax"
- 		: /* output */ "=a" (tmp)
-@@ -487,63 +487,63 @@ static inline uint16_t inw(uint16_t port)
- 	return tmp;
- }
- 
--static inline uint16_t get_es(void)
-+static inline u16 get_es(void)
- {
--	uint16_t es;
-+	u16 es;
- 
- 	__asm__ __volatile__("mov %%es, %[es]"
- 			     : /* output */ [es]"=rm"(es));
- 	return es;
- }
- 
--static inline uint16_t get_cs(void)
-+static inline u16 get_cs(void)
- {
--	uint16_t cs;
-+	u16 cs;
- 
- 	__asm__ __volatile__("mov %%cs, %[cs]"
- 			     : /* output */ [cs]"=rm"(cs));
- 	return cs;
- }
- 
--static inline uint16_t get_ss(void)
-+static inline u16 get_ss(void)
- {
--	uint16_t ss;
-+	u16 ss;
- 
- 	__asm__ __volatile__("mov %%ss, %[ss]"
- 			     : /* output */ [ss]"=rm"(ss));
- 	return ss;
- }
- 
--static inline uint16_t get_ds(void)
-+static inline u16 get_ds(void)
- {
--	uint16_t ds;
-+	u16 ds;
- 
- 	__asm__ __volatile__("mov %%ds, %[ds]"
- 			     : /* output */ [ds]"=rm"(ds));
- 	return ds;
- }
- 
--static inline uint16_t get_fs(void)
-+static inline u16 get_fs(void)
- {
--	uint16_t fs;
-+	u16 fs;
- 
- 	__asm__ __volatile__("mov %%fs, %[fs]"
- 			     : /* output */ [fs]"=rm"(fs));
- 	return fs;
- }
- 
--static inline uint16_t get_gs(void)
-+static inline u16 get_gs(void)
- {
--	uint16_t gs;
-+	u16 gs;
- 
- 	__asm__ __volatile__("mov %%gs, %[gs]"
- 			     : /* output */ [gs]"=rm"(gs));
- 	return gs;
- }
- 
--static inline uint16_t get_tr(void)
-+static inline u16 get_tr(void)
- {
--	uint16_t tr;
-+	u16 tr;
- 
- 	__asm__ __volatile__("str %[tr]"
- 			     : /* output */ [tr]"=rm"(tr));
-@@ -651,7 +651,7 @@ static inline struct desc_ptr get_idt(void)
- 	return idt;
- }
- 
--static inline void outl(uint16_t port, u32 value)
-+static inline void outl(u16 port, u32 value)
- {
- 	__asm__ __volatile__("outl %%eax, %%dx" : : "d"(port), "a"(value));
- }
-@@ -1194,15 +1194,15 @@ struct ex_regs {
- };
- 
- struct idt_entry {
--	uint16_t offset0;
--	uint16_t selector;
--	uint16_t ist : 3;
--	uint16_t : 5;
--	uint16_t type : 4;
--	uint16_t : 1;
--	uint16_t dpl : 2;
--	uint16_t p : 1;
--	uint16_t offset1;
-+	u16 offset0;
-+	u16 selector;
-+	u16 ist : 3;
-+	u16 : 5;
-+	u16 type : 4;
-+	u16 : 1;
-+	u16 dpl : 2;
-+	u16 p : 1;
-+	u16 offset1;
- 	u32 offset2; u32 reserved;
- };
- 
-diff --git a/tools/testing/selftests/kvm/lib/guest_sprintf.c b/tools/testing/selftests/kvm/lib/guest_sprintf.c
-index 551ad6c658aa..8d60aa81e27e 100644
---- a/tools/testing/selftests/kvm/lib/guest_sprintf.c
-+++ b/tools/testing/selftests/kvm/lib/guest_sprintf.c
-@@ -286,7 +286,7 @@ int guest_vsnprintf(char *buf, int n, const char *fmt, va_list args)
- 		if (qualifier == 'l')
- 			num = va_arg(args, u64);
- 		else if (qualifier == 'h') {
--			num = (uint16_t)va_arg(args, int);
-+			num = (u16)va_arg(args, int);
- 			if (flags & SIGN)
- 				num = (int16_t)num;
- 		} else if (flags & SIGN)
-diff --git a/tools/testing/selftests/kvm/lib/x86/processor.c b/tools/testing/selftests/kvm/lib/x86/processor.c
-index dc31236b004b..8e6393384fa4 100644
---- a/tools/testing/selftests/kvm/lib/x86/processor.c
-+++ b/tools/testing/selftests/kvm/lib/x86/processor.c
-@@ -424,7 +424,7 @@ void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
- 		"addr         w exec dirty\n",
- 		indent, "");
- 	pml4e_start = (u64 *)addr_gpa2hva(vm, mmu->pgd);
--	for (uint16_t n1 = 0; n1 <= 0x1ffu; n1++) {
-+	for (u16 n1 = 0; n1 <= 0x1ffu; n1++) {
- 		pml4e = &pml4e_start[n1];
- 		if (!is_present_pte(mmu, pml4e))
- 			continue;
-@@ -436,7 +436,7 @@ void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
- 			is_writable_pte(mmu, pml4e), is_nx_pte(mmu, pml4e));
- 
- 		pdpe_start = addr_gpa2hva(vm, *pml4e & PHYSICAL_PAGE_MASK);
--		for (uint16_t n2 = 0; n2 <= 0x1ffu; n2++) {
-+		for (u16 n2 = 0; n2 <= 0x1ffu; n2++) {
- 			pdpe = &pdpe_start[n2];
- 			if (!is_present_pte(mmu, pdpe))
- 				continue;
-@@ -449,7 +449,7 @@ void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
- 				is_nx_pte(mmu, pdpe));
- 
- 			pde_start = addr_gpa2hva(vm, *pdpe & PHYSICAL_PAGE_MASK);
--			for (uint16_t n3 = 0; n3 <= 0x1ffu; n3++) {
-+			for (u16 n3 = 0; n3 <= 0x1ffu; n3++) {
- 				pde = &pde_start[n3];
- 				if (!is_present_pte(mmu, pde))
- 					continue;
-@@ -461,7 +461,7 @@ void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
- 					is_nx_pte(mmu, pde));
- 
- 				pte_start = addr_gpa2hva(vm, *pde & PHYSICAL_PAGE_MASK);
--				for (uint16_t n4 = 0; n4 <= 0x1ffu; n4++) {
-+				for (u16 n4 = 0; n4 <= 0x1ffu; n4++) {
- 					pte = &pte_start[n4];
- 					if (!is_present_pte(mmu, pte))
- 						continue;
-diff --git a/tools/testing/selftests/kvm/lib/x86/ucall.c b/tools/testing/selftests/kvm/lib/x86/ucall.c
-index 1af2a6880cdf..e7dd5791959b 100644
---- a/tools/testing/selftests/kvm/lib/x86/ucall.c
-+++ b/tools/testing/selftests/kvm/lib/x86/ucall.c
-@@ -6,7 +6,7 @@
-  */
- #include "kvm_util.h"
- 
--#define UCALL_PIO_PORT ((uint16_t)0x1000)
-+#define UCALL_PIO_PORT ((u16)0x1000)
- 
- void ucall_arch_do_ucall(gva_t uc)
- {
-diff --git a/tools/testing/selftests/kvm/lib/x86/vmx.c b/tools/testing/selftests/kvm/lib/x86/vmx.c
-index 73b7faa7f357..b2f83c3f7f16 100644
---- a/tools/testing/selftests/kvm/lib/x86/vmx.c
-+++ b/tools/testing/selftests/kvm/lib/x86/vmx.c
-@@ -27,7 +27,7 @@ struct hv_vp_assist_page *current_vp_assist;
- 
- int vcpu_enable_evmcs(struct kvm_vcpu *vcpu)
- {
--	uint16_t evmcs_ver;
-+	u16 evmcs_ver;
- 
- 	vcpu_enable_cap(vcpu, KVM_CAP_HYPERV_ENLIGHTENED_VMCS,
- 			(unsigned long)&evmcs_ver);
-diff --git a/tools/testing/selftests/kvm/s390/memop.c b/tools/testing/selftests/kvm/s390/memop.c
-index 1cd7b8f81fff..aa92fdf0664d 100644
---- a/tools/testing/selftests/kvm/s390/memop.c
-+++ b/tools/testing/selftests/kvm/s390/memop.c
-@@ -485,7 +485,7 @@ static __uint128_t cut_to_size(int size, __uint128_t val)
- 	case 1:
- 		return (uint8_t)val;
- 	case 2:
--		return (uint16_t)val;
-+		return (u16)val;
- 	case 4:
- 		return (u32)val;
- 	case 8:
-diff --git a/tools/testing/selftests/kvm/x86/fastops_test.c b/tools/testing/selftests/kvm/x86/fastops_test.c
-index a634bc281546..721f56d38f49 100644
---- a/tools/testing/selftests/kvm/x86/fastops_test.c
-+++ b/tools/testing/selftests/kvm/x86/fastops_test.c
-@@ -186,7 +186,7 @@ if (sizeof(type_t) != 1) {							\
- static void guest_code(void)
- {
- 	guest_test_fastops(uint8_t, "b");
--	guest_test_fastops(uint16_t, "w");
-+	guest_test_fastops(u16, "w");
- 	guest_test_fastops(u32, "l");
- 	guest_test_fastops(u64, "q");
- 
-diff --git a/tools/testing/selftests/kvm/x86/sync_regs_test.c b/tools/testing/selftests/kvm/x86/sync_regs_test.c
-index 8fa3948b0170..e0c52321f87c 100644
---- a/tools/testing/selftests/kvm/x86/sync_regs_test.c
-+++ b/tools/testing/selftests/kvm/x86/sync_regs_test.c
-@@ -20,7 +20,7 @@
- #include "kvm_util.h"
- #include "processor.h"
- 
--#define UCALL_PIO_PORT ((uint16_t)0x1000)
-+#define UCALL_PIO_PORT ((u16)0x1000)
- 
- struct ucall uc_none = {
- 	.cmd = UCALL_NONE,
+ 	ksft_print_msg("EINJ_GVA=%#lx, einj_gpa=%#lx, einj_hva=%p, einj_hpa=%#lx\n",
+ 		       EINJ_GVA, einj_gpa, einj_hva, einj_hpa);
 -- 
 2.54.0.rc1.555.g9c883467ad-goog
 
