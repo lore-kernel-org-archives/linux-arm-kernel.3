@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A65E9F588D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:54:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9052EF588D4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/+5/8GtqjI8sWBN9AjqBhPUVkwTxHRu/RbAbwi1i1SM=; b=YIcTAu4EJXE+CiiAHOikVwUb69
-	qmCrhWUv5BDFb2WD3sNhqzzg5LK2679UAq8dSWXaAuTlY2N5YkVQ6mtvFzDs9Yp7nLlKne/8i0+Np
-	qTpC2XnuFgC1hTaRTb9vctBFxa95q1v/dRu9+KYSM17LwXEqXMFHTQd+hcOOtbENcw9SLuN8dxRfz
-	z/j8Jvv9H3NgcMblWzj3YhohAazUY+j6mCcNlyZjwAz6s0VZ/0pZL0ep/asNpAwrG2TqcJOrooIBy
-	Q1XwmGj0LCNQtxGIvmeoWoL8uDQi/uSA2b/MBrUB3sRThFtATWhJ+I7AHfqWztDUGF34UFM2TWvVd
-	wcNpK7hA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KH4wlOTtaGpAG5J48/iEhjMU1BkjNSldMrsyCHnmmSk=; b=ow0AL502Ute4FX/H+KoVAS6pEp
+	qyUT4aYJ0DfuQNZcmH1WbQXDG8L1MWb1gPxvHm2mDSutzaoRdjflgh0gVWVkWImx0aHuQW0nzsh9K
+	QWx4vGsKSNOqUVfst3/CRIvuEy/HckXpLvHoaeVJO7Xi1uTlzWmuBLCihrvR2Fd+PP1h0tVVVP/f9
+	BoREdpnsHhURKuUQs+63OYdjbYDrTx2CHnmdYHEsmBkPzu51GU2r7DY6NdLBPkBEqjbYTISP6zwun
+	eZ/6jMwBeXT3YzlvYaGgDkeFdhYC2L3h1cxDxSB0soBplDPNS1T2/s5KyrO6X8diefBB+vC8O9ZB6
+	hEKH93vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEp5D-000000076ug-1CN2;
-	Mon, 20 Apr 2026 13:54:39 +0000
-Received: from courrier.aliel.fr ([65.21.61.41])
+	id 1wEp74-000000077dQ-2gmy;
+	Mon, 20 Apr 2026 13:56:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEp54-000000076jm-0ZXJ;
-	Mon, 20 Apr 2026 13:54:32 +0000
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1776693264;
-	bh=RBIiK8CES8R9gJcjoYTCoKw0do5/miRgk0+ffcE8qDk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Bqk3LylI8jz9spsXo5qoAODLjNruZyLazz96UrsETlsfWkAfRPY6utJ/xRL5Q2dWO
-	 5lX4rvRX8iZ+HSMfU9tLrdY/moYUwmcxLKcnLDKUDrqW2hAguHUxWcqKidVvLYd4UX
-	 evoWZkGKxMiAgegVqwcDAebS27djyLVe9XgXDQEQ=
-Date: Mon, 20 Apr 2026 15:54:05 +0200
-Subject: [PATCH v4 4/4] arm64: dts: amlogic: t7: khadas-vim4: Enable
- Bluetooth
+	id 1wEp71-000000077co-2Ai2;
+	Mon, 20 Apr 2026 13:56:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 42C7642D7F;
+	Mon, 20 Apr 2026 13:56:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21CB0C19425;
+	Mon, 20 Apr 2026 13:56:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776693390;
+	bh=xf0tTaO3Gm8Xjis1WLnRLgpsFcTzaHDM0gKsVSqZMNU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MVl48ex9RER8/JzKxBkveYrE2ellMnaOAMPIczfkVEb1EpZPZgr9KZPsv9HRLl48G
+	 QFlUHOAsaIUMvYpd/MPSkBKE+MCj0UCqW7rguc2HCUGkdRWFOES6FiB7jM6pcCYi18
+	 IZZG7I+1J+DP9uwF7qeTPJikPlw0G8xmdyIlNDlj+jP75S00I0bKE5p63nvR6Wa7lt
+	 1BscwQCskJB2r4C8rsiHiGt5uyW1/2JmDX8nLcahuXa7kIZyF1u9FZB7Aiiw9WqFRZ
+	 6hqvpd0UGceMhUMGSNQ6mtb31U4X1Ig26789VT56Y8o72E2Oni9SalLfHss7LdzuVR
+	 RjAOnddA/Nyuw==
+Date: Mon, 20 Apr 2026 14:56:25 +0100
+From: Simon Horman <horms@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net v4 0/2] net: airoha: Fix
+ airoha_qdma_cleanup_tx_queue() processing
+Message-ID: <20260420135625.GQ280379@horms.kernel.org>
+References: <20260417-airoha_qdma_cleanup_tx_queue-fix-net-v4-0-e04bcc2c9642@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260420-add-bluetooth-t7-vim4-v4-4-9505df0e7016@aliel.fr>
-References: <20260420-add-bluetooth-t7-vim4-v4-0-9505df0e7016@aliel.fr>
-In-Reply-To: <20260420-add-bluetooth-t7-vim4-v4-0-9505df0e7016@aliel.fr>
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Ronald Claveau <linux-kernel-dev@aliel.fr>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openssh-sha256; t=1776693261; l=1452;
- i=linux-kernel-dev@aliel.fr; s=id_ed25519; h=from:subject:message-id;
- bh=RBIiK8CES8R9gJcjoYTCoKw0do5/miRgk0+ffcE8qDk=;
- b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgMGec55oxeeisqykQiUedekMYyOnR9
- BG9E/7rDWyqdNoAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
- QJpxuZIRj3W4tnr+l9B6tbn37Ka+/vmOZd3e8M2idNXYnjh4fSQSDtqZDilNf0yv6u2Td8L37uq
- uitqUOdsCHwg=
-X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openssh;
- fpr=SHA256:kch4osYZ6A1BrPps5AUs6KnfdE2wm4ocMtyTc8TmZMs
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260417-airoha_qdma_cleanup_tx_queue-fix-net-v4-0-e04bcc2c9642@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_065430_670878_098D0B33 
-X-CRM114-Status: UNSURE (   6.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260420_065631_586162_B0835DB3 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,47 +75,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable UART C on the Khadas VIM4 board and attach the BCM43438
- compatible Bluetooth controller to it. The node configures the RTS/CTS
-hardware flow control, the associated pinmux, the power supplies (vddao_3v3
-and vddao_1v8), the 32 kHz LPO clock shared with the wifi32k fixed
-clock, and the GPIO lines used for host wakeup, device wakeup and
-shutdown.
+On Fri, Apr 17, 2026 at 08:36:30AM +0200, Lorenzo Bianconi wrote:
+> Add missing bits in airoha_qdma_cleanup_tx_queue routine.
+> Fix airoha_qdma_cleanup_tx_queue processing errors intorduced in commit
+> '3f47e67dff1f7 ("net: airoha: Add the capability to consume out-of-order
+> DMA tx descriptors")'.
+> 
+> ---
+> Changes in v4:
+> - Drop patch 2/3 to move entries to queue head in case of DMA mapping
+>   failure in airoha_dev_xmit().
+> - Link to v3: https://lore.kernel.org/r/20260416-airoha_qdma_cleanup_tx_queue-fix-net-v3-0-2b69f5788580@kernel.org
+> 
+> Changes in v3:
+> - Move ndesc initialization fix in a dedicated patch.
+> - Add patch 2/3 to move entries to queue head in case of DMA mapping
+>   failure in airoha_dev_xmit().
+> - Cosmetics.
+> - Link to v2: https://lore.kernel.org/r/20260414-airoha_qdma_cleanup_tx_queue-fix-net-v2-1-875de57cc022@kernel.org
+> 
+> Changes in v2:
+> - Move q->ndesc initialization at end of airoha_qdma_init_tx routine in
+>   order to avoid any possible NULL pointer dereference in
+>   airoha_qdma_cleanup_tx_queue()
+> - Check if q->tx_list is empty in airoha_qdma_cleanup_tx_queue()
+> - Link to v1: https://lore.kernel.org/r/20260410-airoha_qdma_cleanup_tx_queue-fix-net-v1-1-b7171c8f1e78@kernel.org
+> 
+> ---
+> Lorenzo Bianconi (2):
+>       net: airoha: Move ndesc initialization at end of airoha_qdma_init_tx()
+>       net: airoha: Add missing bits in airoha_qdma_cleanup_tx_queue()
+> 
+>  drivers/net/ethernet/airoha/airoha_eth.c | 40 +++++++++++++++++++++++++++-----
+>  1 file changed, 34 insertions(+), 6 deletions(-)
 
-Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
----
- .../dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts     | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+Thanks for the updates, this series looks good to me:
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-index 3227ab27de107..8ea7ae609fbd5 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-@@ -251,3 +251,22 @@ &sd_emmc_c {
- &uart_a {
- 	status = "okay";
- };
-+
-+&uart_c {
-+	status = "okay";
-+	pinctrl-0 = <&uart_c_pins>;
-+	pinctrl-names = "default";
-+	uart-has-rtscts;
-+
-+	bluetooth {
-+		compatible = "brcm,bcm43438-bt";
-+		shutdown-gpios = <&gpio GPIOX_17 GPIO_ACTIVE_HIGH>;
-+		host-wakeup-gpios = <&gpio GPIOX_18 GPIO_ACTIVE_HIGH>;
-+		device-wakeup-gpios = <&gpio GPIOX_19 GPIO_ACTIVE_HIGH>;
-+		max-speed = <3000000>;
-+		clocks = <&wifi32k>;
-+		clock-names = "lpo";
-+		vbat-supply = <&vddao_3v3>;
-+		vddio-supply = <&vddao_1v8>;
-+	};
-+};
+Reviewed-by: Simon Horman <horms@kernel.org>
 
--- 
-2.49.0
+
+As is the way of things, Sashiko has some feedback on this patchset.
+Please consider looking over it for potential follow-up changes.
+I do not think that needs to block progress of this patchset.
 
 
