@@ -4,124 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF1EBF588C0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 12:17:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9DA4F588C2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 12:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RXH0Upf7zVLNuuEHV0T3dwEIIz7eft2/h4fNJlDKdEk=; b=SnVeacyhj4U6iNZ0x+0La115tY
-	XboCfyqFj/c4OVxfJUAlsuNmuGPwST1mU6Sb/tkcDAZIccsqNWBUvKQs4ynkQAfjpziyxFdsVZ7C8
-	C9sEZ5V97czTHdxQiAdJAbzSs/+Cw5M76Fz9HCh5XMPsjFYiBr5Ia61aI73VBkL4Uv+88FscjGPD7
-	5FtFBhIx5daJ2JfkHYRcjmbi+1vw7gZ6CvaCpPnI3gXIfKCkNsEtWufSrcN+4lxu+Bi9LPV7WN9zo
-	a4PaVLju3qsPjcepUHBdCmmglCPbmBCtpbY6bEBiw6VTi5TvXLM2yYsdMZij/wJOH+8X0Dy2QerCI
-	hII1Hgxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d9qLWgpjbDnzk8XgHlDYIL/wcQIT1V1yN9ePl+7ekJQ=; b=w4p1K8NYWC0U5ARGJN9HeLVtMo
+	nSLjkmU4svJkggJh5hbJ4JccHkmTJYLVkQ2PWrwwxHPdfH2BhcdwbGOwRZIp2rcO1F0TmCSjB9exX
+	GkywFfh2E95sexk+EASJG1LfYYnkmwarXaIBPbj8cKuaf92fOw5y5Lf9vWBNp3zoSdTdXb4N+kcsK
+	w9uxUR5kPWAJk7CkYV8cXhTPdBos5BTBVZyfmX+RyPJulqYmgyzKyCfvxvwq+5GLhv97uAcagoC2H
+	MTXMhwt3EcXRI+HjAC4RNLD40KjQvL8K4/AmDh5YOAvgSJ//Y0lnOC5xSLyLoJwr3JKdFME/ELzMn
+	UZxPZrEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEnYu-00000006rlt-3C1F;
-	Mon, 20 Apr 2026 12:17:12 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wEne5-00000006s92-2Aoj;
+	Mon, 20 Apr 2026 12:22:34 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEnYr-00000006rlX-10YU
+	id 1wEndz-00000006s73-09Oh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 12:17:11 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63JNd0YU3666654;
-	Mon, 20 Apr 2026 12:16:42 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=RXH0Up
-	f7zVLNuuEHV0T3dwEIIz7eft2/h4fNJlDKdEk=; b=Hl+3ZTHD0HOurun+prtqC0
-	rX2te5dDnyC6ucdTE730EAoPH5fgdyv5W43ssqnneYbexzJ68QyUOb92UcQdkKvP
-	BnIYeF6NeRYAcX6ogg4Gd6NQfXBfVcn4tWuUo0aSoeoVxc9y4FhaT0HKXD2X0VAp
-	rI0sSgym0Xbn1OGHii4kHAoVWLLaC9eWBrnKCg0CLpk+DCBJcH6eHQz+mI/COACh
-	y1dEedd0z829duT1Qr+DL4sKvMlOBHW+BbylR7TIKKYEL098Hmjkhh8NSCAjpxkI
-	eknl7HGzrUroM2HAYQ8Cn9sK1/YT6d8QU7JxbcP2bSzw7KpivRFJWdiIvg3kMX8Q
-	==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dm2neypvd-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 20 Apr 2026 12:16:41 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63KC5LWq020401;
-	Mon, 20 Apr 2026 12:16:40 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dmmnvmsg5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 20 Apr 2026 12:16:40 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63KCGaXQ45613488
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 20 Apr 2026 12:16:36 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6B83020049;
-	Mon, 20 Apr 2026 12:16:36 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id AEB4120040;
-	Mon, 20 Apr 2026 12:16:34 +0000 (GMT)
-Received: from [9.111.165.155] (unknown [9.111.165.155])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 20 Apr 2026 12:16:34 +0000 (GMT)
-Message-ID: <0f218a5c-fc2d-44bf-ab58-a017bd3b17ad@linux.ibm.com>
-Date: Mon, 20 Apr 2026 14:16:34 +0200
+	Mon, 20 Apr 2026 12:22:28 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63K9K2m6787034
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 12:22:26 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=d9qLWgpjbDnzk8XgHlDYIL/w
+	cQIT1V1yN9ePl+7ekJQ=; b=pFm2CzEjU67veNp4ikkvqwTF3+41XmtO15IKPDro
+	NDY6++5+hzKyTPyeSnqoMG0t56qJEqBLOqdCmtrjICL/OtPyWY+qKxdN+teD3Wjf
+	lj24IRTlTRxPcu0JV+dMxkw6i+5R4QR3ToAYbfw3LGa9AjG2KArIojx+rF5f8Aj9
+	PSl2zHEqjq4XmKubM/jFEr6AavEmg6UquQnm+6Dnh71icpvlTYrgVTw8XCgyisc4
+	jAgr6KJoWrfRqdB4N4HJsGycvk0sp8stpRMKZY/9k/pvM0WstD4f8V9evEq1/0gC
+	c2Gpgil84noEkTDnWqwIHV3EwAPvsNHz7KvYOVNHpcwl0Q==
+Received: from mail-ua1-f69.google.com (mail-ua1-f69.google.com [209.85.222.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dnhdhgkcv-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 12:22:26 +0000 (GMT)
+Received: by mail-ua1-f69.google.com with SMTP id a1e0cc1a2514c-953f6e0f1e0so3289386241.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 05:22:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1776687745; x=1777292545; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=d9qLWgpjbDnzk8XgHlDYIL/wcQIT1V1yN9ePl+7ekJQ=;
+        b=CEoLH9kRmoS79YebLY8IFbQmVCoKuZorrESz6RVIp2EGfKiOvgU/V2+xiw2ky/PUuQ
+         DiEcrC41YllW2vqfj4Djp1uHoqZI9gI+xGb7EZ0MjOVRkP38G7/H/QjGAJnQwrdZm/02
+         s+InM8t1JmdEU2DrqxEbg1RoKplb2fqBmwLe+Wlj0T0wv+3N/XEHMVfIx+gDd2arPXfS
+         Uzdz2iu2kILV5EPAtQ3Y6xQqvuRbZn5YRNhO88tAwADG68phuTglr1YiQjQhM8FtudLq
+         x+LDdoMVZadq7mAvdLFZNRIMH4kkFWkdu+E6vIFExv2E5ew1B+10XaK/z8y6+g9YTHIK
+         E1WQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776687745; x=1777292545;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=d9qLWgpjbDnzk8XgHlDYIL/wcQIT1V1yN9ePl+7ekJQ=;
+        b=F/CSSZ5jLdMcA9A2cvakKYrFrulWUR881cGSBM390iI552TIB4JQoIi5dkP7esHE0F
+         GPsaIHya9MAIuWmsifMtaPiLOUR4Q30R5ysNKYy7O/rg+/ulS7gNeUSDReTdXo9Bt/94
+         AqSbCZjpoim2q595QryAaEr0Ct9xb3uokd5mEFo+oLkHr8/rYSNqPgtmh8i+wBb2Y9rX
+         oTiXXgPvD9RaFV0gSbux8XNe3qIwq6IUTOG5eKR0ghgEzHpM4mvIFGLjDO9hdPYvWdj8
+         ydPahAGY7TorT+MpN5x+Asfn3S4F3+UzB9zEImM+GSeQGICxAc+m50jHBAS9iaPESub4
+         erDw==
+X-Forwarded-Encrypted: i=1; AFNElJ81TwURClsD709kOwCUZNSY0jhaPq7BKQqeMFucVkRtcTEsycRqT5AVDSeh2mTVAo4CfQuXUHSeMSvTO9farkL+@lists.infradead.org
+X-Gm-Message-State: AOJu0YyikNh2R+/Jvlf44YBu8NtAPHlvy/paOdRTFP+QJBaT77dZVjUm
+	1iAbNqsdLAr6KNr755NW3dSX7ha2ADYhw8LCxMuMx3iIsyzj6vvQQGBQiWGUXTJ36T7rALB+CVt
+	kjXSx0E7sjdQWUDIYpLnw+rUybXHoKsAqiwzl6RS2X6eZPPERY9CCQsb6SSaAcDf4maL2FzxvaJ
+	LqcQ==
+X-Gm-Gg: AeBDievrGCTZuB6Nvv9vXovxc3qAJy3FBgyChmuwqvekj2M+pM6fypBDyO7CrTVsnKS
+	JL07trxzMdSRk3Zl5G1dMdTRZHfZmsGqaFpTVOdBNYpi+MVrj/pNlsDAH3T7C6YCpAnbY8Um4m0
+	FElrCUKJdJ/2E4jiRlh5rulRfpeqVde20Wer1yawC5hYoGJed4oyclRmw8IKomRalg1Cxt3DogJ
+	5OsA4or17GC96+ij/ge++qSqfiHtqW4UHcKDmNSgwXeZytPRsYlatNmSOWbiSy6+MefVaz586ad
+	MsISvDERBps5HExH7YRkvyGkV8Wbv6m2fquh7nGLHGBzcT0Lwcdo1vAcss1+SPOPgONVvMakCr6
+	iY2hQtwWeUnNYC6LFN+iivghvDFJB0KLC3JjyFlkfGJhDsDTQ49yXWmLfu7kDF3f6/suzzpm6UY
+	BTINoe0VNSG2p9grM5dYj+d4v6Sr8TOZqzUR2H7VT+uGxq5w==
+X-Received: by 2002:a05:6102:605b:b0:607:7991:8edd with SMTP id ada2fe7eead31-616f69cf898mr5180339137.19.1776687745111;
+        Mon, 20 Apr 2026 05:22:25 -0700 (PDT)
+X-Received: by 2002:a05:6102:605b:b0:607:7991:8edd with SMTP id ada2fe7eead31-616f69cf898mr5180299137.19.1776687744603;
+        Mon, 20 Apr 2026 05:22:24 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-38ecb6f07b3sm25155421fa.22.2026.04.20.05.22.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 20 Apr 2026 05:22:23 -0700 (PDT)
+Date: Mon, 20 Apr 2026 15:22:21 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+        linux-usb@vger.kernel.org, intel-gfx@lists.freedesktop.org,
+        intel-xe@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        freedreno@lists.freedesktop.org,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Andrzej Hajda <andrzej.hajda@intel.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Robert Foss <rfoss@kernel.org>,
+        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+        Jonas Karlman <jonas@kwiboo.se>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Adrien Grassein <adrien.grassein@gmail.com>,
+        Jani Nikula <jani.nikula@linux.intel.com>,
+        Rodrigo Vivi <rodrigo.vivi@intel.com>,
+        Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+        Tvrtko Ursulin <tursulin@ursulin.net>,
+        Kevin Hilman <khilman@baylibre.com>,
+        Jerome Brunet <jbrunet@baylibre.com>,
+        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Pengyu Luo <mitltlatltl@gmail.com>, Nikita Travkin <nikita@trvn.ru>,
+        Yongxing Mou <yongxing.mou@oss.qualcomm.com>
+Subject: Re: [PATCH 1/6] drm/connector: report IRQ_HPD events to
+ drm_connector_oob_hotplug_event()
+Message-ID: <ugeikq47wb2b4vnowp3lyjmp3utyq533qczf2y3uc5dtjo7gpa@v7vclmntisob>
+References: <20260416-hpd-irq-events-v1-0-1ab1f1cfb2b2@oss.qualcomm.com>
+ <20260416-hpd-irq-events-v1-1-1ab1f1cfb2b2@oss.qualcomm.com>
+ <51b7c44e-36c9-461f-983a-eaa86eeb8cfd@ideasonboard.com>
+ <6z572fdjkvjqvedifwvotgdy4lcrifiqvkjpnutousjqc6764r@zepfzkqy2kbu>
+ <a2e60e74-a1be-469d-8f4d-ecce1f30b517@ideasonboard.com>
+ <3vrqk67oivkgo26xdc3r774rvj3jn3t6sfydhlytyrfiftubhg@cipain7xxcjz>
+ <f74ecd0a-3ff3-45b4-935e-44b89cd0c92d@ideasonboard.com>
+ <v7h3a5pwx32dfcumc3diysylja6lhkhobyzemfthb6dsadcxnp@2kkidnsgov4e>
+ <ac330f76-24dc-4f6b-aeaf-69176eb41298@ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/8] arm64, unwind: build kernel with sframe V3 info
-To: Dylan Hatch <dylanbhatch@google.com>
-Cc: Roman Gushchin <roman.gushchin@linux.dev>, Weinan Liu <wnliu@google.com>,
-        Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>,
-        Indu Bhagat <indu.bhagat@oracle.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Steven Rostedt <rostedt@goodmis.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Jiri Kosina <jikos@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-        Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
-        Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>,
-        joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org,
-        linux-kernel@vger.kernel.org, live-patching@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>
-References: <20260406185000.1378082-1-dylanbhatch@google.com>
- <20260406185000.1378082-3-dylanbhatch@google.com>
- <cc7f741c-41a0-4620-b5d5-3428aaa7648f@linux.ibm.com>
- <CADBMgpyFd=id0M0Q+nZouBt9Ph6T=0PfP9xWuKOFWoLQd7zvng@mail.gmail.com>
-Content-Language: en-US
-From: Jens Remus <jremus@linux.ibm.com>
-Organization: IBM Deutschland Research & Development GmbH
-In-Reply-To: <CADBMgpyFd=id0M0Q+nZouBt9Ph6T=0PfP9xWuKOFWoLQd7zvng@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: RmTBNsl_wyT_odABVKRAgPvqqGLhDOKq
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIwMDExNSBTYWx0ZWRfX6tzoeFTE9z5J
- 8gzrq8X8BRGbcGb9IiRJnzCPV85PjfA9gn2yappkmw1buZ9D+2d/Gf4ni+ipkcdeYSZ51k79TX1
- lWuGOM/mGP9oj4l/DVwsdXEyI6Jpa+22KyJoZZnAEn4AGQqv3Hnq++LCEhDrCAAFYICZO9QBz1f
- /HGCNKzo3Rm+97n3iPGZkaoxa567U2/vQCkuryFXeGrwwvdZMNqVf9uiC6EUEfM3ZnHXy7ICvGJ
- a1YaASDjKksDT275AOqDJW6jIdPkSQYYb2BwW5xt13N7/rtyxUwnBrGQwkIF1CMfZlMKR9r8KTD
- ofuX02V1rOg/VnvCgUogurpXiFnRhowyHfTA1YPOfxpniMoGxL+vvNtQv38tb96kAE1IPum6CIX
- N6AmY0+B9oTgYwK98srv4Xp35JyuY25WCeOAVyuJrl5cDCzE43I34Yn1QVT6iN+4MXCkgI9h41s
- EOL094WwWLbM0DQEH8g==
-X-Proofpoint-GUID: DChZuLL4cZsuszRWfxpzW1C75P78z0rg
-X-Authority-Analysis: v=2.4 cv=B7iJFutM c=1 sm=1 tr=0 ts=69e6192a cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8
- a=UydLMesKbQ_UbqRXWMAA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ac330f76-24dc-4f6b-aeaf-69176eb41298@ideasonboard.com>
+X-Proofpoint-ORIG-GUID: PAVk0s8MPZdMbRwVj1s4NYNHOag5R2sS
+X-Authority-Analysis: v=2.4 cv=IMgyzAvG c=1 sm=1 tr=0 ts=69e61a82 cx=c_pps
+ a=UbhLPJ621ZpgOD2l3yZY1w==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=JfrnYn6hAAAA:8
+ a=EUspDBNiAAAA:8 a=NVKd20UARjXkfPC9qNsA:9 a=CjuIK1q_8ugA:10
+ a=TOPH6uDL9cOC6tEoww4z:22 a=1CNFftbPRP8L7MoqJWF3:22
+X-Proofpoint-GUID: PAVk0s8MPZdMbRwVj1s4NYNHOag5R2sS
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIwMDEyMSBTYWx0ZWRfXwhu4vVotTvuK
+ kHeuZIi3Bu+K8s57I+XOZWxG79vN5VoSZTZTu2Ha9kdldnrNPCLQLIh/3mkJoyDxk1epAaOk1Ei
+ SzHZLddUm+kNwPLxAiAqRTiw9RhZsY8120NvUf1c3/hc98uxBX2lapKgWNRCRBSeKe8ngcycvoI
+ ysUWIqkiBGjVqpxsEGNSTL0RfoPiJAdwBO8cuOxJo3PaJGlC5KpCmAYUWfsXUnqdKRCwmq5I+uY
+ wzf2dYHQQxsmhD7DcXyYtIBvnhiLM0vhgAcW1DRMnhqNCbDepBV/0bwl8FjhbSNr7Op1ScoG4HG
+ rqOgJKwCp9sr3PrEcTvoxFrqjpeSHVEIKVef/n86oxW+BABcqmXYrQbybe32RQNaOun8Cog2iXS
+ oURiOTgrw/35pxNOjqPH6HoX1xVTL5yUxt9zQY58C4MrgzTJ1xcQX8ijRuHyoMECDpZIMw50gOb
+ sUkE+o7Rb6fxMDjQkhw==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-04-20_02,2026-04-17_04,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 priorityscore=1501 spamscore=0 impostorscore=0 adultscore=0
- bulkscore=0 phishscore=0 suspectscore=0 lowpriorityscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604200115
+ spamscore=0 priorityscore=1501 impostorscore=0 lowpriorityscore=0
+ phishscore=0 adultscore=0 clxscore=1015 bulkscore=0 suspectscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604070000
+ definitions=main-2604200121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_051709_941036_F33FA1FD 
-X-CRM114-Status: GOOD (  26.41  )
+X-CRM114-CacheID: sfid-20260420_052227_084588_D62B5318 
+X-CRM114-Status: GOOD (  59.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,139 +183,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/18/2026 2:20 AM, Dylan Hatch wrote:
-> On Tue, Apr 14, 2026 at 5:43 AM Jens Remus <jremus@linux.ibm.com> wrote:
-
->> You are introducing two new Kconfig options (SFRAME_UNWINDER and
->> ARCH_SUPPORTS_SFRAME_UNWINDER).  I wonder whether they could somehow be
->> combined into a single new option.  Although I am not sure how an option
->> can be both selectable and depending at the same time, so that the ARM64
->> config could select it, but it would also depend on the above.
+On Mon, Apr 20, 2026 at 02:51:49PM +0300, Tomi Valkeinen wrote:
+> Hi,
 > 
-> I don't think this is recommended, since the behavior of 'select'
-> appears to override a 'depends' requirement.
+> On 20/04/2026 14:45, Dmitry Baryshkov wrote:
+> > On Mon, Apr 20, 2026 at 02:01:57PM +0300, Tomi Valkeinen wrote:
+> > > Hi,
+> > > 
+> > > On 20/04/2026 12:50, Dmitry Baryshkov wrote:
+> > > > On Mon, Apr 20, 2026 at 07:50:46AM +0300, Tomi Valkeinen wrote:
+> > > > > Hi,
+> > > > > 
+> > > > > On 18/04/2026 01:32, Dmitry Baryshkov wrote:
+> > > > > > On Thu, Apr 16, 2026 at 11:10:03AM +0300, Tomi Valkeinen wrote:
+> > > > > > > Hi,
+> > > > > > > 
+> > > > > > > On 16/04/2026 02:22, Dmitry Baryshkov wrote:
+> > > > > > > > The DisplayPort standard defines a special kind of events called IRQ.
+> > > > > > > > These events are used to notify DP Source about the events on the Sink
+> > > > > > > > side. It is extremely important for DP MST handling, where the MST
+> > > > > > > > events are reported through this IRQ.
+> > > > > > > > 
+> > > > > > > > In case of the USB-C DP AltMode there is no actual HPD pulse, but the
+> > > > > > > > events are ported through the bits in the AltMode VDOs.
+> > > > > > > > 
+> > > > > > > > Extend the drm_connector_oob_hotplug_event() interface and report IRQ
+> > > > > > > > events to the DisplayPort Sink drivers.
+> > > > > > > > 
+> > > > > > > > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> > > > > > > > ---
+> > > > > > > >      drivers/gpu/drm/drm_connector.c          |  4 +++-
+> > > > > > > >      drivers/usb/typec/altmodes/displayport.c | 12 ++++++++----
+> > > > > > > >      include/drm/drm_connector.h              |  3 ++-
+> > > > > > > >      3 files changed, 13 insertions(+), 6 deletions(-)
+> > > > > > > > 
+> > > > > > > > diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+> > > > > > > > index 47dc53c4a738..5fdacbd84bd7 100644
+> > > > > > > > --- a/drivers/gpu/drm/drm_connector.c
+> > > > > > > > +++ b/drivers/gpu/drm/drm_connector.c
+> > > > > > > > @@ -3510,6 +3510,7 @@ struct drm_connector *drm_connector_find_by_fwnode(struct fwnode_handle *fwnode)
+> > > > > > > >       * drm_connector_oob_hotplug_event - Report out-of-band hotplug event to connector
+> > > > > > > >       * @connector_fwnode: fwnode_handle to report the event on
+> > > > > > > >       * @status: hot plug detect logical state
+> > > > > > > > + * @irq_hpd: HPD pulse detected
+> > > > > > > >       *
+> > > > > > > >       * On some hardware a hotplug event notification may come from outside the display
+> > > > > > > >       * driver / device. An example of this is some USB Type-C setups where the hardware
+> > > > > > > > @@ -3520,7 +3521,8 @@ struct drm_connector *drm_connector_find_by_fwnode(struct fwnode_handle *fwnode)
+> > > > > > > >       * a drm_connector reference through calling drm_connector_find_by_fwnode().
+> > > > > > > >       */
+> > > > > > > >      void drm_connector_oob_hotplug_event(struct fwnode_handle *connector_fwnode,
+> > > > > > > > -				     enum drm_connector_status status)
+> > > > > > > > +				     enum drm_connector_status status,
+> > > > > > > > +				     bool irq_hpd)
+> > > > > > > I find the "IRQ HPD" naming always confusing, even if I'm somewhat familiar
+> > > > > > > with DP, but if someone has mainly worked on HDMI, I'm sure it's even worse.
+> > > > > > > 
+> > > > > > > Can we define this a bit more precisely? Is 'irq_hpd' only for displayport?
+> > > > > > > If so, perhaps 'dp_irq_hpd' or 'displayport_irq_hpd'. I might even call it
+> > > > > > > 'dp_hpd_pulse', but maybe that's not good as the spec talks about HPD pulse
+> > > > > > > for both short and long ones (although in the kernel doc you just write "HPD
+> > > > > > > pulse")... The kernel doc could be expanded a bit to make it clear what this
+> > > > > > > flag indicates.
+> > > > > > 
+> > > > > > I attempted to stay away from defining a DP-specific flag, keeping it
+> > > > > > generic enough. HDMI is pretty close (IMO) to requiring separate flag in
+> > > > > 
+> > > > > If it's not specifically the DP IRQ HPD, then we need to define what it
+> > > > > means. I tried to think what it would mean with HDMI, but I didn't come up
+> > > > > with anything.
+> > > > 
+> > > > I might be mistaken, but I had someting like HEAC HPD / EDID status
+> > > > changes in mind (or HDCP-triggered HPD status changes). But here I
+> > > > admit, I hadn't checked if it is actually applicable or not.
+> > > 
+> > > Possibly, I'm not familiar with those.
+> > > 
+> > > > Anyway, for e.g. DVI or VGA that means nothing. But, my point really is
+> > > > to abstain from defining someting as DP-only in the top-level API.
+> > > 
+> > > I'm fine with that, but then it really has to be defined =).
+> > > 
+> > > > > > Linux. Likewise I'd rather not use "pulse". The DP AltMode defines a bit
+> > > > > > in the VDO rather than a pulse.
+> > > > > > 
+> > > > > > Anyway, if irq_hpd doesn't sound precise enough, what about "bool
+> > > > > > extra_irq"? This would convey that this is the extra hpd-related IRQ,
+> > > > > > but it would also be obvious that it's not related to the HPD pin
+> > > > > > itself.
+> > > > > We'd still need to define what exactly it means. I think it might be better
+> > > > > to just define it as the DP IRQ HPD, as then the meaning is clear.
+> > > > > 
+> > > > > Also, would an enum flags parameter be better than a bool parameter?
+> > > > 
+> > > > Maybe not enum, but u32 param. Then it can become:
+> > > > 
+> > > > @extra_status: additional type-specific information provided by the sink
+> > > > without changing the HPD state
+> > > > 
+> > > > void drm_connector_oob_hotplug_event(..., u32 extra_status);
+> > > > 
+> > > > /* DP short HPD pulse or corresponding AltMode flag */
+> > > > #define DRM_CONNECTOR_OOB_DP_IRQ_HPD BIT(0)
+> > > > /* DP long HPD pulse, debounced XXX: do we need this? */
+> > > > #define DRM_CONNECTOR_OOB_DP_REPLUG BIT(1)
+> > > 
+> > > Why is u32 better than enum? So that we could e.g. pass short values inside
+> > > the extra_status?
+> > 
+> > No, my thought was to be able to define values specific to the
+> > particular connector types and to be able to combine those values.
+> > 
+> > After sending the email I started thinking about the bridged and
+> > corresponding notifications. There having overlapping values will not
+> > work becasue bridges in the chanin don't easily know the final connector
+> > type.
 > 
-> From Documentation/kbuild/kconfig-language.rst: "select should be used
-> with care. select will force a symbol to a value without visiting the
-> dependencies. By abusing select you are able to select a symbol FOO
-> even if FOO depends on BAR that is not set. In general use select only
-> for non-visible symbols (no prompts anywhere) and for symbols with no
-> dependencies. That will limit the usefulness but on the other hand
-> avoid the illegal configurations all over."
+> An enum can have overlapping values. I don't think there's much difference
+> between u32 and an enum in C. I just like enum because 1) it groups the
+> possible values in the header file, and 2) the function parameters can use
+> the enum type, making it obvious what flags you are supposed to use there.
+> 
+> > I think you are correct here, it should be the enum. With the first
+> > iteration defined as:
+> > 
+> > /**
+> >   * enum drm_connector_status_extra - additional events sent by the sink
+> >   * together or in replacement of the HPD status changes
+> >   /
+> > enum drm_connector_status_extra {
+> >    /**
+> >     * @DRM_CONNECTOR_DP_IRQ_HPD: DisplayPort Sink has sent the
+> >     * IRQ_HPD (either by the HPD short pulse or via the AltMode event).
+> >     */
+> >    DRM_CONNECTOR_DP_IRQ_HPD = BIT(0),
+> > };
+> > 
+> > /**
+> >    * @extra_status: additional information provided by the sink without
+> >    * changing the HPD state (or in addition to such a change). It is an
+> >    * OR of the values defined in the drm_connector_status_extra enum.
+> >    */
+> > void drm_connector_oob_hotplug_event(..., u32 extra_status);
+> 
+> Looks good to me, except I'd use "enum drm_connector_status_extra" instead
+> of u32 there in the function parameters.
 
-Thanks for the explanation!  So both options cannot be merged into one.
-Maybe the option names can still be aligned, so that they have
-UNWIND_KERNEL_SFRAME in common and the kernel and user space sframe
-unwinder options have HAVE_UNWIND in common?
+I had bad feelings about passing OR or enum values as an enum value.
+But then... I don't see values to OR. All expected events come one by
+one. Let's drop that part too. Thanks for your comments!
 
-  SFRAME_UNWINDER -> HAVE_UNWIND_KERNEL_SFRAME
-  ARCH_SUPPORTS_SFRAME_UNWINDER -> ARCH_SUPPORTS_UNWIND_KERNEL_SFRAME
+> 
+>  Tomi
+> 
+> 
+> _______________________________________________
+> linux-amlogic mailing list
+> linux-amlogic@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-amlogic
 
-That would then align nicely with the existing:
-
-  HAVE_UNWIND_USER_SFRAME
-
-The only downside is that the user variant would get selected via
-HAVE_UNWIND_USER_SFRAME and the kernel variant via
-ARCH_SUPPORTS_UNWIND_KERNEL_SFRAME.
-
->>> diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
->>
->>> @@ -491,6 +491,8 @@
->>>               *(.rodata1)                                             \
->>>       }                                                               \
->>>                                                                       \
->>> +     SFRAME                                                          \
->>> +                                                                     \
->>>       /* PCI quirks */                                                \
->>>       .pci_fixup        : AT(ADDR(.pci_fixup) - LOAD_OFFSET) {        \
->>>               BOUNDED_SECTION_PRE_LABEL(.pci_fixup_early,  _pci_fixups_early,  __start, __end) \
->>> @@ -911,6 +913,19 @@
->>>  #define TRACEDATA
->>>  #endif
->>>
->>> +#ifdef CONFIG_SFRAME_UNWINDER
->>> +#define SFRAME                                                       \
->>> +     /* sframe */                                            \
->>> +     .sframe : AT(ADDR(.sframe) - LOAD_OFFSET) {             \
->>> +             __start_sframe_header = .;                      \
->>
->>                 __start_sframe[_section] = .;
->>
->>> +             KEEP(*(.sframe))                                \
->>> +             KEEP(*(.init.sframe))                           \
->>> +             __stop_sframe_header = .;                       \
->>
->>                 __stop_sframe[_section] = .;
->>
->> Unless I am missing something both are not the start/stop of the .sframe
->> header (in the .sframe section) but the .sframe section itself (see also
->> your subsequent "[PATCH v3 4/8] sframe: Provide PC lookup for vmlinux
->> .sframe section." where you assign both to kernel_sfsec.sframe_start
->> and kernel_sfsec.sframe_end.
->>
->>> +     }
->>> +#else
->>> +#define SFRAME
->>> +#endif
->>> +
->>>  #ifdef CONFIG_PRINTK_INDEX
->>>  #define PRINTK_INDEX                                                 \
->>>       .printk_index : AT(ADDR(.printk_index) - LOAD_OFFSET) {         \
-
-What about the following?  Note that I also aligned the indentation in
-vmlinux.lds.h to the one in the blocks above/below.
-
-diff --git a/include/asm-generic/sections.h b/include/asm-generic/sections.h
-@@ -31,6 +31,7 @@
-  *     __irqentry_text_start, __irqentry_text_end
-  *     __softirqentry_text_start, __softirqentry_text_end
-  *     __start_opd, __end_opd
-+ *     __start_sframe, __end_sframe
-  */
- extern char _text[], _stext[], _etext[];
- extern char _data[], _sdata[], _edata[];
-@@ -53,6 +54,9 @@ extern char __ctors_start[], __ctors_end[];
- /* Start and end of .opd section - used for function descriptors. */
- extern char __start_opd[], __end_opd[];
-
-+/* Stand end end of .sframe section - used for stack unwinding. */
-+extern char __start_sframe[], __end_sframe[];
-+
- /* Start and end of instrumentation protected text section */
- extern char __noinstr_text_start[], __noinstr_text_end[];
-
-diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
-@@ -914,13 +914,13 @@
- #endif
-
- #ifdef CONFIG_SFRAME_UNWINDER
--#define SFRAME							\
--	/* sframe */						\
--	.sframe : AT(ADDR(.sframe) - LOAD_OFFSET) {		\
--		__start_sframe_header = .;			\
--		KEEP(*(.sframe))				\
--		KEEP(*(.init.sframe))				\
--		__stop_sframe_header = .;			\
-+#define SFRAME								\
-+	/* sframe */							\
-+	.sframe : AT(ADDR(.sframe) - LOAD_OFFSET) {			\
-+		__start_sframe = .;					\
-+		KEEP(*(.sframe))					\
-+		KEEP(*(.init.sframe))					\
-+		__end_sframe = .;					\
-        }
- #else
- #define SFRAME
-
-Regards,
-Jens
 -- 
-Jens Remus
-Linux on Z Development (D3303)
-jremus@de.ibm.com / jremus@linux.ibm.com
-
-IBM Deutschland Research & Development GmbH; Vorsitzender des Aufsichtsrats: Wolfgang Wendt; Geschäftsführung: David Faller; Sitz der Gesellschaft: Ehningen; Registergericht: Amtsgericht Stuttgart, HRB 243294
-IBM Data Privacy Statement: https://www.ibm.com/privacy/
-
+With best wishes
+Dmitry
 
