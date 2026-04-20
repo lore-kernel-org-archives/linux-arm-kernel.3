@@ -4,60 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA88F557EB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 09:17:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 126BBF557F2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 09:25:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MLGakkueiuUglii7S0JXozneE+o1ICSEReN85kCQkDU=; b=MKTmHPoF1lqDMtAsKqEl0lLbMs
-	ArJuBK9p5OAakZmB4Ihf/OaM3R00gTuKT9mPBL6jy/i7hfmRArmToaG0mKjBkFzG4XtJVNZx0UIdz
-	grk7Z/6Y0b+dS6Zr4nZX3CnM2mXtflDPcCwnViB37y1zBbNPfkLhkJAwI86SrMeRaIhIATlvA4NEX
-	7CVc3HTTMJguNMkddUaEd9tzi2MUjOIJmQXMx7zpgdAVxJS7PtMpR+a7+VdVr2vRBfyj7nxxeAvIQ
-	BSGNMZ3c1e+fAAb4ij4XH9I2OT80fBR720de4v5xp1tv4z80cb6MT05JDt11NkAf3I9wy0Yn7QQdV
-	UgyWitLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=coZMEIkjergDyyZsZOasT4h6fSw2MBedD+XY6xHGZ2E=; b=ub0q1gtNOYzSgmscsaoiPE8rb2
+	bNd920Z8c/AV/g8RpnT+rRIaxcifGrgwYiQO1tlsun8VCwll3TbILraB33ypuuJK3ctadnv+CI+Dm
+	WtwwD9l2RHFocPcyGgjaesJITz8hozzDO34WuB2j4ZkvnQEl6R3XaRpMudVIjeChEL44DKCRzDh3l
+	CXTv5KyL/mOuO/iM71X1iy2S6kvKuZw0saj71ISx+5Ih5kjnPWS130oMVAlaeT4EPKHjx3aiKT312
+	N6YmqnbYQ9iGxw7NYkza5n+AEFinbK7a9rec2lz/yqdqP8oRsKS6w7xqrIn8pcv7qOxnmeFMFDVIC
+	NyOe0i1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEkkd-00000006fBA-3xpg;
-	Mon, 20 Apr 2026 09:17:07 +0000
-Received: from courrier.aliel.fr ([2a01:4f9:c011:1c83::1])
+	id 1wEksm-00000006fen-2B4r;
+	Mon, 20 Apr 2026 09:25:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEkka-00000006f9m-1tiO;
-	Mon, 20 Apr 2026 09:17:06 +0000
-Message-ID: <bb5ebce0-a59a-420c-a860-3cdb6b027372@aliel.fr>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1776676617;
-	bh=dl5DcX6axaQB08bVzkfm0qYlVYMXHjs5k1QLohyagTg=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To;
-	b=TE8Fjf2KOVteTx9eiWJnuAJfefHqh30xeZHbwNfBd50KHHgITZ3wfIzcGFIlBB34B
-	 KjKIiwxjFIPuGPWRHxggr5RrF1GbszM69AIijwMJ/j5TIzW+PMZlnvsHwy2Z4LI5kU
-	 lqH9tkKhRdCzf2znN0ctIx6VB6ql9/MhiJCkCZJU=
-Date: Mon, 20 Apr 2026 11:16:56 +0200
+	id 1wEksj-00000006fe8-0tPD
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Apr 2026 09:25:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A357C44546
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 09:25:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 880DEC19425
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 09:25:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776677127;
+	bh=5a1WQBOBFxuhVU/nscZ1Dt/ay0RNPTrPTmrXYOYO3NY=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
+	b=AaAVaU6sZsnJFb87VLbUaxcHWRYakfzV1BZlZSdaUZC/XLIXatSkQdJAtQ+3lykVl
+	 lDrfdD6mqtuMgB7/DZB7KZjhCNt/n701pRHNd0uUSOcSWitF+HTakiBJmxrtA5I/UT
+	 xsY9ebkb/gSgjK49C9NeMZBJ2H2UByAnkex0v72dmTKHPdC783zDVpnlrCXShH14Wm
+	 MMT6x7xsZyzGSTpSODqU7bRrcuRa/1po21z0I4udS6/GLg9iNPaPkGVn+msrR2vQev
+	 Wq4LsOOAd1hoJXQO3o1EORer3lbeAC3Bils+8lMp/+ZO8mhJzg69Oi3UZUoGJXHkUp
+	 7IPnpu1ySfjtQ==
+Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-12c7212836bso7457558c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 02:25:26 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8ma/UpbF4KhZhjCfHCGo33zOj40Q80TJtzMNAZbkRKBUsqAcJBY7XVsnOtiFJjR32cNLBJJA32U4Y9QVcV1Lrg@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQNJEMEuUOq3RopPbYDYXpsfrEzHtYmlsjryOaHHabF+mz+Rnm
+	tRt6tB/MP5OzqrO2WX2zq4evRYLbs5CN4qwJ/Dltp+jH/Bc+6/VU+ujuJy76NJhj6MKEJFt++kM
+	J05HzYb5weYHsMRtmpi8YYefoHxTxO2FxxirTIq4k+A==
+X-Received: by 2002:a05:7022:eac8:b0:128:d386:4bbb with SMTP id
+ a92af1059eb24-12c73f759d9mr6984938c88.13.1776677125788; Mon, 20 Apr 2026
+ 02:25:25 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 20 Apr 2026 02:25:22 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 20 Apr 2026 02:25:22 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260414-axiado-ax3000-sgpio-controller-v1-2-b5c7e4c2e69b@axiado.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-Subject: Re: [PATCH v2 4/4] arm64: dts: amlogic: t7: Add clk measure support
-To: Jian Hu <jian.hu@amlogic.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-References: <20260415-clkmsr_a1_t7-v2-0-02b6314427e6@amlogic.com>
- <20260415-clkmsr_a1_t7-v2-4-02b6314427e6@amlogic.com>
- <ae61c52d-814c-40fa-b02a-833377d840a8@aliel.fr>
- <64cde9f6-4f28-4ba7-8362-aac28887ff22@amlogic.com>
-Content-Language: en-US
-In-Reply-To: <64cde9f6-4f28-4ba7-8362-aac28887ff22@amlogic.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20260414-axiado-ax3000-sgpio-controller-v1-0-b5c7e4c2e69b@axiado.com>
+ <20260414-axiado-ax3000-sgpio-controller-v1-2-b5c7e4c2e69b@axiado.com>
+Date: Mon, 20 Apr 2026 02:25:22 -0700
+X-Gmail-Original-Message-ID: <CAMRc=MfN4qc-Oz-_ErukxqwKbhg3aUHO-LWWvvGGcJAMwfP+5g@mail.gmail.com>
+X-Gm-Features: AQROBzCVykMLHfvx--YZ5vkX1KE4og7C-e65wmJHU6KkHcPp3z4r-0dCSLkMfBU
+Message-ID: <CAMRc=MfN4qc-Oz-_ErukxqwKbhg3aUHO-LWWvvGGcJAMwfP+5g@mail.gmail.com>
+Subject: Re: [PATCH 2/3] gpio: axiado: add SGPIO controller support
+To: Petar Stepanovic <pstepanovic@axiado.com>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Tzu-Hao Wei <twei@axiado.com>, Swark Yang <syang@axiado.com>, 
+	Prasad Bolisetty <pbolisetty@axiado.com>, Linus Walleij <linusw@kernel.org>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Harshit Shah <hshah@axiado.com>, SriNavmani A <srinavmani@axiado.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_021704_933940_0F8BDA0B 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20260420_022529_326061_7A8A8CB3 
+X-CRM114-Status: GOOD (  31.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,72 +91,888 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jian,
+On Tue, 14 Apr 2026 15:48:33 +0200, Petar Stepanovic
+<pstepanovic@axiado.com> said:
+> Add support for the Axiado SGPIO controller.
+>
+> The controller provides a serialized interface for GPIOs with
+> configurable direction and interrupt support.
+>
+> The driver registers the controller as a gpio_chip and uses
+> regmap for register access.
+>
+> Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
+> ---
+>  drivers/gpio/Kconfig             |  18 +
+>  drivers/gpio/Makefile            |   1 +
+>  drivers/gpio/gpio-axiado-sgpio.c | 780 +++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 799 insertions(+)
+>
+> diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
+> index bd185482a7fd..42c56d157092 100644
+> --- a/drivers/gpio/Kconfig
+> +++ b/drivers/gpio/Kconfig
+> @@ -198,6 +198,24 @@ config GPIO_ATH79
+>  	  Select this option to enable GPIO driver for
+>  	  Atheros AR71XX/AR724X/AR913X SoC devices.
+>
+> +config GPIO_AXIADO_SGPIO
+> +	bool "Axiado SGPIO support"
+> +	depends on OF_GPIO
 
-On 4/20/26 5:25 AM, Jian Hu wrote:
-> Hi Ronald,
-> 
-> 
-> Thanks for your review.
-> 
-> On 4/17/2026 5:48 PM, Ronald Claveau wrote:
->> [ EXTERNAL EMAIL ]
->>
->> Hello Jian,
->>
->> On 4/15/26 10:33 AM, Jian Hu via B4 Relay wrote:
->>> From: Jian Hu <jian.hu@amlogic.com>
->>>
->>> Add the clock measure device to the T7 SoC family.
->>>
->>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
->>> ---
->>>   arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 5 +++++
->>>   1 file changed, 5 insertions(+)
->>>
->>> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/
->>> arm64/boot/dts/amlogic/amlogic-t7.dtsi
->>> index 7fe72c94ed62..cec2ea74850d 100644
->>> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
->>> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
->>> @@ -701,6 +701,11 @@ pwm_ao_cd: pwm@60000 {
->>>                                status = "disabled";
->>>                        };
->>>
->>> +                     clock-measurer@48000 {
->>> +                             compatible = "amlogic,t7-clk-measure";
->>> +                             reg = <0x0 0x48000 0x0 0x1c>;
->>> +                     };
->>> +
->> Can you please order by reg, it should be between pwm_ao_gh and pwm_ab.
->> Thank you.
-> 
-> 
-> According to the "Order of Nodes" chapter in Documentation/devicetree/
-> bindings/dts-coding-style.rst,
-> 
-> nodes of the same type should be grouped together, and this takes higher
-> priority.
-> 
-> So I have placed the clock-measure node after all PWM nodes to avoid
-> splitting the PWM group.
-> 
+You don't need this.
 
-Thanks for your answer.
+> +	depends on ARCH_AXIADO || COMPILE_TEST
+> +	select GPIO_GENERIC
 
-The documentation says nodes "shall be ordered by unit address" as the
-primary rule.
-The grouping by type is described as an alternative ("Alternatively"),
-applicable to some subarchitectures, not as a rule that takes higher
-priority.
+You don't seem to be using this.
 
-So to me, I understand it as, unless your subarchitecture has an
-established convention of grouping PWM nodes together, ordering by reg
-remains the correct default here. And, in my opinion, sticking to a
-single sorting method improves readability.
+> +	select GPIOLIB_IRQCHIP
+> +	select REGMAP
+> +	help
+> +	  Enable support for the Axiado Serial GPIO (SGPIO) controller.
+> +
+> +	  The SGPIO controller provides a serialized interface for
+> +	  controlling multiple GPIO signals over a limited number of
+> +	  physical lines. It supports configurable data direction and
+> +	  interrupt handling.
+> +
+> +	  This driver integrates with the Linux GPIO subsystem and
+> +	  exposes the controller as a standard GPIO provider.
+> +
+>  config GPIO_RASPBERRYPI_EXP
+>  	tristate "Raspberry Pi 3 GPIO Expander"
+>  	default RASPBERRYPI_FIRMWARE
+> diff --git a/drivers/gpio/Makefile b/drivers/gpio/Makefile
+> index 2421a8fd3733..909a97551807 100644
+> --- a/drivers/gpio/Makefile
+> +++ b/drivers/gpio/Makefile
+> @@ -42,6 +42,7 @@ obj-$(CONFIG_GPIO_ARIZONA)		+= gpio-arizona.o
+>  obj-$(CONFIG_GPIO_ASPEED)		+= gpio-aspeed.o
+>  obj-$(CONFIG_GPIO_ASPEED_SGPIO)		+= gpio-aspeed-sgpio.o
+>  obj-$(CONFIG_GPIO_ATH79)		+= gpio-ath79.o
+> +obj-$(CONFIG_GPIO_AXIADO_SGPIO)		+= gpio-axiado-sgpio.o
+>  obj-$(CONFIG_GPIO_BCM_KONA)		+= gpio-bcm-kona.o
+>  obj-$(CONFIG_GPIO_BCM_XGS_IPROC)	+= gpio-xgs-iproc.o
+>  obj-$(CONFIG_GPIO_BD71815)		+= gpio-bd71815.o
+> diff --git a/drivers/gpio/gpio-axiado-sgpio.c b/drivers/gpio/gpio-axiado-sgpio.c
+> new file mode 100644
+> index 000000000000..8cd349ec6f53
+> --- /dev/null
+> +++ b/drivers/gpio/gpio-axiado-sgpio.c
+> @@ -0,0 +1,780 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * Copyright (c) 2022-2026 Axiado Corporation
+> + */
 
+Please add a blank line here...
 
--- 
-Best regards,
-Ronald
+> +#include <linux/types.h>
+> +#include <linux/kernel.h>
+> +#include <linux/init.h>
+> +#include <linux/module.h>
+> +
+> +#include <linux/platform_device.h>
+> +#include <linux/io.h>
+> +#include <linux/spinlock.h>
+> +
+> +#include <linux/interrupt.h>
+> +#include <linux/irq.h>
+> +#include <linux/irqdomain.h>
+> +
+> +#include <linux/gpio/driver.h>
+> +
+> +#include <linux/of.h>
+> +#include <linux/of_device.h>
+> +#include <linux/of_irq.h>
+> +
+> +#include <linux/regmap.h>
+> +
+
+... and keep the includes together as well as ordered alphabetically.
+
+> +struct sgpio_reg_offsets {
+> +	u32 mux_0;
+> +	u32 preset_0;
+> +	u32 count_0;
+> +	u32 pos_0;
+> +
+> +	u32 mux_1;
+> +	u32 ld;
+> +	u32 ld_ss;
+> +
+> +	u32 preset_1;
+> +	u32 count_1;
+> +	u32 pos_1;
+> +
+> +	u32 mux_2;
+> +	u32 dout;
+> +	u32 dout_ss;
+> +
+> +	u32 preset_2;
+> +	u32 count_2;
+> +	u32 pos_2;
+> +
+> +	u32 mux_3;
+> +	u32 preset_3;
+> +	u32 count_3;
+> +	u32 pos_3;
+> +
+> +	u32 mux_4;
+> +	u32 oe;
+> +	u32 oe_ss;
+> +
+> +	u32 preset_4;
+> +	u32 count_4;
+> +	u32 pos_4;
+> +
+> +	u32 mask;
+> +	u32 ctrl_en;
+> +	u32 ctrl_en_pos;
+> +
+> +	u32 din_ss;
+> +	u32 status;
+> +};
+> +
+> +static const struct sgpio_reg_offsets sgpio_offsets_512 = {
+> +	.mux_0 = 0x000,
+> +	.preset_0 = 0x1dc,
+> +	.count_0 = 0x1f0,
+> +	.pos_0 = 0x204,
+> +
+> +	.mux_1 = 0x004,
+> +	.ld = 0x014,
+> +	.ld_ss = 0x0d8,
+> +
+> +	.preset_1 = 0x1e0,
+> +	.count_1 = 0x1f4,
+> +	.pos_1 = 0x208,
+> +
+> +	.mux_2 = 0x008,
+> +	.dout = 0x054,
+> +	.dout_ss = 0x158,
+> +
+> +	.preset_2 = 0x1e4,
+> +	.count_2 = 0x1f8,
+> +	.pos_2 = 0x20c,
+> +
+> +	.mux_3 = 0x00c,
+> +	.preset_3 = 0x1e8,
+> +	.count_3 = 0x1fc,
+> +	.pos_3 = 0x210,
+> +
+> +	.mux_4 = 0x010,
+> +	.oe = 0x0d4,
+> +	.oe_ss = 0x1d8,
+> +
+> +	.preset_4 = 0x1ec,
+> +	.count_4 = 0x200,
+> +	.pos_4 = 0x214,
+> +
+> +	.mask = 0x224,
+> +	.ctrl_en = 0x218,
+> +	.ctrl_en_pos = 0x21c,
+> +
+> +	.din_ss = 0x198,
+> +	.status = 0x228,
+> +};
+> +
+> +static const struct sgpio_reg_offsets sgpio_offsets_128 = {
+> +	.mux_0 = 0x000,
+> +	.preset_0 = 0x08c,
+> +	.count_0 = 0x0a0,
+> +	.pos_0 = 0x0b4,
+> +
+> +	.mux_1 = 0x004,
+> +	.ld = 0x014,
+> +	.ld_ss = 0x048,
+> +
+> +	.preset_1 = 0x090,
+> +	.count_1 = 0x0a4,
+> +	.pos_1 = 0x0b8,
+> +
+> +	.mux_2 = 0x008,
+> +	.dout = 0x024,
+> +	.dout_ss = 0x068,
+> +
+> +	.preset_2 = 0x094,
+> +	.count_2 = 0x0a8,
+> +	.pos_2 = 0x0bc,
+> +
+> +	.mux_3 = 0x00c,
+> +	.preset_3 = 0x098,
+> +	.count_3 = 0x0ac,
+> +	.pos_3 = 0x0c0,
+> +
+> +	.mux_4 = 0x010,
+> +	.oe = 0x044,
+> +	.oe_ss = 0x088,
+> +
+> +	.preset_4 = 0x09c,
+> +	.count_4 = 0x0b0,
+> +	.pos_4 = 0x0c4,
+> +
+> +	.mask = 0x0d4,
+> +	.ctrl_en = 0x0c8,
+> +	.ctrl_en_pos = 0x0cc,
+> +
+> +	.din_ss = 0x078,
+> +	.status = 0x0d8,
+> +};
+> +
+> +#define MAX_SGPIO_PINS 512
+> +#define MAX_OFFSET_REG 16
+> +#define MAX_SLICE_COUNT 5
+> +
+> +struct ax3000_slice_info {
+> +	u32 out_mux;
+> +	u32 sgpio_mux;
+> +	u32 slice_mux;
+> +	u32 reg[MAX_OFFSET_REG];
+> +	u32 reg_ss[MAX_OFFSET_REG];
+> +	u32 preset;
+> +	u32 count;
+> +	u32 pos;
+> +};
+> +
+> +struct ax3000_sgpio {
+> +	u32 preset_value;
+> +	u32 count_value;
+> +	u32 pos_reg;
+> +	struct ax3000_slice_info
+> +		slices[MAX_SLICE_COUNT]; /* 0=clk,1=load,2=out,3=in,4=oe */
+> +	spinlock_t lock;
+> +	int ngpios;
+> +	int max_sgpio_pins;
+> +	int max_offset_regs;
+> +	struct gpio_chip chip;
+> +	u32 irq_unmasked[MAX_SGPIO_PINS];
+> +	int parent_irq;
+> +	struct regmap *regmap;
+> +	u32 regmap_base_offset;
+> +	struct sgpio_reg_offsets *regs;
+> +};
+> +
+> +static int sgpio_set_irq_type(struct irq_data *d, unsigned int type);
+> +static void sgpio_mask_irq(struct irq_data *d);
+> +static void sgpio_unmask_irq(struct irq_data *d);
+> +static void sgpio_irq_shutdown(struct irq_data *d);
+> +
+> +static const struct irq_chip axiado_sgpio_irqchip = {
+> +	.name = "axiado-sgpio",
+> +	.irq_mask = sgpio_mask_irq,
+> +	.irq_unmask = sgpio_unmask_irq,
+> +	.irq_set_type = sgpio_set_irq_type,
+> +	.irq_shutdown = sgpio_irq_shutdown,
+> +	.flags = IRQCHIP_IMMUTABLE | IRQCHIP_MASK_ON_SUSPEND,
+> +};
+> +
+> +static void ax3000_sgpio_set(struct gpio_chip *chip, unsigned int offset,
+> +			     int value)
+> +{
+> +	struct ax3000_sgpio *sgpio = gpiochip_get_data(chip);
+> +	unsigned long flags;
+> +	u32 bank = (offset / 2) / 32;
+> +	u32 position = (offset / 2) % 32;
+> +
+> +	spin_lock_irqsave(&sgpio->lock, flags);
+
+Please use guards for locks.
+
+> +	if (value)
+> +		sgpio->slices[2].reg_ss[bank] |= BIT(position);
+> +	else
+> +		sgpio->slices[2].reg_ss[bank] &= ~BIT(position);
+> +
+> +	spin_unlock_irqrestore(&sgpio->lock, flags);
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->dout_ss +
+> +			     (bank * 4),
+> +		     sgpio->slices[2].reg_ss[bank]);
+> +}
+> +
+> +static int ax3000_sgpio_get(struct gpio_chip *chip, unsigned int offset)
+> +{
+> +	struct ax3000_sgpio *sgpio = gpiochip_get_data(chip);
+> +	u32 bank = (offset / 2) / 32;
+> +	u32 position = (offset / 2) % 32;
+> +
+> +	if (offset % 2 == 0)
+> +		return !!(sgpio->slices[3].reg_ss[bank] & BIT(position));
+> +	else
+> +		return !!(sgpio->slices[2].reg_ss[bank] & BIT(position));
+> +}
+> +
+> +static int ax3000_sgpio_dir_in(struct gpio_chip *chip, unsigned int offset)
+> +{
+> +	if (!(offset % 2))
+> +		return 0;
+> +	else
+> +		return -EINVAL;
+> +}
+> +
+> +static int ax3000_sgpio_dir_out(struct gpio_chip *chip, unsigned int offset,
+> +				int value)
+> +{
+> +	if (offset % 2) {
+> +		if (chip->set)
+> +			chip->set(chip, offset, value);
+> +		return 0;
+> +	} else {
+> +		return -EINVAL;
+> +	}
+> +}
+> +
+> +static irqreturn_t sgpio_irq_handler(int irq, void *arg)
+> +{
+> +	struct ax3000_sgpio *sgpio = (struct ax3000_sgpio *)arg;
+> +	unsigned long flags;
+> +	u32 status, new_value;
+> +	u32 changed_value;
+> +	int i, bit, reg_ptr;
+> +
+> +	/* Read-on-clear (ACK) parent cause */
+> +	regmap_read(sgpio->regmap,
+> +		    sgpio->regmap_base_offset + sgpio->regs->status, &status);
+> +	status >>= 16;
+> +
+> +	bool has_shifted_layout = (sgpio->max_offset_regs == MAX_OFFSET_REG);
+> +
+> +	reg_ptr = has_shifted_layout ? 16 - DIV_ROUND_UP(sgpio->ngpios, 32) : 0;
+> +
+> +	for (i = 0; i < DIV_ROUND_UP(sgpio->ngpios, 32); i++, reg_ptr++) {
+> +		if (status & BIT(reg_ptr)) {
+> +			regmap_read(sgpio->regmap,
+> +				    sgpio->regmap_base_offset +
+> +					    sgpio->regs->din_ss + (reg_ptr * 4),
+> +				    &new_value);
+> +			spin_lock_irqsave(&sgpio->lock, flags);
+> +			changed_value = sgpio->slices[3].reg_ss[i] ^ new_value;
+> +			sgpio->slices[3].reg_ss[i] = new_value;
+> +			spin_unlock_irqrestore(&sgpio->lock, flags);
+> +
+> +			while (changed_value) {
+> +				bit = __ffs(changed_value);
+> +				changed_value &= ~BIT(bit);
+> +
+> +				irq_hw_number_t hwirq = i * 32 + bit;
+> +
+> +				if (sgpio->irq_unmasked[hwirq]) {
+> +					unsigned int child_irq;
+> +
+> +					child_irq = irq_find_mapping(sgpio->chip.irq.domain,
+> +								     hwirq);
+> +
+> +					if (child_irq)
+> +						handle_nested_irq(child_irq);
+> +				}
+> +			}
+> +		}
+> +	}
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static void sgpio_hw_init(struct ax3000_sgpio *sgpio)
+> +{
+> +	u32 bank;
+> +	u32 position;
+> +	int i = 0;
+> +	bool has_shifted_layout = (sgpio->max_offset_regs == MAX_OFFSET_REG);
+> +
+> +	/* slice A0, Clock Pin - 0 */
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->mux_0, 0x306);
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->preset_0,
+> +		     sgpio->preset_value);
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->count_0,
+> +		     sgpio->count_value);
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->pos_0, 0x1f001f);
+> +
+> +	/* Slice B1, Data Load Pin - 1 */
+> +	bank = (sgpio->ngpios - 1) / 32;
+> +	position = (sgpio->ngpios - 1) % 32;
+> +
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->mux_1,
+> +		     has_shifted_layout ? 0x30c : 0x304);
+> +
+> +	for (i = 0; i < bank; i++) {
+> +		regmap_write(sgpio->regmap,
+> +			     sgpio->regmap_base_offset + sgpio->regs->ld +
+> +				     (i * 4),
+> +			     0xffffffff);
+> +		regmap_write(sgpio->regmap,
+> +			     sgpio->regmap_base_offset + sgpio->regs->ld_ss +
+> +				     (i * 4),
+> +			     0xffffffff);
+> +	}
+> +
+> +	if (position) {
+> +		u32 val;
+> +
+> +		val = sgpio->slices[1].reg_ss[i];
+> +		val |= GENMASK(position - 1, 0);
+> +
+> +		regmap_write(sgpio->regmap,
+> +			     sgpio->regmap_base_offset + sgpio->regs->ld +
+> +				     (i * 4),
+> +			     val);
+> +		regmap_write(sgpio->regmap,
+> +			     sgpio->regmap_base_offset + sgpio->regs->ld_ss +
+> +				     (i * 4),
+> +			     val);
+> +	}
+> +
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->preset_1,
+> +		     sgpio->preset_value);
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->count_1,
+> +		     sgpio->count_value);
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->pos_1,
+> +		     sgpio->pos_reg);
+> +
+> +	/* Slice C2, Data Out Pin - 2 */
+> +	bank = sgpio->ngpios / 32;
+> +	position = sgpio->ngpios % 32;
+> +
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->mux_2,
+> +		     has_shifted_layout ? 0x30c : 0x304);
+> +
+> +	for (i = 0; i < bank; i++) {
+> +		regmap_write(sgpio->regmap,
+> +			     sgpio->regmap_base_offset + sgpio->regs->dout +
+> +				     (i * 4),
+> +			     sgpio->slices[2].reg_ss[i]);
+> +		regmap_write(sgpio->regmap,
+> +			     sgpio->regmap_base_offset + sgpio->regs->dout_ss +
+> +				     (i * 4),
+> +			     sgpio->slices[2].reg_ss[i]);
+> +	}
+> +
+> +	if (position) {
+> +		regmap_write(sgpio->regmap,
+> +			     sgpio->regmap_base_offset + sgpio->regs->dout +
+> +				     (i * 4),
+> +			     sgpio->slices[2].reg_ss[i]);
+> +		regmap_write(sgpio->regmap,
+> +			     sgpio->regmap_base_offset + sgpio->regs->dout_ss +
+> +				     (i * 4),
+> +			     sgpio->slices[2].reg_ss[i]);
+> +	}
+> +
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->preset_2,
+> +		     sgpio->preset_value);
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->count_2,
+> +		     sgpio->count_value);
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->pos_2,
+> +		     sgpio->pos_reg);
+> +
+> +	/* Slice D3, Data In Pin - 3 */
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->mux_3, 0x14C);
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->preset_3,
+> +		     sgpio->preset_value);
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->count_3,
+> +		     sgpio->count_value);
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->pos_3,
+> +		     sgpio->pos_reg);
+> +
+> +	/* Slice E4, Output Enable for respective pins */
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->mux_4,
+> +		     has_shifted_layout ? 0x10c : 0x104);
+> +	regmap_write(sgpio->regmap, sgpio->regmap_base_offset + sgpio->regs->oe,
+> +		     0xffffffff);
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->oe_ss,
+> +		     0xffffffff);
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->preset_4,
+> +		     sgpio->preset_value);
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->count_4,
+> +		     sgpio->count_value);
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->pos_4, 0x1f001f);
+> +
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->mask, 0xdfff);
+> +
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->ctrl_en, 0xffff);
+> +	regmap_write(sgpio->regmap,
+> +		     sgpio->regmap_base_offset + sgpio->regs->ctrl_en_pos,
+> +		     0xffff);
+> +}
+> +
+> +static int sgpio_set_irq_type(struct irq_data *d, unsigned int type)
+> +{
+> +	switch (type) {
+> +	case IRQ_TYPE_EDGE_BOTH:
+> +	case IRQ_TYPE_EDGE_RISING:
+> +	case IRQ_TYPE_EDGE_FALLING:
+> +		irq_set_handler_locked(d, handle_edge_irq);
+> +		break;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void sgpio_mask_irq(struct irq_data *d)
+> +{
+> +	struct gpio_chip *chip;
+> +	struct ax3000_sgpio *sgpio;
+> +	u32 irq_num;
+> +
+> +	chip = irq_data_get_irq_chip_data(d);
+> +	if (!chip) {
+> +		pr_err("Unable to get gpio_chip for IRQ\n");
+> +		return;
+> +	}
+> +
+> +	sgpio = gpiochip_get_data(chip);
+> +	if (!sgpio) {
+> +		pr_err("Unable to get chip data\n");
+> +		return;
+> +	}
+> +
+> +	irq_num = irqd_to_hwirq(d);
+> +	sgpio->irq_unmasked[irq_num / 2] = 0;
+> +}
+> +
+> +static void sgpio_unmask_irq(struct irq_data *d)
+> +{
+> +	struct gpio_chip *chip;
+> +	struct ax3000_sgpio *sgpio;
+> +	u32 irq_num;
+> +
+> +	chip = irq_data_get_irq_chip_data(d);
+> +	if (!chip) {
+> +		pr_err("Unable to get gpio_chip for IRQ\n");
+> +		return;
+> +	}
+> +
+> +	sgpio = gpiochip_get_data(chip);
+> +	if (!sgpio) {
+> +		pr_err("Unable to get chip data\n");
+> +		return;
+> +	}
+> +
+> +	irq_num = irqd_to_hwirq(d);
+> +	sgpio->irq_unmasked[irq_num / 2] = 1;
+> +}
+> +
+> +static void sgpio_irq_shutdown(struct irq_data *d)
+> +{
+> +	sgpio_mask_irq(d);
+> +}
+> +
+> +static int sgpio_probe(struct platform_device *pdev)
+> +{
+> +	int rc;
+> +	int irq;
+> +	int i;
+> +	const __be32 *prop;
+> +	struct gpio_irq_chip *girq;
+> +	struct ax3000_sgpio *sgpio;
+> +	u32 variant;
+> +	u32 dout_value;
+> +	u32 bus_frequency;
+> +	u32 apb_frequency;
+> +	int dout_reverse;
+> +
+> +	void __iomem *base;
+> +
+> +	const struct regmap_config regmap_config = {
+> +		.reg_bits = 32,
+> +		.val_bits = 32,
+> +		.reg_stride = 4,
+> +	};
+> +
+> +	sgpio = devm_kzalloc(&pdev->dev, sizeof(*sgpio), GFP_KERNEL);
+> +	if (!sgpio)
+> +		return -ENOMEM;
+> +
+> +	spin_lock_init(&sgpio->lock);
+> +
+> +	sgpio->regmap = dev_get_regmap(pdev->dev.parent, NULL);
+> +
+> +	if (sgpio->regmap) {
+> +		rc = of_property_read_u32(pdev->dev.of_node, "reg",
+> +					  &sgpio->regmap_base_offset);
+
+Why are you mixing of_property_*() with device_property_*()?
+
+> +		if (rc) {
+> +			dev_err(&pdev->dev, "Failed to read reg property: %d\n",
+> +				rc);
+> +			return rc;
+> +		}
+> +		dev_info(&pdev->dev, "Using regmap with base offset: 0x%x\n",
+> +			 sgpio->regmap_base_offset);
+> +	} else {
+> +		base = devm_platform_ioremap_resource(pdev, 0);
+> +		if (IS_ERR(base))
+> +			return PTR_ERR(base);
+> +
+> +		sgpio->regmap =
+> +			devm_regmap_init_mmio(&pdev->dev, base, &regmap_config);
+> +
+> +		if (IS_ERR(sgpio->regmap))
+> +			return PTR_ERR(sgpio->regmap);
+> +
+> +		sgpio->regmap_base_offset = 0;
+> +
+> +		dev_info(&pdev->dev, "Using MMIO regmap\n");
+> +	}
+> +
+> +	rc = device_property_read_u32(&pdev->dev, "ngpios", &sgpio->ngpios);
+> +	if (rc < 0) {
+> +		dev_err(&pdev->dev, "Could not read ngpios property\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (device_property_read_u32(&pdev->dev, "design-variant", &variant)) {
+> +		dev_err(&pdev->dev, "design-variant not specified in DT\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (variant == 128) {
+> +		sgpio->regs = &sgpio_offsets_128;
+> +		sgpio->max_sgpio_pins = 128;
+> +		sgpio->max_offset_regs = 4;
+> +	} else if (variant == 512) {
+> +		sgpio->regs = &sgpio_offsets_512;
+> +		sgpio->max_sgpio_pins = 512;
+> +		sgpio->max_offset_regs = 16;
+> +	} else {
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (sgpio->ngpios > sgpio->max_sgpio_pins) {
+> +		dev_err(&pdev->dev, "ngpio is greater than 512 pins\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	rc = device_property_read_u32(&pdev->dev, "bus-frequency",
+> +				      &bus_frequency);
+> +	if (rc < 0) {
+> +		dev_err(&pdev->dev, "Could not read bus-frequency property\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	rc = device_property_read_u32(&pdev->dev, "apb-frequency",
+> +				      &apb_frequency);
+> +	if (rc < 0) {
+> +		dev_err(&pdev->dev, "Could not read apb-frequency property\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	sgpio->preset_value = (apb_frequency / bus_frequency) - 1;
+> +	sgpio->count_value = sgpio->preset_value;
+> +
+> +	u32 pos;
+> +
+> +	pos = sgpio->ngpios - 1;
+> +	sgpio->pos_reg = (pos << 16) | pos;
+> +
+> +	prop = of_get_property(pdev->dev.of_node, "dout-init", NULL);
+> +	if (!prop) {
+> +		dev_err(&pdev->dev, "Failed to get dout-init\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	for (i = 0; i < sgpio->max_offset_regs; i++) {
+> +		sgpio->slices[2].reg_ss[i] = 0;
+> +		dout_value = be32_to_cpu(prop[i]);
+> +
+> +		for (dout_reverse = 0; dout_reverse < 32; ++dout_reverse) {
+> +			sgpio->slices[2].reg_ss[i] <<= 1;
+> +			sgpio->slices[2].reg_ss[i] |= (dout_value & 1);
+> +			dout_value >>= 1;
+> +		}
+> +	}
+> +
+> +	sgpio_hw_init(sgpio);
+> +
+> +	irq = platform_get_irq(pdev, 0);
+> +
+
+Unnecessary newline.
+
+> +	if (irq < 0) {
+> +		dev_err(&pdev->dev, "Failed to get parent IRQ: %d\n", irq);
+> +		return irq;
+> +	}
+> +	/* Store parent IRQ for cleanup */
+> +	sgpio->parent_irq = irq;
+> +
+> +	rc = devm_request_threaded_irq(&pdev->dev, irq, NULL, sgpio_irq_handler,
+> +				       IRQF_ONESHOT, "axiado-sgpio", sgpio);
+> +
+> +	if (rc < 0) {
+> +		dev_err(&pdev->dev, "Failed to request threaded IRQ %d: %d\n",
+> +			irq, rc);
+> +		return rc;
+> +	}
+> +
+> +	sgpio->chip.parent = &pdev->dev;
+> +	sgpio->chip.ngpio = sgpio->ngpios * 2;
+> +	sgpio->chip.owner = THIS_MODULE;
+> +	sgpio->chip.direction_input = ax3000_sgpio_dir_in;
+> +	sgpio->chip.direction_output = ax3000_sgpio_dir_out;
+> +	sgpio->chip.get = ax3000_sgpio_get;
+> +	sgpio->chip.set = ax3000_sgpio_set;
+> +	sgpio->chip.label = dev_name(&pdev->dev);
+> +	sgpio->chip.base = -1;
+> +
+> +	girq = &sgpio->chip.irq;
+> +
+> +	girq->chip = &axiado_sgpio_irqchip;
+> +	girq->handler = handle_edge_irq;
+> +	girq->default_type = IRQ_TYPE_NONE;
+> +	girq->num_parents = 1;
+> +	girq->parents =
+> +		devm_kcalloc(&pdev->dev, 1, sizeof(*girq->parents), GFP_KERNEL);
+> +	if (!girq->parents) {
+> +		dev_err(&pdev->dev, "Failed to allocate parents array\n");
+
+Drop this message, returning -ENOMEM is enough.
+
+> +		return -ENOMEM;
+> +	}
+> +	girq->parents[0] = irq;
+> +
+> +	rc = devm_gpiochip_add_data(&pdev->dev, &sgpio->chip, sgpio);
+> +	if (rc < 0) {
+> +		dev_err(&pdev->dev, "Could not register gpiochip, %d\n", rc);
+> +		return rc;
+
+Use return dev_err_probe() here and elsewhere.
+
+> +	}
+> +
+> +	/* Store driver data for remove() */
+> +	platform_set_drvdata(pdev, sgpio);
+> +	dev_info(&pdev->dev, "SGPIO registered with %d GPIOs\n",
+> +		 sgpio->chip.ngpio);
+
+No need for this info message, please drop it.
+
+> +
+> +	return 0;
+> +}
+> +
+> +static int sgpio_remove(struct platform_device *pdev)
+> +{
+> +	struct ax3000_sgpio *sgpio = platform_get_drvdata(pdev);
+> +	int i;
+> +
+> +	if (!sgpio)
+> +		return 0;
+> +
+> +	/* Disable interrupts in hardware */
+> +	if (sgpio->regs) {
+> +		regmap_write(sgpio->regmap,
+> +			     sgpio->regmap_base_offset + sgpio->regs->mask,
+> +			     0x0);
+> +		regmap_write(sgpio->regmap,
+> +			     sgpio->regmap_base_offset + sgpio->regs->ctrl_en,
+> +			     0x0);
+> +	}
+> +
+> +	/* Disable and synchronize parent IRQ to avoid races with handlers */
+> +	if (sgpio->parent_irq >= 0) {
+> +		disable_irq(sgpio->parent_irq);
+> +		synchronize_irq(sgpio->parent_irq);
+> +	}
+> +
+> +	/* Ensure all GPIO IRQ handlers complete before removal */
+> +	if (sgpio->chip.irq.domain) {
+> +		struct irq_domain *domain = sgpio->chip.irq.domain;
+> +		unsigned int irq;
+> +		int hwirq;
+> +
+> +		for (hwirq = 0; hwirq < sgpio->chip.ngpio; hwirq++) {
+> +			irq = irq_find_mapping(domain, hwirq);
+> +			if (irq) {
+> +				disable_irq(irq);
+> +				synchronize_irq(irq);
+> +			}
+> +		}
+> +	}
+> +
+> +	/* Clear internal IRQ state */
+> +	for (i = 0; i < sgpio->max_sgpio_pins; i++)
+> +		sgpio->irq_unmasked[i] = 0;
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct of_device_id ax_sgpio_match[] = {
+> +	{ .compatible = "axiado,sgpio" },
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(of, ax_sgpio_match);
+> +
+> +static struct platform_driver sgpio_driver = {
+> +	.driver = {
+> +		.name = "sgpio",
+> +		.owner = THIS_MODULE,
+> +		.of_match_table = ax_sgpio_match,
+> +	},
+> +	.probe = sgpio_probe,
+> +	.remove = sgpio_remove,
+> +};
+> +
+> +static int __init ax_sgpio_init(void)
+> +{
+> +	int ret;
+> +
+> +	ret = platform_driver_register(&sgpio_driver);
+> +	if (ret < 0) {
+> +		pr_err("Failed to register SGPIO driver\n");
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void __exit ax_sgpio_exit(void)
+> +{
+> +	platform_driver_unregister(&sgpio_driver);
+> +}
+> +
+> +module_init(ax_sgpio_init);
+> +module_exit(ax_sgpio_exit);
+
+Just use module_platform_driver().
+
+> +
+> +MODULE_DESCRIPTION("Axiado Serial GPIO Driver");
+> +MODULE_AUTHOR("Axiado Corporation");
+> +MODULE_LICENSE("GPL");
+>
+> --
+> 2.34.1
+>
+>
+
+Bart
 
