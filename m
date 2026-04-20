@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A2D6F588EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 16:13:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B5B8F588EE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 16:14:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qpZ7ncDNJr9ziiS+LAieulgSFEo8xxAIbpPMQA4F9mU=; b=n9Y2m2nW3dNpo71CtG9Rp4FpRQ
-	OVUw6tkeME3jHd8Tk44Gx9q951xw8nsiuDX9CwT/gD2VqXMvCKHAO/NsTXGV3XKb6hKSZ6nFZfg6T
-	7PHwLfi3HyxYA1YaCrPLZDJVb+qApPBKSYbNmorVwT3v+xeU1pnSdvCAKQHALol77U6g0BffR61Re
-	3y85q3ikAPd63yjvNuZuT5FZK+zuWyjEsBqgYxWkAo62xuCOFeUwmVEA7WgKUA0kCaJFeqjPQxmI4
-	FsQSUzk6Fu95JTy27+RoVcyMVZi3nGgp2+7wxnCqsPwWs6Wi6P8ax8NvGuYK/2kDIyI4xGRyPO6vO
-	ZiRB8rYA==;
+	bh=5wfl9+P9EJ6L0BbEH5DhT3kSeK2UsySO5+x/zJBvc+o=; b=yk5Cpop59PovFf4FAl0TysVlgW
+	DtH301S02zkhw9qzKa4kEJDjrYissP57kxAs3tGXBShjhhcOd05SGP8jJdEZdGaW8DRCsw4ZfGo7j
+	MAB01kbdegKeqmacxQFOxtGpIWdpT4V95H3QSvHcsuty+ZsDU9zKyrP8fd6zBXuorBfYbxXoqbNbL
+	nlt9NzS3ugn4GYH5KHPVJyQlu5a8WB6LnWEkEVwnineIQ/Q+Ygd+61OcSWnyZ8D/WCxnDzmNaCWHp
+	epFiRG2pUgng3HuZysHyMqxGbR1xEP6EaWQg8MuR/8OP5FsOrBtSHxmjrJ/YvwnVeUd4xIMiBQuJ8
+	dRtM7vBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wErFo-00000007PDm-2yHh;
-	Mon, 20 Apr 2026 16:13:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wErGJ-00000007PIS-0GOd;
+	Mon, 20 Apr 2026 16:14:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wErFl-00000007PDP-3snp
+	id 1wErGI-00000007PI9-1YZ1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 16:13:42 +0000
+	Mon, 20 Apr 2026 16:14:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2C76E402DB;
-	Mon, 20 Apr 2026 16:13:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D94BC19425;
-	Mon, 20 Apr 2026 16:13:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 61FB860018;
+	Mon, 20 Apr 2026 16:14:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D788C19425;
+	Mon, 20 Apr 2026 16:14:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776701621;
-	bh=qpZ7ncDNJr9ziiS+LAieulgSFEo8xxAIbpPMQA4F9mU=;
+	s=k20201202; t=1776701653;
+	bh=5wfl9+P9EJ6L0BbEH5DhT3kSeK2UsySO5+x/zJBvc+o=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GCyZafo9Fh/dEQP8jQ4T8sWyAUyJHulyQiSm09OXDMB/R4IbmiYf6xsJvHLRdqwo1
-	 0jfy6MwgMWpQVX01lpDvwflFlluEV1a2RTdTLbUaCefLKt7HNClZyW8M/vx5y8TQdn
-	 +UMQu6xbNY4JPECRT/P/iqcSdZNYYlObDQ5wYl9MTcBlQqQ4HRZn9NUYdjQzZuMRXh
-	 TbGzQLN6MiE+5kTHeCPWNMnq7cOK4qR4tGUTV6wkuP6VU6smyd5dmJjO1N5Kw3qIww
-	 mlJjrsBan6puI5myoUQ05311quXsvxO9AQTXdMSbKqVVmqbjpM1pptOBNtJTVNMh7c
-	 kwUjFcKP5wk+w==
-Date: Mon, 20 Apr 2026 17:13:34 +0100
+	b=swOkxva2RIo1eoZaDhBcbzpgkwLo3Y6w3y+3BEAuNP/G/4cYN3sjthlv7M0JiSDPq
+	 3f51l9c9/2HNi0g+tHzmD7M50v9ac36kLpPMMTPQ3eG9O3+sjDuI/ZGnSPEehso8Pi
+	 bWSzUgzd5XZHfRL6A3LMfoU8qpyDke7K/buk6ddVJ2jAU5iyP9fntLEofv9sCLFYsp
+	 BFz6hln7W9811aSPPtN/cHMG12Ud9pMxeCJ5Zc0/f1Tjxki8ODw43nqyql0Hu/pr+D
+	 iXYebW52hocm1enFmsN7eIYciYBxudO4kZQm8DaFObB4crqxWVdO5pW1XiCLNiYQyh
+	 8UUxsn560/9Fw==
+Date: Mon, 20 Apr 2026 17:14:06 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Marek Vasut <marek.vasut+renesas@mailbox.org>
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -63,19 +63,16 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
 	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH 3/7] dt-bindings: clock: cs2000-cp: document CS2500
-Message-ID: <20260420-silk-reshuffle-5cebd4e9b3eb@spud>
+Subject: Re: [PATCH 4/7] dt-bindings: soc: renesas: Document Renesas R-Car
+ R8A779MD Geist
+Message-ID: <20260420-bronze-umpire-e09056798343@spud>
 References: <20260419193718.133174-1-marek.vasut+renesas@mailbox.org>
- <20260419193718.133174-4-marek.vasut+renesas@mailbox.org>
+ <20260419193718.133174-5-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="pUBdod/Tj2QGPXtO"
+	protocol="application/pgp-signature"; boundary="buxOxV0Fkdmogddv"
 Content-Disposition: inline
-In-Reply-To: <20260419193718.133174-4-marek.vasut+renesas@mailbox.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_091341_985070_9C71ACCE 
-X-CRM114-Status: UNSURE (   9.21  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260419193718.133174-5-marek.vasut+renesas@mailbox.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,30 +88,33 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---pUBdod/Tj2QGPXtO
+--buxOxV0Fkdmogddv
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Sun, Apr 19, 2026 at 09:35:34PM +0200, Marek Vasut wrote:
-> Document backward compatibility support for CS2500 chip, which
-> is a drop-in replacement for CS2000 chip.
+On Sun, Apr 19, 2026 at 09:35:35PM +0200, Marek Vasut wrote:
+> Document the compatible value for the Renesas R-Car M3Le (R8A779MD)
+> SoC and the Renesas Geist development board. The Renesas M3Le SoC is
+> a register-compatible variant of the R8A77965 (M3-N) with reduced set
+> of peripherals. The Geist board is derived from Renesas Salvator-X/XS
+> boards, with adjustment for the R8A779MD SoC.
 >=20
 > Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 pw-bot: not-applicable
 
---pUBdod/Tj2QGPXtO
+--buxOxV0Fkdmogddv
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaeZQrgAKCRB4tDGHoIJi
-0pjsAQCA49Pk0dsLboQWtCSvqUAqlzI1AA+W9v49L7Jrjx+s9wD+PH5THnhWjMV3
-tKapKVmvGgUb9hPLap9b+GLi4MSdzQs=
-=SY59
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaeZQzgAKCRB4tDGHoIJi
+0rHoAPwLbvnyrdiC+rmymK7fgljBrq9sHh6mZ0MGsGQxDoTIBgEAy9mnn4y7PJQJ
+qPi87tC0puxDtHTscafpE95WrhTf6gM=
+=6Nad
 -----END PGP SIGNATURE-----
 
---pUBdod/Tj2QGPXtO--
+--buxOxV0Fkdmogddv--
 
