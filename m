@@ -4,88 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE6F8F5A8C7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 21:39:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEAB3F5A8C7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 21:39:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yKbbLjMj5a+s95ZY4aMoYwg6sSM5rUeqb55KfE7XVeI=; b=WW+CGsqGFL6B0t7ZQwx8lH+96K
-	jov1e8g4W+cCuX9aTNaqoH9G20xFJiHfNum8BiBk7IoqLJXqTf1rgJHgWe1we1jHXY0EToURsm48t
-	S6u0K1VBWZOD6gk1hrLh+1opScXGybUtlCfieFO8w6ygWO/ND+Cx33HZk62QIHCAU6MDWjlBI1r7Z
-	05nk8RBsRhdCdM1eY/VnAB+QIqFe/cC2mmHHwK1DAI2l/35Jo0FOy9vQ6xAZp5I4mS98AjOMKdCuO
-	FOxQ/8Pt6byHzhSEqg6lvk1z7YHIdrmX+COirUety33+Tj1VKlfj20AuJHuPn3laH6y8pFvW84qAK
-	vrgadr6g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RzvCFyjr8bx4d2LvTNFN/pQ0QZHT1mGXGPc+CarTw40=; b=m0icWMvR/i/AMtiYwdWn5fKlyY
+	xx/g8XUd3+HxLTizI5//GD4J5IuKFA744hXK5qweeGyR5f2HRw2t5y1qjJBKSrjcQgYhtT9vpXa6m
+	HefWkiMDDFGzIV30Hlm53PRq2mTKULxQBh2H7urhKHXGY5Vj2kp7CDvfJPfGdtQUqOyp67PwPaJuu
+	why550J1PS1j/+UbWH28IC9zQyDK6EHf5qA10FFoCnAO2uO9ud8pTindIcwlhGlqLLD5CTc38Wt/O
+	UFwmYyv+G448ecp9lP4XCbKd0V3MBheZImpETsjQ0Wes2J9IoGD35TMawr5QspYkSJn8LBFvBceMI
+	LNKpZYnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEwKb-00000007kNM-0AMI;
-	Mon, 20 Apr 2026 21:39:01 +0000
+	id 1wEwKe-00000007kPK-1o1X;
+	Mon, 20 Apr 2026 21:39:04 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEwKa-00000007kMM-0HmS
+	id 1wEwKc-00000007kNr-0cBz
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 20 Apr 2026 21:39:00 +0000
+	Mon, 20 Apr 2026 21:39:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=yKbbLjMj5a+s95ZY4aMoYwg6sSM5rUeqb55KfE7XVeI=; b=Uemb7CuxD+twPE7oHGIDrWyQO4
-	Jxna53TRMFYQ2zqQ2vuw1wIewJzPssQc990RZFYpsVhmFp7EHa5zujHfdTnDvr3SWc3W6qtb9474g
-	MTEyY9JpcdP96Yqn5aRiDYjc5xITB9iTx8xXjMwt5UE64zj9KivyIGXK9NAHAgdyTFLwM60jkF24Q
-	PEEAMPxFqo/GgEzl/9CB+X8ofjhL8+Tv4OaYnIxdXxA36Vx0Y5Vzy/xFawb2dtcJnB3N+g3HewPOO
-	mYACuwlPhw4oTRTAeGiBghJTUmJtIhyoYfEWAhZvxAkBdWC91D6KKn9rwhjTKCXqePvE03xGk9QvL
-	qpMduS9g==;
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=RzvCFyjr8bx4d2LvTNFN/pQ0QZHT1mGXGPc+CarTw40=; b=bDcm2vC2z0+Aey9NxaUtweBUKZ
+	MdR+FywaOlK0TgY8yQoTcLIVlXCblf4ZcFG6Qw7W1G8YJaCaz9rujo778Pv9m1lQE1tmV3V2G2696
+	Na7qHc/srlUYq30QgmKJumsXU/aLq41TcK+73E8YF3ne3ppJLAe/8I+kKUWcgNDrW7bO22qwoureT
+	UonmHCSTEBqU/xOjUD4glus9Eamtr6Gozz4baSG8GFL02dZ9fXdmlpon/1jrMQqXIiFmDYexJnGHz
+	VnSHPdx0lguZ2ME5n9h1Fmyagaj+/DH/+W/X7WDDc+d++P+K2dhnbiA6Hbo/IRoaxB0ex8WgoY4N4
+	/OxKxAfw==;
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEwHq-00000008rXz-03td
+	id 1wEwKM-00000008rig-19Pn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 21:38:48 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-488a14c31eeso27243875e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 14:36:08 -0700 (PDT)
+	Mon, 20 Apr 2026 21:39:00 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-43fe3e22e33so2379242f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 14:38:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776720967; x=1777325767; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=yKbbLjMj5a+s95ZY4aMoYwg6sSM5rUeqb55KfE7XVeI=;
-        b=I5Bc0Andt8B5yb8aCa8ojXuhq9KgL4PwoxokkL+x5lfLilBhd7mdaxS+5OGMOpvvjh
-         b0KpmkPSW9QbLPHcBKR/x4rdR90ecMwfri97SI5kbjV6aaFzUqzJ+7wi6/VaXATeqnhQ
-         r3bUBcdIw2jUyU9PHbzNk0HXbdFe08RK5CMhwORQMWXLZyEyPM8Ax1enGmWt5CIyDNHT
-         6C4uphXSVfUKlXOZNVzoLcNhkWv1zFFOk3hs7PkTdvwo34WlHzgkVB72liIUyqw1o7BG
-         6b2WVxH/RuhkxFcfAUB8ObhYUuIeEK75ZYHolLCa2JH5m+wcfOS7pClxJ/CwXay7lQlI
-         z7gA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776720967; x=1777325767;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1776721124; x=1777325924; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=yKbbLjMj5a+s95ZY4aMoYwg6sSM5rUeqb55KfE7XVeI=;
-        b=RLr4qMIqkFaOxnMZiJreTh7pp2vzaOr/KVALwnaRl50l/pZf937c/4SPeUyMQPSUq0
-         DstOolssd49J4nIAhvBgc7UZhj9qD0veFTLNnbbppExWqNbzxA3POzRjkompT2t+od7A
-         hIABjoZty1ImrzuvUeekMrv8qQA8a9e24fBipc1tPXyghJXlUPBTi5Z7qs05TP/XWShM
-         Xq/mWuRzJYju7VuPXvPPJ/JC5WpkWJlyKkJh5gOLH+rMuXSK/OOCEfVggfhW22I7p0mn
-         dBPZM5b35OhG0uIqGjwBajQ3Kkn7yFhWZwbSUeIvr9I1k04iRpT/WVCDga1VUdBdYgnM
-         NQ3g==
-X-Forwarded-Encrypted: i=1; AFNElJ+GAOPe7AUUk1bSF2CLnoK8douFmwkMv7lufSS3H1L0ekrm64OMf3hW9d7H+NPREsa/cPKULd4sQ7RI0OfKrDyU@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBJV0f85whM720kjhkbPZc+l/lY4aZudb2gX9QGcn1WfHapg1e
-	Wx4qeMI8t17rih9IEOM/pH/rVKPZW3ghk60w5KmDaLZzKmCwVbJIWSqu
-X-Gm-Gg: AeBDievZ9xyNONdW93MNIM+Cx8RwDgtzy5qTE2aPiQDnb+0Sd9rDCvvN0S1BEIhrwxx
-	OVqcGepcaBJdOUtzdZn03D1pRc4iyFsjPBe4blYzRJhtpc325Y1uYfCyhFqdZD0jAet52UBKGcq
-	mxqYf5co8+LSbFvzTM0/5YqOuzpWfNtMncr/dE2g/OREL1SW6IQrtSi4Xx5LiRPEm2jZgPDV2Ll
-	Xbk2yfOz0vaygvvzq5V9lJJND8HGsalEhT/Q03YLzFdrKBhbzWprRWXt/pKBrnOyy1uwUB8ctXE
-	jnwydoWQ01sP6h/yUB85bozEXL7WVHbhrf+MtWvmBsdD8/S320adXRQ0F72OuGQ1U8yXLwM6Rg1
-	2rUbV2AA0vckxK7xrz4ptDP+jvUZeQzTR6hceEo+BHPEVekVXlOr02UEg4b/JaTHzQefiREUSKY
-	lNpBLvF8Kbe47k+K4sCYkfW8Y95yGSmw==
-X-Received: by 2002:a05:600c:34c3:b0:485:41c4:e2e4 with SMTP id 5b1f17b1804b1-488fb792dd0mr216654415e9.23.1776720966527;
-        Mon, 20 Apr 2026 14:36:06 -0700 (PDT)
+        bh=RzvCFyjr8bx4d2LvTNFN/pQ0QZHT1mGXGPc+CarTw40=;
+        b=ZDJ1F92dydHpDVNtO0OEr13F/gxMWlzNWGx54KjqWqDZ+mYyJ8VRszjaARaetiwB1w
+         3MzufJkrE9y7ljYT51m3KlgTaH4+NOWNmSGBcdn2gz9fkclwyCoEP1WDQqe1YfOzdK+E
+         zb76SAUQFxlKL+aGAdJLw5RwQCKCLMIyUDnUhDIjmfT8xqybHTCJFFlyi3Oi60m52ZJt
+         Lq6eo9UKjmq+gkXJmTUQmJXys+N/vOcB0sJZ08zT7drbyWIVje7ChCdA50CznoGdCroX
+         smy4u0Dgi9LMhB7ssCE0JMNTiMFcE+g3/iygWRiOKpGbZbTHUyA4pD36UZRyP57Rxuoa
+         S8rw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776721124; x=1777325924;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=RzvCFyjr8bx4d2LvTNFN/pQ0QZHT1mGXGPc+CarTw40=;
+        b=q2Ic1PLll5bZLOQwDFOuI0zdaz2+kQMMwDitCbtzrVoJGnkh/bGJ4dS8XqNXCwKeQy
+         BnGCtLkBSR4WO3M+HUTzwDTiBec1TwndtvQGMAbpIZpobafJbbPBr9g/o5Zr0iPn5RKK
+         Gbu/W40ytsjzyVBbGD9xGAYBiyj0DZDBHWuldRzEkj8Alz2Bq4R/q+jw/xNi0P4gK/Sm
+         qxfZ9cSUx7a8eVlLMDnz5iPqKJE4m42BAsEW6rHxZS9BUxUP+VNUms77IKUXlfWc9ACi
+         PyB77Q9WWJded2JL2xv5gDhI3WJoJr0e4tpXUDFDl27d9PAQUQZk442v0qbXjkPgPRyx
+         Tw4w==
+X-Forwarded-Encrypted: i=1; AFNElJ+CQfFT/1FqhJuUtAvCC16q9vWQxyJ/yxvtCDslnLMyU4yD2RJ6m3vD2sC52og/NteIXHBf98O+av/BSHLCtxAN@lists.infradead.org
+X-Gm-Message-State: AOJu0YwactTl1btBqf3p2Dp9nQWP9d1IDvuvlxweV6QoaRps7YnCyz1q
+	1udfV77zPGeq0yZiIWktZatvMeCAwwrukOq2nFF2sU3OI5TG1nfnPk8l
+X-Gm-Gg: AeBDievYWd/cFYNa03rdtDPBHTQi31MHHTUCblkEMSlu6tx+HxrG/z6vvSgPE2MvUR1
+	Q3Jil29b3gOOmm3PJFtf12L06AB6HeEm/oHJkeH09RuedbsovpG3mRZMatah7u2cho2eIKMmrcE
+	VT5ZZ3FciBNqsjWxW9Um+7MWaT84Bz/F3FtJCwMQF7G1kKYYQycIsG6S0q22bLuMvdPnRLcRXoE
+	5ZOfa8RYkvojXmpaPwPVkPZcNNj2PmuLiJp1ry2o97yemQmQCHkP5X4q0NpJW7y0kYWkq830Bn+
+	wmNfGm/FpZLxN3Hs3uO57+8OtqJ7COZOVqWSN4YQiF5toQS5SQDkoz+aIdjLbZJi0FpTnF0htWB
+	KSSU5fn4c1w8hOE2cZLUU+h1sXUGTB+ZmJLPryRkAH6oBc39N8DsI3/7lHgPVn5BzGTCWLE1Kxn
+	qWTjl2poIPT7kwbD6fKPpbVYfM3CK6XQ==
+X-Received: by 2002:a05:600c:a414:b0:48a:53ea:13e6 with SMTP id 5b1f17b1804b1-48a53ea14d3mr22358675e9.25.1776721124372;
+        Mon, 20 Apr 2026 14:38:44 -0700 (PDT)
 Received: from luca-vm.lan ([154.61.61.58])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488fc140c82sm289500355e9.12.2026.04.20.14.36.05
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488fc140c82sm289500355e9.12.2026.04.20.14.38.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Apr 2026 14:36:06 -0700 (PDT)
+        Mon, 20 Apr 2026 14:38:44 -0700 (PDT)
 From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 To: linux-mediatek@lists.infradead.org
-Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+Cc: Val Packett <val@packett.cool>,
+	Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -95,12 +98,10 @@ Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
 	Macpaul Lin <macpaul.lin@mediatek.com>,
 	Lee Jones <lee@kernel.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	Linus Walleij <linusw@kernel.org>,
 	Liam Girdwood <lgirdwood@gmail.com>,
 	Mark Brown <broonie@kernel.org>,
 	Julien Massot <julien.massot@collabora.com>,
-	Val Packett <val@packett.cool>,
 	Gary Bisson <bisson.gary@gmail.com>,
 	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
 	Fabien Parent <parent.f@gmail.com>,
@@ -112,15 +113,17 @@ Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
 	linux-pm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-gpio@vger.kernel.org
-Subject: [PATCH v5 0/9] Add support for MT6392 PMIC
-Date: Mon, 20 Apr 2026 22:29:59 +0100
-Message-ID: <20260420213529.1645560-1-l.scorcia@gmail.com>
+Subject: [PATCH v5 6/9] input: keyboard: mtk-pmic-keys: Add MT6392 support
+Date: Mon, 20 Apr 2026 22:30:05 +0100
+Message-ID: <20260420213529.1645560-7-l.scorcia@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260420213529.1645560-1-l.scorcia@gmail.com>
+References: <20260420213529.1645560-1-l.scorcia@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_223726_180299_0F82DBB0 
-X-CRM114-Status: GOOD (  20.40  )
+X-CRM114-CacheID: sfid-20260420_223852_925248_CF2C65CE 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,107 +138,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MediaTek MT6392 PMIC is usually found on devices powered by
-the MT8516/MT8167 SoC and is yet another MT6323/MT6397 variant.
+From: Val Packett <val@packett.cool>
 
-This series is mostly based around patches submitted a couple
-years ago by Fabien Parent and not merged and from Val Packett's
-submission from Jan 2025 that included extra cleanups, fixes, and a
-new dtsi file similar to ones that exist for other PMICs. Some
-comments weren't addressed and the series was ultimately not merged.
+Add support for the MT6392 PMIC to the keys driver.
 
-This series only enables four functions: regulators, keys, pinctrl
-and RTC.
+Signed-off-by: Val Packett <val@packett.cool>
+Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Acked-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+---
+ drivers/input/keyboard/mtk-pmic-keys.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-I added a handful of device tree improvements to fix some dtbs_check
-errors, added support for the pinctrl device and addressed the comments
-from last year's reviews.
-
-The series has been tested on Xiaomi Mi Smart Clock X04G.
-
-Changes in v5:
-- Double checked regulator driver with data sheet and Android sources.
-  The data sheet I have misses a lot of register descriptions, but
-  Android sources have been helpful to fill the gaps
-- Reintroduced the required attribute for the regulator compatible
-  in the bindings
-- Fixed the missing reference to the MT6392 schema
-- Fixed casts/unused vars reported by kernel test robot
-- Removed Reviewed-by tags from the regulator patches as they have been
-  modified in this version
-
-Changes in v4 [4]:
-- Dropped usage of the regulator compatible
-- Fixed commit messages text to properly reference the target subsystem
-- Added supply rails to the regulator
-- Reworked the regulator schema and PMIC dtsi. Now all supplies are
-  documented and the schema no longer includes voltage information
-- Removed redundant ldo- / buck- prefixes
-- Renamed the pinfunc header to mediatek,mt6392-pinfunc.h
-- Modified the MFD driver to use a simple identifier in the of_match
-  data properties
-
-Changes in v3 [3]:
-- Added pinctrl device
-- Changed mt6397-rtc fallback to mt6323-rtc
-- Added schema for regulators
-- Fixed checkpatch issues
-
-Changes in v2 [2]:
-- Replaced explicit compatibles with fallbacks
-
-Initial version: [1]
-
-[1] https://lore.kernel.org/linux-mediatek/cover.1771865014.git.l.scorcia@gmail.com/
-[2] https://lore.kernel.org/linux-mediatek/20260306120521.163654-1-l.scorcia@gmail.com/
-[3] https://lore.kernel.org/linux-mediatek/20260317184507.523060-1-l.scorcia@gmail.com/
-[4] https://lore.kernel.org/linux-mediatek/20260330083429.359819-1-l.scorcia@gmail.com/
-
-Fabien Parent (4):
-  dt-bindings: mfd: mt6397: Add MT6392 PMIC
-  dt-bindings: input: mtk-pmic-keys: Add MT6392 PMIC keys
-  mfd: mt6397: Add support for MT6392 PMIC
-  regulator: Add MediaTek MT6392 regulator
-
-Luca Leonardo Scorcia (3):
-  regulator: dt-bindings: Add MediaTek MT6392 PMIC
-  dt-bindings: pinctrl: mediatek,mt65xx: Add MT6392 pinctrl
-  pinctrl: mediatek: mt6397: Add MediaTek MT6392
-
-Val Packett (2):
-  input: keyboard: mtk-pmic-keys: Add MT6392 support
-  arm64: dts: mediatek: Add MediaTek MT6392 PMIC dtsi
-
- .../bindings/input/mediatek,pmic-keys.yaml    |   1 +
- .../bindings/mfd/mediatek,mt6397.yaml         |  27 +-
- .../pinctrl/mediatek,mt65xx-pinctrl.yaml      |   1 +
- .../regulator/mediatek,mt6392-regulator.yaml  |  76 ++
- arch/arm64/boot/dts/mediatek/mt6392.dtsi      |  73 ++
- drivers/input/keyboard/mtk-pmic-keys.c        |  17 +
- drivers/mfd/mt6397-core.c                     | 118 ++-
- drivers/mfd/mt6397-irq.c                      |   8 +
- drivers/pinctrl/mediatek/pinctrl-mt6397.c     |  37 +-
- drivers/pinctrl/mediatek/pinctrl-mtk-mt6392.h |  64 ++
- drivers/regulator/Kconfig                     |   9 +
- drivers/regulator/Makefile                    |   1 +
- drivers/regulator/mt6392-regulator.c          | 740 ++++++++++++++++++
- .../pinctrl/mediatek,mt6392-pinfunc.h         |  39 +
- .../regulator/mediatek,mt6392-regulator.h     |  24 +
- include/linux/mfd/mt6392/core.h               |  42 +
- include/linux/mfd/mt6392/registers.h          | 487 ++++++++++++
- include/linux/mfd/mt6397/core.h               |   1 +
- include/linux/regulator/mt6392-regulator.h    |  42 +
- 19 files changed, 1776 insertions(+), 31 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6392-regulator.yaml
- create mode 100644 arch/arm64/boot/dts/mediatek/mt6392.dtsi
- create mode 100644 drivers/pinctrl/mediatek/pinctrl-mtk-mt6392.h
- create mode 100644 drivers/regulator/mt6392-regulator.c
- create mode 100644 include/dt-bindings/pinctrl/mediatek,mt6392-pinfunc.h
- create mode 100644 include/dt-bindings/regulator/mediatek,mt6392-regulator.h
- create mode 100644 include/linux/mfd/mt6392/core.h
- create mode 100644 include/linux/mfd/mt6392/registers.h
- create mode 100644 include/linux/regulator/mt6392-regulator.h
-
+diff --git a/drivers/input/keyboard/mtk-pmic-keys.c b/drivers/input/keyboard/mtk-pmic-keys.c
+index c78d9f6d97c4..8b4a89fce4fb 100644
+--- a/drivers/input/keyboard/mtk-pmic-keys.c
++++ b/drivers/input/keyboard/mtk-pmic-keys.c
+@@ -13,6 +13,7 @@
+ #include <linux/mfd/mt6357/registers.h>
+ #include <linux/mfd/mt6358/registers.h>
+ #include <linux/mfd/mt6359/registers.h>
++#include <linux/mfd/mt6392/registers.h>
+ #include <linux/mfd/mt6397/core.h>
+ #include <linux/mfd/mt6397/registers.h>
+ #include <linux/module.h>
+@@ -69,6 +70,19 @@ static const struct mtk_pmic_regs mt6397_regs = {
+ 	.rst_lprst_mask = MTK_PMIC_RST_DU_MASK,
+ };
+ 
++static const struct mtk_pmic_regs mt6392_regs = {
++	.keys_regs[MTK_PMIC_PWRKEY_INDEX] =
++		MTK_PMIC_KEYS_REGS(MT6392_CHRSTATUS, 0x2,
++				   MT6392_INT_MISC_CON, 0x10,
++				   MTK_PMIC_PWRKEY_RST),
++	.keys_regs[MTK_PMIC_HOMEKEY_INDEX] =
++		MTK_PMIC_KEYS_REGS(MT6392_CHRSTATUS, 0x4,
++				   MT6392_INT_MISC_CON, 0x8,
++				   MTK_PMIC_HOMEKEY_RST),
++	.pmic_rst_reg = MT6392_TOP_RST_MISC,
++	.rst_lprst_mask = MTK_PMIC_RST_DU_MASK,
++};
++
+ static const struct mtk_pmic_regs mt6323_regs = {
+ 	.keys_regs[MTK_PMIC_PWRKEY_INDEX] =
+ 		MTK_PMIC_KEYS_REGS(MT6323_CHRSTATUS,
+@@ -301,6 +315,9 @@ static const struct of_device_id of_mtk_pmic_keys_match_tbl[] = {
+ 	{
+ 		.compatible = "mediatek,mt6397-keys",
+ 		.data = &mt6397_regs,
++	}, {
++		.compatible = "mediatek,mt6392-keys",
++		.data = &mt6392_regs,
+ 	}, {
+ 		.compatible = "mediatek,mt6323-keys",
+ 		.data = &mt6323_regs,
 -- 
 2.43.0
 
