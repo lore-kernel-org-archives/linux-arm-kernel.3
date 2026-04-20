@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3D39EA71B6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 01:13:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A04A1EA71B3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 01:13:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QZGaiIkMDiQfzwMAec81V212wspOnWl2TejFJYsF/rA=; b=tCRMwNEx/zuFOiBpRCVmwbP6M8
-	yAItOamdEHN6Qzm8Mj2UvejFAxg/CaLc+yRotNEsLGK4lonKUkrvypEfsEaBG6TcAtM4knuQNgyxM
-	CoOiRQrAiXStoo+0/NIbPLLBTrWc58cXq/ECMYc7435GX1p08DysCaGngZx0y3nG7e0avg3i9bwRc
-	8stALXCHcudGQD+R8wLYAcCmmN2AeOd2WDvC+dIVLjingU8JbBSea2H0CGmjbC/xiHIkXm4+Oez+u
-	1OsMaIN4o9wU1GHzVD1YbIKFiHe31sLWTBznyHZSuZW7oOjEGnxHTeNi0TZmQ9SLJ/A7Ib84U7w/D
-	MwbTTfMw==;
+	bh=J8m9wCSdUC6oosxuWYvxo4dl5QAb6SX3In7QpuvGKkc=; b=YW7x9TWmOdvqHVTKLAVqQP4PrV
+	ipSCNQJZ0zwLvC6XNmgnCiHsuPfLWP4VNVrWoMH65kesyNhJfaKsIY3z99ssVq+JeLUOV+3e6SiJD
+	sM8NO8qjNzyy3XmixYQZvvR/pijJef4SQdUJk0vH7o8o3GjpnI5wZy8Jl94n0nX+IKOeD2bgnOQGQ
+	5rAxcl7gmINpJlnUej/wTN8DUuG3vwCcDZgONRJkl0kZlyZJb/wEeKLEx23eal+dQXzBoMtWkDwpO
+	15+skIH0nQkPvoEm3k0QaLFkbOs1kFlHHb38HFYNW4MRwU1V5LTaBodGEZ5ysWt7kDDKZG7w0mI/R
+	yRFhFREA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEdCZ-00000006Flt-0UJ5;
-	Mon, 20 Apr 2026 01:13:27 +0000
+	id 1wEdCc-00000006Fnn-3NU5;
+	Mon, 20 Apr 2026 01:13:30 +0000
 Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEdCU-00000006FjQ-3SRW;
-	Mon, 20 Apr 2026 01:13:24 +0000
+	id 1wEdCb-00000006FmG-0M7z;
+	Mon, 20 Apr 2026 01:13:30 +0000
 Received: from local
 	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
 	 (Exim 4.99)
 	(envelope-from <daniel@makrotopia.org>)
-	id 1wEdCO-000000002Wd-1Hpa;
-	Mon, 20 Apr 2026 01:13:16 +0000
-Date: Mon, 20 Apr 2026 02:13:13 +0100
+	id 1wEdCV-000000002Wz-1w23;
+	Mon, 20 Apr 2026 01:13:23 +0000
+Date: Mon, 20 Apr 2026 02:13:20 +0100
 From: Daniel Golle <daniel@makrotopia.org>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -49,17 +49,17 @@ To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
 	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v2 2/9] ASoC: dt-bindings: mediatek,mt2701-hdmi-audio: add
- MT2701 HDMI audio
-Message-ID: <072c4db4a01ac125e9ee5e34f992cd169c78e117.1776646435.git.daniel@makrotopia.org>
+Subject: [PATCH v2 3/9] ASoC: mediatek: mt2701: add AFE HDMI register
+ definitions
+Message-ID: <29ec5ab993ddb0cd20dbf79f8244611e32baa88b.1776646435.git.daniel@makrotopia.org>
 References: <cover.1776646435.git.daniel@makrotopia.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <cover.1776646435.git.daniel@makrotopia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260419_181322_880155_F27BAA31 
-X-CRM114-Status: GOOD (  16.08  )
+X-CRM114-CacheID: sfid-20260419_181329_309166_497CD74D 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,81 +74,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Describe the sound card node that routes the MT2701/MT7623N AFE
-HDMI playback path to the on-chip HDMI transmitter. This is
-separate from the AFE platform binding (mediatek,mt2701-audio)
-because it represents board-level audio routing between the AFE
-and the HDMI codec, not an additional IP block. MT7623N boards
-carry the same IP and use the mt7623n- compatible as a fallback
-to mt2701-.
+Add register offsets and bit defines for the MT2701/MT7623N AFE
+HDMI audio output path: the HDMI BCK divider in AUDIO_TOP_CON3,
+the HDMI output memif control and descriptor registers, the 8-bit
+AFE_HDMI_CONN0 interconnect, and the AFE_8CH_I2S_OUT_CON engine
+that drives the HDMI TX serial link. These are a prerequisite for
+adding an HDMI playback path to the mt2701 AFE driver and have no
+behavioural effect on their own.
 
 Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 ---
-v2:
- * Fix subject prefix to use schema filename (Krzysztof Kozlowski)
- * Rewrite title and description to describe hardware, not driver
-   (Krzysztof Kozlowski)
- * Clarify in commit message why this is a separate binding from
-   mediatek,mt2701-audio (Krzysztof Kozlowski)
+v2: no changes
 
- .../sound/mediatek,mt2701-hdmi-audio.yaml     | 48 +++++++++++++++++++
- 1 file changed, 48 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt2701-hdmi-audio.yaml
+ sound/soc/mediatek/mt2701/mt2701-reg.h | 35 ++++++++++++++++++++++++++
+ 1 file changed, 35 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt2701-hdmi-audio.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt2701-hdmi-audio.yaml
-new file mode 100644
-index 0000000000000..9d5a8166e51ff
---- /dev/null
-+++ b/Documentation/devicetree/bindings/sound/mediatek,mt2701-hdmi-audio.yaml
-@@ -0,0 +1,48 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/sound/mediatek,mt2701-hdmi-audio.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/sound/soc/mediatek/mt2701/mt2701-reg.h b/sound/soc/mediatek/mt2701/mt2701-reg.h
+index c84d14cdd7ae8..b7a25bfb58662 100644
+--- a/sound/soc/mediatek/mt2701/mt2701-reg.h
++++ b/sound/soc/mediatek/mt2701/mt2701-reg.h
+@@ -10,10 +10,17 @@
+ #define _MT2701_REG_H_
+ 
+ #define AUDIO_TOP_CON0 0x0000
++#define AUDIO_TOP_CON3 0x000c
+ #define AUDIO_TOP_CON4 0x0010
+ #define AUDIO_TOP_CON5 0x0014
+ #define AFE_DAIBT_CON0 0x001c
+ #define AFE_MRGIF_CON 0x003c
++#define AFE_HDMI_OUT_CON0 0x0370
++#define AFE_HDMI_OUT_BASE 0x0374
++#define AFE_HDMI_OUT_CUR  0x0378
++#define AFE_HDMI_OUT_END  0x037c
++#define AFE_HDMI_CONN0    0x0390
++#define AFE_8CH_I2S_OUT_CON 0x0394
+ #define ASMI_TIMING_CON1 0x0100
+ #define ASMO_TIMING_CON1 0x0104
+ #define PWR1_ASM_CON1 0x0108
+@@ -125,6 +132,34 @@
+ #define AFE_MEMIF_PBUF_SIZE_DLM_BYTE_MASK	(0x3 << 12)
+ #define AFE_MEMIF_PBUF_SIZE_DLM_32BYTES		(0x1 << 12)
+ 
++/* AUDIO_TOP_CON0 (0x0000) -- HDMI audio clock gating */
++#define AUDIO_TOP_CON0_PDN_HDMI_CK		(0x1 << 20)
++#define AUDIO_TOP_CON0_PDN_SPDIF_CK		(0x1 << 21)
++#define AUDIO_TOP_CON0_PDN_SPDIF2_CK		(0x1 << 22)
++#define AUDIO_TOP_CON0_PDN_APLL_CK		(0x1 << 23)
 +
-+title: MediaTek MT2701/MT7623N HDMI audio output
++/* AUDIO_TOP_CON3 (0x000c) -- HDMI BCK divider */
++#define AUDIO_TOP_CON3_HDMI_BCK_DIV_MASK	(0x3f << 8)
++#define AUDIO_TOP_CON3_HDMI_BCK_DIV(x)		(((x) & 0x3f) << 8)
 +
-+maintainers:
-+  - Daniel Golle <daniel@makrotopia.org>
++/* AFE_HDMI_OUT_CON0 (0x0370) */
++#define AFE_HDMI_OUT_CON0_OUT_ON		(0x1 << 0)
++#define AFE_HDMI_OUT_CON0_BIT_WIDTH_MASK	(0x1 << 1)
++#define AFE_HDMI_OUT_CON0_BIT_WIDTH_16		(0x0 << 1)
++#define AFE_HDMI_OUT_CON0_BIT_WIDTH_32		(0x1 << 1)
++#define AFE_HDMI_OUT_CON0_CH_NUM_MASK		(0xf << 4)
++#define AFE_HDMI_OUT_CON0_CH_NUM(x)		(((x) & 0xf) << 4)
 +
-+description:
-+  Sound card routing the MT2701/MT7623N Audio Front End HDMI
-+  playback path to the on-chip HDMI transmitter. The AFE
-+  provides the DMA memif and internal I2S engine; the HDMI
-+  transmitter acts as the audio codec on the serialised link.
++/* AFE_8CH_I2S_OUT_CON (0x0394) -- on-SoC 8-channel I2S that feeds HDMI TX */
++#define AFE_8CH_I2S_OUT_CON_EN			(0x1 << 0)
++#define AFE_8CH_I2S_OUT_CON_BCK_INV		(0x1 << 1)
++#define AFE_8CH_I2S_OUT_CON_LRCK_INV		(0x1 << 2)
++#define AFE_8CH_I2S_OUT_CON_I2S_DELAY		(0x1 << 3)
++#define AFE_8CH_I2S_OUT_CON_WLEN_MASK		(0x3 << 4)
++#define AFE_8CH_I2S_OUT_CON_WLEN_16BIT		(0x1 << 4)
++#define AFE_8CH_I2S_OUT_CON_WLEN_24BIT		(0x2 << 4)
++#define AFE_8CH_I2S_OUT_CON_WLEN_32BIT		(0x3 << 4)
 +
-+properties:
-+  compatible:
-+    oneOf:
-+      - const: mediatek,mt2701-hdmi-audio
-+      - items:
-+          - const: mediatek,mt7623n-hdmi-audio
-+          - const: mediatek,mt2701-hdmi-audio
-+
-+  mediatek,platform:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: Phandle of the MT2701/MT7623N AFE platform node.
-+
-+  mediatek,audio-codec:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: Phandle of the HDMI transmitter acting as audio codec.
-+
-+required:
-+  - compatible
-+  - mediatek,platform
-+  - mediatek,audio-codec
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    sound-hdmi {
-+        compatible = "mediatek,mt7623n-hdmi-audio",
-+                     "mediatek,mt2701-hdmi-audio";
-+        mediatek,platform = <&afe>;
-+        mediatek,audio-codec = <&hdmi0>;
-+    };
+ /* I2S in/out register bit control */
+ #define ASYS_I2S_CON_FS			(0x1f << 8)
+ #define ASYS_I2S_CON_FS_SET(x)		((x) << 8)
 -- 
 2.53.0
 
