@@ -4,66 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 382FEF588E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 15:12:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27812F588E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 15:18:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1CxDCNUG5qjJktCQIXsGg5yAN9JKuAtZahZxUMTkSBs=; b=dNK0v3mlEM6P9cD27rqdEHu2Pe
-	CYG/xdHFSneTEL1hwZkPov05cLIaL4BKpZxwXMXrpZOeWVJ7vvIl0f+t9xCd96bIFgb+XOZGinERs
-	JKi9CRiPWSFynPh6sN+htUAZ/9+b37630EhF27iQV8GVbIMJ208+TQwRE/BBxWG6fXDdBxm2tDV8Z
-	uqV0RjrE6wXJJEZSrHO9PnFMQj/jU4gH29xhxR1nwNW/ZL7N4nc9yGJQf0aOyeJoclHKK5WO7INxx
-	O9tSFjAK8OEsD6/+4kfiC3v8Bgl0b5TKqCo8E4VolwrDDmNlR7dKYQRkkVt4ChE5K+PxF4TLk84ib
-	9rI0PzMQ==;
+	bh=1gFNXBO4mkz3Uo0BQPn36ROKj98JwT3Uw9lk0qqRPeI=; b=fvc0iTwohoSZB6y732Iiih309S
+	G47BdEG02mPtm+gkZ93LG0NpxnCztT6xAJtlqLxIO2iUlgK53CZOXaOzzmbties9uJaPdkj3B3Kbi
+	bFNDGBtgUrMcNuHffITxD3OttwfzN182Lk2fK7KCpqiNkE0hLnTfazti0S2+ljC50sdYNElRAn7nG
+	fSiU/q6I3boPs9leuKhi0jQqHhsYdqfp8xZ5Da5PDlEHPmgw/XALGbdTRYAdgLVzRa9oe2hpFdnNl
+	6+M5BHROMLVaIpyW/Tq5Xtq0wEOHf9eYbfAGC4xgpPiGnNzyQS9WNahC1P3O7ljpdj/sJ9MYOj7I3
+	nHKAew5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEqIp-00000007E7m-36bc;
-	Mon, 20 Apr 2026 15:12:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wEqOL-00000007EZi-1XWO;
+	Mon, 20 Apr 2026 15:18:29 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEqIo-00000007E7Z-1DsS
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 15:12:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9516C60145;
-	Mon, 20 Apr 2026 15:12:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D006C2BCB4;
-	Mon, 20 Apr 2026 15:12:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776697965;
-	bh=AkblC8kko4q96b7WJ+PNC2zvLeLeNj9THfCDY3hArU0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KI7W8t5/ljbsJM5Tc2oIgbBUVLkMg3SXyCjhscPwrECFw59NFmudoplIVD2+dGLGT
-	 /6wkTTvcNyKsAtFe56JTM1Fwf1ntfRyk5dHtILh8aDNPHTiYBsoNfJFmzc0RR+EIUd
-	 Q6NQTY4tu6aAi1nHP+wZ4/ZP01FyrUvZyEvGdEtznlxv3YcKF/dRfw/B4Oh+9iqj91
-	 cSZv5l4fVjO/FZAvxo+cjuABOUEcn8WP1dCPr8Nl2i1s8T9vybTQK4/gGjNfzl0+5z
-	 fd+a73D7/SaFCI3paj2KLhlYRwIgahSdcKapzBUAITpasQvHRGB98G3VOU1IQjpx23
-	 9BhP+0IqF1KPw==
-Date: Mon, 20 Apr 2026 16:12:38 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Breno Leitao <leitao@debian.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Huisong Li <lihuisong@huawei.com>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, pjaroszynski@nvidia.com,
-	rmikey@meta.com, kernel-team@meta.com, stable@vger.kernel.org
-Subject: Re: [PATCH] ACPI: arm64: cpuidle: Tolerate platforms with no deep
- PSCI idle states
-Message-ID: <20260420-sturdy-unique-shark-c4ca8c@sudeepholla>
-References: <20260420-ffh-v1-1-6b4c10fec442@debian.org>
+	id 1wEqOI-00000007EZI-3dhs;
+	Mon, 20 Apr 2026 15:18:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=1gFNXBO4mkz3Uo0BQPn36ROKj98JwT3Uw9lk0qqRPeI=; b=U31pz7AS+pKZlw8DECKWWCdIzm
+	UbVlumxOOeJhtrd4wye+31FIUG3S4SXe8ghNU/eTWKZS/3Gw/H39IDjaCFEP3FcKjfahwPSrCvlsf
+	DdKg0ZRMBC5KS6tniUHoaCBk/w6useh0ouaSV0+CTSkxC8V3lRR86vV/FcPKkeDLofbOR4eR1THqw
+	jBcvFEJeO7DAGRhs+JYGuC5GbJfniMVGbypYN8GoxVgiMqjljvAQxYI5jEwQnwEskn1jirHPf156t
+	Z+3yLTHcAHj8JEsmkHvttsBSrt8Z0+wwIBcLIa/gxvWm+JQedi62FDh2b5SeKIjSC4JWbPnny9YpL
+	omofuhZw==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 05/40] arm64: dts: rockchip: Add frl-enable-gpios to
+ rk3576-luckfox-core3576
+Date: Mon, 20 Apr 2026 17:18:20 +0200
+Message-ID: <2480203.yKrmzQ4Hd0@phil>
+In-Reply-To: <401a020f-ca5d-4c7d-941e-f0288e144357@collabora.com>
+References: <20260417-dts-rk-frl-enable-gpios-v1-0-a19c0dd8c9f6@collabora.com>
+ <2282688.C4sosBPzcN@phil>
+ <401a020f-ca5d-4c7d-941e-f0288e144357@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260420-ffh-v1-1-6b4c10fec442@debian.org>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260420_081826_934781_3059FF4C 
+X-CRM114-Status: GOOD (  33.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,66 +70,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 20, 2026 at 02:27:13AM -0700, Breno Leitao wrote:
-> Commit cac173bea57d ("ACPI: processor: idle: Rework the handling of
-> acpi_processor_ffh_lpi_probe()") moved the acpi_processor_ffh_lpi_probe()
-> call from acpi_processor_setup_cpuidle_dev(), where its return value was
-> ignored, to acpi_processor_get_power_info(), where it is now treated as
-> a hard failure. As a result, platforms where psci_acpi_cpu_init_idle()
-> returned -ENODEV stopped registering any cpuidle states, forcing CPUs to
-> busy-poll when idle.
-> 
-> On NVIDIA Grace (aarch64) systems with PSCIv1.1, pr->power.count is 1
-> (only WFI, no deep PSCI states beyond it), so the previous
-> "count = pr->power.count - 1; if (count <= 0) return -ENODEV;" check
-> returned -ENODEV for all 72 CPUs and disabled cpuidle entirely.
-> 
-> The lpi_states count is already validated in acpi_processor_get_lpi_info(),
-> so the check here is redundant. Simplify the loop to iterate over
-> lpi_states[1..power.count). When only WFI is present, the loop body
-> simply does not execute and the function returns 0, which is the correct
-> outcome: there is nothing to validate for FFH and no error to report.
-> 
-> Suggested-by: Huisong Li <lihuisong@huawei.com>
-> Cc: stable@vger.kernel.org
-> Fixes: cac173bea57d ("ACPI: processor: idle: Rework the handling of acpi_processor_ffh_lpi_probe()")
-> Signed-off-by: Breno Leitao <leitao@debian.org>
-> ---
->  drivers/acpi/arm64/cpuidle.c | 10 +++-------
->  1 file changed, 3 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/acpi/arm64/cpuidle.c b/drivers/acpi/arm64/cpuidle.c
-> index 801f9c4501425..c68a5db8ebba8 100644
-> --- a/drivers/acpi/arm64/cpuidle.c
-> +++ b/drivers/acpi/arm64/cpuidle.c
-> @@ -16,7 +16,7 @@
->  
->  static int psci_acpi_cpu_init_idle(unsigned int cpu)
->  {
-> -	int i, count;
-> +	int i;
->  	struct acpi_lpi_state *lpi;
->  	struct acpi_processor *pr = per_cpu(processors, cpu);
->  
-> @@ -30,14 +30,10 @@ static int psci_acpi_cpu_init_idle(unsigned int cpu)
->  	if (!psci_ops.cpu_suspend)
->  		return -EOPNOTSUPP;
->  
-> -	count = pr->power.count - 1;
-> -	if (count <= 0)
-> -		return -ENODEV;
-> -
+Am Montag, 20. April 2026, 13:00:25 Mitteleurop=C3=A4ische Sommerzeit schri=
+eb Cristian Ciocaltea:
+> Hi Heiko,
+>=20
+> On 4/18/26 2:12 AM, Heiko Stuebner wrote:
+> > Hi Cristian,
+> >=20
+> > Am Freitag, 17. April 2026, 18:34:17 Mitteleurop=C3=A4ische Sommerzeit =
+schrieb Cristian Ciocaltea:
+> >> On 4/17/26 2:32 PM, Heiko Stuebner wrote:
+> >>> the comments below apply sort of to all patches in that series.
+> >>>
+> >>> Am Freitag, 17. April 2026, 11:24:39 Mitteleurop=C3=A4ische Sommerzei=
+t schrieb Cristian Ciocaltea:
+> >>>> The board exposes the GPIO4_C6 line to control the voltage bias on t=
+he
+> >>>> HDMI data lines.  It must be asserted when operating in HDMI 2.1 FRL
+> >>>> mode and deasserted for HDMI 1.4/2.0 TMDS mode.
+> >>>>
+> >>>> Wire up the HDMI node to the GPIO line using the frl-enable-gpios
+> >>>> property and drop the line from the vcc_5v0_hdmi regulator to allow
+> >>>> adjusting the bias when transitioning between TMDS and FRL operating
+> >>>> modes.
+>=20
+> [...]
+>=20
+> >>>
+> >>>
+> >>>> @@ -231,6 +228,8 @@ &gpu {
+> >>>>  };
+> >>>> =20
+> >>>>  &hdmi {
+> >>>> +	pinctrl-0 =3D <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda &hdmi_frl=
+_en>;
+> >>>> +	frl-enable-gpios =3D <&gpio4 RK_PC6 GPIO_ACTIVE_LOW>;
+> >>>
+> >>> this should be sorted the other way around I think.
+> >>>
+> >>> Also please provide a pinctrl-names property too. If for whatever rea=
+son
+> >>> the dw-hdmi aquires a 2nd pinctrl state in the future, this makes sure
+> >>> board DTs are staying in the "old" compatible mode until they are ada=
+pted.
+> >>
+> >> Just to make sure I fully understand, the convention is that=20
+> >>
+> >>   pinctrl-names =3D "default";
+> >>
+> >> should be always provided, even when the node overrides an existing pi=
+nctrl-0
+> >> property?
+> >>
+> >> E.g. in rk3576.dtsi we have:
+> >>
+> >>   hdmi: hdmi@27da0000 {
+> >>     ...
+> >>     pinctrl-names =3D "default";
+> >>     pinctrl-0 =3D <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda>;
+> >>     ...
+> >>   }
+> >>
+> >> Hence I omitted pinctrl-names which doesn't change and just appended
+> >> &hdmi_frl_en to pinctrl-0's original value.
+> >=20
+> > correct, please always provide a pinctrl-names entry when setting a new
+> > pinctrl-0 .
+> >=20
+> > The background is, imagine you have a base:
+> >=20
+> > pinctrl-names =3D "default";
+> > pinstrl-0 =3D <....>;
+> >=20
+> > and override pinctrl-0 in a board.
+> >=20
+> > Now a newer binding introduces a 2nd pinctrl state "foo". Of course
+> > we're backwards compatible, and both are valid and the driver checks
+> > what states are defined.
+> >=20
+> > So the base sets:
+> > pinctrl-names =3D "default", "foo";
+> > pinctrl-0 =3D <...>;
+> > pinctrl-1 =3D <...>;
+> >=20
+> > in your (old) board you override pinctrl-0, but the driver still sees
+> > the new variant with 2 pinctrl states, where it should've stayed with
+> > the legacy 1-state, until the board-dts might get adapted in the future.
+> >=20
+> >=20
+> > And I know, we're likely not doing that everywhere, and also in most
+> > cases it won't really matter, but still it is safer and sets the better
+> > precedent :-) .
+>=20
+> Thanks for the detailed explanation, that clears things up!
+>=20
+> There are several other nodes (e.g. i2c, pwm, uart) that also lack
+> pinctrl-names despite providing pinctrl-0 - I can address those in a
+> separate patch.
 
-Does it make sense to retain this check like
-  if (pr->power.count < 1)
-  	return -EINVAL;
+As said above it is an ideal to aspire to (having -names together with
+defining states), but if you want to add the "missing" -names,
+go ahead :-) .
 
-Though I see the assignment to pr->power.count in drivers/acpi/processor_idle.c
-is through unsigned int. So I am fine even without the above check.
 
-Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
+> I also noticed an inconsistency in property ordering: some nodes place
+> pinctrl-names before pinctrl-<n> and others after.  I have always used
+> the former, but we should probably prefer the latter to stay consistent
+> with how clocks, resets, phys, etc. are ordered.
+>=20
+> Thoughts?
 
--- 
-Regards,
-Sudeep
+There is sort of a "conflict" between regular ordering and possibly
+better readability. I.e. the dt-writing guidelines propose alphabetical
+ordering which I guess puts numbers before letters.
+
+On the other hand the semantic definition of list the states and then
+define them (names first, -0, -1, etc second) looks more sensible from
+a understanding standpoint.
+
+
+But there we'd end up with special rules, so just sticking to the
+base sorting will cause less friction in the long run I think.
+Aka, -0, -1 first; -names after, follows the main sorting suggestions
+so it's easy to explain to newcomers.
+
+
+But please don't re-sort existing entries :-)
+
+
+Heiko
+
+
 
