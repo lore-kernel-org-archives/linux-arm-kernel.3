@@ -4,56 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FB1CF588CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A94CF588CF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:54:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9x9hZMXBpn0P7sSuaA5owfOkbpFsWAWGV2pJQS60n9Q=; b=RTbJZq+CnmhRxefLbZbzmw3gOw
-	jOn2tmf1uAO9rCqAeBkturzlNCccrr2NVNsEKL3XTfB+VBC6hq+RRKV5C4cG4ecm1p8n++vGDk/d/
-	V1FVhOrRC38mqfvb4Yi6xE6N+2FRUy+qphOWbm1IrkdPTP25IO6HKTE0DeU7BBdCKjXzJ5xBweL+G
-	GrumofH7N1/035ulvTf2RZWUduzlrLZJIw748zJRDzyii6w+tmR4+qjN0pi6NT1iq8iUJ1xwEKtx5
-	obMvwCvI4EVJhxnHrCqI2XjuKLcKT7YrfKP5n0IJ8HPKmq3eNnEh8hCFfL/x4Q5sbckud0v4gNXGV
-	Jur/kD6g==;
+	bh=/x+Y3/AXdJlKE2kqXpOORKAaRXVmW9sL1jGefOVrQx0=; b=dbsNBMs+j/khZGZZ5HZSzQUHkS
+	mMxRM/+HLJw5NgdiCAH3mi3wKluSCswZzWV+sOgTckISxnVwislw/JoPUYtYo43Qkhii8YyIQqrOs
+	lYRBRQlH41Xr31+cLKyb0ZN4DMYjOnZ6L45YM6E5J4Vs/LOSDxY3kpV9yGk0w3sZg+o44yJR6JP48
+	NHBSGOJH/tCbodIzPikcCcBYLOhpfzpQKQXku5mz69qagPkDl+mCGgI83t+e+YS2xj6ayHDRO8hLS
+	4XOm00AyObaxmzcuKkErX1eJ5kpW+TtPAPgGPdbrDA6hpM8+1ZZ4HRmTYG2R7hdz6+ZCsJeu4lzAq
+	vQe66wcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEp4M-0000000763i-1CyM;
-	Mon, 20 Apr 2026 13:53:46 +0000
+	id 1wEp4V-000000076C4-39XQ;
+	Mon, 20 Apr 2026 13:53:55 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEp4K-0000000762l-24GH;
-	Mon, 20 Apr 2026 13:53:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1776693212; cv=none; 
+	id 1wEp4R-0000000768D-3qXp;
+	Mon, 20 Apr 2026 13:53:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1776693220; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=Kr7jvT0UwHY1TYieNKFwPWh6ZnakjJy8JKAPS/K0WNPwn/xl+GuOwOoLgplN/OfpWrtpppiXqSmXYwQ7qe8BWo2MwLYrtcvYCh5+PuXx1u04T8xL/QSD9xEV3rGnHWJS730k4AlHuzdr3SjfwESmaZIKZWmF0JCwJ34SpKNyuR8=
+	b=LpMBmZHy8W7rMaKXoS+qhGAs9ptGQaH0+NqcWWPXG+YG6T87Y2pWuGRByB9hz4ptManMMKb1z4CcjVZGNxN6NYTf4uXJAbykWqRyTfVt5u07Owv1Da99YiJtIqMWJEkJ472+5y4MrVt6Q7Azi3jVhzIOFpvaFPcxNY53XIc/0sE=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1776693212; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=9x9hZMXBpn0P7sSuaA5owfOkbpFsWAWGV2pJQS60n9Q=; 
-	b=HhcD7h9ImX4CKu++l9aoFwPFUspKO6I0IaYVJJ0fA905lBnqhVBA8rmwAr7TykV9z/I4jDSEdVe0V23I522g4K9LcwnCC+iSuRfeS6knS2IeZCiKTZDNQ9s/xJr6YzUdoNj6MYkYengkblLsn6FdCrBSgGeVLcSDhL3SjhQVTS4=
+	t=1776693220; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=/x+Y3/AXdJlKE2kqXpOORKAaRXVmW9sL1jGefOVrQx0=; 
+	b=bM9Vw0NG8vevmRQnfP71Vww8cOnVVpZfj8RRmBpDsq2tafMA2zHQPZMCB5HqzWH661RDbRReTsPiGgNvO4C2chn/fql0Yj6sfxUmj1d+PggiHGK+tQs2VH9z2YLL9OiN7m22hMHx0n7EV4uAU3uPjxzxbCeSUVuNXHHdlOUvpPU=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1776693212;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1776693220;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=9x9hZMXBpn0P7sSuaA5owfOkbpFsWAWGV2pJQS60n9Q=;
-	b=j218BLhqW9Lie87thr5Y79jKsgdobgp3qZRwKzmW3pK4T6N23Zq8F2Ed5Exylh9Q
-	pH7e+NqhSnRnlby5ZbBU374pOI5Bc6S1hN/BiI5FgHD30nINkDH8vUIT1PI+qz6mW1y
-	Zcv2QY5BWA0zhpWZ7TfcqskY1OyUzvEiHyEd92qU=
-Received: by mx.zohomail.com with SMTPS id 1776693210497168.6515029023302;
-	Mon, 20 Apr 2026 06:53:30 -0700 (PDT)
+	bh=/x+Y3/AXdJlKE2kqXpOORKAaRXVmW9sL1jGefOVrQx0=;
+	b=e/Yd7e2o6VuCxLxY/UVXuQewVJjHpu0HnhF81zFoACz/DufQ14ifSZzXvDPFH4TT
+	zZvgI8GCBdQG+wYcWETKvEFfJrFPNJRdEltyVR2bQ+uRlrTNlWT4VwvR7SclJCAc2L1
+	4S0ZWk0Ec3rqCWHhKtseKEiUn/ljXScbkvs5YiXM=
+Received: by mx.zohomail.com with SMTPS id 1776693218378701.7352404504622;
+	Mon, 20 Apr 2026 06:53:38 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 20 Apr 2026 15:52:38 +0200
-Subject: [PATCH v5 1/6] dt-bindings: pwm: Add a new binding for
- rockchip,rk3576-pwm
+Date: Mon, 20 Apr 2026 15:52:40 +0200
+Subject: [PATCH v5 3/6] pwm: Add rockchip PWMv4 driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260420-rk3576-pwm-v5-1-ae7cfbbe5427@collabora.com>
+Message-Id: <20260420-rk3576-pwm-v5-3-ae7cfbbe5427@collabora.com>
 References: <20260420-rk3576-pwm-v5-0-ae7cfbbe5427@collabora.com>
 In-Reply-To: <20260420-rk3576-pwm-v5-0-ae7cfbbe5427@collabora.com>
 To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
@@ -66,11 +65,11 @@ Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
  Alexey Charkov <alchark@gmail.com>, linux-rockchip@lists.infradead.org, 
  linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-iio@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
+ linux-iio@vger.kernel.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_065344_558530_90032842 
-X-CRM114-Status: GOOD (  14.52  )
+X-CRM114-CacheID: sfid-20260420_065352_057460_EE83F442 
+X-CRM114-Status: GOOD (  32.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,129 +84,460 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Rockchip RK3576 SoC has a newer PWM controller IP revision than
-previous Rockchip SoCs. This IP, called "PWMv4" by Rockchip, introduces
-several new features, and consequently differs in its bindings.
+The Rockchip RK3576 brings with it a new PWM IP, in downstream code
+referred to as "v4". This new IP is different enough from the previous
+Rockchip IP that I felt it necessary to add a new driver for it, instead
+of shoehorning it in the old one.
 
-Instead of expanding the ever-growing rockchip-pwm binding that already
-has an if-condition, add an entirely new binding to handle this.
+Add this new driver, based on the PWM core's waveform APIs. Its platform
+device is registered by the parent mfpwm driver, from which it also
+receives a little platform data struct, so that mfpwm can guarantee that
+all the platform device drivers spread across different subsystems for
+this specific hardware IP do not interfere with each other.
 
-There are two additional clocks, "osc" and "rc". These are available for
-every PWM instance, and the PWM hardware can switch between the "pwm",
-"osc" and "rc" clock at runtime.
-
-The PWM controller also comes with an interrupt now. This interrupt is
-used to signal various conditions.
-
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- .../bindings/pwm/rockchip,rk3576-pwm.yaml          | 77 ++++++++++++++++++++++
- MAINTAINERS                                        |  7 ++
- 2 files changed, 84 insertions(+)
+ MAINTAINERS                   |   1 +
+ drivers/pwm/Kconfig           |  11 ++
+ drivers/pwm/Makefile          |   1 +
+ drivers/pwm/pwm-rockchip-v4.c | 383 ++++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 396 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/pwm/rockchip,rk3576-pwm.yaml b/Documentation/devicetree/bindings/pwm/rockchip,rk3576-pwm.yaml
-new file mode 100644
-index 000000000000..48d5055c8b06
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pwm/rockchip,rk3576-pwm.yaml
-@@ -0,0 +1,77 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pwm/rockchip,rk3576-pwm.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Rockchip PWMv4 controller
-+
-+maintainers:
-+  - Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-+
-+description: |
-+  The Rockchip PWMv4 controller is a PWM controller found on several Rockchip
-+  SoCs, such as the RK3576.
-+
-+  It supports both generating and capturing PWM signals.
-+
-+allOf:
-+  - $ref: pwm.yaml#
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: rockchip,rk3576-pwm
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: Used to derive the PWM signal.
-+      - description: Used as the APB bus clock.
-+      - description: Used as an alternative to derive the PWM signal.
-+      - description: Used as another alternative to derive the PWM signal.
-+
-+  clock-names:
-+    items:
-+      - const: pwm
-+      - const: pclk
-+      - const: osc
-+      - const: rc
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  "#pwm-cells":
-+    const: 3
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - interrupts
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/rockchip,rk3576-cru.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        pwm@2add0000 {
-+            compatible = "rockchip,rk3576-pwm";
-+            reg = <0x0 0x2add0000 0x0 0x1000>;
-+            clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>, <&cru CLK_OSC_PWM1>,
-+                     <&cru CLK_RC_PWM1>;
-+            clock-names = "pwm", "pclk", "osc", "rc";
-+            interrupts = <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH>;
-+            #pwm-cells = <3>;
-+        };
-+    };
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 891fb83ba7a9..86f20cb563c6 100644
+index d52731242a33..68bb9ee07a47 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -23172,6 +23172,13 @@ F:	Documentation/userspace-api/media/v4l/metafmt-rkisp1.rst
- F:	drivers/media/platform/rockchip/rkisp1
- F:	include/uapi/linux/rkisp1-config.h
+@@ -23179,6 +23179,7 @@ L:	linux-pwm@vger.kernel.org
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/pwm/rockchip,rk3576-pwm.yaml
+ F:	drivers/mfd/rockchip-mfpwm.c
++F:	drivers/pwm/pwm-rockchip-v4.c
+ F:	include/linux/mfd/rockchip-mfpwm.h
  
-+ROCKCHIP MFPWM
-+M:	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-+L:	linux-rockchip@lists.infradead.org
-+L:	linux-pwm@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/pwm/rockchip,rk3576-pwm.yaml
-+
  ROCKCHIP RK3568 RANDOM NUMBER GENERATOR SUPPORT
- M:	Daniel Golle <daniel@makrotopia.org>
- M:	Aurelien Jarno <aurelien@aurel32.net>
+diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
+index 6f3147518376..3fe7993bf12b 100644
+--- a/drivers/pwm/Kconfig
++++ b/drivers/pwm/Kconfig
+@@ -625,6 +625,17 @@ config PWM_ROCKCHIP
+ 	  Generic PWM framework driver for the PWM controller found on
+ 	  Rockchip SoCs.
+ 
++config PWM_ROCKCHIP_V4
++	tristate "Rockchip PWM v4 support"
++	depends on MFD_ROCKCHIP_MFPWM
++	help
++	  Generic PWM framework driver for the PWM controller found on
++	  later Rockchip SoCs such as the RK3576.
++
++	  Uses the Rockchip Multi-function PWM controller driver infrastructure
++	  to guarantee fearlessly concurrent operation with other functions of
++	  the same device implemented by drivers in other subsystems.
++
+ config PWM_SAMSUNG
+ 	tristate "Samsung PWM support"
+ 	depends on PLAT_SAMSUNG || ARCH_S5PV210 || ARCH_EXYNOS || COMPILE_TEST
+diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
+index 0dc0d2b69025..a234027dbbc6 100644
+--- a/drivers/pwm/Makefile
++++ b/drivers/pwm/Makefile
+@@ -56,6 +56,7 @@ obj-$(CONFIG_PWM_RENESAS_RZG2L_GPT)	+= pwm-rzg2l-gpt.o
+ obj-$(CONFIG_PWM_RENESAS_RZ_MTU3)	+= pwm-rz-mtu3.o
+ obj-$(CONFIG_PWM_RENESAS_TPU)	+= pwm-renesas-tpu.o
+ obj-$(CONFIG_PWM_ROCKCHIP)	+= pwm-rockchip.o
++obj-$(CONFIG_PWM_ROCKCHIP_V4)	+= pwm-rockchip-v4.o
+ obj-$(CONFIG_PWM_SAMSUNG)	+= pwm-samsung.o
+ obj-$(CONFIG_PWM_SIFIVE)	+= pwm-sifive.o
+ obj-$(CONFIG_PWM_SL28CPLD)	+= pwm-sl28cpld.o
+diff --git a/drivers/pwm/pwm-rockchip-v4.c b/drivers/pwm/pwm-rockchip-v4.c
+new file mode 100644
+index 000000000000..b7de72c433c5
+--- /dev/null
++++ b/drivers/pwm/pwm-rockchip-v4.c
+@@ -0,0 +1,383 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright (c) 2025 Collabora Ltd.
++ *
++ * A Pulse-Width-Modulation (PWM) generator driver for the generators found in
++ * Rockchip SoCs such as the RK3576, internally referred to as "PWM v4". Uses
++ * the MFPWM infrastructure to guarantee exclusive use over the device without
++ * other functions of the device from different drivers interfering with its
++ * operation while it's active.
++ *
++ * Technical Reference Manual: Chapter 31 of the RK3506 TRM Part 1, a SoC which
++ * uses the same PWM hardware and has a publicly available TRM.
++ * https://opensource.rock-chips.com/images/3/36/Rockchip_RK3506_TRM_Part_1_V1.2-20250811.pdf
++ *
++ * Authors:
++ *     Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
++ *
++ * Limitations:
++ * - The hardware supports both completing the currently running period
++ *   on disable (by switching to oneshot mode with a single repetition and
++ *   only disable when the complete irq fires), and abrupt disable (freeze).
++ *   Only the latter is implemented in the driver.
++ * - When the output is disabled, the pin will remain driven to whatever state
++ *   it last had.
++ * - Adjustments to the duty cycle will only take effect during the next period.
++ * - Adjustments to the period length will only take effect during the next
++ *   period.
++ * - The hardware only supports offsets in [0, period - duty_cycle]
++ */
++
++#include <linux/math64.h>
++#include <linux/mfd/rockchip-mfpwm.h>
++#include <linux/platform_device.h>
++#include <linux/pwm.h>
++
++struct rockchip_pwm_v4 {
++	struct rockchip_mfpwm_func *pwmf;
++	struct pwm_chip chip;
++};
++
++struct __packed rockchip_pwm_v4_wf {
++	u32 period;
++	u32 duty;
++	u32 offset;
++	unsigned long rate;
++};
++
++static inline struct rockchip_pwm_v4 *to_rockchip_pwm_v4(struct pwm_chip *chip)
++{
++	return pwmchip_get_drvdata(chip);
++}
++
++/**
++ * rockchip_pwm_v4_round_single - convert a PWM parameter to hardware
++ * @rate: clock rate of the PWM clock, as per clk_get_rate
++ *        Assumed to be <= 1GHz for overflow considerations
++ * @in_val: parameter in nanoseconds to convert
++ *
++ * Returns the rounded value, saturating at U32_MAX if too large
++ */
++static u32 rockchip_pwm_v4_round_single(unsigned long rate, u64 in_val)
++{
++	u64 tmp;
++
++	tmp = mul_u64_u64_div_u64(rate, in_val, NSEC_PER_SEC);
++	if (tmp > U32_MAX)
++		tmp = U32_MAX;
++
++	return tmp;
++}
++
++/**
++ * rockchip_pwm_v4_round_params - convert PWM parameters to hardware
++ * @rate: PWM clock rate to do the calculations at
++ * @wf: pointer to the generic &struct pwm_waveform input parameters
++ * @wfhw: pointer to the hardware-specific &struct rockchip_pwm_v4_wf output
++ *        parameters that the results will be stored in
++ *
++ * Convert nanosecond-based duty/period/offset parameters to the PWM hardware's
++ * native rounded representation in number of cycles at clock rate @rate. Should
++ * any of the input parameters be out of range for the hardware, the
++ * corresponding output parameter is the maximum permissible value for said
++ * parameter with considerations to the others.
++ */
++static void rockchip_pwm_v4_round_params(unsigned long rate,
++					 const struct pwm_waveform *wf,
++					 struct rockchip_pwm_v4_wf *wfhw)
++{
++	wfhw->period = rockchip_pwm_v4_round_single(rate, wf->period_length_ns);
++
++	wfhw->duty = rockchip_pwm_v4_round_single(rate, wf->duty_length_ns);
++
++	/* As per TRM, PWM_OFFSET: "The value ranges from 0 to (period-duty)" */
++	wfhw->offset = rockchip_pwm_v4_round_single(rate, wf->duty_offset_ns);
++	if (!wfhw->period) /* Don't underflow when pwm disabled */
++		wfhw->offset = 0;
++	else if (wfhw->offset > wfhw->period - wfhw->duty)
++		wfhw->offset = wfhw->period - wfhw->duty;
++}
++
++static int rockchip_pwm_v4_round_wf_tohw(struct pwm_chip *chip,
++					 struct pwm_device *pwm,
++					 const struct pwm_waveform *wf,
++					 void *_wfhw)
++{
++	struct rockchip_pwm_v4 *pc = to_rockchip_pwm_v4(chip);
++	struct rockchip_pwm_v4_wf *wfhw = _wfhw;
++	unsigned long rate;
++
++	rate = clk_get_rate(pc->pwmf->core);
++
++	/*
++	 * It's unlikely this code path is ever taken, as current hardware does
++	 * not expose a clock that comes anywhere close to 1GHz. However, in
++	 * order to avoid even a theoretical overflow in parameter rounding,
++	 * error out if this ever happens to be the case.
++	 */
++	if (rate > NSEC_PER_SEC)
++		return -ERANGE;
++
++	rockchip_pwm_v4_round_params(rate, wf, wfhw);
++
++	if (wf->period_length_ns > 0)
++		wfhw->rate = rate;
++	else
++		wfhw->rate = 0;
++
++	dev_dbg(&chip->dev,
++		"tohw: pwm#%u: %lld/%lld [+%lld] @%lu -> DUTY: %08x, PERIOD: %08x, OFFSET: %08x\n",
++		pwm->hwpwm, wf->duty_length_ns, wf->period_length_ns, wf->duty_offset_ns,
++		rate, wfhw->duty, wfhw->period, wfhw->offset);
++
++	return 0;
++}
++
++static int rockchip_pwm_v4_round_wf_fromhw(struct pwm_chip *chip,
++					   struct pwm_device *pwm,
++					   const void *_wfhw,
++					   struct pwm_waveform *wf)
++{
++	const struct rockchip_pwm_v4_wf *wfhw = _wfhw;
++	unsigned long rate = wfhw->rate;
++
++	if (rate) {
++		wf->period_length_ns = DIV_ROUND_UP((u64)wfhw->period * NSEC_PER_SEC, rate);
++		wf->duty_length_ns = DIV_ROUND_UP((u64)wfhw->duty * NSEC_PER_SEC, rate);
++		wf->duty_offset_ns = DIV_ROUND_UP((u64)wfhw->offset * NSEC_PER_SEC, rate);
++	} else {
++		wf->period_length_ns = 0;
++		wf->duty_length_ns = 0;
++		wf->duty_offset_ns = 0;
++	}
++
++	dev_dbg(&chip->dev,
++		"fromhw: pwm#%u: DUTY: %08x, PERIOD: %08x, OFFSET: %08x @%lu -> %lld/%lld [+%lld]\n",
++		pwm->hwpwm, wfhw->duty, wfhw->period, wfhw->offset, rate,
++		wf->duty_length_ns, wf->period_length_ns, wf->duty_offset_ns);
++
++	return 0;
++}
++
++static int rockchip_pwm_v4_read_wf(struct pwm_chip *chip, struct pwm_device *pwm,
++				   void *_wfhw)
++{
++	struct rockchip_pwm_v4 *pc = to_rockchip_pwm_v4(chip);
++	struct rockchip_pwm_v4_wf *wfhw = _wfhw;
++	unsigned long rate;
++	int ret;
++
++	ret = mfpwm_acquire(pc->pwmf);
++	if (ret)
++		return ret;
++
++	rate = clk_get_rate(pc->pwmf->core);
++
++	wfhw->period = mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_PERIOD);
++	wfhw->duty = mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_DUTY);
++	wfhw->offset = mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_OFFSET);
++	if (rockchip_pwm_v4_is_enabled(mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_ENABLE)))
++		wfhw->rate = rate;
++	else
++		wfhw->rate = 0;
++
++	mfpwm_release(pc->pwmf);
++
++	return 0;
++}
++
++static int rockchip_pwm_v4_write_wf(struct pwm_chip *chip, struct pwm_device *pwm,
++				    const void *_wfhw)
++{
++	struct rockchip_pwm_v4 *pc = to_rockchip_pwm_v4(chip);
++	const struct rockchip_pwm_v4_wf *wfhw = _wfhw;
++	bool was_enabled;
++	int ret;
++
++	ret = mfpwm_acquire(pc->pwmf);
++	if (ret)
++		return ret;
++
++	was_enabled = rockchip_pwm_v4_is_enabled(mfpwm_reg_read(pc->pwmf->base,
++								PWMV4_REG_ENABLE));
++
++	/*
++	 * "But Nicolas", you ask with valid concerns, "why would you enable the
++	 * PWM before setting all the parameter registers?"
++	 *
++	 * Excellent question, Mr. Reader M. Strawman! The RK3576 TRM Part 1
++	 * Section 34.6.3 specifies that this is the intended order of writes.
++	 * Doing the PWM_EN and PWM_CLK_EN writes after the params but before
++	 * the CTRL_UPDATE_EN, or even after the CTRL_UPDATE_EN, results in
++	 * erratic behaviour where repeated turning on and off of the PWM may
++	 * not turn it off under all circumstances. This is also why we don't
++	 * use relaxed writes; it's not worth the footgun.
++	 */
++	if (wfhw->rate)
++		mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_ENABLE,
++				FIELD_PREP_WM16(PWMV4_EN_BOTH_MASK,
++						PWMV4_EN_BOTH_MASK));
++	else
++		mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_ENABLE,
++				FIELD_PREP_WM16(PWMV4_EN_BOTH_MASK, 0));
++
++	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_PERIOD, wfhw->period);
++	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_DUTY, wfhw->duty);
++	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_OFFSET, wfhw->offset);
++
++	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_CTRL, PWMV4_CTRL_CONT_FLAGS);
++
++	/* Commit new configuration to hardware output. */
++	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_ENABLE,
++			PWMV4_CTRL_UPDATE_EN);
++
++	if (wfhw->rate) {
++		if (!was_enabled) {
++			dev_dbg(&chip->dev, "Enabling PWM output\n");
++			ret = clk_enable(pc->pwmf->core);
++			if (ret)
++				goto err_mfpwm_release;
++			ret = clk_set_rate_exclusive(pc->pwmf->core, wfhw->rate);
++			if (ret) {
++				clk_disable(pc->pwmf->core);
++				goto err_mfpwm_release;
++			}
++
++			/*
++			 * Output should be on now, acquire device to guarantee
++			 * exclusion with other device functions while it's on.
++			 *
++			 * It's highly unlikely that this fails, as mfpwm has
++			 * already been acquired before, and this is just a
++			 * usage counter increase. Not worth the added
++			 * complexity of clearing the PWMV4_REG_ENABLE again,
++			 * especially considering the CTRL_UPDATE_EN behaviour.
++			 */
++			ret = mfpwm_acquire(pc->pwmf);
++			if (ret) {
++				clk_rate_exclusive_put(pc->pwmf->core);
++				clk_disable(pc->pwmf->core);
++				goto err_mfpwm_release;
++			}
++		}
++	} else if (was_enabled) {
++		dev_dbg(&chip->dev, "Disabling PWM output\n");
++		clk_rate_exclusive_put(pc->pwmf->core);
++		clk_disable(pc->pwmf->core);
++		/* Output is off now, extra release to balance extra acquire */
++		mfpwm_release(pc->pwmf);
++	}
++
++err_mfpwm_release:
++	mfpwm_release(pc->pwmf);
++
++	return ret;
++}
++
++static const struct pwm_ops rockchip_pwm_v4_ops = {
++	.sizeof_wfhw = sizeof(struct rockchip_pwm_v4_wf),
++	.round_waveform_tohw = rockchip_pwm_v4_round_wf_tohw,
++	.round_waveform_fromhw = rockchip_pwm_v4_round_wf_fromhw,
++	.read_waveform = rockchip_pwm_v4_read_wf,
++	.write_waveform = rockchip_pwm_v4_write_wf,
++};
++
++static bool rockchip_pwm_v4_on_and_continuous(struct rockchip_pwm_v4 *pc)
++{
++	bool en;
++	u32 val;
++
++	en = rockchip_pwm_v4_is_enabled(mfpwm_reg_read(pc->pwmf->base,
++						       PWMV4_REG_ENABLE));
++	val = mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_CTRL);
++
++	return en && ((val & PWMV4_MODE_MASK) == PWMV4_MODE_CONT);
++}
++
++static int rockchip_pwm_v4_probe(struct platform_device *pdev)
++{
++	struct rockchip_mfpwm_func *pwmf = dev_get_platdata(&pdev->dev);
++	struct rockchip_pwm_v4 *pc;
++	struct pwm_chip *chip;
++	struct device *dev = &pdev->dev;
++	int ret;
++
++	/*
++	 * For referencing the PWM in the DT to work, we need the parent MFD
++	 * device's OF node.
++	 */
++	dev->of_node_reused = true;
++	device_set_node(dev, of_fwnode_handle(dev->parent->of_node));
++
++	chip = devm_pwmchip_alloc(dev, 1, sizeof(*pc));
++	if (IS_ERR(chip))
++		return PTR_ERR(chip);
++
++	pc = to_rockchip_pwm_v4(chip);
++	pc->pwmf = pwmf;
++
++	ret = mfpwm_acquire(pwmf);
++	if (ret)
++		return dev_err_probe(dev, ret, "Couldn't acquire mfpwm in probe\n");
++
++	if (!rockchip_pwm_v4_on_and_continuous(pc))
++		mfpwm_release(pwmf);
++	else {
++		dev_dbg(dev, "PWM was already on at probe time\n");
++		ret = clk_enable(pwmf->core);
++		if (ret) {
++			dev_err_probe(dev, ret, "Enabling pwm clock failed\n");
++			goto err_mfpwm_release;
++		}
++		ret = clk_rate_exclusive_get(pc->pwmf->core);
++		if (ret) {
++			dev_err_probe(dev, ret, "Protecting pwm clock failed\n");
++			goto err_clk_disable;
++		}
++	}
++
++	platform_set_drvdata(pdev, chip);
++
++	chip->ops = &rockchip_pwm_v4_ops;
++
++	ret = devm_pwmchip_add(dev, chip);
++	if (ret) {
++		dev_err_probe(dev, ret, "Failed to add PWM chip\n");
++		if (rockchip_pwm_v4_on_and_continuous(pc))
++			goto err_rate_put;
++
++		return ret;
++	}
++
++	return 0;
++
++err_rate_put:
++	clk_rate_exclusive_put(pwmf->core);
++err_clk_disable:
++	clk_disable(pwmf->core);
++err_mfpwm_release:
++	mfpwm_release(pwmf);
++
++	return ret;
++}
++
++static const struct platform_device_id rockchip_pwm_v4_ids[] = {
++	{ .name = "rockchip-pwm-v4", },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(platform, rockchip_pwm_v4_ids);
++
++static struct platform_driver rockchip_pwm_v4_driver = {
++	.probe = rockchip_pwm_v4_probe,
++	.driver = {
++		.name = "rockchip-pwm-v4",
++	},
++	.id_table = rockchip_pwm_v4_ids,
++};
++module_platform_driver(rockchip_pwm_v4_driver);
++
++MODULE_AUTHOR("Nicolas Frattaroli <nicolas.frattaroli@collabora.com>");
++MODULE_DESCRIPTION("Rockchip PWMv4 Driver");
++MODULE_LICENSE("GPL");
++MODULE_IMPORT_NS("ROCKCHIP_MFPWM");
++MODULE_ALIAS("platform:pwm-rockchip-v4");
 
 -- 
 2.53.0
