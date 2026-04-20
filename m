@@ -4,71 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC941F36C58
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 12:02:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6787BF36C5F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 12:03:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x5mFNmk8QCjW303+12nnTbEnOf0gTpLfX0AgHqHSXVk=; b=lnsDrzYCEQlypGVAgh9KZJzgvF
-	xIGpX3U92y9Maor/TbtYNByJ+/ua/y8Yo0w6FH9uSC59tzeHgywnBiO9O8Jcli9eJqOzV1/lbZp8G
-	hbtwjjDJSMKHtsAXwPFnyPXFLmGyaJqCtlw9HQchtMtKhOatj8VsiYUAFF4qs1v7jstwrUb6iajv0
-	v5BD4scVFlDjWDbY1Q7dHFQYd8uE3X8B83zrRcF0PlG8SqzTD6FhIeiILWsZayRf/ZOsJugNtWW3G
-	WytTgF960wC80RNZZkOBowpKnyyqJT2ANqGAjDY53Y2ZgWhKG4Wd6TqL2C+9J1n5IRwwDkSSPHx0X
-	zWTezCWg==;
+	bh=H8b7fULVtzI56Bio+ZPKMEGYjw8VcHhdEK82O/OfdDU=; b=RoNvS10kkfXKTlW+HGMuxlWMQV
+	m24w00ODcp3LfLpQFxBjjax+xIFsAR9wjqv7MQGwd0wjvmatpV23CNNEtkTNupo+5D04nvgyfcmBO
+	YhEbGMKZAhDLAL0xivDkOPq05FhK5kS4OC877GLKVSTL1hlrPdgGVv0AUkVzV9llqhMnu4EshEr2k
+	kAnyp9cx8AfXMpccwvMRFlNX3A5KcOiDdPyAC099/F/NmrIcrAbarRtH5/B7UW8KYP5x3YivyTVy6
+	I75WkWmvFWbAYo9DYR5dgGXPShDrIZhwFnw1HQY0vU83nLTjP5liaYH3LAZcSPlcEidCm+z1I/sOu
+	CZ85ZyJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEnKh-00000006qjN-3WIL;
-	Mon, 20 Apr 2026 12:02:31 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1wEnL9-00000006qpK-3oau;
+	Mon, 20 Apr 2026 12:02:59 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEnKe-00000006qiT-0SK8;
-	Mon, 20 Apr 2026 12:02:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1776686532; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=D4wV3c/yZdK1eU7KT/phx0dwslxU6lVYK+XH3o6odSa2T2bsmVNuPGkpPokO9odCGebd1VL6x+JQmJochSSU2+ZygtUA8PJjzyUuX0A9Qrl0XWGmVojg77UaxS/3Sny5w7IefWTfwjsdGx5f10vKP7mNZOOq3/lOb08dGJ1R+HE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1776686532; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=x5mFNmk8QCjW303+12nnTbEnOf0gTpLfX0AgHqHSXVk=; 
-	b=O4SRXC9WiJ06iz4jU46oIS5HKKrQZDbZtgXUWFYVGQe2rswu3bj3BkygH+aWXgqxyyPaddoz9B1yPHO/KFVDzIh7GqYMIRjQejUCYGzFYaYlP5w7SL1/EArLcQBvCc9zv7INEtZGigKIoJ6D0I7RXLUuoYFc0bOQaEYeUm3rmnU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1776686531;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=x5mFNmk8QCjW303+12nnTbEnOf0gTpLfX0AgHqHSXVk=;
-	b=JznioJN5R98NhLocaRwmQa8qpR7kvDOKjtwdelsT7L3l+7wbXLNSQEEGVvn+u95v
-	UZwrLnpD0cFG5havrVDsKzAvRnbR7/565GTMHbXmCLQpi0wwBdn9P0HWyPwh07tJV4A
-	s58b6CDl+WyyoJFKqUp6qGkh+0pcHFfjfmEpk9Mw=
-Received: by mx.zohomail.com with SMTPS id 1776686529459133.0396587303926;
-	Mon, 20 Apr 2026 05:02:09 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: William Breathitt Gray <wbg@kernel.org>
-Cc: William Breathitt Gray <wbg@kernel.org>,
- Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <ukleinek@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Lee Jones <lee@kernel.org>, kernel@collabora.com,
- Jonas Karlman <jonas@kwiboo.se>, Alexey Charkov <alchark@gmail.com>,
- linux-rockchip@lists.infradead.org, linux-pwm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org
-Subject: Re: [PATCH v3 4/5] counter: Add rockchip-pwm-capture driver
-Date: Mon, 20 Apr 2026 14:02:03 +0200
-Message-ID: <oA6h2S_2RQulBS91CKXxhw@collabora.com>
-In-Reply-To: <20251206093419.40067-1-wbg@kernel.org>
-References: <20251027-rk3576-pwm-v3-4-654a5cb1e3f8@collabora.com>
- <20251206093419.40067-1-wbg@kernel.org>
+	id 1wEnL5-00000006qny-40Bp
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Apr 2026 12:02:58 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-43d7213b6ebso1962966f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 05:02:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1776686574; x=1777291374; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=H8b7fULVtzI56Bio+ZPKMEGYjw8VcHhdEK82O/OfdDU=;
+        b=YqYpYKJaWvR48VNISHhzXTBl0XMm38SawN5UlK8V4TpNXXLTjHEH+iKwckn9STr1WD
+         jqtakgJCKAxIEBTlNs5rHyDGTCseoMfhGy5TIJlm+itvLou+qGDZwW0/LhV7Sc78UjQQ
+         bF06an2yMZpU1Epe0QiKr1KwFmpIf2sRE5+OVZ/KPQPSTsyAWz2Rx2VJh4PpTdQKeU+L
+         uNNNYW12vG9q7WlzOdmNGJZu/tupmz5r40GdzxXNB7BfJsnEadRa/kFRwxdPMolBARUJ
+         rds0x2d36TiM38VD6IF7/7zPVX5W2qN+jP7QG/EhGJEWBh3Q+Q4oP1wEU+fCu5RbxGTH
+         B5nw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776686574; x=1777291374;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=H8b7fULVtzI56Bio+ZPKMEGYjw8VcHhdEK82O/OfdDU=;
+        b=f2G6cXFCyLiUKjYwwinBt3HX+x9oA3xaWS7iAGqB5C6b85qbC8rcfFI3mBCqdlHQcm
+         /nhlxVr0toTRw7gNpsVAxERUl7nt0uUO06pZyukAQUQn61A4UFpbbygXda7BUBu1QjSM
+         yZJ7c0OrvfiNu1889Fg/J6q2mS+4vf1OOs6ax0ya+YG/hM0JQT9FDHh5ig27lpSdfX8Z
+         MBcg90vV74DY6LQp3hLfSY/xQE7uTT3AvGRSDJQLgcPN5afcNZFY6ZorY4t8PM4ZwWXD
+         mNi29vXsxHbLEm4ZlzsW4DTmUouhA7jw+B+u3pk7iMSpw7RBNmsWTkylQBmHj9be+6Ez
+         68Nw==
+X-Gm-Message-State: AOJu0YzegR+x31BtAVJ7xc4V9PvRQF56LkIgfRp0nBfJo8FoF7twQTgj
+	/XBEG3ug7pEglP/oVH/HN8PxL2nYpX5pOkE6NN5BXXd1v+UTTCvb9eHMslwjdm+I21M=
+X-Gm-Gg: AeBDievnu3LqnpTtyIP9H5/T3pBwc/MscII0A7u59YjBXcA0TAC+eD/gkmhpg1mYCjZ
+	yt/8dDA2VNd+G9FxgSVv6H/jX2vVU7Dh4A6F2r00+JDI4KZ5TrY+QYCHyimloobXIUR75qRlRZk
+	imfiXFHW5cVtZdyuU8oWB9UF0W8MPV61CTq0bJRWzAR82Kf0xhVMgZO/CIZWxBJ02GOvVNzubww
+	uRRPjWmBYp10QI9GMYHWfFD23O/3rvFR+TYC/E2l3J7CkNUZ9KKBHRgUF5SEx0GdsLvZj96GkdL
+	p3CASGvOWvaI6ZhPc8o8DlQHfOj+S2EM1Qn1KUK+sBRilnZxQ60Sq4Nh0f8GpTgdUGw9Y4cRUXf
+	3RqbNc8zmYvCiPoKup8DYcWLIAZH2ZKZuOYS8NlpOSFVT31K8BA13tekmR/GHXLEYB+oK6cOj9d
+	ZY6JaZK1hUKTdw8qHbx53/ctwtaEWKwyanxLyPGtT3sH8oykVA96CU6IcHuE2K0S4IGHz26qFSK
+	7/0k2uJ1wdG7e1uRg==
+X-Received: by 2002:adf:fd4c:0:b0:43f:e414:4c6a with SMTP id ffacd0b85a97d-43fe4144cabmr12333460f8f.0.1776686573966;
+        Mon, 20 Apr 2026 05:02:53 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:106d:1080:851d:cf13:ef26:f254? ([2a01:e0a:106d:1080:851d:cf13:ef26:f254])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43fe4e3a18csm32493652f8f.20.2026.04.20.05.02.53
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 20 Apr 2026 05:02:53 -0700 (PDT)
+Message-ID: <7bbaf370-3b66-4889-9abb-c31983948ac3@linaro.org>
+Date: Mon, 20 Apr 2026 14:02:52 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH v3 3/4] arm64: dts: amlogic: t7: khadas-vim4: Remove
+ redundant clocks from UART A
+To: Ronald Claveau <linux-kernel-dev@aliel.fr>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260420-add-bluetooth-t7-vim4-v3-0-669cd2530ae5@aliel.fr>
+ <20260420-add-bluetooth-t7-vim4-v3-3-669cd2530ae5@aliel.fr>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20260420-add-bluetooth-t7-vim4-v3-3-669cd2530ae5@aliel.fr>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_050228_221796_5D9491C3 
-X-CRM114-Status: GOOD (  40.62  )
+X-CRM114-CacheID: sfid-20260420_050257_162424_E84E402C 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,133 +130,33 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-finally got an opportunity to work on this again.
-
-I'll respond to some things in-line. If a review isn't directly
-addressed, you can assume I acknowledge it and will address it
-in the next revision with no further comment needed.
-
-On Saturday, 6 December 2025 10:34:17 Central European Summer Time William Breathitt Gray wrote:
-> > +struct rockchip_pwm_capture {
-> > +	struct rockchip_mfpwm_func *pwmf;
-> > +	struct counter_device *counter;
+On 4/20/26 13:58, Ronald Claveau wrote:
+> Remove clocks and clock-names for UART A, as they are defined in DTSI.
 > 
-> Is this structure member used at all? If not, you should just remove it.
-
-The counter member is used in the interrupt handler. I actually
-noticed that I request the interrupt before pc->counter is set,
-so if an interrupt fires before the probe function finishes then
-I think the handler would run with a NULL counter member. Oops,
-I'll rectify that.
-
-> > +	bool is_enabled;
+> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+> ---
+>   arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts | 2 --
+>   1 file changed, 2 deletions(-)
 > 
-> Does this device offer some way to probe whether PWM capture mode is
-> enabled? I suspect so, because I see PWM_ENABLE.pwm_en enables the
-> channel and PWM_CTRL.pwm_mode selects capture mode, so perhaps we're
-> able to read the current state of those registers. If you're able to
-> read those registers to determine the enable state, I'd suggest wrapping
-> that into a helper function and calling it when you need to determine
-> whether the capture mode is currently enabled.
-
-I'm going to read the hardware state in the next revision, you're right
-that this is generally a better idea.
-
-> 
-> If we're not able to probe the enable state, is it safe to assume we're
-> in a disabled state when the module loads, or should we ensure it by
-> unconditionally disabling PWM capture mode during
-> rockchip_pwm_capture_probe()?
-
-In my next revision, I've now modified it to mfpwm_acquire if the hardware
-state has the counter enabled during probe. This sounds niche but I'm also
-doing this on the PWM output side, where Uwe rightfully pointed out that
-a bootloader may have enabled PWM output in hardware and Linux needs to
-recognise that state without any heavy-handed actions. For the counter
-PWM capture side, resetting it to a known state wouldn't be disruptive in
-the same way as it would be for PWM output, but I think it's a good idea
-to keep the state as-is since we can read it.
-
-> [... snip ...]
-
-> > +static int rkpwmc_count_read(struct counter_device *counter,
-> > +			     struct counter_count *count, u64 *value)
-> > +{
-> > +	struct rockchip_pwm_capture *pc = counter_priv(counter);
-> > +
-> > +	guard(spinlock)(&pc->enable_lock);
-> > +
-> > +	if (!pc->is_enabled) {
-> > +		*value = 0;
-> > +		return 0;
-> > +	}
-> 
-> I don't think there's a need to check whether capture mode is disabled.
-> The user should be aware of the enable state of the Count by checking
-> the respective "enable" attribute; and if they ignore that, a value of
-> "0" doesn't inherently tell them that the Count is disabled which makes
-> it moot to do so. I'd suggest just removing this check entirely and
-> returning the register values unconditionally.
-
-I see what you're going for, but if the counter isn't enabled, we can't
-rely in the counter having an mfpwm_acquire, and consequently, we can't
-rely on the PWM core clock being on, which is required for reading the
-registers.
-
-In my next revision, I'll still be returning 0 if the counter is disabled,
-but the is_enabled member is gone, so there's a new function called
-rkpwmc_acquire_if_enabled to still make this correct.
-
-I could of course also extend the core driver to let me poke at these
-non-shared registers without exclusive control over the hardware, but
-that may be more trouble than it's worth.
-
-I'll also no longer return 0 on bogus count IDs when the counter is
-disabled.
-
-> > +
-> > +	switch (count->id) {
-> > +	case COUNT_LPC:
-> > +		*value = mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_LPC);
-> > +		return 0;
-> > +	case COUNT_HPC:
-> > +		*value = mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_HPC);
-> > +		return 0;
-> > +	default:
-> > +		return -EINVAL;
-> > +	}
-> > +}
-> > +
-> > +static const struct counter_ops rkpwmc_ops = {
-> > +	.count_read = rkpwmc_count_read,
-> > +};
-> 
-> You should implement a signal_read() callback if its possible to probe
-> the current state of PWM Clock. You should implement action_read() if
-> its possible to probe the current polarity of "pwm_in" in order to set
-> which Synapse is currently active.
-
-Unfortunately, it doesn't seem like the hardware allows direct access to
-read the signal. "pwm_in" as it appears in the block diagram seems to be
-an entirely internal signal that's not accessible through MMIO.
-
-Thank you for the reviews!
-
-Kind regards,
-Nicolas Frattaroli
-
-> 
-> William Breathitt Gray
-> 
-> [^1] https://opensource.rock-chips.com/images/3/36/Rockchip_RK3506_TRM_Part_1_V1.2-20250811.pdf
+> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+> index 69d6118ba57e7..3227ab27de107 100644
+> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+> @@ -250,6 +250,4 @@ &sd_emmc_c {
+>   
+>   &uart_a {
+>   	status = "okay";
+> -	clocks = <&xtal>, <&xtal>, <&xtal>;
+> -	clock-names = "xtal", "pclk", "baud";
+>   };
 > 
 
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
-
-
+Thanks,
+Neil
 
