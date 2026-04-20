@@ -4,72 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BAC2F588C3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:34:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEB00F588C3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:35:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o7i4MOjjjJrGvGQdMbRRql7PuBiTh8DQvmm4WTjzPf8=; b=nvh0CvkhtbFn0w8sSk3O2Z6T1U
-	yG/CbuL1indbeHtg/dSFecTBvRO8LYGSu7hUYHfH5Rr28AMwrcFQPDWkZtTJpOAFT3GYGv9xJk9n0
-	D9hmT2HrVJWk2qO564O6QaFQYXb0P6KvpKlAC26RZ6T3SjI7gveGv3DT4VegFTWHOFNIM7DYxGtaH
-	lIFOgtu/wc5nCnP3JdxGnRfJ6G5pG/LfVMldwRneUZQJpLAUMAuFJKCgjq+wDZW1cUeceO7JZMwgA
-	18dqQkZvEqCF+MnBTCOb7leYTnA6YPeqkufIouyU6hA7aOADaGWov2GrrQCDzVSPVXWC4WAHmTiih
-	eG9eJtCg==;
+	bh=OYIu6EXTIRt0VXvV/t9DOgjJC3KN2/vmzS5XsjRCo3Q=; b=Qq+qNax9DTzBEGYsISbz5J4CDt
+	jdYygOtsjtphfqO3xFDkbaLFRLvWYKKLpd6u7Dc8qQ/ATRmhfniB/7JZ9x11sRoKIQs77raLH6WBg
+	Mk6aDLF/GvMEzdU6QegKoPxwGScdHbTnL63yBfksQXy25kw/FEnpaVPPM/lm1F/zHeOQwr0DsZPZs
+	F14cL24i7jwPEKCN3HE79U0/MoUNWdaMGQpeDcl61e+MqESk8bvLdO7pE9/cRl0F3E5LnhKFOlugI
+	UHdLjisVivZQRFUufxm76tM3C9PPE76kttvVgPwGPEdpUtXFJ7xgySyKNuW1c5WhtZnMmtVZldOJm
+	YQ8fxfow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEolB-000000073cq-43mV;
-	Mon, 20 Apr 2026 13:33:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wEomt-000000073tf-07dn;
+	Mon, 20 Apr 2026 13:35:43 +0000
+Received: from out-174.mta0.migadu.com ([2001:41d0:1004:224b::ae])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEol9-000000073be-2HfQ;
-	Mon, 20 Apr 2026 13:33:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3B87043562;
-	Mon, 20 Apr 2026 13:33:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8263C2BCB6;
-	Mon, 20 Apr 2026 13:33:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776692035;
-	bh=i3rhWaKMYSrIbCXhEhMYTiNtIcwSGsFJBwm31q++mJY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SO8niLhRl4/p2u024WoM113oBgra7Xun4h8QLhr0rqQ9bh34YcGR611Pu01jqRNBN
-	 XVBRQMdV7Xd7LBmlfWhGqPP7Y32KH8joxiGxMqVZCdTTi9+a1Ume7Ou9osBK89ZoEc
-	 FcJHNyx8DlR8lH83SHwU11WSDS3ECH1sLIqLL6Z9wzPokibUO0MTHuaZAGwKfrrDr0
-	 kCBB3S3XBR/X7iKYcx5E4UCIustFJYzTtTwxyB8gNLe1y8AYgVTywOpk7iphb5Pcyc
-	 K3NqBtECZfRGdvgvTDLZ9V+Ap3UPMzRzDDwZ2OBNBAyLJqs85hPkZafHq55pFXHXCL
-	 X+7FQgoN384XA==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>,
-	Simon Horman <horms@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Sasha Levin <sashal@kernel.org>,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	pabeni@redhat.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18] net: airoha: Fix memory leak in airoha_qdma_rx_process()
-Date: Mon, 20 Apr 2026 09:22:10 -0400
-Message-ID: <20260420132314.1023554-336-sashal@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260420132314.1023554-1-sashal@kernel.org>
-References: <20260420132314.1023554-1-sashal@kernel.org>
-MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.18.23
-Content-Transfer-Encoding: 8bit
+	id 1wEomq-000000073se-2ak2
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Apr 2026 13:35:42 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
+	s=key1; t=1776692128;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OYIu6EXTIRt0VXvV/t9DOgjJC3KN2/vmzS5XsjRCo3Q=;
+	b=LwzP8kbEE4fmR4T7wCLz0+Gdxcxg08Y8PIo/FbaSXDw6u2rMZQOMGArRZ0P4aAN7mDYhYh
+	3/A4rYVlQWIThcb+tTW9pBS0H7CTSl4mWa38gL/Kp4TxKxFnsBe0ChkfjymjDoJ3JjGWcF
+	ccq44mC3ivSV71gGZ1BgrBAaITQHnEVat7/6jLB3lCzJTewwye3wPZjBxgqi3m+RtLw3oE
+	V1WJWxWCpVrohQorzzESc34eNoDb/viIbRNBdFqSwUsiqCNJxmMmYOYUVB3xrCHkaqZ6lT
+	QMugMChL8oa1JOXjMqjG8gvcdbkvNrpvpjE/+G6ru03LYRfygJV0QwzXsRvhZg==
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 20 Apr 2026 15:35:15 +0200
+Message-Id: <DHY0SHYOZHAP.3276L2M1SNC7L@cknow-tech.com>
+Cc: "Arnd Bergmann" <arnd@arndb.de>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ "Quentin Schulz" <quentin.schulz@cherry.de>, "Jonas Karlman"
+ <jonas@kwiboo.se>
+Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Replace deprecated snps,*
+ props for NanoPi R5S
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: "Tianling Shen" <cnsztl@gmail.com>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
+ <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>
+References: <20260401131551.734456-1-diederik@cknow-tech.com>
+ <20260401131551.734456-3-diederik@cknow-tech.com>
+ <DHTSOV43O2EX.38TGASN7SQEZL@cknow-tech.com>
+ <2d2b1e17-388f-431a-be86-a0f26b5be6cf@gmail.com>
+In-Reply-To: <2d2b1e17-388f-431a-be86-a0f26b5be6cf@gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_063355_602294_3FA87FA2 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20260420_063540_792460_DCEB19BB 
+X-CRM114-Status: GOOD (  20.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,51 +79,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Lorenzo Bianconi <lorenzo@kernel.org>
+On Mon Apr 20, 2026 at 8:58 AM CEST, Tianling Shen wrote:
+> On 2026/4/15 22:23, Diederik de Haas wrote:
+>> On Wed Apr 1, 2026 at 3:11 PM CEST, Diederik de Haas wrote:
+>>> The various snps,reset-* properties are deprecated, so convert them int=
+o
+>>> their replacements.
+>>>
+>>> Signed-off-by: Diederik de Haas <diederik@cknow-tech.com>
+>>> ---
+>>>   arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts | 7 +++----
+>>>   1 file changed, 3 insertions(+), 4 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts b/arch/=
+arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
+>>> index 90ce6f0e1dcf..92d044ec696b 100644
+>>> --- a/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
+>>> +++ b/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
+>>> @@ -85,10 +85,6 @@ &gmac0_tx_bus2
+>>>   		     &gmac0_rx_bus2
+>>>   		     &gmac0_rgmii_clk
+>>>   		     &gmac0_rgmii_bus>;
+>>> -	snps,reset-gpio =3D <&gpio0 RK_PC5 GPIO_ACTIVE_LOW>;
+>>> -	snps,reset-active-low;
+>>> -	/* Reset time is 15ms, 50ms for rtl8211f */
+>>> -	snps,reset-delays-us =3D <0 15000 50000>;
+>>>   	tx_delay =3D <0x3c>;
+>>>   	rx_delay =3D <0x2f>;
+>>>   	status =3D "okay";
+>>> @@ -100,6 +96,9 @@ rgmii_phy0: ethernet-phy@1 {
+>>>   		reg =3D <1>;
+>>>   		pinctrl-0 =3D <&gmac0_rstn_gpio0_c5_pin>;
+>>>   		pinctrl-names =3D "default";
+>>> +		reset-assert-us =3D <15000>;
+>>> +		reset-deassert-us =3D <50000>;
+>>> +		reset-gpios =3D <&gpio0 RK_PC5 GPIO_ACTIVE_LOW>;
+>>>   	};
+>>>   };
+>>>  =20
+>>=20
+>> Please disregard/drop this patch.
+>>=20
+>> I was recently made aware of 'sashiko.dev' and checked whether it had
+>> also checked my patch, which it did:
+>> https://sashiko.dev/#/patchset/20260401131551.734456-1-diederik%40cknow-=
+tech.com
+>>=20
+>> And it turns out that the concern raised is valid (thanks Quentin!), so
+>> this patch could introduce a regression.
+>> So it looks like staying with the deprecated properties is actually
+>> better (in this case?).
+>
+> Well actually we more or less rely on U-Boot to reset the PHY first now.=
+=20
 
-[ Upstream commit 285fa6b1e03cff78ead0383e1b259c44b95faf90 ]
+This change would introduce such a dependency where it was not there
+before, so this could introduce a regression.
 
-If an error occurs on the subsequents buffers belonging to the
-non-linear part of the skb (e.g. due to an error in the payload length
-reported by the NIC or if we consumed all the available fragments for
-the skb), the page_pool fragment will not be linked to the skb so it will
-not return to the pool in the airoha_qdma_rx_process() error path. Fix the
-memory leak partially reverting commit 'd6d2b0e1538d ("net: airoha: Fix
-page recycling in airoha_qdma_rx_process()")' and always running
-page_pool_put_full_page routine in the airoha_qdma_rx_process() error
-path.
+> Many rockchip boards in tree require a reset before the PHY can be=20
+> recognized, but we just use the generic "ethernet-phy-ieee802.3-c22"=20
+> compatible.
 
-Fixes: d6d2b0e1538d ("net: airoha: Fix page recycling in airoha_qdma_rx_process()")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-Reviewed-by: Simon Horman <horms@kernel.org>
-Link: https://patch.msgid.link/20260402-airoha_qdma_rx_process-mem-leak-fix-v1-1-b5706f402d3c@kernel.org
-Signed-off-by: Jakub Kicinski <kuba@kernel.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
+I've identified ~40 Rockchip based boards where there is a dependency on
+the bootloader due to using that generic compatible. Some from the start
+and some got it added with a similar conversion as I proposed above.
+I haven't seen massive bug reports, so it looks like it's currently ok.
+I don't like having such a dependency and certainly not adding one where
+it previously was not the case.
 
-LLM Generated explanations, may be completely bogus:
+In other cases, the generic compatible was replaced with a specific one
+for the PHY being used, which 'circumvents' the raised concern:
+https://lore.kernel.org/linux-rockchip/20260202-px30-eth-phy-v1-0-ef365be64=
+922@cherry.de/
 
-Error: Failed to generate final synthesis
+According to the FriendlyELEC schematics I checked, they seem to use the
+RTL8211F a LOT. On the NanoPi R6* they use a/the specific compatible:
+https://elixir.bootlin.com/linux/v7.0/source/arch/arm64/boot/dts/rockchip/r=
+k3588s-nanopi-r6.dtsi#L348
 
- drivers/net/ethernet/airoha/airoha_eth.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+I've sent FriendlyELEC an email to ask whether they ONLY used that PHY
+in the R5S (LTS) in which case it is safe to replace the generic
+compatible with the specific one. I haven't received a response yet.
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 4fc6bd282b465..bdf600fea9508 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -709,9 +709,8 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- 		if (q->skb) {
- 			dev_kfree_skb(q->skb);
- 			q->skb = NULL;
--		} else {
--			page_pool_put_full_page(q->page_pool, page, true);
- 		}
-+		page_pool_put_full_page(q->page_pool, page, true);
- 	}
- 	airoha_qdma_fill_rx_queue(q);
- 
--- 
-2.53.0
+> Another option is to move the reset props to mdio node instead of PHY=20
+> node, though.
 
+I prefer that there's first an agreed upon 'strategy' on how to deal=20
+with the above mentioned raised concern so that it can be implemented
+consistently.
+
+Cheers,
+  Diederik
 
