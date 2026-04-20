@@ -4,93 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B0E0F5A8B8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 20:33:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF2C4F5A8C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 20:43:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=d8mi/dHnhOhKjn37TMzbYeLkesk0gPSMBEcSGzvI0/4=; b=Danz441eaYIPrO/MO0xgVr/NB5
-	iNkAqIYCOv9d/0B4YZsm5Y0PY7KNAgforSDRrtCrwClPsmpIRmV1cAO3g8oyUL3YrWs0GYDV0zbgu
-	0UZCnGnFGfnWqhdyNM4ey+k+wFRmEKHQOb/ffM1olMQTIeE/G4FQQDVIB1u4KTMXW5/z5h+V1iyBv
-	fGpv/FuO93Su/91yb+KBVB6Hcdws9Yd5mg8Kn56uQ65BSQik3EONMqSZDixKbP6BhfCRfFCREDfuL
-	J6uefqjcCGn22G72S8MpY9v/309lxy5TcUfuMdtKRF+ZyhZO7q8VNyCiCZWf4PIZcxSUYV0Geyuj0
-	ykI77wog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bw/xOa4cMDz+3Y150IRREEsvI8FeQ6LscRd2k8rTaIk=; b=fEJyCgatra5llU7fcAVxSDpuf5
+	snNtnQ1riXRuy+93BwW76UmyNxISY5ERUG0xLjdVLNl9d4Z9oc7MyBXM9yumSbzAnqPYN2BaZc53h
+	m/BgXY+c/e0/qWD1wWwUE6ZJth7CpGI5oxbW+BlyLTMKazEnjyJddHfj6luKFGtV46tI0kl6fUxWc
+	qXCDuPwIXgbaeacRhXzewGI1fB7DsRQarWUtHda7p8cj6LU6ey5bn2bI3zezeXBhaOoSTKLP/ZXs9
+	Rq+r/ExKZ3lXNd5FhaRsnYXFWhYqLvHL32BHxZkdon0d592qTIvL51QwmBPN5nWw/KuEv1Sc5dJUY
+	W8nBaX4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEvIk-00000007dFK-2b1H;
-	Mon, 20 Apr 2026 20:33:02 +0000
-Received: from mail-dl1-x1236.google.com ([2607:f8b0:4864:20::1236])
+	id 1wEvSu-00000007dc8-13nT;
+	Mon, 20 Apr 2026 20:43:32 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEvIh-00000007dEx-1XE9
+	id 1wEvSr-00000007dar-355T
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 20:33:01 +0000
-Received: by mail-dl1-x1236.google.com with SMTP id a92af1059eb24-12c7212836bso9193352c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 13:32:58 -0700 (PDT)
+	Mon, 20 Apr 2026 20:43:30 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2b242b9359aso33970655ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 13:43:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=usp.br; s=usp-google; t=1776717178; x=1777321978; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=d8mi/dHnhOhKjn37TMzbYeLkesk0gPSMBEcSGzvI0/4=;
-        b=i653zbJJJ81R1g7xm8InZpOXQYuKlgGGZDpgH21f7/YkbspCZ24SBCPgIvd4tgZWFG
-         DtR5te6Nuu558z5RvhJyivJg5p4BVHJqMGTkjrVg0gHB/4Y0/wII6/bo1+17zaHwm4Hl
-         PNcmlXUckJKT1XGbCuz0YZPoOM5SfTLezcBBPYusrQIBvCvn5hVadfDoiGADvL+xZYve
-         pbMWQkNDmndCFV5kfI+Vr/cgBGTLpMyH/eWatikRlk0Mt2HoJm4uF+HJE4YhkQqJud6J
-         cJVzVH7Wpvz7T5aiXxOgcnz0RFkae7J5PeXSxdWAL2GzoBQZJZM9YZNA6AHbFQmfA2wl
-         TsEw==
+        d=google.com; s=20251104; t=1776717808; x=1777322608; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Bw/xOa4cMDz+3Y150IRREEsvI8FeQ6LscRd2k8rTaIk=;
+        b=HGu8nbHdwEH1ht1VIiu5NeqGRskHHXBu4YE2oH1pg0ZyAuKaPKL6y1ZUY6gJ8/58L+
+         B2U9vOWiFPiYDNBB8FUcWHb0TuuPUBQLBgmgctj69Sf836fT5WpYm9FP8wwvfyj1Btde
+         DsNj8+j2FNKMzfe4ubkCKGvNOC4JowrN5wJugMjQJN/SBIPKuFuiDjpZd4LwGUfkaevW
+         yJ+eEqTuWsC5R14hhFHyPefVtaEnSasShodQJVSn7nqTbL52Z3mlBajXavwIEjUjs3WJ
+         nl/CdJ0PA0KkDeTY2J5dFX3B1Bqr+aAumg/ID8mrL6QcbJ74ZoCGiI09/1FzyaOyMXQb
+         jXfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776717178; x=1777321978;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=d8mi/dHnhOhKjn37TMzbYeLkesk0gPSMBEcSGzvI0/4=;
-        b=NB7d5n5HJQUTvr/sD2il7oEuCuBgasPNAAuufbXYPIfdivzVkxv495dB1SYZ4cxnSO
-         X8qq5Rz4jilbK+OqfMsUUbWEfAzJNHuTXt+PFXzqFs6BsiiNg2iPiR792iH4WovpC2WX
-         lqfYW2lGpYw6XgSNPTAgQKsKITcrU7AIKPOJvJ6uDzmgz6AxQQEbsGT++TJJ0aNtm56M
-         i5PPqU6QQ6HNqkJdg5dMiHwBDGMChD6BI5ijXoJcH4VHQR1xUNKp+2zUSefck8bJyWcH
-         wWpfKgrfXsL0jWgvWYMFp/vy/aLrFCch40QTudVfJzU3P3FhN2/9YvnuaGPWpyInXu+k
-         JKaQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/npCbyu5v6Wpss5FHdAADseSRPeE3PKfepV1MX/mpVtT9hbUdyXJsvVV7+6cnvFo9U/XVT/jNZibSBACazw0lc@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYFsDyqZrCp444jH1gLMaWUt6JQO+ZmQx3GlcjeuTCFAZZG4QY
-	pIt3STAi0WpX7K0Hhp5AUUomHZzmfrJy7zk38BshPxO9L8TyTm8V99whXJftRNs3v2E=
-X-Gm-Gg: AeBDiet0dvMVxQ+X8mHC50XwAmcwDHnS8usPkPI1mzXDwpfg6XnAuS3kRJXbAFMH+rP
-	qVK+ZdKBmagClSVnp9ePHdQhJAiEFLGqUhgNn/Z/pxjI9aPG9FIgA1aIaysAN07UhZd3jG6KR7u
-	gzoFJpspq8kj0X/iupn7aLkvpU2olmp0dbFKPQ4t9QByfwWwSq6t6vm4g1l82Llus6hadM0RJiT
-	4eGob6O4bdAv9V0llJuktti/LWV6fL2CgRbOUMwVFr08NXVDhS/2fMC3zLpLDQOOFywVT6yYXT+
-	m3IjbuHx8b69wTUHiQIrbIfxDCoPJimXorL9ZgC/46cN1ezL0y7AqX28dUigYEGwmsT3zc/Napr
-	T2qWkuA1Iang24teIsSVR/jpaDmG9HZmAp1CDQyw/hklJBaxBBIx8hcX5XfUuZF6R4Jnz74JLpf
-	tGHZWnBSfS7YSHYJUYugUaEiz2l7wto/+K
-X-Received: by 2002:a05:7022:6882:b0:128:d5f1:d593 with SMTP id a92af1059eb24-12c73f6d5c2mr8565237c88.1.1776717177718;
-        Mon, 20 Apr 2026 13:32:57 -0700 (PDT)
-Received: from com.. ([187.114.199.119])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-12c770516f1sm14972223c88.7.2026.04.20.13.32.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Apr 2026 13:32:57 -0700 (PDT)
-From: "Joao Marinho joao.bcc@usp.br" <joao.bcc@usp.br>
-To: claudiu.beznea@tuxon.dev,
-	andrei.simion@microchip.com,
-	lgirdwood@gmail.com,
-	broonie@kernel.org,
-	perex@perex.cz,
-	tiwai@suse.com,
-	nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com
-Cc: =?UTF-8?q?Jo=C3=A3o?= <joao.bcc@usp.br>,
-	Micael Vinicius <micael0208@usp.br>,
-	linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] ASoC: mchp-spdifrx: Replace manual bitfield manipulations with macros and typo correction
-Date: Mon, 20 Apr 2026 17:32:03 -0300
-Message-ID: <20260420203218.15060-1-joao.bcc@usp.br>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+        d=1e100.net; s=20251104; t=1776717808; x=1777322608;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Bw/xOa4cMDz+3Y150IRREEsvI8FeQ6LscRd2k8rTaIk=;
+        b=RqtNEe6H8Ep+lMp8o6Leown4/Jx9yxVrxeW4MzuiJwyVpe7IWmkx/tlfaBD4yOyJ4h
+         ORfiTZpOw+kWiBVJB4xl+KDZBpUHs6bvZHaGScGMHsMVM6rUip0zOo4cBnFuE5wLDZ7i
+         nOYdhsS30r+QJBuwNzqBLxzzF7IFyrFl7oxJaRiTEzA5Yzv9qrwAHR7PvzS2Z54/Ut/s
+         uH3pf1Au2Gy/aVKiMCArn2R5LersE/L1i52t7qy7ndg+aL1KgpMYpbMREduA5gYCrsEj
+         Js2nwrrixgZdRRKCqmIkJOehVuW2wL65DrTF+5XPp9j6PgWSqsuLKOY8nQuRsQ8zKa5V
+         KvHw==
+X-Forwarded-Encrypted: i=1; AFNElJ8ZxPLDG5uY1jubPPYs7jAbcWu0kWRURSJSrHbBeTh8dqx4MyoPFhyiXj0vKaSchZbT64uwyTiHs2i3QoN7lbEO@lists.infradead.org
+X-Gm-Message-State: AOJu0YxD3YnDdWNCawQQcbSozeqq68UG4TuhRXFoTT2BIm4VcphCykVK
+	bF7JWvMxe4os0roCKDoLPVrbBg2uJZVGo+0Q/aH5DqDA5V4XjD7FMwJZWGFmCA4pVzcoAAcn13P
+	5FKt3CQ==
+X-Received: from plai2.prod.google.com ([2002:a17:902:c942:b0:2b3:2649:c9c1])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:d30b:b0:2b0:673a:7c90
+ with SMTP id d9443c01a7336-2b5f9f50051mr108270095ad.28.1776717807739; Mon, 20
+ Apr 2026 13:43:27 -0700 (PDT)
+Date: Mon, 20 Apr 2026 13:43:26 -0700
+In-Reply-To: <20260220004223.4168331-5-dmatlack@google.com>
+Mime-Version: 1.0
+References: <20260220004223.4168331-1-dmatlack@google.com> <20260220004223.4168331-5-dmatlack@google.com>
+Message-ID: <aeaP7kPPlyBZE-1h@google.com>
+Subject: Re: [PATCH v2 04/10] KVM: selftests: Use u64 instead of uint64_t
+From: Sean Christopherson <seanjc@google.com>
+To: David Matlack <dmatlack@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Ackerley Tng <ackerleytng@google.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Andrew Jones <ajones@ventanamicro.com>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atish.patra@linux.dev>, Bibo Mao <maobibo@loongson.cn>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+	Colin Ian King <colin.i.king@gmail.com>, David Hildenbrand <david@kernel.org>, Fuad Tabba <tabba@google.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, James Houghton <jthoughton@google.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, kvmarm@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Lisa Wang <wyihan@google.com>, loongarch@lists.linux.dev, 
+	Marc Zyngier <maz@kernel.org>, Maxim Levitsky <mlevitsk@redhat.com>, Nutty Liu <nutty.liu@hotmail.com>, 
+	Oliver Upton <oupton@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
+	"Pratik R. Sampat" <prsampat@amd.com>, Rahul Kumar <rk0006818@gmail.com>, Shuah Khan <shuah@kernel.org>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
+	Wu Fei <wu.fei9@sanechips.com.cn>, Yosry Ahmed <yosry.ahmed@linux.dev>, 
+	Zenghui Yu <yuzenghui@huawei.com>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_133259_925013_986447D3 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20260420_134329_768132_D2A45B8A 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,112 +103,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: João <joao.bcc@usp.br>
+On Fri, Feb 20, 2026, David Matlack wrote:
+> Use u64 instead of uint64_t to make the KVM selftests code more concise
+> and more similar to the kernel (since selftests are primarily developed
+> by kernel developers).
+> 
+> This commit was generated with the following command:
+> 
+>   git ls-files tools/testing/selftests/kvm | xargs sed -i 's/uint64_t/u64/g'
+> 
+> Then by manually adjusting whitespace to make checkpatch.pl happy.
+> 
+> Also include <linux/types.h> in include/test_util.h and
+> include/x86/pmu.h to avoid compilation failure.
 
-Replace manual bitfield manipulations with FIELD_GET() and
-FIELD_PREP() in order to improve code readability, security
-and manageability. Also correcting GENAMSK typo for GENMASK.
-
-Signed-off-by: João Marinho <joao.bcc@usp.br>
-Co-developed-by: Micael Vinicius <micael0208@usp.br>
-Signed-off-by: Micael Vinicius <micael0208@usp.br>
----
- sound/soc/atmel/mchp-spdifrx.c | 33 ++++++++++++++++++++-------------
- 1 file changed, 20 insertions(+), 13 deletions(-)
-
-diff --git a/sound/soc/atmel/mchp-spdifrx.c b/sound/soc/atmel/mchp-spdifrx.c
-index 521bee499..2c47aabdc 100644
---- a/sound/soc/atmel/mchp-spdifrx.c
-+++ b/sound/soc/atmel/mchp-spdifrx.c
-@@ -6,6 +6,7 @@
- //
- // Author: Codrin Ciubotariu <codrin.ciubotariu@microchip.com>
- 
-+#include <linux/bitfield.h>
- #include <linux/clk.h>
- #include <linux/io.h>
- #include <linux/module.h>
-@@ -41,6 +42,13 @@
- 
- #define SPDIFRX_VERSION			0xFC	/* Version Register */
- 
-+
-+/* 32-bit word byte masks */
-+#define SPDIFRX_BYTE_0_MASK         GENMASK(7, 0)
-+#define SPDIFRX_BYTE_1_MASK         GENMASK(15, 8)
-+#define SPDIFRX_BYTE_2_MASK         GENMASK(23, 16)
-+#define SPDIFRX_BYTE_3_MASK         GENMASK(31, 24)
-+
- /*
-  * ---- Control Register (Write-only) ----
-  */
-@@ -55,7 +63,7 @@
- #define SPDIFRX_MR_RXEN_ENABLE		(1 << 0)	/* SPDIF Receiver Enabled */
- 
- /* Validity Bit Mode */
--#define SPDIFRX_MR_VBMODE_MASK		GENAMSK(1, 1)
-+#define SPDIFRX_MR_VBMODE_MASK		GENMASK(1, 1)
- #define SPDIFRX_MR_VBMODE_ALWAYS_LOAD \
- 	(0 << 1)	/* Load sample regardless of validity bit value */
- #define SPDIFRX_MR_VBMODE_DISCARD_IF_VB1 \
-@@ -74,7 +82,7 @@
- /* Sample Data Width */
- #define SPDIFRX_MR_DATAWIDTH_MASK	GENMASK(5, 4)
- #define SPDIFRX_MR_DATAWIDTH(width) \
--	(((6 - (width) / 4) << 4) & SPDIFRX_MR_DATAWIDTH_MASK)
-+	FIELD_PREP(SPDIFRX_MR_DATAWIDTH_MASK, 6 - ((width) / 4))
- 
- /* Packed Data Mode in Receive Holding Register */
- #define SPDIFRX_MR_PACK_MASK		GENMASK(7, 7)
-@@ -118,15 +126,14 @@
- #define SPDIFRX_RSR_LOWF			BIT(2)
- #define SPDIFRX_RSR_NOSIGNAL			BIT(3)
- #define SPDIFRX_RSR_IFS_MASK			GENMASK(27, 16)
--#define SPDIFRX_RSR_IFS(reg)			\
--	(((reg) & SPDIFRX_RSR_IFS_MASK) >> 16)
-+#define SPDIFRX_RSR_IFS(reg)			FIELD_GET(SPDIFRX_RSR_IFS_MASK, reg)
- 
- /*
-  *  ---- Version Register (Read-only) ----
-  */
- #define SPDIFRX_VERSION_MASK		GENMASK(11, 0)
- #define SPDIFRX_VERSION_MFN_MASK	GENMASK(18, 16)
--#define SPDIFRX_VERSION_MFN(reg)	(((reg) & SPDIFRX_VERSION_MFN_MASK) >> 16)
-+#define SPDIFRX_VERSION_MFN(reg)	FIELD_GET(SPDIFRX_VERSION_MFN_MASK, reg)
- 
- static bool mchp_spdifrx_readable_reg(struct device *dev, unsigned int reg)
- {
-@@ -317,10 +324,10 @@ static void mchp_spdifrx_channel_status_read(struct mchp_spdifrx_dev *dev,
- 
- 	for (i = 0; i < ARRAY_SIZE(ctrl->ch_stat[channel].data) / 4; i++) {
- 		regmap_read(dev->regmap, SPDIFRX_CHSR(channel, i), &val);
--		*ch_stat++ = val & 0xFF;
--		*ch_stat++ = (val >> 8) & 0xFF;
--		*ch_stat++ = (val >> 16) & 0xFF;
--		*ch_stat++ = (val >> 24) & 0xFF;
-+		*ch_stat++ = FIELD_GET(SPDIFRX_BYTE_0_MASK, val);
-+		*ch_stat++ = FIELD_GET(SPDIFRX_BYTE_1_MASK, val);
-+		*ch_stat++ = FIELD_GET(SPDIFRX_BYTE_2_MASK, val);
-+		*ch_stat++ = FIELD_GET(SPDIFRX_BYTE_3_MASK, val);
- 	}
- }
- 
-@@ -334,10 +341,10 @@ static void mchp_spdifrx_channel_user_data_read(struct mchp_spdifrx_dev *dev,
- 
- 	for (i = 0; i < ARRAY_SIZE(ctrl->user_data[channel].data) / 4; i++) {
- 		regmap_read(dev->regmap, SPDIFRX_CHUD(channel, i), &val);
--		*user_data++ = val & 0xFF;
--		*user_data++ = (val >> 8) & 0xFF;
--		*user_data++ = (val >> 16) & 0xFF;
--		*user_data++ = (val >> 24) & 0xFF;
-+		*user_data++ = FIELD_GET(SPDIFRX_BYTE_0_MASK, val);
-+		*user_data++ = FIELD_GET(SPDIFRX_BYTE_1_MASK, val);
-+		*user_data++ = FIELD_GET(SPDIFRX_BYTE_2_MASK, val);
-+		*user_data++ = FIELD_GET(SPDIFRX_BYTE_3_MASK, val);
- 	}
- }
- 
--- 
-2.43.0
-
+kvm_util_types.h also needs to include types.h, as it blatantly uses u64 without
+any includes.  It obviously works thanks to ordering, but it's a lurking trap for
+others.
 
