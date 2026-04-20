@@ -4,58 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F6FAF5581D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 11:29:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A3FF5581D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 11:43:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:In-Reply-To:References:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ywrf5g5AerKkuHm35hzEfe78NXKD4YVHkcI057XoQG0=; b=hyXEG1frHX6LaiKhmD2/fZzOkF
-	dmrfCtp8XliBr1UyQ8Ax0sHC6yu7h4c1UNourfnfY9i5/h1lSXlV9hc/fbM/rXNUuN4vm3IjEfQ4z
-	XMDk1iIE0YIbqPT+ckBNfZAhS0zXCuksVDuOg9iWmFLiDSjnHv9VBLYFdt/MlaFwxJhjPLRyteAsa
-	9iFVW3t3fYfM7dqq/+jlwov/TP6iMtJt5wgWByILukps2xlJqxteu/8B35sDxFeTzkbE0p61PN1LT
-	fQx4zzg2f2aJWm4EmzRwLAwOk36Wap3/OuBcv9vrwkJzcd85v07u+RCD1VPOT4/5cf9k8HV8LWHGe
-	NY3Xwg6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A9DayyiGCs7J5S4uoemxf+H1vRd9DRT+SAr6sjgTgzo=; b=E6xy0fs5hKBrlRq/wQBzqt4Wev
+	sEdV9e+SrXFhG25UDulRfKZx5D5gdD+zFtbq06r1RhdtttrF5awSVddGXpbTZ9wJAwqVN2sz7s3Gz
+	6mAx3wTynFgUdBkosvl4tNZGXkjswBA9oMd2sq8nl0mXb6Gk+Ky5QKUUkbutVrn0sLNd9gIQIT87g
+	Qby1WeKqYWXLZTviyiIC6pX+BhjXouJasYrwhqHhryNxgGr4u4gE79b3llqAPBSEUGJQAtKSfaG24
+	JnTcEfIdkhZX46zD93eNXvjHVvPm8goumSazKcxBsiAg8VsmkPgtZYbLSDgUg1y1FK7bez3Kp6ZrI
+	5c71pSUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEmoe-00000006ndW-1UKf;
-	Mon, 20 Apr 2026 11:29:24 +0000
-Received: from out-171.mta1.migadu.com ([95.215.58.171])
+	id 1wEn2d-00000006oId-2qDo;
+	Mon, 20 Apr 2026 11:43:51 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEmoa-00000006ndA-3p0L
+	id 1wEn2a-00000006oHC-3F9I
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 11:29:22 +0000
-Date: Mon, 20 Apr 2026 10:43:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=postmarketos.org;
-	s=key1; t=1776684557;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ywrf5g5AerKkuHm35hzEfe78NXKD4YVHkcI057XoQG0=;
-	b=I6Au+DjnXkzfExnJXo+ncHa1T67RHXf9FtxP2OSIp3sTkLyn5NBMC0RDw8l3pTL8fHgaYs
-	Jp/p4/fLY+XFX+0tSBoR21NgBxbGcCC/CKC5zMZpPppynK134S2GS3iwrFvefOnwnp8tuX
-	WSwgQIJZhmJX0vWPkBZ5RAMuwfdsB3tZ43OrQoV4XLTw17htJv8y3HaIqJn2DeMrVL/Vds
-	8/QZ+eSm7ZwwMNxldTBpO6EKbuADPDEkaQNyg2n5pjcPJdu4O/DRCX2iHoX3Amia9Frem6
-	RFt7FAus3L5Ge2kPhZq0McW+6tfFZc5LpcBxO0sBLXcjBTexd76PjJDhBv3wtA==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Ferass El Hafidi <funderscore@postmarketos.org>
-To: linux-amlogic@lists.infradead.org, christian.koever-draxl@student.uibk.ac.at, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, neil.armstrong@linaro.org, khilman@baylibre.com
-Cc: jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, funderscore@postmarketos.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, christian.koever-draxl@student.uibk.ac.at
-Subject: Re: [PATCH v2 2/2] arm64: dts: amlogic: add support for X98Q
-References: <20260420061854.5421-1-christian.koever-draxl@student.uibk.ac.at> <20260420061854.5421-3-christian.koever-draxl@student.uibk.ac.at>
-In-Reply-To: <20260420061854.5421-3-christian.koever-draxl@student.uibk.ac.at>
-Message-ID: <tdsikb.3afuzjop9p14v@postmarketos.org>
+	Mon, 20 Apr 2026 11:43:51 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=A9DayyiGCs7J5S4uoemxf+H1vRd9DRT+SAr6sjgTgzo=;
+	b=r8etD1aG+Mc7JjIr4DZoc+k7bzpFfJnAXZ85nO514eN8BXYo5noW3gM83UgYjqWHyDRfs7ebD
+	0kEmWu+ahgPRPlCGy/at6tBU6Mc6RyE2mSAVExXGFPe5vWknmlZGE4h63mAgE0fR/tsMLaialxw
+	6r+vbgF/46AoS+hYJ+H4nCM=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4fzk3p6tkxzLlYX;
+	Mon, 20 Apr 2026 19:37:10 +0800 (CST)
+Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
+	by mail.maildlp.com (Postfix) with ESMTPS id A1F0D40573;
+	Mon, 20 Apr 2026 19:43:31 +0800 (CST)
+Received: from [10.174.179.248] (10.174.179.248) by
+ kwepemr500001.china.huawei.com (7.202.194.229) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 20 Apr 2026 19:43:29 +0800
+Message-ID: <b46b82b7-a99d-49b0-8d4d-1a3f788489ca@huawei.com>
+Date: Mon, 20 Apr 2026 19:43:20 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v3 2/4] mm/pgtable: Make pfn_pte() filter out huge
+ page attributes
+To: Will Deacon <will@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>, <x86@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <willy@infradead.org>,
+	<david@kernel.org>, <catalin.marinas@arm.com>, <tglx@kernel.org>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<hpa@zytor.com>, <luto@kernel.org>, <peterz@infradead.org>,
+	<akpm@linux-foundation.org>, <lorenzo.stoakes@oracle.com>, <ziy@nvidia.com>,
+	<baolin.wang@linux.alibaba.com>, <Liam.Howlett@oracle.com>,
+	<npache@redhat.com>, <ryan.roberts@arm.com>, <dev.jain@arm.com>,
+	<baohua@kernel.org>, <lance.yang@linux.dev>, <vbabka@suse.cz>,
+	<rppt@kernel.org>, <surenb@google.com>, <mhocko@suse.com>,
+	<anshuman.khandual@arm.com>, <rmclure@linux.ibm.com>,
+	<kevin.brodsky@arm.com>, <apopple@nvidia.com>, <ajd@linux.ibm.com>,
+	<pasha.tatashin@soleen.com>, <bhe@redhat.com>, <thuth@redhat.com>,
+	<coxu@redhat.com>, <dan.j.williams@intel.com>, <yu-cheng.yu@intel.com>,
+	<yangyicong@hisilicon.com>, <baolu.lu@linux.intel.com>, <jgross@suse.com>,
+	<conor.dooley@microchip.com>, <Jonathan.Cameron@huawei.com>,
+	<riel@surriel.com>, <wangkefeng.wang@huawei.com>, <chenjun102@huawei.com>
+References: <20260228070906.1418911-1-yintirui@huawei.com>
+ <20260228070906.1418911-3-yintirui@huawei.com>
+ <aeXoY7lrRJev0P83@willie-the-truck>
+From: Yin Tirui <yintirui@huawei.com>
+In-Reply-To: <aeXoY7lrRJev0P83@willie-the-truck>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset=utf-8; format=flowed
-X-Migadu-Flow: FLOW_OUT
+X-Originating-IP: [10.174.179.248]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemr500001.china.huawei.com (7.202.194.229)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_042921_432429_AC78CAF6 
-X-CRM114-Status: UNSURE (   9.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260420_044349_423426_A2CF1527 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,299 +95,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Apr 2026 06:18, christian.koever-draxl@student.uibk.ac.at wrote:
->From: Christian Stefan Kövér-Draxl <christian.koever-draxl@student.uibk.ac.at>
+Hi Will,
+
+On 4/20/2026 4:48 PM, Will Deacon wrote:
+> On Sat, Feb 28, 2026 at 03:09:04PM +0800, Yin Tirui wrote:
+>> A fundamental principle of page table type safety is that `pte_t` represents
+>> the lowest level page table entry and should never carry huge page attributes.
+>>
+>> Currently, passing a pgprot with huge page bits (e.g., extracted via
+>> pmd_pgprot()) into pfn_pte() creates a malformed PTE that retains the huge
+>> attribute, leading to the necessity of the ugly `pte_clrhuge()` anti-pattern.
+>>
+>> Enforce type safety by making `pfn_pte()` inherently filter out huge page
+>> attributes:
+>> - On x86: Strip the `_PAGE_PSE` bit.
+>> - On ARM64: Mask out the block descriptor bits in `PTE_TYPE_MASK` and
+>>    enforce the `PTE_TYPE_PAGE` format.
+>> - On RISC-V: No changes required, as RISC-V leaf PMDs and PTEs share the
+>>    exact same hardware format and do not use a distinct huge bit.
+>>
+>> Signed-off-by: Yin Tirui <yintirui@huawei.com>
+>> ---
+>>   arch/arm64/include/asm/pgtable.h | 4 +++-
+>>   arch/x86/include/asm/pgtable.h   | 4 ++++
+>>   2 files changed, 7 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+>> index b3e58735c49b..f2a7a40106d2 100644
+>> --- a/arch/arm64/include/asm/pgtable.h
+>> +++ b/arch/arm64/include/asm/pgtable.h
+>> @@ -141,7 +141,9 @@ static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
+>>   
+>>   #define pte_pfn(pte)		(__pte_to_phys(pte) >> PAGE_SHIFT)
+>>   #define pfn_pte(pfn,prot)	\
+>> -	__pte(__phys_to_pte_val((phys_addr_t)(pfn) << PAGE_SHIFT) | pgprot_val(prot))
+>> +	__pte(__phys_to_pte_val((phys_addr_t)(pfn) << PAGE_SHIFT) | \
+>> +		((pgprot_val(prot) & ~(PTE_TYPE_MASK & ~PTE_VALID)) | \
+>> +		(PTE_TYPE_PAGE & ~PTE_VALID)))
+> Why are you touching arch/arm64? We don't implement pte_clrhuge() afaict.
+> What does this actually fix?
+
+Originally, this patch aimed to ensure that pfn_pte() always returns a 
+PTE without any
+
+huge page attributes by embedding the logic of pte_clrhuge() directly 
+into pfn_pte().
+
+
+However, we found this approach doesn't work well on x86, so we've 
+abandoned this design.
+
+
+Following Matthew Wilcox's suggestion, the current approach is instead 
+to have pmd_pgprot()
+
+return a 4K–formatted pgprot_t (i.e., without huge page attributes), and 
+then explicitly add the
+
+huge page attributes when constructing a PMD via pfn_pmd().
+
+
+I've already implemented this in my recent commit:
+
+https://github.com/torvalds/linux/commit/5b8ce6d33822dd7776432e03a08fe6d2dedac079
+
+
 >
->Signed-off-by: Christian Stefan Kövér-Draxl <christian.koever-draxl@student.uibk.ac.at>
->---
-> arch/arm64/boot/dts/amlogic/Makefile          |   1 +
-> .../boot/dts/amlogic/meson-s4-s905w2-x98q.dts | 250 ++++++++++++++++++
-> 2 files changed, 251 insertions(+)
-> create mode 100644 arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
->
->diff --git a/arch/arm64/boot/dts/amlogic/Makefile b/arch/arm64/boot/dts/amlogic/Makefile
->index 15f9c817e502..c7752684dea6 100644
->--- a/arch/arm64/boot/dts/amlogic/Makefile
->+++ b/arch/arm64/boot/dts/amlogic/Makefile
->@@ -85,6 +85,7 @@ dtb-$(CONFIG_ARCH_MESON) += meson-gxm-ugoos-am3.dtb
-> dtb-$(CONFIG_ARCH_MESON) += meson-gxm-vega-s96.dtb
-> dtb-$(CONFIG_ARCH_MESON) += meson-gxm-wetek-core2.dtb
-> dtb-$(CONFIG_ARCH_MESON) += meson-s4-s805x2-aq222.dtb
->+dtb-$(CONFIG_ARCH_MESON) += meson-s4-s905w2-x98q.dtb
-> dtb-$(CONFIG_ARCH_MESON) += meson-s4-s905y4-khadas-vim1s.dtb
-> dtb-$(CONFIG_ARCH_MESON) += meson-sm1-a95xf3-air-gbit.dtb
-> dtb-$(CONFIG_ARCH_MESON) += meson-sm1-a95xf3-air.dtb
->diff --git a/arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts b/arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
->new file mode 100644
->index 000000000000..26c60a4c2a43
->--- /dev/null
->+++ b/arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
->@@ -0,0 +1,250 @@
->+
+> Will
 
-nit: Trailing newline
+-- 
+Yin Tirui
 
->+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
->+/*
->+ * Copyright (c) 2026 Christian Stefan Köver-Draxl
->+ * Based on meson-s4-s905y4-khadas-vim1s.dts:
->+ *  - Copyright (c) 2026 Khadas Technology Co., Ltd.
->+ */
->+
->+/dts-v1/;
->+
->+#include "meson-s4.dtsi"
->+
->+/ {
->+	model = "Shenzhen Amediatech Technology Co., Ltd X98Q";
->+	compatible = "amediatech,x98q", "amlogic,s905w2", "amlogic,s4";
->+	interrupt-parent = <&gic>;
->+	#address-cells = <2>;
->+	#size-cells = <2>;
->+
->+	aliases {
->+		mmc0 = &emmc; /* eMMC */
->+		mmc1 = &sd; /* SD card */
->+		mmc2 = &sdio; /* SDIO */
->+		serial0 = &uart_b;
->+	};
->+
->+	memory@0 {
->+		device_type = "memory";
->+		reg = <0x0 0x0 0x0 0x40000000>;
->+	};
->+
->+	reserved-memory {
->+		#address-cells = <2>;
->+		#size-cells = <2>;
->+		ranges;
->+
->+		/* 52 MiB reserved for ARM Trusted Firmware */
->+		secmon_reserved: secmon@5000000 {
->+			reg = <0x0 0x05000000 0x0 0x3400000>;
->+			no-map;
->+		};
->+	};
->+
->+	emmc_pwrseq: emmc-pwrseq {
->+		compatible = "mmc-pwrseq-emmc";
->+		reset-gpios = <&gpio GPIOB_9 GPIO_ACTIVE_LOW>;
->+	};
->+
->+	sdio_32k: sdio-32k {
->+		compatible = "pwm-clock";
->+		#clock-cells = <0>;
->+		clock-frequency = <32768>;
->+		pwms = <&pwm_ef 0 30518 0>; /* PWM_E at 32.768KHz */
->+	};
->+
->+	sdio_pwrseq: sdio-pwrseq {
->+		compatible = "mmc-pwrseq-simple";
->+		reset-gpios = <&gpio GPIOX_6 GPIO_ACTIVE_LOW>;
->+		clocks = <&sdio_32k>;
->+		clock-names = "ext_clock";
->+	};
->+
->+	main_5v: regulator-main-5v {
->+		compatible = "regulator-fixed";
->+		regulator-name = "5V";
->+		regulator-min-microvolt = <5000000>;
->+		regulator-max-microvolt = <5000000>;
->+		regulator-always-on;
->+	};
->+
->+	sd_3v3: regulator-sd-3v3 {
->+		compatible = "regulator-fixed";
->+		regulator-name = "SD_3V3";
->+		regulator-min-microvolt = <3300000>;
->+		regulator-max-microvolt = <3300000>;
->+		gpio = <&gpio GPIOD_4 GPIO_ACTIVE_LOW>;
->+		regulator-always-on;
->+	};
->+
->+	vddio_sd: regulator-vddio-sd {
->+		compatible = "regulator-gpio";
->+		regulator-name = "VDDIO_SD";
->+		regulator-min-microvolt = <1800000>;
->+		regulator-max-microvolt = <3300000>;
->+		gpios = <&gpio GPIOD_9 GPIO_ACTIVE_HIGH>;
->+		gpios-states = <1>;
->+		states = <1800000 1 3300000 0>;
->+	};
->+
->+	vddao_3v3: regulator-vddao-3v3 {
->+		compatible = "regulator-fixed";
->+		regulator-name = "VDDAO_3V3";
->+		regulator-min-microvolt = <3300000>;
->+		regulator-max-microvolt = <3300000>;
->+		vin-supply = <&main_5v>;
->+		regulator-always-on;
->+	};
->+
->+	vddio_ao1v8: regulator-vddio-ao1v8 {
->+		compatible = "regulator-fixed";
->+		regulator-name = "VDDIO_AO1V8";
->+		regulator-min-microvolt = <1800000>;
->+		regulator-max-microvolt = <1800000>;
->+		vin-supply = <&vddao_3v3>;
->+		regulator-always-on;
->+	};
->+
->+	/* SY8120B1ABC DC/DC Regulator. */
->+	vddcpu: regulator-vddcpu {
->+		compatible = "pwm-regulator";
->+
->+		regulator-name = "VDDCPU";
->+		regulator-min-microvolt = <689000>;
->+		regulator-max-microvolt = <1049000>;
->+
->+		vin-supply = <&main_5v>;
->+
->+		pwms = <&pwm_ij 1 1500 0>;
->+		pwm-dutycycle-range = <100 0>;
->+
->+		regulator-boot-on;
->+		regulator-always-on;
->+		/* Voltage Duty-Cycle */
->+		voltage-table = <1049000 0>,
->+				<1039000 3>,
->+				<1029000 6>,
->+				<1019000 9>,
->+				<1009000 12>,
->+				<999000 14>,
->+				<989000 17>,
->+				<979000 20>,
->+				<969000 23>,
->+				<959000 26>,
->+				<949000 29>,
->+				<939000 31>,
->+				<929000 34>,
->+				<919000 37>,
->+				<909000 40>,
->+				<899000 43>,
->+				<889000 45>,
->+				<879000 48>,
->+				<869000 51>,
->+				<859000 54>,
->+				<849000 56>,
->+				<839000 59>,
->+				<829000 62>,
->+				<819000 65>,
->+				<809000 68>,
->+				<799000 70>,
->+				<789000 73>,
->+				<779000 76>,
->+				<769000 79>,
->+				<759000 81>,
->+				<749000 84>,
->+				<739000 87>,
->+				<729000 89>,
->+				<719000 92>,
->+				<709000 95>,
->+				<699000 98>,
->+				<689000 100>;
->+	};
->+};
->+
->+&emmc {
->+	status = "okay";
->+	pinctrl-0 = <&emmc_pins>, <&emmc_ds_pins>;
->+	pinctrl-1 = <&emmc_clk_gate_pins>;
->+	pinctrl-names = "default", "clk-gate";
->+
->+	bus-width = <8>;
->+	cap-mmc-highspeed;
->+	mmc-ddr-1_8v;
->+	mmc-hs200-1_8v;
->+	max-frequency = <200000000>;
->+	non-removable;
->+	disable-wp;
->+
->+	mmc-pwrseq = <&emmc_pwrseq>;
->+	vmmc-supply = <&vddao_3v3>;
->+	vqmmc-supply = <&vddio_ao1v8>;
->+};
->+
->+&ethmac {
->+	status = "okay";
->+	phy-handle = <&internal_ephy>;
->+	phy-mode = "rmii";
->+};
->+
->+&ir {
->+	status = "okay";
->+	pinctrl-0 = <&remote_pins>;
->+	pinctrl-names = "default";
->+};
->+
->+&pwm_ef {
->+	status = "okay";
->+	pinctrl-0 = <&pwm_e_pins1>;
->+	pinctrl-names = "default";
->+};
->+
->+&pwm_ij {
->+	status = "okay";
->+};
->+
->+&sd {
->+	status = "okay";
->+	pinctrl-0 = <&sdcard_pins>;
->+	pinctrl-1 = <&sdcard_clk_gate_pins>;
->+	pinctrl-names = "default", "clk-gate";
->+	bus-width = <4>;
->+	cap-sd-highspeed;
->+	max-frequency = <50000000>;
->+	disable-wp;
->+
->+	cd-gpios = <&gpio GPIOC_6 GPIO_ACTIVE_LOW>;
->+
->+	vmmc-supply = <&vddao_3v3>;
->+	vqmmc-supply = <&vddao_3v3>;
->+};
->+
->+/*
->+* Wireless SDIO Module (Amlogic W150S1)
->+* Note: There is no driver for this at the moment.
->+*/
-
-Align like this:
-
-	/*
-	 * Wireless SDIO Module (Amlogic W150S1)
-	 * Note: There is no driver for this at the moment.
-	 */
-
->+
->+&sdio {
->+	status = "okay";
->+	pinctrl-0 = <&sdio_pins>;
->+	pinctrl-1 = <&sdio_clk_gate_pins>;
->+	pinctrl-names = "default", "clk-gate";
->+	#address-cells = <1>;
->+	#size-cells = <0>;
->+	bus-width = <4>;
->+	cap-sd-highspeed;
->+	sd-uhs-sdr50;
->+	sd-uhs-sdr104;
->+	max-frequency = <200000000>;
->+	non-removable;
->+	disable-wp;
->+
->+	no-sd;
->+	no-mmc;
->+	mmc-pwrseq = <&sdio_pwrseq>;
->+	vmmc-supply = <&vddao_3v3>;
->+	vqmmc-supply = <&vddio_ao1v8>;
->+};
->+
->+&uart_b {
->+	status = "okay";
->+};
->-- 
->2.53.0
-
---
-Best regards,
-Ferass
 
