@@ -4,87 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB67BF36C2A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 06:46:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63D6AF36C24
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 06:47:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7B1zAJzyc2aJm8FtQJrwknWWRUXny98vqjyGldOGID0=; b=hrvArEwk9zapItVWLwtG0B3+3O
-	lQpPjU4B+rvwRKNhL7O5wGgKf9civWyUY0vOi4avSjXGe3nYxOxErCdmvb8p9qfcpp7Wbm+A99CXT
-	+mvdtYnQWSlMHBgOXTcqTIVyey8GWK02jt+Omp3GpAYwydU/z6+9dqePjFta29vy+WWTIGQLVKiKl
-	uz9vRD5p7JW2Xn0/TpGQlCtC3mLORKR2NYJZeBysqtUngehljK1PuRGCnDVpnk+kidd3lYyw68nIp
-	19ErtTuaGSr/A4J+6tmG7X5kt+OajxDhg2woIydiNIayUsBRBBR70Q5e666vQwrkTSyzbWn/eHyNc
-	iHpvV8Ag==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fc4cd5bq7sZ2w7++0hS3ePoxG3H95CYNSIueuKwgKCY=; b=Je5L8Q15U8Qr64DzNwKgtf15I0
+	qUIoCMkcMkMT+h7eRdl8GZYPxqHsnd1eV7qvgGCOpeZuuEPMhrfZQfgnb4+U2IXd5MYYfdC1y2okS
+	kPxrSNILuKimvAlNfd6guMyP2y1nMVOyebMORDJxF34jS87csFWhJ8RBH/MI+MVAQMOvsrrVsgjxJ
+	IbmkksuxzvhwdAFXwbkmiV53LYsK6DckrzKEgDMwnGrL6Tv6SGiQnMQBteyTyFXWenKh/x+VE4W21
+	5et0lMUknehiZFvWDBFz9lDXAiMUSLvl8Hc8Bha8VfQ4L2FxwU6+85VpXHsQ+Ho7tvNRMvf8qqM6o
+	gU4cL9gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEiOM-00000006VRZ-35av;
-	Mon, 20 Apr 2026 06:45:58 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEiOJ-00000006VQV-0ZtF
+	id 1wEiPa-00000006VbA-2neK;
+	Mon, 20 Apr 2026 06:47:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wEiPY-00000006VaA-0z0S
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 06:45:56 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-82f8b60e485so1005813b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Apr 2026 23:45:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776667554; x=1777272354; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=7B1zAJzyc2aJm8FtQJrwknWWRUXny98vqjyGldOGID0=;
-        b=g/AeL2PE/j0r4YUFwu+27WjSqfcGXhiilx1MeF1O8X9GgqfZ6bPYjlKeEjhH+NHVoa
-         qdgM2hUHzU9G9YwqbPrsrK6OaoEPptakwm19YWUE4n/pe/K/RLfkRTR7qLyqFWAMW0gG
-         a0xaZyquesOzfPeCa4F1HiqOaj7ZAGyqe+vlODgp+R4Umb6t7n95Ha1VNKkkr9x50t1O
-         dh3P0SWZ5GcIhRnDjj9XGxYblV8TEzMsQZe2LKRoKo2N3OwJOy26AOuJ9v0PNAAYS5tv
-         fwcVPTcF6guzWwUxGwlm2Oknlji8e8SGJoSEttXQ0nPzPvSS5nyAMD16venFH5hExBjS
-         iZww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776667554; x=1777272354;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7B1zAJzyc2aJm8FtQJrwknWWRUXny98vqjyGldOGID0=;
-        b=A6O++237vYN+niK+knqd8IVOJu1npqxnIlxhMIHpbxYgdB+sP9DMuypuHQJDMZIgsT
-         I9AZ5V/U2t6Rjbc3cLxJF9dVBcLPaVAn74pt96AVmJHTsPwaAdomwkgHHFUnYzqSOG63
-         cAo0iApCEQY0RNO+UKKtu+F5dw2hC/W9jcm4BFXNJGz94Rb/Bv0iC2c+nLu/gz8jRGFt
-         MkQu+ufRE7jV3qTsMGtBTXe/I7HLbFSygY/i6SKY21w+Hvakpf5Xka1NV2PscQt7YdXM
-         Zu7w1ejNaUndTjanELFYJN5c5rlzKMg7e3SHT9Pld+IYsItLLU2spWpTveGQO0zgSYuH
-         keBQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+DzMEmcUs0MAwS71Z6k6Bjl9T4w4X8OZPaEq6wphDin93y3XyrJQx0zQh52xtN78YFxxWjnr7amv/5Van/1oZ+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxASD/JRCBuyJRfa7bJDn0IAWShPJrH1BZCRGoqAXlCiNClgU1u
-	T6va0luT6ygUPwMcOTqgU89+ghkYPeqNEU8IN1zlqoivdRfmzCmztA79
-X-Gm-Gg: AeBDiesHgM1mEUXGU+UZR07s4wey2J67K1PF+k8GJK7Ko+H71TY/wgCOBw7fO3ZtcyG
-	3nwUZi2hgXfAd1WH+m5LXoWXDPXXwpd+YhumHgh6eoBvpQxxlwu6p3MzL6yExtxpisu9Upxfj2G
-	0j1RS5Ur3viyeZ/Ub+jormrFulblUIILtbSpd5/iZW5TaJI+75FFEjoBv2q1NHR+HKxXLXF19Fl
-	IGJQ1sLvZl0RYBLXOWTVW0xXLNuPlr2uxTpoI7dWPs4vT7OBNu8cfa3pZ99MXBgaQ9yBWaSNLjs
-	nYuYUSHOORLt61SFalE8OuVzf9khWWGNGJ8RtcTSPeBKbb/Mx9sSZn46jn3KxaO79SUX452axsh
-	0qtLsZyJTK2L+U3J2+dzA2uPq55QAFob8CO/oRmuOC11lvQBbHDl12XUXVPiP8awSPJbyGIas/r
-	mVFMMnTG9OewuXxriy5xwemcos/41jhfA5VGw71n08N95M/JDiV8fLMQ==
-X-Received: by 2002:a05:6a00:1891:b0:82a:f02:7355 with SMTP id d2e1a72fcca58-82f8c97a4admr12481591b3a.32.1776667553827;
-        Sun, 19 Apr 2026 23:45:53 -0700 (PDT)
-Received: from dbc5pt3-os.ban-spse ([165.204.156.251])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8ebe68ebsm10509177b3a.47.2026.04.19.23.45.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 19 Apr 2026 23:45:53 -0700 (PDT)
-From: sai madhu <suryasaimadhu369@gmail.com>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	sai madhu <suryasaimadhu369@gmail.com>
-Subject: [PATCH v2] drm/mediatek: hdmi: Convert DRM_ERROR() to drm_err()
-Date: Mon, 20 Apr 2026 06:45:44 +0000
-Message-Id: <20260420064544.266478-1-suryasaimadhu369@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 20 Apr 2026 06:47:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0650E1516;
+	Sun, 19 Apr 2026 23:47:03 -0700 (PDT)
+Received: from [10.57.63.177] (unknown [10.57.63.177])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 84A3F3F641;
+	Sun, 19 Apr 2026 23:47:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776667628; bh=FOT+rxetMCCm/Vt/n/onmxMCYGq9cNElSNypd+yNhnw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=j4epmrx6ayUafCVEQ7h5jQnxg6ml5eCR2lSQ+K/AG8/lUgNRBeMqJIC9TwDXgnhFL
+	 m4RmLBmEqyihwgMV+Er/qJM7r3qMVW+zoaiWAHClxUtZ0fNTb8Y2Qj6fEA/l8Wldud
+	 UmkwT8YdneFQ678p88xVouNXYqX+mgCG6ljkWgoQ=
+Message-ID: <c78a9048-52a0-4a22-ad69-4bb5e84895b8@arm.com>
+Date: Mon, 20 Apr 2026 08:46:58 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 01/30] mm: Introduce kpkeys
+To: "David Hildenbrand (Arm)" <david@kernel.org>,
+ linux-hardening@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ Andy Lutomirski <luto@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Ira Weiny <ira.weiny@intel.com>, Jann Horn <jannh@google.com>,
+ Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
+ Kees Cook <kees@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Marc Zyngier <maz@kernel.org>,
+ Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>,
+ Maxwell Bland <mbland@motorola.com>, "Mike Rapoport (IBM)"
+ <rppt@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Pierre Langlois <pierre.langlois@arm.com>,
+ Quentin Perret <qperret@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ Yang Shi <yang@os.amperecomputing.com>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org
+References: <20260227175518.3728055-1-kevin.brodsky@arm.com>
+ <20260227175518.3728055-2-kevin.brodsky@arm.com>
+ <00b24db8-0063-48d6-8bc4-e8b670d8f0d5@kernel.org>
+ <913002a5-e002-4001-ad19-037102d1f97d@arm.com>
+ <cd2bcc09-2507-4ed4-bb92-2d53baedaf04@kernel.org>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <cd2bcc09-2507-4ed4-bb92-2d53baedaf04@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260419_234555_169438_7DBF97D0 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20260419_234712_524359_5413EE92 
+X-CRM114-Status: GOOD (  23.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,35 +90,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DRM_ERROR() macro is deprecated in favor of drm_err() which
-provides device-specific logging.
+On 17/04/2026 19:38, David Hildenbrand (Arm) wrote:
+> On 4/17/26 17:59, Kevin Brodsky wrote:
+>> On 17/04/2026 16:37, David Hildenbrand (Arm) wrote:
+>>> On 2/27/26 18:54, Kevin Brodsky wrote:
+>>>> kpkeys is a simple framework to enable the use of protection keys
+>>>> (pkeys) to harden the kernel itself. This patch introduces the basic
+>>>> API in <linux/kpkeys.h>: a couple of functions to set and restore
+>>>> the pkey register and macros to define guard objects.
+>>>>
+>>>> kpkeys introduces a new concept on top of pkeys: the kpkeys level.
+>>>> Each level is associated to a set of permissions for the pkeys
+>>>> managed by the kpkeys framework. kpkeys_set_level(lvl) sets those
+>>>> permissions according to lvl, and returns the original pkey
+>>>> register, to be later restored by kpkeys_restore_pkey_reg(). To
+>>>> start with, only KPKEYS_LVL_DEFAULT is available, which is meant
+>>>> to grant RW access to KPKEYS_PKEY_DEFAULT (i.e. all memory since
+>>>> this is the only available pkey for now).
+>>>>
+>>>> Because each architecture implementing pkeys uses a different
+>>>> representation for the pkey register, and may reserve certain pkeys
+>>>> for specific uses, support for kpkeys must be explicitly indicated
+>>>> by selecting ARCH_HAS_KPKEYS and defining the following functions in
+>>>> <asm/kpkeys.h>, in addition to the macros provided in
+>>>> <asm-generic/kpkeys.h>:
+>>>>
+>>>> - arch_kpkeys_set_level()
+>>>> - arch_kpkeys_restore_pkey_reg()
+>>>> - arch_kpkeys_enabled()
+>>> Another thing: why not simply drop the "arch_" stuff from these helpers?
+>> The first two are not meant to be directly called, they're the
+>> arch-specific implementation of kpkeys_set_level() and
+>> kpkeys_restore_pkey_reg(), and those generic functions handle some
+>> generic logic.
+>>
+>> arch_kpkeys_enabled() is directly used in generic code, so I suppose it
+>> could be renamed to kpkeys_enabled()? It's actually implemented in an
+>> arch header so I wasn't too sure about it.
+> I was skimming over patch #13 and spotted:
+>
+> +void·__init·kpkeys_hardened_pgtables_init(void)
+> +{
+> +›	if·(!arch_kpkeys_enabled())
+> +›	›	return;
+> +
+> +›	static_branch_enable(&kpkeys_hardened_pgtables_key);
+> +}
+>
+> The arch_* there can just go IMHO.
+>
+> I'd also do it for the two ones used by the GUARD macros. If we don't
+> expect common code wrappers (arch_kpkeys_enabled() vs. kpkeys_enabled),
+> then the arch_ is unnecessary information -- IMHO
 
-Replace DRM_ERROR() with drm_err() in the Mediatek HDMI bridge
-driver and pass the drm_device pointer via bridge->dev.
+Makes sense. I could just rename arch_kpkeys_enabled() to
+kpkeys_enabled(), but I'm thinking having an arch abstraction could be
+clearer, after looking into protecting sparse-vmemmap page tables. The
+new version would look like this:
 
-No functional change intended.
+* <asm/kpkeys.h>:
+    - arch_supports_kpkeys()
+    - arch_supports_kpkeys_early() [can be called before features have
+been detected]
 
-Signed-off-by: sai madhu <suryasaimadhu369@gmail.com>
----
- drivers/gpu/drm/mediatek/mtk_hdmi.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+* <linux/kpkeys.h> defines:
+    - kpkeys_enabled() -> arch_supports_kpkeys()
+    - kpkeys_hardened_pgtables_enabled() -> static key
+    - kpkeys_hardened_pgtables_early_enabled() ->
+arch_supports_kpkeys_early() [called when setting up sparse-vmemmap,
+linear map, etc.]
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-index 1ea259854780..4ddcdbf7bc8c 100644
---- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-@@ -981,8 +981,8 @@ static int mtk_hdmi_bridge_attach(struct drm_bridge *bridge,
- 	int ret;
- 
- 	if (!(flags & DRM_BRIDGE_ATTACH_NO_CONNECTOR)) {
--		DRM_ERROR("%s: The flag DRM_BRIDGE_ATTACH_NO_CONNECTOR must be supplied\n",
--			  __func__);
-+		drm_err(bridge->dev,
-+			"DRM_BRIDGE_ATTACH_NO_CONNECTOR must be supplied\n");
- 		return -EINVAL;
- 	}
- 
--- 
-2.34.1
+There is extra #ifdef'ing going on in <linux/kpkeys.h>, but
+<asm/kpkeys.h> doesn't need to worry about it. I think this might be
+easier to follow, I don't like too much having an interface function
+like kpkeys_enabled() defined in an arch header (not great for
+kernel-doc comments either). Any thoughts?
 
+- Kevin
 
