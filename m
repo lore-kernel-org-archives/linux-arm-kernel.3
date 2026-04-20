@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4CFBF588C3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:27:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAD81F588C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:27:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ng9r8GSnR45lltq6I7KgJcQjw8jjuYUOmCzL8yS6lnQ=; b=PyEy8XJlkb4J6U34Z7LnNcAJiw
-	OaF9DM4bktzFia+AL0bNoQq79dmmZJV0KHrADBsuKHCC7pykVurF5jjkVGc/fRtovK01SF+ATrN1G
-	lVwh6pFo7rDCXjJF+V68tYC3CjOxgPxXgoikuoYmmS3/nQc4Qi/9MU46Q2cu1Oh/PTqV6PZiO3D/p
-	/Nlmj+ajlpoYNsBMtcIkL6OBJrrBci6gkuoNJOqnw5Bp8ko+yskD9ecqjvORGvRvqsde1Yo/xo3/P
-	ouci7Gttk6du0RZT9nFNZWrEGAf4lKMGWvc2DUsRKI5fa5xMXfpr3BIGsruGzmNRuZKs2A1CS4BgK
-	ShDKBztQ==;
+	bh=1pZEbdAE/KXqP5BHX0ych2Q9G4a9S8n6UzRnyG+I8e0=; b=YtPTGENgiOY35d7Ce1p7sQt72B
+	WECa7pbRBdORlI74rFokYy/aA6fTpUvoqZJlEpdKrEcDUHLS1BSjCAnjuMByuPIElPSqmK/Mjyu+f
+	Nqvng+Ryv4aME22U2aASYC9Q1Gnp1NlN3wo5tCv826Ty6MGsm+Atq+qv3U07P7kKbUaZ4fP8SSrjS
+	mf9P9G0Bljs7eA35pt1mRlFa1mZmqaKEd3TvZRcB5g9gz3ihXTycC4EB4/H/IroXiV60Jrb/C9vZu
+	CEBtuRYaD/SFkzGsJjYshVYukMaGG3EfSPkkAqJSGuGJRtHjNeWaA3pryT3/VI0DWhmbEUWTtGPVL
+	JHIl4uLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEoeW-000000070nu-1SJa;
-	Mon, 20 Apr 2026 13:27:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wEoef-000000070uD-2n1o;
+	Mon, 20 Apr 2026 13:27:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEoeT-000000070l3-0pUy;
-	Mon, 20 Apr 2026 13:27:02 +0000
+	id 1wEoec-000000070rP-05QK;
+	Mon, 20 Apr 2026 13:27:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C35C440DC1;
-	Mon, 20 Apr 2026 13:27:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3C94C2BCB7;
-	Mon, 20 Apr 2026 13:26:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 65A9160172;
+	Mon, 20 Apr 2026 13:27:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7BDDC2BCB7;
+	Mon, 20 Apr 2026 13:27:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776691620;
-	bh=qV8xRHZhKgPeo4Q3n8lJGd1yBozXqX+gfLWGeX9tvfQ=;
+	s=k20201202; t=1776691629;
+	bh=nAbsIGgmyyONm4jQimPirD+2ZbQr3SdslsuxV5gUrLo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EeS95bvEH9FExRQjUvbW4UVKml2bItvScSj+lISCloJboZ9rESz5yQwtCR4OQhmY6
-	 hx7ZlkRaT4yhR8yIor4gx5FOIhaz0fYgiKDrR5ymZsHssXjW10Rdxoe+8sL4GPQdi7
-	 C/kMJnWEB7EljKWKlcmtR2TP7Ul8ueRjD1Pg7TqN1yeIRh8u8w4h6JSZZQZrx9m1Zd
-	 sHS+g5gsaoG3Ug/+Mza59ITaZE7ikBWLwwcp+hR+Cy8nc64kgRa+mS6OL9SzLHMSZK
-	 oJz+bZNb/SfYiTWEiVNvsvdvNum+KBfTA8jREva1YzQRWb2tSx40b4F1MxD+9Irv7Q
-	 O95bGRSCsweZg==
+	b=fYqQvM++cNAGtoCP1+L0IjMeqM7bOYEww+LT1no7EV3REA6cD6gEx+RfxM6l1U+n2
+	 Jw7u/CIXrZqGswiA/unI2Zk3HigWrgMiV3fyeY1i3rEONytjIkvWTe5U3DEwGR1l7D
+	 2s8cI57T+MUNtMFZtg+YMTozXpAwfKGPnMTLPmMjoF/QkXvIj96mKOvUwBDS0fWBpf
+	 obW9hkeoIw2hnt/STgfirxZhFyICpTa+FbVQwDZrm8g4b6n7NaGEYjSFOUXTFDp3i1
+	 8MxNJXPuR/YEeX/eIZ6BlVrsx4eBhX/bZEGxSPCzifEUsbQKKrN8EZ/g8GALJE8V9q
+	 mjMQs2VcPqLvw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Ziyi Guo <n7l8m4@u.northwestern.edu>,
-	Felix Fietkau <nbd@nbd.name>,
+Cc: Chris Lu <chris.lu@mediatek.com>,
+	Luiz Augusto von Dentz <luiz.von.dentz@intel.com>,
 	Sasha Levin <sashal@kernel.org>,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
+	marcel@holtmann.org,
+	luiz.dentz@gmail.com,
 	matthias.bgg@gmail.com,
 	angelogioacchino.delregno@collabora.com,
-	linux-wireless@vger.kernel.org,
+	linux-bluetooth@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 7.0-6.12] wifi: mt76: add missing lock protection in mt76_sta_state for sta_event callback
-Date: Mon, 20 Apr 2026 09:18:50 -0400
-Message-ID: <20260420132314.1023554-136-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 7.0-6.1] Bluetooth: btmtk: improve mt79xx firmware setup retry flow
+Date: Mon, 20 Apr 2026 09:18:55 -0400
+Message-ID: <20260420132314.1023554-141-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260420132314.1023554-1-sashal@kernel.org>
 References: <20260420132314.1023554-1-sashal@kernel.org>
@@ -66,9 +66,6 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 7.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_062701_287023_5CBB81AB 
-X-CRM114-Status: GOOD (  22.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,305 +80,275 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ziyi Guo <n7l8m4@u.northwestern.edu>
+From: Chris Lu <chris.lu@mediatek.com>
 
-[ Upstream commit f0168f2f9a1eca55d3ae09d8250b94e82b67cac3 ]
+[ Upstream commit 54f1f020e9f4a087779cc4d96a7c86f47d0c6797 ]
 
-mt76_sta_state() calls the sta_event callback without holding dev->mutex.
-However, mt7915_mac_sta_event() (MT7915 implementation of this callback)
-calls mt7915_mac_twt_teardown_flow() which has
-lockdep_assert_held(&dev->mt76.mutex) indicating that callers must
-hold this lock.
+If retries are exhausted, driver should not do futher operation.
+During mt79xx firmware download process, if the retry count reaches0,
+driver will return an -EIO error and release the firmware resources.
 
-The locking pattern in mt76_sta_state() is inconsistent:
-- mt76_sta_add() acquires dev->mutex before calling dev->drv->sta_add
-- mt76_sta_remove() acquires dev->mutex before calling __mt76_sta_remove
-- But sta_event callback is called without acquiring the lock
-
-Add mutex_lock()/mutex_unlock() around the mt7915_mac_twt_teardown_flow
-invocation to fix the missing lock protection and maintain consistency
-with the existing locking pattern.
-
-Signed-off-by: Ziyi Guo <n7l8m4@u.northwestern.edu>
-Link: https://patch.msgid.link/20260131035210.2198259-1-n7l8m4@u.northwestern.edu
-Signed-off-by: Felix Fietkau <nbd@nbd.name>
+Signed-off-by: Chris Lu <chris.lu@mediatek.com>
+Signed-off-by: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-Now let me complete the systematic analysis.
+Now I have all the information needed for a thorough analysis. Let me
+compile the full assessment.
 
 ---
 
 ## PHASE 1: COMMIT MESSAGE FORENSICS
 
 **Step 1.1: Subject Line**
-- Subsystem: `wifi: mt76:` (MediaTek mt76 wireless driver)
-- Action verb: "add missing" - indicates fixing a gap in existing code
-- Summary: Adding lock protection around `sta_event` callback for TWT
-  teardown
-
-Record: [wifi: mt76 (mt7915)] [add missing lock] [Fix missing mutex
-around mt7915_mac_twt_teardown_flow call in disassoc path]
+Record: [bluetooth/btmtk] [improve] Fix retry exhaustion handling in
+mt79xx firmware setup - when retry count reaches 0, driver should return
+error instead of continuing.
 
 **Step 1.2: Tags**
-- Signed-off-by: Ziyi Guo (author)
-- Link: patch.msgid.link (standard patch submission link)
-- Signed-off-by: Felix Fietkau (mt76 maintainer who applied the patch)
-- No Fixes: tag (expected for manual review)
-- No Cc: stable (expected)
-- No Reported-by (found via code analysis, not user report)
-
-Record: Applied by Felix Fietkau (nbd@nbd.name) who is the mt76
-subsystem maintainer.
+- Signed-off-by: Chris Lu <chris.lu@mediatek.com> (author, regular
+  MediaTek Bluetooth contributor)
+- Signed-off-by: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>
+  (Bluetooth maintainer, committed the patch)
+- No Fixes: tag, no Reported-by, no Cc: stable - expected for manual
+  review candidates.
 
 **Step 1.3: Commit Body**
-The commit clearly describes:
-- Bug: `mt76_sta_state()` calls `sta_event` callback without holding
-  `dev->mutex`
-- `mt7915_mac_twt_teardown_flow()` has
-  `lockdep_assert_held(&dev->mt76.mutex)` - proving the lock is required
-- The inconsistency: `mt76_sta_add()` and `mt76_sta_remove()` correctly
-  hold the lock, but `sta_event` does not
-- Fix: Add `mutex_lock()`/`mutex_unlock()` around the specific call
+The body describes: "If retries are exhausted, driver should not do
+further operation. During mt79xx firmware download process, if the retry
+count reaches 0, driver will return an -EIO error and release the
+firmware resources." Clear description of a missing error check.
 
-Record: Bug is missing lock protection leading to lockdep warning and
-potential data races in TWT teardown during disassociation. Root cause
-is inconsistent locking introduced during refactoring.
-
-**Step 1.4: Hidden Bug Fix?**
-This is an explicit bug fix - "add missing lock protection" clearly
-describes a synchronization issue. Not hidden.
+**Step 1.4: Hidden Bug Fix Detection**
+Despite the word "improve" in the subject, this IS a bug fix. The word
+"improve" masks a clear logic error: the retry loop can exhaust without
+any error return, causing the driver to silently proceed with firmware
+download on a device in an abnormal state.
 
 ## PHASE 2: DIFF ANALYSIS
 
 **Step 2.1: Inventory**
-- Single file changed:
-  `drivers/net/wireless/mediatek/mt76/mt7915/main.c`
-- +2 lines added (mutex_lock/mutex_unlock)
-- Function modified: `mt7915_mac_sta_event()`
-- Scope: Single-file, surgical, 2-line fix
+- 1 file changed: `drivers/bluetooth/btmtk.c`
+- +6 lines added (1 comment, 5 code lines)
+- Function modified: `btmtk_setup_firmware_79xx()`
+- Scope: single-file surgical fix
 
 **Step 2.2: Code Flow Change**
-- Before: `mt7915_mac_twt_teardown_flow()` called in a loop without
-  holding `dev->mt76.mutex`
-- After: The loop is wrapped with `mutex_lock(&dev->mt76.mutex)` /
-  `mutex_unlock(&dev->mt76.mutex)`
-- Only the DISASSOC path is affected
+The retry loop at line 171 (`while (retry > 0)`) handles
+`BTMTK_WMT_PATCH_PROGRESS` by decrementing `retry`. BEFORE: if retry
+hits 0, the loop exits normally and code falls through to `fw_ptr +=
+section_offset`, proceeding with firmware download. AFTER: a check for
+`retry == 0` returns `-EIO` and jumps to `err_release_fw`.
 
 **Step 2.3: Bug Mechanism**
-This is a **synchronization/race condition fix**:
-- `mt7915_mac_twt_teardown_flow()` modifies shared data: `flow->list`
-  (via `list_del_init`), `msta->twt.flowid_mask`, `dev->twt.table_mask`,
-  and `dev->twt.n_agrt`
-- Without the mutex, concurrent TWT setup/teardown could corrupt linked
-  lists and bitmasks
-- The function itself explicitly requires the lock via
-  `lockdep_assert_held()`
+This is a **logic/correctness fix** - missing error check after retry
+exhaustion. The `while (retry > 0)` loop can exit via:
+1. `break` when status == `BTMTK_WMT_PATCH_UNDONE` (normal path -
+   proceed to download)
+2. `goto next_section` when status == `BTMTK_WMT_PATCH_DONE` (skip
+   section)
+3. `goto err_release_fw` on command error or unexpected status
+4. Loop exhaustion when retry reaches 0 (BUG: falls through to download
+   path)
+
+Case 4 is the bug - the code proceeds as if the device is ready when
+it's not.
 
 **Step 2.4: Fix Quality**
-- Obviously correct: the function asserts the lock must be held, the fix
-  provides it
-- Minimal: 2 lines, wraps only the code that needs protection
-- No regression risk: `mt7915_mcu_add_sta()` called after unlock doesn't
-  require the lock (no lockdep_assert_held in it)
-- The v2 design (adding lock in driver vs core) specifically avoids
-  deadlock risk with other drivers
+Obviously correct. The check `if (retry == 0)` can only be true if the
+loop exhausted, meaning the device never left `PATCH_PROGRESS` state.
+Returning `-EIO` and cleaning up is the correct behavior. No regression
+risk.
 
 ## PHASE 3: GIT HISTORY INVESTIGATION
 
 **Step 3.1: Blame**
-- The buggy code in `mt7915_mac_sta_event()` was introduced by commit
-  `33eb14f1029085` (Felix Fietkau, 2024-08-27) "wifi: mt76: mt7915: use
-  mac80211 .sta_state op"
-- First appeared in v6.12-rc1; present in v6.12, v6.13, v6.14, v6.15,
-  v6.16, v6.17, v6.18, v6.19, v7.0
-- The `lockdep_assert_held` in `mt7915_mac_twt_teardown_flow()` has been
-  there since commit `3782b69d03e714` (Lorenzo Bianconi, 2021-09-23) -
-  since v5.16
+The buggy code was introduced in commit `8c0d17b6b06c5b` "Bluetooth:
+mediatek: add BT_MTK module" by Sean Wang on 2021-10-19. This was the
+initial creation of the BT_MTK module.
 
-**Step 3.2: Fixes Tag**
-No Fixes: tag present (expected). However, the implicit fix target is
-`33eb14f1029085` which exists in stable trees starting from v6.12.
+**Step 3.2: No Fixes: tag** - expected.
 
 **Step 3.3: File History**
-Recent changes to the file are mostly unrelated. No prerequisites
-needed.
+The function `btmtk_setup_firmware_79xx` has been stable since 2021 in
+the retry loop area. The surrounding code has only had one minor change
+(commit `995d948cf2e458` adding `err = -EIO` in the else branch).
 
 **Step 3.4: Author**
-Ziyi Guo is not the subsystem maintainer but the patch was accepted by
-Felix Fietkau (the mt76 maintainer/author).
+Chris Lu is a regular MediaTek Bluetooth contributor with 28+ commits
+touching `drivers/bluetooth/`, including many device ID additions and
+critical fixes.
 
 **Step 3.5: Dependencies**
-The fix is standalone - it only adds mutex_lock/unlock calls around
-existing code. No other patches needed.
+This commit is patch 1/3 of a series, but it is **standalone**. Patches
+2/3 and 3/3 add additional improvements (status checking and reset
+mechanism) that build on this but are not required. The fix applies
+cleanly without dependencies.
 
 ## PHASE 4: MAILING LIST RESEARCH
 
-**Step 4.1:** b4 found the patch is v2. The v1 changelog note says:
-"Move the locking to MT7915 driver to avoid deadlock in other drivers."
-This demonstrates review feedback was incorporated. The patch was
-applied by Felix Fietkau, the mt76 maintainer.
+**Step 4.1: Original Discussion**
+Found via `b4 dig -c 54f1f020e9f4`: Submitted as `[PATCH v1 1/3]` on
+2026-02-03. The cover letter explains: "When the device unexpectedly
+restarts during previous firmware download process, it can cause mt79xx
+firmware status to be abnormal in the next attempt." Series applied to
+bluetooth-next by Luiz Augusto von Dentz on 2026-04-10.
 
-**Step 4.2:** Applied by subsystem maintainer Felix Fietkau.
+**Step 4.2: Review**
+Only v1 was submitted (no revisions needed). The Bluetooth maintainer
+(Luiz Augusto von Dentz) applied the series directly, indicating
+confidence in the fix quality.
 
-**Step 4.3-4.5:** Lore was unreachable due to bot protection. However,
-the patch metadata confirms it was properly reviewed and merged.
+**Step 4.3: Bug Report**
+No specific bug report link. The cover letter describes a real-world
+scenario where the device unexpectedly restarts during firmware
+download.
+
+**Step 4.4: Series Context**
+Part of 3-patch series, but this patch is standalone. Patches 2 and 3
+are independent improvements that enhance the error recovery further.
+
+**Step 4.5: Stable Discussion**
+No existing stable nomination or discussion found.
 
 ## PHASE 5: CODE SEMANTIC ANALYSIS
 
-**Step 5.1:** Modified function: `mt7915_mac_sta_event()`
+**Step 5.1: Key Function**
+`btmtk_setup_firmware_79xx()` - firmware setup for MT79xx series.
 
-**Step 5.2:** Called from `mt76_sta_state()` in `mac80211.c` (line
-1671), which is the mac80211 `.sta_state` callback. This is called
-during every station state transition (connect/disconnect).
+**Step 5.2: Callers**
+- `btmtk_usb_setup()` in `btmtk.c` line 1332 - USB path for MT7922,
+  MT7925, MT7961
+- `mt79xx_setup()` in `btmtksdio.c` line 873 - SDIO path
 
-**Step 5.3:** `mt7915_mac_twt_teardown_flow()` modifies:
-- `flow->list` via `list_del_init()` - list corruption without lock
-- `msta->twt.flowid_mask` - bitmask corruption
-- `dev->twt.table_mask` - global device state
-- `dev->twt.n_agrt` - global counter
+Both are called during device initialization/setup.
 
-**Step 5.4:** The path is: mac80211 sta_state callback -> mt76_sta_state
--> mt7915_mac_sta_event -> mt7915_mac_twt_teardown_flow. This is
-triggered during every WiFi client disassociation on mt7915 hardware - a
-common operation.
-
-**Step 5.5:** The existing `mt7915_twt_teardown_request()` (line
-1647-1658) correctly acquires the same mutex before calling the same
-function, confirming the required locking pattern.
+**Step 5.3-5.4: Reachability**
+Called during HCI device setup, triggered when a MT79xx Bluetooth device
+is initialized. This is a common code path for all MT792x Bluetooth
+device users.
 
 ## PHASE 6: STABLE TREE ANALYSIS
 
-**Step 6.1:** The buggy code was introduced in v6.12 (commit
-33eb14f1029085). It affects stable trees v6.12.y and later.
+**Step 6.1: Code exists in stable**
+The buggy code was introduced in October 2021 (commit `8c0d17b6b06c5b`).
+Tags show it's in p-6.1, p-6.6, and all newer stable trees. The bug
+affects ALL active stable trees.
 
-**Step 6.2:** The patch is a trivial 2-line addition that should apply
-cleanly. The code around it has not changed significantly.
-
-**Step 6.3:** No other fix for this issue found.
+**Step 6.2: Backport Complexity**
+The patch should apply cleanly - the retry loop code hasn't changed
+since the original 2021 commit.
 
 ## PHASE 7: SUBSYSTEM CONTEXT
 
-**Step 7.1:** WiFi driver (drivers/net/wireless/mediatek/mt76/mt7915/).
-Criticality: IMPORTANT - mt7915 is a widely used WiFi chipset (used in
-many routers and access points).
-
-**Step 7.2:** The mt76 subsystem is actively developed.
+**Step 7.1: Subsystem**
+Bluetooth driver (drivers/bluetooth/) - IMPORTANT criticality.
+MT7921/MT7922/MT7925 are extremely popular WiFi/BT combo chips found in
+many laptops (Lenovo, ASUS, Dell, etc.).
 
 ## PHASE 8: IMPACT AND RISK ASSESSMENT
 
-**Step 8.1:** Affected users: All users of mt7915 WiFi hardware (common
-in routers and access points).
+**Step 8.1: Affected Users**
+Users of MediaTek MT7921, MT7922, MT7925 Bluetooth devices (very large
+population).
 
-**Step 8.2:** Trigger: Every WiFi client disassociation with active TWT
-flows. Any WiFi 6 client using TWT can trigger this. With CONFIG_LOCKDEP
-enabled, it produces a lockdep warning/splat. Without lockdep, the race
-window exists and could corrupt shared data structures.
+**Step 8.2: Trigger Conditions**
+Triggered when the device reports `BTMTK_WMT_PATCH_PROGRESS`
+continuously for 2+ seconds during firmware download. The cover letter
+describes this happening after an unexpected device restart during a
+previous firmware download attempt.
 
-**Step 8.3:** Failure modes:
-- With LOCKDEP: lockdep assertion failure/warning on every
-  disassociation
-- Without LOCKDEP: Race condition on `list_del_init`, bitmask/counter
-  manipulation - could cause list corruption (crash), incorrect TWT
-  state, or data corruption
-- Severity: HIGH (list corruption can crash, lockdep warning disrupts
-  debug/testing)
+**Step 8.3: Failure Mode**
+Without fix: firmware download proceeds on a device in an abnormal
+state, potentially leading to device malfunction, failed bluetooth
+initialization, or undefined behavior. Severity: MEDIUM-HIGH.
 
-**Step 8.4:** Risk-benefit:
-- Benefit: HIGH - prevents lockdep warnings and potential data
-  corruption/crash
-- Risk: VERY LOW - 2-line addition, obviously correct, wraps only the
-  necessary code
-- The v2 design specifically avoids deadlock in other drivers
+**Step 8.4: Risk-Benefit Ratio**
+- BENEFIT: Prevents firmware download to a device in an abnormal state
+  for widely-used hardware
+- RISK: Extremely low - 5 lines, obviously correct, only affects an
+  already-failed case
+- Ratio: Strongly favorable
 
 ## PHASE 9: FINAL SYNTHESIS
 
-**Step 9.1: Evidence**
-FOR backporting:
-- Fixes a real locking bug: `lockdep_assert_held()` proves the lock is
-  required
-- Prevents list corruption and data races on shared data structures
-- 2-line fix, obviously correct, minimal risk
-- Applied by subsystem maintainer (Felix Fietkau)
-- v2 incorporated review feedback to avoid deadlock
-- Consistent with existing locking patterns in the same driver
-- Affects widely-used WiFi hardware (mt7915)
+**Evidence FOR backporting:**
+- Fixes a real logic error (missing error check after retry exhaustion)
+- Very small and surgical (5 lines of code)
+- Obviously correct
+- Affects widely-used hardware (MT792x family)
+- Standalone fix with no dependencies
+- Applied by subsystem maintainer without revisions needed
+- Buggy code exists in all active stable trees since 2021
+- Clean apply expected
 
-AGAINST backporting:
-- No explicit user report/crash report
-- Bug only affects WiFi 6 TWT flow teardown (somewhat specialized path)
-- Code only exists since v6.12
+**Evidence AGAINST backporting:**
+- Not a crash/panic fix - the immediate impact is proceeding with
+  firmware download in an abnormal state
+- No specific user-reported bug linked
+- Commit message uses "improve" rather than "fix"
 
-**Step 9.2: Stable Rules Checklist**
-1. Obviously correct and tested? YES - lockdep_assert_held proves
-   requirement, fix is trivial
-2. Fixes a real bug? YES - missing lock on shared data structures
-3. Important issue? YES - list corruption, data races, lockdep warnings
-4. Small and contained? YES - 2 lines, single file
-5. No new features/APIs? YES - pure bug fix
-6. Can apply to stable? YES - clean apply expected for v6.12+
-
-**Step 9.3: Exception Categories**: N/A - this is a standard bug fix.
-
-**Step 9.4: Decision**: YES - this is a small, surgical fix for a real
-locking bug that could cause data corruption or crashes on widely-used
-WiFi hardware.
+**Stable Rules Checklist:**
+1. Obviously correct and tested? YES - trivially verifiable, applied to
+   bluetooth-next
+2. Fixes a real bug? YES - missing error handling after retry exhaustion
+3. Important issue? MEDIUM-HIGH - prevents undefined device behavior
+   during firmware setup for popular hardware
+4. Small and contained? YES - 5 lines, one file, one function
+5. No new features? CORRECT - pure error handling fix
+6. Can apply to stable? YES - clean apply expected
 
 ## Verification
 
-- [Phase 1] Parsed tags: Signed-off-by Felix Fietkau (maintainer), Link
-  to patch.msgid.link
-- [Phase 2] Diff analysis: +2 lines in mt7915/main.c, adds
-  mutex_lock/unlock around twt_teardown_flow loop
-- [Phase 3] git blame: Buggy code introduced by 33eb14f1029085 (Felix
-  Fietkau, 2024-08-27, first in v6.12-rc1)
-- [Phase 3] git show 33eb14f1029085: Confirmed refactoring that
-  introduced the missing lock path
-- [Phase 3] lockdep_assert_held confirmed at mac.c:2385 in
-  mt7915_mac_twt_teardown_flow()
-- [Phase 3] Existing correct locking pattern verified at
-  main.c:1655-1657 (mt7915_twt_teardown_request)
-- [Phase 4] b4 am: Retrieved v2 patch, confirmed changelog "Move the
-  locking to MT7915 driver to avoid deadlock in other drivers"
-- [Phase 4] lore.kernel.org was unreachable (bot protection) - could not
-  read full thread discussion
-- [Phase 5] mt76_sta_state at mac80211.c:1671 calls sta_event without
-  lock (verified by reading code)
-- [Phase 5] mt76_sta_add at mac80211.c:1599 and mt76_sta_remove at
-  mac80211.c:1630-1632 DO hold the lock (verified)
-- [Phase 5] mt7915_mac_twt_teardown_flow modifies shared: list_del_init,
-  flowid_mask, table_mask, n_agrt (verified at mac.c:2398-2401)
-- [Phase 6] Bug exists in v6.12 through v7.0 (verified via git tag
-  --contains)
-- [Phase 6] Code does NOT exist before v6.12 (verified: no
-  sta_state/sta_event changes in v6.6..v6.11)
-- [Phase 8] Trigger: WiFi client disassociation with TWT flows on mt7915
-  hardware
-- UNVERIFIED: Could not access lore.kernel.org for full review
-  discussion due to bot protection
+- [Phase 1] Parsed tags: Signed-off-by from Chris Lu (author) and Luiz
+  Augusto von Dentz (maintainer/committer)
+- [Phase 2] Diff analysis: 5 lines added after retry loop in
+  `btmtk_setup_firmware_79xx()`, adds `retry == 0` check returning -EIO
+- [Phase 3] git blame: buggy code introduced in commit 8c0d17b6b06c5b
+  (2021-10-19, Sean Wang), present in all stable trees
+- [Phase 3] git tag --contains: confirmed present in p-6.1, p-6.6, and
+  all newer stable tags
+- [Phase 3] git log --author="Chris Lu": confirmed Chris Lu is a regular
+  MediaTek BT contributor with 28+ commits
+- [Phase 4] b4 dig -c 54f1f020e9f4: found original submission at
+  https://patch.msgid.link/20260203062510.848761-2-chris.lu@mediatek.com
+- [Phase 4] b4 dig -a: only v1, no revisions needed, applied directly by
+  maintainer
+- [Phase 4] Thread mbox: series was applied to bluetooth-next,
+  patchwork-bot confirmed
+- [Phase 4] Cover letter: describes real-world scenario (device restart
+  during firmware download)
+- [Phase 5] Grep callers: btmtk_usb_setup() (USB path) and
+  mt79xx_setup() (SDIO path) both call this function
+- [Phase 6] Code unchanged in retry loop since 2021 - clean apply
+  expected
+- [Phase 8] Failure mode: proceeds with firmware download on abnormal
+  device state, severity MEDIUM-HIGH
 
 **YES**
 
- drivers/net/wireless/mediatek/mt76/mt7915/main.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/bluetooth/btmtk.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/main.c b/drivers/net/wireless/mediatek/mt76/mt7915/main.c
-index 90d5e79fbf74d..e212e964fda03 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7915/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7915/main.c
-@@ -851,8 +851,10 @@ int mt7915_mac_sta_event(struct mt76_dev *mdev, struct ieee80211_vif *vif,
- 		return mt7915_mcu_add_sta(dev, vif, sta, CONN_STATE_PORT_SECURE, false);
+diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
+index fa7533578f85c..0ada5a12130dc 100644
+--- a/drivers/bluetooth/btmtk.c
++++ b/drivers/bluetooth/btmtk.c
+@@ -205,6 +205,12 @@ int btmtk_setup_firmware_79xx(struct hci_dev *hdev, const char *fwname,
+ 				}
+ 			}
  
- 	case MT76_STA_EVENT_DISASSOC:
-+		mutex_lock(&dev->mt76.mutex);
- 		for (i = 0; i < ARRAY_SIZE(msta->twt.flow); i++)
- 			mt7915_mac_twt_teardown_flow(dev, msta, i);
-+		mutex_unlock(&dev->mt76.mutex);
- 
- 		mt7915_mcu_add_sta(dev, vif, sta, CONN_STATE_DISCONNECT, false);
- 		msta->wcid.sta_disabled = 1;
++			/* If retry exhausted goto err_release_fw */
++			if (retry == 0) {
++				err = -EIO;
++				goto err_release_fw;
++			}
++
+ 			fw_ptr += section_offset;
+ 			wmt_params.op = BTMTK_WMT_PATCH_DWNLD;
+ 			wmt_params.status = NULL;
 -- 
 2.53.0
 
