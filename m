@@ -4,93 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ECD1F557EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 08:50:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAB8AF557EB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 08:52:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rk1cjRbAtp4GCcTi8WWTinbg9eeO3gY1eDEUp3GR38Q=; b=qIRSOGf4M8ITZptiK5fEdEmOT4
-	8Xw74ICETUXQ98XOq+/ysKwCtmy3xpqSm4vdgV7MnHpLE4HKGsxSoh50/Q7dVz82Q0zGCNZ7dLixP
-	rLkKUtpY2iUaIKVAl70tWJozo9BVsm/bmFjx80xfpVQShlKKZosTprKVgpNlca7M3/SK2W9u7mBeL
-	GFII50AqIYNVdpuhDfqWHYZhau26rVhsk/Wy60uY9cBdHLy/Wu922/NaKtzLSkPxZ3TGdLNcisd+n
-	Bx9LURzBldOmKN/nJnznA1p5/C4SqTy/Jn2o7GdLaCeJ+rRRjGVLizSRMPLbRPdnldp9oJQwV4Z8i
-	tqbSYTkQ==;
+	bh=2e/JkWh5NIRiOWxLUHpiAERqrkA0EPAqAxoaneAyAOY=; b=qzO6QqPbTDlL2F6GeGK6RI9oRN
+	sxrHCJ3bfysWJTcUIEP2NjFqE3A4lY3Ej+4kPpC+AtFgJkRV4FmCYdTBwcIF+GUJTmS+5T1e2Ft3V
+	N6eaj/NTYujAUNrjjPEecMdpRU8rFl0RjUk2U0ddrQmcKY2f27Us/43ma0j5Qw/BIK8C590rDXhfD
+	cQNyyJH9TI5ivOsAlVhLSvLnKTWL8xqREIRDjQVhPYCRX00Yubs2ZxPAKPikMmeRpB3WClRi4V6xh
+	XnfW9zsLXxRGSyf1BN8EouRcFgrvAoHJo9Zsl9mJx8iKY6oJlLoKoDg0WcrhKkakRkEr/W6XCgd9I
+	DA34YA6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEkKT-00000006dKz-3j8F;
-	Mon, 20 Apr 2026 08:50:05 +0000
-Received: from mail-vk1-f171.google.com ([209.85.221.171])
+	id 1wEkMT-00000006dbR-0gth;
+	Mon, 20 Apr 2026 08:52:09 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEkKS-00000006dJy-0Irr
+	id 1wEkMQ-00000006daj-4AO2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 08:50:05 +0000
-Received: by mail-vk1-f171.google.com with SMTP id 71dfb90a1353d-56f8c77ca6aso2081629e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 01:50:03 -0700 (PDT)
+	Mon, 20 Apr 2026 08:52:08 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-488a9033b2cso31047445e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 01:52:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1776675125; x=1777279925; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=2e/JkWh5NIRiOWxLUHpiAERqrkA0EPAqAxoaneAyAOY=;
+        b=SHO8g7Dnio6vlVe9IxlZ3XfVLm5X8p2DHwhYK6OOUcSVcfM9QOL+y4YPFMs6NEs9r2
+         8BrCEdnNMdEhs6w8mo9lx6fZ9wiiGyYDUqPF7s1/ps7dpHJ/XuhUTfRpqzAOEMBt52GB
+         ZeiJKIi7vb4Lu5ibc1SXAvxpeb3id41kDt4bP98rqkJ6sAa9m2VHIG3+QZ++tx0p+FUJ
+         HxPts0ng+qvmgoFaBcMM+eI5kytWxa2eDhxn/XOP+UbvoC5zWtRdE56uUXUkqfCcr73e
+         5Uzipnafv16uKFPm2c/10XkeaQIaT1peUR4EGcBUNKxwmZ1CaHaYQsX/hFR7XHN9J5ij
+         8FUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776675002; x=1777279802;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Rk1cjRbAtp4GCcTi8WWTinbg9eeO3gY1eDEUp3GR38Q=;
-        b=Ra7af4WSbdycZEjaUhz7cnYfgU5Pv5gBwc1xcrUjVHqkkgUlfr0EIHJ68omSPA6RTf
-         4wm2G+MM/dRwAJmp4lQ0F6etV70zQTlWglyjLEj/AySA2gvDUGrwLxl+JvmxoCv6ijZE
-         Q2atI/ws0eQsLvUOPYRPswvaUlDfso00MMq8oTAXHwt7WjSpEWh2p9yjvDMTtr3KK1En
-         S0uFO/7CVSnrl1tekBs6iIPUNevJ+vii0xOqQAmiuvLz9K6rRwEFAwjDxeXcUsXYkL6p
-         KR5YoZYMvWGygnV6V1Wj3f6Q1kBLCdqRC9B3DTnWswFMyi/TLv/ohp2SH8StqkyrCuvV
-         WG0Q==
-X-Forwarded-Encrypted: i=1; AFNElJ9ovugdMKftRggsMRntnGpz1xxFe+w3LN6R0r2XeWJn/emg6POosFc/f7K8B7Hpr9jkIqNk5u0JJLW9Ngfy+WQQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1zdwASjXoTHsDyMzmIIrWyZmLowyiQAOiInn1ma6mbh2HgSwN
-	GU0udKMiPDwTmUW3Rm/mEWQKEdeXCy0nc/Twy9DMce6GS0R4AFybdyyggkZJwOGE
-X-Gm-Gg: AeBDiet771UatKqWe+m6z2gq/PmypwpMRhqD+z41Q/7kkWZEpipkMBSaU6GFxD7Nuvt
-	tQ1Sb0mWc1mCBtA8Jj3aRKTbzfJ6Eh9XXQKmS8LaNH3a2F6jtZKOU2FVEZ3Z5Egti4M0ygXOgIi
-	iJFgw5DGKfmFi99nS9L+tlxzU4TN/zd9zeKOL1KdM/96VjSlQVczNNuNGI/c0VLerS1glE2Gp2O
-	5G6ykoXx6yxJl341GnX8bayvOaa+t6HbHtNn7wJyQBIljXrgJTO8ViF2JPPlzES/ylnNOrGnVBR
-	vTWyncT/lQ0E5WP9QwFgWsTs2An4Kk6+LhQTwxdDKTf1lOPYSSTptsqnMUauAHOy2yQURZJ0DnT
-	tsCjZ/YXBAoFckDFSzJSrF2qx1wJua9mp2c80TewFHLq/uvTgDJo/afVAAybF5x0n8xHHK5Eca3
-	uItWWABQAuFAH3FnKyARwyL+B6YHzdyQ3opxKY7lk/p0QH7BGS08fwEHNjr9kHjdDkRuPbrTIP1
-	G4=
-X-Received: by 2002:a05:6122:90e:b0:56f:6b46:28be with SMTP id 71dfb90a1353d-56fa5931dc6mr5255299e0c.8.1776675002609;
-        Mon, 20 Apr 2026 01:50:02 -0700 (PDT)
-Received: from mail-vk1-f170.google.com (mail-vk1-f170.google.com. [209.85.221.170])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56fa91bf120sm5807858e0c.3.2026.04.20.01.49.57
-        for <linux-arm-kernel@lists.infradead.org>
+        d=1e100.net; s=20251104; t=1776675125; x=1777279925;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2e/JkWh5NIRiOWxLUHpiAERqrkA0EPAqAxoaneAyAOY=;
+        b=JWj5cAxPYSgte1jtGrpUF7HfkOG+SMQBLK7qVzOH4irQc7cpMVST6fTF2xAyX7DEWO
+         6JyU1EoBo40zrsU/2VG2fYk7bD61hX9ZRLZlZ6XD5APxlTessgm3EN9HP6G4rcsCE9++
+         hWTkrAVspqCB1cz+71lC1yrvJLNEentgBzTamMm3+N/bKCSlnlguw1rxuP2sOgcq60/a
+         MKSzPQ+XU+ygfAGeXfOy42xSzPvF16QJWdMUQjBf5UT3UHq0nk0Mk83vVU8HCnecuI5d
+         zQZFd/VhzGm4ppIG5PsyA6JZ7uQ5YcAMonSCDeZ0jiQAX2xA0YsZXuTfeap/cYXnrcop
+         2A5Q==
+X-Forwarded-Encrypted: i=1; AFNElJ/pnEEidapKeEih4bAFDBNQ21qBv4Q/NuJ4Vn5iA4PuUMILExaLhWriXnMIcFgS19LEEMPsNz35cHjUh2427qjH@lists.infradead.org
+X-Gm-Message-State: AOJu0YysSh7XvoYkqLnKsJM7m+RuUwk51/wf0ccMv8KDJjatagzIbc1i
+	Pd0A3EQ4jnPNqcd6xOO6N2BLSn7+ys17fY5tFuiS/1rEC+IzRYhjA77s5EMbeLrTamo=
+X-Gm-Gg: AeBDiesD3+25rdiNCImbHrcx3Jl7fhdGCj9C6hDnEXKnkdWmb7aIciD4ss9+y+LydEA
+	g7JMjrEysDMe+BwLwvV2GmR9V4c3voPsr7ozS/Jj0NGC7A3NXl/WSgrCJic3BlA+Mo4ThsZI4WX
+	WevtKbULbFLEKASCFOzo95rJ9un8p2rppQSPnuJQpk1uYkd3nm7koYcX78kbmTPSDpzUEbk1Jge
+	F60NPcbCfp4qvpo29NyH7ysqXL7zO23LtbDZjKrVFuNd+7XOw1QDF4x0oDRmm91FXr0R5MUfa9/
+	+jxMwLvK/78xZ3msHBsDiLSD7gjg8R3bUiDuV8Cr3E+VaoRILv2jQEDWAl2RHKRtkQKuoN1Mp8Z
+	IawCxE4mN6hoHf9gbY/tUbYzPXPBDzeI50damGrTEIYYmX1jTrKb6aMCIsnJuXx5oJ9KhQsHPnE
+	xWP7jrpDy2v17WDdTwVxglUEAkquMjiI7qfEW+9+atF6aRgjKyxpdgOxXiSGmYpfD3uHyfFrsVG
+	riwhSd2oiw+aeWVPQ==
+X-Received: by 2002:a05:600c:1f94:b0:489:1c2d:211e with SMTP id 5b1f17b1804b1-4891c2d2213mr44057085e9.5.1776675124969;
+        Mon, 20 Apr 2026 01:52:04 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:106d:1080:8290:9fd8:8af0:67dc? ([2a01:e0a:106d:1080:8290:9fd8:8af0:67dc])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43fe4cc2cacsm27522967f8f.13.2026.04.20.01.52.04
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Apr 2026 01:49:58 -0700 (PDT)
-Received: by mail-vk1-f170.google.com with SMTP id 71dfb90a1353d-56d93355337so1873630e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 01:49:57 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+lfEkrelcOtjWCe4PZYFa+NjzmXCZ4Ggu7H8VdbP4tb3VsqWf8HhUQm0aKHRp25cbHHpzJplpASWeMEK+EFciT@lists.infradead.org
-X-Received: by 2002:a05:6122:90e:b0:56f:6b46:28be with SMTP id
- 71dfb90a1353d-56fa5931dc6mr5255238e0c.8.1776674997727; Mon, 20 Apr 2026
- 01:49:57 -0700 (PDT)
+        Mon, 20 Apr 2026 01:52:04 -0700 (PDT)
+Message-ID: <f2074119-7b4b-4481-8e39-c822dd67000e@linaro.org>
+Date: Mon, 20 Apr 2026 10:52:04 +0200
 MIME-Version: 1.0
-References: <20260410104058.83748-1-ulf.hansson@linaro.org> <20260410104058.83748-5-ulf.hansson@linaro.org>
-In-Reply-To: <20260410104058.83748-5-ulf.hansson@linaro.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 20 Apr 2026 10:49:46 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXzhGDjED_xaLOZnUZB4SR0KhPeWevfQvKeExEH=bCruA@mail.gmail.com>
-X-Gm-Features: AQROBzCwV8ST6yM54ry_6ciPjTsOUiTBNbVImh4WgAAEBeYQh0fedrFtMJ2X8vQ
-Message-ID: <CAMuHMdXzhGDjED_xaLOZnUZB4SR0KhPeWevfQvKeExEH=bCruA@mail.gmail.com>
-Subject: Re: [PATCH v2 4/9] pmdomain: core: Add initial fine grained
- sync_state support
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Saravana Kannan <saravanak@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-pm@vger.kernel.org, 
-	Sudeep Holla <sudeep.holla@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, 
-	Kevin Hilman <khilman@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Abel Vesa <abel.vesa@oss.qualcomm.com>, Peng Fan <peng.fan@oss.nxp.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
-	Maulik Shah <maulik.shah@oss.qualcomm.com>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Geert Uytterhoeven <geert+renesas@glider.be>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH v2 4/4] arm64: dts: amlogic: t7: Add clk measure support
+To: Jian Hu <jian.hu@amlogic.com>, Ronald Claveau <linux-kernel-dev@aliel.fr>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+References: <20260415-clkmsr_a1_t7-v2-0-02b6314427e6@amlogic.com>
+ <20260415-clkmsr_a1_t7-v2-4-02b6314427e6@amlogic.com>
+ <ae61c52d-814c-40fa-b02a-833377d840a8@aliel.fr>
+ <64cde9f6-4f28-4ba7-8362-aac28887ff22@amlogic.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <64cde9f6-4f28-4ba7-8362-aac28887ff22@amlogic.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_015004_136679_16B3D9BD 
-X-CRM114-Status: GOOD (  25.49  )
+X-CRM114-CacheID: sfid-20260420_015207_095286_2813D646 
+X-CRM114-Status: GOOD (  18.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,63 +132,72 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ulf,
+On 4/20/26 05:25, Jian Hu wrote:
+> Hi Ronald,
+> 
+> 
+> Thanks for your review.
+> 
+> On 4/17/2026 5:48 PM, Ronald Claveau wrote:
+>> [ EXTERNAL EMAIL ]
+>>
+>> Hello Jian,
+>>
+>> On 4/15/26 10:33 AM, Jian Hu via B4 Relay wrote:
+>>> From: Jian Hu <jian.hu@amlogic.com>
+>>>
+>>> Add the clock measure device to the T7 SoC family.
+>>>
+>>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+>>> ---
+>>>   arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 5 +++++
+>>>   1 file changed, 5 insertions(+)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+>>> index 7fe72c94ed62..cec2ea74850d 100644
+>>> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+>>> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+>>> @@ -701,6 +701,11 @@ pwm_ao_cd: pwm@60000 {
+>>>                                status = "disabled";
+>>>                        };
+>>>
+>>> +                     clock-measurer@48000 {
+>>> +                             compatible = "amlogic,t7-clk-measure";
+>>> +                             reg = <0x0 0x48000 0x0 0x1c>;
+>>> +                     };
+>>> +
+>> Can you please order by reg, it should be between pwm_ao_gh and pwm_ab.
+>> Thank you.
+> 
+> 
+> According to the "Order of Nodes" chapter in Documentation/devicetree/bindings/dts-coding-style.rst,
+> 
+> nodes of the same type should be grouped together, and this takes higher priority.
+> 
+> So I have placed the clock-measure node after all PWM nodes to avoid splitting the PWM group.
 
-On Fri, 10 Apr 2026 at 12:41, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> A onecell (#power-domain-cells = <1 or 2>; in DT) power domain provider
-> typically provides multiple independent power domains, each with their own
-> corresponding consumers. In these cases we have to wait for all consumers
-> for all the provided power domains before the ->sync_state() callback gets
-> called for the supplier.
->
-> In a first step to improve this, let's implement support for fine grained
-> sync_state support a per genpd basis by using the ->queue_sync_state()
-> callback. To take step by step, let's initially limit the improvement to
-> the internal genpd provider driver and to its corresponding genpd devices
-> for onecell providers.
->
-> Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+This is not something we ever followed in the past, and I don't think it makes sens here.
 
-Thanks for your patch!
 
-> --- a/drivers/pmdomain/core.c
-> +++ b/drivers/pmdomain/core.c
+"""
+Alternatively for some subarchitectures, nodes of the same type can be
+grouped together, e.g. all I2C controllers one after another even if this
+breaks unit address ordering.
+"""
 
-> +static void genpd_parse_for_consumer(struct device_node *sup,
-> +                                    struct device_node *con)
-> +{
-> +       struct generic_pm_domain *genpd;
-> +       int i;
+This doesn't apply here, so order strictly by address.
 
-unsigned int?
+Neil
 
-> +
-> +       for (i = 0; ; i++) {
+> 
+> 
+> Best regards,
+> 
+> Jian
+> 
 
-... and you could move it inside the for-statement.
-
-> +               struct of_phandle_args pd_args;
-> +
-> +               if (of_parse_phandle_with_args(con, "power-domains",
-> +                                              "#power-domain-cells",
-> +                                               i, &pd_args))
-
-Checkpatch reports a superfluous space before the "i".
-
-> +                       break;
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
