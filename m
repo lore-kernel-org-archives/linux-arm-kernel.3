@@ -4,68 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9F5CF588C2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:28:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36391F588C2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:28:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DqNzVRw4uE6LedSuO2ArRVEBmuoGBDuL9mAb9aNpaF8=; b=yan6WwlmUaARxbgEj3uVc7vlKN
-	SM/TRBQ1KjuLtJq2CUsl83i0SRlJ0PIoKZlPqZleiyOtO7Vojtxfmg+WhOtZp40/c44FLvnOdOyGd
-	jy+A6BG5prLnjzL601K1sB4r3i0a5n01lJPQSh4ltE583Dhwpn4Os0vLkW+/bpwP4vmBslB6oLTpi
-	vZcEzVKmTdrl49sGmoLpntZvelzJJ/h06xRl4W9Xea8uD/dJrVx5YggV8qAyUI/F5/Tm2FUvO9uXS
-	jMkPgSsB7joQlDr4A0XcbLxucQ2rZnAeQHav2uPWFNBu3OZo3/sYfYJKVFJURrFqcXrlBiEOGuVvS
-	b/VleMZA==;
+	bh=PbRTS5uj/u6e/sEAReFEFf7R7jTxQJ6MaZEe5vlQrNc=; b=LvG2QjfL+Xusn9CYsH9uUyt9CZ
+	whRYAr9gPc9retpUE6gLXj+URFbu0koWvwoRlSqOJptQ+ye1zTjZX5iJ2DQfqZpXxWzfuAxYLuDsS
+	weyOHERb6GoRncM3amjrhU2hXHtKCLdunoWW0syvS7KoIJOj5K9HRrkJEFJr2rbAk8L56cYrgr6GS
+	FRMsm7msFvKk6IP5Ru6mKH2M0U4PqXStG4D3FirkG5HCrJrqCWvhbhuJjDqeWHqls7/egvI8OeXBM
+	ZPErRimysnI8ykqQ0eIEr9/Tz1nH5zhkTGK5MrbMjlptS0dFGzL1E5BYhO8Z0mvmofn1nEPrCG3ru
+	gMXEoGGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEofM-000000071Dj-2Nev;
-	Mon, 20 Apr 2026 13:27:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wEofl-000000071NB-1JMP;
+	Mon, 20 Apr 2026 13:28:21 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEofL-000000071DG-2Vhj;
-	Mon, 20 Apr 2026 13:27:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EAE7660172;
-	Mon, 20 Apr 2026 13:27:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40E1AC2BCB6;
-	Mon, 20 Apr 2026 13:27:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776691674;
-	bh=ToJ7ExQdL7HGWIM0YNB8YbaFQr4RMeEJEHcofk681Ak=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=u4p/m19+KdhrsW6n9CU0qLU2k/kq3NHpIZov1Oun133SaRRB577xARhp6i/pwUFG8
-	 5TvK9P5V1iMxhxHumH6+LVnCRHKSrVdhvDpyvFAmngY+SDNddbPn8ygwrbphKWsKVW
-	 EebPCLZD69BqDcgMrJHhnP+0nk/jBCOnRqMbzwy6p4g4UOiu2uDraYhjz7/q8g/ofD
-	 /OR89YZkB08oNZmw24vNrJZuF/UCyBasRO4i5PHqbEMG1XBMXGsjtiR3r19aKYIkrA
-	 swzTpQKdBZ0XXUDFs5NOwdyNcvASMPGqK61y7OulR06c+jdBc0g6VaejeDDx+aW1+X
-	 ecs4XuBI2Ax+g==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Ryder Lee <ryder.lee@mediatek.com>,
-	Felix Fietkau <nbd@nbd.name>,
-	Sasha Levin <sashal@kernel.org>,
-	lorenzo@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 7.0-6.18] wifi: mt76: mt7996: Disable Rx hdr_trans in monitor mode
-Date: Mon, 20 Apr 2026 09:19:20 -0400
-Message-ID: <20260420132314.1023554-166-sashal@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260420132314.1023554-1-sashal@kernel.org>
-References: <20260420132314.1023554-1-sashal@kernel.org>
+	id 1wEofh-000000071M2-35iI
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Apr 2026 13:28:19 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63KAvYlC3015375
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 13:28:16 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	PbRTS5uj/u6e/sEAReFEFf7R7jTxQJ6MaZEe5vlQrNc=; b=Jl7ByKRxvcTUDv4N
+	eyiW6+026VlT8QCMhh3QC4I8qKzvO8YVCNXDIYzEc2ru9c+woz+xllKVzjUWjOGQ
+	xukgV7vz2OmL5hN41jE3sQxGrHgnh89HG5MOpz6B9aDsF0zDmotn+fEtIFK5M08n
+	MMp6Pfu+/x4JYocvSKtMk7N40W1X/K6xsm1P+oYHM9MHa1vq5gm8mU17qh89vath
+	1ZnOkw67vXQZGVNcVhyT6vXZQxcZfCw7biRyM5qcgsqajFbhztZvN+4lgEQfHKnR
+	esIWyLA1cqclrkwIG8wKnsrXKISNSlJ0K4qmNmZ84988bp/Fx4n8um/KPL+CnmJk
+	bQBMjQ==
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dnjukrfrb-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 13:28:15 +0000 (GMT)
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-82f756ebd0dso1860969b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 06:28:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1776691695; x=1777296495; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=PbRTS5uj/u6e/sEAReFEFf7R7jTxQJ6MaZEe5vlQrNc=;
+        b=fxYQwtrpxPKorL4eVui950NIBmEgtU2wqQfkogC70Zvpiog2N2cYxgEKi/CeO1nXDM
+         ZbbUbYr2q7RKmlH7e3Ik+D7dvxozuK5BGsr7uO0Jh/3cLk9ls2FKOdgN+AiTIqAssZZi
+         Zlr9Bw9opYzq65K8sswd8kNgMt03qq/VtLEr3gbH9125ZZg/8q/45YIpN5Pe669QzC1j
+         4aI53vfkCDh+Xj7JCvabs8UpC038t1EHKQO8btdyN5tPFWjy61e1uf8BIAypxO0hlZvV
+         u9XFR/gQYW9JNOGB0ISZZ0fd6YP+yyq3cPJJJejvmQc5UVukxr/xgVR/cG7j7dsljfD0
+         nwow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776691695; x=1777296495;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PbRTS5uj/u6e/sEAReFEFf7R7jTxQJ6MaZEe5vlQrNc=;
+        b=osO+MBIxzn781pzDzGSoO6dI+/41y7VL8WKTqx/uzL6o1aim0FQJXOmXPtC37Oe6VH
+         7x6wVnH9TUfX/py8GHWz380ZU+jvqJsk13VMXOs0gGq9yktidQicrXUwVOP76n3J3GK7
+         8ZtH0W43DHbIlUCzxTXbp2NHHKrh88wIFuEwm0aHEbSpn6fpLYcdI5/9ycH7TpTwUUJy
+         8PKHO/hv/ZTe3Q05SiC1tQ0z0zaZ8fGiyyPqZhKoaEwssd+XFicBKY/yIOf1naMXtc8+
+         cq/P5gTVv1CkxXIOTpXbsTvdxLatj2Vv1RWFDX9dx15aTeMYR2gr+D+c1Hsl9CMb9UNW
+         P/mQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8/MVEYScsD2/mmQToKJn8qL183uhkf2Ebb83j5a8rHaQJIGoydiXYkxf24W/d2SwxdnsSx/JCibY3JIgf16lGN@lists.infradead.org
+X-Gm-Message-State: AOJu0YxtHcAcPoU+zcLby2bkSuJkG+uRoqFkUqijoKoECYKaseK+GsfH
+	w+/fKBmfJLcyQVQmt1iN/I03tcpyCGDWS6KR6usmX5xQtLmpyLHCSs6j3zosBMqUvLqalGHyHyS
+	bSKpN/sAWXU+3amdcc5SVKH3jU25IQnB5gAVlJ1WGlwv670HH09/EgCy5UwHH3yMWR2jCBM7LNI
+	a6Jg==
+X-Gm-Gg: AeBDietKioolXCOsjN7tX/SpgBKlmxqpRWjjs/DqKdH3tnLJRJvmwBZoIUMoIAjy48N
+	RUn8cO8rFtP5vZL+n8JGkPn6X+O5rICDkpmwCuJYb3nIi1OAM7yx3VtejIyTWJW3vyIZENWXH+Q
+	uXeMF139z06pE4ceRYW57avZwBqUGC99dgUPfBXTpM2CF26wXTiS4DLo9yO9L+gIQubxY2iNL7U
+	iVKD7nm2HO+cbJ7L3GLdcEn8zjpfj22bi9cWA05it8M2PBwLEjxim8eIB8bMAFAUU6PEoAr1icR
+	cavEdDnjHsoPnAD6Pw6D5Iy1polbavxTuRWVtCHJF1YB9DojVTc67kGh+psYN/LK/Jr+PVGmtm+
+	0qU1VVn/sKF3necYOhZyjz4Itr2CRwLGfA3y/zG4iJjZgDpdcA8zrJcywrDUCJgBaOe1CGAz5sF
+	0gH7HsOLzEm/k9gr3VKrj3
+X-Received: by 2002:a05:6a00:1826:b0:82f:37e3:ae6e with SMTP id d2e1a72fcca58-82f8c961f73mr14022986b3a.31.1776691694730;
+        Mon, 20 Apr 2026 06:28:14 -0700 (PDT)
+X-Received: by 2002:a05:6a00:1826:b0:82f:37e3:ae6e with SMTP id d2e1a72fcca58-82f8c961f73mr14022943b3a.31.1776691694102;
+        Mon, 20 Apr 2026 06:28:14 -0700 (PDT)
+Received: from [10.133.33.82] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8ec0307esm10921548b3a.53.2026.04.20.06.28.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 20 Apr 2026 06:28:13 -0700 (PDT)
+Message-ID: <ccd54c68-af2a-4d98-abda-3ba27b9178f3@oss.qualcomm.com>
+Date: Mon, 20 Apr 2026 21:28:07 +0800
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 7.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v14 2/7] qcom-tgu: Add TGU driver
+To: Songwei Chai <songwei.chai@oss.qualcomm.com>, andersson@kernel.org,
+        alexander.shishkin@linux.intel.com, mike.leach@linaro.org,
+        konrad.dybcio@oss.qualcomm.com, suzuki.poulose@arm.com,
+        james.clark@arm.com, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
+        devicetree@vger.kernel.org, gregkh@linuxfoundation.org
+References: <20260417073336.2712426-1-songwei.chai@oss.qualcomm.com>
+ <20260417073336.2712426-3-songwei.chai@oss.qualcomm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20260417073336.2712426-3-songwei.chai@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: 4RNkcPIdxqKZmdHf9TSGZSX_cHZOaE7N
+X-Proofpoint-ORIG-GUID: 4RNkcPIdxqKZmdHf9TSGZSX_cHZOaE7N
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIwMDEzMSBTYWx0ZWRfXwem8OgJTAnYr
+ 5iYjXWcY3XLKOhtP58rULkuNQBvK/UzD6PlUxP0ND/inXDR6mcTKOtpx4MslDeiLU52v0khjEc3
+ 2y3sXAcHlTKGu/W15OfmsLBiakVBAFPNieB1tt1JGBZEyCsrW914/RlN9yXKansfjxHIv2y3XeD
+ NqYhG2DzA6nOsXCk6lDM866UBrs4x7J3O7Dd10lu9ae0D9W/6aQ5+0KXACUL9qogNJJz0+51JJQ
+ tlQ7e8Yk3bm80voGv0X06SgdCVZaNCsS8UlAKd3LUYfV3Oput3REF4eYT1gCqG4Xq33Q1NP4u2h
+ zNce94pgWiZdxvgy5Wm4cL/OYV4m/kFxzztAGYHofMRuWjqWAl1LJxlLee0iXmxi5fkEknI31+J
+ bTK2eE+EvVE5yoO0fC3tmSZuZjYRgx4j+ZJgbJzT8SrkXBdiCUOLe57H2FjH/vNXJuxjc+npVp5
+ I+nmT84efVfLmHKTu4A==
+X-Authority-Analysis: v=2.4 cv=WuUb99fv c=1 sm=1 tr=0 ts=69e629ef cx=c_pps
+ a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=EUspDBNiAAAA:8 a=RlaAdA2wXV2HMp-xn2gA:9 a=QEXdDO2ut3YA:10
+ a=zc0IvFSfCIW2DFIPzwfm:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-20_03,2026-04-17_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 lowpriorityscore=0 adultscore=0 spamscore=0 phishscore=0
+ priorityscore=1501 suspectscore=0 clxscore=1015 impostorscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604200131
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260420_062817_926106_CC30C96C 
+X-CRM114-Status: GOOD (  32.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,369 +151,365 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ryder Lee <ryder.lee@mediatek.com>
 
-[ Upstream commit 947d63d8cd3b03c7be16875ca90273edbdbe7ce5 ]
 
-Ensure raw frames are captured without header modification.
-
-Signed-off-by: Ryder Lee <ryder.lee@mediatek.com>
-Link: https://patch.msgid.link/04008426d6cd5de3995beefb98f9d13f35526c25.1770969275.git.ryder.lee@mediatek.com
-Signed-off-by: Felix Fietkau <nbd@nbd.name>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
-
-LLM Generated explanations, may be completely bogus:
-
-Good. Now I have all the information needed. Let me compile my analysis.
-
----
-
-## PHASE 1: COMMIT MESSAGE FORENSICS
-
-**Step 1.1: Subject Line**
-- Subsystem: `wifi: mt76: mt7996:` (MediaTek MT7996 WiFi driver)
-- Action verb: "Disable" — implies correcting a misconfiguration
-- Summary: Disable Rx header translation when monitor mode is active
-
-Record: [wifi: mt76: mt7996] [Disable] [Disable Rx header translation in
-monitor mode to ensure raw frames]
-
-**Step 1.2: Tags**
-- `Signed-off-by: Ryder Lee <ryder.lee@mediatek.com>` — MediaTek
-  employee, regular mt76 contributor
-- `Link:` to patch.msgid.link (submission URL)
-- `Signed-off-by: Felix Fietkau <nbd@nbd.name>` — mt76 subsystem
-  maintainer who merged it
-- No Fixes: tag, no Reported-by:, no Cc: stable
-
-Record: Author is a MediaTek contributor. Maintainer Felix Fietkau
-merged it.
-
-**Step 1.3: Commit Body**
-"Ensure raw frames are captured without header modification." This is
-terse but clearly states: without this fix, monitor mode frames are
-modified (translated from 802.11 to Ethernet format), which makes
-captured frames incorrect/useless.
-
-Record: [Bug: monitor mode captures frames with modified (translated)
-headers instead of raw 802.11 frames] [Symptom: packet capture tools see
-Ethernet headers instead of 802.11 headers] [Root cause: RX header
-translation not disabled when entering monitor mode]
-
-**Step 1.4: Hidden Bug Fix Detection**
-This IS a bug fix. "Ensure raw frames are captured" means they currently
-are NOT captured correctly. Monitor mode is broken without this fix — it
-produces unusable output.
-
-Record: [Yes, this is a clear bug fix. Monitor mode produces incorrectly
-formatted frames.]
-
-## PHASE 2: DIFF ANALYSIS
-
-**Step 2.1: Inventory**
-- `mt7996/regs.h`: +3 lines (register and bit definitions)
-- `mt7996/main.c`: +2 lines (register write to disable/enable hdr_trans)
-- Total: +5 lines, 0 removed
-- Functions modified: `mt7996_set_monitor()` only
-- Scope: Single-file surgical fix (+ supporting register defines)
-
-Record: [2 files, +5 lines, 0 removed] [mt7996_set_monitor()] [Single-
-function surgical fix]
-
-**Step 2.2: Code Flow**
-Before: `mt7996_set_monitor()` sets `MT_DMA_DCR0_RXD_G5_EN`, updates rx
-filter, and sets sniffer mode — but does NOT disable hardware header
-translation.
-After: Additionally toggles `MT_MDP_DCR0_RX_HDR_TRANS_EN` — disabling it
-when monitor=enabled, enabling it when monitor=disabled.
-
-Record: [Before: hdr_trans stays enabled in monitor mode → corrupted
-captures. After: hdr_trans properly toggled with monitor mode]
-
-**Step 2.3: Bug Mechanism**
-Category: (g) Logic/correctness fix — missing hardware configuration
-step.
-The hardware's RX header translation converts 802.11 frame headers to
-Ethernet headers. In monitor mode, raw 802.11 frames must be captured
-unmodified. Not disabling this translation makes monitor mode output
-incorrect.
-
-Record: [Missing hardware configuration] [hdr_trans not toggled →
-monitor mode frames have wrong headers]
-
-**Step 2.4: Fix Quality**
-- Obviously correct: The mt7915 sibling driver does the exact same thing
-  (verified at `mt7915/main.c:496`)
-- Minimal/surgical: 2 lines of functional code + 3 register defs
-- Regression risk: Very low — only affects monitor mode path, standard
-  register toggle
-- No red flags
-
-Record: [Obviously correct, mirrors mt7915. Minimal. Very low regression
-risk.]
-
-## PHASE 3: GIT HISTORY
-
-**Step 3.1: Blame**
-The `mt7996_set_monitor()` function was introduced by commit
-`69d54ce7491d04` ("wifi: mt76: mt7996: switch to single multi-radio
-wiphy") by Felix Fietkau, first appearing in v6.14-rc1. Before v6.14,
-monitor mode was handled inline in `mt7996_config()` — also missing
-hdr_trans disable.
-
-Record: [Buggy code introduced in 69d54ce7491d04, v6.14. Older code
-(v6.12 and before) also lacked this but had different code structure.]
-
-**Step 3.2: Fixes tag**
-No Fixes: tag present (expected).
-
-**Step 3.3: File History**
-Recent changes to main.c show numerous MLO/MLD fixes. The
-`cb423ddad0f6e` commit fixed a NULL deref in the same
-`mt7996_set_monitor()` function (moved `dev = phy->dev` after the NULL
-check). This prerequisite is already in the current tree.
-
-Record: [cb423ddad0f6e is a prerequisite that's already applied. No
-other dependencies found.]
-
-**Step 3.4: Author**
-Ryder Lee is a regular MediaTek contributor to mt76 with multiple
-accepted patches.
-
-Record: [Regular MediaTek contributor to the subsystem]
-
-**Step 3.5: Dependencies**
-The patch adds `MT_MDP_DCR0` and `MT_MDP_DCR0_RX_HDR_TRANS_EN` register
-definitions and uses them. Self-contained — no external dependencies
-beyond the function already existing.
-
-The function `mt7996_set_monitor()` only exists from v6.14+. For v6.14.y
-backport, the NULL deref fix `cb423ddad0f6e` would need to be present
-first (or the patch adapted to the pre-fix code).
-
-Record: [Self-contained. Applies to v6.14+ where mt7996_set_monitor()
-exists.]
-
-## PHASE 4: MAILING LIST RESEARCH
-
-**Step 4.1-4.5:**
-Lore was not accessible due to anti-bot protection. The Link: in the
-commit points to `patch.msgid.link/04008426d6cd5de3995beefb98f9d13f35526
-c25.1770969275.git.ryder.lee@mediatek.com`. B4 dig did not find the
-commit (likely not in the local repo under that hash).
-
-Record: [UNVERIFIED: Could not access lore or b4 dig results. However,
-Felix Fietkau (mt76 maintainer) signed off on the merge, confirming
-maintainer review.]
-
-## PHASE 5: CODE SEMANTIC ANALYSIS
-
-**Step 5.1: Functions modified**
-`mt7996_set_monitor()` — a static function in main.c.
-
-**Step 5.2: Callers**
-`mt7996_set_monitor()` is called from:
-- `mt7996_add_interface()` when `vif->type == NL80211_IFTYPE_MONITOR`
-  (line 501)
-- `mt7996_remove_interface()` when monitor mask changes (line 547)
-
-These are standard mac80211 callbacks triggered when a user adds/removes
-a monitor interface (e.g., `iw dev wlan0 set type monitor`).
-
-Record: [Called from mac80211 interface add/remove — standard user-
-triggered path]
-
-**Step 5.3: What it calls**
-`mt76_rmw_field()` — standard register read-modify-write. This is a
-well-tested primitive.
-
-**Step 5.4: Reachability**
-User creates a monitor interface → mac80211 → `mt7996_add_interface()` →
-`mt7996_set_monitor()`. Fully reachable from userspace.
-
-Record: [Reachable via standard WiFi monitor mode interface creation]
-
-**Step 5.5: Similar patterns**
-The mt7915 driver has the exact same pattern at `mt7915/main.c:496`:
-
-```494:495:drivers/net/wireless/mediatek/mt76/mt7915/main.c
-                mt76_rmw_field(dev, MT_DMA_DCR0(band),
-MT_MDP_DCR0_RX_HDR_TRANS_EN,
-                               !dev->monitor_mask);
-```
-
-This confirms the fix is correct and needed — the mt7996 was simply
-missing this step.
-
-Record: [mt7915 already has this exact pattern. mt7996 was missing it.]
-
-## PHASE 6: STABLE TREE ANALYSIS
-
-**Step 6.1: Does buggy code exist in stable trees?**
-- `mt7996_set_monitor()` was introduced in v6.14 (commit
-  `69d54ce7491d04`)
-- Does NOT exist in v6.12 or v6.13 (confirmed via `git show v6.12:...`
-  and `git show v6.13:...`)
-- The older monitor code path (in `mt7996_config()`) also lacked
-  hdr_trans disable, but has different structure
-- Applicable stable trees: v6.14.y and later (v6.14 has active stable
-  releases through v6.14.11)
-
-Record: [Buggy code exists in 6.14.y. Older trees have different code
-structure with same bug.]
-
-**Step 6.2: Backport complications**
-- For 6.14.y: The `dev` initialization is before the NULL check
-  (pre-`cb423ddad0f6e`), but the patch insertion point is identical.
-  Minor context difference but patch should apply or need trivial
-  adjustment.
-- `MT_MDP_DCR0` register definitions don't exist in 6.14.y's regs.h
-  (confirmed), so the register defs must come with the patch (they do).
-
-Record: [6.14.y: Near-clean apply, minor context difference from NULL
-deref fix]
-
-**Step 6.3: Related fixes already in stable**
-No evidence of a different fix for this same issue in any stable tree.
-
-Record: [No prior fix found]
-
-## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
-
-**Step 7.1:** WiFi driver (mt76/mt7996) — IMPORTANT subsystem. MT7996 is
-MediaTek's WiFi 7 chipset used in access points and routers.
-
-**Step 7.2:** Very active subsystem — 73 changes between v6.14 and v7.0
-in this single file.
-
-Record: [IMPORTANT subsystem, very active development]
-
-## PHASE 8: IMPACT AND RISK ASSESSMENT
-
-**Step 8.1: Affected users**
-All users of MT7996/MT7992 WiFi hardware who use monitor mode for packet
-capture or WiFi analysis.
-
-**Step 8.2: Trigger conditions**
-Trigger: Enable monitor mode on an mt7996 device. Every user of monitor
-mode is affected. Common operation for network administrators, WiFi
-developers, and security researchers.
-
-**Step 8.3: Failure mode severity**
-Not a crash — but monitor mode produces incorrect/corrupted frame
-captures. The feature is essentially non-functional. Severity: MEDIUM-
-HIGH (complete functional failure of a core WiFi feature).
-
-**Step 8.4: Risk-benefit**
-- BENEFIT: HIGH — fixes completely broken monitor mode on mt7996
-  hardware
-- RISK: VERY LOW — 2 lines toggling a hardware register bit, same
-  pattern as mt7915, only affects monitor mode code path
-- Ratio: Very favorable
-
-Record: [Benefit HIGH, Risk VERY LOW. 5-line patch fixing broken monitor
-mode.]
-
-## PHASE 9: FINAL SYNTHESIS
-
-**Step 9.1: Evidence compilation**
-
-FOR backporting:
-- Fixes a real functional bug: monitor mode captures are corrupted
-- Small, surgical fix: +5 lines total (2 functional + 3 register defs)
-- Obviously correct: mirrors mt7915 sibling driver behavior
-- Maintainer-reviewed: Felix Fietkau signed off
-- Author is a MediaTek contributor who knows the hardware
-- Low regression risk: only affects monitor mode path
-- Reachable from userspace via standard WiFi operations
-
-AGAINST backporting:
-- No crash/security/data corruption — "just" broken monitor mode output
-- No Fixes: tag, no Reported-by: (no evidence of user complaints)
-- Only applies to v6.14+ (limited stable tree scope)
-- Terse commit message doesn't call this a "fix"
-
-**Step 9.2: Stable rules checklist**
-1. Obviously correct and tested? YES — mirrors mt7915, accepted by
-   maintainer
-2. Fixes a real bug? YES — monitor mode doesn't work correctly
-3. Important issue? MEDIUM-HIGH — complete functional failure of monitor
-   mode
-4. Small and contained? YES — 5 lines, 1 function
-5. No new features/APIs? CORRECT — no new features
-6. Can apply to stable? YES for v6.14.y (with possible minor context
-   adaptation)
-
-**Step 9.3: Exception categories**
-This is a hardware configuration bug fix, not an exception category.
-
-**Step 9.4: Decision**
-This is a small, obviously correct bug fix that restores monitor mode
-functionality on MT7996 hardware. The fix mirrors what the mt7915 driver
-already does, is reviewed by the subsystem maintainer, and has very low
-regression risk. While it doesn't fix a crash, it fixes complete
-functional breakage of a core WiFi feature (monitor mode).
-
-**Verification:**
-- [Phase 1] Parsed tags: Signed-off-by from MediaTek employee and mt76
-  maintainer. No Fixes/Reported-by.
-- [Phase 2] Diff analysis: +2 lines in mt7996_set_monitor() toggling
-  MT_MDP_DCR0_RX_HDR_TRANS_EN, +3 lines register definitions in regs.h
-- [Phase 3] git blame: mt7996_set_monitor() introduced in 69d54ce7491d04
-  (v6.14-rc1)
-- [Phase 3] Verified mt7996_set_monitor() does NOT exist in v6.12 or
-  v6.13 (git show confirmed)
-- [Phase 3] cb423ddad0f6e is a prerequisite NULL deref fix already in
-  tree
-- [Phase 4] UNVERIFIED: Lore/b4 not accessible due to anti-bot
-  protection
-- [Phase 5] grep confirmed mt7915/main.c:496 has identical hdr_trans
-  disable pattern
-- [Phase 5] Callers: mt7996_add_interface() and
-  mt7996_remove_interface() — standard mac80211 callbacks
-- [Phase 6] v6.14 regs.h confirmed: MT_MDP_DCR0 not defined, MT_MDP_DCR2
-  exists at line 136
-- [Phase 6] v6.14.y is the earliest applicable stable tree
-- [Phase 7] Active subsystem: 73 commits between v6.14 and v7.0 in
-  main.c
-- [Phase 8] Failure mode: monitor mode captures have translated (wrong)
-  headers — feature non-functional
-
-**YES**
-
- drivers/net/wireless/mediatek/mt76/mt7996/main.c | 2 ++
- drivers/net/wireless/mediatek/mt76/mt7996/regs.h | 3 +++
- 2 files changed, 5 insertions(+)
-
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-index f16135f0b7f94..110b9a32e5ec8 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-@@ -472,6 +472,8 @@ static void mt7996_set_monitor(struct mt7996_phy *phy, bool enabled)
- 
- 	mt76_rmw_field(dev, MT_DMA_DCR0(phy->mt76->band_idx),
- 		       MT_DMA_DCR0_RXD_G5_EN, enabled);
-+	mt76_rmw_field(dev, MT_MDP_DCR0,
-+		       MT_MDP_DCR0_RX_HDR_TRANS_EN, !enabled);
- 	mt7996_phy_set_rxfilter(phy);
- 	mt7996_mcu_set_sniffer_mode(phy, enabled);
- }
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/regs.h b/drivers/net/wireless/mediatek/mt76/mt7996/regs.h
-index e48e0e575b646..393faae2d52b6 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/regs.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/regs.h
-@@ -159,6 +159,9 @@ enum offs_rev {
- #define MT_MDP_BASE				0x820cc000
- #define MT_MDP(ofs)				(MT_MDP_BASE + (ofs))
- 
-+#define MT_MDP_DCR0				MT_MDP(0x800)
-+#define MT_MDP_DCR0_RX_HDR_TRANS_EN		BIT(19)
-+
- #define MT_MDP_DCR2				MT_MDP(0x8e8)
- #define MT_MDP_DCR2_RX_TRANS_SHORT		BIT(2)
- 
--- 
-2.53.0
+On 4/17/2026 3:33 PM, Songwei Chai wrote:
+> Add driver to support device TGU (Trigger Generation Unit).
+> TGU is a Data Engine which can be utilized to sense a plurality of
+> signals and create a trigger into the CTI or generate interrupts to
+> processors. Add probe/enable/disable functions for tgu.
+> 
+
+LGTM.
+
+Reviewed-by: Jie Gan <jie.gan@oss.qualcomm.com>
+
+
+> Signed-off-by: Songwei Chai <songwei.chai@oss.qualcomm.com>
+> Acked-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> ---
+>   .../ABI/testing/sysfs-bus-amba-devices-tgu    |   9 +
+>   drivers/Makefile                              |   1 +
+>   drivers/hwtracing/Kconfig                     |   2 +
+>   drivers/hwtracing/qcom/Kconfig                |  20 ++
+>   drivers/hwtracing/qcom/Makefile               |   3 +
+>   drivers/hwtracing/qcom/tgu.c                  | 193 ++++++++++++++++++
+>   drivers/hwtracing/qcom/tgu.h                  |  51 +++++
+>   7 files changed, 279 insertions(+)
+>   create mode 100644 Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
+>   create mode 100644 drivers/hwtracing/qcom/Kconfig
+>   create mode 100644 drivers/hwtracing/qcom/Makefile
+>   create mode 100644 drivers/hwtracing/qcom/tgu.c
+>   create mode 100644 drivers/hwtracing/qcom/tgu.h
+> 
+> diff --git a/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
+> new file mode 100644
+> index 000000000000..f877a00fcaa5
+> --- /dev/null
+> +++ b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
+> @@ -0,0 +1,9 @@
+> +What:		/sys/bus/amba/devices/<tgu-name>/enable_tgu
+> +Date:		April 2026
+> +KernelVersion:	7.1
+> +Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai <songwei.chai@oss.qualcomm.com>
+> +Description:
+> +		(RW) Set/Get the enable/disable status of TGU
+> +		Accepts only one of the 2 values -  0 or 1.
+> +		0 : disable TGU.
+> +		1 : enable TGU.
+> diff --git a/drivers/Makefile b/drivers/Makefile
+> index 53fbd2e0acdd..82b712a12a26 100644
+> --- a/drivers/Makefile
+> +++ b/drivers/Makefile
+> @@ -177,6 +177,7 @@ obj-$(CONFIG_RAS)		+= ras/
+>   obj-$(CONFIG_USB4)		+= thunderbolt/
+>   obj-$(CONFIG_CORESIGHT)		+= hwtracing/coresight/
+>   obj-y				+= hwtracing/intel_th/
+> +obj-y				+= hwtracing/qcom/
+>   obj-$(CONFIG_STM)		+= hwtracing/stm/
+>   obj-$(CONFIG_HISI_PTT)		+= hwtracing/ptt/
+>   obj-y				+= android/
+> diff --git a/drivers/hwtracing/Kconfig b/drivers/hwtracing/Kconfig
+> index 911ee977103c..8a640218eed8 100644
+> --- a/drivers/hwtracing/Kconfig
+> +++ b/drivers/hwtracing/Kconfig
+> @@ -7,4 +7,6 @@ source "drivers/hwtracing/intel_th/Kconfig"
+>   
+>   source "drivers/hwtracing/ptt/Kconfig"
+>   
+> +source "drivers/hwtracing/qcom/Kconfig"
+> +
+>   endmenu
+> diff --git a/drivers/hwtracing/qcom/Kconfig b/drivers/hwtracing/qcom/Kconfig
+> new file mode 100644
+> index 000000000000..5c94c75ffa39
+> --- /dev/null
+> +++ b/drivers/hwtracing/qcom/Kconfig
+> @@ -0,0 +1,20 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +#
+> +# QCOM specific hwtracing drivers
+> +#
+> +menu "Qualcomm specific hwtracing drivers"
+> +
+> +config QCOM_TGU
+> +	tristate "QCOM Trigger Generation Unit driver"
+> +	depends on ARCH_QCOM || COMPILE_TEST
+> +	depends on ARM_AMBA
+> +	help
+> +	  This driver provides support for Trigger Generation Unit that is
+> +	  used to detect patterns or sequences on a given set of signals.
+> +	  TGU is used to monitor a particular bus within a given region to
+> +	  detect illegal transaction sequences or slave responses. It is also
+> +	  used to monitor a data stream to detect protocol violations and to
+> +	  provide a trigger point for centering data around a specific event
+> +	  within the trace data buffer.
+> +
+> +endmenu
+> diff --git a/drivers/hwtracing/qcom/Makefile b/drivers/hwtracing/qcom/Makefile
+> new file mode 100644
+> index 000000000000..5a0a868c1ea0
+> --- /dev/null
+> +++ b/drivers/hwtracing/qcom/Makefile
+> @@ -0,0 +1,3 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +obj-$(CONFIG_QCOM_TGU) += tgu.o
+> diff --git a/drivers/hwtracing/qcom/tgu.c b/drivers/hwtracing/qcom/tgu.c
+> new file mode 100644
+> index 000000000000..49c8f710b931
+> --- /dev/null
+> +++ b/drivers/hwtracing/qcom/tgu.c
+> @@ -0,0 +1,193 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+> + */
+> +
+> +#include <linux/amba/bus.h>
+> +#include <linux/device.h>
+> +#include <linux/err.h>
+> +#include <linux/io.h>
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/pm_runtime.h>
+> +
+> +#include "tgu.h"
+> +
+> +static void tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
+> +{
+> +	TGU_UNLOCK(drvdata->base);
+> +	/* Enable TGU to program the triggers */
+> +	writel(1, drvdata->base + TGU_CONTROL);
+> +	TGU_LOCK(drvdata->base);
+> +}
+> +
+> +static int tgu_enable(struct device *dev)
+> +{
+> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
+> +
+> +	guard(spinlock)(&drvdata->lock);
+> +	drvdata->enabled = true;
+> +
+> +	tgu_write_all_hw_regs(drvdata);
+> +
+> +	return 0;
+> +}
+> +
+> +static void tgu_do_disable(struct tgu_drvdata *drvdata)
+> +{
+> +	TGU_UNLOCK(drvdata->base);
+> +	writel(0, drvdata->base + TGU_CONTROL);
+> +	TGU_LOCK(drvdata->base);
+> +
+> +	drvdata->enabled = false;
+> +}
+> +
+> +static void tgu_disable(struct device *dev)
+> +{
+> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
+> +
+> +	guard(spinlock)(&drvdata->lock);
+> +	if (!drvdata->enabled)
+> +		return;
+> +
+> +	tgu_do_disable(drvdata);
+> +}
+> +
+> +static ssize_t enable_tgu_show(struct device *dev,
+> +			       struct device_attribute *attr, char *buf)
+> +{
+> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
+> +	bool enabled;
+> +
+> +	guard(spinlock)(&drvdata->lock);
+> +	enabled = drvdata->enabled;
+> +
+> +	return sysfs_emit(buf, "%d\n", !!enabled);
+> +}
+> +
+> +/* enable_tgu_store - Configure Trace and Gating Unit (TGU) triggers. */
+> +static ssize_t enable_tgu_store(struct device *dev,
+> +				struct device_attribute *attr,
+> +				const char *buf,
+> +				size_t size)
+> +{
+> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
+> +	unsigned long val;
+> +	int ret;
+> +
+> +	ret = kstrtoul(buf, 0, &val);
+> +	if (ret || val > 1)
+> +		return -EINVAL;
+> +
+> +	if (val) {
+> +		scoped_guard(spinlock, &drvdata->lock) {
+> +			if (drvdata->enabled)
+> +				return -EBUSY;
+> +		}
+> +
+> +		ret = pm_runtime_resume_and_get(dev);
+> +		if (ret)
+> +			return ret;
+> +
+> +		ret = tgu_enable(dev);
+> +		if (ret) {
+> +			pm_runtime_put(dev);
+> +			return ret;
+> +		}
+> +	} else {
+> +		scoped_guard(spinlock, &drvdata->lock) {
+> +			if (!drvdata->enabled)
+> +				return -EINVAL;
+> +		}
+> +
+> +		tgu_disable(dev);
+> +		pm_runtime_put(dev);
+> +	}
+> +
+> +	return size;
+> +}
+> +static DEVICE_ATTR_RW(enable_tgu);
+> +
+> +static struct attribute *tgu_common_attrs[] = {
+> +	&dev_attr_enable_tgu.attr,
+> +	NULL,
+> +};
+> +
+> +static const struct attribute_group tgu_common_grp = {
+> +	.attrs = tgu_common_attrs,
+> +	NULL,
+> +};
+> +
+> +static const struct attribute_group *tgu_attr_groups[] = {
+> +	&tgu_common_grp,
+> +	NULL,
+> +};
+> +
+> +static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
+> +{
+> +	struct device *dev = &adev->dev;
+> +	struct tgu_drvdata *drvdata;
+> +	int ret;
+> +
+> +	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+> +	if (!drvdata)
+> +		return -ENOMEM;
+> +
+> +	drvdata->dev = &adev->dev;
+> +	dev_set_drvdata(dev, drvdata);
+> +
+> +	drvdata->base = devm_ioremap_resource(dev, &adev->res);
+> +	if (IS_ERR(drvdata->base))
+> +		return PTR_ERR(drvdata->base);
+> +
+> +	spin_lock_init(&drvdata->lock);
+> +
+> +	ret = sysfs_create_groups(&dev->kobj, tgu_attr_groups);
+> +	if (ret) {
+> +		dev_err(dev, "failed to create sysfs groups: %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	drvdata->enabled = false;
+> +
+> +	pm_runtime_put(&adev->dev);
+> +
+> +	return 0;
+> +}
+> +
+> +static void tgu_remove(struct amba_device *adev)
+> +{
+> +	struct device *dev = &adev->dev;
+> +
+> +	sysfs_remove_groups(&dev->kobj, tgu_attr_groups);
+> +
+> +	tgu_disable(dev);
+> +}
+> +
+> +static const struct amba_id tgu_ids[] = {
+> +	{
+> +		.id = 0x000f0e00,
+> +		.mask = 0x000fffff,
+> +	},
+> +	{ 0, 0, NULL },
+> +};
+> +
+> +MODULE_DEVICE_TABLE(amba, tgu_ids);
+> +
+> +static struct amba_driver tgu_driver = {
+> +	.drv = {
+> +		.name = "qcom-tgu",
+> +		.suppress_bind_attrs = true,
+> +	},
+> +	.probe = tgu_probe,
+> +	.remove = tgu_remove,
+> +	.id_table = tgu_ids,
+> +};
+> +
+> +module_amba_driver(tgu_driver);
+> +
+> +MODULE_AUTHOR("Songwei Chai <songwei.chai@oss.qualcomm.com>");
+> +MODULE_AUTHOR("Jinlong Mao <jinlong.mao@oss.qualcomm.com>");
+> +MODULE_DESCRIPTION("Qualcomm Trigger Generation Unit driver");
+> +MODULE_LICENSE("GPL");
+> diff --git a/drivers/hwtracing/qcom/tgu.h b/drivers/hwtracing/qcom/tgu.h
+> new file mode 100644
+> index 000000000000..dd7533b9d735
+> --- /dev/null
+> +++ b/drivers/hwtracing/qcom/tgu.h
+> @@ -0,0 +1,51 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+> + */
+> +
+> +#ifndef _QCOM_TGU_H
+> +#define _QCOM_TGU_H
+> +
+> +/* Register addresses */
+> +#define TGU_CONTROL		0x0000
+> +#define TGU_LAR		0xfb0
+> +#define TGU_UNLOCK_OFFSET	0xc5acce55
+> +
+> +static inline void TGU_LOCK(void __iomem *addr)
+> +{
+> +	do {
+> +		/* Wait for things to settle */
+> +		mb();
+> +		writel_relaxed(0x0, addr + TGU_LAR);
+> +	} while (0);
+> +}
+> +
+> +static inline void TGU_UNLOCK(void __iomem *addr)
+> +{
+> +	do {
+> +		writel_relaxed(TGU_UNLOCK_OFFSET, addr + TGU_LAR);
+> +		/* Make sure everyone has seen this */
+> +		mb();
+> +	} while (0);
+> +}
+> +
+> +/**
+> + * struct tgu_drvdata - Data structure for a TGU (Trigger Generator Unit)
+> + * @base: Memory-mapped base address of the TGU device
+> + * @dev: Pointer to the associated device structure
+> + * @lock: Spinlock for handling concurrent access to private data
+> + * @enabled: Flag indicating whether the TGU device is enabled
+> + *
+> + * This structure defines the data associated with a TGU device,
+> + * including its base address, device pointers, clock, spinlock for
+> + * synchronization, trigger data pointers, maximum limits for various
+> + * trigger-related parameters, and enable status.
+> + */
+> +struct tgu_drvdata {
+> +	void __iomem *base;
+> +	struct device *dev;
+> +	spinlock_t lock;
+> +	bool enabled;
+> +};
+> +
+> +#endif
 
 
