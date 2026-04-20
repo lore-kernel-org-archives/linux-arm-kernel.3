@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1DA0F588C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:17:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF76AF588C2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:17:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aI6htr5hrMDF5KsEoIWgUdLVF2N/zorUeXYgJW2jBtU=; b=PgfnMj4NNg3trhhJ91UMb7r5Jv
-	IXwDoJEYk1RuQAJriFHWE/dlOKbBExvIlQOoGW370yh6WcOoUl8O3DyOweKJjUoPvq2YoevY61kXU
-	xRhxcdxhyGQPXILPnWVBU33Q/yxDCeYrDPaTsISoYjFNvicimkZEA0b5saxpTBo5Uk4D4ds482AHL
-	dHPFo95nxF4VZcVBZ4v9176qi/fnkeRX29D+o36Wi3C2XpoPC0xik2fPrpsJ6t9IWt00X7Je8kFqB
-	//HaGNfv7m37vJFtGhUR8Nfa/3p1+GW1/VcMhpam0i42nC+CU+KIqWhadYdB16jyG648MEh5ZibEG
-	gbJnfhrg==;
+	bh=3yq8p7uK8lywqpvX0pFgAX/Ui64mP2cVRRthaF3EBUY=; b=CV5Rm8p2mZ2bOj0dwbQoe0L40z
+	DcAkI1hgKppRCzgiMUkgxQBowAG5z+plbj9gTrsIkHV7CpiRk0PvCUbP+o2KjggPhffw4Uh9VVDJv
+	ldkPhqBVgCf/F0kZ3+U6ZJb2r2SED/HDDbkQz78Jp9HCPhjfYJDVBzC7AI0C1ef0GlGds24cZXW4F
+	wWx6nT3OIstyyMB1Y9g2lKDZ61I9ulkOypX82H2bpu7neirmIxMEcmwIBI8cXIbSWKMURy3Tu7w0/
+	9oyDPL5CPIi5HMfDqC7CpMjgK+R+JO7Jgex2Z0bmtrBi35dY+jNvA9tUIlbAQmm9eOYMzoRpxS2Oi
+	AHQlnT4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEoVC-00000006yoT-3TFi;
-	Mon, 20 Apr 2026 13:17:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wEoVc-00000006yyF-1JRA;
+	Mon, 20 Apr 2026 13:17:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEoV9-00000006yn8-2tFD
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 13:17:25 +0000
+	id 1wEoVZ-00000006yxI-2gkg;
+	Mon, 20 Apr 2026 13:17:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 522EA41735;
-	Mon, 20 Apr 2026 13:17:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8820EC19425;
-	Mon, 20 Apr 2026 13:17:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3EB034043A;
+	Mon, 20 Apr 2026 13:17:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4C7FC2BCB4;
+	Mon, 20 Apr 2026 13:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776691043;
-	bh=zf5MX7fwJLHLMutJXWjpojQWdIRMsCUslj8f6lSo6IY=;
+	s=k20201202; t=1776691069;
+	bh=f3xsyAIWxI4nn00HNYNNjBmimSPNBuKH8vBU5p8iJLA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Sl1ch8Dw+tm8DvdBl8adMgGRbpZFt84wHL3U0jTgnUj7vXkI1jBSPxHvRMtYYvYiL
-	 GeZGJc9byvS48sx8JS2k2RTm5C7B0d0QhjJ95+xtw8jU90CM6NLVOdp/v46HQAUFIM
-	 cB5vIQgOge6scDehdWsIMAC5MbsM9J7zrgQC4DKF6gYZypjHDYMqx7xaiM0O3yIScc
-	 apXtgcCjAcS2m74gRmtpSX5t8UTz3x+JGzJ8O1lo/K5EzRtumHrZZtzqbECLVltjRp
-	 SECaJrvomo98+1BCY59XjpEvgarMyzZYFcXC6uLMncjsvvyNVVyGN6T5heBVYpLeUi
-	 +vWkzZaImjwIw==
+	b=HdAG88NmYH6GuyXj6dySNYWssxcVNOdzdhVyR+KpfwJc259LU5t5tWjs204yFJvRh
+	 y8rk/wdANibgQDkz4JRqA1NPX3WsDv6fHqsyMGpP+g/6wbL4b/YMQFihstQub8Ykyb
+	 DXO1FJFB4vfg+e45cBgqGddS9vXeMC1fG22Px0KppXDSRvK1vl7+GGkRxwqBE6N1ss
+	 tX4cgGVgC2VhT2a+oLBY971QEXvWJqpSUopzF1A/P8Yhoh4viDKkAE1FoQgBfBeBEB
+	 HKgGO0k49LpRap3DySWaPNHbpDDf5shFFtg47o5sRqXZQ0zDhuV9XG9JWbL//9OmLi
+	 eKUfzB4QNahhg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Alain Volmat <alain.volmat@foss.st.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+Cc: Felix Fietkau <nbd@nbd.name>,
 	Sasha Levin <sashal@kernel.org>,
-	hugues.fruchet@foss.st.com,
-	mchehab@kernel.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	linux-media@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	lorenzo@kernel.org,
+	ryder.lee@mediatek.com,
+	kvalo@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 7.0-5.10] media: stm32: dcmi: stop the dma transfer on overrun
-Date: Mon, 20 Apr 2026 09:08:46 -0400
-Message-ID: <20260420131539.986432-60-sashal@kernel.org>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 7.0-6.18] wifi: mt76: abort ROC on chanctx changes
+Date: Mon, 20 Apr 2026 09:09:01 -0400
+Message-ID: <20260420131539.986432-75-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260420131539.986432-1-sashal@kernel.org>
 References: <20260420131539.986432-1-sashal@kernel.org>
@@ -67,11 +65,10 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 7.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_061723_782679_DC134273 
-X-CRM114-Status: GOOD (  26.08  )
+X-CRM114-CacheID: sfid-20260420_061749_726216_935B08A4 
+X-CRM114-Status: GOOD (  26.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,336 +83,346 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alain Volmat <alain.volmat@foss.st.com>
+From: Felix Fietkau <nbd@nbd.name>
 
-[ Upstream commit 4847286b87ccda7bdec8245f35c07203ce9eb0ed ]
+[ Upstream commit de62b24224ac1533c17b3d5bae77164a82ae2e49 ]
 
-Ensure to stop the dma transfer whenever receiving a overrun
-to avoid having a buffer partially filled with a frame and
-partially with the next frame.
+mt76_change_chanctx() calls mt76_phy_update_channel() which switches
+the hardware channel. If ROC is active on the same phy, this switches
+away from the ROC channel and clears offchannel, but leaves ROC state
+intact. Mac80211 still thinks the phy is on the ROC channel.
 
-Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
-Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
-Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+Abort any active ROC before proceeding, matching the pattern already
+used in add, remove, assign, unassign, and switch chanctx functions.
+
+Link: https://patch.msgid.link/20260309060730.87840-5-nbd@nbd.name
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-Now I have all the necessary information. Let me compile my
-comprehensive analysis.
+I now have all the information needed for a complete analysis. Let me
+compile the findings.
 
 ---
 
 ## PHASE 1: COMMIT MESSAGE FORENSICS
 
-### Step 1.1: Subject Line
-- **Subsystem**: `media: stm32: dcmi:`
-- **Action verb**: "stop" - implies fixing incorrect behavior (not
-  stopping something that should be stopped)
-- **Summary**: Stops DMA transfer on hardware overrun to prevent frame
-  data corruption
+**Step 1.1: Subject Line**
+- Subsystem: `wifi: mt76:` (MediaTek MT76 wireless driver)
+- Action: "abort" - stopping an ongoing operation to prevent state
+  inconsistency
+- Summary: Abort ROC (Remain on Channel) on channel context changes
+- Record: [wifi: mt76] [abort] [Abort active ROC when channel context
+  changes to prevent state desync]
 
-### Step 1.2: Tags
-- `Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>` - Author,
-  STMicroelectronics employee (the SoC vendor)
-- `Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>` - media
-  subsystem co-maintainer
-- `Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>` -
-  media subsystem maintainer
-- No Fixes: tag, no Reported-by:, no Cc: stable (expected for autosel
-  candidates)
+**Step 1.2: Tags**
+- Link: `https://patch.msgid.link/20260309060730.87840-5-nbd@nbd.name`
+  (patch 5 in a series)
+- Signed-off-by: Felix Fietkau `<nbd@nbd.name>` (mt76 subsystem
+  maintainer/author)
+- No Fixes: tag (expected for autosel candidates)
+- No Reported-by (no external report; author found the issue)
+- Record: Author is the mt76 subsystem creator. Patch 5 of a series.
 
-### Step 1.3: Commit Body
-The commit explicitly describes data corruption: *"avoid having a buffer
-partially filled with a frame and partially with the next frame"*. This
-is frame-level data corruption during video capture. The mechanism is:
-when DCMI hardware overruns, DMA continues writing into the active
-buffer, mixing two different frames.
+**Step 1.3: Commit Body Analysis**
+The commit describes a concrete bug mechanism:
+1. `mt76_change_chanctx()` calls `mt76_phy_update_channel()` which
+   switches the hardware channel
+2. If ROC is active on the same phy, the hardware switches away from ROC
+   channel
+3. `offchannel` is cleared (set to false), but ROC state (`roc_vif`,
+   `roc_link`, `roc_work` timer) remains intact
+4. Mac80211 still believes the phy is on the ROC channel
 
-### Step 1.4: Hidden Bug Fix Detection
-Despite using "ensure to stop" rather than "fix", this IS a data
-corruption fix. The word "ensure" indicates adding a missing safety
-action. The description of mixed frames in a buffer is a concrete, real-
-world data corruption scenario.
+Record: [State inconsistency between driver and mac80211 when chanctx
+changes during active ROC] [Symptom: mac80211 and hardware out of sync
+on channel state] [Bug introduced with channel.c in v6.14]
 
-Record: This is a real data corruption fix disguised with neutral
-language.
+**Step 1.4: Hidden Bug Fix Detection**
+This is clearly a bug fix, not cleanup. The commit explicitly describes
+a state desynchronization between the hardware and the mac80211 layer.
 
 ---
 
 ## PHASE 2: DIFF ANALYSIS
 
-### Step 2.1: Inventory
-- Single file modified: `drivers/media/platform/st/stm32/stm32-dcmi.c`
-- Function modified: `dcmi_irq_thread()` (the threaded IRQ handler)
-- ~12 lines added, 0 lines removed (net)
-- Scope: single-function surgical fix
+**Step 2.1: Inventory**
+- 1 file changed: `drivers/net/wireless/mediatek/mt76/channel.c`
+- +3 lines added (including blank line), 0 removed
+- Function modified: `mt76_change_chanctx()`
+- Scope: Single-function surgical fix
+- Record: [channel.c +3/-0] [mt76_change_chanctx modified] [Single-file
+  surgical fix]
 
-### Step 2.2: Code Flow Change
-**BEFORE**: When `IT_OVR` (overrun) occurs, the handler just increments
-counters and falls through. DMA continues to run, potentially filling
-the buffer with data from the next frame.
+**Step 2.2: Code Flow Change**
+Before: `mt76_change_chanctx()` directly proceeds to cancel mac_work and
+update channel.
+After: Before canceling mac_work, checks if ROC is active
+(`phy->roc_vif`) and aborts it via `mt76_abort_roc(phy)`.
 
-**AFTER**: When `IT_OVR` occurs:
-1. Disable DCMI capture (`reg_clear(dcmi->regs, DCMI_CR, CR_CAPTURE)`)
-2. Increment counters (existing code)
-3. Release spinlock
-4. Terminate DMA (`dmaengine_terminate_sync`)
-5. Restart capture cleanly (`dcmi_restart_capture`)
-6. Return `IRQ_HANDLED` early
+**Step 2.3: Bug Mechanism**
+Verified by reading `__mt76_set_channel()` at mac80211.c:1045:
+`phy->offchannel = offchannel;`. When called from
+`mt76_phy_update_channel()` with `offchannel = false`, it clears the
+offchannel flag. But the ROC state (`roc_vif`, `roc_link`, `roc_work`)
+remains set, causing a desynchronization.
 
-### Step 2.3: Bug Mechanism
-**Category**: Data corruption / logic fix. The overrun condition means
-the DCMI FIFO overflowed and data was lost. Without stopping DMA, the
-buffer ends up with partial frame N data followed by frame N+1 data,
-delivering a corrupt buffer to userspace.
+Classification: **Logic/correctness fix** - missing cleanup of related
+state when switching channels.
 
-### Step 2.4: Fix Quality
-- **Obviously correct**: Yes - the terminate+restart pattern is already
-  used in `dcmi_process_jpeg()` in the same file
-- **Minimal/surgical**: Yes - only the overrun handler is modified
-- **Regression risk**: Low - `dmaengine_terminate_sync()` is safe in
-  threaded IRQ context; `dcmi_restart_capture()` has its own internal
-  locking
-- **Locking correctness**: Verified - spinlock released before
-  `dmaengine_terminate_sync` (which may sleep); `dcmi_restart_capture`
-  takes its own lock internally
+**Step 2.4: Fix Quality**
+- Obviously correct: follows the exact pattern established by all other
+  chanctx functions which abort scans
+- Minimal: 2 lines of actual logic
+- `mt76_abort_roc()` handles its own locking (takes `dev->mutex`
+  internally), so calling it before the existing `mutex_lock` is correct
+- Regression risk: extremely low - if ROC is not active (`roc_vif ==
+  NULL`), the check is a no-op
 
 ---
 
 ## PHASE 3: GIT HISTORY INVESTIGATION
 
-### Step 3.1: Blame
-The overrun handler code was introduced by commit `1be0a2b702308f`
-(2019, v5.2 cycle) which added overrun counting, and the irq thread
-structure from `37404f91ef8b91` (2017, v4.14 cycle). The buggy behavior
-(not stopping DMA on overrun) was intentionally introduced by commit
-`a1029f552c3f` (2018, v4.17 cycle) titled *"rework overrun/error case"*
-which REMOVED the DMA stop/restart on overrun. That 2018 commit's
-rationale was: *"Dma will be restarted on current frame transfer
-completion."* The new commit reverses this decision because the
-assumption was wrong - DMA does not properly self-recover on overrun.
+**Step 3.1: Blame**
+From git blame, the buggy `mt76_change_chanctx()` was introduced by
+commit `82334623af0cd` ("wifi: mt76: add chanctx functions for multi-
+channel phy support") by Felix Fietkau on 2025-01-02. This commit is in
+v6.14.
 
-### Step 3.2: No Fixes tag present
-The implicit Fixes target would be `a1029f552c3f` ("rework overrun/error
-case", v4.17) which exists in ALL active stable trees.
+**Step 3.2: Fixes Tag**
+No Fixes: tag present. The implicit target is `82334623af0cd` which
+introduced `mt76_change_chanctx` without ROC abort handling.
 
-### Step 3.3: File History
-The `dcmi_irq_thread` function has been stable since 2019. Recent
-changes to this file are minor cleanups (style, API renames) that don't
-affect the overrun path.
+**Step 3.3: File History**
+The file has 7 commits since creation: the original, scanning code, ROC
+functions, offchannel link, a deref fix, abort scan/roc on hw restart,
+and relicensing. No conflicting changes near the modified area.
 
-### Step 3.4: Author Context
-Alain Volmat is from STMicroelectronics (the SoC vendor). He is an
-active contributor to the STM32 media subsystem, maintaining both DCMI
-and DCMIPP drivers. The patch was reviewed and signed off by both media
-subsystem co-maintainers.
+**Step 3.4: Author**
+Felix Fietkau (nbd@nbd.name) is the creator and maintainer of the mt76
+driver. He wrote the original `channel.c` file and all major chanctx
+functions.
 
-### Step 3.5: Dependencies
-The patch was submitted as 4/12 in a series. However, patches 1-3 touch
-unrelated code paths (pm_ptr, dma config at probe, descriptor creation).
-Patch 5 reworks locking (makes `dcmi_restart_capture` caller-locked),
-but patch 4 works correctly with the CURRENT `dcmi_restart_capture`
-which has its own internal locking. This patch is self-contained.
+**Step 3.5: Dependencies**
+The commit is patch 5 of a series (msgid `-5-`). However, the fix is
+**self-contained**:
+- `mt76_abort_roc()` already exists in the tree (since `a8f424c1287cc`,
+  in v6.14)
+- `phy->roc_vif` already exists in `mt76.h`
+- `mt76_abort_roc` is declared in `mt76.h` and accessible from
+  `channel.c`
+- No other patch from the series is needed for this fix to work
+  correctly.
 
 ---
 
 ## PHASE 4: MAILING LIST RESEARCH
 
-### Step 4.1: Original Submission
-Found at `http://lists.infradead.org/pipermail/linux-arm-
-kernel/2026-January/1091896.html`. Part of series v2 "media: stm32:
-dcmi: stability & performance enhancements" (12 patches). Cover letter
-explicitly states: *"This series improve stability of the capture by
-fixing the handling of the overrun which was leading to captured frame
-corruption."*
+**Step 4.1-4.5**: Lore.kernel.org is behind Anubis anti-bot protection
+and could not be accessed. The `b4 dig` also did not find a match for
+the message-id (possibly a future date issue). However, the patch URL is
+well-formed and the commit is by the subsystem maintainer, providing
+strong quality assurance.
 
-### Step 4.2: Reviewers
-Signed off by Sakari Ailus (media co-maintainer) and Mauro Carvalho
-Chehab (media maintainer). The patch has proper maintainer chain sign-
-off.
-
-### Step 4.3-4.5: Bug Report / Stable Discussion
-The bug was found during development by the hardware vendor
-(STMicroelectronics). No explicit stable nomination was found, nor any
-objections.
+Record: [UNVERIFIED: Could not access lore/b4 due to anti-bot
+protection] [Author is mt76 maintainer which provides confidence in
+quality]
 
 ---
 
 ## PHASE 5: CODE SEMANTIC ANALYSIS
 
-### Step 5.1-5.2: Function Analysis
-`dcmi_irq_thread` is the threaded IRQ handler, called whenever the DCMI
-hardware fires an interrupt (overrun, error, or frame complete). The
-`IT_OVR` flag is set by the hardware when the DCMI internal FIFO
-overflows. The `dcmi_restart_capture` → `dcmi_start_capture` →
-`dcmi_start_dma` chain properly sets up a new DMA transfer and re-
-enables capture.
+**Step 5.1: Functions Modified**
+- `mt76_change_chanctx()` - modified to add ROC abort call
 
-### Step 5.3-5.4: The DMA stop + restart pattern
-The same pattern exists in `dcmi_process_jpeg()` at line 434-440:
-`dmaengine_terminate_sync` followed by `dcmi_restart_capture`. The
-overrun fix replicates this proven pattern.
+**Step 5.2: Callers**
+`mt76_change_chanctx` is a mac80211 callback assigned via
+`ieee80211_ops`. It is called by mac80211 whenever the channel context
+configuration changes (width changes, radar detection changes). This is
+a normal operation path triggered by AP configuration, DFS, or
+regulatory changes.
 
-### Step 5.5: Similar Patterns
-`dcmi_process_jpeg` already uses the exact same terminate+restart
-pattern. `dcmi_dma_callback` also calls `dcmi_restart_capture` after DMA
-completion. This is a well-established pattern in the driver.
+**Step 5.3: Callees**
+`mt76_abort_roc()` calls:
+1. `cancel_delayed_work_sync(&phy->roc_work)` - cancels the ROC timeout
+2. `mt76_roc_complete(phy)` under mutex - restores main channel, frees
+   offchannel link, notifies mac80211
+
+**Step 5.4: Call Chain**
+Userspace/regulatory -> mac80211 -> `mt76_change_chanctx` -> bug
+triggers if ROC active. This is reachable from normal WiFi operation
+(e.g., DFS, bandwidth changes during P2P).
+
+**Step 5.5: Similar Patterns**
+All 5 other chanctx functions (`add`, `remove`, `assign`, `unassign`,
+`switch`) already call `mt76_abort_scan()`. The fix adds the equivalent
+`mt76_abort_roc()` to the one function that was missing it.
 
 ---
 
 ## PHASE 6: STABLE TREE ANALYSIS
 
-### Step 6.1: Buggy Code in Stable
-The buggy overrun handler (just counting, not stopping DMA) exists since
-v4.17 (commit `a1029f552c3f`). It is present in ALL active stable trees
-(5.4, 5.10, 5.15, 6.1, 6.6, 6.12).
+**Step 6.1: Buggy Code in Stable Trees**
+- `channel.c` with `mt76_change_chanctx` was introduced in v6.14 (commit
+  `82334623af0cd`)
+- `mt76_abort_roc` function exists since v6.14 (commit `a8f424c1287cc`)
+- `mt76_abort_roc` is declared in `mt76.h` even in v6.14 (confirmed at
+  line 1586)
+- Bug affects: v6.14.y and later stable trees
 
-### Step 6.2: Backport Complications
-The patch modifies a single function with clean context. The file path
-changed from `stm32/stm32-dcmi.c` to `st/stm32/stm32-dcmi.c` in 6.5+,
-but the function code is identical in context. Minor adjustment may be
-needed for older trees.
+**Step 6.2: Backport Complications**
+The code in v6.14 matches exactly: `mt76_change_chanctx()` is identical
+to the pre-patch state in v7.0. The patch would apply cleanly. No
+forward-declaration issues since `mt76_abort_roc` is declared in
+`mt76.h`.
 
-### Step 6.3: No related fixes already in stable for this overrun issue.
+**Step 6.3: Related Fixes**
+No alternative fix for this specific bug exists in stable trees.
 
 ---
 
 ## PHASE 7: SUBSYSTEM CONTEXT
 
-### Step 7.1: Subsystem Criticality
-- **Subsystem**: drivers/media/platform (embedded camera driver)
-- **Criticality**: PERIPHERAL (specific STM32 hardware) but important
-  for embedded/IoT users
-- STM32 SoCs are widely used in embedded systems, industrial cameras,
-  IoT devices
+**Step 7.1: Subsystem**
+- Subsystem: WiFi/wireless drivers (drivers/net/wireless/mediatek/mt76)
+- Criticality: IMPORTANT - mt76 is one of the most widely used WiFi
+  chipset drivers (MT7921, MT7922, MT7925, MT7996, etc.), found in many
+  laptops and routers
+
+**Step 7.2: Activity**
+Actively maintained by Felix Fietkau with recent commits in the channel
+management area. The multi-radio/chanctx support is relatively new
+(v6.14).
 
 ---
 
 ## PHASE 8: IMPACT AND RISK ASSESSMENT
 
-### Step 8.1: Affected Users
-STM32 DCMI users - embedded systems with camera interfaces on STM32MP1
-SoCs.
+**Step 8.1: Affected Users**
+All users of MediaTek mt76 WiFi chipsets who use P2P, scanning, or any
+ROC functionality while channel context changes occur.
 
-### Step 8.2: Trigger Conditions
-Overrun occurs when the camera sends data faster than DMA can drain the
-DCMI FIFO. This is common during high-resolution or high-framerate
-capture, or under system load. Not timing-dependent - it's a hardware
-FIFO overflow condition.
+**Step 8.2: Trigger Conditions**
+- Trigger: Channel context change (width change or radar detection)
+  while ROC is active
+- Likelihood: Moderate - occurs during DFS, bandwidth negotiation, or
+  regulatory changes that happen to coincide with P2P discovery or off-
+  channel management frames
+- Not directly triggered by unprivileged users (requires wireless state
+  machine interaction)
 
-### Step 8.3: Failure Mode Severity
-**Data corruption** - frames delivered to userspace contain mixed data
-from two different frames. For embedded camera applications (industrial
-vision, surveillance, medical), this is a **HIGH** severity issue since
-corrupted frames can lead to incorrect decisions.
+**Step 8.3: Failure Mode**
+- Driver/mac80211 state desynchronization
+- ROC operations fail silently or behave unpredictably
+- P2P connection failures
+- Dangling ROC state may cause subsequent operations to fail or produce
+  unexpected behavior
+- Severity: **MEDIUM-HIGH** (functional failure, not crash, but can
+  break WiFi connectivity features)
 
-### Step 8.4: Risk-Benefit
-- **Benefit**: HIGH - prevents data corruption in active video capture
-  on STM32 platforms
-- **Risk**: LOW - ~12 lines, single function, follows proven existing
-  pattern in the same driver, correct locking, no API changes
-- **Ratio**: Strongly favorable
+**Step 8.4: Risk-Benefit**
+- Benefit: Fixes real state inconsistency in a widely-used WiFi driver
+- Risk: Extremely low - 2 lines, guarded by `if (phy->roc_vif)` check,
+  calls well-tested existing function
+- Ratio: Very favorable
 
 ---
 
 ## PHASE 9: FINAL SYNTHESIS
 
-### Step 9.1: Evidence Summary
+**Step 9.1: Evidence Compilation**
 
-**FOR backporting:**
-- Fixes real data corruption (mixed frames in buffer)
-- Small, surgical fix (12 lines in one function)
-- Follows proven existing pattern in same driver (`dcmi_process_jpeg`)
-- Author is from the hardware vendor (STMicroelectronics)
-- Signed off by both media subsystem maintainers
-- Correct locking model (spinlock released before sleeping call)
-- Buggy code exists in all active stable trees
-- Self-contained - does not depend on other patches in the series
+FOR backporting:
+- Fixes a real state desynchronization bug between driver and mac80211
+- 2-line fix, obviously correct, minimal risk
+- Written by the mt76 subsystem maintainer/author (Felix Fietkau)
+- Follows the established pattern used by all other chanctx functions
+- Self-contained, no dependencies on other patches
+- Applies cleanly to v6.14+ stable trees
+- mt76 is a widely-used WiFi driver
 
-**AGAINST backporting:**
-- Part of a 12-patch series (but verified standalone correctness)
-- Later patches (5, 7) further modify this code (but patch 4 is correct
-  without them)
-- No explicit Cc: stable (expected for autosel candidates)
+AGAINST backporting:
+- No crash/panic, no data corruption - the bug causes functional issues
+  (ROC state desync)
+- No user reports (no Reported-by tag)
+- Part of a larger series (other patches in series not evaluated)
 
-### Step 9.2: Stable Rules Checklist
-1. Obviously correct and tested? **YES** - pattern matches existing code
-   in same driver, vendor-tested
-2. Fixes a real bug? **YES** - data corruption (mixed frames)
-3. Important issue? **YES** - data corruption during video capture
-4. Small and contained? **YES** - 12 lines, single function
-5. No new features/APIs? **YES** - no new features
-6. Can apply to stable? **YES** - code context is unchanged in stable
-   trees
+UNRESOLVED:
+- Could not access mailing list discussion due to anti-bot protection
+- Could not verify if other patches in the series are also being
+  considered
 
-### Step 9.3: No exception categories apply; this is a straightforward
-bug fix.
+**Step 9.2: Stable Rules Checklist**
+1. Obviously correct and tested? **YES** - trivial 2-line check, follows
+   existing pattern, by subsystem maintainer
+2. Fixes a real bug? **YES** - state desync between driver and mac80211
+   during ROC
+3. Important issue? **MEDIUM-HIGH** - WiFi functionality failure, not
+   crash
+4. Small and contained? **YES** - 2 lines in 1 file
+5. No new features? **YES** - purely a bug fix
+6. Can apply to stable? **YES** - clean apply to v6.14+
+
+**Step 9.3: Exception Categories**
+Not an exception category; this is a standard bug fix.
+
+**Step 9.4: Decision**
+The fix is small, surgical, obviously correct, written by the subsystem
+maintainer, and fixes a real state inconsistency bug in a widely-used
+WiFi driver. The risk is minimal and the benefit is clear.
 
 ---
 
 ## Verification
 
-- [Phase 1] Parsed tags: SOBs from author (STMicroelectronics), Sakari
-  Ailus, Mauro Carvalho Chehab
-- [Phase 2] Diff analysis: ~12 lines added to overrun path in
-  `dcmi_irq_thread()`, adds DMA stop + restart
-- [Phase 3] git blame: overrun handler code from commit `1be0a2b702308f`
-  (2019, v5.2); bug-causing rework from `a1029f552c3f` (2018, v4.17)
-- [Phase 3] git show `a1029f552c3f`: confirmed it intentionally removed
-  DMA stop/restart on overrun - present in all stable trees
-- [Phase 3] Verified `dcmi_restart_capture()` has internal locking -
-  standalone patch is correct
-- [Phase 4] Found original submission at lists.infradead.org; cover
-  letter confirms frame corruption fix
-- [Phase 4] Verified patch 5/12 changes `dcmi_restart_capture` locking,
-  but patch 4 works with current code
-- [Phase 4] Patch 7/12 changes `terminate_sync` to `terminate_async` -
-  optimization, not required for correctness
-- [Phase 5] Verified same pattern (`dmaengine_terminate_sync` +
-  `dcmi_restart_capture`) exists in `dcmi_process_jpeg()` at lines
-  434-440
-- [Phase 5] Verified `dcmi_start_capture()` re-enables CR_CAPTURE at
-  line 372, matching our clear at overrun
-- [Phase 6] Confirmed code exists unchanged in all active stable trees
-  (5.4+)
-- [Phase 8] Failure mode: data corruption (mixed frames) - severity HIGH
-
-The fix is small, surgical, follows proven patterns in the same driver,
-and prevents real data corruption on STM32 embedded platforms.
+- [Phase 1] Parsed tags: Link to patch.msgid.link, SOB by Felix Fietkau
+  (mt76 maintainer)
+- [Phase 2] Diff analysis: +3 lines (2 logic + 1 blank) in
+  `mt76_change_chanctx()`, adds ROC abort guard
+- [Phase 2] Verified `__mt76_set_channel()` at mac80211.c:1045 sets
+  `phy->offchannel = offchannel`, confirming the bug mechanism
+- [Phase 3] git blame: `mt76_change_chanctx` introduced by commit
+  `82334623af0cd` (v6.14) by Felix Fietkau
+- [Phase 3] `mt76_abort_roc` introduced by `a8f424c1287cc` (v6.14),
+  declared in mt76.h line 1586
+- [Phase 3] Confirmed `b36d55610215a` (EXPORT_SYMBOL_GPL for abort_roc)
+  is NOT in v6.14 but not needed since abort_roc is declared in mt76.h
+- [Phase 3] Confirmed patch is self-contained: all referenced
+  functions/fields exist in v6.14
+- [Phase 4] UNVERIFIED: Could not access lore.kernel.org or b4 dig
+  results due to anti-bot protection
+- [Phase 5] Verified all 5 other chanctx functions call
+  `mt76_abort_scan()` - this fix adds the analogous ROC abort
+- [Phase 5] Verified `mt76_abort_roc` cancels work, locks mutex, calls
+  `mt76_roc_complete`, unlocks - proper cleanup
+- [Phase 6] `82334623af0cd` is in v6.14 (confirmed via `git merge-base
+  --is-ancestor`)
+- [Phase 6] v6.14 `mt76_change_chanctx` code is identical to pre-patch
+  v7.0 - clean apply
+- [Phase 8] Failure mode: state desynchronization causing ROC/P2P
+  failures, severity MEDIUM-HIGH
 
 **YES**
 
- drivers/media/platform/st/stm32/stm32-dcmi.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ drivers/net/wireless/mediatek/mt76/channel.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmi.c b/drivers/media/platform/st/stm32/stm32-dcmi.c
-index 13762861b7694..496e0781a957b 100644
---- a/drivers/media/platform/st/stm32/stm32-dcmi.c
-+++ b/drivers/media/platform/st/stm32/stm32-dcmi.c
-@@ -447,9 +447,21 @@ static irqreturn_t dcmi_irq_thread(int irq, void *arg)
- 	spin_lock_irq(&dcmi->irqlock);
+diff --git a/drivers/net/wireless/mediatek/mt76/channel.c b/drivers/net/wireless/mediatek/mt76/channel.c
+index 2b705bdb7993c..a6e45b8d63d6b 100644
+--- a/drivers/net/wireless/mediatek/mt76/channel.c
++++ b/drivers/net/wireless/mediatek/mt76/channel.c
+@@ -88,6 +88,9 @@ void mt76_change_chanctx(struct ieee80211_hw *hw,
+ 			 IEEE80211_CHANCTX_CHANGE_RADAR)))
+ 		return;
  
- 	if (dcmi->misr & IT_OVR) {
-+		/* Disable capture */
-+		reg_clear(dcmi->regs, DCMI_CR, CR_CAPTURE);
++	if (phy->roc_vif)
++		mt76_abort_roc(phy);
 +
- 		dcmi->overrun_count++;
-+
- 		if (dcmi->overrun_count > OVERRUN_ERROR_THRESHOLD)
- 			dcmi->errors_count++;
-+
-+		spin_unlock_irq(&dcmi->irqlock);
-+		dmaengine_terminate_sync(dcmi->dma_chan);
-+
-+		if (dcmi_restart_capture(dcmi))
-+			dev_err(dcmi->dev, "%s: Cannot restart capture\n", __func__);
-+
-+		return IRQ_HANDLED;
- 	}
- 	if (dcmi->misr & IT_ERR)
- 		dcmi->errors_count++;
+ 	cancel_delayed_work_sync(&phy->mac_work);
+ 
+ 	mutex_lock(&dev->mutex);
 -- 
 2.53.0
 
