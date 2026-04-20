@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAD81F588C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:27:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9F5CF588C2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:28:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1pZEbdAE/KXqP5BHX0ych2Q9G4a9S8n6UzRnyG+I8e0=; b=YtPTGENgiOY35d7Ce1p7sQt72B
-	WECa7pbRBdORlI74rFokYy/aA6fTpUvoqZJlEpdKrEcDUHLS1BSjCAnjuMByuPIElPSqmK/Mjyu+f
-	Nqvng+Ryv4aME22U2aASYC9Q1Gnp1NlN3wo5tCv826Ty6MGsm+Atq+qv3U07P7kKbUaZ4fP8SSrjS
-	mf9P9G0Bljs7eA35pt1mRlFa1mZmqaKEd3TvZRcB5g9gz3ihXTycC4EB4/H/IroXiV60Jrb/C9vZu
-	CEBtuRYaD/SFkzGsJjYshVYukMaGG3EfSPkkAqJSGuGJRtHjNeWaA3pryT3/VI0DWhmbEUWTtGPVL
-	JHIl4uLw==;
+	bh=DqNzVRw4uE6LedSuO2ArRVEBmuoGBDuL9mAb9aNpaF8=; b=yan6WwlmUaARxbgEj3uVc7vlKN
+	SM/TRBQ1KjuLtJq2CUsl83i0SRlJ0PIoKZlPqZleiyOtO7Vojtxfmg+WhOtZp40/c44FLvnOdOyGd
+	jy+A6BG5prLnjzL601K1sB4r3i0a5n01lJPQSh4ltE583Dhwpn4Os0vLkW+/bpwP4vmBslB6oLTpi
+	vZcEzVKmTdrl49sGmoLpntZvelzJJ/h06xRl4W9Xea8uD/dJrVx5YggV8qAyUI/F5/Tm2FUvO9uXS
+	jMkPgSsB7joQlDr4A0XcbLxucQ2rZnAeQHav2uPWFNBu3OZo3/sYfYJKVFJURrFqcXrlBiEOGuVvS
+	b/VleMZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEoef-000000070uD-2n1o;
-	Mon, 20 Apr 2026 13:27:13 +0000
+	id 1wEofM-000000071Dj-2Nev;
+	Mon, 20 Apr 2026 13:27:56 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEoec-000000070rP-05QK;
-	Mon, 20 Apr 2026 13:27:10 +0000
+	id 1wEofL-000000071DG-2Vhj;
+	Mon, 20 Apr 2026 13:27:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 65A9160172;
-	Mon, 20 Apr 2026 13:27:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7BDDC2BCB7;
-	Mon, 20 Apr 2026 13:27:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EAE7660172;
+	Mon, 20 Apr 2026 13:27:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40E1AC2BCB6;
+	Mon, 20 Apr 2026 13:27:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776691629;
-	bh=nAbsIGgmyyONm4jQimPirD+2ZbQr3SdslsuxV5gUrLo=;
+	s=k20201202; t=1776691674;
+	bh=ToJ7ExQdL7HGWIM0YNB8YbaFQr4RMeEJEHcofk681Ak=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fYqQvM++cNAGtoCP1+L0IjMeqM7bOYEww+LT1no7EV3REA6cD6gEx+RfxM6l1U+n2
-	 Jw7u/CIXrZqGswiA/unI2Zk3HigWrgMiV3fyeY1i3rEONytjIkvWTe5U3DEwGR1l7D
-	 2s8cI57T+MUNtMFZtg+YMTozXpAwfKGPnMTLPmMjoF/QkXvIj96mKOvUwBDS0fWBpf
-	 obW9hkeoIw2hnt/STgfirxZhFyICpTa+FbVQwDZrm8g4b6n7NaGEYjSFOUXTFDp3i1
-	 8MxNJXPuR/YEeX/eIZ6BlVrsx4eBhX/bZEGxSPCzifEUsbQKKrN8EZ/g8GALJE8V9q
-	 mjMQs2VcPqLvw==
+	b=u4p/m19+KdhrsW6n9CU0qLU2k/kq3NHpIZov1Oun133SaRRB577xARhp6i/pwUFG8
+	 5TvK9P5V1iMxhxHumH6+LVnCRHKSrVdhvDpyvFAmngY+SDNddbPn8ygwrbphKWsKVW
+	 EebPCLZD69BqDcgMrJHhnP+0nk/jBCOnRqMbzwy6p4g4UOiu2uDraYhjz7/q8g/ofD
+	 /OR89YZkB08oNZmw24vNrJZuF/UCyBasRO4i5PHqbEMG1XBMXGsjtiR3r19aKYIkrA
+	 swzTpQKdBZ0XXUDFs5NOwdyNcvASMPGqK61y7OulR06c+jdBc0g6VaejeDDx+aW1+X
+	 ecs4XuBI2Ax+g==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Chris Lu <chris.lu@mediatek.com>,
-	Luiz Augusto von Dentz <luiz.von.dentz@intel.com>,
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Felix Fietkau <nbd@nbd.name>,
 	Sasha Levin <sashal@kernel.org>,
-	marcel@holtmann.org,
-	luiz.dentz@gmail.com,
+	lorenzo@kernel.org,
 	matthias.bgg@gmail.com,
 	angelogioacchino.delregno@collabora.com,
-	linux-bluetooth@vger.kernel.org,
+	linux-wireless@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 7.0-6.1] Bluetooth: btmtk: improve mt79xx firmware setup retry flow
-Date: Mon, 20 Apr 2026 09:18:55 -0400
-Message-ID: <20260420132314.1023554-141-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 7.0-6.18] wifi: mt76: mt7996: Disable Rx hdr_trans in monitor mode
+Date: Mon, 20 Apr 2026 09:19:20 -0400
+Message-ID: <20260420132314.1023554-166-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260420132314.1023554-1-sashal@kernel.org>
 References: <20260420132314.1023554-1-sashal@kernel.org>
@@ -65,6 +64,7 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 7.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,275 +80,368 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chris Lu <chris.lu@mediatek.com>
+From: Ryder Lee <ryder.lee@mediatek.com>
 
-[ Upstream commit 54f1f020e9f4a087779cc4d96a7c86f47d0c6797 ]
+[ Upstream commit 947d63d8cd3b03c7be16875ca90273edbdbe7ce5 ]
 
-If retries are exhausted, driver should not do futher operation.
-During mt79xx firmware download process, if the retry count reaches0,
-driver will return an -EIO error and release the firmware resources.
+Ensure raw frames are captured without header modification.
 
-Signed-off-by: Chris Lu <chris.lu@mediatek.com>
-Signed-off-by: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>
+Signed-off-by: Ryder Lee <ryder.lee@mediatek.com>
+Link: https://patch.msgid.link/04008426d6cd5de3995beefb98f9d13f35526c25.1770969275.git.ryder.lee@mediatek.com
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-Now I have all the information needed for a thorough analysis. Let me
-compile the full assessment.
+Good. Now I have all the information needed. Let me compile my analysis.
 
 ---
 
 ## PHASE 1: COMMIT MESSAGE FORENSICS
 
 **Step 1.1: Subject Line**
-Record: [bluetooth/btmtk] [improve] Fix retry exhaustion handling in
-mt79xx firmware setup - when retry count reaches 0, driver should return
-error instead of continuing.
+- Subsystem: `wifi: mt76: mt7996:` (MediaTek MT7996 WiFi driver)
+- Action verb: "Disable" — implies correcting a misconfiguration
+- Summary: Disable Rx header translation when monitor mode is active
+
+Record: [wifi: mt76: mt7996] [Disable] [Disable Rx header translation in
+monitor mode to ensure raw frames]
 
 **Step 1.2: Tags**
-- Signed-off-by: Chris Lu <chris.lu@mediatek.com> (author, regular
-  MediaTek Bluetooth contributor)
-- Signed-off-by: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>
-  (Bluetooth maintainer, committed the patch)
-- No Fixes: tag, no Reported-by, no Cc: stable - expected for manual
-  review candidates.
+- `Signed-off-by: Ryder Lee <ryder.lee@mediatek.com>` — MediaTek
+  employee, regular mt76 contributor
+- `Link:` to patch.msgid.link (submission URL)
+- `Signed-off-by: Felix Fietkau <nbd@nbd.name>` — mt76 subsystem
+  maintainer who merged it
+- No Fixes: tag, no Reported-by:, no Cc: stable
+
+Record: Author is a MediaTek contributor. Maintainer Felix Fietkau
+merged it.
 
 **Step 1.3: Commit Body**
-The body describes: "If retries are exhausted, driver should not do
-further operation. During mt79xx firmware download process, if the retry
-count reaches 0, driver will return an -EIO error and release the
-firmware resources." Clear description of a missing error check.
+"Ensure raw frames are captured without header modification." This is
+terse but clearly states: without this fix, monitor mode frames are
+modified (translated from 802.11 to Ethernet format), which makes
+captured frames incorrect/useless.
+
+Record: [Bug: monitor mode captures frames with modified (translated)
+headers instead of raw 802.11 frames] [Symptom: packet capture tools see
+Ethernet headers instead of 802.11 headers] [Root cause: RX header
+translation not disabled when entering monitor mode]
 
 **Step 1.4: Hidden Bug Fix Detection**
-Despite the word "improve" in the subject, this IS a bug fix. The word
-"improve" masks a clear logic error: the retry loop can exhaust without
-any error return, causing the driver to silently proceed with firmware
-download on a device in an abnormal state.
+This IS a bug fix. "Ensure raw frames are captured" means they currently
+are NOT captured correctly. Monitor mode is broken without this fix — it
+produces unusable output.
+
+Record: [Yes, this is a clear bug fix. Monitor mode produces incorrectly
+formatted frames.]
 
 ## PHASE 2: DIFF ANALYSIS
 
 **Step 2.1: Inventory**
-- 1 file changed: `drivers/bluetooth/btmtk.c`
-- +6 lines added (1 comment, 5 code lines)
-- Function modified: `btmtk_setup_firmware_79xx()`
-- Scope: single-file surgical fix
+- `mt7996/regs.h`: +3 lines (register and bit definitions)
+- `mt7996/main.c`: +2 lines (register write to disable/enable hdr_trans)
+- Total: +5 lines, 0 removed
+- Functions modified: `mt7996_set_monitor()` only
+- Scope: Single-file surgical fix (+ supporting register defines)
 
-**Step 2.2: Code Flow Change**
-The retry loop at line 171 (`while (retry > 0)`) handles
-`BTMTK_WMT_PATCH_PROGRESS` by decrementing `retry`. BEFORE: if retry
-hits 0, the loop exits normally and code falls through to `fw_ptr +=
-section_offset`, proceeding with firmware download. AFTER: a check for
-`retry == 0` returns `-EIO` and jumps to `err_release_fw`.
+Record: [2 files, +5 lines, 0 removed] [mt7996_set_monitor()] [Single-
+function surgical fix]
+
+**Step 2.2: Code Flow**
+Before: `mt7996_set_monitor()` sets `MT_DMA_DCR0_RXD_G5_EN`, updates rx
+filter, and sets sniffer mode — but does NOT disable hardware header
+translation.
+After: Additionally toggles `MT_MDP_DCR0_RX_HDR_TRANS_EN` — disabling it
+when monitor=enabled, enabling it when monitor=disabled.
+
+Record: [Before: hdr_trans stays enabled in monitor mode → corrupted
+captures. After: hdr_trans properly toggled with monitor mode]
 
 **Step 2.3: Bug Mechanism**
-This is a **logic/correctness fix** - missing error check after retry
-exhaustion. The `while (retry > 0)` loop can exit via:
-1. `break` when status == `BTMTK_WMT_PATCH_UNDONE` (normal path -
-   proceed to download)
-2. `goto next_section` when status == `BTMTK_WMT_PATCH_DONE` (skip
-   section)
-3. `goto err_release_fw` on command error or unexpected status
-4. Loop exhaustion when retry reaches 0 (BUG: falls through to download
-   path)
+Category: (g) Logic/correctness fix — missing hardware configuration
+step.
+The hardware's RX header translation converts 802.11 frame headers to
+Ethernet headers. In monitor mode, raw 802.11 frames must be captured
+unmodified. Not disabling this translation makes monitor mode output
+incorrect.
 
-Case 4 is the bug - the code proceeds as if the device is ready when
-it's not.
+Record: [Missing hardware configuration] [hdr_trans not toggled →
+monitor mode frames have wrong headers]
 
 **Step 2.4: Fix Quality**
-Obviously correct. The check `if (retry == 0)` can only be true if the
-loop exhausted, meaning the device never left `PATCH_PROGRESS` state.
-Returning `-EIO` and cleaning up is the correct behavior. No regression
-risk.
+- Obviously correct: The mt7915 sibling driver does the exact same thing
+  (verified at `mt7915/main.c:496`)
+- Minimal/surgical: 2 lines of functional code + 3 register defs
+- Regression risk: Very low — only affects monitor mode path, standard
+  register toggle
+- No red flags
 
-## PHASE 3: GIT HISTORY INVESTIGATION
+Record: [Obviously correct, mirrors mt7915. Minimal. Very low regression
+risk.]
+
+## PHASE 3: GIT HISTORY
 
 **Step 3.1: Blame**
-The buggy code was introduced in commit `8c0d17b6b06c5b` "Bluetooth:
-mediatek: add BT_MTK module" by Sean Wang on 2021-10-19. This was the
-initial creation of the BT_MTK module.
+The `mt7996_set_monitor()` function was introduced by commit
+`69d54ce7491d04` ("wifi: mt76: mt7996: switch to single multi-radio
+wiphy") by Felix Fietkau, first appearing in v6.14-rc1. Before v6.14,
+monitor mode was handled inline in `mt7996_config()` — also missing
+hdr_trans disable.
 
-**Step 3.2: No Fixes: tag** - expected.
+Record: [Buggy code introduced in 69d54ce7491d04, v6.14. Older code
+(v6.12 and before) also lacked this but had different code structure.]
+
+**Step 3.2: Fixes tag**
+No Fixes: tag present (expected).
 
 **Step 3.3: File History**
-The function `btmtk_setup_firmware_79xx` has been stable since 2021 in
-the retry loop area. The surrounding code has only had one minor change
-(commit `995d948cf2e458` adding `err = -EIO` in the else branch).
+Recent changes to main.c show numerous MLO/MLD fixes. The
+`cb423ddad0f6e` commit fixed a NULL deref in the same
+`mt7996_set_monitor()` function (moved `dev = phy->dev` after the NULL
+check). This prerequisite is already in the current tree.
+
+Record: [cb423ddad0f6e is a prerequisite that's already applied. No
+other dependencies found.]
 
 **Step 3.4: Author**
-Chris Lu is a regular MediaTek Bluetooth contributor with 28+ commits
-touching `drivers/bluetooth/`, including many device ID additions and
-critical fixes.
+Ryder Lee is a regular MediaTek contributor to mt76 with multiple
+accepted patches.
+
+Record: [Regular MediaTek contributor to the subsystem]
 
 **Step 3.5: Dependencies**
-This commit is patch 1/3 of a series, but it is **standalone**. Patches
-2/3 and 3/3 add additional improvements (status checking and reset
-mechanism) that build on this but are not required. The fix applies
-cleanly without dependencies.
+The patch adds `MT_MDP_DCR0` and `MT_MDP_DCR0_RX_HDR_TRANS_EN` register
+definitions and uses them. Self-contained — no external dependencies
+beyond the function already existing.
+
+The function `mt7996_set_monitor()` only exists from v6.14+. For v6.14.y
+backport, the NULL deref fix `cb423ddad0f6e` would need to be present
+first (or the patch adapted to the pre-fix code).
+
+Record: [Self-contained. Applies to v6.14+ where mt7996_set_monitor()
+exists.]
 
 ## PHASE 4: MAILING LIST RESEARCH
 
-**Step 4.1: Original Discussion**
-Found via `b4 dig -c 54f1f020e9f4`: Submitted as `[PATCH v1 1/3]` on
-2026-02-03. The cover letter explains: "When the device unexpectedly
-restarts during previous firmware download process, it can cause mt79xx
-firmware status to be abnormal in the next attempt." Series applied to
-bluetooth-next by Luiz Augusto von Dentz on 2026-04-10.
+**Step 4.1-4.5:**
+Lore was not accessible due to anti-bot protection. The Link: in the
+commit points to `patch.msgid.link/04008426d6cd5de3995beefb98f9d13f35526
+c25.1770969275.git.ryder.lee@mediatek.com`. B4 dig did not find the
+commit (likely not in the local repo under that hash).
 
-**Step 4.2: Review**
-Only v1 was submitted (no revisions needed). The Bluetooth maintainer
-(Luiz Augusto von Dentz) applied the series directly, indicating
-confidence in the fix quality.
-
-**Step 4.3: Bug Report**
-No specific bug report link. The cover letter describes a real-world
-scenario where the device unexpectedly restarts during firmware
-download.
-
-**Step 4.4: Series Context**
-Part of 3-patch series, but this patch is standalone. Patches 2 and 3
-are independent improvements that enhance the error recovery further.
-
-**Step 4.5: Stable Discussion**
-No existing stable nomination or discussion found.
+Record: [UNVERIFIED: Could not access lore or b4 dig results. However,
+Felix Fietkau (mt76 maintainer) signed off on the merge, confirming
+maintainer review.]
 
 ## PHASE 5: CODE SEMANTIC ANALYSIS
 
-**Step 5.1: Key Function**
-`btmtk_setup_firmware_79xx()` - firmware setup for MT79xx series.
+**Step 5.1: Functions modified**
+`mt7996_set_monitor()` — a static function in main.c.
 
 **Step 5.2: Callers**
-- `btmtk_usb_setup()` in `btmtk.c` line 1332 - USB path for MT7922,
-  MT7925, MT7961
-- `mt79xx_setup()` in `btmtksdio.c` line 873 - SDIO path
+`mt7996_set_monitor()` is called from:
+- `mt7996_add_interface()` when `vif->type == NL80211_IFTYPE_MONITOR`
+  (line 501)
+- `mt7996_remove_interface()` when monitor mask changes (line 547)
 
-Both are called during device initialization/setup.
+These are standard mac80211 callbacks triggered when a user adds/removes
+a monitor interface (e.g., `iw dev wlan0 set type monitor`).
 
-**Step 5.3-5.4: Reachability**
-Called during HCI device setup, triggered when a MT79xx Bluetooth device
-is initialized. This is a common code path for all MT792x Bluetooth
-device users.
+Record: [Called from mac80211 interface add/remove — standard user-
+triggered path]
+
+**Step 5.3: What it calls**
+`mt76_rmw_field()` — standard register read-modify-write. This is a
+well-tested primitive.
+
+**Step 5.4: Reachability**
+User creates a monitor interface → mac80211 → `mt7996_add_interface()` →
+`mt7996_set_monitor()`. Fully reachable from userspace.
+
+Record: [Reachable via standard WiFi monitor mode interface creation]
+
+**Step 5.5: Similar patterns**
+The mt7915 driver has the exact same pattern at `mt7915/main.c:496`:
+
+```494:495:drivers/net/wireless/mediatek/mt76/mt7915/main.c
+                mt76_rmw_field(dev, MT_DMA_DCR0(band),
+MT_MDP_DCR0_RX_HDR_TRANS_EN,
+                               !dev->monitor_mask);
+```
+
+This confirms the fix is correct and needed — the mt7996 was simply
+missing this step.
+
+Record: [mt7915 already has this exact pattern. mt7996 was missing it.]
 
 ## PHASE 6: STABLE TREE ANALYSIS
 
-**Step 6.1: Code exists in stable**
-The buggy code was introduced in October 2021 (commit `8c0d17b6b06c5b`).
-Tags show it's in p-6.1, p-6.6, and all newer stable trees. The bug
-affects ALL active stable trees.
+**Step 6.1: Does buggy code exist in stable trees?**
+- `mt7996_set_monitor()` was introduced in v6.14 (commit
+  `69d54ce7491d04`)
+- Does NOT exist in v6.12 or v6.13 (confirmed via `git show v6.12:...`
+  and `git show v6.13:...`)
+- The older monitor code path (in `mt7996_config()`) also lacked
+  hdr_trans disable, but has different structure
+- Applicable stable trees: v6.14.y and later (v6.14 has active stable
+  releases through v6.14.11)
 
-**Step 6.2: Backport Complexity**
-The patch should apply cleanly - the retry loop code hasn't changed
-since the original 2021 commit.
+Record: [Buggy code exists in 6.14.y. Older trees have different code
+structure with same bug.]
 
-## PHASE 7: SUBSYSTEM CONTEXT
+**Step 6.2: Backport complications**
+- For 6.14.y: The `dev` initialization is before the NULL check
+  (pre-`cb423ddad0f6e`), but the patch insertion point is identical.
+  Minor context difference but patch should apply or need trivial
+  adjustment.
+- `MT_MDP_DCR0` register definitions don't exist in 6.14.y's regs.h
+  (confirmed), so the register defs must come with the patch (they do).
 
-**Step 7.1: Subsystem**
-Bluetooth driver (drivers/bluetooth/) - IMPORTANT criticality.
-MT7921/MT7922/MT7925 are extremely popular WiFi/BT combo chips found in
-many laptops (Lenovo, ASUS, Dell, etc.).
+Record: [6.14.y: Near-clean apply, minor context difference from NULL
+deref fix]
+
+**Step 6.3: Related fixes already in stable**
+No evidence of a different fix for this same issue in any stable tree.
+
+Record: [No prior fix found]
+
+## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
+
+**Step 7.1:** WiFi driver (mt76/mt7996) — IMPORTANT subsystem. MT7996 is
+MediaTek's WiFi 7 chipset used in access points and routers.
+
+**Step 7.2:** Very active subsystem — 73 changes between v6.14 and v7.0
+in this single file.
+
+Record: [IMPORTANT subsystem, very active development]
 
 ## PHASE 8: IMPACT AND RISK ASSESSMENT
 
-**Step 8.1: Affected Users**
-Users of MediaTek MT7921, MT7922, MT7925 Bluetooth devices (very large
-population).
+**Step 8.1: Affected users**
+All users of MT7996/MT7992 WiFi hardware who use monitor mode for packet
+capture or WiFi analysis.
 
-**Step 8.2: Trigger Conditions**
-Triggered when the device reports `BTMTK_WMT_PATCH_PROGRESS`
-continuously for 2+ seconds during firmware download. The cover letter
-describes this happening after an unexpected device restart during a
-previous firmware download attempt.
+**Step 8.2: Trigger conditions**
+Trigger: Enable monitor mode on an mt7996 device. Every user of monitor
+mode is affected. Common operation for network administrators, WiFi
+developers, and security researchers.
 
-**Step 8.3: Failure Mode**
-Without fix: firmware download proceeds on a device in an abnormal
-state, potentially leading to device malfunction, failed bluetooth
-initialization, or undefined behavior. Severity: MEDIUM-HIGH.
+**Step 8.3: Failure mode severity**
+Not a crash — but monitor mode produces incorrect/corrupted frame
+captures. The feature is essentially non-functional. Severity: MEDIUM-
+HIGH (complete functional failure of a core WiFi feature).
 
-**Step 8.4: Risk-Benefit Ratio**
-- BENEFIT: Prevents firmware download to a device in an abnormal state
-  for widely-used hardware
-- RISK: Extremely low - 5 lines, obviously correct, only affects an
-  already-failed case
-- Ratio: Strongly favorable
+**Step 8.4: Risk-benefit**
+- BENEFIT: HIGH — fixes completely broken monitor mode on mt7996
+  hardware
+- RISK: VERY LOW — 2 lines toggling a hardware register bit, same
+  pattern as mt7915, only affects monitor mode code path
+- Ratio: Very favorable
+
+Record: [Benefit HIGH, Risk VERY LOW. 5-line patch fixing broken monitor
+mode.]
 
 ## PHASE 9: FINAL SYNTHESIS
 
-**Evidence FOR backporting:**
-- Fixes a real logic error (missing error check after retry exhaustion)
-- Very small and surgical (5 lines of code)
-- Obviously correct
-- Affects widely-used hardware (MT792x family)
-- Standalone fix with no dependencies
-- Applied by subsystem maintainer without revisions needed
-- Buggy code exists in all active stable trees since 2021
-- Clean apply expected
+**Step 9.1: Evidence compilation**
 
-**Evidence AGAINST backporting:**
-- Not a crash/panic fix - the immediate impact is proceeding with
-  firmware download in an abnormal state
-- No specific user-reported bug linked
-- Commit message uses "improve" rather than "fix"
+FOR backporting:
+- Fixes a real functional bug: monitor mode captures are corrupted
+- Small, surgical fix: +5 lines total (2 functional + 3 register defs)
+- Obviously correct: mirrors mt7915 sibling driver behavior
+- Maintainer-reviewed: Felix Fietkau signed off
+- Author is a MediaTek contributor who knows the hardware
+- Low regression risk: only affects monitor mode path
+- Reachable from userspace via standard WiFi operations
 
-**Stable Rules Checklist:**
-1. Obviously correct and tested? YES - trivially verifiable, applied to
-   bluetooth-next
-2. Fixes a real bug? YES - missing error handling after retry exhaustion
-3. Important issue? MEDIUM-HIGH - prevents undefined device behavior
-   during firmware setup for popular hardware
-4. Small and contained? YES - 5 lines, one file, one function
-5. No new features? CORRECT - pure error handling fix
-6. Can apply to stable? YES - clean apply expected
+AGAINST backporting:
+- No crash/security/data corruption — "just" broken monitor mode output
+- No Fixes: tag, no Reported-by: (no evidence of user complaints)
+- Only applies to v6.14+ (limited stable tree scope)
+- Terse commit message doesn't call this a "fix"
 
-## Verification
+**Step 9.2: Stable rules checklist**
+1. Obviously correct and tested? YES — mirrors mt7915, accepted by
+   maintainer
+2. Fixes a real bug? YES — monitor mode doesn't work correctly
+3. Important issue? MEDIUM-HIGH — complete functional failure of monitor
+   mode
+4. Small and contained? YES — 5 lines, 1 function
+5. No new features/APIs? CORRECT — no new features
+6. Can apply to stable? YES for v6.14.y (with possible minor context
+   adaptation)
 
-- [Phase 1] Parsed tags: Signed-off-by from Chris Lu (author) and Luiz
-  Augusto von Dentz (maintainer/committer)
-- [Phase 2] Diff analysis: 5 lines added after retry loop in
-  `btmtk_setup_firmware_79xx()`, adds `retry == 0` check returning -EIO
-- [Phase 3] git blame: buggy code introduced in commit 8c0d17b6b06c5b
-  (2021-10-19, Sean Wang), present in all stable trees
-- [Phase 3] git tag --contains: confirmed present in p-6.1, p-6.6, and
-  all newer stable tags
-- [Phase 3] git log --author="Chris Lu": confirmed Chris Lu is a regular
-  MediaTek BT contributor with 28+ commits
-- [Phase 4] b4 dig -c 54f1f020e9f4: found original submission at
-  https://patch.msgid.link/20260203062510.848761-2-chris.lu@mediatek.com
-- [Phase 4] b4 dig -a: only v1, no revisions needed, applied directly by
-  maintainer
-- [Phase 4] Thread mbox: series was applied to bluetooth-next,
-  patchwork-bot confirmed
-- [Phase 4] Cover letter: describes real-world scenario (device restart
-  during firmware download)
-- [Phase 5] Grep callers: btmtk_usb_setup() (USB path) and
-  mt79xx_setup() (SDIO path) both call this function
-- [Phase 6] Code unchanged in retry loop since 2021 - clean apply
-  expected
-- [Phase 8] Failure mode: proceeds with firmware download on abnormal
-  device state, severity MEDIUM-HIGH
+**Step 9.3: Exception categories**
+This is a hardware configuration bug fix, not an exception category.
+
+**Step 9.4: Decision**
+This is a small, obviously correct bug fix that restores monitor mode
+functionality on MT7996 hardware. The fix mirrors what the mt7915 driver
+already does, is reviewed by the subsystem maintainer, and has very low
+regression risk. While it doesn't fix a crash, it fixes complete
+functional breakage of a core WiFi feature (monitor mode).
+
+**Verification:**
+- [Phase 1] Parsed tags: Signed-off-by from MediaTek employee and mt76
+  maintainer. No Fixes/Reported-by.
+- [Phase 2] Diff analysis: +2 lines in mt7996_set_monitor() toggling
+  MT_MDP_DCR0_RX_HDR_TRANS_EN, +3 lines register definitions in regs.h
+- [Phase 3] git blame: mt7996_set_monitor() introduced in 69d54ce7491d04
+  (v6.14-rc1)
+- [Phase 3] Verified mt7996_set_monitor() does NOT exist in v6.12 or
+  v6.13 (git show confirmed)
+- [Phase 3] cb423ddad0f6e is a prerequisite NULL deref fix already in
+  tree
+- [Phase 4] UNVERIFIED: Lore/b4 not accessible due to anti-bot
+  protection
+- [Phase 5] grep confirmed mt7915/main.c:496 has identical hdr_trans
+  disable pattern
+- [Phase 5] Callers: mt7996_add_interface() and
+  mt7996_remove_interface() — standard mac80211 callbacks
+- [Phase 6] v6.14 regs.h confirmed: MT_MDP_DCR0 not defined, MT_MDP_DCR2
+  exists at line 136
+- [Phase 6] v6.14.y is the earliest applicable stable tree
+- [Phase 7] Active subsystem: 73 commits between v6.14 and v7.0 in
+  main.c
+- [Phase 8] Failure mode: monitor mode captures have translated (wrong)
+  headers — feature non-functional
 
 **YES**
 
- drivers/bluetooth/btmtk.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/net/wireless/mediatek/mt76/mt7996/main.c | 2 ++
+ drivers/net/wireless/mediatek/mt76/mt7996/regs.h | 3 +++
+ 2 files changed, 5 insertions(+)
 
-diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
-index fa7533578f85c..0ada5a12130dc 100644
---- a/drivers/bluetooth/btmtk.c
-+++ b/drivers/bluetooth/btmtk.c
-@@ -205,6 +205,12 @@ int btmtk_setup_firmware_79xx(struct hci_dev *hdev, const char *fwname,
- 				}
- 			}
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+index f16135f0b7f94..110b9a32e5ec8 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+@@ -472,6 +472,8 @@ static void mt7996_set_monitor(struct mt7996_phy *phy, bool enabled)
  
-+			/* If retry exhausted goto err_release_fw */
-+			if (retry == 0) {
-+				err = -EIO;
-+				goto err_release_fw;
-+			}
+ 	mt76_rmw_field(dev, MT_DMA_DCR0(phy->mt76->band_idx),
+ 		       MT_DMA_DCR0_RXD_G5_EN, enabled);
++	mt76_rmw_field(dev, MT_MDP_DCR0,
++		       MT_MDP_DCR0_RX_HDR_TRANS_EN, !enabled);
+ 	mt7996_phy_set_rxfilter(phy);
+ 	mt7996_mcu_set_sniffer_mode(phy, enabled);
+ }
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/regs.h b/drivers/net/wireless/mediatek/mt76/mt7996/regs.h
+index e48e0e575b646..393faae2d52b6 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/regs.h
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/regs.h
+@@ -159,6 +159,9 @@ enum offs_rev {
+ #define MT_MDP_BASE				0x820cc000
+ #define MT_MDP(ofs)				(MT_MDP_BASE + (ofs))
+ 
++#define MT_MDP_DCR0				MT_MDP(0x800)
++#define MT_MDP_DCR0_RX_HDR_TRANS_EN		BIT(19)
 +
- 			fw_ptr += section_offset;
- 			wmt_params.op = BTMTK_WMT_PATCH_DWNLD;
- 			wmt_params.status = NULL;
+ #define MT_MDP_DCR2				MT_MDP(0x8e8)
+ #define MT_MDP_DCR2_RX_TRANS_SHORT		BIT(2)
+ 
 -- 
 2.53.0
 
