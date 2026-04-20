@@ -4,112 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9280FF588C1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 12:25:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36E0CF588C2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 12:31:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Y714/gi63AqvZzcusny7bswWgS5XNqcnWUmXP/JprI=; b=qz3yK6YvduUWWmc0SnQVw8/Hqu
-	g/1FbnisS9ZJ7e6EahhbWNkUXUwpsqcEoXpi0v47e91zsKGghv6G3bBp9LjJXMdXJlhN2jNh+bYKL
-	M/GXiA6APeNmUQEHMUNfC/C1br/dQd5ginRFCJHB5etELIQgAWSs7S94a/DEVRRX1/8h8xyoGsM+o
-	OQXeeojr2bT7UZsn2gKSELy2wGoNTrz3BDdvUljdgKkDYSVHVxUYm4ClqFZyHg3RUqv7k1s7TPWoG
-	IWiaqYbkBI7oduWTKT80+Xc07//mr00ihg1mJtUJHdMxgo95FIoSqYwgT8UKBrd5xti5o6y13J1Ye
-	38Y/s9WQ==;
+	bh=v0oh8ObVVCeBTHGmr5CI1H7l8TfoFStEIpFsXDmc3YA=; b=ucMK+fQK95smvBQ7Th8MvD0+YA
+	yoWc9Sy2WJVgOiMP1ILOMr02HhIHK3t+E8jiurwpdLEGChikyQoK+uggBPt7Gqmjtf9rjIziZjxdC
+	qTREXdXpYORBKDtwYoWNO6WElr0UbyvkpuWr2JP+I2T9wA6MBTKGPxpFVeOpLgKwVDEwu/BItpl3Q
+	oEpH1f0HO1ZtOA5G88JIqzkg1dJ89PueinmTtpvjWLFhvJjFC1N2iLpuUgaUoHaPfAJeGW7YfC4xd
+	ZAB7mmlDes0jRE1qqZTQoSdeRTXFsmZOWvNNCuAHDLEwBzyTMg7m1XUipnum13/AVXbKZX01D0H5B
+	C9fH7SOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEnh0-00000006sUt-3RXn;
-	Mon, 20 Apr 2026 12:25:34 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1wEnmf-00000006snp-0jPv;
+	Mon, 20 Apr 2026 12:31:25 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEngy-00000006sUG-0J7L
+	id 1wEnmZ-00000006sn5-3lYv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 12:25:33 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-b8f9568e074so536619166b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 05:25:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776687930; cv=none;
-        d=google.com; s=arc-20240605;
-        b=lWQGrrHk78NT5lX0Vf4B5Zf22lFFOkDO8JLEIhp1PeHKygoU2GAOKOtdx67ylFvguo
-         DcsBM7u6OVlAyXs8XNurUHJoXC+jyzRbN+oKXEFyatOFolncKBNqoVu2dqDaSMZkKPiZ
-         hIzN3qmjQyAU0cKICFByZA3CMSR/ratx3ariC0d5kT/ceeRwc4A04OCOYQg+PIW0RPAN
-         WbHI+c/4qEw26aX1xxfTHiCV17ishJ+zTI3h8pR/G/U6/5pbDMt6OzWbeshbe4GXjciM
-         HKUiEd+XLLKwlQdU48jzSbKsUuaKeLUiXY5Qu4Ee2p0QKbENlR9YmdzCR6GeqlFHaxxm
-         PY8g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=2Y714/gi63AqvZzcusny7bswWgS5XNqcnWUmXP/JprI=;
-        fh=s0jxeXTTaoz0X7I4COZ6MeTI3BY8R0dqRIZmojWC3JE=;
-        b=Z7fbrimwwdkR6QrUf4G3r09NzvOP0Gsn2eBkv2VJjjwZFIG/cU1GGwyvcTt6E4ut7N
-         R+mQmG+zhko+5HmBKO0TwNj7iIT9AioV/8Mz9s6tS6Ies+50k9bqHF/LBstXXWWvP1dM
-         vV3R/d4FydL0Tqhit81nsbMq/JsYuGMW7sObEi9FfTb3NLvgqxbEM5XJXvbfAS09SBFm
-         Vq2VNxKGpeuBz+pbqIVVqBMLzT6ggjIc2p8UGhlGz0NtysTqIu6HiRwLFDUzHgQjvkmQ
-         RJHxZvFGly0Kc5l8U56K89b6GQvRuLCHwazE9NFA0Z4+FFPLLsQObP2gRQ/m2dfdMgiu
-         JjNQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776687930; x=1777292730; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2Y714/gi63AqvZzcusny7bswWgS5XNqcnWUmXP/JprI=;
-        b=kc1C1K6wLcWKIb5pcQFFrFAbm7753rJ/2OQR74BqTgvMTLT2cU+ZaGrsQWXh6wLBR7
-         FcU+kzl7XI0e9SZB7XfpkzDh5eeGoRvtfBtF8gd1qWrJv71iuJt34FOTRthyA+m+JVM8
-         96iG5iEyzCl50gVRdDyjPryGD4xLk90VhOb0rWDhOBc94DX5i3FzsG74UhSQU4KIxyKg
-         BQ6+89+lZfEaeNoh0sZcYT3m0Swoj29KtG58pdg7qFa2s97vGU4bR7l5YwHn6GQ1E3ys
-         dKKVUaASyPEx8nqC437uysNZCtWqORn5ld8VHLQBdr/IfNvk3MN90m7PF1632PPrvN6S
-         AhMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776687930; x=1777292730;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=2Y714/gi63AqvZzcusny7bswWgS5XNqcnWUmXP/JprI=;
-        b=V/2ENRSTOUUk2kpXRjdqMNfk7nHWYYj9PKvhZ+eD1TcowR1JFd2HAwpDAgqx3cer8p
-         aUyjWE8VupwXkxZyC8mVx29vYNMhtbRxaT9mAny0copxzDknqbLbqM8nLiceiOK0MJeo
-         E9ARVjrraeqzMdSKdAJ440TRjYOJOnE4fuHWo5PFb0Lh2N6+xvAF5m+cWZ1puWENVS40
-         kRmmUgaFwFzbMxWJb2LZktc5/IFoM+EYiTDoqjyCxSxctkufcUMh8IPj4rOytZNDIqqQ
-         1HT46KGQnzNh95SWrcHG8fxf/OTy9GDonOcsjIF132d6E18pmO5LUxODFHVL4hMWEKJk
-         r3zA==
-X-Forwarded-Encrypted: i=1; AFNElJ+RUX6u0S4XKJU76zKZBlBwqDsEn4N//jkxLm40BfzscQfdg8hUOH6s4LxUQB4M0o0V6oYGLoillu0g8Lzojm0S@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSugHUYMqOac8qsvPL482yZ7DX7SfayCsuPBlO3+hW4FEnwm1i
-	wk7hIdUc+2S/dH2xFZcCrshZPFQ3B4rUn6vdZnKQXU+QH4PhU7fVNCGQsWz+C1s4c2GeTgjMYeu
-	5Tj7rRAlxPbMz4pOwF4ZeoSyXFYhwm6E=
-X-Gm-Gg: AeBDietn7po5Nxz0G/Mx97iLnnJjL3QcjadklHZUO8k5UV0ih2pRfCdzrgsXUOFcL2p
-	u3J8pNxJbIqHCd+0O3jATJW5g4SDY0xeyadUHG28vSkfz19PJNXQBLOB8aSCYEPr+asAprFhD/B
-	mCRKsv07/ijsvla9JbiqvTpR1ZQGaq9TfMrvf8XFuNqV1/GC1rOarR58MgHsfwcMdJWAY3Wt4/F
-	DJpnrA1ZdMlEeUA/b1bGnpTpFUFsp5bEVRltjSAsaWYqVd6yKOVqMeD9xvor3FKGpW6vZV2AiZO
-	yMGXai2LmK4SSCQfBfOauUuo1MLe4ER9Q5CEeGHU0dmKsa18dpuFNsbN/9w79whDrxJAXwWpuLN
-	i5PK+2FlCis+AfUIC5UZU9SdntjfjnIM=
-X-Received: by 2002:a17:907:c30f:b0:b9c:bc70:e928 with SMTP id
- a640c23a62f3a-ba41a91d717mr643541666b.25.1776687929243; Mon, 20 Apr 2026
- 05:25:29 -0700 (PDT)
+	Mon, 20 Apr 2026 12:31:24 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63K84N7B1315637;
+	Mon, 20 Apr 2026 12:30:59 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=v0oh8O
+	bVVCeBTHGmr5CI1H7l8TfoFStEIpFsXDmc3YA=; b=rMNDtetxSZpBAIDxkZ8Mxx
+	kidVcGRyS4b2nP51sOQ0v01xOCcY/P0AcoaX4X1f4mMCkJE8Bsuplf0fPppkk++I
+	u1hzCug6wRwz2OPxymQfuM5buyd0pwXTlcKOgjDLSyQ7p3uPrHQLnVY9swX3jnVv
+	Ro6WxraGn1II9/jRrq3Umw/8Ina5pZ7Qt0k339BiRGInArG68fXZfxZn62FNj5kj
+	shSU1j9Tl3iQ9M5JQiYIGeeduLkIMwg0xwI+2gI8UifKPlCr7Sa7F5XE9VSbE5mf
+	z07Am3Mwg55PiqSQXZTZ2GY8ZYKiW6H7M9C/gCpK0605mxGuQTrRlEpbAgSGzM+Q
+	==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dm2k6f2r5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 20 Apr 2026 12:30:58 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63KCKKlD023663;
+	Mon, 20 Apr 2026 12:30:58 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4dmpyxvg0k-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 20 Apr 2026 12:30:58 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63KCUtao48890174
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 20 Apr 2026 12:30:55 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A5D8E20049;
+	Mon, 20 Apr 2026 12:30:55 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B3A5320040;
+	Mon, 20 Apr 2026 12:30:54 +0000 (GMT)
+Received: from [9.111.165.155] (unknown [9.111.165.155])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Mon, 20 Apr 2026 12:30:54 +0000 (GMT)
+Message-ID: <dde1daa9-724c-4186-aaf6-caff6b47c5a9@linux.ibm.com>
+Date: Mon, 20 Apr 2026 14:30:54 +0200
 MIME-Version: 1.0
-References: <20260415-imx943-rproc-v3-0-9fa7528db8ca@nxp.com> <20260415-imx943-rproc-v3-2-9fa7528db8ca@nxp.com>
-In-Reply-To: <20260415-imx943-rproc-v3-2-9fa7528db8ca@nxp.com>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Mon, 20 Apr 2026 15:28:27 +0300
-X-Gm-Features: AQROBzB0Pu-szzo1dJ4AB7xUuHS3a3UgZozivXv7bKFQ8_vmaUhxl3EQBT9jCiY
-Message-ID: <CAEnQRZC1vtN9nsbR6zBD++VkBVcVxxOBmPfEToeg2FimmkNMFQ@mail.gmail.com>
-Subject: Re: [PATCH v3 2/3] remoteproc: imx_rproc: Program non-zero SM CPU/LMM
- reset vector
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Daniel Baluta <daniel.baluta@nxp.com>, linux-remoteproc@vger.kernel.org, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Peng Fan <peng.fan@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 7/8] sframe: Introduce in-kernel SFRAME_VALIDATION.
+To: Dylan Hatch <dylanbhatch@google.com>, Indu Bhagat <ibhagatgnu@gmail.com>
+Cc: Roman Gushchin <roman.gushchin@linux.dev>, Weinan Liu <wnliu@google.com>,
+        Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>,
+        Indu Bhagat <indu.bhagat@oracle.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Steven Rostedt <rostedt@goodmis.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Jiri Kosina <jikos@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+        Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+        Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>,
+        joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org,
+        linux-kernel@vger.kernel.org, live-patching@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        Heiko Carstens <hca@linux.ibm.com>
+References: <20260406185000.1378082-1-dylanbhatch@google.com>
+ <20260406185000.1378082-8-dylanbhatch@google.com>
+ <de7bd273-3650-4378-8fd8-a51217e7284b@linux.ibm.com>
+ <CADBMgpzbEGTm-sZ71a5hvFOHbu5VgSR406F3NsMLF1+oDWbO6A@mail.gmail.com>
+Content-Language: en-US
+From: Jens Remus <jremus@linux.ibm.com>
+Organization: IBM Deutschland Research & Development GmbH
+In-Reply-To: <CADBMgpzbEGTm-sZ71a5hvFOHbu5VgSR406F3NsMLF1+oDWbO6A@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=L78theT8 c=1 sm=1 tr=0 ts=69e61c83 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VnNF1IyMAAAA:8
+ a=ey2SWGRYxIHPRPJathMA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIwMDEyMSBTYWx0ZWRfXyqB1aAGJ4E5U
+ fBeYcJnCFz+KY+gDJ1Cv+qgW/fGLGqqXAsxvXJrsEbYdncMs//rNYMIQLwxmkiKrax5kFeX9lPc
+ GgXO1FbRS/A2G0bnLez1rBYmm0nUrFKq3ZwdSYHvYwNFOHC3bUGwvyTXPPh7eifFJOCjD4OCNE3
+ KXRxHfJfoCzrs1PmdA/+EjMFoiU8CY78/oWuF3k/SUOP7YAUuprJVMvaIjKddlw5Uig9UqPRJSW
+ WvTVfq2umhBwK3ChJ9xIJf9Lu9KoaFeZ/3Bx8rpH/VnA/tbVsHBZ3T9/t1qX4i+omLF94U31xMz
+ TKmPDW6vSCnZkGuWWIrufkwPFKiDbbnic39Jd7N3+qvwgo9aAtX6NFOXiwbcAkNvKw2MqekkXlb
+ cAu1mLadEbWVx05NtL6sfvezTPZOwLG0pCGGBb5cq0joJhrNeN+H6Tzde+k5P6kG11zVf3mHPi1
+ Bk2ao/aO0VucuR3Reiw==
+X-Proofpoint-GUID: fAdiLJEaC4RUIfPJcrzitXNXiwHaXtJ-
+X-Proofpoint-ORIG-GUID: gJkjqQ6DY8q37d5ZU6XKT_G0uVg3okQW
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-20_02,2026-04-17_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 impostorscore=0 spamscore=0 bulkscore=0 suspectscore=0
+ lowpriorityscore=0 adultscore=0 clxscore=1015 malwarescore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604200121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_052532_128380_F2A6E806 
-X-CRM114-Status: GOOD (  18.40  )
+X-CRM114-CacheID: sfid-20260420_053121_103582_6C2C2B47 
+X-CRM114-Status: GOOD (  36.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,68 +135,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 15, 2026 at 10:49=E2=80=AFAM Peng Fan (OSS) <peng.fan@oss.nxp.c=
-om> wrote:
->
-> From: Peng Fan <peng.fan@nxp.com>
->
-> Cortex-M[7,33] processors use a fixed reset vector table format:
->
->   0x00  Initial SP value
->   0x04  Reset vector
->   0x08  NMI
->   0x0C  ...
->   ...
->   IRQ[n]
->
-> In ELF images, the corresponding layout is:
->
-> reset_vectors:  --> hardware reset address
->         .word __stack_end__
->         .word Reset_Handler
->         .word NMI_Handler
->         .word HardFault_Handler
->         ...
->         .word UART_IRQHandler
->         .word SPI_IRQHandler
->         ...
->
-> Reset_Handler:  --> ELF entry point address
->         ...
->
-> The hardware fetches the first two words from reset_vectors and populates
-> SP with __stack_end__ and PC with Reset_Handler. Execution proceeds from
-> Reset_Handler.
->
-> However, the ELF entry point does not always match the hardware reset
-> address. For example, on i.MX94 CM33S:
->
->   ELF entry point:     0x0ffc211d
->   hardware reset base: 0x0ffc0000 (default reset value, sw programmable)
->
-> Current driver always programs the reset vector as 0. But i.MX94 CM33S's
-> default reset base is 0x0ffc0000, so the correct reset vector must be
-> passed to the SM API; otherwise the M33 Sync core cannot boot successfull=
-y.
->
-> rproc_elf_get_boot_addr() returns the ELF entry point, which is not the
-> hardware reset vector address. Fix the issue by deriving the hardware res=
-et
-> vector locally using a SoC-specific mask:
->
->   reset_vector =3D rproc->bootaddr & reset_vector_mask
->
-> The ELF entry point semantics remain unchanged. The masking is applied on=
-ly
-> at the point where the SM reset vector is programmed.
->
-> Add reset_vector_mask =3D GENMASK_U32(31, 16) to the i.MX95 M7 configurat=
-ion
-> so the hardware reset vector is derived correctly. Without this mask, the
-> SM reset vector would be programmed with an unaligned ELF entry point and
-> the M7 core would fail to boot.
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+On 4/20/2026 7:02 AM, Dylan Hatch wrote:
+> On Thu, Apr 16, 2026 at 8:04 AM Jens Remus <jremus@linux.ibm.com> wrote:
+>> On 4/6/2026 8:49 PM, Dylan Hatch wrote:
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+>>> Generalize the __safe* helpers to support a non-user-access code path.
+>>> Allow for kernel FDE read failures due to the presence of .rodata.text.
+>>> This section contains code that can't be executed by the kernel
+>>> direclty, and thus lies ouside the normal kernel-text bounds.
+>>
+>> Nits: s/direclty/directly/ s/ouside/outside/
+>>
+>> Could you please explain the issue?  How/why does .sframe for
+>> .rodata.text pose an issue for .sframe verification?
+> 
+> __read_fde checks that the fde_addr it extracts is within the bounds
+> of sec->text_start and sec->text_end. In the case of the vmlinux
+
+Looking at the existing check in __read_fde(), do you agree that it is
+wrong, as sec->text_end IIUC points behind .text and thus the check
+should be:
+
+	if (func_addr < sec->text_start || func_addr >= sec->text_end)
+        	return -EINVAL;
+
+> .sframe section, this is _stext and _etext. However on arm64, there is
+> an .rodata.text section that lies outside this range. From
+> arch/arm64/kernel/vmlinux.lds.S:
+> 
+>         /* code sections that are never executed via the kernel mapping */
+>         .rodata.text : {
+>                 TRAMP_TEXT
+>                 HIBERNATE_TEXT
+>                 KEXEC_TEXT
+>                 IDMAP_TEXT
+>                 . = ALIGN(PAGE_SIZE);
+>         }
+> 
+> So __read_fde fails for functions in this section. Under normal SFrame
+> usage for unwinding, we should never need to look up a PC value in
+> these functions because they will never be executed by the kernel.
+> However, we still hit this error when validating all FDEs.
+
+Thanks for the explanation!  Could you please improve the commit
+message, for instance as follows:
+
+__read_fde() checks that the extracted FDE function start address is
+within the bounds of the .text section start and end.  In case of
+vmlinux this is _stext and _etext.  However on arm64, .rodata.text
+resides outside this range, causing __read_fde() to fail.
+
+> I think ideally we might prevent sframe data from being generated for
+> this code (maybe from the linker script somehow?), but I don't know of
+> a simple way to do this.
+
+I dont't know of any way to exclude a single function or a whole section
+from .sframe generation.  The GNU linker would discard SFrame FDEs and
+its FREs for discarded functions.  But in this case the function itself
+is not discarded.  As .sframe is not generated separately per section it
+is also not possible to discard e.g. .sframe.rodata.
+
+> Alternatively, we can check for FDEs located
+> in .rodata.text during validation, but this seems to only be present
+> in arm64, so maybe we would need an arch-specific hook to do this? I'm
+> open to suggestions.
+
+Maybe that is better than ignoring __read_fde() failures?  I first
+thought this would get nasty, but maybe it would not be too bad.
+Following is what I came up with (note tabs replaced by spaces due to
+copy&paste from terminal):
+
+diff --git a/arch/arm64/include/asm/sections.h b/arch/arm64/include/asm/sections.h
+@@ -23,6 +23,7 @@ extern char __irqentry_text_start[], __irqentry_text_end[];
+ extern char __mmuoff_data_start[], __mmuoff_data_end[];
+ extern char __entry_tramp_text_start[], __entry_tramp_text_end[];
+ extern char __relocate_new_kernel_start[], __relocate_new_kernel_end[];
++extern char _srodatatext[], _erodatatext[];
+
+ static inline size_t entry_tramp_text_size(void)
+ {
+diff --git a/arch/arm64/include/asm/unwind_sframe.h b/arch/arm64/include/asm/unwind_sframe.h
+@@ -2,11 +2,28 @@
+ #ifndef _ASM_ARM64_UNWIND_SFRAME_H
+ #define _ASM_ARM64_UNWIND_SFRAME_H
+
++#include <linux/sframe.h>
++
+ #ifdef CONFIG_ARM64
+
+ #define SFRAME_REG_SP  31
+ #define SFRAME_REG_FP  29
+
++static inline bool sframe_func_start_addr_valid(struct sframe_section *sec,
++                                               unsigned long func_addr)
++{
++       return (sec->text_start >= func_addr && func_addr < sec->text_end) ||
++              (sec->rodatatext_start >= func_addr && func_addr < sec->rodatatext_end);
++}
++#define sframe_func_start_addr_valid sframe_func_start_addr_valid
++
++static void arch_init_sframe_table(struct sframe_section *kernel_sfsec)
++{
++       kernel_sfsec->rodatatext_start  = (unsigned long)_srodatatext;
++       kernel_sfsec->rodatatext_end    = (unsigned long)_erodatatext;
++}
++#define arch_init_sframe_table arch_init_sframe_table
++
+ #endif
+
+ #endif /* _ASM_ARM64_UNWIND_SFRAME_H */
+diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
+@@ -213,12 +213,14 @@ SECTIONS
+
+        /* code sections that are never executed via the kernel mapping */
+        .rodata.text : {
++               _srodatatext = .;
+                TRAMP_TEXT
+                HIBERNATE_TEXT
+                KEXEC_TEXT
+                IDMAP_TEXT
+                . = ALIGN(PAGE_SIZE);
+        }
++       _erodatatext = .;
+
+        idmap_pg_dir = .;
+        . += PAGE_SIZE;
+diff --git a/include/linux/sframe.h b/include/linux/sframe.h
+@@ -63,6 +63,10 @@ struct sframe_section {
+        unsigned long           sframe_end;
+        unsigned long           text_start;
+        unsigned long           text_end;
++#if defined(CONFIG_SFRAME_UNWINDER) && defined(CONFIG_ARM64)
++       unsigned long           rodatatext_start;
++       unsigned long           rodatatext_end;
++#endif
+
+        bool                    fdes_sorted;
+        unsigned long           fdes_start;
+diff --git a/kernel/unwind/sframe.c b/kernel/unwind/sframe.c
+@@ -20,11 +20,23 @@
+ #include "sframe.h"
+ #include "sframe_debug.h"
+
++#ifndef sframe_func_start_addr_valid
++static inline bool sframe_func_start_addr_valid(struct sframe_section *sec,
++                                                unsigned long func_addr)
++{
++       return (sec->text_start <= func_addr && func_addr < sec->text_end);
++}
++#endif
++
+ #ifdef CONFIG_SFRAME_UNWINDER
+
+ static bool sframe_init __ro_after_init;
+ static struct sframe_section kernel_sfsec __ro_after_init;
+
++#ifndef arch_init_sframe_table
++static void arch_init_sframe_table(struct sframe_section *kernel_sfsec) {}
++#endif
++
+ #endif /* CONFIG_SFRAME_UNWINDER */
+
+ struct sframe_fde_internal {
+@@ -152,7 +164,7 @@ static __always_inline int __read_fde(struct sframe_section *sec,
+                  sizeof(struct sframe_fde_v3), Efault);
+
+        func_addr = fde_addr + _fde.func_start_off;
+-       if (func_addr < sec->text_start || func_addr > sec->text_end)
++       if (!sframe_func_start_addr_valid(sec, func_addr))
+                return -EINVAL;
+
+        fda_addr = sec->fres_start + _fde.fres_off;
+@@ -696,13 +708,6 @@ static int sframe_validate_section(struct sframe_section *sec)
+                int ret;
+
+                ret = safe_read_fde(sec, i, &fde);
+-               /*
+-                * Code in .rodata.text is not considered part of normal kernel
+-                * text, but there is no easy way to prevent sframe data from
+-                * being generated for it.
+-                */
+-               if (ret && sec->sec_type == SFRAME_KERNEL)
+-                       continue;
+                if (ret)
+                        return ret;
+
+@@ -1031,6 +1036,8 @@ void __init init_sframe_table(void)
+        if (WARN_ON(sframe_validate_section(&kernel_sfsec)))
+                return;
+
++       arch_init_sframe_table(&kernel_sfsec);
++
+        sframe_init = true;
+ }
+
+Regards,
+Jens
+-- 
+Jens Remus
+Linux on Z Development (D3303)
+jremus@de.ibm.com / jremus@linux.ibm.com
+
+IBM Deutschland Research & Development GmbH; Vorsitzender des Aufsichtsrats: Wolfgang Wendt; Geschäftsführung: David Faller; Sitz der Gesellschaft: Ehningen; Registergericht: Amtsgericht Stuttgart, HRB 243294
+IBM Data Privacy Statement: https://www.ibm.com/privacy/
+
 
