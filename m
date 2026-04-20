@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B17B0F588E8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 15:36:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE99AF588E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 15:36:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=g2D951GLn5hlXkdBBS7499ZLgvwc3hGXPYRaAjv+IX4=; b=RFZzOe/BXnuZPETLkZzgfTB3FW
-	3iT9bVseIruwcXM2knQM1XEEHyqPOi1fP7JwENIy+0AJrSfBBgZOOm19TKHvh9pQjQ5taYGi7peHt
-	8jH6K+dMm5CAk9/pzNKgqvaEWJjmfP8Qfh5nsdzb3JpUEfDOoEzrnO4jaP2IN7TTB4WYDGnnYrKWU
-	riFNo2gAF5xC2CHoixRyVnHlTvUMn6s7MnmQ3IhzDkiOQR97Dv7sU+wFKL+qxkSERzecxsHsZ6xu4
-	C03QhisoiM0WYydOTeR0gf87dOJoJmqzX3XndD7dIRs2/hdpUPVvtasbexoYUDEkuUa2MQVIWrrGN
-	UinYVL1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RXTlata/cDCaSGkwzCEWmovi5WJsV4Y9htt8/UPRgxM=; b=K4OsCkOQOjfjetUI0leWPjYbQH
+	XIm2ddwa0YyqgcFqhv8BONDuXD3sekyS6fmvpmhbDCUTBTMr/T3qXNrOKSPfrXl83BWQVa6rg5QS7
+	qxVh5DBYIzLCtvr92Skk2GGCxevv22KJTc7ofMVr5VQXLryiuT+RhlcI7Is4w+UBzelCDhyo26Ul3
+	B1OTkYRyjj1AOUFhc6Xy5gK6xAW6Mbaq0uNe0rhvC5MeLHjfxT85XmWgzIWtLuwKUaFVkt1dBnLqC
+	02vl6Memh0QusOXUUGbN/Nfu0UoiOoGJwajd/q8JvXsuD6lIjnkCtMijgjc54oHnIBVAkczso9VoV
+	YBy2fvnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEqfx-00000007K3Q-0khc;
-	Mon, 20 Apr 2026 15:36:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wEqg1-00000007K57-01XX;
+	Mon, 20 Apr 2026 15:36:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEqfv-00000007K2y-0yts
+	id 1wEqfw-00000007K3E-2cH4
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 20 Apr 2026 15:36:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1DAEC43A27;
-	Mon, 20 Apr 2026 15:36:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4DB6C2BCB4;
+	by tor.source.kernel.org (Postfix) with ESMTP id C6CD760018;
+	Mon, 20 Apr 2026 15:36:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C507C19425;
 	Mon, 20 Apr 2026 15:36:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776699398;
-	bh=k+ottxoZps94DSX9qItnTOLdpr5XktfGOzXXvV/mjOY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=j7SNE8+QSgK/a4zudVM+Xfjt5IVtA6SaeW8V9ddpG7eIctsSeUBzbE2YJFCsLTu06
-	 0IXloOlDunFeC6xfrctAEEJiCUfRbzOk47zV9QmOC4vScJ26Qx9qc0pInd3xQRRwbZ
-	 An90uPd73GBTqgITp3Fun1qnh22JZRF2wugaJ1C6D1ZNZimEzc9yKun9QgZS4ivolO
-	 zEM48mad8amqFj+tCa3Div2IzXIH3VszyPW0SXKeuRJkhiUxQOrH0q2fdLbPopxrIp
-	 nxl3bI7eSsWzvqSvriMkh3r4ROKD97lC6RYxrlQ017gS+DizWYpEsTOjVtAckYRI5B
-	 ps2VPznM1089g==
-From: Puranjay Mohan <puranjay@kernel.org>
-To: bpf@vger.kernel.org
-Cc: Puranjay Mohan <puranjay@kernel.org>,
-	"Alexei Starovoitov" <ast@kernel.org>,
-	"Daniel Borkmann" <daniel@iogearbox.net>,
-	"Andrii Nakryiko" <andrii@kernel.org>,
-	"Martin KaFai Lau" <martin.lau@linux.dev>,
-	"Eduard Zingerman" <eddyz87@gmail.com>,
-	"Kumar Kartikeya Dwivedi" <memxor@gmail.com>,
-	"Song Liu" <song@kernel.org>,
-	"Yonghong Song" <yonghong.song@linux.dev>,
-	"Xu Kuohai" <xukuohai@huaweicloud.com>,
-	"Catalin Marinas" <catalin.marinas@arm.com>,
-	"Will Deacon" <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH bpf-next 0/3] bpf, arm64: Support stack arguments
-Date: Mon, 20 Apr 2026 08:35:58 -0700
-Message-ID: <20260420153603.4097618-1-puranjay@kernel.org>
-X-Mailer: git-send-email 2.52.0
+	s=k20201202; t=1776699399;
+	bh=AzFmS5Tnu8sMhg8eDHy3LPsdHF0AOqqG0otqcA9EY1E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aRrAXzKAS0bBFun9CQKrTyofiR5UlWY17F+ckg075QcTe2r9+vjrfK++RzMggttkV
+	 q1NTwF7XAvZjmFfZLPpUmtgMYHiDG2drOziCXgfLcWd0Y6nEvjujmTwVZmr5hMl1wU
+	 CpaQ6uFIbL/EpyQ6i/wUmfEaRC4/BNEMMkieXlqICQmUyLAF5aakdEG77cGbUkLmqz
+	 xjBh+OUX0oJ5Fa5DT38dIq0PLIc5seAMFXqe/ETiWMO5q9VvdUgynajX2MEWNsqgBM
+	 AuMqXg2f+PdpqyrfovuxaJ/zCNSe3WpEcIJstH9jBILV0URQE+p5fot3kNejTRHC7U
+	 FmdZfQNqOrUaQ==
+Date: Mon, 20 Apr 2026 16:36:35 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Colin Huang <u8813345@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	colin.huang2@amd.com
+Subject: Re: [PATCH v2 1/3] dt-bindings: arm: aspeed: add Anacapa EVT1 EVT2
+ board
+Message-ID: <20260420-garnet-goal-4a284a8818fc@spud>
+References: <20260409-anacapa-devlop-phase-devicetree-v2-0-68f328671653@gmail.com>
+ <20260409-anacapa-devlop-phase-devicetree-v2-1-68f328671653@gmail.com>
+ <20260409-foster-stability-f77b38c6f7a0@spud>
+ <CAPBH0A_K39218+=QHJuEY+SbFk-nCnM=Z8RQMdHBK7SkCj2QtQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_083639_343418_CE60F8BB 
-X-CRM114-Status: UNSURE (   8.60  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="rT7U0ER3rzaPGzgy"
+Content-Disposition: inline
+In-Reply-To: <CAPBH0A_K39218+=QHJuEY+SbFk-nCnM=Z8RQMdHBK7SkCj2QtQ@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,69 +77,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This set add support of stack arguments to the arm64 JIT based on the
-preparatory work and x86 support in [1]. Arm64 allows passing 8
-arguments in registers x0-x7 and remaining ones on stack. Currently, BPF
-supports passing 5 arguments all of which map to x0-x4.
 
-BPF passes arguments in R1-R5 which map to x0-x4 on arm64, BPF reg R0 is
-mapped to arm64 reg x7, but as arm64 needs this register to pass
-arguments now, the first patch changes the mapping of BPF reg R0 to x8
-which allows passing arguments in x0-x7 (8 arguments). 9+ arguments are
-passed on the stack.
+--rT7U0ER3rzaPGzgy
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Note: This set needs to be applied on top of [1]
+On Mon, Apr 20, 2026 at 01:41:30PM +0800, Colin Huang wrote:
+> Conor Dooley <conor@kernel.org> =E6=96=BC 2026=E5=B9=B44=E6=9C=889=E6=97=
+=A5=E9=80=B1=E5=9B=9B =E4=B8=8B=E5=8D=8811:36=E5=AF=AB=E9=81=93=EF=BC=9A
+> >
+> > On Thu, Apr 09, 2026 at 07:40:26PM +0800, Colin Huang wrote:
+> > > Document Anacapa BMC EVT1 and EVT2 compatibles.
+> > >
+> > > Signed-off-by: Colin Huang <u8813345@gmail.com>
+> >
+> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> > pw-bot: not-applicable
+>=20
+> Hi
+>   Could anyone let me know, what is my next step which I need to do?
+>   I can't find the changed in for-next branch of
+> https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git .
+>   Thanks.
 
-All selftest pass:
+You wait for the merge window to end and the maintainer to apply your
+patches.
 
-  ./test_progs -t stack_arg,stack_arg_fail,stack_arg_kfunc,verifier_stack_arg
-  #431/1   stack_arg/global_many_args:OK
-  #431/2   stack_arg/async_cb_many_args:OK
-  #431/3   stack_arg/bpf2bpf:OK
-  #431/4   stack_arg/kfunc:OK
-  #431     stack_arg:OK
-  #432/1   stack_arg_fail/test_stack_arg_big:OK
-  #432/2   stack_arg_fail/r11 in ALU instruction:OK
-  #432/3   stack_arg_fail/r11 store with non-DW size:OK
-  #432/4   stack_arg_fail/r11 store with unaligned offset:OK
-  #432/5   stack_arg_fail/r11 store with positive offset:OK
-  #432/6   stack_arg_fail/r11 load with negative offset:OK
-  #432/7   stack_arg_fail/r11 load with non-DW size:OK
-  #432/8   stack_arg_fail/r11 store with zero offset:OK
-  #432     stack_arg_fail:OK
-  #631/1   verifier_stack_arg/stack_arg: subprog with 6 args:OK
-  #631/2   verifier_stack_arg/stack_arg: two subprogs with >5 args:OK
-  #631/3   verifier_stack_arg/stack_arg: read from uninitialized stack arg slot:OK
-  #631/4   verifier_stack_arg/stack_arg: gap at offset -8, only wrote -16:OK
-  #631/5   verifier_stack_arg/stack_arg: pruning with different stack arg types:OK
-  #631/6   verifier_stack_arg/stack_arg: release_reference invalidates stack arg slot:OK
-  #631/7   verifier_stack_arg/stack_arg: pkt pointer in stack arg slot invalidated after pull_data:OK
-  #631/8   verifier_stack_arg/stack_arg: null propagation rejects deref on null branch:OK
-  #631/9   verifier_stack_arg/stack_arg: missing store on one branch:OK
-  #631/10  verifier_stack_arg/stack_arg: share a store for both branches:OK
-  #631/11  verifier_stack_arg/stack_arg: write beyond max outgoing depth:OK
-  #631/12  verifier_stack_arg/stack_arg: sequential calls reuse slots:OK
-  #631     verifier_stack_arg:OK
-  Summary: 3/24 PASSED, 0 SKIPPED, 0 FAILED
+--rT7U0ER3rzaPGzgy
+Content-Type: application/pgp-signature; name="signature.asc"
 
-[1] https://lore.kernel.org/all/20260419163316.731019-1-yonghong.song@linux.dev/
+-----BEGIN PGP SIGNATURE-----
 
-Puranjay Mohan (3):
-  bpf, arm64: Map BPF_REG_0 to x8 instead of x7
-  bpf, arm64: Add JIT support for stack arguments
-  selftests/bpf: Enable stack argument tests for arm64
+iHQEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaeZIAgAKCRB4tDGHoIJi
+0gyRAPih4zXoYopFmAszf/ozsfmpEp1cZspkWl07OnahV3yqAQCD9Sal/PjSSKtW
+PGb84+0XAkYu+zzoDJlWPigE0ykYBw==
+=g4DA
+-----END PGP SIGNATURE-----
 
- arch/arm64/net/bpf_jit_comp.c                 | 91 +++++++++++++++++--
- arch/arm64/net/bpf_timed_may_goto.S           |  8 +-
- tools/testing/selftests/bpf/progs/stack_arg.c |  3 +-
- .../selftests/bpf/progs/stack_arg_kfunc.c     |  3 +-
- .../selftests/bpf/progs/verifier_jit_inline.c |  2 +-
- .../selftests/bpf/progs/verifier_ldsx.c       |  6 +-
- .../bpf/progs/verifier_private_stack.c        | 10 +-
- .../selftests/bpf/progs/verifier_stack_arg.c  | 15 ++-
- 8 files changed, 116 insertions(+), 22 deletions(-)
-
--- 
-2.52.0
-
+--rT7U0ER3rzaPGzgy--
 
