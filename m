@@ -4,91 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF2C4F5A8C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 20:43:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70EFEF5A8BC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 20:45:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bw/xOa4cMDz+3Y150IRREEsvI8FeQ6LscRd2k8rTaIk=; b=fEJyCgatra5llU7fcAVxSDpuf5
-	snNtnQ1riXRuy+93BwW76UmyNxISY5ERUG0xLjdVLNl9d4Z9oc7MyBXM9yumSbzAnqPYN2BaZc53h
-	m/BgXY+c/e0/qWD1wWwUE6ZJth7CpGI5oxbW+BlyLTMKazEnjyJddHfj6luKFGtV46tI0kl6fUxWc
-	qXCDuPwIXgbaeacRhXzewGI1fB7DsRQarWUtHda7p8cj6LU6ey5bn2bI3zezeXBhaOoSTKLP/ZXs9
-	Rq+r/ExKZ3lXNd5FhaRsnYXFWhYqLvHL32BHxZkdon0d592qTIvL51QwmBPN5nWw/KuEv1Sc5dJUY
-	W8nBaX4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NFxnKBIb4rP9HCGv24zgq2DmExS0pP68iWUHvrzRj3k=; b=0yrFxTv8xMvtGPYKX2zB0QM7uL
+	HmubfCONQ+xSqK4056APt6h1d5pwGbiBl57X3cKpXTMcxN8eQibCkscWTb2tJ2PWLfqDWPb9Y7Kh2
+	UUBFC79vGCOMXJLrjGMDaKyMP4WdZNVZdj8OlLZftDmZD4rYdw6a9myePj6PYcpXq+4qDRxo3ymyB
+	yWUC2a8wWxm5YFR0TFuT9LmgJph46FM/2uW67EuVW42j1/UsJTY7p/89c8bCl9z3eSOxp45Rq/so+
+	jmG2Nk7y4hIu7Of+axJefBJnvruLOzXBec9BeqfJ127ilUmq3Yi4MNnFS+6kZtnlisot0mg9eXqSw
+	hJlxg0Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEvSu-00000007dc8-13nT;
-	Mon, 20 Apr 2026 20:43:32 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1wEvUv-00000007dtc-4BWv;
+	Mon, 20 Apr 2026 20:45:38 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEvSr-00000007dar-355T
+	id 1wEvUu-00000007dsm-1HH7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 20:43:30 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2b242b9359aso33970655ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 13:43:28 -0700 (PDT)
+	Mon, 20 Apr 2026 20:45:37 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4852a9c6309so30970665e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 13:45:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1776717808; x=1777322608; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Bw/xOa4cMDz+3Y150IRREEsvI8FeQ6LscRd2k8rTaIk=;
-        b=HGu8nbHdwEH1ht1VIiu5NeqGRskHHXBu4YE2oH1pg0ZyAuKaPKL6y1ZUY6gJ8/58L+
-         B2U9vOWiFPiYDNBB8FUcWHb0TuuPUBQLBgmgctj69Sf836fT5WpYm9FP8wwvfyj1Btde
-         DsNj8+j2FNKMzfe4ubkCKGvNOC4JowrN5wJugMjQJN/SBIPKuFuiDjpZd4LwGUfkaevW
-         yJ+eEqTuWsC5R14hhFHyPefVtaEnSasShodQJVSn7nqTbL52Z3mlBajXavwIEjUjs3WJ
-         nl/CdJ0PA0KkDeTY2J5dFX3B1Bqr+aAumg/ID8mrL6QcbJ74ZoCGiI09/1FzyaOyMXQb
-         jXfQ==
+        d=gmail.com; s=20251104; t=1776717934; x=1777322734; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=NFxnKBIb4rP9HCGv24zgq2DmExS0pP68iWUHvrzRj3k=;
+        b=D6KBscg0TPl7AywJz5OWmv8ZShTf7c1fZuDQMVo4EVU3hBbeELYJeFloaSqxjURj8H
+         oEGZ4xmXmfYz3a1WHI8DAXgHI5RrLkDNQmoZoB5s4S+i0F1vX2x3HC1C39e7T0Qu9QNu
+         k85IZmOvGaW1ARhCC0OdTNDy5dCpTGpkD+PB0Os0FkC+H5TsoMnUBjCWm0SE+Hf2/Dvq
+         0TmHSkaOAlVs6uqEo0r7cUb1ya7+/jFBzfrNylL44Uv3SJXkOXX7tXPDqn1aE38SBeZm
+         Ag701jmuGHeSjNa3CRaceAht7fdRQDTlPSUaJsLDe5sAxhoDuUsQE7m3pkdUbDtkSDvg
+         rV3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776717808; x=1777322608;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Bw/xOa4cMDz+3Y150IRREEsvI8FeQ6LscRd2k8rTaIk=;
-        b=RqtNEe6H8Ep+lMp8o6Leown4/Jx9yxVrxeW4MzuiJwyVpe7IWmkx/tlfaBD4yOyJ4h
-         ORfiTZpOw+kWiBVJB4xl+KDZBpUHs6bvZHaGScGMHsMVM6rUip0zOo4cBnFuE5wLDZ7i
-         nOYdhsS30r+QJBuwNzqBLxzzF7IFyrFl7oxJaRiTEzA5Yzv9qrwAHR7PvzS2Z54/Ut/s
-         uH3pf1Au2Gy/aVKiMCArn2R5LersE/L1i52t7qy7ndg+aL1KgpMYpbMREduA5gYCrsEj
-         Js2nwrrixgZdRRKCqmIkJOehVuW2wL65DrTF+5XPp9j6PgWSqsuLKOY8nQuRsQ8zKa5V
-         KvHw==
-X-Forwarded-Encrypted: i=1; AFNElJ8ZxPLDG5uY1jubPPYs7jAbcWu0kWRURSJSrHbBeTh8dqx4MyoPFhyiXj0vKaSchZbT64uwyTiHs2i3QoN7lbEO@lists.infradead.org
-X-Gm-Message-State: AOJu0YxD3YnDdWNCawQQcbSozeqq68UG4TuhRXFoTT2BIm4VcphCykVK
-	bF7JWvMxe4os0roCKDoLPVrbBg2uJZVGo+0Q/aH5DqDA5V4XjD7FMwJZWGFmCA4pVzcoAAcn13P
-	5FKt3CQ==
-X-Received: from plai2.prod.google.com ([2002:a17:902:c942:b0:2b3:2649:c9c1])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:d30b:b0:2b0:673a:7c90
- with SMTP id d9443c01a7336-2b5f9f50051mr108270095ad.28.1776717807739; Mon, 20
- Apr 2026 13:43:27 -0700 (PDT)
-Date: Mon, 20 Apr 2026 13:43:26 -0700
-In-Reply-To: <20260220004223.4168331-5-dmatlack@google.com>
-Mime-Version: 1.0
-References: <20260220004223.4168331-1-dmatlack@google.com> <20260220004223.4168331-5-dmatlack@google.com>
-Message-ID: <aeaP7kPPlyBZE-1h@google.com>
-Subject: Re: [PATCH v2 04/10] KVM: selftests: Use u64 instead of uint64_t
-From: Sean Christopherson <seanjc@google.com>
-To: David Matlack <dmatlack@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Andrew Jones <ajones@ventanamicro.com>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atish.patra@linux.dev>, Bibo Mao <maobibo@loongson.cn>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-	Colin Ian King <colin.i.king@gmail.com>, David Hildenbrand <david@kernel.org>, Fuad Tabba <tabba@google.com>, 
-	Huacai Chen <chenhuacai@kernel.org>, James Houghton <jthoughton@google.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, kvmarm@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Lisa Wang <wyihan@google.com>, loongarch@lists.linux.dev, 
-	Marc Zyngier <maz@kernel.org>, Maxim Levitsky <mlevitsk@redhat.com>, Nutty Liu <nutty.liu@hotmail.com>, 
-	Oliver Upton <oupton@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
-	"Pratik R. Sampat" <prsampat@amd.com>, Rahul Kumar <rk0006818@gmail.com>, Shuah Khan <shuah@kernel.org>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
-	Wu Fei <wu.fei9@sanechips.com.cn>, Yosry Ahmed <yosry.ahmed@linux.dev>, 
-	Zenghui Yu <yuzenghui@huawei.com>
-Content-Type: text/plain; charset="us-ascii"
+        d=1e100.net; s=20251104; t=1776717934; x=1777322734;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=NFxnKBIb4rP9HCGv24zgq2DmExS0pP68iWUHvrzRj3k=;
+        b=O52zPOTrKw/A52ErFVVH2AxZ/JQbgpY8LXo2kQJnAuzaIZomQvE0kZ0MHfaNFICNAo
+         aXhb1HAS06dOY/tErv6I4QUuU/Tzd2ylCx1cKxKrzz3C9XgOGFDvQM8rxQilg+cBE261
+         JEA/e3DtQZXkXsPDED5ka6cyF+IYIWJ0ZUs5pHdvANW1EAh22OuY3amFzkHSeuykpOrA
+         tv+kmm20GTKR7quQmzsBdwal9/jNkdDL9y8QL/MUWkuiEJpseNQ4AfyreHiwAOnUrJKH
+         wFw/82K4/07HLT/JTJO78aiR9gAogO2aj3Q7ISqzoZnSvEtRgNq6z3baY4X8qFjNDAgc
+         FYCQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9OEo4uLgU5Y4fVqSadf88skau0H6+TJzpARIVsTjysjwzMpD2ZjIucbIwciYt1hpSAmh/Gz2R96lEl5J/hY4G4@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSQVv6z60Gf+5SPErLv+N+RV+eP5qpG38NQAGNFbLaTGmca+mB
+	CPFSvIZ+cq82Xet24GVCwrXR4HShdyzUrHFss7Uy+Ur+Ddnb8eeKZO1I
+X-Gm-Gg: AeBDietA4rbRgNA484dsyx4SLvSom0BCMU2lctNQbVSwdvsnh6E8HIDxRhr2YWTlhwJ
+	kgVUtlhugm7IOEVYpuigFOBFw5FbA0eETAPnpWVTpP2ThELdhZGe9ETxxCqkbIOZm+i/56lbTQN
+	G9DPXSI4vb3hY9r8/NSKX9YJT+OhuhCWttcKC2ThDyX6GX+532VVWMyyYSrCWx3W8L7h+WhRIue
+	vkgzQyLQLeaDNrLDla0r+Ee4sljpW0MrzEU8Z3GnFt4Za0f0t0bCF5A6/SJ5WW1NHPU5xohVRbI
+	5c95F12zyWQ/dyJnZHFVbfm2fiQanoGVZC++DMbbIrNLypxA1mhe0Ci+XouLq8d29xZaFQrYMH6
+	4My57ChqMVf+Z1YMJBgWblKxcP1PnCv5qjZONWEwwQii6qvFoSfSU6UkJ05YrKjm2VIf3Oi1SwM
+	CWayGQ6reAgek6Vup+2w4CNMgNIy1h9g==
+X-Received: by 2002:a05:600c:8115:b0:488:ac01:72b6 with SMTP id 5b1f17b1804b1-488fb77d7d3mr176918155e9.21.1776717933714;
+        Mon, 20 Apr 2026 13:45:33 -0700 (PDT)
+Received: from luca-vm.lan ([154.61.61.58])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4891c320084sm170344535e9.2.2026.04.20.13.45.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 20 Apr 2026 13:45:33 -0700 (PDT)
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+To: linux-sound@vger.kernel.org
+Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] ASoC: dt-bindings: mediatek: Convert mtk-btcvsd-snd to DT Schema
+Date: Mon, 20 Apr 2026 21:44:30 +0100
+Message-ID: <20260420204514.1640995-1-l.scorcia@gmail.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_134329_768132_D2A45B8A 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20260420_134536_369919_0FFCFE43 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,21 +105,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 20, 2026, David Matlack wrote:
-> Use u64 instead of uint64_t to make the KVM selftests code more concise
-> and more similar to the kernel (since selftests are primarily developed
-> by kernel developers).
-> 
-> This commit was generated with the following command:
-> 
->   git ls-files tools/testing/selftests/kvm | xargs sed -i 's/uint64_t/u64/g'
-> 
-> Then by manually adjusting whitespace to make checkpatch.pl happy.
-> 
-> Also include <linux/types.h> in include/test_util.h and
-> include/x86/pmu.h to avoid compilation failure.
+Convert the mtk-btcvsd-snd.txt DT binding to DT Schema format.
 
-kvm_util_types.h also needs to include types.h, as it blatantly uses u64 without
-any includes.  It obviously works thanks to ordering, but it's a lurking trap for
-others.
+Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+---
+ .../sound/mediatek,mtk-btcvsd-snd.yaml        | 54 +++++++++++++++++++
+ .../bindings/sound/mtk-btcvsd-snd.txt         | 24 ---------
+ 2 files changed, 54 insertions(+), 24 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mtk-btcvsd-snd.yaml
+ delete mode 100644 Documentation/devicetree/bindings/sound/mtk-btcvsd-snd.txt
+
+diff --git a/Documentation/devicetree/bindings/sound/mediatek,mtk-btcvsd-snd.yaml b/Documentation/devicetree/bindings/sound/mediatek,mtk-btcvsd-snd.yaml
+new file mode 100644
+index 000000000000..f423e3a02997
+--- /dev/null
++++ b/Documentation/devicetree/bindings/sound/mediatek,mtk-btcvsd-snd.yaml
+@@ -0,0 +1,54 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/sound/mediatek,mtk-btcvsd-snd.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Mediatek ALSA BT SCO CVSD/MSBC Driver
++
++properties:
++  compatible:
++    const: mediatek,mtk-btcvsd-snd
++
++  reg:
++    items:
++      - description: Register location and size of PKV
++      - description: Register location and size of SRAM_BANK2
++
++  interrupts:
++    items:
++      - description: BT-SCO interrupt
++
++  mediatek,infracfg:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: The phandle of the infracfg controller
++
++  mediatek,offset:
++    description: Array of register offsets and masks
++    $ref: /schemas/types.yaml#/definitions/uint32-array
++    items:
++      - description: infra_misc_offset
++      - description: infra_conn_bt_cvsd_mask
++      - description: cvsd_mcu_read_offset
++      - description: cvsd_mcu_write_offset
++      - description: cvsd_packet_indicator_offset
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - mediatek,infracfg
++  - mediatek,offset
++
++additionalProperties: false
++
++examples:
++  - |
++    mtk-btcvsd-snd@18000000 {
++      compatible = "mediatek,mtk-btcvsd-snd";
++      reg = <0 0x18000000 0 0x1000>,
++            <0 0x18080000 0 0x8000>;
++      interrupts = <GIC_SPI 286 IRQ_TYPE_LEVEL_LOW>;
++      mediatek,infracfg = <&infrasys>;
++      mediatek,offset = <0xf00 0x800 0xfd0 0xfd4 0xfd8>;
++    };
+diff --git a/Documentation/devicetree/bindings/sound/mtk-btcvsd-snd.txt b/Documentation/devicetree/bindings/sound/mtk-btcvsd-snd.txt
+deleted file mode 100644
+index 679e44839b48..000000000000
+--- a/Documentation/devicetree/bindings/sound/mtk-btcvsd-snd.txt
++++ /dev/null
+@@ -1,24 +0,0 @@
+-Mediatek ALSA BT SCO CVSD/MSBC Driver
+-
+-Required properties:
+-- compatible = "mediatek,mtk-btcvsd-snd";
+-- reg: register location and size of PKV and SRAM_BANK2
+-- interrupts: should contain BTSCO interrupt
+-- mediatek,infracfg: the phandles of INFRASYS
+-- mediatek,offset: Array contains of register offset and mask
+-    infra_misc_offset,
+-    infra_conn_bt_cvsd_mask,
+-    cvsd_mcu_read_offset,
+-    cvsd_mcu_write_offset,
+-    cvsd_packet_indicator_offset
+-
+-Example:
+-
+-	mtk-btcvsd-snd@18000000 {
+-		compatible = "mediatek,mtk-btcvsd-snd";
+-		reg=<0 0x18000000 0 0x1000>,
+-		    <0 0x18080000 0 0x8000>;
+-		interrupts = <GIC_SPI 286 IRQ_TYPE_LEVEL_LOW>;
+-		mediatek,infracfg = <&infrasys>;
+-		mediatek,offset = <0xf00 0x800 0xfd0 0xfd4 0xfd8>;
+-	};
+-- 
+2.43.0
+
 
