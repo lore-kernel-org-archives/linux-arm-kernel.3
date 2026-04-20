@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED723F588E2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 14:47:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 520BBF588DF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 14:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O7ibaDjJseGlqangzveB9VynH2pKp+LSowkGObgjgio=; b=3wKWst1nMi2WxbnGnrXQ3nP6Gd
-	oa6rdgsRLCHRF3QXZqsgepLPTcIlljj3UrIYYWEXNf470ajD+5rifAKRflWNXM2K9U7kcEtmuxUsj
-	BVQfffxl6KGNwfOO9XGCgII1GlPAWmaRW0yqB9XMY6hFM1D53lRWM11fhh8LgKTVJxOCOAbIDkz8s
-	uJ64AxMZhSZiPpcbL6Mo7l5IUaJsfXO4sQvXif0QgbjGhmx1v8GzDg1HzQBl1AtZmFmrbgN0Mf9ka
-	izrUON4QVsZkUdg3Jl2y6qifBjFzM3wqVHQSXUKLteUYjYaUkEcgPDFBEhZuPEy1J1E6sZf1d1GYQ
-	JC2UghFQ==;
+	bh=B8Wx/zazy2TuqrZqssF9+KIqUTsThKbaXcAXi0uwpGg=; b=HUg5FSCiAZDQVPDmaFu7I35iUb
+	hB15rAxNTu4WpC5BzP4/7wEV6neaAJ7VIXB1D0PFbrG99VgpiM1CY23Ka/DaG3djWgUn5b5xI33JU
+	zd0g2Xxo3ycNDoiwN7ULVJQFqYdb+i6mDeTM9tdAzjL3dvsA3yNceshPHbytBTBH9aj/8Oq97VvrE
+	VrZl9VYt1hT5e61h/30yPH2ve6YnXhYKNxZqpDTxV7iwILA46hKNbgr4j+cNixbRvyhxmlyTcY4J1
+	9jG8KQdA457y0JDotktR76tU4mxt7ocJqBYVVr9ET2p6fWNoDQqtFFveuC6AmAsekjc6Ac3E4Dt+f
+	6cfqzQGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEpuR-00000007ByJ-3QxD;
-	Mon, 20 Apr 2026 14:47:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEpuP-00000007Bxy-3CHO
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 14:47:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F11CF1516;
-	Mon, 20 Apr 2026 07:47:24 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1833F3F7B4;
-	Mon, 20 Apr 2026 07:47:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776696450; bh=O7ibaDjJseGlqangzveB9VynH2pKp+LSowkGObgjgio=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=L+B9r/qOOHsKRGrLzuIhK2+5vpLf3w4qwXoOl9kCQvqnkOWQ5+Zow32TpfNVrDtPG
-	 860JlQ9vReiyPUZlJYDMzVQWo2F/FpENb8Gp7LCFkEeSAK4iMW59tInMBLR8WNvil6
-	 Yj7yn1g03HiLuPc/jYd1hNYsr0IXxSoqwG7QNhpI=
-Date: Mon, 20 Apr 2026 15:47:24 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Sebastian Ene <sebastianene@google.com>
-Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
-	zohar@linux.ibm.com, roberto.sassu@huawei.com,
-	dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com,
-	peterhuewe@gmx.de, jarkko@kernel.org, jgg@ziepe.ca,
-	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org
-Subject: Re: [RFC PATCH 4/4] firmware: arm_ffa: check pkvm initailised when
- initailise ffa driver
-Message-ID: <aeY8fNhtuVzL2X9a@e129823.arm.com>
-References: <20260417175759.3191279-1-yeoreum.yun@arm.com>
- <20260417175759.3191279-5-yeoreum.yun@arm.com>
- <aeYbdmshGZJ4GhXd@google.com>
- <aeYjiaPtAl7SMVkL@e129823.arm.com>
- <aeYypF4lv6LMH2ch@google.com>
+	id 1wEpvf-00000007C5g-1JZE;
+	Mon, 20 Apr 2026 14:48:51 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wEpvc-00000007C4z-3KK9;
+	Mon, 20 Apr 2026 14:48:50 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.99)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1wEpvU-000000000GN-0rQq;
+	Mon, 20 Apr 2026 14:48:40 +0000
+Date: Mon, 20 Apr 2026 15:48:36 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Olivia Mackall <olivia@selenic.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Sean Wang <sean.wang@mediatek.com>, linux-crypto@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v3 1/2] dt-bindings: rng: mtk-rng: add SMC-based TRNG
+ variants
+Message-ID: <aeY8xF82FB7Plu7W@makrotopia.org>
+References: <585fc832e4e5d3656bd25ecee6bafb636993104a.1776600269.git.daniel@makrotopia.org>
+ <20260420-flat-rook-of-hail-bbede5@quoll>
+ <aeY3HuP01VYl5x6X@makrotopia.org>
+ <e747a3c5-1c43-412b-8ff6-f447ee33995c@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aeYypF4lv6LMH2ch@google.com>
+In-Reply-To: <e747a3c5-1c43-412b-8ff6-f447ee33995c@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_074733_922939_DA167C56 
-X-CRM114-Status: GOOD (  31.78  )
+X-CRM114-CacheID: sfid-20260420_074848_828537_1225F113 
+X-CRM114-Status: GOOD (  17.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,77 +74,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+On Mon, Apr 20, 2026 at 04:43:00PM +0200, Krzysztof Kozlowski wrote:
+> On 20/04/2026 16:24, Daniel Golle wrote:
+> > On Mon, Apr 20, 2026 at 04:07:33PM +0200, Krzysztof Kozlowski wrote:
+> >> On Sun, Apr 19, 2026 at 01:05:01PM +0100, Daniel Golle wrote:
+> >>> +    rng {
+> >>> +            compatible = "mediatek,mt7981-rng";
+> >>
+> >> I asked at v1. Reminded at v2. Nothing serious, but repeating myself is
+> >> pointless and kind of waste of time.
+> > 
+> > Replying *once* telling what you would actually want, or replying to
+> > me asking back would have helped enormously:
+> > https://patchwork.kernel.org/comment/26880354/
+> > 
+> > All I can see is that you concluded "no improvements" without telling
+> > *what it is you would like to see improved*.
+> > 
+> 
+> Yes, and then you should go to v1 and read the review. There was only
+> single comment in this spot, so trivial to find.
+> 
+> AGAIN:
+> 
+> Use four spaces for indentation.
 
-> On Mon, Apr 20, 2026 at 02:00:57PM +0100, Yeoreum Yun wrote:
->
-> Hi,
->
-> >
-> > Hi Sebastian,
-> > > On Fri, Apr 17, 2026 at 06:57:59PM +0100, Yeoreum Yun wrote:
-> > >
-> > > Hello Yeoreum,
-> > >
-> > >
-> > > > When pKVM is enabled, the FF-A driver must be initialized after pKVM.
-> > > > Otherwise, pKVM cannot negotiate the FF-A version or
-> > > > obtain RX/TX buffer information, leading to failures in FF-A calls.
-> > >
-> > > At the moment this already happens after you move back ffa_init() to
-> > > device_initcall().
-> >
-> > How? the kvm_arm_init() is device_initcall() if both built as built-in.
-> >
-> > >
-> > > >
-> > > > During FF-A driver initialization, check whether pKVM has been initialized.
-> > > > If not, defer probing of the FF-A driver.
-> > > >
-> > >
-> > > I don't think you need to add this dependency. pKVM is
-> > > installed through KVM's module_init() which ends up calling hyp_ffa_init() to
-> > > do the proxy initialization. The ARM-FFA driver comes after it (since
-> > > pKVM is arch specific code). We don't have to call finalize_pkvm(..) to
-> > > be able to handle smc(FF-A) calls in the hyp-proxy.
-> > >
-> >
-> > As Marc said, the before finalised_pkvm(), smc wouldn't be trapped
-> > to pKVM. IOW, in case when both built as built-in,
->
-> They are, I tested before replying to this thread. The HCR_EL2 is
-> 0x480080000 so HCR_EL2 TSC bit is set so SMC/FF-A and trapping is enabled.
+Thank you, that IS helpful.
 
-Oh. I've missed cpu_init_hyp_mode() sets up HCR_EL2. So you're right.
-Thanks to correct me ;)
+I've read the "no improvements" statement as an overall conclusion and
+not even considered it to be specific to any *place* without further
+context.
 
->
-> In __pkvm_prot_finalize it sets the HCR_VM bit which enables stage-2 and
-> then write the HCR_EL2 from params->hcr_el2. However I wasn't sure that
-> this is seen as a 'hack' and not expected to work.
->
-> > if ffa_init() is called before finalised_pkvm(),
-> > it couldn't proxy the FFA_VERSION, FFA_RXTX_MAP and FFA_PARTITION_INFO_GET
-> > called by ffa_init().
-> >
-> > How can you gurantee hyp_ffa_init() which is called by kvm_arm_init()
-> > comes first even kvm_arm_init() and ffa_init() are on device_initcall?
-> >
->
-> While they are both on device_initcall, the only difference is that
-> kvm_arm_init is arch code which appears before the driver/ code in the
-> linker. That's why Marc said it is not a solid construct to rely on
-> this.
-
-Then I think the origin one -- just check kvm_arm_initialised
-is enough to check in ffa_driver. since I misunderstood TSC bit
-is setup after finalised_pkvm().
-
-or Am I missing something?
-
-Thanks.
-
---
-Sincerely,
-Yeoreum Yun
+Is that the only remaining problem you see in the binding right now?
 
