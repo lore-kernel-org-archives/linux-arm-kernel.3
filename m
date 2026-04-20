@@ -4,56 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D94DFF588C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:54:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E1BCF588C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:54:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TSolDDpiDBp7rWjrXiBrHsvEmvUxxGJrGij6jJWU4VQ=; b=FwdCXSh34WviW+TGTQEyXEcSOX
-	ka1wvsxd5TnysYtVh8fKW+wQBoKRhK7e7wzKoUEWB3i4eHb30TW8wmBiL3W+/R7fwcwLgSXmRLyYI
-	BUBdUX43yU1MoB3vmbipzLlFbWnZxf+lj8r8wJPN/F3bUR1m+Of3xJsRb/5sC82cKlc1/he77h3ng
-	E/Z3G76WiNhRsvw4CxQeHRyqAxeLZsIFa5UmBLsWu3JJHC9bhdR9Ksacu2bKz46ztM50hYCGWp2fR
-	ug9xJrBWRSCVadukoeqPE8QwdDZyHxTUjp2BHJB6ofAVG6eCxMWWFzsZ6B1et/fXoULR/u6vJqGNE
-	IjWcdaLg==;
+	bh=r4cDyWh6L3sYfjSwYgHFLsyc+ptcJlt/BspUsjzlPPc=; b=Qs2rZ4A/nLh++5LZ0uO8WoY7IL
+	c3YR87rIuZSGE5QE5u2lbe0CBdn1Z5h/v+ibCwUTS/vD1g+VSVLoLsQlljrpbQ6uiVr6qZq5XBj3E
+	3E12jeSSzJ1Lg88gUY2XbJT3sHTqDJHm03Ld95mbvSHsCMjnX2Eo+Z0Mr+NgJDxc75EvmLiccaLRz
+	cMkt65s/0H+UnRiuLtfCFMaDZ6PS1pCXoY7O513/w+oKbGdRgfwHE+QakdazLY4SIR7fDpjofXip1
+	pW735iJPsSU6PXfN6MsDhH2zpmdzbrbTu1oI+3M5HN4qhj637KBOfc8Oe2uS1dv7LkINlzh9DAL4q
+	3JtuIAhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEp4e-000000076MU-1ZkZ;
-	Mon, 20 Apr 2026 13:54:04 +0000
+	id 1wEp4h-000000076Qf-2JHM;
+	Mon, 20 Apr 2026 13:54:07 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEp4Y-000000076FN-2tPP;
-	Mon, 20 Apr 2026 13:54:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1776693228; cv=none; 
+	id 1wEp4d-000000076K9-1ClS;
+	Mon, 20 Apr 2026 13:54:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1776693232; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=j+aOhXs4DVBwpxsZJ16wnb8P+Ej+na5XG0cov4RxMfY9vpGwPemjRyoT77CuYHMjKPTlEtaeBplP+G6Uw0J0qPTi48/5dfZ8PStwY9FFjodK6f9FyOjy/1qZIE4YShsfTJEKuHaeTnEWce3VsYfpRSgoZAf7Wd0vhV8o/rTHGdo=
+	b=ZmRGHhCbVVuntIQN7Lwlw8IHc47PIo9QgzlRXcIOHN1ifbnllB7EL07s2o/T+lVGBVlXcHXQv0vGu0swmOsfkpxB3FzHHc4vyrjEUlWibDWgRNvB2UhV56CcfIKKFLVdMaIiMAlXMG2JID2jBkOgwCshHTFgr1GqpEMTB4Un8ac=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1776693228; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=TSolDDpiDBp7rWjrXiBrHsvEmvUxxGJrGij6jJWU4VQ=; 
-	b=BpNkWjeou5e0zBbgKhgmRj8/GxMbx1pH/9uOxnoWcWa5MEHMrlevCxurSPHT/9AIPR5fxUxkCOKD0TYy/h56deoAfOfnMFf5oHKVQOQNnE9ti04qeMGmexSFH7m7NFQzD4UAs0byKegGQZSQ1dSDI0a0fg/mSObWY8nHtkB+2HY=
+	t=1776693232; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=r4cDyWh6L3sYfjSwYgHFLsyc+ptcJlt/BspUsjzlPPc=; 
+	b=a5NFLqCLaZt8JyFsHCyRJC0Nvrkj1dfRcg3lsoWEmjcSAvBbrd0Afd68nf7Oklpv2jc+HA2GwVgrIgubqW1nzbj3RfwtP5KOQwFylFIpfinJQ4rhqUdiXW0q8V7SHgPjVCBMQOxOqz8sizHxCpap0LgY0MpJfqAX1gByczcDAb8=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1776693228;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1776693232;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=TSolDDpiDBp7rWjrXiBrHsvEmvUxxGJrGij6jJWU4VQ=;
-	b=eAB4XvI29uF/Nc/BCc2+dtMZ2ztvb6s5frR5Jov1nHT7P1ruF8spmhitsxyEETCP
-	A9qgzN9T03GRUTJNEy02EmtfT33qKjWFfsxLC8mHh6Rwi3kd4feGD3xLbsHNazceCs7
-	zY4N4jFn/h6xbSpSByBvMFFckRBjDC06TfBnLdEg=
-Received: by mx.zohomail.com with SMTPS id 1776693225862706.463009848236;
-	Mon, 20 Apr 2026 06:53:45 -0700 (PDT)
+	bh=r4cDyWh6L3sYfjSwYgHFLsyc+ptcJlt/BspUsjzlPPc=;
+	b=diKJZQKQ2PpHUhWXUMICWt4DiEYfNOX1onWvh6SxNmsKKVeFvouD/3vXnnmRsw3e
+	3jTszb8usASmgBb4s4ThmT1nu5QUi+b8JTlpKdLnPeMKDnwR8VW0jDONwK5qnGoydgC
+	NgxXJXuzOWAx5c8RyovPTJB6YvHfQB2Eb/KhLuOY=
+Received: by mx.zohomail.com with SMTPS id 1776693229607341.23138685458855;
+	Mon, 20 Apr 2026 06:53:49 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 20 Apr 2026 15:52:42 +0200
-Subject: [PATCH v5 5/6] arm64: dts: rockchip: add PWM nodes to RK3576 SoC
- dtsi
+Date: Mon, 20 Apr 2026 15:52:43 +0200
+Subject: [PATCH v5 6/6] arm64: dts: rockchip: Add cooling fan to ROCK 4D
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260420-rk3576-pwm-v5-5-ae7cfbbe5427@collabora.com>
+Message-Id: <20260420-rk3576-pwm-v5-6-ae7cfbbe5427@collabora.com>
 References: <20260420-rk3576-pwm-v5-0-ae7cfbbe5427@collabora.com>
 In-Reply-To: <20260420-rk3576-pwm-v5-0-ae7cfbbe5427@collabora.com>
 To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
@@ -69,9 +68,8 @@ Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
  linux-iio@vger.kernel.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_065358_789768_FC1524D9 
-X-CRM114-Status: UNSURE (   8.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260420_065403_421471_33DDEE2D 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,241 +84,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RK3576 SoC features three distinct PWM controllers, with variable
-numbers of channels. Add each channel as a separate node to the SoC's
-device tree, as they don't really overlap in register ranges.
+The ROCK 4D has a header to connect a small cooling fan. This fan is
+driven by one of the SoC's PWM outputs driving a transistor, that in
+turn controls the fan's power.
+
+With the introduction of PWM support, add a description of this cooling
+fan, as well as the additional trips and cooling-maps for it.
 
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 208 +++++++++++++++++++++++++++++++
- 1 file changed, 208 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts | 50 +++++++++++++++++++++++++
+ 1 file changed, 50 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index e12a2a0cfb89..55d6b103c329 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -1032,6 +1032,32 @@ uart1: serial@27310000 {
- 			status = "disabled";
- 		};
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
+index 899a84b1fbf9..2d5ede010ad0 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
+@@ -45,6 +45,14 @@ rfkill {
+ 		shutdown-gpios = <&gpio2 RK_PD1 GPIO_ACTIVE_HIGH>;
+ 	};
  
-+		pwm0_2ch_0: pwm@27330000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x27330000 0x0 0x1000>;
-+			clocks = <&cru CLK_PMU1PWM>, <&cru PCLK_PMU1PWM>,
-+				 <&cru CLK_PMU1PWM_OSC>, <&cru CLK_PMU1PWM_RC>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 100 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm0m0_ch0>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
++	fan: pwm-fan {
++		compatible = "pwm-fan";
++		cooling-levels = <0 180 205 230 255>;
++		fan-supply = <&vcc_5v0_sys>;
++		pwms = <&pwm2_8ch_5 0 60000 0>;
++		#cooling-cells = <2>;
++	};
 +
-+		pwm0_2ch_1: pwm@27331000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x27331000 0x0 0x1000>;
-+			clocks = <&cru CLK_PMU1PWM>, <&cru PCLK_PMU1PWM>,
-+				 <&cru CLK_PMU1PWM_OSC>, <&cru CLK_PMU1PWM_RC>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 101 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm0m0_ch1>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
- 		pmu: power-management@27380000 {
- 			compatible = "rockchip,rk3576-pmu", "syscon", "simple-mfd";
- 			reg = <0x0 0x27380000 0x0 0x800>;
-@@ -2630,6 +2656,188 @@ uart9: serial@2adc0000 {
- 			status = "disabled";
- 		};
+ 	leds: leds {
+ 		compatible = "gpio-leds";
+ 		pinctrl-names = "default";
+@@ -711,6 +719,36 @@ rgmii_phy0: ethernet-phy@1 {
+ 	};
+ };
  
-+		pwm1_6ch_0: pwm@2add0000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2add0000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>,
-+				 <&cru CLK_OSC_PWM1>, <&cru CLK_RC_PWM1>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm1m0_ch0>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
++&package_thermal {
++	polling-delay = <100>;
++
++	trips {
++		package_fan0: package-fan0 {
++			temperature = <50000>;
++			hysteresis = <2000>;
++			type = "active";
 +		};
 +
-+		pwm1_6ch_1: pwm@2add1000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2add1000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>,
-+				 <&cru CLK_OSC_PWM1>, <&cru CLK_RC_PWM1>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 103 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm1m0_ch1>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
++		package_fan1: package-fan1 {
++			temperature = <60000>;
++			hysteresis = <2000>;
++			type = "active";
++		};
++	};
++
++	cooling-maps {
++		map1 {
++			trip = <&package_fan0>;
++			cooling-device = <&fan THERMAL_NO_LIMIT 1>;
 +		};
 +
-+		pwm1_6ch_2: pwm@2add2000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2add2000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>,
-+				 <&cru CLK_OSC_PWM1>, <&cru CLK_RC_PWM1>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 104 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm1m0_ch2>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
++		map2 {
++			trip = <&package_fan1>;
++			cooling-device = <&fan 2 THERMAL_NO_LIMIT>;
 +		};
++	};
++};
 +
-+		pwm1_6ch_3: pwm@2add3000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2add3000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>,
-+				 <&cru CLK_OSC_PWM1>, <&cru CLK_RC_PWM1>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 105 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm1m0_ch3>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
+ &pcie0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pcie_reset>;
+@@ -720,6 +758,13 @@ &pcie0 {
+ };
+ 
+ &pinctrl {
++	fan {
++		fan_pwm: fan-pwm {
++			rockchip,pins =
++				<4 RK_PC5 14 &pcfg_pull_down_drv_level_5>;
 +		};
++	};
 +
-+		pwm1_6ch_4: pwm@2add4000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2add4000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>,
-+				 <&cru CLK_OSC_PWM1>, <&cru CLK_RC_PWM1>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 106 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm1m0_ch4>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
+ 	hym8563 {
+ 		hym8563_int: hym8563-int {
+ 			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
+@@ -770,6 +815,11 @@ wifi_en_h: wifi-en-h {
+ 	};
+ };
+ 
++&pwm2_8ch_5 {
++	pinctrl-0 = <&fan_pwm>;
++	status = "okay";
++};
 +
-+		pwm1_6ch_5: pwm@2add5000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2add5000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>,
-+				 <&cru CLK_OSC_PWM1>, <&cru CLK_RC_PWM1>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 107 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm1m0_ch5>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm2_8ch_0: pwm@2ade0000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2ade0000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
-+				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 108 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm2m0_ch0>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm2_8ch_1: pwm@2ade1000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2ade1000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
-+				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm2m0_ch1>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm2_8ch_2: pwm@2ade2000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2ade2000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
-+				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm2m0_ch2>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm2_8ch_3: pwm@2ade3000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2ade3000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
-+				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 111 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm2m0_ch3>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm2_8ch_4: pwm@2ade4000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2ade4000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
-+				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 112 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm2m0_ch4>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm2_8ch_5: pwm@2ade5000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2ade5000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
-+				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm2m0_ch5>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm2_8ch_6: pwm@2ade6000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2ade6000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
-+				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 114 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm2m0_ch6>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
-+		pwm2_8ch_7: pwm@2ade7000 {
-+			compatible = "rockchip,rk3576-pwm";
-+			reg = <0x0 0x2ade7000 0x0 0x1000>;
-+			clocks = <&cru CLK_PWM2>, <&cru PCLK_PWM2>,
-+				 <&cru CLK_OSC_PWM2>, <&cru CLK_RC_PWM2>;
-+			clock-names = "pwm", "pclk", "osc", "rc";
-+			interrupts = <GIC_SPI 115 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pwm2m0_ch7>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
- 		saradc: adc@2ae00000 {
- 			compatible = "rockchip,rk3576-saradc", "rockchip,rk3588-saradc";
- 			reg = <0x0 0x2ae00000 0x0 0x10000>;
+ &sai6 {
+ 	status = "okay";
+ };
 
 -- 
 2.53.0
