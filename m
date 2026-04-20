@@ -4,135 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FEBDF557F0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 09:16:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA88F557EB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 09:17:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0VacLWHx6mffMprulvbIkPw32rMmqdQ4bA7Snxbp9Tk=; b=MczDuWA4RvUWdeuh025EbsGjyY
-	FK4HAyzla9FFYKIuqpxt6I6DhGvLyvvNQsIxjBLjPXsq7HdHRohO5RTeGDm627P2KshOFHV6C5Sb1
-	22TfXa/d5F+XHW+tI7Bqa7wj2lJjLC0efhd1gkhRoxz3KJ8uyc1SsL5XQrHWFm9pvlWUrCFtmpvAM
-	F4VAd+5I8Y5jPLZ2WF4n5sLHC5Ci75aufk1OzI/2IsctGwDKsnW3nDY67osM1bG+W6hNq9B/umZoe
-	glKzYos7MAG3iaDSYbFCFncfOTrM//HigrzropPUQ/xnDQDcen0yGZNqw382CXbF/R53iXvJdRkiZ
-	hybEdX/A==;
+	bh=MLGakkueiuUglii7S0JXozneE+o1ICSEReN85kCQkDU=; b=MKTmHPoF1lqDMtAsKqEl0lLbMs
+	ArJuBK9p5OAakZmB4Ihf/OaM3R00gTuKT9mPBL6jy/i7hfmRArmToaG0mKjBkFzG4XtJVNZx0UIdz
+	grk7Z/6Y0b+dS6Zr4nZX3CnM2mXtflDPcCwnViB37y1zBbNPfkLhkJAwI86SrMeRaIhIATlvA4NEX
+	7CVc3HTTMJguNMkddUaEd9tzi2MUjOIJmQXMx7zpgdAVxJS7PtMpR+a7+VdVr2vRBfyj7nxxeAvIQ
+	BSGNMZ3c1e+fAAb4ij4XH9I2OT80fBR720de4v5xp1tv4z80cb6MT05JDt11NkAf3I9wy0Yn7QQdV
+	UgyWitLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEkjf-00000006f46-0QYb;
-	Mon, 20 Apr 2026 09:16:07 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wEkkd-00000006fBA-3xpg;
+	Mon, 20 Apr 2026 09:17:07 +0000
+Received: from courrier.aliel.fr ([2a01:4f9:c011:1c83::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEkja-00000006f3Q-215r
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 09:16:03 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63K91QMi2281651
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 09:16:01 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	0VacLWHx6mffMprulvbIkPw32rMmqdQ4bA7Snxbp9Tk=; b=WkjoQzg2kqWzA18F
-	L6HAtHTpaO2CnNqgdbGotdo7MjqU+UkURHw3HDNRTwADiluxEpeXii9D7xNeszLM
-	IEs6FMzoc53jEmRJZb61ZGOrBTjjGblKsDbP+0GZSeuYmyp1cv9gGG+b2VmkwKIC
-	Xt3VN202SI9nQeW6M3IN5HDGtPt5GphiS03suIm3kQ1pP2Mj8UDOGg3N1uiFHlM/
-	emwo5miPIDLBj/8wBqZUZWwrXHyhocldi2ifrxF8MJddhIbEFhrVFHWcuoy09xi7
-	n9YX7074jVz5JC2mrqHrDRkznWVoS/+UKzhd99GvOTdW8jE1MeqYeXSmt4XAzDVd
-	vUMhpA==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dnh598282-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 09:16:00 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-50d63962d83so25707461cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 02:16:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1776676560; x=1777281360; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0VacLWHx6mffMprulvbIkPw32rMmqdQ4bA7Snxbp9Tk=;
-        b=dHhXHALs8ZFnIontJUtWWUfpWC9GKC8jWa1jHYjIiLKegDni7xKjlCNnDLOZA7F2pX
-         pPk0Dz8E1ubChISzsVJf3uDGBhQn/L/6vfYPoA0MUtP/bWx007kp3H8+TpjYywdL78AP
-         c1WZoivTTctuRWjOg/zrTqHb62WOz1opJmQnUXtmyIimM9JIQJ8Wd8IC3qS3qBJRTxyi
-         ecPEfcL7B5y4C2kugryQ53etb9SpCiplCqmp/96XtrA2kXhZd4nCC6Jjqv4Q444ucWQe
-         M6NX2xfPyOUPAAp2nPvokhrj6picRHpCboy+Ae6HjCc4rblAj3gIL0WNKZIkLD/MLFWd
-         bB5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776676560; x=1777281360;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=0VacLWHx6mffMprulvbIkPw32rMmqdQ4bA7Snxbp9Tk=;
-        b=Us6wmQakRmHtLX/xuM9X8X6WjMw+GRI9pFXg8WjUqdlxEm1pfkDNTHGZvfzI2kQ6a2
-         8UOdseioNmC9TYtCQjpxaAIjKtpFsEm80mWTByuln6E5v5H5Nyvg02qncrNhoXOqVCp5
-         IhFskLij74P0kAwLiu+AS/JhnrUWIxdZK+kFpVL7EmNbQWVwago93xUkR+2Jc2n9vkqg
-         4Sqyc/UiQQADATnGLtCnSY9+1Wzn7be2sFj2ogL8oLU5kFM9kcZ0krBCRtSY3l1K7AMV
-         8ZVW3JeLhvw/+0oA0no8v6ARfte8nKefPGMYPVEOCW0kQNJHIOJKm7XT8el1burkdBQW
-         kqcQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8xuPwQX/3ioCHzbPHEglEOevvYdP4GXdiJp36AF3cXCkkXhZzF/s0Qn++nzNGpmt+8ZeVX///StrzIuJiKPyhp@lists.infradead.org
-X-Gm-Message-State: AOJu0YycUuMh9ruwu4y86BogBJcg/Ws3IMBpZGzzhkq4ZaDpRwIMfAmv
-	PDlIFo7yIYDY+8HMyGvoizDZbW05BLel6IE/L0umBSt08p2biZJUM3+dHjAT8Qg7FQLAAzJH27l
-	I/N1L42D3gRXjn6m7Vo7o54iBm0xYTxLkmHDS8UoxUjiufqnu4LsF3iRul08t3BrDbHcQO37ZF3
-	omPA==
-X-Gm-Gg: AeBDieueFSZXZVuCytQv2cLzYkql1+5xKORfAPfoHRPB/DFRVC6ctDIrHaZ9wQvGBJ3
-	kdlBHGrHaJ7dUByTDu749JA4esanypCoA5Z8s41gNf15RCHgW0hDEtlCwgc+vSS2IVIwz/IW8dp
-	MWxNZofj3GfQ60fjCmNcR9xgVi2WCngAMC93BQQ+lKFuSrJFb0mUcTQFxuTyXRar0yMEA9A1LSr
-	yKqLsa7yCMKfOgpT0N0iALK4Kc3gZGOH4YcD/WathI5Cg0cxUUXPSe/0Un/klillkUIbT0RG3Q7
-	B9xMJvbDzcCBzQ0POePz8PqbtqqCOsk6/3t0kvxI1TOqg4tnaerb7MLswaOaa2+4/e3/HlbG1eG
-	JOBfgO0c7Qfz3q9AUmtow0f6NT35MDSMYgKeyAo10wQBcihWt9Pk5G8RyvrE=
-X-Received: by 2002:a05:622a:1305:b0:50d:8db0:7abb with SMTP id d75a77b69052e-50e36ecfca9mr193000841cf.42.1776676560343;
-        Mon, 20 Apr 2026 02:16:00 -0700 (PDT)
-X-Received: by 2002:a05:622a:1305:b0:50d:8db0:7abb with SMTP id d75a77b69052e-50e36ecfca9mr193000561cf.42.1776676559914;
-        Mon, 20 Apr 2026 02:15:59 -0700 (PDT)
-Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:776:c20f:3f2a:49a7])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43fe4c221cdsm27457471f8f.0.2026.04.20.02.15.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Apr 2026 02:15:59 -0700 (PDT)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-To: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
-        Joel Stanley <joel@jms.id.au>,
-        Andrew Jeffery <andrew@codeconstruct.com.au>,
-        Billy Tsai <billy_tsai@aspeedtech.com>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-        linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] gpio: aspeed: fix AST2700 debounce selector bit definitions
-Date: Mon, 20 Apr 2026 11:15:57 +0200
-Message-ID: <177667655421.14099.13456882135654197877.b4-ty@oss.qualcomm.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260415-gpio-fix-v1-1-b08a89b31e6f@aspeedtech.com>
-References: <20260415-gpio-fix-v1-1-b08a89b31e6f@aspeedtech.com>
+	id 1wEkka-00000006f9m-1tiO;
+	Mon, 20 Apr 2026 09:17:06 +0000
+Message-ID: <bb5ebce0-a59a-420c-a860-3cdb6b027372@aliel.fr>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1776676617;
+	bh=dl5DcX6axaQB08bVzkfm0qYlVYMXHjs5k1QLohyagTg=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To;
+	b=TE8Fjf2KOVteTx9eiWJnuAJfefHqh30xeZHbwNfBd50KHHgITZ3wfIzcGFIlBB34B
+	 KjKIiwxjFIPuGPWRHxggr5RrF1GbszM69AIijwMJ/j5TIzW+PMZlnvsHwy2Z4LI5kU
+	 lqH9tkKhRdCzf2znN0ctIx6VB6ql9/MhiJCkCZJU=
+Date: Mon, 20 Apr 2026 11:16:56 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird Beta
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+Subject: Re: [PATCH v2 4/4] arm64: dts: amlogic: t7: Add clk measure support
+To: Jian Hu <jian.hu@amlogic.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+References: <20260415-clkmsr_a1_t7-v2-0-02b6314427e6@amlogic.com>
+ <20260415-clkmsr_a1_t7-v2-4-02b6314427e6@amlogic.com>
+ <ae61c52d-814c-40fa-b02a-833377d840a8@aliel.fr>
+ <64cde9f6-4f28-4ba7-8362-aac28887ff22@amlogic.com>
+Content-Language: en-US
+In-Reply-To: <64cde9f6-4f28-4ba7-8362-aac28887ff22@amlogic.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: XNnL2lil08JYCacouXiu7SrBZuNH31ng
-X-Proofpoint-GUID: XNnL2lil08JYCacouXiu7SrBZuNH31ng
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIwMDA4OSBTYWx0ZWRfX/Qs0p6lxbgGS
- a7cE4dXiPwzacD14SGA5Qlu6GkERlXub4mrFLm+kbmum/92GFxxi3g+8UgU3OHqCbI9Qkj7zfyX
- ODVDmBLzsvFX56rxnIa6zFaEzyFcgWWQwEFFyRb+xkhzlO6/7apf7B50yDtQSyrnaQ/TzzlmP4x
- PBQ6fu1sTA3D1rQMS/N1M5OsSZfITv5Bm9YmGLRoKuI/wQoFFhREsty4VCwFnjyCalA/c82f+k/
- XfW0ETGWn0iHQgGZ08N76Rc2MGhDRFLnZqmimKScgBUWiCXlm7VCzW906g/FpHwtF0Rwu+ovvJv
- VVOAAQNycDNyCWfP4olAvreTQzJbhEAHmGznbOpm38ChxyBzuRa/Qi+LQhW4vtyppgm95fUVdLG
- c06NY281HbqbSoNAezs550RrlsSy0fHDt62CN4ZbH28WX+8dab5j1HPBp+jhPKQkLq3J/BlkpPf
- YG8cbZX5q8erOzyYlCg==
-X-Authority-Analysis: v=2.4 cv=HNrz0Itv c=1 sm=1 tr=0 ts=69e5eed0 cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=aUlvD_2W9BlSwx0EIeAA:9 a=QEXdDO2ut3YA:10
- a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-20_01,2026-04-17_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 adultscore=0 spamscore=0 phishscore=0
- impostorscore=0 malwarescore=0 bulkscore=0 lowpriorityscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604200089
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_021602_703719_3600A7E8 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20260420_021704_933940_0F8BDA0B 
+X-CRM114-Status: GOOD (  15.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,24 +72,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Jian,
 
-On Wed, 15 Apr 2026 18:24:42 +0800, Billy Tsai wrote:
-> The AST2700 datasheet defines reg_debounce_sel1 as the low bit and
-> reg_debounce_sel2 as the high bit. The current driver uses the AST2600
-> mapping instead, where sel1 is the high bit and sel2 is the low bit.
+On 4/20/26 5:25 AM, Jian Hu wrote:
+> Hi Ronald,
 > 
-> As a result, the debounce selector bits are programmed in reverse on
-> AST2700. Swap the G7 sel1/sel2 bit definitions so the driver matches the
-> hardware definition.
 > 
-> [...]
+> Thanks for your review.
+> 
+> On 4/17/2026 5:48 PM, Ronald Claveau wrote:
+>> [ EXTERNAL EMAIL ]
+>>
+>> Hello Jian,
+>>
+>> On 4/15/26 10:33 AM, Jian Hu via B4 Relay wrote:
+>>> From: Jian Hu <jian.hu@amlogic.com>
+>>>
+>>> Add the clock measure device to the T7 SoC family.
+>>>
+>>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+>>> ---
+>>>   arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 5 +++++
+>>>   1 file changed, 5 insertions(+)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/
+>>> arm64/boot/dts/amlogic/amlogic-t7.dtsi
+>>> index 7fe72c94ed62..cec2ea74850d 100644
+>>> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+>>> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+>>> @@ -701,6 +701,11 @@ pwm_ao_cd: pwm@60000 {
+>>>                                status = "disabled";
+>>>                        };
+>>>
+>>> +                     clock-measurer@48000 {
+>>> +                             compatible = "amlogic,t7-clk-measure";
+>>> +                             reg = <0x0 0x48000 0x0 0x1c>;
+>>> +                     };
+>>> +
+>> Can you please order by reg, it should be between pwm_ao_gh and pwm_ab.
+>> Thank you.
+> 
+> 
+> According to the "Order of Nodes" chapter in Documentation/devicetree/
+> bindings/dts-coding-style.rst,
+> 
+> nodes of the same type should be grouped together, and this takes higher
+> priority.
+> 
+> So I have placed the clock-measure node after all PWM nodes to avoid
+> splitting the PWM group.
+> 
 
-Applied, thanks!
+Thanks for your answer.
 
-[1/1] gpio: aspeed: fix AST2700 debounce selector bit definitions
-      https://git.kernel.org/brgl/c/e31eee4a961077d60ef2362507240c6743c1c2ae
+The documentation says nodes "shall be ordered by unit address" as the
+primary rule.
+The grouping by type is described as an alternative ("Alternatively"),
+applicable to some subarchitectures, not as a rule that takes higher
+priority.
 
-Best regards,
+So to me, I understand it as, unless your subarchitecture has an
+established convention of grouping PWM nodes together, ordering by reg
+remains the correct default here. And, in my opinion, sticking to a
+single sorting method improves readability.
+
+
 -- 
-Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Best regards,
+Ronald
 
