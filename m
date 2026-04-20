@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F70FF588F7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 16:35:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45C21F588FB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 16:35:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=e/Du74EJttRYzocAt0aYwsBrBN+xYnBNbkIiSv+PCto=; b=N8tsxzIyEDXttdfHKI7+bzHhn2
-	pjR55xpX8+/vYlCc6W4Xd83IUYbAYGs0/S20Y2/amcZFm1XNCZtBvn96T5mYarhuKnaF2AFo/tqEf
-	KVUp1AmRr35ehY1qsMq6HeP6wCNxuNwWq2t9RFibGzHADLrTaTjGvibKWCxD03TEtx+X48Rr/fpCF
-	LVeleWPO6WAV8ETBCNI0IKTUZWEw/b7ShPiYEHCD+tM82rp+MfuH4kRAx3gJka4hWtltFkOl97Jdu
-	EINvmEawVn9jq1gYNGyta8CdRTh8E0wFwMwiv2Bw5Mq2Rf4HRplG4Z5IkcIQsm5qhnHmhQnaAqFfR
-	+1clvfYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NclW3kFk7wt5bakK0H6aQPZ4oFLEvPWBkFXhClWEAw4=; b=c03GzSjZReMC4XGLu0pRHU+WiP
+	VdUW713uFueBt7sZoUrG71dB8aNJKbwaFqr6vpMz9oVmHIij1t3e4zvMXF/MPeyduaytksl0fHBsW
+	b+JWqfBuadKkF44RWZaTM8M0d/BKPvMPP3YCpthy5V7JzjFYroWqdQA8wpJaU4b9h+92XubSkwWkR
+	N81vXq6APvBKinlPTzMOXa8BQJAoulQljkugcit2pRamjB3Vc4mgWNvoM5wWzUpuZxc++0M4z3cn1
+	N6UTbF09H5Pr2Wo+SX2apzBYDLGDRnagHyr2bmaTpCQ9H5g5CpSsY6bFXQfASQ2eeZxf8+W2CCmgF
+	uJQAWTjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEraR-00000007RHd-3Bgp;
-	Mon, 20 Apr 2026 16:35:03 +0000
+	id 1wErag-00000007RKm-1j2Q;
+	Mon, 20 Apr 2026 16:35:18 +0000
 Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEraP-00000007RGl-3X3r;
-	Mon, 20 Apr 2026 16:35:03 +0000
+	id 1wErae-00000007RKB-3fMS;
+	Mon, 20 Apr 2026 16:35:17 +0000
 Received: from local
 	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
 	 (Exim 4.99)
 	(envelope-from <daniel@makrotopia.org>)
-	id 1wEraC-000000001Bl-1o7A;
-	Mon, 20 Apr 2026 16:34:48 +0000
-Date: Mon, 20 Apr 2026 17:34:45 +0100
+	id 1wEraa-000000001CJ-002i;
+	Mon, 20 Apr 2026 16:35:12 +0000
+Date: Mon, 20 Apr 2026 17:35:09 +0100
 From: Daniel Golle <daniel@makrotopia.org>
 To: Olivia Mackall <olivia@selenic.com>,
 	Herbert Xu <herbert@gondor.apana.org.au>,
@@ -46,16 +46,16 @@ To: Olivia Mackall <olivia@selenic.com>,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v4 1/3] dt-bindings: rng: mtk-rng: fix style problems in
- example
-Message-ID: <912fe579eccf577f3064b69d6c945e2c9087cab8.1776702734.git.daniel@makrotopia.org>
+Subject: [PATCH v4 2/3] dt-bindings: rng: mtk-rng: add SMC-based TRNG variants
+Message-ID: <63aa9d62fef13e0991c17b16a836d8b5667aca96.1776702734.git.daniel@makrotopia.org>
+References: <912fe579eccf577f3064b69d6c945e2c9087cab8.1776702734.git.daniel@makrotopia.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <912fe579eccf577f3064b69d6c945e2c9087cab8.1776702734.git.daniel@makrotopia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_093501_886671_B9AB29F8 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260420_093516_916856_32589D4B 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,36 +70,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use 4 spaces for each level indentation, remove unused label, and add
-missing empty line between header include and body.
+Add compatible strings for MediaTek SoCs where the hardware random number
+generator is accessed via a vendor-defined Secure Monitor Call (SMC)
+rather than direct MMIO register access:
+
+  - mediatek,mt7981-rng
+  - mediatek,mt7987-rng
+  - mediatek,mt7988-rng
+
+These variants require no reg, clocks, or clock-names properties since
+the RNG hardware is managed by ARM Trusted Firmware-A.
+
+Relax the $nodename pattern to also allow 'rng' in addition to the
+existing 'rng@...' pattern.
+
+Add a second example showing the minimal SMC variant binding.
 
 Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 ---
-v4: new patch
+v4:
+ * fix indentation in example
 
- Documentation/devicetree/bindings/rng/mtk-rng.yaml | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+v3:
+ * drop not: in compatible conditional
+ * add reg/clocks/clock-names: false for mt7981-rng
+ * add else: requiring reg/clocks/clock-names for others
+
+v2: express compatibilities with fallback
+
+ .../devicetree/bindings/rng/mtk-rng.yaml      | 32 ++++++++++++++++---
+ 1 file changed, 28 insertions(+), 4 deletions(-)
 
 diff --git a/Documentation/devicetree/bindings/rng/mtk-rng.yaml b/Documentation/devicetree/bindings/rng/mtk-rng.yaml
-index 7e8dc62e5d3a6..8f2f4c32a0cfc 100644
+index 8f2f4c32a0cfc..38e67861b88fa 100644
 --- a/Documentation/devicetree/bindings/rng/mtk-rng.yaml
 +++ b/Documentation/devicetree/bindings/rng/mtk-rng.yaml
-@@ -47,9 +47,10 @@ additionalProperties: false
- examples:
-   - |
-     #include <dt-bindings/clock/mt2701-clk.h>
--    rng: rng@1020f000 {
--            compatible = "mediatek,mt7623-rng";
--            reg = <0x1020f000 0x1000>;
--            clocks = <&infracfg CLK_INFRA_TRNG>;
--            clock-names = "rng";
+@@ -11,12 +11,13 @@ maintainers:
+ 
+ properties:
+   $nodename:
+-    pattern: "^rng@[0-9a-f]+$"
++    pattern: "^rng(@[0-9a-f]+)?$"
+ 
+   compatible:
+     oneOf:
+       - enum:
+           - mediatek,mt7623-rng
++          - mediatek,mt7981-rng
+       - items:
+           - enum:
+               - mediatek,mt7622-rng
+@@ -25,6 +26,11 @@ properties:
+               - mediatek,mt8365-rng
+               - mediatek,mt8516-rng
+           - const: mediatek,mt7623-rng
++      - items:
++          - enum:
++              - mediatek,mt7987-rng
++              - mediatek,mt7988-rng
++          - const: mediatek,mt7981-rng
+ 
+   reg:
+     maxItems: 1
+@@ -38,9 +44,23 @@ properties:
+ 
+ required:
+   - compatible
+-  - reg
+-  - clocks
+-  - clock-names
 +
-+    rng@1020f000 {
-+        compatible = "mediatek,mt7623-rng";
-+        reg = <0x1020f000 0x1000>;
-+        clocks = <&infracfg CLK_INFRA_TRNG>;
-+        clock-names = "rng";
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: mediatek,mt7981-rng
++    then:
++      properties:
++        reg: false
++        clocks: false
++        clock-names: false
++    else:
++      required:
++        - reg
++        - clocks
++        - clock-names
+ 
+ additionalProperties: false
+ 
+@@ -54,3 +74,7 @@ examples:
+         clocks = <&infracfg CLK_INFRA_TRNG>;
+         clock-names = "rng";
      };
++  - |
++    rng {
++        compatible = "mediatek,mt7981-rng";
++    };
 -- 
 2.53.0
 
