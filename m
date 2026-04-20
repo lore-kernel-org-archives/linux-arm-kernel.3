@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD847F588C3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:31:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B770F588C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:32:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JqX0Y3tTDqa6f72ZMweZ1pzSOK4bmLqsI3jhP2G9k1I=; b=iujV/07s5T3JlZI9d0vM8/k+vo
-	OLwlgUESCRfY3jlWUXlGFsxGR1v2bt6J43sjlfcy/6Sc6vh4t4MMmfUMfA9XRrtFpxWoa/UnyGb9Y
-	WWkitO0g44oBm8Nxra3yvPmYF2fHYkwft8EHRXUBqdbHhnQE8Qnk5ixEwFxPVcG9XLxdSeimTel3Y
-	C8emyr1aVWcxjE01KLnh5qvgfvn2lerRPZwwdUlVgbnRZn/wIh7OzQCZEzx/wBLXQ4Fbiewg6DN3w
-	2+iTSuamGi6rfiW37tZSNyVYFwt7OMxNfOCfdpe/KFr+jblfB1o3P7wXaR12gnwNM0f2YgaoqUbfA
-	Td5eLeYA==;
+	bh=S8+m3mKsAbgnERbsc1mYS35qk7nuKf9yDbLSpVIlcCA=; b=EraZvUQKBXUvM+1hcyaho6zMKJ
+	PV9JhZRHjT4IfUvfNDJlkpIBCkLitI44jzucIiVOhEzemuTmMKQ99+LUri5Jwgm59UkpDnctOuqtE
+	9ZK/I9rA8k+3yO5PMo5tjrwvozAvB5rkWPEI33xuGuQ3MLOyb3L1/DriikpjP7Zj3oRutQBDS81kI
+	Gx9ai+q5/H6jNuO8cAq8IxHWZO66BOXlGHTVS3S6X7gxpNu9+QSSmg8xW6HUyUyIjxJnbgYjtyY2k
+	n7Fe3P+RmN16Cre4zwSvbiOGsFNHef6jjjH0OJI6SOts76R3BBXwS3BOp8iw0LAv10rXPCuNsTyTu
+	mgogVMWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEoj5-000000072rh-3pLK;
-	Mon, 20 Apr 2026 13:31:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wEojI-000000072xb-13zA;
+	Mon, 20 Apr 2026 13:32:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEoj3-000000072q4-0XxL
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 13:31:46 +0000
+	id 1wEojH-000000072wk-0Nvs;
+	Mon, 20 Apr 2026 13:31:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B53664361B;
-	Mon, 20 Apr 2026 13:31:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4B99C2BCB7;
-	Mon, 20 Apr 2026 13:31:42 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7489B6014C;
+	Mon, 20 Apr 2026 13:31:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77FB9C2BCB9;
+	Mon, 20 Apr 2026 13:31:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776691904;
-	bh=qp/1FPnW/xz76pRAwuxarVuaWIR6D3YOYIRucDmPU8w=;
+	s=k20201202; t=1776691918;
+	bh=ySf/LE2O06y+dCF/bB7jvsvf0tUNgkD8x1b2qFu+YiA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=X3HTAiQgIw2rsvpprbi1OiSpor6RVJmQn4EcBw6hfd24SEClCYaACOwbToP58z540
-	 J3Ci/gbMAWFUUbL56aZNZ5lz2pMzoBomqMPeT3Y2Ja1jll3hZhxCl8dBJsT9c7P0Vg
-	 4eLMRZif/s+21wFPfefzbbi8Zm8lt1QS5o8EfkA+jvEjtze7RRoxVko7NeUSlgR3Ng
-	 QPN/w1O2MwRDlySeJ5uUT6446rqT7zHI5zkrtrVGxzAlTXIWi4g/SwU4KTKWQDLj2B
-	 aA7nt2XJbECsWZcU6VCLg5I+sTtLff3lBFCUlpdFDwb0KdLywRo9BtUHDg/oJPBTXQ
-	 JZlSZNQ14KT5w==
+	b=U4JmStDpodyleQ2ZevNgGLFlAdoYfFRV+GVamMFnHM4UfCJi2yUJSuuJXrOiste1D
+	 uYuMFBikhAW/g2PQABkR44509iM8vTVbUplXWQjTB+OTJj5lyz4z5Ou+Uz1bT0n2L2
+	 bCXz7IzgsmVkgzGw/D3B1Wn7AdU0UX6/NPAOdQ4c2QZ5H7oGwFXlga6UbbzO2yl9n0
+	 G8ov+SmVOtOBbd9I0qSqGT+fGO9+hRy7wavR6P4//na+dvAP8WG0CA118cmAQjPH8i
+	 wufY7zVZScIS7uJ6QkQl5UL5Uq9Gys6+o1WxJZ+vCeZnRfUdBUqBjg/U7ySxX93asX
+	 aA8MhjFp8CIfA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Alain Volmat <alain.volmat@foss.st.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Mark Brown <broonie@kernel.org>,
+Cc: Gary Bisson <bisson.gary@gmail.com>,
+	CK Hu <ck.hu@mediatek.com>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	linux-spi@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 7.0] spi: stm32: fix rx DMA request error handling
-Date: Mon, 20 Apr 2026 09:20:55 -0400
-Message-ID: <20260420132314.1023554-261-sashal@kernel.org>
+	p.zabel@pengutronix.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	matthias.bgg@gmail.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 7.0-5.10] drm/mediatek: mtk_dsi: enable hs clock during pre-enable
+Date: Mon, 20 Apr 2026 09:21:02 -0400
+Message-ID: <20260420132314.1023554-268-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260420132314.1023554-1-sashal@kernel.org>
 References: <20260420132314.1023554-1-sashal@kernel.org>
@@ -65,11 +68,7 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 7.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_063145_232082_D003F277 
-X-CRM114-Status: GOOD (  28.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,318 +83,352 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alain Volmat <alain.volmat@foss.st.com>
+From: Gary Bisson <bisson.gary@gmail.com>
 
-[ Upstream commit 837f6691d5f39ea6453e4489dded40fb17755c60 ]
+[ Upstream commit 76255024cadbe8c40462953f8193d2d78cd3b0ac ]
 
-Avoid trying to release the RX DMA channel when an error occurs
-during RX dma_request_chan() call. Instead, jump directly to
-release the TX channel, if applicable.
+Some bridges, such as the TI SN65DSI83, require the HS clock to be
+running in order to lock its PLL during its own pre-enable function.
 
-Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-Closes: https://lore.kernel.org/linux-spi/aYXvY6NH7OlZ-OAF@stanley.mountain/T/#u
-Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
-Link: https://patch.msgid.link/20260212-spi-stm32-fix-dma-rx-release-v1-1-53a37c31626b@foss.st.com
-Signed-off-by: Mark Brown <broonie@kernel.org>
+Without this change, the bridge gives the following error:
+sn65dsi83 14-002c: failed to lock PLL, ret=-110
+sn65dsi83 14-002c: Unexpected link status 0x01
+sn65dsi83 14-002c: reset the pipe
+
+Move the necessary functions from enable to pre-enable.
+
+Signed-off-by: Gary Bisson <bisson.gary@gmail.com>
+Reviewed-by: CK Hu <ck.hu@mediatek.com>
+Tested-by: Chen-Yu Tsai <wenst@chromium.org> # Chromebooks
+Tested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Link: https://patchwork.kernel.org/project/dri-devel/patch/20260120-mtkdsi-v1-1-b0f4094f3ac3@gmail.com/
+Signed-off-by: Chun-Kuang Hu <chunkuang.hu@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-Now I have all the information needed to complete the analysis. Let me
-compile the full assessment.
+Good. Now I have all the information needed for a comprehensive
+analysis.
 
 ---
 
-## PHASE 1: COMMIT MESSAGE FORENSICS
+## Complete Analysis
 
-### Step 1.1: Subject Line
-- **Subsystem:** `spi: stm32`
-- **Action verb:** "fix"
-- **Summary:** Fix incorrect error handling when RX DMA channel request
-  fails during probe.
-- Record: [spi: stm32] [fix] [rx DMA request error handling in probe
-  path]
+### PHASE 1: COMMIT MESSAGE FORENSICS
 
-### Step 1.2: Tags
-- **Reported-by:** Dan Carpenter `<dan.carpenter@linaro.org>` — well-
-  known static analysis expert (Smatch maintainer)
-- **Closes:** `https://lore.kernel.org/linux-spi/aYXvY6NH7OlZ-
-  OAF@stanley.mountain/T/#u` — Dan's bug report
-- **Signed-off-by:** Alain Volmat (author, STM32 SPI subsystem
-  maintainer)
-- **Link:** patch.msgid.link URL for the fix patch
-- **Signed-off-by:** Mark Brown (SPI subsystem maintainer)
-- Record: Reported by Dan Carpenter (Smatch static analysis). Author is
-  the STM32 SPI maintainer. Merged by SPI subsystem maintainer Mark
-  Brown.
+**Step 1.1: Subject Line**
+- Subsystem: `drm/mediatek: mtk_dsi`
+- Action: "enable" (HS clock during pre-enable)
+- Summary: Move HS clock activation from the bridge enable phase to pre-
+  enable so downstream bridges can use it.
+Record: [drm/mediatek] [enable] [Move HS clock setup earlier to fix
+bridge PLL locking]
 
-### Step 1.3: Commit Body
-The commit message states: avoid trying to release the RX DMA channel
-when an error occurs during `dma_request_chan()` for RX. Instead, jump
-directly to release the TX channel. This is clearly describing a bug
-where on RX DMA request failure, the cleanup code incorrectly tries to
-release a never-acquired RX DMA channel.
+**Step 1.2: Tags**
+- Signed-off-by: Gary Bisson (author)
+- Reviewed-by: CK Hu (MediaTek DSI maintainer)
+- Tested-by: Chen-Yu Tsai (Chromium developer) on 5 Chromebook variants
+- Tested-by: AngeloGioacchino Del Regno (Collabora, regular MTK
+  contributor)
+- Reviewed-by: AngeloGioacchino Del Regno
+- Link: to patchwork entry
+- Signed-off-by: Chun-Kuang Hu (subsystem maintainer, merged it)
 
-Record: Bug is calling `dma_release_channel()` on an ERR_PTR pointer
-when RX DMA request fails. Symptom: crash/undefined behavior during
-driver probe failure path.
+Record: Strong review and testing from 3 independent testers across 7+
+hardware platforms. Maintainer reviewed and approved.
 
-### Step 1.4: Hidden Bug Fix Detection
-Not hidden — clearly labeled as "fix" in subject line.
+**Step 1.3: Commit Body**
+- Bug: SN65DSI83 bridge chip fails to lock its PLL during pre-enable,
+  resulting in errors: "failed to lock PLL, ret=-110" / "Unexpected link
+  status 0x01" / "reset the pipe"
+- Root cause: HS clock not running during the pre-enable phase
+- Fix: Move `mtk_dsi_lane_ready()` and `mtk_dsi_clk_hs_mode(dsi, 1)`
+  from enable to pre-enable (poweron)
+Record: Clear bug description with error messages. Display completely
+fails without fix.
 
-## PHASE 2: DIFF ANALYSIS
+**Step 1.4: Hidden Bug Fix?**
+This is NOT hidden - it's explicitly a fix for display not working with
+certain DSI bridges.
 
-### Step 2.1: Inventory
-- **Files changed:** `drivers/spi/spi-stm32.c` only
-- **Lines changed:** ~6 added, ~6 removed (label and goto target
-  changes)
-- **Functions modified:** `stm32_spi_probe()` — the probe error-handling
-  section
-- **Scope:** Single-file, surgical fix in error path cleanup labels
+### PHASE 2: DIFF ANALYSIS
 
-### Step 2.2: Code Flow Change
+**Step 2.1: Inventory**
+- 1 file: `drivers/gpu/drm/mediatek/mtk_dsi.c`
+- +17 / -18 lines (net -1 line)
+- Functions modified: `mtk_dsi_lane_ready()` (moved earlier),
+  `mtk_dsi_poweron()` (added 2 calls), `mtk_output_dsi_enable()`
+  (removed 3 lines)
+Record: Single-file surgical fix, minimal scope.
 
-**Before the fix:** When `dma_request_chan(spi->dev, "rx")` fails with
-an error other than `-ENODEV`, the code does `goto err_dma_release`. At
-that label, `spi->dma_rx` still holds an `ERR_PTR` value (non-NULL), so
-`if (spi->dma_rx)` evaluates to true and
-`dma_release_channel(spi->dma_rx)` is called with an invalid pointer.
+**Step 2.2: Code Flow Change**
+- `mtk_dsi_lane_ready()` function definition moved earlier (before
+  `mtk_dsi_poweron`) - this is purely for forward declaration ordering
+- In `mtk_dsi_poweron()` (called during bridge pre_enable): added
+  `mtk_dsi_lane_ready(dsi)` and `mtk_dsi_clk_hs_mode(dsi, 1)` at end
+- In `mtk_output_dsi_enable()` (called during bridge enable): removed
+  `mtk_dsi_lane_ready(dsi)` and `mtk_dsi_clk_hs_mode(dsi, 1)`, kept
+  `mtk_dsi_set_mode(dsi)` and `mtk_dsi_start(dsi)`
 
-**After the fix:** The goto target is changed to `err_dma_tx_release`
-(new label), which skips the RX DMA release and only releases the TX
-channel. The cleanup labels are split: RX release first (only reached
-when RX was successfully acquired), then `err_dma_tx_release` for TX-
-only cleanup.
+Before: Lane ready + HS clock in enable phase
+After: Lane ready + HS clock in pre-enable phase
 
-### Step 2.3: Bug Mechanism
-**Category:** Error path / resource handling bug leading to invalid
-pointer dereference.
+**Step 2.3: Bug Mechanism**
+Category: Hardware interoperability / timing issue. The SN65DSI83 bridge
+requires HS clock from the DSI host during its pre_enable to lock its
+PLL. Without HS clock, the bridge fails completely.
 
-The root cause: commit `c266d19b7d4e5` ("spi: stm32: properly fail on
-dma_request_chan error") moved the `spi->dma_rx = NULL` assignment
-inside the `-ENODEV` branch but kept the `goto err_dma_release` in the
-else branch. Before that commit, `spi->dma_rx` was always set to NULL
-before any goto, making the cleanup safe.
+**Step 2.4: Fix Quality**
+- Obviously correct: just moves existing function calls earlier in the
+  init sequence
+- Minimal: no new logic, no new code paths
+- Regression risk is LOW: extensively tested on 7+ platforms with
+  different bridges/panels, all confirmed no regressions
 
-### Step 2.4: Fix Quality
-- Obviously correct: the fix ensures we skip releasing a channel that
-  was never acquired.
-- Minimal/surgical: only changes a goto label and reorganizes 6 lines of
-  cleanup.
-- Regression risk: extremely low — only affects error paths, and the
-  reordering correctly reverses the acquisition order (TX before RX, so
-  cleanup is RX then TX).
+### PHASE 3: GIT HISTORY
 
-## PHASE 3: GIT HISTORY INVESTIGATION
+**Step 3.1: Blame**
+- `mtk_dsi_lane_ready()` introduced by commit `39e8d062b03c3d` (Jitao
+  Shi, 2022-05-20) - present since ~v5.19
+- `mtk_dsi_clk_hs_mode(dsi, 1)` in enable path introduced by
+  `80a5cfd60d2a94` (yt.shen@mediatek.com, 2017-03-31) - present since
+  v4.x
+- The buggy ordering has existed since 2022 when lane_ready was moved to
+  enable
+Record: Bug present in all active stable trees (v5.19+)
 
-### Step 3.1: Blame
-The buggy `goto err_dma_release` at line 2508 is attributed to the
-original Peter Ujfalusi commit `0a454258febb73` (2019), but the actual
-bug was introduced by `c266d19b7d4e5` (Alain Volmat, 2025-12-18) which
-restructured the error handling and removed the safety `spi->dma_rx =
-NULL` before the goto.
+**Step 3.2: No Fixes: tag** (expected for autosel candidate)
 
-Record: Bug introduced by c266d19b7d4e5 merged in v7.0-rc1 (v7.0 merge
-window, after v6.14).
+**Step 3.3: File History**
+- Recent changes to mtk_dsi.c include bridge API updates
+  (devm_drm_bridge_alloc, encoder parameter), HS mode support, pre-
+  enable order fix/revert
+- The pre-enable order fix/revert (f5b1819193667 / 33e8150bd32d7) is
+  related but independent - it was about `pre_enable_prev_first` flag
+  management
 
-### Step 3.2: Fixes Tag
-No explicit Fixes: tag in the fix commit, but from analysis, the bug was
-introduced by c266d19b7d4e5. This commit exists only in v7.0-rc1+
-(confirmed via `git tag --contains`).
+**Step 3.4: Author**
+- Gary Bisson is a regular contributor to MediaTek platforms (Tungsten
+  boards), actively maintains DT and driver support
 
-### Step 3.3: File History
-Dan Carpenter previously reported another probe error path bug in the
-same file (`f4d8438e6a402` — sram pool free). This pattern of error path
-bugs in probe is consistent.
+**Step 3.5: Dependencies**
+- No dependencies. The commit 8b00951402f74 (HS mode in cmdq) is
+  completely independent
+- The SN65DSI83 driver already sets `pre_enable_prev_first = true`,
+  ensuring correct bridge ordering
 
-### Step 3.4: Author
-Alain Volmat is the STM32 SPI subsystem maintainer — 15+ commits to this
-file. He both introduced the bug (c266d19b7d4e5) and wrote the fix. High
-confidence in fix quality.
+### PHASE 4: MAILING LIST DISCUSSION
 
-### Step 3.5: Dependencies
-The fix depends on commit c266d19b7d4e5 being present. Since that commit
-is the one that introduced the bug, the fix is only relevant to trees
-containing c266d19b7d4e5, which is v7.0-rc1+.
+**Step 4.1: Original Discussion**
+- b4 mbox retrieved 5 messages in the thread
+- CK Hu (MediaTek DSI maintainer) noted "this changes the flow for all
+  SoC and panel, so I would wait for more SoC and more panel test" -
+  then gave Reviewed-by after testing completed
+- AngeloGioacchino Del Regno tested on MT6795 + MT8395, gave both
+  Tested-by and Reviewed-by
+- Chen-Yu Tsai tested on 5 Chromebook models (MT8173, MT8183x2,
+  MT8186x2) - "No regressions observed"
+- Chun-Kuang Hu applied it with message "Applied to mediatek-drm-next"
 
-## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
+**Step 4.2: Reviewers**
+All appropriate MediaTek subsystem maintainers were CC'd and reviewed.
+CK Hu explicitly asked for extensive testing, which was provided.
 
-### Step 4.1: Patch Discussion
-The fix patch message ID `20260212-spi-stm32-fix-dma-rx-
-release-v1-1-53a37c31626b@foss.st.com` indicates a v1 patch (single
-revision). It was merged by Mark Brown (SPI maintainer). The "Closes:"
-link references Dan Carpenter's original report.
+### PHASE 5: CODE SEMANTIC ANALYSIS
 
-### Step 4.2: Reviewers
-Merged by Mark Brown (SPI subsystem maintainer). Author is Alain Volmat
-(STM32 SPI maintainer). Dan Carpenter (reporter) is the Smatch static
-analysis maintainer.
+**Step 5.1: Functions Modified**
+- `mtk_dsi_poweron()`: called from `mtk_dsi_bridge_atomic_pre_enable()`
+  and `mtk_dsi_ddp_start()`
+- `mtk_output_dsi_enable()`: called from
+  `mtk_dsi_bridge_atomic_enable()`
+- `mtk_dsi_lane_ready()`: also called from `mtk_dsi_host_transfer()`
+  (for DSI command transfers)
 
-### Step 4.3: Bug Report
-The report from Dan Carpenter at Linaro is a static analysis finding
-(Smatch/Smatch-based). Dan is extremely reputable — his static analysis
-findings are almost always real bugs.
+**Step 5.2: Impact on mtk_dsi_host_transfer**
+After the patch, `mtk_dsi_lane_ready()` call in
+`mtk_dsi_host_transfer()` becomes a no-op during normal operation (lanes
+already ready from poweron). This is safe because DSI must be powered on
+before any host transfers.
 
-### Step 4.5: Stable Discussion
-No explicit stable nomination found, which is expected for the commits
-under review.
+**Step 5.3: Bridge ordering confirmed**
+The SN65DSI83 bridge driver sets `ctx->bridge.pre_enable_prev_first =
+true` (line 1041 of `ti-sn65dsi83.c`), which causes
+`drm_atomic_bridge_chain_pre_enable()` to call the MTK DSI pre_enable
+BEFORE the SN65DSI83's pre_enable. This confirms the fix works
+correctly.
 
-## PHASE 5: CODE SEMANTIC ANALYSIS
+### PHASE 6: STABLE TREE ANALYSIS
 
-### Step 5.1: Functions Modified
-Only `stm32_spi_probe()` — the driver probe function, specifically its
-cleanup/error path labels.
+**Step 6.1: Code exists in stable trees**
+The buggy code (`mtk_dsi_lane_ready()` being called from enable instead
+of pre_enable) has been present since v5.19, so it affects all active
+stable trees from 6.1 onwards.
 
-### Step 5.2: Callers
-`stm32_spi_probe` is called by the platform driver framework during
-device enumeration. It is the `.probe` callback for the
-`stm32_spi_driver`. This is a standard driver entry point called when
-device-tree matching finds an STM32 SPI controller.
+**Step 6.2: Backport difficulty**
+The patch should apply cleanly - the context in `mtk_dsi_poweron()` and
+`mtk_output_dsi_enable()` is unchanged in the 7.0 tree.
 
-### Step 5.4: Reachability
-The bug is reachable during normal device probe when the RX DMA channel
-request fails for reasons other than `-ENODEV` (e.g., `-EBUSY`,
-`-ENOMEM`, `-EPROBE_DEFER` deferred probe). This is a realistic scenario
-on STM32 embedded platforms.
+### PHASE 7: SUBSYSTEM CONTEXT
 
-## PHASE 6: STABLE TREE ANALYSIS
+**Step 7.1: Subsystem**
+- drm/mediatek (DRM display driver) - IMPORTANT category
+- MediaTek SoCs are used extensively in Chromebooks, Android devices,
+  and embedded systems
 
-### Step 6.1: Buggy Code in Stable Trees
-The buggy commit `c266d19b7d4e5` was merged in v7.0-rc1. It is NOT in
-v6.14 or any earlier release. Therefore, this fix is only relevant to
-the **7.0.y stable tree**.
+### PHASE 8: IMPACT AND RISK
 
-### Step 6.2: Backport Complications
-The fix should apply cleanly to 7.0.y since the buggy code c266d19b7d4e5
-exists there unchanged.
+**Step 8.1: Affected users**
+Users of MediaTek SoCs with DSI bridges that need HS clock during
+initialization (specifically SN65DSI83, potentially others).
 
-## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
+**Step 8.2: Trigger conditions**
+Every display initialization when using SN65DSI83 with MediaTek DSI. The
+display simply doesn't work.
 
-### Step 7.1: Subsystem
-- **Path:** `drivers/spi/spi-stm32.c`
-- **Subsystem:** SPI driver for STM32 (ARM embedded platform)
-- **Criticality:** PERIPHERAL — affects STM32 embedded/IoT users
-  specifically, but STM32 is a very widely used embedded platform.
+**Step 8.3: Failure mode**
+Without fix: Display completely fails to initialize (PLL lock fails,
+bridge errors, no display output). Severity: HIGH - affects usability.
 
-## PHASE 8: IMPACT AND RISK ASSESSMENT
+**Step 8.4: Risk-Benefit**
+- Benefit: HIGH - enables display to work for specific bridge
+  combinations, no regressions observed on 7+ platforms
+- Risk: LOW - moves existing function calls earlier, extensively tested,
+  well-reviewed, single file
 
-### Step 8.1: Who Is Affected
-STM32 SPI users on v7.0.y where the RX DMA channel request fails during
-probe.
+### PHASE 9: SYNTHESIS
 
-### Step 8.2: Trigger Conditions
-Triggered when `dma_request_chan()` for the RX channel returns an error
-other than `-ENODEV` during `stm32_spi_probe()`. This can happen with
-DMA controller misconfiguration, resource contention, or deferred probe
-scenarios.
+**Evidence FOR backporting:**
+1. Fixes a real hardware bug: display doesn't work with SN65DSI83 bridge
+2. Small, surgical change (17 insertions, 18 deletions, net -1 line,
+   single file)
+3. Extensive testing: 7+ platforms (Chromebooks, MediaTek boards) - zero
+   regressions
+4. Strong review: MediaTek DSI maintainer, Collabora engineer, Chromium
+   developer
+5. Code is well-understood: simply moves existing calls from enable to
+   pre-enable
+6. Affects popular hardware (Chromebooks use MediaTek SoCs extensively)
 
-### Step 8.3: Failure Mode
-Calling `dma_release_channel()` with an ERR_PTR value causes a **kernel
-crash** (invalid pointer dereference inside `dma_release_channel()`).
-Severity: **HIGH** (kernel crash during probe).
+**Evidence AGAINST backporting:**
+1. CK Hu noted it "changes the flow for all SoC and panel" - but this
+   concern was addressed by extensive testing
+2. No explicit Cc: stable tag - but this is expected for autosel
+   candidates
 
-### Step 8.4: Risk-Benefit Ratio
-- **BENEFIT:** Prevents kernel crash on probe failure path — HIGH
-- **RISK:** Very low — 6 lines changed, only in error cleanup labels,
-  obviously correct
-- **Ratio:** Strongly favorable for backporting
+**Stable rules checklist:**
+1. Obviously correct and tested? YES - extensively tested on 7+
+   platforms
+2. Fixes a real bug? YES - display completely fails with SN65DSI83
+   bridge
+3. Important issue? YES - hardware doesn't work (no display output)
+4. Small and contained? YES - single file, 35 lines total changed
+5. No new features? YES - just moves existing code to different phase
+6. Can apply to stable? YES - context appears unchanged
 
-## PHASE 9: FINAL SYNTHESIS
+---
 
-### Step 9.1: Evidence
-**FOR backporting:**
-- Fixes a real crash: `dma_release_channel()` called with ERR_PTR value
-- Found by Dan Carpenter (highly reputable static analysis expert)
-- Author is the STM32 SPI maintainer; merged by SPI subsystem maintainer
-- Tiny, surgical fix (6 lines, single file, only error path labels)
-- Obviously correct — only skips releasing a never-acquired channel
-- Bug is in v7.0.y stable tree (introduced by c266d19b7d4e5)
+### Verification
 
-**AGAINST backporting:**
-- Only affects STM32 platforms (not universal)
-- Only affects v7.0.y (bug was introduced in v7.0 merge window)
-- Only triggers on probe failure path (not normal operation)
+- [Phase 1] Parsed tags: Reviewed-by (CK Hu, AngeloGioacchino), Tested-
+  by (Chen-Yu Tsai on 5 Chromebooks, AngeloGioacchino on 2 platforms)
+- [Phase 2] Diff analysis: mtk_dsi_lane_ready + clk_hs_mode moved from
+  enable to poweron (pre_enable), 17 add / 18 del
+- [Phase 3] git blame: lane_ready introduced in commit 39e8d062b03c3d
+  (2022, v5.19), clk_hs_mode in enable since 80a5cfd60d2a94 (2017)
+- [Phase 3] git show 33e8150bd32d7: revert of pre_enable_prev_first in
+  MediaTek DSI is independent
+- [Phase 3] git show 8b00951402f74: HS mode support in cmdq is
+  independent, no dependency
+- [Phase 4] b4 mbox retrieved thread: CK Hu reviewed, requested more
+  testing, got it; patch applied to mediatek-drm-next
+- [Phase 4] Chen-Yu Tsai tested on MT8173, MT8183, MT8186 Chromebooks -
+  no regressions
+- [Phase 4] AngeloGioacchino tested on MT6795, MT8395 - no regressions
+- [Phase 5] Confirmed SN65DSI83 sets pre_enable_prev_first=true (line
+  1041), so MTK DSI pre_enable runs before SN65DSI83 pre_enable
+- [Phase 5] mtk_dsi_host_transfer's call to lane_ready() becomes no-op
+  (safe)
+- [Phase 6] Buggy code exists in all stable trees since v5.19
+- [Phase 8] Failure mode: display doesn't work at all (PLL lock fails),
+  severity HIGH
 
-### Step 9.2: Stable Rules Checklist
-1. Obviously correct and tested? **YES** — trivially verifiable goto
-   label change
-2. Fixes a real bug? **YES** — crash from invalid pointer in cleanup
-   path
-3. Important issue? **YES** — kernel crash on probe failure
-4. Small and contained? **YES** — 6 lines in one file
-5. No new features/APIs? **YES** — pure bugfix
-6. Can apply to stable? **YES** — should apply cleanly to 7.0.y
-
-### Step 9.3: Exception Categories
-Not applicable — this is a straightforward bugfix.
-
-### Step 9.4: Decision
-This is a clear, small, correct bugfix for a crash in a driver probe
-error path. It meets all stable kernel criteria.
-
-## Verification
-
-- [Phase 1] Parsed tags: Reported-by Dan Carpenter (Smatch/Linaro),
-  Closes link to lore report, Signed-off-by Mark Brown (SPI maintainer)
-- [Phase 2] Diff analysis: ~6 lines changed in `stm32_spi_probe()`
-  cleanup labels — goto target changed from `err_dma_release` to
-  `err_dma_tx_release`, cleanup split into separate RX/TX labels
-- [Phase 2] Verified bug mechanism: `spi->dma_rx` holds ERR_PTR when
-  goto fires; `if (spi->dma_rx)` is true for ERR_PTR;
-  `dma_release_channel(ERR_PTR)` causes crash
-- [Phase 3] git blame: buggy `goto err_dma_release` at line 2508 traces
-  back through c266d19b7d4e5 (2025-12-18)
-- [Phase 3] git show c266d19b7d4e5: confirmed this commit removed the
-  safety `spi->dma_rx = NULL` before the goto, introducing the bug
-- [Phase 3] `git tag --contains c266d19b7d4e5`: first in v7.0-rc1, not
-  in v6.14 or earlier
-- [Phase 3] Author Alain Volmat has 15+ commits to spi-stm32.c, is the
-  STM32 SPI maintainer
-- [Phase 3] b4 dig -a c266d19b7d4e5: part of "spi: stm32: stability &
-  performance enhancements" series (v2)
-- [Phase 5] `stm32_spi_probe` is the platform driver .probe callback
-  (line 2689), called during device enumeration
-- [Phase 6] Buggy code only exists in v7.0-rc1+ (confirmed via git log
-  v6.14..v7.0-rc1)
-- [Phase 6] Fix should apply cleanly — file unchanged between fix commit
-  and current 7.0 tree (bug still present in current tree at line 2508)
-- [Phase 8] Failure mode: kernel crash from dma_release_channel() on
-  ERR_PTR — severity HIGH
+The fix is small, surgical, well-tested across multiple platforms, and
+fixes a real hardware bug where display completely fails with SN65DSI83
+bridges on MediaTek DSI.
 
 **YES**
 
- drivers/spi/spi-stm32.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_dsi.c | 35 +++++++++++++++---------------
+ 1 file changed, 17 insertions(+), 18 deletions(-)
 
-diff --git a/drivers/spi/spi-stm32.c b/drivers/spi/spi-stm32.c
-index 33f211e159ef1..6d5eefa41f717 100644
---- a/drivers/spi/spi-stm32.c
-+++ b/drivers/spi/spi-stm32.c
-@@ -2505,7 +2505,7 @@ static int stm32_spi_probe(struct platform_device *pdev)
- 			spi->dma_rx = NULL;
- 		} else {
- 			dev_err_probe(&pdev->dev, ret, "failed to request rx dma channel\n");
--			goto err_dma_release;
-+			goto err_dma_tx_release;
- 		}
- 	} else {
- 		ctrl->dma_rx = spi->dma_rx;
-@@ -2574,11 +2574,11 @@ static int stm32_spi_probe(struct platform_device *pdev)
- 	if (spi->sram_pool)
- 		gen_pool_free(spi->sram_pool, (unsigned long)spi->sram_rx_buf,
- 			      spi->sram_rx_buf_size);
--err_dma_release:
--	if (spi->dma_tx)
--		dma_release_channel(spi->dma_tx);
- 	if (spi->dma_rx)
- 		dma_release_channel(spi->dma_rx);
-+err_dma_tx_release:
-+	if (spi->dma_tx)
-+		dma_release_channel(spi->dma_tx);
- err_clk_disable:
- 	clk_disable_unprepare(spi->clk);
+diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
+index aaf6c9ebd319f..5aa71fcdcfab7 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dsi.c
++++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+@@ -673,6 +673,21 @@ static s32 mtk_dsi_switch_to_cmd_mode(struct mtk_dsi *dsi, u8 irq_flag, u32 t)
+ 	}
+ }
  
++static void mtk_dsi_lane_ready(struct mtk_dsi *dsi)
++{
++	if (!dsi->lanes_ready) {
++		dsi->lanes_ready = true;
++		mtk_dsi_rxtx_control(dsi);
++		usleep_range(30, 100);
++		mtk_dsi_reset_dphy(dsi);
++		mtk_dsi_clk_ulp_mode_leave(dsi);
++		mtk_dsi_lane0_ulp_mode_leave(dsi);
++		mtk_dsi_clk_hs_mode(dsi, 0);
++		usleep_range(1000, 3000);
++		/* The reaction time after pulling up the mipi signal for dsi_rx */
++	}
++}
++
+ static int mtk_dsi_poweron(struct mtk_dsi *dsi)
+ {
+ 	struct device *dev = dsi->host.dev;
+@@ -725,6 +740,8 @@ static int mtk_dsi_poweron(struct mtk_dsi *dsi)
+ 	mtk_dsi_set_vm_cmd(dsi);
+ 	mtk_dsi_config_vdo_timing(dsi);
+ 	mtk_dsi_set_interrupt_enable(dsi);
++	mtk_dsi_lane_ready(dsi);
++	mtk_dsi_clk_hs_mode(dsi, 1);
+ 
+ 	return 0;
+ err_disable_engine_clk:
+@@ -770,30 +787,12 @@ static void mtk_dsi_poweroff(struct mtk_dsi *dsi)
+ 	dsi->lanes_ready = false;
+ }
+ 
+-static void mtk_dsi_lane_ready(struct mtk_dsi *dsi)
+-{
+-	if (!dsi->lanes_ready) {
+-		dsi->lanes_ready = true;
+-		mtk_dsi_rxtx_control(dsi);
+-		usleep_range(30, 100);
+-		mtk_dsi_reset_dphy(dsi);
+-		mtk_dsi_clk_ulp_mode_leave(dsi);
+-		mtk_dsi_lane0_ulp_mode_leave(dsi);
+-		mtk_dsi_clk_hs_mode(dsi, 0);
+-		usleep_range(1000, 3000);
+-		/* The reaction time after pulling up the mipi signal for dsi_rx */
+-	}
+-}
+-
+ static void mtk_output_dsi_enable(struct mtk_dsi *dsi)
+ {
+ 	if (dsi->enabled)
+ 		return;
+ 
+-	mtk_dsi_lane_ready(dsi);
+ 	mtk_dsi_set_mode(dsi);
+-	mtk_dsi_clk_hs_mode(dsi, 1);
+-
+ 	mtk_dsi_start(dsi);
+ 
+ 	dsi->enabled = true;
 -- 
 2.53.0
 
