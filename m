@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70118F588C3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:00:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B1D2F588C1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:00:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j14/w77pNCY6dGyDTRnql1CtUPQ/caeUaQRMtIjKP3g=; b=JrwK/DoBvrt0vl5ln0OfawfgCT
-	KfcdL2vMMiFYTPssVfo5hH2nQzdAt9kjkkvqRJ9LR3kiYG+Y7/0SbpM9Fl3/pOopJM0grFeQVIeTb
-	FO9T9j5hVsCjZMa/DhgRDIKxdshbJqi1p7xoU2OlMCUn63gndqRaAn906YX8GcL2UhYJMZ8/LhcNp
-	i6fG+jJKVBCVHmRV+A9SOYgPhu/PgwBG5LEUcqtodbYcLMeiqIOxaEEsvCosL6vYvDBvqwfXETx9J
-	KGi7qfCWtMK6cr/4/l0wb98eQgwD86Uu3B34hiVSFI4ZuWD6xTKsLue7iZS+6AQJpaohBaoQpLQAx
-	HPBSqtzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tUC2t9kCbTutWnz6IuPE32rjpeccnNIrpMgaz4pD0xY=; b=RzABq95srmCRrP3UOBj9cpbPBI
+	Pp2p87nLe0ZjjjeWqD/RnNyNfEpjRiZZ3huA8KqgVlrMiVuezUZtu7cl06fifeYTbn13XIDDxAOzH
+	WsPWnZSOl4XkMkGEHkja9Tpyi+f4IYFrcFFDhylJawZSIXsgP81J+Y76S/ZkBpW/cLXCUzXb/JqQr
+	KrcrAkFxPatcz1VITbkvfm0081ghEqS6IxeMLnsma4Jd/mFiextHf/aJSKEEq8iiXfxqsqDQ4XMn4
+	xH90snygk+ralgQDUGRcVTEbSx0Oo2LJE1CZMwSe9fgZ9gsAVJz5guJ0icpe6oHzDjgmQVHvUPL8K
+	cM/JGpUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEoEz-00000006wTW-3DaR;
-	Mon, 20 Apr 2026 13:00:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wEoF4-00000006wUg-0N02;
+	Mon, 20 Apr 2026 13:00:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEoEw-00000006wT8-3834
+	id 1wEoF2-00000006wTu-13Lb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 13:00:39 +0000
+	Mon, 20 Apr 2026 13:00:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0D6F24448E
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 13:00:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDB55C2BCB6
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 13:00:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 64C5A6014B;
+	Mon, 20 Apr 2026 13:00:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BBE1C2BCB4;
+	Mon, 20 Apr 2026 13:00:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776690037;
-	bh=j14/w77pNCY6dGyDTRnql1CtUPQ/caeUaQRMtIjKP3g=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=CXPoje7VLTGSLzYD5pz4vuLTXn/PwS/oFJOc2Xnc0bBK6qy3XN7kahuMf2RGMzm+7
-	 Aa7pgMKlGRaLWfJzdk2n2YHq7s7eBosHd5wzFCBEkxABNU7tEM7Z6X/pvhspPR0It8
-	 1AemoyrpkeM4gD0C9reWk6Kjt/qmoIhkEpy5Ru2UEcUVOH4lTRtyE2Ta7SP/zJhNLd
-	 MPgfoalmRzV3KXQMw5wjqI1Ev7k2Hes0lts5885oSs/0elVQsieFIFWI8W9VQfDMkT
-	 KhSLnYymbvGSF3LGd7OT8fnIU0gLd4gCxidf2iNaOo6LTuh2/K91N8U+J1rtvaEJR1
-	 CJHIa2OfGeriw==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5a3be187ffbso3850041e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 06:00:37 -0700 (PDT)
-X-Gm-Message-State: AOJu0Yws8L1zPTfLTXe9fAoEeaVSM9eisahdp2viCr0qGIVxu9A0bYl2
-	069JP31sqBSKsu55U6KUAk+X1hOztNYNoDp2EPq0szNgFB1pmiMQHEaWAtdHJbfiDNUs1MWgdSQ
-	NtGqxQIZYh7aoFcS2LgDOsgfAQ3MPYbg=
-X-Received: by 2002:a05:6512:31d3:b0:5a4:156:aea3 with SMTP id
- 2adb3069b0e04-5a417174a77mr4293857e87.7.1776690036524; Mon, 20 Apr 2026
- 06:00:36 -0700 (PDT)
+	s=k20201202; t=1776690043;
+	bh=tUC2t9kCbTutWnz6IuPE32rjpeccnNIrpMgaz4pD0xY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YlVcalFzn0PvL+6InUzgqSW+//qTjGG/EfiW0TS8x0zIGJ4uAz3KtlCEIdTY72YTy
+	 SATZbU4nIdedKAryE4IKUikbt2UpAV670DGv37zi22wOPDSq32Z0Zdb/vPQOAHhV7L
+	 R35f+tkpc9jcihD1qrfP0TKz+3uJDOYMmGiwmrFTnnSqiFNSetkcePBGG/xKu5LGnu
+	 asbzNN9TTZLZUbSEsaJ20Fz2H0Z2/jWZQogamuUR9uXs321B0epvjSiYn6Dvex523d
+	 fVOWm2enR6PxWJfmlCw2CuN/R6tbyJzFVc94nrBqhpt1kLO+3wVyNbmb/1ps8rY0Q1
+	 wlb+04KJisEeQ==
+Date: Mon, 20 Apr 2026 15:00:40 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Stefan =?utf-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
+Cc: "Rob Herring (Arm)" <robh@kernel.org>, linux-kernel@vger.kernel.org, 
+	Conor Dooley <conor+dt@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	linux-doc@vger.kernel.org, devicetree@vger.kernel.org, Drew Fustini <fustini@kernel.org>, 
+	Linus Walleij <linusw@kernel.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Russell King <linux@armlinux.org.uk>, soc@lists.linux.dev, Arnd Bergmann <arnd@arndb.de>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-serial@vger.kernel.org, Shuah Khan <skhan@linuxfoundation.org>
+Subject: Re: [PATCH v4 2/8] dt-bindings: arm: Add zx297520v3 board binding
+Message-ID: <20260420-blue-parrot-of-spirit-2b5f6a@quoll>
+References: <20260416-send-v4-0-e19d02b944ec@gmail.com>
+ <20260416-send-v4-2-e19d02b944ec@gmail.com>
+ <177646012448.2165534.5760108355183774935.robh@kernel.org>
+ <6264667.lOV4Wx5bFT@strix>
 MIME-Version: 1.0
-References: <20260414211215.152850-1-stefandoesinger@gmail.com> <20260414211215.152850-7-stefandoesinger@gmail.com>
-In-Reply-To: <20260414211215.152850-7-stefandoesinger@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 20 Apr 2026 15:00:24 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkkV0h5R5=2sWNcPCV8h9vJHXCRsuaFxS7_bBZH0nZKUg@mail.gmail.com>
-X-Gm-Features: AQROBzANcyyz1YUE9xSaaiat7IJgX2f4u8WLgFbC6HQhU952Z2QBKIp2Qa86ubQ
-Message-ID: <CAD++jLkkV0h5R5=2sWNcPCV8h9vJHXCRsuaFxS7_bBZH0nZKUg@mail.gmail.com>
-Subject: Re: [PATCH v3 6/8] ARM: zte: Bring back zx29 UART support
-To: =?UTF-8?Q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_060038_806656_0D203D37 
-X-CRM114-Status: GOOD (  12.77  )
+In-Reply-To: <6264667.lOV4Wx5bFT@strix>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,40 +78,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 14, 2026 at 11:12=E2=80=AFPM Stefan D=C3=B6singer
-<stefandoesinger@gmail.com> wrote:
+On Sun, Apr 19, 2026 at 11:30:04AM +0300, Stefan D=C3=B6singer wrote:
+> Hi Rob,
+>=20
+> Am Samstag, 18. April 2026, 00:08:44 Ostafrikanische Zeit schrieben Sie:
+>=20
+> > If you already ran 'make dt_binding_check' and didn't see the above
+> > error(s), then make sure 'yamllint' is installed and dt-schema is up to
+> > date:
+>=20
+> Here is a new PEBKAC issue for your mail template: I ran dt_binding_check=
+, it=20
+> wrote the warning you pointed out, but I only checked the return value - =
+which=20
+> indicated success. Which I guess makes sense for a warning, since there s=
+eem=20
+> to be a few preexisting ones. The warning itself was somewhere in the=20
+> scrollback because I let dt_binding_check check all the files.
+>=20
+> So I learned I have to actually look at the output to see if there are an=
+y=20
+> warnings.
 
-> This is based on code removed in commit 89d4f98ae90d ("ARM: remove zte
-> zx platform"). I did not bring back the zx29-uart .compatible as the
-> arm,primecell-periphid does the job.
->
-> Signed-off-by: Stefan D=C3=B6singer <stefandoesinger@gmail.com>
+Same with every other tool warnings, like compiler warnings...
 
-Topic should be prefixed:
-"amba/serial: amba-pl011: ..."
+Best regards,
+Krzysztof
 
-Interesting with the AMBA pseudo-ID, but I kind of like the idea.
-
-When bit 7 is set, bits [0..6] should be the JEDEC JEP106
-"manufacturer ID" standard.
-
-0xfe is assigned to "Numonyx Corporation".
-
-Things without bit 7 set such as ARMs 0x41 and Qualcomms
-0x51 are kind of cowboy values however. LSI 0xb6 is the only
-vendor actually following the standard.
-
-You could use 0x7e.
-
-Or is this one of the cases where the Linux Foundation could
-step in and actually ask JEDEC for a proper ID (despite 126 of
-them being in use already....)
-
-On the other hand I have seen how people just use these IDs
-however they like, ST Micro uses 0x80 on Nomadik for example,
-and the actual SGS/Thomson value assigned is 0x20 so should
-have been 0xa0...
-
-Yours,
-Linus Walleij
 
