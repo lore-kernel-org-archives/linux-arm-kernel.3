@@ -4,73 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D762AF36C5C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 16:50:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96A57F588F2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 16:51:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xceA+7OsdjTDtLSh5M2exDhuDxfpk3YjHNL5mqMQ4sQ=; b=ZiT3r+R6WtffWsReXLawxEG8yC
-	AX9m5odHYzxlYkuGoDuTYLGDS31vuFqMG72zNAed4V/mVrgkIHKQ4uECoy98CAspRt7ojauwUawP/
-	DZwzvCBCS2WHGPAX7a4am6Ij+81kUEH605gnNJimCOYqHm/IK118INNBO5ZrfapDDtwjw3fi54NZS
-	at4VYZWSLne5PH13NBrrKhU0FbWDRCQ5fkFN4Z6jnVgcW+pMlaoEgHPWzBeHnJXOyt1HK1oG+Pm6X
-	NZhFPo2cUSKx45jwKo5brt0ckzHAf08gFFOc2gw1i8eq5WTHN4Ps0+HxkF+L8Xgi3Dd5EvTH1lNpz
-	SIEJZJjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rk8+b4BzpGG17aZUXwC55XJJ2stY5Os27PbdRKnAVVY=; b=pW+/Y/oNmxvNRYjh9IHOLUQe7d
+	M6msTGklRKaVCGiY48PS2aIEXW6EEcgG9CXTjZRZalsMrwPyW55kb2bLn46tQvFBTzwQ4r2KUIdz9
+	jCKD80nfdd8eMjBX45tYwT6/kXUjZTXReoWROz2Qs4qSRnf/lNMzZM7Yph9biMUuRpt43aKAq72w7
+	UIJb9Yap28BYVy2w9DHKBweIMUOEGvg+2RcgPNu1mqka0PjSHsYOiBbJ0uz5z8ZZUfypCVB5NQlNH
+	HuT0urCoFwmZ+c1n3FkFYSyiGTmTHMKrzfql+FExJpkKBUqjlwjda+HFiLfJkQFVjhUic4/cMHd97
+	T7ehCPDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wErp5-00000007SJy-3WvJ;
-	Mon, 20 Apr 2026 16:50:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wErqf-00000007STA-1g9m;
+	Mon, 20 Apr 2026 16:51:49 +0000
+Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wErp3-00000007SJY-0SbX
+	id 1wErqb-00000007SSf-46l8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 16:50:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6E0AB44570;
-	Mon, 20 Apr 2026 16:50:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FBA0C19425;
-	Mon, 20 Apr 2026 16:50:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776703808;
-	bh=AKF9yaMzIWbWagkxI0dMOZfdgR9VStvIl7neIOYfotI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PPawA7RH6DotUc6sisJgZh2YZ7bFuZxq1Ef+VOUtUgjA1Wv+sjqEQEcLbco3xAf1Y
-	 xa1QUsKcBYNuTV1FC38Rigudf8p8F4TDE9zbmy9kgLGwlbwFf4gNZZxoRnC7z2SWfH
-	 rloJLe5ZtOv+1VJR4LU5e12BUqwQRlpjthLEfV2fsm3rUe6IX83OkeY+UK/3rknyRk
-	 QXBzd6/3pVLBnpk7gD23zFLrjO3f2QXDGfoYarzRyjVQY6w19qrgzUKKRP4IBQ9EWB
-	 swa+5CvWNpDJ+3szva+rXMAWmrPmPrgZHIpPBj36eh/uemUJRfNqfIG9Vcht3RQ2Xq
-	 y6fMruH/jAY3A==
-Date: Mon, 20 Apr 2026 17:50:01 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Sebastian Ene <sebastianene@google.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
-	zohar@linux.ibm.com, roberto.sassu@huawei.com,
-	dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com,
-	peterhuewe@gmx.de, jarkko@kernel.org, jgg@ziepe.ca,
-	oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
-Subject: Re: [RFC PATCH 4/4] firmware: arm_ffa: check pkvm initailised when
- initailise ffa driver
-Message-ID: <20260420-swinging-stallion-of-refinement-0f26b0@sudeepholla>
-References: <20260417175759.3191279-1-yeoreum.yun@arm.com>
- <20260417175759.3191279-5-yeoreum.yun@arm.com>
- <aeYbdmshGZJ4GhXd@google.com>
- <86mryx2408.wl-maz@kernel.org>
- <aeY2M3v97c00JjFe@google.com>
+	Mon, 20 Apr 2026 16:51:47 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id BD9A27A00EA;
+	Mon, 20 Apr 2026 12:51:41 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-04.internal (MEProxy); Mon, 20 Apr 2026 12:51:42 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kevinmehall.net;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to; s=fm1; t=1776703901; x=1776790301; bh=rk8+b4BzpG
+	G17aZUXwC55XJJ2stY5Os27PbdRKnAVVY=; b=mGAtAmeMhPPXaPFIChbVJ5HE2h
+	OXkSNjodJ27/GsUqIHLFw20MBMg6W2n2FfLC49c/FuglLRrctGDB+Nbet9NTNOx7
+	sN7TWlBGEACgKSiAn1nFUfhDuI66wbQLTytF8sEM3+UZuK1+ysPnYHM/4AE6TQca
+	GdyTmbs7Zwg9monlQfxmX5h3kkxEIEcfX0r7hvhenzQQ/5IF8cBJ6yXzDokUowvg
+	F+nMCO3qALFq50WCWvMEDddWekGTAJGH+fFq8Wq2LQZ+JP/P06QTTUtyoY5+i+L/
+	Fvdpy8AK+WB/G/j5MMeTQFTgAJAhywEiSY7IPRkMBgPy9UBeMkgFrZPVY8NA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
+	1776703901; x=1776790301; bh=rk8+b4BzpGG17aZUXwC55XJJ2stY5Os27Pb
+	dRKnAVVY=; b=Y2zoIAwEQ/QSoxlM/5qBhJhmG5pmDEdPjnZTbjDE94kiiEI4J47
+	zRA0fqIlYPsu/S25MM5LVcQOs1Zfg6FiT/raB2m3r8HYEszbw2R52Bhfaf9HqbNd
+	ab4N6akRZb7W/R9HhyUBxixnv2LJcfhxtUwxs69jrkDye+dF24D6FAi7SP5BSOMl
+	6OKtTYWPsv/Gwmt4dkFB1whRayRXbCV4K15HxlBLZSrM0LUmfpaxsqKByoiyJhiR
+	nsK8CfpczG8X3zSvTjcRaJ77WME8/lyOOGkHg2TxRtK3CxszOUZjgWRhSUptDQUw
+	GhP21QPlBN1dUYIUasWmCXIupuNit/cSPXA==
+X-ME-Sender: <xms:nFnmad39cXrzBXmA1DsEsbtATpJkczoDCPO5eYP8MlgjwGZzTksvuQ>
+    <xme:nFnmaf4Pi_e_2ZpZodZWF3A77h-fAgax0KpL56u_pxWhgGjjL8L2ElbfWN6pnndtp
+    mnEPDUHbiGDcO_d8nRO5TE99ziV2goH5e2tRN-N-m9U_WDHLfwrwpc>
+X-ME-Received: <xmr:nFnmaZQ8DSFZVCTEJS64U8nJBf9Mr1OJL4UWhNeklG1fSSAORYnLPUovTFZI>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdehledthecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpefmvghvihhnucfovghh
+    rghllhcuoehkmheskhgvvhhinhhmvghhrghllhdrnhgvtheqnecuggftrfgrthhtvghrnh
+    epueehfeffgfevlefftdffudehgeejleekieeileekgfeufeekfedvgfegffettdeknecu
+    vehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepkhhmsehkvg
+    hvihhnmhgvhhgrlhhlrdhnvghtpdhnsggprhgtphhtthhopeduuddpmhhouggvpehsmhht
+    phhouhhtpdhrtghpthhtohepsghrohhonhhivgeskhgvrhhnvghlrdhorhhgpdhrtghpth
+    htohepfigvnhhssehkvghrnhgvlhdrohhrghdprhgtphhtthhopehjvghrnhgvjhdrshhk
+    rhgrsggvtgesghhmrghilhdrtghomhdprhgtphhtthhopehsrghmuhgvlhesshhhohhllh
+    grnhgurdhorhhgpdhrtghpthhtohepmhhirhhkohdquggvvhiklhhinhhugiesnhgrnhhl
+    rdguvgdprhgtphhtthhopehrshgtsehruhhnthhugidrtghomhdprhgtphhtthhopehlih
+    hnuhigqdhsphhisehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhu
+    gidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtg
+    hpthhtoheplhhinhhugidqshhunhigiheslhhishhtshdrlhhinhhugidruggvvh
+X-ME-Proxy: <xmx:nFnmaUUALlqwR3feaEMRtcm9Rtwf9KH3TUPjLDsia2ZBQ7UTicjfzg>
+    <xmx:nFnmaeGx-hXfh9PVJuFV_SgKkJnXCAM8UfkDo41s8VBWQsdPzJTwOw>
+    <xmx:nFnmaXe0-Ns1-IrTv-IZAmyU4ZcLQ30vv-8GZfhUO8JUAQ5qjcC4UA>
+    <xmx:nFnmaXrOVHTWb8kBJqj1isw1bIy_bHWaCg4J20VTAZfmkygL98fomQ>
+    <xmx:nVnmaWs3rw9EMLs6_8HdU9cajXvqsY_DqDgaJ7Hh9x1QMIi6UhdJxmZW>
+Feedback-ID: i421842c8:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 20 Apr 2026 12:51:39 -0400 (EDT)
+From: Kevin Mehall <km@kevinmehall.net>
+To: Mark Brown <broonie@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Mirko Vogt <mirko-dev|linux@nanl.de>,
+	Ralf Schlatterbeck <rsc@runtux.com>,
+	linux-spi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Cc: Kevin Mehall <km@kevinmehall.net>
+Subject: [PATCH] spi: sun6i: Set SPI mode in prepare_message
+Date: Mon, 20 Apr 2026 10:46:04 -0600
+Message-ID: <20260420164755.1131645-1-km@kevinmehall.net>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aeY2M3v97c00JjFe@google.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_095009_339801_6A11C772 
-X-CRM114-Status: GOOD (  28.95  )
+X-CRM114-CacheID: sfid-20260420_095146_618850_A3A3EC9D 
+X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,64 +117,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 20, 2026 at 02:20:35PM +0000, Sebastian Ene wrote:
-> On Mon, Apr 20, 2026 at 01:46:47PM +0100, Marc Zyngier wrote:
-> > On Mon, 20 Apr 2026 13:32:32 +0100,
-> > Sebastian Ene <sebastianene@google.com> wrote:
-> > > 
-> > > On Fri, Apr 17, 2026 at 06:57:59PM +0100, Yeoreum Yun wrote:
-> > > 
-> > > Hello Yeoreum,
-> > > 
-> > > 
-> > > > When pKVM is enabled, the FF-A driver must be initialized after pKVM.
-> > > > Otherwise, pKVM cannot negotiate the FF-A version or
-> > > > obtain RX/TX buffer information, leading to failures in FF-A calls.
-> > > 
-> > > At the moment this already happens after you move back ffa_init() to
-> > > device_initcall().
-> > 
-> > But relying on this sort of ordering is just making things more
-> > fragile.
-> > 
-> 
-> Thanks for letting me know. Since this is not a solid construct we will have
-> to change the driver init code to come after pKVM in this case.
-> 
-> > > 
-> > > > 
-> > > > During FF-A driver initialization, check whether pKVM has been initialized.
-> > > > If not, defer probing of the FF-A driver.
-> > > > 
-> > > 
-> > > I don't think you need to add this dependency. pKVM is
-> > > installed through KVM's module_init() which ends up calling hyp_ffa_init() to
-> > > do the proxy initialization. The ARM-FFA driver comes after it (since
-> > > pKVM is arch specific code). We don't have to call finalize_pkvm(..) to
-> > > be able to handle smc(FF-A) calls in the hyp-proxy.
-> > 
-> > You do. Without the finalisation, SMCs are not trapped by EL2.
-> > 
-> > And even if it did, relying on such hack is just wrong.
-> > 
-> 
-> That makes it an even stronger argument to move the driver init at a
-> later stage. I was relying on this to trap early ff-a when the
-> ARM FF-A driver was used.
-> 
+With a GPIO chip select, CS is asserted before entering transfer_one.
+The spi-sun6i driver previously configured the SPI mode (including clock
+polarity) and enabled the bus in transfer_one, which can cause an
+extraneous SCK transition with CS asserted, corrupting the transferred
+data.
 
-Indeed, if both are at `device_initcall` level, then correct behaviour is
-effectively left to link order. That makes the outcome depend on build-time
-ordering rather than on an explicit and well-defined dependency, which is
-quite fragile and difficult to justify as a reliable fix.
+This patch moves the SPI mode configuration and bus enable to the
+spi_prepare_message callback, ensuring that SCK is driven to the correct
+level prior to asserting CS.
 
-That is precisely the kind of arrangement I am worried about here. Even if it
-happens to work today, it is not guaranteed in any robust sense and can easily
-break as the code evolves or as unrelated changes affect the link order. In
-other words, it may appear functional, but it still lacks a proper dependency
-model and remains vulnerable to subtle regressions.
+A previous fix for a related issue (0d7993b234c9f) was incomplete in that
+it only avoided driving SCK at the wrong level when resuming from
+autosuspend, but didn't help if switching CPOL modes between chip selects
+while active, or if SCK floats to the opposite level when suspended.
 
+Fixes: 0d7993b234c9 ("spi: spi-sun6i: Fix chipselect/clock bug")
+Signed-off-by: Kevin Mehall <km@kevinmehall.net>
+---
+ drivers/spi/spi-sun6i.c | 76 +++++++++++++++++++++++++----------------
+ 1 file changed, 47 insertions(+), 29 deletions(-)
+
+diff --git a/drivers/spi/spi-sun6i.c b/drivers/spi/spi-sun6i.c
+index 240e46f84f7b..85395f1385bc 100644
+--- a/drivers/spi/spi-sun6i.c
++++ b/drivers/spi/spi-sun6i.c
+@@ -201,6 +201,50 @@ static size_t sun6i_spi_max_transfer_size(struct spi_device *spi)
+ 	return SUN6I_MAX_XFER_SIZE - 1;
+ }
+ 
++static int sun6i_spi_prepare_message(struct spi_controller *ctlr,
++				     struct spi_message *msg)
++{
++	struct sun6i_spi *sspi = spi_controller_get_devdata(ctlr);
++	struct spi_device *spi = msg->spi;
++	u32 reg;
++
++	/*
++	 * Set up the transfer control register: Chip Select,
++	 * polarities, etc.
++	 */
++	reg = sun6i_spi_read(sspi, SUN6I_TFR_CTL_REG);
++
++	if (spi->mode & SPI_CPOL)
++		reg |= SUN6I_TFR_CTL_CPOL;
++	else
++		reg &= ~SUN6I_TFR_CTL_CPOL;
++
++	if (spi->mode & SPI_CPHA)
++		reg |= SUN6I_TFR_CTL_CPHA;
++	else
++		reg &= ~SUN6I_TFR_CTL_CPHA;
++
++	if (spi->mode & SPI_LSB_FIRST)
++		reg |= SUN6I_TFR_CTL_FBS;
++	else
++		reg &= ~SUN6I_TFR_CTL_FBS;
++
++	/* We want to control the chip select manually */
++	reg |= SUN6I_TFR_CTL_CS_MANUAL;
++
++	sun6i_spi_write(sspi, SUN6I_TFR_CTL_REG, reg);
++
++	/*
++	 * Now that the clock polarity is configured, enable the bus if the
++	 * controller was previously suspended.
++	 */
++	reg = sun6i_spi_read(sspi, SUN6I_GBL_CTL_REG);
++	reg |= SUN6I_GBL_CTL_BUS_ENABLE;
++	sun6i_spi_write(sspi, SUN6I_GBL_CTL_REG, reg);
++
++	return 0;
++}
++
+ static void sun6i_spi_dma_rx_cb(void *param)
+ {
+ 	struct sun6i_spi *sspi = param;
+@@ -332,31 +376,12 @@ static int sun6i_spi_transfer_one(struct spi_controller *host,
+ 
+ 	sun6i_spi_write(sspi, SUN6I_FIFO_CTL_REG, reg);
+ 
+-	/*
+-	 * Setup the transfer control register: Chip Select,
+-	 * polarities, etc.
+-	 */
+-	reg = sun6i_spi_read(sspi, SUN6I_TFR_CTL_REG);
+-
+-	if (spi->mode & SPI_CPOL)
+-		reg |= SUN6I_TFR_CTL_CPOL;
+-	else
+-		reg &= ~SUN6I_TFR_CTL_CPOL;
+-
+-	if (spi->mode & SPI_CPHA)
+-		reg |= SUN6I_TFR_CTL_CPHA;
+-	else
+-		reg &= ~SUN6I_TFR_CTL_CPHA;
+-
+-	if (spi->mode & SPI_LSB_FIRST)
+-		reg |= SUN6I_TFR_CTL_FBS;
+-	else
+-		reg &= ~SUN6I_TFR_CTL_FBS;
+-
+ 	/*
+ 	 * If it's a TX only transfer, we don't want to fill the RX
+ 	 * FIFO with bogus data
+ 	 */
++	reg = sun6i_spi_read(sspi, SUN6I_TFR_CTL_REG);
++
+ 	if (sspi->rx_buf) {
+ 		reg &= ~SUN6I_TFR_CTL_DHB;
+ 		rx_len = tfr->len;
+@@ -364,9 +389,6 @@ static int sun6i_spi_transfer_one(struct spi_controller *host,
+ 		reg |= SUN6I_TFR_CTL_DHB;
+ 	}
+ 
+-	/* We want to control the chip select manually */
+-	reg |= SUN6I_TFR_CTL_CS_MANUAL;
+-
+ 	sun6i_spi_write(sspi, SUN6I_TFR_CTL_REG, reg);
+ 
+ 	if (sspi->cfg->has_clk_ctl) {
+@@ -428,11 +450,6 @@ static int sun6i_spi_transfer_one(struct spi_controller *host,
+ 		sun6i_spi_write(sspi, SUN6I_TFR_CTL_REG, reg);
+ 	}
+ 
+-	/* Finally enable the bus - doing so before might raise SCK to HIGH */
+-	reg = sun6i_spi_read(sspi, SUN6I_GBL_CTL_REG);
+-	reg |= SUN6I_GBL_CTL_BUS_ENABLE;
+-	sun6i_spi_write(sspi, SUN6I_GBL_CTL_REG, reg);
+-
+ 	/* Setup the transfer now... */
+ 	if (sspi->tx_buf) {
+ 		tx_len = tfr->len;
+@@ -667,6 +684,7 @@ static int sun6i_spi_probe(struct platform_device *pdev)
+ 	host->max_speed_hz = 100 * 1000 * 1000;
+ 	host->min_speed_hz = 3 * 1000;
+ 	host->use_gpio_descriptors = true;
++	host->prepare_message = sun6i_spi_prepare_message;
+ 	host->set_cs = sun6i_spi_set_cs;
+ 	host->transfer_one = sun6i_spi_transfer_one;
+ 	host->num_chipselect = 4;
 -- 
-Regards,
-Sudeep
+2.53.0
+
 
