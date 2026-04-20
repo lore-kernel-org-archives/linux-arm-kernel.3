@@ -4,135 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DFC0F557EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 08:47:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F14DFF557E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 08:47:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KsGYfp7eRNGsKROuN/kDYDbT/Z1WAXabwZxt8YBitwA=; b=X4vsslqjLHKu93FoiCWNNqmg9S
-	ghPwGKysVmP0XRhc/PkTUQIHlRaLEEU92f8kX5pBbDGNirHq5+w8LHY3nfsZmkLK2FkCPqR2nVWfU
-	+pXjDyqynoOBTzPICZrrP5ymAyT3U9RL+lWt/WmpGpPt7BgU/1k4uruAjgqSgRkHDs/x9f+106Q+a
-	oDyYaf2v873vZY3xM6gfMd8ck1Fmokx2wgowEyrulIa7GEv/z+Zf0V9tegGoWHbVIuI4Bm2OxOwwF
-	Rkpe4VfApjl16Fty8rzRq6bzXYL43wfcn0B0/eZaW1NjT+2zW95Hlyc+zs148DvkWpfTC5Et7VMOr
-	uSthBPgw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BMnG5zsFm8/YD9yDwCE2pChjm9vp3DUFGTfm9muAL/Q=; b=Yn3wH04Q893DSILrj+2M0MAdrQ
+	02IU6E/7l5b8H/ccCbOYUmWbGZ9YICoaiPIrMt5mW6YhhDIZw2OL5RPGlqP5GJLc/+WHipzY3U26T
+	3bBUxXerUy2XGeHcjVKmrdxs3kmqx0HBMzDc4eX7IgdBH66UAxmfgfmzxNjs6ffp3LKz7C9JTuW0/
+	i+u+K4g5mbjpXmDLy6HjsWOvzHp1WfVpqkUoR3mKdwBKpLL2n7YFCeoTl+M2qyp7wOwzHb2IV1w46
+	MlmffZ53EFgYa3+eMRFi+E8sdICy4mXcF7KUxYkUTTsDGJKJ4alThPeD0a3pC8rhhbsTtaMt3CxHa
+	YQv4bB/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEkHW-00000006cSq-1LmF;
-	Mon, 20 Apr 2026 08:47:02 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wEkHv-00000006cbv-0LvT;
+	Mon, 20 Apr 2026 08:47:27 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEkHT-00000006cS0-29d7
+	id 1wEkHr-00000006cZZ-3y4r
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 08:47:01 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63K57RW13842300
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 08:46:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	KsGYfp7eRNGsKROuN/kDYDbT/Z1WAXabwZxt8YBitwA=; b=T2x5KwLZUGMfI59w
-	vwImH4L9HeUrBX90MONAzzTK7xaBo/dC9gEND02el36xuVkOPbU90kaQcEO/2ecV
-	LySXX98L1/t0nnft5JvYTuFy1uv6/3USHGWuvfZUhy2EffvkIYhHBCT5yQ/W7a0o
-	DZAvBGXrCeAVGK64qnePFhfwO7JmMJ5ggt+pAQidX0qwUg3jdue04CbgzDq90s5t
-	s2X5DL1VEgBmvYbGq7imJ+1v6dF6SVt9AZMcWVGNmtUkhpLRLmpOrm1BWH4beE/g
-	Ctm62mLnKRxp1lSsJae9bTYD5xeWIqeFOEE6A8hTMcZU8OUnGNtQaw6/crq3V2z+
-	Tk85Uw==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dm34hd0tv-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 08:46:58 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-50df4c130dbso31786761cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 01:46:57 -0700 (PDT)
+	Mon, 20 Apr 2026 08:47:25 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-48984d29fe3so4512245e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 01:47:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1776674817; x=1777279617; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KsGYfp7eRNGsKROuN/kDYDbT/Z1WAXabwZxt8YBitwA=;
-        b=eqNPfsFVpULKQ3jOnWTHpIXVZ0oS89U9SnWXrrM0XTOhVVtrFY0WfSGqGSpZdTIHm2
-         l8P9V63niQkVaMxrAiaABGGCkVpgMxXvUJnyLw7m4zJMe0ie3O4vu/qodookgCbMh9Hm
-         GBalZ4FTxqirkDqcEPAQgignhIFfHDjovSh+yRD3ICr4Ox4F8ktqduKrVq3bqh3s+0V6
-         LBf8PIFN6+pimDMG0SWF3jVW3GzmMP4oaKf6Ese5gwA9oYDrPkCabCD/FcvthO7Yv5O9
-         NPXUOZxj/9jhvwc6hpzwtr9okhb67iUWmQFysZiOvo2mwb2rVPHNALhRlT2SLYKRGBWH
-         OgKg==
+        d=linaro.org; s=google; t=1776674842; x=1777279642; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=BMnG5zsFm8/YD9yDwCE2pChjm9vp3DUFGTfm9muAL/Q=;
+        b=wXE1gWbqhRVGSDWuy9nak4bnQDXfoa3Y7QHKBY4QdBfS/Ec/6J7YBlqnjTiTaINoxA
+         XTlCW7QF7CME4ZswXltVL95LDd6+YF6I/ztotRsJbHVR5L8mbvLa/zXded2EkJ9zpOI+
+         FQs5urOft+6EOCpbbpCpPUtE+zPvGRp8AaysatDX/Q0051JPTP00XSpkfPxn4s85+odS
+         65f0xOajnsg5h+0rB/GvZcFiRF51YY7jtKSrz+nDDHhw4fs9hobW85joCp284CDsVFhC
+         lYGdqcFU3rSE+FGqob0QIlMGkim9VIm6+GeIQp5eXsEWMlkLp1GaHxWl0Ko28SoLv0HD
+         qSkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776674817; x=1777279617;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=KsGYfp7eRNGsKROuN/kDYDbT/Z1WAXabwZxt8YBitwA=;
-        b=fAXMpeAqYnYGk7hWorBX8I6wk11AhXPnX54TRtRPFJfawJjXceCOTfDArUPZH5wDNM
-         khc+J8ByFoBCM63VKUCjXGeefgUBzy2EnPf5OxEAK2Fn+r9WXq9S/PVYLesW8yNMNlhS
-         izDQgdGFBGuv+BIdSoM1FocU7Xr5TQUgHheCZkw9pQGOnj2Q3QUvcstSEaYmzeYxP1AE
-         PhBrc6hKBA2vqSYMNH981u87FMBZiKQPUdZ3QqkWrER1h8eZk9kRzb65WJd+kGOMGs9A
-         14w5SUkjzI2UONOcykIf9NcGL/RiKRCkKrqGpcL5BYtNFeasWL5D9svskltfaQ+PC52S
-         AOzA==
-X-Forwarded-Encrypted: i=1; AFNElJ/Pzzquu/r5lVBLm/JXgrI2tKYvbnW4bLSqWVGjb909FQjdEXMAKIg9ybE/Y7co7R8uFY0/05X1glM6tQSAIJI+@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFPYn3UjWTad3eicqXfnwDpE+wlTGo07tqFWALiLwQQtq9BSla
-	E6qo/L63QvOWGtTpDxEe6accjFjDE0MjImJ3COJ28mDVGD4D4xqoZITTFWeTSTHZr3ha1lf7IvF
-	/TdkCBllfCGipqGxHbsO51wF/0OGkMjCbkqVBBwZfyVONE/IsIKXk3mjNlvt04HFto2pVN1mPyU
-	RDEw==
-X-Gm-Gg: AeBDievE7v90lWkvo5PmK9SKEh1rbFqlp76w8/HEmd4mBxGgNOJcIM/jmIRbDmrsV6h
-	TH0jH4I+UFjioJN/rM+XXkjm7KTIaXQfhuB6uSK6fDgmRjvjexr3nGR9rITCuWMj9LVXuGjJ2en
-	s8jh2yuEkTA2U+YKkptupPriNaPYMmG4Q+DIaUaQkFNVHVXpxvs3fjTlG/0smXaDq5V1DV2YuzF
-	bcGFLo/LktWT45Wu7Oe4lToCQlWgiptcuBjSpD10hDQJSy6olP5rzc0AsPKZHjUWErYYrNWXhUU
-	ypw91UPqEQGyw67MUsaIq25Yc5NmVbgpzeZA3k0kHEKws91JqcxIUHXkfokEeIdhPyaCRtCzruX
-	5+SbAvA8nf9cK5t+W2yGs89VWXw9u6lvemcYNTdA0H8dfxjusKb1niQfvrgg=
-X-Received: by 2002:a05:622a:a910:b0:50e:2ebc:1cc0 with SMTP id d75a77b69052e-50e3665175dmr118064641cf.16.1776674817165;
-        Mon, 20 Apr 2026 01:46:57 -0700 (PDT)
-X-Received: by 2002:a05:622a:a910:b0:50e:2ebc:1cc0 with SMTP id d75a77b69052e-50e3665175dmr118064471cf.16.1776674816737;
-        Mon, 20 Apr 2026 01:46:56 -0700 (PDT)
-Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:776:c20f:3f2a:49a7])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43fe4e591cesm36712993f8f.36.2026.04.20.01.46.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Apr 2026 01:46:55 -0700 (PDT)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-To: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
-        Heiko Stuebner <heiko@sntech.de>, Shawn Lin <shawn.lin@rock-chips.com>,
-        Jonas Karlman <jonas@kwiboo.se>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-        linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] gpio: rockchip: Fix GPIO after convert to dynamic base allocation
-Date: Mon, 20 Apr 2026 10:46:54 +0200
-Message-ID: <177667481191.5684.11286552597215821404.b4-ty@oss.qualcomm.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260416154928.2103388-1-jonas@kwiboo.se>
-References: <20260416154928.2103388-1-jonas@kwiboo.se>
+        d=1e100.net; s=20251104; t=1776674842; x=1777279642;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BMnG5zsFm8/YD9yDwCE2pChjm9vp3DUFGTfm9muAL/Q=;
+        b=YTMCQ1fJy3qoNNU6TGEGTiEiyR8cNta9DaSkUCYay8ToPpKnZachjMczEzZCQ0PsEz
+         WGgN4wP7UV3XCYfojR8cpfXRax4pogpKk0hG3x4gQdahoW/4sM6G+hwGidBfhwHs0c/Z
+         0OzXeYhFUfpmJcp7V5LtILhKTfkwiz6COk9Jmh/VwNDye4QA+jhunV+MKOhDF0sAmh9g
+         JyuTvryOjLCmmWDbh20o3Kgnpqi8okNnxaAnYKI1xcAvUJ7BgLvkmg8qxibHDNoAqI+X
+         aiajTBh2eqILVmwgfi2GTDW2v+ktBeQXUzX+wnoNzMv8YPaUqqj3stQ7g1EN5QywEc0J
+         YStw==
+X-Gm-Message-State: AOJu0Yz4li5R/0UqZ01WzZmmHfBvE1o9BREdlBIcoh/749lnhSQsO81z
+	+PWxO1sE69V33vPSMcnZU2UncPC05Cxmo3VxKpzPOsjiHNkTnQq2vgyu8JQ5EZ1KBgs=
+X-Gm-Gg: AeBDies3Njyju0XqJYGJJQV2xRlpTJMGC/QLcX1A17A7tNJsxWemmq0SFH4ytxLVzFG
+	xpTlELSkfil0+tfQphsUnOZVM1btCebsmdTmh7EGIgAAbP9Zb+oePvit1ba0Q9Q7gmcAz4+Fopk
+	L4nVj+xAmJAFwyhQMri1B/EHJoRo5MQ8Udcm2tLP6EJNSceoMG57ljqUkD8wcJGO1Tg3/jqF+CF
+	no4OrsBqUGADjgzupjPICfKJHQXLlpQyXPqk7UYN+aUNOHI+bN055w9MrGmpAQ4Sb21u4JoZTgz
+	i5HyClfdK6we03Y23XGVou1rw/7eqeedeu62pAU8vsAheNJV1zPxWH3/CZh/bnednwu612LlVYz
+	2jxZ7XkbDAPq3pAOLOb6rgFmqXhzxt9CJepjH2gG8Hippqn0E1/zaKU86+bIQuQ5E0EFOKvWIJT
+	t0sbO8xi635uvB92UzDyxN+oK/xF1wdDTcms9EnwF8TfVaO5eWlFO7MtIJgb7XI/UOLpDvZwe0E
+	YISTwKyY6IDO8/gOA==
+X-Received: by 2002:a05:600c:c4a5:b0:489:96e8:1ef0 with SMTP id 5b1f17b1804b1-48996e8200amr15753395e9.30.1776674841495;
+        Mon, 20 Apr 2026 01:47:21 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:106d:1080:8290:9fd8:8af0:67dc? ([2a01:e0a:106d:1080:8290:9fd8:8af0:67dc])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488fb75ab25sm85827105e9.11.2026.04.20.01.47.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 20 Apr 2026 01:47:21 -0700 (PDT)
+Message-ID: <c9c3227f-2a46-47b5-963f-e784184f7f31@linaro.org>
+Date: Mon, 20 Apr 2026 10:47:20 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=J46aKgnS c=1 sm=1 tr=0 ts=69e5e802 cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=1kTrt0XSjUtm7xzPXtIA:9 a=QEXdDO2ut3YA:10
- a=dawVfQjAaf238kedN5IG:22
-X-Proofpoint-GUID: n_7yG-bTtUqtkt_mIq00ooi-GX5z091V
-X-Proofpoint-ORIG-GUID: n_7yG-bTtUqtkt_mIq00ooi-GX5z091V
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIwMDA4NCBTYWx0ZWRfX64oVgPoZVvqD
- BpO38z9ju1uzilrO3JKM2/HVZtM8xqX1H2uIIoKlG8iXM/bt7cbeUTNIkj6iL9aG3xaR5lHCgte
- g/ujFzwnQ7rnNL+MjCvRJd8T8FwThspN5rWhIso8MjAimlZVNZE3eu/gGoVfb2yXpvRz6uxeUAR
- 6BiiyDsYfllyyQ1vzAdmcza33Jh0XY09fDDDX6/yL5mFL21pU5TMpCou3BVLOlwINtBKYap2R98
- 5eFrwZ29uXIrYL7XztYhc6rhxazsa1Kl5I26JYDz/UshpQWWozebsJIj+hHxl7eTf35Cm7oUKgF
- YUuRRrCrkmM/U54DkWLDdeuu1OwiDjnx///qkNmbFzrEvuYscd6pKGa3sxJ7ExrMCnp8JbRgR2v
- fo4DrmTL8Petgv0jypGqsFwBesXIqjG4ckLPJ+RmHVv9bms9Y8oGnoPoXnQ76U5PftGKQrcXz0E
- 9ak8K6keBqbgQZ7HLCg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-20_01,2026-04-17_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 adultscore=0 phishscore=0 suspectscore=0 spamscore=0
- malwarescore=0 priorityscore=1501 clxscore=1015 bulkscore=0
- lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604070000
- definitions=main-2604200084
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH v2 3/3] arm64: dts: amlogic: t7: khadas-vim4: Enable
+ Bluetooth
+To: Ronald Claveau <linux-kernel-dev@aliel.fr>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260416-add-bluetooth-t7-vim4-v2-0-9a57098fd055@aliel.fr>
+ <20260416-add-bluetooth-t7-vim4-v2-3-9a57098fd055@aliel.fr>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20260416-add-bluetooth-t7-vim4-v2-3-9a57098fd055@aliel.fr>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_014659_623926_3CBF5897 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20260420_014724_002708_496B9949 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,64 +130,60 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 16 Apr 2026 15:49:28 +0000, Jonas Karlman wrote:
-> The commit c8079f83e0bf ("gpio: rockchip: convert to dynamic GPIO base
-> allocation") broke GPIO on devices using device trees which don't set
-> the gpio-ranges property, something only Rockchip RK35xx SoC DTs do.
+On 4/16/26 10:54, Ronald Claveau wrote:
+> Enable UART C on the Khadas VIM4 board and attach the BCM43438
+>   compatible Bluetooth controller to it. The node configures the RTS/CTS
+> hardware flow control, the associated pinmux, the power supplies (vddao_3v3
+> and vddao_1v8), the 32 kHz LPO clock shared with the wifi32k fixed
+> clock, and the GPIO lines used for host wakeup, device wakeup and
+> shutdown.
 > 
-> On a Rockchip RK3399 device something like following is now observed:
+> Remove clocks and clock-names for UART A, as they are defined in DTSI.
+
+This should be a separate patch.
+
+Neil
+
 > 
-> [    0.082771] rockchip-gpio ff720000.gpio: probed /pinctrl/gpio@ff720000
-> [    0.083531] rockchip-gpio ff730000.gpio: probed /pinctrl/gpio@ff730000
-> [    0.084110] rockchip-gpio ff780000.gpio: probed /pinctrl/gpio@ff780000
-> [    0.084746] rockchip-gpio ff788000.gpio: probed /pinctrl/gpio@ff788000
-> [    0.085389] rockchip-gpio ff790000.gpio: probed /pinctrl/gpio@ff790000
-> --
-> [    0.212208] rockchip-pinctrl pinctrl: pin 637 is not registered so it cannot be requested
-> [    0.212271] rockchip-pinctrl pinctrl: error -EINVAL: pin-637 (gpio3:637)
-> [    0.212344] leds-gpio leds: error -EINVAL: Failed to get GPIO '/leds/led-0'
-> [    0.212389] leds-gpio leds: probe with driver leds-gpio failed with error -22
-> --
-> [    0.607545] rockchip-pinctrl pinctrl: pin 519 is not registered so it cannot be requested
-> [    0.608775] rockchip-pinctrl pinctrl: error -EINVAL: pin-519 (gpio0:519)
-> [    0.610003] dwmmc_rockchip fe320000.mmc: probe with driver dwmmc_rockchip failed with error -22
-> --
-> [    0.805882] rockchip-pinctrl pinctrl: pin 547 is not registered so it cannot be requested
-> [    0.806672] rockchip-pinctrl pinctrl: error -EINVAL: pin-547 (gpio1:547)
-> [    0.807301] reg-fixed-voltage regulator-vbus-typec: error -EINVAL: can't get GPIO
-> [    0.807307] rockchip-pinctrl pinctrl: pin 602 is not registered so it cannot be requested
-> [    0.807970] reg-fixed-voltage regulator-vbus-typec: probe with driver reg-fixed-voltage failed with error -22
-> [    0.808692] rockchip-pinctrl pinctrl: error -EINVAL: pin-602 (gpio2:602)
-> [    0.810279] reg-fixed-voltage regulator-vcc3v3-pcie: error -EINVAL: can't get GPIO
-> [    0.810284] rockchip-pinctrl pinctrl: pin 665 is not registered so it cannot be requested
-> [    0.810299] rockchip-pinctrl pinctrl: error -EINVAL: pin-665 (gpio4:665)
-> [    0.810960] reg-fixed-voltage regulator-vcc3v3-pcie: probe with driver reg-fixed-voltage failed with error -22
-> [    0.811679] reg-fixed-voltage regulator-vcc5v0-host: error -EINVAL: can't get GPIO
-> [    0.813943] reg-fixed-voltage regulator-vcc5v0-host: probe with driver reg-fixed-voltage failed with error -22
-> --
-> [    0.867788] rockchip-pinctrl pinctrl: pin 522 is not registered so it cannot be requested
-> [    0.868537] rockchip-pinctrl pinctrl: error -EINVAL: pin-522 (gpio0:522)
-> [    0.869166] pwrseq_simple sdio-pwrseq: error -EINVAL: reset GPIOs not ready
-> [    0.869798] pwrseq_simple sdio-pwrseq: probe with driver pwrseq_simple failed with error -22
-> --
-> [    0.940365] rockchip-pinctrl pinctrl: pin 623 is not registered so it cannot be requested
-> [    0.941084] rockchip-pinctrl pinctrl: error -EINVAL: pin-623 (gpio3:623)
-> [    0.941823] rk_gmac-dwmac fe300000.ethernet: error -EINVAL: Cannot register the MDIO bus
-> [    0.942542] rk_gmac-dwmac fe300000.ethernet: error -EINVAL: MDIO bus (id: 0) registration failed
-> [    0.943772] rk_gmac-dwmac fe300000.ethernet: probe with driver rk_gmac-dwmac failed with error -22
+> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+> ---
+>   .../dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts   | 21 +++++++++++++++++++--
+>   1 file changed, 19 insertions(+), 2 deletions(-)
 > 
-> [...]
+> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+> index 69d6118ba57e7..8ea7ae609fbd5 100644
+> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+> @@ -250,6 +250,23 @@ &sd_emmc_c {
+>   
+>   &uart_a {
+>   	status = "okay";
+> -	clocks = <&xtal>, <&xtal>, <&xtal>;
+> -	clock-names = "xtal", "pclk", "baud";
+> +};
+> +
+> +&uart_c {
+> +	status = "okay";
+> +	pinctrl-0 = <&uart_c_pins>;
+> +	pinctrl-names = "default";
+> +	uart-has-rtscts;
+> +
+> +	bluetooth {
+> +		compatible = "brcm,bcm43438-bt";
+> +		shutdown-gpios = <&gpio GPIOX_17 GPIO_ACTIVE_HIGH>;
+> +		host-wakeup-gpios = <&gpio GPIOX_18 GPIO_ACTIVE_HIGH>;
+> +		device-wakeup-gpios = <&gpio GPIOX_19 GPIO_ACTIVE_HIGH>;
+> +		max-speed = <3000000>;
+> +		clocks = <&wifi32k>;
+> +		clock-names = "lpo";
+> +		vbat-supply = <&vddao_3v3>;
+> +		vddio-supply = <&vddao_1v8>;
+> +	};
+>   };
+> 
 
-Applied, thanks!
-
-[1/1] gpio: rockchip: Fix GPIO after convert to dynamic base allocation
-      https://git.kernel.org/brgl/c/5cd9c6d332f46d1de8b68117fe2a3f1b08ee80ff
-
-Best regards,
--- 
-Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
