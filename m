@@ -4,106 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23B87F5A8B6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 19:41:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB39BF5A8B6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 19:48:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t5ZkqNq7ovZw3BANwX3fqguzu/wgJwpDrIbtpHMi9K8=; b=tK+egWO0LTEOyUfOhWE1jnLlgb
-	mn7QVYXoqlZhIvMgjIcWa5fAiPXKvvPjWTS6Muptnaskxkt1Fkj8qkQguDI26iqHo/Y2A6uQIZo3n
-	VKQiKm/UEcT0tyChZ4bOqYeSZSPatBKxS4rzvOLLRWFiaFunsZDB0dYhUvAg7igXFz23lZUONQoq7
-	bBHJcp1KpEw7BAflFwlPcSUiuvqQ0jP8/Sci59i8X28lz6e7662RP2j1HhyKSReeJ5Kn5bdCP72O7
-	ne2Flw8ypM0J0hGPIztDBu40ml8m/kk5M2hgooZgpQKJpuLaBtflIRV4tKhkTpObHfVCqineaJZkH
-	XltECqtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DRP/ct+Cln23X3vPROCzqtnFJK3nUx496Tyo3sOVW1Q=; b=qNn0NboI+Z1P3hGACDzLKgTGIm
+	nm0sHWdfNOA8Ll22gLKJJzPF5Ymfo/iSPMMnX+ZfsEE2yVXcwEl8IX7Kcu2rrAr44rZMdWIHZANZG
+	Pao9F5s10yMJ5PZhWiO6wNPgZBKL2DNT6jlqIZns6Oze65T6DoB13qBJF5SDiKlsShqV4//fggJ3O
+	Y1j4rrrtwbMtyKSF1+xpDLqm8wYpVBpJDtf48BixeiVX+4oRNbeixOwC252nSQu3vuYJT6usIW6Lh
+	U4YoFAgURyJ3Rzkjjw6vR5ESJxal35yWxYya0wBTWNg3Yc8qPWOftrvfJjUm0+Wb5zPlb3VkwyDPa
+	502mo1dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEuUs-00000007av7-2uPm;
-	Mon, 20 Apr 2026 19:41:30 +0000
-Received: from fout-a1-smtp.messagingengine.com ([103.168.172.144])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEuUp-00000007aud-1PWH;
-	Mon, 20 Apr 2026 19:41:28 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.phl.internal (Postfix) with ESMTP id 5E529EC05D4;
-	Mon, 20 Apr 2026 15:41:25 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Mon, 20 Apr 2026 15:41:25 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1776714085;
-	 x=1776800485; bh=t5ZkqNq7ovZw3BANwX3fqguzu/wgJwpDrIbtpHMi9K8=; b=
-	Q8Qg0Es4eFu1W7kGkTGr4448Z7L6zw0x4i+6eqe5oJTTKPH73z3TISv64ePeEOc8
-	u+8u5LM+6rPqrJ0fjLXDeDcXDQJ/WfXC9G81xuKOclTUsFKOWZapvxRlisrAMMxQ
-	4f0n/rHuIxkdNWzk3XNeGlcYJE8hp2PJSQk04yHou5ez8HZPVRAzPSG2VPjAhvo+
-	m0aBjJf/we0grbHRzS04UwVoj9IojVm4+qW/DfTDMJy7DFf3Xbiuj1bau1i3q/r8
-	LFAWfS5gW20HIxIBBV9Ia/pfvKR6DVVKU/r43CU+P2ruE8Kn0lSiZQYW+i0aFzip
-	fpCKY7p+YOJWHYNwF9TeDQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1776714085; x=
-	1776800485; bh=t5ZkqNq7ovZw3BANwX3fqguzu/wgJwpDrIbtpHMi9K8=; b=h
-	ADYUc2rFRBuVTDhjm9LtBnmDBi689S6FdmKcTrochD1YxNSyoPaeF8IQqxe3qUhe
-	EpC/JElRAe2Zc4F+eOZfE4rka4RRsYVMTEFE3lujoYDh2dTdIqdqbNaluPXHI8Tu
-	AaBdybApTpRPcjqMTBqA4zeI8cz4I7JnR+vlUPK7B6qhxmUvERmFJznLyNIQ734f
-	JGyVPregl01NZhyg6Q07GsP13hYRbbVSJR71lRrhixF3jgr/GGKrlmXd/8p0Cx0v
-	n79IBctkA+Vq7r7bZLE6QEptGjkBNPFuaFZQzWb0KJSkcP4lWy1NA2Sb2Wb9AYxo
-	RyRJKGd0d7zvAV/amCuaA==
-X-ME-Sender: <xms:ZIHmaQZn0PGvHyIGRdqk2YHLY4TcloHgre9BGRWLPaCfGayaIZZNYA>
-    <xme:ZIHmaWMVYjvOY6az6FsmxoiIGpFb3v4j_-7xK05Kz1CgthZO2JDNfB48YVZkf3kSo
-    Ij1d6CitrVp-lW_TFwBlPdIourOjEN8cY20-74ry7tzViWrP-ONTHA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdehleeflecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieen
-    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
-    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopeeipdhmohguvgepshhmthhpohhuthdp
-    rhgtphhtthhopegrrhhmsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikheskh
-    gvrhhnvghlrdhorhhgpdhrtghpthhtohepshhotgeskhgvrhhnvghlrdhorhhgpdhrtghp
-    thhtohepnhgvihhlrdgrrhhmshhtrhhonhhgsehlihhnrghrohdrohhrghdprhgtphhtth
-    hopehlihhnuhigqdgrmhhlohhgihgtsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
-    pdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrh
-    gruggvrggurdhorhhg
-X-ME-Proxy: <xmx:ZIHmaZbYU8ATmh10MsIQ7alxZepKEwOn98BH8N_PvoJG5i8MGPvRBg>
-    <xmx:ZIHmabUawoVFFrlAZyW70Uq0iZQ-vCj_n616kkTPGH1r-cxRM0xBrg>
-    <xmx:ZIHmaa9ziPrkvHlgNjeXm-JPCVkNCHqD6xkUTIqEEnhxwPLfG8PG0w>
-    <xmx:ZIHmac9_Kqo2BZ37-SoEfGy1B37Ix9tBej3ojToifDU_KKl0xl5pwg>
-    <xmx:ZYHmadUfhFYXBSvYR2NVAo2Ul3b1UcqOGCIpJN4SFnQx3J7qHfVrq0M0>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id D828D700065; Mon, 20 Apr 2026 15:41:24 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1wEubu-00000007bF1-1qZD;
+	Mon, 20 Apr 2026 19:48:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wEubr-00000007bEg-1hgQ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Apr 2026 19:48:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 57EA12934;
+	Mon, 20 Apr 2026 12:48:35 -0700 (PDT)
+Received: from arm.com (unknown [10.57.88.181])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AFF153F915;
+	Mon, 20 Apr 2026 12:48:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776714520; bh=lxvYnOIAQzYn0BvPXuqJ5lTkmdUfRuCSsioM4ikOSZc=;
+	h=Date:From:To:Cc:Subject:From;
+	b=m0wSTfx3ypJUlw0k+1HqW+Q772X0yxaHtcxqp431qUYG2tarlQmrsYvhXMKca0NmN
+	 NJYkoF+qW8+hsKEDQkVFIUcKpvVqjp8RGsRHq8twSlW+9+m8xHPdkqKF2s11s9dcKD
+	 pFpRya3ONW/4W/SjAkA5U25LEXjzQoTwyYggLGDQ=
+Date: Mon, 20 Apr 2026 20:48:36 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [GIT PULL] arm64 updates for 7.1-rc1 (second round)
+Message-ID: <aeaDFH0-2zhOQTxy@arm.com>
 MIME-Version: 1.0
-X-ThreadId: AvG_jmLX_3YV
-Date: Mon, 20 Apr 2026 21:41:04 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Krzysztof Kozlowski" <krzk@kernel.org>
-Cc: soc@kernel.org, arm <arm@kernel.org>, linux-amlogic@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Message-Id: <d95cfc82-327f-4bed-95ae-88a9182eedba@app.fastmail.com>
-In-Reply-To: <5d9c1c31-5e89-4699-b910-f5ca2c36260f@linaro.org>
-References: <2fde1b11-d2a4-4aa2-8c28-d20fbbb54f7f@linaro.org>
- <20260411-spicy-apricot-newt-afa8a7@quoll>
- <5af5dfdb-001a-4b63-8a43-5cfcf28d821c@linaro.org>
- <fe782180-99ec-404f-96c5-8949a8732186@kernel.org>
- <4b2a319e-3292-4576-b5b9-4e7db8aebe87@kernel.org>
- <43ae9d05-5cc9-4f68-933a-99eb744756b7@app.fastmail.com>
- <5d9c1c31-5e89-4699-b910-f5ca2c36260f@linaro.org>
-Subject: Re: [GIT PULL] amlogic ARM64 DT updates for v7.1
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_124127_685775_E06DFF94 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20260420_124843_653158_53A51184 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,26 +67,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 20, 2026, at 19:31, Neil Armstrong wrote:
-> On 4/20/26 17:25, Arnd Bergmann wrote:
->> On Mon, Apr 13, 2026, at 09:30, Krzysztof Kozlowski wrote:
->> - I see that only a few of the patches in the branch got applied
->>    during the fineal days before the merge window, while the rest
->>    had been part of next-20260330 or earlier. Aside from just
->>    sending the bulk of the contents earlier, I think the best
->>    solution on Neil's side would have been to send two separate
->>    pull requests, for the earlier and the later contents
->>    respectively, even if sending them on the same day
->
-> I never did a split because I don't have enought changes to justify
-> 2 PRs and I had some contributors & other maintainers activity late
-> in the cycle.
-> Anyway I'll make sure to send the PRs earlier.
+Hi Linus,
 
-Ok, thanks! Note that I rarely complain about a follow-up PR
-being late. If you have the majority of the content queued up
-early enough and have a few more things or even just a single
-fix later, that's not an issue at all.
+Please pull the second round of arm64 updates for 7.1. The main
+"feature" is a workaround for C1-Pro erratum 4193714 requiring IPIs
+during TLB maintenance if a process is running in user space with SME
+enabled. The hardware acknowledges the DVMSync messages before
+completing in-flight SME accesses, with security implications. The
+workaround makes use of the mm_cpumask() to track the cores that need
+interrupting (arm64 hasn't used this mask before).
 
-     Arnd
+The rest are fixes for MPAM, CCA and generated header that turned up
+during the merging window or shortly before.
+
+Thanks.
+
+The following changes since commit 480a9e57cceaf42db6ff874dbfe91de201935035:
+
+  Merge branches 'for-next/misc', 'for-next/tlbflush', 'for-next/ttbr-macros-cleanup', 'for-next/kselftest', 'for-next/feat_lsui', 'for-next/mpam', 'for-next/hotplug-batched-tlbi', 'for-next/bbml2-fixes', 'for-next/sysreg', 'for-next/generic-entry' and 'for-next/acpi', remote-tracking branches 'arm64/for-next/perf' and 'arm64/for-next/read-once' into for-next/core (2026-04-10 14:22:24 +0100)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-upstream
+
+for you to fetch changes up to 858fbd7248bd84b2899fb2c29bc7bc2634296edf:
+
+  Merge branch 'for-next/c1-pro-erratum-4193714' into for-next/core (2026-04-20 13:12:35 +0100)
+
+----------------------------------------------------------------
+arm64 updates for 7.1 (second round):
+
+Core features:
+
+ - Add workaround for C1-Pro erratum 4193714 - early CME (SME unit)
+   DVMSync acknowledgement. The fix consists of sending IPIs on TLB
+   maintenance to those CPUs running in user space with SME enabled
+
+ - Include kernel-hwcap.h in list of generated files (missed in a recent
+   commit generating the KERNEL_HWCAP_* macros)
+
+CCA:
+
+ - Fix RSI_INCOMPLETE error check in arm-cca-guest
+
+MPAM:
+
+ - Fix an unmount->remount problem with the CDP emulation, uninitialised
+   variable and checker warnings
+
+----------------------------------------------------------------
+Ben Horgan (2):
+      arm_mpam: resctrl: Fix the check for no monitor components found
+      arm_mpam: resctrl: Make resctrl_mon_ctx_waiters static
+
+Catalin Marinas (6):
+      arm64: tlb: Introduce __tlbi_sync_s1ish_{kernel,batch}() for TLB maintenance
+      arm64: tlb: Pass the corresponding mm to __tlbi_sync_s1ish()
+      arm64: cputype: Add C1-Pro definitions
+      arm64: errata: Work around early CME DVMSync acknowledgement
+      Merge branches 'for-next/misc' and 'for-next/mpam' into for-next/core
+      Merge branch 'for-next/c1-pro-erratum-4193714' into for-next/core
+
+Mark Brown (1):
+      arm64/hwcap: Include kernel-hwcap.h in list of generated files
+
+Sami Mujawar (1):
+      virt: arm-cca-guest: fix error check for RSI_INCOMPLETE
+
+Zeng Heng (1):
+      arm_mpam: resctrl: Fix MBA CDP alloc_capable handling on unmount
+
+ Documentation/arch/arm64/silicon-errata.rst     |  2 +
+ arch/arm64/Kconfig                              | 12 ++++
+ arch/arm64/include/asm/Kbuild                   |  1 +
+ arch/arm64/include/asm/cpucaps.h                |  2 +
+ arch/arm64/include/asm/cputype.h                |  2 +
+ arch/arm64/include/asm/fpsimd.h                 | 21 ++++++
+ arch/arm64/include/asm/tlbbatch.h               | 10 ++-
+ arch/arm64/include/asm/tlbflush.h               | 94 +++++++++++++++++++++++--
+ arch/arm64/kernel/cpu_errata.c                  | 30 ++++++++
+ arch/arm64/kernel/entry-common.c                |  3 +
+ arch/arm64/kernel/fpsimd.c                      | 79 +++++++++++++++++++++
+ arch/arm64/kernel/process.c                     | 36 ++++++++++
+ arch/arm64/kernel/sys_compat.c                  |  2 +-
+ arch/arm64/tools/cpucaps                        |  1 +
+ drivers/resctrl/mpam_resctrl.c                  | 12 +++-
+ drivers/virt/coco/arm-cca-guest/arm-cca-guest.c |  3 +-
+ 16 files changed, 297 insertions(+), 13 deletions(-)
+
+-- 
+Catalin
 
