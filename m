@@ -4,177 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B45CF5A8D1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 23:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F4FEF5A8CE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 23:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=li1QTXDLKUg9Sb2Wzb5S3vgbZrLxrrKq59N8rWxZa0g=; b=1ARyIqEG5idlkDR1d8Cw8MNBYk
-	GY2zgmjXaoE0O9xjG6XYLf9A88oVurZGOYcAzCdSHgdKxdqikTtm27aiROrWDVXCib9pMmKBwcXL8
-	+2DzjPwTDB8R4GX3mxzXCt9otaKnvCWHTn7oXVQcc8QevqQOXnnXYL42ULTRWi7vrhBkK/HyqNN41
-	pRbb5fgGt6DjG8u/wMhzrFLaQX02CjVqXc/PGR9uDxj7fh2kIO+b6FlO3pUpszA1o/xljSJYT9xUq
-	f5D2+Ig0uBZHXPgZkdwC1sLVW1lW+og2v73awAY8FIzxsVzr70DHrJzlBMIZOdlipXGZTg0uTgA/k
-	Xa1po+Lg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ufPgVDBbM9kVZQF2498czX2rJ62DJlm2iNO99og33OM=; b=0NNHeiLpKtNB8R
+	47bSPE7UYfmlAJZes2+ZlTok15euy4xX6aMFH9hzfwEcES33YnHljcOdaEwRqDTmq+UPXena/Wi7Q
+	tEAJZPEwM4ulih2RgNIJce91xKr40wALVPa9xuoYY3w7npfJXcmXL1u+SnbuLKzhOZPio8+4LV4Ch
+	DqxYul8aqjm7yvxK1p2WWzEc+1Mf092D0ssshbJQ9LCZSHQQ4byjY+nZGG54PKNwkvrPT9Ml4WfH3
+	u2t7hISQja86e4zFzS6uU5hDLnzeu2CBnARjTDX5bkIzOdGSW+R3pF0QVOtWR4YWxNrFKwgCF2vHJ
+	Z6dSmmQZzYQX1Lkg8baQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEy7z-00000007pFU-2d9V;
-	Mon, 20 Apr 2026 23:34:07 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wEyOm-00000007qLJ-1dI5;
+	Mon, 20 Apr 2026 23:51:28 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEy7u-00000007p9l-0cne
+	id 1wEyOi-00000007qJv-2Or3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 23:34:04 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63KJOU7W1014304
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 23:34:01 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	li1QTXDLKUg9Sb2Wzb5S3vgbZrLxrrKq59N8rWxZa0g=; b=HpvBvE1QLHNxgFMc
-	QoUecGt/rJg9vNlE4G4+5je7Lv52Wc44BKL4NREup+GtkJlzefSb9vMblGPkSi07
-	ssTeEQHMaSu89LcWDOxAHa/PJL+Yf8BE0ke+O2jJfO0FpawHKOcX1KLkIqHvcn1E
-	gBG+0dRkFjFCmb1LR8re7MIJVF4MmVbox0mXkUWK8uWMxtq09/mu9qzVtW9uZkZA
-	xv+A/lnE9lVAnDglO/OJuphfp2iKqnhgqrn6HY4ejWe8pYxvZxopCN2STQcdgeP8
-	I2cyMh/ZdSD8PqhlianfkMpq4FGHhh37vXF/fTe9/kimWd6Q1USMiJ9QOyLukYDL
-	czPPFw==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dnt900m13-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 23:34:01 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-50da529ff48so87837351cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 16:34:01 -0700 (PDT)
+	Mon, 20 Apr 2026 23:51:26 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-c79506f3c40so1325305a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 16:51:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1776728040; x=1777332840; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=li1QTXDLKUg9Sb2Wzb5S3vgbZrLxrrKq59N8rWxZa0g=;
-        b=kFrKOPS+L5WEYBaBM/zDncOLO0sxLL44IIY0zQBftHPBegrPRZh49QqhvgQE8Cl+t7
-         9LATKxoNPzpF0ieaoEXuEZg9JtR01QG1xp+8cRKpQ64lNJPsHW/Qbv1cGGvQMyLDVhNM
-         ov4JQxXQ/ADZQug9APVwDFFjoAnXhzw+6bb78qAPTDqShiEUsGWigX+8tBF0LwJ1xeJW
-         WAZHgWKXPH9sNsXIo3Hbr7fGThzjVVdA8Bxt9rzViGiuctHI78HIij66c6UCumdEG8GI
-         8uaKQEyhH0jlcYxgefn/k3I6FS3qKyxnq1Xzfrhdm+Kcenf9WmiDtXpfJ8B6iEMVW++8
-         KlNw==
+        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1776729083; x=1777333883; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ufPgVDBbM9kVZQF2498czX2rJ62DJlm2iNO99og33OM=;
+        b=T4UdUBr/7/Tt5g7vZaQdpQJjVrsOTYAZhcDi44g7md/T22RYNcNoQEY+ZFeT1bo0WV
+         WuOLswXOLodF8oduZx9nuU179PRSr6N+QuwPWlFPnoEAwXPxuti9oJ0+Q9N0cXOw9EzA
+         xDH2TtGMwHHtugT9KAecIFkFPxF5rHVeWU/GeaERf4sZf8ntX/GIXPuDNz8rSeWA0H2D
+         hLbAJ0qy9cn4ZtNoD89yCyPbFWAvWOmPwNP7cDf3zskPWnHN3Yuq7x2fZov4Cw6xCezX
+         P7tAe6czbtaWohZyIr+4wwK+oS1uvk1a5qoGMM062uTEp3oUVPyAh48ZL881rb6u/Rfc
+         gDxw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776728040; x=1777332840;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=li1QTXDLKUg9Sb2Wzb5S3vgbZrLxrrKq59N8rWxZa0g=;
-        b=ENG7QVeIWOT+wfy3FqecCqJ4aFjkCCd5Q54KprpWdbSTIzVjBGxetJ7bzSp7fSBp4c
-         ImCfnAaCCHxRdVdpsjQgOhK7HQI9JLkRgf4EwqKN7KbDHZSKSOjU2uzmQIcZGQ1Am0BG
-         7JeNU8BqbWUueCimIFzDfit8DYIsoSf4Cc63ISKm7F0fqZaXz+0oeaXAWZygiqRMLHmm
-         o0DhGu0zlfGjTOjU9ZUFDc+EBYlGMFCWIKTYi46LLiSjSK2CyNPl7vicoA5lpD0F8E96
-         1rd9g62qS4QEmxVcUOVGjIoU7HdWwjrHhaqV9GunVYB9X66LxLF1RLVrqmMIwvuzbeFl
-         kWBw==
-X-Forwarded-Encrypted: i=1; AFNElJ9w9D97yPCj2IQlIfz41JiT0+eJRhUq1aT9gR09O9wOI667BO/Tfe5HTCh2CFzicnVJTnTcqW9SNfdNRymvjNkN@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHj+pw6xHKPlMm+Zwk2eGQCtE1aRK5zvMr0wbnrfDb1UOfxZ3Q
-	4XS5gRG5H64Ql84306U46MyJRuYUmC9R3O202St2wauMSWwWZvuf0yl0NzSG0gqLs2AnRI3ZllH
-	aGBA/u8q0/Ks3e9cZiEVmeM9ESxIWiUMM7yIYEhwnIj0ex5egW+dU+efwx3CQoD7NeKpopCmz3z
-	VnrA==
-X-Gm-Gg: AeBDieuBV+5b5IEC/f8WunrOfOExYtrBTF0v4iNHTDmUi02XyylZcLoWQ8i4EXKY+Cv
-	TBNyVX14XQreOPpGLuc8BHxPsI0jwXV/xTnAH7FCuD5xv59ggUdAT5JUDYe1twXAlMBW8Zs5MNr
-	BuCcq3rFtjMUdIGgjCExEq6xOLjnsoP0uf16VgrE7hrV0S30dKpXWdUcgjPlTt065VjHfi+6o27
-	PSPDga1xwe1fH4CNwoFkyBArWdvFlAj18dVeQOn/T5/Lacp2/g3UXW9/9biaoN6/TGj8WENtWwk
-	TOgZf4uZPc0tVI2F9pikWakU4Th11BYugk6o6krXS1L5ikkPhResjG0z298pqeNuG8wVBbeHixm
-	FlakRgAoihtACg++DGFM6a76JwK/Ie/YO+gc5QPmg/EIpiyJ4mnC87wFPx59yRTsDNhrXBc/HSE
-	HWC6Vsxhdg/XOw7pz+cEnhBDpr5RdDeCcIWQvak/unpufx+Q==
-X-Received: by 2002:a05:622a:4245:b0:50d:8056:da41 with SMTP id d75a77b69052e-50e36836149mr208590031cf.2.1776728040290;
-        Mon, 20 Apr 2026 16:34:00 -0700 (PDT)
-X-Received: by 2002:a05:622a:4245:b0:50d:8056:da41 with SMTP id d75a77b69052e-50e36836149mr208589331cf.2.1776728039743;
-        Mon, 20 Apr 2026 16:33:59 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a4185bc627sm3320714e87.29.2026.04.20.16.33.57
+        d=1e100.net; s=20251104; t=1776729083; x=1777333883;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ufPgVDBbM9kVZQF2498czX2rJ62DJlm2iNO99og33OM=;
+        b=JjtG5HnMmHXIt4tBkQAl/vfU++8O5x6yJPfnhu4Umz/mhtG0qN6s/yLOeV1ZEB+HLm
+         jW38BD6h59+ZsZJt2cnTTR7h14n3I6JllaB0zCRK8+073O4Go9U5Fa2XPlZXaNTpjID7
+         uKReY5l17EqKhDSkRzAt8UzJSxAMbmMvGbp9neBJ2h2bF+y5jKav6pOCWW2YHEt/fVdF
+         VU/Crd1ivX+ov9bIAwiEXzphuM2oP6xTNCUOBd8UzlJowk7QnVI6FC7fNLYBz3CUSMa5
+         o8BW5pF9H1XBrHfh8mIVH2doCqGEhMF31U+hZzSqdApTQ7Sqts/Sexsifyz3d7kcjaSp
+         l9jQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/BEISXhd6mC5qXwvHQDkt+3/L0DjhmFD2UhxqfkcqUjvyrUjJHe8j26NwcliiFXARptfSlsltiMJTyO8MV/IEZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtSdgXSsTZy/wN9N5sRD62gmpmwwKIsTg4JV0GlBjyylbHPM4r
+	qzBpJb24jW2EyfuWmIkDFOStNveVXM3DdBU4Hl1jL04Y4x81XB1RumMK2IGVT0KK3jg=
+X-Gm-Gg: AeBDiesDOP4vC+SWNjOaggS09Zqv7Yn+AL0LInHw/VbUPbdGNQNVjZfqd5RjMzSMjAa
+	VMYwb/ky/vXhipnmMYOTfq93RAYcfUPCDm/Sqhn8979ZHF+GJzweAEJAYGTAt4Kkgyb/6RicVKg
+	VFUUs2tU5g1vCsPrelyq/iGtsKQtuV5/Fw3YyRCefVemYh7AWSl9AvbfdynI71+wkTIYQqslk6S
+	y/EhzYO4zRKV76A9dwrZCkxjELcLUh9nhFtjsPGgSlbUg2Hvgctn6H/CQfRhNmqw9lRc4L8rOZ/
+	kzwE1PsGbx/6Q8ANRQEeIS5gg3gZGPmsVhk/Swp3bcbG2YDbk5oQK8UEeeG1qjn1iko9jJU6/uW
+	Lj0rUF+LK9w0k/qofyPJlPMHxxuLgC82K/hChe+2mY0F1ORC1aGrH4Sqf1iQDYG4bTwKYn9MK8u
+	j9b5/jZhPFA2EYPhpMjp9IeKBQd4u6Wg==
+X-Received: by 2002:a05:6a00:3496:b0:82f:52dd:4446 with SMTP id d2e1a72fcca58-82f8c9cc390mr16844270b3a.45.1776729083514;
+        Mon, 20 Apr 2026 16:51:23 -0700 (PDT)
+Received: from localhost ([97.126.187.42])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8e9d2fa9sm12324138b3a.16.2026.04.20.16.51.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Apr 2026 16:33:57 -0700 (PDT)
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Date: Tue, 21 Apr 2026 02:33:36 +0300
-Subject: [PATCH v3 6/6] usb: typec: ucsi: huawei-gaokun: pass down HPD_IRQ
- events
+        Mon, 20 Apr 2026 16:51:23 -0700 (PDT)
+From: "Kevin Hilman (TI)" <khilman@baylibre.com>
+Subject: [PATCH v3 0/3] pmdomain: core: add support for domain hierarchies
+ in DT
+Date: Mon, 20 Apr 2026 16:51:16 -0700
+Message-Id: <20260420-topic-lpm-pmdomain-child-ids-v3-0-c2c40bef238c@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260421-hpd-irq-events-v3-6-44d2bf40dfc2@oss.qualcomm.com>
-References: <20260421-hpd-irq-events-v3-0-44d2bf40dfc2@oss.qualcomm.com>
-In-Reply-To: <20260421-hpd-irq-events-v3-0-44d2bf40dfc2@oss.qualcomm.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Adrien Grassein <adrien.grassein@gmail.com>,
-        Jani Nikula <jani.nikula@linux.intel.com>,
-        Rodrigo Vivi <rodrigo.vivi@intel.com>,
-        Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-        Tvrtko Ursulin <tursulin@ursulin.net>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Pengyu Luo <mitltlatltl@gmail.com>, Nikita Travkin <nikita@trvn.ru>,
-        Yongxing Mou <yongxing.mou@oss.qualcomm.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-usb@vger.kernel.org, intel-gfx@lists.freedesktop.org,
-        intel-xe@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        freedreno@lists.freedesktop.org
-X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1309;
- i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
- bh=mxGolAt7ROQ681cKNciUMVefMdiRDsSwC5zox5THv9w=;
- b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBp5rfNcYA6Kn6vJQasDmoVbhaWkp9oc1LDRkXYb
- fBIXvmCUy2JATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCaea3zQAKCRCLPIo+Aiko
- 1R4BB/9GohI0ZFgi+xqrkYGMe/3Udg5Nue1jmSANu/Otqvi7uD155XM2P9LxdiNxtumuSBIOZV0
- ZM2YwJ0094hTPQVf33GGO2TTcvusZV5uQYJ6XLsZYcjreXdNaU7hK/gy3K8J4CDrGah5ai3YG9m
- YPp1Ywnej+ym0q/P04Fko3yj+I+nVVhCJX0grp75+IBHoxlXcN3UQoN52HycYjjeL4oagQReQym
- NR8P+cZwdhtT8RR8dl13lWVTAt92Z7A+IJLUpzga0kyQWAuxOxI4W8RLlO1AGkhOTjPYzfNV+2S
- 1iHdUU4TuohfcHIGhYbTI1erKqCzoEvMrcoEnptsZKObh68L
-X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
- fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
-X-Authority-Analysis: v=2.4 cv=KfbidwYD c=1 sm=1 tr=0 ts=69e6b7e9 cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22 a=pGLkceISAAAA:8
- a=QyXUC8HyAAAA:8 a=EUspDBNiAAAA:8 a=xNxaoOyMFJLcTYWjjPMA:9 a=QEXdDO2ut3YA:10
- a=a_PwQJl-kcHnX1M80qC6:22
-X-Proofpoint-ORIG-GUID: r27aPnruXO_P3KtOMXHqPa9w8h1VJfgA
-X-Proofpoint-GUID: r27aPnruXO_P3KtOMXHqPa9w8h1VJfgA
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIwMDIzMCBTYWx0ZWRfXzUsXScdqj8d/
- gHey9gtTh8J3rL0tz93a35DNqr0Q7p9Eqr9ODijsd8YzQx0Gf7fcbR2LKgCttIuAQBHwycuUFBm
- GnQN5OHjY4/gUP0dOio6ELBmD4WD9IMTlbeoDper2jywKYNa883iODZwg/hCHYBe6yJlSV0RxPq
- /qznUF7/xJ2988hVV2EqePhp6Z7a7LoisI5lFrIGI9cZp08bA2G5NR+5ZhmgcNf0HxZUzeYuKnn
- lQlkucfEzaE55VcVZAsIA5s5Z6kvcaotwBhyI94yWxei410qV8TqTyPZiG/y+mMhc7ow8Tl/EZd
- QLK62oqGU2DTgcPY7OSioYIqn7PcNHKYkAPcM7TqhYFPj9xOlXcy08G8oa+JiqcRLV/sxJ2gYws
- Tpt6WJg6BR1mWoR/Ls4KiQhz1PNG4lUgfV4nd12CqbFdAPTewvRpnNSJc4l8B6KeMrBttgx7g8d
- qJX/P1VQeT8A2hy7quw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-20_04,2026-04-20_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 priorityscore=1501 spamscore=0 suspectscore=0 bulkscore=0
- lowpriorityscore=0 malwarescore=0 adultscore=0 impostorscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604200230
+X-B4-Tracking: v=1; b=H4sIAPS75mkC/43OQW7DIBAF0KtYrEMExsYkq96jygLwOJ7KGAcIS
+ hT57iVOpUrdpMsv/Xl/HiRCQIjkWD1IgIwR/VyC2FXEjno+A8W+ZFKzWjLBGU1+QUunxdHF9d5
+ pnKkdcepLL1IQfdtpaDvWMFKIJcCAt43/PL1yvJovsOlp/jQCXK5lN71qxOgI1HrnMB2rLPdck
+ efpiDH5cN8ezXxr/u+nzCmjrZBcqk5zNQwfRt8nNAH2ZWWzc/3rNW+9unhKiIOExrSDMn+8dV2
+ /AefA9htWAQAA
+X-Change-ID: 20260310-topic-lpm-pmdomain-child-ids-e3d57ae57040
+To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>, linux-pm@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3250; i=khilman@baylibre.com;
+ h=from:subject:message-id; bh=6WxIAiLE/9LRIR82Mb4m+MqABJehEcnrKw/oRJbTM5c=;
+ b=owEBbQKS/ZANAwAIAVk3GJrT+8ZlAcsmYgBp5rv6Rf/zytON0i/RmuShXkpqsPFc/gGPasid+
+ /3oPG9tkoCJAjMEAAEIAB0WIQR7h0YOFpJ/qfW/8QxZNxia0/vGZQUCaea7+gAKCRBZNxia0/vG
+ ZfTVEACfWnHioXc95XXtaqx6QRy/RYoNMGYwwJQguRkSnNMHV6zscT6TciPxDi1Q5gXr5AIdiBu
+ 4M+C8XiRKN3+EnnsRnKHszeTAO15Y1UOSJRhB5gcaEVj0WfVMBK6i1ut3GJtcFudnV0ytQt8HUY
+ ahctQg8nYMyAP4B4JWAGwAJ3lMUXm4RLPEKsILBM+2vZ2TGx4xLpPNSZNqv4I9swsW+CHUmDA0b
+ 1paRmlmFS2oRiB+pQn9buKKflpUDq7Wvpm/V62QUBjJt4iSQsUVv180djB9J36ygcZ/NJiKR1/F
+ mkR/Re8ygxw5KyWbfi6RMSzTciGbH7tRm4IP4bxWq5umYuAoTIwdLfnwIwwcpNqhQ3joIPgCupZ
+ F835lTbFS1JgxUYPHYeA+iA8u6wsdSd61u/M7ZdOf51AJaO9qSZCQekxR+AT8joe3dLyC1Uxlyw
+ 4HfZ+td+PFqA+NEzWgXP+QfvoQuAr0VsrQtFZ2OYY7fNMNnFl7/SrMFJcwGsD9n2kHvCmpf9cXo
+ alpU14tukrPoBKa3x0gM0GrrdBV9yee4sc/y097c5UHkzHeqCkkhPzaaDJaWzJyBu348KpvOTc2
+ /TCsF3YhMcutog7n4MNWbwigLxdMQVInMLTIjZ036/9l88aJDv8fhpxMU3aU2TXeNFtci0wh+zc
+ Z1h0TtbyeS3bgfg==
+X-Developer-Key: i=khilman@baylibre.com; a=openpgp;
+ fpr=7B87460E16927FA9F5BFF10C5937189AD3FBC665
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_163402_191371_D7DAA5A8 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20260420_165124_878458_D490488C 
+X-CRM114-Status: GOOD (  15.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,40 +120,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Pass IRQ_HPD events to the HPD bridge, letting those to be delivered to
-the DisplayPort driver.
+Currently, PM domains can only support hierarchy for simple
+providers (e.g. ones with #power-domain-cells = 0).
 
-Reviewed-by: Pengyu Luo <mitltlatltl@gmail.com>
-Acked-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Add support for oncell providers as well by adding a new property
+`power-domains-child-ids` to describe the parent/child relationship.
+
+Also adds the first user of the new API: the Arm SCMI PM domain driver.
+
+Signed-off-by: Kevin Hilman (TI) <khilman@baylibre.com>
 ---
- drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
+Changes in v3:
+- cleanup return codes for add_child_ids()
+  - < 0: error
+  - zero means no child domains present
+  - > 0: number of child domains added
+- arm_scmi: adopt to new return codes (only <0 is an error)
+- Link to v2: https://patch.msgid.link/20260410-topic-lpm-pmdomain-child-ids-v2-0-83396e4b5f8b@baylibre.com
 
-diff --git a/drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c b/drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c
-index ca749fde49bd..5e3f887ecbd8 100644
---- a/drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c
-+++ b/drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c
-@@ -299,10 +299,13 @@ static void gaokun_ucsi_handle_altmode(struct gaokun_ucsi_port *port)
- 
- 	/* UCSI callback .connector_status() have set orientation */
- 	if (port->bridge)
--		drm_aux_hpd_bridge_notify(&port->bridge->dev,
--					  port->hpd_state ?
--					  connector_status_connected :
--					  connector_status_disconnected);
-+		drm_aux_hpd_bridge_notify_extra(&port->bridge->dev,
-+						port->hpd_state ?
-+						connector_status_connected :
-+						connector_status_disconnected,
-+						port->hpd_irq ?
-+						DRM_CONNECTOR_DP_IRQ_HPD :
-+						DRM_CONNECTOR_NO_EXTRA_STATUS);
- 
- 	gaokun_ec_ucsi_pan_ack(uec->ec, port->idx);
- }
+Changes compared to initial RFC[2]
+- dropped RFC
+- rewrote the parse/add function to use iterators/helpers from of.h
+- add a remove function for cleanup
+- use child domain language instead of subdomain
 
--- 
-2.47.3
+This idea was previously discussed on the arm-scmi mailing list[1]
+where this approach was proposed by Ulf, and then an initial RFC[2]
+implementation was made.  From there, it was suggested by Rob[3] to
+use a nexus node map instead, which led to several more versions
+attempting to implement that, culminating in v5[4], where Rob and
+Geert then had second thoughts about the power-domain-map approach.
+
+Therefore, I've gone back to the approach in the initial RFC[2] to use
+the child-ids approach.
+
+[1] https://lore.kernel.org/arm-scmi/CAPDyKFo_P129sVirHHYjOQT+QUmpymcRJme9obzKJeRgO7B-1A@mail.gmail.com/
+[2] https://lore.kernel.org/all/20250528-pmdomain-hierarchy-onecell-v1-1-851780700c68@baylibre.com/
+[3] https://lore.kernel.org/all/20250528203532.GA704342-robh@kernel.org/
+[4] https://lore.kernel.org/r/20260122-pmdomain-hierarchy-onecell-v5-0-76855ec856bd@baylibre.com
+
+Changes in v2:
+- dt-bindings: fix warinings from make dt_binding_check
+- scmi_pm_domain: switch to dev_err()
+- pmdomain: core: fix locking around add/remove domains
+- pmdomain: error unwind if any children fail to be added
+- pmdomain: fix node reference leak
+- pmdomain: ensure power-domains and child-ids properties are same
+  length before iterating
+- Link to v1: https://patch.msgid.link/20260310-topic-lpm-pmdomain-child-ids-v1-0-5361687a18ff@baylibre.com
+
+---
+Kevin Hilman (TI) (3):
+      dt-bindings: power: Add power-domains-child-ids property
+      pmdomain: core: add support for power-domains-child-ids
+      pmdomain: arm_scmi: add support for domain hierarchies
+
+ Documentation/devicetree/bindings/power/power-domain.yaml |  34 ++++++++++++++++++++++++++++++++++
+ drivers/pmdomain/arm/scmi_pm_domain.c                     |  14 +++++++++++++-
+ drivers/pmdomain/core.c                                   | 167 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ include/linux/pm_domain.h                                 |  16 ++++++++++++++++
+ 4 files changed, 230 insertions(+), 1 deletion(-)
+---
+base-commit: f7b88edb52c8dd01b7e576390d658ae6eef0e134
+change-id: 20260310-topic-lpm-pmdomain-child-ids-e3d57ae57040
+
+Best regards,
+--  
+Kevin Hilman (TI) <khilman@baylibre.com>
 
 
