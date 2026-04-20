@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76A18F5A8BC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 21:20:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D187F5A8BC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 21:20:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
-	From:Subject:Message-ID:Mime-Version:Date:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ay36onivd4dX+Z1a2tz7QaER4k6wTnDl5SDdSR+0YAI=; b=ipjZhEhFdcQGctmPvpgpdBgWhs
-	yzxegJZ1Pp2IsPLLNrIfICHfeTenatrNEsaAZ6WHqAtJDW47HgRCLbBRRleIetxo6xb26CtMBFs4b
-	0yY+846hbTLgosKvCrXcWK9KQHR6S8GgwhApKPTPCdAoqsiebdnlwNpI8U22XE7O32JU27u1FTM+s
-	z2DJxJjxP3RRiDCqD5UmGrCSTCaeIIVq6AaZ814EZqkpfXncDFSLxtGbnClCzFdVLCRFUEXBMeRZK
-	WpiSnR+7yDqEcN/H34qzv69UC3snx2UaIRU+XtiE7+YnRuF7xakloTqNTgkq5BXG3VSdC1vg9mmv3
-	IRBkiBoQ==;
+	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sEgidxfCrHeWAn/iqKdfWB4mQGqG7JFMt/kzEyBGoSw=; b=p8W2UNDrJngC5Wss+Qof5+ijFv
+	9w7byUGBSqxUfb1avaPGYl1K+t8HC043QOvEM+6rGZ7P+dgWLx7ojY4I8zhzCiXHaa9OGbzX9poeM
+	nHK5qcJlkBi8wNl1l1x/EzxZtwrLkHBHjVDajGy0OOpwaEunWqJErxzIxEqLDqkiPNI5QMIRkgfgi
+	+K9umFJUXDUn05h90ZSIAr9Bh9YOLppHADyx/bp4zONckmPsOg96U3UoBJF3tddRiaQBdeACV0m0a
+	H8bJQAa+Qtuc5UlCeQlDKxVZwsgqB89oKyj7hML7GD8UmVQ/BB/ku10XXCL5UrxdQo9p0LCtkQg4Y
+	7k0dQE8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEw2N-00000007fTw-1ukU;
-	Mon, 20 Apr 2026 21:20:11 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1wEw2X-00000007ff5-3Pbi;
+	Mon, 20 Apr 2026 21:20:21 +0000
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEw2K-00000007fRE-1ixt
+	id 1wEw2Q-00000007fUw-0Cfe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 21:20:10 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2b2d83e7461so59622775ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 14:20:07 -0700 (PDT)
+	Mon, 20 Apr 2026 21:20:16 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-82fa1c94b37so1754712b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 14:20:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1776720006; x=1777324806; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ay36onivd4dX+Z1a2tz7QaER4k6wTnDl5SDdSR+0YAI=;
-        b=v1PhXw+t2crxV4PVt0TKs6G39HKLtwWU/pXkPdYHJwYTeWj6eeh6nuwfBZ6eXXTgjn
-         1TwkoKWx+n8wtaNMD4o3SfxvTWZJYFD9X1aFoJ7yq81NqnGmJqpwO41VlkHm3GfJyPqz
-         5mdR059e48vNKUjg4Ly/KNNd33je709hkDTUv61FTVhm1rX+4y0csIybGxcxxRUo8Qzr
-         vE58J7MuzRWZ9x/yEqQ/ojUTeN7XbfNSli8AYTPMa2+oly+lI5wqnWWLwJay9LIRFFAi
-         gfP7y26TiQ6Q+av8pUMR+lIDSjK0qF/q0vc3fY52LDSoMarNJUIexSmdGcckn1HwVnAD
-         1bcw==
+        d=google.com; s=20251104; t=1776720012; x=1777324812; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=sEgidxfCrHeWAn/iqKdfWB4mQGqG7JFMt/kzEyBGoSw=;
+        b=TTTXV5v1+cBoOW5sJoFSM0JZADvFCfac3RjpqSRfPvk9wsaa8NToXmYcvnSHz1N3rp
+         D+uYTAGy0yKvVcwOuNK//TmyoGorV2tH99UDNEZTTkAbWKmoPKJ7ssbWZTmr0jZ0RFb7
+         QA2FzimoXAT8J6gwaCcivKDdb+GGabnvJksM6K4ZQjzZJQM2XSihT6t7BPsIIE7QFrkl
+         iHBmX6m9/ejaz22AGZBbhC/ol44uYd5WDbg256ah5YAOcMphoMX051TFb740erkPtiDd
+         Yd0zWgJPDoIi+ZKaSfBhTD+8lGwJCMuPRJ57vnUUDq32IxtuE7Ome2HkSXpK1iI4CSkZ
+         9PAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776720006; x=1777324806;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ay36onivd4dX+Z1a2tz7QaER4k6wTnDl5SDdSR+0YAI=;
-        b=mfxqubCpLafDs+IQj78rAOS2YY9L6V4B0AuH9W/t2C2eVzdan3OcaO+9uIxbwNH97W
-         1jZdBk0asgEy0HC8GdSKDOY5l7S44oH8C5jiYfsfzCoMI/3x8gvYvzwppoLbdsXfWawU
-         P4cbpbPz3u73jkCgRy7QwsgQD34A1lY4AhMfnfOQpi4JL/ocWzxedaAFP/SXu5ajK/IT
-         CrCMMFFXWClB5/ZGF8wXUOoHMAq65Orlzcwj0ZosuDH58t7Ch3WYfQewDpr+2OoJA3nt
-         EJ7w0hoZe3UafL9HrpKeOquplxV+f4zR1Wd3BDXcciODQodBgMqh9LDohsozReXjb4dc
-         4vng==
-X-Forwarded-Encrypted: i=1; AFNElJ/YSwxIdl0UTqu9F9/zMz9IJyHj2I1wOsU1aasKEwlJAHyIhniocfXAesm5wl4eSPTPca8VfG6wNU5SymHI/R8S@lists.infradead.org
-X-Gm-Message-State: AOJu0YwP3BWVZIBtqpJ4yh8gvaFg1lhpbdF7zi19H4CMSaXgo3OjXXSZ
-	c4zPwS4g7d3EVmrJfqBEPExXDl84qgmNIRQBUgmme19vSiHbUg+hISJE0P1vNLAXAKCHxV5Z2vE
-	pS1u4cg==
-X-Received: from pgam23.prod.google.com ([2002:a05:6a02:2b57:b0:c76:a4b1:60cf])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:3947:b0:3a2:e26b:2940
- with SMTP id adf61e73a8af0-3a2e26c9037mr1652980637.0.1776720006241; Mon, 20
- Apr 2026 14:20:06 -0700 (PDT)
-Date: Mon, 20 Apr 2026 14:19:45 -0700
+        d=1e100.net; s=20251104; t=1776720012; x=1777324812;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=sEgidxfCrHeWAn/iqKdfWB4mQGqG7JFMt/kzEyBGoSw=;
+        b=AhB7QBxQTMtbN8aXlKlNHa+V9D7+YgkHLINChgYNPq6HNDzn1y8GFc5H5UiGnCJNLb
+         tMjP9R5qpDm+7UbNLXRwZoV8Dc6ULjochyPhmsMJOwMIFmoqFvy044vXA4/OkeGyvTXB
+         XWgn7UyypAisQEhYbostQkwN2tYiZk15T74UsBenwlWcUZp/CCsldM4v+huod3K9HXc+
+         ZZLlSpj0wUbUdl/190wU3Q+qUjvuDIgPXv2HJMpIwjKKRmOTJPDiZ7Llh+QYzmNx8utK
+         GjMVDAXjjp+2tMXdM9QaceaQDepccEQNAmX7nkW7xR/b6+coi82YKNEbXQ0VWVUl6W+C
+         nz2A==
+X-Forwarded-Encrypted: i=1; AFNElJ8B/7/GPjK2Oji8tjRCk+wHMDdOmRyGjaWfs3RO8JBBFWPHcR5Z8YkgoW59nu/TQg+dx+h232VDZftcyxe4iFFw@lists.infradead.org
+X-Gm-Message-State: AOJu0YxnCzUNqXkqVCKh1wxNDT22hdsLGUlEWF6kmRVolzrN9hbqO+E5
+	STXlwazt7aYWigomh6XoGYDN+YfPXexw2GR9e2nBzhVkfdRSBKc4PV8gdgkh4A6a9cYb2/nwvfp
+	ai9uK1g==
+X-Received: from pfbli8.prod.google.com ([2002:a05:6a00:7188:b0:82f:54e9:c13e])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:27ab:b0:82f:6eca:563e
+ with SMTP id d2e1a72fcca58-82f8b573171mr11858630b3a.34.1776720011915; Mon, 20
+ Apr 2026 14:20:11 -0700 (PDT)
+Date: Mon, 20 Apr 2026 14:19:48 -0700
+In-Reply-To: <20260420212004.3938325-1-seanjc@google.com>
 Mime-Version: 1.0
+References: <20260420212004.3938325-1-seanjc@google.com>
 X-Mailer: git-send-email 2.54.0.rc1.555.g9c883467ad-goog
-Message-ID: <20260420212004.3938325-1-seanjc@google.com>
-Subject: [PATCH v3 00/19] KVM: selftests: Use kernel-style integer and
- g[vp]a_t types
+Message-ID: <20260420212004.3938325-4-seanjc@google.com>
+Subject: [PATCH v3 03/19] KVM: selftests: Use gpa_t for GPAs in Hyper-V selftests
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
@@ -79,8 +81,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_142008_459120_5D09C890 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20260420_142014_122873_2160C994 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,267 +98,93 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-David's series to renames types across all KVM selftests.  I'm going to apply
-this ~now in order to get it into -next ASAP.  Unless someone screams in the
-next few days, I'm going to send a pull request on Thursday, with the goal of
-getting this into -rc1 so that all architectures (and developers) can use the
-new types straightaway.
+From: David Matlack <dmatlack@google.com>
 
-Fully tested on x86, and I verified a handful of tests generate identical
-code.  I tried to do the same for other architectures, but gcc at least doesn't
-seem to provide reproducible builds for other architectures.  E.g. on arm64 and
-LoongArch, a completely benign vaddr_t => gva_t rename would sometimes result
-in different offsets in the generated code.  But based on manual diffs from
-objdump, I'm fairly confident in the result.
+Fix various Hyper-V selftests to use gpa_t for variables that contain
+guest physical addresses, rather than gva_t.  In practice, the bugs are
+benign as both gva_t and gpa_t are u64 typedefs, i.e. gpa_t and gva_t are
+interchangeable from a functional perspective, the code is just confusing.
 
-The primary goal is to more closely align KVM selftests with the types used in
-the kernel proper (selftests are mostly developed by kernel developers):
+No functional change intended.
 
-  vm_vaddr_t -> gva_t
-  vm_paddr_t -> gpa_t
+Signed-off-by: David Matlack <dmatlack@google.com>
+[sean: call out that both are u64 typedefs]
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ tools/testing/selftests/kvm/x86/hyperv_evmcs.c    | 2 +-
+ tools/testing/selftests/kvm/x86/hyperv_features.c | 2 +-
+ tools/testing/selftests/kvm/x86/hyperv_ipi.c      | 6 +++---
+ tools/testing/selftests/kvm/x86/hyperv_svm_test.c | 2 +-
+ 4 files changed, 6 insertions(+), 6 deletions(-)
 
-  uint64_t -> u64
-  uint32_t -> u32
-  uint16_t -> u16
-  uint8_t  -> u8
-
-  int64_t -> s64
-  int32_t -> s32
-  int16_t -> s16
-  int8_t  -> s8
-
-As a bonus, the new type names are shorter and thus make the KVM selftests code
-more concise.
-
-v3:
- - Use vm_alloc() instead of gva_alloc(), and put the API renames in a separate
-   patch.
- - Rename vaddr => gva and paddr => gpa throughout KVM selftests.
- - Convert a pile of "u64" variables to gva_t or gpa_t as appropriate.
- - Clarify ambiguous variables and function names in arm64's inject_uer()
-   and translate_to_host_paddr().
- - Rename pread_uint64() => pread_u64().
-
-v2: https://lore.kernel.org/all/20260220004223.4168331-1-dmatlack@google.com
-
-v1: https://lore.kernel.org/kvm/20250501183304.2433192-1-dmatlack@google.com
-
-David Matlack (10):
-  KVM: selftests: Use gva_t instead of vm_vaddr_t
-  KVM: selftests: Use gpa_t instead of vm_paddr_t
-  KVM: selftests: Use gpa_t for GPAs in Hyper-V selftests
-  KVM: selftests: Use u64 instead of uint64_t
-  KVM: selftests: Use s64 instead of int64_t
-  KVM: selftests: Use u32 instead of uint32_t
-  KVM: selftests: Use s32 instead of int32_t
-  KVM: selftests: Use u16 instead of uint16_t
-  KVM: selftests: Use s16 instead of int16_t
-  KVM: selftests: Use u8 instead of uint8_t
-
-Sean Christopherson (9):
-  KVM: selftests: Drop "vaddr_" from APIs that allocate memory for a
-    given VM
-  KVM: selftests: Rename vm_vaddr_unused_gap() => vm_unused_gva_gap()
-  KVM: selftests: Rename vm_vaddr_populate_bitmap() =>
-    vm_populate_gva_bitmap()
-  KVM: selftests: Rename translate_to_host_paddr() =>
-    translate_hva_to_hpa()
-  KVM: selftests: Clarify that arm64's inject_uer() takes a host PA, not
-    a guest PA
-  KVM: selftests: Replace "vaddr" with "gva" throughout
-  KVM: selftests: Replace "u64 gpa" with "gpa_t" throughout
-  KVM: selftests: Replace "u64 nested_paddr" with "gpa_t l2_gpa"
-  KVM: selftests: Replace "paddr" with "gpa" throughout
-
- .../selftests/kvm/access_tracking_perf_test.c |  44 +--
- tools/testing/selftests/kvm/arch_timer.c      |   6 +-
- .../selftests/kvm/arm64/aarch32_id_regs.c     |  14 +-
- .../testing/selftests/kvm/arm64/arch_timer.c  |   8 +-
- .../kvm/arm64/arch_timer_edge_cases.c         | 161 ++++----
- .../selftests/kvm/arm64/debug-exceptions.c    |  72 ++--
- .../testing/selftests/kvm/arm64/hypercalls.c  |  24 +-
- .../testing/selftests/kvm/arm64/idreg-idst.c  |   4 +-
- tools/testing/selftests/kvm/arm64/no-vgic.c   |   8 +-
- .../selftests/kvm/arm64/page_fault_test.c     |  82 ++--
- tools/testing/selftests/kvm/arm64/psci_test.c |  26 +-
- .../testing/selftests/kvm/arm64/sea_to_user.c |  41 +-
- .../testing/selftests/kvm/arm64/set_id_regs.c |  70 ++--
- .../selftests/kvm/arm64/smccc_filter.c        |  10 +-
- tools/testing/selftests/kvm/arm64/vgic_init.c |  56 +--
- tools/testing/selftests/kvm/arm64/vgic_irq.c  | 137 +++----
- .../selftests/kvm/arm64/vgic_lpi_stress.c     |  20 +-
- tools/testing/selftests/kvm/arm64/vgic_v5.c   |  10 +-
- .../selftests/kvm/arm64/vpmu_counter_access.c |  56 +--
- .../testing/selftests/kvm/coalesced_io_test.c |  38 +-
- .../selftests/kvm/demand_paging_test.c        |  10 +-
- .../selftests/kvm/dirty_log_perf_test.c       |  14 +-
- tools/testing/selftests/kvm/dirty_log_test.c  |  82 ++--
- tools/testing/selftests/kvm/get-reg-list.c    |   2 +-
- .../testing/selftests/kvm/guest_memfd_test.c  |  18 +-
- .../testing/selftests/kvm/guest_print_test.c  |  22 +-
- .../selftests/kvm/hardware_disable_test.c     |   6 +-
- .../selftests/kvm/include/arm64/arch_timer.h  |  30 +-
- .../selftests/kvm/include/arm64/delay.h       |   4 +-
- .../testing/selftests/kvm/include/arm64/gic.h |   8 +-
- .../selftests/kvm/include/arm64/gic_v3_its.h  |   7 +-
- .../selftests/kvm/include/arm64/processor.h   |  22 +-
- .../selftests/kvm/include/arm64/ucall.h       |   4 +-
- .../selftests/kvm/include/arm64/vgic.h        |  22 +-
- .../testing/selftests/kvm/include/kvm_util.h  | 344 ++++++++---------
- .../selftests/kvm/include/kvm_util_types.h    |   8 +-
- .../kvm/include/loongarch/arch_timer.h        |   4 +-
- .../selftests/kvm/include/loongarch/ucall.h   |   4 +-
- .../testing/selftests/kvm/include/memstress.h |  30 +-
- .../selftests/kvm/include/riscv/arch_timer.h  |  22 +-
- .../selftests/kvm/include/riscv/processor.h   |   9 +-
- .../selftests/kvm/include/riscv/ucall.h       |   4 +-
- .../kvm/include/s390/diag318_test_handler.h   |   2 +-
- .../selftests/kvm/include/s390/facility.h     |   4 +-
- .../selftests/kvm/include/s390/ucall.h        |   4 +-
- .../testing/selftests/kvm/include/sparsebit.h |   6 +-
- .../testing/selftests/kvm/include/test_util.h |  40 +-
- .../selftests/kvm/include/timer_test.h        |  18 +-
- .../selftests/kvm/include/ucall_common.h      |  22 +-
- .../selftests/kvm/include/userfaultfd_util.h  |   6 +-
- .../testing/selftests/kvm/include/x86/apic.h  |  22 +-
- .../testing/selftests/kvm/include/x86/evmcs.h |  22 +-
- .../selftests/kvm/include/x86/hyperv.h        |  28 +-
- .../selftests/kvm/include/x86/kvm_util_arch.h |  36 +-
- tools/testing/selftests/kvm/include/x86/pmu.h |   9 +-
- .../selftests/kvm/include/x86/processor.h     | 292 +++++++-------
- tools/testing/selftests/kvm/include/x86/sev.h |  20 +-
- tools/testing/selftests/kvm/include/x86/smm.h |   3 +-
- .../selftests/kvm/include/x86/svm_util.h      |  12 +-
- .../testing/selftests/kvm/include/x86/ucall.h |   2 +-
- tools/testing/selftests/kvm/include/x86/vmx.h |  70 ++--
- .../selftests/kvm/kvm_page_table_test.c       |  54 +--
- tools/testing/selftests/kvm/lib/arm64/gic.c   |   6 +-
- .../selftests/kvm/lib/arm64/gic_private.h     |  26 +-
- .../testing/selftests/kvm/lib/arm64/gic_v3.c  |  90 ++---
- .../selftests/kvm/lib/arm64/gic_v3_its.c      |  11 +-
- .../selftests/kvm/lib/arm64/processor.c       | 163 ++++----
- tools/testing/selftests/kvm/lib/arm64/ucall.c |  12 +-
- tools/testing/selftests/kvm/lib/arm64/vgic.c  |  40 +-
- tools/testing/selftests/kvm/lib/elf.c         |  17 +-
- tools/testing/selftests/kvm/lib/guest_modes.c |   2 +-
- .../testing/selftests/kvm/lib/guest_sprintf.c |  18 +-
- tools/testing/selftests/kvm/lib/kvm_util.c    | 359 +++++++-----------
- .../selftests/kvm/lib/loongarch/processor.c   | 110 +++---
- .../selftests/kvm/lib/loongarch/ucall.c       |  12 +-
- tools/testing/selftests/kvm/lib/memstress.c   |  38 +-
- .../selftests/kvm/lib/riscv/processor.c       |  91 +++--
- .../kvm/lib/s390/diag318_test_handler.c       |  12 +-
- .../testing/selftests/kvm/lib/s390/facility.c |   2 +-
- .../selftests/kvm/lib/s390/processor.c        |  65 ++--
- tools/testing/selftests/kvm/lib/sparsebit.c   |  18 +-
- tools/testing/selftests/kvm/lib/test_util.c   |  30 +-
- .../testing/selftests/kvm/lib/ucall_common.c  |  34 +-
- .../selftests/kvm/lib/userfaultfd_util.c      |  14 +-
- tools/testing/selftests/kvm/lib/x86/apic.c    |   2 +-
- tools/testing/selftests/kvm/lib/x86/hyperv.c  |  14 +-
- .../testing/selftests/kvm/lib/x86/memstress.c |  14 +-
- tools/testing/selftests/kvm/lib/x86/pmu.c     |   8 +-
- .../testing/selftests/kvm/lib/x86/processor.c | 292 +++++++-------
- tools/testing/selftests/kvm/lib/x86/sev.c     |  20 +-
- tools/testing/selftests/kvm/lib/x86/svm.c     |  16 +-
- tools/testing/selftests/kvm/lib/x86/ucall.c   |   4 +-
- tools/testing/selftests/kvm/lib/x86/vmx.c     |  44 +--
- .../selftests/kvm/loongarch/arch_timer.c      |  28 +-
- .../selftests/kvm/loongarch/pmu_test.c        |  10 +-
- .../kvm/memslot_modification_stress_test.c    |  10 +-
- .../testing/selftests/kvm/memslot_perf_test.c | 164 ++++----
- tools/testing/selftests/kvm/mmu_stress_test.c |  28 +-
- .../selftests/kvm/pre_fault_memory_test.c     |  12 +-
- .../testing/selftests/kvm/riscv/arch_timer.c  |   8 +-
- .../testing/selftests/kvm/riscv/ebreak_test.c |   6 +-
- .../selftests/kvm/riscv/get-reg-list.c        |   4 +-
- .../selftests/kvm/riscv/sbi_pmu_test.c        |   8 +-
- tools/testing/selftests/kvm/s390/debug_test.c |   8 +-
- .../testing/selftests/kvm/s390/irq_routing.c  |   2 +-
- tools/testing/selftests/kvm/s390/memop.c      |  94 ++---
- tools/testing/selftests/kvm/s390/resets.c     |   6 +-
- .../selftests/kvm/s390/shared_zeropage_test.c |   2 +-
- tools/testing/selftests/kvm/s390/tprot.c      |  24 +-
- .../selftests/kvm/s390/ucontrol_test.c        |   8 +-
- .../selftests/kvm/set_memory_region_test.c    |  40 +-
- tools/testing/selftests/kvm/steal_time.c      |  74 ++--
- .../kvm/system_counter_offset_test.c          |  12 +-
- tools/testing/selftests/kvm/x86/amx_test.c    |  14 +-
- .../selftests/kvm/x86/aperfmperf_test.c       |  16 +-
- .../selftests/kvm/x86/apic_bus_clock_test.c   |  24 +-
- tools/testing/selftests/kvm/x86/cpuid_test.c  |   6 +-
- tools/testing/selftests/kvm/x86/debug_regs.c  |   4 +-
- .../kvm/x86/dirty_log_page_splitting_test.c   |  16 +-
- .../kvm/x86/evmcs_smm_controls_test.c         |   6 +-
- .../testing/selftests/kvm/x86/fastops_test.c  |  52 +--
- .../selftests/kvm/x86/feature_msrs_test.c     |  12 +-
- .../selftests/kvm/x86/fix_hypercall_test.c    |  20 +-
- .../selftests/kvm/x86/flds_emulation.h        |   6 +-
- .../testing/selftests/kvm/x86/hwcr_msr_test.c |  10 +-
- .../testing/selftests/kvm/x86/hyperv_clock.c  |   6 +-
- .../testing/selftests/kvm/x86/hyperv_evmcs.c  |  10 +-
- .../kvm/x86/hyperv_extended_hypercalls.c      |  20 +-
- .../selftests/kvm/x86/hyperv_features.c       |  26 +-
- tools/testing/selftests/kvm/x86/hyperv_ipi.c  |  12 +-
- .../selftests/kvm/x86/hyperv_svm_test.c       |  10 +-
- .../selftests/kvm/x86/hyperv_tlb_flush.c      |  36 +-
- .../selftests/kvm/x86/kvm_buslock_test.c      |   2 +-
- .../selftests/kvm/x86/kvm_clock_test.c        |  14 +-
- tools/testing/selftests/kvm/x86/kvm_pv_test.c |  10 +-
- .../selftests/kvm/x86/monitor_mwait_test.c    |   2 +-
- .../selftests/kvm/x86/nested_close_kvm_test.c |   2 +-
- .../selftests/kvm/x86/nested_dirty_log_test.c |  10 +-
- .../selftests/kvm/x86/nested_emulation_test.c |  20 +-
- .../kvm/x86/nested_exceptions_test.c          |   6 +-
- .../kvm/x86/nested_invalid_cr3_test.c         |   2 +-
- .../selftests/kvm/x86/nested_set_state_test.c |   4 +-
- .../kvm/x86/nested_tsc_adjust_test.c          |  12 +-
- .../kvm/x86/nested_tsc_scaling_test.c         |  24 +-
- .../kvm/x86/nested_vmsave_vmload_test.c       |   2 +-
- .../selftests/kvm/x86/nx_huge_pages_test.c    |  18 +-
- .../selftests/kvm/x86/platform_info_test.c    |   6 +-
- .../selftests/kvm/x86/pmu_counters_test.c     | 109 +++---
- .../selftests/kvm/x86/pmu_event_filter_test.c | 102 ++---
- .../kvm/x86/private_mem_conversions_test.c    |  78 ++--
- .../kvm/x86/private_mem_kvm_exits_test.c      |  14 +-
- .../selftests/kvm/x86/set_boot_cpu_id.c       |   6 +-
- .../selftests/kvm/x86/set_sregs_test.c        |   6 +-
- .../selftests/kvm/x86/sev_init2_tests.c       |   6 +-
- .../selftests/kvm/x86/sev_smoke_test.c        |  22 +-
- .../x86/smaller_maxphyaddr_emulation_test.c   |   8 +-
- tools/testing/selftests/kvm/x86/smm_test.c    |   8 +-
- tools/testing/selftests/kvm/x86/state_test.c  |  14 +-
- .../selftests/kvm/x86/svm_int_ctl_test.c      |   2 +-
- .../selftests/kvm/x86/svm_lbr_nested_state.c  |   2 +-
- .../kvm/x86/svm_nested_clear_efer_svme.c      |   2 +-
- .../kvm/x86/svm_nested_shutdown_test.c        |   2 +-
- .../kvm/x86/svm_nested_soft_inject_test.c     |  10 +-
- .../selftests/kvm/x86/svm_nested_vmcb12_gpa.c |  14 +-
- .../selftests/kvm/x86/svm_vmcall_test.c       |   2 +-
- .../selftests/kvm/x86/sync_regs_test.c        |   2 +-
- .../kvm/x86/triple_fault_event_test.c         |   4 +-
- .../testing/selftests/kvm/x86/tsc_msrs_test.c |   2 +-
- .../selftests/kvm/x86/tsc_scaling_sync.c      |   4 +-
- .../selftests/kvm/x86/ucna_injection_test.c   |  45 +--
- .../selftests/kvm/x86/userspace_io_test.c     |   4 +-
- .../kvm/x86/userspace_msr_exit_test.c         |  58 +--
- .../selftests/kvm/x86/vmx_apic_access_test.c  |   4 +-
- .../kvm/x86/vmx_apicv_updates_test.c          |   4 +-
- .../kvm/x86/vmx_invalid_nested_guest_state.c  |   2 +-
- .../testing/selftests/kvm/x86/vmx_msrs_test.c |  22 +-
- .../kvm/x86/vmx_nested_la57_state_test.c      |   4 +-
- .../selftests/kvm/x86/vmx_pmu_caps_test.c     |  12 +-
- .../kvm/x86/vmx_preemption_timer_test.c       |   2 +-
- .../selftests/kvm/x86/xapic_ipi_test.c        |  64 ++--
- .../selftests/kvm/x86/xapic_state_test.c      |  20 +-
- .../selftests/kvm/x86/xapic_tpr_test.c        |  24 +-
- .../selftests/kvm/x86/xcr0_cpuid_test.c       |   8 +-
- .../selftests/kvm/x86/xen_shinfo_test.c       |  22 +-
- .../testing/selftests/kvm/x86/xss_msr_test.c  |   2 +-
- 185 files changed, 2706 insertions(+), 2817 deletions(-)
-
-
-base-commit: 6b802031877a995456c528095c41d1948546bf45
+diff --git a/tools/testing/selftests/kvm/x86/hyperv_evmcs.c b/tools/testing/selftests/kvm/x86/hyperv_evmcs.c
+index c2de5ac799ee..2d1733f9303a 100644
+--- a/tools/testing/selftests/kvm/x86/hyperv_evmcs.c
++++ b/tools/testing/selftests/kvm/x86/hyperv_evmcs.c
+@@ -76,7 +76,7 @@ void l2_guest_code(void)
+ }
+ 
+ void guest_code(struct vmx_pages *vmx_pages, struct hyperv_test_pages *hv_pages,
+-		gva_t hv_hcall_page_gpa)
++		gpa_t hv_hcall_page_gpa)
+ {
+ #define L2_GUEST_STACK_SIZE 64
+ 	unsigned long l2_guest_stack[L2_GUEST_STACK_SIZE];
+diff --git a/tools/testing/selftests/kvm/x86/hyperv_features.c b/tools/testing/selftests/kvm/x86/hyperv_features.c
+index 1059fcc460e3..0360fa5915c0 100644
+--- a/tools/testing/selftests/kvm/x86/hyperv_features.c
++++ b/tools/testing/selftests/kvm/x86/hyperv_features.c
+@@ -82,7 +82,7 @@ static void guest_msr(struct msr_data *msr)
+ 	GUEST_DONE();
+ }
+ 
+-static void guest_hcall(gva_t pgs_gpa, struct hcall_data *hcall)
++static void guest_hcall(gpa_t pgs_gpa, struct hcall_data *hcall)
+ {
+ 	u64 res, input, output;
+ 	uint8_t vector;
+diff --git a/tools/testing/selftests/kvm/x86/hyperv_ipi.c b/tools/testing/selftests/kvm/x86/hyperv_ipi.c
+index 7d648219833c..5369867efac3 100644
+--- a/tools/testing/selftests/kvm/x86/hyperv_ipi.c
++++ b/tools/testing/selftests/kvm/x86/hyperv_ipi.c
+@@ -45,13 +45,13 @@ struct hv_send_ipi_ex {
+ 	struct hv_vpset vp_set;
+ };
+ 
+-static inline void hv_init(gva_t pgs_gpa)
++static inline void hv_init(gpa_t pgs_gpa)
+ {
+ 	wrmsr(HV_X64_MSR_GUEST_OS_ID, HYPERV_LINUX_OS_ID);
+ 	wrmsr(HV_X64_MSR_HYPERCALL, pgs_gpa);
+ }
+ 
+-static void receiver_code(void *hcall_page, gva_t pgs_gpa)
++static void receiver_code(void *hcall_page, gpa_t pgs_gpa)
+ {
+ 	u32 vcpu_id;
+ 
+@@ -85,7 +85,7 @@ static inline void nop_loop(void)
+ 		asm volatile("nop");
+ }
+ 
+-static void sender_guest_code(void *hcall_page, gva_t pgs_gpa)
++static void sender_guest_code(void *hcall_page, gpa_t pgs_gpa)
+ {
+ 	struct hv_send_ipi *ipi = (struct hv_send_ipi *)hcall_page;
+ 	struct hv_send_ipi_ex *ipi_ex = (struct hv_send_ipi_ex *)hcall_page;
+diff --git a/tools/testing/selftests/kvm/x86/hyperv_svm_test.c b/tools/testing/selftests/kvm/x86/hyperv_svm_test.c
+index e0caf5ea14bd..54a1a6dad4d5 100644
+--- a/tools/testing/selftests/kvm/x86/hyperv_svm_test.c
++++ b/tools/testing/selftests/kvm/x86/hyperv_svm_test.c
+@@ -67,7 +67,7 @@ void l2_guest_code(void)
+ 
+ static void __attribute__((__flatten__)) guest_code(struct svm_test_data *svm,
+ 						    struct hyperv_test_pages *hv_pages,
+-						    gva_t pgs_gpa)
++						    gpa_t pgs_gpa)
+ {
+ 	unsigned long l2_guest_stack[L2_GUEST_STACK_SIZE];
+ 	struct vmcb *vmcb = svm->vmcb;
 -- 
 2.54.0.rc1.555.g9c883467ad-goog
 
