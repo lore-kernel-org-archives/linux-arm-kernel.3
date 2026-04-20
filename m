@@ -4,87 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC0B5F5A8BC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 20:47:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 108FDF5A8BC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 21:17:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VMggFWx7dYASz3kXTlVBRyuVlZg3W3BNVcMSDh8xWWQ=; b=M72rD3LxnrF9EHXUwlVJ2pXImT
-	8Ci/cSXfCyB2ggemMFh7tkG9lpeYmcYUhg4l4tRORA76g20HCWoOh7jnf336Av1phdJAHIyu5jxIM
-	8tsZEN0SY0zMnlOzxZaWIVQ3U1RJZSTOUp4m/YmFjOX5F0UsUkzm23b1e4Na889J7By0woNCwc98t
-	AG3ZTflspV/D5KfnegRJ5cHEJK5PEjyiiLuAuKPyh7lodrOIVaRUHSkzh9ZlCkUFdKYVb4nmYlOSS
-	WJI1lyw/+WbTPeuB3TpX5FFnrO0/fPs0NJ/uLDPkfECyOMRiTGAGV0xK3Fre9cUNiengnvEy24ppT
-	pbf+Yv6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ns1DV6x0fHsLnc3zRjkL0inNdeAPzDm/07YqeMaVlZs=; b=kvU7XxMXx+8zWOhQSag5PNO6GE
+	BeDSEl2DKHBtDshMQFipDQkGt/b7i0AY3CxiiuXwNuQOpRLi6rP8urYF4Xffq3sJ38za6qOHYzKFC
+	6757sDoDWBZn0TFpPEVimSTM0Af+D+zYLqIlWD/nBYWTsWK/JtJ4p1glFW+OEw5QdSvOdmgdHV/vC
+	mF+JSUACE5xeSK7DcpxMR10L/BaEWS8beJKuF8MRlFMWWj32X/pKrecsqxVVOtgc+hgxrzIJV1Vd3
+	lFNpVh0Qk76hxrmLBrBiG3stgYJaDg4zRPdPnyHvzUR7ynH3WrSEmrCpxO0DT6q5K0ywWrCN8jrfs
+	d91bS23g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEvWH-00000007e3S-0LWy;
-	Mon, 20 Apr 2026 20:47:01 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1wEvzF-00000007fD0-3aMl;
+	Mon, 20 Apr 2026 21:16:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEvWE-00000007e2y-1kjT
+	id 1wEvzD-00000007fCK-1Tf3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 20:47:00 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-48334ee0aeaso34900615e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 13:46:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1776718017; x=1777322817; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=VMggFWx7dYASz3kXTlVBRyuVlZg3W3BNVcMSDh8xWWQ=;
-        b=q8umcQSothgpH8fTLr895FZHZPwE/kwROog9NyIbEMvf+DiANhvw4FIM5N4h7CfI4V
-         xlgMt7lWqW/ugYIf+5q+j/GYANAFFtMfaHu8yMBZpntXgyaelPEBoqGtnstGPUz5MZ1j
-         Sj4cwRVg94Ug5fag/F0xyS97SCa6vgCPMsOgxKvwi1tBYBMjKSnj8n8g6mJy1jsFq8Bd
-         QbR8MouFuL7Hyg1TGGnGDB1BWgnbjD47RPSlkpwChkOjS86mrYlgmgQT9WWlnt44ot8E
-         5ZuG8BnIoVxeE78kVJCP3GyAgjJG+4RQ1dNfVyaIwH7DKNYe2wSxiirfJ1oKLLco5gVC
-         1GwA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776718017; x=1777322817;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VMggFWx7dYASz3kXTlVBRyuVlZg3W3BNVcMSDh8xWWQ=;
-        b=nFx/A5gVm4DIZtPkaxmLr/Eds1HzenpucBrw4aiMJf//s2PpOtAJ7tLqYQXqYHm222
-         jblSb29BCMWGIWf0wT02nwGMbe6JvnMOwqV4OSUQiO8vdpb26bnEoQ4VaKIGAqvSMueQ
-         N45mU3P0wCjBuj6/4MlKnaVhZ1k8Vc/kwagOeeXx5rdlTEXJ+PoCoOkVnKY5uE8Go0AB
-         YbbUHsuL34rajtPKYsGtgtkGiur0Uxx/tbr6adTfZmhN8XHt183qYqMXpl//HZx2/ly8
-         rnGQwgFjSQ9mFgeqR98CUyWJthZwKX1NMjHPwg64q6UlYoSAESWD7YCedrT0mjqhzfwK
-         aQQA==
-X-Forwarded-Encrypted: i=1; AFNElJ81L3FtxPAab6rHtBS/+Cfb0y1wVjz65SkU8bSiJWIbi73kU0LcSkH5tr7ihNXVftIG11hlLBuf3ISLBiKTjJnB@lists.infradead.org
-X-Gm-Message-State: AOJu0Yywy+noSqKqGAD687XmMHMjIBwJI/YkcUom5hJSbve3Nwdbugly
-	Cibxx1iktVB1Zm2UoQyVMapYdz4r358/K7WSvtv4rFAiDfaXEAFLW3r5vlm4VUsF+N4=
-X-Gm-Gg: AeBDiesG02hKoRBlz0WxsbIRvdqCQND7lOoDZsRZzmoxdXyNKOUUmz9IB08ciVXnAi7
-	JgI1junmYf2ZhnGVV7OU2Fjp8uEKTgxX3VqVnIIgtFMUSjgeuT4tR+uQ5526uLekb06Q17muRes
-	5tcsJchz4pTIKbFTeo6Zqrm/67qFfmkWL+DlE+ZLCMmmSSu4bLweP8M+v2bM0BvQkYVMumK4UqZ
-	g73nzD2NVK0Xvps3ZIRe7psuoppRP3GHUknev2WyAviqjj8nG4zGIz7GviMTovLYcjiKSVyrJxs
-	VFab0W/Hxhu45MwV9dAjyTW2hvhWuPaqBfYkOYgqwdJ9uJzR8O5itgOUmnxjNF2ZnGeUnEWWGKE
-	fPuXIsqYO9cPorQAnWKxKVvPfD29Rb386LLaULAQ1jjZ9Vn5Uye9TYXb1EHrnjkcLm2Vb34TOHb
-	arV2/+px1mH8MF3b+XR/NzXNBnDUWwF0J2YfoPltE=
-X-Received: by 2002:a05:600c:41d6:b0:487:2439:b7c8 with SMTP id 5b1f17b1804b1-488fb745294mr139309655e9.1.1776718016447;
-        Mon, 20 Apr 2026 13:46:56 -0700 (PDT)
-Received: from localhost ([2a02:8071:b783:6940:1d24:d58d:2b65:c291])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-48a525a0b1asm26426845e9.2.2026.04.20.13.46.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Apr 2026 13:46:55 -0700 (PDT)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2] ARM: dts: stm32: add board pin documentation stm32mp135f-dk
-Date: Mon, 20 Apr 2026 22:46:48 +0200
-Message-ID: <20260420204647.1713944-2-u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.47.3
+	Mon, 20 Apr 2026 21:16:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 86C6043E94;
+	Mon, 20 Apr 2026 21:16:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 812B1C19425;
+	Mon, 20 Apr 2026 21:16:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776719814;
+	bh=1ICWP0aN3tVVPF3/42lRvuEcmakoBEeZExkl+2SI7Ww=;
+	h=From:Date:Subject:To:Cc:From;
+	b=IuNxAYrNXUb9BmToowo6po+Fxyb9mtPdJmisDUt1BHHZMx7xAEvRO5WOjADqoigxn
+	 mCGqO4Sf4iw34SOxhzT8gxgsxLt+TTFb2Cy2EW7mGxjkMeJUw1FN4MHVuEcZ475lF2
+	 GJnFJyZIPRqVbGDO0vwIrNUYA5ZI2nJ29h+PpsVao10354j+ORUIypyOZCkqMGmgXM
+	 5IhdFIiUQA9JjnKPo/z2nZ23kp9dZG9f0b1TxOlmqbG654sPuNtXTCKsonNpEtjRqI
+	 BQeQ9otxY37/bIYeec8vJ4Ha0RzZzGSCHYxn2g9zL9Skt0cseGJha8UPwMfqEKt7Jb
+	 U0KKMfWexADoA==
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Date: Mon, 20 Apr 2026 23:16:46 +0200
+Subject: [PATCH] mm/page_alloc: fix initialization of tags of the huge zero
+ folio with init_on_free
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4578; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=RuUj00JzNu8fU+LKSjapTZ5tePNXtbbVLDbLqJadgE0=; b=owGbwMvMwMXY3/A7olbonx/jabUkhsxnE7afuh0buGxPjI7/qzX+rqKPpj79HJb5uuiWmMZdX 7P1lmvmdTIaszAwcjHIiimy2DeuybSqkovsXPvvMswgViaQKQxcnAIwkTx99n+6i9ZIv9BUz/aI WMaosdxeYc2bGcskUhr3fBdjMW4O0orRejynQN+oQXx+m/3SD5q6bJdZZd3EhIOb3+z4tX2lDe+ fu5FdkVxF9hwXtxc7Jc3W9TqtettxUtNNy3s7uZmW1LZk75oSf/b/75XVtvVV3ZcO//RukY1s9p o5+V7jI0GeTZdZl3q1msd+f/IiunXms+aF4Q5v3WaFZFbyxLZ4uz6uLmT2WhjuXDP53IKd09q5Z 88Kaw97dynWnaNEqcZfot5548OJqiv/bhJdE1/TbiS3/dOF+d/5Ip+cni6SemDqKtFte5sbWFKb lsQ0dmm0a9ooF1TItVo4JwfMW6a6IH7zzfjsow6Zuat7AA==
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260420-zerotags-v1-1-3edc93e95bb4@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAL2X5mkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDE0Nz3arUovySxPRiXWMT40RjM3PjVEOLFCWg8oKi1LTMCrBR0bG1tQC
+ gW2W7WgAAAA==
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+ Lorenzo Stoakes <ljs@kernel.org>, 
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+ Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+ Brendan Jackman <jackmanb@google.com>, Johannes Weiner <hannes@cmpxchg.org>, 
+ Zi Yan <ziy@nvidia.com>, Lance Yang <lance.yang@linux.dev>, 
+ Ryan Roberts <ryan.roberts@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-mm@kvack.org, stable@vger.kernel.org, 
+ "David Hildenbrand (Arm)" <david@kernel.org>
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_134658_483710_3093E626 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20260420_141655_462935_67195620 
+X-CRM114-Status: GOOD (  23.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,150 +83,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Relate the devices defined in the device tree to the SoC ports and pins
-and labels available on the board.
+__GFP_ZEROTAGS semantics are currently a bit weird, but effectively this
+flag is only ever set alongside __GFP_ZERO and __GFP_SKIP_KASAN.
 
-Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+If we run with init_on_free, we will zero out pages during
+__free_pages_prepare(), to skip zeroing on the allocation path.
+
+However, when allocating with __GFP_ZEROTAG set, post_alloc_hook() will
+consequently not only skip clearing page content, but also skip
+clearing tag memory.
+
+Not clearing tags through __GFP_ZEROTAGS is irrelevant for most pages that
+will get mapped to user space through set_pte_at() later: set_pte_at() and
+friends will detect that the tags have not been initialized yet
+(PG_mte_tagged not set), and initialize them.
+
+However, for the huge zero folio, which will be mapped through a PMD
+marked as special, this initialization will not be performed, ending up
+exposing whatever tags were still set for the pages.
+
+The docs (Documentation/arch/arm64/memory-tagging-extension.rst) state
+that allocation tags are set to 0 when a page is first mapped to user
+space. That no longer holds with the huge zero folio when init_on_free
+is enabled.
+
+Fix it by decoupling __GFP_ZEROTAGS from __GFP_ZERO, passing to
+tag_clear_highpages() whether we want to also clear page content.
+
+As we are touching the interface either way, just clean it up by
+only calling it when HW tags are enabled, dropping the return value, and
+dropping the common code stub.
+
+Reproduced with the huge zero folio by modifying the check_buffer_fill
+arm64/mte selftest to use a 2 MiB area, after making sure that pages have
+a non-0 tag set when freeing (note that, during boot, we will not
+actually initialize tags, but only set KASAN_TAG_KERNEL in the page
+flags).
+
+	$ ./check_buffer_fill
+	1..20
+	...
+	not ok 17 Check initial tags with private mapping, sync error mode and mmap memory
+	not ok 18 Check initial tags with private mapping, sync error mode and mmap/mprotect memory
+	...
+
+This code needs more cleanups; we'll tackle that next, like
+decoupling __GFP_ZEROTAGS from __GFP_SKIP_KASAN, moving all the
+KASAN magic into a separate helper, and consolidating HW-tag handling.
+
+Fixes: adfb6609c680 ("mm/huge_memory: initialise the tags of the huge zero folio")
+Cc: stable@vger.kernel.org
+Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 ---
-Hello,
+ arch/arm64/include/asm/page.h |  3 ---
+ arch/arm64/mm/fault.c         | 16 +++++-----------
+ include/linux/gfp_types.h     | 10 +++++-----
+ include/linux/highmem.h       | 10 +---------
+ mm/page_alloc.c               | 12 +++++++-----
+ 5 files changed, 18 insertions(+), 33 deletions(-)
 
-my (implicit) v1 was reviewed by sashiko, see
-https://sashiko.dev/#/patchset/20260416110218.594911-2-u.kleine-koenig%40baylibre.com
+diff --git a/arch/arm64/include/asm/page.h b/arch/arm64/include/asm/page.h
+index e25d0d18f6d7..5c6cbfbbd34c 100644
+--- a/arch/arm64/include/asm/page.h
++++ b/arch/arm64/include/asm/page.h
+@@ -33,9 +33,6 @@ struct folio *vma_alloc_zeroed_movable_folio(struct vm_area_struct *vma,
+ 						unsigned long vaddr);
+ #define vma_alloc_zeroed_movable_folio vma_alloc_zeroed_movable_folio
+ 
+-bool tag_clear_highpages(struct page *to, int numpages);
+-#define __HAVE_ARCH_TAG_CLEAR_HIGHPAGES
+-
+ #define copy_user_page(to, from, vaddr, pg)	copy_page(to, from)
+ 
+ typedef struct page *pgtable_t;
+diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+index 0f3c5c7ca054..32a3723f2d34 100644
+--- a/arch/arm64/mm/fault.c
++++ b/arch/arm64/mm/fault.c
+@@ -1018,21 +1018,15 @@ struct folio *vma_alloc_zeroed_movable_folio(struct vm_area_struct *vma,
+ 	return vma_alloc_folio(flags, 0, vma, vaddr);
+ }
+ 
+-bool tag_clear_highpages(struct page *page, int numpages)
++void tag_clear_highpages(struct page *page, int numpages, bool clear_pages)
+ {
+-	/*
+-	 * Check if MTE is supported and fall back to clear_highpage().
+-	 * get_huge_zero_folio() unconditionally passes __GFP_ZEROTAGS and
+-	 * post_alloc_hook() will invoke tag_clear_highpages().
+-	 */
+-	if (!system_supports_mte())
+-		return false;
+-
+ 	/* Newly allocated pages, shouldn't have been tagged yet */
+ 	for (int i = 0; i < numpages; i++, page++) {
+ 		WARN_ON_ONCE(!try_page_mte_tagging(page));
+-		mte_zero_clear_page_tags(page_address(page));
++		if (clear_pages)
++			mte_zero_clear_page_tags(page_address(page));
++		else
++			mte_clear_page_tags(page_address(page));
+ 		set_page_mte_tagged(page);
+ 	}
+-	return true;
+ }
+diff --git a/include/linux/gfp_types.h b/include/linux/gfp_types.h
+index 6c75df30a281..fd53a6fba33f 100644
+--- a/include/linux/gfp_types.h
++++ b/include/linux/gfp_types.h
+@@ -273,11 +273,11 @@ enum {
+  *
+  * %__GFP_ZERO returns a zeroed page on success.
+  *
+- * %__GFP_ZEROTAGS zeroes memory tags at allocation time if the memory itself
+- * is being zeroed (either via __GFP_ZERO or via init_on_alloc, provided that
+- * __GFP_SKIP_ZERO is not set). This flag is intended for optimization: setting
+- * memory tags at the same time as zeroing memory has minimal additional
+- * performance impact.
++ * %__GFP_ZEROTAGS zeroes memory tags at allocation time. This flag is intended
++ * for optimization: setting memory tags at the same time as zeroing memory
++ * (e.g., with __GPF_ZERO) has minimal additional performance impact. However,
++ * __GFP_ZEROTAGS also zeroes the tags even if memory is not getting zeroed at
++ * allocation time (e.g., with init_on_free).
+  *
+  * %__GFP_SKIP_KASAN makes KASAN skip unpoisoning on page allocation.
+  * Used for userspace and vmalloc pages; the latter are unpoisoned by
+diff --git a/include/linux/highmem.h b/include/linux/highmem.h
+index af03db851a1d..62f589baa343 100644
+--- a/include/linux/highmem.h
++++ b/include/linux/highmem.h
+@@ -345,15 +345,7 @@ static inline void clear_highpage_kasan_tagged(struct page *page)
+ 	kunmap_local(kaddr);
+ }
+ 
+-#ifndef __HAVE_ARCH_TAG_CLEAR_HIGHPAGES
+-
+-/* Return false to let people know we did not initialize the pages */
+-static inline bool tag_clear_highpages(struct page *page, int numpages)
+-{
+-	return false;
+-}
+-
+-#endif
++void tag_clear_highpages(struct page *to, int numpages, bool clear_pages);
+ 
+ /*
+  * If we pass in a base or tail page, we can zero up to PAGE_SIZE.
+diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+index 65e205111553..8c6821d25a00 100644
+--- a/mm/page_alloc.c
++++ b/mm/page_alloc.c
+@@ -1808,9 +1808,9 @@ static inline bool should_skip_init(gfp_t flags)
+ inline void post_alloc_hook(struct page *page, unsigned int order,
+ 				gfp_t gfp_flags)
+ {
++	const bool zero_tags = kasan_hw_tags_enabled() && (gfp_flags & __GFP_ZEROTAGS);
+ 	bool init = !want_init_on_free() && want_init_on_alloc(gfp_flags) &&
+ 			!should_skip_init(gfp_flags);
+-	bool zero_tags = init && (gfp_flags & __GFP_ZEROTAGS);
+ 	int i;
+ 
+ 	set_page_private(page, 0);
+@@ -1832,11 +1832,13 @@ inline void post_alloc_hook(struct page *page, unsigned int order,
+ 	 */
+ 
+ 	/*
+-	 * If memory tags should be zeroed
+-	 * (which happens only when memory should be initialized as well).
++	 * Clearing tags can efficiently clear the memory for us as well, if
++	 * required.
+ 	 */
+-	if (zero_tags)
+-		init = !tag_clear_highpages(page, 1 << order);
++	if (zero_tags) {
++		tag_clear_highpages(page, 1 << order, /* clear_pages= */init);
++		init = false;
++	}
+ 
+ 	if (!should_skip_kasan_unpoison(gfp_flags) &&
+ 	    kasan_unpoison_pages(page, order, init)) {
 
-The findings were good, this v2 addresses these.
+---
+base-commit: f1541b40cd422d7e22273be9b7e9edfc9ea4f0d7
+change-id: 20260417-zerotags-343a3673e18d
 
-Best regards
-Uwe
-
- arch/arm/boot/dts/st/stm32mp135f-dk.dts | 28 +++++++++++++++++++++----
- 1 file changed, 24 insertions(+), 4 deletions(-)
-
-diff --git a/arch/arm/boot/dts/st/stm32mp135f-dk.dts b/arch/arm/boot/dts/st/stm32mp135f-dk.dts
-index 8dcf68b212b4..ffac3c4fd608 100644
---- a/arch/arm/boot/dts/st/stm32mp135f-dk.dts
-+++ b/arch/arm/boot/dts/st/stm32mp135f-dk.dts
-@@ -64,6 +64,7 @@ gpio-keys {
- 		compatible = "gpio-keys";
- 
- 		button-user {
-+			/* GPIO on PA13 "User button 2 (B2)" */
- 			label = "User-PA13";
- 			linux,code = <BTN_1>;
- 			gpios = <&gpioa 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-@@ -74,6 +75,7 @@ leds {
- 		compatible = "gpio-leds";
- 
- 		led_blue: led-blue {
-+			/* GPIO on PA14 "User LED (LD3)" */
- 			function = LED_FUNCTION_HEARTBEAT;
- 			color = <LED_COLOR_ID_BLUE>;
- 			gpios = <&gpioa 14 GPIO_ACTIVE_LOW>;
-@@ -82,6 +84,7 @@ led_blue: led-blue {
- 		};
- 
- 		led-red {
-+			/* GPIO on PA13 "User LED (LD4)" */
- 			function = LED_FUNCTION_STATUS;
- 			color = <LED_COLOR_ID_RED>;
- 			gpios = <&gpioa 13 GPIO_ACTIVE_LOW>;
-@@ -228,6 +231,7 @@ phy0_eth1: ethernet-phy@0 {
- 
- &i2c1 {
- 	pinctrl-names = "default", "sleep";
-+	/* SDA on PE8 = CN8.27, SCL on PD12 = CN8.28 */
- 	pinctrl-0 = <&i2c1_pins_a>;
- 	pinctrl-1 = <&i2c1_sleep_pins_a>;
- 	i2c-scl-rising-time-ns = <96>;
-@@ -462,7 +466,10 @@ counter {
- 		status = "okay";
- 	};
- 	pwm {
--		/* PWM output on pin 7 of the expansion connector (CN8.7) using TIM3_CH4 func */
-+		/*
-+		 * CH4 on PB1 = CN8.7;
-+		 * CH3 on PB0 = CN8.10 is possible (conflicting with usart1)
-+		 */
- 		pinctrl-0 = <&pwm3_pins_a>;
- 		pinctrl-1 = <&pwm3_sleep_pins_a>;
- 		pinctrl-names = "default", "sleep";
-@@ -481,7 +488,10 @@ counter {
- 		status = "okay";
- 	};
- 	pwm {
--		/* PWM output on pin 31 of the expansion connector (CN8.31) using TIM4_CH2 func */
-+		/*
-+		 * CH2 on PD13 = CN8.31;
-+		 * CH1 on PD12 = CN8.28 is possible (conflicting with &i2c1)
-+		 */
- 		pinctrl-0 = <&pwm4_pins_a>;
- 		pinctrl-1 = <&pwm4_sleep_pins_a>;
- 		pinctrl-names = "default", "sleep";
-@@ -500,7 +510,12 @@ counter {
- 		status = "okay";
- 	};
- 	pwm {
--		/* PWM output on pin 32 of the expansion connector (CN8.32) using TIM8_CH3 func */
-+		/*
-+		 * CH3 on PE5 = CN8.32
-+		 * CH1N on PA7 = CN8.36 is possible (conflicting with &usart1)
-+		 * CH2N on PB0 = CN8.10 is possible (conflicting with &usart1)
-+		 * CH3N on PB1 = CN8.7 is possible (conflicting with &timers3)
-+		 */
- 		pinctrl-0 = <&pwm8_pins_a>;
- 		pinctrl-1 = <&pwm8_sleep_pins_a>;
- 		pinctrl-names = "default", "sleep";
-@@ -517,7 +532,7 @@ counter {
- 		status = "okay";
- 	};
- 	pwm {
--		/* PWM output on pin 33 of the expansion connector (CN8.33) using TIM14_CH1 func */
-+		/* CH1 on PF9 = CN8.33 (alternatively on PA7 = CN8.36 (conflicting with &usart1)) */
- 		pinctrl-0 = <&pwm14_pins_a>;
- 		pinctrl-1 = <&pwm14_sleep_pins_a>;
- 		pinctrl-names = "default", "sleep";
-@@ -529,6 +544,7 @@ timer@13 {
- };
- 
- &uart4 {
-+	/* Accessible via micro USB ST-LINK USB (CN10) */
- 	pinctrl-names = "default", "sleep", "idle";
- 	pinctrl-0 = <&uart4_pins_a>;
- 	pinctrl-1 = <&uart4_sleep_pins_a>;
-@@ -540,6 +556,7 @@ &uart4 {
- 
- &uart8 {
- 	pinctrl-names = "default", "sleep", "idle";
-+	/* TX on PE1 = CN8.37, RX on PF9 = CN8.33 */
- 	pinctrl-0 = <&uart8_pins_a>;
- 	pinctrl-1 = <&uart8_sleep_pins_a>;
- 	pinctrl-2 = <&uart8_idle_pins_a>;
-@@ -550,6 +567,7 @@ &uart8 {
- 
- &usart1 {
- 	pinctrl-names = "default", "sleep", "idle";
-+	/* TX on PC0 = CN8.8, RX on PB0 = CN8.10, RTS on PC2 = CN8.11, CTS on PA7 = CN8.36 */
- 	pinctrl-0 = <&usart1_pins_a>;
- 	pinctrl-1 = <&usart1_sleep_pins_a>;
- 	pinctrl-2 = <&usart1_idle_pins_a>;
-@@ -560,6 +578,7 @@ &usart1 {
- /* Bluetooth */
- &usart2 {
- 	pinctrl-names = "default", "sleep", "idle";
-+	/* TX on PH12, RX on PD15, RTS on PD4, CTS on PE11 */
- 	pinctrl-0 = <&usart2_pins_a>;
- 	pinctrl-1 = <&usart2_sleep_pins_a>;
- 	pinctrl-2 = <&usart2_idle_pins_a>;
-@@ -589,6 +608,7 @@ hub@1 {
- };
- 
- &usbotg_hs {
-+	/* USB Type-C DRP (CN7) */
- 	phys = <&usbphyc_port1 0>;
- 	phy-names = "usb2-phy";
- 	usb-role-switch;
-
-base-commit: 365af1b5923351c59517a79d14d0b4543b79ce3b
+Best regards,
 -- 
-2.47.3
+David Hildenbrand (Arm) <david@kernel.org>
 
 
