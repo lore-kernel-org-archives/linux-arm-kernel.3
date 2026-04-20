@@ -4,67 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEB00F588C3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:35:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE55AF588C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 13:36:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OYIu6EXTIRt0VXvV/t9DOgjJC3KN2/vmzS5XsjRCo3Q=; b=Qq+qNax9DTzBEGYsISbz5J4CDt
-	jdYygOtsjtphfqO3xFDkbaLFRLvWYKKLpd6u7Dc8qQ/ATRmhfniB/7JZ9x11sRoKIQs77raLH6WBg
-	Mk6aDLF/GvMEzdU6QegKoPxwGScdHbTnL63yBfksQXy25kw/FEnpaVPPM/lm1F/zHeOQwr0DsZPZs
-	F14cL24i7jwPEKCN3HE79U0/MoUNWdaMGQpeDcl61e+MqESk8bvLdO7pE9/cRl0F3E5LnhKFOlugI
-	UHdLjisVivZQRFUufxm76tM3C9PPE76kttvVgPwGPEdpUtXFJ7xgySyKNuW1c5WhtZnMmtVZldOJm
-	YQ8fxfow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=o/hAKPfN8TMW+uD8YQyiZTajFu7O0Cud/JgnJ6Wj6Tg=; b=gS/ygKKY0nAf1y
+	Y+DJruK0jGT9BaSYeltljeQR0KnL/C++D0A/jE7JDjxaW1qpvSct9Ivm/5KSKxAGb9px9qhkTsOyE
+	vKDRxHHA5ZiAyNZC15f6x7c7Z5RZ8wRWE2fUGZlq8N5g5err/F3cZ+dz05kIWcbBxsDin1dXnnBSf
+	qnW2V10bjQSzNKgiWT7hhGeCpudCR3sc1lT4iZRplFjueLr2yoMSi44wWA6RZwtI7UE+WZ2zX9H5Y
+	NPCMLLebtVEPROdg7WaxJ4cCzacDT294lFfPTJYxXZWacPyZY5ic6nrvoqomV2M7ioUQPwPRyHLXH
+	KGUWCDan782ypJ5qwyFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEomt-000000073tf-07dn;
-	Mon, 20 Apr 2026 13:35:43 +0000
-Received: from out-174.mta0.migadu.com ([2001:41d0:1004:224b::ae])
+	id 1wEonW-0000000743Z-4C2t;
+	Mon, 20 Apr 2026 13:36:23 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEomq-000000073se-2ak2
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 13:35:42 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1776692128;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=OYIu6EXTIRt0VXvV/t9DOgjJC3KN2/vmzS5XsjRCo3Q=;
-	b=LwzP8kbEE4fmR4T7wCLz0+Gdxcxg08Y8PIo/FbaSXDw6u2rMZQOMGArRZ0P4aAN7mDYhYh
-	3/A4rYVlQWIThcb+tTW9pBS0H7CTSl4mWa38gL/Kp4TxKxFnsBe0ChkfjymjDoJ3JjGWcF
-	ccq44mC3ivSV71gGZ1BgrBAaITQHnEVat7/6jLB3lCzJTewwye3wPZjBxgqi3m+RtLw3oE
-	V1WJWxWCpVrohQorzzESc34eNoDb/viIbRNBdFqSwUsiqCNJxmMmYOYUVB3xrCHkaqZ6lT
-	QMugMChL8oa1JOXjMqjG8gvcdbkvNrpvpjE/+G6ru03LYRfygJV0QwzXsRvhZg==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 20 Apr 2026 15:35:15 +0200
-Message-Id: <DHY0SHYOZHAP.3276L2M1SNC7L@cknow-tech.com>
-Cc: "Arnd Bergmann" <arnd@arndb.de>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- "Quentin Schulz" <quentin.schulz@cherry.de>, "Jonas Karlman"
- <jonas@kwiboo.se>
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Replace deprecated snps,*
- props for NanoPi R5S
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Tianling Shen" <cnsztl@gmail.com>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
- <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>
-References: <20260401131551.734456-1-diederik@cknow-tech.com>
- <20260401131551.734456-3-diederik@cknow-tech.com>
- <DHTSOV43O2EX.38TGASN7SQEZL@cknow-tech.com>
- <2d2b1e17-388f-431a-be86-a0f26b5be6cf@gmail.com>
-In-Reply-To: <2d2b1e17-388f-431a-be86-a0f26b5be6cf@gmail.com>
-X-Migadu-Flow: FLOW_OUT
+	id 1wEonS-0000000742R-0oDE;
+	Mon, 20 Apr 2026 13:36:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1776692162; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=c9zZFaXzcvREJwz0wSqQ9pRnTiWhjOvVPVDLirkf/i82Spe+e9VG1/vmMIt09CPGNs3ozySbTwVmC9afiVyXtSpY+XYU+EN2EHTrIwQQffLP3jDSayNOARU1oV5BBa9WwN9Ea5y4kbMM5vjVeOvr2tJTxonEjETSZsT4RrQ6ynI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1776692162; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=o/hAKPfN8TMW+uD8YQyiZTajFu7O0Cud/JgnJ6Wj6Tg=; 
+	b=FoQ4Mzz0yS+pRNZyLKMrQewXUDbpMkzd7pPQgs+x7G2/Zy5VyWPzxRs1Xf7a3LxYlP5LSHsuC6SlsITO1/jV15T9wm2tWI6B5UqSAfqqkzCRFOiMRdQDO/xUxhXvQGAt457k0wCZdFCdHKTcgYokYXmUMoT01qiUoYPTpOkNYW4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1776692162;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=o/hAKPfN8TMW+uD8YQyiZTajFu7O0Cud/JgnJ6Wj6Tg=;
+	b=DB4kL23K8D1cf/ohw6LzSMl0Msm95Cokhwu7FmT70WAT7bdnTQzcghRn8jfyQGS6
+	dWMwVB9G6jSJn4pvhIVLSNG7QMkjOkDwXt2JZj+pkDl5Yff4lFZ5QGCcqryDSaPgyP7
+	6oDOeObrTtCuE4ZxqFpFEqw99E9OUlSjyk1CBONY=
+Received: by mx.zohomail.com with SMTPS id 1776692160029395.011572346355;
+	Mon, 20 Apr 2026 06:36:00 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Subject: [PATCH v4 0/5] Add Rockchip RK3576 PWM Support Through MFPWM
+Date: Mon, 20 Apr 2026 15:35:18 +0200
+Message-Id: <20260420-rk3576-pwm-v4-0-421738c7bf28@collabora.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23PwU7DMAwG4FepcibIcVK37MR7IA5J6rGItdmSE
+ oamvjtZh4Ahjr+l77d9FplT4Cw2zVkkLiGHONVg7hrhd3Z6YRmGmgUCtmCgk+lVtx3Jw/soDXW
+ k3AADWysqOCTehtNa9vR8zYmPb7Vzvg6Fs5mlj+MY5k0z8WmWtZfAIIgL2IU8x/SxHlPUKr729
+ r/3FiVBWvOAPXn0tudHH/d762Ky97V8rSr4wwnwhuOFk9HGgWcC/x/X31wB3nxddOXUGtt6p1h
+ v+798WZZP2SK4BVcBAAA=
+X-Change-ID: 20250407-rk3576-pwm-46761bd0deaa
+To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Lee Jones <lee@kernel.org>, William Breathitt Gray <wbg@kernel.org>, 
+ Damon Ding <damon.ding@rock-chips.com>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>, 
+ Alexey Charkov <alchark@gmail.com>, linux-rockchip@lists.infradead.org, 
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-iio@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_063540_792460_DCEB19BB 
-X-CRM114-Status: GOOD (  20.70  )
+X-CRM114-CacheID: sfid-20260420_063618_285750_37B207A0 
+X-CRM114-Status: GOOD (  49.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,95 +88,242 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon Apr 20, 2026 at 8:58 AM CEST, Tianling Shen wrote:
-> On 2026/4/15 22:23, Diederik de Haas wrote:
->> On Wed Apr 1, 2026 at 3:11 PM CEST, Diederik de Haas wrote:
->>> The various snps,reset-* properties are deprecated, so convert them int=
-o
->>> their replacements.
->>>
->>> Signed-off-by: Diederik de Haas <diederik@cknow-tech.com>
->>> ---
->>>   arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts | 7 +++----
->>>   1 file changed, 3 insertions(+), 4 deletions(-)
->>>
->>> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts b/arch/=
-arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
->>> index 90ce6f0e1dcf..92d044ec696b 100644
->>> --- a/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
->>> +++ b/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
->>> @@ -85,10 +85,6 @@ &gmac0_tx_bus2
->>>   		     &gmac0_rx_bus2
->>>   		     &gmac0_rgmii_clk
->>>   		     &gmac0_rgmii_bus>;
->>> -	snps,reset-gpio =3D <&gpio0 RK_PC5 GPIO_ACTIVE_LOW>;
->>> -	snps,reset-active-low;
->>> -	/* Reset time is 15ms, 50ms for rtl8211f */
->>> -	snps,reset-delays-us =3D <0 15000 50000>;
->>>   	tx_delay =3D <0x3c>;
->>>   	rx_delay =3D <0x2f>;
->>>   	status =3D "okay";
->>> @@ -100,6 +96,9 @@ rgmii_phy0: ethernet-phy@1 {
->>>   		reg =3D <1>;
->>>   		pinctrl-0 =3D <&gmac0_rstn_gpio0_c5_pin>;
->>>   		pinctrl-names =3D "default";
->>> +		reset-assert-us =3D <15000>;
->>> +		reset-deassert-us =3D <50000>;
->>> +		reset-gpios =3D <&gpio0 RK_PC5 GPIO_ACTIVE_LOW>;
->>>   	};
->>>   };
->>>  =20
->>=20
->> Please disregard/drop this patch.
->>=20
->> I was recently made aware of 'sashiko.dev' and checked whether it had
->> also checked my patch, which it did:
->> https://sashiko.dev/#/patchset/20260401131551.734456-1-diederik%40cknow-=
-tech.com
->>=20
->> And it turns out that the concern raised is valid (thanks Quentin!), so
->> this patch could introduce a regression.
->> So it looks like staying with the deprecated properties is actually
->> better (in this case?).
->
-> Well actually we more or less rely on U-Boot to reset the PHY first now.=
-=20
+This series introduces support for some of the functions of the new PWM
+silicon found on Rockchip's RK3576 SoC. Due to the wide range of
+functionalities offered by it, including many parts which this series'
+first iteration does not attempt to implement for now. The drivers are
+modelled as an MFD, with no leakage of the MFD-ness into the binding, as
+it's a Linux implementation detail.
 
-This change would introduce such a dependency where it was not there
-before, so this could introduce a regression.
+Here's some of the features of the hardware:
+- Continuous PWM output (implemented in this series)
+- One-shot/Finite repetition PWM output
+- PWM capture by counting high/low cycles (implemented in this series)
+- Sending IR transmissions in several TV remote protocols
+- Generating an interrupt based on the input being one of 16
+  user-specified values ("Power key capture")
+- Biphasic counter support
+- Using the hardware to measure a clock signal's frequency
+- Using the hardware to count a clock signal's pulses
+- Generating PWM output waveforms through a user-specified lookup table
 
-> Many rockchip boards in tree require a reset before the PHY can be=20
-> recognized, but we just use the generic "ethernet-phy-ieee802.3-c22"=20
-> compatible.
+As you can tell, there's a lot. I've focused on continuous PWM output
+for now as the most important one for things like controlling fans. The
+PWM capture driver is an added bonus, because I needed at least two
+drivers to test things. Anyone doing consumer electronic devices like
+TVs based on the RK3576 may need to do the power key stuff at some
+stage, as it can be used to wake up the SoC with an IR remote. The IR
+transmission stuff in general may be a funny weekend project for someone
+at some point; I assume it's there so TV boxes can turn on and off TVs
+without needing the HDMI control stuff.
 
-I've identified ~40 Rockchip based boards where there is a dependency on
-the bootloader due to using that generic compatible. Some from the start
-and some got it added with a similar conversion as I proposed above.
-I haven't seen massive bug reports, so it looks like it's currently ok.
-I don't like having such a dependency and certainly not adding one where
-it previously was not the case.
+At first, I considered simply integrating support for this new IP into
+the old pwm-rockchip driver, as the downstream vendor kernel did.
+However, the IP is significantly different from previous iterations.
+Especially if the goal is to support some of the additional
+functionality that the new silicon brings, doing it all in a single pwm
+driver would be untenable. Especially one that already supports other
+hardware with a way different set of registers.
 
-In other cases, the generic compatible was replaced with a specific one
-for the PHY being used, which 'circumvents' the raised concern:
-https://lore.kernel.org/linux-rockchip/20260202-px30-eth-phy-v1-0-ef365be64=
-922@cherry.de/
+Hence, the mfpwm pattern: each device functionality is its own driver,
+and they all get registered as MFD cells by the parent mfpwm MFD driver,
+which is the one that binds to the DT compatible. Each device function
+driver then has to _acquire and _release the hardware when it needs
+control of it. If some other device function is using the device
+already, -EBUSY is returned, which the device function driver can then
+forward to the user and everyone is happy.
 
-According to the FriendlyELEC schematics I checked, they seem to use the
-RTL8211F a LOT. On the NanoPi R6* they use a/the specific compatible:
-https://elixir.bootlin.com/linux/v7.0/source/arch/arm64/boot/dts/rockchip/r=
-k3588s-nanopi-r6.dtsi#L348
+The PWM output driver, pwm-rockchip-v4, uses the new waveform APIs. I
+thought while writing a new driver that I might as well use the new
+APIs.
 
-I've sent FriendlyELEC an email to ask whether they ONLY used that PHY
-in the R5S (LTS) in which case it is safe to replace the generic
-compatible with the specific one. I haven't received a response yet.
+The PWM capture driver, implemented as a counter driver, is somewhat
+primitive, in that it doesn't make use of things like the biphasic
+counter support or clock measuring, but it serves as a good way to
+showcase and test the mutual exclusion that the mfpwm framework tries to
+achieve. It directly exposes the HPC/LPC counts as counters. Shoutouts
+to the counter subsystem's documentation by the way, it is some of the
+best subsystem documentation I've come across so far, and was a great
+help.
 
-> Another option is to move the reset props to mdio node instead of PHY=20
-> node, though.
+All instances of the PWM controller have three clocks that they can pick
+and choose to derive the PWM signal from. One is the default PLL from
+the CRU, one is the 24 MHz crystal oscillator (gated by the CRU), and
+one is an RC oscillator (also gated by the CRU). Each PWM channel can
+switch between these with a clock selection register in the PWM register
+range, hence this is implemented as a clock mux.
 
-I prefer that there's first an agreed upon 'strategy' on how to deal=20
-with the above mentioned raised concern so that it can be implemented
-consistently.
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+Changes in v4:
+- Fix MAINTAINERS entry for mfpwm
+- Make mfpwm core driver depend on ARCH_ROCKCHIP || COMPILE_TEST
+- Remove redundant Kconfig deps from pwm output and counter
+- mfpwm core: Introduce mfpwm_get_mode
+- mfpwm core: Rename pwm out to rockchip-pwm-v4
+- mfpwm core: Remove leftover commented out code
+- pwm output: Rename to rockchip-pwm-v4
+- pwm output: Rework round_wf_tohw:
+  - Pass wf/wfhw into round_params
+  - If wfhw->period is 0, don't do the offset clamping calculation to
+    avoid underflow
+  - Return -ERANGE in a theoretical future where the clock is that high
+  - Change debug print
+- pwm output: Change fromhw debug print to conform to other PWM drivers
+- pwm output: Adjust comments at the start of the file
+- pwm output: Store rate in wfhw struct
+- pwm output: Get rid of unnecessary initialization of locals
+- pwm output: Round up in fromhw
+- pwm output: Use common is_enabled helper in read_wf
+- pwm output: put exclusive rate and clk_disable on unlikely error path
+- pwm output: Set of_node_reused on this device, rather than the parent,
+  and set its device node to the parent node
+- pwm output: Make failure to acquire PWM in probe an error rather than
+  a warning
+- pwm output: Re-do error handling in probe function to drop clock and
+  mfpwm on failure
+- counter: Get rid of enable_lock and is_enabled, read this from hw regs
+- counter: Request IRQ after setting up the counter device
+- counter: Acquire mfpwm if counter hardware is enabled at module probe
+  time
+- counter: Rework signals, synapses and counts
+- Add patch to describe the Radxa ROCK 4D's PWM-controlled fan in DT
+- Link to v3: https://lore.kernel.org/r/20251027-rk3576-pwm-v3-0-654a5cb1e3f8@collabora.com
 
-Cheers,
-  Diederik
+Changes in v3:
+- Move drivers to using MFD; MFPWM now lives in the mfd tree as
+  requested by Lee Jones
+- Use the new FIELD_PREP_WM16 macros, and rebase onto next-20251027
+- Get rid of some unused hardware version accessor inline functions
+- pwm-rockchip-v4 pwm output: use devm_pwmchip_add and get rid of the
+  driver remove callback that's no longer needed
+- pwm-rockchip-v4 pwm output: use the parent MFD device's OF node, so
+  that referencing the pwm node in DT works correctly (ty Heiko)
+- pwm-rockchip-v4 pwm output: add link to public TRM for the hardware in
+  comment at the start of the file
+- pwm-rockchip-v4 pwm output: Capitalise first letter in kernel messages
+- pwm-rockchip-v4 pwm output: get rid of unnecessary mul_u64_u64_div_u64
+  calls where the operands cannot produce an overflow, turning it into a
+  regular u64 division
+- pwm-rockchip-v4 pwm output: simplify round_rate functions
+- pwm-rockchip-v4 pwm output: remove redundant duty <= period check
+- pwm-rockchip-v4 pwm output: print input parameters in tohw/fromhw in
+  debug statement
+- pwm-rockchip-v4 pwm output: clarify the offset < (period - duty) thing
+  being dictated by hardware with a comment in the limitations list and
+  near where the check is
+- pwm-rockchip-v4 pwm output: remove pointless mfpwm_acquire/release
+  calls in the fromhw/tohw functions, as they don't actually protect
+  against anything
+- pwm-rockchip-capture counter: expose HPC and LPC directly, and fire a
+  change-of-state event on the appropriate channel on interrupt
+- pwm-rockchip-capture counter: remove all the captures_left and delayed
+  worker cruft
+- pwm-rockchip-capture counter: use MFD parent's OF node
+- pwm-rockchip-capture counter: change intsts ^ clr to != and add a
+  comment explaining why there's no mask here
+- Link to v2: https://lore.kernel.org/r/20250602-rk3576-pwm-v2-0-a6434b0ce60c@collabora.com
+
+Changes in v2:
+- bindings: make osc required (as it's present in all instances of the
+  hardware I'm aware of) and add the rc clock as well. I thought it
+  wasn't present on some instances of the PWM IP due to the vendor SoC
+  dtsi, but checking the CRU made me realise those clocks do exist for
+  all instances. Did not include Conor's R-b as this constitutes a
+  substantial enough change to necessitate a re-review
+- move bitfield write-enable mask macros into bitfield.h by replacing
+  the original rockchip-specific utils header patch with a bitfield.h
+  patch.
+- mfpwm: change all instances of WARN to be dev_warn instead, as we have
+  a device pointer.
+- mfpwm: replace the ad-hoc clock mux implementation that used a sysfs
+  interface with a generic clk-mux.
+- mfpwm: add the rc clock
+- mfpwm: rename all the pwmv4_ prefixed functions to have the
+  rockchip_pwm_v4_ prefix instead
+- mfpwm: remove the pwmclk indirection, hand chosen_clk to pwmf
+- mfpwm: move to use the new bitfield macros for the WE mask
+- mfpwm: mark reg access inline functions as static to fix build errors
+- pwm-rockchip-v4 pwm output: replace mult_frac with mul_u64_u64_div_u64
+- pwm-rockchip-v4 pwm output: don't return error if parameters are out
+  of range, just set them to the maximum
+- pwm-rockchip-v4 pwm output: add rate to debug message
+- pwm-rockchip-v4 pwm output: if rate is 0 and pwm is disabled, set
+  waveform parameters to 0. The clock is expected to not have a rate in
+  this case.
+- pwm-rockchip-v4 pwm output: add pwmchip_remove in remove callback,
+  which also necessitated using chip as the platdata instead of the
+  driver private struct
+- pwm-rockchip-v4 pwm output: rework PWMV4_CTRL_UPDATE_EN since it never
+  needs to be set to 0 by the driver
+- pwm-rockchip-v4 pwm output: add a limitations list
+- pwm-rockchip-v4 pwm output: handle initial hardware state during
+  probe, enabling the pwm clock if the PWM is on and in continuous mode
+- pwm-rockchip-v4 pwm output: rename pwmv4_is_enabled to use the
+  rockchip_pwm_v4_ prefix instead
+- pwm-rockchip-v4 pwm output: remove pwmclk indirection, use clk API
+  directly
+- pwm-rockchip-v4 pwm output: no longer claim the chip as being atomic,
+  as the clk_rate_exclusive_get calls may sleep.
+- rockchip-pwm-capture counter: remove pwmclk indirection, use clk API
+  directly
+- rockchip-pwm-capture counter: replace mult_frac with
+  mul_u64_u64_div_u64
+- rockchip-pwm-capture counter: don't output periods/duty cycles if the
+  period is longer than the chosen timeout; this works around the
+  hardware cycle counter seemingly being impossible to clear
+- dts: added osc and rc to every pwm node
+- dts: reordered properties in pwm0 to be sorted
+- Link to v1: https://lore.kernel.org/r/20250408-rk3576-pwm-v1-0-a49286c2ca8e@collabora.com
+
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Uwe Kleine-König <ukleinek@kernel.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+To: Lee Jones <lee@kernel.org>
+To: William Breathitt Gray <wbg@kernel.org>
+To: Damon Ding <damon.ding@rock-chips.com>
+Cc: kernel@collabora.com
+Cc: Jonas Karlman <jonas@kwiboo.se>
+Cc: Alexey Charkov <alchark@gmail.com>
+Cc: linux-rockchip@lists.infradead.org
+Cc: linux-pwm@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-iio@vger.kernel.org
+
+---
+Nicolas Frattaroli (5):
+      dt-bindings: pwm: Add a new binding for rockchip,rk3576-pwm
+      mfd: Add Rockchip mfpwm driver
+      pwm: Add rockchip PWMv4 driver
+      arm64: dts: rockchip: add PWM nodes to RK3576 SoC dtsi
+      arm64: dts: rockchip: Add cooling fan to ROCK 4D
+
+ .../bindings/pwm/rockchip,rk3576-pwm.yaml          |  77 ++++
+ MAINTAINERS                                        |  11 +
+ arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts    |  50 +++
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi           | 208 +++++++++
+ drivers/counter/Kconfig                            |  11 +
+ drivers/counter/Makefile                           |   1 +
+ drivers/counter/rockchip-pwm-capture.c             | 307 ++++++++++++++
+ drivers/mfd/Kconfig                                |  16 +
+ drivers/mfd/Makefile                               |   1 +
+ drivers/mfd/rockchip-mfpwm.c                       | 357 ++++++++++++++++
+ drivers/pwm/Kconfig                                |  11 +
+ drivers/pwm/Makefile                               |   1 +
+ drivers/pwm/pwm-rockchip-v4.c                      | 383 +++++++++++++++++
+ include/linux/mfd/rockchip-mfpwm.h                 | 470 +++++++++++++++++++++
+ 14 files changed, 1904 insertions(+)
+---
+base-commit: 77a9bb0193d790fb71c0edfc567bddc1b56fb3ff
+change-id: 20250407-rk3576-pwm-46761bd0deaa
+
+Best regards,
+--  
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+
 
