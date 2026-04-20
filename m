@@ -4,123 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36E0CF588C2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 12:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67531F588C2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Apr 2026 12:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v0oh8ObVVCeBTHGmr5CI1H7l8TfoFStEIpFsXDmc3YA=; b=ucMK+fQK95smvBQ7Th8MvD0+YA
-	yoWc9Sy2WJVgOiMP1ILOMr02HhIHK3t+E8jiurwpdLEGChikyQoK+uggBPt7Gqmjtf9rjIziZjxdC
-	qTREXdXpYORBKDtwYoWNO6WElr0UbyvkpuWr2JP+I2T9wA6MBTKGPxpFVeOpLgKwVDEwu/BItpl3Q
-	oEpH1f0HO1ZtOA5G88JIqzkg1dJ89PueinmTtpvjWLFhvJjFC1N2iLpuUgaUoHaPfAJeGW7YfC4xd
-	ZAB7mmlDes0jRE1qqZTQoSdeRTXFsmZOWvNNCuAHDLEwBzyTMg7m1XUipnum13/AVXbKZX01D0H5B
-	C9fH7SOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=99fgHE25P8Rf1g7JLxo27iNfMt0M4KYBWTaNW36OxW8=; b=rPgOunJJ0VBxl9TptyPzy+R2gX
+	rzBHd4A3WNY9Fv38yfqHzFrbMButNCb7bYcpyYSJ6rYj3gvKrDYidANMPfPbke2rFtf8Gsf9039Bt
+	cIkwJr4IafaS1mkLj6kqy47MFjNQqnBfkZ1sxMCpbixCSvx6VXFwYUmBJ3g696IgexSZLTAFD+/JU
+	04k+RwtPXDCczPk3W/kQtRqCta3Z5t/8t2lcYzjiu7Bj2B2DzS/VMnbo/cbbIdYNjOm+nsdxfuEDb
+	0QRmS6nA8z4kAp6uZuA0xyse+0aB0SJNytbYw11MrX5+6jL9uXXMcI7yBPGAvsm3/SC94qj8uledF
+	BhCSCGlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEnmf-00000006snp-0jPv;
-	Mon, 20 Apr 2026 12:31:25 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wEnnx-00000006t1i-0SG4;
+	Mon, 20 Apr 2026 12:32:45 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEnmZ-00000006sn5-3lYv
+	id 1wEnnu-00000006t0r-09Cr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Apr 2026 12:31:24 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63K84N7B1315637;
-	Mon, 20 Apr 2026 12:30:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=v0oh8O
-	bVVCeBTHGmr5CI1H7l8TfoFStEIpFsXDmc3YA=; b=rMNDtetxSZpBAIDxkZ8Mxx
-	kidVcGRyS4b2nP51sOQ0v01xOCcY/P0AcoaX4X1f4mMCkJE8Bsuplf0fPppkk++I
-	u1hzCug6wRwz2OPxymQfuM5buyd0pwXTlcKOgjDLSyQ7p3uPrHQLnVY9swX3jnVv
-	Ro6WxraGn1II9/jRrq3Umw/8Ina5pZ7Qt0k339BiRGInArG68fXZfxZn62FNj5kj
-	shSU1j9Tl3iQ9M5JQiYIGeeduLkIMwg0xwI+2gI8UifKPlCr7Sa7F5XE9VSbE5mf
-	z07Am3Mwg55PiqSQXZTZ2GY8ZYKiW6H7M9C/gCpK0605mxGuQTrRlEpbAgSGzM+Q
-	==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dm2k6f2r5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 20 Apr 2026 12:30:58 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63KCKKlD023663;
-	Mon, 20 Apr 2026 12:30:58 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4dmpyxvg0k-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 20 Apr 2026 12:30:58 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63KCUtao48890174
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 20 Apr 2026 12:30:55 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A5D8E20049;
-	Mon, 20 Apr 2026 12:30:55 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B3A5320040;
-	Mon, 20 Apr 2026 12:30:54 +0000 (GMT)
-Received: from [9.111.165.155] (unknown [9.111.165.155])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 20 Apr 2026 12:30:54 +0000 (GMT)
-Message-ID: <dde1daa9-724c-4186-aaf6-caff6b47c5a9@linux.ibm.com>
-Date: Mon, 20 Apr 2026 14:30:54 +0200
+	Mon, 20 Apr 2026 12:32:43 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4891ca4ce02so84005e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 05:32:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1776688359; x=1777293159; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=99fgHE25P8Rf1g7JLxo27iNfMt0M4KYBWTaNW36OxW8=;
+        b=WV4q369UFUvgFmBlVRN9ieMq3KD/LN6/3B/rnnsh1gr9j6w1PNInO9zI6oTk7gYZaN
+         0pWsTJr2iCYwmZPlYSjzrxNJgRiv2057GEmDw+IE2/3iNN3QzDmt1/g4E7pdFGwdMYFe
+         GNsa5moxJD9iec5ATltjfJawG0QkiJE9cEXqBdBvYJrSBSVQJzt1bwBLu6zNZ1HRuj79
+         f/TOLEddXJMQ0hZ8B4uN2LmO1gN033KE7qjhAnxmfEwSbgV2krOz6swQ4YqFdv/fliYy
+         aiA1vAmTZEMlDuK5UEFfl0M7RpKws9G+Qiawhl7XImsJ0L0t9iCBVmuuAoD5VekEQO3s
+         k/sA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776688359; x=1777293159;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=99fgHE25P8Rf1g7JLxo27iNfMt0M4KYBWTaNW36OxW8=;
+        b=jcyoCkKm0m1JNGw3XbMQaQna9f3gKG50oCZvY8gELYCab/8GxpYOLcqnGLNZI1A8oA
+         OS7k9h/KvanbgFNIYwnoo3B4/L8vnDEg8qpSh8rRTbEFa78Z6anwvOVblAA5nSWeHb9C
+         IJu5traTyCOlzeN66kK9EzY51BFF57cOcbXfUbkooK5wpElcz6nYHvPz0lsoAGJv4qCF
+         YzHSdUbvAh7tF1X+xwoEvCtBdGBiGrZNJ7ZU1LJLVB/GccSgBcYDxPewb0FAlC/GdlA0
+         YxN3H9lm/DSrHNu8kIeqh7DrXnN3FwWdTjr6dLbbMGiSLLpOBlT2mYcTtXun54euGJ/9
+         fqWw==
+X-Forwarded-Encrypted: i=1; AFNElJ+44g7xKniYbgdg0s3NB1cy4VfiqrrwwqE+lDgz5u1mQaGYqt2P9vonsoEzb8Kchaj58ZYRxS+kDxTrL8Zlvb6d@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxbr7kV42FP6XuFzFxxTxgR/GwkGm1Z258mn9dQg3yYGCOiU/RM
+	Z5DW4a7yg8+PrUZzljQsxpUZDK3IzO+6gM+C8FW5fXuN7uH6CH/bBnUiXSZyMWGlnw==
+X-Gm-Gg: AeBDievcTex7o2Xfl9XldgBTcDe0EYjhQeLSmMtZwmBpj2sPJgRgTyE3wG0/iOVH8aO
+	1SxXKUriQhEpQlM4cDPZzyaUIkz9/54qIHhP1/rCrdBUBHWMjWmh9wZE94BE8SXPvf7CyVFXrrR
+	AufwbuLnR0bFbpXU+tgrGpK7zgI2MPlldvFUmr1gVM+hfGwWRSnAcK1Vw1iVCkkgG5jXt2UbayG
+	cQfUUzPswpjLPPVnaK928nfTNdw9HfAeZaPbJkwvSzHj4PNtIS4D11zsnGOmqrTl8fN7eltDuYb
+	rTtgHpJ4Xr2J/4Ht6VdaTS3at0c9AZEn7DjSmx/a4aGplNMM283Ufi/plky53OQu1nfnovJO+Uq
+	fC2JWq8WgbM2VV7fpoV5DrPLE4DzJGjNHKqKLO6h+5kqNbYiw8FI8Ynw+jSg3M7z78kCsT7rH1A
+	rcG0p/6JNgTmhdYHZUAAfGkV4VSY1jExE07Rv2R2j9hPHhSPJnxyjhBknI2QR2y2wfXzyMlbRSr
+	ieVffW8KT1nh2M1hGo=
+X-Received: by 2002:a05:600d:848c:20b0:485:4133:4021 with SMTP id 5b1f17b1804b1-489013bd634mr1545925e9.7.1776688358586;
+        Mon, 20 Apr 2026 05:32:38 -0700 (PDT)
+Received: from google.com (117.15.199.104.bc.googleusercontent.com. [104.199.15.117])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43fe4cc375dsm26265240f8f.14.2026.04.20.05.32.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 20 Apr 2026 05:32:38 -0700 (PDT)
+Date: Mon, 20 Apr 2026 12:32:32 +0000
+From: Sebastian Ene <sebastianene@google.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
+	zohar@linux.ibm.com, roberto.sassu@huawei.com,
+	dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com,
+	peterhuewe@gmx.de, jarkko@kernel.org, jgg@ziepe.ca,
+	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org
+Subject: Re: [RFC PATCH 4/4] firmware: arm_ffa: check pkvm initailised when
+ initailise ffa driver
+Message-ID: <aeYbdmshGZJ4GhXd@google.com>
+References: <20260417175759.3191279-1-yeoreum.yun@arm.com>
+ <20260417175759.3191279-5-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 7/8] sframe: Introduce in-kernel SFRAME_VALIDATION.
-To: Dylan Hatch <dylanbhatch@google.com>, Indu Bhagat <ibhagatgnu@gmail.com>
-Cc: Roman Gushchin <roman.gushchin@linux.dev>, Weinan Liu <wnliu@google.com>,
-        Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>,
-        Indu Bhagat <indu.bhagat@oracle.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Steven Rostedt <rostedt@goodmis.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Jiri Kosina <jikos@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-        Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
-        Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>,
-        joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org,
-        linux-kernel@vger.kernel.org, live-patching@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        Heiko Carstens <hca@linux.ibm.com>
-References: <20260406185000.1378082-1-dylanbhatch@google.com>
- <20260406185000.1378082-8-dylanbhatch@google.com>
- <de7bd273-3650-4378-8fd8-a51217e7284b@linux.ibm.com>
- <CADBMgpzbEGTm-sZ71a5hvFOHbu5VgSR406F3NsMLF1+oDWbO6A@mail.gmail.com>
-Content-Language: en-US
-From: Jens Remus <jremus@linux.ibm.com>
-Organization: IBM Deutschland Research & Development GmbH
-In-Reply-To: <CADBMgpzbEGTm-sZ71a5hvFOHbu5VgSR406F3NsMLF1+oDWbO6A@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=L78theT8 c=1 sm=1 tr=0 ts=69e61c83 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VnNF1IyMAAAA:8
- a=ey2SWGRYxIHPRPJathMA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIwMDEyMSBTYWx0ZWRfXyqB1aAGJ4E5U
- fBeYcJnCFz+KY+gDJ1Cv+qgW/fGLGqqXAsxvXJrsEbYdncMs//rNYMIQLwxmkiKrax5kFeX9lPc
- GgXO1FbRS/A2G0bnLez1rBYmm0nUrFKq3ZwdSYHvYwNFOHC3bUGwvyTXPPh7eifFJOCjD4OCNE3
- KXRxHfJfoCzrs1PmdA/+EjMFoiU8CY78/oWuF3k/SUOP7YAUuprJVMvaIjKddlw5Uig9UqPRJSW
- WvTVfq2umhBwK3ChJ9xIJf9Lu9KoaFeZ/3Bx8rpH/VnA/tbVsHBZ3T9/t1qX4i+omLF94U31xMz
- TKmPDW6vSCnZkGuWWIrufkwPFKiDbbnic39Jd7N3+qvwgo9aAtX6NFOXiwbcAkNvKw2MqekkXlb
- cAu1mLadEbWVx05NtL6sfvezTPZOwLG0pCGGBb5cq0joJhrNeN+H6Tzde+k5P6kG11zVf3mHPi1
- Bk2ao/aO0VucuR3Reiw==
-X-Proofpoint-GUID: fAdiLJEaC4RUIfPJcrzitXNXiwHaXtJ-
-X-Proofpoint-ORIG-GUID: gJkjqQ6DY8q37d5ZU6XKT_G0uVg3okQW
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-20_02,2026-04-17_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 impostorscore=0 spamscore=0 bulkscore=0 suspectscore=0
- lowpriorityscore=0 adultscore=0 clxscore=1015 malwarescore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604200121
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260417175759.3191279-5-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_053121_103582_6C2C2B47 
-X-CRM114-Status: GOOD (  36.86  )
+X-CRM114-CacheID: sfid-20260420_053242_089167_6B71C00B 
+X-CRM114-Status: GOOD (  23.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,208 +108,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/20/2026 7:02 AM, Dylan Hatch wrote:
-> On Thu, Apr 16, 2026 at 8:04 AM Jens Remus <jremus@linux.ibm.com> wrote:
->> On 4/6/2026 8:49 PM, Dylan Hatch wrote:
+On Fri, Apr 17, 2026 at 06:57:59PM +0100, Yeoreum Yun wrote:
 
->>> Generalize the __safe* helpers to support a non-user-access code path.
->>> Allow for kernel FDE read failures due to the presence of .rodata.text.
->>> This section contains code that can't be executed by the kernel
->>> direclty, and thus lies ouside the normal kernel-text bounds.
->>
->> Nits: s/direclty/directly/ s/ouside/outside/
->>
->> Could you please explain the issue?  How/why does .sframe for
->> .rodata.text pose an issue for .sframe verification?
+Hello Yeoreum,
+
+
+> When pKVM is enabled, the FF-A driver must be initialized after pKVM.
+> Otherwise, pKVM cannot negotiate the FF-A version or
+> obtain RX/TX buffer information, leading to failures in FF-A calls.
+
+At the moment this already happens after you move back ffa_init() to
+device_initcall().
+
 > 
-> __read_fde checks that the fde_addr it extracts is within the bounds
-> of sec->text_start and sec->text_end. In the case of the vmlinux
-
-Looking at the existing check in __read_fde(), do you agree that it is
-wrong, as sec->text_end IIUC points behind .text and thus the check
-should be:
-
-	if (func_addr < sec->text_start || func_addr >= sec->text_end)
-        	return -EINVAL;
-
-> .sframe section, this is _stext and _etext. However on arm64, there is
-> an .rodata.text section that lies outside this range. From
-> arch/arm64/kernel/vmlinux.lds.S:
+> During FF-A driver initialization, check whether pKVM has been initialized.
+> If not, defer probing of the FF-A driver.
 > 
->         /* code sections that are never executed via the kernel mapping */
->         .rodata.text : {
->                 TRAMP_TEXT
->                 HIBERNATE_TEXT
->                 KEXEC_TEXT
->                 IDMAP_TEXT
->                 . = ALIGN(PAGE_SIZE);
->         }
+
+I don't think you need to add this dependency. pKVM is
+installed through KVM's module_init() which ends up calling hyp_ffa_init() to
+do the proxy initialization. The ARM-FFA driver comes after it (since
+pKVM is arch specific code). We don't have to call finalize_pkvm(..) to
+be able to handle smc(FF-A) calls in the hyp-proxy.
+
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>  arch/arm64/kvm/arm.c              |  1 +
+>  drivers/firmware/arm_ffa/driver.c | 12 ++++++++++++
+>  2 files changed, 13 insertions(+)
 > 
-> So __read_fde fails for functions in this section. Under normal SFrame
-> usage for unwinding, we should never need to look up a PC value in
-> these functions because they will never be executed by the kernel.
-> However, we still hit this error when validating all FDEs.
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 410ffd41fd73..0f517b1c05cd 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -119,6 +119,7 @@ bool is_kvm_arm_initialised(void)
+>  {
+>  	return kvm_arm_initialised;
+>  }
+> +EXPORT_SYMBOL(is_kvm_arm_initialised);
+> 
+>  int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu)
+>  {
+> diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+> index 02c76ac1570b..2647d6554afd 100644
+> --- a/drivers/firmware/arm_ffa/driver.c
+> +++ b/drivers/firmware/arm_ffa/driver.c
+> @@ -42,6 +42,8 @@
+>  #include <linux/uuid.h>
+>  #include <linux/xarray.h>
+> 
+> +#include <asm/virt.h>
+> +
+>  #include "common.h"
+> 
+>  #define FFA_DRIVER_VERSION	FFA_VERSION_1_2
+> @@ -2035,6 +2037,16 @@ static int __init ffa_init(void)
+>  	u32 buf_sz;
+>  	size_t rxtx_bufsz = SZ_4K;
+> 
+> +	/*
+> +	 * When pKVM is enabled, the FF-A driver must be initialized
+> +	 * after pKVM initialization. Otherwise, pKVM cannot negotiate
+> +	 * the FF-A version or obtain RX/TX buffer information,
+> +	 * which leads to failures in FF-A calls.
+> +	 */
+> +	if (IS_ENABLED(CONFIG_KVM) && is_protected_kvm_enabled() &&
+> +	    !is_kvm_arm_initialised())
+> +		return -EPROBE_DEFER;
+> +
+>  	ret = ffa_transport_init(&invoke_ffa_fn);
+>  	if (ret)
+>  		return ret;
+> --
+> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+> 
 
-Thanks for the explanation!  Could you please improve the commit
-message, for instance as follows:
-
-__read_fde() checks that the extracted FDE function start address is
-within the bounds of the .text section start and end.  In case of
-vmlinux this is _stext and _etext.  However on arm64, .rodata.text
-resides outside this range, causing __read_fde() to fail.
-
-> I think ideally we might prevent sframe data from being generated for
-> this code (maybe from the linker script somehow?), but I don't know of
-> a simple way to do this.
-
-I dont't know of any way to exclude a single function or a whole section
-from .sframe generation.  The GNU linker would discard SFrame FDEs and
-its FREs for discarded functions.  But in this case the function itself
-is not discarded.  As .sframe is not generated separately per section it
-is also not possible to discard e.g. .sframe.rodata.
-
-> Alternatively, we can check for FDEs located
-> in .rodata.text during validation, but this seems to only be present
-> in arm64, so maybe we would need an arch-specific hook to do this? I'm
-> open to suggestions.
-
-Maybe that is better than ignoring __read_fde() failures?  I first
-thought this would get nasty, but maybe it would not be too bad.
-Following is what I came up with (note tabs replaced by spaces due to
-copy&paste from terminal):
-
-diff --git a/arch/arm64/include/asm/sections.h b/arch/arm64/include/asm/sections.h
-@@ -23,6 +23,7 @@ extern char __irqentry_text_start[], __irqentry_text_end[];
- extern char __mmuoff_data_start[], __mmuoff_data_end[];
- extern char __entry_tramp_text_start[], __entry_tramp_text_end[];
- extern char __relocate_new_kernel_start[], __relocate_new_kernel_end[];
-+extern char _srodatatext[], _erodatatext[];
-
- static inline size_t entry_tramp_text_size(void)
- {
-diff --git a/arch/arm64/include/asm/unwind_sframe.h b/arch/arm64/include/asm/unwind_sframe.h
-@@ -2,11 +2,28 @@
- #ifndef _ASM_ARM64_UNWIND_SFRAME_H
- #define _ASM_ARM64_UNWIND_SFRAME_H
-
-+#include <linux/sframe.h>
-+
- #ifdef CONFIG_ARM64
-
- #define SFRAME_REG_SP  31
- #define SFRAME_REG_FP  29
-
-+static inline bool sframe_func_start_addr_valid(struct sframe_section *sec,
-+                                               unsigned long func_addr)
-+{
-+       return (sec->text_start >= func_addr && func_addr < sec->text_end) ||
-+              (sec->rodatatext_start >= func_addr && func_addr < sec->rodatatext_end);
-+}
-+#define sframe_func_start_addr_valid sframe_func_start_addr_valid
-+
-+static void arch_init_sframe_table(struct sframe_section *kernel_sfsec)
-+{
-+       kernel_sfsec->rodatatext_start  = (unsigned long)_srodatatext;
-+       kernel_sfsec->rodatatext_end    = (unsigned long)_erodatatext;
-+}
-+#define arch_init_sframe_table arch_init_sframe_table
-+
- #endif
-
- #endif /* _ASM_ARM64_UNWIND_SFRAME_H */
-diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
-@@ -213,12 +213,14 @@ SECTIONS
-
-        /* code sections that are never executed via the kernel mapping */
-        .rodata.text : {
-+               _srodatatext = .;
-                TRAMP_TEXT
-                HIBERNATE_TEXT
-                KEXEC_TEXT
-                IDMAP_TEXT
-                . = ALIGN(PAGE_SIZE);
-        }
-+       _erodatatext = .;
-
-        idmap_pg_dir = .;
-        . += PAGE_SIZE;
-diff --git a/include/linux/sframe.h b/include/linux/sframe.h
-@@ -63,6 +63,10 @@ struct sframe_section {
-        unsigned long           sframe_end;
-        unsigned long           text_start;
-        unsigned long           text_end;
-+#if defined(CONFIG_SFRAME_UNWINDER) && defined(CONFIG_ARM64)
-+       unsigned long           rodatatext_start;
-+       unsigned long           rodatatext_end;
-+#endif
-
-        bool                    fdes_sorted;
-        unsigned long           fdes_start;
-diff --git a/kernel/unwind/sframe.c b/kernel/unwind/sframe.c
-@@ -20,11 +20,23 @@
- #include "sframe.h"
- #include "sframe_debug.h"
-
-+#ifndef sframe_func_start_addr_valid
-+static inline bool sframe_func_start_addr_valid(struct sframe_section *sec,
-+                                                unsigned long func_addr)
-+{
-+       return (sec->text_start <= func_addr && func_addr < sec->text_end);
-+}
-+#endif
-+
- #ifdef CONFIG_SFRAME_UNWINDER
-
- static bool sframe_init __ro_after_init;
- static struct sframe_section kernel_sfsec __ro_after_init;
-
-+#ifndef arch_init_sframe_table
-+static void arch_init_sframe_table(struct sframe_section *kernel_sfsec) {}
-+#endif
-+
- #endif /* CONFIG_SFRAME_UNWINDER */
-
- struct sframe_fde_internal {
-@@ -152,7 +164,7 @@ static __always_inline int __read_fde(struct sframe_section *sec,
-                  sizeof(struct sframe_fde_v3), Efault);
-
-        func_addr = fde_addr + _fde.func_start_off;
--       if (func_addr < sec->text_start || func_addr > sec->text_end)
-+       if (!sframe_func_start_addr_valid(sec, func_addr))
-                return -EINVAL;
-
-        fda_addr = sec->fres_start + _fde.fres_off;
-@@ -696,13 +708,6 @@ static int sframe_validate_section(struct sframe_section *sec)
-                int ret;
-
-                ret = safe_read_fde(sec, i, &fde);
--               /*
--                * Code in .rodata.text is not considered part of normal kernel
--                * text, but there is no easy way to prevent sframe data from
--                * being generated for it.
--                */
--               if (ret && sec->sec_type == SFRAME_KERNEL)
--                       continue;
-                if (ret)
-                        return ret;
-
-@@ -1031,6 +1036,8 @@ void __init init_sframe_table(void)
-        if (WARN_ON(sframe_validate_section(&kernel_sfsec)))
-                return;
-
-+       arch_init_sframe_table(&kernel_sfsec);
-+
-        sframe_init = true;
- }
-
-Regards,
-Jens
--- 
-Jens Remus
-Linux on Z Development (D3303)
-jremus@de.ibm.com / jremus@linux.ibm.com
-
-IBM Deutschland Research & Development GmbH; Vorsitzender des Aufsichtsrats: Wolfgang Wendt; Geschäftsführung: David Faller; Sitz der Gesellschaft: Ehningen; Registergericht: Amtsgericht Stuttgart, HRB 243294
-IBM Data Privacy Statement: https://www.ibm.com/privacy/
-
+Thanks,
+Sebastian
 
