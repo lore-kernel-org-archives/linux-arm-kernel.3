@@ -4,105 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52653F8924D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 10:23:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12ED6F8924D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 10:26:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uxkNg+Kz3eggNdKmhX/VDk+TYX2dcnbabYbh4e8LTXs=; b=G5tzRA37GBFsZzWyOkccfGHzEI
-	VePTahwkBfFWqVe2in3Sx2jqtyl6+Yjb1BchanwKskLYLBFvXtsSIIjfuaHC3E1KWW8ibjPqvzH89
-	lqpPpCNjTLP2LBP8BoW0j1L5Ry61lvnG2MIU7uIeHYBOnCc8X8VhO1L6fENGmWJ/tKSPHie+ipbL9
-	54i0Pb5mG+NLw4ZPDbPtjuVKvxhpWnD9ksFRFNTADsghbQxMRZdAmfiqhINDlHb8EV4z2mYjpo8xS
-	mLdm0Dx47bfe+08jxeavZpoqH/N4XzEfuRtTrPxH7a2TlrjJoDR6AcfA8GJhWYx3wOkmjg/9y48+0
-	iSoWPMJA==;
+	bh=1FvfcveV+14dOucFk7RAnQhXMQK/CgP4W5FAbyii2JE=; b=fDpKnkn3Hl1yOjeawrHTsPhIIL
+	4Glb/gMQLtVNO68ta5KqUY/GAOwLgFVJxS5cRkp8/qiu2/XqHssIopQdaem7agQZxP0Ye9DNIZSuh
+	ByJ4nmtxIezojrPI9LTU5xW9pykiTB7/vg0ooLorqVXAwLKdAWFyuIvaGVOmyNOhmRTfj6vPcXsrG
+	NMx/XTIJmY6cfJxd7gHnwzoEiKLG7jaxEO42cjL/f/Upe3FHnOh045XlxVxEQ0IcpKslaobhFme0A
+	8xtKWE0BR/cKJ7cVNtUWHzagcMgM9uuC2Z3UAJ8Ww0op9bP6/lO1u0VI7tnE3cuaXabbU+p/acKG9
+	/NMo7eVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF8Fw-00000008PuK-2SKH;
-	Tue, 21 Apr 2026 10:23:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wF8Ix-00000008QAH-0Xka;
+	Tue, 21 Apr 2026 10:26:07 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF8Fv-00000008Pu6-0e3X;
-	Tue, 21 Apr 2026 10:22:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4896360133;
-	Tue, 21 Apr 2026 10:22:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0897DC2BCB8;
-	Tue, 21 Apr 2026 10:22:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776766977;
-	bh=bqXBqcKC49eEkO8B5+eajrBk1tibKKx3p5dCM2COELU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=r9r1kmMmARzRvKWuATMNaDgHPW6GZHzvy6YD4FNmto0vGx/LgrT4GiVM5yR2ptn8B
-	 Q//piKG1IOMQuCoARr5ajk8UswSRcNFLMQlvG2tSY7bOD1i67VlFVybpzl++nmLG7b
-	 LMXrw8Ko7Glf3vXqNzUbegRuaeU3fZqVPlbY5yMZxpczwmM8U894LTdnR6PqOixl7h
-	 0SWcOQXGVMKzOA3lny9ZSyw8MHdbETnA0WydW0odWu5l20B6ZOFGaCEalhZ7DyDvHC
-	 ZO0DnIoGZUyNVVKu6NVAmJ7w7KkUkPlLUK2OHw+upL+uTNtGRUnU1vMfseqZyrJjmo
-	 l/CoYFUdumO4A==
-Message-ID: <6cdd0baa-fc69-44dc-9871-a96fd2f16017@kernel.org>
-Date: Tue, 21 Apr 2026 12:22:52 +0200
+	id 1wF8Iu-00000008Q9a-2TIW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Apr 2026 10:26:05 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-c76d797b180so2827480a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 03:26:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776767164; cv=none;
+        d=google.com; s=arc-20240605;
+        b=DpDFrWCsm/3aYiYrXnOew+ixw9y5swwUhwtpX88P5TrsHdfbk9eKbso5g3+aoCPgZc
+         PgQHRragLv+KjUqH8UwFAJ1YGa/Q7Cc6TPBUcQBTAS7O/kHTdOkS2TYiv6NeGegcQgeG
+         hYAIdB79OVxqfErW6ye4cJCM7OQSt7K/OZA30lg+KpPtex0T1wd3OdzTQszKoKxOvlw6
+         yxiAVf0RjEMZ9ArzlkCEd00HRaKJkl2SCNjXIwIt0pxM11gXVnYbFVJLZtYOyxhswsIn
+         /tsLUg9+p16rJJNbCVNfIr/jyGH30qUvOvA6emXkEJVRjnitC7fmK7yXHtvG/e0llku5
+         rMLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=1FvfcveV+14dOucFk7RAnQhXMQK/CgP4W5FAbyii2JE=;
+        fh=D8deqzxDnCwmD8D5gzF2ZTc/VBkbL4Xyf02M5HhRCmU=;
+        b=KIW6Y+Q7aK15i5RYRDqgux+Xew9cwuNwQNAj/QfkCkn+6JXtVd5aiztzkMa42SdgOo
+         m4dsAMRz60zJZU00gDRcqPKGcJXnhksldpzXii3CBmzxmFEkljANK8gYo34iAP41vy2F
+         AXUMX52Ceoe7juHFs77/vsQCan6aOLzD5ecxZaRjmdxP1iQnsFt6QF7WZwGEX6gpHbww
+         YqLuv5kgYwrsHB69sXMb+qojy2xoNK7CygEU8+D7AIjEyOlwL8UV4ZHtEt0DOfqJ3npH
+         2JGaN1CUCX6EN9KzXLjZIPSTHYqcTDSIuotc5f/Yzf5ZYk5mzLSLDbBbl1coPLCUTOt7
+         4Bmw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776767164; x=1777371964; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1FvfcveV+14dOucFk7RAnQhXMQK/CgP4W5FAbyii2JE=;
+        b=FseXjuecQDakSqivtS2xRs/gW2EwasumDWk56Db/HKpHOwlXyhTXtVwdaM2IdGFJK6
+         p9doIDqWVvFxn3vdZKtQHmz1PFc+oXOrzFx6eJ7gzrQ00k/s1uB0oYe7/eiuOTGN5YsN
+         kIsTMja6NcE1x5xfP8orU73UOtdhIAbbRuqD2DUfzBQAlQP+e3oxgFMQDX6ga64kOkfm
+         apOGvJTQWoe4E+M2Wbac1h4ht9DyEVd4ABlTONq4z3Cu0O6oyBeLgsz4L3SBfWQII36g
+         knCKS+5GMv6907MbZuFUo/DMVJAJsO82vFLXmDJg8YUpbO/xQV3o4GzNEvr6o+5cI6TS
+         UONQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776767164; x=1777371964;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=1FvfcveV+14dOucFk7RAnQhXMQK/CgP4W5FAbyii2JE=;
+        b=Luq0IJxF5fv7Z3lwqq3balJjd3U+/ZDNderyAf9AqKeZoQf1mNYJhZ4cCUvUPoEFsJ
+         rfWNe4gPLIuilFEy/Hk8a7e7Vw+NnK+m6d94lZkjnxAIHEtXB31n/TqZlJHH/zYbOwV1
+         pTfd9j1L7vgnH55KRuuDuIRI5RmPhERvbE8+MMsQgy2AB8G9rvGiSIidBiQ42nRbVTKC
+         wxM7fxfqnNMZNdZoZc/+1DhTVeaJOVgDtqlz2rrGYFoknLcvAJCvHpN4dVWjBsIlrWCm
+         UIL2yRB0ZsBauudnkJaeYAEhLl6Y5pWzcw2CCcNo4mY6U+G7o8XwaQJYXzKAjrkeY53I
+         KBFA==
+X-Forwarded-Encrypted: i=1; AFNElJ/HaNM3BvsOUUNfbYQrABYKNtUVXFfH+7UeNi6c+lvrBFnMDAUP1mmI6mPZxUaFZJAknDVTAyIV937Av+7RnhrW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz07fRQ93HtU37E/TCC3B1T3wNOtsNP30TciuDs0j0lSzkYRXdo
+	eJZjRL9N++fd3D6v6vULn8CT6jOwObKe7GUTQBes0/KAcY0tVYRdMAD0jwPOykzh4NezfJVIZlZ
+	YoVOxKg0WgcPXeCG7mmnpJIvLdeDabAR16Fwm
+X-Gm-Gg: AeBDietfX8eWC5YpasxiHYTEV4h2Z9geHdEopQY9/qZnvuo4yBQCguhsmtJKn9GlXLn
+	UHhDE4cKIiP3KnjceJjBJRfJVtzdz5lp7udY1JhOE9aKXocNapcOaV3BcSwl7z7CAhNgRTmJEa/
+	duKV3RRe3ryq/B7aTn1bsG5lxvC8l7LL8J0e0EMcxZmKHG84kVJziyHoaHsWE+nhxvYhtxTKgX3
+	QNboiKsoHPziF2aFkD1U8cXl/fd1BgTiNq+nGF6fReA5J1FDDEnR3+aIzu6cI6dO1rUBbqgF23m
+	GcxIekaeNZblPQVlxw==
+X-Received: by 2002:a05:6a20:12c4:b0:398:8026:4811 with SMTP id
+ adf61e73a8af0-3a08d8a8814mr21400230637.35.1776767163577; Tue, 21 Apr 2026
+ 03:26:03 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: amlogic: add support for X98Q
-To: christian.koever-draxl@student.uibk.ac.at, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, neil.armstrong@linaro.org,
- khilman@baylibre.com
-Cc: jbrunet@baylibre.com, martin.blumenstingl@googlemail.com,
- funderscore@postmarketos.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org
-References: <20260420061854.5421-1-christian.koever-draxl@student.uibk.ac.at>
- <20260420061854.5421-3-christian.koever-draxl@student.uibk.ac.at>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260420061854.5421-3-christian.koever-draxl@student.uibk.ac.at>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20260420100854.2095549-1-shengjiu.wang@nxp.com>
+ <lkwfzz4lia37wv56g6ymzpossm42epz2oylhl7vgdpp7odt23h@vszl4uu2wg65>
+ <CAA+D8ANwT0GKusZtvo6h8mzVf=xXSEkHXsb6nwHGZ2YQzPm5ZQ@mail.gmail.com> <4xbeeozhngkkc66r3ho523vr45yksbyftdckfzwk72zfvwzgv2@7lodth3abysr>
+In-Reply-To: <4xbeeozhngkkc66r3ho523vr45yksbyftdckfzwk72zfvwzgv2@7lodth3abysr>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Tue, 21 Apr 2026 18:25:51 +0800
+X-Gm-Features: AQROBzDhXWgla_oCt6bVuib2j48W1hMySGsnPl8g4tOPNfdTT8qGzf6cm0imj8I
+Message-ID: <CAA+D8ANwgkzKA2aDja=RTLeJX1s7-SfHS8FVC_cjKcRvbREFcA@mail.gmail.com>
+Subject: Re: [PATCH V3] dmaengine: imx-sdma: Fix SPBA bus detection on
+ multi-SPBA platforms
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, vkoul@kernel.org, Frank.Li@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	dmaengine@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260421_032604_636107_019822E8 
+X-CRM114-Status: GOOD (  37.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,48 +121,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/04/2026 08:18, christian.koever-draxl@student.uibk.ac.at wrote:
-> From: Christian Stefan Kövér-Draxl <christian.koever-draxl@student.uibk.ac.at>
-> 
-> Signed-off-by: Christian Stefan Kövér-Draxl <christian.koever-draxl@student.uibk.ac.at>
-> ---
->  arch/arm64/boot/dts/amlogic/Makefile          |   1 +
->  .../boot/dts/amlogic/meson-s4-s905w2-x98q.dts | 250 ++++++++++++++++++
->  2 files changed, 251 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
-> 
-> diff --git a/arch/arm64/boot/dts/amlogic/Makefile b/arch/arm64/boot/dts/amlogic/Makefile
-> index 15f9c817e502..c7752684dea6 100644
-> --- a/arch/arm64/boot/dts/amlogic/Makefile
-> +++ b/arch/arm64/boot/dts/amlogic/Makefile
-> @@ -85,6 +85,7 @@ dtb-$(CONFIG_ARCH_MESON) += meson-gxm-ugoos-am3.dtb
->  dtb-$(CONFIG_ARCH_MESON) += meson-gxm-vega-s96.dtb
->  dtb-$(CONFIG_ARCH_MESON) += meson-gxm-wetek-core2.dtb
->  dtb-$(CONFIG_ARCH_MESON) += meson-s4-s805x2-aq222.dtb
-> +dtb-$(CONFIG_ARCH_MESON) += meson-s4-s905w2-x98q.dtb
->  dtb-$(CONFIG_ARCH_MESON) += meson-s4-s905y4-khadas-vim1s.dtb
->  dtb-$(CONFIG_ARCH_MESON) += meson-sm1-a95xf3-air-gbit.dtb
->  dtb-$(CONFIG_ARCH_MESON) += meson-sm1-a95xf3-air.dtb
-> diff --git a/arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts b/arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
-> new file mode 100644
-> index 000000000000..26c60a4c2a43
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
-> @@ -0,0 +1,250 @@
-> +
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+On Tue, Apr 21, 2026 at 5:44=E2=80=AFPM Marco Felsch <m.felsch@pengutronix.=
+de> wrote:
+>
+> On 26-04-21, Shengjiu Wang wrote:
+> > On Tue, Apr 21, 2026 at 4:57=E2=80=AFPM Marco Felsch <m.felsch@pengutro=
+nix.de> wrote:
+> > >
+> > > On 26-04-20, Shengjiu Wang wrote:
+> > > > i.MX8M platforms have multiple SPBA buses under different AIPS buse=
+s.
+> > > > The current code searches the entire device tree and returns the fi=
+rst
+> > > > SPBA bus found, which may not be under the same AIPS bus as the SDM=
+A
+> > > > controller.
+> > > >
+> > > > This breaks SDMA P2P transfers because the SDMA script needs to kno=
+w
+> > > > if peripherals are on SPBA or AIPS to configure watermark levels
+> > > > correctly. Using the wrong SPBA bus causes DMA timeouts and transfe=
+r
+> > > > failures.
+> > > >
+> > > > Fix by searching for the SPBA bus under the SDMA's parent node (AIP=
+S)
+> > > > first, then falling back to a global search for backward compatibil=
+ity.
+> > > >
+> > > > Example device tree showing the issue:
+> > > >   aips1 {
+> > > >     spba1 { sai@...; };      /* Correct SPBA for sdma1 */
+> > > >     sdma1@...;
+> > > >   };
+> > > >   aips2 {
+> > > >     spba2 { uart@...; };     /* Wrong SPBA - found first by old cod=
+e */
+> > > >   };
+> > > >
+> > > > Fixes: 8391ecf465ec ("dmaengine: imx-sdma: Add device to device sup=
+port")
+> > > > Cc: stable@vger.kernel.org
+> > > > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> > > > ---
+> > > > changs in v3:
+> > > > - add fallback to a global search for backward compatibility, which=
+ is
+> > > >   to address comments from sashiko.dev
+> > > > - update commit subject and commit message
+> > > > - add comments in code.
+> > > > - add Cc stable tag
+> > > > - Don't add Frank's RB on v2 as there are several other changes.
+> > > >
+> > > > changes in v2:
+> > > > - add fixes tag
+> > > > - use __free(device_node) for auto release.
+> > > >
+> > > >  drivers/dma/imx-sdma.c | 13 ++++++++++++-
+> > > >  1 file changed, 12 insertions(+), 1 deletion(-)
+> > > >
+> > > > diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
+> > > > index 3d527883776b..592705af2319 100644
+> > > > --- a/drivers/dma/imx-sdma.c
+> > > > +++ b/drivers/dma/imx-sdma.c
+> > > > @@ -2364,7 +2364,18 @@ static int sdma_probe(struct platform_device=
+ *pdev)
+> > > >                       return dev_err_probe(&pdev->dev, ret,
+> > > >                                            "failed to register cont=
+roller\n");
+> > > >
+> > > > -             spba_bus =3D of_find_compatible_node(NULL, NULL, "fsl=
+,spba-bus");
+> > > > +             /*
+> > > > +              * On i.MX8M platforms with multiple SPBA buses, we n=
+eed to find
+> > > > +              * the SPBA bus that's under the same AIPS bus as thi=
+s SDMA controller.
+> > > > +              * First check the SDMA's parent (AIPS bus) for a chi=
+ld SPBA bus.
+> > > > +              * If not found, fall back to searching the entire de=
+vice tree for
+> > > > +              * backward compatibility with older platforms.
+> > > > +              */
+> > > > +             struct device_node *sdma_parent_np __free(device_node=
+) =3D of_get_parent(np);
+> > > > +
+> > > > +             spba_bus =3D of_get_compatible_child(sdma_parent_np, =
+"fsl,spba-bus");
+> > > > +             if (!spba_bus)
+> > > > +                     spba_bus =3D of_find_compatible_node(NULL, NU=
+LL, "fsl,spba-bus");
+> > >
+> > > And yet the search is still broken for i.MX8MP case since this platfo=
+rm
+> > > has two sdma engines below the bus@30df0000.
+> >
+> > I tested on i.MX8MP. It works.  Above line is for backward compatibilit=
+y
+> >
+> > The search has no dependence on the number of sdma engines. It searches=
+ the
+> > spba-bus, not the sdma node. it will find the aips5 first, then find
+> > the spba-bus for
+> > sdma2 and sdma3.
+>
+> And you're abosulte certain that NXP doesn't introduce a 2nd SPBA bus
+> below the same AIPS in which case the driver is broken again?
 
+Good question. Currently there are no two SPBA buses in the same AIPS
+for all existing i.MX platforms and there is no such plan in the
+current roadmap,
+SDMA is replaced by EDMA from i.MX9.
 
-You have still the same warnings as before.  Fix them ALL, not just one
-warning. Are you sure you tested your work with standard tools?
+>
+> Sorry for beeing a bit picky. I do see that NXP decided to drop the SDMA
+> for i.MX9, at least I don't find any reference in which case I'm fine
+> with the patch.
 
-Please run scripts/checkpatch.pl on the patches and fix reported
-warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
-patches and (probably) fix more warnings. Some warnings can be ignored,
-especially from --strict run, but the code here looks like it needs a
-fix. Feel free to get in touch if the warning is not clear.
+Thanks.  The change should be safe.
 
-
-Best regards,
-Krzysztof
+Best regards
+Shengjiu Wang
 
