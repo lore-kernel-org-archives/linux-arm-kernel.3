@@ -4,117 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60CA8F8925C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 10:44:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C14F89256
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 10:46:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ah0PhSeyxPJ+iyZTlPevBN3vuUak12Ucav+orIO6GFc=; b=OFOi8mgtENGUsVNk6al+5Ykb/c
-	x307s1i9/BnvnM5114ED6B5KjUNCyG5jIMA7ntJ7DXf83JXOPqHS22duDD1BO04K0daQOHcmTYKdC
-	4dq1GrowEgvbI0iglWfVtfF4gWM258ZnUiR6yoKlGlMnFCj2wsve/3OcpoeechpqgmOUtX1iUd67K
-	jm7FYfsVPmzBveWUsXVs15sbcwhXzapyj+vYqRuGmWokJ4yvDoK2IGMXcU3c8c+1Liy35Lv8We3GV
-	jGvSdvW/55C24N2bAEtLf9x17JYufH1wFDKW4zATAYFyhEqxMeWFd2svKsf0OixlNsiv8ePTTI/2K
-	TasIQBZQ==;
+	bh=WYcwq9XtUCkeGg/9kY+8GcsqZ3uv9Mz7OwdQUgNaoLM=; b=3HOfkesFNqyF1kF/4JNUZdUfbw
+	eNndQyPMQYFsYUj4cJjcaHrgWACbQbSGDImh+HdxLK88V8Bk8NbwpXPcMESOdiiThGm0fTgX/S3GR
+	kNrFOoY8z5NG5Na02VkSFUAQzh78zHddmtMABo1RVnTx1xQMVYEOEoiXfHaRLDX+MVuAH6pADMJKR
+	++IXerLqjhNKsKhfbJ7bLLbrUn8Le1BhXOwJ7rVq2OWqaZvHUUDXtilWee2vPwVy9uM6ONEsMbesp
+	+kXM6s0idvsQZLIuIiBq0A2hP5DXyBrs+HHUJxSWgmZPgQ7LzfPswKZlBfJUm/8hkKSzVMts7sTqo
+	EiYPUcxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF8an-00000008STj-1Qh7;
-	Tue, 21 Apr 2026 10:44:33 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF8ak-00000008SRl-2lBk
+	id 1wF8cK-00000008Spk-03jP;
+	Tue, 21 Apr 2026 10:46:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wF8cG-00000008SpP-3lbA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 10:44:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PI/uGucdCNz5Q8FNAOHx2rcKiT3fvV/TjIYEH1xhMeK1z69N+gvpkmmERd+7gqu70Twoo49IXGuvUKrOLxzVzcf1gzA2vokc1bYtUlj9QfYtNe4Mce3G+Sl5o/zebdB+KzAy2nuCXcs3LgnpxH50Q0JEWApX0EQn8NtbTe1BCdFK8zybtpH89y1wxaR5Y5I6SzflUkOlHtaPBLpHxsZ0Ipl3mGlzu0jsldi7pzSGqOjdueyqwDjqkcnEBX9lSZe5MBJoZuBMbDslx7pLVcSEMS5nJFZrrtomEAFHc9veKFzuCDL94iCSDpKVsei+wPudBxBSfeW7BEaU+eXgAv9IuA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ah0PhSeyxPJ+iyZTlPevBN3vuUak12Ucav+orIO6GFc=;
- b=R8+uAAALpcJ4s5x/9Ow0UdLLCS05Sr7EjCO//Pakx7irc7vA02jOF+vMxcddo9vp3T4JpMG1VK2SNgggdWlmvcbrCSSqM/UffiWBQ56x7fA9QXsE1B5WdtQZh/CI16KiP6+ziDjUMN7DBWyZHbmiEUWE4P4cTZXbqVEftK3HHQHEVymbXWoE3PmY+dSBIRweo/jX4NNm+hPvZ/+SIaTELKyHTO6B1SHmBacXSlXjzbFq8QcliEvuNLI4Fp0Wrc653Yw21FVBhhRknhtrpnmSQl2fDUDs2ehhlhgAdE2JWoLfIzMfAofXA41Ck/JUMh+p8odUtKwp+kK0Mij6xoERLg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Ah0PhSeyxPJ+iyZTlPevBN3vuUak12Ucav+orIO6GFc=;
- b=nVtqLownOfhlpiFNGfpRgK8ltNcJAUX0jLS18/nGF8PMXhl/d/f8v4bSHsqcNmZhbs/+iruPaSIyUz2LLpRlB8Pg7xnrYplaZPCzY3VoRu1zdbpLfCfnWOSfnCazF+TTDyoOmqVwbv275EIuA2hd1hSW+r2rJORcXb9vzbAGvuQ=
-Received: from SJ0PR03CA0336.namprd03.prod.outlook.com (2603:10b6:a03:39c::11)
- by CY3PR12MB9631.namprd12.prod.outlook.com (2603:10b6:930:ff::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.15; Tue, 21 Apr
- 2026 10:44:21 +0000
-Received: from CO1PEPF000066E8.namprd05.prod.outlook.com
- (2603:10b6:a03:39c:cafe::ff) by SJ0PR03CA0336.outlook.office365.com
- (2603:10b6:a03:39c::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9791.48 via Frontend Transport; Tue,
- 21 Apr 2026 10:44:20 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- CO1PEPF000066E8.mail.protection.outlook.com (10.167.249.6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9791.48 via Frontend Transport; Tue, 21 Apr 2026 10:44:20 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 21 Apr
- 2026 05:44:15 -0500
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 21 Apr
- 2026 05:44:14 -0500
-Received: from xhdshubhraj40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Tue, 21 Apr 2026 05:44:10 -0500
-From: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
-To: <linux-kernel@vger.kernel.org>
-CC: <git@amd.com>, <shubhrajyoti.datta@gmail.com>, Shubhrajyoti Datta
-	<shubhrajyoti.datta@amd.com>, Srinivas Neeli <srinivas.neeli@amd.com>, Michal
- Simek <michal.simek@amd.com>, Linus Walleij <linusw@kernel.org>, Bartosz
- Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	<linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v3 3/3] gpio: zynq: Add eio gpio support
-Date: Tue, 21 Apr 2026 16:13:58 +0530
-Message-ID: <20260421104358.2496125-4-shubhrajyoti.datta@amd.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260421104358.2496125-1-shubhrajyoti.datta@amd.com>
-References: <20260421104358.2496125-1-shubhrajyoti.datta@amd.com>
+	Tue, 21 Apr 2026 10:46:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1EC2D25E0;
+	Tue, 21 Apr 2026 03:45:58 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 447CE3FE8F;
+	Tue, 21 Apr 2026 03:46:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776768363; bh=QhXkQZOHiYA5eptsazKYG8SLrjSlnq+YelLqIRiAyTU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YtYTqP27NkWb2NTVN5marbwf/KXkiwfThYLmh15gsMJUwZuk9/ZgZjw/qb8RXVxpq
+	 cXDp/9hKYYHuDH9wl8V2CAcFuSCivNbcMaxTi6nrRuMqSDvExpIXHDkZmiuIi9pDEw
+	 zgzjHo1FBu6zhy74WCSalA60EgWerDrdPzlkL/9U=
+Date: Tue, 21 Apr 2026 11:46:01 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
+	mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
+Subject: Re: [PATCH v5 07/12] coresight: etm4x: fix inconsistencies with
+ sysfs configuration
+Message-ID: <20260421104601.GB929984@e132581.arm.com>
+References: <20260415165528.3369607-1-yeoreum.yun@arm.com>
+ <20260415165528.3369607-8-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000066E8:EE_|CY3PR12MB9631:EE_
-X-MS-Office365-Filtering-Correlation-Id: 54ee9bad-fdf9-402a-c8f3-08de9f92f20d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|36860700016|376014|1800799024|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: F96hpq+psGR2+MsUDeCU/lxlTi2+3wf0ojspz/OJMoZYyemITNSrAx5KNv/R1oziART8hs9XXU9838eKIdCuCkiw6Gf86WpfE94Nvfh2e/eDX9EN2yaf2g+/298A210Hrd/DjoIoCy4fuY4cy/azZr2VDI4ozJQc2MlPwalTVBcmttrAIwmpEBElHkauYNigzmvWLYj4lXxwnFyawOlRjjcBQfsv8L5PXICxS0BiB7jDLu4m4X9s6YkOM9Aht/LMHsJbSK1X+k47z1XfIvcxJwoQm1w2X7HSPVCoNsbUqn5g/DzSynHAX6o/Fkq+Ucm3c76cF68hY75ehAqGAfuONqLFCX4PegegWAq3LTBMBq71XamYnLsQcsMpMMryZBXRF38Zyu08owyH57eLWocfSx39Nm+TSrpu9EPyok1HFbv3ezOxNR+t9pApEupLCtYmrT/2dHdopCZ2IpbJWPyFCCaB4viDvUaxZloRIWSX/LYXOXITP4iKwDXVEPw5Z6STKaDFxZvZW+cWmsno1lRjBP1Q81rb/MJyHO5rbK8rzt5UPP99M6jPmmxopJ3FtgC4TCLJoRY3pb2rNl66N7maJm1wE00ZbuLVEcwIEJF86vBIOiVBaqWDyc7ha3TraOouqRd7om2GQoznoVp+K/rMb7kBft5IZfg3FXyehYHcR0oO7lBy1NMVuGtyr7xKKJf9PAR+0vnEWqTTBvv/SyHptKdqPswIfShlWSPfzmIY9QH5hVK28SYUl3w/bEZzzSI6DiXW6UhkYCVwXAkiMZLJuA==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(36860700016)(376014)(1800799024)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: FhH7oHggh00kqbCHzlKI1N3w+U2scz5XsDTrUnaq7mW4kMg3CpOicHj+BBu+oK8U6+M8TuGugzHmLlolWa0DE2VC3MozvI+eCNSYZLFanL2A2lHKdD9xA41mP2c4y5zcet9V47+HeUIqpyuJg01ewXI+LhuaNY3dQeRk7jORtovL/oc4YBxVEjd7EHfZBVHe9CufR1/xveb9oC/l8qi89PpPIr1/O4Oh79grEcyO5qGPlUGksa4bYw6+8zTqfXFbfeo0ZmmZrk0UE9QBySV2tArozJp2v2q7K+QdeaK4WWbFPOsjXfchmAbHS3s09TQ/GZP0Kp4ozwED7ePozCLlranPQxFSmM7+Jiq1W/8VtgowL0bXDwSfLh3QSfb9RtIB3CIpREQfkaN5+RSzrpwmJQkQlljXayj2RpCbW6dwFQixxtXv96hKoW16D+h2mWrd
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Apr 2026 10:44:20.7418
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 54ee9bad-fdf9-402a-c8f3-08de9f92f20d
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066E8.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY3PR12MB9631
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260415165528.3369607-8-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_034430_698556_335F8F5E 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20260421_034605_088533_D7AA1B31 
+X-CRM114-Status: GOOD (  36.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,61 +72,229 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the EIO GPIO controller found on
-xa2ve3288 silicon.
+On Wed, Apr 15, 2026 at 05:55:23PM +0100, Yeoreum Yun wrote:
+> The current ETM4x configuration via sysfs can lead to
+> several inconsistencies:
+> 
+>   - If the configuration is modified via sysfs while a perf session is
+>     active, the running configuration may differ before a sched-out and
+>     after a subsequent sched-in.
+> 
+>   - If a perf session and a sysfs session enable tracing concurrently,
+>     the configuration from configfs may become corrupted.
 
-The EIO GPIO block provides access to multiplexed I/O pins exposed
-through the EIO interface. Only bank 0 and bank 1 are connected to
-external MIO pins, with 26 GPIOs per bank (52 GPIOs total). This
-change extends the Zynq GPIO driver to support the EIO GPIO
-variant.
+I think this happens because the sysfs path calls
+cscfg_csdev_enable_active_config() without first acquiring the mode,
+allowing a perf session to acquire the mode and call the same function
+concurrently.
 
-Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
----
+>   - There is a risk of corrupting drvdata->config if a perf session enables
+>     tracing while cscfg_csdev_disable_active_config() is being handled in
+>     etm4_disable_sysfs().
 
-(no changes since v1)
+Similiar to above, cscfg_csdev_disable_active_config() is not
+protected in etm4_disable_sysfs().
 
- drivers/gpio/gpio-zynq.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+> To resolve these issues, separate the configuration into:
+> 
+>   - active_config: the configuration applied to the current session
+>   - config: the configuration set via sysfs
+> 
+> Additionally:
+> 
+>   - Apply the configuration from configfs after taking the appropriate mode.
+> 
+>   - Since active_config and related fields are accessed only by the local CPU
+>     in etm4_enable/disable_sysfs_smp_call() (similar to perf enable/disable),
+>     remove the lock/unlock from the sysfs enable/disable path and
+>     startup/dying_cpu except when to access config fields.
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>  .../hwtracing/coresight/coresight-etm4x-cfg.c |   2 +-
+>  .../coresight/coresight-etm4x-core.c          | 107 ++++++++++--------
+>  drivers/hwtracing/coresight/coresight-etm4x.h |   2 +
+>  3 files changed, 63 insertions(+), 48 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> index d14d7c8a23e5..0553771d04e7 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> @@ -47,7 +47,7 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
+>  				   struct cscfg_regval_csdev *reg_csdev, u32 offset)
+>  {
+>  	int err = -EINVAL, idx;
+> -	struct etmv4_config *drvcfg = &drvdata->config;
+> +	struct etmv4_config *drvcfg = &drvdata->active_config;
+>  	u32 off_mask;
+>  
+>  	if (((offset >= TRCEVENTCTL0R) && (offset <= TRCVIPCSSCTLR)) ||
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index b199aebbdb60..15aaf4a898e1 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -245,6 +245,10 @@ void etm4_release_trace_id(struct etmv4_drvdata *drvdata)
+>  
+>  struct etm4_enable_arg {
+>  	struct etmv4_drvdata *drvdata;
+> +	unsigned long cfg_hash;
+> +	int preset;
 
-diff --git a/drivers/gpio/gpio-zynq.c b/drivers/gpio/gpio-zynq.c
-index 571e366624d2..8118ae3412c2 100644
---- a/drivers/gpio/gpio-zynq.c
-+++ b/drivers/gpio/gpio-zynq.c
-@@ -25,6 +25,7 @@
- #define VERSAL_GPIO_MAX_BANK	4
- #define PMC_GPIO_MAX_BANK	5
- #define VERSAL_UNUSED_BANKS	2
-+#define EIO_GPIO_MAX_BANK	2
- 
- #define ZYNQ_GPIO_BANK0_NGPIO	32
- #define ZYNQ_GPIO_BANK1_NGPIO	22
-@@ -818,6 +819,16 @@ static const struct dev_pm_ops zynq_gpio_dev_pm_ops = {
- 	RUNTIME_PM_OPS(zynq_gpio_runtime_suspend, zynq_gpio_runtime_resume, NULL)
- };
- 
-+static const struct zynq_platform_data eio_gpio_def = {
-+	.label = "eio_gpio",
-+	.ngpio = 52,
-+	.max_bank = EIO_GPIO_MAX_BANK,
-+	.bank_min[0] = 0,
-+	.bank_max[0] = 25, /* 0 to 25 are connected to MIOs (26 pins) */
-+	.bank_min[1] = 26,
-+	.bank_max[1] = 51, /* Bank 1 are connected to MIOs (26 pins) */
-+};
-+
- static const struct zynq_platform_data versal_gpio_def = {
- 	.label = "versal_gpio",
- 	.quirks = GPIO_QUIRK_VERSAL,
-@@ -882,6 +893,7 @@ static const struct of_device_id zynq_gpio_of_match[] = {
- 	{ .compatible = "xlnx,zynqmp-gpio-1.0", .data = &zynqmp_gpio_def },
- 	{ .compatible = "xlnx,versal-gpio-1.0", .data = &versal_gpio_def },
- 	{ .compatible = "xlnx,pmc-gpio-1.0", .data = &pmc_gpio_def },
-+	{ .compatible = "xlnx,eio-gpio-1.0", .data = &eio_gpio_def },
- 	{ /* end of table */ }
- };
- MODULE_DEVICE_TABLE(of, zynq_gpio_of_match);
--- 
-2.34.1
+Since smp call cannot directly call cscfg_config_sysfs_get_active_cfg()
+due to it runs in atomic context but ...active_cfg() tries to acquire
+mutex. So we firstly retrieve pass 'cfg_hash' and 'preset' in sleepable
+context and deliver them to the SMP call.
 
+After coresight cfg refactoring, we should remove cfg_hash/preset from
+ETM driver, the ETM driver only needs to retrieve register list and can
+do this in smp call.
+
+Before we finish cfg refactoring, it is fine for me to add these two
+parameters into etm4_enable_arg.
+
+> +	u8 trace_id;
+
+Can we add 'path' instead ? The SMP call can retrieve path->trace_id.
+This can benefit for future clean up (e.g., we can store config into
+path so we can retrieve config from path pointer), and this allows us
+for further refactoring to unify etm4_enable_sysfs_smp_call() and
+etm4_enable_perf().
+
+> +	struct etmv4_config config;
+
+We don't need this. We can defer to get drvdata->config in SMP call.
+
+>  	int rc;
+>  };
+
+[...]
+
+> @@ -918,40 +946,29 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+>  
+>  	/* enable any config activated by configfs */
+>  	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
+> -	if (cfg_hash) {
+> -		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
+> -		if (ret) {
+> -			etm4_release_trace_id(drvdata);
+> -			return ret;
+> -		}
+> -	}
+> -
+> -	raw_spin_lock(&drvdata->spinlock);
+> -
+> -	drvdata->trcid = path->trace_id;
+> -
+> -	/* Tracer will never be paused in sysfs mode */
+> -	drvdata->paused = false;
+>  
+>  	/*
+>  	 * Executing etm4_enable_hw on the cpu whose ETM is being enabled
+>  	 * ensures that register writes occur when cpu is powered.
+>  	 */
+>  	arg.drvdata = drvdata;
+> +	arg.cfg_hash = cfg_hash;
+> +	arg.preset = preset;
+> +	arg.trace_id = path->trace_id;
+> +
+> +	raw_spin_lock(&drvdata->spinlock);
+> +	arg.config = drvdata->config;
+> +	raw_spin_unlock(&drvdata->spinlock);
+
+Can we defer this in smp call ?  And we can consolidate a bit
+configurations, we can consider to use a separate patch for this.
+
+  etm4x_apply_config(drvdata, event, hash, preset)
+  {
+      /* perf mode */
+      if (event) {
+          etm4_parse_event_config(drvdata->csdev, event);
+      } else if (mode == CS_MODE_PERF) {
+          scoped_guard(raw_spinlock, &drvdata->spinlock)
+              &drvdata->active_config = drvdata->config;
+      }
+
+      /* At the end, we always apply the config */
+      cscfg_csdev_enable_active_config(drvdata->csdev, hash, preset);
+  }
+
+
+> +
+>  	ret = smp_call_function_single(drvdata->cpu,
+>  				       etm4_enable_sysfs_smp_call, &arg, 1);
+>  	if (!ret)
+>  		ret = arg.rc;
+>  	if (!ret)
+> -		drvdata->sticky_enable = true;
+> -
+> -	if (ret)
+> +		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
+> +	else
+>  		etm4_release_trace_id(drvdata);
+>  
+> -	raw_spin_unlock(&drvdata->spinlock);
+> -
+> -	if (!ret)
+> -		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
+>  	return ret;
+>  }
+>  
+> @@ -1038,7 +1055,7 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
+>  {
+>  	u32 control;
+>  	const struct etmv4_caps *caps = &drvdata->caps;
+> -	struct etmv4_config *config = &drvdata->config;
+> +	struct etmv4_config *config = &drvdata->active_config;
+>  	struct coresight_device *csdev = drvdata->csdev;
+>  	struct csdev_access *csa = &csdev->access;
+>  	int i;
+> @@ -1074,6 +1091,8 @@ static void etm4_disable_sysfs_smp_call(void *info)
+>  
+>  	etm4_disable_hw(drvdata);
+>  
+> +	cscfg_csdev_disable_active_config(drvdata->csdev);
+> +
+>  	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
+>  }
+>  
+> @@ -1124,7 +1143,6 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
+>  	 * DYING hotplug callback is serviced by the ETM driver.
+>  	 */
+>  	cpus_read_lock();
+> -	raw_spin_lock(&drvdata->spinlock);
+>  
+>  	/*
+>  	 * Executing etm4_disable_hw on the cpu whose ETM is being disabled
+> @@ -1133,10 +1151,6 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
+>  	smp_call_function_single(drvdata->cpu, etm4_disable_sysfs_smp_call,
+>  				 drvdata, 1);
+>  
+> -	raw_spin_unlock(&drvdata->spinlock);
+> -
+> -	cscfg_csdev_disable_active_config(csdev);
+> -
+>  	cpus_read_unlock();
+>  
+>  	/*
+> @@ -1379,6 +1393,7 @@ static void etm4_init_arch_data(void *info)
+>  	struct etm4_init_arg *init_arg = info;
+>  	struct etmv4_drvdata *drvdata;
+>  	struct etmv4_caps *caps;
+> +	struct etmv4_config *config;
+>  	struct csdev_access *csa;
+>  	struct device *dev = init_arg->dev;
+>  	int i;
+> @@ -1386,6 +1401,7 @@ static void etm4_init_arch_data(void *info)
+>  	drvdata = dev_get_drvdata(init_arg->dev);
+>  	caps = &drvdata->caps;
+>  	csa = init_arg->csa;
+> +	config = &drvdata->active_config;
+
+Should we init drvdata->config instead so make it has sane values ?
+
+In other words, drvdata->active_config are always set at the runtime,
+so don't need to init it at all, right?
+
+Thanks,
+Leo
 
