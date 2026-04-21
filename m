@@ -4,89 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21394F8FA8C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 14:58:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFED9F8FA8E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 14:58:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5mjuJmdvwe7PzDVz8q3vHSG4MYXWlbBcdt3fOBIwOXE=; b=lWEk0dEit8ts3RBhaVKJlafiar
-	Dly8goNPXt5FEDfx6zRQDhvp5XtbLPgBX3qcbixPnppYhVQuCO2ba3uc5MVuW8OOV8VvfNLbKvgul
-	QClY+lB5vnzSMJ7ltFRe+d89N8nLpcg5IYmWSGmVBt47UXdq+GwecNYuItoVjjTkdBJr2yIV+lgXs
-	Y0LKVTsXgEvgI3pryffP6vg5lvyl/TXpa75QfX7A2NLTQzLwhUC5wL2XNg4JETTYv/iJKvmFZIlvR
-	RpayoG+uH3q7srJmhqJa/decVOLP7c1tpZ3ALh3jWJ1puIMA3OIB4sHBj/8gYWdj5a0Lyq2Iw14Ll
-	KXryjvpw==;
+	bh=o08zvgVs/uglGhM5GgyiOdyS8YU6TA/C31x9P8r6wxU=; b=sE9DVaMc0ha+d5p7RsKNL/Gklq
+	qgD12RsHtsJXDfDyxWvt/D5EPvJjHsSYdSPi2C88F9YcYfbcUjnJMs9b/jO7JyzzKn58fiT4COXnf
+	h7hgIhD1B+26ptSHTcpXLc+I9cGEAJppjCyeAR/AiY7l8bTHbQAF90RtVTAQUaL0VvfDVwiKqxdJQ
+	yGCf5lErwgEDTRuRvPy/XsM670yZv0ukeWuixNAgPT1cNN4LPgngrmO52QfLq/0MQ8eQd4S9QK5W0
+	35yTT/z6jjTyk615y6y1gw0mlFg2x71eeCmrn3BeynPaB2Uylimp1aSWZ2Y7Mp+9Ik/4+y8IC2wbo
+	o/uVORIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFCY0-00000008nUp-12T6;
-	Tue, 21 Apr 2026 14:57:56 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1wFCYV-00000008nZ8-2gVL;
+	Tue, 21 Apr 2026 14:58:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFCXx-00000008nUO-12wf
+	id 1wFCYT-00000008nYt-3lpX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 14:57:54 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-82f8bf96b46so2138954b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 07:57:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1776783472; x=1777388272; darn=lists.infradead.org;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=5mjuJmdvwe7PzDVz8q3vHSG4MYXWlbBcdt3fOBIwOXE=;
-        b=dYdApZeY/wzj2TSH1/Clj2pq4kackj6tzn63aId/Ei4GjffOuY6+eMnbRKHLwM21/2
-         upSprtnu8VschKRpUxJpQ/TrshVoSMvf7X/T1pRqvhxANFpdhBkzx8XchOU/EU410gdc
-         ujd5tTDVXQnR8cJuQp8WNMW3hAxZMMrsFZkxUn7Q5pf6ntJm2ffETpH/oPMKiI3PW5W1
-         C9u3BriiKTkqLcblqpKLs5hAawqnaB3m2to/43ZLEcL5LUEOJ2hCZbhaIKtWnLpSq7Bs
-         ZOPDOc0SyjWBwE8pnAr4lPvqEDedzN5WVJQtEV8aX4Ykgf3yX3dAKkksaW5R0buuvG4g
-         gZGQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776783472; x=1777388272;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=5mjuJmdvwe7PzDVz8q3vHSG4MYXWlbBcdt3fOBIwOXE=;
-        b=oj3PFwthvial8b5saGwcJseMLZNiWUq+P31HcEYnSg4lpWT8l6gzSpnhJkWyQLW+Mo
-         s0i/7YcpxgxXjtVGasG5j4urjE8vv54+8/WOPQpTeyJChx+OacTlwcD4KxwjoNvnevpM
-         IGzZOc+XJaQw5NLD70sfDDdfkQCDs4vFImcTFHkJE74Gz4MvM8MnyQcPO+Q3rOLqZiT7
-         8+U+hiFStrZWTafxpvijEbMOE+t/bPIRbOykuZ6+L+bsBazuN+ERRn7KIg8gZcHaptjw
-         kS/5Y4OqPj0bUU+nmAq1hefjx5KbZ4EgEMT7XbtlFFeJcluWNio415GW7pojiRFoAWz8
-         P4Hw==
-X-Forwarded-Encrypted: i=1; AFNElJ/Hs9ZVZKhY0qJfLiwfLVmFGbfZwfV8I2qVMTn05Mts36el7ScsPeUxq+A5KxKepu3eiMzUSYht6evfYGQmGZpE@lists.infradead.org
-X-Gm-Message-State: AOJu0YzaokzezXcBffGjQ2Wi+Ef6LpJiVTC5FNgFaSL/olrWDoZCFtei
-	GZexquOvvcgH9/9gA6HKSRwUq31WgU1A+3oUDo+yu+dkiGUAHenU6af+ZMRhLPJoJ44=
-X-Gm-Gg: AeBDiesUVSa8/nFoVe8vdSJMKHfvW1nKDkd4NlOWkUgDnMWgLv4IlYC4B2p4lZ63ttZ
-	NqWb92NDMUSfFBhnZKRNQb71Fil7CkxvAOcEFDvD872L/wRgzYG+Jk/3WIhetKvBA2fp0S0vV1n
-	Ys851tXgeswbOEIYglUKz58nXSClf6IymUtqEydO27f87LjEOIwVCQLj++F0z1BCwqs8XUt1OcG
-	l2T2WaAFOLVxbFek753XYOwP4tPhcZwmJUTX0DytvCqHct4OPQcmyv1WFNSQ4rk9CRdxfV3b6Yq
-	r3Qoz5+JM8iyJgmTMRZyKv8LmeaDY1IIHlG3ICrtJxRdABG6Y8T3ATdAXew7V9eB8Wj0+DlQz44
-	OSzo4fUSigHVpJIiC18Tf6G8ts09obbc2S7JvOxQYqzNdSsMYT20+LIWNNgRmS7gHbJZktSMDqh
-	ZGkdiFmxbqnahaxyh+HwYsZWHJ5eD6Ew==
-X-Received: by 2002:a05:6a00:3c86:b0:81f:40e5:34c2 with SMTP id d2e1a72fcca58-82f8c8bee9dmr18805718b3a.32.1776783472262;
-        Tue, 21 Apr 2026 07:57:52 -0700 (PDT)
-Received: from localhost ([97.126.187.42])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8e9819fesm14280551b3a.4.2026.04.21.07.57.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Apr 2026 07:57:51 -0700 (PDT)
-From: Kevin Hilman <khilman@baylibre.com>
-To: Rob Herring <robh@kernel.org>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Geert Uytterhoeven
- <geert@linux-m68k.org>, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/3] dt-bindings: power: Add power-domains-child-ids
- property
-In-Reply-To: <20260421134949.GA1045294-robh@kernel.org>
-References: <20260420-topic-lpm-pmdomain-child-ids-v3-0-c2c40bef238c@baylibre.com>
- <20260420-topic-lpm-pmdomain-child-ids-v3-1-c2c40bef238c@baylibre.com>
- <20260421134949.GA1045294-robh@kernel.org>
-Date: Tue, 21 Apr 2026 07:57:51 -0700
-Message-ID: <7hh5p4qs28.fsf@baylibre.com>
+	Tue, 21 Apr 2026 14:58:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 59D5B6001A;
+	Tue, 21 Apr 2026 14:58:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 652F9C2BCB0;
+	Tue, 21 Apr 2026 14:58:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776783505;
+	bh=o08zvgVs/uglGhM5GgyiOdyS8YU6TA/C31x9P8r6wxU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kR3atssmQ+T7d/q3/arTXviH+DDAiikosMNgJN8PZ7Z0gzzceXyDYgY4P39L74WmC
+	 TldUt5KoWJ8mIptTD+dwLnBisWpD+HyIw6JgQbU1Q4LOCoC7AkQkJhmCxVtJ1XFH2Y
+	 83Ss6rgxmGf4R3wYMjfDrMPrdQ/4kVfs+o95tyLqXP1c61n7qWve96J8dhLpJrXlld
+	 jRy8Y+hdPhwX11z09iCK6fvoEWqu9p2YIf1O+GF2heWOUz/IxMC4ZduhhoGe2sGKkA
+	 aOfo5iCJ3c/ac/W/AME/reFI3d/MjwqW+0oKht7cLI4oVmCbCmAqY8BQtsxZJkT+nt
+	 ytHwoRUzKquZg==
+Date: Tue, 21 Apr 2026 15:58:20 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>, Shuah Khan <shuah@kernel.org>,
+	Will Deacon <will@kernel.org>, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 2/4] kselftest/arm64: Add POE as a feature in the signal
+ tests
+Message-ID: <e9b7591d-9b8d-4e76-9c0c-814507a95fdd@sirena.org.uk>
+References: <20260421144252.1440365-1-kevin.brodsky@arm.com>
+ <20260421144252.1440365-3-kevin.brodsky@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_075753_307616_33BB9ABF 
-X-CRM114-Status: GOOD (  12.65  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Gg5tHGD+6ZP7azO2"
+Content-Disposition: inline
+In-Reply-To: <20260421144252.1440365-3-kevin.brodsky@arm.com>
+X-Cookie: Jenkinson's Law:
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,24 +74,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rob Herring <robh@kernel.org> writes:
 
-> On Mon, Apr 20, 2026 at 04:51:17PM -0700, Kevin Hilman (TI) wrote:
->> Add binding documentation for the new power-domains-child-ids property,
->> which works in conjunction with the existing power-domains property to
->> establish parent-child relationships between a multi-domain power domain
->> provider and external parent domains.
->> 
->> Each element in the uint32 array identifies the child domain
->> ID (index) within the provider that should be made a child domain of
->> the corresponding phandle entry in power-domains. The two arrays must
->> have the same number of elements.
->> 
->> Signed-off-by: Kevin Hilman (TI) <khilman@baylibre.com>
->
-> Missing my Reviewed-by.
+--Gg5tHGD+6ZP7azO2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Oops, I thought I had grabbed it with b4, but I didn't.  Sorry.
+On Tue, Apr 21, 2026 at 03:42:50PM +0100, Kevin Brodsky wrote:
+> Add the POE feature to the signal tests framework, to allow tests to
+> require it.
 
-Kevin
+Reviewed-by: Mark Brown <broonie@kernel.org>
+
+--Gg5tHGD+6ZP7azO2
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnnkIsACgkQJNaLcl1U
+h9BQ/wf/d+d8Dj4exxJCYGsm0nHnz4H26nZTo2KflCuh6+B53Zpb5XAtt/TCll5C
+NAu/LWNLwOo9pBjFv/W59vH4+KUtMGrZcat3T/TWF9tMc76ROnYvvVpVvkHS9rzF
+WpL2q7M6Rz/eJTXQz3Zhc84+B/NoC4/UzDLSarO05ERYX8+uhfZjzPb0NOexpqFP
+v1kEUdp++EsVSoOvWyqpqTiRNuyYQ1WDrSWElj4/IpsSePDaD2EdFIeUaD74n0uY
+Ib8Fxyw4m+sj7a59r5yPVvxE0Gp9rfFfCv2S9jB9plqtyIrme30PCUnBWI0FfGBp
+6NoQiF/59bK8lU2W276mTqZc+G4oqA==
+=r3w3
+-----END PGP SIGNATURE-----
+
+--Gg5tHGD+6ZP7azO2--
 
