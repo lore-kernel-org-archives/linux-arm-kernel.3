@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23214F89220
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 09:56:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61045F89242
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 09:58:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FNjjiRmHFAVsekADJqma64aVwQrk+ERG2MMcqqQqegQ=; b=JdpzTXaCNIoCcnTjbZE5sEnIip
-	6QMN2hBFtra2Xenn3MArO0BwVmTypcwf0xgBHDewTS9pchQOE5cWxilO0izhAT2US+vkHeAUQkbI5
-	1Wb3zNRsBRizYnc9Fl2/D3GZI27EAUzA4Lhzw/YFbb6nSf1EpRGY/SiIiaAPoOBZcE68Mdccm/XjR
-	cpeLcPg2tYajP1OCMA4jU09ew20o/WGnay57giTNENHtRHdQADhrahd8MkHANNjFQku4rz4CSXxmA
-	/lXLVf8qW9mC/NK7Vcnla7aN1N1dOJnW+gXv6xo2aRokky9/zVOPuy253og2lzlINkMZ9IIlBrFDM
-	RRjXzgCw==;
+	bh=ggbpmUffQi8VX8XksWALw6V7f7zNBtNG4MtIIJHGvpI=; b=qkFYHeksLY7BkOjrRakh4x1C3C
+	jBs6cTFr3QaUm30vx4QD/+vPEucyWgBa0ZCI5Bp4Ht9Mql9/Jva8kcJbEOm0JqKoU8rk0PH3VCoNS
+	Izq9ouTBYAS7ReDhWCostvmbSVYvMfX77qBsL+ADGDqewzUGzXFlMReDRM2fQx1BPHZefyf8+wSjO
+	9bbcnMxikW4MYX4/wrGmDg4B7d9npRP7HmTl9mt0IThbusyG6MvZ0OzBF8hK4ZeYcztpXPoBoqJmb
+	k9mQK3hZjkUc0QDehOA+iL9OmxrGAXOwbAq/xj3dDuRgA3ax/Mv230zb9eAXaWPaVGhic+GFDWX3V
+	YmYRbieQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF7qP-00000008NWB-1aNh;
-	Tue, 21 Apr 2026 09:56:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF7qN-00000008NVd-0gxa
+	id 1wF7sI-00000008NjD-3X0b;
+	Tue, 21 Apr 2026 09:58:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wF7sH-00000008Nj4-2dGf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 09:56:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D59E326A4;
-	Tue, 21 Apr 2026 02:56:27 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BBA2A3FBCB;
-	Tue, 21 Apr 2026 02:56:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776765393; bh=FNjjiRmHFAVsekADJqma64aVwQrk+ERG2MMcqqQqegQ=;
+	Tue, 21 Apr 2026 09:58:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9ADEF60125;
+	Tue, 21 Apr 2026 09:58:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D5FAC2BCB0;
+	Tue, 21 Apr 2026 09:58:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776765512;
+	bh=fexoY8X6Nq2k603tJTu41pqTFs2zfJKg3RNrn/E/JGY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VqAtaml1dSiFEsuIRFZ2zH/DkJzvYlrZMQoiSGGxdx/s8mNw/dQ1OTTZ54vgim+o6
-	 gkHfaInNl3cGvxxwssFYQ6SsNh3vsXpdd4UyjHltmdmFAeuQqyN9inBmw3vxGR/pQJ
-	 nMuDWrcDoQYgPeN2rXRgOQKOyXCBpw/unAMZwvgc=
-Date: Tue, 21 Apr 2026 10:56:29 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Leo Yan <leo.yan@arm.com>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v5 02/12] coresight: etm4x: fix underflow for nrseqstate
-Message-ID: <aedJzZoBQlw0Ql07@e129823.arm.com>
-References: <20260415165528.3369607-1-yeoreum.yun@arm.com>
- <20260415165528.3369607-3-yeoreum.yun@arm.com>
- <20260416151102.GL356832@e132581.arm.com>
- <fdfd353d-f198-4806-81d2-61f26b678dea@arm.com>
- <6dcb14c1-0759-4f2a-8bbc-b85adf3d12f4@arm.com>
+	b=mv9mPaLbyWMAANPZxFQ2Jqxq5kFDbd1iBmp7XwiQCZ34zvxiCQb7IK7U19EJ8GtjN
+	 lStK/YU1TztoxxoMGN8Mn/84E/Y9K3sUSy+rVKnQtkFcroPboRGRl41yDoOkjiyccB
+	 cEKvJwFMCY8AI6VIgzizisSEx+xZzU6qh1lrtgWn/Er+MhqcuWVCJqH/NRjentTI12
+	 toheS5KdS76FCvNVprwVRY72thTgkj5FLnepiLvc2M4bvwj3hwo6AuFsLMHCXm/STS
+	 kwqhEchqckpqu4N6n/vSViRDaNHQjbYX8st7sR2rtHzXKMws2uy/3uIBMXzExC1rKz
+	 hAcEKZ2+yuOkw==
+Date: Tue, 21 Apr 2026 10:58:27 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Breno Leitao <leitao@debian.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Huisong Li <lihuisong@huawei.com>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, pjaroszynski@nvidia.com,
+	rmikey@meta.com, kernel-team@meta.com, stable@vger.kernel.org
+Subject: Re: [PATCH] ACPI: arm64: cpuidle: Tolerate platforms with no deep
+ PSCI idle states
+Message-ID: <20260421-accomplished-ethereal-whale-0e1cba@sudeepholla>
+References: <20260420-ffh-v1-1-6b4c10fec442@debian.org>
+ <20260420-sturdy-unique-shark-c4ca8c@sudeepholla>
+ <aedGoi-Fk5HPK0OO@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <6dcb14c1-0759-4f2a-8bbc-b85adf3d12f4@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_025635_256509_84EF601F 
-X-CRM114-Status: GOOD (  16.60  )
+In-Reply-To: <aedGoi-Fk5HPK0OO@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,42 +81,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 21, 2026 at 09:50:56AM +0100, Suzuki K Poulose wrote:
-> On 21/04/2026 09:50, Suzuki K Poulose wrote:
-> > On 16/04/2026 16:11, Leo Yan wrote:
-> > > On Wed, Apr 15, 2026 at 05:55:18PM +0100, Yeoreum Yun wrote:
-> > > > TCRSEQEVR<n> is implemented only when TCRIDR5.NUMSEQSTATE is 0b100,
-> > > > in which case n ranges from 0 to 2; otherwise,
-> > > > TCRIDR5.NUMSEQSTATE is 0b000.
-> > >
-> > > My suggestion in previous version is not quite right, thanks for
-> > > making this correct.
-> > >
-> > > [...]
-> > >
-> > > > @@ -1395,6 +1395,8 @@ static ssize_t seq_idx_store(struct device *dev,
-> > > >       struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> > > >       struct etmv4_config *config = &drvdata->config;
-> > > > +    if (!drvdata->nrseqstate)
-> > > > +        return -EINVAL;
-> > >
-> > > For "nrseqstate = 0" case, would it return -EOPNOTSUPP instead?
+On Tue, Apr 21, 2026 at 02:51:42AM -0700, Breno Leitao wrote:
+> On Mon, Apr 20, 2026 at 04:12:38PM +0100, Sudeep Holla wrote:
+> > On Mon, Apr 20, 2026 at 02:27:13AM -0700, Breno Leitao wrote:
+> > > -	count = pr->power.count - 1;
+> > > -	if (count <= 0)
+> > > -		return -ENODEV;
+> > > -
 > >
-> > Or should we make this only visible if the nrseqstore is meaningful ?
+> > Does it make sense to retain this check like
+> >   if (pr->power.count < 1)
+> >   	return -EINVAL;
 > >
-> > Suzuki
-> >
-> > >
-> > > Otherwise, LGTM:
-> > >
-> > > Reviewed-by: Leo Yan <leo.yan@arm.com>
-> >
+> > Though I see the assignment to pr->power.count in drivers/acpi/processor_idle.c
+> > is through unsigned int. So I am fine even without the above check.
+> 
+> I don't think the check is necessary. When count is 0 or 1, the loop
+> for (i = 1; i < pr->power.count; i++) body won't execute, and the
+> function will return 0.
 >
-> Also, please add Fixes: tag for these bug fixes
 
-Okay. I'll add the tag. Thanks!
+Yes but the point is to handle invalid pr->power.count(0 or less) which
+is not possible here though it is signed it because it is assigned from
+an unsigned int during initialisation.
 
---
-Sincerely,
-Yeoreum Yun
+> This seems like the correct behavior â€” if there are no FFH PSCI states
+> to validate, there's nothing that should fail.
+> 
+
+Agreed, but I was thinking of error in parsing _LPI being propogated here
+but again that's not happening here.
+
+> Additionally, returning -ENODEV would trigger the "Invalid FFH LPI data"
+> error message, which would be misleading since the LPI data isn't
+> invalid, it's just not present.
+> 
+
+The point was to throw that error if _LPI parsing fails.
+
+> That said, please take this with a grain of salt since I'm not deeply
+> familiar with _LPI states and their expected behavior.
+> 
+
+No worries, I agree the check I asked for is not needed.
+
+-- 
+Regards,
+Sudeep
 
