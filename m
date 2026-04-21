@@ -4,105 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39337F94CB3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 22:46:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5F78F94CB3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 22:52:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3pr2V7p2DMACnXKOpVS2YP2rhBGwJ5L9hjjDbsr5gyY=; b=3/+Hb7xFxeDxpkCPL9Jpr9gK/D
-	zmEunBf4N1G3+EkFIEGXwCQ/p/RiGCHJadSc9tBJGE67MLBSVdvoPESbVpLqhrJysJ2LUdN7eGg1M
-	OXwUQvTnrZ1mSOMniMI+YZuf0oFSYaiOaTtHFGQ1M1YqkB3SRhTxZlAW93k8b5Z4ZQgA/BTBLyoJK
-	UHdAutLg8Zq7h7MshjjGiex8Ceu0Gqz9Md+3w9tqEdxCugMyRnNGZlimis/KUbhNWkmzvOT7pd333
-	eZnW1JTyKKA2KFIzxEXN/jP0U+VNSSC3lzjzWH0Df8Io82vBDRc8VHclRYK5EOCxRHwXtnEVHLxJZ
-	4oKM2zYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=n45LXp1+vniYlrGp0e6dQKzFc3A3nIm5Tab9EOuG3Yg=; b=a2wOGy739/lH2avJkTbi6KC3k9
+	zKKqAIAZyyReI6dh5TK+hrVSIsu9V8i3kcwUpgzzZr8A/Al9nxnuT+lZCDNR33MJEE0F5CJQlNXBd
+	f+5JfukFUcYFfltrbZ/HAs+sRTcIh2lDHqPPiqQ8GtOahX/Z4HpHANuYzXd+JRxWjNp/UCIDduFG4
+	4KSpnzJgkv7NkztzZzaoW/Cv3mo7q/wH7EiIdsj+i68b3UYPjGbhx63x8cWtnVbmo45njCn/6/XQM
+	wN4bf7CAXGO5fD+WZOSr/gQLIG8pjz1DX1MABQyQaPPo1r79UZNhE4nJz7wGQ3k5f9j+1tmkHCFq7
+	rdBlOLMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFJrF-00000009Lyo-20Wq;
-	Tue, 21 Apr 2026 22:46:17 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wFJwy-00000009NL7-2iAC;
+	Tue, 21 Apr 2026 22:52:12 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFJrD-00000009Lwn-1yav
+	id 1wFJwv-00000009NJg-3UNj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 22:46:16 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63LIlbsf876258;
-	Tue, 21 Apr 2026 22:46:04 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=3pr2V7p2DMACnXKOp
-	VS2YP2rhBGwJ5L9hjjDbsr5gyY=; b=NjMbMNnX+JZ/CsGcp2DNX1+TV16LURVRq
-	Il9D0WBN9rWh4jnFEH8Fl9vN6zw/uWLSLgY4n2AVKkxn8FumR+vyIVLwT6IB7jMU
-	DIF2OUx7WwmfzmkMXOSRID/jLxBByGKMOYIyFaAZ/olPqHzAUCSoNKFa/fiCshGq
-	44q6G0PK4oo+dKgnOHTCsFu7VlV8d/XF8sec/lBi8MdNbpZjOqgyStmoi2n7HFMs
-	vyigV5RVMo1vwJPUENjcKHIU2ce0Eh2w/qoziUL1RjTNEF6RPbh4XR7kaLRDkV9c
-	clrzAckPgo0EFqV2n9JEszcG7FMwfYJ98RFbdfhaAgJjwONJkYnTA==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dpeu20qj6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 21 Apr 2026 22:46:03 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63LMZMA4000641;
-	Tue, 21 Apr 2026 22:46:02 GMT
-Received: from smtprelay03.wdc07v.mail.ibm.com ([172.16.1.70])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dmmnvtr8q-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 21 Apr 2026 22:46:02 +0000 (GMT)
-Received: from smtpav06.dal12v.mail.ibm.com (smtpav06.dal12v.mail.ibm.com [10.241.53.105])
-	by smtprelay03.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63LMjZHK27460150
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 21 Apr 2026 22:45:35 GMT
-Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4AFEE58055;
-	Tue, 21 Apr 2026 22:46:01 +0000 (GMT)
-Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B45A758043;
-	Tue, 21 Apr 2026 22:46:00 +0000 (GMT)
-Received: from pfw153.pfw.tadn.ibm.com (unknown [9.5.7.52])
-	by smtpav06.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Tue, 21 Apr 2026 22:46:00 +0000 (GMT)
-From: Ninad Palsule <ninad@linux.ibm.com>
-To: eajames@linux.ibm.com, robh@kernel.org, krzk+dt@kernel.org,
-        conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
-        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Cc: Ninad Palsule <ninad@linux.ibm.com>
-Subject: [PATCH v1 4/7] ARM: dts: aspeed: system1: Enable temp sensors
-Date: Tue, 21 Apr 2026 17:45:41 -0500
-Message-ID: <20260421224551.1611818-5-ninad@linux.ibm.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260421224551.1611818-1-ninad@linux.ibm.com>
-References: <20260421224551.1611818-1-ninad@linux.ibm.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIxMDIyMiBTYWx0ZWRfXyZY/22oakJQ8
- Y2eVlfFu3P1sipSIRiUTuxQcGvVfqU16RM12RQ8UNRMcuY9j9FxezsNUMTjaGRYsqlbz2YjU5wK
- g7IMFxWO5rcvuF0N2WL3lNXB1AliX/CUJTpKXQf6pITx9WYAeYFAeu6YEq+k1+C9jjiTEsaHk+8
- 5KGrtW0Hv+8883mzraiO04/EHpty1JIvumgtdSou1c5fyvb+LTENHjh3kQ8XlDEuRTo/zT+VceE
- baSdUsvl5VKphNqjQQAVoX6Ot1aD9paG02Hcpq80MkTBso6WE9jJ0Zn9QQmW7d10A3B+eBHZNtF
- 1jFtKqUMYhl2AX4tbKlnKYnHjyvTM9SUAF+h5L7LSw5HoIOAtZe12qo9zyAqsGNiTR4SnMFkQ3M
- icJgl2LFTK9Fw0hKVMuF48AKi75ST2xRgc6xAxTlaajf+4z2vkHdOutrptehpB/YAbbv3E33fNq
- POsZzzhVvclR/QoKb0w==
-X-Proofpoint-ORIG-GUID: b51q5yOMg0yR4qrcwJLkVCkwwTKNqP9B
-X-Proofpoint-GUID: b51q5yOMg0yR4qrcwJLkVCkwwTKNqP9B
-X-Authority-Analysis: v=2.4 cv=XMUAjwhE c=1 sm=1 tr=0 ts=69e7fe2c cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=dRprF2gspIZmeBmTkj8A:9
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-21_03,2026-04-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 clxscore=1015 priorityscore=1501 impostorscore=0 bulkscore=0
- spamscore=0 lowpriorityscore=0 phishscore=0 adultscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604210222
+	Tue, 21 Apr 2026 22:52:11 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2b24e9b4d82so50737645ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 15:52:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1776811927; x=1777416727; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=n45LXp1+vniYlrGp0e6dQKzFc3A3nIm5Tab9EOuG3Yg=;
+        b=sdiqkYBE8BS9jEVC7syFXWg5qYd9I2JKMfXY1lAAMEc/jG+MMh5V+fe3Y8/1IaiCtH
+         YDL8VqCYYG4+tQ9rF61/aCVMteqZVZ+OMZ1vT3Mul0j+65wZ+XIbIKDdM5H4ap4ZBECf
+         mQsbYydF64yx3uTY0NfrVls9VDUBXYMgvbeuLTRckQex9dJdOCq9HQjONdlbwiG+WMMB
+         aS8eMXfF+ZHB6YnxDcNdUKvJTH51D39cJYviTKqREYvshk1yJiVLyzwwMLTJmV6A9Mkk
+         xYcpS/Djv/zQrQsPWQZwsR0FsK+0sdkl3Xh6k73MPiKqTg02UZiqovjekdFxe6c/Pxx6
+         xABw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776811927; x=1777416727;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=n45LXp1+vniYlrGp0e6dQKzFc3A3nIm5Tab9EOuG3Yg=;
+        b=SEnuUZXfYZzJNA8v5cs04RrifxEQU0T4j0Ic3tNk6jelFxkJBoMN7Ye2wxBYnNxStK
+         SzOReY3dD/018UmPaP1EziDOKoRHWivIEYKwddEmdpUENLK+uyCOGMjERvB8MAynecSp
+         mlSgHb7rOt626hebvI8u8WquQQLsfTEQLAyJQypy2EZfzjAduLoYnSH171Wgd1K1pfi0
+         IN9D/rd8UC/j6kvRmrRfRXVwzii2XBGPsu6yKi4d6AITC7vfuEEDueU0kxzMLPPx4xKV
+         BF+ZNYyFyFrolD6zXHUu2KLGh2l/baqO4Iw7Zaaga2OkwoIgFQ1VF3urgSvlSKpM18ua
+         p+aQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8qls2XmQhP86DOmvTcYxy/RKkU/JOqzl33nZemfxei49DX99VAHty4pTDWR06A33ZbIcZIZsAj4vIEj2PAK6nK@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjM2IqHWgLFJiwOY5+os7WXBtuDulmpc/1aqYg2xEfWW6YjoMh
+	ICdvUfBn+gErxbV6+zUftl/iPzfKzWmPvwHMJnh21RMt7H/mWyQID6OgHPDhHdMkb4LLodDBt9N
+	iMJ12PkfjgwQVE2MqiQxHBFkyTQ==
+X-Received: from pfna24.prod.google.com ([2002:aa7:80d8:0:b0:82f:5576:285b])
+ (user=dylanbhatch job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6a00:4b01:b0:82f:49b5:cfc3 with SMTP id d2e1a72fcca58-82f8b551df5mr16857789b3a.18.1776811927282;
+ Tue, 21 Apr 2026 15:52:07 -0700 (PDT)
+Date: Tue, 21 Apr 2026 22:51:52 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.54.0.rc1.555.g9c883467ad-goog
+Message-ID: <20260421225200.1198447-1-dylanbhatch@google.com>
+Subject: [PATCH v4 0/8] unwind, arm64: add sframe unwinder for kernel
+From: Dylan Hatch <dylanbhatch@google.com>
+To: Roman Gushchin <roman.gushchin@linux.dev>, Weinan Liu <wnliu@google.com>, 
+	Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	Indu Bhagat <ibhagatgnu@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Steven Rostedt <rostedt@goodmis.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Jiri Kosina <jikos@kernel.org>, Jens Remus <jremus@linux.ibm.com>
+Cc: Dylan Hatch <dylanbhatch@google.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Prasanna Kumar T S M <ptsm@linux.microsoft.com>, Puranjay Mohan <puranjay@kernel.org>, 
+	Song Liu <song@kernel.org>, joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, live-patching@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Randy Dunlap <rdunlap@infradead.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_154615_514089_6453D796 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20260421_155209_906945_B76FDD2C 
+X-CRM114-Status: GOOD (  19.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,620 +93,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable temperature sensors for PCIe devices in the system1 BMC machine.
-There is mux on each sensor card.
+Implement a generic kernel sframe-based [1] unwinder. The main goal is
+to improve reliable stacktrace on arm64 by unwinding across exception
+boundaries.
 
-Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
----
- .../dts/aspeed/aspeed-bmc-ibm-system1.dts     | 496 ++++++++++++++++++
- 1 file changed, 496 insertions(+)
+On x86, the ORC unwinder provides reliable stacktrace through similar
+methodology, but arm64 lacks the necessary support from objtool to
+create ORC unwind tables.
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-index b0eb1767c485..a5252cec9903 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-@@ -68,6 +68,38 @@ aliases {
- 		i2c69 = &i2c15mux0chn5;
- 		i2c70 = &i2c15mux0chn6;
- 		i2c71 = &i2c15mux0chn7;
-+		i2c72 = &i2c8mux2chn0;
-+		i2c73 = &i2c8mux2chn1;
-+		i2c74 = &i2c8mux3chn0;
-+		i2c75 = &i2c8mux3chn1;
-+		i2c76 = &i2c8mux4chn0;
-+		i2c77 = &i2c8mux4chn1;
-+		i2c78 = &i2c8mux5chn0;
-+		i2c79 = &i2c8mux5chn1;
-+		i2c80 = &i2c8mux6chn0;
-+		i2c81 = &i2c8mux6chn1;
-+		i2c82 = &i2c8mux7chn0;
-+		i2c83 = &i2c8mux7chn1;
-+		i2c84 = &i2c8mux8chn0;
-+		i2c85 = &i2c8mux8chn1;
-+		i2c86 = &i2c8mux9chn0;
-+		i2c87 = &i2c8mux9chn1;
-+		i2c88 = &i2c15mux2chn0;
-+		i2c89 = &i2c15mux2chn1;
-+		i2c90 = &i2c15mux3chn0;
-+		i2c91 = &i2c15mux3chn1;
-+		i2c92 = &i2c15mux4chn0;
-+		i2c93 = &i2c15mux4chn1;
-+		i2c94 = &i2c15mux5chn0;
-+		i2c95 = &i2c15mux5chn1;
-+		i2c96 = &i2c15mux6chn0;
-+		i2c97 = &i2c15mux6chn1;
-+		i2c98 = &i2c15mux7chn0;
-+		i2c99 = &i2c15mux7chn1;
-+		i2c100 = &i2c15mux8chn0;
-+		i2c101 = &i2c15mux8chn1;
-+		i2c102 = &i2c15mux9chn0;
-+		i2c103 = &i2c15mux9chn1;
- 	};
- 
- 	chosen {
-@@ -1148,48 +1180,280 @@ i2c8mux1chn0: i2c@0 {
- 					#address-cells = <1>;
- 					#size-cells = <0>;
- 					reg = <0>;
-+					i2c-mux@76 {
-+						compatible = "nxp,pca9548";
-+						reg = <0x76>;
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+						i2c-mux-idle-disconnect;
-+
-+						i2c8mux2chn0: i2c@0 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <0>;
-+
-+							temperature-sensor@4b {
-+								compatible = "ti,tmp112";
-+								reg = <0x4b>;
-+							};
-+						};
-+
-+						i2c8mux2chn1: i2c@1 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <1>;
-+
-+							temperature-sensor@48 {
-+								compatible = "ti,tmp112";
-+								reg = <0x48>;
-+							};
-+						};
-+					};
- 				};
- 
- 				i2c8mux1chn1: i2c@1 {
- 					#address-cells = <1>;
- 					#size-cells = <0>;
- 					reg = <1>;
-+					i2c-mux@76 {
-+						compatible = "nxp,pca9548";
-+						reg = <0x76>;
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+						i2c-mux-idle-disconnect;
-+
-+						i2c8mux3chn0: i2c@0 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <0>;
-+
-+							temperature-sensor@4b {
-+								compatible = "ti,tmp112";
-+								reg = <0x4b>;
-+							};
-+						};
-+
-+						i2c8mux3chn1: i2c@1 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <1>;
-+
-+							temperature-sensor@48 {
-+								compatible = "ti,tmp112";
-+								reg = <0x48>;
-+							};
-+						};
-+					};
- 				};
- 
- 				i2c8mux1chn2: i2c@2 {
- 					#address-cells = <1>;
- 					#size-cells = <0>;
- 					reg = <2>;
-+					i2c-mux@76 {
-+						compatible = "nxp,pca9548";
-+						reg = <0x76>;
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+						i2c-mux-idle-disconnect;
-+
-+						i2c8mux4chn0: i2c@0 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <0>;
-+
-+							temperature-sensor@4b {
-+								compatible = "ti,tmp112";
-+								reg = <0x4b>;
-+							};
-+						};
-+
-+						i2c8mux4chn1: i2c@1 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <1>;
-+
-+							temperature-sensor@48 {
-+								compatible = "ti,tmp112";
-+								reg = <0x48>;
-+							};
-+						};
-+					};
- 				};
- 
- 				i2c8mux1chn3: i2c@3 {
- 					#address-cells = <1>;
- 					#size-cells = <0>;
- 					reg = <3>;
-+					i2c-mux@76 {
-+						compatible = "nxp,pca9548";
-+						reg = <0x76>;
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+						i2c-mux-idle-disconnect;
-+
-+						i2c8mux5chn0: i2c@0 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <0>;
-+
-+							temperature-sensor@4b {
-+								compatible = "ti,tmp112";
-+								reg = <0x4b>;
-+							};
-+						};
-+
-+						i2c8mux5chn1: i2c@1 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <1>;
-+
-+							temperature-sensor@48 {
-+								compatible = "ti,tmp112";
-+								reg = <0x48>;
-+							};
-+						};
-+					};
- 				};
- 
- 				i2c8mux1chn4: i2c@4 {
- 					#address-cells = <1>;
- 					#size-cells = <0>;
- 					reg = <4>;
-+					i2c-mux@76 {
-+						compatible = "nxp,pca9548";
-+						reg = <0x76>;
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+						i2c-mux-idle-disconnect;
-+
-+						i2c8mux6chn0: i2c@0 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <0>;
-+
-+							temperature-sensor@4b {
-+								compatible = "ti,tmp112";
-+								reg = <0x4b>;
-+							};
-+						};
-+
-+						i2c8mux6chn1: i2c@1 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <1>;
-+
-+							temperature-sensor@48 {
-+								compatible = "ti,tmp112";
-+								reg = <0x48>;
-+							};
-+						};
-+					};
- 				};
- 
- 				i2c8mux1chn5: i2c@5 {
- 					#address-cells = <1>;
- 					#size-cells = <0>;
- 					reg = <5>;
-+					i2c-mux@76 {
-+						compatible = "nxp,pca9548";
-+						reg = <0x76>;
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+						i2c-mux-idle-disconnect;
-+
-+						i2c8mux7chn0: i2c@0 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <0>;
-+
-+							temperature-sensor@4b {
-+								compatible = "ti,tmp112";
-+								reg = <0x4b>;
-+							};
-+						};
-+
-+						i2c8mux7chn1: i2c@1 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <1>;
-+
-+							temperature-sensor@48 {
-+								compatible = "ti,tmp112";
-+								reg = <0x48>;
-+							};
-+						};
-+					};
- 				};
- 
- 				i2c8mux1chn6: i2c@6 {
- 					#address-cells = <1>;
- 					#size-cells = <0>;
- 					reg = <6>;
-+					i2c-mux@76 {
-+						compatible = "nxp,pca9548";
-+						reg = <0x76>;
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+						i2c-mux-idle-disconnect;
-+
-+						i2c8mux8chn0: i2c@0 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <0>;
-+
-+							temperature-sensor@4b {
-+								compatible = "ti,tmp112";
-+								reg = <0x4b>;
-+							};
-+						};
-+
-+						i2c8mux8chn1: i2c@1 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <1>;
-+
-+							temperature-sensor@48 {
-+								compatible = "ti,tmp112";
-+								reg = <0x48>;
-+							};
-+						};
-+					};
- 				};
- 
- 				i2c8mux1chn7: i2c@7 {
- 					#address-cells = <1>;
- 					#size-cells = <0>;
- 					reg = <7>;
-+					i2c-mux@76 {
-+						compatible = "nxp,pca9548";
-+						reg = <0x76>;
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+						i2c-mux-idle-disconnect;
-+
-+						i2c8mux9chn0: i2c@0 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <0>;
-+
-+							temperature-sensor@4b {
-+								compatible = "ti,tmp112";
-+								reg = <0x4b>;
-+							};
-+						};
-+
-+						i2c8mux9chn1: i2c@1 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <1>;
-+
-+							temperature-sensor@48 {
-+								compatible = "ti,tmp112";
-+								reg = <0x48>;
-+							};
-+						};
-+					};
- 				};
- 			};
- 		};
-@@ -1593,48 +1857,280 @@ i2c15mux1chn0: i2c@0 {
- 					#address-cells = <1>;
- 					#size-cells = <0>;
- 					reg = <0>;
-+					i2c-mux@76 {
-+						compatible = "nxp,pca9548";
-+						reg = <0x76>;
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+						i2c-mux-idle-disconnect;
-+
-+						i2c15mux2chn0: i2c@0 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <0>;
-+
-+							temperature-sensor@4b {
-+								compatible = "ti,tmp112";
-+								reg = <0x4b>;
-+							};
-+						};
-+
-+						i2c15mux2chn1: i2c@1 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <1>;
-+
-+							temperature-sensor@48 {
-+								compatible = "ti,tmp112";
-+								reg = <0x48>;
-+							};
-+						};
-+					};
- 				};
- 
- 				i2c15mux1chn1: i2c@1 {
- 					#address-cells = <1>;
- 					#size-cells = <0>;
- 					reg = <1>;
-+					i2c-mux@76 {
-+						compatible = "nxp,pca9548";
-+						reg = <0x76>;
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+						i2c-mux-idle-disconnect;
-+
-+						i2c15mux3chn0: i2c@0 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <0>;
-+
-+							temperature-sensor@4b {
-+								compatible = "ti,tmp112";
-+								reg = <0x4b>;
-+							};
-+						};
-+
-+						i2c15mux3chn1: i2c@1 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <1>;
-+
-+							temperature-sensor@48 {
-+								compatible = "ti,tmp112";
-+								reg = <0x48>;
-+							};
-+						};
-+					};
- 				};
- 
- 				i2c15mux1chn2: i2c@2 {
- 					#address-cells = <1>;
- 					#size-cells = <0>;
- 					reg = <2>;
-+					i2c-mux@76 {
-+						compatible = "nxp,pca9548";
-+						reg = <0x76>;
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+						i2c-mux-idle-disconnect;
-+
-+						i2c15mux4chn0: i2c@0 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <0>;
-+
-+							temperature-sensor@4b {
-+								compatible = "ti,tmp112";
-+								reg = <0x4b>;
-+							};
-+						};
-+
-+						i2c15mux4chn1: i2c@1 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <1>;
-+
-+							temperature-sensor@48 {
-+								compatible = "ti,tmp112";
-+								reg = <0x48>;
-+							};
-+						};
-+					};
- 				};
- 
- 				i2c15mux1chn3: i2c@3 {
- 					#address-cells = <1>;
- 					#size-cells = <0>;
- 					reg = <3>;
-+					i2c-mux@76 {
-+						compatible = "nxp,pca9548";
-+						reg = <0x76>;
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+						i2c-mux-idle-disconnect;
-+
-+						i2c15mux5chn0: i2c@0 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <0>;
-+
-+							temperature-sensor@4b {
-+								compatible = "ti,tmp112";
-+								reg = <0x4b>;
-+							};
-+						};
-+
-+						i2c15mux5chn1: i2c@1 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <1>;
-+
-+							temperature-sensor@48 {
-+								compatible = "ti,tmp112";
-+								reg = <0x48>;
-+							};
-+						};
-+					};
- 				};
- 
- 				i2c15mux1chn4: i2c@4 {
- 					#address-cells = <1>;
- 					#size-cells = <0>;
- 					reg = <4>;
-+					i2c-mux@76 {
-+						compatible = "nxp,pca9548";
-+						reg = <0x76>;
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+						i2c-mux-idle-disconnect;
-+
-+						i2c15mux6chn0: i2c@0 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <0>;
-+
-+							temperature-sensor@4b {
-+								compatible = "ti,tmp112";
-+								reg = <0x4b>;
-+							};
-+						};
-+
-+						i2c15mux6chn1: i2c@1 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <1>;
-+
-+							temperature-sensor@48 {
-+								compatible = "ti,tmp112";
-+								reg = <0x48>;
-+							};
-+						};
-+					};
- 				};
- 
- 				i2c15mux1chn5: i2c@5 {
- 					#address-cells = <1>;
- 					#size-cells = <0>;
- 					reg = <5>;
-+					i2c-mux@76 {
-+						compatible = "nxp,pca9548";
-+						reg = <0x76>;
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+						i2c-mux-idle-disconnect;
-+
-+						i2c15mux7chn0: i2c@0 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <0>;
-+
-+							temperature-sensor@4b {
-+								compatible = "ti,tmp112";
-+								reg = <0x4b>;
-+							};
-+						};
-+
-+						i2c15mux7chn1: i2c@1 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <1>;
-+
-+							temperature-sensor@48 {
-+								compatible = "ti,tmp112";
-+								reg = <0x48>;
-+							};
-+						};
-+					};
- 				};
- 
- 				i2c15mux1chn6: i2c@6 {
- 					#address-cells = <1>;
- 					#size-cells = <0>;
- 					reg = <6>;
-+					i2c-mux@76 {
-+						compatible = "nxp,pca9548";
-+						reg = <0x76>;
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+						i2c-mux-idle-disconnect;
-+
-+						i2c15mux8chn0: i2c@0 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <0>;
-+
-+							temperature-sensor@4b {
-+								compatible = "ti,tmp112";
-+								reg = <0x4b>;
-+							};
-+						};
-+
-+						i2c15mux8chn1: i2c@1 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <1>;
-+
-+							temperature-sensor@48 {
-+								compatible = "ti,tmp112";
-+								reg = <0x48>;
-+							};
-+						};
-+					};
- 				};
- 
- 				i2c15mux1chn7: i2c@7 {
- 					#address-cells = <1>;
- 					#size-cells = <0>;
- 					reg = <7>;
-+					i2c-mux@76 {
-+						compatible = "nxp,pca9548";
-+						reg = <0x76>;
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+						i2c-mux-idle-disconnect;
-+
-+						i2c15mux9chn0: i2c@0 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <0>;
-+
-+							temperature-sensor@4b {
-+								compatible = "ti,tmp112";
-+								reg = <0x4b>;
-+							};
-+						};
-+
-+						i2c15mux9chn1: i2c@1 {
-+							#address-cells = <1>;
-+							#size-cells = <0>;
-+							reg = <1>;
-+
-+							temperature-sensor@48 {
-+								compatible = "ti,tmp112";
-+								reg = <0x48>;
-+							};
-+						};
-+					};
- 				};
- 			};
- 		};
+Currently, there's already a sframe unwinder proposed for userspace: [2].
+To maintain common definitions and algorithms for sframe lookup, a
+substantial portion of this patch series aims to refactor the sframe
+lookup code to support both kernel and userspace sframe sections.
+
+Currently, only GNU Binutils support sframe. This series relies on the
+Sframe V3 format, which is supported in binutils 2.46.
+
+These patches are based on Steven Rostedt's sframe/core branch [3],
+which is and aggregation of existing work done for x86 sframe userspace
+unwind, and contains [2]. This branch is, in turn, based on Linux
+v7.0-rc3. This full series (applied to the sframe/core branch) is
+available on github: [4].
+
+Ref:
+[1]: https://sourceware.org/binutils/docs/sframe-spec.html
+[2]: https://lore.kernel.org/lkml/20260127150554.2760964-1-jremus@linux.ibm.com/
+[3]: https://git.kernel.org/pub/scm/linux/kernel/git/rostedt/linux-trace.git/log/?h=sframe/core
+[4]: https://github.com/dylanbhatch/linux/tree/sframe-v3-with-v3
+
+Changes since v3:
+
+  - (Jens) Clean up patch summaries.
+  - (Jens) Rename SFRAME_LOOKUP -> UNWIND_SFRAME_LOOKUP to fit existing
+    naming convention.
+  - (Randy) Correct typo errors in new config options.
+  - (Jens) Move unwind types to a new unwind_types.h to match their
+    usage.
+  - (Jens) Update KERNEL_[COPY|GET] to use label-based error handling
+    like their userspace counterparts.
+  - (Jens) Rename SFRAME_UNWINDER -> HAVE_UNWIND_KERNEL_SFRAME and
+    ARCH_SUPPORTS_SFRAME_UNWINDER -> ARCH_SUPPORTS_UNWIND_KERNEL_SFRAME
+    to match existing naming convention.
+  - (Jens) Move HAVE_UNWIND_KERNEL_SFRAME config option to arch/Kconfig.
+  - (Jens) Rename/move extern definitions of __[start|end]_sframe into
+    include/asm-generic/sections.h.
+  - (Jens) Fix up CFI annotations at kernel entry.
+  - (Jens) Fix error path for unsorted FDE lookup.
+  - (Jens) Zero-out module sframe_section before init.
+  - (Jens) For SFRAME_VALIDATION, use an arch-specific function-address
+    validation helper so that .rodata.text can be correctly handled on
+    arm64 vmlinux.
+  - (Jens) Fixup and better comment kernel stacktrace code.
+
+Changes since v2:
+
+The biggest change from v2 is the switch from adding a dedicated,
+in-kernel sframe-lookup library, to refactoring/using the existing
+library developed by Josh, Jens, and Steve. Consequently, this series
+now depends on Sframe V3, though this upgrade would likely have been
+necessary anyway. Below is a full accounting of the changes since v2.
+
+  - (Josh) Add stricter reliability checks during unwind.
+  - (Puranjay, Indu, Jens) Update to use a common sframe library with
+    userpace unwind, thus resolving the need to support
+    SFRAME_F_FDE_FUNC_START_PCREL, added in binutils 2.45.
+  - (Jens) Add check for sframe V3, thus resolving the prior need for V2
+    and SFRAME_F_FDE_FUNC_START_PCREL support.
+  - (Will) Add ARCH_SUPPORTS_SFRAME_UNWINDER, remove SFRAME_UNWIND_TABLE
+  - (Indu) add support for unsorted FDE tables, allowing for module
+    sframe lookups.
+  - (Mark) Prefer frame-pointer unwind when possible, for better
+    performance.
+  - Simplify compile-time logic, adding stubbs when necessary.
+  - Add support for in-kernel SFRAME_VALIDATION.
+  - Rebase onto core/sframe (with v7.0-rc3 base)
+
+Dylan Hatch (7):
+  sframe: Allow kernelspace sframe sections
+  arm64, unwind: build kernel with sframe V3 info
+  sframe: Provide PC lookup for vmlinux .sframe section
+  sframe: Allow unsorted FDEs
+  arm64/module, sframe: Add sframe support for modules
+  sframe: Introduce in-kernel SFRAME_VALIDATION
+  unwind: arm64: Use sframe to unwind interrupt frames
+
+Weinan Liu (1):
+  arm64: entry: add unwind info for various kernel entries
+
+ MAINTAINERS                                   |   3 +-
+ Makefile                                      |   8 +
+ arch/Kconfig                                  |  27 +-
+ arch/arm64/Kconfig                            |   1 +
+ arch/arm64/include/asm/module.h               |   6 +
+ arch/arm64/include/asm/sections.h             |   1 +
+ arch/arm64/include/asm/stacktrace/common.h    |   6 +
+ arch/arm64/include/asm/unwind_sframe.h        |  29 ++
+ arch/arm64/kernel/entry.S                     |  23 +
+ arch/arm64/kernel/module.c                    |   8 +
+ arch/arm64/kernel/setup.c                     |   2 +
+ arch/arm64/kernel/stacktrace.c                | 246 ++++++++++-
+ arch/arm64/kernel/vdso/Makefile               |   2 +-
+ arch/arm64/kernel/vmlinux.lds.S               |   2 +
+ .../{unwind_user_sframe.h => unwind_sframe.h} |   6 +-
+ arch/x86/include/asm/unwind_user.h            |  12 +-
+ include/asm-generic/sections.h                |   4 +
+ include/asm-generic/vmlinux.lds.h             |  15 +
+ include/linux/sframe.h                        |  67 ++-
+ include/linux/unwind_types.h                  |  46 ++
+ include/linux/unwind_user_types.h             |  41 --
+ kernel/unwind/Makefile                        |   2 +-
+ kernel/unwind/sframe.c                        | 410 ++++++++++++++----
+ kernel/unwind/user.c                          |  41 +-
+ 24 files changed, 801 insertions(+), 207 deletions(-)
+ create mode 100644 arch/arm64/include/asm/unwind_sframe.h
+ rename arch/x86/include/asm/{unwind_user_sframe.h => unwind_sframe.h} (50%)
+ create mode 100644 include/linux/unwind_types.h
+
 -- 
-2.51.0
+2.54.0.rc1.555.g9c883467ad-goog
 
 
