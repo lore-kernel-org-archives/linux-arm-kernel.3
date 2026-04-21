@@ -4,110 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 822B7F5A8D9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 02:58:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A164DF5A8D9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 03:07:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P8sfVF5aPV6fheRm7xIg/4vXl2F2m+SYWiTCmFqi/mA=; b=BN6ExfThgxKXdKBebGXKet0uF2
-	FmR66LykAfCTVtfMgOfgfdKmog9xPBvKd9r6/sEulqKvksEEFhA+ZAs/S2kmxCtR4d1KBNEnvb4br
-	BDHY3/TTE4Owm5Ux+0/M8eqx+qc8z9WsEvsqKp8IHc6i2wfEL9uqEABzNKWjTizxCopRdmsP6p0K+
-	ST0lq3E0NaswjpbYX0ET23Hin7jFO6FexwlNeiH6yTya8blBUOJZOBF0PkwnJqPxBdzJkhNN9IGbr
-	cBxoGxnh2Q+AyFlKWGjGYnbGwQ2qA/PCyWROQDk0QLu9d74OSlBJ25oMdp7m/7XAdXZ7b/XXwUCB8
-	UGT1qJVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7jeNgSeoZ3zAmAlPOOJhAQr0427z7CbVWcmTLavvbLg=; b=Gdnj8RuWJYIbYILy/fBHpBfHxL
+	AaWuNaLHnqoSxPQa0hEXlsjQscSGeyXg1hDzXk0yKKfeUKKMUbvknXMbjKDSAaXpVzSCRMlUMRlFa
+	1Sv1slxEWj8DJSu83UDikWAP/9jcwNOHiDULfYZbBnEUEQPmlY/f0JRHZ8djh+KJotXQCn+brwDAx
+	+H6aXuQmhMqhs5CMhNAGPEF62vS2TZpPitwzNTHlLu7EOM6CyAB8xA4mJ65oYYtLL0/gJsG67+Ug4
+	jV9gyYXCUwZrJGHjIITpMAb9pu83CYCeG+qo/BpziGYpANv2eUKNhvPEcPMW91frahBzQgOpDqKWh
+	an84mz5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF1Jx-00000007yAm-0L7Y;
-	Tue, 21 Apr 2026 02:58:41 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF1Ju-00000007y9T-0NbX
+	id 1wF1SK-00000007ynM-1q36;
+	Tue, 21 Apr 2026 03:07:20 +0000
+Received: from [101.204.27.37] (helo=mailgw2.hygon.cn)
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wF1SF-00000007ylp-2lmz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 02:58:40 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-43fe62837baso2223649f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 19:58:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776740315; cv=none;
-        d=google.com; s=arc-20240605;
-        b=ERgAXBf2tpggKgFYj1WxLsdC5xYT/lxn6csvAT6Y/6nZaTlr2WfZBLNKdqSSLzSBBv
-         tsiBvid+dk/Ha+7N/8fn5/J1p8pg0SoUS1EmeEuz38VeHfUNZRR5wLvM6hldZrFLFNcP
-         HhyM297S9DdUJ7q53smq/ZvLVjLl/toTfV5RnYoyOptjxdDQ6Dhv+KqZZ0ZU1XGv0cXU
-         n6gtEpTZjtnvg8G2qelZLTCthsS3sXTS5GxhENnzifhpW8bZZROIn+VwR24Hu05165EE
-         Jcp+MoLLei36+TuwuFQJMNQ8OOnwMb10kvchvhGpL6c02BQZRYB5ClqDEdQ12MdDUOmQ
-         XlwQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=P8sfVF5aPV6fheRm7xIg/4vXl2F2m+SYWiTCmFqi/mA=;
-        fh=Vqsz47Sr8aQ+GDoPgNVF4punvLdRfR2qr5ADLYrmwds=;
-        b=i9vLX9X27wVERv0ANd89v12w2gH9DrAa/sVNMHBze5f5ie2iRHMKn5MDJoRr3unGnc
-         h0Z4DXbJTJbM7qH39H+w+rc9MGQNYUzL9kYLcQzfuflAyezZvckk3lQQQXWNAIDPMNBP
-         bpEh25+fKD1yVGCllK2vnJw7NBcWgO3divJ5CEFvtMYZ9YdrWPNgcHQ6i7uzdgfM7R6P
-         r456ByaXiTPpdoCTArJ8GtDdDGcRCZsM2xdeb8pzkITo12afvF0mIUhgGMxJCTtxA+TU
-         sNE44dDMQ6bgAf1rU9whzDJgLSmJEa7T75V308Od8qAF7c7VD8ROvqt5IfvWY+XAguyY
-         v0+A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776740315; x=1777345115; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=P8sfVF5aPV6fheRm7xIg/4vXl2F2m+SYWiTCmFqi/mA=;
-        b=faMcgOW9jbfvbCUh9NJVVRkxeS0V9y2UALJCHm/LoN+m6UHEW1HlGv2G4Nin6LwMGq
-         rmYtItpyVLQ4ANiT5xw9pczvNkKqZItveNUtxiSOlgMhGnXiH48sTqX5XfdTXs2zYFIl
-         yNkHRfTBj/vEjjF6fKqkNzebP0Af+znwjquXPyEayk0V6SzJf1lHxQ0Ytz4+gyQX5D9f
-         OWHyrhkeP5RzhkltA/Wey4rHs9ZPWUrG64ag+LzBBPQbB+44bsmeVxoZQwXpGcY5FViB
-         YUGHy90sZxnvuyEEoR2Qg1RpvcSamKu4uegeIeMoQAPKcv5sJbg/QgiWemwEDP7/oTRq
-         iiKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776740315; x=1777345115;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=P8sfVF5aPV6fheRm7xIg/4vXl2F2m+SYWiTCmFqi/mA=;
-        b=HwG5B1OkHTbVZTtuLQnclOqke18hQ/n9YGd2Mz+qxdWs5eSN0oOr2dc8gthLvqgMX1
-         BLv3uB51kH2sgSAQvHgtr3Gs3X0d/DsP/YmclmaM8kQdTWCuJH0z/j2FKlefavSCDQkr
-         WVBhR6fa67cYzf5jAuF19X2WD5WyStKRIZeAcmThy6UIdTCFLeT2/DXPdPibmm++m9Ma
-         tdpkzGjYX+BHx28Xqiq4rC3za26siVR9bYwCdDqif1bhHh2Kgxkk8wNERJJrqomb61FL
-         jvftmyRi3Hesv0cASO6gwKv61dCwKjOHAtc756oMU8o5n4/YeoU6k68A/e6hDQ1Av/GX
-         PRlg==
-X-Forwarded-Encrypted: i=1; AFNElJ81FaHidjkq24qHhnb6bRo5txM2kSTh51rZlQLY9JFqSxG/t4woxL6wNZwThHsqqnMVwK0c4Jg3icWb2i7dUwck@lists.infradead.org
-X-Gm-Message-State: AOJu0YztecMK319b8E7YTK5BB/KXOuDDtSyAo6U6TKbHqkg6uHbPfIKU
-	Pe82OmWPoF0zFSqarxuLhblyO/cMCutpDWfSP4jeQjSTYryQv1O3+n2ebHqHcHRAQS6M1VJv/i6
-	5Wi9/RBvKSmhkiuzFsKjOP5pZvFSwVs0=
-X-Gm-Gg: AeBDievagOMmVOJUpBR9cgCd7njt1pjJXpjQfcOwc+6MOF1VSdRjzquN4WDDgZh3ZtE
-	21+hjtWEB8hUwxuPIm4oKpDskVCePDGqfZG0wqSrOHZ6ZKTO0yp6B2Ji/vlERQf1Uy+Qhz3JCI1
-	hdrfezGITr2CeKzXwP89O9tEJThPZ8BqJgEaf0IPhEm9zs4zy8oP+sQmfEAkU/GjXS19qFs4w+y
-	FYsTYfBuG0Bd9or+t9G/dfAnuIT1SRnSJT1+Vm1fMUpTJ0+eCIvngZmFpsXP0xXAowjeJjZcl4X
-	oFBsYZB9upidBfkkdcNcfxmfl4s+Gq1abgX+1ITu+iDPVnbar2OJfPeOWluGdFnKBvC/zGEs1Wf
-	Zx4zJXsgsuhEtFeekMMjzaF75TSnKTPmJOltX
-X-Received: by 2002:a05:6000:184d:b0:43c:ef4f:79e4 with SMTP id
- ffacd0b85a97d-43fe3dfd36fmr23883572f8f.37.1776740315197; Mon, 20 Apr 2026
- 19:58:35 -0700 (PDT)
+	Tue, 21 Apr 2026 03:07:19 +0000
+Received: from maildlp2.hygon.cn (unknown [127.0.0.1])
+	by mailgw2.hygon.cn (Postfix) with ESMTP id 4g06hl3478z1YQpmD;
+	Tue, 21 Apr 2026 11:07:03 +0800 (CST)
+Received: from maildlp2.hygon.cn (unknown [172.23.18.61])
+	by mailgw2.hygon.cn (Postfix) with ESMTP id 4g06hj31Ffz1YQpmD;
+	Tue, 21 Apr 2026 11:07:01 +0800 (CST)
+Received: from cncheex04.Hygon.cn (unknown [172.23.18.114])
+	by maildlp2.hygon.cn (Postfix) with ESMTPS id A77E933D4F40;
+	Tue, 21 Apr 2026 11:07:00 +0800 (CST)
+Received: from hsj-2U-Workstation (172.19.20.61) by cncheex04.Hygon.cn
+ (172.23.18.114) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 21 Apr
+ 2026 11:06:53 +0800
+Date: Tue, 21 Apr 2026 11:06:59 +0800
+From: Huang Shijie <huangsj@hygon.cn>
+To: Pedro Falcato <pfalcato@suse.de>
+CC: Mateusz Guzik <mjguzik@gmail.com>, <akpm@linux-foundation.org>,
+	<viro@zeniv.linux.org.uk>, <brauner@kernel.org>, <linux-mm@kvack.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-fsdevel@vger.kernel.org>, <muchun.song@linux.dev>,
+	<osalvador@suse.de>, <linux-trace-kernel@vger.kernel.org>,
+	<linux-perf-users@vger.kernel.org>, <linux-parisc@vger.kernel.org>,
+	<nvdimm@lists.linux.dev>, <zhongyuan@hygon.cn>, <fangbaoshun@hygon.cn>,
+	<yingzhiwei@hygon.cn>
+Subject: Re: [PATCH 0/3] mm: split the file's i_mmap tree for NUMA
+Message-ID: <aebp06qEMBx3yjHg@hsj-2U-Workstation>
+References: <20260413062042.804-1-huangsj@hygon.cn>
+ <76pfiwabdgsej6q2yxfh3efuqvsyg7mt7rvl5itzzjyhdrto5r@53viaxsackzv>
+ <aeWLCxru6cLWsxvQ@SH-HV00110.Hygon.cn>
+ <hshxzebq5y4gavo7mbrgn7qitz5j5wyun73wy7ooiiehzzpcui@hlknbp34sgja>
 MIME-Version: 1.0
-References: <20260420153603.4097618-1-puranjay@kernel.org> <20260420153603.4097618-3-puranjay@kernel.org>
-In-Reply-To: <20260420153603.4097618-3-puranjay@kernel.org>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Mon, 20 Apr 2026 19:58:23 -0700
-X-Gm-Features: AQROBzCFO23TG2U4gu5nFV1RJmSaVXGhq8AqzBuE83zRbtjTmMjwmjL6kTxPejU
-Message-ID: <CAADnVQJ_D6XyvMHPr59dxZSgFY3+6UayhcWrDC-U2k-Epv-9eA@mail.gmail.com>
-Subject: Re: [PATCH bpf-next 2/3] bpf, arm64: Add JIT support for stack arguments
-To: Puranjay Mohan <puranjay@kernel.org>
-Cc: bpf <bpf@vger.kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, Xu Kuohai <xukuohai@huaweicloud.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <hshxzebq5y4gavo7mbrgn7qitz5j5wyun73wy7ooiiehzzpcui@hlknbp34sgja>
+X-Originating-IP: [172.19.20.61]
+X-ClientProxiedBy: cncheex05.Hygon.cn (172.23.18.115) To cncheex04.Hygon.cn
+ (172.23.18.114)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_195838_146131_86866BDD 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20260420_200715_906588_0FAF52D7 
+X-CRM114-Status: GOOD (  42.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,26 +81,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 20, 2026 at 8:36=E2=80=AFAM Puranjay Mohan <puranjay@kernel.org=
-> wrote:
->
+On Mon, Apr 20, 2026 at 02:48:49PM +0100, Pedro Falcato wrote:
+> BTW you're missing _a lot_ of CC's here, including the whole of mm/rmap.c
+> maintainership.
 
-nice and clean. I like how it maps to arm64 calling convention.
+Thanks, my fault.
 
-> +       if (prog->aux->stack_arg_depth > prog->aux->incoming_stack_arg_de=
-pth) {
-> +               u16 outgoing =3D prog->aux->stack_arg_depth - prog->aux->=
-incoming_stack_arg_depth;
-> +               int nr_on_stack =3D outgoing / sizeof(u64) - NR_STACK_ARG=
-_REGS;
-> +
-> +               if (nr_on_stack > 0)
-> +                       ctx.stack_arg_size =3D round_up(nr_on_stack * siz=
-eof(u64), 16);
-> +       }
+> 
+> On Mon, Apr 20, 2026 at 10:10:19AM +0800, Huang Shijie wrote:
+> > On Mon, Apr 13, 2026 at 05:33:21PM +0200, Mateusz Guzik wrote:
+> > > On Mon, Apr 13, 2026 at 02:20:39PM +0800, Huang Shijie wrote:
+> > > >   In NUMA, there are maybe many NUMA nodes and many CPUs.
+> > > > For example, a Hygon's server has 12 NUMA nodes, and 384 CPUs.
+> > > > In the UnixBench tests, there is a test "execl" which tests
+> > > > the execve system call.
+> > > > 
+> > > >   When we test our server with "./Run -c 384 execl",
+> > > > the test result is not good enough. The i_mmap locks contended heavily on
+> > > > "libc.so" and "ld.so". For example, the i_mmap tree for "libc.so" can have 
+> > > > over 6000 VMAs, all the VMAs can be in different NUMA mode.
+> > > > The insert/remove operations do not run quickly enough.
+> > > > 
+> > > > patch 1 & patch 2 are try to hide the direct access of i_mmap.
+> > > > patch 3 splits the i_mmap into sibling trees, and we can get better 
+> > > > performance with this patch set:
+> > > >     we can get 77% performance improvement(10 times average)
+> > > > 
+> > > 
+> > > To my reading you kept the lock as-is and only distributed the protected
+> > > state.
+> > > 
+> > > While I don't doubt the improvement, I'm confident should you take a
+> > > look at the profile you are going to find this still does not scale with
+> > > rwsem being one of the problems (there are other global locks, some of
+> > > which have experimental patches for).
+> > > 
+> > > Apart from that this does nothing to help high core systems which are
+> > > all one node, which imo puts another question mark on this specific
+> > > proposal.
+> > > 
+> > > Of course one may question whether a RB tree is the right choice here,
+> > > it may be the lock-protected cost can go way down with merely a better
+> > > data structure.
+> > > 
+> > > Regardless of that, for actual scalability, there will be no way around
+> > > decentralazing locking around this and partitioning per some core count
+> > > (not just by numa awareness).
+> > > 
+> > > Decentralizing locking is definitely possible, but I have not looked
+> > > into specifics of how problematic it is. Best case scenario it will
+> > > merely with separate locks. Worst case scenario something needs a fully
+> > > stabilized state for traversal, in that case another rw lock can be
+> > > slapped around this, creating locking order read lock -> per-subset
+> > > write lock -- this will suffer scalability due to the read locking, but
+> > > it will still scale drastically better as apart from that there will be
+> > > no serialization. In this setting the problematic consumer will write
+> > > lock the new thing to stabilize the state.
+> > > 
+> > I thought over again.
+> > I can change this patch set to support the non-NUMA case by:
+> >   1.) Still use one rw lock.
+> 
+> No. This doesn't help anything.
+> 
+> >   2.) For NUMA, keep the patch set as it is.
+> 
+> Please no. No NUMA vs non-NUMA case.
+> 
+> >   3.) For non-NUMA case, split the i_mmap tree to several subtrees.
+> >       For example, if a machine has 192 CPUs, split the 32 CPUs as a tree.
+> 
+> If lock contention is the problem, I don't see how splitting the tree helps,
+> unless it helps reduce lock hold time in a way that randomly helps your workload.
+> But that's entirely random.
+We actually face two issues:
+   1.) the lock contention
+   2.) the lock hold time.
 
-I'm struggling to understand this part.
-Why do this when this func calls more than what callee passed in?
-Looks fishy. I'd like to see selftests with more than 6,7,8 args.
-Because only then this logic will kick in?
+IMHO, if we can reduce the lock hold time, we can ease the lock contention too.
+So this patch set is to reduce the lock hold time, which is much helpful in our
+NUMA server in UnixBench test.
+
+If we split the lock into small locks, we can also benefit from it. 
+If you or Mateusz create the patch in future, I can test it on our server.
+I wonder if it can give us better performance then current patch set.
+
+Thanks
+Huang Shijie
+
 
