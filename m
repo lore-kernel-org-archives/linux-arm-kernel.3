@@ -4,76 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C13AF327CD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 09:37:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E6B3F327CD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 09:37:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JQRJCRvh3+3CqcYUQP1X03mbeiUmVDNq8eF/XFKkSTI=; b=JvYPSwqFGRy2qnSgDIcRxRdfOQ
-	tiQYjmAOiPgaVlmJJRohHXq04c2cWfNeAa1Lhtzk73mA2LbuLEbDom1cCTS2SGx/+adCote4qZwux
-	iiPEDb4gLuOokhabJpWDDVh+I/HXAWmauzMVHPwtiokrUUqUmRCEV0Hd/t9baAENyuHN7l7qS/lsp
-	+Cn3cG3mvGtpEewIrESzNpCQjuzB+g44wwQzsTXmiH17eqAblU3JONu6W4RjAvtr62tT62sYITji1
-	scBHRFFz0/PYBj060ZLwHvk9LF0lorRxiFoaID2bCFvZ6Hn4WRBJdayKZdR3Ttj1oA3VTK8g12iRP
-	+yHpKqOg==;
+	bh=hnkoKM+t2XguVtTYGnFXQrH/VTUAiBlE6jSamDyVdLU=; b=Tb9ZQgpQOKwumMwhvREXqp0E/Y
+	A6Lx7nS6PM0kcoKkJK7CQKWrhex3ok4bzp6IDnReqQs8DkmWv7k3lIL14LQil2WmrKpPo9jF2/0d6
+	shOvizkFz7QusLp2tTT4d0eLUt68V1Zbh8gkBwrG26TU/b6Gh8z51mli/u/SLIQVhn47Vr6B657gM
+	N2xhJo4KDf/iqwqgggcCWn5SoeFtYgdaDWs9PVNpzT/OdxDAgift+H+os58p57JFsdrOfSfAVKHxX
+	i74e18gyzMwFvmt2yvjqu1Lt3zr0txWOBkCRs6ws9QUBJd1IXIOSAkq/RMUigNGrcXWJGEX+1g1FS
+	PY98rJFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF7Xq-00000008LU8-474R;
-	Tue, 21 Apr 2026 09:37:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF7Xp-00000008LU2-4AzM
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 21 Apr 2026 09:37:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=JQRJCRvh3+3CqcYUQP1X03mbeiUmVDNq8eF/XFKkSTI=; b=EKd23v6UXEoEk3uzNIdxCxnoQW
-	ekPkRmJ01BoJK+W0JulQzgBQ1dncYrsoCPwr2Mixnm6LIe4Wwopq9H0vWSi/ejLlbJcj6EDp4Phrl
-	KSdIOR+T1wACfXhWJ7UZe6amuCHb25EHxa5pQrSaZPssCGoEbTtV7v463fqpDESu2Et1KhB/jw6+C
-	CMU0rV25mUuE33KQshT5Lvk/yQMdeF9Mbf9+88GeRNMIGRTTO11mTgw3b2JsI4Z7C6iuZPeshOBkD
-	qkMVOr+W9nP2bOPx1i2ckPhkqUD9cza4EtNgFUGBVsfgQYwanGkG0dwC7tRQcwBVMhj4w5dvFLIfj
-	Qy63ez0w==;
+	id 1wF7Y6-00000008LWD-1wrN;
+	Tue, 21 Apr 2026 09:37:42 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF7Xe-00000009V27-1ugA
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wF7Y3-00000008LVW-2k5n
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 09:37:17 +0000
+	Tue, 21 Apr 2026 09:37:40 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A89325E4;
-	Tue, 21 Apr 2026 02:37:06 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 76E2425E4;
+	Tue, 21 Apr 2026 02:37:32 -0700 (PDT)
 Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8AE493F641;
-	Tue, 21 Apr 2026 02:37:10 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9C9673F641;
+	Tue, 21 Apr 2026 02:37:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776764232; bh=QkpWi8ED+jPXeiW/oTqfzU9UcXZCIKOl4ggmomHOz4U=;
+	t=1776764258; bh=rZx2NuFqw+HMY4ITLik4Kx4QKHWVqXkaV8x4xuSaQjM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=F7AqUJ81h3Z+O8hkCQVPSTNfKNcpscfJBocVsdr9hbj5Z4ZClbTA71NtCHa9zLamI
-	 DTP65cyiQArSP8wL1Loi0bDMmnYsLnDhSQIU3Bgg8bGTCGRgvlIZrG1TweSv1tOoWK
-	 bh3xv2XmTV5SnYH4b7wHOkoypvfSSO54Cxkp64QE=
-Date: Tue, 21 Apr 2026 10:37:08 +0100
+	b=ibDvPcRaq03rQ6JOZQZykMlumpppwk3iXlffiEfTjVYngL7Gif5qXWERA0ggrZMKc
+	 9EXOVgrN1mrh1XnDnqOGAv/Fdcp/jza73TQXvAvEBhliVRnJa6njo8HOzVqbkOp3cw
+	 m9z/6XcBTftg5rY1THI/9WjhAp7mEDG277HZMdIM=
+Date: Tue, 21 Apr 2026 10:37:32 +0100
 From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Leo Yan <leo.yan@arm.com>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v5 02/12] coresight: etm4x: fix underflow for nrseqstate
-Message-ID: <aedFRFlBfQfOvwjp@e129823.arm.com>
-References: <20260415165528.3369607-1-yeoreum.yun@arm.com>
- <20260415165528.3369607-3-yeoreum.yun@arm.com>
- <20260416151102.GL356832@e132581.arm.com>
- <fdfd353d-f198-4806-81d2-61f26b678dea@arm.com>
+To: Jonathan McDowell <noodles@earth.li>
+Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
+	zohar@linux.ibm.com, roberto.sassu@huawei.com,
+	dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com,
+	peterhuewe@gmx.de, jarkko@kernel.org, jgg@ziepe.ca,
+	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org
+Subject: Re: [RFC PATCH 1/4] security: ima: move ima_init into
+ late_initcall_sync
+Message-ID: <aedFXFlPATqtBm/J@e129823.arm.com>
+References: <20260417175759.3191279-1-yeoreum.yun@arm.com>
+ <20260417175759.3191279-2-yeoreum.yun@arm.com>
+ <aeYA2Jf7esHsfY4M@earth.li>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <fdfd353d-f198-4806-81d2-61f26b678dea@arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aeYA2Jf7esHsfY4M@earth.li>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_103714_928353_73443C1A 
-X-CRM114-Status: GOOD (  17.42  )
+X-CRM114-CacheID: sfid-20260421_023739_773922_7DEFEF32 
+X-CRM114-Status: GOOD (  34.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,43 +80,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Suzuki,
-
-> On 16/04/2026 16:11, Leo Yan wrote:
-> > On Wed, Apr 15, 2026 at 05:55:18PM +0100, Yeoreum Yun wrote:
-> > > TCRSEQEVR<n> is implemented only when TCRIDR5.NUMSEQSTATE is 0b100,
-> > > in which case n ranges from 0 to 2; otherwise, TCRIDR5.NUMSEQSTATE is 0b000.
+On Mon, Apr 20, 2026 at 11:32:56AM +0100, Jonathan McDowell wrote:
+> On Fri, Apr 17, 2026 at 06:57:56PM +0100, Yeoreum Yun wrote:
+> > To generate the boot_aggregate log in the IMA subsystem with TPM PCR values,
+> > the TPM driver must be built as built-in and
+> > must be probed before the IMA subsystem is initialized.
 > >
-> > My suggestion in previous version is not quite right, thanks for
-> > making this correct.
+> > However, when the TPM device operates over the FF-A protocol using
+> > the CRB interface, probing fails and returns -EPROBE_DEFER if
+> > the tpm_crb_ffa device — an FF-A device that provides the communication
+> > interface to the tpm_crb driver — has not yet been probed.
 > >
-> > [...]
+> > To ensure the TPM device operating over the FF-A protocol with
+> > the CRB interface is probed before IMA initialization,
+> > the following conditions must be met:
 > >
-> > > @@ -1395,6 +1395,8 @@ static ssize_t seq_idx_store(struct device *dev,
-> > >   	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> > >   	struct etmv4_config *config = &drvdata->config;
-> > > +	if (!drvdata->nrseqstate)
-> > > +		return -EINVAL;
+> >   1. The corresponding ffa_device must be registered,
+> >      which is done via ffa_init().
 > >
-> > For "nrseqstate = 0" case, would it return -EOPNOTSUPP instead?
+> >   2. The tpm_crb_driver must successfully probe this device via
+> >      tpm_crb_ffa_init().
+> >
+> >   3. The tpm_crb driver using CRB over FF-A can then
+> >      be probed successfully. (See crb_acpi_add() and
+> >      tpm_crb_ffa_init() for reference.)
+> >
+> > Unfortunately, ffa_init(), tpm_crb_ffa_init(), and crb_acpi_driver_init() are
+> > all registered with device_initcall, which means crb_acpi_driver_init() may
+> > be invoked before ffa_init() and tpm_crb_ffa_init() are completed.
+> >
+> > When this occurs, probing the TPM device is deferred.
+> > However, the deferred probe can happen after the IMA subsystem
+> > has already been initialized, since IMA initialization is performed
+> > during late_initcall, and deferred_probe_initcall() is performed
+> > at the same level.
+> >
+> > To resolve this, move ima_init() into late_inicall_sync level
+> > so that let IMA not miss TPM PCR value when generating boot_aggregate
+> > log though TPM device presents in the system.
+> >
+> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 >
-> Or should we make this only visible if the nrseqstore is meaningful ?
-
-We could by chanige the attributes permission and nullify the store
-operation for that device attributes.
-
-Not only this, we can apply similar approach to other sysfs entries too:
-  - vinst_pe_cmp_start_stop_store (when nr_pe_cmp == 0)
-  - seq_event_reset_store (when nrseqstate == 0)
-  - ctxid_pid_store (when !caps->ctxid_size || !caps->numcidc)
-  - ctxid_masks_store (when !caps->ctxid_size || !caps->numcidc)
-
-  and others..
-
-Would you like to include those changes in this patchset?
-I think it would be better to send seperate patchset..
+> Awesome. This fixes the problems I saw with an SPI TPM on an NVIDIA GB200
+> system and reported in
+>
+> https://lore.kernel.org/linux-integrity/aYXEepLhUouN5f99@earth.li/
+>
+> Reviewed-by: Jonathan McDowell <noodles@meta.com>
+> Tested-by: Jonathan McDowell <noodles@meta.com>
 
 Thanks!
+
+>
+> > ---
+> > include/linux/lsm_hooks.h         |  2 ++
+> > security/integrity/ima/ima_main.c |  2 +-
+> > security/lsm_init.c               | 13 +++++++++++--
+> > 3 files changed, 14 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/include/linux/lsm_hooks.h b/include/linux/lsm_hooks.h
+> > index d48bf0ad26f4..88fe105b7f00 100644
+> > --- a/include/linux/lsm_hooks.h
+> > +++ b/include/linux/lsm_hooks.h
+> > @@ -166,6 +166,7 @@ enum lsm_order {
+> >  * @initcall_fs: LSM callback for fs_initcall setup, optional
+> >  * @initcall_device: LSM callback for device_initcall() setup, optional
+> >  * @initcall_late: LSM callback for late_initcall() setup, optional
+> > + * @initcall_late_sync: LSM callback for late_initcall_sync() setup, optional
+> >  */
+> > struct lsm_info {
+> > 	const struct lsm_id *id;
+> > @@ -181,6 +182,7 @@ struct lsm_info {
+> > 	int (*initcall_fs)(void);
+> > 	int (*initcall_device)(void);
+> > 	int (*initcall_late)(void);
+> > +	int (*initcall_late_sync)(void);
+> > };
+> >
+> > #define DEFINE_LSM(lsm)							\
+> > diff --git a/security/integrity/ima/ima_main.c b/security/integrity/ima/ima_main.c
+> > index 1d6229b156fb..ace280fa3212 100644
+> > --- a/security/integrity/ima/ima_main.c
+> > +++ b/security/integrity/ima/ima_main.c
+> > @@ -1320,5 +1320,5 @@ DEFINE_LSM(ima) = {
+> > 	.order = LSM_ORDER_LAST,
+> > 	.blobs = &ima_blob_sizes,
+> > 	/* Start IMA after the TPM is available */
+> > -	.initcall_late = init_ima,
+> > +	.initcall_late_sync = init_ima,
+> > };
+> > diff --git a/security/lsm_init.c b/security/lsm_init.c
+> > index 573e2a7250c4..4e5c59beb82a 100644
+> > --- a/security/lsm_init.c
+> > +++ b/security/lsm_init.c
+> > @@ -547,13 +547,22 @@ device_initcall(security_initcall_device);
+> >  * security_initcall_late - Run the LSM late initcalls
+> >  */
+> > static int __init security_initcall_late(void)
+> > +{
+> > +	return lsm_initcall(late);
+> > +}
+> > +late_initcall(security_initcall_late);
+> > +
+> > +/**
+> > + * security_initcall_late_sync - Run the LSM late initcalls sync
+> > + */
+> > +static int __init security_initcall_late_sync(void)
+> > {
+> > 	int rc;
+> >
+> > -	rc = lsm_initcall(late);
+> > +	rc = lsm_initcall(late_sync);
+> > 	lsm_pr_dbg("all enabled LSMs fully activated\n");
+> > 	call_blocking_lsm_notifier(LSM_STARTED_ALL, NULL);
+> >
+> > 	return rc;
+> > }
+> > -late_initcall(security_initcall_late);
+> > +late_initcall_sync(security_initcall_late_sync);
+> > --
+> > LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+> >
+> >
+>
+> J.
+>
+> --
+> ] https://www.earth.li/~noodles/ []  "Do I scare you?" "No." "Do you   [
+> ]  PGP/GPG Key @ the.earth.li    []   want me to?" -- Wayne's World.   [
+> ] via keyserver, web or email.   []                                    [
+> ] RSA: 4096/0x94FA372B2DA8B985   []                                    [
 
 --
 Sincerely,
