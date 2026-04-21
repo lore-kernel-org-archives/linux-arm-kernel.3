@@ -4,64 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 451A8F94CA9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 19:50:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AB1DF94CA9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 20:03:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G2J4cdDtFTR1SDj3cXANFTxz51QNNyd2kcg+wBLNTi4=; b=hwbCID5Ey2T3PQmL/3qIyyHlCB
-	Qwe39wx6VfuPr5ihLca8L9GcTxjUg+lL807DQxmsXaZ98v+1U5FrSIQQZKD1MMMetBDrLwpchk4Bj
-	ueyXDiT/9qEXzB0Tuo0s/TLESWNaL3bB7Rv1gYAtuRftgFXb9HDb4/wO5ZPhKTIiHecnlQix8ENa0
-	n64CAuLDmZT2eKGhWZwvKC4L0n5TPDt2MtcTJldXYs1IG6rO0xkmz+b/KS/dYt741kwxEAj9ZFJm4
-	PlXyoXCz+Aqk8uja+gETkff2pKwWoJs0SltAXdbAbZG+CH3SHpuauQf5aVBkaRtsZqYt5I9h+UBLh
-	/7o0+erg==;
+	bh=3zuspwqjQXluBmm8BYsT+wPUm5BBdmNQ0nxP766NAw4=; b=vxZGBe+4B+8BC1RdSgpQvwxgDw
+	nYA6JoJFLzIEh8JBjRQAhDH/l+Pp/SCW0Bw8ChkTmS6QAfB8Axhb6nRID/1R/NNAzvfjZJWkBMQaj
+	l1yRUpGsq6mr2yaXxqnbY0s3Hsg2H8MqVWPju7FkClwwZ5lW6raEC1WVrxXhO5j9hr7YQUjfJwM5g
+	nBMEnenUkkKD1HKWm6JqBDOhrsc9PGiWQnLtxAFOw8//Crs/z9OiYSMMClB8rRhg2VgG+i2cyBxMn
+	3O2yKv/r2SZCUcmulWEKJNjgiaoTrpiLIcGaqlUBzMgn8klvHBbC3TiElhijcSnaS4AnNurG0WdX8
+	nRNMWBxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFH6t-000000095yC-2kF2;
-	Tue, 21 Apr 2026 19:50:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wFHJL-000000096oZ-0JGl;
+	Tue, 21 Apr 2026 20:03:07 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFH6q-000000095xn-3qwn
+	id 1wFHJH-000000096o4-1trR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 19:50:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F0F0041941;
-	Tue, 21 Apr 2026 19:50:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD412C2BCB0;
-	Tue, 21 Apr 2026 19:50:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776801011;
-	bh=jUatT9v4w7olRWsNPaL6Ydq9t2x3xZyLOCqssI66jOs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HsEeyrHqJhFNP0aRSmgql6ghCcNqcTNpPK4tTV8XKNRs8geDHkLsuWMZv7gYeipTL
-	 OOJof7n58Fy7BHKf1i93vlRPIISn/+Xb21zIpaDfj4iNZa37oMMBr9v17uB0d9JNlT
-	 Pv7dJmX7oa/sGCesa07SvlhKRUm8c4PlnStNf/oo+3l+TcLuiiTGmvhQMEOGDNAtxm
-	 gyWEqTjZlaZS4rcfqoAkrrOdW19RpNR7aNsKyXcoubstlaMoSlQwSHj+wCT5VEAScW
-	 kBhPP694csHzOaIWhnSS41arrmlfU7YCahMB8x5LkoCcNKmsidfLmh9DWMnxqDQx5C
-	 FzXvpMguWiWwQ==
-Date: Tue, 21 Apr 2026 20:50:06 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Gabriel Jacob Perin <gabrieljp@usp.br>
-Cc: claudiu.beznea@tuxon.dev, andrei.simion@microchip.com,
-	lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com,
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
-	carlos.albmr@usp.br, linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] Change manual bitfield manipulation to use FIELD_PREP()
-Message-ID: <16ac8986-3d21-4f6e-886c-afdc0709ea8f@sirena.org.uk>
-References: <20260421193113.1060213-1-gabrieljp@usp.br>
+	Tue, 21 Apr 2026 20:03:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1776801780;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3zuspwqjQXluBmm8BYsT+wPUm5BBdmNQ0nxP766NAw4=;
+	b=EiKSzfC9qmKIcJQiWh75VI0zIkEmReX54SUt39LBIXmRY9JiQGxaQ0YItHSorOlePEK8MK
+	d5uIPM6G6tQyicRKb1TNy2clW7Yk/oALaJKeCoVSjpm5/gGw3BZYaTfBav4VQH9TXDY6aq
+	6lu+GIt2JUiYuiRSiD952XfSPJ/LImc=
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
+ [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-3-r8BSsYt8OkWnh0zTtuhBEA-1; Tue, 21 Apr 2026 16:02:59 -0400
+X-MC-Unique: r8BSsYt8OkWnh0zTtuhBEA-1
+X-Mimecast-MFC-AGG-ID: r8BSsYt8OkWnh0zTtuhBEA_1776801779
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-8acb26fbbb2so70005686d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 13:02:59 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776801779; x=1777406579;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3zuspwqjQXluBmm8BYsT+wPUm5BBdmNQ0nxP766NAw4=;
+        b=rgKTIdCU8O1t8yzGe6m/MGn4JTgV0NfQy93xZz0FtbBx/BgehqVhtVvuwPrkyzks13
+         6k9QxFJf6/Y4p6guZC/I1igCvWpm8PL0/65hyiGrOwWPmI/q7Z9ihk22qrpY8BcgpjGz
+         9qYpC++9ABTfND1hKPpt451iqRWxvnsdHDC3aeMe/OWWSnwM6AiUDVe2WhSenVKyzEx7
+         aPlyFAltJd+zhxmjtrnPGo+OwHh9yduMsesfU6bfhH2Zb4l9rHga3G5zHPYIE3hFn5SX
+         IjyimJ6IVXNfPzpWUOdZdZ5YiQyNmWu5aPbmk80Zzhtc0LP3wb1NvxUmQzfvt0ckexaF
+         PrIA==
+X-Forwarded-Encrypted: i=1; AFNElJ9zj8CBOw+9IWSldxZzNDc1qAfS6mvzuQMfYA07YRVsBR7/WDtFgRRo9zt4uebSRA1HfdbPGqtn+uCyxaxKiBMZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YznqjuWXSXBzsF7Ee3DpDOO8JjMa95BjPqatxZeIBVH3rVM8Ib8
+	Z9K+rSxzPSXU2ElAC42DigPi66zgWACnSQ+lsPVwS4K3cgMGqy5QtDmniZ4vVAP5CowRzQVMsvN
+	ZN+XiBKXAN8qYZiQOXBsbxe2LsVEe7JcAE+jeXYy8YGn46zKGHp7bu1hzXF811u3JHX7Yw8yNUI
+	TQ
+X-Gm-Gg: AeBDietSflIwuuVXQEyl3C8uJgDA377eFNDm+7KAbrxZnVmy/8UNVBX1UZFZ0Jl7Xpc
+	8uhe60A23ajrZ2c9PHkYjO7apBOiwNGXFY+DXodHAtsN+e3K+intuENowHF3qpUdsymH9YrP8QP
+	0YkyrFzatEtSrW0WV4bGrxREGYE3AtBUuz2jt8l28dfy8G0q2tP+9/bQWYOI7LUqlaRItWzPCZo
+	WBQSfNMNWTdoyX//RY8nfuzTeM5MJRh+fyG2kv831AOEw0GNyydZi1ztvmHCVC43mA+5KBqQHDo
+	xoFJ5A8Di5692Nua0/45/byKvjFnVtqBkdKA9K/9oCrRrY5QrB8u/cZORMsFgIXydqXBFcxd/4n
+	SjlU5Rhb/Qb5UbjcJBek24YVYEeVtJgyFNzWR8wj//w==
+X-Received: by 2002:a05:6214:5b87:b0:8ac:a5a0:481 with SMTP id 6a1803df08f44-8b028015984mr335683686d6.4.1776801778619;
+        Tue, 21 Apr 2026 13:02:58 -0700 (PDT)
+X-Received: by 2002:a05:6214:5b87:b0:8ac:a5a0:481 with SMTP id 6a1803df08f44-8b028015984mr335682706d6.4.1776801778111;
+        Tue, 21 Apr 2026 13:02:58 -0700 (PDT)
+Received: from rh-jkangas-kernel ([2601:1c2:4400:6bf0:7677:bcee:4ef0:e09d])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8b02ae5ec2dsm115982646d6.29.2026.04.21.13.02.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Apr 2026 13:02:57 -0700 (PDT)
+Date: Tue, 21 Apr 2026 13:02:52 -0700
+From: Jared Kangas <jkangas@redhat.com>
+To: jan.petrous@oss.nxp.com
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, devicetree@vger.kernel.org,
+	rmk+kernel@armlinux.org.uk, vladimir.oltean@nxp.com,
+	boon.khai.ng@altera.com
+Subject: Re: [PATCH v11 4/4] stmmac: s32: enable support for Multi-IRQ mode
+Message-ID: <aefX7Ajltzt5EqIR@rh-jkangas-kernel>
+References: <20260312-dwmac_multi_irq-v11-0-09621ccb040b@oss.nxp.com>
+ <20260312-dwmac_multi_irq-v11-4-09621ccb040b@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="kcD3P89RG+pOrddx"
+In-Reply-To: <20260312-dwmac_multi_irq-v11-4-09621ccb040b@oss.nxp.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: OLCFa-72a715_UhHH03CgdVOv52fky22NqYQ0h931hU_1776801779
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260421193113.1060213-1-gabrieljp@usp.br>
-X-Cookie: Jenkinson's Law:
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_125012_980502_355D1089 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20260421_130303_566508_C23134E8 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,39 +126,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Jan,
 
---kcD3P89RG+pOrddx
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Thu, Mar 12, 2026 at 09:55:30AM +0100, Jan Petrous via B4 Relay wrote:
+> From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+> 
+> Based on previous changes in platform driver, the vendor
+> glue driver can enable Multi-IRQ mode, if needed.
+> 
+> [...]
+> 
+> If those prerequisites are met, the driver switches to Multi-IRQ mode,
+> using per-queue IRQs for rx/tx data pathr:
+> 
+> [    1.387045] s32-dwmac 4033c000.ethernet: Multi-IRQ mode (per queue IRQs) selected
+> 
+> Now the driver owns all queues IRQs:
+> 
+> root@s32g399aevb3:~# grep eth /proc/interrupts
+>  29:    0    0    0    0    0    0    0    0    GICv3  89 Level   eth0:mac
+>  30:    0    0    0    0    0    0    0    0    GICv3  91 Level   eth0:rx-0
+>  31:    0    0    0    0    0    0    0    0    GICv3  93 Level   eth0:rx-1
+>  32:    0    0    0    0    0    0    0    0    GICv3  95 Level   eth0:rx-2
+>  33:    0    0    0    0    0    0    0    0    GICv3  97 Level   eth0:rx-3
+>  34:    0    0    0    0    0    0    0    0    GICv3  99 Level   eth0:rx-4
+>  35:    0    0    0    0    0    0    0    0    GICv3  90 Level   eth0:tx-0
+>  36:    0    0    0    0    0    0    0    0    GICv3  92 Level   eth0:tx-1
+>  37:    0    0    0    0    0    0    0    0    GICv3  94 Level   eth0:tx-2
+>  38:    0    0    0    0    0    0    0    0    GICv3  96 Level   eth0:tx-3
+>  39:    0    0    0    0    0    0    0    0    GICv3  98 Level   eth0:tx-4
 
-On Tue, Apr 21, 2026 at 04:31:13PM -0300, Gabriel Jacob Perin wrote:
-> Co-developed-by: Carlos Alberto Marques Rabelo <carlos.albmr@usp.br>
-> Signed-off-by: Carlos Alberto Marques Rabelo <carlos.albmr@usp.br>
-> Signed-off-by: Gabriel Jacob Perin <gabrieljp@usp.br>
-> ---
->  sound/soc/atmel/atmel-classd.c | 41 ++++++++++++++++++----------------
->  1 file changed, 22 insertions(+), 19 deletions(-)
+I ran this series' changes on an NXP S32G-VNP-RDB3 (dwmac-s32) and
+confirmed multichannel TX by doing a basic iperf3 throughput test:
 
-Please submit patches using subject lines reflecting the style for the
-subsystem, this makes it easier for people to identify relevant patches.
-Look at what existing commits in the area you're changing are doing and
-make sure your subject lines visually resemble what they're doing.
-There's no need to resubmit to fix this alone.
+    # dmesg | grep Multi-IRQ
+    [   37.463467] s32-dwmac 4033c000.ethernet: Multi-IRQ mode (per queue IRQs) selected
+    # iperf3 -s
+    [connection logs snipped]
+    # grep end0 /proc/interrupts | column -t
+    29:  0      0  0  0  0  0  0  0  GICv3  89  Level  end0:mac
+    30:  968    0  0  0  0  0  0  0  GICv3  90  Level  end0:tx-0
+    31:  0      3  0  0  0  0  0  0  GICv3  92  Level  end0:tx-1
+    32:  0      0  3  0  0  0  0  0  GICv3  94  Level  end0:tx-2
+    33:  0      0  0  3  0  0  0  0  GICv3  96  Level  end0:tx-3
+    34:  0      0  0  0  3  0  0  0  GICv3  98  Level  end0:tx-4
+    35:  67302  0  0  0  0  0  0  0  GICv3  91  Level  end0:rx-0
+    36:  0      0  0  0  0  0  0  0  GICv3  93  Level  end0:rx-1
+    37:  0      0  0  0  0  0  0  0  GICv3  95  Level  end0:rx-2
+    38:  0      0  0  0  0  0  0  0  GICv3  97  Level  end0:rx-3
+    39:  0      0  0  0  0  0  0  0  GICv3  99  Level  end0:rx-4
 
---kcD3P89RG+pOrddx
-Content-Type: application/pgp-signature; name="signature.asc"
+Also tried out multichannel RX by adding 'snps,route-multi-broad' to
+rx-queues-config/queue2 in the devicetree, which showed activity on
+the corresponding rx-2 entry:
 
------BEGIN PGP SIGNATURE-----
+    # grep end0 /proc/interrupts | column -t
+    29:  0   0  0   0  0  0  0  0  GICv3  89  Level  end0:mac
+    30:  4   0  0   0  0  0  0  0  GICv3  90  Level  end0:tx-0
+    31:  0   1  0   0  0  0  0  0  GICv3  92  Level  end0:tx-1
+    32:  0   0  1   0  0  0  0  0  GICv3  94  Level  end0:tx-2
+    33:  0   0  0   0  0  0  0  0  GICv3  96  Level  end0:tx-3
+    34:  0   0  0   0  1  0  0  0  GICv3  98  Level  end0:tx-4
+    35:  68  0  0   0  0  0  0  0  GICv3  91  Level  end0:rx-0
+    36:  0   0  0   0  0  0  0  0  GICv3  93  Level  end0:rx-1
+    37:  0   0  91  0  0  0  0  0  GICv3  95  Level  end0:rx-2
+    38:  0   0  0   0  0  0  0  0  GICv3  97  Level  end0:rx-3
+    39:  0   0  0   0  0  0  0  0  GICv3  99  Level  end0:rx-4
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnn1O4ACgkQJNaLcl1U
-h9BcTwf/Sb4g2CeFJw62AfZzA/9lXogBhXoHMW8RCQp8zr6Ja7pW/Gdj3uJ9KFPl
-UsHhV+r7+Cn4BswcMtOeKaeUGTCD+FW/ZhYRct8+ck0Sn+o/BMvSaP4WrzwzCJ2K
-TxjQU5bc2+UWePHd3Em5GLc6Tgc8PDYucMitsrjV/g8LKYNTbld8kNuKOr3REZgE
-EM2HCfsDCiamuBUrHrTiEv/yuhC18jMZJBvi6yPRu+Hu/gDFSsH1+2/k8ZmLvzUj
-nKRhI630Nvp/D3OR0ap41h7eaxIAxlLFrRG5HK26yi+NNkqAZAb8+DE9rLY1Ikwy
-o74da2cqRoSKtN7V+exICt8pjn/Uvg==
-=PUmu
------END PGP SIGNATURE-----
+I didn't see any regressions with light network usage, and both TX/RX
+appear to function as expected.
 
---kcD3P89RG+pOrddx--
+Tested-by: Jared Kangas <jkangas@redhat.com>
+
 
