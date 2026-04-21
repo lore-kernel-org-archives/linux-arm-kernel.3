@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55325F8FA76
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 13:23:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E7F8F8FA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 13:24:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ys4FG3/AumuvyRO6iSBAqvpvZaOZmZmEEHOhi8CGvhQ=; b=F6fcdix6rbqfjlMyk1qG980WX0
-	+/Udjh1oPTpeWh5jOdHzTmpcFFpo1Iw5Nqq0Ketu3rdi/ZJQN+BhaP4WuTb5Z2O+IWkByfcWDqBvq
-	ZmGYM4vBiXHEqhaobiCY7O7yGXQRNL96uwc9E0/d5hTYBJb558iz0H6GDITK5x4X81SNvhr3Zlxi2
-	PWoYWrkRot6UkAFBoAoL8yphUO4+xHJAd7JdIJ2e+vkn3dZcdjdIwWM3bgQ402RdYza38Zeqhdi4y
-	TxmrfThX6er+fVn0RYGtiIlvApEfZQCK/f+UL6ydLee8s3lYHzMDlzciyD4bmqX7QIOA5E43867BQ
-	VXnPRfgQ==;
+	bh=frFY4bp06uFJqt1iEY/Q1txwH03U0M8gla/u/83yYC4=; b=kQMo6OtoHD6A9T9XS1VjDkYdBv
+	VdftSsiEOMXCARx88mA2C1WxIPdad3ytKew+qb45XlIh4OH7vsjZBVmOiK/eNSmzVxIHqbtYjMALB
+	RhwGhs21FIlRPCto0/9lYV9G925NWCo3PjuRlPZRFpjbMgF9l3vIPtZpJZBflC+lSCEitCdDQg1jo
+	Wuo+w5VPaO16/0XyhktwDR+l52Ie7Kk/gGhFcnPcityLM+XNV4q5oSgUdVKduYvSIB20FpgNYnPsw
+	V5g+nHZILnUaSyOrau9ZWgp6nMfqoiIbZ9vQiRyt4VBbThfqoC1GpcNpr2uZR9wuK652PSPJbQCqB
+	oWOwCgWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFB4X-00000008exX-1Wvp;
-	Tue, 21 Apr 2026 13:23:25 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1wFB5c-00000008f5h-00ex;
+	Tue, 21 Apr 2026 13:24:32 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFB4U-00000008ex4-0ZzU
+	id 1wFB5Z-00000008f4x-3e8T
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 13:23:23 +0000
+	Tue, 21 Apr 2026 13:24:31 +0000
 Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 3694C6A8E7;
-	Tue, 21 Apr 2026 13:23:20 +0000 (UTC)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id F3ECA5BCE1;
+	Tue, 21 Apr 2026 13:24:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1776777800; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1776777868; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=ys4FG3/AumuvyRO6iSBAqvpvZaOZmZmEEHOhi8CGvhQ=;
-	b=JFoZvtP6kzAmFM2mZSdGgXV4zoTlAo2ESLvv3RhhpFK70Mc++mCtX4WigYvuPe8Xc3Jwo6
-	XNoLP0y1KRgvMcGISQyrQ7JhFruAXAimGq6OzvvR5LxU3HbUFmX5JuKkG+chR58tsow8DP
-	g6hJnmQUdLotIYyF0+A0184Vh0WgTWo=
+	bh=frFY4bp06uFJqt1iEY/Q1txwH03U0M8gla/u/83yYC4=;
+	b=hBmXwUEu1iEVkOBzkKSgVUZTA8CENTYrOj0AkBP2L6qOBVjEddknP37suaSmoBA6SZi9b3
+	Sy7jhThKo8o1DcbB+nL+wdM69DS1OueKZEfFkZhwxm92k6bClr8l25cFuls5nouMlqnSbE
+	JqyZ1QjK1rb29/ceZqbv+tDB3IzaX8Y=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1776777800;
+	s=susede2_ed25519; t=1776777868;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=ys4FG3/AumuvyRO6iSBAqvpvZaOZmZmEEHOhi8CGvhQ=;
-	b=/Zh2fhFScpG8yXmZViYrVk9z3L3P1Eq4IZX+pNVcFYfE0jhKr2lzdjQwnpGjgyUq8NoX7Q
-	RR5gMGT8murMr+Bw==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=JFoZvtP6;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b="/Zh2fhFS"
+	bh=frFY4bp06uFJqt1iEY/Q1txwH03U0M8gla/u/83yYC4=;
+	b=QwaOJ/DDK4OYht8nkmOco6EJ4N4pWUaFQljHKA9LT6Ezz9gzzJfVIizVYdnA8hDI9Aajkp
+	BWFRaOV+qdeB3WDA==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=hBmXwUEu;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b="QwaOJ/DD"
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1776777800; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1776777868; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=ys4FG3/AumuvyRO6iSBAqvpvZaOZmZmEEHOhi8CGvhQ=;
-	b=JFoZvtP6kzAmFM2mZSdGgXV4zoTlAo2ESLvv3RhhpFK70Mc++mCtX4WigYvuPe8Xc3Jwo6
-	XNoLP0y1KRgvMcGISQyrQ7JhFruAXAimGq6OzvvR5LxU3HbUFmX5JuKkG+chR58tsow8DP
-	g6hJnmQUdLotIYyF0+A0184Vh0WgTWo=
+	bh=frFY4bp06uFJqt1iEY/Q1txwH03U0M8gla/u/83yYC4=;
+	b=hBmXwUEu1iEVkOBzkKSgVUZTA8CENTYrOj0AkBP2L6qOBVjEddknP37suaSmoBA6SZi9b3
+	Sy7jhThKo8o1DcbB+nL+wdM69DS1OueKZEfFkZhwxm92k6bClr8l25cFuls5nouMlqnSbE
+	JqyZ1QjK1rb29/ceZqbv+tDB3IzaX8Y=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1776777800;
+	s=susede2_ed25519; t=1776777868;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=ys4FG3/AumuvyRO6iSBAqvpvZaOZmZmEEHOhi8CGvhQ=;
-	b=/Zh2fhFScpG8yXmZViYrVk9z3L3P1Eq4IZX+pNVcFYfE0jhKr2lzdjQwnpGjgyUq8NoX7Q
-	RR5gMGT8murMr+Bw==
+	bh=frFY4bp06uFJqt1iEY/Q1txwH03U0M8gla/u/83yYC4=;
+	b=QwaOJ/DDK4OYht8nkmOco6EJ4N4pWUaFQljHKA9LT6Ezz9gzzJfVIizVYdnA8hDI9Aajkp
+	BWFRaOV+qdeB3WDA==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 5CBF5593AF;
-	Tue, 21 Apr 2026 13:23:19 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 1932E593AF;
+	Tue, 21 Apr 2026 13:24:27 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id Kn5qFUd652kvCgAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Tue, 21 Apr 2026 13:23:19 +0000
-Message-ID: <cf01745e-591e-432d-89a5-48631a0f41f1@suse.de>
-Date: Tue, 21 Apr 2026 15:23:18 +0200
+	id ytX1BIt652kZCwAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Tue, 21 Apr 2026 13:24:27 +0000
+Message-ID: <4eb8de38-d75e-4ef7-96e8-5da2f820b275@suse.de>
+Date: Tue, 21 Apr 2026 15:24:26 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 09/20] drm/atomic-state-helper: Rename
- __drm_atomic_helper_crtc_state_reset()
+Subject: Re: [PATCH v2 11/20] drm/atomic-state-helper: Rename
+ __drm_atomic_helper_connector_state_reset()
 To: Maxime Ripard <mripard@kernel.org>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
@@ -114,7 +114,7 @@ Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
  intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
 References: <20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org>
- <20260320-drm-mode-config-init-v2-9-c63f1134e76c@kernel.org>
+ <20260320-drm-mode-config-init-v2-11-c63f1134e76c@kernel.org>
 Content-Language: en-US
 From: Thomas Zimmermann <tzimmermann@suse.de>
 Autocrypt: addr=tzimmermann@suse.de; keydata=
@@ -141,7 +141,7 @@ Autocrypt: addr=tzimmermann@suse.de; keydata=
  SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
  Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
  4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <20260320-drm-mode-config-init-v2-9-c63f1134e76c@kernel.org>
+In-Reply-To: <20260320-drm-mode-config-init-v2-11-c63f1134e76c@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-Spamd-Result: default: False [-3.01 / 50.00];
@@ -171,13 +171,13 @@ X-Spamd-Result: default: False [-3.01 / 50.00];
 	TAGGED_RCPT(0.00)[];
 	DKIM_TRACE(0.00)[suse.de:+];
 	R_RATELIMIT(0.00)[to_ip_from(RL7gneoo7ydcsn9o76mxr5d8pb)];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.de:mid,suse.de:dkim,suse.de:email,ideasonboard.com:email,suse.com:url]
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:url,ideasonboard.com:email,suse.de:mid,suse.de:dkim,suse.de:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns]
 X-Rspamd-Action: no action
 X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Rspamd-Queue-Id: 3694C6A8E7
+X-Rspamd-Queue-Id: F3ECA5BCE1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_062322_474122_CCDFA307 
-X-CRM114-Status: GOOD (  23.80  )
+X-CRM114-CacheID: sfid-20260421_062430_205120_31537991 
+X-CRM114-Status: GOOD (  22.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -195,114 +195,93 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 Am 20.03.26 um 17:27 schrieb Maxime Ripard:
-> __drm_atomic_helper_crtc_state_reset() is used to initialize a newly
-> allocated drm_crtc_state, and is being typically called by the
-> drm_crtc_funcs.reset implementation.
+> __drm_atomic_helper_connector_state_reset() is used to initialize a
+> newly allocated drm_connector_state, and is being typically called by
+> the drm_connector_funcs.reset implementation.
 >
 > Since we want to consolidate DRM objects state allocation around the
 > atomic_create_state callback that will only allocate and initialize a
-> new drm_crtc_state instance, we will need to call
-> __drm_atomic_helper_crtc_state_reset() from both the reset and
+> new drm_connector_state instance, we will need to call
+> __drm_atomic_helper_connector_state_reset() from both the reset and
 > atomic_create hooks.
 >
 > To avoid any confusion, we can thus rename
-> __drm_atomic_helper_crtc_state_reset() to
-> __drm_atomic_helper_crtc_state_init().
+> __drm_atomic_helper_connector_state_reset() to
+> __drm_atomic_helper_connector_state_init().
 >
 > Suggested-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 > Signed-off-by: Maxime Ripard <mripard@kernel.org>
 
 Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
 
-with similar comments as for the other case.
-
 > ---
 >   drivers/gpu/drm/drm_atomic_state_helper.c | 10 +++++-----
->   drivers/gpu/drm/i915/display/intel_crtc.c |  2 +-
 >   include/drm/drm_atomic_state_helper.h     |  2 +-
->   3 files changed, 7 insertions(+), 7 deletions(-)
+>   2 files changed, 6 insertions(+), 6 deletions(-)
 >
 > diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
-> index f4ce9d3573cbecf216904db54335e0cf84a01c39..b87cc3cd5b0021699ac57a33739d172a5706e2e1 100644
+> index f1fc2edc6e6e35fbac5ef82437f3cb7485afc412..8ed8cb8a9048e8fd89fa22d20985c84af1672135 100644
 > --- a/drivers/gpu/drm/drm_atomic_state_helper.c
 > +++ b/drivers/gpu/drm/drm_atomic_state_helper.c
-> @@ -61,25 +61,25 @@
->    * For other drivers the building blocks are split out, see the documentation
->    * for these functions.
->    */
->   
->   /**
-> - * __drm_atomic_helper_crtc_state_reset - reset the CRTC state
-> + * __drm_atomic_helper_crtc_state_init - Initializes the CRTC state
->    * @crtc_state: atomic CRTC state, must not be NULL
->    * @crtc: CRTC object, must not be NULL
->    *
->    * Initializes the newly allocated @crtc_state with default
->    * values. This is useful for drivers that subclass the CRTC state.
->    */
->   void
-> -__drm_atomic_helper_crtc_state_reset(struct drm_crtc_state *crtc_state,
-> -				     struct drm_crtc *crtc)
-> +__drm_atomic_helper_crtc_state_init(struct drm_crtc_state *crtc_state,
-> +				    struct drm_crtc *crtc)
->   {
->   	crtc_state->crtc = crtc;
->   	crtc_state->background_color = DRM_ARGB64_PREP(0xffff, 0, 0, 0);
+> @@ -515,24 +515,24 @@ void drm_atomic_helper_plane_destroy_state(struct drm_plane *plane,
+>   	kfree(state);
 >   }
-> -EXPORT_SYMBOL(__drm_atomic_helper_crtc_state_reset);
-> +EXPORT_SYMBOL(__drm_atomic_helper_crtc_state_init);
+>   EXPORT_SYMBOL(drm_atomic_helper_plane_destroy_state);
 >   
 >   /**
->    * __drm_atomic_helper_crtc_reset - reset state on CRTC
->    * @crtc: drm CRTC
->    * @crtc_state: CRTC state to assign
-> @@ -94,11 +94,11 @@ EXPORT_SYMBOL(__drm_atomic_helper_crtc_state_reset);
+> - * __drm_atomic_helper_connector_state_reset - reset the connector state
+> + * __drm_atomic_helper_connector_state_init - Initializes the connector state
+>    * @conn_state: atomic connector state, must not be NULL
+>    * @connector: connectotr object, must not be NULL
+>    *
+>    * Initializes the newly allocated @conn_state with default
+>    * values. This is useful for drivers that subclass the connector state.
+>    */
 >   void
->   __drm_atomic_helper_crtc_reset(struct drm_crtc *crtc,
->   			       struct drm_crtc_state *crtc_state)
+> -__drm_atomic_helper_connector_state_reset(struct drm_connector_state *conn_state,
+> -					  struct drm_connector *connector)
+> +__drm_atomic_helper_connector_state_init(struct drm_connector_state *conn_state,
+> +					 struct drm_connector *connector)
 >   {
->   	if (crtc_state)
-> -		__drm_atomic_helper_crtc_state_reset(crtc_state, crtc);
-> +		__drm_atomic_helper_crtc_state_init(crtc_state, crtc);
+>   	conn_state->connector = connector;
+>   }
+> -EXPORT_SYMBOL(__drm_atomic_helper_connector_state_reset);
+> +EXPORT_SYMBOL(__drm_atomic_helper_connector_state_init);
 >   
->   	if (drm_dev_has_vblank(crtc->dev))
->   		drm_crtc_vblank_reset(crtc);
->   
->   	crtc->state = crtc_state;
-> diff --git a/drivers/gpu/drm/i915/display/intel_crtc.c b/drivers/gpu/drm/i915/display/intel_crtc.c
-> index 53378d2dcbec867e7973cb3b874802f2ada01d41..b57a59a5f7786f1029d576b0f3d564e77b7060e4 100644
-> --- a/drivers/gpu/drm/i915/display/intel_crtc.c
-> +++ b/drivers/gpu/drm/i915/display/intel_crtc.c
-> @@ -179,11 +179,11 @@ struct intel_crtc_state *intel_crtc_state_alloc(struct intel_crtc *crtc)
->   void intel_crtc_state_reset(struct intel_crtc_state *crtc_state,
->   			    struct intel_crtc *crtc)
+>   /**
+>    * __drm_atomic_helper_connector_reset - reset state on connector
+>    * @connector: drm connector
+>    * @conn_state: connector state to assign
+> @@ -547,11 +547,11 @@ EXPORT_SYMBOL(__drm_atomic_helper_connector_state_reset);
+>   void
+>   __drm_atomic_helper_connector_reset(struct drm_connector *connector,
+>   				    struct drm_connector_state *conn_state)
 >   {
->   	memset(crtc_state, 0, sizeof(*crtc_state));
+>   	if (conn_state)
+> -		__drm_atomic_helper_connector_state_reset(conn_state, connector);
+> +		__drm_atomic_helper_connector_state_init(conn_state, connector);
 >   
-> -	__drm_atomic_helper_crtc_state_reset(&crtc_state->uapi, &crtc->base);
-> +	__drm_atomic_helper_crtc_state_init(&crtc_state->uapi, &crtc->base);
+>   	connector->state = conn_state;
+>   }
+>   EXPORT_SYMBOL(__drm_atomic_helper_connector_reset);
 >   
->   	crtc_state->cpu_transcoder = INVALID_TRANSCODER;
->   	crtc_state->master_transcoder = INVALID_TRANSCODER;
->   	crtc_state->hsw_workaround_pipe = INVALID_PIPE;
->   	crtc_state->scaler_state.scaler_id = -1;
 > diff --git a/include/drm/drm_atomic_state_helper.h b/include/drm/drm_atomic_state_helper.h
-> index 6a3a2feb3dff1f2fbdf2a6e63d8d7317c7d6ead6..161cd1f6b8266e882eb1fd128b403cba350be3d2 100644
+> index bc83094dfb78f0f3699ca7956a8a666ca09b2d1a..259a39a0f41ddb2b7d6c1fe7c1a2b0b51774254c 100644
 > --- a/include/drm/drm_atomic_state_helper.h
 > +++ b/include/drm/drm_atomic_state_helper.h
-> @@ -38,11 +38,11 @@ struct drm_connector_state;
->   struct drm_private_obj;
->   struct drm_private_state;
->   struct drm_modeset_acquire_ctx;
->   struct drm_device;
+> @@ -72,11 +72,11 @@ struct drm_plane_state *
+>   drm_atomic_helper_plane_duplicate_state(struct drm_plane *plane);
+>   void __drm_atomic_helper_plane_destroy_state(struct drm_plane_state *state);
+>   void drm_atomic_helper_plane_destroy_state(struct drm_plane *plane,
+>   					  struct drm_plane_state *state);
 >   
-> -void __drm_atomic_helper_crtc_state_reset(struct drm_crtc_state *state,
-> +void __drm_atomic_helper_crtc_state_init(struct drm_crtc_state *state,
->   					  struct drm_crtc *crtc);
->   void __drm_atomic_helper_crtc_reset(struct drm_crtc *crtc,
->   				    struct drm_crtc_state *state);
->   void drm_atomic_helper_crtc_reset(struct drm_crtc *crtc);
->   void __drm_atomic_helper_crtc_duplicate_state(struct drm_crtc *crtc,
+> -void __drm_atomic_helper_connector_state_reset(struct drm_connector_state *conn_state,
+> +void __drm_atomic_helper_connector_state_init(struct drm_connector_state *conn_state,
+>   					       struct drm_connector *connector);
+>   void __drm_atomic_helper_connector_reset(struct drm_connector *connector,
+>   					 struct drm_connector_state *conn_state);
+>   void drm_atomic_helper_connector_reset(struct drm_connector *connector);
+>   void drm_atomic_helper_connector_tv_reset(struct drm_connector *connector);
 >
 
 -- 
