@@ -4,89 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 989D9F8FA73
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 13:13:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A08BF8FA74
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 13:14:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uAl+7TMH7mRnNfNsP///fFCVW7I07WdWXzRwW/SpILY=; b=ewKhd5eD4++bJU75uw+sh0puc2
-	dbGTkXk+g9I8vEtCRTJ2QCbF6VZIi4GKfC22VzDoaq1Mmbs03iHyqq8Ob9bvtngT75d098/4kB4Sd
-	VK6Lmx6vXlP1ZH8MZtqBEV6y1eqq23vrwcRid9V4T/jlhgvcgTPmomcAJEVqImLhfOPZO/rBifQ2g
-	j2r4JthE9cuhKlN0uWhcFWtOYImuMIVO71/TtCmRwlC2UwVKD2hCCs9m53avcnDOtVfxXilRan6Ec
-	YOcuPe8Az0GSUna1CSrtlXFoIFAROfk4VouB3bom7fh+5Mt9qU9hmmv8DEqN3xU2C8O90plMa5bM9
-	0gNUqfpw==;
+	bh=JWFB4qX/2dIyNHDildQIdtkKRui7aupiIHkOuMLvEjY=; b=Q5DZYJwH93BI9ZFmaV2zIpfn/f
+	SeKc3gaigf5uiyRd24CL70BoKo5y7nwLvDDRYoOHemG2d5VDV4etz0vFnlngpsspSqvV+FnCI9dsA
+	82Iakle33NGNlew9f10MesEVSLH5l81DA8Re9m+fc/gZkRxRVJtwzx7FGdgOpbEg3wncNWV03ESw7
+	B9XMNOsMZMaurxBH8HucGIybBH3Ow6CvP+gdqyB4jYrlZn19m5ZmEL10fCQUhp0h+HqTquCIZfeIT
+	UdLQVyZ80MyE1pd6F1uLAeF8rJaAuJiLYDxH7f2enomEK4Jq8TqK2YZiqr18ShHkoG3ge+82771qt
+	VnxKOFYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFAuj-00000008dye-3o3a;
-	Tue, 21 Apr 2026 13:13:17 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1wFAvW-00000008e5D-3dlt;
+	Tue, 21 Apr 2026 13:14:06 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFAuh-00000008dyE-3Sx9
+	id 1wFAvT-00000008e4J-0REp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 13:13:17 +0000
+	Tue, 21 Apr 2026 13:14:06 +0000
 Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id F3A405BD8C;
-	Tue, 21 Apr 2026 13:13:13 +0000 (UTC)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 6664B6A8E7;
+	Tue, 21 Apr 2026 13:14:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1776777194; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1776777241; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=uAl+7TMH7mRnNfNsP///fFCVW7I07WdWXzRwW/SpILY=;
-	b=RfQPrpYC/Y2NfN3snlG9TLjRWxOtwH0ra8mipIFgc/obnxFKOCxsD8Fr0Qd15M88pI/FEL
-	9k1e2VO8cApNGQerrewzOLbfe84O0n7SJ36xqZ0U9FdkRFuQV17HIAK2fCEUD1j1HJXq0m
-	JQZZHA4Km0EbKK+96NuiZcuNg+0v3PM=
+	bh=JWFB4qX/2dIyNHDildQIdtkKRui7aupiIHkOuMLvEjY=;
+	b=ibp2rAaZELJvrWTSghSiLILfO8FMBJFca/lJ06bjPApKs63fYxz6pVHCZnScDSa9o6+M3g
+	8r4e/7lRMCeI89eAm+Be8NbJiMEN1o0HtpSt9kYGtRisEd6fBJS1/BZta8UmdHbRSeWQOf
+	FgUIWbZ1tb/5iRd6OdoYLbyt4xLYEOs=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1776777194;
+	s=susede2_ed25519; t=1776777241;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=uAl+7TMH7mRnNfNsP///fFCVW7I07WdWXzRwW/SpILY=;
-	b=0t7r5wb30Cbt1KLf/Onc2YCQLAPpK4p7rGCBK3Hq8kQNU2reRa6pvbaCNG4xVrmXZuZwJ1
-	oMXhkCd/2ZC2nZDQ==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=RfQPrpYC;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=0t7r5wb3
+	bh=JWFB4qX/2dIyNHDildQIdtkKRui7aupiIHkOuMLvEjY=;
+	b=+7bJ4fUfCIPtpbOmuglbbhMXbE0zzJcyBE9oZAd3xFRrBeLEaRsJ81nit3MGjz/5YX6ruP
+	K+2Z4FVRLD/pegBA==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=ibp2rAaZ;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=+7bJ4fUf
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1776777194; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1776777241; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=uAl+7TMH7mRnNfNsP///fFCVW7I07WdWXzRwW/SpILY=;
-	b=RfQPrpYC/Y2NfN3snlG9TLjRWxOtwH0ra8mipIFgc/obnxFKOCxsD8Fr0Qd15M88pI/FEL
-	9k1e2VO8cApNGQerrewzOLbfe84O0n7SJ36xqZ0U9FdkRFuQV17HIAK2fCEUD1j1HJXq0m
-	JQZZHA4Km0EbKK+96NuiZcuNg+0v3PM=
+	bh=JWFB4qX/2dIyNHDildQIdtkKRui7aupiIHkOuMLvEjY=;
+	b=ibp2rAaZELJvrWTSghSiLILfO8FMBJFca/lJ06bjPApKs63fYxz6pVHCZnScDSa9o6+M3g
+	8r4e/7lRMCeI89eAm+Be8NbJiMEN1o0HtpSt9kYGtRisEd6fBJS1/BZta8UmdHbRSeWQOf
+	FgUIWbZ1tb/5iRd6OdoYLbyt4xLYEOs=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1776777194;
+	s=susede2_ed25519; t=1776777241;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=uAl+7TMH7mRnNfNsP///fFCVW7I07WdWXzRwW/SpILY=;
-	b=0t7r5wb30Cbt1KLf/Onc2YCQLAPpK4p7rGCBK3Hq8kQNU2reRa6pvbaCNG4xVrmXZuZwJ1
-	oMXhkCd/2ZC2nZDQ==
+	bh=JWFB4qX/2dIyNHDildQIdtkKRui7aupiIHkOuMLvEjY=;
+	b=+7bJ4fUfCIPtpbOmuglbbhMXbE0zzJcyBE9oZAd3xFRrBeLEaRsJ81nit3MGjz/5YX6ruP
+	K+2Z4FVRLD/pegBA==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 02FFD593AF;
-	Tue, 21 Apr 2026 13:13:12 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 63DA9593AF;
+	Tue, 21 Apr 2026 13:14:00 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id VmfrOuh352nwfgAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Tue, 21 Apr 2026 13:13:12 +0000
-Message-ID: <eae90ba7-1a8c-4d81-bc0d-1b7418b44008@suse.de>
-Date: Tue, 21 Apr 2026 15:13:12 +0200
+	id JITqFhh452mzfwAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Tue, 21 Apr 2026 13:14:00 +0000
+Message-ID: <9c4015a3-9413-4b20-8327-989431cfae28@suse.de>
+Date: Tue, 21 Apr 2026 15:13:59 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 04/20] drm/colorop: Rename __drm_colorop_state_reset()
+Subject: Re: [PATCH v2 05/20] drm/colorop: Create
+ drm_atomic_helper_colorop_create_state()
 To: Maxime Ripard <mripard@kernel.org>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
@@ -113,7 +114,7 @@ Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
  intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
 References: <20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org>
- <20260320-drm-mode-config-init-v2-4-c63f1134e76c@kernel.org>
+ <20260320-drm-mode-config-init-v2-5-c63f1134e76c@kernel.org>
 Content-Language: en-US
 From: Thomas Zimmermann <tzimmermann@suse.de>
 Autocrypt: addr=tzimmermann@suse.de; keydata=
@@ -140,7 +141,7 @@ Autocrypt: addr=tzimmermann@suse.de; keydata=
  SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
  Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
  4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <20260320-drm-mode-config-init-v2-4-c63f1134e76c@kernel.org>
+In-Reply-To: <20260320-drm-mode-config-init-v2-5-c63f1134e76c@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-Rspamd-Action: no action
@@ -153,16 +154,16 @@ X-Spamd-Result: default: False [-3.01 / 50.00];
 	NEURAL_HAM_SHORT(-0.20)[-1.000];
 	MIME_GOOD(-0.10)[text/plain];
 	MX_GOOD(-0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
 	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	MIME_TRACE(0.00)[0:+];
 	FREEMAIL_TO(0.00)[kernel.org,linux.intel.com,gmail.com,ffwll.ch,lwn.net,linuxfoundation.org,oss.qualcomm.com,iki.fi,ideasonboard.com,intel.com,linaro.org,kwiboo.se,emersion.fr,amd.com,igalia.com,redhat.com,ursulin.net,sholland.org,raspberrypi.com];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[37];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
 	ARC_NA(0.00)[];
 	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCPT_COUNT_TWELVE(0.00)[37];
-	MIME_TRACE(0.00)[0:+];
 	FREEMAIL_ENVRCPT(0.00)[gmail.com];
 	RCVD_TLS_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
 	RCVD_COUNT_TWO(0.00)[2];
 	FROM_EQ_ENVFROM(0.00)[];
 	FROM_HAS_DN(0.00)[];
@@ -170,12 +171,13 @@ X-Spamd-Result: default: False [-3.01 / 50.00];
 	MID_RHS_MATCH_FROM(0.00)[];
 	RCVD_VIA_SMTP_AUTH(0.00)[];
 	TAGGED_RCPT(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
 	R_RATELIMIT(0.00)[to_ip_from(RL7gneoo7ydcsn9o76mxr5d8pb)];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,suse.de:mid,suse.de:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns]
-X-Rspamd-Queue-Id: F3A405BD8C
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:url,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.de:dkim,suse.de:mid,suse.de:email]
+X-Rspamd-Queue-Id: 6664B6A8E7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_061316_171365_51F4B364 
-X-CRM114-Status: GOOD (  21.02  )
+X-CRM114-CacheID: sfid-20260421_061403_436843_A0B69C40 
+X-CRM114-Status: GOOD (  28.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,67 +195,102 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 Am 20.03.26 um 17:27 schrieb Maxime Ripard:
-> __drm_colorop_state_reset() is used to initialize a newly allocated
-> drm_colorop_state, and is being typically called by drm_colorop_reset().
+> Commit 47b5ac7daa46 ("drm/atomic: Add new atomic_create_state callback
+> to drm_private_obj") introduced a new pattern for allocating drm object
+> states.
 >
-> Since we want to consolidate DRM objects state allocation around the
-> atomic_create_state callback that will only allocate and initialize a
-> new drm_colorop_state instance, we will need to call
-> __drm_colorop_state_reset() from both the reset and atomic_create paths.
+> Instead of relying on the reset() callback, it created a new
+> atomic_create_state hook. This is helpful because reset is a bit
+> overloaded: it's used to create the initial software state, reset it,
+> but also reset the hardware.
 >
-> To avoid any confusion, we can thus rename __drm_colorop_state_reset()
-> to __drm_colorop_state_init().
+> It can also be used either at probe time, to create the initial state
+> and possibly reset the hardware to an expected default, but also during
+> suspend/resume.
+>
+> Both these cases come with different expectations too: during the
+> initialization, we want to initialize all states, but during
+> suspend/resume, drm_private_states for example are expected to be kept
+> around.
+>
+> And reset() isn't fallible, which makes it harder to handle
+> initialization errors properly.
+>
+> It's also only relevant for some drivers, since all the helpers for
+> reset only create a new state, and don't touch the hardware at all.
+>
+> It was thus decided to create a new hook that would allocate and
+> initialize a pristine state without any side effect: atomic_create_state
+> to untangle a bit some of it, and to separate the
+> initialization with the actual reset one might need during a
+> suspend/resume.
+>
+> Let's continue the transition to the new pattern with drm_colorop.
 >
 > Signed-off-by: Maxime Ripard <mripard@kernel.org>
-
-This makes sense considering the next patch
 
 Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
 
 > ---
->   drivers/gpu/drm/drm_colorop.c | 8 ++++----
->   1 file changed, 4 insertions(+), 4 deletions(-)
+>   drivers/gpu/drm/drm_colorop.c | 23 +++++++++++++++++++++++
+>   include/drm/drm_colorop.h     |  2 ++
+>   2 files changed, 25 insertions(+)
 >
 > diff --git a/drivers/gpu/drm/drm_colorop.c b/drivers/gpu/drm/drm_colorop.c
-> index 373cd0ddb8fd4478874509ed12c95451c1f66203..6a26b83b260e8d8e83c703ecde490a7a8740ebfb 100644
+> index 6a26b83b260e8d8e83c703ecde490a7a8740ebfb..7bfaf2617ec315f42d80ac72a5eaaef868e65657 100644
 > --- a/drivers/gpu/drm/drm_colorop.c
 > +++ b/drivers/gpu/drm/drm_colorop.c
-> @@ -498,19 +498,19 @@ void drm_colorop_atomic_destroy_state(struct drm_colorop *colorop,
->   	__drm_atomic_helper_colorop_destroy_state(state);
->   	kfree(state);
+> @@ -521,10 +521,33 @@ static void __drm_colorop_state_init(struct drm_colorop_state *colorop_state,
+>   						      &val);
+>   		colorop_state->curve_1d_type = val;
+>   	}
 >   }
 >   
+> +/**
+> + * drm_atomic_helper_colorop_create_state - Allocates and initializes colorop atomic state
+> + * @colorop: drm colorop
+> + *
+> + * Initializes a pristine @drm_colorop_state.
+> + *
+> + * RETURNS:
+> + * Pointer to new colorop state, or ERR_PTR on failure.
+> + */
+> +struct drm_colorop_state *
+> +drm_atomic_helper_colorop_create_state(struct drm_colorop *colorop)
+> +{
+> +	struct drm_colorop_state *state;
+> +
+> +	state = kzalloc_obj(*state);
+> +	if (!state)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	__drm_colorop_state_init(state, colorop);
+> +
+> +	return state;
+> +}
+> +
 >   /**
-> - * __drm_colorop_state_reset - resets colorop state to default values
-> + * __drm_colorop_state_init - Initializes colorop state to default values
->    * @colorop_state: atomic colorop state, must not be NULL
->    * @colorop: colorop object, must not be NULL
+>    * __drm_colorop_reset - reset state on colorop
+>    * @colorop: drm colorop
+>    * @colorop_state: colorop state to assign
 >    *
->    * Initializes the newly allocated @colorop_state with default
->    * values. This is useful for drivers that subclass the colorop state.
->    */
-> -static void __drm_colorop_state_reset(struct drm_colorop_state *colorop_state,
-> -				      struct drm_colorop *colorop)
-> +static void __drm_colorop_state_init(struct drm_colorop_state *colorop_state,
-> +				     struct drm_colorop *colorop)
->   {
->   	u64 val;
+> diff --git a/include/drm/drm_colorop.h b/include/drm/drm_colorop.h
+> index bd082854ca74cac90b42020b09206a8516687666..874ed693329c0ecf94567c094744fe86fd08e382 100644
+> --- a/include/drm/drm_colorop.h
+> +++ b/include/drm/drm_colorop.h
+> @@ -423,10 +423,12 @@ int drm_plane_colorop_3dlut_init(struct drm_device *dev, struct drm_colorop *col
+>   				 struct drm_plane *plane, const struct drm_colorop_funcs *funcs,
+>   				 uint32_t lut_size,
+>   				 enum drm_colorop_lut3d_interpolation_type interpolation,
+>   				 uint32_t flags);
 >   
->   	colorop_state->colorop = colorop;
->   	colorop_state->bypass = true;
-> @@ -537,11 +537,11 @@ static void __drm_colorop_state_reset(struct drm_colorop_state *colorop_state,
->    */
->   static void __drm_colorop_reset(struct drm_colorop *colorop,
->   				struct drm_colorop_state *colorop_state)
->   {
->   	if (colorop_state)
-> -		__drm_colorop_state_reset(colorop_state, colorop);
-> +		__drm_colorop_state_init(colorop_state, colorop);
+> +struct drm_colorop_state *
+> +drm_atomic_helper_colorop_create_state(struct drm_colorop *colorop);
+>   struct drm_colorop_state *
+>   drm_atomic_helper_colorop_duplicate_state(struct drm_colorop *colorop);
 >   
->   	colorop->state = colorop_state;
->   }
->   
->   void drm_colorop_reset(struct drm_colorop *colorop)
+>   void drm_colorop_atomic_destroy_state(struct drm_colorop *colorop,
+>   				      struct drm_colorop_state *state);
 >
 
 -- 
