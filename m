@@ -4,159 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D4C6F8FA90
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 15:58:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFB63F8FA90
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 15:59:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2rlmangFWK+0INg27+5z36YDN+j/0s+7d9Y2woRTfSA=; b=YkNj6xj8TrD+3FgaiLVCXU96eb
-	wv7w34h6uhLkG8sNHwfVBAxpHo0J69jyUc7mwkYS37Df8/raNuv7rmXRVBh/IbGk8pQ3F4y/OqWfA
-	d1oWICUK/FqY/r7OVz3XPlA+QuEsT6nIjrgW6Ve78ofMxux7rKrJ8TjkkiBxmnqsOXZe8oiFTyLCq
-	T0nzWOY6XDzNXIUufkLvkud8EeyVZe89Ys1aKxAnDKuCQuWE5zsGk5BrK8vw2Oasauy+jSXiYdx/3
-	kq8jHCdokDXoa1OJ4/jMQHLpM6fCBBBnrLeT4n6slVA4mKPxt0o6CihN6t/WEoUTFSyGcHOFvZDh9
-	LLYsAA/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=grAqEp/sRey0m1OBPeoLWEJ3oM/p3XRbZF24sedy66Q=; b=pjF+wWz1l/sKrpEu8Uj8ZRpDBm
+	dtCHyPVi7KsW7zd8i6+rxUAjVwrlPVnLE1EjoYIbraxLDDuvejBgCMd4wrWdwCPmyMEXJ1S1GHGnd
+	LPRthgKuWqBC1rVFuZj5UKm1yJ6QfGZoSWPjhI9dI9L0IsB5jK70gyFOFf8ms798A/QN336zgV3ho
+	VQw0QgUetCUKZ/zry4SEi9J2oT3QYQKojsdml0/NwRRasXeuTsn07u7KYQcHKpveD3SxFTUtkgdxI
+	FnVRpN5otNZtDOaE7Ai+B0yAVQnsejEKI8PPHBDoStuQMXVrC1/9X3lCWuhIbq+amP1/8u0tilrWo
+	33NHYNgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFDUv-00000008sK3-2nV7;
-	Tue, 21 Apr 2026 15:58:49 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wFDVU-00000008sPt-04Wx;
+	Tue, 21 Apr 2026 15:59:24 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFDUt-00000008sJT-1xY6
+	id 1wFDVR-00000008sPT-28X6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 15:58:48 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63LALX1W1511252
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 15:58:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=2rlmangFWK+0INg27+5z36YD
-	N+j/0s+7d9Y2woRTfSA=; b=T0SFiySzaezo2/7b9AmZz/YWbxYaR8QXZFSTRY9E
-	GIJG6FUoGiv7oMrG/MuhO1luUIBzqDS9Di3R8cHZkheeVvtY9tnXtBv5c8xdqnzO
-	mQY5VYjrqIGt5qiBU1i/VnnwLNYmhzPWxcl0Ag0LfyOa2DlgIHfJ3ruMbJh2/K79
-	iYHNsmis4GWjcHz50PQ1pjBQvjUWhUAvlQ+UD1NQBZVJ/Dm2vTiR4tx45k54ZUDk
-	yHUW3E2/4Y8RmVns3vj9kkK9gIjhyoMvvdEsmWPAQ3vUB0GDzHqMOFcmp9mtBVmz
-	LvGD7gdvz4gUMMwCImnYk3adl2OhMTbdM3y/L4+aHoDtMQ==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dp2ak2e6e-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 15:58:46 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-50ea1a7a5d0so45403031cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 08:58:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1776787126; x=1777391926; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=2rlmangFWK+0INg27+5z36YDN+j/0s+7d9Y2woRTfSA=;
-        b=igAgSjIxWyVzqFauZlS9zJ3O29Sm394tIpeU7GusawrTNeFF3qQ1q54GyNf40ZVrPc
-         2o1L5XYrD0xqcodpdELkU+M3PnM4prwTy3J85KRwh2TtpOd6s8ZdspIAGKoJfEzPkI4a
-         AA4sSlMXz9Wkn693AkuI2u1EKlJHlxvHwSaNEJEcsrCj6dHfgDKmku88DvlidZghWIho
-         Vc9rQ5D6juHqjFJ+jxzBPgGaA1eC/GhdT7xTfaAYEmaMrDwDFlCafMYXF3BLbrBgeGkg
-         m/xxhTXOyMTzcQtFM6r8zpjbUsMR+0mk56uUWDtbnEj5kU3dcQB6I8bOasW821o5hMK9
-         E+Qw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776787126; x=1777391926;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2rlmangFWK+0INg27+5z36YDN+j/0s+7d9Y2woRTfSA=;
-        b=NGPWmLJ2Q+EnfZSdVZOuJF7YJDJYwGNdLCsTPgMeLOsrF/Vyh3wtcSb9e65iEnFTTL
-         AUwvqq9SBjO7stK3OAcMk1RtEpaVSpyN+EmLIQq5EjTjL9N6+xkCoeTrlnm5J7pUL/dT
-         HcMRJ0W6fYAAdudsro5+Ib6dvXF5y47hWT+n9Gj/ZL46DCIt07bWY7nm61J4iFvkfSbr
-         m8PcocWtJw8VgoS01UQlQrb70imzlmt7q2ZfIuYybf32X2R20roUc301iPJk0+9Rtw4/
-         csszQSYlwyE5KLl+q8BPT3f1k2zZH40mR4kMAlgXqZEeVc8vCCemwkQZmasEfE8hDErK
-         8hGA==
-X-Forwarded-Encrypted: i=1; AFNElJ91BeapoCCH5DCaySUgSUWeov+bfzlQIQNB7wuZN+RbxC7lwHzmCD5FRd10BxcdkdVHtbRWDZQ3MOZXb616sHsT@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQXAxbCxn/1nqCNG50CZAeOmmvS42uduRCs5mdSg0cGPX16JW6
-	7EGwW6XYKwy/z4I6vyEX9TSKPPAAV82WT90EP9FfQdA+fYYP/5FmKO9WHTxyLcEl9BI0Hp7R5do
-	HpoLti/gyh41S/uuaXzrCIV2TUuzZJg7AnOu10tzgjWsVmezRm1S1z2ZTERSV3g/v7bXJ/fi0x2
-	iZxA==
-X-Gm-Gg: AeBDieu0We51YUPam9y7Ud0OGL7hMhOceu0qLuZnfHh7erbmmi7mnvxJ8F6rGmYN9lD
-	viw14/2Idnm0YTMJDsJQu6w54/0X0iws8aB9LwE8uP733+l42f6an4eACGZ2nw8A08kZ+VMyXrV
-	a2zs13VAcGaLj/yYeRHCGAz8WUSIbjRfSTaZYG45Q3SemKn8FhtQpPTqYwSC+B/dmuqh7KEbdbt
-	hMESbIqiRD9bQr6xZrWYqJxowcmhg1zs67PPSCQXtlZOhwS2DSOticO1cNXHCQQYtz9GoQ25WBR
-	/mQ/do+a1ZF/VA6/bnDJiY/IlwQ+SiWxy+BcOVabwl6dmYS/yeZHDLbT8xU0JO9Np2gUA0eToh0
-	ioNQp0fmbGIb8585F5bE800E6QXfKIB/bZlq6IRGae43SQBD1lAJz3oipuMvM3CVs7I3B6Bt9dX
-	iXZmMXuzt9XnwAEdfz6Bmt5Fdm8nXkUxf1HkmSNfPTaoRuvg==
-X-Received: by 2002:ac8:5a0f:0:b0:50f:ba8d:8b62 with SMTP id d75a77b69052e-50fba8d8caamr24329441cf.0.1776787125501;
-        Tue, 21 Apr 2026 08:58:45 -0700 (PDT)
-X-Received: by 2002:ac8:5a0f:0:b0:50f:ba8d:8b62 with SMTP id d75a77b69052e-50fba8d8caamr24328851cf.0.1776787124912;
-        Tue, 21 Apr 2026 08:58:44 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a4187e12c8sm3767238e87.49.2026.04.21.08.58.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Apr 2026 08:58:43 -0700 (PDT)
-Date: Tue, 21 Apr 2026 18:58:42 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <skhan@linuxfoundation.org>, Jyri Sarha <jyri.sarha@iki.fi>,
-        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-        Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Simon Ser <contact@emersion.fr>,
-        Harry Wentland <harry.wentland@amd.com>, Melissa Wen <mwen@igalia.com>,
-        Sebastian Wick <sebastian.wick@redhat.com>,
-        Alex Hung <alex.hung@amd.com>,
-        Jani Nikula <jani.nikula@linux.intel.com>,
-        Rodrigo Vivi <rodrigo.vivi@intel.com>,
-        Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-        Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>,
-        Samuel Holland <samuel@sholland.org>,
-        Dave Stevenson <dave.stevenson@raspberrypi.com>,
-        =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
-        Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-        dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
-        linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
-        intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
-        linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-        Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-Subject: Re: [PATCH v2 20/20] drm/bridge_connector: Convert to
- atomic_create_state
-Message-ID: <b7heherpjabs3xbgzxvaznyvfk5ok45uqrjotgr5esy2ctuvff@t5o25d65j37h>
-References: <20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org>
- <20260320-drm-mode-config-init-v2-20-c63f1134e76c@kernel.org>
+	Tue, 21 Apr 2026 15:59:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=grAqEp/sRey0m1OBPeoLWEJ3oM/p3XRbZF24sedy66Q=; b=WLlGEJPaMi7/yzJY+BSHF/K5A4
+	705T3OONxv2snffpKALqcF3LHDG52K2aN5lpF0iVSo2l/V/iionNoJiw+MFOcD8136DaG57GXNFHd
+	X5igEc4hQ3b6xnr52SyjCJ0CaxyDcdNDJt/EX1DhduJnjnTFbFY3x+mtxnAKrNMSCMpULlLw/B/EB
+	9cal3vLUDg17feiSTj5Q8OkszjlLmgJeL0I3GmChwI1VvNR+Thu3407V6ZnVPgoRPoYOY+GeJtdGa
+	gX0nvycO/f5wlSt7OkmZzrAhbJ8Y3XVUGApTp7Dg1FKaXtT2vQHwZT6z+jyJFGOXjr0MNHwXpj2Vc
+	2u7XqF4g==;
+Received: from authenticated user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1wFDVE-000y2J-1H;
+	Tue, 21 Apr 2026 15:59:09 +0000
+From: Breno Leitao <leitao@debian.org>
+Date: Tue, 21 Apr 2026 08:58:57 -0700
+Subject: [PATCH v2] arm64/irqflags: __always_inline the arch_local_irq_*()
+ helpers
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260320-drm-mode-config-init-v2-20-c63f1134e76c@kernel.org>
-X-Authority-Analysis: v=2.4 cv=KItqylFo c=1 sm=1 tr=0 ts=69e79eb6 cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22 a=P1BnusSwAAAA:8
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=CGuZyk7pIeUWItkfYpsA:9 a=CjuIK1q_8ugA:10
- a=uxP6HrT_eTzRwkO_Te1X:22 a=D0XLA9XvdZm18NrgonBM:22
-X-Proofpoint-GUID: Sp7IEvV0aR-dRa0rXxE7RRiYJ99jvlat
-X-Proofpoint-ORIG-GUID: Sp7IEvV0aR-dRa0rXxE7RRiYJ99jvlat
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIxMDE1NyBTYWx0ZWRfX/Ic3ohB1nv53
- 1JcvpF46G2epd1Jt14iLEEZflbRugNBltzU5qnEgKTIzhActxrqi8pPLYAof6W3GYsJxEcJ8JhP
- nEssUY2OlpOD9dr8BBpsop9oHssDqN5I8jqdC5vSiVZ6MPhi87i/tUl6AppzsLeFutyls4SAbGo
- hXbqdX8jSTX9biMGTLSUiS88uFdzZeZrauDX9sC+yxG7nsRw2JpOWBYh5HZMBjqs38vMWjIH15T
- HtdcpvcT9NE3AEa/q+piVrWsCPQslYJ3L/S9G2dMJOPxMXow37964ValnI1YXl6ZHI3l7zXGo/Z
- 0vkqLZCalO9fldaF4RQ4nBE0cD0UaXzSfxQA2uTz+0EeFEMuVY+GLxJAOoQ6nUY3+KWBpNrALch
- 18GRF7668wVbW0ryOY4uyX24F6KVpnUmfN8bk+oOpPp7KHnI7TrKzLbHTCffMBcG8hLMD8X7NPQ
- R6/OoCGU5IaKBx6RicQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-21_03,2026-04-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 phishscore=0 malwarescore=0
- lowpriorityscore=0 impostorscore=0 bulkscore=0 suspectscore=0 adultscore=0
- spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2604070000
- definitions=main-2604210157
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260421-arm64_always_inline-v2-1-c59d1400514d@debian.org>
+X-B4-Tracking: v=1; b=H4sIAMCe52kC/32NSwqDMBQArxLe2hSTSkpc9R5FJJ+nvmJjSayti
+ HcvsfsuB4aZDRJGwgQ12yDiQommADWTBQM3mNAjJw81A1lKVVay5CY+VNWa8W3W1FIYKSBX1mn
+ vz05cUEHB4Bmxo89RvTU/Ti97RzfnVDYGSvMU12O7iOz9PyyCC+6t0UK7rlLWXT1aMuE0xR6af
+ d+/nMfIFskAAAA=
+X-Change-ID: 20260420-arm64_always_inline-6bc9dd3c17e6
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, mark.rutland@arm.com
+Cc: leo.bras@arm.com, leo.yan@arm.com, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, palmer@dabbelt.com, paulmck@kernel.org, 
+ puranjay@kernel.org, usama.arif@linux.dev, rmikey@meta.com, 
+ kernel-team@meta.com, Breno Leitao <leitao@debian.org>
+X-Mailer: b4 0.16-dev-453a6
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4392; i=leitao@debian.org;
+ h=from:subject:message-id; bh=mAe9BvFOLCTLtvBDPhhECHbkwCKUqpygD+hK9qnLn9g=;
+ b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBp557HM1YA9SP0fIUCMblItdBk7DdiUJ5bMiWm3
+ Wan1SFcEfWJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaeeexwAKCRA1o5Of/Hh3
+ bX8lEACcN1zISBkusw0Yil24hyk3dkukGMWgWLDTeHfbWLrWQ3o9rYqemKrwgn+3DIXQX+5GWbU
+ S7duEm1FmggkdwYhLPtRGeSDUWIAKZGRX0sbRfaVIxkaRuiGpsFUURnwTFkmpRS4cEMiHL6D/bK
+ 7nIxFmPDDdGywpKJYf+9N83tVxeC0ckaCDb21DnNBvdTaeyeNfL/ZlnWUDqvAWSTjdTs1D/MGeh
+ j+0v1aI+oaqb9uj3ndwX+yA3TI999Ui1notwH1zyg1tQAwFmjDxYIcTNJEpbAoRuSv5gwCLv6qm
+ 8h2I4UJ50MdHxXC1J+b4fAQwFfi0uYqOopKjbuDJkGvJQlra2w2Be2afj6BXnfR+DqtaUn1Am/h
+ 5QweeWT7IEQIGn2761Wv9W82Tgy2Vqg8BiyGk8Drf32nQ/yTTCr6kujTaxki7Ts36p7otW2yUP0
+ 9nUi3/m46/tDwTJprfT+3zanJqJWVfNtpBa6QgD6HKlRyjXZ/rHD8bnjK01mLhpnbNCpWFl3v8j
+ Mq50zdwz6AHIGo3FuyzGC4PlasBKdzGavye8d5ovvxyLyaJIFuiLuc/+5qbPHwBDh6iUrOMvTwg
+ OzXx3k1y7IGCI1B6h5g4iTK7QcVFDu0KbH7S5EFd5/wWAqieNaSeb2mMCn4/UGwaHPou7Q/zPo4
+ +eMxs0pn5gxkKmA==
+X-Developer-Key: i=leitao@debian.org; a=openpgp;
+ fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
+X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_085847_628400_0DCCE808 
-X-CRM114-Status: GOOD (  16.25  )
+X-CRM114-CacheID: sfid-20260421_085921_558604_09AC48EC 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,22 +97,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20, 2026 at 05:27:27PM +0100, Maxime Ripard wrote:
-> The connector created by drm_bridge_connector only initializes a
-> pristine state in reset, which is equivalent to that atomic_create_state
-> would expect. Let's convert to it.
-> 
-> Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-> Signed-off-by: Maxime Ripard <mripard@kernel.org>
-> ---
->  drivers/gpu/drm/display/drm_bridge_connector.c | 15 +++++++++++----
->  1 file changed, 11 insertions(+), 4 deletions(-)
-> 
+The arch_local_irq_*() wrappers in <asm/irqflags.h> dispatch between two
+underlying primitives: the __daif_* path on most systems, and the
+__pmr_* path on builds that use GIC PMR-based masking (Pseudo-NMI). The
+leaf primitives are already __always_inline, but the wrappers themselves
+are plain "static inline".
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+That is unsafe for noinstr callers: nothing prevents the compiler from
+emitting an out-of-line copy of e.g. arch_local_irq_disable(), and an
+out-of-line copy can be instrumented (ftrace, kcov, sanitizers), which
+breaks the noinstr contract on the entry/idle paths that rely on these
+helpers.
 
+x86 hit and fixed exactly this class of bug in commit 7a745be1cc90
+("x86/entry: __always_inline irqflags for noinstr").
 
--- 
-With best wishes
-Dmitry
+Force-inline all of the arch_local_irq_*() wrappers so they cannot be
+emitted out-of-line:
+
+  - arch_local_irq_enable()
+  - arch_local_irq_disable()
+  - arch_local_save_flags()
+  - arch_irqs_disabled_flags()
+  - arch_irqs_disabled()
+  - arch_local_irq_save()
+  - arch_local_irq_restore()
+
+The primary motivation is noinstr safety. There is a useful side effect
+for fleet-wide profiling: when the wrapper is emitted out-of-line,
+samples taken inside it during the post-WFI IRQ unmask in
+default_idle_call() are attributed to arch_local_irq_enable rather than
+default_idle_call(), and the FP-unwinder loses default_idle_call() from
+the chain.
+
+Signed-off-by: Breno Leitao <leitao@debian.org>
+---
+Changes in v2:
+- Expand the functions that uses always_inline in arm64
+- Link to v1: https://patch.msgid.link/20260420-arm64_always_inline-v1-1-dba919cf46bc@debian.org
+---
+ arch/arm64/include/asm/irqflags.h | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
+index d4d7451c2c129..a8cb5a5c93b78 100644
+--- a/arch/arm64/include/asm/irqflags.h
++++ b/arch/arm64/include/asm/irqflags.h
+@@ -40,7 +40,7 @@ static __always_inline void __pmr_local_irq_enable(void)
+ 	barrier();
+ }
+ 
+-static inline void arch_local_irq_enable(void)
++static __always_inline void arch_local_irq_enable(void)
+ {
+ 	if (system_uses_irq_prio_masking()) {
+ 		__pmr_local_irq_enable();
+@@ -68,7 +68,7 @@ static __always_inline void __pmr_local_irq_disable(void)
+ 	barrier();
+ }
+ 
+-static inline void arch_local_irq_disable(void)
++static __always_inline void arch_local_irq_disable(void)
+ {
+ 	if (system_uses_irq_prio_masking()) {
+ 		__pmr_local_irq_disable();
+@@ -90,7 +90,7 @@ static __always_inline unsigned long __pmr_local_save_flags(void)
+ /*
+  * Save the current interrupt enable state.
+  */
+-static inline unsigned long arch_local_save_flags(void)
++static __always_inline unsigned long arch_local_save_flags(void)
+ {
+ 	if (system_uses_irq_prio_masking()) {
+ 		return __pmr_local_save_flags();
+@@ -109,7 +109,7 @@ static __always_inline bool __pmr_irqs_disabled_flags(unsigned long flags)
+ 	return flags != GIC_PRIO_IRQON;
+ }
+ 
+-static inline bool arch_irqs_disabled_flags(unsigned long flags)
++static __always_inline bool arch_irqs_disabled_flags(unsigned long flags)
+ {
+ 	if (system_uses_irq_prio_masking()) {
+ 		return __pmr_irqs_disabled_flags(flags);
+@@ -128,7 +128,7 @@ static __always_inline bool __pmr_irqs_disabled(void)
+ 	return __pmr_irqs_disabled_flags(__pmr_local_save_flags());
+ }
+ 
+-static inline bool arch_irqs_disabled(void)
++static __always_inline bool arch_irqs_disabled(void)
+ {
+ 	if (system_uses_irq_prio_masking()) {
+ 		return __pmr_irqs_disabled();
+@@ -160,7 +160,7 @@ static __always_inline unsigned long __pmr_local_irq_save(void)
+ 	return flags;
+ }
+ 
+-static inline unsigned long arch_local_irq_save(void)
++static __always_inline unsigned long arch_local_irq_save(void)
+ {
+ 	if (system_uses_irq_prio_masking()) {
+ 		return __pmr_local_irq_save();
+@@ -187,7 +187,7 @@ static __always_inline void __pmr_local_irq_restore(unsigned long flags)
+ /*
+  * restore saved IRQ state
+  */
+-static inline void arch_local_irq_restore(unsigned long flags)
++static __always_inline void arch_local_irq_restore(unsigned long flags)
+ {
+ 	if (system_uses_irq_prio_masking()) {
+ 		__pmr_local_irq_restore(flags);
+
+---
+base-commit: bee6ea30c48788e18348309f891ed8afbf7702ac
+change-id: 20260420-arm64_always_inline-6bc9dd3c17e6
+
+Best regards,
+--  
+Breno Leitao <leitao@debian.org>
+
 
