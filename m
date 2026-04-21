@@ -4,65 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 175D1F327BE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 08:03:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B76AF327BE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 08:07:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p3KsurA59Ej1HBfkusNkEVZ4mS0gJUCd46vf9wvqU8I=; b=4i7xc/8BTyHm+0wRQmprKn+LXW
-	2rN6fo2MiGkNLrLvlv15ZEDr7f7wPHwMOoICDGCgMQBpXOfSdgOi3DkrgjShNPEjshOqLfr4Dv+qP
-	oj2MoyFEWiQ7mU6CVKD5POLTJMRdrQiJ3xtKvocqXcA/F6WEHE2TlHYgPdfPJpBjP4AsD2oL++06i
-	FNDX1s+QpvLX9G/fcbKSGuM1qh/NLUZ2V3UEyp6y+C9U65qY7vnS8zj1mv2tdK8TjZDvL+gJHLmId
-	JV/J8xwxb2qkOxe2AB4i73HmrJy5QO3EFhV8Gm2ScTXNjQ6H+aX3GfAWEc727hKfvE8zpqCeOypGu
-	+dUHoN+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NWchIXmrM2+1+LrH9qs/skp8BqIZAna6j7MV5rZtOPE=; b=enuMWFYQ8pcP1//FeNvhOUqAa0
+	DniH424kLzrvyrlB8tP+mTbBxJoLoDQOBwoQxXURp8OfrSUYuf28pMxyo1Rf/eJA91y5O2DKwVnxW
+	plMO7L8tTHXXymMwvRfZ2KIG6d4rVUHgFTPDgyeHrMx2vK1TgntbaROcVZgnxj3+k2PTtTCVkJMKQ
+	tDdoPyiJzZ1N1Tgwyte0CBdQPVKE+PLe+hUPXCHvx+ak9tdRKotMoSIBmO3Nw3cFUxInHcLcpya9l
+	x3+AiYD8j8Ow0hk9pL6suMrwz3HeNYbtgTKgvl1VI6o8RfHe1Pgm57fkQWrbmEHghkR56196YjCbd
+	GbMTk0DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF64O-00000008Due-1hcc;
-	Tue, 21 Apr 2026 08:02:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wF68Q-00000008EIi-1hUR;
+	Tue, 21 Apr 2026 08:07:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF64I-00000008Dtn-0Dvq
+	id 1wF68N-00000008EHx-1cva
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 08:02:55 +0000
+	Tue, 21 Apr 2026 08:07:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 485C9407D1;
-	Tue, 21 Apr 2026 08:02:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EA89C2BCB0;
-	Tue, 21 Apr 2026 08:02:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C3CDC4090B;
+	Tue, 21 Apr 2026 08:07:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 577C1C2BCB0;
+	Tue, 21 Apr 2026 08:06:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776758569;
-	bh=MQ0U64TDsK6alrkDhbgHgLn1qQ1ZkRwtQIWdPthswAU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=e+gg2Cbd1haul0eQWTsWxDtkeavAQp3FOX/Mjjg+xuwmc8r/VOZgVKFEtUIwG1DV2
-	 o8rLztNt/XYzS3qCwM9H0lOlDvLCbylHUoVstwGPVJ0pYNV6DQfRO1ntRNcSmu9iYl
-	 jBH+qUMNrDfKKuCK8aEK5gd+KF7XxhuzMy4tObvzfSzZrehdV79TIWenii8KNvpQ/m
-	 f/osnI8xOzAUtRDCjUmMP+8lXVn81+NCBGvDPlpHDg7oIRP2yxYb9lKnYClYfYNk6D
-	 mC1Vip6GkLF/A+WEI+dA3ip4R5xLk8BvN6w3aK65RSiJvW3AO+Ge1JcpQihNO+iram
-	 o0puqKESaGvwA==
-Date: Tue, 21 Apr 2026 10:02:46 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	Conor Dooley <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v2 3/4] ARM: dts: renesas: r8a7740: Add ZT/ZTR trace
- clock on R-Mobile A1
-Message-ID: <20260421-cherubic-urban-beluga-49ee00@quoll>
-References: <20260415233300.457892-1-marek.vasut+renesas@mailbox.org>
- <20260415233300.457892-4-marek.vasut+renesas@mailbox.org>
+	s=k20201202; t=1776758822;
+	bh=fdxo8CBTBMGIc3yr4yHUHEx/bRkybwgOmKvLGUkEwuM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=fkHP9WZMtMW5sgVsB+YoXCot12XyGdRt1TFMtbL56ucDBBK+s8jiqOmho52rufvSB
+	 QHc7oSIGFJkqtFHvqanqKiqBoXAVB7roFy73N4XUBGkhynYpWpVGSSIXzWLklX1Ck8
+	 C68pQfk8ae+SKy/vW6MW9gnQqedUeMGWSXi/TlcXtegwXiRhD4rDXqq9n6jHESxGX5
+	 2h4i9L6h4Xgj2r/4lQpSd0L/lvHQKrlsS6uP+Un1aTnzD2h+A1h/tGwsWWRNcS2OPT
+	 ZYl9QIQVE79v68IRj4cs6nHO9a2vHJeyZOwqncIPqxi/Qc5abvxPa4luVIuREwD0XT
+	 6IehlROdf+4Og==
+Message-ID: <94fdc376-9c43-4334-b293-20a54acbdc3a@kernel.org>
+Date: Tue, 21 Apr 2026 10:06:54 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260415233300.457892-4-marek.vasut+renesas@mailbox.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mm/page_alloc: fix initialization of tags of the huge
+ zero folio with init_on_free
+To: Dev Jain <dev.jain@arm.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
+ Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett"
+ <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, Brendan Jackman <jackmanb@google.com>,
+ Johannes Weiner <hannes@cmpxchg.org>, Zi Yan <ziy@nvidia.com>,
+ Lance Yang <lance.yang@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, stable@vger.kernel.org
+References: <20260420-zerotags-v1-1-3edc93e95bb4@kernel.org>
+ <5463cf34-bd8c-4ecb-b93a-fd8b2bd2976d@arm.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <5463cf34-bd8c-4ecb-b93a-fd8b2bd2976d@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_010250_112973_2038D716 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20260421_010703_478297_B578ADBF 
+X-CRM114-Status: GOOD (  28.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,34 +126,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 16, 2026 at 01:31:40AM +0200, Marek Vasut wrote:
-> Add ZT trace bus and ZTR trace clock on the R-Mobile A1.
+On 4/21/26 09:06, Dev Jain wrote:
 > 
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> ---
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Magnus Damm <magnus.damm@gmail.com>
-> Cc: Michael Turquette <mturquette@baylibre.com>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Stephen Boyd <sboyd@kernel.org>
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-clk@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-renesas-soc@vger.kernel.org
-> ---
-> V2: Add ztr/zt clock at the end of the list to match bindings
-> ---
->  arch/arm/boot/dts/renesas/r8a7740.dtsi    | 2 +-
+> 
+> On 21/04/26 2:46 am, David Hildenbrand (Arm) wrote:
+>> __GFP_ZEROTAGS semantics are currently a bit weird, but effectively this
+>> flag is only ever set alongside __GFP_ZERO and __GFP_SKIP_KASAN.
+>>
+>> If we run with init_on_free, we will zero out pages during
+>> __free_pages_prepare(), to skip zeroing on the allocation path.
+>>
+>> However, when allocating with __GFP_ZEROTAG set, post_alloc_hook() will
+>> consequently not only skip clearing page content, but also skip
+>> clearing tag memory.
+>>
+>> Not clearing tags through __GFP_ZEROTAGS is irrelevant for most pages that
+>> will get mapped to user space through set_pte_at() later: set_pte_at() and
+>> friends will detect that the tags have not been initialized yet
+>> (PG_mte_tagged not set), and initialize them.
+>>
+>> However, for the huge zero folio, which will be mapped through a PMD
+>> marked as special, this initialization will not be performed, ending up
+>> exposing whatever tags were still set for the pages.
+>>
+>> The docs (Documentation/arch/arm64/memory-tagging-extension.rst) state
+>> that allocation tags are set to 0 when a page is first mapped to user
+>> space. That no longer holds with the huge zero folio when init_on_free
+>> is enabled.
+>>
+>> Fix it by decoupling __GFP_ZEROTAGS from __GFP_ZERO, passing to
+>> tag_clear_highpages() whether we want to also clear page content.
+>>
+>> As we are touching the interface either way, just clean it up by
+>> only calling it when HW tags are enabled, dropping the return value, and
+>> dropping the common code stub.
+>>
+>> Reproduced with the huge zero folio by modifying the check_buffer_fill
+>> arm64/mte selftest to use a 2 MiB area, after making sure that pages have
+>> a non-0 tag set when freeing (note that, during boot, we will not
+>> actually initialize tags, but only set KASAN_TAG_KERNEL in the page
+>> flags).
+>>
+>> 	$ ./check_buffer_fill
+>> 	1..20
+>> 	...
+>> 	not ok 17 Check initial tags with private mapping, sync error mode and mmap memory
+>> 	not ok 18 Check initial tags with private mapping, sync error mode and mmap/mprotect memory
+>> 	...
+>>
+>> This code needs more cleanups; we'll tackle that next, like
+>> decoupling __GFP_ZEROTAGS from __GFP_SKIP_KASAN, moving all the
+>> KASAN magic into a separate helper, and consolidating HW-tag handling.
+>>
+>> Fixes: adfb6609c680 ("mm/huge_memory: initialise the tags of the huge zero folio")
+>> Cc: stable@vger.kernel.org
+>> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+>> ---
+>>  arch/arm64/include/asm/page.h |  3 ---
+>>  arch/arm64/mm/fault.c         | 16 +++++-----------
+>>  include/linux/gfp_types.h     | 10 +++++-----
+>>  include/linux/highmem.h       | 10 +---------
+>>  mm/page_alloc.c               | 12 +++++++-----
+>>  5 files changed, 18 insertions(+), 33 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/page.h b/arch/arm64/include/asm/page.h
+>> index e25d0d18f6d7..5c6cbfbbd34c 100644
+>> --- a/arch/arm64/include/asm/page.h
+>> +++ b/arch/arm64/include/asm/page.h
+>> @@ -33,9 +33,6 @@ struct folio *vma_alloc_zeroed_movable_folio(struct vm_area_struct *vma,
+>>  						unsigned long vaddr);
+>>  #define vma_alloc_zeroed_movable_folio vma_alloc_zeroed_movable_folio
+>>  
+>> -bool tag_clear_highpages(struct page *to, int numpages);
+>> -#define __HAVE_ARCH_TAG_CLEAR_HIGHPAGES
+>> -
+>>  #define copy_user_page(to, from, vaddr, pg)	copy_page(to, from)
+>>  
+>>  typedef struct page *pgtable_t;
+>> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+>> index 0f3c5c7ca054..32a3723f2d34 100644
+>> --- a/arch/arm64/mm/fault.c
+>> +++ b/arch/arm64/mm/fault.c
+>> @@ -1018,21 +1018,15 @@ struct folio *vma_alloc_zeroed_movable_folio(struct vm_area_struct *vma,
+>>  	return vma_alloc_folio(flags, 0, vma, vaddr);
+>>  }
+>>  
+>> -bool tag_clear_highpages(struct page *page, int numpages)
+>> +void tag_clear_highpages(struct page *page, int numpages, bool clear_pages)
+>>  {
+>> -	/*
+>> -	 * Check if MTE is supported and fall back to clear_highpage().
+>> -	 * get_huge_zero_folio() unconditionally passes __GFP_ZEROTAGS and
+>> -	 * post_alloc_hook() will invoke tag_clear_highpages().
+>> -	 */
+>> -	if (!system_supports_mte())
+>> -		return false;
+>> -
+>>  	/* Newly allocated pages, shouldn't have been tagged yet */
+>>  	for (int i = 0; i < numpages; i++, page++) {
+>>  		WARN_ON_ONCE(!try_page_mte_tagging(page));
+>> -		mte_zero_clear_page_tags(page_address(page));
+>> +		if (clear_pages)
+>> +			mte_zero_clear_page_tags(page_address(page));
+>> +		else
+>> +			mte_clear_page_tags(page_address(page));
+>>  		set_page_mte_tagged(page);
+>>  	}
+>> -	return true;
+>>  }
+>> diff --git a/include/linux/gfp_types.h b/include/linux/gfp_types.h
+>> index 6c75df30a281..fd53a6fba33f 100644
+>> --- a/include/linux/gfp_types.h
+>> +++ b/include/linux/gfp_types.h
+>> @@ -273,11 +273,11 @@ enum {
+>>   *
+>>   * %__GFP_ZERO returns a zeroed page on success.
+>>   *
+>> - * %__GFP_ZEROTAGS zeroes memory tags at allocation time if the memory itself
+>> - * is being zeroed (either via __GFP_ZERO or via init_on_alloc, provided that
+>> - * __GFP_SKIP_ZERO is not set). This flag is intended for optimization: setting
+>> - * memory tags at the same time as zeroing memory has minimal additional
+>> - * performance impact.
+>> + * %__GFP_ZEROTAGS zeroes memory tags at allocation time. This flag is intended
+>> + * for optimization: setting memory tags at the same time as zeroing memory
+>> + * (e.g., with __GPF_ZERO) has minimal additional performance impact. However,
+>> + * __GFP_ZEROTAGS also zeroes the tags even if memory is not getting zeroed at
+>> + * allocation time (e.g., with init_on_free).
+>>   *
+>>   * %__GFP_SKIP_KASAN makes KASAN skip unpoisoning on page allocation.
+>>   * Used for userspace and vmalloc pages; the latter are unpoisoned by
+>> diff --git a/include/linux/highmem.h b/include/linux/highmem.h
+>> index af03db851a1d..62f589baa343 100644
+>> --- a/include/linux/highmem.h
+>> +++ b/include/linux/highmem.h
+>> @@ -345,15 +345,7 @@ static inline void clear_highpage_kasan_tagged(struct page *page)
+>>  	kunmap_local(kaddr);
+>>  }
+>>  
+>> -#ifndef __HAVE_ARCH_TAG_CLEAR_HIGHPAGES
+>> -
+>> -/* Return false to let people know we did not initialize the pages */
+>> -static inline bool tag_clear_highpages(struct page *page, int numpages)
+>> -{
+>> -	return false;
+>> -}
+>> -
+>> -#endif
+>> +void tag_clear_highpages(struct page *to, int numpages, bool clear_pages);
+>>  
+>>  /*
+>>   * If we pass in a base or tail page, we can zero up to PAGE_SIZE.
+>> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+>> index 65e205111553..8c6821d25a00 100644
+>> --- a/mm/page_alloc.c
+>> +++ b/mm/page_alloc.c
+>> @@ -1808,9 +1808,9 @@ static inline bool should_skip_init(gfp_t flags)
+>>  inline void post_alloc_hook(struct page *page, unsigned int order,
+>>  				gfp_t gfp_flags)
+>>  {
+>> +	const bool zero_tags = kasan_hw_tags_enabled() && (gfp_flags & __GFP_ZEROTAGS);
+> 
+> Sashiko:
+> 
+> https://sashiko.dev/#/patchset/20260420-zerotags-v1-1-3edc93e95bb4%40kernel.org
+> 
+> PROT_MTE works without KASAN_HW_TAGS, so probably just retain the
+> system_supports_mte() check in tag_clear_highpages(), and document
+> that GFP_ZEROTAGS is only for MTE?
 
->  include/dt-bindings/clock/r8a7740-clock.h | 2 ++
+Right, we have to clear tags here even without kasan. God, what an ugly
+mess people created here with these GFP flags.
 
-This goes to the binding patch.
+Let me think about how to do that in the least ugly way.
 
-Didn't you have also a checkpatch warning?
+-- 
+Cheers,
 
-Best regards,
-Krzysztof
-
+David
 
