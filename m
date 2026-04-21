@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8DE4F94CA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 18:12:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16200F94CA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 18:12:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o0h+qrOUlt0FTlBtGMfBhXpzDkpV/4F95GrsRefqiy4=; b=E+Bf81etCVYuYdy8wJjcshX0bd
-	cfsm551sX/PWQyI3K0Tw6kzS431wYq5oYV7m3qPw1XPQzFWwK+efMk9SZQmVp6P2Edc3Pq78IBDkz
-	nK60evgBsBf8AeCbcHFEuOQkWTO+YYy25GvjRp3Uje6U6h6OhnN3eWEJhcCdxSypiHIwBT7jp+6Mr
-	C3fkKDgzRIJwRddlr5NYASOWCNcE2XLRONW7DklQ7jYqxvF5Al2ZX91IObQy2+cBRNrWsX1pYSj6r
-	watLgHzfthws0pHy2OknunGPgFC+ffewjK2+d1RNPtcMpAIkgn9LClGPUebAtJYOV0wTArzYij3y8
-	e7Yi4C1w==;
+	bh=U6M2YQtYSO0bXDnTE1PJ5oEKO9kupylbKXPuTSLXRJE=; b=lzD2eDjh031ykcIOAVHu0QtlGX
+	6L45wTRCI3I/+JvGYIbAEzNaBeaWHB2xxooEG+DTm6CNe0ksGgSFzgjcTz0kMRyraf5yoznyVNukB
+	BBYTUqU/Ql7CZDIEHLnbaAJDQnorvZSHAVowfwAVRm5s1ntchVVksFumWvZpc0/mcELbp4HqwSvFz
+	I5CsJtOkBd1gaDwrnsB5MTYgIdU5DVAglz/58xPZZ771RtRTqpmcl3l94M5IM2wnnS2bF6jZAfp5E
+	BLOnEESZl+HwZTokui33nHT/tQYO24643MFxwXWMNuYWT3urDfifUBeDkFJPth+S63ZKQ0n04OQ/j
+	K7wUAhIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFFaI-000000090ql-0DBf;
-	Tue, 21 Apr 2026 18:12:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wFFaO-000000090vn-1boF;
+	Tue, 21 Apr 2026 18:12:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFFaG-000000090py-41ML
+	id 1wFFaL-000000090sy-2mv4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 18:12:29 +0000
+	Tue, 21 Apr 2026 18:12:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 640EB61143;
+	by sea.source.kernel.org (Postfix) with ESMTP id 5360741B2A;
+	Tue, 21 Apr 2026 18:12:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85567C2BCB0;
 	Tue, 21 Apr 2026 18:12:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 764A8C2BCB4;
-	Tue, 21 Apr 2026 18:12:23 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Sudeep Holla <sudeep.holla@kernel.org>,
 	Cristian Marussi <cristian.marussi@arm.com>,
@@ -58,14 +58,17 @@ Cc: arm-scmi@vger.kernel.org,
 	linux-pm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH/RFC 06/14] of: property: fw_devlink: Add support for firmware
-Date: Tue, 21 Apr 2026 20:11:39 +0200
-Message-ID: <25ce04eb49a5caba4117dbf776edf70a00f07384.1776793163.git.geert+renesas@glider.be>
+Subject: [PATCH/RFC 07/14] pmdomain: Make genpd_get_from_provider() public
+Date: Tue, 21 Apr 2026 20:11:40 +0200
+Message-ID: <567a45c25e575ef1bf5fa9b27a78e94d21c61851.1776793163.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1776793163.git.geert+renesas@glider.be>
 References: <cover.1776793163.git.geert+renesas@glider.be>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260421_111233_746628_AB798A4D 
+X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,41 +83,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Let fw_devlink create device links between consumers and suppliers of
-firmware, and enforce these dependencies.
+Unlike the corresponding function in the clock subsystem
+(of_clk_get_from_provider()), genpd_get_from_provider() is private, and
+thus cannot be used by PM Domain drivers.
 
-This prevents probing of drivers before the firmware they depend on
-becomes available, thus avoiding unneeded probe deferrals.
+Make it public, so it be used by the R-Car X5H Module Controller driver.
 
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
-Written for the upcoming R-Car X5H Clock Pulse Generator and Module
-Controller drivers and their dependency on SCMI, but the existing
-Raspberry Pi power domain driver should benefit from this, too.
----
- drivers/of/property.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/pmdomain/core.c   | 4 ++--
+ include/linux/pm_domain.h | 7 +++++++
+ 2 files changed, 9 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/of/property.c b/drivers/of/property.c
-index 136946f8b746f745..34aeba20040348d6 100644
---- a/drivers/of/property.c
-+++ b/drivers/of/property.c
-@@ -1378,6 +1378,7 @@ DEFINE_SIMPLE_PROP(dmas, "dmas", "#dma-cells")
- DEFINE_SIMPLE_PROP(power_domains, "power-domains", "#power-domain-cells")
- DEFINE_SIMPLE_PROP(hwlocks, "hwlocks", "#hwlock-cells")
- DEFINE_SIMPLE_PROP(extcon, "extcon", NULL)
-+DEFINE_SIMPLE_PROP(firmware, "firmware", NULL)
- DEFINE_SIMPLE_PROP(nvmem_cells, "nvmem-cells", "#nvmem-cell-cells")
- DEFINE_SIMPLE_PROP(phys, "phys", "#phy-cells")
- DEFINE_SIMPLE_PROP(wakeup_parent, "wakeup-parent", NULL)
-@@ -1527,6 +1528,7 @@ static const struct supplier_bindings of_supplier_bindings[] = {
- 	{ .parse_prop = parse_power_domains, },
- 	{ .parse_prop = parse_hwlocks, },
- 	{ .parse_prop = parse_extcon, },
-+	{ .parse_prop = parse_firmware, },
- 	{ .parse_prop = parse_nvmem_cells, },
- 	{ .parse_prop = parse_phys, },
- 	{ .parse_prop = parse_wakeup_parent, },
+diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+index 4d32fc676aaf53cf..23c7cd480a7e026d 100644
+--- a/drivers/pmdomain/core.c
++++ b/drivers/pmdomain/core.c
+@@ -2900,8 +2900,7 @@ EXPORT_SYMBOL_GPL(of_genpd_del_provider);
+  * Returns a valid pointer to struct generic_pm_domain on success or ERR_PTR()
+  * on failure.
+  */
+-static struct generic_pm_domain *genpd_get_from_provider(
+-					const struct of_phandle_args *genpdspec)
++struct generic_pm_domain *genpd_get_from_provider(const struct of_phandle_args *genpdspec)
+ {
+ 	struct generic_pm_domain *genpd = ERR_PTR(-ENOENT);
+ 	struct of_genpd_provider *provider;
+@@ -2923,6 +2922,7 @@ static struct generic_pm_domain *genpd_get_from_provider(
+ 
+ 	return genpd;
+ }
++EXPORT_SYMBOL_GPL(genpd_get_from_provider);
+ 
+ /**
+  * of_genpd_add_device() - Add a device to an I/O PM domain
+diff --git a/include/linux/pm_domain.h b/include/linux/pm_domain.h
+index b299dc0128d65ee5..568aebf51d830210 100644
+--- a/include/linux/pm_domain.h
++++ b/include/linux/pm_domain.h
+@@ -458,6 +458,7 @@ int of_genpd_add_provider_simple(struct device_node *np,
+ int of_genpd_add_provider_onecell(struct device_node *np,
+ 				  struct genpd_onecell_data *data);
+ void of_genpd_del_provider(struct device_node *np);
++struct generic_pm_domain *genpd_get_from_provider(const struct of_phandle_args *genpdspec);
+ int of_genpd_add_device(const struct of_phandle_args *args, struct device *dev);
+ int of_genpd_add_subdomain(const struct of_phandle_args *parent_spec,
+ 			   const struct of_phandle_args *subdomain_spec);
+@@ -488,6 +489,12 @@ static inline int of_genpd_add_provider_onecell(struct device_node *np,
+ 
+ static inline void of_genpd_del_provider(struct device_node *np) {}
+ 
++static inline struct generic_pm_domain *genpd_get_from_provider(
++				const struct of_phandle_args *genpdspec)
++{
++	return ERR_PTR(-ENODEV);
++}
++
+ static inline int of_genpd_add_device(const struct of_phandle_args *args,
+ 				      struct device *dev)
+ {
 -- 
 2.43.0
 
