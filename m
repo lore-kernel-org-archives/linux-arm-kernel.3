@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55128F8FA84
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07360F8FA86
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 14:43:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,33 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IoqEilRS3y8QgrkjGrXM9un/gCAEene1hoRhvakMJ8E=; b=du6YxBibq2XSmRg7VlTmyrwKFD
-	lic4BlZIrGG2EGZ0Cd8oiClhEbTmLbOMBvupzMViS2sKwebiGbpya4HlPEV/aO05E5EBbv8tu48AS
-	rfd2IisKnRAZ/1OMfL/rNA8LDJY29qylbmxr4CVRXosDoqsVCr4SeE/N9ocnrkjcCg9UFjc0dlEVc
-	VZmWQKhJi30xe35O1SqDs06SpfMBvDPMGTPWiCWxa4K5MVyZjUQlVemOUotCuTsEgCIYurs8ayIkc
-	jzT5nM7vugB4VWVtBk3oc+S/dfR1q1cSNah/Uv+3gVEIhlznz7dkbLecwc8BQyh6/0GYq2SPoKKO0
-	l08O18ZQ==;
+	bh=taBtA+ri8scCV7v75zAPrf4/c0PMoKoCmfynrTBJGS0=; b=ez/5TgcjQM37XnM9OhyRCKgdw7
+	4u0ehclktbvvdzCVCeiSh5LewNItjTqgIXJszK10uzHXDa8TPYEURM+2XUhI4qCWvvT99DELFFCWL
+	3HwHoyZXZrobUi8hHvxWd41bg87wiiIZh7LdV2rzOxFq520I8vRt88GuGnF3UZrbrgB0aWzyh0B2K
+	N0XRsag20aWSZFz9kDbnP60mXt2I6neaUGtyYwZ0f9UfYRk5EV639El/d1vUE72qkmV6emehAsKim
+	zfA09CPVsHkT/QPmtLytUymNBdhsffKIygNmHgtc/VgPK/ieFxCIya+l21de/D90waYUvhdI3pvDm
+	zGiYbP5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFCJx-00000008kta-3JK6;
-	Tue, 21 Apr 2026 14:43:25 +0000
+	id 1wFCJy-00000008kuT-2Ol8;
+	Tue, 21 Apr 2026 14:43:26 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFCJt-00000008krD-1LUY
+	id 1wFCJv-00000008ksY-1Dfi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 14:43:22 +0000
+	Tue, 21 Apr 2026 14:43:24 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5AC53302C;
-	Tue, 21 Apr 2026 07:43:13 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B9A4625DE;
+	Tue, 21 Apr 2026 07:43:16 -0700 (PDT)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8AE743FAF5;
-	Tue, 21 Apr 2026 07:43:17 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E88403FAF5;
+	Tue, 21 Apr 2026 07:43:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776782598; bh=MxsGc+EBx86vViVnJi5hkAtx/3njsI58R9adW1EOEhM=;
+	t=1776782602; bh=p9bdjlhoG2EqguOOpOu5ObgF3kpj690/lD2+dGUSX94=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FwSQrg72snbYiBgDHmR8iZL9vVLCGskUN9cWjinaurZnVDh0UizatL9rkSSH27eV8
-	 yih9/Yypu4gmi6fXvdG3q75fJfAGZf1njQ+YQ/IT7k4I9bVTl8KuQwjpIMiUltfAaQ
-	 gOD2ycw3G9mTXWspT0VKRXLH0VvN53JrI17rOPP8=
+	b=TiIV33xkcYjsI3igqSQxQsbZpSAYHDVc87sh2ssX9mBR5iX8ekC58P+/1IlzbVhlZ
+	 R4Ry7oJKdhRqFNqJ2EICuy3g96fZVsOoIfTt2VY6Va4jc7NgitwPL7Jb4Cwv7WBpHP
+	 C6kws5bOwd6tovUY5A3PnaOVNDy5dSw69cTzSInI=
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
@@ -49,17 +49,17 @@ Cc: linux-kernel@vger.kernel.org,
 	Shuah Khan <shuah@kernel.org>,
 	Will Deacon <will@kernel.org>,
 	linux-kselftest@vger.kernel.org
-Subject: [PATCH 1/4] arm64: signal: Preserve POR_EL0 if poe_context is missing
-Date: Tue, 21 Apr 2026 15:42:49 +0100
-Message-ID: <20260421144252.1440365-2-kevin.brodsky@arm.com>
+Subject: [PATCH 3/4] kselftest/arm64: Add POE helpers to test_signals_utils.h
+Date: Tue, 21 Apr 2026 15:42:51 +0100
+Message-ID: <20260421144252.1440365-4-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20260421144252.1440365-1-kevin.brodsky@arm.com>
 References: <20260421144252.1440365-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_074321_480347_A238CD1D 
-X-CRM114-Status: GOOD (  21.33  )
+X-CRM114-CacheID: sfid-20260421_074323_369832_CEF20580 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,117 +74,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 2e8a1acea859 ("arm64: signal: Improve POR_EL0 handling to
-avoid uaccess failures") delayed the write to POR_EL0 in
-rt_sigreturn to avoid spurious uaccess failures. This change however
-relies on the poe_context frame record being present: on a system
-supporting POE, calling sigreturn without a poe_context record now
-results in writing arbitrary data from the kernel stack into POR_EL0.
+In preparation to adding further POE signal tests, move
+get_por_el0() to test_signals_utils.h and add set_por_el0().
 
-Fix this by adding a valid_fields member to struct
-user_access_state, and zeroing the struct on allocation.
-restore_poe_context() then indicates that the por_el0 field is valid
-by setting the corresponding bit in valid_fields, and
-restore_user_access_state() only touches POR_EL0 if there is a valid
-value to set it to. This is in line with how POR_EL0 was originally
-handled; all frame records are currently optional, except
-fpsimd_context.
-
-restore_user_access_state() is also called if setting up the signal
-frame fails, so we also initialise valid_fields in that case. For
-consistency, setup_sigframe() now also checks valid_fields to decide
-whether to write a poe_context record, avoiding another call to
-system_supports_poe().
-
-Fixes: 2e8a1acea859 ("arm64: signal: Improve POR_EL0 handling to avoid uaccess failures")
-Reported-by: Will Deacon <will@kernel.org>
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- arch/arm64/kernel/signal.c | 19 ++++++++++++++-----
- 1 file changed, 14 insertions(+), 5 deletions(-)
+ .../selftests/arm64/signal/test_signals_utils.h  | 16 ++++++++++++++++
+ .../arm64/signal/testcases/poe_siginfo.c         | 15 ---------------
+ 2 files changed, 16 insertions(+), 15 deletions(-)
 
-diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
-index 08ffc5a5aea4..3f17aed5b4f0 100644
---- a/arch/arm64/kernel/signal.c
-+++ b/arch/arm64/kernel/signal.c
-@@ -67,6 +67,8 @@ struct rt_sigframe_user_layout {
- 	unsigned long end_offset;
- };
+diff --git a/tools/testing/selftests/arm64/signal/test_signals_utils.h b/tools/testing/selftests/arm64/signal/test_signals_utils.h
+index 36fc12b3cd60..2c7b8c64a35a 100644
+--- a/tools/testing/selftests/arm64/signal/test_signals_utils.h
++++ b/tools/testing/selftests/arm64/signal/test_signals_utils.h
+@@ -57,6 +57,22 @@ static inline __attribute__((always_inline)) uint64_t get_gcspr_el0(void)
+ 	return val;
+ }
  
-+#define UA_STATE_HAS_POR_EL0	BIT(0)
++#define SYS_POR_EL0 "S3_3_C10_C2_4"
 +
- /*
-  * Holds any EL0-controlled state that influences unprivileged memory accesses.
-  * This includes both accesses done in userspace and uaccess done in the kernel.
-@@ -74,8 +76,12 @@ struct rt_sigframe_user_layout {
-  * This state needs to be carefully managed to ensure that it doesn't cause
-  * uaccess to fail when setting up the signal frame, and the signal handler
-  * itself also expects a well-defined state when entered.
-+ *
-+ * The valid_fields member is a bitfield (see UA_STATE_HAS_*), specifying which
-+ * of the remaining fields is valid (has been set to a value).
-  */
- struct user_access_state {
-+	unsigned int valid_fields;
- 	u64 por_el0;
- };
- 
-@@ -95,6 +101,7 @@ static void save_reset_user_access_state(struct user_access_state *ua_state)
- 			por_enable_all |= POR_ELx_PERM_PREP(pkey, POE_RWX);
- 
- 		ua_state->por_el0 = read_sysreg_s(SYS_POR_EL0);
-+		ua_state->valid_fields |= UA_STATE_HAS_POR_EL0;
- 		write_sysreg_s(por_enable_all, SYS_POR_EL0);
- 		/*
- 		 * No ISB required as we can tolerate spurious Overlay faults -
-@@ -122,7 +129,7 @@ static void set_handler_user_access_state(void)
-  */
- static void restore_user_access_state(const struct user_access_state *ua_state)
++static inline uint64_t get_por_el0(void)
++{
++	uint64_t val;
++
++	asm volatile("mrs %0, " SYS_POR_EL0 "\n" : "=r"(val));
++
++	return val;
++}
++
++static inline void set_por_el0(uint64_t val)
++{
++	asm volatile("msr " SYS_POR_EL0 ", %0\n" :: "r"(val));
++}
++
+ static inline bool feats_ok(struct tdescr *td)
  {
--	if (system_supports_poe())
-+	if (ua_state->valid_fields & UA_STATE_HAS_POR_EL0)
- 		write_sysreg_s(ua_state->por_el0, SYS_POR_EL0);
- }
+ 	if (td->feats_incompatible & td->feats_supported)
+diff --git a/tools/testing/selftests/arm64/signal/testcases/poe_siginfo.c b/tools/testing/selftests/arm64/signal/testcases/poe_siginfo.c
+index 36bd9940ee05..e15fedf4da6e 100644
+--- a/tools/testing/selftests/arm64/signal/testcases/poe_siginfo.c
++++ b/tools/testing/selftests/arm64/signal/testcases/poe_siginfo.c
+@@ -21,21 +21,6 @@ static union {
+ 	char buf[1024 * 128];
+ } context;
  
-@@ -352,8 +359,10 @@ static int restore_poe_context(struct user_ctxs *user,
- 		return -EINVAL;
- 
- 	__get_user_error(por_el0, &(user->poe->por_el0), err);
--	if (!err)
-+	if (!err) {
- 		ua_state->por_el0 = por_el0;
-+		ua_state->valid_fields |= UA_STATE_HAS_POR_EL0;
-+	}
- 
- 	return err;
- }
-@@ -1095,7 +1104,7 @@ SYSCALL_DEFINE0(rt_sigreturn)
+-#define SYS_POR_EL0 "S3_3_C10_C2_4"
+-
+-static uint64_t get_por_el0(void)
+-{
+-	uint64_t val;
+-
+-	asm volatile(
+-		"mrs	%0, " SYS_POR_EL0 "\n"
+-		: "=r"(val)
+-		:
+-		: );
+-
+-	return val;
+-}
+-
+ int poe_present(struct tdescr *td, siginfo_t *si, ucontext_t *uc)
  {
- 	struct pt_regs *regs = current_pt_regs();
- 	struct rt_sigframe __user *frame;
--	struct user_access_state ua_state;
-+	struct user_access_state ua_state = {0};
- 
- 	/* Always make any pending restarted system calls return -EINTR */
- 	current->restart_block.fn = do_no_restart_syscall;
-@@ -1302,7 +1311,7 @@ static int setup_sigframe(struct rt_sigframe_user_layout *user,
- 		err |= preserve_fpmr_context(fpmr_ctx);
- 	}
- 
--	if (system_supports_poe() && err == 0) {
-+	if ((ua_state->valid_fields & UA_STATE_HAS_POR_EL0) && err == 0) {
- 		struct poe_context __user *poe_ctx =
- 			apply_user_offset(user, user->poe_offset);
- 
-@@ -1507,7 +1516,7 @@ static int setup_rt_frame(int usig, struct ksignal *ksig, sigset_t *set,
- {
- 	struct rt_sigframe_user_layout user;
- 	struct rt_sigframe __user *frame;
--	struct user_access_state ua_state;
-+	struct user_access_state ua_state = {0};
- 	int err = 0;
- 
- 	fpsimd_save_and_flush_current_state();
+ 	struct _aarch64_ctx *head = GET_BUF_RESV_HEAD(context);
 -- 
 2.51.2
 
