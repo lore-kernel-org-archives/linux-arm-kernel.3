@@ -4,61 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B887F8FA90
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 16:38:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25772F8FA90
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 16:41:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=43mYyWiat7v885iAzEWNjeU/q6bxzCyydXdek4jSpzY=; b=fuCi1lOYvWWunWD/oA8M0LCQsm
-	SLYCs+/pA9ECkGpDLRuYgxM0fp6XcjD8OF87rSZxD4kMGhN1wznPMQv1K9VfoDu1fgY8Lv49AHnHG
-	dcQhRA/5aWjTFBE33sdbsD0kmbzl7ZHEZUOtr511AbUSmrqUmDaJeRbwb4xc/1tZG0rstHg1hjZex
-	3huDDUAUJZcrjrnYnf1vvbiIQt9no2D74Hb2gzaMpv5J2UinuFMdQspRRojqExfIHvmXvPTpHoeFg
-	YaSQYe8EUG76JXYRlW0OY7aJiqT1N/fbd3BV9dehXKNkOGYhYavwVtvFWjDPmos8DeFYx6ekbQ/C7
-	imhHCyeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mGHowqlkhnvPIJdGbn1Su1BmTTCjZzOEKR7Ulucq9pI=; b=XzNya5vU+e8Q8+76oi6harfy7A
+	KRFiMCyRR+XSdLmguDl5vZwndxDfh1mFwDzT1U64FKlJfhnI4EKXGqP1xW8B1gbm/OtVoCjTm+w24
+	R3Hh07LzCpexGVZ3Hv9ne7Er77eG06T67loqw939ZKvtIxyOtP/WrayvqdGYNpakt3E/yGvtea61Q
+	H/Bzoyh+2gwtaUZuE75qnlLnBZNeKzFP70PJr3R43a7uriIZGPB855JY8y27xrqtGmkaN3FVpdfbv
+	t5F2ylssLLA2ekIJBcjQ/9FU4DvX7Cevy4HrA8Ak9T/rPimvAAw5QTf2BknD5CPJw4vCU4NlaxM0p
+	QDn7iTCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFE7c-00000008vCo-2Fq5;
-	Tue, 21 Apr 2026 16:38:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wFEA6-00000008vT7-04Pu;
+	Tue, 21 Apr 2026 16:41:22 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFE7a-00000008vBn-1q1E
+	id 1wFEA3-00000008vSh-0hiI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 16:38:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 35831437BA;
-	Tue, 21 Apr 2026 16:38:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7AF8C2BCB0;
-	Tue, 21 Apr 2026 16:38:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776789525;
-	bh=cNH70jj6roLIqiFmeg0hHrGoomIMGMcjiS/OFfPnRsM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Egro2/lrsv4ELOi0wXo+a9TJvYGxntQgC0M3JjmHcb7nxIOhwkyLlLSOPxiZxSik8
-	 3Vz80YPce4PNdos8Pqk1NhqJ62YVd8lWbQk1Gz45K5YPNzaaA1XsLvZldCbibaZ5jz
-	 KRn77oI4I0vwVmYrnsYZLiGBPRA+O3/UydZ9XkNWmXDoTsnd5GwU4MRbkK9Y0Ttua/
-	 3crFam3yge6+dh3FeVVrcTtYRzWjwTk8Xr6uLxLgdjxqWQAS/nhpXA4PzJadfjLG80
-	 bUnMKkpYLBjYEvUMg7loA4GSaNZlMRJTOiZ3ZHd80Sdhw40uT2m1GruG3vMn5vz7Je
-	 cZHYGPsz93Smg==
-Date: Tue, 21 Apr 2026 17:38:40 +0100
-From: Will Deacon <will@kernel.org>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: leo.jiang1224@foxmail.com, joro@8bytes.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Stop queue allocation retry at
- PAGE_SIZE
-Message-ID: <aeeoEHHNKPo32H9R@willie-the-truck>
-References: <tencent_F6E384A40D990A279B460A0CDE1927FDF509@qq.com>
- <0fdf4b1f-90f2-4f69-9d2b-dc5f608e9c1c@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0fdf4b1f-90f2-4f69-9d2b-dc5f608e9c1c@arm.com>
+	Tue, 21 Apr 2026 16:41:20 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2b2ecc96a9aso41381695ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 09:41:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1776789677; x=1777394477; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=mGHowqlkhnvPIJdGbn1Su1BmTTCjZzOEKR7Ulucq9pI=;
+        b=AjzK9wE0Gx4oNb7aBJMNjMJb6wBVIGWgxYvuwWpy3uijWa9p8WvxEqKN0DjBa+lnI1
+         /Y1CmxYv8PLaa6QOpfNw9J3ISiiquVHMl18L39aFa7WawlA02HM5M3F13qvxYjdmPWx9
+         GPf9rmUvs6SuyUdMnii6U8UmsvcMqnydT97DJIIZXxV/7g6oY7B1V77abLj0x2Q2Dpb4
+         szDTXcOWhvuJdc50B5XI5g72f2ZynwjGUh3/0pgJb66dvsC0btz8nzj7K9sf63zhuLbH
+         J88PNN/a+435e2+3iMEN2Q+2yLjunkNqhWz28Y5kvbBgnCMqOIi0wDNhN9PSmuRoeExe
+         7WIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776789677; x=1777394477;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=mGHowqlkhnvPIJdGbn1Su1BmTTCjZzOEKR7Ulucq9pI=;
+        b=fSIzkiB/gtujqAtBqLOdDEqqvxcAns/U4ceHyQX6XSpgYHCUwCFo9Hw5yD/uB9JGk7
+         rlGtm7EdZqVBd+SagB8B27foLgh2M/FYrGcWixuV9+IrVKKqMJ9mFqcLCoFwN1xUq53+
+         JRwicApKwCevWFWh0EHshbyaQN2JUFcLK4NZLrX1ft5EWXIMb7KEgafWC2TGr1x4SwIH
+         nVleyw1UCcxmq345YG354tcgNYCKT/HvGeI7m3QToXhAk66imlYP8TMOY4tfR6VFYndG
+         xQIjG5X/ddZ+jnLOZSWuuP3OKnGk5X3KQdsHYF+ZL0CKGw6pCxvf+v8WU70nLiqmXpu6
+         CWRw==
+X-Forwarded-Encrypted: i=1; AFNElJ9mcNndiMSUB8YVKQ0J/2rQRW5oxqfDblI1nAIDCOI9c4BSvFygfc6NwhZJCjlpzJiZEVdOSs7M4jsWrrnYPhWv@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVTMm/kmIDS/Z+3HCzS//kcNVXzKjRZU1TRtD4KVASWFX5YI0R
+	MRls4fpGOyMi9zbhtPZ+NxQHeuaX6A5hmoKiJ0Z0LRzZoVWosQh298Y5WEOow0sDlI5r04b8OTc
+	c+JPJlsScKrk3hmhgM/xPlJdQzA==
+X-Received: from plik3.prod.google.com ([2002:a17:903:3843:b0:2ae:bb1f:5234])
+ (user=jingzhangos job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:903:1ac6:b0:2b2:5840:808e with SMTP id d9443c01a7336-2b5f9ee9487mr187401765ad.10.1776789676962;
+ Tue, 21 Apr 2026 09:41:16 -0700 (PDT)
+Date: Tue, 21 Apr 2026 09:41:12 -0700
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.54.0.rc1.555.g9c883467ad-goog
+Message-ID: <20260421164112.2448553-1-jingzhangos@google.com>
+Subject: [PATCH] KVM: arm64: Treat ID_AA64DFR0_EL1.PMUVer as an unsigned field
+From: Jing Zhang <jingzhangos@google.com>
+To: KVM <kvm@vger.kernel.org>, KVMARM <kvmarm@lists.linux.dev>, 
+	ARMLinux <linux-arm-kernel@lists.infradead.org>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>
+Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Jing Zhang <jingzhangos@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_093846_499739_AE46AEE4 
-X-CRM114-Status: GOOD (  19.38  )
+X-CRM114-CacheID: sfid-20260421_094119_210558_5A7DF85A 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,43 +89,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 21, 2026 at 04:56:47PM +0100, Robin Murphy wrote:
-> On 18/04/2026 6:31 am, leo.jiang1224@foxmail.com wrote:
-> > From: LoserJL <leo.jiang1224@foxmail.com>
-> > 
-> > In arm_smmu_init_one_queue(), the loop reduces max_n_shift if
-> > dmam_alloc_coherent() fails. However, since dmam_alloc_coherent()
-> > allocates at least PAGE_SIZE, retrying with a smaller size after
-> > a PAGE_SIZE failure is logically redundant.
-> 
-> Says who? It's certainly not a guarantee offered by the DMA API itself, and
-> indeed some allocation paths can definitely still allocate less than a page
-> - e.g. anything which hits a per-device or global coherent pool.
-> 
-> > Moreover, if a sub-page retry were to succeed due to concurrent memory
-> > release, the hardware would be configured with a smaller queue depth
-> > despite a full page being allocated. This leads to inefficient memory
-> > usage and unnecessary hardware performance limitation.
-> > 
-> > Terminate the loop once qsz reaches PAGE_SIZE to ensure logical
-> > consistency and optimal hardware configuration.
-> 
-> That's really not an argument - even if an allocator does happen to
-> over-allocate for the requested size, that is hardly the caller's concern;
-> and as far as "optimal" queue sizes go in this case, those very much depend
-> on the number of CPUs issuing commands and volume of expected stall/PRI
-> events - in many cases PAGE_SIZE would already be far too small to really
-> work well.
-> 
-> Also note that if we _were_ to fail to allocate a PAGE_SIZE or smaller
-> queue, there would be very little chance of the subsequent allocation(s) for
-> the stream table succeeding, so realistically the driver is probably going
-> to end up failing to probe in such circumstances anyway.
+ID_AA64DFR0_EL1.PMUVer is an unsigned 4-bit field, but was historically
+marked as signed in the cpufeature table. This led
+kvm_init_host_debug_data() to fail detection of PMUv3 implementation on
+systems with PMUv3p8 or newer, as the signed extraction of the field
+(e.g., 0b1000 for PMUv3p8) would result in a negative value.
 
-That's all true, but tbf I think I just fscked up the comparison in
-d25f6ead162e ("iommu/arm-smmu-v3: Increase maximum size of queues") so
-I'm not against fixing that up even though the "rationale" given by
-Loser doesn't make a whole lot of sense.
+Fix this by marking the field as unsigned in the ftr_id_aa64dfr0 table
+and updating the KVM initialization code to use unsigned extraction.
+While at it, ensure that both the 'Not Implemented' (0b0000) and
+'Implementation Defined' (0b1111) values are correctly handled as
+indicating the absence of a standard PMUv3.
 
-Will
+Signed-off-by: Jing Zhang <jingzhangos@google.com>
+---
+ arch/arm64/kernel/cpufeature.c | 2 +-
+ arch/arm64/kvm/debug.c         | 4 +++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 32c2dbcc0c641..1b5e37a1a41b4 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -565,7 +565,7 @@ static const struct arm64_ftr_bits ftr_id_aa64dfr0[] = {
+ 	 * We can instantiate multiple PMU instances with different levels
+ 	 * of support.
+ 	 */
+-	S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_EXACT, ID_AA64DFR0_EL1_PMUVer_SHIFT, 4, 0),
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_EXACT, ID_AA64DFR0_EL1_PMUVer_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_EXACT, ID_AA64DFR0_EL1_DebugVer_SHIFT, 4, 0x6),
+ 	ARM64_FTR_END,
+ };
+diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
+index 3ad6b7c6e4ba7..2834d7ef9dedb 100644
+--- a/arch/arm64/kvm/debug.c
++++ b/arch/arm64/kvm/debug.c
+@@ -75,8 +75,10 @@ static void kvm_arm_setup_mdcr_el2(struct kvm_vcpu *vcpu)
+ void kvm_init_host_debug_data(void)
+ {
+ 	u64 dfr0 = read_sysreg(id_aa64dfr0_el1);
++	u64 pmuver;
+ 
+-	if (cpuid_feature_extract_signed_field(dfr0, ID_AA64DFR0_EL1_PMUVer_SHIFT) > 0)
++	pmuver = cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_PMUVer_SHIFT);
++	if (pmuv3_implemented(pmuver))
+ 		*host_data_ptr(nr_event_counters) = FIELD_GET(ARMV8_PMU_PMCR_N,
+ 							      read_sysreg(pmcr_el0));
+ 
+-- 
+2.54.0.rc1.555.g9c883467ad-goog
+
 
