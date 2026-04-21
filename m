@@ -4,94 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86F74F8925E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 11:30:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F3E1F89251
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 11:41:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jPjnZBfP1z/pXHiEqouMeuwtbWPnoWSvPWYO1xCNVEw=; b=OfwZlJrAdAEMdY4CSafywI7Np3
-	Tu52jFtjLZGtNY8FLGlnloUIDExDfrKdOE6FTXFVDyV/GMl68UlMcNhvwKGxrwXLSHrEJD9nhloYt
-	XMl76RTh/cji77ighhrvB3LRpv5avK7qjN188G++tl7z57NgBuR67P4KDfdeXcr05NitWkNK83q09
-	Tip50DkyZrvzuvWB+Mo5Cz+KNn/3+6XVLskw38HJjYsOHNuOXGOkRTlnRYRFeroQXH7kfpGGdo7d9
-	vXufT6rCyESZVON2+N/7fVf/cXXy7SeNEGlVB/RiIpXfPDsz/fzLsMOlPoDK1AWQ1sG56tKYr/ZLp
-	wN4BFBOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9zD4iibryLA3bNTNIkkuD5WU8zZV2TDGYd+O1YNSifA=; b=o7KgIwQxxQ1l+cPLBDTLIYwZxi
+	BNcd9sJfdUGm0LMRr9HJ824xxcj2XAhRcMJF6l7L8H53gOaRiwrdLdz9Z0Ldtk1B+5h5EEHsp/XxW
+	yXG5xC7Jsb1g9gV7tsp1IAddzAC7SNf+dhGef4uaFS7qvchmbxDV8kh9yOiHhG2nizyWsquO4oCkH
+	RuauNou+vRM1WxvLE3autJ5PriC7a+yKlXGCwMVywnTuB9HKPN5CCKcT0i1qN/3O2g4JeXM/VgEp/
+	78nhl2i5hM+eXkErcsK/xiMjgJacIYTS6hZ3gpC+3U7mHEvfR1sl6LaOmVA1nAE9ULZhqRik1LfgA
+	5DUUWjoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF9JN-00000008WJm-1XWc;
-	Tue, 21 Apr 2026 11:30:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wF9TS-00000008WuX-2l7F;
+	Tue, 21 Apr 2026 11:41:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF9JL-00000008WJW-3Dv6
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 21 Apr 2026 11:30:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=content-type:Content-Transfer-Encoding
-	:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=jPjnZBfP1z/pXHiEqouMeuwtbWPnoWSvPWYO1xCNVEw=; b=JKj0Kb7kqv7IxWo6WXs/CiIywE
-	NlH1HYhInzyI7mT2iZUSxcoLpdwgWCTUknEU11roQYJgEp3l/UDkZZc8Qc0TaSA+dBwuxjd6ZbUmm
-	GME+QZ37GFukJMV6z7h2gZRm649uv2Qe5Wc6Jj17Pmq6vsdEeXJx5+Eq5NO/lVRIbIckjcnDlOtcq
-	FlI0Ivkj0PSDEWdbc+7Y2TyjPZcY+YGf456n4xl360OdfINKJvdJBz7Ra2lrK/ikgCABXFcq2Y06R
-	Z9uP9Z2ivscRaKUEXa6klSEQ/6A7EBigJadVF0ESixUP4lR4YLfgOAg8Ce12ammP6ijPT2igzuFQV
-	E4uUFrLg==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF9JI-00000009eFT-2N0N
+	id 1wF9TP-00000008Wtj-0jzM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 11:30:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1776771021;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=jPjnZBfP1z/pXHiEqouMeuwtbWPnoWSvPWYO1xCNVEw=;
-	b=VfNxEzJ54FXahdc3v5X+j6YEMduHyLpkN1MdYEEqlk0Awi/KnpeXPFvkerHuhc4VZU9Yv8
-	cV9yagryjzwTly7Kfdt6BkwzzJzdvYC7cODKPn/Dtr6eriJPQAP8DFPKpbXVRKLsTLr7ZA
-	W7HMTBVNaGJ7mkTiZ8TJ6pHKttHETRA=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1776771029;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=jPjnZBfP1z/pXHiEqouMeuwtbWPnoWSvPWYO1xCNVEw=;
-	b=Ch4XlYrMhJ0R9oLzX6PK3VlGQFWfkVkmHoXhO2O4ajSNT6Y7M7sBPgXVizs/O5izh3shFd
-	bZjggEvzwwT8znybfsT051XkbVn92wLlvFC9PHXVDUp2QNQFpz6IMEfLDy8zuAX5MxmtAu
-	UUHZOY2FPYBceTlVeqCBngfdkr3EOvU=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-474-PatFLygDOaOEH02LjEqflw-1; Tue,
- 21 Apr 2026 07:30:18 -0400
-X-MC-Unique: PatFLygDOaOEH02LjEqflw-1
-X-Mimecast-MFC-AGG-ID: PatFLygDOaOEH02LjEqflw_1776771017
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BA96B195606F;
-	Tue, 21 Apr 2026 11:30:16 +0000 (UTC)
-Received: from thuth-p1g4.redhat.com (unknown [10.44.49.140])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 1A49C1956095;
-	Tue, 21 Apr 2026 11:30:13 +0000 (UTC)
-From: Thomas Huth <thuth@redhat.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
+	Tue, 21 Apr 2026 11:41:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 45429440C0;
+	Tue, 21 Apr 2026 11:40:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C072FC2BCB0;
+	Tue, 21 Apr 2026 11:40:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776771658;
+	bh=AMrZo1hx0IaVR554MMJRzqOTHAysXa89TiJakACup3w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JnHmsRiScc5GjzXlfh0NjHFnm9wOfj8svUl52iPpZKhGdUtgk8jl8OO/AN7wHh2dA
+	 9ybsedV1naVRheAdzo6wj0TDYbYK/w2rVR4qsBs3Q/8BSmsJzdEGdK6AJJtcsKGpo/
+	 wNHDUVfBPjIDParXLo2fKN4S/HwKhMM6VofQTbx/KhpQ8jgrdiqRfZBeuTk9jOrBoR
+	 te9BAsxHW+mqsvhiCWw+WXq+2HC8WOrEBjfa4dZs8w6FLzeZefcuqPPAPbXltEBTzz
+	 5ftIjazSXQ/D2AuTaen1lHLuQXFE8Par1wSCHYHOIC3UFG4cLcmmki6Mne1kQJz1UZ
+	 3lyiUgPQ3YASA==
+Date: Tue, 21 Apr 2026 13:40:55 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Sangyun Kim <sangyun.kim@snu.ac.kr>
+Cc: nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
+	claudiu.beznea@tuxon.dev, linux-pwm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] irqchip/gic: Replace __ASSEMBLY__ with __ASSEMBLER__
-Date: Tue, 21 Apr 2026 13:30:12 +0200
-Message-ID: <20260421113012.146528-1-thuth@redhat.com>
+Subject: Re: [PATCH v2] pwm: atmel-tcb: Cache clock rates and mark chip as
+ atomic
+Message-ID: <aedfEzeRH5tH0-Fb@monoceros>
+References: <20260415093433.2359955-1-sangyun.kim@snu.ac.kr>
+ <20260419080838.3192357-1-sangyun.kim@snu.ac.kr>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
-X-Mimecast-MFC-PROC-ID: ZQN0vvpsPsK3Na9HZYAiXAQpQbiQGwruIaq3pM-n05o_1776771017
-X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="zmlydvd5ruato4sk"
+Content-Disposition: inline
+In-Reply-To: <20260419080838.3192357-1-sangyun.kim@snu.ac.kr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_123032_768111_670496BD 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20260421_044059_370446_79E3FF28 
+X-CRM114-Status: GOOD (  17.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,80 +75,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thomas Huth <thuth@redhat.com>
 
-While the GCC and Clang compilers already define __ASSEMBLER__
-automatically when compiling assembly code, __ASSEMBLY__ is a
-macro that only gets defined by the Makefiles in the kernel.
-This can be very confusing when switching between userspace
-and kernelspace coding, or when dealing with uapi headers that
-rather should use __ASSEMBLER__ instead. So let's standardize now
-on the __ASSEMBLER__ macro that is provided by the compilers.
+--zmlydvd5ruato4sk
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2] pwm: atmel-tcb: Cache clock rates and mark chip as
+ atomic
+MIME-Version: 1.0
 
-Signed-off-by: Thomas Huth <thuth@redhat.com>
----
- Note: Patch has been split from an earlier patch series of mine
- to ease reviewing
+Hello Sangyun,
 
- arch/arm/include/asm/arch_gicv3.h  | 4 ++--
- include/linux/irqchip/arm-gic-v3.h | 2 +-
- include/linux/irqchip/arm-gic.h    | 4 ++--
- 3 files changed, 5 insertions(+), 5 deletions(-)
+On Sun, Apr 19, 2026 at 05:08:38PM +0900, Sangyun Kim wrote:
+> @@ -438,16 +441,33 @@ static int atmel_tcb_pwm_probe(struct platform_devi=
+ce *pdev)
+>  	if (err)
+>  		goto err_gclk;
+> =20
+> +	err =3D clk_rate_exclusive_get(tcbpwmc->clk);
+> +	if (err)
+> +		goto err_disable_clk;
+> +
+> +	err =3D clk_rate_exclusive_get(tcbpwmc->slow_clk);
+> +	if (err)
+> +		goto err_clk_unlock;
+> +
+> +	tcbpwmc->rate =3D clk_get_rate(tcbpwmc->clk);
+> +	tcbpwmc->slow_rate =3D clk_get_rate(tcbpwmc->slow_clk);
+> +
 
-diff --git a/arch/arm/include/asm/arch_gicv3.h b/arch/arm/include/asm/arch_gicv3.h
-index 311e83038bdb3..847590df75511 100644
---- a/arch/arm/include/asm/arch_gicv3.h
-+++ b/arch/arm/include/asm/arch_gicv3.h
-@@ -7,7 +7,7 @@
- #ifndef __ASM_ARCH_GICV3_H
- #define __ASM_ARCH_GICV3_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/io.h>
- #include <linux/io-64-nonatomic-lo-hi.h>
-@@ -257,5 +257,5 @@ static inline bool gic_has_relaxed_pmr_sync(void)
- 	return false;
- }
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- #endif /* !__ASM_ARCH_GICV3_H */
-diff --git a/include/linux/irqchip/arm-gic-v3.h b/include/linux/irqchip/arm-gic-v3.h
-index 0225121f30138..ea5fd2374ebe0 100644
---- a/include/linux/irqchip/arm-gic-v3.h
-+++ b/include/linux/irqchip/arm-gic-v3.h
-@@ -604,7 +604,7 @@
- 
- #include <asm/arch_gicv3.h>
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- /*
-  * We need a value to serve as a irq-type for LPIs. Choose one that will
-diff --git a/include/linux/irqchip/arm-gic.h b/include/linux/irqchip/arm-gic.h
-index d45fa19f9e470..849386dc5ec80 100644
---- a/include/linux/irqchip/arm-gic.h
-+++ b/include/linux/irqchip/arm-gic.h
-@@ -131,7 +131,7 @@
- #define GICV_PMR_PRIORITY_SHIFT		3
- #define GICV_PMR_PRIORITY_MASK		(0x1f << GICV_PMR_PRIORITY_SHIFT)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/irqdomain.h>
- 
-@@ -162,5 +162,5 @@ int gic_get_cpu_id(unsigned int cpu);
- void gic_migrate_target(unsigned int new_cpu_id);
- unsigned long gic_get_sgir_physaddr(void);
- 
--#endif /* __ASSEMBLY */
-+#endif /* __ASSEMBLER__ */
- #endif
--- 
-2.53.0
+Only one concern left: clk_get_rate() should only be called on enabled
+clocks. I don't know the architecture details and how expensive it is to
+have .clk enabled (or if it's enabled anyhow).
 
+If you're ok, I'd squash the following diff into your patch:
+
+diff --git a/drivers/pwm/pwm-atmel-tcb.c b/drivers/pwm/pwm-atmel-tcb.c
+index 1a2832f1ace2..3d30aeab507e 100644
+--- a/drivers/pwm/pwm-atmel-tcb.c
++++ b/drivers/pwm/pwm-atmel-tcb.c
+@@ -437,13 +437,17 @@ static int atmel_tcb_pwm_probe(struct platform_device=
+ *pdev)
+ 	tcbpwmc->channel =3D channel;
+ 	tcbpwmc->width =3D config->counter_width;
+=20
+-	err =3D clk_prepare_enable(tcbpwmc->slow_clk);
++	err =3D clk_prepare_enable(tcbpwmc->clk);
+ 	if (err)
+ 		goto err_gclk;
+=20
++	err =3D clk_prepare_enable(tcbpwmc->slow_clk);
++	if (err)
++		goto err_disable_clk;;
++
+ 	err =3D clk_rate_exclusive_get(tcbpwmc->clk);
+ 	if (err)
+-		goto err_disable_clk;
++		goto err_disable_slow_clk;
+=20
+ 	err =3D clk_rate_exclusive_get(tcbpwmc->slow_clk);
+ 	if (err)
+@@ -469,6 +473,9 @@ static int atmel_tcb_pwm_probe(struct platform_device *=
+pdev)
+ 	clk_rate_exclusive_put(tcbpwmc->clk);
+=20
+ err_disable_clk:
++	clk_disable_unprepare(tcbpwmc->clk);
++
++err_disable_slow_clk:
+ 	clk_disable_unprepare(tcbpwmc->slow_clk);
+=20
+ err_gclk:
+@@ -492,6 +499,7 @@ static void atmel_tcb_pwm_remove(struct platform_device=
+ *pdev)
+=20
+ 	clk_rate_exclusive_put(tcbpwmc->slow_clk);
+ 	clk_rate_exclusive_put(tcbpwmc->clk);
++	clk_disable_unprepare(tcbpwmc->clk);
+ 	clk_disable_unprepare(tcbpwmc->slow_clk);
+ 	clk_put(tcbpwmc->gclk);
+ 	clk_put(tcbpwmc->clk);
+
+
+This has the downside that clk is kept enabled the whole driver
+lifetime, but that's the easiest way to make your fix honor the clk API
+constraints. This allows to fast-track the patch fixing the sleeping
+function called from invalid context issue and the optimisation can then
+be addressed with more time during the next development cycles.
+
+Best regards
+Uwe
+
+--zmlydvd5ruato4sk
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmnnYkUACgkQj4D7WH0S
+/k6oIQgAmju9sVnu1SosgbRPtkoA4RXoRnn776xuGDw/YiiUdWY0a74HZ3q1TGln
+EsiW5MDYMdWQVF0FRBK8Sx1RnVGzAvBqnupEQdLODs5G48tnLFXBEUmuMV6iU4JB
+ackooROEjHtZj7AgAlmDGUUtz0MPR4LPNWxs1RCjE+iUtamtAaEQxbQ0pJKI/QlB
+d1UZ2XStLLvVBBhoJhhwmUoEwtCnPRm2O8TZFIxt+1Yb9kUcVc+eH2AGyMVGpGYu
+CSFdjbjjWnLwakKgJSZbb4BeXD0a6UY/cYb+AKiaon0Uzqd/QU3YwgJJFkh9W10d
+Aj88FgPkNhpZP4oIIFS9qUx/fV6sRg==
+=9oZB
+-----END PGP SIGNATURE-----
+
+--zmlydvd5ruato4sk--
 
