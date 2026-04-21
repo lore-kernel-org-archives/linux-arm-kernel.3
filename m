@@ -4,56 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B36A1F89244
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 10:00:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE4E2F89246
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 10:00:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u0pR2TqeYhBIFGw/bl7uJrx5/wFjhnnWvqeCLD98fUs=; b=OoUcBsSsG4Tw4hR7+URrco20Im
-	cpbieuORHrbEJrd09JjE0CGy3+wULLbuci2R31+XNWeDKKJ7MJX6/L+s+u/0PWisADG4HCHSXz2tS
-	DKezHxcL7t6tSne/CNV6LCX6/cYOj43rMZliNQOKL4Xm5mz0YE8bezNoEtKUx6caLqfvdwHjaEPCD
-	HVdknuYPjPGP5gHMypN0hp9u4HH/aqZ3+rYzHF+uEo3OXcRfdROTetX+03AL5OSL3M9BuD9pya5fO
-	e7STvyq9vqAeMf6sTiZx2flhd5KjFBSEcJTFJgNO3zSlHhAqde3vvZ8KKgkY3sRu6lRGnHS1a781M
-	JjBC3guA==;
+	bh=OGQ9Wm1/XYQ+PYyoyWYqNIK6YfsibrrWAiy42dkhc/Y=; b=xWKrli7U8An47H0MY9JR191ON1
+	0wVhnGPGfs8828nIE6cN+jknWzViEy5eS1LkWo7D7ShZN1Hel++rXlam0mqjXDLDa3Msg3QqpJBnY
+	CFpS3vbBh5vy9umBiGySBL7DFF1S8KL2BOKZLA+4RgaEXn9dmn6mHxTTxbsqgBSACBfojTd27RQRq
+	ZEeRVa3za/5INMytd3IVHDl+4B/+IBsUvPArbuTLEZdBk342F8k/WVkUxYAIUy+KWiPDl/UilR17D
+	5lSOAAvHPOMuyVFcY9hjebl0Gie0Sae8jazKnMfQdRCQIduS1KqbaCap03M5eU51NvTXMC0AkQbgt
+	8ikm6eeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF7uK-00000008O9y-0U3I;
+	id 1wF7uQ-00000008OD2-0HEo;
+	Tue, 21 Apr 2026 10:00:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wF7uK-00000008O9l-2bVn
+	for linux-arm-kernel@bombadil.infradead.org;
 	Tue, 21 Apr 2026 10:00:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=OGQ9Wm1/XYQ+PYyoyWYqNIK6YfsibrrWAiy42dkhc/Y=; b=dOfcZzunIwrtGgGde3bOAMo6Cm
+	PWKV7wMJhCfp1zndRZrIwPPcF+H0auP+DKOJ4Y/jAd3GXeRSozF0O4bHWW09rcVQBDd2Wkvswt69E
+	rV5N7/WmgHLKDaOBVhhsjNuqcLsvNjmkPRHq+EUJNRKNeNv4/aXvV8qd5wXeebPRvQ5IWZSuLlSUR
+	3QQCdQBIYCtIkAnFGC4bCwrObGk+NPRaC4VBy9l20/tyKvvQ/lmk9uI6QHYtgJM2tCqhfpSCndj0y
+	5Z22Q8smmgKH5oQiAax9kNizboRnnDfONrcRUSBZdy4OEpIeMdNT9UG4R3fSDFu2OtJCYY/16WkQw
+	FZQaw59Q==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF7uB-00000008O5v-3qR9
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wF7u9-00000009XMc-3hug
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 21 Apr 2026 10:00:36 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7A9E025E4;
-	Tue, 21 Apr 2026 03:00:25 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2DE423025;
+	Tue, 21 Apr 2026 03:00:23 -0700 (PDT)
 Received: from localhost.localdomain (unknown [10.57.89.2])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 435A83FBCB;
-	Tue, 21 Apr 2026 03:00:30 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F07D43FBCB;
+	Tue, 21 Apr 2026 03:00:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776765631; bh=RwsN2CgG2SI9qNtkK8vDdEWy5REKILJGAL5W2Im1J58=;
+	t=1776765628; bh=EcTNGzHdHBi2cf4To1CwO4uoUFlIH4PpaV+wukCR4pU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=M7pLyEYMjdtAFhBTfS8O2+tot/hhcYEo2K0HQXkxJvt8PV1uebEIKZ4i0pFyTwCji
-	 yyPpU7EQPAwgfG+VyCTnI2oUVeFNC/HyauDUai5xgzOE48gA56+3ItPAlqj1bi/DV+
-	 LXAF2ZedyXXA8wiiHaEWTSxOblTjgxiXJgpYAy+4=
+	b=FGyXEpRMyPJQYr/DY+ArC7uqtZGUttfaeRO7DqOnhA1PgFGrZxuM6JWNQc0C3XCSK
+	 owEbolGv1QbV8Mvva4z2OihzjcluLXkNb4TXI0iMV0Z5Fii69p4y7S3piqPzu5/+v+
+	 v+XIGUOtxJEXmbP+UDQfs22jqBz9v09+Rt6b6QGQ=
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: stable@vger.kernel.org
 Cc: Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 6.18.y 6/6] arm64: errata: Work around early CME DVMSync acknowledgement
-Date: Tue, 21 Apr 2026 11:00:17 +0100
-Message-ID: <20260421100018.335793-7-catalin.marinas@arm.com>
+Subject: [PATCH 6.18.y 4/6] arm64: tlb: Pass the corresponding mm to __tlbi_sync_s1ish()
+Date: Tue, 21 Apr 2026 11:00:15 +0100
+Message-ID: <20260421100018.335793-5-catalin.marinas@arm.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260421100018.335793-1-catalin.marinas@arm.com>
 References: <20260421100018.335793-1-catalin.marinas@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_030032_054045_55EFC58B 
-X-CRM114-Status: GOOD (  29.39  )
+X-CRM114-CacheID: sfid-20260421_110030_186818_51D14DFB 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,524 +83,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-commit 0baba94a9779c13c857f6efc55807e6a45b1d4e4 upstream.
+commit d9fb08ba946a6190c371dcd9f9e465d0d52c5021 upstream.
 
-C1-Pro acknowledges DVMSync messages before completing the SME/CME
-memory accesses. Work around this by issuing an IPI to the affected CPUs
-if they are running in EL0 with SME enabled.
+The mm structure will be used for workarounds that need limiting to
+specific tasks.
 
-Note that we avoid the local DSB in the IPI handler as the kernel runs
-with SCTLR_EL1.IESB=1. This is sufficient to complete SME memory
-accesses at EL0 on taking an exception to EL1. On the return to user
-path, no barrier is necessary either. See the comment in
-sme_set_active() and the more detailed explanation in the link below.
-
-To avoid a potential IPI flood from malicious applications (e.g.
-madvise(MADV_PAGEOUT) in a tight loop), track where a process is active
-via mm_cpumask() and only interrupt those CPUs.
-
-Link: https://lore.kernel.org/r/ablEXwhfKyJW1i7l@J2N7QTR9R3
+Acked-by: Mark Rutland <mark.rutland@arm.com>
 Cc: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: James Morse <james.morse@arm.com>
-Cc: Mark Brown <broonie@kernel.org>
 Reviewed-by: Will Deacon <will@kernel.org>
 Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
 ---
- Documentation/arch/arm64/silicon-errata.rst |  2 +
- arch/arm64/Kconfig                          | 12 ++++
- arch/arm64/include/asm/cpucaps.h            |  2 +
- arch/arm64/include/asm/fpsimd.h             | 21 ++++++
- arch/arm64/include/asm/tlbbatch.h           | 10 ++-
- arch/arm64/include/asm/tlbflush.h           | 72 ++++++++++++++++++-
- arch/arm64/kernel/cpu_errata.c              | 30 ++++++++
- arch/arm64/kernel/entry-common.c            |  3 +
- arch/arm64/kernel/fpsimd.c                  | 79 +++++++++++++++++++++
- arch/arm64/kernel/process.c                 | 36 ++++++++++
- arch/arm64/tools/cpucaps                    |  1 +
- 11 files changed, 264 insertions(+), 4 deletions(-)
+ arch/arm64/include/asm/tlbflush.h | 8 ++++----
+ arch/arm64/kernel/sys_compat.c    | 2 +-
+ 2 files changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index a7ec57060f64..93cdf1693715 100644
---- a/Documentation/arch/arm64/silicon-errata.rst
-+++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -202,6 +202,8 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | ARM            | Neoverse-V3AE   | #3312417        | ARM64_ERRATUM_3194386       |
- +----------------+-----------------+-----------------+-----------------------------+
-+| ARM            | C1-Pro          | #4193714        | ARM64_ERRATUM_4193714       |
-++----------------+-----------------+-----------------+-----------------------------+
- | ARM            | MMU-500         | #841119,826419  | ARM_SMMU_MMU_500_CPRE_ERRATA|
- |                |                 | #562869,1047329 |                             |
- +----------------+-----------------+-----------------+-----------------------------+
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 6663ffd23f25..840a945cb4ac 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1154,6 +1154,18 @@ config ARM64_ERRATUM_3194386
- 
- 	  If unsure, say Y.
- 
-+config ARM64_ERRATUM_4193714
-+	bool "C1-Pro: 4193714: SME DVMSync early acknowledgement"
-+	depends on ARM64_SME
-+	default y
-+	help
-+	  Enable workaround for C1-Pro acknowledging the DVMSync before
-+	  the SME memory accesses are complete. This will cause TLB
-+	  maintenance for processes using SME to also issue an IPI to
-+	  the affected CPUs.
-+
-+	  If unsure, say Y.
-+
- config CAVIUM_ERRATUM_22375
- 	bool "Cavium erratum 22375, 24313"
- 	default y
-diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
-index 9d769291a306..121210b7ffd0 100644
---- a/arch/arm64/include/asm/cpucaps.h
-+++ b/arch/arm64/include/asm/cpucaps.h
-@@ -66,6 +66,8 @@ cpucap_is_possible(const unsigned int cap)
- 		return IS_ENABLED(CONFIG_ARM64_WORKAROUND_REPEAT_TLBI);
- 	case ARM64_WORKAROUND_SPECULATIVE_SSBS:
- 		return IS_ENABLED(CONFIG_ARM64_ERRATUM_3194386);
-+	case ARM64_WORKAROUND_4193714:
-+		return IS_ENABLED(CONFIG_ARM64_ERRATUM_4193714);
- 	case ARM64_MPAM:
- 		/*
- 		 * KVM MPAM support doesn't rely on the host kernel supporting MPAM.
-diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
-index b8cf0ea43cc0..0fa8d1d5722e 100644
---- a/arch/arm64/include/asm/fpsimd.h
-+++ b/arch/arm64/include/asm/fpsimd.h
-@@ -428,6 +428,24 @@ static inline size_t sme_state_size(struct task_struct const *task)
- 	return __sme_state_size(task_get_sme_vl(task));
- }
- 
-+void sme_enable_dvmsync(void);
-+void sme_set_active(void);
-+void sme_clear_active(void);
-+
-+static inline void sme_enter_from_user_mode(void)
-+{
-+	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714) &&
-+	    test_thread_flag(TIF_SME))
-+		sme_clear_active();
-+}
-+
-+static inline void sme_exit_to_user_mode(void)
-+{
-+	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714) &&
-+	    test_thread_flag(TIF_SME))
-+		sme_set_active();
-+}
-+
- #else
- 
- static inline void sme_user_disable(void) { BUILD_BUG(); }
-@@ -456,6 +474,9 @@ static inline size_t sme_state_size(struct task_struct const *task)
- 	return 0;
- }
- 
-+static inline void sme_enter_from_user_mode(void) { }
-+static inline void sme_exit_to_user_mode(void) { }
-+
- #endif /* ! CONFIG_ARM64_SME */
- 
- /* For use by EFI runtime services calls only */
-diff --git a/arch/arm64/include/asm/tlbbatch.h b/arch/arm64/include/asm/tlbbatch.h
-index fedb0b87b8db..6297631532e5 100644
---- a/arch/arm64/include/asm/tlbbatch.h
-+++ b/arch/arm64/include/asm/tlbbatch.h
-@@ -2,11 +2,17 @@
- #ifndef _ARCH_ARM64_TLBBATCH_H
- #define _ARCH_ARM64_TLBBATCH_H
- 
-+#include <linux/cpumask.h>
-+
- struct arch_tlbflush_unmap_batch {
-+#ifdef CONFIG_ARM64_ERRATUM_4193714
- 	/*
--	 * For arm64, HW can do tlb shootdown, so we don't
--	 * need to record cpumask for sending IPI
-+	 * Track CPUs that need SME DVMSync on completion of this batch.
-+	 * Otherwise, the arm64 HW can do tlb shootdown, so we don't need to
-+	 * record cpumask for sending IPI
- 	 */
-+	cpumask_var_t cpumask;
-+#endif
- };
- 
- #endif /* _ARCH_ARM64_TLBBATCH_H */
 diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index ba36e91aefb8..f53ab3ba0c48 100644
+index 387bd86af702..ba36e91aefb8 100644
 --- a/arch/arm64/include/asm/tlbflush.h
 +++ b/arch/arm64/include/asm/tlbflush.h
-@@ -80,6 +80,71 @@ static inline unsigned long get_trans_granule(void)
- 	}
- }
- 
-+#ifdef CONFIG_ARM64_ERRATUM_4193714
-+
-+void sme_do_dvmsync(const struct cpumask *mask);
-+
-+static inline void sme_dvmsync(struct mm_struct *mm)
-+{
-+	if (!alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714))
-+		return;
-+
-+	sme_do_dvmsync(mm_cpumask(mm));
-+}
-+
-+static inline void sme_dvmsync_add_pending(struct arch_tlbflush_unmap_batch *batch,
-+					   struct mm_struct *mm)
-+{
-+	if (!alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714))
-+		return;
-+
-+	/*
-+	 * Order the mm_cpumask() read after the hardware DVMSync.
-+	 */
-+	dsb(ish);
-+	if (cpumask_empty(mm_cpumask(mm)))
-+		return;
-+
-+	/*
-+	 * Allocate the batch cpumask on first use. Fall back to an immediate
-+	 * IPI for this mm in case of failure.
-+	 */
-+	if (!cpumask_available(batch->cpumask) &&
-+	    !zalloc_cpumask_var(&batch->cpumask, GFP_ATOMIC)) {
-+		sme_do_dvmsync(mm_cpumask(mm));
-+		return;
-+	}
-+
-+	cpumask_or(batch->cpumask, batch->cpumask, mm_cpumask(mm));
-+}
-+
-+static inline void sme_dvmsync_batch(struct arch_tlbflush_unmap_batch *batch)
-+{
-+	if (!alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714))
-+		return;
-+
-+	if (!cpumask_available(batch->cpumask))
-+		return;
-+
-+	sme_do_dvmsync(batch->cpumask);
-+	cpumask_clear(batch->cpumask);
-+}
-+
-+#else
-+
-+static inline void sme_dvmsync(struct mm_struct *mm)
-+{
-+}
-+static inline void sme_dvmsync_add_pending(struct arch_tlbflush_unmap_batch *batch,
-+					   struct mm_struct *mm)
-+{
-+}
-+static inline void sme_dvmsync_batch(struct arch_tlbflush_unmap_batch *batch)
-+{
-+}
-+
-+#endif /* CONFIG_ARM64_ERRATUM_4193714 */
-+
- /*
-  * Level-based TLBI operations.
-  *
-@@ -189,12 +254,14 @@ static inline void __tlbi_sync_s1ish(struct mm_struct *mm)
- {
- 	dsb(ish);
- 	__repeat_tlbi_sync(vale1is, 0);
-+	sme_dvmsync(mm);
- }
- 
--static inline void __tlbi_sync_s1ish_batch(void)
-+static inline void __tlbi_sync_s1ish_batch(struct arch_tlbflush_unmap_batch *batch)
- {
- 	dsb(ish);
- 	__repeat_tlbi_sync(vale1is, 0);
-+	sme_dvmsync_batch(batch);
- }
- 
- static inline void __tlbi_sync_s1ish_kernel(void)
-@@ -357,7 +424,7 @@ static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+@@ -185,7 +185,7 @@ do {										\
+  * Complete broadcast TLB maintenance issued by the host which invalidates
+  * stage 1 information in the host's own translation regime.
   */
- static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
+-static inline void __tlbi_sync_s1ish(void)
++static inline void __tlbi_sync_s1ish(struct mm_struct *mm)
  {
--	__tlbi_sync_s1ish_batch();
-+	__tlbi_sync_s1ish_batch(batch);
+ 	dsb(ish);
+ 	__repeat_tlbi_sync(vale1is, 0);
+@@ -310,7 +310,7 @@ static inline void flush_tlb_mm(struct mm_struct *mm)
+ 	asid = __TLBI_VADDR(0, ASID(mm));
+ 	__tlbi(aside1is, asid);
+ 	__tlbi_user(aside1is, asid);
+-	__tlbi_sync_s1ish();
++	__tlbi_sync_s1ish(mm);
+ 	mmu_notifier_arch_invalidate_secondary_tlbs(mm, 0, -1UL);
  }
  
- /*
-@@ -546,6 +613,7 @@ static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *b
- 		struct mm_struct *mm, unsigned long start, unsigned long end)
+@@ -337,7 +337,7 @@ static inline void flush_tlb_page(struct vm_area_struct *vma,
+ 				  unsigned long uaddr)
  {
- 	__flush_tlb_range_nosync(mm, start, end, PAGE_SIZE, true, 3);
-+	sme_dvmsync_add_pending(batch, mm);
+ 	flush_tlb_page_nosync(vma, uaddr);
+-	__tlbi_sync_s1ish();
++	__tlbi_sync_s1ish(vma->vm_mm);
  }
- #endif
  
-diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-index 8cb3b575a031..6c8c4301d9c6 100644
---- a/arch/arm64/kernel/cpu_errata.c
-+++ b/arch/arm64/kernel/cpu_errata.c
-@@ -11,6 +11,7 @@
- #include <asm/cpu.h>
- #include <asm/cputype.h>
- #include <asm/cpufeature.h>
-+#include <asm/fpsimd.h>
- #include <asm/kvm_asm.h>
- #include <asm/smp_plat.h>
- 
-@@ -551,6 +552,23 @@ static const struct midr_range erratum_spec_ssbs_list[] = {
- };
- #endif
- 
-+#ifdef CONFIG_ARM64_ERRATUM_4193714
-+static bool has_sme_dvmsync_erratum(const struct arm64_cpu_capabilities *entry,
-+				    int scope)
-+{
-+	if (!id_aa64pfr1_sme(read_sanitised_ftr_reg(SYS_ID_AA64PFR1_EL1)))
-+		return false;
-+
-+	return is_affected_midr_range(entry, scope);
-+}
-+
-+static void cpu_enable_sme_dvmsync(const struct arm64_cpu_capabilities *__unused)
-+{
-+	if (this_cpu_has_cap(ARM64_WORKAROUND_4193714))
-+		sme_enable_dvmsync();
-+}
-+#endif
-+
- #ifdef CONFIG_AMPERE_ERRATUM_AC03_CPU_38
- static const struct midr_range erratum_ac03_cpu_38_list[] = {
- 	MIDR_ALL_VERSIONS(MIDR_AMPERE1),
-@@ -870,6 +888,18 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
- 		ERRATA_MIDR_RANGE_LIST(erratum_spec_ssbs_list),
- 	},
- #endif
-+#ifdef CONFIG_ARM64_ERRATUM_4193714
-+	{
-+		.desc = "C1-Pro SME DVMSync early acknowledgement",
-+		.capability = ARM64_WORKAROUND_4193714,
-+		.type = ARM64_CPUCAP_LOCAL_CPU_ERRATUM,
-+		.matches = has_sme_dvmsync_erratum,
-+		.cpu_enable = cpu_enable_sme_dvmsync,
-+		/* C1-Pro r0p0 - r1p2 (the latter only when REVIDR_EL1[0]==0) */
-+		.midr_range = MIDR_RANGE(MIDR_C1_PRO, 0, 0, 1, 2),
-+		MIDR_FIXED(MIDR_CPU_VAR_REV(1, 2), BIT(0)),
-+	},
-+#endif
- #ifdef CONFIG_ARM64_WORKAROUND_SPECULATIVE_UNPRIV_LOAD
- 	{
- 		.desc = "ARM errata 2966298, 3117295",
-diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-index a9c81715ce59..5b97dfcf796d 100644
---- a/arch/arm64/kernel/entry-common.c
-+++ b/arch/arm64/kernel/entry-common.c
-@@ -21,6 +21,7 @@
- #include <asm/daifflags.h>
- #include <asm/esr.h>
- #include <asm/exception.h>
-+#include <asm/fpsimd.h>
- #include <asm/irq_regs.h>
- #include <asm/kprobes.h>
- #include <asm/mmu.h>
-@@ -84,6 +85,7 @@ static __always_inline void __enter_from_user_mode(struct pt_regs *regs)
+ static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+@@ -492,7 +492,7 @@ static inline void __flush_tlb_range(struct vm_area_struct *vma,
  {
- 	enter_from_user_mode(regs);
- 	mte_disable_tco_entry(current);
-+	sme_enter_from_user_mode();
+ 	__flush_tlb_range_nosync(vma->vm_mm, start, end, stride,
+ 				 last_level, tlb_level);
+-	__tlbi_sync_s1ish();
++	__tlbi_sync_s1ish(vma->vm_mm);
  }
  
- static __always_inline void arm64_enter_from_user_mode(struct pt_regs *regs)
-@@ -102,6 +104,7 @@ static __always_inline void arm64_exit_to_user_mode(struct pt_regs *regs)
- 	local_irq_disable();
- 	exit_to_user_mode_prepare(regs);
- 	local_daif_mask();
-+	sme_exit_to_user_mode();
- 	mte_check_tfsr_exit();
- 	exit_to_user_mode();
- }
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index e3f8f51748bc..ca18214ce2ab 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -15,6 +15,7 @@
- #include <linux/compiler.h>
- #include <linux/cpu.h>
- #include <linux/cpu_pm.h>
-+#include <linux/cpumask.h>
- #include <linux/ctype.h>
- #include <linux/kernel.h>
- #include <linux/linkage.h>
-@@ -28,6 +29,7 @@
- #include <linux/sched/task_stack.h>
- #include <linux/signal.h>
- #include <linux/slab.h>
-+#include <linux/smp.h>
- #include <linux/stddef.h>
- #include <linux/sysctl.h>
- #include <linux/swab.h>
-@@ -1384,6 +1386,83 @@ void do_sve_acc(unsigned long esr, struct pt_regs *regs)
- 	put_cpu_fpsimd_context();
- }
+ static inline void flush_tlb_range(struct vm_area_struct *vma,
+diff --git a/arch/arm64/kernel/sys_compat.c b/arch/arm64/kernel/sys_compat.c
+index b9d4998c97ef..03fde2677d5b 100644
+--- a/arch/arm64/kernel/sys_compat.c
++++ b/arch/arm64/kernel/sys_compat.c
+@@ -37,7 +37,7 @@ __do_compat_cache_op(unsigned long start, unsigned long end)
+ 			 * We pick the reserved-ASID to minimise the impact.
+ 			 */
+ 			__tlbi(aside1is, __TLBI_VADDR(0, 0));
+-			__tlbi_sync_s1ish();
++			__tlbi_sync_s1ish(current->mm);
+ 		}
  
-+#ifdef CONFIG_ARM64_ERRATUM_4193714
-+
-+/*
-+ * SME/CME erratum handling.
-+ */
-+static cpumask_t sme_dvmsync_cpus;
-+
-+/*
-+ * These helpers are only called from non-preemptible contexts, so
-+ * smp_processor_id() is safe here.
-+ */
-+void sme_set_active(void)
-+{
-+	unsigned int cpu = smp_processor_id();
-+
-+	if (!cpumask_test_cpu(cpu, &sme_dvmsync_cpus))
-+		return;
-+
-+	cpumask_set_cpu(cpu, mm_cpumask(current->mm));
-+
-+	/*
-+	 * A subsequent (post ERET) SME access may use a stale address
-+	 * translation. On C1-Pro, a TLBI+DSB on a different CPU will wait for
-+	 * the completion of cpumask_set_cpu() above as it appears in program
-+	 * order before the SME access. The post-TLBI+DSB read of mm_cpumask()
-+	 * will lead to the IPI being issued.
-+	 *
-+	 * https://lore.kernel.org/r/ablEXwhfKyJW1i7l@J2N7QTR9R3
-+	 */
-+}
-+
-+void sme_clear_active(void)
-+{
-+	unsigned int cpu = smp_processor_id();
-+
-+	if (!cpumask_test_cpu(cpu, &sme_dvmsync_cpus))
-+		return;
-+
-+	/*
-+	 * With SCTLR_EL1.IESB enabled, the SME memory transactions are
-+	 * completed on entering EL1.
-+	 */
-+	cpumask_clear_cpu(cpu, mm_cpumask(current->mm));
-+}
-+
-+static void sme_dvmsync_ipi(void *unused)
-+{
-+	/*
-+	 * With SCTLR_EL1.IESB on, taking an exception is sufficient to ensure
-+	 * the completion of the SME memory accesses, so no need for an
-+	 * explicit DSB.
-+	 */
-+}
-+
-+void sme_do_dvmsync(const struct cpumask *mask)
-+{
-+	/*
-+	 * This is called from the TLB maintenance functions after the DSB ISH
-+	 * to send the hardware DVMSync message. If this CPU sees the mask as
-+	 * empty, the remote CPU executing sme_set_active() would have seen
-+	 * the DVMSync and no IPI required.
-+	 */
-+	if (cpumask_empty(mask))
-+		return;
-+
-+	preempt_disable();
-+	smp_call_function_many(mask, sme_dvmsync_ipi, NULL, true);
-+	preempt_enable();
-+}
-+
-+void sme_enable_dvmsync(void)
-+{
-+	cpumask_set_cpu(smp_processor_id(), &sme_dvmsync_cpus);
-+}
-+
-+#endif /* CONFIG_ARM64_ERRATUM_4193714 */
-+
- /*
-  * Trapped SME access
-  *
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index 489554931231..4c328b7c79ba 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -26,6 +26,7 @@
- #include <linux/reboot.h>
- #include <linux/interrupt.h>
- #include <linux/init.h>
-+#include <linux/cpumask.h>
- #include <linux/cpu.h>
- #include <linux/elfcore.h>
- #include <linux/pm.h>
-@@ -339,8 +340,41 @@ void flush_thread(void)
- 	flush_gcs();
- }
- 
-+#ifdef CONFIG_ARM64_ERRATUM_4193714
-+
-+static void arch_dup_tlbbatch_mask(struct task_struct *dst)
-+{
-+	/*
-+	 * Clear the inherited cpumask with memset() to cover both cases where
-+	 * cpumask_var_t is a pointer or an array. It will be allocated lazily
-+	 * in sme_dvmsync_add_pending() if CPUMASK_OFFSTACK=y.
-+	 */
-+	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714))
-+		memset(&dst->tlb_ubc.arch.cpumask, 0,
-+		       sizeof(dst->tlb_ubc.arch.cpumask));
-+}
-+
-+static void arch_release_tlbbatch_mask(struct task_struct *tsk)
-+{
-+	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714))
-+		free_cpumask_var(tsk->tlb_ubc.arch.cpumask);
-+}
-+
-+#else
-+
-+static void arch_dup_tlbbatch_mask(struct task_struct *dst)
-+{
-+}
-+
-+static void arch_release_tlbbatch_mask(struct task_struct *tsk)
-+{
-+}
-+
-+#endif /* CONFIG_ARM64_ERRATUM_4193714 */
-+
- void arch_release_task_struct(struct task_struct *tsk)
- {
-+	arch_release_tlbbatch_mask(tsk);
- 	fpsimd_release_task(tsk);
- }
- 
-@@ -356,6 +390,8 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
- 
- 	*dst = *src;
- 
-+	arch_dup_tlbbatch_mask(dst);
-+
- 	/*
- 	 * Drop stale reference to src's sve_state and convert dst to
- 	 * non-streaming FPSIMD mode.
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 1b32c1232d28..16d123088ddd 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -101,6 +101,7 @@ WORKAROUND_2077057
- WORKAROUND_2457168
- WORKAROUND_2645198
- WORKAROUND_2658417
-+WORKAROUND_4193714
- WORKAROUND_AMPERE_AC03_CPU_38
- WORKAROUND_AMPERE_AC04_CPU_23
- WORKAROUND_TRBE_OVERWRITE_FILL_MODE
+ 		ret = caches_clean_inval_user_pou(start, start + chunk);
 
