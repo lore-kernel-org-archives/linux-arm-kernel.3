@@ -4,81 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF12FF327B9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 07:43:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7978F327BC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 07:47:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GIaz6/7DXVdwytlGgL9pv/WnagG5FFKnaxcC67moXAQ=; b=pge9SQhjNZI98gfEy75QIcUUVQ
-	q2dL80nONROgxa/qTh+o+EHJChlzF5FAWncx4xPrI+I0cowkJS5D82DPzht3zAcPestuvf2n0ZM3s
-	PBAbTrXqfkNkQICSwW856f4X2pyKicdjbzlFNjNiiJv7vXJ5WtapPDt+0tcTxJ0Cl9t+xmpyEWr8e
-	CAFnf9aTQQ9p5P2hEdklilOxGYVaSaIpxJsBnZRKab1c5DozPeWd5ZXaqGkQD6/AdLRMueWLcjwsx
-	JaH+QccDZ2RKRN7VB/hV0j163s4N0WEs+NmLkrhw53nOjQvG2FT8xfEGjVcbRMoSA+R5eQr05nZso
-	MCVXxrvQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tf1/Nczyer/GJCIPDHmGkMVMbW3+J8WCh6h++SMiyOA=; b=k9xd1aetsGyFeZNycrsgPKo/Mz
+	qV1VCzG57WtFDkb+diQ1EjjOtOItU4u54Xegj69zQcpt/qYMCjZiAe+oT7n+AauungEvGjsHGnOTu
+	aVQQPLGDfYrVGzsm6zshSz3CAGSVsCKU9RhZsQCykB9cwY+GVFaYPUNXGURS7HGcFQh/o5RX9GJhZ
+	bPLzcsrfSpLiRS0dJ7ou9/Q5Czc6YvqwyYf98u4tn2lQ6Khe/Ej4vFrLUCMVeVXPCSpVxtV0e2vh0
+	0K2jChfJUK29Wsr/dTZMbpjUAcJf9DJ1yZEO19GsHd4Ih3QHg5BF2gBLldzHiiqHogPSw9xK6ZYqZ
+	DwoZPBgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF5l9-00000008Chr-3lxp;
-	Tue, 21 Apr 2026 07:43:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wF5p6-00000008CvP-2AMA;
+	Tue, 21 Apr 2026 07:47:08 +0000
+Received: from out-179.mta1.migadu.com ([95.215.58.179])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF5l8-00000008ChY-0icg
+	id 1wF5p3-00000008Cuv-1QbH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 07:43:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DEB9660018;
-	Tue, 21 Apr 2026 07:43:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92687C2BCB5;
-	Tue, 21 Apr 2026 07:43:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776757380;
-	bh=s7fVA6PF82ensDuWWJ/MMvmU6wMQangMaiwG9AjWg9g=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=J2kUDW3oOuMGsgK/37Z1WijTgnRl19e78rmMEVIsDFff1EYvUQz+euUUIqwWnJLON
-	 ax8sKwD9mAgpmiBJTVBLj12ANMcr9Z8UmbLmB9uWt1RCZ/zyal6aRnGqKUFl0b9Wte
-	 gWWuZJwf8qDYBaOEEGkmHPgTuqusxFnG8S+RWZucGb5GJdhK5+rigWXBM9d/7BG9NR
-	 w3EQAHKnqBEAxawCJLdBoEyEIlUGoqfebbbUyFFtodWgHkDAaHIAK76YZZZHeqdxh7
-	 LXlUdUHG+KRKgifjkdbbbcVornb0hTgG58ktx+gLewiIteFsI7JrWfUzU1RkCKafhn
-	 yEOHRU+6w94PA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wF5l3-0000000DL3A-3tRI;
-	Tue, 21 Apr 2026 07:42:58 +0000
-Date: Tue, 21 Apr 2026 08:42:57 +0100
-Message-ID: <86jyu021z2.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Deepanshu Kartikey <kartikey406@gmail.com>
-Cc: oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
+	Tue, 21 Apr 2026 07:47:07 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1776757619;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Tf1/Nczyer/GJCIPDHmGkMVMbW3+J8WCh6h++SMiyOA=;
+	b=qBtAk1+nNzp4Kl8q08RFuv48IsTFWM+xt/tlv/kUr3tpqfe5xYPcqNG/NSCwj3GwEDrPKS
+	Tjr5tT3APq2SB/EiN7Ju/Bzjfsc+cB8DPKdlY5NB+DfHxzv1EkzgASI+y8IFrTqVl8uJdT
+	d269iHpA5/QvNdycBlZjGdhfBEdJHB0=
+From: Lance Yang <lance.yang@linux.dev>
+To: david@kernel.org
+Cc: catalin.marinas@arm.com,
 	will@kernel.org,
-	drjones@redhat.com,
-	christoffer.dall@arm.com,
+	akpm@linux-foundation.org,
+	ljs@kernel.org,
+	Liam.Howlett@oracle.com,
+	vbabka@kernel.org,
+	rppt@kernel.org,
+	surenb@google.com,
+	mhocko@suse.com,
+	jackmanb@google.com,
+	hannes@cmpxchg.org,
+	ziy@nvidia.com,
+	lance.yang@linux.dev,
+	ryan.roberts@arm.com,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	syzbot+12b178b7c756664d2518@syzkaller.appspotmail.com
-Subject: Re: [PATCH] arm64: KVM: Initialize vGIC before preempt-disabled section in kvm_reset_vcpu()
-In-Reply-To: <CADhLXY4pL2BrPukVxr_kySzx48gMt7zFxOq8=eFSXqOB4at7aQ@mail.gmail.com>
-References: <20260412080437.38782-1-kartikey406@gmail.com>
-	<865x5r2dik.wl-maz@kernel.org>
-	<CADhLXY4pL2BrPukVxr_kySzx48gMt7zFxOq8=eFSXqOB4at7aQ@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+	linux-mm@kvack.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] mm/page_alloc: fix initialization of tags of the huge zero folio with init_on_free
+Date: Tue, 21 Apr 2026 15:46:30 +0800
+Message-Id: <20260421074630.72451-1-lance.yang@linux.dev>
+In-Reply-To: <20260420-zerotags-v1-1-3edc93e95bb4@kernel.org>
+References: <20260420-zerotags-v1-1-3edc93e95bb4@kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kartikey406@gmail.com, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, drjones@redhat.com, christoffer.dall@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, syzbot+12b178b7c756664d2518@syzkaller.appspotmail.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260421_004706_009959_DA2217BC 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,95 +84,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 21 Apr 2026 02:48:02 +0100,
-Deepanshu Kartikey <kartikey406@gmail.com> wrote:
->=20
-> On Thu, Apr 16, 2026 at 7:50=E2=80=AFPM Marc Zyngier <maz@kernel.org> wro=
-te:
-> >
-> > On Sun, 12 Apr 2026 09:04:37 +0100,
-> > Deepanshu Kartikey <kartikey406@gmail.com> wrote:
-> > >
-> > > kvm_reset_vcpu() calls kvm_timer_vcpu_reset() inside a preempt-disabl=
-ed
-> > > section to avoid races with preempt notifiers that also call vcpu put=
-/load.
-> > >
-> > > However, kvm_timer_vcpu_reset() eventually calls kvm_vgic_inject_irq()
-> > > which triggers vgic_lazy_init() if the vGIC has not been initialized =
-yet.
-> > > vgic_lazy_init() acquires a mutex and calls vgic_init() which invokes
-> > > synchronize_srcu_expedited() -- both of which may sleep. Sleeping ins=
-ide
-> > > a preempt-disabled section is illegal and causes:
-> > >
-> > >   BUG: scheduling while atomic: syz.1.49/3699/0x00000002
-> > >
-> > > Fix this by calling vgic_lazy_init() before preempt_disable(). On the
-> > > second call inside kvm_vgic_inject_irq(), vgic_initialized() will ret=
-urn
-> > > true and vgic_lazy_init() will return immediately without sleeping.
-> > >
-> >
-> > I think this really goes in the wrong direction. Forcing the vgic (a
-> > global resource) to initialise when the vcpu's timer (a local
-> > resource) is reset feels at best bizarre. Now you are promoting it to
-> > be forced at vcpu reset. This makes things worse.
-> >
-> > You probably want to take a step back and look at *why* we end-up
-> > here. The core reason seems to be that the timer emulation caches the
-> > level in a per-timer structure, and tries hard not call into the vgic
-> > unless the level changes. Which means that unless the vgic is
-> > initialised and is able to latch that state, the initial pending state
-> > will not be propagated to the guest.
-> >
-> > But do we need this optimisation? I don't think so. Other emulated
-> > devices don't require it. We can let the vgic know the state of the
-> > timer at every vcpu entry, just like we do for other virtual
-> > interrupts that the kernel injects (PMU, vgic MI).
-> >
-> > Once you remove the this cache and the need for the vgic to buffer
-> > things outside of normal execution, you can also drop the magic init
-> > from the interrupt injection path, because the injection will happen
-> > on the run path, just like any other PPI.
-> >
-> > That'd be a much better approach IMO.
-> >
-> > Thanks,
-> >
-> >         M.
-> >
-> > --
-> > Without deviation from the norm, progress is not possible.
->=20
->=20
-> Hi Marc,
->=20
-> Thank you for the detailed feedback! I apologize for the delayed
-> response =E2=80=94 I was away on holiday.
 
-No need to apologise. I hadn't spotted this report (syzkaller badly
-triaged it), so thanks for bring it to my attention.
+On Mon, Apr 20, 2026 at 11:16:46PM +0200, David Hildenbrand (Arm) wrote:
+>__GFP_ZEROTAGS semantics are currently a bit weird, but effectively this
+>flag is only ever set alongside __GFP_ZERO and __GFP_SKIP_KASAN.
+>
+>If we run with init_on_free, we will zero out pages during
+>__free_pages_prepare(), to skip zeroing on the allocation path.
+>
+>However, when allocating with __GFP_ZEROTAG set, post_alloc_hook() will
+>consequently not only skip clearing page content, but also skip
+>clearing tag memory.
+>
+>Not clearing tags through __GFP_ZEROTAGS is irrelevant for most pages that
+>will get mapped to user space through set_pte_at() later: set_pte_at() and
+>friends will detect that the tags have not been initialized yet
+>(PG_mte_tagged not set), and initialize them.
+>
+>However, for the huge zero folio, which will be mapped through a PMD
+>marked as special, this initialization will not be performed, ending up
+>exposing whatever tags were still set for the pages.
+>
+>The docs (Documentation/arch/arm64/memory-tagging-extension.rst) state
+>that allocation tags are set to 0 when a page is first mapped to user
+>space. That no longer holds with the huge zero folio when init_on_free
+>is enabled.
+>
+>Fix it by decoupling __GFP_ZEROTAGS from __GFP_ZERO, passing to
+>tag_clear_highpages() whether we want to also clear page content.
+>
+>As we are touching the interface either way, just clean it up by
+>only calling it when HW tags are enabled, dropping the return value, and
+>dropping the common code stub.
+>
+>Reproduced with the huge zero folio by modifying the check_buffer_fill
+>arm64/mte selftest to use a 2 MiB area, after making sure that pages have
+>a non-0 tag set when freeing (note that, during boot, we will not
+>actually initialize tags, but only set KASAN_TAG_KERNEL in the page
+>flags).
 
->=20
-> I understand your point. My fix addresses the symptom rather than the
-> root cause. Forcing vGIC (a global resource) to initialize during
-> timer (a local resource) reset is not the right approach.
->=20
-> I will take your suggestion and work on:
->=20
-> I will send a v2 once I have something ready.
+Good catch!
 
-I've posted my own take on this at [1], for which you are on Cc. Feel
-free to review it if you have the time (I'll post a v2 anyway, as I
-have accumulated a couple of additional fixes).
+I can reproduce it reliably with this small debug change:
+
+---8<---
+diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+index 970e077019b7..d5b6e2474f47 100644
+--- a/mm/huge_memory.c
++++ b/mm/huge_memory.c
+@@ -225,8 +225,7 @@ static bool get_huge_zero_folio(void)
+        if (likely(atomic_inc_not_zero(&huge_zero_refcount)))
+                return true;
+
+-       zero_folio = folio_alloc((GFP_TRANSHUGE | __GFP_ZERO | __GFP_ZEROTAGS) &
+-                                ~__GFP_MOVABLE,
++       zero_folio = folio_alloc(GFP_TRANSHUGE | __GFP_ZERO | __GFP_ZEROTAGS,
+                        HPAGE_PMD_ORDER);
+        if (!zero_folio) {
+                count_vm_event(THP_ZERO_PAGE_ALLOC_FAILED);
+---
+
+That makes it much easier to hit. Userspace can seed tagged 2 MB folios,
+but only as __GFP_MOVABLE.
+
+The original huge zero folio allocation uses "& ~__GFP_MOVABLE", so it
+will only reach these folios through fallback, which is hard to force
+reliably from userspace :(
+
+Will get back once testing is done :P
 
 Cheers,
-
-	M.
-
-[1] https://lore.kernel.org/r/20260417124612.2770268-1-maz@kernel.org
-
---=20
-Without deviation from the norm, progress is not possible.
+Lance
 
