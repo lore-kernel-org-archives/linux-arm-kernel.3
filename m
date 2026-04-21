@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F28FF327B4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 07:13:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82697F327AD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 07:14:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Y0D3jaBnWCsLbtQTO3GiG49iAZd8M/wl+Vd+jEWykA=; b=AOB4+uQ2gLPT4E9vZDwvd4/Niv
-	0NLbcnnedavecWWhMENcDGnVXLRvaoi8jOfywKYDE+DE3ZdAty9+ydvVx8VAN+dE7EJqMOcf643I3
-	1ARVByHJqS2uEvp48unLGtS5LbmRNO+amBDYn/Mjnt4amgSeQ5jV9H7jByS57HdKTJ6xU23As+B4y
-	+pUnnESet4zMZYeu5RpTp//OreSpYiKJ3XPn280WUjZQ92T0kVw1Cd7rIyCYu8WccrWII3HX3J/G8
-	+YSM3ewoeIL9cFIe6xDvlH4K9il1CH7KWOg60FdvqJAAJ9+OoMQ87IhbEacjY+MWLUW1mjCIGRQhY
-	3rqLZERA==;
+	bh=vAPZKAtP//rRCXv0419WZMnL3zXq81n5GtlNLrBk6ws=; b=YwymhZ4VNp8wdcbW1D4GqfpzJs
+	DSfnygy5h8TDev83tavQmz5Vl2a+wck5jKad5eLhL4KX57DJxt4YygPcdb0EyNPrHl+gxBLRjYeie
+	FQZCtNRaHDKQeCA/gO6d8SLNz6mcDi1lCGZHoS7bOf10fqZ123f6fC2TpaGFdhO45Xgxzc899h/41
+	K7QkmD9djPawftHUliQ11rz9WzSTCOwb0Z5dML4ITOZTwP4RFpl7AAAOYwGwXpU4yAfl2l59W3cgu
+	oKWq3i/zWCIBxoItTA3+F6h+BrvG7khGJwHUpw+g2J5JOP9mDC5e51uCvHJDO/MWXwv0cUUbDExlq
+	6hDTLgdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF5If-0000000895F-0hLJ;
-	Tue, 21 Apr 2026 07:13:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wF5Jw-000000089K4-1Wad;
+	Tue, 21 Apr 2026 07:14:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF5Id-0000000894m-1LGW;
-	Tue, 21 Apr 2026 07:13:36 +0000
+	id 1wF5Jt-000000089Jq-3EHv;
+	Tue, 21 Apr 2026 07:14:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5903B44517;
-	Tue, 21 Apr 2026 07:13:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1872C2BCB0;
-	Tue, 21 Apr 2026 07:13:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9985D6001A;
+	Tue, 21 Apr 2026 07:14:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA60BC2BCB0;
+	Tue, 21 Apr 2026 07:14:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776755614;
-	bh=FBWfjsIqM+7TuqnxYjhjiUQj1QqggKY45UCCbcTaQWs=;
+	s=k20201202; t=1776755692;
+	bh=NUanx7qGcEqtnsDYPbtKV03ieoaKJQQYKCPCmeuCV9o=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Rk54KrE161LTqGHyDseDnQJW9W+VdRSX+EJ2x09B826Rm888eSnDOS65Ig+dvbr2U
-	 M48YutSEbjzxtKF8DliJ9DYkjPxNv7U2xOZAyvzdfKzxLKMYamaehk6QIOd5gfumYp
-	 IJpMwY2dnTATYIoGB3I/ncrVLTwVKcvY0ycF/HNKq5vBZ73vOXKmS+w3N2Cs7vgrue
-	 im3cJtO4Jq8B7eAPaNx8d/rLJAN10ajV0wZYd6zy580tUCsJSRlO1lLsw0HL1dbcTg
-	 iNIctkMIRQPn1nx34cpV6hRMZDGgm5YQU8JPq8rbt5P8D1qpCkEPSo9q/aFxJLhN1a
-	 +8t7yT/JtC7jg==
-Date: Tue, 21 Apr 2026 09:13:31 +0200
+	b=qJlNhX+gnKiGA56fWSwRjmzRlwB+m7T7RbDPJ3dBRfsI//7LAcU3XkZ5QNuyoLYxt
+	 MVqdegtTgxId+uM6/G5T3K6i0qPqWW/5hRzGDMgakTCTQMai2a0IPaEdD2phm+vPNF
+	 SI4Bhk4OsVisYTwpKWJ6QrJlcOKvJ/YvBb3DDYYNc0ICW936YxN2OuD1X1PUuEZHLE
+	 fxM2m4h8C1Jd7fA5GEVIOyNQ9s7krKXEkwlE2GFwE1VVyxMIW2P9rmdAV/AaeXlLvi
+	 FjNKkFtUiGrfnvbtdYaIaX/AEnt4t1eqzPTu9/gr608uMdGsyoWFGQEmDVlJdd4cih
+	 QzKGs50zUU5tw==
+Date: Tue, 21 Apr 2026 09:14:49 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: linux-mediatek@lists.infradead.org, Fabien Parent <parent.f@gmail.com>, 
-	Val Packett <val@packett.cool>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>, 
-	Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, 
-	Lee Jones <lee@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+Cc: linux-mediatek@lists.infradead.org, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+	Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Linus Walleij <linusw@kernel.org>, 
 	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Gary Bisson <bisson.gary@gmail.com>, Julien Massot <julien.massot@collabora.com>, 
-	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, Akari Tsuyukusa <akkun11.open@gmail.com>, 
+	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, Val Packett <val@packett.cool>, 
+	Julien Massot <julien.massot@collabora.com>, Gary Bisson <bisson.gary@gmail.com>, 
+	Fabien Parent <parent.f@gmail.com>, Akari Tsuyukusa <akkun11.open@gmail.com>, 
 	Chen Zhong <chen.zhong@mediatek.com>, linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v5 1/9] dt-bindings: mfd: mt6397: Add MT6392 PMIC
-Message-ID: <20260421-sincere-cherry-waxbill-1aada6@quoll>
+Subject: Re: [PATCH v5 3/9] regulator: dt-bindings: Add MediaTek MT6392 PMIC
+Message-ID: <20260421-elastic-just-barracuda-45d0da@quoll>
 References: <20260420213529.1645560-1-l.scorcia@gmail.com>
- <20260420213529.1645560-2-l.scorcia@gmail.com>
+ <20260420213529.1645560-4-l.scorcia@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260420213529.1645560-2-l.scorcia@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_001335_403425_28759C58 
-X-CRM114-Status: GOOD (  17.20  )
+In-Reply-To: <20260420213529.1645560-4-l.scorcia@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,59 +80,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 20, 2026 at 10:30:00PM +0100, Luca Leonardo Scorcia wrote:
-> From: Fabien Parent <parent.f@gmail.com>
+On Mon, Apr 20, 2026 at 10:30:02PM +0100, Luca Leonardo Scorcia wrote:
+> Add bindings for the regulators found in the MediaTek MT6392 PMIC,
+> usually found in board designs using the MediaTek MT8516/MT8167 SoCs.
 > 
-> Add the currently supported bindings for the MT6392 PMIC. Its MFD driver
-> does not use the compatible property to bind the regulator driver, so
-> don't mark it as required.
-> 
-> Signed-off-by: Fabien Parent <parent.f@gmail.com>
-> Signed-off-by: Val Packett <val@packett.cool>
 > Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 > ---
->  .../bindings/mfd/mediatek,mt6397.yaml         | 27 ++++++++++++++++---
->  1 file changed, 24 insertions(+), 3 deletions(-)
+>  .../regulator/mediatek,mt6392-regulator.yaml  | 76 +++++++++++++++++++
+>  .../regulator/mediatek,mt6392-regulator.h     | 24 ++++++
+>  2 files changed, 100 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6392-regulator.yaml
+>  create mode 100644 include/dt-bindings/regulator/mediatek,mt6392-regulator.h
 > 
-> diff --git a/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml b/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
-> index 05c121b0cb3d..2866e95e338b 100644
-> --- a/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
-> +++ b/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
-> @@ -40,6 +40,10 @@ properties:
->            - mediatek,mt6358
->            - mediatek,mt6359
->            - mediatek,mt6397
-> +      - items:
-> +          - enum:
-> +              - mediatek,mt6392
-> +          - const: mediatek,mt6323
->        - items:
->            - enum:
->                - mediatek,mt6366
-> @@ -68,6 +72,10 @@ properties:
->                - mediatek,mt6331-rtc
->                - mediatek,mt6358-rtc
->                - mediatek,mt6397-rtc
-> +          - items:
-> +              - enum:
-> +                  - mediatek,mt6392-rtc
-> +              - const: mediatek,mt6323-rtc
->            - items:
->                - enum:
->                    - mediatek,mt6366-rtc
-> @@ -99,9 +107,6 @@ properties:
->                    - mediatek,mt6366-regulator
->                - const: mediatek,mt6358-regulator
->  
-> -    required:
-> -      - compatible
 
-Please create a new binding file for your device. Having two ways to
-define child is not making this binding easier to follow.
-
-The style of defining children with compatibles should be followed by
-"requierd: compatible". I am rather against of exceptions, unless needed
-and this is not such case where you need one.
+Your patchset is obviously non-bisectable. This must be squashed.
+Test/check individual patches please.
 
 Best regards,
 Krzysztof
