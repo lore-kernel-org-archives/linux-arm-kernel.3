@@ -4,144 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81385F327CA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 09:14:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C13AF327CD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 09:37:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P0291rZxB/fZKrDJ7YELZLdzOoPInT0dvrseXMaylWQ=; b=g0YfT5JbjHRgJ0XzpBbHBxCzlH
-	lX/H1jVB7FA3iHP7xkC+pRgm9Wn/s/ujNQQ2o0MwYYKz05dGTzPIrdCuMmrqF0NbgsfhuAfhm5sex
-	PmnpR9RfqawkFdi+XHoeHMpXylolDQE0CwtMmLzpJDqcVWcT83J38mkuTrziR9bEapItU2PWLDScf
-	k09wBMfkyA1s+tMmFIj2SlmHstMT02evrti/8jL/9EkqexrTEwvCwS2E/j+cmC4ByBPMSCQx9kkOh
-	ketjSaEpExzusbTc6LEROqpskzNjRwIt61x4qS0WF76NNw+R34oYX2FR9b/E2e39P9swRQ/lWEsvo
-	17+RAA8A==;
+	bh=JQRJCRvh3+3CqcYUQP1X03mbeiUmVDNq8eF/XFKkSTI=; b=JvYPSwqFGRy2qnSgDIcRxRdfOQ
+	tiQYjmAOiPgaVlmJJRohHXq04c2cWfNeAa1Lhtzk73mA2LbuLEbDom1cCTS2SGx/+adCote4qZwux
+	iiPEDb4gLuOokhabJpWDDVh+I/HXAWmauzMVHPwtiokrUUqUmRCEV0Hd/t9baAENyuHN7l7qS/lsp
+	+Cn3cG3mvGtpEewIrESzNpCQjuzB+g44wwQzsTXmiH17eqAblU3JONu6W4RjAvtr62tT62sYITji1
+	scBHRFFz0/PYBj060ZLwHvk9LF0lorRxiFoaID2bCFvZ6Hn4WRBJdayKZdR3Ttj1oA3VTK8g12iRP
+	+yHpKqOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF7C2-00000008JTN-3mlT;
-	Tue, 21 Apr 2026 09:14:54 +0000
-Received: from mail-westeuropeazon11013023.outbound.protection.outlook.com ([52.101.72.23] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wF7Xq-00000008LU8-474R;
+	Tue, 21 Apr 2026 09:37:27 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF7C0-00000008JSN-2Yhg
+	id 1wF7Xp-00000008LU2-4AzM
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 21 Apr 2026 09:37:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=JQRJCRvh3+3CqcYUQP1X03mbeiUmVDNq8eF/XFKkSTI=; b=EKd23v6UXEoEk3uzNIdxCxnoQW
+	ekPkRmJ01BoJK+W0JulQzgBQ1dncYrsoCPwr2Mixnm6LIe4Wwopq9H0vWSi/ejLlbJcj6EDp4Phrl
+	KSdIOR+T1wACfXhWJ7UZe6amuCHb25EHxa5pQrSaZPssCGoEbTtV7v463fqpDESu2Et1KhB/jw6+C
+	CMU0rV25mUuE33KQshT5Lvk/yQMdeF9Mbf9+88GeRNMIGRTTO11mTgw3b2JsI4Z7C6iuZPeshOBkD
+	qkMVOr+W9nP2bOPx1i2ckPhkqUD9cza4EtNgFUGBVsfgQYwanGkG0dwC7tRQcwBVMhj4w5dvFLIfj
+	Qy63ez0w==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wF7Xe-00000009V27-1ugA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 09:14:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fUTg/smy/gnI+ZlojpQ2Ri70TmunqOYksbq+EjDFpOj9mXQ8CoEF+Ul7NJbhywZHKSGXuwJQFnVy5N0W2liELTxABCM7Jnm9a2qnwZwj6nv2U7d0FiyuF77sKYBxKp8qvonSiERVmQhjnryhbmedklPyo30cBM80t1ZRvk3j5hQmj15kivzOZCQZokmUuxIgceVEANP2z3v6bcCa3nmd1q4OY3qFOYqTI5h65vGx/+HmTfPWf8Ie9e27feYw6NWOhO195GRCrPlTpxkxcgeGsawPLW/bx+w2gizqWastvx8QQB4JFG+d8u0qucji8nj/1x1U4OsLP2ebVp8HqkHs1Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=P0291rZxB/fZKrDJ7YELZLdzOoPInT0dvrseXMaylWQ=;
- b=TscKzf3O3WvwrMqCh9xXehhNihq9lJlJRI1D930BW6bth88sPhr3c6Z2OLELIOpv8i1zoooouKRvea8VZQG11qspvZoRzbhA3ldMr1UiE+6cKjrCtiXbnEP2zSkE3b6CxB1xqC187Lc8kC30Jl/Z+4YjTVTjc9aig49bE8hO7F8JQID4Q/dqjBvYwSt5HLFJVAee0sDwYmD9Prpszx+xgyND+OTEd+NMJ53Oyx2L6FvOf1GaGdkIscLy37RlRT764vpnDUdOQkPQhLcJCwJtGWdqY65nf/O5mJkXHtbESLg+umGJECu4YSRQU3rTxw7jC+5Hqj6Jl+OWebSUkLeKkQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=P0291rZxB/fZKrDJ7YELZLdzOoPInT0dvrseXMaylWQ=;
- b=MEy/mcKHwuPhPGMLhISBIco1k+NZzrpZULzvG+T1g7BM+Aej9VWcU2wC9NXXaAGsP8zRpfEF9ixoXU53UzSxqB/tUStExumKGn96YV9EDVOwdi51HOQ5h5oFgvQGyBLY3pTpb3LcOs4GqvJ8XAXmiSOkH0WCsmib4Jq14ubdT6Xj3fcQmWEwXo1BTBlnwvVJu+bRvHyj18m6MDnQFGFc/1hil2+QfRy3db57XNlRNTANzbxJtHR+uBH0RqVII0w94unprpIM0D3Y+/qrnXzB42L49fHiTwtdwMTZPq9+mvO1TXQ/ITBPNfFpNQ2G++8X0YpH7m34LJDUbztZQRNkXQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
- by AS8PR04MB8056.eurprd04.prod.outlook.com (2603:10a6:20b:288::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.33; Tue, 21 Apr
- 2026 09:14:45 +0000
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9818.023; Tue, 21 Apr 2026
- 09:14:44 +0000
-Message-ID: <2d1bbd53-1f03-4432-8681-939e0c638d37@oss.nxp.com>
-Date: Tue, 21 Apr 2026 12:17:53 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/4] thermal: qoriq: add i.MX93 tmu support
-To: Jacky Bai <ping.bai@nxp.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- Alice Guo <alice.guo@nxp.com>
-References: <20260421-imx93_tmu-v5-0-05ea1969bb9f@nxp.com>
- <20260421-imx93_tmu-v5-2-05ea1969bb9f@nxp.com>
-Content-Language: en-US
-From: Daniel Baluta <daniel.baluta@oss.nxp.com>
-In-Reply-To: <20260421-imx93_tmu-v5-2-05ea1969bb9f@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AM0PR02CA0158.eurprd02.prod.outlook.com
- (2603:10a6:20b:28d::25) To GVXPR04MB12316.eurprd04.prod.outlook.com
- (2603:10a6:150:2c6::8)
+	Tue, 21 Apr 2026 09:37:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A89325E4;
+	Tue, 21 Apr 2026 02:37:06 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8AE493F641;
+	Tue, 21 Apr 2026 02:37:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776764232; bh=QkpWi8ED+jPXeiW/oTqfzU9UcXZCIKOl4ggmomHOz4U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=F7AqUJ81h3Z+O8hkCQVPSTNfKNcpscfJBocVsdr9hbj5Z4ZClbTA71NtCHa9zLamI
+	 DTP65cyiQArSP8wL1Loi0bDMmnYsLnDhSQIU3Bgg8bGTCGRgvlIZrG1TweSv1tOoWK
+	 bh3xv2XmTV5SnYH4b7wHOkoypvfSSO54Cxkp64QE=
+Date: Tue, 21 Apr 2026 10:37:08 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Leo Yan <leo.yan@arm.com>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
+Subject: Re: [PATCH v5 02/12] coresight: etm4x: fix underflow for nrseqstate
+Message-ID: <aedFRFlBfQfOvwjp@e129823.arm.com>
+References: <20260415165528.3369607-1-yeoreum.yun@arm.com>
+ <20260415165528.3369607-3-yeoreum.yun@arm.com>
+ <20260416151102.GL356832@e132581.arm.com>
+ <fdfd353d-f198-4806-81d2-61f26b678dea@arm.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|AS8PR04MB8056:EE_
-X-MS-Office365-Filtering-Correlation-Id: d19c91be-4170-4a77-6081-08de9f866d93
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|19092799006|921020|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: TXRxwoa29C9QUbW9OXILQBjXyAeRAyMiuYkLX4lRQCtp2gJ+ruF1XjfQvGUmxVRrInNlr+iYADKcvjrmCZ1LX+mgBQDZ65gdp0bUHdltBZQ6v5wPkZyvdYlj4Dt2haEXbaXNJxuYjoTsSBxpnoNont+lAUDpKSSIkbN8FHHIxq0iN12QSBQym7g+pj8fb5HleJaM90QM8iDbUqj9s+qZAf91AZRup4pWwQdSNfbAmKIwFN6wnul0X1UbU7SX3AR4e9PcHTS9HdcPcslRnjDzdKkAl1kHNTs/RfxemfcRDf+s7xyZvTMYlxtB63RyNNuVsoOiT9/tvt2H+CGKdRHGl/r8MPIFAwo/wNB0TQp0Rl3FLbzt9GUvMj4wdSChO38AkKzPGAYa4vQyjOFYFwa/7N2oOB+YwTPcwXh9et2Njdk/4SX8b3jTC/8537aplKAh+r94TLSaa9MkdxS4areZDDWNBQytT827Jrlg23RpTjkD1ejQBqvRbB05+q5A/QcUd3ZxWu/zlINAa+LBsyMFQJ9Y60JOgF/ycbUGlki4kzFLbk1/hkmYAA+Uw69WnI+djGmR5EFQZSR1Z3TIewNwtrurvxaxvM5coek4jRjkeDUBiJ7XCPoFto1w2PGdIFexjgwWex8ICUjUcGlKirzFt5h7X+YIHAAiL2dUHui2dp+vNRWz0IF0/96e0PB1n9tj0msroV5LQVmc7gY214ybtlf4G24ULAMLSTax42z6ImVuI2KWKIiLkoalAzs6cKyxqQ6VPBiV/cPDKbTaCuGjyw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(19092799006)(921020)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?S2llTGgzNExFN1gwem5mZFBCc2F1ajFSdlR2ZTgrczlqRGhmTWFKQ21RMk9h?=
- =?utf-8?B?Z005MU5GSTkwVklmbjNaZUJxY2dKY1p0dGoydWRWUEJkSXBwVklHc3VBMGFp?=
- =?utf-8?B?MWZkT21MeVIrUDF2ckE2RTFUZkxvbDVBd0hpVVovc2xXYXZWMVNBcnVwMVBU?=
- =?utf-8?B?UUR2UFJabGRBcW1uTGxISG1TSURmNklRY2IzUlcyZjNmcW9nNm81MnFqVU12?=
- =?utf-8?B?WG1DR1M4WGhPY1diUmNINlk1RGptRXZOR043UnB3bWFYdnNNOWxjNEtMMklC?=
- =?utf-8?B?dGR4TlpXK01YRTVVc3RTL2w4eWJxbHRoVWpaQzZIWUQ3SzQyejJYK3R6U1ph?=
- =?utf-8?B?RENnTWpHMHd5UUVHeXd0L2JDVHljeHRlK2RvRUVDVmkvTzk0VWo3S1FvRi82?=
- =?utf-8?B?VmpIYW1xUmdaOTFObkprbHNHNjVuRXI2VjdsSlZCY1Y1NzZiSXVXYUdCZDJL?=
- =?utf-8?B?R0RTZUZ2WEJBc1VvMm1GcEdpY3VWbjNOeGJIaFVlS2pXNGNKZnNSSTRiY3Rn?=
- =?utf-8?B?MmEzTW5JWFFvbnZya3ZnTExBWTN2dlpFR292d3g2VUhKUHRMNzcyYnB4OFdu?=
- =?utf-8?B?MEpGMkFJbS9wNkdMUnFVWXprQ3gyTEZFdldDRkFZVEJIUjFsVXVCaVFuUThS?=
- =?utf-8?B?Z3FQT05RN0xrNDNoTjNJS3VOeTM5SmY3enJSRmlURnl5Sjc1eDVYNDZWWWV6?=
- =?utf-8?B?bWo4V1oyYlk3Nk5xNlFIaUo4UnJBQmJmYmM4UWlvTSt1SFRnWk5wdlpTeE1x?=
- =?utf-8?B?YmFRQUNaV2lxUzlSUTNYbDFLM0lhL0dWZDJNeDcxT0JMV1kwZ2hLejlHY3JF?=
- =?utf-8?B?dnBjWi9KUUFZV0RjSGhxVlJ4VDR4dVRjYzFZY0daVStnaGQ0ZjNscENoS3JU?=
- =?utf-8?B?elNxZU4xL25KUC9hanozcG1UL2xLaEFtU0ZlekdrazdibVdUSTNSeXd3T2JB?=
- =?utf-8?B?Y01kay8yUU1uUzZOYkhaL2QyUjVvOWs4M3ltTGwraWlhaHZBOFVkSFFDa3Nt?=
- =?utf-8?B?bmk4NDlaRGFzRVdPa1dTL1lUL0FzMjFrSGlPNWp0ZTV2ZktlVW9IdnB3OUY5?=
- =?utf-8?B?dkdQTzh4eE9LbUI2NEVXOXJjUThuUGF4NTBxVERQNmtMbTA3d3V2dmpYS2FK?=
- =?utf-8?B?dVRGajlXaUZTTytpc3VvZFlTTE5NcVYxbURZZCsrT1JUUk5QeEQ3clUwSFVL?=
- =?utf-8?B?NEZkbklsdXlQemdFUS9TKzgrZENxYmlKOHB1dURlODJ2cTNkWlg0c3ZmWTJB?=
- =?utf-8?B?d2ora0tSSmlwMlM3enpMdTFvNElpeFhKVjUwMnpnazZPQmh4d1JheXFVYzcv?=
- =?utf-8?B?SmxEVXZoS3lXbi9PNGlDVGVMa2U5ZEpxYzljMG5hK2EzWDVYR2VqdHUwTE53?=
- =?utf-8?B?UVVpMTFKcGJrNlM0NWYyU3VYWkpIRmRHZkJEMFhZY0JhRTB3M0Rja0xiWGdV?=
- =?utf-8?B?czE2bU5GTWtoS3J4ajhYOENMLysvZDJ2RzJzTHk3SlRRUWt5UnJRaE1rMGxq?=
- =?utf-8?B?UDdWYmRmaWJ4eUhRMm9kQUhnM0R2MmJZbUkvelhzdFdOaVJOWDlxYjBMM283?=
- =?utf-8?B?MGgxTEpEZm1NdzZqMkRRanlMbUNqcHU0cFFvUmQyQXpKQkt0d0ZId2cvTEM5?=
- =?utf-8?B?V3MwYjJQaFBSOVJiM1d3ZUU3TXU0VDFEVFFTSFBQbEwrL0VqUWlLemVBQi95?=
- =?utf-8?B?T1gwaUFtRTQ3QXlXSXFkT2hKRWYwaHNuekl4ZWR5dFJaTmJ6dWwvZnByYTZy?=
- =?utf-8?B?RVVTSVpxcEYvTnpySzJWUFhYQ0thSGpJQkppRXhhc3pkSUk3SzlZb1EzY016?=
- =?utf-8?B?OXBwVmhKWDB4N3BrQ083bU5MRkFRNSsyNVFvSGsraFRyZXJCLzQ1UmVVYUhC?=
- =?utf-8?B?SWNUWGQ1OXJzMXgzUWZmSDZrVEpFRE16ZFpwbEZpNkhIVEE5eWQ0WWhWbHBw?=
- =?utf-8?B?ZTgvejBqUW9jZnh2MHRJOGx0MjlSVWhhbXpIdEdMT2YrS1JzaUZ3M1RNdC84?=
- =?utf-8?B?dFdFbTRISlBIUnJ1N1QraEpNR2o4UVFnSXdaZndjVnZVUGVyQTBWbFhXYjlF?=
- =?utf-8?B?aGlvalQ2cWlsZjNkcnNpa3hESVRwdHhBdDdZeVZIQjNyM0VDN0dJekhONjN6?=
- =?utf-8?B?MGVHcmhUR3Y2RTZSNHNobHhCZXpjd3krVGhVS1BuVUs0UGN6cnBXdGxVaEhp?=
- =?utf-8?B?V0ZIUklzQ1dkcjNEVDQrNnM4bFZlaUNsNlFXKytZTE9DVjVHSk1YRXBpaXlq?=
- =?utf-8?B?dEpSVE1leTdOcTdCcUJEWXdQT00ybzVvcGQwVDllelV0emx3bHc1MXU4SFVB?=
- =?utf-8?B?WDRkbXZyWXNGZG9OYmJMbjBoOHdTaEphTmRocHZ5VXNyRDFmUEd6dz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d19c91be-4170-4a77-6081-08de9f866d93
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Apr 2026 09:14:44.8231
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: v4QxiGnwv7JAv0KLDf2WUbG44ujBiVxXgb7ROHsXdQuFamWrJqIhiSp3Ef8GnMB/ZCmj2V5/zbgZxGu/0C1kAQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8056
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <fdfd353d-f198-4806-81d2-61f26b678dea@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_021452_662686_3721B44C 
-X-CRM114-Status: GOOD (  22.11  )
+X-CRM114-CacheID: sfid-20260421_103714_928353_73443C1A 
+X-CRM114-Status: GOOD (  17.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,91 +88,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/21/26 10:42, Jacky Bai wrote:
-> For Thermal monitor unit(TMU) used on i.MX93, the HW revision info read
-> from the ID register is the same the one used on some of the QorIQ
-> platform, but the config has some slight differance. Add i.MX93 compatible
-> string and corresponding code for it.
-> 
-> Signed-off-by: Alice Guo <alice.guo@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
-> ---
->  - v5 changes:
->   - drop the unnecessary GET_TEUMR0 helper macro
->   - add drvdata for each of the platforms
-> 
->  - v4 changes:
->   - no
-> 
->  - v3 changes:
->   - use the drv data struct for match data and refine the code
->   - update the copyright
-> 
->  - v2 changes:
->   - use the compatible match data to identify the i.MX93 TMU variant
-> ---
->  drivers/thermal/qoriq_thermal.c | 33 ++++++++++++++++++++++++++++++---
->  1 file changed, 30 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/thermal/qoriq_thermal.c b/drivers/thermal/qoriq_thermal.c
-> index 01b58be0dcc64d14ca5e4bba654eed8f15e827fc..297a855311f3d6a8d527794abe17ac86c47bf152 100644
-> --- a/drivers/thermal/qoriq_thermal.c
-> +++ b/drivers/thermal/qoriq_thermal.c
-> @@ -1,6 +1,7 @@
->  // SPDX-License-Identifier: GPL-2.0
->  //
->  // Copyright 2016 Freescale Semiconductor, Inc.
-> +// Copyright 2025 NXP
->  
->  #include <linux/clk.h>
->  #include <linux/err.h>
-> @@ -24,6 +25,7 @@
->  #define TMTMIR_DEFAULT	0x0000000f
->  #define TIER_DISABLE	0x0
->  #define TEUMR0_V2		0x51009c00
-> +#define TEUMR0_V21		0x55000c00
->  #define TMSARA_V2		0xe
->  #define TMU_VER1		0x1
->  #define TMU_VER2		0x2
-> @@ -73,12 +75,17 @@ struct qoriq_sensor {
->  	int				id;
->  };
->  
-> +struct tmu_drvdata {
-> +	u32 teumr0;
-> +};
-> +
->  struct qoriq_tmu_data {
->  	int ver;
->  	u32 ttrcr[NUM_TTRCR_MAX];
->  	struct regmap *regmap;
->  	struct clk *clk;
->  	struct qoriq_sensor	sensor[SITES_MAX];
-> +	const struct tmu_drvdata *drvdata;
->  };
->  
->  static struct qoriq_tmu_data *qoriq_sensor_to_data(struct qoriq_sensor *s)
-> @@ -225,6 +232,8 @@ static int qoriq_tmu_calibration(struct device *dev,
->  
->  static void qoriq_tmu_init_device(struct qoriq_tmu_data *data)
->  {
-> +	u32 teumr0_val;
+Hi Suzuki,
 
-No need for this here you can just use directly: data->drvdata->teumr0
+> On 16/04/2026 16:11, Leo Yan wrote:
+> > On Wed, Apr 15, 2026 at 05:55:18PM +0100, Yeoreum Yun wrote:
+> > > TCRSEQEVR<n> is implemented only when TCRIDR5.NUMSEQSTATE is 0b100,
+> > > in which case n ranges from 0 to 2; otherwise, TCRIDR5.NUMSEQSTATE is 0b000.
+> >
+> > My suggestion in previous version is not quite right, thanks for
+> > making this correct.
+> >
+> > [...]
+> >
+> > > @@ -1395,6 +1395,8 @@ static ssize_t seq_idx_store(struct device *dev,
+> > >   	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> > >   	struct etmv4_config *config = &drvdata->config;
+> > > +	if (!drvdata->nrseqstate)
+> > > +		return -EINVAL;
+> >
+> > For "nrseqstate = 0" case, would it return -EOPNOTSUPP instead?
+>
+> Or should we make this only visible if the nrseqstore is meaningful ?
 
-> +
->  	/* Disable interrupt, using polling instead */
->  	regmap_write(data->regmap, REGS_TIER, TIER_DISABLE);
->  
-> @@ -234,7 +243,8 @@ static void qoriq_tmu_init_device(struct qoriq_tmu_data *data)
->  		regmap_write(data->regmap, REGS_TMTMIR, TMTMIR_DEFAULT);
->  	} else {
->  		regmap_write(data->regmap, REGS_V2_TMTMIR, TMTMIR_DEFAULT);
-> -		regmap_write(data->regmap, REGS_V2_TEUMR(0), TEUMR0_V2);
-> +		teumr0_val = data->drvdata->teumr0;
-> +		regmap_write(data->regmap, REGS_V2_TEUMR(0), teumr0_val);
->  	}
+We could by chanige the attributes permission and nullify the store
+operation for that device attributes.
 
+Not only this, we can apply similar approach to other sysfs entries too:
+  - vinst_pe_cmp_start_stop_store (when nr_pe_cmp == 0)
+  - seq_event_reset_store (when nrseqstate == 0)
+  - ctxid_pid_store (when !caps->ctxid_size || !caps->numcidc)
+  - ctxid_masks_store (when !caps->ctxid_size || !caps->numcidc)
 
+  and others..
+
+Would you like to include those changes in this patchset?
+I think it would be better to send seperate patchset..
+
+Thanks!
+
+--
+Sincerely,
+Yeoreum Yun
 
