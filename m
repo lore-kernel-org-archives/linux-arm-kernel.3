@@ -4,107 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9742FF94CB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 22:46:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44B7CF94CB3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 22:46:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vmzMlN5DJAj3TfNpcj5dVfDRWJ5iyR0YEC0nsFFtGJk=; b=NMjlsonMREkWwnwLIs+Whq0ZOr
-	q58g4kctton6HYbFTgObme5eIYtfevWOplLMI/Fe9u46Ah84OwcKtxLc5+CvxTAakNc/arZ+T68GD
-	MJjQsXS7te/nSKyv3HOKKz9l/S8DJztFAYXDEwlhbAiprogOv3qEfLsxuJvA5OOdFfFQMu6Ogfqnf
-	Mwe4igN5KT5xUVJchd/UMdUB31X3m6KAQMw+jYh1y7CwvcRgNaGSBC1AZkNMRza/o9objVt6SNuUd
-	1MXbMEBEWMBr8vC9mF7QZgx0NspnW03QrU5j6KCCuy13BVuLZaOKE54APUF9OQEfWIhNuj9/T2YCW
-	26ewFFQA==;
+	bh=cS+yLtaHravYz+Y7YPFjvQMfMx9w5jkr37dgZcu2XRY=; b=n9o+SBQABP4F75Hoy9/I8h48uF
+	2jQsc4M0/6OxruOIeLMC61Fm5O29uiv16RGLYbCpXlm4ninimYnq6K0FdXUXDKUmfD61Y/1pcWVE2
+	9hgoWVVZGf1zfJ8aad4axkmsRgPh614GOhmC4lUkufDKKcpoMsXog5AFcMxueUxIU0BH6gx57cHZY
+	vz5cO3Td2WiB0guWIwxaf2Ukbq72EwUtGck9IZqPFmMuYJG9TOObETwhkkZhDrZHw99n+4IDNaGfg
+	DBYnu20TD+sn54iLj7ZDPB+7btDhnY1FfYllLuQEKdyR9IdkJ/C3lpj+a5xqvdZO+xrfBgkMbPl8H
+	eqBOxzSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFJrM-00000009M2M-2LSi;
-	Tue, 21 Apr 2026 22:46:24 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wFJrN-00000009M2w-0hkz;
+	Tue, 21 Apr 2026 22:46:25 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFJrE-00000009LxD-2Rbz
+	id 1wFJrF-00000009Lys-40HO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 22:46:18 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63LImXLm679940;
-	Tue, 21 Apr 2026 22:46:03 GMT
+	Tue, 21 Apr 2026 22:46:19 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63LImRGG878216;
+	Tue, 21 Apr 2026 22:46:06 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=vmzMlN5DJAj3TfNpc
-	j5dVfDRWJ5iyR0YEC0nsFFtGJk=; b=D91ZHNvgjhZzL6fwoCz8WxpbuH73KALap
-	OiQ0xzNgjfj4GcAqQ8kQpzejM0+0DkQRnfm5OvHcNWh+AoiBUOazDaU6r1ZOhyn/
-	wQWHvJx0GumbGkYaT4Cuj4LDJHYRF3txYE/NW4JQW0bdtJqLu70hKl6b1pQv4het
-	Mrf2GXCxziDNBR7dFFZtYZOEDRnoJSBvdOFn+cZlC5vbRPv/W3/3VGY57BHlbBp7
-	LFSvfWWiOXoZ3oRBY8lJ4TiuHIMFqbB94GO23VvvRDHCF11Ydp87L03dbt2QsBkM
-	AUPRvQQYEerPEL+XMp84JxhNFCWW5jySdZU+I0x5GpMm5zI7GrlVA==
+	:mime-version:references:subject:to; s=pp1; bh=cS+yLtaHravYz+Y7Y
+	PFjvQMfMx9w5jkr37dgZcu2XRY=; b=R9Wox7gNf8Sdhzwv/E3I8OcXwzTy5S2JD
+	JRtusrJK/sBv1GyhrFK92ml7zB+0qBjTpRj2a7K2EGTbOc0wTloD1gy0B12lDViY
+	gf+/PQa1ZaEVtdxtO/xb1flF2btegyd9SRfcoeviN5EYcpxotEYHjZdCaiMGe3eV
+	ZP+xncZ/HshZlCryzm/L9xr39dDKAjsJfGw5WDAHVjWFjNmLK0fHupdyfAZ1jaXA
+	hu16qZGRtmUCgMtRJISebYrxsztAQPlpjgDXemP8oncKneEhvyE+6mT7TF2sOmUC
+	iUQp84j9a86JkVpIszIFbMTw7vf2wzgMMEcSN1a2hkCTaBs6Rcggw==
 Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dpeu7gp69-1
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dpeu20qj9-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 21 Apr 2026 22:46:02 +0000 (GMT)
+	Tue, 21 Apr 2026 22:46:05 +0000 (GMT)
 Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63LMZPkg013601;
-	Tue, 21 Apr 2026 22:46:02 GMT
-Received: from smtprelay02.wdc07v.mail.ibm.com ([172.16.1.69])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dmnsh2js6-1
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63LMZPdB013594;
+	Tue, 21 Apr 2026 22:46:04 GMT
+Received: from smtprelay05.wdc07v.mail.ibm.com ([172.16.1.72])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dmnsh2js9-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 21 Apr 2026 22:46:02 +0000 (GMT)
+	Tue, 21 Apr 2026 22:46:04 +0000 (GMT)
 Received: from smtpav06.dal12v.mail.ibm.com (smtpav06.dal12v.mail.ibm.com [10.241.53.105])
-	by smtprelay02.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63LMk0oZ14025316
+	by smtprelay05.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63LMk3va27394736
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 21 Apr 2026 22:46:01 GMT
+	Tue, 21 Apr 2026 22:46:03 GMT
 Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 9F31258060;
-	Tue, 21 Apr 2026 22:46:00 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 5321F5805F;
+	Tue, 21 Apr 2026 22:46:03 +0000 (GMT)
 Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 00C0458059;
-	Tue, 21 Apr 2026 22:46:00 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id BDB7C58043;
+	Tue, 21 Apr 2026 22:46:02 +0000 (GMT)
 Received: from pfw153.pfw.tadn.ibm.com (unknown [9.5.7.52])
 	by smtpav06.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Tue, 21 Apr 2026 22:45:59 +0000 (GMT)
+	Tue, 21 Apr 2026 22:46:02 +0000 (GMT)
 From: Ninad Palsule <ninad@linux.ibm.com>
 To: eajames@linux.ibm.com, robh@kernel.org, krzk+dt@kernel.org,
         conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
         devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
         linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Cc: Manojkiran Eda <manojkiran.eda@gmail.com>, ninad@linux.ibm.com
-Subject: [PATCH v1 3/7] ARM: dts: aspeed: system1: Add usb virtual hub dev
-Date: Tue, 21 Apr 2026 17:45:40 -0500
-Message-ID: <20260421224551.1611818-4-ninad@linux.ibm.com>
+Cc: Ninad Palsule <ninad@linux.ibm.com>
+Subject: [PATCH v1 7/7] ARM: dts: aspeed: system1: DTS updates
+Date: Tue, 21 Apr 2026 17:45:44 -0500
+Message-ID: <20260421224551.1611818-8-ninad@linux.ibm.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260421224551.1611818-1-ninad@linux.ibm.com>
 References: <20260421224551.1611818-1-ninad@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: OIZAoSM1Qb0Q_kVv2DW5srhm_dw6vMuf
-X-Authority-Analysis: v=2.4 cv=Ksp9H2WN c=1 sm=1 tr=0 ts=69e7fe2b cx=c_pps
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIxMDIyMiBTYWx0ZWRfXyCw/pT34eaWz
+ NvK52xExibTzl9ixyuXpy4vYbc40L46feOmRq5aJzGxdvotyVOkTZAxNDT5zeHho1Mqer3pLOPC
+ 07myP+m0l/Mjg05xVbNkvoDkJylhAMMVXeIM5bjj0Dxx6NlCIqXkP4JnEkRwYWfGjA8Bd/x2Ppf
+ yqCQBG+5fsL0oV/KmNoLuAzX2XrvsqMgucb11g8gAVkksRRhBhCp08RZI2n2NSXDheVxOUcITza
+ aMS/D2NtaPK53aqFvCq3RI2ZZ+AD3sRQc/Rhc4R6MzTYeM7kgcVJrXhT80f/qTGBJ8tpvWykvH3
+ hIc8sayRRiPlb0/gNu8EQZ8k5eVu95Hw3h1sbW/mBqJY8V1mEW2t3EmkOUPSEV5446L78Z0Kysk
+ 8WKHgFxAXpisCq6pMh7yL3YYq1KDnm2VaFlpDcB6dTlFoR1c02kYzEQxaxYMeyVHz5evFW7Dnid
+ VNTk+y5fBUb1qE6XUqw==
+X-Proofpoint-ORIG-GUID: sqXl7nSeLWUgo4IcCn7u4ZdF8NAXH1zE
+X-Proofpoint-GUID: sqXl7nSeLWUgo4IcCn7u4ZdF8NAXH1zE
+X-Authority-Analysis: v=2.4 cv=XMUAjwhE c=1 sm=1 tr=0 ts=69e7fe2e cx=c_pps
  a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
  a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=Y2IxJ9c9Rs8Kov3niI8_:22 a=pGLkceISAAAA:8 a=VnNF1IyMAAAA:8
- a=ShWUfGWSBk52ZyEv2HIA:9
-X-Proofpoint-GUID: xSzE-azazQjZvOlC0hXUBgGX8BHu-_RU
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIxMDIyMiBTYWx0ZWRfX+ateUsp1rsZR
- ooto2QRFj4GCj5gc0rkyjkR/r1YBAKVVr3nj05Ccrw+wZHoJgXXv5rCCuHcDhmXFBUif8BAH9H/
- zk4WpWZB7VI03ggc5SRGvy1ZsapysFv2mkxNA3W+EKJ2B92GU05atE86jxuH/i6l6raeJMM69RX
- LTt1G6w/nGJxed68ovSsduXh9bi1mi05H60kfi16y6hSbx2A0+VZuEj/lb0gvFOWWV6x4zeIUJT
- gMPj0OWb7kh8sXZLSg5nkpuCLfsqjYTeGRn2Zc/1nA/xLBekeBwUVHOdV+HstbaKr2/s7y53AiZ
- YHxP9mpahSaAs7+ir3Pzau6Gfyr4aRzuwbDXvTi98covoEvKTidszwRyYKexydcXiWMVrDwZMAh
- X3dHxRkigsnljothcTuIIy2z3JKGUaAsDT2C4I0OZFWgEl8mnOwb3vqCHva4iklTTRpAY2Lnz7+
- 7UxuDqqi3CkfdORJ4tw==
+ a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=weSylXKMd7dZRB46iqoA:9
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-04-21_03,2026-04-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 impostorscore=0 malwarescore=0 phishscore=0 priorityscore=1501
- lowpriorityscore=0 clxscore=1015 adultscore=0 suspectscore=0 spamscore=0
+ malwarescore=0 clxscore=1015 priorityscore=1501 impostorscore=0 bulkscore=0
+ spamscore=0 lowpriorityscore=0 phishscore=0 adultscore=0 suspectscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604210222
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_154616_737311_31436829 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20260421_154618_009180_BB99C992 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,32 +117,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Manojkiran Eda <manojkiran.eda@gmail.com>
+- Removed SGPIO node as not in use anymore.
+- Updated chassis power related pins as per the new hardware design
 
-The usb virtual hub device is required to pass the typed keystrokes to
-the Host OS as part of enabling the KVM (Keyboard-video-mouse) function.
-
-Signed-off-by: Manojkiran Eda <manojkiran.eda@gmail.com>
 Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
 ---
- arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts | 10 ++--------
+ 1 file changed, 2 insertions(+), 8 deletions(-)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-index 0ca799893791..b0eb1767c485 100644
+index 91c317267d6b..d7a934fe5860 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-@@ -535,6 +535,10 @@ &video {
- 	status = "okay";
+@@ -424,7 +424,7 @@ &pinctrl_gpiol6_unbiased
+ 	/*E0-E7*/	"","","","","","","","",
+ 	/*F0-F7*/	"","","","","","","","",
+ 	/*G0-G7*/	"","","","","","","","",
+-	/*H0-H7*/	"","","","","","","","",
++	/*H0-H7*/	"power-chassis-good","power-chassis-reboot","","","","","","",
+ 	/*I0-I7*/	"","","","","","","","",
+ 	/*J0-J7*/	"","","","","","","","",
+ 	/*K0-K7*/	"","","","","","","","",
+@@ -440,7 +440,7 @@ &pinctrl_gpiol6_unbiased
+ 	/*U0-U7*/	"","","","","","","","",
+ 	/*V0-V7*/	"","rtc-battery-voltage-read-enable","","power-chassis-control","","","","",
+ 	/*W0-W7*/	"","","","","","","","",
+-	/*X0-X7*/	"fpga-pgood","power-chassis-good","pch-pgood","","","","","",
++	/*X0-X7*/	"fpga-pgood","","pch-pgood","","","","","",
+ 	/*Y0-Y7*/	"","","","","","","","",
+ 	/*Z0-Z7*/	"","","","","","","","";
+ 
+@@ -486,12 +486,6 @@ &emmc {
+ 	clk-phase-mmc-hs200 = <180>, <180>;
  };
  
-+&vhub {
-+	status = "okay";
-+};
-+
- &i2c0 {
+-&sgpiom0 {
+-	status = "okay";
+-	ngpios = <128>;
+-	bus-frequency = <500000>;
+-};
+-
+ &ibt {
  	status = "okay";
- 
+ };
 -- 
 2.51.0
 
