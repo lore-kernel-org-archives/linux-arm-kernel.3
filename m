@@ -4,60 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C14F89256
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 10:46:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FCD6F89256
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 10:52:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WYcwq9XtUCkeGg/9kY+8GcsqZ3uv9Mz7OwdQUgNaoLM=; b=3HOfkesFNqyF1kF/4JNUZdUfbw
-	eNndQyPMQYFsYUj4cJjcaHrgWACbQbSGDImh+HdxLK88V8Bk8NbwpXPcMESOdiiThGm0fTgX/S3GR
-	kNrFOoY8z5NG5Na02VkSFUAQzh78zHddmtMABo1RVnTx1xQMVYEOEoiXfHaRLDX+MVuAH6pADMJKR
-	++IXerLqjhNKsKhfbJ7bLLbrUn8Le1BhXOwJ7rVq2OWqaZvHUUDXtilWee2vPwVy9uM6ONEsMbesp
-	+kXM6s0idvsQZLIuIiBq0A2hP5DXyBrs+HHUJxSWgmZPgQ7LzfPswKZlBfJUm/8hkKSzVMts7sTqo
-	EiYPUcxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=whwl9dWxqkLU5NwxhbBzfKZ6ZQGC9jxrfF4pXCobsm4=; b=1bMqsbOPRbppmIYjfa6AIXh+hS
+	Y3j7JwN4AUqFW6PwPj5LrivYlSZZJGVUGMtxhrLyJGfQPpwzMgd52RvM4m+UIpKmWL6JJIrHIuz0t
+	w1UGSODqy6w1DTOXg+Qz69PbajvAyOg+YU/A16YxVH7LnCbtpZ2LmCFnyz9IKsjewmjuHc+EE7iqL
+	o30HMhnAxOa+RNeJhqw3mz5Er/soAX/daP+Mo1Idrwqfg8z5i1wecjVUdn0rJ9cybtL0sDai0e5Pp
+	4/K6a9eaiW24t+syHAOxdX/5/4J/66ZbDyQ1T9aECxPZB/E476MZyUphm/6eyg9zJ9X9s8Oo1zGgx
+	OQSJaW9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF8cK-00000008Spk-03jP;
-	Tue, 21 Apr 2026 10:46:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF8cG-00000008SpP-3lbA
+	id 1wF8io-00000008T86-1O7d;
+	Tue, 21 Apr 2026 10:52:50 +0000
+Received: from mail-northeuropeazon11012045.outbound.protection.outlook.com ([52.101.66.45] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wF8il-00000008T7R-10li
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 10:46:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1EC2D25E0;
-	Tue, 21 Apr 2026 03:45:58 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 447CE3FE8F;
-	Tue, 21 Apr 2026 03:46:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776768363; bh=QhXkQZOHiYA5eptsazKYG8SLrjSlnq+YelLqIRiAyTU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YtYTqP27NkWb2NTVN5marbwf/KXkiwfThYLmh15gsMJUwZuk9/ZgZjw/qb8RXVxpq
-	 cXDp/9hKYYHuDH9wl8V2CAcFuSCivNbcMaxTi6nrRuMqSDvExpIXHDkZmiuIi9pDEw
-	 zgzjHo1FBu6zhy74WCSalA60EgWerDrdPzlkL/9U=
-Date: Tue, 21 Apr 2026 11:46:01 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
-	mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v5 07/12] coresight: etm4x: fix inconsistencies with
- sysfs configuration
-Message-ID: <20260421104601.GB929984@e132581.arm.com>
-References: <20260415165528.3369607-1-yeoreum.yun@arm.com>
- <20260415165528.3369607-8-yeoreum.yun@arm.com>
+	Tue, 21 Apr 2026 10:52:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LspC6xyiG0+/gxWoBhhgBdhmXFCzO3fYVryXugWElWm9mfvOimJlQM+cVEaxBWd3hNj7WkRUE/SNFwi2vCLjw74HNtYyxaCuGMIMD3MEojmto+orOzAWnNNRdsFlsZzBBUpr3PAWkLl4QyKcix015yCEDCoVqm48BKlvbwHa943GyFc0BfhxyDTcbk585pfNg2i2VikYNfRqGoFsy4jdTfbvF0WPwv+auxPQvVIJH8D6BJohJmamRl01tpzBv1iUf9tOskuvUxM22xXy6EySg+Zmncqjzb9I/ZzbUHv0sphuYbwFMNxD7s4X4mlpH/PoRXZPOf9wsScPyz/3/VDHXQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=whwl9dWxqkLU5NwxhbBzfKZ6ZQGC9jxrfF4pXCobsm4=;
+ b=uQSlbUPU81yU9p5J8xS9bT0OWMTH9xu51crRjSN1FDUCW8Vo787SgX/zEICDgP/D4j9cNp/XutMAXQQAweNMWqD/LNuSaR0sMMLBg13yKz3EANdYS5PnrLglPNUoOThQsUhrqtE2N14J0Za1BksXO6KcgwtEWdNTH1q17+85/eneBBGHXNUldLpY9C7nUA1TCJjg0/dR9vI0nBGBLz8CizDwIldX8id4576T0sla4aoUyWskMoNWbeCa4NYFLza6fCrNlmC8WFFKYW5HJN6LDVZJjQbFh7sE3G4f1nWbXh+70t/ppMR37Lf+Qu2zUmBscocHY5xjWWwEPXkJ2dxhng==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=whwl9dWxqkLU5NwxhbBzfKZ6ZQGC9jxrfF4pXCobsm4=;
+ b=GwQPg8coJN/LarldWi2rzLOo5FTV9FrnRL1ZDGsbKhwjg/Efjm1INBIwrTjZbpLqdO/rqSH1GmLDrrfRrx7Btd1Sa6fGJjlNsIrTiECJ3MwsGQHeOcFsAPZvv+hbgXyFeuRZH5AOJdE58qsj/aD9iSqHecg9KVjsQAAJ9MNPqvliAPGqh0CPON87aZqFEsxhhzEdk5AFlmIRG4tbRgm/EFcLsD901oQVWLJYjXsmH32vqIklj3zNbUsR23hhTLsVfiYP0yj4aLDdtLjQo3gG7HY1JjSNEOs34nUZCtozsCv+laBQz5sLtd5aFs/RZs/wIt9JXZ8VBlGPSJzm3Z81Wg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
+ by GV2PR04MB12270.eurprd04.prod.outlook.com (2603:10a6:150:321::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.33; Tue, 21 Apr
+ 2026 10:52:39 +0000
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::c67b:71cd:6338:9dce]) by DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::c67b:71cd:6338:9dce%5]) with mapi id 15.20.9846.016; Tue, 21 Apr 2026
+ 10:52:39 +0000
+From: Xu Yang <xu.yang_2@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	jun.li@nxp.com
+Subject: [PATCH 1/4] arm64: dts: imx8mp: switch usb controller to flattened model
+Date: Tue, 21 Apr 2026 18:55:00 +0800
+Message-Id: <20260421105503.1416566-1-xu.yang_2@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MA5P287CA0131.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1d2::19) To DU2PR04MB8822.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e1::11)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260415165528.3369607-8-yeoreum.yun@arm.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|GV2PR04MB12270:EE_
+X-MS-Office365-Filtering-Correlation-Id: b979e904-f145-4aad-baf5-08de9f941af2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|366016|1800799024|19092799006|38350700014|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: a71IXMqDs+4HXJ8vaNSpTIbNY5pReknpxRz3eBmCoAAwB7EjRtyDYbXtXgCaj8v6kFApvDZ1N3ao5+F2C41XNwlRSFDpWr0Kv/ldTAgpn/UWrIP5M0eQF8mUHUT5t5SjjPEKan8B+qUQkUcKwPDJjsd+Ig9e3F6lWOdzLm6GT3Crpmbm+hXcXzZQy6seKO3qhMT7VMaL2U/LSBaZ4gWZdzsz+KJOGEqrxfWxXd8vtcYwn7ukhQ+dCT7QaIhYT1FOIyVPegWsi/Cg8NBE8LmfkQ/tOEvSGEnlRAwlS035vOn/HpSMLzuVBoipu5NKLxls/iZ+ZqtWRAT/9kdjDBg1jRTGY2txFsXPTaIP0OtapO4P9C7k5o6GA2UAJdVzqkuDZz8zxQJJqoYhRq/sgFb1K174OLqdUBblwjyB52LB5SboSzgfGeNNMC+nrQdfPr9iuTCiiIh83Jkzszwdu6ZgT/fSNYl/+URmgVs/cLst481UfbfN/sfUYG+ZoxfH4ITL29280DnvwUi14QNZtIv6Bv6UTehycj1h3+71YoG5nhPcq5y16w/kPTMA6pLeW8uAK9L+q7q4LqRYj4PBdF+Ht8T444npsS9TWLxvarDGkSyrZDMcTvz/vebDMjc1pU3lk0sMnSi5wkvcPZfo8SWogmKjI6Aaj6x6N3m6y8PxuY/n3iCzvRY0w+JBFIFHP2MDiNwxBxZVdMJyL0d6tiXZpYal+y7zZf4mYGXaIV12sOkG+hCfMiug/fz06xUEXk6wp8WrQkMfLfNB1YqIHE0IXNswj1jkRDp9/kL6KdnSMcw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(366016)(1800799024)(19092799006)(38350700014)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Kw/rTlMzF7jUN+D+mtPN/ikDo+zH/oY76G9dErqZfsbC1akMQNMWuZU43yzp?=
+ =?us-ascii?Q?PHL1q/Dk2CUf/lihuWgOFkPWbiZFGJpd4fg1+AVf7ZUhHisCTGPINbjKpQvv?=
+ =?us-ascii?Q?QO9pY2BfG4QNXOtMcf9LmuJBCoBKGlpq5s4j4UJWPe5UC2wn0bWRjBdthzrw?=
+ =?us-ascii?Q?5qLZJoOfqvDm8XpM0v4LY0J6RXTx2PGsZ1svGUxkBB0ww6106WaNI0r+q7SE?=
+ =?us-ascii?Q?ONM+Pq6aRGXZ7j23010t8h1GvRXNZ+2YWTMZdjXv0apbaLz10cWokdMnSnP8?=
+ =?us-ascii?Q?FoX5T8wFeShOYQSeTpqguBR79yjC8I4UriTwlHRFZgnJPG1bG71oXRD103ns?=
+ =?us-ascii?Q?Z73N26nGdvmKuyk1daCUf2Gk1soTxvXXTrQEQ+woyJhfWouPkgXsWx+Th1k4?=
+ =?us-ascii?Q?CjGkYsXdWf2XQRvGlrjyharBm0tZezuCCwoyYO9WU2rgCJVu6G3Rwd3zvaCQ?=
+ =?us-ascii?Q?gvSeR5sxNaxYUjznqU5XTLKm53s+BtVjpxiAj/N4z48EDHRPg1mBRBhDLoct?=
+ =?us-ascii?Q?WrF2l2cMuZpcSrFHYMdwDIUlupvRpOglppJd7bmWbBy50i3jlN90XXW25ztr?=
+ =?us-ascii?Q?mxvyPddYNFaWbYJpHPYC6PYlY/4ta6R27LFP2uT663gJfzw+WWUQ76ah7qJH?=
+ =?us-ascii?Q?rwJ/Z6OWW8ecL+DTvzfSZ3l/bimKmzesJgd6I6mS6wdljp6CNCR0SRXElSBx?=
+ =?us-ascii?Q?DEw1isQyPJjc7d9DXQ1Su6ztQw5oQ6a1JrQYedjCGJGC/5ZlyqilHOs5rTb/?=
+ =?us-ascii?Q?h4X/+asl6TflP9Q7rk6cvtGeAnY4KCVh8djJw8vbPcQ71ZYuiLmpgn+B/BQ0?=
+ =?us-ascii?Q?5Urm/sgCRlp121sUvScgJakBVOC6zQ3R80qU+fXcfvN5wea6NHx0NHztw/j5?=
+ =?us-ascii?Q?xUwus252OC+QKK+BMl58KwdMzaj0BT2dUdWk3+lsluWD0q2TcHJCUi1n07Sa?=
+ =?us-ascii?Q?Si6iyQ4UmHWbMYH6+RbfbvS2/9QZo3SVSvF6ux8PmDD/U5la52rY6wkBVDig?=
+ =?us-ascii?Q?a/5ZifQj/vNMjEjz/oZz7oaOhGGkNQZbMmZQLURLlrGueFotwE1K1lTj4Jl5?=
+ =?us-ascii?Q?aK0hsScBZ0A1JBv0w2dX6E9fveiT3tna/MCrXs6MxgEYBf01yAb9gKH6J8/e?=
+ =?us-ascii?Q?FIN4SFnKLRjerbfU2Jgz3hV2XRqFZFmoaPd2eXBmg/DnbtYKpJWQlSCiu8SB?=
+ =?us-ascii?Q?Oh+MWSVEkLyO/CT4cmbFIwNQG7YYE6pqr6KXgxgVaFUYdavw5rwplK4kfFgj?=
+ =?us-ascii?Q?6nL/y2qd4zEELhLUOkWti4Rxk2fnvipaNnbb0iXadcsMJGWYBOXe+o6gWsvV?=
+ =?us-ascii?Q?BrCO00szkr7BETC86IWWDZL6tJ0TN9Tz3oR+fi6AZokgfNnVj/fQZV6xKOpP?=
+ =?us-ascii?Q?5cHgfUAp6XooqLgUuyHZ/epWcWKrHguj0yGVXYZ/5rmdxhAm+1pXhKpNu319?=
+ =?us-ascii?Q?VtfziYBXmt0kY4yR/Y57cmNZ9wUjZqlcQOxK4llT5ELlfs1ei50UgH+QM6qr?=
+ =?us-ascii?Q?mo6Qf4RVfUReurhnSdxXPQPrB9eO8VXdDPIqlQwcBHyMnLEIe1EoGmtoVVhD?=
+ =?us-ascii?Q?RD3K4T+iVqKXatiG5SQ6TBoYawwX19LdwkXpazBY15tzKhccApYJLjm2KG+2?=
+ =?us-ascii?Q?T3XDTric64uxvGoTkqtVPQohxur/0LKQ0QBnGRM6N/j2dGI17MOzldGby0+2?=
+ =?us-ascii?Q?HaJFyjSGRg3+P+IILUnlcwY7Qfu7bHd+P7D4P3uu7CWXsTnJz2jxHz/eNW7S?=
+ =?us-ascii?Q?yoFe2Du1RQ=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b979e904-f145-4aad-baf5-08de9f941af2
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Apr 2026 10:52:39.1637
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6IdWQ8Uxp++P8PqSFjjjeKIwY+Z4jXWJyiRU+W213oSaUpq3YcfO4feV8j6xr3PCZB660ZBOLAkkywIhn4zpYw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB12270
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_034605_088533_D7AA1B31 
-X-CRM114-Status: GOOD (  36.04  )
+X-CRM114-CacheID: sfid-20260421_035247_307040_F640F608 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,229 +142,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 15, 2026 at 05:55:23PM +0100, Yeoreum Yun wrote:
-> The current ETM4x configuration via sysfs can lead to
-> several inconsistencies:
-> 
->   - If the configuration is modified via sysfs while a perf session is
->     active, the running configuration may differ before a sched-out and
->     after a subsequent sched-in.
-> 
->   - If a perf session and a sysfs session enable tracing concurrently,
->     the configuration from configfs may become corrupted.
+Switch to use flattened model for all USB controllers. To enable USB
+controllers with restricted DMA access range to work correctly, add a
+pseudo simple-bus to constrain the dma address.
 
-I think this happens because the sysfs path calls
-cscfg_csdev_enable_active_config() without first acquiring the mode,
-allowing a perf session to acquire the mode and call the same function
-concurrently.
+Also reorder USB-related nodes.
 
->   - There is a risk of corrupting drvdata->config if a perf session enables
->     tracing while cscfg_csdev_disable_active_config() is being handled in
->     etm4_disable_sysfs().
+Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+---
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi | 161 ++++++++++------------
+ 1 file changed, 76 insertions(+), 85 deletions(-)
 
-Similiar to above, cscfg_csdev_disable_active_config() is not
-protected in etm4_disable_sysfs().
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+index 90d7bb8f5619..8b3aab14ccf1 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+@@ -2329,6 +2329,82 @@ gpu2d: gpu@38008000 {
+ 			power-domains = <&pgc_gpu2d>;
+ 		};
+ 
++		bus@38100000 {
++			compatible = "simple-bus";
++			#address-cells = <1>;
++			#size-cells = <1>;
++			dma-ranges = <0x40000000 0x40000000 0xc0000000>;
++			ranges;
++
++			usb3_0: usb_dwc3_0: usb@38100000 {
++				compatible = "nxp,imx8mp-dwc3";
++				reg = <0x38100000 0x10000>,
++				      <0x32f10100 0x8>,
++				      <0x381f0000 0x20>;
++				reg-names = "core", "blkctl", "glue";
++				clocks = <&clk IMX8MP_CLK_HSIO_ROOT>,
++					 <&clk IMX8MP_CLK_USB_ROOT>,
++					 <&clk IMX8MP_CLK_USB_CORE_REF>,
++					 <&clk IMX8MP_CLK_USB_SUSP>;
++				clock-names = "hsio", "bus_early", "ref", "suspend";
++				interrupts = <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>,
++					     <GIC_SPI 148 IRQ_TYPE_LEVEL_HIGH>;
++				interrupt-names = "dwc_usb3", "wakeup";
++				power-domains = <&hsio_blk_ctrl IMX8MP_HSIOBLK_PD_USB>;
++				phys = <&usb3_phy0>, <&usb3_phy0>;
++				phy-names = "usb2-phy", "usb3-phy";
++				snps,gfladj-refclk-lpm-sel-quirk;
++				snps,parkmode-disable-ss-quirk;
++				status = "disabled";
++			};
++
++			usb3_1: usb_dwc3_1: usb@38200000 {
++				compatible = "nxp,imx8mp-dwc3";
++				reg = <0x38200000 0x10000>,
++				      <0x32f10108 0x8>,
++				      <0x382f0000 0x20>;
++				reg-names = "core", "blkctl", "glue";
++				clocks = <&clk IMX8MP_CLK_HSIO_ROOT>,
++					 <&clk IMX8MP_CLK_USB_ROOT>,
++					 <&clk IMX8MP_CLK_USB_CORE_REF>,
++					 <&clk IMX8MP_CLK_USB_SUSP>;
++				clock-names = "hsio", "bus_early", "ref", "suspend";
++				interrupts = <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>,
++					     <GIC_SPI 149 IRQ_TYPE_LEVEL_HIGH>;
++				interrupt-names = "dwc_usb3", "wakeup";
++				power-domains = <&hsio_blk_ctrl IMX8MP_HSIOBLK_PD_USB>;
++				phys = <&usb3_phy1>, <&usb3_phy1>;
++				phy-names = "usb2-phy", "usb3-phy";
++				snps,gfladj-refclk-lpm-sel-quirk;
++				snps,parkmode-disable-ss-quirk;
++				status = "disabled";
++			};
++		};
++
++		usb3_phy0: usb-phy@381f0040 {
++			compatible = "fsl,imx8mp-usb-phy";
++			reg = <0x381f0040 0x40>;
++			clocks = <&clk IMX8MP_CLK_USB_PHY_ROOT>;
++			clock-names = "phy";
++			assigned-clocks = <&clk IMX8MP_CLK_USB_PHY_REF>;
++			assigned-clock-parents = <&clk IMX8MP_CLK_24M>;
++			power-domains = <&hsio_blk_ctrl IMX8MP_HSIOBLK_PD_USB_PHY1>;
++			#phy-cells = <0>;
++			status = "disabled";
++		};
++
++		usb3_phy1: usb-phy@382f0040 {
++			compatible = "fsl,imx8mp-usb-phy";
++			reg = <0x382f0040 0x40>;
++			clocks = <&clk IMX8MP_CLK_USB_PHY_ROOT>;
++			clock-names = "phy";
++			assigned-clocks = <&clk IMX8MP_CLK_USB_PHY_REF>;
++			assigned-clock-parents = <&clk IMX8MP_CLK_24M>;
++			power-domains = <&hsio_blk_ctrl IMX8MP_HSIOBLK_PD_USB_PHY2>;
++			#phy-cells = <0>;
++			status = "disabled";
++		};
++
+ 		vpu_g1: video-codec@38300000 {
+ 			compatible = "nxp,imx8mm-vpu-g1";
+ 			reg = <0x38300000 0x10000>;
+@@ -2407,91 +2483,6 @@ ddr-pmu@3d800000 {
+ 			interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH>;
+ 		};
+ 
+-		usb3_phy0: usb-phy@381f0040 {
+-			compatible = "fsl,imx8mp-usb-phy";
+-			reg = <0x381f0040 0x40>;
+-			clocks = <&clk IMX8MP_CLK_USB_PHY_ROOT>;
+-			clock-names = "phy";
+-			assigned-clocks = <&clk IMX8MP_CLK_USB_PHY_REF>;
+-			assigned-clock-parents = <&clk IMX8MP_CLK_24M>;
+-			power-domains = <&hsio_blk_ctrl IMX8MP_HSIOBLK_PD_USB_PHY1>;
+-			#phy-cells = <0>;
+-			status = "disabled";
+-		};
+-
+-		usb3_0: usb@32f10100 {
+-			compatible = "fsl,imx8mp-dwc3";
+-			reg = <0x32f10100 0x8>,
+-			      <0x381f0000 0x20>;
+-			clocks = <&clk IMX8MP_CLK_HSIO_ROOT>,
+-				 <&clk IMX8MP_CLK_USB_SUSP>;
+-			clock-names = "hsio", "suspend";
+-			interrupts = <GIC_SPI 148 IRQ_TYPE_LEVEL_HIGH>;
+-			power-domains = <&hsio_blk_ctrl IMX8MP_HSIOBLK_PD_USB>;
+-			#address-cells = <1>;
+-			#size-cells = <1>;
+-			dma-ranges = <0x40000000 0x40000000 0xc0000000>;
+-			ranges;
+-			status = "disabled";
+-
+-			usb_dwc3_0: usb@38100000 {
+-				compatible = "snps,dwc3";
+-				reg = <0x38100000 0x10000>;
+-				clocks = <&clk IMX8MP_CLK_USB_ROOT>,
+-					 <&clk IMX8MP_CLK_USB_CORE_REF>,
+-					 <&clk IMX8MP_CLK_USB_SUSP>;
+-				clock-names = "bus_early", "ref", "suspend";
+-				interrupts = <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>;
+-				phys = <&usb3_phy0>, <&usb3_phy0>;
+-				phy-names = "usb2-phy", "usb3-phy";
+-				snps,gfladj-refclk-lpm-sel-quirk;
+-				snps,parkmode-disable-ss-quirk;
+-			};
+-
+-		};
+-
+-		usb3_phy1: usb-phy@382f0040 {
+-			compatible = "fsl,imx8mp-usb-phy";
+-			reg = <0x382f0040 0x40>;
+-			clocks = <&clk IMX8MP_CLK_USB_PHY_ROOT>;
+-			clock-names = "phy";
+-			assigned-clocks = <&clk IMX8MP_CLK_USB_PHY_REF>;
+-			assigned-clock-parents = <&clk IMX8MP_CLK_24M>;
+-			power-domains = <&hsio_blk_ctrl IMX8MP_HSIOBLK_PD_USB_PHY2>;
+-			#phy-cells = <0>;
+-			status = "disabled";
+-		};
+-
+-		usb3_1: usb@32f10108 {
+-			compatible = "fsl,imx8mp-dwc3";
+-			reg = <0x32f10108 0x8>,
+-			      <0x382f0000 0x20>;
+-			clocks = <&clk IMX8MP_CLK_HSIO_ROOT>,
+-				 <&clk IMX8MP_CLK_USB_SUSP>;
+-			clock-names = "hsio", "suspend";
+-			interrupts = <GIC_SPI 149 IRQ_TYPE_LEVEL_HIGH>;
+-			power-domains = <&hsio_blk_ctrl IMX8MP_HSIOBLK_PD_USB>;
+-			#address-cells = <1>;
+-			#size-cells = <1>;
+-			dma-ranges = <0x40000000 0x40000000 0xc0000000>;
+-			ranges;
+-			status = "disabled";
+-
+-			usb_dwc3_1: usb@38200000 {
+-				compatible = "snps,dwc3";
+-				reg = <0x38200000 0x10000>;
+-				clocks = <&clk IMX8MP_CLK_USB_ROOT>,
+-					 <&clk IMX8MP_CLK_USB_CORE_REF>,
+-					 <&clk IMX8MP_CLK_USB_SUSP>;
+-				clock-names = "bus_early", "ref", "suspend";
+-				interrupts = <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>;
+-				phys = <&usb3_phy1>, <&usb3_phy1>;
+-				phy-names = "usb2-phy", "usb3-phy";
+-				snps,gfladj-refclk-lpm-sel-quirk;
+-				snps,parkmode-disable-ss-quirk;
+-			};
+-		};
+-
+ 		dsp: dsp@3b6e8000 {
+ 			compatible = "fsl,imx8mp-hifi4";
+ 			reg = <0x3b6e8000 0x88000>;
+-- 
+2.34.1
 
-> To resolve these issues, separate the configuration into:
-> 
->   - active_config: the configuration applied to the current session
->   - config: the configuration set via sysfs
-> 
-> Additionally:
-> 
->   - Apply the configuration from configfs after taking the appropriate mode.
-> 
->   - Since active_config and related fields are accessed only by the local CPU
->     in etm4_enable/disable_sysfs_smp_call() (similar to perf enable/disable),
->     remove the lock/unlock from the sysfs enable/disable path and
->     startup/dying_cpu except when to access config fields.
-> 
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> ---
->  .../hwtracing/coresight/coresight-etm4x-cfg.c |   2 +-
->  .../coresight/coresight-etm4x-core.c          | 107 ++++++++++--------
->  drivers/hwtracing/coresight/coresight-etm4x.h |   2 +
->  3 files changed, 63 insertions(+), 48 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> index d14d7c8a23e5..0553771d04e7 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> @@ -47,7 +47,7 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
->  				   struct cscfg_regval_csdev *reg_csdev, u32 offset)
->  {
->  	int err = -EINVAL, idx;
-> -	struct etmv4_config *drvcfg = &drvdata->config;
-> +	struct etmv4_config *drvcfg = &drvdata->active_config;
->  	u32 off_mask;
->  
->  	if (((offset >= TRCEVENTCTL0R) && (offset <= TRCVIPCSSCTLR)) ||
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index b199aebbdb60..15aaf4a898e1 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -245,6 +245,10 @@ void etm4_release_trace_id(struct etmv4_drvdata *drvdata)
->  
->  struct etm4_enable_arg {
->  	struct etmv4_drvdata *drvdata;
-> +	unsigned long cfg_hash;
-> +	int preset;
-
-Since smp call cannot directly call cscfg_config_sysfs_get_active_cfg()
-due to it runs in atomic context but ...active_cfg() tries to acquire
-mutex. So we firstly retrieve pass 'cfg_hash' and 'preset' in sleepable
-context and deliver them to the SMP call.
-
-After coresight cfg refactoring, we should remove cfg_hash/preset from
-ETM driver, the ETM driver only needs to retrieve register list and can
-do this in smp call.
-
-Before we finish cfg refactoring, it is fine for me to add these two
-parameters into etm4_enable_arg.
-
-> +	u8 trace_id;
-
-Can we add 'path' instead ? The SMP call can retrieve path->trace_id.
-This can benefit for future clean up (e.g., we can store config into
-path so we can retrieve config from path pointer), and this allows us
-for further refactoring to unify etm4_enable_sysfs_smp_call() and
-etm4_enable_perf().
-
-> +	struct etmv4_config config;
-
-We don't need this. We can defer to get drvdata->config in SMP call.
-
->  	int rc;
->  };
-
-[...]
-
-> @@ -918,40 +946,29 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
->  
->  	/* enable any config activated by configfs */
->  	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
-> -	if (cfg_hash) {
-> -		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
-> -		if (ret) {
-> -			etm4_release_trace_id(drvdata);
-> -			return ret;
-> -		}
-> -	}
-> -
-> -	raw_spin_lock(&drvdata->spinlock);
-> -
-> -	drvdata->trcid = path->trace_id;
-> -
-> -	/* Tracer will never be paused in sysfs mode */
-> -	drvdata->paused = false;
->  
->  	/*
->  	 * Executing etm4_enable_hw on the cpu whose ETM is being enabled
->  	 * ensures that register writes occur when cpu is powered.
->  	 */
->  	arg.drvdata = drvdata;
-> +	arg.cfg_hash = cfg_hash;
-> +	arg.preset = preset;
-> +	arg.trace_id = path->trace_id;
-> +
-> +	raw_spin_lock(&drvdata->spinlock);
-> +	arg.config = drvdata->config;
-> +	raw_spin_unlock(&drvdata->spinlock);
-
-Can we defer this in smp call ?  And we can consolidate a bit
-configurations, we can consider to use a separate patch for this.
-
-  etm4x_apply_config(drvdata, event, hash, preset)
-  {
-      /* perf mode */
-      if (event) {
-          etm4_parse_event_config(drvdata->csdev, event);
-      } else if (mode == CS_MODE_PERF) {
-          scoped_guard(raw_spinlock, &drvdata->spinlock)
-              &drvdata->active_config = drvdata->config;
-      }
-
-      /* At the end, we always apply the config */
-      cscfg_csdev_enable_active_config(drvdata->csdev, hash, preset);
-  }
-
-
-> +
->  	ret = smp_call_function_single(drvdata->cpu,
->  				       etm4_enable_sysfs_smp_call, &arg, 1);
->  	if (!ret)
->  		ret = arg.rc;
->  	if (!ret)
-> -		drvdata->sticky_enable = true;
-> -
-> -	if (ret)
-> +		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
-> +	else
->  		etm4_release_trace_id(drvdata);
->  
-> -	raw_spin_unlock(&drvdata->spinlock);
-> -
-> -	if (!ret)
-> -		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
->  	return ret;
->  }
->  
-> @@ -1038,7 +1055,7 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
->  {
->  	u32 control;
->  	const struct etmv4_caps *caps = &drvdata->caps;
-> -	struct etmv4_config *config = &drvdata->config;
-> +	struct etmv4_config *config = &drvdata->active_config;
->  	struct coresight_device *csdev = drvdata->csdev;
->  	struct csdev_access *csa = &csdev->access;
->  	int i;
-> @@ -1074,6 +1091,8 @@ static void etm4_disable_sysfs_smp_call(void *info)
->  
->  	etm4_disable_hw(drvdata);
->  
-> +	cscfg_csdev_disable_active_config(drvdata->csdev);
-> +
->  	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
->  }
->  
-> @@ -1124,7 +1143,6 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
->  	 * DYING hotplug callback is serviced by the ETM driver.
->  	 */
->  	cpus_read_lock();
-> -	raw_spin_lock(&drvdata->spinlock);
->  
->  	/*
->  	 * Executing etm4_disable_hw on the cpu whose ETM is being disabled
-> @@ -1133,10 +1151,6 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
->  	smp_call_function_single(drvdata->cpu, etm4_disable_sysfs_smp_call,
->  				 drvdata, 1);
->  
-> -	raw_spin_unlock(&drvdata->spinlock);
-> -
-> -	cscfg_csdev_disable_active_config(csdev);
-> -
->  	cpus_read_unlock();
->  
->  	/*
-> @@ -1379,6 +1393,7 @@ static void etm4_init_arch_data(void *info)
->  	struct etm4_init_arg *init_arg = info;
->  	struct etmv4_drvdata *drvdata;
->  	struct etmv4_caps *caps;
-> +	struct etmv4_config *config;
->  	struct csdev_access *csa;
->  	struct device *dev = init_arg->dev;
->  	int i;
-> @@ -1386,6 +1401,7 @@ static void etm4_init_arch_data(void *info)
->  	drvdata = dev_get_drvdata(init_arg->dev);
->  	caps = &drvdata->caps;
->  	csa = init_arg->csa;
-> +	config = &drvdata->active_config;
-
-Should we init drvdata->config instead so make it has sane values ?
-
-In other words, drvdata->active_config are always set at the runtime,
-so don't need to init it at all, right?
-
-Thanks,
-Leo
 
