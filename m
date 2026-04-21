@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CB95F8FA94
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 16:07:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37769F8FA94
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 16:10:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uues4jM9eRuiyjVaYX9ROVehxbZRCK1lE5/reXXszyU=; b=UGEOyN9IwnVDy85Hj1c/NDo1sC
-	2nsXyWvpablOnlrTalqa3nGr/eLHRSnmyV7TaJ4DuiwPEusRyLCmZvgte2+fw+vqv21Qd5UFHK74b
-	9ydFdrMo5UJpvCfzVDjZq7KC73PM/P7fqAynySixLR4d8pNndUeHVc0nI20QW6ea6Jv473W2HV2y6
-	iuGDF0V6tp3E8t+3XzQw/Jfs4tLq/nPnE8ovTDIZiwyBxEJxX31Ahm/RfCmPxiCDN/q2eBBB9DlDH
-	F8kq8z0xfJHrWJ+e8499UPAPMVYE9jPl3eNt7+tarXc6GLl9+xjHH6cPjka906tB79U8zsFmxeb/r
-	zNuYaK0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wmvTqwfhLNaqLrREBI/zMcFBr9lbGTz9MNkHLNnngko=; b=d7DtzYcP9ANFNUg3RLe/3jvYXr
+	ai9c2ZIq6kNFwE8omd3BovM80fAbvj6kyPzAH4d26rLjJQalJF2PTHjPnbrOuQippL+pMsng6uEiG
+	Ej+vBOqId88sCv1Omwfuz+nRITOdLHo9xogIZgn7s6AW2CfPru1q7Oh5bsDYcyK7isL+Nk+0UXUh6
+	N9Q8h8lrx/T+QUA8acPjeWWWWmGKYXgXLyS0JEezal/Nc5feYQHxTFFruacWnmPX8FqKDg5A+OGBX
+	bkcuMnQUNM4tDlni5rY4CXykYksGQOXLrNLVDbuWUKnAyhMiFqZq1p3zcqff2gKL7d9zTTPkQdgGe
+	Ku84kGyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFDdS-00000008tG2-39WN;
-	Tue, 21 Apr 2026 16:07:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFDdP-00000008tFc-1m3R
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 16:07:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6050927B5;
-	Tue, 21 Apr 2026 09:07:28 -0700 (PDT)
-Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 431073F7B4;
-	Tue, 21 Apr 2026 09:07:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776787653; bh=CDkKQiqxepZsm3g5zz3MhhTKvWeprAVSa8SwY/NAmv0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MMSpracRIYBWr4vxYzHZdqydWWnRv1Jvqv2cJR702cQ8+3V76wRqnw3kh8up4+sAR
-	 8rgojzGQoI6gqmfVgDwmhUUwSN//8j9a9c0dfULW488Q3hYRNy8NAwLL649UTPLZBR
-	 j7HpRe63kzdLOFj5ZDOZ19Xg3Qv9MiRcjuU7ZArs=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Breno Leitao <leitao@debian.org>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	mark.rutland@arm.com,
-	leo.yan@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	palmer@dabbelt.com,
-	paulmck@kernel.org,
-	puranjay@kernel.org,
-	usama.arif@linux.dev,
-	rmikey@meta.com,
-	kernel-team@meta.com
-Subject: Re: [PATCH v2] arm64/irqflags: __always_inline the arch_local_irq_*() helpers
-Date: Tue, 21 Apr 2026 17:07:25 +0100
-Message-ID: <aeegvdLT_z9ESKYV@devkitleo>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260421-arm64_always_inline-v2-1-c59d1400514d@debian.org>
-References: <20260421-arm64_always_inline-v2-1-c59d1400514d@debian.org>
+	id 1wFDgB-00000008tQM-15O0;
+	Tue, 21 Apr 2026 16:10:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wFDg9-00000008tPt-268Z;
+	Tue, 21 Apr 2026 16:10:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 979734035B;
+	Tue, 21 Apr 2026 16:10:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFD88C2BCB0;
+	Tue, 21 Apr 2026 16:10:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776787824;
+	bh=HKDAuR6VKMBI5hFge6Fz+4gVNv9QS/R3uQXYS+OYaB8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NO9YBoWUrThw41H0jixZKjYFMGpdq0LvsSKtUL/bAd8mptRTY0KlLZGQFAIjmEA9i
+	 /9gm6jPf++KrxS/53s77SMKaVm4Mji39umPXXtJCMHCzyjXv5TAlpjjAukpdOiWlJ0
+	 Ut3TVQGMYKL9A/iooRixKjzmu9JWPB3R4eG8L7KLSY8CoET2P2SXFbBtEuiDvllaXK
+	 JymuOsmqfbJLOW0VFN2CUvD0uL04cWkszbMZEx0xJS7DTSt0LT+jw+JhehVm1WQ6iI
+	 tmB+JsLZNE4V6UVBjWpnkMQoocz+T2zPm+e/13IxU6sYMEWV460AhL3u5tUkpfnrKO
+	 Ztj+3S2uIRy9w==
+Date: Tue, 21 Apr 2026 18:10:21 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Brian Masney <bmasney@redhat.com>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, 
+	Alexey Charkov <alchark@flipper.net>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Pavel Zhovner <pavel@flipper.net>, 
+	Andy Yan <andy.yan@rock-chips.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Subject: Re: [PATCH RFC 0/4] arm64: rockchip: The hunt for exact pixel clocks
+ on RK3576
+Message-ID: <20260421-quirky-tough-robin-817a1c@houat>
+References: <20260417-rk3576-dclk-v1-0-26a9d0dcb2de@flipper.net>
+ <aeKtNf8CCAWduI-f@venus>
+ <aeZOMnZfBcBHzR8c@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="ztvsum3prbyokpn3"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <aeZOMnZfBcBHzR8c@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_090735_654079_B5EA2069 
-X-CRM114-Status: GOOD (  24.03  )
+X-CRM114-CacheID: sfid-20260421_091025_615035_FA0E983C 
+X-CRM114-Status: GOOD (  42.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,129 +80,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 21, 2026 at 08:58:57AM -0700, Breno Leitao wrote:
-> The arch_local_irq_*() wrappers in <asm/irqflags.h> dispatch between two
-> underlying primitives: the __daif_* path on most systems, and the
-> __pmr_* path on builds that use GIC PMR-based masking (Pseudo-NMI). The
-> leaf primitives are already __always_inline, but the wrappers themselves
-> are plain "static inline".
-> 
-> That is unsafe for noinstr callers: nothing prevents the compiler from
-> emitting an out-of-line copy of e.g. arch_local_irq_disable(), and an
-> out-of-line copy can be instrumented (ftrace, kcov, sanitizers), which
-> breaks the noinstr contract on the entry/idle paths that rely on these
-> helpers.
-> 
-> x86 hit and fixed exactly this class of bug in commit 7a745be1cc90
-> ("x86/entry: __always_inline irqflags for noinstr").
-> 
-> Force-inline all of the arch_local_irq_*() wrappers so they cannot be
-> emitted out-of-line:
-> 
->   - arch_local_irq_enable()
->   - arch_local_irq_disable()
->   - arch_local_save_flags()
->   - arch_irqs_disabled_flags()
->   - arch_irqs_disabled()
->   - arch_local_irq_save()
->   - arch_local_irq_restore()
-> 
-> The primary motivation is noinstr safety. There is a useful side effect
-> for fleet-wide profiling: when the wrapper is emitted out-of-line,
-> samples taken inside it during the post-WFI IRQ unmask in
-> default_idle_call() are attributed to arch_local_irq_enable rather than
-> default_idle_call(), and the FP-unwinder loses default_idle_call() from
-> the chain.
-> 
-> Signed-off-by: Breno Leitao <leitao@debian.org>
-> ---
-> Changes in v2:
-> - Expand the functions that uses always_inline in arm64
-> - Link to v1: https://patch.msgid.link/20260420-arm64_always_inline-v1-1-dba919cf46bc@debian.org
-> ---
->  arch/arm64/include/asm/irqflags.h | 14 +++++++-------
->  1 file changed, 7 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
-> index d4d7451c2c129..a8cb5a5c93b78 100644
-> --- a/arch/arm64/include/asm/irqflags.h
-> +++ b/arch/arm64/include/asm/irqflags.h
-> @@ -40,7 +40,7 @@ static __always_inline void __pmr_local_irq_enable(void)
->  	barrier();
->  }
->  
-> -static inline void arch_local_irq_enable(void)
-> +static __always_inline void arch_local_irq_enable(void)
->  {
->  	if (system_uses_irq_prio_masking()) {
->  		__pmr_local_irq_enable();
-> @@ -68,7 +68,7 @@ static __always_inline void __pmr_local_irq_disable(void)
->  	barrier();
->  }
->  
-> -static inline void arch_local_irq_disable(void)
-> +static __always_inline void arch_local_irq_disable(void)
->  {
->  	if (system_uses_irq_prio_masking()) {
->  		__pmr_local_irq_disable();
-> @@ -90,7 +90,7 @@ static __always_inline unsigned long __pmr_local_save_flags(void)
->  /*
->   * Save the current interrupt enable state.
->   */
-> -static inline unsigned long arch_local_save_flags(void)
-> +static __always_inline unsigned long arch_local_save_flags(void)
->  {
->  	if (system_uses_irq_prio_masking()) {
->  		return __pmr_local_save_flags();
-> @@ -109,7 +109,7 @@ static __always_inline bool __pmr_irqs_disabled_flags(unsigned long flags)
->  	return flags != GIC_PRIO_IRQON;
->  }
->  
-> -static inline bool arch_irqs_disabled_flags(unsigned long flags)
-> +static __always_inline bool arch_irqs_disabled_flags(unsigned long flags)
->  {
->  	if (system_uses_irq_prio_masking()) {
->  		return __pmr_irqs_disabled_flags(flags);
-> @@ -128,7 +128,7 @@ static __always_inline bool __pmr_irqs_disabled(void)
->  	return __pmr_irqs_disabled_flags(__pmr_local_save_flags());
->  }
->  
-> -static inline bool arch_irqs_disabled(void)
-> +static __always_inline bool arch_irqs_disabled(void)
->  {
->  	if (system_uses_irq_prio_masking()) {
->  		return __pmr_irqs_disabled();
-> @@ -160,7 +160,7 @@ static __always_inline unsigned long __pmr_local_irq_save(void)
->  	return flags;
->  }
->  
-> -static inline unsigned long arch_local_irq_save(void)
-> +static __always_inline unsigned long arch_local_irq_save(void)
->  {
->  	if (system_uses_irq_prio_masking()) {
->  		return __pmr_local_irq_save();
-> @@ -187,7 +187,7 @@ static __always_inline void __pmr_local_irq_restore(unsigned long flags)
->  /*
->   * restore saved IRQ state
->   */
-> -static inline void arch_local_irq_restore(unsigned long flags)
-> +static __always_inline void arch_local_irq_restore(unsigned long flags)
->  {
->  	if (system_uses_irq_prio_masking()) {
->  		__pmr_local_irq_restore(flags);
-> 
-> ---
-> base-commit: bee6ea30c48788e18348309f891ed8afbf7702ac
-> change-id: 20260420-arm64_always_inline-6bc9dd3c17e6
-> 
-> Best regards,
-> --  
-> Breno Leitao <leitao@debian.org>
-> 
 
+--ztvsum3prbyokpn3
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH RFC 0/4] arm64: rockchip: The hunt for exact pixel clocks
+ on RK3576
+MIME-Version: 1.0
 
-Looks correct to what was discussed in V1. FWIW:
+Hi Brian, Alexey,
 
-Reviewed-by: Leonardo Bras <leo.bras@arm.com>
+On Mon, Apr 20, 2026 at 12:02:58PM -0400, Brian Masney wrote:
+> On Sat, Apr 18, 2026 at 12:24:57AM +0200, Sebastian Reichel wrote:
+> > On Fri, Apr 17, 2026 at 07:11:43PM +0400, Alexey Charkov wrote:
+> > > Dear all,
+> > >=20
+> > > Need the help of the collective wisdom of the community.
+> > >=20
+> > > The problem I'm trying to solve is reliably obtaining the exact pixel
+> > > clock for arbitrary display modes supported by the RK3576 SoC.
+> > >=20
+> > > Rockchip RK3576 has three display output processors VP0~VP2, each
+> > > supporting different ranges of display modes, roughly as follows:
+> > > - VP0: 4K 120Hz
+> > > - VP1: 2.5k 60Hz
+> > > - VP2: 1080p 60Hz
 
+Do any of those have an additional multiplier or divider after the PLL?
+
+I'm asking because 4k@120Hz is 1188MHz, and 1080p@60Hz is 148.5 (so 1188
+/ 8). 2.5k @ 60 might be a bit more problematic, but my point is that
+for HDMI/DP, most resolutions all have a pixel clock that are multiples
+of 148.5MHz.
+
+If you manage to get the PLL to the highest you need (1188MHz), and then
+apply dividers, you don't need to change the PLL frequency anymore.
+
+> > > Each one obviously needs a pixel clock. The required frequencies for =
+the
+> > > pixel clocks vary greatly depending on the display mode, and need to =
+be
+> > > matched within a tight tolerance, or else many displays will refuse to
+> > > work. E.g. the preferred (maximum) display mode out of VP1 is particu=
+larly
+> > > awkward, because it requires a pixel clock of 248.88 MHz, which cannot
+> > > be obtained using integer dividers from its default clock source (GPLL
+> > > at 1188 MHz), and the nearest approximation is 237.6 MHz, which is we=
+ll
+> > > outside the tolerance of e.g. DP specification, resulting in a blank
+> > > screen on most displays by default.
+> > >=20
+> > > The clock sources are of course configurable, in particular there are=
+ muxes
+> > > connected to each VP for selecting the source of the pixel clock:
+> > > - Each VP can take the clock either from the (single!) HDMI PHY or fr=
+om
+> > >   its dedicated dclk_vpX_src mux
+> > > - The dclk_vpX_src mux can select the clock from a number of system P=
+LLs
+> > >   (GPLL, CPLL, VPLL, BPLL, LPLL)
+> > >=20
+> > > While the system PLLs can be configured to output a wide range of
+> > > frequencies, they are shared between many system components. E.g. on =
+the
+> > > current mainline kernel on one of my RK3576 boards I've got the follo=
+wing:
+> > > GPLL: 1188 MHz, enable count 20
+> > > CPLL: 1000 MHz, enable count 17
+> > > VPLL: 594 MHz, enable count 0 (yaay!)
+> > > BPLL, LPLL: 816 MHz, enable count 0 (but these last ones don't have
+> > >             predividers, so are less flexible)
+> > >=20
+> > > So ultimately there is exactly one free fractional PLL (VPLL) which c=
+an be
+> > > used to generate arbitrary pixel clocks, but we have up to three cons=
+umers
+> > > trying to drive different display modes from it (e.g. HDMI on VP0, DP=
+ on
+> > > VP1 and MIPI DSI on VP2). We also want to be able to adjust the PLL o=
+utput
+> > > frequency on the fly to satisfy the requirements of the selected disp=
+lay
+> > > mode.
+> > >=20
+> > > And this is where I'm stuck. Trying to satisfy the requirements of up=
+ to
+> > > three consumers while changing the PLL frequency on the fly sounds li=
+ke
+> > > a poorly tractable mathematical problem (is it 3-SAT?). We can take t=
+he
+> > > HDMI output out of the equation, because it can be driven from the HD=
+MI
+> > > PHY (which is capable of arbitrary rates) instead of the mux, but that
+> > > makes the decision of which dclk source to use for a VP block depende=
+nt on
+> > > which downstream consumer is connected to it (HDMI vs. something else=
+).
+> >=20
+> > It becomes more messy: The HDMI PHY cannot be used as clock source
+> > for modes exceeding 4K@60Hz.
+> >=20
+> > > Even then we somehow need two devices to cooperate in picking a PLL
+> > > frequency that satisfies the requirements of both of them, and change=
+ to it
+> > > without display corruption. I'm not even sure if the CCF has mechanis=
+ms
+> > > for that?..
+
+It's not *just* the CCF though. You will disrupt the other, already
+active display, which might affect the user because the screen will
+blank, throw off the vblank timings and thus userspace, etc.
+
+Brian's solution is great progress on that front already, but if you can
+just save yourself the trouble, I'd advise you to do that instead :)
+
+Maxime
+
+--ztvsum3prbyokpn3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaeehZgAKCRAnX84Zoj2+
+drVDAYCpi1fbbCrj7/fukwguBw+orWqj+TZdDDch1wnLZurGU7hawtgbd28GdIza
+YvEwTVEBgODCe1okmRECm4S0EQxaLei/ii/Opfn1eD7wHOutqGPIMgwTjOaw918u
+mSbC0Y2DbA==
+=HbxP
+-----END PGP SIGNATURE-----
+
+--ztvsum3prbyokpn3--
 
