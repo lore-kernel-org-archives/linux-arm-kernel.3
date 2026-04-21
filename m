@@ -4,71 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D135AF327B5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 07:20:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DA86F327B4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 07:24:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9l3r1hLwOrx/EgcRbBGZONwxVjWMCeJz1an9sORNFfU=; b=xgHZjgxPXkyF8YjUDyjB9l9TPy
-	L0mkfbJmjFACNGvkq2giRDYq18x48uJI9XJZeZABjCKWyr7/UY5e5FZvzr0ZpgvlMW5sY6u/uEhvn
-	tVtqQHNmzfLlBgZxHZDcASQxwA4qzRPcOW4iQk+LzyuwGfH7U4maOlteJ+bybZXdANQXhtZCQPUQ1
-	ZNmg+YV5eJPlD0GAtsrh7UIfASikNhl4+JlcZMxKkBnbE+wuA/yVIzUvx08lINX1SWTLovN63Ke7l
-	fjCPUe4DkmJDJPb8d6kCKa6csreR3QXb0YGov8GEfPREX4MFIsF022dSy+QqGzjXGpQ3YiL5cpO/B
-	K8vleQeQ==;
+	bh=/Ehx8b1vGpM+1jTfOm579D4xaYy2lVCgplYViWaypLw=; b=UIvAEXHaK4BKOt1QMjeFKE+e7T
+	GgI/mKSm/0LJAOr4cM1YaHnM2Nue+PoQdthX1tqEQDpR/qbM8VWdWNsPbBJzRMEILkErtj63vFKCk
+	tVP8VzLu30F33yE0QEDBEuCFWMJ3hleyrY6M/dS2QiFamDaJ8wjSvgVGf+JHbFc9fAXbTyXoftT4m
+	yihW4hn8R96p/LIK8AoBYAn4+2UCX1kjKiFd0fsVXa6ZFP46nEQ5rKWr0jGXClruh+bmZxiho8pd/
+	o4RxAozJhC5QcGdWNA4ZS9RNn9SX4YF2jD6hCOPJm1G3JuB5RUa1VbWNRYII9dMcXLdvnSQH9Mzje
+	m7eLBrFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF5Pb-00000008AIw-3vr1;
-	Tue, 21 Apr 2026 07:20:47 +0000
-Received: from courrier.aliel.fr ([65.21.61.41])
+	id 1wF5TI-00000008BBa-0lXY;
+	Tue, 21 Apr 2026 07:24:36 +0000
+Received: from mail-japaneastazon11023106.outbound.protection.outlook.com ([52.101.127.106] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF5PR-00000008A5g-1kOW;
-	Tue, 21 Apr 2026 07:20:38 +0000
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1776756031;
-	bh=gXUyoHvrU7UAwF+TcmnCND7Xo2iI5Rna7hPHjxdZqpk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Nbbn12k63JNruu171FiGS4O/qBDQQFtUML9O/LrY57h2kLForQkUCFHLthzemD1VQ
-	 lAbmuLTp/T613ZBW/r1sfVbWzPSNzc2eCMoGN96IZMiJVvNTscvgQ51Bf9VrQGoy+x
-	 s4k3VFDCPMwjHwzcvdtL2Fline2DZG6XYPJWb3GU=
-Date: Tue, 21 Apr 2026 09:19:49 +0200
-Subject: [PATCH v3 7/8] arm64: dts: amlogic: t7: Add thermal zones
+	id 1wF5TE-00000008BB3-30fS
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Apr 2026 07:24:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FBVVgn76V+apWO7/9IJu/uJOe10tW1ZKZWgJyWd0rFwbEMkNOcXYfky+EAIeWmOGxmAHkgwcUagHkL1Zab6XqgJIF6XjgZ7151SFPS5xGHzz+8rzjEKvosgGB7d9T5B1ISnQhq8fcoL2zQG12Ftah2smDtkcCKJoDhtqJnm38b2RHV81a4vC4xj00GxU8FL+M3aENoV4ovGsR1LErkKhjsiSRrsAft9rAWGN+HC67LYQaq5lWNF8mW9B79/0NYosq+q4421DruUHnWNuEWljH9S4ao4LOZ/wrcdxN3+5TiVmNpzY7HC4G3Lw8SinoGGb+H64Yb/25lFuJ89YGcLPnw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/Ehx8b1vGpM+1jTfOm579D4xaYy2lVCgplYViWaypLw=;
+ b=ZXkgJ3zxIDhJQu+r5O619/P7bP93ZB0WtI9vfG6aTXZkwZJfx6iNv89szVa7fxd+ts6Rq0feDnHzfvru/5Bvij4apee5o8iTo8PjLaWuPU8035WtKcLca5cf5d8U9USsygBm+T6fDR4mqO0SlJCVP9tPXAn4wBCKkpB/QK29qFoVJb/Ufq0LCA3jnPDAuYV7fNIICwdR8ehOjSGkiUWaexT7lfitwgd3tf7aWMrdbt6bQWA/JRvqyGQoO5eqBnUNwH43ihG4Oqaqpr8Dsfm+zDbzjFYDId4pBwDVywvoJ2Xk3vrS5fMz9SUq2tT+HcJocuZqsU5L6z/xtZXbtltxqA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SI1PR02CA0046.apcprd02.prod.outlook.com (2603:1096:4:1f5::14)
+ by KL1PR06MB6886.apcprd06.prod.outlook.com (2603:1096:820:108::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.33; Tue, 21 Apr
+ 2026 07:24:16 +0000
+Received: from SG2PEPF000B66CF.apcprd03.prod.outlook.com
+ (2603:1096:4:1f5:cafe::8d) by SI1PR02CA0046.outlook.office365.com
+ (2603:1096:4:1f5::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9791.48 via Frontend Transport; Tue,
+ 21 Apr 2026 07:24:14 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG2PEPF000B66CF.mail.protection.outlook.com (10.167.240.23) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9791.48 via Frontend Transport; Tue, 21 Apr 2026 07:24:14 +0000
+Received: from [172.20.96.43] (unknown [172.20.96.43])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 8AFE9446DB61;
+	Tue, 21 Apr 2026 15:24:11 +0800 (CST)
+Message-ID: <932db8ad-a9d8-47ff-bf3c-62a54c42bb76@cixtech.com>
+Date: Tue, 21 Apr 2026 15:24:11 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260421-add-thermal-t7-vim4-v3-7-a2e7215ed003@aliel.fr>
-References: <20260421-add-thermal-t7-vim4-v3-0-a2e7215ed003@aliel.fr>
-In-Reply-To: <20260421-add-thermal-t7-vim4-v3-0-a2e7215ed003@aliel.fr>
-To: Guillaume La Roque <glaroque@baylibre.com>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-pm@vger.kernel.org, linux-amlogic@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Ronald Claveau <linux-kernel-dev@aliel.fr>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openssh-sha256; t=1776756024; l=5084;
- i=linux-kernel-dev@aliel.fr; s=id_ed25519; h=from:subject:message-id;
- bh=gXUyoHvrU7UAwF+TcmnCND7Xo2iI5Rna7hPHjxdZqpk=;
- b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgMGec55oxeeisqykQiUedekMYyOnR9
- BG9E/7rDWyqdNoAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
- QM47v1wszwrAAIsSPK5uCnDc545PQSmNexZZEQD9de+D3eGv6BswyU1IRrpHNX+7ipotgG+ekm/
- O89vLZH9ZUwA=
-X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openssh;
- fpr=SHA256:kch4osYZ6A1BrPps5AUs6KnfdE2wm4ocMtyTc8TmZMs
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/2] dma: arm-dma350: enable ANYCH interrupt for shared
+ IRQ wiring
+To: peter.chen@cixtech.com, fugang.duan@cixtech.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, vkoul@kernel.org,
+ ychuang3@nuvoton.com, schung@nuvoton.com, robin.murphy@arm.com,
+ Frank.Li@kernel.org
+Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20260325112159.663881-1-jun.guo@cixtech.com>
+ <20260325112159.663881-2-jun.guo@cixtech.com>
+Content-Language: en-US
+From: Jun Guo <jun.guo@cixtech.com>
+In-Reply-To: <20260325112159.663881-2-jun.guo@cixtech.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CF:EE_|KL1PR06MB6886:EE_
+X-MS-Office365-Filtering-Correlation-Id: c9131afa-547c-44c6-598e-08de9f76fd88
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700016|7416014|1800799024|921020|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 2HK6hsaQuGJXcmGpbh6PXPXdkEBcYM8ws+uJ2YnQpvTIVCm57K/6fuJghCMSy6OdreKFNZe6dGxkJZ72QDoEHex3X2ntTuEUosf8syKwGj2Xx9VwPExynOQGKNNb8+RikKx8XL5X+5Az/ucRIy9O4t1I6JJLwc1T6Fch6YoSGyozoDMafrub0qTw/iv7jDI7OkUvEw6ifZueWUpKThvIg4omJzmE5MbrSJcMfxjAMajeq8iF/IR+kbTeqDatgKoB5uRRqdlnM9XavaJeTVFG8W1q93EgHavmG5nSPTLwwEhbZYgMSUUtkeuCdm1ROM7+jvZOieHgA8mvnSVDCs5WpEJ806lVgont1fYmjAHzO+BjVbcjXJ+seL0o2nSgrz2p2Llvvq32T3A7gMaWLCMqV+0oPsxQa70Hpp0Pb6xaKw5X+cSFO/LgCzKx/LEcfcDSg7f+xwce446Hh8FVD+0GRRG/SJg/oqmFtmva330xA6bx784NqjDDKbXBGXc9JY87g1HLSXv8nVXmEWVr7iv8Dlr2b4rBNAWm233vwGLulmHvJPhvFRn1pZ4GyXW4oADQTt9fsRVjG5WUnJyeE1dETRh5ZhkuqQLM6n8U7sw8JjZ3WOMdQMP+xfd45awqx+jdyPTkCP3tVnzqu+g8APi0nvXns4gH4cE/PdgDQszWE3RlipRZnTPSxEshu0+76OWnH4lovm36wk/Dod5Ye3INjZ5IRKWhcEPq6ig9l1ELaweRihvbdNP+Z8plirX6WQZyqcLuSy0Xwg+1gtlB+YpBk50MT3fwHiTRfKeVvRXL8+dGyZOdd3h0TcNF00PzlOAT
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700016)(7416014)(1800799024)(921020)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: nC+IrZKDLKQJlmf9hYZwVVVUhLWQ0L4bAFHWjUTGqYGcOUVBQE7sQ+Zj2EiYujRCu5qzQprQgVoqJa7iJLdYNkoqVBpLlk6WFArlHs+uhmqj/8uu3ZWSKRPp7y45cS0qydBLn6cIcSXEeIxQqPBRffrH3Ucdn1nKUh9H4xdnkejC64yzIRhR8Pw02SQzUl024LspVYsb0wXui6cf48+TJa4zjFdHqQZfXEJOGSQcZ16rr9PDR2qh22mpSLiodbCBDP1861+fOYkULaowgJUb0llUpxHzlvnFED4vzLbhqyuhYSiOpCznj9Lw1gg/8Y16LSyrHdsDqxLxEcqrFEtUDeLIL05U8u47hfmVb7SKWsMbGvf3dx/O6Zg4TYO4Ka6m8BQqC3j7J2b1dUWxdiv2gint44Y8tMbLRJ6OUlExo5EUNPyY9m5p+rOBiaRzXfwY
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Apr 2026 07:24:14.0037
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c9131afa-547c-44c6-598e-08de9f76fd88
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CF.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR06MB6886
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_002037_833040_B740FC63 
-X-CRM114-Status: UNSURE (   8.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260421_002432_759885_65110BE9 
+X-CRM114-Status: GOOD (  16.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,212 +119,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add thermal zones for all six sensors: a53, a73, gpu, nna, vpu, and hevc.
+Hi Robin,
 
-Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
----
- arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 179 ++++++++++++++++++++++++++++
- 1 file changed, 179 insertions(+)
+Just pinging. I’d like to ask if you have any comments on the latest patch?
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-index 62f259b2b17d2..c6ea0f20a879f 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-@@ -9,6 +9,7 @@
- #include <dt-bindings/clock/amlogic,t7-scmi.h>
- #include <dt-bindings/clock/amlogic,t7-pll-clkc.h>
- #include <dt-bindings/clock/amlogic,t7-peripherals-clkc.h>
-+#include <dt-bindings/thermal/thermal.h>
- 
- / {
- 	interrupt-parent = <&gic>;
-@@ -829,6 +830,184 @@ hevc_tsensor: temperature-sensor@9a000 {
- 				amlogic,secure-monitor = <&sm 5>;
- 			};
- 		};
-+	};
-+
-+	thermal-zones {
-+		a53_thermal: a53-thermal {
-+			polling-delay = <1000>;
-+			polling-delay-passive = <100>;
-+			thermal-sensors = <&a53_tsensor>;
-+
-+			trips {
-+				a53_passive: a53-passive {
-+					temperature = <85000>; /* millicelsius */
-+					hysteresis = <2000>; /* millicelsius */
-+					type = "passive";
-+				};
-+
-+				a53_hot: a53-hot {
-+					temperature = <95000>; /* millicelsius */
-+					hysteresis = <2000>; /* millicelsius */
-+					type = "hot";
-+				};
-+
-+				a53_critical: a53-critical {
-+					temperature = <110000>; /* millicelsius */
-+					hysteresis = <2000>; /* millicelsius */
-+					type = "critical";
-+				};
-+			};
-+
-+			cooling-maps {
-+				map-a53 {
-+					trip = <&a53_passive>;
-+					cooling-device =
-+						<&cpu100 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+						<&cpu101 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+						<&cpu102 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+						<&cpu103 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+				};
-+			};
-+		};
-+
-+		a73_thermal: a73-thermal {
-+			polling-delay = <1000>;
-+			polling-delay-passive = <100>;
-+			thermal-sensors = <&a73_tsensor>;
-+
-+			trips {
-+				a73_passive: a73-passive {
-+					temperature = <85000>; /* millicelsius */
-+					hysteresis = <2000>; /* millicelsius */
-+					type = "passive";
-+				};
-+
-+				a73_hot: a73-hot {
-+					temperature = <95000>; /* millicelsius */
-+					hysteresis = <2000>; /* millicelsius */
-+					type = "hot";
-+				};
-+
-+				a73_critical: a73-critical {
-+					temperature = <110000>; /* millicelsius */
-+					hysteresis = <2000>; /* millicelsius */
-+					type = "critical";
-+				};
-+			};
-+
-+			cooling-maps {
-+				map-a73 {
-+					trip = <&a73_passive>;
-+					cooling-device = <&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+							 <&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+							 <&cpu2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+							 <&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+				};
-+			};
-+		};
-+
-+		gpu_thermal: gpu-thermal {
-+			polling-delay = <1000>;
-+			polling-delay-passive = <100>;
-+			thermal-sensors = <&gpu_tsensor>;
-+
-+			trips {
-+				gpu_passive: gpu-passive {
-+					temperature = <95000>;
-+					hysteresis = <5000>;
-+					type = "passive";
-+				};
-+
-+				gpu_hot: gpu-hot {
-+					temperature = <105000>;
-+					hysteresis = <5000>;
-+					type = "passive";
-+				};
- 
-+				gpu_critical: gpu-critical {
-+					temperature = <115000>;
-+					hysteresis = <1000>;
-+					type = "critical";
-+				};
-+			};
-+		};
-+
-+		hevc_thermal: hevc-thermal {
-+			polling-delay = <1000>;
-+			polling-delay-passive = <100>;
-+			thermal-sensors = <&hevc_tsensor>;
-+
-+			trips {
-+				hevc_passive: hevc-passive {
-+					temperature = <95000>;
-+					hysteresis = <5000>;
-+					type = "passive";
-+				};
-+
-+				hevc_hot: hevc-hot {
-+					temperature = <105000>;
-+					hysteresis = <5000>;
-+					type = "passive";
-+				};
-+
-+				hevc_critical: hevc-critical {
-+					temperature = <115000>;
-+					hysteresis = <1000>;
-+					type = "critical";
-+				};
-+			};
-+		};
-+
-+		nna_thermal: nna-thermal {
-+			polling-delay = <1000>;
-+			polling-delay-passive = <100>;
-+			thermal-sensors = <&nna_tsensor>;
-+
-+			trips {
-+				nna_passive: nna-passive {
-+					temperature = <95000>;
-+					hysteresis = <5000>;
-+					type = "passive";
-+				};
-+
-+				nna_hot: nna-hot {
-+					temperature = <105000>;
-+					hysteresis = <5000>;
-+					type = "passive";
-+				};
-+
-+				nna_critical: nna-critical {
-+					temperature = <115000>;
-+					hysteresis = <1000>;
-+					type = "critical";
-+				};
-+			};
-+		};
-+
-+		vpu_thermal: vpu-thermal {
-+			polling-delay = <1000>;
-+			polling-delay-passive = <100>;
-+			thermal-sensors = <&vpu_tsensor>;
-+
-+			trips {
-+				vpu_passive: vpu-passive {
-+					temperature = <95000>;
-+					hysteresis = <5000>;
-+					type = "passive";
-+				};
-+
-+				vpu_hot: vpu-hot {
-+					temperature = <105000>;
-+					hysteresis = <5000>;
-+					type = "passive";
-+				};
-+
-+				vpu_critical: vpu-critical {
-+					temperature = <115000>;
-+					hysteresis = <1000>;
-+					type = "critical";
-+				};
-+			};
-+		};
- 	};
- };
-
--- 
-2.49.0
+On 3/25/2026 7:21 PM, Jun Guo wrote:
+> Enable DMANSECCTRL.INTREN_ANYCHINTR during probe so channel
+> interrupts are propagated when integrators wire DMA-350 channels
+> onto a shared IRQ line.
+> 
+> Signed-off-by: Jun Guo <jun.guo@cixtech.com>
+> ---
+>   drivers/dma/arm-dma350.c | 9 +++++++++
+>   1 file changed, 9 insertions(+)
+> 
+> diff --git a/drivers/dma/arm-dma350.c b/drivers/dma/arm-dma350.c
+> index 84220fa83029..09403aca8bb0 100644
+> --- a/drivers/dma/arm-dma350.c
+> +++ b/drivers/dma/arm-dma350.c
+> @@ -13,6 +13,11 @@
+>   #include "dmaengine.h"
+>   #include "virt-dma.h"
+>   
+> +#define DMANSECCTRL		0x200
+> +
+> +#define NSEC_CTRL		0x0c
+> +#define INTREN_ANYCHINTR_EN	BIT(0)
+> +
+>   #define DMAINFO			0x0f00
+>   
+>   #define DMA_BUILDCFG0		0xb0
+> @@ -582,6 +587,10 @@ static int d350_probe(struct platform_device *pdev)
+>   	dmac->dma.device_issue_pending = d350_issue_pending;
+>   	INIT_LIST_HEAD(&dmac->dma.channels);
+>   
+> +	reg = readl_relaxed(base + DMANSECCTRL + NSEC_CTRL);
+> +	writel_relaxed(reg | INTREN_ANYCHINTR_EN,
+> +		       base + DMANSECCTRL + NSEC_CTRL);
+> +
+>   	/* Would be nice to have per-channel caps for this... */
+>   	memset = true;
+>   	for (int i = 0; i < nchan; i++) {
 
 
