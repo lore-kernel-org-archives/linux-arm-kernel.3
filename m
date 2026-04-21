@@ -4,62 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5114F8FA78
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 13:28:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85248F8FA7A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 13:38:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s4U4pl1zOZWkLWSJAsu/tFf0f7cS9QPJQ+iXEHtK2z8=; b=jZ1gBM4+CjnB3g+otAMacq2081
-	mb9iZsA9C357UBxbNSNvUOf2yW9oUMuRYUhoTLD8Tzrf3rE4Q1o1X1RM2zZ04FwbhX2O2K7qHW+35
-	8h6KLvkwT1HXgAyiDJ7AAB9RiLjZK6BXU8tc1RCNSaOLucPMbmKaacMKLJBPqdejb7N5q+EBT6wV0
-	s/R36JIFh7rCKe0hsLqFLsN2lOnl+/tGpgO3FARig1+GkVsmLvj1EnPb5bePUi4JXBVh+0yq85u5Z
-	bWuz8BKbCZBFE3czeXuyDTGj+iseXFbg9U9s7euQ53/LFNzUqA2Gxi6kDdkEM3G3bOrsP94F1loHP
-	E/HAVorw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WPogffiDn1teV3hh10DddpwUm0DmWjANhCo9KAOX65k=; b=ZwwVbOYtd6RAuH4CiB7DO3Q+C7
+	uBxjNVMg4DoNZSeaMW4Nt39C2JvjO2BcJ8f4FxOkbjIBD7niBnudY1kWrOiiGpQshtiaaUiygqql/
+	pm5UWYSaXhKSKWNR8s/PEdMUXl/9yMyhv6CV+6yu1kC45ddd8nOUks2oWhM/BDMM5Ozq6G8+hSzhN
+	yvrFLpliT1K4+3kfgm1w1puxHOY/SSwDoo9Q9cSmaR/TN3mx+6JrBtjzStekUU1ArNjepfRWFGodn
+	/KVYyu7CrzX5HKdqPS98u1n2KceuxMka6wZhSMggMB6OlNc6cNFRobgutwdZHBIRi3BgZ/XvkSrd9
+	fmQNsesg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFB9l-00000008fXP-1XGO;
-	Tue, 21 Apr 2026 13:28:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFB9i-00000008fX1-3LZ5
+	id 1wFBJ0-00000008gB4-4433;
+	Tue, 21 Apr 2026 13:38:23 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wFBIy-00000008gAg-0KRP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 13:28:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 37D2C1BF3;
-	Tue, 21 Apr 2026 06:28:40 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4A7E43FE87;
-	Tue, 21 Apr 2026 06:28:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776778125; bh=+1X+DlknRjHqKgv3dA+1G8Jnl/AycFThXqT8ZxAXDzE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=X2BriHx/r5DzNtTFzlzG4r9GRVY4hpopEZb83uwmv6QTY6f5ROZgn5z/IJSIZgamE
-	 fvCWoYzFk3Yj69WcE5oa8JuNBTS8BII0Xe02ELOtqQufyToSXjtSK6NTRaN7rqjiWk
-	 jBmZdtzSTeYiNnKbxpmDChAf0pQ+btlzvzXGyvVo=
-Date: Tue, 21 Apr 2026 14:28:42 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
-	mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v5 07/12] coresight: etm4x: fix inconsistencies with
- sysfs configuration
-Message-ID: <20260421132842.GC929984@e132581.arm.com>
-References: <20260415165528.3369607-1-yeoreum.yun@arm.com>
- <20260415165528.3369607-8-yeoreum.yun@arm.com>
- <20260421104601.GB929984@e132581.arm.com>
- <aedcDEpBAnAieSRX@e129823.arm.com>
+	Tue, 21 Apr 2026 13:38:21 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id E61856A8EA;
+	Tue, 21 Apr 2026 13:38:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1776778698; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=WPogffiDn1teV3hh10DddpwUm0DmWjANhCo9KAOX65k=;
+	b=FxvCX7U/MZKwDB3PdfUmU9wyMfOExhZTDI2WN/XtB0pH4FV/Q12d5zuwZUzp2r2EfpJ+Ks
+	Jq5zdn+shJ80j8LbtlLmSK2ei6YndztvxB+dhHnyApSrHQvMahWUTaC7rTm/0imiLfANVA
+	w5rXjrSFps7w5Wa41CMprhhbmB2ROPU=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1776778698;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=WPogffiDn1teV3hh10DddpwUm0DmWjANhCo9KAOX65k=;
+	b=92c6bEBqbLh5J4tzCIxmex2MlZlgLi7xPUvWQmUCtgwnnZYDj9+Vc/ihRsBY+DypzJwEjQ
+	aqcnT7XzhXmgIXDQ==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1776778697; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=WPogffiDn1teV3hh10DddpwUm0DmWjANhCo9KAOX65k=;
+	b=q9B0hYnMg952CmqTVG+W85OUvzBnIwQUNK75wok9VohnMCwlczsXjMhLU85U5dgvnBjs3Q
+	LadI3KgE9QVY0rlwtfqHd2JoqgDY9AVpTC1S/UdUUdEOObikyRWut9ct6imq8B+6Wwzd6Z
+	VNbs/Z+L+TsGuwdgPlCF18+Fnl9rB1E=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1776778697;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=WPogffiDn1teV3hh10DddpwUm0DmWjANhCo9KAOX65k=;
+	b=npEj7H4fNrNfQXLJqD2n66Mwwq7pI8ZSk/SJMnpmZp6UIv1gy2ViswSdWUs+uaBpKFVUZk
+	CnmNw66byClsmOAw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 1A339593AF;
+	Tue, 21 Apr 2026 13:38:17 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id kZsuBcl952kkGQAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Tue, 21 Apr 2026 13:38:17 +0000
+Message-ID: <79cc30d5-80b5-4d87-a3ad-36d6fad98853@suse.de>
+Date: Tue, 21 Apr 2026 15:38:16 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aedcDEpBAnAieSRX@e129823.arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 15/20] drm/drv: Call drm_mode_config_create_state() by
+ default
+To: Maxime Ripard <mripard@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Jyri Sarha <jyri.sarha@iki.fi>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>,
+ Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>,
+ Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>,
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+ Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>,
+ Samuel Holland <samuel@sholland.org>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+References: <20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org>
+ <20260320-drm-mode-config-init-v2-15-c63f1134e76c@kernel.org>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <20260320-drm-mode-config-init-v2-15-c63f1134e76c@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-2.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	ARC_NA(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	MIME_TRACE(0.00)[0:+];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[37];
+	TAGGED_RCPT(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLyhjdboxbrjk5hnijtjs4kbm6)];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_TO(0.00)[kernel.org,linux.intel.com,gmail.com,ffwll.ch,lwn.net,linuxfoundation.org,oss.qualcomm.com,iki.fi,ideasonboard.com,intel.com,linaro.org,kwiboo.se,emersion.fr,amd.com,igalia.com,redhat.com,ursulin.net,sholland.org,raspberrypi.com];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,imap1.dmz-prg2.suse.org:helo,suse.com:url]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_062847_075224_7065B554 
-X-CRM114-Status: GOOD (  26.70  )
+X-CRM114-CacheID: sfid-20260421_063820_478407_DBB8ABB6 
+X-CRM114-Status: GOOD (  17.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,80 +184,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 21, 2026 at 12:14:20PM +0100, Yeoreum Yun wrote:
+Hi
 
-[...]
+Am 20.03.26 um 17:27 schrieb Maxime Ripard:
+> Almost all drivers, and our documented skeleton, call
+> drm_mode_config_reset() prior to calling drm_dev_register() to
+> initialize its DRM object states.
+>
+> Now that we have drm_mode_config_create_state() to create that initial
+> state if it doesn't exist, we can call it directly in
+> drm_dev_register(). That way, we know that the initial atomic state will
+> always be allocated without any boilerplate.
+>
+> Signed-off-by: Maxime Ripard <mripard@kernel.org>
+> ---
+>   drivers/gpu/drm/drm_drv.c | 4 ++++
+>   1 file changed, 4 insertions(+)
+>
+> diff --git a/drivers/gpu/drm/drm_drv.c b/drivers/gpu/drm/drm_drv.c
+> index 2915118436ce8a6640cfb0c59936031990727ed1..820106d56ab399a39cac56d98662b5ddbcae8ded 100644
+> --- a/drivers/gpu/drm/drm_drv.c
+> +++ b/drivers/gpu/drm/drm_drv.c
+> @@ -1097,10 +1097,14 @@ int drm_dev_register(struct drm_device *dev, unsigned long flags)
+>   
+>   	if (drm_core_check_feature(dev, DRIVER_MODESET)) {
+>   		ret = drm_modeset_register_all(dev);
+>   		if (ret)
+>   			goto err_unload;
+> +
+> +		ret = drm_mode_config_create_state(dev);
+> +		if (ret)
+> +			goto err_unload;
 
-> > >   - There is a risk of corrupting drvdata->config if a perf session enables
-> > >     tracing while cscfg_csdev_disable_active_config() is being handled in
-> > >     etm4_disable_sysfs().
-> >
-> > Similiar to above, cscfg_csdev_disable_active_config() is not
-> > protected in etm4_disable_sysfs().
-> 
-> This is not true.
-> at the time of etm4_disable_sysfs() "mode" is already taken
-> (whether sysfs or perf). In this situation, it's enough to
-> call cscfg_csdev_disable_active_config() before chaning
-> mode to DISABLED.
+Way too late. Lets rather go through drivers and call this where they 
+currently call drm_mode_config_reset() for initialization. This can be a 
+single-patch mass conversion IMHO.
 
-To be clear, I am trying to understand issue _before_ your patch.
-Without this patch, cscfg_csdev_disable_active_config() is not
-protected by the mode.
+Best regards
+Thomas
 
-> > >  struct etm4_enable_arg {
-> > >  	struct etmv4_drvdata *drvdata;
-> > > +	struct etmv4_config config;
-> >
-> > We don't need this. We can defer to get drvdata->config in SMP call.
-> 
-> This is not true ane make a situation more complex.
-> If we get config in SMP call, that would be a problem when some user is
-> trying to modify config.
-> 
-> IOW, while user modifying config via sysfs, and SMP call happens,
-> it makes a dead lock. so for this if we try to grab the lock in SMP call,
-> we should change every sysfs raw_spin_lock() into raw_spin_lock_irqsave().
-> 
-> Instead of this it would be much clear and simpler to get config in here
-> rather than to add some latencies via sysfs.
+>   	}
+>   	drm_panic_register(dev);
+>   	drm_client_sysrq_register(dev);
+>   
+>   	DRM_INFO("Initialized %s %d.%d.%d for %s on minor %d\n",
+>
 
-Thanks for info. If so, it is fine for me to add "config".
+-- 
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
 
-> > > @@ -1386,6 +1401,7 @@ static void etm4_init_arch_data(void *info)
-> > >  	drvdata = dev_get_drvdata(init_arg->dev);
-> > >  	caps = &drvdata->caps;
-> > >  	csa = init_arg->csa;
-> > > +	config = &drvdata->active_config;
-> >
-> > Should we init drvdata->config instead so make it has sane values ?
-> >
-> > In other words, drvdata->active_config are always set at the runtime,
-> > so don't need to init it at all, right?
-> 
-> No. at least when the initialise, I think we should fill the its
-> contesnt with the "etm4_set_default()".
-> 
-> That's why the consequence call etm4_set_default() called with
-> active_config and config is coped with the default configutation.
 
-I'm concerned that some config fields may be reused across sessions.
-For example, a sysfs session copies drvdata->config into
-drvdata->active_config, and later a perf session may reuse stale
-values. The same issue can happen in the reverse direction.
-
-A clean approach would be to treat drvdata->active_config as
-per-session state:
-
-  1) clear drvdata->active_config at session start
-  2) apply the session-specific config
-     2.1) sysfs: use drvdata->config
-     2.2) perf: use event config
-  3) then apply configfs configuration
-
-So we should clear drvdata->active_config at the start of each session
-and rebuild it with the correct configuration.
-
-Thanks,
-Leo
 
