@@ -4,70 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94369F8FA8C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 14:51:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21394F8FA8C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 14:58:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=siAuCt6Us9I5pJzcDGndAG2tGrQGSNLseZSbi3R4KT4=; b=kh8xFO+dCo8TlbdFPVDwjjRJt8
-	u2nnCVwcn6P/bkTtvm4ArTIRnVVcjBX4l9fXb2byV0W9NojlnZZd6KSOxc6EWuU83Oj2Mz6RRpIcb
-	Bi2GQsWazTz6s7iW9952o9UeNFx5MmxbYaUWoryh1fPZXNip55PGsV97BekoezbCXzMYZB2VrCicw
-	tDraHjZDlKbluneMZBuvU76i0WwFJvxi8uE366YaMWDgoy+Ng7nEuvgFBDvZ4gRjGUFeiZ5ppFyF3
-	5TeOED1Q+AbAknuQ8K8zQBPNoFk/yzq/DbXbR3bKAI/PFLzPWVZnDu8IaTMIQHxfT9/2Xsn+O3YJJ
-	iVU9rt1g==;
+	bh=5mjuJmdvwe7PzDVz8q3vHSG4MYXWlbBcdt3fOBIwOXE=; b=lWEk0dEit8ts3RBhaVKJlafiar
+	Dly8goNPXt5FEDfx6zRQDhvp5XtbLPgBX3qcbixPnppYhVQuCO2ba3uc5MVuW8OOV8VvfNLbKvgul
+	QClY+lB5vnzSMJ7ltFRe+d89N8nLpcg5IYmWSGmVBt47UXdq+GwecNYuItoVjjTkdBJr2yIV+lgXs
+	Y0LKVTsXgEvgI3pryffP6vg5lvyl/TXpa75QfX7A2NLTQzLwhUC5wL2XNg4JETTYv/iJKvmFZIlvR
+	RpayoG+uH3q7srJmhqJa/decVOLP7c1tpZ3ALh3jWJ1puIMA3OIB4sHBj/8gYWdj5a0Lyq2Iw14Ll
+	KXryjvpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFCRK-00000008ljA-2Pbf;
-	Tue, 21 Apr 2026 14:51:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wFCY0-00000008nUp-12T6;
+	Tue, 21 Apr 2026 14:57:56 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFCRF-00000008lgJ-2j0k;
-	Tue, 21 Apr 2026 14:51:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C85B440AC1;
-	Tue, 21 Apr 2026 14:50:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D6F4C2BCB0;
-	Tue, 21 Apr 2026 14:50:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776783056;
-	bh=BMGi9M1H3wYbS7OQ26wY0topQ2jajr8jKH7yXASM19Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=REONwhrEVyLesl8w0b0qOeoimehD0dZcP0Xpfs9qeznq6IEvnxVUVuLm578geZK+o
-	 b6OhnXPRBNPheVrCO+nhWXNxqfBOamFtVYGLWexK1F33PJk605gAKVHJ+mbykUfbTN
-	 hFx8RV2rGRDutNDgogFmAQ6irrpinpK+sC9hi9yUsvhrijOBNJzXcTFGLn8E+ddtKi
-	 qcF3Tuqvm5OdvdA302x/9VA8fvYxEyu+TcPFNXKBBuS01ec8vm2USaK3zwfr2MCBY1
-	 TBZbCHZOxixXWsVoqt2ECWEdk06mLsKM+l8CD5ETcbohxBTo3BThyBL9QqzUmSAdOC
-	 Kl1GtW1BRFN7w==
-Date: Tue, 21 Apr 2026 16:50:54 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: linux-pwm@vger.kernel.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Naushir Patuck <naush@raspberrypi.com>, Stanimir Varbanov <svarbanov@suse.de>, mbrugger@suse.com
-Subject: Re: [PATCH v2 2/3] pwm: rp1: Add RP1 PWM controller driver
-Message-ID: <aeeMp1XBDxSZ1qrl@monoceros>
-References: <cover.1775829499.git.andrea.porta@suse.com>
- <0d99317b9150310dfbd98de1cb2a890f0bffe7cd.1775829499.git.andrea.porta@suse.com>
- <adkrHkANCzxO8KUP@monoceros>
- <aeC6U7D6TfWm8JPx@apocalypse>
- <aeDmk-t5Lc1zpkg9@monoceros>
- <aeH373a_xmr6fnAy@apocalypse>
- <aeIGxfQ7AoIVR5n6@monoceros>
- <aeZUAaQkHGqBL8st@apocalypse>
+	id 1wFCXx-00000008nUO-12wf
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Apr 2026 14:57:54 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-82f8bf96b46so2138954b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 07:57:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1776783472; x=1777388272; darn=lists.infradead.org;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5mjuJmdvwe7PzDVz8q3vHSG4MYXWlbBcdt3fOBIwOXE=;
+        b=dYdApZeY/wzj2TSH1/Clj2pq4kackj6tzn63aId/Ei4GjffOuY6+eMnbRKHLwM21/2
+         upSprtnu8VschKRpUxJpQ/TrshVoSMvf7X/T1pRqvhxANFpdhBkzx8XchOU/EU410gdc
+         ujd5tTDVXQnR8cJuQp8WNMW3hAxZMMrsFZkxUn7Q5pf6ntJm2ffETpH/oPMKiI3PW5W1
+         C9u3BriiKTkqLcblqpKLs5hAawqnaB3m2to/43ZLEcL5LUEOJ2hCZbhaIKtWnLpSq7Bs
+         ZOPDOc0SyjWBwE8pnAr4lPvqEDedzN5WVJQtEV8aX4Ykgf3yX3dAKkksaW5R0buuvG4g
+         gZGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776783472; x=1777388272;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=5mjuJmdvwe7PzDVz8q3vHSG4MYXWlbBcdt3fOBIwOXE=;
+        b=oj3PFwthvial8b5saGwcJseMLZNiWUq+P31HcEYnSg4lpWT8l6gzSpnhJkWyQLW+Mo
+         s0i/7YcpxgxXjtVGasG5j4urjE8vv54+8/WOPQpTeyJChx+OacTlwcD4KxwjoNvnevpM
+         IGzZOc+XJaQw5NLD70sfDDdfkQCDs4vFImcTFHkJE74Gz4MvM8MnyQcPO+Q3rOLqZiT7
+         8+U+hiFStrZWTafxpvijEbMOE+t/bPIRbOykuZ6+L+bsBazuN+ERRn7KIg8gZcHaptjw
+         kS/5Y4OqPj0bUU+nmAq1hefjx5KbZ4EgEMT7XbtlFFeJcluWNio415GW7pojiRFoAWz8
+         P4Hw==
+X-Forwarded-Encrypted: i=1; AFNElJ/Hs9ZVZKhY0qJfLiwfLVmFGbfZwfV8I2qVMTn05Mts36el7ScsPeUxq+A5KxKepu3eiMzUSYht6evfYGQmGZpE@lists.infradead.org
+X-Gm-Message-State: AOJu0YzaokzezXcBffGjQ2Wi+Ef6LpJiVTC5FNgFaSL/olrWDoZCFtei
+	GZexquOvvcgH9/9gA6HKSRwUq31WgU1A+3oUDo+yu+dkiGUAHenU6af+ZMRhLPJoJ44=
+X-Gm-Gg: AeBDiesUVSa8/nFoVe8vdSJMKHfvW1nKDkd4NlOWkUgDnMWgLv4IlYC4B2p4lZ63ttZ
+	NqWb92NDMUSfFBhnZKRNQb71Fil7CkxvAOcEFDvD872L/wRgzYG+Jk/3WIhetKvBA2fp0S0vV1n
+	Ys851tXgeswbOEIYglUKz58nXSClf6IymUtqEydO27f87LjEOIwVCQLj++F0z1BCwqs8XUt1OcG
+	l2T2WaAFOLVxbFek753XYOwP4tPhcZwmJUTX0DytvCqHct4OPQcmyv1WFNSQ4rk9CRdxfV3b6Yq
+	r3Qoz5+JM8iyJgmTMRZyKv8LmeaDY1IIHlG3ICrtJxRdABG6Y8T3ATdAXew7V9eB8Wj0+DlQz44
+	OSzo4fUSigHVpJIiC18Tf6G8ts09obbc2S7JvOxQYqzNdSsMYT20+LIWNNgRmS7gHbJZktSMDqh
+	ZGkdiFmxbqnahaxyh+HwYsZWHJ5eD6Ew==
+X-Received: by 2002:a05:6a00:3c86:b0:81f:40e5:34c2 with SMTP id d2e1a72fcca58-82f8c8bee9dmr18805718b3a.32.1776783472262;
+        Tue, 21 Apr 2026 07:57:52 -0700 (PDT)
+Received: from localhost ([97.126.187.42])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8e9819fesm14280551b3a.4.2026.04.21.07.57.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Apr 2026 07:57:51 -0700 (PDT)
+From: Kevin Hilman <khilman@baylibre.com>
+To: Rob Herring <robh@kernel.org>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, Geert Uytterhoeven
+ <geert@linux-m68k.org>, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 1/3] dt-bindings: power: Add power-domains-child-ids
+ property
+In-Reply-To: <20260421134949.GA1045294-robh@kernel.org>
+References: <20260420-topic-lpm-pmdomain-child-ids-v3-0-c2c40bef238c@baylibre.com>
+ <20260420-topic-lpm-pmdomain-child-ids-v3-1-c2c40bef238c@baylibre.com>
+ <20260421134949.GA1045294-robh@kernel.org>
+Date: Tue, 21 Apr 2026 07:57:51 -0700
+Message-ID: <7hh5p4qs28.fsf@baylibre.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="opxzx26y76daqdvu"
-Content-Disposition: inline
-In-Reply-To: <aeZUAaQkHGqBL8st@apocalypse>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_075057_763516_0CCCA711 
-X-CRM114-Status: GOOD (  35.76  )
+X-CRM114-CacheID: sfid-20260421_075753_307616_33BB9ABF 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,128 +101,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Rob Herring <robh@kernel.org> writes:
 
---opxzx26y76daqdvu
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 2/3] pwm: rp1: Add RP1 PWM controller driver
-MIME-Version: 1.0
+> On Mon, Apr 20, 2026 at 04:51:17PM -0700, Kevin Hilman (TI) wrote:
+>> Add binding documentation for the new power-domains-child-ids property,
+>> which works in conjunction with the existing power-domains property to
+>> establish parent-child relationships between a multi-domain power domain
+>> provider and external parent domains.
+>> 
+>> Each element in the uint32 array identifies the child domain
+>> ID (index) within the provider that should be made a child domain of
+>> the corresponding phandle entry in power-domains. The two arrays must
+>> have the same number of elements.
+>> 
+>> Signed-off-by: Kevin Hilman (TI) <khilman@baylibre.com>
+>
+> Missing my Reviewed-by.
 
-Hello Andrea,
+Oops, I thought I had grabbed it with b4, but I didn't.  Sorry.
 
-On Mon, Apr 20, 2026 at 06:27:45PM +0200, Andrea della Porta wrote:
-> On 12:50 Fri 17 Apr     , Uwe Kleine-K=F6nig wrote:
-> > What happens if sync is asserted while a disabled channel didn't
-> > complete the last period yet?
->=20
-> The output stops immediately without waiting for the current period to fi=
-nish.
-
-This is a good info for the Limitations block.
-
-> > Maybe it's worth to test the following procedure for updating duty and
-> > period:
-> >=20
-> > 	disable channel
-> > 	configure duty
-> > 	configure period
-> > 	enable
-> > 	set update flag
-> >=20
-> > Assumint disable is delayed until the end of the currently running
-> > period, the effect of this procedure might be that no glitch happens if
-> > the update flag is asserted before the currently running period ends and
-> > the anormality is reduced to a longer inactive state if the updates are
-> > not that lucky (in contrast to more severe glitches).
->=20
-> The disable isn't delayed as explained above. Setting just the new period=
-/duty
-> (which do not depend on the sync bit) correctly waits for the end of the =
-current
-> period without noticeable glitches (tested with a scope).
-
-So if you happen to change both and one is done before the end of the
-current period and the other shortly afterwards (which might happen as
-those are configured in two different registers and the update trigger
-isn't used), you get a mixed output for one cycle, right? If yes, please
-also mention that in the Limitations paragraph.
-
-> > > Let's say that teh user want 10 tick period, we have to use
-> > > 9 instead to account for the extra tick at the end, so that the compl=
-ete period
-> > > contains that extra tick?
-> >=20
-> > I would describe that a bit differently, but in general: yes.
-> >=20
-> > The more straight forward description is that setting
-> >=20
-> > 	RP1_PWM_RANGE(pwm->hwpwm) :=3D x
-> >=20
-> > results in a period of x + 1 ticks.
->=20
-> Exactly. So whatever the user request I have to subtract one from the val=
-ue
-> to be written to the RANGE register.
-
-Unless the calculation is already rounded to 0, in that case don't
-subtract 1 and let the tohw callback return 1.
-
-> > > This also means that if we ask for 100% duty cycle, the output wavefo=
-rm will
-> > > have the high part of the signal lasting one tick less than expected.=
-a I guess
-> > > this is the accepted compromise.
-> >=20
-> > I assume you considered something like:
-> >=20
-> > 	RP1_PWM_RANGE(pwm->hwpwm) :=3D 17
-> > 	RP1_PWM_DUTY(pwm->hwpwm) :=3D 18
-> >=20
-> > to get a 100% relative duty?
->=20
-> Ah right! It's working fine and I've got 100% duty. So at hw register lev=
-el
-> the duty can be greater that the period.
-
-In that case please make sure to not use the maximal value for
-RP1_PWM_RANGE(pwm->hwpwm) to ensure that for each (possible) period
-length a 100% relative duty cycle can be configured.
-
-> > My (not so well articulated) point is: Please be stringent about clock
-> > handling to not bank up technical dept more than necessary and such that
-> > the driver can be made unbindable if and when syscons grow
-> > that feature. Optionally wail at the syscon guys :-)
->=20
-> Hmmm not sure I've understood your point: is it a requirement that the dr=
-iver
-> must be unbindable? In this case I should avoid registering the syscon. Or
-> should I just provide a .remove callback in case there will be a way to
-> unregister the syscon (even if this callback will not be called as of now=
-)?
-
-It's a requirement to properly manage the resources you allocate. If a
-driver isn't unbindable due to restrictions of other subsystems that's
-unfortunate and I don't like it, but I wouldn't block a patch because of
-that.
-
-Best regards
-Uwe
-
---opxzx26y76daqdvu
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmnnjssACgkQj4D7WH0S
-/k6P2gf/WFdiNIbWu5z/n7i8vDSyytpmEL3VfoLW459jfMZEdsbKNezPkFGWf2HU
-3GHi9Xvt48ND7zprcfUfpIMVYgllVxxoCLPk8tpIKssRaBqlWpij/+b6IX+MtiOC
-m/S9JF9BfJLZlrXv3Dn1XXOCEBzBj71O0wUCZoLBIWSQKr3Yr49F1NbbXN0eo92o
-G5FjXk6VVnSNO/qHh2m0RgQHfUae6iUxFa1y5jMv+c0M1e5LZnH55thCxWVjBGAh
-ReYTrGU4npCzRKmgJq3TfJtX8x1vcQQhb/iQa0fRNwLFoQlFwfo7hmfnmGkPSoWf
-7tUT4CPniRXmLRrA/0MxX5Un8dtfVQ==
-=YncQ
------END PGP SIGNATURE-----
-
---opxzx26y76daqdvu--
+Kevin
 
