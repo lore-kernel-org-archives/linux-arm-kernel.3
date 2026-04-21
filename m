@@ -4,113 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0039F5A8D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 01:29:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31AE6F5A8D1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 01:45:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b9VCnm4L5RrHFLm9mWiN30aH7pXEysokH9gscuZA1LE=; b=Hsv+fT/FKQVRiCVDgvZ7QaU8Pn
-	QYdJTdecFLEqYMH3FfA/VonrFhNJZqYyN8spQpIgn6Uy2emLf+ZBINZ1GbuXD9lusheGE4nHn1O2x
-	MWiNZNSzlbUorkTpxT5Io2SX9FVeT+Lg9AH2tcG+3TVeyPrCFNCuanuP4964l9s/SW8PsDvtE2CjS
-	yBnPsrLsL+1kgAcBzXa+t6lyiYl5mdik0DY3npK/qRCbmNL1TP1U3iyDpGZRdY+GhJ6ew6xVjXXwj
-	rNuICO+sTUAy2eJKPmlcKz14oC/6MU4kGY+z6R4aRJ1S6BaLnl99VzjR6b9hQXv0CN2S42aN4b/x3
-	QdrmcqhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SuNEF+ospmmTjbvX787zXUaCFtcsOupzABfIqQ9QvOE=; b=SgvFM2f4umAHba7t0uYwmKrU8Z
+	NBvQdlE1IrcjfMLqnA6DkY7kYTLpPKxZSJJEc5PpZBTNt/X5SQni0j/n+yOIbRFWwoMkLhsRkS7EH
+	o+JSkJLefWaa/P0TaIUyXiBj5Np/HANAUAVJnkceLnrWXFhGzfmCcD5NXXVdZd12T2Umi/TttJ5gE
+	pCobjf4B2SOc+KcnY1R0/bDOwo4PVovpy2mCHk2UwK9NTb20bYaSHBJkDbmN3/JfJKNl7Vh1FW3XQ
+	uwIURnRT4DGItvqJShd78ksCGUdadI2AdM0kuleN2mrAcSm0PMd5yHkFBwMOGm2fFcZRQGJTxld2H
+	Y37lPpTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEzvs-00000007tmU-2TRD;
-	Tue, 21 Apr 2026 01:29:44 +0000
-Received: from mail-ua1-x92b.google.com ([2607:f8b0:4864:20::92b])
+	id 1wF0BC-00000007uGU-4AsE;
+	Tue, 21 Apr 2026 01:45:34 +0000
+Received: from mail-koreacentralazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c40f::] helo=SLXP216CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEzvq-00000007tm6-1f5V
+	id 1wF0B9-00000007uFw-2qFn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 01:29:44 +0000
-Received: by mail-ua1-x92b.google.com with SMTP id a1e0cc1a2514c-94b07fddecbso2140380241.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 18:29:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776734981; cv=none;
-        d=google.com; s=arc-20240605;
-        b=j3NNh5ELMO7uAM22e1ZR8WkckRfKIUbcnF2E6A3tkOXcaVp3c7ewUdH3W8ORL+IuGv
-         IlTfIUozPcsWBUs98V68qQpBPQKU6Mfa91PCuB+f9mTtS4cFkw1E97Os2iD+K6KDNPST
-         9gz+ruAe0zMi2gVZYivrFmHAzE8LNMG41rTR5YN3nDs8Kr7bdR7O4pZcwEfH3eIJ4LzE
-         0DOjLdBH/fN0AHTF44TiyQo4+r9978ybF+2fTZZ+Jew+jOywOUody6Jn7NLFk5VjR/i6
-         ZVxBgLmEGEsFEuz2JyaxaX8dh0IVede/HLBlqBsri/lFfjUz4swYsTmArK5sPQliu3rm
-         3H3Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=b9VCnm4L5RrHFLm9mWiN30aH7pXEysokH9gscuZA1LE=;
-        fh=0EIGYRO9nWt8hQsHfPT/4NlbZ3M7cDS2szMvzqyvzMM=;
-        b=hahru6gc5njSbsWv4hkZqPJIeaBmU7TCdN8uLPCojtpHUou3ipvXy5YzpHQSxuXf7n
-         Q7ysrELi1zA/ExSmNxaEEHm7u1oFY6YaM7LUN2RDIyShoRUsbdkPTq9GcBPzDvZLRcA9
-         I1np1lYdD9sA+mmEhe7sxmbKh8eA64HN3E6bvpKWfkD2rsmuH6TTLYTr7eKyNtrNe3Rx
-         crwdgzP96khx/QLwWyunDS+miKxyt7QjFK8INg70Lndjn0c+8zBYjupSR2F824AQ7vgN
-         WH2knHm6wfJdOwhIYB8cW8oAlvOzMaYtst/lDLW3bbaGPu7PF1jBpE23I0nEAMBQUVfy
-         +5GA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1776734981; x=1777339781; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=b9VCnm4L5RrHFLm9mWiN30aH7pXEysokH9gscuZA1LE=;
-        b=VPfnTO4IE6VkFDhVL8mlDQBt+H8xNYM5UcQxPsFI7jzc9EjKQzNHB7PU2SzwW7OgfK
-         7mznyW3pJFwiXL2hWLGrsWHNpxGgJuwhl8PnBam/8/OXdm+/e2rksAdOEPUqomzk8py2
-         kzYICG7YMhyzf42m8cyDwesGLJ8gSiP1vXqrDWeZZE3VX/BfBUSjFlDh1Jxg472UMqsM
-         FRwDSTXni0esV3XJULD0LTXR0XvMbxxrFDI4zzZqu11R9AoI1mBSYHbTB2628jQsTzx2
-         Vz7dRIhllGO+KaldxxP4KRFCynNZik9hfwYnxcAeFJUGCAfZeTmns3gm8gRDZzmhXop0
-         Ho8Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776734981; x=1777339781;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=b9VCnm4L5RrHFLm9mWiN30aH7pXEysokH9gscuZA1LE=;
-        b=XnhVY0TfwLuFkK1NzXiGRcKXuScrUT16MZHn4hii9rFq90oVBD6wvoW5tziD6x50mq
-         m71xCyIqHWSTc0sp9F1ce0aA4qLBBm/NyUlrsFhzP+RiGcioOVZzUAqm8Fo2ToGC8DP9
-         RgmhOMBl/5JZFnwzK545JGODyCakhr8DqD/wCi82GpLMseS9ablQx70qKZs4WOwetCHW
-         YX+c/gVchkspCejwTMRLTNzI7rkda6op2OJ3NMxLdhsTFbN7QWD7D+/MUD2gJ0stK6Vt
-         mW6VVoB8RFBof+q6iyVaN1cwf1JRpQSBc5BVTy6uxkS9DZ+/WFtZza8tsQ2URB96cr+W
-         rGbg==
-X-Forwarded-Encrypted: i=1; AFNElJ8cfWLSCYt6YdgOAbB3QTt6Ze31cvUbml9xEABgP7oa8+HOr2PMkPdYPB1YDUylb5JEk1hwtlkYPOSNo5F7DtbZ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz03Bt560yT9xMGlk5V8fTnv6N+AhODFMAtbdktDC6PONp7Eabe
-	BxJIA7ZZZ7xz5ZqWnNkYoaGXhi7EIufed0Hipg56jnwbf064VdFUeXhAMvc1YKy4sy2NxjWoPYs
-	a5b21tATd6cwYY+gDbjrP2sq4/ZfEUxmwb2gsuGFQ
-X-Gm-Gg: AeBDievROZa6lm5Mgth9Tn3WeeW9OfMNB8I0a0XXHOKyq0COAjlI7evCQL2AGshPWMG
-	IRUCaX2PFcSlMtZv3oHEHKH9q0yWQMvLANf3GKzIA4cv8cxcacI92l5N5UXy2coVkoigns1fn6V
-	raUHzrCMdzAhNkXWhUSx/98tjWYFjcOBYwGbGshJZGIcNhVRXrOK9PIR7nsxhXzKB0aIxqjNJnP
-	i+WzU6aFuGMzCn7SHqC3fY5ZmmHgqfIFtC0wkzyWLTv6ipEU2Lef+KQ5y/e9/QkkQWO2CdDGbpy
-	XHw3eXhECPYjOlrSj32MvSbSUNOf
-X-Received: by 2002:a05:6102:5094:b0:608:94e3:bd8a with SMTP id
- ada2fe7eead31-616f4f77861mr7269981137.8.1776734980393; Mon, 20 Apr 2026
- 18:29:40 -0700 (PDT)
+	Tue, 21 Apr 2026 01:45:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KYErxTpjSXuiV01oRkx71PC9BpKrf+7pLdoJDs6soJNQ9snX6HALixgaGhtvjG3yWOhzqthbxIH2ZN6nP8TdyADmS7uj0P7NLmBKXQoVlfCK8Y2VCJq8nDDHR3JIRQLzIJ2qTmYoiW239Bm3DklUEmqo3l9xIInjHqqUwpn3jjfeyP90LnFBAOgQw4DZTst+WAu0mazbb/nCdoihvFiC0clTAffUBTVXjqimUkkjSJJfVuOyZDc/NXanJYqqpns8oiD4V42doinpOHAbP5weYq5cGV1OB9z0QseY4tDkhqJKkLNyszUtAwlpRQFl/N4Ex+cDis2zErdeL1XU8ALjBQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SuNEF+ospmmTjbvX787zXUaCFtcsOupzABfIqQ9QvOE=;
+ b=GH1JyyAdeJ1cyhSywFVqv3DYVxrQMsfEw0k1SrQvOP0kwLKyfO0D1QI3bD5t3G7ofz9JawzGLUpSu1kHW3RBUtLksUbitZMZgcY/Aad9HLF9j5Y/6nUjC4rAoSWw6tjsUlsnUaNR4NHJZ2YY83prVx++/GDKan3bwxb1Tmt5D/Dhc8G+VoJCVw45CuKRkXLA8x4SZb2CCF6ZNPWvo8cXNvUtxx3RKX+5Q57JiciNXJ4ju+YEI96an+HFlKuzHCy/iqCKN6gEY2LCpKf6Q59WnL5uxugFImmYM+IoMUc44F30xwhQH7e1uXtX8aMVWyGD0j4uQyop5Fhnj7o0y6xh7Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
+ header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SuNEF+ospmmTjbvX787zXUaCFtcsOupzABfIqQ9QvOE=;
+ b=Jwg7Jlp8SKb0UAlK/K6EwP7lVfTzxnUpPjv6bjytwW84m5fVgRn/1sfQASKZa/RHVYctGJSTRZTLGhc88L9cdxLxrtxZ6Xdh2HGZ0S+WZwiSnwe+twp7GuXXloMcAZ9dp765btnJzLyitmFHJ6n0SRgHqa5Ic/gn2zKeDn0Yu+E=
+Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM (2603:1096:101:1b9::8)
+ by PU4P216MB2188.KORP216.PROD.OUTLOOK.COM (2603:1096:301:128::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.33; Tue, 21 Apr
+ 2026 01:45:14 +0000
+Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
+ ([fe80::f234:3bc6:9197:8232]) by SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
+ ([fe80::f234:3bc6:9197:8232%5]) with mapi id 15.20.9818.033; Tue, 21 Apr 2026
+ 01:45:14 +0000
+From: Nas Chung <nas.chung@chipsnmedia.com>
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>, "mchehab@kernel.org"
+	<mchehab@kernel.org>, "hverkuil@xs4all.nl" <hverkuil@xs4all.nl>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de"
+	<s.hauer@pengutronix.de>
+CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-imx@nxp.com" <linux-imx@nxp.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "marek.vasut@mailbox.org"
+	<marek.vasut@mailbox.org>, "ming.qian@oss.nxp.com" <ming.qian@oss.nxp.com>
+Subject: RE: [RFC PATCH v5 1/9] media: v4l2-common: Add YUV24 format info
+Thread-Topic: [RFC PATCH v5 1/9] media: v4l2-common: Add YUV24 format info
+Thread-Index: AQHczLnV9OhufMXTZEaLMFFL9JAUqrXoHmoAgACnhpA=
+Date: Tue, 21 Apr 2026 01:45:14 +0000
+Message-ID: <SL2P216MB24411C41BB69928E3B7DCB5DFB2C2@SL2P216MB2441.KORP216.PROD.OUTLOOK.COM>
+References: <20260415092529.577-1-nas.chung@chipsnmedia.com>
+	 <20260415092529.577-2-nas.chung@chipsnmedia.com>
+ <90e206fad7bef6052fcf38314889e7ff525d3201.camel@collabora.com>
+In-Reply-To: <90e206fad7bef6052fcf38314889e7ff525d3201.camel@collabora.com>
+Accept-Language: en-US, ko-KR
+Content-Language: ko-KR
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SL2P216MB2441:EE_|PU4P216MB2188:EE_
+x-ms-office365-filtering-correlation-id: 65b52328-ca8b-43e7-f953-08de9f47a230
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700021|56012099003|22082099003|18002099003;
+x-microsoft-antispam-message-info: 4epviXiUlUqZNj+Hr656sk9IYuctd/TanKjRQYzdiegspGlBx4Or+YyrA80PoutF0qnp61weIzWIa+cTImjEqUP62P7Nhn0rAhNo6n4rFIdo6jMMSIfn12+SWRLtH5QdpfYGHWZk5Xyk9kEayGkaJw7HNfTtfqemJfjda6M0Mo5i3l853UHtwd/4Dd6P+w/fJcgIuJ018BNbbakNhXqhccWjmFFagWRAXAHSQ10PI/l5yuxMozYYwoinCyxxr8SWyri3q+1TF8YoxuxUiWo5wuNQlU9LPMePmIUy58qXFEU+rf0xjCKQNNSBcVy6cbddsvNSz5umZxhsiWSp/0g7KfOaY934MwgZNYoFUb0+/HCnhn4GTPgX+pIV3ab30c+qZr3JT34FxWb3O2FU+L5pGFHTZmXIhXdO/oXA9KWgHLaOcYHimEl0RdhQqjrmB2hYA29igfAYVFtxODagHQoDIztWWWuQssPQj1rwHJQHrQYw+UcQhEmVItgIDdHFQDGAfeU5NYWNI1fIHr2Cmei6G3wSJZPkmoPPC+6osAe+yyjHtTwIvkvjjAlnNY6I3ZXXADp4s2UKVq1RdeOss6d8jpGAksaBJ3MfMfN7oizXxRRI4Up6kOSq/dt7O+rdPF8Y+JgLmBb7bdKb5cLOYsN2mqJrU4XTriOxyqtkLbHuxekshdl7nNmEvvG6vF0GTF/eBPVcuC04dKYdpnHoqWAaPIG+QxL/r9coXISD+8xm1U1XwIEdE6ihsIJiRsPGOpap+PgRoEUSbjZRAgYvn5D3ve0fpfXaVHeG38oBRv5PHM0=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ko;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB2441.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700021)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Zm1WYVgzQ3BCcmhKOWhXeTFRQnFBU2R4M3ovc082UmlHZVlybGo3UTRCUitI?=
+ =?utf-8?B?SmhCK05NUzF6ZHhLTmRpMkU0QXFRdHZ0alFWUFJGK25Hd2tPSFpaMVZCL3pt?=
+ =?utf-8?B?bjJ5b3MvK0l6bUwzbDZoYWR3MVBxenVnamhpSkFCam5idk9DRHlyMHdsUnZt?=
+ =?utf-8?B?aW9peXRTWlRraUxWclBXN1VuN3VtYjVEd1NodnFvNWV5T2JSdGJvVjI2Rk9K?=
+ =?utf-8?B?SXFKVDlvQ0phMlVwNzlXR2ZuMXpnTmJLUDlqR3dBcEhSZU5lMVdmNFJwbjlW?=
+ =?utf-8?B?MG1lNDQvL25ad0I1Ti9zRlFKODUrWlBpS1RzcXF1MVNKWitCMTYrWldncFJR?=
+ =?utf-8?B?SExvbVlCQnZ2VU1oNkJDZFVHUUxtRUhPc0cxbnVwdVdyYmpSSm1kZVVnOFJR?=
+ =?utf-8?B?QVkvRnVtc1htUE44U0lXSmlMYjIyRHFoa1F5dDJZVnU0TjdDc0N4NTQ1a2Ja?=
+ =?utf-8?B?RGlTc09UWElUbWdteHNpVFA0dzRnNjRXRllrQ0RqRDlTNFJycVJ5eHc1SG1P?=
+ =?utf-8?B?TkR6V1dSUllyQ2Q2cWg0MlRBejJrK0VTbVU3WURoNHpBbmUvSmF0YllBbWxk?=
+ =?utf-8?B?NW5kcXExcXV4c3g0YWRqWVd3UlZaT2tteFI0R0VyT1JNVml1anNOaU8xcFNh?=
+ =?utf-8?B?Vk1vWFZsZEQrWFFxY3NTMEY0Q3pFQVZadUFySzVWNDNxVmFrbWdxcnBsOFJ1?=
+ =?utf-8?B?bHpxM2YwL2ZJcW1HREYvLzV1WlArUUxGb3BlelRrTTA3T0F1dnl6ek1saU1U?=
+ =?utf-8?B?RCtPUVZiMHh1MVZLRHR6NHJHdDFOYXNKdmlSV2lHVm4vVnhtdnpFeWtMYkpm?=
+ =?utf-8?B?ZFlWN1hMMGtnVEhGR2NERlV1QUVPY2l6TGQ1UmcrK3UxTThYU2xaUHBNbFI0?=
+ =?utf-8?B?Z2dpdmt4bGJFVXdKcDhHb3ljcTJTUWxCd1lRZ0lMVEd0eFZuZTQxQUVOK0oz?=
+ =?utf-8?B?Z0JKOWRRTnRRdkYzN1dXNUE0SitsRzQ2ZUVHZGxZakRoN1ZGbENaRDVPUExK?=
+ =?utf-8?B?UkRUbG81ZGc3T0FOYWgxcEptWXUySFJJZFovN2JtaWZzSFROZENlN3U5cDZw?=
+ =?utf-8?B?YUZ4YndxWnFad0FEVTdsNE9KZW1iOWdvWlV0Rzh4MnkyU2dUanlhOC84MFkx?=
+ =?utf-8?B?VTJSWmFEVWdMa29DaSs2cXBLYlAyRThFN1ZGd2o0ZWtwNHhvdWZXZEhoTDNM?=
+ =?utf-8?B?M0t0NWYwUENQMzFWQi9NR040Z1k1NGc0T2VneVVFTFVNa3pwZ2tzREVUOXlL?=
+ =?utf-8?B?NUJVaGN3VTFiNTcwckRSYVIzaHZaVWFGeGNTUmtCaldDa1M0NllITmdxQk9r?=
+ =?utf-8?B?Rjd0QVdoaWNlZ3B4aTBBZUg3dWl4L2Q1ZkVHdFJ5UnNLSGd1ZTJPMHR1c0Nq?=
+ =?utf-8?B?L096ak9lM0dnL2NmSmNJUjFzK0Vob1VYY25vK2lBVFRSNFJoVEVabVowVDdl?=
+ =?utf-8?B?b2M4bUptYktYNFljUG41YXpYM2djdTR2c2k2QnZQdUpmTTAwQlIwVDZCL3dt?=
+ =?utf-8?B?YmYxNzhySDMvUjQ3bDdLY3c3Y0FXSVc4MkhPdzF4akpyZ1R1NTRLNCtaYkcy?=
+ =?utf-8?B?VllOd1NQUXYwdmRjN1JUczQyWnZOQmdoaVhKWnlQbjVidDZOV2lTdUJzNVI1?=
+ =?utf-8?B?M0YvajdPdWJ5cTF2UWQ3N2FuOXl2VjhuaTJIM2tjQkhCR3pjM2kyWS8rclUr?=
+ =?utf-8?B?UHNYZkZQUWhYbWN6SS82WjZkLzNoUjByQjJHTTVVbmJsMXFueXNNc1ZhYlZU?=
+ =?utf-8?B?VG9BNG85U0lGcG5OQlhiMG5iK1J2eFcvNUxiNGRwdEJ1V3JEeWdiS1RpNGVz?=
+ =?utf-8?B?blBmUDZuamVqR0FmMU1KeEl1NElmdXNBbDRwUHEvUkJKNkg2Tzlhcmc5WjJV?=
+ =?utf-8?B?QU8rYUxUN2lCdzU3UDhIU0JBRE5qV0hZVVpqempGYUQ2NUFKZCttQllKdmp4?=
+ =?utf-8?B?ZzBweTNEZWN3UTJ1NSs0eE0rQnVGc2FYUlJoTFh0SHpYRDRtVFVZcjdVNllO?=
+ =?utf-8?B?QTZwZVE0RDdOc2VXdTFhSXgxTytRWjBheW1ic25BeDdFYnJkMlpyb1duNzIz?=
+ =?utf-8?B?K05hZklFTnZZWUlRbWZRNERieGxzRG9nYXhNamtyZDZLMkdBL2dnalZZS09Q?=
+ =?utf-8?B?ZXFNc3N3UzJNV1RhWmVzcmZyQlFudEJxbmhzK3V1a0IrNDFnY0VNRCt5Z05B?=
+ =?utf-8?B?SG0wN2U5Q3lYbWJNTlhkMlJGcU1rTW1LK2dmS0kzbm5idEtvZ2UvODI2K2NI?=
+ =?utf-8?B?Sk5yL0N6ODFWWjNjSmgzd3RLaVVHYS8vcjNBSkpFY0lmUy9YYnZoTktrSVdU?=
+ =?utf-8?B?ODlaQUd0ak9mNnRLS3BBZVFjOVBUb0ZmTHRHTDQyd0RLT2N3VXU2Zz09?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-References: <20260406185000.1378082-1-dylanbhatch@google.com>
- <20260406185000.1378082-8-dylanbhatch@google.com> <de7bd273-3650-4378-8fd8-a51217e7284b@linux.ibm.com>
- <CADBMgpzbEGTm-sZ71a5hvFOHbu5VgSR406F3NsMLF1+oDWbO6A@mail.gmail.com> <dde1daa9-724c-4186-aaf6-caff6b47c5a9@linux.ibm.com>
-In-Reply-To: <dde1daa9-724c-4186-aaf6-caff6b47c5a9@linux.ibm.com>
-From: Dylan Hatch <dylanbhatch@google.com>
-Date: Mon, 20 Apr 2026 18:29:29 -0700
-X-Gm-Features: AQROBzD4sxXSCszJZ2N3Wrx6Xjh99aneu1LnlBIufFgIxKIHOKABwtCT5Jq0AHs
-Message-ID: <CADBMgpzBvKTvRKHmLbEF301S_DnCg6SRETkMh6jPo-1hOEEZVw@mail.gmail.com>
-Subject: Re: [PATCH v3 7/8] sframe: Introduce in-kernel SFRAME_VALIDATION.
-To: Jens Remus <jremus@linux.ibm.com>
-Cc: Indu Bhagat <ibhagatgnu@gmail.com>, Roman Gushchin <roman.gushchin@linux.dev>, 
-	Weinan Liu <wnliu@google.com>, Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	Indu Bhagat <indu.bhagat@oracle.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Jiri Kosina <jikos@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Prasanna Kumar T S M <ptsm@linux.microsoft.com>, Puranjay Mohan <puranjay@kernel.org>, 
-	Song Liu <song@kernel.org>, joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, live-patching@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-OriginatorOrg: chipsnmedia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 65b52328-ca8b-43e7-f953-08de9f47a230
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Apr 2026 01:45:14.5296
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: mQ/r113iKUgnO74KhonKUVeOJZz2HpkxPvbXhbKLxKHnNyu8u1IxX/JwFW9+tLkzqX33K/yY09Bpfxzkner+Q5P8xZH46FZhv2LRA1vSJAg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PU4P216MB2188
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_182942_495246_86709234 
-X-CRM114-Status: GOOD (  50.13  )
+X-CRM114-CacheID: sfid-20260420_184532_018425_AEF06EAE 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,249 +159,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 20, 2026 at 5:31=E2=80=AFAM Jens Remus <jremus@linux.ibm.com> w=
-rote:
->
-> On 4/20/2026 7:02 AM, Dylan Hatch wrote:
-> > On Thu, Apr 16, 2026 at 8:04=E2=80=AFAM Jens Remus <jremus@linux.ibm.co=
-m> wrote:
-> >> On 4/6/2026 8:49 PM, Dylan Hatch wrote:
->
-> >>> Generalize the __safe* helpers to support a non-user-access code path=
-.
-> >>> Allow for kernel FDE read failures due to the presence of .rodata.tex=
-t.
-> >>> This section contains code that can't be executed by the kernel
-> >>> direclty, and thus lies ouside the normal kernel-text bounds.
-> >>
-> >> Nits: s/direclty/directly/ s/ouside/outside/
-> >>
-> >> Could you please explain the issue?  How/why does .sframe for
-> >> .rodata.text pose an issue for .sframe verification?
-> >
-> > __read_fde checks that the fde_addr it extracts is within the bounds
-> > of sec->text_start and sec->text_end. In the case of the vmlinux
->
-> Looking at the existing check in __read_fde(), do you agree that it is
-> wrong, as sec->text_end IIUC points behind .text and thus the check
-> should be:
->
->         if (func_addr < sec->text_start || func_addr >=3D sec->text_end)
->                 return -EINVAL;
-
-I agree this is correct. Is this a fix that would be folded into your
-previous patch series?
-
->
-> > .sframe section, this is _stext and _etext. However on arm64, there is
-> > an .rodata.text section that lies outside this range. From
-> > arch/arm64/kernel/vmlinux.lds.S:
-> >
-> >         /* code sections that are never executed via the kernel mapping=
- */
-> >         .rodata.text : {
-> >                 TRAMP_TEXT
-> >                 HIBERNATE_TEXT
-> >                 KEXEC_TEXT
-> >                 IDMAP_TEXT
-> >                 . =3D ALIGN(PAGE_SIZE);
-> >         }
-> >
-> > So __read_fde fails for functions in this section. Under normal SFrame
-> > usage for unwinding, we should never need to look up a PC value in
-> > these functions because they will never be executed by the kernel.
-> > However, we still hit this error when validating all FDEs.
->
-> Thanks for the explanation!  Could you please improve the commit
-> message, for instance as follows:
->
-> __read_fde() checks that the extracted FDE function start address is
-> within the bounds of the .text section start and end.  In case of
-> vmlinux this is _stext and _etext.  However on arm64, .rodata.text
-> resides outside this range, causing __read_fde() to fail.
->
-> > I think ideally we might prevent sframe data from being generated for
-> > this code (maybe from the linker script somehow?), but I don't know of
-> > a simple way to do this.
->
-> I dont't know of any way to exclude a single function or a whole section
-> from .sframe generation.  The GNU linker would discard SFrame FDEs and
-> its FREs for discarded functions.  But in this case the function itself
-> is not discarded.  As .sframe is not generated separately per section it
-> is also not possible to discard e.g. .sframe.rodata.
->
-> > Alternatively, we can check for FDEs located
-> > in .rodata.text during validation, but this seems to only be present
-> > in arm64, so maybe we would need an arch-specific hook to do this? I'm
-> > open to suggestions.
->
-> Maybe that is better than ignoring __read_fde() failures?  I first
-> thought this would get nasty, but maybe it would not be too bad.
-> Following is what I came up with (note tabs replaced by spaces due to
-> copy&paste from terminal):
-
-Thanks for the suggestion! I'll look into incorporating this.
-
->
-> diff --git a/arch/arm64/include/asm/sections.h b/arch/arm64/include/asm/s=
-ections.h
-> @@ -23,6 +23,7 @@ extern char __irqentry_text_start[], __irqentry_text_en=
-d[];
->  extern char __mmuoff_data_start[], __mmuoff_data_end[];
->  extern char __entry_tramp_text_start[], __entry_tramp_text_end[];
->  extern char __relocate_new_kernel_start[], __relocate_new_kernel_end[];
-> +extern char _srodatatext[], _erodatatext[];
->
->  static inline size_t entry_tramp_text_size(void)
->  {
-> diff --git a/arch/arm64/include/asm/unwind_sframe.h b/arch/arm64/include/=
-asm/unwind_sframe.h
-> @@ -2,11 +2,28 @@
->  #ifndef _ASM_ARM64_UNWIND_SFRAME_H
->  #define _ASM_ARM64_UNWIND_SFRAME_H
->
-> +#include <linux/sframe.h>
-> +
->  #ifdef CONFIG_ARM64
->
->  #define SFRAME_REG_SP  31
->  #define SFRAME_REG_FP  29
->
-> +static inline bool sframe_func_start_addr_valid(struct sframe_section *s=
-ec,
-> +                                               unsigned long func_addr)
-> +{
-> +       return (sec->text_start >=3D func_addr && func_addr < sec->text_e=
-nd) ||
-> +              (sec->rodatatext_start >=3D func_addr && func_addr < sec->=
-rodatatext_end);
-> +}
-> +#define sframe_func_start_addr_valid sframe_func_start_addr_valid
-> +
-> +static void arch_init_sframe_table(struct sframe_section *kernel_sfsec)
-> +{
-> +       kernel_sfsec->rodatatext_start  =3D (unsigned long)_srodatatext;
-> +       kernel_sfsec->rodatatext_end    =3D (unsigned long)_erodatatext;
-> +}
-> +#define arch_init_sframe_table arch_init_sframe_table
-> +
->  #endif
->
->  #endif /* _ASM_ARM64_UNWIND_SFRAME_H */
-> diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.=
-lds.S
-> @@ -213,12 +213,14 @@ SECTIONS
->
->         /* code sections that are never executed via the kernel mapping *=
-/
->         .rodata.text : {
-> +               _srodatatext =3D .;
->                 TRAMP_TEXT
->                 HIBERNATE_TEXT
->                 KEXEC_TEXT
->                 IDMAP_TEXT
->                 . =3D ALIGN(PAGE_SIZE);
->         }
-> +       _erodatatext =3D .;
->
->         idmap_pg_dir =3D .;
->         . +=3D PAGE_SIZE;
-> diff --git a/include/linux/sframe.h b/include/linux/sframe.h
-> @@ -63,6 +63,10 @@ struct sframe_section {
->         unsigned long           sframe_end;
->         unsigned long           text_start;
->         unsigned long           text_end;
-> +#if defined(CONFIG_SFRAME_UNWINDER) && defined(CONFIG_ARM64)
-> +       unsigned long           rodatatext_start;
-> +       unsigned long           rodatatext_end;
-> +#endif
-
-It looks to me like .rodata.text only exists for vmlinux. I wonder if
-in sframe_func_start_addr_valid we can just use the global
-_srodatatext and _erodatatext after identifying if an sframe_section
-corresponds to vmlinux (kernel_sfsec)? That way we don't need to add
-these extra fields.
-
->
->         bool                    fdes_sorted;
->         unsigned long           fdes_start;
-> diff --git a/kernel/unwind/sframe.c b/kernel/unwind/sframe.c
-> @@ -20,11 +20,23 @@
->  #include "sframe.h"
->  #include "sframe_debug.h"
->
-> +#ifndef sframe_func_start_addr_valid
-> +static inline bool sframe_func_start_addr_valid(struct sframe_section *s=
-ec,
-> +                                                unsigned long func_addr)
-> +{
-> +       return (sec->text_start <=3D func_addr && func_addr < sec->text_e=
-nd);
-> +}
-> +#endif
-> +
->  #ifdef CONFIG_SFRAME_UNWINDER
->
->  static bool sframe_init __ro_after_init;
->  static struct sframe_section kernel_sfsec __ro_after_init;
->
-> +#ifndef arch_init_sframe_table
-> +static void arch_init_sframe_table(struct sframe_section *kernel_sfsec) =
-{}
-> +#endif
-> +
->  #endif /* CONFIG_SFRAME_UNWINDER */
->
->  struct sframe_fde_internal {
-> @@ -152,7 +164,7 @@ static __always_inline int __read_fde(struct sframe_s=
-ection *sec,
->                   sizeof(struct sframe_fde_v3), Efault);
->
->         func_addr =3D fde_addr + _fde.func_start_off;
-> -       if (func_addr < sec->text_start || func_addr > sec->text_end)
-> +       if (!sframe_func_start_addr_valid(sec, func_addr))
->                 return -EINVAL;
->
->         fda_addr =3D sec->fres_start + _fde.fres_off;
-> @@ -696,13 +708,6 @@ static int sframe_validate_section(struct sframe_sec=
-tion *sec)
->                 int ret;
->
->                 ret =3D safe_read_fde(sec, i, &fde);
-> -               /*
-> -                * Code in .rodata.text is not considered part of normal =
-kernel
-> -                * text, but there is no easy way to prevent sframe data =
-from
-> -                * being generated for it.
-> -                */
-> -               if (ret && sec->sec_type =3D=3D SFRAME_KERNEL)
-> -                       continue;
->                 if (ret)
->                         return ret;
->
-> @@ -1031,6 +1036,8 @@ void __init init_sframe_table(void)
->         if (WARN_ON(sframe_validate_section(&kernel_sfsec)))
->                 return;
->
-> +       arch_init_sframe_table(&kernel_sfsec);
-> +
->         sframe_init =3D true;
->  }
->
-> Regards,
-> Jens
-> --
-> Jens Remus
-> Linux on Z Development (D3303)
-> jremus@de.ibm.com / jremus@linux.ibm.com
->
-> IBM Deutschland Research & Development GmbH; Vorsitzender des Aufsichtsra=
-ts: Wolfgang Wendt; Gesch=C3=A4ftsf=C3=BChrung: David Faller; Sitz der Gese=
-llschaft: Ehningen; Registergericht: Amtsgericht Stuttgart, HRB 243294
-> IBM Data Privacy Statement: https://www.ibm.com/privacy/
->
-
-Thanks,
-Dylan
+SGksIE5pY29sYXMuDQoNCj4tLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPkZyb206IE5pY29s
+YXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAY29sbGFib3JhLmNvbT4NCj5TZW50OiBUdWVz
+ZGF5LCBBcHJpbCAyMSwgMjAyNiAxMjo0MCBBTQ0KPlRvOiBOYXMgQ2h1bmcgPG5hcy5jaHVuZ0Bj
+aGlwc25tZWRpYS5jb20+OyBtY2hlaGFiQGtlcm5lbC5vcmc7DQo+aHZlcmt1aWxAeHM0YWxsLm5s
+OyByb2JoQGtlcm5lbC5vcmc7IGtyemsrZHRAa2VybmVsLm9yZzsNCj5jb25vcitkdEBrZXJuZWwu
+b3JnOyBzaGF3bmd1b0BrZXJuZWwub3JnOyBzLmhhdWVyQHBlbmd1dHJvbml4LmRlDQo+Q2M6IGxp
+bnV4LW1lZGlhQHZnZXIua2VybmVsLm9yZzsgZGV2aWNldHJlZUB2Z2VyLmtlcm5lbC5vcmc7IGxp
+bnV4LQ0KPmtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc7IGxpbnV4LWlteEBueHAuY29tOyBsaW51eC1h
+cm0tDQo+a2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmc7IG1hcmVrLnZhc3V0QG1haWxib3gub3Jn
+OyBtaW5nLnFpYW5Ab3NzLm54cC5jb20NCj5TdWJqZWN0OiBSZTogW1JGQyBQQVRDSCB2NSAxLzld
+IG1lZGlhOiB2NGwyLWNvbW1vbjogQWRkIFlVVjI0IGZvcm1hdCBpbmZvDQo+DQo+TGUgbWVyY3Jl
+ZGkgMTUgYXZyaWwgMjAyNiDDoCAxODoyNSArMDkwMCwgTmFzIENodW5nIGEgw6ljcml0wqA6DQo+
+PiBUaGUgWVVWMjQgZm9ybWF0IGlzIG1pc3NpbmcgYW4gZW50cnkgaW4gdGhlIHY0bDJfZm9ybWF0
+X2luZm8oKS4NCj4+IFRoZSBZVVYyNCBmb3JtYXQgaXMgdGhlIHBhY2tlZCBZVVYgNDo0OjQgZm9y
+bWF0cyB3aXRoIDggYml0cw0KPj4gcGVyIGNvbXBvbmVudC4NCj4+DQo+PiBGaXhlczogMDM3NmE1
+MWZiZTVlICgibWVkaWE6IHY0bDogQWRkIHBhY2tlZCBZVVY0NDQgMjRicHAgcGl4ZWwgZm9ybWF0
+IikNCj4+IFNpZ25lZC1vZmYtYnk6IE5hcyBDaHVuZyA8bmFzLmNodW5nQGNoaXBzbm1lZGlhLmNv
+bT4NCj4+IFJldmlld2VkLWJ5OiBOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1ZnJlc25lQGNv
+bGxhYm9yYS5jb20+DQo+DQo+VW5sZXNzIHlvdSBkaXNhZ3JlZSwgSSBtaWdodCBjaGVycnktcGlj
+ayB0aGlzIG9uZS4gV291bGQgaXQgYmUgb2sgd2l0aCB5b3UgPw0KDQpTdXJlLCB0aGF0J3MgZmlu
+ZSB3aXRoIG1lLg0KDQpUaGFua3MuDQpOYXMuDQoNCj4NCj5OaWNvbGFzDQo+DQo+PiAtLS0NCj4+
+IMKgZHJpdmVycy9tZWRpYS92NGwyLWNvcmUvdjRsMi1jb21tb24uYyB8IDEgKw0KPj4gwqAxIGZp
+bGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKykNCj4+DQo+PiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9t
+ZWRpYS92NGwyLWNvcmUvdjRsMi1jb21tb24uYyBiL2RyaXZlcnMvbWVkaWEvdjRsMi0NCj5jb3Jl
+L3Y0bDItY29tbW9uLmMNCj4+IGluZGV4IDU1NGM1OTFlMTExMy4uNTViY2Q1OTc1ZDlmIDEwMDY0
+NA0KPj4gLS0tIGEvZHJpdmVycy9tZWRpYS92NGwyLWNvcmUvdjRsMi1jb21tb24uYw0KPj4gKysr
+IGIvZHJpdmVycy9tZWRpYS92NGwyLWNvcmUvdjRsMi1jb21tb24uYw0KPj4gQEAgLTI4MSw2ICsy
+ODEsNyBAQCBjb25zdCBzdHJ1Y3QgdjRsMl9mb3JtYXRfaW5mbyAqdjRsMl9mb3JtYXRfaW5mbyh1
+MzINCj5mb3JtYXQpDQo+PiDCoAkJeyAuZm9ybWF0ID0gVjRMMl9QSVhfRk1UX1kyMTIswqDCoMKg
+IC5waXhlbF9lbmMgPQ0KPlY0TDJfUElYRUxfRU5DX1lVViwgLm1lbV9wbGFuZXMgPSAxLCAuY29t
+cF9wbGFuZXMgPSAxLCAuYnBwID0geyA0LCAwLCAwLA0KPjAgfSwgLmJwcF9kaXYgPSB7IDEsIDEs
+IDEsIDEgfSwgLmhkaXYgPSAyLCAudmRpdiA9IDEgfSwNCj4+IMKgCQl7IC5mb3JtYXQgPSBWNEwy
+X1BJWF9GTVRfWTIxNizCoMKgwqAgLnBpeGVsX2VuYyA9DQo+VjRMMl9QSVhFTF9FTkNfWVVWLCAu
+bWVtX3BsYW5lcyA9IDEsIC5jb21wX3BsYW5lcyA9IDEsIC5icHAgPSB7IDQsIDAsIDAsDQo+MCB9
+LCAuYnBwX2RpdiA9IHsgMSwgMSwgMSwgMSB9LCAuaGRpdiA9IDIsIC52ZGl2ID0gMSB9LA0KPj4g
+wqAJCXsgLmZvcm1hdCA9IFY0TDJfUElYX0ZNVF9ZVVY0OF8xMiwgLnBpeGVsX2VuYyA9DQo+VjRM
+Ml9QSVhFTF9FTkNfWVVWLCAubWVtX3BsYW5lcyA9IDEsIC5jb21wX3BsYW5lcyA9IDEsIC5icHAg
+PSB7IDYsIDAsIDAsDQo+MCB9LCAuYnBwX2RpdiA9IHsgMSwgMSwgMSwgMSB9LCAuaGRpdiA9IDEs
+IC52ZGl2ID0gMSB9LA0KPj4gKwkJeyAuZm9ybWF0ID0gVjRMMl9QSVhfRk1UX1lVVjI0LMKgwqAg
+LnBpeGVsX2VuYyA9DQo+VjRMMl9QSVhFTF9FTkNfWVVWLCAubWVtX3BsYW5lcyA9IDEsIC5jb21w
+X3BsYW5lcyA9IDEsIC5icHAgPSB7IDMsIDAsIDAsDQo+MCB9LCAuYnBwX2RpdiA9IHsgMSwgMSwg
+MSwgMSB9LCAuaGRpdiA9IDEsIC52ZGl2ID0gMSB9LA0KPj4gwqAJCXsgLmZvcm1hdCA9IFY0TDJf
+UElYX0ZNVF9NVDIxMTBULCAucGl4ZWxfZW5jID0NCj5WNEwyX1BJWEVMX0VOQ19ZVVYsIC5tZW1f
+cGxhbmVzID0gMiwgLmNvbXBfcGxhbmVzID0gMiwgLmJwcCA9IHsgNSwgMTAsIDAsDQo+MCB9LCAu
+YnBwX2RpdiA9IHsgNCwgNCwgMSwgMSB9LCAuaGRpdiA9IDIsIC52ZGl2ID0gMiwNCj4+IMKgCQnC
+oCAuYmxvY2tfdyA9IHsgMTYsIDgsIDAsIDAgfSwgLmJsb2NrX2ggPSB7IDMyLCAxNiwgMCwgMCB9
+fSwNCj4+IMKgCQl7IC5mb3JtYXQgPSBWNEwyX1BJWF9GTVRfTVQyMTEwUiwgLnBpeGVsX2VuYyA9
+DQo+VjRMMl9QSVhFTF9FTkNfWVVWLCAubWVtX3BsYW5lcyA9IDIsIC5jb21wX3BsYW5lcyA9IDIs
+IC5icHAgPSB7IDUsIDEwLCAwLA0KPjAgfSwgLmJwcF9kaXYgPSB7IDQsIDQsIDEsIDEgfSwgLmhk
+aXYgPSAyLCAudmRpdiA9IDIsDQo=
 
