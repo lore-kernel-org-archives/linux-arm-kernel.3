@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4730F5A8DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 02:43:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0EF0F5A8D9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 02:43:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+akW5TN1b6rNhMqKtm4OCxJfuO9PeMrupSkJqQmM6M8=; b=WRyQAsTU2IA0ffmttPFEbfMQEo
-	zEEzBB6wTRhPmA6wiOf58qF7jnpk9QH1tpgN2fWgyJpd5YSl5PIJHn5iIEDhGnVn5k01zCAeNU+BF
-	/w7Wy7M4/+TqvHCT0AINXs6U1hF2xVeESCjvcpK9/+nH//9rL+Ttl4wF8WZ1icjRQx6CpG1rzhSLn
-	4qYDmKqdxLnYpdijxG5yohKFzowUdwOMf+uXJqfO7TmeIYxKE5dNPQ3eb0v981q8odCcPUaWBHej4
-	VFIUub2Z5icPpKW0wIGqPodBFPmFr/BYFkwS+u8+JysBWzvhepmpePbivGZI4b9FHjgHG1y/F3An6
-	z9Qi3Umg==;
+	bh=JWHMZDRbsSct+AAHA7Pf4ZR8D8m3jNhL6iUEZkVXaXo=; b=PL0nXMQjHqqD0Gi86EYfSH8m4G
+	Xf2jXN29rb4mBodWZHkHxYsce7j7Pjuaf119JoCdvcjaKACYIZdkbk9zHg0c/xKH2hhv4eV1iVWbZ
+	DuhPk27dCtcOkpu+gW2TDhctGAlYTIXhWrtsNzCHdDHK+IN/x1SMD/PHSJkcFXr/uGe+Z3y5iCbf5
+	nVM2sd0Z7/nAjxoSo7RiFr2b315fd7PDqwqLLSKVxlYrTKYz8MI84cfRVFJMF688OFcjv3ynwuT9r
+	r9DMjkqN0bFdZgww3LFG8p+66eEocP3uvIwT5Z9KxXk0nc/QDZMn1nA0eSYt8vDRHDAL8KJzrX8Q3
+	uVExYLGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF14w-00000007woA-0e8t;
-	Tue, 21 Apr 2026 02:43:10 +0000
+	id 1wF151-00000007wqG-3yPk;
+	Tue, 21 Apr 2026 02:43:15 +0000
 Received: from n169-110.mail.139.com ([120.232.169.110])
 	by bombadil.infradead.org with smtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF14r-00000007wml-1dLf;
-	Tue, 21 Apr 2026 02:43:08 +0000
+	id 1wF14z-00000007woV-2g52;
+	Tue, 21 Apr 2026 02:43:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=139.com; s=dkim; l=0;
 	h=from:subject:message-id:to:cc:mime-version;
 	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=SuSaCyV4S/tuN8H23/Gt8wor8egO/mlnWyP0o6hsBtiUNeS8oCWk7L5TDnTI2W7+V3A+u38WTebL3
-	 KRtIHPF6p/e+mLTE24tmf3rLz1ZubtjwGqo7oy+liv91ABuOBjgFalH2rHKmK3MYzUQZySkGOitLe/
-	 4PxNAJQCRQzW/sCI=
+	b=f0/dCLKbJKv/5v2fSglsOneBu4l8pLH1zeC9oV/STwAfNX3R5Cp/gKhAL1eFp11j4iMpDngooajhu
+	 j80Oc89m2rAC/2bYKjdiVFXT+mOCXCPC0QL9p/hUsalrM6zcyRamvcStBulKIjczKUrln1LeJOM1Yg
+	 VP7PZdN04rrMg9dE=
 X-RM-TagInfo: emlType=0                                       
 X-RM-SPAM: 
 X-RM-SPAM-FLAG: 00000000
 Received: from NTT-kernel-dev (unknown[60.247.85.88])
-	by rmsmtp-lg-appmail-03-12081 (RichMail) with SMTP id 2f3169e6e429f8a-00f9d;
-	Tue, 21 Apr 2026 10:42:51 +0800 (CST)
-X-RM-TRANSID: 2f3169e6e429f8a-00f9d
+	by rmsmtp-lg-appmail-08-12086 (RichMail) with SMTP id 2f3669e6e4383ec-07482;
+	Tue, 21 Apr 2026 10:43:09 +0800 (CST)
+X-RM-TRANSID: 2f3669e6e4383ec-07482
 From: Li hongliang <1468888505@139.com>
 To: gregkh@linuxfoundation.org,
 	stable@vger.kernel.org,
@@ -56,15 +56,15 @@ Cc: patches@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	johannes.berg@intel.com
-Subject: [PATCH 6.12.y] wifi: mac80211: always free skb on ieee80211_tx_prepare_skb() failure
-Date: Tue, 21 Apr 2026 10:42:50 +0800
-Message-Id: <20260421024250.3130332-1-1468888505@139.com>
+Subject: [PATCH 6.6.y] wifi: mac80211: always free skb on ieee80211_tx_prepare_skb() failure
+Date: Tue, 21 Apr 2026 10:43:09 +0800
+Message-Id: <20260421024309.3131840-1-1468888505@139.com>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_194306_474409_B289DCDE 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20260420_194314_201465_1DDF9CD7 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,9 +105,9 @@ Signed-off-by: Li hongliang <1468888505@139.com>
 ---
  drivers/net/wireless/ath/ath9k/channel.c      | 6 ++----
  drivers/net/wireless/virtual/mac80211_hwsim.c | 1 -
- include/net/mac80211.h                        | 4 +++-
+ include/net/mac80211.h                        | 4 ++++
  net/mac80211/tx.c                             | 4 +++-
- 4 files changed, 8 insertions(+), 7 deletions(-)
+ 4 files changed, 9 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/net/wireless/ath/ath9k/channel.c b/drivers/net/wireless/ath/ath9k/channel.c
 index 571062f2e82a..ba8ec5112afe 100644
@@ -135,10 +135,10 @@ index 571062f2e82a..ba8ec5112afe 100644
  	default:
  		return false;
 diff --git a/drivers/net/wireless/virtual/mac80211_hwsim.c b/drivers/net/wireless/virtual/mac80211_hwsim.c
-index 8b4fd5fd11b0..e992e59b5918 100644
+index 1214e7dcc812..bf12ff0ab06a 100644
 --- a/drivers/net/wireless/virtual/mac80211_hwsim.c
 +++ b/drivers/net/wireless/virtual/mac80211_hwsim.c
-@@ -2977,7 +2977,6 @@ static void hw_scan_work(struct work_struct *work)
+@@ -2892,7 +2892,6 @@ static void hw_scan_work(struct work_struct *work)
  						      hwsim->tmp_chan->band,
  						      NULL)) {
  				rcu_read_unlock();
@@ -147,25 +147,25 @@ index 8b4fd5fd11b0..e992e59b5918 100644
  			}
  
 diff --git a/include/net/mac80211.h b/include/net/mac80211.h
-index 80259a37e724..7d71a4149cdf 100644
+index adaa1b2323d2..85d785060e76 100644
 --- a/include/net/mac80211.h
 +++ b/include/net/mac80211.h
-@@ -7208,7 +7208,9 @@ void ieee80211_report_wowlan_wakeup(struct ieee80211_vif *vif,
+@@ -7032,6 +7032,10 @@ void ieee80211_report_wowlan_wakeup(struct ieee80211_vif *vif,
   * @band: the band to transmit on
   * @sta: optional pointer to get the station to send the frame to
   *
-- * Return: %true if the skb was prepared, %false otherwise
 + * Return: %true if the skb was prepared, %false otherwise.
 + * On failure, the skb is freed by this function; callers must not
 + * free it again.
-  *
++ *
   * Note: must be called under RCU lock
   */
+ bool ieee80211_tx_prepare_skb(struct ieee80211_hw *hw,
 diff --git a/net/mac80211/tx.c b/net/mac80211/tx.c
-index 9142d748a6a7..0458cbba232e 100644
+index 7eddcb6f9645..2a708132320c 100644
 --- a/net/mac80211/tx.c
 +++ b/net/mac80211/tx.c
-@@ -1897,8 +1897,10 @@ bool ieee80211_tx_prepare_skb(struct ieee80211_hw *hw,
+@@ -1911,8 +1911,10 @@ bool ieee80211_tx_prepare_skb(struct ieee80211_hw *hw,
  	struct ieee80211_tx_data tx;
  	struct sk_buff *skb2;
  
