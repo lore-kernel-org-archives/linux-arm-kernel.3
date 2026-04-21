@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91903F327C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 08:53:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3BD6F327C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 08:54:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=h5qgamQh+jPgJ1Emn+TKK5MC4m+XUZLyTR/uBaXk5LU=; b=iefCQ7dWrcvgSY68DYqHv3mReZ
-	4JxlhpJvFL0JA97hXjlT5Ujm3PUxU5wOCpWXtbA+pAOGaYP3PvXsC9WVOVIt3cesvkQap/PlArOL4
-	E+abZ0AjC9pSAXNOVh99Xyj/znxD+o+CTVYE0nYyJyGbk69wfSe7LW+lBLRyCxITtuV7mfa1K6rMS
-	ZDrttY+4j39nXmg4uJbpMs2zoZ6CVEVT66rHqYeJWWvIwaKM/45rqCx2ZHxF2fyTygb5EcIlM4x9p
-	ta6md4BCzLq8xDWzSPB8AaG49pjVEDwUEzPDRyQvyDMXpIntnLDJax9vO6AOi+c4vFAA/VQ/Nx9SD
-	zeTe2edQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kfVyIepq1Snnpuj/IQHz1WfPqhmyePs8F/KUC9UNfEo=; b=mD48gGdzlpRHTKKRecUpC4cFXM
+	9F6vBm41QZ+OcZXfkc+sk3ENVb3SBlgGduJbkdc6tq6KsVsEwp2D7EJllHfTd/XGGeTWoH7Albezh
+	5oWcWXgcFZY2WmjAP6tCfY/XBaEHjp+Ll8MCnzlmLOzqkk0ViduNTeIe8SUDyf6z9/8nqTNQLlmDh
+	Guh1Rz2h07emo+FSZ1PyPrZLclgchzqFJDtqPeUEhCNoXctjKPwPVcFU7ONqXXoWHa3dJhfYGdQ1i
+	GJeXo3T6LiI41+bhxVX38XrEpVeQJoSN4aINGWsojRv+yS7/ALPdl7Ob2Fobi03EYEj9TW4pEXWUO
+	BgnLM0KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF6rZ-00000008HZt-176D;
-	Tue, 21 Apr 2026 08:53:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wF6rs-00000008HdI-3avN;
+	Tue, 21 Apr 2026 08:54:04 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF6rX-00000008HZS-2xMK;
-	Tue, 21 Apr 2026 08:53:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D253E600AE;
-	Tue, 21 Apr 2026 08:53:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B1DFC2BCB5;
-	Tue, 21 Apr 2026 08:53:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776761622;
-	bh=aZT8+RjuUD+glDzBq4Jw2xxfNL/4kIryQSIGXkNI1xI=;
-	h=From:Date:Subject:To:Cc:From;
-	b=gtgE3DSZmxbKHqvljeBTE4VkSpsaCQcfqK77jf8BpxOBJu2+QcK+1UCw8KZwAH7X1
-	 cjWp8o/bVOL04vJtwowMv5M5XiXfPAt0n9G4JjcyapBl5LjFIaHsWpYldijXROhO5i
-	 oRVDl9vQcd8p2yTh8rKvmElBh64sYRjdQohWHX1zBGJ3CVbJSKZlT9IgCIVVhQUZ/x
-	 KtOXjgFFtg3ZcamjhkMvXuQES9je+AtuPqLrrtJpNLAv67310o9jhXVY9SzOkNgFPB
-	 Mn7+HK9lXOMaLueRs4KZrp1wPFpI3L34+WlRUsqYLfhuTqlNmo3GNUax7uXlehTo5i
-	 SyCAnt4583wwQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 21 Apr 2026 10:53:33 +0200
-Subject: [PATCH net] net: airoha: Do not wake all netdev TX queues in
- airoha_qdma_wake_netdev_txqs()
+	id 1wF6rp-00000008HcA-3dHV
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Apr 2026 08:54:03 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1wF6rb-00075z-7Z; Tue, 21 Apr 2026 10:53:47 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1wF6ra-006TTu-2x;
+	Tue, 21 Apr 2026 10:53:46 +0200
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1wF6ra-00000006Ixm-3OD5;
+	Tue, 21 Apr 2026 10:53:46 +0200
+Date: Tue, 21 Apr 2026 10:53:46 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Shengjiu Wang <shengjiu.wang@nxp.com>
+Cc: vkoul@kernel.org, Frank.Li@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, dmaengine@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V3] dmaengine: imx-sdma: Fix SPBA bus detection on
+ multi-SPBA platforms
+Message-ID: <lkwfzz4lia37wv56g6ymzpossm42epz2oylhl7vgdpp7odt23h@vszl4uu2wg65>
+References: <20260420100854.2095549-1-shengjiu.wang@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260421-airoha-wake_netdev_txqs-optmization-v1-1-e0be95115d53@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2NwQrCMBAFf6Xs2YUm1Ar+ikhZm6ddxKQmoRZL/
- 93F4xxmZqOCrCh0bjbKWLRoigbu0NA4SXyANRiTb33fdt6xaE6T8EeeGCJqwDLU9V04zfWlX6n
- mc390Jzeiw00CWWnOuOv6v1zIJLru+w8sfKiDegAAAA==
-X-Change-ID: 20260421-airoha-wake_netdev_txqs-optmization-65171ce4ebad
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Simon Horman <horms@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260420100854.2095549-1-shengjiu.wang@nxp.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260421_015401_909541_FF54F3BE 
+X-CRM114-Status: GOOD (  30.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,84 +78,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Do not wake every netdev TX queue across all ports sharing the QDMA
-running netif_tx_wake_all_queues routine in airoha_qdma_wake_netdev_txqs()
-but only the ones that are mapped the specific QDMA stopped hw TX queue.
-This patch can potentially avoid waking already stopped netdev TX queues
-that are mapped to a different QDMA hw TX queue.
-Introduce airoha_qdma_get_txq utility routine.
+On 26-04-20, Shengjiu Wang wrote:
+> i.MX8M platforms have multiple SPBA buses under different AIPS buses.
+> The current code searches the entire device tree and returns the first
+> SPBA bus found, which may not be under the same AIPS bus as the SDMA
+> controller.
+> 
+> This breaks SDMA P2P transfers because the SDMA script needs to know
+> if peripherals are on SPBA or AIPS to configure watermark levels
+> correctly. Using the wrong SPBA bus causes DMA timeouts and transfer
+> failures.
+> 
+> Fix by searching for the SPBA bus under the SDMA's parent node (AIPS)
+> first, then falling back to a global search for backward compatibility.
+> 
+> Example device tree showing the issue:
+>   aips1 {
+>     spba1 { sai@...; };      /* Correct SPBA for sdma1 */
+>     sdma1@...;
+>   };
+>   aips2 {
+>     spba2 { uart@...; };     /* Wrong SPBA - found first by old code */
+>   };
+> 
+> Fixes: 8391ecf465ec ("dmaengine: imx-sdma: Add device to device support")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> ---
+> changs in v3:
+> - add fallback to a global search for backward compatibility, which is
+>   to address comments from sashiko.dev
+> - update commit subject and commit message
+> - add comments in code.
+> - add Cc stable tag
+> - Don't add Frank's RB on v2 as there are several other changes.
+> 
+> changes in v2:
+> - add fixes tag
+> - use __free(device_node) for auto release. 
+> 
+>  drivers/dma/imx-sdma.c | 13 ++++++++++++-
+>  1 file changed, 12 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
+> index 3d527883776b..592705af2319 100644
+> --- a/drivers/dma/imx-sdma.c
+> +++ b/drivers/dma/imx-sdma.c
+> @@ -2364,7 +2364,18 @@ static int sdma_probe(struct platform_device *pdev)
+>  			return dev_err_probe(&pdev->dev, ret,
+>  					     "failed to register controller\n");
+>  
+> -		spba_bus = of_find_compatible_node(NULL, NULL, "fsl,spba-bus");
+> +		/*
+> +		 * On i.MX8M platforms with multiple SPBA buses, we need to find
+> +		 * the SPBA bus that's under the same AIPS bus as this SDMA controller.
+> +		 * First check the SDMA's parent (AIPS bus) for a child SPBA bus.
+> +		 * If not found, fall back to searching the entire device tree for
+> +		 * backward compatibility with older platforms.
+> +		 */
+> +		struct device_node *sdma_parent_np __free(device_node) = of_get_parent(np);
+> +
+> +		spba_bus = of_get_compatible_child(sdma_parent_np, "fsl,spba-bus");
+> +		if (!spba_bus)
+> +			spba_bus = of_find_compatible_node(NULL, NULL, "fsl,spba-bus");
 
-Fixes: b94769eb2f30 ("net: airoha: Fix possible TX queue stall in airoha_qdma_tx_napi_poll()")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 19 +++++++++++++++----
- drivers/net/ethernet/airoha/airoha_eth.h |  5 +++++
- 2 files changed, 20 insertions(+), 4 deletions(-)
+And yet the search is still broken for i.MX8MP case since this platform
+has two sdma engines below the bus@30df0000.
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 19f67c7dd8e1..2ca569501045 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -847,13 +847,24 @@ static void airoha_qdma_wake_netdev_txqs(struct airoha_queue *q)
- {
- 	struct airoha_qdma *qdma = q->qdma;
- 	struct airoha_eth *eth = qdma->eth;
--	int i;
-+	int i, qid = q - &qdma->q_tx[0];
- 
- 	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
- 		struct airoha_gdm_port *port = eth->ports[i];
-+		int j;
-+
-+		if (!port)
-+			continue;
- 
--		if (port && port->qdma == qdma)
--			netif_tx_wake_all_queues(port->dev);
-+		if (port->qdma != qdma)
-+			continue;
-+
-+		for (j = 0; j < port->dev->num_tx_queues; j++) {
-+			if (airoha_qdma_get_txq(qdma, j) != qid)
-+				continue;
-+
-+			netif_wake_subqueue(port->dev, j);
-+		}
- 	}
- 	q->txq_stopped = false;
- }
-@@ -1965,7 +1976,7 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 	u16 index;
- 	u8 fport;
- 
--	qid = skb_get_queue_mapping(skb) % ARRAY_SIZE(qdma->q_tx);
-+	qid = airoha_qdma_get_txq(qdma, skb_get_queue_mapping(skb));
- 	tag = airoha_get_dsa_tag(skb, dev);
- 
- 	msg0 = FIELD_PREP(QDMA_ETH_TXMSG_CHAN_MASK,
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index 87b328cfefb0..c3ea7aadbd82 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -631,6 +631,11 @@ u32 airoha_rmw(void __iomem *base, u32 offset, u32 mask, u32 val);
- #define airoha_qdma_clear(qdma, offset, val)			\
- 	airoha_rmw((qdma)->regs, (offset), (val), 0)
- 
-+static inline u16 airoha_qdma_get_txq(struct airoha_qdma *qdma, u16 qid)
-+{
-+	return qid % ARRAY_SIZE(qdma->q_tx);
-+}
-+
- static inline bool airoha_is_lan_gdm_port(struct airoha_gdm_port *port)
- {
- 	/* GDM1 port on EN7581 SoC is connected to the lan dsa switch.
+Regards,
+  Marco
 
----
-base-commit: a663bac71a2f0b3ac6c373168ca57b2a6e6381aa
-change-id: 20260421-airoha-wake_netdev_txqs-optmization-65171ce4ebad
+>  		ret = of_address_to_resource(spba_bus, 0, &spba_res);
+>  		if (!ret) {
+>  			sdma->spba_start_addr = spba_res.start;
+> -- 
+> 2.34.1
+> 
+> 
+> 
 
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+#gernperDu 
+#CallMeByMyFirstName
 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
