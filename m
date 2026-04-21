@@ -4,138 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7AE9EA71A4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 04:16:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA8C0F327A9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 06:03:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RkGFo2uls78DCBvdk/ApDVoQ+XtuJ02VYs5MSe2EIU8=; b=eb5mcs0NrFTXFZEz+hL7GAtARg
-	yL+w881OGFnMkkbIO7pJlrff6y844PMZwS9N+c0UqqiJZyoQzcarN0zsKTZ/+9bJ6Src5Le8PfLr4
-	FjA3Kxi0C6KdB5UJHwpM+pqcFqljiluyNUsdfMJ/3PTxdywtFwVmMT9q+ZgVg43Hg3Xpa8vnjSM8d
-	Qk1VWpd4fAyyBVPDo7lEBY/3p73kfj2Hs625SNLo58cHJe6xEMoLmDEDMt/DLmN6d80OMzSJyvC/x
-	BiC0JyJnGj/AWr/24Hskr4j4JKkwYbgnEiMn5plPK/+9Y8eAAFs8CB+ARFZTGgcPJzLfczm+2GHCD
-	FdE2pY1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=f1rqbhKZQGPjKM6rafuitMg1brZYqWCZ8SEDj4DxtvI=; b=gLMjdYUS4CAHQ2
+	AmNg7dQ3ZfDquYN9klRxp0BaMIw4wD5hs5qzox2dJIBQqMSqBWJa9V3YrlR7KF1+hiKlgegtFmkbk
+	FCj9pHLig9QjH0EJ62b/Tn0lq3QsAJWeXF3woRc9x9g2xBiJhrdz0KCHXR/nHGqDJHjfad2Waww7j
+	ROtcY+Iw+oJyTqXRxR0C5dFKs8+quuzmFMwR8cpBaR4dG5GgLeGwhPgK59St1ktWFj2HFy2Rd0XUe
+	ss7r8I5L030AkgJ8JeZwtFO3ho8ft3QidiXxiK9PVD0TRcGJW2teEnpEVEhda2IX3WVPDo/EvadrY
+	Sb+ALT3XXo6GL5+jxa6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF2Wl-000000081Ga-2nwf;
-	Tue, 21 Apr 2026 04:15:59 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wF4CS-000000084Ew-2Jgj;
+	Tue, 21 Apr 2026 06:03:08 +0000
+Received: from jpms-ob02.noc.sony.co.jp ([2001:cf8:ace:41::5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF2Wj-000000081GF-1sPW
+	id 1wF4CQ-000000084Dv-0Kqd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 04:15:58 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63KKBrnl3455276
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 04:15:55 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=RkGFo2uls78DCBvdk/ApDVoQ
-	+XtuJ02VYs5MSe2EIU8=; b=YYFcdhbRBYMXcne12sxl6IN5FLxgBqeweC4iERHj
-	BpXUyaceCgBvEmUR6SdxgiuZRhjTDPtpn2Pg584U40CiDkUFpHLYgisdDXtboYzb
-	6e5mMFtPDjgBx8e2CHER5JSTQ1AUzeDxrBXUN1/GWWPluRr5Fb0p8ngNmtmloxhG
-	BY02jhyqnqw61pddvt30LPS/fRt/YIb6kOQPItNfUccspaw3QjtX/T2+I63Q24YL
-	SZyT7EBfC+191scbiXZjH8tX4KGuxw377/VMC2IMXrbxbesezEZb6MtbhXxwA4Qn
-	fMFvamc6rjMbDS2TjS5lyz26C40SevSpep33JmZb+/yFCQ==
-Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dnfvjv6ud-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 04:15:55 +0000 (GMT)
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-82f9f49e4beso1615061b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 21:15:55 -0700 (PDT)
+	Tue, 21 Apr 2026 06:03:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1776744954; x=1777349754; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RkGFo2uls78DCBvdk/ApDVoQ+XtuJ02VYs5MSe2EIU8=;
-        b=fiOVCrgcvUOHhQLKVyS/cfkClJzTsZ+alFm89l2WLcZUvjAk/HmUJZMymQgsbzuzP8
-         KRJqsGgT3kFwdEWQsxli9mPZICHiuZ1XCuaKPcrlAWAdSgkQQUE+Bgf2xTf6gomShovg
-         35aQkCk1VMgODmsGZgd+EyZCTjF2gvzy4EgP+dA5PNnZfFdz0BSJ+8Xj9ZrN+OAGgzjq
-         YDZqAMgqd7/CcyVniY1iNmJooeAGS+sstk4KmDwALfKlYIh6LL0dZiTsb06I8OxBjsab
-         dXb7Es/5GW6VI840zaFX6UyxPn3tfS2bafDHC7t8pr4sAABTFiFuiFmsB9vCaHfy6c4G
-         KRQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776744954; x=1777349754;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RkGFo2uls78DCBvdk/ApDVoQ+XtuJ02VYs5MSe2EIU8=;
-        b=TFZ08c+lHeWggnTEmI/xSSWj1IQgpJh++4DFzmUZeeKSrDPQUGyBDXDJVQPQ13cbjP
-         3R6JbhS6H9kgvHeBJDqVVOpGCB0P6C5MPnQAINEYcAoAUkvKoe3nLEikKdlGUydDbUa7
-         DgkjMOrIPvHopmJtwaM6kcbK0gSoe/AS8ASabWig0VwIjUPAq1X+2GHfi4W9V5i84/Rn
-         wBg+vNKHZKsLiTaRCa4lTmlHS8yFmK7r0biht0lnu7yfwLNbPqj+iUzMe7ugewh428/O
-         fRTMrQOAp0trCIwoDyYyhw2NLxOcKmGrEoi5+ykF+oAfEmYrbmJ5WNMW1SAaCwOFUyFH
-         fCbw==
-X-Forwarded-Encrypted: i=1; AFNElJ9XBDFgP8PWV+BbAkepE4POToJcxyp4zYGMUgEMQ2kBKerV/Wyy27Owrc2PVqNIa+d2HkpIfsyJyQwPAOQh/rkI@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoKLjd8ssqWI86ZQe9DsxiJNV1jaAlQqE8wzLswsqo5X5gqoNR
-	xGfW99HJuecn4D542mc8pPQSbXSSYI++gL/Y8B+cMwdsNTDmuw7svyT3tT6xH8LfGynMobRWkBU
-	OsOASDRaqPdfiTRbxzlcx2XC1NhGE3SntjsYUYS11DLDT8GXwvujrC2Gxfu9Ab+GhRIAU3MNtw6
-	r35eutR9x8ew==
-X-Gm-Gg: AeBDieuw5Ho5k8t5rhrbanGpwqjH2+kTi0WyW10Nc9O7/NSBQI+7rPw8GOK8/McUWOE
-	kKN5daGLBSMzE9beJNw8uEyou4MXJNYNVptpgosE1XNPV3OB32yoF1ndjcpchjhC4giGOSWwPW4
-	dhhD99yUpWQx2p5O0t5G1NpJxqh3pc7YaPXY2xOg+xdWWWvmUUeqnUrZXnq3cPWyf7RajrsTMRR
-	N3JgrS3W5Wcvc5FVgbNSglKcfwUHMHAfZRy/8zmYzQOaMmdrZpIO0czilIgvJc5UQ6QdinKQmTe
-	Pe76xuO7KRQ5GL2QNmmIGG2/LOZ80EkxSDyJwGc2YFoVta5y/15wcLx95IpyOX9miaUIXUh5NUP
-	b0o5hwH8p/jtL+DNpk4ql0e7wyWVgdHItZX3aAtx3JIcpXJii35i+d0jEaUnBrlXk1Q==
-X-Received: by 2002:a05:6a00:17a1:b0:82c:e0d7:2681 with SMTP id d2e1a72fcca58-82f8c8888b4mr16461972b3a.16.1776744954398;
-        Mon, 20 Apr 2026 21:15:54 -0700 (PDT)
-X-Received: by 2002:a05:6a00:17a1:b0:82c:e0d7:2681 with SMTP id d2e1a72fcca58-82f8c8888b4mr16461940b3a.16.1776744953857;
-        Mon, 20 Apr 2026 21:15:53 -0700 (PDT)
-Received: from hu-pkondeti-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8ebe68ebsm13484114b3a.47.2026.04.20.21.15.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Apr 2026 21:15:53 -0700 (PDT)
-Date: Tue, 21 Apr 2026 09:45:47 +0530
-From: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>
-To: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>
-Cc: Will Deacon <will@kernel.org>, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
-        Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
-        Vincent Donnefort <vdonnefort@google.com>,
-        Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH 00/30] KVM: arm64: Add support for protected guest memory
- with pKVM
-Message-ID: <8ad3fff0-578c-4db6-b3d8-00ce4e72e50b@quicinc.com>
-References: <20260105154939.11041-1-will@kernel.org>
- <3f52367b-f927-4d4d-9df3-bcd8cd954d47@quicinc.com>
- <aeX5Q7QNxmBCmsqM@willie-the-truck>
- <573483a8-7cb7-479f-a96d-67416ef1f6db@quicinc.com>
+  d=sony.com; s=s1jp; t=1776751387; x=1808287387;
+  h=from:subject:date:message-id:mime-version:
+   content-transfer-encoding:to:cc;
+  bh=f1rqbhKZQGPjKM6rafuitMg1brZYqWCZ8SEDj4DxtvI=;
+  b=PLOM6i+pb/Wc/VAXUNvrt/ZQg9f1EBdtCYUNg16ImvasGJ/yy5Hwc5Vh
+   VAdID/NiTzQgYc3V8MdlthfNP3TsH3IYkejnRHwdYIyWWyuxx88XFlls5
+   oZMlt/CGGsOs/GUMMRPPol5hdMOwPABNlFsdcTxHyXHsHKEHbE20Gk+KR
+   pdz6I+X9QD7Me/AjRRDEtBHThrkweD0iwx8PCU8s4DPwSGgjWrOvdflMz
+   KB1CRJRd43E0pdi8nhqwIaCXKCyKpbHWB58M3+IdRoflh9atH6IC4kXBb
+   LCfJr1eMa+TiJZqBJxxhmDT6jQWLFqg7Oaadv2ukhzwGc1TBOSrZqCdmP
+   g==;
+X-CSE-ConnectionGUID: VhygkFTGT/GsBaHxkuQY3Q==
+X-CSE-MsgGUID: SiO/P9WCQzuiNBbPjVI6dw==
+Received: from unknown (HELO jpmta-ob02.noc.sony.co.jp) ([IPv6:2001:cf8:0:6e7::7])
+  by jpms-ob02.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Apr 2026 15:03:01 +0900
+X-CSE-ConnectionGUID: oHqa5c0bQkmnd/FbkksCDg==
+X-CSE-MsgGUID: sNkWM31oRXWC9d+MIiZeAA==
+X-IronPort-AV: E=Sophos;i="6.23,191,1770562800"; 
+   d="scan'208";a="603010287"
+Received: from unknown (HELO [127.0.1.1]) ([IPv6:2001:cf8:1:573:0:dddd:eb3e:119e])
+  by jpmta-ob02.noc.sony.co.jp with ESMTP; 21 Apr 2026 15:03:00 +0900
+From: Shashank Balaji <shashank.mahadasyam@sony.com>
+Subject: [PATCH v2 0/2] Enable sysfs module symlink for more built-in
+ drivers
+Date: Tue, 21 Apr 2026 15:02:33 +0900
+Message-Id: <20260421-acpi_mod_name-v2-0-e73f9310dad3@sony.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <573483a8-7cb7-479f-a96d-67416ef1f6db@quicinc.com>
-X-Proofpoint-ORIG-GUID: f629uoJxmGJESK4torFpKYCj6dFIIWY2
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIxMDAzOSBTYWx0ZWRfX6+CfMvg5NGhh
- JeZz/QSlwqlbQcLhk0Hn8LfBE9d2UuX2FgUJwo5I99KVDl4oxQggoUs/k2Q94f/epLKizFyh/iw
- XFLtseE/Q1Ee6FM8fxJ1T2iNhkETdNtoT0FNVffr8MKzl+QP5pBXBzIdMaY+Ta48QWL/ei5J4cl
- NIuF9Yq+DX0cH0n5JMgVAYtQYHP3Zp7HkqH6bM8dbZqXlQpFBnC+er1dWVJtYDx7Voe9x+sW7/d
- nYboVe/A5ig2huu+2+T7kdeXJ/VvNRLXD7ujqvyj29j0nFDdDtLxHCrL881QmhODsU/NFkX7zhq
- R1lEUH4uttpx7Z9cHE8qqIOP6M0FgYVQUUp7IXsdSo+73BgboQ1xOZa0q1v+kuMni3qkzFKbFc2
- AiOUfi5L48yiiqZgceZe/0wIbtEyt/8Wkq/S3mJAIIiFDfCLyNcPvUprrtMD2i8jqZAH1SRfpoS
- jniTf+CxFhBvat4T8ug==
-X-Authority-Analysis: v=2.4 cv=XNMAjwhE c=1 sm=1 tr=0 ts=69e6f9fb cx=c_pps
- a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=kj9zAlcOel0A:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=usknv1qGnw5aPmP1rO0A:9 a=CjuIK1q_8ugA:10 a=OpyuDcXvxspvyRM73sMx:22
-X-Proofpoint-GUID: f629uoJxmGJESK4torFpKYCj6dFIIWY2
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-21_01,2026-04-20_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 adultscore=0 impostorscore=0 suspectscore=0 clxscore=1015
- phishscore=0 malwarescore=0 lowpriorityscore=0 priorityscore=1501 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604210039
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAPkS52kC/3WNwQ6CMBAFf4Xs2RpasIgn/8MQUtpF1oSWtNhIS
+ P9dwLPHSebNWyGgJwxwy1bwGCmQsxuIUwZ6UPaJjMzGIHIh85JLpvRE7ehMa9WIrJflRVUSi6L
+ qYNtMHnv6HL1H8+Pw7l6o5z2yGwOF2fnlOIx89/61I2c546o0tezNVer6HpxdztqN0KSUvkNPr
+ ey7AAAA
+X-Change-ID: 20260416-acpi_mod_name-f645a76e337b
+To: Kay Sievers <kay.sievers@vrfy.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
+ Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+ Richard Cochran <richardcochran@gmail.com>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>
+Cc: Shashank Balaji <shashank.mahadasyam@sony.com>, 
+ Rahul Bukte <rahul.bukte@sony.com>, Daniel Palmer <daniel.palmer@sony.com>, 
+ Tim Bird <tim.bird@sony.com>, linux-kernel@vger.kernel.org, 
+ driver-core@lists.linux.dev, coresight@lists.linaro.org, 
+ linux-arm-kernel@lists.infradead.org, rust-for-linux@vger.kernel.org, 
+ linux-doc@vger.kernel.org
+X-Mailer: b4 0.16-dev-3bfbc
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4296;
+ i=shashank.mahadasyam@sony.com; h=from:subject:message-id;
+ bh=cq5j1N/tLVr7JQQAEFQwE+5Pc1i9Ewpt4Q5nOJ0PQwE=;
+ b=owGbwMvMwCU2bX1+URVTXyjjabUkhsznwoLVX6tvxWSsms4lb2Ccqn75as0Sc76jr5d9/8bMf
+ Kemy3RXRykLgxgXg6yYIkupUvWvvSuClvScea0IM4eVCWQIAxenAExEUYuRYeaLwgCVNWcj9pwL
+ CPLuevnPLLzETm5r0/JXT5zXp0e48DL8FeE59tqltJRZpLEgw8M7bc4cmW8Lj6h/uMfdcdbnb/0
+ OJgA=
+X-Developer-Key: i=shashank.mahadasyam@sony.com; a=openpgp;
+ fpr=75227BFABDA852A48CCCEB2196AF6F727A028E55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_211557_630612_025CCA32 
-X-CRM114-Status: GOOD (  50.53  )
+X-CRM114-CacheID: sfid-20260420_230306_354143_9D4E4EAB 
+X-CRM114-Status: GOOD (  16.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,79 +110,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 20, 2026 at 04:56:57PM +0530, Pavan Kondeti wrote:
-> On Mon, Apr 20, 2026 at 11:00:35AM +0100, Will Deacon wrote:
-> > On Mon, Apr 20, 2026 at 01:32:03PM +0530, Pavan Kondeti wrote:
-> > > Hi Will,
-> > > 
-> > > On Mon, Jan 05, 2026 at 03:49:08PM +0000, Will Deacon wrote:
-> > > > Hi folks,
-> > > > 
-> > > > Although pKVM has been shipping in Android kernels for a while now,
-> > > > protected guest (pVM) support has been somewhat languishing upstream.
-> > > > This has partly been because we've been waiting for guest_memfd() but
-> > > > also because it hasn't been clear how to expose pVMs to userspace (which
-> > > > is necessary for testing) without getting everything in place beforehand.
-> > > > This has led to frustration on both sides of the fence [1] and so this
-> > > > patch series attempts to get things moving again by exposing pVM
-> > > > features in an incremental fashion based on top of anonymous memory,
-> > > > which is what we have been using in Android. The big difference between
-> > > > this series and the Android implementation is the graceful handling of
-> > > > host stage-2 faults arising from accesses made using kernel mappings.
-> > > > The hope is that this will unblock pKVM upstreaming efforts while the
-> > > > guest_memfd() work continues to evolve.
-> > > > 
-> > > > Specifically, this patch series implements support for protected guest
-> > > > memory with pKVM, where pages are unmapped from the host as they are
-> > > > faulted into the guest and can be shared back from the guest using pKVM
-> > > > hypercalls. Protected guests are created using a new machine type
-> > > > identifier and can be booted to a shell using the kvmtool patches
-> > > > available at [2], which finally means that we are able to test the pVM
-> > > > logic in pKVM. Since this is an incremental step towards full isolation
-> > > > from the host (for example, the CPU register state and DMA accesses are
-> > > > not yet isolated), creating a pVM requires a developer Kconfig option to
-> > > > be enabled in addition to booting with 'kvm-arm.mode=protected' and
-> > > > results in a kernel taint.
-> > > > 
-> > > 
-> > > Good to see Protected VM support in upstream w/ pKVM.
-> > > 
-> > > We (Qualcomm) have been trying to resume Gunyah upstreaming [1] efforts 
-> > > for some time but the path to re-use guest_memfd is not straight forward as
-> > > guest_memfd is tightly coupled with KVM. While the efforts to use it for
-> > > pKVM is pending and refactoring to make it use outside KVM is not
-> > > happening anytime soon, we plan to send Gunyah series similar to how
-> > > this series is dealt with pages lent/donated to the Guest. Please let us
-> > > know if you have any suggestions/comments for us.
-> > 
-> > The major problem I see with this is that the host/hyp interface for
-> > handling stage-2 faults is internal to pKVM. The exception is injected
-> > back into the host using a funky ESR encoding and the hypercall used
-> > to forcefully reclaim the page is not ABI. I have no appetite for
-> > standardising these mechanisms (the flexibility is one of pKVM's big
-> > advantages) but I also do not want to complicate EL1 fault handling path
-> > with hypervisor-specific crap that we have to maintain forever.
-> 
-> Thanks Will for the feedback. Agree that we don't want to sprinkle Gunyah
-> specific checks in fault handling code. Do we need to handle anything
-> apart from
-> 
-> (a) user space access a memory that is lent to the guest. Gunyah will 
-> inject Synchronous External Abort and the offending process will be killed.
-> 
-> (b) For kernel access, we need to unmap the memory at S1 while lending
-> it to the guest. Earlier, Elliot attempted this with [1]. I am thinking
-> we can leverage from Direct map removal work done for guest_memfd w/o
-> really using it :-) . I am hoping [2] can be made available for Gunyah
-> module as well.
-> 
-> For the (b) problem above, pKVM takes a different route in upstream i.e
-> pkvm_force_reclaim_guest_page(). I believe this avoids kernel panic at 
-> the expense of memory corruption in the guest. correct?
+struct device_driver's mod_name is not set by a number of bus' driver registration
+functions. Without that, built-in drivers don't have the module symlink in sysfs.
+We want this to go from unbound driver name -> module name -> kernel config name.
+This is useful on embedded platforms to minimize kernel config, reduce kernel size,
+and reduce boot time.
 
-sorry, not memory corruption but returning -EFAULT to VCPU_RUN ioctl
-which probably make VMM to kill the VM.
+In order to achieve this, mod_name has to be set to KBUILD_MODNAME, and this has
+to be done for all buses which don't yet do this.
 
-Thanks,
-Pavan
+Here are some treewide stats:
+- 110 registration functions across all bus types
+- 20 of them set mod_name
+- Remaining 90 do not set mod_name:
+    1. 36 functions under pattern 1:
+        They have a __register function + register macro. KBUILD_MODNAME needs to
+        be passed and the function needs to take mod_name as input.
+    2. 42 functions under pattern 2:
+        These have no macro wrapper. They need a double-underscore rename + macro
+        wrapper to make them similar to pattern 1.
+    3. Remaining 12 do not have such a clean registration interface. More analysis
+       is required.
+
+We plan to start with pattern 1, since it's the easiest category of changes.
+Within that, for now we're only sending the platform patch. If we get the go-ahead
+on that, we'll send the remaining ones.
+
+Patch 2 depends on patch 1, without which arm64 defconfig fails to boot with
+patch 2.
+
+Co-developed-by: Rahul Bukte <rahul.bukte@sony.com>
+Signed-off-by: Rahul Bukte <rahul.bukte@sony.com>
+Signed-off-by: Shashank Balaji <shashank.mahadasyam@sony.com>
+---
+Changes in v2:
+- Drop acpi patch, send platform instead (Rafael)
+- Link to v1: https://patch.msgid.link/20260416-acpi_mod_name-v1-0-1a4d96fd86c9@sony.com
+
+To: Kay Sievers <kay.sievers@vrfy.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+To: Danilo Krummrich <dakr@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Mike Leach <mike.leach@linaro.org>
+To: James Clark <james.clark@linaro.org>
+To: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+To: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+To: Alexandre Torgue <alexandre.torgue@foss.st.com>
+To: Miguel Ojeda <ojeda@kernel.org>
+To: Boqun Feng <boqun@kernel.org>
+To: Gary Guo <gary@garyguo.net>
+To: Björn Roy Baron <bjorn3_gh@protonmail.com>
+To: Benno Lossin <lossin@kernel.org>
+To: Andreas Hindborg <a.hindborg@kernel.org>
+To: Alice Ryhl <aliceryhl@google.com>
+To: Trevor Gross <tmgross@umich.edu>
+To: Richard Cochran <richardcochran@gmail.com>
+To: Jonathan Corbet <corbet@lwn.net>
+To: Shuah Khan <skhan@linuxfoundation.org>
+Cc: linux-kernel@vger.kernel.org
+Cc: driver-core@lists.linux.dev
+Cc: coresight@lists.linaro.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: rust-for-linux@vger.kernel.org
+Cc: linux-doc@vger.kernel.org
+
+---
+Shashank Balaji (2):
+      kernel: param: handle NULL module_kset in lookup_or_create_module_kobject()
+      driver core: platform: set mod_name in driver registration
+
+ Documentation/driver-api/driver-model/platform.rst |  3 ++-
+ drivers/base/platform.c                            | 21 ++++++++++++++-------
+ drivers/hwtracing/coresight/coresight-catu.c       |  3 ++-
+ drivers/hwtracing/coresight/coresight-core.c       |  5 +++--
+ drivers/hwtracing/coresight/coresight-cpu-debug.c  |  2 +-
+ drivers/hwtracing/coresight/coresight-funnel.c     |  2 +-
+ drivers/hwtracing/coresight/coresight-replicator.c |  2 +-
+ drivers/hwtracing/coresight/coresight-stm.c        |  3 ++-
+ drivers/hwtracing/coresight/coresight-tmc-core.c   |  3 ++-
+ drivers/hwtracing/coresight/coresight-tnoc.c       |  3 ++-
+ drivers/hwtracing/coresight/coresight-tpdm.c       |  2 +-
+ drivers/hwtracing/coresight/coresight-tpiu.c       |  3 ++-
+ include/linux/coresight.h                          |  3 ++-
+ include/linux/platform_device.h                    | 17 +++++++++--------
+ kernel/params.c                                    |  3 +++
+ rust/kernel/platform.rs                            |  4 +++-
+ 16 files changed, 50 insertions(+), 29 deletions(-)
+---
+base-commit: b4e07588e743c989499ca24d49e752c074924a9a
+change-id: 20260416-acpi_mod_name-f645a76e337b
+
+Best regards,
+--  
+Shashank Balaji <shashank.mahadasyam@sony.com>
+
 
