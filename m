@@ -4,173 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2DB8F8FA90
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 15:33:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10F93F8FA94
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 15:39:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KGBRDYkLHlArRH5KcbZ2sx3yZc8GF62CbNbF3CSJ5J0=; b=At6WLUxxvjIfTVxPylr7mo29zh
-	J8cooDKs+soahxtGt27fHqJ9PbRISuZ15BkVKkzuFhI4Rppz2HyhhiOLKCF4rUue4BfQUrWZ4V4Y/
-	z9RPGmHOFnmXXdCVLvOITgrUAsKWzvGf9fxUMNswwwkvZjzdqUP/xHe+ioXmcixIp4WQe7pIbsJi3
-	mNqUn0MIAR3L7Rt1OynCekJs+E31Qc+jf/BrPB2CoW3oc5tXG5J5FFl6baMxeWRIiIjK0grrCCQuD
-	1pVWbPrDjivwB9gIKivgEq1N2D48265cr6bEUUq3/Re7zNwL1Ss0OMMs1eYTn7PnH3GjHbrAsznWt
-	EnJe7tUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=C/zETneSXdt4Qa99E3e+0wvtKf5m0NGH+avSAJ+gITY=; b=w09I0kA6V9QBFyDh1Bw011ttxe
+	jYFoXwW6WRca+P/PhXgDllYz4/VtWrfBSz2jBFCcReoBpz+s5LxDpCbo3X5h72TKiwD2AybURQbOk
+	yDWIvb8tuEKVSvY8no/4AHPLgqSYxYEzM6iWufK0jqdKOxIYRDKgfLwRYv3NtgNyxsXAIDk7LbtpG
+	ABLdbaFSql8EDdE8W77iS53L14AlFROfXNMRR1Fch34SupHm5EcHgpAl1yFK5rRzPYLC0v2e5ZosH
+	t7sRDxvm+12wufiQU/8QZdE0uwE3pI3F81t6fky0NbYUeeT1Jp+tzrEXqO3iT/R6ym/o2vbFFQwwI
+	1sEsJfEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFD6D-00000008pqY-1NBk;
-	Tue, 21 Apr 2026 15:33:17 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1wFDC4-00000008qNE-1DKK;
+	Tue, 21 Apr 2026 15:39:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFD6B-00000008ppw-25zU
+	id 1wFDC2-00000008qMt-00iO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 15:33:16 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id B0F5E6A802;
-	Tue, 21 Apr 2026 15:33:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1776785593; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=KGBRDYkLHlArRH5KcbZ2sx3yZc8GF62CbNbF3CSJ5J0=;
-	b=myUPr+QpRF4WtLcNjixUKa0ud64dMsnpoDCcqvCwNNrhAgITLF8N65ERogFyvD5APfuRST
-	x6KWdHiPuCyp9WIBfM3vdigV9So2sh5bK/6F57vORI78crkPVyJjJ7Cc8tviPhal3W6j4C
-	fLmyiOkjNpoDZHXhBne/VI4EzmhuTOQ=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1776785593;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=KGBRDYkLHlArRH5KcbZ2sx3yZc8GF62CbNbF3CSJ5J0=;
-	b=s+BkHr6uvgvgVh8gq49iW9+Wul2pWSUGKY14MfoNmYcX18wz8lyosBn3TYqjOCnv+rfL3D
-	UJMFT12T+Smh4MDw==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1776785593; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=KGBRDYkLHlArRH5KcbZ2sx3yZc8GF62CbNbF3CSJ5J0=;
-	b=myUPr+QpRF4WtLcNjixUKa0ud64dMsnpoDCcqvCwNNrhAgITLF8N65ERogFyvD5APfuRST
-	x6KWdHiPuCyp9WIBfM3vdigV9So2sh5bK/6F57vORI78crkPVyJjJ7Cc8tviPhal3W6j4C
-	fLmyiOkjNpoDZHXhBne/VI4EzmhuTOQ=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1776785593;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=KGBRDYkLHlArRH5KcbZ2sx3yZc8GF62CbNbF3CSJ5J0=;
-	b=s+BkHr6uvgvgVh8gq49iW9+Wul2pWSUGKY14MfoNmYcX18wz8lyosBn3TYqjOCnv+rfL3D
-	UJMFT12T+Smh4MDw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id AF8DE593AF;
-	Tue, 21 Apr 2026 15:33:12 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id w6UhKbiY52k1CwAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Tue, 21 Apr 2026 15:33:12 +0000
-Message-ID: <dd39f423-1598-4749-8c95-98b8daf69680@suse.de>
-Date: Tue, 21 Apr 2026 17:33:12 +0200
+	Tue, 21 Apr 2026 15:39:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 311CF4151B;
+	Tue, 21 Apr 2026 15:39:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74479C2BCB6;
+	Tue, 21 Apr 2026 15:39:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776785957;
+	bh=Ik9BfKVfhf9yZ3LiURODlQpyNGNrs0AnoKj75WR+DEs=;
+	h=From:Date:Subject:To:Cc:From;
+	b=DolYikg4H+7mnTbsnAlHUOtejFyckSeDJsZa0O/KWPbowntUsHTsFthTt2vYLcUKO
+	 n4ibgl7imYZNrM6J0+PbmHuuRWivxHQXAU3aYCe2Qplntj+ueiR3wkzCABpt+oMNGE
+	 1hvNlZZFJoZSYSsr3804XezMrmndYGYHDcCXhM57Mx3CyLyFOyCGEd+V0qxFAOm447
+	 A5kekRRFZP6GiSY/nwS4uPO2prdRQwW23XzReaDYX1RgrtxB0ifppG3EyoAnVVVJ6I
+	 1xuAQapdwHznNrlaASa1C0jaaKzawk8hZK28N0xA3xJ3eUTFbmTNlHuBwXousJEdPr
+	 j1/sVa5TeUllA==
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Date: Tue, 21 Apr 2026 17:39:07 +0200
+Subject: [PATCH v2] mm/page_alloc: fix initialization of tags of the huge
+ zero folio with init_on_free
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 15/20] drm/drv: Call drm_mode_config_create_state() by
- default
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: Maxime Ripard <mripard@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Jyri Sarha <jyri.sarha@iki.fi>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>,
- Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>,
- Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>,
- Samuel Holland <samuel@sholland.org>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-References: <20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org>
- <20260320-drm-mode-config-init-v2-15-c63f1134e76c@kernel.org>
- <79cc30d5-80b5-4d87-a3ad-36d6fad98853@suse.de>
-Content-Language: en-US
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <79cc30d5-80b5-4d87-a3ad-36d6fad98853@suse.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-2.80 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	ARC_NA(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	MIME_TRACE(0.00)[0:+];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	TO_DN_SOME(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[37];
-	TAGGED_RCPT(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	R_RATELIMIT(0.00)[to_ip_from(RLyhjdboxbrjk5hnijtjs4kbm6)];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_TO(0.00)[kernel.org,linux.intel.com,gmail.com,ffwll.ch,lwn.net,linuxfoundation.org,oss.qualcomm.com,iki.fi,ideasonboard.com,intel.com,linaro.org,kwiboo.se,emersion.fr,amd.com,igalia.com,redhat.com,ursulin.net,sholland.org,raspberrypi.com];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.com:url,suse.de:mid]
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260421-zerotags-v2-1-05cb1035482e@kernel.org>
+X-B4-Tracking: v=1; b=H4sIABqa52kC/0XMSwrCMBSF4a2UOzaSl6115D6kg7S5pkFJ5KYEt
+ WTvxiI4/A+Hb4WE5DHBqVmBMPvkY6ghdw1MswkOmbe1QXLZci069kaKi3GJKa2MajuF4mih3h+
+ EV//cqMtQe/ZpifTa5Cy+6w+R/I9kwQRTaKdeYX8YR32+IQW87yM5GEopH77SdXuhAAAA
+To: linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+ Lorenzo Stoakes <ljs@kernel.org>, 
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+ Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+ Brendan Jackman <jackmanb@google.com>, Johannes Weiner <hannes@cmpxchg.org>, 
+ Zi Yan <ziy@nvidia.com>, Lance Yang <lance.yang@linux.dev>, 
+ Ryan Roberts <ryan.roberts@arm.com>, Mark Brown <broonie@kernel.org>, 
+ Dev Jain <dev.jain@arm.com>, linux-kernel@vger.kernel.org, 
+ linux-mm@kvack.org, stable@vger.kernel.org, 
+ "David Hildenbrand (Arm)" <david@kernel.org>
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_083315_690354_D18BC5D1 
-X-CRM114-Status: GOOD (  17.36  )
+X-CRM114-CacheID: sfid-20260421_083918_109862_4A564308 
+X-CRM114-Status: GOOD (  25.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,75 +84,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+__GFP_ZEROTAGS semantics are currently a bit weird, but effectively this
+flag is only ever set alongside __GFP_ZERO and __GFP_SKIP_KASAN.
 
+If we run with init_on_free, we will zero out pages during
+__free_pages_prepare(), to skip zeroing on the allocation path.
 
-Am 21.04.26 um 15:38 schrieb Thomas Zimmermann:
-> Hi
->
-> Am 20.03.26 um 17:27 schrieb Maxime Ripard:
->> Almost all drivers, and our documented skeleton, call
->> drm_mode_config_reset() prior to calling drm_dev_register() to
->> initialize its DRM object states.
->>
->> Now that we have drm_mode_config_create_state() to create that initial
->> state if it doesn't exist, we can call it directly in
->> drm_dev_register(). That way, we know that the initial atomic state will
->> always be allocated without any boilerplate.
->>
->> Signed-off-by: Maxime Ripard <mripard@kernel.org>
->> ---
->>   drivers/gpu/drm/drm_drv.c | 4 ++++
->>   1 file changed, 4 insertions(+)
->>
->> diff --git a/drivers/gpu/drm/drm_drv.c b/drivers/gpu/drm/drm_drv.c
->> index 
->> 2915118436ce8a6640cfb0c59936031990727ed1..820106d56ab399a39cac56d98662b5ddbcae8ded 
->> 100644
->> --- a/drivers/gpu/drm/drm_drv.c
->> +++ b/drivers/gpu/drm/drm_drv.c
->> @@ -1097,10 +1097,14 @@ int drm_dev_register(struct drm_device *dev, 
->> unsigned long flags)
->>         if (drm_core_check_feature(dev, DRIVER_MODESET)) {
->>           ret = drm_modeset_register_all(dev);
->>           if (ret)
->>               goto err_unload;
->> +
->> +        ret = drm_mode_config_create_state(dev);
->> +        if (ret)
->> +            goto err_unload;
->
-> Way too late. Lets rather go through drivers and call this where they 
-> currently call drm_mode_config_reset() for initialization. This can be 
-> a single-patch mass conversion IMHO.
+However, when allocating with __GFP_ZEROTAG set, post_alloc_hook() will
+consequently not only skip clearing page content, but also skip
+clearing tag memory.
 
-On a second thought, can't we modify the suspend code and leave the 
-reset as-is for now?  I'd still be interested to use reset as a means of 
-initializing the hardware or loading state on probe. So keeping the 
-_reset() calls in place might be helpful for that.
+Not clearing tags through __GFP_ZEROTAGS is irrelevant for most pages that
+will get mapped to user space through set_pte_at() later: set_pte_at() and
+friends will detect that the tags have not been initialized yet
+(PG_mte_tagged not set), and initialize them.
 
-What's the long-term plan here?
+However, for the huge zero folio, which will be mapped through a PMD
+marked as special, this initialization will not be performed, ending up
+exposing whatever tags were still set for the pages.
 
-Best regards
-Thomas
+The docs (Documentation/arch/arm64/memory-tagging-extension.rst) state
+that allocation tags are set to 0 when a page is first mapped to user
+space. That no longer holds with the huge zero folio when init_on_free
+is enabled.
 
->
-> Best regards
-> Thomas
->
->>       }
->>       drm_panic_register(dev);
->>       drm_client_sysrq_register(dev);
->>         DRM_INFO("Initialized %s %d.%d.%d for %s on minor %d\n",
->>
->
+Fix it by decoupling __GFP_ZEROTAGS from __GFP_ZERO, passing to
+tag_clear_highpages() whether we want to also clear page content.
 
--- 
+Invert the meaning of the tag_clear_highpages() return value to have
+clearer semantics.
+
+Reproduced with the huge zero folio by modifying the check_buffer_fill
+arm64/mte selftest to use a 2 MiB area, after making sure that pages have
+a non-0 tag set when freeing (note that, during boot, we will not
+actually initialize tags, but only set KASAN_TAG_KERNEL in the page
+flags).
+
+	$ ./check_buffer_fill
+	1..20
+	...
+	not ok 17 Check initial tags with private mapping, sync error mode and mmap memory
+	not ok 18 Check initial tags with private mapping, sync error mode and mmap/mprotect memory
+	...
+
+This code needs more cleanups; we'll tackle that next, like
+decoupling __GFP_ZEROTAGS from __GFP_SKIP_KASAN.
+
+Fixes: adfb6609c680 ("mm/huge_memory: initialise the tags of the huge zero folio")
+Cc: stable@vger.kernel.org
+Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+---
+Changes in v2:
+- Drop kasan_hw_tags_enabled() handling, as it missed the case of
+  user-space MTE without KASAN.
+- Keep letting_clear_highpages() return a bool and re-instantiate
+  system_supports_mte() handling in the arm64 variant.
+- Rephrase __GFP_ZEROTAGS comment, making it clearer that this is not
+  just a performance improvement.
+- Retested and more excessively build tested
+- Using a new b4 template, hopefully that doesn't mess things up
+- Link to v1: https://lore.kernel.org/r/20260420-zerotags-v1-1-3edc93e95bb4@kernel.org
+---
+ arch/arm64/include/asm/page.h |  2 +-
+ arch/arm64/mm/fault.c         | 11 +++++++----
+ include/linux/gfp_types.h     | 10 +++++-----
+ include/linux/highmem.h       |  7 ++++---
+ mm/page_alloc.c               |  8 ++++----
+ 5 files changed, 21 insertions(+), 17 deletions(-)
+
+diff --git a/arch/arm64/include/asm/page.h b/arch/arm64/include/asm/page.h
+index e25d0d18f6d7..58200de8a221 100644
+--- a/arch/arm64/include/asm/page.h
++++ b/arch/arm64/include/asm/page.h
+@@ -33,7 +33,7 @@ struct folio *vma_alloc_zeroed_movable_folio(struct vm_area_struct *vma,
+ 						unsigned long vaddr);
+ #define vma_alloc_zeroed_movable_folio vma_alloc_zeroed_movable_folio
+ 
+-bool tag_clear_highpages(struct page *to, int numpages);
++bool tag_clear_highpages(struct page *to, int numpages, bool clear_pages);
+ #define __HAVE_ARCH_TAG_CLEAR_HIGHPAGES
+ 
+ #define copy_user_page(to, from, vaddr, pg)	copy_page(to, from)
+diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+index 0f3c5c7ca054..739800835920 100644
+--- a/arch/arm64/mm/fault.c
++++ b/arch/arm64/mm/fault.c
+@@ -1018,7 +1018,7 @@ struct folio *vma_alloc_zeroed_movable_folio(struct vm_area_struct *vma,
+ 	return vma_alloc_folio(flags, 0, vma, vaddr);
+ }
+ 
+-bool tag_clear_highpages(struct page *page, int numpages)
++bool tag_clear_highpages(struct page *page, int numpages, bool clear_pages)
+ {
+ 	/*
+ 	 * Check if MTE is supported and fall back to clear_highpage().
+@@ -1026,13 +1026,16 @@ bool tag_clear_highpages(struct page *page, int numpages)
+ 	 * post_alloc_hook() will invoke tag_clear_highpages().
+ 	 */
+ 	if (!system_supports_mte())
+-		return false;
++		return clear_pages;
+ 
+ 	/* Newly allocated pages, shouldn't have been tagged yet */
+ 	for (int i = 0; i < numpages; i++, page++) {
+ 		WARN_ON_ONCE(!try_page_mte_tagging(page));
+-		mte_zero_clear_page_tags(page_address(page));
++		if (clear_pages)
++			mte_zero_clear_page_tags(page_address(page));
++		else
++			mte_clear_page_tags(page_address(page));
+ 		set_page_mte_tagged(page);
+ 	}
+-	return true;
++	return false;
+ }
+diff --git a/include/linux/gfp_types.h b/include/linux/gfp_types.h
+index 6c75df30a281..d79049291b1a 100644
+--- a/include/linux/gfp_types.h
++++ b/include/linux/gfp_types.h
+@@ -273,11 +273,11 @@ enum {
+  *
+  * %__GFP_ZERO returns a zeroed page on success.
+  *
+- * %__GFP_ZEROTAGS zeroes memory tags at allocation time if the memory itself
+- * is being zeroed (either via __GFP_ZERO or via init_on_alloc, provided that
+- * __GFP_SKIP_ZERO is not set). This flag is intended for optimization: setting
+- * memory tags at the same time as zeroing memory has minimal additional
+- * performance impact.
++ * %__GFP_ZEROTAGS zeroes memory tags at allocation time. Setting memory tags at
++ * the same time as zeroing memory (e.g., with __GPF_ZERO) has minimal
++ * additional performance impact. However, __GFP_ZEROTAGS also zeroes the tags
++ * even if memory is not getting zeroed at allocation time (e.g.,
++ * with init_on_free).
+  *
+  * %__GFP_SKIP_KASAN makes KASAN skip unpoisoning on page allocation.
+  * Used for userspace and vmalloc pages; the latter are unpoisoned by
+diff --git a/include/linux/highmem.h b/include/linux/highmem.h
+index af03db851a1d..d7aac9de1c8a 100644
+--- a/include/linux/highmem.h
++++ b/include/linux/highmem.h
+@@ -347,10 +347,11 @@ static inline void clear_highpage_kasan_tagged(struct page *page)
+ 
+ #ifndef __HAVE_ARCH_TAG_CLEAR_HIGHPAGES
+ 
+-/* Return false to let people know we did not initialize the pages */
+-static inline bool tag_clear_highpages(struct page *page, int numpages)
++/* Returns true if the caller has to initialize the pages */
++static inline bool tag_clear_highpages(struct page *page, int numpages,
++		bool clear_pages)
+ {
+-	return false;
++	return clear_pages;
+ }
+ 
+ #endif
+diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+index 65e205111553..71859993dd54 100644
+--- a/mm/page_alloc.c
++++ b/mm/page_alloc.c
+@@ -1808,9 +1808,9 @@ static inline bool should_skip_init(gfp_t flags)
+ inline void post_alloc_hook(struct page *page, unsigned int order,
+ 				gfp_t gfp_flags)
+ {
++	const bool zero_tags = gfp_flags & __GFP_ZEROTAGS;
+ 	bool init = !want_init_on_free() && want_init_on_alloc(gfp_flags) &&
+ 			!should_skip_init(gfp_flags);
+-	bool zero_tags = init && (gfp_flags & __GFP_ZEROTAGS);
+ 	int i;
+ 
+ 	set_page_private(page, 0);
+@@ -1832,11 +1832,11 @@ inline void post_alloc_hook(struct page *page, unsigned int order,
+ 	 */
+ 
+ 	/*
+-	 * If memory tags should be zeroed
+-	 * (which happens only when memory should be initialized as well).
++	 * Clearing tags can efficiently clear the memory for us as well, if
++	 * required.
+ 	 */
+ 	if (zero_tags)
+-		init = !tag_clear_highpages(page, 1 << order);
++		init = tag_clear_highpages(page, 1 << order, /* clear_pages= */init);
+ 
+ 	if (!should_skip_kasan_unpoison(gfp_flags) &&
+ 	    kasan_unpoison_pages(page, order, init)) {
+
+---
+
+base-commit: f1541b40cd422d7e22273be9b7e9edfc9ea4f0d7
+
+change-id: 20260417-zerotags-343a3673e18d
+
 --
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
 
+Cheers,
+
+David
 
 
