@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40052F327AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 06:57:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74604F327AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 07:06:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YIgenQKXPtXsS3q98hCH5vwL5umq9m2KF5/0F9CPwTg=; b=rQFk+jqvkDXsxSsHDHL7S21pAW
-	oNy2cVjloP+Z83Tjqe65Pd3yZNOBfMO8J7N71RNxXX3QHERCrLnw9IBazZKbihGDDZepFTVTCl3rD
-	PM07NbT5mEwn5rj40mOyMCJpSOk4XUNcot9Xl/YbCnvIHzIEOIldn7pl/n1YJ0z6u0YAM+BiwmhHl
-	u1FYMVl5zKnfGG2ihzL7TrsRX8ZWrx7OfJhi6DZMGY6X+3FPeb7Z4Cgqq6slvHAXY/AfjYLVPE1Bu
-	3Y9o3fgbfKRUVyIOdYDYHvmJTHky88Ph0zWWDy9L1OYtH3kz6iB3PRrbcTMQPX6bRuyyeGKc42xze
-	thPkccWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tHGyV9JrMyOlPN88c2CyCQ6hiq5IFCOBZ9918+Av9oo=; b=MO5mF9bE2sMTcnOTZqORMTJfU+
+	aCfkcF0GpFbYELol5Iwt8j9En3j9XvnyArobP5uv75F6IqMZGD/MhNMfbFObN6Wl72fSJMDfMieuQ
+	LGxa81/8s6ebK8fOGmLi3L1iY503F7W4j5GH7o7HHlmaOrUbFBQr2CVivyTl3jPt++VNf7ty0lms4
+	ndz0lb5rCgHHN6xWGHjclsioe6sKC5aWMF8IQ7HbfXZBwrsF8/3K7DpU6AMR2+KaFqT8C093ZkchE
+	HarTj4/TAU7eBBwzDO3NG1BR80ijnS+EYJvc5rwp3Pdc+Kbq7z1GOYGOtJgJl0aBwMJbKGAENIZ10
+	zmPpZT4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF53R-000000088Ms-1pxP;
-	Tue, 21 Apr 2026 06:57:53 +0000
+	id 1wF5C1-000000088m2-1evK;
+	Tue, 21 Apr 2026 07:06:45 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF53O-000000088MW-1Gq8
+	id 1wF5Bu-000000088lF-27rX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 06:57:51 +0000
+	Tue, 21 Apr 2026 07:06:44 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9EAA02573;
-	Mon, 20 Apr 2026 23:57:43 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 13E2C3F915;
-	Mon, 20 Apr 2026 23:57:45 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E51D425E0;
+	Tue, 21 Apr 2026 00:06:27 -0700 (PDT)
+Received: from [10.164.148.40] (MacBook-Pro.blr.arm.com [10.164.148.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8CFC63F641;
+	Tue, 21 Apr 2026 00:06:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776754669; bh=QSlJWj/ZlGmtGszuI1E4a2OjETy6Q0GCQCorMuB2AXM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Pt1psxwrIkpsDuFunhfbZr6dKT6D8qOQqYLotTMpPy0Bq9X70/1jgHJ8dYVsS2jHp
-	 zgJCeSn1zyMK6cIzVPpRKiODcxHa5pZV850tmFXeADvmwDhubwnQo58d9Y8P47F8Vy
-	 tyYxXc6QoreOaQt+3CkwM2btIckSac4AVcSR3hBI=
-Date: Tue, 21 Apr 2026 07:57:43 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
-	zohar@linux.ibm.com, roberto.sassu@huawei.com,
-	dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com,
-	peterhuewe@gmx.de, jarkko@kernel.org, jgg@ziepe.ca,
-	sudeep.holla@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org
-Subject: Re: [RFC PATCH 4/4] firmware: arm_ffa: check pkvm initailised when
- initailise ffa driver
-Message-ID: <aecf57rWloQwDh6v@e129823.arm.com>
-References: <20260417175759.3191279-1-yeoreum.yun@arm.com>
- <20260417175759.3191279-5-yeoreum.yun@arm.com>
- <87se8sbozv.wl-maz@kernel.org>
- <aeNeNjfO7i128TIP@e129823.arm.com>
- <87pl3vb5bm.wl-maz@kernel.org>
+	t=1776755193; bh=3wB7yzrfBlQ4UrzNV+oRyj5dj3pW8qlpw1VT3aYrqNs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=caIkEahP4GTI8WiiBzxI/IgGStQy71u4HnuwQMLiFype1Ov59C3RHKzvHJJ7+Rp5c
+	 p9wZK/GvOMAH/8NpBHH02SxjKMFpzuP3NE5oriiBFINnv1H3o3aBDZUAhfY5UOJb6G
+	 houo3EE1+cc6uDbc+dWbPU2eEaLXqLU+tzYee61s=
+Message-ID: <5463cf34-bd8c-4ecb-b93a-fd8b2bd2976d@arm.com>
+Date: Tue, 21 Apr 2026 12:36:16 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87pl3vb5bm.wl-maz@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mm/page_alloc: fix initialization of tags of the huge
+ zero folio with init_on_free
+To: "David Hildenbrand (Arm)" <david@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Brendan Jackman <jackmanb@google.com>, Johannes Weiner <hannes@cmpxchg.org>,
+ Zi Yan <ziy@nvidia.com>, Lance Yang <lance.yang@linux.dev>,
+ Ryan Roberts <ryan.roberts@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, stable@vger.kernel.org
+References: <20260420-zerotags-v1-1-3edc93e95bb4@kernel.org>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <20260420-zerotags-v1-1-3edc93e95bb4@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_235750_467237_E5710548 
-X-CRM114-Status: GOOD (  26.52  )
+X-CRM114-CacheID: sfid-20260421_000640_918199_2338CEB3 
+X-CRM114-Status: GOOD (  40.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,70 +79,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
 
-> On Sat, 18 Apr 2026 11:34:30 +0100,
-> Yeoreum Yun <yeoreum.yun@arm.com> wrote:
-> >
-> > > > @@ -2035,6 +2037,16 @@ static int __init ffa_init(void)
-> > > >  	u32 buf_sz;
-> > > >  	size_t rxtx_bufsz = SZ_4K;
-> > > >
-> > > > +	/*
-> > > > +	 * When pKVM is enabled, the FF-A driver must be initialized
-> > > > +	 * after pKVM initialization. Otherwise, pKVM cannot negotiate
-> > > > +	 * the FF-A version or obtain RX/TX buffer information,
-> > > > +	 * which leads to failures in FF-A calls.
-> > > > +	 */
-> > > > +	if (IS_ENABLED(CONFIG_KVM) && is_protected_kvm_enabled() &&
-> > > > +	    !is_kvm_arm_initialised())
-> > > > +		return -EPROBE_DEFER;
-> > > > +
-> > >
-> > > That's still fundamentally wrong: pkvm is not ready until
-> > > finalize_pkvm() has finished, and that's not indicated by
-> > > is_kvm_arm_initialised().
-> >
-> > Thanks. I miss the TSC bit set in here.
->
-> That's the least of the problems. None of the infrastructure is in
-> place at this stage...
->
-> > IMHO, I'd like to make an new state check function --
-> > is_pkvm_arm_initialised() so that ff-a driver to know whether
-> > pkvm is initialised.
->
-> Doesn't sound great, TBH.
->
-> > or any other suggestion?
->
-> Instead of adding more esoteric predicates, I'd rather you build on an
-> existing infrastructure. You have a dependency on KVM, use something
-> that is designed to enforce dependencies. Device links spring to mind
-> as something designed for that.
->
-> Can you look into enabling this for KVM? If that's possible, then it
-> should be easy enough to delay the actual KVM registration after pKVM
-> is finalised.
 
-Hmm, I also considered moving kvm_init() into finalised_pkvm() and
-then handling the remaining ffa_init() work after /dev/kvm is registered.
+On 21/04/26 2:46 am, David Hildenbrand (Arm) wrote:
+> __GFP_ZEROTAGS semantics are currently a bit weird, but effectively this
+> flag is only ever set alongside __GFP_ZERO and __GFP_SKIP_KASAN.
+> 
+> If we run with init_on_free, we will zero out pages during
+> __free_pages_prepare(), to skip zeroing on the allocation path.
+> 
+> However, when allocating with __GFP_ZEROTAG set, post_alloc_hook() will
+> consequently not only skip clearing page content, but also skip
+> clearing tag memory.
+> 
+> Not clearing tags through __GFP_ZEROTAGS is irrelevant for most pages that
+> will get mapped to user space through set_pte_at() later: set_pte_at() and
+> friends will detect that the tags have not been initialized yet
+> (PG_mte_tagged not set), and initialize them.
+> 
+> However, for the huge zero folio, which will be mapped through a PMD
+> marked as special, this initialization will not be performed, ending up
+> exposing whatever tags were still set for the pages.
+> 
+> The docs (Documentation/arch/arm64/memory-tagging-extension.rst) state
+> that allocation tags are set to 0 when a page is first mapped to user
+> space. That no longer holds with the huge zero folio when init_on_free
+> is enabled.
+> 
+> Fix it by decoupling __GFP_ZEROTAGS from __GFP_ZERO, passing to
+> tag_clear_highpages() whether we want to also clear page content.
+> 
+> As we are touching the interface either way, just clean it up by
+> only calling it when HW tags are enabled, dropping the return value, and
+> dropping the common code stub.
+> 
+> Reproduced with the huge zero folio by modifying the check_buffer_fill
+> arm64/mte selftest to use a 2 MiB area, after making sure that pages have
+> a non-0 tag set when freeing (note that, during boot, we will not
+> actually initialize tags, but only set KASAN_TAG_KERNEL in the page
+> flags).
+> 
+> 	$ ./check_buffer_fill
+> 	1..20
+> 	...
+> 	not ok 17 Check initial tags with private mapping, sync error mode and mmap memory
+> 	not ok 18 Check initial tags with private mapping, sync error mode and mmap/mprotect memory
+> 	...
+> 
+> This code needs more cleanups; we'll tackle that next, like
+> decoupling __GFP_ZEROTAGS from __GFP_SKIP_KASAN, moving all the
+> KASAN magic into a separate helper, and consolidating HW-tag handling.
+> 
+> Fixes: adfb6609c680 ("mm/huge_memory: initialise the tags of the huge zero folio")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+> ---
+>  arch/arm64/include/asm/page.h |  3 ---
+>  arch/arm64/mm/fault.c         | 16 +++++-----------
+>  include/linux/gfp_types.h     | 10 +++++-----
+>  include/linux/highmem.h       | 10 +---------
+>  mm/page_alloc.c               | 12 +++++++-----
+>  5 files changed, 18 insertions(+), 33 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/page.h b/arch/arm64/include/asm/page.h
+> index e25d0d18f6d7..5c6cbfbbd34c 100644
+> --- a/arch/arm64/include/asm/page.h
+> +++ b/arch/arm64/include/asm/page.h
+> @@ -33,9 +33,6 @@ struct folio *vma_alloc_zeroed_movable_folio(struct vm_area_struct *vma,
+>  						unsigned long vaddr);
+>  #define vma_alloc_zeroed_movable_folio vma_alloc_zeroed_movable_folio
+>  
+> -bool tag_clear_highpages(struct page *to, int numpages);
+> -#define __HAVE_ARCH_TAG_CLEAR_HIGHPAGES
+> -
+>  #define copy_user_page(to, from, vaddr, pg)	copy_page(to, from)
+>  
+>  typedef struct page *pgtable_t;
+> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> index 0f3c5c7ca054..32a3723f2d34 100644
+> --- a/arch/arm64/mm/fault.c
+> +++ b/arch/arm64/mm/fault.c
+> @@ -1018,21 +1018,15 @@ struct folio *vma_alloc_zeroed_movable_folio(struct vm_area_struct *vma,
+>  	return vma_alloc_folio(flags, 0, vma, vaddr);
+>  }
+>  
+> -bool tag_clear_highpages(struct page *page, int numpages)
+> +void tag_clear_highpages(struct page *page, int numpages, bool clear_pages)
+>  {
+> -	/*
+> -	 * Check if MTE is supported and fall back to clear_highpage().
+> -	 * get_huge_zero_folio() unconditionally passes __GFP_ZEROTAGS and
+> -	 * post_alloc_hook() will invoke tag_clear_highpages().
+> -	 */
+> -	if (!system_supports_mte())
+> -		return false;
+> -
+>  	/* Newly allocated pages, shouldn't have been tagged yet */
+>  	for (int i = 0; i < numpages; i++, page++) {
+>  		WARN_ON_ONCE(!try_page_mte_tagging(page));
+> -		mte_zero_clear_page_tags(page_address(page));
+> +		if (clear_pages)
+> +			mte_zero_clear_page_tags(page_address(page));
+> +		else
+> +			mte_clear_page_tags(page_address(page));
+>  		set_page_mte_tagged(page);
+>  	}
+> -	return true;
+>  }
+> diff --git a/include/linux/gfp_types.h b/include/linux/gfp_types.h
+> index 6c75df30a281..fd53a6fba33f 100644
+> --- a/include/linux/gfp_types.h
+> +++ b/include/linux/gfp_types.h
+> @@ -273,11 +273,11 @@ enum {
+>   *
+>   * %__GFP_ZERO returns a zeroed page on success.
+>   *
+> - * %__GFP_ZEROTAGS zeroes memory tags at allocation time if the memory itself
+> - * is being zeroed (either via __GFP_ZERO or via init_on_alloc, provided that
+> - * __GFP_SKIP_ZERO is not set). This flag is intended for optimization: setting
+> - * memory tags at the same time as zeroing memory has minimal additional
+> - * performance impact.
+> + * %__GFP_ZEROTAGS zeroes memory tags at allocation time. This flag is intended
+> + * for optimization: setting memory tags at the same time as zeroing memory
+> + * (e.g., with __GPF_ZERO) has minimal additional performance impact. However,
+> + * __GFP_ZEROTAGS also zeroes the tags even if memory is not getting zeroed at
+> + * allocation time (e.g., with init_on_free).
+>   *
+>   * %__GFP_SKIP_KASAN makes KASAN skip unpoisoning on page allocation.
+>   * Used for userspace and vmalloc pages; the latter are unpoisoned by
+> diff --git a/include/linux/highmem.h b/include/linux/highmem.h
+> index af03db851a1d..62f589baa343 100644
+> --- a/include/linux/highmem.h
+> +++ b/include/linux/highmem.h
+> @@ -345,15 +345,7 @@ static inline void clear_highpage_kasan_tagged(struct page *page)
+>  	kunmap_local(kaddr);
+>  }
+>  
+> -#ifndef __HAVE_ARCH_TAG_CLEAR_HIGHPAGES
+> -
+> -/* Return false to let people know we did not initialize the pages */
+> -static inline bool tag_clear_highpages(struct page *page, int numpages)
+> -{
+> -	return false;
+> -}
+> -
+> -#endif
+> +void tag_clear_highpages(struct page *to, int numpages, bool clear_pages);
+>  
+>  /*
+>   * If we pass in a base or tail page, we can zero up to PAGE_SIZE.
+> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+> index 65e205111553..8c6821d25a00 100644
+> --- a/mm/page_alloc.c
+> +++ b/mm/page_alloc.c
+> @@ -1808,9 +1808,9 @@ static inline bool should_skip_init(gfp_t flags)
+>  inline void post_alloc_hook(struct page *page, unsigned int order,
+>  				gfp_t gfp_flags)
+>  {
+> +	const bool zero_tags = kasan_hw_tags_enabled() && (gfp_flags & __GFP_ZEROTAGS);
 
-However, this approach seems awkward in practice,
-because misc has neither a bus nor a dedicated class notifier that we can hook into.
+Sashiko:
 
-Also, the FF-A initialization is not driven by a device probe, but rather
-happens as part of the bus registration itself,
-so it does not fit well with a device_link or probe deferral based approach.
+https://sashiko.dev/#/patchset/20260420-zerotags-v1-1-3edc93e95bb4%40kernel.org
 
-Instead, perhaps we could go with the idea I mentioned previously:
-either introduce a notifier, or create a pseudo ffa_device
-once pKVM initialization has completed, and
-then let the ffa driver perform the additional initialization from there.
+PROT_MTE works without KASAN_HW_TAGS, so probably just retain the
+system_supports_mte() check in tag_clear_highpages(), and document
+that GFP_ZEROTAGS is only for MTE?
 
-Am I missing something?
 
---
-Sincerely,
-Yeoreum Yun
+>  	bool init = !want_init_on_free() && want_init_on_alloc(gfp_flags) &&
+>  			!should_skip_init(gfp_flags);
+> -	bool zero_tags = init && (gfp_flags & __GFP_ZEROTAGS);
+>  	int i;
+>  
+>  	set_page_private(page, 0);
+> @@ -1832,11 +1832,13 @@ inline void post_alloc_hook(struct page *page, unsigned int order,
+>  	 */
+>  
+>  	/*
+> -	 * If memory tags should be zeroed
+> -	 * (which happens only when memory should be initialized as well).
+> +	 * Clearing tags can efficiently clear the memory for us as well, if
+> +	 * required.
+>  	 */
+> -	if (zero_tags)
+> -		init = !tag_clear_highpages(page, 1 << order);
+> +	if (zero_tags) {
+> +		tag_clear_highpages(page, 1 << order, /* clear_pages= */init);
+
+							    Micro-nit: ^ space
+
+> +		init = false;
+> +	}
+>  
+>  	if (!should_skip_kasan_unpoison(gfp_flags) &&
+>  	    kasan_unpoison_pages(page, order, init)) {
+> 
+> ---
+> base-commit: f1541b40cd422d7e22273be9b7e9edfc9ea4f0d7
+> change-id: 20260417-zerotags-343a3673e18d
+> 
+> Best regards,
+
 
