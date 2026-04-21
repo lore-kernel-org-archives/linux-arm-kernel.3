@@ -4,171 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB7B7F8FA6F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 13:01:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 310D4F8FA76
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 13:03:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=usQwQnUbr6DnJGJQLf8+8IyJBAEANxPtYftG2o2GTzM=; b=KXqqnZFge4TzLhkRjmmsmSRPTL
-	UI05FMJ+jN4/CgnzxFPxpkhWmNoA0WnYVN7CdFPeskVc1IYvS8VzrC821k6eE3WBC1LcOrrm29HvI
-	FZgivuAU8PkuZWL/wzq7vvVWlgjPiKu/GWCeJ5woOlI0LDEpNZceDdSoviJqTIEDjLIUA+U576zmp
-	ukkCTsSgxM29pkp8gox+VhzpxQGgdbrvO28XGzLOZf+q5dH9R5jUVRZc/IbEN8JIzg7YgY6NIHrQ/
-	kGHr1fMDI2tsd+YRkufFrYgwF1gboVOy55bYoegbA0Wt1NRn7l40jFvbQpDys99udkvlPbw2Rvdww
-	D3cj4F/w==;
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZpOX5RXqNUjplHgJxW+vYUkumMwwbJe5HfVnVND0CgQ=; b=Mty6Aq+ir1htmQQabamMCfigwu
+	tdeoP7lB0ecSk6l/eLkThyKUmky2x1NCTnBAcULmFOPv7NAAeDXfqZTc9WCxO6em47QvnmXE/vkVW
+	TacjYDu/D/Cw/jpQpMcm4WPG3zSevjAs1WlKaObyUn324GhawxRXO4V6Jlgbv7NnI5a+LXrATnGCf
+	T5r0q3jnawqlVrArLmQ8r4MPKoFR+PHGpOTzvheZosSk5gjNOl/cQU6KchkAvbw7+MJGw4gfmN1wZ
+	ulrMHsVTM33BT6GA+tei9ZBplA+8ZU5Xve4FXn04I64nhyPSL6czfxRjxFUSCzUhqE8uLGdLje7ti
+	4GKk65bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFAjA-00000008ch7-0vmK;
-	Tue, 21 Apr 2026 13:01:20 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1wFAlb-00000008cw4-3XA0;
+	Tue, 21 Apr 2026 13:03:51 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFAj8-00000008cgO-0TBV
+	id 1wFAlZ-00000008cvZ-0uxr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 13:01:19 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 3C34E5BCD2;
-	Tue, 21 Apr 2026 13:01:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1776776474; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=usQwQnUbr6DnJGJQLf8+8IyJBAEANxPtYftG2o2GTzM=;
-	b=M83n5v8Qvg0sYctP5L8fYl9x8GZEGgHaV4GPRLmyuElBjL5qMrNRn6mDrrvKMqwq8stmsw
-	zrmEvikt/xhiFbvBMBgB6YAZArGtg27GRulbNSQo19Dg6SYBHyDyTfvWm3N5ezSKq9J28V
-	BF7G/hvwwTHL7Qc00QdLsE1fp5fjsNM=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1776776474;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=usQwQnUbr6DnJGJQLf8+8IyJBAEANxPtYftG2o2GTzM=;
-	b=lJkuMN2JAbZQmYgYpvfnFJoFE4tV8Jh1KE3tV6U2Se31HHhVDQbcbHDtMe0zqvQjmCZsi2
-	ewK8aBG0x03mLwDQ==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1776776474; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=usQwQnUbr6DnJGJQLf8+8IyJBAEANxPtYftG2o2GTzM=;
-	b=M83n5v8Qvg0sYctP5L8fYl9x8GZEGgHaV4GPRLmyuElBjL5qMrNRn6mDrrvKMqwq8stmsw
-	zrmEvikt/xhiFbvBMBgB6YAZArGtg27GRulbNSQo19Dg6SYBHyDyTfvWm3N5ezSKq9J28V
-	BF7G/hvwwTHL7Qc00QdLsE1fp5fjsNM=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1776776474;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=usQwQnUbr6DnJGJQLf8+8IyJBAEANxPtYftG2o2GTzM=;
-	b=lJkuMN2JAbZQmYgYpvfnFJoFE4tV8Jh1KE3tV6U2Se31HHhVDQbcbHDtMe0zqvQjmCZsi2
-	ewK8aBG0x03mLwDQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 42C5C593B0;
-	Tue, 21 Apr 2026 13:01:13 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id gWn+Dhl152kccwAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Tue, 21 Apr 2026 13:01:13 +0000
-Message-ID: <b27ddf9b-1ceb-4d76-bc54-55eeb284dc30@suse.de>
-Date: Tue, 21 Apr 2026 15:01:12 +0200
+	Tue, 21 Apr 2026 13:03:50 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-c76c067bc51so1571211a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 06:03:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776776628; x=1777381428; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZpOX5RXqNUjplHgJxW+vYUkumMwwbJe5HfVnVND0CgQ=;
+        b=X3ZYKqOBGVeVVymg+BUw3aXBUrJoz7rUIWb7VHwKnQQ7DQuCQjlBruKeSlDvKzHKjl
+         AuhVRW8AaVjytcjjHRggjylxbZV49HXAttgkzARzN7V0haPR9SLlbQFAKDG1ZHaBkixy
+         IdEzqmxZoMoEdAenLprJW3kZUlqm5e46Lv7SWLNYaISsXLOp7f/Zw0vmiyRwW9lpL+Nh
+         kFq78ezRTkZ74zat+wilBzlHnvjfYfvEzmDXYPTynQu4w2An25O/OoNHrUCV1siG3/mP
+         DNN6lh5twpV2mypT2d4adtg0/wYNy+aQhpbo/S/KRG8bDO9ITEuyMhVUC7TSMJdB9aXw
+         a7fA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776776628; x=1777381428;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZpOX5RXqNUjplHgJxW+vYUkumMwwbJe5HfVnVND0CgQ=;
+        b=KaU3ZQ4gMjZaSx9czfi0a4hgac/dubP895Bg5yS9u5YM0lfVhSZFJVVegeBXx8Zm0Y
+         3DWMtdZIaU2OthBBS0d50k3UWxxSkG3jLzEv6r8tsmFgusQxrHRIeiSmKBljdPoSu0c5
+         uFkTqaPHed2qaLaEK1ueAu6tm8IKG4nWEd8UE9QZ006XOxdk4l0rGDNEMjoLqrkP8xML
+         DuCyZtMgT6bFOZWgIbh0/x5ShbVvfA6neWsDP9fkEh9rEYTrOjTl7FZX9rD58gzLFvvn
+         rA/gjTYu3V2d+bUz1J3zT2ri4L8XS0vV7zaZOdd+Ez74MRlq/jmOO/B7F3Dc4f08KWr1
+         eFjA==
+X-Forwarded-Encrypted: i=1; AFNElJ8gIwIKoZsHiBioLlijXDqH7JDSCkaY6dnBrBeWPIKEAuJMtqPX1oCaJWj28emT5iv3Wr0/qLdBVSpzgPF3JojT@lists.infradead.org
+X-Gm-Message-State: AOJu0YypoMt1+qfo0kGmXrQbaa0P3bNY4CsINwMIBeQaY5b+k70mVFoA
+	XoPgwfJAe2KyG/B48moWh1ghptoJrbLCLhS7BjKcvSG+ozVkLEwywzpD
+X-Gm-Gg: AeBDiesXYOzqE1QmmzGNDqz+ZivLfseKHkUWVdNyd1pQSQa2Vp3SYVhwqwrVsE6iVQ7
+	TWqpEqAcplmPOwzrSXbFl8C8eyztsZptydui5xccBFmCFllKSn1vkXg9IIzbpUFSUKpb14JpmJP
+	VqmycVIo19IrlaDFHSWODygWXKLSDloSaBVm50ZhgIn0+muvGz4yxxX7CvKxVHnIJS/q330zTkC
+	Ufqnjg4dIaY0kz0EFOlAG9j8BtI/6H2x7opzE1dWDVCpKs/yu7FcAFXWS8qOQ0Iw9vz8KSBFuVI
+	te2a5RoaPlEGtyXgA6a0U0Mgurf9hUZA3WB/pDQ0fLSSms/dmPcVziTDAGyXaQYDhm31VUoZ8a1
+	GJNcoJW8SzTX1+qVqK7SHJj258FbwisvjrT0jUbtTdoux/fobLQRmf+hP+/b0KdOlCC94rcAJ2u
+	s4pAyTjHPIT4aXN38uVUCf5Obr1ULL0KdR2aW2DRJXd6dgwN3DNL77wwhSL43xxIH6gYO1R9iTV
+	yAufAxjx3jPFAbUSMKOImM=
+X-Received: by 2002:a05:6a20:3c90:b0:39f:acae:f12e with SMTP id adf61e73a8af0-3a08d748ad4mr19977605637.22.1776776627679;
+        Tue, 21 Apr 2026 06:03:47 -0700 (PDT)
+Received: from fred-System-Product-Name (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8e981a0asm14456484b3a.3.2026.04.21.06.03.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Apr 2026 06:03:46 -0700 (PDT)
+From: Fred Chen <fredchen.openbmc@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/1]  ARM: dts: aspeed: santabarbara: Add system monitoring GPIOs
+Date: Tue, 21 Apr 2026 21:03:40 +0800
+Message-ID: <20260421130344.2751662-1-fredchen.openbmc@gmail.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/20] drm/colorop: Fix typos in the doc
-To: Maxime Ripard <mripard@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Jyri Sarha <jyri.sarha@iki.fi>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>,
- Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>,
- Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>,
- Samuel Holland <samuel@sholland.org>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-References: <20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org>
- <20260320-drm-mode-config-init-v2-1-c63f1134e76c@kernel.org>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <20260320-drm-mode-config-init-v2-1-c63f1134e76c@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-2.80 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	ARC_NA(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	MIME_TRACE(0.00)[0:+];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	TO_DN_SOME(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[37];
-	TAGGED_RCPT(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	R_RATELIMIT(0.00)[to_ip_from(RLyhjdboxbrjk5hnijtjs4kbm6)];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_TO(0.00)[kernel.org,linux.intel.com,gmail.com,ffwll.ch,lwn.net,linuxfoundation.org,oss.qualcomm.com,iki.fi,ideasonboard.com,intel.com,linaro.org,kwiboo.se,emersion.fr,amd.com,igalia.com,redhat.com,ursulin.net,sholland.org,raspberrypi.com];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:email,imap1.dmz-prg2.suse.org:helo,suse.com:url]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_060118_446851_AD20D4B7 
-X-CRM114-Status: GOOD (  21.62  )
+X-CRM114-CacheID: sfid-20260421_060349_262603_31799C80 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,69 +103,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Update Santabarbara Device Tree to include several GPIO expanders for
+NIC, Switch, and system monitoring.
 
+Changes in v2:
+- Add system power fault alert and E1S GPIO expander interrupt
+- Add switch board SKU IDs and power good monitoring
+- Add NIC1-4 power good monitoring, reset control, and fault detection
+- Update the commit message
+- Link to v1: https://lore.kernel.org/all/20260129073749.3155383-1-fredchen.openbmc@gmail.com/
 
-Am 20.03.26 um 17:27 schrieb Maxime Ripard:
-> In the documentation of drm_colorop introduced by commit cfc27680ee20
-> ("drm/colorop: Introduce new drm_colorop mode object"), the
-> documentation of __drm_colorop_state_reset() and __drm_colorop_reset()
-> were mentioning CRTC when they really meant colorop, probably due to
-> copy and paste.
->
-> Fixes: cfc27680ee20 ("drm/colorop: Introduce new drm_colorop mode object")
-> Signed-off-by: Maxime Ripard <mripard@kernel.org>
+Fred Chen (1):
+  ARM: dts: aspeed: santabarbara: Add system monitoring GPIOs
 
-Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
-
-> ---
->   drivers/gpu/drm/drm_colorop.c | 10 +++++-----
->   1 file changed, 5 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/gpu/drm/drm_colorop.c b/drivers/gpu/drm/drm_colorop.c
-> index 566816e3c6f0c7d172534966fcfe56982e6505f3..373cd0ddb8fd4478874509ed12c95451c1f66203 100644
-> --- a/drivers/gpu/drm/drm_colorop.c
-> +++ b/drivers/gpu/drm/drm_colorop.c
-> @@ -503,11 +503,11 @@ void drm_colorop_atomic_destroy_state(struct drm_colorop *colorop,
->    * __drm_colorop_state_reset - resets colorop state to default values
->    * @colorop_state: atomic colorop state, must not be NULL
->    * @colorop: colorop object, must not be NULL
->    *
->    * Initializes the newly allocated @colorop_state with default
-> - * values. This is useful for drivers that subclass the CRTC state.
-> + * values. This is useful for drivers that subclass the colorop state.
->    */
->   static void __drm_colorop_state_reset(struct drm_colorop_state *colorop_state,
->   				      struct drm_colorop *colorop)
->   {
->   	u64 val;
-> @@ -526,14 +526,14 @@ static void __drm_colorop_state_reset(struct drm_colorop_state *colorop_state,
->   /**
->    * __drm_colorop_reset - reset state on colorop
->    * @colorop: drm colorop
->    * @colorop_state: colorop state to assign
->    *
-> - * Initializes the newly allocated @colorop_state and assigns it to
-> - * the &drm_crtc->state pointer of @colorop, usually required when
-> - * initializing the drivers or when called from the &drm_colorop_funcs.reset
-> - * hook.
-> + * Initializes the newly allocated @colorop_state and assigns it to the
-> + * &drm_colorop->state pointer of @colorop, usually required when
-> + * initializing the drivers or when called from the
-> + * &drm_colorop_funcs.reset hook.
->    *
->    * This is useful for drivers that subclass the colorop state.
->    */
->   static void __drm_colorop_reset(struct drm_colorop *colorop,
->   				struct drm_colorop_state *colorop_state)
->
+ .../aspeed-bmc-facebook-santabarbara.dts      | 125 +++++++++++++++++-
+ 1 file changed, 124 insertions(+), 1 deletion(-)
 
 -- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
-
+2.52.0
 
 
