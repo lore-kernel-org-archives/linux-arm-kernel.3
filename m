@@ -4,114 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2BE4F94CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 20:07:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58217F94CAB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 20:24:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1M8Wy22x3elv2D/+fnXEPtAuCSkz1UNFVYr+3jYCUkE=; b=ggWJf2AKOdcoDcvHF6ivegqAZs
-	lq/cfuQRH9fKDv/MJq4zXiRc3y8PkQBeH2qd2G8M4q/b+HZCQXyEYnSVEjFG8VyugqRPT2HHTseMX
-	vTMfY/au+IfSxXTAPFYUCrvGRZsoGKE99RonB4jxsrY331jCw8rW6JK0mpISU9jVGfjaiDIqv0SeD
-	LHk84pGSDNjdBFwlKlUqBhQktpM5Xk6GZ7tFA356MyveXIpRBpgsgBS+tA71R6U8WjKP7VFd9u0+k
-	CXkifCllExxWJQK1pNh6ebq0OC5wqgqj/IoUPDKL5GEdtj8oz0cHP/I5ExMzxYNjiCCLsTjgsXB6k
-	stI7DDeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nVlIjHK8beTpkqGMwU9MBSNVUOjmph10Qmo15WK1r6o=; b=ep9QZTxAUJUxy6
+	fb2vIcWRDqFiO8tx5m5YlmIbboQOipuY4nFvJtQm/IujvNp//s91z1yxq0CCO5LZtlLe9KAnGxM4s
+	U6jMZODUAgM8gk1Jl+O8uXMH51V9jryCu9p5WMjz3LEl4S9prQV1fMH2/pbGBcmIsv4dlJQUa6zNx
+	zW20sMiUjqK2XxnwwBI5YLEPt7G5Mxa89rMI6O7A7pE5vkWS9IyoBX+/+QZ0asY5Xk2UxFg/mcI1u
+	8JI0WIpFKn3/o1EKC98c1P60jGn3/XMnmflW7ob7HAX3cwCOA4msNp2PFIYSZRi7PNzbmwipwd5Li
+	kNNhZIAXMKJzBc+bFJvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFHNW-0000000975p-1A3F;
-	Tue, 21 Apr 2026 20:07:26 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wFHda-000000097kM-2PMA;
+	Tue, 21 Apr 2026 20:24:02 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFHNT-0000000975A-3d1c
+	id 1wFHdX-000000097jv-3DXn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 20:07:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1776802041;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1M8Wy22x3elv2D/+fnXEPtAuCSkz1UNFVYr+3jYCUkE=;
-	b=Bzp67evSAFNdGjXCnc0ONJvN8s/pt0NBfXJOXMFKxJ7jBKHVddINxCeo/GYccIcpkz6NZR
-	4WX25r+wTcdd6qWCSqMUTZvnKAYoDk5HwqBiZrgw2BuS2C6ZeeGmdGOMi+fz+/6tXrN7fW
-	lezp2YQ/Lpt8Ju08GgmEzGnm97bFHD8=
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com
- [209.85.219.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-94-exb1mkmEPZWSbGfhBEwsmg-1; Tue, 21 Apr 2026 16:07:19 -0400
-X-MC-Unique: exb1mkmEPZWSbGfhBEwsmg-1
-X-Mimecast-MFC-AGG-ID: exb1mkmEPZWSbGfhBEwsmg_1776802039
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-8a8ea3f1becso21550056d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 13:07:19 -0700 (PDT)
+	Tue, 21 Apr 2026 20:24:01 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-48a563e4ef7so11158695e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 13:23:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776803038; x=1777407838; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=nVlIjHK8beTpkqGMwU9MBSNVUOjmph10Qmo15WK1r6o=;
+        b=dwWuGP9hdcGGktgziY+zCW6Z5a6qMIDG2OgzwhThivMkBVbJXBJNIDf+EHWqrn7ULN
+         zpYkisPs1zeJLhaVdyLizQTtKvLgT/NP1ZX6we/R3zhdocPynA2Xa3ph4kqTs2tHN2So
+         xFbgrUnxOmmlXnNCh+mMcPBG9XbBeIegboaIi5r0ZG2Suta7jXlMAIxGaFvaCHpQIeL9
+         8BvKieAR73yJ/oA8e3brVqLDivjb35s9uTHFMyxQ9/eWWyKQQjHlrWW4nkyB5YxkzkeI
+         rEAL/FY6etTp9yD1+OtOMSeG1E6qGzUvilMaa4//JBC5Bs6+NjSbg5F5KE0uGJQD53aV
+         uheA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776802039; x=1777406839;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1M8Wy22x3elv2D/+fnXEPtAuCSkz1UNFVYr+3jYCUkE=;
-        b=tLyHX4tmr2o3WETRG4KipN9z0nZuc5IQGpNZpJbtf+G670ZiQEpTfeiLWGh1UBFbRd
-         /yqtjyEP4q+JZaPjpH+tzeYldj8XeQ1h31GjWZ6qsaddfpjRhco994b3P0Yg24PxHxHe
-         c9Mlby0YbiyH0jG/CU1TgFRs1TyxR3b8KcUd9Lcu/Asz38F3uBgg7rLw19MkRM2RiWTQ
-         pMAqguyg7wEpD2N2vukaxTLvv+9nq01fnwePEbWuvBsEunOk1qLgbxXKrBW+7FZO0Ybl
-         3qR3VVfPWxSqxTd+3AYgR6wZI5IyyrOLxly/HpUSKNtQ2DBbOJ1nxuTZ3vcT/DxaFp55
-         cSPA==
-X-Forwarded-Encrypted: i=1; AFNElJ9L65Dq+IB4SSjgs+Y+VV9hadDqx2zgVB8aW189FIogbvEitQnGfZLXPiCB0PbINFJf5VJXb4UqO/F4++4meORV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0mFE1KLA0X49qqCn4qfDv2BxBfoJVVPs+pt9HwyB6t+qMLf9/
-	9MCdwEkZ4CpCzsoqz+Go6l4RdaCNdAPpFonmpKzvJ42vAqNe0SUiFn3hMWCSLsJj+YZdlwTYjPl
-	s6WmRaVNin9lzTr92eLUBTRFvfUpIWSjyKv4hZr7cwl0I1Ag1aesF5OD2OtqcfqdCSyNnvL3Y/+
-	0O
-X-Gm-Gg: AeBDiesa9n0zQAvsWlHWXIPIINehXwldGVN1goCvaDya1FJdn8H72hxsaR3O+R17nQ1
-	9vCSEKZtfsOA9fVM/dArin5WUqprz0NX4Y4q0FTPw9VLT+vhdBuXcJvF/5c4SumXm4a+SHdhIg6
-	7o/Mzob9Tr8LpqMoTt3KLhC3BiwIinRQRZB4AZrFFrgn5ZJkr4MGUlokYczzTHUsZvZGr8wPLB0
-	F2OBIuCBQsv+dVikrX2ZVGesoJsOA+XnG0TxDZwdQMK/J/WPulju+Clj7NKsC7Wp8+qZtqSZ4JB
-	Axq6s9bjESbivxn4MkS13xavMI6Lkryz23NZIpYhe1yRTYW+9TWgZBGrk/xeSUwdK2jf5Xcmyhl
-	pR2qybIWZi/czUBnaN76r67ieaRqMc3S1G95/aNSuiQ==
-X-Received: by 2002:a05:6214:300c:b0:8a4:5cfe:a204 with SMTP id 6a1803df08f44-8b0280d0e78mr313218066d6.26.1776802038972;
-        Tue, 21 Apr 2026 13:07:18 -0700 (PDT)
-X-Received: by 2002:a05:6214:300c:b0:8a4:5cfe:a204 with SMTP id 6a1803df08f44-8b0280d0e78mr313217376d6.26.1776802038427;
-        Tue, 21 Apr 2026 13:07:18 -0700 (PDT)
-Received: from rh-jkangas-kernel ([2601:1c2:4400:6bf0:7677:bcee:4ef0:e09d])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8b02ae5c4b9sm149503046d6.28.2026.04.21.13.07.15
+        d=1e100.net; s=20251104; t=1776803038; x=1777407838;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nVlIjHK8beTpkqGMwU9MBSNVUOjmph10Qmo15WK1r6o=;
+        b=oFHyCFVYWFgkzvifR7/ABQZhG7c0WVfWkleEohtSnGnSAUoVSk8JOrI4y54XB1jjej
+         wFXw97X8AE7ndFoJ9/rCSUmEwzB5ELUK+F38zo/T5hesNQFIxL8gobWAvmGuioVl2KqV
+         AwZBG8WE0liSu8Nq9U0VtArCpPGXakqy03osaeZd2LO5xt0Bg+7wkIWXf5IO0yY/g+oK
+         RXq/6V1fXolWJcxkThg6WFgu61g7E154kVKG62zfAt28tTd5UkzNrNx5IU+y0XvCVs7g
+         mKaKQgI3NbJ+LcyQ74uzHWTqXRfWiGja+QGs/q/9rF+q6Zq4MKc0Rpk8bnuNAf/++Q1g
+         RReA==
+X-Forwarded-Encrypted: i=1; AFNElJ+XgmocJGBywSMXfliSTVVc31YykwvdBcEW+J49ih2+0zuSsbwuCvV9pjC2o5a5GTPWOJ5W5ry6+WK/bwmMB/vG@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQlINv0809buwnjKyugwUBvJAjVrfvsv8q5ZsswJzXaEh911lP
+	ypQVwZedf4DPICLKHMDrbjsems5kZ7hJR+e6YlwhuDpccRCscllQUiea
+X-Gm-Gg: AeBDieuvJ0HdZkUNOtBQzN4BhYbqBX2w5eNtevlYRuhlwMdOiAHKAJRMWiWtI5Gg8t5
+	GUph45SxxaL8wjTjZvrPPI3rqEuQUnhvq3WFnGy2j73m+667SQ3Ev57fmhmjd7IFp1LQI3ef9OS
+	VxmQun8U8sLXRa3opbJyo3HPfb1zfT/yydZkok5SfMTTFEyjPItQQ8lfNIQ/kyg+aRa04F/dv+l
+	PrHJ83cu85WTnhXjHn2DZZ7/t2A59zF6Dfr3WZde772iqB0Ow9yEpj5ApHl3pRXwF3OGYb5K0lq
+	epffUhTYNUO/T0DigruHWt2NZwb7J3V6IgeOG7PAl2wXuhXG3u/Qk03XLWwWrzmpVS4IgpZZil3
+	DraKY0D/QJ1OSUuspxpDqIn9xSO6uBtRb/h1+9niDeVszWRsMSViDX93FZY4aIqhCeZ5zLVlb6l
+	LiAhlHb6U99h3mgVVZxH8mze+Emv2yZ6ZjLE4lN8b4iP0xYulON3FnfeQ=
+X-Received: by 2002:a05:600c:8587:b0:488:a797:f0ac with SMTP id 5b1f17b1804b1-488fb7880bdmr194237985e9.28.1776803037405;
+        Tue, 21 Apr 2026 13:23:57 -0700 (PDT)
+Received: from [192.168.0.2] ([197.250.227.85])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488fc0f82bbsm655989805e9.3.2026.04.21.13.23.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Apr 2026 13:07:18 -0700 (PDT)
-Date: Tue, 21 Apr 2026 13:07:13 -0700
-From: Jared Kangas <jkangas@redhat.com>
-To: jan.petrous@oss.nxp.com
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, devicetree@vger.kernel.org,
-	rmk+kernel@armlinux.org.uk, vladimir.oltean@nxp.com,
-	boon.khai.ng@altera.com
-Subject: Re: [PATCH v11 2/4] arm64: dts: s32: set Ethernet channel irqs
-Message-ID: <aefY8WGCuNr4BQG4@rh-jkangas-kernel>
-References: <20260312-dwmac_multi_irq-v11-0-09621ccb040b@oss.nxp.com>
- <20260312-dwmac_multi_irq-v11-2-09621ccb040b@oss.nxp.com>
+        Tue, 21 Apr 2026 13:23:55 -0700 (PDT)
+From: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
+Subject: [PATCH v5 0/8] Add support for ZTE zx297520v3
+Date: Tue, 21 Apr 2026 23:23:08 +0300
+Message-Id: <20260421-send-v5-0-ace038e63515@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20260312-dwmac_multi_irq-v11-2-09621ccb040b@oss.nxp.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: JKyXX99wfS8QofzEHQsYYq9mltDxjwBfsFPMoqwX7Mw_1776802039
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAKzc52kC/13MQQrCMBCF4auUWRuZhqQYV95DuqjJ2A7YRDISl
+ JK7G7t0+T8e3wZCmUng3G2QqbBwii3soQO/THEmxaE1aNQDmn5QQjEo6/FE6CxZ76Bdn5nu/N6
+ Z69h6YXml/NnVYn7rH1CMQkW9C6hvzhjyl3md+HH0aYWx1voF2KRO85gAAAA=
+X-Change-ID: 20260416-send-5c08e095e5c9
+To: Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Russell King <linux@armlinux.org.uk>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Linus Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>
+Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ soc@lists.linux.dev, linux-serial@vger.kernel.org, 
+ =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4666;
+ i=stefandoesinger@gmail.com; h=from:subject:message-id;
+ bh=o9gYTJKBqIyVOmX80U3TwTTah7IWirGi76Bxb25Nizs=;
+ b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBp59zX/bLsmFSSyvgUtedC0P3fDHA0k5szw2Ags
+ j+PbWDI3vSJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCaefc1xsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiKs0w/+JNWC7OaWAdBhMhILzJxa5nrCYgMP1K1
+ snJ5xSPPon5do+hhsRwQAXhiKQ201BcXztab9EPAdr3nhzlpIHgQkxljqXZ4sCMgq9rrrVm9G5b
+ rgg+hfMV+8UMm0WvqAzWhj0028YC1Ir/Z+tc+l7vpzh3vDpfHPtMuCxxxsElifzwtV4qKLM/xmQ
+ eJ8oOUvqwZvFUWPfwS/cCHxhHVISfToavxDtOeCUbyfUhgZALm7Wz+Y4HUFFOCzmiJVJP+StYLl
+ ls/ujX2/jR719obDgBqIZ96APs0lA4sGYNcP26AL+YdfmAzfu53ihoBYIRWU1Do8n1CZCpqSefa
+ mtWpLDOb4PA6lKSvBOmpySDmFflc1FN2qbNfCXJy/9k01EgFlCDTHyNfyg5FFJIiD18m5gWrkwb
+ CFS3ro3m1C4bguclOqsghxLyJcNytfo6FYVtsQ0Bl4EaRwaSI19fgdvlYwqQB23tKrC7gaZLaEV
+ msHoNP0miqQr+++XoKSg/v1/12Ul71kmjxTcIRoLmh3BePq6WJve/9LoKidWTj9JPPBtHYy6E13
+ cwLv+D7pDEQEDFDQiI3aI/bEuhGKv8rZJXnewg+bW/aZ4BzVmFbkPYtX6ZiocsdzUHwiK8+zz95
+ dn3D88vZU+j0Jld4xpGQ+fpXNjv/0DdsmodvoziwUgQ7zdl0v61I=
+X-Developer-Key: i=stefandoesinger@gmail.com; a=openpgp;
+ fpr=4F9C2C8728019633893EBBB98CB81F9A72BBA155
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_130723_998653_5A79C8E1 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20260421_132359_868687_B126DBC8 
+X-CRM114-Status: GOOD (  24.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,27 +128,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 12, 2026 at 09:55:28AM +0100, Jan Petrous via B4 Relay wrote:
-> From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
-> 
-> The GMAC Ethernet controller found on S32G2/S32G3 and S32R45
-> contains up to 5 RX and 5 TX channels.
-> It can operate in two interrupt modes:
-> 
->   1) Sharing IRQ mode: only MAC IRQ line is used
->      for all channels.
-> 
->   2) Multiple IRQ mode: every channel uses two IRQ lines,
->      one for RX and second for TX.
-> 
-> Specify all IRQ twins for all channels.
-> 
-> Reviewed-by: Matthias Brugger <mbrugger@suse.com>
-> Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
-> ---
+Hi,
 
-Tested the new channels on an S32G-VNP-RDB3 while testing patch 4/4.
+This is a follow-up on my RFC patches from January [0] for ZTE's 
+zx297520v3 chipset. This chipset is popular in cheap LTE-to-wifi routers 
+sold in developing countries. My goal is to run OpenWRT on them. I made 
+more progress in more work on this SoC and it is time to get serious 
+about code review and upstreaming.
 
-Tested-by: Jared Kangas <jkangas@redhat.com>
+Since my version in January I managed to get more hardware running: SPI, 
+I2C, PMIC with real time clock and voltage regulators, Watchdog. LTE is 
+not working yet, but I am able to start the coprocessor that handles it 
+and talk to it via mailbox + shared memory. Wifi is working on a few 
+more devices. Since WiFi, USB and Ethernet are working, the devices can 
+have actual use with OpenWRT even without LTE.
+
+Another hacker created a free software program to talk to the USB loader 
+[1] and boot U-Boot and Linux without modifying the on disk files. At 
+the moment it needs a proprietary blob, so my documentation is 
+emphasising booting with the on-device U-Boot.
+
+This patchset here is mostly unmodified from the version I sent in 
+January. It is the bare minimum to get an interactive shell working on 
+the UART. Future patches can be found on my git repository [2] for those 
+curious to peek ahead. The first 30 patches are in reasonable shape, but 
+the further you go the more cleanup is necessary. I expect all of the 
+patches go require a few rounds of feedback though.
+
+My plan for upstreaming is largly this:
+
+1) This bare minimum boot patchset
+2) Add clock and pinctrl drivers
+3) Add standard hardware to the device tree
+4) Add zx29 specific drivers one by one: Watchdog, spi, i2c, DMA, PMIC, 
+battery
+5) SDIO backend for rtl8xxxu
+6) rproc, mailbox and rpmsg
+
+I am willing to maintain support for the SoC within reason. My patches 
+add myself as maintainer. This is a hobby project for me though, keep 
+that in mind if you want to ship a commercial product with these SoCs 
+and upstreaming Linux.
+
+Cheers,
+Stefan
+
+0: https://lists.infradead.org/pipermail/linux-arm-kernel/2026-January/1099306.html
+1: https://github.com/zx297520v3-mainline/zx297520v3-loader
+2: https://gitlab.com/stefandoesinger/zx297520-kernel/
+
+Patch changelog:
+
+v5:
+Spelling fixes
+Renamed dlink-dwr-932m.dts to zx297520v3-dlink-dwr932m.dts
+DT binding indentation fixes
+Use a manufacturer 0x8b for the UART, fix patch prefix
+Declare all UARTs, remove uart aliases for now
+Consistent license declarations. I made every new file except the DT 
+binding GPL-2.0-only but I don't particularly mind GPL-2.0-or-later 
+either.
+
+v4: rename zx29.yaml to zte.yaml and add board enums
+v3: Remove [RFC] tag, add defconfig
+v2: checkpatch.pl fixes
+
+Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
+---
+Changes in v5:
+- EDITME: describe what is new in this series revision.
+- EDITME: use bulletpoints and terse descriptions.
+- Link to v4: https://lore.kernel.org/r/20260416-send-v4-0-e19d02b944ec@gmail.com
+
+---
+Stefan Dösinger (8):
+      ARM: zte: Add zx297520v3 platform support
+      dt-bindings: arm: Add zx297520v3 board binding
+      ARM: dts: Add D-Link DWR-932M support
+      ARM: zte: Add support for zx29 low level debug
+      ARM: dts: Add an armv7 timer for zx297520v3
+      amba/serial: amba-pl011: Bring back zx29 UART support
+      ARM: dts: Declare UARTs on zx297520v3 boards
+      ARM: defconfig: Add a zx29 defconfig file
+
+ Documentation/arch/arm/zte/zx297520v3.rst          | 158 +++++++++++++++++++++
+ Documentation/devicetree/bindings/arm/zte.yaml     |  25 ++++
+ MAINTAINERS                                        |   6 +
+ arch/arm/Kconfig                                   |   2 +
+ arch/arm/Kconfig.debug                             |  12 ++
+ arch/arm/Makefile                                  |   1 +
+ arch/arm/boot/dts/Makefile                         |   1 +
+ arch/arm/boot/dts/zte/Makefile                     |   3 +
+ arch/arm/boot/dts/zte/zx297520v3-dlink-dwr932m.dts |  22 +++
+ arch/arm/boot/dts/zte/zx297520v3.dtsi              | 103 ++++++++++++++
+ arch/arm/configs/zx29_defconfig                    |  89 ++++++++++++
+ arch/arm/include/debug/pl01x.S                     |   7 +
+ arch/arm/mach-zte/Kconfig                          |  26 ++++
+ arch/arm/mach-zte/Makefile                         |   2 +
+ arch/arm/mach-zte/zx297520v3.c                     |  19 +++
+ drivers/tty/serial/amba-pl011.c                    |  42 ++++++
+ 16 files changed, 518 insertions(+)
+---
+base-commit: 028ef9c96e96197026887c0f092424679298aae8
+change-id: 20260416-send-5c08e095e5c9
+
+Best regards,
+-- 
+Stefan Dösinger <stefandoesinger@gmail.com>
 
 
