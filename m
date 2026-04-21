@@ -4,54 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 031B5F89246
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 10:00:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD06DF89246
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 10:00:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iZd+HSwTTqX6wJ1eZzoHdn2wLLo459TdBXSR/xX1yMA=; b=GJ/uytbOhESWVunfG0m3ZkR+CS
-	O+AjfHaWeP7N8qLgiDxp0zz+I6+ssL0Uhjy/qt1KM/dygvNQoFFU8XFUXociZw0/FVD12MJGnRWvH
-	GAD9jIH5+pglDi3vBtm/hMcn67PdU8KHCWe8X1zVGvdCXgqDGTQiCLvxiT0G65uxf6dHjphukF0wS
-	6nEKJmZGSNBmhMJDhDFxmxbke9HPdpPtoBKo5HiR+iBYTYpw02RhFqZpXkHLDTADMLMKoVSLNV+Q3
-	F1UA2Aq/YWInXrBwB5C6pvC+NbFzltOiUVGDPSRTqvHEpnVLNJTT9tvZuKLxQJaT1AUNsyDvhng5+
-	+PU7BphQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NIbItlj+apdxBcprWow4kHiZSpBwOLEGd2TtyIQmhVg=; b=4BLYD1kRY/gEC7rEpPdukkuvvr
+	mbNstPGDuS6NVGrO5SV8Jcvz9srvkUO59lOWqbfhbdMmuq9qmfrNPX7I48e/H2Zq3h7aWtlYaBOp4
+	c1XYAkiMR9hXnpacG5xjoKGzZTRLIHTujN2UZ6trYJHShkLH1wyrWR104bHJWigd5sX7cnkLq1OLk
+	YLoheuQWoxYhxQ4IB69ysjYP+xppAPZQwI1QSB3SUHuXueKncrsRzeO5a1oxrlKM2qYlwCUYFz62N
+	SDMSHYvlXUqPUAsTCQ/lgzaVC/YcQBf5SegdI/PksJiyc3e/6c1bVO+59WPsyiJDeua3KSY1PPKHD
+	kQw3Ylvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF7uB-00000008O5x-3bjz;
-	Tue, 21 Apr 2026 10:00:31 +0000
+	id 1wF7uF-00000008O7e-14Cp;
+	Tue, 21 Apr 2026 10:00:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF7u4-00000008O3d-3e79
+	id 1wF7u6-00000008O4S-0gzU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 10:00:30 +0000
+	Tue, 21 Apr 2026 10:00:34 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 737C825E4;
-	Tue, 21 Apr 2026 03:00:18 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 905E826A4;
+	Tue, 21 Apr 2026 03:00:19 -0700 (PDT)
 Received: from localhost.localdomain (unknown [10.57.89.2])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3EFAC3FBCB;
-	Tue, 21 Apr 2026 03:00:23 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6116C3FBCB;
+	Tue, 21 Apr 2026 03:00:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776765624; bh=/8RmMYmmwNGvGVhnupL/glGhwB2u023lC29k8r4ek9k=;
-	h=From:To:Cc:Subject:Date:From;
-	b=XFxvG5ToWnTtlw+Z4Xr+lHHH7itSBWAaA62sUcsSt03kEafsTV4eQIM3mZtxvdOYi
-	 dgjKtcFyffdmGWCKigmIe5RZw6GHrUXCROZAOFrSCezcpjWQ8haGTg96HEWZTdXyII
-	 iTZA52g6ydTyLvfk78rzYKQwMhsgUJeLoHH+xu8w=
+	t=1776765625; bh=UIJtDUN+z+zo0DG+oO5YGtZLAL3sXYneRL8KjOt+TZs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Q/H2JgwyFvCG7duKS/myTTbx3z7hmC+SYOLrQyAGJnMR5Zd6grpBLhkolb3NQ3469
+	 +cAr0q7BNjObN6T0Nzy2QibXB/Y5vokfmlQBLwxokpIQthBFIPRgGspmQh8GZZAiP0
+	 /rkzhpNvg52ZY5DnwaV/8HeTjbMWN3H/AZxPN4SA=
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: stable@vger.kernel.org
 Cc: Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 6.18.y 0/6] arm64: Stable backport of the C1-Pro erratum 4193714 workaround
-Date: Tue, 21 Apr 2026 11:00:11 +0100
-Message-ID: <20260421100018.335793-1-catalin.marinas@arm.com>
+Subject: [PATCH 6.18.y 1/6] arm64: tlb: Allow XZR argument to TLBI ops
+Date: Tue, 21 Apr 2026 11:00:12 +0100
+Message-ID: <20260421100018.335793-2-catalin.marinas@arm.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260421100018.335793-1-catalin.marinas@arm.com>
+References: <20260421100018.335793-1-catalin.marinas@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_030024_942312_E6124B80 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20260421_030026_240434_3B9985F7 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,47 +68,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Greg, Sasha,
+From: Mark Rutland <mark.rutland@arm.com>
 
-As the workaround for this CPU bug just went in, I'm sending it for
-stable 6.18. The first two patches are prerequisites to make the
-backporting easier. I do not intend to send them for stable 6.12 since
-SME is not supported in that version anyway (Android folk did their own
-backports already).
+commit bfd9c931d19aa59fb8371d557774fa169b15db9a upstream.
 
-A heads-up, the workaround itself is larger than the recommended max 100
-lines suitability for stable backports.
+The TLBI instruction accepts XZR as a register argument, and for TLBI
+operations with a register argument, there is no functional difference
+between using XZR or another GPR which contains zeroes. Operations
+without a register argument are encoded as if XZR were used.
 
-Thanks.
+Allow the __TLBI_1() macro to use XZR when a register argument is all
+zeroes.
 
-Catalin Marinas (4):
-  arm64: tlb: Introduce __tlbi_sync_s1ish_{kernel,batch}() for TLB
-    maintenance
-  arm64: tlb: Pass the corresponding mm to __tlbi_sync_s1ish()
-  arm64: cputype: Add C1-Pro definitions
-  arm64: errata: Work around early CME DVMSync acknowledgement
+Today this only results in a trivial code saving in
+__do_compat_cache_op()'s workaround for Neoverse-N1 erratum #1542419. In
+subsequent patches this pattern will be used more generally.
 
-Mark Rutland (2):
-  arm64: tlb: Allow XZR argument to TLBI ops
-  arm64: tlb: Optimize ARM64_WORKAROUND_REPEAT_TLBI
+There should be no functional change as a result of this patch.
 
- Documentation/arch/arm64/silicon-errata.rst |   2 +
- arch/arm64/Kconfig                          |  12 ++
- arch/arm64/include/asm/cpucaps.h            |   2 +
- arch/arm64/include/asm/cputype.h            |   2 +
- arch/arm64/include/asm/fpsimd.h             |  21 +++
- arch/arm64/include/asm/tlbbatch.h           |  10 +-
- arch/arm64/include/asm/tlbflush.h           | 143 ++++++++++++++++----
- arch/arm64/kernel/cpu_errata.c              |  30 ++++
- arch/arm64/kernel/entry-common.c            |   3 +
- arch/arm64/kernel/fpsimd.c                  |  79 +++++++++++
- arch/arm64/kernel/process.c                 |  36 +++++
- arch/arm64/kernel/sys_compat.c              |   2 +-
- arch/arm64/kvm/hyp/nvhe/mm.c                |   2 +-
- arch/arm64/kvm/hyp/nvhe/tlb.c               |   8 +-
- arch/arm64/kvm/hyp/pgtable.c                |   2 +-
- arch/arm64/kvm/hyp/vhe/tlb.c                |  10 +-
- arch/arm64/tools/cpucaps                    |   1 +
- 17 files changed, 325 insertions(+), 40 deletions(-)
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Signed-off-by: Will Deacon <will@kernel.org>
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+---
+ arch/arm64/include/asm/tlbflush.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
+diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+index 18a5dc0c9a54..0ddb344f83b4 100644
+--- a/arch/arm64/include/asm/tlbflush.h
++++ b/arch/arm64/include/asm/tlbflush.h
+@@ -38,12 +38,12 @@
+ 			    : : )
+ 
+ #define __TLBI_1(op, arg) asm (ARM64_ASM_PREAMBLE			       \
+-			       "tlbi " #op ", %0\n"			       \
++			       "tlbi " #op ", %x0\n"			       \
+ 		   ALTERNATIVE("nop\n			nop",		       \
+-			       "dsb ish\n		tlbi " #op ", %0",     \
++			       "dsb ish\n		tlbi " #op ", %x0",    \
+ 			       ARM64_WORKAROUND_REPEAT_TLBI,		       \
+ 			       CONFIG_ARM64_WORKAROUND_REPEAT_TLBI)	       \
+-			    : : "r" (arg))
++			    : : "rZ" (arg))
+ 
+ #define __TLBI_N(op, arg, n, ...) __TLBI_##n(op, arg)
+ 
 
