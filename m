@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E6B3F327CD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 09:37:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D3C6F327C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 09:45:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hnkoKM+t2XguVtTYGnFXQrH/VTUAiBlE6jSamDyVdLU=; b=Tb9ZQgpQOKwumMwhvREXqp0E/Y
-	A6Lx7nS6PM0kcoKkJK7CQKWrhex3ok4bzp6IDnReqQs8DkmWv7k3lIL14LQil2WmrKpPo9jF2/0d6
-	shOvizkFz7QusLp2tTT4d0eLUt68V1Zbh8gkBwrG26TU/b6Gh8z51mli/u/SLIQVhn47Vr6B657gM
-	N2xhJo4KDf/iqwqgggcCWn5SoeFtYgdaDWs9PVNpzT/OdxDAgift+H+os58p57JFsdrOfSfAVKHxX
-	i74e18gyzMwFvmt2yvjqu1Lt3zr0txWOBkCRs6ws9QUBJd1IXIOSAkq/RMUigNGrcXWJGEX+1g1FS
-	PY98rJFg==;
+	bh=vgvBdQAXA6xfcJI02GhFfz20vSI4+WJ44b9H1qi16mI=; b=WRH0SdUDE4krfN853gL0Rmw/aa
+	/c71quJ5NC4VOu3v2ovc4AR1OFVTsX6kckJcsKuhwLgTquX3t3eWHsfLUT15DOW96+bDBrOKKcKL5
+	7pQi9JH56hJ1qit7mf8g2uRZVixoJuVVK1AOQZ0lP0Tdf4mx6Q4SSGcYnxHARd+lpEO6GlysKIebU
+	DyCQSMNXP6SO1C+x70DG5hFiLzZV2eXTqneBNZ6ZAtnqV5vN28EUElk7pAU3MEk0muBdvhx2xRS88
+	VnQ9c9msALTQeyl7q02VzLGG45JEu7osCqadvonAG8k8IfY7hn/IzFU2ZczhUvF1/7f7OdWfNDNWx
+	21jD9ykg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF7Y6-00000008LWD-1wrN;
-	Tue, 21 Apr 2026 09:37:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF7Y3-00000008LVW-2k5n
+	id 1wF7fA-00000008LtC-23oP;
+	Tue, 21 Apr 2026 09:45:00 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wF7f8-00000008Lsq-2ETp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 09:37:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 76E2425E4;
-	Tue, 21 Apr 2026 02:37:32 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9C9673F641;
-	Tue, 21 Apr 2026 02:37:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776764258; bh=rZx2NuFqw+HMY4ITLik4Kx4QKHWVqXkaV8x4xuSaQjM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ibDvPcRaq03rQ6JOZQZykMlumpppwk3iXlffiEfTjVYngL7Gif5qXWERA0ggrZMKc
-	 9EXOVgrN1mrh1XnDnqOGAv/Fdcp/jza73TQXvAvEBhliVRnJa6njo8HOzVqbkOp3cw
-	 m9z/6XcBTftg5rY1THI/9WjhAp7mEDG277HZMdIM=
-Date: Tue, 21 Apr 2026 10:37:32 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Jonathan McDowell <noodles@earth.li>
-Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
-	zohar@linux.ibm.com, roberto.sassu@huawei.com,
-	dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com,
-	peterhuewe@gmx.de, jarkko@kernel.org, jgg@ziepe.ca,
-	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org
-Subject: Re: [RFC PATCH 1/4] security: ima: move ima_init into
- late_initcall_sync
-Message-ID: <aedFXFlPATqtBm/J@e129823.arm.com>
-References: <20260417175759.3191279-1-yeoreum.yun@arm.com>
- <20260417175759.3191279-2-yeoreum.yun@arm.com>
- <aeYA2Jf7esHsfY4M@earth.li>
+	Tue, 21 Apr 2026 09:44:59 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1wF7f1-0005pI-6A; Tue, 21 Apr 2026 11:44:51 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1wF7f0-006Ttd-2n;
+	Tue, 21 Apr 2026 11:44:50 +0200
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1wF7f0-00000006JSR-39Hn;
+	Tue, 21 Apr 2026 11:44:50 +0200
+Date: Tue, 21 Apr 2026 11:44:50 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Shengjiu Wang <shengjiu.wang@gmail.com>
+Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, vkoul@kernel.org, 
+	Frank.Li@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, dmaengine@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V3] dmaengine: imx-sdma: Fix SPBA bus detection on
+ multi-SPBA platforms
+Message-ID: <4xbeeozhngkkc66r3ho523vr45yksbyftdckfzwk72zfvwzgv2@7lodth3abysr>
+References: <20260420100854.2095549-1-shengjiu.wang@nxp.com>
+ <lkwfzz4lia37wv56g6ymzpossm42epz2oylhl7vgdpp7odt23h@vszl4uu2wg65>
+ <CAA+D8ANwT0GKusZtvo6h8mzVf=xXSEkHXsb6nwHGZ2YQzPm5ZQ@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aeYA2Jf7esHsfY4M@earth.li>
+In-Reply-To: <CAA+D8ANwT0GKusZtvo6h8mzVf=xXSEkHXsb6nwHGZ2YQzPm5ZQ@mail.gmail.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_023739_773922_7DEFEF32 
-X-CRM114-Status: GOOD (  34.71  )
+X-CRM114-CacheID: sfid-20260421_024458_576249_1E56798F 
+X-CRM114-Status: GOOD (  41.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,138 +81,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 20, 2026 at 11:32:56AM +0100, Jonathan McDowell wrote:
-> On Fri, Apr 17, 2026 at 06:57:56PM +0100, Yeoreum Yun wrote:
-> > To generate the boot_aggregate log in the IMA subsystem with TPM PCR values,
-> > the TPM driver must be built as built-in and
-> > must be probed before the IMA subsystem is initialized.
+On 26-04-21, Shengjiu Wang wrote:
+> On Tue, Apr 21, 2026 at 4:57 PM Marco Felsch <m.felsch@pengutronix.de> wrote:
 > >
-> > However, when the TPM device operates over the FF-A protocol using
-> > the CRB interface, probing fails and returns -EPROBE_DEFER if
-> > the tpm_crb_ffa device — an FF-A device that provides the communication
-> > interface to the tpm_crb driver — has not yet been probed.
+> > On 26-04-20, Shengjiu Wang wrote:
+> > > i.MX8M platforms have multiple SPBA buses under different AIPS buses.
+> > > The current code searches the entire device tree and returns the first
+> > > SPBA bus found, which may not be under the same AIPS bus as the SDMA
+> > > controller.
+> > >
+> > > This breaks SDMA P2P transfers because the SDMA script needs to know
+> > > if peripherals are on SPBA or AIPS to configure watermark levels
+> > > correctly. Using the wrong SPBA bus causes DMA timeouts and transfer
+> > > failures.
+> > >
+> > > Fix by searching for the SPBA bus under the SDMA's parent node (AIPS)
+> > > first, then falling back to a global search for backward compatibility.
+> > >
+> > > Example device tree showing the issue:
+> > >   aips1 {
+> > >     spba1 { sai@...; };      /* Correct SPBA for sdma1 */
+> > >     sdma1@...;
+> > >   };
+> > >   aips2 {
+> > >     spba2 { uart@...; };     /* Wrong SPBA - found first by old code */
+> > >   };
+> > >
+> > > Fixes: 8391ecf465ec ("dmaengine: imx-sdma: Add device to device support")
+> > > Cc: stable@vger.kernel.org
+> > > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> > > ---
+> > > changs in v3:
+> > > - add fallback to a global search for backward compatibility, which is
+> > >   to address comments from sashiko.dev
+> > > - update commit subject and commit message
+> > > - add comments in code.
+> > > - add Cc stable tag
+> > > - Don't add Frank's RB on v2 as there are several other changes.
+> > >
+> > > changes in v2:
+> > > - add fixes tag
+> > > - use __free(device_node) for auto release.
+> > >
+> > >  drivers/dma/imx-sdma.c | 13 ++++++++++++-
+> > >  1 file changed, 12 insertions(+), 1 deletion(-)
+> > >
+> > > diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
+> > > index 3d527883776b..592705af2319 100644
+> > > --- a/drivers/dma/imx-sdma.c
+> > > +++ b/drivers/dma/imx-sdma.c
+> > > @@ -2364,7 +2364,18 @@ static int sdma_probe(struct platform_device *pdev)
+> > >                       return dev_err_probe(&pdev->dev, ret,
+> > >                                            "failed to register controller\n");
+> > >
+> > > -             spba_bus = of_find_compatible_node(NULL, NULL, "fsl,spba-bus");
+> > > +             /*
+> > > +              * On i.MX8M platforms with multiple SPBA buses, we need to find
+> > > +              * the SPBA bus that's under the same AIPS bus as this SDMA controller.
+> > > +              * First check the SDMA's parent (AIPS bus) for a child SPBA bus.
+> > > +              * If not found, fall back to searching the entire device tree for
+> > > +              * backward compatibility with older platforms.
+> > > +              */
+> > > +             struct device_node *sdma_parent_np __free(device_node) = of_get_parent(np);
+> > > +
+> > > +             spba_bus = of_get_compatible_child(sdma_parent_np, "fsl,spba-bus");
+> > > +             if (!spba_bus)
+> > > +                     spba_bus = of_find_compatible_node(NULL, NULL, "fsl,spba-bus");
 > >
-> > To ensure the TPM device operating over the FF-A protocol with
-> > the CRB interface is probed before IMA initialization,
-> > the following conditions must be met:
-> >
-> >   1. The corresponding ffa_device must be registered,
-> >      which is done via ffa_init().
-> >
-> >   2. The tpm_crb_driver must successfully probe this device via
-> >      tpm_crb_ffa_init().
-> >
-> >   3. The tpm_crb driver using CRB over FF-A can then
-> >      be probed successfully. (See crb_acpi_add() and
-> >      tpm_crb_ffa_init() for reference.)
-> >
-> > Unfortunately, ffa_init(), tpm_crb_ffa_init(), and crb_acpi_driver_init() are
-> > all registered with device_initcall, which means crb_acpi_driver_init() may
-> > be invoked before ffa_init() and tpm_crb_ffa_init() are completed.
-> >
-> > When this occurs, probing the TPM device is deferred.
-> > However, the deferred probe can happen after the IMA subsystem
-> > has already been initialized, since IMA initialization is performed
-> > during late_initcall, and deferred_probe_initcall() is performed
-> > at the same level.
-> >
-> > To resolve this, move ima_init() into late_inicall_sync level
-> > so that let IMA not miss TPM PCR value when generating boot_aggregate
-> > log though TPM device presents in the system.
-> >
-> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
->
-> Awesome. This fixes the problems I saw with an SPI TPM on an NVIDIA GB200
-> system and reported in
->
-> https://lore.kernel.org/linux-integrity/aYXEepLhUouN5f99@earth.li/
->
-> Reviewed-by: Jonathan McDowell <noodles@meta.com>
-> Tested-by: Jonathan McDowell <noodles@meta.com>
+> > And yet the search is still broken for i.MX8MP case since this platform
+> > has two sdma engines below the bus@30df0000.
+> 
+> I tested on i.MX8MP. It works.  Above line is for backward compatibility
+> 
+> The search has no dependence on the number of sdma engines. It searches the
+> spba-bus, not the sdma node. it will find the aips5 first, then find
+> the spba-bus for
+> sdma2 and sdma3.
 
-Thanks!
+And you're abosulte certain that NXP doesn't introduce a 2nd SPBA bus
+below the same AIPS in which case the driver is broken again?
 
->
-> > ---
-> > include/linux/lsm_hooks.h         |  2 ++
-> > security/integrity/ima/ima_main.c |  2 +-
-> > security/lsm_init.c               | 13 +++++++++++--
-> > 3 files changed, 14 insertions(+), 3 deletions(-)
+Sorry for beeing a bit picky. I do see that NXP decided to drop the SDMA
+for i.MX9, at least I don't find any reference in which case I'm fine
+with the patch.
+
+Regards,
+  Marco
+
+
+
+
+> 
+> aips5: bus@30df0000 {
+>       spba-bus@30c00000 {
+>        }
+>        sdma2: dma-controller@30e10000 {
+>        }
+>        sdma3: dma-controller@30e00000 {
+>       }
+> }
+> 
+> Best regards
+> Shengjiu Wang
+> 
 > >
-> > diff --git a/include/linux/lsm_hooks.h b/include/linux/lsm_hooks.h
-> > index d48bf0ad26f4..88fe105b7f00 100644
-> > --- a/include/linux/lsm_hooks.h
-> > +++ b/include/linux/lsm_hooks.h
-> > @@ -166,6 +166,7 @@ enum lsm_order {
-> >  * @initcall_fs: LSM callback for fs_initcall setup, optional
-> >  * @initcall_device: LSM callback for device_initcall() setup, optional
-> >  * @initcall_late: LSM callback for late_initcall() setup, optional
-> > + * @initcall_late_sync: LSM callback for late_initcall_sync() setup, optional
-> >  */
-> > struct lsm_info {
-> > 	const struct lsm_id *id;
-> > @@ -181,6 +182,7 @@ struct lsm_info {
-> > 	int (*initcall_fs)(void);
-> > 	int (*initcall_device)(void);
-> > 	int (*initcall_late)(void);
-> > +	int (*initcall_late_sync)(void);
-> > };
+> > Regards,
+> >   Marco
 > >
-> > #define DEFINE_LSM(lsm)							\
-> > diff --git a/security/integrity/ima/ima_main.c b/security/integrity/ima/ima_main.c
-> > index 1d6229b156fb..ace280fa3212 100644
-> > --- a/security/integrity/ima/ima_main.c
-> > +++ b/security/integrity/ima/ima_main.c
-> > @@ -1320,5 +1320,5 @@ DEFINE_LSM(ima) = {
-> > 	.order = LSM_ORDER_LAST,
-> > 	.blobs = &ima_blob_sizes,
-> > 	/* Start IMA after the TPM is available */
-> > -	.initcall_late = init_ima,
-> > +	.initcall_late_sync = init_ima,
-> > };
-> > diff --git a/security/lsm_init.c b/security/lsm_init.c
-> > index 573e2a7250c4..4e5c59beb82a 100644
-> > --- a/security/lsm_init.c
-> > +++ b/security/lsm_init.c
-> > @@ -547,13 +547,22 @@ device_initcall(security_initcall_device);
-> >  * security_initcall_late - Run the LSM late initcalls
-> >  */
-> > static int __init security_initcall_late(void)
-> > +{
-> > +	return lsm_initcall(late);
-> > +}
-> > +late_initcall(security_initcall_late);
-> > +
-> > +/**
-> > + * security_initcall_late_sync - Run the LSM late initcalls sync
-> > + */
-> > +static int __init security_initcall_late_sync(void)
-> > {
-> > 	int rc;
+> > >               ret = of_address_to_resource(spba_bus, 0, &spba_res);
+> > >               if (!ret) {
+> > >                       sdma->spba_start_addr = spba_res.start;
+> > > --
+> > > 2.34.1
+> > >
+> > >
+> > >
 > >
-> > -	rc = lsm_initcall(late);
-> > +	rc = lsm_initcall(late_sync);
-> > 	lsm_pr_dbg("all enabled LSMs fully activated\n");
-> > 	call_blocking_lsm_notifier(LSM_STARTED_ALL, NULL);
-> >
-> > 	return rc;
-> > }
-> > -late_initcall(security_initcall_late);
-> > +late_initcall_sync(security_initcall_late_sync);
 > > --
-> > LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+> > #gernperDu
+> > #CallMeByMyFirstName
 > >
+> > Pengutronix e.K.                           |                             |
+> > Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+> > 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+> > Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 > >
->
-> J.
->
-> --
-> ] https://www.earth.li/~noodles/ []  "Do I scare you?" "No." "Do you   [
-> ]  PGP/GPG Key @ the.earth.li    []   want me to?" -- Wayne's World.   [
-> ] via keyserver, web or email.   []                                    [
-> ] RSA: 4096/0x94FA372B2DA8B985   []                                    [
+> 
 
---
-Sincerely,
-Yeoreum Yun
+-- 
+#gernperDu 
+#CallMeByMyFirstName
+
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
