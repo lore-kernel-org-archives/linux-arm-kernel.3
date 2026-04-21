@@ -4,60 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DABBCF8FA8C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 15:22:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D157F8FA90
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 15:26:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Z5VlUbXxHfOI0RrYkBS+ONywW+ZbZs3sJr4MjNkKSc=; b=BlwFctgYn4nEa4cy2y6HWE+hTm
-	GwpUtoEL3JcNNLqdmBj7eoI2gUbjrXGLpLyusnEXwkjHOLbJxjXUL+EyGm3AIHpcM/ZDGZJcRbfj0
-	vMmhAJErGysIkLFSY8UvKN0teNRA3ielXO+LCT4vncTpIXdMEAG8l4Blt9kK0FuTwE6TjkROvYSHX
-	E+5Z2OdtwDmKjqKkM4e/RKhHglwvcgxweI6L4yxX1yTdCf2Wosnr/HZaJu7FYweaB1T6tqFzdV8fm
-	iMsGpUugG+LMUc90ajgTi49hOA7uM+vXcEvz4RBtvW4uQbaWSvFuszRsFlmex7x0EQSOcOb7cyGAo
-	x0XBM65w==;
+	bh=HR8pEK2cn0y8lVddup7nzKUo5sA0iDvpJ001KkxeSd8=; b=gp9UDVDFRU/mLsXGMyXBGwq/HA
+	5DytNPqYrSPUPPSGnh54yVtbqCBXtw1VxOq1B+8sApOzO/aDHFtXLCgmSsnn4AoygxhgC5JSfUitV
+	/98XRjrFzADtt6HNmln/jUinWKNxgroe9JQk9jxmE73h+fQiVJFkWeXwkcX3v/ItKwKQ3j5VFb/ba
+	L0ebasA6GO5JIWR+ZQi5R1qacVjbSOGa+j7H85pBwWg3qYMoX6eCwqPjdHxE+f0tRs0C3A+/3Xr1L
+	uriNB4AqNNJsNKbpJgXcYCUg1KuJL6SQpJpFC3zARE5yywv4ULdg4jIbAMLEudws29xAuCOaclCtF
+	rjfpE1ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFCvd-00000008pJT-3IoB;
-	Tue, 21 Apr 2026 15:22:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFCvb-00000008pJ3-2QUl
+	id 1wFCzy-00000008pYY-2Jc4;
+	Tue, 21 Apr 2026 15:26:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wFCzw-00000008pYS-2iPo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 15:22:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BA8F0263D;
-	Tue, 21 Apr 2026 08:22:11 -0700 (PDT)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 32E993FAF5;
-	Tue, 21 Apr 2026 08:22:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776784937; bh=nPGT3rI946WNKlLJ1/PxwpN8nrpXwwpVI88NPQnP758=;
+	Tue, 21 Apr 2026 15:26:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id BDE226011F;
+	Tue, 21 Apr 2026 15:26:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5569AC2BCB3;
+	Tue, 21 Apr 2026 15:26:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776785207;
+	bh=w3GsHD5BJ+Jbn6VdZQFnRDPvTckSfOnqGtiOVW0QHqA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=s9PFCBQnzXXsifSDLMAJDiYgp/ELv3jWXYhoqj5rn8bn/hb3D3HYIUyx4NqQyyZ0a
-	 rNS+8kH96rVZkFUf74Io2v/WdtsEZrta7ThX8yANEkYr7LEVMax/GpQvMxUEClkftr
-	 ABCEOi0eqWF/cHzZ/MzJMQG9psrwFFopJUkcsVjs=
-Date: Tue, 21 Apr 2026 16:22:07 +0100
-From: Joey Gouly <joey.gouly@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
-	Sascha Bischoff <sascha.bischoff@arm.com>
-Subject: Re: [PATCH 06/18] KVM: arm64: vgic: Consolidate
- vgic_allocate_private_irqs_locked()
-Message-ID: <20260421152207.GA3862683@e124191.cambridge.arm.com>
-References: <20260415115559.2227718-1-maz@kernel.org>
- <20260415115559.2227718-7-maz@kernel.org>
+	b=YlydgGTrM+kflkQWRzj/IYRsO0NfvhdryoyQD+E3ABAeB0Qeo9Q+xNyhU2EdzO4hR
+	 v4J/6YTXO97SjlGBdKasA7nINKxfPWsh9ff3yXqKvo2PkWJHX/HnvY3avKf/cRTJmW
+	 kj++F+huXGqh47wZf+uokGMVzbmmWhWGUSlgwaWd5FLHi9ZfdWMSTP/hYQ4ANUJJLC
+	 tTxk5kCN1ib0TGx6TRTusnFyf+ob99+cwFKgp2KepS95SzKx2M2drbAUQTWQ1iUqwC
+	 +anM7DxI6LGDryxBkL0nVPzLLE11BTViN0vTEaj2FCLoR4S/tjCNJ65STus/91D+96
+	 1+HeJAIU6K69A==
+Date: Tue, 21 Apr 2026 16:26:42 +0100
+From: Will Deacon <will@kernel.org>
+To: leo.jiang1224@foxmail.com
+Cc: robin.murphy@arm.com, joro@8bytes.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Stop queue allocation retry at
+ PAGE_SIZE
+Message-ID: <aeeXMrCvOIwvvWy-@willie-the-truck>
+References: <tencent_F6E384A40D990A279B460A0CDE1927FDF509@qq.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260415115559.2227718-7-maz@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_082219_834682_28F112D9 
-X-CRM114-Status: GOOD (  23.88  )
+In-Reply-To: <tencent_F6E384A40D990A279B460A0CDE1927FDF509@qq.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,113 +69,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 15, 2026 at 12:55:47PM +0100, Marc Zyngier wrote:
-> vgic_allocate_private_irqs_locked() calls two helpers, oddly named
-> vgic_{,v5_}allocate_private_irq().
+On Sat, Apr 18, 2026 at 01:31:43PM +0800, leo.jiang1224@foxmail.com wrote:
+> From: LoserJL <leo.jiang1224@foxmail.com>
 > 
-> Not only these helpers don't allocate anything, but they also
-> contain duplicate init code that would be better placed in the
-> caller.
+> In arm_smmu_init_one_queue(), the loop reduces max_n_shift if
+> dmam_alloc_coherent() fails. However, since dmam_alloc_coherent()
+> allocates at least PAGE_SIZE, retrying with a smaller size after
+> a PAGE_SIZE failure is logically redundant.
 > 
-> Consolidate the common init code in the caller, rename the helpers
-> to vgic_{,v5_}setup_private_irq(), and pass the irq pointer around
-> instead of the index of the interrupt.
+> Moreover, if a sub-page retry were to succeed due to concurrent memory
+> release, the hardware would be configured with a smaller queue depth
+> despite a full page being allocated. This leads to inefficient memory
+> usage and unnecessary hardware performance limitation.
 > 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Terminate the loop once qsz reaches PAGE_SIZE to ensure logical
+> consistency and optimal hardware configuration.
+> 
+> Signed-off-by: LoserJL <leo.jiang1224@foxmail.com>
+
+No pseudonyms, please.
+
 > ---
->  arch/arm64/kvm/vgic/vgic-init.c | 45 +++++++++++++--------------------
->  1 file changed, 18 insertions(+), 27 deletions(-)
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 9 ++++++++-
+>  1 file changed, 8 insertions(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-> index 933983bb20052..907057881b26a 100644
-> --- a/arch/arm64/kvm/vgic/vgic-init.c
-> +++ b/arch/arm64/kvm/vgic/vgic-init.c
-> @@ -271,18 +271,12 @@ int kvm_vgic_vcpu_nv_init(struct kvm_vcpu *vcpu)
->  	return ret;
->  }
->  
-> -static void vgic_allocate_private_irq(struct kvm_vcpu *vcpu, int i, u32 type)
-> +static void vgic_setup_private_irq(struct kvm_vcpu *vcpu, struct vgic_irq *irq,
-> +				   u32 type)
->  {
-> -	struct vgic_irq *irq = &vcpu->arch.vgic_cpu.private_irqs[i];
-> +	irq->intid = irq - &vcpu->arch.vgic_cpu.private_irqs[0];
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index e8d7dbe495f0..e0ec118ff560 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -4418,7 +4418,14 @@ int arm_smmu_init_one_queue(struct arm_smmu_device *smmu,
+>  		qsz = ((1 << q->llq.max_n_shift) * dwords) << 3;
+>  		q->base = dmam_alloc_coherent(smmu->dev, qsz, &q->base_dma,
+>  					      GFP_KERNEL);
+> -		if (q->base || qsz < PAGE_SIZE)
+> +		/*
+> +		 * If allocation succeeds, we're done. If it fails, only retry
+> +		 * if the requested size is still larger than a page. Since
+> +		 * dmam_alloc_coherent() allocates at least PAGE_SIZE, retrying
+> +		 * with a sub-page size is logically redundant and could lead
+> +		 * to sub-optimal hardware configuration.
 
-These are allocated in one block with kzalloc_objs(), so this pointer offsetting is fine!
+What do you mean by "sub-optimal hardware configuration"? I think you can
+probably just drop this comment.
 
->  
-> -	INIT_LIST_HEAD(&irq->ap_list);
-> -	raw_spin_lock_init(&irq->irq_lock);
-> -	irq->vcpu = NULL;
-> -	irq->target_vcpu = vcpu;
-> -	refcount_set(&irq->refcount, 0);
-> -
-> -	irq->intid = i;
-> -	if (vgic_irq_is_sgi(i)) {
-> +	if (vgic_irq_is_sgi(irq->intid)) {
->  		/* SGIs */
->  		irq->enabled = 1;
->  		irq->config = VGIC_CONFIG_EDGE;
-> @@ -303,18 +297,11 @@ static void vgic_allocate_private_irq(struct kvm_vcpu *vcpu, int i, u32 type)
->  	}
->  }
->  
-> -static void vgic_v5_allocate_private_irq(struct kvm_vcpu *vcpu, int i, u32 type)
-> +static void vgic_v5_setup_private_irq(struct kvm_vcpu *vcpu, struct vgic_irq *irq)
->  {
-> -	struct vgic_irq *irq = &vcpu->arch.vgic_cpu.private_irqs[i];
-> -	u32 intid = vgic_v5_make_ppi(i);
-> -
-> -	INIT_LIST_HEAD(&irq->ap_list);
-> -	raw_spin_lock_init(&irq->irq_lock);
-> -	irq->vcpu = NULL;
-> -	irq->target_vcpu = vcpu;
-> -	refcount_set(&irq->refcount, 0);
-> +	int i = irq - &vcpu->arch.vgic_cpu.private_irqs[0];
->  
-> -	irq->intid = intid;
-> +	irq->intid = vgic_v5_make_ppi(i);
->  
->  	/* The only Edge architected PPI is the SW_PPI */
->  	if (i == GICV5_ARCH_PPI_SW_PPI)
-> @@ -323,7 +310,7 @@ static void vgic_v5_allocate_private_irq(struct kvm_vcpu *vcpu, int i, u32 type)
->  		irq->config = VGIC_CONFIG_LEVEL;
->  
->  	/* Register the GICv5-specific PPI ops */
-> -	vgic_v5_set_ppi_ops(vcpu, intid);
-> +	vgic_v5_set_ppi_ops(vcpu, irq->intid);
->  }
->  
->  static int vgic_allocate_private_irqs_locked(struct kvm_vcpu *vcpu, u32 type)
-> @@ -349,15 +336,19 @@ static int vgic_allocate_private_irqs_locked(struct kvm_vcpu *vcpu, u32 type)
->  	if (!vgic_cpu->private_irqs)
->  		return -ENOMEM;
->  
-> -	/*
-> -	 * Enable and configure all SGIs to be edge-triggered and
-> -	 * configure all PPIs as level-triggered.
-> -	 */
->  	for (i = 0; i < num_private_irqs; i++) {
-> +		struct vgic_irq *irq = &vcpu->arch.vgic_cpu.private_irqs[i];
-> +
-> +		INIT_LIST_HEAD(&irq->ap_list);
-> +		raw_spin_lock_init(&irq->irq_lock);
-> +		irq->vcpu = NULL;
-> +		irq->target_vcpu = vcpu;
-> +		refcount_set(&irq->refcount, 0);
-> +
->  		if (vgic_is_v5(vcpu->kvm))
-> -			vgic_v5_allocate_private_irq(vcpu, i, type);
-> +			vgic_v5_setup_private_irq(vcpu, irq);
->  		else
-> -			vgic_allocate_private_irq(vcpu, i, type);
-> +			vgic_setup_private_irq(vcpu, irq, type);
->  	}
->  
->  	return 0;
+> +		 */
+> +		if (q->base || qsz <= PAGE_SIZE)
+>  			break;
 
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+I think this part is fine.
 
-Thanks,
-Joey
+Will
 
