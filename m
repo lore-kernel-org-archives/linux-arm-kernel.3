@@ -4,90 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24B1FF8FA6F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 13:04:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BD2AF8FA6F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 13:08:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FBQOOhJtuMIK7z+NDzvJLTiXfa7Z/y1pn32yjdfWc4g=; b=E2zqXNiU06gZwAAjCnavUrvIPv
-	TdTHiPvQx6nOWbetAkpB9H9EmYbp76kX/CtlHigTqxleCiFxbPs+kS2TdQlJep/B088ztOUcRosSB
-	ARK3BdEuQkSpZlATUbMzvkQ9MrmakoPv9DS8y5pAEMoma0g5GBOGpDkMmS2whxvwCEiD03zYiIeDj
-	5uijgPgsN8BimBlXgZRSJHVSI5xkXXoQeg460CGGkBHtpEU7NppHeaSGVT4rjo8lkvhW53ZIBMKst
-	DLz46kQzlavCgEHrt+MVWjwiKjIrQVbv3NLVKKkxaPeXJxIMjg+I1ieyNRRW2xbksa83eaBracwq6
-	n9G7uEJg==;
+	bh=YwlpkKu7YwwjcudQJoK9Zw3nk0h2ATnF/QnLUu9GPBk=; b=3cVESSVWVKe6MZ+Ft3umO6YHQz
+	fy3o6s7XCg3uq6KcV0gZlT47gX6V9Z4RssZcWvxXHLmMQ/g7uXM34/CXTkB+hyfBQJqEVEYjabyJ9
+	yBrsnk/Jieua+OfPjYk/KCgBRI40cd4uzIHuYtlShlZ0a9W+yxzF0RX7fQGLxIUbegAl2kPmZtVoh
+	3VwFPhDq2ygWbuai9hZ/kDcbI3X9oefrOW3zsxjCQqNf5Vlb3EOMpjJfMGb6t0CT5FBijNL0HdNSf
+	kNj2NuOE2nHGZtSoPY3R+M1d7kgBXC3RyX8Ar+DN8ImlD0Y/Rr4uMNeIrmZsrh2PCEu9nitCNV8BZ
+	W12pVuiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFAli-00000008cyp-02bR;
-	Tue, 21 Apr 2026 13:03:58 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1wFApm-00000008diZ-0SDO;
+	Tue, 21 Apr 2026 13:08:10 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFAld-00000008cw5-0cRc
+	id 1wFApj-00000008di9-02wv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 13:03:54 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	Tue, 21 Apr 2026 13:08:08 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 783A46A896;
-	Tue, 21 Apr 2026 13:03:51 +0000 (UTC)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 422C36A8E7;
+	Tue, 21 Apr 2026 13:08:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1776776631; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1776776885; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=FBQOOhJtuMIK7z+NDzvJLTiXfa7Z/y1pn32yjdfWc4g=;
-	b=kKEXAw92FYeULij7EjJYuTyn5HNF1AXRP+t9ofBEpSCbcWL16x4if3J4P3gpKgZ6zXTYHH
-	PuiEWPcH/D0/DZ1SYzvojZg+z7+R6NZiCDeNSeaFo/fZbK43WGvZStgqO7/qYA2yIR/LrA
-	SviJl2jVXPRIiMeeIOFiPIitqVgUYRs=
+	bh=YwlpkKu7YwwjcudQJoK9Zw3nk0h2ATnF/QnLUu9GPBk=;
+	b=pPSIEE7igVz79/Bv9Uyz95n9wcL8qQVfKgz7uAcOVtaAecwfMEzjVg42IwSfJBsMhTC9sz
+	BCNjc9tuy0ruhGHQSN2VABBcgvkXB/eFfN3VhIzTjNCs0TRBO2grFlVk93my61hX+z/bdm
+	I6vlDSrePWQ435btlrrvcChdj4H0ptk=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1776776631;
+	s=susede2_ed25519; t=1776776885;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=FBQOOhJtuMIK7z+NDzvJLTiXfa7Z/y1pn32yjdfWc4g=;
-	b=X6wTj9nlyIf5QLTUfHhxkeTZYRw+nz4G8eULtHsX3+RYisD7hiqWyG58ipNR60i0AZIUQq
-	QBFolFPSfLY33EDA==
+	bh=YwlpkKu7YwwjcudQJoK9Zw3nk0h2ATnF/QnLUu9GPBk=;
+	b=eW6UwXMKUaEXo+IVrZOFZ82mZ3PvHGtekiRTkjjABERyNZDJUbNvBjcSkmM9QaQyEWFuFq
+	p9E2IccyMIGtwcCQ==
 Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=kKEXAw92;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=X6wTj9nl
+	none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1776776631; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1776776885; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=FBQOOhJtuMIK7z+NDzvJLTiXfa7Z/y1pn32yjdfWc4g=;
-	b=kKEXAw92FYeULij7EjJYuTyn5HNF1AXRP+t9ofBEpSCbcWL16x4if3J4P3gpKgZ6zXTYHH
-	PuiEWPcH/D0/DZ1SYzvojZg+z7+R6NZiCDeNSeaFo/fZbK43WGvZStgqO7/qYA2yIR/LrA
-	SviJl2jVXPRIiMeeIOFiPIitqVgUYRs=
+	bh=YwlpkKu7YwwjcudQJoK9Zw3nk0h2ATnF/QnLUu9GPBk=;
+	b=pPSIEE7igVz79/Bv9Uyz95n9wcL8qQVfKgz7uAcOVtaAecwfMEzjVg42IwSfJBsMhTC9sz
+	BCNjc9tuy0ruhGHQSN2VABBcgvkXB/eFfN3VhIzTjNCs0TRBO2grFlVk93my61hX+z/bdm
+	I6vlDSrePWQ435btlrrvcChdj4H0ptk=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1776776631;
+	s=susede2_ed25519; t=1776776885;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=FBQOOhJtuMIK7z+NDzvJLTiXfa7Z/y1pn32yjdfWc4g=;
-	b=X6wTj9nlyIf5QLTUfHhxkeTZYRw+nz4G8eULtHsX3+RYisD7hiqWyG58ipNR60i0AZIUQq
-	QBFolFPSfLY33EDA==
+	bh=YwlpkKu7YwwjcudQJoK9Zw3nk0h2ATnF/QnLUu9GPBk=;
+	b=eW6UwXMKUaEXo+IVrZOFZ82mZ3PvHGtekiRTkjjABERyNZDJUbNvBjcSkmM9QaQyEWFuFq
+	p9E2IccyMIGtwcCQ==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 82326593AF;
-	Tue, 21 Apr 2026 13:03:50 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 4C0E0593AF;
+	Tue, 21 Apr 2026 13:08:04 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id zNZbHrZ152nudQAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Tue, 21 Apr 2026 13:03:50 +0000
-Message-ID: <bbb554a6-2034-4f6e-9b48-fa9e10b4a95a@suse.de>
-Date: Tue, 21 Apr 2026 15:03:50 +0200
+	id woxgEbR252nHeQAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Tue, 21 Apr 2026 13:08:04 +0000
+Message-ID: <8f111841-bb88-4cbb-a3ae-b26ac2f252cb@suse.de>
+Date: Tue, 21 Apr 2026 15:08:03 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/20] drm/atomic: Drop drm_private_state.obj
- assignment from create_state
+Subject: Re: [PATCH v2 03/20] drm/mode-config: Mention drm_mode_config_reset()
+ culprits
 To: Maxime Ripard <mripard@kernel.org>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
@@ -112,9 +111,10 @@ To: Maxime Ripard <mripard@kernel.org>,
 Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
  linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
  intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 References: <20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org>
- <20260320-drm-mode-config-init-v2-2-c63f1134e76c@kernel.org>
+ <20260320-drm-mode-config-init-v2-3-c63f1134e76c@kernel.org>
 Content-Language: en-US
 From: Thomas Zimmermann <tzimmermann@suse.de>
 Autocrypt: addr=tzimmermann@suse.de; keydata=
@@ -141,43 +141,36 @@ Autocrypt: addr=tzimmermann@suse.de; keydata=
  SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
  Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
  4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <20260320-drm-mode-config-init-v2-2-c63f1134e76c@kernel.org>
+In-Reply-To: <20260320-drm-mode-config-init-v2-3-c63f1134e76c@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-3.01 / 50.00];
+X-Spamd-Result: default: False [-2.80 / 50.00];
 	BAYES_HAM(-3.00)[100.00%];
 	SUSPICIOUS_RECIPS(1.50)[];
 	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
 	NEURAL_HAM_SHORT(-0.20)[-1.000];
 	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
 	MIME_TRACE(0.00)[0:+];
-	FREEMAIL_TO(0.00)[kernel.org,linux.intel.com,gmail.com,ffwll.ch,lwn.net,linuxfoundation.org,oss.qualcomm.com,iki.fi,ideasonboard.com,intel.com,linaro.org,kwiboo.se,emersion.fr,amd.com,igalia.com,redhat.com,ursulin.net,sholland.org,raspberrypi.com];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[37];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	ARC_NA(0.00)[];
 	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	ARC_NA(0.00)[];
+	TAGGED_RCPT(0.00)[renesas];
+	RCPT_COUNT_TWELVE(0.00)[38];
+	TO_DN_SOME(0.00)[];
+	FREEMAIL_TO(0.00)[kernel.org,linux.intel.com,gmail.com,ffwll.ch,lwn.net,linuxfoundation.org,oss.qualcomm.com,iki.fi,ideasonboard.com,intel.com,linaro.org,kwiboo.se,emersion.fr,amd.com,igalia.com,redhat.com,ursulin.net,sholland.org,raspberrypi.com];
 	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
+	MID_RHS_MATCH_FROM(0.00)[];
 	FROM_EQ_ENVFROM(0.00)[];
 	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	R_RATELIMIT(0.00)[to_ip_from(RL7gneoo7ydcsn9o76mxr5d8pb)];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,suse.de:mid,suse.com:url,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns]
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Rspamd-Queue-Id: 783A46A896
+	R_RATELIMIT(0.00)[to_ip_from(RLyhjdboxbrjk5hnijtjs4kbm6)];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:url,suse.de:mid]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_060353_508794_83D8B642 
-X-CRM114-Status: GOOD (  18.34  )
+X-CRM114-CacheID: sfid-20260421_060807_356863_535A11B3 
+X-CRM114-Status: GOOD (  18.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -195,47 +188,47 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Hi
 
 Am 20.03.26 um 17:27 schrieb Maxime Ripard:
-> The initial intent of the atomic_create_state helper was to simply
-> allocate a proper drm_private_state and returning it, without any side
-> effect.
+> drm_mode_config_reset() does not reset drm_private_states by design.
 >
-> However, the __drm_atomic_helper_private_obj_create_state() introduces a
-> side effect by setting the drm_private_obj.state to the newly allocated
-> state.
->
-> This assignment defeats the purpose, but is also redundant since
-> the only caller, drm_atomic_private_obj_init(), will also set this
-> pointer to the newly allocated state.
+> This is especially significant for the DP MST and tunneling code that
+> expect to be preserved across a suspend/resume cycle, where
+> drm_mode_config_reset() is also used.
 
-Is this paragraph no longer up to date? Grepping for 
-__drm_atomic_helper_private_obj_create_state returns plenty of callers. 
-Best regards Thomas
+Do we really? There's drm_mode_config_helper_suspend/resume(). Why would 
+drivers do a drm_mode_config_reset().
+
+Best regards
+Thomas
+
 >
-> Let's drop the assignment in __drm_atomic_helper_private_obj_create_state().
+> Let's document this expectation.
 >
-> Fixes: e7be39ed1716 ("drm/atomic-helper: Add private_obj atomic_create_state helper")
+> Link: https://lore.kernel.org/dri-devel/aOaQLx-7EpsHRwkH@ideak-desk/
+> Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 > Signed-off-by: Maxime Ripard <mripard@kernel.org>
 > ---
->   drivers/gpu/drm/drm_atomic_state_helper.c | 2 --
->   1 file changed, 2 deletions(-)
+>   drivers/gpu/drm/drm_mode_config.c | 4 ++++
+>   1 file changed, 4 insertions(+)
 >
-> diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
-> index 76746ad4a1bbb7142c067c93dd05fbec5d2f98eb..875149494b00e1eb7481e87d7d7038103b72b7e3 100644
-> --- a/drivers/gpu/drm/drm_atomic_state_helper.c
-> +++ b/drivers/gpu/drm/drm_atomic_state_helper.c
-> @@ -729,12 +729,10 @@ EXPORT_SYMBOL(drm_atomic_helper_connector_destroy_state);
->   void __drm_atomic_helper_private_obj_create_state(struct drm_private_obj *obj,
->   						  struct drm_private_state *state)
+> diff --git a/drivers/gpu/drm/drm_mode_config.c b/drivers/gpu/drm/drm_mode_config.c
+> index 66f7dc37b5970c0a08f8dde008aef56376c59f37..cba527571ca66d3aa6dc652c87e03a19815d1d41 100644
+> --- a/drivers/gpu/drm/drm_mode_config.c
+> +++ b/drivers/gpu/drm/drm_mode_config.c
+> @@ -187,10 +187,14 @@ int drm_mode_getresources(struct drm_device *dev, void *data,
+>    * @dev: drm device
+>    *
+>    * This functions calls all the crtc's, encoder's and connector's ->reset
+>    * callback. Drivers can use this in e.g. their driver load or resume code to
+>    * reset hardware and software state.
+> + *
+> + * Note that @drm_private_obj structures are expected to be stable across
+> + * suspend/resume cycles, and @drm_mode_config_reset() does not affect these
+> + * structures.
+>    */
+>   void drm_mode_config_reset(struct drm_device *dev)
 >   {
->   	if (state)
->   		state->obj = obj;
-> -
-> -	obj->state = state;
->   }
->   EXPORT_SYMBOL(__drm_atomic_helper_private_obj_create_state);
->   
->   /**
->    * __drm_atomic_helper_private_obj_duplicate_state - copy atomic private state
+>   	struct drm_crtc *crtc;
+>   	struct drm_colorop *colorop;
 >
 
 -- 
