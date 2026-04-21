@@ -4,52 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DDB8F327BD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 09:45:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4838FF327BD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 09:45:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CV9c1b3x442J4d7fS2IkKGulkxFv3w2YEEORXf6cDj8=; b=Fkbn1rnx+Emcw9PuZX6GsAxpy1
-	Oy53caBPBgeDrf9hAP8gAgjzN6liGyHafG9VQ5382Vfee4lSzZlBbDLWOXhcSibzmaFEn2aXV5UMR
-	sb6mnflS1yj/Y8s7co2EZTgiVKVM6UndIpdD+/A/AttnZIfVdIxbDWC1LTOhaBAB+CmBLllCov+mo
-	gHrd4Ql7GhG2/x0xw2NWJjIBhkqUrWHXSzjANZA91ebsDPbWgqLzuY3rRHnbhaU/tLRgGRHwslxBM
-	F1zl3Rng0gCNs7yBAepVc0gwnhYT40ENWT/zuvAJ7MknX5PWG02unr8KygGTK3FovrcfTI5d7XvpW
-	59euTf5w==;
+	bh=dNG/Y20//o8s/WKC5TFEmO5f5/3pr9Lb0W7Zg73YSGA=; b=b/zaMpdshjqDh/+frVhpVu3Vdz
+	eyFxicX6JKsVj6Hj+jNyGeTGLNsCeS9tVlvT4WThaLMNwQ7JQF6pevna4fl5QjtuLuUlnK9Oa7qpU
+	T6F6DqR+Y1bUIBOrKJa7gvim7RC4A6tCKz7T4TTNIN5wTJHNNln0nnzfBvfk1ZV+3+ZLn9R0+1zsZ
+	UP1GP7T8pKRBp5DMsvS0uQhdIMHtomh1JqcxIMVceO1cqomGirH2zGRibfEj+M0/vYQDPKCGUI6Ph
+	YYZJUXVnyMhrfNiyWN3iPT3UjAVnus5etw7GGQkWtnPtjq1bJwuIWfWHvMMi5w+ifkDti4uFJaTQ1
+	uXZye7Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF7fj-00000008M4r-0ORv;
-	Tue, 21 Apr 2026 09:45:35 +0000
-Received: from smtp-42ad.mail.infomaniak.ch ([84.16.66.173])
+	id 1wF7fo-00000008M9d-2bf3;
+	Tue, 21 Apr 2026 09:45:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF7fc-00000008Lzq-0smT
+	id 1wF7fm-00000008M6n-0ZnN
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 21 Apr 2026 09:45:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=dNG/Y20//o8s/WKC5TFEmO5f5/3pr9Lb0W7Zg73YSGA=; b=p0XdMbRyy9RhnjXLgncZZYI4sF
+	Gb3CN8Ea9j2wbDnHb3pndYZSvCF2eyb+Gv7m7HvHEEyKsrEGG+POuItvr1LS2Un5kq87vFTUExzgT
+	xcjo4f7VcB6c8F9ikJ6fJUF4NkRe9GZgkFVTI9kbP1TAJxrVKD3XRVvB8GofPZI8yJPLYGj/F0DiP
+	6HKMtmZPCGgq8Y8we4635Jbwi4ICAEI+6d7sjHEAjTd6PFXHyK3tz73NUYZomXz89eotKPEJMIIDr
+	LjtqeHS5qckvnS4SoQF0zFQ9NBQtDsNlZdHr4SVjIiE449jKMtwFiyF5bvr+JuDrsdEOmIHTanDa/
+	tkpUP2sg==;
+Received: from smtp-42ab.mail.infomaniak.ch ([84.16.66.171])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wF7fd-00000009Vam-0FuO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 09:45:30 +0000
+	Tue, 21 Apr 2026 09:45:33 +0000
 Received: from smtp-4-0000.mail.infomaniak.ch (unknown [IPv6:2001:1600:7:10::a6b])
-	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4g0HXM6MgnzXpK;
+	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4g0HXM00Krzbqp;
 	Tue, 21 Apr 2026 11:45:23 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=0leil.net;
-	s=20231125; t=1776764723;
-	bh=CV9c1b3x442J4d7fS2IkKGulkxFv3w2YEEORXf6cDj8=;
+	s=20231125; t=1776764722;
+	bh=dNG/Y20//o8s/WKC5TFEmO5f5/3pr9Lb0W7Zg73YSGA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=MuBqGykWqgBJzLlqi7pe3zx6e3hd5EYSpG6cJ0iJiKGsy9flvPEmCZa7V2lTOnv70
-	 5T7ekGqlve+q3Ui5cwBSRVar4v+t4xTDA+5g3VUibJLiOBebp090IUfcCGqB5kaMpn
-	 n0VF9VymGzVM/SpU2J4uuYrDwRJlEKvXWR/pbU7KKV6j/zLQoBwEuGD6WleMsz7ILx
-	 po1tpN6CHfvgnd7qCu9xJym4owq09TQo5Kdgqe++7eApSy1DciZyG32QCaHWuWvrr5
-	 W/uDHntsHUZuU6mACQcv7fppI0njjp/wrxvw/7F9tuh7pfbVabXRtM+v+DPQRGiJKl
-	 /Ral8emt65UVg==
-Received: from unknown by smtp-4-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4g0HXL6s14zb5b;
+	b=m6tjE2QwToZnbli7rrQbIaNnibN82woMW1IErKpEEBaZmNpq8iyeihtoxEuMrrjjN
+	 tEQgCM2HrrPa6dBDgFNHL9Gm2fzuAABNXl2XP74q89iT+ZLkrJM5y/4lkaDMsDb9SO
+	 PjvEVDvSFTRRHjvUMbatYIvkY+jV6/7IIC+JIlmhCPIpeAklgHR81cKwxLbm1HbAIo
+	 Kkg2htoGVyG3eAun/CMlz8bfv0n5XGNTHbu76DKmLtB6lq/Fw6IHOUZgexVOvVKm53
+	 xD+DgXvbGS6C0cil9NaBnmeMNLS30nZ+oHyhC5aM6j3WvChvd4pfdVG5ptY7pz9LSD
+	 +ta/wvaKp3ouQ==
+Received: from unknown by smtp-4-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4g0HXL0Qv6zbgQ;
 	Tue, 21 Apr 2026 11:45:22 +0200 (CEST)
 From: Quentin Schulz <foss+kernel@0leil.net>
-Date: Tue, 21 Apr 2026 11:45:06 +0200
-Subject: [PATCH v2 2/2] arm64: dts: rockchip: fix Ethernet PHY not found on
- PX30 Ringneck
+Date: Tue, 21 Apr 2026 11:45:05 +0200
+Subject: [PATCH v2 1/2] arm64: dts: rockchip: fix Ethernet PHY not found on
+ PX30 Cobra
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260421-px30-eth-phy-v2-2-68c375b120fd@cherry.de>
+Message-Id: <20260421-px30-eth-phy-v2-1-68c375b120fd@cherry.de>
 References: <20260421-px30-eth-phy-v2-0-68c375b120fd@cherry.de>
 In-Reply-To: <20260421-px30-eth-phy-v2-0-68c375b120fd@cherry.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -57,12 +72,12 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: Andrew Lunn <andrew@lunn.ch>, Heiko Stuebner <heiko.stuebner@cherry.de>, 
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Quentin Schulz <quentin.schulz@cherry.de>, stable@vger.kernel.org
+ Quentin Schulz <quentin.schulz@cherry.de>
 X-Mailer: b4 0.15-dev-47773
 X-Infomaniak-Routing: alpha
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_024528_700067_CFBE9E24 
-X-CRM114-Status: GOOD (  15.60  )
+X-CRM114-CacheID: sfid-20260421_104531_592054_800B29C0 
+X-CRM114-Status: GOOD (  15.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,23 +112,17 @@ The devices in the field only ever had a TI DP83825, so let's simply
 bypass the auto-detection mechanism entirely by passing the appropriate
 PHY IDs via the compatible.
 
-Note that this is only an issue since commit e463625af7f9 ("arm64: dts:
-rockchip: move reset to dedicated eth-phy node on ringneck") as before
-that commit the reset was done by the MAC controller before starting the
-MDIO auto-detection mechanism, via the snps,reset-* properties.
-
-Cc: stable@vger.kernel.org
-Fixes: e463625af7f9 ("arm64: dts: rockchip: move reset to dedicated eth-phy node on ringneck")
+Fixes: bb510ddc9d3e ("arm64: dts: rockchip: add px30-cobra base dtsi and board variants")
 Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
 ---
- arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi | 2 +-
+ arch/arm64/boot/dts/rockchip/px30-cobra.dtsi | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi b/arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi
-index 4203b335a2633..973b4c5880e24 100644
---- a/arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi
-@@ -344,7 +344,7 @@ &io_domains {
+diff --git a/arch/arm64/boot/dts/rockchip/px30-cobra.dtsi b/arch/arm64/boot/dts/rockchip/px30-cobra.dtsi
+index b7e669d8ba4d1..add917af5de78 100644
+--- a/arch/arm64/boot/dts/rockchip/px30-cobra.dtsi
++++ b/arch/arm64/boot/dts/rockchip/px30-cobra.dtsi
+@@ -397,7 +397,7 @@ &io_domains {
  
  &mdio {
  	dp83825: ethernet-phy@0 {
