@@ -4,91 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA346F8FA8F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 15:00:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3488F8FA8F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 15:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x3We8v/cWP2gtcTXE3xZoQ0CkfHEqYxB8F5njBD+WhU=; b=K9yrwtcHGxGiYu7JJBvfjRHF68
-	3DeK1zwJ3VjQu2f0CTGfAwDP+1VOvdFapxZRUVxC3Ni6Ny2wggjcBmx1Uz9BMthdrTAvrJG0tWePU
-	MifWKPDYZqhBYxrD96nrCVdGtqg8mWLlfxVG8fXfAVuTfroU41Vaf5CiHJuOJ8CHz0tEYKS63dt2A
-	damRk0PMFUFJawWL8Ido16Fb8/caxLHgAMkgdafEPb9mP3TiQ7+Kda3tmXDYLPr92M08fxlmBIasr
-	jHxZRV5w41qgfL9MXXXeZKaGssCHz7ZGnLDqGevFARWhwiwlp981TK/YM7hHUucFSzz7AdDV7J5t1
-	IfscVCXw==;
+	bh=BY4ZcYeKT1ZmWpHrs72wtBIW2jKai2+yD2DksELsrlI=; b=vuSa08bw9jEFkeQIDdScNYzDXp
+	pru0dGCycYlpO0OGyldYvgYSN8qAcEqBzeN3ySY6yKhTXpnvhKFTOrNewRv6yoI4Poz0ET4DzGDiF
+	MeGy4zgzGsSiJ1L8WALFszbBnV12aGroVmIEiIzwKgU4Ha1e1T2Pmz7tLyWYWOc/cRbwWW1hRJ327
+	mm91KWaZ/rR4XtcQqDDUpO8Q9U3hXgpUJIFmlsO/JLWFKrSmjgreidHtZl/G+IZq5ZlumXlO/P6mP
+	Vkk5XgP2zF8Vw+lWqY5QQt5WCd17/wJjt8olwxwR8m3Q5NpUKQzkfonr38zuN13fpDwG4HzAa42hG
+	6CJoDx7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFCa2-00000008nkl-09gd;
-	Tue, 21 Apr 2026 15:00:02 +0000
-Received: from jpms-ob01.noc.sony.co.jp ([2001:cf8:ace:41::4])
+	id 1wFCah-00000008o6v-3RLL;
+	Tue, 21 Apr 2026 15:00:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFCZz-00000008njg-1F4g
+	id 1wFCaf-00000008o68-2T64
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 15:00:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=sony.com; s=s1jp; t=1776783599; x=1808319599;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=x3We8v/cWP2gtcTXE3xZoQ0CkfHEqYxB8F5njBD+WhU=;
-  b=vk1R7ZYbA7tTYgDgrZI/gZHiqrJqn5r5blKHeWiAlUJ/BtdPQF8jkUEt
-   iV14LPLCMpZ0c4hOChUcydccWXSuREQZ8Dc1QEnYzYBazLIkoLPNMWl/g
-   6q8nFrG+xrIavVk/zzAozPQkUyhEnbLfvzvfQSkj1cjBopVML2g4AXB/3
-   MmIBwGeS8tTnmvJy80OU2Tgk5s64A8iaDVHQLooceKadP0QZMNpt2YTIR
-   pI0XOcgDT62IDefy+mMvLo40TYCrRIN9GnDFfV0PcfW8nnIFivFGd4Bzi
-   KV25QM1TWO88+4/3Q04tSSPb7eixr4G9ms0VeWhnQdmW/XuNjGCWQ2lLR
-   A==;
-X-CSE-ConnectionGUID: 7YcWXDMFSr2vGakNyQmKZw==
-X-CSE-MsgGUID: CA9mzlDuRueJWUWadCW0/A==
-Received: from unknown (HELO jpmta-ob02.noc.sony.co.jp) ([IPv6:2001:cf8:0:6e7::7])
-  by jpms-ob01.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Apr 2026 23:59:52 +0900
-X-CSE-ConnectionGUID: 3RyYrMSERUKfI0QHkYxSQQ==
-X-CSE-MsgGUID: 6ScaAiufTta8VQMfoRcw9g==
-X-IronPort-AV: E=Sophos;i="6.23,191,1770562800"; 
-   d="scan'208";a="603084691"
-Received: from unknown (HELO JPC00244420) ([IPv6:2001:cf8:1:573:0:dddd:eb3e:119e])
-  by jpmta-ob02.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Apr 2026 23:59:53 +0900
-Date: Tue, 21 Apr 2026 23:59:51 +0900
-From: Shashank Balaji <shashank.mahadasyam@sony.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Kay Sievers <kay.sievers@vrfy.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Rahul Bukte <rahul.bukte@sony.com>,
-	Daniel Palmer <daniel.palmer@sony.com>,
-	Tim Bird <tim.bird@sony.com>, linux-kernel@vger.kernel.org,
-	driver-core@lists.linux.dev, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] kernel: param: handle NULL module_kset in
- lookup_or_create_module_kobject()
-Message-ID: <aeeQ5x1uMKT6cyxp@JPC00244420>
-References: <20260421-acpi_mod_name-v2-0-e73f9310dad3@sony.com>
- <20260421-acpi_mod_name-v2-1-e73f9310dad3@sony.com>
- <2026042126-majesty-skyline-b76f@gregkh>
+	Tue, 21 Apr 2026 15:00:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id ADBB043AFF;
+	Tue, 21 Apr 2026 15:00:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9CA3C2BCB3;
+	Tue, 21 Apr 2026 15:00:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776783640;
+	bh=BY4ZcYeKT1ZmWpHrs72wtBIW2jKai2+yD2DksELsrlI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ERt1o4lL3QHb0fVTF8vh9a3mUdbO0p5VO/YRBwmuIRL94sD/tyTyP6aeWj006xAvS
+	 +ZJ2z29sOxThUErLS3YqW5ZC7mMN2cYxlUKDe6iRNssdIwKiVucWSIKTHqTChO+wO1
+	 6CqYw2cL2JvDiMCUNRoou6+klBt5InVISxO+3wgFXBi2bL1mNZH+AWXj/f/BUyeqBG
+	 k6xCiw795YyRG2oP8xekQFwA8SwlxXMXbDVzBny9FwaDUvcUWlodQbIhsIThk5uTLG
+	 z9Lu81IAUEbeaG6g4Xh08/OxKCPw0OzvFouIoPqjPaCChTFrkEc1Lq7b8BjDlj2Z2k
+	 5Hi/TnF7VsFCg==
+Date: Tue, 21 Apr 2026 16:00:36 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>, Shuah Khan <shuah@kernel.org>,
+	Will Deacon <will@kernel.org>, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 3/4] kselftest/arm64: Add POE helpers to
+ test_signals_utils.h
+Message-ID: <2d02b94d-c52c-45f2-9109-b026ee180364@sirena.org.uk>
+References: <20260421144252.1440365-1-kevin.brodsky@arm.com>
+ <20260421144252.1440365-4-kevin.brodsky@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="knx1Nj6YYBbldjdt"
 Content-Disposition: inline
-In-Reply-To: <2026042126-majesty-skyline-b76f@gregkh>
+In-Reply-To: <20260421144252.1440365-4-kevin.brodsky@arm.com>
+X-Cookie: Jenkinson's Law:
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_075959_583885_4560D110 
-X-CRM114-Status: GOOD (  29.41  )
+X-CRM114-CacheID: sfid-20260421_080041_648374_81D8CC9F 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,111 +77,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Greg,
 
-Thanks for the quick feedback!
+--knx1Nj6YYBbldjdt
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-On Tue, Apr 21, 2026 at 08:27:10AM +0200, Greg Kroah-Hartman wrote:
-> On Tue, Apr 21, 2026 at 03:02:34PM +0900, Shashank Balaji wrote:
-> > module_kset is initialized in a subsys_initcall. If a built-in driver tries to
-> > register before subsys_initcall with its struct device_driver's mod_name set,
-> > then a null module_kset is dereferenced via this call trace:
-> > 
-> >      [    0.095865] Call trace:
-> >      [    0.095999]  _raw_spin_lock+0x4c/0x6c (P)
-> >      [    0.096150]  kset_find_obj+0x24/0x104
-> >      [    0.096209]  lookup_or_create_module_kobject+0x2c/0xd8
-> >      [    0.096274]  module_add_driver+0xd4/0x138
-> >      [    0.096328]  bus_add_driver+0x16c/0x268
-> >      [    0.096380]  driver_register+0x68/0x100
-> >      [    0.096428]  __platform_driver_register+0x24/0x30
-> >      [    0.096486]  tegra194_cbb_init+0x24/0x30
-> >      [    0.096540]  do_one_initcall+0xdc/0x250
-> >      [    0.096608]  do_initcall_level+0x9c/0xd0
-> >      [    0.096660]  do_initcalls+0x54/0x94
-> >      [    0.096706]  do_basic_setup+0x20/0x2c
-> >      [    0.096753]  kernel_init_freeable+0xc8/0x154
-> >      [    0.096807]  kernel_init+0x20/0x1a0
-> >      [    0.096851]  ret_from_fork+0x10/0x20
-> > 
-> > So, return null in lookup_or_create_module_kobject() if module_kset is null.
-> > Existing callers handle null already.
-> > 
-> > Fixes: f30c53a873d0 ("MODULES: add the module name for built in kernel drivers")
-> 
-> This isn't a bugfix.
+On Tue, Apr 21, 2026 at 03:42:51PM +0100, Kevin Brodsky wrote:
 
-I'll drop it in the next version.
+> In preparation to adding further POE signal tests, move
+> get_por_el0() to test_signals_utils.h and add set_por_el0().
 
-> > Co-developed-by: Rahul Bukte <rahul.bukte@sony.com>
-> > Signed-off-by: Rahul Bukte <rahul.bukte@sony.com>
-> > Signed-off-by: Shashank Balaji <shashank.mahadasyam@sony.com>
-> > ---
-> > This bug is triggered by the next patch on arm64 defconfig: tegra194-cbb tries
-> > to register from a pure_initcall, and with the next patch adding mod_name, this
-> > null deref is hit.
-> 
-> So this isn't a bug, it's a "don't do that" type of thing :)
-> 
-> > ---
-> >  kernel/params.c | 3 +++
-> >  1 file changed, 3 insertions(+)
-> > 
-> > diff --git a/kernel/params.c b/kernel/params.c
-> > index 74d620bc2521..881c7328c059 100644
-> > --- a/kernel/params.c
-> > +++ b/kernel/params.c
-> > @@ -752,6 +752,9 @@ lookup_or_create_module_kobject(const char *name)
-> >  	struct kobject *kobj;
-> >  	int err;
-> >  
-> > +	if (!module_kset)
-> > +		return NULL;
-> 
-> Are you sure that making this change is going to be ok?
-> mod_sysfs_init() should have been called first as the module has to be
-> created before it can be looked up.
-> 
-> As you are wanting "built in" drivers to show up here, you are going to
-> beat the call to param_sysfs_init(), so don't do that.  Make sure that
-> the drivers are NOT called before then.
+Subject line should probably also say move if there's a v2 but otherwise
 
-The reason lookup_or_create_module_kobject() can be reached with module_kset == NULL
-is that some platform drivers register before subsys_initcall: tegra194_cbb and
-tegra234_cbb at pure_initcall, plus roughly 375 others at core_initcall/arch_initcall
-(208 arch, 154 core, plus 2 pure and 13 _sync variants). These are dominated by
-pinctrl, clk, interconnect, gpio, and mailbox drivers across six SoC vendor trees
-(Qualcomm, MediaTek, Freescale, Samsung, Tegra, HiSilicon).
+Reviewed-by: Mark Brown <broonie@kernel.org>
 
-Given that, three ways forward:
+--knx1Nj6YYBbldjdt
+Content-Type: application/pgp-signature; name="signature.asc"
 
-  1. Move module_kset creation out of param_sysfs_init() (currently
-     subsys_initcall) and call it directly from do_basic_setup()
-     before do_initcalls(). This is the cleanest fix from a
-     correctness angle: every initcall level sees a live
-     module_kset. But it touches init/main.c and kernel/params.c,
-     crosses two subsystem trees. I haven't fully audited
-     dependencies at do_basic_setup() time.
+-----BEGIN PGP SIGNATURE-----
 
-  2. Demote the ~377 early-initcall platform drivers to
-     subsys_initcall or later. Impractical at scale given coordination
-     across six vendor trees, and many of these levels seem to be
-     architecturally required.
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnnkRMACgkQJNaLcl1U
+h9Azogf/SQqDAwRupQHxGlne5yRQN/rE6ll2wslCxDlxuUPdO+ZLDluxI0/NJnrf
+QrfU4Qx17GUnsB0kS7gCpXwmFqYXoQyhBJa9abKmLrD4nw/4snua/MSDiZ9Hut/Q
+jucnIBt4D5KAidScivrMfdpH9iUNadvtJj/0KeYSKznpbL6dcUvA5cNMeGFFn9Bd
+Po/nmHgB+gXVnX5FVlP/wur0u1Ak5Y9IhV6tAnTEizZdmPTB6CV6dntecXhljOFb
+obyaKqIsWAlb28Ts69R2nb+HtHqfJzEHLXelnY9LoShEPrCy7r7Rhy7quVIvu46p
+PaeSUZmZdyessufDP6qeTnEaUsSzZA==
+=PI4t
+-----END PGP SIGNATURE-----
 
-  3. (This patch) Guard lookup_or_create_module_kobject() against
-     NULL module_kset. Drivers registered before subsys_initcall
-     don't get the /sys/.../module symlink, but they don't get it
-     today either (drv->mod_name is NULL pre-patch, so the
-     else-if (drv->mod_name) branch in module_add_driver() isn't
-     taken). Verified on arm64: /sys/module/tegra194_cbb/ does not
-     exist on a booted defconfig with or without my series. The
-     guard preserves that exact state while letting the
-     device_initcall majority get their symlinks as designed.
-
-I went with option 3 because it preserves observable behaviour
-everywhere and keeps the series scoped to driver-core. If you'd
-rather I do option 1 instead, I'm happy to.
-
-Thanks,
-Shashank
+--knx1Nj6YYBbldjdt--
 
