@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BB55F94CAB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 20:24:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6789CF94CAB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 20:24:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=prSl3YomUAP/O+c4YIncfvP9MWtenSiESKpVMQ4hE6Q=; b=K7KZ40TmzHFVzax2wnxHBmlx11
-	Ph1xaN68jn7UMWXhuAeKtiPUjAOvMLjxY2md26+sM0sNDMSUU3Fgh9nWHLKdBb7xSd83jq+Z9Idr1
-	Ij/32hArgGGMqxAoU2liHOlMAgkWJbo4vlUpMbAnt1eAlYlCzFieQbDHEDjke7ehY2jePRX/i6saI
-	XeGE/ddhWxoInZ2LjNSMq4ibIVkF7kYkcCpAPGP37d3wvDXun6ANdr3zYvRbkm8EbXPv4co7Muk7W
-	gxdBoSjqcjS0c3JXJvp8/BR7jONDVMnl5XPOph2KFVnMs2m7320F0d46SDfGyx69W26gEOholq3P1
-	Q3DQa2hw==;
+	bh=44WhVXZvjCMS4S4DPww0qJ5SDrGxnVaZzuAI8zkpcIo=; b=bSIX5d0lIdKPCLgv2BuuRHEgUY
+	DFMqpmubszZygw5I7kC4n9C4rNBFQkmwygp9mbN92qHaANS+hNUXK6Rjw5hdWAKUU0hx7d8iIHXt9
+	XfL2Cqdw2N2KN/ln+4akEWtKHghkDaE5gYRKE6jKlogto0jjmR5uLRwcTW+OXdmCnEA6HMVa0arp/
+	M0733oDKVNDgyqqJuyhuSkK7enHkAOhSUEIlnlTdI0kU47fNaPVX+B+w91bl/4Zg7eXKkyRd5yrth
+	aGe8fSMWXgsKi90LQ3CoyzB4yYp5iWoR67h2FAmpFpMWLZux7KhTmcMwbzpFhQYLK6Ybsn4CAGhvl
+	hCAO/e/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFHe7-0000000982g-3CAE;
-	Tue, 21 Apr 2026 20:24:35 +0000
+	id 1wFHeB-0000000985p-2IUS;
+	Tue, 21 Apr 2026 20:24:39 +0000
 Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFHe5-000000097zx-1Y3p
+	id 1wFHe9-0000000983K-2IRX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 20:24:34 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4891e5b9c1fso26063235e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 13:24:32 -0700 (PDT)
+	Tue, 21 Apr 2026 20:24:38 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4891c0620bcso22401935e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 13:24:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776803071; x=1777407871; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1776803076; x=1777407876; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=prSl3YomUAP/O+c4YIncfvP9MWtenSiESKpVMQ4hE6Q=;
-        b=mvb3OjaXP0WzQPUgqfJHy75pkf3CECvTxh7VLBgXr9eqLNj67w+ionhVLroixuzfks
-         czSiUHJ9cMx76M/JdFSpL5cOop9272xMKqpG6U+bAN7zajU+TcCD2HE4Srh/ukyrrgLo
-         8avDRHWvHVtm6p6gTgYz1K87NMgpk5HKqj3s0iiWVi17Bw+0dnVc0EQQ2tJa6VFGmBwf
-         eCQ1iQSSO4NEN0dQG9w4ZTOnYkJGWAX//f/SzkuFrxifsmYcw9r6rWGpxfbEqgR7pWOR
-         wjxO7/3/eFfGzceNiFBpBU16Ad6iczVN/KfjOC2hVNFuIiurKoQMamVX8DzO+CFZYalr
-         B+AA==
+        bh=44WhVXZvjCMS4S4DPww0qJ5SDrGxnVaZzuAI8zkpcIo=;
+        b=ccwgshykksGDeNl1iOzHNm8BA602RYFrhIGbSjp9+U8FXpDfVBtTJZNjTWdn+z2c8K
+         cD7ZS8DS2Ji7Ft8yd9K3FQlrm6rgNi+n5s7aPMa1olmkHtDABtbR+Fgk1QpvpDorDAO8
+         eM2cd3T36iF22cm/9ABVCHO8q9s9PET2JS8uaTuBpxoGyajKfhyR6HYae/lo8WMfW4YL
+         4jkqb+aJ9eEMo/fsJ2xbeTwuhJmVgvpMZOLncoE7unXa+JPT7/m+T7rkxTvdMY1hr6yK
+         rdcFW28SgbqvckE1tSwmHqo8r3t7eLqsV7BaRBac+eVq1t6hZj7k3CCMXwbMZCqGIJNM
+         yMzQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776803071; x=1777407871;
+        d=1e100.net; s=20251104; t=1776803076; x=1777407876;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=prSl3YomUAP/O+c4YIncfvP9MWtenSiESKpVMQ4hE6Q=;
-        b=PCxZOOrXUais+1Aoiqjbxggt/hwYAnVgn74zhpUsvmzdS+Rvg6eX/Yla/p9aT8qrU9
-         CqolIXxPzkKignUsr2SibAayTk4dW9t0+wHF/t+M1LnbOyyg1s74Cof1Xu7e+7QRUPha
-         TYIiezBSYCUU+snSxe4OVeZjralj22GPRDNTkjxlsUotpldMwRRBviCk8rK4FmfJ3uYf
-         7tkqShIkqmR/m3G4rlHNp4e8VstQ7vBgT9GwWYsQ4i3FaXdQZa6XL4nTrOg8ihQj6pTP
-         46ofy4TEKivi3Zqm+m3PhA8wmJMOu38i/9XAlPYNE13o3bxk396E+EVsKt8msE8KQRJP
-         cMhQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8nUt0ZvsCt5iloj/ySgzFQqIyWOOWmgo6Bqte90h0zzpyGEaYbg3xbJyYK7yfwGrlP1dBTxqfkoY3zV1urVA+7@lists.infradead.org
-X-Gm-Message-State: AOJu0YwI9ZsTe2bfAeF/PNIhDB6hUViKaMgj8ZehHYA/L/uhTF4ByJnT
-	iMKygHzlVhlXfz9ELOV5Jm5Skqtl4sBBedSY2EESeoDZjzaNfywxrqOB
-X-Gm-Gg: AeBDietKD+XOp3dKfLbz9fKFJdArwJFFDNk+MINV2wv9qvaMh1nMSuBcaVOK3c9VcLQ
-	18ebQ8iVvrkEqKm5XIOzGvN3yDlWr+dzRBhR1+GaE63rURldv3xNb0fYOh7i6QXQNw/7yoJsLYe
-	zfwEiKDPQsQ/CwszpcF0qYb7rCtuLUHKaWjzJmQbfCvSjJmRPhL3V5I96+IH0CX7jM03yftqfmL
-	NT64E8a7RuKN0qh14IR4oemP8shTX8aDPX+Oj1trlgkbnp9e+8eG5VGhdvj32jekJ0wwKAwSgmu
-	VAM9i8CItnD846x+hibjlzotD710Ira9ehPYvm38KoPa5103HU09b9GTZ1pqboiWkvvgUbiBsRy
-	A6fD1Hftbn4QrUn9hWLNeFsA8UMUcHIT4vBterqH5uVeCCztDzK5cVwz0J4YCeWoin/bYcY9HO5
-	FOGniu/SaKRIidL2nmAI9MjIv/tQ5mtfyrCEN0/3M2m5gS
-X-Received: by 2002:a05:600c:c0c8:b0:488:a824:fe04 with SMTP id 5b1f17b1804b1-488fb787bfdmr213701545e9.26.1776803071290;
-        Tue, 21 Apr 2026 13:24:31 -0700 (PDT)
+        bh=44WhVXZvjCMS4S4DPww0qJ5SDrGxnVaZzuAI8zkpcIo=;
+        b=DzGv4hI+0lJV3szCiBm/20eaKxfDepHI7E59JaMfGfz24txo4g4g3X7jj7agO1yEMe
+         EBq1LdJzpxgthq2Ju5Bc0Uz8jqFsal3rsYswNwx8gdMBgxMZfTAcJoKOHiv82EqS9W7S
+         tgA6vyKLsVnqncIlMFX/DiUcxAFvwekr/ofa420hqEMY53CIjuCkarzq1rewPE73kKa9
+         AjEoTk8pBmjooFtfXWdJ3dAlRm3u0vfAs/rAgysF934t01kT001OH6p7tqy6q9unjiB0
+         BgRLnAkT+KimJeArW6ZRb5SoTczcKoxrPjMY8/V3Rt4LsNI+VLKuCRBmimzyTeUO04xQ
+         6ssQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+aajeriM+A9ZdS3KJwHv0dCGlnkfG0IwPLeQ6PsCHS6eKrvrkQefx8Ln31LnGM8FY+u3iNo784qEUv+ErQ0YIf@lists.infradead.org
+X-Gm-Message-State: AOJu0YzN+jXsk0JOKw1Lc1kNMe8eBlVzNhnCqdbNzl4nzi73Tg4ei3aB
+	pIqgWeW9pqr1lPiJM+adb3Jl/2RyQSSf0X4EtZyiwR4Q1URirzORPeBKdPWhkWHuB9U=
+X-Gm-Gg: AeBDiess8ishfOU26VFMYgpSdvV0WbGQVaVPYu+fyAZ4UqwhghCYTpsZQ4QQlG/k5P6
+	Ggvixf1zobtH0FoDaERTMz3LkETtsi8HJOyKj09Pe7z3u25TDwHgU6VG5yLmnFSkDZkQ/L9srIr
+	hHsOSGoYzDKXdokZ1h46uEd0P/mTWAjz4Jlwp8a2CU+VvYVNgwSCPEL3DzImzYpATv2/SENNX8u
+	w7D2Sp2D1JlQtgQCYTLqHRFPlUDTK0wwDGwLKPVQD5+X/XVALknIg7lqTDb/na5zlZLnGqnlWAf
+	pphzjxTLm0RIAYVGM/ocseBzR2Yfu91gAn4HGbuhOyndRbVI8FdEruZALcgyaXcGMukm4gVb0JQ
+	Mn9KCR0QeDcwhPMXoyyRyiGpDRD8zbATVXBqkvFJT1PAgyEAW+7ZOQFBw+zI9Z/1HMasThhrSBx
+	L0P9xg+k0AbB8Ex3SensNoS4sQn9pVVWz9k+z0TURoxkxL
+X-Received: by 2002:a05:600c:3150:b0:480:3ad0:93bf with SMTP id 5b1f17b1804b1-488fb7930famr289331985e9.24.1776803075829;
+        Tue, 21 Apr 2026 13:24:35 -0700 (PDT)
 Received: from [192.168.0.2] ([197.250.227.85])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488fc0f82bbsm655989805e9.3.2026.04.21.13.24.26
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488fc0f82bbsm655989805e9.3.2026.04.21.13.24.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Apr 2026 13:24:30 -0700 (PDT)
+        Tue, 21 Apr 2026 13:24:35 -0700 (PDT)
 From: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-Date: Tue, 21 Apr 2026 23:23:15 +0300
-Subject: [PATCH v5 7/8] ARM: dts: Declare UARTs on zx297520v3 boards
+Date: Tue, 21 Apr 2026 23:23:16 +0300
+Subject: [PATCH v5 8/8] ARM: defconfig: Add a zx29 defconfig file
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260421-send-v5-7-ace038e63515@gmail.com>
+Message-Id: <20260421-send-v5-8-ace038e63515@gmail.com>
 References: <20260421-send-v5-0-ace038e63515@gmail.com>
 In-Reply-To: <20260421-send-v5-0-ace038e63515@gmail.com>
 To: Jonathan Corbet <corbet@lwn.net>, 
@@ -93,26 +93,26 @@ Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
  soc@lists.linux.dev, linux-serial@vger.kernel.org, 
  =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2509;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2988;
  i=stefandoesinger@gmail.com; h=from:subject:message-id;
- bh=+LNOv45vrQbMiDCXtxIdZ1Z4wULCgyg45rbtYEUkz2k=;
- b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBp59zXfrQzEUhybTMkuA5I94/3Ymni5D6AUZPwC
- aINr5DnuqWJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCaefc1xsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiIQLBAAh13d/JcWPxwb69Uu73n5XpfiUQ8mnSS
- jTntxCjqPXK4oMz2E6WWElqupU9dACH3H2OwKhUt4gX31WdDFm5uhI/zaXfY0IinGaI3Zvm8nVJ
- ySf/MATiAvZ4zlu1Y0SrQIcYLGtu+/ZNa+C3OziXKgQndPs9pHGQgrcQi5WSYoGYGIugmEUJgza
- 9xgnC6N81uTZ5JHFF5AO43J4EpHi/sdgcMzh1HW93NAmKbMfdJA7eRyj70Qg8sOU0DSMrLY6gYl
- WGEfZ1JdnKuGovZpgCzN6bjOPUpS86gq+1sm1S5uUkQdrsYkDHYjD5qYcYOVw0P5/92/ZExfaTh
- wTPr1DzMeIMN4hJqcRwbK4mPrMosRnfPnvf8Rm5bPP4BAZZUIsKacTAYBMCTmB0Y/uywOsbFyul
- bFEZBPdT+6FiGmozmvdzRVcsaKI4Mt82WstZTJPzzxKiESlehgZ41wwJuzydwGe+foprt+IW/+U
- guJu8ff/D6qrdW/2jM1BxM2amnNfJYj8huLkoeK0iOFVNVCWKGu/Sh3/wBe4dP8pgQXeeZ/ZTzx
- cfRPkEnGBQ8vu3E8D7uEWyf8hK/eXqD9WLskT5FpXn/vHz8sVZWuc5IjMf2c+w1bAdrKAEiTGQR
- GIcqUtRIb31dHmISZVwQ6G0hrTHPM99QmoF5IvKMQGWRREWSsPOI=
+ bh=JKyBYy0ZVb6KOG4qaXsDDYoua79I9QXXZhqASx+hdt4=;
+ b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBp59zXRxxeM3L6LvFEMDOBnIMJkPxSOas2y9Hdv
+ YIpcJkPyi2JAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCaefc1xsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiLiQBAAiaNU2eJnnUvEamsnIJPjVgniN25uL7S
+ Yz5non9ycX+C5T/F5q/bvsnDlJnrp67/GJdSQV/6xw51Wbf76xQKhVCWDajplvbXeoRwEVAXm/z
+ bNEXRIrKGFwCpfzOWEeeV5YKbTOvanUR8ihbUD/yyC5v0o8FjKPE1dlQLjKXXpFxe87lGLqMIQv
+ 8b5qZZQ7TkXTXRUJF+ewbW0+R+a2DngtivcmR/gyiYp72726qmz8vPgc3FJCRAfikX8CqFDV4BW
+ QRGrbyhs1vGvmK1K0dIlozq300idh70L2qHfXaIcJyIsAUYVoEmgX3FEoo93hjLzYDt1+/lVM6o
+ jhv0NYcLZY7IlgEqXcwVt5/3qI0CanPXu+Gpt0TeadNgb6bqLFqqHZ0F5OiOI3AbksJtM6SvTR3
+ ikgM2RCl+rRsSFm4wj/FrVWP1UUikjbhsZVOdQvG31kpNXH+8ZNikjOjbDHzqhpg9e3IyQ58Zc0
+ NMO2ZT0kLeKpRgZLm0f6SHN+1iQeONIkpMVicPQ6lDnmG0B6/F2IhtMQezweQeNFBZPpdsuCuO1
+ tydkNzBBPsH/0bd3Ln/4D1lWz5tCnU4UBHva87yQuhrCkbdthOv7M9YjQpj94glLXh5ODR4iLFl
+ CZ4xgNN2zsYRGwj6oc8p7fs45yQLWU/ebZ3Fggnl2Wztnt11p1v4=
 X-Developer-Key: i=stefandoesinger@gmail.com; a=openpgp;
  fpr=4F9C2C8728019633893EBBB98CB81F9A72BBA155
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_132433_442722_1D683C1B 
-X-CRM114-Status: GOOD (  13.91  )
+X-CRM114-CacheID: sfid-20260421_132437_617363_D90655C0 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,87 +127,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This enables existing drivers that already are (UART) or will be (USB,
+GPIO) necessary to operate this board even if they aren't declared in
+the DTS yet.
+
 Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
-
 ---
+ arch/arm/configs/zx29_defconfig | 89 +++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 89 insertions(+)
 
-Changes since v4:
-* Declare all uarts
-* Remove the UART aliases for now. I can revisit this when I get my
-hands on a board that exposes two UARTs.
----
- arch/arm/boot/dts/zte/zx297520v3-dlink-dwr932m.dts |  4 +++
- arch/arm/boot/dts/zte/zx297520v3.dtsi              | 39 ++++++++++++++++++++++
- 2 files changed, 43 insertions(+)
-
-diff --git a/arch/arm/boot/dts/zte/zx297520v3-dlink-dwr932m.dts b/arch/arm/boot/dts/zte/zx297520v3-dlink-dwr932m.dts
-index ac20215fddef..1700f46aba86 100644
---- a/arch/arm/boot/dts/zte/zx297520v3-dlink-dwr932m.dts
-+++ b/arch/arm/boot/dts/zte/zx297520v3-dlink-dwr932m.dts
-@@ -16,3 +16,7 @@ memory@20000000 {
- 		reg = <0x20000000 0x04000000>;
- 	};
- };
-+
-+&uart1 {
-+	status = "okay";
-+};
-diff --git a/arch/arm/boot/dts/zte/zx297520v3.dtsi b/arch/arm/boot/dts/zte/zx297520v3.dtsi
-index 903050c684cb..ca65797ed926 100644
---- a/arch/arm/boot/dts/zte/zx297520v3.dtsi
-+++ b/arch/arm/boot/dts/zte/zx297520v3.dtsi
-@@ -20,6 +20,15 @@ cpu@0 {
- 		};
- 	};
- 
-+	/* Base bus clock and default for the UART. It will be replaced once a clock driver has
-+	 * been added.
-+	 */
-+	uartclk: uartclk: uartclk-26000000 {
-+		#clock-cells = <0>;
-+		compatible = "fixed-clock";
-+		clock-frequency = <26000000>;
-+	};
-+
- 	timer {
- 		compatible = "arm,armv7-timer";
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
-@@ -60,5 +69,35 @@ gic: interrupt-controller@f2000000 {
- 			reg = <0xf2000000 0x10000>,
- 			      <0xf2040000 0x20000>;
- 		};
-+
-+		uart0: serial@131000 {
-+			compatible = "arm,primecell";
-+			arm,primecell-periphid = <0x0018c011>;
-+			reg = <0x00131000 0x1000>;
-+			interrupts = <GIC_SPI 0 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&uartclk>, <&uartclk>;
-+			clock-names = "uartclk", "apb_pclk";
-+			status = "disabled";
-+		};
-+
-+		uart1: serial@1408000 {
-+			compatible = "arm,pl011", "arm,primecell";
-+			arm,primecell-periphid = <0x0018c011>;
-+			reg = <0x01408000 0x1000>;
-+			interrupts = <GIC_SPI 1 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&uartclk>, <&uartclk>;
-+			clock-names = "uartclk", "apb_pclk";
-+			status = "disabled";
-+		};
-+
-+		uart2: serial@140d000 {
-+			compatible = "arm,primecell";
-+			arm,primecell-periphid = <0x0018c011>;
-+			reg = <0x0140d000 0x1000>;
-+			interrupts = <GIC_SPI 2 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&uartclk>, <&uartclk>;
-+			clock-names = "uartclk", "apb_pclk";
-+			status = "disabled";
-+		};
- 	};
- };
+diff --git a/arch/arm/configs/zx29_defconfig b/arch/arm/configs/zx29_defconfig
+new file mode 100644
+index 000000000000..a78decd1d525
+--- /dev/null
++++ b/arch/arm/configs/zx29_defconfig
+@@ -0,0 +1,89 @@
++CONFIG_SYSVIPC=y
++CONFIG_BLK_DEV_INITRD=y
++# CONFIG_RD_BZIP2 is not set
++# CONFIG_RD_LZMA is not set
++# CONFIG_RD_XZ is not set
++# CONFIG_RD_LZ4 is not set
++CONFIG_EXPERT=y
++CONFIG_KALLSYMS_ALL=y
++CONFIG_MMU=y
++CONFIG_ARCH_MULTI_V7=y
++CONFIG_ARCH_ZTE=y
++CONFIG_SOC_ZX297520V3=y
++# FIXME: There is no PSCI on this board, but ARM_GIC_V3 depends on it
++CONFIG_ARM_PSCI=y
++CONFIG_ARM_APPENDED_DTB=y
++CONFIG_CMDLINE="console=ttyAMA0 earlyprintk root=/dev/ram rw"
++# CONFIG_SUSPEND is not set
++CONFIG_BINFMT_FLAT=y
++# CONFIG_UEVENT_HELPER is not set
++# CONFIG_STANDALONE is not set
++# CONFIG_PREVENT_FIRMWARE_BUILD is not set
++# CONFIG_ALLOW_DEV_COREDUMP is not set
++CONFIG_BLK_DEV_RAM=y
++CONFIG_BLK_DEV_RAM_COUNT=4
++CONFIG_CPU_FREQ=y
++CONFIG_CPUFREQ_DT_PLATDEV=y
++CONFIG_PM=y
++CONFIG_PM_CLK=y
++CONFIG_PM_GENERIC_DOMAINS=y
++CONFIG_NET=y
++CONFIG_PACKET=y
++CONFIG_UNIX=y
++CONFIG_INET=y
++CONFIG_DEVTMPFS=y       # FIXME: This is specific to my initrd. Remove before upstream
++CONFIG_DEVTMPFS_MOUNT=y
++# CONFIG_INPUT_MOUSEDEV is not set
++CONFIG_KEYBOARD_GPIO_POLLED=y
++CONFIG_GPIOLIB=y
++CONFIG_OF_GPIO=y
++CONFIG_GPIO_GENERIC_PLATFORM=y
++# CONFIG_INPUT_MOUSE is not set
++# CONFIG_SERIO is not set
++CONFIG_VT_HW_CONSOLE_BINDING=y
++CONFIG_SERIAL_AMBA_PL011=y
++CONFIG_SERIAL_AMBA_PL011_CONSOLE=y
++CONFIG_SERIAL_OF_PLATFORM=y
++CONFIG_SERIAL_DEV_BUS=y
++CONFIG_SERIAL_DEV_CTRL_TTYPORT=y
++# CONFIG_HW_RANDOM is not set
++CONFIG_MFD_SYSCON=y
++# CONFIG_HID is not set
++CONFIG_PINCTRL=y
++CONFIG_GENERIC_PINCTRL_GROUPS=y
++CONFIG_PINMUX=y
++CONFIG_GENERIC_PINMUX_FUNCTIONS=y
++CONFIG_PINCONF=y
++CONFIG_GENERIC_PINCONF=y
++CONFIG_RESET_CONTROLLER=y
++CONFIG_POWER_RESET=y
++CONFIG_RESET_SIMPLE=y
++CONFIG_LEDS_GPIO=y
++CONFIG_USB_DWC2=y
++CONFIG_USB_GADGET=y
++CONFIG_MTD=y
++CONFIG_MTD_OF_PARTS=y
++CONFIG_MTD_BLKDEVS=y
++CONFIG_MTD_BLOCK=y
++CONFIG_MTD_SPI_NAND=y
++CONFIG_SPI_MASTER=y
++CONFIG_MMC=y
++CONFIG_MMC_DW=y
++CONFIG_MMC_DW_PLTFM=y
++CONFIG_STMMAC_ETH=y
++CONFIG_STMMAC_PLATFORM=y
++CONFIG_MDIO_BUS=y
++CONFIG_REGULATOR=y
++CONFIG_REGULATOR_FIXED_VOLTAGE=y
++CONFIG_SRAM=y
++CONFIG_MISC_FILESYSTEMS=y
++CONFIG_JFFS2_FS=y
++CONFIG_CONFIG_TMPFS=y
++CONFIG_PRINTK_TIME=y
++CONFIG_EARLY_PRINTK=y
++CONFIG_DEBUG_LL=y
++CONFIG_DEBUG_ZTE_ZX=y
++CONFIG_DEBUG_LL_INCLUDE="debug/pl01x.S"
++CONFIG_DEBUG_UART_PL01X=y
++CONFIG_DEBUG_UART_PHYS=0x01408000
++CONFIG_DEBUG_UART_VIRT=0xf4708000
 
 -- 
 2.53.0
