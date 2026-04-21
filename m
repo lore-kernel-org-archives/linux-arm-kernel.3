@@ -4,67 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6D79F5A8DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 02:44:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 822B7F5A8D9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 02:58:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=x74P/xP7mH34XJ8aunPnT9EFJkhy0I0k3ymO2xJHrr0=; b=0W7SDzFKHwmbP8pgTGGcPhFTBL
-	Q/+oJDCOqVpu1PJ4q75dnU48LY0272SJDQrRvJDc5bhyZoieTAnqBCiGLoFffbeQRLzVt76IrfmpD
-	CLGhDsqMjSaHV0OaJ3bzRJDZJbX8Ab92Dg3bASvTJGtlQ4AKjWgeQ+vJNSvfV0EkQyg/WNjnIqqUa
-	YYDG47zXZeUuTUahpdQHBTz6D0NCVAzD9S5AGChPTm+lMz00vkjQCEhacjRLN2Ut/GOb2RTS3Wxii
-	JGkItaz/TTk/rFVz3EHiFnt4fs8KxhSm1kbLiWcLDRSFRwiZgmWJ/LdSkmKXLUV0/DRVrdKlvC8Fg
-	nC3Rvy/A==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P8sfVF5aPV6fheRm7xIg/4vXl2F2m+SYWiTCmFqi/mA=; b=BN6ExfThgxKXdKBebGXKet0uF2
+	FmR66LykAfCTVtfMgOfgfdKmog9xPBvKd9r6/sEulqKvksEEFhA+ZAs/S2kmxCtR4d1KBNEnvb4br
+	BDHY3/TTE4Owm5Ux+0/M8eqx+qc8z9WsEvsqKp8IHc6i2wfEL9uqEABzNKWjTizxCopRdmsP6p0K+
+	ST0lq3E0NaswjpbYX0ET23Hin7jFO6FexwlNeiH6yTya8blBUOJZOBF0PkwnJqPxBdzJkhNN9IGbr
+	cBxoGxnh2Q+AyFlKWGjGYnbGwQ2qA/PCyWROQDk0QLu9d74OSlBJ25oMdp7m/7XAdXZ7b/XXwUCB8
+	UGT1qJVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF16H-00000007xCR-0Isw;
-	Tue, 21 Apr 2026 02:44:33 +0000
-Received: from n169-112.mail.139.com ([120.232.169.112])
-	by bombadil.infradead.org with smtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF16D-00000007x9q-1yrO;
-	Tue, 21 Apr 2026 02:44:31 +0000
+	id 1wF1Jx-00000007yAm-0L7Y;
+	Tue, 21 Apr 2026 02:58:41 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wF1Ju-00000007y9T-0NbX
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Apr 2026 02:58:40 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-43fe62837baso2223649f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Apr 2026 19:58:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776740315; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ERgAXBf2tpggKgFYj1WxLsdC5xYT/lxn6csvAT6Y/6nZaTlr2WfZBLNKdqSSLzSBBv
+         tsiBvid+dk/Ha+7N/8fn5/J1p8pg0SoUS1EmeEuz38VeHfUNZRR5wLvM6hldZrFLFNcP
+         HhyM297S9DdUJ7q53smq/ZvLVjLl/toTfV5RnYoyOptjxdDQ6Dhv+KqZZ0ZU1XGv0cXU
+         n6gtEpTZjtnvg8G2qelZLTCthsS3sXTS5GxhENnzifhpW8bZZROIn+VwR24Hu05165EE
+         Jcp+MoLLei36+TuwuFQJMNQ8OOnwMb10kvchvhGpL6c02BQZRYB5ClqDEdQ12MdDUOmQ
+         XlwQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=P8sfVF5aPV6fheRm7xIg/4vXl2F2m+SYWiTCmFqi/mA=;
+        fh=Vqsz47Sr8aQ+GDoPgNVF4punvLdRfR2qr5ADLYrmwds=;
+        b=i9vLX9X27wVERv0ANd89v12w2gH9DrAa/sVNMHBze5f5ie2iRHMKn5MDJoRr3unGnc
+         h0Z4DXbJTJbM7qH39H+w+rc9MGQNYUzL9kYLcQzfuflAyezZvckk3lQQQXWNAIDPMNBP
+         bpEh25+fKD1yVGCllK2vnJw7NBcWgO3divJ5CEFvtMYZ9YdrWPNgcHQ6i7uzdgfM7R6P
+         r456ByaXiTPpdoCTArJ8GtDdDGcRCZsM2xdeb8pzkITo12afvF0mIUhgGMxJCTtxA+TU
+         sNE44dDMQ6bgAf1rU9whzDJgLSmJEa7T75V308Od8qAF7c7VD8ROvqt5IfvWY+XAguyY
+         v0+A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=139.com; s=dkim; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=nv0pVy81nB8ijr8fH/wOse2fCi/ONoInZF85o3Fb1jlrQymUSl4NbDzKock5oHcGJqGHQm8DOy1Wd
-	 VYxRttoC2UAM95932WAvYz2D+x8a5JUcB3Xxo7TcZNsl/M9o8lmRHBLfJu+gHZPfYogpgc8N1lb9Sa
-	 9BSTmHVrH/WLE9AU=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM: 
-X-RM-SPAM-FLAG: 00000000
-Received: from NTT-kernel-dev (unknown[60.247.85.88])
-	by rmsmtp-lg-appmail-20-12023 (RichMail) with SMTP id 2ef769e6e487384-013a1;
-	Tue, 21 Apr 2026 10:44:26 +0800 (CST)
-X-RM-TRANSID: 2ef769e6e487384-013a1
-From: Li hongliang <1468888505@139.com>
-To: gregkh@linuxfoundation.org,
-	stable@vger.kernel.org,
-	nbd@nbd.name
-Cc: patches@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	toke@toke.dk,
-	kvalo@kernel.org,
-	johannes@sipsolutions.net,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	nbd@openwrt.org,
-	linux-wireless@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	johannes.berg@intel.com
-Subject: [PATCH 5.10.y] wifi: mac80211: always free skb on ieee80211_tx_prepare_skb() failure
-Date: Tue, 21 Apr 2026 10:44:25 +0800
-Message-Id: <20260421024425.3133110-1-1468888505@139.com>
-X-Mailer: git-send-email 2.34.1
+        d=gmail.com; s=20251104; t=1776740315; x=1777345115; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=P8sfVF5aPV6fheRm7xIg/4vXl2F2m+SYWiTCmFqi/mA=;
+        b=faMcgOW9jbfvbCUh9NJVVRkxeS0V9y2UALJCHm/LoN+m6UHEW1HlGv2G4Nin6LwMGq
+         rmYtItpyVLQ4ANiT5xw9pczvNkKqZItveNUtxiSOlgMhGnXiH48sTqX5XfdTXs2zYFIl
+         yNkHRfTBj/vEjjF6fKqkNzebP0Af+znwjquXPyEayk0V6SzJf1lHxQ0Ytz4+gyQX5D9f
+         OWHyrhkeP5RzhkltA/Wey4rHs9ZPWUrG64ag+LzBBPQbB+44bsmeVxoZQwXpGcY5FViB
+         YUGHy90sZxnvuyEEoR2Qg1RpvcSamKu4uegeIeMoQAPKcv5sJbg/QgiWemwEDP7/oTRq
+         iiKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776740315; x=1777345115;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=P8sfVF5aPV6fheRm7xIg/4vXl2F2m+SYWiTCmFqi/mA=;
+        b=HwG5B1OkHTbVZTtuLQnclOqke18hQ/n9YGd2Mz+qxdWs5eSN0oOr2dc8gthLvqgMX1
+         BLv3uB51kH2sgSAQvHgtr3Gs3X0d/DsP/YmclmaM8kQdTWCuJH0z/j2FKlefavSCDQkr
+         WVBhR6fa67cYzf5jAuF19X2WD5WyStKRIZeAcmThy6UIdTCFLeT2/DXPdPibmm++m9Ma
+         tdpkzGjYX+BHx28Xqiq4rC3za26siVR9bYwCdDqif1bhHh2Kgxkk8wNERJJrqomb61FL
+         jvftmyRi3Hesv0cASO6gwKv61dCwKjOHAtc756oMU8o5n4/YeoU6k68A/e6hDQ1Av/GX
+         PRlg==
+X-Forwarded-Encrypted: i=1; AFNElJ81FaHidjkq24qHhnb6bRo5txM2kSTh51rZlQLY9JFqSxG/t4woxL6wNZwThHsqqnMVwK0c4Jg3icWb2i7dUwck@lists.infradead.org
+X-Gm-Message-State: AOJu0YztecMK319b8E7YTK5BB/KXOuDDtSyAo6U6TKbHqkg6uHbPfIKU
+	Pe82OmWPoF0zFSqarxuLhblyO/cMCutpDWfSP4jeQjSTYryQv1O3+n2ebHqHcHRAQS6M1VJv/i6
+	5Wi9/RBvKSmhkiuzFsKjOP5pZvFSwVs0=
+X-Gm-Gg: AeBDievagOMmVOJUpBR9cgCd7njt1pjJXpjQfcOwc+6MOF1VSdRjzquN4WDDgZh3ZtE
+	21+hjtWEB8hUwxuPIm4oKpDskVCePDGqfZG0wqSrOHZ6ZKTO0yp6B2Ji/vlERQf1Uy+Qhz3JCI1
+	hdrfezGITr2CeKzXwP89O9tEJThPZ8BqJgEaf0IPhEm9zs4zy8oP+sQmfEAkU/GjXS19qFs4w+y
+	FYsTYfBuG0Bd9or+t9G/dfAnuIT1SRnSJT1+Vm1fMUpTJ0+eCIvngZmFpsXP0xXAowjeJjZcl4X
+	oFBsYZB9upidBfkkdcNcfxmfl4s+Gq1abgX+1ITu+iDPVnbar2OJfPeOWluGdFnKBvC/zGEs1Wf
+	Zx4zJXsgsuhEtFeekMMjzaF75TSnKTPmJOltX
+X-Received: by 2002:a05:6000:184d:b0:43c:ef4f:79e4 with SMTP id
+ ffacd0b85a97d-43fe3dfd36fmr23883572f8f.37.1776740315197; Mon, 20 Apr 2026
+ 19:58:35 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260420153603.4097618-1-puranjay@kernel.org> <20260420153603.4097618-3-puranjay@kernel.org>
+In-Reply-To: <20260420153603.4097618-3-puranjay@kernel.org>
+From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Date: Mon, 20 Apr 2026 19:58:23 -0700
+X-Gm-Features: AQROBzCFO23TG2U4gu5nFV1RJmSaVXGhq8AqzBuE83zRbtjTmMjwmjL6kTxPejU
+Message-ID: <CAADnVQJ_D6XyvMHPr59dxZSgFY3+6UayhcWrDC-U2k-Epv-9eA@mail.gmail.com>
+Subject: Re: [PATCH bpf-next 2/3] bpf, arm64: Add JIT support for stack arguments
+To: Puranjay Mohan <puranjay@kernel.org>
+Cc: bpf <bpf@vger.kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Xu Kuohai <xukuohai@huaweicloud.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_194430_060841_A391E198 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20260420_195838_146131_86866BDD 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,106 +122,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Felix Fietkau <nbd@nbd.name>
+On Mon, Apr 20, 2026 at 8:36=E2=80=AFAM Puranjay Mohan <puranjay@kernel.org=
+> wrote:
+>
 
-[ Upstream commit d5ad6ab61cbd89afdb60881f6274f74328af3ee9 ]
+nice and clean. I like how it maps to arm64 calling convention.
 
-ieee80211_tx_prepare_skb() has three error paths, but only two of them
-free the skb. The first error path (ieee80211_tx_prepare() returning
-TX_DROP) does not free it, while invoke_tx_handlers() failure and the
-fragmentation check both do.
+> +       if (prog->aux->stack_arg_depth > prog->aux->incoming_stack_arg_de=
+pth) {
+> +               u16 outgoing =3D prog->aux->stack_arg_depth - prog->aux->=
+incoming_stack_arg_depth;
+> +               int nr_on_stack =3D outgoing / sizeof(u64) - NR_STACK_ARG=
+_REGS;
+> +
+> +               if (nr_on_stack > 0)
+> +                       ctx.stack_arg_size =3D round_up(nr_on_stack * siz=
+eof(u64), 16);
+> +       }
 
-Add kfree_skb() to the first error path so all three are consistent,
-and remove the now-redundant frees in callers (ath9k, mt76,
-mac80211_hwsim) to avoid double-free.
-
-Document the skb ownership guarantee in the function's kdoc.
-
-Signed-off-by: Felix Fietkau <nbd@nbd.name>
-Link: https://patch.msgid.link/20260314065455.2462900-1-nbd@nbd.name
-Fixes: 06be6b149f7e ("mac80211: add ieee80211_tx_prepare_skb() helper function")
-Signed-off-by: Johannes Berg <johannes.berg@intel.com>
-[ Exclude changes to drivers/net/wireless/mediatek/mt76/scan.c as this file is first
- introduced by commit 31083e38548f("wifi: mt76: add code for emulating hardware scanning")
- after linux-6.14.]
-Signed-off-by: Li hongliang <1468888505@139.com>
----
- drivers/net/wireless/ath/ath9k/channel.c | 6 ++----
- drivers/net/wireless/mac80211_hwsim.c    | 1 -
- include/net/mac80211.h                   | 4 ++++
- net/mac80211/tx.c                        | 4 +++-
- 4 files changed, 9 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/net/wireless/ath/ath9k/channel.c b/drivers/net/wireless/ath/ath9k/channel.c
-index 6cf087522157..31b7921bf34f 100644
---- a/drivers/net/wireless/ath/ath9k/channel.c
-+++ b/drivers/net/wireless/ath/ath9k/channel.c
-@@ -1011,7 +1011,7 @@ static void ath_scan_send_probe(struct ath_softc *sc,
- 	skb_set_queue_mapping(skb, IEEE80211_AC_VO);
- 
- 	if (!ieee80211_tx_prepare_skb(sc->hw, vif, skb, band, NULL))
--		goto error;
-+		return;
- 
- 	txctl.txq = sc->tx.txq_map[IEEE80211_AC_VO];
- 	if (ath_tx_start(sc->hw, skb, &txctl))
-@@ -1124,10 +1124,8 @@ ath_chanctx_send_vif_ps_frame(struct ath_softc *sc, struct ath_vif *avp,
- 
- 		skb->priority = 7;
- 		skb_set_queue_mapping(skb, IEEE80211_AC_VO);
--		if (!ieee80211_tx_prepare_skb(sc->hw, vif, skb, band, &sta)) {
--			dev_kfree_skb_any(skb);
-+		if (!ieee80211_tx_prepare_skb(sc->hw, vif, skb, band, &sta))
- 			return false;
--		}
- 		break;
- 	default:
- 		return false;
-diff --git a/drivers/net/wireless/mac80211_hwsim.c b/drivers/net/wireless/mac80211_hwsim.c
-index 037358606a51..865bbe029343 100644
---- a/drivers/net/wireless/mac80211_hwsim.c
-+++ b/drivers/net/wireless/mac80211_hwsim.c
-@@ -2275,7 +2275,6 @@ static void hw_scan_work(struct work_struct *work)
- 						      hwsim->tmp_chan->band,
- 						      NULL)) {
- 				rcu_read_unlock();
--				kfree_skb(probe);
- 				continue;
- 			}
- 
-diff --git a/include/net/mac80211.h b/include/net/mac80211.h
-index 8f91609f928c..70ee982f08d9 100644
---- a/include/net/mac80211.h
-+++ b/include/net/mac80211.h
-@@ -6337,6 +6337,10 @@ void ieee80211_report_wowlan_wakeup(struct ieee80211_vif *vif,
-  * @band: the band to transmit on
-  * @sta: optional pointer to get the station to send the frame to
-  *
-+ * Return: %true if the skb was prepared, %false otherwise.
-+ * On failure, the skb is freed by this function; callers must not
-+ * free it again.
-+ *
-  * Note: must be called under RCU lock
-  */
- bool ieee80211_tx_prepare_skb(struct ieee80211_hw *hw,
-diff --git a/net/mac80211/tx.c b/net/mac80211/tx.c
-index 30ad46cfcad8..b923cd755a68 100644
---- a/net/mac80211/tx.c
-+++ b/net/mac80211/tx.c
-@@ -1869,8 +1869,10 @@ bool ieee80211_tx_prepare_skb(struct ieee80211_hw *hw,
- 	struct ieee80211_tx_data tx;
- 	struct sk_buff *skb2;
- 
--	if (ieee80211_tx_prepare(sdata, &tx, NULL, skb) == TX_DROP)
-+	if (ieee80211_tx_prepare(sdata, &tx, NULL, skb) == TX_DROP) {
-+		kfree_skb(skb);
- 		return false;
-+	}
- 
- 	info->band = band;
- 	info->control.vif = vif;
--- 
-2.34.1
-
-
+I'm struggling to understand this part.
+Why do this when this func calls more than what callee passed in?
+Looks fishy. I'd like to see selftests with more than 6,7,8 args.
+Because only then this logic will kick in?
 
