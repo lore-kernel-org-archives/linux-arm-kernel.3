@@ -4,95 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16738F327A9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 06:03:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC34F327A6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 06:16:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HdVWUjdrwCXwW+xjjbRAXUxd6dXio6R7QMgwWg+XSA8=; b=SToIFy1NOc+amvyDL2B+P2xk6I
-	ZaT9NQPU5XeclTKsTY09coeKDNFj/iMU6B18K7wQdXCzEhYUPdvDXGBFQA9rMAM4iQe4Vdlj5RQ0B
-	V8qBydFj/h3qeNhXLlICP1ZbY8qRemTmUWsxz2dcF2RXap4su65ou3yIJH7vwTEgBr7q4t/SIKaYj
-	jgkFDawolnDMRDXvRND82Jrh6HIo/Yyl1MCe2kX6bi8FL+M9h3ubB/TD6x+Khqbq+2zXUyG9zLED4
-	0IMDlXmab0e4y5oPum91nN3BzQ7KcX7iREnvamiHcC2Ni4UdGb7z9kFizllT6zFwPfqVefoSmZ1yP
-	1BUFsDwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yn1E4kh2SnRdvq2HlwS9bJ/p7ThTNtcr19dByzOmQMk=; b=n/bgMsP/lVRu/C1J0a6Qc4Uw6y
+	yPE4GSAGkV1/UfA7WERTUF3NOSBTrKMklwE02dDDgkkZpHtfs4dAB7irDyxiywRAA3AmbrQuN8b9s
+	gALFpIZ1Jji1pOj1VzE5DTuRej1LS7T8Y2sdxMPPwXopxaAXnWVYBjjJCgFWLXF/1zK8JSjZuq0Pg
+	9KskCbWSxXBWIpsxHvfRlGO3ld9xz2kiwQW2QLtBIUtpiJkN6gQqhm8OcizXDFPsuI3UgRIKrms98
+	YtN8MhGWJnhmOmF9p8m9jve7sbAhcFxjjcxFKrIosjmyXaKlUdOkU5Rq0QWmHcvEDNbNee+J5Tkvn
+	dDiFVHFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF4CX-000000084Gd-0XtJ;
-	Tue, 21 Apr 2026 06:03:13 +0000
-Received: from jpms-ob02.noc.sony.co.jp ([2001:cf8:ace:41::5])
+	id 1wF4Ou-000000085PJ-0LNv;
+	Tue, 21 Apr 2026 06:16:01 +0000
+Received: from mail-japaneastazon11022112.outbound.protection.outlook.com ([52.101.126.112] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF4CT-000000084Eu-1Pq7
+	id 1wF4Oq-000000085Ov-1qDh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 06:03:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=sony.com; s=s1jp; t=1776751390; x=1808287390;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=HdVWUjdrwCXwW+xjjbRAXUxd6dXio6R7QMgwWg+XSA8=;
-  b=qWdH60kXPsHc0/29ttSVYvePxRU+jOu7I9n/rBbQsOkNlRisM1mdALbC
-   tkCb8lsWxB6u9TGPuEFJsLooN+HmsoJ6yiTaSjajsTmDeBryH19qgYIDP
-   A8GPbRuCl21/jG7rppOFV7jpuxCwY5O1vW5jOcQUySDgtg390/buDepN3
-   63jR73/Ns/76bHNi3ka70OJk3TMu195xUioTG8RBRcQkUAsAJVoRvIc/f
-   BkMd2e6jU1o2NHlxTSyWfrcLW3AcUK3wJ2KV6CAaZ3pYC1Z+ON+YPJFoB
-   yV2Vt9a4oqPiVZ7UxvTo+F1NPwDvQvRvK2NnrQzsCXnTu8wg4qq9qaWvw
-   g==;
-X-CSE-ConnectionGUID: /5w3he5yQMCAWtc4V+rYCQ==
-X-CSE-MsgGUID: yurCbAL4SpSXwGF6VEBOqg==
-Received: from unknown (HELO jpmta-ob02.noc.sony.co.jp) ([IPv6:2001:cf8:0:6e7::7])
-  by jpms-ob02.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Apr 2026 15:03:03 +0900
-X-CSE-ConnectionGUID: MJ2I4ocyTnCepcWWqK6kpg==
-X-CSE-MsgGUID: Pd//BoLNR1uojNztbHNT0Q==
-X-IronPort-AV: E=Sophos;i="6.23,191,1770562800"; 
-   d="scan'208";a="603010299"
-Received: from unknown (HELO [127.0.1.1]) ([IPv6:2001:cf8:1:573:0:dddd:eb3e:119e])
-  by jpmta-ob02.noc.sony.co.jp with ESMTP; 21 Apr 2026 15:03:02 +0900
-From: Shashank Balaji <shashank.mahadasyam@sony.com>
-Date: Tue, 21 Apr 2026 15:02:35 +0900
-Subject: [PATCH v2 2/2] driver core: platform: set mod_name in driver
- registration
+	Tue, 21 Apr 2026 06:15:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gLohACGXDTQvtk0cgoJjRVGl5l4G9J88x+OMwnX7IApGNMx3lfk2Mj4WNHPtyKm0dU1Ah2+tkRdVo/5Udx9dCVTcUcTtNigq0Zs41odOy9JYGKn+dbHIO/33aNm8UWWGu8Kr09rcUit+kiSxbmG3TLh9oprtMOeIiKOlv6vRiowp6/VQ2SWXux5qEKjk7f+vrgnG3BfleMWts5V7JZTPuOkw67Bp5bSRu9YUYCsCMnIvUhdUJbnOe8drwjhy7EsZeRaApYUt3CstckRIAFfswpFbSlgC12uIjPCu2f2+LciVDljIytfGlhVe6uV/vV3ur/1voSDcOEkucoGa7p3uzQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Yn1E4kh2SnRdvq2HlwS9bJ/p7ThTNtcr19dByzOmQMk=;
+ b=henVgw+0Q4d1PilkAXqrp3g/9td4RHPTMiPCuHZxq2C9sWhRFf5j42rQQqPgD3I4siAe/T8M83tqc/0vn6loMJ+OPnEpIcY03l6PF1W7Ntz2AV4J1flIqyQJBn8BtzJZjejaOpOVZqFq0wLcrMN8gOET4HghlVsxevwBqfYQMJYmr9i9SDplnewRPA2VJVJtlYWJY0Y0E/t1n5nYrEemzQgzhTXqSj0CFXV47fKS3elIgWpH9KHf0qyFqWTypD3FG34vNpvMdMqhxn3bw5IjtA4gVAdQl+O1tOg7q2Mxnhfsfzhu6vyoJutRl9o7qOh7IrKsyFyL0k78YSlfatQ3kA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Yn1E4kh2SnRdvq2HlwS9bJ/p7ThTNtcr19dByzOmQMk=;
+ b=pUnXs5MUcKb3YAyLzt84+tzqr11/mOU0s/fNzs1KDGJRlt7ye4cnUrzW3jSY70wpdY1RnON2fvH2PuPJllxvYtFEDDXUW2X0MkCI5Sbj0Y8voViy+8I/4cVmfQB4rEWQNYyAFHtU5P85m/nakOwcS7/NUzwL746YBu4P9TnGHw1iW5TRJsV1E3qEaUqy+0MHJiLeFlQse10Zd0KDR3eBJpQAeeKfxjwyXosdN9ghIG681BEs9KBm5ihsnwKBisoidTYPSe4CCNW5Qxfdb6vmpOquWFtR9ftgJSTQVvKGPVHHGMrSlCquK/E1Vkt99RLli6rLMJLR7RWPaf1+j7cOUg==
+Received: from OSQPR06MB7252.apcprd06.prod.outlook.com (2603:1096:604:29c::6)
+ by TY0PR06MB5633.apcprd06.prod.outlook.com (2603:1096:400:279::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.32; Tue, 21 Apr
+ 2026 06:15:44 +0000
+Received: from OSQPR06MB7252.apcprd06.prod.outlook.com
+ ([fe80::92af:c9d9:8779:d19]) by OSQPR06MB7252.apcprd06.prod.outlook.com
+ ([fe80::92af:c9d9:8779:d19%4]) with mapi id 15.20.9818.033; Tue, 21 Apr 2026
+ 06:15:44 +0000
+From: Billy Tsai <billy_tsai@aspeedtech.com>
+To: Conor Dooley <conor@kernel.org>
+CC: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel
+ Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, Linus
+ Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Ryan Chen
+	<ryan_chen@aspeedtech.com>, Andrew Jeffery <andrew@aj.id.au>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
+	<openbmc@lists.ozlabs.org>, "linux-gpio@vger.kernel.org"
+	<linux-gpio@vger.kernel.org>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>
+Subject: Re: [PATCH v7 1/3] dt-bindings: pinctrl: Add
+ aspeed,ast2700-soc0-pinctrl
+Thread-Topic: [PATCH v7 1/3] dt-bindings: pinctrl: Add
+ aspeed,ast2700-soc0-pinctrl
+Thread-Index: AQHczXLoc0DWafBAUU23YFhFi4LfGrXh15uAgACsm2SAAOlSgIAEIoHUgACZoACAAOZ7gQ==
+Date: Tue, 21 Apr 2026 06:15:44 +0000
+Message-ID: <OSQPR06MB725251546BFEB158F9AA1C4D8B2C2@OSQPR06MB7252.apcprd06.prod.outlook.com>
+References: <20260416-upstream_pinctrl-v7-0-d72762253163@aspeedtech.com>
+ <20260416-upstream_pinctrl-v7-1-d72762253163@aspeedtech.com>
+ <20260416-brutishly-saga-ba7168a4cd14@spud>
+ <OSQPR06MB7252EB0C2A1A3313DE49406B8B202@OSQPR06MB7252.apcprd06.prod.outlook.com>
+ <20260417-anemia-borrower-fb90ac02b417@spud>
+ <OSQPR06MB7252BD7967D2567AD6DA7A1D8B2F2@OSQPR06MB7252.apcprd06.prod.outlook.com>
+ <20260420-footprint-both-967ccd6c120c@spud>
+In-Reply-To: <20260420-footprint-both-967ccd6c120c@spud>
+Accept-Language: en-US, zh-TW
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: OSQPR06MB7252:EE_|TY0PR06MB5633:EE_
+x-ms-office365-filtering-correlation-id: b280758e-5173-4a36-f532-08de9f6d6c0b
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024|38070700021|56012099003|22082099003|18002099003;
+x-microsoft-antispam-message-info: C1AEHJB7DX/4GbaiTJLpVg+wPktEet8INaZy7tDxKWCt2/HoOBs31Diz+QHVWVTkIEhe/2MMZKKS1sNfBkraPvTX98/WHneG4NpWO8p8ZkiQhjxNIlfyPozFHgjJSc2Hbxj2KcvWt3dsEezID0+bXjYzTWmXANfBQVW6fPEZrb8BUEl+s3OGKOj8PUyfl/Sp86a3wulpoZt5peZ1CCwa3Kcgqvrx4liTQxlFQFihSSK7mggEFWoyTl9yjacca5fnZPKVCF2XXMX9nlvNlcS+ig4fDA7m+L9dBY4VYKontvJreSD/WYn9xG7e590WSeG6NzoT0Hg5Z2NrjTbAEPR3KhogRr1jSrmao3LLGh47WiWzfcaqqMMlNiadWo47Q3kbdHYQLrGiOXZN0iXYvQqP8poRK8pymNC9h3XWbQ2EKn9SQnUbCmRUxx79g6XKUzNNzjnoijE+6lPgsDImmTaQmFp9mt2iOqfFAcA/Dgh/qwg3U83MB7WtUSfJG6p60pL3VsWW812e5qqT2AJSzApKWhn7Clo1e1BYSCRorZL2UTz26ULvHgpa1ugyWkWXjUxtINGRqNK1jd0Frxjk8kkwXVg24cdvfZZmzFrknEs97KjrZ0/AZPupMYXN7sQBFmqtjOGQ9Hqk1NNypVIjp8cV/7azff6qJVLllZBTkIWZItJRuFHEaeOLT6248naOa0QakNwpnMm2i9QrwPP8WNqIjbheeW+tvJTNg/2VrPnbft8sdoGluxlCRg2kNeoATSZ45tFinVF0hbwvCYQ0Dy6RQWukd8vnRnCnWBHdhNhQRvc=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSQPR06MB7252.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024)(38070700021)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?Windows-1252?Q?V5jryo0FWAVllIAHqNDIIVkgRW1TVbt9hX/rPuzLuOL4UWknaNYdbC1s?=
+ =?Windows-1252?Q?JHpSXoFDXRA/hrToXvhfN+TznhqkAVIDKQpRTsK2AFmdcuB7MOzq6yKw?=
+ =?Windows-1252?Q?ZWtw67LFmDCglnCIjzDKRz2/lSCQZ89lwWWGRIlOl0o9qeweGZK8V2GX?=
+ =?Windows-1252?Q?FDBvWCs1nnEMSk0XgqnuddYDAX7CVSJ/ARqwR3jzltsMsD6n0i4gg6oW?=
+ =?Windows-1252?Q?bwcdfsv2piG8l6/iJ0NXmzfdCD37cCJiHRXWMBwPEOVuPjBaPYKCn2Kr?=
+ =?Windows-1252?Q?usxNt2Rxc53aQw1j0UBq7i1g9TKSjrUgIkJTCT6HmD7QmmRHBWQT5r/B?=
+ =?Windows-1252?Q?6WceXR7r831X1ZzNIBtU9cNGTURA9DPYpA/yhFd1/IwTyywgLEUI38xZ?=
+ =?Windows-1252?Q?FsqaR1bFcnFjWwDWNbov5gvj46C9ku3F96TnkX8VjgXzPxU3fpI33l/7?=
+ =?Windows-1252?Q?v97fbIsydLE/JZyXHSCenV7N5MgFTXw3y85vTyjFxhZQndXDU2JU6Esy?=
+ =?Windows-1252?Q?jC5uX8BUeO+jWeE633WFF4/2pv+D9ebZGW1KZmAlTf2AMFMBOu2dZ14T?=
+ =?Windows-1252?Q?hD6pWwf+iUMPGM/REM6DFuHhGm2EVRIrydmmDU6nH8GAmW9Y0eKIXW81?=
+ =?Windows-1252?Q?YfTBK9jKkUQf7yuAQOxcACX7nRJ9XBQ6avKU0r+LH9lfyXFEucr6zn2a?=
+ =?Windows-1252?Q?e32RdImOgKg78/5PV+pP6n70rDpyy0B/BEe4PAUbISnio1o0Mkzc/X7d?=
+ =?Windows-1252?Q?jiIA7tGd6uxVHHWoOiv5CUGIyH26x3u0xJnwAom27N21SDCRUHJr7TTX?=
+ =?Windows-1252?Q?xGlju89LbC7t2TfwhhRUa/I5OOwZkM9PtoKTBrxK4GbxRKdJf81RG+dL?=
+ =?Windows-1252?Q?XINip28/LgQtTZQNw7CCRJFYIwELu/PsX/nA0j0IyMJUGr6co2iUnm/9?=
+ =?Windows-1252?Q?uDeSfymMP4YsL4SMqlmk8s7qoVBYiIB0r5zqLaBfhYmCUUNAyFEtQbqG?=
+ =?Windows-1252?Q?0XTZdBYTSBJJuB6X35XJ8f3K06gPpMSPkCElrCPDmXRUbfqINFF9l7qy?=
+ =?Windows-1252?Q?bTdNgb08Ssf5SUJ/PWF5kS/88HtgtzoRWDDJtzoB4SBoLKAI09if+REP?=
+ =?Windows-1252?Q?ac+M+r+oWuNBgsuKmqWUtZqpmADjWHMQ2Meh7zqLF4ItKNmcQP69jsb5?=
+ =?Windows-1252?Q?x6Iyof1Z96ob+rV3rP+/AH0XgdLOCgDglVje43+PN2UMW1b+3+178KcB?=
+ =?Windows-1252?Q?Ym4598L7b+ULBriHRwVvCtvsBTcFAmQbhxwHHFtwbiVnbGM/77RUxqvC?=
+ =?Windows-1252?Q?PLhQhvPAy2+HB0+T64CBl8JkiLNT9WhHejHyKn0NYn05UZ9HnhHs01Hc?=
+ =?Windows-1252?Q?M/6joXbaf5V+/MvciuUjUVdfY0hhHsBIxqK8Qnod+WzxAwrNuZxxTVLJ?=
+ =?Windows-1252?Q?wi/GatEA8mdobRwG/KEuwQUipSkRsIgPVFEQkw0OUuskL6tpB7O9/yxt?=
+ =?Windows-1252?Q?PNBUk3Te+3jQF7Z/s4kvoXVU4xzapcK8eDHtFs2y+Lb75ky03hCGM6qC?=
+ =?Windows-1252?Q?ihSiRNpl9aO4aAS9jjvQKSOVhmy1Wcf7+vCqScqa2Vui0SuuNZgd7fFO?=
+ =?Windows-1252?Q?0wHTuZBbFJ1con+ZUsMhJkrdh6P3DkKveXsherD0h0n046iUzp5DNLGv?=
+ =?Windows-1252?Q?/Ou80TMN6QSdNuAocOs2KbVI2N5gGrinALwTyWmbrSv9MaTAC0Dl0kXe?=
+ =?Windows-1252?Q?eBXeF/5RBQWgw+RAqUkF24i5NqOsQJSngMPjqnXK3JzKsr89H6MY9Q3x?=
+ =?Windows-1252?Q?cE9Kgr3QuizrsJB2Pq57veQ8FB6E/laXTy7xMoVCftKrYTRxC6rl7yTY?=
+ =?Windows-1252?Q?c/GsxDmYH9ZZaA=3D=3D?=
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260421-acpi_mod_name-v2-2-e73f9310dad3@sony.com>
-References: <20260421-acpi_mod_name-v2-0-e73f9310dad3@sony.com>
-In-Reply-To: <20260421-acpi_mod_name-v2-0-e73f9310dad3@sony.com>
-To: Kay Sievers <kay.sievers@vrfy.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
- Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
- Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
- Richard Cochran <richardcochran@gmail.com>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>
-Cc: Shashank Balaji <shashank.mahadasyam@sony.com>, 
- Rahul Bukte <rahul.bukte@sony.com>, Daniel Palmer <daniel.palmer@sony.com>, 
- Tim Bird <tim.bird@sony.com>, linux-kernel@vger.kernel.org, 
- driver-core@lists.linux.dev, coresight@lists.linaro.org, 
- linux-arm-kernel@lists.infradead.org, rust-for-linux@vger.kernel.org, 
- linux-doc@vger.kernel.org
-X-Mailer: b4 0.16-dev-3bfbc
-X-Developer-Signature: v=1; a=openpgp-sha256; l=17065;
- i=shashank.mahadasyam@sony.com; h=from:subject:message-id;
- bh=QeDMW+OR8m10UWiARg4ny1auuk+1IqyS5U2I9jAd6+I=;
- b=owGbwMvMwCU2bX1+URVTXyjjabUkhsznwkJLZcKn3Iz6dFukxOcan9Yk3k1Rt0XmeWh8kX33+
- KaE0ZJ1HaUsDGJcDLJiiiylStW/9q4IWtJz5rUizBxWJpAhDFycAjCRsDcM/2u/WtxI9SqcUbnh
- VjPP6wX3JGzWTp3zsyDGtYFd68uZ5iuMDNOPX+Qu9Ojb9CPCtlG/xub2p/vKv8QqhT+u+zFnoYM
- YDx8A
-X-Developer-Key: i=shashank.mahadasyam@sony.com; a=openpgp;
- fpr=75227BFABDA852A48CCCEB2196AF6F727A028E55
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OSQPR06MB7252.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b280758e-5173-4a36-f532-08de9f6d6c0b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Apr 2026 06:15:44.5598
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: qW5mbgGICLQiDRgnPcMfMO5yatc/9moBOYckQvIPCo1J6EOya52a6rrhQ7LxNvU2QT8Xq7qAO9pHnmgFxpcLVRly5bsf4ueCHbJSt8PGLno=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB5633
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_230309_742309_45471161 
-X-CRM114-Status: GOOD (  24.38  )
+X-CRM114-CacheID: sfid-20260420_231557_140067_70CBA89D 
+X-CRM114-Status: GOOD (  23.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,392 +160,219 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Pass KBUILD_MODNAME through the driver registration macro so that
-the driver core can create the module symlink in sysfs for built-in
-drivers, and fixup all callers.
-
-The Rust platform adapter is updated to pass the module name through to the new
-parameter.
-
-Tested on qemu with:
-- x86 defconfig + CONFIG_RUST
-- arm64 defconfig + CONFIG_RUST + CONFIG_CORESIGHT
-
-Examples after this patch:
-
-    /sys/bus/platform/drivers/...
-        coresight-itnoc/module		-> coresight_tnoc
-        coresight-static-tpdm/module	-> coresight_tpdm
-        coresight-catu-platform/module	-> coresight_catu
-        serial8250/module		-> 8250
-        acpi-ged/module			-> acpi
-        vmclock/module			-> ptp_vmclock
-
-Co-developed-by: Rahul Bukte <rahul.bukte@sony.com>
-Signed-off-by: Rahul Bukte <rahul.bukte@sony.com>
-Signed-off-by: Shashank Balaji <shashank.mahadasyam@sony.com>
----
-Depends on the previous patch, without which the kernel fails to boot on arm64
-defconfig.
----
- Documentation/driver-api/driver-model/platform.rst |  3 ++-
- drivers/base/platform.c                            | 21 ++++++++++++++-------
- drivers/hwtracing/coresight/coresight-catu.c       |  3 ++-
- drivers/hwtracing/coresight/coresight-core.c       |  5 +++--
- drivers/hwtracing/coresight/coresight-cpu-debug.c  |  2 +-
- drivers/hwtracing/coresight/coresight-funnel.c     |  2 +-
- drivers/hwtracing/coresight/coresight-replicator.c |  2 +-
- drivers/hwtracing/coresight/coresight-stm.c        |  3 ++-
- drivers/hwtracing/coresight/coresight-tmc-core.c   |  3 ++-
- drivers/hwtracing/coresight/coresight-tnoc.c       |  3 ++-
- drivers/hwtracing/coresight/coresight-tpdm.c       |  2 +-
- drivers/hwtracing/coresight/coresight-tpiu.c       |  3 ++-
- include/linux/coresight.h                          |  3 ++-
- include/linux/platform_device.h                    | 17 +++++++++--------
- rust/kernel/platform.rs                            |  4 +++-
- 15 files changed, 47 insertions(+), 29 deletions(-)
-
-diff --git a/Documentation/driver-api/driver-model/platform.rst b/Documentation/driver-api/driver-model/platform.rst
-index cf5ff48d3115..9673470bded2 100644
---- a/Documentation/driver-api/driver-model/platform.rst
-+++ b/Documentation/driver-api/driver-model/platform.rst
-@@ -70,7 +70,8 @@ Kernel modules can be composed of several platform drivers. The platform core
- provides helpers to register and unregister an array of drivers::
- 
- 	int __platform_register_drivers(struct platform_driver * const *drivers,
--				      unsigned int count, struct module *owner);
-+				      unsigned int count, struct module *owner,
-+				      const char *mod_name);
- 	void platform_unregister_drivers(struct platform_driver * const *drivers,
- 					 unsigned int count);
- 
-diff --git a/drivers/base/platform.c b/drivers/base/platform.c
-index 75b4698d0e58..2b0cc0889386 100644
---- a/drivers/base/platform.c
-+++ b/drivers/base/platform.c
-@@ -901,11 +901,14 @@ EXPORT_SYMBOL_GPL(platform_device_register_full);
-  * __platform_driver_register - register a driver for platform-level devices
-  * @drv: platform driver structure
-  * @owner: owning module/driver
-+ * @mod_name: module name string
-  */
--int __platform_driver_register(struct platform_driver *drv, struct module *owner)
-+int __platform_driver_register(struct platform_driver *drv, struct module *owner,
-+			       const char *mod_name)
- {
- 	drv->driver.owner = owner;
- 	drv->driver.bus = &platform_bus_type;
-+	drv->driver.mod_name = mod_name;
- 
- 	return driver_register(&drv->driver);
- }
-@@ -938,6 +941,7 @@ static int is_bound_to_driver(struct device *dev, void *driver)
-  * @drv: platform driver structure
-  * @probe: the driver probe routine, probably from an __init section
-  * @module: module which will be the owner of the driver
-+ * @mod_name: module name string
-  *
-  * Use this instead of platform_driver_register() when you know the device
-  * is not hotpluggable and has already been registered, and you want to
-@@ -955,7 +959,8 @@ static int is_bound_to_driver(struct device *dev, void *driver)
-  */
- int __init_or_module __platform_driver_probe(struct platform_driver *drv,
- 					     int (*probe)(struct platform_device *),
--					     struct module *module)
-+					     struct module *module,
-+					     const char *mod_name)
- {
- 	int retval;
- 
-@@ -983,7 +988,7 @@ int __init_or_module __platform_driver_probe(struct platform_driver *drv,
- 
- 	/* temporary section violation during probe() */
- 	drv->probe = probe;
--	retval = __platform_driver_register(drv, module);
-+	retval = __platform_driver_register(drv, module, mod_name);
- 	if (retval)
- 		return retval;
- 
-@@ -1011,6 +1016,7 @@ EXPORT_SYMBOL_GPL(__platform_driver_probe);
-  * @data: platform specific data for this platform device
-  * @size: size of platform specific data
-  * @module: module which will be the owner of the driver
-+ * @mod_name: module name string
-  *
-  * Use this in legacy-style modules that probe hardware directly and
-  * register a single platform device and corresponding platform driver.
-@@ -1021,7 +1027,7 @@ struct platform_device * __init_or_module
- __platform_create_bundle(struct platform_driver *driver,
- 			 int (*probe)(struct platform_device *),
- 			 struct resource *res, unsigned int n_res,
--			 const void *data, size_t size, struct module *module)
-+			 const void *data, size_t size, struct module *module, const char *mod_name)
- {
- 	struct platform_device *pdev;
- 	int error;
-@@ -1044,7 +1050,7 @@ __platform_create_bundle(struct platform_driver *driver,
- 	if (error)
- 		goto err_pdev_put;
- 
--	error = __platform_driver_probe(driver, probe, module);
-+	error = __platform_driver_probe(driver, probe, module, mod_name);
- 	if (error)
- 		goto err_pdev_del;
- 
-@@ -1064,6 +1070,7 @@ EXPORT_SYMBOL_GPL(__platform_create_bundle);
-  * @drivers: an array of drivers to register
-  * @count: the number of drivers to register
-  * @owner: module owning the drivers
-+ * @mod_name: module name string
-  *
-  * Registers platform drivers specified by an array. On failure to register a
-  * driver, all previously registered drivers will be unregistered. Callers of
-@@ -1073,7 +1080,7 @@ EXPORT_SYMBOL_GPL(__platform_create_bundle);
-  * Returns: 0 on success or a negative error code on failure.
-  */
- int __platform_register_drivers(struct platform_driver * const *drivers,
--				unsigned int count, struct module *owner)
-+				unsigned int count, struct module *owner, const char *mod_name)
- {
- 	unsigned int i;
- 	int err;
-@@ -1081,7 +1088,7 @@ int __platform_register_drivers(struct platform_driver * const *drivers,
- 	for (i = 0; i < count; i++) {
- 		pr_debug("registering platform driver %ps\n", drivers[i]);
- 
--		err = __platform_driver_register(drivers[i], owner);
-+		err = __platform_driver_register(drivers[i], owner, mod_name);
- 		if (err < 0) {
- 			pr_err("failed to register platform driver %ps: %d\n",
- 			       drivers[i], err);
-diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
-index dfd035852b12..3e4df832f02a 100644
---- a/drivers/hwtracing/coresight/coresight-catu.c
-+++ b/drivers/hwtracing/coresight/coresight-catu.c
-@@ -708,7 +708,8 @@ static int __init catu_init(void)
- {
- 	int ret;
- 
--	ret = coresight_init_driver("catu", &catu_driver, &catu_platform_driver, THIS_MODULE);
-+	ret = coresight_init_driver("catu", &catu_driver, &catu_platform_driver,
-+				    THIS_MODULE, KBUILD_MODNAME);
- 	tmc_etr_set_catu_ops(&etr_catu_buf_ops);
- 	return ret;
- }
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 80e26396ad0a..b88bc053ab58 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -1645,7 +1645,8 @@ module_init(coresight_init);
- module_exit(coresight_exit);
- 
- int coresight_init_driver(const char *drv, struct amba_driver *amba_drv,
--			  struct platform_driver *pdev_drv, struct module *owner)
-+			  struct platform_driver *pdev_drv, struct module *owner,
-+			  const char *mod_name)
- {
- 	int ret;
- 
-@@ -1655,7 +1656,7 @@ int coresight_init_driver(const char *drv, struct amba_driver *amba_drv,
- 		return ret;
- 	}
- 
--	ret = __platform_driver_register(pdev_drv, owner);
-+	ret = __platform_driver_register(pdev_drv, owner, mod_name);
- 	if (!ret)
- 		return 0;
- 
-diff --git a/drivers/hwtracing/coresight/coresight-cpu-debug.c b/drivers/hwtracing/coresight/coresight-cpu-debug.c
-index 629614278e46..00b7c52d3ab9 100644
---- a/drivers/hwtracing/coresight/coresight-cpu-debug.c
-+++ b/drivers/hwtracing/coresight/coresight-cpu-debug.c
-@@ -758,7 +758,7 @@ static struct platform_driver debug_platform_driver = {
- static int __init debug_init(void)
- {
- 	return coresight_init_driver("debug", &debug_driver, &debug_platform_driver,
--				     THIS_MODULE);
-+				     THIS_MODULE, KBUILD_MODNAME);
- }
- 
- static void __exit debug_exit(void)
-diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
-index 3b248e54471a..8ee5b42bb475 100644
---- a/drivers/hwtracing/coresight/coresight-funnel.c
-+++ b/drivers/hwtracing/coresight/coresight-funnel.c
-@@ -415,7 +415,7 @@ static struct amba_driver dynamic_funnel_driver = {
- static int __init funnel_init(void)
- {
- 	return coresight_init_driver("funnel", &dynamic_funnel_driver, &funnel_driver,
--				     THIS_MODULE);
-+				     THIS_MODULE, KBUILD_MODNAME);
- }
- 
- static void __exit funnel_exit(void)
-diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
-index e6472658235d..9af67100f1fd 100644
---- a/drivers/hwtracing/coresight/coresight-replicator.c
-+++ b/drivers/hwtracing/coresight/coresight-replicator.c
-@@ -421,7 +421,7 @@ static struct amba_driver dynamic_replicator_driver = {
- static int __init replicator_init(void)
- {
- 	return coresight_init_driver("replicator", &dynamic_replicator_driver, &replicator_driver,
--				     THIS_MODULE);
-+				     THIS_MODULE, KBUILD_MODNAME);
- }
- 
- static void __exit replicator_exit(void)
-diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/hwtracing/coresight/coresight-stm.c
-index e68529bf89c9..b140069e07b5 100644
---- a/drivers/hwtracing/coresight/coresight-stm.c
-+++ b/drivers/hwtracing/coresight/coresight-stm.c
-@@ -1052,7 +1052,8 @@ static struct platform_driver stm_platform_driver = {
- 
- static int __init stm_init(void)
- {
--	return coresight_init_driver("stm", &stm_driver, &stm_platform_driver, THIS_MODULE);
-+	return coresight_init_driver("stm", &stm_driver, &stm_platform_driver,
-+				     THIS_MODULE, KBUILD_MODNAME);
- }
- 
- static void __exit stm_exit(void)
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-index 36599c431be6..bef0a9d1fa1b 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-@@ -1051,7 +1051,8 @@ static struct platform_driver tmc_platform_driver = {
- 
- static int __init tmc_init(void)
- {
--	return coresight_init_driver("tmc", &tmc_driver, &tmc_platform_driver, THIS_MODULE);
-+	return coresight_init_driver("tmc", &tmc_driver, &tmc_platform_driver,
-+				     THIS_MODULE, KBUILD_MODNAME);
- }
- 
- static void __exit tmc_exit(void)
-diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
-index 1128612e70a7..1c7c7a062600 100644
---- a/drivers/hwtracing/coresight/coresight-tnoc.c
-+++ b/drivers/hwtracing/coresight/coresight-tnoc.c
-@@ -346,7 +346,8 @@ static struct platform_driver itnoc_driver = {
- 
- static int __init tnoc_init(void)
- {
--	return coresight_init_driver("tnoc", &trace_noc_driver, &itnoc_driver, THIS_MODULE);
-+	return coresight_init_driver("tnoc", &trace_noc_driver, &itnoc_driver,
-+				     THIS_MODULE, KBUILD_MODNAME);
- }
- 
- static void __exit tnoc_exit(void)
-diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/hwtracing/coresight/coresight-tpdm.c
-index 06e0a905a67d..2a735f797c8e 100644
---- a/drivers/hwtracing/coresight/coresight-tpdm.c
-+++ b/drivers/hwtracing/coresight/coresight-tpdm.c
-@@ -1534,7 +1534,7 @@ static struct platform_driver static_tpdm_driver = {
- static int __init tpdm_init(void)
- {
- 	return coresight_init_driver("tpdm", &dynamic_tpdm_driver, &static_tpdm_driver,
--				     THIS_MODULE);
-+				     THIS_MODULE, KBUILD_MODNAME);
- }
- 
- static void __exit tpdm_exit(void)
-diff --git a/drivers/hwtracing/coresight/coresight-tpiu.c b/drivers/hwtracing/coresight/coresight-tpiu.c
-index aaa44bc521c3..3ddabb81b946 100644
---- a/drivers/hwtracing/coresight/coresight-tpiu.c
-+++ b/drivers/hwtracing/coresight/coresight-tpiu.c
-@@ -312,7 +312,8 @@ static struct platform_driver tpiu_platform_driver = {
- 
- static int __init tpiu_init(void)
- {
--	return coresight_init_driver("tpiu", &tpiu_driver, &tpiu_platform_driver, THIS_MODULE);
-+	return coresight_init_driver("tpiu", &tpiu_driver, &tpiu_platform_driver,
-+				     THIS_MODULE, KBUILD_MODNAME);
- }
- 
- static void __exit tpiu_exit(void)
-diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index 2b48be97fcd0..382341f587d0 100644
---- a/include/linux/coresight.h
-+++ b/include/linux/coresight.h
-@@ -698,7 +698,8 @@ coresight_find_output_type(struct coresight_platform_data *pdata,
- 			   union coresight_dev_subtype subtype);
- 
- int coresight_init_driver(const char *drv, struct amba_driver *amba_drv,
--			  struct platform_driver *pdev_drv, struct module *owner);
-+			  struct platform_driver *pdev_drv, struct module *owner,
-+			  const char *mod_name);
- 
- void coresight_remove_driver(struct amba_driver *amba_drv,
- 			     struct platform_driver *pdev_drv);
-diff --git a/include/linux/platform_device.h b/include/linux/platform_device.h
-index 975400a472e3..26e6a43358e2 100644
---- a/include/linux/platform_device.h
-+++ b/include/linux/platform_device.h
-@@ -293,18 +293,19 @@ struct platform_driver {
-  * use a macro to avoid include chaining to get THIS_MODULE
-  */
- #define platform_driver_register(drv) \
--	__platform_driver_register(drv, THIS_MODULE)
-+	__platform_driver_register(drv, THIS_MODULE, KBUILD_MODNAME)
- extern int __platform_driver_register(struct platform_driver *,
--					struct module *);
-+					struct module *, const char *mod_name);
- extern void platform_driver_unregister(struct platform_driver *);
- 
- /* non-hotpluggable platform devices may use this so that probe() and
-  * its support may live in __init sections, conserving runtime memory.
-  */
- #define platform_driver_probe(drv, probe) \
--	__platform_driver_probe(drv, probe, THIS_MODULE)
-+	__platform_driver_probe(drv, probe, THIS_MODULE, KBUILD_MODNAME)
- extern int __platform_driver_probe(struct platform_driver *driver,
--		int (*probe)(struct platform_device *), struct module *module);
-+		int (*probe)(struct platform_device *), struct module *module,
-+		const char *mod_name);
- 
- static inline void *platform_get_drvdata(const struct platform_device *pdev)
- {
-@@ -368,19 +369,19 @@ static int __init __platform_driver##_init(void) \
- device_initcall(__platform_driver##_init); \
- 
- #define platform_create_bundle(driver, probe, res, n_res, data, size) \
--	__platform_create_bundle(driver, probe, res, n_res, data, size, THIS_MODULE)
-+	__platform_create_bundle(driver, probe, res, n_res, data, size, THIS_MODULE, KBUILD_MODNAME)
- extern struct platform_device *__platform_create_bundle(
- 	struct platform_driver *driver, int (*probe)(struct platform_device *),
- 	struct resource *res, unsigned int n_res,
--	const void *data, size_t size, struct module *module);
-+	const void *data, size_t size, struct module *module, const char *mod_name);
- 
- int __platform_register_drivers(struct platform_driver * const *drivers,
--				unsigned int count, struct module *owner);
-+				unsigned int count, struct module *owner, const char *mod_name);
- void platform_unregister_drivers(struct platform_driver * const *drivers,
- 				 unsigned int count);
- 
- #define platform_register_drivers(drivers, count) \
--	__platform_register_drivers(drivers, count, THIS_MODULE)
-+	__platform_register_drivers(drivers, count, THIS_MODULE, KBUILD_MODNAME)
- 
- #ifdef CONFIG_SUSPEND
- extern int platform_pm_suspend(struct device *dev);
-diff --git a/rust/kernel/platform.rs b/rust/kernel/platform.rs
-index 8917d4ee499f..2d626eecc450 100644
---- a/rust/kernel/platform.rs
-+++ b/rust/kernel/platform.rs
-@@ -82,7 +82,9 @@ unsafe fn register(
-         }
- 
-         // SAFETY: `pdrv` is guaranteed to be a valid `DriverType`.
--        to_result(unsafe { bindings::__platform_driver_register(pdrv.get(), module.0) })
-+        to_result(unsafe {
-+            bindings::__platform_driver_register(pdrv.get(), module.0, name.as_char_ptr())
-+        })
-     }
- 
-     unsafe fn unregister(pdrv: &Opaque<Self::DriverType>) {
-
--- 
-2.43.0
-
+> > > > > > +    properties:=0A=
+> > > > > > +      function:=0A=
+> > > > > > +        enum:=0A=
+> > > > > > +          - EMMC=0A=
+> > > > > > +          - JTAGDDR=0A=
+> > > > > > +          - JTAGM0=0A=
+> > > > > > +          - JTAGPCIEA=0A=
+> > > > > > +          - JTAGPCIEB=0A=
+> > > > > > +          - JTAGPSP=0A=
+> > > > > > +          - JTAGSSP=0A=
+> > > > > > +          - JTAGTSP=0A=
+> > > > > > +          - JTAGUSB3A=0A=
+> > > > > > +          - JTAGUSB3B=0A=
+> > > > > > +          - PCIERC0PERST=0A=
+> > > > > > +          - PCIERC1PERST=0A=
+> > > > > > +          - TSPRSTN=0A=
+> > > > > > +          - UFSCLKI=0A=
+> > > > > > +          - USB2AD0=0A=
+> > > > > > +          - USB2AD1=0A=
+> > > > > > +          - USB2AH=0A=
+> > > > > > +          - USB2AHP=0A=
+> > > > > > +          - USB2AHPD0=0A=
+> > > > > > +          - USB2AXH=0A=
+> > > > > > +          - USB2AXH2B=0A=
+> > > > > > +          - USB2AXHD1=0A=
+> > > > > > +          - USB2AXHP=0A=
+> > > > > > +          - USB2AXHP2B=0A=
+> > > > > > +          - USB2AXHPD1=0A=
+> > > > > > +          - USB2BD0=0A=
+> > > > > > +          - USB2BD1=0A=
+> > > > > > +          - USB2BH=0A=
+> > > > > > +          - USB2BHP=0A=
+> > > > > > +          - USB2BHPD0=0A=
+> > > > > > +          - USB2BXH=0A=
+> > > > > > +          - USB2BXH2A=0A=
+> > > > > > +          - USB2BXHD1=0A=
+> > > > > > +          - USB2BXHP=0A=
+> > > > > > +          - USB2BXHP2A=0A=
+> > > > > > +          - USB2BXHPD1=0A=
+> > > > > > +          - USB3AXH=0A=
+> > > > > > +          - USB3AXH2B=0A=
+> > > > > > +          - USB3AXHD=0A=
+> > > > > > +          - USB3AXHP=0A=
+> > > > > > +          - USB3AXHP2B=0A=
+> > > > > > +          - USB3AXHPD=0A=
+> > > > > > +          - USB3BXH=0A=
+> > > > > > +          - USB3BXH2A=0A=
+> > > > > > +          - USB3BXHD=0A=
+> > > > > > +          - USB3BXHP=0A=
+> > > > > > +          - USB3BXHP2A=0A=
+> > > > > > +          - USB3BXHPD=0A=
+> > > > > > +          - VB=0A=
+> > > > > > +          - VGADDC=0A=
+> > > > > > +=0A=
+> > > > > > +      groups:=0A=
+> > > > > > +        enum:=0A=
+> > > > > > +          - EMMCCDN=0A=
+> > > > > > +          - EMMCG1=0A=
+> > > > > > +          - EMMCG4=0A=
+> > > > > > +          - EMMCG8=0A=
+> > > > > > +          - EMMCWPN=0A=
+> > > > > > +          - JTAG0=0A=
+> > > > > > +          - PCIERC0PERST=0A=
+> > > > > > +          - PCIERC1PERST=0A=
+> > > > > > +          - TSPRSTN=0A=
+> > > > > > +          - UFSCLKI=0A=
+> > > > > > +          - USB2A=0A=
+> > > > > > +          - USB2AAP=0A=
+> > > > > > +          - USB2ABP=0A=
+> > > > > > +          - USB2ADAP=0A=
+> > > > > > +          - USB2AH=0A=
+> > > > > > +          - USB2AHAP=0A=
+> > > > > > +          - USB2B=0A=
+> > > > > > +          - USB2BAP=0A=
+> > > > > > +          - USB2BBP=0A=
+> > > > > > +          - USB2BDBP=0A=
+> > > > > > +          - USB2BH=0A=
+> > > > > > +          - USB2BHBP=0A=
+> > > > > > +          - USB3A=0A=
+> > > > > > +          - USB3AAP=0A=
+> > > > > > +          - USB3ABP=0A=
+> > > > > > +          - USB3B=0A=
+> > > > > > +          - USB3BAP=0A=
+> > > > > > +          - USB3BBP=0A=
+> > > > > > +          - VB0=0A=
+> > > > > > +          - VB1=0A=
+> > > > > > +          - VGADDC=0A=
+> > > > > > +      pins:=0A=
+> > > > > > +        enum:=0A=
+> > > > > > +          - AB13=0A=
+> > > > > > +          - AB14=0A=
+> > > > > > +          - AC13=0A=
+> > > > > > +          - AC14=0A=
+> > > > > > +          - AD13=0A=
+> > > > > > +          - AD14=0A=
+> > > > > > +          - AE13=0A=
+> > > > > > +          - AE14=0A=
+> > > > > > +          - AE15=0A=
+> > > > > > +          - AF13=0A=
+> > > > > > +          - AF14=0A=
+> > > > > > +          - AF15=0A=
+=0A=
+> > > > > Why do you have groups and pins?=0A=
+> > > > > Is it valid in your device to have groups and pins in the same no=
+de?=0A=
+=0A=
+> > > > The intent is to support both group-based mux selection and=0A=
+> > > > configuration, as well as per-pin configuration.=0A=
+=0A=
+> > > > In our hardware:=0A=
+> > > > - `function` + `groups` are used for pinmux selection.=0A=
+> > > > - `pins` is used for per-pin configuration (e.g. drive strength,=0A=
+> > > >   bias settings).=0A=
+> > > > - `groups` may also be used for group-level configuration.=0A=
+=0A=
+> > > > As a result, both `groups` and `pins` may appear in the same node,=
+=0A=
+> > > > but they serve different purposes and do not conflict:=0A=
+> > > > - `groups` selects the mux function and may apply configuration to=
+=0A=
+> > > >   the entire group.=0A=
+> > > > - `pins` allows overriding or specifying configuration for individu=
+al=0A=
+> > > >   pins.=0A=
+=0A=
+> > > > In most cases, only one of them is needed, but both are allowed whe=
+n=0A=
+> > > > both group-level and per-pin configuration are required.=0A=
+=0A=
+> > > To be honest, that sounds like your groups are not sufficiently=0A=
+> > > granular and should be reduced such that you can use them for pin=0A=
+> > > settings.=0A=
+=0A=
+> > The intent was to keep the binding flexible, but in practice the mixed=
+=0A=
+> > use of `groups` and `pins` in the same node is not expected to be used.=
+=0A=
+> > =0A=
+> > Given that, I agree this flexibility is unnecessary and makes the=0A=
+> > binding semantics less clear. I'll rework the binding to make the=0A=
+> > expected usage explicit rather than allowing combinations that do not=
+=0A=
+> > correspond to a real use case.=0A=
+> > =0A=
+> > In particular, I'll split the constraints as follows:=0A=
+> > =0A=
+> > - For pinmux, the presence of `function` will require `groups`, and=0A=
+> >   `pins` will not be allowed. This reflects the hardware design, where=
+=0A=
+> >   the groups are defined by the pins affected by a given mux expression=
+=0A=
+> > =0A=
+> > - For pin configuration, exactly one of `groups` or `pins` will be=0A=
+> >   required (using oneOf), so that configuration is applied either at=0A=
+> >   group level or per-pin, but not both.=0A=
+> > =0A=
+> > =0A=
+> > - if:=0A=
+> >     required:=0A=
+> >       - function=0A=
+> >   then:=0A=
+> >     required:=0A=
+> >       - groups=0A=
+> >     not:=0A=
+> >       required:=0A=
+> >         - pins=0A=
+> >   else:=0A=
+> >     oneOf:=0A=
+> >       - required:=0A=
+> >           - groups=0A=
+> >         not:=0A=
+> >           required:=0A=
+> >             - pins=0A=
+> >       - required:=0A=
+> >           - pins=0A=
+> >         not:=0A=
+> >           required:=0A=
+> >             - groups=0A=
+> > Does this match what you had in mind?=0A=
+=0A=
+> It's an improvement I think, but I am wondering why you cannot do=0A=
+> without pins entirely and apply pinconf stuff at the group level?=0A=
+> Of course that may not be possible with the current groups, but if you=0A=
+> made the groups more granular, would it be possible?=0A=
+=0A=
+Within a given group, it is not always the case that all pins share the=0A=
+same configuration requirements (e.g. drive strength or bias settings),=0A=
+so applying pinconf purely at the group level would be too restrictive.=0A=
+=0A=
+Making the groups more granular to match all possible configuration=0A=
+combinations would not reflect the actual mux granularity and would=0A=
+significantly increase the number of groups.=0A=
+=0A=
+For example, we have encountered a timing issue due to the PCB layout,=0A=
+where only the eMMC clock pin requires a different drive strength:=0A=
+=0A=
+  # The EMMCG4 group includes pins AC14, AE15, AD14, AE14, AF14, AB13=0A=
+  # AC14: clock=0A=
+  # AE15: command=0A=
+  # AD14=96AB13: data=0A=
+=0A=
+  pinconf_emmc_clk: emmc-clk-pinconf {=0A=
+      pins =3D "AC14";=0A=
+      drive-strength =3D <8>;=0A=
+  };=0A=
+=0A=
+In this case, applying pin configuration at the group level would affect=0A=
+all pins in the group, which is not desirable. Allowing per-pin=0A=
+configuration via `pins` is therefore necessary.=0A=
+=0A=
+For this reason, `groups` is used for mux selection, while `pins` is=0A=
+required to express per-pin configuration where needed.=0A=
+=0A=
+Thanks=0A=
+Billy Tsai=
 
