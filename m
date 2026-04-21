@@ -4,63 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01E09F8FA7B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 14:02:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5FDFF8FA80
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 14:06:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HVskjFQn8LGLg0wyQDRTc2q4IyQ/3vmBYkuiI0CLoK0=; b=d5DvAzYK8MyepTC+CMJcK7b29S
-	s9UhDKLl87ravLtOHLSH1rv1ZFe4sSFnq9hLOb33uSMXtPbzObz4A4DPC/pWgc/uv2va8uDp2eNFT
-	QwI5mhIWG61g7i2DEA4BDAhX6Z4xfxudkumBwu8OFheJ3KORhc5+8nUs8Z7mi3HGOdsKKIeu0PkqJ
-	aMu2Z0MKkcmhHmXeLqxplFbEGa9DSrV8B1g+y8/gdMYlhKCAT6JjtKuDvMkimogoOvTily1EV/cXu
-	MSWz+GmmGSrnuKRvnx0SN/Nk/RCrY0N0nTMNncy6hiT54O0p4W37nHAGeMCugBl0GWMa3WG46yhL5
-	wjuuK6uw==;
+	bh=ZWdPHRCtNzex4as64xLaRloyZfolOl/Dj/FxVThdR2o=; b=VK+aAG6NM+F3HRxe7VdVx+sB9b
+	72G8+tjDSgPFIzbMTrqF9VrJ5+WrGcD+In7C7Ct/X43tofFndKA/62ObrOIbrDKYFXAEb3PdziBm/
+	eDDckSm1OGipxwXIyojC54Jf5jftWtiakb80ZvTSCC8jhr60ElCOaEUzdSb6Mz9j/iBfOYJJonvY+
+	sRH9VRHiBSysBLSCerEYxt7GAbY5oB/n9GS3Kvzf5Pb23FYvTSCbJvO79ypwqZGars2xzfjKqr6vX
+	N0deVEmyS63xlwzmoBBIEhAP4QudBDrv110A2xbT2J3/48vY4tQzXa4mq+xrNy4P9vwDoow3uW4i8
+	xJipBD2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFBgH-00000008hyg-2Co3;
-	Tue, 21 Apr 2026 14:02:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFBgD-00000008hyK-1w7Z
+	id 1wFBkJ-00000008iCp-2vi8;
+	Tue, 21 Apr 2026 14:06:35 +0000
+Received: from s106b.cyber-folks.pl ([195.78.66.88])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wFBkF-00000008iCS-3btr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 14:02:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E4A22573;
-	Tue, 21 Apr 2026 07:02:12 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 758C73F7B4;
-	Tue, 21 Apr 2026 07:02:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776780137; bh=UxOuyvqjssBcp1emTpPrTkHhq/tnIYeB21ckVfqA9hY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gv7m+V87Vw0axaDcNsT9EZElZp2PBUxga27N8/nnNqzlCNW4IZK9QEz2a29vFu7ou
-	 xsZQMCUxflZ0lvKvNzncI1yPY7NWujZL8/rB4pZsLnQbHwhSB/E40KsBZRoYaDAVlu
-	 0JCwe9MNpUyz0IIl07CzuHfVM+Zdkw+sekHM6a9A=
-Date: Tue, 21 Apr 2026 15:02:14 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
-	mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v5 07/12] coresight: etm4x: fix inconsistencies with
- sysfs configuration
-Message-ID: <aeeDZnrp2KxC5TB2@e129823.arm.com>
-References: <20260415165528.3369607-1-yeoreum.yun@arm.com>
- <20260415165528.3369607-8-yeoreum.yun@arm.com>
- <20260421104601.GB929984@e132581.arm.com>
- <aedcDEpBAnAieSRX@e129823.arm.com>
- <20260421132842.GC929984@e132581.arm.com>
+	Tue, 21 Apr 2026 14:06:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=mmpsystems.pl; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=ZWdPHRCtNzex4as64xLaRloyZfolOl/Dj/FxVThdR2o=; b=AwjowB3AQgBR680/tkNkHOaz24
+	CJcvRxR9VLgOeZAwMmhYwRVxvwzJdHsXtxiwtHn/KxtOwTztxSVipbVTm08KnMrObPTIgjE/vMtdI
+	ZW+9f5QlJQidW8etJ5LLtxp78VhcrC4xgqJd1Khn+SN1/I4oXX0dZ1iA6/vvVzxxcLfVcIsAMtKx0
+	URwhndWlbFJfkE928xZLrNeFxfDGjd+w64fe6FEzSTRHQo4MCmhKhNj3EyJGy3Kd2PtFPqia3QESD
+	DzBV2ZubC9bGT2PxLzex4yqSCDoIxBmHVe1cbXKnlV8gliI7hQdktinChaUykSFKQIKaUNrr9Btwq
+	e5l1/Ciw==;
+Received: from user-5-173-16-91.play-internet.pl ([5.173.16.91] helo=localhost)
+	by s106.cyber-folks.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <michal.piekos@mmpsystems.pl>)
+	id 1wFBkD-0000000BABf-2coC;
+	Tue, 21 Apr 2026 16:06:29 +0200
+Date: Tue, 21 Apr 2026 16:05:43 +0200
+From: Michal Piekos <michal.piekos@mmpsystems.pl>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Daniel Lezcano <daniel.lezcano@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH 0/4] Add hstimer support for H616 and T113-S3
+Message-ID: <h4b3xluygfptee3ej4gbr3hctgjk6q4oytkisk66saii4uyvl3@lw4qdtfuyoz5>
+References: <20260419-h616-t113s-hstimer-v1-0-1af74ebef7c5@mmpsystems.pl>
+ <20260419225539.718367e0@ryzen.lan>
+ <xlvldmapdoql7nt3swube5vd6fdiosq7rt5afg246xertko5fa@4irmzupkar23>
+ <b89c1c8b-2678-4f4f-a63c-03b92cf7617c@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260421132842.GC929984@e132581.arm.com>
+In-Reply-To: <b89c1c8b-2678-4f4f-a63c-03b92cf7617c@arm.com>
+X-Authenticated-Id: michal.piekos@mmpsystems.pl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_070221_637111_2C8F9EA7 
-X-CRM114-Status: GOOD (  24.54  )
+X-CRM114-CacheID: sfid-20260421_070632_398134_365BB62A 
+X-CRM114-Status: GOOD (  46.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,77 +83,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo,
+On Mon, Apr 20, 2026 at 04:14:44PM +0200, Andre Przywara wrote:
+> Hi Michal,
+> 
+> On 4/20/26 13:27, Michal Piekos wrote:
+> > On Sun, Apr 19, 2026 at 10:55:39PM +0200, Andre Przywara wrote:
+> > > On Sun, 19 Apr 2026 14:46:06 +0200
+> > > Michal Piekos <michal.piekos@mmpsystems.pl> wrote:
+> > > 
+> > > Hi Michal,
+> > > 
+> > > > Add support for Allwinner H616 high speed timer in sun5i hstimer driver
+> > > > and describe corresponding nodes in dts for H616 and T113-S3.
+> > > > 
+> > > > H616 uses same model as existing driver except register shift compared
+> > > > to older variants.
+> > > > 
+> > > > Added register layout abstraction in the driver, extended the binding
+> > > > with new compatibles and wired up dts nodes for H616 and T113-S3 which
+> > > > uses H616 as fallback compatible.
+> > > 
+> > > Can you say *why* we need this? IIUC Linux only ever uses one clock
+> > > source, and selects the (non-optional) Generic Timer (aka arch timer)
+> > > for that? So can you say what this hstimer clock source adds? I guess
+> > > higher resolution, but what is your use case, so why would you need the
+> > > 200 MHz? And does this offset the higher access cost of an MMIO
+> > > access, compared to the arch timer's sysreg based access? Also, IIUC,
+> > > people would need to manually select this as the clocksource, why and
+> > > when would they do so? (Given they even know about it in the first
+> > > place).
+> > > Also the hstimer hasn't been used since the A20, so nobody seemed to
+> > > have missed it meanwhile?
+> > > 
+> > > Cheers,
+> > > Andre
+> > > 
+> > I took the table from https://linux-sunxi.org/Linux_mainlining_effort as
+> > a todo list and wanted to help with it. I do not have own use case for
+> > this timer. If it is not needed then I will spin v2 to include your
+> > comments and abandon it.
+> 
+> Ah, that's good to know, and thanks for picking things from that list! I
+> don't think there is a particular need to abandon your work, we could as
+> well upstream it. At least the DT changes should be added, so that other DT
+> users could make use of the timers - after all it's a Linux implementation
+> choice to utilise just one timer. But please go ahead and post a complete
+> v2, I don't think it hurts to have HSTIMER support in the kernel.
+> And while you are at it: can you figure out what the need is for using two
+> timers? One is a clock source, the other is for clock events? And why do we
+> limit the counters and timers to 32 bit? Even the A13 manual lists them as
+> 56 bits, and a wraparound time of roughly 21 seconds (with 32 bit counters)
+> does not sound very long to me.
+> 
+Yes. Channel 0 is clockevent and channel 1 is a clocksource and sync
+reference for channel 0 disable timing. 
 
-> On Tue, Apr 21, 2026 at 12:14:20PM +0100, Yeoreum Yun wrote:
->
-> [...]
->
-> > > >   - There is a risk of corrupting drvdata->config if a perf session enables
-> > > >     tracing while cscfg_csdev_disable_active_config() is being handled in
-> > > >     etm4_disable_sysfs().
-> > >
-> > > Similiar to above, cscfg_csdev_disable_active_config() is not
-> > > protected in etm4_disable_sysfs().
-> >
-> > This is not true.
-> > at the time of etm4_disable_sysfs() "mode" is already taken
-> > (whether sysfs or perf). In this situation, it's enough to
-> > call cscfg_csdev_disable_active_config() before chaning
-> > mode to DISABLED.
->
-> To be clear, I am trying to understand issue _before_ your patch.
-> Without this patch, cscfg_csdev_disable_active_config() is not
-> protected by the mode.
+32 bit counters seems like implementation choice rather than limitation
+but that would need to be implemented and tested. Would you suggest to
+extend it to 56 bit in the following patch?
 
-Right.
+> 
+> Not sure what your primary motivation for fixing Allwinner support is, but
+> we could probably find more worthwhile targets. Do you have Allwinner boards
+> other than the OrangePi Zero 3? There are not many low hanging fruits on the
+> H616 left (MBUS and LDOs(?) maybe), but the A523 has quite some missing
+> drivers still, some of them probably more on the easy side.
+> 
+I have boards with A733, A527, T113-S3, H616, H6, H3 and I
+think some older stuff too. My motivation is mostly fun and learning.
+I also use those boards in custom projects.
 
-[...]
+I will take up GPADC on A527 after finishing this as I worked with ADC's
+a lot on MCU's. Unless other suggestions?
 
-> > > > @@ -1386,6 +1401,7 @@ static void etm4_init_arch_data(void *info)
-> > > >  	drvdata = dev_get_drvdata(init_arg->dev);
-> > > >  	caps = &drvdata->caps;
-> > > >  	csa = init_arg->csa;
-> > > > +	config = &drvdata->active_config;
-> > >
-> > > Should we init drvdata->config instead so make it has sane values ?
-> > >
-> > > In other words, drvdata->active_config are always set at the runtime,
-> > > so don't need to init it at all, right?
-> >
-> > No. at least when the initialise, I think we should fill the its
-> > contesnt with the "etm4_set_default()".
-> >
-> > That's why the consequence call etm4_set_default() called with
-> > active_config and config is coped with the default configutation.
->
-> I'm concerned that some config fields may be reused across sessions.
-> For example, a sysfs session copies drvdata->config into
-> drvdata->active_config, and later a perf session may reuse stale
-> values. The same issue can happen in the reverse direction.
->
-> A clean approach would be to treat drvdata->active_config as
-> per-session state:
->
->   1) clear drvdata->active_config at session start
->   2) apply the session-specific config
->      2.1) sysfs: use drvdata->config
->      2.2) perf: use event config
+Thank you for comments.
+Michal
 
->   3) then apply configfs configuration
-This is not true.
-
-In case of "perf", it always clear the "active_config" with 0x00
-before enable. so it wouldn't.
-
-In case of sysfs we don't need to worries about since
-"config" field saves everything and this is applied into active_config.
-
-So, your issue doesn't exist in this case.
-
-
-
---
-Sincerely,
-Yeoreum Yun
+> If you are stuck with the OpiZero3, then you could just look and check the
+> existing devices, and verify their operation. For instance I think USB-OTG
+> is still broken - across most Allwinner SoCs actually, so it's a sunxi
+> driver issue.
+> 
+> Thanks,
+> Andre
+> 
+> > 
+> > Michal
+> > 
+> > > > 
+> > > > Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+> > > > ---
+> > > > Michal Piekos (4):
+> > > >        dt-bindings: timer: allwinner,sun5i-a13-hstimer: add H616 and T113-S3
+> > > >        clocksource/drivers/sun5i: add H616 hstimer support
+> > > >        arm64: dts: allwinner: h616: add hstimer node
+> > > >        arm: dts: allwinner: t113s: add hstimer node
+> > > > 
+> > > >   .../timer/allwinner,sun5i-a13-hstimer.yaml         |  8 +++-
+> > > >   arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi       | 12 +++++
+> > > >   arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi     |  9 ++++
+> > > >   drivers/clocksource/timer-sun5i.c                  | 56 +++++++++++++++++++---
+> > > >   4 files changed, 78 insertions(+), 7 deletions(-)
+> > > > ---
+> > > > base-commit: faeab166167f5787719eb8683661fd41a3bb1514
+> > > > change-id: 20260413-h616-t113s-hstimer-62939948f91c
+> > > > 
+> > > > Best regards,
+> > > 
+> > > 
+> 
+> 
 
