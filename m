@@ -4,62 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B296F8FA86
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 14:43:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C455F8FA84
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 14:45:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JBwT+erepDCtp/NJXdEbfzevdiqPrDpyKfL5BCi1TGI=; b=fZyaE5nHaV7yJHYAbs5XK8a1Ge
-	/ir0daHd6+F1urPd4RIk9as8XciekGhTTjfRyI8yoDZRo8jxPhfHH/e0NpGN5gNwlmiq23aLHM/o8
-	4Meg4O0hJu1Xxvxj4zPvSL+Gt08aqG4WqUXju4xYoch7k2HieQMVrxKG8y+GL4RB1oFAtbXPeXylf
-	bMXacRUIes8+XZzXZcHM5S6y8G67XISW5Z/1bvoMo3wXMcYHI2+dJRKCsQHFzMXcIqqVDElkwcRC/
-	FDunT+U394ter6W+EEu9PUY8k2caNGOfmU3Z+heAi3/qnVvzATCnKcVrXvZ+RAw9L/OsfE2Y+XZSR
-	y/GuhVjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p36BlOxj5LchPl7mdjFyIzWOOnkMSftMUlvU98uUXyU=; b=A+vx6bXY1oiJoqOCpfw4lvDt1o
+	7jNX7Xd2w6NB5oEquFVJb61HTkp1aGGB9lOSf13as7IOuSn8IHblYrAm0ZNtt4cxECd+ihFqy4HQl
+	3LkAUMSHdgxgijUXySWFG/1iZszagS45++nDB1dy2EZFB7+1Ra/+GExDcJ1a8+AD28s+5H/sQooPu
+	i5++0o4rHBtebzOTObB5UAgfKWaaSjaNMtujsFnzrMFFsgkxsRHBMFVFeSKAJUVi7LD32wDvvQr0W
+	kCaykBrwg0BBJ5JVV4BoUnY22YAbxMB/QVmt+h5CG5LEdeEj3IKUGCBgWwtGztHo2OHn6qJPvmCLD
+	VaM/1FfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFCK7-00000008kyG-2BPw;
-	Tue, 21 Apr 2026 14:43:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFCJx-00000008ksY-2pRX
+	id 1wFCLr-00000008lO8-3bxu;
+	Tue, 21 Apr 2026 14:45:23 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wFCLp-00000008lNo-3QND
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 14:43:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 710D0302C;
-	Tue, 21 Apr 2026 07:43:18 -0700 (PDT)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9D0B33FAF5;
-	Tue, 21 Apr 2026 07:43:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776782604; bh=uE9jQ5/Tb87+KKebRJWQfQzQewWOPhLdHfsan5xetdM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qtIUWYBPqWf7sC8xIKXk5VB1ZWrtTT315ZiLzg6GMj8nJbfXKYT3L3JFll6h2JxbI
-	 3Ozcg+t0YoLIqWgc1REnoQxGagMc9FSGm4IAUyZ/5ZCxGQcfLAYcljpQqk6raDH1zk
-	 J4Mz1EixN1jNaT/o37E6VhSWfHlFayjbJDHMcdJk=
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	linux-kselftest@vger.kernel.org
-Subject: [PATCH 4/4] kselftest/arm64: Add tests for POR_EL0 save/reset/restore
-Date: Tue, 21 Apr 2026 15:42:52 +0100
-Message-ID: <20260421144252.1440365-5-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.51.2
-In-Reply-To: <20260421144252.1440365-1-kevin.brodsky@arm.com>
-References: <20260421144252.1440365-1-kevin.brodsky@arm.com>
+	Tue, 21 Apr 2026 14:45:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NWaR0mS+mt5hS/UYIcUOpxjRc/waWM6vMOLffRcNi2wuAbZzxPxi7V55xe0ganJJDHnjpyw65fLmAc2eL7p6Q8eRq28uhKQ5SlttpRc5nm2mDZL3Wlh2KcQhynu++Zusd8GBI2twOdsLRiLiB9gHOTSfoMiTqZOqQS8DUyCf0gETsl0qz2x2kX9eRUNT0dMoBsPTrhCYXXt6gFVb3TgFIluPyCVp/QATUprij1kr8bblpaq1TZQr/A3use1vJmN4rPvo5tOlBLYqEqEEfXWvaHlLZOSWvikkWPH6UH8p0nKlOpT1Wlj/KDHbN6gUS+US49WjOdtIZNyWAvHj+7RAHA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=p36BlOxj5LchPl7mdjFyIzWOOnkMSftMUlvU98uUXyU=;
+ b=zGkuj70fFicc9PPatDVshbB93hubq/cWaX34/he6UzD06oCr6/H+FR3urcFj0UuP+R4HjGHC20wfNpf5nY4M5F3Iwfv2Qd/lexOV+Y23Bvc3H+L6EaOA7RhhT3BD45V23Yj4oy0/+5dk77So4TZGOM/eiXn+mBxKfMsKja7Wi1t02lwM8b8Ob428zGJGk/4PmVvF66LS5o/q6TkZnHMMZ3Iga9uuJqnXxoi/5ZR4NCxfheBFXzbUyoLeWYmMBwMAIuE4XLBTNB9g6usHSIay2DfkzxDhPLl4s56hzvaj4yxwKlDIBl0l6lRZ+9ouLytmWpDHBkRoDp2fOodEOboZfQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=p36BlOxj5LchPl7mdjFyIzWOOnkMSftMUlvU98uUXyU=;
+ b=vBITIcoz/Ci89eyDD5HvJOl5UREsI/x7uUwRgKOI+tu8urRTCl0S5TZFEpMvFzAnBfdgV4Wx4S2PjcFIprhJfLzerJsdYEsNSDCsZG/Jw27d9/3dCNyW2RW0erE2KXEB3mB97JwS/pfNEqWJj9g/qQxVwGWmYPoGSEJFkigXMmEeurb1P0AQou3yjPR4hLjYxEjwLhooIGItF4J9eseIY6mk62ZoXJ9ifQSjQy2zLnpmcied6qOeeuLr8buc/YmtTKEFYFYiWAPCl6HQOxB+RUYsaoejx2pRAXd771jsfDoI6YN2981OS4ogGTuqMJF5IQuWUZEmhVrYvBopZD6QQw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
+ by AS8PR04MB8197.eurprd04.prod.outlook.com (2603:10a6:20b:3fd::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.31; Tue, 21 Apr
+ 2026 14:45:17 +0000
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9818.023; Tue, 21 Apr 2026
+ 14:45:17 +0000
+Message-ID: <4f436a21-ecfa-44ef-9002-c64ebd5e30ee@oss.nxp.com>
+Date: Tue, 21 Apr 2026 17:48:25 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] arm64: dts: add tqma9596la-mba95xxca
+To: Alexander Stein <alexander.stein@ew.tq-group.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>, Shawn Guo <shawnguo@kernel.org>
+Cc: Markus Niebel <Markus.Niebel@ew.tq-group.com>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux@ew.tq-group.com, linux-renesas-soc@vger.kernel.org
+References: <20260326111803.1248934-1-alexander.stein@ew.tq-group.com>
+ <20260326111803.1248934-2-alexander.stein@ew.tq-group.com>
+Content-Language: en-US
+From: Daniel Baluta <daniel.baluta@oss.nxp.com>
+In-Reply-To: <20260326111803.1248934-2-alexander.stein@ew.tq-group.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR2P281CA0018.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:a::28) To GVXPR04MB12316.eurprd04.prod.outlook.com
+ (2603:10a6:150:2c6::8)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|AS8PR04MB8197:EE_
+X-MS-Office365-Filtering-Correlation-Id: b772e764-9042-4b19-de4d-08de9fb49aa7
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|19092799006|921020|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: u4GHRodEKFeL84vERIZjFR8z+6qVSPBvVGbdm0DrLeNQ3Pv5A16nLMPewpNAOo3apvLztA/LKhGjARy0QgCbyEIuyimsAtEx1P8rOCvcUEtP0DGI9eRONWdfud/l07RQngfqqJwz0/LmwNjczteKELOWZAt7ixgOv3G4rlCQBZcMOitl7XVkumYWoICGtd9ThkxZS3IGeyiitOXgHU/O9ltzSbuLTe6jiHxcUpml/w8/3zZdjSu2iT7up6a41HE6n/uA0lyRm/MN13G+xDmJnZjaWvikY6YnTI06GloqvpkdyQ7nhmobe063fwjj+fIpUL3uYju2EKg+1ehxMUywkop4JAkxAldgbHPv2e6bMaVRpKdBAOyzmsq2M7/vfjmP8MXVv48jcA9YNJJ/gFQJR4ygU4aFMAHVRPdVcZ06bvTL7Jvo/hRSGypN9MU+Tu7IPtb9bP1cF9+tc79HorOigLj7NDisMjPloQEyt0VDC5lXQX0qumuW0yPD18xNMipgtPsXgjNV1rptvxtdaCU+9xALDN+G44apVRVk6XcdK3PGbhb51Gw2POWj/MGeLX2ZMx7y7Z9LVfo9Lh/K/vBAxv5xix3z72dn95GyRntDpqNFwS3hAVmnYO52gJjk3VVIUD2fMEzNz7NR2Iz7ueDu+LNMO0BCChsj2jL2MH65cGC4bCFaalOAvJEbVO//f0d1Y41h5XgN4cxMi+VbzfKTe511Z2g12rdMW1j37+TcRw5tv7dKqztzdwfpGMif/vmthM8MePuQvFIZfCk/86qWAA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(19092799006)(921020)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cURGanY5V2dhemJKNUdCdEhudmJQdVI4Y1lTcmtLbzBWRUx2blI2NTFRMjMv?=
+ =?utf-8?B?ckpCWkxiZHliZnAvV1d3ckJkRTV0MWMxTmJZbUVoeDVwUkkvUEd3amtpUnJ3?=
+ =?utf-8?B?ckw3dHYrenZmY2o4Wnc1a08ySWVzNFQ0ejJGajRsL1o1NXltbUVLM0RoTWIz?=
+ =?utf-8?B?K1FDOUorTmE1REh1SXVTbkhhdi9zaUliYVBEWkNUVFRzSGo0VlVpS0M4ek56?=
+ =?utf-8?B?VjE2RHZ3ck0zV1AyTUpzMUw0UHpkQ28renJBQ0Nsc3dnOUdYT0MzcHViWG9H?=
+ =?utf-8?B?QTJhb201a0gwM0R4bjhQSDdZYXZ6Sktkd2l0N3J2dklHUlNaZVp4Qy9acVBC?=
+ =?utf-8?B?L3NSZmVZbzJmbnlVSmRXbEhXUWxiYUIzQTB2dUsvTWh0a0JoT1VwS2NucFNr?=
+ =?utf-8?B?cm5XN09WV0dtc2dVZk1adW43REtCOERhTytEa21tZE52MlB5dmJ1U3dtbE5L?=
+ =?utf-8?B?cnpCdnRxaU15bVUrTXVJUk5qZ2NKWnQ2U3gyNUJOMDQ2SUprakQ0SkVNQmtQ?=
+ =?utf-8?B?QjdReG45SUNPTlBkSGc1V3dQNzE2OVV3VXVUb0NwaUtsUDVwNVRlZ3VKUFF0?=
+ =?utf-8?B?ZVd3eEpZOVMrRFhzOG8wMUhNWkkwKzdtVHpqMnM3MW1xcUo5Ujk3L2ZNRzQw?=
+ =?utf-8?B?MXYzNmN4Zlp3TUdCRUQ0QmhOWDN5YXF6RnlQWWRpMDF2cnFHd01mYkxHWm1m?=
+ =?utf-8?B?OWxWWUVCWFNRWFRmd0EvaDZUSGVZL0R2TnNzUDN0ZHhLVzBVZjNjQ0lEZ3pO?=
+ =?utf-8?B?UnEwb3hsL203c0gyRlR4OEtEdXlnNUw0R09hMFhOY253b1Y1dGw1Y3Z5WHlu?=
+ =?utf-8?B?WVRtalZlaGN5NStVazJVVTBaZ09VZTgxNnU4ZWlUNjNZQ2wzOVhleWEycng3?=
+ =?utf-8?B?MXk5SXl3QkxJcW9VTWZZdlFaUzk1TkFCcUVqbTI1NHlPc2ZKeHZDMGZRQkls?=
+ =?utf-8?B?U3RZeGcySDd4c0NFWXJZYlEvWWRaeUJreUFiY0lSWmp2NjBoamxmb3dZVUxC?=
+ =?utf-8?B?M2FPaVg2VWtoelY0eDhLQ3p5eTBuUUZxU0ZFa1ByK3Q5U3VnSW9VUjlxQ1o3?=
+ =?utf-8?B?a3ZNQkUwK0VUNkRudWdYcUR6VUNvdmJNTFMyeENZSGhHRTRtQzRTME54TWx2?=
+ =?utf-8?B?bUNkU0ZvNzFrWUhnY2lobHhpSHBvWk5Xek9FZDRrTTVIT1p2ajB2dG9pSWFG?=
+ =?utf-8?B?QzVrczBqa3ZYaTczVUxPZDl3eUFTTVI2UXNLRG5EZWtnZCtlVGsvNEo0bUlE?=
+ =?utf-8?B?YndyQzljdDBvbUMxcEY0NmlvSkxnSnV1Zi9lT1hscW82T0IydzhJU3J5elcx?=
+ =?utf-8?B?ckl2U1hNeUgwTzl1T1BVWUl3QUF1QWF3dnp2RERKTG5BeXlya0xpOWVZNFky?=
+ =?utf-8?B?bTIrTjBGWTRzUEZlTDNaekg2VmVSOTlXZVFKZmZZa0hhRU10QW1rWjlBUHhh?=
+ =?utf-8?B?RWZ4QTBwUlhQZmpHVktlSjV5QTVCd1lzK21JTlJsWkRNaFIxUnFyRitQRUk0?=
+ =?utf-8?B?a3QzNlhFa3Nwc3BnTllrZ0NTQURjS0oxL1ROQjNNZHNsZDhXbDF6b0c5NTZY?=
+ =?utf-8?B?NTJqNjZhZEdVWUdnRFQ2aG0zUkluS1dRdW53dzBVZmUxa1JKdjhXOUpUL0U2?=
+ =?utf-8?B?QUo0SUNrYXdNbUpHTTdRdVhxWVVNVVBXT2xXUzdnY2JlaVA2dm5Edm40YXA3?=
+ =?utf-8?B?aFNiY2F2UG5wV3BrNmtmekY5SlJmdUpiL1VTd2M5L1M1eWpkaVpGbGVqUkp4?=
+ =?utf-8?B?MTZlZmVrbWk0SHo3YVZFdW1CWVV4bm5LSW5Tc210RitEalVnN0ZiSTg2dUFT?=
+ =?utf-8?B?ZVpSNHBTMXFiOXJndVYxWGx2azdzOHBXN1hhMVFoVzFnOTQrejhRVUh4VnZS?=
+ =?utf-8?B?VW1FcklwZGlZcEQzNGRtMHA2RU5jRUl1cTVkWlg2a1JhRVVTTnN2cFNCZzZR?=
+ =?utf-8?B?WURXeVY3UmtHVHVVaWM4VlhneDN5YlJPWmszSjBMdXM1dGZENjFpVWFIbFY2?=
+ =?utf-8?B?UGNZdFB2cjhKckpoZXBZVURKeTUyOUY4MXNiSHBIdWUwbHl0dnMxVm1CVkpr?=
+ =?utf-8?B?bFBOMkJ5cHBuRE9RbWtGbmQxZW43dWZCWjNieUFzQjdYWHhUem5nR2xGV2ZQ?=
+ =?utf-8?B?Kzl3aDBNd3dvckVTQSt2d21wNmwzSjZCci9vR2trNk1HRGpMNjFneFZWa0VF?=
+ =?utf-8?B?ZmxlNUQ0WUIxaUNFL00xa1RoNk1hM1E2N01ueVYvUlgrUTlzOGZ3ZTcrc2Qr?=
+ =?utf-8?B?dGNjMG9SWVhUcENxNWJsUVlZbVFEenovNkpuT1IrRGc5dVJteHpueG94RjN5?=
+ =?utf-8?B?RGpsME50ZjhZanJNd3UwNTNtZWZ2MWl4TzN3UldSNXhYeU1GSEw3UT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b772e764-9042-4b19-de4d-08de9fb49aa7
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Apr 2026 14:45:17.2686
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: uvbuy5/kToFgIcquiwELOSI8xUT+NC40f9uMJQrtaqa+dwamudBncznUPIXxA8ycXqp45nldvfjtxD9FgZNErg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8197
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_074325_802658_B2E0D174 
-X-CRM114-Status: GOOD (  20.61  )
+X-CRM114-CacheID: sfid-20260421_074521_863887_8C26D415 
+X-CRM114-Status: UNSURE (   6.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,183 +159,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-POR_EL0 is expected to be:
-- Saved in the poe_context record
-- Reset to POR_EL0_INIT when invoking the signal handler
-- Restored from poe_context when returning from the signal handler
+[..]
 
-Add a new test, poe_restore, to check that the save/reset/restore
-mechanism is working as intended. See commit 2e8a1acea859 ("arm64:
-signal: Improve POR_EL0 handling to avoid uaccess failures") for
-more details.
+> +
+> +	reserved-memory {
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		ranges;
+> +
+> +		linux_cma: linux,cma {
+> +			compatible = "shared-dma-pool";
+> +			reusable;
+> +			size = <0 0x28000000>;
+> +			alloc-ranges = <0 0x80000000 0 0x80000000>;
+> +			linux,cma-default;
+> +		};
+> +
+> +		vpu_boot: vpu_boot@a0000000 {
 
-This commit did not handle the case where poe_context is missing
-correctly. This was recently fixed; add a new test,
-poe_missing_poe_context, to check this case.
-
-Note: td->pass is only set to true at the very end, as an unexpected
-signal may occur in case of failure (especially in
-poe_missing_poe_context if POR_EL0 is restored to an invalid value).
-Failures are tracked with a global, failed_check.
-
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
- .../testcases/poe_missing_poe_context.c       | 73 +++++++++++++++++++
- .../arm64/signal/testcases/poe_restore.c      | 64 ++++++++++++++++
- 2 files changed, 137 insertions(+)
- create mode 100644 tools/testing/selftests/arm64/signal/testcases/poe_missing_poe_context.c
- create mode 100644 tools/testing/selftests/arm64/signal/testcases/poe_restore.c
-
-diff --git a/tools/testing/selftests/arm64/signal/testcases/poe_missing_poe_context.c b/tools/testing/selftests/arm64/signal/testcases/poe_missing_poe_context.c
-new file mode 100644
-index 000000000000..abab7400d9df
---- /dev/null
-+++ b/tools/testing/selftests/arm64/signal/testcases/poe_missing_poe_context.c
-@@ -0,0 +1,73 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2026 Arm Ltd
-+ *
-+ * Verify that the POR_EL0 register is left untouched on sigreturn if the
-+ * POE frame record is missing.
-+ */
-+
-+#include <asm/sigcontext.h>
-+
-+#include "test_signals_utils.h"
-+#include "testcases.h"
-+
-+#define POR_EL0_INIT	0x07ul
-+#define POR_EL0_CUSTOM	0x77ul
-+
-+static bool failed_check;
-+
-+static bool modify_por_el0(struct tdescr *td)
-+{
-+	set_por_el0(POR_EL0_CUSTOM);
-+
-+	return true;
-+}
-+
-+static int signal_remove_poe_context(struct tdescr *td, siginfo_t *si,
-+				      ucontext_t *uc)
-+{
-+	struct _aarch64_ctx *ctx = GET_UC_RESV_HEAD(uc);
-+	struct _aarch64_ctx *poe_ctx_head;
-+
-+	poe_ctx_head = get_header(ctx, POE_MAGIC, sizeof(uc->uc_mcontext),
-+				  NULL);
-+	if (!poe_ctx_head) {
-+		fprintf(stderr, "Missing poe_context record\n");
-+		failed_check = true;
-+		return 0;
-+	}
-+
-+	/*
-+	 * Actually removing the record would require moving down the next
-+	 * records. An easier option is to turn it into an ESR record, which is
-+	 * ignored by sigreturn().
-+	 */
-+	poe_ctx_head->magic = ESR_MAGIC;
-+
-+	return 0;
-+}
-+
-+static void check_por_el0_preserved(struct tdescr *td)
-+{
-+	uint64_t por_el0 = get_por_el0();
-+
-+	if (por_el0 == POR_EL0_INIT) {
-+		fprintf(stderr, "POR_EL0 preserved\n");
-+	} else {
-+		fprintf(stderr, "POR_EL0 unexpectedly set to %lx\n", por_el0);
-+		failed_check = true;
-+	}
-+
-+	td->pass = !failed_check;
-+}
-+
-+struct tdescr tde = {
-+	.name = "POR_EL0 missing poe_context",
-+	.descr = "Remove poe_context record and check POR_EL0 is preserved",
-+	.feats_required = FEAT_POE,
-+	.timeout = 3,
-+	.sig_trig = SIGUSR1,
-+	.init = modify_por_el0,
-+	.run = signal_remove_poe_context,
-+	.check_result = check_por_el0_preserved,
-+};
-diff --git a/tools/testing/selftests/arm64/signal/testcases/poe_restore.c b/tools/testing/selftests/arm64/signal/testcases/poe_restore.c
-new file mode 100644
-index 000000000000..9f9a61a4214d
---- /dev/null
-+++ b/tools/testing/selftests/arm64/signal/testcases/poe_restore.c
-@@ -0,0 +1,64 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2026 Arm Ltd
-+ *
-+ * Verify that the POR_EL0 register is saved and restored as expected on signal
-+ * entry/return.
-+ */
-+
-+#include <asm/sigcontext.h>
-+
-+#include "test_signals_utils.h"
-+#include "testcases.h"
-+
-+#define POR_EL0_INIT	0x07ul
-+#define POR_EL0_CUSTOM	0x77ul
-+
-+static bool failed_check;
-+
-+static bool modify_por_el0(struct tdescr *td)
-+{
-+	set_por_el0(POR_EL0_CUSTOM);
-+
-+	return true;
-+}
-+
-+static int signal_check_por_el0_reset(struct tdescr *td, siginfo_t *si,
-+				      ucontext_t *uc)
-+{
-+	uint64_t signal_por_el0 = get_por_el0();
-+
-+	if (signal_por_el0 != POR_EL0_INIT) {
-+		fprintf(stderr, "POR_EL0 is %lx in signal handler (expected %lx)\n",
-+			signal_por_el0, POR_EL0_INIT);
-+		failed_check = true;
-+	}
-+
-+	return 0;
-+}
-+
-+static void check_por_el0_restored(struct tdescr *td)
-+{
-+	uint64_t por_el0 = get_por_el0();
-+
-+	if (por_el0 == POR_EL0_CUSTOM) {
-+		fprintf(stderr, "POR_EL0 restored\n");
-+	} else {
-+		fprintf(stderr, "POR_EL0 was %lx but is now %lx\n",
-+			POR_EL0_CUSTOM, por_el0);
-+		failed_check = true;
-+	}
-+
-+	td->pass = !failed_check;
-+}
-+
-+struct tdescr tde = {
-+	.name = "POR_EL0 restore",
-+	.descr = "Validate that POR_EL0 is saved/restored on signal entry/return",
-+	.feats_required = FEAT_POE,
-+	.timeout = 3,
-+	.sig_trig = SIGUSR1,
-+	.init = modify_por_el0,
-+	.run = signal_check_por_el0_reset,
-+	.check_result = check_por_el0_restored,
-+};
--- 
-2.51.2
+Should this be memory@a0000000 ?
 
 
