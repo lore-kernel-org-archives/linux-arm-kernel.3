@@ -4,180 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E7F8F8FA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 13:24:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB781F8FA78
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 13:26:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=frFY4bp06uFJqt1iEY/Q1txwH03U0M8gla/u/83yYC4=; b=kQMo6OtoHD6A9T9XS1VjDkYdBv
-	VdftSsiEOMXCARx88mA2C1WxIPdad3ytKew+qb45XlIh4OH7vsjZBVmOiK/eNSmzVxIHqbtYjMALB
-	RhwGhs21FIlRPCto0/9lYV9G925NWCo3PjuRlPZRFpjbMgF9l3vIPtZpJZBflC+lSCEitCdDQg1jo
-	Wuo+w5VPaO16/0XyhktwDR+l52Ie7Kk/gGhFcnPcityLM+XNV4q5oSgUdVKduYvSIB20FpgNYnPsw
-	V5g+nHZILnUaSyOrau9ZWgp6nMfqoiIbZ9vQiRyt4VBbThfqoC1GpcNpr2uZR9wuK652PSPJbQCqB
-	oWOwCgWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a5JpIiHSpvSchdG9kvlWhfLYfuojE6inHmkxSqX6J0I=; b=DhO7sbrnD9bnJvVt7fZfUr5YIB
+	p+4poX1E0fkBpor6Jp+MZpHMYUJdAV0TFw7YeXVeDk4rAA1SnKu2zmCPgbkTnfdy3RkJA/lxyEWoy
+	+MjHDcnEvKKm7bZ4RiD0I/Sq3URAOXVT0viJ/anImc0cSjTONAHGbrwNX3Woig78VLS1C1RZFz+Fg
+	RsS86PYdxIopNPqd99s4dgCGM+Kp/0zKV2NNhfdqk3zD/em+yclFxGDGr+10BFigfl1GeAiymgJlI
+	oNfuyepDMeyMipMpUq/xHQWtfFrJFVlBeY0t4PBgDiYgJjNuZAOqViEAJxbkxYjUK8DT6HOmUJ4zf
+	sLD7Koew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFB5c-00000008f5h-00ex;
-	Tue, 21 Apr 2026 13:24:32 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1wFB7e-00000008fHH-06sH;
+	Tue, 21 Apr 2026 13:26:38 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFB5Z-00000008f4x-3e8T
+	id 1wFB7b-00000008fGu-2iPA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 13:24:31 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id F3ECA5BCE1;
-	Tue, 21 Apr 2026 13:24:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1776777868; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=frFY4bp06uFJqt1iEY/Q1txwH03U0M8gla/u/83yYC4=;
-	b=hBmXwUEu1iEVkOBzkKSgVUZTA8CENTYrOj0AkBP2L6qOBVjEddknP37suaSmoBA6SZi9b3
-	Sy7jhThKo8o1DcbB+nL+wdM69DS1OueKZEfFkZhwxm92k6bClr8l25cFuls5nouMlqnSbE
-	JqyZ1QjK1rb29/ceZqbv+tDB3IzaX8Y=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1776777868;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=frFY4bp06uFJqt1iEY/Q1txwH03U0M8gla/u/83yYC4=;
-	b=QwaOJ/DDK4OYht8nkmOco6EJ4N4pWUaFQljHKA9LT6Ezz9gzzJfVIizVYdnA8hDI9Aajkp
-	BWFRaOV+qdeB3WDA==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=hBmXwUEu;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b="QwaOJ/DD"
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1776777868; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=frFY4bp06uFJqt1iEY/Q1txwH03U0M8gla/u/83yYC4=;
-	b=hBmXwUEu1iEVkOBzkKSgVUZTA8CENTYrOj0AkBP2L6qOBVjEddknP37suaSmoBA6SZi9b3
-	Sy7jhThKo8o1DcbB+nL+wdM69DS1OueKZEfFkZhwxm92k6bClr8l25cFuls5nouMlqnSbE
-	JqyZ1QjK1rb29/ceZqbv+tDB3IzaX8Y=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1776777868;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=frFY4bp06uFJqt1iEY/Q1txwH03U0M8gla/u/83yYC4=;
-	b=QwaOJ/DDK4OYht8nkmOco6EJ4N4pWUaFQljHKA9LT6Ezz9gzzJfVIizVYdnA8hDI9Aajkp
-	BWFRaOV+qdeB3WDA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 1932E593AF;
-	Tue, 21 Apr 2026 13:24:27 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id ytX1BIt652kZCwAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Tue, 21 Apr 2026 13:24:27 +0000
-Message-ID: <4eb8de38-d75e-4ef7-96e8-5da2f820b275@suse.de>
-Date: Tue, 21 Apr 2026 15:24:26 +0200
+	Tue, 21 Apr 2026 13:26:36 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63LCMIAH1684959;
+	Tue, 21 Apr 2026 13:26:10 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=a5JpIi
+	HSpvSchdG9kvlWhfLYfuojE6inHmkxSqX6J0I=; b=BQXRJNvHf/CcVxH0ihyoHx
+	juD2W7hykiPR+GS/B8ZvpLzt3VZMZRNmFYtF8Swj7Ykk9YlPnqmN1kBSEZr5CNe8
+	m6nNSYwOp19Tix5+XOoDRDNFdYaNrw8M6PUaTld8Gpo7VNj/i64ou0Shd6lKImPS
+	IOJhl3+hihAwSG/JXdHFG9N+SGnpR+mjrT3wLjT/NOGMbQkgbBSklqpozemWCJ0c
+	6/EFHXqKazn+qCyGuoZoeWNHwq3tpdVzYFzrg4BIfje/y+AU7Pbz8BqPobyOAylC
+	/isMnsCRN1tjlODQfjfug3mR46trMn1vw/VDW/DwTqnq5P9wNxV+QLfgksdrShLQ
+	==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dm2j6megk-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 21 Apr 2026 13:26:09 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63LDO1nq020423;
+	Tue, 21 Apr 2026 13:26:08 GMT
+Received: from smtprelay03.wdc07v.mail.ibm.com ([172.16.1.70])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4dmpgg8p7w-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 21 Apr 2026 13:26:08 +0000 (GMT)
+Received: from smtpav05.dal12v.mail.ibm.com (smtpav05.dal12v.mail.ibm.com [10.241.53.104])
+	by smtprelay03.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63LDPfVk21234186
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 21 Apr 2026 13:25:41 GMT
+Received: from smtpav05.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 98FE658068;
+	Tue, 21 Apr 2026 13:26:07 +0000 (GMT)
+Received: from smtpav05.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 4C99058052;
+	Tue, 21 Apr 2026 13:26:06 +0000 (GMT)
+Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.18.93])
+	by smtpav05.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Tue, 21 Apr 2026 13:26:06 +0000 (GMT)
+Message-ID: <d6bcc9ef98a1e86887c5a79ff2822e70b5534343.camel@linux.ibm.com>
+Subject: Re: [RFC PATCH 1/4] security: ima: move ima_init into
+ late_initcall_sync
+From: Mimi Zohar <zohar@linux.ibm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        kvmarm@lists.linux.dev, paul@paul-moore.com, jmorris@namei.org,
+        serge@hallyn.com, roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+        eric.snowberg@oracle.com, peterhuewe@gmx.de, jarkko@kernel.org,
+        jgg@ziepe.ca, sudeep.holla@kernel.org, maz@kernel.org,
+        oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
+        yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
+In-Reply-To: <aedyh61iTnQRyzMv@e129823.arm.com>
+References: <20260417175759.3191279-1-yeoreum.yun@arm.com>
+	 <20260417175759.3191279-2-yeoreum.yun@arm.com>
+	 <a6a0e15286c983d720de227c6827adbe976c5b9b.camel@linux.ibm.com>
+	 <aedyh61iTnQRyzMv@e129823.arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Tue, 21 Apr 2026 09:26:05 -0400
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 11/20] drm/atomic-state-helper: Rename
- __drm_atomic_helper_connector_state_reset()
-To: Maxime Ripard <mripard@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Jyri Sarha <jyri.sarha@iki.fi>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>,
- Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>,
- Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>,
- Samuel Holland <samuel@sholland.org>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-References: <20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org>
- <20260320-drm-mode-config-init-v2-11-c63f1134e76c@kernel.org>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <20260320-drm-mode-config-init-v2-11-c63f1134e76c@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-3.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	MIME_TRACE(0.00)[0:+];
-	FREEMAIL_TO(0.00)[kernel.org,linux.intel.com,gmail.com,ffwll.ch,lwn.net,linuxfoundation.org,oss.qualcomm.com,iki.fi,ideasonboard.com,intel.com,linaro.org,kwiboo.se,emersion.fr,amd.com,igalia.com,redhat.com,ursulin.net,sholland.org,raspberrypi.com];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[37];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	ARC_NA(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	R_RATELIMIT(0.00)[to_ip_from(RL7gneoo7ydcsn9o76mxr5d8pb)];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:url,ideasonboard.com:email,suse.de:mid,suse.de:dkim,suse.de:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns]
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Rspamd-Queue-Id: F3ECA5BCE1
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIxMDEzMyBTYWx0ZWRfX0suQ6SmBGOIZ
+ AIaYeN9SO7i8CIwIIuw6eSjU+duSC6YJ/Al6XUC10/3bZJM++txtcl3IIfW7zTcGCl+miEzL1eM
+ wA8v7CNmDonrKS8aL2U9MsM236IB/aPhhtEgl9SIY2SKXX2NnjBjHhSy926VPcWHu0W/RK/4qdN
+ Tc1flhlYKKigx+YaCjWmRYXS3sIEoyB0a6geu+qZFuJYowKu3Pj9+l54P24xeGc/sLkcux0/Vn9
+ JljqWPtBu8LboN7G6enbKeUSblq1odKQhwTSwvjl/nVLwfo2XlbKXKVUcvusHpC6/MS910xSy57
+ kQfCEyYVpv1YJpvUfkVUXpJE4l1piP7iLCqR+ioGvlQwRvsitn2zyEnOoE1dIJK25ovf9+8YGux
+ byrDlTdQKV7zjx3jgmv9DgL9pN0L7hLuF7QhWFHFKWo7/n7QoAjPvk/puNUA1vngCRVxm9taKQ5
+ fj/2w62QrZrJR0DxaEg==
+X-Proofpoint-GUID: gEDjObHyjwV79gSjIS0e3G9OFGZ7xoQI
+X-Authority-Analysis: v=2.4 cv=SOJykuvH c=1 sm=1 tr=0 ts=69e77af2 cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=7CQSdrXTAAAA:8
+ a=DwIRA4aEKqX1ECuSU3YA:9 a=QEXdDO2ut3YA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-ORIG-GUID: atQDO3iv7P8iJENV48zi2sfflM5pN5dU
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-21_02,2026-04-21_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 spamscore=0 priorityscore=1501 lowpriorityscore=0
+ clxscore=1015 phishscore=0 suspectscore=0 adultscore=0 impostorscore=0
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2604070000
+ definitions=main-2604210133
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_062430_205120_31537991 
-X-CRM114-Status: GOOD (  22.41  )
+X-CRM114-CacheID: sfid-20260421_062635_794508_E4FE7FE4 
+X-CRM114-Status: GOOD (  39.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,105 +130,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 2026-04-21 at 13:50 +0100, Yeoreum Yun wrote:
+> Hi Mimi,
+>=20
+> > On Fri, 2026-04-17 at 18:57 +0100, Yeoreum Yun wrote:
+> > > To generate the boot_aggregate log in the IMA subsystem with TPM PCR =
+values,
+> > > the TPM driver must be built as built-in and
+> > > must be probed before the IMA subsystem is initialized.
+> > >=20
+> > > However, when the TPM device operates over the FF-A protocol using
+> > > the CRB interface, probing fails and returns -EPROBE_DEFER if
+> > > the tpm_crb_ffa device =E2=80=94 an FF-A device that provides the com=
+munication
+> > > interface to the tpm_crb driver =E2=80=94 has not yet been probed.
+> > >=20
+> > > To ensure the TPM device operating over the FF-A protocol with
+> > > the CRB interface is probed before IMA initialization,
+> > > the following conditions must be met:
+> > >=20
+> > >    1. The corresponding ffa_device must be registered,
+> > >       which is done via ffa_init().
+> > >=20
+> > >    2. The tpm_crb_driver must successfully probe this device via
+> > >       tpm_crb_ffa_init().
+> > >=20
+> > >    3. The tpm_crb driver using CRB over FF-A can then
+> > >       be probed successfully. (See crb_acpi_add() and
+> > >       tpm_crb_ffa_init() for reference.)
+> > >=20
+> > > Unfortunately, ffa_init(), tpm_crb_ffa_init(), and crb_acpi_driver_in=
+it() are
+> > > all registered with device_initcall, which means crb_acpi_driver_init=
+() may
+> > > be invoked before ffa_init() and tpm_crb_ffa_init() are completed.
+> > >=20
+> > > When this occurs, probing the TPM device is deferred.
+> > > However, the deferred probe can happen after the IMA subsystem
+> > > has already been initialized, since IMA initialization is performed
+> > > during late_initcall, and deferred_probe_initcall() is performed
+> > > at the same level.
+> > >=20
+> > > To resolve this, move ima_init() into late_inicall_sync level
+> > > so that let IMA not miss TPM PCR value when generating boot_aggregate
+> > > log though TPM device presents in the system.
+> > >=20
+> > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> >=20
+> > IMA should be initialized as early as possible. I'm really hesitant to =
+defer
+> > ima_init() to late_initcall_sync() for systems that the TPM is currentl=
+y
+> > initialized in time. For these systems, continue initializing IMA at
+> > late_initcall(). As a compromise for those systems that the TPM isn't p=
+roperly
+> > initialized in time, define and instantiate the late_initcall_sync().
+> >=20
+> > ima_init() would need to differentiate between the late_initcall and
+> > late_initcall_sync.  On late_initcall(), instead of saying "No TPM chip=
+ found,
+> > activating TPM-bypass!",  it should say "No TPM chip found, deferring t=
+o
+> > late_initcall_sync" or something similar.
+>=20
+> But can we really move those initialisations to be called again?
+>=20
+> I am referring to functions such as ima_init_crypto(),
+> ima_add_boot_aggregate(), and ima_measure_critical_data() in ima_init()=
+=E2=80=94
+> first without TPM, and then a second time once TPM becomes available.
+> I don=E2=80=99t think that approach would work.
+>=20
+> In other words, unless tpm_default_chip() can differentiate between a TPM
+> device that is deferred and one that does not exist, we cannot distinguis=
+h
+> between the =E2=80=9Cdefer=E2=80=9D case and =E2=80=9C-EEXIST=E2=80=9D.
+>=20
+> It might be possible if the TPM core tracked the state when a driver retu=
+rns
+> -EPROBE_DEFER, but I am not sure that is the right approach.
+> For deferred probe cases, the =E2=80=9Cdevice initialised in time=E2=80=
+=9D check should
+> likely be done at late_initcall_sync, rather than late_initcall.
+>=20
+> This implies that any such check performed before late_initcall_sync
+> does not reflect a valid state, as it cannot distinguish between =E2=80=
+=9Cnot
+> present=E2=80=9D and =E2=80=9Cdeferred=E2=80=9D.
+>=20
+> Therefore, I think the TPM check in IMA should be performed at
+> late_initcall_sync.
+>=20
+>=20
+> Am I missing something?
 
+In ima_init() you short circuit out, when called by late_initcall(), if the=
+ TPM
+hasn't been initialized.  So the rest of the ima_init() isn't called.  Roug=
+hly
+something like this (needs some cleanup):
 
-Am 20.03.26 um 17:27 schrieb Maxime Ripard:
-> __drm_atomic_helper_connector_state_reset() is used to initialize a
-> newly allocated drm_connector_state, and is being typically called by
-> the drm_connector_funcs.reset implementation.
->
-> Since we want to consolidate DRM objects state allocation around the
-> atomic_create_state callback that will only allocate and initialize a
-> new drm_connector_state instance, we will need to call
-> __drm_atomic_helper_connector_state_reset() from both the reset and
-> atomic_create hooks.
->
-> To avoid any confusion, we can thus rename
-> __drm_atomic_helper_connector_state_reset() to
-> __drm_atomic_helper_connector_state_init().
->
-> Suggested-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> Signed-off-by: Maxime Ripard <mripard@kernel.org>
+int __init ima_init(void)
+{
+        static int first =3D 1;
+        int rc;
 
-Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+        if (ima_tpm_chip)
+                return 0;
 
-> ---
->   drivers/gpu/drm/drm_atomic_state_helper.c | 10 +++++-----
->   include/drm/drm_atomic_state_helper.h     |  2 +-
->   2 files changed, 6 insertions(+), 6 deletions(-)
->
-> diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
-> index f1fc2edc6e6e35fbac5ef82437f3cb7485afc412..8ed8cb8a9048e8fd89fa22d20985c84af1672135 100644
-> --- a/drivers/gpu/drm/drm_atomic_state_helper.c
-> +++ b/drivers/gpu/drm/drm_atomic_state_helper.c
-> @@ -515,24 +515,24 @@ void drm_atomic_helper_plane_destroy_state(struct drm_plane *plane,
->   	kfree(state);
->   }
->   EXPORT_SYMBOL(drm_atomic_helper_plane_destroy_state);
->   
->   /**
-> - * __drm_atomic_helper_connector_state_reset - reset the connector state
-> + * __drm_atomic_helper_connector_state_init - Initializes the connector state
->    * @conn_state: atomic connector state, must not be NULL
->    * @connector: connectotr object, must not be NULL
->    *
->    * Initializes the newly allocated @conn_state with default
->    * values. This is useful for drivers that subclass the connector state.
->    */
->   void
-> -__drm_atomic_helper_connector_state_reset(struct drm_connector_state *conn_state,
-> -					  struct drm_connector *connector)
-> +__drm_atomic_helper_connector_state_init(struct drm_connector_state *conn_state,
-> +					 struct drm_connector *connector)
->   {
->   	conn_state->connector = connector;
->   }
-> -EXPORT_SYMBOL(__drm_atomic_helper_connector_state_reset);
-> +EXPORT_SYMBOL(__drm_atomic_helper_connector_state_init);
->   
->   /**
->    * __drm_atomic_helper_connector_reset - reset state on connector
->    * @connector: drm connector
->    * @conn_state: connector state to assign
-> @@ -547,11 +547,11 @@ EXPORT_SYMBOL(__drm_atomic_helper_connector_state_reset);
->   void
->   __drm_atomic_helper_connector_reset(struct drm_connector *connector,
->   				    struct drm_connector_state *conn_state)
->   {
->   	if (conn_state)
-> -		__drm_atomic_helper_connector_state_reset(conn_state, connector);
-> +		__drm_atomic_helper_connector_state_init(conn_state, connector);
->   
->   	connector->state = conn_state;
->   }
->   EXPORT_SYMBOL(__drm_atomic_helper_connector_reset);
->   
-> diff --git a/include/drm/drm_atomic_state_helper.h b/include/drm/drm_atomic_state_helper.h
-> index bc83094dfb78f0f3699ca7956a8a666ca09b2d1a..259a39a0f41ddb2b7d6c1fe7c1a2b0b51774254c 100644
-> --- a/include/drm/drm_atomic_state_helper.h
-> +++ b/include/drm/drm_atomic_state_helper.h
-> @@ -72,11 +72,11 @@ struct drm_plane_state *
->   drm_atomic_helper_plane_duplicate_state(struct drm_plane *plane);
->   void __drm_atomic_helper_plane_destroy_state(struct drm_plane_state *state);
->   void drm_atomic_helper_plane_destroy_state(struct drm_plane *plane,
->   					  struct drm_plane_state *state);
->   
-> -void __drm_atomic_helper_connector_state_reset(struct drm_connector_state *conn_state,
-> +void __drm_atomic_helper_connector_state_init(struct drm_connector_state *conn_state,
->   					       struct drm_connector *connector);
->   void __drm_atomic_helper_connector_reset(struct drm_connector *connector,
->   					 struct drm_connector_state *conn_state);
->   void drm_atomic_helper_connector_reset(struct drm_connector *connector);
->   void drm_atomic_helper_connector_tv_reset(struct drm_connector *connector);
->
+        ima_tpm_chip =3D tpm_default_chip();
+        if (!ima_tpm_chip && first) {
+                pr_info("No TPM chip found, deferring te late_initcall_sync=
+()\n");
+                first =3D 0;
+                return 0;
+        }
 
--- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
+The rest of the code remains the same.
 
-
+Mimi
 
