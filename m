@@ -4,145 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6136F327C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 08:58:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E805F327C9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 09:03:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JyP9a3XGN5QygY8+9mwGb209nr1fPg2DA3ijwKyzpZU=; b=KQMsLLJEiVv8Q+4tYJjdiD5lIR
-	jE3c0TtiS6sb7ScHUfGmhy/OdqGJNroTK9ruhUUZTndTWOUlGQh5mGvWI/4cDRzi3mZifMAvOkvkS
-	7dF01aDNYPLYTSiFZ3GE2SsG0whFAhZqiqWX/x3ovN+ei8YA4+ETNTq7/bWfQxv47QIxR0Iv/wTE4
-	ujiJMp2IgKEkOCoqmGpBo1EwEQyeQjO+oPiAQdd6qrbPAbOibkWQSjm5XmvlR8xy9Lp502FtxME5h
-	Ae9omZOFHC9stEkSYVfJznzoQwitRRdsj/Vdxng7Snpzau70nEVpNCZihhlYTkr7MxRzry5Jqoec+
-	gXYuZOag==;
+	bh=vcbno30aQf+arGIaZ+mgE/N2zcPrSQwito+V5BR9IcI=; b=GWX11S//Xa/iogZ2JBLjEACRBY
+	aAjaPsAnIOnpTst1qwTAGNXjD1IwidvBAguceTsE/kdLehF2lnvHR0i3G9Gnt3CcJRbEfO1yRYuqr
+	YdeZR9yVBrnBSSaQ9yjYm2TrjP64xfpzH5f6xeLMVbalXjQGb1zI6JOB+e3sG/JZMRpcTGygeH47r
+	hkrMsuPWFcTcfccUISyyAqKGwJZd4gVslgs0asM47UVB9KixpnCv2l9nEqxL1hGF/ZTCFfaptrVrt
+	s6Z6AGj8w+T5L3WrHT3Wiqg8E4ZVd1heLnYEMKbhB3rrLVK58aRl8YrtKUaRWA6jailLQy2jU9N5I
+	2cF19+Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF6vk-00000008I81-2MTz;
-	Tue, 21 Apr 2026 08:58:04 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wF70w-00000008IVP-3Yyu;
+	Tue, 21 Apr 2026 09:03:26 +0000
+Received: from out-180.mta0.migadu.com ([2001:41d0:1004:224b::b4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF6vi-00000008I71-1bGm
+	id 1wF70t-00000008IUx-3QtU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 08:58:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HS/dDKKi4iOZjqav4QLJNnzO5WmwQMY95I1dV/glApPG6g7ENU3VbDWiTyMi4eYlCigiNZRqO6WXzS06m2aTksLfoifM071xmA9sYaZZflkbT/7QwdaZGF5TIABEt1oPWOn3DHzpIHjCod2wk+fodny4Lia22Bf3rfzOpkDIUA5FgJ695NEJQEBw7BAnJv9HxFR61Iwl3Hq3KSuzL1p/xLnRj/evbOew+qACHgAl6uVPGL6PwzhUeRngXrhbREYYG4Dp8aCqdAqkFcdOX3sC3yabXrx63x9/32YC7QC0fW2Hkf4wog8ZIBK0yZ+6bA0CexajQlmAjO4Aj/QLVEy9Qg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JyP9a3XGN5QygY8+9mwGb209nr1fPg2DA3ijwKyzpZU=;
- b=AXzlCJ0x8tK7AIeLmA1E3zr8vJ1YvA9e5HJ2uY0HpI+3iQyKL1ODd/DvaYqX7HHrcZjIV0PcmOJska5M7Dt5OqOQom22/KlDbzYIJafnDTGf33D6eRp0EoLlRL+lbS9sjA4BqigE8g/ZF0G5v2Usp+3KGDXWcFR1ZZ3rRR1WuMFFe+sj9JhZfnwxy2Ea47OQR+cH6FDrtui+KBkSbwSZCq2ZZ4K4i4CtiRe/QNZ0AMPYkQ3XuoLEZAkdZ6UDUuUlGOaAI1P8Rg+aKEeU6BQ1D3P64l9MWhdgNEMLQAwaSrDfMrLZ2UTBtlsA6AOFKmkkwvvQrBmeMiBEjG8zgzNQkg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JyP9a3XGN5QygY8+9mwGb209nr1fPg2DA3ijwKyzpZU=;
- b=LP9lLflM5u5ezw6b7d2Ijohv5Wm+JrZKSYdOVake8OwkQuCeKjYpo2AEVCwkoJzQMyWiiZQaSqrlU4cWUzaTFMJ354tryfDbqdvT0CTrudjyTDWJEWIq7d2FPbawtk+viqyEnCwubtR0VyrJ2FD/M/6lC94bX1g/x7VjBQDiK5VGy3Z5JgCo9yMZjvPaOmjlz7m6bMcYpru0/kfUuV2mQZipyOarD2sNBydDnh2G+zP67Emugw7omBBjAn2IoSO3GpRNXTneEiwLxC7obuR8WIxxFw+54WldO9J4mYZIJZVvKjhteg7lmeHwmKKEU76RndJWpJTzK1zxSyFAQFho4g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by GVXPR04MB10048.eurprd04.prod.outlook.com (2603:10a6:150:118::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.16; Tue, 21 Apr
- 2026 08:57:56 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9846.016; Tue, 21 Apr 2026
- 08:57:56 +0000
-Date: Tue, 21 Apr 2026 04:57:46 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Frieder Schrempf <frieder.schrempf@kontron.de>
-Cc: Pankaj Gupta <pankaj.gupta@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v25 0/7] firmware: imx: driver for NXP secure-enclave
-Message-ID: <aec8CvIQGYk2Eyff@lizhi-Precision-Tower-5810>
-References: <20260122-imx-se-if-v25-0-5c3e3e3b69a8@nxp.com>
- <AM9PR04MB86047EA92BB21C6D522FC007959EA@AM9PR04MB8604.eurprd04.prod.outlook.com>
- <6543cf20-01e3-4dc2-b4b0-08935527f440@kontron.de>
- <e5989438-c063-4395-919c-2beaf8e937c8@kontron.de>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <e5989438-c063-4395-919c-2beaf8e937c8@kontron.de>
-X-ClientProxiedBy: SJ0PR03CA0390.namprd03.prod.outlook.com
- (2603:10b6:a03:3a1::35) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Tue, 21 Apr 2026 09:03:25 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1776762200;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=vcbno30aQf+arGIaZ+mgE/N2zcPrSQwito+V5BR9IcI=;
+	b=lWKgmMLrHixk3NnTk1fk/bAMn/tWOyeai/Bm2e7om76q1rs5NbaK8iSO4fVO19SlWq4Uzm
+	aCZNOSh2DkRueIyYOODOao4BqcnjX7hFeJ+Zstht2dzhS5zBjHlAFGo/1t0frnKd2jyUeu
+	87YkgtY59xQ0iIuf4au95EFxQBtANZY=
+From: Lance Yang <lance.yang@linux.dev>
+To: david@kernel.org,
+	dev.jain@arm.com
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	akpm@linux-foundation.org,
+	ljs@kernel.org,
+	Liam.Howlett@oracle.com,
+	vbabka@kernel.org,
+	rppt@kernel.org,
+	surenb@google.com,
+	mhocko@suse.com,
+	jackmanb@google.com,
+	hannes@cmpxchg.org,
+	ziy@nvidia.com,
+	lance.yang@linux.dev,
+	ryan.roberts@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] mm/page_alloc: fix initialization of tags of the huge zero folio with init_on_free
+Date: Tue, 21 Apr 2026 17:03:06 +0800
+Message-Id: <20260421090306.45979-1-lance.yang@linux.dev>
+In-Reply-To: <94fdc376-9c43-4334-b293-20a54acbdc3a@kernel.org>
+References: <94fdc376-9c43-4334-b293-20a54acbdc3a@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GVXPR04MB10048:EE_
-X-MS-Office365-Filtering-Correlation-Id: aab840cb-1434-4df8-07ce-08de9f841478
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|19092799006|7416014|52116014|38350700014|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: raxAdWnq68OZOx5WwRvndqFouIrVIyiy+D6EmyLCc+jH13FaQckQMh4sI/PUt3rwg5j7PMgV65MV0eGo3kzqauDglyjK21uWLw0k5bL4yPKbCC+IGbIzpxfotAuAc7r7PracDG26Jah2K93QDLUJqnSmVV38a2zVjtGEl4yexKq6EguByING+WzeTBtdsf1A5w4KWjPhdj21fic1M5ITBhWONdcJaOrZnQIbqrWxTuzd/AQG3a5cw5oEwrybniproPM7nyeUi5dOOk0SLlUlae2MnqqrO7vUhIAhYT7Dfx9pSFUfuBrjC5vRVtV58wg+M00kXtkM9ryGM2XS8AWP52Quq+Ux1o4cGhuiAfsTsRo0erUcx8KvGKLt39mXu76equv7Ts51pcG8CI5ms12G8Q3ixp5bpbI/I2lXbgiq/wjrOclS2r27Gi9Fp+Ky5/VmdOd3+ovv4SMSm7TbVeIeWiLALPc7kES4YQaq/7xIoc+5zMGQ08t5pI4l3/1voUIqMKn7SzgmKdKNu8Xv3Gvw3q7q/5vRJ/VjqUNt6CibBkCXCkQVrUOnZeYOPs0vqxwmcuIYDWi1G6W+LdfUkFurVlYzIGp/mZudC9B6EA63yi2eS+NsmEAtFkD7STUsptzcFjYsz48Q34weOJarSigv/PvX2zCzqq9a6sAZZOAd2IHGS7JMmC8ylmqo+NCJqAtScwcTIctlb1sDWbf+ny3OITbD1bKwxxFl1TrqqJ35W5GvzRS85OoM+06JkI5wSuDffL6Qzss/lOp7sBKz4hesL3L9KmFWYEB6/qKrZMbQe9o=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(19092799006)(7416014)(52116014)(38350700014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YVNFQW9jQUxjZkNpcGRPK05ibnpFeTdoWm9tM1ZkaGkvWDVIV2JsTWpYOFkw?=
- =?utf-8?B?T3NWRUQ4NWdqMDdLeTlTMFkxNmw0N2hKME01emJKbjVHWGtkd2JiNjlCTElX?=
- =?utf-8?B?RlRReWxSNkRQWlhpRW9pRG5LaDJoL2ZESjFBUkFWaUdta2cwN3V0RnU1TEdo?=
- =?utf-8?B?TjRXMnU2T2ZvNVhlWVFOUWN5T0dsaUR5RGtNait4QVJuc2RlbTdOR29uSU4w?=
- =?utf-8?B?VzNabXlPR3drMVp1S1h4a1pLYW1vbUkxaG0wVWhZQnFacUhNRXFYdGxoRHVk?=
- =?utf-8?B?Y1liUCtjNzkxUmQyNUlvWHlJWElEM2o2WWg1dVdLRTNKRVdiQnU5STFPRUJG?=
- =?utf-8?B?RmJUdXBtQVNPemp0a24vbENqTEVKUDFwb1VPem4zcVdWTTJ0dzhTT1F4NGtT?=
- =?utf-8?B?eHdWZTBWTjNYU1pWTzIzK2w3WnZqS0V6RXNObTc0eVJWT20xdmkwQVdwbVR3?=
- =?utf-8?B?L3Y0V0tlQ2taVS9HOTRpNXQ2WWc3WU5FWnlIakV6c3paSTBYdytod29GcUdY?=
- =?utf-8?B?aUJZNnZGVThJazlnWUdrK3hodXBMUEpQbm1HWFdvUzlNNGQzMk5ra3d2cFVs?=
- =?utf-8?B?NnJXQUIzdUNCbXcxRWNRWFZWZTlGWjNuanlGUXpqL3RhN1dOM1ZSZnNDRHEw?=
- =?utf-8?B?NlBRVSs0S1JFOTdZT1ZSNVcvVHpheGc3RXp1UkxkalUvcFhpVlFKOWVsM3lm?=
- =?utf-8?B?VFFRVEkzR3VFQllNVDJsVFZ6a2hQY2FkZDBqcTRXWXNHTk1vWFpkNklMM0Mx?=
- =?utf-8?B?TkVVTzFiN1pDZEF1YzF0RWYwamplMjhRWlFlVmo3MU5QZ1hBenc5dDdJcFk0?=
- =?utf-8?B?Rmp1S0VWMStsMG1VcE0vSU9SdE9Zc3IwWjJ4a05xbk1Dc3BwckRsQVVPdHll?=
- =?utf-8?B?WHlxcW5lRFhDNjNDOFNha00rL3V6OEx3VU51VVVKNGZjQ0FoVFdyVFRwL1pw?=
- =?utf-8?B?Y0ZkM1NjNVlhZTBjR255b01CaDludTE2bkRBY1JOSGswZmFOUEhkOTdlUHlo?=
- =?utf-8?B?N1I3UDE3WmsrYlVDV0ZPRlJuWTlETC93OFhwMjc5WG5mSWRXZktZM3FYRlRw?=
- =?utf-8?B?K21HKzFCOHFUQlBNR3YyQmFnT0NQTE5yOUROdVB6bU4vazcwV0w5aDR6ZFpR?=
- =?utf-8?B?NHZCNVk1L0FxTjdZY0J2bkM0aHE1enNoVURYUG1hb3h4cTNxZ3l4M0tiVEx6?=
- =?utf-8?B?dy9lRkc4ZU5MZE02VGpOcm9WelhPMXpyQXZwUHJ2bk9wLzIxR1FvSnNMbUJt?=
- =?utf-8?B?NnE5UnVCNm0vL2pGaTlzeDdrZ0xPdWEyeTVlY2VxbStDUE1tQnA2aFhsZk45?=
- =?utf-8?B?WDNZQXRackU3OGh2bXFqb0NBVDJoS3NJdXc3MFJvNHFmUDlOVkowSFByajht?=
- =?utf-8?B?N2hjNy9ieGxJZ2R5ejVyQVZQVUZGTEVuTXM3cGtPcUxzMzBjUzBiQWQ5Q3Jt?=
- =?utf-8?B?dTRXQml6R0ZZL1lrdHBKUUcva2xvZUV2NGNYT2lmZ1ZKaUU2dk1pZGNjTHEr?=
- =?utf-8?B?VURpVWxWbDV6VFVXOWxjays1bHBtOG5ITFZpeVBKVDhtYXZsLy85QlRPSnRr?=
- =?utf-8?B?QVFZa0JQanE3c1l3VGlzL2tWL2F3V1c4Y1JGQ3U5UStGeWZidnF3b0RxK2g4?=
- =?utf-8?B?WG5QOXJ1UmJoUnZaN3RUTlNOKy93ZEsveVFlanVMSUJMbUwwM3lOUnl0QVlJ?=
- =?utf-8?B?MUloSXAySmhZbUVaY2w1L3p6aHhXSlJRNWxlamhDVUhidUV3eUU3Nm80eVhL?=
- =?utf-8?B?OUEyVnNsNDhnd0g3V2FwRzJGVUl1UW9BVWdGV2d0bXJwaTdmTGNpMUdwVWxh?=
- =?utf-8?B?Q0xaQlg3aTVLQzZsMER3eDY2NVJlZC9VR21nNktpSm1vcWFsQVhTWlVEN25a?=
- =?utf-8?B?bVVLcytvWm5CQkZ3a2ZsMHRmMlNXUCtqZmtyRVgwdStYUUxnN0hjZWpLcGY4?=
- =?utf-8?B?YnZKSGpld0dPYVFySjRnc09CRUlrT1NNZFRhLzVSNi9ENmJtWUVZalJOeWZB?=
- =?utf-8?B?eDdvUUhEelluK0ZRK1lvWmVIMGFmNlJDTE9obkxmaG54dmxrSkVqTFRTNk9z?=
- =?utf-8?B?cWtmdi91YW42ck01VEQ3YWlndXU1UkF1REVDOUhMN0wvdXdEVXFtZFc0NVRQ?=
- =?utf-8?B?ekFrdUhheCtNUzA0bWs5VXRZbWhteDVyeSt1NTV5VE5yNmdPYUFxRGNINGlE?=
- =?utf-8?B?enU2Yk41akVjRDMrRVJOalRJOXJTNW50dXROTHRnaXlOL2N3TFFZTS9PVE1Y?=
- =?utf-8?B?U015YkVzaGlBZE1RK0JYVSsyT3g2c3NETThnRDN1bk1kR1pEOXZLTm9jeGQ3?=
- =?utf-8?Q?H2d8E4R8uLg6oCnBdf?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: aab840cb-1434-4df8-07ce-08de9f841478
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Apr 2026 08:57:56.4321
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dsdJto+jyeaM9+JW89cRPpUD3PLJPykK0Ed3Wf+O8UFIaXIQM8T8KF0pZ59+NnN9B/Pgez+nxWlmTKewNwG5Bg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10048
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_015802_430414_176C76BD 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20260421_020324_110747_9718C01F 
+X-CRM114-Status: GOOD (  23.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,37 +85,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 21, 2026 at 09:52:13AM +0200, Frieder Schrempf wrote:
-> On 24.02.26 12:18, Frieder Schrempf wrote:
-> > On 29.01.26 17:58, Pankaj Gupta wrote:
-> >> Hi Shawn,
-> >>
-> >> This is a gentle follow‑up regarding the patch-set.
-> >>
-> >> In v25, I addressed all automated feedback from kernel CI (warning fixes and checkpatch‑strict resolution), with no further changes requested by reviewers.
-> >> Patch 5/7 has also received a Reviewed-by tag from Frank Li (NXP).
-> >>
-> >> I have not seen additional feedback.
-> >> I would appreciate any update on the review/merge status, or guidance on further changes needed to move the series forward.
-> >>
-> >> Thanks for your time and continued support.
-> >
-> > How close are we to getting this patchset merged? Work on this has been
-> > ongoing for almost three years now and it would be really helpful to
-> > have this in the kernel.
-> >
-> > Thanks!
+
+On Tue, Apr 21, 2026 at 10:06:54AM +0200, David Hildenbrand (Arm) wrote:
+>On 4/21/26 09:06, Dev Jain wrote:
+>> 
+>> 
+>> On 21/04/26 2:46 am, David Hildenbrand (Arm) wrote:
+>>> __GFP_ZEROTAGS semantics are currently a bit weird, but effectively this
+>>> flag is only ever set alongside __GFP_ZERO and __GFP_SKIP_KASAN.
+>>>
+>>> If we run with init_on_free, we will zero out pages during
+>>> __free_pages_prepare(), to skip zeroing on the allocation path.
+>>>
+>>> However, when allocating with __GFP_ZEROTAG set, post_alloc_hook() will
+>>> consequently not only skip clearing page content, but also skip
+>>> clearing tag memory.
+>>>
+>>> Not clearing tags through __GFP_ZEROTAGS is irrelevant for most pages that
+>>> will get mapped to user space through set_pte_at() later: set_pte_at() and
+>>> friends will detect that the tags have not been initialized yet
+>>> (PG_mte_tagged not set), and initialize them.
+>>>
+>>> However, for the huge zero folio, which will be mapped through a PMD
+>>> marked as special, this initialization will not be performed, ending up
+>>> exposing whatever tags were still set for the pages.
+>>>
+>>> The docs (Documentation/arch/arm64/memory-tagging-extension.rst) state
+>>> that allocation tags are set to 0 when a page is first mapped to user
+>>> space. That no longer holds with the huge zero folio when init_on_free
+>>> is enabled.
+>>>
+>>> Fix it by decoupling __GFP_ZEROTAGS from __GFP_ZERO, passing to
+>>> tag_clear_highpages() whether we want to also clear page content.
+>>>
+>>> As we are touching the interface either way, just clean it up by
+>>> only calling it when HW tags are enabled, dropping the return value, and
+>>> dropping the common code stub.
+>>>
+>>> Reproduced with the huge zero folio by modifying the check_buffer_fill
+>>> arm64/mte selftest to use a 2 MiB area, after making sure that pages have
+>>> a non-0 tag set when freeing (note that, during boot, we will not
+>>> actually initialize tags, but only set KASAN_TAG_KERNEL in the page
+>>> flags).
+>>>
+>>> 	$ ./check_buffer_fill
+>>> 	1..20
+>>> 	...
+>>> 	not ok 17 Check initial tags with private mapping, sync error mode and mmap memory
+>>> 	not ok 18 Check initial tags with private mapping, sync error mode and mmap/mprotect memory
+>>> 	...
+>>>
+>>> This code needs more cleanups; we'll tackle that next, like
+>>> decoupling __GFP_ZEROTAGS from __GFP_SKIP_KASAN, moving all the
+>>> KASAN magic into a separate helper, and consolidating HW-tag handling.
+>>>
+>>> Fixes: adfb6609c680 ("mm/huge_memory: initialise the tags of the huge zero folio")
+>>> Cc: stable@vger.kernel.org
+>>> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+>>> ---
+>>>  arch/arm64/include/asm/page.h |  3 ---
+>>>  arch/arm64/mm/fault.c         | 16 +++++-----------
+>>>  include/linux/gfp_types.h     | 10 +++++-----
+>>>  include/linux/highmem.h       | 10 +---------
+>>>  mm/page_alloc.c               | 12 +++++++-----
+>>>  5 files changed, 18 insertions(+), 33 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/include/asm/page.h b/arch/arm64/include/asm/page.h
+>>> index e25d0d18f6d7..5c6cbfbbd34c 100644
+>>> --- a/arch/arm64/include/asm/page.h
+>>> +++ b/arch/arm64/include/asm/page.h
+>>> @@ -33,9 +33,6 @@ struct folio *vma_alloc_zeroed_movable_folio(struct vm_area_struct *vma,
+>>>  						unsigned long vaddr);
+>>>  #define vma_alloc_zeroed_movable_folio vma_alloc_zeroed_movable_folio
+>>>  
+>>> -bool tag_clear_highpages(struct page *to, int numpages);
+>>> -#define __HAVE_ARCH_TAG_CLEAR_HIGHPAGES
+>>> -
+>>>  #define copy_user_page(to, from, vaddr, pg)	copy_page(to, from)
+>>>  
+>>>  typedef struct page *pgtable_t;
+>>> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+>>> index 0f3c5c7ca054..32a3723f2d34 100644
+>>> --- a/arch/arm64/mm/fault.c
+>>> +++ b/arch/arm64/mm/fault.c
+>>> @@ -1018,21 +1018,15 @@ struct folio *vma_alloc_zeroed_movable_folio(struct vm_area_struct *vma,
+>>>  	return vma_alloc_folio(flags, 0, vma, vaddr);
+>>>  }
+>>>  
+>>> -bool tag_clear_highpages(struct page *page, int numpages)
+>>> +void tag_clear_highpages(struct page *page, int numpages, bool clear_pages)
+>>>  {
+>>> -	/*
+>>> -	 * Check if MTE is supported and fall back to clear_highpage().
+>>> -	 * get_huge_zero_folio() unconditionally passes __GFP_ZEROTAGS and
+>>> -	 * post_alloc_hook() will invoke tag_clear_highpages().
+>>> -	 */
+>>> -	if (!system_supports_mte())
+>>> -		return false;
+>>> -
+>>>  	/* Newly allocated pages, shouldn't have been tagged yet */
+>>>  	for (int i = 0; i < numpages; i++, page++) {
+>>>  		WARN_ON_ONCE(!try_page_mte_tagging(page));
+>>> -		mte_zero_clear_page_tags(page_address(page));
+>>> +		if (clear_pages)
+>>> +			mte_zero_clear_page_tags(page_address(page));
+>>> +		else
+>>> +			mte_clear_page_tags(page_address(page));
+>>>  		set_page_mte_tagged(page);
+>>>  	}
+>>> -	return true;
+>>>  }
+>>> diff --git a/include/linux/gfp_types.h b/include/linux/gfp_types.h
+>>> index 6c75df30a281..fd53a6fba33f 100644
+>>> --- a/include/linux/gfp_types.h
+>>> +++ b/include/linux/gfp_types.h
+>>> @@ -273,11 +273,11 @@ enum {
+>>>   *
+>>>   * %__GFP_ZERO returns a zeroed page on success.
+>>>   *
+>>> - * %__GFP_ZEROTAGS zeroes memory tags at allocation time if the memory itself
+>>> - * is being zeroed (either via __GFP_ZERO or via init_on_alloc, provided that
+>>> - * __GFP_SKIP_ZERO is not set). This flag is intended for optimization: setting
+>>> - * memory tags at the same time as zeroing memory has minimal additional
+>>> - * performance impact.
+>>> + * %__GFP_ZEROTAGS zeroes memory tags at allocation time. This flag is intended
+>>> + * for optimization: setting memory tags at the same time as zeroing memory
+>>> + * (e.g., with __GPF_ZERO) has minimal additional performance impact. However,
+>>> + * __GFP_ZEROTAGS also zeroes the tags even if memory is not getting zeroed at
+>>> + * allocation time (e.g., with init_on_free).
+>>>   *
+>>>   * %__GFP_SKIP_KASAN makes KASAN skip unpoisoning on page allocation.
+>>>   * Used for userspace and vmalloc pages; the latter are unpoisoned by
+>>> diff --git a/include/linux/highmem.h b/include/linux/highmem.h
+>>> index af03db851a1d..62f589baa343 100644
+>>> --- a/include/linux/highmem.h
+>>> +++ b/include/linux/highmem.h
+>>> @@ -345,15 +345,7 @@ static inline void clear_highpage_kasan_tagged(struct page *page)
+>>>  	kunmap_local(kaddr);
+>>>  }
+>>>  
+>>> -#ifndef __HAVE_ARCH_TAG_CLEAR_HIGHPAGES
+>>> -
+>>> -/* Return false to let people know we did not initialize the pages */
+>>> -static inline bool tag_clear_highpages(struct page *page, int numpages)
+>>> -{
+>>> -	return false;
+>>> -}
+>>> -
+>>> -#endif
+>>> +void tag_clear_highpages(struct page *to, int numpages, bool clear_pages);
+>>>  
+>>>  /*
+>>>   * If we pass in a base or tail page, we can zero up to PAGE_SIZE.
+>>> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+>>> index 65e205111553..8c6821d25a00 100644
+>>> --- a/mm/page_alloc.c
+>>> +++ b/mm/page_alloc.c
+>>> @@ -1808,9 +1808,9 @@ static inline bool should_skip_init(gfp_t flags)
+>>>  inline void post_alloc_hook(struct page *page, unsigned int order,
+>>>  				gfp_t gfp_flags)
+>>>  {
+>>> +	const bool zero_tags = kasan_hw_tags_enabled() && (gfp_flags & __GFP_ZEROTAGS);
+>> 
+>> Sashiko:
+>> 
+>> https://sashiko.dev/#/patchset/20260420-zerotags-v1-1-3edc93e95bb4%40kernel.org
+>> 
+>> PROT_MTE works without KASAN_HW_TAGS, so probably just retain the
+>> system_supports_mte() check in tag_clear_highpages(), and document
+>> that GFP_ZEROTAGS is only for MTE?
 >
-> Gentle ping! Can someone please provide information on what needs to be
-> done to get this merged?
+>Right, we have to clear tags here even without kasan. God, what an ugly
+>mess people created here with these GFP flags.
 
-Thank you test this. I just took over imx ownship from shawn.  I need get
-famillar with work flow and get dts part merge smoothly.
+Yeah, with kasan=off, kasan_init_hw_tags() returns early, so
+kasan_hw_tags_enabled() stays false and tag_clear_highpages() is still
+skipped.
 
-I will try to send this as independent pull request at earily of v7.1
+With the small debug change below, it still reproduces reliably:
 
-Frank
+---8<---
+diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+index 970e077019b7..d5b6e2474f47 100644
+--- a/mm/huge_memory.c
++++ b/mm/huge_memory.c
+@@ -225,8 +225,7 @@ static bool get_huge_zero_folio(void)
+        if (likely(atomic_inc_not_zero(&huge_zero_refcount)))
+                return true;
 
->
-> Thanks!
+-       zero_folio = folio_alloc((GFP_TRANSHUGE | __GFP_ZERO | __GFP_ZEROTAGS) &
+-                                ~__GFP_MOVABLE,
++       zero_folio = folio_alloc(GFP_TRANSHUGE | __GFP_ZERO | __GFP_ZEROTAGS,
+                        HPAGE_PMD_ORDER);
+        if (!zero_folio) {
+                count_vm_event(THP_ZERO_PAGE_ALLOC_FAILED);
+---
+
+Cheers,
+Lance
 
