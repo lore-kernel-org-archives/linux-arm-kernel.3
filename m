@@ -4,115 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E8CEF8FA65
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 12:00:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 242B3F8FA62
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 12:00:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
-	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/7V9HPuIqnD85K2oDoEgBomydr4fK04ZND9W1sNTOgU=; b=0/nknUzSgFImGKaTxwEQFG3DUC
-	VaT252gYLbL9gMcAVUJ1i50JFQEduK2zx5JjWukumZMXcT1Nirli/9oEsiGt95nHt4I59dYcuEP0B
-	Vqgl0y1srQPiwgCWBmgxwaD89CnQwBxwru9PE02NQCnwMkH1oJyh+tCyxKSLcY5N/+xaG3if4NRmY
-	WpCBcCEHP+PRblCQe6rVd2wouevwRNSMdOwaRBTJoHXcfm0tmk8VuzvqxAsaM2BgIx1dfKjpoqFg0
-	gk//dgKZNmlO0LyDeWDIe+ky1rk920Q1+NrfA+hGt1XUVm0VDYB0B1CCbGpGUA28l5FrPB9VftsxS
-	EuX9hGzA==;
+	bh=ccWSANgq+bosDEpg4XUyOiFDiebu9bwbAU6wcwshjR0=; b=c+GZGHw38R5xQhavHJiLoeY6kx
+	vRwYfDyaRo7/rHyMv+oEBuHErfDxAdQUtX+Fsx7x8jSdjtm3yi9IRZfh86v7s9PVJ4OX4ev/akQqn
+	Yhaf1AjLJAsAszBg0S7hatvnWx3NpvX8B9jEJ/Ugk7UUqf9mVs8YOues6jAM7/Nhn22lXPNlyYNyI
+	LSB7jtR7wYBLlIyjjGyhw+PgTBKMIHGoLlVCeK4WjsAKfZntM4tQzSVeycmU3kaDNhfJ5sllMQmDh
+	Sb4/HmO8ZeRq8yvYjLjBDDYjGLbF0pX5QfZveI2JdtVK5gic5eFh4FpwNqoI7nDShvuo6/UnWVDbK
+	WbA/kRYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF9ma-00000008Z29-2eHT;
-	Tue, 21 Apr 2026 12:00:48 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wF9mf-00000008Z3W-0One;
+	Tue, 21 Apr 2026 12:00:53 +0000
+Received: from mail-northeuropeazon11020077.outbound.protection.outlook.com ([52.101.84.77] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF9mX-00000008Z16-3VTK
+	id 1wF9mb-00000008Z27-40jo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 12:00:47 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63KJgcsg2328269;
-	Tue, 21 Apr 2026 12:00:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=/7V9HP
-	uIqnD85K2oDoEgBomydr4fK04ZND9W1sNTOgU=; b=r+kr/x/ti0V6c3IkKod/VB
-	d7eNY+/P6ZmaGYqTCpbndu0U1exnGOAnuR9I3Ots3K3F0GsnACDionm9kTyezu4A
-	jpt+WEQf0gd68pMpYy+36Y8gxHW50x6Nsrv0Ocgex+vp/BdF62yE4O6zK1mkqG7M
-	LvmiuYsHgLbcF3tIpiNQKRLFSGnrlwmDLJuZTa1Mjd8DCriVvIs+BXYgxv7R4i2y
-	3o2wHSZi2J6fmRWJvakd5mvvJJOJvAhRZEv7He+54DJ8sgx180v3RkOz21Aed0VC
-	93IiY4uxqRyFPRvVGUX4s8BhjSaN1MbUx9e6e7IHm2cG9WLbBqFPfCcifrwAYI/w
-	==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dm2k0uc15-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 21 Apr 2026 12:00:16 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63LBoIr6028465;
-	Tue, 21 Apr 2026 12:00:16 GMT
-Received: from smtprelay07.wdc07v.mail.ibm.com ([172.16.1.74])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dmn9k0hsh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 21 Apr 2026 12:00:16 +0000 (GMT)
-Received: from smtpav06.wdc07v.mail.ibm.com (smtpav06.wdc07v.mail.ibm.com [10.39.53.233])
-	by smtprelay07.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63LC0FZJ24445552
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 21 Apr 2026 12:00:15 GMT
-Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id BB7CB58064;
-	Tue, 21 Apr 2026 12:00:15 +0000 (GMT)
-Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A1B8958062;
-	Tue, 21 Apr 2026 12:00:13 +0000 (GMT)
-Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.28.47])
-	by smtpav06.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Tue, 21 Apr 2026 12:00:13 +0000 (GMT)
-Message-ID: <a6a0e15286c983d720de227c6827adbe976c5b9b.camel@linux.ibm.com>
-Subject: Re: [RFC PATCH 1/4] security: ima: move ima_init into
- late_initcall_sync
-From: Mimi Zohar <zohar@linux.ibm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>, linux-security-module@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Cc: paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
-        roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
-        eric.snowberg@oracle.com, peterhuewe@gmx.de, jarkko@kernel.org,
-        jgg@ziepe.ca, sudeep.holla@kernel.org, maz@kernel.org,
-        oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
-        yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
-In-Reply-To: <20260417175759.3191279-2-yeoreum.yun@arm.com>
-References: <20260417175759.3191279-1-yeoreum.yun@arm.com>
-	 <20260417175759.3191279-2-yeoreum.yun@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 21 Apr 2026 12:00:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SkZmQgOwHalU+ibmAxM4yxW+Sq9sGJg6ZbscI2Q+qqsviR/ZRXNN+rcxA2EWhPA/p+MRhkaMFpEdZKA+pSGsJZ7XtG8AxlRIdnRlQ3occv5QD+pqHdBWUzpggRm6PIN8uQULwisQOyQ0YtOKHywSZ8ykvdq67RhXPJhD2VzlysF8ygC2yILCLPq5OelLjkLnGWL3rBRu2HyTvlObd6KSoMNSepsqu2CTBx8558GenUo+Kc+TXPxXJZHhLW6FEe+SKsrVGA+jIPrw+2sidyV81tm9yiirT8tVy1YLEJVEZfT3Vv3LKxuoDIY/E2MT1HRKqWRW3ddoLl8t0Rm63SFcrw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ccWSANgq+bosDEpg4XUyOiFDiebu9bwbAU6wcwshjR0=;
+ b=ltESjEu/YogDGU3RCzqY50q1BYgbN9sdeUMz+2s4KmxH/RBZOlsBqtyiBJPCb62kALVn3ER8vFjPTmDSh+bcyqwI22ofWRadAy+mwrmao5c9TQ4nSIBbUz63QKc8qa13glsnoUe5L6rES3x97XcgWPHiUpAb04liqPfI93+KQRjbdvuQTyZXTF4K3iFREVxyMuCiK68tD/wODB6FcwDHSgvpR8+AdneTVUGTikXxJooRNBUCJN6EuFkm+1Soay0v7ziPAmVF+hs63X6ix9r3/GVriH23JELozmztA84GGF+QBk4XKKafBtkSscKZeCSrcaClpysE0pTER0KZkQM4Eg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=prodrive-technologies.com; dmarc=pass action=none
+ header.from=prodrive-technologies.com; dkim=pass
+ header.d=prodrive-technologies.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=prodrive-technologies.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ccWSANgq+bosDEpg4XUyOiFDiebu9bwbAU6wcwshjR0=;
+ b=CNA+dka/WSKHcucMz4z2theHlCQah8DGXM+LeE3toARQv0+yYBDaA7FJ3T8Wm7ym1pTpP25gsNKlsUlzbKensAgtLa0rQP8Rf5l9PH3bjUtSVyYya7v3bzN1ZTL+rP57PuMxNqRnLUv/oE1g+VHqnOipRs6QtJLY23vLOKKyC7A=
+Received: from GVXPR02MB10968.eurprd02.prod.outlook.com
+ (2603:10a6:150:215::17) by AS1PR02MB7822.eurprd02.prod.outlook.com
+ (2603:10a6:20b:4ad::19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.33; Tue, 21 Apr
+ 2026 12:00:43 +0000
+Received: from GVXPR02MB10968.eurprd02.prod.outlook.com
+ ([fe80::8e51:5ecd:e517:94c6]) by GVXPR02MB10968.eurprd02.prod.outlook.com
+ ([fe80::8e51:5ecd:e517:94c6%4]) with mapi id 15.20.9818.033; Tue, 21 Apr 2026
+ 12:00:43 +0000
+From: Paul Geurts <paul.geurts@prodrive-technologies.com>
+To: Ahmad Fatoum <a.fatoum@pengutronix.de>
+CC: Martijn de Gouw <martijn.de.gouw@prodrive-technologies.com>, Saravana
+ Kannan <saravanak@google.com>, "abelvesa@kernel.org" <abelvesa@kernel.org>,
+	"peng.fan@nxp.com" <peng.fan@nxp.com>, "mturquette@baylibre.com"
+	<mturquette@baylibre.com>, "sboyd@kernel.org" <sboyd@kernel.org>,
+	"Frank.Li@nxp.com" <Frank.Li@nxp.com>, "s.hauer@pengutronix.de"
+	<s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>, "shawnguo@kernel.org"
+	<shawnguo@kernel.org>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] clk: clk-imx8mm: Initialize clocks in arch_initcall
+Thread-Topic: [PATCH] clk: clk-imx8mm: Initialize clocks in arch_initcall
+Thread-Index: AQHcx0BZshCSHbJ2F0KbyTY8AjuDcLXU9FUAgAGm1GiAEteMRQ==
+Date: Tue, 21 Apr 2026 12:00:43 +0000
+Message-ID: <GVXPR02MB109689E26A9BAE94C2BAA34FDBD2C2@GVXPR02MB10968.eurprd02.prod.outlook.com>
+References: <9f36af74-ef1a-4777-a1c3-ff13b68c2221@pengutronix.de>
+ <20260409091643.3787112-1-paul.geurts@prodrive-technologies.com>
+ <95e718b9-c281-4336-9c1e-3bf8aff68457@pengutronix.de>
+In-Reply-To: <95e718b9-c281-4336-9c1e-3bf8aff68457@pengutronix.de>
+Accept-Language: en-NL, en-US
+Content-Language: aa
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=prodrive-technologies.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: GVXPR02MB10968:EE_|AS1PR02MB7822:EE_
+x-ms-office365-filtering-correlation-id: f49ac141-b027-46c7-3f9d-08de9f9d9d85
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700021|22082099003|18002099003|56012099003;
+x-microsoft-antispam-message-info: LKgH8g2EeOGp7jZInF+MimJo0boq08Agc3qvYuA6iNywyXM1b1uLbFKBYPJmEvyev30NKXQOnGldobTHP3YQxyVHwzTUVlSn1KKKAUIcesObH4YgAoiXUkggYWPumwl+jhwWp1yjQRp1d8VulSeJOFOJtIFhaCQpccjp/AW7aOheMKsZECbs0G3crnTXQNBFFYMMJqVRowrN/FTBW+dfVAkImNPHtvInA2GxLnExDZJDKJ2dAJXFAICqzmONQda2HErEgYlWEidHfZ01cyNb/1fjHHQOmN/zvxI55iU60JnkC/tF2IlrGf/YnJmGmqoKyBoqkgRcvEzeUcDUGDxCVZOpBFAfly/hs2TV/s2wCwU27Y1NZL7Zd8z4TgoONrxCQRAFbLxgV/ghwWdripUSUE2qK7xwDiaqPGk+w4rUEx8QGIZ8C8V7Sxn8wzhAq/QrHhSYqb+x04EZU590s+n7NS/w4Gz89OPCEUvueNaAjXaRgpoaDiasyCM7T7ZoQFksgRDP1ZIvCCfTzM+0ry4LHYDHF9Irz/OtPDNfFG7+3P5QjM2txHOxmWdhUQl51ZQQlqUxXLlIieh/Eh4u0exj5g1PdbqPKqxmNNUTWxPbA9Ir6S3fcEnRMasxLPa3PhZ+2AHr99c1twljo2rXGbXcQL/HJGyoYMd07lDzDy0spwc/WjmEKbmzNYVfkQkFjlCXy91XgRAVZFXFwAzsUeqMuQNpGxYU6swmfso1REhYgLG/2d8M0NqFNC0+SEvI4AAHP4Xy3tZgCS5XmrrIKFD9At+uPWn2gFjW8HaW/SAh5Cs=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR02MB10968.eurprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700021)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?fadYcTALJF5fUCe6WMOjGvntfMV4nFEZPylHwjaQ5pF+WOQKPxb752Sfnn?=
+ =?iso-8859-1?Q?dHUt4XCS24bBiC9AXTIA3Fk7Gu+n2yVs6RgN3a8LxDW5KwTTE3BiCvr7Ht?=
+ =?iso-8859-1?Q?WM3iKVHMIK8TnQPOdDJA+e6VJY8wgtnmZ4QHTbigY8tovFbkcNhNmYfZ+q?=
+ =?iso-8859-1?Q?ZNFtK12HXuYYrtpdwDTst0NUhhebjBxwtbi6ViPzDmVpBTJeeKAwOGz0x1?=
+ =?iso-8859-1?Q?CMdnSxuM5N1oXdWRQn1JnXauMNWnvXlx3HW+dq3aqXw31TrRzDU4l8SKXZ?=
+ =?iso-8859-1?Q?DL2F2fdUI7qwwZc0/n3bx8Hr+Uu25BrYLGruTQJN5R9SebhPL/SavuQc2N?=
+ =?iso-8859-1?Q?KZJ985jVH9IleejYY/SWXrFJA0vvmmFOesD5eb8dvELtNRY1UuHEktxc5R?=
+ =?iso-8859-1?Q?5n8n4djnSRoC4vKj5bheWUkdiobunbMlVk9WnlA7LSaaDYAMCgQwsblbyy?=
+ =?iso-8859-1?Q?Jc2OmjI0tSn+T5Pji3aHrKExuKr7XtUma6+Io+5co4fnZpXIEqKVM7XEmS?=
+ =?iso-8859-1?Q?VpF87MHE99Yn75VufDyGbIhThthcl6Qeo9iFVhJPE903+IqOoAAnlSaAgR?=
+ =?iso-8859-1?Q?LAm3j4t+cC44NGRM5tzdhzGbhpn1jD6WTwFTriSK0njeTRi15ABFB+rM8Z?=
+ =?iso-8859-1?Q?bukLjfK3tLtM5IBFtxoIytLMusI+8VDSAyNIQUXNmgshGisH4VbG8goe0n?=
+ =?iso-8859-1?Q?T3W4D1xlXDbZ8Mm699gnBlxHCnTsRQghsIKMCfxI6ciBT81SEega8DCPSq?=
+ =?iso-8859-1?Q?bDXJyKvREQJPh5Vu8mdKplHTLLMGTQv+66V9hbAMyMPm51oyzuRItK5CV5?=
+ =?iso-8859-1?Q?KaIlwKPN2GDjIDAupX/mmNP8RkuOpdF2BgQUP5atbK2/+B1PbMF4hQQYQd?=
+ =?iso-8859-1?Q?pvX+UtuuZ2YTljpbtjWvcyLgRf0SOxspyP/Jr5uunmRQpa6vnvByZo4I/C?=
+ =?iso-8859-1?Q?y03/046uSCNSdbZMz2ciEFW9QLv8QR2z9jygHdZGO+gSvgC3jDlxNVVT2l?=
+ =?iso-8859-1?Q?WnfwdTmmX/Xv8IDqJCej64ePzr+gj+p+Ry/lmiOF2qplsiUckEkgQqfcg0?=
+ =?iso-8859-1?Q?ujg+cAyiOplHBUwwZp6llQwvSUneJx0NyBnZ3IS9FskapEP0p9wz8/syNd?=
+ =?iso-8859-1?Q?zXPQMWkXN9DKMyaX4kpu1dv2/G6+HucxXlUbFQSizVU1uoGwdWiiczToDH?=
+ =?iso-8859-1?Q?XPL8+BNz5GolIT4jufhC0heAdLVrjMXg/j8j/9y3VYgcNIB0H6r7XkD9ar?=
+ =?iso-8859-1?Q?lto+GBmyKLY45IgUOXEapM2Vj3+VqAevRv+QJLWxANKdxSqz/G3sDMo7jg?=
+ =?iso-8859-1?Q?foiVMxdlSJKpQ5GIwmRLj0IoeEtW4DbrnZ0JcG0J7J4lJ60D5+W0twLM4G?=
+ =?iso-8859-1?Q?hZrynWaJ+KXZC8lYu0IX3H75cV9J3PRxLaNRT6EdFHEMCpyf86zkn44WLW?=
+ =?iso-8859-1?Q?XX4fi8rB7oYy4P/ayUs2D3GSxBaHs+e2GZ2dSg2wm2goqWJjEsNlueMfkU?=
+ =?iso-8859-1?Q?WPhv3zP9UfHFkADiLnivBr52ldMVo241PNMH2SHvF69uuRujEF6H+i7jgk?=
+ =?iso-8859-1?Q?6i6QbJuP0GpqcMI45w0zJZwuVCvbeo5Db/FlmOUwDiW4HDWn5mhfaQKeW+?=
+ =?iso-8859-1?Q?BAK7zDqXAtj3KtrSVKhLdr6czjqtohUjE2hWzRpZ1aitqp3Xr925u3LPCX?=
+ =?iso-8859-1?Q?MQtQQLI0zbUxeUSwdNSmMR2B/v1wrfVjS9vqH2GWW7wgEuMLaiKwPxmdu+?=
+ =?iso-8859-1?Q?5J/NvgKHLoj1pAqV37qSJNfC365ciS977QtJUJ+HgVBtvLlCZSk4Jy72OK?=
+ =?iso-8859-1?Q?82qkmrS2VEKLSm5QfNR+84Bdf4BXxEU=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
-Date: Tue, 21 Apr 2026 08:00:13 -0400
 MIME-Version: 1.0
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: lvh3OHjg1O_576NYFViCNKPWZGCSXB1N
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIxMDExNyBTYWx0ZWRfX7+yITLJGcICe
- Wy7Tl6qKVtdEs3wELScUUUtAg4HW3xSgBpBrBNg+HrHuWfxIGUqvc5dNfA7vZAJshlgqypmp9Ow
- l4NNlQUq2Odi+vbwGJjfpev9rJbVuWFIRhJm6Lq9P+Q79FOIetUYMbgt/aOBsYoZAvt9V+XNodc
- Yasn2zAY/i6QJGtaQAzrwWUtg4oUeNRJGLegroApJtZt6LA8yAsLiqr7Xap18QzMayV7bCBBLrQ
- C+VknHo0fG8aXmXa2MEXzzbQrW/RU5UQXWfjkhKt9gZnUPVITwTjIiX/2h5/RobjNZikJxfErlH
- DgLcgldsIDClsMJVV4TWIRTTanVtuVBMGyKXThvj2xRg5JT5CGjfP8v8Ckq5t/13DfeXcCHXj8o
- SCHK4xCOKDdB5svZOUsyR9vO53c0R2QoeLJIT1v/wpagsB35oWPfaQx60TFk+6RPCy2LVk4Lxph
- 1t/77m/3qhulw3V2Dmg==
-X-Authority-Analysis: v=2.4 cv=PtujqQM3 c=1 sm=1 tr=0 ts=69e766d1 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=7CQSdrXTAAAA:8
- a=0cQYFyLwv25f5AwIjZYA:9 a=QEXdDO2ut3YA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-GUID: idKqLRdvVn5SfRlMsXj151u3ESLzKcl5
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-21_02,2026-04-20_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 suspectscore=0 clxscore=1011 spamscore=0 impostorscore=0
- priorityscore=1501 bulkscore=0 adultscore=0 lowpriorityscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604210117
+X-OriginatorOrg: prodrive-technologies.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR02MB10968.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f49ac141-b027-46c7-3f9d-08de9f9d9d85
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Apr 2026 12:00:43.4489
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 612607c9-5af7-4e7f-8976-faf1ae77be60
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: q/+d9PYf/u0mUPdadSQyU7zwMTjiNm0oYdSXQABMXIIMFV0Ha7xLczHaoIAgHMCOksl5yMOsw223hsOmWR/0KNYcOmgCRXIiC2Hg47GuQduoIiMcahS3UiJr3CMdLpD5
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR02MB7822
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_050046_089214_FC977D74 
-X-CRM114-Status: GOOD (  31.83  )
+X-CRM114-CacheID: sfid-20260421_050050_003563_4D6D0275 
+X-CRM114-Status: GOOD (  26.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,137 +153,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2026-04-17 at 18:57 +0100, Yeoreum Yun wrote:
-> To generate the boot_aggregate log in the IMA subsystem with TPM PCR valu=
-es,
-> the TPM driver must be built as built-in and
-> must be probed before the IMA subsystem is initialized.
->=20
-> However, when the TPM device operates over the FF-A protocol using
-> the CRB interface, probing fails and returns -EPROBE_DEFER if
-> the tpm_crb_ffa device =E2=80=94 an FF-A device that provides the communi=
-cation
-> interface to the tpm_crb driver =E2=80=94 has not yet been probed.
->=20
-> To ensure the TPM device operating over the FF-A protocol with
-> the CRB interface is probed before IMA initialization,
-> the following conditions must be met:
->=20
->    1. The corresponding ffa_device must be registered,
->       which is done via ffa_init().
->=20
->    2. The tpm_crb_driver must successfully probe this device via
->       tpm_crb_ffa_init().
->=20
->    3. The tpm_crb driver using CRB over FF-A can then
->       be probed successfully. (See crb_acpi_add() and
->       tpm_crb_ffa_init() for reference.)
->=20
-> Unfortunately, ffa_init(), tpm_crb_ffa_init(), and crb_acpi_driver_init()=
- are
-> all registered with device_initcall, which means crb_acpi_driver_init() m=
-ay
-> be invoked before ffa_init() and tpm_crb_ffa_init() are completed.
->=20
-> When this occurs, probing the TPM device is deferred.
-> However, the deferred probe can happen after the IMA subsystem
-> has already been initialized, since IMA initialization is performed
-> during late_initcall, and deferred_probe_initcall() is performed
-> at the same level.
->=20
-> To resolve this, move ima_init() into late_inicall_sync level
-> so that let IMA not miss TPM PCR value when generating boot_aggregate
-> log though TPM device presents in the system.
->=20
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-
-IMA should be initialized as early as possible. I'm really hesitant to defe=
-r
-ima_init() to late_initcall_sync() for systems that the TPM is currently
-initialized in time. For these systems, continue initializing IMA at
-late_initcall(). As a compromise for those systems that the TPM isn't prope=
-rly
-initialized in time, define and instantiate the late_initcall_sync().
-
-ima_init() would need to differentiate between the late_initcall and
-late_initcall_sync.  On late_initcall(), instead of saying "No TPM chip fou=
-nd,
-activating TPM-bypass!",  it should say "No TPM chip found, deferring to
-late_initcall_sync" or something similar.
-
-thanks,
-
-Mimi
-
-> ---
->  include/linux/lsm_hooks.h         |  2 ++
->  security/integrity/ima/ima_main.c |  2 +-
->  security/lsm_init.c               | 13 +++++++++++--
->  3 files changed, 14 insertions(+), 3 deletions(-)
->=20
-> diff --git a/include/linux/lsm_hooks.h b/include/linux/lsm_hooks.h
-> index d48bf0ad26f4..88fe105b7f00 100644
-> --- a/include/linux/lsm_hooks.h
-> +++ b/include/linux/lsm_hooks.h
-> @@ -166,6 +166,7 @@ enum lsm_order {
->   * @initcall_fs: LSM callback for fs_initcall setup, optional
->   * @initcall_device: LSM callback for device_initcall() setup, optional
->   * @initcall_late: LSM callback for late_initcall() setup, optional
-> + * @initcall_late_sync: LSM callback for late_initcall_sync() setup, opt=
-ional
->   */
->  struct lsm_info {
->  	const struct lsm_id *id;
-> @@ -181,6 +182,7 @@ struct lsm_info {
->  	int (*initcall_fs)(void);
->  	int (*initcall_device)(void);
->  	int (*initcall_late)(void);
-> +	int (*initcall_late_sync)(void);
->  };
->=20
->  #define DEFINE_LSM(lsm)							\
-> diff --git a/security/integrity/ima/ima_main.c b/security/integrity/ima/i=
-ma_main.c
-> index 1d6229b156fb..ace280fa3212 100644
-> --- a/security/integrity/ima/ima_main.c
-> +++ b/security/integrity/ima/ima_main.c
-> @@ -1320,5 +1320,5 @@ DEFINE_LSM(ima) =3D {
->  	.order =3D LSM_ORDER_LAST,
->  	.blobs =3D &ima_blob_sizes,
->  	/* Start IMA after the TPM is available */
-> -	.initcall_late =3D init_ima,
-> +	.initcall_late_sync =3D init_ima,
->  };
-> diff --git a/security/lsm_init.c b/security/lsm_init.c
-> index 573e2a7250c4..4e5c59beb82a 100644
-> --- a/security/lsm_init.c
-> +++ b/security/lsm_init.c
-> @@ -547,13 +547,22 @@ device_initcall(security_initcall_device);
->   * security_initcall_late - Run the LSM late initcalls
->   */
->  static int __init security_initcall_late(void)
-> +{
-> +	return lsm_initcall(late);
-> +}
-> +late_initcall(security_initcall_late);
-> +
-> +/**
-> + * security_initcall_late_sync - Run the LSM late initcalls sync
-> + */
-> +static int __init security_initcall_late_sync(void)
->  {
->  	int rc;
->=20
-> -	rc =3D lsm_initcall(late);
-> +	rc =3D lsm_initcall(late_sync);
->  	lsm_pr_dbg("all enabled LSMs fully activated\n");
->  	call_blocking_lsm_notifier(LSM_STARTED_ALL, NULL);
->=20
->  	return rc;
->  }
-> -late_initcall(security_initcall_late);
-> +late_initcall_sync(security_initcall_late_sync);
-> --
-> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
->=20
+> Hello Paul,=0A=
+> =0A=
+> Cc +=3D Saravana=0A=
+> =0A=
+> On 4/9/26 11:16 AM, Paul Geurts wrote:=0A=
+>>> Hello Paul,=0A=
+>>>=0A=
+>>> On 4/8/26 12:13 PM, Paul Geurts wrote:=0A=
+>>>> The i.MX8MM clock driver is implemented as module_platform_driver();,=
+=0A=
+>>>> which makes it initialize in device_initcall(). This means that all=0A=
+>>>> drivers referencing the clock driver nodes in the device tree are=0A=
+>>>> deferred by fw_devlink, which are most of the i.MX8M platform drivers.=
+=0A=
+>>>>=0A=
+>>>> Explicitly initialize the clock driver in arch_initcall(), to make sur=
+e=0A=
+>>>> the clock driver is ready when the rest of the drivers are probed.=0A=
+>>>>=0A=
+>>>> Fixes: af7e7ee0e428 ("clk: imx8mm: Switch to platform driver")=0A=
+>>>=0A=
+>>> Your commit message doesn't explain why this was a problem for you.=0A=
+>>> Does it delay your boot? What makes this patch a fix?=0A=
+>>=0A=
+>> Yes I could update that in the commit description. The problem is that b=
+ecause=0A=
+>> of this, _all_ hardware is initialized in late_initcall, as that is wher=
+e=0A=
+>> deferred probes are handled.=0A=
+> =0A=
+> There's no one initcall order that will make drivers across all systems=
+=0A=
+> equally happy. That's why there are probe deferrals in the first place.=
+=0A=
+=0A=
+I understand. But this order makes all i.MX systems equally unhappy :-P.=0A=
+=0A=
+> =0A=
+>> For embedded devices, some sign of life is=0A=
+>> expected by most people during boot. Especially when an initrd needs to =
+be=0A=
+>> unpacked, this sign of life is going to take a very long time.=0A=
+> =0A=
+> Ok, so the problem is that the probes happen too late. Does the total=0A=
+> boot time take considerably longer or are you just unhappy with the=0A=
+> ordering?=0A=
+=0A=
+Both. It takes longer, and interfaces I would expect to be live "early" are=
+ very late.=0A=
+=0A=
+> =0A=
+>> Some display=0A=
+>> controllers don't even get enough time to show the boot logo because of =
+this.=0A=
+>> I don't think the idea behind the initcall levels is that _everything_ i=
+s=0A=
+>> initialized in late.=0A=
+> =0A=
+> I suspect we could improve the situation with "post-init-providers"=0A=
+> hints, but I haven't used it myself so far.=0A=
+> Maybe Saravana could give some advice once the problem is better understo=
+od?=0A=
+=0A=
+I could look into this, thanks!=0A=
+=0A=
+> =0A=
+>>> What happens if you build the driver as module with your changes applie=
+d?=0A=
+>>=0A=
+>> On module insertion, there is no initcall level, and initialization is=
+=0A=
+>> performed on insertion (AFAIK). Fact is that the system would probably=
+=0A=
+>> not boot when this is built as a module, as there are no peripheral cloc=
+ks=0A=
+>> without it.=0A=
+> =0A=
+> Ok, then this is patch is not acceptable. What's buildable as module=0A=
+> should work as module. I don't personally build it as module either, but=
+=0A=
+> removing the possibility will break users relying on it for Android GKI,=
+=0A=
+> I presume.=0A=
+=0A=
+This patch doesn't change anything about whether the driver is usable as=0A=
+a module. I think the original driver is already not useable as a module,=
+=0A=
+independent of this patch.=0A=
+=0A=
+> =0A=
+> We thus need to find a different, better, way.=0A=
+> =0A=
+> Cheers,=0A=
+> Ahmad=0A=
+> =0A=
+>>=0A=
+>>>=0A=
+>>> Cheers,=0A=
+>>> Ahmad=0A=
+>>>=0A=
+>>>> +=0A=
+>>>> +static void __exit imx8mm_clk_exit(void)=0A=
+>>>> +{=0A=
+>>>> +=A0=A0=A0=A0 platform_driver_unregister(&imx8mm_clk_driver);=0A=
+>>>> +}=0A=
+>>>> +module_exit(imx8mm_clk_exit);=0A=
+>>>> +=0A=
+>>>>=A0 module_param(mcore_booted, bool, S_IRUGO);=0A=
+>>>>=A0 MODULE_PARM_DESC(mcore_booted, "See Cortex-M core is booted or not"=
+);=0A=
+>>>>=0A=
+>>=0A=
+>> Thanks!=0A=
+>> Paul=0A=
+>>=0A=
+>>=0A=
+=0A=
+Thanks!=0A=
+Paul=0A=
+=0A=
 
