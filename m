@@ -4,127 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F587F327C3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 08:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A81DF327C8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 08:48:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tvgU+J+uG4qVRdJ0fs/rTSKY//EETVDv8n341qcJESE=; b=sQMffw91NNzQByfr6BdkyyqKX9
-	TVd7Sa+UohoFRbcu+5q93ftRpAWx8I/3wiPIVwxXD/j37DLJay9wMifCy4EnlJFrYSj8s0PdTcgMx
-	XO/DFcNUYdXrqWY+roa9iIYu+Lz9xSSlVTTVDuh2OtmIFpYe5lAJIe1DO6v2jzE+rRO+h4V/PzICf
-	bcOHAmZiuA5guspQsv5eUoduAYBZ9Gi8CZhtQKqgyEZX94FLLhnniELkkfg2E3T8aTPmoTds5Szo4
-	KfOYLYgOujRWVF3UXKpPzSJ1B/bDnWXO9IcjrrlP6kv9MqhDF9q3ilqIqIMHrlhOn3g1NMYkWZW0N
-	/2lzqoFQ==;
+	bh=cesJK1cHlGpwk2c9K2NN00+fF/B3i8r4V2/l72ekORE=; b=zPQskBaylNdLp5+wZnwRRE0McH
+	+6n+OuF8XLR4Rxj/AfWXQdYrJJLVBJlDQpB/ndzxmM7IrJHNHGZwmx/mw4OW3u4JO+4wJI1ADbdn2
+	8CwmILN+6B+RXOn1d1yoCyH+fDP2O+JjGA+3SMGvbraxfzqVZ3YVN9YwGLyIzrPvrbgzhTwYtZRKD
+	AhbVPoCzmHwZSo5NLWN8S+XoIPYFX4Z8zacu7GM478JQ2hSPEENKGn+a3QQfhlIvoCEVQIk1pjSrc
+	lyQglhMoPk5SHZiputkObla+D+py0yL0ZX8h7FfvQGLr4NRRZnC798f0xHSGjhHkY6o3aqcpse2EO
+	eeb3RDsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF6Ya-00000008GMJ-1ar8;
-	Tue, 21 Apr 2026 08:34:08 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF6YX-00000008GLx-3D6S
+	id 1wF6m3-00000008Gwh-3v45;
+	Tue, 21 Apr 2026 08:48:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wF6m1-00000008GwK-2Gcy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 08:34:07 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63KJgrTX1651159;
-	Tue, 21 Apr 2026 08:33:34 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=tvgU+J
-	+uG4qVRdJ0fs/rTSKY//EETVDv8n341qcJESE=; b=JMm1DwLugRh9n3Pzk8PG/7
-	RBeu/h58aiVtiO6x87msc+X3di6kQBA0LPSn+GqnnDwrpsXitVaBqpL8IJWsQu6+
-	4eBryUILfdzsk8kHKksN5yXGDYJ16pKxWNQBjR8/Uu/ribCiI881dqewEU8p2iCe
-	hRk7k/xOaGhWgzPUHiPXQ/f/Ucl+THWL5qQe2Pp3K2waoDSXxgnbx3yhOEY3xtz4
-	NmgPkB7F+9gPRel114P+1GMyEHmMvhOFBcxIPqZG3l1f6T+aYf0VNzx/ZPcoo/W9
-	0iZNrSo5PtvHtQ//g48GgY/SWHF3FAzGhE21PR7Za3LbwiclnjkSa/YF/jd7cq8g
-	==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dm2k53d5x-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 21 Apr 2026 08:33:33 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63L8KNho017504;
-	Tue, 21 Apr 2026 08:33:32 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dmmnvr3pf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 21 Apr 2026 08:33:32 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63L8XUBL29557270
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 21 Apr 2026 08:33:30 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 8C24220043;
-	Tue, 21 Apr 2026 08:33:30 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 16AC920040;
-	Tue, 21 Apr 2026 08:33:30 +0000 (GMT)
-Received: from [9.52.200.195] (unknown [9.52.200.195])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Tue, 21 Apr 2026 08:33:30 +0000 (GMT)
-Message-ID: <887de7b5-046c-4f68-b44c-8a1aaf2635e7@linux.ibm.com>
-Date: Tue, 21 Apr 2026 10:33:29 +0200
+	Tue, 21 Apr 2026 08:48:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7FE1225E0;
+	Tue, 21 Apr 2026 01:47:51 -0700 (PDT)
+Received: from [10.57.17.241] (unknown [10.57.17.241])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A52A83F915;
+	Tue, 21 Apr 2026 01:47:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776761277; bh=tGHTJO3OLM2tPNvqAneG+wOR1j4TNZT+Lox+5bpZMnQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lDGs96Z49uYUZQDLYjWkRtmQTDcjKBu2UzJIA66S9wjCdpk7SkTllYVQ2t1QQuFEy
+	 Z6MCQTey8RVl2MojuSsSN8z+8LbvxT8atmenhEA4bA7TIwxls7VYdgbt3fBNkP5nE+
+	 50Qr/0P2qI/0IOnjNqCBVob0sAFcdLFPcpCvSSkw=
+Message-ID: <d733a0b3-60a6-4bd8-909a-a2ee0c121dde@arm.com>
+Date: Tue, 21 Apr 2026 09:47:54 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 7/8] sframe: Introduce in-kernel SFRAME_VALIDATION.
-To: Dylan Hatch <dylanbhatch@google.com>
-Cc: Indu Bhagat <ibhagatgnu@gmail.com>,
-        Roman Gushchin <roman.gushchin@linux.dev>,
-        Weinan Liu <wnliu@google.com>, Will Deacon <will@kernel.org>,
-        Josh Poimboeuf <jpoimboe@kernel.org>,
-        Indu Bhagat <indu.bhagat@oracle.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Steven Rostedt <rostedt@goodmis.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Jiri Kosina <jikos@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-        Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
-        Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>,
-        joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org,
-        linux-kernel@vger.kernel.org, live-patching@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        Heiko Carstens <hca@linux.ibm.com>
-References: <20260406185000.1378082-1-dylanbhatch@google.com>
- <20260406185000.1378082-8-dylanbhatch@google.com>
- <de7bd273-3650-4378-8fd8-a51217e7284b@linux.ibm.com>
- <CADBMgpzbEGTm-sZ71a5hvFOHbu5VgSR406F3NsMLF1+oDWbO6A@mail.gmail.com>
- <dde1daa9-724c-4186-aaf6-caff6b47c5a9@linux.ibm.com>
- <CADBMgpzBvKTvRKHmLbEF301S_DnCg6SRETkMh6jPo-1hOEEZVw@mail.gmail.com>
-Content-Language: en-US
-From: Jens Remus <jremus@linux.ibm.com>
-Organization: IBM Deutschland Research & Development GmbH
-In-Reply-To: <CADBMgpzBvKTvRKHmLbEF301S_DnCg6SRETkMh6jPo-1hOEEZVw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: 0l_0RsB_xVUM48Vi_xszwbiWIKn94MiD
-X-Proofpoint-ORIG-GUID: oLmmSpz0tjomWJLPkahKivQ_qCrtNnAk
-X-Authority-Analysis: v=2.4 cv=VP7tWdPX c=1 sm=1 tr=0 ts=69e7365e cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8
- a=LFt20mCCc4CE-LtB3JUA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIxMDA4MCBTYWx0ZWRfX074kI05iuZWX
- OgF+ppwk0jYBKZuP91sOou6vhfh7Y1EsTO8Lr2UCkwBgTT6VK25UiXfJ4dtQ9wFMtQHGQxlgdet
- oN63gcciIX/G7lfkL40WjskQSC+oXC4L5BEO0HkmnCLjFZICQ9sU9iCvjCMBlNCR7AUKnQ1NrxW
- hCHqaZR5ajpEvhwbLNVC1sm0WJiIlG0KNR87SjudIOtEfnfln4fyWNNrTukrNfD5/1C51ftwJ1C
- 6eaD+BjjfwmHEmaXZ6Gh65Y0GsfiNQsRx8hL9E7uE2wGPzI1utdwm2/yeJZRrfWtCfex8q6nvGJ
- aG8qUGxZmuH5ytYEs6nTrN4r40xZYAQ+oMq7Lo4QIKpY0sSh1Ls9naD/IZxmk7+7Fa/zD+cX8cy
- airZxFY0uA5K6kp4/ppqgPig7vxQAD85MWSMYIJO2FU7KMAx3gySUmvPQzQYZRp56iN9NQIybNL
- hb0ja4sy5LL4XCVdNlA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-21_01,2026-04-20_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 impostorscore=0 suspectscore=0 priorityscore=1501 adultscore=0
- spamscore=0 lowpriorityscore=0 bulkscore=0 phishscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604210080
+Subject: Re: [PATCH v5 01/12] coresight: etm4x: fix wrong check of
+ etm4x_sspcicrn_present()
+Content-Language: en-GB
+To: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: mike.leach@arm.com, james.clark@linaro.org,
+ alexander.shishkin@linux.intel.com, leo.yan@arm.com, jie.gan@oss.qualcomm.com
+References: <20260415165528.3369607-1-yeoreum.yun@arm.com>
+ <20260415165528.3369607-2-yeoreum.yun@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260415165528.3369607-2-yeoreum.yun@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_013405_833554_4F6BD340 
-X-CRM114-Status: GOOD (  26.40  )
+X-CRM114-CacheID: sfid-20260421_014801_651243_CF6B3986 
+X-CRM114-Status: GOOD (  16.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,75 +73,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/21/2026 3:29 AM, Dylan Hatch wrote:
-> On Mon, Apr 20, 2026 at 5:31 AM Jens Remus <jremus@linux.ibm.com> wrote:
->>
->> On 4/20/2026 7:02 AM, Dylan Hatch wrote:
->>> On Thu, Apr 16, 2026 at 8:04 AM Jens Remus <jremus@linux.ibm.com> wrote:
->>>> On 4/6/2026 8:49 PM, Dylan Hatch wrote:
->>
->>>>> Generalize the __safe* helpers to support a non-user-access code path.
->>>>> Allow for kernel FDE read failures due to the presence of .rodata.text.
->>>>> This section contains code that can't be executed by the kernel
->>>>> direclty, and thus lies ouside the normal kernel-text bounds.
->>>>
->>>> Nits: s/direclty/directly/ s/ouside/outside/
->>>>
->>>> Could you please explain the issue?  How/why does .sframe for
->>>> .rodata.text pose an issue for .sframe verification?
->>>
->>> __read_fde checks that the fde_addr it extracts is within the bounds
->>> of sec->text_start and sec->text_end. In the case of the vmlinux
->>
->> Looking at the existing check in __read_fde(), do you agree that it is
->> wrong, as sec->text_end IIUC points behind .text and thus the check
->> should be:
->>
->>         if (func_addr < sec->text_start || func_addr >= sec->text_end)
->>                 return -EINVAL;
+On 15/04/2026 17:55, Yeoreum Yun wrote:
+> According to Embedded Trace Macrocell Architecture Specification
+> ETMv4.0 to ETM4.6 [0], TRCSSPCICR<n> is present only if all of
+> the following are true:
 > 
-> I agree this is correct. Is this a fix that would be folded into your
-> previous patch series?
-
-Yes.  I would send a new version once we have clarified how to move
-forward in general.
-
->>> Alternatively, we can check for FDEs located
->>> in .rodata.text during validation, but this seems to only be present
->>> in arm64, so maybe we would need an arch-specific hook to do this? I'm
->>> open to suggestions.
->>
->> Maybe that is better than ignoring __read_fde() failures?  I first
->> thought this would get nasty, but maybe it would not be too bad.
->> Following is what I came up with (note tabs replaced by spaces due to
->> copy&paste from terminal):
-
->> diff --git a/include/linux/sframe.h b/include/linux/sframe.h
->> @@ -63,6 +63,10 @@ struct sframe_section {
->>         unsigned long           sframe_end;
->>         unsigned long           text_start;
->>         unsigned long           text_end;
->> +#if defined(CONFIG_SFRAME_UNWINDER) && defined(CONFIG_ARM64)
->> +       unsigned long           rodatatext_start;
->> +       unsigned long           rodatatext_end;
->> +#endif
+>    - TRCIDR4.NUMSSCC > n.
+>    - TRCIDR4.NUMPC > 0b0000.
+>    - TRCSSCSR<n>.PC == 0b1.
 > 
-> It looks to me like .rodata.text only exists for vmlinux. I wonder if
-> in sframe_func_start_addr_valid we can just use the global
-> _srodatatext and _erodatatext after identifying if an sframe_section
-> corresponds to vmlinux (kernel_sfsec)? That way we don't need to add
-> these extra fields.
+> Comment for etm4x_sspcicrn_present() is align with the specification.
+> However, the check should use drvdata->nr_pe_cmp to check TRCIDR4.NUMPC
+> not nr_pe.
+> 
+> Link: https://developer.arm.com/documentation/ihi0064/latest/ [0]
 
-Sure.  I don't have and preferences.
+Fixes: f6a18f354c58 ("coresight: etm4x: Handle access to TRCSSPCICRn")
 
-Regards,
-Jens
--- 
-Jens Remus
-Linux on Z Development (D3303)
-jremus@de.ibm.com / jremus@linux.ibm.com
+With that looks good to me
 
-IBM Deutschland Research & Development GmbH; Vorsitzender des Aufsichtsrats: Wolfgang Wendt; Geschäftsführung: David Faller; Sitz der Gesellschaft: Ehningen; Registergericht: Amtsgericht Stuttgart, HRB 243294
-IBM Data Privacy Statement: https://www.ibm.com/privacy/
+Suzuki
+
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-etm4x-core.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index d565a73f0042..74b7063d130e 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -89,7 +89,7 @@ static int etm4_probe_cpu(unsigned int cpu);
+>   static bool etm4x_sspcicrn_present(struct etmv4_drvdata *drvdata, int n)
+>   {
+>   	return (n < drvdata->nr_ss_cmp) &&
+> -	       drvdata->nr_pe &&
+> +	       drvdata->nr_pe_cmp &&
+>   	       (drvdata->config.ss_status[n] & TRCSSCSRn_PC);
+>   }
+>   
 
 
