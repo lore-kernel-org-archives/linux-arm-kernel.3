@@ -4,91 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12ADCF89248
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 10:10:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52653F8924D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 10:23:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J8i26WnvEzqtjggoSSbd+ZCeLOG6Y3DS7nQqRJJ4EJQ=; b=TH/3Vd+P1Bgum12VKnvcee6Lsv
-	HpciTC5Qn9hXvcXtL3wfpzKr868ksJ9J1TpFL1L9OHgxS41ee+8sEfs+6nBbig9wS2AFa5+IDcjDx
-	ArYxiqm7zijwr/gUPoa++Bq29B7qbTFSbPf5a3o0gywtYe4SyPU/OtUYB4E+HMiAEsJneJDghDSjH
-	mArA50ywiro5AU/JzXKZo0RrRTq4qUBbnMvem4EwS5csFBkdmUB7btM6GqFtyiNSzHcwmUmkRbp/B
-	Ix0O1KuoC+8nTSa1PJ1T15UQDxA4z5prfdG54x8f71LFwkCG9VSPkdBIeQ5if249aZpLhLzJYeo0n
-	QPV9RUCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uxkNg+Kz3eggNdKmhX/VDk+TYX2dcnbabYbh4e8LTXs=; b=G5tzRA37GBFsZzWyOkccfGHzEI
+	VePTahwkBfFWqVe2in3Sx2jqtyl6+Yjb1BchanwKskLYLBFvXtsSIIjfuaHC3E1KWW8ibjPqvzH89
+	lqpPpCNjTLP2LBP8BoW0j1L5Ry61lvnG2MIU7uIeHYBOnCc8X8VhO1L6fENGmWJ/tKSPHie+ipbL9
+	54i0Pb5mG+NLw4ZPDbPtjuVKvxhpWnD9ksFRFNTADsghbQxMRZdAmfiqhINDlHb8EV4z2mYjpo8xS
+	mLdm0Dx47bfe+08jxeavZpoqH/N4XzEfuRtTrPxH7a2TlrjJoDR6AcfA8GJhWYx3wOkmjg/9y48+0
+	iSoWPMJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF842-00000008P9q-0Sfv;
-	Tue, 21 Apr 2026 10:10:42 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1wF8Fw-00000008PuK-2SKH;
+	Tue, 21 Apr 2026 10:23:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF83z-00000008P9V-1aeI
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 10:10:40 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4852a9c6309so35859655e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 03:10:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776766237; x=1777371037; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=J8i26WnvEzqtjggoSSbd+ZCeLOG6Y3DS7nQqRJJ4EJQ=;
-        b=K/SX/P5mUs0hMocD1G/uKwSZ8FXC1BX00UAE/T0MOMot6i2ZbnspSRfxxjKkOwse+w
-         E71xNmLElw/4E/Bf0cIQij+j1AFR4e0BgdKAt68kITkiVdnREyEJIIHW00pfSLNYPVeP
-         2W7Kr88hnfAdfpGw5gFjNAwsdnYaDiwXanTRqlfl98WKxx4lLPZU0wCRETw1Oz3jOlti
-         8ZPLPVdJEhnGfFv3Jnkv3IqROvXa9F0Cx7X80gE3MUsBkGt9XuLGZbYmF1+Y81ej3CRn
-         eW7EXch+3Bez0TVpdrp3hcX572+FXXUJSnoAcJ/YQU3Kc4HnBSPMyOBV6X3620lhYgii
-         EMAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776766237; x=1777371037;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=J8i26WnvEzqtjggoSSbd+ZCeLOG6Y3DS7nQqRJJ4EJQ=;
-        b=l9PvybfstGnhpczzmFGyKrwSxOCQX4L8gUtM3tD23ljd3xbERWeSx8X6ykT3GwakA+
-         zD9nSnT2TGJlcGTc7hgQwsrzq4ka3VtGDuVZb9hliCrQCBHhkYFqdPTcmgav2kI7EL0w
-         puWMYS1Cy34U+Uj2u2Phsf7noSBeYbZujvuklrKjVxxtEPJsrleS8j/tJJBexnF/9N4o
-         ZtJ55qbL+idzRUvueWGgr654PNGCYGe208Z712QmL7bItP7W5UrY5lQ8AVU3ze24VgtF
-         1IBuV8Lpcjs2rfkELfCqoz4F7QmgWsoWZdtkWfPV+Lalv+1jFc9jmAeAxQhgIZuaHsP3
-         bMFA==
-X-Forwarded-Encrypted: i=1; AFNElJ+BHxQ7Z2IglQT16tnZ1ndPxZdsRZ7wMRhplj3DTrold7tMvW45g1g32NG6BK96qrQPvWTS1H462dxSx1o4N43C@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTa3ycP36prisRwIMVAANdKhh0wxvBHNA/uwYsMCGObKJWP4Mt
-	3OoCklpMj/ctnTM3qq6g6b9phKwhAPm7Uf5aY60HRlCSnKUNPt+7IW/k84BMMw==
-X-Gm-Gg: AeBDieuoN52siv1VHt4VsovaxUR292leNWwAG3d+JbnIb7ZK4Ifvj+2lwQcu3rEdNQV
-	SYPgYfX1n2JAjuYWkYJKMfip86ctbmEmmNLDpXhUVCENvwMensb8/QHqwPd0L/j6NZVlbTQieWk
-	J5thjmmwW37NFZMtD59xuJ3Cp4sUDJEpxmLBYFjOTCSgQLo3bVevnj1Xm384hCT7g3EVuVDFhle
-	DaAQOM36mP94Cgf9c9oW+gRYZvefR6TyG7agp5VeDZofwmtiRFnu6GyyyrXsMMAQWkkRmYvDr6S
-	4IxKhQD5O62PA10Xidujp3xtCsdC2v06lZAlb+CulaUr1N0AQTVrGgYneRLECBdNr33WUkagZ5F
-	GoVMZBaGHjapl7OpoMV149Kh9CuFKk+OkiqIk0DZKwrMSOS/JiWR5Kq1FnAMUXQR+Jv0Jat5+Tx
-	2cXYx3YbHLavEtE729T7VMekvp1ZAZa4z2DzLRr+ZDJwEj2NKohdbUdKkWaekKyzWtaVOpbyHci
-	RCUs0uRBlOmw2o6c15w9AaP
-X-Received: by 2002:a05:600c:890c:b0:485:3ff1:d5ed with SMTP id 5b1f17b1804b1-488fb739cd9mr198783905e9.1.1776766237036;
-        Tue, 21 Apr 2026 03:10:37 -0700 (PDT)
-Received: from orome (p200300e41f131500f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f13:1500:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4891cca5743sm149377755e9.9.2026.04.21.03.10.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Apr 2026 03:10:35 -0700 (PDT)
-Date: Tue, 21 Apr 2026 12:10:32 +0200
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Thierry Reding <thierry.reding@kernel.org>, 
-	Aaro Koskinen <aaro.koskinen@iki.fi>, linux-tegra@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, linux-omap@vger.kernel.org, 
-	linux-m68k@lists.linux-m68k.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Paul Walmsley <pjw@kernel.org>
-Subject: Re: [PATCH v2 1/3] MAINTAINERS: Move Peter De Schrijver to CREDITS
-Message-ID: <aedM9A5vZSpg2ejS@orome>
-References: <20260417131549.3154534-1-thierry.reding@kernel.org>
- <CAMuHMdWeXS3ytgozp-mSrW4jcMRCW7_tbDTbMoEdXdbVj0dqJA@mail.gmail.com>
+	id 1wF8Fv-00000008Pu6-0e3X;
+	Tue, 21 Apr 2026 10:22:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4896360133;
+	Tue, 21 Apr 2026 10:22:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0897DC2BCB8;
+	Tue, 21 Apr 2026 10:22:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776766977;
+	bh=bqXBqcKC49eEkO8B5+eajrBk1tibKKx3p5dCM2COELU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=r9r1kmMmARzRvKWuATMNaDgHPW6GZHzvy6YD4FNmto0vGx/LgrT4GiVM5yR2ptn8B
+	 Q//piKG1IOMQuCoARr5ajk8UswSRcNFLMQlvG2tSY7bOD1i67VlFVybpzl++nmLG7b
+	 LMXrw8Ko7Glf3vXqNzUbegRuaeU3fZqVPlbY5yMZxpczwmM8U894LTdnR6PqOixl7h
+	 0SWcOQXGVMKzOA3lny9ZSyw8MHdbETnA0WydW0odWu5l20B6ZOFGaCEalhZ7DyDvHC
+	 ZO0DnIoGZUyNVVKu6NVAmJ7w7KkUkPlLUK2OHw+upL+uTNtGRUnU1vMfseqZyrJjmo
+	 l/CoYFUdumO4A==
+Message-ID: <6cdd0baa-fc69-44dc-9871-a96fd2f16017@kernel.org>
+Date: Tue, 21 Apr 2026 12:22:52 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="iljpeusu54227slh"
-Content-Disposition: inline
-In-Reply-To: <CAMuHMdWeXS3ytgozp-mSrW4jcMRCW7_tbDTbMoEdXdbVj0dqJA@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_031039_563057_43F57B15 
-X-CRM114-Status: GOOD (  15.02  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] arm64: dts: amlogic: add support for X98Q
+To: christian.koever-draxl@student.uibk.ac.at, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, neil.armstrong@linaro.org,
+ khilman@baylibre.com
+Cc: jbrunet@baylibre.com, martin.blumenstingl@googlemail.com,
+ funderscore@postmarketos.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org
+References: <20260420061854.5421-1-christian.koever-draxl@student.uibk.ac.at>
+ <20260420061854.5421-3-christian.koever-draxl@student.uibk.ac.at>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260420061854.5421-3-christian.koever-draxl@student.uibk.ac.at>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,63 +117,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 20/04/2026 08:18, christian.koever-draxl@student.uibk.ac.at wrote:
+> From: Christian Stefan Kövér-Draxl <christian.koever-draxl@student.uibk.ac.at>
+> 
+> Signed-off-by: Christian Stefan Kövér-Draxl <christian.koever-draxl@student.uibk.ac.at>
+> ---
+>  arch/arm64/boot/dts/amlogic/Makefile          |   1 +
+>  .../boot/dts/amlogic/meson-s4-s905w2-x98q.dts | 250 ++++++++++++++++++
+>  2 files changed, 251 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
+> 
+> diff --git a/arch/arm64/boot/dts/amlogic/Makefile b/arch/arm64/boot/dts/amlogic/Makefile
+> index 15f9c817e502..c7752684dea6 100644
+> --- a/arch/arm64/boot/dts/amlogic/Makefile
+> +++ b/arch/arm64/boot/dts/amlogic/Makefile
+> @@ -85,6 +85,7 @@ dtb-$(CONFIG_ARCH_MESON) += meson-gxm-ugoos-am3.dtb
+>  dtb-$(CONFIG_ARCH_MESON) += meson-gxm-vega-s96.dtb
+>  dtb-$(CONFIG_ARCH_MESON) += meson-gxm-wetek-core2.dtb
+>  dtb-$(CONFIG_ARCH_MESON) += meson-s4-s805x2-aq222.dtb
+> +dtb-$(CONFIG_ARCH_MESON) += meson-s4-s905w2-x98q.dtb
+>  dtb-$(CONFIG_ARCH_MESON) += meson-s4-s905y4-khadas-vim1s.dtb
+>  dtb-$(CONFIG_ARCH_MESON) += meson-sm1-a95xf3-air-gbit.dtb
+>  dtb-$(CONFIG_ARCH_MESON) += meson-sm1-a95xf3-air.dtb
+> diff --git a/arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts b/arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
+> new file mode 100644
+> index 000000000000..26c60a4c2a43
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
+> @@ -0,0 +1,250 @@
+> +
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 
---iljpeusu54227slh
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 1/3] MAINTAINERS: Move Peter De Schrijver to CREDITS
-MIME-Version: 1.0
 
-On Mon, Apr 20, 2026 at 08:50:06AM +0200, Geert Uytterhoeven wrote:
-> Hi Thierry,
->=20
-> On Fri, 17 Apr 2026 at 15:15, Thierry Reding <thierry.reding@kernel.org> =
-wrote:
-> > From: Thierry Reding <treding@nvidia.com>
-> >
-> > Peter sadly passed away a while back. Paul did a much better job at
-> > finding the right words to mourn this loss than I ever could, so I will
-> > leave this link here:
-> >
-> >   https://lore.kernel.org/lkml/alpine.DEB.2.21.999.2407240345480.11116@=
-utopia.booyaka.com/T/#u
-> >
-> > Co-developed-by: Paul Walmsley <pjw@kernel.org>
-> > Co-developed-by: Aaro Koskinen <aaro.koskinen@iki.fi>
-> > Co-developed-by: Geert Uytterhoeven <geert@linux-m68k.org>
->=20
->    "every Co-developed-by: must be immediately
->     followed by a Signed-off-by: of the associated co-author."
->=20
-> https://elixir.bootlin.com/linux/v7.0/source/Documentation/process/submit=
-ting-patches.rst#L506
->=20
-> Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
+You have still the same warnings as before.  Fix them ALL, not just one
+warning. Are you sure you tested your work with standard tools?
 
-Good point. Thanks, I'll add that to the patch.
+Please run scripts/checkpatch.pl on the patches and fix reported
+warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
+patches and (probably) fix more warnings. Some warnings can be ignored,
+especially from --strict run, but the code here looks like it needs a
+fix. Feel free to get in touch if the warning is not clear.
 
-Thierry
 
---iljpeusu54227slh
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmnnTRUACgkQ3SOs138+
-s6FtNA/+IOGgvf2lEqydkdm2yLiSq9mf9BZV7RmX1tRK5PKD53tIx45Jr6VhFbsA
-lUfLPKoMJaUJvC+a4SglqYSgjVTR/OXgqWIN8PkWlF7DedUL2pFsF68A8RY0Zz9H
-INvSyIIKld2hbW6rMvclNX9G3NKbYoGjNdO/+iBZ5Yg1rNN9fG6BP+QUFmA3TrCy
-5x45YruOqPkCcE6/9JslSP8F3xibDt30ZrR01QyBL3GawSrlR24+EpN9WxTlOT+M
-eo74keyH71q6J3tT2EiBXJXkB28XSh9ZSlEe0nfcERy0xxFFu9BoGrwCQaLIOGQR
-QWMu4eX/U58VInPR6ltYCv7prkAZf9bcrVE25ym3A8TtsdmK27KYbwWKND5Sjlhd
-R3p5/Hrtkjuyg1c06co4BUc+vu73LJ6hktpY9Iu2KLOIPRCC+Oh9TOcpkhmPrSK2
-JUpmvDinXx6XjUNVGrkfzcdbm6JUGMQiX4i0YEtR6uAb7zfi9VS5Ow5cfoQJu5ZP
-OvlcJt0vPbSUhNP4Sqg7xdvqU6g2/soQuh9Kf6Wt0MJPQQrtr0C20HhRxfDwNcId
-SIuS8X8BqPv63mRwVSAu0ENlqs4X3qD0059UV+cK+JhLf89cz51OgAFwguzBDX5p
-KS2X4VY3cTIEvF3AKA5/ZjcCPYtkJOkXqheTUcfvQuhuy9rHR4g=
-=YfYq
------END PGP SIGNATURE-----
-
---iljpeusu54227slh--
+Best regards,
+Krzysztof
 
