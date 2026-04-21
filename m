@@ -4,120 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97435F8FA97
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 15:51:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 545C1F8FA98
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 15:52:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ah2xOvWaDKLvoRx+Sugm17sPEJa2Hr2jwArmoO66aQk=; b=mU3yQLyILfI6snB6n3yPPFYH8K
-	bN1cd5ykBd+RXd9UdCHHnnIu+MzG8CWnX4+rQQDa+/GL2ujpbiRjhZebu/riTmHDtCFsVczGNZypR
-	4DOmOoHCdKFhRzew6bPeLhn4xyXGtAq3Tka7RrcrQzXi106I3CUhqsE3mMjTE2olrDNfZvAiK6tut
-	chfXmGh0PRxrBqeChmVvw3R2hsfRdNmEuzHkFQNcSsDzYcd84dElRiK5P3aQ4zFA+SW/1ZWFGJQJq
-	qgr1y1RbKztc7sUEs/GcuC+HoL1vtUxZ/1+uxGD7CIttVEfm9om2dY2Xa+SJ786cu720eAOIE6wb6
-	l8lbAV9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b+TpPDtb4A8gF0EfZG351FvSa4dKKMV4oqQnvGwrL7A=; b=iG90ut1i7D54Wf8JAuGhtb/YER
+	ovFQhn1aD2FMEUhD2zYD8oyoYqbl5Nr/eIIo7/VeN+o4dd1RM+3WKXgRGXcII15b2iOtXnKABwCax
+	8ZhbX2/C5tldMHs0ERhuqe7DQ9Li20hOIGmreCt0x7+auSqg2ove0PPatGRez91lkjmB3SewADadK
+	5oSaZK017ykMCJ2oz5U23NehlQDuR+QhrmvMJ0BnX7+JGZe+mXdCjfTh8FoyIblDL2O72W/S1hr5r
+	ZQIpKP6J4eRLRg4Z/E+n04N5B4bpf4xS1GHpOiRIag4lMvUH+FknU0Gb1G4X0VZaC58AOGaBKDzfU
+	ngtwvg1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFDNa-00000008r5a-1b1w;
-	Tue, 21 Apr 2026 15:51:14 +0000
-Received: from mail-eastusazon11011039.outbound.protection.outlook.com ([52.101.52.39] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1wFDOp-00000008rFS-3VYc;
+	Tue, 21 Apr 2026 15:52:31 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFDNX-00000008r4G-0AKW
+	id 1wFDOm-00000008rEz-3eUT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 15:51:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kqTCQdwwM3/HuCZBIh47e630imaX6TA8/8RGwJVbSgY6geHsEdpGZs9fj7A0Ei18uTLv9J0tcVhbcX1rZeJBX+yIKoUkofvrs/zjHuE4vQfORd+4V402sj3kSuMYNuDSbGzhOlMh5MNS9SdGyl1NbGbfbUJjbxF3EVkDlRM29oVywQ934MNJAD0Dwb2mvtsSxk6vlIpaAEYmW2oYDyMJG4kpTwvk3taAWMfFuB1Vf/2HNMMSLrO95Vaj3819KzZOBuJn6wu3zlllbe3ae9+gQ6C0WZc1F1iwLzXJ421DE8jOo58GsdN2v0C9KdjQGuCOsQ1Dwv1vxyUMwHJtG+rysA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ah2xOvWaDKLvoRx+Sugm17sPEJa2Hr2jwArmoO66aQk=;
- b=wcBe2lysjyVr9lUKZAHN7fqKx8f2mbPmgIYpj+8aaY5rIWQzUpzYyp9SN6H8XDAFp7txSvltqOMPdkfyXIPw3po+15BMe2egi/OV12ggt40pslRig3JN6qFz3ByVJCX8bVtZumpuW3beGrc6ZE65oTXRnTFsgRTpAk8Rc1td+IiVad2uOF+ZfMlmm7Pp/Ks+YTZfamgz8ySTfmFoj3JEjgpj0YT7IQtqXkdSzN4bvfp0fCFeF5mCJ4STCc6kteNDA1j699Dut7fXFcFnSzuS6JHLBBKW7ODZGGnz1T8ZwtUNAWV+nQhPqaFdbs4XcMVEbJ1cwKRLuljP2YAIUYwiyA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Ah2xOvWaDKLvoRx+Sugm17sPEJa2Hr2jwArmoO66aQk=;
- b=jTbn/WX/yeu0qHGdjy7rL2wjLm6Fqpi3PxrkMBG5j5KyEpZ0E/2dAoeTedA2hkBuYG+WD7GRR8/gp4VDCgszvyieu7M/sS3L5050AcdSXjMPyKWJjldaEiUBKX+sWnc+HfgCBBdlcRdr4Oz+huDDHzd6AXpJp1ZjokNDTDxfgiw=
-Received: from CH5PR05CA0014.namprd05.prod.outlook.com (2603:10b6:610:1f0::24)
- by IA1PR10MB6218.namprd10.prod.outlook.com (2603:10b6:208:3a5::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.32; Tue, 21 Apr
- 2026 15:51:03 +0000
-Received: from DS3PEPF0000C37A.namprd04.prod.outlook.com
- (2603:10b6:610:1f0:cafe::6a) by CH5PR05CA0014.outlook.office365.com
- (2603:10b6:610:1f0::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.15 via Frontend Transport; Tue,
- 21 Apr 2026 15:51:03 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- DS3PEPF0000C37A.mail.protection.outlook.com (10.167.23.4) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9791.48 via Frontend Transport; Tue, 21 Apr 2026 15:51:02 +0000
-Received: from DLEE211.ent.ti.com (157.170.170.113) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 21 Apr
- 2026 10:51:01 -0500
-Received: from DLEE203.ent.ti.com (157.170.170.78) by DLEE211.ent.ti.com
- (157.170.170.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 21 Apr
- 2026 10:51:01 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE203.ent.ti.com
- (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 21 Apr 2026 10:51:01 -0500
-Received: from [10.249.135.215] ([10.249.135.215])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63LFov0d736833;
-	Tue, 21 Apr 2026 10:50:58 -0500
-Message-ID: <d36239c2-98d5-4e5b-b99e-470f4d753a52@ti.com>
-Date: Tue, 21 Apr 2026 21:20:56 +0530
+	Tue, 21 Apr 2026 15:52:30 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63LD6xAT3574144
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 15:52:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=b+TpPDtb4A8gF0EfZG351FvS
+	a4dKKMV4oqQnvGwrL7A=; b=FzMpBM445RAAHk5vR+lJe3EuQLfi6pcaUmmL6Xb9
+	pkqyCdRuKRhZYAeqdBBJ2p1rB2QhDqfjc4uESrNlx8tLhu9mFxQavV7cIkg86e5E
+	jl1qY50x6SO9v9RStaYY3lHz5+nW7bmI7NcFSslRK+7b+S/0C9IUrmJqcZATLUJf
+	2A89t2dcihv7AiNmjqqmr/qGXD8xwxUGwSpTeLRoWZi2riO6PFahpYkrbwsFUpRl
+	XBQZJyIiY/EUvf9DgVklf9v/P3PRDwS/API4JnlMpTcAHWX8nB71fgG+GogTQYds
+	S5CZ8df8UR1qDGBLUvIErjMWyL3xS3pbyYK5gM4Kf7TSbQ==
+Received: from mail-ua1-f69.google.com (mail-ua1-f69.google.com [209.85.222.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dp465j1p9-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 15:52:28 +0000 (GMT)
+Received: by mail-ua1-f69.google.com with SMTP id a1e0cc1a2514c-94ad0ada31bso9115711241.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 08:52:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1776786747; x=1777391547; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=b+TpPDtb4A8gF0EfZG351FvSa4dKKMV4oqQnvGwrL7A=;
+        b=et06E0BXjgGMsHNkgigpYvimPJ2CAbdQda/RUvjiN4erS45PZ8zeI80PMcpR/Iqlvh
+         NrbtrGOzOlZU3Ulgs+VFWTQkeCfI3iTUaPQsJ5QJAx3h0+mdnXrWSwY7LoYC7FrxBUc+
+         qkTDyAmnpVsXOf147K/79w+2IE32JVA3te05x5SsEuO//OcRK7a0+19Aq3TMFKZjycgV
+         bttwyoADPeGu4F3UL177a0aTxifHcxfXZ6oK5imp4yXgjr88B3+LQUnb7/Os9AzTzXVb
+         ZgGq9KOiy5nk4/11Qqo0Wmsbf9V+e2pzZa9pPoAB7/7OMzi7rtsuTwAPcwb305lcLb4u
+         XMEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776786747; x=1777391547;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=b+TpPDtb4A8gF0EfZG351FvSa4dKKMV4oqQnvGwrL7A=;
+        b=SuAD+WYVLXArL+ns9lPQCkBt6s3es7+Zm/0WSL5SDM1hyqWWpmXNXVEX0SMYAVKjU7
+         RNgGxSXLKBTkabh3lQkw612YpVMtPpSurKbOKiUqh+42s8VR8WbwEhVJNH18q051T+un
+         ttfJ/7bUbjiaxJuNYGDcpOJ0CMLBqnbiiMCulnKQiObVi0TeCyqyHnsuPONjQ45U+ADB
+         /TD0dHTTmky02LVoJ8eN5p9xjh+cT4Y7m1zqZPFOSmvCOZ/93BY1v1ANvEaxqywKJ2+j
+         eltbx8N9y8jqh4MKrj4TqHQECASrYmvQdKDE8aPQal8KN1K4twpNpH6lRcPk0MshGW5u
+         f0JA==
+X-Forwarded-Encrypted: i=1; AFNElJ8fzm44sN4ICNMFBsPZTBLlKfqFVhyYjPkR24Kd4cHxfwVTR84BbbfWOosPdfkPYLmUTkau9BsLmckEuIqaPVPh@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGOT/uFp8vsL+km11k08uRoqwh7jT9T3ZV4cdrzdSi3458nJK4
+	PKHNIeJ0nY/YKXxa5t5r5R0FsSwI7KtpJ1Lj0FQS375puGLro2yRiidddlQAcUTUE18IccyHVVT
+	t4l7M2pHiqcQusN2RY2d68xJVC/AOn3BRwHiHcCjlTGy7N6LjhMTjwInF5RFgNcZu/4W+77ctJb
+	hilA==
+X-Gm-Gg: AeBDietp8XUh+r/GDz2At2hl4Ox4haGcdNO+MB5hXGwCGUjpSs15F4aM+7EdhFczLuo
+	ZMJndL95BOvNgh1hAPqBtcFsgEQekSEI2EPjd24hcDQmdn/X0UjTB4UGe0/MUsVoW6+V/b7RKoa
+	jm2EiGXHucfqck+m1Xq1rAH0CrWWWAnsx0gzBaeMwT8/Xnf9QMnBzVJlF5RyGcv+8/gt5C4o81T
+	IK26hbKLJFcov3h+wtr7/Q5O+2ioKj8UkKlBNGJvELWKAC2BZKz6+04kCnGBqUuK7zSMaq6HAsj
+	cCvARIAiKkgZzrJQiO4a+MFWS2OUB5B+5IIRJZFekg13LvYA7U53e2pty4G61S2x2fI0X1dtbEb
+	4Ncj+XdNpTWIZvUuRWsyouWOLVRjoyHMN6gW+qjcqmZcy1qln+5h4HystVe4Y4PnPpTjwdLGjQM
+	yqHUvnQ9OOTuDkvE79cXuWQEc2wqEJ1Qzh7Kpc/aaBG92Bdw==
+X-Received: by 2002:a05:6102:5492:b0:611:959c:86b with SMTP id ada2fe7eead31-616fe259128mr6807900137.16.1776786747171;
+        Tue, 21 Apr 2026 08:52:27 -0700 (PDT)
+X-Received: by 2002:a05:6102:5492:b0:611:959c:86b with SMTP id ada2fe7eead31-616fe259128mr6807884137.16.1776786746729;
+        Tue, 21 Apr 2026 08:52:26 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-38ecb5f66besm31845671fa.13.2026.04.21.08.52.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Apr 2026 08:52:25 -0700 (PDT)
+Date: Tue, 21 Apr 2026 18:52:23 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <skhan@linuxfoundation.org>, Jyri Sarha <jyri.sarha@iki.fi>,
+        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+        Andrzej Hajda <andrzej.hajda@intel.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Robert Foss <rfoss@kernel.org>,
+        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+        Jonas Karlman <jonas@kwiboo.se>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Simon Ser <contact@emersion.fr>,
+        Harry Wentland <harry.wentland@amd.com>, Melissa Wen <mwen@igalia.com>,
+        Sebastian Wick <sebastian.wick@redhat.com>,
+        Alex Hung <alex.hung@amd.com>,
+        Jani Nikula <jani.nikula@linux.intel.com>,
+        Rodrigo Vivi <rodrigo.vivi@intel.com>,
+        Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+        Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>,
+        Samuel Holland <samuel@sholland.org>,
+        Dave Stevenson <dave.stevenson@raspberrypi.com>,
+        =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
+        Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+        dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
+        linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
+        intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+        linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v2 13/20] drm/connector: Add new atomic_create_state
+ callback
+Message-ID: <kxp5j2tsermgycxq2wtxsvfml7etawwc7mew523rtkynp2x6oi@trsnzjwlnjto>
+References: <20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org>
+ <20260320-drm-mode-config-init-v2-13-c63f1134e76c@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] soc: ti: k3-ringacc: Fix access mode for
- k3_ringacc_ring_pop_tail_io()
-To: Siddharth Vadapalli <s-vadapalli@ti.com>, <nm@ti.com>,
-	<ssantosh@kernel.org>
-CC: <stable@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <srk@ti.com>, <s-adivi@ti.com>
-References: <20260413065125.627180-1-s-vadapalli@ti.com>
-Content-Language: en-US
-From: Hari Prasath G E <gehariprasath@ti.com>
-In-Reply-To: <20260413065125.627180-1-s-vadapalli@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS3PEPF0000C37A:EE_|IA1PR10MB6218:EE_
-X-MS-Office365-Filtering-Correlation-Id: 304c728d-14a3-44b7-c8fb-08de9fbdca31
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|376014|82310400026|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: Wiu3voGBI0kyePGzqj+0wyl12m/lXs1T+ZfURBB9bNdedzL6usl0d0uJIXCz1UBUBMl2F0SSX9Kmqs6Zp6zPK/sCGZZAAtucgiJ65cyVy4PEQNrXfXO3oDGa/F4IqCg6bd/9CD43HEWTlSFFf+PEszz482m8cGwCB42gRqmk5Tbkeq+oSkF/U759n+1JV2cITKlRakurfQv8X7SgOWwXNHHFS/CL+QvgeSJFntrvhPMS+O/ZOAksvzftsdpUeoU5k20CuxIsXqKIv4DVXj7/3Oyr14JxhtwwXc/Ocw6ytGNkv138Pfoz/zoGeBK25h8BAF+mScY7uB9BqePTPIOHOZFt/Fl15kiH74HueuXJP5bPCLBaUyn1Whyyi9rrCmSmFu0kIDisv7qhbecqE96hf4iIJRF7TKVQvFYFWByYQnes+67C4y4GwFsbMJdNJc4K9eVAQn9/Y2hueGZVAmr48iiXoFZE/iGa1rLyNX7XZ/MyS4CwW7LYA3n2F6z8p1OS0l4Sz1/4odLGzsKzXDDBF5tSTtxE4TaB9u/ox28tR0FZpU5QhizLIgIojcBq5d0xOrKsOlyWoT2ZRF9dB3GU6t289lFUh0sm6mGsbJzaWyewUM+LlzSeD6H1ZcqYxm/vHwx4hxwrb+KQWPXer+wCJCX+ravv1k5jdaHn9yRrW86RpkklTvf3gRhtkkISptc3lZ4FXBBLM52BmCrj/6XHGul/sCxy2Chku5QSIRhpFVwk1zcYF9czgJVRywfC2j0l4qEUc9e3gCLy9l3BNvBhRg==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(376014)(82310400026)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Tpy48nnqGaYcL9TEc/6hlBtHlqyWQppgzMnH5+cKEsj1UYk57ygRgs+tnY1DPwTXOlwsyVSMGj53m4ZneCErIyKHuwAHVVHs8UU6dW109OCcBRZ2xG9HF3XLUL4sRL6NoGLDIlVzH21R7MINZDkvKHpi9Z07g4gffaooHLNLPyxPQMdIBWbwbqBn1VOLte2A7Xxje3HKJ62nXjEkGiTfK8j4jhk3GXFrkYGP/RwHEfLO4Zmj083fAwsJX8vtoQwEA2BdV8w2HAUCURaf3sxY5SEpiV7dT50x05XbCg/bZDq55J37s1m4f4gfWeCwTRM5DWr7xmMp+QkGg0fF/ameuh5R6XMLFCqH7fkKb8XR5wemldO6l3J0nWeL5R6AZqqX9ua/j3EOTHhfHUTmyNH64MncbMzAkWq0NFDocCaS68we9Msx+w7VTm3xFZx1wmvN
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Apr 2026 15:51:02.2036
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 304c728d-14a3-44b7-c8fb-08de9fbdca31
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF0000C37A.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR10MB6218
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260320-drm-mode-config-init-v2-13-c63f1134e76c@kernel.org>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIxMDE1NyBTYWx0ZWRfXxhedSYwHLKFx
+ oxL/FPmevg+d0UKOAyeH+/5v4Vmo5jqMBfJGHp4kC2BoUkB4Sslgb/4h0lSJfQS1gRe7Zgg1RsW
+ RF4GRCAs3oXDus0sVzHozlifQhSA8ObXThOoiwxesgRjoButOOW+lT33yMbmI+xEPqgAN3KUIIY
+ yCnGiZgRHJyUI/LxUPcf6rexDa0Eqk/6TCpInjwS01xbQZkgcVeLv/+4Fxd9yBxXmx0myZGkrMW
+ iEcLyYLKGn7fMPitIzrtzKafMA2+qsOsMdvl92XeBD/yvyyJDTjc3s9npr+hXw6e/BZuzMsg+J8
+ 6Dti+IhBdHMhdaVZqXv9OLtx2xxB8dUcSL2vv5TTYjM5gXUto8O/G31o4r2nSdMw/kWp0VpUoJg
+ z+9alFdJsebX/Bz2DG/MvAQLXyQF1k53KzwATHk3LKh9jUb0uQJJZMUndexx1MOwA6ZCV5ErNmI
+ ycLDS35o+a0ZgacLEwQ==
+X-Proofpoint-ORIG-GUID: tPSEBcX5cXOYIVQ0bMx9C0fcoVcBf91M
+X-Authority-Analysis: v=2.4 cv=YOSvDxGx c=1 sm=1 tr=0 ts=69e79d3c cx=c_pps
+ a=UbhLPJ621ZpgOD2l3yZY1w==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=sh7rbVFwc6wKdXg0ZAwA:9 a=CjuIK1q_8ugA:10
+ a=TOPH6uDL9cOC6tEoww4z:22
+X-Proofpoint-GUID: tPSEBcX5cXOYIVQ0bMx9C0fcoVcBf91M
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-21_03,2026-04-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 malwarescore=0 bulkscore=0 adultscore=0 clxscore=1015
+ spamscore=0 impostorscore=0 suspectscore=0 lowpriorityscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604210157
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_085111_083293_C3D507BB 
-X-CRM114-Status: GOOD (  18.22  )
+X-CRM114-CacheID: sfid-20260421_085228_914188_81A77E5A 
+X-CRM114-Status: GOOD (  27.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,59 +169,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Siddharth,
-
-Thanks for the patch.
-
-On 4/13/2026 12:21 PM, Siddharth Vadapalli wrote:
-> k3_ringacc_ring_pop_tail_io() invokes k3_ringacc_ring_access_io() with the
-> access mode incorrectly set to K3_RINGACC_ACCESS_MODE_POP_HEAD instead of
-> K3_RINGACC_ACCESS_MODE_POP_TAIL. Fix this.
+On Fri, Mar 20, 2026 at 05:27:20PM +0100, Maxime Ripard wrote:
+> Commit 47b5ac7daa46 ("drm/atomic: Add new atomic_create_state callback
+> to drm_private_obj") introduced a new pattern for allocating drm object
+> states.
 > 
-> Fixes: 3277e8aa2504 ("soc: ti: k3: add navss ringacc driver")
-> Cc: <stable@vger.kernel.org>
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> Instead of relying on the reset() callback, it created a new
+> atomic_create_state hook. This is helpful because reset is a bit
+> overloaded: it's used to create the initial software tate, reset it, but
+> also reset the hardware.
+> 
+> It can also be used either at probe time, to create the initial state
+> and possibly reset the hardware to an expected default, but also during
+> suspend/resume.
+> 
+> Both these cases come with different expectations too: during the
+> initialization, we want to initialize all states, but during
+> suspend/resume, drm_private_states for example are expected to be kept
+> around.
+> 
+> And reset() isn't fallible, which makes it harder to handle
+> initialization errors properly.
+> 
+> And this is only really relevant for some drivers, since all the helpers
+> for reset only create a new state, and don't touch the hardware at all.
+> 
+> It was thus decided to create a new hook that would allocate and
+> initialize a pristine state without any side effect:
+> atomic_create_state to untangle a bit some of it, and to separate the
+> initialization with the actual reset one might need during a
+> suspend/resume.
+> 
+> Let's continue the transition to the new pattern with connectors.
+> 
+> Signed-off-by: Maxime Ripard <mripard@kernel.org>
 > ---
+>  drivers/gpu/drm/drm_atomic_state_helper.c | 45 +++++++++++++++++++++++++++++++
+>  drivers/gpu/drm/drm_mode_config.c         | 21 ++++++++++++++-
+>  include/drm/drm_atomic_state_helper.h     |  4 +++
+>  include/drm/drm_connector.h               | 13 +++++++++
+>  4 files changed, 82 insertions(+), 1 deletion(-)
 > 
-> Hello,
-> 
-> This patch is based on commit
-> 028ef9c96e96 Linux 7.0
-> of Mainline Linux.
-> 
-> I noticed (visually) the incorrect access mode while working on:
-> https://lore.kernel.org/r/20260325123850.638748-1-s-vadapalli@ti.com/
-> 
-> Regards,
-> Siddharth.
-> 
->   drivers/soc/ti/k3-ringacc.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/soc/ti/k3-ringacc.c b/drivers/soc/ti/k3-ringacc.c
-> index 7602b8a909b0..24f658e8c1dc 100644
-> --- a/drivers/soc/ti/k3-ringacc.c
-> +++ b/drivers/soc/ti/k3-ringacc.c
-> @@ -1083,7 +1083,7 @@ static int k3_ringacc_ring_pop_io(struct k3_ring *ring, void *elem)
->   static int k3_ringacc_ring_pop_tail_io(struct k3_ring *ring, void *elem)
->   {
->   	return k3_ringacc_ring_access_io(ring, elem,
-> -					 K3_RINGACC_ACCESS_MODE_POP_HEAD);
-> +					 K3_RINGACC_ACCESS_MODE_POP_TAIL);
 
-I see that you have noticed this visually and fixed this,was there any 
-impact you faced without this change like data corruption or something ?
-It would be better to mention the impact this change brings-in by doing 
-some analysis.
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
-There is a similar function k3_ringacc_ring_pop_tail_proxy() few lines 
-above where the same change might be required.
 
-Regards,
-Hari
-
->   }
->   
->   /*
-
+-- 
+With best wishes
+Dmitry
 
