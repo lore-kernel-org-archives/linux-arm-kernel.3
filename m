@@ -4,59 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C007DF8FA98
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 15:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78C19F8FA98
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 15:57:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rfu5dFxDRKxm0VgVCctusaOfZAaax27C1/pfHbQgx9M=; b=yRyl5E4mEhqHXpyTkR0C9XjwIG
-	5RVLBo5tH7UrF/QJ1Xo/yP5sGLUpGgUTCka3owYanF+EgFazs1z5iAxYHHy+n+UEfIZYAhg8PLYes
-	yK6lMOUCwXs8lt46evOeqKdhrrgod8MMcomGOfnVDMoRMgtfP2ro36qRG+Vr2wbkSyUYLmi2X0qa+
-	0cZNo+C+LbI9fCGctJTi3nVqDr0AIZAew2OAiMj6Clr89pDlsKpMqij0z9fmnuAfkx3X49Fll255Q
-	/rmT7emhA1DLSjK2hIo3EwkQUs1IFYWt8NSzij3BEDB1+4pwYjkyDqFMxFqFAMMgtw0ptUxLuvyHD
-	/K3AaLRg==;
+	bh=nBPB03Y1gbEi2sIzF7NfDu1wm8EwvmKAaezrPGD8Cyk=; b=ucnIsHShvi6miP6V04YJVsOyd8
+	ne13h7Ohm5iNfJ20MvHWJPmUHzDdnGb+3BsHdP17Jnd2kMweZb6ZvQjak1RUypYai0JPQEKbcXOCt
+	cNBYHZ18H9Xyo25VC2c6G8abM8OOJ8zOndElwlKY7+oCpoqC5PTIjX1qNaJ25Jpo5nGhjzfCbXGkf
+	woI8RI+W/zwl/jUlXBxQh1TgzVzwqkipQwAmYRMGIbKedUMYg5EVKZrKTd4C04ROcpPcP0a8B0ccY
+	d5nu7dZBTmGePNbVVanZgjKuvEAkQjpg12VsFxns5ofOnRUot1M9wctv0DnED68ckSCVQKe1NwWNK
+	nSdNL0+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFDTA-00000008rxv-3aB1;
-	Tue, 21 Apr 2026 15:57:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFDT8-00000008rxS-0AVM
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 15:56:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 21A0627B5;
-	Tue, 21 Apr 2026 08:56:49 -0700 (PDT)
-Received: from [10.1.196.85] (e121345-lin.cambridge.arm.com [10.1.196.85])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DE0223FAF5;
-	Tue, 21 Apr 2026 08:56:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776787014; bh=D3W8mI+PUSgL8Ci0Ng3HSt4aWC16NYcoiFjJr0+hrC4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aYrhviLfI3Fg5ruouPOBbG6V0sHMDezGjatQJpbBbCfe/K4aGUJLj7ruZDfkxJf2O
-	 5fF96QfrTySz/D8Lc0aOUU+jSuShuxYCmWYIqCZvVYA4db2GaZQvPxf+IZ1vUXcuT2
-	 8t+sZb3VRjG1jZx+zICs1KFQBNEvb+C7UIbbCah0=
-Message-ID: <0fdf4b1f-90f2-4f69-9d2b-dc5f608e9c1c@arm.com>
-Date: Tue, 21 Apr 2026 16:56:47 +0100
+	id 1wFDTH-00000008rzF-0Zws;
+	Tue, 21 Apr 2026 15:57:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wFDTF-00000008ryk-2WMG;
+	Tue, 21 Apr 2026 15:57:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B116E600CB;
+	Tue, 21 Apr 2026 15:57:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E06BFC2BCB3;
+	Tue, 21 Apr 2026 15:57:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776787024;
+	bh=L6jvH0KdJ/2HnktukZo98gY67hTXlHukwUOYENICdEM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=PPXgxuERL7AW+4y8s76kQ7QH7zwyVD6XUCEvLOfHXtqa7ZqZ6db1DGYJ5QMECqtMt
+	 qkvfPYlinLnOFalZEzrzh1e1cWV6Z6u1iUjpt/aMYPmPZbxpUknCjTWnBlf0kq1m5B
+	 gzbpcwoo9pRWrq6hwwayrxAnWtTUAeCMdM/TtLTaP5b17jCDZA07EKtmxGqcNN+fCc
+	 6MjHWP/o/JFOBVDlD8/VNHUm8j3ProgEMufhzRK7c/9VX2Pgp0N674ZzPO1hOzvlkY
+	 SsNPZ9anUtD7OF6MVP/UxlJf95iolfVM17lw/WUXzc1ZEfvMUFBoKOgVdhs/ihjVnb
+	 z4qcRK0ceAruw==
+Date: Tue, 21 Apr 2026 16:56:56 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <ukleinek@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Lee Jones
+ <lee@kernel.org>, William Breathitt Gray <wbg@kernel.org>, Damon Ding
+ <damon.ding@rock-chips.com>, kernel@collabora.com, Jonas Karlman
+ <jonas@kwiboo.se>, Alexey Charkov <alchark@gmail.com>,
+ linux-rockchip@lists.infradead.org, linux-pwm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org, Conor Dooley
+ <conor.dooley@microchip.com>
+Subject: Re: [PATCH v5 0/6] Add Rockchip RK3576 PWM Support Through MFPWM
+Message-ID: <20260421165656.168fe262@jic23-huawei>
+In-Reply-To: <20260420-rk3576-pwm-v5-0-ae7cfbbe5427@collabora.com>
+References: <20260420-rk3576-pwm-v5-0-ae7cfbbe5427@collabora.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Stop queue allocation retry at
- PAGE_SIZE
-To: leo.jiang1224@foxmail.com, will@kernel.org
-Cc: joro@8bytes.org, iommu@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <tencent_F6E384A40D990A279B460A0CDE1927FDF509@qq.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <tencent_F6E384A40D990A279B460A0CDE1927FDF509@qq.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_085658_201555_16668AFC 
-X-CRM114-Status: GOOD (  19.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,65 +76,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/04/2026 6:31 am, leo.jiang1224@foxmail.com wrote:
-> From: LoserJL <leo.jiang1224@foxmail.com>
-> 
-> In arm_smmu_init_one_queue(), the loop reduces max_n_shift if
-> dmam_alloc_coherent() fails. However, since dmam_alloc_coherent()
-> allocates at least PAGE_SIZE, retrying with a smaller size after
-> a PAGE_SIZE failure is logically redundant.
+On Mon, 20 Apr 2026 15:52:37 +0200
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com> wrote:
 
-Says who? It's certainly not a guarantee offered by the DMA API itself, 
-and indeed some allocation paths can definitely still allocate less than 
-a page - e.g. anything which hits a per-device or global coherent pool.
+> This series introduces support for some of the functions of the new PWM
+> silicon found on Rockchip's RK3576 SoC. Due to the wide range of
+> functionalities offered by it, including many parts which this series'
+> first iteration does not attempt to implement for now. The drivers are
+> modelled as an MFD, with no leakage of the MFD-ness into the binding, as
+> it's a Linux implementation detail.
 
-> Moreover, if a sub-page retry were to succeed due to concurrent memory
-> release, the hardware would be configured with a smaller queue depth
-> despite a full page being allocated. This leads to inefficient memory
-> usage and unnecessary hardware performance limitation.
-> 
-> Terminate the loop once qsz reaches PAGE_SIZE to ensure logical
-> consistency and optimal hardware configuration.
+Just thought I'd point out that as this includes the linux-iio
+list sashiko took a look at it.  Quite a few things and at least
+the first one I looked at was valid (a dereference before a validity
+check)
 
-That's really not an argument - even if an allocator does happen to 
-over-allocate for the requested size, that is hardly the caller's 
-concern; and as far as "optimal" queue sizes go in this case, those very 
-much depend on the number of CPUs issuing commands and volume of 
-expected stall/PRI events - in many cases PAGE_SIZE would already be far 
-too small to really work well.
+https://sashiko.dev/#/patchset/20260420-rk3576-pwm-v5-0-ae7cfbbe5427%40collabora.com
 
-Also note that if we _were_ to fail to allocate a PAGE_SIZE or smaller 
-queue, there would be very little chance of the subsequent allocation(s) 
-for the stream table succeeding, so realistically the driver is probably 
-going to end up failing to probe in such circumstances anyway.
+Whilst this tool does generate some false positives, it also finds
+quite a few things it seems us humans fail to spot.
 
-Thanks,
-Robin.
-
-> Signed-off-by: LoserJL <leo.jiang1224@foxmail.com>
-> ---
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 9 ++++++++-
->   1 file changed, 8 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index e8d7dbe495f0..e0ec118ff560 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -4418,7 +4418,14 @@ int arm_smmu_init_one_queue(struct arm_smmu_device *smmu,
->   		qsz = ((1 << q->llq.max_n_shift) * dwords) << 3;
->   		q->base = dmam_alloc_coherent(smmu->dev, qsz, &q->base_dma,
->   					      GFP_KERNEL);
-> -		if (q->base || qsz < PAGE_SIZE)
-> +		/*
-> +		 * If allocation succeeds, we're done. If it fails, only retry
-> +		 * if the requested size is still larger than a page. Since
-> +		 * dmam_alloc_coherent() allocates at least PAGE_SIZE, retrying
-> +		 * with a sub-page size is logically redundant and could lead
-> +		 * to sub-optimal hardware configuration.
-> +		 */
-> +		if (q->base || qsz <= PAGE_SIZE)
->   			break;
->   
->   		q->llq.max_n_shift--;
-
+Jonathan
 
