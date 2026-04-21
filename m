@@ -4,93 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60146F8FA72
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 13:04:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24B1FF8FA6F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 13:04:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=maE5jQDJwsycLww5UnLtB8sLxR1IdmgJ/9+EbDBJAp4=; b=n3uY8sKVYY/EwzYMGsqHyeEN1w
-	QVSc6+He3zWo4s2bZhD1WGIkkRRT6LzM6huK6yyuBEx7DDGFbLiPvAXU7KEzX0VDuCJvjmP/dQmV1
-	F0QvDgFzh7Nw1gG5i08vWWamHvi53FjbSsGtas5pqeh/NHpsxunHGFWxHltGJf6aCvyDy/JcwpsR5
-	pi5zKlWNb9vkIpXTiwPlyX0FAnFRKcXgTVPoFmojUvf2tg5R75isMCt/25qEpc+Zr7mcui+V5fZ62
-	EqAnRjPoRsZU2U2wEHanTJOFzjzvJJOR3Z598LdD33iDMEvYScL5GGmb6LG9RLt99uDNCUzvI2bFx
-	+pGo8K0A==;
+	bh=FBQOOhJtuMIK7z+NDzvJLTiXfa7Z/y1pn32yjdfWc4g=; b=E2zqXNiU06gZwAAjCnavUrvIPv
+	TdTHiPvQx6nOWbetAkpB9H9EmYbp76kX/CtlHigTqxleCiFxbPs+kS2TdQlJep/B088ztOUcRosSB
+	ARK3BdEuQkSpZlATUbMzvkQ9MrmakoPv9DS8y5pAEMoma0g5GBOGpDkMmS2whxvwCEiD03zYiIeDj
+	5uijgPgsN8BimBlXgZRSJHVSI5xkXXoQeg460CGGkBHtpEU7NppHeaSGVT4rjo8lkvhW53ZIBMKst
+	DLz46kQzlavCgEHrt+MVWjwiKjIrQVbv3NLVKKkxaPeXJxIMjg+I1ieyNRRW2xbksa83eaBracwq6
+	n9G7uEJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFAlf-00000008cxT-0g7m;
-	Tue, 21 Apr 2026 13:03:55 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1wFAli-00000008cyp-02bR;
+	Tue, 21 Apr 2026 13:03:58 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFAlc-00000008cw3-0Ypc
+	id 1wFAld-00000008cw5-0cRc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 13:03:53 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-c7980c060cfso1167754a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 06:03:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776776631; x=1777381431; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=maE5jQDJwsycLww5UnLtB8sLxR1IdmgJ/9+EbDBJAp4=;
-        b=GkmU2aeLaV7zbONY83oyN4JoMPJm1EUwCZeMGRfTF4F47Y9FqA3nzs+0wJ0H9sl1jJ
-         RmBkPU6uDkwBjHWWw+enN6DxcQR4thasqKpOQKGV94qB+bDjNNrojvuHRrVRZywGKb1z
-         +B+NzrNDHQ8vfkiEW7QRX+JxcPGTHgwSt6Y5xJ13ikGcy8WdwxfHjZUKq9OWNeeTEbMo
-         CHXHZf3bKYo0MVHC+4900Dy6grwB1aEs6FuBvupIyISxRrQDZHy8u6qdM5UrKJR4FsM1
-         UkTP5IHPVk/kBSBJooqySl7C7M50mGsNCwLMPXcXUeQ6KkweIogqUjEvwnkJjsoPSQXM
-         XpnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776776631; x=1777381431;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=maE5jQDJwsycLww5UnLtB8sLxR1IdmgJ/9+EbDBJAp4=;
-        b=OrAQtlY2BgQvEhyph+YtsLVIEcqcZmhgtTYZf3FitUiQqfQFl6FFnQL6x/NEf/0iFO
-         bxBq49np3yVUa6vPI2lCZzw8TKA7qdLAQILOPgllhz/RQwCwt4V9JtAky+wIxfqoCEv2
-         biFnNF3vnR4ltpu/hyy+SLf7OKmqBmofvHD19RN9r7CgYUlh9oMmmvxx7Q+t1PisYzb+
-         YU+LndJ2PP38rTwW1yiBxd+kfCnBSfSax0994tXsYE7KTbVEvUsOqp7QL6pAJ+xWyc99
-         a7AhGtkdpMSPzuZo57jTmYkeKjYITFRqdApmhxmX8o4cdxKlwYExA5fx5SM40KNznxPk
-         Jmtg==
-X-Forwarded-Encrypted: i=1; AFNElJ9dJqJSQbkwmclpW1wvRF7sv1H1pPpwS1FG++mY0Qcba9H0b/o4VgZQtpEIpN+kz2RqX7nk2/N3Y6Jkq6afoh9d@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4RrP8fi4NTGU/aidiITUAFFlC+jFUtL1FMc7LlGvZfzWqptwR
-	+2Ww+bUklOICmfM7IGfyp1oJkgNk1S5OpGJifHJbqEHzuY0oeNJq5nen
-X-Gm-Gg: AeBDiespyZ0S2zRK+qacX3cZKJ9z63ZYjRgHJ3pYOHtUd4ESHTzrvkqD2dKvkikG60p
-	bUVBHKJ1gD3sslBPaDKf5frIQ93J5aGhLeGw3N01GYPPRMydSAgDfjuSolx4PHXgtpl1i4A5DZP
-	9L8Rp3S9a30R4vHP5+wuVH/QoF1kBVOC4E1EmwtUx5z+/ls5ujp0+H64RjGoRgLDolWXZOdDTvM
-	SPIJDjJfFq6jmJLrrA0scai92nZ/DrOdKYUQlhG/g5QRS4lH/iEwcVwWWpKiiNJ//z5Azkpmej0
-	TOVHIJTETBFgYDfgCzcjXeT8ZJifiuJjAf8XHULtTqO0q5u9TUEdkEoCq9YdsD6LU6efSmGgv5Z
-	avKgdIZltjbpnA3SaPD3oCilyN9I9Bi1k/pl3RLewF7V8Ycj4ei+aklPUuF+LJ9WitljD+ubnyI
-	Z6p3ouhBphJ+fppy++CStS8TL0eDBGCCzYl9KeVFtemh12jnBrVOdZmeiksULDNPww69UqbMqGT
-	ZLX2chTesLapuoG6J/sGro=
-X-Received: by 2002:a05:6a20:9146:b0:3a2:dbaa:82ee with SMTP id adf61e73a8af0-3a2dbaa8538mr5955384637.9.1776776631018;
-        Tue, 21 Apr 2026 06:03:51 -0700 (PDT)
-Received: from fred-System-Product-Name (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8e981a0asm14456484b3a.3.2026.04.21.06.03.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Apr 2026 06:03:50 -0700 (PDT)
-From: Fred Chen <fredchen.openbmc@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/1] ARM: dts: aspeed: santabarbara: Add system monitoring GPIOs
-Date: Tue, 21 Apr 2026 21:03:41 +0800
-Message-ID: <20260421130344.2751662-2-fredchen.openbmc@gmail.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260421130344.2751662-1-fredchen.openbmc@gmail.com>
-References: <20260421130344.2751662-1-fredchen.openbmc@gmail.com>
+	Tue, 21 Apr 2026 13:03:54 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 783A46A896;
+	Tue, 21 Apr 2026 13:03:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1776776631; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=FBQOOhJtuMIK7z+NDzvJLTiXfa7Z/y1pn32yjdfWc4g=;
+	b=kKEXAw92FYeULij7EjJYuTyn5HNF1AXRP+t9ofBEpSCbcWL16x4if3J4P3gpKgZ6zXTYHH
+	PuiEWPcH/D0/DZ1SYzvojZg+z7+R6NZiCDeNSeaFo/fZbK43WGvZStgqO7/qYA2yIR/LrA
+	SviJl2jVXPRIiMeeIOFiPIitqVgUYRs=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1776776631;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=FBQOOhJtuMIK7z+NDzvJLTiXfa7Z/y1pn32yjdfWc4g=;
+	b=X6wTj9nlyIf5QLTUfHhxkeTZYRw+nz4G8eULtHsX3+RYisD7hiqWyG58ipNR60i0AZIUQq
+	QBFolFPSfLY33EDA==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=kKEXAw92;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=X6wTj9nl
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1776776631; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=FBQOOhJtuMIK7z+NDzvJLTiXfa7Z/y1pn32yjdfWc4g=;
+	b=kKEXAw92FYeULij7EjJYuTyn5HNF1AXRP+t9ofBEpSCbcWL16x4if3J4P3gpKgZ6zXTYHH
+	PuiEWPcH/D0/DZ1SYzvojZg+z7+R6NZiCDeNSeaFo/fZbK43WGvZStgqO7/qYA2yIR/LrA
+	SviJl2jVXPRIiMeeIOFiPIitqVgUYRs=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1776776631;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=FBQOOhJtuMIK7z+NDzvJLTiXfa7Z/y1pn32yjdfWc4g=;
+	b=X6wTj9nlyIf5QLTUfHhxkeTZYRw+nz4G8eULtHsX3+RYisD7hiqWyG58ipNR60i0AZIUQq
+	QBFolFPSfLY33EDA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 82326593AF;
+	Tue, 21 Apr 2026 13:03:50 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id zNZbHrZ152nudQAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Tue, 21 Apr 2026 13:03:50 +0000
+Message-ID: <bbb554a6-2034-4f6e-9b48-fa9e10b4a95a@suse.de>
+Date: Tue, 21 Apr 2026 15:03:50 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 02/20] drm/atomic: Drop drm_private_state.obj
+ assignment from create_state
+To: Maxime Ripard <mripard@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Jyri Sarha <jyri.sarha@iki.fi>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>,
+ Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>,
+ Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>,
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+ Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>,
+ Samuel Holland <samuel@sholland.org>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+References: <20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org>
+ <20260320-drm-mode-config-init-v2-2-c63f1134e76c@kernel.org>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <20260320-drm-mode-config-init-v2-2-c63f1134e76c@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-3.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	MIME_TRACE(0.00)[0:+];
+	FREEMAIL_TO(0.00)[kernel.org,linux.intel.com,gmail.com,ffwll.ch,lwn.net,linuxfoundation.org,oss.qualcomm.com,iki.fi,ideasonboard.com,intel.com,linaro.org,kwiboo.se,emersion.fr,amd.com,igalia.com,redhat.com,ursulin.net,sholland.org,raspberrypi.com];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[37];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	ARC_NA(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	R_RATELIMIT(0.00)[to_ip_from(RL7gneoo7ydcsn9o76mxr5d8pb)];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,suse.de:mid,suse.com:url,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns]
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Queue-Id: 783A46A896
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_060352_184011_CA932390 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20260421_060353_508794_83D8B642 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,179 +192,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add several GPIO expanders to the Santabarbara platform, with ioexp0
-(0x20) configured to aggregate interrupt signals from downstream
-expanders to optimize sideband pin usage.
+Hi
 
-The new GPIO nodes provide support for:
-- NIC1-4 power good monitoring, reset control, and fault detection
-- Switch PEX power good signals and hardware SKU/Revision IDs
-- Cable presence detection and selection for four SPI flashes
-- System power fault alert via SGPIO and E1S GPIO expander interrupt
+Am 20.03.26 um 17:27 schrieb Maxime Ripard:
+> The initial intent of the atomic_create_state helper was to simply
+> allocate a proper drm_private_state and returning it, without any side
+> effect.
+>
+> However, the __drm_atomic_helper_private_obj_create_state() introduces a
+> side effect by setting the drm_private_obj.state to the newly allocated
+> state.
+>
+> This assignment defeats the purpose, but is also redundant since
+> the only caller, drm_atomic_private_obj_init(), will also set this
+> pointer to the newly allocated state.
 
-Signed-off-by: Fred Chen <fredchen.openbmc@gmail.com>
----
- .../aspeed-bmc-facebook-santabarbara.dts      | 125 +++++++++++++++++-
- 1 file changed, 124 insertions(+), 1 deletion(-)
+Is this paragraph no longer up to date? Grepping for 
+__drm_atomic_helper_private_obj_create_state returns plenty of callers. 
+Best regards Thomas
+>
+> Let's drop the assignment in __drm_atomic_helper_private_obj_create_state().
+>
+> Fixes: e7be39ed1716 ("drm/atomic-helper: Add private_obj atomic_create_state helper")
+> Signed-off-by: Maxime Ripard <mripard@kernel.org>
+> ---
+>   drivers/gpu/drm/drm_atomic_state_helper.c | 2 --
+>   1 file changed, 2 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
+> index 76746ad4a1bbb7142c067c93dd05fbec5d2f98eb..875149494b00e1eb7481e87d7d7038103b72b7e3 100644
+> --- a/drivers/gpu/drm/drm_atomic_state_helper.c
+> +++ b/drivers/gpu/drm/drm_atomic_state_helper.c
+> @@ -729,12 +729,10 @@ EXPORT_SYMBOL(drm_atomic_helper_connector_destroy_state);
+>   void __drm_atomic_helper_private_obj_create_state(struct drm_private_obj *obj,
+>   						  struct drm_private_state *state)
+>   {
+>   	if (state)
+>   		state->obj = obj;
+> -
+> -	obj->state = state;
+>   }
+>   EXPORT_SYMBOL(__drm_atomic_helper_private_obj_create_state);
+>   
+>   /**
+>    * __drm_atomic_helper_private_obj_duplicate_state - copy atomic private state
+>
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
-index 0a3e2e241063..2a822e38f091 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
-@@ -616,6 +616,8 @@ gpio@74 {
- 				reg = <0x74>;
- 				gpio-controller;
- 				#gpio-cells = <2>;
-+				interrupt-parent = <&sgpiom0>;
-+				interrupts = <146 IRQ_TYPE_LEVEL_LOW>;
- 				gpio-line-names =
- 					"P12V_E1S_ADC_ALERT","BUFF0_100M_LOSB_PLD",
- 					"E1S_BP_SKU_ID0","E1S_BP_SKU_ID1",
-@@ -1335,6 +1337,112 @@ eeprom@50 {
- &i2c12 {
- 	status = "okay";
- 
-+	ioexp0: gpio@20 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x20>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <148 IRQ_TYPE_LEVEL_LOW>;
-+		gpio-line-names =
-+			"IOEXP_21h_INT_N","IOEXP_22h_INT_N",
-+			"IOEXP_23h_INT_N","IOEXP_24h_INT_N",
-+			"IOEXP_25h_INT_N","IOEXP_26h_INT_N",
-+			"IOEXP_27h_INT_N","SWB_PWR_FAULT_N",
-+			"","","","",
-+			"","","","";
-+	};
-+
-+	gpio@21 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x21>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&ioexp0>;
-+		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
-+		gpio-line-names =
-+			"PDB_PRSNT_J1_N","PDB_PRSNT_J2_N",
-+			"PRSNT_NIC1_N","PRSNT_NIC2_N",
-+			"PRSNT_NIC3_N","PRSNT_NIC4_N",
-+			"","",
-+			"CBL_PRSNT_MCIO_0_N","CBL_PRSNT_MCIO_1_N",
-+			"CBL_PRSNT_MCIO_2_N","CBL_PRSNT_MCIO_3_N",
-+			"","","","";
-+	};
-+
-+	gpio@22 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x22>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&ioexp0>;
-+		interrupts = <1 IRQ_TYPE_LEVEL_LOW>;
-+		gpio-line-names =
-+			"SWB_PWRGD_P3V3_AUX","SWB_PWRGD_P1V8_PEX",
-+			"SWB_PWRGD_P1V8_AUX","SWB_PWRGD_P5V",
-+			"SWB_PWRGD_P1V5_PEX","SWB_PWRGD_P1V2_PEX",
-+			"SWB_PWRGD_P0V895_PEX","SWB_PWRGD_P0V81_PEX_0",
-+			"SWB_PWRGD_P0V81_PEX_1","SWB_PWRGD_P0V81_REFCLK",
-+			"SWB_PWRGD_MODULE","",
-+			"","","","";
-+	};
-+
-+	gpio@24 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x24>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&ioexp0>;
-+		interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
-+		gpio-line-names =
-+			"RST_PERST_NIC1_N","RST_PERST_NIC2_N",
-+			"RST_PERST_NIC3_N","RST_PERST_NIC4_N",
-+			"RST_PERST_MCIO_0_N","RST_PERST_MCIO_1_N",
-+			"RST_PERST_MCIO_2_N","RST_PERST_MCIO_3_N",
-+			"FM_P3V3_NIC1_FAULT_N","FM_P3V3_NIC2_FAULT_N",
-+			"FM_P3V3_NIC3_FAULT_N","FM_P3V3_NIC4_FAULT_N",
-+			"PWRGD_P12V_NIC1","PWRGD_P12V_NIC2",
-+			"PWRGD_P12V_NIC3","PWRGD_P12V_NIC4";
-+	};
-+
-+	gpio@25 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x25>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&ioexp0>;
-+		interrupts = <4 IRQ_TYPE_LEVEL_LOW>;
-+		gpio-line-names =
-+			"NIC1_MAIN_R_PWR_EN","NIC2_MAIN_R_PWR_EN",
-+			"NIC3_MAIN_R_PWR_EN","NIC4_MAIN_R_PWR_EN",
-+			"FM_PLD_NIC1_AUX_PWR_EN","FM_PLD_NIC2_AUX_PWR_EN",
-+			"FM_PLD_NIC3_AUX_PWR_EN","FM_PLD_NIC4_AUX_PWR_EN",
-+			"PWRGD_NIC1","PWRGD_NIC2",
-+			"PWRGD_NIC3","PWRGD_NIC4",
-+			"PWRGD_P3V3_NIC1","PWRGD_P3V3_NIC2",
-+			"PWRGD_P3V3_NIC3","PWRGD_P3V3_NIC4";
-+	};
-+
-+	gpio@26 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x26>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&ioexp0>;
-+		interrupts = <5 IRQ_TYPE_LEVEL_LOW>;
-+		gpio-line-names =
-+			"SWB_SKU_ID_0","SWB_SKU_ID_1",
-+			"SWB_SKU_ID_2","SWB_SKU_ID_3",
-+			"SWB_REV_ID_0","SWB_REV_ID_1",
-+			"SWB_REV_ID_2","",
-+			"RST_PLD_PEX_PERST_N","CPLD_MB_PWR_EN",
-+			"RST_PERST_SWB_R_N","SWB_LEAK_DETECT",
-+			"PEX_SYS_ERR_FPGA","PRSNT_SWB_LEAK_CABLE_N",
-+			"","";
-+	};
-+
- 	gpio@27 {
- 		compatible = "nxp,pca9555";
- 		reg = <0x27>;
-@@ -1349,6 +1457,21 @@ gpio@27 {
- 			"SPI_MUX_SEL","","","";
- 	};
- 
-+	gpio@28 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x28>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		gpio-line-names =
-+			"SCO_UART_MUX_SEL0","SCO_UART_MUX_SEL1",
-+			"SPI_PROG_PL12_SEL","SPI_PROG_PL34_SEL",
-+			"","","","",
-+			"I3C_HUB_3_MUX_SEL_PLD","",
-+			"SPI_PROG_PL12_EN_N","SPI_PROG_PL34_EN_N",
-+			"SCO1_SPI_SEL","SCO2_SPI_SEL",
-+			"SCO3_SPI_SEL","SCO4_SPI_SEL";
-+	};
-+
- 	// SWB FRU
- 	eeprom@52 {
- 		compatible = "atmel,24c64";
-@@ -1776,7 +1899,7 @@ &sgpiom0 {
- 	"MB_SKU_ID_1","PASSWORD_CLEAR",
- 	"MB_SKU_ID_2","",
- 	"MB_SKU_ID_3","",
--	"","BIOS_DEBUG_MODE",
-+	"SYS_PWR_FAULT_ALERT","BIOS_DEBUG_MODE",
- 	/*H0-H3 line 112-119*/
- 	"FM_IOEXP_U538_INT_N","",
- 	"FM_IOEXP_U539_INT_N","FM_MODULE_PWR_EN_N_1B",
 -- 
-2.52.0
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
+
 
 
