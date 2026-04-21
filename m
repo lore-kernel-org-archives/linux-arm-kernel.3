@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16200F94CA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 18:12:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EC00F94CA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 18:12:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U6M2YQtYSO0bXDnTE1PJ5oEKO9kupylbKXPuTSLXRJE=; b=lzD2eDjh031ykcIOAVHu0QtlGX
-	6L45wTRCI3I/+JvGYIbAEzNaBeaWHB2xxooEG+DTm6CNe0ksGgSFzgjcTz0kMRyraf5yoznyVNukB
-	BBYTUqU/Ql7CZDIEHLnbaAJDQnorvZSHAVowfwAVRm5s1ntchVVksFumWvZpc0/mcELbp4HqwSvFz
-	I5CsJtOkBd1gaDwrnsB5MTYgIdU5DVAglz/58xPZZ771RtRTqpmcl3l94M5IM2wnnS2bF6jZAfp5E
-	BLOnEESZl+HwZTokui33nHT/tQYO24643MFxwXWMNuYWT3urDfifUBeDkFJPth+S63ZKQ0n04OQ/j
-	K7wUAhIA==;
+	bh=tfjDm4hwfSrm+xume9nV91xgEFBQISlVMitIilEjP24=; b=SHEeafKvdQBzkuWdIAmaSwHQba
+	9HJku0TaHYV7KvyylZOlD35h5MpfCrK2NDNEl0QyupqQooCgZtwmDoieS9E6d4/UnRRQpDkZW++M6
+	/8jIzld101W3+Wktb96Dl6yp+yD9teXl7Jh5vXnxLensbeI9qZIuoVntabYYCVo0OR5maGsyU+qsD
+	19OHn414frAp55+uAavnWl/Wov85M6gzOOwa2PONPb11ZqD6/Gms1UYCgn2bwVe6FqzUd4vMLF635
+	Cpb4+ZF8SFXVrODGxCp9/I3DHXojPy3wklil2hanTBefKMV4dJBZMLxl+IrSLp5L7nuen7raCbSi6
+	qgsk1mcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFFaO-000000090vn-1boF;
-	Tue, 21 Apr 2026 18:12:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wFFaR-000000090yj-3KQp;
+	Tue, 21 Apr 2026 18:12:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFFaL-000000090sy-2mv4
+	id 1wFFaR-000000090y5-0cNv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 18:12:34 +0000
+	Tue, 21 Apr 2026 18:12:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5360741B2A;
+	by tor.source.kernel.org (Postfix) with ESMTP id 8E70D60142;
+	Tue, 21 Apr 2026 18:12:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C7D0C2BCB5;
 	Tue, 21 Apr 2026 18:12:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85567C2BCB0;
-	Tue, 21 Apr 2026 18:12:28 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Sudeep Holla <sudeep.holla@kernel.org>,
 	Cristian Marussi <cristian.marussi@arm.com>,
@@ -58,17 +58,14 @@ Cc: arm-scmi@vger.kernel.org,
 	linux-pm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH/RFC 07/14] pmdomain: Make genpd_get_from_provider() public
-Date: Tue, 21 Apr 2026 20:11:40 +0200
-Message-ID: <567a45c25e575ef1bf5fa9b27a78e94d21c61851.1776793163.git.geert+renesas@glider.be>
+Subject: [PATCH/RFC 08/14] reset: Add reset_controller_get_provider()
+Date: Tue, 21 Apr 2026 20:11:41 +0200
+Message-ID: <87edde434e1760bbe9e2741856724301d02a4fc8.1776793163.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1776793163.git.geert+renesas@glider.be>
 References: <cover.1776793163.git.geert+renesas@glider.be>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_111233_746628_AB798A4D 
-X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,65 +80,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Unlike the corresponding function in the clock subsystem
-(of_clk_get_from_provider()), genpd_get_from_provider() is private, and
-thus cannot be used by PM Domain drivers.
+The reset subsystem differs from the clock subsystem in multiple ways:
+  1. It does not provide a public way to lookup resets from a reset
+     provider (clock has of_clk_get_from_provider()),
+  2. The xlate callback does not return a reset object, but merely an
+     index, which is converted to a reset object by the reset core.
 
-Make it public, so it be used by the R-Car X5H Module Controller driver.
+Hence add a public helper reset_controller_get_provider(), which just
+returns the provider, and will be used by the R-Car X5H Module
+Controller driver.
 
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
- drivers/pmdomain/core.c   | 4 ++--
- include/linux/pm_domain.h | 7 +++++++
- 2 files changed, 9 insertions(+), 2 deletions(-)
+ drivers/reset/core.c             | 11 +++++++++++
+ include/linux/reset-controller.h |  6 ++++++
+ 2 files changed, 17 insertions(+)
 
-diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-index 4d32fc676aaf53cf..23c7cd480a7e026d 100644
---- a/drivers/pmdomain/core.c
-+++ b/drivers/pmdomain/core.c
-@@ -2900,8 +2900,7 @@ EXPORT_SYMBOL_GPL(of_genpd_del_provider);
-  * Returns a valid pointer to struct generic_pm_domain on success or ERR_PTR()
-  * on failure.
-  */
--static struct generic_pm_domain *genpd_get_from_provider(
--					const struct of_phandle_args *genpdspec)
-+struct generic_pm_domain *genpd_get_from_provider(const struct of_phandle_args *genpdspec)
- {
- 	struct generic_pm_domain *genpd = ERR_PTR(-ENOENT);
- 	struct of_genpd_provider *provider;
-@@ -2923,6 +2922,7 @@ static struct generic_pm_domain *genpd_get_from_provider(
- 
- 	return genpd;
+diff --git a/drivers/reset/core.c b/drivers/reset/core.c
+index 38e189d04d09b270..57c427bb33b322e2 100644
+--- a/drivers/reset/core.c
++++ b/drivers/reset/core.c
+@@ -1135,6 +1135,17 @@ __reset_find_rcdev(const struct fwnode_reference_args *args, bool gpio_fallback)
+ 	return NULL;
  }
-+EXPORT_SYMBOL_GPL(genpd_get_from_provider);
  
- /**
-  * of_genpd_add_device() - Add a device to an I/O PM domain
-diff --git a/include/linux/pm_domain.h b/include/linux/pm_domain.h
-index b299dc0128d65ee5..568aebf51d830210 100644
---- a/include/linux/pm_domain.h
-+++ b/include/linux/pm_domain.h
-@@ -458,6 +458,7 @@ int of_genpd_add_provider_simple(struct device_node *np,
- int of_genpd_add_provider_onecell(struct device_node *np,
- 				  struct genpd_onecell_data *data);
- void of_genpd_del_provider(struct device_node *np);
-+struct generic_pm_domain *genpd_get_from_provider(const struct of_phandle_args *genpdspec);
- int of_genpd_add_device(const struct of_phandle_args *args, struct device *dev);
- int of_genpd_add_subdomain(const struct of_phandle_args *parent_spec,
- 			   const struct of_phandle_args *subdomain_spec);
-@@ -488,6 +489,12 @@ static inline int of_genpd_add_provider_onecell(struct device_node *np,
- 
- static inline void of_genpd_del_provider(struct device_node *np) {}
- 
-+static inline struct generic_pm_domain *genpd_get_from_provider(
-+				const struct of_phandle_args *genpdspec)
++struct reset_controller_dev *
++reset_controller_get_provider(struct fwnode_handle *fwnode)
 +{
-+	return ERR_PTR(-ENODEV);
-+}
++	struct fwnode_reference_args args = { .fwnode = fwnode };
 +
- static inline int of_genpd_add_device(const struct of_phandle_args *args,
- 				      struct device *dev)
++	guard(mutex)(&reset_list_mutex);
++
++	return __reset_find_rcdev(&args, false);
++}
++EXPORT_SYMBOL_GPL(reset_controller_get_provider);
++
+ struct reset_control *
+ __fwnode_reset_control_get(struct fwnode_handle *fwnode, const char *id, int index,
+ 			   enum reset_control_flags flags)
+diff --git a/include/linux/reset-controller.h b/include/linux/reset-controller.h
+index 52a5a4e81f184407..0c17a36466115ba6 100644
+--- a/include/linux/reset-controller.h
++++ b/include/linux/reset-controller.h
+@@ -74,6 +74,7 @@ void reset_controller_unregister(struct reset_controller_dev *rcdev);
+ struct device;
+ int devm_reset_controller_register(struct device *dev,
+ 				   struct reset_controller_dev *rcdev);
++struct reset_controller_dev *reset_controller_get_provider(struct fwnode_handle *fwnode);
+ #else
+ static inline int reset_controller_register(struct reset_controller_dev *rcdev)
  {
+@@ -89,6 +90,11 @@ static inline int devm_reset_controller_register(struct device *dev,
+ {
+ 	return 0;
+ }
++
++static inline struct reset_controller_dev *reset_controller_get_provider(struct fwnode_handle *fwnode)
++{
++	return NULL;
++}
+ #endif
+ 
+ #endif
 -- 
 2.43.0
 
