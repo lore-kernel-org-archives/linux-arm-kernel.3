@@ -4,110 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6D64F8FA61
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 11:53:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E8CEF8FA65
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 12:00:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YVPaS7F82I+fa/wQlu1iuZvNksosUMMwWhC1cueKpN8=; b=aeQIQlymN2HgIWqr3FPvZpjsQY
-	wGYIP47nKi8c7geW4UtwZFpzBoIJnYoC43f5T/mZKiYAZraEKx+WKXkGDBkrvBrI7nIK+qvX2Z8B3
-	GSfPO4HkV2e49wjP56QPfi+usJOFXj5ihOdON+8Mxgk8NoQ7SGS9MlDx8SkYJXH++C4My0Jq/Un3w
-	5c2ZOhg2yQOCJRQgZ14zBN8FSlElfnIm5TDEKCRG8+BQyNKvritraOXRkUzph32eXfCWvQl6lZJFa
-	K+4TQqZ0obMxIdKnVCpIxVAfM5vx3OrwKyNfsWpbdKOPRhYUKwoUNbk6+SydRJj78LKcHB9Cownmu
-	CONXzjaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/7V9HPuIqnD85K2oDoEgBomydr4fK04ZND9W1sNTOgU=; b=0/nknUzSgFImGKaTxwEQFG3DUC
+	VaT252gYLbL9gMcAVUJ1i50JFQEduK2zx5JjWukumZMXcT1Nirli/9oEsiGt95nHt4I59dYcuEP0B
+	Vqgl0y1srQPiwgCWBmgxwaD89CnQwBxwru9PE02NQCnwMkH1oJyh+tCyxKSLcY5N/+xaG3if4NRmY
+	WpCBcCEHP+PRblCQe6rVd2wouevwRNSMdOwaRBTJoHXcfm0tmk8VuzvqxAsaM2BgIx1dfKjpoqFg0
+	gk//dgKZNmlO0LyDeWDIe+ky1rk920Q1+NrfA+hGt1XUVm0VDYB0B1CCbGpGUA28l5FrPB9VftsxS
+	EuX9hGzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF9fv-00000008Yfa-26uh;
-	Tue, 21 Apr 2026 11:53:55 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1wF9ma-00000008Z29-2eHT;
+	Tue, 21 Apr 2026 12:00:48 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF9ft-00000008YfE-0Hld
+	id 1wF9mX-00000008Z16-3VTK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 11:53:54 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b886fc047d5so756782266b.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 04:53:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776772431; cv=none;
-        d=google.com; s=arc-20240605;
-        b=MOvSDC9dpNH9Qf3dL5tZbGT01bEtDNfODEEJDjFiALtiy2C3XqDWJJbRS0y6X8uiOX
-         aAtVzy+nHN6GHVy38cWZmL6Buc1W4gG5Fg80zTuejjHKF1VyRLQhdbHO8HBLWYGwvNmB
-         ehXB4qg0FMpCNLW85006pXZ3dKwJuPTaeMlo5DaKPyYQE5sVBcpFUYA7p80z7nb/6Z9N
-         k/c+7q1WmHt3UTp0qG727X8WIJ4uIHEu0Om61MS0Ak+eObQH2aoYOx+jKQRE2leH7Z+F
-         nqjy2XbTHfnk1Mh5JcxUWnLQdUnGpWm/IOqdmHqly3rJYTNYLM6HvrNyn4S5kWbqvSm+
-         +X8Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=YVPaS7F82I+fa/wQlu1iuZvNksosUMMwWhC1cueKpN8=;
-        fh=BqiwRU5cyb5qT8wkG5vBsuaDbEwnxhYX1Dd5Ym4iWL8=;
-        b=YkIsqnETbCKWe+/ckLr+qTA94kQT4E0hX26D+XQyMYVo/V/6ASHixMry/H3GT5ZZM9
-         4vhxUvfiz+VqVX/79GHcCpKqyBQDTFR9h5DyugGxpyOJmaPJLb5+C6NVbkx0j0qDxelU
-         3CdyPTDWdcap/HaT/DGBntB8hvhZh2KReeXJqyOAM6NTZ2LjTlnq+JElmoJHpgtyBHS5
-         oeqIq7hzf7qWjnS9+ZCXW6P8nB+Rsazd1xKcB9kuqz+E6XJE1285xJhQkh0veUqcQmaM
-         6V2yXxHSNajJN1N9re950MT+h3wotxEIJnPhtGqvGSLbk6CKzTc1Gq9LZ+Bpx6aUO61T
-         94NA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776772431; x=1777377231; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YVPaS7F82I+fa/wQlu1iuZvNksosUMMwWhC1cueKpN8=;
-        b=bp1Oa+AODWABo/iBcd54QPNiFi9hZR6LGDml7QWHc4K+NogQMDysVW89zvb8f4VMnt
-         YeYdJ2Z213eD4qBz0zxEKp3fdZy/OwR2pj8crLvW+xTDRaBOms6j62HuJGaFkZxSPIBy
-         bPcS0z1RbU3rPFP8wIIQGXzOB1BRyjlZZzcnnEAAc9bYW0x66untxX4wtavazjVw4W1P
-         6nZonklcWhpdQjEFwEKgFD6BqRuTF616YuXX/jhy3qgGHd+7h2On8UV40MzoMgFC04zs
-         RTnG1HARs5S4bxz3cLgKUNyUKRp6hZjY/WmAlTMIsAE2jqZXuQvZBoQGMrkksQ+Fu37O
-         RUeg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776772431; x=1777377231;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=YVPaS7F82I+fa/wQlu1iuZvNksosUMMwWhC1cueKpN8=;
-        b=bJMuwpBZMmny+2tcVIZfCVvP+UxLdHQouz4dZnrLQauEvfKZlSwjrjYU3BaVRT8n7s
-         uFiqXRHSpyKoYSp8T/W11ez3nOR+26IlQKyRO8n+41TqgoYu+RsZQBm47h/lW3sqtKw8
-         MVFy8XPECdUtHP1ioTCcq47ed7C7zivOqcMpFR8r4LfTzpi7f9Aypr+Ffn4Paag6iDWv
-         zgBXUfpR/cDAVGRqF5Zx/8JyZ5JFbPSoHuTFrZZWSfU63j/oifcanItOlN2Zp02IQoGK
-         PFxPAKUWZkiDU9L6ELP3nragfsxyEKTDi+rEjjjWyJi+KXn06C6ivtnWfxI2C8lS6lKd
-         bd6Q==
-X-Forwarded-Encrypted: i=1; AFNElJ8BstIiw9/u6fcmpZherjgn694pYIT+m/LhjHvkp0R3njUZXIAXvqCN0ZNPRhU6IwTxPwxPEkbZk5Ob1gSRamc5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDbuiq551pzFqywSNrLb54cfcxIIVGVf918g63HJuJ0HRsvF9E
-	pe9CDfZcI9OUOaP2r6z8SpCAC0tpcxt5CFFv4wFBcp0loD8n7k3B/lXxZCkGgmzIQDwipZiS0xv
-	Mwmu2y53dt6cI6QTIIW0+W+A2tG1S4L0=
-X-Gm-Gg: AeBDieuRWQIz6xgybX5q9/PrwzhmzgJhX/Z474OV+bEokZi4umBrFCCqEoQyyXFDklK
-	PEQvZ7LjnZmIIQpxugwQ+wiWjxFsZnCSQLZB+ru0bP9XAD081ut2ABifCGmNsrtxz+01dMyZ8dh
-	EJfKrcrC2eukabcYnKr8SI+jHS9dHTb+rSptG1d3gv1OPsy2lau97ouL2psylz/583i6D4dplRe
-	7gEswhPucP487U3wHYo+6hsxnoZFVo1m723h34hznU+/9GJ/l0XLF1JbKLYGsOGHHDMgLzQYmYw
-	LjSjOQ+yvwfyZIhGokQg/FhynxG0OURfbse7ADkv+KP0ti5cX45h
-X-Received: by 2002:a17:907:da16:b0:b9c:afde:9b59 with SMTP id
- a640c23a62f3a-ba41bad0086mr877460666b.8.1776772430297; Tue, 21 Apr 2026
- 04:53:50 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260420153603.4097618-1-puranjay@kernel.org> <20260420153603.4097618-3-puranjay@kernel.org>
- <CAADnVQJ_D6XyvMHPr59dxZSgFY3+6UayhcWrDC-U2k-Epv-9eA@mail.gmail.com>
-In-Reply-To: <CAADnVQJ_D6XyvMHPr59dxZSgFY3+6UayhcWrDC-U2k-Epv-9eA@mail.gmail.com>
-From: Puranjay Mohan <puranjay12@gmail.com>
-Date: Tue, 21 Apr 2026 12:53:38 +0100
-X-Gm-Features: AQROBzDMBnDZlE1GQiV69BTv7CUF26NRR9MAAXFOt6v0yL9UPZlAUh-2o20pDdc
-Message-ID: <CANk7y0gNqm7U_0Kc6ZP9jd19gHKScOaTVDa4yxkxTVDonM0iUA@mail.gmail.com>
-Subject: Re: [PATCH bpf-next 2/3] bpf, arm64: Add JIT support for stack arguments
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: bpf <bpf@vger.kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, Xu Kuohai <xukuohai@huaweicloud.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+	Tue, 21 Apr 2026 12:00:47 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63KJgcsg2328269;
+	Tue, 21 Apr 2026 12:00:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=/7V9HP
+	uIqnD85K2oDoEgBomydr4fK04ZND9W1sNTOgU=; b=r+kr/x/ti0V6c3IkKod/VB
+	d7eNY+/P6ZmaGYqTCpbndu0U1exnGOAnuR9I3Ots3K3F0GsnACDionm9kTyezu4A
+	jpt+WEQf0gd68pMpYy+36Y8gxHW50x6Nsrv0Ocgex+vp/BdF62yE4O6zK1mkqG7M
+	LvmiuYsHgLbcF3tIpiNQKRLFSGnrlwmDLJuZTa1Mjd8DCriVvIs+BXYgxv7R4i2y
+	3o2wHSZi2J6fmRWJvakd5mvvJJOJvAhRZEv7He+54DJ8sgx180v3RkOz21Aed0VC
+	93IiY4uxqRyFPRvVGUX4s8BhjSaN1MbUx9e6e7IHm2cG9WLbBqFPfCcifrwAYI/w
+	==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dm2k0uc15-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 21 Apr 2026 12:00:16 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63LBoIr6028465;
+	Tue, 21 Apr 2026 12:00:16 GMT
+Received: from smtprelay07.wdc07v.mail.ibm.com ([172.16.1.74])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dmn9k0hsh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 21 Apr 2026 12:00:16 +0000 (GMT)
+Received: from smtpav06.wdc07v.mail.ibm.com (smtpav06.wdc07v.mail.ibm.com [10.39.53.233])
+	by smtprelay07.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63LC0FZJ24445552
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 21 Apr 2026 12:00:15 GMT
+Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id BB7CB58064;
+	Tue, 21 Apr 2026 12:00:15 +0000 (GMT)
+Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A1B8958062;
+	Tue, 21 Apr 2026 12:00:13 +0000 (GMT)
+Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.28.47])
+	by smtpav06.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Tue, 21 Apr 2026 12:00:13 +0000 (GMT)
+Message-ID: <a6a0e15286c983d720de227c6827adbe976c5b9b.camel@linux.ibm.com>
+Subject: Re: [RFC PATCH 1/4] security: ima: move ima_init into
+ late_initcall_sync
+From: Mimi Zohar <zohar@linux.ibm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>, linux-security-module@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Cc: paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
+        roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+        eric.snowberg@oracle.com, peterhuewe@gmx.de, jarkko@kernel.org,
+        jgg@ziepe.ca, sudeep.holla@kernel.org, maz@kernel.org,
+        oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
+        yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
+In-Reply-To: <20260417175759.3191279-2-yeoreum.yun@arm.com>
+References: <20260417175759.3191279-1-yeoreum.yun@arm.com>
+	 <20260417175759.3191279-2-yeoreum.yun@arm.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+Date: Tue, 21 Apr 2026 08:00:13 -0400
+MIME-Version: 1.0
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-ORIG-GUID: lvh3OHjg1O_576NYFViCNKPWZGCSXB1N
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIxMDExNyBTYWx0ZWRfX7+yITLJGcICe
+ Wy7Tl6qKVtdEs3wELScUUUtAg4HW3xSgBpBrBNg+HrHuWfxIGUqvc5dNfA7vZAJshlgqypmp9Ow
+ l4NNlQUq2Odi+vbwGJjfpev9rJbVuWFIRhJm6Lq9P+Q79FOIetUYMbgt/aOBsYoZAvt9V+XNodc
+ Yasn2zAY/i6QJGtaQAzrwWUtg4oUeNRJGLegroApJtZt6LA8yAsLiqr7Xap18QzMayV7bCBBLrQ
+ C+VknHo0fG8aXmXa2MEXzzbQrW/RU5UQXWfjkhKt9gZnUPVITwTjIiX/2h5/RobjNZikJxfErlH
+ DgLcgldsIDClsMJVV4TWIRTTanVtuVBMGyKXThvj2xRg5JT5CGjfP8v8Ckq5t/13DfeXcCHXj8o
+ SCHK4xCOKDdB5svZOUsyR9vO53c0R2QoeLJIT1v/wpagsB35oWPfaQx60TFk+6RPCy2LVk4Lxph
+ 1t/77m/3qhulw3V2Dmg==
+X-Authority-Analysis: v=2.4 cv=PtujqQM3 c=1 sm=1 tr=0 ts=69e766d1 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=7CQSdrXTAAAA:8
+ a=0cQYFyLwv25f5AwIjZYA:9 a=QEXdDO2ut3YA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: idKqLRdvVn5SfRlMsXj151u3ESLzKcl5
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-21_02,2026-04-20_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 suspectscore=0 clxscore=1011 spamscore=0 impostorscore=0
+ priorityscore=1501 bulkscore=0 adultscore=0 lowpriorityscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604210117
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_045353_249880_DBDAA9F0 
-X-CRM114-Status: GOOD (  16.94  )
+X-CRM114-CacheID: sfid-20260421_050046_089214_FC977D74 
+X-CRM114-Status: GOOD (  31.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,60 +127,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 21, 2026 at 3:58=E2=80=AFAM Alexei Starovoitov
-<alexei.starovoitov@gmail.com> wrote:
->
-> On Mon, Apr 20, 2026 at 8:36=E2=80=AFAM Puranjay Mohan <puranjay@kernel.o=
-rg> wrote:
-> >
->
-> nice and clean. I like how it maps to arm64 calling convention.
->
-> > +       if (prog->aux->stack_arg_depth > prog->aux->incoming_stack_arg_=
-depth) {
-> > +               u16 outgoing =3D prog->aux->stack_arg_depth - prog->aux=
-->incoming_stack_arg_depth;
-> > +               int nr_on_stack =3D outgoing / sizeof(u64) - NR_STACK_A=
-RG_REGS;
-> > +
-> > +               if (nr_on_stack > 0)
-> > +                       ctx.stack_arg_size =3D round_up(nr_on_stack * s=
-izeof(u64), 16);
-> > +       }
->
-> I'm struggling to understand this part.
-> Why do this when this func calls more than what callee passed in?
-> Looks fishy. I'd like to see selftests with more than 6,7,8 args.
-> Because only then this logic will kick in?
+On Fri, 2026-04-17 at 18:57 +0100, Yeoreum Yun wrote:
+> To generate the boot_aggregate log in the IMA subsystem with TPM PCR valu=
+es,
+> the TPM driver must be built as built-in and
+> must be probed before the IMA subsystem is initialized.
+>=20
+> However, when the TPM device operates over the FF-A protocol using
+> the CRB interface, probing fails and returns -EPROBE_DEFER if
+> the tpm_crb_ffa device =E2=80=94 an FF-A device that provides the communi=
+cation
+> interface to the tpm_crb driver =E2=80=94 has not yet been probed.
+>=20
+> To ensure the TPM device operating over the FF-A protocol with
+> the CRB interface is probed before IMA initialization,
+> the following conditions must be met:
+>=20
+>    1. The corresponding ffa_device must be registered,
+>       which is done via ffa_init().
+>=20
+>    2. The tpm_crb_driver must successfully probe this device via
+>       tpm_crb_ffa_init().
+>=20
+>    3. The tpm_crb driver using CRB over FF-A can then
+>       be probed successfully. (See crb_acpi_add() and
+>       tpm_crb_ffa_init() for reference.)
+>=20
+> Unfortunately, ffa_init(), tpm_crb_ffa_init(), and crb_acpi_driver_init()=
+ are
+> all registered with device_initcall, which means crb_acpi_driver_init() m=
+ay
+> be invoked before ffa_init() and tpm_crb_ffa_init() are completed.
+>=20
+> When this occurs, probing the TPM device is deferred.
+> However, the deferred probe can happen after the IMA subsystem
+> has already been initialized, since IMA initialization is performed
+> during late_initcall, and deferred_probe_initcall() is performed
+> at the same level.
+>=20
+> To resolve this, move ima_init() into late_inicall_sync level
+> so that let IMA not miss TPM PCR value when generating boot_aggregate
+> log though TPM device presents in the system.
+>=20
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 
-Your confusion stems from the naming of "incoming_stack_arg_depth" and
-"stack_arg_depth" (this should be called total_stack_arg_depth in my
-opinion)
+IMA should be initialized as early as possible. I'm really hesitant to defe=
+r
+ima_init() to late_initcall_sync() for systems that the TPM is currently
+initialized in time. For these systems, continue initializing IMA at
+late_initcall(). As a compromise for those systems that the TPM isn't prope=
+rly
+initialized in time, define and instantiate the late_initcall_sync().
 
-So, if you see fixups.c
+ima_init() would need to differentiate between the late_initcall and
+late_initcall_sync.  On late_initcall(), instead of saying "No TPM chip fou=
+nd,
+activating TPM-bypass!",  it should say "No TPM chip found, deferring to
+late_initcall_sync" or something similar.
 
-                func[i]->aux->incoming_stack_arg_depth =3D
-env->subprog_info[i].incoming_stack_arg_depth;
-                func[i]->aux->stack_arg_depth =3D
-env->subprog_info[i].incoming_stack_arg_depth +
+thanks,
 
-env->subprog_info[i].outgoing_stack_arg_depth;
+Mimi
 
-prog->aux->stack_arg_depth doesn't store outgoing stack depth, rather
-it has the sum of both incoming and outgoing, that means if a func
-doesn't call any function with more than 5 arguments but receives more
-than five arguments, incoming_stack_arg_depth will be equal to
-stack_arg_depth.
-
-if (prog->aux->stack_arg_depth > prog->aux->incoming_stack_arg_depth)
-
-This check is for - "Does this function call any function with more
-than 5 arguments", if yes, is it more than 8? if yes allocate stack
-space, otherwise stack space is not needed because argument 6,7,8 can
-live in arm64 registers.
-
-I hope this clears the confusion.
-
-Thanks,
-Puranjay
+> ---
+>  include/linux/lsm_hooks.h         |  2 ++
+>  security/integrity/ima/ima_main.c |  2 +-
+>  security/lsm_init.c               | 13 +++++++++++--
+>  3 files changed, 14 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/include/linux/lsm_hooks.h b/include/linux/lsm_hooks.h
+> index d48bf0ad26f4..88fe105b7f00 100644
+> --- a/include/linux/lsm_hooks.h
+> +++ b/include/linux/lsm_hooks.h
+> @@ -166,6 +166,7 @@ enum lsm_order {
+>   * @initcall_fs: LSM callback for fs_initcall setup, optional
+>   * @initcall_device: LSM callback for device_initcall() setup, optional
+>   * @initcall_late: LSM callback for late_initcall() setup, optional
+> + * @initcall_late_sync: LSM callback for late_initcall_sync() setup, opt=
+ional
+>   */
+>  struct lsm_info {
+>  	const struct lsm_id *id;
+> @@ -181,6 +182,7 @@ struct lsm_info {
+>  	int (*initcall_fs)(void);
+>  	int (*initcall_device)(void);
+>  	int (*initcall_late)(void);
+> +	int (*initcall_late_sync)(void);
+>  };
+>=20
+>  #define DEFINE_LSM(lsm)							\
+> diff --git a/security/integrity/ima/ima_main.c b/security/integrity/ima/i=
+ma_main.c
+> index 1d6229b156fb..ace280fa3212 100644
+> --- a/security/integrity/ima/ima_main.c
+> +++ b/security/integrity/ima/ima_main.c
+> @@ -1320,5 +1320,5 @@ DEFINE_LSM(ima) =3D {
+>  	.order =3D LSM_ORDER_LAST,
+>  	.blobs =3D &ima_blob_sizes,
+>  	/* Start IMA after the TPM is available */
+> -	.initcall_late =3D init_ima,
+> +	.initcall_late_sync =3D init_ima,
+>  };
+> diff --git a/security/lsm_init.c b/security/lsm_init.c
+> index 573e2a7250c4..4e5c59beb82a 100644
+> --- a/security/lsm_init.c
+> +++ b/security/lsm_init.c
+> @@ -547,13 +547,22 @@ device_initcall(security_initcall_device);
+>   * security_initcall_late - Run the LSM late initcalls
+>   */
+>  static int __init security_initcall_late(void)
+> +{
+> +	return lsm_initcall(late);
+> +}
+> +late_initcall(security_initcall_late);
+> +
+> +/**
+> + * security_initcall_late_sync - Run the LSM late initcalls sync
+> + */
+> +static int __init security_initcall_late_sync(void)
+>  {
+>  	int rc;
+>=20
+> -	rc =3D lsm_initcall(late);
+> +	rc =3D lsm_initcall(late_sync);
+>  	lsm_pr_dbg("all enabled LSMs fully activated\n");
+>  	call_blocking_lsm_notifier(LSM_STARTED_ALL, NULL);
+>=20
+>  	return rc;
+>  }
+> -late_initcall(security_initcall_late);
+> +late_initcall_sync(security_initcall_late_sync);
+> --
+> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+>=20
 
