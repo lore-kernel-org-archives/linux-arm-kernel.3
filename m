@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44B7CF94CB3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD6C5F94CB5
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 22:46:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,97 +12,99 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cS+yLtaHravYz+Y7YPFjvQMfMx9w5jkr37dgZcu2XRY=; b=n9o+SBQABP4F75Hoy9/I8h48uF
-	2jQsc4M0/6OxruOIeLMC61Fm5O29uiv16RGLYbCpXlm4ninimYnq6K0FdXUXDKUmfD61Y/1pcWVE2
-	9hgoWVVZGf1zfJ8aad4axkmsRgPh614GOhmC4lUkufDKKcpoMsXog5AFcMxueUxIU0BH6gx57cHZY
-	vz5cO3Td2WiB0guWIwxaf2Ukbq72EwUtGck9IZqPFmMuYJG9TOObETwhkkZhDrZHw99n+4IDNaGfg
-	DBYnu20TD+sn54iLj7ZDPB+7btDhnY1FfYllLuQEKdyR9IdkJ/C3lpj+a5xqvdZO+xrfBgkMbPl8H
-	eqBOxzSw==;
+	bh=QlAXlWqTsW3fgIvkU8PZeZW4U+04MQJ/BDjSrIArpPc=; b=N0l+TRD88nNA3m2ff8ILrQ0MfX
+	8P2aJ3zIB/gFsnmzMl5lUyTOvS2j2GUJS4FJ4fHPoi9j9mrXbu/36Kw5SVttsakgOsk9Xmntwm9kP
+	0QUPDqgZ8TGtC08Th+snEG2grTGpUyH1zMgHStCFhdFoF/gl4DoSUiZZU65PSie1jL+kKL/XNAeg6
+	3lVJiCsWPSSq1ubGdfc5UCuh0tbh9KIGJSIMNpjySVK/ZUXr/3SrcN0JgQe2opTZneXoOiC40aUXT
+	bSSbyIUn1FeEa4kxVB6K4ZQ4IvQU7e3y8VCW6Z1ZvDSwr+8dpjXwkba5S1DO9U6t5KOsTVh+bT3lT
+	C9buNX9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFJrN-00000009M2w-0hkz;
+	id 1wFJrN-00000009M3Z-3H2B;
 	Tue, 21 Apr 2026 22:46:25 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFJrF-00000009Lys-40HO
+	id 1wFJrH-00000009M06-3kZ7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 22:46:19 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63LImRGG878216;
-	Tue, 21 Apr 2026 22:46:06 GMT
+	Tue, 21 Apr 2026 22:46:21 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63LImDtH679535;
+	Tue, 21 Apr 2026 22:46:04 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=cS+yLtaHravYz+Y7Y
-	PFjvQMfMx9w5jkr37dgZcu2XRY=; b=R9Wox7gNf8Sdhzwv/E3I8OcXwzTy5S2JD
-	JRtusrJK/sBv1GyhrFK92ml7zB+0qBjTpRj2a7K2EGTbOc0wTloD1gy0B12lDViY
-	gf+/PQa1ZaEVtdxtO/xb1flF2btegyd9SRfcoeviN5EYcpxotEYHjZdCaiMGe3eV
-	ZP+xncZ/HshZlCryzm/L9xr39dDKAjsJfGw5WDAHVjWFjNmLK0fHupdyfAZ1jaXA
-	hu16qZGRtmUCgMtRJISebYrxsztAQPlpjgDXemP8oncKneEhvyE+6mT7TF2sOmUC
-	iUQp84j9a86JkVpIszIFbMTw7vf2wzgMMEcSN1a2hkCTaBs6Rcggw==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dpeu20qj9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 21 Apr 2026 22:46:05 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63LMZPdB013594;
-	Tue, 21 Apr 2026 22:46:04 GMT
-Received: from smtprelay05.wdc07v.mail.ibm.com ([172.16.1.72])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dmnsh2js9-1
+	:mime-version:references:subject:to; s=pp1; bh=QlAXlWqTsW3fgIvkU
+	8PZeZW4U+04MQJ/BDjSrIArpPc=; b=JkgBwcLMFYnoow9i92Zsd+BmAAETpoVbf
+	6dPwodb6qL4LPwZ3X27Sv6SDZMz0PQmYZpGE5FuAF3Ejw9Q3eUgKP9FbLrjvCUUn
+	WqzFdRa0vpVrdf5Bsrs49AbVlxDTBNEX+eFFHePZMw4Edy01djNkcfg311AJQkgE
+	7rMyr1z9E4tr97qzKS4CoghunJtqdCfFcxFYM++pOLJ/3ByWb5TRwCuS3t2ufgA0
+	7yC6MOuw0GIiu6rHZTEmQk0Re7Ux+vywgOXnY2rzSGX9QXWsC3TvPSUXniLR4oiN
+	Fls7wo23FfWFIjN+hi5Sbjgulf6cOthYhXkpRWAFbroWppLjHtSjA==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dpeu7gp6e-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Tue, 21 Apr 2026 22:46:04 +0000 (GMT)
-Received: from smtpav06.dal12v.mail.ibm.com (smtpav06.dal12v.mail.ibm.com [10.241.53.105])
-	by smtprelay05.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63LMk3va27394736
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63LMZKJK000635;
 	Tue, 21 Apr 2026 22:46:03 GMT
-Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5321F5805F;
+Received: from smtprelay04.wdc07v.mail.ibm.com ([172.16.1.71])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dmmnvtr8r-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Tue, 21 Apr 2026 22:46:03 +0000 (GMT)
+Received: from smtpav06.dal12v.mail.ibm.com (smtpav06.dal12v.mail.ibm.com [10.241.53.105])
+	by smtprelay04.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63LMk2k240829492
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 21 Apr 2026 22:46:02 GMT
 Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id BDB7C58043;
-	Tue, 21 Apr 2026 22:46:02 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id F1AC358059;
+	Tue, 21 Apr 2026 22:46:01 +0000 (GMT)
+Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 5F2AB58043;
+	Tue, 21 Apr 2026 22:46:01 +0000 (GMT)
 Received: from pfw153.pfw.tadn.ibm.com (unknown [9.5.7.52])
 	by smtpav06.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Tue, 21 Apr 2026 22:46:02 +0000 (GMT)
+	Tue, 21 Apr 2026 22:46:01 +0000 (GMT)
 From: Ninad Palsule <ninad@linux.ibm.com>
 To: eajames@linux.ibm.com, robh@kernel.org, krzk+dt@kernel.org,
         conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
         devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
         linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Cc: Ninad Palsule <ninad@linux.ibm.com>
-Subject: [PATCH v1 7/7] ARM: dts: aspeed: system1: DTS updates
-Date: Tue, 21 Apr 2026 17:45:44 -0500
-Message-ID: <20260421224551.1611818-8-ninad@linux.ibm.com>
+Cc: Andrew Geissler <geissonator@yahoo.com>, ninad@linux.ibm.com
+Subject: [PATCH v1 5/7] ARM: dts: aspeed: system1: disable NCSI net port
+Date: Tue, 21 Apr 2026 17:45:42 -0500
+Message-ID: <20260421224551.1611818-6-ninad@linux.ibm.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260421224551.1611818-1-ninad@linux.ibm.com>
 References: <20260421224551.1611818-1-ninad@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIxMDIyMiBTYWx0ZWRfXyCw/pT34eaWz
- NvK52xExibTzl9ixyuXpy4vYbc40L46feOmRq5aJzGxdvotyVOkTZAxNDT5zeHho1Mqer3pLOPC
- 07myP+m0l/Mjg05xVbNkvoDkJylhAMMVXeIM5bjj0Dxx6NlCIqXkP4JnEkRwYWfGjA8Bd/x2Ppf
- yqCQBG+5fsL0oV/KmNoLuAzX2XrvsqMgucb11g8gAVkksRRhBhCp08RZI2n2NSXDheVxOUcITza
- aMS/D2NtaPK53aqFvCq3RI2ZZ+AD3sRQc/Rhc4R6MzTYeM7kgcVJrXhT80f/qTGBJ8tpvWykvH3
- hIc8sayRRiPlb0/gNu8EQZ8k5eVu95Hw3h1sbW/mBqJY8V1mEW2t3EmkOUPSEV5446L78Z0Kysk
- 8WKHgFxAXpisCq6pMh7yL3YYq1KDnm2VaFlpDcB6dTlFoR1c02kYzEQxaxYMeyVHz5evFW7Dnid
- VNTk+y5fBUb1qE6XUqw==
-X-Proofpoint-ORIG-GUID: sqXl7nSeLWUgo4IcCn7u4ZdF8NAXH1zE
-X-Proofpoint-GUID: sqXl7nSeLWUgo4IcCn7u4ZdF8NAXH1zE
-X-Authority-Analysis: v=2.4 cv=XMUAjwhE c=1 sm=1 tr=0 ts=69e7fe2e cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-ORIG-GUID: 3wuiv0BTP6bxQQCHKaorDkJ5P_7T4ICw
+X-Authority-Analysis: v=2.4 cv=Ksp9H2WN c=1 sm=1 tr=0 ts=69e7fe2c cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
  a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=weSylXKMd7dZRB46iqoA:9
+ a=Y2IxJ9c9Rs8Kov3niI8_:22 a=CjxXgO3LAAAA:8 a=VnNF1IyMAAAA:8
+ a=q50bWYc_djlZ50k8_NIA:9
+X-Proofpoint-GUID: kHVQpezY5AI0k2lTZtkrV9cMwTGio6Vf
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIxMDIyMiBTYWx0ZWRfX6ZEgGgqXm8pk
+ qYbO6urJeW0IwleQv0z0qfL9zR/bUk/awtiP165fm6aVlpr3N9h1m2ny2rmCzwuLeIcT2rqvC1W
+ WVZuwcsJPcL4L5x5ZwuxS/Qsg58dpU6Yjm8IwhVqdAgB0UGLfcOx9+nyfaRYQ7gxpJY0agVGv6D
+ oVtRULhNzM0tkEyA4hfMcqZ/3Tro4POGltnB5DR/Cpfqpds41tt6cwFWn111+yhJN8LTQhaP2lx
+ tAeSOF/q1HV3LL5rIFQy29JiDj06ERk5MtZQ7s/cTdtWk8n0x5Tpuzpb1sT5UmER+TYNpST8AXP
+ tEF/92Yxd+dUJnBdFIwJefsHcj2RG6WRsYHnCvtssDast/RC6K3ZVqJm1q9R4/jbqzkfKmfKgbH
+ HanZlq9imsJnmwylbMoDBKqhtwnoDbEIxwn7cWCWRu0kA7pXc4XPn34lOdw2+PzcEu/Q6y9NIBX
+ 7UPzNFz6P54jEgRl81g==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-04-21_03,2026-04-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 clxscore=1015 priorityscore=1501 impostorscore=0 bulkscore=0
- spamscore=0 lowpriorityscore=0 phishscore=0 adultscore=0 suspectscore=0
+ bulkscore=0 impostorscore=0 malwarescore=0 phishscore=0 priorityscore=1501
+ lowpriorityscore=0 clxscore=1015 adultscore=0 suspectscore=0 spamscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604210222
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_154618_009180_BB99C992 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20260421_154620_056276_9230B66C 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,49 +119,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-- Removed SGPIO node as not in use anymore.
-- Updated chassis power related pins as per the new hardware design
+From: Andrew Geissler <geissonator@yahoo.com>
 
+There appears to be a hardware issue on system1 with the shared NCSI
+network port, eth2. Our use cases don't require the use of this shared
+network port by the BMC so just remove it from our device tree.
+
+The symptom is that intermittently the entire BMC network stack will
+stop working during a chassis power on or off. Any active ssh sessions
+to the BMC will completely hang, and then come back after 5-60 seconds.
+
+Signed-off-by: Andrew Geissler <geissonator@yahoo.com>
 Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
 ---
- arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts | 10 ++--------
- 1 file changed, 2 insertions(+), 8 deletions(-)
+ arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts | 10 ----------
+ 1 file changed, 10 deletions(-)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-index 91c317267d6b..d7a934fe5860 100644
+index a5252cec9903..3ccf932832f1 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-@@ -424,7 +424,7 @@ &pinctrl_gpiol6_unbiased
- 	/*E0-E7*/	"","","","","","","","",
- 	/*F0-F7*/	"","","","","","","","",
- 	/*G0-G7*/	"","","","","","","","",
--	/*H0-H7*/	"","","","","","","","",
-+	/*H0-H7*/	"power-chassis-good","power-chassis-reboot","","","","","","",
- 	/*I0-I7*/	"","","","","","","","",
- 	/*J0-J7*/	"","","","","","","","",
- 	/*K0-K7*/	"","","","","","","","",
-@@ -440,7 +440,7 @@ &pinctrl_gpiol6_unbiased
- 	/*U0-U7*/	"","","","","","","","",
- 	/*V0-V7*/	"","rtc-battery-voltage-read-enable","","power-chassis-control","","","","",
- 	/*W0-W7*/	"","","","","","","","",
--	/*X0-X7*/	"fpga-pgood","power-chassis-good","pch-pgood","","","","","",
-+	/*X0-X7*/	"fpga-pgood","","pch-pgood","","","","","",
- 	/*Y0-Y7*/	"","","","","","","","",
- 	/*Z0-Z7*/	"","","","","","","","";
- 
-@@ -486,12 +486,6 @@ &emmc {
- 	clk-phase-mmc-hs200 = <180>, <180>;
+@@ -519,16 +519,6 @@ &mac2 {
+ 	use-ncsi;
  };
  
--&sgpiom0 {
+-&mac3 {
 -	status = "okay";
--	ngpios = <128>;
--	bus-frequency = <500000>;
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&pinctrl_rmii4_default>;
+-	clocks = <&syscon ASPEED_CLK_GATE_MAC4CLK>,
+-		 <&syscon ASPEED_CLK_MAC4RCLK>;
+-	clock-names = "MACCLK", "RCLK";
+-	use-ncsi;
 -};
 -
- &ibt {
- 	status = "okay";
- };
+ &wdt1 {
+ 	aspeed,reset-type = "none";
+ 	aspeed,external-signal;
 -- 
 2.51.0
 
