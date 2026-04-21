@@ -4,93 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 524EFF94CAA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 19:39:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 451A8F94CA9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 19:50:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=o5JuMO3gPYBlWwt5KKJVpxhIif6wlAgLOW24UJuKGpw=; b=tNUUkSBBk5DVL6WVMea8yQ5YD5
-	d27pFrmDHxFwcfZAkOplEcnondOuB8EoaeQ2EehY2uHy/xH9LxowKnw8abVhsxR+BQXDdONWUBaxA
-	+YAtudwy/C10Wq+P1o/ZJLSyit5fX4R+HxwY4JBxQdZrl3ofnEB/b3XR0eLMNjk34sNEXuFWzJOMn
-	NovO+fvajNL/QdufeTKCfBGFZFv9MIggX7YBhb1JdAZVyOfiKkrTpmpQBNxRMiWDx7Vc5eViJqSAT
-	VhEMBvkNds7JOHBWkUn8qWCd0criNRgpHerlyo3oR0uiNRFCkJoGih0br95cbtwNwTScvkguv06kZ
-	ReDWZ9Xw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G2J4cdDtFTR1SDj3cXANFTxz51QNNyd2kcg+wBLNTi4=; b=hwbCID5Ey2T3PQmL/3qIyyHlCB
+	Qwe39wx6VfuPr5ihLca8L9GcTxjUg+lL807DQxmsXaZ98v+1U5FrSIQQZKD1MMMetBDrLwpchk4Bj
+	ueyXDiT/9qEXzB0Tuo0s/TLESWNaL3bB7Rv1gYAtuRftgFXb9HDb4/wO5ZPhKTIiHecnlQix8ENa0
+	n64CAuLDmZT2eKGhWZwvKC4L0n5TPDt2MtcTJldXYs1IG6rO0xkmz+b/KS/dYt741kwxEAj9ZFJm4
+	PlXyoXCz+Aqk8uja+gETkff2pKwWoJs0SltAXdbAbZG+CH3SHpuauQf5aVBkaRtsZqYt5I9h+UBLh
+	/7o0+erg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFGwH-000000095Sl-1vgV;
-	Tue, 21 Apr 2026 19:39:17 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1wFH6t-000000095yC-2kF2;
+	Tue, 21 Apr 2026 19:50:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFGwE-000000095Ry-1jgf
+	id 1wFH6q-000000095xn-3qwn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 19:39:16 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-43cfd832155so3375289f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 12:39:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776800352; x=1777405152; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=o5JuMO3gPYBlWwt5KKJVpxhIif6wlAgLOW24UJuKGpw=;
-        b=VR/eVQ2O19l66itAMSRBnA/3nXruOWXxB6xF0GHsVFmkW6/4gM8rqSZyl8J/0l9Tam
-         FmpdI6oUihvX2XuoTQGlm2gICPYc2JLp30qKpRPoAEkd2ywE8249/8nhFr7FEBnDhvWt
-         eiqWCbjljoCJ1MAI9cvpRh+M+ev/UV2ZfM9+07oRssg4yEgFH+pvabCgePmJMb7StZ5O
-         WCiLtqGoY2wCFtYQJDZcD/zS+yhKP/9GhOwhs3e7KfBUtsY6DOtyfy4pFSHgqw7BDUyn
-         F0ItbY0EFw4D1C0lfgNA9ZVE/aCTDmc9o495JDFTn3WrRdMG8avoUo5J6CwSvGC/N+5o
-         e2AA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776800352; x=1777405152;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=o5JuMO3gPYBlWwt5KKJVpxhIif6wlAgLOW24UJuKGpw=;
-        b=dc7Jqh7ScOoq3E7/O0qSDBk6AgH8tTJRfmtzv3s+o+LHWSNjF0PWM6P+AEg1Njqyxm
-         ibAkLYJNMDixu6tNY1ypuYOi776PrSav6kvBtwjQ/NAf+HMjT/L5D48DCnXQczR+3ReB
-         MRBkde6FufAtMTg7nB7InYh8ZXZhHnSUlGZ3Uy+kgNv9t/2A6L39py0qvQ0DUcvrQoxD
-         zd68mFiKV26QfeE2fy21AdkA7vLkfo4gH7dZ8/BFd/0H8uzP2I+P3/KnNys/IVRFVgaV
-         keGoMr7N6ieP55DtdCQYxT1iFqjy2vZoj9PJruvjiTTAt1dENLxJrtnKAN0T48RLH7cs
-         w0Fg==
-X-Forwarded-Encrypted: i=1; AFNElJ8K4yusmK5yRxBep0uyQSS8wvjltCFwyvPFFt0DICCvmBIL3pJJEzAbo6Wr313AQgrxIycFupmj6NzEKhUwV5j/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzS0TqUDoWP6R4WG6L1Ha4ES/GKAZ9VDN9/0r+fe7Y9XA/Dyemj
-	ob+eXoP4W61UvxjylRSoAyL0mSplEx1r2gGoODEz/tXJ8eOwGEqZEKhr
-X-Gm-Gg: AeBDievDqB0RuXdNu1dJCPG6nuHO+mdbrzrbveDjrPQHYe7aSPEa7TzkFK8+Llm6nzl
-	XMn1U2iq4ILpFFlRLUe9ExbKLtNEUOUZgnQ4SqelRb3WnhRb5CZ6PTgUwwGpUOhGAIyLtIV43At
-	eLJ1yVC4ZQkWIJSjiSiulhmaYGsdaWu8ZgpFW9nG4O06N07bCtWM2rLLcrY3Acg02QTSLq1rKQj
-	n9PquFtjmgZjk4dsx6DY8U/i64UKdd1WsmwKIq5Y3gvgQi7Fqxfacl2MHVBwquXb7s5sMSini0P
-	Buikq+4VMMrFwPlkRvBuGVzIt947qtF7uU6atg+rY+f8SAtmOOnKVRcbZCuI7YTOY20W5soslWi
-	iyRx1gnQAZschbAxa7jUrs6by/AYQyjaGSvf0NMb50mmX76zuQ59N2mDDIaVVmQo3YuV2Tgcwj7
-	+o+62rpB+te6eaLFGfyNd+QR0z/IY+QRIg4eg0BLr2
-X-Received: by 2002:a05:6000:2dc8:b0:43d:6fce:3ef with SMTP id ffacd0b85a97d-43fe3dd2b9cmr29894868f8f.21.1776800352013;
-        Tue, 21 Apr 2026 12:39:12 -0700 (PDT)
-Received: from luca-vm.lan ([154.61.61.58])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4411c9f4f03sm10443782f8f.1.2026.04.21.12.39.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Apr 2026 12:39:11 -0700 (PDT)
-From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-To: linux-sound@vger.kernel.org
-Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v3] ASoC: dt-bindings: mediatek: Convert mtk-btcvsd-snd to DT Schema
-Date: Tue, 21 Apr 2026 20:38:35 +0100
-Message-ID: <20260421193858.347258-1-l.scorcia@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 21 Apr 2026 19:50:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id F0F0041941;
+	Tue, 21 Apr 2026 19:50:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD412C2BCB0;
+	Tue, 21 Apr 2026 19:50:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776801011;
+	bh=jUatT9v4w7olRWsNPaL6Ydq9t2x3xZyLOCqssI66jOs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HsEeyrHqJhFNP0aRSmgql6ghCcNqcTNpPK4tTV8XKNRs8geDHkLsuWMZv7gYeipTL
+	 OOJof7n58Fy7BHKf1i93vlRPIISn/+Xb21zIpaDfj4iNZa37oMMBr9v17uB0d9JNlT
+	 Pv7dJmX7oa/sGCesa07SvlhKRUm8c4PlnStNf/oo+3l+TcLuiiTGmvhQMEOGDNAtxm
+	 gyWEqTjZlaZS4rcfqoAkrrOdW19RpNR7aNsKyXcoubstlaMoSlQwSHj+wCT5VEAScW
+	 kBhPP694csHzOaIWhnSS41arrmlfU7YCahMB8x5LkoCcNKmsidfLmh9DWMnxqDQx5C
+	 FzXvpMguWiWwQ==
+Date: Tue, 21 Apr 2026 20:50:06 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Gabriel Jacob Perin <gabrieljp@usp.br>
+Cc: claudiu.beznea@tuxon.dev, andrei.simion@microchip.com,
+	lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com,
+	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+	carlos.albmr@usp.br, linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] Change manual bitfield manipulation to use FIELD_PREP()
+Message-ID: <16ac8986-3d21-4f6e-886c-afdc0709ea8f@sirena.org.uk>
+References: <20260421193113.1060213-1-gabrieljp@usp.br>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="kcD3P89RG+pOrddx"
+Content-Disposition: inline
+In-Reply-To: <20260421193113.1060213-1-gabrieljp@usp.br>
+X-Cookie: Jenkinson's Law:
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_123914_504198_DF05B0EC 
-X-CRM114-Status: GOOD (  15.71  )
+X-CRM114-CacheID: sfid-20260421_125012_980502_355D1089 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,135 +76,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the mtk-btcvsd-snd.txt DT binding to DT Schema format.
 
-Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
----
-Changes in v3:
-Sorry about the spam. A second round of dt_binding_check + dtbs_check
-led me to additional improvements:
+--kcD3P89RG+pOrddx
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-- Use reg-names in place of a non-informative description property
-- Simplify the reg property in the example
+On Tue, Apr 21, 2026 at 04:31:13PM -0300, Gabriel Jacob Perin wrote:
+> Co-developed-by: Carlos Alberto Marques Rabelo <carlos.albmr@usp.br>
+> Signed-off-by: Carlos Alberto Marques Rabelo <carlos.albmr@usp.br>
+> Signed-off-by: Gabriel Jacob Perin <gabrieljp@usp.br>
+> ---
+>  sound/soc/atmel/atmel-classd.c | 41 ++++++++++++++++++----------------
+>  1 file changed, 22 insertions(+), 19 deletions(-)
 
-Changes in v2 [2]:
-- Fixed issues from make dt_binding_check
-- Set myself as maintainer for the binding
+Please submit patches using subject lines reflecting the style for the
+subsystem, this makes it easier for people to identify relevant patches.
+Look at what existing commits in the area you're changing are doing and
+make sure your subject lines visually resemble what they're doing.
+There's no need to resubmit to fix this alone.
 
-Initial version [1].
+--kcD3P89RG+pOrddx
+Content-Type: application/pgp-signature; name="signature.asc"
 
-[1] https://lore.kernel.org/20260420204514.1640995-1-l.scorcia@gmail.com/
-[2] https://lore.kernel.org/20260421154619.227039-1-l.scorcia@gmail.com/
+-----BEGIN PGP SIGNATURE-----
 
- .../sound/mediatek,mtk-btcvsd-snd.yaml        | 66 +++++++++++++++++++
- .../bindings/sound/mtk-btcvsd-snd.txt         | 24 -------
- 2 files changed, 66 insertions(+), 24 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mtk-btcvsd-snd.yaml
- delete mode 100644 Documentation/devicetree/bindings/sound/mtk-btcvsd-snd.txt
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnn1O4ACgkQJNaLcl1U
+h9BcTwf/Sb4g2CeFJw62AfZzA/9lXogBhXoHMW8RCQp8zr6Ja7pW/Gdj3uJ9KFPl
+UsHhV+r7+Cn4BswcMtOeKaeUGTCD+FW/ZhYRct8+ck0Sn+o/BMvSaP4WrzwzCJ2K
+TxjQU5bc2+UWePHd3Em5GLc6Tgc8PDYucMitsrjV/g8LKYNTbld8kNuKOr3REZgE
+EM2HCfsDCiamuBUrHrTiEv/yuhC18jMZJBvi6yPRu+Hu/gDFSsH1+2/k8ZmLvzUj
+nKRhI630Nvp/D3OR0ap41h7eaxIAxlLFrRG5HK26yi+NNkqAZAb8+DE9rLY1Ikwy
+o74da2cqRoSKtN7V+exICt8pjn/Uvg==
+=PUmu
+-----END PGP SIGNATURE-----
 
-diff --git a/Documentation/devicetree/bindings/sound/mediatek,mtk-btcvsd-snd.yaml b/Documentation/devicetree/bindings/sound/mediatek,mtk-btcvsd-snd.yaml
-new file mode 100644
-index 000000000000..22ba7d0bdac6
---- /dev/null
-+++ b/Documentation/devicetree/bindings/sound/mediatek,mtk-btcvsd-snd.yaml
-@@ -0,0 +1,66 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/sound/mediatek,mtk-btcvsd-snd.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Mediatek ALSA BT SCO CVSD/MSBC Driver
-+
-+maintainers:
-+  - Luca Leonardo Scorcia <l.scorcia@gmail.com>
-+
-+properties:
-+  compatible:
-+    const: mediatek,mtk-btcvsd-snd
-+
-+  reg:
-+    minItems: 2
-+    maxItems: 2
-+
-+  reg-names:
-+    items:
-+      - const: pkv
-+      - const: sram-bank2
-+
-+  interrupts:
-+    items:
-+      - description: BT-SCO interrupt
-+
-+  mediatek,infracfg:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: The phandle of the infracfg controller
-+
-+  mediatek,offset:
-+    $ref: /schemas/types.yaml#/definitions/uint32-array
-+    description: Array of register offsets and masks
-+    items:
-+      - description: infra_misc_offset
-+      - description: infra_conn_bt_cvsd_mask
-+      - description: cvsd_mcu_read_offset
-+      - description: cvsd_mcu_write_offset
-+      - description: cvsd_packet_indicator_offset
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - interrupts
-+  - mediatek,infracfg
-+  - mediatek,offset
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    mtk-btcvsd-snd@18000000 {
-+      compatible = "mediatek,mtk-btcvsd-snd";
-+      reg = <0x18000000 0x1000>,
-+            <0x18080000 0x8000>;
-+      reg-names = "pkv", "sram-bank2";
-+      interrupts = <GIC_SPI 286 IRQ_TYPE_LEVEL_LOW>;
-+      mediatek,infracfg = <&infrasys>;
-+      mediatek,offset = <0xf00 0x800 0xfd0 0xfd4 0xfd8>;
-+    };
-diff --git a/Documentation/devicetree/bindings/sound/mtk-btcvsd-snd.txt b/Documentation/devicetree/bindings/sound/mtk-btcvsd-snd.txt
-deleted file mode 100644
-index 679e44839b48..000000000000
---- a/Documentation/devicetree/bindings/sound/mtk-btcvsd-snd.txt
-+++ /dev/null
-@@ -1,24 +0,0 @@
--Mediatek ALSA BT SCO CVSD/MSBC Driver
--
--Required properties:
--- compatible = "mediatek,mtk-btcvsd-snd";
--- reg: register location and size of PKV and SRAM_BANK2
--- interrupts: should contain BTSCO interrupt
--- mediatek,infracfg: the phandles of INFRASYS
--- mediatek,offset: Array contains of register offset and mask
--    infra_misc_offset,
--    infra_conn_bt_cvsd_mask,
--    cvsd_mcu_read_offset,
--    cvsd_mcu_write_offset,
--    cvsd_packet_indicator_offset
--
--Example:
--
--	mtk-btcvsd-snd@18000000 {
--		compatible = "mediatek,mtk-btcvsd-snd";
--		reg=<0 0x18000000 0 0x1000>,
--		    <0 0x18080000 0 0x8000>;
--		interrupts = <GIC_SPI 286 IRQ_TYPE_LEVEL_LOW>;
--		mediatek,infracfg = <&infrasys>;
--		mediatek,offset = <0xf00 0x800 0xfd0 0xfd4 0xfd8>;
--	};
--- 
-2.43.0
-
+--kcD3P89RG+pOrddx--
 
