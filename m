@@ -4,72 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E84BAF327D9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 11:50:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5FBDF8FA69
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Apr 2026 11:50:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/NV8ykGGMcTaxZaQ2zUVOv41TqUrDMHc9m56orvpcOA=; b=ZV1KLkrM8NqmteICGIqbQuQ2ho
-	SWWZoAbNPGDuX6KRd53+X+DM44ENtiP7BiUzA0PeK81BMJ0vikWFePpYG5hv2Jj+d2qLh1iTYnhyw
-	/HMQ0H12ilyUrGdAM6WeiZkYVvC4zoiUIXPZzlgI06NmcKWZmYodw7bZyrjqi7BmerHdXm/ZtbBGA
-	dERRLSkCs9tzmDesjvcLdALjjR9slqtldEhcGsQ4Tnky2bIk49xdgEXwvL5XBBvUer6kQp13bOt67
-	gYfkeggkhybS9oUAf7MKKJaXJzAK1cyJ6a7wnn2pWmWGl1w4599Okzgxu/6XpqqC0KrHqNZ275O5g
-	Vj+pU2Jg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pJ+mdiNmeAMezBiiVJe9ciOqh+SicPvri5H0BWXClTI=; b=09Zh/aHtCk8DQC50mEDHuAH7Fy
+	QCsrnNb6+jsEct4efm1lHqr1zZyTvXIYTWMKCmDUsc/LIFP0moiQfSR6VMIJj24yU4HWOGYhs8zKY
+	8E0kWiNHnDz0oxsQkQA0QhUvM63gAguEuIbpqvyG7jYLLnpsuxLJkbsBrOZXK8aBn3L6x0x4OZFHW
+	OYBvHG6kNPPiRIZpJAmDMVEy8LANnb4gECIUP6UgNtLDHBH6Mh1L7slBmDtXTyylMFVZzxAmYQ6SR
+	yaidihHtGhvM0ax6riLfX61Mw4xJmFzOM/i0xxW2/miUIJdXlUC4zEoxu/uHJIM1OQOhWwHoA+8Qh
+	7vFryHXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF9cL-00000008XMS-3nx9;
-	Tue, 21 Apr 2026 11:50:13 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wF9cc-00000008XTL-0VLX;
+	Tue, 21 Apr 2026 11:50:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF9cI-00000008XLk-0nTO
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Apr 2026 11:50:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1776772207;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=/NV8ykGGMcTaxZaQ2zUVOv41TqUrDMHc9m56orvpcOA=;
-	b=K1hmUjA+bhxIxpMLhfz+FyNXulyuK8PRY+MsdOMmJz2tHqDZV4L2sMj/6YbGvIf/H82Nah
-	Jxd0TmBFzwZv8DfKuSGFoVIdWQ64s83w0y2bz0+6JzFA9Ups04YQxnBxfnyP1FLj3PKZCY
-	oiIuPRaPcWui4nIOH43JliVQvqPXBkc=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-658-abVUpCZENIOyEYY_k6aGBQ-1; Tue,
- 21 Apr 2026 07:50:05 -0400
-X-MC-Unique: abVUpCZENIOyEYY_k6aGBQ-1
-X-Mimecast-MFC-AGG-ID: abVUpCZENIOyEYY_k6aGBQ_1776772204
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3993C195608F;
-	Tue, 21 Apr 2026 11:50:04 +0000 (UTC)
-Received: from thuth-p1g4.redhat.com (unknown [10.44.49.140])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 23708195608E;
-	Tue, 21 Apr 2026 11:50:00 +0000 (UTC)
-From: Thomas Huth <thuth@redhat.com>
-To: Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	linux-tegra@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] ARM: tegra: Replace __ASSEMBLY__ with __ASSEMBLER__
-Date: Tue, 21 Apr 2026 13:49:59 +0200
-Message-ID: <20260421114959.202327-1-thuth@redhat.com>
+	id 1wF9cV-00000008XNg-2DY4;
+	Tue, 21 Apr 2026 11:50:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7626D60582;
+	Tue, 21 Apr 2026 11:50:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2CC25C2BCB9;
+	Tue, 21 Apr 2026 11:50:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776772222;
+	bh=Jnv894IU9wblCqhm+wVe2Z5FBt6aG6TawzV3npnKdrc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=IWjcafzhBjnjnNdZaGpC5vM4XzGmjb0THyF1abgTvinPKSTfP/ddZaXwmqbAbo8Rt
+	 N1TnIMD59D7ZccHBQZcdnzNpX5Yd+7Fy3X7MU0s4xIs9BTIGopX0977jcpxuggfg9K
+	 A0Gd1SaVu5bVyx18Fq+h29wpuq27A/f9GxEnS7QTYJrGp9c3oyR9Ydw/n8/rAQkiPb
+	 GHsG7V2x/4sKLWebQQNu33LbcOtRLSjp0UyR6FMnFBUqUPRpKIT/ncaJnDfptrLJ0u
+	 D6JW1rr2XuWnJ05uEDTinjdaby80FiKlRt9099N5g6UmRk681zvrTjMJmfKhCCTHnq
+	 NMIDi3XT9QJkw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1A6CBF8FA60;
+	Tue, 21 Apr 2026 11:50:22 +0000 (UTC)
+From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
+Date: Tue, 21 Apr 2026 13:49:19 +0200
+Subject: [PATCH v4 2/8] dt-bindings: i2c: amlogic: Add compatible for T7
+ SOC
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
-X-Mimecast-MFC-PROC-ID: 319Wg84Bg8Mb7Dnx2Gq2bD2wAnBY-4wvD85MUAIxPyQ_1776772204
-X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_045010_326981_0CEE195B 
-X-CRM114-Status: GOOD (  14.09  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260421-add-mcu-fan-khadas-vim4-v4-2-447114a28f2d@aliel.fr>
+References: <20260421-add-mcu-fan-khadas-vim4-v4-0-447114a28f2d@aliel.fr>
+In-Reply-To: <20260421-add-mcu-fan-khadas-vim4-v4-0-447114a28f2d@aliel.fr>
+To: Neil Armstrong <neil.armstrong@linaro.org>, Lee Jones <lee@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Beniamino Galvani <b.galvani@gmail.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>
+Cc: linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
+ Ronald Claveau <linux-kernel-dev@aliel.fr>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1268;
+ i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
+ bh=dSGVBP6Kwid380fHwj/yvIcbmVkBngDKwALA0QzKSyw=;
+ b=owGbwMvMwCWm1SvKXP3cUInxtFoSQ+bzlKJjDkZzzphuqz48M6pBNcD07e7gaeG5yvJG2d5X2
+ De/CMnpKGVhEONikBVTZOmfa3ni3eWjZ77uUU+BmcPKBDKEgYtTACaiXMzIcPLRzcezWCrWXv1+
+ +NIUU6sJv8SPtihtOJiTvvpt+I9jvrcZGc5GzzR4aPrg1h7dNyqzIuatdzi2u+JZbsuk+S8M1sq
+ nzGQHAA==
+X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
+ fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
+X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
+ auth_id=744
+X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,58 +92,47 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: linux-kernel-dev@aliel.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thomas Huth <thuth@redhat.com>
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-While the GCC and Clang compilers already define __ASSEMBLER__
-automatically when compiling assembly code, __ASSEMBLY__ is a
-macro that only gets defined by the Makefiles in the kernel.
-This can be very confusing when switching between userspace
-and kernelspace coding, or when dealing with uapi headers that
-rather should use __ASSEMBLER__ instead. So let's standardize now
-on the __ASSEMBLER__ macro that is provided by the compilers.
+Add the T7 SOC compatible which fallback to AXG compatible.
 
-This is a completely mechanical patch (done with a simple "sed -i"
-statement).
-
-Signed-off-by: Thomas Huth <thuth@redhat.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 ---
- Note: This patch has been split from an earlier series of mine
-       to ease reviewing
+ .../devicetree/bindings/i2c/amlogic,meson6-i2c.yaml         | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
 
- arch/arm/mach-tegra/reset.h | 2 +-
- arch/arm/mach-tegra/sleep.h | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+diff --git a/Documentation/devicetree/bindings/i2c/amlogic,meson6-i2c.yaml b/Documentation/devicetree/bindings/i2c/amlogic,meson6-i2c.yaml
+index c4cc8af182807..7b59b60b62e5b 100644
+--- a/Documentation/devicetree/bindings/i2c/amlogic,meson6-i2c.yaml
++++ b/Documentation/devicetree/bindings/i2c/amlogic,meson6-i2c.yaml
+@@ -16,10 +16,15 @@ allOf:
+ 
+ properties:
+   compatible:
+-    enum:
+-      - amlogic,meson6-i2c # Meson6, Meson8 and compatible SoCs
+-      - amlogic,meson-gxbb-i2c # GXBB and compatible SoCs
+-      - amlogic,meson-axg-i2c # AXG and compatible SoCs
++    oneOf:
++      - items:
++          - enum:
++              - amlogic,t7-i2c
++          - const: amlogic,meson-axg-i2c
++      - enum:
++          - amlogic,meson6-i2c # Meson6, Meson8 and compatible SoCs
++          - amlogic,meson-gxbb-i2c # GXBB and compatible SoCs
++          - amlogic,meson-axg-i2c # AXG and compatible SoCs
+ 
+   reg:
+     maxItems: 1
 
-diff --git a/arch/arm/mach-tegra/reset.h b/arch/arm/mach-tegra/reset.h
-index 51265592cb1ae..92a89713d5e57 100644
---- a/arch/arm/mach-tegra/reset.h
-+++ b/arch/arm/mach-tegra/reset.h
-@@ -21,7 +21,7 @@
- 
- #define RESET_DATA(x)	((TEGRA_RESET_##x)*4)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include "irammap.h"
- 
-diff --git a/arch/arm/mach-tegra/sleep.h b/arch/arm/mach-tegra/sleep.h
-index 4718a3cb45a16..e332d261c1dbd 100644
---- a/arch/arm/mach-tegra/sleep.h
-+++ b/arch/arm/mach-tegra/sleep.h
-@@ -38,7 +38,7 @@
- #define TEGRA_FLUSH_CACHE_LOUIS	0
- #define TEGRA_FLUSH_CACHE_ALL	1
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- /* waits until the microsecond counter (base) is > rn */
- .macro wait_until, rn, base, tmp
- 	add	\rn, \rn, #1
 -- 
-2.53.0
+2.49.0
+
 
 
