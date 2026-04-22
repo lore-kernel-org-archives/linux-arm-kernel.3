@@ -4,70 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CD36FA1FD9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 17:49:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38C45FA1FDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 17:51:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XBuWwkO3NKaYBu7YzCXDRbesX1p5yTsd+4/nZC8plvE=; b=tXu+j/REGspmAarWKpVawg5BgQ
-	h7/Tcazkc+PgCwZxChzF0xrcee0JACBgNf6jWd8kRL+XZxZOgPeBdyLyIWa7Uvzc/hm8489zVpVn7
-	CRQjhQNDzoRUcRzOI74kUbMESc59UQXyrk0iXazbS0fOpPDcpmvnwq7e88qS9XHEvjbbqppB9rn6Y
-	tyhzHHJR40ls4KqfORwPFp87Jv9+KWBQy7dQY0AakpBetXLZgXja9useyEoyIZG/Q+kH2slwZpgeQ
-	oWuwh9QauYrW5iwFyDRcC0r1bNYOnu7+0NbrU7wmdiFU8Oci92/1o7WpLKCYNUwCmg9/rcUfyf9MT
-	bESuxyBQ==;
+	bh=zEJN6Fp5WBBUFYhWt0RYxU8no8HRwn0KnhiTxwY2j3k=; b=pyRQvEm6I9I0RTadoynOwy93te
+	dml4R6bJjouU7Aa2qaOWW2oeFB3AG3HP+xG7NgK269jb1GlAyckDryml0g3goUUnZDC1FojvwjsW4
+	3A5hK8laaYhfivt5essn8r1NXd8HjxYSoF9Hk8GJF9ubx7KOzoXAxdNiVBvK0EhJE1hfwjRzXSOaV
+	AmFKNSnX92MoZvdrLVuDvuEM/+nXp0KrdptrAdPqucbLagvhwZJWuJvKxrC2qKCGM4z6filARTV5c
+	wozMa9Mii94ft5nwZGL22v2RJ9S2PZiXoq7+5bB9Q9tOJdCKcstl7HXmUXvx8jSax+IOcIgx1T/V5
+	CkcIYz1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFbhk-0000000AanP-0FJ6;
-	Wed, 22 Apr 2026 17:49:40 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wFbj9-0000000Aaxo-0GLi;
+	Wed, 22 Apr 2026 17:51:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFbhh-0000000Aamq-0GtC
+	id 1wFbj7-0000000AaxZ-3RAP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 17:49:38 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1776880172;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XBuWwkO3NKaYBu7YzCXDRbesX1p5yTsd+4/nZC8plvE=;
-	b=linQPxspEWgh9AKcJWRoPaKpvSiDJh5h1gk9gUTPKmL7q94Bsy7QBtYRxj/1aJj5neA++a
-	VrUXXlxahPvgBYIlH4uGkindBtH5d6w3r4209pqVYYe5D/J60RdLwES9goNVdVzd9EPLXA
-	TpJ/DVYxTPtfqi2IN+IdvnD0Jf0mDaDAwfemBYYNxxcbm9+TMAKt/2WIoBQ79vyLmnlIWS
-	/q3feELPwVvc+9/R+oiU5jWvGSUe+9QtfG26pM4Op1qZ/y20ZcIE/HXYLaLpPl/+ApFxfA
-	5pGKPDC3y1EVMjuWBpyGLs/XnbYFS18lfuY3TUphW0KbxHMHjIX0ljz+lI2ZTw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1776880172;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XBuWwkO3NKaYBu7YzCXDRbesX1p5yTsd+4/nZC8plvE=;
-	b=ZGdWOozzrg59C1LUZXlaz64KuR3ie950K3dYDlOoK210mRnJ4Hn6kpeDV9txRGxSWFtp0F
-	8ICPQussMlcrWeBg==
-To: Mark Rutland <mark.rutland@arm.com>, Mathias Stearn <mathias@mongodb.com>
-Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Boqun Feng
- <boqun.feng@gmail.com>, "Paul E. McKenney" <paulmck@kernel.org>, Chris
- Kennelly <ckennelly@google.com>, Dmitry Vyukov <dvyukov@google.com>,
- regressions@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Peter Zijlstra
- <peterz@infradead.org>, Ingo Molnar <mingo@kernel.org>, Jinjie Ruan
- <ruanjinjie@huawei.com>, Blake Oler <blake.oler@mongodb.com>
-Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
- and tcmalloc everywhere
-In-Reply-To: <aejCaG6n9s7ak5TO@J2N7QTR9R3.cambridge.arm.com>
-References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
- <aejCaG6n9s7ak5TO@J2N7QTR9R3.cambridge.arm.com>
-Date: Wed, 22 Apr 2026 19:49:30 +0200
-Message-ID: <87zf2u28d1.ffs@tglx>
+	Wed, 22 Apr 2026 17:51:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F0AA46057A;
+	Wed, 22 Apr 2026 17:51:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F148AC19425;
+	Wed, 22 Apr 2026 17:51:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776880264;
+	bh=KPvLrXE2/oUIc7/DGRST/uOw61jgaB21B6zfJODnfvg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=r0gxB7GBgcmuNv2k5W7mvLRhUPeknwOcHhJ7vcUMwYyOAwhEzMlPUUdgqqKEAKf8N
+	 plJ8OVHHWcqO1GleG/UwibiIldak2bSKxxAxwbJLZOSJXDOTK0ujQP3Qwd/8XnT3yA
+	 JrpBzw2UUsrCMwaFOBMxN6fbmxpKDlH+tbFpVXLPJpISxuz61JOg3NP7BEnsDkvmUw
+	 xr6F2v6PKHMAPsxtjfirmtwB7hn6vJakeYGRo8+++ZoQ9Rhi4M1lPQSq9ynhlqlXdj
+	 fEmrqFEMzegKfYNLB/QVN4Qb62nNUOgAQtUtIef9ono1OQRpwltgmo2dCxusebfONM
+	 PVDN3ioktc9uQ==
+Date: Wed, 22 Apr 2026 18:50:59 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Leo Yan <leo.yan@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] kselftest/arm64: Fix build failure with GCC-15
+Message-ID: <bdec0293-e962-432e-9056-f21079707a4d@sirena.org.uk>
+References: <20260422-selftests_arm64_gcc15-v2-1-c0134de8838a@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_104937_333657_9A54D637 
-X-CRM114-Status: GOOD (  19.81  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="KXxGrSnyNAOe7ayE"
+Content-Disposition: inline
+In-Reply-To: <20260422-selftests_arm64_gcc15-v2-1-c0134de8838a@arm.com>
+X-Cookie: I'm definitely not in Omaha!
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,81 +73,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 22 2026 at 14:09, Mark Rutland wrote:
-> On Wed, Apr 22, 2026 at 11:50:26AM +0200, Mathias Stearn wrote:
->> TL;DR: As of 6.19, rseq no longer provides the documented atomicity
->> guarantees on arm64 by failing to abort the critical section on same-core
->> preemption/resumption. Additionally, it breaks tcmalloc specifically by
->> failing to overwrite the cpu_id_start field at points where it was relied
->> on for correctness.
->
-> Thanks for the report, and the test case.
->
-> As a holding reply, I'm looking into this now from the arm64 side.
 
-I assume it's the partial conversion to the generic entry code which
-screws that up. The problem reproduces with rseq selftests nicely.
+--KXxGrSnyNAOe7ayE
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-The patch below fixes it as it puts ARM64 back to the non-optimized code
-for now. Once ARM64 is fully converted it gets all the nice improvements.
+On Wed, Apr 22, 2026 at 06:42:54PM +0100, Leo Yan wrote:
 
-Thanks,
+> For GCC-15, NT_ARM_GCS is defined in the libc header, causing gcs-util.h
+> to skip its fallback definition of struct user_gcs. This leads to the
+> compiler error.
 
-        tglx
----
-diff --git a/include/linux/rseq.h b/include/linux/rseq.h
-index 2266f4dc77b6..d55476e2a336 100644
---- a/include/linux/rseq.h
-+++ b/include/linux/rseq.h
-@@ -30,7 +30,7 @@ void __rseq_signal_deliver(int sig, struct pt_regs *regs);
-  */
- static inline void rseq_signal_deliver(struct ksignal *ksig, struct pt_regs *regs)
- {
--	if (IS_ENABLED(CONFIG_GENERIC_IRQ_ENTRY)) {
-+	if (IS_ENABLED(CONFIG_GENERIC_ENTRY)) {
- 		/* '&' is intentional to spare one conditional branch */
- 		if (current->rseq.event.has_rseq & current->rseq.event.user_irq)
- 			__rseq_signal_deliver(ksig->sig, regs);
-@@ -50,7 +50,7 @@ static __always_inline void rseq_sched_switch_event(struct task_struct *t)
- {
- 	struct rseq_event *ev = &t->rseq.event;
- 
--	if (IS_ENABLED(CONFIG_GENERIC_IRQ_ENTRY)) {
-+	if (IS_ENABLED(CONFIG_GENERIC_ENTRY)) {
- 		/*
- 		 * Avoid a boat load of conditionals by using simple logic
- 		 * to determine whether NOTIFY_RESUME needs to be raised.
-diff --git a/include/linux/rseq_entry.h b/include/linux/rseq_entry.h
-index a36b472627de..8ccd464a108d 100644
---- a/include/linux/rseq_entry.h
-+++ b/include/linux/rseq_entry.h
-@@ -80,7 +80,7 @@ bool rseq_debug_validate_ids(struct task_struct *t);
- 
- static __always_inline void rseq_note_user_irq_entry(void)
- {
--	if (IS_ENABLED(CONFIG_GENERIC_IRQ_ENTRY))
-+	if (IS_ENABLED(CONFIG_GENERIC_ENTRY))
- 		current->rseq.event.user_irq = true;
- }
- 
-@@ -171,8 +171,8 @@ bool rseq_debug_update_user_cs(struct task_struct *t, struct pt_regs *regs,
- 		if (unlikely(usig != t->rseq.sig))
- 			goto die;
- 
--		/* rseq_event.user_irq is only valid if CONFIG_GENERIC_IRQ_ENTRY=y */
--		if (IS_ENABLED(CONFIG_GENERIC_IRQ_ENTRY)) {
-+		/* rseq_event.user_irq is only valid if CONFIG_GENERIC_ENTRY=y */
-+		if (IS_ENABLED(CONFIG_GENERIC_ENTRY)) {
- 			/* If not in interrupt from user context, let it die */
- 			if (unlikely(!t->rseq.event.user_irq))
- 				goto die;
-@@ -387,7 +387,7 @@ static rseq_inline bool rseq_update_usr(struct task_struct *t, struct pt_regs *r
- 	 * allows to skip the critical section when the entry was not from
- 	 * a user space interrupt, unless debug mode is enabled.
- 	 */
--	if (IS_ENABLED(CONFIG_GENERIC_IRQ_ENTRY)) {
-+	if (IS_ENABLED(CONFIG_GENERIC_ENTRY)) {
- 		if (!static_branch_unlikely(&rseq_debug_enabled)) {
- 			if (likely(!t->rseq.event.user_irq))
- 				return true;
+> Fix this by including <asm/ptrace.h> to provide the proper definition.
+
+> +++ b/tools/testing/selftests/arm64/gcs/gcs-util.h
+> @@ -7,6 +7,7 @@
+>  #define GCS_UTIL_H
+> =20
+>  #include <stdbool.h>
+> +#include <asm/ptrace.h>
+> =20
+>  #ifndef __NR_map_shadow_stack
+>  #define __NR_map_shadow_stack 453
+
+Reviewed-by: Mark Brown <broonie@kernel.org>
+
+--KXxGrSnyNAOe7ayE
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnpCoMACgkQJNaLcl1U
+h9A52wf9FOb2X61sAKZFg0tLjl5OvSTmH8kEuCqQRMnPND+u2vn+CKXzQ5pK8x9e
+TSdPkU3ttff8u5Rifl1nk7RKEotMP7APZv0h7JiP9+Qd/mfWaJXYlP9XBgtyHUdn
+KCLU0uMCzGlRtmXdLVTqTB6K2ov8/3W89yKCdFITnrq8KXfLGJRO1mA8fqkSs8cP
+snGks4TIezZkA/9yTuL5DIIf+xYH1ip7nR+FMO20SVcwLdJytIYVgqC7lnG5L5kr
+GSCN6E7oIBmck2ja63nvFkqUq7kbCjDexlObJ5kiOnVM+NpdXkHgACuO5Uiom87H
+p3cJ+0uKaqvgmKYFycqXl4hXixcMsw==
+=z8AI
+-----END PGP SIGNATURE-----
+
+--KXxGrSnyNAOe7ayE--
 
