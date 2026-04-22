@@ -4,58 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA87F9B608
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 10:08:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76AF0F9B607
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 10:26:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:In-Reply-To:References:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dWShHqAw4U1uydaiXNZxk2uNajr8xD5Ld6tysqlIMiI=; b=xRvKw/iEwrxOEDMx3RzfitNgbp
-	PaScvR52/oPzCWfw77QLavksIPanX1aKAAC4VCB2P4FLa9t5U3EWGFJIXFlhMoAvem0vcdZw/Ggh8
-	cLQxbsdD8PRRem2pKyzhxVdMo3vLVQ6mh0CpgJ+mzscyLtkUKLlD42kI5j6Zp4ozxmJNJR8fSiw27
-	Wqi3kUpGIs6t06Ua8HLXxAnbed8kDjjLJSbLO2GowfY6hlxXwqPfIpqWMghAIdUmdt+JlyzB1MBjK
-	jxQ4E9NcPhEA3qrhpEjgAaLahT8BHe7Wma3IFZ2Z6ekpom+myTRABp1D+ggkLkrRyzaJeGxH4h4VQ
-	tLOY8LQQ==;
+	bh=Wq8+U2WZxewGPTZ86+kP7pb8whJIc4RPuZ9dCPJUDAo=; b=gt+p4YPoPUQCJeR6Ziu2evz6hn
+	uD5cd4MlpickIh/p2AB5IgZd20nYPpZ793ykp2yifORGgbehj5KnfKuIikj3jYt28zgAw7BDUYe9e
+	cczqKEBRY07OwltsbPD/rUOcFIy+eDv2BOW7174xS68H7uZJbxFRlLve2Sl0OzdUrnv0kCZhdtKa+
+	MAeXNvDPD4vsPAWiZPU0wOFnN9xdWRy3f/+z5jaJwndhhBggmUUsixQDi7pUsuHIK8WwKeS21Nq6h
+	iNsUQEMMDOfRdU6vsiyygIZ9mDuz9AwViV6MRUdT8EmO4Toekun2dsGHnhylrZ8VVR58udVhZIc31
+	BcF8zDAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFUVV-00000009vMD-0dH5;
-	Wed, 22 Apr 2026 10:08:33 +0000
-Received: from out-179.mta0.migadu.com ([2001:41d0:1004:224b::b3])
+	id 1wFUmK-00000009wjJ-0QNT;
+	Wed, 22 Apr 2026 10:25:56 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFUVN-00000009vJS-34w7
+	id 1wFUmH-00000009wit-2OUq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 10:08:27 +0000
-Date: Wed, 22 Apr 2026 10:02:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=postmarketos.org;
-	s=key1; t=1776852501;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dWShHqAw4U1uydaiXNZxk2uNajr8xD5Ld6tysqlIMiI=;
-	b=fvCqhW9J1GeX5Xa9UNtlR8L0Uhx9BDqLHq8lNurRvJ6qjFJz+uWUwvNm+vFXpD5lfI3PRm
-	gwGQJMq7UdP1c9kt6OgnIzoaO1Fenx5MnUUZmNo2mkzOHofdFmhnC7ob7+aHH2qeOMYBv7
-	RVncjzTRe2PFiiTGdDlrh1AuFijBOi8phSYH2unXhOugPcKQ1ljrEZhOS7jydHY5STkDCf
-	xFL7jduRVdserRUDj1IXe+lp22zi7qScot+HppBgleSN1Q5Gz13NFODx5N05RmohDZWHQK
-	fV8Ze2qcRDsWxhmp7pd5hrFhJyV4HvL2QEyDRuBCWk3uKMUjE6JyxKAmhlqUeg==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Ferass El Hafidi <funderscore@postmarketos.org>
-To: linux-amlogic@lists.infradead.org, christian.koever-draxl@student.uibk.ac.at, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, neil.armstrong@linaro.org, khilman@baylibre.com
-Cc: jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Christian Stefan K=?UTF-8?B?w7Y=?=v=?UTF-8?B?w6k=?=r-Draxl <christian.koever-draxl@student.uibk.ac.at>
-Subject: Re: [PATCH v4 2/2] arm64: dts: amlogic: add support for Amediatech X98Q
-References: <20260422095840.26139-1-christian.koever-draxl@student.uibk.ac.at> <20260422095840.26139-3-christian.koever-draxl@student.uibk.ac.at>
-In-Reply-To: <20260422095840.26139-3-christian.koever-draxl@student.uibk.ac.at>
-Message-ID: <tdw45o.mk8sa216w5vw@postmarketos.org>
+	Wed, 22 Apr 2026 10:25:54 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5a4113ab355so5533915e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 03:25:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776853551; cv=none;
+        d=google.com; s=arc-20240605;
+        b=LoxEFcEBvVASQm9uUuJh+44BefCgxnwOaCYxGbDyTCCZdUnQS2zhx6lokaFh0Rocxc
+         kvxLnR3lCt9a7ur9MzafPNJ3O4t3hEyWyTdwMtq2LjgtohU6gIo1igOTvKPSOzsvOH8P
+         30MGJDQU4XRqIfXrDJ7WMf6jPedtINTYAyZdFM7G0bTsgvmaNfD+Mricof+FSrVqCgbQ
+         cEVri5561e/DVObNZVqPCm0Emgy+tc+rmed1lQT9qcVlejQKSL1cRUEdnSUUKZ3BLXjR
+         IZKyBCp8O9UVKAeu/TUFIbIK3vXvDnRhzoXn9SLPROAbehwOw2OENGKp+BBHcWV57pdj
+         Br/g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=Wq8+U2WZxewGPTZ86+kP7pb8whJIc4RPuZ9dCPJUDAo=;
+        fh=vg+ujJ1PF3sHZ8vf9XUkD2YEtJCmWnuOfoJDvESyiRc=;
+        b=iYLqOsHd9ZaOzJUUBI6eGdFYfgljiSqa0edGJSD44z2aSMIkj2pKkYO8rVOQua+I7I
+         tXWZX2o8556i59PrnhtQyLlJcBUcV/ul8AHQ5km4TH7VPS31cclBaKH3f8gTeQrGSXjK
+         KZE8FfDWt0ibCCUxS0bcTyUaZ40z/2tbENlPri7ahRBNIgUGib6mGJ+xglYEMQl78yuM
+         hOpd92UTeuf+TYuYIc2W4hrOj41vCKLRTo9oL/TnaRDP7KQDm5FHBSQdHnF91rVx3TLz
+         G77i3stGoAJG1bvkuDLifQ8LDmZdFRa9NvV8YDbI7oACjXwmxIMISYPb0Pen0Gq6BU7R
+         HfTw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1776853551; x=1777458351; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Wq8+U2WZxewGPTZ86+kP7pb8whJIc4RPuZ9dCPJUDAo=;
+        b=FWr6VORE7Dl9u4Sn7jk57prhO8OVrFsneG/JzSHQuPSP7oBMjjoMBtga7jbZrUvQ8D
+         AumhUwb5XZ/We6diu3ciHbWUcMc0QXxq8KYuE8Q8hAnCSmCw/hvvyHpt3CeCpPj/4wtx
+         abhpEBnGnRfCLKpu+1Gv1GlcEmfuMNnjLY4QLPVd63pGHYbl1NFuOVmgkiAHxqUlMnHE
+         3i30yTUIqbpsP4IGud8E6MnTYUYy9SOk2j+plhOHv9qL9R+avgn00HPIxbs+DP3iWrfC
+         W5qgsvCRpoSJoHI7Wck/D9mZMjawl9dwRKv4Nmxe++QBDGtUKl3kx4sMWMlsnsnxDw37
+         l+1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776853551; x=1777458351;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Wq8+U2WZxewGPTZ86+kP7pb8whJIc4RPuZ9dCPJUDAo=;
+        b=dpuRsow6er9P/0H0NgG+XaSa/8BWCnEJaKOK4W7zS66Gc9Lks2kjn+Fn3ad/ghk7tE
+         BSGJCOBgGqL3uubVI/0z0A78RhuqHjgfIjbOvYXxh4iDp2s2e+BU7aFOi60R9LZEHN2/
+         2MEH0TnxiQgdrKdrvbNq16OEgm9nZvEytXMdUkUyGc5XTwnmtPPcvM/IntPL5Pobwbho
+         oMPFg+NuKNc/xtHpm5Mos4Ir9VNKvRDUVZ249frbFVosKBGRpgmaNp6RLoO2l3qgI1wb
+         b6kno7ar4jbQOLtEvLhI0H0bKb28/nlImaXM0/vLJSqSecalphheHo+GAMBJ3SpqsifI
+         Q3kg==
+X-Forwarded-Encrypted: i=1; AFNElJ9XICXCOavEo8YkfoOKQqrGlxcsGVE/oBFx0gIsxzTUZuzEW741HiGPNNGqjYH8D0lszmARVRB6Qqthx/9sthHY@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsrEGfIJjnekj9srfe9E+4Oe/BU0I8ZrBGQ8UwC9B4e9+AqCOQ
+	rCUqnZF2w1KD2JLyK9NGAAHHEgGaoX7gqAygSg5ZJ0NhR8jXhh747r9XLJrJXQsHkXMj0hBm2Ky
+	sSDDoJYR4GB4CRCDsWAksTvP25uDzegdZ7TpDlhZe/A==
+X-Gm-Gg: AeBDiesExyw/uKbqlWeNMSIg43a3FXBKK35kdB0SlW1XXMppz5MmLTgPeYn+A1ipMi2
+	lpXBd+ezsdryvduv/E4BwvPNINeR1TzSIIYnLAX7FsL+HhHkwUmrR3vz2/+gFeEkUW8zlGBBmXS
+	yLKKEr+lnFFEcnf0j8DNWEDrNUoWsuKevX+kMaypNvb73DFy8xPtHFxpTwvAlepj9aTuJf8XKXj
+	t0WLXJpaEUa7YKklQzzpzu9veT5H95gySf4Sinshd4Zi7tLSTRswfjXuxduDcU6FpLMq6QWtfXr
+	7BXX1wgU6dDKyndsjfg=
+X-Received: by 2002:a05:6512:1094:b0:5a3:ff6c:9df1 with SMTP id
+ 2adb3069b0e04-5a4172e7f69mr7060238e87.39.1776853551219; Wed, 22 Apr 2026
+ 03:25:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset=utf-8; format=flowed
-X-Migadu-Flow: FLOW_OUT
+References: <20260410104058.83748-1-ulf.hansson@linaro.org>
+ <20260410104058.83748-3-ulf.hansson@linaro.org> <DHW8QV8K3CM1.307C6PW2BM5RN@kernel.org>
+In-Reply-To: <DHW8QV8K3CM1.307C6PW2BM5RN@kernel.org>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Wed, 22 Apr 2026 12:25:15 +0200
+X-Gm-Features: AQROBzCHhHSXfjVj8apklmTonwOpiVF9jPJJQpHw-yRBihJtcF-VZQ649rGH3jg
+Message-ID: <CAPDyKFpeSv+fg=YKJE_qc=Q5BfiJFn0tR7Ar8SncqrD0UW1P1g@mail.gmail.com>
+Subject: Re: [PATCH v2 2/9] driver core: Add dev_set_drv_queue_sync_state()
+To: Danilo Krummrich <dakr@kernel.org>
+Cc: Saravana Kannan <saravanak@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-pm@vger.kernel.org, 
+	Sudeep Holla <sudeep.holla@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, 
+	Kevin Hilman <khilman@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Abel Vesa <abel.vesa@oss.qualcomm.com>, Peng Fan <peng.fan@oss.nxp.com>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+	Maulik Shah <maulik.shah@oss.qualcomm.com>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, driver-core@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_030826_359144_B4BF5348 
-X-CRM114-Status: UNSURE (   8.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260422_032553_632857_46865765 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,95 +125,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Apr 2026 09:58, christian.koever-draxl@student.uibk.ac.at wrote:
->From: Christian Stefan Kövér-Draxl <christian.koever-draxl@student.uibk.ac.at>
+On Sat, 18 Apr 2026 at 13:24, Danilo Krummrich <dakr@kernel.org> wrote:
 >
->Add dts enabling core hardware for the Amediatech X98Q TV box.
+> On Fri Apr 10, 2026 at 12:40 PM CEST, Ulf Hansson wrote:
+> > diff --git a/include/linux/device.h b/include/linux/device.h
+> > index e65d564f01cd..f812e70bdf22 100644
+> > --- a/include/linux/device.h
+> > +++ b/include/linux/device.h
+> > @@ -994,6 +994,18 @@ static inline int dev_set_drv_sync_state(struct device *dev,
+> >       return 0;
+> >  }
+> >
+> > +static inline int dev_set_drv_queue_sync_state(struct device *dev,
+> > +                                            void (*fn)(struct device *dev))
 >
->The board features:
->- Amlogic S905W2 (Meson S4) SoC
->- 1 GiB RAM (2 GiB variants exist)
->- eMMC and microSD card slot
->- SDIO-based WiFi module (unsupported)
->- RMII Ethernet with internal PHY
->- IR receiver and UART console
->- Status LED
->
->Enabled peripherals:
->- eMMC (HS200)
->- SD card interface
->- SDIO bus (WiFi, no driver yet)
->- Ethernet (RMII)
->- UART_B
->- IR receiver
->- PWM-controlled CPU regulator
->- PWM and Fixed regulators for core and IO rails
->
->Known limitations:
->- No support for the onboard WiFi module
->- Missing multimedia (HDMI/audio)
->
->Signed-off-by: Christian Stefan Kövér-Draxl <christian.koever-draxl@student.uibk.ac.at>
->---
-> arch/arm64/boot/dts/amlogic/Makefile          |   1 +
-> .../boot/dts/amlogic/meson-s4-s905w2-x98q.dts | 249 ++++++++++++++++++
-> 2 files changed, 250 insertions(+)
-> create mode 100644 arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
-><...>
->+&sd {
->+	status = "okay";
->+	pinctrl-0 = <&sdcard_pins>;
->+	pinctrl-1 = <&sdcard_clk_gate_pins>;
->+	pinctrl-names = "default", "clk-gate";
->+	bus-width = <4>;
->+	cap-sd-highspeed;
->+	max-frequency = <50000000>;
->+	disable-wp;
->+
->+	cd-gpios = <&gpio GPIOC_6 GPIO_ACTIVE_LOW>;
->+
->+	vmmc-supply = <&vddao_3v3>;
->+	vqmmc-supply = <&vddao_3v3>;
->+};
->+
->+     /*
->+      * Wireless SDIO Module (Amlogic W150S1)
->+      * Note: There is no driver for this at the moment.
->+      */
->+
+> As this is a public function, please add some documentation.
 
-I didn't mean to indent, just to align the '*'.
-Sorry it wasn't clear.
+Most of the static inline functions in device.h lacks documentation.
+Are you suggesting that we should move towards documenting all of
+them?
 
->+&sdio {
->+	status = "okay";
->+	pinctrl-0 = <&sdio_pins>;
->+	pinctrl-1 = <&sdio_clk_gate_pins>;
->+	pinctrl-names = "default", "clk-gate";
->+	#address-cells = <1>;
->+	#size-cells = <0>;
->+	bus-width = <4>;
->+	cap-sd-highspeed;
->+	sd-uhs-sdr50;
->+	sd-uhs-sdr104;
->+	max-frequency = <200000000>;
->+	non-removable;
->+	disable-wp;
->+
->+	no-sd;
->+	no-mmc;
->+	mmc-pwrseq = <&sdio_pwrseq>;
->+	vmmc-supply = <&vddao_3v3>;
->+	vqmmc-supply = <&vddio_ao1v8>;
->+};
->+
->+&uart_b {
->+	status = "okay";
->+};
->-- 
->2.53.0
+In this case, dev_set_drv_sync_state() also lacks documentation and to
+me, it doesn't make sense to add documentation only for
+dev_set_drv_queue_sync_state(). Do you want me to add it for both?
 
---
-Best regards,
-Ferass
+[...]
+
+Kind regards
+Uffe
 
