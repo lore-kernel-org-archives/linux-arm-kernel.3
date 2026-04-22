@@ -4,125 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75FCBF94CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 03:46:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA04F94CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 03:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VKOaKb1CaP+0i92nUceq0mry2HNFtst0EkXHT5PpNe8=; b=OLu3JyFPRbghsM94fg0agBFEFL
-	/N0K3ucHJXsK5Yz1gw880UaJqA1bo/XwLosrrxWreIzWLQnbtlpbxiCRGwBQtotBPTbGBZnxvE++I
-	i2yGqixIJDebZXcfZMwUn0KATXV7iIXp1keOL/1OInNH+J4Sf8u/wfakH61O70n5L9wE1twQ3RwQL
-	lwTbpsoKX5QfLFuyPs2CXNt9gVJukQ/9JtBYe4p2+VGRvUviypl6HIvZxROx6F/odVL9SwONbieGw
-	ax2OE8NiKPqa7f79dLA5LXRaXd2H6vrDIwCT23Kb5SXLoP++sFrKqQPM8jYkf2GPOF9bLh3X6blyl
-	ycgU2gPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:To:Subject:Message-ID:Date:From:MIME-Version:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jOdndvNOr5tk2o0VEu1kSKqEFvkiiCDk4VA7lkVUu3w=; b=tIGava4CLPMe9ycTjmEaycSAJ+
+	sE2EuFdyp+3lFmGatMuTlPk5oZftZwPHr92E6XI4pLcgW4lMxd3YsjxYB+TY+wD+/6UeELDp3AUKj
+	xIofDpmWBvNJ4mIZKN/tA9o1zpU8+jmLReZYM1Hixy+dyHQOata+gQ42UnbSJxziuETR4XtALucf8
+	UHIa7foSY0fFRAnKhFmVVlF+0tmhJUdbo56p1rc+0VBBym6B8+lYuBgn2WmxW9TuSTOR6JQOr+NGQ
+	Z9+DVWs4NNhL0cnVJ2pfWfaFLH7X2pEbLvc9wczW4TarkIbX37zZjRotKSvvfqyLfSHMpfeH8b0s2
+	O4CfxRtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFOXH-00000009Ybt-3n0Y;
-	Wed, 22 Apr 2026 03:46:01 +0000
-Received: from mail-westeuropeazon11010007.outbound.protection.outlook.com ([52.101.69.7] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wFOdA-00000009Yqe-32Ng;
+	Wed, 22 Apr 2026 03:52:04 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFOXE-00000009YbT-3kcs
+	id 1wFOd8-00000009YqG-0pes
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 03:45:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WF/bls15XHv80jCrYKlEdQyErQWPitzLui4/vaex2VW4boxq9nVDnMdER90Mq1e4r2dW5Kah3d6Ns/m7PPR/J/D8Dg/sUu6JsrMhPhXe+bLpiG034UJyTYBbj6WWnYQYlue9Dm1490lnmjx7p142A5gLIcVmv1S+DdKREze/BfYFiZjpM8uNfxPQ2fNB01YHNfWar8isCyP9k0HqeNWFG89tkUr5SgvPrwDECTvdqkLOJ3S8UITJhkDvmhDEYhrcynVfd0wFpXs4hjcrRIItVoB6CvixuY9HIby4LVVEY+uijLAT+WJAvljoor1r3RACJc/WqFWcCNEATqLS1zLd1A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VKOaKb1CaP+0i92nUceq0mry2HNFtst0EkXHT5PpNe8=;
- b=o0xIVApN0A11F01vSWyXgqdSYoke0lP4r6UhS++jr7e4ypNY0VMv7qVda7+2EO5ZfO17UnXUem0ah8WRazeeNUZ9zmh7hjoKFTHhv/JUnXOTh/lBIrnIZrL0NN6d8nwnMKZFrkvhALaDB3/pYOipgqBeWthj0EjphMtGvWjF7CMkG3bgr/r8oTM1EWbGHZ1MIuKkiaK41Wkyr2R7blNVI8brShsYyNP2jpCjxkU0MEIp4wn0vEpic3FafpBvwhmdxLS5MwAEenWx1utwBsonBVX8tZojAqPCeJPwa7s/d7aOIYUezW/vLo+0yUJGpfxIC3Zws+kURJdodvwJC+biPg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VKOaKb1CaP+0i92nUceq0mry2HNFtst0EkXHT5PpNe8=;
- b=iOU8NC4NGK+qkT7/nteL4BmuS7d85LjFCXbqqJODF/MEKz41O1eR3x1D4rjB0JuV1gBBKrvrNHG5W7uD16mPpJU5oHhEEXECWvIGqc98/hnO8jFtW5pmh6lKESr1j7D7FY97CBulwNealCyl/grGme/FoLKe9BScZaKsnKeAWd4Id2yqNxAck//M/dL79YtIxGbyx0Rc6MHZxuhg+ZnNg9FujgHz1l2v4YyjersoWZBHZDMBZP3Ny1ahWx5ooJHE/4PjA2OiJ/8s51dmAKPHwuNsTKgDBTyxCt1fkZNHWffAH4g1zcJxsXguvTgW2sah/5jX1QNivsgyjClbCVBP3Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PA1PR04MB11429.eurprd04.prod.outlook.com (2603:10a6:102:4f3::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.33; Wed, 22 Apr
- 2026 03:45:40 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9846.016; Wed, 22 Apr 2026
- 03:45:40 +0000
-Date: Tue, 21 Apr 2026 23:45:32 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	jun.li@nxp.com
-Subject: Re: [PATCH 1/4] arm64: dts: imx8mp: switch usb controller to
- flattened model
-Message-ID: <aehEXEsiFl2PVIye@lizhi-Precision-Tower-5810>
-References: <20260421105503.1416566-1-xu.yang_2@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260421105503.1416566-1-xu.yang_2@nxp.com>
-X-ClientProxiedBy: PH8PR07CA0009.namprd07.prod.outlook.com
- (2603:10b6:510:2cd::27) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Wed, 22 Apr 2026 03:52:03 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-ba51e69988aso616649666b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 20:52:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1776829919; x=1777434719; darn=lists.infradead.org;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=jOdndvNOr5tk2o0VEu1kSKqEFvkiiCDk4VA7lkVUu3w=;
+        b=fREAGX2tky/JlxXv1o4rPmOoxmoselw3JGSokIZiqpJBeQ4GBmFLESwprGH+ovjZ42
+         x860/a1fNQBl/OiK9Cduiw7TIUCCSEkwj1NFvFWDDJa+TIxcb8jnZcZYK8LieaeKn19u
+         E1iQHYrnL/q8BBQyii1Egm585RWsdcp93emeI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776829919; x=1777434719;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jOdndvNOr5tk2o0VEu1kSKqEFvkiiCDk4VA7lkVUu3w=;
+        b=moeRdO7bYdq0flWvKy/gQZHz03ohTIV/GJPr9UYDUO8n0dsAJcb+tp7rzqPU8y628a
+         Zy4aXz/yCS4p4s1oqBMZiLATIX+2gIsLmRFEF2FE71yK8O3Co5iDXTH3qmfhOniy1XvB
+         kQ3nJ54UBZefs7dpzJ1OFiVv2dTfFJsw326bVHo6gebaDwDNsDi+ZCOkLRYrZkAQClfC
+         +OKPloX52ixMJQONDBwGivJkDffasTnqSY90QN3TDf97YhCsx9ZtjRipStUZgJSw22N8
+         iS54sYZtc7JCaGogZ7lKMPqht5o1BbGWVjX6FytIJjXPlMZJYT0qE1gaqoxsL1smNybW
+         VjUg==
+X-Forwarded-Encrypted: i=1; AFNElJ/L39QP3CYZ9KV3wERKQgmjVJqY9t8+mtw475tIqyjUytvsSV2MeTYyYLBtUp8m9rkcpuV1DoWobdd+BIuqj+tt@lists.infradead.org
+X-Gm-Message-State: AOJu0YzseRPw2bkZ20i99rpXeoFa2dCN6QLc0D8ShzJ8HV6wWM+e5Uz7
+	h2I4i3o4DusNafQTE2G3eq7wA5iklxCoNGX9Uk212humkOaTO8aLcUif4E5VqprT7SFlkFxRWC+
+	Tzn/pLw==
+X-Gm-Gg: AeBDievR/h79+WG/cuXJcOV+gx4gzJDOfI8k2Vf4LI4FGNmEkODeTbRiagxq9MSQVh6
+	tlGY04TloRMfJnhDqZqTeJOctzEKegjEERw7If/NtqmdfslLytZaN3tgpXrOyFQtXl0+I60CG9f
+	U3jInlw7+lpSyLaUQq+iSek/mpXwlHUbuTY8OR/AybWcBBI8m+EZ1ksRpe2qLazfahz6z68JwZJ
+	IE67ibLSUm7LJPc+qCB976fKV+F8yFMcNwNeRfHZF1TZC3a7X9LsZLOMD9p/AdR7UKt5ZZNnDnQ
+	wNPKR403OcRzETpg319VW18nhFQTR/ctNXlzUBJo7pNzgrJoxQhYrBvC+Q5tAa2lNdFzteL4w2j
+	lVTTCXXWiWHOrQC9hrBoXgP0YOAdQHE98e+1cX4Fh0ey65fu/wru1MhnWQEPG5asSOWhm7wkEz1
+	fm4lsqWJybm61PZtQT32F+rDTZ/kQ/jclvojStpD0FIr3DW7TdSjMYPDBUthPh9wgFRO5T2iI=
+X-Received: by 2002:a17:907:9413:b0:b97:a1ca:e100 with SMTP id a640c23a62f3a-ba41ac02533mr992299566b.32.1776829919187;
+        Tue, 21 Apr 2026 20:51:59 -0700 (PDT)
+Received: from mail-ej1-f50.google.com (mail-ej1-f50.google.com. [209.85.218.50])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ba451be2c9bsm509812666b.23.2026.04.21.20.51.58
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 21 Apr 2026 20:51:58 -0700 (PDT)
+Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-ba61a0a2d26so527114566b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 20:51:58 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8u5LnRgOJbeocCI7VkLpGP9UuUXXj7XAZq1x7vDmmkf5wvyzfAM7pAeLhEo+cxO8xVhUeeu3yZjStmiQgrOfkH@lists.infradead.org
+X-Received: by 2002:a17:907:7b9a:b0:ba6:5855:1cc0 with SMTP id
+ a640c23a62f3a-ba65855318bmr671250466b.2.1776829917526; Tue, 21 Apr 2026
+ 20:51:57 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA1PR04MB11429:EE_
-X-MS-Office365-Filtering-Correlation-Id: 55a3145c-f331-41a1-46de-08dea0219f9b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|19092799006|38350700014|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: A7pD1H3aFJemFdC5+ADiNrT4dZtLz7/WROcU8PEA/cdP0ojx//ETzPSA5fbhtGjDvszOPUcEDFaqIawAh9b+/s8aeDkG8OZHUUD3aeo3uMNszvU5z8GQn8sz6dA6q63amFfPkbOMIaLiwydlKIugYRQS9bFmmaZ2G4W9Eh4DGYxQgOhy8QQaldaNF+DsyCERYJ0l3wDBcwiWAXw0gTsEBiG5sqEFcO71DkGhSmaQTIbKGv/tf9tMMC+bp7wbEn2O7WfvuagcG/2fDj5wBKJ1m2PJOj6WJO+EQGFVwNhcqprgHh2FjBZDeMYjXBu66q4rLmX7XKytzMcNwojlFMXcWUTxdc7MeJC2Hy83pKP6xqvmOr5VW+uQqyHTjUeE60ZrXdEo8M8eZten5Rr86ZV0+C7Zsayc96YCV1cWKDt08bNnF0RD9mDbVs+uGraeHTlApibV7vidNP4jiOn4AqEH5wOHu5tKyMVWdnEGJdIM7Gn8CDys91edf48ANxozy1GfHjXM/rLt8Wa/FA02iOxvRIVWBXSAwTia+tA/rEO8M4gnUSUaQziOWjnvHH30DhrtIRg4l4fmuGbwDbCNpEYNXTXw+NaAKW96ly+mBMEbA4lfW7dqkvL2hutkLRLYGzmzdzmabf6EgyOKPi8U/jUZ86gFPYDZPLI/+Ob+l6MfH9y5eTSoRdhkU429gKefnkibx1Q1RrUcHD8mYfJmbJRYx0S0iy5oY3DethQl/eBnxShRy/+INZHEM0I8ti1V3siIM3s6zpzKZYFdfy8LgVPoesW/S75wQj07I/UfEA2nXzk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(19092799006)(38350700014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1za3kkLhMJzPij4lcBW3OUJVmz9JEPZdjxgOJg6BTkyuwWxQCOYQ/KwldCsW?=
- =?us-ascii?Q?c/flfWzuCQJfJMD5UEk9HjCpSUmio/M5H0HNze09A01dFhK80P08ghvIWRKo?=
- =?us-ascii?Q?bIiHE+IWwaF4ucpSLIqyEPP07DbiuWQ3E5/rGFh/f38n7CTL6RKPXzKMAsvs?=
- =?us-ascii?Q?Uj9T/AOekE+TmgHfZJ2sV9hjw8RJipiNS/9SyacfdXvju7oeYHv2496/Mv9I?=
- =?us-ascii?Q?K+Ugor2KNeshvX7BPjctSkgEIxRuaLS9gGaCOS4qvPIN4VyHKxBSU0kgVf40?=
- =?us-ascii?Q?nwgqgxhoq5O/TUXyCAKcvO4Dxv+LiWXASzphb9Ox3S1d82Fu/FeAn9ExZzlS?=
- =?us-ascii?Q?quQzkrjvFhXNi279Mbf5+ulxSK1u6TcPvgfapIHVDzRcpMqyrsx/NHmmaxrE?=
- =?us-ascii?Q?D6U80ieCtTPZIJiOCDuJgOUVbYn7E2KbLK5D1exd0ogOo0sSo6sG47u4GReD?=
- =?us-ascii?Q?CRnjmFH3qABV7I8ugUnEqS6eBLeq+Jrj5x7aSshAXCyLbeQlEIcqPDootAK/?=
- =?us-ascii?Q?4+92D70FZwC3YOjGY0ILaUzNtaisLTSLJcFut6o0XrCrZTLk9BeRQijXNgEU?=
- =?us-ascii?Q?MLOgxgW+R6bJk93RVdQPbGWj+Q+YCaHMqHzh3e4FiK/TiIoOx2QjmSxS0luH?=
- =?us-ascii?Q?ovYK5oA8nw+0mm7HZA5nd96yv3R194B4QtK1J3OtJfdsFGCpPx6PlG9n+aGn?=
- =?us-ascii?Q?8oxd7zMlbud5gbSIbMPdXFdHIGt/NKKfioyvMdaEZH99OQ/HJxKNfbfo+OoM?=
- =?us-ascii?Q?vnlhGc3Pg5g6NWZsCsfMt8DXKUb/dflJfkBCsSG+rht97ERsBdpv6o1Wr9jz?=
- =?us-ascii?Q?4pMcK1+8oSSR9BIWQkNlrxDgjWCRucTYwjXBqby9dEjFeId7cobr+dzq6s3H?=
- =?us-ascii?Q?ivbas1EOSy3dOxZhW7kygDcUwI0Noam2mLokWpDR2uVlRR3TJpM/m+1VT/Rd?=
- =?us-ascii?Q?OnnHJl4hChCkNyJ9zFdK5GKfVKd+g0FMFSQ1P25vjUPJOj6mFGzsxZlexBkO?=
- =?us-ascii?Q?b22/BOqUX+7uTG22ZgGK1hX+CYO+RCqakhUEBCvT2gmAVYCZuiGEcb33U6GH?=
- =?us-ascii?Q?b+t9A23kYm/HZZKq1Se5XfzBlBpJrS4My4ol6qr6rCuDoVWFNG7iDwcIKojS?=
- =?us-ascii?Q?okdX+gy3vXp36WfnK0AniRnOvvU1ACqUGTvOiJ06kQl/pYaMDv+1fBo7HyDY?=
- =?us-ascii?Q?mcfRA57iksLkNmW+2W2hugsjniLJarMxNV6YqE7YE3hP6rwM91d9L/mrluSX?=
- =?us-ascii?Q?2QPzgVYOd//BJtD6Ww7IAWZR3MwloE+O1HfcWXZicVDfvMOXFEy0ouzXBLfP?=
- =?us-ascii?Q?aLJNU+WC0V3q9MtkaBIOBN2xQDOpZwSYkoq85qgNQbRTc2kMTuiOLfnHpmDI?=
- =?us-ascii?Q?U+C4JmYnEGFplnnB86ZpT1SHva+grogiZK70kIVngcwxFka3OwYz31q7rhdy?=
- =?us-ascii?Q?zEVB6g5kxg/QD0Ob9j58OX8e0FufdnD73engQmt8jqdZ9uTm+WcodZBwHPZW?=
- =?us-ascii?Q?8tkuIofi83szteOcIKOWPh9/Hk+5hYSl7iEXw7/N3prILz2NRmMY7PYv6Iqv?=
- =?us-ascii?Q?MUqMoeg971PmrwruVHNK6acDypkoZXmztqU4sVg5qR2r15axsM/wSZZqL0D0?=
- =?us-ascii?Q?FCEYNEXRlVfCJZchpzZ5NdiHtAzH5PBmleL8MM+9xlydFeTxcBAZCYQeayxc?=
- =?us-ascii?Q?gmjRq3dDhIl24D9wTZxVCGV4YXFGw63S4FgGwstzgRbxCMhW?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 55a3145c-f331-41a1-46de-08dea0219f9b
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Apr 2026 03:45:40.7278
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Zc4EmNFkpD5aTQl5rxLGH0aGCmLrvgHGTsBw76jvJ7IOTyRkim7viEHWlRjYK1DA4C0byrh92mqmlo30SARC7A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11429
+From: Ricardo Ribalda <ribalda@chromium.org>
+Date: Wed, 22 Apr 2026 11:51:45 +0800
+X-Gmail-Original-Message-ID: <CANiDSCsOy0P1if-gJZqOM5pTJ0RDcwVfru1B7KFbTOEMqjPKJw@mail.gmail.com>
+X-Gm-Features: AQROBzAUxpvtmmUfT9SytqZ_vnzE8JQsTm61nRrGtQURGtsgH0JZ_vzze_Uz4hk
+Message-ID: <CANiDSCsOy0P1if-gJZqOM5pTJ0RDcwVfru1B7KFbTOEMqjPKJw@mail.gmail.com>
+Subject: New warning in linus/master
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
+	linux-arm-kernel@lists.infradead.org, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linuxppc-dev@lists.ozlabs.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_204557_123108_0C528F96 
-X-CRM114-Status: GOOD (  19.04  )
+X-CRM114-CacheID: sfid-20260421_205202_425142_BDD44758 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,211 +102,222 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 21, 2026 at 06:55:00PM +0800, Xu Yang wrote:
-> Switch to use flattened model for all USB controllers. To enable USB
-> controllers with restricted DMA access range to work correctly, add a
-> pseudo simple-bus to constrain the dma address.
+Hi Thomas
 
-This should not "pseudo", and bus is physical existed, which limited dma
-range since it transparent to SW, which may not mention in spec.
+Media-CI has found a couple of new warnings in the latest kernel
+version for aarch64 and powerpc. They get fixed with this patch and
+before moving I wanted to know if this was under your radar.
 
->
-> Also reorder USB-related nodes.
 
-this need new patch to just do reorder.
 
->
-> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 161 ++++++++++------------
->  1 file changed, 76 insertions(+), 85 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> index 90d7bb8f5619..8b3aab14ccf1 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> @@ -2329,6 +2329,82 @@ gpu2d: gpu@38008000 {
->  			power-domains = <&pgc_gpu2d>;
->  		};
->
-> +		bus@38100000 {
-> +			compatible = "simple-bus";
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +			dma-ranges = <0x40000000 0x40000000 0xc0000000>;
-> +			ranges;
-> +
-> +			usb3_0: usb_dwc3_0: usb@38100000 {
-> +				compatible = "nxp,imx8mp-dwc3";
-> +				reg = <0x38100000 0x10000>,
-> +				      <0x32f10100 0x8>,
-> +				      <0x381f0000 0x20>;
-> +				reg-names = "core", "blkctl", "glue";
-> +				clocks = <&clk IMX8MP_CLK_HSIO_ROOT>,
-> +					 <&clk IMX8MP_CLK_USB_ROOT>,
-> +					 <&clk IMX8MP_CLK_USB_CORE_REF>,
-> +					 <&clk IMX8MP_CLK_USB_SUSP>;
-> +				clock-names = "hsio", "bus_early", "ref", "suspend";
-> +				interrupts = <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>,
-> +					     <GIC_SPI 148 IRQ_TYPE_LEVEL_HIGH>;
-> +				interrupt-names = "dwc_usb3", "wakeup";
-> +				power-domains = <&hsio_blk_ctrl IMX8MP_HSIOBLK_PD_USB>;
-> +				phys = <&usb3_phy0>, <&usb3_phy0>;
-> +				phy-names = "usb2-phy", "usb3-phy";
-> +				snps,gfladj-refclk-lpm-sel-quirk;
-> +				snps,parkmode-disable-ss-quirk;
-> +				status = "disabled";
-> +			};
-> +
-> +			usb3_1: usb_dwc3_1: usb@38200000 {
-> +				compatible = "nxp,imx8mp-dwc3";
-> +				reg = <0x38200000 0x10000>,
-> +				      <0x32f10108 0x8>,
-> +				      <0x382f0000 0x20>;
-> +				reg-names = "core", "blkctl", "glue";
-> +				clocks = <&clk IMX8MP_CLK_HSIO_ROOT>,
-> +					 <&clk IMX8MP_CLK_USB_ROOT>,
-> +					 <&clk IMX8MP_CLK_USB_CORE_REF>,
-> +					 <&clk IMX8MP_CLK_USB_SUSP>;
-> +				clock-names = "hsio", "bus_early", "ref", "suspend";
-> +				interrupts = <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>,
-> +					     <GIC_SPI 149 IRQ_TYPE_LEVEL_HIGH>;
-> +				interrupt-names = "dwc_usb3", "wakeup";
-> +				power-domains = <&hsio_blk_ctrl IMX8MP_HSIOBLK_PD_USB>;
-> +				phys = <&usb3_phy1>, <&usb3_phy1>;
-> +				phy-names = "usb2-phy", "usb3-phy";
-> +				snps,gfladj-refclk-lpm-sel-quirk;
-> +				snps,parkmode-disable-ss-quirk;
-> +				status = "disabled";
-> +			};
-> +		};
-> +
-> +		usb3_phy0: usb-phy@381f0040 {
-> +			compatible = "fsl,imx8mp-usb-phy";
-> +			reg = <0x381f0040 0x40>;
-> +			clocks = <&clk IMX8MP_CLK_USB_PHY_ROOT>;
-> +			clock-names = "phy";
-> +			assigned-clocks = <&clk IMX8MP_CLK_USB_PHY_REF>;
-> +			assigned-clock-parents = <&clk IMX8MP_CLK_24M>;
-> +			power-domains = <&hsio_blk_ctrl IMX8MP_HSIOBLK_PD_USB_PHY1>;
-> +			#phy-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +
-> +		usb3_phy1: usb-phy@382f0040 {
-> +			compatible = "fsl,imx8mp-usb-phy";
-> +			reg = <0x382f0040 0x40>;
-> +			clocks = <&clk IMX8MP_CLK_USB_PHY_ROOT>;
-> +			clock-names = "phy";
-> +			assigned-clocks = <&clk IMX8MP_CLK_USB_PHY_REF>;
-> +			assigned-clock-parents = <&clk IMX8MP_CLK_24M>;
-> +			power-domains = <&hsio_blk_ctrl IMX8MP_HSIOBLK_PD_USB_PHY2>;
-> +			#phy-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +
->  		vpu_g1: video-codec@38300000 {
->  			compatible = "nxp,imx8mm-vpu-g1";
->  			reg = <0x38300000 0x10000>;
-> @@ -2407,91 +2483,6 @@ ddr-pmu@3d800000 {
->  			interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH>;
->  		};
->
-> -		usb3_phy0: usb-phy@381f0040 {
-> -			compatible = "fsl,imx8mp-usb-phy";
-> -			reg = <0x381f0040 0x40>;
-> -			clocks = <&clk IMX8MP_CLK_USB_PHY_ROOT>;
-> -			clock-names = "phy";
-> -			assigned-clocks = <&clk IMX8MP_CLK_USB_PHY_REF>;
-> -			assigned-clock-parents = <&clk IMX8MP_CLK_24M>;
-> -			power-domains = <&hsio_blk_ctrl IMX8MP_HSIOBLK_PD_USB_PHY1>;
-> -			#phy-cells = <0>;
-> -			status = "disabled";
-> -		};
-> -
-> -		usb3_0: usb@32f10100 {
-> -			compatible = "fsl,imx8mp-dwc3";
+diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makef=
+ile
+index 7dec05dd33b7..65914842fae0 100644
+--- a/arch/arm64/kernel/vdso/Makefile
++++ b/arch/arm64/kernel/vdso/Makefile
+@@ -50,7 +50,7 @@ CFLAGS_vgettimeofday.o =3D $(CC_FLAGS_ADD_VDSO)
+ CFLAGS_vgetrandom.o =3D $(CC_FLAGS_ADD_VDSO)
 
-Delete these will broken back compatible. You can delete later or descript
-impact judgement in commit message.
+ ifneq ($(c-gettimeofday-y),)
+-  CFLAGS_vgettimeofday.o +=3D -include $(c-gettimeofday-y)
++  CFLAGS_vgettimeofday.o +=3D -include $(c-gettimeofday-y)
+-Wno-maybe-uninitialized
+ endif
 
-Frank
+ ifneq ($(c-getrandom-y),)
+diff --git a/arch/powerpc/kernel/vdso/Makefile
+b/arch/powerpc/kernel/vdso/Makefile
+index 8834dfe9d727..4b8d40b1dfeb 100644
+--- a/arch/powerpc/kernel/vdso/Makefile
++++ b/arch/powerpc/kernel/vdso/Makefile
+@@ -12,12 +12,12 @@ obj-vdso32 +=3D getrandom-32.o vgetrandom-chacha-32.o
+ obj-vdso64 +=3D getrandom-64.o vgetrandom-chacha-64.o
 
-> -			reg = <0x32f10100 0x8>,
-> -			      <0x381f0000 0x20>;
-> -			clocks = <&clk IMX8MP_CLK_HSIO_ROOT>,
-> -				 <&clk IMX8MP_CLK_USB_SUSP>;
-> -			clock-names = "hsio", "suspend";
-> -			interrupts = <GIC_SPI 148 IRQ_TYPE_LEVEL_HIGH>;
-> -			power-domains = <&hsio_blk_ctrl IMX8MP_HSIOBLK_PD_USB>;
-> -			#address-cells = <1>;
-> -			#size-cells = <1>;
-> -			dma-ranges = <0x40000000 0x40000000 0xc0000000>;
-> -			ranges;
-> -			status = "disabled";
-> -
-> -			usb_dwc3_0: usb@38100000 {
-> -				compatible = "snps,dwc3";
-> -				reg = <0x38100000 0x10000>;
-> -				clocks = <&clk IMX8MP_CLK_USB_ROOT>,
-> -					 <&clk IMX8MP_CLK_USB_CORE_REF>,
-> -					 <&clk IMX8MP_CLK_USB_SUSP>;
-> -				clock-names = "bus_early", "ref", "suspend";
-> -				interrupts = <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>;
-> -				phys = <&usb3_phy0>, <&usb3_phy0>;
-> -				phy-names = "usb2-phy", "usb3-phy";
-> -				snps,gfladj-refclk-lpm-sel-quirk;
-> -				snps,parkmode-disable-ss-quirk;
-> -			};
-> -
-> -		};
-> -
-> -		usb3_phy1: usb-phy@382f0040 {
-> -			compatible = "fsl,imx8mp-usb-phy";
-> -			reg = <0x382f0040 0x40>;
-> -			clocks = <&clk IMX8MP_CLK_USB_PHY_ROOT>;
-> -			clock-names = "phy";
-> -			assigned-clocks = <&clk IMX8MP_CLK_USB_PHY_REF>;
-> -			assigned-clock-parents = <&clk IMX8MP_CLK_24M>;
-> -			power-domains = <&hsio_blk_ctrl IMX8MP_HSIOBLK_PD_USB_PHY2>;
-> -			#phy-cells = <0>;
-> -			status = "disabled";
-> -		};
-> -
-> -		usb3_1: usb@32f10108 {
-> -			compatible = "fsl,imx8mp-dwc3";
-> -			reg = <0x32f10108 0x8>,
-> -			      <0x382f0000 0x20>;
-> -			clocks = <&clk IMX8MP_CLK_HSIO_ROOT>,
-> -				 <&clk IMX8MP_CLK_USB_SUSP>;
-> -			clock-names = "hsio", "suspend";
-> -			interrupts = <GIC_SPI 149 IRQ_TYPE_LEVEL_HIGH>;
-> -			power-domains = <&hsio_blk_ctrl IMX8MP_HSIOBLK_PD_USB>;
-> -			#address-cells = <1>;
-> -			#size-cells = <1>;
-> -			dma-ranges = <0x40000000 0x40000000 0xc0000000>;
-> -			ranges;
-> -			status = "disabled";
-> -
-> -			usb_dwc3_1: usb@38200000 {
-> -				compatible = "snps,dwc3";
-> -				reg = <0x38200000 0x10000>;
-> -				clocks = <&clk IMX8MP_CLK_USB_ROOT>,
-> -					 <&clk IMX8MP_CLK_USB_CORE_REF>,
-> -					 <&clk IMX8MP_CLK_USB_SUSP>;
-> -				clock-names = "bus_early", "ref", "suspend";
-> -				interrupts = <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>;
-> -				phys = <&usb3_phy1>, <&usb3_phy1>;
-> -				phy-names = "usb2-phy", "usb3-phy";
-> -				snps,gfladj-refclk-lpm-sel-quirk;
-> -				snps,parkmode-disable-ss-quirk;
-> -			};
-> -		};
-> -
->  		dsp: dsp@3b6e8000 {
->  			compatible = "fsl,imx8mp-hifi4";
->  			reg = <0x3b6e8000 0x88000>;
-> --
-> 2.34.1
->
+ ifneq ($(c-gettimeofday-y),)
+-  CFLAGS_vgettimeofday-32.o +=3D -include $(c-gettimeofday-y)
++  CFLAGS_vgettimeofday-32.o +=3D -include $(c-gettimeofday-y)
+-Wno-maybe-uninitialized
+ # Go prior to 1.16.x assumes r30 is not clobbered by any VDSO code.
+That used to be true
+ # by accident when the VDSO was hand-written asm code, but may not be
+now that the VDSO is
+ # compiler generated. To avoid breaking Go tell GCC not to use r30.
+Impact on code
+ # generation is minimal, it will just use r29 instead.
+-  CFLAGS_vgettimeofday-64.o +=3D -include $(c-gettimeofday-y) $(call
+cc-option, -ffixed-r30)
++  CFLAGS_vgettimeofday-64.o +=3D -include $(c-gettimeofday-y) $(call
+cc-option, -ffixed-r30) -Wno-maybe-uninitialized
+ endif
+
+ ifneq ($(c-getrandom-y),)
+
+
+https://gitlab.freedesktop.org/linux-media/users/ribalda/-/pipelines/164914=
+4/test_report?job_name=3Dcross-gcc
+
+
+CONFIG_CC_VERSION_TEXT=3D"aarch64-linux-gnu-gcc (Debian 15.2.0-16) 15.2.0"
+  SYNC    include/config/auto.conf
+  CC      arch/arm64/kernel/vdso/vgettimeofday.o
+In file included from <command-line>:
+In function =E2=80=98vdso_set_timespec=E2=80=99,
+    inlined from =E2=80=98do_aux=E2=80=99 at /workdir/lib/vdso/gettimeofday=
+.c:266:2,
+    inlined from =E2=80=98__cvdso_clock_gettime_common=E2=80=99 at
+/workdir/lib/vdso/gettimeofday.c:293:10,
+    inlined from =E2=80=98__cvdso_clock_gettime_data.constprop=E2=80=99 at
+/workdir/lib/vdso/gettimeofday.c:306:7:
+/workdir/lib/vdso/gettimeofday.c:104:26: warning: =E2=80=98sec=E2=80=99 may=
+ be used
+uninitialized [-Wmaybe-uninitialized]
+  104 |         ts->tv_sec =3D sec + __iter_div_u64_rem(ns, NSEC_PER_SEC, &=
+ns);
+      |                      ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
+~
+/workdir/lib/vdso/gettimeofday.c: In function
+=E2=80=98__cvdso_clock_gettime_data.constprop=E2=80=99:
+/workdir/lib/vdso/gettimeofday.c:242:13: note: =E2=80=98sec=E2=80=99 was de=
+clared here
+  242 |         u64 sec, ns;
+      |             ^~~
+In file included from /workdir/lib/vdso/gettimeofday.c:11:
+In function =E2=80=98__iter_div_u64_rem=E2=80=99,
+    inlined from =E2=80=98vdso_set_timespec=E2=80=99 at /workdir/lib/vdso/g=
+ettimeofday.c:104:21,
+    inlined from =E2=80=98do_aux=E2=80=99 at /workdir/lib/vdso/gettimeofday=
+.c:266:2,
+    inlined from =E2=80=98__cvdso_clock_gettime_common=E2=80=99 at
+/workdir/lib/vdso/gettimeofday.c:293:10,
+    inlined from =E2=80=98__cvdso_clock_gettime_data.constprop=E2=80=99 at
+/workdir/lib/vdso/gettimeofday.c:306:7:
+./include/vdso/math64.h:10:25: warning: =E2=80=98ns=E2=80=99 may be used un=
+initialized
+[-Wmaybe-uninitialized]
+   10 |         while (dividend >=3D divisor) {
+      |                ~~~~~~~~~^~~~~~~~~~
+/workdir/lib/vdso/gettimeofday.c: In function
+=E2=80=98__cvdso_clock_gettime_data.constprop=E2=80=99:
+/workdir/lib/vdso/gettimeofday.c:242:18: note: =E2=80=98ns=E2=80=99 was dec=
+lared here
+  242 |         u64 sec, ns;
+      |                  ^~
+  LD      arch/arm64/kernel/vdso/vdso.so.dbg
+  VDSOSYM include/generated/vdso-offsets.h
+  OBJCOPY arch/arm64/kernel/vdso/vdso.so
+/workdir/lib/vdso/gettimeofday.c:104:26: warning: =E2=80=98sec=E2=80=99 may=
+ be used
+uninitialized [-Wmaybe-uninitialized]
+./include/vdso/math64.h:10:25: warning: =E2=80=98ns=E2=80=99 may be used un=
+initialized
+[-Wmaybe-uninitialized]
+
+CONFIG_CC_VERSION_TEXT=3D"powerpc64-linux-gnu-gcc (Debian 15.2.0-15) 15.2.0=
+"
+  SYNC    include/config/auto.conf
+  VDSO32C arch/powerpc/kernel/vdso/vgettimeofday-32.o
+In file included from <command-line>:
+In function =E2=80=98vdso_set_timespec=E2=80=99,
+    inlined from =E2=80=98do_aux=E2=80=99 at /workdir/lib/vdso/gettimeofday=
+.c:266:2,
+    inlined from =E2=80=98__cvdso_clock_gettime_common=E2=80=99 at
+/workdir/lib/vdso/gettimeofday.c:293:10,
+    inlined from =E2=80=98__cvdso_clock_gettime32_data=E2=80=99 at
+/workdir/lib/vdso/gettimeofday.c:327:7:
+/workdir/lib/vdso/gettimeofday.c:104:26: warning: =E2=80=98sec=E2=80=99 may=
+ be used
+uninitialized [-Wmaybe-uninitialized]
+  104 |         ts->tv_sec =3D sec + __iter_div_u64_rem(ns, NSEC_PER_SEC, &=
+ns);
+      |                      ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
+~
+/workdir/lib/vdso/gettimeofday.c: In function =E2=80=98__cvdso_clock_gettim=
+e32_data=E2=80=99:
+/workdir/lib/vdso/gettimeofday.c:242:13: note: =E2=80=98sec=E2=80=99 was de=
+clared here
+  242 |         u64 sec, ns;
+      |             ^~~
+In file included from /workdir/lib/vdso/gettimeofday.c:11:
+In function =E2=80=98__iter_div_u64_rem=E2=80=99,
+    inlined from =E2=80=98vdso_set_timespec=E2=80=99 at /workdir/lib/vdso/g=
+ettimeofday.c:104:21,
+    inlined from =E2=80=98do_aux=E2=80=99 at /workdir/lib/vdso/gettimeofday=
+.c:266:2,
+    inlined from =E2=80=98__cvdso_clock_gettime_common=E2=80=99 at
+/workdir/lib/vdso/gettimeofday.c:293:10,
+    inlined from =E2=80=98__cvdso_clock_gettime32_data=E2=80=99 at
+/workdir/lib/vdso/gettimeofday.c:327:7:
+./include/vdso/math64.h:10:25: warning: =E2=80=98ns=E2=80=99 may be used un=
+initialized
+[-Wmaybe-uninitialized]
+   10 |         while (dividend >=3D divisor) {
+      |                ~~~~~~~~~^~~~~~~~~~
+/workdir/lib/vdso/gettimeofday.c: In function =E2=80=98__cvdso_clock_gettim=
+e32_data=E2=80=99:
+/workdir/lib/vdso/gettimeofday.c:242:18: note: =E2=80=98ns=E2=80=99 was dec=
+lared here
+  242 |         u64 sec, ns;
+      |                  ^~
+In function =E2=80=98vdso_set_timespec=E2=80=99,
+    inlined from =E2=80=98do_aux=E2=80=99 at /workdir/lib/vdso/gettimeofday=
+.c:266:2,
+    inlined from =E2=80=98__cvdso_clock_gettime_common=E2=80=99 at
+/workdir/lib/vdso/gettimeofday.c:293:10,
+    inlined from =E2=80=98__cvdso_clock_gettime_data=E2=80=99 at
+/workdir/lib/vdso/gettimeofday.c:306:7:
+/workdir/lib/vdso/gettimeofday.c:104:26: warning: =E2=80=98sec=E2=80=99 may=
+ be used
+uninitialized [-Wmaybe-uninitialized]
+  104 |         ts->tv_sec =3D sec + __iter_div_u64_rem(ns, NSEC_PER_SEC, &=
+ns);
+      |                      ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
+~
+/workdir/lib/vdso/gettimeofday.c: In function =E2=80=98__cvdso_clock_gettim=
+e_data=E2=80=99:
+/workdir/lib/vdso/gettimeofday.c:242:13: note: =E2=80=98sec=E2=80=99 was de=
+clared here
+  242 |         u64 sec, ns;
+      |             ^~~
+In function =E2=80=98__iter_div_u64_rem=E2=80=99,
+    inlined from =E2=80=98vdso_set_timespec=E2=80=99 at /workdir/lib/vdso/g=
+ettimeofday.c:104:21,
+    inlined from =E2=80=98do_aux=E2=80=99 at /workdir/lib/vdso/gettimeofday=
+.c:266:2,
+    inlined from =E2=80=98__cvdso_clock_gettime_common=E2=80=99 at
+/workdir/lib/vdso/gettimeofday.c:293:10,
+    inlined from =E2=80=98__cvdso_clock_gettime_data=E2=80=99 at
+/workdir/lib/vdso/gettimeofday.c:306:7:
+./include/vdso/math64.h:10:25: warning: =E2=80=98ns=E2=80=99 may be used un=
+initialized
+[-Wmaybe-uninitialized]
+   10 |         while (dividend >=3D divisor) {
+      |                ~~~~~~~~~^~~~~~~~~~
+/workdir/lib/vdso/gettimeofday.c: In function =E2=80=98__cvdso_clock_gettim=
+e_data=E2=80=99:
+/workdir/lib/vdso/gettimeofday.c:242:18: note: =E2=80=98ns=E2=80=99 was dec=
+lared here
+  242 |         u64 sec, ns;
+      |                  ^~
+  VDSO32L arch/powerpc/kernel/vdso/vdso32.so.dbg
+  VDSO32SYM include/generated/vdso32-offsets.h
+  CC      arch/powerpc/kernel/vdso/vgettimeofday-64.o
+  VDSO64L arch/powerpc/kernel/vdso/vdso64.so.dbg
+  VDSO64SYM include/generated/vdso64-offsets.h
+/workdir/lib/vdso/gettimeofday.c:104:26: warning: =E2=80=98sec=E2=80=99 may=
+ be used
+uninitialized [-Wmaybe-uninitialized]
+./include/vdso/math64.h:10:25: warning: =E2=80=98ns=E2=80=99 may be used un=
+initialized
+[-Wmaybe-uninitialized]
+/workdir/lib/vdso/gettimeofday.c:104:26: warning: =E2=80=98sec=E2=80=99 may=
+ be used
+uninitialized [-Wmaybe-uninitialized]
+./include/vdso/math64.h:10:25: warning: =E2=80=98ns=E2=80=99 may be used un=
+initialized
+[-Wmaybe-uninitialized]
+
+Thanks
+
+--=20
+Ricardo Ribalda
 
