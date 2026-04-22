@@ -4,75 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11544F94CDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 11:44:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2924F9EDC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 12:20:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FWDrNSlmweA1is0ZTp1hvTZbz2H+/SiJa8BbRUfipUM=; b=boRaidaxpVL11sOqSsaRJFfmcM
-	N9LLUHjxBEG1X6R5Lx3fqYTtVTHi5nAKKa+nmEfEJyEE16RPfga7uuYscBx6M9zBX2HWfsPn44F7Q
-	Jpm555z6Rku9Gu+1v6p9CSWkpO3Fk3hWVYTetjFjZtOMpeqN17sW7fI4yBKutSaGaXJD6Qlo85taR
-	n5+42ZqHG4xH/Cp8XtudKp9DIbQkd/y7llw69HH1gpag0BIcWXIeb+TsC+I8Wjd48rbbKXFpCrRkb
-	RHzm4XJyeaKwPgptdv1LYHVtVtNGFSbwFWvi2K2rRzmgF7Oko562PwJKUaCIwMu6EJXs4qStfTjAg
-	bD2sraOg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tmCm0ryTzZ5PfHa5NwcsKGCWa4j8Bic89Nz73DdJGec=; b=jkURTsdqYQNPGAKACAmtCczKHM
+	tC8J/sXoJ07ti0onV2OUgmXMgoY50j+3NcajyooQqtjgAAsmC61InQ5z7Anc7ga/NX2YmKY5qmAUj
+	seAunmFwhvPFhgIO2q1LTgRM/qbvtw68xdkUua9d8Hs3nnlBMRCdgDcdDpXcTuHDYuOwxHwUW13EP
+	mLZtNSpWYwrQk1jMzCdoX17z8JCJZJpB/W744xOHG+EoHCUL5dmp5mSrJjCnFfKa89O1a3Ez47zLH
+	lzBHzgDoPHh6ImfVV5FIVOQkN5Oh4H1NOQNalxa8rTxmVrkBjlc/2O1U4zJxCM8ttymErfONTeOzx
+	IZhQ9fsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFW0K-0000000A0i9-2jKI;
-	Wed, 22 Apr 2026 11:44:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wFWYn-0000000A24a-1JWw;
+	Wed, 22 Apr 2026 12:20:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFW0E-0000000A0gw-0q0o;
-	Wed, 22 Apr 2026 11:44:22 +0000
+	id 1wFWYl-0000000A24F-0nsH
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Apr 2026 12:20:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 188DB600AE;
-	Wed, 22 Apr 2026 11:44:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id BCF58C19425;
-	Wed, 22 Apr 2026 11:44:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 83A7B43759;
+	Wed, 22 Apr 2026 12:20:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4FBEC19425;
+	Wed, 22 Apr 2026 12:20:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776858259;
-	bh=jhptRH9NwVJexkC7VbAUXdVKvsP7WnTfWca81DZoqAs=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=ktOEzpdUCP6JYApKumRzkyw9A55BDaNe2JPGU3uIYBglVVivVPROgbLfsXGzM2Xy+
-	 Mxl3PnO5dFL9h6QevTzuBGa0CxQTXj4jrs4Y+JAJ3Pfj1X/agxRoPOBuUKs3x/RqXM
-	 Hh4aI6kerDPAjte21w3No4CF6WbrMSKXgD45leMEdN2XMlBMYfa0vsDjcgKJ8whnho
-	 shGzNpyIxet2vpdkF2rXmYfvPhy5LU5dFayMCuL4w4OWS2pIKmEezp1aiCeFxeUD/b
-	 l6/4kpRyEfvse7z1UwnCv/lnPQbuKfmZLtZwmxl/Uf6fxisytXCQhlg2iqP3RyM3Xn
-	 I/1HQvS82UaRg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B1B70F94CBE;
-	Wed, 22 Apr 2026 11:44:19 +0000 (UTC)
-From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Wed, 22 Apr 2026 11:44:13 +0000
-Subject: [PATCH] pinctrl: meson: amlogic-a4: fix deadlock issue
+	s=k20201202; t=1776860402;
+	bh=ALXoxZVZZ5+WlujCK1wXEZLq1RrFZRBfQDbAZQCsVOI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EiSfihMQywwJiWxFO3XgVVt/YpWTZo5BO4zO0yLCYEyJ9FeVOu/rgz/KL7vNrXN3O
+	 WnA4MUkhP5DrYZl5IcT4Zku4uDR5zDb9zc/fhjl6N5toXIOV5oR4XTUDuYtUi4ouh5
+	 /iIXJzxEpSePSDfBb5ocyZGWZHlJ3MkS7NcSIwWQlkkrzaxQUrRr7jl6iNN+xbdBoc
+	 3bbnNf90QlWSXo8fHUHiEyA8M47qmv6zhbyyFWWH7d2iCsCkDsXCZabrgWoNzmV1p+
+	 TfHfEkL1gKWmnL8u+8d2hg/6uBsmp19ODw/zK3/BDUyCldF3WJnzLOK3nwPiMk+XSt
+	 hxDNbryPaTh5w==
+Date: Wed, 22 Apr 2026 13:19:56 +0100
+From: Will Deacon <will@kernel.org>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>, Mark Brown <broonie@kernel.org>,
+	Shuah Khan <shuah@kernel.org>, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 1/4] arm64: signal: Preserve POR_EL0 if poe_context is
+ missing
+Message-ID: <aei87MmXaEdg8YOf@willie-the-truck>
+References: <20260421144252.1440365-1-kevin.brodsky@arm.com>
+ <20260421144252.1440365-2-kevin.brodsky@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260422-fix-pinconf-v1-1-abb4d2e0da55@amlogic.com>
-X-B4-Tracking: v=1; b=H4sIAIy06GkC/x3NQQqDQAyF4atI1gY02C68inQxkyY1m4xkigji3
- Tt2+fP4eCdUCZMKc3dCyG7VircY+w54Tf4RtHdroIGew0SEagdu5lxccaIsIzPpIyk0kVMVzJG
- c19toCXQ5vve0hTT5P1pe1/UD9QwM4XgAAAA=
-X-Change-ID: 20260422-fix-pinconf-42be1cc2f5af
-To: Linus Walleij <linusw@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Xianwei Zhao <xianwei.zhao@amlogic.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1776858256; l=2200;
- i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
- bh=Ss1NSqKaiC5N5QiCWkTV2uRyv5Uo42HRnPH2RlMwg5E=;
- b=fr7u9d+eLFEa7sccl3XsNIMQoaiZ7WblPDxAAp4bIzh/HrYB6ydQXMiU1Ec+47fQmUWfWWegx
- Yj1u23N8KyqBcB7KMBYSwEMnn8XKl/x0IRNVvlYw3sfzP8B5LsRUsqG
-X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
- pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
-X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
- auth_id=578
-X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260421144252.1440365-2-kevin.brodsky@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260422_052003_277203_BCC93A2C 
+X-CRM114-Status: GOOD (  31.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,67 +72,93 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Hey Kevin,
 
-Accessing the pinconf-pins sysfs node may deadlock.
+On Tue, Apr 21, 2026 at 03:42:49PM +0100, Kevin Brodsky wrote:
+> Commit 2e8a1acea859 ("arm64: signal: Improve POR_EL0 handling to
+> avoid uaccess failures") delayed the write to POR_EL0 in
+> rt_sigreturn to avoid spurious uaccess failures. This change however
+> relies on the poe_context frame record being present: on a system
+> supporting POE, calling sigreturn without a poe_context record now
+> results in writing arbitrary data from the kernel stack into POR_EL0.
+> 
+> Fix this by adding a valid_fields member to struct
+> user_access_state, and zeroing the struct on allocation.
+> restore_poe_context() then indicates that the por_el0 field is valid
+> by setting the corresponding bit in valid_fields, and
+> restore_user_access_state() only touches POR_EL0 if there is a valid
+> value to set it to. This is in line with how POR_EL0 was originally
+> handled; all frame records are currently optional, except
+> fpsimd_context.
+> 
+> restore_user_access_state() is also called if setting up the signal
+> frame fails, so we also initialise valid_fields in that case. For
+> consistency, setup_sigframe() now also checks valid_fields to decide
+> whether to write a poe_context record, avoiding another call to
+> system_supports_poe().
+> 
+> Fixes: 2e8a1acea859 ("arm64: signal: Improve POR_EL0 handling to avoid uaccess failures")
+> Reported-by: Will Deacon <will@kernel.org>
+> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 
-pinconf_pins_show() holds pctldev->mutex, and the platform driver
-calls pinctrl_find_gpio_range_from_pin(), which tries to acquire
-the same mutex again, leading to a deadlock.
+Thanks for fixing this. I think your patch is correct, but I have a
+couple of comments inline. Please let me know what you think.
 
-Use pinctrl_find_gpio_range_from_pin_nolock() to fix this issue.
+> ---
+>  arch/arm64/kernel/signal.c | 19 ++++++++++++++-----
+>  1 file changed, 14 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
+> index 08ffc5a5aea4..3f17aed5b4f0 100644
+> --- a/arch/arm64/kernel/signal.c
+> +++ b/arch/arm64/kernel/signal.c
+> @@ -67,6 +67,8 @@ struct rt_sigframe_user_layout {
+>  	unsigned long end_offset;
+>  };
+>  
+> +#define UA_STATE_HAS_POR_EL0	BIT(0)
+> +
+>  /*
+>   * Holds any EL0-controlled state that influences unprivileged memory accesses.
+>   * This includes both accesses done in userspace and uaccess done in the kernel.
+> @@ -74,8 +76,12 @@ struct rt_sigframe_user_layout {
+>   * This state needs to be carefully managed to ensure that it doesn't cause
+>   * uaccess to fail when setting up the signal frame, and the signal handler
+>   * itself also expects a well-defined state when entered.
+> + *
+> + * The valid_fields member is a bitfield (see UA_STATE_HAS_*), specifying which
+> + * of the remaining fields is valid (has been set to a value).
+>   */
+>  struct user_access_state {
+> +	unsigned int valid_fields;
+>  	u64 por_el0;
+>  };
 
-Fixes: 6e9be3abb78c ("pinctrl: Add driver support for Amlogic SoCs")
-Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
----
-Fix deadlock issue.
----
- drivers/pinctrl/meson/pinctrl-amlogic-a4.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Do you think it would be worth adding some accessors to make it easier
+to keep the flags in sync? For example:
 
-diff --git a/drivers/pinctrl/meson/pinctrl-amlogic-a4.c b/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
-index e2293a872dcb..35d27626a336 100644
---- a/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
-+++ b/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
-@@ -292,7 +292,7 @@ static int aml_calc_reg_and_bit(struct pinctrl_gpio_range *range,
- static int aml_pinconf_get_pull(struct aml_pinctrl *info, unsigned int pin)
- {
- 	struct pinctrl_gpio_range *range =
--			 pinctrl_find_gpio_range_from_pin(info->pctl, pin);
-+			 pinctrl_find_gpio_range_from_pin_nolock(info->pctl, pin);
- 	struct aml_gpio_bank *bank = gpio_chip_to_bank(range->gc);
- 	unsigned int reg, bit, val;
- 	int ret, conf;
-@@ -326,7 +326,7 @@ static int aml_pinconf_get_drive_strength(struct aml_pinctrl *info,
- 					  u16 *drive_strength_ua)
- {
- 	struct pinctrl_gpio_range *range =
--			 pinctrl_find_gpio_range_from_pin(info->pctl, pin);
-+			 pinctrl_find_gpio_range_from_pin_nolock(info->pctl, pin);
- 	struct aml_gpio_bank *bank = gpio_chip_to_bank(range->gc);
- 	unsigned int reg, bit;
- 	unsigned int val;
-@@ -365,7 +365,7 @@ static int aml_pinconf_get_gpio_bit(struct aml_pinctrl *info,
- 				    unsigned int reg_type)
- {
- 	struct pinctrl_gpio_range *range =
--			 pinctrl_find_gpio_range_from_pin(info->pctl, pin);
-+			 pinctrl_find_gpio_range_from_pin_nolock(info->pctl, pin);
- 	struct aml_gpio_bank *bank = gpio_chip_to_bank(range->gc);
- 	unsigned int reg, bit, val;
- 	int ret;
+/* Stores por_el0 into uas->por_el0 and sets UA_STATE_HAS_POR_EL0 */
+void set_ua_state_por_el0(struct user_access_state *uas, u64 por_el0);
 
----
-base-commit: bd7fd288490c64835a74c05e631c102ce056d5e1
-change-id: 20260422-fix-pinconf-42be1cc2f5af
+/*
+ * If UA_STATE_HAS_POR_EL0, *por_el0 = uas->por_el0 and return 0.
+ * Otherwise, return -ENOENT.
+ */
+int get_ua_state_por_el0(struct user_access_state *uas, u64 *por_el0);
 
-Best regards,
--- 
-Xianwei Zhao <xianwei.zhao@amlogic.com>
+WDYT?
 
+> @@ -1095,7 +1104,7 @@ SYSCALL_DEFINE0(rt_sigreturn)
+>  {
+>  	struct pt_regs *regs = current_pt_regs();
+>  	struct rt_sigframe __user *frame;
+> -	struct user_access_state ua_state;
+> +	struct user_access_state ua_state = {0};
 
+nit: {} should do (no need for the '0'). Same in setup_rt_frame().
+
+Will
 
