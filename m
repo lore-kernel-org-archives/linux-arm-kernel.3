@@ -4,83 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EEDCF94CD8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 06:56:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF80FF94CDB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 07:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ifXnl5Wts25XSRCBBmAaeu6hiRk54I/Ntoelj2C1NEk=; b=CavR9js+m0MvgOR7mTiYsG5KVO
-	5Nq9G8RiLE20xxPmXDyudpfkagU6nMgoHiQhVwaghaWiIhAQ2d4jfO1U7HhlOuH63HNNQcMJBSOF+
-	0jGqhbZW6d0QEj8zkQR6YC5elYRkTVMwlnM5Rz/4JiFMny6IJztqUAVQTcvhFHLlU68OXM9eHVWtV
-	xtNkFTpqatX5KlEc0e2FevVEmQoZIzvN3iC3wndbaj6WpEhehQe6sYYNS4/RokrocIcox6GwHNvnk
-	TW474t/yVDyIHjGYW0rKoIXCQa3GvhTsNhsG4JOq6a9w6BzzhXGceXCk8uXqlORRLq40OSdzF+dyr
-	ABbR6mSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y7FPVHJoaG3puv6XWup3ZPoz+GkNPFrTTayyBuc9srY=; b=td+V6j09Z526Pp0uKev34Bc4Mo
+	6zax3EGvBThts41Ryo7Hdcr+Uabhp3RP03+dkiD5BFoQtV4XeN8GNRatJX76BzkeaM1k8qiDubdMI
+	tMbpuI4VbHAtSaOhLskHT1yzq3wgmKgEXn5AeWxXxfdMkGev0Iz06Eb1jF4Jdo+ZjVIIIQHs47RoD
+	nHK0H2aYU0O90B4hc5lKJXl6xvii60fU7XXVf7epkDH1JnJZ1hk0WtFhHYABTqQ/V7Jf2ieqmJHHw
+	/SZ82wsUjDhO7NxVWAS4w6c/3B9CfF8ELtG+3i1pjyraZGqrGDxLXSftQCkCXO9ou6kx/BSRovQre
+	LVI7AH3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFRVE-00000009glN-0Rqh;
-	Wed, 22 Apr 2026 06:56:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wFRZY-00000009gzr-3ZmI;
+	Wed, 22 Apr 2026 07:00:32 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFRVA-00000009gl6-0cjD
+	id 1wFRZV-00000009gzM-1Lwa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 06:56:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 81CD26001A;
-	Wed, 22 Apr 2026 06:55:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E8A4C19425;
-	Wed, 22 Apr 2026 06:55:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776840959;
-	bh=GRlOT8rQaBVdGjKH5rznWRqlHgxVjYUD0arOTMSTikw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=JJzO+Pm6Kg7ii1fx9bj/eiVt5rPhhaPxsxbiZ+Lu7Ll1YRwVKRZ+w9rGhJaD288YA
-	 dlz1Vti4zIvGFEQOtUDoyAZkjzaOvvfuATlrlar5ZbgI+4XyMiyHlSB5tWyxoLqs/C
-	 Ves7y7L+X/m/35zNFBpGDcJeagz2mo734RF2DPNAZyHgMusDYWLU+2g6D/W7s8GYlc
-	 8Ga0Xu0A9uP3TI+jBuye2iRzBpAu4BldV434w5N6CycOGueAo7TcdC6RJybgLBSXK5
-	 TVPJ+KQ+a330r9SmkAqJfwyoetfXDySm0YfGgaNiSy9FQZ9S7PYY9dbBy/kP8uTHVE
-	 BIkfVK6U+hOag==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wFRV6-0000000DeC5-3Gfn;
-	Wed, 22 Apr 2026 06:55:56 +0000
-Date: Wed, 22 Apr 2026 07:55:56 +0100
-Message-ID: <86eck71o1v.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Vishnu Pajjuri <vishnu@os.amperecomputing.com>
-Cc: Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Mark Brown
- <broonie@kernel.org>,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Darren Hart <darren@os.amperecomputing.com>
-Subject: Re: [PATCH v4 35/49] KVM: arm64: GICv3: nv: Plug L1 LR sync into deactivation primitive
-In-Reply-To: <86a4vo49ni.wl-maz@kernel.org>
-References: <20251120172540.2267180-1-maz@kernel.org>
-	<20251120172540.2267180-36-maz@kernel.org>
-	<2e12c5c2-a1b6-47b7-b54c-7281a77bbe0a@os.amperecomputing.com>
-	<878qb9cxzr.wl-maz@kernel.org>
-	<1e050b67-2276-41ad-9265-796ba853dc7c@os.amperecomputing.com>
-	<86a4vo49ni.wl-maz@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: vishnu@os.amperecomputing.com, tabba@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, broonie@kernel.org, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, darren@os.amperecomputing.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 22 Apr 2026 07:00:30 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-ba9ad0fbc3aso210963766b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 00:00:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1776841227; x=1777446027; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=y7FPVHJoaG3puv6XWup3ZPoz+GkNPFrTTayyBuc9srY=;
+        b=hlAUAuHsZb0wViHLHyA43WTWk0pZv0iEBWMuRc3T72zsp0XdXsTM/41v9RvFaIEOO8
+         ogGM8eDTsG+02iKWv6jcO4uOpk5lICxwuNSCRBwakV337N+7fLWM36h21c/tx5SYLx+8
+         OSgjSXoPKh+DUrn6lnrLmmdAz2cxYv09zt6FQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776841227; x=1777446027;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=y7FPVHJoaG3puv6XWup3ZPoz+GkNPFrTTayyBuc9srY=;
+        b=kQamYFmLXIZ7XKoICt+yM0YRa5HjmOFE7wcebpfMFRbMW3M8W7VAE5LNJ8XUyPkNI2
+         Izh/Lb09KGgMocDNaQmStTh5hYYvfT2oxsAsGegaJCS5fcSjo0WEB1J6eo1cjW4OAq8T
+         YVyoSpSnnDjb0QA1gx2+TeN1W2RVQALz2MMDPpj+fsXkQcv+sC7mzNHk6BIMcXoIyO6d
+         LGoHFBWqUA8RwWESHicvXj0NIJewctRpWy1e6C9Vw1Bhp4fnlAAYpzHBM2QQ2vAgIdfj
+         lJx6l/NYx21EeZjFmMQutYIvCvLEEoUR10RDvKPpdrcD+xGSmZ+7TIMv6LLXkytUbO0N
+         BNqg==
+X-Gm-Message-State: AOJu0YwrpClzijblOl1buZ/On4mWZ0kVImtXiL/XSH0afWIW2YzM2c3v
+	0Wpru2vjcZyCXJfQJ/JLfD9iHRfh4gZKy83kmibubnyTmQCzBHPX4pQcfIQVfd635hl8mLJ2+ru
+	DhcevdQ==
+X-Gm-Gg: AeBDiesXO0u9zKjdoFuUtfBrzr9iVCkmMMrTIUCFkPzNNHW6MzW09RmLVttEvQqZZ0a
+	dBUivuzIO6jSJCdebfUlq/SIZ4dQ327+FIdefulXuCFYQ/d8sHK00iTbjtH18RrOx8T1UTmjpOV
+	ydGUQQ4HcvbzOPuz8R3t5XBcIOzJupcIYErgBr60fo7rr4nO11YB9h6eUo9+i3Ya9rzSV/DhSgQ
+	zx+aIlml69RmiyKtwUoSgNsGp7T1/HAZsuePZj0abjk9LHa097WDhgI+Lp5BDKd77V58Z5E7u6O
+	RbP04zlhkmE9Hk8xLyunV/T0cS67FwLB4rGFv4YWyynmX3NCqcMdIj/SW9lhgHEl1S+MpLATcAU
+	IYYue9RbzlS8ySPJf9nyN/n3Aj3EmLs5UtsQd+sgqkAQ3y6VxOuBUKDazjtXMnOVDJGgBPJzac6
+	jsFnS6zh4jqenJbLW5KIGdhhC/kK02fsGwUwHCCMq6n6nFk1ggD0d6JL8UrvdU6RK0dN514c8=
+X-Received: by 2002:a17:907:6a11:b0:b9c:9594:e00 with SMTP id a640c23a62f3a-ba418982bd2mr1137510166b.1.1776841226581;
+        Wed, 22 Apr 2026 00:00:26 -0700 (PDT)
+Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com. [209.85.218.49])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ba454d1c38csm506646066b.41.2026.04.22.00.00.26
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 22 Apr 2026 00:00:26 -0700 (PDT)
+Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-ba9ad0fbc3aso210954166b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 00:00:26 -0700 (PDT)
+X-Received: by 2002:a17:907:72c6:b0:ba6:1412:9339 with SMTP id
+ a640c23a62f3a-ba6141295bfmr736745866b.20.1776841224135; Wed, 22 Apr 2026
+ 00:00:24 -0700 (PDT)
+MIME-Version: 1.0
+References: <CANiDSCsOy0P1if-gJZqOM5pTJ0RDcwVfru1B7KFbTOEMqjPKJw@mail.gmail.com>
+ <20260422071541-9a295128-d913-418f-a21c-1386fca30290@linutronix.de>
+In-Reply-To: <20260422071541-9a295128-d913-418f-a21c-1386fca30290@linutronix.de>
+From: Ricardo Ribalda <ribalda@chromium.org>
+Date: Wed, 22 Apr 2026 15:00:11 +0800
+X-Gmail-Original-Message-ID: <CANiDSCviww1L1p2+MvF59Biqb6hc7WdL1J37kBjFd1NXz-Yt8A@mail.gmail.com>
+X-Gm-Features: AQROBzBGVi8LEvYMOBvlvkNfmwMd-5JBUrvgcCu22OEXpA-bBMJrHFL2pdRz-k8
+Message-ID: <CANiDSCviww1L1p2+MvF59Biqb6hc7WdL1J37kBjFd1NXz-Yt8A@mail.gmail.com>
+Subject: Re: New warning in linus/master
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linuxppc-dev@lists.ozlabs.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260422_000029_432432_35883DC1 
+X-CRM114-Status: GOOD (  30.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,63 +104,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+ Darren]
+Hi Thomas
 
-On Tue, 31 Mar 2026 10:42:57 +0100,
-Marc Zyngier <maz@kernel.org> wrote:
-> 
-> On Tue, 31 Mar 2026 07:31:54 +0100,
-> Vishnu Pajjuri <vishnu@os.amperecomputing.com> wrote:
-> > 
-> > >> LOG:
-> > >> [  164.647367] Call trace:
-> > >> [  164.647368]  smp_call_function_many_cond+0x334/0x7a0 (P)
-> > >> [  164.647372]  smp_call_function_many+0x20/0x40
-> > >> [  164.647374]  kvm_make_all_cpus_request+0xec/0x1b8
-> > >> [  164.647377]  vgic_queue_irq_unlock+0x1c8/0x2c8
-> > >> [  164.647380]  kvm_vgic_inject_irq+0x194/0x1e0
-> > >> [  164.647381]  kvm_vm_ioctl_irq_line+0x170/0x400
-> > >> [  164.647386]  kvm_vm_ioctl+0x7b8/0xc88
-> > >> [  164.647389]  __arm64_sys_ioctl+0xb4/0x118
-> > >> [  164.647393]  invoke_syscall+0x6c/0x100
-> > >> [  164.647397]  el0_svc_common.constprop.0+0x48/0xf0
-> > >> [  164.647398]  do_el0_svc+0x24/0x38
-> > >> [  164.647400]  el0_svc+0x3c/0x170
-> > >> [  164.647403]  el0t_64_sync_handler+0xa0/0xe8
-> > >> [  164.647405]  el0t_64_sync+0x1b0/0x1b8
-> > > 
-> > > This trace is about interrupt injection from userspace, not
-> > > deactivation of a HW interrupt.
-> > > None of that makes much sense.
-> > 
-> > Although this behavior is puzzling, it matches the trace I typically
-> > observe on L0. After reverting the patch, I was able to boot L2 guests
-> > successfully.
-> 
-> Well, this patch fixes real bugs, so it isn't going anywhere.
-> 
-> The patch you are reverting addresses the deactivation of a HW
-> interrupt, which is likely to be a timer (that's the only one we
-> support). The stacktrace points to the userspace injection of an SPI.
-> 
-> If we need to broadcast IPI, that's because there is no other SPI
-> currently in flight. But if a CPU is not responding to the IPI, what
-> is it doing? How does this interact with the patch you are reverting?
-> 
-> Given that I don't know what you're running, how you are running it,
-> that I don't have access to whatever HW you are using, and that you
-> are providing no useful information that'd help me debug this, I will
-> leave it up to you to debug it and come back with a detailed analysis
-> of the problem.
+Thanks for the prompt reply
 
-Have you made progress on this? I can't reproduce it at all despite my
-best effort. I'm perfectly happy to help, but you need to give me
-*something* to go on.
+On Wed, 22 Apr 2026 at 13:57, Thomas Wei=C3=9Fschuh
+<thomas.weissschuh@linutronix.de> wrote:
+>
+> Hi Ricardo,
+>
+> On Wed, Apr 22, 2026 at 11:51:45AM +0800, Ricardo Ribalda wrote:
+> > Media-CI has found a couple of new warnings in the latest kernel
+> > version for aarch64 and powerpc. They get fixed with this patch and
+> > before moving I wanted to know if this was under your radar.
+>
+> Thanks for the report. I was not aware of these so far.
+>
+> > diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/M=
+akefile
+> > index 7dec05dd33b7..65914842fae0 100644
+> > --- a/arch/arm64/kernel/vdso/Makefile
+> > +++ b/arch/arm64/kernel/vdso/Makefile
+> > @@ -50,7 +50,7 @@ CFLAGS_vgettimeofday.o =3D $(CC_FLAGS_ADD_VDSO)
+> >  CFLAGS_vgetrandom.o =3D $(CC_FLAGS_ADD_VDSO)
+> >
+> >  ifneq ($(c-gettimeofday-y),)
+> > -  CFLAGS_vgettimeofday.o +=3D -include $(c-gettimeofday-y)
+> > +  CFLAGS_vgettimeofday.o +=3D -include $(c-gettimeofday-y)
+> > -Wno-maybe-uninitialized
+> >  endif
+>
+> (...)
+>
+> I'd like to know exactly what is going on before suppressing the warning.
+> It is a non-standard warning, only enabled by *some* of the vDSO builds
+> for some reason.
+>
+> > https://gitlab.freedesktop.org/linux-media/users/ribalda/-/pipelines/16=
+49144/test_report?job_name=3Dcross-gcc
+>
+> While I was able to download a configuration from this job and also use t=
+he
+> same container image, I can not reproduce the issue. Is the configuration=
+ the
+> full one or only the template?
+>
+> Could you provide full reproduction steps?
 
-Thanks,
+You can try repro with:
 
-	M.
+work/linux $ podman run -v .:/workdir/ --rm -it
+registry.freedesktop.org/linux-media/media-ci/build:latest
+$ cd /workdir
+$ CROSS_COMPILE=3Daarch64-linux-gnu- ARCH=3Darm64 make allyesconfig
+$ CROSS_COMPILE=3Daarch64-linux-gnu- ARCH=3Darm64 make
+arch/arm64/kernel/vdso/vgettimeofday.o
 
--- 
-Without deviation from the norm, progress is not possible.
+The gcc version discrepancy is because I the error was due to old gcc
+version and I was playing around with that... but it fails in both
+gcc14 and gcc15
+
+You can try with debian testing with
+work/linux$ podman run -v .:/workdir/ --rm -it debian:testing
+$ apt-get update
+$ apt-get install gcc-aarch64-linux-gnu build-essential flex bison libssl-d=
+ev bc
+$ cd /workdir
+$ CROSS_COMPILE=3Daarch64-linux-gnu- ARCH=3Darm64 make allyesconfig
+$ CROSS_COMPILE=3Daarch64-linux-gnu- ARCH=3Darm64 make
+arch/arm64/kernel/vdso/vgettimeofday.o
+
+Regards!
+
+>
+> > CONFIG_CC_VERSION_TEXT=3D"aarch64-linux-gnu-gcc (Debian 15.2.0-16) 15.2=
+.0"
+>
+> The linked test log shows GCC 14.2, not 15.2.
+> Not that I could reproduce it with either one...
+>
+> >   SYNC    include/config/auto.conf
+> >   CC      arch/arm64/kernel/vdso/vgettimeofday.o
+> > In file included from <command-line>:
+> > In function =E2=80=98vdso_set_timespec=E2=80=99,
+> >     inlined from =E2=80=98do_aux=E2=80=99 at /workdir/lib/vdso/gettimeo=
+fday.c:266:2,
+> >     inlined from =E2=80=98__cvdso_clock_gettime_common=E2=80=99 at
+> > /workdir/lib/vdso/gettimeofday.c:293:10,
+> >     inlined from =E2=80=98__cvdso_clock_gettime_data.constprop=E2=80=99=
+ at
+> > /workdir/lib/vdso/gettimeofday.c:306:7:
+> > /workdir/lib/vdso/gettimeofday.c:104:26: warning: =E2=80=98sec=E2=80=99=
+ may be used
+> > uninitialized [-Wmaybe-uninitialized]
+> >   104 |         ts->tv_sec =3D sec + __iter_div_u64_rem(ns, NSEC_PER_SE=
+C, &ns);
+> >       |                      ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
+~~~~~
+> > /workdir/lib/vdso/gettimeofday.c: In function
+> > =E2=80=98__cvdso_clock_gettime_data.constprop=E2=80=99:
+> > /workdir/lib/vdso/gettimeofday.c:242:13: note: =E2=80=98sec=E2=80=99 wa=
+s declared here
+> >   242 |         u64 sec, ns;
+> >       |             ^~~
+>
+> The same pattern is used in some other do_ handlers, which do not generat=
+e this
+> warning. I also can't immediately see what is wrong.
+>
+> (...)
+>
+>
+> Thomas
+
+
+
+--=20
+Ricardo Ribalda
 
