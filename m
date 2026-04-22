@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7832BFA1FE9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 19:47:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2BBBFA1FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 19:51:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FIad0NUruDUG63kx4ECALjd4inHFblMc1GRENB68XKU=; b=xFOFYBuQkBhem1ZaN4tRHUCl5l
-	wSC7CMhGVx5xGFjeSHsweE8qlR2mmle/SIlGp2ss/brKXxQAj1dveiYR1iDtk8QceOzWce50y7f8a
-	9rETVCN8WPF+wQZyqpQLf9MsSUafaV3ZQAgnyeTPZySYBaGCd6Vmw8YTx/1+EiPP4a4W9VQyZlzPZ
-	L5nZcTeGd5vkk9HftU38F9Ee4dFXESFr5hA7KzdpDgstvv2RCetzpXKH+/VxBiJ6eLyyxyQtDOPvQ
-	pMrFITwaA3ertjIwH9twiBH5djtvmdmZDtFqLWt++DHyJhXvsT79EJQlEVLG/aSS7KAZWOO5mEm8f
-	T8DEm3Ew==;
+	bh=ITLENIaPFykq9GMWzScULhWs+yy3WaLAezNKQpJL/mo=; b=GPtIYourm2Tb/pEH66sDwmQvqv
+	DV/8btXC4+1EwcRjPY11kCwF+WfA4GPjVzJ7W5WfFrbKO7fNmW4vMToW0vChpjtLOqFfU0PhLNffv
+	9ZbWrptLfn8SunFv8IowKgl8fOOB9fbWNZBFJhmcjCcMC8+6QHpzWZfe+dsoRh8vfLnqH+9SRa32A
+	wGpz2nFgqm25nU7y0lGl+In/03m3M2vYyoc6KViLWeBxxIaE9lfFH49C+Tp69T0KNaFPc68T1LyeS
+	Pq+RnShOcwt6HGeTQrrrdO5X7ntRTmBAwr92NpKzQ8JrP/xNdyCDcFxP4sdS4yxfFYk56bFBkOvbZ
+	xuAvvb1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFdXP-0000000Ah5e-2eqJ;
-	Wed, 22 Apr 2026 19:47:07 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wFdbD-0000000AhIr-3BPh;
+	Wed, 22 Apr 2026 19:51:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFdXN-0000000Ah5D-0Rw6
+	id 1wFdbB-0000000AhIP-2Hxf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 19:47:06 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1776887221;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FIad0NUruDUG63kx4ECALjd4inHFblMc1GRENB68XKU=;
-	b=vzr/TcQ7PwlFKHcw3kxS9e+RpxqhTqOk+0x6/WRL5ITuTpLCFEYGcRkA8LuGb320ImhtSR
-	WIC0PNkhHvH3cSQJBUoLDPoZaT7lP51lDZTJbhVKtzj8uCIjiuiEhx5kBsekT/bRAyYdQ0
-	kWshgbh66cOJkZhtx1w4b4m4+ehVTviPTsLn9xGRzvBLSMGE8boNZ9I08Fkdf7tR5IGOYv
-	u4fQUzRzdTxPhRFW60PjE3tvEx5iupIhnCX7y0HvKv6hdHA3t+YxBY3jFDcrrDPgjW5ncg
-	tGZnOqVz7YoHBwLbQobq30vAXhbPzgBDobtJculDL7iBP64uWFuR/nOLiFFCSw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1776887221;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FIad0NUruDUG63kx4ECALjd4inHFblMc1GRENB68XKU=;
-	b=yIOGVhETdnA7SVsy83sNKIDsqBO5QBui6NQo6LsNgmFEUmHVFK5uRSmJgeCbGME1ZmLEfc
-	hW9Cf2L8iFcbRJBQ==
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Mathias Stearn <mathias@mongodb.com>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Boqun Feng
- <boqun.feng@gmail.com>, "Paul E. McKenney" <paulmck@kernel.org>, Chris
- Kennelly <ckennelly@google.com>, Dmitry Vyukov <dvyukov@google.com>,
- regressions@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Peter Zijlstra
- <peterz@infradead.org>, Ingo Molnar <mingo@kernel.org>, Jinjie Ruan
- <ruanjinjie@huawei.com>, Blake Oler <blake.oler@mongodb.com>
-Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
- and tcmalloc everywhere
-In-Reply-To: <aekPXvvuKHKlETjm@J2N7QTR9R3.cambridge.arm.com>
-References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
- <aejCaG6n9s7ak5TO@J2N7QTR9R3.cambridge.arm.com> <87zf2u28d1.ffs@tglx>
- <aekPXvvuKHKlETjm@J2N7QTR9R3.cambridge.arm.com>
-Date: Wed, 22 Apr 2026 21:47:00 +0200
-Message-ID: <87wlxy22x7.ffs@tglx>
+	Wed, 22 Apr 2026 19:51:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BE52244004;
+	Wed, 22 Apr 2026 19:51:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F8DAC19425;
+	Wed, 22 Apr 2026 19:50:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776887460;
+	bh=SF/t0lCLp8rxNBH3TmZkjwnIEQydKnrWCwsEMGKwoxc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eTjr74xA9zZuIHwpJXXpBFq+9my4ZktwT02TsS5McMxW6Ypgx1F2Xo5Pv4V9zg+Ot
+	 92PAn3F+YoRTf44EQUZ02QIspqgdE0ZkOkf/HqpFfzEifU8AbTnGt5n8MNzK/xV2fg
+	 LTcAz0oZxxEIYA+dNhnOwNlBV+gpvF55CmTgMSMHL1FmyBhUkZ2x6hicECAKphThGp
+	 8rClcN41GWMzD5TUf/Uts9RmGRmqT0mw5FeQfzPoi1T0lx1gYvbm26HGhWaQvtTQX9
+	 YpZ2uQ7d296PGSN972xZSxzA8sCbeCofC0Bkd6ZqOX4EpJT/kehexIZ8J6dWW9QF42
+	 soZZqlJ0GWpyA==
+Date: Wed, 22 Apr 2026 20:50:55 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Kevin Mehall <km@kevinmehall.net>
+Cc: Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Mirko Vogt <mirko-dev|linux@nanl.de>,
+	Ralf Schlatterbeck <rsc@runtux.com>, linux-spi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] spi: sun6i: Set SPI mode in prepare_message
+Message-ID: <f93e1bc6-608b-4c75-8b1a-80f701ff37ce@sirena.org.uk>
+References: <20260420164755.1131645-1-km@kevinmehall.net>
+ <66909301-ed23-4b36-8955-a69b64eed9a1@sirena.org.uk>
+ <d199f72a-093b-41bb-b33e-b6685563f704@app.fastmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ZqhXwlf3qPSsVysm"
+Content-Disposition: inline
+In-Reply-To: <d199f72a-093b-41bb-b33e-b6685563f704@app.fastmail.com>
+X-Cookie: I'm definitely not in Omaha!
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_124705_354653_8282962C 
-X-CRM114-Status: GOOD (  17.35  )
+X-CRM114-CacheID: sfid-20260422_125101_606491_EB93CAAA 
+X-CRM114-Status: GOOD (  19.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,77 +80,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 22 2026 at 19:11, Mark Rutland wrote:
-> On Wed, Apr 22, 2026 at 07:49:30PM +0200, Thomas Gleixner wrote:
-> Conceptually we just need to use syscall_enter_from_user_mode() and
-> irqentry_enter_from_user_mode() appropriately.
 
-Right. I figured that out.
+--ZqhXwlf3qPSsVysm
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> In practice, I can't use those as-is without introducing the exception
-> masking problems I just fixed up for irqentry_enter_from_kernel_mode(),
-> so I'll need to do some similar refactoring first.
+On Wed, Apr 22, 2026 at 01:01:11PM -0600, Kevin Mehall wrote:
 
-See below.
+> SS_LEVEL (aka SUN6I_TFR_CTL_CS_LEVEL) resets to 0x1 (CS high = inactive)
+> and is also written in sun6i_spi_set_cs(), which is called in spi_setup() via
+> spi_set_cs(). Thus it should be initialized before we get here the first time.
+> Once SUN6I_TFR_CTL_CS_MANUAL is set, it is never cleared elsewhere in the
+> driver, so in any case, this can only affect the first transfer.
 
-> I haven't paged everything in yet, so just to cehck, is there anything
-> that would behave incorrectly if current->rseq.event.user_irq were set
-> for syscall entry? IIUC it means we'll effectively do the slow path, and
-> I was wondering if that might be acceptable as a one-line bodge for
-> stable.
+I do see that the driver uses a reset controller over suspend, are you
+sure that setup() will be called again on resume?
 
-It might work, but it's trivial enough to avoid that. See below. That on
-top of 6.19.y makes the selftests pass too.
+> However, what's not clear to me is why SUN6I_TFR_CTL_CS_MANUAL was in
+> sun6i_spi_transfer_one() in the first place. sun6i_spi_set_cs() is writing to
+> the same register, and it seems to me that setting that bit there would be a
+> more logical place to do it, though I don't think there is any functional change
+> vs what I have here. Let me know if you'd like me to move it to
+> sun6i_spi_set_cs() instead and how that should be submitted (same patch?
+> separate patch before the rest of this in a series? standalone patch to be
+> applied after this one?).
 
-Thanks,
+Smaller patches are generally better so splitting is good.  It does seem
+sensible to group the chip select operations together, so long as we
+ensure that everything else is stable before the chip select gets
+asserted we should be good.
 
-        tglx
----
- arch/arm64/kernel/entry-common.c |   14 ++++++++++----
- 1 file changed, 10 insertions(+), 4 deletions(-)
+--ZqhXwlf3qPSsVysm
+Content-Type: application/pgp-signature; name="signature.asc"
 
---- a/arch/arm64/kernel/entry-common.c
-+++ b/arch/arm64/kernel/entry-common.c
-@@ -58,6 +58,12 @@ static void noinstr exit_to_kernel_mode(
- 	irqentry_exit(regs, state);
- }
- 
-+static __always_inline void arm64_enter_from_user_mode_syscall(struct pt_regs *regs)
-+{
-+	enter_from_user_mode(regs);
-+	mte_disable_tco_entry(current);
-+}
-+
- /*
-  * Handle IRQ/context state management when entering from user mode.
-  * Before this function is called it is not safe to call regular kernel code,
-@@ -65,8 +71,8 @@ static void noinstr exit_to_kernel_mode(
-  */
- static __always_inline void arm64_enter_from_user_mode(struct pt_regs *regs)
- {
--	enter_from_user_mode(regs);
--	mte_disable_tco_entry(current);
-+	arm64_enter_from_user_mode_syscall(regs);
-+	rseq_note_user_irq_entry();
- }
- 
- /*
-@@ -717,7 +723,7 @@ static void noinstr el0_brk64(struct pt_
- 
- static void noinstr el0_svc(struct pt_regs *regs)
- {
--	arm64_enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode_syscall(regs);
- 	cortex_a76_erratum_1463225_svc_handler();
- 	fpsimd_syscall_enter();
- 	local_daif_restore(DAIF_PROCCTX);
-@@ -869,7 +875,7 @@ static void noinstr el0_cp15(struct pt_r
- 
- static void noinstr el0_svc_compat(struct pt_regs *regs)
- {
--	arm64_enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode_syscall(regs);
- 	cortex_a76_erratum_1463225_svc_handler();
- 	local_daif_restore(DAIF_PROCCTX);
- 	do_el0_svc_compat(regs);
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnpJp8ACgkQJNaLcl1U
+h9Cz3gf/anL0RtrtBcUd5FxbCQvlrKb2rthUb6lYkUNPFC0FqttIX750LC7XBZRb
+42Wk4+KyFH81Qu1T86/6XmW0ytr4xrhTFOsZvjBOcsx9UzQwnJYBzjzynMQFnh5e
+IQYqydwe3uZeZhhjLSFcdJVoPoY195mKPbt9wvvBqepUTxIFdOHciPcItW3FkXbQ
+AOwDGtnxmhFDqid8R0SIG0ZImvaAw2wk3EcV32L/lQDR0Y3CsUCmkvO/wfKPRtfY
+Y23hwtftxFaTZdE3rh1KtEH5mB999Rj1CvPK970HGQvXBEJc2jw+HiQ8eSHAh8vy
+excQbedSoX74O2VnQWYOZSn8/qbkmA==
+=TBgN
+-----END PGP SIGNATURE-----
+
+--ZqhXwlf3qPSsVysm--
 
