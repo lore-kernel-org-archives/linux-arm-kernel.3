@@ -4,92 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2191F9B60C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 10:32:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D73EF9B60E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 10:34:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0rgqXLVy6xqukPgPXJSs1dZ6Rd18H2YCjcgP2MCGRmo=; b=fTMWo8DYyQoQcG+D87OdkNWFmy
-	X6JVxmA+5ShIa/kiByWQItdYoJeOGYPYUBAO2FVj1tJ9AJkjkXTo5p4NHaEL5/SJXDBaM3gqiHoSP
-	cvR+YrVPYfrtbqK/2lI7yyeCUFMKo3ttts7c6U4kxVA0uyKy7gNoHpRcpMBz0HyMM17xdgnaUVC0W
-	sZ31sPqcDwnG+XO1sU2x2WUaWJZa67GfD5AFTetN0haU1VZbBxZc6VPQ+JObnZpaUDGWeCFdxg10Z
-	6DY95T2F81gkK+eBwa1H8kTcUyCwIokOoB4ccJ7cb/l1MrFXRWTucCt2BYBtq249IqOjwxFkUQ5Ol
-	viKF5KvQ==;
+	bh=WablyoBFy+gxbiiAwuqgA+V3P4WM6fUiNbf1+c/IFcM=; b=xNTSOtSclpNvzbRmj6ZcDcDp0u
+	G/nPXCxBcuOpD6+TQBcbkeVsHe5UW98moeGEvGS8mimF3wK82lJphxeuaVOBvOfoH5DA0uPRtL8OL
+	PofXCScbxRvCXJowZPvB+oy1K6epn8YXk61b8/DFg0sU1Oe6A49TqqsssbyVquAiYw16qj+NMw3II
+	bPNS7hKeAEtlLoYBIiMYs5+NErjZo/FAiKj2zcDP2+EyQreEkRQUjsoL0FEZoekn07BcHxHuxQWSw
+	dofIM45S+5I8jq8kpXK993XEkpct9a7udlc9XThdQ3nRjiFbrTmudKbULXZtjSyklLPljr0ue1t1R
+	MATgLATQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFUsw-00000009x8j-2V3G;
-	Wed, 22 Apr 2026 10:32:46 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1wFUuD-00000009xMg-3ZIl;
+	Wed, 22 Apr 2026 10:34:05 +0000
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFUss-00000009x7s-3vgL
+	id 1wFUuB-00000009xMD-0G5g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 10:32:44 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-48896199cbaso53284145e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 03:32:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1776853960; x=1777458760; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=0rgqXLVy6xqukPgPXJSs1dZ6Rd18H2YCjcgP2MCGRmo=;
-        b=aCAlKL9kf6ZAms4yahYppnGBANiABwLjTW/a3CNKUkh0KAyfCH5/Dg65cyE9UkoS4H
-         8Ccc+sZeIZydhGoUTvd1iWULIErmOairaMVHgZa+5HhGkO+B/kcT4m3G5PR4XN8HQCqb
-         iesNfbBUSvh30j7fJx8B6JIH1c3iZrgNXd9o3k0vAiCBlhAxYgGMJCKzcZTeJCFeRNVm
-         oP59Aujq5UQ9Yy7t6+TejQvVeAN1/1gx+BSUaCqFr3svKGuO6gknjXuDEkqtJ1fRQKBf
-         ajKqsIWudwXCwkdDO+Lbz6WDYg0uNXxutVmT3d9Tt0MrMIQmCCWvvnQNI816jizPXvdX
-         jGmw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776853960; x=1777458760;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0rgqXLVy6xqukPgPXJSs1dZ6Rd18H2YCjcgP2MCGRmo=;
-        b=BSVwgvCaV1D9ycONe22RqA5JdJMsOOQ9uENJ9yf4HfLO6Yj4FIPzolR2Uz0/fVCave
-         Z2u0yatyav2UC9XtnHeunb0hlHolhEoK1j5Y/UEZ0r2o3NAiDYZGlYyZmWPOwaxs57P7
-         dqtcctlbABALO4envg9Y++SvSqwcCuJ0qk7JOJ+lMR65cwcA+DVM9Wv53u+MnCyxK6Tj
-         flWRxMYWYZ6dALTXSL0V5QAFr0lnB+3cLckjeXgqkUfRx3OHW04u4EsDzA5AySbmkCXv
-         MpdA4XtFm1DbKNu0MvbhY62PFTLlasNy1IygZ20UPcNcHYHHuZqZdDhYoqa1nF/1m1FO
-         BC4g==
-X-Gm-Message-State: AOJu0YxkYsG472H8M53un3L0+Yj1t+gUfM7o8GEx6IuLPXhB7P71MXhB
-	aWmgRDqkgudeAYDo8iTpWY6UHu4ArSvuWuERpbZsdyG4YBG8UFzq4pVxREG0LOO1hMSQbgduVsl
-	sehYV0pk=
-X-Gm-Gg: AeBDieuqojvjnE2i3IuEXl/HoFLSDCnLObWgX0j114Ssepc6Dy5m31IzrytalNZkKWW
-	oO5a4eFHxJOZOYZ8nPOUIQ5cuq8pEUiIfUoLEJnUt7U8Bz8RTvm4yrDM/pgo20ujroCAX78uRUW
-	VONOeGLravcjneHAs2hW+FBFndcglv2PVqXRv+lTJ8JuGlWnizIPJAPGzp8S3xGpDxzIRn2f62q
-	wEVhdEkGBI81hiB0z0VtqLl1YZ3tZZg67hCnuE5fkM22WEw+uggz5TeJQ7gFrDc4bKPL32p+nKX
-	2Rbfo17oaV0gfjBmWJbSMP5j7dh1frpNjc7aibYzaKHhZfVnaUF5nOauXkHMOI6GiTP/xVN98Ay
-	CPIjg7QkZqbTcEhYVhsOAxjwjEY5ITzFVtgkmrFkKSJigAbQ20AM4KL8OEhJsUagY8Xjv9q1mJC
-	4LoMLN8XzdFzev47u6cUGjd31BvUuPIdXRrBiXS35DKWU=
-X-Received: by 2002:a05:600c:4895:b0:488:ffad:6728 with SMTP id 5b1f17b1804b1-488ffad67f4mr155484265e9.19.1776853960414;
-        Wed, 22 Apr 2026 03:32:40 -0700 (PDT)
-Received: from [192.168.178.64] ([84.246.200.167])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488fc0f8188sm463372455e9.2.2026.04.22.03.32.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 22 Apr 2026 03:32:39 -0700 (PDT)
-Message-ID: <b1458bc3-0449-4f0f-b346-d25547dd4c97@linaro.org>
-Date: Wed, 22 Apr 2026 11:32:39 +0100
+	Wed, 22 Apr 2026 10:34:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xw31M+jmdrYJbE2OZ8RN/IlsS40F7fnPO1zLOigProjcJRN8bhAxnFRqs0puUTUhQtsoRKQ2r0Iw8YMOInOaPy280132Mf9OF6UKuf3r3OB4I8pNBQyt8zs4GibBlYrfoS5Kgxg1IjpKLgRE+LDIA8rzPZV6NG2vmhhenWgrb5bSLvSaJ/aX5h+3URMWREqXpnMZBtAXOOasoEahebGRK9vALZKo2wHMJr2dWqdqmTpnO/EMZ9TSJ4rQc6KUIG9SVsJV9Vw+z9o6L6r8rAfpHJjrkAzGOfNQkkaDD6em77eGS2u6cg7sHip2gqgrYAy0yesZjESayTPHKnPG9OtbCg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WablyoBFy+gxbiiAwuqgA+V3P4WM6fUiNbf1+c/IFcM=;
+ b=lRIhx84J0q1w20qol6wyVHqyoDgb0g0WONw6BpnVpFYWSBtC3icbcD6/jBjturHYDHJZCVtCHQRxKuLnTYBytPqJoUbkT1cRuxSipOQTorE47scgqoabPOTMpI6NlsXCdFBxkO8I56NTlH85tI3FpxtHPVhWl4jxgNTgVxh2pNlczGWks1pkZVHei0WCQPlx/OOtLa87F1C3O6U997wFxk0BSTMFO3awEs+v5vp5+ZPAxZHYYgZxkJ52yJH9Gfi4LBWURx6b+LTGbZxFqqlf9lO7IYNV9GN7kejWvI9N7UzPa7WqRp3EBp3GTg/U5C2AMBSKL5W7kn0uBeYl/DNAzA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SG2P153CA0007.APCP153.PROD.OUTLOOK.COM (2603:1096::17) by
+ PUZPR06MB5982.apcprd06.prod.outlook.com (2603:1096:301:112::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.16; Wed, 22 Apr
+ 2026 10:33:53 +0000
+Received: from OSA0EPF000000CC.apcprd02.prod.outlook.com
+ (2603:1096::cafe:0:0:d) by SG2P153CA0007.outlook.office365.com
+ (2603:1096::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9870.8 via Frontend Transport; Wed,
+ 22 Apr 2026 10:33:53 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ OSA0EPF000000CC.mail.protection.outlook.com (10.167.240.58) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.18 via Frontend Transport; Wed, 22 Apr 2026 10:33:51 +0000
+Received: from [172.20.96.43] (unknown [172.20.96.43])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 37C854126F9A;
+	Wed, 22 Apr 2026 18:33:50 +0800 (CST)
+Message-ID: <1c1025c1-ead7-49fe-b18e-0454119d85f8@cixtech.com>
+Date: Wed, 22 Apr 2026 18:33:49 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] perf/arm_pmu: Skip PMCCNTR_EL0 on NVIDIA Olympus
-To: Besar Wicaksono <bwicaksono@nvidia.com>, will@kernel.org,
- mark.rutland@arm.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-tegra@vger.kernel.org, treding@nvidia.com, jonathanh@nvidia.com,
- vsethi@nvidia.com, rwiley@nvidia.com, sdonthineni@nvidia.com,
- mochs@nvidia.com, nirmoyd@nvidia.com, skelley@nvidia.com
-References: <20260421203856.3539186-1-bwicaksono@nvidia.com>
+Subject: Re: [PATCH v6 1/2] dma: arm-dma350: enable ANYCH interrupt for shared
+ IRQ wiring
+To: Frank Li <Frank.li@nxp.com>
+Cc: peter.chen@cixtech.com, fugang.duan@cixtech.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, vkoul@kernel.org,
+ ychuang3@nuvoton.com, schung@nuvoton.com, robin.murphy@arm.com,
+ Frank.Li@kernel.org, dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20260325112159.663881-1-jun.guo@cixtech.com>
+ <20260325112159.663881-2-jun.guo@cixtech.com>
+ <932db8ad-a9d8-47ff-bf3c-62a54c42bb76@cixtech.com>
+ <aeia3uoz4g8tlBaV@lizhi-Precision-Tower-5810>
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260421203856.3539186-1-bwicaksono@nvidia.com>
+From: Jun Guo <jun.guo@cixtech.com>
+In-Reply-To: <aeia3uoz4g8tlBaV@lizhi-Precision-Tower-5810>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSA0EPF000000CC:EE_|PUZPR06MB5982:EE_
+X-MS-Office365-Filtering-Correlation-Id: f59b8d3d-2c49-4fbe-8e73-08dea05aa5b3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|1800799024|36860700016|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: qunEvMqNFrMDS/2CWi6RsBVyYLQFdQU8jm2B5bggqaoLFh1af2XWWyAc9iYkHs2mDkdNEYWqUruXyi3ZXNByOlIJ2lXPAk+G1IkEfoZPjk5VRPFIhyurcPRfFW7ESpz+YXCfELK7lY+Fo6zq4auFzigO+vsto+KsC7BwrK70fX80Q7GZoW4XpLNifyJiRVZBXoGcW1F26ZalXOXu51EnPMr7sQOr60m1uK2yttpVGWCdlUWq2IGaeFd0YpVwATMrQfbvaRChRGQ+UYpyf1ZKq4BvCnzFnxwKvnrQ0qvbGNaoY0PvC8PnxiFE75cAet2Qdh0DEh9UgHWNdolEqGGeHi2xXqbkEfplApbUAYwCkXQesPb6DLTm7EtNtkfngxBPHmqn/ksR5D4pG1nHdF0DRv09JHOGTYhoI27ifYi9mtyOz/Qh73a5fzFh61Sxe/OPdxaMWtA+t7Sk7UBia+8qO/TzfYWWcngnvjq9e+566ggliIOk7dclnY3bPKjfUiYB7M99+MAmXvXPtaP6eTS4HHnHR8TyHNhLr+KDilB4ehLdIhp/5xcdt1sq/mYZznB6F9YCBOgZt0mpTks3/LTvqrjBSynDzg99DLNrh+11mcMw3kPzaXAKVwLWRtRQ8kET+h7j2wLGwDyHVJ6ss/26L8MP5tjhSiUJldEWXW/pxS6YRztUtVnDdNF51Y/g8s0UPdK0VYLE/34eewZ7jeuQSAVnhcp8g8j3uwDHA/W/dKfqKtiIQL9Zte3qZKONAVpwwtcWtKT0Sgf/rbkMzzRH/Q==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(1800799024)(36860700016)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: E6QyIMqtbUeamiLWTTm0mMXVVtExWz7ifIeCVTbFkVs8RmiD5TldJPvmosYyPe9ACXMeVEu6++gjgBjQM/hRyJAMqWoyK0SeaY7fpNx9H4dbz5GLqxPLkqXmu4xncXGU8eJSXwYKF0H/Y7wQBf3Wb+Xxh5MAaybRvE4yiwKK4lU/wIEECtlN50u/SFuhy6AaAn/e+Dau7Jk3A09UrxixQNGy3ZK+Sk73PV1+IH5xBJzrSs8tA6Hgz+kJRjQtwnH9SAqsM1YLbcJ5T0ec3MsAKmIEKPVEpiXVQgw+vJ/m48CwXMYk3vKBG/Qs6/BmxfurLvGvrMz1r6WKlgVZim2dwuhipJqm6pqP6q+PwDqXHZIpYlUblTwM3cxmY4Qg8PMva6eJ7weScr8L+Dem7RHAzGMpE94NvUNz1+6Mn3Jo1ytbSpsBtr8NIo6vxxFuPqgD
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Apr 2026 10:33:51.8241
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f59b8d3d-2c49-4fbe-8e73-08dea05aa5b3
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000CC.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR06MB5982
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_033243_000740_D4F7CACD 
-X-CRM114-Status: GOOD (  31.70  )
+X-CRM114-CacheID: sfid-20260422_033403_128108_286ECA7B 
+X-CRM114-Status: GOOD (  19.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,111 +123,74 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 21/04/2026 21:38, Besar Wicaksono wrote:
-> The PMCCNTR_EL0 in NVIDIA Olympus CPU may increment while
-> in WFI/WFE, which does not align with counting CPU_CYCLES
-> on a programmable counter. Add a MIDR range entry and
-> refuse PMCCNTR_EL0 for cycle events on affected parts so
-> perf does not mix the two behaviors.
+On 4/22/2026 5:54 PM, Frank Li wrote:
+> [Some people who received this message don't often get email from frank.li@nxp.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
 > 
-> Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
-> ---
+> EXTERNAL EMAIL
 > 
-> Changes from v1:
->    * add CONFIG_ARM64 check to fix build error found by kernel test robot
->    * add explicit include of <asm/cputype.h>
-> v1: https://lore.kernel.org/linux-arm-kernel/20260406232034.2566133-1-bwicaksono@nvidia.com/
+> On Tue, Apr 21, 2026 at 03:24:11PM +0800, Jun Guo wrote:
+>> Hi Robin,
+>>
+>> Just pinging. I’d like to ask if you have any comments on the latest patch?
+>>
+>> On 3/25/2026 7:21 PM, Jun Guo wrote:
+>>> Enable DMANSECCTRL.INTREN_ANYCHINTR during probe so channel
+>>> interrupts are propagated when integrators wire DMA-350 channels
+>>> onto a shared IRQ line.
 > 
-> ---
->   drivers/perf/arm_pmuv3.c | 44 ++++++++++++++++++++++++++++++++++++++++
->   1 file changed, 44 insertions(+)
+> Your tag is wrong
 > 
-> diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
-> index 8014ff766cff..7c39d0804b9f 100644
-> --- a/drivers/perf/arm_pmuv3.c
-> +++ b/drivers/perf/arm_pmuv3.c
-> @@ -8,6 +8,7 @@
->    * This code is based heavily on the ARMv7 perf event code.
->    */
->   
-> +#include <asm/cputype.h>
->   #include <asm/irq_regs.h>
->   #include <asm/perf_event.h>
->   #include <asm/virt.h>
-> @@ -978,6 +979,41 @@ static int armv8pmu_get_chain_idx(struct pmu_hw_events *cpuc,
->   	return -EAGAIN;
->   }
->   
-> +#ifdef CONFIG_ARM64
-> +/*
-> + * List of CPUs that should avoid using PMCCNTR_EL0.
-> + */
-> +static struct midr_range armv8pmu_avoid_pmccntr_cpus[] = {
-> +	/*
-> +	 * The PMCCNTR_EL0 in Olympus CPU may still increment while in WFI/WFE state.
-> +	 * This is an implementation specific behavior and not an erratum.
-> +	 *
-> +	 * From ARM DDI0487 D14.4:
-> +	 *   It is IMPLEMENTATION SPECIFIC whether CPU_CYCLES and PMCCNTR count
-> +	 *   when the PE is in WFI or WFE state, even if the clocks are not stopped.
-> +	 *
-> +	 * From ARM DDI0487 D24.5.2:
-> +	 *   All counters are subject to any changes in clock frequency, including
-> +	 *   clock stopping caused by the WFI and WFE instructions.
-> +	 *   This means that it is CONSTRAINED UNPREDICTABLE whether or not
-> +	 *   PMCCNTR_EL0 continues to increment when clocks are stopped by WFI and
-> +	 *   WFE instructions.
-> +	 */
-> +	MIDR_ALL_VERSIONS(MIDR_NVIDIA_OLYMPUS),
-> +	{}
-> +};
-> +
-> +static bool armv8pmu_is_in_avoid_pmccntr_cpus(void)
-> +{
-> +	return is_midr_in_range_list(armv8pmu_avoid_pmccntr_cpus);
-> +}
-> +#else
-> +static bool armv8pmu_is_in_avoid_pmccntr_cpus(void)
-> +{
-> +	return false;
-> +}
-> +#endif
-> +
->   static bool armv8pmu_can_use_pmccntr(struct pmu_hw_events *cpuc,
->   				     struct perf_event *event)
->   {
-> @@ -1011,6 +1047,14 @@ static bool armv8pmu_can_use_pmccntr(struct pmu_hw_events *cpuc,
->   	if (cpu_pmu->has_smt)
->   		return false;
->   
-> +	/*
-> +	 * On some CPUs, PMCCNTR_EL0 does not match the behavior of CPU_CYCLES
-> +	 * programmable counter, so avoid routing cycles through PMCCNTR_EL0 to
-> +	 * prevent inconsistency in the results.
-> +	 */
-> +	if (armv8pmu_is_in_avoid_pmccntr_cpus())
-> +		return false;
-> +
+> dmaegine: arm-dma350: enable ANYCH ...	
+Okay, I'll fix this in the next version.
 
-Hi Besar,
+> 
+>>>
+>>> Signed-off-by: Jun Guo <jun.guo@cixtech.com>
+>>> ---
+>>>    drivers/dma/arm-dma350.c | 9 +++++++++
+>>>    1 file changed, 9 insertions(+)
+>>>
+>>> diff --git a/drivers/dma/arm-dma350.c b/drivers/dma/arm-dma350.c
+>>> index 84220fa83029..09403aca8bb0 100644
+>>> --- a/drivers/dma/arm-dma350.c
+>>> +++ b/drivers/dma/arm-dma350.c
+>>> @@ -13,6 +13,11 @@
+>>>    #include "dmaengine.h"
+>>>    #include "virt-dma.h"
+> 
+> extra empty line between header file and macro
+The space actually exists in the code, but it is hidden in the review 
+records.
 
-This is called from armpmu_event_init() before the event is scheduled on 
-the CPU so I don't think reading the MIDR at this point is safe.
-
-When the PMU is probed you probably need to do an SMP call to get the 
-MIDR of CPUs in that PMU's mask and then cache the "avoid pmccntr" 
-result like has_smt. Or even rename has_smt to avoid_pmccntr and combine 
-the two results there.
-
-I don't know what will happen if none of those CPUs are online when the 
-PMU is probed though...
-
-James
-
-
-
->   	return true;
->   }
->   
+> 
+> 
+>>> +#define DMANSECCTRL                0x200
+>>> +
+>>> +#define NSEC_CTRL          0x0c
+> 
+> why need two layer regiser define, your use DMANSECCTRL + NSEC_CTRL，
+> 
+> why not use one macro for 0x20c
+> 
+DMANSECCTRL is the base address for a set of control registers. 
+Currently, only the NSEC_CTRL register within that set is being used. 
+All other registers in the same group share this same base address, and 
+a similar arrangement applies to DMAINFO.
+> 
+>>> +#define INTREN_ANYCHINTR_EN        BIT(0)
+>>> +
+>>>    #define DMAINFO                   0x0f00
+>>>    #define DMA_BUILDCFG0             0xb0
+>>> @@ -582,6 +587,10 @@ static int d350_probe(struct platform_device *pdev)
+>>>      dmac->dma.device_issue_pending = d350_issue_pending;
+>>>      INIT_LIST_HEAD(&dmac->dma.channels);
+>>> +   reg = readl_relaxed(base + DMANSECCTRL + NSEC_CTRL);
+>>> +   writel_relaxed(reg | INTREN_ANYCHINTR_EN,
+>>> +                  base + DMANSECCTRL + NSEC_CTRL);
+>>> +
+>>>      /* Would be nice to have per-channel caps for this... */
+>>>      memset = true;
+>>>      for (int i = 0; i < nchan; i++) {
+>>
 
 
