@@ -4,76 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 423CBFA1FE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 18:46:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84EB0FA1FE4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 18:46:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s9SxWuthTNtL60nN9SxOARfcWqRutKN+Nff359pIU1U=; b=HgOTZebchBRzkzNfiuAMEkOplE
-	4v4zlRIuKtV0KHHXxPiz2rYdVtMxctetsJRdH9jGsyd7mtqPzkw9HoxZGQ5btvV8Hh0PUDXJCyWCL
-	ZIPaXCVPI31DyVpgXJkwwVIiq/sO0NlqGUlxnm/BFdPAETFR5HS3sRw8bOgcRf8EwDdSWDVojnUpp
-	PLbblvXIcMBr5QZrkeujayEK9iv0mv4CSqPX7MzbnM9qQxkQfBt1tc/mOgK/Lc4wo5QJcwERENJyS
-	sUg286luhM6SFP1f3maArSWW26m24j6P+hxmEtk2e4BhSc8dd9b73liXM8WCfAw5kMmMD9jlb2qLv
-	Bw4xOggg==;
+	bh=FgmauTPZGGXL2OnxiRoD5u8uvtQxi3U5ZxONFPYAc5A=; b=W7uriJGPci7VTO7usZZGfHTx+Y
+	ihsfD9rBUSzUJRkrwxWt+i7eyJqphEqHQ9sL2rwGLb3NkqfvkLoC3so/fcQq0gKFe32Smk9EOaiP/
+	TzA5omKY2AQOavtuKzPgG+F2e6NHCWlZdszLhiKjMNPT0M9PeyngWL1Kcda3bm6FdNMcMDnJ17XeG
+	/JutkAVb8ilVHt4rLiuMw+zGXusVqlIHzvnCqcGzEtSL7ic4yf+09fjpv4Q6UKxNcxvBzJqoIO9Cw
+	W5en4SHA157Bd/jH1UtcBwRZXX5iiB3vfKNwxM85Beyag1BgOzSM2PHRbROt8J6KHh+93g0MgS69R
+	qa6RfGIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFcaE-0000000Adr0-13CD;
-	Wed, 22 Apr 2026 18:45:58 +0000
+	id 1wFcaS-0000000AdtM-2PSq;
+	Wed, 22 Apr 2026 18:46:12 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFcaB-0000000AdqR-13Rb
+	id 1wFcaP-0000000AdsZ-2K5W
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 18:45:57 +0000
+	Wed, 22 Apr 2026 18:46:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 797ED1E8D;
-	Wed, 22 Apr 2026 11:45:43 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F7BC3F641;
-	Wed, 22 Apr 2026 11:45:45 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7ACD91E8D;
+	Wed, 22 Apr 2026 11:46:02 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 197FD3F641;
+	Wed, 22 Apr 2026 11:46:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776883549; bh=hkA5KjlIl5jwh4GkTXHA4vVNwgDxaznRvBx/RdhhKnA=;
+	t=1776883568; bh=YL9Q/CEimzmzvwqCzwcq+9U08GB6hZYu6L+QSbxPgrw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YR5vqQX1RwlqvU3irJVsmTCjnxjrT6BB9Mobx9TN8DuowUioHwsuy9oU1pnpwNL11
-	 1dlH18U+1iqag2bVyl/WX8QGsNBDr23tbm4Y62yq+fUD39OYy8G20AUnr3jzLYs74m
-	 6vfxb5Ccpxy/4VArdBH/MSuXTFo62aj6EQPD8FS0=
-Date: Wed, 22 Apr 2026 19:45:38 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Ulf Hansson <ulfh@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH/RFC 05/14] firmware: arm_scmi: Add scmi_get_base_info()
-Message-ID: <aekXUvIPb8nkhdKu@pluto>
-References: <cover.1776793163.git.geert+renesas@glider.be>
- <72e2a0e7a5abda02fe36b3f5851842f7a77b2593.1776793163.git.geert+renesas@glider.be>
+	b=ch/BFBWebDovM5JHuimYfJaNKI9Po1y0ZhwIQ6leJBuyfIlDwYKANwoEMc46lZ5Ev
+	 v4fZKAit7uX3nqmR4VWwqePi9+0FE6G0isDwEx4RFVkccZyVEgPvPIlGRaQtKy9SzW
+	 WSMb0XZ1/GKDIraL5xbdmcKmc0+UY89GWDXJ3nyg=
+Date: Wed, 22 Apr 2026 19:46:01 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Mimi Zohar <zohar@linux.ibm.com>
+Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
+	roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+	eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+	sebastianene@google.com
+Subject: Re: [RFC PATCH v2 1/4] security: ima: call ima_init() again at
+ late_initcall_sync for defered TPM
+Message-ID: <aekXaU52fzvNYaUF@e129823.arm.com>
+References: <20260422162449.1814615-1-yeoreum.yun@arm.com>
+ <20260422162449.1814615-2-yeoreum.yun@arm.com>
+ <6919248bdc85dac60277fa9d9c83d8bd258ca635.camel@linux.ibm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <72e2a0e7a5abda02fe36b3f5851842f7a77b2593.1776793163.git.geert+renesas@glider.be>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <6919248bdc85dac60277fa9d9c83d8bd258ca635.camel@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_114555_503461_4B4E1EC5 
-X-CRM114-Status: GOOD (  20.87  )
+X-CRM114-CacheID: sfid-20260422_114609_689339_F85CEF53 
+X-CRM114-Status: GOOD (  43.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,69 +80,305 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 21, 2026 at 08:11:38PM +0200, Geert Uytterhoeven wrote:
-> Currently non-SCMI drivers cannot find out what the specific versions of
-> each SCMI provider implementation on the running system are.
+Hi Mimi,
 
-Hi Geert,
+> On Wed, 2026-04-22 at 17:24 +0100, Yeoreum Yun wrote:
+> > To generate the boot_aggregate log in the IMA subsystem with TPM PCR values,
+> > the TPM driver must be built as built-in and
+> > must be probed before the IMA subsystem is initialized.
+> >
+> > However, when the TPM device operates over the FF-A protocol using
+> > the CRB interface, probing fails and returns -EPROBE_DEFER if
+> > the tpm_crb_ffa device — an FF-A device that provides the communication
+> > interface to the tpm_crb driver — has not yet been probed.
+> >
+> > To ensure the TPM device operating over the FF-A protocol with
+> > the CRB interface is probed before IMA initialization,
+> > the following conditions must be met:
+> >
+> >    1. The corresponding ffa_device must be registered,
+> >       which is done via ffa_init().
+> >
+> >    2. The tpm_crb_driver must successfully probe this device via
+> >       tpm_crb_ffa_init().
+> >
+> >    3. The tpm_crb driver using CRB over FF-A can then
+> >       be probed successfully. (See crb_acpi_add() and
+> >       tpm_crb_ffa_init() for reference.)
+> >
+> > Unfortunately, ffa_init(), tpm_crb_ffa_init(), and crb_acpi_driver_init() are
+> > all registered with device_initcall, which means crb_acpi_driver_init() may
+> > be invoked before ffa_init() and tpm_crb_ffa_init() are completed.
+> >
+> > When this occurs, probing the TPM device is deferred.
+> > However, the deferred probe can happen after the IMA subsystem
+> > has already been initialized, since IMA initialization is performed
+> > during late_initcall, and deferred_probe_initcall() is performed
+> > at the same level.
+> >
+> > To resolve this, call ima_init() again at late_inicall_sync level
+> > so that let IMA not miss TPM PCR value when generating boot_aggregate
+> > log though TPM device presents in the system.
+> >
+> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+>
+> A lot of change for just detecting whether ima_init() is being called on
+> late_initcall or late_initcall_sync(), without any explanation for all the other
+> changes (e.g. ima_init_core).
+>
+> Please just limit the change to just calling ima_init() twice.
 
-Thanks for your patches....this is not a proper full review of the series,
-BUT this patch catched my eye..
+My concern is that ima_update_policy_flags() will be called
+when ima_init() is deferred -- not initialised anything.
+though functionally, it might be okay however,
+I think ima_update_policy_flags() and notifier should work after ima_init()
+works logically.
 
-Indeed, yes, it is deliberate that the SCMI version information is NOT
-exposed out of the SCMI world, since being the SCMI an attempt to
-standardize a common FW interface (as in [1] of course), you should not
-know what runs inside the black-box, it should be irrelevant...
+This change I think not much quite a lot. just wrapper ima_init() with
+ima_init_core() with some error handling.
 
-...indeed the versioning is used inside the SCMI stack to deal properly
-with different protocol versions implemented by the server OR to apply
-proper quirks when needed, but all the rest should be standard....
+Am I missing something?
 
-...you should NOT really behave differently based on the underneath
-protocol or firmare implementation version...it is the SCMI stack that
-should behave properly, transparently...
+>
+>
+> > ---
+> >  include/linux/lsm_hooks.h           |  2 +
+> >  security/integrity/ima/ima.h        |  4 +-
+> >  security/integrity/ima/ima_init.c   | 10 +++-
+> >  security/integrity/ima/ima_main.c   | 76 +++++++++++++++++++++++------
+> >  security/integrity/ima/ima_policy.c |  3 ++
+> >  security/lsm_init.c                 | 13 ++++-
+> >  6 files changed, 87 insertions(+), 21 deletions(-)
+> >
+> > diff --git a/include/linux/lsm_hooks.h b/include/linux/lsm_hooks.h
+> > index d48bf0ad26f4..88fe105b7f00 100644
+> > --- a/include/linux/lsm_hooks.h
+> > +++ b/include/linux/lsm_hooks.h
+> > @@ -166,6 +166,7 @@ enum lsm_order {
+> >   * @initcall_fs: LSM callback for fs_initcall setup, optional
+> >   * @initcall_device: LSM callback for device_initcall() setup, optional
+> >   * @initcall_late: LSM callback for late_initcall() setup, optional
+> > + * @initcall_late_sync: LSM callback for late_initcall_sync() setup, optional
+> >   */
+> >  struct lsm_info {
+> >  	const struct lsm_id *id;
+> > @@ -181,6 +182,7 @@ struct lsm_info {
+> >  	int (*initcall_fs)(void);
+> >  	int (*initcall_device)(void);
+> >  	int (*initcall_late)(void);
+> > +	int (*initcall_late_sync)(void);
+> >  };
+> >
+> >  #define DEFINE_LSM(lsm)							\
+> > diff --git a/security/integrity/ima/ima.h b/security/integrity/ima/ima.h
+> > index 89ebe98ffc5e..75ee7ad184d0 100644
+> > --- a/security/integrity/ima/ima.h
+> > +++ b/security/integrity/ima/ima.h
+> > @@ -62,6 +62,8 @@ extern int ima_hash_algo_idx __ro_after_init;
+> >  extern int ima_extra_slots __ro_after_init;
+> >  extern struct ima_algo_desc *ima_algo_array __ro_after_init;
+> >
+> > +extern bool ima_initialised __ro_after_init;
+> > +
+> >  extern int ima_appraise;
+> >  extern struct tpm_chip *ima_tpm_chip;
+> >  extern const char boot_aggregate_name[];
+> > @@ -257,7 +259,7 @@ static inline void ima_measure_kexec_event(const char *event_name) {}
+> >  extern bool ima_canonical_fmt;
+> >
+> >  /* Internal IMA function definitions */
+> > -int ima_init(void);
+> > +int ima_init(bool late);
+> >  int ima_fs_init(void);
+> >  int ima_add_template_entry(struct ima_template_entry *entry, int violation,
+> >  			   const char *op, struct inode *inode,
+> > diff --git a/security/integrity/ima/ima_init.c b/security/integrity/ima/ima_init.c
+> > index a2f34f2d8ad7..c28c71090ad2 100644
+> > --- a/security/integrity/ima/ima_init.c
+> > +++ b/security/integrity/ima/ima_init.c
+> > @@ -115,13 +115,19 @@ void __init ima_load_x509(void)
+> >  }
+> >  #endif
+> >
+> > -int __init ima_init(void)
+> > +int __init ima_init(bool late)
+> >  {
+> >  	int rc;
+> >
+> >  	ima_tpm_chip = tpm_default_chip();
+> > -	if (!ima_tpm_chip)
+> > +	if (!ima_tpm_chip) {
+> > +		if (!late) {
+> > +			pr_info("Defer initialisation to the late_initcall_sync stage.\n");
+> > +			return -EPROBE_DEFER;
+> > +		}
+> > +
+> >  		pr_info("No TPM chip found, activating TPM-bypass!\n");
+> > +	}
+> >
+> >  	rc = integrity_init_keyring(INTEGRITY_KEYRING_IMA);
+> >  	if (rc)
+> > diff --git a/security/integrity/ima/ima_main.c b/security/integrity/ima/ima_main.c
+> > index 1d6229b156fb..ac444ee600e2 100644
+> > --- a/security/integrity/ima/ima_main.c
+> > +++ b/security/integrity/ima/ima_main.c
+> > @@ -38,6 +38,7 @@ int ima_appraise;
+> >  #endif
+> >
+> >  int __ro_after_init ima_hash_algo = HASH_ALGO_SHA1;
+> > +bool ima_initialised __ro_after_init = false;
+> >  static int hash_setup_done;
+> >  static int ima_disabled __ro_after_init;
+> >
+> > @@ -1237,6 +1238,35 @@ static int ima_kernel_module_request(char *kmod_name)
+> >
+> >  #endif /* CONFIG_INTEGRITY_ASYMMETRIC_KEYS */
+> >
+> > +static int __init init_ima_core(bool late)
+> > +{
+> > +	int err;
+> > +
+> > +	if (ima_initialised)
+> > +		return 0;
+> > +
+> > +	err = ima_init(late);
+> > +	if (err == -EPROBE_DEFER)
+> > +		return 0;
+> > +
+> > +	if (err && strcmp(hash_algo_name[ima_hash_algo],
+> > +			  CONFIG_IMA_DEFAULT_HASH) != 0) {
+> > +		pr_info("Allocating %s failed, going to use default hash algorithm %s\n",
+> > +			hash_algo_name[ima_hash_algo], CONFIG_IMA_DEFAULT_HASH);
+> > +		hash_setup_done = 0;
+> > +		hash_setup(CONFIG_IMA_DEFAULT_HASH);
+> > +		err = ima_init(late);
+> > +	}
+> > +
+> > +	if (!err) {
+> > +		ima_update_policy_flags();
+> > +		ima_initialised = true;
+> > +	} else
+> > +		ima_disabled = 1;
+> > +
+> > +	return err;
+> > +}
+> > +
+> >  static int __init init_ima(void)
+> >  {
+> >  	int error;
+> > @@ -1250,30 +1280,42 @@ static int __init init_ima(void)
+> >  	ima_appraise_parse_cmdline();
+> >  	ima_init_template_list();
+> >  	hash_setup(CONFIG_IMA_DEFAULT_HASH);
+> > -	error = ima_init();
+> > -
+> > -	if (error && strcmp(hash_algo_name[ima_hash_algo],
+> > -			    CONFIG_IMA_DEFAULT_HASH) != 0) {
+> > -		pr_info("Allocating %s failed, going to use default hash algorithm %s\n",
+> > -			hash_algo_name[ima_hash_algo], CONFIG_IMA_DEFAULT_HASH);
+> > -		hash_setup_done = 0;
+> > -		hash_setup(CONFIG_IMA_DEFAULT_HASH);
+> > -		error = ima_init();
+> > -	}
+> > -
+> > -	if (error)
+> > -		return error;
+> >
+> >  	error = register_blocking_lsm_notifier(&ima_lsm_policy_notifier);
+> > -	if (error)
+> > +	if (error) {
+> >  		pr_warn("Couldn't register LSM notifier, error %d\n", error);
+> > +		goto disable_ima;
+> > +	}
+> >
+> > -	if (!error)
+> > -		ima_update_policy_flags();
+> > +	error = init_ima_core(false);
+> > +	if (error) {
+> > +		unregister_blocking_lsm_notifier(&ima_lsm_policy_notifier);
+> > +		goto disable_ima;
+> > +	}
+> > +
+> > +	return 0;
+> >
+> > +disable_ima:
+> > +	ima_disabled = 1;
+> >  	return error;
+> >  }
+> >
+> > +static int __init late_init_ima(void)
+> > +{
+> > +	int err;
+> > +
+> > +	if (ima_disabled)
+> > +		return 0;
+> > +
+> > +	err = init_ima_core(true);
+> > +	if (err) {
+> > +		unregister_blocking_lsm_notifier(&ima_lsm_policy_notifier);
+> > +		ima_disabled = 1;
+> > +	}
+> > +
+> > +	return err;
+> > +}
+> > +
+> >  static struct security_hook_list ima_hooks[] __ro_after_init = {
+> >  	LSM_HOOK_INIT(bprm_check_security, ima_bprm_check),
+> >  	LSM_HOOK_INIT(bprm_creds_for_exec, ima_bprm_creds_for_exec),
+> > @@ -1321,4 +1363,6 @@ DEFINE_LSM(ima) = {
+> >  	.blobs = &ima_blob_sizes,
+> >  	/* Start IMA after the TPM is available */
+> >  	.initcall_late = init_ima,
+> > +	/* Start IMA late in case of probing TPM is deferred. */
+> > +	.initcall_late_sync = late_init_ima,
+> >  };
+> > diff --git a/security/integrity/ima/ima_policy.c b/security/integrity/ima/ima_policy.c
+> > index bf2d7ba4c14a..c3bcc3521c81 100644
+> > --- a/security/integrity/ima/ima_policy.c
+> > +++ b/security/integrity/ima/ima_policy.c
+> > @@ -501,6 +501,9 @@ static void ima_lsm_update_rules(void)
+> >  int ima_lsm_policy_change(struct notifier_block *nb, unsigned long event,
+> >  			  void *lsm_data)
+> >  {
+> > +	if (!ima_initialised)
+> > +		return NOTIFY_DONE;
+> > +
+> >  	if (event != LSM_POLICY_CHANGE)
+> >  		return NOTIFY_DONE;
+> >
+> > diff --git a/security/lsm_init.c b/security/lsm_init.c
+> > index 573e2a7250c4..4e5c59beb82a 100644
+> > --- a/security/lsm_init.c
+> > +++ b/security/lsm_init.c
+> > @@ -547,13 +547,22 @@ device_initcall(security_initcall_device);
+> >   * security_initcall_late - Run the LSM late initcalls
+> >   */
+> >  static int __init security_initcall_late(void)
+> > +{
+> > +	return lsm_initcall(late);
+> > +}
+> > +late_initcall(security_initcall_late);
+> > +
+> > +/**
+> > + * security_initcall_late_sync - Run the LSM late initcalls sync
+> > + */
+> > +static int __init security_initcall_late_sync(void)
+> >  {
+> >  	int rc;
+> >
+> > -	rc = lsm_initcall(late);
+> > +	rc = lsm_initcall(late_sync);
+> >  	lsm_pr_dbg("all enabled LSMs fully activated\n");
+> >  	call_blocking_lsm_notifier(LSM_STARTED_ALL, NULL);
+> >
+> >  	return rc;
+> >  }
+> > -late_initcall(security_initcall_late);
+> > +late_initcall_sync(security_initcall_late_sync);
+> > --
+> > LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
-Having said that...I understand that at least it could be useful to be able
-to query the SCMI stack to know, even from non-SCMI drivers, WHICH quirks
-have been applied/activated at run time...but anything more than that it
-seems to me dangerous and prone to a number of abuses of the SCMI stack
-itself...
-
-(Also...exposing the versions itself means also tracking that bit of info
-in more than one place: the quirk framework and your drivers.)
-
-> 
-> However, different versions may use different ABIs (e.g. different clock
-> IDs), or behave different, requiring remapping or workarounds in other
-> drivers.
-
-...abuse like this indeed :P ... the SCMI server is supposed to be that
-one entity remapping the IDs in the background if the same IDs happen to
-be representing different physical resources across a number of distinct
-platforms all supported by the same firmware blob...so as to present
-a consistent set of contiguos IDs...
-
-Also because this should be one of the selling point of the SCMI stack
-in a virtualized environment: you can ship the same kernel drivers with
-the same DT and you know that ID=<N> will always identify the specific
-resource that is needed by your driver without worrying about the fact
-that in reality in the backstage the effectively managed physical resource
-could be different across different platforms, because that does not matter
-if the SCMI platform server had properly remapped (at build time/run-time ?)
-the resources to your expected ID...alternatively of course you can ship
-with different DTs to describe different hardware...BUT remmapping stuff
-in the drivers themselves guessing on the vendor/subvendor/impl_vers
-seems a dangerous abuse...
-
-I watched a bit of the LPC discussions around this (from Marek I think)
-but sincerely most of those problems had one (not necessarily simple)
-solution: fix your firmwares AND/OR apply quirks in the meantime...
-
-Sorry, I am sure this not a welcomed answer :P ...thoughts ? 
-
-Thanks,
-Cristian
-
-[1]: https://xkcd.com/927/
-
+--
+Sincerely,
+Yeoreum Yun
 
