@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ACC2FA1FDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 18:13:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F6C8FA1FE1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 18:17:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:In-Reply-To:Subject:CC:To:From:Date:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=Uyz6tSF+oy1MloiWLm1wGiTPmiCDVtWICeLWrJM81rU=; b=1RRajQ46Kc7SdsbKcNwK47ALYi
-	73hNN1OoPRf+r9meEIUOeea7EdCMT5lksilKtFnkLOiCIqKJYCqIJpinFQjfYjdse0danaBTNZzwZ
-	VWtpL/lkLhPpvXazWvbyROimG0zc/LTCqxTz7cBcBtYyXErPXBxJzRnO/FNyIPDsV8ojpU8yZlV99
-	+aCjO49VyLm8iK/SEN+jNE+O3f4EqX9OhV3/F3uUMj4D2aDVTpTrxlitPGDqWo2oUlM6V0hDPRswK
-	OmjGA9/uPW4lIV+kBiOtJaP1FDdsE3LLLleaURvwMnZnE87tGMj+fu5Jm6L7A24xprNyF2aSfud5K
-	5KwEMDAA==;
+	bh=k5olhXnIscd8Fz0fGU3E0klOq/HsiOUVkCzhktPLD2M=; b=MnFuLZapx/09/m3hINXRaUsF8f
+	YkX61bOeG4nvK3I1i9cfjlRpVQtovYFWoziHO76oHmdQBFfN/5RHkUG/k698UVr/RZIbfc7zzck7A
+	W472JUzl8DfwfZuqm7VgOB0H20/N20QLh5FZhwiUJtx8ZqdfRiT7G2PMQuDn2XDU3B1mYFoN8v39/
+	bT4kZPN3VCIwufjeCg2tRZ1aaXdBJaN0lN86aN3NgyGeqaiX0Dupq6fz/CuvHTsHMVJ/TScKXljHh
+	Q5Ik+hU63Oq3fgX5sqlrG/NfvI3luliDtDt+LrpBgVCSYHcix83DfYN/35rG0z7QrJ0xGXTcFYkW4
+	/XxBpSFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFc53-0000000AcEP-1eNU;
-	Wed, 22 Apr 2026 18:13:45 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1wFc8I-0000000AcSo-04VC;
+	Wed, 22 Apr 2026 18:17:06 +0000
+Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFc4w-0000000AcCs-2R0u
+	id 1wFc8C-0000000AcSD-1NV4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 18:13:44 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-488e1a8ac40so71845565e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 11:13:38 -0700 (PDT)
+	Wed, 22 Apr 2026 18:17:04 +0000
+Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-7a469383e0bso45504177b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 11:16:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776881617; x=1777486417; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1776881819; x=1777486619; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:in-reply-to
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Uyz6tSF+oy1MloiWLm1wGiTPmiCDVtWICeLWrJM81rU=;
-        b=oIVAvtippLY7KyGEiN87Vl50ERUYUHxtJLRhgKjm250A9Mf+9r4e+6W4zlSOUwbPRH
-         tcu22XU1rj9UM2UIZGeIBbzERv1+HyVynaIiM/TJUfW8eUw+5hfTg0opL7EGlpqxT6OI
-         Lv9ox54J61b+HYC9ejZgyNBbt/IvSYqmpWI+O0hTmqchiO2S4zF3FGpGx+JyP1SHYvwf
-         LCohib31VxZrkmoZpDhKbTDACKhUpNzAXiAKXUegIm/ggWhzAbSeMaMBUaXAg04sJZav
-         3I8jhtvJesJg4WVruuDPB21nXPX9DeAViqnPB0R1I6cMinJb2XG1VMZGmjbhusIZDaAV
-         1ORQ==
+        bh=k5olhXnIscd8Fz0fGU3E0klOq/HsiOUVkCzhktPLD2M=;
+        b=ID7PL/aBnjTJ2Uyl+9YNgFnt7Tka1HCPBn2NLOL0mMY6L3dbD3QCKMdPL4wvsbCo/Z
+         jRMTR/lVc0SyQW1hE/z74UCESCzOsRVPdlIKBy78nuXljCPFd5h4zlWifsZh0RfJ9mR0
+         gvDSmGuWtfer3VR2ZWTMfTlepkwIvvMu2PunQwhSxpBNoR/LBjEaF6oDgLjVfB4wYhze
+         towfDocaZOaqJFRcbj4KBiRByr2LiNPvMBiR9O2ZDqbIMhOxX9S3Ei0En8oc7iBPbitt
+         12LTm4S2zRBPLs83Wn7q2aCQVkKynp2U3YLTQgVQ49GpuOdB7PzhNa950Ex0mun8UCKK
+         vRTw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776881617; x=1777486417;
+        d=1e100.net; s=20251104; t=1776881819; x=1777486619;
         h=content-transfer-encoding:mime-version:message-id:in-reply-to
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Uyz6tSF+oy1MloiWLm1wGiTPmiCDVtWICeLWrJM81rU=;
-        b=qQsVeav4DKdlR+Uts4KnZMsPihmeF+6FwRMnSx07x8WdDYDwyvpocAUEFo88f6A95F
-         XhEw53JTFqFlexx9I7s5U3ti9/lVFEeILxDh5coej3yAgFMLrmM8AVdLAhsmsScI9mVQ
-         UtTcIi+d4t/pOUVyjCMXTrbkPnWmGJFiz0FS9VJHLAtPUWgaY+uCHYE20RcjBWx6O5tM
-         JGPMn6UYRVD9iuXe/5KfrbSLLEaMytIqlHdqeOrkzDhqPcSxWgjHYEVJhszlClRINCSC
-         0Pd5R6qytyNyY4fHNfxDhy3pVJYkOmr2N7iyWnvPk7HcI64chdNQr9A63WL2OPRiDDkh
-         iuzg==
-X-Forwarded-Encrypted: i=1; AFNElJ8P/W31ry/8K9tDDwP4Xj161+p5Rxh2CG7TdSWI/B2LJhWMyCYUubt8TfnqRH6+u76flq/Vvnfkw6bccsIGaQ9P@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzj/xuECggpw7QTPPNYZKW3+vweZPEpYzan+dFa7QP1UNRc4N9X
-	4F+GBfQk4Yq72+kCy7qa/Q/ok72DK77UvJeNxr1fth6ynJq8iJR+Xxw1fxk2Av6NfyW+GQ==
-X-Gm-Gg: AeBDieuI1grsAbss2FGYfCh+nJRnJ8elyxZlDbeD0hqzvAIG5h7H+1I8Fkfbgk6IVnY
-	0eLLzfxOutHm+Oz0xOeBMBB0PLKnCse44bfyvcwE1Bw0EPuoYOvJE38TpTpkWS+ttsWHGLBRj0b
-	f/vHkJdKzXqj+GAxAscgBCoJlCqaJXatZwqcNPJMHm+i+JETfHdANcbzuSuZovAybui+hjMqFcq
-	jJ/Wtdgm+qKqDhu9o1lya2DB4FTmJP+MJ82w5gdZ7+ZKbJu3Mj6vtgYSNC2Nf4iEK2UehBNJhVb
-	WOAjv4oG/ATjdD3Lof2tJ9eDVMzS1Al9cb+eQzVG7z+EBFjmdOIez0UEHaTbfJkkelHldEt1XCl
-	80t9zYelNWQIJbVXqx9YA98WEnBdgy18ZG61wg3gxMcopKrocWIfe3ee+0fYgvuI9rovjrnUksW
-	z+eprFWyrq52p75VUleIoM350kIWzHezIfwCNN
-X-Received: by 2002:a05:600c:8115:b0:488:8577:d9cc with SMTP id 5b1f17b1804b1-488fb77faacmr295680905e9.20.1776881616583;
-        Wed, 22 Apr 2026 11:13:36 -0700 (PDT)
+        bh=k5olhXnIscd8Fz0fGU3E0klOq/HsiOUVkCzhktPLD2M=;
+        b=sLYSU8ejpnG/YN4jsoDrTLVNeI/n19mB+RdChLGBhui3v08x51QCRr+WTZAfgh2UYP
+         lUf/ngZ/+SHreXDTSZEanYr0cR4HMH939nc4JA9dIRjp7vP5c18PMZWemB/9WPbMLVGC
+         ZpAbY4rqJ0rrVXPQrgQidoM3CDITPL9wf2FUXzAcROnrVcZib0UUZKnje9D0aazKI3LT
+         cOHSaxMd92XJvhYRIBTf5bCDU1AmLAAG02zx+VHkKTiCtoW1cu83nntoii091ZeIzbw+
+         2TaAZFqwHkbEg3mFj9eTFiech+D8oU62YJhIN1Xb7AtuFi2jsqiC9OENUh0kfEsYnX9a
+         XsJA==
+X-Forwarded-Encrypted: i=1; AFNElJ8pEJVMGRN3D/7A2Tf1HQCHOc86Kmm4EmMP4+XV4KkqnP9qQIV8csWElZKXEXFJo/8sx6R1wpCEUvxtnp6OAqmC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyg3xQYmWVNoPohn6/vLJQP30ILrOYTkSfy6hf6BkKApjlEdQDN
+	jH1DpE55Ys46TKaUyxCnG3uU9icA4NSGXqCWTwH9toeV9CeacA5GVt2EK4crA9mv6Go=
+X-Gm-Gg: AeBDietkXrwWHTMcX1giGFvuu0X/O2ZtDRuAgvdN8O3FOnNtTBXgJM1GvdUaoIb7Acy
+	elWdbNOyQMworniPGEU1vaM3mWBR0oB/ppg1otQBHqhAgE1EHB2xH/2ozS+zgc3PY9rTr5Ltowp
+	DtCKsNUwv17438U/4LlMPux4iAXV5Ihr7tMia6jGetwDVrFGnMAPjebdV8IHafUhTzbISwF3frJ
+	0NGD1dRdEu+gOwFB6WhXSOoJvBNuwjCKZpvQDMKk9nOQnTiXpb17LwmwXzH2+9aibCWBXB8FbdR
+	m0UUO/JkJpFBqUue54LGugvPJAl/Qg4S2FgM+gfWjKQI2bj/CJGYFjaES4M2Mlp3MKZrGqx7139
+	unswyuEmb4XMfPWnuHsZvAV/KjYyN5/16TwbCd6p2ARGapr3ZOJ17bx7L9HEv0KwxvNKzIxuIYv
+	pn5w5Ykri3b353QGMxLgiAftQO7ozmZMsJvWNA
+X-Received: by 2002:a05:690c:348a:b0:7ba:f414:cd28 with SMTP id 00721157ae682-7baf414d250mr133922307b3.42.1776881818926;
+        Wed, 22 Apr 2026 11:16:58 -0700 (PDT)
 Received: from ehlo.thunderbird.net ([86.1.69.5])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488fb72d365sm232234915e9.1.2026.04.22.11.13.36
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-7b9ee8be8e4sm74318757b3.14.2026.04.22.11.16.58
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 22 Apr 2026 11:13:36 -0700 (PDT)
-Date: Wed, 22 Apr 2026 19:13:36 +0100
+        Wed, 22 Apr 2026 11:16:58 -0700 (PDT)
+Date: Wed, 22 Apr 2026 19:16:57 +0100
 From: Josh Law <joshlaw48@gmail.com>
 To: ardb+git@google.com
 CC: ardb@kernel.org, arnd@arndb.de, ebiggers@kernel.org, hch@lst.de,
  linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
  linux-raid@vger.kernel.org, linux@armlinux.org.uk
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_4/8=5D_lib/crc=3A_Turn_NEON_intrin?=
- =?US-ASCII?Q?sics_crc64_implementation_into_common_code?=
-In-Reply-To: <20260422171655.3437334-14-ardb+git@google.com>
-Message-ID: <E9489A63-1EFA-4AA0-BD66-6E4066F01C6B@gmail.com>
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_5/8=5D_lib/crc=3A_arm=3A_Enable_arm64?=
+ =?US-ASCII?Q?=27s_NEON_intrinsics_implementation_of_crc64?=
+In-Reply-To: <20260422171655.3437334-15-ardb+git@google.com>
+Message-ID: <547D9EB2-4A67-49A9-8C8D-3ADD22123B1A@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain;
  charset=utf-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_111340_521955_41784607 
-X-CRM114-Status: UNSURE (   7.81  )
+X-CRM114-CacheID: sfid-20260422_111700_396495_C7526B19 
+X-CRM114-Status: UNSURE (   6.27  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,36 +100,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi ard.
+Hi Ard,
 
+Wow, 20x improvement is nuts.
 
-diff --git a/lib/crc/arm64/crc64-neon.h b/lib/crc/arm64/crc64-neon.h
-new file mode 100644
-index 000000000000..fcd5b1e6f812
---- /dev/null
-+++ b/lib/crc/arm64/crc64-neon.h
-@@ -0,0 +1,21 @@
-+// SPDX-License-Identifier: GPL-2.0-only
+I like how you handle this change *safely*
+
+Like.
+
++static inline u64 crc64_nvme_arch(u64 crc, const u8 *p, size_t len)
++{
++	if (len >= 128 && static_branch_likely(&have_pmull) &&
++	    likely(may_use_simd())) {
++		do {
++			size_t chunk = min_t(size_t, len & ~15, SZ_4K);
 +
-+static inline uint64x2_t pmull64(uint64x2_t a, uint64x2_t b)
-+{
-return vreinterpretq_u64_p128(vmull_p64(vgetq_lane_u64(a, 0),
-vgetq_lane_u64(b, 0)));
-+}
-+static inline uint64x2_t pmull64_high(uint64x2_t a, uint64x2_t b)
-+{
-poly64x2_t l = vreinterpretq_p64_u64(a);
-poly64x2_t m = vreinterpretq_p64_u64(b);
-return vreinterpretq_u64_p128(vmull_high_p64(l, m));
-+}
++			scoped_ksimd()
++				crc = crc64_nvme_neon(crc, p, chunk);
++
++			p += chunk;
++			len -= chunk;
++		} while (len >= 128);
++	}
 
-Makes sense.
+chunking the SIMD work at SZ_4K to avoid hogging the CPU and allowing
+softirqs/preemption to process is a great detail. 
 
-Moving these polynomial multiplication wrappers into their own header is
-good. 
+It’s easy to just wing it and throw
+the entire buffer at the FPU, but respecting the kernel's latency
+requirements is better!
+
 
 Reviewed-by: Josh Law <joshlaw48@gmail.com>
-
 
 Thanks!
 
