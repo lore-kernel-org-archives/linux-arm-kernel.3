@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FF79F94CD9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 07:19:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7331F94CD8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 07:23:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2IzwryI7mT02sn2ht5LvrVlkiAXegOhJCMt6xHoEnWA=; b=sJ/0T6gaVyGQoa4IzjqincVh47
-	r3hviy6xvjnn3z2pL5PGOwd1oJYa8afP1Uj+9UFkd0gKRTuNxdr4lpEmdhvyiCaZcSH/jncXHpfeQ
-	hqGW1iO4pR2vZ8sSpQNSzwdaLuJCows/ZsSZfXN1KBZkDOvcjFLNveBfTDqBp0NS3OlSokOC1eoDB
-	yOcaceZTedksz+2JqYWJgglodyG3PvkLzGIc3bZKRYDQ4D913Pi23k7p87WDtDIimNKpjWVj+Gspm
-	wUoPMQW8e42stLBqA6ALHszVEeP6FUQe7KSZr5awd5O0HXmQYVZS9fGjb9+5HCAwKD067FDx34Zyz
-	X9zZrq9g==;
+	bh=vQ4lYIsklJpho+gwVJ2tZGCbgPrwwsFyBkAacjdzrys=; b=qlql/59Gez2H42l69U1uJJLGYP
+	2poxVC/wJb1gdLeR7LbUnk9PCDRUvDtQ/FcKGfEn1fmEiU7DMXLXK+tayBPac7qTi5pCEpwHsgoPe
+	YaEzZ83+NxgZi6zDF4wkGkBYsCDJmaHl9Riov+L+1lePx5ARD02l/flmBzmZdeEHbk5p4eXNcdHOO
+	PDzDSmb3ncXt1EYLtmE3jk23wWFppODc6Rd4AGreV7a3aUctTF1gwk2JZWZWmCy5sc1dHIM+UA/u8
+	zdS9S2EK4e4GOaDNNCQH2QoIURbUN2Bux/4s2Hb4oSgpJL6ADqcLnYpoF+pdqPjYSD4AOeEDGVHcZ
+	7cwSu//Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFRs1-00000009iVo-0OQt;
-	Wed, 22 Apr 2026 07:19:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wFRw2-00000009imq-1881;
+	Wed, 22 Apr 2026 07:23:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFRs0-00000009iVf-1MoJ;
-	Wed, 22 Apr 2026 07:19:36 +0000
+	id 1wFRw1-00000009imh-2elN;
+	Wed, 22 Apr 2026 07:23:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6D64A60018;
-	Wed, 22 Apr 2026 07:19:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B496AC19425;
-	Wed, 22 Apr 2026 07:19:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EE3CF60018;
+	Wed, 22 Apr 2026 07:23:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DFACC19425;
+	Wed, 22 Apr 2026 07:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776842375;
-	bh=/rjpCv9AgVY957+ryIyB1yaYB3gcSX8IyGz/PAx64+c=;
+	s=k20201202; t=1776842624;
+	bh=U1ij765Jsgyab3m+Pw8LxQtm6XxGjDqoXz6QoaxBu5Q=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ENlxW5s+Rrvgh6mt0d5lvBLzYM8Vsg50sVcQIi+KGwoNvmmEkoG8NYs7rU/vomaEY
-	 /eaqUkEDRNTVVv6a6s05GDmOEAneIdUa8c7szDyXfW1tmLbMjn9RveSRysrAP+LC8l
-	 miVvw76jcgobzS8OIc+6oV9wpmR7JhQ2Kj716Xysfdw9YJFsyUkXQkNLPXyAUGXKqQ
-	 MbS05SxsV914xCOAXVPq5NxaV2VEVu4WjlFyEsbv98erkMxrGuOc8fEresi4iDmLHm
-	 KjHjUPMMVluPVnMADnC1tNDtT/dX0PbJXSEI9kkajXA0Qr6CyE2DecTsZS0gsQRGoE
-	 r9ZG63mLh/Zpw==
-Date: Wed, 22 Apr 2026 09:19:32 +0200
+	b=B2sMocZos1sITvRnYLPtTnqR8duPdHl9cgcOtp6ykjMRmHSZyCrR+zbs++sZEQ1Ex
+	 +yR2IS8MfjCyZi/Fsl30hYJJpTqC5mNl0mtxXGhFJmKiq6U0nRXWmWF892rgytsxUB
+	 +rfq+yAhL7TyzK7TqlxtDBh1M1vZwgrMxHX2jOkO+3wj9QoQSphxh4gBE/9QrzAa32
+	 SOlfPLNZUB+0Ik71N+hUGflS/Ma0wIgqXaveVeZZ7CFX2FlvN+woX30hxBOPWbwwja
+	 RcBQttTqKdVeuP/XZvZJ0i3Au5w9p8mDkjRHz4nzDQS+d1xmaklSa22JMija0wIqnV
+	 shZWoQyTmDjNw==
+Date: Wed, 22 Apr 2026 09:23:42 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Daniel Golle <daniel@makrotopia.org>
 Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
@@ -53,15 +53,15 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
 	Eugen Hristev <eugen.hristev@linaro.org>, linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v2 1/9] ASoC: dt-bindings: mt2701-afe-pcm: add HDMI audio
- path clocks
-Message-ID: <20260422-capable-ambrosial-otter-ddd6e0@quoll>
+Subject: Re: [PATCH v2 2/9] ASoC: dt-bindings: mediatek,mt2701-hdmi-audio:
+ add MT2701 HDMI audio
+Message-ID: <20260422-mighty-rainbow-porpoise-c98f96@quoll>
 References: <cover.1776646435.git.daniel@makrotopia.org>
- <69f0b69e49068695db4ba6164c0757ccdf9786fd.1776646435.git.daniel@makrotopia.org>
+ <072c4db4a01ac125e9ee5e34f992cd169c78e117.1776646435.git.daniel@makrotopia.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <69f0b69e49068695db4ba6164c0757ccdf9786fd.1776646435.git.daniel@makrotopia.org>
+In-Reply-To: <072c4db4a01ac125e9ee5e34f992cd169c78e117.1776646435.git.daniel@makrotopia.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,31 +76,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 20, 2026 at 02:13:05AM +0100, Daniel Golle wrote:
->    clock-names:
-> +    minItems: 34
->      items:
->        - const: infra_sys_audio_clk
->        - const: top_audio_mux1_sel
-> @@ -104,6 +110,10 @@ properties:
->        - const: audio_a1sys_pd
->        - const: audio_a2sys_pd
->        - const: audio_mrgif_pd
-> +      - const: hadds2pll_294m
-> +      - const: audio_hdmi_pd
-> +      - const: audio_spdf_pd
-> +      - const: audio_apll_pd
->  
->  required:
->    - compatible
-> @@ -114,3 +124,16 @@ required:
->    - clock-names
->  
->  additionalProperties: false
-> +
-> +allOf:
-
-allOf goes before additionalProperties
+On Mon, Apr 20, 2026 at 02:13:13AM +0100, Daniel Golle wrote:
+> Describe the sound card node that routes the MT2701/MT7623N AFE
+> HDMI playback path to the on-chip HDMI transmitter. This is
+> separate from the AFE platform binding (mediatek,mt2701-audio)
+> because it represents board-level audio routing between the AFE
+> and the HDMI codec, not an additional IP block. MT7623N boards
+> carry the same IP and use the mt7623n- compatible as a fallback
+> to mt2701-.
+> 
+> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+> ---
+> v2:
+>  * Fix subject prefix to use schema filename (Krzysztof Kozlowski)
+>  * Rewrite title and description to describe hardware, not driver
+>    (Krzysztof Kozlowski)
+>  * Clarify in commit message why this is a separate binding from
+>    mediatek,mt2701-audio (Krzysztof Kozlowski)
+> 
+>  .../sound/mediatek,mt2701-hdmi-audio.yaml     | 48 +++++++++++++++++++
+>  1 file changed, 48 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt2701-hdmi-audio.yaml
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
