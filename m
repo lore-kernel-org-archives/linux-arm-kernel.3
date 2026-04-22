@@ -4,105 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88892F9B5E2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 08:33:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3A2EF9B5E0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 08:33:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1EMnjefoZVtE6qyXWNiSeQYJ6N4rmREqzBA+4f1h/1g=; b=n59DJw2rgPS8gPVLL6YD9vkVDw
-	kgWvDrgZOukZaYJ77k8MkBq03gzXChnStyUkzyAyDmrRs33KNegAJDRta34lqKcY4SY/Svom2S5LO
-	/ty8nc5N9dkZ5JNwBrrdipLgy2aDOj2mfv4FhNwz6/X+VxDxNobl6XLK8/GKUc8U8zMm+of1BwgBT
-	jnk/fOtgWmNv4YTeEPl5d/H/LiB5WkYin0X3lT6GehhulXy5XLB0sl1f3Z4IsE3l9t8rRxPIlUr4W
-	W4cstiyoHA9tH37QgQGxybq4SUm68u8yrBWozvzhuIPy9h+4fjOstTmFdJrqnASxc0frlaqWzo8oo
-	89ZZeayA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ORoTDQr6cK4leZzidTtpiy+qFbY0ke5tAacDsKHAGzg=; b=UisZ5VzLffrnOxzvHazpCOrUTX
+	xv6W5sUCeEjNOTU3zWtA2d8te9MjIr4WQ7hIzJ5DM3pzZebKtM6CTd67d3TKPdaonp21WQBXwA2wD
+	QyOa+OEtdpMWJmCsvVRefcuY8qWfYphwBeDqOHbVX2W6Udb3B8yjULkfTKfVsVBL0HqSY3mKi5USQ
+	MsGJwBaDUZBI+8Nvr7RcbR3K/Jg92vJjB695nTrirTdr6gXqXc8QRly18/JklnPYKKr76WWJWTBFF
+	KnERUzEe2drauUPtKtmui+9NdRDIePHU8NyNM00y2CrmeQnu5SuY8fC7wbDemo7R6bcJHwj5mcK0J
+	ZeoY4anQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFT11-00000009mXc-1qhv;
-	Wed, 22 Apr 2026 08:32:59 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wFT1j-00000009mcl-20Ai;
+	Wed, 22 Apr 2026 08:33:43 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFT0y-00000009mWz-1fKs
+	id 1wFT1h-00000009mcK-1WQ1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 08:32:58 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-488b3f8fa2bso55526345e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 01:32:55 -0700 (PDT)
+	Wed, 22 Apr 2026 08:33:42 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63M5Mh2F3730787
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 08:33:40 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=ORoTDQr6cK4leZzidTtpiy+qFbY0ke5tAac
+	DsKHAGzg=; b=nHf8nnDFNaHnaHZt7EGeYYRErDn3vH2NPZ3WbhusYfIhjVT0v5X
+	tl0fo6g3sdHzDDU/g57I+VbEd0qdp57tDJf6uEATLDJOK1WDfEPQ9F5GIELCzqsc
+	x80yn3vlXIUHQbJtKCusBVYDcfG/4YO5C81pXA+51iNstNilD9tuUEKZaAJTxDaY
+	7s/+tuXGaCMYyXyJ1GT3J9IZyK8UWpm8JA66yja23K7L+ZIJ+8xgRMPf3OyS/kO9
+	0v72CVkAHBt20S3bzL8CSCIiyEPo6srNUh9gVuHLK2LSjRqRnq2Y5YO9z2RgWrMj
+	NbTNdyE9IWT1gX8LJMdkim/PACXjQ3el90A==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dpenftfbg-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 08:33:39 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-c7989b7cdd0so4566186a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 01:33:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1776846774; x=1777451574; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=1EMnjefoZVtE6qyXWNiSeQYJ6N4rmREqzBA+4f1h/1g=;
-        b=AI8z9Ohqt2vhz4oWLPkTgqP3VU1b0x9i+KMwsKG86mdL5tCJM47PN4446W4NLUXcDj
-         xOAyaGiwp+LniP7epaVTwls6oOu0gJVSsGaxdramlMi49TXeHxN5Zu720sZP7I9gSHlK
-         fMUtiLOm3p4PD+yir2ZJidOkM6HTz3CiO06t0hAaX1QvUl0fS/NTRiKWf0iEDny/hPUp
-         Cj9FIfPpWZCMPqjmEGcWvzOPEiCEgVF6++KLeCrVM7FqV6mlGL1xcYpCw0raB4costxx
-         MFTVLVIwwH9OV9cpRrnBpl87nvopz+sx0t0Hq7aLUICgq9IrH+KbPqZGQwOjIFUDfzm/
-         kpcw==
+        d=oss.qualcomm.com; s=google; t=1776846818; x=1777451618; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ORoTDQr6cK4leZzidTtpiy+qFbY0ke5tAacDsKHAGzg=;
+        b=XS5ViWlhD/1mHxWlvst+w1XqCypW/1CzKJAmVBaTBCYmAMn07wv33dafv3xGOAUoCC
+         7YIE2syGxC4RIE5xhJ4VUhfY5tH8IAYm5GfvFL21AU7XIub6yYyFYX8dL5sBBgFqRwuV
+         virr8+WIwYQJYcNi0h+eVBAHWmhANmVOy/yvFfm20I/ftx9wvPb/eN83Ep7Ig2a34JNh
+         kooT1MOeQy3e222+yyeEXVOyDp+Ll0WI/eK8q7+dXN0FQbGI6Jh+0dqO9ZyIy46oBbX2
+         as6nDCz8DqJmkpWgvojXKsTojzTmAjOeC1KZUlsm+qt5O1RuQj3JoKhRU8QrGKjPoE3J
+         YQsQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776846774; x=1777451574;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1EMnjefoZVtE6qyXWNiSeQYJ6N4rmREqzBA+4f1h/1g=;
-        b=qxAeMhvo6/4GZHAa6yrQW48baq/gV89vcgxyRjCZZmn56ypMpqAKGagFI/5udOZDVN
-         SQ3sdleQPCdJ57mAE2AOKnKCt0Io+WBlM9r/a+wAFd1QaRo5jh8igpnycyIGsWkyMd4M
-         ItBnJ4ikGYn8k8icxAfz06GRyq3aXNyQ0eX3Hf5xBCDJGvwRWQuIkIsFe3sDJnx+ee7n
-         oZ5fMP5N6Sfo6RB8nDY+B4Cvqg6SVmRa3s0QurPpDmE8kO1AnrRb/MpRFCW0DHLJ4Yjz
-         96jZNtY8s3OAFUAxovBI8B4G+qkV9XR7MhfJuCJg4/EznyyC7ElTR3ugTYW84MMiO5N/
-         xEzg==
-X-Forwarded-Encrypted: i=1; AFNElJ8yHR0+dd8l8ODnKW1LHo7joq5fyOMY4hDLwL1TBbSv/cCUWXpGwpVLmEl7AHVoF7HTS5mPkdSPJWpbSp4z/9ay@lists.infradead.org
-X-Gm-Message-State: AOJu0YwantJLTdFbcBMqiB9AuaRvYFe7CHYKNObc2wrGyDAfT7MGLPeJ
-	208wSaiq3Dti3hAcQ4SKy/TXGaMgjnNKQJnEIN4/nX/O2rrGITra7UzMJFMv99+gM94=
-X-Gm-Gg: AeBDiesBT8VH3wbI1s6jeJCpc4+SrzLwLo4ARGsph+qDSwQKHHla3vL/G4fUvVyj9Vq
-	MNwZrR+hJF6Le4SBgdVvX37kG0c1TO4GnGzaUKDGXMSWt5EtV28zvVdddUGJsRojUGXyhg+A5Rj
-	Kxbri79T+IThCWjlzrXNbI8PBiTCo62Kr/DnO1H2gy+HP+7MuXQxxiBs9qIa9iO7ymC6oMrdYbH
-	T2uGJMCNzGia6EtSKM+C6vZHjmy+PZql+e0faZKQPx7Az5rSwVSMJUC6jTMnSjUZh82fyOfdK3d
-	aX+yooAPZjx+NSwXyCPXDPHRjJO/BDo97SDA5ZqEMOE5Mj1VoPBNlSPf41qxBZXJKgtImkXMkEq
-	lQFGP65sD/VCBHYgac85LLsUfegKHdo8IL9LCX+kPh2WbGuW50v361AfZvmuCPa55dswe3CteVY
-	gCCcU5TckTFc0Zaq5wV1hblnDXnFmA2/G2WDSbopbdB3fmHnkm36cOf13BjaRdt5hr+9ZrcBO/R
-	1Di1ZA=
-X-Received: by 2002:a05:600c:3b2a:b0:48a:534a:eed8 with SMTP id 5b1f17b1804b1-48a534af0ffmr110795305e9.1.1776846773750;
-        Wed, 22 Apr 2026 01:32:53 -0700 (PDT)
-Received: from localhost (host-79-33-140-232.retail.telecomitalia.it. [79.33.140.232])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488fb7b2634sm135796275e9.28.2026.04.22.01.32.53
+        d=1e100.net; s=20251104; t=1776846818; x=1777451618;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ORoTDQr6cK4leZzidTtpiy+qFbY0ke5tAacDsKHAGzg=;
+        b=giFvy0ini7NBcjwxuRjufIZsnJkmP9LDP3vFY2RqPlMFtwoQRK5h0T3iXmkZjL47yY
+         /qQ+utm2OD9ZEnOJjsh3uu4MUQkzOB3aEoK4m/ihnN9gT2p8bGCtAMeaOiwdCoId5rpj
+         AFkZZYtNbJLh4Y7CRZtdHI5axE/lmeeL0c+9qXgfHHB90RVPrAAtXfuOjptwo9rspNlh
+         T6e2e+nitTTGOlKf5SfGwzASRndMsAmgIp17okXjyF6t/63iCEsZ8SZ/8lR+ce9sJN1M
+         PeKWRrvJf9BrGwCjwjQLHV9F56Cvy8MG7KeE8Cc6Yr5NWrEcw5aPBcOmD1DVOa4UFlQR
+         dHEQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8acwyijkU1AtOlG7Vq+Lx2P6H0ndpll0XqaUirF0jw+8SaNjNZA0YwjTQfnZRzri3epjT8awHeTJsI5SkCmTQF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxp4KUacEV7UjO448xsdmIwnKc8VZfYsY21VSWZDN2JdSxhs9j3
+	f5H+u+a69fXCOEbWnPgp2dj6533n1+1X8PSXzZ05hp5xXEYu1tg1W6PkufZRYkPcmOh7h8re+BK
+	RqIzsJtbGQmFBoL51F2QY6FFvWw2+5PYki7/c1Itcl9xJb+l0FCYpwsYCm7GVccdf/EZWJo4EqU
+	y60w==
+X-Gm-Gg: AeBDieuwxL4Rvk7BMpEN3bX3VmFIaQlejVYA6u5Oa0APoUxiWc+OI946+fqHOXjPDSR
+	dcippS0tiEd5vwcYh2pIAPE2oYkL8MiISKw1pJhhpPCJqz2U8cfhUaRUOfONyz/POXCC6XnF2HO
+	GH0uOc4XS/giR/1O9Smufclcnmm2WV3Ox79Axn+30/wIAwfoXHmeUrjECTeiJejd80RhgEbDjqK
+	sLXxIl/Y9G/pMoNbEXwl8ZTKNZC4lrl/K/7XLd4v0uE5dqzJD/1wWy8+vGDVdRVdNr3ut4io2rf
+	rppX8+ymWLC0e8AtTyVs6Yqs1RenXMDFdQdcbNqaVVCmd8BodXwr1hF3/22yykDXUmz5cCQA+I7
+	ZAJrT0vWsDbtZQBntrkzbPzO0mGD5AHh9gcVpdLtDgLMrUntFkZTEvxgT5kg=
+X-Received: by 2002:a05:6a00:2889:b0:823:d2c:b156 with SMTP id d2e1a72fcca58-82f8c7db2bemr22952349b3a.5.1776846818353;
+        Wed, 22 Apr 2026 01:33:38 -0700 (PDT)
+X-Received: by 2002:a05:6a00:2889:b0:823:d2c:b156 with SMTP id d2e1a72fcca58-82f8c7db2bemr22952305b3a.5.1776846817705;
+        Wed, 22 Apr 2026 01:33:37 -0700 (PDT)
+Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8e981c12sm19736603b3a.6.2026.04.22.01.33.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Apr 2026 01:32:53 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Wed, 22 Apr 2026 10:36:04 +0200
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>
-Cc: Andrea della Porta <andrea.porta@suse.com>, linux-pwm@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Naushir Patuck <naush@raspberrypi.com>,
-	Stanimir Varbanov <svarbanov@suse.de>, mbrugger@suse.com
-Subject: Re: [PATCH v2 2/3] pwm: rp1: Add RP1 PWM controller driver
-Message-ID: <aeiIdLL48Wn_svGZ@apocalypse>
-References: <cover.1775829499.git.andrea.porta@suse.com>
- <0d99317b9150310dfbd98de1cb2a890f0bffe7cd.1775829499.git.andrea.porta@suse.com>
- <adkrHkANCzxO8KUP@monoceros>
- <aeC6U7D6TfWm8JPx@apocalypse>
- <aeDmk-t5Lc1zpkg9@monoceros>
- <aeH373a_xmr6fnAy@apocalypse>
- <aeIGxfQ7AoIVR5n6@monoceros>
- <aeZUAaQkHGqBL8st@apocalypse>
- <aeeMp1XBDxSZ1qrl@monoceros>
+        Wed, 22 Apr 2026 01:33:37 -0700 (PDT)
+From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+To: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Robin Murphy <Robin.Murphy@arm.com>,
+        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+Cc: Robin Murphy <robin.murphy@arm.com>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: [PATCH] dt-bindings: arm-smmu: qcom:: Fix Hawi compatible placement
+Date: Wed, 22 Apr 2026 14:03:29 +0530
+Message-ID: <20260422083329.885979-1-mukesh.ojha@oss.qualcomm.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aeeMp1XBDxSZ1qrl@monoceros>
+X-Proofpoint-GUID: OQ79DEdRUzd3EulBziH8k7UJGUWrv5Zf
+X-Authority-Analysis: v=2.4 cv=YJuvDxGx c=1 sm=1 tr=0 ts=69e887e3 cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=EUspDBNiAAAA:8
+ a=2dDrt6dFNNLvW8Gx2gAA:9 a=3WC7DwWrALyhR5TkjVHa:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIyMDA4MCBTYWx0ZWRfX7LA66UTBe280
+ 4JjL/B5BvieoYT7+uS3dQXR7iyRAtr8Oaus25YFbIF4NXSK+CT2giyoo+5/+CT5EEfs3CPkmAP9
+ GaQWvw9MPv5Y3n/viMPn7Kil/TznqzdGQulL2JjJ92wLNKuEH98+g28iUrhBL955Ycr7Q81GZgd
+ 0GmvJXUPL1LyEv/AwZ9VE6nsGAzg1XbOzEvLuI4dL7oem7GB/inIVGMZjz464T6ZATeP6j6dqwt
+ iTtVrrorKIdX6vfOcSFw2rUpF2IZ22jTEl7ofad9U69K/xMVX7EzuRaJALUTd/9Gdo/4bphQ7mM
+ wpQ1Cl51+vJ0swEyAWzOAUjJxxdQ9P79tY7bgCEpu8GpwuD3UYvw3b8OTowX5gFQIxSLkf8qGjt
+ YCtRTqKE7+NswAJ2d8H6NNxanwDrPF64oJ0MnHcUV0OqTxJVa1LMowUBbhuVU9gQWNeYmMWranG
+ ezHgRETQ+pZ/amMgfbA==
+X-Proofpoint-ORIG-GUID: OQ79DEdRUzd3EulBziH8k7UJGUWrv5Zf
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-21_03,2026-04-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 phishscore=0 lowpriorityscore=0 adultscore=0 spamscore=0
+ malwarescore=0 impostorscore=0 priorityscore=1501 bulkscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604220080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_013256_464786_28E48854 
-X-CRM114-Status: GOOD (  43.06  )
+X-CRM114-CacheID: sfid-20260422_013341_523290_19D21495 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,118 +144,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Uwe,
+qcom,hawi-smmu-500 was placed in the wrong enum block of GPU. Move it to
+the correct location alongside other Qualcomm SMMU-500 compatibles for
+CPU.
 
-On 16:50 Tue 21 Apr     , Uwe Kleine-König wrote:
-> Hello Andrea,
-> 
-> On Mon, Apr 20, 2026 at 06:27:45PM +0200, Andrea della Porta wrote:
-> > On 12:50 Fri 17 Apr     , Uwe Kleine-König wrote:
-> > > What happens if sync is asserted while a disabled channel didn't
-> > > complete the last period yet?
-> > 
-> > The output stops immediately without waiting for the current period to finish.
-> 
-> This is a good info for the Limitations block.
+Fixes: 5e8323c3d528 ("dt-bindings: arm-smmu: qcom: Add compatible for Hawi SoC")
+Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+---
+ Documentation/devicetree/bindings/iommu/arm,smmu.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Yup, already added, plus a couple other edge cases.
- 
-> 
-> > > Maybe it's worth to test the following procedure for updating duty and
-> > > period:
-> > > 
-> > > 	disable channel
-> > > 	configure duty
-> > > 	configure period
-> > > 	enable
-> > > 	set update flag
-> > > 
-> > > Assumint disable is delayed until the end of the currently running
-> > > period, the effect of this procedure might be that no glitch happens if
-> > > the update flag is asserted before the currently running period ends and
-> > > the anormality is reduced to a longer inactive state if the updates are
-> > > not that lucky (in contrast to more severe glitches).
-> > 
-> > The disable isn't delayed as explained above. Setting just the new period/duty
-> > (which do not depend on the sync bit) correctly waits for the end of the current
-> > period without noticeable glitches (tested with a scope).
-> 
-> So if you happen to change both and one is done before the end of the
-> current period and the other shortly afterwards (which might happen as
-> those are configured in two different registers and the update trigger
-> isn't used), you get a mixed output for one cycle, right? If yes, please
-> also mention that in the Limitations paragraph.
-
-Confirmed, tested with the scope and a very long period time.
-
-> 
-> > > > Let's say that teh user want 10 tick period, we have to use
-> > > > 9 instead to account for the extra tick at the end, so that the complete period
-> > > > contains that extra tick?
-> > > 
-> > > I would describe that a bit differently, but in general: yes.
-> > > 
-> > > The more straight forward description is that setting
-> > > 
-> > > 	RP1_PWM_RANGE(pwm->hwpwm) := x
-> > > 
-> > > results in a period of x + 1 ticks.
-> > 
-> > Exactly. So whatever the user request I have to subtract one from the value
-> > to be written to the RANGE register.
-> 
-> Unless the calculation is already rounded to 0, in that case don't
-> subtract 1 and let the tohw callback return 1.
-
-Sure.
-
-> 
-> > > > This also means that if we ask for 100% duty cycle, the output waveform will
-> > > > have the high part of the signal lasting one tick less than expected.a I guess
-> > > > this is the accepted compromise.
-> > > 
-> > > I assume you considered something like:
-> > > 
-> > > 	RP1_PWM_RANGE(pwm->hwpwm) := 17
-> > > 	RP1_PWM_DUTY(pwm->hwpwm) := 18
-> > > 
-> > > to get a 100% relative duty?
-> > 
-> > Ah right! It's working fine and I've got 100% duty. So at hw register level
-> > the duty can be greater that the period.
-> 
-> In that case please make sure to not use the maximal value for
-> RP1_PWM_RANGE(pwm->hwpwm) to ensure that for each (possible) period
-> length a 100% relative duty cycle can be configured.
-
-Ack.
-
-> 
-> > > My (not so well articulated) point is: Please be stringent about clock
-> > > handling to not bank up technical dept more than necessary and such that
-> > > the driver can be made unbindable if and when syscons grow
-> > > that feature. Optionally wail at the syscon guys :-)
-> > 
-> > Hmmm not sure I've understood your point: is it a requirement that the driver
-> > must be unbindable? In this case I should avoid registering the syscon. Or
-> > should I just provide a .remove callback in case there will be a way to
-> > unregister the syscon (even if this callback will not be called as of now)?
-> 
-> It's a requirement to properly manage the resources you allocate. If a
-> driver isn't unbindable due to restrictions of other subsystems that's
-> unfortunate and I don't like it, but I wouldn't block a patch because of
-> that.
-
-I totally agree, of course. From a practical perspective I take it as "even
-if it's not ideal, you don't need to do further coding action on that side".
-
-Many thanks,
-Andrea
- 
-
-> 
-> Best regards
-> Uwe
-
+diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
+index 06fb5c8e7547..ba9ad1f5a8ff 100644
+--- a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
++++ b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
+@@ -37,6 +37,7 @@ properties:
+           - enum:
+               - qcom,eliza-smmu-500
+               - qcom,glymur-smmu-500
++              - qcom,hawi-smmu-500
+               - qcom,kaanapali-smmu-500
+               - qcom,milos-smmu-500
+               - qcom,qcm2290-smmu-500
+@@ -93,7 +94,6 @@ properties:
+         items:
+           - enum:
+               - qcom,glymur-smmu-500
+-              - qcom,hawi-smmu-500
+               - qcom,kaanapali-smmu-500
+               - qcom,milos-smmu-500
+               - qcom,qcm2290-smmu-500
+-- 
+2.53.0
 
 
