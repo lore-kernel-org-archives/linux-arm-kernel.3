@@ -4,97 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B31D3F94CBE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 22:48:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42E73FAD3E2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 23:38:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4qI6kGELEoPNIDxXAqpiIcX3kz3Y96gemHsRdJV8MIo=; b=ZIuScoHCgQZxS54MRiwFCZg3Xj
-	cNfZw2WYYnAwfEJwzYE9Vxoq5aAUpapNRkA2BCZtffunidT6xB9iSdpmbVhq2Rdn+dhD2UKzFDll6
-	xwxOs6Dn2/BPamVGpXmiBsthu2Tx+o3p8+BjNi+uf+IaF+EtNzwimWVxHRXWv01hNcuJFMWeuxvSm
-	+4DAzgr2xbggr032YNKh29YhtygLVmLF7n9Yyqk4cBenWb4Q/rU4OJOXpJu4fdr+aNN0w64U35WOM
-	89kQe0rrMTDySs8GIeb3NrTqTb21YSE5TiBPwQ1p4VBpjyM6mJpqNvTUpSAFSYbOb4G/v0zyaj1cj
-	hoyUur6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lwLMu1S7onZGhcBEnPy37BZ83bFz3InaGZ5ATIAgs1o=; b=KNdKpQ4P8IYEUoXZdo5HKzX8/9
+	LPyvrdKHcd0rr74YN3mpatpbgtcbvPcDJACER82/PQDM3bD9Y76ZJ7UdTh8/z2GxcIMimlnP+DDMW
+	DC5//l4U7yWbZ8GKKao+kW5E4p8G09CHhRBPPTsL1TzZdXGxNVfloTimUgNV2QzHq9g+izo5H6h7M
+	sNSM7/dZnptbi/DsrUNQHwMS60FxoT7jwHm8fNUEDZl2u/m8+uo8PMPFup0fTUIyinxO+1ukchnw1
+	ZfoDTjOAOhvRVTT2lv96MIkpqPe4ElOfFLo42WiyVhIVrE5Tp2LvuxugHJ0k888Vwzbmme3Y0O27k
+	EKq+z5Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFgNA-0000000AoE4-0qPo;
-	Wed, 22 Apr 2026 22:48:44 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1wFh8w-0000000AqPL-3EHv;
+	Wed, 22 Apr 2026 23:38:06 +0000
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFgN6-0000000AoDh-0haG
+	id 1wFh8s-0000000AqNe-2FZC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 22:48:42 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-82fa8d6425bso2015827b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 15:48:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1776898118; x=1777502918; darn=lists.infradead.org;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=4qI6kGELEoPNIDxXAqpiIcX3kz3Y96gemHsRdJV8MIo=;
-        b=Z14oN7tjIFI65+g730BORYVj0Yb4rJXtFsyIL0RQLK8DXmwktdzKr15DwYp7wGhZP1
-         C5VZN5WQc8NKeDC/oaGeHY/Hdjtl6iRimlFNMI6YtKXpdWosnA12DB5tEEmqZeSNHZTb
-         HcgV0hYQSvuQRJjqYFHlLIB4Nk+LotwuuAwKoQOxg9WyBcuzW6QSPoDWoTvoZIA7aND0
-         urI+5GuqeSZgqPL/A8GirTJtiywfHN2UAbxGnIDB7PjtGB/BPenaj/WAb+LgzEr7O9nA
-         TPC9WX/DEZJv6kAvip2Brf6UnHJMkU19S4HlapfnJDVlPzZWvdSFSC/3hXVRUKlv96K1
-         q95Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776898118; x=1777502918;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4qI6kGELEoPNIDxXAqpiIcX3kz3Y96gemHsRdJV8MIo=;
-        b=gzFgb7KTclCDJUTqyqwSZ2P+zdRVqFjPc0XAXY/Yf8o5FrgrjCO9LjYMu0SF/qLO1D
-         dzpCel8dCxHpld7gGkL7TSztBy0DGLQNnYl+X96sMLlny+7+cQC96LdVALmDjAMlZP+s
-         mAtQkStj6M+jNbMFc9+ez8bXMMQWq+oMxOEIzYQgRH26GGKFWemh+LGX3WYVj8fy+cuJ
-         0b155aXXZRkWwKLhOTMuaIBBuVW6LAa8NY0vDTV4eU+8lTJ2NYWjo+vCAv3YDarAMG0N
-         4+Ln56XSr1OUDGH44UMTfv+FU2S2xXLWTjC2QJ4Fu26529s03IoZghMAFC1g4/JpTazR
-         xcjg==
-X-Forwarded-Encrypted: i=1; AFNElJ9oII1dBA/avmt3jnqL/zVWIkxV2xR4D7hoYT7jWOroegPdMmnqc63OjNUiltc0lrDS/eWSLUY77CWh6JqzLV/5@lists.infradead.org
-X-Gm-Message-State: AOJu0YyS9inwBvduM3qu79tGzrltHYDd2WSzbKx3AEbVSA68dCih/q3S
-	Kmk11KR2HqFvca2mWTvp9ZcAELkNujgyS1ybvOkfE2VNgj2J/LbX8ltZGQnsV6uznTU=
-X-Gm-Gg: AeBDievwcKO0eo775d5/MAtXswRVL6G6RnckqW+//mNXWqjb2mJswQQx62+BPoydmCi
-	iOHcjsmrQUJ2A9SmaGyiHGx12CBQchyzsOdAT6VziOA6BaSwLNQfInL1MrBqD+3g7Kz+GLQ+sNA
-	G/jcxqEyb0fLfKuuOoL3Xr4Yl7nQ3a5eLWSvsoE6nb/axjyOK53gPN2rW6v4j2jcegEwUCGfDDJ
-	4qQ1pZp+b+BoG9LXmgMGu1ABzpyLkhByPL7yt3kRc8PyWcRQ+nl61iOiC6JtofYdFrGvh7WLBUJ
-	an+NsZokvFHNGz9ks7f7rQar4VAZZmc6Bm/Dn6yCR/kLAvZpkS/qzVyHGmFHBymiDbuZJ0Ueaya
-	pNcJiippyelhey668ekA/rF357PJ2IwNeD0UwMwp2XHrwYbsk66mE9sS4qCrPulf3/SDe0n+Qib
-	0bpKfnRVTsLzm1jeO+rhQRpK/wj8lTYw==
-X-Received: by 2002:a05:6a00:c8a:b0:82f:98c:1465 with SMTP id d2e1a72fcca58-82f8c8fb258mr26682792b3a.27.1776898118539;
-        Wed, 22 Apr 2026 15:48:38 -0700 (PDT)
-Received: from localhost ([97.126.187.42])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8ec04448sm21836313b3a.55.2026.04.22.15.48.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Apr 2026 15:48:37 -0700 (PDT)
-From: Kevin Hilman <khilman@baylibre.com>
-To: Geert Uytterhoeven <geert+renesas@glider.be>, Sudeep Holla
- <sudeep.holla@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>,
- Saravana Kannan <saravanak@kernel.org>, Michael Turquette
- <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, Ulf Hansson <ulfh@kernel.org>, "Rafael J .
- Wysocki" <rafael@kernel.org>, Florian Fainelli
- <florian.fainelli@broadcom.com>, Wolfram Sang
- <wsa+renesas@sang-engineering.com>, Marek Vasut
- <marek.vasut+renesas@mailbox.org>, Kuninori Morimoto
- <kuninori.morimoto.gx@renesas.com>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org, Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: Re: [PATCH/RFC 00/14] R-Car X5H Ironhide SCMI CPG/MDLC remapping
-In-Reply-To: <cover.1776793163.git.geert+renesas@glider.be>
-References: <cover.1776793163.git.geert+renesas@glider.be>
-Date: Wed, 22 Apr 2026 15:48:37 -0700
-Message-ID: <7hcxzqr4qi.fsf@baylibre.com>
+	Wed, 22 Apr 2026 23:38:04 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4g1FyV6vdTz9tcZ;
+	Thu, 23 Apr 2026 01:37:54 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1776901075;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=lwLMu1S7onZGhcBEnPy37BZ83bFz3InaGZ5ATIAgs1o=;
+	b=F2MxnzWjr/rjOlLjFLJ8lDcdUBJ29FAPq/f1uvVSSPdb0/oqAhkewuTeIgNixcwib9BH1F
+	ufGz2bfdFUqDZkCvE/fhWHsTBZ4dOZUVJwLzeEROAYG1zuRwsURPvRG4HDpDo/LlFje19T
+	Bf+WzUB6INHm7vlXbaVbJHoVqeGMmHMlGzT5t/nSkNoj8fjn+a/nv0CYEt09Ch+mcGig5C
+	KjK6GdoQSL/SeIUnAhEPZVdRfFcsc48RgrwogIomyf75J7FT9xhL11UQqHYzXt1tVzxVPP
+	DT+8ets89793rX9BLAqgYy4K84r272bsjtmKPx7GVdOBDAr8f9jNU/K5DFTF0Q==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=nC7PllBi;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1776901073;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=lwLMu1S7onZGhcBEnPy37BZ83bFz3InaGZ5ATIAgs1o=;
+	b=nC7PllBi5zm8q4iK4aQ1ZqWpqfffTF0UOAGn8p92TVDRKGXcLr1MgSJApe3kC1AhdQjJNz
+	VZqOmlx6giciwQn0oezLGcBjlSEn2Ve5YykcANjhNEKVyBu/Bn+Kdl88JbubOk7eLO4VJ4
+	DasG9ipzW1jla7bGtdc3qPtNMVwZPrhtsEIRKoeu9O9IJn6VW9RyYc0nsf5H6o98rmAum5
+	XQptR1/oMs5n6+QOMnzpWMhjK8eMuRHIm44aBaioYXmx/WEwRi2j+xAm9rTij6sHx32hm3
+	xWd2lap83nZOu1n3KBQEIDuEVSTE2ISjtDYK9O8+m931SbUp3MDCE3ru/CjOrg==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH v3 0/4] Describe coresight on R-Mobile A1
+Date: Thu, 23 Apr 2026 01:36:26 +0200
+Message-ID: <20260422233744.149872-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: 05b81d60baa4b6aab34
+X-MBO-RS-META: stzf5gfauquz79qbem1ishg3nww1im6x
+X-Rspamd-Queue-Id: 4g1FyV6vdTz9tcZ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_154840_429225_753797C7 
-X-CRM114-Status: GOOD (  13.83  )
+X-CRM114-CacheID: sfid-20260422_163802_724619_885402D1 
+X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,39 +98,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Geert Uytterhoeven <geert+renesas@glider.be> writes:
+Implement support for ZT trace bus and ZTR trace clock on R-Mobile A1.
+Describe coresight topology on R-Mobile A1. Extend the current PTM node
+with connection funnel, TPIU, ETB and replicator. The coresight on this
+hardware is clocked from the ZT/ZTR trace clock.
 
-> 	Hi all,
->
-> TL;DR:
->
->     Describe hardware in DT, and perform the mapping to SCMI in Linux.
->
-> The Renesas R-Car X5H-based Ironhide board is the first Renesas
-> SoC/board combination that implements the ARM System Control and
-> Management Interface (SCMI).
->
-> This means Linux can no longer perform various system operations (e.g.
-> clock, power domain, and reset control) by accessing the hardware
-> directly.  Instead, these operations are abstracted according to various
-> SCMI sub-protocols, and Linux has to send messages to an SCMI-compliant
-> firmware running on a System Control Processor (SCP).
-> More specifically, the R-Car X5H SCP FW SCMI controls access to:
->   1. Core clocks and module clocks,
->   2. Module resets,
->   3. Power domains,
+Please note that this is written according to R-Mobile A1 User's Manual:
+Hardware , Rev.2.00 Sep. 2013 . I currently do not have access to this
+hardware.
 
-I'm very curious how power domain hierarchy is described on this SoC,
-because one more issue to add to your list is that hierarchy cannot be
-described for power domains in SCMI.
+Marek Vasut (4):
+  dt-bindings: clock: renesas,cpg-clocks: Document ZT/ZTR trace clock on
+    R-Mobile A1
+  clk: renesas: r8a7740: Implement ZT/ZTR trace clock on R-Mobile A1
+  ARM: dts: renesas: r8a7740: Add ZT/ZTR trace clock on R-Mobile A1
+  ARM: dts: renesas: r8a7740: Describe coresight on R-Mobile A1
 
-I know you're aware of it already, but just FYI for anyone else
-exploring this space, I have a series[1] in-flight right now to address
-this limitation of SCMI so that we can at least describe this hierarchy
-in DT and the pmdomain framework.
+ .../bindings/clock/renesas,cpg-clocks.yaml    |   6 +-
+ arch/arm/boot/dts/renesas/r8a7740.dtsi        | 116 +++++++++++++++++-
+ drivers/clk/renesas/clk-r8a7740.c             |   2 +
+ include/dt-bindings/clock/r8a7740-clock.h     |   2 +
+ 4 files changed, 120 insertions(+), 6 deletions(-)
 
-Kevin
+---
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Magnus Damm <magnus.damm@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Stephen Boyd <sboyd@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: linux-clk@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-renesas-soc@vger.kernel.org
 
-[1] https://lore.kernel.org/linux-pm/20260420-topic-lpm-pmdomain-child-ids-v3-0-c2c40bef238c@baylibre.com/
+-- 
+2.53.0
 
 
