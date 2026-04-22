@@ -4,74 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C215AFAD3E1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 01:48:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0F84FAD3F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 03:02:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UzewzguANFV2TNonu/EWhffR9Fy4HKyLATDqORBGlZc=; b=aAmc0GWUXYa3FgTncxP/emQob5
-	L5NNg7ARshTyHEHcvAonmG24F5KhMakhVZhSQ/ar6qokv8hCtIcVYKKCaNq52Sm1M3BxE+4rMQ2zH
-	g2ILRDLRi5E5cA/fgMLIuHIBa3Bw/ehEMdjMCnds3+SiwTahnZuODpYYeY+PFDiy4/cp9dObscOsn
-	oGNAokJ5xMlEzANEHR+kv9V7DOgyZEu0YjgjWcm6R0WTQ4VxNA9l1dP6kFdOyqU1Od7XvSPANautP
-	sC6pgbVP60crbPzII/L1w2dSlvsWS4n5H7mu5HfjvCcHHarJXAevcVl/tbbX1TdBSEtyCn9iuw5SE
-	UZbsrcMQ==;
+	bh=wqg20wTmq8Z8TSjsvrM02yefrEnboDHI1it5JnY2M4w=; b=K105Il+ksnSJc+afFm6hJRk/JH
+	sjYgF4SjwIz1e8bctQeMg2iocOfw3fY7t78NGfwEV1rhxnqQB+epV2qq7vhLjZyRGh77rb/hAtuTj
+	NXNrtvNkyGotKCCdPsLqc1WnDUskUxa9V3mMpsFwBNGaYeHvlfRDD0cKUNVnFCeEM79q1YagLX9tY
+	w43f471RXVwApsUKL6Qj5hhETZVv1JUmFVHe2C62Oj2SUkDiLTk76zWChzvCY1UlwnU/eYMLOkqzy
+	jXzv8MhgYfolEK3qhLygB5sBZVINVMfCPMlSp9VdYVDDy64c8QTSUxTiVQEHk7dSTA9LFZjAdN7XJ
+	DR04mXfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFjBR-0000000AuMk-45YJ;
-	Thu, 23 Apr 2026 01:48:49 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	id 1wFkKu-0000000AwL0-1cy4;
+	Thu, 23 Apr 2026 03:02:40 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFjBO-0000000AuMH-1EnM
+	id 1wFkKn-0000000AwJa-3HXL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 01:48:48 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=UzewzguANFV2TNonu/EWhffR9Fy4HKyLATDqORBGlZc=;
-	b=g15DtmAg0PRLsNMtBcmAqBTCqVjbf8q15uVwK/QT4P5lONLjW3pcwWqNDT8aIinawPaHCWKYH
-	8EOxRav4KjZwJ4YQZmmmIzDdIK8kkRdSLNYUs8Mbwt1p8xxs7oLwWEFzKS8UNnZH3+IPFw2LskD
-	srKdL81deQGcjrFQnxtfp6s=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4g1Jjr59NgzpSx7;
-	Thu, 23 Apr 2026 09:42:08 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 8F5C440537;
-	Thu, 23 Apr 2026 09:48:34 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 23 Apr 2026 09:48:33 +0800
-Message-ID: <c5331cd6-76c8-430d-978e-fcad164e48f6@huawei.com>
-Date: Thu, 23 Apr 2026 09:48:45 +0800
+	Thu, 23 Apr 2026 03:02:34 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4g1LVY4SHFz9tn4;
+	Thu, 23 Apr 2026 05:02:29 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1776913349;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wqg20wTmq8Z8TSjsvrM02yefrEnboDHI1it5JnY2M4w=;
+	b=o/+KqGLkY3wr3P9i7PxWQ802rlboNPqclymRppllQdQBimXGnwJjPGoJx6gu6EsdGM3yM3
+	5xWWd+WIUsTycp9e8DybnqYo1OoaROAxAYEKU/uq/U5TnFSNM7NkUYCQaPTbvPqyMmoYOU
+	OHvGyjos2Bzs/oQi+Dzu1mtGcJEupfIUC65O0UT33qOmwMEqh8Um6X1RwrC8Xzm4xo2qLj
+	1rCEtOEkmTqaZEgE6FyGig2iXwY28dsBceaNd6UNAvXBs8IKQoy5l8BvhPtZ97Or3fzEO2
+	QENbdfdjuRWpB/xlloPibhwlCnb3BRP55RYiVUlld2/BqaMl2IA75o5To2Aa5w==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=K4APtoV7;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
+Message-ID: <0dd3a417-5da3-4667-92ea-207beaccb42d@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1776913348;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wqg20wTmq8Z8TSjsvrM02yefrEnboDHI1it5JnY2M4w=;
+	b=K4APtoV7VLf6CPP/zTzYnWizNHlTR451lPKQ3iJUsnVhgZQKjuPxXhe2aSDFMqPQog18YK
+	C2U7M1/3u0WlSoZPenp6OrPTH5e6JNuco5rqmed0zte49stHHub+VUdvFtl5xtfp2HufmM
+	BvCLlp0H87a96J8p2yuXRGDJsnxqan9L6Y6fAXB9Gau6qR9V49lzA9C36OkrIWP7ppBd++
+	azH8OAzIVp//8vTVD0ADo3oIy5xSen6NPBWEbqkKLia5m0wrxE39DXtTNLhd1Ay6m9VVvC
+	2EnYuRgO3t8zmMvo+JGKabvu/qzqqwdHrpzyw4vzyo5fetZWvkX0QGOI0mtCtw==
+Date: Thu, 23 Apr 2026 01:33:49 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
- and tcmalloc everywhere
-To: Thomas Gleixner <tglx@linutronix.de>, Mark Rutland <mark.rutland@arm.com>
-CC: Mathias Stearn <mathias@mongodb.com>, Mathieu Desnoyers
-	<mathieu.desnoyers@efficios.com>, Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, "Paul E.
- McKenney" <paulmck@kernel.org>, Chris Kennelly <ckennelly@google.com>, Dmitry
- Vyukov <dvyukov@google.com>, <regressions@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, Peter
- Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@kernel.org>, Blake Oler
-	<blake.oler@mongodb.com>
-References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
- <aejCaG6n9s7ak5TO@J2N7QTR9R3.cambridge.arm.com> <87zf2u28d1.ffs@tglx>
- <aekPXvvuKHKlETjm@J2N7QTR9R3.cambridge.arm.com> <87wlxy22x7.ffs@tglx>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <87wlxy22x7.ffs@tglx>
-Content-Type: text/plain; charset="UTF-8"
+Subject: Re: [PATCH v2 1/4] dt-bindings: clock: renesas,cpg-clocks: Document
+ ZT/ZTR trace clock on R-Mobile A1
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm
+ <magnus.damm@gmail.com>, Michael Turquette <mturquette@baylibre.com>,
+ Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+References: <20260415233300.457892-1-marek.vasut+renesas@mailbox.org>
+ <20260415233300.457892-2-marek.vasut+renesas@mailbox.org>
+ <20260421-attentive-cockle-of-finesse-e5bfb1@quoll>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <20260421-attentive-cockle-of-finesse-e5bfb1@quoll>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+X-MBO-RS-ID: e573a09fcd5b5d099dc
+X-MBO-RS-META: sccnpsjcz81hnkokqi7o699t6n5uzk7q
+X-Rspamd-Queue-Id: 4g1LVY4SHFz9tn4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_184846_988761_1E922FA3 
-X-CRM114-Status: GOOD (  20.78  )
+X-CRM114-CacheID: sfid-20260422_200233_971486_8B14D8A8 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,91 +102,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 4/23/2026 3:47 AM, Thomas Gleixner wrote:
-> On Wed, Apr 22 2026 at 19:11, Mark Rutland wrote:
->> On Wed, Apr 22, 2026 at 07:49:30PM +0200, Thomas Gleixner wrote:
->> Conceptually we just need to use syscall_enter_from_user_mode() and
->> irqentry_enter_from_user_mode() appropriately.
+On 4/21/26 10:01 AM, Krzysztof Kozlowski wrote:
+> On Thu, Apr 16, 2026 at 01:31:38AM +0200, Marek Vasut wrote:
+>> Document ZT trace bus and ZTR trace clock on the R-Mobile A1.
+>>
+>> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+>> ---
 > 
-> Right. I figured that out.
+> This might affect ABI, because you are basically requiring DTS to have
+> additional two clocks.  Probably it does not affect anyone, but
+> technically is an ABI change, so should be explained in commit msg WHY
+> you are doing it and what is the impact, instead of saying WHAT you did.
 > 
->> In practice, I can't use those as-is without introducing the exception
->> masking problems I just fixed up for irqentry_enter_from_kernel_mode(),
->> so I'll need to do some similar refactoring first.
-> 
-> See below.
-> 
->> I haven't paged everything in yet, so just to cehck, is there anything
->> that would behave incorrectly if current->rseq.event.user_irq were set
->> for syscall entry? IIUC it means we'll effectively do the slow path, and
->> I was wondering if that might be acceptable as a one-line bodge for
->> stable.
-> 
-> It might work, but it's trivial enough to avoid that. See below. That on
-> top of 6.19.y makes the selftests pass too.
-
-This aligns with my thoughts when convert arm64 to generic syscall
-entry. Currently, the arm64 entry code does not distinguish between IRQ
-and syscall entries. It fails to call rseq_note_user_irq_entry() for IRQ
-entries as the generic entry framework does, because arm64 uses
-enter_from_user_mode() exclusively instead of
-irqentry_enter_from_user_mode().
-
-https://lore.kernel.org/all/20260320102620.1336796-10-ruanjinjie@huawei.com/
-
-> 
-> Thanks,
-> 
->         tglx
-> ---
->  arch/arm64/kernel/entry-common.c |   14 ++++++++++----
->  1 file changed, 10 insertions(+), 4 deletions(-)
-> 
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -58,6 +58,12 @@ static void noinstr exit_to_kernel_mode(
->  	irqentry_exit(regs, state);
->  }
->  
-> +static __always_inline void arm64_enter_from_user_mode_syscall(struct pt_regs *regs)
-> +{
-> +	enter_from_user_mode(regs);
-> +	mte_disable_tco_entry(current);
-> +}
-> +
->  /*
->   * Handle IRQ/context state management when entering from user mode.
->   * Before this function is called it is not safe to call regular kernel code,
-> @@ -65,8 +71,8 @@ static void noinstr exit_to_kernel_mode(
->   */
->  static __always_inline void arm64_enter_from_user_mode(struct pt_regs *regs)
->  {
-> -	enter_from_user_mode(regs);
-> -	mte_disable_tco_entry(current);
-> +	arm64_enter_from_user_mode_syscall(regs);
-> +	rseq_note_user_irq_entry();
->  }
->  
->  /*
-> @@ -717,7 +723,7 @@ static void noinstr el0_brk64(struct pt_
->  
->  static void noinstr el0_svc(struct pt_regs *regs)
->  {
-> -	arm64_enter_from_user_mode(regs);
-> +	arm64_enter_from_user_mode_syscall(regs);
->  	cortex_a76_erratum_1463225_svc_handler();
->  	fpsimd_syscall_enter();
->  	local_daif_restore(DAIF_PROCCTX);
-> @@ -869,7 +875,7 @@ static void noinstr el0_cp15(struct pt_r
->  
->  static void noinstr el0_svc_compat(struct pt_regs *regs)
->  {
-> -	arm64_enter_from_user_mode(regs);
-> +	arm64_enter_from_user_mode_syscall(regs);
->  	cortex_a76_erratum_1463225_svc_handler();
->  	local_daif_restore(DAIF_PROCCTX);
->  	do_el0_svc_compat(regs);
-
+> If there is going to be a new version, please fix it and please keep the
+> feedback for future commits.
+I hope this is addressed in V3.
 
