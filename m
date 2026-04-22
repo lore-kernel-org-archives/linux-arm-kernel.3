@@ -4,90 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA04F94CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 03:52:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C063CF94CC2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 03:53:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:To:Subject:Message-ID:Date:From:MIME-Version:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jOdndvNOr5tk2o0VEu1kSKqEFvkiiCDk4VA7lkVUu3w=; b=tIGava4CLPMe9ycTjmEaycSAJ+
-	sE2EuFdyp+3lFmGatMuTlPk5oZftZwPHr92E6XI4pLcgW4lMxd3YsjxYB+TY+wD+/6UeELDp3AUKj
-	xIofDpmWBvNJ4mIZKN/tA9o1zpU8+jmLReZYM1Hixy+dyHQOata+gQ42UnbSJxziuETR4XtALucf8
-	UHIa7foSY0fFRAnKhFmVVlF+0tmhJUdbo56p1rc+0VBBym6B8+lYuBgn2WmxW9TuSTOR6JQOr+NGQ
-	Z9+DVWs4NNhL0cnVJ2pfWfaFLH7X2pEbLvc9wczW4TarkIbX37zZjRotKSvvfqyLfSHMpfeH8b0s2
-	O4CfxRtQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QwrhT/2Ohun6boLPrQF9uIAhJhFLuGbHm0lufmcGtQs=; b=rob239cqOb0KrFOBRHkh9f3V+y
+	tiI3ACR4TPcotuKDKccvpPfC6o+fxhDCyLV9iYEO/4MuqbxXkPfnPYfRcgaiy9q87BPGLGLZn5pv3
+	LsYvMSdFF+JjjueJvgnUl4UpXv2xYIwKYjCYx4qmDm+ru3S7Ht5ehfinlOlQni+h61OFez6ZQOyB3
+	+AOprvCiqLwYg5KV+Y23L2dOM+1RB4AWLn3Wvx8RiSAcpJQKdX0AKgn5KSHAw9kHh8u0iyHVRqlY4
+	VSY5oostXyocb+7OonC1L0hRyn4Gsbvc7eCaiADgZ53Im3uhR+tkr8hMqegIOCIiK/Vjmpk6p4aIT
+	i3Lw3Z6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFOdA-00000009Yqe-32Ng;
-	Wed, 22 Apr 2026 03:52:04 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1wFOeW-00000009YzP-2VcB;
+	Wed, 22 Apr 2026 03:53:28 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFOd8-00000009YqG-0pes
+	id 1wFOeU-00000009Yyy-1PtH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 03:52:03 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-ba51e69988aso616649666b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 20:52:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1776829919; x=1777434719; darn=lists.infradead.org;
-        h=content-transfer-encoding:to:subject:message-id:date:from
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=jOdndvNOr5tk2o0VEu1kSKqEFvkiiCDk4VA7lkVUu3w=;
-        b=fREAGX2tky/JlxXv1o4rPmOoxmoselw3JGSokIZiqpJBeQ4GBmFLESwprGH+ovjZ42
-         x860/a1fNQBl/OiK9Cduiw7TIUCCSEkwj1NFvFWDDJa+TIxcb8jnZcZYK8LieaeKn19u
-         E1iQHYrnL/q8BBQyii1Egm585RWsdcp93emeI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776829919; x=1777434719;
-        h=content-transfer-encoding:to:subject:message-id:date:from
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jOdndvNOr5tk2o0VEu1kSKqEFvkiiCDk4VA7lkVUu3w=;
-        b=moeRdO7bYdq0flWvKy/gQZHz03ohTIV/GJPr9UYDUO8n0dsAJcb+tp7rzqPU8y628a
-         Zy4aXz/yCS4p4s1oqBMZiLATIX+2gIsLmRFEF2FE71yK8O3Co5iDXTH3qmfhOniy1XvB
-         kQ3nJ54UBZefs7dpzJ1OFiVv2dTfFJsw326bVHo6gebaDwDNsDi+ZCOkLRYrZkAQClfC
-         +OKPloX52ixMJQONDBwGivJkDffasTnqSY90QN3TDf97YhCsx9ZtjRipStUZgJSw22N8
-         iS54sYZtc7JCaGogZ7lKMPqht5o1BbGWVjX6FytIJjXPlMZJYT0qE1gaqoxsL1smNybW
-         VjUg==
-X-Forwarded-Encrypted: i=1; AFNElJ/L39QP3CYZ9KV3wERKQgmjVJqY9t8+mtw475tIqyjUytvsSV2MeTYyYLBtUp8m9rkcpuV1DoWobdd+BIuqj+tt@lists.infradead.org
-X-Gm-Message-State: AOJu0YzseRPw2bkZ20i99rpXeoFa2dCN6QLc0D8ShzJ8HV6wWM+e5Uz7
-	h2I4i3o4DusNafQTE2G3eq7wA5iklxCoNGX9Uk212humkOaTO8aLcUif4E5VqprT7SFlkFxRWC+
-	Tzn/pLw==
-X-Gm-Gg: AeBDievR/h79+WG/cuXJcOV+gx4gzJDOfI8k2Vf4LI4FGNmEkODeTbRiagxq9MSQVh6
-	tlGY04TloRMfJnhDqZqTeJOctzEKegjEERw7If/NtqmdfslLytZaN3tgpXrOyFQtXl0+I60CG9f
-	U3jInlw7+lpSyLaUQq+iSek/mpXwlHUbuTY8OR/AybWcBBI8m+EZ1ksRpe2qLazfahz6z68JwZJ
-	IE67ibLSUm7LJPc+qCB976fKV+F8yFMcNwNeRfHZF1TZC3a7X9LsZLOMD9p/AdR7UKt5ZZNnDnQ
-	wNPKR403OcRzETpg319VW18nhFQTR/ctNXlzUBJo7pNzgrJoxQhYrBvC+Q5tAa2lNdFzteL4w2j
-	lVTTCXXWiWHOrQC9hrBoXgP0YOAdQHE98e+1cX4Fh0ey65fu/wru1MhnWQEPG5asSOWhm7wkEz1
-	fm4lsqWJybm61PZtQT32F+rDTZ/kQ/jclvojStpD0FIr3DW7TdSjMYPDBUthPh9wgFRO5T2iI=
-X-Received: by 2002:a17:907:9413:b0:b97:a1ca:e100 with SMTP id a640c23a62f3a-ba41ac02533mr992299566b.32.1776829919187;
-        Tue, 21 Apr 2026 20:51:59 -0700 (PDT)
-Received: from mail-ej1-f50.google.com (mail-ej1-f50.google.com. [209.85.218.50])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ba451be2c9bsm509812666b.23.2026.04.21.20.51.58
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 21 Apr 2026 20:51:58 -0700 (PDT)
-Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-ba61a0a2d26so527114566b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 20:51:58 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8u5LnRgOJbeocCI7VkLpGP9UuUXXj7XAZq1x7vDmmkf5wvyzfAM7pAeLhEo+cxO8xVhUeeu3yZjStmiQgrOfkH@lists.infradead.org
-X-Received: by 2002:a17:907:7b9a:b0:ba6:5855:1cc0 with SMTP id
- a640c23a62f3a-ba65855318bmr671250466b.2.1776829917526; Tue, 21 Apr 2026
- 20:51:57 -0700 (PDT)
+	Wed, 22 Apr 2026 03:53:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZDkgqze0/q9lCF6wXBo/onV17pj3Ndq/oaCCz+lsWqCoslsw8jl4NoIih27O6JArzhUp3HHr+cKBhWpE0+jPPsmEPe2U3628rh9KPpapknTN79LRiLiPS9h87q3kvbfG+5oiepmlFLHp5NGJgAg9OYADKEhVzIc20GzbUv0Ggj5XB55olc8aF/OoVpns9EMWV/LD5xZqDRY78/labtw4Ro/k4L1HQUZ3R/RQeIqf1FrNvLTQXD5kgA23YPPXQUvmtA4noS7jSy6eCg2tB55o4ihOms2a5OPkPaYECQqHuj5hnexBeDi2vfObc6bMP+q6VIgH3S75N4/VfTP2HJZ6Ig==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QwrhT/2Ohun6boLPrQF9uIAhJhFLuGbHm0lufmcGtQs=;
+ b=YStnSbPclEVQJM21EbBc5wpTZWULnC8u2xy1G3VsiFcCayzgj+ccfxBPuF3+Izf6QbP5iQsFr1pWqTymnBYswNG+1jMfilgOJ5fKMYiHthChz2HTtsqKiaRcnKQBCcNxbvsnKFMKPh+9FLNWIMWYTPT5BoNaHOG6+DfTrRQGkb5bJ6JFBdNExsviNu/YGbR/sfhLoWXfOiTwdz4fzQyV1LuVag0ZQAKBFCLYJBP4ST7E4xWmmW0IEqyfCDZuXu1u85Pneob085s4Da8j2rq0nTbc4p+OpAfeJRKNT/iSXaCv8K57RKhac81yd7IbZM0cAPKkKaax1kRKyyWsYm4ZMw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QwrhT/2Ohun6boLPrQF9uIAhJhFLuGbHm0lufmcGtQs=;
+ b=eV1a8guXyjetCCD3qUOA+HXEwxDjghUiLdkdlmxtTJCa6rdPt/te3Ayq4XanNjFx9AwDCEYVd71eAmNc8yd7sGcl8Gi93c4GDX6OdJP8yhldbjJS+vNLAyeI19hcFrnIx96ZEaZUtgupRUIIpxaFOdsP5yCwT1LPBDsYqrWOFkb/yHN+Ea/13d0rDp351NG57xShz478+Gt+8CVmOglJuqXiNN/ks5+iNBUW5uVdJ6Y+97Gsib2PEe9kF67ql4zCNYs3xQNPUMUnKPXKVLTVj8vlCjfQRcPzsfL0awabAbe7Y2zPYiEM+mW0QOqJuDUWxpZ2+r4W+H0T0bZ06inr8A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by DB9PR04MB10066.eurprd04.prod.outlook.com (2603:10a6:10:4c1::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.18; Wed, 22 Apr
+ 2026 03:53:19 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9846.016; Wed, 22 Apr 2026
+ 03:53:19 +0000
+Date: Tue, 21 Apr 2026 23:53:12 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	jun.li@nxp.com
+Subject: Re: [PATCH 2/4] arm64: dts: imx95: switch usb3 controller to
+ flattened model
+Message-ID: <aehGKE8qLXiBKvvB@lizhi-Precision-Tower-5810>
+References: <20260421105503.1416566-1-xu.yang_2@nxp.com>
+ <20260421105503.1416566-2-xu.yang_2@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260421105503.1416566-2-xu.yang_2@nxp.com>
+X-ClientProxiedBy: SA1P222CA0035.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:2d0::10) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-From: Ricardo Ribalda <ribalda@chromium.org>
-Date: Wed, 22 Apr 2026 11:51:45 +0800
-X-Gmail-Original-Message-ID: <CANiDSCsOy0P1if-gJZqOM5pTJ0RDcwVfru1B7KFbTOEMqjPKJw@mail.gmail.com>
-X-Gm-Features: AQROBzAUxpvtmmUfT9SytqZ_vnzE8JQsTm61nRrGtQURGtsgH0JZ_vzze_Uz4hk
-Message-ID: <CANiDSCsOy0P1if-gJZqOM5pTJ0RDcwVfru1B7KFbTOEMqjPKJw@mail.gmail.com>
-Subject: New warning in linus/master
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
-	linux-arm-kernel@lists.infradead.org, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linuxppc-dev@lists.ozlabs.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DB9PR04MB10066:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4024a792-8395-4363-0de9-08dea022b0f2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|52116014|376014|19092799006|38350700014|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: vfVBKeIcaww/Mb6rjP4skUuFGTAiwlN4wOl1CLS7KLtNU0G/x/zXpKj+UcUtXnwTkif/6s8VEXVzn97ojQl+v8afQih2TuOgwr0zdCf7LGexj2vViKDndcPGzlLuv42BJpmUYIug87tLGKDXsQX2E7qe0nnFYFE/7gJyGpjsxq9bXpYSlZi8rKQt8lYyOjacVEKckig/UBqxdgZM42+e2eWhL4kAacWySsxvAESXHHJPSKgWolvF6/0EiCJ03GDvNmvt5Ut2G1bOOoatYD8tDFvXjL0ST9RHWO6+WY4VfTf0Y9TLmuyXfWbBz1/TuyWXieHItxB3UfdSx9Eo1l02AvcUpeJEjeblV8FpTYgR5+OXqXnS/rMhX1Bm8NHheFc1MLAWMIonNA2KVlqq/pk50ZFKU4Cg/5y7omeGGKeWcw7hCJ4DgV/7+oiKzacXHw3PDPuosBma/iO7CIFwLaYcWw9I5oYcHGdaxkedXp3gCPM8nlcaDcMlPdbShahcEyhZlvGZYYloeSjl0WJFjJaswJe0siCYJ2ZO4wYJO979FbJu+fL2UeO10ZXeDHhdXOTo7o9M3AOQ6rLu2/RAghmE7q5upGIGnT45P159RRYKon5h/I024rkUtC1mi6jD7NOn9M7oaLwPUG2vsuJ2RJ1aRp9ojkW9I95ahr20Rg/13EG+QTrEOd00A2PiAiyg2YwufFHTjRoKglGnUIeJuu6VYLMyN945eP8JtxHbQXOEJCRoDIG0GGW/C4iKR7tVXybiGu/5hwnCgWadM5kRUnrnEjjYO3gG623yXmTBQR+/A9Q=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(52116014)(376014)(19092799006)(38350700014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AxK09QCLl+DvtuElleodMMOrSZyypkBgnE7b3s1MRK48ACTYksYB5Q8PqU3j?=
+ =?us-ascii?Q?yIf9xz1OYcGp1YKRCIsAzN32fqTrBosNiCOn6XoLgVoliJIeDmtFH9/CF6hN?=
+ =?us-ascii?Q?fdICSEeo9GVb1dgz6cj6pWL47Rq6OMmmcOckyw4OUX4R/YleTGMM2F3Ni+j7?=
+ =?us-ascii?Q?3IQ1DxaH34r9mND6tD1uEIEcSokDNVShS1KiDj6wG/4+ROoPpenlWezWUQci?=
+ =?us-ascii?Q?NBLDnq8v6lBLq1bjB0m0LLc3VBQwTOCB4gZmGMX10OoBTA6UBqbFD4sK9E/4?=
+ =?us-ascii?Q?FMZVinhzSCDZyESR9wyXJorgIi1nYaIQTd8RILZTlnVSoG9pSHzpXx58qe8X?=
+ =?us-ascii?Q?LDxydPZcuaI9n8FFaO914MAWMTpfWaA8jZNqpgMjjaNUHct0ODOvucuhYnzA?=
+ =?us-ascii?Q?3JWr5dliL4qNmNfC59Ajv8Xq3jWC0Fn5UvGjXZ2aRDu3RERmyOuGq7aHy7h3?=
+ =?us-ascii?Q?siAMIZDNJQ/HY0RF9LXCQtdj8yyrC2V5LxOhTQRc8lzMAYfjXqEMqHjT3xlP?=
+ =?us-ascii?Q?mWJBN5tiN4J4uT3eU7jToYKpec7Dg3UsEZTkZRzaPMvNEfzTLWkRE5z7yIYK?=
+ =?us-ascii?Q?deEu4a0ULjXF/RJwVQF1pCnBzaQLbMzae3iJdEPyCoQezyqzS+Q7kzTEAg24?=
+ =?us-ascii?Q?nalt/qxqDyDNXJ+2HsBKfPQCalvlTCyvrjzkNAi6NmmY9VD4OX6nGt91oF+1?=
+ =?us-ascii?Q?FQobG3CW2duYnag3j5n+I6vf+cy92DZ6bDzzqejm50QxZmciLJo2obpRKQ3r?=
+ =?us-ascii?Q?grXnUCGeIrDkOqeQb8YLnQcsztt4hUi58hwA0gPbp+9HOJLGB678BGTV0kW5?=
+ =?us-ascii?Q?G8e7li6dFDsLSLR1Aj+RcJGPTM7DP/Gw7TRYRbKP42ll9GFGmCuFlvVenq41?=
+ =?us-ascii?Q?s3hXEDRz6ldXkpH/avNzhMxdCVhCe4yKfSadJqDgCgWEI3NZm2wWAcbvqNNJ?=
+ =?us-ascii?Q?2yJ7HHWvnthB22mHCmLbVmuNuY4ebf4O7RYjeVPDIMAZdWV/6cPSQhNkOdFx?=
+ =?us-ascii?Q?BMKhya+Q0W5EOXNcnlqR2Gum1Z6ErwIoIMV1shBai3Fttnf9S+Ef6dAEkYqp?=
+ =?us-ascii?Q?DulmyDmc2SaeQj3Pw76pcIaF2VzJHsHzzHOVMxr93zmhVu6po/HGlxtcYQlt?=
+ =?us-ascii?Q?P2vZlLrGdB+ac7LT85NuXQEwayfLCGE3ULyDZtwVMVcaUiwWleB+YPTMcFFa?=
+ =?us-ascii?Q?+/OC/r00wB+GoVv9eDt8ri5yDhVcT2HGla6YKv/+KecSfedwT++m8f+hcM93?=
+ =?us-ascii?Q?TJ/faCipM8yS71gseEVciRsc4XUhq4lJIQSCmrqsWX3KmonlWrIpF2RYajJL?=
+ =?us-ascii?Q?nmGqs0Eda6RXIJJfzBXbLIjdOa+EE3TOTFMLjwksWBJcbiDUg24UVz6Hdr4q?=
+ =?us-ascii?Q?TwszKV4EUmdvUaoVbrc8pTezXagIhFmI4MWiPn+7HeNKiGKn8uJN3ErApfPx?=
+ =?us-ascii?Q?5wEejUk0UzTIQPeNfhsDA1iJViPTD1PBDp/mPk8mFG+rf1T2IS/IPRn/drrj?=
+ =?us-ascii?Q?cK9mPX7VmboSre2YeyG0C2SzYJ6pIyQVszPO0wtdj24ZelM7Lp21QA5MJHvi?=
+ =?us-ascii?Q?xw7UaOpxuo5dGExs+wt3/ktAWDdNS/NZ1Ob1m5hX6uofrlF+338NhMXBWLW7?=
+ =?us-ascii?Q?dXIbm2bWNZCB/psyEWuhJfZlQEQGOKVwN+oHPo0xnL/37en6fr1i3+I9uMBk?=
+ =?us-ascii?Q?reytgtsoSyYceT42t1A85Qokc4ZnyWNqAg5qS1VUlDFNhuk9VfsgnvfrfPY5?=
+ =?us-ascii?Q?LxJjA2YXWA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4024a792-8395-4363-0de9-08dea022b0f2
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Apr 2026 03:53:19.2865
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wCTqH+pOlV7Lwn30lWeEf5Dond9oiaKVWk8eN8kNmn3FKpRx45lv+vQz+7fSh5W55bE8q5WZYdBfXKX8TOTkLw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB10066
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_205202_425142_BDD44758 
-X-CRM114-Status: GOOD (  12.53  )
+X-CRM114-CacheID: sfid-20260421_205326_378852_7CFE3C60 
+X-CRM114-Status: GOOD (  17.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,222 +139,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas
+On Tue, Apr 21, 2026 at 06:55:01PM +0800, Xu Yang wrote:
+> Switch to use flattened model for USB3 controller. To enable USB
+> controller with restricted DMA access range to work correctly, add a
+> pseudo simple-bus to constrain the dma address.
 
-Media-CI has found a couple of new warnings in the latest kernel
-version for aarch64 and powerpc. They get fixed with this patch and
-before moving I wanted to know if this was under your radar.
+i.mx95 should fix >4G dma space's problem. Does it impact other no-nxp
+boards?
 
+Need do break compatible judgement such as
 
+i.MX95 is new SoC and still is heave development. The break compatible is
+accepable at development early phase.
 
-diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makef=
-ile
-index 7dec05dd33b7..65914842fae0 100644
---- a/arch/arm64/kernel/vdso/Makefile
-+++ b/arch/arm64/kernel/vdso/Makefile
-@@ -50,7 +50,7 @@ CFLAGS_vgettimeofday.o =3D $(CC_FLAGS_ADD_VDSO)
- CFLAGS_vgetrandom.o =3D $(CC_FLAGS_ADD_VDSO)
+You can rephrase it.
 
- ifneq ($(c-gettimeofday-y),)
--  CFLAGS_vgettimeofday.o +=3D -include $(c-gettimeofday-y)
-+  CFLAGS_vgettimeofday.o +=3D -include $(c-gettimeofday-y)
--Wno-maybe-uninitialized
- endif
+Frank
 
- ifneq ($(c-getrandom-y),)
-diff --git a/arch/powerpc/kernel/vdso/Makefile
-b/arch/powerpc/kernel/vdso/Makefile
-index 8834dfe9d727..4b8d40b1dfeb 100644
---- a/arch/powerpc/kernel/vdso/Makefile
-+++ b/arch/powerpc/kernel/vdso/Makefile
-@@ -12,12 +12,12 @@ obj-vdso32 +=3D getrandom-32.o vgetrandom-chacha-32.o
- obj-vdso64 +=3D getrandom-64.o vgetrandom-chacha-64.o
-
- ifneq ($(c-gettimeofday-y),)
--  CFLAGS_vgettimeofday-32.o +=3D -include $(c-gettimeofday-y)
-+  CFLAGS_vgettimeofday-32.o +=3D -include $(c-gettimeofday-y)
--Wno-maybe-uninitialized
- # Go prior to 1.16.x assumes r30 is not clobbered by any VDSO code.
-That used to be true
- # by accident when the VDSO was hand-written asm code, but may not be
-now that the VDSO is
- # compiler generated. To avoid breaking Go tell GCC not to use r30.
-Impact on code
- # generation is minimal, it will just use r29 instead.
--  CFLAGS_vgettimeofday-64.o +=3D -include $(c-gettimeofday-y) $(call
-cc-option, -ffixed-r30)
-+  CFLAGS_vgettimeofday-64.o +=3D -include $(c-gettimeofday-y) $(call
-cc-option, -ffixed-r30) -Wno-maybe-uninitialized
- endif
-
- ifneq ($(c-getrandom-y),)
-
-
-https://gitlab.freedesktop.org/linux-media/users/ribalda/-/pipelines/164914=
-4/test_report?job_name=3Dcross-gcc
-
-
-CONFIG_CC_VERSION_TEXT=3D"aarch64-linux-gnu-gcc (Debian 15.2.0-16) 15.2.0"
-  SYNC    include/config/auto.conf
-  CC      arch/arm64/kernel/vdso/vgettimeofday.o
-In file included from <command-line>:
-In function =E2=80=98vdso_set_timespec=E2=80=99,
-    inlined from =E2=80=98do_aux=E2=80=99 at /workdir/lib/vdso/gettimeofday=
-.c:266:2,
-    inlined from =E2=80=98__cvdso_clock_gettime_common=E2=80=99 at
-/workdir/lib/vdso/gettimeofday.c:293:10,
-    inlined from =E2=80=98__cvdso_clock_gettime_data.constprop=E2=80=99 at
-/workdir/lib/vdso/gettimeofday.c:306:7:
-/workdir/lib/vdso/gettimeofday.c:104:26: warning: =E2=80=98sec=E2=80=99 may=
- be used
-uninitialized [-Wmaybe-uninitialized]
-  104 |         ts->tv_sec =3D sec + __iter_div_u64_rem(ns, NSEC_PER_SEC, &=
-ns);
-      |                      ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
-~
-/workdir/lib/vdso/gettimeofday.c: In function
-=E2=80=98__cvdso_clock_gettime_data.constprop=E2=80=99:
-/workdir/lib/vdso/gettimeofday.c:242:13: note: =E2=80=98sec=E2=80=99 was de=
-clared here
-  242 |         u64 sec, ns;
-      |             ^~~
-In file included from /workdir/lib/vdso/gettimeofday.c:11:
-In function =E2=80=98__iter_div_u64_rem=E2=80=99,
-    inlined from =E2=80=98vdso_set_timespec=E2=80=99 at /workdir/lib/vdso/g=
-ettimeofday.c:104:21,
-    inlined from =E2=80=98do_aux=E2=80=99 at /workdir/lib/vdso/gettimeofday=
-.c:266:2,
-    inlined from =E2=80=98__cvdso_clock_gettime_common=E2=80=99 at
-/workdir/lib/vdso/gettimeofday.c:293:10,
-    inlined from =E2=80=98__cvdso_clock_gettime_data.constprop=E2=80=99 at
-/workdir/lib/vdso/gettimeofday.c:306:7:
-./include/vdso/math64.h:10:25: warning: =E2=80=98ns=E2=80=99 may be used un=
-initialized
-[-Wmaybe-uninitialized]
-   10 |         while (dividend >=3D divisor) {
-      |                ~~~~~~~~~^~~~~~~~~~
-/workdir/lib/vdso/gettimeofday.c: In function
-=E2=80=98__cvdso_clock_gettime_data.constprop=E2=80=99:
-/workdir/lib/vdso/gettimeofday.c:242:18: note: =E2=80=98ns=E2=80=99 was dec=
-lared here
-  242 |         u64 sec, ns;
-      |                  ^~
-  LD      arch/arm64/kernel/vdso/vdso.so.dbg
-  VDSOSYM include/generated/vdso-offsets.h
-  OBJCOPY arch/arm64/kernel/vdso/vdso.so
-/workdir/lib/vdso/gettimeofday.c:104:26: warning: =E2=80=98sec=E2=80=99 may=
- be used
-uninitialized [-Wmaybe-uninitialized]
-./include/vdso/math64.h:10:25: warning: =E2=80=98ns=E2=80=99 may be used un=
-initialized
-[-Wmaybe-uninitialized]
-
-CONFIG_CC_VERSION_TEXT=3D"powerpc64-linux-gnu-gcc (Debian 15.2.0-15) 15.2.0=
-"
-  SYNC    include/config/auto.conf
-  VDSO32C arch/powerpc/kernel/vdso/vgettimeofday-32.o
-In file included from <command-line>:
-In function =E2=80=98vdso_set_timespec=E2=80=99,
-    inlined from =E2=80=98do_aux=E2=80=99 at /workdir/lib/vdso/gettimeofday=
-.c:266:2,
-    inlined from =E2=80=98__cvdso_clock_gettime_common=E2=80=99 at
-/workdir/lib/vdso/gettimeofday.c:293:10,
-    inlined from =E2=80=98__cvdso_clock_gettime32_data=E2=80=99 at
-/workdir/lib/vdso/gettimeofday.c:327:7:
-/workdir/lib/vdso/gettimeofday.c:104:26: warning: =E2=80=98sec=E2=80=99 may=
- be used
-uninitialized [-Wmaybe-uninitialized]
-  104 |         ts->tv_sec =3D sec + __iter_div_u64_rem(ns, NSEC_PER_SEC, &=
-ns);
-      |                      ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
-~
-/workdir/lib/vdso/gettimeofday.c: In function =E2=80=98__cvdso_clock_gettim=
-e32_data=E2=80=99:
-/workdir/lib/vdso/gettimeofday.c:242:13: note: =E2=80=98sec=E2=80=99 was de=
-clared here
-  242 |         u64 sec, ns;
-      |             ^~~
-In file included from /workdir/lib/vdso/gettimeofday.c:11:
-In function =E2=80=98__iter_div_u64_rem=E2=80=99,
-    inlined from =E2=80=98vdso_set_timespec=E2=80=99 at /workdir/lib/vdso/g=
-ettimeofday.c:104:21,
-    inlined from =E2=80=98do_aux=E2=80=99 at /workdir/lib/vdso/gettimeofday=
-.c:266:2,
-    inlined from =E2=80=98__cvdso_clock_gettime_common=E2=80=99 at
-/workdir/lib/vdso/gettimeofday.c:293:10,
-    inlined from =E2=80=98__cvdso_clock_gettime32_data=E2=80=99 at
-/workdir/lib/vdso/gettimeofday.c:327:7:
-./include/vdso/math64.h:10:25: warning: =E2=80=98ns=E2=80=99 may be used un=
-initialized
-[-Wmaybe-uninitialized]
-   10 |         while (dividend >=3D divisor) {
-      |                ~~~~~~~~~^~~~~~~~~~
-/workdir/lib/vdso/gettimeofday.c: In function =E2=80=98__cvdso_clock_gettim=
-e32_data=E2=80=99:
-/workdir/lib/vdso/gettimeofday.c:242:18: note: =E2=80=98ns=E2=80=99 was dec=
-lared here
-  242 |         u64 sec, ns;
-      |                  ^~
-In function =E2=80=98vdso_set_timespec=E2=80=99,
-    inlined from =E2=80=98do_aux=E2=80=99 at /workdir/lib/vdso/gettimeofday=
-.c:266:2,
-    inlined from =E2=80=98__cvdso_clock_gettime_common=E2=80=99 at
-/workdir/lib/vdso/gettimeofday.c:293:10,
-    inlined from =E2=80=98__cvdso_clock_gettime_data=E2=80=99 at
-/workdir/lib/vdso/gettimeofday.c:306:7:
-/workdir/lib/vdso/gettimeofday.c:104:26: warning: =E2=80=98sec=E2=80=99 may=
- be used
-uninitialized [-Wmaybe-uninitialized]
-  104 |         ts->tv_sec =3D sec + __iter_div_u64_rem(ns, NSEC_PER_SEC, &=
-ns);
-      |                      ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
-~
-/workdir/lib/vdso/gettimeofday.c: In function =E2=80=98__cvdso_clock_gettim=
-e_data=E2=80=99:
-/workdir/lib/vdso/gettimeofday.c:242:13: note: =E2=80=98sec=E2=80=99 was de=
-clared here
-  242 |         u64 sec, ns;
-      |             ^~~
-In function =E2=80=98__iter_div_u64_rem=E2=80=99,
-    inlined from =E2=80=98vdso_set_timespec=E2=80=99 at /workdir/lib/vdso/g=
-ettimeofday.c:104:21,
-    inlined from =E2=80=98do_aux=E2=80=99 at /workdir/lib/vdso/gettimeofday=
-.c:266:2,
-    inlined from =E2=80=98__cvdso_clock_gettime_common=E2=80=99 at
-/workdir/lib/vdso/gettimeofday.c:293:10,
-    inlined from =E2=80=98__cvdso_clock_gettime_data=E2=80=99 at
-/workdir/lib/vdso/gettimeofday.c:306:7:
-./include/vdso/math64.h:10:25: warning: =E2=80=98ns=E2=80=99 may be used un=
-initialized
-[-Wmaybe-uninitialized]
-   10 |         while (dividend >=3D divisor) {
-      |                ~~~~~~~~~^~~~~~~~~~
-/workdir/lib/vdso/gettimeofday.c: In function =E2=80=98__cvdso_clock_gettim=
-e_data=E2=80=99:
-/workdir/lib/vdso/gettimeofday.c:242:18: note: =E2=80=98ns=E2=80=99 was dec=
-lared here
-  242 |         u64 sec, ns;
-      |                  ^~
-  VDSO32L arch/powerpc/kernel/vdso/vdso32.so.dbg
-  VDSO32SYM include/generated/vdso32-offsets.h
-  CC      arch/powerpc/kernel/vdso/vgettimeofday-64.o
-  VDSO64L arch/powerpc/kernel/vdso/vdso64.so.dbg
-  VDSO64SYM include/generated/vdso64-offsets.h
-/workdir/lib/vdso/gettimeofday.c:104:26: warning: =E2=80=98sec=E2=80=99 may=
- be used
-uninitialized [-Wmaybe-uninitialized]
-./include/vdso/math64.h:10:25: warning: =E2=80=98ns=E2=80=99 may be used un=
-initialized
-[-Wmaybe-uninitialized]
-/workdir/lib/vdso/gettimeofday.c:104:26: warning: =E2=80=98sec=E2=80=99 may=
- be used
-uninitialized [-Wmaybe-uninitialized]
-./include/vdso/math64.h:10:25: warning: =E2=80=98ns=E2=80=99 may be used un=
-initialized
-[-Wmaybe-uninitialized]
-
-Thanks
-
---=20
-Ricardo Ribalda
+>
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx95.dtsi | 48 ++++++++++++------------
+>  1 file changed, 24 insertions(+), 24 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+> index 71394871d8dd..91048501a692 100644
+> --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+> @@ -1772,45 +1772,45 @@ smmu: iommu@490d0000 {
+>  			};
+>  		};
+>
+> -		usb3: usb@4c010010 {
+> -			compatible = "fsl,imx95-dwc3", "fsl,imx8mp-dwc3";
+> -			reg = <0x0 0x4c010010 0x0 0x04>,
+> -			      <0x0 0x4c1f0000 0x0 0x20>;
+> -			clocks = <&scmi_clk IMX95_CLK_HSIO>,
+> -				 <&scmi_clk IMX95_CLK_32K>;
+> -			clock-names = "hsio", "suspend";
+> -			interrupts = <GIC_SPI 173 IRQ_TYPE_LEVEL_HIGH>;
+> +		hsio_blk_ctl: syscon@4c0100c0 {
+> +			compatible = "nxp,imx95-hsio-blk-ctl", "syscon";
+> +			reg = <0x0 0x4c0100c0 0x0 0x1>;
+> +			#clock-cells = <1>;
+> +			clocks = <&clk_sys100m>;
+> +			power-domains = <&scmi_devpd IMX95_PD_HSIO_TOP>;
+> +		};
+> +
+> +		bus@4c100000 {
+> +			compatible = "simple-bus";
+>  			#address-cells = <2>;
+>  			#size-cells = <2>;
+> -			ranges;
+> -			power-domains = <&scmi_devpd IMX95_PD_HSIO_TOP>;
+>  			dma-ranges = <0x0 0x0 0x0 0x0 0x10 0x0>;
+> -			status = "disabled";
+> +			ranges;
+>
+> -			usb3_dwc3: usb@4c100000 {
+> -				compatible = "snps,dwc3";
+> -				reg = <0x0 0x4c100000 0x0 0x10000>;
+> +			usb3: usb3_dwc3: usb@4c100000 {
+> +				compatible = "nxp,imx8mp-dwc3";
+> +				reg = <0x0 0x4c100000 0x0 0x10000>,
+> +				      <0x0 0x4c010010 0x0 0x04>,
+> +				      <0x0 0x4c1f0000 0x0 0x20>;
+> +				reg-names = "core", "blkctl", "glue";
+>  				clocks = <&scmi_clk IMX95_CLK_HSIO>,
+> +					 <&scmi_clk IMX95_CLK_HSIO>,
+>  					 <&scmi_clk IMX95_CLK_24M>,
+>  					 <&scmi_clk IMX95_CLK_32K>;
+> -				clock-names = "bus_early", "ref", "suspend";
+> -				interrupts = <GIC_SPI 175 IRQ_TYPE_LEVEL_HIGH>;
+> +				clock-names = "hsio", "bus_early", "ref", "suspend";
+> +				interrupts = <GIC_SPI 175 IRQ_TYPE_LEVEL_HIGH>,
+> +					     <GIC_SPI 173 IRQ_TYPE_LEVEL_HIGH>;
+> +				interrupt-names = "dwc_usb3", "wakeup";
+> +				power-domains = <&scmi_devpd IMX95_PD_HSIO_TOP>;
+>  				phys = <&usb3_phy>, <&usb3_phy>;
+>  				phy-names = "usb2-phy", "usb3-phy";
+>  				snps,gfladj-refclk-lpm-sel-quirk;
+>  				snps,parkmode-disable-ss-quirk;
+>  				iommus = <&smmu 0xe>;
+> +				status = "disabled";
+>  			};
+>  		};
+>
+> -		hsio_blk_ctl: syscon@4c0100c0 {
+> -			compatible = "nxp,imx95-hsio-blk-ctl", "syscon";
+> -			reg = <0x0 0x4c0100c0 0x0 0x1>;
+> -			#clock-cells = <1>;
+> -			clocks = <&clk_sys100m>;
+> -			power-domains = <&scmi_devpd IMX95_PD_HSIO_TOP>;
+> -		};
+> -
+>  		usb3_phy: phy@4c1f0040 {
+>  			compatible = "fsl,imx95-usb-phy", "fsl,imx8mp-usb-phy";
+>  			reg = <0x0 0x4c1f0040 0x0 0x40>,
+> --
+> 2.34.1
+>
 
