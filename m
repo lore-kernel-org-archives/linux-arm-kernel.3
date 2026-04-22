@@ -4,70 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC61FA1FE5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 18:51:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AB3DFA1FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 19:01:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=glsNCiGTPnKVlFZ4EtRJsTgOFyTiPddZ/76hLM1QwNU=; b=3QaP/IOH7jjNgrKy4WessYuKgx
-	fH29ZF1pVBkZDVaRtejCa+ZOjLW1ZwdaeQrEtFM1QhbdxwyzGSMhNuu9G/9FtVD3yMzqISGOPSURU
-	UN+DK1IQ4WU9AwW8FXff6sC7UpOHMt/7ttTFZ66qUByUBA+VlTtYj7Jw5d/ZmDW47odOg73FbQjDo
-	BaVrLfeIkeL+zjalTZkwuD7V4A8AZ0mlW+2+N0CgYrLetANR+vWqzHhAi0m7eFssFcafPRFdi3a4z
-	S9pjMoFGN+PdEd2DIZNIK53i+KVVQTt7TAjar6FBzwklvNnzRbHAw+KEWGGX3U7UZqC9XkOwU3Iwb
-	7QHi+N9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K1VwOtAx2tzj0aOe6EJy/gEvxOwRvEH5McU5N86vEIM=; b=wi0K0MO0hVDED+Godh4J2Mbpw0
+	6ots/6rZxGCUEhO1d+Tdkm3j96UJCYmnMZ8V/+gFRTwJuqTAFuc890LP3F46QzF27eaRjVTy5XTeX
+	Jf+cTaIOonAW6ifbOCUzTuLNmSD8mncjUzeephKn4NYWtoEIp0gxD2AVseDZj+48WoPZ64N7O//ny
+	ZJ2tms1ewV/GWkJfg1xVTvBfpHcUnVyOnKnINwvGaIptE40k9EzVrT6cG4gsqc8sELDQscwUk5xer
+	Nk/CLyA/ggePY9raaB760Okxi8NtL5Q1fCfpoxYBlp5HNv/VTKJSVaOncao1RasppnWJJvuZzi6Cw
+	0cg48D8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFcfI-0000000AeEZ-0f2G;
-	Wed, 22 Apr 2026 18:51:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wFcpO-0000000AfHl-47lj;
+	Wed, 22 Apr 2026 19:01:39 +0000
+Received: from fout-a3-smtp.messagingengine.com ([103.168.172.146])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFcfG-0000000AeED-0cjS
+	id 1wFcpM-0000000AfHP-0UG7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 18:51:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 534A94166A;
-	Wed, 22 Apr 2026 18:51:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 334ACC19425;
-	Wed, 22 Apr 2026 18:51:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776883869;
-	bh=QAnJAPXdDP9ZUgfbNMD+G/bRQFx5oM9LjIYK7IpcsGc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bCAp4JPX+e+nvkLxiw3/olEBTK1qHhsLYsH+n2yn2yUAKZQD2u/v3Z9BU4H4gDnNl
-	 +y9aEGTLvpbfYVWWLf/ArlanlmwwVD0Ik1jGbeTGev6Al8B5MOdItw01rn0X0iP2sO
-	 q+o4rxGAIA+mlVi1VFFn24gQaGvmpK2SAfjtQn6ReEE5VWHybOEVUVgsiHfeMAAUZR
-	 VBlH7XyyS59i82MBTaTy5nIzrbjlszTJNt8S4E/0SSGRxM9Q4h+OyuqZr7lVncaSZ2
-	 9svshMGjxS8h5aMHXTzWbpDk+PIjVom8nEJ4HSbOx6Ngt5BAl9+lIt7sNWrAoZUd9W
-	 1owGLZ18teIPg==
-Date: Wed, 22 Apr 2026 19:51:03 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH RFC 2/2] clk: scmi: Add support for two #clock-cells to
- pass rate rounding mode
-Message-ID: <20260422-satisfied-rough-mongrel-aabca1@sudeepholla>
-References: <20260306-scmi-clk-round-v1-0-61e2a5df9051@nxp.com>
- <20260306-scmi-clk-round-v1-2-61e2a5df9051@nxp.com>
- <20260422-huge-kiwi-of-tornado-4fce89@sudeepholla>
- <aejUd6L1AfbsflxR@shlinux89>
+	Wed, 22 Apr 2026 19:01:38 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.phl.internal (Postfix) with ESMTP id 7180FEC00CE;
+	Wed, 22 Apr 2026 15:01:32 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Wed, 22 Apr 2026 15:01:32 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kevinmehall.net;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
+	 t=1776884492; x=1776970892; bh=K1VwOtAx2tzj0aOe6EJy/gEvxOwRvEH5
+	McU5N86vEIM=; b=bsh47LX9HivrVOA3lFFnsFEYLff7hYGudNjNN0Vvt9ETjWyO
+	XL1G0aYfF+nRro01BWNTczXWIhMhZk2KiWyzcaYwIooTtjvkFKIok/zXJPIxFfGw
+	NbVQNVJmbTHQo3yDu/l9rdn7f6LJwNc6W41r1/xNMCtRENWS4eCWz9zZGD6NQW/A
+	O56YQurW8QS3pAs0x6DZoKWbIRuA4LsDEcKJEjgZdSqZ2iqInQ3oT/38npFjzANO
+	z5fov2m+ZKBYvsljZzWnT1s+Lrkl5tAn/NLa7EhxCWlp6kJoGMiksHJNuRGCleTS
+	Es5Uu0GxkyCTYtqn3i1R14CIvL2GUpxH2M23nw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1776884492; x=
+	1776970892; bh=K1VwOtAx2tzj0aOe6EJy/gEvxOwRvEH5McU5N86vEIM=; b=A
+	PO/rQN1TM8rMPgTvl7z016DLsvnlJCet07VPm4o6zeprGGcdld8b1Qv82veavPad
+	qLiXBSeYBGdtGqEteS9GSf2bFuOyK/9qmIgY7ASqDDCRIV1wrOy0s0/8HDBQkcr4
+	u0YScO7LBuIagonFp2VPjvMw8XwtyQrqfBDFRDcZRjQnJTHaWwAul+sOh8fNjV2Q
+	ubsr3sjDXUgi5SO8apGTSKFBLBD4+ohva6c/ofQQezh6M6VtKjwSx3b1Sg/AcNE7
+	ZRTV7ExJlwDhBtVDj9trvGyQn01qX9xLjYMqX3h+A0wUbg1e4ZiJyBIHV3xBLvyU
+	2q95JvfduMgr2U06Dr5Zw==
+X-ME-Sender: <xms:CxvpaXiXWi9oIh376PNNtWTjLCDC6CsFDmbcjs4-RJu51xVYa-kMsg>
+    <xme:Cxvpae0h1xtmg1TuTlMu9kOINd-9ea23gybXsQArRDtqY0ZOYZpFBS6Hl-x451_e0
+    01ZezRQrPa4GvNbtsdGTYGHQo9pFIZZy3ev0HH0uFsVgXmowhIYoA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdeihedtiecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdfmvghvihhn
+    ucfovghhrghllhdfuceokhhmsehkvghvihhnmhgvhhgrlhhlrdhnvghtqeenucggtffrrg
+    htthgvrhhnpeeltdegfffhvdefuedtledtvedvveehjeeljedtudffgfefvdevtefggfel
+    leelgeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
+    hkmheskhgvvhhinhhmvghhrghllhdrnhgvthdpnhgspghrtghpthhtohepuddtpdhmohgu
+    vgepshhmthhpohhuthdprhgtphhtthhopehjvghrnhgvjhdrshhkrhgrsggvtgesghhmrg
+    hilhdrtghomhdprhgtphhtthhopegsrhhoohhnihgvsehkvghrnhgvlhdrohhrghdprhgt
+    phhtthhopeifvghnsheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrg
+    hrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthht
+    oheplhhinhhugidqshhunhigiheslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtth
+    hopehmihhrkhhoqdguvghvkihlihhnuhigsehnrghnlhdruggvpdhrtghpthhtoheprhhs
+    tgesrhhunhhtuhigrdgtohhmpdhrtghpthhtohepshgrmhhuvghlsehshhholhhlrghnug
+    drohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgv
+    lhdrohhrgh
+X-ME-Proxy: <xmx:CxvpaQuica_t67utsH-8az6hAva_q_l3nK_KCZqEG1V_7W1VHcXhdQ>
+    <xmx:CxvpabtmlBmObmxuXs6tXNTv5eLaeabdz_2XAtdQMTLDcUl4XGxOwg>
+    <xmx:CxvpaVEDLg5F8rD7pcrTwq5ZITNxzDpphUYqFy40p99rsO33vIC-Iw>
+    <xmx:CxvpaWMCI6RzUxGKMbiueEdpj0E9_X8jk8b3mJ7TID4QZorSySa7BQ>
+    <xmx:DBvpae2WdIsDRgOMB6HbD-_ZZxygrXmmlFd5Rpa45ZdbUatym89mPY95>
+Feedback-ID: i421842c8:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id A1F4B700069; Wed, 22 Apr 2026 15:01:31 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aejUd6L1AfbsflxR@shlinux89>
+Date: Wed, 22 Apr 2026 13:01:11 -0600
+From: "Kevin Mehall" <km@kevinmehall.net>
+To: "Mark Brown" <broonie@kernel.org>
+Cc: "Chen-Yu Tsai" <wens@kernel.org>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>,
+ "Samuel Holland" <samuel@sholland.org>,
+ "Mirko Vogt" <mirko-dev|linux@nanl.de>,
+ "Ralf Schlatterbeck" <rsc@runtux.com>, linux-spi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Message-Id: <d199f72a-093b-41bb-b33e-b6685563f704@app.fastmail.com>
+In-Reply-To: <66909301-ed23-4b36-8955-a69b64eed9a1@sirena.org.uk>
+References: <20260420164755.1131645-1-km@kevinmehall.net>
+ <66909301-ed23-4b36-8955-a69b64eed9a1@sirena.org.uk>
+Subject: Re: [PATCH] spi: sun6i: Set SPI mode in prepare_message
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_115110_255395_C9E1B4AE 
-X-CRM114-Status: GOOD (  32.69  )
+X-CRM114-CacheID: sfid-20260422_120136_703733_44BD08BA 
+X-CRM114-Status: GOOD (  14.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,101 +120,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 22, 2026 at 10:00:23PM +0800, Peng Fan wrote:
-> Hi Sudeep,
-> 
-> Thanks for giving a look.
-> 
-> On Wed, Apr 22, 2026 at 02:14:56PM +0100, Sudeep Holla wrote:
-> >On Fri, Mar 06, 2026 at 02:20:13PM +0800, Peng Fan (OSS) wrote:
-> >> From: Peng Fan <peng.fan@nxp.com>
-> >> 
-> >> SCMI CLOCK_RATE_SET allows the caller to specify the rounding behaviour
-> >> when setting a clock rate. The previously added dt-bindings header
-> >> defines three modes:
-> >> 
-> >>   ROUND_DOWN / ROUND_UP / ROUND_AUTO
-> >> 
-> >> To enable device tree clients to select a rounding mode, extend the
-> >> SCMI clock provider to support "#clock-cells = <2>", where the second
-> >> cell encodes the desired rounding mode. The default remains
-> >> ROUND_DOWN for backwards compatibility with existing device trees.
-> >> 
-> >
-> >Where is the binding update documented ? It's not in 1/2.
-> 
-> This was missed in this patchset, I will fix in new version, if this
-> patchset does not have big design flaw.
-> 
-> >
-> >Also if it can be static in the device tree, why can't it be
-> >autonomously handled in the platform firmware ? I think I know the
-> 
-> Linux passes ROUND_DOWN, SCMI firmware uses round down for clk calculation.
-> 
-> >answer for this but I want to make sure it is a valid use-case and
-> >gets documented here as part of binding updates.
-> 
-> Per info from our video software team.
-> We have some video modes where the best pixel clock rate is slightly above the
-> nominal rate, and the default round down rule (CLOCK_ROUND_RULE_CEILING in SM
-> firmware) can cause the resulting clock rate to be much lower than expected.
-> 
-> disp1pix = 96200000 Hz (desired pixel clock rate)
-> 
-> The MIPI DPHY cannot hit the exact frequency of 288600000 Hz needed for this
-> pixel clock rate, so the next best DPHY PLL frequency is 289000000 Hz. This
-> corresponds to a pixel clock frequency of 96333333 Hz, which is slightly higher
-> than the nominal rate of 96200000 Hz the video mode specifies.
-> 
-> Setting the VIDEOPLL (disp1pix parent) to 289000000 Hz should divide down to
-> the adjusted disp1pix frequency of 96333333 Hz, but here is what happens in the
-> SM firmware:
-> 
-> quotient = 289000000 / (96200000 + 1) = 3.004 => 3 (notice that the SM always
-> receives the nominal clock rate, not the adjusted rate)
-> 
-> If the rounding rule is round down (CLOCK_ROUND_RULE_CEILING),
-> quotient = quotient + 1. Therefore, quotient becomes 4.
-> 
-> disp1pix = 289000000 / 4 = 72250000, which is nowhere close to the target of
-> 96333333.
-> 
+On Wed, Apr 22, 2026, at 8:57 AM, Mark Brown wrote:
 
-I do not think this is the correct interpretation of `CLOCK_ROUND_DOWN/UP`.
+> Might this cause the native chip select to get asserted, we didn't set
+> up values so it'll have defaults if it wasn't previously configured?
 
-`CLOCK_ROUND_DOWN/UP` should apply to the requested `disp1pix` rate itself,
-not to the divider choice in a way that forces selection of the next integer
-divisor and produces a much lower output clock.
+Per the H616 datasheet, the SUN6I_TFR_CTL_CS_MANUAL bit (which it calls
+SS_OWNER) is documented as:
 
-Here, the requested `disp1pix` is `96,200,000 Hz`, and the parent rate is
-`289,000,000 Hz`. The achievable child rates nearby are:
+> Usually, controller sends SS signal automatically with data together. When
+this bit is set to 1, software must manually write SPI_CTL_REG.SS_LEVEL to 1 or
+0 to control the level of SS signal.
 
-`289,000,000 / 3 = 96,333,333 Hz`
-`289,000,000 / 4 = 72,250,000 Hz`
+SS_LEVEL (aka SUN6I_TFR_CTL_CS_LEVEL) resets to 0x1 (CS high = inactive)
+and is also written in sun6i_spi_set_cs(), which is called in spi_setup() via
+spi_set_cs(). Thus it should be initialized before we get here the first time.
+Once SUN6I_TFR_CTL_CS_MANUAL is set, it is never cleared elsewhere in the
+driver, so in any case, this can only affect the first transfer.
 
-Given those options, the firmware should be able to round the request
-autonomously to the nearest supported `disp1pix` rate, which is `96,333,333
-Hz` (`289,000,000 / 3`).
+I believe this is actually a bugfix in that case: having SUN6I_TFR_CTL_CS_MANUAL
+set earlier means that the write to SUN6I_TFR_CTL_CS_LEVEL in sun6i_spi_set_cs()
+takes effect immediately, whereas previously that CS falling edge would have
+been deferred until sun6i_spi_transfer_one() set SUN6I_TFR_CTL_CS_MANUAL. As any
+configured cs_setup delay happens between those two steps, the configured delay
+would have effectively been ignored on the very first transfer, and this change
+makes the first transfer work like subsequent ones.
 
-Under that interpretation:
-
-`CLOCK_ROUND_UP` would permit choosing `96,333,333`
-`CLOCK_ROUND_AUTO` would also likely choose `96,333,333`
-Choosing `/4` and ending up at `72,250,000` does not look like a meaningful
-rounding of `96,200,000`
-
-So the issue appears to be that the firmware is applying the rounding rule to
-divider selection rather than to the resulting `disp1pix` frequency.
-
-> However, if we can use `ROUND_AUTO` the SM firmware would select a quotient of 3
-> in this case, and `disp1pix` would match our target: `289000000 / 3 = 96333333`.
-
-Given the explanation above, I would not support this approach. `ROUND_AUTO`
-should be sufficient for this case if the firmware is making a sensible
-selection.
-
--- 
-Regards,
-Sudeep
+However, what's not clear to me is why SUN6I_TFR_CTL_CS_MANUAL was in
+sun6i_spi_transfer_one() in the first place. sun6i_spi_set_cs() is writing to
+the same register, and it seems to me that setting that bit there would be a
+more logical place to do it, though I don't think there is any functional change
+vs what I have here. Let me know if you'd like me to move it to
+sun6i_spi_set_cs() instead and how that should be submitted (same patch?
+separate patch before the rest of this in a series? standalone patch to be
+applied after this one?).
 
