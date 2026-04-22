@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F4A6F9B612
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 11:00:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ACF4F9B61A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 11:01:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:
-	Subject:From:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/SNLfa4K/uJiNwTlY4z2Bc+7POJ0dVXka0GD7AEYWco=; b=ZsPe1Csqw3g9ToGpZLBQz3WO8o
-	hI8L/F3e88B/a5XtnFmjVerY7I/v02wQFB22GC6NktD3TrwAMbT8geX8B27QpK45izXqjfJznnK9F
-	npO715uCtb4gilGCWMKaFFsAoYxYIq9zm34iXWmZQLBJbVczj3Z2wFFV6oRIFX4qfQZFSFip8l5X5
-	jgPoQKpt+SELtWbJbpJlHZcLAcmnw52K0zs0yqOr4+faysSTALoTpmd59viUakTKNmAtK5PIqx4/g
-	h4nXFm76NQAdxDYkIzdlPAPdM3eznYdQ5BvDNxtd6SFzt/90eJGhDp1vDipvddxVPwCqD35u/JmJp
-	AZ7yqF4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4fu9KmT/zb2O6yFwcRLVdPA+DCGEItkt9W4Am8u0LVI=; b=sRWOOkAynKZc0dD4jIZ9o6QWTq
+	uA026FwmKGp7yEBhE0PqzBylLVM7SSm2Vd1IKcue+N+8TJhENprypyRFFWjJJDTjYeiXlKDw25QaJ
+	ipM/ox4MLlSsJW1wE0qFvPZd7KEV7Fp3CfdnZldTzTgGEtzHKfBlnzDHugPyTbdG7LGmTXI3zEO+N
+	wrPIUfJ8QHCLk3XR3MzKCjunBRENnQ6cKVXiko6Zfa+obOJUQAD6W1rtOGneuIyWr3pb+nZlISTrR
+	hoaRYUUZjOcPCqaBpovZ1XJqVT7geDkWrYuSB8MoUmUzoqfHOwAH5+cQKmXMOwr+EqZqdn8nydb6+
+	ayYBjM9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFVJI-00000009yLY-0WyI;
-	Wed, 22 Apr 2026 11:00:00 +0000
+	id 1wFVKc-00000009yTw-2DqB;
+	Wed, 22 Apr 2026 11:01:22 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFVJF-00000009yL9-3qHI
+	id 1wFVKZ-00000009yTH-2XQR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 10:59:59 +0000
+	Wed, 22 Apr 2026 11:01:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9232C41A31;
-	Wed, 22 Apr 2026 10:59:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF0BEC2BCB4;
-	Wed, 22 Apr 2026 10:59:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 329A84043A
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 11:01:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FE54C19425;
+	Wed, 22 Apr 2026 11:01:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776855596;
-	bh=//4P/Sn26KXkVxYjuyHGjNLQZAH/u/OsyriEY0/4JAc=;
-	h=Date:To:From:Subject:Cc:References:In-Reply-To:From;
-	b=k3No9sWzlLT2r4ZMl9+SBaXKDt4bu1LA4TAhpAyGDknf+FGRUaW9Ne1wpqXRTdvTL
-	 6h5kikyJIMu7OTw9cIpccxhnb+U91HZsVGo1F/Y+hDvRk8The/76e16RHWUcy3BSR4
-	 gHvIr3t89F8Iazm0vUqbrMTKcK2oPLLspqHPAU0FHiXkitUOsGc9XadLludz1TCA0b
-	 IaLs7qm90LRhD6HYw1i4Du919AZoIdW6pH7XWI5DGFYAv11QlPBs3krYgdhvxEtxd1
-	 Ih883vxjz/kV9whvNannzUqNvd6AjAquij7/HkZGyGBkBFPuKOuPZSjie77mATg4YZ
-	 nqhKF6weetQ/g==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+	s=k20201202; t=1776855679;
+	bh=vSIMzTAhqwYfxZzmpkzPsQ8Ff0fX6ImiRUnKI6RL9s0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Y7NnjzAEP8ymiska0oK+0usrDU5yq5m93mhIqgFdRBEJm0A046+BL7dOj0chcDPgH
+	 pwIrygNRqZwGsSbMVRChZmrzMnJwaKyXIJB7eUS8kBlpN/5WkPj7K6IrEb6Km60ENd
+	 PAdQUQ6tfvVCjSr4vuI8lGl9lc62r1SVYta2APFmez1gpG+qV+7GfXpWqzqClZUslz
+	 jlpewNHUK2vGxjEBwdfkTgL1v/7QvSxnr2VEuBbDmYvStR9C7RWw29jKkuRcr8FrQ/
+	 xxRrAxyT0hWBvgxPh0QJfMEc6CLKYUEvFdU4R+BhqHfsyzcLZFsfUoIWK6FUY7CTlI
+	 eS7O+vC/FRyIg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wFVKW-0000000DiIq-4Age;
+	Wed, 22 Apr 2026 11:01:17 +0000
+Date: Wed, 22 Apr 2026 12:01:16 +0100
+Message-ID: <86cxzr1coz.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 0/5] firmware/irqchip: Add FF-A DT interrupt support for donated NS SGIs
+In-Reply-To: <20260412-b4-ffa_ns_sgi_gicv3-v1-0-af61243eb405@kernel.org>
+References: <20260412-b4-ffa_ns_sgi_gicv3-v1-0-af61243eb405@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=UTF-8
-Date: Wed, 22 Apr 2026 12:59:50 +0200
-Message-Id: <DHZMQLCIRJIS.174HZR6DIAOMM@kernel.org>
-To: "Ulf Hansson" <ulf.hansson@linaro.org>
-From: "Danilo Krummrich" <dakr@kernel.org>
-Subject: Re: [PATCH v2 1/9] driver core: Enable suppliers to implement fine
- grained sync_state support
-Cc: "Saravana Kannan" <saravanak@kernel.org>, "Rafael J . Wysocki"
- <rafael@kernel.org>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- <linux-pm@vger.kernel.org>, "Sudeep Holla" <sudeep.holla@kernel.org>,
- "Cristian Marussi" <cristian.marussi@arm.com>, "Kevin Hilman"
- <khilman@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Marek
- Szyprowski" <m.szyprowski@samsung.com>, "Bjorn Andersson"
- <andersson@kernel.org>, "Abel Vesa" <abel.vesa@oss.qualcomm.com>, "Peng
- Fan" <peng.fan@oss.nxp.com>, "Tomi Valkeinen"
- <tomi.valkeinen@ideasonboard.com>, "Maulik Shah"
- <maulik.shah@oss.qualcomm.com>, "Konrad Dybcio" <konradybcio@kernel.org>,
- "Thierry Reding" <thierry.reding@gmail.com>, "Jonathan Hunter"
- <jonathanh@nvidia.com>, "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "Dmitry Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- "Geert Uytterhoeven" <geert+renesas@glider.be>,
- <driver-core@lists.linux.dev>
-References: <20260410104058.83748-1-ulf.hansson@linaro.org>
- <20260410104058.83748-2-ulf.hansson@linaro.org>
- <DHW8QPU1VU1F.3P6PH69HLFBYC@kernel.org>
- <CAPDyKFqMDPiqvqJrq5Qs6Tw4Sc7szG4G-=y0NFkNSPoNd9kdVA@mail.gmail.com>
-In-Reply-To: <CAPDyKFqMDPiqvqJrq5Qs6Tw4Sc7szG4G-=y0NFkNSPoNd9kdVA@mail.gmail.com>
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: sudeep.holla@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_035958_030220_B9645798 
-X-CRM114-Status: GOOD (  16.03  )
+X-CRM114-CacheID: sfid-20260422_040119_694844_75D5B7EE 
+X-CRM114-Status: GOOD (  23.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,49 +88,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Apr 22, 2026 at 12:07 PM CEST, Ulf Hansson wrote:
-> On Sat, 18 Apr 2026 at 13:23, Danilo Krummrich <dakr@kernel.org> wrote:
->> On Fri Apr 10, 2026 at 12:40 PM CEST, Ulf Hansson wrote:
->> > @@ -1126,6 +1128,9 @@ static void __device_links_queue_sync_state(stru=
-ct device *dev,
->> >       if (dev->state_synced)
->> >               return;
->> >
->> > +     if (dev->driver && dev->driver->queue_sync_state)
->> > +             dev->driver->queue_sync_state(dev);
->>
->> This seems to be called without the device lock being held, which seems =
-to allow
->> the queue_sync_state() callback to execute concurrently with remove(). T=
-his
->> opens the door for all kinds of UAF conditions in drivers.
+On Sun, 12 Apr 2026 18:04:36 +0100,
+Sudeep Holla <sudeep.holla@kernel.org> wrote:
+>=20
+> Hi all,
+>=20
+> This series wires FF-A notification interrupts up through DT using the
+> standard interrupts property on the arm,ffa node and adds the
+> required GICv3 and binding support for secure-donated non-secure SGIs.
+>=20
+> This has been long pending after the discussions here[1][2]. I have been
+> waiting for some ACPI story to shape up for almost an year now, but no
+> progress there. So posting this for now to start discussion on the approa=
+ch
+> taken here instead of waiting for another year to sort out ACPI =F0=9F=98=
+=89.
+>=20
+> It:
+>=20
+> - documents secure-donated NS SGIs in the GIC DT binding
+> - teaches the GICv3 driver to accept and map those SGIs
+> - adds a DT binding for the arm,ffa firmware node
+> - updates the FF-A driver to use the arm,ffa node interrupt instead of
+>   synthesizing its own GIC mapping
+> - adds an FVP DT node using SGI 8 as the FF-A notification interrupt
 >
-> If that were the case, this whole function would be unsafe even before
-> this change. I assume this isn't because of how the function is being
-> called, but I may be wrong.
+> The FF-A DT lookup expects a single interrupt entry, verifies that it is
+> a per-CPU interrupt via the reported affinity mask, and cross-checks the
+> resolved Linux IRQ hwirq against the interrupt ID returned by
+> FFA_FEATURES.
 
-This function does not issue any driver callbacks intentionally; the existi=
-ng
-sync_state() callback is deferred to device_links_flush_sync_list(), which =
-is
-called without the device_links_write_lock() held, but takes the device_loc=
-k()
-to protect against other concurrent driver callbacks, such as remove().
+I haven't looked at this in any detail, but these are the additional
+issues someone needs to address:
 
-I.e. we can't take the device_lock() when the device_links_write_lock() is =
-held,
-as it would be prone to lock inversion.
+- The GIC(v3) is dead, long live the GIC(v5)! SGIs don't exist in the
+  brave new world, so FFA needs to find new ways to signal interrupts.
 
-The documentation of __device_links_queue_sync_state() actually slightly hi=
-nts
-at this, but focuses more on the other reason for the deferred semantics --=
- the
-sync_state() callback may want to call device link APIs.
+- FFA doesn't necessarily live in secure world, and could be
+  implemented by a hypervisor. In the context of a single security
+  domain machine (that's what a VM is), the guest *owns* all SGIs. So
+  there is absolutely nothing to donate, and this doesn't work. FFA
+  also needs fixing here.
 
-> Anyway, let me add a get/put_device() here somewhere, to ensure we
-> prevent this from happening. I assume that is what you are proposing?
+- All of the above should work with the other firmware description
+  (Avoid Critical Periodic Interrupts). But maybe FFA is not a thing
+  on these machines? If not, it should be made explicit.
 
-No, an additional device reference count won't protect against other concur=
-rent
-driver callbacks, such as remove().
+Overall, it only indicates that FFA should behave as a device, and
+use interrupts that are valid for a device.
+
+Thanks,
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
