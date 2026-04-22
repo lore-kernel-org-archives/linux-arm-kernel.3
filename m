@@ -4,118 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34DACFA1FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 21:20:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9569FA1FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 21:29:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
-	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N9Q6zXla1NdmTIBlj9DdrsDLNUyJ3CVakT7/aa1rnmQ=; b=srKZY54gOl/NkEIj/+y4N/OGN7
-	jNJ0f28WyKznTBfcMcakWZo3NC8NtYwcCIYBeKz8wY1PlfF4HZerv7P4Dl927SM4kgJQcJtl+AMBW
-	JSm7qNrBUVnsXJTPdMqA+A4Y2ftBPOmheC9NbXqbAEybK0oMap67UAEMcqeoirHpba9n0qTg/E4lB
-	xUk7gP997kUWiVltDqmrNOn9S31HqdLMtwMQ1otQir9/nTca6aCUW6L3j2aqR/gukZP877jK/DEBs
-	gLR2yrP3+oynvpeIlMSackrqxRwJ26ADT4x1OAUSoJ0n5PGY3Ih/zwnh3ebjythAy/iphmhwAEy3I
-	0QRBq4oA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gOa0Awtoo4Tqe+7lHnsL9MFZW+Qbe9IRu7HpBlOlc8M=; b=HC03iQOuSoU/E/JIobAPTfeERs
+	y1WKxULjP3uUjZwAIAcF7lqcJMoRwU5FR4PM+TLk+29gnrepWaqFrGa3wNgQ2hMrBKpx+TKp66LOB
+	7JOVdU0Wd8N+SG85F0GX9NK3nb8JWFAKbJ83CyCkbXJiBjeac9Vy55IBHquom+I/J0/F0E2ysiObQ
+	6IHYWHqWHpf0K1RShIdt+b0IHaIci/QVeZOEY6SktOA8yadoez339Dxc7nsMMHOipJIC7Rmru2zZC
+	HBIvI+EXbHcP55S1S8Fft7S8brIxO0Y9cGKBUaQjLDBD5pRuO0VbvOB+WqbI+w2qGuYyvwtisG8EO
+	O6R2LSdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFf05-0000000Al8z-48Q7;
-	Wed, 22 Apr 2026 21:20:49 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wFf86-0000000AleN-1vEV;
+	Wed, 22 Apr 2026 21:29:06 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFf03-0000000Al8Z-1vQb
+	id 1wFf84-0000000AldK-24rr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 21:20:48 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63MGMGsL3514986;
-	Wed, 22 Apr 2026 21:20:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=N9Q6zX
-	la1NdmTIBlj9DdrsDLNUyJ3CVakT7/aa1rnmQ=; b=RaZO2EViu2zjJQmCy9erjy
-	GgH2sRGGgap1fJtbQXrsrzY0pYTcHdYLx+Tdy314NBgncNjTYpJbh4a2yngNGlTV
-	va95no4LmXtqilO6QjGJGvfMy2BSJMDd9LTa+gMf8cMf6bH6S1yrvBPf7WhfPLzr
-	SAP7nIQHqyZAujkxtXMCRAIXmN14Img4r0W3gVNQrfBxxIMfALc2HLDoA/bbafOd
-	8ELly+j9oL+No0FwnR+CjapVOz9NHBs6KygF5nUCR6RJt6zui5oUckBou64gWJlI
-	PgWD33vI4L0QGjMkF73hZNrryEN8u4mhT5Dd3dCULzUBvhm0wmZtsMm3bjWNw1Sw
-	==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dpeu25quw-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 22 Apr 2026 21:20:25 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63MLKP46003300;
-	Wed, 22 Apr 2026 21:20:25 GMT
-Received: from smtprelay06.dal12v.mail.ibm.com ([172.16.1.8])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4dpjkxv1pj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 22 Apr 2026 21:20:25 +0000 (GMT)
-Received: from smtpav03.wdc07v.mail.ibm.com (smtpav03.wdc07v.mail.ibm.com [10.39.53.230])
-	by smtprelay06.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63MLKOma30212616
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 22 Apr 2026 21:20:24 GMT
-Received: from smtpav03.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 214005805A;
-	Wed, 22 Apr 2026 21:20:24 +0000 (GMT)
-Received: from smtpav03.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0340D58054;
-	Wed, 22 Apr 2026 21:20:22 +0000 (GMT)
-Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.108.56])
-	by smtpav03.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 22 Apr 2026 21:20:21 +0000 (GMT)
-Message-ID: <82803bb3b471898a77084c449b73c7f7b4eb2149.camel@linux.ibm.com>
-Subject: Re: [RFC PATCH v2 1/4] security: ima: call ima_init() again at
- late_initcall_sync for defered TPM
-From: Mimi Zohar <zohar@linux.ibm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        kvmarm@lists.linux.dev, paul@paul-moore.com, jmorris@namei.org,
-        serge@hallyn.com, roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
-        eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
-        sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
-        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-        catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
-        sebastianene@google.com
-In-Reply-To: <aekkVQwueKbFtG7C@e129823.arm.com>
-References: <20260422162449.1814615-1-yeoreum.yun@arm.com>
-	 <20260422162449.1814615-2-yeoreum.yun@arm.com>
-	 <6919248bdc85dac60277fa9d9c83d8bd258ca635.camel@linux.ibm.com>
-	 <aekXaU52fzvNYaUF@e129823.arm.com> <aekkVQwueKbFtG7C@e129823.arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Wed, 22 Apr 2026 17:20:21 -0400
+	Wed, 22 Apr 2026 21:29:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dV8U80yJf6b5H6Fvp2lcJt8seBI0paF6cuiAXJLURlCmTbM/iPoPAemukbKLxO4EkPUhERTkop65wy4dYIVItM1qlzVWiyXqwjTDKPQYkvkAUA0mfGak00nk/YyyQDTar2QpvaQk/NJTLnuLCNtIRx7Z/R4K/A+1AQCjmz6i5OwWxzQkQ/6u/Iom6RYpTKUVTBslH3/uD87J4B0MYMYgMbpd2zhsfthd0TZuBrE0nCc1Yd1DotEpWP4EzaV2l+jxHVPrvXKu2h51jzo+zyimzMoF5/mF+hkWHlrSM449+UUW3vCdMgdKgavVr3xlDvjIyVUQJgszMD5VrNwzhfhPUQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gOa0Awtoo4Tqe+7lHnsL9MFZW+Qbe9IRu7HpBlOlc8M=;
+ b=tobiqU/000/OdXejPcIqbDoZ6zijioL6VWRknm88HGxUnZERx9OR3q/I/VednvKIvlVqCSxWkLXYrPazWG2Iprcjzma3gHcEyEGm/EwlAUBv9ahGqTcLrDRZmfs+0gayqFK0+CT22uKX8zTCwpJV7OJwaOlAG5HVjkmbmqsmJ+avPbzwTiVscAwjASOQqgkZ6/gtVKGcWE64ZUqci2IY18YJ+OZfkxKe2RMapkyC/vj502/KF1Bf4IYuvtpJeltxPgqFVMaL8kk6GXq5ijTFVJS6uNNUmocxmgXAWyBruhkGZ/PqV7jaAUrGx7W6Umi0hFtFa/7NADItG/ZyIx05/g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gOa0Awtoo4Tqe+7lHnsL9MFZW+Qbe9IRu7HpBlOlc8M=;
+ b=lu94MRNKvi14X6qESxxmvhyf5hBNLOV9JXZwsgSgfSt0vZeanh3vL4b6vzQcgFbgaVQL7rvND583RUAXFUfLHyOt+A30MVuHHlgA6YMVCoRSfXlY5BLqjNhOgSQ2GkKLPU3Uc/peeNcrMMXlbASmAy9e+pSXjotc5BAQB92yLdPtpIXmoe+juuHYNgON953ckn3+BEz8zct0wygvNQ469pcefdzeUOZtKFAg0fbRq6IhYwCv6bYM+WbFCIQaKDg1S3QxGLrkjIeggUhyz6JbF0dGR6zhtQ2PYA0UBBW0YWBlwnkRIitCvyhbiAi5br2LLL1wvhhPOj2NfEpVmjB6Sg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB9176.eurprd04.prod.outlook.com (2603:10a6:20b:44b::7)
+ by PR3PR04MB7449.eurprd04.prod.outlook.com (2603:10a6:102:86::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.21; Wed, 22 Apr
+ 2026 21:28:55 +0000
+Received: from AS8PR04MB9176.eurprd04.prod.outlook.com
+ ([fe80::ba87:1cd1:53d9:fcd7]) by AS8PR04MB9176.eurprd04.prod.outlook.com
+ ([fe80::ba87:1cd1:53d9:fcd7%6]) with mapi id 15.20.9846.019; Wed, 22 Apr 2026
+ 21:28:55 +0000
+From: Shenwei Wang <shenwei.wang@nxp.com>
+To: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Shuah Khan <skhan@linuxfoundation.org>,
+	linux-gpio@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shenwei Wang <shenwei.wang@nxp.com>,
+	Peng Fan <peng.fan@nxp.com>,
+	devicetree@vger.kernel.org,
+	linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-imx@nxp.com
+Subject: [PATCH v13 0/4] Enable Remote GPIO over RPMSG on i.MX Platform
+Date: Wed, 22 Apr 2026 16:28:45 -0500
+Message-ID: <20260422212849.1240591-1-shenwei.wang@nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SA9PR13CA0063.namprd13.prod.outlook.com
+ (2603:10b6:806:23::8) To AS8PR04MB9176.eurprd04.prod.outlook.com
+ (2603:10a6:20b:44b::7)
 MIME-Version: 1.0
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIyMDIwNyBTYWx0ZWRfX0jfEbj7MTwwa
- ox2HJyMSt3nYqIQUULKK/mTgh7iAajU/inJqPwHaMWC2xC4mCaO3Z/hWABJNVt/X9JjkpbvoUSL
- 6PppQTWIFSBA4iBKJYapHSICKPKb/7STsgch7HMKGYz+EzthvK1D5AqoggdZJo2NPO3YwswijFO
- p+ukhUTG4RFf54d4F8EBnoVxhHAEJmQu7VkjlpyrbdRs3VRYtszFa+3wM8vPNXNfr7jL0TyixGx
- tU/d71BUqVZQlrmhtn9O6SvBkD50fiiEIveaq8FFezuzYLdfRaFt7Ws5W0aNj/SiC+g1jUkMUyE
- ebEoVeUkEcFA4Wg+SEtWhZstyYB7OIgb93J9MT8CclY+hb8MjeViL9a9hjzrRzzHkF0wi52J00f
- a+uNWkeyBysRnoLsWYBujmAUNjupz6vNwDGRF5vb1jWxr3M5uS4zBmo80Mj+AQwB1kjW1ta78R8
- uERZsW8RMt+RiS5EgIg==
-X-Proofpoint-ORIG-GUID: -CizEOXcVN8y4Gm9Utqg7W1DWsJLA8SP
-X-Proofpoint-GUID: c2CvbLkTaVGt95WdoE9L2uC52JF8GKAP
-X-Authority-Analysis: v=2.4 cv=XMUAjwhE c=1 sm=1 tr=0 ts=69e93b9a cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=7CQSdrXTAAAA:8
- a=DNaOwHcBnvVBCHw5JSAA:9 a=QEXdDO2ut3YA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-22_03,2026-04-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 clxscore=1015 priorityscore=1501 impostorscore=0 bulkscore=0
- spamscore=0 lowpriorityscore=0 phishscore=0 adultscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604220207
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB9176:EE_|PR3PR04MB7449:EE_
+X-MS-Office365-Filtering-Correlation-Id: daf015e9-2e57-49fb-844b-08dea0b627fe
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|19092799006|366016|921020|38350700014|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: Flli0DKa8/VpSNyInWYi5cOg039Uzlx0ldChUJ4ImzFxMXJYKlmeeQm6VkRroXkopvVl1EueLStBKdonHRKfYtg5Vp3vsoPYdbjGE9qvBjegom5jNqjnYHDD72ktd/ZxYb8OA7PffXCUDf+YO17krYJdILe39NZt4cbBo3TL2j2F9Kh2GTO0uJ3Z+tQyoFigIzNIwkL4ucdNR9t9yFjc9+zgDx5BjWopRDClK2d8hKDwvfXYsSSy7OFZr++g2SdVXXGeXPxOYRS7aHcp94aosunRX1Sj4HFZGC1bBi571QgvJY+Nyv+qWdNoNylVnNBGEiy4fg9AfJHwmLgyapIOXIcIYgTeKN8Wf7Q9RLhKOkOZywNBH46n7yqxEO1yXek2yNTFBSPqcNDGuk1SRLgNh6cRhjiXx3I97rN39kv+QVnhEYACHs0n7Tw7PoQDOnHAlth3NV5ysYZ4JAjb2EsExAKD7sHL3tq7bXbsweowWEigVVWBUZmE7GK5FxR3I7SNcdJSv3hk6bjnu3b5AIl6851r6HWxpJ4asUfj5YX7yzXXf8XAf6nT1huPiyoG1Xn7i4Mz5tQannSssjjLFT2IPsM2Gw/8j/QjCGLzg7fqqhAyb5xA7q9YFMRwsOVIUSzB0HKOwSoD/gHSY6+entDwpAdoJ/fZOmiwLasCIuoFI44iefIAEnv1dvR4dOR2aaM8jFzkXwHcZ4wcN8Rr3PJ3in8c9hw758A9CvRWXtO0ZiZA2u/09kBqDN5rdY2m8MelOQJyrMBGfLqxbH/8AnMuhwFEoWSU1OiOEeJEpdIdfP5hpc3eBBtN2p6WoK3IPXy0
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9176.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(19092799006)(366016)(921020)(38350700014)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7jqZcojUuK0BJEtbQgivfZZ+HbdXp7ByYmSaj6/5Xp0CIimGOAiSYtWIsxxc?=
+ =?us-ascii?Q?m9+BzBasVtqEnejS3SzUnapnL7s4GahL8q5k5WbCd1VMmqnDCA7FBMRNZjQm?=
+ =?us-ascii?Q?hAnJtJ5ASblTjwHu/n75zJDw2UcxcNKBrGp779k5fTn0KSn+sOtj9hR+yNsG?=
+ =?us-ascii?Q?5rkwQaknlJF3SgyaSmGl1nOE0bMlty8NntYPn9HqFrvHsueLO5G+tYBw41Xg?=
+ =?us-ascii?Q?5bQKtU9zkqFHHQdTOWggFW00Jf8vyravvLSAx9ypZ4d5LOOeTovP22i28/79?=
+ =?us-ascii?Q?7pKlygef2DD2aJnIDB4un9RDsQr+vjGnKsLr3f286p540ldye8wjwbuWUvKT?=
+ =?us-ascii?Q?VE8wltMa6qUOlE9kDBldHRJxHRAddJNAZNtLOI+6wzfcD73j97tToaYSRwDO?=
+ =?us-ascii?Q?aKQisSV9kAqt5f43Tx4T7mwDeYtumcXKsuIYB1+RCwzI25eP5yYVrvN5oxEm?=
+ =?us-ascii?Q?VPHfIie+4RZ2V51/+2hRQQwfaU6xP8INTIeq92oSuPwCoym9zYiXxXjw+AVP?=
+ =?us-ascii?Q?wTW71KNvdmPwHlSLLOHd6mfzyKhWqYPaN7VoLEFBDzvddVZG4l5MUlqy76Nx?=
+ =?us-ascii?Q?IfFxoKNjoJNh4HN9gENhDKMXU0Mj+BG9cARq7V2Ne+/osXSnluFNyrIgeBAO?=
+ =?us-ascii?Q?1Gghjj0zsRBSplULqGsIuWWg6IJOiNSWjKYp6YBVtpFsgy/ATLgBphX1FJFV?=
+ =?us-ascii?Q?wSF9aRr7RJwCh7sx8bJ8SNrQ5WP/684kCe9xXs9vCEB+oe7IbWfufzM0eLxj?=
+ =?us-ascii?Q?0+wrFkvrUyiZzVcY8jIVTSnrbHKLRxKu5NF0LHut0/HWltEuYJmnlT8U6Y1e?=
+ =?us-ascii?Q?rCTSEHXhNm0F0ww+v4YQnkVeooWY/8Jkxpzdt4l35osIZ2a+VzPveYzYksLq?=
+ =?us-ascii?Q?pvW/6Kn4oxlkstVVuxhpSdUZHYQSMcA04kvMaOYcrXfdK81rcC5ql/C1qdYd?=
+ =?us-ascii?Q?YVEGvhxfiTLBedYukM7pMD2abyW/wjt2CoGGEAdoUAg9bTqE5iltEmXMtM+P?=
+ =?us-ascii?Q?E50RnBbipVA7YxbNVjtiVqKwuutzFeEBSX090Nf1zkxv+a5V/EEMa8QIBR/5?=
+ =?us-ascii?Q?wCehDgOmqazriMZ+qXFBOJO1eu0KFYZB+sWPp1R+z4Eu3ubVqanAMurmTO69?=
+ =?us-ascii?Q?OzHUpVR7EMegotwJxDzR2GzYdML8g5gSYHtdRKEfWDx62ftrGbUtxsqVLAgg?=
+ =?us-ascii?Q?At3tYhebDuYrgKfWxbxubOODdywIwKOH6d/rs1gshOlOQ2ipPH7ye4bAybPn?=
+ =?us-ascii?Q?QAVRSaRnt4znI6iwhHYc0voT0ZFhhT8B93/7CvuhDo40hmgOneM+4GQWSzBM?=
+ =?us-ascii?Q?+3+NKO3nQqAK/5MxaYLPaM4nwRd5A2KE+JTVMOLba9Pa0et7qkiSGAo24I8z?=
+ =?us-ascii?Q?0g3uH8yJpGPj7Dx2n+prEPhsLtttx6i4YMGlcnUWE2Ksgg5WzVO5pf5Xoj4x?=
+ =?us-ascii?Q?5MXfJe1L0EjMURYQOjsOZObjMPgPZYgLeY9QYjqjhro3no+6ZnTKCEJ2fzqj?=
+ =?us-ascii?Q?fmi6pY7fxlt/HCj4ibuhzYYJBaGSERqqtcbeGgPENQwmb1JJHVXIV2Maf9bE?=
+ =?us-ascii?Q?oOww/65xfIIn0aV+5gfLXdikpJreLQ/HLFQCYYSjEIZXCHHGKv9Pn223pej9?=
+ =?us-ascii?Q?9JNKxOR6bBfzjObTVZXkP0ccfNNCaNR+IChFuKGSyXBBL3OmyzEhAgiViSWX?=
+ =?us-ascii?Q?YMZ6Ui1fx4BEWce6sFGpKPhdWO/3Dmt3HeuozfMMdQ2YKb2284imHEX5WWUW?=
+ =?us-ascii?Q?kq0WqSI09w=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: daf015e9-2e57-49fb-844b-08dea0b627fe
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9176.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Apr 2026 21:28:55.1791
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: N0cNQtttzVWhkeMNaKqJhpEpBwE1DIgc0/OEMvXCGdlRE2aI2fQ9nqMJWanPiSSZZnkhHKJdbCmn/GkpUjcqSw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7449
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_142047_530632_654FDB83 
-X-CRM114-Status: GOOD (  36.93  )
+X-CRM114-CacheID: sfid-20260422_142904_579208_53C20CFB 
+X-CRM114-Status: GOOD (  21.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,87 +153,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2026-04-22 at 20:41 +0100, Yeoreum Yun wrote:
-> > Hi Mimi,
-> >=20
-> > > On Wed, 2026-04-22 at 17:24 +0100, Yeoreum Yun wrote:
-> > > > To generate the boot_aggregate log in the IMA subsystem with TPM PC=
-R values,
-> > > > the TPM driver must be built as built-in and
-> > > > must be probed before the IMA subsystem is initialized.
-> > > >=20
-> > > > However, when the TPM device operates over the FF-A protocol using
-> > > > the CRB interface, probing fails and returns -EPROBE_DEFER if
-> > > > the tpm_crb_ffa device =E2=80=94 an FF-A device that provides the c=
-ommunication
-> > > > interface to the tpm_crb driver =E2=80=94 has not yet been probed.
-> > > >=20
-> > > > To ensure the TPM device operating over the FF-A protocol with
-> > > > the CRB interface is probed before IMA initialization,
-> > > > the following conditions must be met:
-> > > >=20
-> > > >    1. The corresponding ffa_device must be registered,
-> > > >       which is done via ffa_init().
-> > > >=20
-> > > >    2. The tpm_crb_driver must successfully probe this device via
-> > > >       tpm_crb_ffa_init().
-> > > >=20
-> > > >    3. The tpm_crb driver using CRB over FF-A can then
-> > > >       be probed successfully. (See crb_acpi_add() and
-> > > >       tpm_crb_ffa_init() for reference.)
-> > > >=20
-> > > > Unfortunately, ffa_init(), tpm_crb_ffa_init(), and crb_acpi_driver_=
-init() are
-> > > > all registered with device_initcall, which means crb_acpi_driver_in=
-it() may
-> > > > be invoked before ffa_init() and tpm_crb_ffa_init() are completed.
-> > > >=20
-> > > > When this occurs, probing the TPM device is deferred.
-> > > > However, the deferred probe can happen after the IMA subsystem
-> > > > has already been initialized, since IMA initialization is performed
-> > > > during late_initcall, and deferred_probe_initcall() is performed
-> > > > at the same level.
-> > > >=20
-> > > > To resolve this, call ima_init() again at late_inicall_sync level
-> > > > so that let IMA not miss TPM PCR value when generating boot_aggrega=
-te
-> > > > log though TPM device presents in the system.
-> > > >=20
-> > > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > >=20
-> > > A lot of change for just detecting whether ima_init() is being called=
- on
-> > > late_initcall or late_initcall_sync(), without any explanation for al=
-l the other
-> > > changes (e.g. ima_init_core).
-> > >=20
-> > > Please just limit the change to just calling ima_init() twice.
-> >=20
-> > My concern is that ima_update_policy_flags() will be called
-> > when ima_init() is deferred -- not initialised anything.
-> > though functionally, it might be okay however,
-> > I think ima_update_policy_flags() and notifier should work after ima_in=
-it()
-> > works logically.
-> >=20
-> > This change I think not much quite a lot. just wrapper ima_init() with
-> > ima_init_core() with some error handling.
-> >=20
-> > Am I missing something?
->=20
-> Also, if we handle in ima_init() only, but it failed with other reason,
-> we shouldn't call again ima_init() in the late_initcall_sync.
->=20
-> To handle this, It wouldn't do in the ima_init() but we need to handle
-> it by caller of ima_init().
+Support the remote devices on the remote processor via the RPMSG bus on
+i.MX platform.
 
-Only tpm_default_chip() is being called to set the ima_tpm_chip.  On failur=
-e,
-instead of going into TPM-bypass mode, return immediately.  There are no ca=
-lls
-to anything else.  Just call ima_init() a second time.
+Changes in v13:
+ - drop the support for legacy NXP firmware.
+ - remove the fixed_up hooks from the rpmsg gpio driver.
+ - code cleanup.
 
-Mimi
+Changes in v12:
+ - Fixed the "underline" warning reported by Randy.
 
+Changes in v11:
+ - Expand RPMSG for the first time per Shuah's review comment.
+
+Changes in v10:
+ - Update gpio-rpmsg.rst according to Daniel Baluta's review comments.
+ - Add a kernel CONFIG for fixed up handlers and only enable it on
+   i.MX products.
+ - Fixed bugs reported by kernel test robot.
+
+Changes in v9:
+ - Reuse the gpio-virtio design for command and IRQ type definitions.
+ - Remove msg_id, version, and vendor fields from the generic protocol.
+ - Add fixed-up handlers to support legacy firmware.
+
+Changes in v8:
+ - Add "depends on REMOTEPROC" in Kconfig to fix the build error reported
+   by the kernel test robot.
+ - Move the .rst patch before the .yaml patch.
+ - Handle the "ngpios" DT property based on Andrew's feedback.
+
+Changes in v7:
+ - Reworked the driver to use the rpmsg_driver framework instead of
+   platform_driver, based on feedback from Bjorn and Arnaud.
+ - Updated gpio-rpmsg.yaml and imx_rproc.yaml according to comments from
+   Rob and Arnaud.
+ - Further refinements to gpio-rpmsg.yaml per Arnaud's feedback.
+
+Changes in v6:
+ - make the driver more generic with the actions below:
+     rename the driver file to gpio-rpmsg.c
+     remove the imx related info in the function and variable names
+     rename the imx_rpmsg.h to rpdev_info.h
+     create a gpio-rpmsg.yaml and refer it in imx_rproc.yaml
+ - update the gpio-rpmsg.rst according to the feedback from Andrew and
+   move the source file to driver-api/gpio
+ - fix the bug reported by Zhongqiu Han
+ - remove the I2C related info
+
+Changes in v5:
+ - move the gpio-rpmsg.rst from admin-guide to staging directory after
+   discussion with Randy Dunlap.
+ - add include files with some code improvements per Bartosz's comments.
+
+Changes in v4:
+ - add a documentation to describe the transport protocol per Andrew's
+   comments.
+ - add a new handler to get the gpio direction.
+
+Changes in v3:
+ - fix various format issue and return value check per Peng 's review
+   comments.
+ - add the logic to also populate the subnodes which are not in the
+   device map per Arnaud's request. (in imx_rproc.c)
+ - update the yaml per Frank's review comments.
+
+Changes in v2:
+ - re-implemented the gpio driver per Linus Walleij's feedback by using
+   GPIOLIB_IRQCHIP helper library.
+ - fix various format issue per Mathieu/Peng 's review comments.
+ - update the yaml doc per Rob's feedback
+
+Shenwei Wang (4):
+  docs: driver-api: gpio: rpmsg gpio driver over rpmsg bus
+  dt-bindings: remoteproc: imx_rproc: Add "rpmsg" subnode support
+  gpio: rpmsg: add generic rpmsg GPIO driver
+  arm64: dts: imx8ulp: Add rpmsg node under imx_rproc
+
+ .../devicetree/bindings/gpio/gpio-rpmsg.yaml  |  55 ++
+ .../bindings/remoteproc/fsl,imx-rproc.yaml    |  53 ++
+ Documentation/driver-api/gpio/gpio-rpmsg.rst  | 266 ++++++++
+ Documentation/driver-api/gpio/index.rst       |   1 +
+ arch/arm64/boot/dts/freescale/imx8ulp.dtsi    |  25 +
+ drivers/gpio/Kconfig                          |  17 +
+ drivers/gpio/Makefile                         |   1 +
+ drivers/gpio/gpio-rpmsg.c                     | 573 ++++++++++++++++++
+ 8 files changed, 991 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml
+ create mode 100644 Documentation/driver-api/gpio/gpio-rpmsg.rst
+ create mode 100644 drivers/gpio/gpio-rpmsg.c
+
+--
+2.43.0
 
 
