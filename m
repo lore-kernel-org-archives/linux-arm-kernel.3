@@ -4,114 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3979BFA1FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 20:26:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B169AFA1FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 21:09:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aBv5jjdjxH5ULFbRv7VfJ+lpYWyW8XQDfsXEr7Cqu5o=; b=4QFI1glYD+fMFvSZBAvm79hYpe
-	NsCoCFzHEGZ9rs5ZJHGu71r9jBjOaS+f6D6rnas0l2FunmRpeqCGG0cKkhRM2d1R7fjIb82m+O3sM
-	x2NXmscrE4JUYlo9J+KRC97G0LX1lBPtKh5n5zwBNKWOh5U3JifY9B4KgmbwcHh5eoSRaEwpGYAxJ
-	PMCcBFcbPimzn83s9ZqGzrci2uE2QB3I5wOjbDEKAyhBRzTtOd/J9qEhEU9Hsgdt+zXdgpC0215F2
-	rJsRYX1YBAhBspUA6lX2XIoiX8nyq/VrJEkEJnSyCI9akXq40C+cYcoHoSwS8D5nTuFBgCu4zHP1v
-	tF4Pl07Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4mWfyrQddMklpmzPYtTXoknwThtWFygtQ93s82K5k+4=; b=ddIrv4ZIABClmIdQt5S5y8lLui
+	lJCcf6ME0Vjwy8MTh0ezZfCmkYi4Lj33dQpQ4XhzOBn2jiQNFo1pbqg4qmWA1Rjb8nOZPsowHYxfU
+	1VDRORPc4hunqOwH2bD+OW0YedqF8zEIAynGyUqrhyIqXOwdfhVHAp+ZWfQGi2xfXC3dsa5/JDgi9
+	Ka8Hdpthopgb5xDy9pAa3I/igImjJAyR/bMcFiDjLtpk11t6RnbxL2r97YYgl0fZdYl1qqPAlyT98
+	eRXIeWocNUS/wMWhf0udWUM6meZHgDWTPk927AzZAalhMskes/aeQqAEmTffVN9bSsaQMsqpcdrgC
+	mPmDMQEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFe9r-0000000AihK-18DF;
-	Wed, 22 Apr 2026 20:26:51 +0000
-Received: from mail-eastus2azon11010008.outbound.protection.outlook.com ([52.101.56.8] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1wFepW-0000000AkJ5-1Lt9;
+	Wed, 22 Apr 2026 21:09:54 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFe9n-0000000Aiga-2Evr
+	id 1wFepS-0000000AkHe-2mco
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 20:26:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FMkcx0zwTjejjAz+8ktxmCfmSmmeFNvSn7R1xC9qr0kA5ryN+J2hSXSao/1O1JUSsgPlPsoJP5s2eDolkyzCidgXz9556P6hf5wMrPIqF8ajapcj4/7mZNOSB8gzr7Nj0BC4Ty/2ZV45hwQcF77cFrwRObtjaw5ki3KHU0IAVdk6LKM1XLIkhZTAjmA/hi4xWF59dO1PEV2a38J9Q2sjcOM/Q64oFuXi/NZ1GXNlSbTIshJtvsd62tAHLK2+0dQJcr2mCFt0JeYod6tne8W9TzUJR9XQUTHNQ7rs0C9VWvFDZ0qdNeJjYdGfg2dTuxsmc8IKRO/GVGebgY/Yi9rBmA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aBv5jjdjxH5ULFbRv7VfJ+lpYWyW8XQDfsXEr7Cqu5o=;
- b=v6jrkzF0WJwc8w8RW+s81eErPi9m9EFDissqq5MBOljiNyc+whcUJV9hcd1Sd1/InzE9zOB6JsiONAIgDaOAAivdGcpJ7iv1z3c+I4rsW8CQl0//YB3XQ/onwd62lpS8noqf4yPdG6JtLdVvzh4Ef5ogJ+jt+8Pnrt5x74NP1qkuhwERsRJNZzjZXaIVNSNjJs1nerr+UEK05x0qKnpQTl06Uv+l6MT1rboC5WvfO0clRBEw5giEztOBJ6TQtVQhKESlFYUakpzJ4m+hey0WpqNZYbEV0lvv/3DVBVhyU/CQUYmI54y5dk03aDI9BK61Ykqkm/qhZjKpHJzYukgQuA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aBv5jjdjxH5ULFbRv7VfJ+lpYWyW8XQDfsXEr7Cqu5o=;
- b=oOibfZCSzF/yoc0KfE3PxQjcIKiIKyG/13X34T3mEk7VeRLZiryIZLLA0frpA/VOlhZb6jK9pNlLMM1Yll+vvCz2FaQiK7Czp8POV5mwZJU5c1EJZzr+gJ8aQ336ya6lLzKuw7WckRoPEI8NjWlhgVT5xbV0uoD3mg4l45uto+4=
-Received: from PH5P220CA0007.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:34a::12)
- by CH3PR12MB8725.namprd12.prod.outlook.com (2603:10b6:610:170::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.17; Wed, 22 Apr
- 2026 20:26:39 +0000
-Received: from CY4PEPF0000E9CE.namprd03.prod.outlook.com
- (2603:10b6:510:34a:cafe::7f) by PH5P220CA0007.outlook.office365.com
- (2603:10b6:510:34a::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9791.48 via Frontend Transport; Wed,
- 22 Apr 2026 20:26:39 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- CY4PEPF0000E9CE.mail.protection.outlook.com (10.167.241.133) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.18 via Frontend Transport; Wed, 22 Apr 2026 20:26:39 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Wed, 22 Apr
- 2026 15:26:27 -0500
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Wed, 22 Apr
- 2026 15:26:27 -0500
-Received: from xsjtanmays50.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Wed, 22 Apr 2026 15:26:27 -0500
-From: Tanmay Shah <tanmay.shah@amd.com>
-To: <andersson@kernel.org>, <mathieu.poirier@linaro.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <michal.simek@amd.com>,
-	<ben.levinsky@amd.com>, <tanmay.shah@amd.com>
-CC: <linux-remoteproc@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH 2/2] remoteproc: xlnx: enable auto boot feature
-Date: Wed, 22 Apr 2026 13:25:58 -0700
-Message-ID: <20260422202558.2362971-3-tanmay.shah@amd.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260422202558.2362971-1-tanmay.shah@amd.com>
-References: <20260422202558.2362971-1-tanmay.shah@amd.com>
+	Wed, 22 Apr 2026 21:09:52 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4891c569cb1so5402485e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 14:09:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776892188; x=1777496988; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=4mWfyrQddMklpmzPYtTXoknwThtWFygtQ93s82K5k+4=;
+        b=RcRQZroR3VGZdW5Z6GVr5vFXtkLHf4LKHazbMIyf+Jp42yn+D7rvMQeJczdP5cRSjz
+         Zc3cMsY92+Zsj4U7LrO42fScBxuAi3LoQ2jRLFbguhObT/x0pHCdYKbVEGFbfkzEgqzl
+         qC/DDZ/0JQ4+UGrUD1hzMwUNxqlEmPCUalXgF+3a208FSj7gcf3bnodU5Dprn5O+jVwF
+         F+cVlW7w+AOirMjKHePapx1n3EppcpsGqvsHV+zA08SdDgixVelZv1ZyZF75jkuGGNlP
+         JmHKJG/PaLjjnyvk9BGwD2o5FehYWSVfHNiDc+hGg6qLUyFIv1WgIxKzSOG/ZKn8NOTV
+         O7aA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776892188; x=1777496988;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4mWfyrQddMklpmzPYtTXoknwThtWFygtQ93s82K5k+4=;
+        b=esn3Znyfznhw4aKdQTDapwvm42M3H/aEO070XCVIT7VAn4Fi3EcTAFiF/GOWyVQ4Oc
+         racfAQC4CJvAiVw4iUWBzxkpFI8V1DmejOEPdzfrAKDYF6FEOWuMCDt9LLX7pD8uoaKu
+         ddqeE5M1DHY6TrE/nhcZNCW0MU06cWy5kZs2gdE7d/TooSYfrYCPgaJ+K7rAwl45sh0y
+         Y1f/qzIzfTe3lbFLenCZ3ODwIWuuXxiNNYPtPNnzhFMV4KrGHQvVb7GT+nKbJbPtP9Th
+         a/kVsFBvIcdzAi33Bc+oiLaqf75GBElMw989x6U+QmgGE93Tp8ICR82vrHjLRoVmyqEm
+         B3bg==
+X-Forwarded-Encrypted: i=1; AFNElJ/DzFenwXPhVRlivueNoGN3NnDtZi47HfcG2nJR/8Hne8gewcNB3AJ1lv7HEJorLCRbJW61L7IW5+pyfW/9tZXV@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVQ3DRpya1gyrJr5JG0s8yR312j5eZ32QNxiWhoS2unzxF2ptW
+	YoczXOjmMmGm4fKmeqMHbPdNI2T0g8SgA/HVjC7EK6wHhNhMXDBD2QHe
+X-Gm-Gg: AeBDieuq7kZ29yuPAW7DdXZoc8GAd3jzmZrX+v6ZWTuQElA6gl+oWwh0r4Qp6o8OR2n
+	LzWO6KIbWllrVYrJ/amTKNjn4BLQojPz5sUcdVpO1remtzcNvQa+Inv+2C4Rz3I1I7+apMDYP2n
+	h9a6J3QnTnqWQ3uR6omew8yOWRGdGQEBs3BqO0sDX/kn9V2mLOYo9I6V05WHj2gVTHsHarQpHuM
+	0Ej8qB+p9bWJuQcPbszuLLNpWX6+wS+5aHv81LWQAr3umcDCvBqnMezjsvLhcWvt2FQPJ9eVrEy
+	MA9B6rI8FV/7lxe2QHYebGeSpvP1yXo9QilD86M2zKGtmEykMCSwGWbl6pdMyCWgB/NSC5/1gds
+	AOVQI/xY2VXWh30NToF8clrW+lPsr2EyD6LslD8L/cyQOELxwyidp9Chf5dHnm3xDGHKHLNfgD9
+	LTdWic5koY/2uKCaeWoniZcLUb1cPjdNrn8DdiKZgaLMDBaLoXWbTkOdSWwY/msPiYovaRadadR
+	Q==
+X-Received: by 2002:a05:600c:4746:b0:488:a2ac:a338 with SMTP id 5b1f17b1804b1-488fb7685f8mr168719945e9.5.1776892188108;
+        Wed, 22 Apr 2026 14:09:48 -0700 (PDT)
+Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a4b329542sm352469085e9.3.2026.04.22.14.09.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Apr 2026 14:09:47 -0700 (PDT)
+From: Lothar Rubusch <l.rubusch@gmail.com>
+To: herbert@gondor.apana.org.au,
+	thorsten.blum@linux.dev,
+	davem@davemloft.net,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev,
+	ardb@kernel.org,
+	linusw@kernel.org
+Cc: linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	l.rubusch@gmail.com
+Subject: [PATCH v3 0/3] crypto: atmel-sha204a - multiple RNG fixes
+Date: Wed, 22 Apr 2026 21:09:33 +0000
+Message-Id: <20260422210936.20095-1-l.rubusch@gmail.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9CE:EE_|CH3PR12MB8725:EE_
-X-MS-Office365-Filtering-Correlation-Id: 02f0f7d9-76a7-4767-c407-08dea0ad7574
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|36860700016|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: oo94xBkmNzOJBdk7PA5Novnkn7Jt6z1mQVm0+G4DQg/zJcbHYpfQMv0vF8qnLBzJiVd4gbqHx7XWjbaa1unVTC0vU9MoaGpeUmLklBY1xf8AbxmDgkHBH02qhdhexO512op8tc8CfuHfC5Ym1i6cB2BgzsYAhUJTeF+Q8i9b7y3OEYCGIS6O/3bSCS4zBhObImtb9k4QeAgQ/vBJk0gAO5QqdUcGOktkfsvTCWeUVAMTUr4tnxZxwaAF06SqchwL4Juqx4LpDOu/N9qp8Q8FeQkmhCTNAY9HwtkqITFgma3lLo905zkhE84Vqth4gCj2qlJ7B7xns+0tJUGGsUNQWOcWEMFUjUWcEErVoW/AmftfrPVkkB/rRNjFOnatPLDbgrIIQlxWtbq5kLX/qoDAH/tUPtF/8CbuSog0MMYY8hNSF5YxsK2V+N2eppRm5yFHU4/EbhrU0GYXrzzcgpe+vuA0tZtPFf2Mne0byM3DRaiduXV3f9BkmIHHVIS1jkLaAmVVdclKO4An+r7qMc0n3vSnpPNZNja3Hyc2qG7tLtgLDt3uvfkOTesm0nmO2dsyPwAOjf92njnCO190xOSjqVC0hUM5B4JB+U0a0TWp87M4dkuvLYNbQQMFf3EqHsBXgGVVaoH+tOk1hprqldgd8OSTrVCQrjn7j7cqMNPhslJdQvtdYSPa9VSZXfSLWPYp1nzvTtY9rWvRF/Tt52ihmZvt4PRQgrRk7jQtE/0OXn4gGumyHdMSBTI7quC/Nbj3lpxi9kMCH1RG1zxk961kBA==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(36860700016)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 5bu3/w8l0g9uVpl1EMWUXFjxIvi7piAUvm7t6rfQVler+milCIkoHk8PLQYbqYSJQhgGsFipHH72VUvrxlSQG6vM61qZLDlp+3e8exadCf5E7FbLG1fQzAHM/h+//iiam7BIrFYxio+OapMQbyHdkJyF9FZWx6Uq41gqaBX/QuqOi8/kxyQavEv4+nN9bhIdsOhVQdSPz0Hc13/CMxQoEEbdLXcrj/1Z7AvR1fDEH6P4K9Omm0W8ryiFgRkO/Ke+eyhd0WE5oxZHeQqZsmx8vhATmY4dawR45xrirvAmFtOvaWOjfSwWmq8ZBBYJbN/jNvnRqsm4uroVVTBRF1rCWcRNFyFEQeGQd0+PYs6Afj3eXj2UX3Rqo9FddEU4S1LMO5ZGmM+VapZA2TrLZQTLw5yGChT53ve7OVoKVnn0Q+JNjjKMGdelR/A+8HfxXCGG
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Apr 2026 20:26:39.2730
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 02f0f7d9-76a7-4767-c407-08dea0ad7574
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9CE.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8725
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_132647_584625_D0F7F95C 
-X-CRM114-Status: GOOD (  21.49  )
+X-CRM114-CacheID: sfid-20260422_140951_608883_5892DE68 
+X-CRM114-Status: GOOD (  11.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,145 +105,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-remoteproc framework has capability to start (or attach to) the remote
-processor automatically if auto boot flag is set by the driver during
-probe. If remote core is not started before the Linux boot, and linux is
-expected to start the remote core then it uses "firmware-name" property
-to load default firmware during auto boot.
+When testing the RNG functionality on the Atmel SHA204a hardware, I
+found the following issues: rngtest reported failures and hexdump
+reveiled only the first 8 bytes out of 32 provided actually entropy.
 
-Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
+Having a closer look into it, I found a (small) memory leak, missing
+to free work_data, miss-reading of the count field into the entropy
+fields and parts of the 32 random bytes staying 0 due to reading the
+slow i2c device.
+
+The series proposes fixes and how fixed functionality can be/was
+verified. Executing rngtest afterward showed a decent result, due
+to the i2c bus a bit slow.
+
+All setups require selecting the Atmel-sha204a as active RNG.
+$ cat /sys/class/misc/hw_random/rng_available
+    3f104000.rng 1-0064 none
+
+$ echo 1-0064 > /sys/class/misc/hw_random/rng_current
+
+$ cat /sys/class/misc/hw_random/rng_current
+    1-0064
+
+Testing RNG properties currently shows problematic results:
+$ rngtest < /dev/hwrng
+    rngtest 2.6
+    Copyright (c) 2004 by Henrique de Moraes Holschuh
+    This is free software; see the source for copying conditions.  There is NO
+    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+    rngtest: starting FIPS tests...
+    rngtest: bits received from input: 1040032
+    rngtest: FIPS 140-2 successes: 0
+    rngtest: FIPS 140-2 failures: 52
+    rngtest: FIPS 140-2(2001-10-10) Monobit: 52
+    rngtest: FIPS 140-2(2001-10-10) Poker: 52
+    rngtest: FIPS 140-2(2001-10-10) Runs: 52
+    rngtest: FIPS 140-2(2001-10-10) Long run: 52
+    rngtest: FIPS 140-2(2001-10-10) Continuous run: 52
+    rngtest: input channel speed: (min=7.631; avg=7.804; max=7.827)Kibits/s
+    rngtest: FIPS tests speed: (min=32.273; avg=32.701; max=33.056)Mibits/s
+    rngtest: Program run time: 130177956 microseconds
+
+Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
 ---
- drivers/remoteproc/xlnx_r5_remoteproc.c | 49 +++++++++++++++++--------
- 1 file changed, 34 insertions(+), 15 deletions(-)
+v2 -> v3: Removal blank line, rebased
+v1 -> v2: Removal of C++ style comment (I saw it too late, sry for that)
+---
+Lothar Rubusch (3):
+  crypto: atmel-sha204a - fix memory leak at non-blocking RNG work_data
+  crypto: atmel-sha204a - fix truncated 32-byte blocking read
+  crypto: atmel-sha204a - fix non-blocking read logic
 
-diff --git a/drivers/remoteproc/xlnx_r5_remoteproc.c b/drivers/remoteproc/xlnx_r5_remoteproc.c
-index 50a9974f3202..c6ec8186b160 100644
---- a/drivers/remoteproc/xlnx_r5_remoteproc.c
-+++ b/drivers/remoteproc/xlnx_r5_remoteproc.c
-@@ -899,17 +899,18 @@ static const struct rproc_ops zynqmp_r5_rproc_ops = {
- };
- 
- /**
-- * zynqmp_r5_add_rproc_core() - Add core data to framework.
-- * Allocate and add struct rproc object for each r5f core
-+ * zynqmp_r5_alloc_rproc_core() - alloc rproc core data structure
-+ * Allocate struct rproc object for each r5f core
-  * This is called for each individual r5f core
-  *
-  * @cdev: Device node of each r5 core
-  *
-  * Return: zynqmp_r5_core object for success else error code pointer
-  */
--static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
-+static struct zynqmp_r5_core *zynqmp_r5_alloc_rproc_core(struct device *cdev)
- {
- 	struct zynqmp_r5_core *r5_core;
-+	const char *fw_name = NULL;
- 	struct rproc *r5_rproc;
- 	int ret;
- 
-@@ -918,10 +919,15 @@ static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
- 	if (ret)
- 		return ERR_PTR(ret);
- 
-+	ret = rproc_of_parse_firmware(cdev, 0, &fw_name);
-+	if (ret < 0 && ret != -EINVAL)
-+		return ERR_PTR(dev_err_probe(cdev, ret,
-+					     "failed to parse firmware-name\n"));
-+
- 	/* Allocate remoteproc instance */
- 	r5_rproc = rproc_alloc(cdev, dev_name(cdev),
- 			       &zynqmp_r5_rproc_ops,
--			       NULL, sizeof(struct zynqmp_r5_core));
-+			       fw_name, sizeof(struct zynqmp_r5_core));
- 	if (!r5_rproc) {
- 		dev_err(cdev, "failed to allocate memory for rproc instance\n");
- 		return ERR_PTR(-ENOMEM);
-@@ -931,7 +937,7 @@ static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
- 
- 	r5_rproc->recovery_disabled = true;
- 	r5_rproc->has_iommu = false;
--	r5_rproc->auto_boot = false;
-+	r5_rproc->auto_boot = of_property_read_bool(dev_of_node(cdev), "auto-boot");
- 	r5_core = r5_rproc->priv;
- 	r5_core->dev = cdev;
- 	r5_core->np = dev_of_node(cdev);
-@@ -941,13 +947,6 @@ static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
- 		goto free_rproc;
- 	}
- 
--	/* Add R5 remoteproc core */
--	ret = rproc_add(r5_rproc);
--	if (ret) {
--		dev_err(cdev, "failed to add r5 remoteproc\n");
--		goto free_rproc;
--	}
--
- 	/*
- 	 * If firmware is already available in the memory then move rproc state
- 	 * to DETACHED. Firmware can be preloaded via debugger or by any other
-@@ -958,6 +957,11 @@ static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
- 	if (!zynqmp_r5_get_rsc_table_va(r5_core))
- 		r5_rproc->state = RPROC_DETACHED;
- 
-+	dev_dbg(cdev, "auto boot %s, rproc state %s, fw-name = %s\n",
-+		r5_rproc->auto_boot ? "enabled" : "disabled",
-+		(r5_rproc->state == RPROC_DETACHED) ? "detached" : "offline",
-+		!fw_name ? "NULL" : fw_name);
-+
- 	r5_core->rproc = r5_rproc;
- 	return r5_core;
- 
-@@ -1278,7 +1282,7 @@ static int zynqmp_r5_cluster_init(struct zynqmp_r5_cluster *cluster)
- 	enum rpu_oper_mode fw_reg_val;
- 	struct device **child_devs;
- 	enum rpu_tcm_comb tcm_mode;
--	int core_count, ret, i;
-+	int core_count, ret, i, j;
- 	struct mbox_info *ipi;
- 
- 	ret = of_property_read_u32(dev_node, "xlnx,cluster-mode", &cluster_mode);
-@@ -1364,7 +1368,7 @@ static int zynqmp_r5_cluster_init(struct zynqmp_r5_cluster *cluster)
- 		child_devs[i] = &child_pdev->dev;
- 
- 		/* create and add remoteproc instance of type struct rproc */
--		r5_cores[i] = zynqmp_r5_add_rproc_core(&child_pdev->dev);
-+		r5_cores[i] = zynqmp_r5_alloc_rproc_core(&child_pdev->dev);
- 		if (IS_ERR(r5_cores[i])) {
- 			ret = PTR_ERR(r5_cores[i]);
- 			r5_cores[i] = NULL;
-@@ -1409,6 +1413,22 @@ static int zynqmp_r5_cluster_init(struct zynqmp_r5_cluster *cluster)
- 		goto release_r5_cores;
- 	}
- 
-+	for (j = 0; j < cluster->core_count; j++) {
-+		/* Add R5 remoteproc core */
-+		ret = rproc_add(r5_cores[j]->rproc);
-+		if (ret) {
-+			dev_err_probe(r5_cores[j]->dev, ret,
-+				      "failed to add emoteproc\n");
-+			i = core_count - 1;
-+
-+			/* delete previous added rproc */
-+			while (--j >= 0)
-+				rproc_del(r5_cores[j]->rproc);
-+
-+			goto release_r5_cores;
-+		}
-+	}
-+
- 	kfree(child_devs);
- 	return 0;
- 
-@@ -1418,7 +1438,6 @@ static int zynqmp_r5_cluster_init(struct zynqmp_r5_cluster *cluster)
- 		if (r5_cores[i]) {
- 			zynqmp_r5_free_mbox(r5_cores[i]->ipi);
- 			of_reserved_mem_device_release(r5_cores[i]->dev);
--			rproc_del(r5_cores[i]->rproc);
- 			rproc_free(r5_cores[i]->rproc);
- 		}
- 		i--;
+ drivers/crypto/atmel-sha204a.c | 60 ++++++++++++++++++++++------------
+ 1 file changed, 39 insertions(+), 21 deletions(-)
+
+
+base-commit: 3bfbf5f0a99c991769ec562721285df7ab69240b
 -- 
-2.34.1
+2.53.0
 
 
