@@ -4,61 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F1C8F9B608
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 10:00:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBC15F9B602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 10:02:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8rSPH1Ufpn7dxM923OsHjQmIEJkfB369DwjgRRG4exM=; b=gSBvMcIwoT5S1B6aoHWTU+9tZZ
-	mWevxyjSgDvYlS6Jd9tm4RGUS0s3pUPgCjBARKxAF/1C0wrz3mX8/siq8U+ReGmzwePxrj74S8+NM
-	v2isfv3PzoAdKxdCPnX/ozXA42VJ6EEMqPEPYdY8fO36r2rbDn5Gj2fgHV7ImjN//f3Chk7i1ODIA
-	R3KC9ZtMvJkSOhBEGWZCN4yPnXWmUGbCNZbiNT2VGEED+AXWbE+x0CDes7uforwzli7x8GWyyfUyN
-	2nrh6GmKz8aR2yS631xOdgyU1rOl2KjG+61eSxOMu6spnmDsKNwAFucjTgrDhEm3AnZh8wQgqzhmk
-	ajtxPDkQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pAA0Pc64fHRN5B9pgR1D/4ALpY9naBwp9VMnpLMiVeg=; b=aDLwvg1KoqJYJiJL0elHCFrj63
+	u7YuwtxKvKJnWe3BvVVzHnOAh1+ZK+VJ4LETYpLwUXWBt1jt6KWgJRUIU6m1vTEbj0rTTWrJGUUb9
+	rqviQ6mGDioIDpyEa+tjlgLUC+qowltkBKKshaw0mSSjv3Mzo6y/QPg9fMXpZUA8+RRULCfknGK7H
+	2wA4hd9Tsi8d/Kt6J5DMwHpoZcqiDq0AQOS4ZUfzsUe9BwIZZHJpTsCPZPS4Cjxsu5PP7bSXYIz4M
+	yPMKv0YGVLsEkgMhRZMFVzM3f8ulT8HIpu3xbS59PLkM4vwP95Qdpon++mFHs9HEnhsywG7BFK0oJ
+	h1AGhCrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFUNC-00000009uEl-1PJG;
-	Wed, 22 Apr 2026 09:59:58 +0000
-Received: from smtp.uibk.ac.at ([138.232.1.140])
+	id 1wFUPS-00000009ufs-1IIM;
+	Wed, 22 Apr 2026 10:02:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFUN4-00000009uBF-1ilq;
-	Wed, 22 Apr 2026 09:59:53 +0000
-Received: from surface-pro-5 (77.119.189.253.wireless.dyn.drei.com [77.119.189.253])
-	(authenticated bits=0)
-	by smtp.uibk.ac.at (8.15.2/8.15.2/F1) with ESMTPSA id 63M9xVO53161132
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 22 Apr 2026 11:59:40 +0200
-DKIM-Filter: OpenDKIM Filter v2.11.0 smtp.uibk.ac.at 63M9xVO53161132
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=student.uibk.ac.at;
-	s=prod24a; t=1776851981;
-	bh=8rSPH1Ufpn7dxM923OsHjQmIEJkfB369DwjgRRG4exM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ca19KtYaqE3O5ti2qH6QuNKOVOVA47RI1IUySoWa17nsJSYBoKRff7ikVECiW7xpF
-	 pcTcGTalmiXuaQCbja45gfDdpnGASsveEc2OiIa5l8rw6iti2a0K/zjLRKs5Cqf2Jd
-	 HrDmyjsjGXPsBFjd07h69VotgO6ycu7WvR4B1ecg=
-From: christian.koever-draxl@student.uibk.ac.at
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-        neil.armstrong@linaro.org, khilman@baylibre.com
-Cc: jbrunet@baylibre.com, martin.blumenstingl@googlemail.com,
-        devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        =?UTF-8?q?Christian=20Stefan=20K=C3=B6v=C3=A9r-Draxl?= <christian.koever-draxl@student.uibk.ac.at>
-Subject: [PATCH v4 2/2] arm64: dts: amlogic: add support for Amediatech X98Q
-Date: Wed, 22 Apr 2026 11:58:40 +0200
-Message-ID: <20260422095840.26139-3-christian.koever-draxl@student.uibk.ac.at>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260422095840.26139-1-christian.koever-draxl@student.uibk.ac.at>
-References: <20260422095840.26139-1-christian.koever-draxl@student.uibk.ac.at>
+	id 1wFUPQ-00000009ueo-0FKM
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Apr 2026 10:02:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5861B406DD;
+	Wed, 22 Apr 2026 10:02:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D522C19425;
+	Wed, 22 Apr 2026 10:02:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776852135;
+	bh=CAENVGjFPxxWtImA7zgQfAthvhtq8a+aFK/+ljYO1Ug=;
+	h=From:To:Cc:Subject:Date:From;
+	b=GJx2EcP8+mnz9DvvkP1d5d+2fddC0Jtul303doqqShuQWhC+/LZ8TiMtDnGSDcxin
+	 y1cc+iGhOQTMqMFdLY1/5WPqzThU1hWPFVd6jYw6AZH7Sy1VmB7BTLmtRiHZYgAiY/
+	 Ukw8EE5RP/egZdweR5OC0WM+FjfMroHTvI6XqM9m/z/6O6EUQnWFMbbQs/Y2+yuRbw
+	 U6ausK8qdtuocnYM1gbFFsAh/bHZB0A2GxebLxHeAUCnroPDgbu+X3Js3heczwnMW7
+	 tQ+YeCC06Z+DjzdzcJG5Cj4RnRnYVEGCbrmUtDYuLU63+l8z5P7FXzi6X4NKgETTH6
+	 pwUILU1gJETJw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wFUPM-0000000Dh6d-3tH4;
+	Wed, 22 Apr 2026 10:02:13 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Deepanshu Kartikey <kartikey406@gmail.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH v2 0/4] KVM: arm64: Don't perform vgic-v2 lazy init on timer injection
+Date: Wed, 22 Apr 2026 11:02:06 +0100
+Message-ID: <20260422100210.3008156-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang_3.2_at_uibk.ac.at
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kartikey406@gmail.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_025951_057274_26E8D595 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20260422_030216_114372_DC79FD97 
+X-CRM114-Status: UNSURE (   8.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,307 +84,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Christian Stefan Kövér-Draxl <christian.koever-draxl@student.uibk.ac.at>
+This is the second version of this series aiming at fixing issues
+with vgic-v2 being initialised from non-preemptible context.
 
-Add dts enabling core hardware for the Amediatech X98Q TV box.
+* From v1 [1]:
 
-The board features:
-- Amlogic S905W2 (Meson S4) SoC
-- 1 GiB RAM (2 GiB variants exist)
-- eMMC and microSD card slot
-- SDIO-based WiFi module (unsupported)
-- RMII Ethernet with internal PHY
-- IR receiver and UART console
-- Status LED
+  - Repaint kvm_timer_irq_can_fire() to kvm_timer_enabled()
 
-Enabled peripherals:
-- eMMC (HS200)
-- SD card interface
-- SDIO bus (WiFi, no driver yet)
-- Ethernet (RMII)
-- UART_B
-- IR receiver
-- PWM-controlled CPU regulator
-- PWM and Fixed regulators for core and IO rails
+  - Drop duplicate kvm_timer_update_status() call
 
-Known limitations:
-- No support for the onboard WiFi module
-- Missing multimedia (HDMI/audio)
+  - Force lazy init on the irqfd slow-path for SPIs
 
-Signed-off-by: Christian Stefan Kövér-Draxl <christian.koever-draxl@student.uibk.ac.at>
----
- arch/arm64/boot/dts/amlogic/Makefile          |   1 +
- .../boot/dts/amlogic/meson-s4-s905w2-x98q.dts | 249 ++++++++++++++++++
- 2 files changed, 250 insertions(+)
- create mode 100644 arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
+[1] https://lore.kernel.org/r/20260417124612.2770268-1-maz@kernel.org
 
-diff --git a/arch/arm64/boot/dts/amlogic/Makefile b/arch/arm64/boot/dts/amlogic/Makefile
-index 15f9c817e502..c7752684dea6 100644
---- a/arch/arm64/boot/dts/amlogic/Makefile
-+++ b/arch/arm64/boot/dts/amlogic/Makefile
-@@ -85,6 +85,7 @@ dtb-$(CONFIG_ARCH_MESON) += meson-gxm-ugoos-am3.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-gxm-vega-s96.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-gxm-wetek-core2.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-s4-s805x2-aq222.dtb
-+dtb-$(CONFIG_ARCH_MESON) += meson-s4-s905w2-x98q.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-s4-s905y4-khadas-vim1s.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-sm1-a95xf3-air-gbit.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-sm1-a95xf3-air.dtb
-diff --git a/arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts b/arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
-index 000000000000..3eecbc858522
---- /dev/null
-+++ b/arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
-@@ -0,0 +1,249 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (c) 2026 Christian Stefan Köver-Draxl
-+ * Based on meson-s4-s905y4-khadas-vim1s.dts:
-+ *  - Copyright (c) 2026 Khadas Technology Co., Ltd.
-+ */
-+
-+/dts-v1/;
-+
-+#include "meson-s4.dtsi"
-+
-+/ {
-+	model = "Shenzhen Amediatech Technology Co., Ltd X98Q";
-+	compatible = "amediatech,x98q", "amlogic,s905w2", "amlogic,s4";
-+	interrupt-parent = <&gic>;
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	aliases {
-+		mmc0 = &emmc; /* eMMC */
-+		mmc1 = &sd; /* SD card */
-+		mmc2 = &sdio; /* SDIO */
-+		serial0 = &uart_b;
-+	};
-+
-+	memory@0 {
-+		device_type = "memory";
-+		reg = <0x0 0x0 0x0 0x40000000>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		/* 52 MiB reserved for ARM Trusted Firmware */
-+		secmon_reserved: secmon@5000000 {
-+			reg = <0x0 0x05000000 0x0 0x3400000>;
-+			no-map;
-+		};
-+	};
-+
-+	emmc_pwrseq: emmc-pwrseq {
-+		compatible = "mmc-pwrseq-emmc";
-+		reset-gpios = <&gpio GPIOB_9 GPIO_ACTIVE_LOW>;
-+	};
-+
-+	sdio_32k: sdio-32k {
-+		compatible = "pwm-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <32768>;
-+		pwms = <&pwm_ef 0 30518 0>; /* PWM_E at 32.768KHz */
-+	};
-+
-+	sdio_pwrseq: sdio-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		reset-gpios = <&gpio GPIOX_6 GPIO_ACTIVE_LOW>;
-+		clocks = <&sdio_32k>;
-+		clock-names = "ext_clock";
-+	};
-+
-+	main_5v: regulator-main-5v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "5V";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+	};
-+
-+	sd_3v3: regulator-sd-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "SD_3V3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpio = <&gpio GPIOD_4 GPIO_ACTIVE_LOW>;
-+		regulator-always-on;
-+	};
-+
-+	vddio_sd: regulator-vddio-sd {
-+		compatible = "regulator-gpio";
-+		regulator-name = "VDDIO_SD";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpios = <&gpio GPIOD_9 GPIO_ACTIVE_HIGH>;
-+		gpios-states = <1>;
-+		states = <1800000 1 3300000 0>;
-+	};
-+
-+	vddao_3v3: regulator-vddao-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "VDDAO_3V3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&main_5v>;
-+		regulator-always-on;
-+	};
-+
-+	vddio_ao1v8: regulator-vddio-ao1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "VDDIO_AO1V8";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&vddao_3v3>;
-+		regulator-always-on;
-+	};
-+
-+	/* SY8120B1ABC DC/DC Regulator. */
-+	vddcpu: regulator-vddcpu {
-+		compatible = "pwm-regulator";
-+
-+		regulator-name = "VDDCPU";
-+		regulator-min-microvolt = <689000>;
-+		regulator-max-microvolt = <1049000>;
-+
-+		vin-supply = <&main_5v>;
-+
-+		pwms = <&pwm_ij 1 1500 0>;
-+		pwm-dutycycle-range = <100 0>;
-+
-+		regulator-boot-on;
-+		regulator-always-on;
-+		/* Voltage Duty-Cycle */
-+		voltage-table = <1049000 0>,
-+				<1039000 3>,
-+				<1029000 6>,
-+				<1019000 9>,
-+				<1009000 12>,
-+				<999000 14>,
-+				<989000 17>,
-+				<979000 20>,
-+				<969000 23>,
-+				<959000 26>,
-+				<949000 29>,
-+				<939000 31>,
-+				<929000 34>,
-+				<919000 37>,
-+				<909000 40>,
-+				<899000 43>,
-+				<889000 45>,
-+				<879000 48>,
-+				<869000 51>,
-+				<859000 54>,
-+				<849000 56>,
-+				<839000 59>,
-+				<829000 62>,
-+				<819000 65>,
-+				<809000 68>,
-+				<799000 70>,
-+				<789000 73>,
-+				<779000 76>,
-+				<769000 79>,
-+				<759000 81>,
-+				<749000 84>,
-+				<739000 87>,
-+				<729000 89>,
-+				<719000 92>,
-+				<709000 95>,
-+				<699000 98>,
-+				<689000 100>;
-+	};
-+};
-+
-+&emmc {
-+	status = "okay";
-+	pinctrl-0 = <&emmc_pins>, <&emmc_ds_pins>;
-+	pinctrl-1 = <&emmc_clk_gate_pins>;
-+	pinctrl-names = "default", "clk-gate";
-+
-+	bus-width = <8>;
-+	cap-mmc-highspeed;
-+	mmc-ddr-1_8v;
-+	mmc-hs200-1_8v;
-+	max-frequency = <200000000>;
-+	non-removable;
-+	disable-wp;
-+
-+	mmc-pwrseq = <&emmc_pwrseq>;
-+	vmmc-supply = <&vddao_3v3>;
-+	vqmmc-supply = <&vddio_ao1v8>;
-+};
-+
-+&ethmac {
-+	status = "okay";
-+	phy-handle = <&internal_ephy>;
-+	phy-mode = "rmii";
-+};
-+
-+&ir {
-+	status = "okay";
-+	pinctrl-0 = <&remote_pins>;
-+	pinctrl-names = "default";
-+};
-+
-+&pwm_ef {
-+	status = "okay";
-+	pinctrl-0 = <&pwm_e_pins1>;
-+	pinctrl-names = "default";
-+};
-+
-+&pwm_ij {
-+	status = "okay";
-+};
-+
-+&sd {
-+	status = "okay";
-+	pinctrl-0 = <&sdcard_pins>;
-+	pinctrl-1 = <&sdcard_clk_gate_pins>;
-+	pinctrl-names = "default", "clk-gate";
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	max-frequency = <50000000>;
-+	disable-wp;
-+
-+	cd-gpios = <&gpio GPIOC_6 GPIO_ACTIVE_LOW>;
-+
-+	vmmc-supply = <&vddao_3v3>;
-+	vqmmc-supply = <&vddao_3v3>;
-+};
-+
-+     /*
-+      * Wireless SDIO Module (Amlogic W150S1)
-+      * Note: There is no driver for this at the moment.
-+      */
-+
-+&sdio {
-+	status = "okay";
-+	pinctrl-0 = <&sdio_pins>;
-+	pinctrl-1 = <&sdio_clk_gate_pins>;
-+	pinctrl-names = "default", "clk-gate";
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	max-frequency = <200000000>;
-+	non-removable;
-+	disable-wp;
-+
-+	no-sd;
-+	no-mmc;
-+	mmc-pwrseq = <&sdio_pwrseq>;
-+	vmmc-supply = <&vddao_3v3>;
-+	vqmmc-supply = <&vddio_ao1v8>;
-+};
-+
-+&uart_b {
-+	status = "okay";
-+};
+Marc Zyngier (4):
+  KVM: arm64: timer: Repaint kvm_timer_{should,irq_can}_fire() to
+    kvm_timer_{pending,enabled}()
+  KVM: arm64: timer: Kill the per-timer level cache
+  KVM: arm64: vgic-v2: Force vgic init on injection outside the run loop
+  KVM: arm64: vgic-v2: Don't init the vgic on in-kernel interrupt
+    injection
+
+ arch/arm64/kvm/arch_timer.c      | 59 +++++++++++++++-----------------
+ arch/arm64/kvm/arm.c             |  7 ++++
+ arch/arm64/kvm/vgic/vgic-irqfd.c |  6 ++++
+ arch/arm64/kvm/vgic/vgic.c       |  6 ++--
+ include/kvm/arm_arch_timer.h     |  5 ---
+ 5 files changed, 43 insertions(+), 40 deletions(-)
+
 -- 
-2.53.0
+2.47.3
 
 
