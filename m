@@ -4,63 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B610F9EDC4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 12:49:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A8CFF9EDC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 12:56:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=p44cSbI9ojfU2tdH6qP4ry3HyO5ReEpQUeVPNbJdJzY=; b=46YPgo7a2LH5QNUyCduIeTI16j
-	z7esf9qP0x/HtJ0E0osbMxDRjpRNHsGrKwBQdAuuGmV4sdsJey/uJTNWIVITIxuMnKwx42VQE4GmI
-	GjSEutpf7j9SI5omGJ67FKlxtGoNC+1Q6JjVtPNPr3PZFpPmLJ5rHFrmBEsS5uWm60yB62xVonl8Z
-	vGxs0pRvHPAoElKiM4Qj+rK1QtkhO5ng9eQsJtqUuU9mpSB0OpJ8PDRvW1Qld+/PJWymIEpF8QX4q
-	ooP4OsMYGn3b9GKO7ezI9fhpvT0CSxfx6JSxAn0dBpCLwy0CiQouFmXEx9ZgLkwV+zoYU5zfJJTY+
-	M3aZcSgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bUS/NAvAtcvm3aAvzJt3Gtmk4a4KKzsNe+7I4xqFKGU=; b=itVmwTYLheUtFJb7LnYO7UuJKB
+	Yigq0AH2nj4hxUo1amkcL2VLwU5vdH5VE9ZPzbnSzGM0Mq8Act2l/dmaY9CAn5PimTm9EKb7giWpQ
+	boVXjZG3BE3M1Wam4rxvxE1Ut0MW6V/VpdR/1dIu6rCyn+AFelReNxsOB53vnfPdOK712xAwqgAey
+	q0UTRgyicbWzaqTtJJeba00Y4cLi4M756GYkENGvISkMA4IEpcPf0dpmcsIk2Kyvs81ZpIOBQz/EV
+	44UxtCXkEgXXg5KntFjcVpUpmOgaZt/K6ccgBFc3+ztS+b5h0YAF4pxHkPBWh8uLMsZDij9yws97R
+	f6ccbyaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFX1O-0000000AF7d-1pS5;
-	Wed, 22 Apr 2026 12:49:38 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFX1M-0000000AF7J-19q0
+	id 1wFX8I-0000000AFSr-0zPA;
+	Wed, 22 Apr 2026 12:56:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wFX8G-0000000AFSh-2DG0
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 22 Apr 2026 12:56:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=bUS/NAvAtcvm3aAvzJt3Gtmk4a4KKzsNe+7I4xqFKGU=; b=bV2hk+ZioHDawHhg/mlZoxjY8W
+	Ns6dnocckjGajZ4jECQiQpQqwWPcsLP77DQ2hB4xivsoASpN+bgKOGvivS96n89aNEO+Y+jiBoJl9
+	75297u3vIqzPy5uEF06xTfVTP1Pd8LRAu7/OCUb7+7PLM8eicTiLefTWqrOmrk5oQNotE5d7ZxX1U
+	fTadBtPQ+MuhG2uL/wTKjAFCZ+6zpy1RchNua6KR0P2NitCoh/pSJChjy+uLhG64Bvf9aW6MGcX1k
+	K6xgC/z1RQQ8BJ5FMomMHnDeCLrjnk54OCjRwX7udzhbzyGrUwkmj/FY+lA2djhdTFql905fDGhSk
+	tdsYEWrg==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wFX89-0000000BPg0-3xne
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 12:49:37 +0000
-Received: from [127.0.1.1] (unknown [52.179.129.152])
-	by linux.microsoft.com (Postfix) with ESMTPSA id DF16820B6F01;
-	Wed, 22 Apr 2026 05:49:33 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com DF16820B6F01
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1776862175;
-	bh=p44cSbI9ojfU2tdH6qP4ry3HyO5ReEpQUeVPNbJdJzY=;
-	h=From:Date:Subject:To:Cc:From;
-	b=O3RM0N6EpJIHq08SQ89lMIFxMPMjNDBI+f5c6Upxdy5vjkd0JUY8+gHshTG9sw3GV
-	 nTCQROVqANQjZjmOjXZCGycVTFWArh78AM+/b39x8fhF8Ig8wv3QmT2WiLZLsbnaos
-	 Iuhfiairepl9YVg5XV7Zn3ojwiaWblA/XIhezySA=
-From: jeffbarnes@linux.microsoft.com
-Date: Wed, 22 Apr 2026 08:49:30 -0400
-Subject: [PATCH] crypto: testmgr - disallow RSA PKCS#1 SHA-1 sig algs in
- FIPS mode
+	Wed, 22 Apr 2026 12:56:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1776862588;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bUS/NAvAtcvm3aAvzJt3Gtmk4a4KKzsNe+7I4xqFKGU=;
+	b=AhYpFsXK5Aft60Rej9LiJ3ibTGp+0lARt8ny4PMpoQlh0wgJiBdnEWXjDoz5Es2FlwPiva
+	i7A8C4+gN5CBjmzVz1A8HPjTJdGrTT56afri6+raUegbIFwmjsrJ68UX8sc0EAo8zqVkg9
+	HHgzEcHl2xC2kgP2GOLTfi5UqkseeCI=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1776862597;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bUS/NAvAtcvm3aAvzJt3Gtmk4a4KKzsNe+7I4xqFKGU=;
+	b=IWRSyVeJX+bPakSwA6rD9v7Ug0nffhzKHn4CIczstbvQklaogi3cNE3rna6/erJREGhS/x
+	ES5CGHUo8ogfIcDeaflvzDhl2mfwuy3R9phCmuJ6vxhTL9/K/jjbWhgv1Z0MlbWcOIfd9w
+	otHCFGT/5MWZBdBmn3/cwlCyvQfQR4E=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-377-LID39KPIOuWodVAVWaZhTw-1; Wed,
+ 22 Apr 2026 08:56:24 -0400
+X-MC-Unique: LID39KPIOuWodVAVWaZhTw-1
+X-Mimecast-MFC-AGG-ID: LID39KPIOuWodVAVWaZhTw_1776862582
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A38B319560AF;
+	Wed, 22 Apr 2026 12:56:20 +0000 (UTC)
+Received: from fweimer-oldenburg.csb.redhat.com (unknown [10.44.49.45])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B15961956095;
+	Wed, 22 Apr 2026 12:56:12 +0000 (UTC)
+From: Florian Weimer <fweimer@redhat.com>
+To: =?utf-8?Q?Andr=C3=A9?= Almeida <andrealmeid@igalia.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
+ <will@kernel.org>,  Thomas Gleixner <tglx@kernel.org>,  Mark Rutland
+ <mark.rutland@arm.com>,  Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>,  Sebastian Andrzej Siewior
+ <bigeasy@linutronix.de>,  Carlos O'Donell <carlos@redhat.com>,  Peter
+ Zijlstra <peterz@infradead.org>,  Rich Felker <dalias@aerifal.cx>,
+  Torvald Riegel <triegel@redhat.com>,  Darren Hart <dvhart@infradead.org>,
+  Ingo Molnar <mingo@kernel.org>,  Davidlohr Bueso <dave@stgolabs.net>,
+  Arnd Bergmann <arnd@arndb.de>,  "Liam R . Howlett"
+ <Liam.Howlett@oracle.com>,  Uros Bizjak <ubizjak@gmail.com>,  Thomas
+ =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>,
+  linux-arm-kernel@lists.infradead.org,
+  linux-kernel@vger.kernel.org,  linux-arch@vger.kernel.org,
+  kernel-dev@igalia.com
+Subject: Re: [PATCH RFC 1/2] arm64: vdso: Prepare for robust futex unlock
+ support
+In-Reply-To: <32642d18-8c83-47ad-8456-1813084c4622@igalia.com>
+ (=?utf-8?Q?=22Andr=C3=A9?=
+	Almeida"'s message of "Wed, 22 Apr 2026 09:46:53 -0300")
+References: <20260417-tonyk-robust_arm-v1-0-03aa64e2ff1a@igalia.com>
+	<20260417-tonyk-robust_arm-v1-1-03aa64e2ff1a@igalia.com>
+	<lhu1pgd8w0f.fsf@oldenburg.str.redhat.com>
+	<32642d18-8c83-47ad-8456-1813084c4622@igalia.com>
+Date: Wed, 22 Apr 2026 14:56:09 +0200
+Message-ID: <lhuv7djb1cm.fsf@oldenburg.str.redhat.com>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260422-disallow_rsa_sha1_signing_in_fips_mode-v1-1-1359bc7d41be@microsoft.com>
-X-B4-Tracking: v=1; b=H4sIANnD6GkC/x3N0QrCMAxA0V8ZebawhTnUXxEJmU27wExHAyqM/
- bvFx/Ny7w4uVcXh1u1Q5a2uxRqGUwfPhS1L0NgM2OPUj4ghqvO6lg9VZ/KFB3LNppZJjZJuTq8
- SJVzSPE+IV47nEVpsq5L0+x/dH8fxA5f263x4AAAA
-To: Herbert Xu <herbert@gondor.apana.org.au>, 
- "David S. Miller" <davem@davemloft.net>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-crypto@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Jeff Barnes <jeffbarnes@microsoft.com>, 
- Jeff Barnes <jeffbarnes@linux.microsoft.com>
-X-Mailer: b4 0.13.0
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+X-Mimecast-MFC-PROC-ID: 9bLiOo-nviKGZJrwAQwIcDGJvyGM1XKQiGtGMtv7r8E_1776862582
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_054936_341826_B3523429 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20260422_135638_154678_0BB1C268 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,98 +129,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jeff Barnes <jeffbarnes@microsoft.com>
+* Andr=C3=A9 Almeida:
 
-When booted with fips=1, RSA signature generation using SHA-1 must not be
-available.  However, pkcs1pad(rsa,sha1) can currently be instantiated
-because it is not present in alg_test_descs; alg_test() falls through the
-no_test path and succeeds, after which the algorithm appears in /proc/crypto
-as fips-capable. 【1-ebd9df】
+> Hi Florian,
+>
+> Em 17/04/2026 12:08, Florian Weimer escreveu:
+>> * Andr=C3=A9 Almeida:
+>>=20
+>>> There will be a VDSO function to unlock non-contended robust futexes in
+>>> user space. The unlock sequence is racy vs. clearing the list_pending_o=
+p
+>>> pointer in the task's robust list head. To plug this race the kernel ne=
+eds
+>>> to know the critical section window so it can clear the pointer when th=
+e
+>>> task is interrupted within that race window. The window is determined b=
+y
+>>> labels in the inline assembly.
+>>>
+>>> Signed-off-by: Andr=C3=A9 Almeida <andrealmeid@igalia.com>
+>>> ---
+>>> RFC: Those symbols can't be found by the linker after patch 2/2, it fai=
+ls with:
+>>>
+>>> ld: arch/arm64/kernel/vdso.o: in function `vdso_futex_robust_unlock_upd=
+ate_ips':
+>>> arch/arm64/kernel/vdso.c:72:(.text+0x200): undefined reference to `__fu=
+tex_list64_try_unlock_cs_success'
+>>> ld: arch/arm64/kernel/vdso.o: relocation R_AARCH64_ADR_PREL_PG_HI21 aga=
+inst symbol `__futex_list64_try_unlock_cs_success' which may bind externall=
+y can not be used when making a shared object; recompile with -fPIC
+>>> arch/arm64/kernel/vdso.c:72:(.text+0x200): dangerous relocation: unsupp=
+orted relocation
+>> I think your GLOBLS definition adds a 64 suffix.  That shouldn't be
+>> necessary on AArch64.  It's not reflected in the references, so you end
+>> up with an undefined symbol error.
+>>=20
+>
+> Why aarch64 doesn't need the 64 suffix? objdump shows that the final
+> label name is __futex_list64_try_unlock_cs_success, which should match
+> what the linker is trying to find, AFAIC.
 
-Add explicit alg_test_descs entries for pkcs1pad(rsa,sha1) and pkcs1(rsa,sha1)
-without marking them fips_allowed, so they are treated as not FIPS-allowed
-when fips=1 is enabled.
+Sorry, I was confused about how this is expected to work.
 
-Include both names to cover kernels where RSA sign/verify is provided via
-the pkcs1(...) signature template, while pkcs1pad(...) remains for the
-traditional wrapper naming and/or RSAES operations. 【2-17cc14】
-
-Signed-off-by: Jeff Barnes <jeffbarnes@linux.microsoft.com>
----
-This series fixes an issue where SHA-1 RSA signature generation remains
-available when booted with fips=1.
-
-On a FIPS-enabled system, pkcs1pad(rsa,sha1) can be instantiated even
-though SHA-1 must not be available for signature generation. The reason
-is that the algorithm is not listed in crypto/testmgr.c's alg_test_descs,
-so alg_test() falls through the no_test path and succeeds. Once
-instantiated, /proc/crypto reports the algorithm as "fips: yes".
-
-This patch adds explicit alg_test_descs entries for:
-
-  - pkcs1pad(rsa,sha1)
-  - pkcs1(rsa,sha1)
-
-without setting fips=1, so they are treated as not FIPS-allowed in
-FIPS mode.
-
-Both names are covered to handle kernels where RSA signature operations
-are provided via the pkcs1(...) signature template, while pkcs1pad(...)
-remains for the historical wrapper naming and/or RSAES operations.
-
-Reproducer / evidence (current behavior):
-  1) Boot with fips=1 (confirm /proc/sys/crypto/fips_enabled == 1)
-  2) Allocate the transform:
-       crypto_alloc_akcipher("pkcs1pad(rsa,sha1)", 0, 0)
-  3) Observe that /proc/crypto now contains:
-       name   : pkcs1pad(rsa,sha1)
-       fips   : yes
-       selftest: passed
-  4) A simple in-kernel demo module can instantiate the transform and reach
-     the signing path in FIPS mode.
-
-With this change, attempts to instantiate these SHA-1 RSA signing
-templates in FIPS mode are rejected, preventing SHA-1 signature
-generation in approved mode.
-
-Thanks for taking a look.
-
-Signed-off-by: Jeff Barnes <jeffbarnes@microsoft.com>
----
- crypto/testmgr.c | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/crypto/testmgr.c b/crypto/testmgr.c
-index 30671e7bc349..e54d298a26c1 100644
---- a/crypto/testmgr.c
-+++ b/crypto/testmgr.c
-@@ -5306,6 +5306,9 @@ static const struct alg_test_desc alg_test_descs[] = {
- 		.suite = {
- 			.sig = __VECS(pkcs1_rsa_none_tv_template)
- 		}
-+	}, {
-+		.alg = "pkcs1(rsa,sha1)",
-+		.test = alg_test_null,
- 	}, {
- 		.alg = "pkcs1(rsa,sha224)",
- 		.test = alg_test_null,
-@@ -5341,6 +5344,9 @@ static const struct alg_test_desc alg_test_descs[] = {
- 		.alg = "pkcs1pad(rsa)",
- 		.test = alg_test_null,
- 		.fips_allowed = 1,
-+	}, {
-+		.alg = "pkcs1pad(rsa,sha1)",
-+		.test = alg_test_null,
- 	}, {
- 		.alg = "rfc3686(ctr(aes))",
- 		.generic_driver = "rfc3686(ctr(aes-lib))",
-
----
-base-commit: 8879a3c110cb8ca5a69c937643f226697aa551d9
-change-id: 20260422-disallow_rsa_sha1_signing_in_fips_mode-8fbb6229ad54
-
-Best regards,
--- 
-Jeff Barnes <jeffbarnes@microsoft.com>
+Florian
 
 
