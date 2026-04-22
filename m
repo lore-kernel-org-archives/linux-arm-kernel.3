@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FDEEFA1FE8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 19:29:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22D67FA1FEC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 19:41:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EMJT7d6P1/R9h6GeCwxcEfKWbztdEvqngNYzpVdEdVI=; b=og6eZVLZ9WkKlbiHIn2LcAZ22K
-	2CIHQRSzBNZqMvcSmSpDdEyk9rsCUTHWElnjptKC9dzyOasWMcX4brU1d+32U1Oc3YVzP34Oc9XcN
-	3bPqYvEDON0KvAqufYLai7v6lchUyW6TlV14l7n8fgxOQMw1PZlGPusoKN5iz5xlNeG2nyIUT+re2
-	ETZNolxldfHWjeFDeEnkO0Pw+qvjy7bigHhniErwTJLG9DYPBGXW2mf9WQqbFY9REu1GqUuV5uveO
-	67Lc028KiCYAGxc1VMQpksBqikmUnas8ABlGUu43Ghr0iVFj2OTO8YFiM9F0vgQwfT1RAbVaF2Oyl
-	xM0yz9AQ==;
+	bh=7rXDVK33gfZVR3lpOnjY9M7/bnJ3YRSBVCxVw47KCfQ=; b=UJv68ne5pEwwKlJGgsu7WstasM
+	poClyILC+Az7hUNYEF+G6EyAS/2lQH59uh4qNj07yYPc3NmWkI/WdHx+QpUaWArOsvwjg34MH2AB+
+	zsoYxdtq9vcqAy8sos3o5PBNPfVcofWK1zo866bGOieWE/0Kmbd1TDKziUNn8M7dXDClWxwHMkwS8
+	cV2Y/AOVOzn+JtRbhYFpiZazoKo5Fn8guQU/XyvXyEKQx4Wx/b64udmCle2FmEww2Kq3ZgRQpdpyj
+	Ve5hmvLKO6V/vycUcNodK0Pz/T+RndRCvFnj27p0nugYC+01eCXtJVwXXLVpDKbSUemn24LPlvPfI
+	LQuEYd2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFdG8-0000000AgO9-0Xrn;
-	Wed, 22 Apr 2026 19:29:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFdG5-0000000AgO2-1KoO
+	id 1wFdRo-0000000Agmk-1F6d;
+	Wed, 22 Apr 2026 19:41:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wFdRl-0000000AgmN-2iIG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 19:29:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7AD4B61863;
-	Wed, 22 Apr 2026 19:29:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31277C19425;
-	Wed, 22 Apr 2026 19:29:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776886152;
-	bh=HpvvNxwo4hvkfkj8lkwfO/nM0ZonikcVN6WesLfH1Cw=;
+	Wed, 22 Apr 2026 19:41:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BBCF22F;
+	Wed, 22 Apr 2026 12:41:09 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DE68F3F7B4;
+	Wed, 22 Apr 2026 12:41:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776886875; bh=tGo1tyalwnLC7Qix4mlWc2AAj2+tR6uJ/+3oGMxJUVU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dpA0ld7thFoosy13RH91YeO2Nlg85BdJqCtKLBkVTKO5oL3L1dzXf5c04hILIghmN
-	 VjSWyeUYiWNJoNnt+c3kGGfT/W4ALHCE/hJGMvucLVhPZgibp1Srcn0dwdXbLjJ+0t
-	 yTNUvUh+/Tkz8Rp7NRPFwkjfxuO5f044Hksyp0nmyRv24uFCxDt2iO+Z19c5W8JlQ+
-	 fNIaUfSpIV/zsNelk0ls2Mn46tB9/SeIFR63prtZq/sKv7HDL7wMmu8muQaLAE65Ko
-	 UsnShlwZ37U8pjWQ7XDtwil+Mtpi2Yf4n51c7NPuCImBpBog54HEA3Q0wu5HdQ3brX
-	 LdNZwiOly07CA==
-Date: Wed, 22 Apr 2026 20:29:06 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Sebastian Ene <sebastianene@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, oupton@kernel.org, will@kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>, ayrton@google.com,
-	catalin.marinas@arm.com, joey.gouly@arm.com, korneld@google.com,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, android-kvm@google.com,
-	mrigendra.chaubey@gmail.com, perlarsen@google.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Validate the FF-A memory access descriptor
- placement
-Message-ID: <20260422-jolly-curassow-of-amplitude-25fbaf@sudeepholla>
-References: <20260422102540.1433704-1-sebastianene@google.com>
- <86bjfb18v1.wl-maz@kernel.org>
- <aejOu98q1lEZoFfW@google.com>
+	b=ld27Ctu3LjLwz6nyJncF4IMY20+aIHT/e3N866KLdFOVkS2ybBAVb1fp0IiWooEF7
+	 OTw5J2O+YHnNNRT/B23ikfOGGohqln1hPRtAbFlJWe7BNP2EwNp/Bo/HHtkP+eru/d
+	 3PquYiSxL9s664PGxh/lDrWC43BpYpYW5dJMiK20=
+Date: Wed, 22 Apr 2026 20:41:09 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Mimi Zohar <zohar@linux.ibm.com>
+Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
+	roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+	eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+	sebastianene@google.com
+Subject: Re: [RFC PATCH v2 1/4] security: ima: call ima_init() again at
+ late_initcall_sync for defered TPM
+Message-ID: <aekkVQwueKbFtG7C@e129823.arm.com>
+References: <20260422162449.1814615-1-yeoreum.yun@arm.com>
+ <20260422162449.1814615-2-yeoreum.yun@arm.com>
+ <6919248bdc85dac60277fa9d9c83d8bd258ca635.camel@linux.ibm.com>
+ <aekXaU52fzvNYaUF@e129823.arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <aejOu98q1lEZoFfW@google.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aekXaU52fzvNYaUF@e129823.arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260422_124117_818520_7CBCD121 
+X-CRM114-Status: GOOD (  30.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,84 +81,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 22, 2026 at 01:35:55PM +0000, Sebastian Ene wrote:
-> On Wed, Apr 22, 2026 at 01:24:02PM +0100, Marc Zyngier wrote:
-> > On Wed, 22 Apr 2026 11:25:40 +0100,
-> > Sebastian Ene <sebastianene@google.com> wrote:
-> > > 
-> > > Prevent the pKVM hypervisor from making assumptions that the
-> > > endpoint memory access descriptor (EMAD) comes right after the
-> > > FF-A memory region header and enforce a strict placement for it
-> > > when validating an FF-A memory lend/share transaction.
-> 
-> Hello Marc,
-> 
-> > 
-> > As I read this, you want to remove a bad assumption...
-> > 
-> > > 
-> > > Prior to FF-A version 1.1 the header of the memory region
-> > > didn't contain an offset to the endpoint memory access descriptor.
-> > > The layout of a memory transaction looks like this:
-> > > 
-> > >   Field name				| Offset
-> > > 					 -- 0
-> > > [ Header (ffa_mem_region)               |__ ep_mem_offset
-> > >   EMAD 1 (ffa_mem_region_attributes)	|
-> > > ]
-> > > 
-> > > Reject the host from specifying a memory access descriptor offset
-> > > that is different than the size of the memory region header.
-> > 
-> > And yet you decide that you want to enforce this assumption. I don't
-> > understand how you arrive to this conclusion.
-> > 
-> > Looking at the spec, it appears that the offset is *designed* to allow
-> > a gap between the header and the EMAD. Refusing to handle a it seems to be a
-> > violation of the spec.
-> > 
-> > What am I missing?
-> 
-> While the spec allows the gap to be variable (since version 1.1), the
-> arm ff-a driver places it at a fixed position in:
-> ffa_mem_region_additional_setup() 
-> https://elixir.bootlin.com/linux/v7.0/source/drivers/firmware/arm_ffa/driver.c#L671
-> 
-
-That's just the current choice in the driver and can be changed in the future.
-
-> and makes use of the same assumption in: ffa_mem_desc_offset().
-> https://elixir.bootlin.com/linux/v7.0/source/include/linux/arm_ffa.h#L448
-
-Again this is just in the transmit path of the message the driver is
-constructing and hence it is a simple choice rather than wrong assumption.
-
-> The later one seems wrong IMO. because we should compute the offset
-> based on the value stored in ep_mem_offset and not adding it up with
-> sizeof(struct ffa_mem_region).
-> 
-
-Sorry what am I missing as the driver is building these descriptors to
-send it across to SPMC, we are populating the field and it will be 0
-before it is initialised
-
-> Maybe this should be the fix instead and not the one in pKVM ? What do
-> you think ?
-> 
-
-Can you share the diff you have in mind to understand your concern better
-or are you referring to this patch itself.
-
-> The current implementation in pKVM makes use of the
-> ffa_mem_desc_offset() to validate the first EMAD. If a compromised host
-> places an EMAD at a different offset than sizeof(struct ffa_mem_region),
-> then pKVM will not validate that EMAD.
+> Hi Mimi,
 >
+> > On Wed, 2026-04-22 at 17:24 +0100, Yeoreum Yun wrote:
+> > > To generate the boot_aggregate log in the IMA subsystem with TPM PCR values,
+> > > the TPM driver must be built as built-in and
+> > > must be probed before the IMA subsystem is initialized.
+> > >
+> > > However, when the TPM device operates over the FF-A protocol using
+> > > the CRB interface, probing fails and returns -EPROBE_DEFER if
+> > > the tpm_crb_ffa device — an FF-A device that provides the communication
+> > > interface to the tpm_crb driver — has not yet been probed.
+> > >
+> > > To ensure the TPM device operating over the FF-A protocol with
+> > > the CRB interface is probed before IMA initialization,
+> > > the following conditions must be met:
+> > >
+> > >    1. The corresponding ffa_device must be registered,
+> > >       which is done via ffa_init().
+> > >
+> > >    2. The tpm_crb_driver must successfully probe this device via
+> > >       tpm_crb_ffa_init().
+> > >
+> > >    3. The tpm_crb driver using CRB over FF-A can then
+> > >       be probed successfully. (See crb_acpi_add() and
+> > >       tpm_crb_ffa_init() for reference.)
+> > >
+> > > Unfortunately, ffa_init(), tpm_crb_ffa_init(), and crb_acpi_driver_init() are
+> > > all registered with device_initcall, which means crb_acpi_driver_init() may
+> > > be invoked before ffa_init() and tpm_crb_ffa_init() are completed.
+> > >
+> > > When this occurs, probing the TPM device is deferred.
+> > > However, the deferred probe can happen after the IMA subsystem
+> > > has already been initialized, since IMA initialization is performed
+> > > during late_initcall, and deferred_probe_initcall() is performed
+> > > at the same level.
+> > >
+> > > To resolve this, call ima_init() again at late_inicall_sync level
+> > > so that let IMA not miss TPM PCR value when generating boot_aggregate
+> > > log though TPM device presents in the system.
+> > >
+> > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> >
+> > A lot of change for just detecting whether ima_init() is being called on
+> > late_initcall or late_initcall_sync(), without any explanation for all the other
+> > changes (e.g. ima_init_core).
+> >
+> > Please just limit the change to just calling ima_init() twice.
+>
+> My concern is that ima_update_policy_flags() will be called
+> when ima_init() is deferred -- not initialised anything.
+> though functionally, it might be okay however,
+> I think ima_update_policy_flags() and notifier should work after ima_init()
+> works logically.
+>
+> This change I think not much quite a lot. just wrapper ima_init() with
+> ima_init_core() with some error handling.
+>
+> Am I missing something?
 
-Calling the host as compromised if it chooses a different offset seems bit
-of extreme here. I am no sure if I am missing to understand something here.
+Also, if we handle in ima_init() only, but it failed with other reason,
+we shouldn't call again ima_init() in the late_initcall_sync.
 
--- 
-Regards,
-Sudeep
+To handle this, It wouldn't do in the ima_init() but we need to handle
+it by caller of ima_init().
+
+--
+Sincerely,
+Yeoreum Yun
 
