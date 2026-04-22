@@ -4,61 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38C45FA1FDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 17:51:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF8B0FA1FDB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 18:07:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zEJN6Fp5WBBUFYhWt0RYxU8no8HRwn0KnhiTxwY2j3k=; b=pyRQvEm6I9I0RTadoynOwy93te
-	dml4R6bJjouU7Aa2qaOWW2oeFB3AG3HP+xG7NgK269jb1GlAyckDryml0g3goUUnZDC1FojvwjsW4
-	3A5hK8laaYhfivt5essn8r1NXd8HjxYSoF9Hk8GJF9ubx7KOzoXAxdNiVBvK0EhJE1hfwjRzXSOaV
-	AmFKNSnX92MoZvdrLVuDvuEM/+nXp0KrdptrAdPqucbLagvhwZJWuJvKxrC2qKCGM4z6filARTV5c
-	wozMa9Mii94ft5nwZGL22v2RJ9S2PZiXoq7+5bB9Q9tOJdCKcstl7HXmUXvx8jSax+IOcIgx1T/V5
-	CkcIYz1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:In-Reply-To:Subject:CC:To:From:Date:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=3v4gati8jz+0eLCt+fkaA6QE0HrpYumOYS61o02yFpA=; b=F02Zndj1H+75f2BX42G+ljzSet
+	Qb/UUDGBUnsq20T2ky9xjTI6FWnjrZHNKIuzSBYXJoLPqKoLtrmL/k9P2vh1yoBw8rLB4gpy+UnJ0
+	LCvm14TgrdgYRhnRhZuliExiftoPCmIU8eMQJVRY+ja0pFd5TWKyfweljnR6z78OWTEHDSCDo+P8Y
+	WfSa48Q+JuBhXCMNHbhqL8o1cmJaxHcceCsbzK/AjN5ntZlt3+PhJsQoxYuALGYni24VZGocyOLp2
+	Rkgv9elZbJMoWu2uFntq84uMNTSvCjV0PNcSC3GM5Eqga0Xollvd9jVyXolJuPej96NFTt9J8pUXN
+	egZSZRGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFbj9-0000000Aaxo-0GLi;
-	Wed, 22 Apr 2026 17:51:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wFbzB-0000000Abb8-1RDs;
+	Wed, 22 Apr 2026 18:07:43 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFbj7-0000000AaxZ-3RAP
+	id 1wFbz5-0000000Aba6-0XNd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 17:51:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F0AA46057A;
-	Wed, 22 Apr 2026 17:51:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F148AC19425;
-	Wed, 22 Apr 2026 17:51:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776880264;
-	bh=KPvLrXE2/oUIc7/DGRST/uOw61jgaB21B6zfJODnfvg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=r0gxB7GBgcmuNv2k5W7mvLRhUPeknwOcHhJ7vcUMwYyOAwhEzMlPUUdgqqKEAKf8N
-	 plJ8OVHHWcqO1GleG/UwibiIldak2bSKxxAxwbJLZOSJXDOTK0ujQP3Qwd/8XnT3yA
-	 JrpBzw2UUsrCMwaFOBMxN6fbmxpKDlH+tbFpVXLPJpISxuz61JOg3NP7BEnsDkvmUw
-	 xr6F2v6PKHMAPsxtjfirmtwB7hn6vJakeYGRo8+++ZoQ9Rhi4M1lPQSq9ynhlqlXdj
-	 fEmrqFEMzegKfYNLB/QVN4Qb62nNUOgAQtUtIef9ono1OQRpwltgmo2dCxusebfONM
-	 PVDN3ioktc9uQ==
-Date: Wed, 22 Apr 2026 18:50:59 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Leo Yan <leo.yan@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] kselftest/arm64: Fix build failure with GCC-15
-Message-ID: <bdec0293-e962-432e-9056-f21079707a4d@sirena.org.uk>
-References: <20260422-selftests_arm64_gcc15-v2-1-c0134de8838a@arm.com>
+	Wed, 22 Apr 2026 18:07:39 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4891cd41959so38813265e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 11:07:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776881252; x=1777486052; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:in-reply-to
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=3v4gati8jz+0eLCt+fkaA6QE0HrpYumOYS61o02yFpA=;
+        b=Wnl5G6Rgp+LdpatTOyKOqi0ckl/w1o0KD0P093Vt+wpQklR16dAMGt7RDcdaxUyoNm
+         dHJCQz5DUTY5rEsP18odcOY3V/U8WTQ1M0IDsWaxz1j6HPUba0lnX6yIbUPLOSLhmSr/
+         jyl7J6M91BOQLkexeh7Z0Ku8Ad2MfiBe5gfxhPMQEqi/MAPjLqfNGfEJuNS+V0dSgAZI
+         XSJ6R0/+edm9vdhmJyu9YQDKSGu8ta1/pEDuBMzgHC1njKbtKgmo7GxovbWWHymrCANL
+         N/h1DEuu/g8QRkNsW7VHTcwUT/tgC8jbBZBwGECbuGur1PJQNTakkMkk+7OnXcxsRh/x
+         QhfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776881252; x=1777486052;
+        h=content-transfer-encoding:mime-version:message-id:in-reply-to
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3v4gati8jz+0eLCt+fkaA6QE0HrpYumOYS61o02yFpA=;
+        b=JATvSFOTZGxgpzITo/p/hIKTzUOEwPYPtIlJEkMv55tf7+hyUpkpsJD1fIEmymayly
+         6JRfECn++apLkfsGswwVyxPh+GjYFLpVnCGay4/yguPUICv+eK3pW4xkf2PCle5dvlVe
+         yyABg2GQtysNcLsgEAUA3aimW44vfTNYuONZ5EyKuET5PaHOyHRK3mdgkjmBpcu/0hE+
+         OFAkM506xjEIOKP9JTiD7rMiAZs0llErx4ZCgnHVQbj/BXZR1qomSPtPS3O+Z8ZaylCI
+         y8/fppQPJgTGPZyh9uRjE9xEG6+Rh6F4JdsRBB2HGohSTNnMvlEozcA0EJpfEpowZm8B
+         GWHg==
+X-Forwarded-Encrypted: i=1; AFNElJ8gdN+PrWaUbZT+bqNr2TXnZJbY8tLMtSjtdvrhjGpwExZ5RTo9vxfSlavNgDzH59gdDRneVBYRcHTrJq0eNEw/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjHk+1lSx7LLAu4C1N/ZmTI/S6+BIPaB8vXPOpLSX5NHtja5xj
+	uBk3EgYPoz7K8BE50e2r0iTF62x0b/i7ckrjm+CqYKkEXkxS2ILI4qxF
+X-Gm-Gg: AeBDietLL0HhGHAW3r/F+wLKPsbeiegjXp1SjZGoC0gFgikvD2lVrVyuOnuEAe+zUbz
+	cBd5J8nESNq+XcvaF8BaQw9r7+6GdnaqdDnuF/bMqXtkg9nU3DmDk4DOnE0Tf58MPVH1/ZR4S1W
+	YV5fythcPoyUIaxSfnNG+ydocDcBg4qKPxICT8CEbYAxCwdcC9y8bzS/ia4s16GQSQgai0nVGin
+	IsOEN75EVfHzTOpO+0pn6WBnPZpFMiDKpMBvd1xddDk6E5JzzSMNQ2koNjPsfUaVh9ut+3qLmR0
+	Dew5Y/vTE4V8WLpCrUEYgJUaakDR0Orbug/aZ1KJZfJPnfoo8w6ipQM7gNcuk7tdyxANOHr/Dou
+	uXRDlUVZTXDmotztxjCF2ZisglVNWElCCpX6NiPjZ02fWNg+y17qNSY1mxKtg6C/cCjgDWDrhA2
+	NVd/DRfTTVg37VNoAsCwqiwa47RnZx3JqUekaK
+X-Received: by 2002:a05:600c:859a:b0:48a:53ea:13df with SMTP id 5b1f17b1804b1-48a53ea1500mr120994365e9.2.1776881252234;
+        Wed, 22 Apr 2026 11:07:32 -0700 (PDT)
+Received: from ehlo.thunderbird.net ([86.1.69.5])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488fc1393f5sm432764375e9.9.2026.04.22.11.07.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 22 Apr 2026 11:07:31 -0700 (PDT)
+Date: Wed, 22 Apr 2026 19:07:32 +0100
+From: Josh Law <joshlaw48@gmail.com>
+To: ardb+git@google.com
+CC: ardb@kernel.org, arnd@arndb.de, ebiggers@kernel.org, hch@lst.de,
+ linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-raid@vger.kernel.org, linux@armlinux.org.uk
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_2/8=5D_xor/arm=3A_Replace_vectoriz?=
+ =?US-ASCII?Q?ed_implementation_with_arm64=27s_intrinsics?=
+In-Reply-To: <20260422171655.3437334-12-ardb+git@google.com>
+Message-ID: <3341B2B2-9B57-4273-AD5B-EDDE00CC4119@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="KXxGrSnyNAOe7ayE"
-Content-Disposition: inline
-In-Reply-To: <20260422-selftests_arm64_gcc15-v2-1-c0134de8838a@arm.com>
-X-Cookie: I'm definitely not in Omaha!
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260422_110735_177755_4F0200F6 
+X-CRM114-Status: UNSURE (   8.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,46 +100,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi ard.
 
---KXxGrSnyNAOe7ayE
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I like this patch.
 
-On Wed, Apr 22, 2026 at 06:42:54PM +0100, Leo Yan wrote:
+So, I'd be crazy not to say what I love here.
 
-> For GCC-15, NT_ARM_GCS is defined in the libc header, causing gcs-util.h
-> to skip its fallback definition of struct user_gcs. This leads to the
-> compiler error.
++		/* p1 ^= p2 */
++		v0 = veorq_u64(vld1q_u64(dp1 +  0), vld1q_u64(dp2 +  0));
++		v1 = veorq_u64(vld1q_u64(dp1 +  2), vld1q_u64(dp2 +  2));
++		v2 = veorq_u64(vld1q_u64(dp1 +  4), vld1q_u64(dp2 +  4));
++		v3 = veorq_u64(vld1q_u64(dp1 +  6), vld1q_u64(dp2 +  6));
++
++		/* p1 ^= p3 */
++		v0 = veorq_u64(v0, vld1q_u64(dp3 +  0));
++		v1 = veorq_u64(v1, vld1q_u64(dp3 +  2));
++		v2 = veorq_u64(v2, vld1q_u64(dp3 +  4));
++		v3 = veorq_u64(v3, vld1q_u64(dp3 +  6));
++
++		/* store */
++		vst1q_u64(dp1 +  0, v0);
++		vst1q_u64(dp1 +  2, v1);
++		vst1q_u64(dp1 +  4, v2);
++		vst1q_u64(dp1 +  6, v3);
++
++		dp1 += 8;
++		dp2 += 8;
++		dp3 += 8;
++	} while (--lines > 0);
++}
 
-> Fix this by including <asm/ptrace.h> to provide the proper definition.
+I really like how clean this is, I'm personally nodding my head here
 
-> +++ b/tools/testing/selftests/arm64/gcs/gcs-util.h
-> @@ -7,6 +7,7 @@
->  #define GCS_UTIL_H
-> =20
->  #include <stdbool.h>
-> +#include <asm/ptrace.h>
-> =20
->  #ifndef __NR_map_shadow_stack
->  #define __NR_map_shadow_stack 453
+Taking the "bad" guesswork of the compiler here is also amazing, it also
+guarantees we won't get stupid regressions in the future.
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
+Also, that performance boost is even better ;) 
 
---KXxGrSnyNAOe7ayE
-Content-Type: application/pgp-signature; name="signature.asc"
+I'm not the biggest expert of this subdirectory, but I understand it well.
 
------BEGIN PGP SIGNATURE-----
+So well,
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnpCoMACgkQJNaLcl1U
-h9A52wf9FOb2X61sAKZFg0tLjl5OvSTmH8kEuCqQRMnPND+u2vn+CKXzQ5pK8x9e
-TSdPkU3ttff8u5Rifl1nk7RKEotMP7APZv0h7JiP9+Qd/mfWaJXYlP9XBgtyHUdn
-KCLU0uMCzGlRtmXdLVTqTB6K2ov8/3W89yKCdFITnrq8KXfLGJRO1mA8fqkSs8cP
-snGks4TIezZkA/9yTuL5DIIf+xYH1ip7nR+FMO20SVcwLdJytIYVgqC7lnG5L5kr
-GSCN6E7oIBmck2ja63nvFkqUq7kbCjDexlObJ5kiOnVM+NpdXkHgACuO5Uiom87H
-p3cJ+0uKaqvgmKYFycqXl4hXixcMsw==
-=z8AI
------END PGP SIGNATURE-----
+Reviewed-by: Josh Law <joshlaw48@gmail.com>
 
---KXxGrSnyNAOe7ayE--
+
+Thanks! (I will review your lib patches) :)
 
