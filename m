@@ -4,93 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49C8DF9EDD1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 13:36:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B5CBF9EDD0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 13:39:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KxHtXNRYtwufGHW1ufeXFPBW1zoNUni80T80czPie2g=; b=j6u1zh40pZBM25Nl7MFFdh1rVd
-	ruP1gxkJMgDvCbngqb00S03ThFK+4/9T2Nxma6KcGM5FnbusWQxmf9w4Lvq2BDryPB3wPhx3VUNwP
-	RDMSEFLkn07ZF5HDXbB3lG/9QSaC3pMXpUCbNx9sn9xaQZPCzw53LyHXbMyGUdPzKa6iWyCrmF27K
-	QJoygcPdcOV/rd9lXQsBqIMI5ZSfgVrDyf9VGZ50dwDnniSRDiSKHr+5snozqJfutGs6J1AN7FcUE
-	iCQROEcT/VcwZg1oUi0P+PFprBt+7oOh36NxUHy9V8sP+vilXvfkm7ta5XVwZX3sM6nm9QukD1H8d
-	ThBgw7Yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yFStcb4f/x+503rZVtGq3Qa5jVcmgU6vvLRLiYaHIU8=; b=duEiv+14h9NSTdM+liE08VEkgx
+	cHO9gVNUV2kpJAEEFRGhMMMRgZvakFFGLlfoD1PMhclPxZklA4kEVYOq3fKZ6fB+W8gGNejaxgX93
+	9by5vDDpcO4HVcdEC3xL8fDH9lyte0SwBAOyTJV4iKzSzC6IovVbeZVY3goMmtrNTq6WKKP8z8H6A
+	dMeT305C8QOHdRcxj3G70dWv6IQK/xX+taH7LV4Y9WUgau3qg7H3CUr5PLzOs98gxK73wKg/JC7kE
+	2SjrA93/Lf0Es6kil8NtXyYPQjOy8AJwrT4GZpGKa4FysqWMrNtFCs5UVpqkzvq4reitC24XzGGzE
+	ROMPBS2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFXkL-0000000AJhT-3HSZ;
-	Wed, 22 Apr 2026 13:36:05 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFXkI-0000000AJgv-45fs
+	id 1wFXnH-0000000AJtZ-3YUh;
+	Wed, 22 Apr 2026 13:39:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wFXnF-0000000AJso-1QOO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 13:36:04 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-671f1a0d0c5so42786a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 06:36:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1776864960; x=1777469760; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=KxHtXNRYtwufGHW1ufeXFPBW1zoNUni80T80czPie2g=;
-        b=ZbMZ6QnD0+4KRcJFNb6BvMjwoHcWzIb2mh7E4AlSwbl0nwbJ2dwo6zbvHW4LZL4015
-         MKCj1GbYe3UGSALOzPjkfMb5gH9KtAs4deNu1VftEjJWtegOsiyDHGKO52I5h6DNhD3u
-         T+91QRKDomqCO3FyT6pcK0L5I6LWjNzVcnPbthnfQWvk6NLyhcs715xxTayZ8HMymp4Q
-         wR1zSOh/6CMnej2ao8G5/+g1O5CDHIU0etdnn1wP+Us2hbPASG9sIh2K4BA5IsAYJTEE
-         Nb9w7eEaZqAaUNhaZcFH9MUvhYYqGgawu0TiZd2g5Jm25fBCFEbOxNiKgbTv+3zBvtj3
-         IRfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776864960; x=1777469760;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KxHtXNRYtwufGHW1ufeXFPBW1zoNUni80T80czPie2g=;
-        b=eiFuBg73iEC/t4AFC4rOiePguBDpfuCkCqQPh1xvxnBophF/nFlz1jEsmc9XMV4t6Y
-         jWJadnZyfr9iNRrZ0zJabKXlWYEp5Gi7dy93BaGqYvh/hiWSOsIe8GTjn8rfqq2OTCjk
-         s9Bzht3ZifCtFZxEGWJ2M/xiKZRSj0am7i5lJbQ5gqCT/qR66b0dSmHDZ9El/1kptAuS
-         kJ2761YfuXGBn+ZlYaJuZsFg3DAtadNzZCtxFTB9V4hKEDSMq5LwAQPOl/QRNHL92Mhd
-         5th14zJ+dXnMTAy5z7EXVwrbIdeb92jx1pRb0wobo8rZz3LfsRiwhcNshEj48+P8ATx+
-         VipQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9L6Es9eSIeUh5U/ytL1MzYGuYEbz5AaOmFJuc6tVyfTjeJyqbTIvLKDxQHC0/Y0ObGEUVQMg09Ibvq8nAjocD2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzm2I4KZ7KrrNZbZCd5tlbm2zobYnJas0lHYo/VXCcsKcv4mNx6
-	WeHQPiLdGXGFGkTplqMiz+yAAgN2OG9vMeTwyoysOzCibx6+sHGHNMKKkuNySodGcg==
-X-Gm-Gg: AeBDievfjZJzf4/dBnvwlItOQZ+//ki+KyE9RNKMLDqCfRWl+uOAlnjfYK2UsmA73eE
-	dvi1lPoKo2y1XxfdRRaZU5r8M3C1iNIPQ5/BhSrW6sv0KtXcVHPjvffBCmtBlJt/Ce/2YYTwrG5
-	rba6V2vyexETPcQKZXgMiR7dL2NIHQeZkrWiSprznaTXeAXxoP9/nSZP/M7olPXZ2rsbJYanOpK
-	EmcDjPcq2UwU5GRpHSUagYO1VtYIRoMPAEAJTqkG9cCe3KBQ1EaJA8hJ4IloQm45Wzj+/YRT4ZX
-	bGM4WYEf/BEKXsq2f/SSYHQKotGHd95GSoHOFYvfChv6/9jX03mxHPZ0tDeeSCtW5M9/5qluRnL
-	3KtfaUgC5ByUXBDOz7RlM7qbEFrBtI0TFay/8oBlmGPpoKBs555Fkqr4NkEkL5Zb86uKxP0KhHz
-	WmcJAbiHzZtXuKmqESfsXSw6cFtL+i1osUVtxomZaWSrS2KQGps5nOd87xsEME2a5Vp8bgcfBxL
-	Sd5HaJSeywKZRuK9Ww=
-X-Received: by 2002:a05:6402:3489:b0:66f:d653:92c0 with SMTP id 4fb4d7f45d1cf-6744d7128e9mr261268a12.1.1776864959480;
-        Wed, 22 Apr 2026 06:35:59 -0700 (PDT)
-Received: from google.com (117.15.199.104.bc.googleusercontent.com. [104.199.15.117])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ba451210e3dsm550252066b.2.2026.04.22.06.35.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Apr 2026 06:35:58 -0700 (PDT)
-Date: Wed, 22 Apr 2026 13:35:55 +0000
-From: Sebastian Ene <sebastianene@google.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: oupton@kernel.org, will@kernel.org, ayrton@google.com,
-	catalin.marinas@arm.com, joey.gouly@arm.com, korneld@google.com,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, android-kvm@google.com,
-	mrigendra.chaubey@gmail.com, perlarsen@google.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Validate the FF-A memory access descriptor
- placement
-Message-ID: <aejOu98q1lEZoFfW@google.com>
-References: <20260422102540.1433704-1-sebastianene@google.com>
- <86bjfb18v1.wl-maz@kernel.org>
+	Wed, 22 Apr 2026 13:39:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B75A61FC4;
+	Wed, 22 Apr 2026 06:38:55 -0700 (PDT)
+Received: from [10.57.33.69] (unknown [10.57.33.69])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0EE173F836;
+	Wed, 22 Apr 2026 06:38:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776865141; bh=7rpgALkRycPSgcaAOgE3Prm0pYeBYUlmAelrxMIZcMI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cJX6XLaZ9w4cDlcqe/N6PdfC9Zmxg3eiCrHKrqfZb5e2qMpOmbffF2ER/ReBGBsaO
+	 5NspPcgUbyYXsYrEuudf2IubWTqk9tkKDpK3wofmCPbhZmpMvB0V1B84V1aYFDm7B2
+	 f2axAPb9yLv6lAJxgakoM4b10yG38GbpsL22pD+w=
+Message-ID: <44aab543-a200-49bd-81e5-70d77ebe1c85@arm.com>
+Date: Wed, 22 Apr 2026 15:38:47 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86bjfb18v1.wl-maz@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] Add hstimer support for H616 and T113-S3
+To: Michal Piekos <michal.piekos@mmpsystems.pl>
+Cc: Daniel Lezcano <daniel.lezcano@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+References: <20260419-h616-t113s-hstimer-v1-0-1af74ebef7c5@mmpsystems.pl>
+ <20260419225539.718367e0@ryzen.lan>
+ <xlvldmapdoql7nt3swube5vd6fdiosq7rt5afg246xertko5fa@4irmzupkar23>
+ <b89c1c8b-2678-4f4f-a63c-03b92cf7617c@arm.com>
+ <h4b3xluygfptee3ej4gbr3hctgjk6q4oytkisk66saii4uyvl3@lw4qdtfuyoz5>
+Content-Language: en-US
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <h4b3xluygfptee3ej4gbr3hctgjk6q4oytkisk66saii4uyvl3@lw4qdtfuyoz5>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_063603_034166_DDDD8033 
-X-CRM114-Status: GOOD (  25.73  )
+X-CRM114-CacheID: sfid-20260422_063905_464720_F5F2F400 
+X-CRM114-Status: GOOD (  33.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,68 +80,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 22, 2026 at 01:24:02PM +0100, Marc Zyngier wrote:
-> On Wed, 22 Apr 2026 11:25:40 +0100,
-> Sebastian Ene <sebastianene@google.com> wrote:
-> > 
-> > Prevent the pKVM hypervisor from making assumptions that the
-> > endpoint memory access descriptor (EMAD) comes right after the
-> > FF-A memory region header and enforce a strict placement for it
-> > when validating an FF-A memory lend/share transaction.
+Hi Michal,
 
-Hello Marc,
+On 4/21/26 16:05, Michal Piekos wrote:
+> On Mon, Apr 20, 2026 at 04:14:44PM +0200, Andre Przywara wrote:
+>> Hi Michal,
+>>
+>> On 4/20/26 13:27, Michal Piekos wrote:
+>>> On Sun, Apr 19, 2026 at 10:55:39PM +0200, Andre Przywara wrote:
+>>>> On Sun, 19 Apr 2026 14:46:06 +0200
+>>>> Michal Piekos <michal.piekos@mmpsystems.pl> wrote:
+>>>>
+....
+
+>>>>
+>>> I took the table from https://linux-sunxi.org/Linux_mainlining_effort as
+>>> a todo list and wanted to help with it. I do not have own use case for
+>>> this timer. If it is not needed then I will spin v2 to include your
+>>> comments and abandon it.
+>>
+>> Ah, that's good to know, and thanks for picking things from that list! I
+>> don't think there is a particular need to abandon your work, we could as
+>> well upstream it. At least the DT changes should be added, so that other DT
+>> users could make use of the timers - after all it's a Linux implementation
+>> choice to utilise just one timer. But please go ahead and post a complete
+>> v2, I don't think it hurts to have HSTIMER support in the kernel.
+>> And while you are at it: can you figure out what the need is for using two
+>> timers? One is a clock source, the other is for clock events? And why do we
+>> limit the counters and timers to 32 bit? Even the A13 manual lists them as
+>> 56 bits, and a wraparound time of roughly 21 seconds (with 32 bit counters)
+>> does not sound very long to me.
+>>
+> Yes. Channel 0 is clockevent and channel 1 is a clocksource and sync
+> reference for channel 0 disable timing.
+> 
+> 32 bit counters seems like implementation choice rather than limitation
+> but that would need to be implemented and tested. Would you suggest to
+> extend it to 56 bit in the following patch?
+
+Well, yes, I would assume we want as long an overflow period as 
+possible. The tricky/interesting part is that the interface is still 
+32-bit MMIO reads, so we need to find out how the consistency works. The 
+manual recommends to read LO first, but not sure that means its latching 
+HI upon the LO read. Otherwise we should read HI, LO, and HI again and 
+compare both HI's. Probably needs some testing.
+
+>> Not sure what your primary motivation for fixing Allwinner support is, but
+>> we could probably find more worthwhile targets. Do you have Allwinner boards
+>> other than the OrangePi Zero 3? There are not many low hanging fruits on the
+>> H616 left (MBUS and LDOs(?) maybe), but the A523 has quite some missing
+>> drivers still, some of them probably more on the easy side.
+>>
+> I have boards with A733, A527, T113-S3, H616, H6, H3 and I
+> think some older stuff too. My motivation is mostly fun and learning.
+
+That's great, and what I was hoping for! ;-)
+Feel free to reach out on IRC if you have any questions or comments.
+
+> I also use those boards in custom projects.
+> 
+> I will take up GPADC on A527 after finishing this as I worked with ADC's
+> a lot on MCU's. Unless other suggestions?
+
+Yes, LRADC and GPADC are good devices to start with. Also crypto comes 
+to mind, the most useful there being the TRNG device, which helps the 
+kernel to start its own RNG much quicker. Chances are those things are 
+close to the existing SoCs, so there might be not too much to do here.
+
+Cheers,
+Andre
 
 > 
-> As I read this, you want to remove a bad assumption...
+> Thank you for comments.
+> Michal
 > 
-> > 
-> > Prior to FF-A version 1.1 the header of the memory region
-> > didn't contain an offset to the endpoint memory access descriptor.
-> > The layout of a memory transaction looks like this:
-> > 
-> >   Field name				| Offset
-> > 					 -- 0
-> > [ Header (ffa_mem_region)               |__ ep_mem_offset
-> >   EMAD 1 (ffa_mem_region_attributes)	|
-> > ]
-> > 
-> > Reject the host from specifying a memory access descriptor offset
-> > that is different than the size of the memory region header.
-> 
-> And yet you decide that you want to enforce this assumption. I don't
-> understand how you arrive to this conclusion.
-> 
-> Looking at the spec, it appears that the offset is *designed* to allow
-> a gap between the header and the EMAD. Refusing to handle a it seems to be a
-> violation of the spec.
-> 
-> What am I missing?
+>> If you are stuck with the OpiZero3, then you could just look and check the
+>> existing devices, and verify their operation. For instance I think USB-OTG
+>> is still broken - across most Allwinner SoCs actually, so it's a sunxi
+>> driver issue.
+>>
+>> Thanks,
+>> Andre
+>>
+>>>
+>>> Michal
+>>>
+>>>>>
+>>>>> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+>>>>> ---
+>>>>> Michal Piekos (4):
+>>>>>         dt-bindings: timer: allwinner,sun5i-a13-hstimer: add H616 and T113-S3
+>>>>>         clocksource/drivers/sun5i: add H616 hstimer support
+>>>>>         arm64: dts: allwinner: h616: add hstimer node
+>>>>>         arm: dts: allwinner: t113s: add hstimer node
+>>>>>
+>>>>>    .../timer/allwinner,sun5i-a13-hstimer.yaml         |  8 +++-
+>>>>>    arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi       | 12 +++++
+>>>>>    arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi     |  9 ++++
+>>>>>    drivers/clocksource/timer-sun5i.c                  | 56 +++++++++++++++++++---
+>>>>>    4 files changed, 78 insertions(+), 7 deletions(-)
+>>>>> ---
+>>>>> base-commit: faeab166167f5787719eb8683661fd41a3bb1514
+>>>>> change-id: 20260413-h616-t113s-hstimer-62939948f91c
+>>>>>
+>>>>> Best regards,
+>>>>
+>>>>
+>>
+>>
 
-While the spec allows the gap to be variable (since version 1.1), the
-arm ff-a driver places it at a fixed position in:
-ffa_mem_region_additional_setup() 
-https://elixir.bootlin.com/linux/v7.0/source/drivers/firmware/arm_ffa/driver.c#L671
-
-and makes use of the same assumption in: ffa_mem_desc_offset().
-https://elixir.bootlin.com/linux/v7.0/source/include/linux/arm_ffa.h#L448
-The later one seems wrong IMO. because we should compute the offset
-based on the value stored in ep_mem_offset and not adding it up with
-sizeof(struct ffa_mem_region).
-
-Maybe this should be the fix instead and not the one in pKVM ? What do
-you think ?
-
-The current implementation in pKVM makes use of the
-ffa_mem_desc_offset() to validate the first EMAD. If a compromised host
-places an EMAD at a different offset than sizeof(struct ffa_mem_region),
-then pKVM will not validate that EMAD.
-
-> 
-> 	M.
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
-
-Thanks,
-Sebastian
 
