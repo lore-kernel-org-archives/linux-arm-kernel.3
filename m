@@ -4,134 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C566F9EDD7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 13:58:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D926F9EDD9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 14:09:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ExyXOiPwIkGGEkkluuwln2uSc0KtKyvoRBjqHTQ/zjI=; b=k0TGik+rue1hHri5ORTuTo97oD
-	h3HIGB3j/vzgedKp8dUatZZOiDBbo90hJ6IRlQvaQ0Fzn0ySST6WxQLxzHGEAqxUHDyK/9r6LAdbC
-	ikDeCZY04XmIPHCjMAodP2X9A1hTvgMJ6x3/HLZIcrNkB+nEQD5zq7Muy94Tigo47W6bryXzZdWOs
-	THlhtA4Ce1jgBDNFtyCfgA2Qw86q7Q9kjJ1n3ZH8deP6AnzQoU2DB2TuDvUg2yhIPM8gTtXA+vejU
-	Q5V/CVxltzB8ORwENKpE6p0g3MuRuizGAUZnUK3jHbGGG9/SIbp12fbJXY+lJwDrWth1JEUhNw/SR
-	Lq0Jx5DQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IpwArfAt6owGvRSmXXKC+18aMlrb+HlpWuKCj3PzYU4=; b=Ch5PgbqXBthubj2ButjcKO0Zq+
+	1eSFpvrBFgTiIvOv/S1G8QfA9K1VFNitbyv0UjxctFCGgUKUO/ExM9RGlPnOXPxI1eATyTDgk5Jsn
+	aSALMdhhhB/uztyRUMiigbjklP1uMm+eCIzbH44v6JMa0AIF0cf6P00RfaWsMdlcdLyF74QAk0M3R
+	BsbGFHvq4jO0/eJtMfNl4nXAlhQqvA97MFsOKF8kY31aC3jDcHbNQ04L135RzcmqtRuvBs4xE1YYT
+	7V5EVDB3gmsmGkQEiRtimqG55HGeggp9Ege941dP0B2Dkf0b5Etx50JXEr/utByKUKe56QFsH3WO5
+	nUyI2fLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFY5f-0000000AKhT-2Cya;
-	Wed, 22 Apr 2026 13:58:07 +0000
-Received: from mail-norwayeastazon11013070.outbound.protection.outlook.com ([40.107.159.70] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wFYGe-0000000AL70-2zea;
+	Wed, 22 Apr 2026 14:09:28 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFY5b-0000000AKgo-0Qut
+	id 1wFYGY-0000000AL6c-2eP7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 13:58:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fV2CTtnET8Ua79k1BLieNg/yvSRwC1PG/xA42WkhUA8L4+Z3OtqjIcXbzP8cvUuemEy8q0gToGsh7uKIvaf97srH8kLPIu9+988x6UnXrUy7F9D45Ii5i+W9MVS4zyjoY9wCEXVkys2W+2gxKr7ldkk7nNnh1j8/4QeZhkL5fpHaeI/w+GIgmyLCCDjpaaBFzXoH9hkehz6hoQTfzlTbQ2IJYNRvIShHMTS3+tHcag41Q+HecxxutQpW6K4qN6JNg3yYAxKvKfjmWsL+72cwcFNvLsuMAtHP5UTiZtfkgQ2K0nuTRI5eQayU+SbB3+x7MIWOB6KDAZbBcudQ1S7Cww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ExyXOiPwIkGGEkkluuwln2uSc0KtKyvoRBjqHTQ/zjI=;
- b=SWqHKQJxhtr/kg+5GGB6oFD2YaL6+mpHk2GECneZk20Z0q1oClTn9YquwINgoE+DoF5/7oCaAw5qC/zR0/DXPXE5ZbE/RluihJEzOWuZ643kCbEvhNEVAbjVhp1fZJ0Valc3q50d4Syka0/GOpKNqkZYs0pwBAfzaSWrtmQpTYRx1BqZgAFo/NVJJ5RBjpx/oub93zxXI7HLrF35epsMSBYrI1PG6ztZbsBOHdbJOGV51mUyR82hRbvs1V3an+mzyLV7An20EinLSrYxO7nKTR2nxgyYPhKNkSdSfV1xnSz2ODzY7VhQiTr6Z9URusSpEjMIN1tm/Vjj2hdXxyBi4g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ExyXOiPwIkGGEkkluuwln2uSc0KtKyvoRBjqHTQ/zjI=;
- b=aB6LR8DO9ob/UB6MXa0u0+QKLzLcC4U69pUhtLrJH97+ofciLdv3RyCsATTEvcyO/Pnf3fvnBtrfmKK7lsksiAWZYjcLeJRiEOwOtBvFQMoR+24K4WVAVinB5Hio6gOPVi+F1SpTck3ucUBdIv0jShKVpNmadnwHBl0JOntL0IHJ17WW1b6ODL3NieaExt0qG4f9Yc4XOKIq7tgEhH5jeX2tghta2Dv58HvhZvD+ID0mlJHpHTHUSqdzEMN0gihRuXQKVAV5cJhBlhh2ujEj7/T57lUklxM3DuVilGO4WtsO7o5pSx2spNWRUlaNtC29kmM56ykwy3hImDSh5wyB5Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DB9PR04MB8461.eurprd04.prod.outlook.com (2603:10a6:10:2cf::20)
- by AS8PR04MB8039.eurprd04.prod.outlook.com (2603:10a6:20b:2a2::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.16; Wed, 22 Apr
- 2026 13:57:56 +0000
-Received: from DB9PR04MB8461.eurprd04.prod.outlook.com
- ([fe80::21f6:947a:1f40:18af]) by DB9PR04MB8461.eurprd04.prod.outlook.com
- ([fe80::21f6:947a:1f40:18af%6]) with mapi id 15.20.9846.016; Wed, 22 Apr 2026
- 13:57:56 +0000
-Date: Wed, 22 Apr 2026 22:00:23 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH RFC 2/2] clk: scmi: Add support for two #clock-cells to
- pass rate rounding mode
-Message-ID: <aejUd6L1AfbsflxR@shlinux89>
-References: <20260306-scmi-clk-round-v1-0-61e2a5df9051@nxp.com>
- <20260306-scmi-clk-round-v1-2-61e2a5df9051@nxp.com>
- <20260422-huge-kiwi-of-tornado-4fce89@sudeepholla>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260422-huge-kiwi-of-tornado-4fce89@sudeepholla>
-X-ClientProxiedBy: MA5PR01CA0186.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1ac::9) To DB9PR04MB8461.eurprd04.prod.outlook.com
- (2603:10a6:10:2cf::20)
+	Wed, 22 Apr 2026 14:09:27 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63MBPfgo679447;
+	Wed, 22 Apr 2026 14:08:37 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=IpwArf
+	At6owGvRSmXXKC+18aMlrb+HlpWuKCj3PzYU4=; b=kaiJub8SgRBaiwIwMCHEgY
+	PaLawJdSAhq6bGbfAw83jiUtsWVcTLwqmLQE5eoF8nwyJPac4+EXUs4K3gbzh2tr
+	jWgNdPzInRScQ7+lhlNdFoElGpxKOcpkEPFAuhfl0hAbgEm/vZay3TL1uSOkafsO
+	gAuAPcBAJaXLQ5+oTokql1+m3QE8YDBm2CR1I2d8Ui26dBDW032UZPNadl+h7MKB
+	QyfvhKf9AD+1BpXSujtSRE6lnI/sqhNaPqLOTOb2JCq+BMIqe+4WzvUUHhrgFkeb
+	0eKsTMTo42rSHkiFU1WXY6EyB87acdWHSzERzUjYLNPqj4p7C/VVK09ds1+L+3Aw
+	==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dpeu7kjtp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Apr 2026 14:08:36 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63ME5JdI028009;
+	Wed, 22 Apr 2026 14:08:35 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dpjkyaguf-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Apr 2026 14:08:35 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63ME8Xwp32899518
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 22 Apr 2026 14:08:33 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B60F22004B;
+	Wed, 22 Apr 2026 14:08:33 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 57A9E20043;
+	Wed, 22 Apr 2026 14:08:33 +0000 (GMT)
+Received: from [9.52.200.195] (unknown [9.52.200.195])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 22 Apr 2026 14:08:33 +0000 (GMT)
+Message-ID: <38c9d976-6205-409c-8874-4c9757b25fd6@linux.ibm.com>
+Date: Wed, 22 Apr 2026 16:08:31 +0200
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB8461:EE_|AS8PR04MB8039:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5b9c4bdd-d390-4b17-c79c-08dea07727db
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|7416014|19092799006|1800799024|56012099003|18002099003|22082099003|38350700014;
-X-Microsoft-Antispam-Message-Info: 4h/0f2OLXyzPDpc3/Nn7UJSFrf6LmEcRlU+jqWUk2kRMOKA74Gd5P+IEgTMjjs8kWzZs/phy5W1hjBsYJ2RRq3Rk9REO/zaDQuczTjSyfG7ByPhq9h5yE33N1FXQkDx3nHonjFOIn1XW4SnpY1eLcpwXdjS6l3qb1FERalb/eWf2qRyhqnT8B9lZP5EJ1odJqrY+NjDOiS5eSXfroKSfyPbbPjfHuI5OSoZjHqvvKn16rmP1PDOsisjIsrHv0LhWanzQxubLrIZL0Z5ramokJThLdqpwoxd2PjQZKBoub+FUvpLHhJRrkVDXDJm9DeFkCQE2VSAC80fQ6QklZJaFYx3AxhFxR2ngHFnCsGGSAQtPxsOQ8fKn8vt19aEhOfEwl3Zr25ljITX4nEqGiCO2WcL/jwTxaR2PZVWM7mhIuX4u/AxbxBfMlx40G+1tpQu3j6ObdSqQK3aE/heG3PpEAt/FWLYjfQ7x+QS9IU4KPjagPDCktu8SvNz1RS3jvlprYAyronCGt6NilQ2uN0l0RUdFR93z71LMHkqESqoaADo9CV4hC9mpdviG7JovZ67vwum0cOpF5wKPBokuCdkZvFls7yYugAuUyAhg+MM/E5s0LhnBptBw6tsrGnM0Aq8psflVP67qjTsV63r2AG/lCZqqXDrn+wNOU18khYFurIAYwYI9sVQNbpT2R8YP5EM3boOZcjfuPKoGbGm+vX3NU+HuM17CfsIeBxPvXdsLD4Xry19z3xfcq0MCMpU+XPixDvGSnNqla002D7ap7+BFPwQhXs452+QJd/2PboYBqzE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8461.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(7416014)(19092799006)(1800799024)(56012099003)(18002099003)(22082099003)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Hz/FtuzcjLErIouDLOAsNQI8Tlcdt7tl1YqU136wsR3cNf8wnPdAykBgMPUz?=
- =?us-ascii?Q?Wzzk3ijPBvknqsOl3AikYFT2JMf1p4vDEVxyVaIAhnHgTAzYjuhxCuhv5On+?=
- =?us-ascii?Q?eTPXru0pMt2FaEQaz0YHtD3Dgk+kmCccIDIXEbcwa14sC/77mQW8Er8PUOsH?=
- =?us-ascii?Q?k/AvqH8t+rUu6xL9I+AYKeyHBtZe5Vx274y9Fv1iTQDLhxo76xHLZVVDW/Yi?=
- =?us-ascii?Q?hmiXvnLs5cp8w20Lv2jakDNNH7qwIoSCSj/PbjpnWqAgbIZ20sW9VhO6vBmQ?=
- =?us-ascii?Q?cZil8MUJVMWsFH/s0Q79EVIaQuttFNIaJMDkg5JnoQ11uJPBq4vy9f22oQqv?=
- =?us-ascii?Q?UDMwzCrKIfVnlzPhqgZTL/m+gpjporQCx3Eb8sqTnkQshn+YnVLcap/0hsNd?=
- =?us-ascii?Q?JzECa8pByFKbLWBQ4+dH9YnF+a/Rw9ynBsX2KW6tVsMNLHjmeM0VC+QUtM3g?=
- =?us-ascii?Q?bG1kEefeWWzixSNCU6kt47YTIcLMnINfd4u07sNuiI4Pb4OKDHShJ06usXFv?=
- =?us-ascii?Q?udqC88/QdXBLCzh7aXAMLi3/K//ingz16iOzg6+OBJnymhCUtMXHpZYhYrIy?=
- =?us-ascii?Q?dXbs0euEYPmjPatEqpLFZJcIZn+EPQrUgJxe2evcTAbVL4nEgMW1NpFkT0Hc?=
- =?us-ascii?Q?HZhhk5Mi30yEHjtKvVGrR5s53aNlrX9Tslv0HsUT2EGxuG29uY/n65ZWxH0Y?=
- =?us-ascii?Q?NKEOxrRXdvEXa+ZxXdA4KW9wt9CtQj8WTRRjFJx7m0AXBADarWW161+clboP?=
- =?us-ascii?Q?NRWGcDGfiON2FMfLZT0+dfaXKsyHLaLubAnSq8oljSx1vFhR62Hy/rhyuc7i?=
- =?us-ascii?Q?LrQDkOyjqWN8XyVdLS3VTFL9LUOxGcnoY80CmyzT01LilkOmST0DRZF4GT1L?=
- =?us-ascii?Q?zKKrO2MEf/1XPWJyOM9Arm5BCJlXRJuN/DXD+5L7oWqkU7X2bG6IKiU630n9?=
- =?us-ascii?Q?ZDRekEZKc/m1deGiqkzk97KTfxf2bk4FX/TW8+Yo4cmZHWJ7isKMQEXbqyvP?=
- =?us-ascii?Q?cQmC73FNuy8uBC1XsRtrj5stZYP0J+TA2WedLg4O1S2UPLxDuHnlFEvB1v0j?=
- =?us-ascii?Q?C5kV9rUf+W3tckk6KQ4mzb1itQ+fbF95+liycQ6ardvSptAlgs8tlwJHIqsE?=
- =?us-ascii?Q?1noxTeRMn74dV75sfryBUHSTsZyhSIU1b8J1w0ci82u+kwURpLgew3+JyI/r?=
- =?us-ascii?Q?IYqBSNb0nJnV3qIF0+1TM9cLVmT/7lOPilDlGjM3Ml1a5ZU04l28NDH12RRk?=
- =?us-ascii?Q?833EYp1K3yK5Yjk9uPbLuWDqIF2jhrpRvi0rmjd1hIJ+OX+3yEepsWiUTYQp?=
- =?us-ascii?Q?sJbXQ10fpvySm5wkp2lBE0rWgX2jfk7IbFdhzmrQ3SSgQ81qGTgu38smWs2k?=
- =?us-ascii?Q?YhcZbhMlPIOAQ/LvIQ1RL7BatlP+1FqanOJw28+aJGwYE8Kr84nkOlYfoLpU?=
- =?us-ascii?Q?DmrHRgPzPtOwL5+mDq1u2jPeg9CEq7rPUDROMPb+HEWMv/LCkOlvVFFMJ2kw?=
- =?us-ascii?Q?3mlosyuTWMwxyqDi31C7HQh/3mkcoprgCAeby6hGaQdM3hVZABmpVu7lKvX/?=
- =?us-ascii?Q?gZAmaYVLd9KKfTB3zcush+DlvHMyw0gJHQAmOPWJ0XiPce0EAMcnOXWnOz4h?=
- =?us-ascii?Q?8lb/1xCGwC8MqTFgz356psK2A5Tvfdnm3KlpF9Zt5pKOKYu5UmQabVGkwJAF?=
- =?us-ascii?Q?OJydTc8vhfQfJoN2YbelYQ3Fv1UHQD08dG9DPCnGHGMw/dA9TiHpk+Dh0X9v?=
- =?us-ascii?Q?2leBliWo8Q=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5b9c4bdd-d390-4b17-c79c-08dea07727db
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8461.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Apr 2026 13:57:56.7580
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GvX4LFyumgO9uJZR1sJwB0o5VASHWmvgvQ1Z5gmgZEdrcyGZRWw2M8aE1WPzbEzB6ZGSE8qX+4E4EX/oOeTFwQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8039
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/8] sframe: Allow kernelspace sframe sections
+To: Dylan Hatch <dylanbhatch@google.com>,
+        Roman Gushchin <roman.gushchin@linux.dev>,
+        Weinan Liu <wnliu@google.com>, Will Deacon <will@kernel.org>,
+        Josh Poimboeuf <jpoimboe@kernel.org>,
+        Indu Bhagat <ibhagatgnu@gmail.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Steven Rostedt <rostedt@goodmis.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Jiri Kosina <jikos@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+        Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+        Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>,
+        joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org,
+        linux-kernel@vger.kernel.org, live-patching@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        Randy Dunlap <rdunlap@infradead.org>,
+        Heiko Carstens <hca@linux.ibm.com>
+References: <20260421225200.1198447-1-dylanbhatch@google.com>
+ <20260421225200.1198447-2-dylanbhatch@google.com>
+Content-Language: en-US
+From: Jens Remus <jremus@linux.ibm.com>
+Organization: IBM Deutschland Research & Development GmbH
+In-Reply-To: <20260421225200.1198447-2-dylanbhatch@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-ORIG-GUID: ju_xPmlZrKECD1mWQAnpuQqhrI7gn0Vw
+X-Authority-Analysis: v=2.4 cv=Ksp9H2WN c=1 sm=1 tr=0 ts=69e8d665 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8
+ a=1XWaLZrsAAAA:8 a=6YHA6aIrzi84IHmqq2oA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: X2MbWGnSNjB8_Ghi5YZA71_Owz9SJaK2
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIyMDEzMyBTYWx0ZWRfX9GNtKYksw2GW
+ UXNVn4ooUaEa2f9J0UGK4juKIct3HUxF4hF9fllJphnFqxr3yEWHf+fglkhkeyffsPpyMNghoDE
+ iCPqpOC+f47Uz02CKPpu5IHENdQ972bNeU7701jIiSApTNZl4lErELNz7BnBuP1BEs2rCtr2FqF
+ AIHEK7e3tjFm6zcO1Wj8x8N4PtnnmQ6HCcBjeXvCJRsch1z/26Kiuyo/UWjevN13P8ZlQmgeTp5
+ 1r/d+R/+lXRlImyqpOMZs5XKEOsSgLbDtRwLh9vtaotdXPI5aLBHEqpeekFgKOfH7v8VpXs3VuV
+ Z3E1/igZPHpdsvDH0XEg0vgzRs0dkDsL5wAi3lSjjOlQYxp5KVTvCRoojZ4J4HObdQvr2tHh3Ke
+ WAnS65mtVQy4P6ukLXf48zvChaAtGwtJHNdWwmuJUZInbf+OChVWzt+XQFL5p/2VqqRZqFepB0Z
+ hFbF4kNlpISj/Vdg8hw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-22_01,2026-04-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 impostorscore=0 malwarescore=0 phishscore=0 priorityscore=1501
+ lowpriorityscore=0 clxscore=1011 adultscore=0 suspectscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604220133
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_065803_153989_EC06EBDD 
-X-CRM114-Status: GOOD (  17.11  )
+X-CRM114-CacheID: sfid-20260422_070922_816418_46F44CC6 
+X-CRM114-Status: GOOD (  28.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,73 +136,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sudeep,
+On 4/22/2026 12:51 AM, Dylan Hatch wrote:
+> Generalize the sframe lookup code to support kernelspace sections. This
+> is done by defining a SFRAME_LOOKUP option that can be activated
+> separate from HAVE_UNWIND_USER_SFRAME, as there will be other client to
+> this library than just userspace unwind.
+> 
+> Sframe section location is now tracked in a separate sec_type field to
+> determine whether user-access functions are necessary to read the sframe
+> data. Relevant type delarations are moved and renamed to reflect the
+> non-user sframe support.
+> 
+> Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
 
-Thanks for giving a look.
+With return -EFAULT changed to goto label in DATA_COPY() and DATA_GET():
 
-On Wed, Apr 22, 2026 at 02:14:56PM +0100, Sudeep Holla wrote:
->On Fri, Mar 06, 2026 at 02:20:13PM +0800, Peng Fan (OSS) wrote:
->> From: Peng Fan <peng.fan@nxp.com>
->> 
->> SCMI CLOCK_RATE_SET allows the caller to specify the rounding behaviour
->> when setting a clock rate. The previously added dt-bindings header
->> defines three modes:
->> 
->>   ROUND_DOWN / ROUND_UP / ROUND_AUTO
->> 
->> To enable device tree clients to select a rounding mode, extend the
->> SCMI clock provider to support "#clock-cells = <2>", where the second
->> cell encodes the desired rounding mode. The default remains
->> ROUND_DOWN for backwards compatibility with existing device trees.
->> 
->
->Where is the binding update documented ? It's not in 1/2.
+Reviewed-by: Jens Remus <jremus@linux.ibm.com>
 
-This was missed in this patchset, I will fix in new version, if this
-patchset does not have big design flaw.
+> ---
+>  MAINTAINERS                                   |   2 +-
+>  arch/Kconfig                                  |   4 +
+>  .../{unwind_user_sframe.h => unwind_sframe.h} |   6 +-
+>  arch/x86/include/asm/unwind_user.h            |  12 +-
+>  include/linux/sframe.h                        |  48 ++--
+>  include/linux/unwind_types.h                  |  46 +++
+>  include/linux/unwind_user_types.h             |  41 ---
+>  kernel/unwind/Makefile                        |   2 +-
+>  kernel/unwind/sframe.c                        | 270 ++++++++++++------
+>  kernel/unwind/user.c                          |  41 +--
+>  10 files changed, 293 insertions(+), 179 deletions(-)
+>  rename arch/x86/include/asm/{unwind_user_sframe.h => unwind_sframe.h} (50%)
+>  create mode 100644 include/linux/unwind_types.h
 
->
->Also if it can be static in the device tree, why can't it be
->autonomously handled in the platform firmware ? I think I know the
+> diff --git a/include/linux/sframe.h b/include/linux/sframe.h
 
-Linux passes ROUND_DOWN, SCMI firmware uses round down for clk calculation.
+> +enum sframe_sec_type {
+> +	SFRAME_KERNEL,
+> +	SFRAME_USER,
+> +};
 
->answer for this but I want to make sure it is a valid use-case and
->gets documented here as part of binding updates.
+>  struct sframe_section {
+> -	struct rcu_head	rcu;
+> +	struct rcu_head  rcu;
+>  #ifdef CONFIG_DYNAMIC_DEBUG
+> -	const char	*filename;
+> +	const char		*filename;
+>  #endif
+> -	unsigned long	sframe_start;
+> -	unsigned long	sframe_end;
+> -	unsigned long	text_start;
+> -	unsigned long	text_end;
+> -
+> -	unsigned long	fdes_start;
+> -	unsigned long	fres_start;
+> -	unsigned long	fres_end;
+> -	unsigned int	num_fdes;
+> -
+> -	signed char	ra_off;
+> -	signed char	fp_off;
+> +	enum sframe_sec_type	sec_type;
+> +	unsigned long		sframe_start;
+> +	unsigned long		sframe_end;
+> +	unsigned long		text_start;
+> +	unsigned long		text_end;
+> +
+> +	unsigned long		fdes_start;
+> +	unsigned long		fres_start;
+> +	unsigned long		fres_end;
+> +	unsigned int		num_fdes;
+> +
+> +	signed char		ra_off;
+> +	signed char		fp_off;
+>  };
 
-Per info from our video software team.
-We have some video modes where the best pixel clock rate is slightly above the
-nominal rate, and the default round down rule (CLOCK_ROUND_RULE_CEILING in SM
-firmware) can cause the resulting clock rate to be much lower than expected.
+> diff --git a/kernel/unwind/sframe.c b/kernel/unwind/sframe.c
 
-disp1pix = 96200000 Hz (desired pixel clock rate)
+> +#define DATA_COPY(sec, to, from, size, label)			\
+> +({								\
+> +	switch (sec->sec_type) {				\
+> +	case SFRAME_KERNEL:					\
+> +		KERNEL_COPY(to, from, size, label);		\
+> +		break;						\
+> +	case SFRAME_USER:					\
+> +		UNSAFE_USER_COPY(to, from, size, label);	\
+> +		break;						\
 
-The MIPI DPHY cannot hit the exact frequency of 288600000 Hz needed for this
-pixel clock rate, so the next best DPHY PLL frequency is 289000000 Hz. This
-corresponds to a pixel clock frequency of 96333333 Hz, which is slightly higher
-than the nominal rate of 96200000 Hz the video mode specifies.
+I wonder whether it would be worthwhile to come up with an approach
+where this would get evaluated at compile time instead at run time?
+Or is this overengineering?  Of course such improvement could be
+made later on, so no need to solve that now.
 
-Setting the VIDEOPLL (disp1pix parent) to 289000000 Hz should divide down to
-the adjusted disp1pix frequency of 96333333 Hz, but here is what happens in the
-SM firmware:
+Options that came into my mind:
+A) Introduce and pass through a "bool user" parameter, whose value is
+   specified in sframe_find_user() and sframe_find_kernel().  Due to
+   inlining I would expect that to get any conditions based on that
+   to get evaluated at compile time.  See below.  Downside is the
+   ugly additional parameter.
 
-quotient = 289000000 / (96200000 + 1) = 3.004 => 3 (notice that the SM always
-receives the nominal clock rate, not the adjusted rate)
+B) Introduce lightweight .c wrappers, e.g. sframe_kernel.c and
+   sframe_user.c, that define DATA_GET() and DATA_COPY() and include
+   sframe.c.  All HAVE_UNWIND_KERNEL_SFRAME code would be moved into
+   sframe_kernel.c and likewise all HAVE_UNWIND_USER_SFRAME code into
+   sframe_user.c.
 
-If the rounding rule is round down (CLOCK_ROUND_RULE_CEILING),
-quotient = quotient + 1. Therefore, quotient becomes 4.
+> +	default:						\
+> +		return -EFAULT;					\
 
-disp1pix = 289000000 / 4 = 72250000, which is nowhere close to the target of
-96333333.
+		goto label;					\
 
-However, if we can use ROUND_AUTO the SM firmware would select a quotient of 3
-in this case, and disp1pix would match our target: 289000000 / 3 = 96333333.
+Users of DATA_COPY() do expect the macro to branch to the label in case
+of an error and therefore do not evaluate any return value.  The
+wrapping then needs also be changed from "({ .. })" to
+"do { ... } while (0)".
 
-Thanks,
-Peng
+> +	}							\
+> +})
+> +
+> +#define DATA_GET(sec, to, from, type, label)			\
+> +({								\
+> +	switch (sec->sec_type) {				\
+> +	case SFRAME_KERNEL:					\
+> +		KERNEL_GET(to, from, type, label);		\
+> +		break;						\
+> +	case SFRAME_USER:					\
+> +		UNSAFE_USER_GET(to, from, type, label);		\
+> +		break;						\
+> +	default:						\
+> +		return -EFAULT;					\
 
->
->-- 
->Regards,
->Sudeep
+Likewise.
+
+> +	}							\
+> +})
+
+> +#ifdef CONFIG_HAVE_UNWIND_USER_SFRAME
+> +
+> +int sframe_find_user(unsigned long ip, struct unwind_frame *frame)
+> +{
+> +	struct mm_struct *mm = current->mm;
+> +	struct sframe_section *sec;
+> +	int ret;
+> +
+> +	if (!mm)
+> +		return -EINVAL;
+> +
+> +	guard(srcu)(&sframe_srcu);
+> +
+> +	sec = mtree_load(&mm->sframe_mt, ip);
+> +	if (!sec)
+> +		return -EINVAL;
+> +
+> +	if (!user_read_access_begin((void __user *)sec->sframe_start,
+> +				    sec->sframe_end - sec->sframe_start))
+> +		return -EFAULT;
+> +
+> +	ret = __sframe_find(sec, ip, frame);
+
+In sframe_find_user() sec->sec_type must be SFRAME_USER.  Likewise in
+sframe_find_kernel() it must be SFRAME_KERNEL.  So instead of
+introducing sec_type, we could add a parameter
+__sframe_find(..., bool user) and do:
+
+	ret = __sframe_find(sec, ip, frame, true);
+
+The downside is that this then requires to pass that flag through
+everywhere... (see below).
+
+> +
+> +	user_read_access_end();
+> +
+> +	if (ret == -EFAULT) {
+> +		dbg_sec("removing bad .sframe section\n");
+> +		WARN_ON_ONCE(sframe_remove_section(sec->sframe_start));
+> +	}
+> +
+> +	return ret;
+> +}
+Regards,
+Jens
+-- 
+Jens Remus
+Linux on Z Development (D3303)
+jremus@de.ibm.com / jremus@linux.ibm.com
+
+IBM Deutschland Research & Development GmbH; Vorsitzender des Aufsichtsrats: Wolfgang Wendt; Geschäftsführung: David Faller; Sitz der Gesellschaft: Ehningen; Registergericht: Amtsgericht Stuttgart, HRB 243294
+IBM Data Privacy Statement: https://www.ibm.com/privacy/
+
 
