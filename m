@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD7AFA1FCD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 16:17:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8224CFA1FD0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 16:17:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZXbFX56V3JK5VHseHNpkr1cy5jTxKko+brFKGr10f5w=; b=aRxamirCIZN+RehIyTJveEWobT
-	96g/3cl5PC3tdcRekv31VVpVzQqpyzJ3ZLn9z3srioO59OuinatNKzfzDzAtsRgAv7S3WpwPxzMyT
-	Ji95uAgHlxMsscilB9pr/dpN6dO5AQsYza7lm3JQqKnWgOiKs0QlfHyurD4RWyAjzvA+SX+Efsaer
-	zODconUPEQ+9bD85oIdrZgE2Hj6prXIzb57BO9XRcDNCkoBsdfMLfLOHTVEk6nPPmQPJbL/GG/Drz
-	Y/4zI2uajEOC39iPe5Z4cS7rpJoWNksNQgV/8x2BUWb7/6hsgH5yyo9kMmtFahLEyvJ6mqYszPAj6
-	I3HTQuEA==;
+	bh=LeSrs6zzy2uiZg5LBh5NqFtKrAZknXLr2292SuvsvgA=; b=iUBeP+D4XfsZJtvAUEgGUjVT2z
+	9oqbYSs9xtB0lzuhmnHlXiesC93WZvRCsJlWMgsrj9rUggqTvdJtVEQyZ3/efXAW8wvCyTDJOjop/
+	RfFK0YVxep8h1hGxj7S1mqahz5/6yFmfGNVmObB/+oRXEVIFTCjR2bFCXrL65QVI2V8Yl0kW6Bh5C
+	rW+TPXf5/KjtQqx3Pn7wsq70ecBnqFGjlkqzbhHtTsCfzqQLOlq2WxxC2iXWtqKKLtcwh6WwIBe8g
+	9t25NYXisDlT2qmUwOWsr4fDHrpJwqVVS+OVksjFfB+CrUeP/DOyNS0ezyi24lpsVgX1pUC10hf3S
+	RVmTEQWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFaFz-0000000AUNU-3DYA;
-	Wed, 22 Apr 2026 16:16:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wFaG9-0000000AUSM-0Hvy;
+	Wed, 22 Apr 2026 16:17:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFaFx-0000000AULx-1xgZ
+	id 1wFaG6-0000000AUQo-0UL0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 16:16:54 +0000
+	Wed, 22 Apr 2026 16:17:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1E3A043798;
-	Wed, 22 Apr 2026 16:16:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D36B1C2BCAF;
-	Wed, 22 Apr 2026 16:16:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 73E2660132;
+	Wed, 22 Apr 2026 16:17:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3825C19425;
+	Wed, 22 Apr 2026 16:16:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776874613;
-	bh=JjKwuICybJ4Ua61/3YaBXShdj+/IxEAVisloMY2M9EE=;
+	s=k20201202; t=1776874621;
+	bh=KbeOG0LK3SVmIT/zSGbmoZfMCuW9WB15K8bNET/iu+M=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Xin6s4f9DrEjdvVbIBXiGjw2y9W0UuKIhhQDhGfO/Mr4jCigh1s4ONXR5QC+jW1LO
-	 1ZJ97rEqJV6xb3iR2SwZOsWzDvslNhp2JCtcBCowrb3spv+Tlkd/SwjUFptErKn2zM
-	 viIFI/yepEm6zW1y1JZoGOsjwLDzKG17u4sudryTZj79WmS+j65bRLPoPuwLQOa81Y
-	 GGu0OlYduYK22bOle9fGpIuiSsd986Xvah787CVtaAUx0IbEhECsIMdIQNKGj8yCvC
-	 14ndxENA3LCm0Glpo62aHbXTpNqyoCeNhR2B4228Xr4KIYwpByOMDi1CeYTbrmqBHG
-	 dG3eifn0AuuRQ==
+	b=A6uFEN6Xcjd2EfzwGlyuJvAGcV/abhywqhqSja68k8QENdzpYNeSw75f6BkmY++2J
+	 pfw0v3JlKDc/r3Jj8uWbvEeYKcqwiPLr7XQNGydL1VjwfRAMSXKv7cJS25fg/QsJLw
+	 w3Pp8lmQzBJpIpvTpc4fLYqVpKjsCjV5NhqqCS1lazAWBflFxB/fa2X5Mfgy3hWpru
+	 JofL2tXZ/v7TacaxnmQG7fcdGvtjGXMZlTSUL9sKxFik/K2FZ3v+xDv5GGnp+akCI4
+	 fXifwqSvh89FLSiytd3iPHhTKoTlw++c18PvJgo0ZZxfD4wri7AGlYy9mQA0e6SEF3
+	 ZcOh3ieN3xpqw==
 From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
 To: Steven Rostedt <rostedt@goodmis.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
@@ -52,9 +52,9 @@ Cc: Masami Hiramatsu <mhiramat@kernel.org>,
 	linux-trace-kernel@vger.kernel.org,
 	Ian Rogers <irogers@google.com>,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v17 3/5] ring-buffer: Skip invalid sub-buffers when rewinding persistent ring buffer
-Date: Thu, 23 Apr 2026 01:16:50 +0900
-Message-ID: <177687461022.932171.13406318513559556090.stgit@mhiramat.tok.corp.google.com>
+Subject: [PATCH v17 4/5] ring-buffer: Add persistent ring buffer invalid-page inject test
+Date: Thu, 23 Apr 2026 01:16:58 +0900
+Message-ID: <177687461825.932171.5322598724018671023.stgit@mhiramat.tok.corp.google.com>
 X-Mailer: git-send-email 2.54.0.rc1.555.g9c883467ad-goog
 In-Reply-To: <177687458572.932171.10907864814735342737.stgit@mhiramat.tok.corp.google.com>
 References: <177687458572.932171.10907864814735342737.stgit@mhiramat.tok.corp.google.com>
@@ -62,9 +62,6 @@ User-Agent: StGit/0.19
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_091653_662149_F41B98F0 
-X-CRM114-Status: GOOD (  26.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,210 +78,261 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
-Skip invalid sub-buffers when rewinding the persistent ring buffer
-instead of stopping the rewinding the ring buffer. The skipped
-buffers are cleared.
+Add a self-corrupting test for the persistent ring buffer.
 
-To ensure the rewinding stops at the unused page, this also clears
-buffer_data_page::time_stamp when tracing resets the buffer. This
-allows us to identify unused pages and empty pages.
+This will inject an erroneous value to some sub-buffer pages (where
+the index is even or multiples of 5) in the persistent ring buffer
+when the kernel panics, and checks whether the number of detected
+invalid pages and the total entry_bytes are the same as the recorded
+values after reboot.
+
+This ensures that the kernel can correctly recover a partially
+corrupted persistent ring buffer after a reboot or panic.
+
+The test only runs on the persistent ring buffer whose name is
+"ptracingtest". The user has to fill it with events before a
+kernel panic.
+
+To run the test, enable CONFIG_RING_BUFFER_PERSISTENT_INJECT
+and add the following kernel cmdline:
+
+ reserve_mem=20M:2M:trace trace_instance=ptracingtest^traceoff@trace
+ panic=1
+
+Run the following commands after the 1st boot:
+
+ cd /sys/kernel/tracing/instances/ptracingtest
+ echo 1 > tracing_on
+ echo 1 > events/enable
+ sleep 3
+ echo c > /proc/sysrq-trigger
+
+After panic message, the kernel will reboot and run the verification
+on the persistent ring buffer, e.g.
+
+ Ring buffer meta [2] invalid buffer page detected
+ Ring buffer meta [2] is from previous boot! (318 pages discarded)
+ Ring buffer testing [2] invalid pages: PASSED (318/318)
+ Ring buffer testing [2] entry_bytes: PASSED (1300476/1300476)
 
 Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 ---
  Changes in v17:
-  - Fix to verify head_page at first before using its timestamp.
-  - Reset timestamp if the page is invalid.
- Changes in v12:
-   - Fix build error.
- Changes in v11:
-   - Reset timestamp when the buffer is invalid.
-   - When rewinding, skip subbuf page if timestamp is wrong and
-     check timestamp after validating buffer data page.
+ - In rb_test_inject_invalid_pages(), changed entry_bytes and
+   idx to unsigned long
+ - Added NULL checks for cpu_buffer and meta.
+ - In allocate_trace_buffer(), added a NULL check for tr->name
+   before comparing it with strcmp.
+ Changes in v16:
+  - Update description and comments according to review comments.
+ Changes in v15:
+  - Use pr_warn() for test result.
+  - Inject errors on the page index is multiples of 5 so that
+    this can reproduce contiguous empty pages.
+ Changes in v14:
+  - Rename config to CONFIG_RING_BUFFER_PERSISTENT_INJECT.
+  - Clear meta->nr_invalid/entry_bytes after testing.
+  - Add test commands in config comment.
  Changes in v10:
-   - Newly added.
+  - Add entry_bytes test.
+  - Do not compile test code if CONFIG_RING_BUFFER_PERSISTENT_SELFTEST=n.
+ Changes in v9:
+  - Test also reader pages.
 ---
- kernel/trace/ring_buffer.c |   92 ++++++++++++++++++++++++++------------------
- 1 file changed, 54 insertions(+), 38 deletions(-)
+ include/linux/ring_buffer.h |    1 +
+ kernel/trace/Kconfig        |   34 +++++++++++++++++++
+ kernel/trace/ring_buffer.c  |   79 +++++++++++++++++++++++++++++++++++++++++++
+ kernel/trace/trace.c        |    4 ++
+ 4 files changed, 118 insertions(+)
 
+diff --git a/include/linux/ring_buffer.h b/include/linux/ring_buffer.h
+index 994f52b34344..0670742b2d60 100644
+--- a/include/linux/ring_buffer.h
++++ b/include/linux/ring_buffer.h
+@@ -238,6 +238,7 @@ int ring_buffer_subbuf_size_get(struct trace_buffer *buffer);
+ 
+ enum ring_buffer_flags {
+ 	RB_FL_OVERWRITE		= 1 << 0,
++	RB_FL_TESTING		= 1 << 1,
+ };
+ 
+ #ifdef CONFIG_RING_BUFFER
+diff --git a/kernel/trace/Kconfig b/kernel/trace/Kconfig
+index e130da35808f..084f34dc6c9f 100644
+--- a/kernel/trace/Kconfig
++++ b/kernel/trace/Kconfig
+@@ -1202,6 +1202,40 @@ config RING_BUFFER_VALIDATE_TIME_DELTAS
+ 	  Only say Y if you understand what this does, and you
+ 	  still want it enabled. Otherwise say N
+ 
++config RING_BUFFER_PERSISTENT_INJECT
++	bool "Enable persistent ring buffer error injection test"
++	depends on RING_BUFFER
++	help
++	  This option will have the kernel check if the persistent ring
++	  buffer is named "ptracingtest". and if so, it will corrupt some
++	  of its pages on a kernel panic. This is used to test if the
++	  persistent ring buffer can recover from some of its sub-buffers
++	  being corrupted.
++	  To use this, boot a kernel with a "ptracingtest" persistent
++	  ring buffer, e.g.
++
++	   reserve_mem=20M:2M:trace trace_instance=ptracingtest@trace panic=1
++
++	  And after the 1st boot, run the following commands:
++
++	   cd /sys/kernel/tracing/instances/ptracingtest
++	   echo 1 > events/enable
++	   echo 1 > tracing_on
++	   sleep 3
++	   echo c > /proc/sysrq-trigger
++
++	  After the panic message, the kernel will reboot and will show
++	  the test results in the console output.
++
++	  Note that events for the test ring buffer needs to be enabled
++	  prior to crashing the kernel so that the ring buffer has content
++	  that the test will corrupt.
++	  As the test will corrupt events in the "ptracingtest" persistent
++	  ring buffer, it should not be used for any other purpose other
++	  than this test.
++
++	  If unsure, say N
++
+ config MMIOTRACE_TEST
+ 	tristate "Test module for mmiotrace"
+ 	depends on MMIOTRACE && m
 diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
-index 26507b93cf40..0e3d2d037d4d 100644
+index 0e3d2d037d4d..31448c5ea791 100644
 --- a/kernel/trace/ring_buffer.c
 +++ b/kernel/trace/ring_buffer.c
-@@ -363,6 +363,7 @@ struct buffer_page {
- static void rb_init_page(struct buffer_data_page *bpage)
- {
- 	local_set(&bpage->commit, 0);
-+	bpage->time_stamp = 0;
+@@ -64,6 +64,10 @@ struct ring_buffer_cpu_meta {
+ 	unsigned long	commit_buffer;
+ 	__u32		subbuf_size;
+ 	__u32		nr_subbufs;
++#ifdef CONFIG_RING_BUFFER_PERSISTENT_INJECT
++	__u32		nr_invalid;
++	__u32		entry_bytes;
++#endif
+ 	int		buffers[];
+ };
+ 
+@@ -2085,6 +2089,21 @@ static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
+ 	if (discarded)
+ 		pr_cont(" (%d pages discarded)", discarded);
+ 	pr_cont("\n");
++
++#ifdef CONFIG_RING_BUFFER_PERSISTENT_INJECT
++	if (meta->nr_invalid)
++		pr_warn("Ring buffer testing [%d] invalid pages: %s (%d/%d)\n",
++			cpu_buffer->cpu,
++			(discarded == meta->nr_invalid) ? "PASSED" : "FAILED",
++			discarded, meta->nr_invalid);
++	if (meta->entry_bytes)
++		pr_warn("Ring buffer testing [%d] entry_bytes: %s (%ld/%ld)\n",
++			cpu_buffer->cpu,
++			(entry_bytes == meta->entry_bytes) ? "PASSED" : "FAILED",
++			(long)entry_bytes, (long)meta->entry_bytes);
++	meta->nr_invalid = 0;
++	meta->entry_bytes = 0;
++#endif
+ 	return;
+ 
+  invalid:
+@@ -2565,12 +2584,72 @@ static void rb_free_cpu_buffer(struct ring_buffer_per_cpu *cpu_buffer)
+ 	kfree(cpu_buffer);
  }
  
- static __always_inline unsigned int rb_page_commit(struct buffer_page *bpage)
-@@ -1878,12 +1879,14 @@ static int rb_read_data_buffer(struct buffer_data_page *dpage, int tail, int cpu
- 	return events;
- }
- 
--static int rb_validate_buffer(struct buffer_data_page *dpage, int cpu,
--			      struct ring_buffer_cpu_meta *meta)
-+static int rb_validate_buffer(struct buffer_page *bpage, int cpu,
-+			      struct ring_buffer_cpu_meta *meta, u64 prev_ts, u64 next_ts)
- {
-+	struct buffer_data_page *dpage = bpage->page;
- 	unsigned long long ts;
- 	unsigned long tail;
- 	u64 delta;
-+	int ret = -1;
- 
- 	/*
- 	 * When a sub-buffer is recovered from a read, the commit value may
-@@ -1892,9 +1895,19 @@ static int rb_validate_buffer(struct buffer_data_page *dpage, int cpu,
- 	 * subbuf_size is considered invalid.
- 	 */
- 	tail = local_read(&dpage->commit) & ~RB_MISSED_MASK;
--	if (tail > meta->subbuf_size)
--		return -1;
--	return rb_read_data_buffer(dpage, tail, cpu, &ts, &delta);
-+	if (tail <= meta->subbuf_size)
-+		ret = rb_read_data_buffer(dpage, tail, cpu, &ts, &delta);
++#ifdef CONFIG_RING_BUFFER_PERSISTENT_INJECT
++static void rb_test_inject_invalid_pages(struct trace_buffer *buffer)
++{
++	struct ring_buffer_per_cpu *cpu_buffer;
++	struct ring_buffer_cpu_meta *meta;
++	struct buffer_data_page *dpage;
++	unsigned long entry_bytes = 0;
++	unsigned long ptr;
++	int subbuf_size;
++	int invalid = 0;
++	int cpu;
++	int i;
 +
-+	if (ret < 0 || (prev_ts && prev_ts > ts) || (next_ts && ts > next_ts)) {
-+		local_set(&bpage->entries, 0);
-+		local_set(&bpage->page->commit, 0);
-+		bpage->page->time_stamp = prev_ts ? prev_ts : next_ts;
-+		ret = -1;
-+	} else {
-+		local_set(&bpage->entries, ret);
-+	}
++	if (!(buffer->flags & RB_FL_TESTING))
++		return;
 +
-+	return ret;
- }
- 
- /* If the meta data has been validated, now validate the events */
-@@ -1914,25 +1927,29 @@ static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
- 
- 	orig_head = head_page = cpu_buffer->head_page;
- 
--	/* Do the reader page first */
--	ret = rb_validate_buffer(cpu_buffer->reader_page->page, cpu_buffer->cpu, meta);
-+	/* Do the head page first */
-+	ret = rb_validate_buffer(head_page, cpu_buffer->cpu, meta, 0, 0);
-+	if (ret < 0) {
-+		pr_info("Ring buffer meta [%d] invalid head page detected\n",
-+			cpu_buffer->cpu);
-+		goto skip_rewind;
-+	}
-+	ts = head_page->page->time_stamp;
++	guard(preempt)();
++	cpu = smp_processor_id();
 +
-+	/* Do the reader page - reader must be previous to head. */
-+	ret = rb_validate_buffer(cpu_buffer->reader_page, cpu_buffer->cpu, meta, 0, ts);
- 	if (ret < 0) {
- 		pr_info("Ring buffer meta [%d] invalid reader page detected\n",
- 			cpu_buffer->cpu);
- 		discarded++;
--		/* Instead of discard whole ring buffer, discard only this sub-buffer. */
--		local_set(&cpu_buffer->reader_page->entries, 0);
--		local_set(&cpu_buffer->reader_page->page->commit, 0);
- 	} else {
- 		entries += ret;
- 		entry_bytes += rb_page_size(cpu_buffer->reader_page);
--		local_set(&cpu_buffer->reader_page->entries, ret);
-+		ts = cpu_buffer->reader_page->page->time_stamp;
- 	}
- 
--	ts = head_page->page->time_stamp;
--
- 	/*
--	 * Try to rewind the head so that we can read the pages which already
-+	 * Try to rewind the head so that we can read the pages which are already
- 	 * read in the previous boot.
- 	 */
- 	if (head_page == cpu_buffer->tail_page)
-@@ -1945,26 +1962,27 @@ static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
- 		if (head_page == cpu_buffer->tail_page)
- 			break;
- 
--		/* Ensure the page has older data than head. */
--		if (ts < head_page->page->time_stamp)
--			break;
--
--		ts = head_page->page->time_stamp;
--		/* Ensure the page has correct timestamp and some data. */
--		if (!ts || rb_page_commit(head_page) == 0)
-+		/* Rewind until unused page (no timestamp, no commit). */
-+		if (!head_page->page->time_stamp && rb_page_commit(head_page) == 0)
- 			break;
- 
--		/* Stop rewind if the page is invalid. */
--		ret = rb_validate_buffer(head_page->page, cpu_buffer->cpu, meta);
--		if (ret < 0)
--			break;
--
--		/* Recover the number of entries and update stats. */
--		local_set(&head_page->entries, ret);
--		if (ret)
--			local_inc(&cpu_buffer->pages_touched);
--		entries += ret;
--		entry_bytes += rb_page_size(head_page);
++	cpu_buffer = buffer->buffers[cpu];
++	if (!cpu_buffer)
++		return;
++	meta = cpu_buffer->ring_meta;
++	if (!meta)
++		return;
++
++	ptr = (unsigned long)rb_subbufs_from_meta(meta);
++	subbuf_size = meta->subbuf_size;
++
++	for (i = 0; i < meta->nr_subbufs; i++) {
++		unsigned long idx = meta->buffers[i];
++
++		dpage = (void *)(ptr + idx * subbuf_size);
++		/* Skip unused pages */
++		if (!local_read(&dpage->commit))
++			continue;
++
 +		/*
-+		 * Skip if the page is invalid, or its timestamp is newer than the
-+		 * previous valid page.
++		 * Invalidate even pages or multiples of 5. This will cause 3
++		 * contiguous invalidated(empty) pages.
 +		 */
-+		ret = rb_validate_buffer(head_page, cpu_buffer->cpu, meta, 0, ts);
-+		if (ret < 0) {
-+			if (!discarded)
-+				pr_info("Ring buffer meta [%d] invalid buffer page detected\n",
-+					cpu_buffer->cpu);
-+			discarded++;
++		if (!(i & 0x1) || !(i % 5)) {
++			local_add(subbuf_size + 1, &dpage->commit);
++			invalid++;
 +		} else {
-+			entries += ret;
-+			entry_bytes += rb_page_size(head_page);
-+			if (ret > 0)
-+				local_inc(&cpu_buffer->pages_touched);
-+			ts = head_page->page->time_stamp;
++			/* Count total commit bytes. */
++			entry_bytes += local_read(&dpage->commit);
 +		}
- 	}
- 	if (i)
- 		pr_info("Ring buffer [%d] rewound %d pages\n", cpu_buffer->cpu, i);
-@@ -2026,6 +2044,7 @@ static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
- 		/* Nothing more to do, the only page is the reader page */
- 		goto done;
- 	}
-+	ts = head_page->page->time_stamp;
++	}
++
++	pr_info("Inject invalidated %d pages on CPU%d, total size: %ld\n",
++		invalid, cpu, (long)entry_bytes);
++	meta->nr_invalid = invalid;
++	meta->entry_bytes = entry_bytes;
++}
++#else /* !CONFIG_RING_BUFFER_PERSISTENT_INJECT */
++#define rb_test_inject_invalid_pages(buffer)	do { } while (0)
++#endif
++
+ /* Stop recording on a persistent buffer and flush cache if needed. */
+ static int rb_flush_buffer_cb(struct notifier_block *nb, unsigned long event, void *data)
+ {
+ 	struct trace_buffer *buffer = container_of(nb, struct trace_buffer, flush_nb);
  
- 	/* Iterate until finding the commit page */
- 	for (i = 0; i < meta->nr_subbufs + 1; i++, rb_inc_page(&head_page)) {
-@@ -2034,15 +2053,12 @@ static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
- 		if (head_page == cpu_buffer->reader_page)
- 			continue;
- 
--		ret = rb_validate_buffer(head_page->page, cpu_buffer->cpu, meta);
-+		ret = rb_validate_buffer(head_page, cpu_buffer->cpu, meta, ts, 0);
- 		if (ret < 0) {
- 			if (!discarded)
- 				pr_info("Ring buffer meta [%d] invalid buffer page detected\n",
- 					cpu_buffer->cpu);
- 			discarded++;
--			/* Instead of discard whole ring buffer, discard only this sub-buffer. */
--			local_set(&head_page->entries, 0);
--			local_set(&head_page->page->commit, 0);
- 		} else {
- 			/* If the buffer has content, update pages_touched */
- 			if (ret)
-@@ -2050,7 +2066,7 @@ static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
- 
- 			entries += ret;
- 			entry_bytes += rb_page_size(head_page);
--			local_set(&head_page->entries, ret);
-+			ts = head_page->page->time_stamp;
- 		}
- 		if (head_page == cpu_buffer->commit_page)
- 			break;
-@@ -2083,7 +2099,7 @@ static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
- 	/* Reset all the subbuffers */
- 	for (i = 0; i < meta->nr_subbufs - 1; i++, rb_inc_page(&head_page)) {
- 		local_set(&head_page->entries, 0);
--		local_set(&head_page->page->commit, 0);
-+		rb_init_page(head_page->page);
- 	}
+ 	ring_buffer_record_off(buffer);
++	rb_test_inject_invalid_pages(buffer);
+ 	arch_ring_buffer_flush_range(buffer->range_addr_start, buffer->range_addr_end);
+ 	return NOTIFY_DONE;
+ }
+diff --git a/kernel/trace/trace.c b/kernel/trace/trace.c
+index e9455d46ec16..d972b24cd73b 100644
+--- a/kernel/trace/trace.c
++++ b/kernel/trace/trace.c
+@@ -9436,6 +9436,8 @@ static void setup_trace_scratch(struct trace_array *tr,
+ 	memset(tscratch, 0, size);
  }
  
++#define TRACE_TEST_PTRACING_NAME	"ptracingtest"
++
+ static int
+ allocate_trace_buffer(struct trace_array *tr, struct array_buffer *buf, unsigned long size)
+ {
+@@ -9448,6 +9450,8 @@ allocate_trace_buffer(struct trace_array *tr, struct array_buffer *buf, unsigned
+ 	buf->tr = tr;
+ 
+ 	if (tr->range_addr_start && tr->range_addr_size) {
++		if (tr->name && !strcmp(tr->name, TRACE_TEST_PTRACING_NAME))
++			rb_flags |= RB_FL_TESTING;
+ 		/* Add scratch buffer to handle 128 modules */
+ 		buf->buffer = ring_buffer_alloc_range(size, rb_flags, 0,
+ 						      tr->range_addr_start,
 
 
