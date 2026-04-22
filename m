@@ -4,78 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8B19FA1FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 16:25:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0145DFA1FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 16:25:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=egKNUk+o6leNMkUH3LEOMaBF3fJ8B8TleprU4ZCwKnI=; b=tG9ugX+A2ffSzPWV1WY0bzNjhr
-	zNOAyMkmj7B+PgDdvjQ3sswJtqlh9KeNJx8nRw+uPMeyk+g6CTsxpRnA3PXeCNE5EJHebGVUs25f/
-	A4M4VhQrzdvn4auONlme2vH2036fcPhNFzbvY9sMHcniM3STAfeuoZ0U9b9OtuivQeb9z+8PJxp9r
-	mPneP+s1/lLLx7bUtp9iHtdN10GYEIXPfiU9EXA0shyVStk+qYjvoV0tMEXqpzPZcV0TTielBq8Ef
-	YVBNgb0Ym9rvzENmhEjw9i1XcoCuWwwHrW5NmlYh/QY9FsRC7CwVNfqtmDK00P6a9TJCkMzOtnhkv
-	0e7tH27Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qSFlJjwss7taNy6z+vQcHuBtEn5xpw5EWTakbtj//YQ=; b=ODtsBVwU6V+B9Hgt5vQnURWl1H
+	ndWI0MxYXeTP5XEXyBOHTBh8FqrrTBc3C0YH28DyKDllFo6UiMscUHjUZwNI2r3vlzFxOIeD1cGUp
+	l6iJy/v9sORV8lJqUuypV98Lev63vFnXfXOdK2+tlz02gi7/6+SLRkcZZIsyxtwiUaC+QEqfP+gIG
+	mscK1XSzGu6FrtzJXnp0EjikdnjjNWhoH8HYaNXqye6YSqcezbnzuGecSoBd31wHnBRqwQz44nF/u
+	KnYvxoAiuIH5bcjPHjL6ujf0PFEAQmPiGBTBBpbiOvPudjHvJlvdgavQZ33SMThygwL8o4vJdSWDY
+	OdXcvHGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFaO5-0000000AVZA-1yo6;
-	Wed, 22 Apr 2026 16:25:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFaO0-0000000AVVx-3qw1
+	id 1wFaO9-0000000AVcQ-3H1C;
+	Wed, 22 Apr 2026 16:25:21 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wFaO5-0000000AVYU-0qOZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 16:25:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CFD451F60;
-	Wed, 22 Apr 2026 09:25:05 -0700 (PDT)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 013153F23F;
-	Wed, 22 Apr 2026 09:25:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776875111; bh=p1P7064kmMhgtlws9zeKxghPUZ98VVQ0ak9x2NaDMiw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=aShFwVrmZpdGHDbrtBCooNTPHj2wzfDofoUxl3PVFgAvGLILf1AL/qfoUTgkVUS/3
-	 Sa5iE0yFEkxX9Z5zOa2b92Zk0qehhexuvETMwxq/Y5j5U9wFzgxT7vC38/h6AMGphu
-	 i8JcqFGf87kMebzHfHTzFKvxM2soY9SlxlxudMoE=
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: linux-security-module@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Cc: paul@paul-moore.com,
-	jmorris@namei.org,
-	serge@hallyn.com,
-	zohar@linux.ibm.com,
-	roberto.sassu@huawei.com,
-	dmitry.kasatkin@gmail.com,
-	eric.snowberg@oracle.com,
-	jarkko@kernel.org,
-	jgg@ziepe.ca,
-	sudeep.holla@kernel.org,
-	maz@kernel.org,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	noodles@meta.com,
-	sebastianene@google.com,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [RFC PATCH v2 4/4] firmware: arm_ffa: check pkvm initailised when initailise ffa driver
-Date: Wed, 22 Apr 2026 17:24:49 +0100
-Message-Id: <20260422162449.1814615-5-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260422162449.1814615-1-yeoreum.yun@arm.com>
-References: <20260422162449.1814615-1-yeoreum.yun@arm.com>
+	Wed, 22 Apr 2026 16:25:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1776875116;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=qSFlJjwss7taNy6z+vQcHuBtEn5xpw5EWTakbtj//YQ=;
+	b=aMdzVyPBEDIHNWttBMsHz2LxaKBJArAh6X+KyAJ90pU3fJmQ4TRhq8qXpmeZH6Iv3CQg21
+	QBYS69ID6yO+eIqJkAWuf5ruuGHHp/pg030ZPvMiDMsDTxhm0PRZQY0a9CEDeOjSq0Y38r
+	njr1MX2j4Glxr5qBUeBx0BaziiKaxOs=
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
+ [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-137-tJBMeErcPL-qL_30IQoVQg-1; Wed, 22 Apr 2026 12:25:10 -0400
+X-MC-Unique: tJBMeErcPL-qL_30IQoVQg-1
+X-Mimecast-MFC-AGG-ID: tJBMeErcPL-qL_30IQoVQg_1776875108
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-8acdd800537so112774836d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 09:25:08 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776875108; x=1777479908;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qSFlJjwss7taNy6z+vQcHuBtEn5xpw5EWTakbtj//YQ=;
+        b=E3bFvHtS6ZeSbSYWBKUVsmtvKkWKX9B+qJMkYlQmqofRAtiUHCpVWBWzOmjS8veJZI
+         Tsi8zZBG92o4o+BvDOpBiEoAXON0/DrnQopv5uuZmzHLfJZ68X6zsmBrBq1633cFJ8Bx
+         0ozin6sshAswnTsO6NNIUSashL8BGdhJbnVvl5EyInF7zqzNbGjGk1xlY8vL2eN92/qx
+         TDam21GX5glrftXdC6srEkFYWN27I9lOUTJuBOTFsSz0XgCZlvvP+PoRtY4012xVxcye
+         +GCt94YtXGEELwY9+7DlZc/H4BLvIvAteZOqOM95IQ1nENX7mnLoGKaqhT3ljPtjAKYS
+         a/1g==
+X-Forwarded-Encrypted: i=1; AFNElJ+X53SYvp4Etu2iIY1ddwXuDbgI+VjufWWI719DKlHtgW+JRuPRwD8YP3ULKAnc7Q5YtsiBncY1ZruRinoDT/Ds@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFXXfX6ncKkSZ5N9wD4DKC1Jt1QX9cuGba6euTXYCYEo+rT2SR
+	ibdTvptMx+R5glZHJ1Dgo/wiyIjPl7qDI2nlRsc2RfzqxiB92wy1FukAVbsDWLFHPGCQ3Gt6pxe
+	RMTKgLL5X74h8v8vAoRUTyYvCTzm9leU2P2A7iIb7j8qIWm5r971em2xX8z0zdVBak1RPAw1ERa
+	D2
+X-Gm-Gg: AeBDieuiJYe1DDaf/83F8iSlPevkRmOUSk4WsEIebiXwrPMV6UsNFWPshJY9ENsRuV/
+	B3XhWdX/JbMKtY4ET38y82ELjkvwUMXXn0mlhStSED5oIdWS6vo7W0t2bpPhwgiqL5b3jsS3v+u
+	uO8nPqNxaijjb/5afYYPV1Br0+cewhwUh80hAeq8At4H0PHshc2W8lwy7G9pDhfBFCh2NAVtCmA
+	CaYYSnKdpqznSwbiA24Lwd3B+Nt5MkvM2v1PmK+1TFdR31OxqP6QZm8tjn3lM564UVbfj5vC29z
+	yQQpPPDaIXvfZ19rZol7Zxiqv/SG4AwO1iqCrZ+tmUfdJ+Dt35iHM6riLSapGXH8d/fq1g/6PSG
+	4dxyJmcOLxE6DuQW5uCw37M4yJazAtBoz2OWfKZzEQA==
+X-Received: by 2002:a0c:e007:0:b0:8ac:a893:8b5d with SMTP id 6a1803df08f44-8b027fd1849mr309816036d6.7.1776875108440;
+        Wed, 22 Apr 2026 09:25:08 -0700 (PDT)
+X-Received: by 2002:a0c:e007:0:b0:8ac:a893:8b5d with SMTP id 6a1803df08f44-8b027fd1849mr309815476d6.7.1776875107978;
+        Wed, 22 Apr 2026 09:25:07 -0700 (PDT)
+Received: from rh-jkangas-kernel ([2601:1c2:4400:6bf0:7677:bcee:4ef0:e09d])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8b02ae7d79esm130910876d6.36.2026.04.22.09.25.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Apr 2026 09:25:07 -0700 (PDT)
+Date: Wed, 22 Apr 2026 09:25:03 -0700
+From: Jared Kangas <jkangas@redhat.com>
+To: Dan Carpenter <error27@gmail.com>
+Cc: Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	NXP S32 Linux Team <s32@nxp.com>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linaro-s32@linaro.org, netdev@vger.kernel.org
+Subject: Re: [PATCH v6 3/3] dts: s32g: Add GPR syscon region
+Message-ID: <aej2X2Gp-UI3Vmvo@rh-jkangas-kernel>
+References: <cover.1769764941.git.dan.carpenter@linaro.org>
+ <0e922537c02d1c47734142090f98eb78e921ed34.1769764941.git.dan.carpenter@linaro.org>
+ <aeKn2dvOOO43zdev@jkangas-thinkpadp1gen3.rmtuswa.csb>
+ <aeZOcCOgMy2g9wqp@rh-jkangas-kernel>
+ <aeZYQp9b5aoV7Ihv@stanley.mountain>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <aeZYQp9b5aoV7Ihv@stanley.mountain>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 03i3FjDoLH4BbARYP0L-0eKP_JNbCyM-t-v8gebfqCc_1776875108
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_092513_043210_331E6E5B 
-X-CRM114-Status: GOOD (  17.19  )
+X-CRM114-CacheID: sfid-20260422_092517_310035_27BF08CA 
+X-CRM114-Status: GOOD (  21.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,213 +121,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When pKVM is enabled, the FF-A driver must be initialized after pKVM.
-Otherwise, pKVM cannot negotiate the FF-A version or
-obtain RX/TX buffer information, leading to failures in FF-A calls.
+On Mon, Apr 20, 2026 at 07:45:54PM +0300, Dan Carpenter wrote:
+> On Mon, Apr 20, 2026 at 09:04:00AM -0700, Jared Kangas wrote:
+> > Fixing Dan's address based on mailmap update, sorry for the noise.
+> > 
+> > On Fri, Apr 17, 2026 at 02:36:25PM -0700, Jared Kangas wrote:
+> > > Hi Dan,
+> > > 
+> > > [snip]
+> > > 
+> > > I gave this a test on an S32G-VNP-RDB3 and didn't see any issues on the
+> > > dwmac-s32 side, but this appears to trigger a panic when reading the new
+> > > debugfs regmap/*/registers file for the syscon node:
+> > > 
+> > > [snip]
+> 
+> Oh, ugh...  I didn't realize that this wasn't merged.  I don't have a
+> way to test this any more.  The simplest fix would be to do change the
+> 0x3000 to 0x100.  The GPR63 register is at 0xFC.
+> 
+> 		reg = <0x4007c000 0x100>;
+> 
+> That's probably the best fix as well.  The later register areas would
+> be their own syscons.
 
-During FF-A driver initialization, check whether pKVM has been initialized.
-If pKVM isn't initailised, register notifier and do initialisation
-of FF-A driver when pKVM is initialized.
+Tried that out and it looks good to me. With the write routed through
+syscon:
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- arch/arm64/include/asm/virt.h     | 11 ++++++++++
- arch/arm64/kvm/arm.c              | 21 ++++++++++++++++++
- arch/arm64/kvm/pkvm.c             |  2 ++
- drivers/firmware/arm_ffa/common.h |  4 ++--
- drivers/firmware/arm_ffa/driver.c | 36 ++++++++++++++++++++++++++++++-
- drivers/firmware/arm_ffa/smccc.c  |  2 +-
- 6 files changed, 72 insertions(+), 4 deletions(-)
+    # xxd -g4 /proc/device-tree/soc@0/syscon@4007c000/reg
+    00000000: 4007c000 00000100                    @.......
+    # cat /sys/kernel/debug/regmap/dummy-syscon@0x000000004007c000/registers
+    00: 00000000
+    04: 00000002
+    08: 000000e7
+    0c: 00000001
+    10: ffffffff
+    14: 1fffffff
+    18: 00007fff
+    1c: 00000000
+    20: 00000000
+    ...
+    f4: 00000000
+    f8: 00000000
+    fc: 00000000
 
-diff --git a/arch/arm64/include/asm/virt.h b/arch/arm64/include/asm/virt.h
-index b51ab6840f9c..ad038a3b8727 100644
---- a/arch/arm64/include/asm/virt.h
-+++ b/arch/arm64/include/asm/virt.h
-@@ -68,6 +68,8 @@
- #include <asm/sysreg.h>
- #include <asm/cpufeature.h>
+No more crashes and 04's value lines up with the S32_PHY_INTF_SEL_RGMII
+(0x2) write, so if you're able to post a revision, feel free to add my
+T-b:
 
-+struct notifier_block;
-+
- /*
-  * __boot_cpu_mode records what mode CPUs were booted in.
-  * A correctly-implemented bootloader must start all CPUs in the same mode:
-@@ -166,6 +168,15 @@ static inline bool is_hyp_nvhe(void)
- 	return is_hyp_mode_available() && !is_kernel_in_hyp_mode();
- }
-
-+enum kvm_arm_event {
-+	PKVM_INITIALISED,
-+	KVM_ARM_EVENT_MAX,
-+};
-+
-+extern int kvm_arm_event_notifier_call_chain(enum kvm_arm_event event, void *data);
-+extern int kvm_arm_event_notifier_register(struct notifier_block *nb);
-+extern int kvm_arm_event_notifier_unregister(struct notifier_block *nb);
-+
- #endif /* __ASSEMBLER__ */
-
- #endif /* ! __ASM__VIRT_H */
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 410ffd41fd73..8da10049ab65 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -14,6 +14,7 @@
- #include <linux/vmalloc.h>
- #include <linux/fs.h>
- #include <linux/mman.h>
-+#include <linux/notifier.h>
- #include <linux/sched.h>
- #include <linux/kvm.h>
- #include <linux/kvm_irqfd.h>
-@@ -111,6 +112,8 @@ DECLARE_KVM_NVHE_PER_CPU(struct kvm_nvhe_init_params, kvm_init_params);
-
- DECLARE_KVM_NVHE_PER_CPU(struct kvm_cpu_context, kvm_hyp_ctxt);
-
-+BLOCKING_NOTIFIER_HEAD(kvm_arm_event_notifier_head);
-+
- static bool vgic_present, kvm_arm_initialised;
-
- static DEFINE_PER_CPU(unsigned char, kvm_hyp_initialized);
-@@ -3064,4 +3067,22 @@ enum kvm_mode kvm_get_mode(void)
- 	return kvm_mode;
- }
-
-+int kvm_arm_event_notifier_call_chain(enum kvm_arm_event event, void *data)
-+{
-+	return blocking_notifier_call_chain(&kvm_arm_event_notifier_head,
-+					    event, data);
-+}
-+
-+int kvm_arm_event_notifier_register(struct notifier_block *nb)
-+{
-+	return blocking_notifier_chain_register(&kvm_arm_event_notifier_head, nb);
-+}
-+EXPORT_SYMBOL_GPL(kvm_arm_event_notifier_register);
-+
-+int kvm_arm_event_notifier_unregister(struct notifier_block *nb)
-+{
-+	return blocking_notifier_chain_unregister(&kvm_arm_event_notifier_head, nb);
-+}
-+EXPORT_SYMBOL_GPL(kvm_arm_event_notifier_unregister);
-+
- module_init(kvm_arm_init);
-diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index d7a0f69a9982..e76562b0a45a 100644
---- a/arch/arm64/kvm/pkvm.c
-+++ b/arch/arm64/kvm/pkvm.c
-@@ -280,6 +280,8 @@ static int __init finalize_pkvm(void)
- 	ret = pkvm_drop_host_privileges();
- 	if (ret)
- 		pr_err("Failed to finalize Hyp protection: %d\n", ret);
-+	else
-+		kvm_arm_event_notifier_call_chain(PKVM_INITIALISED, NULL);
-
- 	return ret;
- }
-diff --git a/drivers/firmware/arm_ffa/common.h b/drivers/firmware/arm_ffa/common.h
-index 9c6425a81d0d..5cdf4bd222c6 100644
---- a/drivers/firmware/arm_ffa/common.h
-+++ b/drivers/firmware/arm_ffa/common.h
-@@ -18,9 +18,9 @@ bool ffa_device_is_valid(struct ffa_device *ffa_dev);
- void ffa_device_match_uuid(struct ffa_device *ffa_dev, const uuid_t *uuid);
-
- #ifdef CONFIG_ARM_FFA_SMCCC
--int __init ffa_transport_init(ffa_fn **invoke_ffa_fn);
-+int ffa_transport_init(ffa_fn **invoke_ffa_fn);
- #else
--static inline int __init ffa_transport_init(ffa_fn **invoke_ffa_fn)
-+static inline int ffa_transport_init(ffa_fn **invoke_ffa_fn)
- {
- 	return -EOPNOTSUPP;
- }
-diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-index 02c76ac1570b..67df053e65b8 100644
---- a/drivers/firmware/arm_ffa/driver.c
-+++ b/drivers/firmware/arm_ffa/driver.c
-@@ -35,6 +35,7 @@
- #include <linux/module.h>
- #include <linux/mm.h>
- #include <linux/mutex.h>
-+#include <linux/notifier.h>
- #include <linux/of_irq.h>
- #include <linux/scatterlist.h>
- #include <linux/slab.h>
-@@ -42,6 +43,8 @@
- #include <linux/uuid.h>
- #include <linux/xarray.h>
-
-+#include <asm/virt.h>
-+
- #include "common.h"
-
- #define FFA_DRIVER_VERSION	FFA_VERSION_1_2
-@@ -2029,7 +2032,7 @@ static void ffa_notifications_setup(void)
- 	ffa_notifications_cleanup();
- }
-
--static int __init ffa_init(void)
-+static int __ffa_init(void)
- {
- 	int ret;
- 	u32 buf_sz;
-@@ -2105,11 +2108,42 @@ static int __init ffa_init(void)
- free_drv_info:
- 	kfree(drv_info);
- 	return ret;
-+
-+}
-+
-+static int ffa_kvm_arm_event_handler(struct notifier_block *nb,
-+				     unsigned long event, void *unused)
-+{
-+	if (event == PKVM_INITIALISED)
-+		__ffa_init();
-+
-+	return NOTIFY_DONE;
-+}
-+
-+static struct notifier_block ffa_kvm_arm_event_notifier = {
-+	.notifier_call = ffa_kvm_arm_event_handler,
-+};
-+
-+static int __init ffa_init(void)
-+{
-+	/*
-+	 * When pKVM is enabled, the FF-A driver must be initialized
-+	 * after pKVM initialization. Otherwise, pKVM cannot negotiate
-+	 * the FF-A version or obtain RX/TX buffer information,
-+	 * which leads to failures in FF-A calls.
-+	 */
-+	if (IS_ENABLED(CONFIG_KVM) && is_protected_kvm_enabled() &&
-+	    !is_pkvm_initialized())
-+		return kvm_arm_event_notifier_register(&ffa_kvm_arm_event_notifier);
-+
-+	return __ffa_init();
- }
- device_initcall(ffa_init);
-
- static void __exit ffa_exit(void)
- {
-+	if (IS_ENABLED(CONFIG_KVM))
-+		kvm_arm_event_notifier_unregister(&ffa_kvm_arm_event_notifier);
- 	ffa_notifications_cleanup();
- 	ffa_partitions_cleanup();
- 	ffa_rxtx_unmap();
-diff --git a/drivers/firmware/arm_ffa/smccc.c b/drivers/firmware/arm_ffa/smccc.c
-index 4d85bfff0a4e..e6125dd9f58f 100644
---- a/drivers/firmware/arm_ffa/smccc.c
-+++ b/drivers/firmware/arm_ffa/smccc.c
-@@ -17,7 +17,7 @@ static void __arm_ffa_fn_hvc(ffa_value_t args, ffa_value_t *res)
- 	arm_smccc_1_2_hvc(&args, res);
- }
-
--int __init ffa_transport_init(ffa_fn **invoke_ffa_fn)
-+int ffa_transport_init(ffa_fn **invoke_ffa_fn)
- {
- 	enum arm_smccc_conduit conduit;
-
---
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+Tested-by: Jared Kangas <jkangas@redhat.com>
 
 
