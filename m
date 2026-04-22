@@ -4,86 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CC09F94CD2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 06:44:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88381F94CC3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 06:45:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fS2QBWs2obdiLzxAoZ0EJnbYRNECZXvcOmREgencDsI=; b=eJpByZpSH3qjyPTCVD1+GNX/HM
-	5p0i59/xSkYadTdcG1CnCBlpk4SPRNTbftvRyjairdJd1LY8kIrN5jiJ0qF3h8q2gEQ6bdCaVTIhD
-	NSlUvkwnaXIqqTtcK7CmjoES8byVJgmQYIJRL8d4wN3buXYfuesy5cCeX+de5HuBOLRqug/e5iBjZ
-	I6m+J408ReviXgdYOFg25ZBYxG+6lfkXk+4uOdhoTZ3VI+kjc/kG2Qi0IdYSIlGiaXQVUxX4nkOzE
-	+GvwCFWpU2dFv8HPLCL54e9r1chIofdKecyGs6YpSQqacRcmOHAfgUm66coxv+pkVUDb/dmVbR4Tj
-	Z2HRkKOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pYMxzy5OOvpaaRU5o941SfAWX+eqdO8KE44KbLMbd7Y=; b=vgRnxq30WZuXgZKaHVd5Hp8vnE
+	66f0KJ6e+jeMGlOkT1opfBqFOrkNhAYnRjGsk1ZGCV2woUxMFfKJiMGiu6rNjZc0VERkvKhtWquHh
+	e+ypKNF89JtGymk/aRupNsyG+LNJxVOKt+vN7+ry/ridNjrXs9nldmbvRdwliGUFwxm0SFMHbTyRd
+	BiBLHg1a2QKLjEy+9CWAiHGQTQ9+WMu0PAdLjHO9Zd5AbdDymkiwmhGNO6FVgyGGdThugXcW8MM5/
+	sF0Qtjr2+v8Aiv6hrPoKPzqRw+fTHygDaqCM9WALMlnq7P8AYOg18VO3OleJg2fFpTZ+ecbbkM+9e
+	DnPgAK7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFRKL-00000009fsk-1ai0;
-	Wed, 22 Apr 2026 06:44:49 +0000
-Received: from pdx-out-013.esa.us-west-2.outbound.mail-perimeter.amazon.com ([34.218.115.239])
+	id 1wFRKs-00000009fx3-3GJB;
+	Wed, 22 Apr 2026 06:45:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFRKH-00000009fsJ-0maW
+	id 1wFRKq-00000009fwb-1cj6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 06:44:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
-  t=1776840285; x=1808376285;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to:content-transfer-encoding;
-  bh=fS2QBWs2obdiLzxAoZ0EJnbYRNECZXvcOmREgencDsI=;
-  b=kF8MpEAJu4AiqK3gD0DFuT3foYkvlNqEOjW+Wzr07UjldJlyU11/Mn8a
-   rYZm6pFq7pA0mFrdgLNsuRUr1GqRkY7LYrm2YiiiEgcQIn17Oc7IIADCq
-   uhgIgleh9Kt8U2JxyrYUsmf4AfWgbs/1I482Wz2tM4cZKBH3Mkt/jc2EK
-   2OAwvj5tkqdHie6R2T6mt567kje+I/1IHz+TV0GryDIQ5iEvSefocK4AH
-   yJ/94UZH6D4tn5GBJsr2jlUCAUOHRUKB5eU+zPkLFV7cBeOamEfTGLt1c
-   GJma/ckYzT8kHLXFIFKQNOxsTLOBAXP/beYlVnMu0zR7L/5f2gHN+Medh
-   g==;
-X-CSE-ConnectionGUID: wVTeWmHYSoCCAFjgXUCPeg==
-X-CSE-MsgGUID: +HvSaA9xRrqsZCPGoSILhQ==
-X-IronPort-AV: E=Sophos;i="6.23,192,1770595200"; 
-   d="scan'208";a="17712173"
-Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
-  by internal-pdx-out-013.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Apr 2026 06:44:38 +0000
-Received: from EX19MTAUWC002.ant.amazon.com [205.251.233.111:9319]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.8.77:2525] with esmtp (Farcaster)
- id bbe86f27-fd78-401d-abb1-03ac4b44e654; Wed, 22 Apr 2026 06:44:38 +0000 (UTC)
-X-Farcaster-Flow-ID: bbe86f27-fd78-401d-abb1-03ac4b44e654
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWC002.ant.amazon.com (10.250.64.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Wed, 22 Apr 2026 06:44:36 +0000
-Received: from dev-dsk-epetron-1c-1d4d9719.eu-west-1.amazon.com
- (10.253.109.105) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37; Wed, 22 Apr 2026
- 06:44:34 +0000
-Date: Wed, 22 Apr 2026 06:44:31 +0000
-From: Evangelos Petrongonas <epetron@amazon.de>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
- Roedel" <joro@8bytes.org>, Nicolin Chen <nicolinc@nvidia.com>, "Pranjal
- Shrivastava" <praan@google.com>, Lu Baolu <baolu.lu@linux.intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <nh-open-source@amazon.com>, Zeev Zilberman
-	<zeev@amazon.com>
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow disabling Stage 1 translation
-Message-ID: <20260422064431.GA49867@dev-dsk-epetron-1c-1d4d9719.eu-west-1.amazon.com>
-References: <20260420123221.20801-1-epetron@amazon.de>
- <20260420124032.GO2577880@ziepe.ca>
+	Wed, 22 Apr 2026 06:45:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7DAA54353C;
+	Wed, 22 Apr 2026 06:45:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8D6DC2BCB3;
+	Wed, 22 Apr 2026 06:45:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776840319;
+	bh=pYMxzy5OOvpaaRU5o941SfAWX+eqdO8KE44KbLMbd7Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DdhmfalqLLHd9GLo6AHzXaUb59GTRlMbd3z7X7bpR4gWre4PnQaPyczOtXwMb+2mp
+	 BdG7O6F0DvzQAcj98JCSOKe85mfMwLGD1dfGxCGhN/F5X+3AGCymvlsnXfBoBmzkvz
+	 8WpGL1jYe7h93YrA2b573sIPOGpri5F+9AGTyTW6HxKMQSnQjVhBLb9NDNiqvvw6jp
+	 aU/3Gc5qf1x1Cq5jyBoYHFt4eIEAC1V4XJwZZViYGgwXHUIZx8Lb2PjP4UHvGMeV01
+	 3OHS4wdTfZe0l68e9D+HnIc698iXzzT6EDYtqrQWCovkuGH01IBk2fCy51S/JXgEvY
+	 02//vyIBdljvw==
+Date: Wed, 22 Apr 2026 08:45:16 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Jyri Sarha <jyri.sarha@iki.fi>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Simon Ser <contact@emersion.fr>, 
+	Harry Wentland <harry.wentland@amd.com>, Melissa Wen <mwen@igalia.com>, 
+	Sebastian Wick <sebastian.wick@redhat.com>, Alex Hung <alex.hung@amd.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
+	Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v2 15/20] drm/drv: Call drm_mode_config_create_state() by
+ default
+Message-ID: <20260422-vermilion-bumblebee-from-betelgeuse-cffbc1@houat>
+References: <20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org>
+ <20260320-drm-mode-config-init-v2-15-c63f1134e76c@kernel.org>
+ <79cc30d5-80b5-4d87-a3ad-36d6fad98853@suse.de>
+ <dd39f423-1598-4749-8c95-98b8daf69680@suse.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="mmuav45v5xyeg7x4"
 Content-Disposition: inline
-In-Reply-To: <20260420124032.GO2577880@ziepe.ca>
-User-Agent: Mutt/1.5.21 (2010-09-15)
-X-Originating-IP: [10.253.109.105]
-X-ClientProxiedBy: EX19D031UWC003.ant.amazon.com (10.13.139.252) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
-Content-Transfer-Encoding: base64
+In-Reply-To: <dd39f423-1598-4749-8c95-98b8daf69680@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_234445_299469_1C0BFFF1 
-X-CRM114-Status: GOOD (  19.99  )
+X-CRM114-CacheID: sfid-20260421_234520_485322_B19ED826 
+X-CRM114-Status: GOOD (  34.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,52 +92,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBBcHIgMjAsIDIwMjYgYXQgMDk6NDA6MzJBTSAtMDMwMCBKYXNvbiBHdW50aG9ycGUg
-d3JvdGU6Cj4gT24gTW9uLCBBcHIgMjAsIDIwMjYgYXQgMTI6MzI6MDFQTSArMDAwMCwgRXZhbmdl
-bG9zIFBldHJvbmdvbmFzIHdyb3RlOgo+ID4gV2hlbiB0aGUgaGFyZHdhcmUgYWR2ZXJ0aXNlcyBi
-b3RoIFN0YWdlIDEgYW5kIFN0YWdlIDIgdHJhbnNsYXRpb24sIHRoZQo+ID4gZHJpdmVyIHByZWZl
-cnMgU3RhZ2UgMSBmb3IgRE1BIGRvbWFpbiBhbGxvY2F0aW9uIGFuZCBvbmx5IGZhbGxzIGJhY2sg
-dG8KPiA+IFN0YWdlIDIgaWYgU3RhZ2UgMSBpcyBub3Qgc3VwcG9ydGVkLgo+ID4gCj4gPiBTb21l
-IGNvbmZpZ3VyYXRpb25zIG1heSB3YW50IHRvIGZvcmNlIFN0YWdlIDIgdHJhbnNsYXRpb24gZXZl
-biB3aGVuIHRoZQo+ID4gaGFyZHdhcmUgc3VwcG9ydHMgU3RhZ2UgMS4gCj4gCj4gV2h5PyBZb3Ug
-cmVhbGx5IG5lZWQgdG8gZXhwbGFpbiB3aHkgZm9yIGEgcGF0Y2ggbGlrZSB0aGlzLgo+IAo+IElm
-IHRoZXJlIHJlYWxseSBpcyBzb21lIEhXIGlzc3VlIEkgdGhpbmsgaXQgaXMgbW9yZSBhcHByb3By
-aWF0ZSB0byBnZXQKPiBhbiBJT1JUIGZsYWcgb3IgSURSIGRldGVjdGlvbiB0aGF0IHRoZSBIVyBo
-YXMgYSBwcm9ibGVtLgoKSXQncyBub3QgYSBoYXJkd2FyZSBidWcgdGhlcmUncyBubyBJT1JUIG9y
-IElEUiBiaXQgdGhhdCB3b3VsZCBtYWtlIHNlbnNlCmhlcmUuCgpUaGUgbW90aXZhdGlvbiBpcyBs
-aXZlIHVwZGF0ZSBvZiB0aGUgaHlwZXJ2aXNvcjogd2Ugd2FudCB0byBrZXhlYyBpbnRvIGEKbmV3
-IGtlcm5lbCB3aGlsZSBrZWVwaW5nIERNQSBmcm9tIHBhc3N0aHJvdWdoIGRldmljZXMgZmxvd2lu
-Zywgd2hpY2gKbWVhbnMgdGhlIFNNTVUncyB0cmFuc2xhdGlvbiBzdGF0ZSBoYXMgdG8gc3Vydml2
-ZSB0aGUgaGFuZG92ZXIuIFRoZSBMaXZlClVwZGF0ZSBPcmNoZXN0cmF0b3Igd29yayBbMV0gYW5k
-IHRoZSBpbi1wcm9ncmVzc8KgICJpb21tdTogQWRkIGxpdmUKdXBkYXRlIHN0YXRlIHByZXNlcnZh
-dGlvbiIgc2VyaWVzIFsyXSBhcmUgYnVpbGRpbmcgZXhhY3RseSB0aGlzIHBsdW1iaW5nCm9uIHRv
-cCBvZiBLSE87IFsyXSdzIGNvdmVyIGxldHRlciBjYWxscyBvdXQgQXJtIFNNTVV2MyBzdXBwb3J0
-IGFzIGZ1dHVyZQp3b3JrLCBhbmQgYW4gZWFybGllciBSRkMgZnJvbSBBbWF6b24gWzNdIHNrZXRj
-aGVkIHRoZSBzYW1lIGlkZWEgZm9yCmlvbW11ZmQuCgpGb3IgdGhpcyB1c2UgY2FzZSwgU3RhZ2Ug
-MiBpcyBtYXRlcmlhbGx5IGVhc2llciB0byBwZXJzaXN0IHRoYW4gU3RhZ2UgMSwKZm9yIHN0cnVj
-dHVyYWwgcmF0aGVyIHRoYW4gcGVyZm9ybWFuY2UgcmVhc29uczogQW4gUzIgU1RFIGNhcnJpZXMg
-dGhlCndob2xlIHRyYW5zbGF0aW9uIGNvbmZpZ3VyYXRpb24gaW5saW5lLiBUbyBoYW5kIG92ZXIg
-YW4gUzIgZG9tYWluLCB0aGUKcHJlLWtleGVjIGtlcm5lbCBvbmx5IG5lZWRzIHRvIHByZXNlcnZl
-IHRoZSBzdHJlYW0gdGFibGUgcGFnZXMgYW5kIHRoZQpTMiBwZ3RhYmxlIHBhZ2VzLiBBbiBTMSBT
-VEUgcG9pbnRzIGF0IGEgQ29udGV4dCBEZXNjcmlwdG9yIHRhYmxlIGFuZCBhcwphIHJlc3VsdCBQ
-ZXJzaXN0aW5nIFMxIHRoZXJlZm9yZSByZXF1aXJlcyBwcmVzZXJ2aW5nIHRoZSBDRCB0YWJsZSBw
-YWdlcwp0b28sIGFuZCBiZWNhdXNlIHRoZSBDRCBpcyBrZXllZCBieSBBU0lEIGNvb3JkaW5hdGlu
-ZyBBU0lEIGlkZW50aXR5CmFjcm9zcyB0aGUgaGFuZG92ZXIuCgpJbiB0aGUgbG9uZyB0ZXJtIHRo
-ZSBwbGFuIHNob3VsZCBiZSB0byBwZXJzaXN0IGJvdGggc3RhZ2VzLgpIb3dldmVyLCB1bnRpbCBh
-IHBhdGNoIHNlcmllcyB0aGF0IHByb3Blcmx5IGludHJvZHVjZXMgU01NVSBzdXBwb3J0IGZvcgpp
-cyBkZXZlbG9wZWQvcG9zdGVkIHdlIHdvdWxkIGxpa2UgdG8gZXhwZXJpbWVudCB3aXRoIFMxK1My
-LWNhcGFibGUKaGFyZHdhcmUgd2l0aCBhbiBlYXNpZXIgdG8gaW1wbGVtZW50IGhhbmRvdmVyIG1h
-Y2hpbmVyeSwgdGhhdCByZWxpZXMgb24KUzIgdHJhbnNsYXRpb25zLgoKWzFdIGh0dHBzOi8vbHdu
-Lm5ldC9BcnRpY2xlcy8xMDIxNDQyLyDigJQgTGl2ZSBVcGRhdGUgT3JjaGVzdHJhdG9yClsyXSBo
-dHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyNjAyMDMyMjA5NDguMjE3NjE1Ny0xLXNraGF3
-YWphQGdvb2dsZS5jb20vIOKAlApbUEFUQ0ggMDAvMTRdIGlvbW11OiBBZGQgbGl2ZSB1cGRhdGUg
-c3RhdGUgcHJlc2VydmF0aW9uClszXSBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyNDA5
-MTYxMTMxMDIuNzEwNTIyLTEtamdvd2Fuc0BhbWF6b24uY29tLyDigJQgW1JGQwpQQVRDSCAwMC8x
-M10gU3VwcG9ydCBpb21tdShmZCkgcGVyc2lzdGVuY2UgZm9yIGxpdmUgdXBkYXRlCgo+IEphc29u
-CgpLaW5kIFJlZ2FyZHMsCkV2YW5nZWxvcwoKCgpBbWF6b24gV2ViIFNlcnZpY2VzIERldmVsb3Bt
-ZW50IENlbnRlciBHZXJtYW55IEdtYkgKVGFtYXJhLURhbnotU3RyLiAxMwoxMDI0MyBCZXJsaW4K
-R2VzY2hhZWZ0c2Z1ZWhydW5nOiBDaHJpc3RvZiBIZWxsbWlzLCBBbmRyZWFzIFN0aWVnZXIKRWlu
-Z2V0cmFnZW4gYW0gQW10c2dlcmljaHQgQ2hhcmxvdHRlbmJ1cmcgdW50ZXIgSFJCIDI1Nzc2NCBC
-ClNpdHo6IEJlcmxpbgpVc3QtSUQ6IERFIDM2NSA1MzggNTk3Cg==
 
+--mmuav45v5xyeg7x4
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 15/20] drm/drv: Call drm_mode_config_create_state() by
+ default
+MIME-Version: 1.0
+
+Hi Thomas,
+
+On Tue, Apr 21, 2026 at 05:33:12PM +0200, Thomas Zimmermann wrote:
+> Am 21.04.26 um 15:38 schrieb Thomas Zimmermann:
+> > Hi
+> >=20
+> > Am 20.03.26 um 17:27 schrieb Maxime Ripard:
+> > > Almost all drivers, and our documented skeleton, call
+> > > drm_mode_config_reset() prior to calling drm_dev_register() to
+> > > initialize its DRM object states.
+> > >=20
+> > > Now that we have drm_mode_config_create_state() to create that initial
+> > > state if it doesn't exist, we can call it directly in
+> > > drm_dev_register(). That way, we know that the initial atomic state w=
+ill
+> > > always be allocated without any boilerplate.
+> > >=20
+> > > Signed-off-by: Maxime Ripard <mripard@kernel.org>
+> > > ---
+> > > =A0 drivers/gpu/drm/drm_drv.c | 4 ++++
+> > > =A0 1 file changed, 4 insertions(+)
+> > >=20
+> > > diff --git a/drivers/gpu/drm/drm_drv.c b/drivers/gpu/drm/drm_drv.c
+> > > index 2915118436ce8a6640cfb0c59936031990727ed1..820106d56ab399a39cac5=
+6d98662b5ddbcae8ded
+> > > 100644
+> > > --- a/drivers/gpu/drm/drm_drv.c
+> > > +++ b/drivers/gpu/drm/drm_drv.c
+> > > @@ -1097,10 +1097,14 @@ int drm_dev_register(struct drm_device *dev,
+> > > unsigned long flags)
+> > > =A0 =A0=A0=A0=A0=A0 if (drm_core_check_feature(dev, DRIVER_MODESET)) {
+> > > =A0=A0=A0=A0=A0=A0=A0=A0=A0 ret =3D drm_modeset_register_all(dev);
+> > > =A0=A0=A0=A0=A0=A0=A0=A0=A0 if (ret)
+> > > =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 goto err_unload;
+> > > +
+> > > +=A0=A0=A0=A0=A0=A0=A0 ret =3D drm_mode_config_create_state(dev);
+> > > +=A0=A0=A0=A0=A0=A0=A0 if (ret)
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 goto err_unload;
+> >=20
+> > Way too late. Lets rather go through drivers and call this where they
+> > currently call drm_mode_config_reset() for initialization. This can be a
+> > single-patch mass conversion IMHO.
+
+I think that was Ville's main objection too. He suggested to do it in
+the object initialization instead, but I believe it would be too early.
+
+> On a second thought, can't we modify the suspend code and leave the reset
+> as-is for now?=A0 I'd still be interested to use reset as a means of
+> initializing the hardware or loading state on probe. So keeping the _rese=
+t()
+> calls in place might be helpful for that.
+>=20
+> What's the long-term plan here?
+
+So, the way I was thinking about this is reset is done for several
+things right now: initial state creation and software reset, and
+hardware reset.
+
+The latter isn't really commonly used. Most drivers, basically all
+drivers that use the reset helpers, will not perform the hardware reset
+as part of drm_mode_config_reset but will do it in probe or similar.
+
+This is also a concern for hardware state read-out, since you don't want
+that reset to happen.
+
+So, eventually, I wanted to have something like try a readout, and if it
+fails for any reason (disabled, unsupported, or failing to perform the
+readout), we fallback to allocating a pristine state + resetting the
+hardware.
+
+To do that, we need create_state introduced here both for the readout
+and non-readout paths, but also a (possibly device wide?) hw_reset hook
+that will *only* reset the device without affecting the software state.
+
+So:
+ - probe with readout would be create_state + readout_state for all objects
+ - probe without readout would be create_state + hw_reset for all objects
+ - resume would be create_state + hw_reset for a limited number of objects
+
+And then we don't need .reset at all anymore and / or can implement
+drm_mode_config_reset() on top of that.
+
+I wanted to work on that next when done with this series.
+
+Maxime
+
+--mmuav45v5xyeg7x4
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaehueAAKCRAnX84Zoj2+
+dk+SAYDSxsLLjUkEwpwBzrLclRVmyy7Pnj03L4U6OuOb8UUQK/YHd8u6ZI0Y5Fn8
+lXwP3SkBgIJRm9gxqUlt2WlYOp3xz6AwEEaxd7tHd6n7tpSv6KJ44hNAwTVtgZFI
+mLpzKOrOQg==
+=tglw
+-----END PGP SIGNATURE-----
+
+--mmuav45v5xyeg7x4--
 
