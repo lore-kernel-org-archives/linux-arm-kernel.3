@@ -4,136 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A4BCF9EDE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 14:27:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA9F7F9EDE8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 14:37:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZI6un5BavEyqM1TDZRUrcytw/TcpFzRRDb/rENA3Y38=; b=hlF9APTq1tSC5duMouwvdnPaG8
-	jr8LiqKOyOmPaKyucRLhc4Viiwgrf8BCi92GHreJZTlfvQxYJJrEisKJ1ITaoVCsMRksuU/0QCyrQ
-	Sg2rWlsJwjsjVBGqVp2SWjVpe1mBmiA4NdDBfxI6FOz3XmUBlqZHEChnpeR0ST1Q7H04rw6sJwy2E
-	7q6PpEoyepguG+QqOjwmQJ7C2mViRyduCL0mq8WV8It+gEzovEmjw8l1Gn+gf3jHCQCHLcm8+FOGM
-	jHE7Rru5C3ViP9ita0fQvy6LVhhKNel3h4/5cszP1vdsAiykMyj0FXNAp9TRz6ETjAlgFGGTbZf4h
-	AoyQbcgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d+yoJtlPAe7I64+p/CZDQIWUCwg3QKgwazZOE706QTE=; b=j3zkrGB/XQsWRP0l14X1AEc4nG
+	j9yAclOqn19IvROGjdUMUualJxLO8wS1qYjHwnSagSUDdxyPcK3QwEOsK8KZg6QcM6A6cnDgB2AAJ
+	4G6Iuib4rnI1uCZoobYSWR48Ri1vMXKZLV5/8JVFdCA2WDYXhlmFxtvYcpewVDpfwf9XjJ1MFdBuZ
+	kVMlNPq6IY5ykdsp9so+AQbLdW0oiTNpZlwcLE6yzkwGN3gPwAuzkTbZpGuDqRyN0EypPXtmV9zQg
+	CwldRdUx5MNLxOLHb6nt1or+avsL0Tu7YxbT/sOVMNpemn3Jf9N5pH57dYQCuGMsx0v/RmpCY22nB
+	Yv4RhY1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFYXy-0000000AMs0-37dd;
-	Wed, 22 Apr 2026 14:27:22 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wFYhT-0000000ANNR-0qHl;
+	Wed, 22 Apr 2026 14:37:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFYXv-0000000AMrU-3IgI
+	id 1wFYhR-0000000ANNL-1lpL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 14:27:21 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63MAT82D3083122
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 14:27:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=ZI6un5BavEyqM1TDZRUrcytw
-	/TcpFzRRDb/rENA3Y38=; b=YB5i6dT2eGcXvox8T92EPViCm0RU+bJEYkR1HOtJ
-	6TwEV5POcOa5q1EftoUHoKeSD6OVF4yHZV4+mERGTVKP7XYiuTshKDei3ea69Fx9
-	4zG6F4ehO+SS2MdYx70+gObpVGaYwex6vWr63VdId9bd/FDvyxdJgJM9ptf/3BGE
-	Cq+Nvo+qnRbOB7a8CMX1wjqhpwEQLIEH7wGpqae3wZn1nQXdPJ0npZVk5GH6Fn9s
-	NlBzOZth+MhCTqfeZ0s9nEDFUYoeTYjRNLs/JOHTowf8P+dDO7DpDAwqpw2b8V8+
-	JoLrzi15Y/EkvC/IRKfukcXLeX/jRjgSgrs41fVuyt133g==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dpenmkw7v-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 14:27:19 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2b454cac322so53365225ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 07:27:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1776868038; x=1777472838; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZI6un5BavEyqM1TDZRUrcytw/TcpFzRRDb/rENA3Y38=;
-        b=YJr+infMCCx039zqZfZH7pyBgnqB5JVWWvtEhOogo3yKY/QBKKB3tO7X7N8Z9LdCnh
-         gqqtPKYjK/k3d5Ul/lgAbPVp9HTO+MyNPoAgArLe2md3+vaFSBaCh6xgJRxi0/ZRlJOr
-         A7cjD8DMwlYdfeqW3EkRPpTURBRh2Mtk5+x/tmMWB4nTjy8OCVFhZgxRXkLEzi49yra0
-         Jpf2bcK9WjO0qt3qIDwMaw8Fns0RxvtVVbjdzpkv1mzl5SdkLWK6Ah8DhXoPQeIJlErp
-         a5HZvc3eVvs2H1N6nLq1IzRzw58xoyy7NnGfKDKGJQWun9kkMOtbL9tpLTRdWrVWmhbX
-         z0vQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776868038; x=1777472838;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZI6un5BavEyqM1TDZRUrcytw/TcpFzRRDb/rENA3Y38=;
-        b=TNDVPdkfbUo6xWfCD3Cp67ZwEO5B+INM4J/lA62n+6FdZXQyq04SBTu1/cLeVdrLuN
-         4s5J3AORoB5rnpkTKhVcf6zPnTpKvOgxWepQibZFG2x2kdzWWM+9CSbZX/I5s3Yf3UOv
-         jkn4tyeJpmD4ed0LR1IGr3OYB7tSPNN2lGiLxipBfkrwgiie8Yy2J1P2Tkhh93ddTqq1
-         dyjEWQ+xDMybCer4dduWsxNzVze0IaJausG/5GtvAX7KDVG3hjxwI3pzve24FnTQSsPQ
-         hE1gansUuF2uVKfsrwGajRxLXHyINwc3eAxORbvUfFl13yKKZWVNdpW3ahPZo7fsO8E1
-         oPfw==
-X-Forwarded-Encrypted: i=1; AFNElJ+LDwXiXvEyBD9QJC3dNV2eIk5tiMXReh0o6dXtHyQeEXDJ90lguKbv2+d5euf5+6QjF20Q2oPZqDbCs4aZEYfB@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx915SsyWSYAooGLvUMe2RXTGZnFXLZ88TNFEfVbrKYztfmN24p
-	ZTrpi1H7265FDAKUBpITd7eL9Iz2rE5BfaT1LLeh0QTt+Dwq9AuqE3fcRxwlEsuzceSPiLXJlTo
-	nzKwOEl1d+TZ16B+wnZEPCm2xbHstLo/e6ltRer9sHnso8X5gx7aBztViJRLzOlPJ2ZPymQu/ZV
-	xqAg==
-X-Gm-Gg: AeBDieuuTOaISuLMLpxF51JVjM9ozK7EeHuOYeATBT4X2wdNSJVX3n/YTU4QGxa91WG
-	td6PZecOWsRE+FF16MEZ8JKO8Vcq/mxg0B++ABc3iaathgzXETMH+/wOqidaLT7GqaSYOWfe4cK
-	OhtUJvVKXKET4h2ldsO3u5p6wlq8vpppGXpmQjGa0TmGxByLzq+7RhndEG4Sr4S8pttl6hKCONV
-	tfEvmYpgbwpSt4wRPHZvbtwD/YCe7wTwSCoykrRfJDoiLRFIn2Vg3zxXBE/f/OtgMtNwiIhS5jI
-	JsuugfoS2i5CdeguK4J3rb9GbnRknJ9/xgoWXUjBC8HtBgf0n6dwwh4Cy+mkixqdCRygPUCmcnC
-	AQzKQQoK1k3M+cNBel7L6KhGYEC18pSDwPpNMn79EbrgjwbFSoeOZkaQ4DzI=
-X-Received: by 2002:a17:902:d58a:b0:2b0:ac1e:9737 with SMTP id d9443c01a7336-2b5f9ec5ea7mr239645395ad.12.1776868038365;
-        Wed, 22 Apr 2026 07:27:18 -0700 (PDT)
-X-Received: by 2002:a17:902:d58a:b0:2b0:ac1e:9737 with SMTP id d9443c01a7336-2b5f9ec5ea7mr239644405ad.12.1776868037484;
-        Wed, 22 Apr 2026 07:27:17 -0700 (PDT)
-Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b5fab40786sm180030785ad.79.2026.04.22.07.27.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Apr 2026 07:27:17 -0700 (PDT)
-Date: Wed, 22 Apr 2026 19:57:10 +0530
-From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Robin Murphy <Robin.Murphy@arm.com>,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+	Wed, 22 Apr 2026 14:37:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 62BAA6132E;
+	Wed, 22 Apr 2026 14:37:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82270C19425;
+	Wed, 22 Apr 2026 14:37:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776868628;
+	bh=aoanNOEr5f+E432Mdit7VaoB/FUSBppJLnjCmNdlexQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qSVcdCPFy5W0fCCGN0TkPgCUuclGbAjBluSvWj3x3w2t8fZikjerC7bgkqsjGawwz
+	 6kNzpG5PBf3s2ec06C8R7jqsnzM8uVOjV52CUCteAySZ0TIJBKCROHL7Pk2bpsC6Vj
+	 6IyKVzF6Ss3u8Wf0N7dYtL0bXE504k1Ifn3CTVvV6lQP1BGtLU2+MPJeWfxiNT0mDU
+	 RVerBVj+7gQq2LwBHTsX/15WuYioqRUvvGFRPy1wblaks3QiM76NPVfnipLJ2YDjw8
+	 P3infQbb82gtkAUPjcvEttPFuh/w0GA2cXDhBmh494dzjVffYP4eMNxeBIQK46Ax3a
+	 yV5DPmmmUHgaA==
+Message-ID: <42e86a47-fbcf-4964-8dda-acfd1dfab53e@kernel.org>
+Date: Wed, 22 Apr 2026 16:37:03 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] dt-bindings: arm-smmu: qcom:: Fix Hawi compatible
  placement
-Message-ID: <20260422142710.2f6f2oijbsjojbmi@hu-mojha-hyd.qualcomm.com>
+To: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Robin Murphy <Robin.Murphy@arm.com>,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 References: <20260422083329.885979-1-mukesh.ojha@oss.qualcomm.com>
  <d1d24380-06e8-4833-b893-631c063d77ff@oss.qualcomm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d1d24380-06e8-4833-b893-631c063d77ff@oss.qualcomm.com>
-X-Proofpoint-GUID: sTvxVempUWuAbS4utCdmH6fwM53OoGpD
-X-Proofpoint-ORIG-GUID: sTvxVempUWuAbS4utCdmH6fwM53OoGpD
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIyMDE0MCBTYWx0ZWRfX541n+HddRP37
- T9Ge+2jZfkfRae64etQjytFU1B72meC1+cG0IKhJqOxAoxP5TL8t+uPm/CDVpoId47gtyPcEXph
- aS9Bc/1KRZP5VWYVvK1MYb0L12FFZSReyGAszuZq4tR+0tFC5P9VUFkvdoln3latYh3gzmesKgZ
- JL92f9OHjuhuCDWLYEpOZMlTi5FSHEvXkEkg7MJswAhDNUbc1N7ATl3EXFbqb0vda5yBF54H/0T
- wG9eEwAihN+9+T0T8HFjUPnktF17Z20K03yO4sE8SnBp0lMPGiwAdpad46Yem6QH9zdJ3A8toj9
- 6CuhAAUskvY/FOaIG3G1z66Zd5kC1LcVFZSc7LaJPwoCjZ/mU5M72Mde5tKTMvqgK5w+FgQXzRM
- 2ENIeyUxCHDYVzo4D/MARSpa86TWAvwEKIPld4xOQTGElpG7PstwwlCq4Yx1PfrvsuQhD6QMVJC
- MGS8cT9pwm1oYsXUwWA==
-X-Authority-Analysis: v=2.4 cv=Xd65Co55 c=1 sm=1 tr=0 ts=69e8dac7 cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=kj9zAlcOel0A:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=EUspDBNiAAAA:8 a=IoJxErfbLMQlTqDHTqwA:9 a=CjuIK1q_8ugA:10
- a=uG9DUKGECoFWVXl0Dc02:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-22_01,2026-04-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 lowpriorityscore=0 impostorscore=0 suspectscore=0
- priorityscore=1501 phishscore=0 bulkscore=0 malwarescore=0 clxscore=1015
- adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
- definitions=main-2604220140
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_072719_846741_1B6F0C8E 
-X-CRM114-Status: GOOD (  23.58  )
+ <20260422142710.2f6f2oijbsjojbmi@hu-mojha-hyd.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <20260422142710.2f6f2oijbsjojbmi@hu-mojha-hyd.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,51 +120,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 22, 2026 at 11:04:09AM +0200, Krzysztof Kozlowski wrote:
-> On 22/04/2026 10:33, Mukesh Ojha wrote:
-> > qcom,hawi-smmu-500 was placed in the wrong enum block of GPU. Move it to
-> > the correct location alongside other Qualcomm SMMU-500 compatibles for
-> > CPU.
+On 22/04/2026 16:27, Mukesh Ojha wrote:
+>>>            - enum:
+>>>                - qcom,eliza-smmu-500
+>>>                - qcom,glymur-smmu-500
+>>> +              - qcom,hawi-smmu-500
+>>>                - qcom,kaanapali-smmu-500
+>>>                - qcom,milos-smmu-500
+>>>                - qcom,qcm2290-smmu-500
+>>> @@ -93,7 +94,6 @@ properties:
+>>>          items:
+>>>            - enum:
+>>>                - qcom,glymur-smmu-500
+>>> -              - qcom,hawi-smmu-500
+>>
+>> No, why? That's for GPU. Why are you moving GPU compatible to non-GPU place?
 > 
-> How could it pass dtbs_check?
+> Earlier commit was meant for CPUs and not for GPUs, hence moving it Or,
 
-It was bad on my part.
+OK, but:
 
-> > 
-> > Fixes: 5e8323c3d528 ("dt-bindings: arm-smmu: qcom: Add compatible for Hawi SoC")
-> > Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-> > ---
-> >  Documentation/devicetree/bindings/iommu/arm,smmu.yaml | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
-> > index 06fb5c8e7547..ba9ad1f5a8ff 100644
-> > --- a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
-> > +++ b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
-> > @@ -37,6 +37,7 @@ properties:
-> >            - enum:
-> >                - qcom,eliza-smmu-500
-> >                - qcom,glymur-smmu-500
-> > +              - qcom,hawi-smmu-500
-> >                - qcom,kaanapali-smmu-500
-> >                - qcom,milos-smmu-500
-> >                - qcom,qcm2290-smmu-500
-> > @@ -93,7 +94,6 @@ properties:
-> >          items:
-> >            - enum:
-> >                - qcom,glymur-smmu-500
-> > -              - qcom,hawi-smmu-500
-> 
-> No, why? That's for GPU. Why are you moving GPU compatible to non-GPU place?
+> Are you saying do not do the movement and add one for CPUs ?
 
-Earlier commit was meant for CPUs and not for GPUs, hence moving it Or,
-Are you saying do not do the movement and add one for CPUs ?
+yeah, because you might need it in this place for the GPU. Therefore I
+would propose to check what compatible you expect for the GPU part and
+just add it.
 
-> 
-> 
-> Best regards,
-> Krzysztof
-
--- 
--Mukesh Ojha
+Best regards,
+Krzysztof
 
