@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D926F9EDD9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 14:09:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8994F9EDD9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 14:12:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IpwArfAt6owGvRSmXXKC+18aMlrb+HlpWuKCj3PzYU4=; b=Ch5PgbqXBthubj2ButjcKO0Zq+
-	1eSFpvrBFgTiIvOv/S1G8QfA9K1VFNitbyv0UjxctFCGgUKUO/ExM9RGlPnOXPxI1eATyTDgk5Jsn
-	aSALMdhhhB/uztyRUMiigbjklP1uMm+eCIzbH44v6JMa0AIF0cf6P00RfaWsMdlcdLyF74QAk0M3R
-	BsbGFHvq4jO0/eJtMfNl4nXAlhQqvA97MFsOKF8kY31aC3jDcHbNQ04L135RzcmqtRuvBs4xE1YYT
-	7V5EVDB3gmsmGkQEiRtimqG55HGeggp9Ege941dP0B2Dkf0b5Etx50JXEr/utByKUKe56QFsH3WO5
-	nUyI2fLg==;
+	bh=iBprrZ6eKIHk++rrBYzLzxOMt1w4ppVybUIbzLKqRoo=; b=zRkg2yRW3zYspkITnHGqio6eeP
+	1Y40Ly/buB5zEEnf0cIyr/ySM0GELhcfCCeeRyuLb7o5/xTzpM3vsI3foHtYtMsyiEG85TRwjUXSG
+	W9tU2rF3xwYnp6xW322TsNT5l95rGBRRjTANqGEl2Rw0ZAeQBsNd9gFUpQoCPhfixyQVsfiAkr3IF
+	VCiBldlb1HzlVCAUZgmL8aYAW3f7kMGwPxRpYNxckNLheAiwEbxSIr6jtnarMPhMxVq6DLMXxXI3C
+	kGdcA6U86NRP/BS14NcR1+2poxKrmqpxfoz30BAoJ0rlCy21GcwYisXPiDZ5w3apHCXM0yFnyZtHT
+	UcOlKw1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFYGe-0000000AL70-2zea;
-	Wed, 22 Apr 2026 14:09:28 +0000
+	id 1wFYJN-0000000ALJq-0RQf;
+	Wed, 22 Apr 2026 14:12:17 +0000
 Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFYGY-0000000AL6c-2eP7
+	id 1wFYJE-0000000ALI8-3jFa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 14:09:27 +0000
+	Wed, 22 Apr 2026 14:12:15 +0000
 Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63MBPfgo679447;
-	Wed, 22 Apr 2026 14:08:37 GMT
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63MArv2H680898;
+	Wed, 22 Apr 2026 14:11:18 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=IpwArf
-	At6owGvRSmXXKC+18aMlrb+HlpWuKCj3PzYU4=; b=kaiJub8SgRBaiwIwMCHEgY
-	PaLawJdSAhq6bGbfAw83jiUtsWVcTLwqmLQE5eoF8nwyJPac4+EXUs4K3gbzh2tr
-	jWgNdPzInRScQ7+lhlNdFoElGpxKOcpkEPFAuhfl0hAbgEm/vZay3TL1uSOkafsO
-	gAuAPcBAJaXLQ5+oTokql1+m3QE8YDBm2CR1I2d8Ui26dBDW032UZPNadl+h7MKB
-	QyfvhKf9AD+1BpXSujtSRE6lnI/sqhNaPqLOTOb2JCq+BMIqe+4WzvUUHhrgFkeb
-	0eKsTMTo42rSHkiFU1WXY6EyB87acdWHSzERzUjYLNPqj4p7C/VVK09ds1+L+3Aw
+	:message-id:mime-version:references:subject:to; s=pp1; bh=iBprrZ
+	6eKIHk++rrBYzLzxOMt1w4ppVybUIbzLKqRoo=; b=M+L8bbl5WscNzV3a9zCWVt
+	hCcckUkQEtLzdTxX0Fyy39b3b4K4+jy7E/2gPpKFtfsNfFt9nyhADBc49O7edGDY
+	1CcHbGAG2fs8BfXGvu8a1RyEoyMRsXGcqFvqmU07qy4RdjqY0KTAy8yhfIof2r1o
+	4P85GAQOWT4EwvWCeYit1IfcfP/zRnF4AIZUtIy060p4QLvUL0ZV3IZw7ULqzccm
+	jJIred3iuBUOdxag93t7ggWNXfL+Pi5wGj7f94/29J3SHH4t5YYKhaxvBdxPbhfX
+	i54PRoLYCbJbhECvV7NPCjXKE9kNX1N78eqII3Go6ItwCFXAEDeK7cEth1d9gb/A
 	==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dpeu7kjtp-1
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dpeu7kk54-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 22 Apr 2026 14:08:36 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63ME5JdI028009;
-	Wed, 22 Apr 2026 14:08:35 GMT
+	Wed, 22 Apr 2026 14:11:17 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63ME5VF6005991;
+	Wed, 22 Apr 2026 14:11:16 GMT
 Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dpjkyaguf-1
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dpjky2hc7-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 22 Apr 2026 14:08:35 +0000 (GMT)
+	Wed, 22 Apr 2026 14:11:16 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63ME8Xwp32899518
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63MEBE3n40042832
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 22 Apr 2026 14:08:33 GMT
+	Wed, 22 Apr 2026 14:11:14 GMT
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B60F22004B;
-	Wed, 22 Apr 2026 14:08:33 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 9BF8120043;
+	Wed, 22 Apr 2026 14:11:14 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 57A9E20043;
-	Wed, 22 Apr 2026 14:08:33 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 3870120040;
+	Wed, 22 Apr 2026 14:11:14 +0000 (GMT)
 Received: from [9.52.200.195] (unknown [9.52.200.195])
 	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 22 Apr 2026 14:08:33 +0000 (GMT)
-Message-ID: <38c9d976-6205-409c-8874-4c9757b25fd6@linux.ibm.com>
-Date: Wed, 22 Apr 2026 16:08:31 +0200
+	Wed, 22 Apr 2026 14:11:14 +0000 (GMT)
+Message-ID: <73e99161-c246-467d-96c2-46911ffc0bff@linux.ibm.com>
+Date: Wed, 22 Apr 2026 16:11:12 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/8] sframe: Allow kernelspace sframe sections
+Subject: Re: [PATCH v4 7/8] sframe: Introduce in-kernel SFRAME_VALIDATION
 To: Dylan Hatch <dylanbhatch@google.com>,
         Roman Gushchin <roman.gushchin@linux.dev>,
         Weinan Liu <wnliu@google.com>, Will Deacon <will@kernel.org>,
@@ -87,30 +87,30 @@ Cc: Mark Rutland <mark.rutland@arm.com>,
         Randy Dunlap <rdunlap@infradead.org>,
         Heiko Carstens <hca@linux.ibm.com>
 References: <20260421225200.1198447-1-dylanbhatch@google.com>
- <20260421225200.1198447-2-dylanbhatch@google.com>
+ <20260421225200.1198447-8-dylanbhatch@google.com>
 Content-Language: en-US
 From: Jens Remus <jremus@linux.ibm.com>
 Organization: IBM Deutschland Research & Development GmbH
-In-Reply-To: <20260421225200.1198447-2-dylanbhatch@google.com>
+In-Reply-To: <20260421225200.1198447-8-dylanbhatch@google.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: ju_xPmlZrKECD1mWQAnpuQqhrI7gn0Vw
-X-Authority-Analysis: v=2.4 cv=Ksp9H2WN c=1 sm=1 tr=0 ts=69e8d665 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+X-Proofpoint-ORIG-GUID: _DoY1WMJM1i2En8WsHPlxJrHiE4hUwJb
+X-Authority-Analysis: v=2.4 cv=Ksp9H2WN c=1 sm=1 tr=0 ts=69e8d705 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
  a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
  a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8
- a=1XWaLZrsAAAA:8 a=6YHA6aIrzi84IHmqq2oA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: X2MbWGnSNjB8_Ghi5YZA71_Owz9SJaK2
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIyMDEzMyBTYWx0ZWRfX9GNtKYksw2GW
- UXNVn4ooUaEa2f9J0UGK4juKIct3HUxF4hF9fllJphnFqxr3yEWHf+fglkhkeyffsPpyMNghoDE
- iCPqpOC+f47Uz02CKPpu5IHENdQ972bNeU7701jIiSApTNZl4lErELNz7BnBuP1BEs2rCtr2FqF
- AIHEK7e3tjFm6zcO1Wj8x8N4PtnnmQ6HCcBjeXvCJRsch1z/26Kiuyo/UWjevN13P8ZlQmgeTp5
- 1r/d+R/+lXRlImyqpOMZs5XKEOsSgLbDtRwLh9vtaotdXPI5aLBHEqpeekFgKOfH7v8VpXs3VuV
- Z3E1/igZPHpdsvDH0XEg0vgzRs0dkDsL5wAi3lSjjOlQYxp5KVTvCRoojZ4J4HObdQvr2tHh3Ke
- WAnS65mtVQy4P6ukLXf48zvChaAtGwtJHNdWwmuJUZInbf+OChVWzt+XQFL5p/2VqqRZqFepB0Z
- hFbF4kNlpISj/Vdg8hw==
+ a=1XWaLZrsAAAA:8 a=LFt20mCCc4CE-LtB3JUA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: _cCGz1_An0ZbsNzmrmsx3c9mP0RHxaLs
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIyMDEzMyBTYWx0ZWRfX9VUwGJuKKCGO
+ 3sUXKccE06d4FjNT8OI3/VtERQCx5iEk/lZ9QpvrEAS+Mi05cxDG6jm+2acwz+TvIZOB1iVvGvX
+ VbcHqlx1Sad3Dd9V4ffOEVv9qmtrVi5kh6Si+B1prPGlqoTDOzZHs3MfJLAwMp8vCuzxp1Xqn0F
+ v224CtXwAlPNYtzflIyN9g8aFsxOTOfpSMQT7porCm7n3AShgx0B171k9FsEC42XbEsEVN5j5JZ
+ FgRz4mpEaP/rgJVVIWUj7AecGD/gRxNZhf6cDyNcrkiisoivrYMFk6/BcekfXJgeQRpZGh3xPEK
+ goMiTdgg7qORKINe7h7Vnlo+5/22hYwt0nclE84TFeqh2GiecbEMkHLfMPYU/ESEO9oPbPmNMAs
+ gO2QlwkwuORCALStWcNjeHGg4bP5YRFo/zzt8HN9CCdld83FwJTiOk0j+C/QUA+HXOEz8oYXme+
+ 9PcZgNB7lkSpN+48Ghw==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-04-22_01,2026-04-21_02,2025-10-01_01
@@ -120,8 +120,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604220133
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_070922_816418_46F44CC6 
-X-CRM114-Status: GOOD (  28.21  )
+X-CRM114-CacheID: sfid-20260422_071209_047588_E417DC49 
+X-CRM114-Status: GOOD (  21.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,181 +137,48 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 4/22/2026 12:51 AM, Dylan Hatch wrote:
-> Generalize the sframe lookup code to support kernelspace sections. This
-> is done by defining a SFRAME_LOOKUP option that can be activated
-> separate from HAVE_UNWIND_USER_SFRAME, as there will be other client to
-> this library than just userspace unwind.
+> Generalize the __safe* helpers to support a non-user-access code path.
 > 
-> Sframe section location is now tracked in a separate sec_type field to
-> determine whether user-access functions are necessary to read the sframe
-> data. Relevant type delarations are moved and renamed to reflect the
-> non-user sframe support.
+> This requires arch-specific function address validation. This is because
+> arm64 vmlinux has an .rodata.text section which lies outside the bounds
+> of the normal .text. It contains code that is never executed by the
+> kernel mapping, but for which the toolchain nonetheless generates sframe
+> data, and needs to be considered valid for a PC lookup.
+> 
+> This arch-specific address validation logic is only necessary to support
+> SFRAME_VALIDATION for the vmlinux .sframe, since these .rodata.text
+> functions would never be encountered during normal unwinding.
 > 
 > Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
+> Suggested-by: Jens Remus <jremus@linux.ibm.com>
 
-With return -EFAULT changed to goto label in DATA_COPY() and DATA_GET():
+With the minor nit below fixed:
 
 Reviewed-by: Jens Remus <jremus@linux.ibm.com>
 
 > ---
->  MAINTAINERS                                   |   2 +-
->  arch/Kconfig                                  |   4 +
->  .../{unwind_user_sframe.h => unwind_sframe.h} |   6 +-
->  arch/x86/include/asm/unwind_user.h            |  12 +-
->  include/linux/sframe.h                        |  48 ++--
->  include/linux/unwind_types.h                  |  46 +++
->  include/linux/unwind_user_types.h             |  41 ---
->  kernel/unwind/Makefile                        |   2 +-
->  kernel/unwind/sframe.c                        | 270 ++++++++++++------
->  kernel/unwind/user.c                          |  41 +--
->  10 files changed, 293 insertions(+), 179 deletions(-)
->  rename arch/x86/include/asm/{unwind_user_sframe.h => unwind_sframe.h} (50%)
->  create mode 100644 include/linux/unwind_types.h
+>  arch/Kconfig                           |  2 +-
+>  arch/arm64/include/asm/sections.h      |  1 +
+>  arch/arm64/include/asm/unwind_sframe.h | 21 +++++++++++++++++++++
+>  arch/arm64/kernel/vmlinux.lds.S        |  2 ++
+>  include/linux/sframe.h                 |  2 ++
+>  kernel/unwind/sframe.c                 | 25 +++++++++++++++++++++++--
+>  6 files changed, 50 insertions(+), 3 deletions(-)
 
-> diff --git a/include/linux/sframe.h b/include/linux/sframe.h
+> diff --git a/arch/Kconfig b/arch/Kconfig
+> @@ -503,7 +503,7 @@ config HAVE_UNWIND_USER_SFRAME
+>  
+>  config SFRAME_VALIDATION
+>  	bool "Enable .sframe section debugging"
+> -	depends on HAVE_UNWIND_USER_SFRAME
+> +	depends on SFRAME_LOOKUP
 
-> +enum sframe_sec_type {
-> +	SFRAME_KERNEL,
-> +	SFRAME_USER,
-> +};
+	depends on UNWIND_SFRAME__LOOKUP
 
->  struct sframe_section {
-> -	struct rcu_head	rcu;
-> +	struct rcu_head  rcu;
->  #ifdef CONFIG_DYNAMIC_DEBUG
-> -	const char	*filename;
-> +	const char		*filename;
->  #endif
-> -	unsigned long	sframe_start;
-> -	unsigned long	sframe_end;
-> -	unsigned long	text_start;
-> -	unsigned long	text_end;
-> -
-> -	unsigned long	fdes_start;
-> -	unsigned long	fres_start;
-> -	unsigned long	fres_end;
-> -	unsigned int	num_fdes;
-> -
-> -	signed char	ra_off;
-> -	signed char	fp_off;
-> +	enum sframe_sec_type	sec_type;
-> +	unsigned long		sframe_start;
-> +	unsigned long		sframe_end;
-> +	unsigned long		text_start;
-> +	unsigned long		text_end;
-> +
-> +	unsigned long		fdes_start;
-> +	unsigned long		fres_start;
-> +	unsigned long		fres_end;
-> +	unsigned int		num_fdes;
-> +
-> +	signed char		ra_off;
-> +	signed char		fp_off;
->  };
+>  	depends on DYNAMIC_DEBUG
+>  	help
+>  	  When adding an .sframe section for a task, validate the entire
 
-> diff --git a/kernel/unwind/sframe.c b/kernel/unwind/sframe.c
-
-> +#define DATA_COPY(sec, to, from, size, label)			\
-> +({								\
-> +	switch (sec->sec_type) {				\
-> +	case SFRAME_KERNEL:					\
-> +		KERNEL_COPY(to, from, size, label);		\
-> +		break;						\
-> +	case SFRAME_USER:					\
-> +		UNSAFE_USER_COPY(to, from, size, label);	\
-> +		break;						\
-
-I wonder whether it would be worthwhile to come up with an approach
-where this would get evaluated at compile time instead at run time?
-Or is this overengineering?  Of course such improvement could be
-made later on, so no need to solve that now.
-
-Options that came into my mind:
-A) Introduce and pass through a "bool user" parameter, whose value is
-   specified in sframe_find_user() and sframe_find_kernel().  Due to
-   inlining I would expect that to get any conditions based on that
-   to get evaluated at compile time.  See below.  Downside is the
-   ugly additional parameter.
-
-B) Introduce lightweight .c wrappers, e.g. sframe_kernel.c and
-   sframe_user.c, that define DATA_GET() and DATA_COPY() and include
-   sframe.c.  All HAVE_UNWIND_KERNEL_SFRAME code would be moved into
-   sframe_kernel.c and likewise all HAVE_UNWIND_USER_SFRAME code into
-   sframe_user.c.
-
-> +	default:						\
-> +		return -EFAULT;					\
-
-		goto label;					\
-
-Users of DATA_COPY() do expect the macro to branch to the label in case
-of an error and therefore do not evaluate any return value.  The
-wrapping then needs also be changed from "({ .. })" to
-"do { ... } while (0)".
-
-> +	}							\
-> +})
-> +
-> +#define DATA_GET(sec, to, from, type, label)			\
-> +({								\
-> +	switch (sec->sec_type) {				\
-> +	case SFRAME_KERNEL:					\
-> +		KERNEL_GET(to, from, type, label);		\
-> +		break;						\
-> +	case SFRAME_USER:					\
-> +		UNSAFE_USER_GET(to, from, type, label);		\
-> +		break;						\
-> +	default:						\
-> +		return -EFAULT;					\
-
-Likewise.
-
-> +	}							\
-> +})
-
-> +#ifdef CONFIG_HAVE_UNWIND_USER_SFRAME
-> +
-> +int sframe_find_user(unsigned long ip, struct unwind_frame *frame)
-> +{
-> +	struct mm_struct *mm = current->mm;
-> +	struct sframe_section *sec;
-> +	int ret;
-> +
-> +	if (!mm)
-> +		return -EINVAL;
-> +
-> +	guard(srcu)(&sframe_srcu);
-> +
-> +	sec = mtree_load(&mm->sframe_mt, ip);
-> +	if (!sec)
-> +		return -EINVAL;
-> +
-> +	if (!user_read_access_begin((void __user *)sec->sframe_start,
-> +				    sec->sframe_end - sec->sframe_start))
-> +		return -EFAULT;
-> +
-> +	ret = __sframe_find(sec, ip, frame);
-
-In sframe_find_user() sec->sec_type must be SFRAME_USER.  Likewise in
-sframe_find_kernel() it must be SFRAME_KERNEL.  So instead of
-introducing sec_type, we could add a parameter
-__sframe_find(..., bool user) and do:
-
-	ret = __sframe_find(sec, ip, frame, true);
-
-The downside is that this then requires to pass that flag through
-everywhere... (see below).
-
-> +
-> +	user_read_access_end();
-> +
-> +	if (ret == -EFAULT) {
-> +		dbg_sec("removing bad .sframe section\n");
-> +		WARN_ON_ONCE(sframe_remove_section(sec->sframe_start));
-> +	}
-> +
-> +	return ret;
-> +}
 Regards,
 Jens
 -- 
