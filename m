@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CFF7F9B604
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 09:58:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23B74F9B602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 09:59:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KzG7QVIK5yv7fWAWvRb7Qe0WGjsIK4KIw8WxnQ1m/wg=; b=qdS2QxfBfPAJXJxXjGDX+0iITj
-	DhB2v2V0MJhc53OJoSVGx2iu7z/A1aV4u00J0P5NXWSGTlWeZQ7OQgrpGjasiV5HvYfXRXG3RJjnl
-	sWF/dgxZhBtiUfVMCHi2rDg8B4J+1vByFoTm3hY5qIcOfYRsG3SF9vxMotIP3d2Cw+WzGqqvyXNbc
-	XJmBVqimSf3bf75H0NvHzLfhZrgwfRSAY4ihOLrbql77zRlL9c+SRmKQIpoNkofjgYYcyeARzs9hj
-	cLgV+9eAWfjGs9ejtJ5fphcTgytvjwyEUlGXRWPf1UZnQzlA8+VdhOfONUGAGjePW/VAHG4yDpsyK
-	XhiSl4qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kNeBbIqYIqxlRsKdVhiR6F22VabQkzDog8hf9Yzq+G4=; b=BYiQvAGqyxQj4ZuxFwnkSdUy4g
+	4F5mHdtS0MPLwg6eKFhe+myuIbW18SWm6AUZbxKQxLDWGVSnhgXS/XTIQ8w4yZ+3QU1u1yY4armDP
+	8ELHoAKvX7NlyOFRqni3gYdhrqt0Lnyf0SdhRN/WdEItkV9CmavP7B3o4/VevmfO3cm4oGS42zTT2
+	CmdFqNrgzH/y/3GVhLBkmhnSozgkhLhXfRbHzHIswgl3erKEFR0ZtMNrclFiq94Trz98FTREpTl3b
+	+9zBHycsqclaE7l/6pgotM7NrBPHSM3CP+uKbocMMOHw+5cFvxKQxgnnh9K8WLOH6wlsbUC4c2lKM
+	EBD9aYiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFUM3-00000009u1Q-2NFh;
-	Wed, 22 Apr 2026 09:58:47 +0000
-Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
+	id 1wFUN7-00000009uCW-0zK4;
+	Wed, 22 Apr 2026 09:59:53 +0000
+Received: from smtp.uibk.ac.at ([138.232.1.140])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFUM0-00000009u0l-1HJZ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 09:58:46 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=KzG7QVIK5yv7fWAWvRb7Qe0WGjsIK4KIw8WxnQ1m/wg=;
-	b=TBXFRhCn3vDzNvumDZ+tzrNu5Uawfe48uLVgCB8TbKWR52dvlRYTnOHBnlvOMbcikpIfVTy19
-	u3LwlZzhxYyMVD4TdESAT9MFHbDSQVYd90ClsKqduXLPWKpSuSL0RCtS7B7jLiVdSyYCE/s3Uf+
-	rCYLrb/tj03+l5zD5gj21Bc=
-Received: from mail.maildlp.com (unknown [172.19.163.214])
-	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4g0vdt6bhgznTVg;
-	Wed, 22 Apr 2026 17:52:18 +0800 (CST)
-Received: from kwepemr200004.china.huawei.com (unknown [7.202.195.241])
-	by mail.maildlp.com (Postfix) with ESMTPS id CBBBC4056C;
-	Wed, 22 Apr 2026 17:58:32 +0800 (CST)
-Received: from huawei.com (10.50.163.32) by kwepemr200004.china.huawei.com
- (7.202.195.241) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 22 Apr
- 2026 17:58:32 +0800
-From: Pengjie Zhang <zhangpengjie2@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>
-CC: <maz@kernel.org>, <timothy.hayes@arm.com>, <lpieralisi@kernel.org>,
-	<mrigendra.chaubey@gmail.com>, <arnd@arndb.de>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<zhanjie9@hisilicon.com>, <zhenglifeng1@huawei.com>, <lihuisong@huawei.com>,
-	<yubowen8@huawei.com>, <linhongye@h-partners.com>, <linuxarm@huawei.com>,
-	<zhangpengjie2@huawei.com>, <wangzhi12@huawei.com>
-Subject: [PATCH] arm64: smp: Limit nr_cpu_ids under nosmp
-Date: Wed, 22 Apr 2026 17:58:31 +0800
-Message-ID: <20260422095831.2926775-1-zhangpengjie2@huawei.com>
-X-Mailer: git-send-email 2.33.0
+	id 1wFUN4-00000009uB6-1izv;
+	Wed, 22 Apr 2026 09:59:52 +0000
+Received: from surface-pro-5 (77.119.189.253.wireless.dyn.drei.com [77.119.189.253])
+	(authenticated bits=0)
+	by smtp.uibk.ac.at (8.15.2/8.15.2/F1) with ESMTPSA id 63M9xVO43161132
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 22 Apr 2026 11:59:39 +0200
+DKIM-Filter: OpenDKIM Filter v2.11.0 smtp.uibk.ac.at 63M9xVO43161132
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=student.uibk.ac.at;
+	s=prod24a; t=1776851980;
+	bh=kNeBbIqYIqxlRsKdVhiR6F22VabQkzDog8hf9Yzq+G4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=IpSd64SBVkcOAdrNcX2umDMV722PvBB5QXCdtQgFTNOZlBmFWHMfQbOmzluXTqhcW
+	 ycXcjdw8NgcBjDfGil7+s4ZrllQ+1bpfHrHLKcfEI9Uf6Lf6/csKXCt/OjyZ3Am4+0
+	 sPSVk8Kd+mD+AB86WY6clnZmf4z0frCuVPiTJ0DI=
+From: christian.koever-draxl@student.uibk.ac.at
+To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+        neil.armstrong@linaro.org, khilman@baylibre.com
+Cc: jbrunet@baylibre.com, martin.blumenstingl@googlemail.com,
+        devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        =?UTF-8?q?Christian=20Stefan=20K=C3=B6v=C3=A9r-Draxl?= <christian.koever-draxl@student.uibk.ac.at>,
+        Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v4 1/2] dt-bindings: arm: amlogic: add support for Amediatech X98Q
+Date: Wed, 22 Apr 2026 11:58:39 +0200
+Message-ID: <20260422095840.26139-2-christian.koever-draxl@student.uibk.ac.at>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260422095840.26139-1-christian.koever-draxl@student.uibk.ac.at>
+References: <20260422095840.26139-1-christian.koever-draxl@student.uibk.ac.at>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.163.32]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemr200004.china.huawei.com (7.202.195.241)
+X-Scanned-By: MIMEDefang_3.2_at_uibk.ac.at
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_025844_815883_2274BBF9 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20260422_025951_056539_4CF15BC8 
+X-CRM114-Status: UNSURE (   7.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,47 +75,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Under nosmp (maxcpus=0), arm64 never brings up secondary CPUs.
+From: Christian Stefan Kövér-Draxl <christian.koever-draxl@student.uibk.ac.at>
 
-However, arm64 still enumerates firmware-described CPUs during SMP
-initialization, so secondary CPUs can remain visible to
-for_each_possible_cpu() users even though they never reach the
-bringup path in this configuration.
+Add the board binding for the Amediatech X98Q TV box.
 
-This is not just a cosmetic mask mismatch: code iterating over
-possible CPUs may observe secondary CPU per-CPU state that is never
-fully initialized under nosmp.
-
-Limit nr_cpu_ids to 1 in arch_disable_smp_support() so that
-secondary CPUs are not set up on arm64 when nosmp/maxcpus=0 is in
-effect.
-
-Signed-off-by: Pengjie Zhang <zhangpengjie2@huawei.com>
+Signed-off-by: Christian Stefan Kövér-Draxl <christian.koever-draxl@student.uibk.ac.at>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/arm64/kernel/smp.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ Documentation/devicetree/bindings/arm/amlogic.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 1aa324104afb..cc34c68871e9 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -435,6 +435,15 @@ static void __init hyp_mode_check(void)
- 	}
- }
+diff --git a/Documentation/devicetree/bindings/arm/amlogic.yaml b/Documentation/devicetree/bindings/arm/amlogic.yaml
+index a885278bc4e2..c0167fbc310a 100644
+--- a/Documentation/devicetree/bindings/arm/amlogic.yaml
++++ b/Documentation/devicetree/bindings/arm/amlogic.yaml
+@@ -248,6 +248,13 @@ properties:
+           - const: amlogic,s805x2
+           - const: amlogic,s4
  
-+void __init arch_disable_smp_support(void)
-+{
-+	/*
-+	 * Under nosmp/maxcpus=0, only the boot CPU can ever be brought up.
-+	 * Limit nr_cpu_ids so that secondary CPUs are never set up.
-+	 */
-+	set_nr_cpu_ids(1);
-+}
++      - description: Boards with the Amlogic Meson S4 S905W2 SoC
++        items:
++          - enum:
++              - amediatech,x98q
++          - const: amlogic,s905w2
++          - const: amlogic,s4
 +
- void __init smp_cpus_done(unsigned int max_cpus)
- {
- 	pr_info("SMP: Total of %d processors activated.\n", num_online_cpus());
+       - description: Boards with the Amlogic Meson S4 S905Y4 SoC
+         items:
+           - enum:
 -- 
-2.33.0
+2.53.0
 
 
