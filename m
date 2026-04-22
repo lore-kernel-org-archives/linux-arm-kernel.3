@@ -4,140 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C06FF9B602
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 09:54:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CFF7F9B604
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 09:58:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EcC5TJkOb32B/zAifzmv3upvGK3f6pYPGCYUsfVrNoc=; b=vlTYnpHiptpDTy/4XiOSD8y20A
-	c7jGJdaO0dYeye0P0q5TDb6huWHg4E8UN+5L0BBF74YPDGRl++aS80Nz+IRvuv0vPTwnxYWoIpVLe
-	e77efGYWxGg6lOG1QinJDwiN/10Bt8ftuxBe/kVXdOATMBIDpN9cyN6rYPmQkMiEgGuP5hCALiMZe
-	VhyjVllUJqSeL0+mZ0bYQ7cR93r9wl/cYYNxYq02DUmMo1KHf9iZC9FeXFDpgR6osIh42TMUFUuFo
-	JDI2MHNnqCYqMs3XpW/RuyflT2KsbRuRlKddsr8UX+poGAQhRotrU5ppryc6szH3SrJ6OXZKwtrwV
-	F1JrrVUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KzG7QVIK5yv7fWAWvRb7Qe0WGjsIK4KIw8WxnQ1m/wg=; b=qdS2QxfBfPAJXJxXjGDX+0iITj
+	DhB2v2V0MJhc53OJoSVGx2iu7z/A1aV4u00J0P5NXWSGTlWeZQ7OQgrpGjasiV5HvYfXRXG3RJjnl
+	sWF/dgxZhBtiUfVMCHi2rDg8B4J+1vByFoTm3hY5qIcOfYRsG3SF9vxMotIP3d2Cw+WzGqqvyXNbc
+	XJmBVqimSf3bf75H0NvHzLfhZrgwfRSAY4ihOLrbql77zRlL9c+SRmKQIpoNkofjgYYcyeARzs9hj
+	cLgV+9eAWfjGs9ejtJ5fphcTgytvjwyEUlGXRWPf1UZnQzlA8+VdhOfONUGAGjePW/VAHG4yDpsyK
+	XhiSl4qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFUIH-00000009tmO-1cU5;
-	Wed, 22 Apr 2026 09:54:53 +0000
-Received: from mail-swedencentralazon11013035.outbound.protection.outlook.com ([52.101.83.35] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wFUM3-00000009u1Q-2NFh;
+	Wed, 22 Apr 2026 09:58:47 +0000
+Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFUIE-00000009tlm-28Hu
+	id 1wFUM0-00000009u0l-1HJZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 09:54:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=p9MihpbJMgIai7AtXwG2WqBp+aUaJNhOLqPByHukvvNWIRtNeagt3F03fChg/CdKtqSmodnZHh6tw4mf9v/NefqYa/S+LTtSqQz8cpht7k6gRqM1ZgBDCX/9JdXgNz2AnctwDTOiBijVOtwsMlbU+QjYD4WG6YPsA9OWAxr7NBrJvhCogoAKnpOy5HnWdb1qizzU6J7y6Jc3Bc7LarNlt61ULS3+1oIN1nWn/hdPP9Z/8lcFp71fsFzjMUwLyiIH/fcY0iehZKMHHnHSaroMv8z4yJzaG1pOY+1t27msAuqgOdm2yvZul2IC/rrnBvEIPf6Rb5GOgQIw2cCNKE6Zdw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EcC5TJkOb32B/zAifzmv3upvGK3f6pYPGCYUsfVrNoc=;
- b=dlkfzM4QB59uF0ifqYfqQHrdfMGSlKRNJg8J0w7I+kJd6PvJ4/+uW5I0gVVejVGaW53updCCwgonDAwuni4mnkRLnsDIBZYjdIy0PgIbleYs8VsoR5d6YJdN3P6Uw2McPhZtbBcZJw+OJacD3MSULywvsmwXdgTEbBd0jccTNVlT2FLyfiofdHedC9bcsWAUrD3LwAQ+P4+DCKhkOzXADdf7dL3elRuE53p9LVgg/VYpLXzRZAIT9di8h4TKipCfwkKr+4DZKSmm4ZbLFrhQXnkp4lYIe6qYeU9uzUx5jukK+0CJUA5xAAP6URrgq6qUr8/T1hyt6ym7tqzrZyHzYw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EcC5TJkOb32B/zAifzmv3upvGK3f6pYPGCYUsfVrNoc=;
- b=XkHlL+6GVf/KCdptep8BJ3eExMg58qN4qk3mQgQpGYEDNR6IK0g2lGy6PgrMFEifG8svGVWapLapiMQ5woQu1kga6Od/GxT/6fEtgB+Qb1fk4ypYZg9aFrf7tKyB3uGkxKijj2XTWUD5S7PKHVuEjflSd1TKiysXgDxNsgRv1/j/32Q6Iol03HNdz/qIEZTG4VVwnBf4u6CYqxbhYPFvdv6/UVIAgQYXtMtCm6IoAHGDSl0MD71WdtNOlmMNHdMfFSaFCQ7N6t9PP81d8VM4Ye0SILfwa9V+4JRofPVphq+ZRGOyS+21GVkV4lirSBUrBcXfDz7LfjcVse5KXHrVUg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AM8PR04MB7843.eurprd04.prod.outlook.com (2603:10a6:20b:235::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.16; Wed, 22 Apr
- 2026 09:54:45 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9846.016; Wed, 22 Apr 2026
- 09:54:44 +0000
-Date: Wed, 22 Apr 2026 05:54:38 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Jun Guo <jun.guo@cixtech.com>
-Cc: peter.chen@cixtech.com, fugang.duan@cixtech.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, vkoul@kernel.org,
-	ychuang3@nuvoton.com, schung@nuvoton.com, robin.murphy@arm.com,
-	Frank.Li@kernel.org, dmaengine@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	cix-kernel-upstream@cixtech.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v6 1/2] dma: arm-dma350: enable ANYCH interrupt for
- shared IRQ wiring
-Message-ID: <aeia3uoz4g8tlBaV@lizhi-Precision-Tower-5810>
-References: <20260325112159.663881-1-jun.guo@cixtech.com>
- <20260325112159.663881-2-jun.guo@cixtech.com>
- <932db8ad-a9d8-47ff-bf3c-62a54c42bb76@cixtech.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <932db8ad-a9d8-47ff-bf3c-62a54c42bb76@cixtech.com>
-X-ClientProxiedBy: SA0PR11CA0099.namprd11.prod.outlook.com
- (2603:10b6:806:d1::14) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Wed, 22 Apr 2026 09:58:46 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=KzG7QVIK5yv7fWAWvRb7Qe0WGjsIK4KIw8WxnQ1m/wg=;
+	b=TBXFRhCn3vDzNvumDZ+tzrNu5Uawfe48uLVgCB8TbKWR52dvlRYTnOHBnlvOMbcikpIfVTy19
+	u3LwlZzhxYyMVD4TdESAT9MFHbDSQVYd90ClsKqduXLPWKpSuSL0RCtS7B7jLiVdSyYCE/s3Uf+
+	rCYLrb/tj03+l5zD5gj21Bc=
+Received: from mail.maildlp.com (unknown [172.19.163.214])
+	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4g0vdt6bhgznTVg;
+	Wed, 22 Apr 2026 17:52:18 +0800 (CST)
+Received: from kwepemr200004.china.huawei.com (unknown [7.202.195.241])
+	by mail.maildlp.com (Postfix) with ESMTPS id CBBBC4056C;
+	Wed, 22 Apr 2026 17:58:32 +0800 (CST)
+Received: from huawei.com (10.50.163.32) by kwepemr200004.china.huawei.com
+ (7.202.195.241) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 22 Apr
+ 2026 17:58:32 +0800
+From: Pengjie Zhang <zhangpengjie2@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>
+CC: <maz@kernel.org>, <timothy.hayes@arm.com>, <lpieralisi@kernel.org>,
+	<mrigendra.chaubey@gmail.com>, <arnd@arndb.de>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<zhanjie9@hisilicon.com>, <zhenglifeng1@huawei.com>, <lihuisong@huawei.com>,
+	<yubowen8@huawei.com>, <linhongye@h-partners.com>, <linuxarm@huawei.com>,
+	<zhangpengjie2@huawei.com>, <wangzhi12@huawei.com>
+Subject: [PATCH] arm64: smp: Limit nr_cpu_ids under nosmp
+Date: Wed, 22 Apr 2026 17:58:31 +0800
+Message-ID: <20260422095831.2926775-1-zhangpengjie2@huawei.com>
+X-Mailer: git-send-email 2.33.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AM8PR04MB7843:EE_
-X-MS-Office365-Filtering-Correlation-Id: a7e2c7b0-309c-4163-0200-08dea0552e90
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|7416014|19092799006|1800799024|56012099003|18002099003|22082099003|38350700014;
-X-Microsoft-Antispam-Message-Info: pSVbxbU3JmPjHdR3RxnSAiOB2KnU7bffWd2DelwNSMZZXHPaRTBgcEuMTKHmoAcXBUkvMfLuv+j/Tt2llrcmjSFZ7x9N9S5215e9FOT8BDIi4g+AhYfV2YfE7KKlfe2ViJIPyltidwL60ec31ZtNE0kJ6J22zURcYoCKkAQeMhmI0LYnBR7VoTZzgjc4TZKWDn9jD14hiSGEc8IU528dGqb1fiVApQu7RoyYLSnXpLKUt0rKyvBykPpUFOfEcDL8XJoplfZgPzLYcVW1TGju0KwzutNEjoynJrDr9f4817bsbu6RzmtvTpLaKddOaseXA10R1b1lDpSsB5WB+tDhVfBHMjd1N+2/5xFJAco9inGi4EsTrRXIELmsAozF3TLpThEjwfbP12GikSWSNCjitrip/zQpk7ko/k1+e0x+D3qOKruSjkvjJWyrW60YPC1IE/EVwHGcOeBCMu0o/PBRfsn1abSY7cAdrhQDbdHHrzd1gAjl67LgzRvaDnqiwUdlVJvCJP5iFrWbGPv6mvcWGME5OFcuqlKPrkPqskBNIs0qGwMAvwXsWTyHefJW4J2pBXVwrXXxtEPxXc7YBNSEG6ykvFZUp7YmxE4/bsd2L+gLsKy8NK2SxWTHcVOLBYff3xLnElyz5Jq/aWT5UoDTbdaUHyJXTv3Z/Et4fRsOsKhrNLrY5HjEL+D6T0T2aqVymd4F1TNhqA3wPsvOo0WeOvey+nS2miJawhcw5YjoD8vyof4/LZsejdyGOQx73hX4hfQRrh9HnXXFgF/dfKN9PfoqBpP7uaE2scdOxZFB4vE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(7416014)(19092799006)(1800799024)(56012099003)(18002099003)(22082099003)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Nk0rWXMwQ29KTUc3Nkt3N0k4dHVXMXdCY25CcUhNbFJpRTNyY3F5ZUtkQlB6?=
- =?utf-8?B?a2hmZmd5cUxwL2xhQVJzczRkd1h3bTdLN1VFY04rUXRYM1R1emMyRExJaFV4?=
- =?utf-8?B?ZUZ6eEMxRys0cGJ2TU1pNVFTMjJrdzFzK1JKbWhHdVBNL0RXNVZDWHRTZ2Zt?=
- =?utf-8?B?K1p1YjNqVGxobWppeXhJVnBlbXM0ekJJM2pEU3FXYTRLQURZaWZJVHFsTnNW?=
- =?utf-8?B?RkNzcDNpYWVrRnh1L2lNWkJXYVdFTS9RZWRrWFdURzFPVExvY0tHZXFKaVNm?=
- =?utf-8?B?MFIyOU1ubHhBL3llUkc2WFY3MldGSmVXVjIxcHRtN0VJSzQxNUdOVVRxc3hz?=
- =?utf-8?B?eWF6WmhmaldjbjlDd2VxUVN5UTFncnJmSXNIczJuQnoyTGlMUTdUOUd3Zjc2?=
- =?utf-8?B?ckJnZXJRZ2RzeHFQcXowNnVpTEhSQWt3MVpFTk9mWURPVnJYRDJFa2Y1cURj?=
- =?utf-8?B?aGtQVWI5U0l2WXF6VjZQZTZaaGtFZkVxK01rZXNLSCtEQ3dWaWMwU09mK2dX?=
- =?utf-8?B?N0R3andkemluT1FsQ1JaY2UyaGxuVXQ4NFdLMXhtL2kybDU2eXVrNDdQVkw3?=
- =?utf-8?B?NWVlR1JWUXF3L3hrTUlLTytxNXNORlBQWGVzbEFFVVB1M0taVm56SEtweHQv?=
- =?utf-8?B?SDFFOHBZS1JMQzl4Y0piYUhDU0F1SktmbUFGL0dEVGF2WXQ3VkF3ZFJhZDF1?=
- =?utf-8?B?ZHZCSEIzOVVVNkp5UnFzTDFkYllDQUs1SkNFWnZGNFgvRzFSVmlLWWNrVjc3?=
- =?utf-8?B?MU91anY4WW5OUE5MNkFCRE9FWk5qWTl5ZFJUUGRmbFlLS2pxMFpDd0NvQmha?=
- =?utf-8?B?Z2RlNmJPK3UySUxuVW8rMURzdTZZWUdzN0hPY1JVcERBbTJEMHRCbktjMVZl?=
- =?utf-8?B?Q240OXdtT3VuNWtVTGNhdmM4UUlsQ2JVbFZqd0lJejZxZFNKZ2oyalRvZlB4?=
- =?utf-8?B?blZKSEtwR3NxbjJUWU45YUtWbXI1SkJVb2wrVkpSZDkyY0NadUhDMkp6QTBX?=
- =?utf-8?B?R3FmUTVDU1BSaDVwWGUxQ3NqMWNqWjRoTlZ3cWFNRXpodkpjMGVSYUczZVQ3?=
- =?utf-8?B?cGI3T0R3TXNFQTVLZ2luazl0SExDeWs3YVNWNEFHdVAzakNSeVBWcDVrTk1N?=
- =?utf-8?B?Q1hFdFNLSnVaQjQ2MDZ0MGpLUmQyc2ZPZHJEclViSDJEdnE1ZjdGd3FGM0xM?=
- =?utf-8?B?WjE0OEY2ZW9Wa09HYmxTa00xUEF3UDhLY1F1ZzhObUJzMzNOZkZ2UUpNWmNT?=
- =?utf-8?B?NzFNcW90TEhINVFWcW9WSU1zUlJOS2h2dEJPYTdjWXFqd1NjZ3VnSVhwSVNT?=
- =?utf-8?B?amtJU3B0RVVad2dGTHhnM3RoN2NoaWFEMXZ5UVBRT1E3VkE5eXQrKzJyLzI1?=
- =?utf-8?B?bXN3cXFMYVNraHMxWmhNNld5blJoejNhNlFra3JDSEhiRWFSV3BLQzV6bWhF?=
- =?utf-8?B?RCtNenBIaFlpd3lXblJhd3Y4ZTJBTFU1UmlzUjloWDF2MlpMWjI5bTdZTnpo?=
- =?utf-8?B?cW96V3AyQXo4M3Bnc3kxL3I0NEZzY0Q2blBNbkRGaElqS3JVWkhvZHdBZFVG?=
- =?utf-8?B?SHVzbEZkR2VNaENzMWUrbm80S0NCR1BqalhCRWFDWktqZVk4bHZkYi96VWR3?=
- =?utf-8?B?cnNSWGczaDlhTzlBSUQrTmhjSmlqVE9lMHc3RHRiUWV1eWhDYVdZWVdramxm?=
- =?utf-8?B?Y0hSRWVCRlNUc3VreFZadllDbnVCcXBjWVZoYU5xR0VXUUY1d0Y5dWRWaVl2?=
- =?utf-8?B?dlpyMmxFSG9oTk1SVzlxTGtVQzhKYVljaWtIL0JnOEtmdm1OaFpjaG0vSWJI?=
- =?utf-8?B?b0Vrb2cwSVdZS2pIcnRzZksrWkdqaTRlMTNjc1JQSWt0U1VxMjFuL0E4RHhC?=
- =?utf-8?B?T0FWWkZBT1hiWFJtTXlacDdTQjY4czI2a3lVWEIxUTNLZzdwUFg2QzhaN2dQ?=
- =?utf-8?B?TGRhajc1TnhiaVJ6QWxxYmxKNkxjaHpvT01RME1WTnplKzlhWnd1YXBac2tF?=
- =?utf-8?B?ajNnSm5Vcyt0dWNPQjdQMWdPdmk1M2FNRXNCcHI0Qm01Rkh0ckxoR0hRRFBu?=
- =?utf-8?B?RTVlMGhhTXFhK0xzbHllOGJqU1dURjQxWmNxd1F1V1pQSHo0b25BVmdJQ3JW?=
- =?utf-8?B?YjIyM29RMUN4bXpkTmpMaDdnNFZvQVdQck9kN1lnSFFBYUpvQlVKb2J6eE5X?=
- =?utf-8?B?WGNzNzZPM1Y5YjZkMzVESlNFRGI4VEdEQmxiWlNEMlNwOVNtRUxjQUFOdlUw?=
- =?utf-8?B?QkEzeWExOXRoQ1VvOU4zdGJ1VlNQTzkzMXVqK3JmdU5NUE9MekFmTXZoNjBF?=
- =?utf-8?Q?uxfig8j6NXT3GWNrl6?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a7e2c7b0-309c-4163-0200-08dea0552e90
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Apr 2026 09:54:44.8274
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Iw2Qr0V3/HA5MiaAu/E9mi6uYzs/pSptAj476RJ+bNs3FkE4W9FS7UkDrJpikbdXZkwoF0AIMnLdmkEYTPRrUg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7843
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemr200004.china.huawei.com (7.202.195.241)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_025450_571307_555D0DF1 
-X-CRM114-Status: GOOD (  22.20  )
+X-CRM114-CacheID: sfid-20260422_025844_815883_2274BBF9 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,60 +79,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 21, 2026 at 03:24:11PM +0800, Jun Guo wrote:
-> Hi Robin,
->
-> Just pinging. I’d like to ask if you have any comments on the latest patch?
->
-> On 3/25/2026 7:21 PM, Jun Guo wrote:
-> > Enable DMANSECCTRL.INTREN_ANYCHINTR during probe so channel
-> > interrupts are propagated when integrators wire DMA-350 channels
-> > onto a shared IRQ line.
+Under nosmp (maxcpus=0), arm64 never brings up secondary CPUs.
 
-Your tag is wrong
+However, arm64 still enumerates firmware-described CPUs during SMP
+initialization, so secondary CPUs can remain visible to
+for_each_possible_cpu() users even though they never reach the
+bringup path in this configuration.
 
-dmaegine: arm-dma350: enable ANYCH ...
+This is not just a cosmetic mask mismatch: code iterating over
+possible CPUs may observe secondary CPU per-CPU state that is never
+fully initialized under nosmp.
 
-> >
-> > Signed-off-by: Jun Guo <jun.guo@cixtech.com>
-> > ---
-> >   drivers/dma/arm-dma350.c | 9 +++++++++
-> >   1 file changed, 9 insertions(+)
-> >
-> > diff --git a/drivers/dma/arm-dma350.c b/drivers/dma/arm-dma350.c
-> > index 84220fa83029..09403aca8bb0 100644
-> > --- a/drivers/dma/arm-dma350.c
-> > +++ b/drivers/dma/arm-dma350.c
-> > @@ -13,6 +13,11 @@
-> >   #include "dmaengine.h"
-> >   #include "virt-dma.h"
+Limit nr_cpu_ids to 1 in arch_disable_smp_support() so that
+secondary CPUs are not set up on arm64 when nosmp/maxcpus=0 is in
+effect.
 
-extra empty line between header file and macro
+Signed-off-by: Pengjie Zhang <zhangpengjie2@huawei.com>
+---
+ arch/arm64/kernel/smp.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 1aa324104afb..cc34c68871e9 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -435,6 +435,15 @@ static void __init hyp_mode_check(void)
+ 	}
+ }
+ 
++void __init arch_disable_smp_support(void)
++{
++	/*
++	 * Under nosmp/maxcpus=0, only the boot CPU can ever be brought up.
++	 * Limit nr_cpu_ids so that secondary CPUs are never set up.
++	 */
++	set_nr_cpu_ids(1);
++}
++
+ void __init smp_cpus_done(unsigned int max_cpus)
+ {
+ 	pr_info("SMP: Total of %d processors activated.\n", num_online_cpus());
+-- 
+2.33.0
 
-> > +#define DMANSECCTRL		0x200
-> > +
-> > +#define NSEC_CTRL		0x0c
-
-why need two layer regiser define, your use DMANSECCTRL + NSEC_CTRL，
-
-why not use one macro for 0x20c
-
-Frank
-
-> > +#define INTREN_ANYCHINTR_EN	BIT(0)
-> > +
-> >   #define DMAINFO			0x0f00
-> >   #define DMA_BUILDCFG0		0xb0
-> > @@ -582,6 +587,10 @@ static int d350_probe(struct platform_device *pdev)
-> >   	dmac->dma.device_issue_pending = d350_issue_pending;
-> >   	INIT_LIST_HEAD(&dmac->dma.channels);
-> > +	reg = readl_relaxed(base + DMANSECCTRL + NSEC_CTRL);
-> > +	writel_relaxed(reg | INTREN_ANYCHINTR_EN,
-> > +		       base + DMANSECCTRL + NSEC_CTRL);
-> > +
-> >   	/* Would be nice to have per-channel caps for this... */
-> >   	memset = true;
-> >   	for (int i = 0; i < nchan; i++) {
->
 
