@@ -4,108 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA9F7F9EDE8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 14:37:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFE78F9EDDB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 14:43:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d+yoJtlPAe7I64+p/CZDQIWUCwg3QKgwazZOE706QTE=; b=j3zkrGB/XQsWRP0l14X1AEc4nG
-	j9yAclOqn19IvROGjdUMUualJxLO8wS1qYjHwnSagSUDdxyPcK3QwEOsK8KZg6QcM6A6cnDgB2AAJ
-	4G6Iuib4rnI1uCZoobYSWR48Ri1vMXKZLV5/8JVFdCA2WDYXhlmFxtvYcpewVDpfwf9XjJ1MFdBuZ
-	kVMlNPq6IY5ykdsp9so+AQbLdW0oiTNpZlwcLE6yzkwGN3gPwAuzkTbZpGuDqRyN0EypPXtmV9zQg
-	CwldRdUx5MNLxOLHb6nt1or+avsL0Tu7YxbT/sOVMNpemn3Jf9N5pH57dYQCuGMsx0v/RmpCY22nB
-	Yv4RhY1Q==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TXJWh3vYjJuI6lm6V1FLGF4/8JAJGPDUxrz4N7xwg9U=; b=BTtUyjm2ItdqUaBlvCVWRk9i3K
+	cAziu+9RNOXuS3XGVIaJIuZF6D3ihQLYqOwWzmzS8TfdRmihx0+EHnW4q/1uzMKooSYMLqV8FQLTx
+	FlYiUoSmnucQdBTfHOxhUxnbbNFqZSDdfnek6eqvEl+o/OHva9igjHHnfvYAOjkXQRxFudYrPkSQJ
+	LoptwuxAWevPeNsz7ZHYuZR38uejXUFBI/+WNPuM5UR6K7mwWmey9v/KckXbUInlEtQhO4yyrXF13
+	cbSRHU7UiHnVqv5nuIuaTP+ikWO5xEGZfY6voPpc8E8XZfczxe8V8A1JWLf6FCpGRCCdLqP7zD519
+	1U1CUZSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFYhT-0000000ANNR-0qHl;
-	Wed, 22 Apr 2026 14:37:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFYhR-0000000ANNL-1lpL
+	id 1wFYnt-0000000ANhB-2ar9;
+	Wed, 22 Apr 2026 14:43:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wFYnr-0000000ANgb-07cU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 14:37:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 62BAA6132E;
-	Wed, 22 Apr 2026 14:37:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82270C19425;
-	Wed, 22 Apr 2026 14:37:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776868628;
-	bh=aoanNOEr5f+E432Mdit7VaoB/FUSBppJLnjCmNdlexQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qSVcdCPFy5W0fCCGN0TkPgCUuclGbAjBluSvWj3x3w2t8fZikjerC7bgkqsjGawwz
-	 6kNzpG5PBf3s2ec06C8R7jqsnzM8uVOjV52CUCteAySZ0TIJBKCROHL7Pk2bpsC6Vj
-	 6IyKVzF6Ss3u8Wf0N7dYtL0bXE504k1Ifn3CTVvV6lQP1BGtLU2+MPJeWfxiNT0mDU
-	 RVerBVj+7gQq2LwBHTsX/15WuYioqRUvvGFRPy1wblaks3QiM76NPVfnipLJ2YDjw8
-	 P3infQbb82gtkAUPjcvEttPFuh/w0GA2cXDhBmh494dzjVffYP4eMNxeBIQK46Ax3a
-	 yV5DPmmmUHgaA==
-Message-ID: <42e86a47-fbcf-4964-8dda-acfd1dfab53e@kernel.org>
-Date: Wed, 22 Apr 2026 16:37:03 +0200
+	Wed, 22 Apr 2026 14:43:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DEFB31E8D;
+	Wed, 22 Apr 2026 07:43:37 -0700 (PDT)
+Received: from [10.1.34.169] (e121487-lin.cambridge.arm.com [10.1.34.169])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BB7593FBF8;
+	Wed, 22 Apr 2026 07:43:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776869023; bh=1ea+KwZfdTYpB3s5PNSAn6QddPSqeVxzm3nlqZsqNFI=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=paWZYiw2PhHOSqkU0A/rB3nC5Dt+HYt9e+idu3uczE7pHOZ0RoFEnaE29XeSihj/V
+	 83wVwnBqQ9XSPmQAqrokGBR6o5lqLOaBTXmw3Pn/ra3PqpvLUVoDkBR8LXJsWIrT+F
+	 PnR2v6TSMG5D2Pzh38B2IP38ilXwu48gPz30xg6Q=
+Message-ID: <fbd9268f-ace7-42d8-b920-8b6f9b97cf6d@arm.com>
+Date: Wed, 22 Apr 2026 15:43:39 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: arm-smmu: qcom:: Fix Hawi compatible
- placement
-To: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Robin Murphy <Robin.Murphy@arm.com>,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260422083329.885979-1-mukesh.ojha@oss.qualcomm.com>
- <d1d24380-06e8-4833-b893-631c063d77ff@oss.qualcomm.com>
- <20260422142710.2f6f2oijbsjojbmi@hu-mojha-hyd.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260422142710.2f6f2oijbsjojbmi@hu-mojha-hyd.qualcomm.com>
+Subject: Re: [PATCH] arm64: traps: Add a macro to simplify the condition codes
+ check
+To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
+ will@kernel.org, mark.rutland@arm.com, kees@kernel.org, maz@kernel.org,
+ ada.coupriediaz@arm.com, smostafa@google.com, leitao@debian.org,
+ mrigendra.chaubey@gmail.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260320082846.1235016-1-ruanjinjie@huawei.com>
+ <dd2f076b-976c-480d-8414-e6685cad40dd@huawei.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <dd2f076b-976c-480d-8414-e6685cad40dd@huawei.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260422_074347_203035_4C7E7A2E 
+X-CRM114-Status: GOOD (  14.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,32 +74,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/04/2026 16:27, Mukesh Ojha wrote:
->>>            - enum:
->>>                - qcom,eliza-smmu-500
->>>                - qcom,glymur-smmu-500
->>> +              - qcom,hawi-smmu-500
->>>                - qcom,kaanapali-smmu-500
->>>                - qcom,milos-smmu-500
->>>                - qcom,qcm2290-smmu-500
->>> @@ -93,7 +94,6 @@ properties:
->>>          items:
->>>            - enum:
->>>                - qcom,glymur-smmu-500
->>> -              - qcom,hawi-smmu-500
->>
->> No, why? That's for GPU. Why are you moving GPU compatible to non-GPU place?
+Hi Jinjie,
+
+On 4/22/26 04:06, Jinjie Ruan wrote:
 > 
-> Earlier commit was meant for CPUs and not for GPUs, hence moving it Or,
+> On 3/20/2026 4:28 PM, Jinjie Ruan wrote:
+>> Add DEFINE_COND_CHECK macro to define the simple __check_* functions
+>> to simplify the condition codes check.
+>>
+>> No functional changes.
+> Gentle ping.
+> 
+>> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+>> ---
+>>  arch/arm64/kernel/traps.c | 59 ++++++++++-----------------------------
+>>  1 file changed, 15 insertions(+), 44 deletions(-)
+>>
+>> diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
+>> index 914282016069..6216fe9e8e42 100644
+>> --- a/arch/arm64/kernel/traps.c
+>> +++ b/arch/arm64/kernel/traps.c
+>> @@ -49,45 +49,21 @@
+>>  #include <asm/system_misc.h>
+>>  #include <asm/sysreg.h>
+>>  
+>> -static bool __kprobes __check_eq(unsigned long pstate)
+>> -{
+>> -	return (pstate & PSR_Z_BIT) != 0;
+>> -}
+>> -
+>> -static bool __kprobes __check_ne(unsigned long pstate)
+>> -{
+>> -	return (pstate & PSR_Z_BIT) == 0;
+>> -}
+>> -
+>> -static bool __kprobes __check_cs(unsigned long pstate)
+>> -{
+>> -	return (pstate & PSR_C_BIT) != 0;
+>> -}
+>> -
+>> -static bool __kprobes __check_cc(unsigned long pstate)
+>> -{
+>> -	return (pstate & PSR_C_BIT) == 0;
+>> -}
+>> -
+>> -static bool __kprobes __check_mi(unsigned long pstate)
+>> -{
+>> -	return (pstate & PSR_N_BIT) != 0;
+>> -}
+>> -
+>> -static bool __kprobes __check_pl(unsigned long pstate)
+>> -{
+>> -	return (pstate & PSR_N_BIT) == 0;
+>> -}
+>> -
+>> -static bool __kprobes __check_vs(unsigned long pstate)
+>> -{
+>> -	return (pstate & PSR_V_BIT) != 0;
+>> -}
+>> -
+>> -static bool __kprobes __check_vc(unsigned long pstate)
+>> -{
+>> -	return (pstate & PSR_V_BIT) == 0;
+>> -}
+>> +#define DEFINE_COND_CHECK(name, flag, expected)			\
+>> +static bool __kprobes __check_##name(unsigned long pstate)	\
+>> +{								\
+>> +	return ((pstate & (flag)) != 0) == (expected);		\
+>> +}
+>> +
+>> +DEFINE_COND_CHECK(eq, PSR_Z_BIT, true)
+>> +DEFINE_COND_CHECK(ne, PSR_Z_BIT, false)
+>> +DEFINE_COND_CHECK(cs, PSR_C_BIT, true)
+>> +DEFINE_COND_CHECK(cc, PSR_C_BIT, false)
+>> +DEFINE_COND_CHECK(mi, PSR_N_BIT, true)
+>> +DEFINE_COND_CHECK(pl, PSR_N_BIT, false)
+>> +DEFINE_COND_CHECK(vs, PSR_V_BIT, true)
+>> +DEFINE_COND_CHECK(vc, PSR_V_BIT, false)
+>> +DEFINE_COND_CHECK(al, 0, false)		/* Always true */
+>>  
+>>  static bool __kprobes __check_hi(unsigned long pstate)
+>>  {
+>> @@ -131,11 +107,6 @@ static bool __kprobes __check_le(unsigned long pstate)
+>>  	return (temp & PSR_N_BIT) != 0;
+>>  }
+>>  
+>> -static bool __kprobes __check_al(unsigned long pstate)
+>> -{
+>> -	return true;
+>> -}
+>> -
+>>  /*
+>>   * Note that the ARMv8 ARM calls condition code 0b1111 "nv", but states that
+>>   * it behaves identically to 0b1110 ("al").
+> 
 
-OK, but:
+It looks like we now have a mix of checks implemented via macros
+and others written out explicitly. The existing approach has the
+advantage of being consistent and easy to follow, whereas
+introducing macros here, even if it reduces some duplication,
+adds a bit of cognitive overhead when reading the code.
 
-> Are you saying do not do the movement and add one for CPUs ?
+This may come down to preference, but I think sticking to a
+single, consistent style would make the code easier to scan and
+maintain.
 
-yeah, because you might need it in this place for the GPU. Therefore I
-would propose to check what compatible you expect for the GPU part and
-just add it.
+Just my 2p.
 
-Best regards,
-Krzysztof
+Cheers
+Vladimir
 
