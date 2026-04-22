@@ -4,89 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2079F94CC2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 04:50:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C45F8F94CC2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 04:52:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9eH4zus6aRXEsE79ZbJPuyaxQ8dOTtTmwWEdDWPv4Bs=; b=g/RdutOXa7JaEs3WJHlS9/O5Xh
-	NQ8GXjn3pqDLKhc/zb+xHMQk8vgxLunlUB54AaHPmaCqOkfOxZZLkFZkj8fZXB1H0nevNbkHGEORp
-	0pBJpjNMqZfLsUg2XKm78sincy6eG3UGiVqtCD6pIemWzDzmWzTJk9k7BcB1geVLnvh0rKSffQ/KX
-	2dZm9Q/Gzx4A5AnYf2MmIspfRKQP0niuWGxNBjIVxXZShyZ0XkS3uWF6071RBfdODs+YIUZfGUMoB
-	ugoyl8smODlfqRH1KkozXYV+i6WmZQtWNSIYmGSKBjcPfJWyHBqywIhG/H/4DIJNU7ufwu+avPmj1
-	jitfVApA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:CC:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ko9GXkd3Iaci3n7UyVaUhaBHQVeN8C+51txJrwyt8lA=; b=OTOM3JmfTb+V6TSSrR5NzNdn4R
+	hkxHjVMYu45X1gFqP4oIcDacdZsNNhwhAR+GWaU+uNVa6Rr88GByMe3m0mZ7XH6i5OzbEE+Pd5MVl
+	zC2OhCdbqur3qVcGcRu0eqjsldpNvYV5+LsXNciyyAjGW8CwAanysgRxgPJDAgAF7A2yLZPJuUX8g
+	2GqV87eMqECPLN+J6Ai7XRkrZVFad255fpLvdecJMHvoHO4tduOOq5+6+WZuoFSDOFc8zQnI4C/Gt
+	3S/+i5P9HzZVf+aRHBCkm6+fHDNx6ux3hBKniishNQ1l9RlCC0j34AyaYw1bHqYLfKW2t03YZltl8
+	ijlenUYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFPX5-00000009arj-3V49;
-	Wed, 22 Apr 2026 04:49:51 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1wFPZv-00000009b24-1tfK;
+	Wed, 22 Apr 2026 04:52:47 +0000
+Received: from mail-westusazon11012065.outbound.protection.outlook.com ([52.101.43.65] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFPX2-00000009arM-07En
+	id 1wFPZs-00000009b1e-0Nnj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 04:49:50 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2ad9a9be502so31099865ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Apr 2026 21:49:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=snu.ac.kr; s=google; t=1776833383; x=1777438183; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=9eH4zus6aRXEsE79ZbJPuyaxQ8dOTtTmwWEdDWPv4Bs=;
-        b=e2UOpHZiNxRBmv0AwePYvs18LR2uJYeA1BBntVgy/FGQbLHxZIrYml7A2eTk1TI18Q
-         vcGAMSH+iQktyhLq1wjpToMEvjN94LFCIDZerJdHVLRzuRaQMqoOJPIniRngltQbcHjb
-         Lgl+1gBKJxAEXIPC3/9QtYekhYWtmNvpGRF2k=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776833383; x=1777438183;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=9eH4zus6aRXEsE79ZbJPuyaxQ8dOTtTmwWEdDWPv4Bs=;
-        b=pJdzZ1HZt6ATnw8VaZK34SnII3EyC292C2Ob/HOnzC9GZAKF86FLEE2w65unGs/xFJ
-         NnZMitResHFFrXmeKs2ueCbQx/iVk4t3P7CO3X8mSSnxiPYu+5N1V7wG6Qs443tNXTeW
-         xmzy5g8UmgNJ0+VY54CDNhyW/EdHGGvLHX33OfbSMmwFdb4+cJ+s23n+nh4HfTvW5/TB
-         qMScxcmbsO/+nHh9eePSD2zqwaRPnxoBSR6bNNW8VHZPWzGDcKHo9PEoQLU7G2HKJlrX
-         9UIPKGaHGWUMRvN7c/Kbdb+Drdn5Ywyu9wyv1b92uYL98HF4K+dbxtOlGZgDY4cAGoq9
-         8Beg==
-X-Forwarded-Encrypted: i=1; AFNElJ/RyrS2pWfN4EFkuUu61r8jORdv902WMvjTJp83takuKF8k1vEmUyYJiFhmLdVr/F6LUwxMOz3x+L1WCoJWSMuh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6dIuBIJCYnPcATRfvpeEg/zUsNGsOwtxM6prOSX4COhlVMnGR
-	vAIYvBe1+U6yvc1BzuGTrh20otEKpPhmxkvlyAsKPGgicaxdY1KhMdBght16JEoct1I=
-X-Gm-Gg: AeBDietlcViz8vmu9u//8sYAHARggxmOqJqtLFNXihMRdetiffRtR+BdLjy7jhUZ+5u
-	tYoZrgz7ISm/mLeNbcTeH/6tAr/wiQ4SJfReQAxC0cTIQOkOYeBIAp3sBUBHV61/7cBqAJ3VrY3
-	wHhGdAH81WrlZrrHlKicXJxYX3rZPbUsFUQh7KOO2ry9A0a6o7f+jGaTXspFWtAfiluBwCRb6aP
-	iT8ds/Vt2jDKstga1vcdJTc6k/+6XHnsJe7pRBJbQ43sOYqEn+PipAK9AT9NLnglvHV8IweG6O6
-	0TNcGE5ViYLcNqJgWvuPV3JGo1a6TJ20xJZ1L3v3KtN75CF0/m3Ccgj93vRdN6EVgxUSv62aP0L
-	9woZ4uluJGHSZ7CW3icAJs2XYa/GWALuIiDA6fbzFu2/M5IfRsVIdIUuOjYn+BjZbMUhKzXm1Fg
-	45IKTVcMHC7Natb6DKWTgZAnMDy/9+bcMiM8OJkW3N1bj5WBUe0gOIP3861b4E7gTENmB1N23+u
-	g==
-X-Received: by 2002:a17:902:f9cf:b0:2b2:50e1:f104 with SMTP id d9443c01a7336-2b5f9e64c18mr142624095ad.3.1776833383473;
-        Tue, 21 Apr 2026 21:49:43 -0700 (PDT)
-Received: from localhost (nunu.snu.ac.kr. [147.46.112.82])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b5fab208d4sm160434605ad.55.2026.04.21.21.49.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Apr 2026 21:49:43 -0700 (PDT)
-Date: Wed, 22 Apr 2026 13:49:40 +0900
-From: Sangyun Kim <sangyun.kim@snu.ac.kr>
-To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Cc: nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev, linux-pwm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] pwm: atmel-tcb: Cache clock rates and mark chip as
- atomic
-Message-ID: <20260422044940.tse3ek7jlv3x2dbt@nunu>
-References: <20260415093433.2359955-1-sangyun.kim@snu.ac.kr>
- <20260419080838.3192357-1-sangyun.kim@snu.ac.kr>
- <aedfEzeRH5tH0-Fb@monoceros>
+	Wed, 22 Apr 2026 04:52:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WkD1k6sp6+v2ds1p4bAm5s2wKPewWS5Z1aVvfLbn4QQ5pdfZ/ytbnEahFiuyy4j1Ml6BGiXv2eP5jm3unLsqJ8EUqOL5ltYpRlkjmSwgBTiw3UPLh7+mGBuAz3xNljhEWm6oKTpGRuoMvHpj18h+c7TCTfFqiLn7o1+SkOdhqDiUoXZhEqhESWubXQiXPxSQxBwSY2lyXMaTLIDde1wb2p2PO10vcREgc8TuKduj4eazqRUiSgzA/4agckbEBBFCZXegzXe0f/HUHHssYxq3CatpaQBDwQPMaU55S4jSe5NsyxpW2gBgw8sBfGntUp87HQstrTOGGRzAPCfMOBstmQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ko9GXkd3Iaci3n7UyVaUhaBHQVeN8C+51txJrwyt8lA=;
+ b=JcpPD7Cs5/7J96k4LHNAhMKnFzqV44lJcdDoaq5tuIXUdjOaLu106QvSC8VHZy2fnQ4S8/X3QAbKXzJRxTycRaOSmNPMQFgdu8oXx0zTlvX4l81EDliCTJroFiDKLQpvBUAhCzy4cXO+Zw8+K/VdtilJ0X4HMIuGyjfuhVumuCL7lFuCqJKi3as8MJUWVM0wSx3Z7H+WRGSlbS//vQe8GDOkYSs8PhIdOVA7MpDs9Qe45M7fy+cwkQhytPKk2kVrpEVKZy+er9RbaABAEmF6frHVfyVeKSsd5IrRHYcOBOOeySO1CArpb4J2R2WFCukmEr5eVdpdvLOeaExItBff4Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ko9GXkd3Iaci3n7UyVaUhaBHQVeN8C+51txJrwyt8lA=;
+ b=HQgJIo+1oA7ZWpbR/t62d2GDEUUrOE7X28djqyPbZC0bgUGWkBmiDWSAck1O7RGrXgRBvZLgJ7+YkZC1wLRgA7xzJc10xFLpw5gkl2bx9gvmiVlhZGToykvpUPG2qWNwkyD9PscUEoiw6bxdd4Q9Inhgv08i1Pz16O4X4zcI0fM=
+Received: from CH5PR04CA0001.namprd04.prod.outlook.com (2603:10b6:610:1f4::6)
+ by SA2PR10MB4650.namprd10.prod.outlook.com (2603:10b6:806:f9::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.18; Wed, 22 Apr
+ 2026 04:52:37 +0000
+Received: from CH2PEPF0000009C.namprd02.prod.outlook.com
+ (2603:10b6:610:1f4:cafe::88) by CH5PR04CA0001.outlook.office365.com
+ (2603:10b6:610:1f4::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9791.48 via Frontend Transport; Wed,
+ 22 Apr 2026 04:52:36 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ CH2PEPF0000009C.mail.protection.outlook.com (10.167.244.24) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.18 via Frontend Transport; Wed, 22 Apr 2026 04:52:35 +0000
+Received: from DFLE215.ent.ti.com (10.64.6.73) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 21 Apr
+ 2026 23:52:35 -0500
+Received: from DFLE206.ent.ti.com (10.64.6.64) by DFLE215.ent.ti.com
+ (10.64.6.73) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 21 Apr
+ 2026 23:52:35 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE206.ent.ti.com
+ (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 21 Apr 2026 23:52:35 -0500
+Received: from [10.24.73.74] (uda0492258.dhcp.ti.com [10.24.73.74])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63M4qWsr1530095;
+	Tue, 21 Apr 2026 23:52:32 -0500
+Message-ID: <60924843-6647-4ec3-b869-bf57f3747414@ti.com>
+Date: Wed, 22 Apr 2026 10:24:50 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+CC: <nm@ti.com>, <ssantosh@kernel.org>, <stable@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<srk@ti.com>, <s-adivi@ti.com>, <s-vadapalli@ti.com>
+Subject: Re: [PATCH] soc: ti: k3-ringacc: Fix access mode for
+ k3_ringacc_ring_pop_tail_io()
+To: Hari Prasath G E <gehariprasath@ti.com>
+References: <20260413065125.627180-1-s-vadapalli@ti.com>
+ <d36239c2-98d5-4e5b-b99e-470f4d753a52@ti.com>
+Content-Language: en-US
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+In-Reply-To: <d36239c2-98d5-4e5b-b99e-470f4d753a52@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aedfEzeRH5tH0-Fb@monoceros>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF0000009C:EE_|SA2PR10MB4650:EE_
+X-MS-Office365-Filtering-Correlation-Id: c9e9665c-a7d9-43a3-73fc-08dea02af8d5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|36860700016|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: TeUuL8OtFaf8tYZ3j80OT6oKIqJHYN2vvH5p9Ny27AUGIrqtTVTZxEjzIwdPk+c7GUyonXylonMMk4zRxK4dBa2jAxB5WmVKZSnHY+A6mj3ooD5UACUavk4seASfbI+hZtEatsmOgfYTkXc8rCKIMKXkfnWV4lq8qQP9pAAhzeN2TkLizs9Bbm+sJEVWIEhQUukoQvrNVQpZi1SI+C2SCVsgKB/sfU07bbUOowxnaIL5nGJSxI+68pP7VKG6DMv6OG13/vxLWe/l67mUZ0X3ehAM2gd6XXfc1StJCYNS0Iu66ANY5+Caf1vMEH7eMy9PBkn+aCeQanLNb8NjTh6sBFvS/3fV3pIkGNGxPL5NJ1hjSi0ep0DxnHqEhTQAPhh7NgZfdZ0yy6y+LtvWmD4ywnee8dbZZRaEAEc//k7b7s3mwTXB3oEEoOTZLCkT0B8+4MojCypMJOPzHCfLxp6PHtF9zCuzBFXxaLTVWqzpKLR/mGAYlOIQHI18jNallKi3MZp5xs76tIJwX+Ac2NYUv2JAvKf/UBO1R+8lhN2V3nMS4G5X/Kok9MulWlE1cFQscy3gaj4HMmAGu0qnFF3BYX70BV+it2kgx+TRw5eSV+ltyeKaVpRgXEkK2A/9PALp2FeYBqcHPNJYWUv2TfF2b2eWUV+2v+6dRzHcM9HK7bgh0ZqTGduj1ZKFUhcmOVEyQJbWyKM411jokoh8Adkkqz737VGrv2DEfeVhQ5aGN2R/4xkSS2mLcvMN0Y+A/gL4eB5TZPipiDf7bWhbLxhXoA==
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(36860700016)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: JjDfr5BraoWFxjz8z4DZfqmXAwAszYSb5aXJuhDSJJNDFXBKPYSV0Ub/S8JdYS0UkMksgGlpBzz3MD8Sd0CGOy8pa7K6av98pS3mOuQbvLmCLXX1RfnSpVQC6kH43ESjeXQRlX8GENhE0hNDP9E8F6sgIaOODvz0DGsY/L1YkeV0fyZaskugR9XpdCDJiDbz4YoOEAdsKrRUEPtUHMibY6PFUPoL3Ty6NZpB6f7z9FP4UA+t+uIZ/E19CTmBoeAwhzSGgFHNKA9YUKcNZSmojchl7yYvoq1kW/KEPhKHlbswYfNQTyPu5y2VZyBQxln5bStauMv0uiGhqnQ9h0f9r2ZTTbx3bY/4DObhixIpuy26CzyFj09o4mGNt9DkJtqVq71eIeedV9QerZSIp+Lsd3ErulwksVrxNaLHSzqpK6n2vpTuFkwrj9WILYru3tJL
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Apr 2026 04:52:35.6061
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c9e9665c-a7d9-43a3-73fc-08dea02af8d5
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009C.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR10MB4650
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_214948_447119_B71C64E1 
-X-CRM114-Status: GOOD (  20.51  )
+X-CRM114-CacheID: sfid-20260421_215244_396967_7D542E72 
+X-CRM114-Status: GOOD (  21.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,102 +133,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 21, 2026 at 01:40:55 PM +0200, Uwe Kleine-König wrote:
->Hello Sangyun,
-
-Hi Uwe,
-Thanks for the review.
-
->
->On Sun, Apr 19, 2026 at 05:08:38PM +0900, Sangyun Kim wrote:
->> @@ -438,16 +441,33 @@ static int atmel_tcb_pwm_probe(struct platform_device *pdev)
->>  	if (err)
->>  		goto err_gclk;
+On 21/04/26 21:20, Hari Prasath G E wrote:
+> Hello Siddharth,
+> 
+> Thanks for the patch.
+> 
+> On 4/13/2026 12:21 PM, Siddharth Vadapalli wrote:
+>> k3_ringacc_ring_pop_tail_io() invokes k3_ringacc_ring_access_io() with the
+>> access mode incorrectly set to K3_RINGACC_ACCESS_MODE_POP_HEAD instead of
+>> K3_RINGACC_ACCESS_MODE_POP_TAIL. Fix this.
 >>
->> +	err = clk_rate_exclusive_get(tcbpwmc->clk);
->> +	if (err)
->> +		goto err_disable_clk;
->> +
->> +	err = clk_rate_exclusive_get(tcbpwmc->slow_clk);
->> +	if (err)
->> +		goto err_clk_unlock;
->> +
->> +	tcbpwmc->rate = clk_get_rate(tcbpwmc->clk);
->> +	tcbpwmc->slow_rate = clk_get_rate(tcbpwmc->slow_clk);
->> +
->
->Only one concern left: clk_get_rate() should only be called on enabled
->clocks. I don't know the architecture details and how expensive it is to
->have .clk enabled (or if it's enabled anyhow).
->
->If you're ok, I'd squash the following diff into your patch:
+>> Fixes: 3277e8aa2504 ("soc: ti: k3: add navss ringacc driver")
+>> Cc: <stable@vger.kernel.org>
+>> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+>> ---
+>>
+>> Hello,
+>>
+>> This patch is based on commit
+>> 028ef9c96e96 Linux 7.0
+>> of Mainline Linux.
+>>
+>> I noticed (visually) the incorrect access mode while working on:
+>> https://lore.kernel.org/r/20260325123850.638748-1-s-vadapalli@ti.com/
+>>
+>> Regards,
+>> Siddharth.
+>>
+>>   drivers/soc/ti/k3-ringacc.c | 2 +-
+>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/soc/ti/k3-ringacc.c b/drivers/soc/ti/k3-ringacc.c
+>> index 7602b8a909b0..24f658e8c1dc 100644
+>> --- a/drivers/soc/ti/k3-ringacc.c
+>> +++ b/drivers/soc/ti/k3-ringacc.c
+>> @@ -1083,7 +1083,7 @@ static int k3_ringacc_ring_pop_io(struct k3_ring 
+>> *ring, void *elem)
+>>   static int k3_ringacc_ring_pop_tail_io(struct k3_ring *ring, void *elem)
+>>   {
+>>       return k3_ringacc_ring_access_io(ring, elem,
+>> -                     K3_RINGACC_ACCESS_MODE_POP_HEAD);
+>> +                     K3_RINGACC_ACCESS_MODE_POP_TAIL);
+> 
+> I see that you have noticed this visually and fixed this,was there any 
+> impact you faced without this change like data corruption or something ?
 
-That makes sense. clk_get_rate() should indeed only be used on enabled
-clocks, and your change is the simplest way to ensure correctness while
-respecting the clk API constraints. I’m happy with squashing your diff
-into my patch.
+I haven't tested it with / without the fix above. But if I have to guess, 
+the impact will be out-of-order completions for transmit descriptors and 
+out-of-order of packets on receive. Although I have described it in the 
+context of Networking, the out-of-order (reversed order to be precise) 
+issue will be faced by any user.
 
->
->diff --git a/drivers/pwm/pwm-atmel-tcb.c b/drivers/pwm/pwm-atmel-tcb.c
->index 1a2832f1ace2..3d30aeab507e 100644
->--- a/drivers/pwm/pwm-atmel-tcb.c
->+++ b/drivers/pwm/pwm-atmel-tcb.c
->@@ -437,13 +437,17 @@ static int atmel_tcb_pwm_probe(struct platform_device *pdev)
-> 	tcbpwmc->channel = channel;
-> 	tcbpwmc->width = config->counter_width;
->
->-	err = clk_prepare_enable(tcbpwmc->slow_clk);
->+	err = clk_prepare_enable(tcbpwmc->clk);
-> 	if (err)
-> 		goto err_gclk;
->
->+	err = clk_prepare_enable(tcbpwmc->slow_clk);
->+	if (err)
->+		goto err_disable_clk;;
->+
-> 	err = clk_rate_exclusive_get(tcbpwmc->clk);
-> 	if (err)
->-		goto err_disable_clk;
->+		goto err_disable_slow_clk;
->
-> 	err = clk_rate_exclusive_get(tcbpwmc->slow_clk);
-> 	if (err)
->@@ -469,6 +473,9 @@ static int atmel_tcb_pwm_probe(struct platform_device *pdev)
-> 	clk_rate_exclusive_put(tcbpwmc->clk);
->
-> err_disable_clk:
->+	clk_disable_unprepare(tcbpwmc->clk);
->+
->+err_disable_slow_clk:
-> 	clk_disable_unprepare(tcbpwmc->slow_clk);
->
-> err_gclk:
->@@ -492,6 +499,7 @@ static void atmel_tcb_pwm_remove(struct platform_device *pdev)
->
-> 	clk_rate_exclusive_put(tcbpwmc->slow_clk);
-> 	clk_rate_exclusive_put(tcbpwmc->clk);
->+	clk_disable_unprepare(tcbpwmc->clk);
-> 	clk_disable_unprepare(tcbpwmc->slow_clk);
-> 	clk_put(tcbpwmc->gclk);
-> 	clk_put(tcbpwmc->clk);
->
->
->This has the downside that clk is kept enabled the whole driver
->lifetime, but that's the easiest way to make your fix honor the clk API
->constraints. This allows to fast-track the patch fixing the sleeping
->function called from invalid context issue and the optimisation can then
->be addressed with more time during the next development cycles.
+> It would be better to mention the impact this change brings-in by doing 
+> some analysis.
+> 
+> There is a similar function k3_ringacc_ring_pop_tail_proxy() few lines 
+> above where the same change might be required.
 
-Keeping the clock enabled for the driver lifetime is acceptable for now
-to fast-track the fix, and we can revisit potential optimizations in a
-follow-up patch.
+Thank you for pointing it out. I will fix that function as well in the v2 
+patch.
 
-Thanks again for the suggestion.
-
->
->Best regards
->Uwe
-
-Best regards,
-Sangyun
+Regards,
+Siddharth.
 
