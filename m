@@ -4,99 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3C64F9B5F5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 09:49:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C06FF9B602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 09:54:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:References:In-Reply-To
-	:Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9pkPs3Vc6paRjccGHW+dfs6voI0geE6f+u37jCbP6Uo=; b=4v3OSggI0jnnjtMwFWfEyKdUE2
-	buH9Spv8mOyhAER733sxpGDNL2YoUgYSzdbJFXx8ng5rTp4v+w3DlCdvnetmVjXp6xV3xJ3g5IPot
-	tVlMCViyc5S1RSnUpZAbU92uXkTL+bXg+iKPp4YDcwh5/MgGBycsmzG05ZNH4HPOgmdx0IdF3LjAh
-	yicUlQRkL7uJjuC8wMtwBlNM06q7HFb5zjyY1LFTcClhL5FhEO5rWxB4HziIqBnJt4hVZdvyvQ4+i
-	R7Q+nVIbWmlF0Qn+WNx4O/m+fWgyMCKgtKiXvTKgHRa2yRBe5anHrsP6IrA1ZNrsgLNs3RXaX7FIB
-	mCqZ8xXg==;
+	bh=EcC5TJkOb32B/zAifzmv3upvGK3f6pYPGCYUsfVrNoc=; b=vlTYnpHiptpDTy/4XiOSD8y20A
+	c7jGJdaO0dYeye0P0q5TDb6huWHg4E8UN+5L0BBF74YPDGRl++aS80Nz+IRvuv0vPTwnxYWoIpVLe
+	e77efGYWxGg6lOG1QinJDwiN/10Bt8ftuxBe/kVXdOATMBIDpN9cyN6rYPmQkMiEgGuP5hCALiMZe
+	VhyjVllUJqSeL0+mZ0bYQ7cR93r9wl/cYYNxYq02DUmMo1KHf9iZC9FeXFDpgR6osIh42TMUFUuFo
+	JDI2MHNnqCYqMs3XpW/RuyflT2KsbRuRlKddsr8UX+poGAQhRotrU5ppryc6szH3SrJ6OXZKwtrwV
+	F1JrrVUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFUD0-00000009t2L-3IxQ;
-	Wed, 22 Apr 2026 09:49:26 +0000
-Received: from jpms-ob02-os7.noc.sony.co.jp ([2001:cf8:acf:41::8])
+	id 1wFUIH-00000009tmO-1cU5;
+	Wed, 22 Apr 2026 09:54:53 +0000
+Received: from mail-swedencentralazon11013035.outbound.protection.outlook.com ([52.101.83.35] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFUCu-00000009t0P-2Ark
+	id 1wFUIE-00000009tlm-28Hu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 09:49:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=sony.com; s=s1jp; t=1776851360; x=1808387360;
-  h=from:subject:date:message-id:mime-version:
-   content-transfer-encoding:in-reply-to:references:to:cc;
-  bh=9pkPs3Vc6paRjccGHW+dfs6voI0geE6f+u37jCbP6Uo=;
-  b=fumsD8LAYH8WyDzdwwA17qNVBmVjufUaoMI3+n/5c0rfb7SWTX9SnuuA
-   kcMSZ25f/SSEEUVMNh3TV6zfvkqcp7mEDYoAcCAGN90zG8WWONfZDrjWC
-   DPK5ZhgdxWHgIANCli3i21LF7Uz3sIqCWf68NNJBnDUDXnNuihuALEn5g
-   qLfm4q37Ek6UV6oAxS+7dhlC7tV2WeUf6eJjCjRIEmJLRXzTgovTB1R04
-   gStytIeRsjq0OqD7r3mU6TbdgYFW/oW+nc6v8u75lstohGDc1rDn1aLXE
-   VOYkuWp3MAQVgjQuz1oSgaU1NKZC1O7rrHNa/75ruKKaZ08bmkPPOGkbh
-   g==;
-X-CSE-ConnectionGUID: k8my68O9RKuJfq8789LHEQ==
-X-CSE-MsgGUID: wBw8+8RgQYue9sLkPFuAnw==
-Received: from unknown (HELO jpmta-ob02-os7.noc.sony.co.jp) ([IPv6:2001:cf8:acf:1104::7])
-  by jpms-ob02-os7.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Apr 2026 18:49:14 +0900
-X-CSE-ConnectionGUID: GBF2ZWP0TpeP2oXg7nUOEQ==
-X-CSE-MsgGUID: b0ydDtKiSKCjtrykRa7W3Q==
-X-IronPort-AV: E=Sophos;i="6.23,192,1770562800"; 
-   d="scan'208";a="51446125"
-Received: from unknown (HELO [127.0.1.1]) ([IPv6:2001:cf8:1:573:0:dddd:eb3e:119e])
-  by jpmta-ob02-os7.noc.sony.co.jp with ESMTP; 22 Apr 2026 18:49:13 +0900
-From: Shashank Balaji <shashank.mahadasyam@sony.com>
-Subject: [PATCH v3 0/4] Enable sysfs module symlink for more built-in
- drivers
-Date: Wed, 22 Apr 2026 18:49:02 +0900
-Message-Id: <20260422-acpi_mod_name-v3-0-a184eff9ff6f@sony.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	Wed, 22 Apr 2026 09:54:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=p9MihpbJMgIai7AtXwG2WqBp+aUaJNhOLqPByHukvvNWIRtNeagt3F03fChg/CdKtqSmodnZHh6tw4mf9v/NefqYa/S+LTtSqQz8cpht7k6gRqM1ZgBDCX/9JdXgNz2AnctwDTOiBijVOtwsMlbU+QjYD4WG6YPsA9OWAxr7NBrJvhCogoAKnpOy5HnWdb1qizzU6J7y6Jc3Bc7LarNlt61ULS3+1oIN1nWn/hdPP9Z/8lcFp71fsFzjMUwLyiIH/fcY0iehZKMHHnHSaroMv8z4yJzaG1pOY+1t27msAuqgOdm2yvZul2IC/rrnBvEIPf6Rb5GOgQIw2cCNKE6Zdw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EcC5TJkOb32B/zAifzmv3upvGK3f6pYPGCYUsfVrNoc=;
+ b=dlkfzM4QB59uF0ifqYfqQHrdfMGSlKRNJg8J0w7I+kJd6PvJ4/+uW5I0gVVejVGaW53updCCwgonDAwuni4mnkRLnsDIBZYjdIy0PgIbleYs8VsoR5d6YJdN3P6Uw2McPhZtbBcZJw+OJacD3MSULywvsmwXdgTEbBd0jccTNVlT2FLyfiofdHedC9bcsWAUrD3LwAQ+P4+DCKhkOzXADdf7dL3elRuE53p9LVgg/VYpLXzRZAIT9di8h4TKipCfwkKr+4DZKSmm4ZbLFrhQXnkp4lYIe6qYeU9uzUx5jukK+0CJUA5xAAP6URrgq6qUr8/T1hyt6ym7tqzrZyHzYw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EcC5TJkOb32B/zAifzmv3upvGK3f6pYPGCYUsfVrNoc=;
+ b=XkHlL+6GVf/KCdptep8BJ3eExMg58qN4qk3mQgQpGYEDNR6IK0g2lGy6PgrMFEifG8svGVWapLapiMQ5woQu1kga6Od/GxT/6fEtgB+Qb1fk4ypYZg9aFrf7tKyB3uGkxKijj2XTWUD5S7PKHVuEjflSd1TKiysXgDxNsgRv1/j/32Q6Iol03HNdz/qIEZTG4VVwnBf4u6CYqxbhYPFvdv6/UVIAgQYXtMtCm6IoAHGDSl0MD71WdtNOlmMNHdMfFSaFCQ7N6t9PP81d8VM4Ye0SILfwa9V+4JRofPVphq+ZRGOyS+21GVkV4lirSBUrBcXfDz7LfjcVse5KXHrVUg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by AM8PR04MB7843.eurprd04.prod.outlook.com (2603:10a6:20b:235::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.16; Wed, 22 Apr
+ 2026 09:54:45 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9846.016; Wed, 22 Apr 2026
+ 09:54:44 +0000
+Date: Wed, 22 Apr 2026 05:54:38 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Jun Guo <jun.guo@cixtech.com>
+Cc: peter.chen@cixtech.com, fugang.duan@cixtech.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, vkoul@kernel.org,
+	ychuang3@nuvoton.com, schung@nuvoton.com, robin.murphy@arm.com,
+	Frank.Li@kernel.org, dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	cix-kernel-upstream@cixtech.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 1/2] dma: arm-dma350: enable ANYCH interrupt for
+ shared IRQ wiring
+Message-ID: <aeia3uoz4g8tlBaV@lizhi-Precision-Tower-5810>
+References: <20260325112159.663881-1-jun.guo@cixtech.com>
+ <20260325112159.663881-2-jun.guo@cixtech.com>
+ <932db8ad-a9d8-47ff-bf3c-62a54c42bb76@cixtech.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAI6Z6GkC/3WN0Q6CIBhGX8VxHU3AMLvqPVpzCD9Jm+DAWM757
- oHduLYuz/ad8y0ogDcQ0KVYkIdognE2ATsUSPbCPgAblRjRkvKyIhwLOZp2cKq1YgCseXUSNQf
- G6g4lZ/SgzXvr3e5fDq/uCXLKkbzoTZicn7fDSPLuXzsSXGIiKtVwrc5cNtfg7HyUbkA5HelOp
- uRXpkmGmumGkVIJxXbyuq4fC4SJz/gAAAA=
-X-Change-ID: 20260416-acpi_mod_name-f645a76e337b
-In-Reply-To: <20260421-acpi_mod_name-v2-0-e73f9310dad3@sony.com>
-References: <20260421-acpi_mod_name-v2-0-e73f9310dad3@sony.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
- Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
- Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
- Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
- Richard Cochran <richardcochran@gmail.com>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>
-Cc: Rahul Bukte <rahul.bukte@sony.com>, 
- Shashank Balaji <shashank.mahadasyam@sony.com>, 
- linux-kernel@vger.kernel.org, coresight@lists.linaro.org, 
- linux-arm-kernel@lists.infradead.org, driver-core@lists.linux.dev, 
- rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, 
- Daniel Palmer <daniel.palmer@sony.com>, Tim Bird <tim.bird@sony.com>
-X-Mailer: b4 0.16-dev-3bfbc
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4781;
- i=shashank.mahadasyam@sony.com; h=from:subject:message-id;
- bh=GmzcpVaW54kBYM6ZNlSdGdXppvRENvMzYTTYU+OtJCg=;
- b=owGbwMvMwCU2bX1+URVTXyjjabUkhswXM6fLrX8v6BaSdzKn8GzPj74bYVsWpS8RMPkifqmFe
- bf/8806HaUsDGJcDLJiiiylStW/9q4IWtJz5rUizBxWJpAhDFycAjAR3oMM/9M/3JbctTpeakV2
- hOv0xa4CzJqzt5+pP7usMctY61NaczYjwzeOGE8GwSr1NdJNZUpS7z4vttCRCYsIzasuvmO75Pt
- JNgA=
-X-Developer-Key: i=shashank.mahadasyam@sony.com; a=openpgp;
- fpr=75227BFABDA852A48CCCEB2196AF6F727A028E55
+In-Reply-To: <932db8ad-a9d8-47ff-bf3c-62a54c42bb76@cixtech.com>
+X-ClientProxiedBy: SA0PR11CA0099.namprd11.prod.outlook.com
+ (2603:10b6:806:d1::14) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AM8PR04MB7843:EE_
+X-MS-Office365-Filtering-Correlation-Id: a7e2c7b0-309c-4163-0200-08dea0552e90
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|7416014|19092799006|1800799024|56012099003|18002099003|22082099003|38350700014;
+X-Microsoft-Antispam-Message-Info: pSVbxbU3JmPjHdR3RxnSAiOB2KnU7bffWd2DelwNSMZZXHPaRTBgcEuMTKHmoAcXBUkvMfLuv+j/Tt2llrcmjSFZ7x9N9S5215e9FOT8BDIi4g+AhYfV2YfE7KKlfe2ViJIPyltidwL60ec31ZtNE0kJ6J22zURcYoCKkAQeMhmI0LYnBR7VoTZzgjc4TZKWDn9jD14hiSGEc8IU528dGqb1fiVApQu7RoyYLSnXpLKUt0rKyvBykPpUFOfEcDL8XJoplfZgPzLYcVW1TGju0KwzutNEjoynJrDr9f4817bsbu6RzmtvTpLaKddOaseXA10R1b1lDpSsB5WB+tDhVfBHMjd1N+2/5xFJAco9inGi4EsTrRXIELmsAozF3TLpThEjwfbP12GikSWSNCjitrip/zQpk7ko/k1+e0x+D3qOKruSjkvjJWyrW60YPC1IE/EVwHGcOeBCMu0o/PBRfsn1abSY7cAdrhQDbdHHrzd1gAjl67LgzRvaDnqiwUdlVJvCJP5iFrWbGPv6mvcWGME5OFcuqlKPrkPqskBNIs0qGwMAvwXsWTyHefJW4J2pBXVwrXXxtEPxXc7YBNSEG6ykvFZUp7YmxE4/bsd2L+gLsKy8NK2SxWTHcVOLBYff3xLnElyz5Jq/aWT5UoDTbdaUHyJXTv3Z/Et4fRsOsKhrNLrY5HjEL+D6T0T2aqVymd4F1TNhqA3wPsvOo0WeOvey+nS2miJawhcw5YjoD8vyof4/LZsejdyGOQx73hX4hfQRrh9HnXXFgF/dfKN9PfoqBpP7uaE2scdOxZFB4vE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(7416014)(19092799006)(1800799024)(56012099003)(18002099003)(22082099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Nk0rWXMwQ29KTUc3Nkt3N0k4dHVXMXdCY25CcUhNbFJpRTNyY3F5ZUtkQlB6?=
+ =?utf-8?B?a2hmZmd5cUxwL2xhQVJzczRkd1h3bTdLN1VFY04rUXRYM1R1emMyRExJaFV4?=
+ =?utf-8?B?ZUZ6eEMxRys0cGJ2TU1pNVFTMjJrdzFzK1JKbWhHdVBNL0RXNVZDWHRTZ2Zt?=
+ =?utf-8?B?K1p1YjNqVGxobWppeXhJVnBlbXM0ekJJM2pEU3FXYTRLQURZaWZJVHFsTnNW?=
+ =?utf-8?B?RkNzcDNpYWVrRnh1L2lNWkJXYVdFTS9RZWRrWFdURzFPVExvY0tHZXFKaVNm?=
+ =?utf-8?B?MFIyOU1ubHhBL3llUkc2WFY3MldGSmVXVjIxcHRtN0VJSzQxNUdOVVRxc3hz?=
+ =?utf-8?B?eWF6WmhmaldjbjlDd2VxUVN5UTFncnJmSXNIczJuQnoyTGlMUTdUOUd3Zjc2?=
+ =?utf-8?B?ckJnZXJRZ2RzeHFQcXowNnVpTEhSQWt3MVpFTk9mWURPVnJYRDJFa2Y1cURj?=
+ =?utf-8?B?aGtQVWI5U0l2WXF6VjZQZTZaaGtFZkVxK01rZXNLSCtEQ3dWaWMwU09mK2dX?=
+ =?utf-8?B?N0R3andkemluT1FsQ1JaY2UyaGxuVXQ4NFdLMXhtL2kybDU2eXVrNDdQVkw3?=
+ =?utf-8?B?NWVlR1JWUXF3L3hrTUlLTytxNXNORlBQWGVzbEFFVVB1M0taVm56SEtweHQv?=
+ =?utf-8?B?SDFFOHBZS1JMQzl4Y0piYUhDU0F1SktmbUFGL0dEVGF2WXQ3VkF3ZFJhZDF1?=
+ =?utf-8?B?ZHZCSEIzOVVVNkp5UnFzTDFkYllDQUs1SkNFWnZGNFgvRzFSVmlLWWNrVjc3?=
+ =?utf-8?B?MU91anY4WW5OUE5MNkFCRE9FWk5qWTl5ZFJUUGRmbFlLS2pxMFpDd0NvQmha?=
+ =?utf-8?B?Z2RlNmJPK3UySUxuVW8rMURzdTZZWUdzN0hPY1JVcERBbTJEMHRCbktjMVZl?=
+ =?utf-8?B?Q240OXdtT3VuNWtVTGNhdmM4UUlsQ2JVbFZqd0lJejZxZFNKZ2oyalRvZlB4?=
+ =?utf-8?B?blZKSEtwR3NxbjJUWU45YUtWbXI1SkJVb2wrVkpSZDkyY0NadUhDMkp6QTBX?=
+ =?utf-8?B?R3FmUTVDU1BSaDVwWGUxQ3NqMWNqWjRoTlZ3cWFNRXpodkpjMGVSYUczZVQ3?=
+ =?utf-8?B?cGI3T0R3TXNFQTVLZ2luazl0SExDeWs3YVNWNEFHdVAzakNSeVBWcDVrTk1N?=
+ =?utf-8?B?Q1hFdFNLSnVaQjQ2MDZ0MGpLUmQyc2ZPZHJEclViSDJEdnE1ZjdGd3FGM0xM?=
+ =?utf-8?B?WjE0OEY2ZW9Wa09HYmxTa00xUEF3UDhLY1F1ZzhObUJzMzNOZkZ2UUpNWmNT?=
+ =?utf-8?B?NzFNcW90TEhINVFWcW9WSU1zUlJOS2h2dEJPYTdjWXFqd1NjZ3VnSVhwSVNT?=
+ =?utf-8?B?amtJU3B0RVVad2dGTHhnM3RoN2NoaWFEMXZ5UVBRT1E3VkE5eXQrKzJyLzI1?=
+ =?utf-8?B?bXN3cXFMYVNraHMxWmhNNld5blJoejNhNlFra3JDSEhiRWFSV3BLQzV6bWhF?=
+ =?utf-8?B?RCtNenBIaFlpd3lXblJhd3Y4ZTJBTFU1UmlzUjloWDF2MlpMWjI5bTdZTnpo?=
+ =?utf-8?B?cW96V3AyQXo4M3Bnc3kxL3I0NEZzY0Q2blBNbkRGaElqS3JVWkhvZHdBZFVG?=
+ =?utf-8?B?SHVzbEZkR2VNaENzMWUrbm80S0NCR1BqalhCRWFDWktqZVk4bHZkYi96VWR3?=
+ =?utf-8?B?cnNSWGczaDlhTzlBSUQrTmhjSmlqVE9lMHc3RHRiUWV1eWhDYVdZWVdramxm?=
+ =?utf-8?B?Y0hSRWVCRlNUc3VreFZadllDbnVCcXBjWVZoYU5xR0VXUUY1d0Y5dWRWaVl2?=
+ =?utf-8?B?dlpyMmxFSG9oTk1SVzlxTGtVQzhKYVljaWtIL0JnOEtmdm1OaFpjaG0vSWJI?=
+ =?utf-8?B?b0Vrb2cwSVdZS2pIcnRzZksrWkdqaTRlMTNjc1JQSWt0U1VxMjFuL0E4RHhC?=
+ =?utf-8?B?T0FWWkZBT1hiWFJtTXlacDdTQjY4czI2a3lVWEIxUTNLZzdwUFg2QzhaN2dQ?=
+ =?utf-8?B?TGRhajc1TnhiaVJ6QWxxYmxKNkxjaHpvT01RME1WTnplKzlhWnd1YXBac2tF?=
+ =?utf-8?B?ajNnSm5Vcyt0dWNPQjdQMWdPdmk1M2FNRXNCcHI0Qm01Rkh0ckxoR0hRRFBu?=
+ =?utf-8?B?RTVlMGhhTXFhK0xzbHllOGJqU1dURjQxWmNxd1F1V1pQSHo0b25BVmdJQ3JW?=
+ =?utf-8?B?YjIyM29RMUN4bXpkTmpMaDdnNFZvQVdQck9kN1lnSFFBYUpvQlVKb2J6eE5X?=
+ =?utf-8?B?WGNzNzZPM1Y5YjZkMzVESlNFRGI4VEdEQmxiWlNEMlNwOVNtRUxjQUFOdlUw?=
+ =?utf-8?B?QkEzeWExOXRoQ1VvOU4zdGJ1VlNQTzkzMXVqK3JmdU5NUE9MekFmTXZoNjBF?=
+ =?utf-8?Q?uxfig8j6NXT3GWNrl6?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a7e2c7b0-309c-4163-0200-08dea0552e90
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Apr 2026 09:54:44.8274
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Iw2Qr0V3/HA5MiaAu/E9mi6uYzs/pSptAj476RJ+bNs3FkE4W9FS7UkDrJpikbdXZkwoF0AIMnLdmkEYTPRrUg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7843
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_024920_808793_9D7C1BBA 
-X-CRM114-Status: GOOD (  17.02  )
+X-CRM114-CacheID: sfid-20260422_025450_571307_555D0DF1 
+X-CRM114-Status: GOOD (  22.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,109 +152,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-struct device_driver's mod_name is not set by a number of bus' driver registration
-functions. Without that, built-in drivers don't have the module symlink in sysfs.
-We want this to go from unbound driver name -> module name -> kernel config name.
-This is useful on embedded platforms to minimize kernel config, reduce kernel size,
-and reduce boot time.
+On Tue, Apr 21, 2026 at 03:24:11PM +0800, Jun Guo wrote:
+> Hi Robin,
+>
+> Just pinging. I’d like to ask if you have any comments on the latest patch?
+>
+> On 3/25/2026 7:21 PM, Jun Guo wrote:
+> > Enable DMANSECCTRL.INTREN_ANYCHINTR during probe so channel
+> > interrupts are propagated when integrators wire DMA-350 channels
+> > onto a shared IRQ line.
 
-In order to achieve this, mod_name has to be set to KBUILD_MODNAME, and this has
-to be done for all buses which don't yet do this.
+Your tag is wrong
 
-Here are some treewide stats:
-- 110 registration functions across all bus types
-- 20 of them set mod_name
-- Remaining 90 do not set mod_name:
-    1. 36 functions under pattern 1:
-        They have a __register function + register macro. KBUILD_MODNAME needs to
-        be passed and the function needs to take mod_name as input.
-    2. 42 functions under pattern 2:
-        These have no macro wrapper. They need a double-underscore rename + macro
-        wrapper to make them similar to pattern 1.
-    3. Remaining 12 do not have such a clean registration interface. More analysis
-       is required.
+dmaegine: arm-dma350: enable ANYCH ...
 
-We plan to start with pattern 1, since it's the easiest category of changes.
-Within that, for now we're only sending the platform patch. If we get the go-ahead
-on that, we'll send the remaining ones.
+> >
+> > Signed-off-by: Jun Guo <jun.guo@cixtech.com>
+> > ---
+> >   drivers/dma/arm-dma350.c | 9 +++++++++
+> >   1 file changed, 9 insertions(+)
+> >
+> > diff --git a/drivers/dma/arm-dma350.c b/drivers/dma/arm-dma350.c
+> > index 84220fa83029..09403aca8bb0 100644
+> > --- a/drivers/dma/arm-dma350.c
+> > +++ b/drivers/dma/arm-dma350.c
+> > @@ -13,6 +13,11 @@
+> >   #include "dmaengine.h"
+> >   #include "virt-dma.h"
 
-Patch 3 depends on patches 1 and 2.
+extra empty line between header file and macro
 
-Co-developed-by: Rahul Bukte <rahul.bukte@sony.com>
-Signed-off-by: Rahul Bukte <rahul.bukte@sony.com>
-Signed-off-by: Shashank Balaji <shashank.mahadasyam@sony.com>
----
-Changes in v3:
-- Initialize module_kset on-demand (Greg)
-- Make coresight driver registration happen through a macro (Greg)
-- Split up the patch adding mod_name to platform driver registrations (Greg)
-- Link to v2: https://patch.msgid.link/20260421-acpi_mod_name-v2-0-e73f9310dad3@sony.com
 
-Changes in v2:
-- Drop acpi patch, send platform instead (Rafael)
-- Link to v1: https://patch.msgid.link/20260416-acpi_mod_name-v1-0-1a4d96fd86c9@sony.com
+> > +#define DMANSECCTRL		0x200
+> > +
+> > +#define NSEC_CTRL		0x0c
 
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: Mike Leach <mike.leach@linaro.org>
-To: James Clark <james.clark@linaro.org>
-To: Alexander Shishkin <alexander.shishkin@linux.intel.com>
-To: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-To: Alexandre Torgue <alexandre.torgue@foss.st.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-To: Danilo Krummrich <dakr@kernel.org>
-To: Miguel Ojeda <ojeda@kernel.org>
-To: Boqun Feng <boqun@kernel.org>
-To: Gary Guo <gary@garyguo.net>
-To: Björn Roy Baron <bjorn3_gh@protonmail.com>
-To: Benno Lossin <lossin@kernel.org>
-To: Andreas Hindborg <a.hindborg@kernel.org>
-To: Alice Ryhl <aliceryhl@google.com>
-To: Trevor Gross <tmgross@umich.edu>
-To: Richard Cochran <richardcochran@gmail.com>
-To: Jonathan Corbet <corbet@lwn.net>
-To: Shuah Khan <skhan@linuxfoundation.org>
-Cc: linux-kernel@vger.kernel.org
-Cc: coresight@lists.linaro.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: driver-core@lists.linux.dev
-Cc: rust-for-linux@vger.kernel.org
-Cc: linux-doc@vger.kernel.org
-Cc: Shashank Balaji <shashank.mahadasyam@sony.com>
-Cc: Rahul Bukte <rahul.bukte@sony.com>
-Cc: Daniel Palmer <daniel.palmer@sony.com>
-Cc: Tim Bird <tim.bird@sony.com>
+why need two layer regiser define, your use DMANSECCTRL + NSEC_CTRL，
 
----
-Shashank Balaji (4):
-      kernel: param: initialize module_kset on-demand
-      coresight: pass THIS_MODULE implicitly through a macro
-      driver core: platform: set mod_name in driver registration
-      docs: driver-api: add mod_name argument to __platform_register_drivers()
+why not use one macro for 0x20c
 
- Documentation/driver-api/driver-model/platform.rst |  3 +-
- drivers/base/platform.c                            | 21 +++++++----
- drivers/hwtracing/coresight/coresight-catu.c       |  2 +-
- drivers/hwtracing/coresight/coresight-core.c       |  9 ++---
- drivers/hwtracing/coresight/coresight-cpu-debug.c  |  3 +-
- drivers/hwtracing/coresight/coresight-funnel.c     |  3 +-
- drivers/hwtracing/coresight/coresight-replicator.c |  3 +-
- drivers/hwtracing/coresight/coresight-stm.c        |  2 +-
- drivers/hwtracing/coresight/coresight-tmc-core.c   |  2 +-
- drivers/hwtracing/coresight/coresight-tnoc.c       |  2 +-
- drivers/hwtracing/coresight/coresight-tpdm.c       |  3 +-
- drivers/hwtracing/coresight/coresight-tpiu.c       |  2 +-
- include/linux/coresight.h                          |  7 ++--
- include/linux/platform_device.h                    | 17 ++++-----
- kernel/params.c                                    | 41 +++++++++++++---------
- rust/kernel/platform.rs                            |  4 ++-
- 16 files changed, 72 insertions(+), 52 deletions(-)
----
-base-commit: 6596a02b207886e9e00bb0161c7fd59fea53c081
-change-id: 20260416-acpi_mod_name-f645a76e337b
+Frank
 
-Best regards,
---  
-Shashank Balaji <shashank.mahadasyam@sony.com>
-
+> > +#define INTREN_ANYCHINTR_EN	BIT(0)
+> > +
+> >   #define DMAINFO			0x0f00
+> >   #define DMA_BUILDCFG0		0xb0
+> > @@ -582,6 +587,10 @@ static int d350_probe(struct platform_device *pdev)
+> >   	dmac->dma.device_issue_pending = d350_issue_pending;
+> >   	INIT_LIST_HEAD(&dmac->dma.channels);
+> > +	reg = readl_relaxed(base + DMANSECCTRL + NSEC_CTRL);
+> > +	writel_relaxed(reg | INTREN_ANYCHINTR_EN,
+> > +		       base + DMANSECCTRL + NSEC_CTRL);
+> > +
+> >   	/* Would be nice to have per-channel caps for this... */
+> >   	memset = true;
+> >   	for (int i = 0; i < nchan; i++) {
+>
 
