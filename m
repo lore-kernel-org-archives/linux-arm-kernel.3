@@ -4,83 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2190EFA1FDB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 17:17:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEDD1FA1FD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 17:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w1KAxfG6BFXtsRWghQ1pcNf8ys+JfrNCOwRGJsq7foU=; b=QSRTm59pU3FZ/JXSHvaAeWTvAa
-	t2WV0F1jr9rM+sKZ6yeaCgwdTlf8YWIWV+uVu7QU2tV8mxCBIVBOoeRJbml2LAweBCVzg70YC167J
-	CrsaPWltiicMSH3pdWcSy/ZAxNcUY0OJSliz/xdLFgptF91jq7q1zzyDINGv7NEG7klWqI0m3QXuD
-	AjdmVxqNFkLToOuDI8XeWORS482j54eYa6EdReEfW4RPI4V+/cP1ApMh7hcqdo5Omir0Qjr12uZIQ
-	7Cc2lWK9Ly8zKTzFCEQ9iW7Uh90ZnXmGLA5sr3umXJBuli0fndpbI8UZWnrGy+zNrwS9+5xpLarIc
-	SI0ZHu+A==;
+	bh=Z/Ny6JhGi6zeECQ/2cOlUtsGqQyNjZtaIiZMAq3KW6E=; b=wrYPoC0AV2UrZvH7VOCu1xrfYI
+	943AaKSyEkwBg8w29Qwky3vM27YFdh+CPgthA7pdIcVY5ssgC5nDP124dob7CDzfxBFwPSEKq6M09
+	JfRTiOe+TGFGO2Ft4O9G5TYrPHyFMy+pW1gAitZw3vWd8Uzg4zm6xiikDzRnFNBASO8oGAhmqZThs
+	Y5wquIsiqK8yuhCteoAJOeOYQP5RtbR6Kc0oZq1mnISnGefmLoGob81kBBoZl9zQjJJ+OgObsRiFA
+	uGvi5ViLF45Uh9+fIS6ptOCRLDVfp3kmlYDQSvJvg2io5CtFTukZjVzIHlj9Bo9gUNxEXwPyXyUXP
+	3uEvHqhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFbCp-0000000AYjO-3lQZ;
-	Wed, 22 Apr 2026 17:17:43 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1wFbFP-0000000AZUY-4BMg;
+	Wed, 22 Apr 2026 17:20:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFbCY-0000000AYWv-37Kr
+	id 1wFbFO-0000000AZUS-0xgM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 17:17:29 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-43d77286244so3770068f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 10:17:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1776878244; x=1777483044; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=w1KAxfG6BFXtsRWghQ1pcNf8ys+JfrNCOwRGJsq7foU=;
-        b=Kf/c26sPDI9xaVQqxqW+gg+pfB1MrDEfNJ29DcZ4tyQSV9q0o+42YDGsPTRLYfK6m+
-         CIWpUWC/QXf8ueKzP0aBU9K1EUPf73C92LwJP1DQDsjg2cwF28b6CEuMJssZRP6zua5M
-         jywm2tD1v9a23CHLRhPu8TpIpl64h1eK2I4u+c4NphNQOSjtsmZRaIWX0vTxDHcbevAR
-         FfTvGBuHCPMAW2KrEgsbpw8nrXqlpS/21OxkEjqCQcmYK5G+IRvV1qdfqrJt6HDtppAy
-         nBRPybeD3C/cJ0jvevNrUN9M0x/IX7aVJKpschJZp1uqmVM9N8t/P69SMa0RhNIgTTuV
-         xuDA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776878244; x=1777483044;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=w1KAxfG6BFXtsRWghQ1pcNf8ys+JfrNCOwRGJsq7foU=;
-        b=WIPro6HiV3Ohs0VyHwkaPS2i41y8aDzWBDkgKo4Ha9BOsW3I+sAIya5Wo7uVv+dbRN
-         jpMKj9+po5j4cJ4mYPaghlF6QqMWSCNZfj8fx75quC6HbrbouNEMl4SSjmqdNqRzQT4j
-         IDtXeRFJKCk+gnVMEBdQZU4gvJP1XmcpvaHPUgjwWUcst4MYV5UlJsicPYbleE3nuxD7
-         B3gvWn/aFik/f2qZyvZ5r9dMGlPY3Bh09yYkVEH/dND7tA5rsFRieWvqf0V4n1dYpt9r
-         QMRVGmOUtKUrz3hi0I/y9Asiis7aTLlFc00FWLOToSDnD0c1eiMePu/uv0iTz+kTzodA
-         qXDw==
-X-Gm-Message-State: AOJu0YxBe5NndmTeQZnW3JrIUdkczJXUsbYAHXwfo+MI/YDLzB6G7BuU
-	i6RpxqYsA8rCbE77EO9XjOuANuLFcq+zh8fAZWigqYIZytU/5+xbIbT07d3oQ8NEUCGOIDyhYQS
-	eMUGLNXBPcOwhtdqSUpEOsFYNq+cuMRb+w/y5n8+NYIwMlZAzi1J0+Gg0lyqQrW0pvdxEhBIixH
-	YpfV7KBd+T8RfXK0lmDaVJhvxeu4LpBpvH0s2wiKPboxo0
-X-Received: from wrmy2.prod.google.com ([2002:adf:e6c2:0:b0:43d:780a:6fbd])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:1785:b0:43c:fc5c:a9fe
- with SMTP id ffacd0b85a97d-43fe3dbf4e7mr36040481f8f.20.1776878244159; Wed, 22
- Apr 2026 10:17:24 -0700 (PDT)
-Date: Wed, 22 Apr 2026 19:17:04 +0200
-In-Reply-To: <20260422171655.3437334-10-ardb+git@google.com>
-Mime-Version: 1.0
-References: <20260422171655.3437334-10-ardb+git@google.com>
-X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2395; i=ardb@kernel.org;
- h=from:subject; bh=koeyEC8RTAmtOu/HBUQeDz+lw7UQyz/6JF7WLaYxDho=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIfMl0xQzr0KxmdZfvl+P5DSYP6tiwby57XVLbdaKvFJYd
- TqAx5i7o5SFQYyLQVZMkUVg9t93O09PlKp1niULM4eVCWQIAxenAEwk6Ssjwx2t741yoiGzA79V
- zeB3urdbxE9y8gYlxXWrAoTv+nRN5mRkeGwV3VUkElTDfrf232l2DlXJ7kYRmd57Vp+fq1xdz/a DBwA=
-X-Mailer: git-send-email 2.54.0.rc2.544.gc7ae2d5bb8-goog
-Message-ID: <20260422171655.3437334-18-ardb+git@google.com>
-Subject: [PATCH 8/8] ARM: Remove hacked-up asm/types.h header
-From: Ard Biesheuvel <ardb+git@google.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-crypto@vger.kernel.org, linux-raid@vger.kernel.org, 
-	Ard Biesheuvel <ardb@kernel.org>, Christoph Hellwig <hch@lst.de>, Russell King <linux@armlinux.org.uk>, 
-	Arnd Bergmann <arnd@arndb.de>, Eric Biggers <ebiggers@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_101728_179502_9685AE8D 
-X-CRM114-Status: GOOD (  16.62  )
+	Wed, 22 Apr 2026 17:20:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 56F7860132;
+	Wed, 22 Apr 2026 17:20:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A8EFC2BCB2;
+	Wed, 22 Apr 2026 17:20:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776878421;
+	bh=D4358O16wmyLgUeamrhlg2RP4x61t3u/UfesRcKy8I8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CAF+IVScTCD3pTNviz1AJIPRlteZadkFjuj1vBekRnD/dzDwUNfJcVAN9Bau4ggp/
+	 KjOGvjYRsDeNRSlX4hb6L6xdquiN6wQIYAFiwlPGmcNiTvnmWA05RWwxlx9vNVcghR
+	 /eb+Rsp6p8IMfXYCxenZVPlnD6yCD8y3x6B8E4b/WUJzDKhOiqL+s8QkFYcgU5yHzF
+	 6YLnxv5QakItDAp8iSBgKO+0nE9dSihXPQsYc0HMvhw04DJbBpS1jNNxR2weaoU9zZ
+	 CecvxqC1223RJj2E9bsIoC0IGMdkXXWizB7G7ibTcpjb4mtBuAdq48npD5dcRgUdU5
+	 FH+qQDWTc6p3w==
+Date: Wed, 22 Apr 2026 18:20:16 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Leo Yan <leo.yan@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] kselftest/arm64: Fix build failure with GCC-15
+Message-ID: <8690e67b-3637-45de-8956-e27486470866@sirena.org.uk>
+References: <20260422-selftests_arm64_gcc15-v1-1-0d919ea5ac5f@arm.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="NH2ONQh63iws1FPL"
+Content-Disposition: inline
+In-Reply-To: <20260422-selftests_arm64_gcc15-v1-1-0d919ea5ac5f@arm.com>
+X-Cookie: I'm definitely not in Omaha!
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,71 +73,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ard Biesheuvel <ardb@kernel.org>
 
-ARM has a special version of asm/types.h which contains overrides for
-certain #define's related to the C types used to back C99 types such as
-uint32_t and uintptr_t.
+--NH2ONQh63iws1FPL
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-This is only needed when pulling in system headers such as stdint.h
-during the build, and this only happens when using NEON intrinsics,
-for which there is now a dedicated header file.
+On Wed, Apr 22, 2026 at 06:01:39PM +0100, Leo Yan wrote:
+> Building on Debian sid with GCC 15 fails:
 
-So drop this header entirely, and revert to the asm-generic one.
+> GCC-15 defines NT_ARM_GCS in the toolchain headers, causing gcs-util.h
+> to skip its fallback definition of struct user_gcs. This leads to the
+> compiler error.
 
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
----
- arch/arm/include/uapi/asm/types.h | 41 --------------------
- 1 file changed, 41 deletions(-)
+Are you sure it's GCC and not libc?  Anyway...
 
-diff --git a/arch/arm/include/uapi/asm/types.h b/arch/arm/include/uapi/asm/types.h
-deleted file mode 100644
-index 1a667bc26510..000000000000
---- a/arch/arm/include/uapi/asm/types.h
-+++ /dev/null
-@@ -1,41 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
--#ifndef _UAPI_ASM_TYPES_H
--#define _UAPI_ASM_TYPES_H
--
--#include <asm-generic/int-ll64.h>
--
--/*
-- * The C99 types uintXX_t that are usually defined in 'stdint.h' are not as
-- * unambiguous on ARM as you would expect. For the types below, there is a
-- * difference on ARM between GCC built for bare metal ARM, GCC built for glibc
-- * and the kernel itself, which results in build errors if you try to build with
-- * -ffreestanding and include 'stdint.h' (such as when you include 'arm_neon.h'
-- * in order to use NEON intrinsics)
-- *
-- * As the typedefs for these types in 'stdint.h' are based on builtin defines
-- * supplied by GCC, we can tweak these to align with the kernel's idea of those
-- * types, so 'linux/types.h' and 'stdint.h' can be safely included from the same
-- * source file (provided that -ffreestanding is used).
-- *
-- *                    int32_t         uint32_t               uintptr_t
-- * bare metal GCC     long            unsigned long          unsigned int
-- * glibc GCC          int             unsigned int           unsigned int
-- * kernel             int             unsigned int           unsigned long
-- */
--
--#ifdef __INT32_TYPE__
--#undef __INT32_TYPE__
--#define __INT32_TYPE__		int
--#endif
--
--#ifdef __UINT32_TYPE__
--#undef __UINT32_TYPE__
--#define __UINT32_TYPE__	unsigned int
--#endif
--
--#ifdef __UINTPTR_TYPE__
--#undef __UINTPTR_TYPE__
--#define __UINTPTR_TYPE__	unsigned long
--#endif
--
--#endif /* _UAPI_ASM_TYPES_H */
--- 
-2.54.0.rc1.555.g9c883467ad-goog
+>  tools/testing/selftests/arm64/gcs/libc-gcs.c | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/tools/testing/selftests/arm64/gcs/libc-gcs.c b/tools/testing=
+/selftests/arm64/gcs/libc-gcs.c
+> index 17b2fabfec386e523e788d8bcfcafa553c93bd9b..72e82bfbecc99e34da71d56cf=
+5401c137d6e9a48 100644
+> --- a/tools/testing/selftests/arm64/gcs/libc-gcs.c
+> +++ b/tools/testing/selftests/arm64/gcs/libc-gcs.c
+> @@ -16,6 +16,7 @@
+> =20
+>  #include <asm/hwcap.h>
+>  #include <asm/mman.h>
+> +#include <asm/ptrace.h>
 
+Shouldn't this be in gcs-util.h where the local definition is?
+
+--NH2ONQh63iws1FPL
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnpA08ACgkQJNaLcl1U
+h9AfMwf+LeHbYFk3XVNgKZhX1fgnIL1di317+6P71Duwc1yNNAL9TlLKpirWPaVc
+gIwXDO4vXZL7f5SPwFvX/8RedM+oX2gxbDgrvfWr2eLpff8+idR1B6nC9B5bdH9s
+0rEG3VFJf+gkIPgE7XOUuxkjJWCPALtT5FSdkkQ37kZ1q6+d5yfbzRz+Wt23qu0e
+lTXDVWd9Bzy3aQaDqFg/F1IS4d5jacaAmucqBU+YwYfi1Bmpf5d3aDz0BCoy6Lii
+WHzHzizXro0hqwrcb3wF5Y7Jd5Rwq1d4ElZP9+hlsvs/8JeahxbiMHmLusOHkIrP
+sL+ElLbJB7EDhZu8RZb8LBqji1E4cg==
+=OiBd
+-----END PGP SIGNATURE-----
+
+--NH2ONQh63iws1FPL--
 
