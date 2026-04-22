@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61B65F94CDB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 07:10:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47D70F94CD9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 07:11:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yfXH8NQ1ZpBZnpvilSWV6pku7kNpSxrvSxuhdAohpuY=; b=DCk/6+I0jYPLSu4H3WM6bEZwob
-	/xRJhQwgqP6eDfsmuTC0JjUq5zuTFYe6/YOtGWVCGLYEupqOKtEMDTgzqxhamx05Uw5nBHQV8IO7i
-	SMknIDRdhTKoG49HobCznv064aqzJORIAzWMgj5DTEXJQVJ/u7PwF59jeA07z6NQZGnJtYknfcb9g
-	Z3sZpGUwmlrwAQJ1+CmxMpV2E3tqxLEHThlVMBQvSlmtkLldWdezvMfggiRQ3IWaEJsAcK5sATIhL
-	CNdCCOT7tP5c9dOIA+ZbRtJfeZyWiiUbR7Pmw42CL0jt4Ee0Cxy+k2/p5n7h5SGZPbubUTKz7l/uA
-	yetfyouA==;
+	bh=MrZFxBlM4jDTKYqBEEmVlzWwDmWAd7KaZsOwy3PL05I=; b=QsdJZcx9znykS5g32+4Rx2vkPu
+	Vws4upPAP11/0BONTNWpn47mrnzZpPhD6NnekzxrHwZw10fo3J2putLqO6iRFMYp8gRe5w5ygbk88
+	wNfL8QFRznRwNNKENnToaYeavvhcQBo7QbBI6RhYFErNjDLL2+MbNSVcw2eavFsz46rm2l0Tu3Dcw
+	cRtxWRXRjHhZBVW0oVHGWcyggaRSeeOILeZe2y1wvm/pA1R6EExYrms/pasnCWykGUpxvkYLGA/Al
+	sI3cTVfgOl5a1JASy2rCDFxFS+R6jBJn9esKdOFQFCNCeUh0ihpUXeTsdJfsubSR51U7rvPpfHbD4
+	77CC7buQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFRjE-00000009huz-2KxL;
-	Wed, 22 Apr 2026 07:10:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wFRjf-00000009hyr-3j01;
+	Wed, 22 Apr 2026 07:10:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFRjD-00000009huo-10BZ
+	id 1wFRjc-00000009hyW-1hem
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 07:10:31 +0000
+	Wed, 22 Apr 2026 07:10:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5361A60018;
-	Wed, 22 Apr 2026 07:10:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78075C19425;
-	Wed, 22 Apr 2026 07:10:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D636360018;
+	Wed, 22 Apr 2026 07:10:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35D47C19425;
+	Wed, 22 Apr 2026 07:10:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776841830;
-	bh=KvmZiFZoDwQVe3uf1Ar4i8FckEwLYLs0mfXSzOsjS88=;
+	s=k20201202; t=1776841855;
+	bh=MrZFxBlM4jDTKYqBEEmVlzWwDmWAd7KaZsOwy3PL05I=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tUnwRQJ0eXfclcS0MbVxMPh/mtzCH9rqCF9Qa6j1gaL5mh51IZY8ZLV5mRsHSXNSY
-	 gP+Un7p66fiRWVywu3gbbJp94KnTdnkNRxhLnhnay5a6ew505gsn2MAyQYV3yeHCL6
-	 1SQA+lgc116iQtjJzBPG9UNcfDm+LrdIuRUeKEy7noR9zhGxty1lfDlGt6Z5sHqS5l
-	 wXnJhYiZdyFHhM7kkPTeZYY7B8LnlesEefPlwNCOdJeUkPT4x+pkvLkf3Zjovlnk6r
-	 4YlA8iXJc55PH+sXDM8YzkDOECVL2S8YtAjGZhQ1TdMyYsaoxDSzlAXFJrbldK/kZ9
-	 me8aFI3uywGJQ==
-Date: Wed, 22 Apr 2026 09:10:27 +0200
+	b=UQQ5RD7rkIvYR8OOKyndX9mqAJyFVVurIW0JQ41g4aTfbFLEBRb5ncTG5tXtrVtpU
+	 vk1542hR9izrgz2qOJvRx+H5VGDfGMe0R8/zkyA4BtTLuccRPIlysv7JMKET+WBcGE
+	 AqARNs4vhK61fnol+c+/290QRIvtX9GiMQJKyjytb6E2vDdMRgQbWgDD58SkEw2TO0
+	 Wsrvuu4NLEpOFdrac7Su9LE625xVa1H6d1sExHdU2H9DrYt9H/3VN171xh5xUigpf/
+	 4CP//Qmkg/C4UIycgPljLDkpxGWvHG1J73BFvXQMxnS7to11mIrifcufnDjPFczqQL
+	 fw10zO26hFi7A==
+Date: Wed, 22 Apr 2026 09:10:53 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Stefan =?utf-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
 Cc: Jonathan Corbet <corbet@lwn.net>, 
@@ -54,15 +54,15 @@ Cc: Jonathan Corbet <corbet@lwn.net>,
 	Jiri Slaby <jirislaby@kernel.org>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, soc@lists.linux.dev, 
 	linux-serial@vger.kernel.org
-Subject: Re: [PATCH v5 5/8] ARM: dts: Add an armv7 timer for zx297520v3
-Message-ID: <20260422-zealous-utopian-dinosaur-ca0d5d@quoll>
+Subject: Re: [PATCH v5 7/8] ARM: dts: Declare UARTs on zx297520v3 boards
+Message-ID: <20260422-vigorous-beautiful-peacock-4ac41b@quoll>
 References: <20260421-send-v5-0-ace038e63515@gmail.com>
- <20260421-send-v5-5-ace038e63515@gmail.com>
+ <20260421-send-v5-7-ace038e63515@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20260421-send-v5-5-ace038e63515@gmail.com>
+In-Reply-To: <20260421-send-v5-7-ace038e63515@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,22 +77,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 21, 2026 at 11:23:13PM +0300, Stefan D=C3=B6singer wrote:
-> The stock kernel does not use this timer, but it seems to work fine. The
-> board has other board-specific timers that would need a driver and I see
-> no reason to bother with them since the arm standard timer works.
->=20
-> The caveat is the non-standard GIC setup needed to handle the timer's
-> level-low PPI. This is the responsibility of the boot loader and
-> documented in Documentation/arch/arm/zte/zx297520v3.rst.
->=20
+On Tue, Apr 21, 2026 at 11:23:15PM +0300, Stefan D=C3=B6singer wrote:
 > Signed-off-by: Stefan D=C3=B6singer <stefandoesinger@gmail.com>
+>=20
 > ---
->  arch/arm/boot/dts/zte/zx297520v3.dtsi | 24 ++++++++++++++++++++++++
+>=20
 
-This must be squashed. You add new SoC - that's one commit. One logical
-change. Adding "not working SoC" and then "let's fix it" are not two
-separate tasks.
+Same comments about subject and squashing. This cannot be a separate
+commit.
 
 Best regards,
 Krzysztof
