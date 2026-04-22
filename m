@@ -4,78 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB71EF55811
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 11:27:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 188D2F9B61D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 11:31:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9IG4kCkFVGuUvyfa6r1XBiFFXLt+Nuwnabk6byE9VGM=; b=JEOyh3JlTrf+KqgGl5RBPEpQyB
-	a3WvVucPmAEY7I3pGGTgfDn1Pz++FcfsLF8PSPM13ktLo+zeV2Y4vn1fjfZtyG/A4CcQ6XfQUyvs1
-	irhXvDE7wTr36MbPkzf+M72S8xc3m0xQE9Z3iygUWqJSDa939SlktimZWDsYVNhOMGLbff/Hobwlk
-	QrfZ2e32gJF/potOnFVdstSldT2FYV1LWA2fIhl8rHgkXxCTdbL5evI0nyINlPZDHIIATYJMYn5jC
-	hdsdDU/bI768IcdyjiikEoGYzMZu3yD3IJK0ac7mfDqkDqCYRp2JUAY5Tekv4RcFBQhXZFclgJ+rU
-	hc8nGXMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HNP7/Ly2fmpYkbHHqHZ+20Ii3h9E4ykECwdUZjI26UQ=; b=TSCE9dHtrYOng8rwFSI94KKxjg
+	OMRATO30aoZmFNBKL2WTPcrOpiayFvH3AxphNGX47kxRm9KcNKaMRXNwLCH/oOH1Z/pohuQPcP9e/
+	f6OKeCMMA3Xzzd5lvAecI3JltH6PzCjoxhNtTgQ2KHNUcFowBYzvJHVOPyNfzXOIuhkbTyvG2Eicr
+	HfWkt1UPrSt0qpC8FWAdUuBgdf5XJa0yGsi28WtR+dH2X0URcXOs/tBfb43EX+xe26guVcX/HfkH1
+	EUHZElxFDDFMXkA1s4E1tK2qHu29fYDODJlCJyckM3FMvxWlhrzpKZRzxMwvFojG20uykr1kb7Cpi
+	4b+7Uq8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFVk4-00000009ziu-14Vb;
-	Wed, 22 Apr 2026 11:27:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wFVnD-00000009zvs-3Q9x;
+	Wed, 22 Apr 2026 11:30:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFVk1-00000009ziZ-2DVc
+	id 1wFVnC-00000009zvm-1Sg9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 11:27:38 +0000
+	Wed, 22 Apr 2026 11:30:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BBD6743A4A;
-	Wed, 22 Apr 2026 11:27:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F691C19425;
-	Wed, 22 Apr 2026 11:27:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1776857256;
-	bh=I3A5vzKKmr/BUI6ycsaCFjVHGYLX/XgpV0LIBxr//m8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YfLDCdPfbKxE9Xc7LpMa2DM5pnZjmOevyPXZFaZE0gSZTKcZeYWXJXrdiDo8T9uJ6
-	 Ab7ip7yS9aOhyVUAZMxhCMdqkjM18P8PA9zl3FSei8FD5Gc5TMPib7dy46S7SbXU0N
-	 aM2gizjEpmMUr5XS49klkkfNwWulksbEsHVHpbsU=
-Date: Wed, 22 Apr 2026 13:27:34 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Shashank Balaji <shashank.mahadasyam@sony.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
-	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Rahul Bukte <rahul.bukte@sony.com>, linux-kernel@vger.kernel.org,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	driver-core@lists.linux.dev, rust-for-linux@vger.kernel.org,
-	linux-doc@vger.kernel.org, Daniel Palmer <daniel.palmer@sony.com>,
-	Tim Bird <tim.bird@sony.com>
-Subject: Re: [PATCH v3 4/4] docs: driver-api: add mod_name argument to
- __platform_register_drivers()
-Message-ID: <2026042214-awaken-slouchy-4903@gregkh>
-References: <20260422-acpi_mod_name-v3-0-a184eff9ff6f@sony.com>
- <20260422-acpi_mod_name-v3-4-a184eff9ff6f@sony.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260422-acpi_mod_name-v3-4-a184eff9ff6f@sony.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_042737_905389_E537FF7E 
-X-CRM114-Status: UNSURE (   8.82  )
-X-CRM114-Notice: Please train this message.
+	by tor.source.kernel.org (Postfix) with ESMTP id 80FBA6001A;
+	Wed, 22 Apr 2026 11:30:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B173BC19425;
+	Wed, 22 Apr 2026 11:30:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776857453;
+	bh=HNP7/Ly2fmpYkbHHqHZ+20Ii3h9E4ykECwdUZjI26UQ=;
+	h=Date:Subject:Cc:To:From:References:In-Reply-To:From;
+	b=FaYqL1YlDhE1HYa/LcbcDJ8V7tVVrSHb7V1o4IoHNll4KRUQ8H+M25mss1toKLIdW
+	 OR3y0d9Qf8lk2QMWsX++1jl3Sxa5mfL82rHLfpC5eanFr9xHTgy7WwSgOLyGt2Nhp2
+	 1EGpDUazMCn7F/u9n+FvUerpJJGa7LP1/HjgnMGX83syMgqD9D24gOyvQRe/Vfm7uK
+	 H4KiJgUU8v4XRp6RCwlvyEolSzUDk0ax/C7biCu3EbT3p5fqEy2D8fgRg90Bd9uELF
+	 slZhs258Q8kiLCP4wtbhut5X68vrk4CBixxNKpMQ43ldaVtEMQlmm5vXJlQADzEtD4
+	 aw9ymdu6p91vA==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 22 Apr 2026 13:30:47 +0200
+Message-Id: <DHZNEABUEFY3.19CX7BFMMTBKT@kernel.org>
+Subject: Re: [PATCH v2 2/9] driver core: Add dev_set_drv_queue_sync_state()
+Cc: "Saravana Kannan" <saravanak@kernel.org>, "Rafael J . Wysocki"
+ <rafael@kernel.org>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ <linux-pm@vger.kernel.org>, "Sudeep Holla" <sudeep.holla@kernel.org>,
+ "Cristian Marussi" <cristian.marussi@arm.com>, "Kevin Hilman"
+ <khilman@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Marek
+ Szyprowski" <m.szyprowski@samsung.com>, "Bjorn Andersson"
+ <andersson@kernel.org>, "Abel Vesa" <abel.vesa@oss.qualcomm.com>, "Peng
+ Fan" <peng.fan@oss.nxp.com>, "Tomi Valkeinen"
+ <tomi.valkeinen@ideasonboard.com>, "Maulik Shah"
+ <maulik.shah@oss.qualcomm.com>, "Konrad Dybcio" <konradybcio@kernel.org>,
+ "Thierry Reding" <thierry.reding@gmail.com>, "Jonathan Hunter"
+ <jonathanh@nvidia.com>, "Geert Uytterhoeven" <geert@linux-m68k.org>,
+ "Dmitry Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ "Geert Uytterhoeven" <geert+renesas@glider.be>,
+ <driver-core@lists.linux.dev>
+To: "Ulf Hansson" <ulf.hansson@linaro.org>
+From: "Danilo Krummrich" <dakr@kernel.org>
+References: <20260410104058.83748-1-ulf.hansson@linaro.org>
+ <20260410104058.83748-3-ulf.hansson@linaro.org>
+ <DHW8QV8K3CM1.307C6PW2BM5RN@kernel.org>
+ <CAPDyKFpeSv+fg=YKJE_qc=Q5BfiJFn0tR7Ar8SncqrD0UW1P1g@mail.gmail.com>
+In-Reply-To: <CAPDyKFpeSv+fg=YKJE_qc=Q5BfiJFn0tR7Ar8SncqrD0UW1P1g@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,18 +85,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 22, 2026 at 06:49:06PM +0900, Shashank Balaji wrote:
-> Co-developed-by: Rahul Bukte <rahul.bukte@sony.com>
-> Signed-off-by: Rahul Bukte <rahul.bukte@sony.com>
-> Signed-off-by: Shashank Balaji <shashank.mahadasyam@sony.com>
-> ---
->  Documentation/driver-api/driver-model/platform.rst | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
+On Wed Apr 22, 2026 at 12:25 PM CEST, Ulf Hansson wrote:
+> Most of the static inline functions in device.h lacks documentation.
+> Are you suggesting that we should move towards documenting all of
+> them?
 
-For obvious reasons we can't take patches without any changelog text at
-all (and neither should you want us to...)
+I'd prefer that, yes. After all, if they are defined in device.h, they are
+public APIs, so they should ideally have documentation.
 
-thanks,
-
-greg k-h
+(If a function is only used throughout the driver core, it should be in
+drivers/base/base.h instead.)
 
