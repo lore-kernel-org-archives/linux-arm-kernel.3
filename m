@@ -4,114 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA069F94CDB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 07:32:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D37B4F94CDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 08:07:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SG3U5Kc9NnIbl1SNYavcCahtb0w4f/92raszKTt9OvQ=; b=uie7Kgh873rg/ZX5PpDTuQKia2
-	tmQ5zyphZIP9mcxkorQNUVcrdgD2A71u4qcVz3YKEVulNbuOVF0/dAwvt5hlUKD/SAhsMDMFfhSG/
-	FnLtmbIAJVWtKWUcCJsRY5qVs0ghwfT/XcAYHNCiZt0J+W5g9Prv0RiUI5LUfeFRDFmZO948z/Cc+
-	6OWZN3xDa0K5bDmr13gCMUEKiVSIF5ibxsNgN3Ecfm+/2lbsTBo+QlKbJFe73KLqx8Rvuu0hjH5ef
-	gEWe553IwHGAGUku2WBN1qmr+U5KytUcqOZwqCaX+xjKYIl7M19E+yJXxx+GPnTGcHsXvKxN1DLit
-	4BmL54XQ==;
+	bh=+xnVaF+973Zb7xN4UvEz+8ZuM5TVrO0nSR9bASc5gWw=; b=DJNYTTppcl6ZwFWqXnXmFVWGVy
+	3Kcpbki0tjIPq8kPaPBrD//TlOCDfXhn2ZwOOVX1oAr19cNai5wJ0Ua2ftx8dWT2e27vhJojlejHT
+	uCvgJ0wznKB+Dq/vA/qKHIoNppYQDQv988NNhRrjd6rCHREGrCqc20aMjyCFq4LOL64pIpoZfpWWI
+	L2gTuVUOsCjQw/1xYHupczdKxBcTTWZBZxM1liEkTJGCYXiTeN6GGMnRo67GBdc0tYJiyiYeHVi9R
+	Ny4nzqlcZTnyE/u8tKEL8obrqoncD4pxTSg4RKmgEzEp9QA9M0IHRdHLp9zXIrsf+0l5iChzO/o8h
+	n4e+Uo7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFS4s-00000009jOM-1ha6;
-	Wed, 22 Apr 2026 07:32:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wFSbz-00000009kwi-0WJQ;
+	Wed, 22 Apr 2026 08:07:07 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFS4p-00000009jNc-3eq7
+	id 1wFSbw-00000009kw4-0toN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 07:32:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1BEF74401A;
-	Wed, 22 Apr 2026 07:32:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE5DFC19425;
-	Wed, 22 Apr 2026 07:32:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776843171;
-	bh=tmYp3b+r6xGGwWY4X9h42ZuE85+tMVe7ly8mid2UHH8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UWn5Lipxf+Sc1LCZpRjv0NROKKlwHt4nvhn6Jbh3rpy+EjEImQpTWKcw4prS4+SfI
-	 /ShG9UPAJu6u1N7JAsS7Y3YjJERZ7bT/uFcp+5rA3pGXfO4+rBoiJvSl4OBsHNfINk
-	 OSOirgRW4F6GVQYKkNTxwZbhZzG3W8uR+wkBsJ2UR7KeGT34fe4Uncqg8+LTOXXuK0
-	 iVzDTXC37AbkRlxsXuXQCRyQMCSSIEeUo74D43jkEY7rR+Q9oOrCvYO9j2ETn+i/gZ
-	 Y/i5NoODH8hLdiT6+2JEfX+Q1KV+I28bq3uh676yDdct4zQeyU3wGGmtI+hKX1aU+c
-	 Q7UDCrUTZn9lA==
-Message-ID: <51c8ef87-761e-4357-a99d-e5d60cf77ca1@kernel.org>
-Date: Wed, 22 Apr 2026 09:32:43 +0200
+	Wed, 22 Apr 2026 08:07:05 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-b9d9971d059so758807666b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 01:07:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1776845221; x=1777450021; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+xnVaF+973Zb7xN4UvEz+8ZuM5TVrO0nSR9bASc5gWw=;
+        b=MKdRvEdfshgF+9y7Ug/XXH2l0podCeVyOaj7ly0L3f1rmqLlOkXBCotKQcq4AChuZj
+         FzEnB6Clz0UtARTRfGLM3UlxzaDlq+rQXW+LnEwz5H/PVYYcRxhS+sUf9M/9GiYHLA+i
+         L1XFKSD+2I1b4FOQSqBrYqkTw+e+ADO/zWId8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776845221; x=1777450021;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=+xnVaF+973Zb7xN4UvEz+8ZuM5TVrO0nSR9bASc5gWw=;
+        b=q4VqEdTqXCQFFQ/J9zR8CXZlbeCnwvXwLwDaJBDx1xkWDqyjggZOPHUr9AWq8BIwin
+         JEJ0mvbGbbwn6zWhMvuC30Gz873GvB3O/rNZFmoxfSZ6sBUe0GDK8lgq7DbqXeyz7A+l
+         uZVwcPmVdc5GstJIhc2UnmTPov3ikTe37rsBObbVl+xxRpKEZiA3nzOIPedLErEDQr78
+         ryt72TaV8lZFrDMWB9vWCkzEtEPoCUeRF0+dBNM8S3W+U/9T/BAKAo7UmjOoBW2KUYnJ
+         5XU2NZlFMko72hZOaota5sTxg8axqwszK1JeQaB3kC2li+aWWblCsRVTHLYVsKBVh2O5
+         KKQw==
+X-Gm-Message-State: AOJu0YzRKtCnMu2QriaSdfZV1eMpK0F/iChiN/Hd+0ubQtXod8qB0FwF
+	azRrscsME3HEmevCYe2yxMtj6k2V+rb/dISdZU9YIx7Ei1YoOIbTrBpxUg8+SwgF/vJCsjbgPBN
+	1dOccMw==
+X-Gm-Gg: AeBDievepII4Bx2LMk+9CGHKb0xWgwnNIEZnpc4Gssl3AHnnXiAQzJKkT2tplhUAQX2
+	BKj1bTOa1Pf+sy5n82pvpnRKMev8mEwLfrPUM+OKZjgMO9YdCQOX+XsYf0frknmRJ/MtJ60Lo/b
+	2UzJA5veaoQF5mDidaXye7IT3qguawkVWlFBzi4utDeFYlmFX6QL55DO3APG13RdU5LaAHzF/bX
+	QLa9BvHzPD2ldXRAaAw+CR6fLyiLdR5JCgxSXs476lyphQo1b3fADO7UEOeERgErjx7mmr5Xetr
+	BxT2QsgnVvtMsQED58/Q4aKu5lb5VeyGbgZ+Dh2fhEDWRqjx37Tq1F0bNDtmC8PWRdTXHRzqiNG
+	CxJCFQjSXrddpoxrL6scHwHjhANGI0RMRigRFyZHlnGgbmD9vibc+bwoYM/S9X3UgBcHbCFx5Eb
+	sre+jb8E/kAzoH+3086mOX2H4J0D6NUxCfbK4CrPAPhRNYS7wGRFjrrFruGCyolu/mdYoI1jk=
+X-Received: by 2002:a17:906:fe4d:b0:b9b:5164:905c with SMTP id a640c23a62f3a-ba4188857d3mr1076776266b.14.1776845221344;
+        Wed, 22 Apr 2026 01:07:01 -0700 (PDT)
+Received: from mail-ej1-f44.google.com (mail-ej1-f44.google.com. [209.85.218.44])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ba454d1bbb1sm510203566b.38.2026.04.22.01.07.00
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 22 Apr 2026 01:07:01 -0700 (PDT)
+Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-ba36357195bso604807666b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 01:07:00 -0700 (PDT)
+X-Received: by 2002:a17:906:4fc5:b0:b9b:ddb2:b1c1 with SMTP id
+ a640c23a62f3a-ba418f7f625mr936456766b.21.1776845219289; Wed, 22 Apr 2026
+ 01:06:59 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] mm/page_alloc: fix initialization of tags of the huge
- zero folio with init_on_free
-To: linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Brendan Jackman <jackmanb@google.com>, Johannes Weiner <hannes@cmpxchg.org>,
- Zi Yan <ziy@nvidia.com>, Lance Yang <lance.yang@linux.dev>,
- Ryan Roberts <ryan.roberts@arm.com>, Mark Brown <broonie@kernel.org>,
- Dev Jain <dev.jain@arm.com>, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, stable@vger.kernel.org
-References: <20260421-zerotags-v2-1-05cb1035482e@kernel.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260421-zerotags-v2-1-05cb1035482e@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <CANiDSCsOy0P1if-gJZqOM5pTJ0RDcwVfru1B7KFbTOEMqjPKJw@mail.gmail.com>
+ <20260422071541-9a295128-d913-418f-a21c-1386fca30290@linutronix.de>
+ <CANiDSCviww1L1p2+MvF59Biqb6hc7WdL1J37kBjFd1NXz-Yt8A@mail.gmail.com> <20260422092713-4021a1a5-3a54-4260-878a-aec1bef3f8c7@linutronix.de>
+In-Reply-To: <20260422092713-4021a1a5-3a54-4260-878a-aec1bef3f8c7@linutronix.de>
+From: Ricardo Ribalda <ribalda@chromium.org>
+Date: Wed, 22 Apr 2026 16:06:45 +0800
+X-Gmail-Original-Message-ID: <CANiDSCtfiPDiqzhjZGoCJbLC0fRoH1HLKrvYUt7jLDYEBQHqgg@mail.gmail.com>
+X-Gm-Features: AQROBzA7vfrwO2plpLpwVGaJQHR2MKiQUcm7cyVmWYAcKsQQIyoUjhDJYfCBMLg
+Message-ID: <CANiDSCtfiPDiqzhjZGoCJbLC0fRoH1HLKrvYUt7jLDYEBQHqgg@mail.gmail.com>
+Subject: Re: New warning in linus/master
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linuxppc-dev@lists.ozlabs.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_003251_959638_B853DAEE 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20260422_010704_465881_4FF1661D 
+X-CRM114-Status: GOOD (  33.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,30 +105,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Thomas
 
->  }
-> diff --git a/include/linux/gfp_types.h b/include/linux/gfp_types.h
-> index 6c75df30a281..d79049291b1a 100644
-> --- a/include/linux/gfp_types.h
-> +++ b/include/linux/gfp_types.h
-> @@ -273,11 +273,11 @@ enum {
->   *
->   * %__GFP_ZERO returns a zeroed page on success.
->   *
-> - * %__GFP_ZEROTAGS zeroes memory tags at allocation time if the memory itself
-> - * is being zeroed (either via __GFP_ZERO or via init_on_alloc, provided that
-> - * __GFP_SKIP_ZERO is not set). This flag is intended for optimization: setting
-> - * memory tags at the same time as zeroing memory has minimal additional
-> - * performance impact.
-> + * %__GFP_ZEROTAGS zeroes memory tags at allocation time. Setting memory tags at
-> + * the same time as zeroing memory (e.g., with __GPF_ZERO) has minimal
+On Wed, 22 Apr 2026 at 15:32, Thomas Wei=C3=9Fschuh
+<thomas.weissschuh@linutronix.de> wrote:
+>
+> On Wed, Apr 22, 2026 at 03:00:11PM +0800, Ricardo Ribalda wrote:
+> > On Wed, 22 Apr 2026 at 13:57, Thomas Wei=C3=9Fschuh
+> > <thomas.weissschuh@linutronix.de> wrote:
+> > > On Wed, Apr 22, 2026 at 11:51:45AM +0800, Ricardo Ribalda wrote:
+> > > > Media-CI has found a couple of new warnings in the latest kernel
+> > > > version for aarch64 and powerpc. They get fixed with this patch and
+> > > > before moving I wanted to know if this was under your radar.
+> > >
+> > > Thanks for the report. I was not aware of these so far.
+> > >
+> > > > diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vd=
+so/Makefile
+> > > > index 7dec05dd33b7..65914842fae0 100644
+> > > > --- a/arch/arm64/kernel/vdso/Makefile
+> > > > +++ b/arch/arm64/kernel/vdso/Makefile
+> > > > @@ -50,7 +50,7 @@ CFLAGS_vgettimeofday.o =3D $(CC_FLAGS_ADD_VDSO)
+> > > >  CFLAGS_vgetrandom.o =3D $(CC_FLAGS_ADD_VDSO)
+> > > >
+> > > >  ifneq ($(c-gettimeofday-y),)
+> > > > -  CFLAGS_vgettimeofday.o +=3D -include $(c-gettimeofday-y)
+> > > > +  CFLAGS_vgettimeofday.o +=3D -include $(c-gettimeofday-y)
+> > > > -Wno-maybe-uninitialized
+> > > >  endif
+> > >
+> > > (...)
+> > >
+> > > I'd like to know exactly what is going on before suppressing the warn=
+ing.
+> > > It is a non-standard warning, only enabled by *some* of the vDSO buil=
+ds
+> > > for some reason.
+> > >
+> > > > https://gitlab.freedesktop.org/linux-media/users/ribalda/-/pipeline=
+s/1649144/test_report?job_name=3Dcross-gcc
+> > >
+> > > While I was able to download a configuration from this job and also u=
+se the
+> > > same container image, I can not reproduce the issue. Is the configura=
+tion the
+> > > full one or only the template?
+> > >
+> > > Could you provide full reproduction steps?
+> >
+> > You can try repro with:
+> >
+> > work/linux $ podman run -v .:/workdir/ --rm -it
+> > registry.freedesktop.org/linux-media/media-ci/build:latest
+> > $ cd /workdir
+> > $ CROSS_COMPILE=3Daarch64-linux-gnu- ARCH=3Darm64 make allyesconfig
+> > $ CROSS_COMPILE=3Daarch64-linux-gnu- ARCH=3Darm64 make
+> > arch/arm64/kernel/vdso/vgettimeofday.o
+> >
+> > The gcc version discrepancy is because I the error was due to old gcc
+> > version and I was playing around with that... but it fails in both
+> > gcc14 and gcc15
+>
+> Ack.
+>
+> > You can try with debian testing with
+> > work/linux$ podman run -v .:/workdir/ --rm -it debian:testing
+> > $ apt-get update
+> > $ apt-get install gcc-aarch64-linux-gnu build-essential flex bison libs=
+sl-dev bc
+> > $ cd /workdir
+> > $ CROSS_COMPILE=3Daarch64-linux-gnu- ARCH=3Darm64 make allyesconfig
+> > $ CROSS_COMPILE=3Daarch64-linux-gnu- ARCH=3Darm64 make
+> > arch/arm64/kernel/vdso/vgettimeofday.o
+>
+> Both reproducers do *not* reproduce the issue for me.
+> (It is more or less exactly what I tried before)
 
-As pointed out by AI review s/__GPF_ZERO/__GFP_ZERO/.
 
-I assume this can be fixed up when applying.
+Ok, I think I found what is going on. media-ci was forcing
+KCFLAGS=3D-Wmaybe-uninitialized
 
--- 
-Cheers,
+https://gitlab.freedesktop.org/linux-media/media-ci/-/blob/main/test-build.=
+sh?ref_type=3Dheads#L29
 
-David
+And something has changed in the kernel in the last version that
+triggers a (hopefully) false positive.
+
+can you try with:
+
+CROSS_COMPILE=3Daarch64-linux-gnu- ARCH=3Darm64 make
+KCFLAGS=3D-Wmaybe-uninitialized  allyesconfig
+CROSS_COMPILE=3Daarch64-linux-gnu- ARCH=3Darm64 make
+KCFLAGS=3D-Wmaybe-uninitialized  prepare
+
+?
+
+
+>
+> Please note that this line does not work in general:
+> $ CROSS_COMPILE=3Daarch64-linux-gnu- ARCH=3Darm64 make arch/arm64/kernel/=
+vdso/vgettimeofday.o
+>
+> The vDSO object files can not be built in this way like regular kernel ob=
+ject
+> files and will produce a compiler error, but not the one under discussion=
+.
+> Instead the vDSO on arm64 is built during the 'make prepare' phase.
+> (Other architectures work differently, of course...)
+>
+> (...)
+>
+>
+> Thomas
+
+
+
+--=20
+Ricardo Ribalda
 
