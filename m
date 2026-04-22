@@ -4,117 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A8CFF9EDC4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 12:56:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0856AF9EDC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Apr 2026 12:56:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bUS/NAvAtcvm3aAvzJt3Gtmk4a4KKzsNe+7I4xqFKGU=; b=itVmwTYLheUtFJb7LnYO7UuJKB
-	Yigq0AH2nj4hxUo1amkcL2VLwU5vdH5VE9ZPzbnSzGM0Mq8Act2l/dmaY9CAn5PimTm9EKb7giWpQ
-	boVXjZG3BE3M1Wam4rxvxE1Ut0MW6V/VpdR/1dIu6rCyn+AFelReNxsOB53vnfPdOK712xAwqgAey
-	q0UTRgyicbWzaqTtJJeba00Y4cLi4M756GYkENGvISkMA4IEpcPf0dpmcsIk2Kyvs81ZpIOBQz/EV
-	44UxtCXkEgXXg5KntFjcVpUpmOgaZt/K6ccgBFc3+ztS+b5h0YAF4pxHkPBWh8uLMsZDij9yws97R
-	f6ccbyaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bZJYejPinbwg2dgZwGQp878b4bBUZhrcDpVoZap6PBA=; b=pY84NSosNHAuZfNfkqU9vcqNNq
+	/MkBPEXkDbhdtidtHQoXmx+L/0WVcn2Tb3/atQ4wp58zyppUQUVHCu7RmCXJvQ8LWGJ6SR1mbIRXh
+	7C5sRn1E88gdlg5aLMWGmVabLJRDtrPd8Q8irLN+MZDi0uxwDD8nIl+tvgcnyn26iSV6IvA1V/zDM
+	vWS07hREEhqHF+pPO+jIPVcyEmBqbyxbasZ3zWI1inye4o5m0nSGGMjBzp3P0Ps9shbfquttgUwk/
+	iLH11sp50yn0bdtNwZBeENeX9AaLhOXTns7hYGXFnqy8RpD00IzJ6KEd7TYxB3Z+XTq5pSarYZZmQ
+	+EbMnrzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFX8I-0000000AFSr-0zPA;
-	Wed, 22 Apr 2026 12:56:46 +0000
+	id 1wFX8Q-0000000AFUW-2KCb;
+	Wed, 22 Apr 2026 12:56:54 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFX8G-0000000AFSh-2DG0
+	id 1wFX8P-0000000AFTu-20CD
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 22 Apr 2026 12:56:44 +0000
+	Wed, 22 Apr 2026 12:56:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=bUS/NAvAtcvm3aAvzJt3Gtmk4a4KKzsNe+7I4xqFKGU=; b=bV2hk+ZioHDawHhg/mlZoxjY8W
-	Ns6dnocckjGajZ4jECQiQpQqwWPcsLP77DQ2hB4xivsoASpN+bgKOGvivS96n89aNEO+Y+jiBoJl9
-	75297u3vIqzPy5uEF06xTfVTP1Pd8LRAu7/OCUb7+7PLM8eicTiLefTWqrOmrk5oQNotE5d7ZxX1U
-	fTadBtPQ+MuhG2uL/wTKjAFCZ+6zpy1RchNua6KR0P2NitCoh/pSJChjy+uLhG64Bvf9aW6MGcX1k
-	K6xgC/z1RQQ8BJ5FMomMHnDeCLrjnk54OCjRwX7udzhbzyGrUwkmj/FY+lA2djhdTFql905fDGhSk
-	tdsYEWrg==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFX89-0000000BPg0-3xne
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Apr 2026 12:56:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1776862588;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bUS/NAvAtcvm3aAvzJt3Gtmk4a4KKzsNe+7I4xqFKGU=;
-	b=AhYpFsXK5Aft60Rej9LiJ3ibTGp+0lARt8ny4PMpoQlh0wgJiBdnEWXjDoz5Es2FlwPiva
-	i7A8C4+gN5CBjmzVz1A8HPjTJdGrTT56afri6+raUegbIFwmjsrJ68UX8sc0EAo8zqVkg9
-	HHgzEcHl2xC2kgP2GOLTfi5UqkseeCI=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1776862597;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bUS/NAvAtcvm3aAvzJt3Gtmk4a4KKzsNe+7I4xqFKGU=;
-	b=IWRSyVeJX+bPakSwA6rD9v7Ug0nffhzKHn4CIczstbvQklaogi3cNE3rna6/erJREGhS/x
-	ES5CGHUo8ogfIcDeaflvzDhl2mfwuy3R9phCmuJ6vxhTL9/K/jjbWhgv1Z0MlbWcOIfd9w
-	otHCFGT/5MWZBdBmn3/cwlCyvQfQR4E=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-377-LID39KPIOuWodVAVWaZhTw-1; Wed,
- 22 Apr 2026 08:56:24 -0400
-X-MC-Unique: LID39KPIOuWodVAVWaZhTw-1
-X-Mimecast-MFC-AGG-ID: LID39KPIOuWodVAVWaZhTw_1776862582
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A38B319560AF;
-	Wed, 22 Apr 2026 12:56:20 +0000 (UTC)
-Received: from fweimer-oldenburg.csb.redhat.com (unknown [10.44.49.45])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B15961956095;
-	Wed, 22 Apr 2026 12:56:12 +0000 (UTC)
-From: Florian Weimer <fweimer@redhat.com>
-To: =?utf-8?Q?Andr=C3=A9?= Almeida <andrealmeid@igalia.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
- <will@kernel.org>,  Thomas Gleixner <tglx@kernel.org>,  Mark Rutland
- <mark.rutland@arm.com>,  Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>,  Sebastian Andrzej Siewior
- <bigeasy@linutronix.de>,  Carlos O'Donell <carlos@redhat.com>,  Peter
- Zijlstra <peterz@infradead.org>,  Rich Felker <dalias@aerifal.cx>,
-  Torvald Riegel <triegel@redhat.com>,  Darren Hart <dvhart@infradead.org>,
-  Ingo Molnar <mingo@kernel.org>,  Davidlohr Bueso <dave@stgolabs.net>,
-  Arnd Bergmann <arnd@arndb.de>,  "Liam R . Howlett"
- <Liam.Howlett@oracle.com>,  Uros Bizjak <ubizjak@gmail.com>,  Thomas
- =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>,
-  linux-arm-kernel@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  linux-arch@vger.kernel.org,
-  kernel-dev@igalia.com
-Subject: Re: [PATCH RFC 1/2] arm64: vdso: Prepare for robust futex unlock
- support
-In-Reply-To: <32642d18-8c83-47ad-8456-1813084c4622@igalia.com>
- (=?utf-8?Q?=22Andr=C3=A9?=
-	Almeida"'s message of "Wed, 22 Apr 2026 09:46:53 -0300")
-References: <20260417-tonyk-robust_arm-v1-0-03aa64e2ff1a@igalia.com>
-	<20260417-tonyk-robust_arm-v1-1-03aa64e2ff1a@igalia.com>
-	<lhu1pgd8w0f.fsf@oldenburg.str.redhat.com>
-	<32642d18-8c83-47ad-8456-1813084c4622@igalia.com>
-Date: Wed, 22 Apr 2026 14:56:09 +0200
-Message-ID: <lhuv7djb1cm.fsf@oldenburg.str.redhat.com>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=bZJYejPinbwg2dgZwGQp878b4bBUZhrcDpVoZap6PBA=; b=e6/liRiAZhw/qeNrxn/I70F0hZ
+	Vf61kP1Ugbq/deh03FjHdUTeOuzaXRUvK9G/4GyBzJyG/R3P/O3BaWLVh833nqNQVQz8aO3AB5Z6e
+	9YYG9F5UNL0Wno7rVQq+S7k3nmq3vFkJsDLZ0zslfPgLdq0rVkRnY1dzfqd3dNlV9bB0no05hjt+A
+	ax7a8uh61rMUI+6JAK5IKxSP/YtSt4Ya/FA91gw0nURDbva+mbzDK8KPB1CBomGDLtBwwxlK+tr8R
+	Al7wJeGc7kv3ETE7JmM4UqbN0GakpY7k5F7EEzGoxRbH/AvZI/9G7HOJW68rZa5w2DfdHXkcaVAuW
+	4VB+BlvA==;
+Received: from 2001-1c00-8d85-4b00-266e-96ff-fe07-7dcc.cable.dynamic.v6.ziggo.nl ([2001:1c00:8d85:4b00:266e:96ff:fe07:7dcc] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wFX8L-0000000BPjS-3ewN;
+	Wed, 22 Apr 2026 12:56:50 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id C53D93008E2; Wed, 22 Apr 2026 14:56:47 +0200 (CEST)
+Date: Wed, 22 Apr 2026 14:56:47 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Mathias Stearn <mathias@mongodb.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Boqun Feng <boqun.feng@gmail.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Chris Kennelly <ckennelly@google.com>,
+	Dmitry Vyukov <dvyukov@google.com>, regressions@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Ingo Molnar <mingo@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Blake Oler <blake.oler@mongodb.com>
+Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
+ and tcmalloc everywhere
+Message-ID: <20260422125647.GP3126523@noisy.programming.kicks-ass.net>
+References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
-X-Mimecast-MFC-PROC-ID: 9bLiOo-nviKGZJrwAQwIcDGJvyGM1XKQiGtGMtv7r8E_1776862582
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_135638_154678_0BB1C268 
-X-CRM114-Status: GOOD (  14.71  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,49 +79,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-* Andr=C3=A9 Almeida:
+On Wed, Apr 22, 2026 at 11:50:26AM +0200, Mathias Stearn wrote:
 
-> Hi Florian,
->
-> Em 17/04/2026 12:08, Florian Weimer escreveu:
->> * Andr=C3=A9 Almeida:
->>=20
->>> There will be a VDSO function to unlock non-contended robust futexes in
->>> user space. The unlock sequence is racy vs. clearing the list_pending_o=
-p
->>> pointer in the task's robust list head. To plug this race the kernel ne=
-eds
->>> to know the critical section window so it can clear the pointer when th=
-e
->>> task is interrupted within that race window. The window is determined b=
-y
->>> labels in the inline assembly.
->>>
->>> Signed-off-by: Andr=C3=A9 Almeida <andrealmeid@igalia.com>
->>> ---
->>> RFC: Those symbols can't be found by the linker after patch 2/2, it fai=
-ls with:
->>>
->>> ld: arch/arm64/kernel/vdso.o: in function `vdso_futex_robust_unlock_upd=
-ate_ips':
->>> arch/arm64/kernel/vdso.c:72:(.text+0x200): undefined reference to `__fu=
-tex_list64_try_unlock_cs_success'
->>> ld: arch/arm64/kernel/vdso.o: relocation R_AARCH64_ADR_PREL_PG_HI21 aga=
-inst symbol `__futex_list64_try_unlock_cs_success' which may bind externall=
-y can not be used when making a shared object; recompile with -fPIC
->>> arch/arm64/kernel/vdso.c:72:(.text+0x200): dangerous relocation: unsupp=
-orted relocation
->> I think your GLOBLS definition adds a 64 suffix.  That shouldn't be
->> necessary on AArch64.  It's not reflected in the references, so you end
->> up with an undefined symbol error.
->>=20
->
-> Why aarch64 doesn't need the 64 suffix? objdump shows that the final
-> label name is __futex_list64_try_unlock_cs_success, which should match
-> what the linker is trying to find, AFAIC.
+> Additionally, it breaks tcmalloc specifically by failing to overwrite
+> the cpu_id_start field at points where it was relied on for
+> correctness.
 
-Sorry, I was confused about how this is expected to work.
+This specific behaviour was documented as being wrong and running with
+DEBUG_RSEQ would have flagged it.
 
-Florian
+The tcmalloc issue has been contentious for a long time. The tcmalloc
+folks relied on something that was documented to be wrong. It has been
+reported to the tcmalloc people many years ago and if you were to run
+tcmalloc on most any kernel (very much including 6.19) with
+DEBUG_RSEQ=y, it would have yelled.
+
+The tcmalloc people didn't care. There was a proposal for an RSEQ
+extension for what they need, and they didn't care. All this should be
+in their bugzilla or whatever.
+
+The RSEQ rework improved performance significantly for everyone, and
+kept all the documented behaviour (+- arm64 bug). Tcmalloc got screwed
+over because they relied on implementation behaviour that was
+specifically documented to be broken. And they didn't care. Google was
+very much aware of this. And hasn't lifted a finger to remedy it.
+
 
 
