@@ -4,98 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D4FDFDEE3F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 18:43:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC4A0FDEE3F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 18:45:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Lc2Z4djP+OFSIRCIs7YQs/PaAF5gbi+2NFb1IXfdPM=; b=2PMHIPYEAa+zjSCVlEXP2YjlyM
-	+912mveNalp79y9V6ge9OoeyrxYjYB+pZapncnfrn8y7OZFEzmly4+TMwMFTCFLL2BUHBHlB+DtWe
-	i+tHsOx1D5QCMCtjyha3HOXy2/wAQJTjMcRZSWPxlmM5HQC2k3hhH48Hl3TGbJ+DEREXDzXJruvn6
-	2q1C3NAho5ooI6pO4PosgTbOzUej/k6YK+0I7vZEVRYi+DsWJRTUvUlPKhX5N2IT1p5JqJticYYYn
-	l0FkV8QrwKz8Xc2Qo9fl5dgV9Sw6lCB7ShaRw1cvwe2XksPQolXFLhxzO1Nc2M+n/fhuU9owhY1Ok
-	wLJzjebA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h7B9//ZIs2xqUgapk+BAH8bzTkTMhU5fRky03+jOP4c=; b=eDeY7QvthnZEbCI/pY0YH1YuMr
+	SilDQMV5JQC2hIUnbZRltm6ypRygK8EqpHUT5psU5L6cC6cx/jtXgAYML1BEryQp7J+cJ+1YDd/q6
+	M8bo6HOJ/CO5vR1tlolzEvVoOW4+D3VBo4caFaCP29LGX2Lv7A9XlvVmWmMC9NnUH7ZPHcGQq7s03
+	p80zaDqXd9J+xDnnS/z/NiahkgkE31AXiplKv+tA1JeO1pNSbnwcddurX4Ip+rmlT+7rN5/ivzPKD
+	MjwEnqg0bGpu/6kB1yVtFqGuW5B7hTdurFwrYpGASyrlLM6w76ZbsZ/GIhZZPbkeg7fOmZYit544N
+	+nl6kBmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFz1g-0000000C8T6-2Jcw;
-	Thu, 23 Apr 2026 18:43:48 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1wFz39-0000000C8gk-1zF2;
+	Thu, 23 Apr 2026 18:45:19 +0000
+Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFz1e-0000000C8Sg-3ebb
+	id 1wFz35-0000000C8gQ-2YLV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 18:43:47 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2b2591757fbso152875ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 11:43:45 -0700 (PDT)
+	Thu, 23 Apr 2026 18:45:17 +0000
+Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-7de431da8fbso1491235a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 11:45:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1776969825; x=1777574625; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0Lc2Z4djP+OFSIRCIs7YQs/PaAF5gbi+2NFb1IXfdPM=;
-        b=FbZQTSigZyxZ4ngyrUooy8M6MF0kfXHbtxAMumqSF8Z1t1NS/1eUDQC0w6O+koneR6
-         zJbJgQ8JpxFjWRosDFBw3+apbsHZk0p+ppvcKj2PH9r68QTx+VhuGQDhFe80jOXhNE12
-         OH3GeH8awg81c/LpXXG4be3XdQv5OM16A5QSq6bCcO53l3su0AgVTYMC2PXWmhcW6dCG
-         CxVhXaiYoInvYhH7NDMLzSEKUeUKsD088atcfWIi3FB/jPsSMWKN0Q1y6/DRoyY2jlgq
-         A/+ca6zXl45reZYRtlhd+Ve9sHvdnRvj70W1zlwBNjZncGyZx8t//dikPchT3LTvvCfr
-         CCqQ==
+        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1776969914; x=1777574714; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=h7B9//ZIs2xqUgapk+BAH8bzTkTMhU5fRky03+jOP4c=;
+        b=ZkLg2G5WWugLDLRsA/9By24o14MndiRwzayP7lAP98Lczco/iOKYDZ8Og7wRDkuPmb
+         FHNlHDQPnP+lsgSD9IzJya+EWpxlW2s6Q9DEt3ptwRUHxIJgNNRT8yE7T3ZHXldw3IZJ
+         R84YB4SrVDHo1TJ6zeSlolsX7aT1yU9fVFW1fU+dtS7T2dkPpDsGfxox1ZHkytAi2joM
+         OzHsKmGZU1+va97WfZ+5jmcsL+CKB7uLwp1KfiCx8pPWppbuedVRUkyzmFK67dkYYFRH
+         FFRIge2CscVQBJJMpU7u4uBuiXBx6Ti/Vo7ao1iiwwhxxtHD6rDPFXaD7HmgFXjxdeT9
+         cqKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776969825; x=1777574625;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0Lc2Z4djP+OFSIRCIs7YQs/PaAF5gbi+2NFb1IXfdPM=;
-        b=M1OVqhFNZKXHrUVmQqUkpe/g6QtV0aCe0hYXQ4ZgRLWHnl67bzXj/Q+qGsD2UbbuLP
-         /+9teawIiW2sPdMtuFHuFCLCdZlHK/OhXIwvZMHh+lE0vKWM9z7ztEsF0bxOAFRpOXi4
-         IZPifPeVm7zv1EA7WnB8kDTzu4+sfHUNvf+qbxyt2QTjcvxemCx9kBAp+lWPGU7lDpAd
-         t1UkcxuJzzEf0xBLcGqeMAd/98fAIrz6mQ+JC3f0mbMF2UjCNAricfv5r+2HTq63umB+
-         TnLE30jLucwaNMl0u5VK6N69q84G+SgObbVaBUNkxpd26PJ64timVg8TBdpkfWiAIJU2
-         UFBw==
-X-Forwarded-Encrypted: i=1; AFNElJ/gNsWLrRQt3HBdG/TkV6t5L5bNXFAZfgt3GLOEK3fs1AFcr4BQi5yeVsUMzh0ifyrh+sJ0V5diq72dlaNPojb5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLlZOt/qxT2a4N3R+UEju7umMBlY34MuYOIffVqfTc2gkty8Fz
-	Uz5dqDQz1vqDTMfrulPX+0Ml66qG9nHcf/BdK9tvZKmY1D6zZ3cEAr3hAk5rFAJahg==
-X-Gm-Gg: AeBDieuuUCM0CLaKANnextna1mZN2VfUz9oMii4A1QQpGz1/CxQacHxvEqmMuUOHu5n
-	elN4SlIo63jSbY8AvIBqbQAbUfJj7x6QxlK64QHXZ4lfK2IIuBoEfOdwEcifx+ahV8sCJx6MnmE
-	5aW38LE/XWxSkoS75ElqvXB14mL7s2mHTfGYfWnbc8A1D+HDi10QN/Br7ITCV1ABZIPufi7H6nS
-	zD8kEeo03deCBYK0gg884MCpWZ3Z5bRuAx9oVGVYgAA5jE0DRcrdQveeuJkpsCOlUY2PIzCfbq1
-	fzGKD+erdL54rsfuKRgzdhzQRVwkp6MGOXRCawJELCNMOhtIbbBPcVlSVwSRp+TgVteKDsMaKQy
-	z4CeP7txvXce3A3U8aOS6rXuxjjC8mC4Cp1bcOH5uCAklswTvCPYUBp+vITVlycwHekRjnoKtOA
-	0QIGEGYB6oY/b13L7DfIzMCVq3bg8P3nT3tTd4WAADwn/rXuDrKwZmwG5h7V/bfj9R4/wZPVtuh
-	3QFbS7UVCg=
-X-Received: by 2002:a17:902:ef52:b0:2b0:d1f4:f601 with SMTP id d9443c01a7336-2b603f688efmr1861455ad.15.1776969824338;
-        Thu, 23 Apr 2026 11:43:44 -0700 (PDT)
-Received: from google.com (195.236.83.34.bc.googleusercontent.com. [34.83.236.195])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3614195a9f0sm20471832a91.9.2026.04.23.11.43.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Apr 2026 11:43:42 -0700 (PDT)
-Date: Thu, 23 Apr 2026 18:43:37 +0000
-From: Samiullah Khawaja <skhawaja@google.com>
-To: Will Deacon <will@kernel.org>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>, 
-	Evangelos Petrongonas <epetron@amazon.de>, Robin Murphy <robin.murphy@arm.com>, 
-	Joerg Roedel <joro@8bytes.org>, Nicolin Chen <nicolinc@nvidia.com>, 
-	Pranjal Shrivastava <praan@google.com>, Lu Baolu <baolu.lu@linux.intel.com>, 
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	nh-open-source@amazon.com, Zeev Zilberman <zeev@amazon.com>, dmatlack@google.com, 
-	pasha.tatashin@soleen.com
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow disabling Stage 1 translation
-Message-ID: <aepfYzkI7NsVGCF0@google.com>
-References: <20260420123221.20801-1-epetron@amazon.de>
- <20260420124032.GO2577880@ziepe.ca>
- <20260422064431.GA49867@dev-dsk-epetron-1c-1d4d9719.eu-west-1.amazon.com>
- <20260422162351.GK3611611@ziepe.ca>
- <aenp6FHzx9rtUQkZ@willie-the-truck>
- <aenqxasLJ8yKYqbT@willie-the-truck>
- <20260423142326.GP3611611@ziepe.ca>
- <aepRy7Gp7Ng85Zr7@willie-the-truck>
+        d=1e100.net; s=20251104; t=1776969914; x=1777574714;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=h7B9//ZIs2xqUgapk+BAH8bzTkTMhU5fRky03+jOP4c=;
+        b=KA22xMMl3XAiZE56pVF03QMabXRyZlJv0wwZ2XEsjHgP5rXUyZjDfmk9ESLNVUYgHJ
+         IXkO+jRk88MrLEtDbqeDrlj9CDcMSkHiiOcc0QBB1AsBsWyQz4X925oZPAj2f2mNumq3
+         p+JKoaRjvyenCFGBEv1hwAKNWqfKwerLIAfVSI+82x6jPXClOExqOMSSWBw0Qb2dPN+B
+         G3voPP+anlrgAtAXUqeqno+6rF5F3jNJ2ZNNI0cR64FCMDUzStBYIK4zDRdTQGEkBrbZ
+         /mxl5d8bHEwaZxSTtJOa9bjAAwCnEXiBKlLWFqFe5MnhY1fK9bDB+eDAJnS4pkLf+Qke
+         uqlQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+lE0X63dVc4zabYGBDU80DogM+0rbL2APicF5SwuVIwMDgO+rA9HeaiClyC2eyUtF3Vnf3L5S25NhoAEAc0wdr@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYC05P8yuzi8dDeKIov3up3UM4X90TwH2GYSAd+6Pm2pqSih2N
+	SNPV+FMBJ3TEN1h8L/wwUAq0ZEscBu8UaAdjc2dqhmfZL7zvx/s5W7j9zq7DCaKmvZg=
+X-Gm-Gg: AeBDiev+nbIs7ntyW3m8waV+6cVjFXLM+DMxmjTfSHKrPkuq25vT7VTWyayf95HSBsK
+	XHDiGVkqQ3BVUvpnsbvLGTW7QqBIrsKuLvNUReRZ1OX1Fym2jc8bqXeIqAiHquJWvaLEKmro+kE
+	kx3UrXSvM9QXTWFEEVUHcuCCGBLQkqOAUP75GTGURe2CTeIiAxMzfCgg2NkyHQnFFdMkGoSqzQu
+	bBlqGItdrU7ctk4/71zCwN9MHB1JMaXcCObjxeD5jh0bpR1XR/n/bV48OAIk64frS0EpV4PT1e1
+	T+e529iCsQG5Rgd81b9H6xTt6VPiJJ9ZXexrE9D0KmAJcIOrBnQaO8wTS7Ol4bsPOCEQnj/IRp+
+	g3rjY6fXWATJwUfPRQX80WlqYNaIeB81asGw++MKZ1K1w2pEOo4LZAXELUfT1psbmaWOAXZ7EZQ
+	BzWYJMxd0ROJ5FfGKztXTOjZGYVo9Xt/Sga3FzpPr1Jkh2IxEWPsO9UystK9PIz6XmElGVNr38o
+	gFAb23qnZQY
+X-Received: by 2002:a05:6820:629:b0:696:1a25:fdda with SMTP id 006d021491bc7-6961a26036amr2084343eaf.26.1776969913953;
+        Thu, 23 Apr 2026 11:45:13 -0700 (PDT)
+Received: from ?IPV6:2600:8803:e7e4:500:3cc7:689f:be44:d58a? ([2600:8803:e7e4:500:3cc7:689f:be44:d58a])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-694994277a4sm5442766eaf.4.2026.04.23.11.45.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 23 Apr 2026 11:45:13 -0700 (PDT)
+Message-ID: <a9307e04-3754-465e-a610-92c6e83cc3e6@baylibre.com>
+Date: Thu, 23 Apr 2026 13:45:12 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
-In-Reply-To: <aepRy7Gp7Ng85Zr7@willie-the-truck>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iio: fix header includes across multiple drivers
+To: Caio Morais <caiomorais@usp.br>, jic23@kernel.org, nuno.sa@analog.com,
+ andy@kernel.org, michal.simek@amd.com
+Cc: linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260423183349.636757-1-caiomorais@usp.br>
+Content-Language: en-US
+From: David Lechner <dlechner@baylibre.com>
+In-Reply-To: <20260423183349.636757-1-caiomorais@usp.br>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_114346_913575_DBE73380 
-X-CRM114-Status: GOOD (  15.67  )
+X-CRM114-CacheID: sfid-20260423_114515_678088_B268F890 
+X-CRM114-Status: GOOD (  16.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,35 +102,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 23, 2026 at 06:07:23PM +0100, Will Deacon wrote:
->On Thu, Apr 23, 2026 at 11:23:26AM -0300, Jason Gunthorpe wrote:
->> On Thu, Apr 23, 2026 at 10:47:49AM +0100, Will Deacon wrote:
->> > > Does iommu-pages provide a mechanism to map the memory as non-cacheable
->> > > if the SMMU isn't coherent?
->>
->> No, it has to use CMOs today.
->>
->> It looks like all the stuff dma_alloc_coherent does to make a
->> non-cached mapping are pretty arch specific. I don't know if there is
->> a way we could make more general code get a struct page into an
->> uncached KVA and meet all the arch rules?
->>
->> I also think dma_alloc_coherent is far to complex, with pools and
->> more, to support KHO.
+On 4/23/26 1:33 PM, Caio Morais wrote:
+> From: Caio Morais <caiomorais@usp.br>
+> 
+> Remove unnecessary includes and add missing ones as reported by the
+> include-what-you-use (IWYU) tool.
+> 
+> Files changed:
+> - drivers/iio/adc/xilinx-xadc-events.c
+> - drivers/iio/buffer/industrialio-triggered-buffer.c
+> - drivers/iio/common/st_sensors/st_sensors_i2c.c
+> - drivers/iio/common/st_sensors/st_sensors_spi.c
 
-Agreed. dma_alloc_* is too complex with pools, CMAs and what not to
-support fully in KHO.
->
->I wonder if there's scope for supporting just some subset of it?
+We'll want to split these up, one patch per file in case they every
+need to be backported as a dependency to a fix.
 
-We have been experimenting with something like this. We have a usecase
-where memory needs to be preserved but we want to avoid invasive changes
-in the driver.
+> 
+> Signed-off-by: Caio Morais <caiomorais@usp.br>
+> ---
+>  drivers/iio/adc/xilinx-xadc-events.c               | 4 ++--
+>  drivers/iio/buffer/industrialio-triggered-buffer.c | 8 ++++----
+>  drivers/iio/common/st_sensors/st_sensors_i2c.c     | 2 +-
+>  3 files changed, 7 insertions(+), 7 deletions(-)
 
-If it's not a crazy idea, maybe we can start with a very limited scope
-of providing preservation for a subset of allocations done through the
-DMA API? I can send out my proof of concept as an RFC after I'm done
-with the next revision of my IOMMU persistence series. WDYT?
+This looks like sorting alphabetically, not actually adding or removing
+any headers as seen by the equal number of insertions and deletions.
 
-Sami
+Usually we don't bother with sorting unless we are making other
+changes on top of that.
+
+> 
+> diff --git a/drivers/iio/adc/xilinx-xadc-events.c b/drivers/iio/adc/xilinx-xadc-events.c
+> index d16e61953..20b796ec7 100644
+> --- a/drivers/iio/adc/xilinx-xadc-events.c
+> +++ b/drivers/iio/adc/xilinx-xadc-events.c
+> @@ -7,11 +7,11 @@
+>   */
+>  
+>  #include <linux/bitmap.h>
+> -#include <linux/types.h>
+>  #include <linux/errno.h>
+> -#include <linux/mutex.h>
+>  #include <linux/iio/events.h>
+>  #include <linux/iio/iio.h>
+> +#include <linux/mutex.h>
+> +#include <linux/types.h>
+>  
+>  #include "xilinx-xadc.h"
+>  
+> diff --git a/drivers/iio/buffer/industrialio-triggered-buffer.c b/drivers/iio/buffer/industrialio-triggered-buffer.c
+> index 601a26398..5796c9da7 100644
+> --- a/drivers/iio/buffer/industrialio-triggered-buffer.c
+> +++ b/drivers/iio/buffer/industrialio-triggered-buffer.c
+> @@ -5,15 +5,15 @@
+>   */
+>  
+>  #include <linux/errno.h>
+> -#include <linux/linkage.h>
+> -#include <linux/module.h>
+> -#include <linux/stddef.h>
+> -#include <linux/iio/iio.h>
+>  #include <linux/iio/buffer.h>
+>  #include <linux/iio/buffer_impl.h>
+> +#include <linux/iio/iio.h>
+>  #include <linux/iio/kfifo_buf.h>
+>  #include <linux/iio/triggered_buffer.h>
+>  #include <linux/iio/trigger_consumer.h>
+> +#include <linux/linkage.h>
+> +#include <linux/module.h>
+> +#include <linux/stddef.h>
+>  
+>  /**
+>   * iio_triggered_buffer_setup_ext() - Setup triggered buffer and pollfunc
+> diff --git a/drivers/iio/common/st_sensors/st_sensors_i2c.c b/drivers/iio/common/st_sensors/st_sensors_i2c.c
+> index 6ab143498..974e349ae 100644
+> --- a/drivers/iio/common/st_sensors/st_sensors_i2c.c
+> +++ b/drivers/iio/common/st_sensors/st_sensors_i2c.c
+> @@ -10,10 +10,10 @@
+>  #include <linux/device.h>
+>  #include <linux/err.h>
+>  #include <linux/i2c.h>
+> +#include <linux/iio/iio.h>
+>  #include <linux/linkage.h>
+>  #include <linux/module.h>
+>  #include <linux/regmap.h>
+> -#include <linux/iio/iio.h>
+
+On this one, it would be more logical to move the iio header
+down one line to group it with the one below.
+
+>  
+>  #include <linux/iio/common/st_sensors_i2c.h>
+>  
+
 
