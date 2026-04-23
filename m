@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC425FDEE20
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB5B0FC037F
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 16:08:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,46 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aAPFpMhF1ZEYol+etY/7Tq4z3JmtrUaJEuSJ15podCY=; b=1G1BkLr5Fulmtttv4lmFE/PSjh
-	Fralpvnb/P5agOUhhAxE98f/u0+aRIL42tAH9+4yJQC+StDSAmBR/voKC4hssscdHSSZvGougZ6sM
-	ucooH7zVBj8LPv+f2nqWzTYgWTFjXQshgNfoxwjdnCQ3pHYxJeKTIP7DakEON9b3Qd533gAYIJ24W
-	xTDqqosQBaDCFVivNijjOzr60iBt0Oj+Nfi/yLWrPWCO9SG9zuVI0VMm99js8oe9l+/6aIJ/LdRIz
-	shQyk8RNZBGSllQtsy7s5jw6yoMLTX5Q7E/zDiJ5OpqqIZXX4fsshvUkggQZOGcBZySsNGgYmEaAF
-	oYFKVDEw==;
+	bh=DvtzaHICMX6eTqzMqdmT++nPU1FpP81Pe6QAkZtN80w=; b=HZoObu4E20FJqOKIPfsfLIzoPe
+	PP+gHXDAj7HtZVBCqJPUcvDnCnDmsFVmQH+Xn/fvtmItcSB9XgT3J0YoyqsB8a6RSOW482BAlGM0Q
+	E7zVnjM2F8N3LUj2vcnEVUSqmOAfKz6TrMXVWRju2RrSWOpindmkKIAJBjpvF7YKZw8PmMhyM2VUp
+	KhghGhFR1gedPUqAeZ2ujEK0lmd0FRxFz9hEtq8v9ZmG1JvzJMbm4Ee5m97QsMjDszjX++K/u1tqQ
+	qhroIOXyZwmad2lXWVjk850u0wKwlSi5mrWmUzt7mG/cLvrCq8h1X0c8IjQqYLVp/P1ipzDQ2lIuk
+	PeX4/3Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFwbF-0000000BvZv-104Y;
+	id 1wFwbF-0000000Bvan-3XKB;
 	Thu, 23 Apr 2026 16:08:21 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFwb6-0000000BvUV-391C;
-	Thu, 23 Apr 2026 16:08:15 +0000
+	id 1wFwb6-0000000BvUb-38kH;
+	Thu, 23 Apr 2026 16:08:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2497444539;
+	by sea.source.kernel.org (Postfix) with ESMTP id 6636044716;
 	Thu, 23 Apr 2026 16:08:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id E765DC2BCB7;
-	Thu, 23 Apr 2026 16:08:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 31700C2BCC4;
+	Thu, 23 Apr 2026 16:08:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1776960491;
-	bh=kmxFj256ZqyHHjW0JUrAO7Zmt5qTIX49xsO6Ct108OU=;
+	bh=ppNpmKpIg/LkrchRD2fchGkO1iZ6NOOF+2pVJoyViMc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=L3xMb9Y/ushFC9+3dS23UJfFvPmkTG9sQi//20kGlL2F0CCfXWC5+k1mT7WLjzsvy
-	 RvlaKhLDls0BH37Cb7uJzkJf3ck68SPx9hlGp7EN3uMKqkNvMF7c1UyK614FxJf3Y2
-	 cT4dMx+uiQOipcQjS+uT0jnjFP/OuuKvfKJWEZ52CM4je3AYoVOvddDLyuUDZmYWsj
-	 G1R5MFRt1O95Q7jEHFB4KamBIjaNT/UCfW3nsLEzPf2nHAH/0Kh9X20bQLr8tbVcij
-	 6vUlEE+g/U6DlZFUyAdgv93Te3qDuoCOakQip5uPbZD9t7DTNLd91AvkhA5afbG6kD
-	 LLQMGx4EJkonw==
+	b=YzhjQhTfs4Fuk8ceWHI/AJlwj/SS49f4PBUt8nYNb0l13qHafiDTFAvybKBga+hR3
+	 HswKi4Q12OAzsF9cgQ/nMAp2u2kkay9ioKr3Sp87BA0pvhMPj3l5sSvQi6K7EQjT77
+	 3f2WTTOK71zeD33qrwiiSG8w+s5YUO0SVGhe/xyuhejG+UVYAY6dH8Fy82v/q08kso
+	 0OzxUc5ElJ0y8Fja3IyR3WocmFJfh076FAT1kuPISWY9d0fkrzMwfHaZUUK5rVWlYj
+	 5x/7HY2lwHcgQKnsMY2GapZtXiBC9xLKel0gil5Gr+6BtCl4zZ3r3mBG/FgFViftLg
+	 v/SKrxpa4O8uQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DA764F589D9;
-	Thu, 23 Apr 2026 16:08:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 287D3FAD3FB;
+	Thu, 23 Apr 2026 16:08:11 +0000 (UTC)
 From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
-Date: Thu, 23 Apr 2026 18:07:17 +0200
-Subject: [PATCH v4 2/8] firmware: meson: sm: Thermal calibration read via
- secure monitor
+Date: Thu, 23 Apr 2026 18:07:21 +0200
+Subject: [PATCH v4 6/8] arm64: dts: amlogic: t7: Add thermal sensor nodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260423-add-thermal-t7-vim4-v4-2-d4c1528d5044@aliel.fr>
+Message-Id: <20260423-add-thermal-t7-vim4-v4-6-d4c1528d5044@aliel.fr>
 References: <20260423-add-thermal-t7-vim4-v4-0-d4c1528d5044@aliel.fr>
 In-Reply-To: <20260423-add-thermal-t7-vim4-v4-0-d4c1528d5044@aliel.fr>
 To: Guillaume La Roque <glaroque@baylibre.com>, 
@@ -68,21 +67,21 @@ Cc: linux-pm@vger.kernel.org, linux-amlogic@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, 
  Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1177;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3074;
  i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
- bh=z46M+rsMVvol/Iu/vuO1m+rAUYrJ82iMmifq0EnDoU0=;
- b=owGbwMvMwCWm1SvKXP3cUInxtFoSQ+Yr5wd19ruFs27aWU42aw5k55HewVi6/0sc32XtCv4O5
- WO1ZRs6SlkYxLgYZMUUWfrnWp54d/noma971FNg5rAygQxh4OIUgIlktTMyHPfQWLq7ha3QvZPl
- ZtAshjNGEyW09nUqnta2/+7sW6zmx/CHm00zOkon53rbO3H+9GSjI+ahpcZbnlbccH+13fOhwyI
- mAA==
+ bh=qZ6yxPYtU0rtSpNUw/qC8lVKNvJcNRQzOAUadiZgg5o=;
+ b=owGbwMvMwCWm1SvKXP3cUInxtFoSQ+Yr56cbU0+GrzIKaHC71Rf/pzM2VcW5anFvVsXBis5lZ
+ oxRPBM6SlkYxLgYZMUUWfrnWp54d/noma971FNg5rAygQxh4OIUgIkwOTEyPExNsjYUfJlu4P/W
+ u8qTda2pi7VU/1fTi5cO9NucZLtdx/BX8Ou5H1Orpk20mF/yYavEEy9T9vDrduwVbsZid7uz6jK
+ 4AQ==
 X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
  fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
 X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
  auth_id=744
 X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_090812_838288_E635DCF5 
-X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-CacheID: sfid-20260423_090812_837539_8F4273C1 
+X-CRM114-Status: UNSURE (   7.05  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,35 +100,92 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-Add SM_THERMAL_CALIB_READ to the secure monitor command enum and
-introduce meson_sm_get_thermal_calib() to allow drivers to retrieve
-thermal sensor calibration data through the firmware interface.
+Add six temperature sensor nodes using the amlogic,t7-thermal compatible:
+a73, a53, gpu, nna, vpu, and hevc. Each sensor retrieves its calibration
+data from the secure monitor via the amlogic,secure-monitor phandle with
+the corresponding tsensor_id argument.
 
 Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 ---
- include/linux/firmware/meson/meson_sm.h | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 58 +++++++++++++++++++++++++++++
+ 1 file changed, 58 insertions(+)
 
-diff --git a/include/linux/firmware/meson/meson_sm.h b/include/linux/firmware/meson/meson_sm.h
-index 8eaf8922ab020..3ebc2bd9a9760 100644
---- a/include/linux/firmware/meson/meson_sm.h
-+++ b/include/linux/firmware/meson/meson_sm.h
-@@ -12,6 +12,7 @@ enum {
- 	SM_EFUSE_WRITE,
- 	SM_EFUSE_USER_MAX,
- 	SM_GET_CHIP_ID,
-+	SM_THERMAL_CALIB_READ,
- 	SM_A1_PWRC_SET,
- 	SM_A1_PWRC_GET,
- };
-@@ -27,5 +28,7 @@ int meson_sm_call_read(struct meson_sm_firmware *fw, void *buffer,
- 		       unsigned int bsize, unsigned int cmd_index, u32 arg0,
- 		       u32 arg1, u32 arg2, u32 arg3, u32 arg4);
- struct meson_sm_firmware *meson_sm_get(struct device_node *firmware_node);
-+int meson_sm_get_thermal_calib(struct meson_sm_firmware *fw, u32 *trim_info,
-+			       u32 tsensor_id);
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+index 7aec65f036a9c..62f259b2b17d2 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+@@ -656,6 +656,24 @@ sec_ao: ao-secure@10220 {
+ 				amlogic,has-chip-id;
+ 			};
  
- #endif /* _MESON_SM_FW_H_ */
++			a73_tsensor: temperature-sensor@20000 {
++				compatible = "amlogic,t7-thermal";
++				reg = <0x0 0x20000 0x0 0x50>;
++				interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&clkc_periphs CLKID_TS>;
++				#thermal-sensor-cells = <0>;
++				amlogic,secure-monitor = <&sm 1>;
++			};
++
++			a53_tsensor: temperature-sensor@22000 {
++				compatible = "amlogic,t7-thermal";
++				reg = <0x0 0x22000 0x0 0x50>;
++				interrupts = <GIC_SPI 30 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&clkc_periphs CLKID_TS>;
++				#thermal-sensor-cells = <0>;
++				amlogic,secure-monitor = <&sm 2>;
++			};
++
+ 			pwm_ao_ef: pwm@30000 {
+ 				compatible = "amlogic,t7-pwm", "amlogic,meson-s4-pwm";
+ 				reg = <0x0 0x30000 0x0 0x24>;
+@@ -770,6 +788,46 @@ sd_emmc_c: mmc@8c000 {
+ 				assigned-clock-parents = <&xtal>;
+ 				status = "disabled";
+ 			};
++
++			gpu_tsensor: temperature-sensor@94000 {
++				compatible = "amlogic,t7-thermal";
++				reg = <0x0 0x94000 0x0 0x50>;
++				interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&clkc_periphs CLKID_TS>;
++				power-domains = <&pwrc PWRC_T7_MALI_TOP_ID>;
++				#thermal-sensor-cells = <0>;
++				amlogic,secure-monitor = <&sm 3>;
++			};
++
++			nna_tsensor: temperature-sensor@96000 {
++				compatible = "amlogic,t7-thermal";
++				reg = <0x0 0x96000 0x0 0x50>;
++				interrupts = <GIC_SPI 84 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&clkc_periphs CLKID_TS>;
++				power-domains = <&pwrc PWRC_T7_NNA_TOP_ID>;
++				#thermal-sensor-cells = <0>;
++				amlogic,secure-monitor = <&sm 4>;
++			};
++
++			vpu_tsensor: temperature-sensor@98000 {
++				compatible = "amlogic,t7-thermal";
++				reg = <0x0 0x98000 0x0 0x50>;
++				interrupts = <GIC_SPI 85 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&clkc_periphs CLKID_TS>;
++				power-domains = <&pwrc PWRC_T7_VPU_HDMI_ID>;
++				#thermal-sensor-cells = <0>;
++				amlogic,secure-monitor = <&sm 6>;
++			};
++
++			hevc_tsensor: temperature-sensor@9a000 {
++				compatible = "amlogic,t7-thermal";
++				reg = <0x0 0x9a000 0x0 0x50>;
++				interrupts = <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&clkc_periphs CLKID_TS>;
++				power-domains = <&pwrc PWRC_T7_DOS_HEVC_ID>;
++				#thermal-sensor-cells = <0>;
++				amlogic,secure-monitor = <&sm 5>;
++			};
+ 		};
+ 
+ 	};
 
 -- 
 2.49.0
