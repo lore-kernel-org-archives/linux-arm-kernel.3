@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25B73FAD3FC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 04:29:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2263CFAD3FC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 04:29:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XjjUIS+FpVjGKchfRJSkovojenGlk/xbLLBCCHWtqGU=; b=A8GLzTwjxLQvI8X7QUsXaDgoau
-	t4Wi5Q0Am6/JDwELpjuWG6qXJxDWxGEwUChIfy7bl7N0TRjB0XnCy/Wohr6E/XkhB/Iq3esrCIaDB
-	hwafMB4ps8IZhuXk/uHX4UNdKjL5t8GPU1f1BKSmft/78/WMCq4VyXynaZ7s7Afb++eHc/eNN1h+E
-	3vdUGKqKXcoouvo/yqibUoiFPZRMmcWUmKQXTjgVZVQaVV7wPU43d9rmC2bccsHTJa4g3HM1dy7F7
-	a3qiMO6pu4d769o7Y2On/38Ok8aOcJd2VPHUSWBZnFYVpYzJM1u0c+NpePDEjqyziD1INn3HvFyvS
-	+iyoKpWQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ldKzYRVzGfk7M04BaN4noHVbGeTb3XbIYu+RVxu/5hQ=; b=bmlYsiU8rELA7tUJbDJ9lY6/Fr
+	5P8/mWfEcaKyvvolmb35xfYSGMpFlbD5d5J0Y5Rc2wcKz+y3o1KmnW70MJpxL9KsrVX97kjTuIOms
+	7N13J5Pd45jROohI6l7PB8L2HJ+PGJp5pyEIJf5ZIBTK2GQ0tlG5TzYJcuayQKCAGsvmbVG6F+UHe
+	lmN0SRD9ag3B8uZlyfzrqPZCrfoqn22Z7TMP02S6VW8EqhZ8Sq8iyR2eBCvdnGQtLDgp2yJxIbtyQ
+	mN0WRj0HvugRd1sNNxadILQPJ0WdQ6q11YZFcP8XKi5FqDFY6buBtZF+9njxoRMxrHvPf+HxU2HNg
+	NNYCWyJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFlgP-0000000B1ko-2Drf;
-	Thu, 23 Apr 2026 04:28:57 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1wFlgX-0000000B1mx-1ZiC;
+	Thu, 23 Apr 2026 04:29:05 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFlgN-0000000B1k9-1YM3
+	id 1wFlgU-0000000B1lo-3ANe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 04:28:56 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2b461310af5so24407385ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 21:28:54 -0700 (PDT)
+	Thu, 23 Apr 2026 04:29:03 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2aaf43014d0so38243605ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 21:29:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776918534; x=1777523334; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=XjjUIS+FpVjGKchfRJSkovojenGlk/xbLLBCCHWtqGU=;
-        b=L74PH/GgFdZad/5gz4nZJ07QrDU4QYL1NR2lHxs2bAMyqnwh9JDfTiK/76wClW1S7o
-         mSJBClNOV2DFO8cOif5R84+f/5p7nKLRw7JgyHwnPJpU69zYFRdE/Ro52CMMW3kZgvci
-         xKXFzFh/HIQMez9vZcO7Fv9AIyjh/VTdhAihJyvtaFpXYtemmOuWGqdDB63fBHE1oh+2
-         uPROoNXSQPSfxOitLCjNXZaGcm/KzNz84ReCNKo6/RnQdsgXExbt8Zc5EENLPatx0ejc
-         LWgztay6pb82/m5JcMpmAHaifhe/ttAoiqWF901+bygqZXzye62sT94h1SdrCzs6Zm/9
-         U+CQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776918534; x=1777523334;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1776918542; x=1777523342; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=XjjUIS+FpVjGKchfRJSkovojenGlk/xbLLBCCHWtqGU=;
-        b=mD8ESUQP+scWoXYDtvEF6dQFq0pHWDa7Ivn2LtXsxaGqQFXdPpa1xRnFWEjekcpO88
-         FKWO4KdKxmT4fOZSQ2lOXu53LoNjVztOTwT8FadlB3xekSZkM8Ko6egQqOEi5O9GNua7
-         7tsJzbIYKSplJwdQhVEODBQiwSewT2IiXwNk0XrHkn5D1WBipnVXpkyyBKaJonEmZVQ0
-         slmVbReQ9Bc/L0HJZBiqnNXmAdE+ukwFgbGGmpA3oO6HsXO0tUccYaTOiYnThz8dUS3F
-         lhWslOTlKLK3SnCOtPfKWGzE/CF8fRbFw2PHWn2cwkE471Gj3fyjoH7EJGdGg/2MV8QT
-         dHEw==
-X-Forwarded-Encrypted: i=1; AFNElJ/F3TuKWkFXchZWPLggakvnI10Ih40KlROpcfAztUP9LryuL/3wuFb7eUnKYOh/jozndMtGFFV4WEeTksmnEEiS@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPVBblgbsw/Ht3WQneLPiJdvKWICDjkCP8s6iAarCX/ZkB4xk4
-	OHRALEVciWQ2lbF30S/DN7LOAYA7skMiWP9+RD61glMeAk4hv336dyo5
-X-Gm-Gg: AeBDiesLk5Azqn5f8UdIXJK5m2IxnJU5AV/NNnRDAsM8E+jJNQjZ7hEOKy95u/4IddE
-	aabdiu/f43eVMb9wKIF2CVu0ph9B1tkZmu/rbdZhdPMzwgz0RYVTfITvL05XYF2qE8BxqoK7fMf
-	JlCtMyw8ShNrWq0pP82ZDJLBs4FhPcmjjKfFiUh9Nwd7m4E2gHRvAWVFQH8BoOOPl0/NEJg6Z5M
-	UepH88dyJJoHvJAW3XayGKJzjRM3TrnQ3jWS+BwBemC8y9YDPEtOESVOpGBE3cafNXILnKxluz/
-	rUGpvADxv8E6BjE337J9kvwnI+UxT8Iwbf6ZBHlwGfirU9T7AqeWZ7/o9AqUYzmrNmSyoXoB2zH
-	7iPf0fb6hBa1tP6AqCtdDF5DwY1ehOtGp6cofwPEAUuRLMGR9eNxbdTG+Sg8gFux59BRMg+2dac
-	PeTAzibKIT8lmM9j2rusaofShpXWhO+2roAcUJ0m9iDYBjLwOFh+PLhxzuTfj/cT9yjZc5
-X-Received: by 2002:a17:903:f8b:b0:2b4:6122:10f8 with SMTP id d9443c01a7336-2b5f9eb4a00mr190635855ad.21.1776918533945;
-        Wed, 22 Apr 2026 21:28:53 -0700 (PDT)
+        bh=ldKzYRVzGfk7M04BaN4noHVbGeTb3XbIYu+RVxu/5hQ=;
+        b=VLTL8xPHfROHzA5yh0Hk1woYWpYNHON+2sVLT4LdOBUGyJhy8hVhEnIS1cAxbd1ZtO
+         0p3gOAI/3W5R1R3NnRGCCrE8gH1IepHiAea4/vS0Uc5gW9gYWckl1lELQLpGelL3UJVi
+         WoaQS/gbFWnkr8wZRMFehO0Yhjix5qQLo0/GsbcOkuELC7zHCtAWXDNgEfI/qsCoZOpA
+         vJaCuNUXXy4HoETj9C9Gf3rSZEt4RJ7mg5700zDxRaMNx2Pt2Nn/xWyTizWqCUVUYkR0
+         7Z4Gx2si9E4fL0fN1WAATloETnLriCaGizXMFVYFD9DXSDHbh7s2HpLdsZ2apRW2sqvS
+         cSbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776918542; x=1777523342;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ldKzYRVzGfk7M04BaN4noHVbGeTb3XbIYu+RVxu/5hQ=;
+        b=rshRllETv7o0/ij2ti+GSu4RszMl57gdFf/Z7Qn20W84Vpued+lL0WztgHVSrp6ORJ
+         cyBqCnHunuHASGj4+Ry3ncPiAsHIlUS23vYrORPll3gZa/+BIvTkxkT6xbv0KwVprUOq
+         fGNp6nVdwS0Jkpe/E0+AmVemmSWoo3rD3XWH5NFR+DArLK+RsbFTmdd8YcBEzqXz+6Jj
+         4NvLnLbPAxTM6OsGZpAtbeXXVllGu+IrcYq2D8NQB0dUI1FhyAUduyIPkz3WdUJFAh/I
+         R1Q26lqho0Aionau+ifCVH2rio4SublFwJf0mnCcYKhiVRphM3yy8RmKrWEtbE5V7vZ+
+         JjfQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/Ql6Ov9d66lBIpzcH3bUSGoeiIKVsDijblI0b0zkX0nzL8/WGWmtVY4ynpo6+YTPuDil3HodztfLb4Mcn3ATL9@lists.infradead.org
+X-Gm-Message-State: AOJu0YwzQHfA7ZBH+2TXy1B3YOKeSpgaFffwHtbgPNiz9E8W0NbOZetB
+	0lqHNjVVMd5AkzNnMK9d4KkOma/tyDJyfvEAWnxxZyB+gN18teE0BcJ3
+X-Gm-Gg: AeBDiesupMJLCeWMhGYk5yQI2QR3XOm7+qhR7onQvcqxKOJjGEGYnh1qkgK/P8ETEU5
+	gt/4yzMtzUofXzWFU2MUz4/LOFpXyGqekxiU1Eg+8/zRLVU7bOhutzWwBfZ0DvN6DpOhVDe+2Vk
+	YZ+GvbD0Im/hm7+WojVLcM05FSeOrn6J8qByR6efLW8E9U8Kc3ZtEauK34R4zE2twcQEVwruV62
+	cwmnohbTkI8uV1XKm3VtB8jG3E8l1TqYKjFNfnE0hp6GskEVKMSAOM0BJO7YYVgt56/grhkIG3A
+	vTopH2U28qXZTmgUBvSEsN5k4uXdMm5bRUD2tKju08FX8Sy1uEETGzPHd648ayEtQrAT1SYoeqQ
+	97R75cZ8inF4bpjiQXRF93DYq8tFr7jNhNI78mmJBi1wsF/PbMwJUV8KK2BLfRMikpgpIiH041I
+	q104whhMO9oHg39IXEkaiGiBNL+VGy0udEIHR6KAHVLfOZ4LdNpbcM+0ylrQ1WyQZrUgo9
+X-Received: by 2002:a17:902:cec8:b0:2b0:5b4e:370c with SMTP id d9443c01a7336-2b5f9f8b3ccmr282724315ad.32.1776918541770;
+        Wed, 22 Apr 2026 21:29:01 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b5fab4049bsm165723755ad.77.2026.04.22.21.28.49
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b5fab4049bsm165723755ad.77.2026.04.22.21.28.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Apr 2026 21:28:53 -0700 (PDT)
+        Wed, 22 Apr 2026 21:29:01 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Lee Jones <lee@kernel.org>,
 	Mark Brown <broonie@kernel.org>,
@@ -87,15 +88,17 @@ Cc: Joseph Chen <chenjh@rock-chips.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 1/2] dt-bindings: mfd: rockchip: drop redundant wakeup-source definitions
-Date: Thu, 23 Apr 2026 11:28:30 +0700
-Message-ID: <20260423042831.21114-1-phucduc.bui@gmail.com>
+Subject: [PATCH 2/2] ASoC: dt-bindings: drop redundant wakeup-source definitions
+Date: Thu, 23 Apr 2026 11:28:31 +0700
+Message-ID: <20260423042831.21114-2-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260423042831.21114-1-phucduc.bui@gmail.com>
+References: <20260423042831.21114-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_212855_417513_BD0F01C2 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20260422_212902_788596_69C02CE3 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,101 +116,50 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 From: bui duc phuc <phucduc.bui@gmail.com>
 
 The 'wakeup-source' property already has its type defined in the core
-schema. The Rockchip MFD bindings redundantly specify 'type: boolean'
-and provide descriptions which only repeat the generic meaning of the
-property. Drop these redundant definitions and descriptions to clean
-up the binding files and rely on the core schema instead.
+schema. A number of sound binding files redundantly specify the
+'type: boolean' and provide descriptions which only repeat the generic
+meaning of the property.
+Drop these redundant definitions and descriptions to clean up the binding
+files and rely on the core schema instead.
 No functional change intended.
 
 Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
- Documentation/devicetree/bindings/mfd/rockchip,rk801.yaml | 5 +----
- Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml | 5 +----
- Documentation/devicetree/bindings/mfd/rockchip,rk808.yaml | 5 +----
- Documentation/devicetree/bindings/mfd/rockchip,rk817.yaml | 5 +----
- Documentation/devicetree/bindings/mfd/rockchip,rk818.yaml | 5 +----
- 5 files changed, 5 insertions(+), 20 deletions(-)
+ Documentation/devicetree/bindings/sound/dialog,da7219.yaml  | 5 +----
+ Documentation/devicetree/bindings/sound/realtek,rt5514.yaml | 4 +---
+ 2 files changed, 2 insertions(+), 7 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/mfd/rockchip,rk801.yaml b/Documentation/devicetree/bindings/mfd/rockchip,rk801.yaml
-index 7c71447200ba..8e394ab6879b 100644
---- a/Documentation/devicetree/bindings/mfd/rockchip,rk801.yaml
-+++ b/Documentation/devicetree/bindings/mfd/rockchip,rk801.yaml
-@@ -29,10 +29,7 @@ properties:
-     description:
-       Telling whether or not this PMIC is controlling the system power.
+diff --git a/Documentation/devicetree/bindings/sound/dialog,da7219.yaml b/Documentation/devicetree/bindings/sound/dialog,da7219.yaml
+index 19137abdba3e..fab37cd92e0d 100644
+--- a/Documentation/devicetree/bindings/sound/dialog,da7219.yaml
++++ b/Documentation/devicetree/bindings/sound/dialog,da7219.yaml
+@@ -45,10 +45,7 @@ properties:
+       - wakeup
+       - irq
  
 -  wakeup-source:
 -    type: boolean
 -    description:
--      Device can be used as a wakeup source.
+-      Flag to indicate this device can wake system (suspend/resume).
 +  wakeup-source: true
  
-   vcc1-supply:
-     description:
-diff --git a/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml b/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml
-index da2391530c16..548ba1f30712 100644
---- a/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml
-+++ b/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml
-@@ -48,10 +48,7 @@ properties:
+   "#clock-cells":
+     const: 1
+diff --git a/Documentation/devicetree/bindings/sound/realtek,rt5514.yaml b/Documentation/devicetree/bindings/sound/realtek,rt5514.yaml
+index 7fbf7739c371..57e5c09c05c0 100644
+--- a/Documentation/devicetree/bindings/sound/realtek,rt5514.yaml
++++ b/Documentation/devicetree/bindings/sound/realtek,rt5514.yaml
+@@ -48,9 +48,7 @@ properties:
  
-   system-power-controller: true
+   spi-max-frequency: true
  
 -  wakeup-source:
 -    type: boolean
--    description:
--      Device can be used as a wakeup source.
+-    description: Flag to indicate this device can wake system (suspend/resume).
 +  wakeup-source: true
  
-   vcc1-supply:
-     description:
-diff --git a/Documentation/devicetree/bindings/mfd/rockchip,rk808.yaml b/Documentation/devicetree/bindings/mfd/rockchip,rk808.yaml
-index 50dfffac8fbf..40f8f23afad3 100644
---- a/Documentation/devicetree/bindings/mfd/rockchip,rk808.yaml
-+++ b/Documentation/devicetree/bindings/mfd/rockchip,rk808.yaml
-@@ -43,10 +43,7 @@ properties:
- 
-   system-power-controller: true
- 
--  wakeup-source:
--    type: boolean
--    description:
--      Device can be used as a wakeup source.
-+  wakeup-source: true
- 
-   vcc1-supply:
-     description:
-diff --git a/Documentation/devicetree/bindings/mfd/rockchip,rk817.yaml b/Documentation/devicetree/bindings/mfd/rockchip,rk817.yaml
-index 2cb6d176a84c..b99aaff100fb 100644
---- a/Documentation/devicetree/bindings/mfd/rockchip,rk817.yaml
-+++ b/Documentation/devicetree/bindings/mfd/rockchip,rk817.yaml
-@@ -55,10 +55,7 @@ properties:
- 
-   system-power-controller: true
- 
--  wakeup-source:
--    type: boolean
--    description:
--      Device can be used as a wakeup source.
-+  wakeup-source: true
- 
-   vcc1-supply:
-     description:
-diff --git a/Documentation/devicetree/bindings/mfd/rockchip,rk818.yaml b/Documentation/devicetree/bindings/mfd/rockchip,rk818.yaml
-index 90d944c27ba1..b7af774b1395 100644
---- a/Documentation/devicetree/bindings/mfd/rockchip,rk818.yaml
-+++ b/Documentation/devicetree/bindings/mfd/rockchip,rk818.yaml
-@@ -43,10 +43,7 @@ properties:
- 
-   system-power-controller: true
- 
--  wakeup-source:
--    type: boolean
--    description:
--      Device can be used as a wakeup source.
-+  wakeup-source: true
- 
-   vcc1-supply:
-     description:
+ required:
+   - compatible
 -- 
 2.43.0
 
