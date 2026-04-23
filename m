@@ -4,70 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E1F3F9936C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 11:09:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2449F9936C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 11:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xXwNgY+WRRCQRx1M0mqaUAIHObx/PwdHncNqoa+Z/Qo=; b=dOYcYJ3QY08OIQ7XiR1Uu5nauW
-	eK/AKM9VEiwV7fm1MLmE2c4W+AP7YzH+dnS9LysTZnHipFdLEIipOTuuOM6WCRkUMobCKNjdYn/uO
-	LwQ/gVQ1jlHvMFEf2c1krbAtYAnyZoB1pnoHzIts8ToKE8CgSOh3G30A8cMPwk8+meC//rJJpxaKq
-	vKPMxYWzaTPB+tItKep1U3ECOmHRFJ2fsOfsz5aJOxnruJuDIdBdRgS5DWJiOV96Wgwu9f0KZELUU
-	P9AVYNYPOy1+u/PKkkPXheXSnh+3zO1Xn1agvq5I1jlzzNnFZ9G2BMderJfwQNXvsvXbC4mYWlpVo
-	YDeTiqJA==;
+	bh=QqbwFbH6a5UBENtannNyDFRDj77cnqqhpzw83NssmuA=; b=v9Ge7W3OTkxpniCkuQR/Sanreg
+	Ze6EtQG87VDD0tSayeV9VQuyanirWwUu7jnTmvtj176F9c9j/WujeYEByZbqw+sBw/hJLtuwJADqb
+	ZtAW8wmCM5Lb0Y9TKZwrumJpyfMMk7Rvvfu/KSbfIgc5fVhKkQt/PXsoRuxo3Z7d5ux6DoLILTiMH
+	MNbQUDUvfmlydxVzvBVH5MF3EUvzOHqhUtsRh5LCIhTSQPrWiJWG8P7f93Ag2Zyorw6nW1gyffCmM
+	jyf0dL6mW69AvgX2FE3Bs4TT4UW1rleiplTXAZiE4MXoduqdvwMIdOAkywfFmkG69BZzoJF5fTdXv
+	15DusOjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFrw0-0000000BWBc-0FpW;
-	Thu, 23 Apr 2026 11:09:28 +0000
-Received: from abb.hmeau.com ([180.181.231.80])
+	id 1wFrwv-0000000BWGw-1oRK;
+	Thu, 23 Apr 2026 11:10:25 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFrvt-0000000BWB7-2cRe
+	id 1wFrwo-0000000BWGN-31Sn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 11:09:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=xXwNgY+WRRCQRx1M0mqaUAIHObx/PwdHncNqoa+Z/Qo=; 
-	b=YQXiwRPAdBDMK97uQ4DtCe8+qwsZ4W7mhOMNOYWqVs6kTyacEmaGoiWPhDiy2tB7Ho1RwIVPKIE
-	w5m3txl34RAHy43RGnHnGNAq8fxAGTfJXT3QR5HAsgHI7y3LMlVN9XoCDn/YhjtjqMtDXOgLhNVZU
-	Aws2E5Xa4Un0IyZHYurKG2PgHfnEZYjrJNFyDGFmRDLfaH+ogbwmV1KuzULz+jhfVjMvmbomEqLye
-	Icxim6TGB0UXEeu0cg/Ag6snsSAXHKkbhuqdkKBfugz35MVHqBIa6yo1xhiW+10tLxD/VHdMA8iXj
-	s6r6jJnB1dp70WOtt1TzsHMp1Alm7JtLstgQ==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1wFrve-008DiK-2T;
-	Thu, 23 Apr 2026 19:09:07 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Thu, 23 Apr 2026 19:09:06 +0800
-Date: Thu, 23 Apr 2026 19:09:06 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Arnd Bergmann <arnd@kernel.org>,
-	Corentin Labbe <clabbe.montjoie@gmail.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Ovidiu Panait <ovidiu.panait.oss@gmail.com>,
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] crypto: sun8i-ss - avoid hash and rng references
-Message-ID: <aen90oUsJwvamhzL@gondor.apana.org.au>
-References: <20260423065600.2081989-1-arnd@kernel.org>
- <aenfmxOvtHaAODqH@gondor.apana.org.au>
- <1cd6ddc3-479c-4cbf-8315-78bc53ac3a54@app.fastmail.com>
- <aenmEQNhhw9bnxEa@gondor.apana.org.au>
- <3948e39f-dd20-44e2-b264-dc2a0a88f5b5@app.fastmail.com>
+	Thu, 23 Apr 2026 11:10:23 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63N8gTCV3291912;
+	Thu, 23 Apr 2026 11:10:05 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=QqbwFb
+	H6a5UBENtannNyDFRDj77cnqqhpzw83NssmuA=; b=phIKyxxbQljRirMHj1fQ/d
+	NJ09845ej2/LgX6yHnSL31UNQfT/gXP2SAbtCyvWQ7tGXWHmvX49duJuc0S7DGNE
+	4nHvtUBzO0iNEJbfwt5HCTPlNvUhYNj4UrDiZC44p2Si5tHNTM3H3WyIefmYFO6b
+	ShZPjYON4/WfcGLdj1fhArCNedmydWs9SGlCmkfZLavBCHKHAB51RLMPfXxGnazv
+	nBSgk6NBz5H7PhOBBLq2TCShM84Vc9aOTMuub9L2SjL3K0x3e3leRLtA0YcrCQTO
+	xXFhQ86Ufkeu8maoG8T87cbwdTdi0VZuwwZTi9Fs65oX7AeUIe5KwdZmOExomkdA
+	==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dphfrfnmh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 23 Apr 2026 11:10:04 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63NB5I0B023969;
+	Thu, 23 Apr 2026 11:10:03 GMT
+Received: from smtprelay06.dal12v.mail.ibm.com ([172.16.1.8])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4dpjkxxaj1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 23 Apr 2026 11:10:03 +0000 (GMT)
+Received: from smtpav02.dal12v.mail.ibm.com (smtpav02.dal12v.mail.ibm.com [10.241.53.101])
+	by smtprelay06.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63NBA3NQ41288082
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 23 Apr 2026 11:10:03 GMT
+Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 65D49580AF;
+	Thu, 23 Apr 2026 11:01:12 +0000 (GMT)
+Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 1339E580A8;
+	Thu, 23 Apr 2026 11:01:11 +0000 (GMT)
+Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.174.254])
+	by smtpav02.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 23 Apr 2026 11:01:10 +0000 (GMT)
+Message-ID: <56a8aab50a3b5ce0a345fc2079fb2abc7d0f1b23.camel@linux.ibm.com>
+Subject: Re: [RFC PATCH v2 1/4] security: ima: call ima_init() again at
+ late_initcall_sync for defered TPM
+From: Mimi Zohar <zohar@linux.ibm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        kvmarm@lists.linux.dev, paul@paul-moore.com, jmorris@namei.org,
+        serge@hallyn.com, roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+        eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+        sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+        catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+        sebastianene@google.com
+In-Reply-To: <aem0SSQuE1e3pGOS@e129823.arm.com>
+References: <20260422162449.1814615-1-yeoreum.yun@arm.com>
+	 <20260422162449.1814615-2-yeoreum.yun@arm.com>
+	 <6919248bdc85dac60277fa9d9c83d8bd258ca635.camel@linux.ibm.com>
+	 <aekXaU52fzvNYaUF@e129823.arm.com> <aekkVQwueKbFtG7C@e129823.arm.com>
+	 <82803bb3b471898a77084c449b73c7f7b4eb2149.camel@linux.ibm.com>
+	 <aem0SSQuE1e3pGOS@e129823.arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Thu, 23 Apr 2026 07:01:10 -0400
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3948e39f-dd20-44e2-b264-dc2a0a88f5b5@app.fastmail.com>
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: K6OLk0fbJGi7d60h0ZFqhtW1DlQ1sSgg
+X-Proofpoint-ORIG-GUID: hNdzntgNSc0GoNTv5nyCRXyUj0Jw9Lw3
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIzMDEwNyBTYWx0ZWRfX7F4fjZ4CGN+i
+ JhBrBzc1jFFXCf0LwhxTb74RyjH7BEb0SE0jd5+KULOKAVvz8N1WXqIjpGbTYPZF/4aGxFuYY8D
+ RoiNrMqRBQbbLLe3wlTZ01gLV/4GUC10I2qcw8WJgiGQST9x5WD9Nm12v47iuQ7uMmbLsvSQSRO
+ CTTTrWNqGNlyMorwLz20KkJkG7E7+tPEnRbBpmRGj1u4WTBS3OEI3Ynct24sF4eQmUBQhTsIpPX
+ N7BK+yIS5DXwPZ8Ids9iBWThCXP/nV705EeQL+7PU3yOSiammG+HFXYFbOWEVFC8ARGpPLao3XU
+ hH7UcSBZMA/l539+Tm+GnpOK9x/qUPxUywbZuIlxRRDeAQD3Pod0pVZ2HtuxPzyV59ymTN0Oae8
+ NMssg9riaIJ/kf+mzhclh3CUxOSKwZaQ+11MyZ0LQJTD2G/5vg9sJYfNN1au7OVB1cEuzdFCEGm
+ +Xp7/MAN0aMfH/Lw1gw==
+X-Authority-Analysis: v=2.4 cv=SJxykuvH c=1 sm=1 tr=0 ts=69e9fe0d cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=7CQSdrXTAAAA:8
+ a=aEHzUbLWVaQ50KIkOWgA:9 a=QEXdDO2ut3YA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-23_03,2026-04-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 malwarescore=0 impostorscore=0 bulkscore=0
+ lowpriorityscore=0 phishscore=0 clxscore=1015 adultscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604230107
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_040921_687547_A397F947 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20260423_041018_768653_51268B22 
+X-CRM114-Status: GOOD (  53.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,34 +132,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 23, 2026 at 12:26:23PM +0200, Arnd Bergmann wrote:
->
-> Sure, but I'm not adding new code here, I only reported a regression
-> from Eric's (otherwise very nice) cleanup and tried to come up
-> with a better workaround than adding another 'select'.
-> 
-> I've tried to rework one driver to use IS_ENABLED() checks now
-> instead of the #ifdef, and also replace the for()/switch()
-> loop with three separate loops for simplicity. See below for
-> what I ended up with compared with my first patch.
-> 
-> I'm still not entirely happy with that version either, especially
-> since this is getting beyond a purely mechanical cleanup.
-> If you think this is better, I can do it for all three drivers,
-> otherwise I'd just send the oneline change to work around the
-> third driver link failure the same way that Eric did for the
-> other two, and let the sunxi maintainters worry about cleaning
-> it up.
+On Thu, 2026-04-23 at 06:55 +0100, Yeoreum Yun wrote:
+> > On Wed, 2026-04-22 at 20:41 +0100, Yeoreum Yun wrote:
+> > > > Hi Mimi,
+> > > >=20
+> > > > > On Wed, 2026-04-22 at 17:24 +0100, Yeoreum Yun wrote:
+> > > > > > To generate the boot_aggregate log in the IMA subsystem with TP=
+M PCR values,
+> > > > > > the TPM driver must be built as built-in and
+> > > > > > must be probed before the IMA subsystem is initialized.
+> > > > > >=20
+> > > > > > However, when the TPM device operates over the FF-A protocol us=
+ing
+> > > > > > the CRB interface, probing fails and returns -EPROBE_DEFER if
+> > > > > > the tpm_crb_ffa device =E2=80=94 an FF-A device that provides t=
+he communication
+> > > > > > interface to the tpm_crb driver =E2=80=94 has not yet been prob=
+ed.
+> > > > > >=20
+> > > > > > To ensure the TPM device operating over the FF-A protocol with
+> > > > > > the CRB interface is probed before IMA initialization,
+> > > > > > the following conditions must be met:
+> > > > > >=20
+> > > > > >    1. The corresponding ffa_device must be registered,
+> > > > > >       which is done via ffa_init().
+> > > > > >=20
+> > > > > >    2. The tpm_crb_driver must successfully probe this device vi=
+a
+> > > > > >       tpm_crb_ffa_init().
+> > > > > >=20
+> > > > > >    3. The tpm_crb driver using CRB over FF-A can then
+> > > > > >       be probed successfully. (See crb_acpi_add() and
+> > > > > >       tpm_crb_ffa_init() for reference.)
+> > > > > >=20
+> > > > > > Unfortunately, ffa_init(), tpm_crb_ffa_init(), and crb_acpi_dri=
+ver_init() are
+> > > > > > all registered with device_initcall, which means crb_acpi_drive=
+r_init() may
+> > > > > > be invoked before ffa_init() and tpm_crb_ffa_init() are complet=
+ed.
+> > > > > >=20
+> > > > > > When this occurs, probing the TPM device is deferred.
+> > > > > > However, the deferred probe can happen after the IMA subsystem
+> > > > > > has already been initialized, since IMA initialization is perfo=
+rmed
+> > > > > > during late_initcall, and deferred_probe_initcall() is performe=
+d
+> > > > > > at the same level.
+> > > > > >=20
+> > > > > > To resolve this, call ima_init() again at late_inicall_sync lev=
+el
+> > > > > > so that let IMA not miss TPM PCR value when generating boot_agg=
+regate
+> > > > > > log though TPM device presents in the system.
+> > > > > >=20
+> > > > > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> > > > >=20
+> > > > > A lot of change for just detecting whether ima_init() is being ca=
+lled on
+> > > > > late_initcall or late_initcall_sync(), without any explanation fo=
+r all the other
+> > > > > changes (e.g. ima_init_core).
+> > > > >=20
+> > > > > Please just limit the change to just calling ima_init() twice.
+> > > >=20
+> > > > My concern is that ima_update_policy_flags() will be called
+> > > > when ima_init() is deferred -- not initialised anything.
+> > > > though functionally, it might be okay however,
+> > > > I think ima_update_policy_flags() and notifier should work after im=
+a_init()
+> > > > works logically.
+> > > >=20
+> > > > This change I think not much quite a lot. just wrapper ima_init() w=
+ith
+> > > > ima_init_core() with some error handling.
+> > > >=20
+> > > > Am I missing something?
+> > >=20
+> > > Also, if we handle in ima_init() only, but it failed with other reaso=
+n,
+> > > we shouldn't call again ima_init() in the late_initcall_sync.
+> > >=20
+> > > To handle this, It wouldn't do in the ima_init() but we need to handl=
+e
+> > > it by caller of ima_init().
+> >=20
+> > Only tpm_default_chip() is being called to set the ima_tpm_chip.  On fa=
+ilure,
+> > instead of going into TPM-bypass mode, return immediately.  There are n=
+o calls
+> > to anything else.  Just call ima_init() a second time.
+>=20
+> I=E2=80=99m not fully convinced this is sufficient.
+>=20
+> What I meant is the case where ima_init() fails due to other
+> initialisation steps, not only tpm_default_chip() (e.g. ima_fs_init()).
 
-Sorry, I made my comment based on your original patch only which
-simply added ifdefs.
+The purpose of THIS patch is to add late_initcall_sync, when the TPM is not
+available at late_initcall.  This would be classified as a bug fix and woul=
+d be
+backported.  No other changes should be included in this patch.
 
-Now that I see the wider context in the driver, I'm happy to take
-your original patch as is.
+>=20
+> If it fails at the late_initcall stage for such reasons, then we
+> should not call ima_init() again at late_initcall_sync.
+>=20
+> For this reason, instead of adding a static variable inside
+> ima_init(), I think it would be better to manage the state in the
+> caller and introduce something like an ima_initialised flag. Also, if
+> initialisation fails for other reasons, the notifier block should be
+> unregistered.
 
-Thanks,
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+Defining a global file static variable, in lieu of a local static variable,=
+ is
+fine. Defining two functions, one for late_initcall and another for
+late_initcall_sync, that do nothing other than call ima_init() is also fine=
+.
+Please keep this patch as simple as possible.
+
+>=20
+> I=E2=80=99d also like to ask again whether it is fine to call
+> ima_update_policy_flags() and keep the notifier registered in the
+> deferred TPM case. While this may be functionally acceptable, it seems
+> logically questionable to do so when ima_init() has not completed.
+
+Other than extending the TPM, IMA should behave exactly the same whether th=
+ere
+is a TPM or goes into TPM-bypass mode.
+
+>=20
+> There is also a possibility that a deferred case ultimately fails (e.g.
+> deferred at late_initcall, but then failing at late_initcall_sync
+> for another reason, even while entering TPM bypass mode). In that case,
+> it seems more appropriate to handle this state in the caller of
+> ima_init(), rather than inside ima_init() itself.
+
+If the TPM isn't found at late_initcall_sync(), then IMA should go into TPM=
+-
+bypass mode.  Please don't make any other changes to the existing IMA behav=
+ior
+and hide it here behind the late_initcall_sync change.
+
+>=20
+> Am I still missing something?
+
+When your original patch moved the initialization from late_initcall to
+late_initcall_sync, you didn't question anything.  There's absolutely no
+difference between that and calling ima_init twice, as long as on late_init=
+call
+ima_init() returns immediately if the TPM chip isn't defined.
+
+Any other changes are superfluous.  Keep the patch simple!
+
+Mimi
 
