@@ -4,111 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B753F99368
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 10:26:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A336FF99362
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 10:27:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MivdOIkmxvQjBHx2aFyPQuZoyPRSFrsVHDXpJ+ckBGU=; b=lnGfsP6kA/VZk09Ca/helYLUAh
-	DDjFROPzovPmR3FD3tOJBXy+dLMFaHNPNdTzH41bb3z8N1RMuZ5MX9lgih15vNnw4eL4DWn3YEI6o
-	neHB2koM9NYeLL6XPLtC7jWcy+rfZaQmM119m0oAUaw2XDnoOs/E5Ykmxy4ypE8JxG0wMuXSLwvfY
-	mne2ZzvydErW5BTDz5MPXe1Ir98DoOq7b1xdl5F8de48oFIE6e3y9jGVI11ivI1K2SdqEnVpHovgb
-	xCCOoItz0+Bx5SR4TVzzDT9gQ7Qs2NxE8O/uwDz8vKmyvqZATK/ecwm9GSASgnfE3ajFkxIb4vxyG
-	hOIIZ1zw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DII8ESVPrEWFMFKxPHGIcaWGJ2joxr+CZzKed/RsGWs=; b=amMJF5+tqltmG5Da9ittirjGqp
+	fg9vC4AdwEsp17+OysHX3jJTQXHM2LWcRM1f1w2G2lcFnlJe32aj+kKAG1GbM29bow4i9dAEgbg4O
+	pXc+OROlzOyztWxl3IAQ8qpd+pggEaaHlGGIlPLP+8RpFX3E9KQ+4txjfX+TMo7KFajnnHsIIAqqc
+	tIQtbwnG6AMyjUw8Fmmw36aHUU/rs+7BxbqsqqvdjvFqPAa5lMHm6oS2PAZ/TAG/siNe496RhRSQk
+	E67IcLwZpI2kxXJ2FJLxB/vQ9ygerXb34AVj07VLo3ZEIwqsM3YqZQPlDXEMxMUJoQKr5kfpefLXt
+	RD+mx0bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFrGk-0000000BTvD-1nMa;
-	Thu, 23 Apr 2026 10:26:50 +0000
-Received: from fhigh-b8-smtp.messagingengine.com ([202.12.124.159])
+	id 1wFrHH-0000000BU1c-1BXI;
+	Thu, 23 Apr 2026 10:27:23 +0000
+Received: from mail-westeuropeazon11011031.outbound.protection.outlook.com ([52.101.70.31] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFrGg-0000000BTup-49OJ
+	id 1wFrHF-0000000BU16-0PkG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 10:26:48 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id A64137A00EB;
-	Thu, 23 Apr 2026 06:26:44 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Thu, 23 Apr 2026 06:26:45 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1776940004;
-	 x=1777026404; bh=MivdOIkmxvQjBHx2aFyPQuZoyPRSFrsVHDXpJ+ckBGU=; b=
-	FgpSEX/plv/W4Mb0DlxhouzBUJjGIXd8wnf3bCmoDOR69UIq9nm1H+6m73vxPAPw
-	PRJQtSub9nB3h2JyjDEDyApKNKm9T5bYIRn6WLdOQrG0XdP5FPI/cFihqdqpBlGd
-	miYvmFRDicVmOa2TGLPgA+fMGbIUzlMkndLQDd5M0dxHSFRoo2xHUhbQBB19Wirv
-	mpmsPWpp/fOtKNGw9K7fwfsPPTNN2rxdRI+HGZUv//90HQxBzKTg8dOthcESGaZX
-	YsEcuOVtoZ0KNhLZr2Dg5rayjL/kIfbgLzob6atqG4hsTQUDC9BnTBRmacxuFriU
-	mLiHvGjq9pjX7n2SP7a6ZQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1776940004; x=
-	1777026404; bh=MivdOIkmxvQjBHx2aFyPQuZoyPRSFrsVHDXpJ+ckBGU=; b=P
-	bMCF4wuCiT4jMUwYhEX2zK71n2txzv2ifcFMhigJcR552Qqs76qT0GqqHI5L57Ij
-	EzgDz5hHsj+bac3/+AtmmiRd7Cgcz8l0+/BAA6HnsoHlqV0wc8/0PTYpnXrpCVuk
-	huYixvY+6n8+OowHVAAYIes33HnCYePyxKSU+6z1mX3gyvTyjQxUBMwh50oglQFQ
-	NIJV/UvUgXn3396JSJs15KK+9Sd0sgvZxr33fY25BcFgryBJK+IsoS2O1DahOeNa
-	Rw6B8yw1+mwRvE/zAuAo+9Ijjpgmx1TNi7nTNQBtxBse6JGjGp8NdyCESwui4udK
-	lk2ZRUZCxXOHJgKEVosFA==
-X-ME-Sender: <xms:4_PpaT5PMIUYfn7mOkY1ayW8g2D_3V47jqVek4rncrGOoOZoGxZQtA>
-    <xme:4_PpaTtFeskCP0-ATEskM-26uX-6MzZa3h9ApyfamW6uideXEFoZjl8B1wjSGEmka
-    OboiOPiF7373HvC1EmHW3dZIzKb1FoC0Fwxm7mw0EagyH3Fjdm2pw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdeiieeludcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieen
-    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
-    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopedufedpmhhouggvpehsmhhtphhouhht
-    pdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhope
-    gtlhgrsggsvgdrmhhonhhtjhhoihgvsehgmhgrihhlrdgtohhmpdhrtghpthhtohepjhgv
-    rhhnvghjrdhskhhrrggsvggtsehgmhgrihhlrdgtohhmpdhrtghpthhtohepohhvihguih
-    hurdhprghnrghithdrohhsshesghhmrghilhdrtghomhdprhgtphhtthhopehhvghrsggv
-    rhhtsehgohhnughorhdrrghprghnrgdrohhrghdrrghupdhrtghpthhtoheprghrnhguse
-    hkvghrnhgvlhdrohhrghdprhgtphhtthhopegvsghighhgvghrsheskhgvrhhnvghlrdho
-    rhhgpdhrtghpthhtohepfigvnhhssehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlih
-    hnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
-X-ME-Proxy: <xmx:4_PpacKrPTDbBfVgWw4h7Db_rVitnkes77zmZMdHp0-Xe-DzTvoz5w>
-    <xmx:4_PpaYjtSsYvCOqvRIzroMTAxteUcChYAA7erAMKc_rao7-8ijTA-w>
-    <xmx:4_PpaRLkauvjs1BhfTJptKQqVyZBB8_1wm1f4woP9y1piO7zK-_OXQ>
-    <xmx:4_PpaXhcOKmuy8xwE4Twmt9YXXBSKDzx5rIRLPJgCr9rKsrMmyrW9A>
-    <xmx:5PPpaV6E71ficY6P-Gdilt8vVm8y7wj56FENryeW1JuGLTETGS1H4Ins>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id AD3C3700065; Thu, 23 Apr 2026 06:26:43 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 23 Apr 2026 10:27:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YKzFo8adLADmhDty5B11UJXD8P/yoCcDQmK140cVnrbVp5416jCaZz1vQqS4bvTbL04vc6uos5WvVzFDWAP/dcpNCyotpTJD/m+y3oocBM4CGPteTxe3nVCnwYYfmGqcnX+9GQ/7K1nT0M8elbJ4Qk9qzYK4W5k9IuYfjpYbBvnetg1eiGIHD+vF2g2VujE6bCi5gd43f7DR+eL6b3CoPzD8qpHTyNowptJ/goBG1H9OOonDTl8r5IXyeUAV3fGRHhbrM3WC4qneRdrDQeMw+BgSCbub4rDgUZZR6G4uL9/SG7ehMUSc0pdcEbFe6P5MEHAMjMqPekzx5BkeGtNWdA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DII8ESVPrEWFMFKxPHGIcaWGJ2joxr+CZzKed/RsGWs=;
+ b=cEWX6I9C7F7y9cv8mmSGaAaSor8L0qJ543bKnkpTv0zadxkQdRwCfcXHlM5/67ng8vYWyBfm4u8pVnG9Bj8uxy5Eixmtd4Ymz4csclNs/GZOrBDuR+fGwPh90+/Hle+y3lUWm4bvxVPxTSVUDixnjEIQtHaYPy9SMQChwWg9nhcX7jXc+AatoHbgeDEQWKbC+TVYvKRIXWJYjlrIdETb85HdQ4kzztYiNH+TaMSNSW9wyFHMhbfyWRqlbD5EhLvtZMHkw3QhE5eGKq+LfhYYCeU/AEc1U8UYAZ+K/IPXzBLsOb42tqSrJsO8fTEUtUOyNBjqkt9DKGa515cBIFoqnQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DII8ESVPrEWFMFKxPHGIcaWGJ2joxr+CZzKed/RsGWs=;
+ b=ArrRXike7u/NVEXZBrerWa+61QixP7nIVEkII9t/ZCRilSwxxwgzLDvRAzRmP8M+BR19bufD0yvCiaGdpFLh+cNPOGdeDjCTpkmPJpBR9tQ2ALNUZRUP6VufExdLs6xA3tMcij83L76kusunlM92IkDylctG0qaz51xrwaXsYo7kiG1buqkwM9+xXbeme4eUoLJoHgtqcd+W3WSn57py3TGswQXsUKAgXM3c0+oXocsN/Vtpas+cYaVSgLPJHGKIk0MppcFgEa1VSCqX9L2QS3qqisHViplRS82EBNxcoQy2wfJP9iwg5NRmHzN4NdbMQvXIuG3ErG2ntRdwx1Uoaw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
+ by DU4PR04MB11726.eurprd04.prod.outlook.com (2603:10a6:10:615::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.16; Thu, 23 Apr
+ 2026 10:27:16 +0000
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::c67b:71cd:6338:9dce]) by DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::c67b:71cd:6338:9dce%5]) with mapi id 15.20.9846.021; Thu, 23 Apr 2026
+ 10:27:15 +0000
+Date: Thu, 23 Apr 2026 18:26:31 +0800
+From: Xu Yang <xu.yang_2@nxp.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, jun.li@nxp.com
+Subject: Re: [PATCH 2/4] arm64: dts: imx95: switch usb3 controller to
+ flattened model
+Message-ID: <cfyvip6atz6hh57iga5gvkzrdxeorv4tuxontvzixflqn36h7h@2awtzkxkn45c>
+References: <20260421105503.1416566-1-xu.yang_2@nxp.com>
+ <20260421105503.1416566-2-xu.yang_2@nxp.com>
+ <aehGKE8qLXiBKvvB@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aehGKE8qLXiBKvvB@lizhi-Precision-Tower-5810>
+X-ClientProxiedBy: FR4P281CA0419.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:d0::18) To DU2PR04MB8822.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e1::11)
 MIME-Version: 1.0
-X-ThreadId: AavW3N6gTEK7
-Date: Thu, 23 Apr 2026 12:26:23 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Herbert Xu" <herbert@gondor.apana.org.au>
-Cc: "Arnd Bergmann" <arnd@kernel.org>,
- "Corentin Labbe" <clabbe.montjoie@gmail.com>,
- "David S . Miller" <davem@davemloft.net>, "Chen-Yu Tsai" <wens@kernel.org>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>,
- "Samuel Holland" <samuel@sholland.org>, "Eric Biggers" <ebiggers@kernel.org>,
- "Ovidiu Panait" <ovidiu.panait.oss@gmail.com>, linux-crypto@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Message-Id: <3948e39f-dd20-44e2-b264-dc2a0a88f5b5@app.fastmail.com>
-In-Reply-To: <aenmEQNhhw9bnxEa@gondor.apana.org.au>
-References: <20260423065600.2081989-1-arnd@kernel.org>
- <aenfmxOvtHaAODqH@gondor.apana.org.au>
- <1cd6ddc3-479c-4cbf-8315-78bc53ac3a54@app.fastmail.com>
- <aenmEQNhhw9bnxEa@gondor.apana.org.au>
-Subject: Re: [PATCH] crypto: sun8i-ss - avoid hash and rng references
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|DU4PR04MB11726:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5c7f3f4c-4835-4249-19d8-08dea122e3e7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|52116014|376014|19092799006|22082099003|56012099003|18002099003|38350700014;
+X-Microsoft-Antispam-Message-Info: PzEDzxB/oTsTYCXIlh6vy0uhvjq/hPUXaDsvFFYXPykDNW3GhWTFGpXyI7NBqyUQQD78lktCMg3a9EMpQZdCnU9f8UwS9GebijI3aw2db0Ov1kArBPcTTsBtbzQsBmPxGkVNMZCwwXG611sh9zUgmOOtBb4WGB3RHL0hPbp6VRAoPQ7r4uFIrSaZlkMxG7FLVfz7Ktso96sOh7JnXv7byyi9QcPszbBULbsO07UeUDrQm1HYlBY1xE/mbs94pga6tOwSzyVWZjVZ3IZQdKa7xZ5j3afDmYeCPXMjCk5GREbOwpc2g8cOMk15mVLVHDjeNQnCG1Qp8b7lN9rT/zQ0IH3ldqKagcMmT37ZMrHeQU+3LDQ5auydgtQjpF+dxEifsbYc9Tyf0cIxmuH7vWsnakmyPRkgzL1PaokqKaFt9FSstv0njs+bCHzZYafzCZM4BbGralmZ9A8av7RTfpcsg6AGM8bbHrB5v90HrWbRZFjHcjKoaJaKKxFQ9tC/hy0Zog8IKKCvNVKpC+C9CKBi4k0mdbDdLlxFPsKd/0jO72RGEHlgmnbeKr99IY66adM9m5KV8DT5s0t/NKRcOemrt3vmcAvBzsQItheolDWiRRtNy18+CxdWlRrEAULCFXZPQQt9t78inlmnVz2WsyMQW1LyZ7DB11cjordh1Jvtbn7I2+E8m6l/p6SMWFFILmez49/NSNuefeFXF7ItB2COviq54W65jrG+FLoD9WHJEXy1o+KZnAQ6SkLg+dQC1PqJ0+RcVhbdMFw8hjZbektLt/g5iFGL+iNEhz2ZQp7oxQU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(52116014)(376014)(19092799006)(22082099003)(56012099003)(18002099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8nMrqiMykmFUXJ1DXV8oHPizYXkHccG+Hcx3zP5lVPpEWmyd/bOThv8x7dh2?=
+ =?us-ascii?Q?wqbtSjJ+pOGqHnS3pTH2iJCBprm0TNRHdbt7m2XQk5vCfJ2mZlBJM/wYVdyE?=
+ =?us-ascii?Q?8XYnjpLB5osfplEkoRheAN6M/ljlCaAWCmjf8F4TxBx7wTCAPdcxqmFYf515?=
+ =?us-ascii?Q?MbcQDAhmRWz+PkDZUdcS+FfD4MVkCAZp9eUbOzZQJDztpXmMQ6QepGmfVj2q?=
+ =?us-ascii?Q?M96agJ1R7Flb7MuWDgzgLmyGAMNGb8t4gplmXPur4KXVtCFYTEkEiwl35CE5?=
+ =?us-ascii?Q?zGyIEl60/LovjutDN4Y40tZTKGTwZzcYoTBAOfJGr0av8u0/WXwmcjzosw2L?=
+ =?us-ascii?Q?u1r8HjakcueUuGTY0AVCsYdkDF40auPjX1R29EliPa9qm1+n/NBilKpLZTEm?=
+ =?us-ascii?Q?+W7WUpXUeazywFHel2OwoOMmjJ20W36TMt6j7ThSiq2USiQxyET0clMjh2av?=
+ =?us-ascii?Q?xGVOIiwnT8KXsBtH4A7VA7wvBhuQvlhNZlH4Kk7J0LUUotkp1lJBmjawQiYp?=
+ =?us-ascii?Q?0TaRF9Uwbcg4O8LxFXcQK0qOEKSlRnNQWCyOnfTN/ZXunMxDw3jw3IKZf8Zu?=
+ =?us-ascii?Q?eSM8z7Ccj2PbDt2fpUpf5rYriQrZ2RbdzSwth+Dfoo/cUIEk1jgwHE893qSX?=
+ =?us-ascii?Q?UK1GFdLsajRIVqof567jToziE32TmBjjcUUnk4Z7oUvHdBsO72k2nV8Jv7ba?=
+ =?us-ascii?Q?D3KvURxE8Ce0xlfqctUrsQjznlA/ATdn7LmcYYMPEVI+wHD7EJJm/qbjgxgR?=
+ =?us-ascii?Q?u+f8KWunZkiDTvmu69y6X2FRSnHVu6O/5ZUssyn8kerUFQFpS0m5nwMmW+mp?=
+ =?us-ascii?Q?/tqms8cVxcoTnQG7CVzWNfvOQVmdea0NfP2J6ZYE7jJys2KigokaNNbXLDbR?=
+ =?us-ascii?Q?xisJEw4d6tWxRcMcCpmXW5RcD58huxrRbtM+hF95U5nQvUfWpISWBg6FYlLo?=
+ =?us-ascii?Q?KTglv2789cV+wSZjJP81u8fb5wICDgLRLaZdIw6AUt0O0gYTr/BxFG7KenHc?=
+ =?us-ascii?Q?igdczi00/hvx0GIY/GgMnLmAbVTgu8/mpsoM1vBBB4eU82U8AhZHNtpOtQJC?=
+ =?us-ascii?Q?N6/ChSifgbjw4SjKz90Nw40EVXpnFkqcjKzhZx+3ddaXSM7nccd59Gor7z/k?=
+ =?us-ascii?Q?oS+j8g2uN3wiWn6RX2LUeDDJKbM19xOO0pBEjDB7PQy/e+ED6760bPkl5GMn?=
+ =?us-ascii?Q?+5POCM+rwL/vNvKnd/vwF1MpgrtFqsYfcXVkXt7D3D7RalRHta8C9qt29NT/?=
+ =?us-ascii?Q?uhf0KQny/Y2/937a/yAp1nAarT/66fzYOlv4wriIUGuH9R3iCTeOCxIFgzsO?=
+ =?us-ascii?Q?m3YxF6+6JjlBFSquIekl1vW8s0WpRhpUSzQ431UbhPt1wBpO/HY8p3B/vChJ?=
+ =?us-ascii?Q?n6BP8UN0BcNRMHEZDlcOXNyeRGJCcJxxVJB4q3eeLFqkJdMQ0N2kHx9bOVRn?=
+ =?us-ascii?Q?yuRpNkahm9VK/aoBvKmuMn2P3j+AQI6jlaclnH9oULf1fVdwfXnPpaoc8aVY?=
+ =?us-ascii?Q?3vv8PouZm4vLuFZwF0s7adAb0ejodQNiFiB41B3qWZvgACXSecA1EEguY4T3?=
+ =?us-ascii?Q?y1Y1KaIygxI7oWmZavoiEziRgAmL7kqOHFvRjRyJg0uE5UHma4CJPX0+5Z1T?=
+ =?us-ascii?Q?OKvPOxwd5yigli6h4mq+SFoEnMaOK5u9J7G6QirINd/FxQWkPDcQgvuFghtE?=
+ =?us-ascii?Q?QYnblUwKAmtGYpsSmU1hIzGo6VWn2G2vflQZiXWN6H4aY+BCz3OS8qCjc8KU?=
+ =?us-ascii?Q?Z9GSprw8xw=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5c7f3f4c-4835-4249-19d8-08dea122e3e7
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2026 10:27:15.9280
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xu50oS1Y0is74lxKTFMutaquZBfPNeZIJQ1gB06nbOf+YMRKHPm+Ie2EMhG+OWgjKXG/TpdxTFPQRhea99pQyA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11726
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_032647_547483_55480095 
-X-CRM114-Status: GOOD (  25.09  )
+X-CRM114-CacheID: sfid-20260423_032721_139197_D70FD785 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,273 +139,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 23, 2026, at 11:27, Herbert Xu wrote:
-> On Thu, Apr 23, 2026 at 11:25:19AM +0200, Arnd Bergmann wrote:
->>
->> Yes, I can rework the patch that way. I had considered this originally
->> but decided this would end up less readable in this case because
->> of the extra indentation level. The drivers already has a lot of
->> #ifdef checks, so adding more of those felt more in line with the
->> style used here.
->
-> If we're adding new code I prefer doing it inline instead of as
-> an ifdef so that we maximise compiler coverage.
+On Tue, Apr 21, 2026 at 11:53:12PM -0400, Frank Li wrote:
+> On Tue, Apr 21, 2026 at 06:55:01PM +0800, Xu Yang wrote:
+> > Switch to use flattened model for USB3 controller. To enable USB
+> > controller with restricted DMA access range to work correctly, add a
+> > pseudo simple-bus to constrain the dma address.
+> 
+> i.mx95 should fix >4G dma space's problem. Does it impact other no-nxp
+> boards?
 
-Sure, but I'm not adding new code here, I only reported a regression
-from Eric's (otherwise very nice) cleanup and tried to come up
-with a better workaround than adding another 'select'.
+Yes, i.MX95 has fixed >3G address DMA access problem.
 
-I've tried to rework one driver to use IS_ENABLED() checks now
-instead of the #ifdef, and also replace the for()/switch()
-loop with three separate loops for simplicity. See below for
-what I ended up with compared with my first patch.
+It's another issue. HSIO domain only support 36 bit bus access. If not use smmu,
+no any issue. If use smmu, it will allocate memory space of 36 bit < iova < 48bit.
+HSIO can't handle this case.
 
-I'm still not entirely happy with that version either, especially
-since this is getting beyond a purely mechanical cleanup.
-If you think this is better, I can do it for all three drivers,
-otherwise I'd just send the oneline change to work around the
-third driver link failure the same way that Eric did for the
-other two, and let the sunxi maintainters worry about cleaning
-it up.
+> 
+> Need do break compatible judgement such as
+> 
+> i.MX95 is new SoC and still is heave development. The break compatible is
+> accepable at development early phase.
+> 
+> You can rephrase it.
 
-      Arnd
+OK.
 
-diff --git a/drivers/crypto/allwinner/sun4i-ss/sun4i-ss-core.c b/drivers/crypto/allwinner/sun4i-ss/sun4i-ss-core.c
-index 813c4bc6312a..330a1ed7eb03 100644
---- a/drivers/crypto/allwinner/sun4i-ss/sun4i-ss-core.c
-+++ b/drivers/crypto/allwinner/sun4i-ss/sun4i-ss-core.c
-@@ -31,7 +31,7 @@ static const struct ss_variant ss_a33_variant = {
- 	.sha1_in_be = true,
- };
- 
--static struct sun4i_ss_alg_template ss_algs[] = {
-+static struct sun4i_ss_alg_template ss_ahash_algs[] = {
- {       .type = CRYPTO_ALG_TYPE_AHASH,
- 	.mode = SS_OP_MD5,
- 	.alg.hash = {
-@@ -84,6 +84,9 @@ static struct sun4i_ss_alg_template ss_algs[] = {
- 		}
- 	}
- },
-+};
-+
-+static struct sun4i_ss_alg_template ss_skcipher_algs[] = {
- {       .type = CRYPTO_ALG_TYPE_SKCIPHER,
- 	.alg.crypto = {
- 		.setkey         = sun4i_ss_aes_setkey,
-@@ -213,7 +216,9 @@ static struct sun4i_ss_alg_template ss_algs[] = {
- 		}
- 	}
- },
--#ifdef CONFIG_CRYPTO_DEV_SUN4I_SS_PRNG
-+};
-+
-+static struct sun4i_ss_alg_template ss_rng_algs[] = {
- {
- 	.type = CRYPTO_ALG_TYPE_RNG,
- 	.alg.rng = {
-@@ -229,40 +234,46 @@ static struct sun4i_ss_alg_template ss_algs[] = {
- 		.seedsize               = SS_SEED_LEN / BITS_PER_BYTE,
- 	}
- },
--#endif
- };
- 
- static int sun4i_ss_debugfs_show(struct seq_file *seq, void *v)
- {
- 	unsigned int i;
- 
--	for (i = 0; i < ARRAY_SIZE(ss_algs); i++) {
--		if (!ss_algs[i].ss)
-+	for (i = 0; i < ARRAY_SIZE(ss_skcipher_algs); i++) {
-+		if (!ss_skcipher_algs[i].ss)
- 			continue;
--		switch (ss_algs[i].type) {
--		case CRYPTO_ALG_TYPE_SKCIPHER:
--			seq_printf(seq, "%s %s reqs=%lu opti=%lu fallback=%lu tsize=%lu\n",
--				   ss_algs[i].alg.crypto.base.cra_driver_name,
--				   ss_algs[i].alg.crypto.base.cra_name,
--				   ss_algs[i].stat_req, ss_algs[i].stat_opti, ss_algs[i].stat_fb,
--				   ss_algs[i].stat_bytes);
--			break;
--#ifdef CONFIG_CRYPTO_DEV_SUN4I_SS_PRNG
--		case CRYPTO_ALG_TYPE_RNG:
--			seq_printf(seq, "%s %s reqs=%lu tsize=%lu\n",
--				   ss_algs[i].alg.rng.base.cra_driver_name,
--				   ss_algs[i].alg.rng.base.cra_name,
--				   ss_algs[i].stat_req, ss_algs[i].stat_bytes);
--			break;
--#endif
--		case CRYPTO_ALG_TYPE_AHASH:
--			seq_printf(seq, "%s %s reqs=%lu\n",
--				   ss_algs[i].alg.hash.halg.base.cra_driver_name,
--				   ss_algs[i].alg.hash.halg.base.cra_name,
--				   ss_algs[i].stat_req);
--			break;
--		}
-+		seq_printf(seq, "%s %s reqs=%lu opti=%lu fallback=%lu tsize=%lu\n",
-+			   ss_skcipher_algs[i].alg.crypto.base.cra_driver_name,
-+			   ss_skcipher_algs[i].alg.crypto.base.cra_name,
-+			   ss_skcipher_algs[i].stat_req,
-+			   ss_skcipher_algs[i].stat_opti,
-+			   ss_skcipher_algs[i].stat_fb,
-+			   ss_skcipher_algs[i].stat_bytes);
- 	}
-+
-+	for (i = 0; i < ARRAY_SIZE(ss_ahash_algs); i++) {
-+		if (!ss_ahash_algs[i].ss)
-+			continue;
-+
-+		seq_printf(seq, "%s %s reqs=%lu tsize=%lu\n",
-+			   ss_ahash_algs[i].alg.rng.base.cra_driver_name,
-+			   ss_ahash_algs[i].alg.rng.base.cra_name,
-+			   ss_ahash_algs[i].stat_req,
-+			   ss_ahash_algs[i].stat_bytes);
-+	}
-+
-+	for (i = 0; i < ARRAY_SIZE(ss_rng_algs); i++) {
-+		if (!IS_ENABLED(CONFIG_CRYPTO_DEV_SUN4I_SS_PRNG) ||
-+		    !ss_rng_algs[i].ss)
-+			continue;
-+
-+		seq_printf(seq, "%s %s reqs=%lu\n",
-+			   ss_rng_algs[i].alg.hash.halg.base.cra_driver_name,
-+			   ss_rng_algs[i].alg.hash.halg.base.cra_name,
-+			   ss_rng_algs[i].stat_req);
-+	}
-+
- 	return 0;
- }
- DEFINE_SHOW_ATTRIBUTE(sun4i_ss_debugfs);
-@@ -454,34 +465,36 @@ static int sun4i_ss_probe(struct platform_device *pdev)
- 
- 	pm_runtime_put_sync(ss->dev);
- 
--	for (i = 0; i < ARRAY_SIZE(ss_algs); i++) {
--		ss_algs[i].ss = ss;
--		switch (ss_algs[i].type) {
--		case CRYPTO_ALG_TYPE_SKCIPHER:
--			err = crypto_register_skcipher(&ss_algs[i].alg.crypto);
--			if (err) {
--				dev_err(ss->dev, "Fail to register %s\n",
--					ss_algs[i].alg.crypto.base.cra_name);
--				goto error_alg;
--			}
--			break;
--		case CRYPTO_ALG_TYPE_AHASH:
--			err = crypto_register_ahash(&ss_algs[i].alg.hash);
--			if (err) {
--				dev_err(ss->dev, "Fail to register %s\n",
--					ss_algs[i].alg.hash.halg.base.cra_name);
--				goto error_alg;
--			}
--			break;
--#ifdef CONFIG_CRYPTO_DEV_SUN4I_SS_PRNG
--		case CRYPTO_ALG_TYPE_RNG:
--			err = crypto_register_rng(&ss_algs[i].alg.rng);
--			if (err) {
--				dev_err(ss->dev, "Fail to register %s\n",
--					ss_algs[i].alg.rng.base.cra_name);
--			}
-+	for (i = 0; i < ARRAY_SIZE(ss_skcipher_algs); i++) {
-+		ss_skcipher_algs[i].ss = ss;
-+		err = crypto_register_skcipher(&ss_skcipher_algs[i].alg.crypto);
-+		if (err) {
-+			dev_err(ss->dev, "Fail to register %s\n",
-+				ss_skcipher_algs[i].alg.crypto.base.cra_name);
-+			goto error_skcipher_alg;
-+		}
-+	}
-+
-+	for (i = 0; i < ARRAY_SIZE(ss_ahash_algs); i++) {
-+		ss_ahash_algs[i].ss = ss;
-+		err = crypto_register_ahash(&ss_ahash_algs[i].alg.hash);
-+		if (err) {
-+			dev_err(ss->dev, "Fail to register %s\n",
-+				ss_ahash_algs[i].alg.hash.halg.base.cra_name);
-+			goto error_ahash_alg;
-+		}
-+	}
-+
-+	for (i = 0; i < ARRAY_SIZE(ss_rng_algs); i++) {
-+		if (!IS_ENABLED(CONFIG_CRYPTO_DEV_SUN4I_SS_PRNG))
- 			break;
--#endif
-+
-+		ss_rng_algs[i].ss = ss;
-+		err = crypto_register_rng(&ss_rng_algs[i].alg.rng);
-+		if (err) {
-+			dev_err(ss->dev, "Fail to register %s\n",
-+				ss_rng_algs[i].alg.rng.base.cra_name);
-+			goto error_rng_alg;
- 		}
- 	}
- 
-@@ -491,23 +504,20 @@ static int sun4i_ss_probe(struct platform_device *pdev)
- 					      &sun4i_ss_debugfs_fops);
- 
- 	return 0;
--error_alg:
--	i--;
--	for (; i >= 0; i--) {
--		switch (ss_algs[i].type) {
--		case CRYPTO_ALG_TYPE_SKCIPHER:
--			crypto_unregister_skcipher(&ss_algs[i].alg.crypto);
--			break;
--		case CRYPTO_ALG_TYPE_AHASH:
--			crypto_unregister_ahash(&ss_algs[i].alg.hash);
--			break;
--#ifdef CONFIG_CRYPTO_DEV_SUN4I_SS_PRNG
--		case CRYPTO_ALG_TYPE_RNG:
--			crypto_unregister_rng(&ss_algs[i].alg.rng);
--			break;
--#endif
--		}
-+
-+error_rng_alg:
-+	if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN4I_SS_PRNG)) {
-+		for (i--; i >= 0; i--)
-+			crypto_unregister_rng(&ss_rng_algs[i].alg.rng);
- 	}
-+	i = ARRAY_SIZE(ss_ahash_algs);
-+error_ahash_alg:
-+	for (i--; i >= 0; i--)
-+		crypto_unregister_ahash(&ss_ahash_algs[i].alg.hash);
-+	i = ARRAY_SIZE(ss_skcipher_algs);
-+error_skcipher_alg:
-+	for (i--; i >= 0; i--)
-+		crypto_unregister_skcipher(&ss_skcipher_algs[i].alg.crypto);
- error_pm:
- 	sun4i_ss_pm_exit(ss);
- 	return err;
-@@ -518,21 +528,14 @@ static void sun4i_ss_remove(struct platform_device *pdev)
- 	int i;
- 	struct sun4i_ss_ctx *ss = platform_get_drvdata(pdev);
- 
--	for (i = 0; i < ARRAY_SIZE(ss_algs); i++) {
--		switch (ss_algs[i].type) {
--		case CRYPTO_ALG_TYPE_SKCIPHER:
--			crypto_unregister_skcipher(&ss_algs[i].alg.crypto);
--			break;
--		case CRYPTO_ALG_TYPE_AHASH:
--			crypto_unregister_ahash(&ss_algs[i].alg.hash);
--			break;
--#ifdef CONFIG_CRYPTO_DEV_SUN4I_SS_PRNG
--		case CRYPTO_ALG_TYPE_RNG:
--			crypto_unregister_rng(&ss_algs[i].alg.rng);
--			break;
--#endif
--		}
-+	if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN4I_SS_PRNG)) {
-+		for (i = ARRAY_SIZE(ss_rng_algs); i >= 0; i--)
-+			crypto_unregister_rng(&ss_rng_algs[i].alg.rng);
- 	}
-+	for (i = ARRAY_SIZE(ss_ahash_algs); i >= 0; i--)
-+		crypto_unregister_ahash(&ss_ahash_algs[i].alg.hash);
-+	for (i = ARRAY_SIZE(ss_skcipher_algs) - 1; i >= 0; i--)
-+		crypto_unregister_skcipher(&ss_skcipher_algs[i].alg.crypto);
- 
- 	sun4i_ss_pm_exit(ss);
- }
-
+Thanks,
+Xu Yang
 
