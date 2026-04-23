@@ -4,111 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E409FDEE38
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 17:47:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FFE7FDEE2F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 17:47:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/yyOKutn1AUh3qcy0gcHugV9yT5TCQBCWscV32jNero=; b=LdiIoGPE3UFvKyNKLLFebHrjUn
-	/LjggHQZA8OFI+tEcA/8TXCG0kuiIWDGNNonYIMovtS4bRAQhkiEgbwzNCUl4UXzDBUUzzdvu9tYU
-	STqw1kt442m1OO9rEcrwG0V5NQAVpJHWxFwSekDXYT92NWPGbGp7m+EWo4s7IrXc9jgAfcKkx9lc7
-	JD+ejkAH7Yt/1VsXSBOmN9XfqJy7XEVnEE08RlfWLcE5ts3HcpJ9U8jxWzZ4BIJbt3fkOSCwPc4PT
-	RRlNCwGKvVmQ9bmKFEF9dRboiLi9S+8KduS3ED7WybA42FGq4q8quicPKGmJRYIUDpD0P9cXl8MuU
-	skJ1qS3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YSe47lgEl2M56wnTWLyZKSiWMXRMSHjHJ3fGsRqkyys=; b=ieyAQmryKVXMxwlNc/OwCA9cXo
+	OViJk5c2QjABY3M21WoJC2+PY6RUEV37wBa76+ISChXpCGtxtI4qcmVvgUNEKyyPb6J5bSHomWfOR
+	s+oCNA4C+x3RnYSKX9xo+iietj3kAiZCsztSdq2O0ddbK1QDoIsbmCGWNVEe6qm4CL4WQBrhmvdyC
+	9xmZJWOgo87FViu5PzW7KOveYDp5gSKkU6xPCoYO0MJXtMM+RPyahDqsmJrZ9Ue2gMTvRCCbah838
+	UIorCvmwSo4GGsRponpghPxGeRpY6nigWyupjhb+l3rLD1pOgkXmodHTlxBOe1Nv4owAwcnrb8O58
+	werOLE3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFy92-0000000C4ph-0RsC;
-	Thu, 23 Apr 2026 17:47:20 +0000
-Received: from fhigh-a1-smtp.messagingengine.com ([103.168.172.152])
+	id 1wFy9B-0000000C4s3-43Qu;
+	Thu, 23 Apr 2026 17:47:29 +0000
+Received: from mail-canadaeastazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c104::] helo=YQZPR01CU011.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFy8y-0000000C4pO-2sGP
+	id 1wFy98-0000000C4rH-3fxU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 17:47:18 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id B2BBE140016D;
-	Thu, 23 Apr 2026 13:47:15 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Thu, 23 Apr 2026 13:47:15 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kevinmehall.net;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
-	 t=1776966435; x=1777052835; bh=/yyOKutn1AUh3qcy0gcHugV9yT5TCQBC
-	WscV32jNero=; b=J9hxGh4dzvGSBJ4ZN4TcZNc2mfbhNIJ9Z2eWmHFKGuyngHOO
-	U3sXFV59P3Mgkf08kmSeQgNghcLCFY5RGcUaUYAhRqlOZ3P1MT3jKrsqrG6bhWW/
-	Y8dJUO9ND6nvkM5fkztdRaTYf1HIzeynkkwSuyO7DjFXTzpNUhAyJDxmbXr3NA/w
-	OHXsch2D/4Ml9agn3f1lia3Ljl0DgYH0Ga30qJ68jBNaQtdcNflCKlBaFCi7NWAE
-	lZdxZe/P+GLWWqUCVvWvvbi/p3rDWBpKEueXWC3thsJb0vW14Tiur52w2QxR8uWq
-	vzHpgoMBuCq6+HCVEwzplRCu2o9psXDXC/Uc1A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1776966435; x=
-	1777052835; bh=/yyOKutn1AUh3qcy0gcHugV9yT5TCQBCWscV32jNero=; b=F
-	0/sK1oGT0XgjbemMNXGAaTSHH9002fBNX0cXg1DYebw9VdMmSPzmVlegL/scTwTM
-	zRgt2QUkpvUdYuQ19AHSxZ8JnKWUb+CQ5IWLqHYqN1GHtAX3BPVEXscNvFyr7iVk
-	OrMtIcGXb3x53ulUqs4nM5W/VgSYufZ1rpyrEIWguts9Zg7JfJ3y0M8bdzduUiyY
-	K7FRT/7ODh6gBErQh8tg44UmNVrCuFPm6QCoLUp6I9Y9ihin1XOW/JHJZq2wYBk9
-	e/OFCVsfeVAHhwz+jbXjJlQa+Vl/joa9yXVdjHIgifCm1KfaJ7R29jVRaJO09w08
-	SVjf8qva+KjmWH05vWsXw==
-X-ME-Sender: <xms:I1vqafxDeMit8elWCOKgxY5i0xUTSHkqifbmPG5g--wk2V6OqtS6hg>
-    <xme:I1vqaSEuKHgZgfUWyJCBzfzxXbjsjpWjfk6qfqcwzyRTXu7Unbne3FnGC5RvY7zXL
-    60rpoUOfvn61mLL2trV7qFD-ijYU-CErqIfczAIBm2V6wRak2p-gg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdeijeejlecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdfmvghvihhn
-    ucfovghhrghllhdfuceokhhmsehkvghvihhnmhgvhhgrlhhlrdhnvghtqeenucggtffrrg
-    htthgvrhhnpeetfedvheeigfevheefkeejkeegleetiedvgfehieelkeekfefgtdffvdfg
-    gfegfeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivg
-    eptdenucfrrghrrghmpehmrghilhhfrhhomhepkhhmsehkvghvihhnmhgvhhgrlhhlrdhn
-    vghtpdhnsggprhgtphhtthhopedutddpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoh
-    epjhgvrhhnvghjrdhskhhrrggsvggtsehgmhgrihhlrdgtohhmpdhrtghpthhtohepsghr
-    ohhonhhivgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepfigvnhhssehkvghrnhgvlh
-    drohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdr
-    ihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhsuhhngihisehlih
-    hsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtohepmhhirhhkohdquggvvhiklhhinhhu
-    giesnhgrnhhlrdguvgdprhgtphhtthhopehrshgtsehruhhnthhugidrtghomhdprhgtph
-    htthhopehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgpdhrtghpthhtoheplhhinhhu
-    gidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:I1vqaU_lITDgZ2Esk56uwSjT1p5gNliCGChgJ_F5_Lh_zju0i5IxEg>
-    <xmx:I1vqaVXgldAoQu0Z7iyuwmH95JmWDNcd-mFl0dB8qYKM7Ar_BfWDmA>
-    <xmx:I1vqaRe1nfIRCG2TbJxaMFCu2nGVrAbXmEBWTPHgypJ1SkrADX2b7g>
-    <xmx:I1vqaebf17BpPhPYgYJSYp6Hsb0JIQBvrfYFOOuz4M63A4FvAniSJw>
-    <xmx:I1vqaeYetFwq8hEBfFv9ARHGDTfNRQGnjQN0NhnkdP020C-lNdZW1Car>
-Feedback-ID: i421842c8:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 1472F700065; Thu, 23 Apr 2026 13:47:15 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 23 Apr 2026 17:47:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kkCf39ARcsGo8WkBFtn/wprqAXlJgjDwWVxsqSo976NgxgNB+QPhFY6kCA4xM6cGrWWNFvNSvRC6omgAyvpMDF7kNzPimEV+5j2Vim6NFpMKl1P69GmQfk1wq5A5KSsxj/yESQ0bUQ10bWgRn2sBjYZRM5g/5BQUlI+zLwMxoDQosGpoA9bTFZioVZaOAgKCyEARwWMGqG4n9vlBfz2mezUXlip1Hat9ksumR2/v1lWRmN/xsYbp1Fb5GsXwtd7xLtX5WmDHagaTv0qdbrTjjnGf2FWvPJ0S0uE+FOEkEDsWZCPz+4kaBnmj/as/6PPN1H4rclmIrXQomRPdTevDhg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YSe47lgEl2M56wnTWLyZKSiWMXRMSHjHJ3fGsRqkyys=;
+ b=vsQoEMy78/ogiVHenJFtz3ZhpfADRxWU3r6wW+bAesjJO31+jIAY+p/rQhP371IXfmnWDS2MFkpdKPC6UKDGTCvmbI6YA49rFQxuiqTsIFkkUefdwGsNf5VEacslnbYS8OirVCwCGyurTk3nPopcq054/UALNEb7P6t2IMJ49Vdmdh65p31fvueO3VLeTzS4iKv1Ts/ZWPosMnPRuUue4Gw0NenJuitDwYczmyDfQpsB0RTPCvk9GpZqZTQHk9AJ53Q4K5v32m0UFAQugRoaCUhUVjhLTK2gMk3J7pVPeO41Tsmih4cGOsCKMado1hBrIVHplTUTqZQy0u1nmFth/Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
+ dkim=pass header.d=efficios.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YSe47lgEl2M56wnTWLyZKSiWMXRMSHjHJ3fGsRqkyys=;
+ b=Z0vibOU4OMiY4976lWNeIPnhxDAhzlH9SY7thH/4e5HiKrVJSWK63dhIE5rpK6TeVhji5UmENXv6ikVtmRLQaP4BJhttO2o00OpNg7A1lNCfyn8pvZJW+VYDtb5TmuprAMg5GyJOqisD3/7VE8GfJP+43q5mNbmHh33+nw7+FVcigCxDZ90ojERssZulx4c61cW+f06pDNriq6AQ7Ufp8TWruwv/u5P6zce1Nz+29Qpc7lsEJNl6QqNEzAJDbXDiin7grQ9VcpPDvlyJUH0/XoiMVIaZkNhLmiheekYBMzMAadzRNJrgpHmThMjY5EQZhMSsXNyXTLJ1gd1s352jHw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=efficios.com;
+Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:be::5)
+ by YT3PR01MB8225.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:9a::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.22; Thu, 23 Apr
+ 2026 17:47:17 +0000
+Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6004:a862:d45d:90c1]) by YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6004:a862:d45d:90c1%3]) with mapi id 15.20.9846.021; Thu, 23 Apr 2026
+ 17:47:17 +0000
+Message-ID: <c259ea67-4f69-4e6b-b5d5-00e6626067b6@efficios.com>
+Date: Thu, 23 Apr 2026 13:47:15 -0400
+User-Agent: Mozilla Thunderbird
+Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
+ and tcmalloc everywhere
+To: Chris Kennelly <ckennelly@google.com>, Thomas Gleixner <tglx@kernel.org>
+Cc: Mathias Stearn <mathias@mongodb.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Boqun Feng <boqun.feng@gmail.com>, "Paul E. McKenney" <paulmck@kernel.org>,
+ Dmitry Vyukov <dvyukov@google.com>, regressions@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Ingo Molnar <mingo@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Jinjie Ruan <ruanjinjie@huawei.com>, Blake Oler <blake.oler@mongodb.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>
+References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
+ <20260422125647.GP3126523@noisy.programming.kicks-ass.net>
+ <20260422131338.GI3102924@noisy.programming.kicks-ass.net>
+ <CAHnCjA2fa+dP1+yCYNQrTXQaW-JdtfMj7wMikwMeeCRg-3NhiA@mail.gmail.com>
+ <87fr4l28zn.ffs@tglx>
+ <CAHnCjA07ER=9xBqXq4jf5yn052W-E9ZXD86HxnRGtai6bpXbbQ@mail.gmail.com>
+ <87cxzp1tn6.ffs@tglx>
+ <CAEE+yb=rZFxxOhCw+6wsUt5PE6=ebbKjEggQ_j_G3qSkMQZsfg@mail.gmail.com>
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Content-Language: en-US
+In-Reply-To: <CAEE+yb=rZFxxOhCw+6wsUt5PE6=ebbKjEggQ_j_G3qSkMQZsfg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: YT2PR01CA0014.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:38::19) To YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:be::5)
 MIME-Version: 1.0
-Date: Thu, 23 Apr 2026 11:46:28 -0600
-From: "Kevin Mehall" <km@kevinmehall.net>
-To: "Mark Brown" <broonie@kernel.org>
-Cc: "Chen-Yu Tsai" <wens@kernel.org>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>,
- "Samuel Holland" <samuel@sholland.org>,
- "Mirko Vogt" <mirko-dev|linux@nanl.de>,
- "Ralf Schlatterbeck" <rsc@runtux.com>, linux-spi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Message-Id: <9987fdee-7146-4dfd-a34b-d475a96685eb@app.fastmail.com>
-In-Reply-To: <f93e1bc6-608b-4c75-8b1a-80f701ff37ce@sirena.org.uk>
-References: <20260420164755.1131645-1-km@kevinmehall.net>
- <66909301-ed23-4b36-8955-a69b64eed9a1@sirena.org.uk>
- <d199f72a-093b-41bb-b33e-b6685563f704@app.fastmail.com>
- <f93e1bc6-608b-4c75-8b1a-80f701ff37ce@sirena.org.uk>
-Subject: Re: [PATCH] spi: sun6i: Set SPI mode in prepare_message
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: YT2PR01MB9175:EE_|YT3PR01MB8225:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5dc7e23d-7745-42d2-c086-08dea1605c37
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: h8nD/i+4wlqUnOld0sIvuk610HQUmzLqH0Fyps6QDrWJ3X3tVfDV2m8GtAepsonJR4xIaJmcuU65HXTKzGB1iVy4Z20atrTgGafzA7sVHTHySvyKLlnl0toaY8hZZLV8iO4vLJqH++SpT5/UUNe+JhuvFFTdMlUlCkAUxzEhlii5rZ42xdpVJjLFdvotk99FdhgwH6SvOiC9gsbv44h4FJXTII4D9Z1QZRc1kz20PZMCX202MZXTlEMsDB875kjhafgkRfVFcsQDH/rhhtKLLOKwb5dEwo8JaLrgYJ4kvqOw8Nyxn315w9vL/XqDCgxQohO3avfveTwvUf929Pt7qv0gxiCbi1mPyXz0vyOy/iVvErJIJH4TpP6iMPLRwKuDtiNP29+hcrRB/ahuZOS0D1262Pe+lXs4f53ZE3lKFId1Jfg006yH+weNXtXlaq8atI/jTEujmiOf+RyuI4b+MBCNxrnwd3h4cnp9UlFejeD6MEUiOIDRt/fLnpGvSJ2Kf4s5+ElgvO0G15ry3FAdLyHXIoqr5uHIIjiFgzqeFG/n2bOY4OSkyIqikw8lFK0iT7EO8cfXn3aEuIl7xJlzMz0yNKuXfePzmMwOZlc60cRHWIQqoNzsKS/aBcH4ivDM5IXdnjBTags0Krieb/vPceHlRKquGWTgP0znUmvVtMv1oDFJgqB6TqaQWxvnOBgv
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y0FSSWo4bGVkWGlFZDA5M0V3bG1TOVBmeUM3UThaUnZoTHhVT2wreWVZT01I?=
+ =?utf-8?B?SjR3Z3dZMCtmdWM3cVh5Y1l3SnpJcG5DaTRVcFBzVktsNUpiM0F4RnJaNFdx?=
+ =?utf-8?B?RTBoMVAwdy9PUHZ5Wmg5SG9MR1lIU1VCMWtKRmV4K0VvYW1BUFhpaUowNVZN?=
+ =?utf-8?B?MFRBYTl0Qk5aVlRtZ3k4bnpLbFhwVWRvcFIzWWw1bERJMGQ0OUsxZXBDMTVm?=
+ =?utf-8?B?UXVBWjFUM2h1bCs3ejdnbENESEFlQ09OOW1RRFIxYnFFYU5xblRtVU13aVl4?=
+ =?utf-8?B?RlV2ODBBMldCY2t0STFIaElDL2RkS1hRYm05RCttVGZTbEVVZTY3VXd0dTBi?=
+ =?utf-8?B?R3dqQ0pCaVA0N0MyUXFWNUxBUCtQNVBmOFdlUVdKYnFyQjc4Y09yYjBKYnZz?=
+ =?utf-8?B?bFBCeTA3OVI1dzhtY0V3a0VCMHVBb1VTTmF3d3o0Qi9FZjJ5Q3FlbGpJcHpS?=
+ =?utf-8?B?SVJIY1hRekNVODJqQWlOZWMzbUZRSzNWdmNMUE4xOERZampwL0V4OUJPWW0x?=
+ =?utf-8?B?NGUyVzlGSVF3RTlFRWEveHBnTkQzUVQ1YWhBSENmYWc4bGp1NXZESlFkUmFB?=
+ =?utf-8?B?MUVBWlRwSHozTGE1NEZiS2dFeTFVL2ZhMFptL3UyUHJyWU8wc2w1a1RpUERK?=
+ =?utf-8?B?dzBCOE9VYmNHakU2T0NSaEYwc05id3YrYlNwTTY3MXZQMDR2N0FDbU9GOXl1?=
+ =?utf-8?B?dVJwWXRKanlDazJvRUVwVythZlMyODFCcDIxdGhBRnN5MDlUcE5Za2lKUkJ0?=
+ =?utf-8?B?MjVrUmxWQ3NKaHB1ZGtUWnM4WEZrMGdCZ1BoNDhGL2JRMkcvdDZsbml4aGFp?=
+ =?utf-8?B?VkpGZytGQXNQWnl3VXFaSVNCRHcxSTNEeHdYb2lVZHkrNlp5YkxXMlBOVytC?=
+ =?utf-8?B?RmZETlFJamJzU2VTR3Rjdk5vcUJrOE9wbDNyYSthRCtwWHk1alRiQk5SZjVF?=
+ =?utf-8?B?aXN5QXh3SlArSDkzRDZQTVZZQkdJbFdPZTIveTdRUkE4c2orNUtqdVNPdjhN?=
+ =?utf-8?B?TjY2OGZCb2lZcjQzSHFBTjRVUHA4M0laSTlJVEs0R2N4SnFZdUJLajYzVlpj?=
+ =?utf-8?B?VC9pT2pHM3VHaFZTZ2xnQUlIY0ZVaGRLeFZ5emI3dEFPVnFmWlFzZmYrc3RT?=
+ =?utf-8?B?bEMxQjBaSmx0QVVITkFINDg0cmdGZ0NVSWhDdEp0bEE5US90UUtnNGRDdVFG?=
+ =?utf-8?B?KzIzS0UyNVdOZ1RSTVNDVUpEa21MZnY0UVBNaVpGUVRaREVUZERVditsTWJV?=
+ =?utf-8?B?Qk5zRGpYUXpZNXZBZmpaUkJSaWxVaG5QLzM5N0ZoaVlCeGR2eTRObExZeUwr?=
+ =?utf-8?B?MEw4cHhzNUZzQitaUVZIc1BKVGF1ZFJYSGhLQ2tSRzBNQmRZWHgzejFpZmRo?=
+ =?utf-8?B?Z2dYV0pwVlBjN04yTkhURHYwM3BRREtMcklDdTN2eEhhbXIvaDJlM3BvNEJn?=
+ =?utf-8?B?Zjc3Y3ZiUkxvN2hzQkxJczdjazlYdEZGbzZoSllsV0ZEN3ZlNW9tdTU5RmpJ?=
+ =?utf-8?B?T0NDWEU4SGQycHBySEtVMy96bDVPdGVhaHlCVURGbVpDUXZaZmhta1FJK1hY?=
+ =?utf-8?B?Z3c1NmJEOXBoWFpwbkQrVlpFdkt2U1JtcXFhNlR1YXR4UXVncWE3RmhUZFVP?=
+ =?utf-8?B?S09uTFgwZUloU29Yd0s0dTF6SzRpOHo2S3BINVBEd29sdjV5NU15SXJJWDBo?=
+ =?utf-8?B?eGxHZUtBNmlJUWVYNjdlUmlrUC9FcXk5WnN3K2pqZmtHNjhNQUFlTjUvSTJP?=
+ =?utf-8?B?eTFRUDBrR1A1RlVpSkdjTS8rU21RZ1UyYkNUSldjOVpKNmVHZTJBVVdZenJY?=
+ =?utf-8?B?cHphRkR3Vm80N25ibSt2NlFmWDVzcXJ5TEs4cjVhbjFacDE2bnk0T1ZoUi9S?=
+ =?utf-8?B?bERZNGdmUWpxYmIwakhrZ3BqMnRUQkg3eXRYb2FvSXJ5NXhTa3J3T2NFVVNk?=
+ =?utf-8?B?MHROQ0ZxblN4Nm84OXhrcWNzaEx3RHlEVXZZK3NESWZhU002REpWNE55eUtB?=
+ =?utf-8?B?ZlhvN3JTa1cwN1JwVHNXaVBMQzlYVUlQanVYeG1XY3NmdUIwbmZyNjdDTFFS?=
+ =?utf-8?B?Yk02Q0k5RlFnV3FwV0ZBNFVsNHlsZGRSRXFscmtmb1dkc0VWSnAxK0pkQ3Zu?=
+ =?utf-8?B?dDNUVnZSWSsrTURjcFhWMnJPdXNKcUFnd2tIeGx6V2FyRXgySkVSOWVmTFFO?=
+ =?utf-8?B?M2xIREZsTnFDR254UTVhZU1rTTZhRitNNGxUdTlYZmNTRlZQa0lzVlhpOHlV?=
+ =?utf-8?B?Z01sMG14aHo5aXdxNTFUeVg2WlNNTGFGQWN2U2pLQlYxWlJURXJYTmxSWnBE?=
+ =?utf-8?B?RzEyNlVLOUJCa0dzNXBjYTFNU2E4UTJPajRoU2hLTEN0VUtCSEI0OW44b3RG?=
+ =?utf-8?Q?YRpOpRDz4iMVzN/7qVtA6k/7ccVK5dRmiuq+h?=
+X-OriginatorOrg: efficios.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5dc7e23d-7745-42d2-c086-08dea1605c37
+X-MS-Exchange-CrossTenant-AuthSource: YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2026 17:47:17.1627
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: x6o3ABBdUMBo5jdD3uqZPT0sFYdKIJv9rxSLNOR8jXvg4WL9TNllNoZ7exKR1i3Lg4pDRaDZVkNp/ONOw7INGAGaSyKfx/IjmR3DCbI4ABc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT3PR01MB8225
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_104716_800864_B8E0628B 
-X-CRM114-Status: UNSURE (   8.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260423_104726_927534_0A4B458D 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,21 +162,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I tested with `spi-cs-setup-delay-ns = <1000000>;` and a hardware CS in the
-device tree, and confirmed the suspected second bug: without this patch, the
-first transfer after autosuspend ignores the setup delay.
+On 2026-04-23 13:38, Chris Kennelly wrote:
+> On Thu, Apr 23, 2026 at 1:19 PM Thomas Gleixner <tglx@kernel.org> wrote:
 
-> I do see that the driver uses a reset controller over suspend, are you
-> sure that setup() will be called again on resume?
+[...]
 
-SUN6I_TFR_CTL_REG is indeed being reset after autosuspend because the above bug
-reoccurs after a few seconds of inactivity. I am not sure if setup() is running on
-resume because the datasheet reset value of SUN6I_TFR_CTL_CS_LEVEL is the same
-as what would be written. Either way, it's moot if we set all CS-related bits in
-the same register write.
+>>
+>>    3) The RO for userspace property has been enforced by RSEQ debugging
+>>       mode since day one. If such a debug enabled kernel detects user
+>>       space changing the field it kills the task/application.
+> 
+> The optimization in TCMalloc that you're describing has been available
+> since September 2023:
+> https://github.com/google/tcmalloc/commit/aaa4fbf6fcdce1b7f86fcadd659874645c75ddb9
+> 
+> I thought the RSEQ debug checks were added in December 2024:
+> https://github.com/torvalds/linux/commit/7d5265ffcd8b41da5e09066360540d6e0716e9cd,
+> but perhaps I misidentified the ones in question.
 
-I've moved the line that sets SUN6I_TFR_CTL_CS_MANUAL into sun6i_spi_set_cs()
-rather than into sun6i_spi_prepare_message() as a separated commit in a new patch
-series:
-https://lore.kernel.org/linux-spi/20260423174001.2797797-1-km@kevinmehall.net/
+You are correct, I added the RSEQ field corruption validation under
+debug config in Nov. 2024 when I noticed the world of pain we were
+heading towards with incompatible tcmalloc vs glibc (and general) use
+due to tcmalloc not respecting the ABI contract. RSEQ has been
+upstreamed in 2018. So that's not exactly a day one enforcement.
+The ABI contract was clear about this being an invalid use from
+day one though.
+
+[...]
+
+>>    7) tcmalloc violates the ABI from day one and has since refused to
+>>       address the problem despite being offered a kernel side rseq
+>>       extension to solve it many years ago.
+> 
+> I know there was some discussion around a preemption notification
+> scheme, rseq_sched_state; but I thought the discussion moved in favor
+> of the timeslice extension interface that recently landed. Timeslice
+> extension solves some use cases, but I'm not sure it addresses this
+> one.
+
+I have actively engaged with the tcmalloc developers to
+understand their needs and figure out a proper solution for the
+past ~3-4 years, without success.
+
+I have done a POC branch extending rseq with a "reset a linked list of
+userspace areas on preemption" back in 2024 which would have solved
+tcmalloc's issues cleanly. I never posted it publicly because the
+tcmalloc devs told me they could not justify spending time even trying
+this out to their managers.
+
+I still have that feature branch gathering dust somewhere.
+
+Thanks,
+
+Mathieu
+
+-- 
+Mathieu Desnoyers
+EfficiOS Inc.
+https://www.efficios.com
 
