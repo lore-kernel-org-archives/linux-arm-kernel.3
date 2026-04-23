@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ED57F99368
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 10:08:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB31F99368
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 10:17:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/bU6af3pFl4i//WlryeMZZ/EkJOmI89fwzpLq1PO73Y=; b=pfUBRXoJgUHnZzP7zdp1UEisxq
-	56rbuTe/93nGYc3xJDY40mbACwbCEKh5NpVAbtKwwCewKIRqsd78SwVYhYCyHOM9vlC8MSvga4IpB
-	Q2/qr6WpnuprHyTFuR9ZNJaHBmBk2WasFcwJqjmxpBfC3AfAqVF7dh7rO4li0U7dNdySYzbzZqChP
-	YxIeP8c6JBh82SK19gd/YKeHVjVWn1NnxTh7GhEBjSYG0hj9sL6kv8aVALIPxBmjIS11GmZIhfGUl
-	pDLkPrAPNWptcFBLh+HoPQyXiTXKUk6EXrhTHMA8m6+BDsMFJ1a1ps51nJ5s64o1uTDXzoMHPnzvE
-	ITGlIscg==;
+	bh=7YiKjVz9swVRUqA6WflZnEhbl0ptUcLNunuar2gR68Q=; b=UupCk73g2OObOQfg82NZ7TPpDF
+	SP7wyAV1Y0DkC3YN1ohxBtsxGKTykPiB7kz4Kejmn/SvH0mM2MU8fqMY9fie0TwGeWBZAXmAvTNkF
+	cb4XLlioAuNdgtJr2WaqnsSZqnZD8QdRU7ryC+ty6WA5GBjm4mjoyYO9UWpjSrFgJzbSGUIS2Mgr+
+	e2Om6ukFITdHiQ3G87PgoeqoLtIbBAyWPzhaOK4TfG75V1k7VgPB5uFAaTvkdz2/tvN89qtn5qbNH
+	YfOyZLwk0cU2c/+x5ZKf4RkbjkHrh3UFFb9zttihtNZov/00PlKJf4v36n3geEQIXy5d3fA3F66IY
+	D5hrIMQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFqyw-0000000BSG9-0v5J;
-	Thu, 23 Apr 2026 10:08:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wFr7n-0000000BSsz-0eax;
+	Thu, 23 Apr 2026 10:17:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFqyo-0000000BSFX-0G77
+	id 1wFr7l-0000000BSsX-0HRb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 10:08:24 +0000
+	Thu, 23 Apr 2026 10:17:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DED0143FC9;
-	Thu, 23 Apr 2026 10:08:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E14C7C2BCAF;
-	Thu, 23 Apr 2026 10:08:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DEAC64455D;
+	Thu, 23 Apr 2026 10:17:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25E3CC2BCB2;
+	Thu, 23 Apr 2026 10:17:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776938895;
-	bh=CHvcjnR3SprvG3lX1LUmOGMYpbXoJ2lZd/UJrEB9jD8=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=eG8+Zy3lPv6p4S4ubMi7YbUJOwCY4PtRErxgwgmw8G8U3cgwKTtlHJactQ+s5jfXB
-	 Sq0QdRGiBGxaf6OM5dAjIZiEJ/1z2Wz2STT+B+MKhPEARQDqfKG/24SLpzRT2Rq9Gq
-	 w06Dcg8RtVMoV++XgKcN6eu1xhgRZCj+4WiRh4/nfZVD9Sacotl38fL7cnuuLUnBo3
-	 yyR4Uo45sFeOODj2A1FzojlWH+SNKa8ozmcMYxCrHl2Q3Y86itEjWxFw2fgV9WOU8E
-	 T02LFv/zSuwWnymZwf28C0nUew03PVuQWyEbeZdlerB3RP0BPAb9eK4lBYaUa4LEOG
-	 oByK9NZ7uiilQ==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, Jinjie Ruan
- <ruanjinjie@huawei.com>
-Cc: peterz@infradead.org, sudeep.holla@kernel.org, yangyicong@hisilicon.com,
- dietmar.eggemann@arm.com, Jonathan.Cameron@huawei.com,
- linux-kernel@vger.kernel.org, James Morse <james.morse@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] cpu/hotplug: Fix NULL kobject warning in
- cpuhp_smt_enable()
-In-Reply-To: <aeNxKpHzTQX4_kId@arm.com>
-References: <20260417075534.3745793-1-ruanjinjie@huawei.com>
- <aeNxKpHzTQX4_kId@arm.com>
-Date: Thu, 23 Apr 2026 12:08:11 +0200
-Message-ID: <87ldee0z1w.ffs@tglx>
+	s=k20201202; t=1776939451;
+	bh=Eh+rxbW5ADS/ygmkGFPlk846VYv4ZMXX9UlZzCUlUQc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LRs5EZs+C+W4Tt5ez+7FVfPvZ7loMsxFfvo24ZTmqRjA4OLTmGY4nXtGDrMIcehvS
+	 I8qr35S9XtfHKYAHJW5uh7dgpauP5OXakHWyrbP19QIfwyyz/mTGmIfjE/eta5Vj1h
+	 crmNgGSP44AQLW5Rbiov36q6vscGVHKaKWNxIOcsZMGhXwYuoVCPYUTk7ssPo0fea+
+	 nD5bZ25tIRHnnstVyN2M/EXRETYWElnQ7nqatdTwUO9IwPzq155XJA8rgRSDg1OQT4
+	 qfasuvo84W+aG584F2AnBd0Yp25dOT7UgyVgnVlj+8jHda/G5hBRgkGs1Kr1tV64XD
+	 iM5PJq4cV+thw==
+Date: Thu, 23 Apr 2026 13:17:27 +0300
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
+	zohar@linux.ibm.com, roberto.sassu@huawei.com,
+	dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com, jgg@ziepe.ca,
+	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+	sebastianene@google.com
+Subject: Re: [RFC PATCH v2 2/4] tpm: tpm_crb_ffa: revert defered_probed when
+ tpm_crb_ffa is built-in
+Message-ID: <aenxtxb5eIsCWOZd@kernel.org>
+References: <20260422162449.1814615-1-yeoreum.yun@arm.com>
+ <20260422162449.1814615-3-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260422162449.1814615-3-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_030818_124959_F073793C 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20260423_031733_146791_3EBEBB45 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,66 +81,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 18 2026 at 12:55, Catalin Marinas wrote:
-> Another option would have been to avoid marking such CPUs present but I
-> think this will break other things. Yet another option is to register
-> all CPU devices even if they never come up (like maxcpus greater than
-> actual CPUs).
->
-> Opinions? It might be an arm64+ACPI-only thing.
+On Wed, Apr 22, 2026 at 05:24:47PM +0100, Yeoreum Yun wrote:
+> commit 746d9e9f62a6 ("tpm: tpm_crb_ffa: try to probe tpm_crb_ffa when it's build_in")
+> probe tpm_crb_ffa forcefully when it's built-in to integrate with IMA.
+> 
+> However, as IMA init function is changed to late_initcall_sync level.
+> So, this change isn't required anymore.
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>  drivers/char/tpm/tpm_crb_ffa.c | 18 +++---------------
+>  1 file changed, 3 insertions(+), 15 deletions(-)
+> 
+> diff --git a/drivers/char/tpm/tpm_crb_ffa.c b/drivers/char/tpm/tpm_crb_ffa.c
+> index 99f1c1e5644b..025c4d4b17ca 100644
+> --- a/drivers/char/tpm/tpm_crb_ffa.c
+> +++ b/drivers/char/tpm/tpm_crb_ffa.c
+> @@ -177,23 +177,13 @@ static int tpm_crb_ffa_to_linux_errno(int errno)
+>   */
+>  int tpm_crb_ffa_init(void)
+>  {
+> -	int ret = 0;
+> -
+> -	if (!IS_MODULE(CONFIG_TCG_ARM_CRB_FFA)) {
+> -		ret = ffa_register(&tpm_crb_ffa_driver);
+> -		if (ret) {
+> -			tpm_crb_ffa = ERR_PTR(-ENODEV);
+> -			return ret;
+> -		}
+> -	}
+> -
+>  	if (!tpm_crb_ffa)
+> -		ret = -ENOENT;
+> +		return -ENOENT;
+> 
+>  	if (IS_ERR_VALUE(tpm_crb_ffa))
+> -		ret = -ENODEV;
+> +		return -ENODEV;
+> 
+> -	return ret;
+> +	return 0;
+>  }
+>  EXPORT_SYMBOL_GPL(tpm_crb_ffa_init);
+> 
+> @@ -405,9 +395,7 @@ static struct ffa_driver tpm_crb_ffa_driver = {
+>  	.id_table = tpm_crb_ffa_device_id,
+>  };
+> 
+> -#ifdef MODULE
+>  module_ffa_driver(tpm_crb_ffa_driver);
+> -#endif
+> 
+>  MODULE_AUTHOR("Arm");
+>  MODULE_DESCRIPTION("TPM CRB FFA driver");
+> --
+> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+> 
 
-I think so. The proper thing to do is to apply sane limits:
+I'll hold review to next version i.e. after Mimi's concerns
+have been addressed.
 
- 1) The possible CPUs enumerated by firmware N_POSSIBLE_FW
-
- 2) The maxcpus limit on the command line N_MAXCPUS_CL
-
-So the actual possible CPUs evaluates to:
-
-   num_possible = min(N_POSSIBLE_FW, N_MAXCPUS_CL, CONFIG_NR_CPUS);
-
-The evaluation of the firmware should not mark CPUs present which are
-actually not. ACPI gives you that information. See:
-
-         5.2.12.14 GIC CPU Interface (GICC) Structure
-
-in the ACPI spec. That has two related bits:
-
-Enabled:
-
-   If this bit is set, the processor is ready for use. If this bit is
-   clear and the Online Capable bit is set, the system supports enabling
-   this processor during OS runtime. If this bit is clear and the Online
-   Capable bit is also clear, this processor is un- usable, and the
-   operating system support will not attempt to use it.
-
-Online Capable:
-
-   The information conveyed by this bit depends on the value of the
-   Enabled bit. If the Enabled bit is set, this bit is reserved and must
-   be zero. Otherwise, if this bit is set, the system supports enabling
-   this processor later during OS runtime
-
-So the combination of those gives you the right answer:
-
-   Enabled	Online
-   	        Capable
-   0            0        Not present, not possible
-   0            1        Not present, but possible to "hotplug" layter
-   1            0        Present
-   1            1        Invalid
-
-The kernel sizes everything on the number of possible CPUs and the
-present CPU mask is only there to figure out which CPUs are actually
-usable and can be brought up.
-
-The runtime physical hotplug mechanics use acpi_[un]map_cpu() to toggle
-the present bit.
-
-Thanks,
-
-        tglx
-
-
-
+BR, Jarkko
 
