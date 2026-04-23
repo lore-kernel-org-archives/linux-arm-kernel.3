@@ -4,83 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E024F589DD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 14:22:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35AF8F589DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 14:23:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b+EfrB+WUDd3Gvd0JBrM0T3AfGhzP0eanTg45SdvNvg=; b=jrqfyHP0TFIgv1HtpTgxWtHZrO
-	9oqfNYSCROqMdkky1YYpkXFh/9/YXJ+XzaLC/uKfxdnyzj975X2HgAcCvNY1r9gQEjfmAD6LLNYc7
-	Ld+FpOkYlym4N6r+qDRgCl20PnM2baudkrb1I1dlt1A2sCM/xAGMCVaAzzhPydFIn1G4JCbgVXKkf
-	KfORKMJ+JDgY/wSscHS9rVadfkDBghm/33xsTPxSijy+wyTvemJioZeukONOGsYtgwy20Z1r0sN1h
-	5sVp/nTLxW11xomCFJbWYpQe0fkKbtWvDxtyz3o9mbbPM+ReMxymjpJVAv833o3yrQATqCV92Rv6g
-	lAOxIpXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9qVBvXxlgya89SxaZAr5N0EnIlllRggjnL98TRto1Gs=; b=tsnHWcipFi0/15X5rWxQPvgT6h
+	4OSZm50rP6UJU0hlp/XcXnyIpzey227uA6u2ozw2W+nsUIZUnXAdcfkdA0IkKNls5RFu918UhYetv
+	EWwq1/s1+Er0YtoPnNCsRdwG2oRD1vMkmTCuhkbiVASkxLOEBu/VG4VGsxfN9XRm0FUWweD58Kd2N
+	5fTjqEbWXtGG89NfZmQkC9sri3/1e7YzJDRlmNyr+EyG1sxFnFlWGSQCAihvCGR/ArYO9DBYZNyO+
+	44divAPywt+lXVPwHbhgUT/tmsGDTqdmGmBc3oj3alZG6rUWgOoW15ibUDLHLmMHne1fzkwqqEcQs
+	0XbQ8zlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFuwh-0000000BoUI-2wF7;
-	Thu, 23 Apr 2026 14:22:26 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wFuxs-0000000BpFR-0QHZ;
+	Thu, 23 Apr 2026 14:23:36 +0000
+Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFuwH-0000000BoDR-2Lrj
+	id 1wFuxm-0000000BpCK-07Jf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 14:22:04 +0000
-Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 1113219DF;
-	Thu, 23 Apr 2026 16:20:12 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1776954012;
-	bh=mxfZo+5BBTzaFy49GfUY7dWrcVIr2DZ6vJ03YLmG9Ds=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=pIkKyjgqXI5pYrp/loIfPLinDXlGeyH4u6OUOqhpWJSkFBtn+Op2jFx80I4pLu1Im
-	 6gH0On770+JDNzojauP+zVYOBxy9U8CDvkoxaFQevU9mbtzGWw0jepRg36UkQIUeOn
-	 Qz1X/2TPAXP7SRT99GJMz1Do4u2DK0DZnwmAfPsA=
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Thu, 23 Apr 2026 17:21:17 +0300
-Subject: [PATCH v10 06/11] drm/fourcc: Add DRM_FORMAT_XVUY2101010
+	Thu, 23 Apr 2026 14:23:34 +0000
+Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-8eea23d01f7so122788985a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 07:23:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1776954208; x=1777559008; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=9qVBvXxlgya89SxaZAr5N0EnIlllRggjnL98TRto1Gs=;
+        b=RGAF66ZMCXHKV1++kOPfhu1JTWF3h62qDmffI9MDqRPmUJtL128tRkHXCqa+KDCoPq
+         SaUI1T1oolk7+z9QAfrLna2uEfra6gHYdl6Qgh6Nf8HMZSqZ+WKv1vYJCMKbvixqT2FJ
+         rOFbCuZryEkcXLA3ukhvPbtnyLZ6Z/WiqjLTfxwWu4jInc12waNmn4F5azSRQP+pLFi6
+         l13BG4Oy3quwIqMgxntl/FE9o4lKUbRfVJjUiI4b/UoP0NXuzpMgZGEILJtECeV/eLgd
+         68v2DJa70kG/9DKXlDkE2/40qy9blAoL4vkFRgBiQtC+EvQMQeSUPEv82JTCChatz8JU
+         smxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776954208; x=1777559008;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=9qVBvXxlgya89SxaZAr5N0EnIlllRggjnL98TRto1Gs=;
+        b=PbDCrSW0iCy+Igu0gH3nqUA9B9kToI3hEm84jMP97s7c6B7pTKbwAqVg85MJyhuykB
+         tyoh4Xzlbjxtm+dUN5/8MoAzZfnZyztp1C17ulJU6ntatYWyAIyuLsAa4EAISNvGvOHr
+         q4m+45FMTVXG1l1DETq0y7cNgIig4gknvwSecNrFWwayhyw+uE8WAbo9xs8oqYQk+57p
+         qbRM0tMm5dEsU3zYx4S+/srrolDxVKKMNvwqDQfWPpGIoPp7L8m/Pl3kzr1GZsHGSBCM
+         Sh6tMa0luFcAste5eAYFQgNXO93PFTDOIUF9B+Ld5M2qa+PuBboftd3VfK19MGn77VsL
+         nFNQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+chtLUdebZ+7K8z/CiVaNAFLDCAH3URh5l+bYMaGK4Mu/RhoItg6ViCWaBnCdgf+fvUOyBy0dq/5SRtH0f3Ofh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/M8hvPE9CSHuLzGIzvl7mYi0W5Hz9eIAgMAG5mJPwg2BPdB4M
+	Z3r1DAjPeCM2vonYOE4qle0+23kM9iTt8QAVgljHmyLGRrgvPNj1Fa7TZJ7nA3wI2no=
+X-Gm-Gg: AeBDieu/6QPfXCbEIGwOPtafJJCzL3FFCskCURaSPl32aiSfaES2tYX75VyL3y/V2KY
+	BZkJtRG2TJfreu4BouwvznKwBazdVbqwnNABkcr6BGMNXk+ev2K6SK9kzLRcC0cBBqIXXzCK5Rb
+	GKQ9OI+f9MV2BJIJLgWmnZ6l7E1n7vzyrjDwLaTGAR8uUdr3vtwDia1P6IUofAK5YOb9do9vjx4
+	M83WdmMINNsHW3o3R4CiUyk3cKyIJB903GaC/QR78F4MV//C5nakfExnWr7vGPif82mFY/J6jdm
+	QfqhqCnSPdPt9Fi6iOeA5mmDzO0K8nmFIQD2OSpYTXxMKxDsJVbGwgMgjeNc1NZ56Pj7tO3fBTp
+	wcPIghQCdWmWUNzxb1Xk5sY9Zz5BG66Rfkxcy/CDzhPIui9zgysmwOFwt8ZjapyaSMbMlQBZ+Ef
+	FpnbaGhy9T1Xj+OQSdR2Q8stnwS4TodY/myj22WDF5wxdqP1mAQLUKVvSFyEFWd2CwtIc/kJGKX
+	E8xVz59/0se0Sg/rlnJwNcXHvA=
+X-Received: by 2002:a05:620a:649b:b0:8ea:b4d3:b19c with SMTP id af79cd13be357-8eab4d3b2d6mr2477211985a.28.1776954208170;
+        Thu, 23 Apr 2026 07:23:28 -0700 (PDT)
+Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8eb9becc6c3sm1028305785a.39.2026.04.23.07.23.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Apr 2026 07:23:27 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wFuxi-0000000EEOw-3RUE;
+	Thu, 23 Apr 2026 11:23:26 -0300
+Date: Thu, 23 Apr 2026 11:23:26 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Will Deacon <will@kernel.org>
+Cc: Evangelos Petrongonas <epetron@amazon.de>,
+	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Pranjal Shrivastava <praan@google.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, nh-open-source@amazon.com,
+	Zeev Zilberman <zeev@amazon.com>
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow disabling Stage 1 translation
+Message-ID: <20260423142326.GP3611611@ziepe.ca>
+References: <20260420123221.20801-1-epetron@amazon.de>
+ <20260420124032.GO2577880@ziepe.ca>
+ <20260422064431.GA49867@dev-dsk-epetron-1c-1d4d9719.eu-west-1.amazon.com>
+ <20260422162351.GK3611611@ziepe.ca>
+ <aenp6FHzx9rtUQkZ@willie-the-truck>
+ <aenqxasLJ8yKYqbT@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260423-xilinx-formats-v10-6-c690c2b8ea89@ideasonboard.com>
-References: <20260423-xilinx-formats-v10-0-c690c2b8ea89@ideasonboard.com>
-In-Reply-To: <20260423-xilinx-formats-v10-0-c690c2b8ea89@ideasonboard.com>
-To: Vishal Sagar <vishal.sagar@amd.com>, 
- Anatoliy Klymenko <anatoliy.klymenko@amd.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Michal Simek <michal.simek@amd.com>, Simon Ser <contact@emersion.fr>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Geert Uytterhoeven <geert@linux-m68k.org>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Pekka Paalanen <ppaalanen@gmail.com>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2393;
- i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=mxfZo+5BBTzaFy49GfUY7dWrcVIr2DZ6vJ03YLmG9Ds=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBp6ir1mdrfl5jvDtVXtPF2+19GOUfwDW+dwKUj5
- EPlAbrIHnKJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCaeoq9QAKCRD6PaqMvJYe
- 9XNMEACAbzjafN1aS069egWawzUcnF7cGpKXNlVGu1kNn9bUKB2LQh67ii4DxU3aNU5zjxbP+As
- 1Ffvfk6qtgDduvkYndqYTg4hLkNnPIg9RoGe7bSa6e3P0XkOleQ8tuSJ69eeZD3igpLiMLGGUKv
- ERmsn80x0RYgazSC3H8hAaIL4i5d4jgRSdcb7jJNaYj5ZgWQraPVnvR9LDuSp/Q/CQ1YYp/nInq
- X99Qx1/rxIMkHIPzKO3OlcznHpfnnuGvDs3hwIktBy19QitTo8fX5ePgqX2Hri3H/3psLlUSDhH
- zWrbmVFM8EYm1OIHIH7cD7D/lvmHgwOmxFZXmalv9Q2P5KltfOl98eoPebQnjCLQTgwYqvPFU7t
- WV7HuAHa4y3jzeiL+T/G5IObz0qaZQcLy5StAYH7Qio6vAjJAzPc9y/hZyjeHo0pOD8wMIom28r
- Ab90hCGkZwmpb758JUUIzycXsjSU+R5x31qbtyvmBUJvMyRrpAijkM+0/jKeMWNGopYIdU8Xmjd
- g6rT4TBb7Wy2JdIBJ878k9g5ASMXpOHctnqHnGZEH2KdiXCMTYHrs8FwrVu5ef0oFgusnJgUzDv
- ssNOGz43Dxf9U7DtaZ8V+Oo/ugqsXjLd15mU48K7Dvm8C3FAcRzW77ytrVhLLLMqjXArs9gfJ8L
- o1NF1hExs3+1TWQ==
-X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
- fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aenqxasLJ8yKYqbT@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_072157_753536_27FB1FB0 
-X-CRM114-Status: UNSURE (   7.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260423_072330_180845_2A82050D 
+X-CRM114-Status: GOOD (  39.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,44 +115,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add XVUY2101010, a 10 bits per component YCbCr format in a 32 bit
-container.
+On Thu, Apr 23, 2026 at 10:47:49AM +0100, Will Deacon wrote:
+> On Thu, Apr 23, 2026 at 10:44:08AM +0100, Will Deacon wrote:
+> > On Wed, Apr 22, 2026 at 01:23:51PM -0300, Jason Gunthorpe wrote:
+> > > On Wed, Apr 22, 2026 at 06:44:31AM +0000, Evangelos Petrongonas wrote:
+> > > > The motivation is live update of the hypervisor: we want to kexec into a
+> > > > new kernel while keeping DMA from passthrough devices flowing, which
+> > > > means the SMMU's translation state has to survive the handover. The Live
+> > > > Update Orchestrator work [1] and the in-progress  "iommu: Add live
+> > > > update state preservation" series [2] are building exactly this plumbing
+> > > > on top of KHO; [2]'s cover letter calls out Arm SMMUv3 support as future
+> > > > work, and an earlier RFC from Amazon [3] sketched the same idea for
+> > > > iommufd.
+> > > 
+> > > It would be appropriate to keep this patch with the rest of that out
+> > > of tree pile, for example in the series that enables s2 only support
+> > > in smmuv3.
+> > > 
+> > > > For this use case, Stage 2 is materially easier to persist than Stage 1,
+> > > > for structural rather than performance reasons: 
+> > > 
+> > > I don't think so. The driver needs to know each and every STE that
+> > > will survive KHO. The ones that don't survive need to be reset to
+> > > abort STEs. From that point it is trivial enough to include the CD
+> > > memory in the preservation.
+> > > 
+> > > It would help to send a preparation series to switch the ARM STE and
+> > > CD logic away from dma_alloc_coherent and use iommu-pages instead,
+> > > since we only expect iommu-pages to support preservation..
+> > 
+> > Does iommu-pages provide a mechanism to map the memory as non-cacheable
+> > if the SMMU isn't coherent? 
 
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Reviewed-by: Vishal Sagar <vishal.sagar@amd.com>
-Reviewed-by: Simon Ser <contact@emersion.fr>
-Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
----
- drivers/gpu/drm/drm_fourcc.c  | 1 +
- include/uapi/drm/drm_fourcc.h | 1 +
- 2 files changed, 2 insertions(+)
+No, it has to use CMOs today.
 
-diff --git a/drivers/gpu/drm/drm_fourcc.c b/drivers/gpu/drm/drm_fourcc.c
-index 20b84efc135e..60cd02b7ea64 100644
---- a/drivers/gpu/drm/drm_fourcc.c
-+++ b/drivers/gpu/drm/drm_fourcc.c
-@@ -288,6 +288,7 @@ const struct drm_format_info *__drm_format_info(u32 format)
- 		{ .format = DRM_FORMAT_VYUY,		.depth = 0,  .num_planes = 1, .cpp = { 2, 0, 0 }, .hsub = 2, .vsub = 1, .is_yuv = true },
- 		{ .format = DRM_FORMAT_XYUV8888,	.depth = 0,  .num_planes = 1, .cpp = { 4, 0, 0 }, .hsub = 1, .vsub = 1, .is_yuv = true },
- 		{ .format = DRM_FORMAT_VUY888,          .depth = 0,  .num_planes = 1, .cpp = { 3, 0, 0 }, .hsub = 1, .vsub = 1, .is_yuv = true },
-+		{ .format = DRM_FORMAT_XVUY2101010,     .depth = 0,  .num_planes = 1, .cpp = { 4, 0, 0 }, .hsub = 1, .vsub = 1, .is_yuv = true },
- 		{ .format = DRM_FORMAT_AYUV,		.depth = 0,  .num_planes = 1, .cpp = { 4, 0, 0 }, .hsub = 1, .vsub = 1, .has_alpha = true, .is_yuv = true },
- 		{ .format = DRM_FORMAT_Y210,            .depth = 0,  .num_planes = 1, .cpp = { 4, 0, 0 }, .hsub = 2, .vsub = 1, .is_yuv = true },
- 		{ .format = DRM_FORMAT_Y212,            .depth = 0,  .num_planes = 1, .cpp = { 4, 0, 0 }, .hsub = 2, .vsub = 1, .is_yuv = true },
-diff --git a/include/uapi/drm/drm_fourcc.h b/include/uapi/drm/drm_fourcc.h
-index 07bfbc8a0300..d95638105520 100644
---- a/include/uapi/drm/drm_fourcc.h
-+++ b/include/uapi/drm/drm_fourcc.h
-@@ -264,6 +264,7 @@ extern "C" {
- #define DRM_FORMAT_XVUY8888	fourcc_code('X', 'V', 'U', 'Y') /* [31:0] X:Cr:Cb:Y 8:8:8:8 little endian */
- #define DRM_FORMAT_VUY888	fourcc_code('V', 'U', '2', '4') /* [23:0] Cr:Cb:Y 8:8:8 little endian */
- #define DRM_FORMAT_VUY101010	fourcc_code('V', 'U', '3', '0') /* Y followed by U then V, 10:10:10. Non-linear modifier only */
-+#define DRM_FORMAT_XVUY2101010	fourcc_code('X', 'Y', '3', '0') /* [31:0] x:Cr:Cb:Y 2:10:10:10 little endian */
- 
- /*
-  * packed Y2xx indicate for each component, xx valid data occupy msb
+It looks like all the stuff dma_alloc_coherent does to make a
+non-cached mapping are pretty arch specific. I don't know if there is
+a way we could make more general code get a struct page into an
+uncached KVA and meet all the arch rules?
 
--- 
-2.43.0
+I also think dma_alloc_coherent is far to complex, with pools and
+more, to support KHO.
 
+> > I really don't want to entertain CMOs for > the queues.
+> 
+> Sorry, I said "queues" here but I was really referring to any of the
+> current dma_alloc_coherent() allocations and it's the CDs that matter
+> in this thread.
+
+queues shouldn't change they are too performance sensitive
+
+> The rationale being that:
+> 
+> 1. A cacheable mapping is going to pollute the cache unnecessarily.
+> 2. Reasoning about atomicity and ordering is a lot more subtle with CMOs.
+
+The page table suffers from all of these draw backs, and the STE/CD is
+touched alot less frequently. It is kind of odd to focus on these
+issues with STE/CD when page table is a much bigger problem.
+
+STE/CD is pretty simple now, there is only one place to put the CMO
+and the ordering is all handled with that shared code. We no longer
+care about ordering beyond all the writes must be visible to HW before
+issuing the CMDQ invalidation command - which is the same environment
+as the pagetable.
+
+> 3. It seems like a pretty invasive driver change to support live update,
+>    which isn't relevant for a lot of systems.
+
+That's sort of the whole story of live update.. Trying to keep it
+small means using the abstractions that support it like iommu-pages.
+
+IMHO live update is OK to require coherent only, so at worst it could
+use iommu-pages on coherent systems and keep using the
+dma_alloc_coherent() for others.
+
+I also don't like this "lot of systems thing". I don't want these
+powerful capabilities locked up in some giant CSP's proprietary
+kernel.  I want all the companies in the cloud market to have access
+to the same feature set. That's what open source is supposed to be
+driving toward. I have several interesting use cases for this
+functionality already.
+
+It will run probably $50-100B of AI cloud servers at least, I think
+that is enough justification.
+
+Jason
 
