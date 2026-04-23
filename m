@@ -4,148 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58CDEFDEE45
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 19:12:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FB0AFDEE45
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 19:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P74Af6Q/D+FF/S72s4IG/F6zKvyhw8lK6glm2Nh7J4U=; b=oSiRs0YB3VuE6YMvAig4Bvuzdg
-	1Zm3fIfpdJYX6soogiX2Eag1387yfM0ir0ZPh65+TG1IRjs41oR5yOqgVD3fvP/+xgoy/7Y9B/hbn
-	CzrVqEB579gvHjXOFlWrZHQsw1vnm8f7LSF29uPjXtmMjbNt90J34tjvdIGsHvXsQbn3EWAu/+89N
-	Fql2Ttv8wD4P9FijH3q19eL3Ct/F0rGFINcn/Vcar4xGXicUa5ca9h7lV2yT1A2+7DehW9LcKikjM
-	yxr9f3yI0NKvDxQNlU/FV8ew8h7yFspMNohVtysoff62yqrvJLAZWNjc7NwBewc9phrvQs5y2ZDhI
-	yOANQSug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=g+CZTeY+7FF6O4WNynzkXoA2FgGMV8OrK+LyhVB1xC8=; b=LK1nMix2X+vOK3/YSMWPc8YBc6
+	VjWwEgHzDDrgPqVmM1XugLSkNnqWyopGRFRNe7llMGDMT84u0D9TSDN5dPvDNbXC3irZxOIl/9N+L
+	QAQReCvF/nP2MRcU+RMEQ+mAGMIiAQs2k/h5uPVZnZ2vpqYCVx5J772+g9SEbg0ShqKwJTEK2p6DF
+	sQhuYzP+iVgxulUkybbtbTYtkdOk/0qA/ebcXkPgns44R6E1wpM9w+rnSXBTak4QMqyVziE/zSbsG
+	TA/Trpu3MGyrPkjX1LVBjsWlzAGC5Mse51Bk0ax24iUQnWRs7X/jwIgfarCCRNegEJAVXviB5hRs5
+	oDdqgDJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFzSt-0000000CDd6-0ZVg;
-	Thu, 23 Apr 2026 19:11:55 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wFzVy-0000000CE0Q-2tIQ;
+	Thu, 23 Apr 2026 19:15:06 +0000
+Received: from mail-southcentralusazon11011015.outbound.protection.outlook.com ([40.93.194.15] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFzSq-0000000CDcV-1uRa
+	id 1wFzVw-0000000CDxT-1ZO1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 19:11:53 +0000
+	Thu, 23 Apr 2026 19:15:05 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GwSEUlVrFlHf8H+eyzFBwo+wV++TNTlx4p6CKbbPHaXtSqBy7VUFaWVlyWsUcJz/EJVCB5c+Wuu79GLQx3x2qaqEnnYSLL2uRboVleuS6BEGA5ACC8ZgKXkc8iotSfTDdSe6btf0FZqsf4KL5PkhCe4qbs6b4KAQkz/ywn9QM2ARFcEp+oYhJA78vwFtel+DGoU7dAhoW77WWfsoIu1KlDsLAtU31i8F/tONVz6tXUxUS4b99041K6puLZR6YI5Bwh3FArZ7ke3A/ULs06+mtFIO2wGZqW5zeJMbdOr6bpjsvlxajsLq/7E9Hu+lMvwqhXp0bRt3GLHJru0W35G2aw==
+ b=oZjngUonZU4wckRr4sHnAZxiPfMzucCcJdxsbG4Af3EniU5ZlVvG6EsrR+Vc7qhtOxGYkzAbJY5zZIkdOC/536c4E2YTgKhzNF47sCYRVSXkPHNvyyRMfKYGiOrlxQlmX+jVm5m3ZYZUhILVViKUC6KX1p8dijOL9uLk2BANpd6iDkhcwTWPJKT0I0gGDpeAdENFFtZRnMif3IhTPfr45ANDYFDOD9LlOncQgXRqVFReDeupKXI5PEwZxZ5QQFExV+gYZM5QsOPfof77l+61Py7KBZsVG0bvkLmQc+jQ5IYfab5454ZnSJ82+WdoxNU9Eq8K3OmEKIkrl62w6BMfUw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=P74Af6Q/D+FF/S72s4IG/F6zKvyhw8lK6glm2Nh7J4U=;
- b=uBh9LlXDZWs38x57rIY4ovHQQyVOGvi+6nu7SfdW8RhDNWvj+vyGELW3wBoGMZI0c9w5N7pNOcVWevuY5gQvQ/Kr3hlfUwZINwnUSS7EKI4SDxzC4nkSlbIcCd9Hj0taP6j6u+6pHph8Fd2aIhkB96JFqY7oGXcVlKks55SDmZkJgrA0xGUDPV1jlvSbmIQJuWrkH4hDAGr8mzvrWCZ0+Xw5Ivh8L8hHwhRMRmxm04b0G4r+C2aag5MgNwVD0I7Zg3Bbid1tYiCA0SjtUrn2OHVFYa4L5TZhbCZ/Yp45dz3m0Wp8tri35ZpH5z1kBx0x1vT2818NwJA909992fZ+hg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ bh=g+CZTeY+7FF6O4WNynzkXoA2FgGMV8OrK+LyhVB1xC8=;
+ b=sdfXo1nHX4FQJycPMqgMhVCB90H08H4aRY8KIvaIRUC5dGFA7KoeHCV5O/vO0un0ZHvIhjpr3ML82cWIYDo1s1b0uXO6ZDhzly6vKP95lt13uBhuP5FjiD67Ez7WWl3k8AO1+I58kLN+IN8+dby5FIcZB0eUDKcaiRLpv9PRcOl5kZblKKh+JrGkKy+DUBH7j5lkJrbr+kHBkNWnfTG5D5/odwz2MfcFolhgj+Iv2VpsRowORzzX2JDuAHSTw5/vgJe+owPHprUkqi11AmNw369/PUX4+vKiu1hnNTyzO1SuQRUBIqiL/RTVueZykf5AleyfcAZWtEIMkSxHubqVSQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=P74Af6Q/D+FF/S72s4IG/F6zKvyhw8lK6glm2Nh7J4U=;
- b=PF1I9Lq5RNvwKt9YiL3wNJDkIMO//UrmSAl9NmgbTDJWds+0hedFbN5/Ovfg+mw0OTOrSCQ7irgkAv2SLjVa73hiSzzx1A9jGbkH0eCSAljBbHL/jrYeGfqUsuChlPVvC5dA+ogO9eth+Q9xHcaXlCXJ2vMh4CyQf6vo/OexOEmXFXjyHGtG4lFwQ24U1ir4VsKFJfmErQSm9KfGPBtr4Tpa3IAhx3ZRiIDSXV+oznpGOOPCYweb5c2o6J1jves2h/HyIu8i//QURosH/pZBq2rgthKs7FavJTYOTBCwJqLDIqyHsI7aWjdHBlKnEMMQyJwvNSBaJzaOFP3Y8NnayQ==
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
- by AS8PR04MB8312.eurprd04.prod.outlook.com (2603:10a6:20b:3f1::20) with
+ bh=g+CZTeY+7FF6O4WNynzkXoA2FgGMV8OrK+LyhVB1xC8=;
+ b=juTtGkyrgm5ol0UW29DFIn4UwHusqjo45qvS8OqGRNzylb/mYyKYPbG/dKAxR6iPT2mFjSz2gN+HAKpYnOJw+fvmfGV0u9gurScSKolZyD3JKEGmYOjLJTK9X9Gsf2hrnbAtzCKUJiqU5ATIjrJRM7PBntrGuutMA7o1cE8aQuusBBT1Cqa3ZCWNv5GqVm2HGVWKynwE7kq7OQQWvKZ9BSY822ZHrWscSItri1Xiw4qe9TlZgWmxEj2c88gSnuNquc7gS4teGv7bFyzN4aWNF9PS2Y5vg2ebHNLmurjQO9mtLvMGQQPXi76AlhlakI+evw5RdBwek52DNTjVZpzPpg==
+Received: from SN7P220CA0024.NAMP220.PROD.OUTLOOK.COM (2603:10b6:806:123::29)
+ by DM6PR12MB4404.namprd12.prod.outlook.com (2603:10b6:5:2a7::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.22; Thu, 23 Apr
- 2026 19:11:46 +0000
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::b4c0:6119:2228:2ceb]) by PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::b4c0:6119:2228:2ceb%4]) with mapi id 15.20.9846.021; Thu, 23 Apr 2026
- 19:11:46 +0000
-From: Shenwei Wang <shenwei.wang@nxp.com>
-To: Andrew Lunn <andrew@lunn.ch>, Mathieu Poirier <mathieu.poirier@linaro.org>
-CC: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bjorn
- Andersson <andersson@kernel.org>, Frank Li <frank.li@nxp.com>, Sascha Hauer
-	<s.hauer@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng
- Fan <peng.fan@nxp.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-remoteproc@vger.kernel.org"
-	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>
-Subject: Re: [PATCH v13 0/4] Enable Remote GPIO over RPMSG on i.MX Platform
-Thread-Topic: [PATCH v13 0/4] Enable Remote GPIO over RPMSG on i.MX Platform
-Thread-Index: AQHc01UHU14luaJCXE65v4u0LmXX1w==
-Date: Thu, 23 Apr 2026 19:11:46 +0000
-Message-ID: <PAXPR04MB91851AC64A2D3C066BE62806892A2@PAXPR04MB9185.eurprd04.prod.outlook.com>
-References: <20260422212849.1240591-1-shenwei.wang@nxp.com>
- <CANLsYkypRaFTTP7MLLLR+=AB5JnRTA4i130qvWzB1qoAuM9FWQ@mail.gmail.com>
- <cb6b8ec9-296e-40fe-848d-ae87463ff1db@lunn.ch>
-In-Reply-To: <cb6b8ec9-296e-40fe-848d-ae87463ff1db@lunn.ch>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB9185:EE_|AS8PR04MB8312:EE_
-x-ms-office365-filtering-correlation-id: 3e53eef2-9c1b-4314-08cc-08dea16c2a22
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|19092799006|366016|22082099003|18002099003|56012099003|38070700021;
-x-microsoft-antispam-message-info: 03CeH2d0t1694ieAnRrL428OSLMxcGuB+OFOOyGyxj109j47yCHRWY6yoa0Sa5ZvX68eN58Pqb9eVWULpEN+M8xd+vPYwR6iXaiOIR+VkOCt2lVYVyjAEcxJTaYS0NKceKhwx6xupNeoRcU3ncpIpSlrL8+tprw0mOROJj6ivwOKxYOkidWTenmSx4Io9AJ/MAGnofd6jG5Hhcg/M5hoZ5451hQM1726IUhTSeG53TjtgZHPSaUktDrYT/M1ks0HCwm1CAQz/AUN5F6QATDFgpbdWlrE0pO98j1Ix3zz8st0dc2XUWcei8c89pHJim1gPVzeFa2S9PKuFDBYAB2xhTIwXVF+cxHB7FtQ9y9S86mUH63p/QHyzLuKq2XTbfUM1pjGue6PyWs/DRe2Do9+Axf5tj/qGTFiOkrxnU6Mi00Ii23z3ezUZqGWV0tUWFcZs6pbx+Er79GaIpDP7e1ErBqwFuxxvFvj9fN67yHT9txbkHcZUUTw3Ha77TJATsfY4FdtnPw78VyRYLjFrThGQS69ni9dl91tP0eap3RJgKGLzkYnaIoSYTWaI39c6pB219bjT0//ziqOMQTU/AILIIShUSlCq3maxykvvkTzK4Z3i1duC1UEbtlYu7pIhshBDcv4MANrypqkRL5UQivfFFqWSvppB8mnTf0YcWJWKWv+o6ltxYWgxD1++gRk71OjuA3DMwzkRn5gIMhEV8wfWph87qq+L3Fl8ub/RYzNrz7gSFVdow4AYqo8FPvilPwU+SFH3SiCNe0SSgXom9UMCWEP45ApVfSAlEqjFRtZHhg=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(19092799006)(366016)(22082099003)(18002099003)(56012099003)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?QUp5UitQUFoxb1hsTXE4MDZDWDVYT25TNGJyYXZLa0NZUldmM216L0ZXKzFF?=
- =?utf-8?B?UXB2RHkrNGNPQjJhdGxLU2o5RHVQWjIwYkV3K3oxcFN0WWxEaEpNbjFtS1p1?=
- =?utf-8?B?Q2x3Zi9wWXJLNmg5dUc4cWlPK2o1cGdXUVJWc2NidFQxUjlGa0RIdHJ0ZUtC?=
- =?utf-8?B?MFc3a0syOUZmcU96YnQyN2xkbWlYNk9XREdVSjZ5ZDBIaEhZWjBVMmtFUjUx?=
- =?utf-8?B?amlLT2RkSzlsVmsvS1ZaaWNmMm55ZWpUOW1PNXBKaFZaMVJGaUpoUlFpR2tC?=
- =?utf-8?B?UmR3MnQ1dDFRTFJZZXlIRCtJbjNnV2ZQcWVoSlE5ZHlVb1kwclJXeUw1RTQ4?=
- =?utf-8?B?ODZwS2p4MzZhTDNDaWYxWjNGNVRtRkhyb2NhNU5BNytVMTU1cFp4aDFMQjh2?=
- =?utf-8?B?a2V3TmxWZnhsNWk3Wis3UU8wNHEwMjFTeFVFVGtOeVlGNkZ4RnE4K1dydXZo?=
- =?utf-8?B?bkp6bktKckpwNUVCUFNUckpsQ1YrejZFVlpnclhoUDhHS1JwNGlUenJBMjAr?=
- =?utf-8?B?RElQNmovcEI5M3kxWmtpSC9MMThPSjAzQm9HUm1USlVINTdWYXdXZTJiWFF3?=
- =?utf-8?B?bkhQZXJ4T0s3eHNBczdBRzNTeXVuZkd5dFBHdnZVbDRWQXVJWUZmYVZkdFFP?=
- =?utf-8?B?NzFRemZaeHVEMEZWdDAzTi9DOFYwNnEyZzhxRjMvS29leklqbEV2ek5jWWVJ?=
- =?utf-8?B?RzFPRDFXcUxSa0tPT2dJT0pSRFBpRExNcDA1b3NsSitRR1VqeVBvc2NielB2?=
- =?utf-8?B?RGk1T05QQmdRYUl1bTBPcnhFZlVMcGMxdk1WT29RVTZUUDI5QnIxR1JzM0hx?=
- =?utf-8?B?THg2UFVDWTRmU253OUJTS0FyODNrSW1EVE9xOWY5SWxKQkNFckZ3ZkpUVGFz?=
- =?utf-8?B?WWVOMFNLREZhSGZjU1k4NzBSYS9IM1lNRmdLZEZPaXhUVm5jelBDZ1hLQlY4?=
- =?utf-8?B?bzQ5cUV0TVU5UFNWU1pNTkVxOHBBVlh1VkJsRTVUY1JPcGgvWDlJUUFtcUxx?=
- =?utf-8?B?UGYvMnhnd2tsYzQ4Q2dyY2NnZ0dlNXNHVERjcUdKUVo5eFNQSVNZQkd4VXE4?=
- =?utf-8?B?eUtYVWdCYVlteUtkUy9aQmtiQWJWbXBwdXdza1V1cWhkNkRTR2l3eE4wUkpG?=
- =?utf-8?B?eU5RR20yOW5UQms4bUR5QmxkdFdXYlM5bk02N2JBT242VW5sYlRwdkduQVdU?=
- =?utf-8?B?NVRtS1pLOW5QdGREZGFUaUtNMzFtREd0UzFPSDBwc05KYU1jSlV0ZElmYXNh?=
- =?utf-8?B?T3JqMGI5S0UyWm0wcTM1YnJQWUJSOFZHbTI2ZkE4ajQwd3liZS9kTWRvNHRu?=
- =?utf-8?B?ZzVqdGZXVDF4S05NbThpRjdDZktOSGxWV05vU2FUUUZHWmxnZTZCWGJJOS9n?=
- =?utf-8?B?MXJHQUZZUUc4aExVRGVrYjJuTm1oYTFjTnVCSjZXd2tKWjc1MEZZd0JLQ2VI?=
- =?utf-8?B?dERUbHpia3Y3TkVQc3FtUzZPYnA3LzF4Zk9qdVY0WHAzbzZZRk81b2FKMjJC?=
- =?utf-8?B?N0RodWZzMUo3SzNWQTRRN1V3SmtoOHRCdC9ldjd5UU1hb3BLRi83YUEramdu?=
- =?utf-8?B?MDNKQ3ZUdTVmN1dMY2RMUlZFZzNKK0FnS1dMcTVWM2x1K0Uwb2ljZWN1eGti?=
- =?utf-8?B?eWZVYXMyaEN3YkpyRUZCZTEzWXZpOUNKeFo0aWx4MVRSMEJkZmpZd3lSZ0pR?=
- =?utf-8?B?YVhFblhzaHFkaWx2azZNaGRWS3VOazNibS9RbEloZy9HZWZhUUdQa3lLR0Z5?=
- =?utf-8?B?R3RRbld4NCtjTGRuS25QaXRWZmJLazgveFRzSVpuamZVaVpHWWo3TU9ZdnBR?=
- =?utf-8?B?ZGZRZldoMTVaa3NGaTkxUGlHbzNtRmFPOTE3VXRIWU5QS2RNSmVCN0ROcEZE?=
- =?utf-8?B?SzVXM2FHelg3L1N6SnZ0d25KYjVYOXVmK3U1S2taL21NZzBlQUptYjdZbDRJ?=
- =?utf-8?B?THl5UGxCN0g2Q1BubEdBNXYvelp2NkMrVzh2SG94Rk1lOHJMUzBta2VKZWJh?=
- =?utf-8?B?Vkd0Q0lkTGluT3VPR0VNZExBTG0xRnRYM3pZV3VXYlB4VDQ4bnRLQ2hRbmV0?=
- =?utf-8?B?emlDbitobUw0U3FDZ2RoOGJmc3dmZXBMak5sV01Icnp1T2lxaDBYNFRBN1NP?=
- =?utf-8?B?dUdvYXd4ZFBUZ1BaR0hWaXhCeGRxSitSUlJ2NlpJaG1HYTdrdDM4a0c2Vm9q?=
- =?utf-8?B?MDBuQm02anJEMXQ1bTl2RThnbjR6ZG1LeEFtbXBYUk9ac3N5SVIwWkxYbUgr?=
- =?utf-8?B?VXZTWTFyaXpPZHN6ZitLT2I5d0VyRjcwa29VRGhORElWbGxEbnFOUUZSdE5o?=
- =?utf-8?Q?z6WEU/E85sCgVUZ61B?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.21; Thu, 23 Apr
+ 2026 19:14:53 +0000
+Received: from SA2PEPF00003AE7.namprd02.prod.outlook.com
+ (2603:10b6:806:123:cafe::c9) by SN7P220CA0024.outlook.office365.com
+ (2603:10b6:806:123::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.21 via Frontend Transport; Thu,
+ 23 Apr 2026 19:14:52 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SA2PEPF00003AE7.mail.protection.outlook.com (10.167.248.7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.18 via Frontend Transport; Thu, 23 Apr 2026 19:14:52 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 23 Apr
+ 2026 12:14:41 -0700
+Received: from vidyas-server.nvidia.com (10.126.231.37) by
+ rnnvmail201.nvidia.com (10.129.68.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Thu, 23 Apr 2026 12:14:35 -0700
+From: Vidya Sagar <vidyas@nvidia.com>
+To: <rafael@kernel.org>, <lenb@kernel.org>, <saket.dumbre@intel.com>,
+	<lpieralisi@kernel.org>, <guohanjun@huawei.com>, <sudeep.holla@kernel.org>,
+	<will@kernel.org>, <catalin.marinas@arm.com>, <joro@8bytes.org>,
+	<robin.murphy@arm.com>, <jgg@ziepe.ca>, <nicolinc@nvidia.com>,
+	<praan@google.com>
+CC: <vsethi@nvidia.com>, <sdonthineni@nvidia.com>, <kthota@nvidia.com>,
+	<sagar.tv@gmail.com>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <acpica-devel@lists.linux.dev>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>, Vidya Sagar
+	<vidyas@nvidia.com>
+Subject: [PATCH V1 0/3] ACPI/IORT: Honor Root Complex PASID descriptors on SMMUv3
+Date: Fri, 24 Apr 2026 00:44:14 +0530
+Message-ID: <20260423191417.2031652-1-vidyas@nvidia.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3e53eef2-9c1b-4314-08cc-08dea16c2a22
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Apr 2026 19:11:46.8328
+X-NVConfidentiality: public
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.126.231.37]
+X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF00003AE7:EE_|DM6PR12MB4404:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3f33e373-f167-4368-80ed-08dea16c98f8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|36860700016|82310400026|921020|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: S2FUjHmqRRJr3Xslw3yzLIqJ377x7UEkHAihw5bYj27g4+hmk+c+JggFMC6yzHOVGsQlc5v1o9GMNS3GXQl8m7GG3oj2jdVRiaRRpF4LR1DfwLoQ1MqHMmdQDTb4cwunKDqyP0wgSqn84e66ArjmyLnP96BsA8vy7VFaM+ppwmJmH09PtFJoxwrWTAnumj6KYTUngQreWdoFLnTWii4dDlrRv+pVSyFcfQLPCvTRs/MvKYsJ5U+Xob5P/9xb+Muumi/RRbK7CLsGf7+W4UuNUU0XOAkdoB8X4ntU99RoK1EIo1kzdz/odJFtvUD9Ink1jmrebMRyNuQE/hfcTLxpXNmZ0VvWpiEGqvy186Cc70Ma/omROuqyVDq2dLHZJm6gAQKVKNRHbeUI/b5jTnlwld1DcsvLwYYXMG2mz+UKqZ01zXWz/JBwYEk47lkA3d/2VGqux4jvYdtFpLcS1yjnn+reekJxtIqvtAZBtQpPDo6n3/qNEqfhIawuCsKIyG6GouER2GVfpNSrkbgJjFF4ugvgWbeKjEeVWdRHO8F8Io2oNEdwJIWXqjqeh9ieNsnGNOEp7FLigUZT+qESqTAoh322TRFNjDgxeEqwJx24UTj6+k45pLlrf2H/i4UGoG32+x2dHoAdm0TbmuOey5Xgg791MXh+d81UtPQ+MQDcH+Jy1jv+z+beuwMtppp6mVmplgyM2JvyPAdhqCGz9NpI2nQ6OTipiEpLx4uT079ff0O/SJCS8cJO7M3RJk7+qML/NDUdUKRSpt5Cb7ZIvolcEUqLfc4J1IyxECG79B42oYLoq6fC+g9esBvygNJA1oYL
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(36860700016)(82310400026)(921020)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: bWQZZPcPzzXQzCa0JTWaX169jnNvEef6JUpqAfALcyzRS6lggv3K8BgFwkqNWNP/BVRXWkxsOi8vhkeuT0YoRiRza2t/H7a2mMtOUFMrSTJolgGSAb+jv9SroBRF54TTQj2EqMFhtQIky/1ZATMUOsltjc5Aguqgoe2d9Vo2ZjWOYgEU8oSweELaguX1+a41c3VgWkVnx04/IsCyIo9iN1vcdBpAKp+eojFlphqC+a+P4Sdc4vCim/FxWFsuvOpae/3f3+oYD92dMntTNm0gSDZ4v3BRlvNt1USgckmCKvPN2mzNmrW7aIXpQJ87UTdA8daPGsfOAhwXX6oAxYdFF6t78RAWkSY0Vcm0kNGiKcRtV4z8TMsHyM/asXXIQJVsnAqn9AJDjKm+VXIXrc0H8xgmUncWTWQUY6gVE79FrJR2hjS9DaOieS1fD3pV6cmF
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2026 19:14:52.7054
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Fu2ZPc3DbTXYdOlRy+okmFHQkg3opp94kBqDiB6+G7rC3uyoRu+SC2wfqab/CQWnx/l5DE+pi1hBiyFolQVb4w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8312
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3f33e373-f167-4368-80ed-08dea16c98f8
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003AE7.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4404
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_121152_520661_00D762EC 
-X-CRM114-Status: GOOD (  19.60  )
+X-CRM114-CacheID: sfid-20260423_121504_456116_4C12EE97 
+X-CRM114-Status: GOOD (  14.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,40 +131,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DQoNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJvbTogQW5kcmV3IEx1bm4gPGFu
-ZHJld0BsdW5uLmNoPg0KPiBTZW50OiBUaHVyc2RheSwgQXByaWwgMjMsIDIwMjYgODo1NCBBTQ0K
-PiBUbzogTWF0aGlldSBQb2lyaWVyIDxtYXRoaWV1LnBvaXJpZXJAbGluYXJvLm9yZz4NCj4gQ2M6
-IFNoZW53ZWkgV2FuZyA8c2hlbndlaS53YW5nQG54cC5jb20+OyBMaW51cyBXYWxsZWlqDQo+IDxs
-aW51c3dAa2VybmVsLm9yZz47IEJhcnRvc3ogR29sYXN6ZXdza2kgPGJyZ2xAa2VybmVsLm9yZz47
-IEpvbmF0aGFuIENvcmJldA0KPiA8Y29yYmV0QGx3bi5uZXQ+OyBSb2IgSGVycmluZyA8cm9iaEBr
-ZXJuZWwub3JnPjsgS3J6eXN6dG9mIEtvemxvd3NraQ0KPiA8a3J6aytkdEBrZXJuZWwub3JnPjsg
-Q29ub3IgRG9vbGV5IDxjb25vcitkdEBrZXJuZWwub3JnPjsgQmpvcm4gQW5kZXJzc29uDQo+IDxh
-bmRlcnNzb25Aa2VybmVsLm9yZz47IEZyYW5rIExpIDxmcmFuay5saUBueHAuY29tPjsgU2FzY2hh
-IEhhdWVyDQo+IDxzLmhhdWVyQHBlbmd1dHJvbml4LmRlPjsgU2h1YWggS2hhbiA8c2toYW5AbGlu
-dXhmb3VuZGF0aW9uLm9yZz47IGxpbnV4LQ0KPiBncGlvQHZnZXIua2VybmVsLm9yZzsgbGludXgt
-ZG9jQHZnZXIua2VybmVsLm9yZzsgbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZzsNCj4gUGVu
-Z3V0cm9uaXggS2VybmVsIFRlYW0gPGtlcm5lbEBwZW5ndXRyb25peC5kZT47IEZhYmlvIEVzdGV2
-YW0NCj4gPGZlc3RldmFtQGdtYWlsLmNvbT47IFBlbmcgRmFuIDxwZW5nLmZhbkBueHAuY29tPjsN
-Cj4gZGV2aWNldHJlZUB2Z2VyLmtlcm5lbC5vcmc7IGxpbnV4LXJlbW90ZXByb2NAdmdlci5rZXJu
-ZWwub3JnOw0KPiBpbXhAbGlzdHMubGludXguZGV2OyBsaW51eC1hcm0ta2VybmVsQGxpc3RzLmlu
-ZnJhZGVhZC5vcmc7IGRsLWxpbnV4LWlteCA8bGludXgtDQo+IGlteEBueHAuY29tPg0KPiBTdWJq
-ZWN0OiBbRVhUXSBSZTogW1BBVENIIHYxMyAwLzRdIEVuYWJsZSBSZW1vdGUgR1BJTyBvdmVyIFJQ
-TVNHIG9uIGkuTVgNCj4gUGxhdGZvcm0NCj4gDQo+IENhdXRpb246IFRoaXMgaXMgYW4gZXh0ZXJu
-YWwgZW1haWwuIFBsZWFzZSB0YWtlIGNhcmUgd2hlbiBjbGlja2luZyBsaW5rcyBvciBvcGVuaW5n
-DQo+IGF0dGFjaG1lbnRzLiBXaGVuIGluIGRvdWJ0LCByZXBvcnQgdGhlIG1lc3NhZ2UgdXNpbmcg
-dGhlICdSZXBvcnQgdGhpcyBlbWFpbCcNCj4gYnV0dG9uDQo+IA0KPiANCj4gT24gVGh1LCBBcHIg
-MjMsIDIwMjYgYXQgMDY6NTM6MTJBTSAtMDYwMCwgTWF0aGlldSBQb2lyaWVyIHdyb3RlOg0KPiA+
-IE9uY2UgYWdhaW4gQW5kcmV3IEx1bm4gd2FzIGxlZnQgb3V0Lg0KPiA+DQo+ID4gT24gV2VkLCAy
-MiBBcHIgMjAyNiBhdCAxNToyOSwgU2hlbndlaSBXYW5nIDxzaGVud2VpLndhbmdAbnhwLmNvbT4N
-Cj4gd3JvdGU6DQo+ID4gPg0KPiA+ID4gU3VwcG9ydCB0aGUgcmVtb3RlIGRldmljZXMgb24gdGhl
-IHJlbW90ZSBwcm9jZXNzb3IgdmlhIHRoZSBSUE1TRyBidXMNCj4gPiA+IG9uIGkuTVggcGxhdGZv
-cm0uDQo+ID4gPg0KPiA+ID4gQ2hhbmdlcyBpbiB2MTM6DQo+ID4gPiAgLSBkcm9wIHRoZSBzdXBw
-b3J0IGZvciBsZWdhY3kgTlhQIGZpcm13YXJlLg0KPiA+ID4gIC0gcmVtb3ZlIHRoZSBmaXhlZF91
-cCBob29rcyBmcm9tIHRoZSBycG1zZyBncGlvIGRyaXZlci4NCj4gPiA+ICAtIGNvZGUgY2xlYW51
-cC4NCj4gDQo+IFRoYXQgbG9va3MgbGlrZSBhIHN0ZXAgZm9yd2FyZC4gTm93IHdlIGRvbid0IGNh
-cmUgYWJvdXQgbGVnYWN5IE5YUCBmaXJtd2FyZSwgaXQNCj4gbWFrZXMgaXQgZWFzaWVyIHRvIG1h
-a2UgYmlnZ2VyIGNoYW5nZXMsIGxpa2UgdXNlIHRoZSBtZXNzYWdlcyBmb3JtYXQgZnJvbSBncGlv
-LQ0KPiB2aXJ0aW8uDQo+IA0KDQpUaGUgaW1wbGVtZW50YXRpb24gYWRvcHRzIHRoZSBncGlv4oCR
-dmlydGlvIGRlc2lnbiwgaW5jbHVkaW5nIGl0cyBjb21tYW5kcywgcGFyYW1ldGVycywgYW5kIGVy
-cm9yIGNvZGVzLg0KDQpTaGVud2VpDQoNCj4gICAgICAgICAgQW5kcmV3DQo=
+Hi,
+This series enhances Linux to read and honor the Root Complex (RC) PASID
+descriptors introduced by IORT Issue E.c (ARM DEN 0049E.c, January 2022,
+RC node revision 4):
+
+  - PASID Capabilities at byte offset 33, bits[4:0] = Max PASID Width.
+  - Flags at byte offset 36, bit 0 = "Root Complex supports PASID".
+
+Both fields have been spec'd for over four years but are not consumed
+anywhere in the tree. Worse, include/acpi/actbl2.h only covers the
+PASID Capabilities field - the trailing "u8 reserved[]" flexible array
+stops just before the Flags field at offset 36, so even firmware that
+populates it cannot be read today. The existing ACPI_IORT_PRI_SUPPORTED,
+ACPI_IORT_PASID_FWD_SUPPORTED and ACPI_IORT_PASID_MAX_WIDTH macros are
+dead code, and ACPICA upstream has the same gap.
+
+Today arm_smmu_enable_pasid() calls pci_enable_pasid() for any PCI
+master with a PASID capability, regardless of whether the upstream RC
+actually supports PASID and regardless of the RC's declared Max PASID
+Width. On a platform whose RC cannot forward PASID to the SMMU, this
+enables the PCIe PASID capability unnecessarily on the endpoint (the
+traffic then gets dropped upstream) and sets a non-zero master->ssid_bits,
+which complicates teardown ordering with ATS (see the comment block in
+arm_smmu_probe_device() for that ordering constraint).
+
+The series fixes this in three bite-sized patches, modeled on the
+CANWBS support from commit 807404d66fcf ("ACPI/IORT: Support CANWBS
+memory access flag"):
+
+  Patch 1 (ACPICA): extend struct acpi_iort_root_complex to cover the
+    offset-36 Flags field and add the ACPI_IORT_RC_PASID_SUPPORTED
+    mask. With #pragma pack(1) already in effect for actbl2.h, this
+    lands the new field at the spec-mandated absolute offset 36.
+
+  Patch 2 (ACPI/IORT): add three static helpers that read the new RC
+    PASID fields (guarded by node->revision >= 4 where appropriate),
+    set two new iommu_fwspec flags from iort_iommu_configure_id(), and
+    expose two device-facing wrappers so IOMMU drivers can clamp
+    endpoint PASID widths without walking the IORT themselves. Stubs
+    for !CONFIG_ACPI_IORT live in include/linux/acpi_iort.h.
+      IOMMU_FWSPEC_PCI_RC_PASID      (bit 2): RC declares PASID support
+      IOMMU_FWSPEC_PCI_RC_PASID_FWD  (bit 3): RC forwards PASID on
+                                              translated transactions
+  Patch 3 (arm-smmu-v3): consume the new fwspec flag and the new
+    max-width helper in arm_smmu_enable_pasid(). If the RC explicitly
+    declares no PASID support, skip pci_enable_pasid() silently.
+    Otherwise clamp num_pasids by min(endpoint cap, 1 << RC width) and
+    only proceed when the effective count is > 1.
+    
+Policy: all new gating is conditional on
+iort_pci_rc_pasid_max_width_known(), i.e. the presence of an IORT RC
+node at revision >= 4. Platforms booting with older IORT firmware (RC
+node revision 0..3) see no behavioural change and continue to enable
+PASID purely on the basis of the endpoint capability. This keeps the
+series safe for platforms that ship pre-E.c tables.
+
+Out of scope intentionally:
+  - Wiring the new fwspec flags into Intel/AMD IOMMU drivers - IORT
+    is ARM-only.
+  - Consuming IOMMU_FWSPEC_PCI_RC_PASID_FWD in arm-smmu-v3 beyond the
+    existing CD/STE programming. The fwspec flag is plumbed now so
+    future work (e.g. gating PASID forwarding hints in STE.S1DSS) has
+    the information available.
+  - Exposing a "pasid-num-bits" software node property for PCI devices,
+    parallel to what iort_named_component_init() already does for named
+    components. The direct helper is simpler and avoids creating a
+    software node per RC.
+
+Thanks,
+Vidya Sagar
+
+Vidya Sagar (3):
+  ACPICA: IORT: Add Root Complex PASID Flags field
+  ACPI/IORT: Plumb Root Complex PASID descriptors into iommu_fwspec
+  iommu/arm-smmu-v3: Honor IORT Root Complex PASID descriptors
+
+ drivers/acpi/arm64/iort.c                   | 80 +++++++++++++++++++++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 26 ++++++-
+ include/acpi/actbl2.h                       |  6 +-
+ include/linux/acpi_iort.h                   |  6 ++
+ include/linux/iommu.h                       |  4 ++
+ 5 files changed, 118 insertions(+), 4 deletions(-)
+
+-- 
+2.25.1
+
 
