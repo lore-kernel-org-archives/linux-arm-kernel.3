@@ -4,103 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35AF8F589DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 14:23:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D077F589DB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 14:33:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9qVBvXxlgya89SxaZAr5N0EnIlllRggjnL98TRto1Gs=; b=tsnHWcipFi0/15X5rWxQPvgT6h
-	4OSZm50rP6UJU0hlp/XcXnyIpzey227uA6u2ozw2W+nsUIZUnXAdcfkdA0IkKNls5RFu918UhYetv
-	EWwq1/s1+Er0YtoPnNCsRdwG2oRD1vMkmTCuhkbiVASkxLOEBu/VG4VGsxfN9XRm0FUWweD58Kd2N
-	5fTjqEbWXtGG89NfZmQkC9sri3/1e7YzJDRlmNyr+EyG1sxFnFlWGSQCAihvCGR/ArYO9DBYZNyO+
-	44divAPywt+lXVPwHbhgUT/tmsGDTqdmGmBc3oj3alZG6rUWgOoW15ibUDLHLmMHne1fzkwqqEcQs
-	0XbQ8zlg==;
+	bh=l3gNz1u3guDVcwPOIGLeGYl8t9B2oNUWOvqwdDfL8bA=; b=jFvfyfn7d268kkJstcS6UIaLdS
+	Gq2TlLZBkRLP9phpPz/cFed65shQlCJo0n4SHuv5RdBdEvsmF5YfAS2OCtSHeOEhgGbl8QtRp+S5v
+	Nw+zhIKNc6W+NmSFXfmyoY9391BsZKN/g7VSWdy+NBsb/Vi3w+7l7TqGVSRYjO+4zUckOq4oavGoC
+	hsghxtZYBgzAKhg6r8U44hiN6qiWMKRUXJxstFrwdpjAiXa2UehbFQDanYjKxC6coSGar+SG/3boj
+	U1zl6Md/XA1AWY0UxR8KoYxtkw3HX5gGW4PwZL+1wtFe70M6pOF8siEoUSeI86p/L+945o5hHwFeu
+	qNmiPgbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFuxs-0000000BpFR-0QHZ;
-	Thu, 23 Apr 2026 14:23:36 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFuxm-0000000BpCK-07Jf
+	id 1wFv7R-0000000Bplx-2Rfs;
+	Thu, 23 Apr 2026 14:33:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wFv7L-0000000Bplb-0mzP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 14:23:34 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-8eea23d01f7so122788985a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 07:23:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1776954208; x=1777559008; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=9qVBvXxlgya89SxaZAr5N0EnIlllRggjnL98TRto1Gs=;
-        b=RGAF66ZMCXHKV1++kOPfhu1JTWF3h62qDmffI9MDqRPmUJtL128tRkHXCqa+KDCoPq
-         SaUI1T1oolk7+z9QAfrLna2uEfra6gHYdl6Qgh6Nf8HMZSqZ+WKv1vYJCMKbvixqT2FJ
-         rOFbCuZryEkcXLA3ukhvPbtnyLZ6Z/WiqjLTfxwWu4jInc12waNmn4F5azSRQP+pLFi6
-         l13BG4Oy3quwIqMgxntl/FE9o4lKUbRfVJjUiI4b/UoP0NXuzpMgZGEILJtECeV/eLgd
-         68v2DJa70kG/9DKXlDkE2/40qy9blAoL4vkFRgBiQtC+EvQMQeSUPEv82JTCChatz8JU
-         smxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776954208; x=1777559008;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=9qVBvXxlgya89SxaZAr5N0EnIlllRggjnL98TRto1Gs=;
-        b=PbDCrSW0iCy+Igu0gH3nqUA9B9kToI3hEm84jMP97s7c6B7pTKbwAqVg85MJyhuykB
-         tyoh4Xzlbjxtm+dUN5/8MoAzZfnZyztp1C17ulJU6ntatYWyAIyuLsAa4EAISNvGvOHr
-         q4m+45FMTVXG1l1DETq0y7cNgIig4gknvwSecNrFWwayhyw+uE8WAbo9xs8oqYQk+57p
-         qbRM0tMm5dEsU3zYx4S+/srrolDxVKKMNvwqDQfWPpGIoPp7L8m/Pl3kzr1GZsHGSBCM
-         Sh6tMa0luFcAste5eAYFQgNXO93PFTDOIUF9B+Ld5M2qa+PuBboftd3VfK19MGn77VsL
-         nFNQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+chtLUdebZ+7K8z/CiVaNAFLDCAH3URh5l+bYMaGK4Mu/RhoItg6ViCWaBnCdgf+fvUOyBy0dq/5SRtH0f3Ofh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/M8hvPE9CSHuLzGIzvl7mYi0W5Hz9eIAgMAG5mJPwg2BPdB4M
-	Z3r1DAjPeCM2vonYOE4qle0+23kM9iTt8QAVgljHmyLGRrgvPNj1Fa7TZJ7nA3wI2no=
-X-Gm-Gg: AeBDieu/6QPfXCbEIGwOPtafJJCzL3FFCskCURaSPl32aiSfaES2tYX75VyL3y/V2KY
-	BZkJtRG2TJfreu4BouwvznKwBazdVbqwnNABkcr6BGMNXk+ev2K6SK9kzLRcC0cBBqIXXzCK5Rb
-	GKQ9OI+f9MV2BJIJLgWmnZ6l7E1n7vzyrjDwLaTGAR8uUdr3vtwDia1P6IUofAK5YOb9do9vjx4
-	M83WdmMINNsHW3o3R4CiUyk3cKyIJB903GaC/QR78F4MV//C5nakfExnWr7vGPif82mFY/J6jdm
-	QfqhqCnSPdPt9Fi6iOeA5mmDzO0K8nmFIQD2OSpYTXxMKxDsJVbGwgMgjeNc1NZ56Pj7tO3fBTp
-	wcPIghQCdWmWUNzxb1Xk5sY9Zz5BG66Rfkxcy/CDzhPIui9zgysmwOFwt8ZjapyaSMbMlQBZ+Ef
-	FpnbaGhy9T1Xj+OQSdR2Q8stnwS4TodY/myj22WDF5wxdqP1mAQLUKVvSFyEFWd2CwtIc/kJGKX
-	E8xVz59/0se0Sg/rlnJwNcXHvA=
-X-Received: by 2002:a05:620a:649b:b0:8ea:b4d3:b19c with SMTP id af79cd13be357-8eab4d3b2d6mr2477211985a.28.1776954208170;
-        Thu, 23 Apr 2026 07:23:28 -0700 (PDT)
-Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8eb9becc6c3sm1028305785a.39.2026.04.23.07.23.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Apr 2026 07:23:27 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wFuxi-0000000EEOw-3RUE;
-	Thu, 23 Apr 2026 11:23:26 -0300
-Date: Thu, 23 Apr 2026 11:23:26 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Will Deacon <will@kernel.org>
-Cc: Evangelos Petrongonas <epetron@amazon.de>,
-	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Pranjal Shrivastava <praan@google.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, nh-open-source@amazon.com,
-	Zeev Zilberman <zeev@amazon.com>
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow disabling Stage 1 translation
-Message-ID: <20260423142326.GP3611611@ziepe.ca>
-References: <20260420123221.20801-1-epetron@amazon.de>
- <20260420124032.GO2577880@ziepe.ca>
- <20260422064431.GA49867@dev-dsk-epetron-1c-1d4d9719.eu-west-1.amazon.com>
- <20260422162351.GK3611611@ziepe.ca>
- <aenp6FHzx9rtUQkZ@willie-the-truck>
- <aenqxasLJ8yKYqbT@willie-the-truck>
+	Thu, 23 Apr 2026 14:33:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DDA511BC0;
+	Thu, 23 Apr 2026 07:33:15 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 094E43F641;
+	Thu, 23 Apr 2026 07:33:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776954801; bh=CBXJjwuHnpk1Vp+D86QQ9FR4FOBHQJ+NoJE70iK+CdE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=s2704nk74DAt6hTkcweZhkVFug7N68VVE517sb7OK0A3wtoOltVWdV8e9qG8/q0H5
+	 XJP3HWureOQ15+aeKM+uhOR9TF0/+YrdAXf7vKqvo5zJ4feT5QwGvN1pMMml+JuU++
+	 JdPwTpG58c3zlpFdijyAbTUiF7JRt+RScJKC1AzQ=
+Date: Thu, 23 Apr 2026 15:33:15 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Jonathan McDowell <noodles@earth.li>
+Cc: Mimi Zohar <zohar@linux.ibm.com>, linux-security-module@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
+	roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+	eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+	sebastianene@google.com
+Subject: Re: [RFC PATCH v2 1/4] security: ima: call ima_init() again at
+ late_initcall_sync for defered TPM
+Message-ID: <aeotq8nPVu4wvEx5@e129823.arm.com>
+References: <aekkVQwueKbFtG7C@e129823.arm.com>
+ <82803bb3b471898a77084c449b73c7f7b4eb2149.camel@linux.ibm.com>
+ <aem0SSQuE1e3pGOS@e129823.arm.com>
+ <56a8aab50a3b5ce0a345fc2079fb2abc7d0f1b23.camel@linux.ibm.com>
+ <aeoAlVEwzRUPrlVe@e129823.arm.com>
+ <aeoRxWPyOHGJd+Jh@e129823.arm.com>
+ <aeoWO2Cwo04YYu2l@earth.li>
+ <bd908e28298d968740d03c97bc7e441de188b7b4.camel@linux.ibm.com>
+ <aeokwrC86WI7uT+K@e129823.arm.com>
+ <aeomlp3I0eVE5mce@earth.li>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aenqxasLJ8yKYqbT@willie-the-truck>
+In-Reply-To: <aeomlp3I0eVE5mce@earth.li>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_072330_180845_2A82050D 
-X-CRM114-Status: GOOD (  39.69  )
+X-CRM114-CacheID: sfid-20260423_073323_342400_8D125F94 
+X-CRM114-Status: GOOD (  73.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,90 +87,277 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 23, 2026 at 10:47:49AM +0100, Will Deacon wrote:
-> On Thu, Apr 23, 2026 at 10:44:08AM +0100, Will Deacon wrote:
-> > On Wed, Apr 22, 2026 at 01:23:51PM -0300, Jason Gunthorpe wrote:
-> > > On Wed, Apr 22, 2026 at 06:44:31AM +0000, Evangelos Petrongonas wrote:
-> > > > The motivation is live update of the hypervisor: we want to kexec into a
-> > > > new kernel while keeping DMA from passthrough devices flowing, which
-> > > > means the SMMU's translation state has to survive the handover. The Live
-> > > > Update Orchestrator work [1] and the in-progress  "iommu: Add live
-> > > > update state preservation" series [2] are building exactly this plumbing
-> > > > on top of KHO; [2]'s cover letter calls out Arm SMMUv3 support as future
-> > > > work, and an earlier RFC from Amazon [3] sketched the same idea for
-> > > > iommufd.
-> > > 
-> > > It would be appropriate to keep this patch with the rest of that out
-> > > of tree pile, for example in the series that enables s2 only support
-> > > in smmuv3.
-> > > 
-> > > > For this use case, Stage 2 is materially easier to persist than Stage 1,
-> > > > for structural rather than performance reasons: 
-> > > 
-> > > I don't think so. The driver needs to know each and every STE that
-> > > will survive KHO. The ones that don't survive need to be reset to
-> > > abort STEs. From that point it is trivial enough to include the CD
-> > > memory in the preservation.
-> > > 
-> > > It would help to send a preparation series to switch the ARM STE and
-> > > CD logic away from dma_alloc_coherent and use iommu-pages instead,
-> > > since we only expect iommu-pages to support preservation..
-> > 
-> > Does iommu-pages provide a mechanism to map the memory as non-cacheable
-> > if the SMMU isn't coherent? 
+Hi Jonathan,
 
-No, it has to use CMOs today.
+> * # Be careful, this email looks suspicious; * Out of Character: The sender is exhibiting a significant deviation from their usual behavior, this may indicate that their account has been compromised. Be extra cautious before opening links or attachments. *
+> On Thu, Apr 23, 2026 at 02:55:14PM +0100, Yeoreum Yun wrote:
+> > > On Thu, 2026-04-23 at 13:53 +0100, Jonathan McDowell wrote:
+> > > > On Thu, Apr 23, 2026 at 01:34:13PM +0100, Yeoreum Yun wrote:
+> > > > > > > On Thu, 2026-04-23 at 06:55 +0100, Yeoreum Yun wrote:
+> > > > > > > > > On Wed, 2026-04-22 at 20:41 +0100, Yeoreum Yun wrote:
+> > > > > > > > > > > Hi Mimi,
+> > > > > > > > > > >
+> > > > > > > > > > > > On Wed, 2026-04-22 at 17:24 +0100, Yeoreum Yun wrote:
+> > > > > > > > > > > > > To generate the boot_aggregate log in the IMA subsystem with TPM PCR values,
+> > > > > > > > > > > > > the TPM driver must be built as built-in and
+> > > > > > > > > > > > > must be probed before the IMA subsystem is initialized.
+> > > > > > > > > > > > >
+> > > > > > > > > > > > > However, when the TPM device operates over the FF-A protocol using
+> > > > > > > > > > > > > the CRB interface, probing fails and returns -EPROBE_DEFER if
+> > > > > > > > > > > > > the tpm_crb_ffa device — an FF-A device that provides the communication
+> > > > > > > > > > > > > interface to the tpm_crb driver — has not yet been probed.
+> > > > > > > > > > > > >
+> > > > > > > > > > > > > To ensure the TPM device operating over the FF-A protocol with
+> > > > > > > > > > > > > the CRB interface is probed before IMA initialization,
+> > > > > > > > > > > > > the following conditions must be met:
+> > > > > > > > > > > > >
+> > > > > > > > > > > > >    1. The corresponding ffa_device must be registered,
+> > > > > > > > > > > > >       which is done via ffa_init().
+> > > > > > > > > > > > >
+> > > > > > > > > > > > >    2. The tpm_crb_driver must successfully probe this device via
+> > > > > > > > > > > > >       tpm_crb_ffa_init().
+> > > > > > > > > > > > >
+> > > > > > > > > > > > >    3. The tpm_crb driver using CRB over FF-A can then
+> > > > > > > > > > > > >       be probed successfully. (See crb_acpi_add() and
+> > > > > > > > > > > > >       tpm_crb_ffa_init() for reference.)
+> > > > > > > > > > > > >
+> > > > > > > > > > > > > Unfortunately, ffa_init(), tpm_crb_ffa_init(), and crb_acpi_driver_init() are
+> > > > > > > > > > > > > all registered with device_initcall, which means crb_acpi_driver_init() may
+> > > > > > > > > > > > > be invoked before ffa_init() and tpm_crb_ffa_init() are completed.
+> > > > > > > > > > > > >
+> > > > > > > > > > > > > When this occurs, probing the TPM device is deferred.
+> > > > > > > > > > > > > However, the deferred probe can happen after the IMA subsystem
+> > > > > > > > > > > > > has already been initialized, since IMA initialization is performed
+> > > > > > > > > > > > > during late_initcall, and deferred_probe_initcall() is performed
+> > > > > > > > > > > > > at the same level.
+> > > > > > > > > > > > >
+> > > > > > > > > > > > > To resolve this, call ima_init() again at late_inicall_sync level
+> > > > > > > > > > > > > so that let IMA not miss TPM PCR value when generating boot_aggregate
+> > > > > > > > > > > > > log though TPM device presents in the system.
+> > > > > > > > > > > > >
+> > > > > > > > > > > > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> > > > > > > > > > > >
+> > > > > > > > > > > > A lot of change for just detecting whether ima_init() is being called on
+> > > > > > > > > > > > late_initcall or late_initcall_sync(), without any explanation for all the other
+> > > > > > > > > > > > changes (e.g. ima_init_core).
+> > > > > > > > > > > >
+> > > > > > > > > > > > Please just limit the change to just calling ima_init() twice.
+> > > > > > > > > > >
+> > > > > > > > > > > My concern is that ima_update_policy_flags() will be called
+> > > > > > > > > > > when ima_init() is deferred -- not initialised anything.
+> > > > > > > > > > > though functionally, it might be okay however,
+> > > > > > > > > > > I think ima_update_policy_flags() and notifier should work after ima_init()
+> > > > > > > > > > > works logically.
+> > > > > > > > > > >
+> > > > > > > > > > > This change I think not much quite a lot. just wrapper ima_init() with
+> > > > > > > > > > > ima_init_core() with some error handling.
+> > > > > > > > > > >
+> > > > > > > > > > > Am I missing something?
+> > > > > > > > > >
+> > > > > > > > > > Also, if we handle in ima_init() only, but it failed with other reason,
+> > > > > > > > > > we shouldn't call again ima_init() in the late_initcall_sync.
+> > > > > > > > > >
+> > > > > > > > > > To handle this, It wouldn't do in the ima_init() but we need to handle
+> > > > > > > > > > it by caller of ima_init().
+> > > > > > > > >
+> > > > > > > > > Only tpm_default_chip() is being called to set the ima_tpm_chip.  On failure,
+> > > > > > > > > instead of going into TPM-bypass mode, return immediately.  There are no calls
+> > > > > > > > > to anything else.  Just call ima_init() a second time.
+> > > > > > > >
+> > > > > > > > I’m not fully convinced this is sufficient.
+> > > > > > > >
+> > > > > > > > What I meant is the case where ima_init() fails due to other
+> > > > > > > > initialisation steps, not only tpm_default_chip() (e.g. ima_fs_init()).
+> > > > > > >
+> > > > > > > The purpose of THIS patch is to add late_initcall_sync, when the TPM is not
+> > > > > > > available at late_initcall.  This would be classified as a bug fix and would be
+> > > > > > > backported.  No other changes should be included in this patch.
+> > > > > >
+> > > > > > Okay.
+> > > > > >
+> > > > > > > >
+> > > > > > > > I’d also like to ask again whether it is fine to call
+> > > > > > > > ima_update_policy_flags() and keep the notifier registered in the
+> > > > > > > > deferred TPM case. While this may be functionally acceptable, it seems
+> > > > > > > > logically questionable to do so when ima_init() has not completed.
+> > > > > > >
+> > > > > > > Other than extending the TPM, IMA should behave exactly the same whether there
+> > > > > > > is a TPM or goes into TPM-bypass mode.
+> > > > > > >
+> > > > > > > >
+> > > > > > > > There is also a possibility that a deferred case ultimately fails (e.g.
+> > > > > > > > deferred at late_initcall, but then failing at late_initcall_sync
+> > > > > > > > for another reason, even while entering TPM bypass mode). In that case,
+> > > > > > > > it seems more appropriate to handle this state in the caller of
+> > > > > > > > ima_init(), rather than inside ima_init() itself.
+> > > > > > >
+> > > > > > > If the TPM isn't found at late_initcall_sync(), then IMA should go into TPM-
+> > > > > > > bypass mode.  Please don't make any other changes to the existing IMA behavior
+> > > > > > > and hide it here behind the late_initcall_sync change.
+> > > > > >
+> > > > > > Okay. you're talking called ima_update_policy_flags() at late_initcall
+> > > > > > wouldn't be not a problem even in case of late_initcall_sync's ima_init()
+> > > > > > get failed with "TPM-bypass mode".
+> > > > > >
+> > > > > > I see then, I'll make a patch simpler then.
+> > > > >
+> > > > > But I think in case of below situation:
+> > > > >  - late_initcall's first ima_init() is deferred.
+> > > > >  - late_initcall_sync try again but failed and try again with
+> > > > >    CONFIG_IMA_DEFAULT_HASH.
+> > > > >
+> > > > > I would like to sustain init_ima_core to reduce the same code repeat
+> > > > > in late_initcall_sync.
+> > > >
+> > > > I think what Mimi's proposing is:
+> > > >
+> > > > If we're in late_initcall, and the TPM isn't available, return
+> > > > immediately with an error (the EPROBE_DEFER?), don't do any init.
+> > > >
+> > > > If we're in late_initcall_sync, either we're already initialised, so do
+> > > > return and nothing, or run through the entire flow, even if the TPM
+> > > > isn't unavailable.
+> > > >
+> > > > So ima_init() just needs to know a) if it's in the sync or non-sync mode
+> > > > and b) for the sync mode, if we've already done the init at
+> > > > non-sync.
+> > >
+> > > Thanks, Jonathan.  That is exactly what I'm suggesting.  Any other changes
+> > > should not be included in this patch.  Since Yeoreum is not hearing me, feel
+> > > free to post a patch.
+> >
+> > I see. so what you need to is this only
+> > If it looks good to you. I'll send it at v3.
+>
+> FWIW, I pulled the tpm_default_chip check out a level to account for the
+> extra init you mentioned, and have the following (completely untested or
+> compiled, but gives the approach):
+>
+> diff --git a/include/linux/lsm_hooks.h b/include/linux/lsm_hooks.h
+> index d48bf0ad26f4..88fe105b7f00 100644
+> --- a/include/linux/lsm_hooks.h
+> +++ b/include/linux/lsm_hooks.h
+> @@ -166,6 +166,7 @@ enum lsm_order {
+>   * @initcall_fs: LSM callback for fs_initcall setup, optional
+>   * @initcall_device: LSM callback for device_initcall() setup, optional
+>   * @initcall_late: LSM callback for late_initcall() setup, optional
+> + * @initcall_late_sync: LSM callback for late_initcall_sync() setup, optional
+>   */
+>  struct lsm_info {
+>  	const struct lsm_id *id;
+> @@ -181,6 +182,7 @@ struct lsm_info {
+>  	int (*initcall_fs)(void);
+>  	int (*initcall_device)(void);
+>  	int (*initcall_late)(void);
+> +	int (*initcall_late_sync)(void);
+>  };
+>  #define DEFINE_LSM(lsm)							\
+> diff --git a/security/integrity/ima/ima_init.c b/security/integrity/ima/ima_init.c
+> index a2f34f2d8ad7..a60dfb8316d8 100644
+> --- a/security/integrity/ima/ima_init.c
+> +++ b/security/integrity/ima/ima_init.c
+> @@ -119,10 +119,6 @@ int __init ima_init(void)
+>  {
+>  	int rc;
+> -	ima_tpm_chip = tpm_default_chip();
+> -	if (!ima_tpm_chip)
+> -		pr_info("No TPM chip found, activating TPM-bypass!\n");
+> -
+>  	rc = integrity_init_keyring(INTEGRITY_KEYRING_IMA);
+>  	if (rc)
+>  		return rc;
+> diff --git a/security/integrity/ima/ima_main.c b/security/integrity/ima/ima_main.c
+> index 1d6229b156fb..b60a85fa803a 100644
+> --- a/security/integrity/ima/ima_main.c
+> +++ b/security/integrity/ima/ima_main.c
+> @@ -1237,7 +1237,7 @@ static int ima_kernel_module_request(char *kmod_name)
+>  #endif /* CONFIG_INTEGRITY_ASYMMETRIC_KEYS */
+> -static int __init init_ima(void)
+> +static int __init init_ima(bool sync)
+>  {
+>  	int error;
+> @@ -1247,6 +1247,19 @@ static int __init init_ima(void)
+>  		return 0;
+>  	}
+> +	/* If we found the TPM during our first attempt, nothing further to do */
+> +	if (sync && ima_tpm_chip)
+> +		return 0;
+> +
+> +	ima_tpm_chip = tpm_default_chip();
+> +	if (!ima_tpm_chip && !sync) {
+> +		pr_debug("TPM not available, will try later\n");
+> +		return -EPROBE_DEFER;
+> +	}
+> +
+> +	if (!ima_tpm_chip)
+> +		pr_info("No TPM chip found, activating TPM-bypass!\n");
+> +
+>  	ima_appraise_parse_cmdline();
+>  	ima_init_template_list();
+>  	hash_setup(CONFIG_IMA_DEFAULT_HASH);
+> @@ -1274,6 +1287,16 @@ static int __init init_ima(void)
+>  	return error;
+>  }
+> +static int __init init_ima_late(void)
+> +{
+> +	return init_ima(false);
+> +}
+> +
+> +static int __init init_ima_late_sync(void)
+> +{
+> +	return init_ima(true);
+> +}
+> +
+>  static struct security_hook_list ima_hooks[] __ro_after_init = {
+>  	LSM_HOOK_INIT(bprm_check_security, ima_bprm_check),
+>  	LSM_HOOK_INIT(bprm_creds_for_exec, ima_bprm_creds_for_exec),
+> @@ -1319,6 +1342,7 @@ DEFINE_LSM(ima) = {
+>  	.init = init_ima_lsm,
+>  	.order = LSM_ORDER_LAST,
+>  	.blobs = &ima_blob_sizes,
+> -	/* Start IMA after the TPM is available */
+> -	.initcall_late = init_ima,
+> +	/* Ensure we start IMA after the TPM is available */
+> +	.initcall_late = init_ima_late,
+> +	.initcall_late_sync = init_ima_late_sync,
+>  };
+> diff --git a/security/lsm_init.c b/security/lsm_init.c
+> index 573e2a7250c4..4e5c59beb82a 100644
+> --- a/security/lsm_init.c
+> +++ b/security/lsm_init.c
+> @@ -547,13 +547,22 @@ device_initcall(security_initcall_device);
+>   * security_initcall_late - Run the LSM late initcalls
+>   */
+>  static int __init security_initcall_late(void)
+> +{
+> +	return lsm_initcall(late);
+> +}
+> +late_initcall(security_initcall_late);
+> +
+> +/**
+> + * security_initcall_late_sync - Run the LSM late initcalls sync
+> + */
+> +static int __init security_initcall_late_sync(void)
+>  {
+>  	int rc;
+> -	rc = lsm_initcall(late);
+> +	rc = lsm_initcall(late_sync);
+>  	lsm_pr_dbg("all enabled LSMs fully activated\n");
+>  	call_blocking_lsm_notifier(LSM_STARTED_ALL, NULL);
+>  	return rc;
+>  }
+> -late_initcall(security_initcall_late);
+> +late_initcall_sync(security_initcall_late_sync);
 
-It looks like all the stuff dma_alloc_coherent does to make a
-non-cached mapping are pretty arch specific. I don't know if there is
-a way we could make more general code get a struct page into an
-uncached KVA and meet all the arch rules?
+I'm fine this. but are we talking about "ima_init()" not "init_ima()"?
+Because of this, I've fixuated and make a long stupid speaking myself.
 
-I also think dma_alloc_coherent is far to complex, with pools and
-more, to support KHO.
+If this seems good to Mimi, I don't care who send it.
+But If you're going to send this, could you includes 2 and 3 too?
 
-> > I really don't want to entertain CMOs for > the queues.
-> 
-> Sorry, I said "queues" here but I was really referring to any of the
-> current dma_alloc_coherent() allocations and it's the CDs that matter
-> in this thread.
+Thanks.
 
-queues shouldn't change they are too performance sensitive
-
-> The rationale being that:
-> 
-> 1. A cacheable mapping is going to pollute the cache unnecessarily.
-> 2. Reasoning about atomicity and ordering is a lot more subtle with CMOs.
-
-The page table suffers from all of these draw backs, and the STE/CD is
-touched alot less frequently. It is kind of odd to focus on these
-issues with STE/CD when page table is a much bigger problem.
-
-STE/CD is pretty simple now, there is only one place to put the CMO
-and the ordering is all handled with that shared code. We no longer
-care about ordering beyond all the writes must be visible to HW before
-issuing the CMDQ invalidation command - which is the same environment
-as the pagetable.
-
-> 3. It seems like a pretty invasive driver change to support live update,
->    which isn't relevant for a lot of systems.
-
-That's sort of the whole story of live update.. Trying to keep it
-small means using the abstractions that support it like iommu-pages.
-
-IMHO live update is OK to require coherent only, so at worst it could
-use iommu-pages on coherent systems and keep using the
-dma_alloc_coherent() for others.
-
-I also don't like this "lot of systems thing". I don't want these
-powerful capabilities locked up in some giant CSP's proprietary
-kernel.  I want all the companies in the cloud market to have access
-to the same feature set. That's what open source is supposed to be
-driving toward. I have several interesting use cases for this
-functionality already.
-
-It will run probably $50-100B of AI cloud servers at least, I think
-that is enough justification.
-
-Jason
+--
+Sincerely,
+Yeoreum Yun
 
