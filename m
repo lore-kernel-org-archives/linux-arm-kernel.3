@@ -4,96 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB482F9935C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 09:25:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03146F99344
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 09:25:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WyjeDLRihWXGnG8DMErcEW86rv0ADdgt5VkUA9RV/pk=; b=DfXBQhXS4R9HjsGuDNvmasO0Kx
-	hcDWocvkYNvVbWMLWeeMdJ0xmMdgaOLEiSiqwBTCQWq8YYypMD9el98uc2044abm5cziSzaL04zBf
-	gLfyh0TQjnIB9092EzLhTHlijCiYbm4NUID564M4Ofz6ZjVBFCgLW0GBoDFurpnhirNBl7mQ7NDoR
-	Qm/q5XWcpjhF/6szHWDWaise84GUuPeZLBTMusxO6fm+9Wcz/WN807AxbnUPK8KZhvYCVax7uyNt/
-	rtSzFQZ3M43vH5P3r4ByUMj+1y4dhqiwyXRvSE1i4/ZbPaGMPtwGnZ1tViOYWmnbAMTrAx9XHl4WD
-	hVxRvlLg==;
+	bh=z9tx6ZvhNSiMNEaTpNc5/0pp6weDgLIpQjhkq9TEAHA=; b=r1YApiQoWcv5vnSBoQiUyK+HGs
+	gPJOw/StIo1FGp8V/TqIH1U3DEnXI80ABI0oknk2ysQHm8MtaiHrZkfvwyWnppPZxSa/ibaLG2EO6
+	LvU5deoxDmpt9SFWp77VtEzteV8EWdEEUxscPsLGgenJdHKuB2/pm1lXD8TRW/mlwkqdEzW6M87b9
+	aGH7pCUep50co/qSFpA5CkI8S3ThWLchDUgpVwWkvXUbJuO5YhobDP/t5/qy8D3YIL+OpCMw7hUlD
+	m/X1VFmBswHnFR3jsg688eI5ycFgIh2b9VrEgzBtNGJ07XmaBsJDQok0vzqhAmUHDop1PrNUcXv3l
+	L8ry8JeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFqJZ-0000000BNlz-0J2K;
-	Thu, 23 Apr 2026 09:25:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wFqJe-0000000BNqf-3s0D;
+	Thu, 23 Apr 2026 09:25:46 +0000
+Received: from fhigh-a5-smtp.messagingengine.com ([103.168.172.156])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFqJX-0000000BNl9-2wYJ
+	id 1wFqJc-0000000BNmG-1Z2N
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 09:25:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1CD7660120;
-	Thu, 23 Apr 2026 09:25:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FC8FC4AF09;
-	Thu, 23 Apr 2026 09:25:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776936338;
-	bh=j40Grx3Iw72ongnTHVdo+wYxZ8h6ryWwnf1Rp6Vy1Nw=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=cFSR0LASVwgxdx1V4n6qwnC5C7auOyrbbL2VEsDoiN4wnEbaWC28kEYSfuBmSqQQI
-	 FbPvHo7mEVlpwLLEayXXosAbYGYanEmzh6vGKUedXPZNqmkW5xBum/46Uxx7iwrVnD
-	 P2ULoZ96RASLBMR0I4FSetotMvSwbekhfxyj+VFHJ/pKO1e/1JTPjVw0vdTiF4g+i2
-	 Q2evh/QKsWxzFqZAeZ9zND+yWXTaufGS2+k6IybxnupBZ2J0fwzroVoUEjdqiGFmN1
-	 iM2TVFBehC2cJHfkk0ctrBqxvQ90xVTqTdOMNjLHr80ewxLu3lvxQl3MOxaFSypeV0
-	 z1pMTijkorHEg==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 8DFD9F40069;
-	Thu, 23 Apr 2026 05:25:37 -0400 (EDT)
+	Thu, 23 Apr 2026 09:25:45 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 028D61400045;
+	Thu, 23 Apr 2026 05:25:41 -0400 (EDT)
 Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-01.internal (MEProxy); Thu, 23 Apr 2026 05:25:37 -0400
-X-ME-Sender: <xms:keXpaQOj7C4w99Xv9eyZshPoKrm5xTUsh5lOlWgqJRq6su4mde82_g>
-    <xme:keXpaRzuiFFDJgYWXPzG-1ZbHMrGw04dKiSDzwKjOSaBRa7huDHcFmU9B-k7OI743
-    OELH-T1Gcz0DaveDT320zC45PKMjKnrYNE6nD06VReS4F4AOFZBFw>
+  by phl-compute-04.internal (MEProxy); Thu, 23 Apr 2026 05:25:41 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1776936340;
+	 x=1777022740; bh=z9tx6ZvhNSiMNEaTpNc5/0pp6weDgLIpQjhkq9TEAHA=; b=
+	iEZyMvGIHgW0wj540ctrSrmH52Y3LiFnvXZ0w179IrIcCrd5Rv/AK38ZCLJeULtd
+	1dSFpX8TVeQkzFc8gEuCb4eUuCg0ZFSG9C0SW/hSaxEJaOwKKwJhd1NCCWiX2lCm
+	l7e9FY9LQu2b4Ws8A9P83eN2ueSch2CwTYmr5y4ToVpUMaO9qL4HD5EOSfS6r5Ce
+	9tDP6F9TnNd+Le5mdqushynF0BfEQK9XWiVBJJPIzRZ/GF2mDnwQx2c4V4rkbZ46
+	fAh3Gwjhi2CoO9gZnZtjDQtnyi3IostY0X0wEjp8o4R9UtJuXmoSaapgp+FUF30P
+	phq6mno/ZYMb0DjrTynEsw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1776936340; x=
+	1777022740; bh=z9tx6ZvhNSiMNEaTpNc5/0pp6weDgLIpQjhkq9TEAHA=; b=K
+	AqTdNDGCYbSSaooC1WMGi/4m/sgcT30E5y70WInZ+SctyYCX/WhOVcZF4SKfT9Hd
+	PA7e1XA80K87wgf8J4UmlseTHpVjMU2rzesjNEqUkZ1mAx2YAQYAhQU8YCFMKpjO
+	YcBNKho6hubSWCQAKnU7aqRDwYQyW6am6AjDSNTDOsd2vWRjwVb5zIiZc9kn2qs6
+	GMpP7SFKvT7ddiEve+98Wt8yiWAz/G62zqUP1WKX/1BPOEPCht5xgS6EhL0xU3ZM
+	PAHwTcoC/3w7MXn8KE7JLPfgg+t0qdOGYZGsnr2pFdm18JDrHlY0ZZYk3ya3E1U7
+	oJ8vedgtLcSZ91uZuk5eA==
+X-ME-Sender: <xms:k-XpaQWqOSmoclfETIPLIaQGTVIszlkVWN83g5PMBs6co3U_K50SVA>
+    <xme:k-Xpafa1eEqyM7exW0A6TyietSsHMjNJ4Ptx-IEQJxJASoyKgn_AdELcqoWL4okW7
+    gzbbyEnyKqkn2N_UQX6cQ0g2TIdaDRR-QC62IpBqy7OxhPna30JhA>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdeiieejkecutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
     ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhguuceu
-    ihgvshhhvghuvhgvlhdfuceorghruggssehkvghrnhgvlhdrohhrgheqnecuggftrfgrth
-    htvghrnhepvdeuheeitdevtdelkeduudetgffftdelteefteevjeevjeeiheefhfejieej
-    fedunecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
-    hrugdomhgvshhmthhprghuthhhphgvrhhsohhnrghlihhthidqudeijedthedttdejledq
-    feefvdduieegudehqdgrrhgusgeppehkvghrnhgvlhdrohhrghesfihorhhkohhfrghrug
-    drtghomhdpnhgspghrtghpthhtohepuddupdhmohguvgepshhmthhpohhuthdprhgtphht
-    thhopegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmpdhrtg
-    hpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehlrdhr
-    uhgsuhhstghhsehgmhgrihhlrdgtohhmpdhrtghpthhtohephhgvrhgsvghrthesghhonh
-    guohhrrdgrphgrnhgrrdhorhhgrdgruhdprhgtphhtthhopehlihhnuhhsfieskhgvrhhn
-    vghlrdhorhhgpdhrtghpthhtohepthhhohhrshhtvghnrdgslhhumheslhhinhhugidrug
-    gvvhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhn
-    fhhrrgguvggrugdrohhrghdprhgtphhtthhopehnihgtohhlrghsrdhfvghrrhgvsehmih
-    gtrhhotghhihhprdgtohhmpdhrtghpthhtoheptghlrghuughiuhdrsggviihnvggrseht
-    uhigohhnrdguvghv
-X-ME-Proxy: <xmx:keXpaSk8od9xeJWWTpDQyTJuu4TQscRU5at8_dtsJNBYnoKGfuwrAA>
-    <xmx:keXpaR9FfkLYLKC3ZcEUprrJWpfFPJfIIw-mGwd-fUNSdrOuqd3ZtA>
-    <xmx:keXpaQJWCibDVS256fWxB5dF4Tb5FUlb1QRNHUGvbaXfnz8fMq04JQ>
-    <xmx:keXpaWjp7tN3KeYqNV7E174MSOhlIgkDj3l0izlXyUUFUlcxbYKZHg>
-    <xmx:keXpac_yPLsU7PbnMcMz8O4iutEn-_MPGDtGYGpkIUeDesWAia5gMofo>
-Feedback-ID: ice86485a:Fastmail
+    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieen
+    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
+    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopedufedpmhhouggvpehsmhhtphhouhht
+    pdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhope
+    gtlhgrsggsvgdrmhhonhhtjhhoihgvsehgmhgrihhlrdgtohhmpdhrtghpthhtohepjhgv
+    rhhnvghjrdhskhhrrggsvggtsehgmhgrihhlrdgtohhmpdhrtghpthhtohepohhvihguih
+    hurdhprghnrghithdrohhsshesghhmrghilhdrtghomhdprhgtphhtthhopehhvghrsggv
+    rhhtsehgohhnughorhdrrghprghnrgdrohhrghdrrghupdhrtghpthhtoheprghrnhguse
+    hkvghrnhgvlhdrohhrghdprhgtphhtthhopegvsghighhgvghrsheskhgvrhhnvghlrdho
+    rhhgpdhrtghpthhtohepfigvnhhssehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlih
+    hnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
+X-ME-Proxy: <xmx:k-XpaZkeh8LZUlhOkuLRTJa9THvDRelog_gvESb_Jw_fq4fVuNHfDQ>
+    <xmx:k-XpaRP98VxKbHsoICfZMZdhqLIzsX1RQ5iqSTMqeNKPsDNtdOP_bA>
+    <xmx:k-XpaUFkpwaWHJJiOrn2xcyoshHx1ofThKCCmCWh_8NodeNKtFbqBQ>
+    <xmx:k-XpaXsqeYoYd2hjD4q0m1roD1hSjjRSOaKB19ID7I39ihMiLngFkg>
+    <xmx:lOXpaQgmXkFLegwy3zTA8NrheDJSi4peEVaNe2WnGjdtUbSa4_f-uXfJ>
+Feedback-ID: i56a14606:Fastmail
 Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 50E81700069; Thu, 23 Apr 2026 05:25:37 -0400 (EDT)
+	id 92CC5700065; Thu, 23 Apr 2026 05:25:39 -0400 (EDT)
 X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Date: Thu, 23 Apr 2026 11:25:16 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Lothar Rubusch" <l.rubusch@gmail.com>,
- "Herbert Xu" <herbert@gondor.apana.org.au>,
- "Thorsten Blum" <thorsten.blum@linux.dev>, davem@davemloft.net,
- nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
- claudiu.beznea@tuxon.dev, "Linus Walleij" <linusw@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+X-ThreadId: AavW3N6gTEK7
+Date: Thu, 23 Apr 2026 11:25:19 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Herbert Xu" <herbert@gondor.apana.org.au>,
+ "Arnd Bergmann" <arnd@kernel.org>
+Cc: "Corentin Labbe" <clabbe.montjoie@gmail.com>,
+ "David S . Miller" <davem@davemloft.net>, "Chen-Yu Tsai" <wens@kernel.org>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>,
+ "Samuel Holland" <samuel@sholland.org>, "Eric Biggers" <ebiggers@kernel.org>,
+ "Ovidiu Panait" <ovidiu.panait.oss@gmail.com>, linux-crypto@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
  linux-kernel@vger.kernel.org
-Message-Id: <a82278e5-9b5e-4fb9-9e7a-800ef2898ec5@app.fastmail.com>
-In-Reply-To: <20260422210936.20095-1-l.rubusch@gmail.com>
-References: <20260422210936.20095-1-l.rubusch@gmail.com>
-Subject: Re: [PATCH v3 0/3] crypto: atmel-sha204a - multiple RNG fixes
+Message-Id: <1cd6ddc3-479c-4cbf-8315-78bc53ac3a54@app.fastmail.com>
+In-Reply-To: <aenfmxOvtHaAODqH@gondor.apana.org.au>
+References: <20260423065600.2081989-1-arnd@kernel.org>
+ <aenfmxOvtHaAODqH@gondor.apana.org.au>
+Subject: Re: [PATCH] crypto: sun8i-ss - avoid hash and rng references
 Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260423_022544_823530_EF25E6BE 
+X-CRM114-Status: UNSURE (   8.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,98 +122,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lothar,
+On Thu, Apr 23, 2026, at 11:00, Herbert Xu wrote:
+> On Thu, Apr 23, 2026 at 08:55:42AM +0200, Arnd Bergmann wrote:
+> Does this work?
+>
+> 			if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN4I_SS_PRNG))
+> 				seq_printf(seq, "%s %s reqs=%lu tsize=%lu\n",
+> 					   ss_algs[i].alg.rng.base.cra_driver_name,
+> 					   ss_algs[i].alg.rng.base.cra_name,
+> 					   ss_algs[i].stat_req, ss_algs[i].stat_bytes);
+> 			break;
 
-On Wed, 22 Apr 2026, at 23:09, Lothar Rubusch wrote:
-> When testing the RNG functionality on the Atmel SHA204a hardware, I
-> found the following issues: rngtest reported failures and hexdump
-> reveiled only the first 8 bytes out of 32 provided actually entropy.
->
-> Having a closer look into it, I found a (small) memory leak, missing
-> to free work_data, miss-reading of the count field into the entropy
-> fields and parts of the 32 random bytes staying 0 due to reading the
-> slow i2c device.
->
-> The series proposes fixes and how fixed functionality can be/was
-> verified. Executing rngtest afterward showed a decent result, due
-> to the i2c bus a bit slow.
->
-> All setups require selecting the Atmel-sha204a as active RNG.
-> $ cat /sys/class/misc/hw_random/rng_available
->     3f104000.rng 1-0064 none
->
-> $ echo 1-0064 > /sys/class/misc/hw_random/rng_current
->
-> $ cat /sys/class/misc/hw_random/rng_current
->     1-0064
->
-> Testing RNG properties currently shows problematic results:
-> $ rngtest < /dev/hwrng
->     rngtest 2.6
->     Copyright (c) 2004 by Henrique de Moraes Holschuh
->     This is free software; see the source for copying conditions.  There is NO
->     warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
->
->     rngtest: starting FIPS tests...
->     rngtest: bits received from input: 1040032
->     rngtest: FIPS 140-2 successes: 0
->     rngtest: FIPS 140-2 failures: 52
->     rngtest: FIPS 140-2(2001-10-10) Monobit: 52
->     rngtest: FIPS 140-2(2001-10-10) Poker: 52
->     rngtest: FIPS 140-2(2001-10-10) Runs: 52
->     rngtest: FIPS 140-2(2001-10-10) Long run: 52
->     rngtest: FIPS 140-2(2001-10-10) Continuous run: 52
->     rngtest: input channel speed: (min=7.631; avg=7.804; max=7.827)Kibits/s
->     rngtest: FIPS tests speed: (min=32.273; avg=32.701; max=33.056)Mibits/s
->     rngtest: Program run time: 130177956 microseconds
->
-> Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
-> ---
-> v2 -> v3: Removal blank line, rebased
-> v1 -> v2: Removal of C++ style comment (I saw it too late, sry for that)
-> ---
-> Lothar Rubusch (3):
->   crypto: atmel-sha204a - fix memory leak at non-blocking RNG work_data
->   crypto: atmel-sha204a - fix truncated 32-byte blocking read
->   crypto: atmel-sha204a - fix non-blocking read logic
->
->  drivers/crypto/atmel-sha204a.c | 60 ++++++++++++++++++++++------------
->  1 file changed, 39 insertions(+), 21 deletions(-)
->
+Yes, I can rework the patch that way. I had considered this originally
+but decided this would end up less readable in this case because
+of the extra indentation level. The drivers already has a lot of
+#ifdef checks, so adding more of those felt more in line with the
+style used here.
 
-Thanks for the report and the fixes. However, I'm not sure you are entirely
-on the right track here. I managed to fix the rngtest issues that you report by
-making the changes below. As I already replied, I think it would be better to
-propose this as a standalone patch, and backport it to stable.
-
-The remaining changes are somewhat debatable IMO: the leak is not really a leak,
-so I'd like to understand better what you are fixing here. The command field
-changes seems completely misguided (unless I am missing something)
-
-
-
---- a/drivers/crypto/atmel-sha204a.c
-+++ b/drivers/crypto/atmel-sha204a.c
-@@ -47,8 +47,8 @@
- 
-        if (rng->priv) {
-                work_data = (struct atmel_i2c_work_data *)rng->priv;
--               max = min(sizeof(work_data->cmd.data), max);
--               memcpy(data, &work_data->cmd.data, max);
-+               max = min(RANDOM_RSP_SIZE - CMD_OVERHEAD_SIZE, max);
-+               memcpy(data, &work_data->cmd.data[1], max);
-                rng->priv = 0;
-        } else {
-                work_data = kmalloc_obj(*work_data, GFP_ATOMIC);
-@@ -86,8 +86,8 @@
-        if (ret)
-                return ret;
- 
--       max = min(sizeof(cmd.data), max);
--       memcpy(data, cmd.data, max);
-+       max = min(RANDOM_RSP_SIZE - CMD_OVERHEAD_SIZE, max);
-+       memcpy(data, &cmd.data[1], max);
- 
-        return max;
- }
+     Arnd
 
