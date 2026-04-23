@@ -4,112 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9152FF9936B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 10:51:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EC2AF9936B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 10:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4u0NLqUbLY9OPqLjh5qipvi/NJ3ZqeW6p4Eergru/hM=; b=cYtAFQDmLF0qcn0h7q01G2+EWn
-	WZlWwTZb/4cVMkvmF2zYDQlAyss7hNlw8Eb3xgGutckoP1TwcnKOl41hBomcHAsEj6m3+x5xi2dLX
-	7TJxWa3Ck5B+iA50N9O9mVS67DtSKskJpxR8nWC/8+BdJrFhPxuFyWnGTy1qmujYW2t3UdRpGPw6w
-	8BeRf7qxq7OYLr82Tad2BfsXUnraTlhCFsTTxK0ynwteOmcu1F0ToNjbwgTJ55HDCIRX+5fza9S7R
-	1/+ILXIScYbO8ELDy/xRZw8SdQB3Vbp6kPAWno0qYna9SQZSBV7UL5BZXqRJEfAghxYCEwfTKveEx
-	F88ymBgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3JJx/XC04FdiSIp/CP/WU0crkfGSt9tauFjUk3YssIE=; b=l/zhdguVt1F68EFI+MnDve85Xr
+	ae8Nz6Qj29gY418vc9s8njQSOCwTXUxEO4bx2bq6kGImPMZKtDQQG88tuTSdRGei4Cd6VEZ59THDV
+	WgJ3X5P2XYg7RxRbv3GGKwWnTTyWonMX7YbSmvs3RtiNhznyQcGSEDWgOJIskMShETqvoEsE3fSap
+	6MBUYvdKGD8zbYiHFcRTUdfV6o/DebXTlNwHGsqr99zqMZhejc8c/wLsAR8E1rR5BEpsk/i1Fpwyd
+	1kvo7JBdX7zID5EMjbMJN9RK/Np6uX4jssLZKYSv9BFUZSdhgBREW+e+8BiyvDkVvg2MgYlhKopCL
+	EJVRMfFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFrez-0000000BVKr-2syh;
-	Thu, 23 Apr 2026 10:51:53 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1wFrhl-0000000BVXV-25oV;
+	Thu, 23 Apr 2026 10:54:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFrex-0000000BVKL-3MAd
+	id 1wFrhi-0000000BVX9-2e8e
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 10:51:53 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-67389cf78b0so11697561a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 03:51:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776941510; cv=none;
-        d=google.com; s=arc-20240605;
-        b=LS1JMGK218ITWw9gAQGwE0dX4B/3dbjVeNd6GJZtB0rgbBgMa46DkA5LX7C5yXQu1z
-         /m3pgK9DVFJRlsJZr7MM72buV3Dh79qBN1dIMnPkJBzGiqfMl28nFNUslFQ+bzRwf0Vg
-         ajNFUYgvA/vKbLuZ66swRhsg19NZsR/kqcl2U60oxzZVqZpUqkJrOr/5YASH0eVbL9l6
-         xJDdwswqp8hk8LKynO6u4bA0u9WVhWsZc/yFa5vE1GuWKwFAOA8Nur69SYSY1TbvX44z
-         MjQ4GHWBPbdFhzZOm/YCJyY6V1Umn+qfXyQi4u+22NfAVHXA1f+bR4zuUJsIFMw/obA6
-         lhOA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=4u0NLqUbLY9OPqLjh5qipvi/NJ3ZqeW6p4Eergru/hM=;
-        fh=LniZeSFfxY9juorVuS5W3OhGyAPj82vS7t1WGzQnN7g=;
-        b=Xr3bq2vXvaAB/H1CXnP1d8pMdtrKzHgYBpkuE8Hmel3WDDBMkREO26aFpiauQodU6D
-         UuAaztH+F0w9irA0gNaNfcyLEg5d3y/qBaXmDlrP/H3O5xX8Coawpzzv6sfRGyKspL8N
-         P9m/6kRlxyl8i5AUG+JZR5zZ+L1HTmTRkqDNIdFZ4OTffW+UeuogjPFNdszMTcvZ3TnR
-         Mkbxt7bvM1Fu+smXBFoQIlSKhHuElcYaYOsnaiDzl/+J4HT6Xgi4J+5uqEJ8+rN9hOaS
-         7cSJ0IhgfXlcVrArWEffi93U44rOP9a0koWtpU7/Z6Xt7TVXNedREZ2A2DCO6+oKlFLj
-         cZFA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=mongodb.com; s=google; t=1776941510; x=1777546310; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4u0NLqUbLY9OPqLjh5qipvi/NJ3ZqeW6p4Eergru/hM=;
-        b=kyZ6EiF+UCKWbiLfrGCXg9Agwav7WNgyGKNTVwQtNsxG6jAiJTB2/fNTO5XJu9GXAX
-         OffGYkkV7EfprJpsu24CCVZOjzMVXgS18qEQvYIKHIgsngv5YJBSS70YmyBuqCJeuHWi
-         N/UCRRp0qUb3rrRdkE9Wqfwqn04hOjhdbuCsM=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776941510; x=1777546310;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=4u0NLqUbLY9OPqLjh5qipvi/NJ3ZqeW6p4Eergru/hM=;
-        b=Nj9NMxQp0j4jN3JVooSLwam9OJ0w3UvNGiS6kOMqMRhhNRCVRdf9/fugBMlQAsygVn
-         gqJ3nTG7v93RMkHaoc21gBeJ1+1bdo8882Bte3bWSEg0rCBShAvESDiFrpAz0EgRDVnl
-         RgXlyptTtgzsPEMlO+gMX05U+Fg7BCTyM19eI8SQ6D6VOT3cRJUd64/FNmiq09yIlIcw
-         Yz/UhZVb+0/9E+91i/kaROSIEAWSoPNlxrLxH9PUj5JV2IJJzlb85g+yYO2qx2Tx9Ch3
-         ySL4YLB+6Y81223Jun9QW+Ku8Ur83umg/iAi28047ra8mXFVjfxWlHcCRWymlAwN8wEm
-         DHtw==
-X-Forwarded-Encrypted: i=1; AFNElJ9MvnZEglsE/V1OtsNAzHfFu1NcmA6/NfOzg77Z51FbrHKCLLYNxbR0rYoo99ciVx9Noajm6jpEfWq3WQ5JLYKB@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFhmXR22zhfhnjJuyxryTRiqPW5DnmZA2MPmVoq5JGKC9aewLr
-	AQpgrjvIhab3OEJJrAWAMI21l6aPHrduSolqU/opHPlfTPi7STSsjRCQ/G03X5k+7Fszi8b5uz6
-	4D//BJlPNMkAukWsxC0CpPj6JLxjn36sSZKEapH0zAA==
-X-Gm-Gg: AeBDietSZSz/l51yaUFca8yj37TSNXnU5FRfuORXwYfJxA6VbavJK/j2M0NdYpSPciH
-	7jFk3tBOUTZRPyC6WYYpAg8VtE1YWGPCbsgzNj6FzjnX5b+v0ajYhj+SeFthG/g592+earj/JoY
-	HGsCL20gY15qR63ITViOPpSyppXbGj05pGQ47QUwrAyWMqJsdobl/Qv3B2WfKIkZ7Jlz/lenhCg
-	RdDU91F2FTb4oIJ0aJNiLE7U4LQqfgdI1DGm4nOUSCtpJUTkuJP6iZdvRY697CDwqnVOO9G1A1f
-	j4gbuusvwLqo8ctZ7xu3R15+udc=
-X-Received: by 2002:a17:907:6c0e:b0:ba5:216c:56e6 with SMTP id
- a640c23a62f3a-ba5216c6068mr1253044166b.0.1776941509520; Thu, 23 Apr 2026
- 03:51:49 -0700 (PDT)
+	Thu, 23 Apr 2026 10:54:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5DB174011D;
+	Thu, 23 Apr 2026 10:54:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0B62C2BCAF;
+	Thu, 23 Apr 2026 10:54:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776941681;
+	bh=NHSuEK9H1801Db43XmFpxQoOeHBhCdehq8G+kH0L1gk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WxCijv5TIR/9gGmkrkA9sAHJW6JXbPHQvkzsGe9yqQ8AubEAUNc91qyNB+AofYwim
+	 kj5xQUhGJ4T8tWnTTpPmx0A4CPxm2QN4GDj3LtX1iO95Dmyy25IpB91spjE/Vp0tby
+	 b4/WKR1iizP+jJO42X4ewEp39VOJerxmaNoxuBpBQCC1PN/7L5QSq9b5d2S9fvMgzJ
+	 xhf93I4scNVIZVURuKIeKnYn21K7wZG6PTp5OUFUBiX5JaYxc8vRFOObJ+/TCsgIpM
+	 wGZeBzkERIYUnBHU6gyaqMhrFRS24ff+5tNI52FVZI64QP2yVusjoqR2sUcvOd9t+j
+	 wFH21U6FY0oyw==
+Date: Thu, 23 Apr 2026 12:54:38 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Jyri Sarha <jyri.sarha@iki.fi>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Simon Ser <contact@emersion.fr>, 
+	Harry Wentland <harry.wentland@amd.com>, Melissa Wen <mwen@igalia.com>, 
+	Sebastian Wick <sebastian.wick@redhat.com>, Alex Hung <alex.hung@amd.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
+	Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v2 08/20] drm/plane: Add new atomic_create_state callback
+Message-ID: <20260423-fragrant-tody-of-inquire-a9f455@houat>
+References: <20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org>
+ <20260320-drm-mode-config-init-v2-8-c63f1134e76c@kernel.org>
+ <55c24dca-e354-49d1-8eaa-edf66f679428@suse.de>
 MIME-Version: 1.0
-References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
- <aejCaG6n9s7ak5TO@J2N7QTR9R3.cambridge.arm.com> <87zf2u28d1.ffs@tglx>
- <aekPXvvuKHKlETjm@J2N7QTR9R3.cambridge.arm.com> <87wlxy22x7.ffs@tglx>
- <c5331cd6-76c8-430d-978e-fcad164e48f6@huawei.com> <CACT4Y+bxnQyHGdVNE1BYTx+Z2-cscLb38HYS9jBM5gPAz8=4bw@mail.gmail.com>
- <87ik9i0xlj.ffs@tglx>
-In-Reply-To: <87ik9i0xlj.ffs@tglx>
-From: Mathias Stearn <mathias@mongodb.com>
-Date: Thu, 23 Apr 2026 12:51:22 +0200
-X-Gm-Features: AQROBzA3iSwpg4ayUbVJtTBbvtVziiX6iVRBdfeBowQbJ9gb9fUCrFN004zqE30
-Message-ID: <CAHnCjA0UBNXfjHw=Y34OrAyGRNUtVF+zWd3ugyX6pd_mCk8K9w@mail.gmail.com>
-Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
- and tcmalloc everywhere
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: Dmitry Vyukov <dvyukov@google.com>, Jinjie Ruan <ruanjinjie@huawei.com>, linux-man@vger.kernel.org, 
-	Mark Rutland <mark.rutland@arm.com>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Boqun Feng <boqun.feng@gmail.com>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Chris Kennelly <ckennelly@google.com>, regressions@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@kernel.org>, 
-	Blake Oler <blake.oler@mongodb.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="vpcnf3kbfe5e5pil"
+Content-Disposition: inline
+In-Reply-To: <55c24dca-e354-49d1-8eaa-edf66f679428@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_035151_854120_7EC00EA1 
-X-CRM114-Status: GOOD (  15.18  )
+X-CRM114-CacheID: sfid-20260423_035442_735046_976127AF 
+X-CRM114-Status: GOOD (  34.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,34 +90,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 23, 2026 at 12:39=E2=80=AFPM Thomas Gleixner <tglx@linutronix.d=
-e> wrote:
-> The kernel clears rseq_cs reliably when user space was interrupted and:
->
->     the task was preempted
-> or
->     the return from interrupt delivers a signal
->
-> If the task invoked a syscall then there is absolutely no reason to do
-> either of this because syscalls from within a critical section are a
-> bug and catched when enabling rseq debugging.
->
-> The original code did this along with unconditionally updating CPU/MMCID
-> which resulted in ~15% performance regression on a syscall heavy
-> database benchmark once glibc started to register rseq.
 
-Just to be clear TCMalloc does not need either rseq_cs to be cleared
-or cpu_id_start to be written to on syscalls because it doesn't do
-syscalls from critical sections. It will actually benefit (slightly)
-from not updating cpu_id_start on syscalls.
+--vpcnf3kbfe5e5pil
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 08/20] drm/plane: Add new atomic_create_state callback
+MIME-Version: 1.0
 
-It is specifically in the cases where an rseq would need to be aborted
-(preemption, signals, migration, and membarrier IPI with the rseq
-flag) that TCMalloc relies on cpu_id_start being written. It does rely
-on that write even when not inside the critical section, because it
-effectively uses that to detect if there were any would-cause-abort
-events in between two critical sections. But since it leaves the
-rseq_cs pointer non-null between critical sections, so you dont need
-to add _any_ overhead for programs that never make use of rseq after
-registration, or add any overhead to syscalls even for those who do.
+On Tue, Apr 21, 2026 at 03:22:22PM +0200, Thomas Zimmermann wrote:
+> Hi
+>=20
+> Am 20.03.26 um 17:27 schrieb Maxime Ripard:
+> > Commit 47b5ac7daa46 ("drm/atomic: Add new atomic_create_state callback
+> > to drm_private_obj") introduced a new pattern for allocating drm object
+> > states.
+> >=20
+> > Instead of relying on the reset() callback, it created a new
+> > atomic_create_state hook. This is helpful because reset is a bit
+> > overloaded: it's used to create the initial software state, reset it,
+> > but also reset the hardware.
+> >=20
+> > It can also be used either at probe time, to create the initial state
+> > and possibly reset the hardware to an expected default, but also during
+> > suspend/resume.
+> >=20
+> > Both these cases come with different expectations too: during the
+> > initialization, we want to initialize all states, but during
+> > suspend/resume, drm_private_states for example are expected to be kept
+> > around.
+> >=20
+> > And reset() isn't fallible, which makes it harder to handle
+> > initialization errors properly.
+> >=20
+> > And this is only really relevant for some drivers, since all the helpers
+> > for reset only create a new state, and don't touch the hardware at all.
+> >=20
+> > It was thus decided to create a new hook that would allocate and
+> > initialize a pristine state without any side effect:
+> > atomic_create_state to untangle a bit some of it, and to separate the
+> > initialization with the actual reset one might need during a
+> > suspend/resume.
+> >=20
+> > Let's continue the transition to the new pattern with planes.
+> >=20
+> > Signed-off-by: Maxime Ripard <mripard@kernel.org>
+> > ---
+> >   drivers/gpu/drm/drm_atomic_state_helper.c | 44 ++++++++++++++++++++++=
++++++++++
+> >   drivers/gpu/drm/drm_mode_config.c         | 21 ++++++++++++++-
+> >   include/drm/drm_atomic_state_helper.h     |  4 +++
+> >   include/drm/drm_plane.h                   | 13 +++++++++
+> >   4 files changed, 81 insertions(+), 1 deletion(-)
+> >=20
+> > diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/dr=
+m/drm_atomic_state_helper.c
+> > index 2548d6da13675f63304dc92423c5d225de0447a8..f4ce9d3573cbecf216904db=
+54335e0cf84a01c39 100644
+> > --- a/drivers/gpu/drm/drm_atomic_state_helper.c
+> > +++ b/drivers/gpu/drm/drm_atomic_state_helper.c
+> > @@ -319,10 +319,29 @@ void __drm_atomic_helper_plane_reset(struct drm_p=
+lane *plane,
+> >   	plane->state =3D plane_state;
+> >   }
+> >   EXPORT_SYMBOL(__drm_atomic_helper_plane_reset);
+> > +/**
+> > + * __drm_atomic_helper_plane_create_state - initializes plane state
+> > + * @plane: plane object
+> > + * @state: new state to initialize
+> > + *
+> > + * Initializes the newly allocated @state, usually required when
+> > + * initializing the drivers.
+> > + *
+> > + * @state is assumed to be zeroed.
+> > + *
+> > + * This is useful for drivers that subclass @drm_plane_state.
+> > + */
+> > +void __drm_atomic_helper_plane_create_state(struct drm_plane *plane,
+> > +					    struct drm_plane_state *state)
+> > +{
+> > +	__drm_atomic_helper_plane_state_init(state, plane);
+> > +}
+> > +EXPORT_SYMBOL(__drm_atomic_helper_plane_create_state);
+>=20
+> Will this function have another purpuse?=A0 Could we just call
+> _plane_state_init() directly from anywhere?
+
+Yeah, I guess that makes sense. I'll drop that patch and the similar ones.
+
+Thanks!
+Maxime
+
+--vpcnf3kbfe5e5pil
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaen6bgAKCRAnX84Zoj2+
+dkUrAYDOMQH1R0rdVPEd0s+OfGrebhOcAQ5OABg6Mw53VpV+rFGnujuG6stJnEmW
+zh8kcmcBfR7oI+9DExvCM0FFCfUx1IhsnPmkBHlFUpZpKjsg81n0vRIsC71Orv1I
+q2H2sY1Pyw==
+=BF+U
+-----END PGP SIGNATURE-----
+
+--vpcnf3kbfe5e5pil--
 
