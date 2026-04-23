@@ -4,64 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FDE0FC0342
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 15:10:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBBDBFC0344
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 15:14:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f2Rw8WELINupack8eDMNUwAOaIJmY3KmbG0Aab+FSQU=; b=vuADyqboWbxoaLA6Wba/Ys6oIi
-	KKRSZ6orgPi2lRc9lv/ybgGVOSIYVqrECamq4EOvB7b61ETRNd8IfrnrFB6NQeQu5bq4liKKfu4JL
-	ZBx9yi8z/hmUcQgfeR3lKEYoQaWr67LF9gfx3y/sT+pIUuryfeCmuWMXeSb3HOzRZi9qxTLLRFJjU
-	E0tqX464ougrYsjOFsC3QLQ5njqrL+fgcpKdtMdNZybOexv39O34buuuuhZvARhSuEnme9P7EAOiE
-	8l/JiFHZgYcU9tKU/ac9ehTJHuR+K4grNKEbCgXTQ3rTG2AGRfMaQu9nXq5ZgtlXJBatzBPIsxodE
-	YPZNm/+Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kgFqisJbK5plmu2+sNt5gCHpwGinZ9d1f4q96wF/4UY=; b=aFeSIlFCwG1uN+
+	is3Arj1Km95qjSKvoj8I0m4fsDJklLjbEC4r1JmV37B8tV1HR03jMJ1arIKVdUL/ieXdyTUQpPbrc
+	sMlcMP8bym+f6eLyi/O0EfVWQUS3+XJWe2uDZnNbbpOJcUJuvbdY3KTXvGWFZV1z6PUArnbp2k+qY
+	7fpUZDiuGO3ae3aRKKLN+RMmUzmHq0tGz4oL3Siw5/DZWLV9uYli9hQxRzcLFBC4VVtrIDmPgk2rI
+	ogsi+F/Ca1h4r6bBB7RWrGEjHb3aNrGhB0rviYVRVWy0pi4ms+NMHmpaaSMoTDHHLwYKzxpAgPsD1
+	FGhcpTnH0cSS4UhRS+ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFvgk-0000000BrHD-46Ee;
-	Thu, 23 Apr 2026 15:09:58 +0000
-Received: from courrier.aliel.fr ([2a01:4f9:c011:1c83::1])
+	id 1wFvkx-0000000BrWG-2tF2;
+	Thu, 23 Apr 2026 15:14:19 +0000
+Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFvgd-0000000BrFz-1e25;
-	Thu, 23 Apr 2026 15:09:57 +0000
-Message-ID: <19d70883-21db-4963-841d-7c00505e0d9e@aliel.fr>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1776956983;
-	bh=piKDcOgjcm+FqKMFf8GBg3CE1PJohOeelaXmkED6UDY=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To;
-	b=L8gvUVSOu4mCjW2Z+XaVEo7qANhshywZdZSvqUUiHdnmrsSpdRvMKPifgNJvjoBDD
-	 nae1D0LMx8ahyMvlnDEzZAqJ13YZWcr+0HlKIt+hkF0bXwa6cxf9+fpPYsvNAew3zG
-	 aWSqvQk3Ufo4S+Cntm3dcU8+FYHoJ+Ruxs/anKkM=
-Date: Thu, 23 Apr 2026 17:09:41 +0200
+	id 1wFvks-0000000BrVu-23j4
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Apr 2026 15:14:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fDrKiR7bc/ycEnAalcVZy8kGBoCc8738x4SdNFzq54d6xA5K7/aKofFzqK5MZLH9Fv3NhHvUPbnbvJRAQ9oedZPoKxIJEyWkCsdE3qM0DjB/O5pMDPBnA+OeS9aoBOzNVryteqIvyBkF5Hu9KU2K3vN10okqPRmxGrWHBvJ0M0ARerEbHOY4EZ/PrGXqkM8cTJlNJXmDqcB4rfWxocTv6NcjKo25ZZ/yF7v4Qd2EEL6LqUX1XM03vS9Uk7uBu/KxYMtMgU30MQMJNktz7iiW/+WDw2f6BJaTpyqnbvGduVytST611PKKNoM+Rp52aYtAMSCcgJhF3o1Gd0DkuY2mQw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kgFqisJbK5plmu2+sNt5gCHpwGinZ9d1f4q96wF/4UY=;
+ b=vFdcEBIftnFHoZ+BvfZvSi5usMbkLxdx67Y96Lr3kcMDloUPKY0uxk+LFi3zYWG4UpUti1YwDEMJoSEjsUvwV+RDUxGTb+khbAWfHaSc4Ru9wC+VNuNLpysCsdHg63pxgU2mot+B4MGUHyuge7Um9K6LEtRnguRg7Ik1YY1gy7AdxhE+Y7r/vTge78GBXII7y3QU+wYs+5YUNgIfdZEPN6ZG+shAOFSXWfQ55kbDsQLj9Zf8nQl0p+Mj51iFkDOrsJReEIQ2tzYfhMu2LTHWDsWRnSnoe1BaxoBfXEw7k3Yt+U8EPN8bDBFOxLjA782XqRYnHeBxBAZ0yApgjabmtw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kgFqisJbK5plmu2+sNt5gCHpwGinZ9d1f4q96wF/4UY=;
+ b=xMou1nw+91FmhpUseoVbqO1tbf0eHOvH2YWiywytoJJURSpVe5mK+4RwDg8qnYt2zzjStE8hb2tjlxyMkHohg4UGGDC/s+MhwolmoNEKta8PLiKH43dTc1oh4hyYSSK0rER6IIb2eMeZx7FpG4/r8j4H+oFcgsmJcxYGl8z74tk=
+Received: from BYAPR07CA0040.namprd07.prod.outlook.com (2603:10b6:a03:60::17)
+ by DM4PR12MB6565.namprd12.prod.outlook.com (2603:10b6:8:8c::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.21; Thu, 23 Apr
+ 2026 15:14:03 +0000
+Received: from SJ1PEPF000026C3.namprd04.prod.outlook.com
+ (2603:10b6:a03:60:cafe::e) by BYAPR07CA0040.outlook.office365.com
+ (2603:10b6:a03:60::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.22 via Frontend Transport; Thu,
+ 23 Apr 2026 15:14:02 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ SJ1PEPF000026C3.mail.protection.outlook.com (10.167.244.100) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.18 via Frontend Transport; Thu, 23 Apr 2026 15:14:02 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 23 Apr
+ 2026 10:14:01 -0500
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 23 Apr
+ 2026 10:14:01 -0500
+Received: from [10.254.48.177] (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Thu, 23 Apr 2026 10:14:00 -0500
+Message-ID: <2351c698-cf08-4037-9777-0820448a14d8@amd.com>
+Date: Thu, 23 Apr 2026 10:14:00 -0500
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-Subject: Re: [PATCH v3 4/8] thermal: amlogic: Add support for secure monitor
- calibration readout
-To: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
-Cc: linux-pm@vger.kernel.org, linux-amlogic@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Guillaume La Roque <glaroque@baylibre.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-References: <20260421-add-thermal-t7-vim4-v3-0-a2e7215ed003@aliel.fr>
- <20260421-add-thermal-t7-vim4-v3-4-a2e7215ed003@aliel.fr>
- <7aaa7873-9274-48d8-a6fe-cff4239b03b4@oss.qualcomm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: remoteproc: xlnx: add auto boot feature
+To: Krzysztof Kozlowski <krzk@kernel.org>, Tanmay Shah <tanmay.shah@amd.com>
+CC: <andersson@kernel.org>, <mathieu.poirier@linaro.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <michal.simek@amd.com>,
+	<ben.levinsky@amd.com>, <linux-remoteproc@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20260422202558.2362971-1-tanmay.shah@amd.com>
+ <20260422202558.2362971-2-tanmay.shah@amd.com>
+ <20260423-stimulating-markhor-of-masquerade-aac0a7@quoll>
 Content-Language: en-US
-In-Reply-To: <7aaa7873-9274-48d8-a6fe-cff4239b03b4@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+From: "Shah, Tanmay" <tanmays@amd.com>
+In-Reply-To: <20260423-stimulating-markhor-of-masquerade-aac0a7@quoll>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000026C3:EE_|DM4PR12MB6565:EE_
+X-MS-Office365-Filtering-Correlation-Id: f8ee1687-b144-4ae4-a7d9-08dea14af413
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|7416014|376014|1800799024|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 7lghVvaHYMdOEYWb7PYKTBH30wM7ytp+cv2/dIThlMlOlOLF69Pm82O9ERdT+6lw/WUqM0nfLFSvAa95ur+wBuVnWnp2vg3JCqwcOQL9tin8rfYX6Nu4huMCwIsWaySuTxYWl5nB/PTYTDUUlFVnQoVee9CAmbmL8InTxpP9oA/pDB1qp7sfuHTqIofJYsMAgvdBRLK3S/WGj/bvJCMGtfGtRKbrAA36QdLKWOZg+B2k6a/9auH4r5sMHH/VVyx7h9+Zb3pCLCQ2+Jje1kLKHHWS8t66/5f7LjxqHUnGdbD4PUuRFg6gs4RtuCEgy5AtzxYUFCsq6Rp/ejEYUIRLU+oQ/4c+xyCCSZTYjGExRvk/4cmezhQfapVQsMrhjT2m4QMwB0M7rPgGh8fIv+S/JHitYU6DCtuyvpdtzAZq5lgR7F040fdzx3koWRP/fP8w+8UbfFPB5nkm+ppd/HCVhgSBA8EWHylmC9ocRbDeF+R3PsnTSpEG2Ud23qM7WRJlpcuFqRD+MIT7htfEv5FpwBLNCU5Y6XonxB/D2iG7QHOEC0EPAsFlXjwTJLNkx+zvMT1CVnPHde9WHGZZbYNi8Vjy/6OfAYKfaE4uXSC5jplZi8/rE0JU0C4OlTsI0leh+NHRZ6lrE/2d/EOh/v/zeWAK5ckRlyhm/c9l4dyyCeqw75fxNFhRm4cijGo/gkF6iPqvW7k1/rWKBCxGSlomFgQdvvIcsc2zBo+uhl7dI0DD/mwUJeHWuu1cbTPkbucUcitMV/wipjzUvclzgQAXFQ==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(7416014)(376014)(1800799024)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 6xnnNj5WlWrqH+wUDMWE24/HXLj2Vf8Cj7pg9/Gyojwh2wsNTXfjnn3oMpEYrgwk+94boyT+HgdRSkJOO5nFuyNg8yEeBsoa/tKLoqzQ0yQ2FDeneM5P8E0T0zm7E2WPdqJTzW9g7pCk5IDF/VMFAaIIdPtk0BSuUENAHOZC5bSLqBO3FwutVlseL+zCzetBTB+fHtGKU1IeowrIGUk8QfopOIX8g0afrnxZUEfpeEI/XZCUoXHB7o7I09mfcEB+aa4pPQghcmtJMnqBUxR6MUS8+eJW0Y2flJBlQ2sabRUXg6Lwpulaj4f+TTHdhYzQqFJjz6D2C0YYYSM8fZZz2wZPJ8qSFmrYsa4xPcuDxO2t4hi2FdXjNZBULdBv8CcRf+9lynRyKbMG+B3+OOykvf0YfR6LrqYlTAXngRNMNk+XNMdrGKXR5wDE2844XzxV
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2026 15:14:02.6410
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f8ee1687-b144-4ae4-a7d9-08dea14af413
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000026C3.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6565
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_080952_046000_BEC4E41C 
-X-CRM114-Status: GOOD (  27.02  )
+X-CRM114-CacheID: sfid-20260423_081414_892942_D867050E 
+X-CRM114-Status: GOOD (  20.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,191 +127,75 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: tanmay.shah@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
+Hello,
 
-Thanks for your feedback.
+Thanks for reviews. Please see my comments below.
 
-On 4/23/26 12:25 PM, Daniel Lezcano wrote:
-> 
-> Hi Ronald,
-> 
-> On 4/21/26 09:19, Ronald Claveau wrote:
->> Some SoCs (e.g. T7) expose thermal calibration data through the secure
->> monitor rather than a directly accessible eFuse register. Add a use_sm
->> flag to amlogic_thermal_data to select this path, and retrieve the
->> firmware handle and tsensor_id from the "amlogic,secure-monitor" DT
->> phandle with one fixed argument.
+On 4/23/2026 4:09 AM, Krzysztof Kozlowski wrote:
+> On Wed, Apr 22, 2026 at 01:25:57PM -0700, Tanmay Shah wrote:
+>> Add auto-boot property to notify that remote processor is setup and
+>> ready to boot. Linux can attempt to boot or attach to already running
+>> remote processor. "firmware-name" property is used to mention default
+>> firmware to boot when linux starts the remote processor.
 >>
->> Also introduce the amlogic,t7-thermal compatible using this new path.
->>
->> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+>> Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
 >> ---
->>   drivers/thermal/amlogic_thermal.c | 58 +++++++++++++++++++++++++++++
->> ++++++----
->>   1 file changed, 53 insertions(+), 5 deletions(-)
+>>  .../devicetree/bindings/remoteproc/xlnx,zynqmp-r5fss.yaml | 8 ++++++++
+>>  1 file changed, 8 insertions(+)
 >>
->> diff --git a/drivers/thermal/amlogic_thermal.c b/drivers/thermal/
->> amlogic_thermal.c
->> index 5448d772db12a..11e3948cc0669 100644
->> --- a/drivers/thermal/amlogic_thermal.c
->> +++ b/drivers/thermal/amlogic_thermal.c
->> @@ -25,6 +25,7 @@
->>   #include <linux/platform_device.h>
->>   #include <linux/regmap.h>
->>   #include <linux/thermal.h>
->> +#include <linux/firmware/meson/meson_sm.h>
->>     #include "thermal_hwmon.h"
->>   @@ -84,12 +85,14 @@ struct amlogic_thermal_soc_calib_data {
->>    * @u_efuse_off: register offset to read fused calibration value
->>    * @calibration_parameters: calibration parameters structure pointer
->>    * @regmap_config: regmap config for the device
->> + * @use_sm: read data from secure monitor instead of efuse
->>    * This structure is required for configuration of amlogic thermal
->> driver.
->>    */
->>   struct amlogic_thermal_data {
->>       int u_efuse_off;
->>       const struct amlogic_thermal_soc_calib_data
->> *calibration_parameters;
->>       const struct regmap_config *regmap_config;
->> +    bool use_sm;
->>   };
->>     struct amlogic_thermal {
->> @@ -100,6 +103,8 @@ struct amlogic_thermal {
->>       struct clk *clk;
->>       struct thermal_zone_device *tzd;
->>       u32 trim_info;
->> +    struct meson_sm_firmware *sm_fw;
->> +    u32 tsensor_id;
->>   };
->>     /*
->> @@ -138,6 +143,12 @@ static int amlogic_thermal_initialize(struct
->> amlogic_thermal *pdata)
->>       int ret = 0;
->>       int ver;
->>   +    if (pdata->data->use_sm) {
->> +        return meson_sm_get_thermal_calib(pdata->sm_fw,
->> +                          &pdata->trim_info,
->> +                          pdata->tsensor_id);
->> +    }
+>> diff --git a/Documentation/devicetree/bindings/remoteproc/xlnx,zynqmp-r5fss.yaml b/Documentation/devicetree/bindings/remoteproc/xlnx,zynqmp-r5fss.yaml
+>> index ee63c03949c9..0d27260e3baa 100644
+>> --- a/Documentation/devicetree/bindings/remoteproc/xlnx,zynqmp-r5fss.yaml
+>> +++ b/Documentation/devicetree/bindings/remoteproc/xlnx,zynqmp-r5fss.yaml
+>> @@ -135,6 +135,14 @@ patternProperties:
+>>            - description: vring1
+>>          additionalItems: true
+>>  
+>> +      auto-boot:
+> 
+> Last months, I have been asking AMD to follow writing-bindings doc or
+> other DT guidelines way too many times.
+> 
+> Or you just sent us downstream... Do you see anywhere such property?
+> What properties do you see? How are they named?
+> 
+
+I should have put note about this. Current auto-boot properties are
+named like st,auto-boot fsl,auto-boot etc. but nothing vendor specific
+there. Can we have a common auto-boot property? Similar to
+firmware-name? If we agree to it then what's the correct location? New
+file remoteproc.yaml is okay?
+
+>> +        type: boolean
+>> +        description: remote core is either already running or ready to boot
+> 
+> And why is this property of a board?
+> 
+
+Not sure what indicates it is? The property is under remoteproc child
+device that is SOC level property. Remote core is on same SOC wher linux
+core is running.
+
 >> +
->>       regmap_read(pdata->sec_ao_map, pdata->data->u_efuse_off,
->>               &pdata->trim_info);
->>   @@ -226,6 +237,12 @@ static const struct amlogic_thermal_data
->> amlogic_thermal_a1_cpu_param = {
->>       .regmap_config = &amlogic_thermal_regmap_config_g12a,
->>   };
->>   +static const struct amlogic_thermal_data amlogic_thermal_t7_param = {
->> +    .use_sm            = true,
->> +    .calibration_parameters    = &amlogic_thermal_g12a,
->> +    .regmap_config        = &amlogic_thermal_regmap_config_g12a,
->> +};
->> +
->>   static const struct of_device_id of_amlogic_thermal_match[] = {
->>       {
->>           .compatible = "amlogic,g12a-ddr-thermal",
->> @@ -239,6 +256,10 @@ static const struct of_device_id
->> of_amlogic_thermal_match[] = {
->>           .compatible = "amlogic,a1-cpu-thermal",
->>           .data = &amlogic_thermal_a1_cpu_param,
->>       },
->> +    {
->> +        .compatible = "amlogic,t7-thermal",
->> +        .data = &amlogic_thermal_t7_param,
->> +    },
->>       { /* sentinel */ }
->>   };
->>   MODULE_DEVICE_TABLE(of, of_amlogic_thermal_match);
->> @@ -271,11 +292,38 @@ static int amlogic_thermal_probe(struct
->> platform_device *pdev)
->>       if (IS_ERR(pdata->clk))
->>           return dev_err_probe(dev, PTR_ERR(pdata->clk), "failed to
->> get clock\n");
->>   -    pdata->sec_ao_map = syscon_regmap_lookup_by_phandle
->> -        (pdev->dev.of_node, "amlogic,ao-secure");
->> -    if (IS_ERR(pdata->sec_ao_map)) {
->> -        dev_err(dev, "syscon regmap lookup failed.\n");
->> -        return PTR_ERR(pdata->sec_ao_map);
->> +    if (pdata->data->use_sm) {
->> +        struct device_node *sm_np;
->> +        struct of_phandle_args ph_args;
->> +
->> +        ret = of_parse_phandle_with_fixed_args(pdev->dev.of_node,
->> +                               "amlogic,secure-monitor",
->> +                               1, 0, &ph_args);
->> +        if (ret)
->> +            return ret;
->> +
->> +        sm_np = ph_args.np;
->> +        if (!sm_np) {
->> +            dev_err(dev,
->> +                "Failed to parse secure monitor phandle\n");
->> +            return -ENODEV;
->> +        }
->> +
->> +        pdata->sm_fw = meson_sm_get(sm_np);
->> +        of_node_put(sm_np);
->> +        if (!pdata->sm_fw) {
->> +            dev_err(dev, "Failed to get secure monitor firmware\n");
->> +            return -EPROBE_DEFER;
->> +        }
->> +
->> +        pdata->tsensor_id = ph_args.args[0];
->> +    } else {
->> +        pdata->sec_ao_map = syscon_regmap_lookup_by_phandle
->> +            (pdev->dev.of_node, "amlogic,ao-secure");
->> +        if (IS_ERR(pdata->sec_ao_map)) {
->> +            dev_err(dev, "syscon regmap lookup failed.\n");
->> +            return PTR_ERR(pdata->sec_ao_map);
->> +        }
->>       }
+>> +      firmware-name:
+>> +        maxItems: 1
+>> +        description: default firmware to load
 > 
-> I suggest to separate these two routines into functions. That will help
-> the readability.
+> Can you load non-default firmware later? IOW, why adding description
+> here, what is special?
 > 
 
-Sure, I will do that.
+The rootfs contains other firmware demos, and it is possible to stop the
+default firmware, load other fw elf and re-run the remote core.
+I don't have strong preference on the description part, I will remove it
+if redundant.
 
->>       pdata->tzd = devm_thermal_of_zone_register(&pdev->dev
-> 
-> The thermal zone is registered before calling
-> amlogic_thermal_initialize(), thus pdata->trim_info is not initialized.
-> When a thermal zone is registered the thermal framework reads the
-> temperature, so it reads an invalid value because:
-> 
-> devm_thermal_of_zone_register()
->  -> thermal_of_zone_register()
->    -> thermal_zone_device_register_with_trips()
->    -> thermal_zone_device_enable()
->       -> __thermal_zone_device_update()
->         -> __thermal_zone_get_temp()
->           -> amlogic_thermal_get_temp()
->              -> amlogic_thermal_code_to_millicelsius()
->                  [ Use of uninitialized pdata->trim_info ]
-> 
-> Right ?
+> Best regards,
+> Krzysztof
 > 
 
-Yes, I will move the initialize before the register.
-
-> IIUC, amlogic_thermal_initialize() can be also split and moved the
-> corresponding blocks to the functions to be created in the comment above.
-> 
-
-The SM and syscon setup will be extracted into two functions.
-amlogic_thermal_initialize() itself is kept as-is but moved before
-devm_thermal_of_zone_register().
-Let me know if you'd prefer a different approach.
-
-> 
->>
-> 
-
-
--- 
-Best regards,
-Ronald
 
