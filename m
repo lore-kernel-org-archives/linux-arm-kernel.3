@@ -4,61 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E06F3FAD40E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 05:29:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38CCFFAD416
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 05:54:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IhURoVXiZaxRcRmEqt/r/UNayo0hJtxeJgTvntOeYDE=; b=bVGrqFHMZNz/oy0pqXd7FDb7uF
-	rMHTEKYOO8pwkAfqFqRH/LC9s8al27RLcUW0RILAzPG2VHR68KgUoGeI4Ci8G/U0yoL8mZ6Kl68NU
-	OLli8RfXspSo2M2P6EbHP+zmSHOb0WHJE1w4r4EqNhCXKZp1ZvZT7LIWnj0IhL/ISMd2R5WYmF/1m
-	rZQGDCncdFKSKtUjpBOkIYLisr8IpWUUJie+gUCblBnxgUvG//8HsPOixkFKmMIBsdVgIDS2HmEEZ
-	pBgOh3ZX3rUCaf4h3kGQxZn2VB/H7kY/1XE88F91ASJydgVPayIky2S7JbretLUFBA4MjctWEizQ5
-	B0bkJOcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WzRgT3Fy0ZOQHjWDkavm7hE9jcAag/PmRRQNI2oPYmE=; b=PgH04drLNXVDkwrvSCBsVzJpMf
+	Flom3sXPLUnvqnlO6r4Wi1AZq55qo6oD5mh7sAiyOeU+rDDUonJtoTGQAeAf2db8k51KHBK8UzMC2
+	gqVSQJYHt4M0GFyzVtpa5mJpB1bgJqeYg3y+o2akLeKzohZihi0xBgctJT1tgOGxkJ+yuquDrVgR0
+	9ztDGvrD8/48wKWc613miEiVd5InIVbBJ6++DCj3v54SFHPB85b24ybyT+1AKnrT/jRPeSCl+KYB8
+	Aat7kblE1L4mmU3LmmNenRdlc0Ecvb13sh+Od2+PNPIQWEp2X14weYzvGrDrNsZ1IYCBuDkqVtvNC
+	kEP3pVRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFmct-0000000B4ZU-3eaI;
-	Thu, 23 Apr 2026 05:29:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFmcq-0000000B4Z5-236q
+	id 1wFn0w-0000000B5JC-32hQ;
+	Thu, 23 Apr 2026 05:54:14 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wFn0t-0000000B5Io-1Kf6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 05:29:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 839002681;
-	Wed, 22 Apr 2026 22:29:10 -0700 (PDT)
-Received: from [10.163.145.28] (unknown [10.163.145.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D5A4A3F23F;
-	Wed, 22 Apr 2026 22:29:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776922156; bh=a/Gferl6Ip7Lk6/VUR4Vt+kpHvJL7Ab6LWtLtcSt4GQ=;
-	h=Date:From:Subject:To:References:In-Reply-To:From;
-	b=ZH8gZLMc9xdlaBUerf0HwYAw1gGXv8e/ZiLMCaas1EpZInMLUB0uNEJwGCJFFWqES
-	 yjLEbrh+efuIs0rGVT48eJZ8HEUhCTwxEm2b1XJDehUaMtshn9k9EQOWuuDW1UdyWh
-	 mmNjS4XE33RvVMnFUTE1h8+6OVoItYDyW4H4qPWk=
-Message-ID: <ae6f2b57-4644-424e-aab7-84042dca23e6@arm.com>
-Date: Thu, 23 Apr 2026 10:59:09 +0530
+	Thu, 23 Apr 2026 05:54:12 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-38e91b06006so51957971fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Apr 2026 22:54:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776923648; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Ir+lz8rpevbpIl3jEfwXwQilpKHidROIHfzlvsr0H5M9eAq/ZuKl4tIKwiTKhhmlAc
+         HH6fs/QmlJcbBJUEVvducX1C/LiPwW9b3paUkl8tWY71MswsFy0TusGlfuX3W/6UabwD
+         0z4pVHAE4O5h8/oM4Pbr6MKMwRVtLrozW7RFnO9uMveK9wgDpKFz0kocp6li2NG5Pq8y
+         9yNiVHrzdz8FqViIahfchUFjqk/ES3C93d2Z1iI1T2GKMZ6uu1zz/LRxifkfxtew4imz
+         e1PR57I1S+ZOfJc7nfSpVoopw9ohQOe3+HZt1Va+julFxQ/Vv6deOnkOj1i45tqzkyCZ
+         Hv7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=WzRgT3Fy0ZOQHjWDkavm7hE9jcAag/PmRRQNI2oPYmE=;
+        fh=wDEYlm1HOHUWET8E5L64SIGLV6nSAALLFzm0yRARGo4=;
+        b=P9HVkAzsivbGBgSbvzd8YUh0CS0bI+hRcMf1asneeLyWM/ZvLDHbdDG2dkfOLEV7+b
+         XJRdnFSLJPI51FNn1ckXZS8aVh3AJ3DhNUwyQKKTHUHQjsqX3x9g/lntHGyB5Wd5moyt
+         RToi31lVZshezOpP+wUsYcLsW+Daq6O7Gj/eMZoGPCIiqb2YA+fSSrifFX7X/wGDdbGt
+         jo/Ah4W9ihfTdD3nXdJAjRwuX+p60rlyYQYkssbrq3McotmCjZLjLcjL3dZi62xXZerK
+         wc3Jyf56NUz/2F9HIdFAKDOBZkS4Y5hDK26yuf0ITKV8fT3K4FRTRKKKCPKOPzGlYevO
+         J1lw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1776923648; x=1777528448; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=WzRgT3Fy0ZOQHjWDkavm7hE9jcAag/PmRRQNI2oPYmE=;
+        b=rKgLQrd31sYk/V7UUc8i+bateBbTlVh7n022OlU2DkYxCQDxxz2xa9a2hRb/fJqM94
+         9hwhSppm3dv/CsqTVhkn/0alEl5APbdUjfbAX4m9TsnbFbLltPERXMd5RzLhN9/Z0EXJ
+         H8FcLNLuQ8M5dk9PciSWl7uMUV3hxUoPXPr9aErHOy0Hm9p96y/pvHuDy7aKbY/lfxml
+         Q2VuJ5O+NTAxnE89jseIF9FdtG4ObyOHnngnmdqdcc/4rULDi9FwEfbnxDGXb6ZsCJHn
+         xnol1iIES3nwRSBTs8rEkMqAdJIOCHQGRkmftvCbnEqOPzdeyJ8UXXo5KOMFH+UJ1JYX
+         OTQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776923648; x=1777528448;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WzRgT3Fy0ZOQHjWDkavm7hE9jcAag/PmRRQNI2oPYmE=;
+        b=RPR31FwrbBS3CmtSGRkPZF3D86fEsFhOfR0n0NrEKI+WHpX4NcAiojRmjeaWfx+FRU
+         bbVQpgljjnC6vYnv2t+FyAbefLr4FQqdao0xnvJk+ZwgXOGme5hlgkW1C1j88zNceWVI
+         zNdfgn5rtU2kkDljcR8D4GLcluzUGQxbOsbNarzheFLY7IHGqyAVASw9jk8KKIOYXmpn
+         JTu7mxEhrFULwW78RzWK5xvWdQSKaTQsJZ9ghL44Mny9ye55IMnYaJERpccnCyJPeJA4
+         wr8jYr5RMJfFmiko7+GV3pzxsv0vp7UchY7zsM8jmWdcQ32WpOsbV1COlr/lQgGiX+/T
+         k44w==
+X-Forwarded-Encrypted: i=1; AFNElJ++gVeHyOmqfPSB+JNZrPqxfcmBzrHTjcH6Z11O650IBKoXR8/dljs3GaoppXt5r7BCws2WeloMgyHQPRWiHVaO@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHeAXfuxhpeVScJFYE3bvClNnKXrnyEeo5qVSY1zIWwCQKVbbp
+	dZH22hqr+ATX74t8XSYTWaNGRx/hunzpM0qfFJWixNX9FlGtc5Ydf3h7dQvu6I6l+2wqQHr52j9
+	o1HYdS1ouh8lHpeMb5e2wZoLmv1wAmBty6x3ITVcF
+X-Gm-Gg: AeBDiesnUePenYxiiuT5OL+VSzfSTeYpGkos/221x/qMgx8qvVGi3QSYLXhUihp7KVW
+	QDOVdQoisAB9HOQ3uJf8+RqjhyjHgG+h6TTsJt43UiHED/Ckz5urlNsA2EvC6wOXWUxMkZ/qrLV
+	kjIqWFJiY7g4LTTsi0SV/E0bcz9gmRqiKT3aRY48+8sOxBGxGxvjgGffXcBW5Wij3ClOGCJg2a1
+	nJW3q/496/dzlMMwPA/bAKQ+2ryAVMHWNf94zRTjQhDp7F0myqyWai5mwSDPl3jJwzePIlAattU
+	djgBwxB0QQ/E+jeBk0/07bPUVwk/IF/rjBIbjttHGJnj/qDe/fvbtVnlTEFuPiJ+AoJAbfEbl6J
+	jPaejUpFZqWUSJqhO+g==
+X-Received: by 2002:a05:651c:555:b0:38e:99ba:ec77 with SMTP id
+ 38308e7fff4ca-38ec783f2ffmr78727471fa.14.1776923647481; Wed, 22 Apr 2026
+ 22:54:07 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-Subject: Re: [PATCH] arm64: traps: Add a macro to simplify the condition codes
- check
-To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
- will@kernel.org, mark.rutland@arm.com, kees@kernel.org, maz@kernel.org,
- ada.coupriediaz@arm.com, smostafa@google.com, leitao@debian.org,
- mrigendra.chaubey@gmail.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260320082846.1235016-1-ruanjinjie@huawei.com>
-Content-Language: en-US
-In-Reply-To: <20260320082846.1235016-1-ruanjinjie@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
+ <aejCaG6n9s7ak5TO@J2N7QTR9R3.cambridge.arm.com> <87zf2u28d1.ffs@tglx>
+ <aekPXvvuKHKlETjm@J2N7QTR9R3.cambridge.arm.com> <87wlxy22x7.ffs@tglx> <c5331cd6-76c8-430d-978e-fcad164e48f6@huawei.com>
+In-Reply-To: <c5331cd6-76c8-430d-978e-fcad164e48f6@huawei.com>
+From: Dmitry Vyukov <dvyukov@google.com>
+Date: Thu, 23 Apr 2026 07:53:55 +0200
+X-Gm-Features: AQROBzDiWg3BhfVAmxsSMzsrj4-DDyCRyJJ_hjD1dpJPTaQSNdduKsPUw0QTTv0
+Message-ID: <CACT4Y+bxnQyHGdVNE1BYTx+Z2-cscLb38HYS9jBM5gPAz8=4bw@mail.gmail.com>
+Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
+ and tcmalloc everywhere
+To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-man@vger.kernel.org
+Cc: Thomas Gleixner <tglx@linutronix.de>, Mark Rutland <mark.rutland@arm.com>, 
+	Mathias Stearn <mathias@mongodb.com>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Boqun Feng <boqun.feng@gmail.com>, "Paul E. McKenney" <paulmck@kernel.org>, 
+	Chris Kennelly <ckennelly@google.com>, regressions@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@kernel.org>, 
+	Blake Oler <blake.oler@mongodb.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_222920_739897_D4E5D04A 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20260422_225411_413982_0A0DC437 
+X-CRM114-Status: GOOD (  31.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,103 +124,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 23 Apr 2026 at 03:48, Jinjie Ruan <ruanjinjie@huawei.com> wrote:
+>
+> On 4/23/2026 3:47 AM, Thomas Gleixner wrote:
+> > On Wed, Apr 22 2026 at 19:11, Mark Rutland wrote:
+> >> On Wed, Apr 22, 2026 at 07:49:30PM +0200, Thomas Gleixner wrote:
+> >> Conceptually we just need to use syscall_enter_from_user_mode() and
+> >> irqentry_enter_from_user_mode() appropriately.
+> >
+> > Right. I figured that out.
+> >
+> >> In practice, I can't use those as-is without introducing the exception
+> >> masking problems I just fixed up for irqentry_enter_from_kernel_mode(),
+> >> so I'll need to do some similar refactoring first.
+> >
+> > See below.
+> >
+> >> I haven't paged everything in yet, so just to cehck, is there anything
+> >> that would behave incorrectly if current->rseq.event.user_irq were set
+> >> for syscall entry? IIUC it means we'll effectively do the slow path, and
+> >> I was wondering if that might be acceptable as a one-line bodge for
+> >> stable.
+> >
+> > It might work, but it's trivial enough to avoid that. See below. That on
+> > top of 6.19.y makes the selftests pass too.
+>
+> This aligns with my thoughts when convert arm64 to generic syscall
+> entry. Currently, the arm64 entry code does not distinguish between IRQ
+> and syscall entries. It fails to call rseq_note_user_irq_entry() for IRQ
+> entries as the generic entry framework does, because arm64 uses
+> enter_from_user_mode() exclusively instead of
+> irqentry_enter_from_user_mode().
+>
+> https://lore.kernel.org/all/20260320102620.1336796-10-ruanjinjie@huawei.com/
+>
+> >
+> > Thanks,
+> >
+> >         tglx
+> > ---
+> >  arch/arm64/kernel/entry-common.c |   14 ++++++++++----
+> >  1 file changed, 10 insertions(+), 4 deletions(-)
+> >
+> > --- a/arch/arm64/kernel/entry-common.c
+> > +++ b/arch/arm64/kernel/entry-common.c
+> > @@ -58,6 +58,12 @@ static void noinstr exit_to_kernel_mode(
+> >       irqentry_exit(regs, state);
+> >  }
+> >
+> > +static __always_inline void arm64_enter_from_user_mode_syscall(struct pt_regs *regs)
+> > +{
+> > +     enter_from_user_mode(regs);
+> > +     mte_disable_tco_entry(current);
+> > +}
+> > +
+> >  /*
+> >   * Handle IRQ/context state management when entering from user mode.
+> >   * Before this function is called it is not safe to call regular kernel code,
+> > @@ -65,8 +71,8 @@ static void noinstr exit_to_kernel_mode(
+> >   */
+> >  static __always_inline void arm64_enter_from_user_mode(struct pt_regs *regs)
+> >  {
+> > -     enter_from_user_mode(regs);
+> > -     mte_disable_tco_entry(current);
+> > +     arm64_enter_from_user_mode_syscall(regs);
+> > +     rseq_note_user_irq_entry();
+> >  }
+> >
+> >  /*
+> > @@ -717,7 +723,7 @@ static void noinstr el0_brk64(struct pt_
+> >
+> >  static void noinstr el0_svc(struct pt_regs *regs)
+> >  {
+> > -     arm64_enter_from_user_mode(regs);
+> > +     arm64_enter_from_user_mode_syscall(regs);
+> >       cortex_a76_erratum_1463225_svc_handler();
+> >       fpsimd_syscall_enter();
+> >       local_daif_restore(DAIF_PROCCTX);
+> > @@ -869,7 +875,7 @@ static void noinstr el0_cp15(struct pt_r
+> >
+> >  static void noinstr el0_svc_compat(struct pt_regs *regs)
+> >  {
+> > -     arm64_enter_from_user_mode(regs);
+> > +     arm64_enter_from_user_mode_syscall(regs);
+> >       cortex_a76_erratum_1463225_svc_handler();
+> >       local_daif_restore(DAIF_PROCCTX);
+> >       do_el0_svc_compat(regs);
 
 
-On 20/03/26 1:58 PM, Jinjie Ruan wrote:
-> Add DEFINE_COND_CHECK macro to define the simple __check_* functions
-> to simplify the condition codes check.
-> 
-> No functional changes.
-> 
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
->  arch/arm64/kernel/traps.c | 59 ++++++++++-----------------------------
->  1 file changed, 15 insertions(+), 44 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
-> index 914282016069..6216fe9e8e42 100644
-> --- a/arch/arm64/kernel/traps.c
-> +++ b/arch/arm64/kernel/traps.c
-> @@ -49,45 +49,21 @@
->  #include <asm/system_misc.h>
->  #include <asm/sysreg.h>
->  
-> -static bool __kprobes __check_eq(unsigned long pstate)
-> -{
-> -	return (pstate & PSR_Z_BIT) != 0;
-> -}
-> -
-> -static bool __kprobes __check_ne(unsigned long pstate)
-> -{
-> -	return (pstate & PSR_Z_BIT) == 0;
-> -}
-> -
-> -static bool __kprobes __check_cs(unsigned long pstate)
-> -{
-> -	return (pstate & PSR_C_BIT) != 0;
-> -}
-> -
-> -static bool __kprobes __check_cc(unsigned long pstate)
-> -{
-> -	return (pstate & PSR_C_BIT) == 0;
-> -}
-> -
-> -static bool __kprobes __check_mi(unsigned long pstate)
-> -{
-> -	return (pstate & PSR_N_BIT) != 0;
-> -}
-> -
-> -static bool __kprobes __check_pl(unsigned long pstate)
-> -{
-> -	return (pstate & PSR_N_BIT) == 0;
-> -}
-> -
-> -static bool __kprobes __check_vs(unsigned long pstate)
-> -{
-> -	return (pstate & PSR_V_BIT) != 0;
-> -}
-> -
-> -static bool __kprobes __check_vc(unsigned long pstate)
-> -{
-> -	return (pstate & PSR_V_BIT) == 0;
-> -}
-> +#define DEFINE_COND_CHECK(name, flag, expected)			\
-> +static bool __kprobes __check_##name(unsigned long pstate)	\
-> +{								\
-> +	return ((pstate & (flag)) != 0) == (expected);		\
-> +}
-> +
-> +DEFINE_COND_CHECK(eq, PSR_Z_BIT, true)
-> +DEFINE_COND_CHECK(ne, PSR_Z_BIT, false)
-> +DEFINE_COND_CHECK(cs, PSR_C_BIT, true)
-> +DEFINE_COND_CHECK(cc, PSR_C_BIT, false)
-> +DEFINE_COND_CHECK(mi, PSR_N_BIT, true)
-> +DEFINE_COND_CHECK(pl, PSR_N_BIT, false)
-> +DEFINE_COND_CHECK(vs, PSR_V_BIT, true)
-> +DEFINE_COND_CHECK(vc, PSR_V_BIT, false)
-> +DEFINE_COND_CHECK(al, 0, false)		/* Always true */
++linux-man
 
-	(((pstate & 0 == 0) != 0) == false) ---> return true 
+This part of the rseq man page needs to be fixed as well I think. The
+kernel no longer reliably provides clearing of rseq_cs on preemption,
+right?
 
-Although this looks OK but wondering if __check_al() should
-be left unchanged for simplicity. OR could all its call sites
-be changed assuming an unconditional 'true' return thus later
-__check_al() can be dropped.
+https://git.kernel.org/pub/scm/libs/librseq/librseq.git/tree/doc/man/rseq.2#n241
 
->  
->  static bool __kprobes __check_hi(unsigned long pstate)
->  {
-> @@ -131,11 +107,6 @@ static bool __kprobes __check_le(unsigned long pstate)
->  	return (temp & PSR_N_BIT) != 0;
->  }
->  
-> -static bool __kprobes __check_al(unsigned long pstate)
-> -{
-> -	return true;
-> -}
-> -
->  /*
->   * Note that the ARMv8 ARM calls condition code 0b1111 "nv", but states that
->   * it behaves identically to 0b1110 ("al").
-
+"and set to NULL by the kernel when it restarts an assembly
+instruction sequence block,
+as well as when the kernel detects that it is preempting or delivering
+a signal outside of the range targeted by the rseq_cs."
 
