@@ -4,69 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65EB1F9935A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 09:44:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25B0DF99362
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 09:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r0A9Om1d5u1UIlsgQUCfL3HrY0EjlRzF90bBHBVrORU=; b=RBkeuokmg6WnonJzph/AK6m+DB
-	Fu8ygeFZsdRe1TKn3NTMu8aAZtV7PEki7S84LtDPzyuaBmSxbd4OLUXqn/P12fODTIMi7Iqf/7RuH
-	VwTFBy9Xr3adk4HcyHYmDjE9Sl/w9a3OjhOSKPGA1fCX/t/43OxB3VzfIMrNxZxmPBX1yBZw1tWYi
-	w1/7YCucO4jItIqyBJM7ZX3681FnBgjNcBCmMM2BlErbzW3lsUx7qgEEr6ie9HeV1aE3Ike2JNU+W
-	O7tolK3fA+uhCYPL3U32ZPDpgoeSJVreSBNEA4+vp2OyraKbBRIZVWFYHl46eQzWNKsKydA/iSwl8
-	kq8K94ww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z7tAxn2A+LM9bwTEoO62qUH48d+Pb0dLfk/f5159Clc=; b=QO2j2eh/S20LXyH5T/VTmxpVF7
+	Kj8nUi0yIaZRvPKmT5CWUzgCeYchhD8K9WBOjHY9CGFi0ihHobUti0VA0q3LbxmHQmcTIZwYp+Pnm
+	kXLpvBw2OOeqqiwamiYRHE+qoQrjXleM53ek4rxmeOHc20VawX6j2flaZjZIzP9gAQWMhDcE3FH67
+	dlsqs4PRQ65cfqy+vK6ZPF5EASKMWpPMbCZhfYDNyDqRbVt3L7IQoaA7eQxdrixxrqK1LlV7IlEu8
+	1pgWhft/OWe9FPgpUzKBvuPONEsMkjuO+CHZRNsu/DKSnuTFRaybKBYZoqQECp+0jTsBQeScJMzr8
+	X2NapGzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFqba-0000000BPdc-2Kdy;
-	Thu, 23 Apr 2026 09:44:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wFqcK-0000000BPjP-10WN;
+	Thu, 23 Apr 2026 09:45:04 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFqbY-0000000BPdG-1bk1
+	id 1wFqcI-0000000BPi7-1gcj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 09:44:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 61A7A43805;
-	Thu, 23 Apr 2026 09:44:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEF8FC2BCAF;
-	Thu, 23 Apr 2026 09:44:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776937455;
-	bh=fDvsL0aY81zyDVkYCGzXT70F+YYlXrLKm52ouhe2SKg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=i3+CI0sMhoEpkBBhgojks254wglba/Eook+DIoF0VfPZxEnr1J843GDhv95EZbrZO
-	 hhZny20ipACHgc7Grzufn5r7EDOqd83xUB7iOX/lKEzJVpjis2Pkxk/XiC5n3rTCgT
-	 ooykqhyj3yosOz0l2ajeZQhf2xcMX6L32J8Kb14p2fupQL3MCLdBFWxQOjG/hpztoE
-	 3g43NCr3mUVU9522Y6PehQW9PwuE7+oX3SfV4bgmH9cr8I98ibPoMx7yX2yYptB+NT
-	 FrVq7RJahnxZq6+jsTAs3JuCtk1fXFmc8dIVhep+XXhh0f4+5TXiCMkAlpa4O9w4rD
-	 ToACv09BiCBuQ==
-Date: Thu, 23 Apr 2026 10:44:08 +0100
-From: Will Deacon <will@kernel.org>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Evangelos Petrongonas <epetron@amazon.de>,
-	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Pranjal Shrivastava <praan@google.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, nh-open-source@amazon.com,
-	Zeev Zilberman <zeev@amazon.com>
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow disabling Stage 1 translation
-Message-ID: <aenp6FHzx9rtUQkZ@willie-the-truck>
-References: <20260420123221.20801-1-epetron@amazon.de>
- <20260420124032.GO2577880@ziepe.ca>
- <20260422064431.GA49867@dev-dsk-epetron-1c-1d4d9719.eu-west-1.amazon.com>
- <20260422162351.GK3611611@ziepe.ca>
+	Thu, 23 Apr 2026 09:45:03 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 418AA6A83C;
+	Thu, 23 Apr 2026 09:44:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1776937499; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z7tAxn2A+LM9bwTEoO62qUH48d+Pb0dLfk/f5159Clc=;
+	b=vuXZb/ifT0L6JPhznT2uYlWCWcouL0v8ZMj7PzDqL5UhavaqRgCc6gK/wUKDLxCMssvajt
+	PkK1O7FwtWkAwTDTcCdN7tpVlCApVmDuFr8tymkoM780CpHFpU1v/YHQJL2GSFPlhYu+Bg
+	WDN7/83RfQ0gu98hxjPbgSnRQhCP6Lc=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1776937499;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z7tAxn2A+LM9bwTEoO62qUH48d+Pb0dLfk/f5159Clc=;
+	b=bwuyMxM0mZ2ukdmtGwqy8Try3bpjq5wCSK+YsNdhMPIA2NcodYKH7pGShTfjC1qcHjvDUr
+	tijw12SiRxMuvhDw==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1776937499; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z7tAxn2A+LM9bwTEoO62qUH48d+Pb0dLfk/f5159Clc=;
+	b=vuXZb/ifT0L6JPhznT2uYlWCWcouL0v8ZMj7PzDqL5UhavaqRgCc6gK/wUKDLxCMssvajt
+	PkK1O7FwtWkAwTDTcCdN7tpVlCApVmDuFr8tymkoM780CpHFpU1v/YHQJL2GSFPlhYu+Bg
+	WDN7/83RfQ0gu98hxjPbgSnRQhCP6Lc=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1776937499;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z7tAxn2A+LM9bwTEoO62qUH48d+Pb0dLfk/f5159Clc=;
+	b=bwuyMxM0mZ2ukdmtGwqy8Try3bpjq5wCSK+YsNdhMPIA2NcodYKH7pGShTfjC1qcHjvDUr
+	tijw12SiRxMuvhDw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id EB95D593B0;
+	Thu, 23 Apr 2026 09:44:58 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id cFMdOBrq6Wk+QwAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Thu, 23 Apr 2026 09:44:58 +0000
+From: Thomas Zimmermann <tzimmermann@suse.de>
+To: inki.dae@samsung.com,
+	sw0312.kim@samsung.com,
+	kyungmin.park@samsung.com,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	dri-devel@lists.freedesktop.org
+Cc: linux-samsung-soc@vger.kernel.org,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	linux-arm-kernel@lists.infradead.org,
+	stable@vger.kernel.org
+Subject: [PATCH 1/5] drm/exynos: fbdev: Remove offset into screen_buffer
+Date: Thu, 23 Apr 2026 11:37:46 +0200
+Message-ID: <20260423094452.32665-2-tzimmermann@suse.de>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260423094452.32665-1-tzimmermann@suse.de>
+References: <20260423094452.32665-1-tzimmermann@suse.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260422162351.GK3611611@ziepe.ca>
+X-Spamd-Result: default: False [-6.80 / 50.00];
+	REPLY(-4.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_MISSING_CHARSET(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MIME_TRACE(0.00)[0:+];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	ARC_NA(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FREEMAIL_TO(0.00)[samsung.com,gmail.com,ffwll.ch,lists.freedesktop.org];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	RCPT_COUNT_SEVEN(0.00)[10];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.de:email,infradead.org:email];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_024416_466387_5A747C03 
-X-CRM114-Status: GOOD (  21.18  )
+X-CRM114-CacheID: sfid-20260423_024502_737123_19AE754E 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,36 +140,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 22, 2026 at 01:23:51PM -0300, Jason Gunthorpe wrote:
-> On Wed, Apr 22, 2026 at 06:44:31AM +0000, Evangelos Petrongonas wrote:
-> > The motivation is live update of the hypervisor: we want to kexec into a
-> > new kernel while keeping DMA from passthrough devices flowing, which
-> > means the SMMU's translation state has to survive the handover. The Live
-> > Update Orchestrator work [1] and the in-progress  "iommu: Add live
-> > update state preservation" series [2] are building exactly this plumbing
-> > on top of KHO; [2]'s cover letter calls out Arm SMMUv3 support as future
-> > work, and an earlier RFC from Amazon [3] sketched the same idea for
-> > iommufd.
-> 
-> It would be appropriate to keep this patch with the rest of that out
-> of tree pile, for example in the series that enables s2 only support
-> in smmuv3.
-> 
-> > For this use case, Stage 2 is materially easier to persist than Stage 1,
-> > for structural rather than performance reasons: 
-> 
-> I don't think so. The driver needs to know each and every STE that
-> will survive KHO. The ones that don't survive need to be reset to
-> abort STEs. From that point it is trivial enough to include the CD
-> memory in the preservation.
-> 
-> It would help to send a preparation series to switch the ARM STE and
-> CD logic away from dma_alloc_coherent and use iommu-pages instead,
-> since we only expect iommu-pages to support preservation..
+The screen_buffer field in struct fb_info contains the kernel address
+of the first byte of framebuffer memory. Do not add the display offset.
+This offset only describes scrolling during scanout.
 
-Does iommu-pages provide a mechanism to map the memory as non-cacheable
-if the SMMU isn't coherent? I really don't want to entertain CMOs for
-the queues.
+Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+Fixes: 19c8b8343d9c ("drm/exynos: fixed overlay data updating.")
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-samsung-soc@vger.kernel.org
+Cc: <stable@vger.kernel.org> # v3.2+
+---
+ drivers/gpu/drm/exynos/exynos_drm_fbdev.c | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
 
-Will
+diff --git a/drivers/gpu/drm/exynos/exynos_drm_fbdev.c b/drivers/gpu/drm/exynos/exynos_drm_fbdev.c
+index 637927818dfe..d283ded266d5 100644
+--- a/drivers/gpu/drm/exynos/exynos_drm_fbdev.c
++++ b/drivers/gpu/drm/exynos/exynos_drm_fbdev.c
+@@ -61,17 +61,13 @@ static int exynos_drm_fbdev_update(struct drm_fb_helper *helper,
+ 	struct fb_info *fbi = helper->info;
+ 	struct drm_framebuffer *fb = helper->fb;
+ 	unsigned int size = fb->width * fb->height * fb->format->cpp[0];
+-	unsigned long offset;
+ 
+ 	fbi->fbops = &exynos_drm_fb_ops;
+ 
+ 	drm_fb_helper_fill_info(fbi, helper, sizes);
+ 
+-	offset = fbi->var.xoffset * fb->format->cpp[0];
+-	offset += fbi->var.yoffset * fb->pitches[0];
+-
+ 	fbi->flags |= FBINFO_VIRTFB;
+-	fbi->screen_buffer = exynos_gem->kvaddr + offset;
++	fbi->screen_buffer = exynos_gem->kvaddr;
+ 	fbi->screen_size = size;
+ 	fbi->fix.smem_len = size;
+ 
+-- 
+2.53.0
+
 
