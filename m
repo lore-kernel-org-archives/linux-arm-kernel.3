@@ -4,63 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE862F99351
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 08:12:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6764F99351
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 08:21:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=knOefttnIyPWl2d+eqYXv+SUsJugMspNXMYMja8kCag=; b=jVQ7nwAk1iW49G2SkOP2lAfzS8
-	NX+dWUjUNiBPLJdEUmNyUUYO0e3HJJo10sj4gAMrFf58KKP2TS6h7FPmdxAEYou8k5CQsZBYd91LU
-	OZWN3DNewN6Lz4j4Kz840dL6VRSjTPdPiweYVCLOpKNyqaXAOOEQPLJ2XuGq/jrt1U/3rnlyFEeBu
-	2BsedmDHQ7/rlOEvW/U7+DP46TUCiEQuP3ycGcWCmgvQ7hm46gkL6KYoazLAiaoRBAvbexo2zTu0S
-	g25oZ2ImpX8a49yIhDEDPFeniiWhSJftYIxDhJ4m9QI2k1Bpla3j40mOIO/d5vTMPIHxQFx1wnIAB
-	fczLVe4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3xVykDZMMxqcRbkI/OgsWF+lLAGvrt3jqKaNff6bj2o=; b=uyRpntHQ+4Fbr1Naxwro8fHDtH
+	wiaaCMdGkGAKEYrp/pdPrjyX+3UvbGZ8qTCTTyXygaubwTZBffc7yo0wcRdSHs9xrMvikeNwE/ymt
+	gWzXGC9KGH/ZawkzzEfR6hDugZnz6IdcV+uqFXkdatqkFTrBhxhxsyNx0xLAVvmfn321HdVSID8n5
+	yJ/iH0j9crRnr6bpwCd3E2FNoeKB7Y5SMjjxLg7OtX0GOXTRmQIrqYBCBXR4azTZenrMhOthXscik
+	1QVZeWfuK1PoGUyI13MkMTp3tSiJlz5SaciTnhmISTZlHNkcbaU8fEP9oxx9YfYlHSK2UabqV4cXY
+	X71WHWsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFpAk-0000000BD6U-2oUR;
-	Thu, 23 Apr 2026 08:12:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wFpIx-0000000BDdA-3kP6;
+	Thu, 23 Apr 2026 08:20:59 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFpAe-0000000BD5K-1x7i;
-	Thu, 23 Apr 2026 08:12:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E664643B24;
-	Thu, 23 Apr 2026 08:12:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 712BCC2BCAF;
-	Thu, 23 Apr 2026 08:12:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776931943;
-	bh=iEcYAM0VwzzlUdBWlgBenv9RwXM4rAx4T+7N+FRLWSQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ABr3DnpMiq0MaldPMg3udYOvaz02Da8BaHqPFrDJJvdIQu6rX4u1n80nNj85WCRkS
-	 75QaPBYbDsvs+SQWIHNn4vbdEG2DJuDCutTTDclvCanI9VqhwfNbofQ7qQErKoILTn
-	 yv+3KlbN9Lm+M1Ov6Yv6xWmvS6EESQFZjT87DeXBI5f9RCMGJVg9avF1JNChp22TSK
-	 /+dletROj0tX1pLtgoa12poN5h9xK38mu4qJO/yRyQ7zbtcf3qLHsJIJLCFZRQMbBJ
-	 eEY72aKJQVg1Zi1ahz6S1l3h6epEH+BBMj/JXz0HWlCBHYjul2CaiNPhw144AEKdNp
-	 PnDtcUOfMpoxA==
-Date: Thu, 23 Apr 2026 10:12:21 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Hariprasad Kelam <hkelam@marvell.com>
-Cc: Simon Horman <horms@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net] net: airoha: fix BQL imbalance in TX path
-Message-ID: <aenUZc6mSBuSvWbz@lore-desk>
-References: <20260421-airoha-fix-bql-v1-1-f135afe4275b@kernel.org>
+	id 1wFpIs-0000000BDca-02Oz;
+	Thu, 23 Apr 2026 08:20:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dgHI11398w2ln0intr7zWUA7putLw+eqofe3f/aw4N2iwTPFO3Yc+xjlUtgm1Dc28oMdEiSAQNEokVSsOOE9GWlmDG9VslgGoTaOek+GJxNf2GRkqrmgTYpYyHxVFLEAyL2GZysX739IaETP2F2lcznKLo4gfUbwGsNZYMH1iYrwE9zrjDL2Recb5Y+U3Gs2lTg0Jcvn6Dr0ZvzcEBASladFslB/4jN68G4JQ+Dfp09Zx0wzxB9VWbBbJEDrplMbGOss41AD7C/nESNlyoe0htBzYBOXQA6iCLIdIHv+6yscMZDrSjatrr+dfM0bqsmnoqZIfopM8hQp915A1eDEBw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3xVykDZMMxqcRbkI/OgsWF+lLAGvrt3jqKaNff6bj2o=;
+ b=jQE3ZUokzIfJorfqMIuGtmwneHpgfWqZ6RZgL/JbjotXcNWU7AuuKtj9HgjoXfpK0vRKwfzfgkql7knruKSSOM40FotzkOyPdWqIP4lQ8Gpm7exxweeoA1/XT8SSG7bLPXk6ixkfrD5AKEmT2YHIzOHNkDI1vkx5fLOVgTXWnvUiNjjn5tLKKF1XrXCt3iFxRKLg6I5c571d1f8K4CPq4FPZbmE1DY9Lk+NKMbHmjoXFZdCB20zpx0WC1G5qvAfgMnkozfRfJJu+VnmBwAIT0yMJ6H8bSwl7BIVotnFE80HnfYbL8xMjA5ndJuQgInuvxohz/PdVndA2XH5uyWanTQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3xVykDZMMxqcRbkI/OgsWF+lLAGvrt3jqKaNff6bj2o=;
+ b=jUEewTzG+rn2a0LjRUSoNkcMgLB1PlDtOXN97mmt5OYhZBK0YAwPaXRLAIQV/BjWWlg1Cr4nPaV6pqHujgB5NHzm14AJNByEbZcSFBvobgyyqoNyrkdlc8HcuGKYdpnq1+qWloj4qG0tRw5f+gknBTPiEUQic0l5fgpS/ItYUerABz5Gu7NvgLZ1qrJwAKETe8JJKzbTMKJM7b+78k/+SFWXxbWE3Nyc+LHpZTTDet6xTJ9pDjzbyyFoCYLqk+LeKSJqx2yq8qaO7lj+aXrfZzRs91q7iW9zmbz2ClS2jopFRweOaS4xsRISOcs3UzrptPe4x7g/SaUwk6VhlB4hPQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
+ by PA1PR04MB10281.eurprd04.prod.outlook.com (2603:10a6:102:467::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.17; Thu, 23 Apr
+ 2026 08:20:45 +0000
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb%6]) with mapi id 15.20.9846.021; Thu, 23 Apr 2026
+ 08:20:45 +0000
+From: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Subject: [PATCH v2 0/7] media: synopsys: enhancements and i.MX95 support
+Date: Thu, 23 Apr 2026 16:22:55 +0800
+Message-Id: <20260423-csi2_imx95-v2-0-934c02f3422a@oss.nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAN/W6WkC/03M0QqDIBTG8VeJcz1DLW11tfcYMURtnYsyPEMc0
+ bvPBYNd/j/4fjuQj+gJhmqH6BMShrWEvFRgZ7M+PUNXGiSXmreiZZZQPnDJvWJaGcd9N+mGGyi
+ HLfoJ84ndx9Iz0ivE92kn8V1/jPpnkmCcdU43U6P4tRP9LRDVa95qGxYYj+P4AEHtq4KmAAAA
+To: Michael Riesch <michael.riesch@collabora.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Frank Li <Frank.Li@nxp.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
+ Mehdi Djait <mehdi.djait@linux.intel.com>, 
+ Hans Verkuil <hverkuil+cisco@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+X-Mailer: b4 0.14.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1776932600; l=2161;
+ i=guoniu.zhou@oss.nxp.com; s=20250815; h=from:subject:message-id;
+ bh=85b0gJfRQSeLUrWu0Kjl18ZJuLyxOCXkeg39NR96Nzw=;
+ b=qCKap/RJYEOxyqm/ttxHFMPRLXM/ZnQMb05aRQJvQn6ycwj2be1oYwZhV9/VuQbEkUgi115Te
+ /7gu3fQ/LD2AgiLXX/7iV8bbD+gbc9BTTfyd0jYme7/CTwuD5KkF1ws
+X-Developer-Key: i=guoniu.zhou@oss.nxp.com; a=ed25519;
+ pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
+X-ClientProxiedBy: SG2PR06CA0252.apcprd06.prod.outlook.com
+ (2603:1096:4:ac::36) To AS8PR04MB9080.eurprd04.prod.outlook.com
+ (2603:10a6:20b:447::16)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="UnahIpJ2gghwFW0k"
-Content-Disposition: inline
-In-Reply-To: <20260421-airoha-fix-bql-v1-1-f135afe4275b@kernel.org>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB9080:EE_|PA1PR04MB10281:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0f71f765-e778-4f0d-4857-08dea11137b7
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|19092799006|1800799024|366016|18002099003|56012099003|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: SsglkdLruaxtpGvUOACP3xhMZ0AYsw3qoDDkXdaBdjNrT3UJF9bF+JEfvWMEN4ZDdmlQQBSTR0A354vfwosigy4NxDSPmtGCsW1BRSeEfgUo9wTkM5/hx9OUz1OPdQ9ZHlWFM9Lsgms0ZylENq58sfL4DbkTAU83aDe1VR9vm7Ji5/Klci4/xEn86Wj42uhcGfv+Ti1EpriTRSJgQuJYKYwDKl3H9FWQ5fGcEUlw4sWchWKVSfC81GaRTseJJlQUMz+QLaSSETdsyFnyTCO2Pg2K2c9wYP3KeYVSMf8yrqfORbKyJxn+fQtvlCb75jspFOCMSdROpcg76oUcEqCOma4zt95Uveos4zArBqGu7UqgWUWxxeXz0UMlQd6c3262MquRGGAqndub6XcgKJQpshN/Ba/VW146jeE5JeTeqL25hA9GQFv6eW4CqIRrYmbGeVtQErMA2HnQsH3FgslF5TaeqVgiwCh1EVBnLVqDP7rsKL5MIhLGCc9MF9Y/y0RfCwj0tqZ/v+au0u3Rz7sUEcI1If22NqeOJNh817gsiRM0q1JEjni+Aipxbwv7AtKJOEFHx4l85GFzmnbx6CQIlr8WC2jpyJi52VbvJYw9eemPBzEgHvvyeLbjCMTt5gMLqzL41p6m1KhrPMuea1uJrHzg17zFIRSR+pYu2IOWfYynZ9FDqSaLFzJGCoY1WZ/GQMg6Mq8I4u8IFISyFy3BbaIabI1UXkx6G4SPW24Rx/oY1TYieehBh1V3gWJR1Qj3pBCEM/shHnKF4mGE3E+tV/YsnJxv3pMSszrebyRArzkTBjeo7860bQf62Kc03xrC
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(19092799006)(1800799024)(366016)(18002099003)(56012099003)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bnp0SjR1eW5lUjhXa0NjRGszY2Jnd2tzTE1DSmN2VjhPQkwzSVZnbE4zTVBN?=
+ =?utf-8?B?SmZ5cDc4emJ1V1JuUXllRmdoRGJvK25RbXY0THdsUEptck1RUkRzUDREZTF0?=
+ =?utf-8?B?NTZFWDZ1QWhabDFRakxKVzJEaTdnMXg2Y2ZCdDYxNHFRY1U3QzlsenVMTUMz?=
+ =?utf-8?B?Skk3cWZTSlA5WDhhT2l6UkU2OXBNbllKdmt5SzE1cXZ0TkVJMTQvdDR3VkRw?=
+ =?utf-8?B?blVnNmZBZm1yYWtlNUgzNGkrM2ZTN0FhdWRzRzVHdzExc3AwdUNaeTlEYjNF?=
+ =?utf-8?B?OHVScmR0K1dJSG8veEhBdWxUQWU5YTYxUm5SR1doVldLQUVoc3BlMlBHUVlN?=
+ =?utf-8?B?di9MSjYwRmo4RVRXZEpMU2JFS1hZU2ZFTEFKTlhlU1Z2eUFwOTZvMjlpR2JJ?=
+ =?utf-8?B?S0dyWHdDWVFDalJHdm91ZU1BcngrUW1NRlQ4OVN1WUJrS0hhdk5sM0hzNHRC?=
+ =?utf-8?B?UVI0a2Zxa2lIYWd1bThOelhob2hPcmhXMEJQRTBGYk8vWWlnMGFqY2FWNUU1?=
+ =?utf-8?B?cmdiT1N6RklvN1lpUDNPZWk5WTJ4aUVzeFMvb21YN2x6c2twc3VmT2lNckpR?=
+ =?utf-8?B?RGNtQm8vdHM2UFkxWFVMeWxMWnc5NHYydnRZYTUwSjNyS1NSUzA3eXNaYzA4?=
+ =?utf-8?B?QWpBQWdJcWZrTHY2Y1hydWNORFhFZnYyWVV4Sk85eXJFb0NaRWl3VTlkZ0Fz?=
+ =?utf-8?B?NTBRaHVuc2ZjYjEzc1YyN1FMRWMvbnVkREtONGhudG9tZVlQR2dieUZ4NTFC?=
+ =?utf-8?B?bFBPdzFTRGtJMkluK01OWWZmMmN3TEp6cXhDZW92aWxwWGRvWStXZ0tnenJB?=
+ =?utf-8?B?VDNmWjFOMkx1bkgyWWc5ejRUem9wbnlCSGpwQUQxU3M5MUpMdnIrdXlkeHpX?=
+ =?utf-8?B?QVVHcXRUdDFKV3BwT0hYbG54c0dWbGlrakhRaFdGSi9haE9HWG5qK3VJS0VM?=
+ =?utf-8?B?TlhrMlVXTmRPc2RYOUZaQURxS1lmQ2pQMkZHTmZMdkNWbE80QTVLL09VT0Ft?=
+ =?utf-8?B?ZmY5cE9FS21VOU5KWlEvQlEwRk9EWHlJU1JYUnpuK21TNk1JRU1STDV1Rkdn?=
+ =?utf-8?B?Vk1DLzExdUlQcVZLaGdBUTEwQndMZXU0VUxtMnRWcitTQWRja1JVWUVQbnZz?=
+ =?utf-8?B?TnFNUUlZcmdsNjBiZ1RLOHpPdjJHcFVJc3BmdHZ6SmZpYUZLRnJmTUgwdU5C?=
+ =?utf-8?B?VEVtSDZvT3QrYXI5bk9FS1pKZGpQRXp4c25YcWxka1E1aXRvZHI1c25QMVZI?=
+ =?utf-8?B?bHhkeWZEREJUa1prS0pESlk2clVzTWZnU0xrOHIwbHVYKzE4dEpTaDFYcWtm?=
+ =?utf-8?B?WFdDbFlYVUwzMk1pdUlXbnFyc2docnNiQzQ4cktnK3kzQ0hqdDM1N0FRK25O?=
+ =?utf-8?B?OXJHMGt5clBzeVRuOGlnK0szMVBRbHZRck83TFJZWXFreENZL0lKQVZHRElV?=
+ =?utf-8?B?eEd4NzdmeEVXSUlMY0lzOUlxbXIwYjhZVjhFL0k1emxzeVBLR3lleEJtKzc1?=
+ =?utf-8?B?MmdlbDlNdHZhSFZNUFgvd09ZeEZUMWx5MG1lRk52T2JEMEpUaDhMRFhUUHJq?=
+ =?utf-8?B?Y1FFcHQxNFBDVlRGUWl3aXhoK1VxRmJVcWtxcjdNMWlhc2JGV284SVpqaEZW?=
+ =?utf-8?B?bUJUTFBLbWU5QndaTmJMM3YvK2lNUVlaWFBXYWkvRUVMYk4xbC9IUDdYY2hZ?=
+ =?utf-8?B?Smt5djc4c0FPMWZYYnhzbzF5b1d6T3dDSHdOdzFTbU4xR29QREkvbGl0Vnp5?=
+ =?utf-8?B?UEJoZy9Xb0VGRFZZRUtsdGxacWdRcHF0bGY0azBiZzBYUHZlSVlaM2NmaWM5?=
+ =?utf-8?B?UU85VWJYVUc1NklMQXJ3Q042UUk4dUNjcEhLeWRkTzZLT3RsVnBObW5CNVBp?=
+ =?utf-8?B?WkJTWW0rNEJaUEpjcFZMMG9oVEFkaTFIZGMzYTNMTi9oZFdxeE0ramFmTEhj?=
+ =?utf-8?B?Z0VuZVpFUklCSWxacVk3NEVZc0hjREdKeHA3Z3F2TStBcEJjTFFEdWtsZFNl?=
+ =?utf-8?B?THFzdDhaUUVHVUZVc2dDeVZVOUgwMTIzcUVVRldyNDQrZldPUEhjZThVRW05?=
+ =?utf-8?B?Mk5iOHY3Y2oxTEFFdVNGODhuWG1oQmFuU3pMMk5HNjBlVW0yeFdIemJLYVRw?=
+ =?utf-8?B?c2lBMnorYzEvMjBKMThUZklqWmp6TWVTc3djL1gvV3pKUW5JRzJ2NjlCbnkv?=
+ =?utf-8?B?YzRYS3dUditGeS9aZXdTOGcrRHM0VEM1dDA2ZXZUdVo5UlRKV1NEZmJuUUt2?=
+ =?utf-8?B?c3Q3RUNjaWdJWGlxWUtxNVl4bWdBNkNDVjNpTzNSemk4QUczdXV5NU9ZYzd5?=
+ =?utf-8?B?ZHgyTWVsUld0TVMxQ2VNbEM1bUxaOTBMSnkrd3I0VkhEUG1nVjFJUT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0f71f765-e778-4f0d-4857-08dea11137b7
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2026 08:20:45.6675
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Zh2Q64jzjno3rfqox6ul6sFP5wLpn1CIRDaPOBlOBEGuv2oe1OG19xIaTs510wRsKZa6Zl2m52HBUk+us6TLvg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10281
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_011224_547385_159511A7 
-X-CRM114-Status: GOOD (  26.62  )
+X-CRM114-CacheID: sfid-20260423_012054_085543_9AFCE0E6 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,134 +165,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series enhances the Synopsys DesignWare MIPI CSI-2 receiver driver
+with multiple stream support and adds i.MX95 platform support.
 
---UnahIpJ2gghwFW0k
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The i.MX95 variant is similar to i.MX93 but uses IDI instead of IPI. Since
+IDI is software transparent, only a different register map is needed.
 
-> Fix a possible BQL imbalance in airoha_dev_xmit(), where inflight
-> packets are accounted only for the AIROHA_NUM_TX_RING netdev TX
-> queues. The queue index is computed as:
->=20
->     qid =3D skb_get_queue_mapping(skb) % ARRAY_SIZE(qdma->q_tx)
->     txq =3D netdev_get_tx_queue(dev, qid);
->=20
-> However, airoha_qdma_tx_napi_poll() accounts completions across all
-> netdev TX queues (num_tx_queues), leading to inconsistent BQL
-> accounting.
->=20
-> Also reset all netdev TX queues in the ndo_stop callback.
->=20
-> Fixes: 1d304174106c ("net: airoha: Implement BQL support")
-> Fixes: c9f947769b77 ("net: airoha: Reset BQL stopping the netdevice")
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> ---
->  drivers/net/ethernet/airoha/airoha_eth.c | 7 +++----
->  1 file changed, 3 insertions(+), 4 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
-net/airoha/airoha_eth.c
-> index 19f67c7dd8e1..6c7390f0de5d 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> @@ -929,10 +929,9 @@ static int airoha_qdma_tx_napi_poll(struct napi_stru=
-ct *napi, int budget)
->  		q->queued--;
-> =20
->  		if (skb) {
-> -			u16 queue =3D skb_get_queue_mapping(skb);
->  			struct netdev_queue *txq;
-> =20
-> -			txq =3D netdev_get_tx_queue(skb->dev, queue);
-> +			txq =3D skb_get_tx_queue(skb->dev, skb);
->  			netdev_tx_completed_queue(txq, 1, skb->len);
->  			dev_kfree_skb_any(skb);
->  		}
-> @@ -1711,7 +1710,7 @@ static int airoha_dev_stop(struct net_device *dev)
->  	if (err)
->  		return err;
-> =20
-> -	for (i =3D 0; i < ARRAY_SIZE(qdma->q_tx); i++)
-> +	for (i =3D 0; i < dev->num_tx_queues; i++)
->  		netdev_tx_reset_subqueue(dev, i);
-> =20
->  	airoha_set_gdm_port_fwd_cfg(qdma->eth, REG_GDM_FWD_CFG(port->id),
-> @@ -2002,7 +2001,7 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *=
-skb,
-> =20
->  	spin_lock_bh(&q->lock);
-> =20
-> -	txq =3D netdev_get_tx_queue(dev, qid);
-> +	txq =3D skb_get_tx_queue(dev, skb);
->  	nr_frags =3D 1 + skb_shinfo(skb)->nr_frags;
-> =20
->  	if (q->queued + nr_frags >=3D q->ndesc) {
->=20
-> ---
-> base-commit: a663bac71a2f0b3ac6c373168ca57b2a6e6381aa
-> change-id: 20260421-airoha-fix-bql-7fff7cebbc9a
->=20
-> Best regards,
-> --=20
-> Lorenzo Bianconi <lorenzo@kernel.org>
->=20
+Tested on i.MX93 and i.MX95 platforms.
 
-commenting on Sashiko reported issues:
-https://sashiko.dev/#/patchset/20260421-airoha-fix-bql-v1-1-f135afe4275b%40=
-kernel.org
+Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+---
+Changes in v2:
+- Add two new patches
+- Simplify error handling by keeping goto labels instead of early returns
+- Removes redundant register availability check
+- Uses read_poll_timeout() with dw_mipi_csi2rx_read() instead of
+  readl_poll_timeout() with direct register address
+- Fixes stopstate condition logic
+- Check PHY stopstate after sensor enable instead of before to ensure
+  correct timing.
+- Optimize PHY stopstate polling parameters (1000us->10us, 2s->1ms) to
+  balance performance and responsiveness.
+- Add dedicated constraint block for i.MX95 to reflect different clock
+  requirements (only per clock needed vs i.MX93 which needs both per and
+  pixel clocks)
+- Update commit message to include more details about interface differences
+- Add Reviewed-by tag from Frank Li <Frank.Li@nxp.com>
+- Update commit message
+- See each patch's changelog for details.
+- Link to v1: https://lore.kernel.org/r/20260415-csi2_imx95-v1-0-7d63f3508719@oss.nxp.com
 
-- This isn't a bug in this patch, but does using 0xff as a sentinel value c=
-ause a permanent stall?
-  I do not think this is a real issue since, according to my understanding,=
- the NIC
-  never writes 0xff in irq_q queue.
+---
+Guoniu Zhou (7):
+      media: synopsys: Fix out-of-bounds check in enum_mbus_code
+      media: synopsys: Fix IPI using hardcoded datatype
+      media: synopsys: Add support for RAW16 Bayer formats
+      media: synopsys: Add support for multiple streams
+      media: synopsys: Add PHY stopstate wait for i.MX93
+      media: dt-bindings: add NXP i.MX95 compatible string
+      media: synopsys: Add support for i.MX95
 
-- This is another pre-existing issue, but does freeing the SKB here cause a=
- DMA use-after-free
-  for multi-fragment packets?
-  This issue is not related to this patch, and I will fix it in a dedicated
-  patch storing the skb pointer in the last descriptor in airoha_dev_xmit()
+ .../bindings/media/rockchip,rk3568-mipi-csi2.yaml  |  16 +++
+ drivers/media/platform/synopsys/dw-mipi-csi2rx.c   | 109 +++++++++++++++++++--
+ 2 files changed, 118 insertions(+), 7 deletions(-)
+---
+base-commit: 4fbeef21f5387234111b5d52924e77757626faa5
+change-id: 20260414-csi2_imx95-65ad0e7f630a
 
-- Since the QDMA hardware and NAPI instance are shared among multiple ports=
- (qdma->users),
-  could active NAPI polling cause a BUG_ON() in dql_completed()?
-  This is not an issue related to this patch since here we are just resetti=
-ng
-  all the netdev tx queues instead of just the first ARRAY_SIZE(qdma->q_tx)
-  ones.
+Best regards,
+-- 
+Guoniu Zhou <guoniu.zhou@oss.nxp.com>
 
-- This isn't a bug in this patch, but does failing to wait for the DMA engi=
-nes to become
-  idle before unmapping buffers cause memory corruption?
-  This issue is not related to this patch and it will be fixed with a dedic=
-ated
-  patch.
-
-- This is also pre-existing, but can this mapping cause a kernel panic on h=
-ighmem systems?
-  Can we have fragments in high memory? e.g on ARM architecture? Anyway, as
-  pointed out by Sashiko, this issue is not related to this patch.
-
-- This isn't introduced here, but does this logic cause a permanent TX stal=
-l?
-  this issue is already fixed in the following patch:
-  https://patchwork.kernel.org/project/netdevbpf/patch/20260421-airoha-xmit=
--stop-condition-v1-1-e670d6a48467@kernel.org/
-
-Regards,
-Lorenzo
-
---UnahIpJ2gghwFW0k
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaenUZQAKCRA6cBh0uS2t
-rG34AP9NRfrm2/98XzQnX8x/rvejxWGK4oyc/yAPXY8BBSwGWgEA0/gbqM6hiF2B
-TP2H8hOsiFsTF5in8IVx3jPq3E8e7Qk=
-=ET9C
------END PGP SIGNATURE-----
-
---UnahIpJ2gghwFW0k--
 
