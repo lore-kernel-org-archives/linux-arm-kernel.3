@@ -4,114 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA502F589AE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 12:36:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90A4BF589B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 12:41:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A3l35eJicdA9ttVOYKMPZgwAhNep30y27OnDLG1eCTQ=; b=sEDZMLqocKOyaM+/FFwogkFviP
-	ZTd33c4bL/0fvdy8VXaMQ+31zvLYOyJu8w0kRpDBO18IAvLDjAjVPnmt/StJcrX/YSTbkvSMhQxU2
-	VHxwxpeFpzvc8LPQTUaDBdMBQAWGrp6KyngOeW6SKaB0Q6z9EJbpk/nSypNf6w4aV+u5BI7r+lGhq
-	SexdrA5Xpc349oJpTUpx4Z8u5bTgPSjQMSZiDr0DlWwohRhw3C1wMvWCiOkbmzx9e/CuJRy1cKVkA
-	H2WAKx5866FrguAKOzPVtnPg9hEfFfrHbSROCfVKbPG63ZvUOgKbR74WyF0RjkQwZGbxDP5t6ZJVB
-	/X8JPDBg==;
+	bh=QRZHunwqpGKvYmD4/rkQ3r0mzopcgkTtmIIZTPOi+ZA=; b=M7FQZfCmgJ/tgPqwJnXNJaKnYb
+	wqFJh59CE03QgvzCqP4mAp7PkgmQHaKat2PpsynPy4lptTFAJukgu4E6wgfO6CV6sV1F/KeJimMf5
+	2c8tm2zpyHTCIJ7PYGMmj3+xPABLvoCRaQ+sJ7IpchH88IBN3B9tEn3RtY5PEf4gXyDL7zEun4Zll
+	hFb5aF4Wp3xrRc0tT/oVM2IeKYx/1stJlzhiKjYaYemQL8o1SbrDNf6DUmGSFcmIdyWjvSs5NtiWv
+	bJ6BU5smx/EEM9RDMSRypKt4Spa4xcdC7xRF5b1vXju50snDGiVaqFJgVTx2AuFpcnW8UuYW3RRpI
+	17L6Fj0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFtIL-0000000Bd1r-2DRd;
-	Thu, 23 Apr 2026 12:36:37 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1wFtMl-0000000BdF9-0m9E;
+	Thu, 23 Apr 2026 12:41:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFtID-0000000Bd1S-2W6S
+	id 1wFtMj-0000000BdEq-1oJl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 12:36:36 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-38def541b0bso57592251fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 05:36:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776947787; cv=none;
-        d=google.com; s=arc-20240605;
-        b=RzkAvi/dz5XdYwrXHkEJrDIav4TC3dyvTk50eK7poJbnS69y779QMftfPUl+I/yX38
-         6BaJ07BF0eOU5wVYRlC1zUxYYUd8Q5kRaTkgOe/OZvzmdp355cFbWpEuXWRyPLsVgqlK
-         pC+UwfykpGSe7Tm4gZBkBxfVvb2JyzGU0E7OFrCN6XJcOcTB6raLHCkO1zUi9X5c30Zv
-         iKSb5TRRjTjiARJ0/PupvGgfLW2IjV9SIWISGb8iK+v48RTu6KMC+T7E0XvIOAbv1Wae
-         Fr8Kk3F4V3bEq3vFyepjv/HUNhr8ZBUBH/P7bu7Q5Vs/USLuxaEONquuTjCFWUp+uf6k
-         549A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=A3l35eJicdA9ttVOYKMPZgwAhNep30y27OnDLG1eCTQ=;
-        fh=9o8GjOIlmStJS+4oVEjovUlUmcztotb5CWxp4j2tMLw=;
-        b=VoUpwUtIfMHTWymNndagA+zDFVnO6TuNjACPnbQTJ/bZMQjhYfUADqooccyKBk0no3
-         pvcyn5fFYay+tK8NIARJLxqVi4ooG24tdhSpiHMv0bAutBJFoEojfQiadFNzAYz5+v4x
-         w7W5qAahhMugMyZw2pTai9gwx4UiuKJ+mfYOXP0AmXg91qkL4X7gkTS/MHyrVHSZyQtA
-         G46cXPGaCoqprzGUUDP6YqczFAyp8zUHuER6vrzbSG2BnckggkUHBweagTWQezGD/dJr
-         P+MmLmpat+qxi7CULOKdKDHH/DL9dEMESD3QF6dEc7MBQc4yIUBhKd65YpgF4cIKuBg8
-         2bKw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1776947787; x=1777552587; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=A3l35eJicdA9ttVOYKMPZgwAhNep30y27OnDLG1eCTQ=;
-        b=ZRKPIGk3/8lsHAq4KX5SBKeth9uFZdCoTbGXEm/96kRijYBn0XFMh/eBzR6Dz5sMTL
-         xOAh2TCh3fsDlTXjLDRBeE5eTnJscRru3mnBIyQJSXdQi1OVLuhe6X5T5KbE2r0CEfXl
-         CGpUuKisRuQPe9ydMNJVs/dUUzqh05bxglSnqxZ9AGV/MyMFL9hfPDicU4V+NkVWE1D2
-         18IJWBp/X9qIhaBI+RmtuovUtWdBZ9XHLITQtflIMgoAmYFG+boU7GVQuSmcRRr1HNgb
-         ZZSz+2y3wfukj49X8P+CwDgOWmcBb2F4KY2A2l2FgrfBTYdknXKZpUq+00z8Do5wJRKE
-         JcnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776947787; x=1777552587;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=A3l35eJicdA9ttVOYKMPZgwAhNep30y27OnDLG1eCTQ=;
-        b=E+BbigtA/eXbHg30CSPeDvLHK6SWbvO6t8oo3gZ2USm09ENInlGLg4c1ZC8TvDbNSm
-         G20R3KFNp+ZA1v3IvLrJ7Qi1Wvxh6zOAwBi8cf91p7oMl7sj2CW0D3Ek2U3riRoCjrWr
-         mlBfwDBiSryvCkPmIUJyshrOhhgIdYDzl1XRU/Sn0D/sxjnd99bnh05SnHksZSExcXae
-         Go0xcUDdCpIlxF/CIVLU57vkJeKndad7Wp4StufuBCjpq+5achno0dPLbw3qYn0z3m2B
-         AhG3tgXanWOgVHytqUdlFS6u368Hac7vVPj6NcnmDLq/0yEx9WLUOZJdkSu47yV7F4xb
-         38uw==
-X-Forwarded-Encrypted: i=1; AFNElJ/BoO4GxKUBB4BtceziwT8ULpNM3K/ip3ULhUw2PbZssaPdftIXDqF6qE2Wn5iq2nYjr8iusA/ndsvbOGETdaSX@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfZYVQ0TxyxP/ECgHkk5wpztEaaccFo8NdKQ8wN6pIcyav6UzT
-	lHinr4EPDEMu16TH/rykT7zwnIxr1pQyAMyAAhFQxZ8a1bN6WqkKd7srqFb+YByQFJ0N2fSkety
-	eyG08AKPlhhVnP4hETHNF8yuh5a05zILL4pbWmMqO
-X-Gm-Gg: AeBDiesSwq8k6MohCuCHvIG46KKAXaFKFle8RChg30N6ipU/nGLlF6sQEbZY6vs/hrn
-	FebuEEDlkQwf3O9km1OI1vh34WzWkQx14nHfqChBIauKoaRydiUxKggXi73Rp0KaFJjPMuqw2Gc
-	S/WOF+N9MwN3r0pcMV6MI/DnL36OZvhfoWMjXbi6ob0qoG5isfLje6qKEDkD9XGu2I2tglnqKw4
-	sTSAqCALmkXn8eBzu1KzrT/xjWZ2+7hHT091PMgW46JABPoD9KYq0r9+ChgoDdvXFR//g6Mn959
-	OWPq6p6pD49NMXHmtitBpKwebKUfNlWY8LsrdwpD0oa+DMoYTRLerdaQV1WXP0bszB7EuGn7V59
-	xJNzFTsZlZK9CAKqm9Sodhjbi8Q==
-X-Received: by 2002:a05:651c:2129:b0:38c:4231:91df with SMTP id
- 38308e7fff4ca-38ec7843861mr104639501fa.10.1776947786923; Thu, 23 Apr 2026
- 05:36:26 -0700 (PDT)
+	Thu, 23 Apr 2026 12:41:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6F5C96013B;
+	Thu, 23 Apr 2026 12:41:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7ACC1C2BCAF;
+	Thu, 23 Apr 2026 12:41:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776948068;
+	bh=waRGdMVTGVjwfTHHNSZiaOBkzZauKK4J5ylDPvGMmqA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=U1gFEBpCXaCBrvHhG7Fi7ZdIDlUyoXwTmnxT4GelYwpaox6L0EHL56esiwLVXT+dp
+	 1GA+DaCiB+4RtExyiVDvFcHpcPmtlUhrG+CiRW4KjiVqzbuOqthQ/rt+qRZ6iteWsA
+	 j4AaEF7Ymnu+4hABQkBgRHqSzwwLdZOkBlGwkkK/rkYMxjI3v0FucRcYP8EQZ4hKpY
+	 zpWfu6h5qy144PW8xEtEWdUPQDKR95V+1rt+5ZUgwL19Pl2WEBZwhzakNcodTvdGRx
+	 zoxNxXja2HHMiVGcGIeP7CcMNtqg8R6hNDKuv6IzmdNYrhKw0cdaALkeGTQl/rVkvX
+	 h/3Kn1qOTRuQA==
+Date: Thu, 23 Apr 2026 13:41:03 +0100
+From: Will Deacon <will@kernel.org>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>, Mark Brown <broonie@kernel.org>,
+	Shuah Khan <shuah@kernel.org>, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 1/4] arm64: signal: Preserve POR_EL0 if poe_context is
+ missing
+Message-ID: <aeoTX_6nK6oHw5OE@willie-the-truck>
+References: <20260421144252.1440365-1-kevin.brodsky@arm.com>
+ <20260421144252.1440365-2-kevin.brodsky@arm.com>
+ <aei87MmXaEdg8YOf@willie-the-truck>
+ <693f4d7c-46f4-409b-8944-a8c9e4b5e073@arm.com>
 MIME-Version: 1.0
-References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
- <aejCaG6n9s7ak5TO@J2N7QTR9R3.cambridge.arm.com> <87zf2u28d1.ffs@tglx>
- <aekPXvvuKHKlETjm@J2N7QTR9R3.cambridge.arm.com> <87wlxy22x7.ffs@tglx>
- <c5331cd6-76c8-430d-978e-fcad164e48f6@huawei.com> <CACT4Y+bxnQyHGdVNE1BYTx+Z2-cscLb38HYS9jBM5gPAz8=4bw@mail.gmail.com>
- <1e839a25-d15f-40d3-ad6a-20469fb6137c@efficios.com>
-In-Reply-To: <1e839a25-d15f-40d3-ad6a-20469fb6137c@efficios.com>
-From: Dmitry Vyukov <dvyukov@google.com>
-Date: Thu, 23 Apr 2026 14:36:15 +0200
-X-Gm-Features: AQROBzBeN0_imLCp4YRP1WQt-rdOLNehWGA1b8A-XdhmUjECxUTrglkEDT8uDp8
-Message-ID: <CACT4Y+bMH+q2C7Xg9oHRP5ZbmvLpMpYzrdAd7B6XoXYc8=22sQ@mail.gmail.com>
-Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
- and tcmalloc everywhere
-To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>, linux-man@vger.kernel.org, 
-	Thomas Gleixner <tglx@linutronix.de>, Mark Rutland <mark.rutland@arm.com>, 
-	Mathias Stearn <mathias@mongodb.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, 
-	"Paul E. McKenney" <paulmck@kernel.org>, Chris Kennelly <ckennelly@google.com>, regressions@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@kernel.org>, 
-	Blake Oler <blake.oler@mongodb.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_053629_689380_E62853D3 
-X-CRM114-Status: GOOD (  22.91  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <693f4d7c-46f4-409b-8944-a8c9e4b5e073@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,53 +74,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Apr 2026 at 14:29, Mathieu Desnoyers
-<mathieu.desnoyers@efficios.com> wrote:
->
-> On 2026-04-23 01:53, Dmitry Vyukov wrote:
-> [...]
-> > +linux-man
+On Wed, Apr 22, 2026 at 04:55:05PM +0200, Kevin Brodsky wrote:
+> On 22/04/2026 14:19, Will Deacon wrote:
+> >> @@ -74,8 +76,12 @@ struct rt_sigframe_user_layout {
+> >>   * This state needs to be carefully managed to ensure that it doesn't cause
+> >>   * uaccess to fail when setting up the signal frame, and the signal handler
+> >>   * itself also expects a well-defined state when entered.
+> >> + *
+> >> + * The valid_fields member is a bitfield (see UA_STATE_HAS_*), specifying which
+> >> + * of the remaining fields is valid (has been set to a value).
+> >>   */
+> >>  struct user_access_state {
+> >> +	unsigned int valid_fields;
+> >>  	u64 por_el0;
+> >>  };
+> > Do you think it would be worth adding some accessors to make it easier
+> > to keep the flags in sync? For example:
 > >
-> > This part of the rseq man page needs to be fixed as well I think. The
-> > kernel no longer reliably provides clearing of rseq_cs on preemption,
-> > right?
+> > /* Stores por_el0 into uas->por_el0 and sets UA_STATE_HAS_POR_EL0 */
+> > void set_ua_state_por_el0(struct user_access_state *uas, u64 por_el0);
 > >
-> > https://git.kernel.org/pub/scm/libs/librseq/librseq.git/tree/doc/man/rseq.2#n241
->
-> I'm maintaining this manual page in librseq.
->
+> > /*
+> >  * If UA_STATE_HAS_POR_EL0, *por_el0 = uas->por_el0 and return 0.
+> >  * Otherwise, return -ENOENT.
+> >  */
+> > int get_ua_state_por_el0(struct user_access_state *uas, u64 *por_el0);
 > >
-> > "and set to NULL by the kernel when it restarts an assembly
-> > instruction sequence block,
-> > as well as when the kernel detects that it is preempting or delivering
-> > a signal outside of the range targeted by the rseq_cs."
->
-> I think you got two things confused here.
->
-> 1) There is currently a bug on arm64 where it fails to honor the
->     rseq ABI contract wrt critical section abort. AFAIU there is a
->     fix proposed for this.
->
-> 2) Thomas relaxed the implementation of cpu_id_start field updates
->     so it only stores to the rseq area when the current cpu actually
->     changes (migration).
->
-> So AFAIU the statement in the man page is still fine. It's just arm64
-> that needs fixing.
+> > WDYT?
+> 
+> I did get a feeling having helpers would be a good idea. I wonder if
+> getters/setters aren't a bit overkill though, as they make accesses to
+> the struct more cumbersome and we'd need a pair for every member (unless
+> we use some macro magic).
 
+We only have one struct member, so it's probably fine for now, and we
+could group related members together in sub-structures to help in future.
+But it's up to you -- I don't feel strongly about it, but requiring the
+caller to update the flag manually is going to be a bug magnet.
 
-My understanding was that due to the ev->user_irq check here:
+> Maybe it would be sufficient to have say
+> ua_state_has_field(POR_EL0) to check if the bit is set, and
+> ua_state_set_field_valid(POR_EL0) to set the bit?
 
-+static __always_inline void rseq_sched_switch_event(struct task_struct *t)
-...
-+               bool raise = (ev->user_irq | ev->ids_changed) & ev->has_rseq;
-+
-+               if (raise) {
-+                       ev->sched_switch = true;
-+                       rseq_raise_notify_resume(t);
-+               }
+I don't think that really helps with my concern. I'd like to avoid callers
+having to remember to deal with the flags when they update the data.
 
-There won't be any rseq-related processing for threads preempted in
-syscalls, which means that rseq_cs won't be NULLed for threads
-preempted inside of syscalls.
+Will
 
