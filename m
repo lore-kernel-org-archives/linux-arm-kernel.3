@@ -4,124 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8555F589D4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 13:44:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49E17F589D4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 13:44:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
-	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xd0UHFP1ZE/nb/myoyLJa+WYNKpg4XG8PdpKOXq78eM=; b=J/RZyd53BCSS0s/WA1h7eiJYGG
-	Ps4jywuKJ23VUdqVycek2imwdWGhBG4E35e4kDTEtRFKmyfPP8R7y+Eg2F3qa4wGya4RRgXD7vBPF
-	+ntMsDQ8vKzHnRZsEzY1fiRtchu6Vl+6mkyqVGCs6MggFlG+PInFATi9nqT2sR7z5E+By4f8/ak3w
-	0rEi9oFa0WaArCFG6DfRDXBrQsLA/QWZj03gsDJdxWRjp7UjED/TxQqpIM07HJ5Ls82pzGCFWsg31
-	binXjVMM3vKPoky6ZgQaBTq6CYS24GH9a25Lz7IvPuAxi4H1FER8hjcoVyc1/cjbxRSKVq3n7DxWO
-	G3AGt+WQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eCOUmyCYGwEY2Foet02Vaww9vNupcZt1d3Ifp8xNNkw=; b=c+N9whbqWXLT2OhlGtV6Ivb0hp
+	H86YLduCsbP/69NVjfBZnFR0Yevui/pHdP8QIWbsJZnIHtsNKjO4pyru31zBZ0hcpk6z/atLffOSM
+	fcjOfWqUnUAA8vJx1aTyOdvsfBmMuU8ZHJ16LRgyN+6Ofus6TtidixyFnJS2vrlX8necLn1pHT2MP
+	MlAVTRSwVE4RFMrMgdXIZ7n/m09tcImBdzWBHl04cbr+5vzKSFMkXT878w98JdE8ADVRA1flKFtrM
+	OzOHtyGjmJVkfVz8H3lcVgpw2dNl3ww+xRg7Dx2FbSqwBMj/iE8l/acydW9JJ7v7a4zzGswg1pfQW
+	xZIOj4zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFuLh-0000000BlS9-1gw7;
-	Thu, 23 Apr 2026 13:44:09 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wFuME-0000000BlXS-0sJM;
+	Thu, 23 Apr 2026 13:44:42 +0000
+Received: from mail.hugovil.com ([162.243.120.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFuLc-0000000BlRh-0kGv
+	id 1wFuMB-0000000BlWb-2HIX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 13:44:08 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63N6ooMu3229044;
-	Thu, 23 Apr 2026 13:43:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=xd0UHF
-	P1ZE/nb/myoyLJa+WYNKpg4XG8PdpKOXq78eM=; b=FH+DTb1Hk/HLZ5IX+0nwww
-	PHxw7sDsX/bbBxrkX5qSA3anbsGJLf6sCLQUIyxugSg37D3jvWYISa6c4XQiDYvy
-	xNSYtGos9QBXkERsiJq9rme5GAWeLtzfcGBiYLPiWhDpgroMnMwSX0Z5GpBjgtVu
-	Mc5akUizT8x/tk8/kYfGt8PusUb9nv4KPsoTexqoVo+KZ9zG5WGbnZuC+Kg7qTaa
-	BG0rtdlYUtWK0AxtSrSxyGJ3X7CxgSwkdHNe4ErykTBdnbxjs418I+N5CXAlTJYt
-	lvR76v56AwAYfJsdE/4RWFyFzECN6VFS/mYSWSrdA6CtvtPLM+0r0suTZNQLMm5A
-	==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dpeu28wgr-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 23 Apr 2026 13:43:48 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63NDZO0C003099;
-	Thu, 23 Apr 2026 13:43:47 GMT
-Received: from smtprelay02.dal12v.mail.ibm.com ([172.16.1.4])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dpjkyetdt-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 23 Apr 2026 13:43:47 +0000 (GMT)
-Received: from smtpav05.wdc07v.mail.ibm.com (smtpav05.wdc07v.mail.ibm.com [10.39.53.232])
-	by smtprelay02.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63NDhkfS15204980
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 23 Apr 2026 13:43:46 GMT
-Received: from smtpav05.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 35EE858053;
-	Thu, 23 Apr 2026 13:43:46 +0000 (GMT)
-Received: from smtpav05.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E803A58043;
-	Thu, 23 Apr 2026 13:43:43 +0000 (GMT)
-Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.20.220])
-	by smtpav05.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 23 Apr 2026 13:43:43 +0000 (GMT)
-Message-ID: <bd908e28298d968740d03c97bc7e441de188b7b4.camel@linux.ibm.com>
-Subject: Re: [RFC PATCH v2 1/4] security: ima: call ima_init() again at
- late_initcall_sync for defered TPM
-From: Mimi Zohar <zohar@linux.ibm.com>
-To: Jonathan McDowell <noodles@earth.li>, Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        kvmarm@lists.linux.dev, paul@paul-moore.com, jmorris@namei.org,
-        serge@hallyn.com, roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
-        eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
-        sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
-        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-        catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
-        sebastianene@google.com
-In-Reply-To: <aeoWO2Cwo04YYu2l@earth.li>
-References: <20260422162449.1814615-1-yeoreum.yun@arm.com>
-	 <20260422162449.1814615-2-yeoreum.yun@arm.com>
-	 <6919248bdc85dac60277fa9d9c83d8bd258ca635.camel@linux.ibm.com>
-	 <aekXaU52fzvNYaUF@e129823.arm.com> <aekkVQwueKbFtG7C@e129823.arm.com>
-	 <82803bb3b471898a77084c449b73c7f7b4eb2149.camel@linux.ibm.com>
-	 <aem0SSQuE1e3pGOS@e129823.arm.com>
-	 <56a8aab50a3b5ce0a345fc2079fb2abc7d0f1b23.camel@linux.ibm.com>
-	 <aeoAlVEwzRUPrlVe@e129823.arm.com> <aeoRxWPyOHGJd+Jh@e129823.arm.com>
-	 <aeoWO2Cwo04YYu2l@earth.li>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Thu, 23 Apr 2026 09:43:43 -0400
-MIME-Version: 1.0
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: VLk680LfBuWU4MevutP832_aGjpXtcSO
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIzMDEzMiBTYWx0ZWRfX1SRS9jK1yggO
- X77pyH0zDuAwUvEo5aO+nYKfstVA3eSbLhWbqPYgKOevRXLGOe5S2U/gSU8MZfbcX6gpnQxVLD9
- 1OAvLBDiaZrXjSArGCv7VSfIfae7PWgrhLdt2cK9/zO2W9zApRoFZ8amAEPSNcPECUj8cNbMVmJ
- 0ePoPNmlz3hvXtCAtfLm0qF03F432IZsQH6jnOazTFXCn2XutmBjt3evzKFc7p9k89bxOlYb3Fw
- AY3Pw0w6cxtOoMB+hBEk4WySVSQNdjqO2ACFsO8R3OkOX9Nb+u/gtAbVFEqumANDg50ZXhgweGd
- kJRpSEyLEMxkkB3tNZpZ7PW2iri4LnfS1AMWKKHmUy9VAl4frVAZVN8WCjahQA1hhz+BZq4b7R3
- lQxB/emfoYcLCvspVPPseJ8lAsZv2/+O6b12a8cFw7NY9kFRmqtUvqh2SVAFgkbV/bXCXGEiLjz
- klORdMEueANPVYuURWw==
-X-Authority-Analysis: v=2.4 cv=C8LZDwP+ c=1 sm=1 tr=0 ts=69ea2215 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=7CQSdrXTAAAA:8
- a=4FW480EdQVPiPFE7CngA:9 a=QEXdDO2ut3YA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-ORIG-GUID: 2Vy1Wxh-GJVQo-0D4VxrtFTAzJHLMVrq
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-23_03,2026-04-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 suspectscore=0 priorityscore=1501 malwarescore=0
- lowpriorityscore=0 clxscore=1015 bulkscore=0 impostorscore=0 spamscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
- definitions=main-2604230132
+	Thu, 23 Apr 2026 13:44:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
+	; s=default; h=Content-Transfer-Encoding:Mime-Version:Message-Id:Subject:Cc:
+	To:From:Date:subject:date:message-id:reply-to;
+	bh=eCOUmyCYGwEY2Foet02Vaww9vNupcZt1d3Ifp8xNNkw=; b=d26QQlDYWJoWUhW2tmX2Wu4+ha
+	PAd6/1EFB725wzjU4Q149FqJva95gemdkRf0j1Wxy86auHIuqQuXEw/+UakW3lnOvNX390Ltqu3o5
+	tktfeLKqQ4weibtcH8bqb2+6lA3ZXv5608bVdrvzSP9kCggg5q63B1E9xkltvkIt2W00=;
+Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168] helo=pettiford.lan)
+	by mail.hugovil.com with esmtpa (Exim 4.98.2)
+	(envelope-from <hugo@hugovil.com>)
+	id 1wFuLv-000000003ju-1JAI;
+	Thu, 23 Apr 2026 09:44:23 -0400
+Date: Thu, 23 Apr 2026 09:44:22 -0400
+From: Hugo Villeneuve <hugo@hugovil.com>
+To: Hugo Villeneuve <hugo@hugovil.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
+ simona@ffwll.ch, Frank.Li@nxp.com, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, shawnguo@kernel.org,
+ laurent.pinchart+renesas@ideasonboard.com, antonin.godard@bootlin.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, Hugo Villeneuve
+ <hvilleneuve@dimonoff.com>
+Subject: Re: [PATCH v2 00/15] var-som-6ul: improve support for variants
+Message-Id: <20260423094422.09206dc0166d30af36c8b87d@hugovil.com>
+In-Reply-To: <20260305180651.1827087-1-hugo@hugovil.com>
+References: <20260305180651.1827087-1-hugo@hugovil.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Spam_score: -2.0
+X-Spam_bar: --
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_064404_229467_D003C945 
-X-CRM114-Status: GOOD (  57.11  )
+X-CRM114-CacheID: sfid-20260423_064439_679029_649D3385 
+X-CRM114-Status: GOOD (  27.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,179 +80,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2026-04-23 at 13:53 +0100, Jonathan McDowell wrote:
-> On Thu, Apr 23, 2026 at 01:34:13PM +0100, Yeoreum Yun wrote:
-> > > > On Thu, 2026-04-23 at 06:55 +0100, Yeoreum Yun wrote:
-> > > > > > On Wed, 2026-04-22 at 20:41 +0100, Yeoreum Yun wrote:
-> > > > > > > > Hi Mimi,
-> > > > > > > >=20
-> > > > > > > > > On Wed, 2026-04-22 at 17:24 +0100, Yeoreum Yun wrote:
-> > > > > > > > > > To generate the boot_aggregate log in the IMA subsystem=
- with TPM PCR values,
-> > > > > > > > > > the TPM driver must be built as built-in and
-> > > > > > > > > > must be probed before the IMA subsystem is initialized.
-> > > > > > > > > >=20
-> > > > > > > > > > However, when the TPM device operates over the FF-A pro=
-tocol using
-> > > > > > > > > > the CRB interface, probing fails and returns -EPROBE_DE=
-FER if
-> > > > > > > > > > the tpm_crb_ffa device =E2=80=94 an FF-A device that pr=
-ovides the communication
-> > > > > > > > > > interface to the tpm_crb driver =E2=80=94 has not yet b=
-een probed.
-> > > > > > > > > >=20
-> > > > > > > > > > To ensure the TPM device operating over the FF-A protoc=
-ol with
-> > > > > > > > > > the CRB interface is probed before IMA initialization,
-> > > > > > > > > > the following conditions must be met:
-> > > > > > > > > >=20
-> > > > > > > > > >    1. The corresponding ffa_device must be registered,
-> > > > > > > > > >       which is done via ffa_init().
-> > > > > > > > > >=20
-> > > > > > > > > >    2. The tpm_crb_driver must successfully probe this d=
-evice via
-> > > > > > > > > >       tpm_crb_ffa_init().
-> > > > > > > > > >=20
-> > > > > > > > > >    3. The tpm_crb driver using CRB over FF-A can then
-> > > > > > > > > >       be probed successfully. (See crb_acpi_add() and
-> > > > > > > > > >       tpm_crb_ffa_init() for reference.)
-> > > > > > > > > >=20
-> > > > > > > > > > Unfortunately, ffa_init(), tpm_crb_ffa_init(), and crb_=
-acpi_driver_init() are
-> > > > > > > > > > all registered with device_initcall, which means crb_ac=
-pi_driver_init() may
-> > > > > > > > > > be invoked before ffa_init() and tpm_crb_ffa_init() are=
- completed.
-> > > > > > > > > >=20
-> > > > > > > > > > When this occurs, probing the TPM device is deferred.
-> > > > > > > > > > However, the deferred probe can happen after the IMA su=
-bsystem
-> > > > > > > > > > has already been initialized, since IMA initialization =
-is performed
-> > > > > > > > > > during late_initcall, and deferred_probe_initcall() is =
-performed
-> > > > > > > > > > at the same level.
-> > > > > > > > > >=20
-> > > > > > > > > > To resolve this, call ima_init() again at late_inicall_=
-sync level
-> > > > > > > > > > so that let IMA not miss TPM PCR value when generating =
-boot_aggregate
-> > > > > > > > > > log though TPM device presents in the system.
-> > > > > > > > > >=20
-> > > > > > > > > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > > > > > > > >=20
-> > > > > > > > > A lot of change for just detecting whether ima_init() is =
-being called on
-> > > > > > > > > late_initcall or late_initcall_sync(), without any explan=
-ation for all the other
-> > > > > > > > > changes (e.g. ima_init_core).
-> > > > > > > > >=20
-> > > > > > > > > Please just limit the change to just calling ima_init() t=
-wice.
-> > > > > > > >=20
-> > > > > > > > My concern is that ima_update_policy_flags() will be called
-> > > > > > > > when ima_init() is deferred -- not initialised anything.
-> > > > > > > > though functionally, it might be okay however,
-> > > > > > > > I think ima_update_policy_flags() and notifier should work =
-after ima_init()
-> > > > > > > > works logically.
-> > > > > > > >=20
-> > > > > > > > This change I think not much quite a lot. just wrapper ima_=
-init() with
-> > > > > > > > ima_init_core() with some error handling.
-> > > > > > > >=20
-> > > > > > > > Am I missing something?
-> > > > > > >=20
-> > > > > > > Also, if we handle in ima_init() only, but it failed with oth=
-er reason,
-> > > > > > > we shouldn't call again ima_init() in the late_initcall_sync.
-> > > > > > >=20
-> > > > > > > To handle this, It wouldn't do in the ima_init() but we need =
-to handle
-> > > > > > > it by caller of ima_init().
-> > > > > >=20
-> > > > > > Only tpm_default_chip() is being called to set the ima_tpm_chip=
-.  On failure,
-> > > > > > instead of going into TPM-bypass mode, return immediately.  The=
-re are no calls
-> > > > > > to anything else.  Just call ima_init() a second time.
-> > > > >=20
-> > > > > I=E2=80=99m not fully convinced this is sufficient.
-> > > > >=20
-> > > > > What I meant is the case where ima_init() fails due to other
-> > > > > initialisation steps, not only tpm_default_chip() (e.g. ima_fs_in=
-it()).
-> > > >=20
-> > > > The purpose of THIS patch is to add late_initcall_sync, when the TP=
-M is not
-> > > > available at late_initcall.  This would be classified as a bug fix =
-and would be
-> > > > backported.  No other changes should be included in this patch.
-> > >=20
-> > > Okay.
-> > >=20
-> > > > >=20
-> > > > > I=E2=80=99d also like to ask again whether it is fine to call
-> > > > > ima_update_policy_flags() and keep the notifier registered in the
-> > > > > deferred TPM case. While this may be functionally acceptable, it =
-seems
-> > > > > logically questionable to do so when ima_init() has not completed=
-.
-> > > >=20
-> > > > Other than extending the TPM, IMA should behave exactly the same wh=
-ether there
-> > > > is a TPM or goes into TPM-bypass mode.
-> > > >=20
-> > > > >=20
-> > > > > There is also a possibility that a deferred case ultimately fails=
- (e.g.
-> > > > > deferred at late_initcall, but then failing at late_initcall_sync
-> > > > > for another reason, even while entering TPM bypass mode). In that=
- case,
-> > > > > it seems more appropriate to handle this state in the caller of
-> > > > > ima_init(), rather than inside ima_init() itself.
-> > > >=20
-> > > > If the TPM isn't found at late_initcall_sync(), then IMA should go =
-into TPM-
-> > > > bypass mode.  Please don't make any other changes to the existing I=
-MA behavior
-> > > > and hide it here behind the late_initcall_sync change.
-> > >=20
-> > > Okay. you're talking called ima_update_policy_flags() at late_initcal=
-l
-> > > wouldn't be not a problem even in case of late_initcall_sync's ima_in=
-it()
-> > > get failed with "TPM-bypass mode".
-> > >=20
-> > > I see then, I'll make a patch simpler then.
-> >=20
-> > But I think in case of below situation:
-> >  - late_initcall's first ima_init() is deferred.
-> >  - late_initcall_sync try again but failed and try again with
-> >    CONFIG_IMA_DEFAULT_HASH.
-> >=20
-> > I would like to sustain init_ima_core to reduce the same code repeat
-> > in late_initcall_sync.
->=20
-> I think what Mimi's proposing is:
->=20
-> If we're in late_initcall, and the TPM isn't available, return=20
-> immediately with an error (the EPROBE_DEFER?), don't do any init.
->=20
-> If we're in late_initcall_sync, either we're already initialised, so do=
-=20
-> return and nothing, or run through the entire flow, even if the TPM=20
-> isn't unavailable.
->=20
-> So ima_init() just needs to know a) if it's in the sync or non-sync mode=
-=20
-> and b) for the sync mode, if we've already done the init at
-> non-sync.
+On Thu,  5 Mar 2026 13:06:15 -0500
+Hugo Villeneuve <hugo@hugovil.com> wrote:
 
-Thanks, Jonathan.  That is exactly what I'm suggesting.  Any other changes
-should not be included in this patch.  Since Yeoreum is not hearing me, fee=
-l
-free to post a patch.
+> From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+> 
+> Hello,
+> this patch series improves support for Variscite VAR-SOM-6UL based boards.
 
-Mimi
+Hi,
+simple ping to know if anything is missing for this series to be
+applied/picked-up?
+
+Hugo.
+
+
+> 
+> The first two patches fix DT/dmesg warnings.
+> 
+> The next patches fix the incorrect use of VAR-SOM-MX6UL to refer to the
+> VAR-SOM-6UL.
+> 
+> The next patches add support for the imx6ull CPU variant of the VAR-SOM-6UL.
+> 
+> Then improves/fixes the following features/options that are currently not
+> working on the concerto EVK board:
+>   - ethernet ports ENET1
+>   - LVDS display panel
+>   - Wifi/Bt
+> 
+> Note that the previous configuration of the optional Wifi/Bluetooth module
+> was copied from the original Variscite kernel tree, and required custom
+> shell scripts to properly configure the Wifi/Bluetooth module.
+> 
+> Also factor out optional features into separate DTSI include files, so it will
+> be easier to support them for other boards, and to make sure they are not
+> unconditionnally enabled.
+> 
+> I have tested these changes on a Variscite concerto EVK board using a
+> VAR-SOM-6UL with the following options:
+>   - EC (ethernet phy on SOM)
+>   - LD (LVDS encoder assembled on SOM)
+>   - WBD (Wi-Fi 802.11 ac/a/b/g/n and Bluetooth 5.2/BLE on SOM)
+> Result of tests:
+>   - Both ethernet ports Ok
+>   - LVDS display panel Ok
+>   - Wifi/Bt Ok
+> 
+> Also tested on a custom board with a VAR-SOM-6UL SOM (will be submitted in
+> a future series).
+> 
+> Thank you.
+> 
+> Link: [v1] https://lore.kernel.org/all/20260302190953.669325-1-hugo@hugovil.com/
+> 
+> Changes for v2:
+> - Place imx6ull-var-som-concerto.dtb in alphabetical order (Frank)
+> - s/include/dtsi in commit msgs (Frank)
+> - Clarify and improve patches to change VAR-SOM-MX6UL (Krzysztof)
+> - Collect tags for some acked patches (Krzysztof)
+> - Reorder pinctrl_gpio_leds in separate patch (Frank)
+> - Improve git commit messages ((Frank)/Krzysztof)
+> 
+> Hugo Villeneuve (15):
+>   ARM: dts: imx6ul-var-som: fix warning for non-existent dc-supply
+>     property
+>   ARM: dts: imx6ul-var-som: fix warning for boolean property with a
+>     value
+>   ARM: dts: imx6ul-var-som: change incorrect VAR-SOM-MX6UL references
+>   dt-bindings: arm: fsl: change incorrect VAR-SOM-MX6UL references
+>   dt-bindings: arm: fsl: add variscite,var-som-imx6ull
+>   ARM: dts: imx6ul-var-som: Factor out common parts for all CPU variants
+>   ARM: dts: imx6ul-var-som-concerto: Factor out common parts for all CPU
+>     variants
+>   ARM: dts: imx6ul-var-som-concerto: order DT properties
+>   ARM: dts: imx6ul-var-som: factor out SD card support
+>   ARM: dts: imx6ul-var-som: add proper Wifi and Bluetooth support
+>   ARM: dts: imx6ul-var-som: factor out ENET2 ethernet support
+>   ARM: dts: imx6ul-var-som: add support for EC configuration option
+>     (ENET1)
+>   ARM: dts: imx6ul-var-som: factor out audio support
+>   dt-bindings: display/lvds-codec: add ti,sn65lvds93
+>   ARM: dts: imx6ul-var-som: add support for LVDS display panel
+> 
+>  .../devicetree/bindings/arm/fsl.yaml          |   8 +-
+>  .../bindings/display/bridge/lvds-codec.yaml   |   1 +
+>  arch/arm/boot/dts/nxp/imx/Makefile            |   3 +
+>  .../dts/nxp/imx/imx6ul-var-som-audio.dtsi     |  30 ++
+>  ...ar-som.dtsi => imx6ul-var-som-common.dtsi} | 140 +++-----
+>  ...ts => imx6ul-var-som-concerto-common.dtsi} | 159 ++-------
+>  .../nxp/imx/imx6ul-var-som-concerto-full.dts  |  22 ++
+>  .../dts/nxp/imx/imx6ul-var-som-concerto.dts   | 318 +-----------------
+>  .../dts/nxp/imx/imx6ul-var-som-enet1.dtsi     |  44 +++
+>  .../dts/nxp/imx/imx6ul-var-som-enet2.dtsi     |  79 +++++
+>  .../nxp/imx/imx6ul-var-som-lvds-panel.dtsi    | 112 ++++++
+>  .../boot/dts/nxp/imx/imx6ul-var-som-sd.dtsi   |  27 ++
+>  .../boot/dts/nxp/imx/imx6ul-var-som-wifi.dtsi |  75 +++++
+>  arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi | 219 +-----------
+>  .../nxp/imx/imx6ull-var-som-concerto-full.dts |  22 ++
+>  .../dts/nxp/imx/imx6ull-var-som-concerto.dts  |  21 ++
+>  .../arm/boot/dts/nxp/imx/imx6ull-var-som.dtsi |  36 ++
+>  17 files changed, 575 insertions(+), 741 deletions(-)
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-audio.dtsi
+>  copy arch/arm/boot/dts/nxp/imx/{imx6ul-var-som.dtsi => imx6ul-var-som-common.dtsi} (60%)
+>  copy arch/arm/boot/dts/nxp/imx/{imx6ul-var-som-concerto.dts => imx6ul-var-som-concerto-common.dtsi} (50%)
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet1.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet2.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-lvds-panel.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-sd.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-wifi.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som.dtsi
+> 
+> 
+> base-commit: c107785c7e8dbabd1c18301a1c362544b5786282
+> -- 
+> 2.47.3
+> 
+> 
+
+
+-- 
+Hugo Villeneuve
 
