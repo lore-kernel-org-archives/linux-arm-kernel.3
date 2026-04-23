@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A0CEFC0340
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 15:30:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97E93FC0340
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 15:30:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=De8SGTzM/STU2PIqIjMSOyM2w12A70icmYWG5ZPyASE=; b=IMmkyaNTAJ4lXaxqiForTPXYso
-	t5BkUhjSoThjXai39ML6y2lTcCcgzKGRPBef1KFyplbqjB2b0Kls5wMH7zu6OJjXYYx0sJel7IhpF
-	wL6pZBYKpOyBd5+PCnFVuHXy0x6kR23PiaKK93t3eU6fOhGrRSCJHQHyy0rhL7HwCOODPU87ivRQq
-	X10GGUWNY/bGU85DdgjdMIdpTNQ7Skdm90GcR4YcIPuKYCSQo9zxrNcD2eq1p06RI2kcZ6CqGs84Y
-	TIgfz33YjKCyRwMIC226dYAg5f6pKzueSGz76tkKLyLXIdscqFSMX5N38teoCFvhk+Z5dBfrZzuKF
-	pskBh2yQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oydNtzEt1LRjUCLvgYcUpXfY0tX3l6IxOyq6rWlJJdo=; b=Qh53B91L60q/OFbP1rhCX59pCT
+	VALr6+ij8dSXb+7XlVt1uGwawZuMd4YRrUKPzP6AjLwJmVfzI4YqctcvKUcLvZWu08zHaJ0yq5Sm5
+	tJgB3NlPYQ1Fy4dxcBCinzKlRUhC3BMZNCTY5dMSWkAbfKHqmXlzbNz15cwJV2i2t2cHpT5CAaqBB
+	Vkx+VjQv9/HAqPD+yDWFvVV82s8cRTWDd8sdPfppwYHCsKED4h9lDtQXtAORYcHGTFQuOiWyBRhMl
+	wbxnraIhzLjjwHiMPMpgE24Vfs3aNIowghw0lpfJSIdIITsMJi7IPRAm7qUTzsDKC7T9zA4VqpUHu
+	H9FfXIsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFw01-0000000Btqz-2h7R;
-	Thu, 23 Apr 2026 15:29:54 +0000
-Received: from courrier.aliel.fr ([65.21.61.41])
+	id 1wFw0Q-0000000Btxx-0ZQs;
+	Thu, 23 Apr 2026 15:30:18 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFvzz-0000000Btq8-04Sm;
-	Thu, 23 Apr 2026 15:29:52 +0000
-Message-ID: <9ac4db6a-b668-4e56-b940-dfb542086b39@aliel.fr>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1776958185;
-	bh=BuFMoJ0ysYsrcKqnLlo60KQAjjDHrnpC5kQCUcwHtB0=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To;
-	b=nDVJQ1AjCE5OlTV9ohw+s+40v3OWIxomoHihxxmKa33UWuI4CKmMPxIRrcc+qoTtr
-	 MRafIrq7kiIn0mv+CjEkY4sx+kF/ymbOedcAFtood2+89njXRcH4XIqMUVbaWPC5PJ
-	 +TqSnU2f6xdrIxnp2Ut4ZRt7cw3p8hKAmrHyW1y8=
-Date: Thu, 23 Apr 2026 17:29:43 +0200
+	id 1wFw0N-0000000Btv4-1VFT
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Apr 2026 15:30:17 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=oydNtzEt1LRjUCLvgYcUpXfY0tX3l6IxOyq6rWlJJdo=;
+	b=37q95/+1nlLp3jCnWSxNBxI7X3Ux/WOIlxCYN/IpE0ms42+MsvkTC26OGhAPPIGJXUWIA6XLB
+	J3usBkINMN1/sVpfXiIzFah0lryRjO9zIrVBIiynfS/uDvZETEix7ml3RuLHW5u7lGyTrTCma0d
+	8Gj9fnaWf4mMDOFuH5Q9pG8=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4g1fxj15BHzRhR4;
+	Thu, 23 Apr 2026 23:23:37 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 8333740571;
+	Thu, 23 Apr 2026 23:30:00 +0800 (CST)
+Received: from kwepemn100008.china.huawei.com (7.202.194.111) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 23 Apr 2026 23:30:00 +0800
+Received: from localhost.huawei.com (10.90.31.46) by
+ kwepemn100008.china.huawei.com (7.202.194.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Thu, 23 Apr 2026 23:29:59 +0800
+From: Yushan Wang <wangyushan12@huawei.com>
+To: <will@kernel.org>, <mark.rutland@arm.com>, <robin.murphy@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <fanghao11@huawei.com>, <linuxarm@huawei.com>, <liuyonglong@huawei.com>,
+	<prime.zeng@hisilicon.com>, <wangzhou1@hisilicon.com>,
+	<wangyushan12@huawei.com>
+Subject: [PATCH 0/2] drivers/perf: hisi: Updates for HiSilicon uncore PMUs
+Date: Thu, 23 Apr 2026 23:29:57 +0800
+Message-ID: <20260423152959.1458563-1-wangyushan12@huawei.com>
+X-Mailer: git-send-email 2.33.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-Subject: Re: [PATCH v3 4/8] thermal: amlogic: Add support for secure monitor
- calibration readout
-To: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
-Cc: linux-pm@vger.kernel.org, linux-amlogic@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Guillaume La Roque <glaroque@baylibre.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-References: <20260421-add-thermal-t7-vim4-v3-0-a2e7215ed003@aliel.fr>
- <20260421-add-thermal-t7-vim4-v3-4-a2e7215ed003@aliel.fr>
- <7aaa7873-9274-48d8-a6fe-cff4239b03b4@oss.qualcomm.com>
- <19d70883-21db-4963-841d-7c00505e0d9e@aliel.fr>
- <8a4dcb94-ab88-4559-9027-49308ad02b73@oss.qualcomm.com>
-Content-Language: en-US
-In-Reply-To: <8a4dcb94-ab88-4559-9027-49308ad02b73@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.31.46]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemn100008.china.huawei.com (7.202.194.111)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_082951_513446_BF904528 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20260423_083016_244540_BF4C3D1D 
+X-CRM114-Status: UNSURE (   7.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,114 +82,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/23/26 5:17 PM, Daniel Lezcano wrote:
-> On 4/23/26 17:09, Ronald Claveau wrote:
->> Hi Daniel,
->>
->> Thanks for your feedback.
->>
->> On 4/23/26 12:25 PM, Daniel Lezcano wrote:
->>>
->>> Hi Ronald,
->>>
-> 
-> function1() {
-> 
-> 
->>>> +    if (pdata->data->use_sm) {
->>>> +        struct device_node *sm_np;
->>>> +        struct of_phandle_args ph_args;
->>>> +
->>>> +        ret = of_parse_phandle_with_fixed_args(pdev->dev.of_node,
->>>> +                               "amlogic,secure-monitor",
->>>> +                               1, 0, &ph_args);
->>>> +        if (ret)
->>>> +            return ret;
->>>> +
->>>> +        sm_np = ph_args.np;
->>>> +        if (!sm_np) {
->>>> +            dev_err(dev,
->>>> +                "Failed to parse secure monitor phandle\n");
->>>> +            return -ENODEV;
->>>> +        }
->>>> +
->>>> +        pdata->sm_fw = meson_sm_get(sm_np);
->>>> +        of_node_put(sm_np);
->>>> +        if (!pdata->sm_fw) {
->>>> +            dev_err(dev, "Failed to get secure monitor firmware\n");
->>>> +            return -EPROBE_DEFER;
->>>> +        }
->>>> +
->>>> +        pdata->tsensor_id = ph_args.args[0];
->>>> +    } 
-> 
-> }
-> 
-> function2() {
-> 
-> else {
->>>> +        pdata->sec_ao_map = syscon_regmap_lookup_by_phandle
->>>> +            (pdev->dev.of_node, "amlogic,ao-secure");
->>>> +        if (IS_ERR(pdata->sec_ao_map)) {
->>>> +            dev_err(dev, "syscon regmap lookup failed.\n");
->>>> +            return PTR_ERR(pdata->sec_ao_map);
->>>> +        }
->>>>        }
-> 
-> }
-> 
->> Sure, I will do that.
->>
->>>>        pdata->tzd = devm_thermal_of_zone_register(&pdev->dev
->>>
->>> The thermal zone is registered before calling
->>> amlogic_thermal_initialize(), thus pdata->trim_info is not initialized.
->>> When a thermal zone is registered the thermal framework reads the
->>> temperature, so it reads an invalid value because:
->>>
->>> devm_thermal_of_zone_register()
->>>   -> thermal_of_zone_register()
->>>     -> thermal_zone_device_register_with_trips()
->>>     -> thermal_zone_device_enable()
->>>        -> __thermal_zone_device_update()
->>>          -> __thermal_zone_get_temp()
->>>            -> amlogic_thermal_get_temp()
->>>               -> amlogic_thermal_code_to_millicelsius()
->>>                   [ Use of uninitialized pdata->trim_info ]
->>>
->>> Right ?
->>>
->>
->> Yes, I will move the initialize before the register.
->>
->>> IIUC, amlogic_thermal_initialize() can be also split and moved the
->>> corresponding blocks to the functions to be created in the comment
->>> above.
->>>
->>
->> The SM and syscon setup will be extracted into two functions.
->> amlogic_thermal_initialize() itself is kept as-is but moved before
->> devm_thermal_of_zone_register().
->> Let me know if you'd prefer a different approach.
-> 
-> In the initialize function the following chunk is added:
-> 
-> +    if (pdata->data->use_sm) {
-> +        return meson_sm_get_thermal_calib(pdata->sm_fw,
-> +                          &pdata->trim_info,
-> +                          pdata->tsensor_id);
-> +    }
-> 
-> I was suggesting to move it to function1() and the rest of code from
-> initialize in function2()
-> 
-> That results in amlogic_thermal_initialize() to be dissolved in
-> function1() and function2()
-> 
+This patchset added support of ITS PMU, and new version of MN PMU.
 
-Thanks for your answer, that was my second option, I will do that.
+ITS PMU supports counting number and latency of interrupts by catagory,
+and statistics of micro-ops of ITS.
+
+The new version of MN PMU added cycles event, to be used for MN metric
+computing.
+
+Yifan Wu (1):
+  drivers/perf: hisi: Add new function for HiSilicon MN PMU driver
+
+Yushan Wang (1):
+  drivers/perf: hisi: Support uncore ITS PMU
+
+ Documentation/admin-guide/perf/hisi-pmu.rst  |   6 +
+ drivers/perf/hisilicon/Makefile              |   2 +-
+ drivers/perf/hisilicon/hisi_uncore_its_pmu.c | 365 +++++++++++++++++++
+ drivers/perf/hisilicon/hisi_uncore_mn_pmu.c  |  61 +++-
+ 4 files changed, 427 insertions(+), 7 deletions(-)
+ create mode 100644 drivers/perf/hisilicon/hisi_uncore_its_pmu.c
 
 -- 
-Best regards,
-Ronald
+2.33.0
+
 
