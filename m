@@ -4,92 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E34C5F9937D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 12:04:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BF34F9937B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 12:05:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LZ6eAskc0SjvK0cbtp0eTdGWooXU74WxP4QkBVjTPwI=; b=MHZ3wFQ4gkzglXOJ4Pr1KHitrQ
-	rZ1VsQrX1vXT9EARVyZuZIgO8reaRwVI2ggVwx8YxLQwzu7dc4H1lh7tOKxNWAkUa9+/sdjBFw/i1
-	2EQhP3HkWAvpmBcrlOmLdILdflg4kql5WMY1shqTDbXgr4l6+Ry4Vepu+7gAFg2eWs/Xj6x4HSzlH
-	LpXcgHggBE0SSvwINgs8OywUxHPkN82aRyxCeaeXDDtO0ByhEKfE2HWL/CI7ZeRWCK/2FqJPbZ5MG
-	+Q5O/zB3eZjsQsCG0y7V0SWsKqzVSPizs1v/cADjHwZmFUKt9+Q5TTL6bmDMJy8lDCGUPBoGql1hl
-	Teh3JA2A==;
+	bh=dQtSUg7vaMSw/HEBIfOQe1UK7n9zLBFtXbbH3OgDn9I=; b=pL61rpwiFMeKBdX4YOJVKn+com
+	KMyYq0vkkbxthALJQyXMgvKGvl+bcTfZV4DVG5RGAYyjL2hkauzxrqiWEregQeCv8Nk10+jk3i1xy
+	M+0hMo2uP844m5bPyJG1KHw0K9Y3m2GIyTYeUJnh4N47BVafmbs0/XGfzdjBvh1hhjA25Lhh5CfYt
+	/iT1JQ7L52eUqQosI3eZ9T2nfJa70rSNx7AFROruRD27NjmL47Kvs9wl/WcH4oqm1e5InK6fpqd8x
+	VKtzJTDLzD0WFkkpldpX0nG92avaKf4pmhvoYYmqQSITrwVG8RJrxF1+jtgmfrJD7y6rSaJOfRrMh
+	95FOTZeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFsn2-0000000Ba5M-2RWX;
-	Thu, 23 Apr 2026 12:04:16 +0000
-Received: from mout-p-102.mailbox.org ([80.241.56.152])
+	id 1wFsoZ-0000000BaEP-0C1y;
+	Thu, 23 Apr 2026 12:05:51 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFsmw-0000000Ba4y-1peD
+	id 1wFsoS-0000000BaCt-0vVU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 12:04:15 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4g1ZWW6cZVz9tcZ;
-	Thu, 23 Apr 2026 14:04:07 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1776945848;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LZ6eAskc0SjvK0cbtp0eTdGWooXU74WxP4QkBVjTPwI=;
-	b=vc22Ys8mO4lCpBbBJzWUZaYex6UVwP0T6b38CxYAUBXBy1ycKBsVEUcLQfjzQoFjIlaSA4
-	NVyUCDNyn1agESjGVb6DGnkKVYYuVNJLRAAgdDPx0LBMksqpwD2iRgBcZ4Xy8vZT9nbmDD
-	hvipyUkdNLwoiN6iUAxVROSnekzwM0cYD9fnerQvePRv/EHJX1MBNraw5vek7o0GWT+vK+
-	h89kAtrdLgNKwxCA93NYsx0K8p4fhCDeN/pFaXa4ZA1pyiZsUi1e1sD5WgiTzYyWim3g5G
-	kIqQqPKy7Tv3VjqNyLXXa5reis0mRBdzt4pORY8ie/0Wle9J+eKZB+vOfmePXg==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=kAdSidQZ;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
-Message-ID: <c9ef9d73-6f1b-42ea-b5f0-09fcf904c78e@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1776945844;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LZ6eAskc0SjvK0cbtp0eTdGWooXU74WxP4QkBVjTPwI=;
-	b=kAdSidQZWvcnIbb1jopdE6erSur+0eBatbUmq3GW3hrZTPo6OjuZfWqX2XEHQqOb6usqUa
-	/MD4TaQxDGGLZaJqRT5DP89hYeLTjiKNoUf+CbT8TxUuOtOhpnlw3/WscfsmZ7USxl5ZKm
-	XJsEI/2+5de+AWkHF3GdgJzQ1JZLAbYjbYNQiQdQmVa0L8oMSxjNdAzMODbvXGIqnao+MF
-	Wfwyun1ZJT4S9DI5I9J+oKFJO2KNGi4CNdjx0QyYa5+9e92xKBuGrU6rYJPgyc5ApXQ5gm
-	r4OF47Ej08WhwOaZBreJ+wdXLqMETVJan2nDB+0xopi2Essr/kRH7jme47w80A==
-Date: Thu, 23 Apr 2026 12:00:01 +0200
+	Thu, 23 Apr 2026 12:05:49 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=dQtSUg7vaMSw/HEBIfOQe1UK7n9zLBFtXbbH3OgDn9I=;
+	b=StbJg1m8yS6T1dmr16DL2qGJW98VRgJWb8uBWpFyTcxTwDTzCdaqCqTJbMgyehYHvtv80szZw
+	RHbcAe5NDxqyDxSsoS+E8ZyMR8JYPC+smPyZh40trwkz6sN+lkrIdFmRa3n2A1lj4hlsCX0+wXT
+	NEdaselZbBjCbxZMHxsz6KM=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4g1ZPg0GKzzRhR4;
+	Thu, 23 Apr 2026 19:59:03 +0800 (CST)
+Received: from kwepemr200004.china.huawei.com (unknown [7.202.195.241])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4B9FF40561;
+	Thu, 23 Apr 2026 20:05:26 +0800 (CST)
+Received: from [10.67.121.62] (10.67.121.62) by kwepemr200004.china.huawei.com
+ (7.202.195.241) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 23 Apr
+ 2026 20:05:25 +0800
+Message-ID: <842ad447-fe1b-4f6f-8347-efd8314313cd@huawei.com>
+Date: Thu, 23 Apr 2026 20:05:25 +0800
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 3/4] ARM: dts: renesas: r8a7740: Add ZT/ZTR trace clock
- on R-Mobile A1
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm
- <magnus.damm@gmail.com>, Michael Turquette <mturquette@baylibre.com>,
- Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-References: <20260415233300.457892-1-marek.vasut+renesas@mailbox.org>
- <20260415233300.457892-4-marek.vasut+renesas@mailbox.org>
- <20260421-cherubic-urban-beluga-49ee00@quoll>
- <0f933506-c196-4503-844f-2a375e2cf690@mailbox.org>
- <161eb29f-2d07-455a-bd74-4f22061b5dfb@kernel.org>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <161eb29f-2d07-455a-bd74-4f22061b5dfb@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: 4rurf9ku7rt7u9f8jrock8stus9woi4h
-X-MBO-RS-ID: 74424914be6ca4b683f
-X-Rspamd-Queue-Id: 4g1ZWW6cZVz9tcZ
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: smp: Limit nr_cpu_ids under nosmp
+To: Catalin Marinas <catalin.marinas@arm.com>
+CC: <will@kernel.org>, <maz@kernel.org>, <timothy.hayes@arm.com>,
+	<lpieralisi@kernel.org>, <mrigendra.chaubey@gmail.com>, <arnd@arndb.de>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<zhanjie9@hisilicon.com>, <zhenglifeng1@huawei.com>, <lihuisong@huawei.com>,
+	<yubowen8@huawei.com>, <linhongye@h-partners.com>, <linuxarm@huawei.com>,
+	<wangzhi12@huawei.com>
+References: <20260422095831.2926775-1-zhangpengjie2@huawei.com>
+ <aekCUnZAE8bSfNfO@arm.com>
+From: "zhangpengjie (A)" <zhangpengjie2@huawei.com>
+In-Reply-To: <aekCUnZAE8bSfNfO@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.121.62]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemr200004.china.huawei.com (7.202.195.241)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_050410_653457_ADD198A3 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20260423_050544_883993_33664051 
+X-CRM114-Status: GOOD (  27.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,45 +82,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/23/26 11:26 AM, Krzysztof Kozlowski wrote:
-> On 23/04/2026 01:33, Marek Vasut wrote:
->> On 4/21/26 10:02 AM, Krzysztof Kozlowski wrote:
->>> On Thu, Apr 16, 2026 at 01:31:40AM +0200, Marek Vasut wrote:
->>>> Add ZT trace bus and ZTR trace clock on the R-Mobile A1.
->>>>
->>>> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
->>>> ---
->>>> Cc: Conor Dooley <conor+dt@kernel.org>
->>>> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
->>>> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
->>>> Cc: Magnus Damm <magnus.damm@gmail.com>
->>>> Cc: Michael Turquette <mturquette@baylibre.com>
->>>> Cc: Rob Herring <robh@kernel.org>
->>>> Cc: Stephen Boyd <sboyd@kernel.org>
->>>> Cc: devicetree@vger.kernel.org
->>>> Cc: linux-clk@vger.kernel.org
->>>> Cc: linux-kernel@vger.kernel.org
->>>> Cc: linux-renesas-soc@vger.kernel.org
->>>> ---
->>>> V2: Add ztr/zt clock at the end of the list to match bindings
->>>> ---
->>>>    arch/arm/boot/dts/renesas/r8a7740.dtsi    | 2 +-
->>>
->>>>    include/dt-bindings/clock/r8a7740-clock.h | 2 ++
->>>
->>> This goes to the binding patch.
->>>
->>> Didn't you have also a checkpatch warning?
->> I only got this warning, but the docs 1/4 and includes 3/4 are a
->> separate patch in this series:
->>
->> "
->> WARNING: DT binding docs and includes should be a separate patch. See:
->> Documentation/devicetree/bindings/submitting-patches.rst
-> 
-> So you did not implement it... Include goes with the binding. Always.
-> Look at other commits.
-The warning says the exact opposite thing , does it not ?
+Hi Catalin,
 
-Maybe the warning text needs to be updated ?
+On 4/23/2026 1:16 AM, Catalin Marinas wrote:
+> On Wed, Apr 22, 2026 at 05:58:31PM +0800, Pengjie Zhang wrote:
+>> Under nosmp (maxcpus=0), arm64 never brings up secondary CPUs.
+>>
+>> However, arm64 still enumerates firmware-described CPUs during SMP
+>> initialization, so secondary CPUs can remain visible to
+>> for_each_possible_cpu() users even though they never reach the
+>> bringup path in this configuration.
+>>
+>> This is not just a cosmetic mask mismatch: code iterating over
+>> possible CPUs may observe secondary CPU per-CPU state that is never
+>> fully initialized under nosmp.
+>>
+>> Limit nr_cpu_ids to 1 in arch_disable_smp_support() so that
+>> secondary CPUs are not set up on arm64 when nosmp/maxcpus=0 is in
+>> effect.
+>>
+>> Signed-off-by: Pengjie Zhang <zhangpengjie2@huawei.com>
+>> ---
+>>   arch/arm64/kernel/smp.c | 9 +++++++++
+>>   1 file changed, 9 insertions(+)
+>>
+>> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+>> index 1aa324104afb..cc34c68871e9 100644
+>> --- a/arch/arm64/kernel/smp.c
+>> +++ b/arch/arm64/kernel/smp.c
+>> @@ -435,6 +435,15 @@ static void __init hyp_mode_check(void)
+>>   	}
+>>   }
+>>   
+>> +void __init arch_disable_smp_support(void)
+>> +{
+>> +	/*
+>> +	 * Under nosmp/maxcpus=0, only the boot CPU can ever be brought up.
+>> +	 * Limit nr_cpu_ids so that secondary CPUs are never set up.
+>> +	 */
+>> +	set_nr_cpu_ids(1);
+>> +}
+> I don't think that's the right fix. We don't have anything like the x86
+> ioapic to disable in this function, so no need to implement it. If
+> nr_cpu_ids must be 1 with nosmp/maxcpus=0, I'd rather do this in the
+> generic code. It need some alignment with other architectures if we are
+> to do this early. IOW, is nosmp equivalent to nr_cpus=1?
+>
+> In the meantime, for arm64, we can do something like below and let the
+> generic code set nr_cpu_ids() via start_kernel() -> setup_nr_cpu_ids().
+
+Thanks for the review. I completely agree with your assessment.
+
+My initial thought was to consolidate the nosmp logic in one place,
+but you are right—using `arch_disable_smp_support()` here is indeed
+an abuse of the callback, as arm64 doesn't have SMP-specific hardware
+to tear down like the x86 IOAPIC.
+
+My main concern was specifically that under nosmp/maxcpus=0, secondary
+CPUs can still remain visible to `for_each_possible_cpu()` users on
+arm64, even though they will never reach the bringup path.
+
+Regarding your question on whether `nosmp` is equivalent to `nr_cpus=1`:
+practically, they both result in a uniprocessor system, but historically
+they take different paths (`setup_max_cpus=0` vs early `nr_cpu_ids=1`).
+Unifying this globally in generic code would indeed require a broader
+cross-arch discussion, so your arm64-specific mitigation is the best
+way forward right now.
+
+Your proposed alternative in `smp_init_cpus()` is elegant and solves
+the mask mismatch perfectly.
+
+I will spin up a v2 incorporating your snippet and will add a
+`Suggested-by` tag for you.
+
+Thanks,
+     Pengjie
+> -------------8<-------------------
+> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> index 1aa324104afb..7364481cc03a 100644
+> --- a/arch/arm64/kernel/smp.c
+> +++ b/arch/arm64/kernel/smp.c
+> @@ -754,6 +754,13 @@ void __init smp_init_cpus(void)
+>   		return;
+>   	}
+>
+> +	/*
+> +	 * For the nosmp/maxcpus=0 case, do not mark the secondary CPUs
+> +	 * possible.
+> +	 */
+> +	if (!setup_max_cpus)
+> +		return;
+> +
+>   	/*
+>   	 * We need to set the cpu_logical_map entries before enabling
+>   	 * the cpus so that cpu processor description entries (DT cpu nodes
+>
+>
 
