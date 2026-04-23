@@ -4,74 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD40EF589D5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 13:36:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8555F589D4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 13:44:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CjrfipUfn72B1GDWgNgVviWkaBvqYztmuDRubrD3LXo=; b=FP4SbbIPlNJopjx0jVmUuVkaRJ
-	sZzF2zn3jhhQ9KsD/cJ4F5o447rN3rsct+yLRQZI4ybvfg3sd2EBa+c4kXBn454sPb+46DzJWzgJQ
-	NFk7NDnticDETpcvaNMpFRqrOQr6JolswOOp024trLI6IKIgZC98yzffP9UiBZ1P5ztgtAqzFS5Q4
-	Cv/5Mm2z8ybKC8n9yEqATHzJU4+jQasn/Mq9g79A4z33+oxivj4BJisCz7EFHfKWPaEe5U63/Z91U
-	zcYgaAoZp53FV2QJH7N0JN6cLvLN4Re89CNcczcOHUnG/rG7le4H+Xd4dtYb1OwT3eyqyLkw4VSn0
-	sY4B+M8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xd0UHFP1ZE/nb/myoyLJa+WYNKpg4XG8PdpKOXq78eM=; b=J/RZyd53BCSS0s/WA1h7eiJYGG
+	Ps4jywuKJ23VUdqVycek2imwdWGhBG4E35e4kDTEtRFKmyfPP8R7y+Eg2F3qa4wGya4RRgXD7vBPF
+	+ntMsDQ8vKzHnRZsEzY1fiRtchu6Vl+6mkyqVGCs6MggFlG+PInFATi9nqT2sR7z5E+By4f8/ak3w
+	0rEi9oFa0WaArCFG6DfRDXBrQsLA/QWZj03gsDJdxWRjp7UjED/TxQqpIM07HJ5Ls82pzGCFWsg31
+	binXjVMM3vKPoky6ZgQaBTq6CYS24GH9a25Lz7IvPuAxi4H1FER8hjcoVyc1/cjbxRSKVq3n7DxWO
+	G3AGt+WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFuE3-0000000BkzV-2FeS;
-	Thu, 23 Apr 2026 13:36:15 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wFuLh-0000000BlS9-1gw7;
+	Thu, 23 Apr 2026 13:44:09 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFuDz-0000000Bkyx-2OtM
+	id 1wFuLc-0000000BlRh-0kGv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 13:36:13 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 4A2634E42AC9;
-	Thu, 23 Apr 2026 13:36:07 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 1524A60495;
-	Thu, 23 Apr 2026 13:36:07 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2E5D710460C18;
-	Thu, 23 Apr 2026 15:36:00 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1776951366; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=CjrfipUfn72B1GDWgNgVviWkaBvqYztmuDRubrD3LXo=;
-	b=Pz3vvJ4fYEOwzaZmRWnzS9iiPptCFYLxeOEM4jj09xuO22X4TrR7W7xkmjFSAfp7DUpV/W
-	GVDKstGvnixc9s754sXiAV2LpV0k/D52xfk9N9xxHWra/ULCGRpJBkYzz0iKIje87/t32A
-	1rafq+lFLIttmnjdgBYeyvjWlNoxFfqY2IQB/AbXdpnmLVGFP3xO6E7hQfHQYzvRrj+ncL
-	VXk7N8VeVeq8bCxxN1K+HjkGuxQncOBmX9GYjaXApZxtbNjOWhS6qGCP2R+3qt9BI3Ly8x
-	uuLmOp45r+7tuxvWd7/wVE4u/t2XwJ/fNGBynh4lgJ+KtlZ4Hxq1rbr0UMekWw==
-Message-ID: <7e6eeb33-ca4e-4067-b886-121dbb37a1dc@bootlin.com>
-Date: Thu, 23 Apr 2026 15:35:59 +0200
+	Thu, 23 Apr 2026 13:44:08 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63N6ooMu3229044;
+	Thu, 23 Apr 2026 13:43:49 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=xd0UHF
+	P1ZE/nb/myoyLJa+WYNKpg4XG8PdpKOXq78eM=; b=FH+DTb1Hk/HLZ5IX+0nwww
+	PHxw7sDsX/bbBxrkX5qSA3anbsGJLf6sCLQUIyxugSg37D3jvWYISa6c4XQiDYvy
+	xNSYtGos9QBXkERsiJq9rme5GAWeLtzfcGBiYLPiWhDpgroMnMwSX0Z5GpBjgtVu
+	Mc5akUizT8x/tk8/kYfGt8PusUb9nv4KPsoTexqoVo+KZ9zG5WGbnZuC+Kg7qTaa
+	BG0rtdlYUtWK0AxtSrSxyGJ3X7CxgSwkdHNe4ErykTBdnbxjs418I+N5CXAlTJYt
+	lvR76v56AwAYfJsdE/4RWFyFzECN6VFS/mYSWSrdA6CtvtPLM+0r0suTZNQLMm5A
+	==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dpeu28wgr-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 23 Apr 2026 13:43:48 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63NDZO0C003099;
+	Thu, 23 Apr 2026 13:43:47 GMT
+Received: from smtprelay02.dal12v.mail.ibm.com ([172.16.1.4])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dpjkyetdt-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 23 Apr 2026 13:43:47 +0000 (GMT)
+Received: from smtpav05.wdc07v.mail.ibm.com (smtpav05.wdc07v.mail.ibm.com [10.39.53.232])
+	by smtprelay02.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63NDhkfS15204980
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 23 Apr 2026 13:43:46 GMT
+Received: from smtpav05.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 35EE858053;
+	Thu, 23 Apr 2026 13:43:46 +0000 (GMT)
+Received: from smtpav05.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id E803A58043;
+	Thu, 23 Apr 2026 13:43:43 +0000 (GMT)
+Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.20.220])
+	by smtpav05.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 23 Apr 2026 13:43:43 +0000 (GMT)
+Message-ID: <bd908e28298d968740d03c97bc7e441de188b7b4.camel@linux.ibm.com>
+Subject: Re: [RFC PATCH v2 1/4] security: ima: call ima_init() again at
+ late_initcall_sync for defered TPM
+From: Mimi Zohar <zohar@linux.ibm.com>
+To: Jonathan McDowell <noodles@earth.li>, Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        kvmarm@lists.linux.dev, paul@paul-moore.com, jmorris@namei.org,
+        serge@hallyn.com, roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+        eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+        sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+        catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+        sebastianene@google.com
+In-Reply-To: <aeoWO2Cwo04YYu2l@earth.li>
+References: <20260422162449.1814615-1-yeoreum.yun@arm.com>
+	 <20260422162449.1814615-2-yeoreum.yun@arm.com>
+	 <6919248bdc85dac60277fa9d9c83d8bd258ca635.camel@linux.ibm.com>
+	 <aekXaU52fzvNYaUF@e129823.arm.com> <aekkVQwueKbFtG7C@e129823.arm.com>
+	 <82803bb3b471898a77084c449b73c7f7b4eb2149.camel@linux.ibm.com>
+	 <aem0SSQuE1e3pGOS@e129823.arm.com>
+	 <56a8aab50a3b5ce0a345fc2079fb2abc7d0f1b23.camel@linux.ibm.com>
+	 <aeoAlVEwzRUPrlVe@e129823.arm.com> <aeoRxWPyOHGJd+Jh@e129823.arm.com>
+	 <aeoWO2Cwo04YYu2l@earth.li>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Thu, 23 Apr 2026 09:43:43 -0400
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/4] clk: keystone: sci-clk: add restore_context()
- operation
-To: Brian Masney <bmasney@redhat.com>
-Cc: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
- Santosh Shilimkar <ssantosh@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Gregory CLEMENT <gregory.clement@bootlin.com>,
- richard.genoud@bootlin.com, Udit Kumar <u-kumar1@ti.com>,
- Prasanth Mantena <p-mantena@ti.com>, Abhash Kumar <a-kumar2@ti.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org, Dhruva Gole <d-gole@ti.com>
-References: <20260407-ti-sci-jacinto-s2r-restore-irq-v5-0-97b28f2d93f9@bootlin.com>
- <20260407-ti-sci-jacinto-s2r-restore-irq-v5-3-97b28f2d93f9@bootlin.com>
- <adbXBwKC_cNxGlpr@redhat.com>
-Content-Language: en-US
-From: Thomas Richard <thomas.richard@bootlin.com>
-In-Reply-To: <adbXBwKC_cNxGlpr@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: VLk680LfBuWU4MevutP832_aGjpXtcSO
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIzMDEzMiBTYWx0ZWRfX1SRS9jK1yggO
+ X77pyH0zDuAwUvEo5aO+nYKfstVA3eSbLhWbqPYgKOevRXLGOe5S2U/gSU8MZfbcX6gpnQxVLD9
+ 1OAvLBDiaZrXjSArGCv7VSfIfae7PWgrhLdt2cK9/zO2W9zApRoFZ8amAEPSNcPECUj8cNbMVmJ
+ 0ePoPNmlz3hvXtCAtfLm0qF03F432IZsQH6jnOazTFXCn2XutmBjt3evzKFc7p9k89bxOlYb3Fw
+ AY3Pw0w6cxtOoMB+hBEk4WySVSQNdjqO2ACFsO8R3OkOX9Nb+u/gtAbVFEqumANDg50ZXhgweGd
+ kJRpSEyLEMxkkB3tNZpZ7PW2iri4LnfS1AMWKKHmUy9VAl4frVAZVN8WCjahQA1hhz+BZq4b7R3
+ lQxB/emfoYcLCvspVPPseJ8lAsZv2/+O6b12a8cFw7NY9kFRmqtUvqh2SVAFgkbV/bXCXGEiLjz
+ klORdMEueANPVYuURWw==
+X-Authority-Analysis: v=2.4 cv=C8LZDwP+ c=1 sm=1 tr=0 ts=69ea2215 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=7CQSdrXTAAAA:8
+ a=4FW480EdQVPiPFE7CngA:9 a=QEXdDO2ut3YA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-ORIG-GUID: 2Vy1Wxh-GJVQo-0D4VxrtFTAzJHLMVrq
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-23_03,2026-04-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 suspectscore=0 priorityscore=1501 malwarescore=0
+ lowpriorityscore=0 clxscore=1015 bulkscore=0 impostorscore=0 spamscore=0
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
+ definitions=main-2604230132
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_063611_771599_C35E98B1 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20260423_064404_229467_D003C945 
+X-CRM114-Status: GOOD (  57.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,120 +136,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Brian,
+On Thu, 2026-04-23 at 13:53 +0100, Jonathan McDowell wrote:
+> On Thu, Apr 23, 2026 at 01:34:13PM +0100, Yeoreum Yun wrote:
+> > > > On Thu, 2026-04-23 at 06:55 +0100, Yeoreum Yun wrote:
+> > > > > > On Wed, 2026-04-22 at 20:41 +0100, Yeoreum Yun wrote:
+> > > > > > > > Hi Mimi,
+> > > > > > > >=20
+> > > > > > > > > On Wed, 2026-04-22 at 17:24 +0100, Yeoreum Yun wrote:
+> > > > > > > > > > To generate the boot_aggregate log in the IMA subsystem=
+ with TPM PCR values,
+> > > > > > > > > > the TPM driver must be built as built-in and
+> > > > > > > > > > must be probed before the IMA subsystem is initialized.
+> > > > > > > > > >=20
+> > > > > > > > > > However, when the TPM device operates over the FF-A pro=
+tocol using
+> > > > > > > > > > the CRB interface, probing fails and returns -EPROBE_DE=
+FER if
+> > > > > > > > > > the tpm_crb_ffa device =E2=80=94 an FF-A device that pr=
+ovides the communication
+> > > > > > > > > > interface to the tpm_crb driver =E2=80=94 has not yet b=
+een probed.
+> > > > > > > > > >=20
+> > > > > > > > > > To ensure the TPM device operating over the FF-A protoc=
+ol with
+> > > > > > > > > > the CRB interface is probed before IMA initialization,
+> > > > > > > > > > the following conditions must be met:
+> > > > > > > > > >=20
+> > > > > > > > > >    1. The corresponding ffa_device must be registered,
+> > > > > > > > > >       which is done via ffa_init().
+> > > > > > > > > >=20
+> > > > > > > > > >    2. The tpm_crb_driver must successfully probe this d=
+evice via
+> > > > > > > > > >       tpm_crb_ffa_init().
+> > > > > > > > > >=20
+> > > > > > > > > >    3. The tpm_crb driver using CRB over FF-A can then
+> > > > > > > > > >       be probed successfully. (See crb_acpi_add() and
+> > > > > > > > > >       tpm_crb_ffa_init() for reference.)
+> > > > > > > > > >=20
+> > > > > > > > > > Unfortunately, ffa_init(), tpm_crb_ffa_init(), and crb_=
+acpi_driver_init() are
+> > > > > > > > > > all registered with device_initcall, which means crb_ac=
+pi_driver_init() may
+> > > > > > > > > > be invoked before ffa_init() and tpm_crb_ffa_init() are=
+ completed.
+> > > > > > > > > >=20
+> > > > > > > > > > When this occurs, probing the TPM device is deferred.
+> > > > > > > > > > However, the deferred probe can happen after the IMA su=
+bsystem
+> > > > > > > > > > has already been initialized, since IMA initialization =
+is performed
+> > > > > > > > > > during late_initcall, and deferred_probe_initcall() is =
+performed
+> > > > > > > > > > at the same level.
+> > > > > > > > > >=20
+> > > > > > > > > > To resolve this, call ima_init() again at late_inicall_=
+sync level
+> > > > > > > > > > so that let IMA not miss TPM PCR value when generating =
+boot_aggregate
+> > > > > > > > > > log though TPM device presents in the system.
+> > > > > > > > > >=20
+> > > > > > > > > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> > > > > > > > >=20
+> > > > > > > > > A lot of change for just detecting whether ima_init() is =
+being called on
+> > > > > > > > > late_initcall or late_initcall_sync(), without any explan=
+ation for all the other
+> > > > > > > > > changes (e.g. ima_init_core).
+> > > > > > > > >=20
+> > > > > > > > > Please just limit the change to just calling ima_init() t=
+wice.
+> > > > > > > >=20
+> > > > > > > > My concern is that ima_update_policy_flags() will be called
+> > > > > > > > when ima_init() is deferred -- not initialised anything.
+> > > > > > > > though functionally, it might be okay however,
+> > > > > > > > I think ima_update_policy_flags() and notifier should work =
+after ima_init()
+> > > > > > > > works logically.
+> > > > > > > >=20
+> > > > > > > > This change I think not much quite a lot. just wrapper ima_=
+init() with
+> > > > > > > > ima_init_core() with some error handling.
+> > > > > > > >=20
+> > > > > > > > Am I missing something?
+> > > > > > >=20
+> > > > > > > Also, if we handle in ima_init() only, but it failed with oth=
+er reason,
+> > > > > > > we shouldn't call again ima_init() in the late_initcall_sync.
+> > > > > > >=20
+> > > > > > > To handle this, It wouldn't do in the ima_init() but we need =
+to handle
+> > > > > > > it by caller of ima_init().
+> > > > > >=20
+> > > > > > Only tpm_default_chip() is being called to set the ima_tpm_chip=
+.  On failure,
+> > > > > > instead of going into TPM-bypass mode, return immediately.  The=
+re are no calls
+> > > > > > to anything else.  Just call ima_init() a second time.
+> > > > >=20
+> > > > > I=E2=80=99m not fully convinced this is sufficient.
+> > > > >=20
+> > > > > What I meant is the case where ima_init() fails due to other
+> > > > > initialisation steps, not only tpm_default_chip() (e.g. ima_fs_in=
+it()).
+> > > >=20
+> > > > The purpose of THIS patch is to add late_initcall_sync, when the TP=
+M is not
+> > > > available at late_initcall.  This would be classified as a bug fix =
+and would be
+> > > > backported.  No other changes should be included in this patch.
+> > >=20
+> > > Okay.
+> > >=20
+> > > > >=20
+> > > > > I=E2=80=99d also like to ask again whether it is fine to call
+> > > > > ima_update_policy_flags() and keep the notifier registered in the
+> > > > > deferred TPM case. While this may be functionally acceptable, it =
+seems
+> > > > > logically questionable to do so when ima_init() has not completed=
+.
+> > > >=20
+> > > > Other than extending the TPM, IMA should behave exactly the same wh=
+ether there
+> > > > is a TPM or goes into TPM-bypass mode.
+> > > >=20
+> > > > >=20
+> > > > > There is also a possibility that a deferred case ultimately fails=
+ (e.g.
+> > > > > deferred at late_initcall, but then failing at late_initcall_sync
+> > > > > for another reason, even while entering TPM bypass mode). In that=
+ case,
+> > > > > it seems more appropriate to handle this state in the caller of
+> > > > > ima_init(), rather than inside ima_init() itself.
+> > > >=20
+> > > > If the TPM isn't found at late_initcall_sync(), then IMA should go =
+into TPM-
+> > > > bypass mode.  Please don't make any other changes to the existing I=
+MA behavior
+> > > > and hide it here behind the late_initcall_sync change.
+> > >=20
+> > > Okay. you're talking called ima_update_policy_flags() at late_initcal=
+l
+> > > wouldn't be not a problem even in case of late_initcall_sync's ima_in=
+it()
+> > > get failed with "TPM-bypass mode".
+> > >=20
+> > > I see then, I'll make a patch simpler then.
+> >=20
+> > But I think in case of below situation:
+> >  - late_initcall's first ima_init() is deferred.
+> >  - late_initcall_sync try again but failed and try again with
+> >    CONFIG_IMA_DEFAULT_HASH.
+> >=20
+> > I would like to sustain init_ima_core to reduce the same code repeat
+> > in late_initcall_sync.
+>=20
+> I think what Mimi's proposing is:
+>=20
+> If we're in late_initcall, and the TPM isn't available, return=20
+> immediately with an error (the EPROBE_DEFER?), don't do any init.
+>=20
+> If we're in late_initcall_sync, either we're already initialised, so do=
+=20
+> return and nothing, or run through the entire flow, even if the TPM=20
+> isn't unavailable.
+>=20
+> So ima_init() just needs to know a) if it's in the sync or non-sync mode=
+=20
+> and b) for the sync mode, if we've already done the init at
+> non-sync.
 
-On 4/9/26 12:30 AM, Brian Masney wrote:
-> Hi Thomas,
-> 
-> On Tue, Apr 07, 2026 at 04:25:08PM +0200, Thomas Richard (TI) wrote:
->> Implement the restore_context() operation to restore the clock rate and the
->> clock parent state. The clock rate is saved in sci_clk struct during
->> set_rate() operation. The parent index is saved in sci_clk struct during
->> set_parent() operation. During clock registration, the core retrieves each
->> clock’s parent using get_parent() operation to ensure the internal clock
->> tree reflects the actual hardware state, including any configurations made
->> by the bootloader. So we also save the parent index in get_parent().
->>
->> Reviewed-by: Dhruva Gole <d-gole@ti.com>
->> Signed-off-by: Thomas Richard (TI) <thomas.richard@bootlin.com>
->> ---
->>  drivers/clk/keystone/sci-clk.c | 42 ++++++++++++++++++++++++++++++++++--------
->>  1 file changed, 34 insertions(+), 8 deletions(-)
->>
->> diff --git a/drivers/clk/keystone/sci-clk.c b/drivers/clk/keystone/sci-clk.c
->> index 9d5071223f4c..428050a05de3 100644
->> --- a/drivers/clk/keystone/sci-clk.c
->> +++ b/drivers/clk/keystone/sci-clk.c
->> @@ -47,6 +47,8 @@ struct sci_clk_provider {
->>   * @node:	 Link for handling clocks probed via DT
->>   * @cached_req:	 Cached requested freq for determine rate calls
->>   * @cached_res:	 Cached result freq for determine rate calls
->> + * @parent_id:	 Parent index for this clock
->> + * @rate:	 Clock rate
->>   */
->>  struct sci_clk {
->>  	struct clk_hw hw;
->> @@ -58,6 +60,8 @@ struct sci_clk {
->>  	struct list_head node;
->>  	unsigned long cached_req;
->>  	unsigned long cached_res;
->> +	u8 parent_id;
->> +	unsigned long rate;
->>  };
->>  
->>  #define to_sci_clk(_hw) container_of(_hw, struct sci_clk, hw)
->> @@ -210,10 +214,16 @@ static int sci_clk_set_rate(struct clk_hw *hw, unsigned long rate,
->>  			    unsigned long parent_rate)
->>  {
->>  	struct sci_clk *clk = to_sci_clk(hw);
->> +	int ret;
->> +
->> +	ret = clk->provider->ops->set_freq(clk->provider->sci, clk->dev_id,
->> +					   clk->clk_id, rate / 10 * 9, rate,
->> +					   rate / 10 * 11);
->>  
->> -	return clk->provider->ops->set_freq(clk->provider->sci, clk->dev_id,
->> -					    clk->clk_id, rate / 10 * 9, rate,
->> -					    rate / 10 * 11);
->> +	if (!ret)
->> +		clk->rate = rate;
->> +
->> +	return ret;
->>  }
-> 
-> Should the computed rate from sci_clk_recalc_rate() be saved as well?
+Thanks, Jonathan.  That is exactly what I'm suggesting.  Any other changes
+should not be included in this patch.  Since Yeoreum is not hearing me, fee=
+l
+free to post a patch.
 
-Yes you're right. As recal_rate() is called for each clock at
-registration, I'll be able to restore rate for all configured clocks
-including the ones which were configured by the bootloader but not by Linux.
-
-> 
->>  
->>  /**
->> @@ -237,9 +247,9 @@ static u8 sci_clk_get_parent(struct clk_hw *hw)
->>  		return 0;
->>  	}
->>  
->> -	parent_id = parent_id - clk->clk_id - 1;
->> +	clk->parent_id = (u8)(parent_id - clk->clk_id - 1);
->>  
->> -	return (u8)parent_id;
->> +	return clk->parent_id;
->>  }
->>  
->>  /**
->> @@ -252,12 +262,27 @@ static u8 sci_clk_get_parent(struct clk_hw *hw)
->>  static int sci_clk_set_parent(struct clk_hw *hw, u8 index)
->>  {
->>  	struct sci_clk *clk = to_sci_clk(hw);
->> +	int ret;
->>  
->>  	clk->cached_req = 0;
->>  
->> -	return clk->provider->ops->set_parent(clk->provider->sci, clk->dev_id,
->> -					      clk->clk_id,
->> -					      index + 1 + clk->clk_id);
->> +	ret = clk->provider->ops->set_parent(clk->provider->sci, clk->dev_id,
->> +					     clk->clk_id,
->> +					     index + 1 + clk->clk_id);
->> +	if (!ret)
->> +		clk->parent_id = index;
->> +
->> +	return ret;
->> +}
->> +
->> +static void sci_clk_restore_context(struct clk_hw *hw)
->> +{
->> +	struct sci_clk *clk = to_sci_clk(hw);
->> +
->> +	sci_clk_set_parent(hw, clk->parent_id);
-> 
-> Are all of these clocks muxes?
-
-Not all.
-I will check if the clock has more than one parent before to call
-set_parent().
-
-Best Regards,
-Thomas
+Mimi
 
