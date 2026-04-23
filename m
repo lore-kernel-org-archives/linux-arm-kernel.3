@@ -4,152 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34431F99344
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 08:22:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F9AAF99344
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 08:25:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S3NblNqcLP1TPG6EDM+KVX6JPFtjz2tMJEVQB8G45Tg=; b=M47Ne8AR4emPpj/Akgz2ja415Y
-	OkAJqGMHsBAlCewN+xhBezyttCOIRZgfOC6K1sR1F0/LXa6Hm+ULAYuR6jpUKe4unYW9AzPgtF8H2
-	3yy44IYJwh6JPKMDEGAfjlrgnEXpZrHAURN5IDWakj9X4LzX4PR0K7OhHBOhNfslnb3Eskj6cCvDV
-	GguspjPv2Qbl4dVs+llOiKx0zlzBUI8uR5XrtCf/Reb9dvsauSeelVJeopG/L32zaa3ogoVPmMgi1
-	7lBUwX73Gl7hifXVY1DP79tEtLRxXXfMnglQ9d69gkhuKNGwzy0WzZFjx1+gCRu2q+xTdi/H8r8Gv
-	KqaiEUsQ==;
+	bh=oWXRwzKpWijDeZu/oPfbM+vhxfnHs3t9nw94DxmFqlE=; b=CIesecYrHKu9V8hSnbHcn4VTRO
+	q4dx//rQLaJO63XibCyWTwHZFuEpQx1kFsEu563P9v/ZF2Cb4rml9w+/tL7yuJtSdst3UPKgsgbD5
+	M9EO5vctpMoQrO3V7I+/YGx52nrfwI4eWuU7vQo1Zd6bqeywFAShfUtesMbCbHW2EZKBwuuvI6lrX
+	mwRbgsOV7gqwylKI4l1sPrQ6n0rxvT1bF2bRM6/JBEgsLEW/dcgGGfoP/DC6Xe/BYZKb7z7IUVVg4
+	KUXYjC3shLeyR987elvWrjHhM+SulJrq6BZbGpX0tk+6RU//jV3I9L6M3WlR74Swcc+0dz0I/0Qez
+	2/SCwFCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFpK4-0000000BEM7-0ETS;
-	Thu, 23 Apr 2026 08:22:08 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wFpMq-0000000BEjy-45R4;
+	Thu, 23 Apr 2026 08:25:00 +0000
+Received: from mail.thorsis.com ([2003:a:e28:26e4::10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFpJt-0000000BEDS-1jgi;
-	Thu, 23 Apr 2026 08:22:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=v2qMAB4OZCIgobdLHHOnqxam+eXDMPB1IL6hx/9CFzMmsYIoBYiG/mEpCM9JiwP3DDeCX1kTKPtuHHZ9vN2+ffKvKtrq94HsadEbsFlH9NIFiokn1X071ypfw7ZH39y/FjdECaPgWdo5TeKLK7YeX76HGjb3ahRawQFZ0PwlYPlohApTogAT/+mH+w9FhnPE+O7QwO9CDhqKK10oSHsBKqwCABkRLgjDUSkzOf4o8IaVfD4+CDhfHlXVZ0qwhQo62MxGjVFoZKRDrYGVOfK5Ld9PqclVeG/c1YNnBh4x6tTlOD/5W95D+bh+cDaKLw3v1YVFQpkgt17OAnJwpre4IA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=S3NblNqcLP1TPG6EDM+KVX6JPFtjz2tMJEVQB8G45Tg=;
- b=ZheBl5d0YyZbNqaH6VeOUqjUFYeMW3T7dWgiHX9m2Kpbh+8BEqKccd6PvKzIXcG4/T8C3o8+Q79B0dyScVV4C3t/aTIWhl7g2Qtx3tj9bqrodJe4avUV1JPwoGIVwbyLH3fVTVsmtjWOPXCellCEfM/07llw8ppJfiwne1Ha5ObsNp4IG3rtjJjR4yV6AFXpeT4gKCxt3em59KKlt3x+NHTtv0DlCZNSLTYoAdm0WTfPMGMScS6ZmvuN1QxmWgJJc4uoO63JavXS+Lq/BgyBPkpazGrSD7whhpSs5sU1pPNnQ8KdC3fyj3znZnbPyXZLRRmJXbWdkPXpkCC60P5cWw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=S3NblNqcLP1TPG6EDM+KVX6JPFtjz2tMJEVQB8G45Tg=;
- b=bWyd7WQvMYAmqKuFU+cADEzNoPbUmEgXrQSuFRSmP7Ukdsr8IpQ4UfIFt0+/DiiyCIic/EqcdjRRfn5WZuhl5+bDAVRLQsC0jbsHbkvn5KmI1F/p50Hn52wckAhjyeCwCWl4ZU6ji3NBTXe3mIjfGDmNzc0ko9lW+oJjhvL1o7LzkVTev/434g/vzBCOZkT0TBgZ3w4HgoqhjkYeP5fObYPvcWH8hXeHjxFw6pbfIz5w4vjRlgkkc18NowLyY/TO35e8KxW5EY2Bn3oqGXS03C/HrQ538A3Y2b0DAUfCNFc/cmMkTkoFfb4M+qsCe8g5S/EPTVvaRv+O59EMAHw1PQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
- by AM9PR04MB8876.eurprd04.prod.outlook.com (2603:10a6:20b:40b::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.21; Thu, 23 Apr
- 2026 08:21:50 +0000
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::92c2:2e03:bf99:68eb%6]) with mapi id 15.20.9846.021; Thu, 23 Apr 2026
- 08:21:48 +0000
-From: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Date: Thu, 23 Apr 2026 16:23:02 +0800
-Subject: [PATCH v2 7/7] media: synopsys: Add support for i.MX95
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260423-csi2_imx95-v2-7-934c02f3422a@oss.nxp.com>
-References: <20260423-csi2_imx95-v2-0-934c02f3422a@oss.nxp.com>
-In-Reply-To: <20260423-csi2_imx95-v2-0-934c02f3422a@oss.nxp.com>
-To: Michael Riesch <michael.riesch@collabora.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Frank Li <Frank.Li@nxp.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
- Mehdi Djait <mehdi.djait@linux.intel.com>, 
- Hans Verkuil <hverkuil+cisco@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1776932600; l=2362;
- i=guoniu.zhou@oss.nxp.com; s=20250815; h=from:subject:message-id;
- bh=0gYPwP+1fJ7LjHfYy5Kbv6KvqxkuVzA0xH5QrJRpna0=;
- b=5ikXzbAwS95HhOWibcCmfrqykkgdoX7cpwQeUCC/owfBRoAzNDcEKXWHPhUIKCdisseEwJt/L
- FZSJHD9ZLlmCM70qhVTWPzib1QTqof3fFWUH4BEpk8KuZeKiWmNnWvt
-X-Developer-Key: i=guoniu.zhou@oss.nxp.com; a=ed25519;
- pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
-X-ClientProxiedBy: SG2PR06CA0252.apcprd06.prod.outlook.com
- (2603:1096:4:ac::36) To AS8PR04MB9080.eurprd04.prod.outlook.com
- (2603:10a6:20b:447::16)
+	id 1wFpMo-0000000BEjQ-0Z3k;
+	Thu, 23 Apr 2026 08:25:00 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C67EF14897D0;
+	Thu, 23 Apr 2026 10:24:47 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
+	t=1776932691; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=oWXRwzKpWijDeZu/oPfbM+vhxfnHs3t9nw94DxmFqlE=;
+	b=BAdC6DAKOunfeZAh8O3CPCNt/sVBeiKXk4SAW8NFf2NoQH4gDMO85Dsv2/evaChOaVldU2
+	BJjUo4KKrVvtwJ/0vdVR+6PGWn2dkQVRcPBm4tPRGuikSWnML+uMVPqBR0MmRK5aLMaJOm
+	+xmfhO7tglHr6ooFDnaJBv/AJA2m/WZLt5J2cBv6mhh/x+Gjy6iI2fwwaMNLywXz8C4nex
+	GR4TD9DyEGmEJbYn3JksK1OeHj6IW2kEyFdhPOG144qDuutrLe2NYeLWKL1G7drxh8+tJ7
+	qa9WSv1e8xGJXh5jCjNOgp1/zli5aLGb/d67HP9jeChzwQknlMJQQcg1LHGrsQ==
+Date: Thu, 23 Apr 2026 10:24:46 +0200
+From: Alexander Dahl <ada@thorsis.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Russell King <linux@armlinux.org.uk>, linux-mtd@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 3/3] ARM: at91: remove unnecessary
+ of_platform_default_populate calls
+Message-ID: <20260423-stoke-ocean-139dbe306256@thorsis.com>
+Mail-Followup-To: "Rob Herring (Arm)" <robh@kernel.org>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Russell King <linux@armlinux.org.uk>, linux-mtd@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260105-at91-probe-v3-0-594013ff2965@kernel.org>
+ <20260105-at91-probe-v3-3-594013ff2965@kernel.org>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB9080:EE_|AM9PR04MB8876:EE_
-X-MS-Office365-Filtering-Correlation-Id: 966efee9-aea7-4043-76b2-08dea1115d75
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|52116014|1800799024|376014|19092799006|18002099003|921020|38350700014|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 7P9IQ/82kfNqrpIEZD4TtwHz2tO/1BvAtqUic+08hEBBU6nrVok5SBMFrboaa8n4fXnEAEQTAsMdE8nZS6CEZAuaBlPBhZHHcJXb4pD8CwfZNuD+S+QerGU4Q1naDEpDqQLK6QXxpG6QFVe1B7drXZUyoux9vTeXV9qZOn0zlFP5JwdBx3Ti8xdiDEyW9WQIkxyfich7q8SZ5ZLSvKITkCRQZtjVtbi0mr0klRyFgvlO6JY+nEVt/2VTwJNw78uc6KL2kWN1fXv92H7qlzNsHIsGGbd5ueD5QyegmKvd0t9M2L+8bf4ha3xHeK1I2pzsajnfZbJwZj9hTAv1cRpLTFYdr/tGx+dLDGdvuC8JgT2iZjGZ9Gd8ejbrVe5eyXzNNI6/0h/bSaWzxGyP7cDH/DXBmjjKrRBDa52X9rn4dmeBPCdmw+gjHc6wETgdlTH2Eib6+U+gCVsWyVZDQ+8mjNUc149U5DQHRmgFDxCNtisUTqumYrE7oJEt2HAwqU14cCnFLU6c4IPdIeRREJHaRy5P+dqHoIvJ4ZKdeRDgy9ePntMd/MCMxnaUsBZwYHh3oji4LMuDqulBjCGQsvnMprW2iVeNPIWMUCHGb25wU5FnC03KH/jAtlBPpn4uCTn9OMV7N/N8HLpTIovkicCrGovPTIwN+Hi4nE0AJUc6PvIQRzaR/Fo9SFvg/5DPZCnXoLjh52K64iRZcgxY7kKvXAb3eb1UIxA6PXtJCDdocd5ZD2zsd7BPSz/hqqFBuZmlOYN2XWFFjgWSOI5KVdM/Z1M7B6x3DMC2dRkDtxg5ZtQu9LCB1h09mpVlNTxkLxU0
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(52116014)(1800799024)(376014)(19092799006)(18002099003)(921020)(38350700014)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RDlnTS9WNGxOUW5MQTIzaVRLanFPeUVjVUhjQVl2Qm50ZTJEdkZHOEp3a3cw?=
- =?utf-8?B?VUROK1dRcWN2ejNaV3YyQnBZRE1IZXR4d0M5ZS9oQUhhM3Q2djdJajdBVjNV?=
- =?utf-8?B?UUNndFhpMlhNTzg3YWlXWEc0UGc1QnZJc0hUNmlNbTBYdkRMSEg0bHRQYU9r?=
- =?utf-8?B?NFhmVnNSdXpVdEVRSWtodldEMGtyQWREWkVFUzBnK1dzM1RTcDBvNDBNM0U4?=
- =?utf-8?B?TVRtWXNYamxacG9Qb1NGV0JaR3k4NE5STlFOSUpIRE5iNloyTktxTzRYdy9F?=
- =?utf-8?B?MHc2NzdmVnA3eVJWNEYzS0ZBejBaRWRGMUhzM2xscUhNT2I4b3lBTlBscTdC?=
- =?utf-8?B?aDlpQTZyTGREci91Y2tTcVVpaEMvZEFqL2UvRllSRlBWeU9vQVlpOHZtMGpp?=
- =?utf-8?B?QXpuRkVoZURnU2IwaUhpODlvdjhDaStKdStjR1REdGhCdTdYeVhFaExRbUth?=
- =?utf-8?B?ZWZGSFIzdS9BOE5YbWF6TjljMGtYZkNFVlppeEc2bXphSm1BVlJtVGVvandU?=
- =?utf-8?B?RkFKMkl6ZHBDbi9kQ2dNYWhjbk96eEhHbTBNRGxOdDROWnpTZGt6QnZodWVw?=
- =?utf-8?B?ZksybW9QT3lGU1FhSm9qNnNrcWpHdXZva0EvWjlKTmxwRWo5VWhMRGduMmpF?=
- =?utf-8?B?MTNvanIydkVVVDBLT2xQZjRFNDQ1RmdvV1hRbHhRUC9UK2cyNUc3QXIzaDlk?=
- =?utf-8?B?V2NVSjJyZ3ZkbWZWNFl4OU5HeEpWUkRvOFNMeTA1ZGFtUUN1Vk4rTC9jcWx5?=
- =?utf-8?B?NDNSYUpVUUd5Vys2cnkvaGdYMXBUQWMwNkdMVTJCb0VoTTZiZ2t0cWI0R3Fs?=
- =?utf-8?B?THRwaW05dFkzb0srUUVvZmtGTis3aFAzdnRkRXlJcVlQUjFTRkllVzZDeWd6?=
- =?utf-8?B?cjAyV3BSM09sNWlvMDVlSkhRS2F0dTJDNlNsekFobkc2UlVrQ05Ec0RqMlFt?=
- =?utf-8?B?enpFcjFqTFI4V1h3azZzVVFHdThteHZyai9GNi9LMUNkK2hXZzBTQmpCTnNx?=
- =?utf-8?B?UGxtS0M4OWJLNndKUW1na1JjS3h2RGFUdDR3c1JTNWhINW53ZFRDT0N4Zk9x?=
- =?utf-8?B?VmhhVURNc084bFNHdCtkQkVXYlhtSXJ5VmJUN1NSOEFwZUhLcndQNVVPTkVR?=
- =?utf-8?B?S1Q0TnF2ZzdYV2g1VUI4MTlxdTBtZFV5akJhZU9BTjdEbWRtSVQxU0VGRUgz?=
- =?utf-8?B?WFJMUkRwVDdwY0lTNmR6UEZvRXpiZlFjbW1NeTlLZkdsRi9SQnBrT0tWL0pk?=
- =?utf-8?B?Rno1aWwwejNnK0krVU0rSXpxQ1J2S0xJVndnQ2xhYkhIbHREeThUeHY1V09E?=
- =?utf-8?B?MStiZ2FtNjZBNXl6c2N6NFRQL1BVbm14VnlGT3h3LzdPa0N0VnR6YjlWZ2lF?=
- =?utf-8?B?Y3g1a0ZxWU44b3lrVW1kUHh5Z043RkdHTEVSM21zVDFCOThUM0VzdzRMeGF0?=
- =?utf-8?B?bXNFTjRGelpubUt1QlF0OGc4VUQrNTBMWHNFMTlXK3NNOHA2UTlnbko5dTM4?=
- =?utf-8?B?UXEyK2hOTEtlZVcxUldKdjlEWHV3SmFCMnJUN1BwSWVmdGhuKzhkWVh6a0tp?=
- =?utf-8?B?UzZrVC85bU0zdGRhc2JWT3grVDliSzNnd2M3MWZwVUpqa2lOZmNhZlNuWi9j?=
- =?utf-8?B?QzhkWmliN09wQ1UzMFhZdUdzY2N4enEvN0V3dVBYcGM5cmc4cGRjb1pBeWJh?=
- =?utf-8?B?MGxtYXdQWTNGRHZyWUJiZFpRd05ySTJuUUVCSW9KbUNLa3BaSzFvMkhGQTJE?=
- =?utf-8?B?VjFPU2hJQ0s0OS9DNG90NFh4UTVoRVZqNXVYclRxWGlmaHR5M3JiQXNvazl5?=
- =?utf-8?B?cE9IdkFVM0gvbGlGQW1kVnZ3bnIyT09GeThlcE1jMGtGbm01WmM0TEJvT0s5?=
- =?utf-8?B?UWxCV3ovc05QYXBXamNLaXdYblZTSHM4V1ZzMUNmSHJjM3VxaU9CenV6SkF2?=
- =?utf-8?B?TWlYQXRVYlUyNS9BdjJWSDZVUVN3Z0JBOUhoS015VXU2a2s5bkp4bzRFeDMx?=
- =?utf-8?B?Uk5qL0ZGdm10Wk9qZDY5NnBGd1kybHdFc2FHRC9YamVzUFNLcm9kMXNwbnBY?=
- =?utf-8?B?WWpqbW9aQU4xNjlVeGszZmFPeHVqKzdaNHZMdmVQeGphRFpYd3ZoZWZIS2FD?=
- =?utf-8?B?SW0rMEtTQ0Vaa3k3SGpJQXJYRkVVSFlad0drK3dRaTFmYWNyVmFLREVhT096?=
- =?utf-8?B?MmhWeDFnZGJheVYrNWJuS3VoQjQzZ2NXOG10dHlKMWJacTN6M1Z5Q1FCRXJE?=
- =?utf-8?B?Sy9FVkJqZ1VRMDdCeUU4OEh5VlhvYm5SaHhIU0lzVGtIQ0VKY1JuMzc2dk1m?=
- =?utf-8?B?bVJoaWMrMTNoSTdXOUhvOWErdFdCWTZlazMxWm5HQVhTUmVLVnJjQT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 966efee9-aea7-4043-76b2-08dea1115d75
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2026 08:21:48.9184
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WT4h0lUuUpg+qx449m/mkiSO1U7fgZZ1O8fKOyCNJkn44Sn6p0bDsE9jqmhCSozEcDR6RT763/3nCpciivwRzg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8876
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260105-at91-probe-v3-3-594013ff2965@kernel.org>
+User-Agent: Mutt/2.2.13 (2024-03-09)
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_012157_525657_50059844 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20260423_012458_814895_F900287A 
+X-CRM114-Status: GOOD (  30.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,69 +84,302 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the i.MX95 MIPI CSI-2 receiver. The i.MX95 variant is
-nearly identical to i.MX93, with the main difference being the use of
-IDI (Image Data Interface) instead of IPI (Image Pixel Interface).
-However, the IDI interface is transparent to software, requiring only
-a different register map definition while sharing the same PHY control
-functions with i.MX93.
+Hello everyone,
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
----
-Changes in v2:
-- Add Reviewed-by tag from Frank Li <Frank.Li@nxp.com>
----
- drivers/media/platform/synopsys/dw-mipi-csi2rx.c | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+I'm afraid this patch breaks finding rootfs on raw nand on sam9x60,
+see below:
 
-diff --git a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
-index 8c38fe8a3f06..62910d61eb64 100644
---- a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
-+++ b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
-@@ -154,6 +154,17 @@ static const u32 imx93_regs[DW_MIPI_CSI2RX_MAX] = {
- 	[DW_MIPI_CSI2RX_IPI_SOFTRSTN] = DW_REG(0xa0),
- };
- 
-+static const u32 imx95_regs[DW_MIPI_CSI2RX_MAX] = {
-+	[DW_MIPI_CSI2RX_N_LANES] = DW_REG(0x4),
-+	[DW_MIPI_CSI2RX_RESETN] = DW_REG(0x8),
-+	[DW_MIPI_CSI2RX_PHY_SHUTDOWNZ] = DW_REG(0x40),
-+	[DW_MIPI_CSI2RX_DPHY_RSTZ] = DW_REG(0x44),
-+	[DW_MIPI_CSI2RX_PHY_STATE] = DW_REG(0x48),
-+	[DW_MIPI_CSI2RX_PHY_STOPSTATE] = DW_REG(0x4c),
-+	[DW_MIPI_CSI2RX_PHY_TST_CTRL0] = DW_REG(0x50),
-+	[DW_MIPI_CSI2RX_PHY_TST_CTRL1] = DW_REG(0x54),
-+};
-+
- static const struct v4l2_mbus_framefmt default_format = {
- 	.width = 3840,
- 	.height = 2160,
-@@ -907,11 +918,22 @@ static const struct dw_mipi_csi2rx_drvdata imx93_drvdata = {
- 	.wait_for_phy_stopstate = imx93_csi2rx_wait_for_phy_stopstate,
- };
- 
-+static const struct dw_mipi_csi2rx_drvdata imx95_drvdata = {
-+	.regs = imx95_regs,
-+	.dphy_assert_reset = imx93_csi2rx_dphy_assert_reset,
-+	.dphy_deassert_reset = imx93_csi2rx_dphy_deassert_reset,
-+	.wait_for_phy_stopstate = imx93_csi2rx_wait_for_phy_stopstate,
-+};
-+
- static const struct of_device_id dw_mipi_csi2rx_of_match[] = {
- 	{
- 		.compatible = "fsl,imx93-mipi-csi2",
- 		.data = &imx93_drvdata,
- 	},
-+	{
-+		.compatible = "fsl,imx95-mipi-csi2",
-+		.data = &imx95_drvdata,
-+	},
- 	{
- 		.compatible = "rockchip,rk3568-mipi-csi2",
- 		.data = &rk3568_drvdata,
+Am Mon, Jan 05, 2026 at 03:06:45PM -0600 schrieb Rob Herring (Arm):
+> The DT core will call of_platform_default_populate, so it is not
+> necessary for machine specific code to call it unless there are custom
+> match entries, auxdata or parent device. Neither of those apply here, so
+> remove the call.
+> 
+> Acked-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
+> Tested-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 
--- 
-2.34.1
+Not sure what was actually tested, but this change breaks booting from
+raw NAND flash on our sam9x60 based board.  I bisected the boot
+failure to this exact change.  Before the change I see the nand
+controller messages in the kernel log like this:
 
+    atmel-nand-controller 10000000.ebi:nand-controller: using dma0chan5 for DMA transfers
+    nand: device found, Manufacturer ID: 0x01, Chip ID: 0xda
+    nand: AMD/Spansion S34ML02G1
+    nand: 256 MiB, SLC, erase size: 128 KiB, page size: 2048, OOB size: 64
+
+After the change, there are no kernel log messages related to nand at
+all, the driver does not seem to load.  This of course leads to no mtd
+and ubi devices created, no ubi volumes found, no rootfs, and
+eventually this message:
+
+    VFS: Cannot open root device "ubi0:rootfs2" or unknown-block(0,253): error -19
+
+I tried to understand the whole patch series, and to my understanding
+the intend was the device nodes still get populated, and the drivers
+loaded, right?  Patch 1/3 is related to the atmel nand controller, and
+that one is not in the tree yet when bisecting to the end.  However it
+is present in v7.0-rc1 (and later) and trying to boot that kernel (or
+7.0 or todays master) fails, too.  (Also I don't see those probe defer
+messages related to SRAM on v7.0-rc1, so I assume that's not the
+problem?)
+
+Now the strange thing is: on a different hardware based on sama5d2
+v7.0-rc1 boots fine from raw nand flash.  I wonder what's the
+difference which makes it work on one atmel platform and not work on
+the other?
+
+I compared kernel .config of both boards, no obvious pieces missing.
+Looking at the dts (and included dtsi) files of both boards I could
+spot no mistake.  Also no obvious flaws in sama5d2.dtsi or
+sam9x60.dtsi.
+
+Note: raw NAND flash is the only storage for rootfs on our platforms,
+we can not simply put rootfs to a different storage.  I could try
+setting up NFS boot for further investigation, but that will take a
+while.
+
+Does anyone have an idea how to make booting from raw NAND flash work
+on sam9x60 again (despite the obviously not desired revert)?  What can
+I try?  What information would be interesting for debugging?
+
+Greets
+Alex
+
+> ---
+> v3:
+>  - Fixup split between patch 2 and 3.
+> 
+> v2:
+>  - Dust off and rebase to 6.18-rc1
+>  - Add new platforms added since v1
+> ---
+>  arch/arm/mach-at91/at91rm9200.c |  9 ---------
+>  arch/arm/mach-at91/at91sam9.c   |  9 ---------
+>  arch/arm/mach-at91/sam9x60.c    |  9 ---------
+>  arch/arm/mach-at91/sam9x7.c     |  9 ---------
+>  arch/arm/mach-at91/sama5.c      | 16 ----------------
+>  arch/arm/mach-at91/sama7.c      |  9 ---------
+>  6 files changed, 61 deletions(-)
+> 
+> diff --git a/arch/arm/mach-at91/at91rm9200.c b/arch/arm/mach-at91/at91rm9200.c
+> index 2ac564eb8bbb..d15997fff5d7 100644
+> --- a/arch/arm/mach-at91/at91rm9200.c
+> +++ b/arch/arm/mach-at91/at91rm9200.c
+> @@ -7,18 +7,10 @@
+>   *                2012 Joachim Eastwood <manabian@gmail.com>
+>   */
+>  
+> -#include <linux/of.h>
+> -#include <linux/of_platform.h>
+> -
+>  #include <asm/mach/arch.h>
+>  
+>  #include "generic.h"
+>  
+> -static void __init at91rm9200_dt_device_init(void)
+> -{
+> -	of_platform_default_populate(NULL, NULL, NULL);
+> -}
+> -
+>  static const char *const at91rm9200_dt_board_compat[] __initconst = {
+>  	"atmel,at91rm9200",
+>  	NULL
+> @@ -26,6 +18,5 @@ static const char *const at91rm9200_dt_board_compat[] __initconst = {
+>  
+>  DT_MACHINE_START(at91rm9200_dt, "Atmel AT91RM9200")
+>  	.init_late	= at91rm9200_pm_init,
+> -	.init_machine	= at91rm9200_dt_device_init,
+>  	.dt_compat	= at91rm9200_dt_board_compat,
+>  MACHINE_END
+> diff --git a/arch/arm/mach-at91/at91sam9.c b/arch/arm/mach-at91/at91sam9.c
+> index cf07cba4ee5d..b9d2909d1b65 100644
+> --- a/arch/arm/mach-at91/at91sam9.c
+> +++ b/arch/arm/mach-at91/at91sam9.c
+> @@ -6,19 +6,11 @@
+>   *                2011 Nicolas Ferre <nicolas.ferre@atmel.com>
+>   */
+>  
+> -#include <linux/of.h>
+> -#include <linux/of_platform.h>
+> -
+>  #include <asm/mach/arch.h>
+>  #include <asm/system_misc.h>
+>  
+>  #include "generic.h"
+>  
+> -static void __init at91sam9_init(void)
+> -{
+> -	of_platform_default_populate(NULL, NULL, NULL);
+> -}
+> -
+>  static const char *const at91_dt_board_compat[] __initconst = {
+>  	"atmel,at91sam9",
+>  	NULL
+> @@ -27,6 +19,5 @@ static const char *const at91_dt_board_compat[] __initconst = {
+>  DT_MACHINE_START(at91sam_dt, "Atmel AT91SAM9")
+>  	/* Maintainer: Atmel */
+>  	.init_late	= at91sam9_pm_init,
+> -	.init_machine	= at91sam9_init,
+>  	.dt_compat	= at91_dt_board_compat,
+>  MACHINE_END
+> diff --git a/arch/arm/mach-at91/sam9x60.c b/arch/arm/mach-at91/sam9x60.c
+> index a31beaaeffcd..744bab2cbb92 100644
+> --- a/arch/arm/mach-at91/sam9x60.c
+> +++ b/arch/arm/mach-at91/sam9x60.c
+> @@ -7,19 +7,11 @@
+>   * Author: Claudiu Beznea <claudiu.beznea@microchip.com>
+>   */
+>  
+> -#include <linux/of.h>
+> -#include <linux/of_platform.h>
+> -
+>  #include <asm/mach/arch.h>
+>  #include <asm/system_misc.h>
+>  
+>  #include "generic.h"
+>  
+> -static void __init sam9x60_init(void)
+> -{
+> -	of_platform_default_populate(NULL, NULL, NULL);
+> -}
+> -
+>  static const char *const sam9x60_dt_board_compat[] __initconst = {
+>  	"microchip,sam9x60",
+>  	NULL
+> @@ -28,6 +20,5 @@ static const char *const sam9x60_dt_board_compat[] __initconst = {
+>  DT_MACHINE_START(sam9x60_dt, "Microchip SAM9X60")
+>  	/* Maintainer: Microchip */
+>  	.init_late	= sam9x60_pm_init,
+> -	.init_machine	= sam9x60_init,
+>  	.dt_compat	= sam9x60_dt_board_compat,
+>  MACHINE_END
+> diff --git a/arch/arm/mach-at91/sam9x7.c b/arch/arm/mach-at91/sam9x7.c
+> index 0c73f7fefd4f..166c8625509d 100644
+> --- a/arch/arm/mach-at91/sam9x7.c
+> +++ b/arch/arm/mach-at91/sam9x7.c
+> @@ -7,18 +7,10 @@
+>   * Author: Varshini Rajendran <varshini.rajendran@microchip.com>
+>   */
+>  
+> -#include <linux/of.h>
+> -#include <linux/of_platform.h>
+> -
+>  #include <asm/mach/arch.h>
+>  
+>  #include "generic.h"
+>  
+> -static void __init sam9x7_init(void)
+> -{
+> -	of_platform_default_populate(NULL, NULL, NULL);
+> -}
+> -
+>  static const char * const sam9x7_dt_board_compat[] __initconst = {
+>  	"microchip,sam9x7",
+>  	NULL
+> @@ -27,6 +19,5 @@ static const char * const sam9x7_dt_board_compat[] __initconst = {
+>  DT_MACHINE_START(sam9x7_dt, "Microchip SAM9X7")
+>  	/* Maintainer: Microchip */
+>  	.init_late	= sam9x7_pm_init,
+> -	.init_machine	= sam9x7_init,
+>  	.dt_compat	= sam9x7_dt_board_compat,
+>  MACHINE_END
+> diff --git a/arch/arm/mach-at91/sama5.c b/arch/arm/mach-at91/sama5.c
+> index 576654cba82d..e56022f00800 100644
+> --- a/arch/arm/mach-at91/sama5.c
+> +++ b/arch/arm/mach-at91/sama5.c
+> @@ -6,9 +6,6 @@
+>   *                2013 Ludovic Desroches <ludovic.desroches@atmel.com>
+>   */
+>  
+> -#include <linux/of.h>
+> -#include <linux/of_platform.h>
+> -
+>  #include <asm/hardware/cache-l2x0.h>
+>  #include <asm/mach/arch.h>
+>  #include <asm/mach/map.h>
+> @@ -30,11 +27,6 @@ static void __init sama5_secure_cache_init(void)
+>  		outer_cache.write_sec = sama5_l2c310_write_sec;
+>  }
+>  
+> -static void __init sama5_dt_device_init(void)
+> -{
+> -	of_platform_default_populate(NULL, NULL, NULL);
+> -}
+> -
+>  static const char *const sama5_dt_board_compat[] __initconst = {
+>  	"atmel,sama5",
+>  	NULL
+> @@ -43,7 +35,6 @@ static const char *const sama5_dt_board_compat[] __initconst = {
+>  DT_MACHINE_START(sama5_dt, "Atmel SAMA5")
+>  	/* Maintainer: Atmel */
+>  	.init_late	= sama5_pm_init,
+> -	.init_machine	= sama5_dt_device_init,
+>  	.dt_compat	= sama5_dt_board_compat,
+>  MACHINE_END
+>  
+> @@ -54,17 +45,11 @@ static const char *const sama5_alt_dt_board_compat[] __initconst = {
+>  
+>  DT_MACHINE_START(sama5_alt_dt, "Atmel SAMA5")
+>  	/* Maintainer: Atmel */
+> -	.init_machine	= sama5_dt_device_init,
+>  	.init_late	= sama5_pm_init,
+>  	.dt_compat	= sama5_alt_dt_board_compat,
+>  	.l2c_aux_mask	= ~0UL,
+>  MACHINE_END
+>  
+> -static void __init sama5d2_init(void)
+> -{
+> -	of_platform_default_populate(NULL, NULL, NULL);
+> -}
+> -
+>  static const char *const sama5d2_compat[] __initconst = {
+>  	"atmel,sama5d2",
+>  	NULL
+> @@ -72,7 +57,6 @@ static const char *const sama5d2_compat[] __initconst = {
+>  
+>  DT_MACHINE_START(sama5d2, "Atmel SAMA5")
+>  	/* Maintainer: Atmel */
+> -	.init_machine	= sama5d2_init,
+>  	.init_early	= sama5_secure_cache_init,
+>  	.init_late	= sama5d2_pm_init,
+>  	.dt_compat	= sama5d2_compat,
+> diff --git a/arch/arm/mach-at91/sama7.c b/arch/arm/mach-at91/sama7.c
+> index 8bf57a020f1c..f56828d61199 100644
+> --- a/arch/arm/mach-at91/sama7.c
+> +++ b/arch/arm/mach-at91/sama7.c
+> @@ -6,19 +6,11 @@
+>   *
+>   */
+>  
+> -#include <linux/of.h>
+> -#include <linux/of_platform.h>
+> -
+>  #include <asm/mach/arch.h>
+>  #include <asm/system_misc.h>
+>  
+>  #include "generic.h"
+>  
+> -static void __init sama7_dt_device_init(void)
+> -{
+> -	of_platform_default_populate(NULL, NULL, NULL);
+> -}
+> -
+>  static const char *const sama7_dt_board_compat[] __initconst = {
+>  	"microchip,sama7",
+>  	NULL
+> @@ -27,7 +19,6 @@ static const char *const sama7_dt_board_compat[] __initconst = {
+>  DT_MACHINE_START(sama7_dt, "Microchip SAMA7")
+>  	/* Maintainer: Microchip */
+>  	.init_late	= sama7_pm_init,
+> -	.init_machine	= sama7_dt_device_init,
+>  	.dt_compat	= sama7_dt_board_compat,
+>  MACHINE_END
+>  
+> 
+> -- 
+> 2.51.0
+> 
+> 
 
