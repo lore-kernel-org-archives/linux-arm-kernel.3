@@ -4,113 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAD2AFDEE42
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 18:36:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AE94FDEE3F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 18:43:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lMwWOP325Y+FxEfz24yq10d2Rgb+6ewllZMkA6avH7k=; b=zdjT5kqVhjV+QUNb/ez1XFKJms
-	x8AoPSDzQXGVTSfLpsI8ct99LHq25o6B8QuFGWfxldep7AlwENZa3jjbpXaEm/QgBGfJ28KFKqp5N
-	Jrkl7hsO055e7rWV2Fg3Hs/x2vJ8VzEiyrQfyYCzrp81fba7J4h/yb3lCOALQOgprktMXTemlgksz
-	ycf6ZJaF99HtrY3ZbyAPMGZz4gT25ocz+iiGQ322VPQ0U/Xgmf5I09Et+BkonT9gMTay4BuTCC0t4
-	gpZKFT7SJ1jcK+eFsJh0MZIZlgZxSj8ixnhRXJDvtiHd8DQUvJe6P5GmeAqUspO2/jA5aALW6h5QI
-	wvFq2uAQ==;
+	Content-Type:Subject:References:In-Reply-To:Message-Id:To:From:Date:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+8OlnfIQ6DaoOFXqEFv4KaZ+j1lhQuHlCxjm4TTzoe8=; b=sGwGuG+cr4E9XboH5QVXgvxXGB
+	aKxGuGBdNbtgqNye5KnOzDZh2BivfUXSdoQwoL5Pkzd6METKsCH4v4ygmKFnJWWvWxaxj5y30zc0W
+	FIZF1orYaruu7PJo+ptI4zljZvackJTt1EStZnLBGUFGR4kWUt2RuydXnK1iqQsjsFLz9DnSXPQeu
+	v+lXd1EOIbmA0YLUbEBBXukV2rY9c4P33boKE/X+tgt1wkck73Cn7Bq3YgCDtF632P+9o2DF9WGHw
+	UdRnUOcEurHCKVljZ5JKXzTAgZ5wbyK9MaXfjItwJ/nCW1DiwRcaDU66frwYte1O9H1MzXUQzqDfK
+	8P6K5Nmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFyuP-0000000C85A-0Re5;
-	Thu, 23 Apr 2026 18:36:17 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1wFz1M-0000000C8Qn-0wEV;
+	Thu, 23 Apr 2026 18:43:28 +0000
+Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFyuM-0000000C84O-3h8K
+	id 1wFz1J-0000000C8QK-1dt1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 18:36:16 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-ba699316b42so831485966b.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 11:36:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776969373; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Qn0NHZNEcOH2pEMuMDUTPg+OeHJFmZCt728ID16/fao4+DanaXzXzAdMd0WjP13y9M
-         UebiFTjUuU4AO6x762d7eFQ+ClIFJw0xSxhTFV2Z88nbvuncwnPGEFbEuDsXrsY7PCO1
-         qF2zQ9H/YC+EwW5asnx+XdSoyaClz3tQKBUr5yW4L55MjkZdyOV7MWCL4lAm2rhPOmpn
-         4Dt9jCR18G69TgUoiwWoE46gN/4WBDXvnVHeuTVyoWKZ1O2jB1S482c/c4yc8aBFwkTu
-         eVPvIqAM91MHd1b4rs2HjDJqlosxO4Uq2ZsOkg4VXWdj0/869qiw9Hnc+OlyrikZ3Ud1
-         Vkvg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=lMwWOP325Y+FxEfz24yq10d2Rgb+6ewllZMkA6avH7k=;
-        fh=Gd1gzzch3XlASkOSzv5ri0GDRUgz+3iSW7SLJL7K3ss=;
-        b=bERltjnW0JFqV8c3qN19dByP6g/4+vzoKpuIpvDm5PT3TU9HQwpGPwJmXrA5mpmj8g
-         1hMrT6BEhBB4t/YX8spwEn9kJuJUS+V2K87a4IMKWQRoYmlSDqWVPt5m9M4r41f0Cl14
-         m84oxwEEzrY0EdiAZH+F+b7k2Jej22vg+BXAxsC4fwNZW1/LzLTcmEWsB1v1jgWR2it3
-         sBYOrW8rqpJ5ADapDoXOB896cKNvPzBS2itqHP5rCmdSUJfCBYBsHMwdCIH7CWszXrXG
-         7RSCrtCwVOSa0efRf72mY5Di1EWyy80U8TxINbiULnjBpSuw/LMEFWHS9Qm85lHR9dOA
-         Fbww==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=mongodb.com; s=google; t=1776969373; x=1777574173; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lMwWOP325Y+FxEfz24yq10d2Rgb+6ewllZMkA6avH7k=;
-        b=MvNTHq16LePGTaJEfXH0h8Ot5HKXxnwkA82SbFrHad28YOxYh9iqZBbq+NUPMXFzDr
-         0Q3xNpweSH5bvcNMwk5RQmxCNILs9OREnOI0Wsw+QBiUb8g8m15vZNRNWFGJ+tIxRwd9
-         tHLyRqxXTx3jRk4nGx9h3rCMf0A+3gBZiYkSg=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776969373; x=1777574173;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=lMwWOP325Y+FxEfz24yq10d2Rgb+6ewllZMkA6avH7k=;
-        b=gVXERdj2XfGZx0WqofW+geVTVQCMhOphpYhD3ckXJtaAaNYhiBfa9nftdDjeTVeDYe
-         M8r/mJlt9tHlXxvNqtTKewbcRg+zPoye3AoDxG51DtnyOACAqCn2ff452EE9525lECh5
-         Q9OLDKKi4SMa6plOEpaJc9Tqag+vCmz44cS9ngjMpXjYkHD0ZJyikvwlx55Qzr7mxuVI
-         YuoF3Zf1Xeg016cxNFY06pBrIaHKJ5t05dOzIrmd4Mfl/24Mh7N6fd8QlWemDhZXly7m
-         j6vSy8T8zEd9bn0i99+gg4P3Cd3GTY4zOcTwZ/88EB8OxxfpMM4W39QWoMCCXYyXpolO
-         RtVw==
-X-Forwarded-Encrypted: i=1; AFNElJ8c7aGeIChjhkpVdjbsPVKNUJrGE47QN9IIDpaDDdPE0dOqOcmJZ/y3qEfcJ9EIILDeH1xtgiCvNM3aACX5ARdz@lists.infradead.org
-X-Gm-Message-State: AOJu0YymyeWpdhDfCnCNFXBoROp14UyHd501XBpbTboLe41KF3eJdIcY
-	twurfxSYXMmMBlX6nEp2rhvtkW/DaVrdqI1D4zIumgURONt8WbFm4KxlnOJveb56OwarG1lkKOx
-	lUlFauyU34WzZ4b3TGkDZNGdptmYe0AgPWLNvgFDRFg==
-X-Gm-Gg: AeBDievu6opOmsabgpoWFgYeIoh6WO4a1FipXO3Q/N99h612dH/3yreQYoItGbuvdOD
-	qTBNwnznnmiT2VN2TwtFmSqAv68BYhd/FGKBi0UJIYf34yAH4O4+WlH8mEgTBzDw5gfxiqLG3+z
-	1jnI0OMPqSmDGb43BooUDl1loQ9KnQdBV992WZP/J0PN1gW5ze46a+C9zxRGRlpbKt3yRR3B5IM
-	vzz0fCxZRoUcvJwF7E397fmE2GtO9qfd8VDreTeOfdiDlqsiFCCSMilmxyxphIeXxPUawbdFfxZ
-	7eiHxEawNQCSlCstuJCTvc68xp/pz26JQyWQ
-X-Received: by 2002:a17:907:6d15:b0:b98:411a:116f with SMTP id
- a640c23a62f3a-ba419076c8emr1456311466b.2.1776969372808; Thu, 23 Apr 2026
- 11:36:12 -0700 (PDT)
+	Thu, 23 Apr 2026 18:43:26 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id 258AB1D000BB;
+	Thu, 23 Apr 2026 14:43:23 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Thu, 23 Apr 2026 14:43:23 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kevinmehall.net;
+	 h=cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1776969802;
+	 x=1777056202; bh=+8OlnfIQ6DaoOFXqEFv4KaZ+j1lhQuHlCxjm4TTzoe8=; b=
+	UuJ3GWYI/vEoO8/n2VwjlhLFGi8m2FzBfK34GUG+vSwe/o1bWVG3OWDI27v4jhtm
+	Yys7mwU7OZWdOWwPtiBsVRhqYO1gD7hfMPZcYLJ7Jn2MmdUvq65RRNjBS1D4rkeI
+	tWjMHD6loTHRokL8rCGWrHoG0SjiMKCY7Fyl5y1IdJm1WY7tES9p+/lKTE7lRqZ8
+	fWS4pDDSJZk2PiZ4cX6Rxo1P/ym76AxgbSQ8IVoYQMH92TQsUG4FEYKn66vh3zx/
+	Qyrz9b60RI6ybJ8ezckhar0toZnJKeLndfg93vM6bWFJxOo1MYKwwaXxFXOxNqSJ
+	ur01+qEPSGHW/MajBb9UiQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:content-transfer-encoding:content-type
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm2; t=1776969802; x=1777056202; bh=+
+	8OlnfIQ6DaoOFXqEFv4KaZ+j1lhQuHlCxjm4TTzoe8=; b=OEKyQRkpuXRjBFVLT
+	2UDjIEJ4x6Z9l79sjc6h50wuIqBGYCoop/fKyzmx9vJHpZ1WxY11e0T8ZSZktKzd
+	xUnS4MxcUwZvn+yqlM9mWid0FhfD2OzZCn8l4kKLGQHOL7FIDqeqX0DZvEQMaekW
+	HDH6vZXRtFkcWqotcm9uVzkX0dvh3wL2oOpizuoquj51M+4QhsBZ8ZPl64qarV0O
+	QStbcbRFUCNO83NdzDVY8cZt4So7RujEQygVIGRRz861F7o6tyvd+c5r9ijc8o+R
+	6thSoBvbSWmLIIFOMsp2/dqsRruxUNBtZL2b8Q0FW7bOT7OTOIfVNp1ngdA+mYD9
+	9rsqw==
+X-ME-Sender: <xms:SmjqaZxU4NZx2tziwcznkcxv4xUg70wEAvQDbN3tfbSe0gtM1VlAnQ>
+    <xme:SmjqaUEC5yzwi0um-GQQ1wLGU7Aep4Nvrzr-r7zXTjSYNnU3kd2qznYq5bWOsBAQg
+    RORipk7ypRhh63s-bj-auP2PbBHRM3ywtWQY8VOwENvYbGML0yVAwA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdeijeeltdcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedfmfgvvhhinhcu
+    ofgvhhgrlhhlfdcuoehkmheskhgvvhhinhhmvghhrghllhdrnhgvtheqnecuggftrfgrth
+    htvghrnhephfetkedtgfffgeelfedtteetffelffehffegueeuueeuudefvdegfeffffet
+    ffetnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpe
+    dtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehkmheskhgvvhhinhhmvghhrghllhdrnhgv
+    thdpnhgspghrtghpthhtohepuddtpdhmohguvgepshhmthhpohhuthdprhgtphhtthhope
+    hjvghrnhgvjhdrshhkrhgrsggvtgesghhmrghilhdrtghomhdprhgtphhtthhopegsrhho
+    ohhnihgvsehkvghrnhgvlhdrohhrghdprhgtphhtthhopeifvghnsheskhgvrhhnvghlrd
+    horhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhi
+    nhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqshhunhigiheslhhish
+    htshdrlhhinhhugidruggvvhdprhgtphhtthhopehmihhrkhhoqdguvghvkihlihhnuhig
+    sehnrghnlhdruggvpdhrtghpthhtoheprhhstgesrhhunhhtuhigrdgtohhmpdhrtghpth
+    htohepshgrmhhuvghlsehshhholhhlrghnugdrohhrghdprhgtphhtthhopehlihhnuhig
+    qdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:SmjqaQ-6urYPgsDOLcAicbp_1ZGnER3UxE1h4scnEgZkG6LMBBtv_g>
+    <xmx:SmjqaW8493rN-YaEdWfugKX-HwEeJNU1I5_nyT71oxVaidLxkTfAqg>
+    <xmx:SmjqafUEmbd6lzL0jgWSXFiGULmX-lTYQJX37Irt3O2ohxJWerSR9g>
+    <xmx:SmjqaTcNXKUVgvChzfTmPfg-MS0d7J0sKpiDEjHygXc8_M3c6Z0NXA>
+    <xmx:SmjqaYFRzbHeyhvU7IVeD_-0oF6aKyoSmm8Mz2dZucRwh6gDUTnV4G5x>
+Feedback-ID: i421842c8:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 06D0D700065; Thu, 23 Apr 2026 14:43:22 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
- <20260422125647.GP3126523@noisy.programming.kicks-ass.net>
- <20260422131338.GI3102924@noisy.programming.kicks-ass.net>
- <CAHnCjA2fa+dP1+yCYNQrTXQaW-JdtfMj7wMikwMeeCRg-3NhiA@mail.gmail.com>
- <87fr4l28zn.ffs@tglx> <CAHnCjA07ER=9xBqXq4jf5yn052W-E9ZXD86HxnRGtai6bpXbbQ@mail.gmail.com>
- <87cxzp1tn6.ffs@tglx> <CAHk-=wjsEqWJxXArS-P5+ksSY2Apaox8u6FtUrtyWSBEOL4Q2Q@mail.gmail.com>
-In-Reply-To: <CAHk-=wjsEqWJxXArS-P5+ksSY2Apaox8u6FtUrtyWSBEOL4Q2Q@mail.gmail.com>
-From: Mathias Stearn <mathias@mongodb.com>
-Date: Thu, 23 Apr 2026 20:35:45 +0200
-X-Gm-Features: AQROBzCU44qvM2n7u3bSSfOCODS7CRqJgwCnCmHvHQ6YyNUA9ZKN2DS8mq-0h7g
-Message-ID: <CAHnCjA3aR1hLYK3DsXZV5AaLWe56+zLOS8ffpAMv9TBEkT-3nA@mail.gmail.com>
-Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
- and tcmalloc everywhere
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Thomas Gleixner <tglx@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, 
-	"Paul E. McKenney" <paulmck@kernel.org>, Chris Kennelly <ckennelly@google.com>, 
-	Dmitry Vyukov <dvyukov@google.com>, regressions@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Ingo Molnar <mingo@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Jinjie Ruan <ruanjinjie@huawei.com>, Blake Oler <blake.oler@mongodb.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Date: Thu, 23 Apr 2026 12:40:34 -0600
+From: "Kevin Mehall" <km@kevinmehall.net>
+To: "Mark Brown" <broonie@kernel.org>, "Chen-Yu Tsai" <wens@kernel.org>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>,
+ "Samuel Holland" <samuel@sholland.org>,
+ "Mirko Vogt" <mirko-dev|linux@nanl.de>,
+ "Ralf Schlatterbeck" <rsc@runtux.com>, linux-spi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Message-Id: <53c2d366-2d76-4a6d-a72b-99544026ee27@app.fastmail.com>
+In-Reply-To: <20260423174001.2797797-2-km@kevinmehall.net>
+References: <20260423174001.2797797-1-km@kevinmehall.net>
+ <20260423174001.2797797-2-km@kevinmehall.net>
+Subject: Re: [PATCH v2 1/2] spi: sun6i: Honor CS setup delay on the first transfer with
+ native CS
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_113615_065513_8BA26C1E 
-X-CRM114-Status: GOOD (  13.01  )
+X-CRM114-CacheID: sfid-20260423_114325_586706_BAD900BB 
+X-CRM114-Status: UNSURE (   8.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,39 +121,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 23, 2026 at 7:48=E2=80=AFPM Linus Torvalds
-<torvalds@linux-foundation.org> wrote:
-> I see some patches flying around, but am not clear on whether there
-> was an actual patch that make this work again?
+I realized this is incorrect. With a GPIO chip select, sun6i_spi_set_cs() is not called,
+thus CS_MANUAL would not be set, and the hardware would then automatically
+assert native CS 0 during the transfer. My testing was with native CS 1 and a second GPIO chip select,
+so I didn't see this because native CS 0 is not used on the Orange Pi Zero 3.
 
-Thomas's patch from upthread appears in initial testing to address the
-arm64 preemption breakage. Thanks! I'm currently building with the
-following patch on top of that and will test it once it is ready.
+Therefore, I think the best place to set CS_MANUAL is in sun6i_spi_prepare_message
+as I had in my original patch [1], unless you think it should be duplicated in both places
+or have a better suggestion of where to set it. sun6i_spi_prepare_message() is still called
+before set_cs(), so it still fixes the skipped delay.
 
----
-
-diff --git a/include/linux/rseq_entry.h b/include/linux/rseq_entry.h
-index a36b472627de..e26bf249bbd8 100644
---- a/include/linux/rseq_entry.h
-+++ b/include/linux/rseq_entry.h
-@@ -300,12 +300,15 @@ rseq_update_user_cs(struct task_struct *t,
-struct pt_regs *regs, unsigned long c
-
-         /* Invalidate the critical section */
-         unsafe_put_user(0ULL, &t->rseq.usrptr->rseq_cs, efault);
-+        /* TCMalloc kludge - it relies on cpu_id_start being overwritten *=
-/
-+        unsafe_put_user((u32)task_cpu(t),
-&t->rseq.usrptr->cpu_id_start, efault);
-         /* Update the instruction pointer */
-         instruction_pointer_set(regs, (unsigned long)abort_ip);
-         rseq_stat_inc(rseq_stats.fixup);
-         break;
-     clear:
-         unsafe_put_user(0ULL, &t->rseq.usrptr->rseq_cs, efault);
-+        unsafe_put_user((u32)task_cpu(t),
-&t->rseq.usrptr->cpu_id_start, efault);
-         rseq_stat_inc(rseq_stats.clear);
-         abort_ip =3D 0ULL;
-     }
+[1]: https://lore.kernel.org/linux-spi/20260420164755.1131645-1-km@kevinmehall.net/
 
