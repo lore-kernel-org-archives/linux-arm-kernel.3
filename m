@@ -4,150 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FFE7FDEE2F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 17:47:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EAFFFDEE2F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 17:59:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YSe47lgEl2M56wnTWLyZKSiWMXRMSHjHJ3fGsRqkyys=; b=ieyAQmryKVXMxwlNc/OwCA9cXo
-	OViJk5c2QjABY3M21WoJC2+PY6RUEV37wBa76+ISChXpCGtxtI4qcmVvgUNEKyyPb6J5bSHomWfOR
-	s+oCNA4C+x3RnYSKX9xo+iietj3kAiZCsztSdq2O0ddbK1QDoIsbmCGWNVEe6qm4CL4WQBrhmvdyC
-	9xmZJWOgo87FViu5PzW7KOveYDp5gSKkU6xPCoYO0MJXtMM+RPyahDqsmJrZ9Ue2gMTvRCCbah838
-	UIorCvmwSo4GGsRponpghPxGeRpY6nigWyupjhb+l3rLD1pOgkXmodHTlxBOe1Nv4owAwcnrb8O58
-	werOLE3w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=sURWs2TE9ZdP5YO5BJRmg7n6Wsv+oJO4INdwa53fOWc=; b=AqiYRBfMRqXnRe
+	76sjmWpa5qXDpTTVec/mVyTbGhJugyln1wWrM0+7KKHp2STDiI2NoQrS1BkER7LnOL8ddK+1CxjG/
+	99HZgwyRJ7VnxY1PWmLSZMd3wGOga9xLdIbau8Q+rlOQq+svuS/aR1rQZcBuFmvMN7tXPSWOPyZR7
+	VsA8vo0dsGp5nhwRXUSD5vS9fBaayNHA25Nd1mRBvLVBEKPq/pchnuVohcRVcHczhrn63TvmZgUnq
+	lkbbSUrY4OTyxtClr63N18Lr6nLTFVkfcIGwSlj0iTV4BFAKi9gfo8LDyG4yuYeFpHHzmo2g1igZi
+	w9OY0JX6OujibLLQBlZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFy9B-0000000C4s3-43Qu;
-	Thu, 23 Apr 2026 17:47:29 +0000
-Received: from mail-canadaeastazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c104::] helo=YQZPR01CU011.outbound.protection.outlook.com)
+	id 1wFyKa-0000000C5Ww-1S3p;
+	Thu, 23 Apr 2026 17:59:16 +0000
+Received: from mail-northcentralusazon11013048.outbound.protection.outlook.com ([40.107.201.48] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFy98-0000000C4rH-3fxU
+	id 1wFyKX-0000000C5WP-0uv3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 17:47:28 +0000
+	Thu, 23 Apr 2026 17:59:15 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kkCf39ARcsGo8WkBFtn/wprqAXlJgjDwWVxsqSo976NgxgNB+QPhFY6kCA4xM6cGrWWNFvNSvRC6omgAyvpMDF7kNzPimEV+5j2Vim6NFpMKl1P69GmQfk1wq5A5KSsxj/yESQ0bUQ10bWgRn2sBjYZRM5g/5BQUlI+zLwMxoDQosGpoA9bTFZioVZaOAgKCyEARwWMGqG4n9vlBfz2mezUXlip1Hat9ksumR2/v1lWRmN/xsYbp1Fb5GsXwtd7xLtX5WmDHagaTv0qdbrTjjnGf2FWvPJ0S0uE+FOEkEDsWZCPz+4kaBnmj/as/6PPN1H4rclmIrXQomRPdTevDhg==
+ b=vwBtouaNzNnSUoPwfsWfdGdzA4j6xFRPioSzlsiDxMtatR6xxLF5/noXZ2jhmQTf3hF35LYvW/B7aQYxO3Pj3fcsML1YuUfrsB1In6zfVi05QHKwMNIMXFw0YjQN5J4+uVJywFF02/KXJZ1fDJDoTF8PKmGTkPAxOaFTLJMhWTauVrz7CW2ls5R3Dj3dTa0mRr5NdDkLwOXTyg3Ijp83RZMQfLGbrWh8zra3Ik5ZTVwxy2BH4MEYs91a+SBFN/7h1ccvaIhqXS2ASPBwxMAun7cKIWvvhlmgcXghiFrr+xT1+gzg3kgYzwikMotkIBIZksdmCNhjXe/Bn4jWtrn88Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YSe47lgEl2M56wnTWLyZKSiWMXRMSHjHJ3fGsRqkyys=;
- b=vsQoEMy78/ogiVHenJFtz3ZhpfADRxWU3r6wW+bAesjJO31+jIAY+p/rQhP371IXfmnWDS2MFkpdKPC6UKDGTCvmbI6YA49rFQxuiqTsIFkkUefdwGsNf5VEacslnbYS8OirVCwCGyurTk3nPopcq054/UALNEb7P6t2IMJ49Vdmdh65p31fvueO3VLeTzS4iKv1Ts/ZWPosMnPRuUue4Gw0NenJuitDwYczmyDfQpsB0RTPCvk9GpZqZTQHk9AJ53Q4K5v32m0UFAQugRoaCUhUVjhLTK2gMk3J7pVPeO41Tsmih4cGOsCKMado1hBrIVHplTUTqZQy0u1nmFth/Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
+ bh=sURWs2TE9ZdP5YO5BJRmg7n6Wsv+oJO4INdwa53fOWc=;
+ b=oyfN3QlGKMbbANssYaNzVlLuC3mplh95ZPPCJzNa0mc1DIfr/PPMx9kQmCCvGKgau6XbHRZpKEmoITei+SeCke3O/zeo4CNp0242W0wqcGUE3aqWu3XZw5LXKgwS5qbY/i8QmBaSv44hiZ5XHqwakkFb0SijERkMeMmy01fdBpsnwLp2z4AwmwD7tf/SjgNMFXQTfnqcn9Tnu6S0JWMbbJzGEphzmgWgRmTTFkWkNPJGk+w/ZDGquUXyOuU0urC7Q8By+zOqkeOXvchgf1dB+crLShUFwt5U4hJB3gqVzCr0DiM2geAE3xNJRO25XQiKIFFsJArLVJt9j5faYjND8A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YSe47lgEl2M56wnTWLyZKSiWMXRMSHjHJ3fGsRqkyys=;
- b=Z0vibOU4OMiY4976lWNeIPnhxDAhzlH9SY7thH/4e5HiKrVJSWK63dhIE5rpK6TeVhji5UmENXv6ikVtmRLQaP4BJhttO2o00OpNg7A1lNCfyn8pvZJW+VYDtb5TmuprAMg5GyJOqisD3/7VE8GfJP+43q5mNbmHh33+nw7+FVcigCxDZ90ojERssZulx4c61cW+f06pDNriq6AQ7Ufp8TWruwv/u5P6zce1Nz+29Qpc7lsEJNl6QqNEzAJDbXDiin7grQ9VcpPDvlyJUH0/XoiMVIaZkNhLmiheekYBMzMAadzRNJrgpHmThMjY5EQZhMSsXNyXTLJ1gd1s352jHw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:be::5)
- by YT3PR01MB8225.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:9a::16) with
+ bh=sURWs2TE9ZdP5YO5BJRmg7n6Wsv+oJO4INdwa53fOWc=;
+ b=D2FVSuwF6fYUxZfoZjJuRoUyPrj7ijSygIw6pga/5RI3mSpfc9PmqElnorcVG4ZuDVkAWbt0B4A2rwunWRIXHXJavRO07tO9TTA+OHwhYQ5NjDvNn1MTZWhxWG4vxWHoHtKp/6WYpsRtM5GYTe1hQWeYmO/EXGt3efc9bb/bPM0=
+Received: from DM6PR06CA0077.namprd06.prod.outlook.com (2603:10b6:5:336::10)
+ by IA0PPFDDA81179A.namprd12.prod.outlook.com (2603:10b6:20f:fc04::be9) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.22; Thu, 23 Apr
- 2026 17:47:17 +0000
-Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6004:a862:d45d:90c1]) by YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6004:a862:d45d:90c1%3]) with mapi id 15.20.9846.021; Thu, 23 Apr 2026
- 17:47:17 +0000
-Message-ID: <c259ea67-4f69-4e6b-b5d5-00e6626067b6@efficios.com>
-Date: Thu, 23 Apr 2026 13:47:15 -0400
-User-Agent: Mozilla Thunderbird
-Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
- and tcmalloc everywhere
-To: Chris Kennelly <ckennelly@google.com>, Thomas Gleixner <tglx@kernel.org>
-Cc: Mathias Stearn <mathias@mongodb.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Boqun Feng <boqun.feng@gmail.com>, "Paul E. McKenney" <paulmck@kernel.org>,
- Dmitry Vyukov <dvyukov@google.com>, regressions@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Ingo Molnar <mingo@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Jinjie Ruan <ruanjinjie@huawei.com>, Blake Oler <blake.oler@mongodb.com>,
- Linus Torvalds <torvalds@linux-foundation.org>
-References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
- <20260422125647.GP3126523@noisy.programming.kicks-ass.net>
- <20260422131338.GI3102924@noisy.programming.kicks-ass.net>
- <CAHnCjA2fa+dP1+yCYNQrTXQaW-JdtfMj7wMikwMeeCRg-3NhiA@mail.gmail.com>
- <87fr4l28zn.ffs@tglx>
- <CAHnCjA07ER=9xBqXq4jf5yn052W-E9ZXD86HxnRGtai6bpXbbQ@mail.gmail.com>
- <87cxzp1tn6.ffs@tglx>
- <CAEE+yb=rZFxxOhCw+6wsUt5PE6=ebbKjEggQ_j_G3qSkMQZsfg@mail.gmail.com>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <CAEE+yb=rZFxxOhCw+6wsUt5PE6=ebbKjEggQ_j_G3qSkMQZsfg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: YT2PR01CA0014.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:38::19) To YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:be::5)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.20; Thu, 23 Apr
+ 2026 17:59:04 +0000
+Received: from CY4PEPF0000EE3F.namprd03.prod.outlook.com
+ (2603:10b6:5:336:cafe::52) by DM6PR06CA0077.outlook.office365.com
+ (2603:10b6:5:336::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.22 via Frontend Transport; Thu,
+ 23 Apr 2026 17:59:04 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ CY4PEPF0000EE3F.mail.protection.outlook.com (10.167.242.17) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.18 via Frontend Transport; Thu, 23 Apr 2026 17:59:04 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 23 Apr
+ 2026 12:59:03 -0500
+Received: from [10.254.48.177] (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Thu, 23 Apr 2026 12:59:02 -0500
+Message-ID: <faef3c54-2292-4470-be6a-4c347ca65453@amd.com>
+Date: Thu, 23 Apr 2026 12:59:02 -0500
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: remoteproc: xlnx: add auto boot feature
+To: Krzysztof Kozlowski <krzk@kernel.org>, <tanmay.shah@amd.com>
+CC: <andersson@kernel.org>, <mathieu.poirier@linaro.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <michal.simek@amd.com>,
+	<ben.levinsky@amd.com>, <linux-remoteproc@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20260422202558.2362971-1-tanmay.shah@amd.com>
+ <20260422202558.2362971-2-tanmay.shah@amd.com>
+ <20260423-stimulating-markhor-of-masquerade-aac0a7@quoll>
+ <2351c698-cf08-4037-9777-0820448a14d8@amd.com>
+ <eac0f387-c38a-44eb-aed4-6c4022f01777@kernel.org>
+Content-Language: en-US
+From: "Shah, Tanmay" <tanmays@amd.com>
+In-Reply-To: <eac0f387-c38a-44eb-aed4-6c4022f01777@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT2PR01MB9175:EE_|YT3PR01MB8225:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5dc7e23d-7745-42d2-c086-08dea1605c37
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE3F:EE_|IA0PPFDDA81179A:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7182a2b2-33e7-46d3-5a69-08dea16201da
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: h8nD/i+4wlqUnOld0sIvuk610HQUmzLqH0Fyps6QDrWJ3X3tVfDV2m8GtAepsonJR4xIaJmcuU65HXTKzGB1iVy4Z20atrTgGafzA7sVHTHySvyKLlnl0toaY8hZZLV8iO4vLJqH++SpT5/UUNe+JhuvFFTdMlUlCkAUxzEhlii5rZ42xdpVJjLFdvotk99FdhgwH6SvOiC9gsbv44h4FJXTII4D9Z1QZRc1kz20PZMCX202MZXTlEMsDB875kjhafgkRfVFcsQDH/rhhtKLLOKwb5dEwo8JaLrgYJ4kvqOw8Nyxn315w9vL/XqDCgxQohO3avfveTwvUf929Pt7qv0gxiCbi1mPyXz0vyOy/iVvErJIJH4TpP6iMPLRwKuDtiNP29+hcrRB/ahuZOS0D1262Pe+lXs4f53ZE3lKFId1Jfg006yH+weNXtXlaq8atI/jTEujmiOf+RyuI4b+MBCNxrnwd3h4cnp9UlFejeD6MEUiOIDRt/fLnpGvSJ2Kf4s5+ElgvO0G15ry3FAdLyHXIoqr5uHIIjiFgzqeFG/n2bOY4OSkyIqikw8lFK0iT7EO8cfXn3aEuIl7xJlzMz0yNKuXfePzmMwOZlc60cRHWIQqoNzsKS/aBcH4ivDM5IXdnjBTags0Krieb/vPceHlRKquGWTgP0znUmvVtMv1oDFJgqB6TqaQWxvnOBgv
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|376014|82310400026|1800799024|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: r0W/XC3BHd53nI9um5jF6G0Uca8b86JP2dnTuE0D2VxK354EaszLhPH0dyK7EduKTpmhzHu9lkWqUE5mh5AkiSzs58h/Hiz6/K4cMPFOwTCyLP+eUm6XV5My9bLstPDvIGpnNAOjpL4VPKlxfKIfxUt7fwUfvGDcel5G3F6NeRsgMQlRZs75CHn/SiRFrTgjstFs95q/f7BQ/tzGE2VKz/IBUFaqK3joeu6dXj25y5zdraYHq3aAfwMHK8cP9UATvokROYwvcl2jf2OwtpfqA8JQKD7cPoeJ/cBULc14TH7OA3wEkovkn2LHg87tnCAH67LuGrm6v1eCzZpQdzijUkojxBzRo0H4dBf9UE+5D5dUiLskW0NS3ddTctIoAWPsjFpSp/mIOAakL6c3Y1t7cfdBO+PvKEIXKJiWXMVXkxag/NZVdC1Quo5EuVN53HpWK7WFI48WpU2SxvM3iGS2lo2GYWlG+cYqI99CKccjL/ujTgpMWd1TX2vhXxPBFhyLMuvKZ3ZSYuxqEya6kfBooOlNlt8drMaeZTpEj69mIVuotYbel66eRjIUVoJHoMsLBHjLxA4HNK7H69/ALsqE05SF21WETa+TrqEoSTUg2zR8sjLqDDiqQztQlk9yPqDUdA5a6pZrN00betbv2y7Be0Rb/zsF29FIph8Mi55jHTrT4s0R4OxPVnhbewOw8e0Vy+wljJEW3U1tsjMCdz7IfW8WLPD0aIT185PYjl2aAUe1I0Oe+QjqovyXPNMf9I2Lj6moS4cIBYz3p/h8bEdRVw==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(376014)(82310400026)(1800799024)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y0FSSWo4bGVkWGlFZDA5M0V3bG1TOVBmeUM3UThaUnZoTHhVT2wreWVZT01I?=
- =?utf-8?B?SjR3Z3dZMCtmdWM3cVh5Y1l3SnpJcG5DaTRVcFBzVktsNUpiM0F4RnJaNFdx?=
- =?utf-8?B?RTBoMVAwdy9PUHZ5Wmg5SG9MR1lIU1VCMWtKRmV4K0VvYW1BUFhpaUowNVZN?=
- =?utf-8?B?MFRBYTl0Qk5aVlRtZ3k4bnpLbFhwVWRvcFIzWWw1bERJMGQ0OUsxZXBDMTVm?=
- =?utf-8?B?UXVBWjFUM2h1bCs3ejdnbENESEFlQ09OOW1RRFIxYnFFYU5xblRtVU13aVl4?=
- =?utf-8?B?RlV2ODBBMldCY2t0STFIaElDL2RkS1hRYm05RCttVGZTbEVVZTY3VXd0dTBi?=
- =?utf-8?B?R3dqQ0pCaVA0N0MyUXFWNUxBUCtQNVBmOFdlUVdKYnFyQjc4Y09yYjBKYnZz?=
- =?utf-8?B?bFBCeTA3OVI1dzhtY0V3a0VCMHVBb1VTTmF3d3o0Qi9FZjJ5Q3FlbGpJcHpS?=
- =?utf-8?B?SVJIY1hRekNVODJqQWlOZWMzbUZRSzNWdmNMUE4xOERZampwL0V4OUJPWW0x?=
- =?utf-8?B?NGUyVzlGSVF3RTlFRWEveHBnTkQzUVQ1YWhBSENmYWc4bGp1NXZESlFkUmFB?=
- =?utf-8?B?MUVBWlRwSHozTGE1NEZiS2dFeTFVL2ZhMFptL3UyUHJyWU8wc2w1a1RpUERK?=
- =?utf-8?B?dzBCOE9VYmNHakU2T0NSaEYwc05id3YrYlNwTTY3MXZQMDR2N0FDbU9GOXl1?=
- =?utf-8?B?dVJwWXRKanlDazJvRUVwVythZlMyODFCcDIxdGhBRnN5MDlUcE5Za2lKUkJ0?=
- =?utf-8?B?MjVrUmxWQ3NKaHB1ZGtUWnM4WEZrMGdCZ1BoNDhGL2JRMkcvdDZsbml4aGFp?=
- =?utf-8?B?VkpGZytGQXNQWnl3VXFaSVNCRHcxSTNEeHdYb2lVZHkrNlp5YkxXMlBOVytC?=
- =?utf-8?B?RmZETlFJamJzU2VTR3Rjdk5vcUJrOE9wbDNyYSthRCtwWHk1alRiQk5SZjVF?=
- =?utf-8?B?aXN5QXh3SlArSDkzRDZQTVZZQkdJbFdPZTIveTdRUkE4c2orNUtqdVNPdjhN?=
- =?utf-8?B?TjY2OGZCb2lZcjQzSHFBTjRVUHA4M0laSTlJVEs0R2N4SnFZdUJLajYzVlpj?=
- =?utf-8?B?VC9pT2pHM3VHaFZTZ2xnQUlIY0ZVaGRLeFZ5emI3dEFPVnFmWlFzZmYrc3RT?=
- =?utf-8?B?bEMxQjBaSmx0QVVITkFINDg0cmdGZ0NVSWhDdEp0bEE5US90UUtnNGRDdVFG?=
- =?utf-8?B?KzIzS0UyNVdOZ1RSTVNDVUpEa21MZnY0UVBNaVpGUVRaREVUZERVditsTWJV?=
- =?utf-8?B?Qk5zRGpYUXpZNXZBZmpaUkJSaWxVaG5QLzM5N0ZoaVlCeGR2eTRObExZeUwr?=
- =?utf-8?B?MEw4cHhzNUZzQitaUVZIc1BKVGF1ZFJYSGhLQ2tSRzBNQmRZWHgzejFpZmRo?=
- =?utf-8?B?Z2dYV0pwVlBjN04yTkhURHYwM3BRREtMcklDdTN2eEhhbXIvaDJlM3BvNEJn?=
- =?utf-8?B?Zjc3Y3ZiUkxvN2hzQkxJczdjazlYdEZGbzZoSllsV0ZEN3ZlNW9tdTU5RmpJ?=
- =?utf-8?B?T0NDWEU4SGQycHBySEtVMy96bDVPdGVhaHlCVURGbVpDUXZaZmhta1FJK1hY?=
- =?utf-8?B?Z3c1NmJEOXBoWFpwbkQrVlpFdkt2U1JtcXFhNlR1YXR4UXVncWE3RmhUZFVP?=
- =?utf-8?B?S09uTFgwZUloU29Yd0s0dTF6SzRpOHo2S3BINVBEd29sdjV5NU15SXJJWDBo?=
- =?utf-8?B?eGxHZUtBNmlJUWVYNjdlUmlrUC9FcXk5WnN3K2pqZmtHNjhNQUFlTjUvSTJP?=
- =?utf-8?B?eTFRUDBrR1A1RlVpSkdjTS8rU21RZ1UyYkNUSldjOVpKNmVHZTJBVVdZenJY?=
- =?utf-8?B?cHphRkR3Vm80N25ibSt2NlFmWDVzcXJ5TEs4cjVhbjFacDE2bnk0T1ZoUi9S?=
- =?utf-8?B?bERZNGdmUWpxYmIwakhrZ3BqMnRUQkg3eXRYb2FvSXJ5NXhTa3J3T2NFVVNk?=
- =?utf-8?B?MHROQ0ZxblN4Nm84OXhrcWNzaEx3RHlEVXZZK3NESWZhU002REpWNE55eUtB?=
- =?utf-8?B?ZlhvN3JTa1cwN1JwVHNXaVBMQzlYVUlQanVYeG1XY3NmdUIwbmZyNjdDTFFS?=
- =?utf-8?B?Yk02Q0k5RlFnV3FwV0ZBNFVsNHlsZGRSRXFscmtmb1dkc0VWSnAxK0pkQ3Zu?=
- =?utf-8?B?dDNUVnZSWSsrTURjcFhWMnJPdXNKcUFnd2tIeGx6V2FyRXgySkVSOWVmTFFO?=
- =?utf-8?B?M2xIREZsTnFDR254UTVhZU1rTTZhRitNNGxUdTlYZmNTRlZQa0lzVlhpOHlV?=
- =?utf-8?B?Z01sMG14aHo5aXdxNTFUeVg2WlNNTGFGQWN2U2pLQlYxWlJURXJYTmxSWnBE?=
- =?utf-8?B?RzEyNlVLOUJCa0dzNXBjYTFNU2E4UTJPajRoU2hLTEN0VUtCSEI0OW44b3RG?=
- =?utf-8?Q?YRpOpRDz4iMVzN/7qVtA6k/7ccVK5dRmiuq+h?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5dc7e23d-7745-42d2-c086-08dea1605c37
-X-MS-Exchange-CrossTenant-AuthSource: YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2026 17:47:17.1627
+X-MS-Exchange-AntiSpam-MessageData-0: iCpI12uKZqzfw+lqDAFZ68nWD17EAFbtbAA/JZauK4q6lCGeLtYMXJBbjl/ZA6e/rva4uRuQ/gvrWoYmXydnPIBpayUb6xWtdrs2AtSLeDMAfohJw84AVejWBEake32v/k7MyMoXSrlZ3aECDuNc0b3da3EKe9xAivp6wno1e4ptVQjycq475HfQKiKCVfa3Byl4pqIp3eL7v9MZpmlRyylfKkk++z65eWIuGlSMjIjgckZ6UDz+RpywPTysDpKUVKenMZB/V3toHimXkHUS8UPHrgSdEarMGp9eHwdIZoksBUsHSasraPxw2oRk66KzShqKEL3FTMpboTSTGoB36tXcuYrjulQvZ5iTYlzuhBy8pl4Bp2AY/pFP9PnVnyLJopzQ3I8bDI2L0AQk8T1DZTmMc5jNvCoSyVvV32I+VudHbYGEEjUIc9fF0xuqf+9g
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2026 17:59:04.2254
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: x6o3ABBdUMBo5jdD3uqZPT0sFYdKIJv9rxSLNOR8jXvg4WL9TNllNoZ7exKR1i3Lg4pDRaDZVkNp/ONOw7INGAGaSyKfx/IjmR3DCbI4ABc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT3PR01MB8225
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7182a2b2-33e7-46d3-5a69-08dea16201da
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE3F.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPFDDA81179A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_104726_927534_0A4B458D 
-X-CRM114-Status: GOOD (  17.87  )
+X-CRM114-CacheID: sfid-20260423_105913_267708_256F8A04 
+X-CRM114-Status: GOOD (  28.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,65 +125,107 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: tanmay.shah@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-04-23 13:38, Chris Kennelly wrote:
-> On Thu, Apr 23, 2026 at 1:19 PM Thomas Gleixner <tglx@kernel.org> wrote:
 
-[...]
+
+On 4/23/2026 12:26 PM, Krzysztof Kozlowski wrote:
+> On 23/04/2026 17:14, Shah, Tanmay wrote:
+>> Hello,
+>>
+>> Thanks for reviews. Please see my comments below.
+>>
+>> On 4/23/2026 4:09 AM, Krzysztof Kozlowski wrote:
+>>> On Wed, Apr 22, 2026 at 01:25:57PM -0700, Tanmay Shah wrote:
+>>>> Add auto-boot property to notify that remote processor is setup and
+>>>> ready to boot. Linux can attempt to boot or attach to already running
+>>>> remote processor. "firmware-name" property is used to mention default
+>>>> firmware to boot when linux starts the remote processor.
+>>>>
+>>>> Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
+>>>> ---
+>>>>  .../devicetree/bindings/remoteproc/xlnx,zynqmp-r5fss.yaml | 8 ++++++++
+>>>>  1 file changed, 8 insertions(+)
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/remoteproc/xlnx,zynqmp-r5fss.yaml b/Documentation/devicetree/bindings/remoteproc/xlnx,zynqmp-r5fss.yaml
+>>>> index ee63c03949c9..0d27260e3baa 100644
+>>>> --- a/Documentation/devicetree/bindings/remoteproc/xlnx,zynqmp-r5fss.yaml
+>>>> +++ b/Documentation/devicetree/bindings/remoteproc/xlnx,zynqmp-r5fss.yaml
+>>>> @@ -135,6 +135,14 @@ patternProperties:
+>>>>            - description: vring1
+>>>>          additionalItems: true
+>>>>  
+>>>> +      auto-boot:
+>>>
+>>> Last months, I have been asking AMD to follow writing-bindings doc or
+>>> other DT guidelines way too many times.
+>>>
+>>> Or you just sent us downstream... Do you see anywhere such property?
+>>> What properties do you see? How are they named?
+>>>
+>>
+>> I should have put note about this. Current auto-boot properties are
+>> named like st,auto-boot fsl,auto-boot etc. but nothing vendor specific
+>> there. Can we have a common auto-boot property? Similar to
+>> firmware-name? If we agree to it then what's the correct location? New
+>> file remoteproc.yaml is okay?
+> 
+> Common properties go to dtschema, so it would need to go there, but the
+> point is that it's way too generic - every component with FW could be
+> called "auto-boot". This should stay vendor property, IMO.
+> 
+
+Ack, I will rename it to xlnx,auto-boot.
 
 >>
->>    3) The RO for userspace property has been enforced by RSEQ debugging
->>       mode since day one. If such a debug enabled kernel detects user
->>       space changing the field it kills the task/application.
+>>>> +        type: boolean
+>>>> +        description: remote core is either already running or ready to boot
+>>>
+>>> And why is this property of a board?
+>>>
+>>
+>> Not sure what indicates it is? The property is under remoteproc child
+>> device that is SOC level property. Remote core is on same SOC wher linux
+>> core is running.
 > 
-> The optimization in TCMalloc that you're describing has been available
-> since September 2023:
-> https://github.com/google/tcmalloc/commit/aaa4fbf6fcdce1b7f86fcadd659874645c75ddb9
+> So it is implied by SoC compatible? Please provide some arguments why it
+> cannot be implied by the SoC compatible. I gave you one way out, but if
+> you disagree then no problem.
 > 
-> I thought the RSEQ debug checks were added in December 2024:
-> https://github.com/torvalds/linux/commit/7d5265ffcd8b41da5e09066360540d6e0716e9cd,
-> but perhaps I misidentified the ones in question.
 
-You are correct, I added the RSEQ field corruption validation under
-debug config in Nov. 2024 when I noticed the world of pain we were
-heading towards with incompatible tcmalloc vs glibc (and general) use
-due to tcmalloc not respecting the ABI contract. RSEQ has been
-upstreamed in 2018. So that's not exactly a day one enforcement.
-The ABI contract was clear about this being an invalid use from
-day one though.
+So on some SoC, the bootloader supports loading and starting of the
+remote processor. But it is totally user's choice. User can choose to
+load & start one core of a cluster via bootloader and leave another core
+powered-off.
+That is why it is not possible to decide based on SoC compatible.
 
-[...]
+If we don't want to make it a device-tree property then I can implement
+in a different way. New way will detect if the remote is running or not
+via EMMI/SCMI call to the firmware, and take a decision based on that.
+If this new way works, then I don't think we need auto-boot property at all.
 
->>    7) tcmalloc violates the ABI from day one and has since refused to
->>       address the problem despite being offered a kernel side rseq
->>       extension to solve it many years ago.
+Let me know your thoughts.
+
+>>
+>>>> +
+>>>> +      firmware-name:
+>>>> +        maxItems: 1
+>>>> +        description: default firmware to load
+>>>
+>>> Can you load non-default firmware later? IOW, why adding description
+>>> here, what is special?
+>>>
+>>
+>> The rootfs contains other firmware demos, and it is possible to stop the
+>> default firmware, load other fw elf and re-run the remote core.
+>> I don't have strong preference on the description part, I will remove it
+>> if redundant.
 > 
-> I know there was some discussion around a preemption notification
-> scheme, rseq_sched_state; but I thought the discussion moved in favor
-> of the timeslice extension interface that recently landed. Timeslice
-> extension solves some use cases, but I'm not sure it addresses this
-> one.
+> No, it's fine, I wanted to be sure that such use case makes sense.
+> 
+> Best regards,
+> Krzysztof
 
-I have actively engaged with the tcmalloc developers to
-understand their needs and figure out a proper solution for the
-past ~3-4 years, without success.
-
-I have done a POC branch extending rseq with a "reset a linked list of
-userspace areas on preemption" back in 2024 which would have solved
-tcmalloc's issues cleanly. I never posted it publicly because the
-tcmalloc devs told me they could not justify spending time even trying
-this out to their managers.
-
-I still have that feature branch gathering dust somewhere.
-
-Thanks,
-
-Mathieu
-
--- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
 
