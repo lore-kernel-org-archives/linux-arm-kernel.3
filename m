@@ -4,116 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EAFFFDEE2F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 17:59:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0FA9FDEE35
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 18:01:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sURWs2TE9ZdP5YO5BJRmg7n6Wsv+oJO4INdwa53fOWc=; b=AqiYRBfMRqXnRe
-	76sjmWpa5qXDpTTVec/mVyTbGhJugyln1wWrM0+7KKHp2STDiI2NoQrS1BkER7LnOL8ddK+1CxjG/
-	99HZgwyRJ7VnxY1PWmLSZMd3wGOga9xLdIbau8Q+rlOQq+svuS/aR1rQZcBuFmvMN7tXPSWOPyZR7
-	VsA8vo0dsGp5nhwRXUSD5vS9fBaayNHA25Nd1mRBvLVBEKPq/pchnuVohcRVcHczhrn63TvmZgUnq
-	lkbbSUrY4OTyxtClr63N18Lr6nLTFVkfcIGwSlj0iTV4BFAKi9gfo8LDyG4yuYeFpHHzmo2g1igZi
-	w9OY0JX6OujibLLQBlZg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9sjJYohzQJT7F4cb93bmmPzBc2C6eRDRAe69SB0r5eM=; b=mPqaSYd4GfXgJhTBKVd7Y7+TXc
+	zARiU9aAZ7QxB8yzYJuV7pDVJkAJwc8ZtTEzpVmBz8kuu1Yq8Kewda/x3Rl446xqb7vDuzzcfHEOU
+	vksx/ddXHlqScT55jMreESD2scHtBoj6bVG7n5ZJg3imtpLeBeAFr90Sw3OOKPO9Xcc2RiF8S/YMs
+	wcJrmtb9ZYQiGaELEOjg9/gWJc1mdkG6YES9O+ViduUab4TW8N+N7o+ILjZP2G4Y3cLtqHhi8Xnv9
+	W9DRa2K4n0KbVi5uNMOMeXVYqRWIXtej+4afaZN7JaUIx0INtY6BJPbDpkeazBUGwkVfPzooLaCcW
+	5Lx5RuNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFyKa-0000000C5Ww-1S3p;
-	Thu, 23 Apr 2026 17:59:16 +0000
-Received: from mail-northcentralusazon11013048.outbound.protection.outlook.com ([40.107.201.48] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1wFyN8-0000000C67e-3Dct;
+	Thu, 23 Apr 2026 18:01:54 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFyKX-0000000C5WP-0uv3
+	id 1wFyN7-0000000C67I-3JaS
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 23 Apr 2026 18:01:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Sender:Reply-To:Content-ID:Content-Description;
+	bh=9sjJYohzQJT7F4cb93bmmPzBc2C6eRDRAe69SB0r5eM=; b=bX1YUXpCDgvKSUSAoJPr8QJdBu
+	ik2pcZ+lOVzjFoaqWdKKzzmU5xTtdp+BbR4LQTm5xMq3OzXvZeOeaRLh4eN3BC/uReNtEuNDhTWYK
+	kxhc4i2wg/wKZIseq6bR8AAD7UWZjVkeLHaEpqRNFQnXaT+L/J6v3UPVcCv+MKaNtbqMZvoZKGV0O
+	C7unkC16aQxQye4Lqxd0DJc80UA0ot5+e41oFQIvx9A524oLdUBEjxOtESi2vxBTsEKq9SPZpL9GY
+	vjDvaX8MGam6rt88k1/kk72QMWr0ixKwE7iOBLUIHrhkMDDDBsCasMYQC8KIr8n1YDEARrUW4n9PC
+	pvT07m/A==;
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wFyN1-0000000DahK-3XKR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 17:59:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vwBtouaNzNnSUoPwfsWfdGdzA4j6xFRPioSzlsiDxMtatR6xxLF5/noXZ2jhmQTf3hF35LYvW/B7aQYxO3Pj3fcsML1YuUfrsB1In6zfVi05QHKwMNIMXFw0YjQN5J4+uVJywFF02/KXJZ1fDJDoTF8PKmGTkPAxOaFTLJMhWTauVrz7CW2ls5R3Dj3dTa0mRr5NdDkLwOXTyg3Ijp83RZMQfLGbrWh8zra3Ik5ZTVwxy2BH4MEYs91a+SBFN/7h1ccvaIhqXS2ASPBwxMAun7cKIWvvhlmgcXghiFrr+xT1+gzg3kgYzwikMotkIBIZksdmCNhjXe/Bn4jWtrn88Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sURWs2TE9ZdP5YO5BJRmg7n6Wsv+oJO4INdwa53fOWc=;
- b=oyfN3QlGKMbbANssYaNzVlLuC3mplh95ZPPCJzNa0mc1DIfr/PPMx9kQmCCvGKgau6XbHRZpKEmoITei+SeCke3O/zeo4CNp0242W0wqcGUE3aqWu3XZw5LXKgwS5qbY/i8QmBaSv44hiZ5XHqwakkFb0SijERkMeMmy01fdBpsnwLp2z4AwmwD7tf/SjgNMFXQTfnqcn9Tnu6S0JWMbbJzGEphzmgWgRmTTFkWkNPJGk+w/ZDGquUXyOuU0urC7Q8By+zOqkeOXvchgf1dB+crLShUFwt5U4hJB3gqVzCr0DiM2geAE3xNJRO25XQiKIFFsJArLVJt9j5faYjND8A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sURWs2TE9ZdP5YO5BJRmg7n6Wsv+oJO4INdwa53fOWc=;
- b=D2FVSuwF6fYUxZfoZjJuRoUyPrj7ijSygIw6pga/5RI3mSpfc9PmqElnorcVG4ZuDVkAWbt0B4A2rwunWRIXHXJavRO07tO9TTA+OHwhYQ5NjDvNn1MTZWhxWG4vxWHoHtKp/6WYpsRtM5GYTe1hQWeYmO/EXGt3efc9bb/bPM0=
-Received: from DM6PR06CA0077.namprd06.prod.outlook.com (2603:10b6:5:336::10)
- by IA0PPFDDA81179A.namprd12.prod.outlook.com (2603:10b6:20f:fc04::be9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.20; Thu, 23 Apr
- 2026 17:59:04 +0000
-Received: from CY4PEPF0000EE3F.namprd03.prod.outlook.com
- (2603:10b6:5:336:cafe::52) by DM6PR06CA0077.outlook.office365.com
- (2603:10b6:5:336::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.22 via Frontend Transport; Thu,
- 23 Apr 2026 17:59:04 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- CY4PEPF0000EE3F.mail.protection.outlook.com (10.167.242.17) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.18 via Frontend Transport; Thu, 23 Apr 2026 17:59:04 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 23 Apr
- 2026 12:59:03 -0500
-Received: from [10.254.48.177] (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Thu, 23 Apr 2026 12:59:02 -0500
-Message-ID: <faef3c54-2292-4470-be6a-4c347ca65453@amd.com>
-Date: Thu, 23 Apr 2026 12:59:02 -0500
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: remoteproc: xlnx: add auto boot feature
-To: Krzysztof Kozlowski <krzk@kernel.org>, <tanmay.shah@amd.com>
-CC: <andersson@kernel.org>, <mathieu.poirier@linaro.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <michal.simek@amd.com>,
-	<ben.levinsky@amd.com>, <linux-remoteproc@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20260422202558.2362971-1-tanmay.shah@amd.com>
- <20260422202558.2362971-2-tanmay.shah@amd.com>
- <20260423-stimulating-markhor-of-masquerade-aac0a7@quoll>
- <2351c698-cf08-4037-9777-0820448a14d8@amd.com>
- <eac0f387-c38a-44eb-aed4-6c4022f01777@kernel.org>
-Content-Language: en-US
-From: "Shah, Tanmay" <tanmays@amd.com>
-In-Reply-To: <eac0f387-c38a-44eb-aed4-6c4022f01777@kernel.org>
+	Thu, 23 Apr 2026 18:01:52 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63N8Z3Q73657884;
+	Thu, 23 Apr 2026 18:01:23 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=9sjJYo
+	hzQJT7F4cb93bmmPzBc2C6eRDRAe69SB0r5eM=; b=UFtu6quvBAz6lukmYUN/+i
+	V+5d5WSG+AfoUyORKZtrsbPHElhh7SYmKb8r6tzOWHGHIQLLQiUU1NS1Qor5hWeq
+	gaPyWoGCWXzOjTLJMqBI1RcJkpO1ApvQp5ctNOerJwGVqrZqfQD78Kls6G9UgEQZ
+	6KFf6+8SqEpPmC8jccPLPdRs1qvLHPedkyvkuKBptVmfOuHA1b2awbwrQvZklHlO
+	JOrlIx5h3KTAsAZnxMf43BL+jYEjLs4rpUZePAyXpiCWdgxtyo3y/p+1F6/UU0XM
+	ceGXXPmSiu69EPhoS89iegJTNZ2KKFwHvHG5FAQ8th3JMe1Gxk6mzG/kQZKyy5uA
+	==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dpeu7sfe7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 23 Apr 2026 18:01:22 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63NHocIR029971;
+	Thu, 23 Apr 2026 18:01:21 GMT
+Received: from smtprelay05.wdc07v.mail.ibm.com ([172.16.1.72])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4dpjky7pkd-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 23 Apr 2026 18:01:21 +0000 (GMT)
+Received: from smtpav06.wdc07v.mail.ibm.com (smtpav06.wdc07v.mail.ibm.com [10.39.53.233])
+	by smtprelay05.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63NI1KvJ17040038
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 23 Apr 2026 18:01:20 GMT
+Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A18B25804E;
+	Thu, 23 Apr 2026 18:01:20 +0000 (GMT)
+Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 6403458054;
+	Thu, 23 Apr 2026 18:01:18 +0000 (GMT)
+Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.31.96.173])
+	by smtpav06.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 23 Apr 2026 18:01:18 +0000 (GMT)
+Message-ID: <e4e242ae5533d5762a3647186a178764881bf9ff.camel@linux.ibm.com>
+Subject: Re: [RFC PATCH v2 1/4] security: ima: call ima_init() again at
+ late_initcall_sync for defered TPM
+From: Mimi Zohar <zohar@linux.ibm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>, Jonathan McDowell <noodles@earth.li>
+Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        kvmarm@lists.linux.dev, paul@paul-moore.com, jmorris@namei.org,
+        serge@hallyn.com, roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+        eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+        sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+        catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+        sebastianene@google.com
+In-Reply-To: <aeotq8nPVu4wvEx5@e129823.arm.com>
+References: <aekkVQwueKbFtG7C@e129823.arm.com>
+	 <82803bb3b471898a77084c449b73c7f7b4eb2149.camel@linux.ibm.com>
+	 <aem0SSQuE1e3pGOS@e129823.arm.com>
+	 <56a8aab50a3b5ce0a345fc2079fb2abc7d0f1b23.camel@linux.ibm.com>
+	 <aeoAlVEwzRUPrlVe@e129823.arm.com> <aeoRxWPyOHGJd+Jh@e129823.arm.com>
+	 <aeoWO2Cwo04YYu2l@earth.li>
+	 <bd908e28298d968740d03c97bc7e441de188b7b4.camel@linux.ibm.com>
+	 <aeokwrC86WI7uT+K@e129823.arm.com> <aeomlp3I0eVE5mce@earth.li>
+	 <aeotq8nPVu4wvEx5@e129823.arm.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE3F:EE_|IA0PPFDDA81179A:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7182a2b2-33e7-46d3-5a69-08dea16201da
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|376014|82310400026|1800799024|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: r0W/XC3BHd53nI9um5jF6G0Uca8b86JP2dnTuE0D2VxK354EaszLhPH0dyK7EduKTpmhzHu9lkWqUE5mh5AkiSzs58h/Hiz6/K4cMPFOwTCyLP+eUm6XV5My9bLstPDvIGpnNAOjpL4VPKlxfKIfxUt7fwUfvGDcel5G3F6NeRsgMQlRZs75CHn/SiRFrTgjstFs95q/f7BQ/tzGE2VKz/IBUFaqK3joeu6dXj25y5zdraYHq3aAfwMHK8cP9UATvokROYwvcl2jf2OwtpfqA8JQKD7cPoeJ/cBULc14TH7OA3wEkovkn2LHg87tnCAH67LuGrm6v1eCzZpQdzijUkojxBzRo0H4dBf9UE+5D5dUiLskW0NS3ddTctIoAWPsjFpSp/mIOAakL6c3Y1t7cfdBO+PvKEIXKJiWXMVXkxag/NZVdC1Quo5EuVN53HpWK7WFI48WpU2SxvM3iGS2lo2GYWlG+cYqI99CKccjL/ujTgpMWd1TX2vhXxPBFhyLMuvKZ3ZSYuxqEya6kfBooOlNlt8drMaeZTpEj69mIVuotYbel66eRjIUVoJHoMsLBHjLxA4HNK7H69/ALsqE05SF21WETa+TrqEoSTUg2zR8sjLqDDiqQztQlk9yPqDUdA5a6pZrN00betbv2y7Be0Rb/zsF29FIph8Mi55jHTrT4s0R4OxPVnhbewOw8e0Vy+wljJEW3U1tsjMCdz7IfW8WLPD0aIT185PYjl2aAUe1I0Oe+QjqovyXPNMf9I2Lj6moS4cIBYz3p/h8bEdRVw==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(376014)(82310400026)(1800799024)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: iCpI12uKZqzfw+lqDAFZ68nWD17EAFbtbAA/JZauK4q6lCGeLtYMXJBbjl/ZA6e/rva4uRuQ/gvrWoYmXydnPIBpayUb6xWtdrs2AtSLeDMAfohJw84AVejWBEake32v/k7MyMoXSrlZ3aECDuNc0b3da3EKe9xAivp6wno1e4ptVQjycq475HfQKiKCVfa3Byl4pqIp3eL7v9MZpmlRyylfKkk++z65eWIuGlSMjIjgckZ6UDz+RpywPTysDpKUVKenMZB/V3toHimXkHUS8UPHrgSdEarMGp9eHwdIZoksBUsHSasraPxw2oRk66KzShqKEL3FTMpboTSTGoB36tXcuYrjulQvZ5iTYlzuhBy8pl4Bp2AY/pFP9PnVnyLJopzQ3I8bDI2L0AQk8T1DZTmMc5jNvCoSyVvV32I+VudHbYGEEjUIc9fF0xuqf+9g
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2026 17:59:04.2254
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7182a2b2-33e7-46d3-5a69-08dea16201da
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE3F.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPFDDA81179A
+Content-Transfer-Encoding: quoted-printable
+Date: Thu, 23 Apr 2026 14:01:17 -0400
+MIME-Version: 1.0
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-ORIG-GUID: wxO2tqbBYODpuAMX3yii5CFXn_ixY172
+X-Authority-Analysis: v=2.4 cv=Ksp9H2WN c=1 sm=1 tr=0 ts=69ea5e73 cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=7CQSdrXTAAAA:8
+ a=46FjsvL0HBcK6KeyIT0A:9 a=QEXdDO2ut3YA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: SLJUqnjIQ7hAgxoc7XerQzZD9gD-DF_7
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIzMDE3MyBTYWx0ZWRfX59eM+OfmhLYt
+ Ph5s8NVrrugP46CRSIHrUMqOusBiOvYj8VcMZuucXBaw9zOsVwD/Vqfg7ahYLK75GqCBudJtecz
+ TwUZ0q6KBuB4onhgHBfmkSxUd9bljwRaOQVeVKIlKzz0VgTCGAY0CJJdAsfJ7G/e9upzbFcSMPp
+ eendN1Ahoym6JVGfobIbUz8xaemNBzn+Tl2XPcB/+Oz7FJn5SPWaUEhuDkj1I7ph9yHSFkwjzvc
+ Gq2I1MUVCIv3TLy5HF9RaNNx0ccUoIheDx4O49o0KjIh8tHZJS5wv6YzsVyco1dZlbU+DaiJNse
+ Sw1kVjxlAw7cCyUIgrZwmsGu2opV3egqrkRWA4bm40zrIxjx598OPFQhgkx2YN6pkn8ko/kH0p1
+ JpaZHcdhxySAwxp5hrhl9hfV9hruSzWWazb7j2x4h8iOZXBDzumaGPw5ZXOf1yfTZN0Mgg+5drs
+ bXyUQdqQA2khGQdCBFg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-23_03,2026-04-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 impostorscore=0 malwarescore=0 phishscore=0 priorityscore=1501
+ lowpriorityscore=0 clxscore=1015 adultscore=0 suspectscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604230173
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_105913_267708_256F8A04 
-X-CRM114-Status: GOOD (  28.00  )
+X-CRM114-CacheID: sfid-20260423_190148_173055_A00AC359 
+X-CRM114-Status: GOOD (  66.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,107 +147,373 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: tanmay.shah@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 2026-04-23 at 15:33 +0100, Yeoreum Yun wrote:
+> Hi Jonathan,
+>=20
+> > * # Be careful, this email looks suspicious; * Out of Character: The se=
+nder is exhibiting a significant deviation from their usual behavior, this =
+may indicate that their account has been compromised. Be extra cautious bef=
+ore opening links or attachments. *
+> > On Thu, Apr 23, 2026 at 02:55:14PM +0100, Yeoreum Yun wrote:
+> > > > On Thu, 2026-04-23 at 13:53 +0100, Jonathan McDowell wrote:
+> > > > > On Thu, Apr 23, 2026 at 01:34:13PM +0100, Yeoreum Yun wrote:
+> > > > > > > > On Thu, 2026-04-23 at 06:55 +0100, Yeoreum Yun wrote:
+> > > > > > > > > > On Wed, 2026-04-22 at 20:41 +0100, Yeoreum Yun wrote:
+> > > > > > > > > > > > Hi Mimi,
+> > > > > > > > > > > >=20
+> > > > > > > > > > > > > On Wed, 2026-04-22 at 17:24 +0100, Yeoreum Yun wr=
+ote:
+> > > > > > > > > > > > > > To generate the boot_aggregate log in the IMA s=
+ubsystem with TPM PCR values,
+> > > > > > > > > > > > > > the TPM driver must be built as built-in and
+> > > > > > > > > > > > > > must be probed before the IMA subsystem is init=
+ialized.
+> > > > > > > > > > > > > >=20
+> > > > > > > > > > > > > > However, when the TPM device operates over the =
+FF-A protocol using
+> > > > > > > > > > > > > > the CRB interface, probing fails and returns -E=
+PROBE_DEFER if
+> > > > > > > > > > > > > > the tpm_crb_ffa device =E2=80=94 an FF-A device=
+ that provides the communication
+> > > > > > > > > > > > > > interface to the tpm_crb driver =E2=80=94 has n=
+ot yet been probed.
+> > > > > > > > > > > > > >=20
+> > > > > > > > > > > > > > To ensure the TPM device operating over the FF-=
+A protocol with
+> > > > > > > > > > > > > > the CRB interface is probed before IMA initiali=
+zation,
+> > > > > > > > > > > > > > the following conditions must be met:
+> > > > > > > > > > > > > >=20
+> > > > > > > > > > > > > >    1. The corresponding ffa_device must be regi=
+stered,
+> > > > > > > > > > > > > >       which is done via ffa_init().
+> > > > > > > > > > > > > >=20
+> > > > > > > > > > > > > >    2. The tpm_crb_driver must successfully prob=
+e this device via
+> > > > > > > > > > > > > >       tpm_crb_ffa_init().
+> > > > > > > > > > > > > >=20
+> > > > > > > > > > > > > >    3. The tpm_crb driver using CRB over FF-A ca=
+n then
+> > > > > > > > > > > > > >       be probed successfully. (See crb_acpi_add=
+() and
+> > > > > > > > > > > > > >       tpm_crb_ffa_init() for reference.)
+> > > > > > > > > > > > > >=20
+> > > > > > > > > > > > > > Unfortunately, ffa_init(), tpm_crb_ffa_init(), =
+and crb_acpi_driver_init() are
+> > > > > > > > > > > > > > all registered with device_initcall, which mean=
+s crb_acpi_driver_init() may
+> > > > > > > > > > > > > > be invoked before ffa_init() and tpm_crb_ffa_in=
+it() are completed.
+> > > > > > > > > > > > > >=20
+> > > > > > > > > > > > > > When this occurs, probing the TPM device is def=
+erred.
+> > > > > > > > > > > > > > However, the deferred probe can happen after th=
+e IMA subsystem
+> > > > > > > > > > > > > > has already been initialized, since IMA initial=
+ization is performed
+> > > > > > > > > > > > > > during late_initcall, and deferred_probe_initca=
+ll() is performed
+> > > > > > > > > > > > > > at the same level.
+> > > > > > > > > > > > > >=20
+> > > > > > > > > > > > > > To resolve this, call ima_init() again at late_=
+inicall_sync level
+> > > > > > > > > > > > > > so that let IMA not miss TPM PCR value when gen=
+erating boot_aggregate
+> > > > > > > > > > > > > > log though TPM device presents in the system.
+> > > > > > > > > > > > > >=20
+> > > > > > > > > > > > > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com=
+>
+> > > > > > > > > > > > >=20
+> > > > > > > > > > > > > A lot of change for just detecting whether ima_in=
+it() is being called on
+> > > > > > > > > > > > > late_initcall or late_initcall_sync(), without an=
+y explanation for all the other
+> > > > > > > > > > > > > changes (e.g. ima_init_core).
+> > > > > > > > > > > > >=20
+> > > > > > > > > > > > > Please just limit the change to just calling ima_=
+init() twice.
+> > > > > > > > > > > >=20
+> > > > > > > > > > > > My concern is that ima_update_policy_flags() will b=
+e called
+> > > > > > > > > > > > when ima_init() is deferred -- not initialised anyt=
+hing.
+> > > > > > > > > > > > though functionally, it might be okay however,
+> > > > > > > > > > > > I think ima_update_policy_flags() and notifier shou=
+ld work after ima_init()
+> > > > > > > > > > > > works logically.
+> > > > > > > > > > > >=20
+> > > > > > > > > > > > This change I think not much quite a lot. just wrap=
+per ima_init() with
+> > > > > > > > > > > > ima_init_core() with some error handling.
+> > > > > > > > > > > >=20
+> > > > > > > > > > > > Am I missing something?
+> > > > > > > > > > >=20
+> > > > > > > > > > > Also, if we handle in ima_init() only, but it failed =
+with other reason,
+> > > > > > > > > > > we shouldn't call again ima_init() in the late_initca=
+ll_sync.
+> > > > > > > > > > >=20
+> > > > > > > > > > > To handle this, It wouldn't do in the ima_init() but =
+we need to handle
+> > > > > > > > > > > it by caller of ima_init().
+> > > > > > > > > >=20
+> > > > > > > > > > Only tpm_default_chip() is being called to set the ima_=
+tpm_chip.  On failure,
+> > > > > > > > > > instead of going into TPM-bypass mode, return immediate=
+ly.  There are no calls
+> > > > > > > > > > to anything else.  Just call ima_init() a second time.
+> > > > > > > > >=20
+> > > > > > > > > I=E2=80=99m not fully convinced this is sufficient.
+> > > > > > > > >=20
+> > > > > > > > > What I meant is the case where ima_init() fails due to ot=
+her
+> > > > > > > > > initialisation steps, not only tpm_default_chip() (e.g. i=
+ma_fs_init()).
+> > > > > > > >=20
+> > > > > > > > The purpose of THIS patch is to add late_initcall_sync, whe=
+n the TPM is not
+> > > > > > > > available at late_initcall.  This would be classified as a =
+bug fix and would be
+> > > > > > > > backported.  No other changes should be included in this pa=
+tch.
+> > > > > > >=20
+> > > > > > > Okay.
+> > > > > > >=20
+> > > > > > > > >=20
+> > > > > > > > > I=E2=80=99d also like to ask again whether it is fine to =
+call
+> > > > > > > > > ima_update_policy_flags() and keep the notifier registere=
+d in the
+> > > > > > > > > deferred TPM case. While this may be functionally accepta=
+ble, it seems
+> > > > > > > > > logically questionable to do so when ima_init() has not c=
+ompleted.
+> > > > > > > >=20
+> > > > > > > > Other than extending the TPM, IMA should behave exactly the=
+ same whether there
+> > > > > > > > is a TPM or goes into TPM-bypass mode.
+> > > > > > > >=20
+> > > > > > > > >=20
+> > > > > > > > > There is also a possibility that a deferred case ultimate=
+ly fails (e.g.
+> > > > > > > > > deferred at late_initcall, but then failing at late_initc=
+all_sync
+> > > > > > > > > for another reason, even while entering TPM bypass mode).=
+ In that case,
+> > > > > > > > > it seems more appropriate to handle this state in the cal=
+ler of
+> > > > > > > > > ima_init(), rather than inside ima_init() itself.
+> > > > > > > >=20
+> > > > > > > > If the TPM isn't found at late_initcall_sync(), then IMA sh=
+ould go into TPM-
+> > > > > > > > bypass mode.  Please don't make any other changes to the ex=
+isting IMA behavior
+> > > > > > > > and hide it here behind the late_initcall_sync change.
+> > > > > > >=20
+> > > > > > > Okay. you're talking called ima_update_policy_flags() at late=
+_initcall
+> > > > > > > wouldn't be not a problem even in case of late_initcall_sync'=
+s ima_init()
+> > > > > > > get failed with "TPM-bypass mode".
+> > > > > > >=20
+> > > > > > > I see then, I'll make a patch simpler then.
+> > > > > >=20
+> > > > > > But I think in case of below situation:
+> > > > > >  - late_initcall's first ima_init() is deferred.
+> > > > > >  - late_initcall_sync try again but failed and try again with
+> > > > > >    CONFIG_IMA_DEFAULT_HASH.
+> > > > > >=20
+> > > > > > I would like to sustain init_ima_core to reduce the same code r=
+epeat
+> > > > > > in late_initcall_sync.
+> > > > >=20
+> > > > > I think what Mimi's proposing is:
+> > > > >=20
+> > > > > If we're in late_initcall, and the TPM isn't available, return
+> > > > > immediately with an error (the EPROBE_DEFER?), don't do any init.
+> > > > >=20
+> > > > > If we're in late_initcall_sync, either we're already initialised,=
+ so do
+> > > > > return and nothing, or run through the entire flow, even if the T=
+PM
+> > > > > isn't unavailable.
+> > > > >=20
+> > > > > So ima_init() just needs to know a) if it's in the sync or non-sy=
+nc mode
+> > > > > and b) for the sync mode, if we've already done the init at
+> > > > > non-sync.
+> > > >=20
+> > > > Thanks, Jonathan.  That is exactly what I'm suggesting.  Any other =
+changes
+> > > > should not be included in this patch.  Since Yeoreum is not hearing=
+ me, feel
+> > > > free to post a patch.
+> > >=20
+> > > I see. so what you need to is this only
+> > > If it looks good to you. I'll send it at v3.
+> >=20
+> > FWIW, I pulled the tpm_default_chip check out a level to account for th=
+e
+> > extra init you mentioned, and have the following (completely untested o=
+r
+> > compiled, but gives the approach):
+> >=20
+> > diff --git a/include/linux/lsm_hooks.h b/include/linux/lsm_hooks.h
+> > index d48bf0ad26f4..88fe105b7f00 100644
+> > --- a/include/linux/lsm_hooks.h
+> > +++ b/include/linux/lsm_hooks.h
+> > @@ -166,6 +166,7 @@ enum lsm_order {
+> >   * @initcall_fs: LSM callback for fs_initcall setup, optional
+> >   * @initcall_device: LSM callback for device_initcall() setup, optiona=
+l
+> >   * @initcall_late: LSM callback for late_initcall() setup, optional
+> > + * @initcall_late_sync: LSM callback for late_initcall_sync() setup, o=
+ptional
+> >   */
+> >  struct lsm_info {
+> >  	const struct lsm_id *id;
+> > @@ -181,6 +182,7 @@ struct lsm_info {
+> >  	int (*initcall_fs)(void);
+> >  	int (*initcall_device)(void);
+> >  	int (*initcall_late)(void);
+> > +	int (*initcall_late_sync)(void);
+> >  };
+> >  #define DEFINE_LSM(lsm)							\
+> > diff --git a/security/integrity/ima/ima_init.c b/security/integrity/ima=
+/ima_init.c
+> > index a2f34f2d8ad7..a60dfb8316d8 100644
+> > --- a/security/integrity/ima/ima_init.c
+> > +++ b/security/integrity/ima/ima_init.c
+> > @@ -119,10 +119,6 @@ int __init ima_init(void)
+> >  {
+> >  	int rc;
+> > -	ima_tpm_chip =3D tpm_default_chip();
+> > -	if (!ima_tpm_chip)
+> > -		pr_info("No TPM chip found, activating TPM-bypass!\n");
+> > -
+> >  	rc =3D integrity_init_keyring(INTEGRITY_KEYRING_IMA);
+> >  	if (rc)
+> >  		return rc;
+> > diff --git a/security/integrity/ima/ima_main.c b/security/integrity/ima=
+/ima_main.c
+> > index 1d6229b156fb..b60a85fa803a 100644
+> > --- a/security/integrity/ima/ima_main.c
+> > +++ b/security/integrity/ima/ima_main.c
+> > @@ -1237,7 +1237,7 @@ static int ima_kernel_module_request(char *kmod_n=
+ame)
+> >  #endif /* CONFIG_INTEGRITY_ASYMMETRIC_KEYS */
+> > -static int __init init_ima(void)
+> > +static int __init init_ima(bool sync)
+> >  {
+> >  	int error;
+> > @@ -1247,6 +1247,19 @@ static int __init init_ima(void)
+> >  		return 0;
+> >  	}
+> > +	/* If we found the TPM during our first attempt, nothing further to d=
+o */
+> > +	if (sync && ima_tpm_chip)
+> > +		return 0;
+> > +
+> > +	ima_tpm_chip =3D tpm_default_chip();
+> > +	if (!ima_tpm_chip && !sync) {
+> > +		pr_debug("TPM not available, will try later\n");
+> > +		return -EPROBE_DEFER;
+> > +	}
+> > +
+> > +	if (!ima_tpm_chip)
+> > +		pr_info("No TPM chip found, activating TPM-bypass!\n");
+> > +
+> >  	ima_appraise_parse_cmdline();
+> >  	ima_init_template_list();
+> >  	hash_setup(CONFIG_IMA_DEFAULT_HASH);
+> > @@ -1274,6 +1287,16 @@ static int __init init_ima(void)
+> >  	return error;
+> >  }
+> > +static int __init init_ima_late(void)
+> > +{
+> > +	return init_ima(false);
+> > +}
+> > +
+> > +static int __init init_ima_late_sync(void)
+> > +{
+> > +	return init_ima(true);
+> > +}
+> > +
+> >  static struct security_hook_list ima_hooks[] __ro_after_init =3D {
+> >  	LSM_HOOK_INIT(bprm_check_security, ima_bprm_check),
+> >  	LSM_HOOK_INIT(bprm_creds_for_exec, ima_bprm_creds_for_exec),
+> > @@ -1319,6 +1342,7 @@ DEFINE_LSM(ima) =3D {
+> >  	.init =3D init_ima_lsm,
+> >  	.order =3D LSM_ORDER_LAST,
+> >  	.blobs =3D &ima_blob_sizes,
+> > -	/* Start IMA after the TPM is available */
+> > -	.initcall_late =3D init_ima,
+> > +	/* Ensure we start IMA after the TPM is available */
+> > +	.initcall_late =3D init_ima_late,
+> > +	.initcall_late_sync =3D init_ima_late_sync,
+> >  };
+> > diff --git a/security/lsm_init.c b/security/lsm_init.c
+> > index 573e2a7250c4..4e5c59beb82a 100644
+> > --- a/security/lsm_init.c
+> > +++ b/security/lsm_init.c
+> > @@ -547,13 +547,22 @@ device_initcall(security_initcall_device);
+> >   * security_initcall_late - Run the LSM late initcalls
+> >   */
+> >  static int __init security_initcall_late(void)
+> > +{
+> > +	return lsm_initcall(late);
+> > +}
+> > +late_initcall(security_initcall_late);
+> > +
+> > +/**
+> > + * security_initcall_late_sync - Run the LSM late initcalls sync
+> > + */
+> > +static int __init security_initcall_late_sync(void)
+> >  {
+> >  	int rc;
+> > -	rc =3D lsm_initcall(late);
+> > +	rc =3D lsm_initcall(late_sync);
+> >  	lsm_pr_dbg("all enabled LSMs fully activated\n");
+> >  	call_blocking_lsm_notifier(LSM_STARTED_ALL, NULL);
+> >  	return rc;
+> >  }
+> > -late_initcall(security_initcall_late);
+> > +late_initcall_sync(security_initcall_late_sync);
+>=20
+> I'm fine this. but are we talking about "ima_init()" not "init_ima()"?
 
+Having two functions named ima_init() and init_ima() is really confusing.  =
+At
+least with this patch, init_ima() will be replaced with init_ima_late() and
+init_ima_sync().
 
-On 4/23/2026 12:26 PM, Krzysztof Kozlowski wrote:
-> On 23/04/2026 17:14, Shah, Tanmay wrote:
->> Hello,
->>
->> Thanks for reviews. Please see my comments below.
->>
->> On 4/23/2026 4:09 AM, Krzysztof Kozlowski wrote:
->>> On Wed, Apr 22, 2026 at 01:25:57PM -0700, Tanmay Shah wrote:
->>>> Add auto-boot property to notify that remote processor is setup and
->>>> ready to boot. Linux can attempt to boot or attach to already running
->>>> remote processor. "firmware-name" property is used to mention default
->>>> firmware to boot when linux starts the remote processor.
->>>>
->>>> Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
->>>> ---
->>>>  .../devicetree/bindings/remoteproc/xlnx,zynqmp-r5fss.yaml | 8 ++++++++
->>>>  1 file changed, 8 insertions(+)
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/remoteproc/xlnx,zynqmp-r5fss.yaml b/Documentation/devicetree/bindings/remoteproc/xlnx,zynqmp-r5fss.yaml
->>>> index ee63c03949c9..0d27260e3baa 100644
->>>> --- a/Documentation/devicetree/bindings/remoteproc/xlnx,zynqmp-r5fss.yaml
->>>> +++ b/Documentation/devicetree/bindings/remoteproc/xlnx,zynqmp-r5fss.yaml
->>>> @@ -135,6 +135,14 @@ patternProperties:
->>>>            - description: vring1
->>>>          additionalItems: true
->>>>  
->>>> +      auto-boot:
->>>
->>> Last months, I have been asking AMD to follow writing-bindings doc or
->>> other DT guidelines way too many times.
->>>
->>> Or you just sent us downstream... Do you see anywhere such property?
->>> What properties do you see? How are they named?
->>>
->>
->> I should have put note about this. Current auto-boot properties are
->> named like st,auto-boot fsl,auto-boot etc. but nothing vendor specific
->> there. Can we have a common auto-boot property? Similar to
->> firmware-name? If we agree to it then what's the correct location? New
->> file remoteproc.yaml is okay?
-> 
-> Common properties go to dtschema, so it would need to go there, but the
-> point is that it's way too generic - every component with FW could be
-> called "auto-boot". This should stay vendor property, IMO.
-> 
+> Because of this, I've fixuated and make a long stupid speaking myself.
 
-Ack, I will rename it to xlnx,auto-boot.
+The commit 0e0546eabcd6 ("firmware: arm_ffa: Change initcall level of ffa_i=
+nit()
+to rootfs_initcall") patch description was really well written.  I'm really=
+ sad
+that it needs to be reverted.
 
->>
->>>> +        type: boolean
->>>> +        description: remote core is either already running or ready to boot
->>>
->>> And why is this property of a board?
->>>
->>
->> Not sure what indicates it is? The property is under remoteproc child
->> device that is SOC level property. Remote core is on same SOC wher linux
->> core is running.
-> 
-> So it is implied by SoC compatible? Please provide some arguments why it
-> cannot be implied by the SoC compatible. I gave you one way out, but if
-> you disagree then no problem.
-> 
+The TPM not being initialized before IMA, has been an issue for a really lo=
+ng
+time.  Hopefully this patch will safely fix it, not only for you, but for o=
+thers
+as well.
 
-So on some SoC, the bootloader supports loading and starting of the
-remote processor. But it is totally user's choice. User can choose to
-load & start one core of a cluster via bootloader and leave another core
-powered-off.
-That is why it is not possible to decide based on SoC compatible.
+>=20
+> If this seems good to Mimi, I don't care who send it.
+> But If you're going to send this, could you includes 2 and 3 too?
 
-If we don't want to make it a device-tree property then I can implement
-in a different way. New way will detect if the remote is running or not
-via EMMI/SCMI call to the firmware, and take a decision based on that.
-If this new way works, then I don't think we need auto-boot property at all.
+Once this patch is ready, we can create a topic branch to coordinate upstre=
+aming
+the remaining patches.
 
-Let me know your thoughts.
+thanks!
 
->>
->>>> +
->>>> +      firmware-name:
->>>> +        maxItems: 1
->>>> +        description: default firmware to load
->>>
->>> Can you load non-default firmware later? IOW, why adding description
->>> here, what is special?
->>>
->>
->> The rootfs contains other firmware demos, and it is possible to stop the
->> default firmware, load other fw elf and re-run the remote core.
->> I don't have strong preference on the description part, I will remove it
->> if redundant.
-> 
-> No, it's fine, I wanted to be sure that such use case makes sense.
-> 
-> Best regards,
-> Krzysztof
+Mimi
 
 
