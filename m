@@ -4,84 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49D1FFDEE31
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 17:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C10E5FDEE32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 17:40:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=01LiWtizoFsYLgbrSHDfCbjty9gM6V4P76wUHHJkQZw=; b=q6id6cNfN1VUfDlAgQ/rStNEN+
-	acxxVYZyasK6FaCY5AHYEyEO/8PFBpttrDpuegHXbxszR/BN6lsrzCDM8f68sJ16E6wK+RduWq+zO
-	I39hnk16C6MJWiGr2HIx4m3eU0viQ5uTxuOXYQiOOyhRHPDTuk/k0ShNr5knvNt8GzIZmr5bnI112
-	632RU1sqtbH4QrFn2RmJZP6uzbrF4NO8n5lwam4bhjcMbx+APfW2NFYq7sJOP2rJUfPoQshRY4XSX
-	CC/TzOaBB+9XsV5gDkowc19DOx8hVT/PADXHzZYOKGAc5xy5JxFedC9rjhyFVGatL5c6NThrnXSL2
-	EZnuTsjg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XFfXl4/GQbW6GPX8t/YkBYX4DbIwbw9iQSWalhVhYcE=; b=JvlVF/frfdRuH4tbX1wYfDi/OD
+	7ZXsTF+lcdIe1cc12Rge5m1ReRHy4v4zbzSVXI8HBDP8MBfUH0UNDXErvvBERf3q9hPohRO2t8xpa
+	n7hjcUCVJcqF0Q9Gbrk3XW4siBMEVs3Ku3KY2Mf4Yu454Z+DV/KHL5NDgVhpIBjUNb+V0cKVeC6SD
+	arKrkkPVbFXEHAer5WtZ2NSRiloxlmQ4AczL08/VLJ+rlC5QZvk0I4dS3lGLRROccsfVvlnkoG8Pj
+	B4ruqeDkcH0xCAblK6KzUdHrpIf/DABm9QdaYoLaNdX/hvIO1kl0zmJS/yeqYPfz7Z2MSdK3Is33p
+	Sc3jj0Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFy2Q-0000000C43y-2uOv;
-	Thu, 23 Apr 2026 17:40:30 +0000
-Received: from fhigh-a1-smtp.messagingengine.com ([103.168.172.152])
+	id 1wFy2Y-0000000C45f-47m4;
+	Thu, 23 Apr 2026 17:40:38 +0000
+Received: from fout-a4-smtp.messagingengine.com ([103.168.172.147])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFy2O-0000000C43c-0aF7
+	id 1wFy2W-0000000C455-1Lln
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 17:40:30 +0000
-Received: from phl-compute-07.internal (phl-compute-07.internal [10.202.2.47])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 7ED2C14000A4;
-	Thu, 23 Apr 2026 13:40:26 -0400 (EDT)
+	Thu, 23 Apr 2026 17:40:37 +0000
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailfout.phl.internal (Postfix) with ESMTP id 4B4AAEC05C0;
+	Thu, 23 Apr 2026 13:40:35 -0400 (EDT)
 Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-07.internal (MEProxy); Thu, 23 Apr 2026 13:40:26 -0400
+  by phl-compute-06.internal (MEProxy); Thu, 23 Apr 2026 13:40:35 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kevinmehall.net;
 	 h=cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=fm1; t=1776966026; x=1777052426; bh=01LiWtizoFsYLgbrSHDfC
-	bjty9gM6V4P76wUHHJkQZw=; b=tku6KaFneBXtTj8b6/gB170QNGT47snJVk2Va
-	SGDTaF9NIgwuZs5k5nhcrQrwBuddfPTT8B91OZ1QR71sgtEoSAX5Ez/CycVq2iKl
-	meON4Rfoh2ge/1hU4zQWq+NAO8UIhWznR2TBGmerljau9RnYUO2AZA6BD9W2fK8A
-	znATskO3OvsqWMJgbJPIqiuvAxzcMtPiYtgmgyUg2qzXvVlmxLcB9DFeAxYEfPmq
-	NN3iwTS/YI4TDo0piMUtydLEGxj8mYyxtuOGo2rm6+rx5Vu018ZG2WkkbL2ANie3
-	rgKBfTzWwXAglAi0X/lBAjLdus3xK5sClU0oxvFwTfrakQViQ==
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm1; t=1776966035; x=
+	1777052435; bh=XFfXl4/GQbW6GPX8t/YkBYX4DbIwbw9iQSWalhVhYcE=; b=l
+	pnRw64xa6RXfvS8Km3M+XHQo9aJ2zZIzDtgAF7wkS/uMsyNdNYMMYgJBXprxwLYZ
+	6wmgqmKzJcOVEOraO4/2fAsd+LTx+S4vZ7YEr34dGP/YSHCVLJv7fmM8czXlWoMT
+	kUeF6TDPXvWH2kdG/HMd8KTSkHpTr3wa1TkuZC+2t2nZrt2G65RneuOtMl2+LrgU
+	hY5jYQ7PKH3PSjdJpd5H/w9uIpSfIGIDw5HABfC6R+oWuY+Y3gXvQcDrLIv7J/3I
+	hI/6jNuvxWNxugEJo6jwaNb1zz1Qhha5/kngufct/iC6VCqrmwPeWa6iFoaRQBEx
+	m565R/a4UEnY+cAOvSFiw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:content-transfer-encoding:content-type
 	:date:date:feedback-id:feedback-id:from:from:in-reply-to
-	:message-id:mime-version:reply-to:subject:subject:to:to
-	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
-	1776966026; x=1777052426; bh=01LiWtizoFsYLgbrSHDfCbjty9gM6V4P76w
-	UHHJkQZw=; b=phGDolUioigZJsGUmKx5LQgy/WlWo0BRUG9PM1Hy7GnH0uC55Pw
-	oppC7EBmDbDBlKycgAGMYR1OEBb1J5aOsMhmytumFOE4P9Lf7PelAvRGc8A6GYLn
-	0CDNo2Igx56EmgMrx0FBu7O6ElCMRRgC7Uw+KNzx50kMD/6/yjsQYDAYfz7HBX5S
-	5soaMAsK6rJNx6dHqcaqDJ/ECBSmt8WF4uBmU9QLxMJC0vjBsAeci8R1tvDXssuT
-	nMydGei0ERPfYB4M9dIXJbelDHTycbxV2MErRHFUfwXa5jxTpYZrY9cu7ujZKdsF
-	W8HbFs9wTG8vzLnTwb07HvnjlpCE3zfwaEA==
-X-ME-Sender: <xms:iVnqaVCbKKVT6DjPHsbHyMehSaZ3QQ87grEbmvFLHSx7pOvu74VlKQ>
-    <xme:iVnqabsRBh7k5LCgQi8dzMb_PtppwoHXvVRJlg3cqsUtVUsRQhChHw6Obuh_Q44H3
-    sEO_nztkyzDilz0F92koPmidRyPsC9utlBFZS9IRShOujy0DJ_BiA>
-X-ME-Received: <xmr:iVnqacJQYkhw4C_ETbWQKkMzsnaV7sjcsJUBSdHdjM-Imldjiwz-9M2D8LC1>
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm2; t=1776966035; x=1777052435; bh=XFfXl4/GQbW6GPX8t/YkBYX4DbIw
+	bw9iQSWalhVhYcE=; b=S9Z3l2eEX7kTyTFrqRqiZXCz+DZPq/EcS7H/umYt9zg5
+	9d0LPH7CvgKx1sWETULB8uFvOJbVVFlJCWvQ1YgSD6DgfUWNkftDqFLI493PK3OQ
+	v05U8je5zWtt0akV2BXWzxEmarGHN9qhhdiODriodg0A/Hf5H+r1iAfWqCHi8PEK
+	EACuPvBpsOzE+l6Yen5HBrmr+tOFzAe7FztxkhZVUf1fwsO/C8uvkI0/mKzGBTLp
+	6OAButVZ0NXXvyz00iwsMBpJTSkyq78x+Cn5IBIjVgCNviSvDYJpjQVUh3hjruZL
+	vVG75gunLisUBqzpGWJTtt2+OHK9vgMZupncmSRkTw==
+X-ME-Sender: <xms:klnqaW4w-wFXcOJ8jd55NWYVkt17yjyd5iuCG5VVx1E-rv9dJz4PnQ>
+    <xme:klnqaYGDUFHMJDOWNwfI76WitXOhkT80VtGHyfcrbDGvl-0fHtF-hThwzQarraPeJ
+    Uir36Su5SXpqwThXGEY3gYkaAQJnqdKtbdTXi6xew8QvD-37Lne>
+X-ME-Received: <xmr:klnqaRCm1JdkTz3BKNRlfQHwLetS-ru2oX9kFga_1rNt9ODJS5z07p4_867V>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdeijeejjecutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
     ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefhvffufffkofgggfestdekredtredttdenucfhrhhomhepmfgvvhhinhcuofgvhhgr
-    lhhluceokhhmsehkvghvihhnmhgvhhgrlhhlrdhnvghtqeenucggtffrrghtthgvrhhnpe
-    ejteeludehkeffudegheelkefgleethffgieefffetvdekfeelgeejueeuffehjeenucev
-    lhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehkmheskhgvvh
-    hinhhmvghhrghllhdrnhgvthdpnhgspghrtghpthhtohepuddtpdhmohguvgepshhmthhp
-    ohhuthdprhgtphhtthhopegsrhhoohhnihgvsehkvghrnhgvlhdrohhrghdprhgtphhtth
-    hopeifvghnsheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhgvrhhnvghjrdhskhhr
-    rggsvggtsehgmhgrihhlrdgtohhmpdhrtghpthhtohepshgrmhhuvghlsehshhholhhlrg
-    hnugdrohhrghdprhgtphhtthhopehmihhrkhhoqdguvghvkihlihhnuhigsehnrghnlhdr
-    uggvpdhrtghpthhtoheprhhstgesrhhunhhtuhigrdgtohhmpdhrtghpthhtoheplhhinh
-    hugidqshhpihesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhig
-    qdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtph
-    htthhopehlihhnuhigqdhsuhhngihisehlihhsthhsrdhlihhnuhigrdguvghv
-X-ME-Proxy: <xmx:iVnqaaY0uzf8MaQEk7Y6fOm7YW3jNMEqmZvNgOCyjWRF3ml6Vbrttw>
-    <xmx:iVnqaWDSWGBy9RCNlT74hbhBE6HxtRegRYRUIQLhvEXQvpHzKjsWNA>
-    <xmx:iVnqacalOPrqjsTwgMRoQ0GlsDOXZ7WrSX-8i3fNg16sONahIQPiOQ>
-    <xmx:iVnqaWmUYcUeje8QvJ50XYlxfvBq9xHGAH3g-gNAoj263khJDXVfcA>
-    <xmx:ilnqaTUreEHB4w3ngZJ8u52gKs36ylFp6GHUAsjppZT4qoht3ybUlprD>
+    hrpefhvffufffkofgjfhgggfestdekredtredttdenucfhrhhomhepmfgvvhhinhcuofgv
+    hhgrlhhluceokhhmsehkvghvihhnmhgvhhgrlhhlrdhnvghtqeenucggtffrrghtthgvrh
+    hnpeduhfeljeetgfeiheetieelveejhfdtledutedvgffgveeihffhkefguedvffegvden
+    ucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenuc
+    frrghrrghmpehmrghilhhfrhhomhepkhhmsehkvghvihhnmhgvhhgrlhhlrdhnvghtpdhn
+    sggprhgtphhtthhopedutddpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepsghroh
+    honhhivgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepfigvnhhssehkvghrnhgvlhdr
+    ohhrghdprhgtphhtthhopehjvghrnhgvjhdrshhkrhgrsggvtgesghhmrghilhdrtghomh
+    dprhgtphhtthhopehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgpdhrtghpthhtohep
+    mhhirhhkohdquggvvhiklhhinhhugiesnhgrnhhlrdguvgdprhgtphhtthhopehrshgtse
+    hruhhnthhugidrtghomhdprhgtphhtthhopehlihhnuhigqdhsphhisehvghgvrhdrkhgv
+    rhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlih
+    hsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqshhunhig
+    iheslhhishhtshdrlhhinhhugidruggvvh
+X-ME-Proxy: <xmx:klnqadya9QuSMRBI5kpgADidSfj9UD08sfWocPE2IcHvXLX-VM5aXA>
+    <xmx:klnqaV7b0kIxonyFIxf-2yUiLVO49TAZi6M16So9qHYUFTTRW1EvFA>
+    <xmx:klnqaeytaprLT87dvg3dsp72KcnZvzmx95n8olx17KjhwBOr0wpLIA>
+    <xmx:klnqaZcwCWUj410nNXcjLeuua-8tBuXRUdiftgd7cQQ0xrle7BQ1kg>
+    <xmx:k1nqaQNsaeS4dI4SYBZeWkSPWlL9CKsy0MNlHX3DfET4hHX5OnxfNhVJ>
 Feedback-ID: i421842c8:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 23 Apr 2026 13:40:24 -0400 (EDT)
+ 23 Apr 2026 13:40:33 -0400 (EDT)
 From: Kevin Mehall <km@kevinmehall.net>
 To: Mark Brown <broonie@kernel.org>,
 	Chen-Yu Tsai <wens@kernel.org>,
@@ -93,16 +95,17 @@ To: Mark Brown <broonie@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 0/2] spi: sun6i: Fix chip select handling around autosuspend
-Date: Thu, 23 Apr 2026 11:39:59 -0600
-Message-ID: <20260423174001.2797797-1-km@kevinmehall.net>
+Subject: [PATCH v2 1/2] spi: sun6i: Honor CS setup delay on the first transfer with native CS
+Date: Thu, 23 Apr 2026 11:40:00 -0600
+Message-ID: <20260423174001.2797797-2-km@kevinmehall.net>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260423174001.2797797-1-km@kevinmehall.net>
+References: <20260423174001.2797797-1-km@kevinmehall.net>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_104028_991561_F9D2A21F 
-X-CRM114-Status: UNSURE (   6.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260423_104036_425860_F756ACC2 
+X-CRM114-Status: GOOD (  11.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,29 +120,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the initialization of the SUN6I_TFR_CTL_REG bits out of
-sun6i_spi_transfer_one() into earlier callbacks to fix two bugs:
+Move SUN6I_TFR_CTL_CS_MANUAL to sun6i_spi_set_cs.
 
- - With a native chip select, the setup_delay is not correctly applied to
-   the first transfer after autosuspend.
- - With a GPIO chip select, the CS is asserted before SCK is driven to the
-   correct initial level per the SPI mode. When the mode is set, it can
-   cause an extra SCK transition with CS low and corrupt the transfer.
+The CS_MANUAL bit is required for CS_LEVEL to affect the CS pin state.
+Set it in the same place as other CS bits to ensure that set_cs takes
+effect immediately, and to make it easier to reason about CS behavior.
+
+Previously, this bit was not set until the first transfer's
+sun6i_spi_transfer_one. That meant that on the first transfer, set_cs
+would have no immediate effect, and the CS falling edge was deferred
+until the bit is set in transfer_one. As any configured cs_setup delay
+happens between those two steps, the configured delay would have
+effectively been ignored on the very first transfer. This change makes
+the first transfer work like subsequent ones.
+
+Link: https://lore.kernel.org/linux-spi/d199f72a-093b-41bb-b33e-b6685563f704@app.fastmail.com/
+Fixes: 3558fe900e8a ("spi: sunxi: Add Allwinner A31 SPI controller driver")
+Signed-off-by: Kevin Mehall <km@kevinmehall.net>
+---
+ drivers/spi/spi-sun6i.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/spi/spi-sun6i.c b/drivers/spi/spi-sun6i.c
+index 240e46f84f7b..fc228574ed38 100644
+--- a/drivers/spi/spi-sun6i.c
++++ b/drivers/spi/spi-sun6i.c
+@@ -185,6 +185,10 @@ static void sun6i_spi_set_cs(struct spi_device *spi, bool enable)
+ 	u32 reg;
  
-Changes since the previous single patch:
- - Move the line that sets `SUN6I_TFR_CTL_CS_MANUAL` into
-  `sun6i_spi_set_cs()` rather than into `sun6i_spi_prepare_message()`.
-  This change is now a separate commit.
-
-Kevin Mehall (2):
-  spi: sun6i: Honor CS setup delay on the first transfer with native CS
-  spi: sun6i: Set SPI mode in prepare_message
-
- drivers/spi/spi-sun6i.c | 74 +++++++++++++++++++++++++----------------
- 1 file changed, 45 insertions(+), 29 deletions(-)
-
-
-base-commit: 028ef9c96e96197026887c0f092424679298aae8
+ 	reg = sun6i_spi_read(sspi, SUN6I_TFR_CTL_REG);
++
++	/* SUN6I_TFR_CTL_CS_LEVEL sets CS rather than the controller doing it automatically */
++	reg |= SUN6I_TFR_CTL_CS_MANUAL;
++
+ 	reg &= ~SUN6I_TFR_CTL_CS_MASK;
+ 	reg |= SUN6I_TFR_CTL_CS(spi_get_chipselect(spi, 0));
+ 
+@@ -364,9 +368,6 @@ static int sun6i_spi_transfer_one(struct spi_controller *host,
+ 		reg |= SUN6I_TFR_CTL_DHB;
+ 	}
+ 
+-	/* We want to control the chip select manually */
+-	reg |= SUN6I_TFR_CTL_CS_MANUAL;
+-
+ 	sun6i_spi_write(sspi, SUN6I_TFR_CTL_REG, reg);
+ 
+ 	if (sspi->cfg->has_clk_ctl) {
 -- 
 2.53.0
 
