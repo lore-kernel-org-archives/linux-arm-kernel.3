@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7406AF99355
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 08:55:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6329F99355
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 08:56:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mmVc0tQDx0XG3B7IScjRrrC9H81kyWOKV8mMowA8YiU=; b=t0yWLlPRic4Og/t8KePAwGdVam
-	4fmk/mkjU9O9u7eYu0Yif40M6sK6gblOODz5Lrt9rtRBvKv6Jvzcru4I+voZRUZ/DLrpxmtm9ZRFV
-	8Mg7VmZLx58PwtqyygAPRUM0cuy7EMbGXJEvD7VVQp4LzjUnKelRbMQBDFgFaaRwjRIjLk/wgJXJF
-	aSCbzgFL7A/Xwu2Y/ZH7vmkZqb4jYxXya5158N8AwtbzgCTBhPxJPv8dl3vGCGFVbePL8HhJ3uoUc
-	6w4P40ziQ83ZNtrxSpFkDUiJ/4l30OoS5l8qiMAAWqXa4e6HIGhq+ONp+zvBxq3/ztXYBfHnT7UME
-	AAlCuWKw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z92dwP+rZPmLbJXeApLFdpjNyD0VO3xi5M0DBBAKDO4=; b=BmaklvL5mqzYEj1ksJKGWhnI40
+	YGL8I6szBfnLmAEm/mJ8pbBOOy1QaMxT5N47FVA2NaGeQsuCkjhB8NtH6/RhYXhfRK4mqXnigqVV5
+	xd+Z4MkunG4q62OyVLYMipuN+WKJVxV8J5OBeIU8sNTFKS3LU7sjaH6XAyQxR//gwvj70hbfv9ADW
+	s+H+Uwz+XPeaDk7FnZflvMABrxsM3FaeD1HW/n/4zjr6+2GROl5+pSjFNxgE0ZH9b5GnKoCY1yiwg
+	iYnAT5GGNFaO15YsQfwJK1o9O7JCC2YViPX5rhrxccTL4YzZLCAHqX/I8+XeYN2WfLITazm0A9vfW
+	aDdhiTZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFpqc-0000000BH4T-1l0g;
-	Thu, 23 Apr 2026 08:55:46 +0000
-Received: from zg8tmja2lje4os4yms4ymjma.icoremail.net ([206.189.21.223])
+	id 1wFprG-0000000BHCE-2v4b;
+	Thu, 23 Apr 2026 08:56:26 +0000
+Received: from azure-sdnproxy.icoremail.net ([207.46.229.174])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFpqY-0000000BH3l-2dQG;
-	Thu, 23 Apr 2026 08:55:45 +0000
+	id 1wFprD-0000000BHB9-33xp;
+	Thu, 23 Apr 2026 08:56:25 +0000
 Received: from E0004057DT.eswin.cn (unknown [10.11.96.26])
-	by app2 (Coremail) with SMTP id TQJkCgAXLaBo3ulp3_kTAA--.18686S2;
-	Thu, 23 Apr 2026 16:55:06 +0800 (CST)
+	by app1 (Coremail) with SMTP id TAJkCgCnPHGj3ulpbgAUAA--.10903S2;
+	Thu, 23 Apr 2026 16:56:04 +0800 (CST)
 From: lizhi2@eswincomputing.com
 To: devicetree@vger.kernel.org,
 	andrew+netdev@lunn.ch,
@@ -58,34 +58,37 @@ Cc: ningyu@eswincomputing.com,
 	pritesh.patel@einfochips.com,
 	weishangjuan@eswincomputing.com,
 	horms@kernel.org,
-	Zhi Li <lizhi2@eswincomputing.com>
-Subject: [PATCH net-next v6 0/3] net: stmmac: eic7700: fix EIC7700 eth1 RX sampling timing
-Date: Thu, 23 Apr 2026 16:55:01 +0800
-Message-ID: <20260423085501.760-1-lizhi2@eswincomputing.com>
+	Zhi Li <lizhi2@eswincomputing.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH net-next v6 1/3] dt-bindings: ethernet: eswin: add clock sampling control
+Date: Thu, 23 Apr 2026 16:56:00 +0800
+Message-ID: <20260423085601.780-1-lizhi2@eswincomputing.com>
 X-Mailer: git-send-email 2.52.0.windows.1
+In-Reply-To: <20260423085501.760-1-lizhi2@eswincomputing.com>
+References: <20260423085501.760-1-lizhi2@eswincomputing.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: TQJkCgAXLaBo3ulp3_kTAA--.18686S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3Jw1xWrWkXw1UGry3Kw4rKrg_yoWxtF15pF
-	WDWrs8GF1DJFyxJan7t3W09a4Fqan3G3Wj9r1rAwnrXws09Fyqqr1S9F45ZFyDurZ7ur1Y
-	yFy5Ka1jka4j9FJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBv14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+X-CM-TRANSID: TAJkCgCnPHGj3ulpbgAUAA--.10903S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxKr1rtr45ur43Xr1UXr17trb_yoWxtF15pF
+	W5CrW5GFn5Xr1fCa17tF10kFyfJws7uF9xCr18t3Z7Xws0vFWYqr12yFy5Ga4UCr4xZFy5
+	WFWYgay8ua4jk3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBm14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
 	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
 	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
 	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
 	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxkIecxEwVCm-wCF04
 	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
 	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr4
-	1lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l
-	IxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4
-	A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0pRBOJnUUUUU=
+	1lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1U
+	MIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I
+	8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRimiiDUUUU
 X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_015542_935927_DA72A9A7 
-X-CRM114-Status: GOOD (  14.88  )
+X-CRM114-CacheID: sfid-20260423_015624_383707_39479C25 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,174 +105,198 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Zhi Li <lizhi2@eswincomputing.com>
 
-v5 -> v6:
-  - Update DTS/DTSI descriptions to fix invalid phandle references reported by DTC:
-    - Add missing GMAC provider nodes required for proper hardware description:
-      - HSP power domain: GMAC nodes moved under this domain to reflect
-        hardware power hierarchy.
-      - Clock nodes: added to provide clk phandles referenced by GMAC.
-      - Reset nodes: added to provide reset phandles referenced by GMAC.
-      - Pinctrl nodes: defines pinctrl settings for GMAC signals
-        (pinctrl_gpio106, pinctrl_gpio111).
-    - Move GMAC nodes under the correct HSP power domain.
-    - Ensure DTS builds without dtc errors and all phandle references
-      (clk/reset/pinctrl/power-domain) are valid.
-    - This update does not change runtime behavior; it only improves DTS
-      consistency and resolves issues reported by dtc.
+Due to chip backend reasons, there is already an approximately 4-5 ns
+skew between the RX clock and data of the eth1 MAC controller inside
+the silicon.
 
-  - Note:
-    - The patch 3/3 for DTS changes in this series provide an overview of the GMAC
-      integration and its dependencies, as discussed previously:
-      https://lore.kernel.org/lkml/64bf6b40-b947-4ffa-8d48-4d6341931327@lunn.ch/
+For 1000M, the RX clock must be inverted since it is not possible to
+meet the RGMII timing requirements using only rx-internal-delay-ps on
+the MAC together with the standard 2 ns delay on the PHY. Therefore,
+even on a properly designed board, eth1 still requires RX clock
+inversion.
 
-    - It is **not intended for upstream inclusion** in its current form,
-      and is provided solely for architecture overview and integration
-      context.
+This behaviour effectively breaks the RGMII timing assumptions at the
+SoC level.
 
-    - A fully cleaned and upstream-ready DTS series will be submitted
-      separately once all related components (pinctrl, clock, power-domain,
-      etc.) are finalized.
+For the TX path of eth1, there is also a skew between the TX clock
+and data on the MAC controller inside the silicon. This skew happens
+to be approximately 2 ns. Therefore, it can be considered that the
+2 ns delay of TX is provided by the MAC, so the TX is compliant with
+the RGMII standard.
 
-  - dtbs_check has been run on top of net-next for reference purposes.
-    Remaining warnings are expected due to missing EIC7700 clock binding[1]
-    in net-next and do not reflect issues in the DTS design itself.
+For 10/100 operation, the approximately 4-5 ns skew in the chip does
+not break the standard. The RGMII timing table (Section 3.3) specifies
+that for 10/100 operation the maximum value is unspecified:
+https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/20655/1/RGMIIv2_0_final_hp.pdf
 
-  - One remaining warning:
-    - eswin,eic7700-clock
+Due to the eth1 silicon behavior described above, a new compatible
+string "eswin,eic7700-qos-eth-clk-inversion" is added to the device
+tree. This allows the driver to handle the differences between eth1
+and eth0 through dedicated logic.
 
-  - The clock binding has already been applied to upstream and is present
-    in mainline, but not yet available in net-next.
+The rx-internal-delay-ps and tx-internal-delay-ps properties now use
+minimum and maximum constraints to reflect the actual hardware delay
+range (0-2540 ps) applied in 20 ps steps. This relaxes the binding
+validation compared to the previous enum-based definition and avoids
+regressions for existing DTBs while keeping the same hardware limits.
 
-  - The syscon binding is extended in this series to include the
-    eswin,eic7700-syscfg compatible.
+Treat the RX/TX internal delay properties as optional, board-specific
+tuning knobs and remove them from the example to avoid encouraging
+their use.
 
-  - Any further refinement of the syscfg binding will be handled in
-    separate patches if needed.
+In addition, the binding now includes additional background information
+about the HSP CSR registers accessed by the MAC. The TXD and RXD delay
+control registers are included so the driver can explicitly clear any
+residual configuration left by the bootloader.
 
-  - Dependencies:
-    - [1]EIC7700 clock binding:
-      https://lore.kernel.org/lkml/20260303080637.2100-1-dongxuyang@eswincomputing.com/
-      (already applied to upstream)
+Background reference for the High-Speed Subsystem and HSP CSR block is
+available in Chapter 10 ("High-Speed Interface") of the EIC7700X SoC
+Technical Reference Manual, Part 4
+(EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf):
+https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
 
-  - Link to v5:
-    https://lore.kernel.org/lkml/20260324073017.376-1-lizhi2@eswincomputing.com/
+There are currently no in-tree users of the EIC7700 Ethernet driver, so
+these changes are safe.
 
-v4 -> v5:
-  - eswin,eic7700-eth.yaml:
-    - Add Acked-by from Conor Dooley
-    - No functional changes
+Fixes: 888bd0eca93c ("dt-bindings: ethernet: eswin: Document for EIC7700 SoC")
+Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ .../bindings/net/eswin,eic7700-eth.yaml       | 69 +++++++++++++++----
+ 1 file changed, 55 insertions(+), 14 deletions(-)
 
-  - Update dwmac-eic7700.c:
-    - Disable clocks on the error path to fix a clock leak in
-      eic7700_dwmac_init() when regmap_set_bits() fails
-      (reported by Simon Horman <horms@kernel.org>)
-
-  - Link to v4:
-    https://lore.kernel.org/lkml/20260313075234.1567-1-lizhi2@eswincomputing.com/
-
-v3 -> v4:
-  - Update eswin,eic7700-eth.yaml:
-    - Improve commit message in dt-bindings patch to clarify the
-      hardware difference of the eth1 MAC and why a new compatible
-      string is required.
-    - Move the newly added eswin,hsp-sp-csr item to the end of the list
-      to avoid inserting entries in the middle of the binding schema.
-    - Simplify the compatible schema by replacing the previous oneOf
-      construct with an enum.
-
-  - Update dwmac-eic7700.c:
-    - Fix build issues.
-    - Adjust code to match the updated binding definition.
-
-  - Update DTS/DTSI descriptions:
-    - Move SoC-level descriptions to the .dtsi file.
-    - Keep board-specific configuration in the .dts file.
-
-  - Link to v3:
-    https://lore.kernel.org/lkml/20260303061525.846-1-lizhi2@eswincomputing.com/
-
-v2 -> v3:
-  - Update eswin,eic7700-eth.yaml:
-    - Extend rx-internal-delay-ps and tx-internal-delay-ps range
-      from 0-2400 to 0-2540 to match the full 7-bit hardware delay
-      field (127 * 20 ps).
-    - Add "multipleOf: 20" constraint to reflect the 20 ps hardware
-      step size.
-    - Make rx-internal-delay-ps and tx-internal-delay-ps optional.
-      A well-designed board should not require internal delay tuning.
-    - Remove rx-internal-delay-ps and tx-internal-delay-ps from the
-      example to avoid encouraging blind copy into board DTs.
-
-  - Update dwmac-eic7700.c:
-    - Treat rx-internal-delay-ps and tx-internal-delay-ps as optional
-      DT properties.
-    - Apply delay configuration only when properties are present.
-    - Keep TX/RX delay registers cleared by default to ensure a
-      deterministic state when no delay is specified.
-
-  - Describe Ethernet configuration for the HiFive Premier P550 board:
-    - Add GMAC controller nodes for the HiFive Premier P550 board
-      to describe the on-board Ethernet configuration.
-
-      The Ethernet controller depends on clock, reset, pinctrl
-      and HSP subsystem providers which are currently under
-      upstream review. These dependent nodes will be submitted
-      separately once the corresponding drivers are merged.
-
-      Due to these missing dependencies, dt-binding-check may
-      report warnings or failures for this series.
-
-  - No functional changes to RX clock inversion logic.
-
-  - Link to v2:
-    https://lore.kernel.org/lkml/20260209094628.886-1-lizhi2@eswincomputing.com/
-
-  - This series is based on the EIC7700 clock support series:
-    https://lore.kernel.org/all/20260210095008.726-1-dongxuyang@eswincomputing.com/
-    The clock series is currently under review.
-
-v1 -> v2:
-  - Update eswin,eic7700-eth.yaml:
-    - Drop the vendor-specific properties eswin,rx-clk-invert and
-      eswin,tx-clk-invert.
-    - Introduce a distinct compatible string
-      "eswin,eic7700-qos-eth-clk-inversion" to describe MAC instances that
-      require internal RGMII clock inversion.
-      This models the SoC-specific hardware difference directly via the
-      compatible string and avoids per-board configuration properties.
-    - Change rx-internal-delay-ps and tx-internal-delay-ps from enum to
-      minimum/maximum to reflect the actual delay range (0-2400 ps)
-    - Add reference to High-Speed Subsystem documentation in eswin,hsp-sp-csr
-      description. The HSP CSR block is described in Chapter 10
-      ("High-Speed Interface") of the EIC7700X SoC Technical Reference Manual,
-      Part 4 (EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf):
-      https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
-
-  - Update dwmac-eic7700.c:
-    - Remove handling of eswin,rx-clk-invert and eswin,tx-clk-invert
-      properties.
-    - Select RX clock inversion based on the new
-      "eswin,eic7700-qos-eth-clk-inversion" compatible string, using
-      match data to apply the required configuration for affected MAC
-      instances (eth1).
-
-  - Link to v1:
-    https://lore.kernel.org/lkml/20260109080601.1262-1-lizhi2@eswincomputing.com/
-
-Zhi Li (3):
-  dt-bindings: ethernet: eswin: add clock sampling control
-  net: stmmac: eic7700: enable clocks before syscon access and correct
-    RX sampling timing
-  riscv: dts: eswin: eic7700-hifive-premier-p550: enable Ethernet
-    controller
-
- .../devicetree/bindings/mfd/syscon.yaml       |   2 +
- .../bindings/net/eswin,eic7700-eth.yaml       |  69 ++++--
- .../dts/eswin/eic7700-hifive-premier-p550.dts | 232 ++++++++++++++++++
- arch/riscv/boot/dts/eswin/eic7700.dtsi        | 103 ++++++++
- .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 183 ++++++++++----
- 5 files changed, 532 insertions(+), 57 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+index 91e8cd1db67b..0b27719feb7d 100644
+--- a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
++++ b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+@@ -20,6 +20,7 @@ select:
+       contains:
+         enum:
+           - eswin,eic7700-qos-eth
++          - eswin,eic7700-qos-eth-clk-inversion
+   required:
+     - compatible
+ 
+@@ -29,7 +30,9 @@ allOf:
+ properties:
+   compatible:
+     items:
+-      - const: eswin,eic7700-qos-eth
++      - enum:
++          - eswin,eic7700-qos-eth
++          - eswin,eic7700-qos-eth-clk-inversion
+       - const: snps,dwmac-5.20
+ 
+   reg:
+@@ -63,16 +66,29 @@ properties:
+       - const: stmmaceth
+ 
+   rx-internal-delay-ps:
+-    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
++    minimum: 0
++    maximum: 2540
++    multipleOf: 20
+ 
+   tx-internal-delay-ps:
+-    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
++    minimum: 0
++    maximum: 2540
++    multipleOf: 20
+ 
+   eswin,hsp-sp-csr:
+     description:
+       HSP CSR is to control and get status of different high-speed peripherals
+       (such as Ethernet, USB, SATA, etc.) via register, which can tune
+       board-level's parameters of PHY, etc.
++
++      Additional background information about the High-Speed Subsystem
++      and the HSP CSR block is available in Chapter 10 ("High-Speed Interface")
++      of the EIC7700X SoC Technical Reference Manual, Part 4
++      (EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf). The manual is
++      publicly available at
++      https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
++
++      This reference is provided for background information only.
+     $ref: /schemas/types.yaml#/definitions/phandle-array
+     items:
+       - items:
+@@ -82,6 +98,8 @@ properties:
+           - description: Offset of AXI clock controller Low-Power request
+                          register
+           - description: Offset of register controlling TX/RX clock delay
++          - description: Offset of register controlling TXD delay
++          - description: Offset of register controlling RXD delay
+ 
+ required:
+   - compatible
+@@ -93,8 +111,6 @@ required:
+   - phy-mode
+   - resets
+   - reset-names
+-  - rx-internal-delay-ps
+-  - tx-internal-delay-ps
+   - eswin,hsp-sp-csr
+ 
+ unevaluatedProperties: false
+@@ -104,24 +120,49 @@ examples:
+     ethernet@50400000 {
+         compatible = "eswin,eic7700-qos-eth", "snps,dwmac-5.20";
+         reg = <0x50400000 0x10000>;
++        interrupt-parent = <&plic>;
++        interrupts = <61>;
++        interrupt-names = "macirq";
+         clocks = <&d0_clock 186>, <&d0_clock 171>, <&d0_clock 40>,
+                 <&d0_clock 193>;
+         clock-names = "axi", "cfg", "stmmaceth", "tx";
++        resets = <&reset 95>;
++        reset-names = "stmmaceth";
++        eswin,hsp-sp-csr = <&hsp_sp_csr 0x100 0x108 0x118 0x114 0x11c>;
++        phy-handle = <&gmac0_phy0>;
++        phy-mode = "rgmii-id";
++        snps,aal;
++        snps,fixed-burst;
++        snps,tso;
++        snps,axi-config = <&stmmac_axi_setup_gmac0>;
++
++        stmmac_axi_setup_gmac0: stmmac-axi-config {
++            snps,blen = <0 0 0 0 16 8 4>;
++            snps,rd_osr_lmt = <2>;
++            snps,wr_osr_lmt = <2>;
++        };
++    };
++
++    ethernet@50410000 {
++        compatible = "eswin,eic7700-qos-eth-clk-inversion", "snps,dwmac-5.20";
++        reg = <0x50410000 0x10000>;
+         interrupt-parent = <&plic>;
+-        interrupts = <61>;
++        interrupts = <70>;
+         interrupt-names = "macirq";
+-        phy-mode = "rgmii-id";
+-        phy-handle = <&phy0>;
+-        resets = <&reset 95>;
++        clocks = <&d0_clock 186>, <&d0_clock 171>, <&d0_clock 40>,
++                <&d0_clock 194>;
++        clock-names = "axi", "cfg", "stmmaceth", "tx";
++        resets = <&reset 94>;
+         reset-names = "stmmaceth";
+-        rx-internal-delay-ps = <200>;
+-        tx-internal-delay-ps = <200>;
+-        eswin,hsp-sp-csr = <&hsp_sp_csr 0x100 0x108 0x118>;
+-        snps,axi-config = <&stmmac_axi_setup>;
++        eswin,hsp-sp-csr = <&hsp_sp_csr 0x200 0x208 0x218 0x214 0x21c>;
++        phy-handle = <&gmac1_phy0>;
++        phy-mode = "rgmii-id";
+         snps,aal;
+         snps,fixed-burst;
+         snps,tso;
+-        stmmac_axi_setup: stmmac-axi-config {
++        snps,axi-config = <&stmmac_axi_setup_gmac1>;
++
++        stmmac_axi_setup_gmac1: stmmac-axi-config {
+             snps,blen = <0 0 0 0 16 8 4>;
+             snps,rd_osr_lmt = <2>;
+             snps,wr_osr_lmt = <2>;
 -- 
 2.25.1
 
