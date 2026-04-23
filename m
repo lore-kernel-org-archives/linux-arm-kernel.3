@@ -4,122 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A660AF589AE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 12:26:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47D01F589AE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 12:30:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aW9kFpbYfmm+Pfdk+tU7J0hZ4IrRtXVJ9AFMZP5miZg=; b=jtsiUuuL5FyXo+tXiHmhnR0Xuo
-	37cJaHlxLRRIAEo7nE5E5QIImYDMIqbzZ9YJyxXO7MWowySSQrmvgOX6XLeGwMKc/T0KAIa8TnR3g
-	+u4W6NcmDRZi1ihZQFwx/mPK5XWUqKQpE3oDnkrBWRCJGaiQDBhEgDMeO958s3ItzLHSCmmxVY/sm
-	RPoGivv8zzRvbMwp+Ki0QpxQiPNf0pQF64GvlpO7LrHkO43MdxBUspDTcBrhR3cHyaqfC02fma0De
-	XqhtDGigQXOgj9WGVoaLGgaqf8LltT77FhsnJ340Yy9ftVcSNm+M7HAxvgGh53jZQEY2md6+V80Yg
-	tkbSsPSg==;
+	bh=lPQ0wGwknf87KCyxpZgTOzK1e605K9MM9iwmk1ThPFA=; b=UfR2dkxFYU8XMR2dx15WqDaIJ+
+	Id7agpF56Ygvkhdw/RyJTez9j3239qrps+trAZPPmbreNoT4UPzlZ4E0P7l75LCbavVball0v10tR
+	rS2rjMGjoH3Jjmnbivpz1vDhJZ991u7BP+pjZHGVbAY2ffYQFYtpGiez/X7s2RqsRpfBOGlVMsdvl
+	9FourgcAqP9pjSaI9k6F2HBGwQ0rAcL2qpfF2YXhuN2sKkVS+XOKAleq9rnghYZ/ZUtYLV8de8wlt
+	hCru/HzVVwMohmO9h51vY4S/Rm0I3OxeXwNCxHn6YrmNAxBGeRwqEiZw8NQc6bu5zhB8ePa9rWLBg
+	q0HlUraQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFt8H-0000000Bc93-28OO;
-	Thu, 23 Apr 2026 12:26:13 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wFtBu-0000000BcPw-0YcD;
+	Thu, 23 Apr 2026 12:29:58 +0000
+Received: from mail-canadaeastazon11020112.outbound.protection.outlook.com ([52.101.191.112] helo=YQZPR01CU011.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFt8B-0000000Bc5k-0ovN
+	id 1wFtBo-0000000BcPZ-0azx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 12:26:12 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63N6BWVx3292235;
-	Thu, 23 Apr 2026 12:25:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=aW9kFp
-	bYfmm+Pfdk+tU7J0hZ4IrRtXVJ9AFMZP5miZg=; b=koTLLeMMUt2SU6+20F3JTu
-	PQDlSp89U88qcIwq5vBjfYSKI/mj19KWA/VGwz5Ofq9p01talQjvKrIOOIrt+VXU
-	00VVgRkFb3MhowKs6Q0zp1T4vDJQgQxfk/FzxKXaOao3PdLfOp0WD4oypELMMn8s
-	p0kFAp4VwhPDmhWsdS2+TjEaVixBglmMZCpok79MMdPiF2YKxnw5R5OpJ4xR70sW
-	1ZLFlW2QoISUqGmNzHzAkCvEoQRDZY54H6fMbJ1FrTAtQxAEzH7DVwccsbIqb+E0
-	xyp7pkoDvj90IcfmS9IXgA9xNIR1eXHowunw3w/DdNxFnAm0RWfA9Q3sqWm3TlPg
-	==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dphfrfxrp-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 23 Apr 2026 12:25:55 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63NCKjT2004855;
-	Thu, 23 Apr 2026 12:25:54 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4dpjky6ht7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 23 Apr 2026 12:25:54 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63NCPpWN52822418
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 23 Apr 2026 12:25:51 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4661A20040;
-	Thu, 23 Apr 2026 12:25:51 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E11882004D;
-	Thu, 23 Apr 2026 12:25:50 +0000 (GMT)
-Received: from osiris (unknown [9.52.216.133])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Thu, 23 Apr 2026 12:25:50 +0000 (GMT)
-Date: Thu, 23 Apr 2026 14:25:49 +0200
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org,
-        Andreas Grapentin <Andreas.Grapentin@ibm.com>,
-        Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v1 00/27] KVM: s390: Introduce arm64 KVM
-Message-ID: <20260423122549.361343-A-seiden@linux.ibm.com>
-References: <20260402042125.3948963-1-seiden@linux.ibm.com>
- <86o6jd2925.wl-maz@kernel.org>
+	Thu, 23 Apr 2026 12:29:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cmZ6lUUqAATVV8Zo8Mm6HiB0b+PWYEdp+z+MnePIPoxdBftCsogJZExrL12KzHENcqE4be0CGtCWP1Tt0SkCnNmIRfl+QYlbfrSFOiFEDZlEPVuybkw2RWS8/HhMYJzBZH2Qhly+mm6aYPQTOCM0PKM1m7Htjusn+nAMZqQhbFxtHCl4MA/oBeUlwsg7ed84z9Ri/A6XLJcWHxn3LgUPDtGuOPC0qrprtKvTbXJ42Es03kGmox5yM5Ikygw/ai1YpyNk7oto2OLAIj0USvakWT8LLXMj6jblSgIUPlZjBpkVGAFS6MSrcoFE1HMJdENZ7yAtIAzUUbCLzjjqhcIWqA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lPQ0wGwknf87KCyxpZgTOzK1e605K9MM9iwmk1ThPFA=;
+ b=qOr4GxtI3eiS+0VAB8XE7e3i0PCZpFALW8E7C+vR6M3gz42G+aMDTuo7tdzaqVZmE72MCfudGB63MtTUcBGBa9AUED7VHrvxPVqIjTfRBFH+5e/KzrXIXb9TfGh7OBu+vzRPgx4gFiQ6ef10ubXhzrVa2Qofxfu2TuRwBqXaLXPsYQZvUbjySQUggYoGEwFiKYiM6KajmC47cTrm/cKQ1iTtIqXYjzLQY6hE/ouCz7N+Tq3O48e2pFQsYKhenMx0/WRLxHlSggypZsKcPxfQhzeF3N/BshQGXtxI1Q2rX9dibi1q4G2zRcaUqhqGKG/tpMcD603D45MSytRFT63Khg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
+ dkim=pass header.d=efficios.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lPQ0wGwknf87KCyxpZgTOzK1e605K9MM9iwmk1ThPFA=;
+ b=oWxmwlXVDHbsNhIdGMOQ+xX6cJDC/OKp1lOndv5FINOkEi9uFC9AKt7pF7gmJSPjcwZBYHJbJ3vyacXAEDzU/Ul9hnSLNQso8cUbxmo2DWmipjiZX9vNjKxVzXezQNr6V/awdTPsA/X6b45d2XhbQZBb4h0bXEwCyzbD82vLSaxeTaBdvTu4kO9aBLmCaDOwosbinJdY6QRKh3mGHzI3VpYvp9NFZ18rT+fBMAuQgIG0tBTZNXsgNGAs2LaI8ME/ZBhji9RnJgq38mP9GOPSGoZ4xQLd0QCCOZOACCWSgrY7WqLda41A6V5qCPndCCwcYgHKlg4+x3R8Bct1SeHQlA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=efficios.com;
+Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:be::5)
+ by YT2PR01MB8952.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:bc::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.22; Thu, 23 Apr
+ 2026 12:29:42 +0000
+Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6004:a862:d45d:90c1]) by YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6004:a862:d45d:90c1%3]) with mapi id 15.20.9846.021; Thu, 23 Apr 2026
+ 12:29:41 +0000
+Message-ID: <1e839a25-d15f-40d3-ad6a-20469fb6137c@efficios.com>
+Date: Thu, 23 Apr 2026 08:29:39 -0400
+User-Agent: Mozilla Thunderbird
+Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
+ and tcmalloc everywhere
+To: Dmitry Vyukov <dvyukov@google.com>, Jinjie Ruan <ruanjinjie@huawei.com>,
+ linux-man@vger.kernel.org
+Cc: Thomas Gleixner <tglx@linutronix.de>, Mark Rutland
+ <mark.rutland@arm.com>, Mathias Stearn <mathias@mongodb.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Boqun Feng <boqun.feng@gmail.com>, "Paul E. McKenney" <paulmck@kernel.org>,
+ Chris Kennelly <ckennelly@google.com>, regressions@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@kernel.org>,
+ Blake Oler <blake.oler@mongodb.com>
+References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
+ <aejCaG6n9s7ak5TO@J2N7QTR9R3.cambridge.arm.com> <87zf2u28d1.ffs@tglx>
+ <aekPXvvuKHKlETjm@J2N7QTR9R3.cambridge.arm.com> <87wlxy22x7.ffs@tglx>
+ <c5331cd6-76c8-430d-978e-fcad164e48f6@huawei.com>
+ <CACT4Y+bxnQyHGdVNE1BYTx+Z2-cscLb38HYS9jBM5gPAz8=4bw@mail.gmail.com>
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Content-Language: en-US
+In-Reply-To: <CACT4Y+bxnQyHGdVNE1BYTx+Z2-cscLb38HYS9jBM5gPAz8=4bw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: YT4PR01CA0344.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:fc::29) To YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:be::5)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <86o6jd2925.wl-maz@kernel.org>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: Zt3vVpbTZ3JZw269VpArRys1HjMYrHP_
-X-Proofpoint-ORIG-GUID: Zt3vVpbTZ3JZw269VpArRys1HjMYrHP_
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIzMDEyMiBTYWx0ZWRfX6YnftMIcDNxa
- wwFbAB0x9MfljTMrRWnKYkTVaPODu5cjtZ5FML8uAPElYQi+1tllK8iBD4CBGvgJgPu2hq1g2i5
- 90G8z2WezjZpCZjmyYJ58rv68j/gWD+crzxP3kRgPrYAvkIqAHY5RA+AGsm0SB32eONz/nBd/un
- y3rKxfhKyERqDNpldIi32mcvMjKcOcoFeooXXs6pQU3HEtAazYh6QoveAC7gVnd6k6PiBG+51GG
- GhS61h4MszQ2lr+taVtyK4nkDiTp1dOCVI9xRmtqTN49Bzils3WeKH3LoBaL7Mz+DU1k+voUDcO
- uU9kjYIiSbb92zPZm0DCHyk4BH95KUKXi6UIWqOSSLQDzxrtQl8s523Zcv1YNUJNQfFMZTTOLnI
- +/BOSycC/ggQqtfrlcYz3MmhNqDW624tOunmbUv0L4rxG91mPrKsmSAR15gb0YFbvbHTPLqlUXu
- EHF5zBhMPFmct29zq3w==
-X-Authority-Analysis: v=2.4 cv=SJxykuvH c=1 sm=1 tr=0 ts=69ea0fd3 cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8
- a=_hb7cby5UekIfOObm9QA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-23_03,2026-04-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 malwarescore=0 impostorscore=0 bulkscore=0
- lowpriorityscore=0 phishscore=0 clxscore=1015 adultscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604230122
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: YT2PR01MB9175:EE_|YT2PR01MB8952:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7da60632-af83-42b9-03ea-08dea133fe33
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: i2NUQQDoVDevkj/T+MdX43Ry3wyV6rOuTuKtsB9RhT0ETZE07Jb5mYovqmaHnwhj9Simfs+1cmDS0rTXczSx53DKfGkNHhC+vylIaQZub5q2tCn9kDqTnYGiae6r2Dmceeu/Qqv7eY1xaoXUsoZQZKgNEjGZL581A09RGf9Aku6zby66ebEaX0+k2JOapjnJ8EJTF+wxpoNIqczDoDeYoGI8+W+2fQ5PzV6qJOHbAUM9La6KiGlfNHd1NlgbgRYkGiGr6AG/MSktOMjObDWjklLAl+jkHKNqWTPWyAY5aMgU0O28gY4TQgsb4R5f0mB29KbbdA8gJ9aySwtIxwEryzZ8QGk6HWa7Qqq/YGcCyHOlk33/9rQgRdHUK8sRbgJ09mcT6NAvvTx9rPJvwL5HeNB+1tZWbvMbvC2FQ3Jje7t5nqFR2/AWq9Fv2S0a4u6kSV0IAqBX0ESMrL1jmDTnY1brqmqFXjw2HvPFyZzjxgH0jGfHNuAO9xJaFKLmRihvmM51/HJXQ7ajiqaDkG6ivKOpKgU8SAAFTV9EjR3CNCQ9wIfRc37puE/d0u8Oh9S0MYYj5PzpZ8SVtk9rSZD8b3D9G9HjQJzUc9UhRQ7+ftkvC+sEJG37loASTWiEfAkpZEnyohtxx4gT3NHIbXLaOH+ohl9/hqImibacr3wI0yGuWJ4OEHR3LKHZJeK4pzTV
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MHlHMzRkbm9iZVlqWndqZmxyQlpYYmxscjhnTXExb3NMQy9vS0NhUkpXQXc5?=
+ =?utf-8?B?M0ttMUpRR3E2REE1VGtIdlUxM3hwNXJmNVNZenZBOHJCUU1la2xFaXlkUkdy?=
+ =?utf-8?B?c09iL2theWQ4a3R1cm9uZ2Z0MUJWYng1U3JjK3dWRW1OOWRYalJMaWhncEVS?=
+ =?utf-8?B?U0dVTVJTbUNUVDF5UGE3ZStRZ0xYK2VGeWJlZWFQY3c4bVFyZmQwa1B3Ykdi?=
+ =?utf-8?B?ck1OZDJOSk1BQmkyMzJhU2ZZQkhzSnJVTmcrYlNGUXFUbVZCUGVYbExiL3dE?=
+ =?utf-8?B?UnlxTDNTTm5BSitEUldkTXpCM3BhOXphK1dDZVVqclR1bkZDZHlFTFRBVFpV?=
+ =?utf-8?B?VlhLOCtLdEFFVXhuM281ZEZqZm9JbWh2bHRxb2ZDMDNiZ1Q2Q283NW91cnVr?=
+ =?utf-8?B?dXRxQ2FPakRya0l4MTFVbzBhOWczQlg3VGF3YW9USXVaTXpUcHVvVHpCcGFm?=
+ =?utf-8?B?bURUY0k4REJxOXJ5bFBITGp5QWR5MVI2U2tiSDI0MytDZjJtUnlTdDB1NjNU?=
+ =?utf-8?B?RnROWmRVdU1EcVdwcy9kSHRka09CNFpQdmpDYVV6VlFuMWRkb2piaGNSdUtr?=
+ =?utf-8?B?eUdETmgrRkIvQS9IeFhxODhqRXJhYjUwb04yNk1DdHp2a3BQdGg1SzhxK3M5?=
+ =?utf-8?B?eHpBN0lXRmI1M0JSeG1IZytlK2M2NnFmTWpKbU9wSW1jeTZOcm9HanhmOXZj?=
+ =?utf-8?B?dzBaM2ZjcnU4TGdnQm0wbFhscEtLSTlVclExNFZBVTJuOXBCbTh3dkFqT1lT?=
+ =?utf-8?B?QmtOR3RuYXB6THZsMkR5YXdsSW9GNEFDeFJVYXh4clVtaTdsZE5JMENVL1RR?=
+ =?utf-8?B?eG1icnNsM2czaUhPMmg0OE1PRFUrSFRnUmJtbXJHTlBqWlJGTlZmQko1Qitm?=
+ =?utf-8?B?cXl4MXBBZXNEUXBNRUd1K2ppYkM5dW1udWtLLy9ubzdDTCtMNkFFSWY4YTgy?=
+ =?utf-8?B?UkIwTHluOHNWT05pNUZ5ZENoMWJhL0JvVFFzeEEzaUt2ZXJqWkR2V3ZWamhs?=
+ =?utf-8?B?WWpabEU0alFsUVdrUmFUMlRFek9VNzFoMU1UdzhDWXBEZXVWWmU2UzFYK2ZZ?=
+ =?utf-8?B?VlJTemxzUEdiUFRyMEhXd3MwWDVwWmg3NG9UazZwUytiMG5uMVRZZmNYc0tY?=
+ =?utf-8?B?akVMQkowbUJrY1hPdXpYYTVmRFRMdkc0U2UrVTNiV1d0dzVXZmdFUHYrR1Ba?=
+ =?utf-8?B?eGs1eW1KV0tJM1lvbjdVMnE5dkgrWmFsUnVIUmZaTGZBcVFmN0NtVVFaL3V2?=
+ =?utf-8?B?dzRid2FzTEFJeCtOTERjWFJUOHVFMmhmM0MwbEdmVHpyZlVXNmZqZ2RxUnVy?=
+ =?utf-8?B?eURYYS92NDRQSEZRajZnZ3owK1dacDBxOHdBQUFkVGtGanVRblVLQklKL3Q4?=
+ =?utf-8?B?NUMrRDNYeFhqMUxvcFZDb0NlMy9tMEJLNkRUZy82Wi8rS1pHN2c4SjM4Rk5z?=
+ =?utf-8?B?Y3Z4ck90Y1AycFJTbElXUmNpYSt2UUVsVHE2QVRQNTNBWEc2UUlBQnpjcGcx?=
+ =?utf-8?B?eWpTUWJWNlFYaGNnTVhvVE5yNXFnb0I4UU5jSDhaWGJZbkx3N1IvelRETEpN?=
+ =?utf-8?B?WmVFdVF1TFpNWnppbmd5SDA3ays4bXZwcGlmYzUvVDVCUVR2Rzd6Vm5wL1cv?=
+ =?utf-8?B?b3laY1Fzbi9pcjZydXh1NlQ3U25yaGVhNFpjN3pBdkQ3bHVMczMxcFVWV2Yv?=
+ =?utf-8?B?SWhLajlqbmVRcFBNOVhZQTcwNWU2ZEpFOWxiM3dhOFhpc2ZEYlo3aTNFeUNl?=
+ =?utf-8?B?UWhIcFRWT05xd2tyMFMwQ3c3QVhGWXd2NUNJUkx0ZUcxZXFsNm80dVFEQzNZ?=
+ =?utf-8?B?QkdWRmI1R08rL21tZVl0NDQ2ci9DL3drb1hzM1dWMktDVUhxQUJuMS9VV0RI?=
+ =?utf-8?B?NUZRZ216Q3Q5SnFxOUtEUnFSZ2ZsZ2x3Vlp0RVl4V003YlFwN0ZOajB2MTd3?=
+ =?utf-8?B?V1E5ek5RK2NBMmE3SGNVc21ZWU5YZDZEZXNxNUdkRGJDWDhCTmt6aXA1aDJj?=
+ =?utf-8?B?b2pCNWVMemVVaEpoTVdIRE9waVBzRWYzamErWkUvVWRTenRlL1FMZE10TnU3?=
+ =?utf-8?B?Vm04eWRUWU9yamxzWkQ5MGhqL0prdFR3OVRVWlluOUdNdHhGc2Z2d0czQlMy?=
+ =?utf-8?B?MmNSajl6ckhTVTRKR0NNZ1VXUXF5Ykx2UThpamxFdWNwU0hCWmlzdEFGOC9X?=
+ =?utf-8?B?bkk1NGwrZ3ZqVkdRM2VXazhIQWlzVlNsUE1JZ0gvc2ZvcDJneElFb3UrZUt4?=
+ =?utf-8?B?NUpVWk95anlGZUFHT0o2dlhUc3hoREQrN1JHYklZdHZQa1ZwL295eW5TZUFJ?=
+ =?utf-8?B?WUQyMldNWmZCNXZJUkV5d0VxV056Z1FYaUFlZEk3M3IvckRtWGk5OHo2SE03?=
+ =?utf-8?Q?GwKUbeMeMDQeItl0=3D?=
+X-OriginatorOrg: efficios.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7da60632-af83-42b9-03ea-08dea133fe33
+X-MS-Exchange-CrossTenant-AuthSource: YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2026 12:29:41.5331
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZBNG/YXUUfslMOA+TJ7TWhF5soRtslx/2ib8g3Xt5ghsBIVsBglMbiOzC5BKyEK4zq7O29d7lORTAISlQDTHBVM3vdURMyBGCpnjtf4NyoA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT2PR01MB8952
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_052607_247527_1F87D101 
-X-CRM114-Status: GOOD (  64.35  )
+X-CRM114-CacheID: sfid-20260423_052952_200844_8CEACF16 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,278 +159,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc & Will,
-
-On Mon, Apr 20, 2026 at 11:57:38AM +0100, Marc Zyngier wrote:
-
-> Hi Steffen, s390 folks,
+On 2026-04-23 01:53, Dmitry Vyukov wrote:
+[...]
+> +linux-man
 > 
-> On Thu, 02 Apr 2026 05:20:56 +0100,
-> Steffen Eiden <seiden@linux.ibm.com> wrote:
-> > 
-> > By introducing a novel virtualization acceleration for the ARM architecture on
-> > s390 architecture, we aim to expand the platform's software ecosystem. This
-> > initial patch series lays the groundwork by enabling KVM-accelerated ARM CPU
-> > virtualization on s390. To achieve this, a common KVM layer between s390 and
-> > arm64 is introduced (see below for more details). Design considerations of
-> > arm64 on the s390 Architecture The s390 virtualization architecture is extended
-> > with a set of new instructions dedicated to supporting ARM-based virtual
-> > machines. The s390 KVM host acts as EL2 (hypervisor) for a EL1/EL0
-> > (OS/application) arm64 guest. To achieve this, the new Start-Arm-Execution
-> > (SAE) instruction enables accelerated execution of arm64 VMs.  Additional new
-> > s390 instructions aLre introduced to query available arm64 features, used to
-> > populate the arm64 ID register contents, as well as, new s390 instructions to
-> > save/restore various arm64 registers in the VM context.
+> This part of the rseq man page needs to be fixed as well I think. The
+> kernel no longer reliably provides clearing of rseq_cs on preemption,
+> right?
 > 
-> Apologises for the delay in responding to this, things got delayed a
-> bit with the Easter break. Since then, Will and I have been discussing
-> this series and what it means for the future of the arm64 port.
-> 
-> By way of opening the discussion, we want to be clear that we are
-> supportive of the effort. Our comments here should be seen as areas of
-> potential improvement and not as rejection of what you are trying to
-> achieve.
->
-Thank you for your answer. We are happy to hear that you support our
-efforts.
- 
-> * Code movement:
-> 
->   The patches you have posted demonstrate that it is possible to
->   expose a large amount of arm64-specific code and definition to s390,
->   and yet still manage to build both architectures without regression.
->   However, the result looks rather messy and may adversely affect
->   maintainability on the arm64 side.
-> 
->   The moving of files into shared locations is particularly painful,
->   and gets in the way of overall maintainability. Not only does it
->   break our comfortable habits, it makes the backporting of fixes
->   harder.  Importantly, these changes come with no benefit on the
->   arm64 side.
-> 
->   Would it be possible to try some other means of reaching the
->   arm64-specific files *in situ*, either by making use of relative
->   paths, or by using symbolic links? Even better, files that are
->   generated on arm64 (such as the sysreg definitions) should equally
->   be generated for s390, locally to the s390 part of the tree.
-> 
-Yes, we can do that. Our first iteration had an extensive use of symlinks for
-headers. We feared that this approach would gain no big support as it was
-quite messy and gave a lot of surface for future errors. So we moved to the
-current implementation. For the non-KVM headers I could see moving back to the
-symlink approach to reduce the backport & maintainability burden for you.
-Preferably, those headers are kept clean of any arm implementation specific
-things (e.g. sysreg vs sysreg-defs).
+> https://git.kernel.org/pub/scm/libs/librseq/librseq.git/tree/doc/man/rseq.2#n241
 
-For shared kvm headers and code, we think moving them to the proposed location
-helps reducing regression issues when someone changes a function as that
-location makes it 100% clear that this is shared code. Tagging a file 
-as __shared__ by other means (e.g. by a file name suffix) may 
-be OK for us as well if that reduces your maintenance burden.
-
-The generated (e.g. sysreg) definitions are already generated into the s390
-tree:
-{outdir}/arch/s390/include/generated/asm/sysreg-gen-defs.h
-We just reuse the makefile definitions from arm.
-
-As a side note: We tried to reuse as much arm code as possible - to not
-reinvent the wheel - while keeping the arm churn minimal. While going through
-the arm code, we tried to spot parts that could benefit from refactoring and
-did that. By moving especially the kvm code to another location we wanted to
-emphasize that this code is shared between arm and s390 and possibly other
-architectures in the future.
-
-We will prototype alternatives including using symlinks and post them soon here. 
-
->   But that doesn't mean that we consider that the arm64 tree is
->   immutable and that we are not open to change, quite the opposite.
->   Most of the KVM/arm64 include files are an unholy mix of arch
->   definitions, data structures that have some arch relevance, but also
->   code and data that is strictly implementation specific. Splitting
->   these (as you already have for some include files) could both help
->   with sharing what is actually needed, keep the arm64-specific stuff
->   at bay, *and* benefit arm64's overall maintainability. We would need
->   some tooling to enforce the split and avoid regressing it, something
->   that could happen quickly given the level of activity on arm64. Yet
->   another way to achieve this could be to mechanically process the
->   arm64 files as part of the s390 build to extract the relevant
->   information, and we could help with this.
-
-That is good to hear. We of course also wanted arm to improve with our changes.
+I'm maintaining this manual page in librseq.
 
 > 
->   Looking a bit more into the distance, it is likely that KVM/arm64
->   will grow feature support quicker than s390 can absorb them, and
->   that some feature won't ever make any sense of s390 (pKVM, for
->   example).  We need to establish how these features can be built
->   without arm64 being hindered by s390. This is also true when adding
->   architectural support for features that don't exist in the s390 view
->   of arm64.
+> "and set to NULL by the kernel when it restarts an assembly
+> instruction sequence block,
+> as well as when the kernel detects that it is preempting or delivering
+> a signal outside of the range targeted by the rseq_cs."
 
-Yes, of course s390 should not hinder arm64 to progress. 120% agree! We will
-be available in case that happens. However, I do not think this is a big
-problem. By defining some arm feature macros to false we already did turn off
-few arm features for us at compile time. Compiler optimization is a very good
-friend here.
+I think you got two things confused here.
 
-> 
-> * UAPI and guest API:
-> 
->   Obviously, one of our biggest concerns is the userspace API. We
->   appreciate that you want to reuse it as it is, warts and all, and
->   directly incorporate additional feature support as it becomes
+1) There is currently a bug on arm64 where it fails to honor the
+    rseq ABI contract wrt critical section abort. AFAIU there is a
+    fix proposed for this.
 
-Yes, implementing the arm64 kvm-UAPI was one of our primary goals so that we
-can reuse existing arm64 VMMs e.g. Qemu.
+2) Thomas relaxed the implementation of cpu_id_start field updates
+    so it only stores to the rseq area when the current cpu actually
+    changes (migration).
 
->   available. This means that, should any divergence in UAPI appear,
->   the source of truth must be on the arm64 side. This has the
->   following consequences:
+So AFAIU the statement in the man page is still fine. It's just arm64
+that needs fixing.
 
-Yes, arm64 is the source of truth for us. That is the exact reason we did not
-copy the (UAPI) headers but moved & share them.
+Thanks,
 
-> 
->     - s390 cannot add extensions to the UAPI
-> 
->     - s390 must be compatible with all future arm64 extensions
-yes
-> 
->   Similar concerns exist on the guest/hypervisor API, including:
-> 
->   - errata mitigation: this is unsurprisingly a hot topic, which keeps
->     causing us some massive headaches. We are particularly concerned
->     about errata that need to be disclosed to the guest and acted upon
->     via a hypercall. Should there be a need for those, how will we
->     coordinate the deployment of such hypercall?
-> 
->     The way it has been deployed so far is that PSCI has grown an
->     errata discovery mechanism. ARM assigns function numbers and
->     specifies what these hypercalls mitigate. KVM, in turn, takes part
->     in implementing the mitigation. We expect that s390 would follow
->     the same behaviour, including coordination with ARM for the
->     function numbering.
+Mathieu
 
-Yes. s390 will follow those things. We are planning to reuse the complete 
-arm hypercall code including the current (and future) errata detection that
-comes with it.
-This change will come in one of the future series. 
-
-> 
->   - device assignment: this is unknown territory for us, as we
->     commonly use vfio-pci (and more occasionally vfio-platform). How
->     would that look for an arm64 guest on s390?
-> 
-We plan to work with virtio-pci and vfio-pci. No plans to assign ccw devices to
- arm guests.
-
->   - s390-specific ISA extension: although we obviously cannot control
->     how you will decide to expose features to your arm64 guests,
->     KVM/arm64 makes a point of forbidding any use of implementation
->     specific instruction or system registers. We expect the s390
->     implementation to uphold this.
->
-
-We have no plans of using private ISA extensions or deviations.
-
->   - s390-specific hypercalls: aside from the errata handling
->     mentioned above, we would very much like to avoid anything that is
->     implementation specific, and keep the hypercall space as small as
->     possible. In other words, an unenlightened arm64 guest must work
->     and continue to work.
-
-Of course an unenlightened arm64 guest must keep working and it should
-work with good performance and usability. This is another primary goal of
-this project.
-Given that we have some history of paravirtual optimizations on s390, we 
-might propose some hypercalls in the future. But this will then very likely to
-the benefit of all arm platforms and implemented on both host variants. 
-
-> 
-> * Overall maintenance
-> 
->   Unsurprisingly, we are not totally familiar with s390. To say that
->   there is a learning gap would only be an understatement. So how do
->   we make sure we don't break things out of pure ignorance? Is there
->   any documentation we can refer to when hacking on code that will
->   eventually run on your side of the computing universe?
-
-I am aware of the Kernel Documentation for s390.
-Also, for the z/Architecture in general:
-Principles of Operation might be a good start to learn about s390 architecture.
-
-Of course we will be available for answering s390 architecture questions. 
-
-> 
->   We need to be able to build and test what we produce. How do we go
->   about that? We appreciate that you may not be in a position to help
->   with this right now, but at least having a plan would be reassuring.
->   This should include things like automatic testing of our CI branches.
->   We are happy to test build s390 as part of our maintenance flow, if
->   pointed to existing binary toolchains compiled for arm64 and x86,
->   together with a typical configuration.
->
-
-For your side:
-Cross compiling the kernel is a good starting point. GCC/Clang cross compile
-toolchains for s390 are available on all major distros. They are typically
-postfixed with ‘-s390x-linux-gnu‘, note the x after s390. defconfig has KVMARM
-in it - this should be suitable for testing you do not break s390 compilation.
-
-You can get access to s390 resources for doing native builds in the LinuxONE
-community cloud. Those are VMs itself -> run tests are not possible.
-https://community.ibm.com/zsystems/l1cc
-They also offer permanent access to OSS communities if necessary. We can help
-to connect you with those teams.
-
-Another option would be to spin-up a s390 qemu-tcg guest to build the kernel
-'native'.
-
-For us:
-Yes we are planning to do regular tests to prevent breaking arm. Testing your
-CI branches seems to be a good starting point for this. Do you have a few
-pointers which are suited best?
-
->   What about debugging? We expect that you'd have to help, should an
->   arm64 change cause a regression on s390, as it is fairly unlikely
->   that we would be able to reproduce it.
-
-Positive, we will do whatever we can to support you in any way.
-
-> 
->   Finally, we feel it would be beneficial for both projects to swap
->   prisoners and have cross-reviewers in MAINTAINERS, so that there is
->   an s390 reviewer added to KVM/arm64, and an arm64 reviewer added to
->   KVM/s390.
-
-Great Idea and I like the wording :)
-We’ll start with the exchange. I (Steffen) would volunteer to be sent over to you.
-I will add myself as kvm/arm64 reviewer in v2 of this series if that is OK for
-you.
-
-For the other way we appreciate any volunteers and also will ask around for suitable
-people with arm and preferably also s390 knowledge. 
-
-> 
-> It probably would be beneficial to work through some of these things
-> face-to-face. Maybe around LPC or KVM Forum if you manage to get
-> there? Or some other place/time?
-
-Totally agree, although I would prefer an earlier date (probably virtual) to 
-get rid of any serious misunderstandings that may be there early. 
-Surely, we can meet at LPC and/or KVM-forum as well to discuss even more.
-
-Thank you very much for your openness and your constructive, honest
-feedback.
-
-	Steffen & the KVM/s390 team
-
-> 
-> Thanks,
-> 
-> 	Marc and Will
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
-
+-- 
+Mathieu Desnoyers
+EfficiOS Inc.
+https://www.efficios.com
 
