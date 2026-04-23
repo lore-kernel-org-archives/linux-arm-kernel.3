@@ -4,69 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8946DF589AD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 12:46:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F151F589C4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 12:53:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mfOQeh1kb0G9bRrQgnHZzYBY7i5HptGdO6JunZd11Q8=; b=H4rBRqteTWGaz3NFvGK8/HryDT
-	L0nQe+tlpQANna3uNuxGC8ooSIKyHQSiDaFXJZQT/4XLM/29N9AfAqiB3qnMi/8eqvn1PSambkuab
-	5QN6b1NJN5i4adBcfPOgMB9hyMe46G3BlA+OkaCyQZazzSWzK5lj60Ir4qvrii/Gzfholob2hAHg3
-	Cz0f5nWy7vCfMrIe526Iva352UsaLxcmvQUkaaikUtEgh605YY2O8etShBw2ZYBk8K4qwVU7Bt+Wd
-	1GT22U3wGBILSkA2uEI8ODkjBPHD21Eos21o9CK7M2qXbFFpjsKXjGyAgOOtiQUqC3AdAWkTtW0Bp
-	WZOwxuqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XEF+/jXay+IMyuutvQr1EZM2FTpKREN0v3Akij4o870=; b=GRP+y6y2PCmaW6yUKBTGAqzYxT
+	Pwa4nK88j4C6gmtlVQktdh60edgTp5LZKiRHTk0DYiCWrf/X2bWWQHSbRIOXbE6//Yda8KcIPuTTi
+	10Y7411g38RNinb0GT9d7T0HCkKKuK1FiVbiAUJoZl281r2ncMCuTPyUkbIno1Xb+QaulUH+l0ryl
+	RK7QD11O3KkEvE5iFqnS5FApcVXpUT0VBWBRaY+zqI5MM2S00youwbLX4yNoisrg4cwa1SvPPrGG2
+	FAmQynnXE49fwLgVAoSFCLoLx7KIO4vJEXv/BgHEcH9QMhvuPMe4FGQmB3dAb1Nyibjo/hZnUqKBM
+	r74blK/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFtS6-0000000BgGX-3ri0;
-	Thu, 23 Apr 2026 12:46:42 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1wFtYb-0000000BghX-2Hsp;
+	Thu, 23 Apr 2026 12:53:25 +0000
+Received: from the.earth.li ([2a00:1098:86:4d:c0ff:ee:15:900d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFtS0-0000000BgFp-00yU
+	id 1wFtYY-0000000Bgge-29Hu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 12:46:41 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=mfOQeh1kb0G9bRrQgnHZzYBY7i5HptGdO6JunZd11Q8=;
-	b=LoF8b1Rf4elh+9XEA+KGGoYAprINcWuIbOWixtoFPlKpbp5hK9PvRXGey+45VJMBzsjLXiFRE
-	uUpUlwS/9TTbrOzPDQAYkVPUYR0DZKm1CU2GyOfvybNSMNa+MB+G6KIRU9GwlWmgTkxJeMNn0n8
-	U1cktedHISQC+a/YZHXs5AA=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4g1bJc2kTzzcZyv;
-	Thu, 23 Apr 2026 20:39:44 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 55B9D4048F;
-	Thu, 23 Apr 2026 20:46:29 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 23 Apr 2026 20:46:28 +0800
-Message-ID: <36b4b9f5-3930-481f-a9c8-039c04c808ab@huawei.com>
-Date: Thu, 23 Apr 2026 20:46:29 +0800
+	Thu, 23 Apr 2026 12:53:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=earth.li;
+	s=the; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=XEF+/jXay+IMyuutvQr1EZM2FTpKREN0v3Akij4o870=; b=Et1flc8rm38GNZe51K2DFsXkkU
+	pRV5LuPtYTqhsFkTs369DbwsQ+OyGad71QGSvYdE4cM4sCBMiWdVF8ZVBSiqdVk5L0xJsRQU6oBmS
+	tvlfofHSB7kPDEc2kcF7luk/WcRUxuK7Y4SD/hBCl1vDxdWisEHvOlpvZrNgLpndZuo6noSSt8fLz
+	vq6qeW3p1ylHkLOeg/iDGQhCtP5PAgMKr5hfdSwfszeR8vuqpkzeYuOTcV6u6V0BXCJbUQuft/gCB
+	xNCBxwGzFSjg7KKmOFiXVjFOfRoj2lZkMJqDfOgtqZmBI9ibPQcyXRLsV/O8IjVppK7Hy8Gav2oJj
+	cAVzZCsA==;
+Received: from noodles by the.earth.li with local (Exim 4.98.2)
+	(envelope-from <noodles@earth.li>)
+	id 1wFtYR-00000003T2y-26Md;
+	Thu, 23 Apr 2026 13:53:15 +0100
+Date: Thu, 23 Apr 2026 13:53:15 +0100
+From: Jonathan McDowell <noodles@earth.li>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Mimi Zohar <zohar@linux.ibm.com>, linux-security-module@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
+	roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+	eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+	sebastianene@google.com
+Subject: Re: [RFC PATCH v2 1/4] security: ima: call ima_init() again at
+ late_initcall_sync for defered TPM
+Message-ID: <aeoWO2Cwo04YYu2l@earth.li>
+References: <20260422162449.1814615-1-yeoreum.yun@arm.com>
+ <20260422162449.1814615-2-yeoreum.yun@arm.com>
+ <6919248bdc85dac60277fa9d9c83d8bd258ca635.camel@linux.ibm.com>
+ <aekXaU52fzvNYaUF@e129823.arm.com>
+ <aekkVQwueKbFtG7C@e129823.arm.com>
+ <82803bb3b471898a77084c449b73c7f7b4eb2149.camel@linux.ibm.com>
+ <aem0SSQuE1e3pGOS@e129823.arm.com>
+ <56a8aab50a3b5ce0a345fc2079fb2abc7d0f1b23.camel@linux.ibm.com>
+ <aeoAlVEwzRUPrlVe@e129823.arm.com>
+ <aeoRxWPyOHGJd+Jh@e129823.arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] cpu/hotplug: Fix NULL kobject warning in
- cpuhp_smt_enable()
-To: Catalin Marinas <catalin.marinas@arm.com>
-CC: <tglx@kernel.org>, <peterz@infradead.org>, <sudeep.holla@kernel.org>,
-	<yangyicong@hisilicon.com>, <dietmar.eggemann@arm.com>,
-	<Jonathan.Cameron@huawei.com>, <linux-kernel@vger.kernel.org>, James Morse
-	<james.morse@arm.com>, <linux-arm-kernel@lists.infradead.org>
-References: <20260417075534.3745793-1-ruanjinjie@huawei.com>
- <aeNxKpHzTQX4_kId@arm.com> <aeOd0Ndec2rQe2J8@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <aeOd0Ndec2rQe2J8@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aeoRxWPyOHGJd+Jh@e129823.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_054636_674123_E2106E5A 
-X-CRM114-Status: GOOD (  17.06  )
+X-CRM114-CacheID: sfid-20260423_055322_758465_5E108E59 
+X-CRM114-Status: GOOD (  54.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,78 +91,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Apr 23, 2026 at 01:34:13PM +0100, Yeoreum Yun wrote:
+>> > On Thu, 2026-04-23 at 06:55 +0100, Yeoreum Yun wrote:
+>> > > > On Wed, 2026-04-22 at 20:41 +0100, Yeoreum Yun wrote:
+>> > > > > > Hi Mimi,
+>> > > > > >
+>> > > > > > > On Wed, 2026-04-22 at 17:24 +0100, Yeoreum Yun wrote:
+>> > > > > > > > To generate the boot_aggregate log in the IMA subsystem with TPM PCR values,
+>> > > > > > > > the TPM driver must be built as built-in and
+>> > > > > > > > must be probed before the IMA subsystem is initialized.
+>> > > > > > > >
+>> > > > > > > > However, when the TPM device operates over the FF-A protocol using
+>> > > > > > > > the CRB interface, probing fails and returns -EPROBE_DEFER if
+>> > > > > > > > the tpm_crb_ffa device — an FF-A device that provides the communication
+>> > > > > > > > interface to the tpm_crb driver — has not yet been probed.
+>> > > > > > > >
+>> > > > > > > > To ensure the TPM device operating over the FF-A protocol with
+>> > > > > > > > the CRB interface is probed before IMA initialization,
+>> > > > > > > > the following conditions must be met:
+>> > > > > > > >
+>> > > > > > > >    1. The corresponding ffa_device must be registered,
+>> > > > > > > >       which is done via ffa_init().
+>> > > > > > > >
+>> > > > > > > >    2. The tpm_crb_driver must successfully probe this device via
+>> > > > > > > >       tpm_crb_ffa_init().
+>> > > > > > > >
+>> > > > > > > >    3. The tpm_crb driver using CRB over FF-A can then
+>> > > > > > > >       be probed successfully. (See crb_acpi_add() and
+>> > > > > > > >       tpm_crb_ffa_init() for reference.)
+>> > > > > > > >
+>> > > > > > > > Unfortunately, ffa_init(), tpm_crb_ffa_init(), and crb_acpi_driver_init() are
+>> > > > > > > > all registered with device_initcall, which means crb_acpi_driver_init() may
+>> > > > > > > > be invoked before ffa_init() and tpm_crb_ffa_init() are completed.
+>> > > > > > > >
+>> > > > > > > > When this occurs, probing the TPM device is deferred.
+>> > > > > > > > However, the deferred probe can happen after the IMA subsystem
+>> > > > > > > > has already been initialized, since IMA initialization is performed
+>> > > > > > > > during late_initcall, and deferred_probe_initcall() is performed
+>> > > > > > > > at the same level.
+>> > > > > > > >
+>> > > > > > > > To resolve this, call ima_init() again at late_inicall_sync level
+>> > > > > > > > so that let IMA not miss TPM PCR value when generating boot_aggregate
+>> > > > > > > > log though TPM device presents in the system.
+>> > > > > > > >
+>> > > > > > > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+>> > > > > > >
+>> > > > > > > A lot of change for just detecting whether ima_init() is being called on
+>> > > > > > > late_initcall or late_initcall_sync(), without any explanation for all the other
+>> > > > > > > changes (e.g. ima_init_core).
+>> > > > > > >
+>> > > > > > > Please just limit the change to just calling ima_init() twice.
+>> > > > > >
+>> > > > > > My concern is that ima_update_policy_flags() will be called
+>> > > > > > when ima_init() is deferred -- not initialised anything.
+>> > > > > > though functionally, it might be okay however,
+>> > > > > > I think ima_update_policy_flags() and notifier should work after ima_init()
+>> > > > > > works logically.
+>> > > > > >
+>> > > > > > This change I think not much quite a lot. just wrapper ima_init() with
+>> > > > > > ima_init_core() with some error handling.
+>> > > > > >
+>> > > > > > Am I missing something?
+>> > > > >
+>> > > > > Also, if we handle in ima_init() only, but it failed with other reason,
+>> > > > > we shouldn't call again ima_init() in the late_initcall_sync.
+>> > > > >
+>> > > > > To handle this, It wouldn't do in the ima_init() but we need to handle
+>> > > > > it by caller of ima_init().
+>> > > >
+>> > > > Only tpm_default_chip() is being called to set the ima_tpm_chip.  On failure,
+>> > > > instead of going into TPM-bypass mode, return immediately.  There are no calls
+>> > > > to anything else.  Just call ima_init() a second time.
+>> > >
+>> > > I’m not fully convinced this is sufficient.
+>> > >
+>> > > What I meant is the case where ima_init() fails due to other
+>> > > initialisation steps, not only tpm_default_chip() (e.g. ima_fs_init()).
+>> >
+>> > The purpose of THIS patch is to add late_initcall_sync, when the TPM is not
+>> > available at late_initcall.  This would be classified as a bug fix and would be
+>> > backported.  No other changes should be included in this patch.
+>>
+>> Okay.
+>>
+>> > >
+>> > > I’d also like to ask again whether it is fine to call
+>> > > ima_update_policy_flags() and keep the notifier registered in the
+>> > > deferred TPM case. While this may be functionally acceptable, it seems
+>> > > logically questionable to do so when ima_init() has not completed.
+>> >
+>> > Other than extending the TPM, IMA should behave exactly the same whether there
+>> > is a TPM or goes into TPM-bypass mode.
+>> >
+>> > >
+>> > > There is also a possibility that a deferred case ultimately fails (e.g.
+>> > > deferred at late_initcall, but then failing at late_initcall_sync
+>> > > for another reason, even while entering TPM bypass mode). In that case,
+>> > > it seems more appropriate to handle this state in the caller of
+>> > > ima_init(), rather than inside ima_init() itself.
+>> >
+>> > If the TPM isn't found at late_initcall_sync(), then IMA should go into TPM-
+>> > bypass mode.  Please don't make any other changes to the existing IMA behavior
+>> > and hide it here behind the late_initcall_sync change.
+>>
+>> Okay. you're talking called ima_update_policy_flags() at late_initcall
+>> wouldn't be not a problem even in case of late_initcall_sync's ima_init()
+>> get failed with "TPM-bypass mode".
+>>
+>> I see then, I'll make a patch simpler then.
+>
+>But I think in case of below situation:
+>  - late_initcall's first ima_init() is deferred.
+>  - late_initcall_sync try again but failed and try again with
+>    CONFIG_IMA_DEFAULT_HASH.
+>
+>I would like to sustain init_ima_core to reduce the same code repeat
+>in late_initcall_sync.
 
+I think what Mimi's proposing is:
 
-On 4/18/2026 11:05 PM, Catalin Marinas wrote:
-> On Sat, Apr 18, 2026 at 12:55:22PM +0100, Catalin Marinas wrote:
->> On Fri, Apr 17, 2026 at 03:55:34PM +0800, Jinjie Ruan wrote:
->>> When booting with `maxcpus` greater than the number of present CPUs (e.g.,
->>> QEMU -smp cpus=4,maxcpus=8), some CPUs are marked as 'present' but have not
->>> yet been registered via register_cpu(). Consequently, the per-cpu device
->>> objects for these CPUs are not yet initialized.
-> [...]
->> Another option would have been to avoid marking such CPUs present but I
->> think this will break other things. Yet another option is to register
->> all CPU devices even if they never come up (like maxcpus greater than
->> actual CPUs).
-> 
-> Something like below, untested (and I don't claim I properly understand
-> this code; just lots of tokens used trying to make sense of it ;))
-> 
-> ------------------------8<-------------------------
-> diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
-> index a9d884fd1d00..4c0a5ed906ea 100644
-> --- a/arch/arm64/kernel/acpi.c
-> +++ b/arch/arm64/kernel/acpi.c
-> @@ -448,12 +448,14 @@ int acpi_map_cpu(acpi_handle handle, phys_cpuid_t physid, u32 apci_id,
->  		return *pcpu;
->  	}
->  
-> +	set_cpu_present(*pcpu, true);
->  	return 0;
->  }
->  EXPORT_SYMBOL(acpi_map_cpu);
->  
->  int acpi_unmap_cpu(int cpu)
->  {
-> +	set_cpu_present(cpu, false);
+If we're in late_initcall, and the TPM isn't available, return 
+immediately with an error (the EPROBE_DEFER?), don't do any init.
 
-This logic, where we set 'present' in acpi_map_cpu() and clear it in
-acpi_unmap_cpu(), seems to align with how x86 does it.
+If we're in late_initcall_sync, either we're already initialised, so do 
+return and nothing, or run through the entire flow, even if the TPM 
+isn't unavailable.
 
-acpi_map_cpu()
-  -> topology_hotplug_apic()
-     -> topo_set_cpuids()
-        -> set_cpu_present(cpu, true)
+So ima_init() just needs to know a) if it's in the sync or non-sync mode 
+and b) for the sync mode, if we've already done the init at
+non-sync.
 
-acpi_unmap_cpu()
-  -> topology_hotunplug_apic(cpu)
-     -> set_cpu_present(cpu, false)
+J.
 
-Should we consider moving the setting/clearing of the 'present' bit into
-the generic ACPI code (e.g., within the success path of acpi_map_cpu)?
-This would ensure consistency across architectures and prevent new
-implementations from missing these critical state updates.
-
->  	return 0;
->  }
->  EXPORT_SYMBOL(acpi_unmap_cpu);
-> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> index 1aa324104afb..751a74d997e1 100644
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -510,8 +510,10 @@ int arch_register_cpu(int cpu)
->  	struct cpu *c = &per_cpu(cpu_devices, cpu);
->  
->  	if (!acpi_disabled && !acpi_handle &&
-> -	    IS_ENABLED(CONFIG_ACPI_HOTPLUG_CPU))
-> +	    IS_ENABLED(CONFIG_ACPI_HOTPLUG_CPU)) {
-> +		set_cpu_present(cpu, false);
->  		return -EPROBE_DEFER;
-> +	}
->  
->  #ifdef CONFIG_ACPI_HOTPLUG_CPU
->  	/* For now block anything that looks like physical CPU Hotplug */
-> 
-
+-- 
+... I'm not popular enough to be different.
 
