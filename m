@@ -4,157 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B912BF9936C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 10:58:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E1F3F9936C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 11:09:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=REZmYsJnGZxN/JBzOKPE6iHCGaRwRhr1OeqXDLvUVAA=; b=taqKG2TcC9HLnqXN2Zkce+xg3b
-	oO+EWFBIzAzCbNoPCsXQCMgW+bBOahMBkgJeRcQ8AeakphnXUm9xgn4dk3wpTIrMAkAIUwRzOdGFp
-	GcWzdNicWP4E+6XB1E7iUtda29iAFEQzkCkZWjwWpTQzaL5p3g2i7nChDg9tnuCdDDUlv/ESu6Laa
-	12BLYV6BqzR5E0L39DijSf0/LARBgSVqla04qGPnzViA1R9zlycRo7PWgYHVGZ1gBu1NiSMeUOwuH
-	cVmCskbzjwAXAGCLojKrt2fqEREY2eIymThkm8zNYlBZERLyXTEwrw+CYL2JXtvwEceD6lwaUbXPR
-	sR0d16Ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xXwNgY+WRRCQRx1M0mqaUAIHObx/PwdHncNqoa+Z/Qo=; b=dOYcYJ3QY08OIQ7XiR1Uu5nauW
+	eK/AKM9VEiwV7fm1MLmE2c4W+AP7YzH+dnS9LysTZnHipFdLEIipOTuuOM6WCRkUMobCKNjdYn/uO
+	LwQ/gVQ1jlHvMFEf2c1krbAtYAnyZoB1pnoHzIts8ToKE8CgSOh3G30A8cMPwk8+meC//rJJpxaKq
+	vKPMxYWzaTPB+tItKep1U3ECOmHRFJ2fsOfsz5aJOxnruJuDIdBdRgS5DWJiOV96Wgwu9f0KZELUU
+	P9AVYNYPOy1+u/PKkkPXheXSnh+3zO1Xn1agvq5I1jlzzNnFZ9G2BMderJfwQNXvsvXbC4mYWlpVo
+	YDeTiqJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFrky-0000000BVjD-0cwm;
-	Thu, 23 Apr 2026 10:58:04 +0000
-Received: from mail-swedencentralazon11013021.outbound.protection.outlook.com ([52.101.83.21] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wFrw0-0000000BWBc-0FpW;
+	Thu, 23 Apr 2026 11:09:28 +0000
+Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFrkv-0000000BViG-2fav
+	id 1wFrvt-0000000BWB7-2cRe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 10:58:03 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=tFUdErxT9oTEm/A6lfo2XGsxySZshD5o6wpUMi/JxaqskqTBa+JJTRKgrZdpj+vBvx8GG3JosXyF+5E2lIWezgJmQfbKIqorog66UqupKUmI3OQEvkXQIV6tZhopbiRTsyPFrDTB8O78lAX9gh8ssiXybcy4NyqZ3yG6/gEw4rT4fisp5D7ptd9oND1bUra097cHA+ztfpFnbX3refMTJGbDgycCu9ZeTPBrJLw8GsmJ/zjs29a/BN9kvzUbKjyV97JE4FAaSQjGSomB7wTgensJmKYf1JZs4vBRHE9hGdK7I2DZ7b4tBj3cGhJK6d2Jw1OhALSARFtavm69b+YgwQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=REZmYsJnGZxN/JBzOKPE6iHCGaRwRhr1OeqXDLvUVAA=;
- b=yB9fISI2Vyzr0tACq8oWt9GvCfhTpSvIRUHhVVo3fpyQwn+bMr6wJz+VsQkFY22ZQoFZNKxCjd10trco1Cwg4JEkUdhAG0BYPPF7UsFHictrCY/7DqJchaSDS+uIy8N/5sM/42H0flyja66LHnfPGQGYkM765wT/AzNCgqHM1J5aLy5OQouOdskYwurjQ7/aaXGrEWtlDg2Edv42dX5zDfAqtieDrnTvdFjSF3MhpYaSl5lc7h1hRponaGeayBYmS4oges41tRP63ezUpWkQGwCAcjgb0iHVI2OJdWLmQz9kusD4dInT6hmeilZD0Oe/7kYviJr9rhpJjcGnt0kMgA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=REZmYsJnGZxN/JBzOKPE6iHCGaRwRhr1OeqXDLvUVAA=;
- b=WSOoM4FMta51R+PeK6dhG6CT5w5X/l3b24OxXJhTqwG1yske7LpHxOyRCvQiwFznnjK1wJS4HB5f1LMzNWzxDP1fxctJbm0C2FaM8g2oZeaivsGWdmozsgl5urss1CqMJMfISKFn1M1R/QYT6ghnLabyB+Wcvo7P1Kk0nycpg+U=
-Received: from DUZPR01CA0090.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:46a::8) by DBBPR08MB10771.eurprd08.prod.outlook.com
- (2603:10a6:10:53a::5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.17; Thu, 23 Apr
- 2026 10:57:54 +0000
-Received: from DB5PEPF00014B9B.eurprd02.prod.outlook.com
- (2603:10a6:10:46a:cafe::31) by DUZPR01CA0090.outlook.office365.com
- (2603:10a6:10:46a::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.21 via Frontend Transport; Thu,
- 23 Apr 2026 10:57:54 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB5PEPF00014B9B.mail.protection.outlook.com (10.167.8.168) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.18
- via Frontend Transport; Thu, 23 Apr 2026 10:57:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kM7M7bRke9wBq5GcYyp8hnhsplcAUlHRf/JIuz4fo4oRHtsG7G+nHaUmlSH2lYIXm1UkHlYDO1GYSlgpjl9Xsy/WsOBtxxwrfKKX7lx/dh7m596qHkR7IRWEwT0gGHVOTlXRLrjdTZAqrp18X+ik5icaMhoDCZH3SefQ4eixeFdsLK+7hW9HKvp6/MBYrT/VhOw+q/Q1IHJlKzgIGKyLRdyq6syAE4jMS8b2pROo4zcfQTOL3svmcBCuLHO5/M9y6PCE2j66/zdu+qbqEtQ5TbvNFl907h9uypScrPTAc++7V3BsAtF0N+GWi9LSxExNLMX0XshfOe6Cko5GPW/aqQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=REZmYsJnGZxN/JBzOKPE6iHCGaRwRhr1OeqXDLvUVAA=;
- b=TGf0f95njdJ6Wujt6uR1ykeXzIR2LP/kjvF3SNAX5Bu2b8m8C+2Abb1QrqxiV9T8mnn15mpG0dRh/PQOuvlEtDqlwNruSfpMsfeoXNdtYpoN8vdj0nSHXb0tT0ebW7foQLep8X6a6FSDvHpKRETPYdvvMGKdGexJo0SRcfVl3zslGbbEhcQCIiLFKVDHykdVK/mgA4q/ZrZ45B86Z47xwqQbxhTpL+WxVBZDDGM8+suCXkOMGByNdTBmCkQO+v4UqdBCQKqvpjSJRswAuRGZIK7T1sc2hxOUYLxPCd3vV6fmPaLzRqEk6Q28Dx+KZ5VIYSahMGqhAFG5ypJcdsoVQg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=REZmYsJnGZxN/JBzOKPE6iHCGaRwRhr1OeqXDLvUVAA=;
- b=WSOoM4FMta51R+PeK6dhG6CT5w5X/l3b24OxXJhTqwG1yske7LpHxOyRCvQiwFznnjK1wJS4HB5f1LMzNWzxDP1fxctJbm0C2FaM8g2oZeaivsGWdmozsgl5urss1CqMJMfISKFn1M1R/QYT6ghnLabyB+Wcvo7P1Kk0nycpg+U=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by GV2PR08MB8270.eurprd08.prod.outlook.com
- (2603:10a6:150:c1::5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.21; Thu, 23 Apr
- 2026 10:56:47 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::8c9b:58d2:2080:eb98]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::8c9b:58d2:2080:eb98%4]) with mapi id 15.20.9846.016; Thu, 23 Apr 2026
- 10:56:47 +0000
-Date: Thu, 23 Apr 2026 11:56:44 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	paul@paul-moore.com, jmorris@namei.org, zohar@linux.ibm.com,
-	roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
-	eric.snowberg@oracle.com, jarkko@kernel.org, oupton@kernel.org,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, sebastianene@google.com
-Subject: Re: [RFC PATCH 4/4] firmware: arm_ffa: check pkvm initailised when
- initailise ffa driver
-Message-ID: <aen67JwO0rBxo28A@e129823.arm.com>
-References: <20260417175759.3191279-1-yeoreum.yun@arm.com>
- <20260417175759.3191279-5-yeoreum.yun@arm.com>
- <87se8sbozv.wl-maz@kernel.org>
- <aeNeNjfO7i128TIP@e129823.arm.com>
- <87pl3vb5bm.wl-maz@kernel.org>
- <aecf57rWloQwDh6v@e129823.arm.com>
- <20260421-married-liberal-ammonite-dffda8@sudeepholla>
- <aec/YSxYO1bOhXhn@e129823.arm.com>
- <aejN52lwaqfoMuGJ@e129823.arm.com>
- <aene4KFD5kbSbFRm@willie-the-truck>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aene4KFD5kbSbFRm@willie-the-truck>
-X-ClientProxiedBy: LO3P265CA0026.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:387::9) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	Thu, 23 Apr 2026 11:09:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=xXwNgY+WRRCQRx1M0mqaUAIHObx/PwdHncNqoa+Z/Qo=; 
+	b=YQXiwRPAdBDMK97uQ4DtCe8+qwsZ4W7mhOMNOYWqVs6kTyacEmaGoiWPhDiy2tB7Ho1RwIVPKIE
+	w5m3txl34RAHy43RGnHnGNAq8fxAGTfJXT3QR5HAsgHI7y3LMlVN9XoCDn/YhjtjqMtDXOgLhNVZU
+	Aws2E5Xa4Un0IyZHYurKG2PgHfnEZYjrJNFyDGFmRDLfaH+ogbwmV1KuzULz+jhfVjMvmbomEqLye
+	Icxim6TGB0UXEeu0cg/Ag6snsSAXHKkbhuqdkKBfugz35MVHqBIa6yo1xhiW+10tLxD/VHdMA8iXj
+	s6r6jJnB1dp70WOtt1TzsHMp1Alm7JtLstgQ==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1wFrve-008DiK-2T;
+	Thu, 23 Apr 2026 19:09:07 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Thu, 23 Apr 2026 19:09:06 +0800
+Date: Thu, 23 Apr 2026 19:09:06 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Arnd Bergmann <arnd@kernel.org>,
+	Corentin Labbe <clabbe.montjoie@gmail.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Ovidiu Panait <ovidiu.panait.oss@gmail.com>,
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] crypto: sun8i-ss - avoid hash and rng references
+Message-ID: <aen90oUsJwvamhzL@gondor.apana.org.au>
+References: <20260423065600.2081989-1-arnd@kernel.org>
+ <aenfmxOvtHaAODqH@gondor.apana.org.au>
+ <1cd6ddc3-479c-4cbf-8315-78bc53ac3a54@app.fastmail.com>
+ <aenmEQNhhw9bnxEa@gondor.apana.org.au>
+ <3948e39f-dd20-44e2-b264-dc2a0a88f5b5@app.fastmail.com>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|GV2PR08MB8270:EE_|DB5PEPF00014B9B:EE_|DBBPR08MB10771:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9bf7e3eb-8f7a-421d-f284-08dea1272bd1
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info-Original: Kb0ytJZrrIFfrnS2a98qRqdjShl+Y5O7mPXwvI34WBFO6ONbQccB6lz74/MB9eMlaDmZgL3TR+pWgeDIDjjYG62M2K+nv4DEGoB+uI1QUnSVA6liVHxBSilzPtxDmr7JjOnn5VQT4hzdYVjIZSKQFEJyqrqs0SnYJT4Ar7JYw7xBDmFUpO/xJl4d8q2QMrif16HPupDWu9nwLF3mNPbdmLj04tjqt3MddyrVR7iRsjeoqg64nNoX6It9rha/zCZUWPszGYPZQwXVfa71cw5hgWAVuK6hIKMBTjDTjdHtu1sACwPbD/uPR5uPsXqtuE+/JUxvM1He/Mfc/xV7C3+X2kZKbwJn3wt64gXFieOwzCjcn+KFTW7IqCKmKlUQsfemt74+7ax2Yi+ZrqHR4p9MMm+t1Ck8fh1aZ97iLphnwoTVNApITvfBnvXhhv/Mw5dtUXkOopJYBwcrJ3nSy7BU9koJGKKEec/0swKAmT84UyAP6/lfx0+NKpo5tyIBy6+U2DnXJpuIYFF7L6V7CKXpCsA/QRCpd698yf1auJuxByyaeMaEShAXTf+Sru9vPivfiKlVdGz85fMGJQIOW4R5R5Hwl1r8uloPLCBD3fgZJMHOjG007Z5bk1MNnt2PC9ZXPIzWGiArbSWnNOkFgGjrV8OMwY5tvASr/mXJXVHxdKy0w0gl6FMPyHvNtKZDkYIP
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: OWLEgDINKvKM3lTjYq+eHZb39eXMXdTL4C0lZY4/ZO6Bybdl8f4F5Py+uvwR1HAJgQI4DzyofNiWclSOoBPbz70yEwPmIHCjnrD8ifaOBY+Shje8IGk8+31bjWG2RlBGng7m6jawtMGh0rWs7Tq02DzviJnI0ouWsRqcfyXj90SPrZUq55pyY4cKflsAcxeSPNr5uFDZLi4Qy4s7UAflr2vc2+iYyOktWUxUVFhygHHHUA1Vc+XA+UDHoluHJgCtZIV1dRbOIwlpr8341DjB05WW4e0C8J6QgfZDVA2MavOFqSaKlovcd2cQ+9Gsoo7XCVC4U2JVbSPUwEGwl60XCg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB8270
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB5PEPF00014B9B.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 79563b92-c3e6-4beb-b1f7-08dea12703c8
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|36860700016|14060799003|376014|35042699022|82310400026|13003099007|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: R+JrgPyfhqBEyzj9KyW6aU1S/STIEG/XxtdDJTW5zv1An2zXrFzOSmemeVK4Syu82eL5acqjqLgHqtTCFjhir6KIW3pcZJaL/eGw4Y390+9Z89pMZoLXrtApWoIN9dkjGow3GLQGLlQgGUkJHM+tdZXVNuM/fhePY1eVkxVFRAWkF3lAdGFbRvLnTcuBZ8Xq5h0/G0SOB715sb8CH/8pkFh+7H+WdHnd7h7a72DqYLErbLkP/mSx0eybsv0/jybs6aJLjTOQVphmXqzSI9Gav2EYtHObHSc3zJTohhWK3oppR/dRNNUBo6i141p/gszmlGE+ZcR+KkD44njEoxUdYBiYaK3LNaBa98leCBUvQo2vYleEWmL69l4T3DOORJRlPuCXApIT1WEw6mUemqkdOVjKhrYPfrbIefVF3R3yB1nNzHlmBkJdOyUw2KvnXHPXvmW1TTeBM2Z4cp6ylybcb6T8nJQd0S4PMo/R+UkPqUz67NLY7iSp93YhjP4RCSSHt/QTUAecKLLDJxcep6OO9XMGnec/J+e7spclIGrobnCNCBPuJqeJJiiDLSU0VYKm1fn/+/HgchHBnlxFcCroIYW5zfmdFsrTlpYgwYp1VzpYwjiSmjaA/XCFflTPSGHzrIt7Vb6P5/R5rXQzvlI3n6MNrXtdEsaXJQgXoezS6GiORsRInXdBANjuh+BI60A50fOmK7UR96dJ7CXBvYFIYGDMPqS2F6acRcODKS7GeSs=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(36860700016)(14060799003)(376014)(35042699022)(82310400026)(13003099007)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: GBcsgrT+iHrqPfhZAm/G65l/7KJQcgFLxXkDNmHgd3b/zuGofkreQUusRmKAXCDLE0mS2Ivl7bp99gq9nZ4BuTkl+38F02/Up4zOet17KItB/EkkgWvIDmkFIngsPV26LqAg2ulKkTld+J5tKdtsjmf09ni6lKWnQ/3QtC0OUDfh7593sU8vkXfOEnIbqabwSc0NU5tE3d0rLkioI9gkO1JIwRhmHgjTA/XkJQeXpa2b1bg8JF5DUOhrhCADrlp2rhBekPGacEHODORRBfvFrUMVDDGMRe+Aj2j6h7zu+CzaZ3mNjYv6qwQumTmo777i7efZrYPHCkCo4sH8Y5ycITUtA43cYgMFGI5lbDZNlOiR0Wtsbimw0oVQ0NZAoPKD9v2aJDEs/PG2HCpTYyFnRZ6MHxKaem53/oQDv+dDFe8fg9FM1L1eo5noZsrOI0LL
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2026 10:57:54.3176
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9bf7e3eb-8f7a-421d-f284-08dea1272bd1
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B9B.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR08MB10771
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3948e39f-dd20-44e2-b264-dc2a0a88f5b5@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_035801_708227_C08EE3E4 
-X-CRM114-Status: GOOD (  25.11  )
+X-CRM114-CacheID: sfid-20260423_040921_687547_A397F947 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,65 +82,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
-
-> On Wed, Apr 22, 2026 at 02:32:23PM +0100, Yeoreum Yun wrote:
-> > Hi All,
-> >
-> > > > On Tue, Apr 21, 2026 at 07:57:43AM +0100, Yeoreum Yun wrote:
-> > > >
-> > > > [...]
-> > > >
-> > > > >
-> > > > > Also, the FF-A initialization is not driven by a device probe, but rather
-> > > > > happens as part of the bus registration itself,
-> > > > > so it does not fit well with a device_link or probe deferral based approach.
-> > > > >
-> > > > > Instead, perhaps we could go with the idea I mentioned previously:
-> > > > > either introduce a notifier, or create a pseudo ffa_device
-> > > > > once pKVM initialization has completed, and
-> > > > > then let the ffa driver perform the additional initialization from there.
-> > > > >
-> > > > > Am I missing something?
-> > > > >
-> > > >
-> > > > In order to handle/cleanup some ugliness in interrupt management in the
-> > > > FF-A driver, we may introduce DT node eventually. But it will take sometime.
-> > >
-> > > Unfortunately, I think this DT node wouldn't be helpful to solve
-> > > this situation for dependency with the kvm misc device...
-> > >
-> > > IMHO, current situation, the notifier seems to good option. unless
-> > > we make the initcall to recongise this dependency.
-> > >
-> >
-> > I think the best approach for now is to introduce a notifier to handle this situation.
-> > If there are no further suggestions, I’ll send a v2 based on:
-> >   - https://lore.kernel.org/all/aeS4rAeVQ0yJIPYw@e129823.arm.com/
+On Thu, Apr 23, 2026 at 12:26:23PM +0200, Arnd Bergmann wrote:
 >
-> I can't say that I'm a huge fan of that :/
->
-> The notifier will literally fire once, for a single listener. That's
-> called a function call.
+> Sure, but I'm not adding new code here, I only reported a regression
+> from Eric's (otherwise very nice) cleanup and tried to come up
+> with a better workaround than adding another 'select'.
+> 
+> I've tried to rework one driver to use IS_ENABLED() checks now
+> instead of the #ifdef, and also replace the for()/switch()
+> loop with three separate loops for simplicity. See below for
+> what I ended up with compared with my first patch.
+> 
+> I'm still not entirely happy with that version either, especially
+> since this is getting beyond a purely mechanical cleanup.
+> If you think this is better, I can do it for all three drivers,
+> otherwise I'd just send the oneline change to work around the
+> third driver link failure the same way that Eric did for the
+> other two, and let the sunxi maintainters worry about cleaning
+> it up.
 
+Sorry, I made my comment based on your original patch only which
+simply added ifdefs.
 
-I revisited Marc’s suggestion about using device links
-(https://lore.kernel.org/all/87pl3vb5bm.wl-maz@kernel.org/)
+Now that I see the wider context in the driver, I'm happy to take
+your original patch as is.
 
-but unless I’m misunderstanding something, I don’t think it would be a viable solution:
- - https://lore.kernel.org/all/aen0j3qM2k06OdXC@e129823.arm.com/#t
-
-Also, calling functions defined by FF-A from KVM would introduce
-an unnecessary module dependency between the KVM and FF-A drivers.
-
-I’ve been trying to find an alternative approach,
-but I’m not confident about what would be appropriate.
-
-If you don’t mind, could you share your thoughts on this?
-
-Thanks!
-
---
-Sincerely,
-Yeoreum Yun
+Thanks,
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
