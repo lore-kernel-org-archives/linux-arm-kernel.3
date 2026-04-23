@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E97FCFDEE47
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 20:11:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C29AFDEE4E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 21:03:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xBsJXoe7Jvn0fm1H+vn6a8fj9iIxaVc9482YDLJ7vzc=; b=BJ0LgXe2ud2AabCNsb4sWsKqyp
-	A5pcD8WAuMMlYW5U0lzXHSggqiTYsYJ2TyyidhnybqFW5vMMsj7DSO6DCl3PFHAg5B8tN6WXRJMpS
-	n0KIRvKYfxY8hlhM+2jfypUlgsf9vfZq8i2eKSlkyMLb9+XPNtFe4gEQsBcAYy30CLlkyk3QZRwnU
-	sDrg/sfWW2KA8RZfGX+AtKzsD4O2vFJyBt2bLn+czMp3u00tRKrd9xlvr4SEB7gBJbeU2TNF/aCDC
-	uX/WUDF+4vtBhNPW6Ap1hEhNLJDcabfy4SC0OG8+Rq2GrUEpD17F5sD+v4PiDemKZTWXX67njFljc
-	cabAVmgA==;
+	bh=mgDWQLcCxxTbf77gCRwJMLCdNBNFSveBSyAvc4lmV9w=; b=icB0yNN2IVKJLcAByRst40EXir
+	mcWfwo0D4Y2TLz7X1IMmbsWTGnPSzDbBXMDtB4beacdpZrvC8/y93WjHl3T0CBEfT+aAaCyk5WGAR
+	Rcu/a2rP/B5Mbu0KEgW5L4VNTdUAzNX/d7X+G1IZN5Y2HvS2AMkWKDmO8pDpaSKlXcD1I6x7/SXCQ
+	lc7WvDwRaNw0uwGZ5OSJ64btUuscMAlB7umQFsAmlFdHTrd6ZyC1b0w1z3rgoxiROxfvqwv8/z+91
+	hU8ZaZZKOFjXm2SyPPHIs7I+vsXfF6v9iqh808QBLzW7ithbofb0Ap4wt9i/WyNkWlIdwUaDALfnc
+	LoclwdeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG0OU-0000000CH99-44MQ;
-	Thu, 23 Apr 2026 20:11:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG0OR-0000000CH8p-3qvf
+	id 1wG1Cr-0000000CJcN-3jrV;
+	Thu, 23 Apr 2026 21:03:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wG1Cp-0000000CJbr-1p21
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 20:11:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BB6F31BC0;
-	Thu, 23 Apr 2026 13:11:14 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 015F83F641;
-	Thu, 23 Apr 2026 13:11:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776975080; bh=PjY9Tzmxrr+2BgE+O/ko5UVXdPmLbtgzi9wqdcok6u0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=l64vNcxScnpE4yIQKse2JJiEh8xAEijsFJ8hsy8VJ1qiCtpPv1uQZQQBZqXjpbJw/
-	 2L0aV0UubqZ6h9KkX2Ldf7ChbPMcN1ApUFwj4K9aKrkazoXAIZx57tFz0Z9ASZDOSS
-	 cWa2u0jDck743dWzKu1Zw9j2uytA5Z4bhDFswAvE=
-Date: Thu, 23 Apr 2026 21:11:16 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: Thomas Gleixner <tglx@kernel.org>, peterz@infradead.org,
-	sudeep.holla@kernel.org, yangyicong@hisilicon.com,
-	dietmar.eggemann@arm.com, Jonathan.Cameron@huawei.com,
-	linux-kernel@vger.kernel.org, James Morse <james.morse@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] cpu/hotplug: Fix NULL kobject warning in
- cpuhp_smt_enable()
-Message-ID: <aep85G05D3TM9uj2@arm.com>
-References: <20260417075534.3745793-1-ruanjinjie@huawei.com>
- <aeNxKpHzTQX4_kId@arm.com>
- <87ldee0z1w.ffs@tglx>
- <78515da3-03a1-4fdb-a606-3fea9f4cd20b@huawei.com>
+	Thu, 23 Apr 2026 21:03:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D49444084C;
+	Thu, 23 Apr 2026 21:03:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1538C2BCAF;
+	Thu, 23 Apr 2026 21:03:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776978206;
+	bh=jicRkjxAdp8AcCcPUjbadYpVexqneFhcKTzet6r3h5c=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=Vfsw7X80JLWG87rigYmms+aaE4YkaApjZI6XVr2Of47GDY1sjxLsk08O4Wb/e0WF7
+	 Y+X3OjI+cvAGecePqQNIkeNmKI17+7FIEwGdW5eokHlBN8zdAn7Kcmc7SZAiyWwFMv
+	 W3tcYISr4cc7mNrPwcgpI8hiYUU7HxrJ4at+dKeGX5i7qVQA703sY04okfDhbIevYU
+	 /K/m1+1/7NVBdG0rw7BeXh4l16CejUB8uIpZUUpy2dXvuUA2hB72DLZw1wJazay9Su
+	 PdxbgbJ1XW/xUSXhyKt494yRjuRUU7RoD46c1++UfjtQYxgNYBgrjhA9OOcO8jS9OD
+	 ms7z+qkM/i3CA==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Mathias Stearn <mathias@mongodb.com>, Peter Zijlstra
+ <peterz@infradead.org>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Boqun Feng
+ <boqun.feng@gmail.com>, "Paul E. McKenney" <paulmck@kernel.org>, Chris
+ Kennelly <ckennelly@google.com>, Dmitry Vyukov <dvyukov@google.com>,
+ regressions@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Ingo Molnar <mingo@kernel.org>, Mark
+ Rutland <mark.rutland@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, Blake
+ Oler <blake.oler@mongodb.com>
+Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
+ and tcmalloc everywhere
+In-Reply-To: <CAHk-=wjsEqWJxXArS-P5+ksSY2Apaox8u6FtUrtyWSBEOL4Q2Q@mail.gmail.com>
+References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
+ <20260422125647.GP3126523@noisy.programming.kicks-ass.net>
+ <20260422131338.GI3102924@noisy.programming.kicks-ass.net>
+ <CAHnCjA2fa+dP1+yCYNQrTXQaW-JdtfMj7wMikwMeeCRg-3NhiA@mail.gmail.com>
+ <87fr4l28zn.ffs@tglx>
+ <CAHnCjA07ER=9xBqXq4jf5yn052W-E9ZXD86HxnRGtai6bpXbbQ@mail.gmail.com>
+ <87cxzp1tn6.ffs@tglx>
+ <CAHk-=wjsEqWJxXArS-P5+ksSY2Apaox8u6FtUrtyWSBEOL4Q2Q@mail.gmail.com>
+Date: Thu, 23 Apr 2026 23:03:23 +0200
+Message-ID: <874il11jac.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <78515da3-03a1-4fdb-a606-3fea9f4cd20b@huawei.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_131124_122169_AB35E5F9 
-X-CRM114-Status: GOOD (  30.81  )
+X-CRM114-CacheID: sfid-20260423_140327_516518_1092CE64 
+X-CRM114-Status: GOOD (  22.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,135 +86,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 23, 2026 at 08:32:34PM +0800, Jinjie Ruan wrote:
-> On 4/23/2026 6:08 PM, Thomas Gleixner wrote:
-> > On Sat, Apr 18 2026 at 12:55, Catalin Marinas wrote:
-> >> Another option would have been to avoid marking such CPUs present but I
-> >> think this will break other things. Yet another option is to register
-> >> all CPU devices even if they never come up (like maxcpus greater than
-> >> actual CPUs).
-> >>
-> >> Opinions? It might be an arm64+ACPI-only thing.
-> > 
-> > I think so. The proper thing to do is to apply sane limits:
-> > 
-> >  1) The possible CPUs enumerated by firmware N_POSSIBLE_FW
-> > 
-> >  2) The maxcpus limit on the command line N_MAXCPUS_CL
-> > 
-> > So the actual possible CPUs evaluates to:
-> > 
-> >    num_possible = min(N_POSSIBLE_FW, N_MAXCPUS_CL, CONFIG_NR_CPUS);
-> > 
-> > The evaluation of the firmware should not mark CPUs present which are
-> > actually not. ACPI gives you that information. See:
-> > 
-> >          5.2.12.14 GIC CPU Interface (GICC) Structure
-> > 
-> > in the ACPI spec. That has two related bits:
-> > 
-> > Enabled:
-> > 
-> >    If this bit is set, the processor is ready for use. If this bit is
-> >    clear and the Online Capable bit is set, the system supports enabling
-> >    this processor during OS runtime. If this bit is clear and the Online
-> >    Capable bit is also clear, this processor is un- usable, and the
-> >    operating system support will not attempt to use it.
-> > 
-> > Online Capable:
-> > 
-> >    The information conveyed by this bit depends on the value of the
-> >    Enabled bit. If the Enabled bit is set, this bit is reserved and must
-> >    be zero. Otherwise, if this bit is set, the system supports enabling
-> >    this processor later during OS runtime
-> > 
-> > So the combination of those gives you the right answer:
-> > 
-> >    Enabled	Online
-> >    	        Capable
-> >    0            0        Not present, not possible
-> >    0            1        Not present, but possible to "hotplug" layter
-> >    1            0        Present
-> >    1            1        Invalid
-> 
-> On x86, it seems that all CPUs with the ACPI_MADT_ENABLED bit set will
-> be marked as present.
-> 
-> acpi_parse_x2apic()
->   -> enabled = processor->lapic_flags & ACPI_MADT_ENABLED
->   -> topology_register_apic(enabled)
->      -> topo_register_apic(enabled)
->         -> set_cpu_present(cpu, true)
+On Thu, Apr 23 2026 at 10:41, Linus Torvalds wrote:
+> If that rule was actually an important part of the ABI, it shouldn't
+> have been a debug thing.
 
-Yes but arm64 marks all CPUs present even if !ACPI_MADT_ENABLED as we
-don't have the notion of hardware CPU hotplug.
+It's a debug thing because it's too expensive to be enabled by
+default. And it's actually valuable for validating RSEQ critical section
+ABI correctness as they can't be single stepped with a debugger as the
+break point interruption would immediately canceled.
 
-I need to dig some more into the original vCPU hotplug support and why
-we ended up with all CPUs marked as present even if not calling
-register_cpu():
+> So:
+>
+>  (a) the debug code in question needs to just be removed, since it's
+> now actively detrimental, and means that any kernel developer who
+> *does* enable it can't actually test this case any more. It's checking
+> for something that has been shown to not be true.
+>
+>  (b) we need to fix this (revert if it can't be fixed otherwise)
+>
+> I see some patches flying around, but am not clear on whether there
+> was an actual patch that make this work again?
 
-https://lore.kernel.org/linux-arm-kernel/20240529133446.28446-1-Jonathan.Cameron@huawei.com/
+There are two issues:
 
-What's the MADT GICC provided by qemu with "-smp cpus=4,maxcpus=8"? If
-it says Enabled for the first 4 and Online Capable for the rest, maybe
-we can try something like below:
+  1) ARM64
 
-----------------------8<-----------------
-diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
-index 5891f92c2035..681aa2bbc399 100644
---- a/arch/arm64/kernel/acpi.c
-+++ b/arch/arm64/kernel/acpi.c
-@@ -448,12 +448,14 @@ int acpi_map_cpu(acpi_handle handle, phys_cpuid_t physid, u32 apci_id,
- 		return *pcpu;
- 	}
- 
-+	set_cpu_present(*pcpu, true);
- 	return 0;
- }
- EXPORT_SYMBOL(acpi_map_cpu);
- 
- int acpi_unmap_cpu(int cpu)
- {
-+	set_cpu_present(cpu, false);
- 	return 0;
- }
- EXPORT_SYMBOL(acpi_unmap_cpu);
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 1aa324104afb..6421027669fc 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -566,6 +566,11 @@ struct acpi_madt_generic_interrupt *acpi_cpu_get_madt_gicc(int cpu)
- }
- EXPORT_SYMBOL_GPL(acpi_cpu_get_madt_gicc);
- 
-+static bool acpi_cpu_is_present(int cpu)
-+{
-+	return acpi_cpu_get_madt_gicc(cpu)->flags & ACPI_MADT_ENABLED;
-+}
-+
- /*
-  * acpi_map_gic_cpu_interface - parse processor MADT entry
-  *
-@@ -670,6 +675,11 @@ static void __init acpi_parse_and_init_cpus(void)
- 		early_map_cpu_to_node(i, acpi_numa_get_nid(i));
- }
- #else
-+static bool acpi_cpu_is_present(int cpu)
-+{
-+	return false;
-+}
-+
- #define acpi_parse_and_init_cpus(...)	do { } while (0)
- #endif
- 
-@@ -808,7 +818,8 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
- 		if (err)
- 			continue;
- 
--		set_cpu_present(cpu, true);
-+		if (acpi_disabled || acpi_cpu_is_present(cpu))
-+			set_cpu_present(cpu, true);
- 		numa_store_cpu_info(cpu);
- 	}
- }
+     On ARM64 RSEQ got broken completely with the partial move to the
+     generic entry code. There are patches flying around which "fix" it
+     and Mark is working on a more complete solution as there are other
+     subtle issues with that aside of the obvious RSEQ wreckage. The
+     latter could have been detected with the existing RSEQ selftests if
+     any CI would actually run them on -next.
+
+     That's uninteresting and unrelated to the tcmalloc issue. It's just
+     a boring bug which will be fixed in the next couple of days.
+
+
+  2) The tcmalloc problem
+
+     That's a known problem for at least 6 years. tcmalloc assumes that
+     it "owns" rseq and can do whatever it wants with it.
+
+     In 2022 the glibc people requested that tcmalloc becomes
+     interoperable with the reasonable expection of glibc to utilize
+     rseq as well:
+
+          https://github.com/google/tcmalloc/issues/144
+
+     Status unresolved.
+
+     That means that using tcmalloc requires to tell glibc to _NOT_ use
+     rseq and at the same time precludes any other library which wants
+     to use it for the documented purposes. So this code sequence blows
+     up in your face:
+
+        x = tcmalloc();
+        dostuff(x)
+          evaluate(rseq::cpu_id_start, rseq::cpu_id)
+
+     because tcmalloc overwrites rseq::cpu_id_start and thereby breaks
+     the ABI which evaluate() is rightfully depending on.
+
+     That has absolutely nothing to do with the kernel as there is no
+     kernel interaction between tcmalloc's abuse and the subsequent
+     evaluation of rseq::cpu_id_start. The kernel has no way to fix that
+     problem at all.
+
+     Now back to your generally correct and agreed on "observed
+     behaviour" rule.
+
+     Feel free to enforce it, but be aware that you thereby set a
+     precedence that a single abuser can then rightfully own a general
+     shared interface of the kernel forever and force everybody else to
+     give up.
+
+     The tcmalloc developers actually documented that they own the
+     world:
+
+     // Note: this makes __rseq_abi.cpu_id_start unusable for its original purpose.
+
+     Do you seriously want to proliferate that?
+
+Thanks,
+
+        tglx
+
+
+
 
