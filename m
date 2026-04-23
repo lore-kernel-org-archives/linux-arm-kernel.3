@@ -4,90 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC4A0FDEE3F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 18:45:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B5EFDEE3F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 18:50:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h7B9//ZIs2xqUgapk+BAH8bzTkTMhU5fRky03+jOP4c=; b=eDeY7QvthnZEbCI/pY0YH1YuMr
-	SilDQMV5JQC2hIUnbZRltm6ypRygK8EqpHUT5psU5L6cC6cx/jtXgAYML1BEryQp7J+cJ+1YDd/q6
-	M8bo6HOJ/CO5vR1tlolzEvVoOW4+D3VBo4caFaCP29LGX2Lv7A9XlvVmWmMC9NnUH7ZPHcGQq7s03
-	p80zaDqXd9J+xDnnS/z/NiahkgkE31AXiplKv+tA1JeO1pNSbnwcddurX4Ip+rmlT+7rN5/ivzPKD
-	MjwEnqg0bGpu/6kB1yVtFqGuW5B7hTdurFwrYpGASyrlLM6w76ZbsZ/GIhZZPbkeg7fOmZYit544N
-	+nl6kBmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7vB5IPxTRHP39nn5nizcVUL7wYBYeAXeH+nIwf49x40=; b=jiRQQRUGGlP+UlACeBo8pNz4a9
+	wlX4MjfYAwb6ILQPwGUwEwVmFUmQ/4SpXFK3nTH1XT0DGFvSqZ1zvWGPvJpw7SJa7JUh0/wQQ5mMj
+	AppwuDmyFJBi8JOFuQSWK54c3TdQPB2VOiKE93EWTNt5J6gknenvRRs91Fy5hwgUwTFqsnbpUNN15
+	13CbxDKUuaFRlHYs9WC2BZH1SdbmEmyGvhiqQHlkPQC8mdT2wmafVzOGf/81o96ZUHtannunOJKlF
+	+TvUzqdgw9U5h5Rd20SsiAC5CgPl9z+qOfymAUqxUjyi9BlGVOY4t2TKBrh+lEbdwyZ6/fxLQwitu
+	2mOt1o6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFz39-0000000C8gk-1zF2;
-	Thu, 23 Apr 2026 18:45:19 +0000
-Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
+	id 1wFz7s-0000000C8wX-2V7e;
+	Thu, 23 Apr 2026 18:50:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFz35-0000000C8gQ-2YLV
+	id 1wFz7q-0000000C8w6-24xB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 18:45:17 +0000
-Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-7de431da8fbso1491235a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 11:45:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1776969914; x=1777574714; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=h7B9//ZIs2xqUgapk+BAH8bzTkTMhU5fRky03+jOP4c=;
-        b=ZkLg2G5WWugLDLRsA/9By24o14MndiRwzayP7lAP98Lczco/iOKYDZ8Og7wRDkuPmb
-         FHNlHDQPnP+lsgSD9IzJya+EWpxlW2s6Q9DEt3ptwRUHxIJgNNRT8yE7T3ZHXldw3IZJ
-         R84YB4SrVDHo1TJ6zeSlolsX7aT1yU9fVFW1fU+dtS7T2dkPpDsGfxox1ZHkytAi2joM
-         OzHsKmGZU1+va97WfZ+5jmcsL+CKB7uLwp1KfiCx8pPWppbuedVRUkyzmFK67dkYYFRH
-         FFRIge2CscVQBJJMpU7u4uBuiXBx6Ti/Vo7ao1iiwwhxxtHD6rDPFXaD7HmgFXjxdeT9
-         cqKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776969914; x=1777574714;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=h7B9//ZIs2xqUgapk+BAH8bzTkTMhU5fRky03+jOP4c=;
-        b=KA22xMMl3XAiZE56pVF03QMabXRyZlJv0wwZ2XEsjHgP5rXUyZjDfmk9ESLNVUYgHJ
-         IXkO+jRk88MrLEtDbqeDrlj9CDcMSkHiiOcc0QBB1AsBsWyQz4X925oZPAj2f2mNumq3
-         p+JKoaRjvyenCFGBEv1hwAKNWqfKwerLIAfVSI+82x6jPXClOExqOMSSWBw0Qb2dPN+B
-         G3voPP+anlrgAtAXUqeqno+6rF5F3jNJ2ZNNI0cR64FCMDUzStBYIK4zDRdTQGEkBrbZ
-         /mxl5d8bHEwaZxSTtJOa9bjAAwCnEXiBKlLWFqFe5MnhY1fK9bDB+eDAJnS4pkLf+Qke
-         uqlQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+lE0X63dVc4zabYGBDU80DogM+0rbL2APicF5SwuVIwMDgO+rA9HeaiClyC2eyUtF3Vnf3L5S25NhoAEAc0wdr@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYC05P8yuzi8dDeKIov3up3UM4X90TwH2GYSAd+6Pm2pqSih2N
-	SNPV+FMBJ3TEN1h8L/wwUAq0ZEscBu8UaAdjc2dqhmfZL7zvx/s5W7j9zq7DCaKmvZg=
-X-Gm-Gg: AeBDiev+nbIs7ntyW3m8waV+6cVjFXLM+DMxmjTfSHKrPkuq25vT7VTWyayf95HSBsK
-	XHDiGVkqQ3BVUvpnsbvLGTW7QqBIrsKuLvNUReRZ1OX1Fym2jc8bqXeIqAiHquJWvaLEKmro+kE
-	kx3UrXSvM9QXTWFEEVUHcuCCGBLQkqOAUP75GTGURe2CTeIiAxMzfCgg2NkyHQnFFdMkGoSqzQu
-	bBlqGItdrU7ctk4/71zCwN9MHB1JMaXcCObjxeD5jh0bpR1XR/n/bV48OAIk64frS0EpV4PT1e1
-	T+e529iCsQG5Rgd81b9H6xTt6VPiJJ9ZXexrE9D0KmAJcIOrBnQaO8wTS7Ol4bsPOCEQnj/IRp+
-	g3rjY6fXWATJwUfPRQX80WlqYNaIeB81asGw++MKZ1K1w2pEOo4LZAXELUfT1psbmaWOAXZ7EZQ
-	BzWYJMxd0ROJ5FfGKztXTOjZGYVo9Xt/Sga3FzpPr1Jkh2IxEWPsO9UystK9PIz6XmElGVNr38o
-	gFAb23qnZQY
-X-Received: by 2002:a05:6820:629:b0:696:1a25:fdda with SMTP id 006d021491bc7-6961a26036amr2084343eaf.26.1776969913953;
-        Thu, 23 Apr 2026 11:45:13 -0700 (PDT)
-Received: from ?IPV6:2600:8803:e7e4:500:3cc7:689f:be44:d58a? ([2600:8803:e7e4:500:3cc7:689f:be44:d58a])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-694994277a4sm5442766eaf.4.2026.04.23.11.45.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Apr 2026 11:45:13 -0700 (PDT)
-Message-ID: <a9307e04-3754-465e-a610-92c6e83cc3e6@baylibre.com>
-Date: Thu, 23 Apr 2026 13:45:12 -0500
+	Thu, 23 Apr 2026 18:50:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D44D6406A6;
+	Thu, 23 Apr 2026 18:50:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5E29C2BCAF;
+	Thu, 23 Apr 2026 18:50:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776970209;
+	bh=7vB5IPxTRHP39nn5nizcVUL7wYBYeAXeH+nIwf49x40=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UFqSgZlnTfVBRjGJbfom7Q+r2jaidYL9x0RD7JgrV4TpzLgnqQmWRYz0gFbP8/YNa
+	 mU9Aut1CrtTPrlpcaOz6mlrYh3V2VtQ9Cup0LxatNyPZEUYGhgoCIgEHGXVjMHq6vl
+	 ssBKDvVQe2RbIR1+NPnfrjfXA/DIxxiFKAc27AgqovsoPUU5sO7He82/LvNfq1W3V7
+	 Dbmn7lnTxIHdWvGLFADrP+iD90ZWsBavHQsic6IMwBKR2QERkv58kVZL1KtXzkgNPr
+	 Y9hp/fmxJd/XxtcBAZBRtfh3A3U8zKlx5+fGOfkyme135zXHHUf4yulDBTG3e6xEPm
+	 /PGLxoH+RWRdg==
+Date: Thu, 23 Apr 2026 19:50:05 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Kevin Mehall <km@kevinmehall.net>
+Cc: Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Mirko Vogt <mirko-dev|linux@nanl.de>,
+	Ralf Schlatterbeck <rsc@runtux.com>, linux-spi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] spi: sun6i: Honor CS setup delay on the first
+ transfer with native CS
+Message-ID: <5ccd1ed2-b4b3-4f94-8c32-89bb27d4066f@sirena.org.uk>
+References: <20260423174001.2797797-1-km@kevinmehall.net>
+ <20260423174001.2797797-2-km@kevinmehall.net>
+ <53c2d366-2d76-4a6d-a72b-99544026ee27@app.fastmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iio: fix header includes across multiple drivers
-To: Caio Morais <caiomorais@usp.br>, jic23@kernel.org, nuno.sa@analog.com,
- andy@kernel.org, michal.simek@amd.com
-Cc: linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260423183349.636757-1-caiomorais@usp.br>
-Content-Language: en-US
-From: David Lechner <dlechner@baylibre.com>
-In-Reply-To: <20260423183349.636757-1-caiomorais@usp.br>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="IoiCEiiWH5qA67xB"
+Content-Disposition: inline
+In-Reply-To: <53c2d366-2d76-4a6d-a72b-99544026ee27@app.fastmail.com>
+X-Cookie: I'm hungry, time to eat lunch.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_114515_678088_B268F890 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20260423_115010_576911_F6FF8F10 
+X-CRM114-Status: GOOD (  17.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,97 +81,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/23/26 1:33 PM, Caio Morais wrote:
-> From: Caio Morais <caiomorais@usp.br>
-> 
-> Remove unnecessary includes and add missing ones as reported by the
-> include-what-you-use (IWYU) tool.
-> 
-> Files changed:
-> - drivers/iio/adc/xilinx-xadc-events.c
-> - drivers/iio/buffer/industrialio-triggered-buffer.c
-> - drivers/iio/common/st_sensors/st_sensors_i2c.c
-> - drivers/iio/common/st_sensors/st_sensors_spi.c
 
-We'll want to split these up, one patch per file in case they every
-need to be backported as a dependency to a fix.
+--IoiCEiiWH5qA67xB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> 
-> Signed-off-by: Caio Morais <caiomorais@usp.br>
-> ---
->  drivers/iio/adc/xilinx-xadc-events.c               | 4 ++--
->  drivers/iio/buffer/industrialio-triggered-buffer.c | 8 ++++----
->  drivers/iio/common/st_sensors/st_sensors_i2c.c     | 2 +-
->  3 files changed, 7 insertions(+), 7 deletions(-)
+On Thu, Apr 23, 2026 at 12:40:34PM -0600, Kevin Mehall wrote:
+> I realized this is incorrect. With a GPIO chip select, sun6i_spi_set_cs() is not called,
+> thus CS_MANUAL would not be set, and the hardware would then automatically
+> assert native CS 0 during the transfer. My testing was with native CS 1 and a second GPIO chip select,
+> so I didn't see this because native CS 0 is not used on the Orange Pi Zero 3.
 
-This looks like sorting alphabetically, not actually adding or removing
-any headers as seen by the equal number of insertions and deletions.
+> Therefore, I think the best place to set CS_MANUAL is in sun6i_spi_prepare_message
+> as I had in my original patch [1], unless you think it should be duplicated in both places
+> or have a better suggestion of where to set it. sun6i_spi_prepare_message() is still called
+> before set_cs(), so it still fixes the skipped delay.
 
-Usually we don't bother with sorting unless we are making other
-changes on top of that.
+That sounds about right, the other option would be
+SPI_CONTROLLER_GPIO_SS but I don't think this controller needs it.
 
-> 
-> diff --git a/drivers/iio/adc/xilinx-xadc-events.c b/drivers/iio/adc/xilinx-xadc-events.c
-> index d16e61953..20b796ec7 100644
-> --- a/drivers/iio/adc/xilinx-xadc-events.c
-> +++ b/drivers/iio/adc/xilinx-xadc-events.c
-> @@ -7,11 +7,11 @@
->   */
->  
->  #include <linux/bitmap.h>
-> -#include <linux/types.h>
->  #include <linux/errno.h>
-> -#include <linux/mutex.h>
->  #include <linux/iio/events.h>
->  #include <linux/iio/iio.h>
-> +#include <linux/mutex.h>
-> +#include <linux/types.h>
->  
->  #include "xilinx-xadc.h"
->  
-> diff --git a/drivers/iio/buffer/industrialio-triggered-buffer.c b/drivers/iio/buffer/industrialio-triggered-buffer.c
-> index 601a26398..5796c9da7 100644
-> --- a/drivers/iio/buffer/industrialio-triggered-buffer.c
-> +++ b/drivers/iio/buffer/industrialio-triggered-buffer.c
-> @@ -5,15 +5,15 @@
->   */
->  
->  #include <linux/errno.h>
-> -#include <linux/linkage.h>
-> -#include <linux/module.h>
-> -#include <linux/stddef.h>
-> -#include <linux/iio/iio.h>
->  #include <linux/iio/buffer.h>
->  #include <linux/iio/buffer_impl.h>
-> +#include <linux/iio/iio.h>
->  #include <linux/iio/kfifo_buf.h>
->  #include <linux/iio/triggered_buffer.h>
->  #include <linux/iio/trigger_consumer.h>
-> +#include <linux/linkage.h>
-> +#include <linux/module.h>
-> +#include <linux/stddef.h>
->  
->  /**
->   * iio_triggered_buffer_setup_ext() - Setup triggered buffer and pollfunc
-> diff --git a/drivers/iio/common/st_sensors/st_sensors_i2c.c b/drivers/iio/common/st_sensors/st_sensors_i2c.c
-> index 6ab143498..974e349ae 100644
-> --- a/drivers/iio/common/st_sensors/st_sensors_i2c.c
-> +++ b/drivers/iio/common/st_sensors/st_sensors_i2c.c
-> @@ -10,10 +10,10 @@
->  #include <linux/device.h>
->  #include <linux/err.h>
->  #include <linux/i2c.h>
-> +#include <linux/iio/iio.h>
->  #include <linux/linkage.h>
->  #include <linux/module.h>
->  #include <linux/regmap.h>
-> -#include <linux/iio/iio.h>
+--IoiCEiiWH5qA67xB
+Content-Type: application/pgp-signature; name="signature.asc"
 
-On this one, it would be more logical to move the iio header
-down one line to group it with the one below.
+-----BEGIN PGP SIGNATURE-----
 
->  
->  #include <linux/iio/common/st_sensors_i2c.h>
->  
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnqadwACgkQJNaLcl1U
+h9C5sggAgETyhpLUFJdWeth+udrgH/0YKeI5n87h7uw96RcN0MdcVQrXGRwlQkVC
+bThbi9LY3VJ+YrGlL6zWSFmuybyaX7AlukJjJo5GDYYSuFHy2VInX0OT+4HVpTUK
+oJxbCCxXZ1Va6mtIThVE8t3vFrOIL155dYBmsPZgfS6/nIDxd39HOuBB3tw1j7Iw
+I2QGXa2fVP+ok8j+1s8Es+QFnqbJ/QBzMJnlNbOLmaKU0/LM7U94amjkoxH0bQq3
+KhAgTQMMultNs+8dnShM/So2hBRJj+pCNZA42XsKCnZEFFLVZv5ISXq8pfO4Jibo
+huXj5pI4nhgNwZDXgrYYvnRlUhZ+rw==
+=WYR6
+-----END PGP SIGNATURE-----
 
+--IoiCEiiWH5qA67xB--
 
