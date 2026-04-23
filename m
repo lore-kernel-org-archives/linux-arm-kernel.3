@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41A84F589B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 12:42:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB238F589B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 12:42:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nTetde5U51KiR0eBV+LXcTB7GkxgrKWa+3floMLhHNY=; b=DRII4OTUCz8H61+Yx+5xF2KdRK
-	zvnjn+fJXaQahmaY/qhCZN30jlrzSzlyJI89QLS/Ky9ZU+Zaa6Wh1EskWeI3tqJu2kBp7iJNSO/FY
-	m6TDo7JMj7S4ONWP1uo1dnyXPwTBeu7m0sNRYAfCYAvQRnmBOvJxJDJoVYSkgGv0Jvn++QuPD49wj
-	ciBvrY8oakiDVqh9guaGimLBiKLUbKvBVCb5ouLrtDrdab4FaL5DkxSceVP/IXGWlzyGNeLgBIkQN
-	0tZfmm0NzbRAUznVRRQkk1PnZZZrV/ZDhmTBIjwOSZET0uxxJyKRSgLWpLG72AP1rDexdBTqe4g4t
-	rj7KDnQg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I2iUOz06N9pWMf1bIo71EnFA9O21Frf4P70pvQqdric=; b=TmFzm2+4nJY8Z8q/gNF17KsEzv
+	c5uR2diJsIOoQozOmZvUJh4sP3i3YXuOpcGuL7zPVX+v5L9Nm5mfFiHsJIHLtv1atNGM4g5PLWkzH
+	qXREtFFdMw+XOlVTTBnhs8CBsab9mfn9rpf70va6XhlwF42s//8TLv7cyPbHI79BVTusZ7SeF8AIj
+	VSxYhL0AYYrg2SyjBuOWie5rAZSt0cqxwTKhrGQ6p06Kw6/Esh+TyzR9UXrymAEzo/xtr2t6glSDB
+	5L0LuMpN9ZZIIbBMt791XxBXJ6B7e481Sr+ZqG6cA79jp6nfpknKghSF45DWr/mgaHXIC7xBZY5Pp
+	qCNIuBFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFtNz-0000000BdSF-0YWj;
-	Thu, 23 Apr 2026 12:42:27 +0000
+	id 1wFtO3-0000000BdTj-3I8Q;
+	Thu, 23 Apr 2026 12:42:31 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFtNr-0000000BdQH-3Jk3;
-	Thu, 23 Apr 2026 12:42:26 +0000
+	id 1wFtNy-0000000BdRx-3uGg;
+	Thu, 23 Apr 2026 12:42:29 +0000
 Received: from CPC-namja-026ON.redmond.corp.microsoft.com (unknown [4.213.232.18])
-	by linux.microsoft.com (Postfix) with ESMTPSA id B04AF20B7165;
-	Thu, 23 Apr 2026 05:42:10 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com B04AF20B7165
+	by linux.microsoft.com (Postfix) with ESMTPSA id 2833120B7168;
+	Thu, 23 Apr 2026 05:42:18 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 2833120B7168
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1776948138;
-	bh=nTetde5U51KiR0eBV+LXcTB7GkxgrKWa+3floMLhHNY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=AGSGwzpn5SgYbJuozOHPeZnNYZQ9uldpmU9A4lC05mLwq5usd/PIzxpuo5lFM9Sfq
-	 Xipd4Nv8Nh8GqNV4AwN6AnGqg9CPyCH0gsyxjRn+rL9ykb0o2w2fyRDuy3g6JYa3hP
-	 95HqlLPXYHJi9PzX/wV6jI4WAvQWWXbN/Eu9+Ec8=
+	s=default; t=1776948146;
+	bh=I2iUOz06N9pWMf1bIo71EnFA9O21Frf4P70pvQqdric=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=sdJr3BxSKfa5DEwVFAHUFBYZT3CYc4MAfq8UWukagegS/A86yvkIHkLGL8iNV/AmX
+	 sZQvA8TInk618z9cr/L8VcWhIK1vnpLV8JbFypwHHhnWweLdVlRRK6x4v0dVdtqL1i
+	 5HUfRb7io3Hlx8KeTctmRzzkcsl9Mi34N8U1zmHM=
 From: Naman Jain <namjain@linux.microsoft.com>
 To: "K . Y . Srinivasan" <kys@microsoft.com>,
 	Haiyang Zhang <haiyangz@microsoft.com>,
@@ -70,15 +70,17 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	linux-riscv@lists.infradead.org,
 	vdso@mailbox.org,
 	ssengar@linux.microsoft.com
-Subject: [PATCH v2 00/15] Add arm64 support in MSHV_VTL
-Date: Thu, 23 Apr 2026 12:41:50 +0000
-Message-ID: <20260423124206.2410879-1-namjain@linux.microsoft.com>
+Subject: [PATCH v2 01/15] arm64: smp: Export arch_smp_send_reschedule for mshv_vtl module
+Date: Thu, 23 Apr 2026 12:41:51 +0000
+Message-ID: <20260423124206.2410879-2-namjain@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260423124206.2410879-1-namjain@linux.microsoft.com>
+References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_054219_858787_E3BFA0A3 
-X-CRM114-Status: GOOD (  21.39  )
+X-CRM114-CacheID: sfid-20260423_054227_016053_AAEFDE68 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,149 +95,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The series adds support for ARM64 to mshv_vtl driver.
-For this, common Hyper-V code is refactored, necessary support is added,
-mshv_vtl_main.c is refactored and then finally support is added in
-Kconfig.
+mshv_vtl_main.c calls smp_send_reschedule() which expands to
+arch_smp_send_reschedule(). When CONFIG_MSHV_VTL=m, the module cannot
+access this symbol since it is not exported on arm64.
 
-Changes since v1:
-https://lore.kernel.org/all/20260316121241.910764-1-namjain@linux.microsoft.com/
+smp_send_reschedule() is used in mshv_vtl_cancel() to interrupt a vCPU
+thread running on another CPU. When a vCPU is looping in
+mshv_vtl_ioctl_return_to_lower_vtl(), it checks a per-CPU cancel flag
+before each VTL0 entry. Setting cancel=1 alone is not enough if the
+target CPU thread is sleeping - the IPI from smp_send_reschedule() kicks
+the remote CPU out of idle/sleep so it re-checks the cancel flag and
+exits the loop promptly.
 
-Patch 1: arm64: smp: Export arch_smp_send_reschedule for mshv_vtl module
-* Changed prefix in subject (Michael)
-* Sashiko - no issues
+Other architectures (riscv, loongarch, powerpc) already export this
+symbol. Add the same EXPORT_SYMBOL_GPL for arm64. This is required
+for adding arm64 support in MSHV_VTL.
 
-Patch 2:
-* Add #include <linux/io.h> in hv_common.c (Michael)
-* Remove ms_hyperv.hints change from non TDX case,
-  as it won't matter in failure case (Michael)
-* Add ms_hyperv.hints &=
-  ~HV_X64_ENLIGHTENED_VMCS_RECOMMENDED for TDX
-  case, to maintain parity with existing code.
-  (Sashiko)
-* Handle synic_eventring_tail -ENOMEM issue by
-  returning early (Michael|Sashiko)
-* Only 4k page is used here, so add dependency on
-  PAGE_SIZE_4KB for MSHV_VTL as well in a later
-  Kconfig patch (Sashiko|Michael)
-* Use HV_HYP_PAGE_SIZE instead of PAGE_SIZE to avoid
-  page size mismatch issues (Sashiko)
-* s/"vmalloc_to_pfn(*hvp)"/
-  "page_to_hvpfn(vmalloc_to_page(*hvp))" in
-  hv_common.c (Sashiko|Michael)
-* s/GFP_KERNEL/flags in __vmalloc. (Sashiko|Michael)
-* Limit code to 80 lines in hv_common_cpu_init (Mukesh R.)
-* Move arch based definition of
-  HV_VP_ASSIST_PAGE_ADDRESS_SHIFT to
-  hvgdk_mini.h (Michael)
-* Added a comment about x64 vmalloc_to_pfn(*hvp)) (Michael)
-* Move remaining hv_vp_assist_page code from
-  arch/x86/include/asm/mshyperv.h to
-  include/asm-generic/mshyperv.h (Michael)
-* s/HV_SYN_REG_VP_ASSIST_PAGE/HV_MSR_VP_ASSIST_PAGE (Michael)
+Reviewed-by: Michael Kelley <mhklinux@outlook.com>
+Reviewed-by: Roman Kisel <vdso@mailbox.org>
+Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
+---
+ arch/arm64/kernel/smp.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Patch 3:
-* Rework the code and remove these new APIs. Move
-  the vmbus_handler global variable and
-  hv_setup_vmbus_handler()/hv_remove_vmbus_handler()
-  from arch/x86 to drivers/hv/hv_common.c so that
-  the same APIs can be used to setup per-cpu vmbus
-  handlers as well for arm64. (Michael)
-
-Patch 4:
-* Sashiko's comments are generic and outside the
-  scope of the refactoring this patch is doing.
-  Will take it up separately.
-
-Patch 6:
-* Sashiko's comment regarding race condition is false positive.
-* Regarding memory leak on cpu offline - online -
-  beyond the scope of this series, I will fix it
-  separately.
-
-Patch 7:
-* Subject s/"arch: arm64:"/"arm64: hyperv:" (Michael)
-* Changed commit msg as per Michael's suggestion
-* Add kernel_neon_begin(), kernel_neon_end() calls (Sashiko)
-* Removed Note prefix from comments (Michael)
-* Added compile time check for cpu context to be
-  within 1024 bytes of mshv_vtl_run
-* Moved the declarations of mshv_vtl_return_call to generic file
-
-Patch 8:
-* Split the patch into three patches - number 8-10 (Michael)
-* Moved hv_vtl_configure_reg_page declaration to asm-generic header
-* Sashiko's other reviews are for existing code,
-  I will take them separately
-
-Patch 9: (now patch 11)
-No changes required for Sashiko's comments as most
-of such controls are intentionally designated to
-OpenVMM to keep kernel driver simpler.
-
-Patch 10: (now patch 13)
-* Remove hv_setup_percpu_vmbus_handler invocations,
-  after redesign in previous patchsets (Michael)
-* Simplified mshv_vtl_get_vsm_regs() by moving arch
-  specific code (for x86) to hv_vtl -
-  mshv_vtl_return_call_init(). This removes arch
-  checks in mshv_vtl driver. Add a separate patch
-  for this (now patch 12)
-* Other Sachiko's reviews are related to existing
-  code - can be taken up separately
-
-Patch 11 (now patch 15):
-* Only 4k page is supported, so add dependency on
-  PAGE_SIZE_4KB for MSHV_VTL (Sashiko|Mihael)
-* Remove "Kconfig: " from subject line. (Michael)
-
-New patch 14:
-Add a Kconfig dependency on 4K PAGE_SIZE for
-MSHV_VTL to manage assumptions in MSHV_VTL driver
-
-Change prefix in subjects as per below naming convention:
-mshv_vtl_main changes - "mshv_vtl: "
-arch/arm64 Hyper-V changes - "arm64: hyperv: "
-arch/x86 Hyper-V changes - "x86/hyperv: "
-
-Add Reviewed-by on already reviewed patches.
-
-Naman Jain (15):
-  arm64: smp: Export arch_smp_send_reschedule for mshv_vtl module
-  Drivers: hv: Move hv_vp_assist_page to common files
-  Drivers: hv: Move vmbus_handler to common code
-  mshv_vtl: Refactor the driver for ARM64 support to be added
-  Drivers: hv: Export vmbus_interrupt for mshv_vtl module
-  mshv_vtl: Make sint vector architecture neutral
-  arm64: hyperv: Add support for mshv_vtl_return_call
-  Drivers: hv: Move hv_call_(get|set)_vp_registers() declarations
-  Drivers: hv: mshv_vtl: Move hv_vtl_configure_reg_page() to x86
-  arm64: hyperv: Add hv_vtl_configure_reg_page() stub
-  mshv_vtl: Let userspace do VSM configuration
-  mshv_vtl: Move VSM code page offset logic to x86 files
-  mshv_vtl: Add remaining support for arm64
-  Drivers: hv: Add 4K page dependency in MSHV_VTL
-  Drivers: hv: Add ARM64 support for MSHV_VTL in Kconfig
-
- arch/arm64/hyperv/Makefile        |   1 +
- arch/arm64/hyperv/hv_vtl.c        | 165 ++++++++++++++++++++++++
- arch/arm64/include/asm/mshyperv.h |  25 ++++
- arch/arm64/kernel/smp.c           |   1 +
- arch/x86/hyperv/hv_init.c         |  88 +------------
- arch/x86/hyperv/hv_vtl.c          | 149 ++++++++++++++++++++-
- arch/x86/include/asm/mshyperv.h   |  21 +--
- arch/x86/kernel/cpu/mshyperv.c    |  12 --
- drivers/hv/Kconfig                |   7 +-
- drivers/hv/hv_common.c            | 103 ++++++++++++++-
- drivers/hv/mshv.h                 |   8 --
- drivers/hv/mshv_vtl.h             |   3 +
- drivers/hv/mshv_vtl_main.c        | 208 +++---------------------------
- drivers/hv/vmbus_drv.c            |  18 +--
- include/asm-generic/mshyperv.h    |  62 +++++++++
- include/hyperv/hvgdk_mini.h       |   6 +-
- 16 files changed, 550 insertions(+), 327 deletions(-)
- create mode 100644 arch/arm64/hyperv/hv_vtl.c
-
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 1aa324104afb..26b1a4456ceb 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -1152,6 +1152,7 @@ void arch_smp_send_reschedule(int cpu)
+ {
+ 	smp_cross_call(cpumask_of(cpu), IPI_RESCHEDULE);
+ }
++EXPORT_SYMBOL_GPL(arch_smp_send_reschedule);
+ 
+ #ifdef CONFIG_ARM64_ACPI_PARKING_PROTOCOL
+ void arch_send_wakeup_ipi(unsigned int cpu)
 -- 
 2.43.0
 
