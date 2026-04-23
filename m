@@ -4,96 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40E65F589D9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 14:00:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 790A6F589DA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 14:03:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cuw/47ejaaxv4Ipby+sq9kxQ/XuuZrQxr2dQXYf5TdM=; b=byFV0hcuHgHMJsQZs5WIj4aIvW
-	NOMESbv0z4F4ydPHpl7pdRbG4Na6o2atNAwnRpOuoAjPS1JLDs6DvyqmWvcqnF3j9wj1j4XX62vWN
-	CSy/BkjN50o1Tzxli0DIABYSV8OdlGFMX4L8UaDXt5cgrci0EhDShwN1k81JfvBM0aMFowQ/QIaMk
-	qGNT9U2Aetn4g5fQF3sRsHMJMlmJMva+jtPDDktfT1FxJg+3aKG30Kbef7dQBwYsFwT/+s+gOk9jf
-	kNOVNG8ruarfpIeQUgkExt7v3ejaqdR6ZSp61Bci8j6S8BL8exjTYaD+lls83Brr6UzasdoMJOOY6
-	MzWCkL9g==;
+	bh=hl95KFdLt+laNVSX36C2D02b1P4OnkNTGlNRi0g1T3E=; b=2ACi21tZ284IiADRjZOKeuYzsh
+	ZjDSh4q/1c7eXLp1QM0Ko+gypfoKxcGoDxzVY/Jw/h720HkR0m/07wHlIyFJyg1/0dEPepYCFLD3d
+	GaJwL6dkyDzoFBhsU0j7qQ/3r6n10kf3pxVN4nZG0Rs+jgFDMWRADmx2XLOCvCXj0As8nxurrOC/P
+	NKflDAaVsMR1cAs39FyANKDtwZrNuRwGUHnQEoXHKm7/0kKX8PnVf+CH886mks67kGHJV2JjtSr/D
+	JBpY32V8la8uKJ+gHKptwRlJye7rxTnEH1LkYPqRuIdvAiHVxxvMyBhwGixTENvWr+lKDY4w3sQ6u
+	liTBA8kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFubf-0000000Bmdm-2Ve3;
-	Thu, 23 Apr 2026 14:00:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wFue9-0000000BmwP-1eTY;
+	Thu, 23 Apr 2026 14:03:13 +0000
+Received: from the.earth.li ([2a00:1098:86:4d:c0ff:ee:15:900d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFube-0000000BmdW-2AqW;
-	Thu, 23 Apr 2026 14:00:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F11CF6014C;
-	Thu, 23 Apr 2026 14:00:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C102C2BCB3;
-	Thu, 23 Apr 2026 14:00:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776952837;
-	bh=mVrK0zXCEdJ6a40kh14ulfHCdH3uQpXGB2DGyceVQ9M=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Na8CI7bwOFFciWF152SK6VpvgW/0uJ9C/ab85EokcYjuHus/X7p5kdg3sgcvfaoT8
-	 qHtp6cimBCaiagvbYXjw2BModFBlKGaR7PB9ARWc01gap3WEdVSBIm+os8k2xnkOPu
-	 xlBzNX8FRqwIEDKREsGsUViWZfjeYfjGIMrkbuvIEutscXEFDBVc4YlhdVFs9SfT8B
-	 WrL3lV26hSmkoRSlYMtK1MQpod6CFooqGC4+WUs8b+cH8X9CS2SdUqsOGlbKAd/AAs
-	 SM789kC1D0hTDtVBhRTd6CAMJHrAPGcFthq786V4/J2nP4PQLEQE+epCfoxx3mKPcr
-	 Vco1wbe+h2pvQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wFuba-0000000E4rW-3VD2;
-	Thu, 23 Apr 2026 14:00:34 +0000
-Date: Thu, 23 Apr 2026 15:00:34 +0100
-Message-ID: <864il122v1.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Naman Jain <namjain@linux.microsoft.com>
-Cc: "K . Y . Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>,
-	Dexuan Cui <decui@microsoft.com>,
-	Long Li <longli@microsoft.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Michael Kelley <mhklinux@outlook.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
-	linux-hyperv@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	vdso@mailbox.org,
-	ssengar@linux.microsoft.com
-Subject: Re: [PATCH v2 07/15] arm64: hyperv: Add support for mshv_vtl_return_call
-In-Reply-To: <20260423124206.2410879-8-namjain@linux.microsoft.com>
-References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
-	<20260423124206.2410879-8-namjain@linux.microsoft.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: namjain@linux.microsoft.com, kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com, longli@microsoft.com, catalin.marinas@arm.com, will@kernel.org, tglx@kernel.org, mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, arnd@arndb.de, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, mhklinux@outlook.com, timothy.hayes@arm.com, lpieralisi@kernel.org, sascha.bischoff@arm.com, mrigendra.chaubey@gmail.com, linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org, vdso@mailbox.org, ssengar@linux.microsoft.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1wFue3-0000000Bmw3-0UMU
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Apr 2026 14:03:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=earth.li;
+	s=the; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=hl95KFdLt+laNVSX36C2D02b1P4OnkNTGlNRi0g1T3E=; b=a9n1j7GTlWLZEaaJ12KTzLyos/
+	gAyuDeuM4gAiYt4D751cv6U2qGjExT33KlAwcQNOmKAa8j9ARjxzsSEMTowDcTzT9GatTfHVjgTIG
+	COklNeeFQIToLy6KW0QQ084nvrTv5fAismMl9hS1/XChOC3HxXf0mUqDbPHdkkOwRor2/qJ5irBR+
+	heySi33NJLXvUrxqlbw6BIFY2jtFmnQ3Fyxu8kWaym3SWMwfZEjOQr4k+38x9d7Fxwf/HLKKRNeq7
+	COe2HP8WNj0HGkOoEjZ9YYvtMPsMpu9V6/vW1fiq0JvAxlGHSvUY5vr59PgSldnPv1ZFqmqv/mkM/
+	HQF+yMww==;
+Received: from noodles by the.earth.li with local (Exim 4.98.2)
+	(envelope-from <noodles@earth.li>)
+	id 1wFudy-00000003Xf2-41TD;
+	Thu, 23 Apr 2026 15:03:03 +0100
+Date: Thu, 23 Apr 2026 15:03:02 +0100
+From: Jonathan McDowell <noodles@earth.li>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Mimi Zohar <zohar@linux.ibm.com>, linux-security-module@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
+	roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+	eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+	sebastianene@google.com
+Subject: Re: [RFC PATCH v2 1/4] security: ima: call ima_init() again at
+ late_initcall_sync for defered TPM
+Message-ID: <aeomlp3I0eVE5mce@earth.li>
+References: <aekXaU52fzvNYaUF@e129823.arm.com>
+ <aekkVQwueKbFtG7C@e129823.arm.com>
+ <82803bb3b471898a77084c449b73c7f7b4eb2149.camel@linux.ibm.com>
+ <aem0SSQuE1e3pGOS@e129823.arm.com>
+ <56a8aab50a3b5ce0a345fc2079fb2abc7d0f1b23.camel@linux.ibm.com>
+ <aeoAlVEwzRUPrlVe@e129823.arm.com>
+ <aeoRxWPyOHGJd+Jh@e129823.arm.com>
+ <aeoWO2Cwo04YYu2l@earth.li>
+ <bd908e28298d968740d03c97bc7e441de188b7b4.camel@linux.ibm.com>
+ <aeokwrC86WI7uT+K@e129823.arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aeokwrC86WI7uT+K@e129823.arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260423_070307_368992_620028C8 
+X-CRM114-Status: GOOD (  66.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,142 +91,279 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Apr 2026 13:41:57 +0100,
-Naman Jain <namjain@linux.microsoft.com> wrote:
-> 
-> Add the arm64 variant of mshv_vtl_return_call() to support the MSHV_VTL
-> driver on arm64. This function enables the transition between Virtual
-> Trust Levels (VTLs) in MSHV_VTL when the kernel acts as a paravisor.
-> 
-> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
-> Reviewed-by: Roman Kisel <vdso@mailbox.org>
-> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
-> ---
->  arch/arm64/hyperv/Makefile        |   1 +
->  arch/arm64/hyperv/hv_vtl.c        | 158 ++++++++++++++++++++++++++++++
->  arch/arm64/include/asm/mshyperv.h |  13 +++
->  arch/x86/include/asm/mshyperv.h   |   2 -
->  drivers/hv/mshv_vtl.h             |   3 +
->  include/asm-generic/mshyperv.h    |   2 +
->  6 files changed, 177 insertions(+), 2 deletions(-)
->  create mode 100644 arch/arm64/hyperv/hv_vtl.c
-> 
-> diff --git a/arch/arm64/hyperv/Makefile b/arch/arm64/hyperv/Makefile
-> index 87c31c001da9..9701a837a6e1 100644
-> --- a/arch/arm64/hyperv/Makefile
-> +++ b/arch/arm64/hyperv/Makefile
-> @@ -1,2 +1,3 @@
->  # SPDX-License-Identifier: GPL-2.0
->  obj-y		:= hv_core.o mshyperv.o
-> +obj-$(CONFIG_HYPERV_VTL_MODE)	+= hv_vtl.o
-> diff --git a/arch/arm64/hyperv/hv_vtl.c b/arch/arm64/hyperv/hv_vtl.c
-> new file mode 100644
-> index 000000000000..59cbeb74e7b9
-> --- /dev/null
-> +++ b/arch/arm64/hyperv/hv_vtl.c
-> @@ -0,0 +1,158 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2026, Microsoft, Inc.
-> + *
-> + * Authors:
-> + *     Roman Kisel <romank@linux.microsoft.com>
-> + *     Naman Jain <namjain@linux.microsoft.com>
-> + */
-> +
-> +#include <asm/mshyperv.h>
-> +#include <asm/neon.h>
-> +#include <linux/export.h>
-> +
-> +void mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0)
-> +{
-> +	struct user_fpsimd_state fpsimd_state;
-> +	u64 base_ptr = (u64)vtl0->x;
-> +
-> +	/*
-> +	 * Obtain the CPU FPSIMD registers for VTL context switch.
-> +	 * This saves the current task's FP/NEON state and allows us to
-> +	 * safely load VTL0's FP/NEON context for the hypercall.
-> +	 */
-> +	kernel_neon_begin(&fpsimd_state);
-> +
-> +	/*
-> +	 * VTL switch for ARM64 platform - managing VTL0's CPU context.
-> +	 * We explicitly use the stack to save the base pointer, and use x16
-> +	 * as our working register for accessing the context structure.
-> +	 *
-> +	 * Register Handling:
-> +	 * - X0-X17: Saved/restored (general-purpose, shared for VTL communication)
-> +	 * - X18: NOT touched - hypervisor-managed per-VTL (platform register)
-> +	 * - X19-X30: Saved/restored (part of VTL0's execution context)
-> +	 * - Q0-Q31: Saved/restored (128-bit NEON/floating-point registers, shared)
-> +	 * - SP: Not in structure, hypervisor-managed per-VTL
-> +	 *
-> +	 * X29 (FP) and X30 (LR) are in the structure and must be saved/restored
-> +	 * as part of VTL0's complete execution state.
-> +	 */
-> +	asm __volatile__ (
-> +		/* Save base pointer to stack explicitly, then load into x16 */
-> +		"str %0, [sp, #-16]!\n\t"     /* Push base pointer onto stack */
-> +		"mov x16, %0\n\t"             /* Load base pointer into x16 */
-> +		/* Volatile registers (Windows ARM64 ABI: x0-x17) */
-> +		"ldp x0, x1, [x16]\n\t"
-> +		"ldp x2, x3, [x16, #(2*8)]\n\t"
-> +		"ldp x4, x5, [x16, #(4*8)]\n\t"
-> +		"ldp x6, x7, [x16, #(6*8)]\n\t"
-> +		"ldp x8, x9, [x16, #(8*8)]\n\t"
-> +		"ldp x10, x11, [x16, #(10*8)]\n\t"
-> +		"ldp x12, x13, [x16, #(12*8)]\n\t"
-> +		"ldp x14, x15, [x16, #(14*8)]\n\t"
-> +		/* x16 will be loaded last, after saving base pointer */
-> +		"ldr x17, [x16, #(17*8)]\n\t"
-> +		/* x18 is hypervisor-managed per-VTL - DO NOT LOAD */
+On Thu, Apr 23, 2026 at 02:55:14PM +0100, Yeoreum Yun wrote:
+>> On Thu, 2026-04-23 at 13:53 +0100, Jonathan McDowell wrote:
+>> > On Thu, Apr 23, 2026 at 01:34:13PM +0100, Yeoreum Yun wrote:
+>> > > > > On Thu, 2026-04-23 at 06:55 +0100, Yeoreum Yun wrote:
+>> > > > > > > On Wed, 2026-04-22 at 20:41 +0100, Yeoreum Yun wrote:
+>> > > > > > > > > Hi Mimi,
+>> > > > > > > > >
+>> > > > > > > > > > On Wed, 2026-04-22 at 17:24 +0100, Yeoreum Yun wrote:
+>> > > > > > > > > > > To generate the boot_aggregate log in the IMA subsystem with TPM PCR values,
+>> > > > > > > > > > > the TPM driver must be built as built-in and
+>> > > > > > > > > > > must be probed before the IMA subsystem is initialized.
+>> > > > > > > > > > >
+>> > > > > > > > > > > However, when the TPM device operates over the FF-A protocol using
+>> > > > > > > > > > > the CRB interface, probing fails and returns -EPROBE_DEFER if
+>> > > > > > > > > > > the tpm_crb_ffa device — an FF-A device that provides the communication
+>> > > > > > > > > > > interface to the tpm_crb driver — has not yet been probed.
+>> > > > > > > > > > >
+>> > > > > > > > > > > To ensure the TPM device operating over the FF-A protocol with
+>> > > > > > > > > > > the CRB interface is probed before IMA initialization,
+>> > > > > > > > > > > the following conditions must be met:
+>> > > > > > > > > > >
+>> > > > > > > > > > >    1. The corresponding ffa_device must be registered,
+>> > > > > > > > > > >       which is done via ffa_init().
+>> > > > > > > > > > >
+>> > > > > > > > > > >    2. The tpm_crb_driver must successfully probe this device via
+>> > > > > > > > > > >       tpm_crb_ffa_init().
+>> > > > > > > > > > >
+>> > > > > > > > > > >    3. The tpm_crb driver using CRB over FF-A can then
+>> > > > > > > > > > >       be probed successfully. (See crb_acpi_add() and
+>> > > > > > > > > > >       tpm_crb_ffa_init() for reference.)
+>> > > > > > > > > > >
+>> > > > > > > > > > > Unfortunately, ffa_init(), tpm_crb_ffa_init(), and crb_acpi_driver_init() are
+>> > > > > > > > > > > all registered with device_initcall, which means crb_acpi_driver_init() may
+>> > > > > > > > > > > be invoked before ffa_init() and tpm_crb_ffa_init() are completed.
+>> > > > > > > > > > >
+>> > > > > > > > > > > When this occurs, probing the TPM device is deferred.
+>> > > > > > > > > > > However, the deferred probe can happen after the IMA subsystem
+>> > > > > > > > > > > has already been initialized, since IMA initialization is performed
+>> > > > > > > > > > > during late_initcall, and deferred_probe_initcall() is performed
+>> > > > > > > > > > > at the same level.
+>> > > > > > > > > > >
+>> > > > > > > > > > > To resolve this, call ima_init() again at late_inicall_sync level
+>> > > > > > > > > > > so that let IMA not miss TPM PCR value when generating boot_aggregate
+>> > > > > > > > > > > log though TPM device presents in the system.
+>> > > > > > > > > > >
+>> > > > > > > > > > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+>> > > > > > > > > >
+>> > > > > > > > > > A lot of change for just detecting whether ima_init() is being called on
+>> > > > > > > > > > late_initcall or late_initcall_sync(), without any explanation for all the other
+>> > > > > > > > > > changes (e.g. ima_init_core).
+>> > > > > > > > > >
+>> > > > > > > > > > Please just limit the change to just calling ima_init() twice.
+>> > > > > > > > >
+>> > > > > > > > > My concern is that ima_update_policy_flags() will be called
+>> > > > > > > > > when ima_init() is deferred -- not initialised anything.
+>> > > > > > > > > though functionally, it might be okay however,
+>> > > > > > > > > I think ima_update_policy_flags() and notifier should work after ima_init()
+>> > > > > > > > > works logically.
+>> > > > > > > > >
+>> > > > > > > > > This change I think not much quite a lot. just wrapper ima_init() with
+>> > > > > > > > > ima_init_core() with some error handling.
+>> > > > > > > > >
+>> > > > > > > > > Am I missing something?
+>> > > > > > > >
+>> > > > > > > > Also, if we handle in ima_init() only, but it failed with other reason,
+>> > > > > > > > we shouldn't call again ima_init() in the late_initcall_sync.
+>> > > > > > > >
+>> > > > > > > > To handle this, It wouldn't do in the ima_init() but we need to handle
+>> > > > > > > > it by caller of ima_init().
+>> > > > > > >
+>> > > > > > > Only tpm_default_chip() is being called to set the ima_tpm_chip.  On failure,
+>> > > > > > > instead of going into TPM-bypass mode, return immediately.  There are no calls
+>> > > > > > > to anything else.  Just call ima_init() a second time.
+>> > > > > >
+>> > > > > > I’m not fully convinced this is sufficient.
+>> > > > > >
+>> > > > > > What I meant is the case where ima_init() fails due to other
+>> > > > > > initialisation steps, not only tpm_default_chip() (e.g. ima_fs_init()).
+>> > > > >
+>> > > > > The purpose of THIS patch is to add late_initcall_sync, when the TPM is not
+>> > > > > available at late_initcall.  This would be classified as a bug fix and would be
+>> > > > > backported.  No other changes should be included in this patch.
+>> > > >
+>> > > > Okay.
+>> > > >
+>> > > > > >
+>> > > > > > I’d also like to ask again whether it is fine to call
+>> > > > > > ima_update_policy_flags() and keep the notifier registered in the
+>> > > > > > deferred TPM case. While this may be functionally acceptable, it seems
+>> > > > > > logically questionable to do so when ima_init() has not completed.
+>> > > > >
+>> > > > > Other than extending the TPM, IMA should behave exactly the same whether there
+>> > > > > is a TPM or goes into TPM-bypass mode.
+>> > > > >
+>> > > > > >
+>> > > > > > There is also a possibility that a deferred case ultimately fails (e.g.
+>> > > > > > deferred at late_initcall, but then failing at late_initcall_sync
+>> > > > > > for another reason, even while entering TPM bypass mode). In that case,
+>> > > > > > it seems more appropriate to handle this state in the caller of
+>> > > > > > ima_init(), rather than inside ima_init() itself.
+>> > > > >
+>> > > > > If the TPM isn't found at late_initcall_sync(), then IMA should go into TPM-
+>> > > > > bypass mode.  Please don't make any other changes to the existing IMA behavior
+>> > > > > and hide it here behind the late_initcall_sync change.
+>> > > >
+>> > > > Okay. you're talking called ima_update_policy_flags() at late_initcall
+>> > > > wouldn't be not a problem even in case of late_initcall_sync's ima_init()
+>> > > > get failed with "TPM-bypass mode".
+>> > > >
+>> > > > I see then, I'll make a patch simpler then.
+>> > >
+>> > > But I think in case of below situation:
+>> > >  - late_initcall's first ima_init() is deferred.
+>> > >  - late_initcall_sync try again but failed and try again with
+>> > >    CONFIG_IMA_DEFAULT_HASH.
+>> > >
+>> > > I would like to sustain init_ima_core to reduce the same code repeat
+>> > > in late_initcall_sync.
+>> >
+>> > I think what Mimi's proposing is:
+>> >
+>> > If we're in late_initcall, and the TPM isn't available, return
+>> > immediately with an error (the EPROBE_DEFER?), don't do any init.
+>> >
+>> > If we're in late_initcall_sync, either we're already initialised, so do
+>> > return and nothing, or run through the entire flow, even if the TPM
+>> > isn't unavailable.
+>> >
+>> > So ima_init() just needs to know a) if it's in the sync or non-sync mode
+>> > and b) for the sync mode, if we've already done the init at
+>> > non-sync.
+>>
+>> Thanks, Jonathan.  That is exactly what I'm suggesting.  Any other changes
+>> should not be included in this patch.  Since Yeoreum is not hearing me, feel
+>> free to post a patch.
+>
+>I see. so what you need to is this only
+>If it looks good to you. I'll send it at v3.
 
-Wut? Does it mean the kernel is not free to use x18?
+FWIW, I pulled the tpm_default_chip check out a level to account for the 
+extra init you mentioned, and have the following (completely untested or 
+compiled, but gives the approach):
 
-> +		/* General-purpose registers: x19-x30 */
-> +		"ldp x19, x20, [x16, #(19*8)]\n\t"
-> +		"ldp x21, x22, [x16, #(21*8)]\n\t"
-> +		"ldp x23, x24, [x16, #(23*8)]\n\t"
-> +		"ldp x25, x26, [x16, #(25*8)]\n\t"
-> +		"ldp x27, x28, [x16, #(27*8)]\n\t"
-> +
-> +		/* Frame pointer and link register */
-> +		"ldp x29, x30, [x16, #(29*8)]\n\t"
-> +
-> +		/* Shared NEON/FP registers: Q0-Q31 (128-bit) */
-> +		"ldp q0, q1, [x16, #(32*8)]\n\t"
-> +		"ldp q2, q3, [x16, #(32*8 + 2*16)]\n\t"
-> +		"ldp q4, q5, [x16, #(32*8 + 4*16)]\n\t"
-> +		"ldp q6, q7, [x16, #(32*8 + 6*16)]\n\t"
-> +		"ldp q8, q9, [x16, #(32*8 + 8*16)]\n\t"
-> +		"ldp q10, q11, [x16, #(32*8 + 10*16)]\n\t"
-> +		"ldp q12, q13, [x16, #(32*8 + 12*16)]\n\t"
-> +		"ldp q14, q15, [x16, #(32*8 + 14*16)]\n\t"
-> +		"ldp q16, q17, [x16, #(32*8 + 16*16)]\n\t"
-> +		"ldp q18, q19, [x16, #(32*8 + 18*16)]\n\t"
-> +		"ldp q20, q21, [x16, #(32*8 + 20*16)]\n\t"
-> +		"ldp q22, q23, [x16, #(32*8 + 22*16)]\n\t"
-> +		"ldp q24, q25, [x16, #(32*8 + 24*16)]\n\t"
-> +		"ldp q26, q27, [x16, #(32*8 + 26*16)]\n\t"
-> +		"ldp q28, q29, [x16, #(32*8 + 28*16)]\n\t"
-> +		"ldp q30, q31, [x16, #(32*8 + 30*16)]\n\t"
-> +
-> +		/* Now load x16 itself */
-> +		"ldr x16, [x16, #(16*8)]\n\t"
-> +
-> +		/* Return to the lower VTL */
-> +		"hvc #3\n\t"
+diff --git a/include/linux/lsm_hooks.h b/include/linux/lsm_hooks.h
+index d48bf0ad26f4..88fe105b7f00 100644
+--- a/include/linux/lsm_hooks.h
++++ b/include/linux/lsm_hooks.h
+@@ -166,6 +166,7 @@ enum lsm_order {
+   * @initcall_fs: LSM callback for fs_initcall setup, optional
+   * @initcall_device: LSM callback for device_initcall() setup, optional
+   * @initcall_late: LSM callback for late_initcall() setup, optional
++ * @initcall_late_sync: LSM callback for late_initcall_sync() setup, optional
+   */
+  struct lsm_info {
+  	const struct lsm_id *id;
+@@ -181,6 +182,7 @@ struct lsm_info {
+  	int (*initcall_fs)(void);
+  	int (*initcall_device)(void);
+  	int (*initcall_late)(void);
++	int (*initcall_late_sync)(void);
+  };
+  
+  #define DEFINE_LSM(lsm)							\
+diff --git a/security/integrity/ima/ima_init.c b/security/integrity/ima/ima_init.c
+index a2f34f2d8ad7..a60dfb8316d8 100644
+--- a/security/integrity/ima/ima_init.c
++++ b/security/integrity/ima/ima_init.c
+@@ -119,10 +119,6 @@ int __init ima_init(void)
+  {
+  	int rc;
+  
+-	ima_tpm_chip = tpm_default_chip();
+-	if (!ima_tpm_chip)
+-		pr_info("No TPM chip found, activating TPM-bypass!\n");
+-
+  	rc = integrity_init_keyring(INTEGRITY_KEYRING_IMA);
+  	if (rc)
+  		return rc;
+diff --git a/security/integrity/ima/ima_main.c b/security/integrity/ima/ima_main.c
+index 1d6229b156fb..b60a85fa803a 100644
+--- a/security/integrity/ima/ima_main.c
++++ b/security/integrity/ima/ima_main.c
+@@ -1237,7 +1237,7 @@ static int ima_kernel_module_request(char *kmod_name)
+  
+  #endif /* CONFIG_INTEGRITY_ASYMMETRIC_KEYS */
+  
+-static int __init init_ima(void)
++static int __init init_ima(bool sync)
+  {
+  	int error;
+  
+@@ -1247,6 +1247,19 @@ static int __init init_ima(void)
+  		return 0;
+  	}
+  
++	/* If we found the TPM during our first attempt, nothing further to do */
++	if (sync && ima_tpm_chip)
++		return 0;
++
++	ima_tpm_chip = tpm_default_chip();
++	if (!ima_tpm_chip && !sync) {
++		pr_debug("TPM not available, will try later\n");
++		return -EPROBE_DEFER;
++	}
++
++	if (!ima_tpm_chip)
++		pr_info("No TPM chip found, activating TPM-bypass!\n");
++
+  	ima_appraise_parse_cmdline();
+  	ima_init_template_list();
+  	hash_setup(CONFIG_IMA_DEFAULT_HASH);
+@@ -1274,6 +1287,16 @@ static int __init init_ima(void)
+  	return error;
+  }
+  
++static int __init init_ima_late(void)
++{
++	return init_ima(false);
++}
++
++static int __init init_ima_late_sync(void)
++{
++	return init_ima(true);
++}
++
+  static struct security_hook_list ima_hooks[] __ro_after_init = {
+  	LSM_HOOK_INIT(bprm_check_security, ima_bprm_check),
+  	LSM_HOOK_INIT(bprm_creds_for_exec, ima_bprm_creds_for_exec),
+@@ -1319,6 +1342,7 @@ DEFINE_LSM(ima) = {
+  	.init = init_ima_lsm,
+  	.order = LSM_ORDER_LAST,
+  	.blobs = &ima_blob_sizes,
+-	/* Start IMA after the TPM is available */
+-	.initcall_late = init_ima,
++	/* Ensure we start IMA after the TPM is available */
++	.initcall_late = init_ima_late,
++	.initcall_late_sync = init_ima_late_sync,
+  };
+diff --git a/security/lsm_init.c b/security/lsm_init.c
+index 573e2a7250c4..4e5c59beb82a 100644
+--- a/security/lsm_init.c
++++ b/security/lsm_init.c
+@@ -547,13 +547,22 @@ device_initcall(security_initcall_device);
+   * security_initcall_late - Run the LSM late initcalls
+   */
+  static int __init security_initcall_late(void)
++{
++	return lsm_initcall(late);
++}
++late_initcall(security_initcall_late);
++
++/**
++ * security_initcall_late_sync - Run the LSM late initcalls sync
++ */
++static int __init security_initcall_late_sync(void)
+  {
+  	int rc;
+  
+-	rc = lsm_initcall(late);
++	rc = lsm_initcall(late_sync);
+  	lsm_pr_dbg("all enabled LSMs fully activated\n");
+  	call_blocking_lsm_notifier(LSM_STARTED_ALL, NULL);
+  
+  	return rc;
+  }
+-late_initcall(security_initcall_late);
++late_initcall_sync(security_initcall_late_sync);
 
-No. Absolutely not. If you need to do context switching, do it in the
-hypervisor. Entirely in the hypervisor. You don't even handle SVE, let
-alone SME. How is that going to work?
 
-And please use the SMCCC. Only that. Which mandates that the HVC
-immediate is 0, 0 or zero.
-
-	M.
+J.
 
 -- 
-Without deviation from the norm, progress is not possible.
+Rock and roll stops the traffic.
+This .sig brought to you by the letter A and the number 40
+Product of the Republic of HuggieTag
 
