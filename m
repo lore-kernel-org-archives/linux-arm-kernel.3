@@ -4,124 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C728FDEE30
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 17:13:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35236FDEE2F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 17:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
-	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rJaeCKEtayuzlEYXUriE4LWZP+/cgwW6bIQN+h+7zTo=; b=EXpbzALEVkkWCacf60Qmp7aGxs
-	wA2TB/MD7frwRyV+sj6i/lFPjfrNg3BWSLI2MCoglxLDJGO+/vsbkunN5XQCB8n/4eIvLIUrhF2lY
-	Nrjv7hwheThtXF85pg3BikOB43E2UDW6baR+SfJQ/dmOkt0pfv+ZaWXkXtxKjwSe+Wug1H08Ot632
-	+Yu4ISw45u/eGAsmlIqotU7DtFSve0Op1sQMcAguZO92tO6kN+oGDYlCGL054UoIgzMgE28js930C
-	W+PEVdECAruU8oDrdEddZlKRJ7EzVO/3RiN4mEb/LiBENOJr/hZMWD9Z348FWT6TWlqux3KuW50BH
-	7GkHhnQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cs7dqZsEBhd+oet7enpxgmKTrIOuhhSx8Ms9kGvFJUk=; b=4zkTfHD4V8VNc37jo+oAgvOTas
+	SzankJupGgC7bIjUaOm8WMO9mXATXz2Iirgnc0UpSmZnAhVMppRSlZni66x6aat69iETkkSUv4789
+	FYDN18Q22S2oqZzJJN42rYdrcpu4yND1UWu3YbIGuF8W0tvxInzxUXGf63TT6X6L4U50YPRsdWAIz
+	/EyqCmIsOo15Rv1skjXpt0gdsVsrjUhdt5k72dMP53bI4fmTcR+UEAlXEGAJxf/2FkWr3iMwg6ypf
+	Af7qvczYohKWkiK/f+Qx3tTxNDbJfw7XMJOLbXrGuolgdiNlx1AHgtoS0CNKLqRyScsfwCHXJvR/z
+	9WzkHAVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFxcL-0000000C1FX-3lhD;
-	Thu, 23 Apr 2026 17:13:33 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wFxfH-0000000C1ZO-0YVK;
+	Thu, 23 Apr 2026 17:16:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFxcJ-0000000C1FC-08KR
+	id 1wFxfF-0000000C1Z3-34uc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 17:13:32 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63N7QFF53514960;
-	Thu, 23 Apr 2026 17:13:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=rJaeCK
-	EtayuzlEYXUriE4LWZP+/cgwW6bIQN+h+7zTo=; b=R/FILJHYT53kb4HH9oGbfq
-	fEjVFMxcmPm1IBSRSL/5PXNc3MK9h/kQnYi4Io6SrrmroCag0/VBLC7EixNGKtu+
-	9KYYSNWlnLS1vTMPcM4u2X6N6Yc19UssHFq3w6qvM4RCfpDf5zSA5aW9mu8+StBP
-	M/YaLV/sg656/fnX96DAN8kXsJbb1ho1XDnX1Ybj0fUIO5B7sKsjUDBwgOgfLv6+
-	y724ntDlhHCnDrrg8vzyJXcbIyHLaXHe3mQ4BxaKuc4phhD8P62jJWYNhx74s4V5
-	VIPvarPMd1Ij4YPiwIlxZyhDV8il3lZJkV5KIWtOLn7R/1rOqMENP4ZkseSDfH6g
-	==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dpeu29vaf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 23 Apr 2026 17:13:15 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63NH5NAW012928;
-	Thu, 23 Apr 2026 17:13:14 GMT
-Received: from smtprelay02.wdc07v.mail.ibm.com ([172.16.1.69])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4dpjky7gx0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 23 Apr 2026 17:13:14 +0000 (GMT)
-Received: from smtpav02.wdc07v.mail.ibm.com (smtpav02.wdc07v.mail.ibm.com [10.39.53.229])
-	by smtprelay02.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63NHDDCP24838876
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 23 Apr 2026 17:13:13 GMT
-Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 59AD35805B;
-	Thu, 23 Apr 2026 17:13:13 +0000 (GMT)
-Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 554FF58059;
-	Thu, 23 Apr 2026 17:13:11 +0000 (GMT)
-Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.31.96.173])
-	by smtpav02.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 23 Apr 2026 17:13:11 +0000 (GMT)
-Message-ID: <fa1cba435e079c9012f1c5d7d2a1bf5420be666f.camel@linux.ibm.com>
-Subject: Re: [RFC PATCH v2 1/4] security: ima: call ima_init() again at
- late_initcall_sync for defered TPM
-From: Mimi Zohar <zohar@linux.ibm.com>
-To: Jonathan McDowell <noodles@earth.li>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, linux-security-module@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
-        roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
-        eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
-        sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
-        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-        catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
-        sebastianene@google.com
-In-Reply-To: <aepQwcY523aukAvw@earth.li>
-References: <82803bb3b471898a77084c449b73c7f7b4eb2149.camel@linux.ibm.com>
-	 <aem0SSQuE1e3pGOS@e129823.arm.com>
-	 <56a8aab50a3b5ce0a345fc2079fb2abc7d0f1b23.camel@linux.ibm.com>
-	 <aeoAlVEwzRUPrlVe@e129823.arm.com> <aeoRxWPyOHGJd+Jh@e129823.arm.com>
-	 <aeoWO2Cwo04YYu2l@earth.li>
-	 <bd908e28298d968740d03c97bc7e441de188b7b4.camel@linux.ibm.com>
-	 <aeokwrC86WI7uT+K@e129823.arm.com> <aeomlp3I0eVE5mce@earth.li>
-	 <2866f7679fe6933de667ce74ae68bd4ea9198e2a.camel@linux.ibm.com>
-	 <aepQwcY523aukAvw@earth.li>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Thu, 23 Apr 2026 13:13:10 -0400
-MIME-Version: 1.0
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIzMDE2NyBTYWx0ZWRfXyUgMZm1RnAYH
- Nsy8eNb2A1u2zmIjH7rBl5HRJ0yhf9nZT3AQYGDoxQz4hhcXoiyXD4uSgf9YQmbQ95XGVlSkQJ2
- KfGChdYbi+3o8xcS1HaS/XOY+ijFpvlvjJLWk2meZ+/mF3yda5oAgQDWKMkZDzh8UThbhWRjDy0
- wq/qxvNeGb0/kfj/jQzMZrSuiSynYaWQ3ml6kmUN6vbTo+sM+7OebrKnvEOTm3KfUqGHtmZPJvu
- Br7fYJMQKLE/rPzjbAwwKr+kCUR6+64lJjgTeJQESAxdrFUeuU05UMJZ/zku0YqQIGFyZxrToLp
- ry/uk5N34+P5jvt4fJAh1pslik7UBYEmeSBlwPLhEOAAziQ3cyeyIXXKT2mAcmw7nJKfYYDxfcJ
- pcUOZ8DNjUe/LtWKLsZaFOQQrDlYsNbcED3r/G3V0srXUeW8jCBZjU/TBodCW2qSlzAX5VYDE2w
- Tg6I12aO9Vuj25m6O5A==
-X-Proofpoint-ORIG-GUID: pC9mLLj3OfCH9cVB1IahK0HdCebjXzl9
-X-Proofpoint-GUID: _gF3ttoQHZEMVej8gUL2B61bY_rxrf4E
-X-Authority-Analysis: v=2.4 cv=XMUAjwhE c=1 sm=1 tr=0 ts=69ea532b cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=pqNCOWEjtIZj0EiKEvsA:9
- a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-23_03,2026-04-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 clxscore=1015 priorityscore=1501 impostorscore=0 bulkscore=0
- spamscore=0 lowpriorityscore=0 phishscore=0 adultscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604230167
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_101331_081564_DE65BDAC 
-X-CRM114-Status: GOOD (  26.81  )
+	Thu, 23 Apr 2026 17:16:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AE7EF60139;
+	Thu, 23 Apr 2026 17:16:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7B86C2BCAF;
+	Thu, 23 Apr 2026 17:16:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1776964592;
+	bh=5p+VepR5wJHe4o7jIsVUYpLrJUgsXBIvYPh5Xah4Rf8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=s+jiOEXlNsToZuAs+kLgiqYKx6+FScUlmctoYOMjAJAav55a1VGjrfI6KzW22oVsa
+	 P1wzE2ZqcEIHTYCW9pNyUYoXuuWVJv8JJWU20B9C2RtfMylsjDywAe0lNxy62ZKIAi
+	 G2IOPewWlzy+DdieHRfP5JTTHdlX7R7MBfcgJf/c=
+Date: Thu, 23 Apr 2026 10:16:31 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Ankur Arora <ankur.a.arora@oracle.com>
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+ bpf@vger.kernel.org, arnd@arndb.de, catalin.marinas@arm.com,
+ will@kernel.org, peterz@infradead.org, mark.rutland@arm.com,
+ harisokn@amazon.com, cl@gentwo.org, ast@kernel.org, rafael@kernel.org,
+ daniel.lezcano@linaro.org, memxor@gmail.com, zhenglifeng1@huawei.com,
+ xueshuai@linux.alibaba.com, rdunlap@infradead.org,
+ david.laight.linux@gmail.com, joao.m.martins@oracle.com,
+ boris.ostrovsky@oracle.com, konrad.wilk@oracle.com, ashok.bhat@arm.com
+Subject: Re: [PATCH v11 00/14] barrier: Add
+ smp_cond_load_{relaxed,acquire}_timeout()
+Message-Id: <20260423101631.84f26592d629eee46fbde6f8@linux-foundation.org>
+In-Reply-To: <20260408122538.3610871-1-ankur.a.arora@oracle.com>
+References: <20260408122538.3610871-1-ankur.a.arora@oracle.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,56 +74,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2026-04-23 at 18:02 +0100, Jonathan McDowell wrote:
-> > > > > >=20
-> > > > > > I think what Mimi's proposing is:
-> > > > > >=20
-> > > > > > If we're in late_initcall, and the TPM isn't available, return
-> > > > > > immediately with an error (the EPROBE_DEFER?), don't do any ini=
-t.
-> > > > > >=20
-> > > > > > If we're in late_initcall_sync, either we're already initialise=
-d, so do
-> > > > > > return and nothing, or run through the entire flow, even if the=
- TPM
-> > > > > > isn't unavailable.
-> > > > > >=20
-> > > > > > So ima_init() just needs to know a) if it's in the sync or non-=
-sync mode
-> > > > > > and b) for the sync mode, if we've already done the init at
-> > > > > > non-sync.
-> > > > >=20
-> > > > > Thanks, Jonathan.  That is exactly what I'm suggesting.  Any othe=
-r changes
-> > > > > should not be included in this patch.  Since Yeoreum is not heari=
-ng me, feel
-> > > > > free to post a patch.
-> > > >=20
-> > > > I see. so what you need to is this only
-> > > > If it looks good to you. I'll send it at v3.
-> > >=20
-> > > FWIW, I pulled the tpm_default_chip check out a level to account for =
-the
-> > > extra init you mentioned, and have the following (completely untested=
- or
-> > > compiled, but gives the approach):
-> >=20
-> > Thanks, Jonathan!  It looks good.  Similarly untested/compiled.
->=20
-> FWIW, it does compile.
->=20
-> > Emitting a message on failure to initialize IMA at late_initcall is goo=
-d, but
-> > the attestation service won't know.  Could you somehow differentiate be=
-tween the
-> > late_initcall and late_initcall_sync boot_aggregate records?
->=20
-> Are you thinking "boot_aggregate" and "boot_aggregate_late" or similar=
-=20
-> as the "filename" on the entries, just so it's clear when we did the=20
-> init in the log, or something else?
+On Wed,  8 Apr 2026 17:55:24 +0530 Ankur Arora <ankur.a.arora@oracle.com> wrote:
 
-Perfect!
+> The core kernel often uses smp_cond_load_{relaxed,acquire}() to spin
+> on condition variables with architectural primitives used to avoid
+> hammering the relevant cachelines.
+> 
+> ...
+> 
+> Accordingly add two interfaces (with their generic and arm64 specific
+> implementations):
+> 
+>    smp_cond_load_relaxed_timeout(ptr, cond_expr, time_expr, timeout)
+>    smp_cond_load_acquire_timeout(ptr, cond_expr, time_expr, timeout)
+> 
+> Also add tif_need_resched_relaxed_wait() which wraps the polling
+> pattern and its scheduler specific details in poll_idle().
+> In addition add atomic_cond_read_*_timeout(),
 
-Mimi
+Thanks, I'll add this to mm.git's mm-new branch today.
+
+This isn't am MM patchset, but mm-new isn't included in linux-next, and
+linux-next isn't presently open for 7.1 material.
+
+After -rc1 I'll move the series into mm.git's mm-nonmm-unstable branch,
+where it will get linux-next exposure.
+
+I see that further review/comment has been requested - hopefully this
+will happen over the next couple of months, but please do continue to
+chase this down if you feel the need.
+
+> Haris Okanovic also saw improvement in real workloads due to the
+> cpuidle changes: "observed 4-6% improvements in memcahed, cassandra,
+> mysql, and postgresql under certain loads. Other applications likely
+> benefit too." [12]
+
+Those are significant improvements.   Three years :(
 
