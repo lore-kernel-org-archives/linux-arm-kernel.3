@@ -4,117 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7AB7F589C9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 12:59:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABBE0F589CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 13:07:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EBoOCn6MiDkjwqqV0dZhBM0Mdu5029Jkm3x6gtbaC2A=; b=UTqFOa3CpFRHDDpcbirwen7QPm
-	AlLSoZCguGsiSliYwRtMf7F5NCXp1/j5knZqvpduG/OP1WIqJG8bOLGPEx3BiEsEsDS15TL7kmWLv
-	Dr1w99OYhJggsgRctNrhVXnOG+8YPKV2uvrMDFcEAtVgUqGg0zkhSvfIyIxXskQd8/Uv6doaWHoJY
-	s6Ke4rfH7ZwO3qpwbkQLXbRzvTeFtmJxxdPpTHVQCyBERZ/OqPS455sNyJI8WN48QaeNMAUE3kaOK
-	3CTIWY7ViteCUVZSdeqr6PLKQ2cez48ijTpymiMOs7nGIBKaXh3DRThsW8GGR3p8lOc38Ev4rm191
-	URA+jU4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mhqmQtSXuGtz3JsE5XvFwEBY9BcH2MnEeQMlIt5rSN0=; b=iZ2TXdwMDDfKNBcAheB+Vxarzi
+	6W8vI/zjtxaEACKtex0eDtTHwKjEbzCP/pX6AEGFv3PFqzADS8RYIPlYrzdtcjbMP+odFo4E6Qiao
+	1KT4LqeLOfsNX+16ENdzs0dORgfb+/zgCrsZxTLO6M/9NC3eCbKQGndvGeivIrmOpYmC9EzTYUnB1
+	abRb1CzGZoqAOOZSSzR5E7JlR7isvqRxgdsJZXJOhikMMqRbkShDspPwpuTVdr7OaGySZMROaR6Zx
+	sZonv6JCmpdUCs1+JXHkwd5YRkyheB+SkTGP+tsMlMLGyizGH0OZcuE1ITKnbZ+GF0J1DKviMfz6H
+	Zu3NJqNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFte7-0000000Bhzi-0aLl;
-	Thu, 23 Apr 2026 12:59:07 +0000
-Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFte3-0000000BhyB-1Ro7
+	id 1wFtm2-0000000BiVk-1iWP;
+	Thu, 23 Apr 2026 13:07:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wFtlw-0000000BiV1-14xJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 12:59:04 +0000
-Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-38e12c67a6fso65693391fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 05:59:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776949141; cv=none;
-        d=google.com; s=arc-20240605;
-        b=CuxaLZ2SWD1E37ahvvD/C0E1NlxYVNhwcdhwTYA66q7hJO+iROC+wASrjJ2Apby3xL
-         rxb8yII3GcNTXDbvahMsKQFPWY59TbwK8bP1sxZ4+6lOSM/64NuWSy+r0/45ZadHL+LW
-         fXAqI+PPRh2kX0A88kWKUD3SC+7f+HIFg8dutOVYBqScJKn5t09vA6S0Cu/lTolhwD60
-         lorkVwmPNO3JRVvFScbjQr6YKq0U5geYE8xV4c4KwuzjYspjeiVYWvalebNgv2WDrUxZ
-         WMH91MM/c9xnMX1LHfhYv18Ht+dKbt85Qf/cznxKg5iR8mLvsjB6J8piyLC7KHZJ5pOW
-         L6dw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=EBoOCn6MiDkjwqqV0dZhBM0Mdu5029Jkm3x6gtbaC2A=;
-        fh=IptLfyiH4nVmfuwAn6QbPFYQmH5O+aSBj7evK+xS4ng=;
-        b=dUU8zJLziFnQVfq3BFPSru44cg2MaRtVhx9Ce9SkreKcMwfO2QMYprdvzPRDY3vWn2
-         zxEQp6weM0k1n25jroo9nB7moGqGPrIZMFtnhAj5/+tbA+z0WyyWpvfHSJu+StjS5FhQ
-         4EwIzBdCycyPF6+NTJLeIRGRfckvcw//x0bdDvoX5YfMLsBElqL1SgiDKnNa+RkersAs
-         67jsrBGgCByXe55ZekFSm3uXCm9ucbYqb9R9oCjrLmXjkGRmJN39IE609EU70Xi02IaH
-         XhPM0/NsjjwOE9c7y/EcLToysgw5DCSUxkKOV1KQS07HQKHtf+gDWV4hFPpEKLhY5XLc
-         FNHQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1776949141; x=1777553941; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EBoOCn6MiDkjwqqV0dZhBM0Mdu5029Jkm3x6gtbaC2A=;
-        b=bePYKwjEyi489pSM28z+W4KrzpFuVsVZQDePCF0arb7mIoIxTg/XE7gTsioX3pec40
-         P1zEQW9RUWJdTQfV+3L/yZCPlbR5hwGw+E40eu/TnjkIjpSgeQ3S01rqZhIb/p4T9uJ2
-         WXJL06MsoCO4PFIOXTmELKrjJ+cHIbaWNCwfXzGDC/7aYM0eJziPQXoOKbNpeiz+sJs/
-         Mm9wWbwqC7+4ibBQ7yDmBeKdp6hLk2fj6LDBv82UQ6BNIF0rJNkRnMxFfPrRucMBpIO+
-         +vJkUBfBl5LFrAxPbXBovy1a4pHwps3LryrO1v4Anqq4l0FDMI9+z+fs4MH5jCQCY3pS
-         HmAA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776949141; x=1777553941;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=EBoOCn6MiDkjwqqV0dZhBM0Mdu5029Jkm3x6gtbaC2A=;
-        b=TyMsOiEquf+Fl54J9BVTnfqbFm5+Ns6SxXc4WE9+cyvOsaV24fFs3Al/wJaB6nzoe6
-         nz3+35tCLopM137paCtBuG2AY4LsHcg7TJOinnZmZnG3N0TbJVJRP12dYahRSuNIiCpv
-         TVrgJ2zZKoZnIFbpmBsM7s6B5f/pJwv+AWMMbifGTJWmQHWhLmdRxWky539P6+Xss3lf
-         DcdHyh2mtbcUBVxucX0UK8fdEWuNiZqLE/wgY9QBIb2YA2acGTEN/sbHpwvlsDP8zNYU
-         AoPSZWUR4IMlDiVaNZB4mZcqJyPgh96x8xsPpWM7ripkY9ON6YFJ+jkJ7JYd5iCwxwqD
-         gLqw==
-X-Forwarded-Encrypted: i=1; AFNElJ9LWflgrQHy+YMo6x4BDEm2AqTtKg/f5IgeOjOWN9kbA5HbQLDtKLkhBi+sP7PjtHaknrZWcY9vJBDHJEWuiUid@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPF5lClTieN2mZhZD6/RCg/sSgFOH6McAy+HV+qFigw9rH8pyk
-	XT0HbGUnlQXSrBqEzaqVXcjRilZks1wZmx5Ml/jskKchkaxVLQtAgGRTmt2RiPxW2t34XQmREU8
-	P2Q2QBKxeuPu99UMS1Hsh3FFEdJVdF0YHBEqeJjSV
-X-Gm-Gg: AeBDievzFCh+JPXhWdnUnvvVj9UFmaVKiMwu3iZ+OxU7nCjVO+jhX4hb5Y+8Z6LbteD
-	votHhdMyjr5c3TRkIfxyul5BnUioeXrzTZzB9o6QRGmtCE9UyPs4IXc0evxIYklXZZHr3db8/J7
-	UEGaZtAsv3k5Odon1M7qsOwggjmXBgT44GLLtI/oMnihObvJxDQiCLVi1UzW06Mvab8ctFVskON
-	kby7DN4eyTF6oN/Hryh2k/nxCk6wGkp1/TykhN/TnI5jg4BF9S382kzVC61Ng+jhQkjve6/NEpv
-	2oABFwgSNwv/bJgu38+6Ia6iqA2zndFnevaQZ1PpibTwWrZl7EBiremNZX9GBJxRG2tQi+AkoxA
-	h2cEySwxvEXQQF54=
-X-Received: by 2002:a05:651c:4209:b0:38e:d870:1db5 with SMTP id
- 38308e7fff4ca-38ed8701e80mr69433801fa.7.1776949140643; Thu, 23 Apr 2026
- 05:59:00 -0700 (PDT)
+	Thu, 23 Apr 2026 13:07:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 28BE71C25;
+	Thu, 23 Apr 2026 06:07:04 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 252DA3F23F;
+	Thu, 23 Apr 2026 06:07:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776949629; bh=RHhcDZSJjqbRFX5DvA0y5u/itfLV8Axf4SV02gWmRjk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RETRutih09HHlXWKLVKHaO/cqhNbepyaLVofdEY4Le4dC4voXpZcY79oHaMaR5IzT
+	 7c0IXm9yjEBBV4I8YBJ+yzU/LSzXbmoplWIqeZhp+uaIikQqVg29Und9n0ibXiUCt9
+	 W7ktWMiz+W5UB4frGHtuw/sdI7E8LZLCCwvOpjOo=
+Date: Thu, 23 Apr 2026 14:07:03 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Jonathan McDowell <noodles@earth.li>
+Cc: Mimi Zohar <zohar@linux.ibm.com>, linux-security-module@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
+	roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+	eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+	sebastianene@google.com
+Subject: Re: [RFC PATCH v2 1/4] security: ima: call ima_init() again at
+ late_initcall_sync for defered TPM
+Message-ID: <aeoZd/qb+/W6ufwz@e129823.arm.com>
+References: <20260422162449.1814615-2-yeoreum.yun@arm.com>
+ <6919248bdc85dac60277fa9d9c83d8bd258ca635.camel@linux.ibm.com>
+ <aekXaU52fzvNYaUF@e129823.arm.com>
+ <aekkVQwueKbFtG7C@e129823.arm.com>
+ <82803bb3b471898a77084c449b73c7f7b4eb2149.camel@linux.ibm.com>
+ <aem0SSQuE1e3pGOS@e129823.arm.com>
+ <56a8aab50a3b5ce0a345fc2079fb2abc7d0f1b23.camel@linux.ibm.com>
+ <aeoAlVEwzRUPrlVe@e129823.arm.com>
+ <aeoRxWPyOHGJd+Jh@e129823.arm.com>
+ <aeoWO2Cwo04YYu2l@earth.li>
 MIME-Version: 1.0
-References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
- <aejCaG6n9s7ak5TO@J2N7QTR9R3.cambridge.arm.com> <87zf2u28d1.ffs@tglx>
- <aekPXvvuKHKlETjm@J2N7QTR9R3.cambridge.arm.com> <87wlxy22x7.ffs@tglx>
- <c5331cd6-76c8-430d-978e-fcad164e48f6@huawei.com> <CACT4Y+bxnQyHGdVNE1BYTx+Z2-cscLb38HYS9jBM5gPAz8=4bw@mail.gmail.com>
- <1e839a25-d15f-40d3-ad6a-20469fb6137c@efficios.com> <CACT4Y+bMH+q2C7Xg9oHRP5ZbmvLpMpYzrdAd7B6XoXYc8=22sQ@mail.gmail.com>
- <84e0a8f6-c24c-469a-82a4-e82e33b764b4@efficios.com>
-In-Reply-To: <84e0a8f6-c24c-469a-82a4-e82e33b764b4@efficios.com>
-From: Dmitry Vyukov <dvyukov@google.com>
-Date: Thu, 23 Apr 2026 14:58:48 +0200
-X-Gm-Features: AQROBzBMZhPIR5gRUuR2Cv8QJN7ZCnPb8ovR-0L9yVQuuYL1RfgenAYTSh02Kxg
-Message-ID: <CACT4Y+aSvv-n4gknRm8D=pLGsnh7PU3f5MTJSq4tTPqUWn80+A@mail.gmail.com>
-Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
- and tcmalloc everywhere
-To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>, linux-man@vger.kernel.org, 
-	Thomas Gleixner <tglx@linutronix.de>, Mark Rutland <mark.rutland@arm.com>, 
-	Mathias Stearn <mathias@mongodb.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, 
-	"Paul E. McKenney" <paulmck@kernel.org>, Chris Kennelly <ckennelly@google.com>, regressions@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@kernel.org>, 
-	Blake Oler <blake.oler@mongodb.com>, Michael Jeanson <mjeanson@efficios.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aeoWO2Cwo04YYu2l@earth.li>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_055903_428213_FBD5D3C7 
-X-CRM114-Status: GOOD (  39.10  )
+X-CRM114-CacheID: sfid-20260423_060712_389141_34BE902B 
+X-CRM114-Status: GOOD (  56.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,129 +87,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Apr 2026 at 14:53, Mathieu Desnoyers
-<mathieu.desnoyers@efficios.com> wrote:
->
-> On 2026-04-23 08:36, Dmitry Vyukov wrote:
-> > On Thu, 23 Apr 2026 at 14:29, Mathieu Desnoyers
-> > <mathieu.desnoyers@efficios.com> wrote:
-> >>
-> >> On 2026-04-23 01:53, Dmitry Vyukov wrote:
-> >> [...]
-> >>> +linux-man
-> >>>
-> >>> This part of the rseq man page needs to be fixed as well I think. The
-> >>> kernel no longer reliably provides clearing of rseq_cs on preemption,
-> >>> right?
-> >>>
-> >>> https://git.kernel.org/pub/scm/libs/librseq/librseq.git/tree/doc/man/=
-rseq.2#n241
-> >>
-> >> I'm maintaining this manual page in librseq.
-> >>
-> >>>
-> >>> "and set to NULL by the kernel when it restarts an assembly
-> >>> instruction sequence block,
-> >>> as well as when the kernel detects that it is preempting or deliverin=
-g
-> >>> a signal outside of the range targeted by the rseq_cs."
-> >>
-> >> I think you got two things confused here.
-> >>
-> >> 1) There is currently a bug on arm64 where it fails to honor the
-> >>      rseq ABI contract wrt critical section abort. AFAIU there is a
-> >>      fix proposed for this.
-> >>
-> >> 2) Thomas relaxed the implementation of cpu_id_start field updates
-> >>      so it only stores to the rseq area when the current cpu actually
-> >>      changes (migration).
-> >>
-> >> So AFAIU the statement in the man page is still fine. It's just arm64
-> >> that needs fixing.
-> >
-> >
-> > My understanding was that due to the ev->user_irq check here:
-> >
-> > +static __always_inline void rseq_sched_switch_event(struct task_struct=
- *t)
-> > ...
-> > +               bool raise =3D (ev->user_irq | ev->ids_changed) & ev->h=
-as_rseq;
-> > +
-> > +               if (raise) {
-> > +                       ev->sched_switch =3D true;
-> > +                       rseq_raise_notify_resume(t);
-> > +               }
-> >
-> > There won't be any rseq-related processing for threads preempted in
-> > syscalls, which means that rseq_cs won't be NULLed for threads
-> > preempted inside of syscalls.
->
-> Let's see if I understand your concern correctly. Scenario:
->
-> A thread is within a rseq critical section. It exits the critical
-> section without clearing the rseq_cs pointer, expecting the kernel
-> to lazily clear the rseq_cs pointer eventually when it detects that
-> it's not nested on top of the userspace critical section anymore.
-> It then calls a system call _outside_ of the rseq critical section,
-> but with rseq_cs pointer set. Based on the rseq man page wording,
-> it would then expect the preemption within the system call to guarantee
-> clearing that that pointer.
+Hi,
 
-Yes, this is the scenario I had in mind.
+> > > > On Thu, 2026-04-23 at 06:55 +0100, Yeoreum Yun wrote:
+> > > > > > On Wed, 2026-04-22 at 20:41 +0100, Yeoreum Yun wrote:
+> > > > > > > > Hi Mimi,
+> > > > > > > >
+> > > > > > > > > On Wed, 2026-04-22 at 17:24 +0100, Yeoreum Yun wrote:
+> > > > > > > > > > To generate the boot_aggregate log in the IMA subsystem with TPM PCR values,
+> > > > > > > > > > the TPM driver must be built as built-in and
+> > > > > > > > > > must be probed before the IMA subsystem is initialized.
+> > > > > > > > > >
+> > > > > > > > > > However, when the TPM device operates over the FF-A protocol using
+> > > > > > > > > > the CRB interface, probing fails and returns -EPROBE_DEFER if
+> > > > > > > > > > the tpm_crb_ffa device — an FF-A device that provides the communication
+> > > > > > > > > > interface to the tpm_crb driver — has not yet been probed.
+> > > > > > > > > >
+> > > > > > > > > > To ensure the TPM device operating over the FF-A protocol with
+> > > > > > > > > > the CRB interface is probed before IMA initialization,
+> > > > > > > > > > the following conditions must be met:
+> > > > > > > > > >
+> > > > > > > > > >    1. The corresponding ffa_device must be registered,
+> > > > > > > > > >       which is done via ffa_init().
+> > > > > > > > > >
+> > > > > > > > > >    2. The tpm_crb_driver must successfully probe this device via
+> > > > > > > > > >       tpm_crb_ffa_init().
+> > > > > > > > > >
+> > > > > > > > > >    3. The tpm_crb driver using CRB over FF-A can then
+> > > > > > > > > >       be probed successfully. (See crb_acpi_add() and
+> > > > > > > > > >       tpm_crb_ffa_init() for reference.)
+> > > > > > > > > >
+> > > > > > > > > > Unfortunately, ffa_init(), tpm_crb_ffa_init(), and crb_acpi_driver_init() are
+> > > > > > > > > > all registered with device_initcall, which means crb_acpi_driver_init() may
+> > > > > > > > > > be invoked before ffa_init() and tpm_crb_ffa_init() are completed.
+> > > > > > > > > >
+> > > > > > > > > > When this occurs, probing the TPM device is deferred.
+> > > > > > > > > > However, the deferred probe can happen after the IMA subsystem
+> > > > > > > > > > has already been initialized, since IMA initialization is performed
+> > > > > > > > > > during late_initcall, and deferred_probe_initcall() is performed
+> > > > > > > > > > at the same level.
+> > > > > > > > > >
+> > > > > > > > > > To resolve this, call ima_init() again at late_inicall_sync level
+> > > > > > > > > > so that let IMA not miss TPM PCR value when generating boot_aggregate
+> > > > > > > > > > log though TPM device presents in the system.
+> > > > > > > > > >
+> > > > > > > > > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> > > > > > > > >
+> > > > > > > > > A lot of change for just detecting whether ima_init() is being called on
+> > > > > > > > > late_initcall or late_initcall_sync(), without any explanation for all the other
+> > > > > > > > > changes (e.g. ima_init_core).
+> > > > > > > > >
+> > > > > > > > > Please just limit the change to just calling ima_init() twice.
+> > > > > > > >
+> > > > > > > > My concern is that ima_update_policy_flags() will be called
+> > > > > > > > when ima_init() is deferred -- not initialised anything.
+> > > > > > > > though functionally, it might be okay however,
+> > > > > > > > I think ima_update_policy_flags() and notifier should work after ima_init()
+> > > > > > > > works logically.
+> > > > > > > >
+> > > > > > > > This change I think not much quite a lot. just wrapper ima_init() with
+> > > > > > > > ima_init_core() with some error handling.
+> > > > > > > >
+> > > > > > > > Am I missing something?
+> > > > > > >
+> > > > > > > Also, if we handle in ima_init() only, but it failed with other reason,
+> > > > > > > we shouldn't call again ima_init() in the late_initcall_sync.
+> > > > > > >
+> > > > > > > To handle this, It wouldn't do in the ima_init() but we need to handle
+> > > > > > > it by caller of ima_init().
+> > > > > >
+> > > > > > Only tpm_default_chip() is being called to set the ima_tpm_chip.  On failure,
+> > > > > > instead of going into TPM-bypass mode, return immediately.  There are no calls
+> > > > > > to anything else.  Just call ima_init() a second time.
+> > > > >
+> > > > > I’m not fully convinced this is sufficient.
+> > > > >
+> > > > > What I meant is the case where ima_init() fails due to other
+> > > > > initialisation steps, not only tpm_default_chip() (e.g. ima_fs_init()).
+> > > >
+> > > > The purpose of THIS patch is to add late_initcall_sync, when the TPM is not
+> > > > available at late_initcall.  This would be classified as a bug fix and would be
+> > > > backported.  No other changes should be included in this patch.
+> > >
+> > > Okay.
+> > >
+> > > > >
+> > > > > I’d also like to ask again whether it is fine to call
+> > > > > ima_update_policy_flags() and keep the notifier registered in the
+> > > > > deferred TPM case. While this may be functionally acceptable, it seems
+> > > > > logically questionable to do so when ima_init() has not completed.
+> > > >
+> > > > Other than extending the TPM, IMA should behave exactly the same whether there
+> > > > is a TPM or goes into TPM-bypass mode.
+> > > >
+> > > > >
+> > > > > There is also a possibility that a deferred case ultimately fails (e.g.
+> > > > > deferred at late_initcall, but then failing at late_initcall_sync
+> > > > > for another reason, even while entering TPM bypass mode). In that case,
+> > > > > it seems more appropriate to handle this state in the caller of
+> > > > > ima_init(), rather than inside ima_init() itself.
+> > > >
+> > > > If the TPM isn't found at late_initcall_sync(), then IMA should go into TPM-
+> > > > bypass mode.  Please don't make any other changes to the existing IMA behavior
+> > > > and hide it here behind the late_initcall_sync change.
+> > >
+> > > Okay. you're talking called ima_update_policy_flags() at late_initcall
+> > > wouldn't be not a problem even in case of late_initcall_sync's ima_init()
+> > > get failed with "TPM-bypass mode".
+> > >
+> > > I see then, I'll make a patch simpler then.
+> >
+> > But I think in case of below situation:
+> >  - late_initcall's first ima_init() is deferred.
+> >  - late_initcall_sync try again but failed and try again with
+> >    CONFIG_IMA_DEFAULT_HASH.
+> >
+> > I would like to sustain init_ima_core to reduce the same code repeat
+> > in late_initcall_sync.
+>
+> I think what Mimi's proposing is:
+>
+> If we're in late_initcall, and the TPM isn't available, return immediately
+> with an error (the EPROBE_DEFER?), don't do any init.
+>
+> If we're in late_initcall_sync, either we're already initialised, so do
+> return and nothing, or run through the entire flow, even if the TPM isn't
+> unavailable.
+>
+> So ima_init() just needs to know a) if it's in the sync or non-sync mode and
+> b) for the sync mode, if we've already done the init at
+> non-sync.
 
-> Here is the relevant comment block in the man page:
->
->                       Updated by user-space, which sets the address of  t=
-he  cur=E2=80=90
->                       rently active rseq_cs at the beginning of assembly =
-instruc=E2=80=90
->                       tion sequence block, and set to NULL by the kernel =
-when  it
->                       restarts an assembly instruction sequence block, as=
- well as
-> >>>>>>>>>
->                       when the kernel detects that it is preempting or de=
-livering
->                       a  signal  outside  of  the  range targeted by the =
-rseq_cs.
-> >>>>>>>>>
->                            ^^^ this
->
-> The whole point about lazy-clearing of rseq_cs is that it _may_ happen wh=
-en
-> the kernel preempts or delivers a signal (or at any point really), but it=
-'s
-> just an optimization.
->
-> Updating the manual page with this wording would match the intent:
->
->                       Updated by user-space, which sets the address of  t=
-he  cur=E2=80=90
->                       rently active rseq_cs at the beginning of assembly =
-instruc=E2=80=90
->                       tion sequence block, and set to NULL by the kernel =
-when  it
->                       restarts an assembly instruction sequence block. Ma=
-y be set
->                       to NULL by the kernel when it detects that the curr=
-ent
->                       instruction pointer is outside of the range targete=
-d by
->                       the rseq_cs.
->                       Also needs to be set to NULL by user-space before  =
-reclaim=E2=80=90
->                       ing memory that contains the targeted struct rseq_c=
-s.
->
-> Thoughts ?
->
-> Thanks,
->
-> Mathieu
->
-> --
-> Mathieu Desnoyers
-> EfficiOS Inc.
-> https://www.efficios.com
+But think think about when "late_initcall_sync" happens.
+In case of it, whether TPM present or by-pass mode, if it failed,
+it try again with the DEFAULT_HASH if hash isn't use DEFAULT one
+(e.x. user set boot arguments hash_setup=md5).
+
+IOW, late_initcall_sync should call twice just like former code do this.
+I mean to wrap this duplication of code with init_core_ima().
+so that int late_initcall_sync in case of deferred case to try agina
+ima_init() with the DEFAULT HASH.
+
+--
+Sincerely,
+Yeoreum Yun
 
