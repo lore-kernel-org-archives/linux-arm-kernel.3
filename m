@@ -4,71 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC8ABFC0344
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 15:30:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E939FC0379
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 15:48:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i4RAH8ddCIi+9GJJREPSDgc/Dk751RBOjx5mXNK+lLs=; b=Hh6z21RUkg6j9QS8HgSlF+QBft
-	5H33z3CU7EHKBcZj5ZfiijNSc4IXheNHFRn8lUrzbhKWeTKKpyiRReD7vgPXXhc0DB67NG8H1o4Jk
-	ClELaJnOeIKKsktrSEVhANrb6Rmz5ohwO3KWOw4T8bm5Xgk5NGlO+z2hNfQY95YwCwVj34hp7YOYF
-	myIOjKLGrvdYxksYakGIVVodEwOw7NV88ci/vBRH3zWgkIbZ97gAKUtqSRbJtBJm2nrxycZQ6o/v+
-	E28fA7JDr9C3K7pJcSLPU5BkQvsPVsskr733r3EJzQFGHCQmyBPhtm4gBdelIFK4ZzRIe0CkOTdE8
-	qd/WRh8Q==;
+	bh=dC7DNEvH2Dc5r5NO1YFZU4U6vzo4Vxa0qfuO1PHkhoE=; b=oTMq9cf+7tztuFhuktbgn0REld
+	ETltxXoS3RIdqMAwM3Pax+xt1CGLYyj/AR/3N/xIMrmUocQbXrIzW4hamkOm21qj01kEimspYAVzF
+	7+Wu8TiS4HyRZT00MTrw015GxH2Nj8X8aGEE36xHU2vgI8I7a254C9e7wP5588RDyMO5oTr3eVJ/F
+	lUtMX8DqkfX914w2mpkypIDpSH74MsmfrYyhqqAv6Zypm+C2fU3Fnjiz0TmAvXpOs11GxaLvNCkrd
+	0uztS5UbQvrXm23fSOmTC6LjcynnUNHKQBKzG7A1ygmEUo+wyRlkvSr2+MzqodMOd7WyOU/NJIxnD
+	ooKEgJ5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFw0U-0000000Bu0F-49vI;
-	Thu, 23 Apr 2026 15:30:23 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1wFwHV-0000000BuoM-1yLo;
+	Thu, 23 Apr 2026 15:47:57 +0000
+Received: from mail-westus3azon11010007.outbound.protection.outlook.com ([52.101.201.7] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFw0N-0000000Btve-454r
+	id 1wFwHS-0000000Bunp-1uAo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 15:30:19 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=i4RAH8ddCIi+9GJJREPSDgc/Dk751RBOjx5mXNK+lLs=;
-	b=D2u1mWTQKNX/PPG3f6bcSG+V21t1CTHnJTJup2vk89XQsprpJqcUsT7hGitY/T6Pxe14Bnkst
-	nr18VCK+dUTxl+KVdkOcuVhY+d5uGvo2K2jNibPmjW3B90V6aMPhzg1VltlBvliL1lAbacyy0XG
-	uXxZNR6il4m5fpAQmVpCuKY=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4g1fxh0fw0zmV7C;
-	Thu, 23 Apr 2026 23:23:36 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id ECECA4056E;
-	Thu, 23 Apr 2026 23:30:00 +0800 (CST)
-Received: from kwepemn100008.china.huawei.com (7.202.194.111) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 23 Apr 2026 23:30:00 +0800
-Received: from localhost.huawei.com (10.90.31.46) by
- kwepemn100008.china.huawei.com (7.202.194.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Thu, 23 Apr 2026 23:30:00 +0800
-From: Yushan Wang <wangyushan12@huawei.com>
-To: <will@kernel.org>, <mark.rutland@arm.com>, <robin.murphy@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-CC: <fanghao11@huawei.com>, <linuxarm@huawei.com>, <liuyonglong@huawei.com>,
-	<prime.zeng@hisilicon.com>, <wangzhou1@hisilicon.com>,
-	<wangyushan12@huawei.com>
-Subject: [PATCH 1/2] drivers/perf: hisi: Support uncore ITS PMU
-Date: Thu, 23 Apr 2026 23:29:58 +0800
-Message-ID: <20260423152959.1458563-2-wangyushan12@huawei.com>
-X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20260423152959.1458563-1-wangyushan12@huawei.com>
-References: <20260423152959.1458563-1-wangyushan12@huawei.com>
+	Thu, 23 Apr 2026 15:47:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lgfzzNRR1/8JHuOyYM0SqXmMx7XeQZrjZj4FLuQcAwfZVczExaIPpt49lDHklcDa+cbdBur/F5WeQI1yaLsvt/+Hxcggkb2v+flTXeOgVMDVnC/ZGA/cFx5y0C4vXHRf4RYvrapqNYs2TWew6en2NNhxQRttuJjZujpKPKc2U18GhqmxvGjZ43GeI7/OXtyD6qBaOvTUErfUacyCIJ//lfzxcLhnKgdtcayESeIKftVz2oOH5m0N6C6Ui6xtrxnYuDSsAHl4E3iUjHPl0ef8XMu1PpxE+JX0L2ldWM5cTgHqZU3QStuHfzkjnzDlm5bJsbK403rzNOQmEZm1EtlSEg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dC7DNEvH2Dc5r5NO1YFZU4U6vzo4Vxa0qfuO1PHkhoE=;
+ b=scNcioX8QPK9zzmDjyw/PBTSQQb0tNT5i+3ETrIHvhcMqUL+Lb5DRPUAy/N2H1caqcxkKv97p3EWDNQllD97B7/p4tQAwfZ9SHAXLoJmBSjcTCMNB6BCFHhqPZQ8ifyAqBDUCFET8i79UUemU85UrO5m0PaUXouSJfAKsk4cbJXaWEKwavRGusj551dsDV6gvPYExA5Thvz3uF/b68HMV1fQg5zY2QghuWWeYWLMPbo0pUl4MnutQG1DIlGw50sQ013UUJsNyEchtkoLmaAOHadX3vwhrRLYA/4JOKFmk1XgJ9etXSxVwbDr7T7AVE4wTxDUxG1lUFroorQRQB0g5g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=linux.intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dC7DNEvH2Dc5r5NO1YFZU4U6vzo4Vxa0qfuO1PHkhoE=;
+ b=poqKwhmEjjJWr/tA0FBURpZOnSW7lwkHum4WZ3MEpljQRRmQ6RBXI2DRvHgmYn8lqweAZFiAjYZhKJRdDc0XKV4RCwQkaYXulY5w19MfV1XvTap3RXdePrwebv4xU8TqdvYpdTXSIXnKGG2CXqjYpZ2Gn2bfD+Xycz33v1uZSrQw8Xig4huq2JIplFQro/QR+SnEBUC4DGAlHQZPmkDYvP6YsBxxjx8ql3g+I45W6ouJKyOeE9IDFzKigibtGHmGFfWnrhUE/dUJMlVT7/obPMCD+tIqTjci+CPr7c388dahz2IOKxdPQ3BR+cDULoaMVG5rYt+/1PPsoD2bzblAjw==
+Received: from CY5PR10CA0028.namprd10.prod.outlook.com (2603:10b6:930:1c::21)
+ by CY1PR12MB9582.namprd12.prod.outlook.com (2603:10b6:930:fe::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.21; Thu, 23 Apr
+ 2026 15:47:44 +0000
+Received: from CY4PEPF0000E9D6.namprd05.prod.outlook.com
+ (2603:10b6:930:1c:cafe::89) by CY5PR10CA0028.outlook.office365.com
+ (2603:10b6:930:1c::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.22 via Frontend Transport; Thu,
+ 23 Apr 2026 15:47:43 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ CY4PEPF0000E9D6.mail.protection.outlook.com (10.167.241.69) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.18 via Frontend Transport; Thu, 23 Apr 2026 15:47:43 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 23 Apr
+ 2026 08:47:19 -0700
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 23 Apr
+ 2026 08:47:19 -0700
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.6)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 23 Apr 2026 08:47:17 -0700
+Date: Thu, 23 Apr 2026 08:47:16 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Baolu Lu <baolu.lu@linux.intel.com>
+CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
+ Roedel" <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>, "Jason
+ Gunthorpe" <jgg@nvidia.com>, "Rafael J . Wysocki" <rafael@kernel.org>, "Len
+ Brown" <lenb@kernel.org>, Pranjal Shrivastava <praan@google.com>, "Mostafa
+ Saleh" <smostafa@google.com>, Kevin Tian <kevin.tian@intel.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-pci@vger.kernel.org>, <vsethi@nvidia.com>, Shuai Xue
+	<xueshuai@linux.alibaba.com>
+Subject: Re: [PATCH v3 06/11] iommu: Defer __iommu_group_free_device() to be
+ outside group->mutex
+Message-ID: <aeo/BDwYM9yYHctI@Asurada-Nvidia>
+References: <cover.1776381841.git.nicolinc@nvidia.com>
+ <3f5d229267d1f4d918641bc5b896f54b5c4b7782.1776381841.git.nicolinc@nvidia.com>
+ <3570e178-f887-45c9-a251-e089915cfbd9@linux.intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.90.31.46]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemn100008.china.huawei.com (7.202.194.111)
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <3570e178-f887-45c9-a251-e089915cfbd9@linux.intel.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9D6:EE_|CY1PR12MB9582:EE_
+X-MS-Office365-Filtering-Correlation-Id: add238e4-2238-4d2a-6b6a-08dea14fa898
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|36860700016|1800799024|13003099007|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: FvJEpaecXYOhepOdyGIeR10eRmgp/o+6zOAENSVvrO2H0IzNpMeDK5o96/XYLfiNSO8YTSW10O8y5OPjG25j8fAFIXntgQRfpLOjP2lZ2IcR/3dYbZ09jvP3TeBQO6hFlVnPYJp6XJWfCqn0JqemBIBgIsmd9NsJjWRlH8bNL84/QUVy7Y2b09HiFBtDwKN+JPbn98sResqA/HszuGKAw+q0RIN3PS4ZqFL+JEJgN7zi/HDsivAooUk2NjQ8O7REjgE5dtWpOSmafBffiZYnA461aqvrU3px6DtJ8DDLtbByk7dEU5ix6Og+e7b+oqH4uqfD5Ts14r1Hqq8CNkaOiLiLyW5kMbooPCoQZI02zoKU8L8r6FOlNED65wFaM9BXVy4n+1sIHHLyALLT23X/QyTJjW84zPiOr95SkdbODWJ+JR39GNuJvxKQpOLDgWIsoyegtSIy7dC9yJczXJcQstaABcWCw4ukaC39edxs5MLj4ws46kO+u+3FqDzDZT83N6rb0stnVNYogWlUHDZOpS6MqkfwDfY12Cvwkgyc8RPn3uUExcZ8VUgV5bSauc8CTIubzGOUl6WMhlnZzS7vpC7O2md2Y2x46LXf/m6GStwFem6FEUWgaZTWwFNqPi/jBO8qhDpYv7B842d6Ov7cQ61qVz8+26uaz9IpbuR0K+GAHhKCsxBd08WGvHQUprmTbm9+LgRiiTwkQXIGJLpNJnVaXHK2ZFoSNpBmwhPz3oyX/9Rv/cqrFl+fADhmlx5iBVoEqUOIVJwXR9quHJX/Dg==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(36860700016)(1800799024)(13003099007)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: O5VG5Rzpiv5WCql5oNpBf+/zZ12wKn55sJRj2Inj6bq6p+JyshRYeerh2onACbj1CfUeTvS3+9YCTVQJFS6Va3MPwvrVlAa7PTPwUXdHIp2SY+dSojzlb3zN9RJoucu+ED1ZJ/LBGyzkB91GAeXaKz33e4x3X+XqEYYUaL8SP7PZF50iL5natFnCc86uEv5BU1A+HEOFfW/8gUj2/x+2P68AHYV0w+SG+Hnvzuh1GEu1lZ9Y4TuGiwBlFkxpNNuO2s/oj7fHvK53ad4l6ElOCbNtVpCXem+RJ9hqk3x8izeusgvktxZtaRbgP2t9LjCnKVuAqIk5izTyO3XQX545hoS84nJZLnHRPOGWSQpi9s3HXzSaDM69BnFUjfoeZTqTrElQod+flFrF71e06dJ3sQl3MI9ezOtPjNSrwLkHvZsNvpXwrqfxvB19u+pPdWPv
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2026 15:47:43.4935
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: add238e4-2238-4d2a-6b6a-08dea14fa898
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9D6.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY1PR12MB9582
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_083016_406267_708A89EA 
-X-CRM114-Status: GOOD (  23.23  )
+X-CRM114-CacheID: sfid-20260423_084754_498351_99CAC25F 
+X-CRM114-Status: GOOD (  15.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,424 +136,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Support uncore ITS PMU, which provides the capability of counting
-the number of interrupts routed to ITS by interrupt catagories, and the
-latency. It also supports collecting statistics of micro-ops of ITS.
+On Thu, Apr 23, 2026 at 03:55:02PM +0800, Baolu Lu wrote:
+> On 4/17/26 07:28, Nicolin Chen wrote:
+> > +static void __iommu_group_empty_assert_owner_cnt(struct iommu_group *group)
+> > +{
+> > +	lockdep_assert_held(&group->mutex);
+> > +	/*
+> > +	 * If the group has become empty then ownership must have been
+> > +	 * released, and the current domain must be set back to NULL or
+> > +	 * the default domain.
+> > +	 */
+> 
+> Nit: this comment doesn't quite match the following code. The code
+> doesn't check "group->domain != NULL". Or perhaps in that case,
+> group->default_domain must be NULL?
 
-The driver adapts to HiSilicon uncore PMU framework. It does not support
-overflow interruption, which is the same as NoC PMU, so a few dummy
-functions or handling interrupts are left empty.
+This is the original patch from Jason:
+https://lore.kernel.org/r/4-v3-328044aa278c+45e49-iommu_probe_jgg@nvidia.com
 
-Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
----
- Documentation/admin-guide/perf/hisi-pmu.rst  |   6 +
- drivers/perf/hisilicon/Makefile              |   2 +-
- drivers/perf/hisilicon/hisi_uncore_its_pmu.c | 365 +++++++++++++++++++
- 3 files changed, 372 insertions(+), 1 deletion(-)
- create mode 100644 drivers/perf/hisilicon/hisi_uncore_its_pmu.c
+I kept the comments as-is, though It might be slightly confusing?
 
-diff --git a/Documentation/admin-guide/perf/hisi-pmu.rst b/Documentation/admin-guide/perf/hisi-pmu.rst
-index d56b2d690709..66ce9f2e6fe3 100644
---- a/Documentation/admin-guide/perf/hisi-pmu.rst
-+++ b/Documentation/admin-guide/perf/hisi-pmu.rst
-@@ -128,6 +128,12 @@ channel with this option. The current supported channels are as follows:
- 7. tt_en: NoC PMU supports counting only transactions that have tracetag set
- if this option is set. See the 2nd list for more information about tracetag.
- 
-+8. int_id: ITS PMU supports filtering by interrupt id, which is defined by
-+   hardware. Interrupt id takes up to 32 bits, and can be devided into 2 parts:
-+
-+- Upper 16 bits: DeviceID if counting LPI, PEID if counting SGI/PPI.
-+- Lower 16 bits: EventID if counting LPI, IntID if counting SGI/PPI.
-+
- For HiSilicon uncore PMU v3 whose identifier is 0x40, some uncore PMUs are
- further divided into parts for finer granularity of tracing, each part has its
- own dedicated PMU, and all such PMUs together cover the monitoring job of events
-diff --git a/drivers/perf/hisilicon/Makefile b/drivers/perf/hisilicon/Makefile
-index 186be3d02238..5f28cfdb8a72 100644
---- a/drivers/perf/hisilicon/Makefile
-+++ b/drivers/perf/hisilicon/Makefile
-@@ -2,7 +2,7 @@
- obj-$(CONFIG_HISI_PMU) += hisi_uncore_pmu.o hisi_uncore_l3c_pmu.o \
- 			  hisi_uncore_hha_pmu.o hisi_uncore_ddrc_pmu.o hisi_uncore_sllc_pmu.o \
- 			  hisi_uncore_pa_pmu.o hisi_uncore_cpa_pmu.o hisi_uncore_uc_pmu.o \
--			  hisi_uncore_noc_pmu.o hisi_uncore_mn_pmu.o
-+			  hisi_uncore_noc_pmu.o hisi_uncore_mn_pmu.o hisi_uncore_its_pmu.o
- 
- obj-$(CONFIG_HISI_PCIE_PMU) += hisi_pcie_pmu.o
- obj-$(CONFIG_HNS3_PMU) += hns3_pmu.o
-diff --git a/drivers/perf/hisilicon/hisi_uncore_its_pmu.c b/drivers/perf/hisilicon/hisi_uncore_its_pmu.c
-new file mode 100644
-index 000000000000..608c298b8944
---- /dev/null
-+++ b/drivers/perf/hisilicon/hisi_uncore_its_pmu.c
-@@ -0,0 +1,365 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Driver for HiSilicon Uncore ITS PMU device
-+ *
-+ * Copyright (c) 2026 HiSilicon Technologies Co., Ltd.
-+ * Author: Yushan Wang <wangyushan12@huawei.com>
-+ */
-+#include <linux/bitops.h>
-+#include <linux/cpuhotplug.h>
-+#include <linux/device.h>
-+#include <linux/io.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/property.h>
-+#include <linux/sysfs.h>
-+
-+#include "hisi_uncore_pmu.h"
-+
-+#define ITS_PMU_VERSION			0x21000
-+#define ITS_PMU_GLOBAL_CTRL		0x21004
-+#define ITS_PMU_GLOBAL_CTRL_PMU_EN	BIT(0)
-+#define ITS_PMU_COUNTER_CTRL		0x21008
-+#define ITS_PMU_EVENT_CTRL		0x2100c
-+#define ITS_PMU_COUNTER0		0x21010
-+
-+#define ITS_PMU_INT_ID_MASK		0x20008
-+#define ITS_PMU_INT_ID_CTRL		0x20084
-+
-+#define ITS_PMU_NR_COUNTERS		4
-+
-+#define ITS_PMU_EVENT_CNTRn(cntr0, n)	((cntr0) + 8 * (n))
-+#define ITS_PMU_CNTR_CTRL_MASK(n)	GENMASK(8 * ((n) + 1) - 1, 8 * (n))
-+#define ITS_PMU_CNTR_EVENT_CFG(n, e)	((e) << ((n) * 8))
-+#define ITS_PMU_EVENT_CTRL_TYPE		GENMASK(12, 0)
-+
-+HISI_PMU_EVENT_ATTR_EXTRACTOR(int_id, config1, 31, 0);
-+
-+/* Dynamic CPU hotplug state used by this PMU driver */
-+static enum cpuhp_state hisi_its_pmu_cpuhp_state;
-+
-+struct hisi_its_pmu_regs {
-+	u32 version;
-+	u32 pmu_ctrl;
-+	u32 event_ctrl0;
-+	u32 event_cntr0;
-+	u32 cntr_ctrl;
-+};
-+
-+static void hisi_its_pmu_write_evtype(struct hisi_pmu *its_pmu, int idx, u32 type)
-+{
-+	struct hisi_its_pmu_regs *reg_info = its_pmu->dev_info->private;
-+	u32 reg;
-+
-+	reg = readl(its_pmu->base + reg_info->event_ctrl0);
-+	reg &= ~ITS_PMU_CNTR_CTRL_MASK(idx);
-+	reg |= ITS_PMU_CNTR_EVENT_CFG(idx, type);
-+	writel(reg, its_pmu->base + reg_info->event_ctrl0);
-+}
-+
-+static u64 hisi_its_pmu_read_counter(struct hisi_pmu *its_pmu,
-+				     struct hw_perf_event *hwc)
-+{
-+	struct hisi_its_pmu_regs *reg_info = its_pmu->dev_info->private;
-+
-+	return readq(its_pmu->base + ITS_PMU_EVENT_CNTRn(reg_info->event_cntr0, hwc->idx));
-+}
-+
-+static void hisi_its_pmu_write_counter(struct hisi_pmu *its_pmu,
-+				       struct hw_perf_event *hwc, u64 val)
-+{
-+	struct hisi_its_pmu_regs *reg_info = its_pmu->dev_info->private;
-+
-+	writeq(val, its_pmu->base + ITS_PMU_EVENT_CNTRn(reg_info->event_cntr0, hwc->idx));
-+}
-+
-+static void hisi_its_pmu_enable_counter(struct hisi_pmu *its_pmu,
-+					struct hw_perf_event *hwc)
-+{
-+	struct hisi_its_pmu_regs *reg_info = its_pmu->dev_info->private;
-+	u32 reg;
-+
-+	reg = readl(its_pmu->base + reg_info->cntr_ctrl);
-+	reg |= BIT(hwc->idx);
-+	writel(reg, its_pmu->base + reg_info->cntr_ctrl);
-+}
-+
-+static void hisi_its_pmu_disable_counter(struct hisi_pmu *its_pmu,
-+					 struct hw_perf_event *hwc)
-+{
-+	struct hisi_its_pmu_regs *reg_info = its_pmu->dev_info->private;
-+	u32 reg;
-+
-+	reg = readl(its_pmu->base + reg_info->cntr_ctrl);
-+	reg &= ~BIT(hwc->idx);
-+	writel(reg, its_pmu->base + reg_info->cntr_ctrl);
-+}
-+
-+static void hisi_its_pmu_enable_counter_int(struct hisi_pmu *its_pmu,
-+					    struct hw_perf_event *hwc)
-+{
-+	/* We don't support interrupt, so a stub here. */
-+}
-+
-+static void hisi_its_pmu_disable_counter_int(struct hisi_pmu *its_pmu,
-+					     struct hw_perf_event *hwc)
-+{
-+}
-+
-+static void hisi_its_pmu_start_counters(struct hisi_pmu *its_pmu)
-+{
-+	struct hisi_its_pmu_regs *reg_info = its_pmu->dev_info->private;
-+	u32 reg;
-+
-+	reg = readl(its_pmu->base + reg_info->pmu_ctrl);
-+	reg |= ITS_PMU_GLOBAL_CTRL_PMU_EN;
-+	writel(reg, its_pmu->base + reg_info->pmu_ctrl);
-+}
-+
-+static void hisi_its_pmu_stop_counters(struct hisi_pmu *its_pmu)
-+{
-+	struct hisi_its_pmu_regs *reg_info = its_pmu->dev_info->private;
-+	u32 reg;
-+
-+	reg = readl(its_pmu->base + reg_info->pmu_ctrl);
-+	reg &= ~ITS_PMU_GLOBAL_CTRL_PMU_EN;
-+	writel(reg, its_pmu->base + reg_info->pmu_ctrl);
-+}
-+
-+static void hisi_its_pmu_enable_filter(struct perf_event *event)
-+{
-+	struct hisi_pmu *its_pmu = to_hisi_pmu(event->pmu);
-+	u32 int_id = hisi_get_int_id(event);
-+	u32 reg = int_id ? 0 : -1U;
-+
-+	if (int_id)
-+		writel(int_id, its_pmu->base + ITS_PMU_INT_ID_CTRL);
-+
-+	writel(reg, its_pmu->base + ITS_PMU_INT_ID_MASK);
-+}
-+
-+static void hisi_its_pmu_disable_filter(struct perf_event *event)
-+{
-+	struct hisi_pmu *its_pmu = to_hisi_pmu(event->pmu);
-+	u32 int_id = hisi_get_int_id(event);
-+
-+	if (bitmap_weight(its_pmu->pmu_events.used_mask, its_pmu->num_counters) > 1)
-+		return;
-+
-+	if (int_id) {
-+		writel(0, its_pmu->base + ITS_PMU_INT_ID_CTRL);
-+		writel(-1U, its_pmu->base + ITS_PMU_INT_ID_MASK);
-+	}
-+}
-+
-+static const struct hisi_uncore_ops hisi_uncore_its_ops = {
-+	.write_evtype		= hisi_its_pmu_write_evtype,
-+	.get_event_idx		= hisi_uncore_pmu_get_event_idx,
-+	.read_counter		= hisi_its_pmu_read_counter,
-+	.write_counter		= hisi_its_pmu_write_counter,
-+	.enable_counter		= hisi_its_pmu_enable_counter,
-+	.disable_counter	= hisi_its_pmu_disable_counter,
-+	.enable_counter_int	= hisi_its_pmu_enable_counter_int,
-+	.disable_counter_int	= hisi_its_pmu_disable_counter_int,
-+	.start_counters		= hisi_its_pmu_start_counters,
-+	.stop_counters		= hisi_its_pmu_stop_counters,
-+	.enable_filter		= hisi_its_pmu_enable_filter,
-+	.disable_filter		= hisi_its_pmu_disable_filter,
-+};
-+
-+static struct attribute *hisi_its_pmu_format_attrs[] = {
-+	HISI_PMU_FORMAT_ATTR(event, "config:0-16"),
-+	HISI_PMU_FORMAT_ATTR(int_id, "config1:0-31"),
-+	NULL
-+};
-+
-+static const struct attribute_group hisi_its_pmu_format_group = {
-+	.name = "format",
-+	.attrs = hisi_its_pmu_format_attrs,
-+};
-+
-+static struct attribute *hisi_its_pmu_events_attrs[] = {
-+	HISI_PMU_EVENT_ATTR(lpi_num, 0xc0),
-+	HISI_PMU_EVENT_ATTR(lpi_time, 0x80),
-+	HISI_PMU_EVENT_ATTR(sgi_num, 0xc1),
-+	HISI_PMU_EVENT_ATTR(sgi_time, 0x81),
-+	HISI_PMU_EVENT_ATTR(ppi_num, 0xc2),
-+	HISI_PMU_EVENT_ATTR(ppi_time, 0x82),
-+	HISI_PMU_EVENT_ATTR(sl3_lpi_num, 0xc3),
-+	HISI_PMU_EVENT_ATTR(sl3_sgi_num, 0xc4),
-+	HISI_PMU_EVENT_ATTR(sl3_ppi_num, 0xc5),
-+	HISI_PMU_EVENT_ATTR(sl0_ddr_read, 0xc9),
-+	HISI_PMU_EVENT_ATTR(sl0_ddr_time, 0x89),
-+	HISI_PMU_EVENT_ATTR(sl1_ddr_read, 0xca),
-+	HISI_PMU_EVENT_ATTR(sl1_ddr_time, 0x8a),
-+	HISI_PMU_EVENT_ATTR(sl2_ddr_read, 0xcb),
-+	HISI_PMU_EVENT_ATTR(sl2_ddr_time, 0x8b),
-+	HISI_PMU_EVENT_ATTR(cycles, 0xcc),
-+	NULL
-+};
-+
-+static const struct attribute_group hisi_its_pmu_events_group = {
-+	.name = "events",
-+	.attrs = hisi_its_pmu_events_attrs,
-+};
-+
-+static const struct attribute_group *hisi_its_pmu_attr_groups[] = {
-+	&hisi_its_pmu_format_group,
-+	&hisi_its_pmu_events_group,
-+	&hisi_pmu_cpumask_attr_group,
-+	&hisi_pmu_identifier_group,
-+	NULL
-+};
-+
-+static int hisi_its_pmu_dev_init(struct platform_device *pdev, struct hisi_pmu *its_pmu)
-+{
-+	struct hisi_its_pmu_regs *reg_info;
-+
-+	hisi_uncore_pmu_init_topology(its_pmu, &pdev->dev);
-+
-+	if (its_pmu->topo.scl_id < 0)
-+		return dev_err_probe(&pdev->dev, -EINVAL, "failed to get scl-id\n");
-+
-+	if (its_pmu->topo.index_id < 0)
-+		return dev_err_probe(&pdev->dev, -EINVAL, "failed to get idx-id\n");
-+
-+	its_pmu->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(its_pmu->base))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(its_pmu->base),
-+				     "fail to remap io memory\n");
-+
-+	its_pmu->dev_info = device_get_match_data(&pdev->dev);
-+	if (!its_pmu->dev_info)
-+		return -ENODEV;
-+
-+	its_pmu->pmu_events.attr_groups = its_pmu->dev_info->attr_groups;
-+	its_pmu->counter_bits = its_pmu->dev_info->counter_bits;
-+	its_pmu->check_event = its_pmu->dev_info->check_event;
-+	its_pmu->num_counters = ITS_PMU_NR_COUNTERS;
-+	its_pmu->ops = &hisi_uncore_its_ops;
-+	its_pmu->dev = &pdev->dev;
-+	its_pmu->on_cpu = -1;
-+
-+	reg_info = its_pmu->dev_info->private;
-+	its_pmu->identifier = readl(its_pmu->base + reg_info->version);
-+
-+	return 0;
-+}
-+
-+static void hisi_its_pmu_remove_cpuhp_instance(void *hotplug_node)
-+{
-+	cpuhp_state_remove_instance_nocalls(hisi_its_pmu_cpuhp_state, hotplug_node);
-+}
-+
-+static void hisi_its_pmu_unregister_pmu(void *pmu)
-+{
-+	perf_pmu_unregister(pmu);
-+}
-+
-+static int hisi_its_pmu_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct hisi_pmu *its_pmu;
-+	char *name;
-+	int ret;
-+
-+	its_pmu = devm_kzalloc(dev, sizeof(*its_pmu), GFP_KERNEL);
-+	if (!its_pmu)
-+		return -ENOMEM;
-+
-+	/*
-+	 * HiSilicon Uncore PMU framework needs to get common hisi_pmu device
-+	 * from device's drvdata.
-+	 */
-+	platform_set_drvdata(pdev, its_pmu);
-+
-+	ret = hisi_its_pmu_dev_init(pdev, its_pmu);
-+	if (ret)
-+		return ret;
-+
-+	ret = cpuhp_state_add_instance(hisi_its_pmu_cpuhp_state, &its_pmu->node);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Fail to register cpuhp instance\n");
-+
-+	ret = devm_add_action_or_reset(dev, hisi_its_pmu_remove_cpuhp_instance,
-+				       &its_pmu->node);
-+	if (ret)
-+		return ret;
-+
-+	hisi_pmu_init(its_pmu, THIS_MODULE);
-+
-+	name = devm_kasprintf(dev, GFP_KERNEL, "hisi_scl%d_its%d",
-+			      its_pmu->topo.scl_id, its_pmu->topo.index_id);
-+	if (!name)
-+		return -ENOMEM;
-+
-+	ret = perf_pmu_register(&its_pmu->pmu, name, -1);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Fail to register PMU\n");
-+
-+	return devm_add_action_or_reset(dev, hisi_its_pmu_unregister_pmu,
-+					&its_pmu->pmu);
-+}
-+
-+static struct hisi_its_pmu_regs hisi_its_v1_pmu_regs = {
-+	.version = ITS_PMU_VERSION,
-+	.pmu_ctrl = ITS_PMU_GLOBAL_CTRL,
-+	.event_ctrl0 = ITS_PMU_EVENT_CTRL,
-+	.event_cntr0 = ITS_PMU_COUNTER0,
-+	.cntr_ctrl = ITS_PMU_COUNTER_CTRL,
-+};
-+
-+static const struct hisi_pmu_dev_info hisi_its_v1 = {
-+	.attr_groups = hisi_its_pmu_attr_groups,
-+	.counter_bits = 48,
-+	.check_event = ITS_PMU_EVENT_CTRL_TYPE,
-+	.private = &hisi_its_v1_pmu_regs,
-+};
-+
-+static const struct acpi_device_id hisi_its_pmu_ids[] = {
-+	{ "HISI0591", (kernel_ulong_t) &hisi_its_v1 },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(acpi, hisi_its_pmu_ids);
-+
-+static struct platform_driver hisi_its_pmu_driver = {
-+	.driver = {
-+		.name = "hisi_its_pmu",
-+		.acpi_match_table = hisi_its_pmu_ids,
-+		.suppress_bind_attrs = true,
-+	},
-+	.probe = hisi_its_pmu_probe,
-+};
-+
-+static int __init hisi_its_pmu_module_init(void)
-+{
-+	int ret = cpuhp_setup_state_multi(CPUHP_AP_ONLINE_DYN,
-+					  "perf/hisi/its:online",
-+					  hisi_uncore_pmu_online_cpu,
-+					  hisi_uncore_pmu_offline_cpu);
-+	if (ret < 0) {
-+		pr_err("hisi_its_pmu: Fail to setup cpuhp callbacks, ret = %d\n", ret);
-+		return ret;
-+	}
-+	hisi_its_pmu_cpuhp_state = ret;
-+
-+	ret = platform_driver_register(&hisi_its_pmu_driver);
-+	if (ret)
-+		cpuhp_remove_multi_state(hisi_its_pmu_cpuhp_state);
-+
-+	return ret;
-+}
-+module_init(hisi_its_pmu_module_init);
-+
-+static void __exit hisi_its_pmu_module_exit(void)
-+{
-+	platform_driver_unregister(&hisi_its_pmu_driver);
-+	cpuhp_remove_multi_state(hisi_its_pmu_cpuhp_state);
-+}
-+module_exit(hisi_its_pmu_module_exit);
-+
-+MODULE_IMPORT_NS("HISI_PMU");
-+MODULE_DESCRIPTION("HiSilicon SoC Uncore ITS PMU driver");
-+MODULE_LICENSE("GPL v2");
-+MODULE_AUTHOR("Yushan Wang <wangyushan12@huawei.com>");
--- 
-2.33.0
+I think it means:
+If group->default_domain == NULL, it does check "set back to NULL".
+If group->default_domain != NULL, it then checks "default domain".
 
+Maybe it could be "must be set back to the default domain (which
+itself can be NULL"?
+
+> Furthermore, if a device is currently quarantined, group->domain will be
+> the blocking_domain. If that quarantined device is then hot-removed and
+> happens to be the last device in the group, will this WARN_ON trigger
+> unnecessarily?
+
+If a device is quarantined, its group->domain is retained to the
+previously attached domain. Its blocking state is logged in the
+gdev->blocked flag. So, I think it can pass the test.
+
+Thanks
+Nicolin
 
