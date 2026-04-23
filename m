@@ -4,75 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2575FF9936B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 10:39:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B587F9936B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 10:50:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cGEO2F0ScelrhYb0KLha9yRxuMqwCHKRlDug71W0idc=; b=o1JKW2YKhooDuuN6S8m0Kh+kIo
-	4MjI/X78Ey30bvvdV0CmsbEG7i1W3yx1CkOSWTTasNUQflYXf9C2Nl4mVea7lUJiu3bVE1jAoq2lW
-	tGb7RVptVxVn6uE6nJy5ykwt1+DBQS4BZ7312JLmCvby7LEmVagASxYENXS19jxQaRrj791T53Okb
-	xxvIOUQOH2rIRsgOJdXdsULsaNgl8dswb2vFYGX1ZTFh7ky1IZP4BuOWvStRWp9ETxBsDB0MBJPdm
-	tdwzArHHvnj7hDoYazRZNZNB0xz7LK6TZcJ7cqUBy9FKWfTKRRRLMRCASN5HmHn8GQuF+5XnG1hMk
-	5PWzsjyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f0fdzmxU8YfuAWaMqai29dgANO/jKXm8VFbNVoHKDHU=; b=ykAlMrMgIddpz3bDr6JzemwWem
+	DtXL6lwYcno876ktjNpoMDdlZAp+Q3l5AUU8HwNFkCO7Q1gwaUCT7JlFkQ5fMzvKBHZXweIH+HVfG
+	K0iWfS51PJ6l1IEny7JNPhy6PNm1VxZo1HU3mG2jvF60J06pJ+05QNm7lgi4dIP7XdotD5ZxQ1vF/
+	iAxJEmJ0A4v3TA7Lu/601apbhiWmTZdVCNpVse1wtAby4aLqdWZLaFAd34l4/50a/quYhIzm+RjLC
+	ILQdF06hsK2xD14M+9tIMK2RMyfzulLczm+NByXRQtNj/e/T/YcJcSA5GAgByCpTIHx6JrLT/2niE
+	abSqiXwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFrTC-0000000BUgj-3zCG;
-	Thu, 23 Apr 2026 10:39:42 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wFre2-0000000BVDB-0PGe;
+	Thu, 23 Apr 2026 10:50:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFrTA-0000000BUg8-22JM
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 10:39:41 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1776940777;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cGEO2F0ScelrhYb0KLha9yRxuMqwCHKRlDug71W0idc=;
-	b=AuW1xLgtZm+C8AnaQKzWFF9ZB1yEB+dmq6Pz4OGcKHDgIWWmYYXSJGGFIdfxk7VyzA+Znm
-	MQtCwuJoUu5RkUE16EMgFycJkQBRJkQXe6IP0y+ewDd3ag329+5l1zkCDJpwebMtt3om/r
-	G0EfMn8H9+BC4sRMaQWQuBNEprFpp3rVgR2wjM/KdPLo/kBaIHHumei7A369z2YjQWlcpm
-	NnZM7hbFPGB6YVoBAvSjgFDa19IWRewfsnmZK19tOsxYrporbOnSFtl1vG/hrIUg9a8e4i
-	HN2jEdG/NYNTUrH/sqg2G6NvMZvP03wAuIawYNA6eG/67A3CXob8UKH8PGHr2Q==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1776940777;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cGEO2F0ScelrhYb0KLha9yRxuMqwCHKRlDug71W0idc=;
-	b=HRXq/PfnQegrvLWQuStXBRMN299tx2QwQeuxH8m0oYNyaMoxm4tb4mGPSv/bPhl2C+9y3s
-	551qIyszJd9b2LCw==
-To: Dmitry Vyukov <dvyukov@google.com>, Jinjie Ruan <ruanjinjie@huawei.com>,
- linux-man@vger.kernel.org
-Cc: Mark Rutland <mark.rutland@arm.com>, Mathias Stearn
- <mathias@mongodb.com>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Boqun Feng <boqun.feng@gmail.com>, "Paul E. McKenney"
- <paulmck@kernel.org>, Chris Kennelly <ckennelly@google.com>,
- regressions@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Peter Zijlstra
- <peterz@infradead.org>, Ingo Molnar <mingo@kernel.org>, Blake Oler
- <blake.oler@mongodb.com>
-Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
- and tcmalloc everywhere
-In-Reply-To: <CACT4Y+bxnQyHGdVNE1BYTx+Z2-cscLb38HYS9jBM5gPAz8=4bw@mail.gmail.com>
-References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
- <aejCaG6n9s7ak5TO@J2N7QTR9R3.cambridge.arm.com> <87zf2u28d1.ffs@tglx>
- <aekPXvvuKHKlETjm@J2N7QTR9R3.cambridge.arm.com> <87wlxy22x7.ffs@tglx>
- <c5331cd6-76c8-430d-978e-fcad164e48f6@huawei.com>
- <CACT4Y+bxnQyHGdVNE1BYTx+Z2-cscLb38HYS9jBM5gPAz8=4bw@mail.gmail.com>
-Date: Thu, 23 Apr 2026 12:39:36 +0200
-Message-ID: <87ik9i0xlj.ffs@tglx>
+	id 1wFrdz-0000000BVD1-3s45;
+	Thu, 23 Apr 2026 10:50:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A295760125;
+	Thu, 23 Apr 2026 10:50:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52E6DC2BCB2;
+	Thu, 23 Apr 2026 10:50:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776941449;
+	bh=OoQqwn2Iom7hNKT4z8ZQdCpip2kOL8Jkaka02RiKb3c=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=dH6bjqKIYbxUSinZQaMk4rNByUSI11UsgfVAvZxk/SOQM9DNSYbCxJuvR+3fOTQ4i
+	 zBHLinJ2iRmExO9ERrcWOxzoQk1aFXcitbdSfUHQbaoUVcv37rOdwekTq+NzeWQX9b
+	 ZOVhezlNPkwitrF1NnyvskTVkPdMgXSTB114B0ET3ZmzDfbE3XhSNyTKIcOys1ytWu
+	 4Qsx8ZpPphF5x+TmkR+GTsiSWxNcPz1+tiFI3C13bWqJDRi7ShoHBIpj18SfydrTnI
+	 Hp6joLSONp77J1YZSDM8jgE5UF6gGwnmo3IMtMjQFehthzEjoip0LoH93noN1b7/Dd
+	 ZfTPeT4aOJgeQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FD93380CFFD;
+	Thu, 23 Apr 2026 10:50:12 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_033940_666562_1ADEAE2F 
-X-CRM114-Status: GOOD (  10.78  )
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v2 0/2] net: airoha: Fix NULL pointer derefrences in
+ airoha_qdma_cleanup()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <177694141104.106550.318427383838791397.git-patchwork-notify@kernel.org>
+Date: Thu, 23 Apr 2026 10:50:11 +0000
+References: <20260420-airoha_qdma_init_rx_queue-fix-v2-0-d99347e5c18d@kernel.org>
+In-Reply-To: <20260420-airoha_qdma_init_rx_queue-fix-v2-0-d99347e5c18d@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,41 +73,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 23 2026 at 07:53, Dmitry Vyukov wrote:
-> On Thu, 23 Apr 2026 at 03:48, Jinjie Ruan <ruanjinjie@huawei.com> wrote:
->
-> This part of the rseq man page needs to be fixed as well I think. The
-> kernel no longer reliably provides clearing of rseq_cs on preemption,
-> right?
->
-> https://git.kernel.org/pub/scm/libs/librseq/librseq.git/tree/doc/man/rseq.2#n241
->
-> "and set to NULL by the kernel when it restarts an assembly
-> instruction sequence block,
-> as well as when the kernel detects that it is preempting or delivering
-> a signal outside of the range targeted by the rseq_cs."
+Hello:
 
-The kernel clears rseq_cs reliably when user space was interrupted and:
+This series was applied to netdev/net.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-    the task was preempted
-or
-    the return from interrupt delivers a signal
+On Mon, 20 Apr 2026 10:07:46 +0200 you wrote:
+> Fix two possible NULL pointer derefrences in airoha_qdma_cleanup routine
+> if airoha_qdma_init() fails.
+> 
+> ---
+> Changes in v2:
+> - Move page_pool allocation after desc list allocation in
+>   airoha_qdma_init_rx_queue()
+> - Move netif_napi_add_tx() after irq desc queue allocation in
+>   airoha_qdma_tx_irq_init()
+> - Link to v1: https://lore.kernel.org/r/20260417-airoha_qdma_init_rx_queue-fix-v1-0-db9fa5e468e5@kernel.org
+> 
+> [...]
 
-If the task invoked a syscall then there is absolutely no reason to do
-either of this because syscalls from within a critical section are a
-bug and catched when enabling rseq debugging.
+Here is the summary with links:
+  - [net,v2,1/2] net: airoha: Move ndesc initialization at end of airoha_qdma_init_rx_queue()
+    https://git.kernel.org/netdev/net/c/379050947a18
+  - [net,v2,2/2] net: airoha: Add size check for TX NAPIs in airoha_qdma_cleanup()
+    https://git.kernel.org/netdev/net/c/4b91cb65789b
 
-The original code did this along with unconditionally updating CPU/MMCID
-which resulted in ~15% performance regression on a syscall heavy
-database benchmark once glibc started to register rseq.
-
-Thanks,
-
-        tglx
-
-
-
-
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
 
