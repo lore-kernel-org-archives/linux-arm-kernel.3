@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76116F99351
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 08:11:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE862F99351
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 08:12:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DfCGKlwNf3gbn1SnAZgrVTttc3K70VeizSyG/plH/so=; b=ayanSgbLlK6P8ypENfBodZR7g6
-	tSS7Lk7qGd8gvoQW7Rq9VbFg6PmCWZIogrOONXwzFLY3IMhy97emz6tjlVBjESiqgRQpXzeX/oO7J
-	28pkr7RJ0df5JJtV7kYojlltpOiysCv4QD/90t3oq5UnbsrqxgCS+eKq+0Q7S7FXFKKu4kNxaSNMs
-	atuegCr5CaUZzfdKGwNRpqqk3IijOjKKqVAsIr2BE+/YLHEKS090ulLa5L9yEFToNQNcStBJF4Eom
-	jmsjunoxCqKT933UbDakEdmHH+s0/kTIjjoJC2bLpPwUoprroFThpYKBqXzNZWS02UBbwOjcbpsOa
-	dzqedvOg==;
+	bh=knOefttnIyPWl2d+eqYXv+SUsJugMspNXMYMja8kCag=; b=jVQ7nwAk1iW49G2SkOP2lAfzS8
+	NX+dWUjUNiBPLJdEUmNyUUYO0e3HJJo10sj4gAMrFf58KKP2TS6h7FPmdxAEYou8k5CQsZBYd91LU
+	OZWN3DNewN6Lz4j4Kz840dL6VRSjTPdPiweYVCLOpKNyqaXAOOEQPLJ2XuGq/jrt1U/3rnlyFEeBu
+	2BsedmDHQ7/rlOEvW/U7+DP46TUCiEQuP3ycGcWCmgvQ7hm46gkL6KYoazLAiaoRBAvbexo2zTu0S
+	g25oZ2ImpX8a49yIhDEDPFeniiWhSJftYIxDhJ4m9QI2k1Bpla3j40mOIO/d5vTMPIHxQFx1wnIAB
+	fczLVe4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFp9z-0000000BD0s-2fwE;
-	Thu, 23 Apr 2026 08:11:43 +0000
-Received: from abb.hmeau.com ([180.181.231.80])
+	id 1wFpAk-0000000BD6U-2oUR;
+	Thu, 23 Apr 2026 08:12:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFp9u-0000000BD07-2OAD
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 08:11:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=DfCGKlwNf3gbn1SnAZgrVTttc3K70VeizSyG/plH/so=; 
-	b=UGcplMJWZzlfolzxJ5ffP5ehhBXz6CL8iK6PtFizeAFLhT1Vaglu3sbYnegHpWeXwVceMY9JoW4
-	r9LRS/qKebdQl6q30riZBy0c/fl6TaGSUQHFYW8fMzI8mCP5DXAzeXqy9RqPBxGCQCp0/z/MquBh6
-	4+6CmdI1RMKjQb0s7GCdz9+pwHrSUjJn+uBrtP53sbphcK6BqIGwQkKNeT1OJr99Uf8eLJKRGQ/DY
-	oIlo8wLJ3Z0YnpD5MACDzVK0yPyWqUTo+i3f0gA3VrWBSXg4kw5doUDlRh/MKboXgg3+hp33KkEMu
-	mrLdghgHKPKSqqeOfrOypmftbvr7g6+NbXUw==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1wFp9Y-008AvE-1I;
-	Thu, 23 Apr 2026 16:11:17 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Thu, 23 Apr 2026 16:11:16 +0800
-Date: Thu, 23 Apr 2026 16:11:16 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Ruoyu Wang <ruoyuw560@gmail.com>
-Cc: clabbe@baylibre.com, linusw@kernel.org, kaloz@openwrt.org,
-	davem@davemloft.net, linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] crypto: ixp4xx: Fix null-pointer dereference in
- chainup_buffers()
-Message-ID: <aenUJLufZ5cK7DmQ@gondor.apana.org.au>
-References: <20260421093917.1001688-1-ruoyuw560@gmail.com>
+	id 1wFpAe-0000000BD5K-1x7i;
+	Thu, 23 Apr 2026 08:12:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E664643B24;
+	Thu, 23 Apr 2026 08:12:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 712BCC2BCAF;
+	Thu, 23 Apr 2026 08:12:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776931943;
+	bh=iEcYAM0VwzzlUdBWlgBenv9RwXM4rAx4T+7N+FRLWSQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ABr3DnpMiq0MaldPMg3udYOvaz02Da8BaHqPFrDJJvdIQu6rX4u1n80nNj85WCRkS
+	 75QaPBYbDsvs+SQWIHNn4vbdEG2DJuDCutTTDclvCanI9VqhwfNbofQ7qQErKoILTn
+	 yv+3KlbN9Lm+M1Ov6Yv6xWmvS6EESQFZjT87DeXBI5f9RCMGJVg9avF1JNChp22TSK
+	 /+dletROj0tX1pLtgoa12poN5h9xK38mu4qJO/yRyQ7zbtcf3qLHsJIJLCFZRQMbBJ
+	 eEY72aKJQVg1Zi1ahz6S1l3h6epEH+BBMj/JXz0HWlCBHYjul2CaiNPhw144AEKdNp
+	 PnDtcUOfMpoxA==
+Date: Thu, 23 Apr 2026 10:12:21 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Hariprasad Kelam <hkelam@marvell.com>
+Cc: Simon Horman <horms@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net] net: airoha: fix BQL imbalance in TX path
+Message-ID: <aenUZc6mSBuSvWbz@lore-desk>
+References: <20260421-airoha-fix-bql-v1-1-f135afe4275b@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="UnahIpJ2gghwFW0k"
 Content-Disposition: inline
-In-Reply-To: <20260421093917.1001688-1-ruoyuw560@gmail.com>
+In-Reply-To: <20260421-airoha-fix-bql-v1-1-f135afe4275b@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_011138_623097_EBB22249 
-X-CRM114-Status: GOOD (  23.69  )
+X-CRM114-CacheID: sfid-20260423_011224_547385_159511A7 
+X-CRM114-Status: GOOD (  26.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,86 +75,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 21, 2026 at 05:39:17PM +0800, Ruoyu Wang wrote:
-> chainup_buffers() builds a linked list of buffer descriptors for a
-> scatterlist. If dma_pool_alloc() fails while constructing the list, the
-> current code sets buf to NULL and later dereferences it unconditionally
-> at the end of the function:
-> 
->   buf->next = NULL;
->   buf->phys_next = 0;
-> 
-> This can lead to a null-pointer dereference on allocation failure.
-> 
-> If the failure happens after part of the descriptor chain has already
-> been allocated and DMA-mapped, the partially constructed chain also
-> needs to be released.
-> 
-> Fix this by unwinding the partially constructed chain, resetting the
-> caller-provided hook descriptor, and returning NULL on allocation
-> failure.
-> 
-> Signed-off-by: Ruoyu Wang <ruoyuw560@gmail.com>
+
+--UnahIpJ2gghwFW0k
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+> Fix a possible BQL imbalance in airoha_dev_xmit(), where inflight
+> packets are accounted only for the AIROHA_NUM_TX_RING netdev TX
+> queues. The queue index is computed as:
+>=20
+>     qid =3D skb_get_queue_mapping(skb) % ARRAY_SIZE(qdma->q_tx)
+>     txq =3D netdev_get_tx_queue(dev, qid);
+>=20
+> However, airoha_qdma_tx_napi_poll() accounts completions across all
+> netdev TX queues (num_tx_queues), leading to inconsistent BQL
+> accounting.
+>=20
+> Also reset all netdev TX queues in the ndo_stop callback.
+>=20
+> Fixes: 1d304174106c ("net: airoha: Implement BQL support")
+> Fixes: c9f947769b77 ("net: airoha: Reset BQL stopping the netdevice")
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 > ---
->  drivers/crypto/intel/ixp4xx/ixp4xx_crypto.c | 24 +++++++++++++++++----
->  1 file changed, 20 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/crypto/intel/ixp4xx/ixp4xx_crypto.c b/drivers/crypto/intel/ixp4xx/ixp4xx_crypto.c
-> index fcc0cf4df637..63ef28cd5766 100644
-> --- a/drivers/crypto/intel/ixp4xx/ixp4xx_crypto.c
-> +++ b/drivers/crypto/intel/ixp4xx/ixp4xx_crypto.c
-> @@ -874,6 +874,11 @@ static struct buffer_desc *chainup_buffers(struct device *dev,
->  		struct buffer_desc *buf, gfp_t flags,
->  		enum dma_data_direction dir)
->  {
-> +	struct buffer_desc *first = buf;
-> +
-> +	first->next = NULL;
-> +	first->phys_next = 0;
-> +
->  	for (; nbytes > 0; sg = sg_next(sg)) {
->  		unsigned int len = min(nbytes, sg->length);
->  		struct buffer_desc *next_buf;
-> @@ -883,10 +888,15 @@ static struct buffer_desc *chainup_buffers(struct device *dev,
->  		nbytes -= len;
->  		ptr = sg_virt(sg);
->  		next_buf = dma_pool_alloc(buffer_pool, flags, &next_buf_phys);
-> -		if (!next_buf) {
-> -			buf = NULL;
-> -			break;
-> -		}
-> +		if (!next_buf)
-> +			goto err_unwind;
-> +
-> +		/*
-> +		 * Keep the chain well-formed even on partial construction,
-> +		 * so free_buf_chain() can safely unwind it on failure.
-> +		 */
-> +		next_buf->next = NULL;
-> +		next_buf->phys_next = 0;
->  		sg_dma_address(sg) = dma_map_single(dev, ptr, len, dir);
->  		buf->next = next_buf;
->  		buf->phys_next = next_buf_phys;
-> @@ -899,6 +909,12 @@ static struct buffer_desc *chainup_buffers(struct device *dev,
->  	buf->next = NULL;
->  	buf->phys_next = 0;
->  	return buf;
-> +
-> +err_unwind:
-> +	free_buf_chain(dev, first->next, first->phys_next);
-> +	first->next = NULL;
-> +	first->phys_next = 0;
-> +	return NULL;
+>  drivers/net/ethernet/airoha/airoha_eth.c | 7 +++----
+>  1 file changed, 3 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
+net/airoha/airoha_eth.c
+> index 19f67c7dd8e1..6c7390f0de5d 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -929,10 +929,9 @@ static int airoha_qdma_tx_napi_poll(struct napi_stru=
+ct *napi, int budget)
+>  		q->queued--;
+> =20
+>  		if (skb) {
+> -			u16 queue =3D skb_get_queue_mapping(skb);
+>  			struct netdev_queue *txq;
+> =20
+> -			txq =3D netdev_get_tx_queue(skb->dev, queue);
+> +			txq =3D skb_get_tx_queue(skb->dev, skb);
+>  			netdev_tx_completed_queue(txq, 1, skb->len);
+>  			dev_kfree_skb_any(skb);
+>  		}
+> @@ -1711,7 +1710,7 @@ static int airoha_dev_stop(struct net_device *dev)
+>  	if (err)
+>  		return err;
+> =20
+> -	for (i =3D 0; i < ARRAY_SIZE(qdma->q_tx); i++)
+> +	for (i =3D 0; i < dev->num_tx_queues; i++)
+>  		netdev_tx_reset_subqueue(dev, i);
+> =20
+>  	airoha_set_gdm_port_fwd_cfg(qdma->eth, REG_GDM_FWD_CFG(port->id),
+> @@ -2002,7 +2001,7 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *=
+skb,
+> =20
+>  	spin_lock_bh(&q->lock);
+> =20
+> -	txq =3D netdev_get_tx_queue(dev, qid);
+> +	txq =3D skb_get_tx_queue(dev, skb);
+>  	nr_frags =3D 1 + skb_shinfo(skb)->nr_frags;
+> =20
+>  	if (q->queued + nr_frags >=3D q->ndesc) {
+>=20
+> ---
+> base-commit: a663bac71a2f0b3ac6c373168ca57b2a6e6381aa
+> change-id: 20260421-airoha-fix-bql-7fff7cebbc9a
+>=20
+> Best regards,
+> --=20
+> Lorenzo Bianconi <lorenzo@kernel.org>
+>=20
 
-All callers of chainup_buffers try to unwind by calling free_buf_chain
-too, although a couple of them might do so incorrectly.
+commenting on Sashiko reported issues:
+https://sashiko.dev/#/patchset/20260421-airoha-fix-bql-v1-1-f135afe4275b%40=
+kernel.org
 
-It looks like the callers need the unwind path anyway, so perhaps
-just fix up the callers so that their unwind paths actually work?
+- This isn't a bug in this patch, but does using 0xff as a sentinel value c=
+ause a permanent stall?
+  I do not think this is a real issue since, according to my understanding,=
+ the NIC
+  never writes 0xff in irq_q queue.
 
-Thanks,
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+- This is another pre-existing issue, but does freeing the SKB here cause a=
+ DMA use-after-free
+  for multi-fragment packets?
+  This issue is not related to this patch, and I will fix it in a dedicated
+  patch storing the skb pointer in the last descriptor in airoha_dev_xmit()
+
+- Since the QDMA hardware and NAPI instance are shared among multiple ports=
+ (qdma->users),
+  could active NAPI polling cause a BUG_ON() in dql_completed()?
+  This is not an issue related to this patch since here we are just resetti=
+ng
+  all the netdev tx queues instead of just the first ARRAY_SIZE(qdma->q_tx)
+  ones.
+
+- This isn't a bug in this patch, but does failing to wait for the DMA engi=
+nes to become
+  idle before unmapping buffers cause memory corruption?
+  This issue is not related to this patch and it will be fixed with a dedic=
+ated
+  patch.
+
+- This is also pre-existing, but can this mapping cause a kernel panic on h=
+ighmem systems?
+  Can we have fragments in high memory? e.g on ARM architecture? Anyway, as
+  pointed out by Sashiko, this issue is not related to this patch.
+
+- This isn't introduced here, but does this logic cause a permanent TX stal=
+l?
+  this issue is already fixed in the following patch:
+  https://patchwork.kernel.org/project/netdevbpf/patch/20260421-airoha-xmit=
+-stop-condition-v1-1-e670d6a48467@kernel.org/
+
+Regards,
+Lorenzo
+
+--UnahIpJ2gghwFW0k
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaenUZQAKCRA6cBh0uS2t
+rG34AP9NRfrm2/98XzQnX8x/rvejxWGK4oyc/yAPXY8BBSwGWgEA0/gbqM6hiF2B
+TP2H8hOsiFsTF5in8IVx3jPq3E8e7Qk=
+=ET9C
+-----END PGP SIGNATURE-----
+
+--UnahIpJ2gghwFW0k--
 
