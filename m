@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E1F2FDEE27
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 16:08:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45744FDEE28
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 16:08:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P5l6desph+k9LC00NYB/Beo23ky4odWS9c94Ec6jNS4=; b=saaTxk3xW5kYoc2y+Q4J7apGmT
-	4yTXsfjBL1bnPv6UbtD475fmJ5nY9OJfPjGZM4sLgBjqfuYy9OW6+mjiKuL9hg9dXbFNzbcvQQrcZ
-	WDQiH/4DSAzqikasEKa9mIOmgth+mOL2nyFCdTH7+IfsbYJ5Bo+lzw1ERoBY4UAipPi8aMKG3lENB
-	57hu+ZuQuVWpRGYiffzxAfJDS+o6HE9rQCYYGrzi8d49MLJ+kX7ahoeqLVjxtXebVZGCWSywcI9Qg
-	RI6v29Fy9Us6hBl4oDMvVKAsZOATemTs/SL9bOu7jsgXfH+OYqUhHaldg15abor6whhpPU9DRNzct
-	bD1Q2GUw==;
+	bh=bJqLs3w7k7q1GmaIJJ7Y3SYRPrWd7riQlwWNsN+qhYg=; b=jIZsKrI7GptvspkDnYEJGpZ3gB
+	dhhYFejrntTAziup5QOkU8HmMn1WVsvGqLS52G2SDshgv4/bv7qSyE33SfyXyn8eq9yJb5/f+F0i5
+	8qxQkvH5VBJIczg6i1K0ATa7Po8zuFhnhX6VPzdvaUcmx02MG2mtf4a2+po0X3scqJWAGojg92mc5
+	hPGnUxbjBxUJFVsc9GsXwuaDwepxLi6EW6YbwsEHUtE6JX31jf+U01F6A5IckfjPlpJQJzKsVN/5V
+	YaYmfxHB56Q2cLtRyxB4SX3EwaKGwxm18MBgL43FoVJ8VzOEGt/GdxPxKGC2+74h5Q292H8SPukoJ
+	tt0kOjvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFwbG-0000000BvbW-1jYz;
-	Thu, 23 Apr 2026 16:08:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wFwbI-0000000Bves-1NiW;
+	Thu, 23 Apr 2026 16:08:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFwb6-0000000BvUX-38yV;
-	Thu, 23 Apr 2026 16:08:17 +0000
+	id 1wFwb6-0000000BvUa-3KmN;
+	Thu, 23 Apr 2026 16:08:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 38B0844575;
+	by sea.source.kernel.org (Postfix) with ESMTP id 5A92744709;
 	Thu, 23 Apr 2026 16:08:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 023FAC2BCB9;
-	Thu, 23 Apr 2026 16:08:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 201BAC2BCF5;
+	Thu, 23 Apr 2026 16:08:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1776960491;
-	bh=BEGT7QGuXKZN1/TyxTNzOGeUptM2L1qa4oyYW8iXDC0=;
+	bh=+Ba/0p0exztxBZJCXH18p2/KEK4pBqeXoGLCbhprcaI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=rjbhVxhmHgVZZjoPWaU7066lR5LruzPiO+4IPp/2qwmj+prtPplgKKJj8YiCmSX2a
-	 3OL1fYxmDrvDKxIyZn44A7GqsViQnnLWRFzeHBazFEFnqwWNkOQTdElPSdJWo1zH10
-	 mRcJC4n1fQfo7+LuqV1gE5RiJQtqNWqQSL/KuAaBo8WPbBr2W8327lvWcBPGWNyUul
-	 p1YXulFSoJ2WtzJBuOdcJHaw1INr3nNlA1KvbBz+mWViCPNhMj1Nt4O/IXOmZpu2wO
-	 3lffSGrIIUeLRl2MNfJxA2y/Wy5PkF1a3dAGQSlppD///f+ysgtXGRaLwUfEW8IV3A
-	 2BKz4i6tu/BFQ==
+	b=ZxSftGgaoh0hvr4luYh6DavMzdMLs0OtjyfmHfPzoYF0G+P2V4C4Ti5PuThRhBa8W
+	 JtvqzkML2+OVC1VPM5Y7VoT+larg1JlqAHqbZsOc0P38pyeAnz9WEzMqM5yoNkEXZA
+	 e//TPkUnykIHC/Uxdb0t3LPuEAFRaXb6pWzr9SBtsJW5lmqGPCspRgLb6lU5/usE2f
+	 WZ8H3DbsF7kXUJjQqfKcWpe1J6fe0sCU4tZ/zvmsgifO4eomdUfDMtaoyq7kedV1CG
+	 trdnDnPihTPhHs364pwKNl8LOKxJ1MbtZrC65Wa/tenZxxGDdAe4nUEa+w80FMNyhK
+	 SQ0G8877NDV1g==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EA1E7FC0379;
-	Thu, 23 Apr 2026 16:08:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 18697F589DF;
+	Thu, 23 Apr 2026 16:08:11 +0000 (UTC)
 From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
-Date: Thu, 23 Apr 2026 18:07:18 +0200
-Subject: [PATCH v4 3/8] firmware: meson: sm: Add thermal calibration SMC
- call
+Date: Thu, 23 Apr 2026 18:07:20 +0200
+Subject: [PATCH v4 5/8] arm64: dts: amlogic: t7: Add cooling cells to all
+ CPUs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260423-add-thermal-t7-vim4-v4-3-d4c1528d5044@aliel.fr>
+Message-Id: <20260423-add-thermal-t7-vim4-v4-5-d4c1528d5044@aliel.fr>
 References: <20260423-add-thermal-t7-vim4-v4-0-d4c1528d5044@aliel.fr>
 In-Reply-To: <20260423-add-thermal-t7-vim4-v4-0-d4c1528d5044@aliel.fr>
 To: Guillaume La Roque <glaroque@baylibre.com>, 
@@ -68,21 +68,22 @@ Cc: linux-pm@vger.kernel.org, linux-amlogic@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, 
  Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2173;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2093;
  i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
- bh=QVwXg2rjCHDLPb10isf9/q6yv3hIqKAxTDlkEXCyDmk=;
- b=owGbwMvMwCWm1SvKXP3cUInxtFoSQ+Yr50ez3ocqrml4N/nmpWX9Kounm235ZJE1W8R/g/yVz
- 9+qbrM96yhlYRDjYpAVU2Tpn2t54t3lo2e+7lFPgZnDygQyhIGLUwAmwveT4Q/fab/4TS2sBd8s
- NJ/oL+ifJtSyX/VCksC0MoFnaSFn5r1iZDht8M7A+sa09S/LE3WnX2Ndpp8o1merKZ+XeMSy5YJ
- aITcA
+ bh=WdROqCoECVugDQijrfKUvfX+9RIJRisOOsFej55YKwg=;
+ b=owGbwMvMwCWm1SvKXP3cUInxtFoSQ+Yr5yeeqzn2iaepn511bYG0mlymX4JSgURKcW16R9Gun
+ NezH8/qKGVhEONikBVTZOmfa3ni3eWjZ77uUU+BmcPKBDKEgYtTACbyzpbhf7XenzkFh09Wzcl4
+ ZlZnFHNA0flVbgnjBamrqf4H9C5nCjIy3BBJ2tgz76WjQuvcteZsF75zBcxefLm7R3SG17/cfpF
+ tvAA=
 X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
  fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
 X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
  auth_id=744
 X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_090812_839242_A6F69309 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20260423_090812_889735_DE60EE2F 
+X-CRM114-Status: UNSURE (   8.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,65 +101,82 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-Add SM_THERMAL_CALIB_READ at SMC ID 0x82000047 in the command
-table and implement meson_sm_get_thermal_calib(), which forwards the
-tsensor_id argument to the secure monitor and returns the calibration data.
-
-Also realign the CMD() column to improve readability.
+Add #cooling-cells = <2> to all CPU nodes (both little and big cluster)
+to allow them to be used as cooling devices in thermal zone mappings.
 
 Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 ---
- drivers/firmware/meson/meson_sm.c | 29 ++++++++++++++++++++++++-----
- 1 file changed, 24 insertions(+), 5 deletions(-)
+ arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/drivers/firmware/meson/meson_sm.c b/drivers/firmware/meson/meson_sm.c
-index 3ab67aaa9e5da..4e57986724212 100644
---- a/drivers/firmware/meson/meson_sm.c
-+++ b/drivers/firmware/meson/meson_sm.c
-@@ -41,12 +41,13 @@ static const struct meson_sm_chip gxbb_chip = {
- 	.cmd_shmem_in_base	= 0x82000020,
- 	.cmd_shmem_out_base	= 0x82000021,
- 	.cmd = {
--		CMD(SM_EFUSE_READ,	0x82000030),
--		CMD(SM_EFUSE_WRITE,	0x82000031),
-+		CMD(SM_EFUSE_READ,		0x82000030),
-+		CMD(SM_EFUSE_WRITE,		0x82000031),
- 		CMD(SM_EFUSE_USER_MAX,	0x82000033),
--		CMD(SM_GET_CHIP_ID,	0x82000044),
--		CMD(SM_A1_PWRC_SET,	0x82000093),
--		CMD(SM_A1_PWRC_GET,	0x82000095),
-+		CMD(SM_GET_CHIP_ID,		0x82000044),
-+		CMD(SM_THERMAL_CALIB_READ,	0x82000047),
-+		CMD(SM_A1_PWRC_SET,		0x82000093),
-+		CMD(SM_A1_PWRC_GET,		0x82000095),
- 		{ /* sentinel */ },
- 	},
- };
-@@ -245,6 +246,24 @@ struct meson_sm_firmware *meson_sm_get(struct device_node *sm_node)
- }
- EXPORT_SYMBOL_GPL(meson_sm_get);
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+index 560c9dce35266..7aec65f036a9c 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+@@ -63,6 +63,7 @@ cpu100: cpu@100 {
+ 			i-cache-size = <0x8000>;
+ 			i-cache-sets = <32>;
+ 			next-level-cache = <&l2_cache_l>;
++			#cooling-cells = <2>;
+ 		};
  
-+/**
-+ *
-+ * meson_sm_get_thermal_calib - Read thermal sensor calibration data.
-+ * @fw:		Pointer to secure-monitor firmware.
-+ * @trim_info:	Pointer to store the returned calibration data.
-+ * @tsensor_id:	Sensor index to identify which sensor's calibration data
-+ *		to retrieve
-+ *
-+ * Return: 0 on success, negative error code on failure.
-+ */
-+int meson_sm_get_thermal_calib(struct meson_sm_firmware *fw, u32 *trim_info,
-+			       u32 tsensor_id)
-+{
-+	return meson_sm_call(fw, SM_THERMAL_CALIB_READ, trim_info, tsensor_id,
-+			     0, 0, 0, 0);
-+}
-+EXPORT_SYMBOL_GPL(meson_sm_get_thermal_calib);
-+
- #define SM_CHIP_ID_LENGTH	119
- #define SM_CHIP_ID_OFFSET	4
- #define SM_CHIP_ID_SIZE		12
+ 		cpu101: cpu@101 {
+@@ -77,6 +78,7 @@ cpu101: cpu@101 {
+ 			i-cache-size = <0x8000>;
+ 			i-cache-sets = <32>;
+ 			next-level-cache = <&l2_cache_l>;
++			#cooling-cells = <2>;
+ 		};
+ 
+ 		cpu102: cpu@102 {
+@@ -91,6 +93,7 @@ cpu102: cpu@102 {
+ 			i-cache-size = <0x8000>;
+ 			i-cache-sets = <32>;
+ 			next-level-cache = <&l2_cache_l>;
++			#cooling-cells = <2>;
+ 		};
+ 
+ 		cpu103: cpu@103 {
+@@ -105,6 +108,7 @@ cpu103: cpu@103 {
+ 			i-cache-size = <0x8000>;
+ 			i-cache-sets = <32>;
+ 			next-level-cache = <&l2_cache_l>;
++			#cooling-cells = <2>;
+ 		};
+ 
+ 		cpu0: cpu@0 {
+@@ -119,6 +123,7 @@ cpu0: cpu@0 {
+ 			i-cache-size = <0x10000>;
+ 			i-cache-sets = <64>;
+ 			next-level-cache = <&l2_cache_b>;
++			#cooling-cells = <2>;
+ 		};
+ 
+ 		cpu1: cpu@1 {
+@@ -133,6 +138,7 @@ cpu1: cpu@1 {
+ 			i-cache-size = <0x10000>;
+ 			i-cache-sets = <64>;
+ 			next-level-cache = <&l2_cache_b>;
++			#cooling-cells = <2>;
+ 		};
+ 
+ 		cpu2: cpu@2 {
+@@ -147,6 +153,7 @@ cpu2: cpu@2 {
+ 			i-cache-size = <0x10000>;
+ 			i-cache-sets = <64>;
+ 			next-level-cache = <&l2_cache_b>;
++			#cooling-cells = <2>;
+ 		};
+ 
+ 		cpu3: cpu@3 {
+@@ -161,6 +168,7 @@ cpu3: cpu@3 {
+ 			i-cache-size = <0x10000>;
+ 			i-cache-sets = <64>;
+ 			next-level-cache = <&l2_cache_b>;
++			#cooling-cells = <2>;
+ 		};
+ 
+ 		l2_cache_l: l2-cache-cluster0 {
 
 -- 
 2.49.0
