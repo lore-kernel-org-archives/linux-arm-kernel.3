@@ -4,81 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1DFFF99362
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 09:47:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9929F99344
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 09:48:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l86b3wFQLp7qqyYC3UYkYG48yFwPuGR6BvkHaLpMrlk=; b=wCYBbhifziQVX8rQxIwYKomQTi
-	zNWuxCecWfFAocu7wmJ/w1AW7gQFfv9pi+mCP1F9S9hWD8vCy9mPMijfJjrODXnI5/1L2yDATAyR2
-	G9gbhuUCBAVFEsJOVLikF6CzTtuWNI1V5VZR2yBEpQWAuoZdPQWj/7qDoH78v7EFIJOcoYV7sZG/d
-	AlJeotAdcuFM1cOE0tF/y8UUrYQfl+MhYfJbT8GWJMe7wEPYlzDRMda25GzPtet0+6oWtWXxzPrxT
-	DO8Ds/ASjcwnlYACqMDil2lOGiuOLAiJLdS/Xt00KSW0fCqTizuskc7Dmwz93zhjI3/wqIi0EfJOL
-	7mopXcyw==;
+	bh=m9P4e+i1PL7F/lu0EmXBK56VSbV/3oEzms3NA+W6sm0=; b=Ifm8ryoqGtkAcSjHkG6k+2uuFS
+	S87dIqLyOz6NS48n7FNHnL3gb7dL3dmqu1o+u+VVQQUHVR6oi4vlS1K9UWmiUh3IYF8et+2b5yxak
+	vZ7OzqhKb39499rmdNLAro3ercza42LRJh7u2FE4l5f57lZ1+BLV4H0iESRkglokok5eqqeHTJcun
+	PD0NJYI5mfDsY0zog1KnBchigiMVkoDSb4/Jm8N/lvg8JF1EhYYFVodETuvyNqbAXpCo4xrIKlpaL
+	DskgxaCXJP1Ia9dpCuWPhDoV/LIwAR2YuY4dngI5taSAC9Xx6KOsbYElw2T18kBcf8j9drziey0aq
+	/NIXUdsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFqes-0000000BQdC-3ird;
-	Thu, 23 Apr 2026 09:47:42 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1wFqfD-0000000BQwJ-2czh;
+	Thu, 23 Apr 2026 09:48:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFqeT-0000000BQ6Z-31Ja;
-	Thu, 23 Apr 2026 09:47:18 +0000
-X-UUID: 675f36463ef911f19e7563141e833ce8-20260423
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=l86b3wFQLp7qqyYC3UYkYG48yFwPuGR6BvkHaLpMrlk=;
-	b=k+rkIqbDXQ0d/Qksa+6Dc+gmpG4R61hUFzZ55MNuZq59V1n9/ixtQIvhXohouTWCbLsUIkEKPcam1Gmt9pSs4Mj0fh/gW5sgE2zGtewqj+qMNGJ+TKZTIi+4vZUAMCwwKhQqmyiEgc4bsnicOICZgPUR2Jnkn02B+sZZDlY6OeE=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:8d4626f1-cfa9-40d9-8923-cd16339b4f00,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
-	ON:release,TS:-30
-X-CID-META: VersionHash:e7bac3a,CLOUDID:2096cb8f-6df4-4a3d-a7a4-fbdc42d669ce,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|865|888|898,TC:-5,Cont
-	ent:0|15|50,EDM:2,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,
-	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 675f36463ef911f19e7563141e833ce8-20260423
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 42432703; Thu, 23 Apr 2026 02:47:12 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Thu, 23 Apr 2026 17:47:10 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Thu, 23 Apr 2026 17:47:09 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
-	<mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
-	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-CC: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v14 10/12] media: dt-bindings: mediatek,jpeg: Add mediatek, mt8196-jpgenc compatible
-Date: Thu, 23 Apr 2026 17:46:54 +0800
-Message-ID: <20260423094656.32044-11-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20260423094656.32044-1-kyrie.wu@mediatek.com>
-References: <20260423094656.32044-1-kyrie.wu@mediatek.com>
+	id 1wFqf5-0000000BQpK-2IRx
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Apr 2026 09:47:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1CD57429ED;
+	Thu, 23 Apr 2026 09:47:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC9D3C2BCAF;
+	Thu, 23 Apr 2026 09:47:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776937675;
+	bh=br5wlc5f09n9mCEqo9WCcoPnuWcALLuWS7e/ixgqzF4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ct0tQNrNoDOxJybDdDRqEJFZs+32ZnzrR6+M9qZKSZDaAdiUm1YiMuknDnjYQI4yi
+	 mc+DbyPPBGCIaSHJca5OGtMBvPCleQJsRds1uj5Y0SW29flqfClpiaQv2e7U8IHYyh
+	 YqwzyRAcF2bzaYKRqf33rBiG2EOSt0s9vDmzdll6b/cc9YNEsVfg+C0L+6XxRQzy8n
+	 G00XSloa4Y4BRvD4rnpQhGBT6NcZj+JxSGSDw/g7JdQuxVMsyR2/lZZru3sDbKMmHg
+	 xS59aLLINn5LOU+XP5ENbqMC5YtJdKQIR8n6UiabP+jHhSMGrmW9Cgo00dwkrgB2eP
+	 +4khsM6ch74lg==
+Date: Thu, 23 Apr 2026 10:47:49 +0100
+From: Will Deacon <will@kernel.org>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Evangelos Petrongonas <epetron@amazon.de>,
+	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Pranjal Shrivastava <praan@google.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, nh-open-source@amazon.com,
+	Zeev Zilberman <zeev@amazon.com>
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow disabling Stage 1 translation
+Message-ID: <aenqxasLJ8yKYqbT@willie-the-truck>
+References: <20260420123221.20801-1-epetron@amazon.de>
+ <20260420124032.GO2577880@ziepe.ca>
+ <20260422064431.GA49867@dev-dsk-epetron-1c-1d4d9719.eu-west-1.amazon.com>
+ <20260422162351.GK3611611@ziepe.ca>
+ <aenp6FHzx9rtUQkZ@willie-the-truck>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+In-Reply-To: <aenp6FHzx9rtUQkZ@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_024717_761090_A2ED7BFD 
-X-CRM114-Status: UNSURE (   9.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260423_024755_628667_9FFDA817 
+X-CRM114-Status: GOOD (  27.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,44 +82,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Compared to the previous generation IC, the MT8196 uses SMMU
-instead of IOMMU and supports features such as dynamic voltage
-and frequency scaling. Therefore, add "mediatek,mt8196-jpgenc"
-compatible to the binding document.
+On Thu, Apr 23, 2026 at 10:44:08AM +0100, Will Deacon wrote:
+> On Wed, Apr 22, 2026 at 01:23:51PM -0300, Jason Gunthorpe wrote:
+> > On Wed, Apr 22, 2026 at 06:44:31AM +0000, Evangelos Petrongonas wrote:
+> > > The motivation is live update of the hypervisor: we want to kexec into a
+> > > new kernel while keeping DMA from passthrough devices flowing, which
+> > > means the SMMU's translation state has to survive the handover. The Live
+> > > Update Orchestrator work [1] and the in-progress  "iommu: Add live
+> > > update state preservation" series [2] are building exactly this plumbing
+> > > on top of KHO; [2]'s cover letter calls out Arm SMMUv3 support as future
+> > > work, and an earlier RFC from Amazon [3] sketched the same idea for
+> > > iommufd.
+> > 
+> > It would be appropriate to keep this patch with the rest of that out
+> > of tree pile, for example in the series that enables s2 only support
+> > in smmuv3.
+> > 
+> > > For this use case, Stage 2 is materially easier to persist than Stage 1,
+> > > for structural rather than performance reasons: 
+> > 
+> > I don't think so. The driver needs to know each and every STE that
+> > will survive KHO. The ones that don't survive need to be reset to
+> > abort STEs. From that point it is trivial enough to include the CD
+> > memory in the preservation.
+> > 
+> > It would help to send a preparation series to switch the ARM STE and
+> > CD logic away from dma_alloc_coherent and use iommu-pages instead,
+> > since we only expect iommu-pages to support preservation..
+> 
+> Does iommu-pages provide a mechanism to map the memory as non-cacheable
+> if the SMMU isn't coherent? I really don't want to entertain CMOs for
+> the queues.
 
-Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- .../bindings/media/mediatek,mt8195-jpegenc.yaml           | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+Sorry, I said "queues" here but I was really referring to any of the
+current dma_alloc_coherent() allocations and it's the CDs that matter
+in this thread.
 
-diff --git a/Documentation/devicetree/bindings/media/mediatek,mt8195-jpegenc.yaml b/Documentation/devicetree/bindings/media/mediatek,mt8195-jpegenc.yaml
-index 596186497b68..e2d772ea0fb0 100644
---- a/Documentation/devicetree/bindings/media/mediatek,mt8195-jpegenc.yaml
-+++ b/Documentation/devicetree/bindings/media/mediatek,mt8195-jpegenc.yaml
-@@ -14,7 +14,9 @@ description:
- 
- properties:
-   compatible:
--    const: mediatek,mt8195-jpgenc
-+    enum:
-+      - mediatek,mt8195-jpgenc
-+      - mediatek,mt8196-jpgenc
- 
-   power-domains:
-     maxItems: 1
-@@ -44,7 +46,9 @@ patternProperties:
- 
-     properties:
-       compatible:
--        const: mediatek,mt8195-jpgenc-hw
-+        enum:
-+          - mediatek,mt8195-jpgenc-hw
-+          - mediatek,mt8196-jpgenc-hw
- 
-       reg:
-         maxItems: 1
--- 
-2.45.2
+The rationale being that:
 
+1. A cacheable mapping is going to pollute the cache unnecessarily.
+2. Reasoning about atomicity and ordering is a lot more subtle with CMOs.
+3. It seems like a pretty invasive driver change to support live update,
+   which isn't relevant for a lot of systems.
+
+Will
 
