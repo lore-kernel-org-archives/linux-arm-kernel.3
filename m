@@ -4,124 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDAD5F589DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 14:49:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FDE0FC0342
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 15:10:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
-	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2X95vNFhiGgw4Oc8IWUqhuoOMgNVlJZ/+5OGocvfY/c=; b=fbRITW7/5peP+sVoGTJVwzxRKq
-	oO1nOvI0wDBNB8VrFQzRTeIyH07+otyF63XsHENEizY0Mw4PgOkxgO7AF2DY9G1Y6WuKH7xkFr4Vs
-	CEq5UtLBqRyu5BNIn5mesGii/hSjKq7mLlAeZkg1zY6fuuIJ9ImBthC/cimrm3QD/BF2dAxdseX2B
-	0eft9wQFSJGshDEOYIwvDuuwte44lKx7y/i+ZqJhtvQ+Tg/QPtuL737ufOiGRKiWFbVJlozR9zt70
-	uLtzgF4xyE9rVXWDWzxMrSsx/T7NgqXdB6ckavR21NiDw+GlG5prMpF99AYDDyGOee0J/bPsXlepL
-	qcUMZshQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f2Rw8WELINupack8eDMNUwAOaIJmY3KmbG0Aab+FSQU=; b=vuADyqboWbxoaLA6Wba/Ys6oIi
+	KKRSZ6orgPi2lRc9lv/ybgGVOSIYVqrECamq4EOvB7b61ETRNd8IfrnrFB6NQeQu5bq4liKKfu4JL
+	ZBx9yi8z/hmUcQgfeR3lKEYoQaWr67LF9gfx3y/sT+pIUuryfeCmuWMXeSb3HOzRZi9qxTLLRFJjU
+	E0tqX464ougrYsjOFsC3QLQ5njqrL+fgcpKdtMdNZybOexv39O34buuuuhZvARhSuEnme9P7EAOiE
+	8l/JiFHZgYcU9tKU/ac9ehTJHuR+K4grNKEbCgXTQ3rTG2AGRfMaQu9nXq5ZgtlXJBatzBPIsxodE
+	YPZNm/+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFvMq-0000000BqGb-4Akv;
-	Thu, 23 Apr 2026 14:49:24 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wFvgk-0000000BrHD-46Ee;
+	Thu, 23 Apr 2026 15:09:58 +0000
+Received: from courrier.aliel.fr ([2a01:4f9:c011:1c83::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFvMj-0000000BqGE-1T2o
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 14:49:23 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63N7QKD53944159;
-	Thu, 23 Apr 2026 14:48:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=2X95vN
-	FhiGgw4Oc8IWUqhuoOMgNVlJZ/+5OGocvfY/c=; b=BO1ztlFN95zprQPeZ4dgTq
-	woJObfJbu/QC2hUiIO4w2R1h24i0i4Eqi2B2j1pT0Bzt02t7eICaV4kfnycTQUSG
-	LcGX4LEz3VOMhbNz1xIuZgBYaiKqMBMQ97NiRmb2nc6AQCyyHSjP1EX9vtayj1jm
-	/BaCB1iDKIEkOpJ3b7OhGlTsAT3ncYOhYRO137ZF6Aa5nfuq1to32qoOZqk4QlIg
-	6jZ1jQAQxALuh3Lwqi+qKGyjerexCBNA52WdPUthHmUZW9NUb0cbLwB4M7XZC+fe
-	O9cVPhoKeMA0GcJXlcx3rUO5sWnwWPDpKDY4UA02/PQeYVxecjyuM2Xo264O/SRA
-	==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dpeu3rkgf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 23 Apr 2026 14:48:53 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63NEZUJm004742;
-	Thu, 23 Apr 2026 14:48:52 GMT
-Received: from smtprelay03.wdc07v.mail.ibm.com ([172.16.1.70])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dpjky713c-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 23 Apr 2026 14:48:52 +0000 (GMT)
-Received: from smtpav04.wdc07v.mail.ibm.com (smtpav04.wdc07v.mail.ibm.com [10.39.53.231])
-	by smtprelay03.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63NEmPOv29557474
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 23 Apr 2026 14:48:25 GMT
-Received: from smtpav04.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D39F258052;
-	Thu, 23 Apr 2026 14:48:51 +0000 (GMT)
-Received: from smtpav04.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 9C0AB58050;
-	Thu, 23 Apr 2026 14:48:49 +0000 (GMT)
-Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.20.220])
-	by smtpav04.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 23 Apr 2026 14:48:49 +0000 (GMT)
-Message-ID: <2866f7679fe6933de667ce74ae68bd4ea9198e2a.camel@linux.ibm.com>
-Subject: Re: [RFC PATCH v2 1/4] security: ima: call ima_init() again at
- late_initcall_sync for defered TPM
-From: Mimi Zohar <zohar@linux.ibm.com>
-To: Jonathan McDowell <noodles@earth.li>, Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        kvmarm@lists.linux.dev, paul@paul-moore.com, jmorris@namei.org,
-        serge@hallyn.com, roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
-        eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
-        sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
-        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-        catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
-        sebastianene@google.com
-In-Reply-To: <aeomlp3I0eVE5mce@earth.li>
-References: <aekXaU52fzvNYaUF@e129823.arm.com>
-	 <aekkVQwueKbFtG7C@e129823.arm.com>
-	 <82803bb3b471898a77084c449b73c7f7b4eb2149.camel@linux.ibm.com>
-	 <aem0SSQuE1e3pGOS@e129823.arm.com>
-	 <56a8aab50a3b5ce0a345fc2079fb2abc7d0f1b23.camel@linux.ibm.com>
-	 <aeoAlVEwzRUPrlVe@e129823.arm.com> <aeoRxWPyOHGJd+Jh@e129823.arm.com>
-	 <aeoWO2Cwo04YYu2l@earth.li>
-	 <bd908e28298d968740d03c97bc7e441de188b7b4.camel@linux.ibm.com>
-	 <aeokwrC86WI7uT+K@e129823.arm.com> <aeomlp3I0eVE5mce@earth.li>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Thu, 23 Apr 2026 10:48:49 -0400
+	id 1wFvgd-0000000BrFz-1e25;
+	Thu, 23 Apr 2026 15:09:57 +0000
+Message-ID: <19d70883-21db-4963-841d-7c00505e0d9e@aliel.fr>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1776956983;
+	bh=piKDcOgjcm+FqKMFf8GBg3CE1PJohOeelaXmkED6UDY=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To;
+	b=L8gvUVSOu4mCjW2Z+XaVEo7qANhshywZdZSvqUUiHdnmrsSpdRvMKPifgNJvjoBDD
+	 nae1D0LMx8ahyMvlnDEzZAqJ13YZWcr+0HlKIt+hkF0bXwa6cxf9+fpPYsvNAew3zG
+	 aWSqvQk3Ufo4S+Cntm3dcU8+FYHoJ+Ruxs/anKkM=
+Date: Thu, 23 Apr 2026 17:09:41 +0200
 MIME-Version: 1.0
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: mhnhRqzT077GasUIHAWRC6Bxei_ER3TC
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDIzMDE0OCBTYWx0ZWRfX7LTl84561ngj
- NrfCegwr1JH9F/ZSapPt1HM5AU1eXvd5s3CLlRIHPmfnRal147hEslMOmSeNEjpg0nUjVJSts9v
- 5+09IWcVbM4ROgZOM+HCz8dUCvKF0E2mgEl/p11rK57BlC0Z4p4/o9UtAt1s+dPcO9AVwRDXicw
- oFZndN60zpTd5M1vMBK/B/o7kUONIdy/QJzpnWJmYZAnKmU9c+EfFGuY75/eoc9okcHbF4TS95q
- siHGQeFBROqNceXGxkZpiSpPkqUVNrfomS+A6IZO4Vdvp2X2QR8gIMd4TK6SbbOwE1uY2vjx2rb
- JvwWK72ykzPNtA/z7x+emRFVxw0VHXRYhCi50ZwF1Oi+siXXQ/Ute6YwXqGV2pePDQ5bkUVgPBZ
- 9OnuRe1Nx9hn3nihhE2bahyusFYc7FatdKLr4XAm7syDThMfYT42Qv9KMgTQAYLVbX1DjAdXFvl
- G/0G8X8IGeFhucv2LMw==
-X-Authority-Analysis: v=2.4 cv=a6kAM0SF c=1 sm=1 tr=0 ts=69ea3155 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=7CQSdrXTAAAA:8
- a=EGpjKbHA07BNBKX1QMUA:9 a=QEXdDO2ut3YA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-ORIG-GUID: b6OLFrmHeMQJAjCoVqyqnXU3MJj-NPDh
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-23_03,2026-04-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 suspectscore=0 spamscore=0 adultscore=0 bulkscore=0
- lowpriorityscore=0 impostorscore=0 clxscore=1015 phishscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
- definitions=main-2604230148
+User-Agent: Mozilla Thunderbird Beta
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+Subject: Re: [PATCH v3 4/8] thermal: amlogic: Add support for secure monitor
+ calibration readout
+To: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+Cc: linux-pm@vger.kernel.org, linux-amlogic@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Guillaume La Roque <glaroque@baylibre.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+References: <20260421-add-thermal-t7-vim4-v3-0-a2e7215ed003@aliel.fr>
+ <20260421-add-thermal-t7-vim4-v3-4-a2e7215ed003@aliel.fr>
+ <7aaa7873-9274-48d8-a6fe-cff4239b03b4@oss.qualcomm.com>
+Content-Language: en-US
+In-Reply-To: <7aaa7873-9274-48d8-a6fe-cff4239b03b4@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_074917_873300_E6E089DA 
-X-CRM114-Status: GOOD (  63.03  )
+X-CRM114-CacheID: sfid-20260423_080952_046000_BEC4E41C 
+X-CRM114-Status: GOOD (  27.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,216 +76,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2026-04-23 at 15:03 +0100, Jonathan McDowell wrote:
-> On Thu, Apr 23, 2026 at 02:55:14PM +0100, Yeoreum Yun wrote:
-> > > On Thu, 2026-04-23 at 13:53 +0100, Jonathan McDowell wrote:
-> > > > On Thu, Apr 23, 2026 at 01:34:13PM +0100, Yeoreum Yun wrote:
-> > > > > > > On Thu, 2026-04-23 at 06:55 +0100, Yeoreum Yun wrote:
-> > > > > > > > > On Wed, 2026-04-22 at 20:41 +0100, Yeoreum Yun wrote:
-> > > > > > > > > > > Hi Mimi,
-> > > > > > > > > > >=20
-> > > > > > > > > > > > On Wed, 2026-04-22 at 17:24 +0100, Yeoreum Yun wrot=
-e:
-> > > > > > > > > > > > > To generate the boot_aggregate log in the IMA sub=
-system with TPM PCR values,
-> > > > > > > > > > > > > the TPM driver must be built as built-in and
-> > > > > > > > > > > > > must be probed before the IMA subsystem is initia=
-lized.
-> > > > > > > > > > > > >=20
-> > > > > > > > > > > > > However, when the TPM device operates over the FF=
--A protocol using
-> > > > > > > > > > > > > the CRB interface, probing fails and returns -EPR=
-OBE_DEFER if
-> > > > > > > > > > > > > the tpm_crb_ffa device =E2=80=94 an FF-A device t=
-hat provides the communication
-> > > > > > > > > > > > > interface to the tpm_crb driver =E2=80=94 has not=
- yet been probed.
-> > > > > > > > > > > > >=20
-> > > > > > > > > > > > > To ensure the TPM device operating over the FF-A =
-protocol with
-> > > > > > > > > > > > > the CRB interface is probed before IMA initializa=
-tion,
-> > > > > > > > > > > > > the following conditions must be met:
-> > > > > > > > > > > > >=20
-> > > > > > > > > > > > >    1. The corresponding ffa_device must be regist=
-ered,
-> > > > > > > > > > > > >       which is done via ffa_init().
-> > > > > > > > > > > > >=20
-> > > > > > > > > > > > >    2. The tpm_crb_driver must successfully probe =
-this device via
-> > > > > > > > > > > > >       tpm_crb_ffa_init().
-> > > > > > > > > > > > >=20
-> > > > > > > > > > > > >    3. The tpm_crb driver using CRB over FF-A can =
-then
-> > > > > > > > > > > > >       be probed successfully. (See crb_acpi_add()=
- and
-> > > > > > > > > > > > >       tpm_crb_ffa_init() for reference.)
-> > > > > > > > > > > > >=20
-> > > > > > > > > > > > > Unfortunately, ffa_init(), tpm_crb_ffa_init(), an=
-d crb_acpi_driver_init() are
-> > > > > > > > > > > > > all registered with device_initcall, which means =
-crb_acpi_driver_init() may
-> > > > > > > > > > > > > be invoked before ffa_init() and tpm_crb_ffa_init=
-() are completed.
-> > > > > > > > > > > > >=20
-> > > > > > > > > > > > > When this occurs, probing the TPM device is defer=
-red.
-> > > > > > > > > > > > > However, the deferred probe can happen after the =
-IMA subsystem
-> > > > > > > > > > > > > has already been initialized, since IMA initializ=
-ation is performed
-> > > > > > > > > > > > > during late_initcall, and deferred_probe_initcall=
-() is performed
-> > > > > > > > > > > > > at the same level.
-> > > > > > > > > > > > >=20
-> > > > > > > > > > > > > To resolve this, call ima_init() again at late_in=
-icall_sync level
-> > > > > > > > > > > > > so that let IMA not miss TPM PCR value when gener=
-ating boot_aggregate
-> > > > > > > > > > > > > log though TPM device presents in the system.
-> > > > > > > > > > > > >=20
-> > > > > > > > > > > > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > > > > > > > > > > >=20
-> > > > > > > > > > > > A lot of change for just detecting whether ima_init=
-() is being called on
-> > > > > > > > > > > > late_initcall or late_initcall_sync(), without any =
-explanation for all the other
-> > > > > > > > > > > > changes (e.g. ima_init_core).
-> > > > > > > > > > > >=20
-> > > > > > > > > > > > Please just limit the change to just calling ima_in=
-it() twice.
-> > > > > > > > > > >=20
-> > > > > > > > > > > My concern is that ima_update_policy_flags() will be =
-called
-> > > > > > > > > > > when ima_init() is deferred -- not initialised anythi=
-ng.
-> > > > > > > > > > > though functionally, it might be okay however,
-> > > > > > > > > > > I think ima_update_policy_flags() and notifier should=
- work after ima_init()
-> > > > > > > > > > > works logically.
-> > > > > > > > > > >=20
-> > > > > > > > > > > This change I think not much quite a lot. just wrappe=
-r ima_init() with
-> > > > > > > > > > > ima_init_core() with some error handling.
-> > > > > > > > > > >=20
-> > > > > > > > > > > Am I missing something?
-> > > > > > > > > >=20
-> > > > > > > > > > Also, if we handle in ima_init() only, but it failed wi=
-th other reason,
-> > > > > > > > > > we shouldn't call again ima_init() in the late_initcall=
-_sync.
-> > > > > > > > > >=20
-> > > > > > > > > > To handle this, It wouldn't do in the ima_init() but we=
- need to handle
-> > > > > > > > > > it by caller of ima_init().
-> > > > > > > > >=20
-> > > > > > > > > Only tpm_default_chip() is being called to set the ima_tp=
-m_chip.  On failure,
-> > > > > > > > > instead of going into TPM-bypass mode, return immediately=
-.  There are no calls
-> > > > > > > > > to anything else.  Just call ima_init() a second time.
-> > > > > > > >=20
-> > > > > > > > I=E2=80=99m not fully convinced this is sufficient.
-> > > > > > > >=20
-> > > > > > > > What I meant is the case where ima_init() fails due to othe=
-r
-> > > > > > > > initialisation steps, not only tpm_default_chip() (e.g. ima=
-_fs_init()).
-> > > > > > >=20
-> > > > > > > The purpose of THIS patch is to add late_initcall_sync, when =
-the TPM is not
-> > > > > > > available at late_initcall.  This would be classified as a bu=
-g fix and would be
-> > > > > > > backported.  No other changes should be included in this patc=
-h.
-> > > > > >=20
-> > > > > > Okay.
-> > > > > >=20
-> > > > > > > >=20
-> > > > > > > > I=E2=80=99d also like to ask again whether it is fine to ca=
-ll
-> > > > > > > > ima_update_policy_flags() and keep the notifier registered =
-in the
-> > > > > > > > deferred TPM case. While this may be functionally acceptabl=
-e, it seems
-> > > > > > > > logically questionable to do so when ima_init() has not com=
-pleted.
-> > > > > > >=20
-> > > > > > > Other than extending the TPM, IMA should behave exactly the s=
-ame whether there
-> > > > > > > is a TPM or goes into TPM-bypass mode.
-> > > > > > >=20
-> > > > > > > >=20
-> > > > > > > > There is also a possibility that a deferred case ultimately=
- fails (e.g.
-> > > > > > > > deferred at late_initcall, but then failing at late_initcal=
-l_sync
-> > > > > > > > for another reason, even while entering TPM bypass mode). I=
-n that case,
-> > > > > > > > it seems more appropriate to handle this state in the calle=
-r of
-> > > > > > > > ima_init(), rather than inside ima_init() itself.
-> > > > > > >=20
-> > > > > > > If the TPM isn't found at late_initcall_sync(), then IMA shou=
-ld go into TPM-
-> > > > > > > bypass mode.  Please don't make any other changes to the exis=
-ting IMA behavior
-> > > > > > > and hide it here behind the late_initcall_sync change.
-> > > > > >=20
-> > > > > > Okay. you're talking called ima_update_policy_flags() at late_i=
-nitcall
-> > > > > > wouldn't be not a problem even in case of late_initcall_sync's =
-ima_init()
-> > > > > > get failed with "TPM-bypass mode".
-> > > > > >=20
-> > > > > > I see then, I'll make a patch simpler then.
-> > > > >=20
-> > > > > But I think in case of below situation:
-> > > > >  - late_initcall's first ima_init() is deferred.
-> > > > >  - late_initcall_sync try again but failed and try again with
-> > > > >    CONFIG_IMA_DEFAULT_HASH.
-> > > > >=20
-> > > > > I would like to sustain init_ima_core to reduce the same code rep=
-eat
-> > > > > in late_initcall_sync.
-> > > >=20
-> > > > I think what Mimi's proposing is:
-> > > >=20
-> > > > If we're in late_initcall, and the TPM isn't available, return
-> > > > immediately with an error (the EPROBE_DEFER?), don't do any init.
-> > > >=20
-> > > > If we're in late_initcall_sync, either we're already initialised, s=
-o do
-> > > > return and nothing, or run through the entire flow, even if the TPM
-> > > > isn't unavailable.
-> > > >=20
-> > > > So ima_init() just needs to know a) if it's in the sync or non-sync=
- mode
-> > > > and b) for the sync mode, if we've already done the init at
-> > > > non-sync.
-> > >=20
-> > > Thanks, Jonathan.  That is exactly what I'm suggesting.  Any other ch=
-anges
-> > > should not be included in this patch.  Since Yeoreum is not hearing m=
-e, feel
-> > > free to post a patch.
-> >=20
-> > I see. so what you need to is this only
-> > If it looks good to you. I'll send it at v3.
->=20
-> FWIW, I pulled the tpm_default_chip check out a level to account for the=
-=20
-> extra init you mentioned, and have the following (completely untested or=
-=20
-> compiled, but gives the approach):
+Hi Daniel,
 
-Thanks, Jonathan!  It looks good.  Similarly untested/compiled.
+Thanks for your feedback.
 
-Emitting a message on failure to initialize IMA at late_initcall is good, b=
-ut
-the attestation service won't know.  Could you somehow differentiate betwee=
-n the
-late_initcall and late_initcall_sync boot_aggregate records?
+On 4/23/26 12:25 PM, Daniel Lezcano wrote:
+> 
+> Hi Ronald,
+> 
+> On 4/21/26 09:19, Ronald Claveau wrote:
+>> Some SoCs (e.g. T7) expose thermal calibration data through the secure
+>> monitor rather than a directly accessible eFuse register. Add a use_sm
+>> flag to amlogic_thermal_data to select this path, and retrieve the
+>> firmware handle and tsensor_id from the "amlogic,secure-monitor" DT
+>> phandle with one fixed argument.
+>>
+>> Also introduce the amlogic,t7-thermal compatible using this new path.
+>>
+>> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+>> ---
+>>   drivers/thermal/amlogic_thermal.c | 58 +++++++++++++++++++++++++++++
+>> ++++++----
+>>   1 file changed, 53 insertions(+), 5 deletions(-)
+>>
+>> diff --git a/drivers/thermal/amlogic_thermal.c b/drivers/thermal/
+>> amlogic_thermal.c
+>> index 5448d772db12a..11e3948cc0669 100644
+>> --- a/drivers/thermal/amlogic_thermal.c
+>> +++ b/drivers/thermal/amlogic_thermal.c
+>> @@ -25,6 +25,7 @@
+>>   #include <linux/platform_device.h>
+>>   #include <linux/regmap.h>
+>>   #include <linux/thermal.h>
+>> +#include <linux/firmware/meson/meson_sm.h>
+>>     #include "thermal_hwmon.h"
+>>   @@ -84,12 +85,14 @@ struct amlogic_thermal_soc_calib_data {
+>>    * @u_efuse_off: register offset to read fused calibration value
+>>    * @calibration_parameters: calibration parameters structure pointer
+>>    * @regmap_config: regmap config for the device
+>> + * @use_sm: read data from secure monitor instead of efuse
+>>    * This structure is required for configuration of amlogic thermal
+>> driver.
+>>    */
+>>   struct amlogic_thermal_data {
+>>       int u_efuse_off;
+>>       const struct amlogic_thermal_soc_calib_data
+>> *calibration_parameters;
+>>       const struct regmap_config *regmap_config;
+>> +    bool use_sm;
+>>   };
+>>     struct amlogic_thermal {
+>> @@ -100,6 +103,8 @@ struct amlogic_thermal {
+>>       struct clk *clk;
+>>       struct thermal_zone_device *tzd;
+>>       u32 trim_info;
+>> +    struct meson_sm_firmware *sm_fw;
+>> +    u32 tsensor_id;
+>>   };
+>>     /*
+>> @@ -138,6 +143,12 @@ static int amlogic_thermal_initialize(struct
+>> amlogic_thermal *pdata)
+>>       int ret = 0;
+>>       int ver;
+>>   +    if (pdata->data->use_sm) {
+>> +        return meson_sm_get_thermal_calib(pdata->sm_fw,
+>> +                          &pdata->trim_info,
+>> +                          pdata->tsensor_id);
+>> +    }
+>> +
+>>       regmap_read(pdata->sec_ao_map, pdata->data->u_efuse_off,
+>>               &pdata->trim_info);
+>>   @@ -226,6 +237,12 @@ static const struct amlogic_thermal_data
+>> amlogic_thermal_a1_cpu_param = {
+>>       .regmap_config = &amlogic_thermal_regmap_config_g12a,
+>>   };
+>>   +static const struct amlogic_thermal_data amlogic_thermal_t7_param = {
+>> +    .use_sm            = true,
+>> +    .calibration_parameters    = &amlogic_thermal_g12a,
+>> +    .regmap_config        = &amlogic_thermal_regmap_config_g12a,
+>> +};
+>> +
+>>   static const struct of_device_id of_amlogic_thermal_match[] = {
+>>       {
+>>           .compatible = "amlogic,g12a-ddr-thermal",
+>> @@ -239,6 +256,10 @@ static const struct of_device_id
+>> of_amlogic_thermal_match[] = {
+>>           .compatible = "amlogic,a1-cpu-thermal",
+>>           .data = &amlogic_thermal_a1_cpu_param,
+>>       },
+>> +    {
+>> +        .compatible = "amlogic,t7-thermal",
+>> +        .data = &amlogic_thermal_t7_param,
+>> +    },
+>>       { /* sentinel */ }
+>>   };
+>>   MODULE_DEVICE_TABLE(of, of_amlogic_thermal_match);
+>> @@ -271,11 +292,38 @@ static int amlogic_thermal_probe(struct
+>> platform_device *pdev)
+>>       if (IS_ERR(pdata->clk))
+>>           return dev_err_probe(dev, PTR_ERR(pdata->clk), "failed to
+>> get clock\n");
+>>   -    pdata->sec_ao_map = syscon_regmap_lookup_by_phandle
+>> -        (pdev->dev.of_node, "amlogic,ao-secure");
+>> -    if (IS_ERR(pdata->sec_ao_map)) {
+>> -        dev_err(dev, "syscon regmap lookup failed.\n");
+>> -        return PTR_ERR(pdata->sec_ao_map);
+>> +    if (pdata->data->use_sm) {
+>> +        struct device_node *sm_np;
+>> +        struct of_phandle_args ph_args;
+>> +
+>> +        ret = of_parse_phandle_with_fixed_args(pdev->dev.of_node,
+>> +                               "amlogic,secure-monitor",
+>> +                               1, 0, &ph_args);
+>> +        if (ret)
+>> +            return ret;
+>> +
+>> +        sm_np = ph_args.np;
+>> +        if (!sm_np) {
+>> +            dev_err(dev,
+>> +                "Failed to parse secure monitor phandle\n");
+>> +            return -ENODEV;
+>> +        }
+>> +
+>> +        pdata->sm_fw = meson_sm_get(sm_np);
+>> +        of_node_put(sm_np);
+>> +        if (!pdata->sm_fw) {
+>> +            dev_err(dev, "Failed to get secure monitor firmware\n");
+>> +            return -EPROBE_DEFER;
+>> +        }
+>> +
+>> +        pdata->tsensor_id = ph_args.args[0];
+>> +    } else {
+>> +        pdata->sec_ao_map = syscon_regmap_lookup_by_phandle
+>> +            (pdev->dev.of_node, "amlogic,ao-secure");
+>> +        if (IS_ERR(pdata->sec_ao_map)) {
+>> +            dev_err(dev, "syscon regmap lookup failed.\n");
+>> +            return PTR_ERR(pdata->sec_ao_map);
+>> +        }
+>>       }
+> 
+> I suggest to separate these two routines into functions. That will help
+> the readability.
+> 
 
-Mimi
+Sure, I will do that.
+
+>>       pdata->tzd = devm_thermal_of_zone_register(&pdev->dev
+> 
+> The thermal zone is registered before calling
+> amlogic_thermal_initialize(), thus pdata->trim_info is not initialized.
+> When a thermal zone is registered the thermal framework reads the
+> temperature, so it reads an invalid value because:
+> 
+> devm_thermal_of_zone_register()
+>  -> thermal_of_zone_register()
+>    -> thermal_zone_device_register_with_trips()
+>    -> thermal_zone_device_enable()
+>       -> __thermal_zone_device_update()
+>         -> __thermal_zone_get_temp()
+>           -> amlogic_thermal_get_temp()
+>              -> amlogic_thermal_code_to_millicelsius()
+>                  [ Use of uninitialized pdata->trim_info ]
+> 
+> Right ?
+> 
+
+Yes, I will move the initialize before the register.
+
+> IIUC, amlogic_thermal_initialize() can be also split and moved the
+> corresponding blocks to the functions to be created in the comment above.
+> 
+
+The SM and syscon setup will be extracted into two functions.
+amlogic_thermal_initialize() itself is kept as-is but moved before
+devm_thermal_of_zone_register().
+Let me know if you'd prefer a different approach.
+
+> 
+>>
+> 
+
+
+-- 
+Best regards,
+Ronald
 
