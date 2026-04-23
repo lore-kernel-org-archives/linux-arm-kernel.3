@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49E17F589D4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 13:44:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E446F589D4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 13:47:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eCOUmyCYGwEY2Foet02Vaww9vNupcZt1d3Ifp8xNNkw=; b=c+N9whbqWXLT2OhlGtV6Ivb0hp
-	H86YLduCsbP/69NVjfBZnFR0Yevui/pHdP8QIWbsJZnIHtsNKjO4pyru31zBZ0hcpk6z/atLffOSM
-	fcjOfWqUnUAA8vJx1aTyOdvsfBmMuU8ZHJ16LRgyN+6Ofus6TtidixyFnJS2vrlX8necLn1pHT2MP
-	MlAVTRSwVE4RFMrMgdXIZ7n/m09tcImBdzWBHl04cbr+5vzKSFMkXT878w98JdE8ADVRA1flKFtrM
-	OzOHtyGjmJVkfVz8H3lcVgpw2dNl3ww+xRg7Dx2FbSqwBMj/iE8l/acydW9JJ7v7a4zzGswg1pfQW
-	xZIOj4zQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4XEdIRO7bn6KGtF5i8gLxF5Bjo0q4vcIn20B8kZnyPM=; b=T5FyjZ7sW3EIkRqMOoZyQ5Mjvp
+	MBWZgrDzYBaEvM3r/ApUbGPJPfTcpLP7HBgiJEPoz4Tm/i60iAOqg0xw2WtK9BJoHfh2H0Tff5X83
+	4aX5S4niNr48kSUqpL0gEJt5F+2CjHUFGro3OIeyZuKe5ptu06En5FXVl0WOySXBfXhX3B2z+ae1B
+	W2qhbgn48B4a9ceahAuD3u0nFMBxE6NkHs05aEnHRK8waAUJI/yVnnx7Re0+xFG6RoXP1nmsKp4fo
+	npPjT6QI0bGGaVucPQBViMu0k2cNdt5sYeipYH0m9p/C5NKLF+hq8me82qFSRlmK7SWuDLxCnAexi
+	UGRRzTvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFuME-0000000BlXS-0sJM;
-	Thu, 23 Apr 2026 13:44:42 +0000
-Received: from mail.hugovil.com ([162.243.120.170])
+	id 1wFuOi-0000000BloZ-08Qg;
+	Thu, 23 Apr 2026 13:47:17 +0000
+Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFuMB-0000000BlWb-2HIX
+	id 1wFuOc-0000000Bln6-39IB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 13:44:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
-	; s=default; h=Content-Transfer-Encoding:Mime-Version:Message-Id:Subject:Cc:
-	To:From:Date:subject:date:message-id:reply-to;
-	bh=eCOUmyCYGwEY2Foet02Vaww9vNupcZt1d3Ifp8xNNkw=; b=d26QQlDYWJoWUhW2tmX2Wu4+ha
-	PAd6/1EFB725wzjU4Q149FqJva95gemdkRf0j1Wxy86auHIuqQuXEw/+UakW3lnOvNX390Ltqu3o5
-	tktfeLKqQ4weibtcH8bqb2+6lA3ZXv5608bVdrvzSP9kCggg5q63B1E9xkltvkIt2W00=;
-Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168] helo=pettiford.lan)
-	by mail.hugovil.com with esmtpa (Exim 4.98.2)
-	(envelope-from <hugo@hugovil.com>)
-	id 1wFuLv-000000003ju-1JAI;
-	Thu, 23 Apr 2026 09:44:23 -0400
-Date: Thu, 23 Apr 2026 09:44:22 -0400
-From: Hugo Villeneuve <hugo@hugovil.com>
-To: Hugo Villeneuve <hugo@hugovil.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
- simona@ffwll.ch, Frank.Li@nxp.com, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com, shawnguo@kernel.org,
- laurent.pinchart+renesas@ideasonboard.com, antonin.godard@bootlin.com,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, Hugo Villeneuve
- <hvilleneuve@dimonoff.com>
-Subject: Re: [PATCH v2 00/15] var-som-6ul: improve support for variants
-Message-Id: <20260423094422.09206dc0166d30af36c8b87d@hugovil.com>
-In-Reply-To: <20260305180651.1827087-1-hugo@hugovil.com>
-References: <20260305180651.1827087-1-hugo@hugovil.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Spam_score: -2.0
-X-Spam_bar: --
+	Thu, 23 Apr 2026 13:47:14 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=4XEdIRO7bn6KGtF5i8gLxF5Bjo0q4vcIn20B8kZnyPM=;
+	b=nj1rsFqDdOUgqFcqa53ZcI4JJPNEcZtl+e8EnnvLYH9cL0/vL+aZZPlVk1I6QgphYNULR1W3n
+	9TNuigPH+CJ4EA6bf1Af3Q3omTCTS//gs92iKsPSqS1/5b6ZdgHjDgxXmU9yG+5AD4kNGhOwZgL
+	CrktkJTYr6lyGSXP7fRPiH0=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4g1cfk19shzKm4w;
+	Thu, 23 Apr 2026 21:40:30 +0800 (CST)
+Received: from kwepemr200004.china.huawei.com (unknown [7.202.195.241])
+	by mail.maildlp.com (Postfix) with ESMTPS id 5C8D54055B;
+	Thu, 23 Apr 2026 21:46:55 +0800 (CST)
+Received: from huawei.com (10.50.163.32) by kwepemr200004.china.huawei.com
+ (7.202.195.241) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 23 Apr
+ 2026 21:46:54 +0800
+From: Pengjie Zhang <zhangpengjie2@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>
+CC: <maz@kernel.org>, <timothy.hayes@arm.com>, <lpieralisi@kernel.org>,
+	<mrigendra.chaubey@gmail.com>, <arnd@arndb.de>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<zhanjie9@hisilicon.com>, <zhenglifeng1@huawei.com>, <lihuisong@huawei.com>,
+	<yubowen8@huawei.com>, <linhongye@h-partners.com>, <linuxarm@huawei.com>,
+	<zhangpengjie2@huawei.com>, <wangzhi12@huawei.com>
+Subject: [PATCH v2] arm64: smp: Do not mark secondary CPUs possible under nosmp
+Date: Thu, 23 Apr 2026 21:46:54 +0800
+Message-ID: <20260423134654.4178271-1-zhangpengjie2@huawei.com>
+X-Mailer: git-send-email 2.33.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemr200004.china.huawei.com (7.202.195.241)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_064439_679029_649D3385 
-X-CRM114-Status: GOOD (  27.80  )
+X-CRM114-CacheID: sfid-20260423_064711_291889_40849B40 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,128 +79,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu,  5 Mar 2026 13:06:15 -0500
-Hugo Villeneuve <hugo@hugovil.com> wrote:
+Under nosmp (maxcpus=0), arm64 never brings up secondary CPUs.
 
-> From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
-> 
-> Hello,
-> this patch series improves support for Variscite VAR-SOM-6UL based boards.
+However, arm64 still enumerates firmware-described CPUs during SMP
+initialization, which can leave secondary CPUs visible to
+for_each_possible_cpu() users even though they never reach the
+bringup path in this configuration.
 
-Hi,
-simple ping to know if anything is missing for this series to be
-applied/picked-up?
+This is not just a cosmetic mask mismatch: code iterating over
+possible CPUs may observe secondary CPU per-CPU state that is never
+fully initialized under nosmp.
 
-Hugo.
+Return early from smp_init_cpus() when nosmp/maxcpus=0 is in effect
+so that secondary CPUs are not marked possible on arm64.
 
+Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Pengjie Zhang <zhangpengjie2@huawei.com>
+---
+Changes in v2:
+- Drop the arch_disable_smp_support() approach.
+- Handle nosmp/maxcpus=0 directly in smp_init_cpus().
+- Update the changelog accordingly.
+Link to v1:https://lore.kernel.org/all/20260422095831.2926775-1-zhangpengjie2@huawei.com/
 
-> 
-> The first two patches fix DT/dmesg warnings.
-> 
-> The next patches fix the incorrect use of VAR-SOM-MX6UL to refer to the
-> VAR-SOM-6UL.
-> 
-> The next patches add support for the imx6ull CPU variant of the VAR-SOM-6UL.
-> 
-> Then improves/fixes the following features/options that are currently not
-> working on the concerto EVK board:
->   - ethernet ports ENET1
->   - LVDS display panel
->   - Wifi/Bt
-> 
-> Note that the previous configuration of the optional Wifi/Bluetooth module
-> was copied from the original Variscite kernel tree, and required custom
-> shell scripts to properly configure the Wifi/Bluetooth module.
-> 
-> Also factor out optional features into separate DTSI include files, so it will
-> be easier to support them for other boards, and to make sure they are not
-> unconditionnally enabled.
-> 
-> I have tested these changes on a Variscite concerto EVK board using a
-> VAR-SOM-6UL with the following options:
->   - EC (ethernet phy on SOM)
->   - LD (LVDS encoder assembled on SOM)
->   - WBD (Wi-Fi 802.11 ac/a/b/g/n and Bluetooth 5.2/BLE on SOM)
-> Result of tests:
->   - Both ethernet ports Ok
->   - LVDS display panel Ok
->   - Wifi/Bt Ok
-> 
-> Also tested on a custom board with a VAR-SOM-6UL SOM (will be submitted in
-> a future series).
-> 
-> Thank you.
-> 
-> Link: [v1] https://lore.kernel.org/all/20260302190953.669325-1-hugo@hugovil.com/
-> 
-> Changes for v2:
-> - Place imx6ull-var-som-concerto.dtb in alphabetical order (Frank)
-> - s/include/dtsi in commit msgs (Frank)
-> - Clarify and improve patches to change VAR-SOM-MX6UL (Krzysztof)
-> - Collect tags for some acked patches (Krzysztof)
-> - Reorder pinctrl_gpio_leds in separate patch (Frank)
-> - Improve git commit messages ((Frank)/Krzysztof)
-> 
-> Hugo Villeneuve (15):
->   ARM: dts: imx6ul-var-som: fix warning for non-existent dc-supply
->     property
->   ARM: dts: imx6ul-var-som: fix warning for boolean property with a
->     value
->   ARM: dts: imx6ul-var-som: change incorrect VAR-SOM-MX6UL references
->   dt-bindings: arm: fsl: change incorrect VAR-SOM-MX6UL references
->   dt-bindings: arm: fsl: add variscite,var-som-imx6ull
->   ARM: dts: imx6ul-var-som: Factor out common parts for all CPU variants
->   ARM: dts: imx6ul-var-som-concerto: Factor out common parts for all CPU
->     variants
->   ARM: dts: imx6ul-var-som-concerto: order DT properties
->   ARM: dts: imx6ul-var-som: factor out SD card support
->   ARM: dts: imx6ul-var-som: add proper Wifi and Bluetooth support
->   ARM: dts: imx6ul-var-som: factor out ENET2 ethernet support
->   ARM: dts: imx6ul-var-som: add support for EC configuration option
->     (ENET1)
->   ARM: dts: imx6ul-var-som: factor out audio support
->   dt-bindings: display/lvds-codec: add ti,sn65lvds93
->   ARM: dts: imx6ul-var-som: add support for LVDS display panel
-> 
->  .../devicetree/bindings/arm/fsl.yaml          |   8 +-
->  .../bindings/display/bridge/lvds-codec.yaml   |   1 +
->  arch/arm/boot/dts/nxp/imx/Makefile            |   3 +
->  .../dts/nxp/imx/imx6ul-var-som-audio.dtsi     |  30 ++
->  ...ar-som.dtsi => imx6ul-var-som-common.dtsi} | 140 +++-----
->  ...ts => imx6ul-var-som-concerto-common.dtsi} | 159 ++-------
->  .../nxp/imx/imx6ul-var-som-concerto-full.dts  |  22 ++
->  .../dts/nxp/imx/imx6ul-var-som-concerto.dts   | 318 +-----------------
->  .../dts/nxp/imx/imx6ul-var-som-enet1.dtsi     |  44 +++
->  .../dts/nxp/imx/imx6ul-var-som-enet2.dtsi     |  79 +++++
->  .../nxp/imx/imx6ul-var-som-lvds-panel.dtsi    | 112 ++++++
->  .../boot/dts/nxp/imx/imx6ul-var-som-sd.dtsi   |  27 ++
->  .../boot/dts/nxp/imx/imx6ul-var-som-wifi.dtsi |  75 +++++
->  arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi | 219 +-----------
->  .../nxp/imx/imx6ull-var-som-concerto-full.dts |  22 ++
->  .../dts/nxp/imx/imx6ull-var-som-concerto.dts  |  21 ++
->  .../arm/boot/dts/nxp/imx/imx6ull-var-som.dtsi |  36 ++
->  17 files changed, 575 insertions(+), 741 deletions(-)
->  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-audio.dtsi
->  copy arch/arm/boot/dts/nxp/imx/{imx6ul-var-som.dtsi => imx6ul-var-som-common.dtsi} (60%)
->  copy arch/arm/boot/dts/nxp/imx/{imx6ul-var-som-concerto.dts => imx6ul-var-som-concerto-common.dtsi} (50%)
->  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts
->  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet1.dtsi
->  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet2.dtsi
->  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-lvds-panel.dtsi
->  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-sd.dtsi
->  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-wifi.dtsi
->  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts
->  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts
->  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som.dtsi
-> 
-> 
-> base-commit: c107785c7e8dbabd1c18301a1c362544b5786282
-> -- 
-> 2.47.3
-> 
-> 
+---
+ arch/arm64/kernel/smp.c | 14 ++++++++++----
+ 1 file changed, 10 insertions(+), 4 deletions(-)
 
-
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 1aa324104afb..1b63846f646a 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -745,15 +745,21 @@ void __init smp_init_cpus(void)
+ 	else
+ 		acpi_parse_and_init_cpus();
+ 
+-	if (cpu_count > nr_cpu_ids)
+-		pr_warn("Number of cores (%d) exceeds configured maximum of %u - clipping\n",
+-			cpu_count, nr_cpu_ids);
+-
+ 	if (!bootcpu_valid) {
+ 		pr_err("missing boot CPU MPIDR, not enabling secondaries\n");
+ 		return;
+ 	}
+ 
++	/*
++	 * For the nosmp/maxcpus=0 case, do not mark the secondary CPUs
++	 * possible.
++	 */
++	if (!setup_max_cpus)
++		return;
++
++	if (cpu_count > nr_cpu_ids)
++		pr_warn("Number of cores (%d) exceeds configured maximum of %u - clipping\n",
++			cpu_count, nr_cpu_ids);
+ 	/*
+ 	 * We need to set the cpu_logical_map entries before enabling
+ 	 * the cpus so that cpu processor description entries (DT cpu nodes
 -- 
-Hugo Villeneuve
+2.33.0
+
 
