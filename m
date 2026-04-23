@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D09DF99344
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 09:18:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F03E1F9935E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 09:20:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=joLckX5CQ014yF9dP6cUd98WMCHR3mXxpMLtKfczJT8=; b=kYtgjlNq9IeW3acjA6oNS0u6US
-	ULLbNkPzZX9JXfy9IwpkKJAOOGQiBzH36EBdjt3KYItbkd4Uwhwfv97ncoN3zjGO493H9k5skKgRY
-	xxGEbtZHf+0QUIvktZfKKHgLGIzce1JIsp9LpDUOkjZNA8RpWajyJ2QbrD+IW/ZHenaunYdQhrv/6
-	qdOXCgXLfa8GpsC03GLwFCBOvur916vIzW6cU1Z55QbTa2UEsRarx56q7w/lPcsyFZpt7qORMJT4Q
-	0/FREa8VkxUGOe+Y1D9PEN9rv6Nq7Ydw8sY1qa7eIeKcgGBwZlMU8Ip0UsGy9dyhYDs7pvfooYj66
-	XGkC/8Ag==;
+	bh=2016k5GmXlBckNyslRgjVN9IyVwbns3zMM3deEYpsa0=; b=kHhQlwriBlG2yZAiKLeRLUeETs
+	h54tMvyIW5bqtDmNjReVegz0BSM8zCvkDnUpuefQZudy+mZJBDZsaAVUvO4lr1+yEY1srMtOWM1HL
+	8YyBsE6v/QoZGN2ZMw35oXrv+l+f9936iPOAb+bsuc9BwA+B/F0cX8SImCLIK1brTQW5C+E7ZMyzf
+	oNSTYIL61zKYMf3KM0wAgf32N3dCmm8nmVzg+zYsIzF1lkvW5EWdE2yWAqdQQ8zlczdG4H+RuV/p4
+	tkYuKV4W6sVokiJIY/8zlML2yHZpk+IkT+U20nHg9bjJbE28dih5r9oNlSJ5rpJk/F4lYiJNWkwsF
+	5Tq9NWhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFqCP-0000000BKLK-2TWg;
-	Thu, 23 Apr 2026 09:18:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wFqE3-0000000BL9U-2I4h;
+	Thu, 23 Apr 2026 09:20:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFqCO-0000000BKKp-3poa;
-	Thu, 23 Apr 2026 09:18:16 +0000
+	id 1wFqE0-0000000BL8H-1gYA;
+	Thu, 23 Apr 2026 09:19:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2354960121;
-	Thu, 23 Apr 2026 09:18:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 888BEC2BCAF;
-	Thu, 23 Apr 2026 09:18:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A963C407D0;
+	Thu, 23 Apr 2026 09:19:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF4B2C2BCAF;
+	Thu, 23 Apr 2026 09:19:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776935895;
-	bh=Y6/lNXH3C4HQbpKDWa0YwXaIA3OBZvjg8EbWb10xWK4=;
+	s=k20201202; t=1776935995;
+	bh=qKg5bxgpTTQfFUZxcCD9VWvBgzLKpR1Iot7so2sqo0I=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ssixCe85SjUCd04FcVKLIRgHxFUg4eHYb4pMARdhoZfYbnMRQuleK8Fvtjd/MKcjw
-	 gUWHQmaiiRzHaVlVs4thUppefIzR7Jqemuorh/hYb5Z9gSPhBdsjuacksfeqhuWXM4
-	 NdL6bZ08gNHAyDzIpjUVJNDH+IoHDVVklrHz0onuM9X+IhNIUmnSwE+GsA2aSjJQmL
-	 aR1m9Wy9OVL21O6+pZ6avYYn9Ncun71+y1ImlVKdnZGt8YEt619OHo/VQKfvUGCZNU
-	 IYp0huftnALJiN3IqsfFz7pw9SktEItuZHkVwioeIN3pUKYNgO4IAvrtP39XoJO1VL
-	 jSlZGm85rhHkA==
-Date: Thu, 23 Apr 2026 11:18:13 +0200
+	b=mTxiAzAvZ7aeMDFlB8ptP+zBdIrxvGYToMwpCPaQ6IUiGmd97xPwNwHPocfDTmgfj
+	 3peDCXfEW1IXekkaN7ymT0Eg7CfcXEs/NT4dIaOj9viGUg6yLTF3TOlEXwNwgUKaUc
+	 Fma3Yv00kKTj39H1p2VWps07J+EnS8jthRfRNATnWi4ewy4w5+crY4zW6b0ViUNOUZ
+	 Kyr1tjayGCVhd9UhkCi7Ger/qDGRF1+ges/MpE7ol36Ngj6wF3AFkIb37XVeV910+T
+	 gRKeDo7bhtpmt2HbNL3t7JvKS4vaurM2H3dzdGDA3VJL/bZxcfdtII8+fLAE2JOpqY
+	 nIiCVR1XfZcdw==
+Date: Thu, 23 Apr 2026 11:19:53 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: phucduc.bui@gmail.com
 Cc: Lee Jones <lee@kernel.org>, Mark Brown <broonie@kernel.org>, 
@@ -52,14 +52,18 @@ Cc: Lee Jones <lee@kernel.org>, Mark Brown <broonie@kernel.org>,
 	David Rau <David.Rau.opensource@dm.renesas.com>, Animesh Agarwal <animeshagarwal28@gmail.com>, 
 	devicetree@vger.kernel.org, linux-sound@vger.kernel.org, linux-rockchip@lists.infradead.org, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: mfd: rockchip: drop redundant
- wakeup-source definitions
-Message-ID: <20260423-elegant-camel-of-might-a3afda@quoll>
+Subject: Re: [PATCH 2/2] ASoC: dt-bindings: drop redundant wakeup-source
+ definitions
+Message-ID: <20260423-ingenious-psychedelic-jaybird-40bb4d@quoll>
 References: <20260423042831.21114-1-phucduc.bui@gmail.com>
+ <20260423042831.21114-2-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260423042831.21114-1-phucduc.bui@gmail.com>
+In-Reply-To: <20260423042831.21114-2-phucduc.bui@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260423_021956_458420_500255CB 
+X-CRM114-Status: GOOD (  16.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,19 +78,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 23, 2026 at 11:28:30AM +0700, phucduc.bui@gmail.com wrote:
+On Thu, Apr 23, 2026 at 11:28:31AM +0700, phucduc.bui@gmail.com wrote:
 > From: bui duc phuc <phucduc.bui@gmail.com>
 > 
 > The 'wakeup-source' property already has its type defined in the core
-> schema. The Rockchip MFD bindings redundantly specify 'type: boolean'
 
-No, core schema has TWO types.
+TYPES. It is plural.
 
-Defining it as type boolean is not redundant, because
-of_property_read_bool() on non-bool is deprecated.
+> schema. A number of sound binding files redundantly specify the
+> 'type: boolean' and provide descriptions which only repeat the generic
+> meaning of the property.
+> Drop these redundant definitions and descriptions to clean up the binding
+> files and rely on the core schema instead.
+> No functional change intended.
+> 
+> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+> ---
+>  Documentation/devicetree/bindings/sound/dialog,da7219.yaml  | 5 +----
+>  Documentation/devicetree/bindings/sound/realtek,rt5514.yaml | 4 +---
+>  2 files changed, 2 insertions(+), 7 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/sound/dialog,da7219.yaml b/Documentation/devicetree/bindings/sound/dialog,da7219.yaml
+> index 19137abdba3e..fab37cd92e0d 100644
+> --- a/Documentation/devicetree/bindings/sound/dialog,da7219.yaml
+> +++ b/Documentation/devicetree/bindings/sound/dialog,da7219.yaml
+> @@ -45,10 +45,7 @@ properties:
+>        - wakeup
+>        - irq
+>  
+> -  wakeup-source:
+> -    type: boolean
+> -    description:
+> -      Flag to indicate this device can wake system (suspend/resume).
+> +  wakeup-source: true
 
-This must be explained somehow - are these device drivers expecting bool
-or not?
+That's wrong. Commit msg is making here false statements that it is
+redundant. I checked (and you should too!) and driver does clearly
+device_property_read_bool() thus the property CANNOT be the second type.
 
 Best regards,
 Krzysztof
