@@ -4,98 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03E14F589AD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 12:45:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8946DF589AD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 12:46:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R8uasiKJJqB0UypVXrQ/4MfR+9wKG2jPGAjkmO/egns=; b=mSu6vRJjTf1SO4hkuOJ6JwUGHf
-	lFUbs3zfuAEQBrwY+uXiMLFShionK/KXArumPhhV4Jcu4zkmuQZngZGYzI+QeyyD3Rx52sNaTsi5p
-	7vKLkZSz9QqRQbaYMQelC0ulAh7bSJR64m4sCFdv8S2T9RY8R/dCSFOfQ0/CtFQntnWY2aQ+ZTx+X
-	/gCqI6GwQE/bCXCaq1pbrb9ilDY0Nuc10ODs5Usjh1we97FkFd2A9k80J/8GbopX49wU32IOH2B7K
-	qUX916xEnu6W58fd2C5Fs5qQ5OcdRXfyr5Wir/ffI+kectu4tR6lmtDVHL/KB7BUxjXh4U2OWzm+h
-	bTuuhqDw==;
+	bh=mfOQeh1kb0G9bRrQgnHZzYBY7i5HptGdO6JunZd11Q8=; b=H4rBRqteTWGaz3NFvGK8/HryDT
+	L0nQe+tlpQANna3uNuxGC8ooSIKyHQSiDaFXJZQT/4XLM/29N9AfAqiB3qnMi/8eqvn1PSambkuab
+	5QN6b1NJN5i4adBcfPOgMB9hyMe46G3BlA+OkaCyQZazzSWzK5lj60Ir4qvrii/Gzfholob2hAHg3
+	Cz0f5nWy7vCfMrIe526Iva352UsaLxcmvQUkaaikUtEgh605YY2O8etShBw2ZYBk8K4qwVU7Bt+Wd
+	1GT22U3wGBILSkA2uEI8ODkjBPHD21Eos21o9CK7M2qXbFFpjsKXjGyAgOOtiQUqC3AdAWkTtW0Bp
+	WZOwxuqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFtQP-0000000BfcA-3wxu;
-	Thu, 23 Apr 2026 12:44:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wFtS6-0000000BgGX-3ri0;
+	Thu, 23 Apr 2026 12:46:42 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFtQO-0000000BfaY-2faa;
-	Thu, 23 Apr 2026 12:44:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=R8uasiKJJqB0UypVXrQ/4MfR+9wKG2jPGAjkmO/egns=; b=WK6BO71GsfJDGfUqTRkS1cN8Qt
-	ImWgW0P/O8n4GkD4kSEWV+jtcMejcsG6KhnuHL1GmpM+SyfKdzHoFg7uF+MklxwxKx15HV9D2u4oD
-	GWifQMM1l8D3SXWYIQ9KUbbJhyTb0O5mGcshrcpHnChpdfFslEubZbkKAbn0hXdQn+M51xkdAv64i
-	yfkRPQtTYOrSHvdxjCSRI6K67NAGfdRB35K8o7VXSF3uuM3H+ZRXVJGbQYTvaPBlpmF7gAaD++6LF
-	HHxDVmRRIdry8+8Zr766lvDuR8ai43NQlSQGhH8MB+cHLbwysGY9A80zOHreDcRL2+hzczzxMjDn1
-	4AlG85yQ==;
-Received: from linux.microsoft.com ([13.77.154.182])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFtQF-0000000D3Vj-4A1y;
-	Thu, 23 Apr 2026 12:44:55 +0000
-Received: from CPC-namja-026ON.redmond.corp.microsoft.com (unknown [4.213.232.18])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 070C020B7185;
-	Thu, 23 Apr 2026 05:44:29 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 070C020B7185
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1776948277;
-	bh=R8uasiKJJqB0UypVXrQ/4MfR+9wKG2jPGAjkmO/egns=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TZwi8EF3KFtKojnKql1YiP0AxnEytUmxPRo3tGXKd7KO+PMWGFiqKd6B2H0MhaQYM
-	 YGXvBpEzByzP3E7BIOFqlkvqdMymumuRVtYgejafE2X8vrjrWmk57c9IhZ4qd5vNc+
-	 GpA+cyWtUSQ/hPB3EXOg0C2B5OBUflbRhUenyRL4=
-From: Naman Jain <namjain@linux.microsoft.com>
-To: "K . Y . Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>,
-	Dexuan Cui <decui@microsoft.com>,
-	Long Li <longli@microsoft.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Michael Kelley <mhklinux@outlook.com>
-Cc: Marc Zyngier <maz@kernel.org>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
-	Naman Jain <namjain@linux.microsoft.com>,
-	linux-hyperv@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	vdso@mailbox.org,
-	ssengar@linux.microsoft.com
-Subject: [PATCH v2 15/15] Drivers: hv: Add ARM64 support for MSHV_VTL in Kconfig
-Date: Thu, 23 Apr 2026 12:42:05 +0000
-Message-ID: <20260423124206.2410879-16-namjain@linux.microsoft.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260423124206.2410879-1-namjain@linux.microsoft.com>
-References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
+	id 1wFtS0-0000000BgFp-00yU
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Apr 2026 12:46:41 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=mfOQeh1kb0G9bRrQgnHZzYBY7i5HptGdO6JunZd11Q8=;
+	b=LoF8b1Rf4elh+9XEA+KGGoYAprINcWuIbOWixtoFPlKpbp5hK9PvRXGey+45VJMBzsjLXiFRE
+	uUpUlwS/9TTbrOzPDQAYkVPUYR0DZKm1CU2GyOfvybNSMNa+MB+G6KIRU9GwlWmgTkxJeMNn0n8
+	U1cktedHISQC+a/YZHXs5AA=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4g1bJc2kTzzcZyv;
+	Thu, 23 Apr 2026 20:39:44 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 55B9D4048F;
+	Thu, 23 Apr 2026 20:46:29 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 23 Apr 2026 20:46:28 +0800
+Message-ID: <36b4b9f5-3930-481f-a9c8-039c04c808ab@huawei.com>
+Date: Thu, 23 Apr 2026 20:46:29 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] cpu/hotplug: Fix NULL kobject warning in
+ cpuhp_smt_enable()
+To: Catalin Marinas <catalin.marinas@arm.com>
+CC: <tglx@kernel.org>, <peterz@infradead.org>, <sudeep.holla@kernel.org>,
+	<yangyicong@hisilicon.com>, <dietmar.eggemann@arm.com>,
+	<Jonathan.Cameron@huawei.com>, <linux-kernel@vger.kernel.org>, James Morse
+	<james.morse@arm.com>, <linux-arm-kernel@lists.infradead.org>
+References: <20260417075534.3745793-1-ruanjinjie@huawei.com>
+ <aeNxKpHzTQX4_kId@arm.com> <aeOd0Ndec2rQe2J8@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <aeOd0Ndec2rQe2J8@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_134448_319991_108A3BD5 
-X-CRM114-Status: UNSURE (   9.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260423_054636_674123_E2106E5A 
+X-CRM114-Status: GOOD (  17.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,31 +81,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable ARM64 support in MSHV_VTL Kconfig now that all the necessary
-support is present.
 
-Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
-Reviewed-by: Michael Kelley <mhklinux@outlook.com>
-Reviewed-by: Roman Kisel <vdso@mailbox.org>
-Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
----
- drivers/hv/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/hv/Kconfig b/drivers/hv/Kconfig
-index 115821cc535c..0bec3bc81a1a 100644
---- a/drivers/hv/Kconfig
-+++ b/drivers/hv/Kconfig
-@@ -87,7 +87,7 @@ config MSHV_ROOT
- 
- config MSHV_VTL
- 	tristate "Microsoft Hyper-V VTL driver"
--	depends on X86_64 && HYPERV_VTL_MODE
-+	depends on (X86_64 || ARM64) && HYPERV_VTL_MODE
- 	depends on HYPERV_VMBUS
- 	# Mapping VTL0 memory to a userspace process in VTL2 is supported in OpenHCL.
- 	# VTL2 for OpenHCL makes use of Huge Pages to improve performance on VMs,
--- 
-2.43.0
+On 4/18/2026 11:05 PM, Catalin Marinas wrote:
+> On Sat, Apr 18, 2026 at 12:55:22PM +0100, Catalin Marinas wrote:
+>> On Fri, Apr 17, 2026 at 03:55:34PM +0800, Jinjie Ruan wrote:
+>>> When booting with `maxcpus` greater than the number of present CPUs (e.g.,
+>>> QEMU -smp cpus=4,maxcpus=8), some CPUs are marked as 'present' but have not
+>>> yet been registered via register_cpu(). Consequently, the per-cpu device
+>>> objects for these CPUs are not yet initialized.
+> [...]
+>> Another option would have been to avoid marking such CPUs present but I
+>> think this will break other things. Yet another option is to register
+>> all CPU devices even if they never come up (like maxcpus greater than
+>> actual CPUs).
+> 
+> Something like below, untested (and I don't claim I properly understand
+> this code; just lots of tokens used trying to make sense of it ;))
+> 
+> ------------------------8<-------------------------
+> diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
+> index a9d884fd1d00..4c0a5ed906ea 100644
+> --- a/arch/arm64/kernel/acpi.c
+> +++ b/arch/arm64/kernel/acpi.c
+> @@ -448,12 +448,14 @@ int acpi_map_cpu(acpi_handle handle, phys_cpuid_t physid, u32 apci_id,
+>  		return *pcpu;
+>  	}
+>  
+> +	set_cpu_present(*pcpu, true);
+>  	return 0;
+>  }
+>  EXPORT_SYMBOL(acpi_map_cpu);
+>  
+>  int acpi_unmap_cpu(int cpu)
+>  {
+> +	set_cpu_present(cpu, false);
+
+This logic, where we set 'present' in acpi_map_cpu() and clear it in
+acpi_unmap_cpu(), seems to align with how x86 does it.
+
+acpi_map_cpu()
+  -> topology_hotplug_apic()
+     -> topo_set_cpuids()
+        -> set_cpu_present(cpu, true)
+
+acpi_unmap_cpu()
+  -> topology_hotunplug_apic(cpu)
+     -> set_cpu_present(cpu, false)
+
+Should we consider moving the setting/clearing of the 'present' bit into
+the generic ACPI code (e.g., within the success path of acpi_map_cpu)?
+This would ensure consistency across architectures and prevent new
+implementations from missing these critical state updates.
+
+>  	return 0;
+>  }
+>  EXPORT_SYMBOL(acpi_unmap_cpu);
+> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> index 1aa324104afb..751a74d997e1 100644
+> --- a/arch/arm64/kernel/smp.c
+> +++ b/arch/arm64/kernel/smp.c
+> @@ -510,8 +510,10 @@ int arch_register_cpu(int cpu)
+>  	struct cpu *c = &per_cpu(cpu_devices, cpu);
+>  
+>  	if (!acpi_disabled && !acpi_handle &&
+> -	    IS_ENABLED(CONFIG_ACPI_HOTPLUG_CPU))
+> +	    IS_ENABLED(CONFIG_ACPI_HOTPLUG_CPU)) {
+> +		set_cpu_present(cpu, false);
+>  		return -EPROBE_DEFER;
+> +	}
+>  
+>  #ifdef CONFIG_ACPI_HOTPLUG_CPU
+>  	/* For now block anything that looks like physical CPU Hotplug */
+> 
 
 
