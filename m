@@ -4,69 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB31F99368
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 10:17:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CA4CF99368
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 10:21:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7YiKjVz9swVRUqA6WflZnEhbl0ptUcLNunuar2gR68Q=; b=UupCk73g2OObOQfg82NZ7TPpDF
-	SP7wyAV1Y0DkC3YN1ohxBtsxGKTykPiB7kz4Kejmn/SvH0mM2MU8fqMY9fie0TwGeWBZAXmAvTNkF
-	cb4XLlioAuNdgtJr2WaqnsSZqnZD8QdRU7ryC+ty6WA5GBjm4mjoyYO9UWpjSrFgJzbSGUIS2Mgr+
-	e2Om6ukFITdHiQ3G87PgoeqoLtIbBAyWPzhaOK4TfG75V1k7VgPB5uFAaTvkdz2/tvN89qtn5qbNH
-	YfOyZLwk0cU2c/+x5ZKf4RkbjkHrh3UFFb9zttihtNZov/00PlKJf4v36n3geEQIXy5d3fA3F66IY
-	D5hrIMQQ==;
+	bh=Zf1Z9dxV9qfbYDjKAE18iXGT7ua+B0FpF4IT6jRMA2o=; b=NkXzHnwmPa2fXIpNSOcYibeIg3
+	Pru7rgun8PCZSbGwsh56IRNDjKl8EVU9bXlmYabjp5ZFVt1W4fYYrqa9P6D91qOD7gBMMjtKnNOEV
+	3OObcHzp6WhthVz9ypc5JFRCB9gGOMlHaNs5hFRpEh4ioenxS7uFLWluRfm+CwkUyW1YtVuc0I6Ai
+	tmgKFkp+gacxkdggI+0dcG4KvyvH+/Dr37493PxpAhGGHmS0srcqsBz5YEbHRIPjI9TI0XWmvbiUO
+	zzy/QdtiLya3rsSaq4QZhowihgs/yhbIgwiVWEMkDKyG5jazn/dxbsOjLH0FTkiJceoFIVEu3AByQ
+	OTT9r5mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFr7n-0000000BSsz-0eax;
-	Thu, 23 Apr 2026 10:17:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wFrBC-0000000BTP7-0Jks;
+	Thu, 23 Apr 2026 10:21:06 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFr7l-0000000BSsX-0HRb
+	id 1wFrB9-0000000BTNs-1Zwe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 10:17:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DEAC64455D;
-	Thu, 23 Apr 2026 10:17:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25E3CC2BCB2;
-	Thu, 23 Apr 2026 10:17:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776939451;
-	bh=Eh+rxbW5ADS/ygmkGFPlk846VYv4ZMXX9UlZzCUlUQc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LRs5EZs+C+W4Tt5ez+7FVfPvZ7loMsxFfvo24ZTmqRjA4OLTmGY4nXtGDrMIcehvS
-	 I8qr35S9XtfHKYAHJW5uh7dgpauP5OXakHWyrbP19QIfwyyz/mTGmIfjE/eta5Vj1h
-	 crmNgGSP44AQLW5Rbiov36q6vscGVHKaKWNxIOcsZMGhXwYuoVCPYUTk7ssPo0fea+
-	 nD5bZ25tIRHnnstVyN2M/EXRETYWElnQ7nqatdTwUO9IwPzq155XJA8rgRSDg1OQT4
-	 qfasuvo84W+aG584F2AnBd0Yp25dOT7UgyVgnVlj+8jHda/G5hBRgkGs1Kr1tV64XD
-	 iM5PJq4cV+thw==
-Date: Thu, 23 Apr 2026 13:17:27 +0300
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
-	zohar@linux.ibm.com, roberto.sassu@huawei.com,
-	dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com, jgg@ziepe.ca,
-	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
-	sebastianene@google.com
-Subject: Re: [RFC PATCH v2 2/4] tpm: tpm_crb_ffa: revert defered_probed when
- tpm_crb_ffa is built-in
-Message-ID: <aenxtxb5eIsCWOZd@kernel.org>
-References: <20260422162449.1814615-1-yeoreum.yun@arm.com>
- <20260422162449.1814615-3-yeoreum.yun@arm.com>
-MIME-Version: 1.0
+	Thu, 23 Apr 2026 10:21:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tvj6/3h9tBwAwbsrK7a2y5EXi3J03H3UaK5LdMY9HKOOG+swp/QWmQiLk1dapPMGKMJ1vvk+ekGxCJK8zrK0GS9zv+eQU42mXsYhIdJB0EkqYrMn8Lsw0/KKOixTzAR7BbJP7SXT9AvBIyjEqO2jPIQrnl5KKYzvvI713tkHKuUbi2Xw6ZBENj28t4NWeiOyJ9gpHN8SpodfX6l2gSjb9wiylI72SvZ7m8PlYkmvHwqwnHtz28zwsoH95AWo5etzNUu7FkXIaQJ8VVVRGC5K2OhEgtsKdESswF9jXjgfFlnPrpVHp93TU5g23EyZCMptSc04+JERBray51kVl2RKQA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Zf1Z9dxV9qfbYDjKAE18iXGT7ua+B0FpF4IT6jRMA2o=;
+ b=dxEtFe/GGNLdNYnV7wju0lrvG+20v+tVXvD83DZUvkCoO1GSPm9FPMGOU8fNYXXrEFnviQHMdM1tmrx9CyjATKUeOSwvn4M20svoglpjNrLPPwMB8eskLSYWMZ0cF1QORylE+G07GWpAxqVRbvfw5LydIlkxEaQKJiM9tOxCaGLH/ycSkvU6DgNV0oi3B878gQHJKp4VxewZdIFXAaPLjYJ1XUF7tGAF1vxTp24gaUFMpwnlMvg38J0xlKiw5wy3Qw44+YCkVSgabbUXmYeeUYovAx87kFVg8uA1DZd3sr4cT9GMoGU1yOxl8aIMRsqHjaLYKhWHlpqOd4r66Ja36Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Zf1Z9dxV9qfbYDjKAE18iXGT7ua+B0FpF4IT6jRMA2o=;
+ b=S2pAITtsSAXsF0jV4mFDy81XbeC/JFTL4BDD6E1X7m+1E7UWo6giP/sAiSE3IQn2dDxSjrMMZtoLO/PX+XZQYuw6mX+/J9onhp66nei4yK/3ou/zW0/KFmm1IUL9crw14j+zRl2Cu5eexIx95pIU6Zquf5sIKbsrpwLF3/GUy0bxenXD/7B97gk6/oBXXi4LVjIMgnpRQyfkw/hs51Q6x1EjpOgX28qyhU/gWRfFFmHak+Btku8Y8p0TMeM0EKHZH3B4V7+ngpn0UdHtGgVZqrWJqBQZe1bTQfk+UQA301c/2/oWddB0rwp703blwaBmWybaHYS4I76MmcFrvNBjcw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
+ by AM8PR04MB7265.eurprd04.prod.outlook.com (2603:10a6:20b:1d8::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.21; Thu, 23 Apr
+ 2026 10:20:55 +0000
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::c67b:71cd:6338:9dce]) by DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::c67b:71cd:6338:9dce%5]) with mapi id 15.20.9846.021; Thu, 23 Apr 2026
+ 10:20:55 +0000
+Date: Thu, 23 Apr 2026 18:20:10 +0800
+From: Xu Yang <xu.yang_2@nxp.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, jun.li@nxp.com
+Subject: Re: [PATCH 1/4] arm64: dts: imx8mp: switch usb controller to
+ flattened model
+Message-ID: <6w6hf2p2msohdqdu7qnpcdyiavguppsgrsiroyszascpklzu4k@oi3a5bjpu4dw>
+References: <20260421105503.1416566-1-xu.yang_2@nxp.com>
+ <aehEXEsiFl2PVIye@lizhi-Precision-Tower-5810>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260422162449.1814615-3-yeoreum.yun@arm.com>
+In-Reply-To: <aehEXEsiFl2PVIye@lizhi-Precision-Tower-5810>
+X-ClientProxiedBy: FR4P281CA0151.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:ba::17) To DU2PR04MB8822.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e1::11)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|AM8PR04MB7265:EE_
+X-MS-Office365-Filtering-Correlation-Id: 61dc2db2-59cb-470e-ffc5-08dea122012e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|366016|19092799006|1800799024|18002099003|38350700014|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: ZHVhVQ5fvylMMgJEElWH80auC6sG3KOGVbI/cL75buPUccWs1u6M7mEyfef+PcRBe6PomzKPWqwvrFgdnAg8NboE9B9hpXyubGHt81PvQ/Jy5yVC9hqHbhuJHrgq3ejQTA75fQ3/C+YFWURwaHcpuPwVr+XsIHiZFiABd2SA6FncISnnLf6+uBbM6M3gAUH8s+fdYuSgsLXmtDiXHuQI2r4+oND4fFt8HK8ra12+fa5wZHfi28IFa2E8/VKYR1m5aFywIhf3rSM3SK/lVlz1ldqr1XqtXN2F/F1NXz63c5e8UFr6WufT5dwgu77hj7iQYbUFcaz59yK6XlMbDPRgx+xItZUVF5vlilDQFiHH3FuTbbMD+150hyNfm7PzVeR1Ipi/gpqnFZRr6MQoVcpyDwpGhViKgMsw9GNWFy1bJdD8ucf1m1bXFnd7Ij/8EYSY4OTvU4NPMwf9//vTT4jw7xiWFIhmQFDEa9oJm5AvxWxSiVc44q+KB+qLYC2ZEY12bTRs/l85PiQi/0olas99cFr20CUmFhZWj5Fh79PZksTb0lpc9bf2iL/blZ3aUDYKRkIpkFbNOWsbOTscbnilw6s7VXV1vlfEQ0SCnBhmoP3VarAvQKlfvOOVwEFHX6fXVyJQwsJpaJf+s9gN60nYAcwGKNStp2mbE1M94n74W05JpsIHpq/4HHen+T5oqNvESOI4w23mBz/yG7X7oBGp4kMEQWGaLrL3AjePlIUEerGtuRC4RRQpDrs9780dUm8zqZoFhusrqDcw3tZLTZzIF+3T9XeuXL2Jrpq1oHZQOGI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(366016)(19092799006)(1800799024)(18002099003)(38350700014)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WAahYQfqmuW6gNcpcgx+Ue3GNPIg+3y9qAU10xaPL2c1zbesQsxb2h84/9lr?=
+ =?us-ascii?Q?IW1c5euNCALXeSZfs4Df1dciz9ZRcDVBo5+c9i3bvxrtuHqsPrpK/bZ2KNEh?=
+ =?us-ascii?Q?JcczgUHITqnXMnDk0h2UBa/eyHfiB7ExrbWElYdjG7KuQsBhA3ch4jo2Bf5k?=
+ =?us-ascii?Q?S0ti0mgN1SVXwoq1cxp5WAiQl+8krtf6Q/+WA+0B2GF9Mu0e8H+D2YYP7CUZ?=
+ =?us-ascii?Q?pQKYTU596rCc7BHVx0w39wECJYiAL7PoiEHxj2NhvsuiKE5TnRvy7oku3L7o?=
+ =?us-ascii?Q?1n584YZqA3OkvwNZMTQ33L+1xeXrI1DHY8EUjLCyBIkkS4N5sQ6lMPPtjZEX?=
+ =?us-ascii?Q?mznY/Eug99+vZP2t+0kaVW6jSTff4Jc9lqx5n43fltAqfIKMdClKGL5vh+41?=
+ =?us-ascii?Q?ajGJiHHFcplf0nhybF2jh/VS/k+ZCg4RcH+3aV2Xieq6L53DSy5hTjq8jCQl?=
+ =?us-ascii?Q?/kcTGEg5dlevU4/aqJL2djvcs7CwgNK0QVF7/VnVlLgjfgXmYpn+x75252n2?=
+ =?us-ascii?Q?eb0D9Va4KCKpshVQr4ZUAwPxTQ7sx5n9U76FHMFF35j0/9ZrOT5PaEamSbeS?=
+ =?us-ascii?Q?GFldkcuRno87Zj1ZDjkT9mE5KZ3j0mi++vSeQlMU3uoK4yui/ccH3o3z1wDn?=
+ =?us-ascii?Q?ljnCeH67Nr/QdCGJt0dJotef8hVzfIm8XNxYxizJMWOMGGa8FW+gB2L+ic43?=
+ =?us-ascii?Q?iQrzsj7XT1sT3UsxwFNB+kem56xCw227g9FnEyT9E1b+2SQE/y8RsRMHJ7z9?=
+ =?us-ascii?Q?uVmG7hr09XjefPPrVtIkmmwFqkz1/l6GJl7oXZTXw3vFMPdhXKreZDdh03cz?=
+ =?us-ascii?Q?+wMZdngqDytVYAdYouCDNEwW7HXZesVkWGkU+2W+06fJBTUNB4ZgqXeLOhww?=
+ =?us-ascii?Q?2gqG/fhrC7YTBC1lll93E3+X/RYZ7boDxaW05UdepzBQuzWEOQ8iMPsY/oVv?=
+ =?us-ascii?Q?PTL+glmWybtusbga4KAbcWufSCiAN4VlMN5ILmDc7QCiQNoIxDWGaeP2viBJ?=
+ =?us-ascii?Q?WGSovGkCofBVwZtVT7VJVPjF6yQ11YXjrsQgujLj0txBgQKZoy0/STA25Gxe?=
+ =?us-ascii?Q?WoTStzRhEw666qYt934m+ahH0jnAbCVg0Z1jh3P64dkl3i/mHI8ZbVM+Z1j7?=
+ =?us-ascii?Q?RPg50ufbCSTEBoKbHa/Bv4PklLPxv2PxHYqlyCeHj1KW59njS/n9rhCcODsG?=
+ =?us-ascii?Q?ySAvOJKAW4ERpsKxaJH7No4Trfx+bIoujcLEgScFUI3rnQ66BktSSBf/HopK?=
+ =?us-ascii?Q?tsxbw7fKuxD+6d9AEfsf92Ap4QgoUwn6M9IGlqV2Tcar3UC+apDlKMjyzLru?=
+ =?us-ascii?Q?O29bVf8CCjCqynAeQem9WE/vCqAAr86LW73AfNbeFkVZj2q3LaGab+JMMmt9?=
+ =?us-ascii?Q?yt8JytAhy7QGpH4vf8mEsmpFZXedXDWLGnwskT3Izdayz6S3ryswuAViz0K6?=
+ =?us-ascii?Q?gSpdtLynaJ+LJ99vAavDePOrpU8kVNW23moT8gHItocZEEzbDsguAgf+M3GN?=
+ =?us-ascii?Q?YURvgs9Cf5RQLsdQs5RZCcUcHvHVS27XU9J7cVs6Jr3H+dmVo9QLNsQsosVQ?=
+ =?us-ascii?Q?z61rBQiziHwhuNm52clovKKqOaGHFIlohA3iSMOowycM+k0ZsjFeRerpWPG7?=
+ =?us-ascii?Q?ttHmz/ygSo17MegUvAmrOZT2aEfMNWSNhod/nPke5bnciCcidvCQp2RLIBOk?=
+ =?us-ascii?Q?vaez0Lg3nOdxDCSPnsOijVj/54K4GxLsauSZ7bYMK+Ehli3pqDkkT1RNmKmY?=
+ =?us-ascii?Q?KeSEgSY6RA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 61dc2db2-59cb-470e-ffc5-08dea122012e
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2026 10:20:55.5252
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: FHYD/3x9SpIZhHMEtQl1L4pryA7pMbnX9Qh3n13dmUPBg59YM/9rdSkP2WvHZUh8OGsao8Qhguprk183jmXFOg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7265
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_031733_146791_3EBEBB45 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20260423_032103_417244_E57D6477 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,65 +138,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 22, 2026 at 05:24:47PM +0100, Yeoreum Yun wrote:
-> commit 746d9e9f62a6 ("tpm: tpm_crb_ffa: try to probe tpm_crb_ffa when it's build_in")
-> probe tpm_crb_ffa forcefully when it's built-in to integrate with IMA.
+On Tue, Apr 21, 2026 at 11:45:32PM -0400, Frank Li wrote:
+> On Tue, Apr 21, 2026 at 06:55:00PM +0800, Xu Yang wrote:
+> > Switch to use flattened model for all USB controllers. To enable USB
+> > controllers with restricted DMA access range to work correctly, add a
+> > pseudo simple-bus to constrain the dma address.
 > 
-> However, as IMA init function is changed to late_initcall_sync level.
-> So, this change isn't required anymore.
-> 
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> ---
->  drivers/char/tpm/tpm_crb_ffa.c | 18 +++---------------
->  1 file changed, 3 insertions(+), 15 deletions(-)
-> 
-> diff --git a/drivers/char/tpm/tpm_crb_ffa.c b/drivers/char/tpm/tpm_crb_ffa.c
-> index 99f1c1e5644b..025c4d4b17ca 100644
-> --- a/drivers/char/tpm/tpm_crb_ffa.c
-> +++ b/drivers/char/tpm/tpm_crb_ffa.c
-> @@ -177,23 +177,13 @@ static int tpm_crb_ffa_to_linux_errno(int errno)
->   */
->  int tpm_crb_ffa_init(void)
->  {
-> -	int ret = 0;
-> -
-> -	if (!IS_MODULE(CONFIG_TCG_ARM_CRB_FFA)) {
-> -		ret = ffa_register(&tpm_crb_ffa_driver);
-> -		if (ret) {
-> -			tpm_crb_ffa = ERR_PTR(-ENODEV);
-> -			return ret;
-> -		}
-> -	}
-> -
->  	if (!tpm_crb_ffa)
-> -		ret = -ENOENT;
-> +		return -ENOENT;
-> 
->  	if (IS_ERR_VALUE(tpm_crb_ffa))
-> -		ret = -ENODEV;
-> +		return -ENODEV;
-> 
-> -	return ret;
-> +	return 0;
->  }
->  EXPORT_SYMBOL_GPL(tpm_crb_ffa_init);
-> 
-> @@ -405,9 +395,7 @@ static struct ffa_driver tpm_crb_ffa_driver = {
->  	.id_table = tpm_crb_ffa_device_id,
->  };
-> 
-> -#ifdef MODULE
->  module_ffa_driver(tpm_crb_ffa_driver);
-> -#endif
-> 
->  MODULE_AUTHOR("Arm");
->  MODULE_DESCRIPTION("TPM CRB FFA driver");
-> --
-> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
-> 
+> This should not "pseudo", and bus is physical existed, which limited dma
+> range since it transparent to SW, which may not mention in spec.
 
-I'll hold review to next version i.e. after Mimi's concerns
-have been addressed.
+OK. Will remove the word "pseudo" in v2.
 
-BR, Jarkko
+> 
+> >
+> > Also reorder USB-related nodes.
+> 
+> this need new patch to just do reorder.
+
+OK. Will add a separate patch.
+
+Thanks,
+Xu Yang
 
