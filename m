@@ -4,65 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D0E2F99350
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 08:04:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12FDEF99344
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 08:08:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	MIME-Version:References:In-Reply-To:Subject:To:From:Message-ID:Date:Reply-To:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y83iUPAKvYT1ek6ribgh/7zCM3p3RtrhhjsRYjN01rg=; b=yWU9+qnRZivH2ZQz04VDrl+7eB
-	lsoEO4F7k0ZxjN0fPl5VlnUy1s2figW0jES1q2LBw9eg4Ww/UH3bR9n3rKNcBsUJiGtjZ3CyauSCt
-	l+mCEoC566bTWveiCDigT4UVAaIn9iFM1goCyHPLU6VkDiSvmjl2O04zU9U+E5bHvjQII+q19Hy5c
-	jZtTJHbKi5YpDPvNcKdnjyQaF5P5b0apkgQ9LlcXetTZVmWJxF/5eoc0HoRbhjXKBaRDdY7hZgrVn
-	MbtuMh8AaZSBViqv/F/P6eE/hYIk6s5MeVFD7BwwzZp7hfr+GAvquii34iYlx9H4X0adssg4ixsnD
-	HHrgukBw==;
+	bh=RjGZE78tox+GBfp/rqdK8TMUYnKuTzcYH6aVfvG6asc=; b=R2l8F0G9lQRv/ZfRDgB2l3r/T3
+	0GhOcbbUURNwkZuyDh8mbMHg19URkmQWEg9ESpFu/2Aa7VYe7xtLfCPaUWB47BNHIJ4eOK1rVDuRo
+	SIMGz1fqad+KWarQ2znIBUqghwW64x2vw/jJcBJB1zfjU39Py4VCQzO0wOerD7XOaETMQCQe26fun
+	5Guu/7V19UuAO8nQ3eiTURMBtGPkalkcAqI9T/Tudx44aNl91znbmH21vE6SGH5XGc5ael+daCV0j
+	o/YUKaAmN1fA8uILJEvcLd1lQuX43sAHlMde3PcFyu4KjfVneMA/cUlLeCDjP9YMC7NfpkbbmtuxC
+	z58c4e9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFp3E-0000000BCQx-31yb;
-	Thu, 23 Apr 2026 08:04:44 +0000
+	id 1wFp7D-0000000BCi0-0WuL;
+	Thu, 23 Apr 2026 08:08:51 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFp3D-0000000BCQr-1tYE
+	id 1wFp7B-0000000BChr-3HZF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 08:04:43 +0000
+	Thu, 23 Apr 2026 08:08:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A2EBF60052;
-	Thu, 23 Apr 2026 08:04:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54D34C2BCAF;
-	Thu, 23 Apr 2026 08:04:42 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2EB7360052;
+	Thu, 23 Apr 2026 08:08:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D71E8C2BCB2;
+	Thu, 23 Apr 2026 08:08:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776931482;
-	bh=qG9pG1phr7b239BL1vrZMGDft9bK9wGgMZDgINmbnOg=;
+	s=k20201202; t=1776931728;
+	bh=Yy/Tfq/9F8NbivnASS2KOxeiLK7q4WMxkOdk5fR99pI=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=IC2Ntx9xNKoQGHHqsXPbV5RvHaXjNGE3pMlZEnorannyjObrEaOMgjnM+ZWCl78/3
-	 03HX0nlcnuY9zGgY4rY0c393i5WiJXgtU7UiEOUTkwASCITLjkQ5iGJrCdxknnAbTQ
-	 d9imafkf/+Iuf82uXVCzvNcbRa8Zvt9relvLSxxnvubKaCHAcWiWPOr73uMVdXfiZy
-	 1+PIHuYXKMvAqiY7culbjJWwADLUPf9NfrqTM+jzXo5QtIMb5ROFqsCR0sDCwSVAen
-	 Cl64WBrRj7q3Jcd0ODrfPjRorLobl/O/xULUnciid5LKe22dpYFr7okEWTEaIFWgku
-	 BOSLrRxY6Z4hA==
+	b=N3BSPJ+JUmCeDLYPRnJec2nJwSVaWKdxbDy6Idc8Ll/rx3aRuNiMv+R3GNQrGVRGF
+	 DsGv58QdWyGZ9vrOgEnNtyiImWPrHeDEj95Gc1kwcgvy6escuhqf/odwTog1CGS0+O
+	 4ro8EWWAFM42JhZiDfrimtjt6ueB3o6Hyi97dF9IjFSMlaSRdKKGs3TZMnnV4l3T/k
+	 A+MjrtP9zJRcBnw4b1fSrwM410KZfdVcfN3nE+0H9skBDJXXK3tBfe69y6+jJm/sPl
+	 0Gugrt/fpholSb+Wj5+kgml2oLFt7aGAKMr3x0ClZEI3wIMoUClHAgqMsJU40skP01
+	 Ug6cY5u7D193A==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wFp3A-0000000Dy5B-07WP;
-	Thu, 23 Apr 2026 08:04:40 +0000
-Date: Thu, 23 Apr 2026 09:04:39 +0100
-Message-ID: <868qae14rs.wl-maz@kernel.org>
+	id 1wFp78-0000000DyA0-2GNW;
+	Thu, 23 Apr 2026 08:08:46 +0000
+Date: Thu, 23 Apr 2026 09:08:46 +0100
+Message-ID: <867bpy14kx.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Subject: Re: [PATCH] arm64: traps: Add a macro to simplify the condition codes check
-In-Reply-To: <ae6f2b57-4644-424e-aab7-84042dca23e6@arm.com>
-References: <20260320082846.1235016-1-ruanjinjie@huawei.com>
-	<ae6f2b57-4644-424e-aab7-84042dca23e6@arm.com>
+To: Sebastian Ene <sebastianene@google.com>
+Cc: oupton@kernel.org,
+	will@kernel.org,
+	ayrton@google.com,
+	catalin.marinas@arm.com,
+	joey.gouly@arm.com,
+	korneld@google.com,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	android-kvm@google.com,
+	mrigendra.chaubey@gmail.com,
+	perlarsen@google.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Validate the FF-A memory access descriptor placement
+In-Reply-To: <aejOu98q1lEZoFfW@google.com>
+References: <20260422102540.1433704-1-sebastianene@google.com>
+	<86bjfb18v1.wl-maz@kernel.org>
+	<aejOu98q1lEZoFfW@google.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: anshuman.khandual@arm.com, ruanjinjie@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, kees@kernel.org, ada.coupriediaz@arm.com, smostafa@google.com, leitao@debian.org, mrigendra.chaubey@gmail.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Rcpt-To: sebastianene@google.com, oupton@kernel.org, will@kernel.org, ayrton@google.com, catalin.marinas@arm.com, joey.gouly@arm.com, korneld@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, android-kvm@google.com, mrigendra.chaubey@gmail.com, perlarsen@google.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, stable@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -76,102 +92,78 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, smostafa@google.com, kees@kernel.org, catalin.marinas@arm.com, Jinjie Ruan <ruanjinjie@huawei.com>, linux-kernel@vger.kernel.org, mrigendra.chaubey@gmail.com, leitao@debian.org, will@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Apr 2026 06:29:09 +0100,
-Anshuman Khandual <anshuman.khandual@arm.com> wrote:
+On Wed, 22 Apr 2026 14:35:55 +0100,
+Sebastian Ene <sebastianene@google.com> wrote:
 > 
+> On Wed, Apr 22, 2026 at 01:24:02PM +0100, Marc Zyngier wrote:
+> > On Wed, 22 Apr 2026 11:25:40 +0100,
+> > Sebastian Ene <sebastianene@google.com> wrote:
+> > > 
+> > > Prevent the pKVM hypervisor from making assumptions that the
+> > > endpoint memory access descriptor (EMAD) comes right after the
+> > > FF-A memory region header and enforce a strict placement for it
+> > > when validating an FF-A memory lend/share transaction.
 > 
+> Hello Marc,
 > 
-> On 20/03/26 1:58 PM, Jinjie Ruan wrote:
-> > Add DEFINE_COND_CHECK macro to define the simple __check_* functions
-> > to simplify the condition codes check.
 > > 
-> > No functional changes.
+> > As I read this, you want to remove a bad assumption...
 > > 
-> > Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> > ---
-> >  arch/arm64/kernel/traps.c | 59 ++++++++++-----------------------------
-> >  1 file changed, 15 insertions(+), 44 deletions(-)
+> > > 
+> > > Prior to FF-A version 1.1 the header of the memory region
+> > > didn't contain an offset to the endpoint memory access descriptor.
+> > > The layout of a memory transaction looks like this:
+> > > 
+> > >   Field name				| Offset
+> > > 					 -- 0
+> > > [ Header (ffa_mem_region)               |__ ep_mem_offset
+> > >   EMAD 1 (ffa_mem_region_attributes)	|
+> > > ]
+> > > 
+> > > Reject the host from specifying a memory access descriptor offset
+> > > that is different than the size of the memory region header.
 > > 
-> > diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
-> > index 914282016069..6216fe9e8e42 100644
-> > --- a/arch/arm64/kernel/traps.c
-> > +++ b/arch/arm64/kernel/traps.c
-> > @@ -49,45 +49,21 @@
-> >  #include <asm/system_misc.h>
-> >  #include <asm/sysreg.h>
-> >  
-> > -static bool __kprobes __check_eq(unsigned long pstate)
-> > -{
-> > -	return (pstate & PSR_Z_BIT) != 0;
-> > -}
-> > -
-> > -static bool __kprobes __check_ne(unsigned long pstate)
-> > -{
-> > -	return (pstate & PSR_Z_BIT) == 0;
-> > -}
-> > -
-> > -static bool __kprobes __check_cs(unsigned long pstate)
-> > -{
-> > -	return (pstate & PSR_C_BIT) != 0;
-> > -}
-> > -
-> > -static bool __kprobes __check_cc(unsigned long pstate)
-> > -{
-> > -	return (pstate & PSR_C_BIT) == 0;
-> > -}
-> > -
-> > -static bool __kprobes __check_mi(unsigned long pstate)
-> > -{
-> > -	return (pstate & PSR_N_BIT) != 0;
-> > -}
-> > -
-> > -static bool __kprobes __check_pl(unsigned long pstate)
-> > -{
-> > -	return (pstate & PSR_N_BIT) == 0;
-> > -}
-> > -
-> > -static bool __kprobes __check_vs(unsigned long pstate)
-> > -{
-> > -	return (pstate & PSR_V_BIT) != 0;
-> > -}
-> > -
-> > -static bool __kprobes __check_vc(unsigned long pstate)
-> > -{
-> > -	return (pstate & PSR_V_BIT) == 0;
-> > -}
-> > +#define DEFINE_COND_CHECK(name, flag, expected)			\
-> > +static bool __kprobes __check_##name(unsigned long pstate)	\
-> > +{								\
-> > +	return ((pstate & (flag)) != 0) == (expected);		\
-> > +}
-> > +
-> > +DEFINE_COND_CHECK(eq, PSR_Z_BIT, true)
-> > +DEFINE_COND_CHECK(ne, PSR_Z_BIT, false)
-> > +DEFINE_COND_CHECK(cs, PSR_C_BIT, true)
-> > +DEFINE_COND_CHECK(cc, PSR_C_BIT, false)
-> > +DEFINE_COND_CHECK(mi, PSR_N_BIT, true)
-> > +DEFINE_COND_CHECK(pl, PSR_N_BIT, false)
-> > +DEFINE_COND_CHECK(vs, PSR_V_BIT, true)
-> > +DEFINE_COND_CHECK(vc, PSR_V_BIT, false)
-> > +DEFINE_COND_CHECK(al, 0, false)		/* Always true */
+> > And yet you decide that you want to enforce this assumption. I don't
+> > understand how you arrive to this conclusion.
+> > 
+> > Looking at the spec, it appears that the offset is *designed* to allow
+> > a gap between the header and the EMAD. Refusing to handle a it seems to be a
+> > violation of the spec.
+> > 
+> > What am I missing?
 > 
-> 	(((pstate & 0 == 0) != 0) == false) ---> return true 
-> 
-> Although this looks OK but wondering if __check_al() should
-> be left unchanged for simplicity. OR could all its call sites
-> be changed assuming an unconditional 'true' return thus later
-> __check_al() can be dropped.
+> While the spec allows the gap to be variable (since version 1.1), the
+> arm ff-a driver places it at a fixed position in:
+> ffa_mem_region_additional_setup() 
+> https://elixir.bootlin.com/linux/v7.0/source/drivers/firmware/arm_ffa/driver.c#L671
 
-Which call site? We emulate an instruction, and we're not in control
-of the condition code associated with it. The condition code directly
-indexes into aarch32_opcode_cond_checks[].
+That's an implementation detail, and you shouldn't rely on this.
 
-Anyway, this is a moot point, as we have consensus to not touch that
-code at all.
+> and makes use of the same assumption in: ffa_mem_desc_offset().
+> https://elixir.bootlin.com/linux/v7.0/source/include/linux/arm_ffa.h#L448
+> The later one seems wrong IMO. because we should compute the offset
+> based on the value stored in ep_mem_offset and not adding it up with
+> sizeof(struct ffa_mem_region).
+> 
+> Maybe this should be the fix instead and not the one in pKVM ? What do
+> you think ?
+
+I think you should parse the buffers as the spec intends them, without
+assumptions or limitations.
+
+> 
+> The current implementation in pKVM makes use of the
+> ffa_mem_desc_offset() to validate the first EMAD. If a compromised host
+> places an EMAD at a different offset than sizeof(struct ffa_mem_region),
+> then pKVM will not validate that EMAD.
+
+Why compromised? Isn't that a perfectly valid thing to do? What I
+understand is that the FFA 1.1 implementation in pKVM doesn't match
+the expectations of the spec. If that's indeed the case, pKVM should
+be fixed to accept these messages correctly, or stop using FFA 1.1.
 
 	M.
 
