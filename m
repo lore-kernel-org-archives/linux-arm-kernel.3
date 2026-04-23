@@ -4,58 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9AE1FDEE2F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 17:24:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E0FBFDEE29
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 17:24:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zC9qQTBFGPhM9VVfZsMZPGt3T362foDJ1809S5lS0ys=; b=t1xHybZ7vtNAoJuf6EOtL8NQ/U
-	maYmzww7u5X12/ezu0HqpmGdHl5VrW3kwDup06V7pOWV+ZCf9JWc58lsjh0u2z9YmDX9lh4gIRZMU
-	rFlEh2l+8IAS66sOE45fJuMDzWKEZcXN74I9ofSz3mytJDgA2FzJP8eb3Jalbu1JD4rZaydfdE9xG
-	N1QjNdiHAqmUaXLcPB4Cke91Aged7bB/XTNOUowlFA1tTetpcOlTgVwW1lxaiJd/inZBVHhLxsjpo
-	CBn6QoWYRQL3lY3exL0yE4pIB4Ew8n+9xJaUNhPApYcGE7NpYTclUfpMcuE6ACHax/t9oKa3aqJbH
-	X4HPI2Og==;
+	bh=FcCWF0lwyos/qXBUh8mRkS5XG81ixP4/I4TLe67iMcc=; b=PgwT3xVGx9i9Jz8RuMf4etAuBp
+	7lFd+iv+KvrD/4qvgQ8hkl2r0jSwKcSo+FgJ9JojKKO+GIDHh1U6c3B9SAAWNLYFP1S7yr1/o9Ws9
+	ikVPMC7nYQOAja5lRvFle3/nnKn/+EyWAWRhrOk54VwhUNKWLXHGgnt/76IkVjAFwi9JE0pxW7VDl
+	Q/cBa22zZNRE/bpWqINJJEkcxOmYQ9Oa/BpCT8JR90UDquCh3KDUBRB2goICgHYP5rK3Yj4LVsatU
+	8bgcEIlCShJwnTVYV9N5snDgonhEyJXLe0saENBQZfsMIlIFoA/jDSxi8m0bnePnzfw06nkWU3D8k
+	/1/writA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFxmR-0000000C2Oc-1YbQ;
+	id 1wFxmR-0000000C2PM-45uS;
 	Thu, 23 Apr 2026 17:23:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFxmK-0000000C2K2-1uPb
+	id 1wFxmM-0000000C2Kz-0BcW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 17:23:52 +0000
+	Thu, 23 Apr 2026 17:23:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A2A1C60582;
-	Thu, 23 Apr 2026 17:23:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7DADC2BCB3;
-	Thu, 23 Apr 2026 17:23:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BE57C43310;
+	Thu, 23 Apr 2026 17:23:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9F15C2BCAF;
+	Thu, 23 Apr 2026 17:23:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776965031;
-	bh=c4BcYMZ0KWMorH09+B5vNrAhFQ4rDIDYqWvY5VR5Gws=;
+	s=k20201202; t=1776965033;
+	bh=+yGV+FJC4L0WAgipLE4zNhiVdIllPsS497DhNi03mkc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=TJyq/UdbIn7Ylv3yTN9y3bgSYNuxU6WqCRX/Hj6zPFxILEdXtEzjPWvDecb9bZF8x
-	 FkdCJrI+6o6qd7o7X2TIHCrcPEXbDrPpJes96F8ISs8BcmC1Yiyqu0Sk4A2XG87A7y
-	 ExFX0Q8BdDvdSL67amtyvJ8sAOH7opgk6uRa2x8N1glwFFoIjrZ2grq4ZnohbaPB51
-	 vsYtS6EK3uASo4bnPjsg+sy1Gc9SUXaPwAqrA03fsVRbxJidCYg+wGefdV53d7X18f
-	 19Re5W+H0HPN8ooi03kRDRkqicP5raw5jCLsX8vd3fItdvTKEE/vxFSBzG8Sc3hIj/
-	 Xp3F7uvNQig2Q==
+	b=jvAXMPNdhyz1hMYVHgljosCvAFReQtMoiJT5kDmXgq105o6ti/nBOefIXzqggW7FN
+	 I/0RvheNAJsDv6s7JIE1lSELYKQ5gkGMPDNMIIX8YbDxCXt4HIq/5k/lzHJ6KYHGFe
+	 29VzVvwZgK/l2W94wG/LBS5vGhG9k3e3NzGNmLc8XOu10h16yo3X9AmyQYUJBz/bRM
+	 qEJZfELjtApvBHtMS7s1rFjh0zxU61MNKVKZj7SmWJYSn9PfmAGLUUdPfyQ3T9qZUi
+	 dgN7gADfkZ+Pu0mJ3ZTsKjgHCO8JLUUVkTBphsAesnAIUT0cM4uIk/3+39jBGgW23r
+	 WBYrqQ4JVtPsw==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Thu, 23 Apr 2026 18:22:52 +0100
-Subject: [PATCH 2/8] firmware: arm_ffa: Skip free_pages on RX buffer alloc
- failure
+Date: Thu, 23 Apr 2026 18:22:54 +0100
+Subject: [PATCH 4/8] firmware: arm_ffa: Fix Rx buffer release in fwk
+ notification handler
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260423-ffa_fixes-v1-2-61189661affe@kernel.org>
+Message-Id: <20260423-ffa_fixes-v1-4-61189661affe@kernel.org>
 References: <20260423-ffa_fixes-v1-0-61189661affe@kernel.org>
 In-Reply-To: <20260423-ffa_fixes-v1-0-61189661affe@kernel.org>
 To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Cc: Jens Wiklander <jens.wiklander@linaro.org>, 
  Sudeep Holla <sudeep.holla@kernel.org>
 X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260423_102354_118228_1566FF46 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,30 +73,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If the RX buffer allocation fails in ffa_init(), the error path jumps to
-free_pages even though no buffer has been allocated yet. Route that case
-directly to free_drv_info so the cleanup path is only used after at
-least one RX/TX buffer allocation has succeeded.
+Refactor handle_fwk_notif_callbacks() so that all exit paths funnel
+through a single FFA_RX_RELEASE call. While doing that, use scoped_guard()
+for the Rx buffer lock and keep the message parsing under the lock scope.
 
-Fixes: 3bbfe9871005 ("firmware: arm_ffa: Add initial Arm FFA driver support")
+This makes the Rx buffer release explicit for the kmemdup() failure path
+and for the early exit when the framework notification bit is not set.
+
+This will ensure the Rx buffer is always release in the framework
+notification handler.
+
+Fixes: 285a5ea0f542 ("firmware: arm_ffa: Add support for handling framework notifications")
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_ffa/driver.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/firmware/arm_ffa/driver.c | 31 ++++++++++++++++---------------
+ 1 file changed, 16 insertions(+), 15 deletions(-)
 
 diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-index eb2782848283..e6a051b20cb7 100644
+index 4dec7ca52f8c..764cb1226182 100644
 --- a/drivers/firmware/arm_ffa/driver.c
 +++ b/drivers/firmware/arm_ffa/driver.c
-@@ -2067,7 +2067,7 @@ static int __init ffa_init(void)
- 	drv_info->rx_buffer = alloc_pages_exact(rxtx_bufsz, GFP_KERNEL);
- 	if (!drv_info->rx_buffer) {
- 		ret = -ENOMEM;
--		goto free_pages;
-+		goto free_drv_info;
+@@ -1472,25 +1472,21 @@ static void handle_fwk_notif_callbacks(u32 bitmap)
+ 
+ 	/* Only one framework notification defined and supported for now */
+ 	if (!(bitmap & FRAMEWORK_NOTIFY_RX_BUFFER_FULL))
+-		return;
++		goto release_rx;
+ 
+-	mutex_lock(&drv_info->rx_lock);
++	scoped_guard(mutex, &drv_info->rx_lock) {
++		msg = drv_info->rx_buffer;
++		buf = kmemdup((void *)msg + msg->offset, msg->size, GFP_KERNEL);
++		if (!buf)
++			goto release_rx;
+ 
+-	msg = drv_info->rx_buffer;
+-	buf = kmemdup((void *)msg + msg->offset, msg->size, GFP_KERNEL);
+-	if (!buf) {
+-		mutex_unlock(&drv_info->rx_lock);
+-		return;
++		target = SENDER_ID(msg->send_recv_id);
++		if (msg->offset >= sizeof(*msg))
++			uuid_copy(&uuid, &msg->uuid);
++		else
++			uuid_copy(&uuid, &uuid_null);
  	}
  
- 	drv_info->tx_buffer = alloc_pages_exact(rxtx_bufsz, GFP_KERNEL);
+-	target = SENDER_ID(msg->send_recv_id);
+-	if (msg->offset >= sizeof(*msg))
+-		uuid_copy(&uuid, &msg->uuid);
+-	else
+-		uuid_copy(&uuid, &uuid_null);
+-
+-	mutex_unlock(&drv_info->rx_lock);
+-
+ 	ffa_rx_release();
+ 
+ 	read_lock(&drv_info->notify_lock);
+@@ -1500,6 +1496,11 @@ static void handle_fwk_notif_callbacks(u32 bitmap)
+ 	if (cb_info && cb_info->fwk_cb)
+ 		cb_info->fwk_cb(notify_id, cb_info->cb_data, buf);
+ 	kfree(buf);
++
++	return;
++
++release_rx:
++	ffa_rx_release();
+ }
+ 
+ static void notif_get_and_handle(void *cb_data)
 
 -- 
 2.43.0
