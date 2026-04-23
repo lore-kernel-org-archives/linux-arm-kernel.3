@@ -4,136 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21C8AF589A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 12:08:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E29D3F589AA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 12:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5CA4EQ1X0FLWdMpKDORkAHNEpe93eWzQh9ciySfekuo=; b=ZhYkxswugVF1sjZvAW5TqAN8ZD
-	F00Mw37r5bZKXN0CPmYDSlUDKqIlS7kboYUpXHXuPI8PSTuhWr6bqpkh+nLMyFdOQLeT93LmA30vl
-	c9ctcj1wNAxoI6iKLVpzz/jIJ7z8bX8fLCopwcJeFBxBUlJtTWKjRlvwDGDkQdsegNGBmMYvDfMyI
-	CoBcaWxntnVYuqW4eKqYNor3iHcBgo3pRA/e87d146o2y3NaNnQySJ+tni3c0X8sK6VtLCPIMZk1o
-	SxdD1gaOh74Y3OfHYA8L6KPQCjcEggoylD422lx8WIAGyPijtv4KoO8RSphP+40GLF4pssf4RnqPX
-	/Zlibgig==;
+	bh=tK+cOgL24OCDDpqAnAKvfxiABcvFYsNay1hx92GDg2E=; b=zJa8P3oc01O3fOG0z4e0n9hY9D
+	RRq8vKD4MI4IOguCwKdKfEPZV4x/Mva8aXqc5k9xS4XkPRTXUwzjnDG5dam0aBqLf2iiCcqNXpIHt
+	F0fpxCR0s+vFRQiq3WfjfRUIEnBGANtee36Bqa4FFXEGRsW3CMh/qef4qX5EHWfzkhh26Sv4/kAco
+	lghCLgwFqP001IlNIowJ6AdyDVs/NMVthIMpZ0rskxLzzNEIpHW33q6cQ5/OUZWzMeaC7i2N0EJy7
+	8Tq7xUexZX8Nh6Bp33CTgvWdBEi97kAFe/mrHcNOQ145rZVrS59B4Td1NVGwUZk/TsUpreR9poM12
+	7DRaM6+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFsqb-0000000BaWw-0h7t;
-	Thu, 23 Apr 2026 12:07:57 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wFsuR-0000000BamB-1NNj;
+	Thu, 23 Apr 2026 12:11:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFsqU-0000000BaWX-3ijk
+	id 1wFsuQ-0000000Balo-2wNO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 12:07:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KjWw6HsFiMbmOZp+Kd/lmZTW/4Aam6wsgomDtGQPHkA6ywTj3I7YYN3cJp5ul6AWtIxRGbBAzEbM9V1CMMV9hkzfCIkaHqWWmhxTw1a4Bnu/2CImKGSoiKkAbnStPvi6E0G0AAvOrTQ3jB86fEQ2V+wT2IYf/UszpOC4FRHCzI8NxKPPVnMsc+9muNh0g34TvRrkh/JU8cl9QSBxyyFyJCz+ib7dR3PQf00RqL8NFasDV+wWysNoai9WVG3GIZvnawZURjVhXYing6g5E/xNn2qhZJ43gUN+U9cqCIxssWrYUwVQNiLdHotj1lSM/2ReSxCen+aw3pCHnXkUTgZ/YQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5CA4EQ1X0FLWdMpKDORkAHNEpe93eWzQh9ciySfekuo=;
- b=gRBO1LL7L4QMg+aTOViNtOgXr/m8r9GwBVSgGr+P93Xt6GberqQUPhS+TousD9CpDAvWMtnIsgIhD8rO406UkLme1eNmlRrVAIgK/yTREZdnRt4YoLgDIeXAmm3yY5H4Lo4Sw+Yn3zHomkZ4GxpSdPHYr5DRVqqmsIXb6rE1L6Zsuq/zpn7MNHCFAlre8F5KEts5ZKrPFOkjDHuKLPRD5dFwEgwnlDEdyUAgsxbAeguAKZ16SGlyBQke5HlyTjoiSg15yld0viqpYwbmkdDSO8NCEGFqWYpMmFIsB7nZlN3gBkSYM+I6CXJ6sFh3HjTYafCv5aJFTfWE7uXKkUs5KQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5CA4EQ1X0FLWdMpKDORkAHNEpe93eWzQh9ciySfekuo=;
- b=iEu1Bpdb9/za7yWg9Xe17po+yrP1TDrvlF0SrcULuwH1JASUSt9U3FaLo3v3M5HOamoh2iTonHityEw+mpSnUAlMKE4a//QYjNnB0qsqqbUpfOO2XxY/nZbCQvbX2dvosGmPQ4z+1koiu+y9GouXi8FTSi53coVecZCNPTkJBRXqPGyawjBMiSFDEtT+VnBbYSpTHkWJ9k3qoKdBzdiZLek8pa+F6zhB2LHJL/p8dImGdYco9vGsiFyuKdGkH7tc9IMdsKc72zzTV/3HEpHpEtu0P2Kmq9FpP2NQsLLfwNahWD3FzfFLQfncXTxjZfku5/09+7oh6G/y1wVX96E/HQ==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DU6PR04MB11157.eurprd04.prod.outlook.com (2603:10a6:10:5c2::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.21; Thu, 23 Apr
- 2026 12:07:42 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%3]) with mapi id 15.20.9846.021; Thu, 23 Apr 2026
- 12:07:42 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Xu Yang <xu.yang_2@nxp.com>, Frank Li <frank.li@nxp.com>
-CC: "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de"
-	<kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Jun Li <jun.li@nxp.com>
-Subject: RE: [PATCH 2/4] arm64: dts: imx95: switch usb3 controller to
- flattened model
-Thread-Topic: [PATCH 2/4] arm64: dts: imx95: switch usb3 controller to
- flattened model
-Thread-Index: AQHc0X03wBeL1YynIU+/n2MIuSBlObXqdBoAgAIAOYCAABv1oA==
-Date: Thu, 23 Apr 2026 12:07:42 +0000
-Message-ID: <PAXPR04MB845957613BCD5E86D96FA4E3882A2@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20260421105503.1416566-1-xu.yang_2@nxp.com>
- <20260421105503.1416566-2-xu.yang_2@nxp.com>
- <aehGKE8qLXiBKvvB@lizhi-Precision-Tower-5810>
- <cfyvip6atz6hh57iga5gvkzrdxeorv4tuxontvzixflqn36h7h@2awtzkxkn45c>
-In-Reply-To: <cfyvip6atz6hh57iga5gvkzrdxeorv4tuxontvzixflqn36h7h@2awtzkxkn45c>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|DU6PR04MB11157:EE_
-x-ms-office365-filtering-correlation-id: 670b6a8d-8a23-4eb6-c831-08dea130ec32
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|19092799006|366016|18002099003|56012099003|22082099003|38070700021;
-x-microsoft-antispam-message-info: suVGDF6j+y7aSL+Trv5f469eBiA8QTYt4LBabpS9zQwPKwIAS5qLr9/HWaR/mqn2Ng+RRvBrx+sIF1XEJX9H2EvP5w8ZV3MsCOwdLkcr8QbKF9xy/kon+F+ySYUNQ04m8hf8iLzGbHzJAYxrbzkoZqbtOvzwBcjK7SxtOAeJkl5UjbFoC0N1NWFr2xzjHUVDAbuVo6iyslcsebP6I2lZAp2JTq+4AAyQ60W6elc6cdePwYmS9ZMgA78AI3oXtafRRtWaoNBGywr6n58cv/lviBarNV+/vp5fOHBTukBT/EA5UqWDlARRyRivg5xjDaEOZLEW5lbHwmAzI7nneoID71YAj75ccdHgzMss40R0HkFveoTeQVzaEbIjMtDmh8dUDMBIHUmteQFywND8ytmaUL/EipHqzRKAfNBOsDB0i5hGjsQkYhzDsdnMJ8dy7ZM7LBg4MzTIRONpGRjKNAe+gWc4XbOPexTrlQH84uKYpApLN6CIxFKTYYScQ/L1hOvZO0w0Z5BpqwxJgPcDTdppdUp3qzjra8Z7IjZvYNhIoVhngvFOO3K0UdvdMvQihqe20wdq7TeGD80L+rPJPM74L0ochkfiYc1NZbPt5+t8nTe2XGRZ3Gz+o+7Czgb1qiQRGSvWEn+JLllsC2Cw5dILCWGdEo/O+/hGFef8RMyHwftuN+NXhDkmox3r8TJbTtseu27g1zopLlHWcohGRNsZAkLwy0a9ugdewvDvmYobnalj4L7ve5sLYfzDaZPSfFD0kH3xXtXWTfvdBucTpPTCBS/6NAcM9IzxUPDICJiuevY=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(19092799006)(366016)(18002099003)(56012099003)(22082099003)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?6wekbGBA1SoO+L5VjqFYIeVS2EPU2VxMRn/z7kn4P+M/ayt7ZDmAwxOUJ6VE?=
- =?us-ascii?Q?OYhL2/4/BnCqWifjurexXQqAdjXZ9lh1bB6hs6sAJV2JsByYzBKp6OBSJ1/k?=
- =?us-ascii?Q?VvanMFNdDRr1ZTV/QN76VJo/Fpi6rE5q0EGghip6zkpUV9cl7zLNZ20i0tY5?=
- =?us-ascii?Q?G0gfTBtQaJYpEXPgOrPv7cYPfU13s/PDpIDrR97VBvSM5EsVhePDWdsHj5KR?=
- =?us-ascii?Q?TvWKPkeAf7pPryMy1U7URDFnHB2Wpz6cGLNZJITr5kCYg/RmiA34nFqRCmhg?=
- =?us-ascii?Q?csQ95L9fqC6KhJt5JBmpX7Jpq8tM4QgmqcpcZ74OePn99pnwMbGSvM1Uj/lw?=
- =?us-ascii?Q?VDtjzu5k+ae0FTNACfrVzKliBz5hr2jp8E2Umz3nk2rX1lpQM+JyS8LSXQUd?=
- =?us-ascii?Q?NcPNP8u14Nue7MHxLxu9BwG83hm3RrRZxriqEwSggIAYZlI0fol2F4DCfDEn?=
- =?us-ascii?Q?cYP6NdN7OIDnMXKvlgQX3m8sHhdk/tA5akodMnBHhClJNi+MACso+KsKbzOZ?=
- =?us-ascii?Q?mSUpUI79Y5tK3F5pjiv0en9WJVTd8ibMml7kyLrn99QP0xAAxoYxsWfxCK6p?=
- =?us-ascii?Q?s0Bmh1nakhkQUN1MiuVs6j1LMP1wmAVIl43Z6I0WAaTtDwoQbMUGJz4gj55O?=
- =?us-ascii?Q?eeUGyf5zATV8WxcIhEG6hZdnlmUElxSU9WQVx/XSlxW3CWb7J19kZSLrnT3P?=
- =?us-ascii?Q?F3MQOzvQl18Y3CH9KrQBq1+vdoSC+fVKEZMcoYULf0RjFjJ6AECQUtvzn3Q7?=
- =?us-ascii?Q?dmC6cmD/PvxL/8dwqmO3b88RcImTL5Rufp9cYspL9ICCVywYxVxUILMt+2bV?=
- =?us-ascii?Q?DU3DIWtItmlwcAtoRQO9zA0b8jXD0qM25F8JTUuHuZndLUnbWcooKbdVEtWo?=
- =?us-ascii?Q?0u0HlAA9vn/FyAzm3T4sy/+w+U2ywPwS5vll/MGG8lsG7b15+a9H9anHDBU8?=
- =?us-ascii?Q?R7is5dVNueT5iCYe9TXNZZkMFMTZB5QqxzGLfcpVFDZSZQIm1ANc5ctYBXDP?=
- =?us-ascii?Q?2WOzf1TJCVPkM8X+TVZLdRS3crco7hozXoFC7aMnvMCrjkRxsapLc79VXxE2?=
- =?us-ascii?Q?ODdRQ6o36Yl020aoCS62avSfXDfowUtpIouhoe0JH9chE15FZQYB+HFR2+on?=
- =?us-ascii?Q?6QDZ7VBllMX3IrwsjO4ASsUYWalQ62gHzQZKv7hFxztHqLTOafo3bBjk6SJr?=
- =?us-ascii?Q?GjibfSj/eDclnNhpg5P9rJiOC4BIO8giPsrJ86sUD7vN7ZiVA1n0t75VvmF6?=
- =?us-ascii?Q?q0puO3AG5BMcgel+H0Fd9ffuiQPEpcISeF58FuSs682djyXsHAONIq+BJmOe?=
- =?us-ascii?Q?+L1jwlNrRdaq+R0uDan0KHecrunEjX7NNKHlJq/6gw6OC7qt7iKaWvJ0tNf3?=
- =?us-ascii?Q?BoTUPcMdDi31SEPCo86v9CV2jBKvFrntiigLMOL97rPc1rU5eIYMrFOKkQP2?=
- =?us-ascii?Q?wHC8nuN/6MSITuqBTEZDbZak+p8MI/9QVl+21aDTcmVSpq1+aRwW1hP2bsNf?=
- =?us-ascii?Q?xCAY1uixiXzf+D7oRxFp1VCnPbZ0Fl26KZHFf7t7MNNbKa+jS+jRE5VQNFlu?=
- =?us-ascii?Q?nJKSB+s3il6ICyp2n3TW7QoO1Msf787WQT66u57uuQFqO2Q+9yG8AtGV1/1p?=
- =?us-ascii?Q?TgN2Xb/Y7rZs8kwDDWZ4v8TcsGaMrKoP2mApRgXGGJ2nhhT6czERttF1FGBx?=
- =?us-ascii?Q?eszVbZvE2EnaUte+g8UVbBWKLdzJA9GepB/i220EXWCwBgMD?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 23 Apr 2026 12:11:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E384D6001A;
+	Thu, 23 Apr 2026 12:11:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17264C2BCAF;
+	Thu, 23 Apr 2026 12:11:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776946313;
+	bh=L1/m3UVZCyk+ScG0LE/2fvksKX24JsimT5q08LcpUos=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XKU6GPXsVD8VNjlATQ/lKhPoqB20RQJ7rOETYqqFR/X1Fjgdc/cyCZk5q9QIg4nzb
+	 /jsd3o5oxP+h9ITB3Wgdy5aKNpnws+jgKz8+PFjRfnAavnz/WYHEGGd9P5c4uoQ1th
+	 /Yk5NtlPIyBhbTD9JFVdv5GWgN1ysARNB9Nd4B87CjQ0ESoINyk4XyOB6v4g0vA/7e
+	 qKsyWJ0KDMauEQZPTX63PV8jKnccEnzYDrroq6CZYYWzp+hsi6vpWjQoBYpn8ifR1V
+	 hD10Ii0NxDPL5ASMlVlviLgn//+mIOHQXW4doH284MdstVc1EP/zzG1eZnE0AJJmHO
+	 I2+uEH6ufxoQA==
+Date: Thu, 23 Apr 2026 14:11:45 +0200
+From: Alejandro Colomar <alx@kernel.org>
+To: Dmitry Vyukov <dvyukov@google.com>
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>, linux-man@vger.kernel.org, 
+	Thomas Gleixner <tglx@linutronix.de>, Mark Rutland <mark.rutland@arm.com>, 
+	Mathias Stearn <mathias@mongodb.com>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, 
+	"Paul E. McKenney" <paulmck@kernel.org>, Chris Kennelly <ckennelly@google.com>, 
+	regressions@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Peter Zijlstra <peterz@infradead.org>, 
+	Ingo Molnar <mingo@kernel.org>, Blake Oler <blake.oler@mongodb.com>, 
+	Michael Jeanson <mjeanson@efficios.com>
+Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
+ and tcmalloc everywhere
+Message-ID: <aeoLLMcxtqShSOxs@devuan>
+References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
+ <aejCaG6n9s7ak5TO@J2N7QTR9R3.cambridge.arm.com>
+ <87zf2u28d1.ffs@tglx>
+ <aekPXvvuKHKlETjm@J2N7QTR9R3.cambridge.arm.com>
+ <87wlxy22x7.ffs@tglx>
+ <c5331cd6-76c8-430d-978e-fcad164e48f6@huawei.com>
+ <CACT4Y+bxnQyHGdVNE1BYTx+Z2-cscLb38HYS9jBM5gPAz8=4bw@mail.gmail.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 670b6a8d-8a23-4eb6-c831-08dea130ec32
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Apr 2026 12:07:42.6133
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: /l3toX/wOB/hduwgbYJOgFpxmAAKLuAfCT3y3d3C6h19MISeD2sdSadgHaXggp+lF3vqYux/Jm6H6NdV4zvROQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU6PR04MB11157
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_050750_952707_C2D5AA10 
-X-CRM114-Status: GOOD (  16.83  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="p6cum5clt6xozmtc"
+Content-Disposition: inline
+In-Reply-To: <CACT4Y+bxnQyHGdVNE1BYTx+Z2-cscLb38HYS9jBM5gPAz8=4bw@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,45 +83,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH 2/4] arm64: dts: imx95: switch usb3 controller to
-> flattened model
->=20
-> On Tue, Apr 21, 2026 at 11:53:12PM -0400, Frank Li wrote:
-> > On Tue, Apr 21, 2026 at 06:55:01PM +0800, Xu Yang wrote:
-> > > Switch to use flattened model for USB3 controller. To enable USB
-> > > controller with restricted DMA access range to work correctly, add
-> a
-> > > pseudo simple-bus to constrain the dma address.
-> >
-> > i.mx95 should fix >4G dma space's problem. Does it impact other no-
-> nxp
-> > boards?
->=20
-> Yes, i.MX95 has fixed >3G address DMA access problem.
->=20
-> It's another issue. HSIO domain only support 36 bit bus access. If not
-> use smmu, no any issue. If use smmu, it will allocate memory space of
-> 36 bit < iova < 48bit.
-> HSIO can't handle this case.
 
-If using smmu, iova will be in range {36bit, 48bit}? How?
+--p6cum5clt6xozmtc
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+From: Alejandro Colomar <alx@kernel.org>
+To: Dmitry Vyukov <dvyukov@google.com>
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>, linux-man@vger.kernel.org, 
+	Thomas Gleixner <tglx@linutronix.de>, Mark Rutland <mark.rutland@arm.com>, 
+	Mathias Stearn <mathias@mongodb.com>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, 
+	"Paul E. McKenney" <paulmck@kernel.org>, Chris Kennelly <ckennelly@google.com>, 
+	regressions@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Peter Zijlstra <peterz@infradead.org>, 
+	Ingo Molnar <mingo@kernel.org>, Blake Oler <blake.oler@mongodb.com>, 
+	Michael Jeanson <mjeanson@efficios.com>
+Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
+ and tcmalloc everywhere
+Message-ID: <aeoLLMcxtqShSOxs@devuan>
+References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
+ <aejCaG6n9s7ak5TO@J2N7QTR9R3.cambridge.arm.com>
+ <87zf2u28d1.ffs@tglx>
+ <aekPXvvuKHKlETjm@J2N7QTR9R3.cambridge.arm.com>
+ <87wlxy22x7.ffs@tglx>
+ <c5331cd6-76c8-430d-978e-fcad164e48f6@huawei.com>
+ <CACT4Y+bxnQyHGdVNE1BYTx+Z2-cscLb38HYS9jBM5gPAz8=4bw@mail.gmail.com>
+MIME-Version: 1.0
+In-Reply-To: <CACT4Y+bxnQyHGdVNE1BYTx+Z2-cscLb38HYS9jBM5gPAz8=4bw@mail.gmail.com>
 
-Thanks
-Peng
+Hello Dmitry,
+
+On 2026-04-23T07:53:55+0200, Dmitry Vyukov wrote:
+> On Thu, 23 Apr 2026 at 03:48, Jinjie Ruan <ruanjinjie@huawei.com> wrote:
+> >
+> > On 4/23/2026 3:47 AM, Thomas Gleixner wrote:
+> > > On Wed, Apr 22 2026 at 19:11, Mark Rutland wrote:
+> > >> On Wed, Apr 22, 2026 at 07:49:30PM +0200, Thomas Gleixner wrote:
+> > >> Conceptually we just need to use syscall_enter_from_user_mode() and
+> > >> irqentry_enter_from_user_mode() appropriately.
+> > >
+> > > Right. I figured that out.
+> > >
+> > >> In practice, I can't use those as-is without introducing the excepti=
+on
+> > >> masking problems I just fixed up for irqentry_enter_from_kernel_mode=
+(),
+> > >> so I'll need to do some similar refactoring first.
+> > >
+> > > See below.
+> > >
+> > >> I haven't paged everything in yet, so just to cehck, is there anythi=
+ng
+> > >> that would behave incorrectly if current->rseq.event.user_irq were s=
+et
+> > >> for syscall entry? IIUC it means we'll effectively do the slow path,=
+ and
+> > >> I was wondering if that might be acceptable as a one-line bodge for
+> > >> stable.
+> > >
+> > > It might work, but it's trivial enough to avoid that. See below. That=
+ on
+> > > top of 6.19.y makes the selftests pass too.
+> >
+> > This aligns with my thoughts when convert arm64 to generic syscall
+> > entry. Currently, the arm64 entry code does not distinguish between IRQ
+> > and syscall entries. It fails to call rseq_note_user_irq_entry() for IRQ
+> > entries as the generic entry framework does, because arm64 uses
+> > enter_from_user_mode() exclusively instead of
+> > irqentry_enter_from_user_mode().
+> >
+> > https://lore.kernel.org/all/20260320102620.1336796-10-ruanjinjie@huawei=
+=2Ecom/
+> >
+> > >
+> > > Thanks,
+> > >
+> > >         tglx
+> > > ---
+> > >  arch/arm64/kernel/entry-common.c |   14 ++++++++++----
+> > >  1 file changed, 10 insertions(+), 4 deletions(-)
+> > >
+> > > --- a/arch/arm64/kernel/entry-common.c
+> > > +++ b/arch/arm64/kernel/entry-common.c
+> > > @@ -58,6 +58,12 @@ static void noinstr exit_to_kernel_mode(
+> > >       irqentry_exit(regs, state);
+> > >  }
+> > >
+> > > +static __always_inline void arm64_enter_from_user_mode_syscall(struc=
+t pt_regs *regs)
+> > > +{
+> > > +     enter_from_user_mode(regs);
+> > > +     mte_disable_tco_entry(current);
+> > > +}
+> > > +
+> > >  /*
+> > >   * Handle IRQ/context state management when entering from user mode.
+> > >   * Before this function is called it is not safe to call regular ker=
+nel code,
+> > > @@ -65,8 +71,8 @@ static void noinstr exit_to_kernel_mode(
+> > >   */
+> > >  static __always_inline void arm64_enter_from_user_mode(struct pt_reg=
+s *regs)
+> > >  {
+> > > -     enter_from_user_mode(regs);
+> > > -     mte_disable_tco_entry(current);
+> > > +     arm64_enter_from_user_mode_syscall(regs);
+> > > +     rseq_note_user_irq_entry();
+> > >  }
+> > >
+> > >  /*
+> > > @@ -717,7 +723,7 @@ static void noinstr el0_brk64(struct pt_
+> > >
+> > >  static void noinstr el0_svc(struct pt_regs *regs)
+> > >  {
+> > > -     arm64_enter_from_user_mode(regs);
+> > > +     arm64_enter_from_user_mode_syscall(regs);
+> > >       cortex_a76_erratum_1463225_svc_handler();
+> > >       fpsimd_syscall_enter();
+> > >       local_daif_restore(DAIF_PROCCTX);
+> > > @@ -869,7 +875,7 @@ static void noinstr el0_cp15(struct pt_r
+> > >
+> > >  static void noinstr el0_svc_compat(struct pt_regs *regs)
+> > >  {
+> > > -     arm64_enter_from_user_mode(regs);
+> > > +     arm64_enter_from_user_mode_syscall(regs);
+> > >       cortex_a76_erratum_1463225_svc_handler();
+> > >       local_daif_restore(DAIF_PROCCTX);
+> > >       do_el0_svc_compat(regs);
+>=20
+>=20
+> +linux-man
+>=20
+> This part of the rseq man page needs to be fixed as well I think. The
+> kernel no longer reliably provides clearing of rseq_cs on preemption,
+> right?
+>=20
+> https://git.kernel.org/pub/scm/libs/librseq/librseq.git/tree/doc/man/rseq=
+=2E2#n241
+
++Michael Jeanson
+
+That page seems to be maintained separately, as part of the librseq
+project.
+
+
+Have a lovely day!
+Alex
 
 >=20
-> >
-> > Need do break compatible judgement such as
-> >
-> > i.MX95 is new SoC and still is heave development. The break
-> compatible
-> > is accepable at development early phase.
-> >
-> > You can rephrase it.
+> "and set to NULL by the kernel when it restarts an assembly
+> instruction sequence block,
+> as well as when the kernel detects that it is preempting or delivering
+> a signal outside of the range targeted by the rseq_cs."
 >=20
-> OK.
->=20
-> Thanks,
-> Xu Yang
 
+--=20
+<https://www.alejandro-colomar.es>
+
+--p6cum5clt6xozmtc
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEES7Jt9u9GbmlWADAi64mZXMKQwqkFAmnqDIEACgkQ64mZXMKQ
+wqkOhw/8Da6UA2wKZoxp9Y5pCSiWonaGR0g8b/70AFpL2NKqXjUZ0BFITNjSuFzE
+ieZst+w7in6RCa8NV7iEwTXriqqlUoyvkI8zhu3QVq3Z6L0BB7Nt82h3smtFxDXA
+U2Nm9emTrEbTBvrUbWOre0+e0moB+9fPzodmfgBesnk1h3vcq2MgpokO6bqqhSTY
+Y1iaKiiPY2P3nhtyyd3L/kCsQ2JezOBbkapiiOW5FRt5QiGxLBmfMxLVE3lWNGD+
+JxQoMw/g1BjXEv8AG0E85eEjc+gHMOCJ9HvCOBDs1Vvi1EqjWoZFTI+tADmp9IMa
+RgSZrliKss1nw2mfJ7rqii3BKxCGOFWqn7xT8MUO//V2D5ne+8TSiU2UCsTnlKJw
+cwnFOshth/uWpK7olfNwvmcBfruwAFumSjgD96R9rytgz3TFTL+uGEWaEJCV1KcJ
+LDPvNG/T1QgDr0CApWj2B3/GyxlIrYGs/6L3rUMQmXe11WmXMj+cFzFb5etWo9/H
+vXuqELiJVuIsWTON2xm73lDZl5ca1Sgx9xLgDSOvqGsUhGJLP4V0Q0oC7n0Lh4Hx
+92zGthChnwqyRA8Pyq67cdLjSm+L8QAGaWz1E/AuKfoKIGAe1TAePtJGcpl00BVI
+hOla9OLx9xKHnq+62YuE2+l65wO4s0+tSUOAX//7fMMIBWeEUcQ=
+=H2Wo
+-----END PGP SIGNATURE-----
+
+--p6cum5clt6xozmtc--
 
