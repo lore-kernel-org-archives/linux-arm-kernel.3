@@ -4,75 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABBE0F589CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 13:07:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FBB1F589CF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 13:10:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mhqmQtSXuGtz3JsE5XvFwEBY9BcH2MnEeQMlIt5rSN0=; b=iZ2TXdwMDDfKNBcAheB+Vxarzi
-	6W8vI/zjtxaEACKtex0eDtTHwKjEbzCP/pX6AEGFv3PFqzADS8RYIPlYrzdtcjbMP+odFo4E6Qiao
-	1KT4LqeLOfsNX+16ENdzs0dORgfb+/zgCrsZxTLO6M/9NC3eCbKQGndvGeivIrmOpYmC9EzTYUnB1
-	abRb1CzGZoqAOOZSSzR5E7JlR7isvqRxgdsJZXJOhikMMqRbkShDspPwpuTVdr7OaGySZMROaR6Zx
-	sZonv6JCmpdUCs1+JXHkwd5YRkyheB+SkTGP+tsMlMLGyizGH0OZcuE1ITKnbZ+GF0J1DKviMfz6H
-	Zu3NJqNQ==;
+	bh=CHuuNz6ptgQ8XmEhDBsMJrqEkVn/WMuAEJkDEJl0uyw=; b=nWqLLQ/lI0jcuae1Hf4L6Aun2G
+	JZYOQHaW+163zBqqflhWmioEgmIBGYHTPdITdXNa9ntH8QthRjoDiTqWrFk6o6yEK9ZZ4oUcL2Uwx
+	qS0gD9q09S46HbK890KSHTqgwL+kxftqypVGApMPeCh8naxjCGJ30T2ck248DzYlLRcPk5yQRP4ZB
+	xL3+oqXa1fCjDPJrhQnX9YqQbCE2GgucKvxgihLH6PahPHTt11ddBzwiYdtM6bUwcgxGfsJ40pDQm
+	YdSah4Glw13c8MW09OAkWvZMdsRHwBKAap3dAOWQ6MuxSBW3veQdjxrVLN0Q9xSPhp8VKvDpoplvo
+	T7wuBiLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFtm2-0000000BiVk-1iWP;
-	Thu, 23 Apr 2026 13:07:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFtlw-0000000BiV1-14xJ
+	id 1wFtoa-0000000Big7-3szj;
+	Thu, 23 Apr 2026 13:09:56 +0000
+Received: from mail-westeuropeazon11013014.outbound.protection.outlook.com ([52.101.72.14] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wFtoT-0000000BifZ-0y7G
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 13:07:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 28BE71C25;
-	Thu, 23 Apr 2026 06:07:04 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 252DA3F23F;
-	Thu, 23 Apr 2026 06:07:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776949629; bh=RHhcDZSJjqbRFX5DvA0y5u/itfLV8Axf4SV02gWmRjk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RETRutih09HHlXWKLVKHaO/cqhNbepyaLVofdEY4Le4dC4voXpZcY79oHaMaR5IzT
-	 7c0IXm9yjEBBV4I8YBJ+yzU/LSzXbmoplWIqeZhp+uaIikQqVg29Und9n0ibXiUCt9
-	 W7ktWMiz+W5UB4frGHtuw/sdI7E8LZLCCwvOpjOo=
-Date: Thu, 23 Apr 2026 14:07:03 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Jonathan McDowell <noodles@earth.li>
-Cc: Mimi Zohar <zohar@linux.ibm.com>, linux-security-module@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
-	roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
-	eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
-	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
-	sebastianene@google.com
-Subject: Re: [RFC PATCH v2 1/4] security: ima: call ima_init() again at
- late_initcall_sync for defered TPM
-Message-ID: <aeoZd/qb+/W6ufwz@e129823.arm.com>
-References: <20260422162449.1814615-2-yeoreum.yun@arm.com>
- <6919248bdc85dac60277fa9d9c83d8bd258ca635.camel@linux.ibm.com>
- <aekXaU52fzvNYaUF@e129823.arm.com>
- <aekkVQwueKbFtG7C@e129823.arm.com>
- <82803bb3b471898a77084c449b73c7f7b4eb2149.camel@linux.ibm.com>
- <aem0SSQuE1e3pGOS@e129823.arm.com>
- <56a8aab50a3b5ce0a345fc2079fb2abc7d0f1b23.camel@linux.ibm.com>
- <aeoAlVEwzRUPrlVe@e129823.arm.com>
- <aeoRxWPyOHGJd+Jh@e129823.arm.com>
- <aeoWO2Cwo04YYu2l@earth.li>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Thu, 23 Apr 2026 13:09:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MT2V6StmZ9SKAdkdTLRXNh2J4YkN2ZR/L8iwMgeAIAue1HwMua/azs9uWj8t+qaUU8Q6AdkOXWHlcN+043lEUqyps4XW+EYQF+7Ja53a+14fJUv9VSHodiAAvHb/X70hfiwUab8CFmSHUaZusfR8xe5t+b2luS21dIWPOKcy3Oge7AUCbs/H4UL97C7/QIGlxPyRCe5iSNz2QjS83r072gzGc84PH81kXfFJLrGsU3CR6d1+e/uVCVIV3uVQSe1ZYypVfLG5avdF26fuqxzYcaQIKD55OVZrmiCvXn0HVfDbNCnrP/dLRtqHWhBNUhvxtppO0VXNv3c93JtrHfg84g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CHuuNz6ptgQ8XmEhDBsMJrqEkVn/WMuAEJkDEJl0uyw=;
+ b=k44Xctt2f2Ckh9Ah/W2SUr94yWwZfVuVYpmwW0735IifU9YiMBVp0p2Guv2HprfXCjGDQZH+kyxeo/fLiqwiXH3YccEmB2917PlMjYrHIHjPjI+qiwsM6ZS+ItuSL4BmzWgVnpOAkXNCGIRcje792s5iYLuUaA6xGfv8q/HcPbLe13ElGHg8ByrByr8LWKFsapNBIwmc3UfXLN2SRw5qfnx2ptHyZ9/62kDso3L4hrgx+0gyv2lcesyyArgn+VCdBPrtOU/x+mdngf7W4Kx0uNvXSPFhya4WTKWFgadDZPkeEig4zCcjbwEOu37gKiznASy/K6IrpzWia916MtZ7iw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CHuuNz6ptgQ8XmEhDBsMJrqEkVn/WMuAEJkDEJl0uyw=;
+ b=G+Zt2opkKRpi/rT9hRd/I554xayWluLVOFPJmIzoZ+nOTwekCpGZiKfywFfjcgenOCqDArwFlCPZg3qWF0q61wkLpY6KuBeNYZNyrlViv6xI4kTY4OmaSAdiyMt2HsKWfAACh2qFq4mNhMDkscQObrN4g4QlepPH0P43VHmPqSW+sW4Y75pEdhlhpUMafyIZrerMjBqUzZD6MjjKUtFIiHcTKB0DJcsP4dRjpbwLRiesjLWhv/E/hOT2nSaimo/joTGHmz7vl9GmAITS076QpYBmEliWJOuwOzkz/vdYVIpmwr5kIemalMceMp0q5JVCXVVSVf3Oju1DsQ5Y0IYB4Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by PAWPR04MB9935.eurprd04.prod.outlook.com (2603:10a6:102:387::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.18; Thu, 23 Apr
+ 2026 13:09:43 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e%3]) with mapi id 15.20.9846.021; Thu, 23 Apr 2026
+ 13:09:43 +0000
+Date: Thu, 23 Apr 2026 21:12:13 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH RFC 2/2] clk: scmi: Add support for two #clock-cells to
+ pass rate rounding mode
+Message-ID: <aeoarZHOTrinRELb@shlinux89>
+References: <20260306-scmi-clk-round-v1-0-61e2a5df9051@nxp.com>
+ <20260306-scmi-clk-round-v1-2-61e2a5df9051@nxp.com>
+ <20260422-huge-kiwi-of-tornado-4fce89@sudeepholla>
+ <aejUd6L1AfbsflxR@shlinux89>
+ <20260422-satisfied-rough-mongrel-aabca1@sudeepholla>
+ <aelzO5W2HD8zAgxf@shlinux89>
+ <20260423-pompous-hissing-tanuki-16c5f6@sudeepholla>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aeoWO2Cwo04YYu2l@earth.li>
+In-Reply-To: <20260423-pompous-hissing-tanuki-16c5f6@sudeepholla>
+X-ClientProxiedBy: SI2PR01CA0001.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:191::13) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PAWPR04MB9935:EE_
+X-MS-Office365-Filtering-Correlation-Id: 64d22997-d1eb-41cf-7b43-08dea139958f
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|1800799024|366016|19092799006|38350700014|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: yBPx7MxO96rBNtyFZ9TTpCGsH05oxfFjdPVWkb2CvZbKiIbqG10kyhYvePIgfPp//XV++GvT73ws1OwXJepFzIGoA7AAzKe412KpHts9AyCdEB1fiQUcO1PUr5r1o0ryFa4Yb9g71PS1mq3XwzP2Oil1izlJr821x5aILDw9xxt72lPrOvzbuqb3ZD2ycfhPwaV29xznJkKC3GvkfdPZTW9zW1rIz9kZIJC03TBp09W8uguwEI8nIVOobH8YPoi6ge0x9lcXSlcMxd3GCyd9uV66Xw1bGCZNh9ekKWdbODlM6MD7i3fVREVG9zvGZcLxCCL8Ya/MG+KhDlXiePUtZdIFwiSXiZJV3uPTtRPxag6Bdua520Vl/O5x9NBSWAzBLicwoTqewO0vmhwlefyjY/VVlB45ygMgIks8Inck+KiKq9gSNe2Kp9vCDNyZRdNuRS4QzVfkBHShc1rtbWaxxjosZXpuTf1uzDjAWq4vKClQUVF56ac/PBg00uhvXYwba27SXYZwGTS1L3L9w8CHXPpOhj8cEUVg5j+BLSrGIegSG0wh6WWBLDM8UVpF04zP9EYRgXx/OSdgYbQu1EWuUSL6Q9Xwh/g+ZPxzp4vwscOi32l6RDM3QdPTIi8q7TNG5BheQKGcOPtj9iw0U+z5gFZCnr8bmmtzKHNkyB5IZX8gAXrYrv82M54noGPZ1Xd1hFjSVH6wq3d+6ZUcJc5SncG95ZeD4IceidqAx8jiIPy+lwN6yhPAovX9ia94+9r8vCOvJhlkbMHdVGPhhiFu1GQYk6HGt0csbYqsQMtcpmI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(1800799024)(366016)(19092799006)(38350700014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rLVnOLVhk8Cjj+yhIlHlnr0S2okvHhJ393GOzx04YIukG/fu/hCPFKIQ30eP?=
+ =?us-ascii?Q?J7y+4kdxxvYxwiiwAE8gbkxts47BEjKgmi1enOem7fVKVrjnN1M7oYeT74I9?=
+ =?us-ascii?Q?2wada5mc75j+vcuZCD5fMrZv3tdgxX2kMQgCMp9Wnzf1ToocqDBftxF5EYRI?=
+ =?us-ascii?Q?iK2WG31g6BGyRmQLedcu80s1/wwlb8uxKD9mDMWyKyW0Q/5DUetEm5gfbQEr?=
+ =?us-ascii?Q?faoCcXjilI62WgqcXYrDGukpxOXT/ez/F8rVTIpKmlapzrGfujeye5CeFWkg?=
+ =?us-ascii?Q?rD79qZTGbWX7dfmd+ZdUmBO9CT2Lz3rf8hB82UgY88/XBktsQfk3gscR1kia?=
+ =?us-ascii?Q?DJAvrXGrjpPG574nMl7NUF9zVuAZfLQPulzvJbG616HGyz/ItrAO+MoI57Uk?=
+ =?us-ascii?Q?e1IkUAqY7ca8CApW/mNZ3+OW6D53kYhNgb7Or6o7GjkkdJq0XMwNBsaheuUU?=
+ =?us-ascii?Q?xVukn79kQorqLm3+bDHa5QanOBT3+6Sh9LOoYq04f00qRk26/ml4334EA4M8?=
+ =?us-ascii?Q?gkDXOyel697Efx3nlJ3QFUgauQ8nWA7BE9FFRcXjJ+iGoAdqZbkQCEMIRqM7?=
+ =?us-ascii?Q?58+60NWrPphx2/cDhqqZwuaTGBY74GXzehcKQSVLeCaZuz0CH1aeWPgfpLyq?=
+ =?us-ascii?Q?usPQa+kWq3nxwMct5er1QtXDRMDVfrRn8fu0rYNl1hQMrit+BaW4Fttrf7+w?=
+ =?us-ascii?Q?ofq0vRVNssGFdgIdJs02yBV6JP1kz9vTYVc/QpQtN8SLnVdjEEU7jRIlFbvE?=
+ =?us-ascii?Q?gF3S8AkGNG2v24RFg5T5fr+FjiRiWpMehZMYfYHPkIhH6BVQfwosxEVR2fEk?=
+ =?us-ascii?Q?GZvq/i1nUxX1Ka8tDe+5fVre07rr1FBFJeFrrIeD1P174APnXEKXki8dyB+K?=
+ =?us-ascii?Q?+eySykNCExggfGsKD26ObMjpIqXaAzQLnVpgGfKj/S05zjlixi3Mw1Q4SIrq?=
+ =?us-ascii?Q?HthVLg3MjXihmZZ6+5LePlLhej7oikv1Y2ysIyJm3kwpZjDhAXTpnzM8hEr0?=
+ =?us-ascii?Q?Uqtz93hvuFepca7WTNsOwYuf8tG3HE5kcv0/jHSQ3arr6jRPX3vjf/sOXnpQ?=
+ =?us-ascii?Q?tv3fp7TuBXbp0GDWldjaBLSxntSUlGehEETDpNxxfUZKT/dwdinmYq4U+Knm?=
+ =?us-ascii?Q?jEvcxSka32TydbFp0RPo+yIQgtBF/VLz4DaNlcbErdFMsT7D00CPy1E7+aSc?=
+ =?us-ascii?Q?zE289ciIZzMwOcP98nPUJq5pL37SLEJ7AX4TBA4L6Op1VfAIAw8176TY28/h?=
+ =?us-ascii?Q?IY40EI4NHM7h9uRPDjVnsPbFzOJ2uvE6eLEqkmUoHPGmCKXepsUnD7xQ4JTI?=
+ =?us-ascii?Q?huFdvniJPTUUW7+v+8k3Bgl52EKMRYDLyGuAN9pFGBW+U6HIaUa6RtuQ4lXn?=
+ =?us-ascii?Q?pT38F8Sibg06PeEm8s+l06U19zWbYc95cCwAt+x8fIz4KZ/dft02fEBIa1AM?=
+ =?us-ascii?Q?y36cxntXQWaWQq61hye/r+yyIumLRt+f7s9jW6FXWQBufI9pCNsKwNFNVRCb?=
+ =?us-ascii?Q?6w85eBsgYqeB1tyQpvw2b44NWnEq9i3OQKkAba9t5vCW/oURpKZJk04X0D+8?=
+ =?us-ascii?Q?pQ1o1pJIJIwOdO/3nzxO7ByX8BMy0tyBRAG30ocVpStSy7DlMjDEkHdOU1oH?=
+ =?us-ascii?Q?1Dmhn72YcrTRjF4gaC5UJ+XjO4LRKVEjmKRAZcn0sfewC6AwHu3eZfuiuf6p?=
+ =?us-ascii?Q?nUdGDQbfJarZV07gMb4inAANNO3Ul65Bq6/Dx/noUqmHb65hkN8Y/Or64wbw?=
+ =?us-ascii?Q?0JKFGs3WpQ=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 64d22997-d1eb-41cf-7b43-08dea139958f
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2026 13:09:43.1091
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rOWRM59NDEYLVJ2o5vVY/phiy6E8m7XcJqg1EvJxhrQYV1hK7PGONbZ0D7VyNxnhcOYTeStQ5Tau7H0KazFR4Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9935
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_060712_389141_34BE902B 
-X-CRM114-Status: GOOD (  56.43  )
+X-CRM114-CacheID: sfid-20260423_060949_298472_069A19E9 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,148 +150,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-> > > > On Thu, 2026-04-23 at 06:55 +0100, Yeoreum Yun wrote:
-> > > > > > On Wed, 2026-04-22 at 20:41 +0100, Yeoreum Yun wrote:
-> > > > > > > > Hi Mimi,
-> > > > > > > >
-> > > > > > > > > On Wed, 2026-04-22 at 17:24 +0100, Yeoreum Yun wrote:
-> > > > > > > > > > To generate the boot_aggregate log in the IMA subsystem with TPM PCR values,
-> > > > > > > > > > the TPM driver must be built as built-in and
-> > > > > > > > > > must be probed before the IMA subsystem is initialized.
-> > > > > > > > > >
-> > > > > > > > > > However, when the TPM device operates over the FF-A protocol using
-> > > > > > > > > > the CRB interface, probing fails and returns -EPROBE_DEFER if
-> > > > > > > > > > the tpm_crb_ffa device — an FF-A device that provides the communication
-> > > > > > > > > > interface to the tpm_crb driver — has not yet been probed.
-> > > > > > > > > >
-> > > > > > > > > > To ensure the TPM device operating over the FF-A protocol with
-> > > > > > > > > > the CRB interface is probed before IMA initialization,
-> > > > > > > > > > the following conditions must be met:
-> > > > > > > > > >
-> > > > > > > > > >    1. The corresponding ffa_device must be registered,
-> > > > > > > > > >       which is done via ffa_init().
-> > > > > > > > > >
-> > > > > > > > > >    2. The tpm_crb_driver must successfully probe this device via
-> > > > > > > > > >       tpm_crb_ffa_init().
-> > > > > > > > > >
-> > > > > > > > > >    3. The tpm_crb driver using CRB over FF-A can then
-> > > > > > > > > >       be probed successfully. (See crb_acpi_add() and
-> > > > > > > > > >       tpm_crb_ffa_init() for reference.)
-> > > > > > > > > >
-> > > > > > > > > > Unfortunately, ffa_init(), tpm_crb_ffa_init(), and crb_acpi_driver_init() are
-> > > > > > > > > > all registered with device_initcall, which means crb_acpi_driver_init() may
-> > > > > > > > > > be invoked before ffa_init() and tpm_crb_ffa_init() are completed.
-> > > > > > > > > >
-> > > > > > > > > > When this occurs, probing the TPM device is deferred.
-> > > > > > > > > > However, the deferred probe can happen after the IMA subsystem
-> > > > > > > > > > has already been initialized, since IMA initialization is performed
-> > > > > > > > > > during late_initcall, and deferred_probe_initcall() is performed
-> > > > > > > > > > at the same level.
-> > > > > > > > > >
-> > > > > > > > > > To resolve this, call ima_init() again at late_inicall_sync level
-> > > > > > > > > > so that let IMA not miss TPM PCR value when generating boot_aggregate
-> > > > > > > > > > log though TPM device presents in the system.
-> > > > > > > > > >
-> > > > > > > > > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > > > > > > > >
-> > > > > > > > > A lot of change for just detecting whether ima_init() is being called on
-> > > > > > > > > late_initcall or late_initcall_sync(), without any explanation for all the other
-> > > > > > > > > changes (e.g. ima_init_core).
-> > > > > > > > >
-> > > > > > > > > Please just limit the change to just calling ima_init() twice.
-> > > > > > > >
-> > > > > > > > My concern is that ima_update_policy_flags() will be called
-> > > > > > > > when ima_init() is deferred -- not initialised anything.
-> > > > > > > > though functionally, it might be okay however,
-> > > > > > > > I think ima_update_policy_flags() and notifier should work after ima_init()
-> > > > > > > > works logically.
-> > > > > > > >
-> > > > > > > > This change I think not much quite a lot. just wrapper ima_init() with
-> > > > > > > > ima_init_core() with some error handling.
-> > > > > > > >
-> > > > > > > > Am I missing something?
-> > > > > > >
-> > > > > > > Also, if we handle in ima_init() only, but it failed with other reason,
-> > > > > > > we shouldn't call again ima_init() in the late_initcall_sync.
-> > > > > > >
-> > > > > > > To handle this, It wouldn't do in the ima_init() but we need to handle
-> > > > > > > it by caller of ima_init().
-> > > > > >
-> > > > > > Only tpm_default_chip() is being called to set the ima_tpm_chip.  On failure,
-> > > > > > instead of going into TPM-bypass mode, return immediately.  There are no calls
-> > > > > > to anything else.  Just call ima_init() a second time.
-> > > > >
-> > > > > I’m not fully convinced this is sufficient.
-> > > > >
-> > > > > What I meant is the case where ima_init() fails due to other
-> > > > > initialisation steps, not only tpm_default_chip() (e.g. ima_fs_init()).
-> > > >
-> > > > The purpose of THIS patch is to add late_initcall_sync, when the TPM is not
-> > > > available at late_initcall.  This would be classified as a bug fix and would be
-> > > > backported.  No other changes should be included in this patch.
-> > >
-> > > Okay.
-> > >
-> > > > >
-> > > > > I’d also like to ask again whether it is fine to call
-> > > > > ima_update_policy_flags() and keep the notifier registered in the
-> > > > > deferred TPM case. While this may be functionally acceptable, it seems
-> > > > > logically questionable to do so when ima_init() has not completed.
-> > > >
-> > > > Other than extending the TPM, IMA should behave exactly the same whether there
-> > > > is a TPM or goes into TPM-bypass mode.
-> > > >
-> > > > >
-> > > > > There is also a possibility that a deferred case ultimately fails (e.g.
-> > > > > deferred at late_initcall, but then failing at late_initcall_sync
-> > > > > for another reason, even while entering TPM bypass mode). In that case,
-> > > > > it seems more appropriate to handle this state in the caller of
-> > > > > ima_init(), rather than inside ima_init() itself.
-> > > >
-> > > > If the TPM isn't found at late_initcall_sync(), then IMA should go into TPM-
-> > > > bypass mode.  Please don't make any other changes to the existing IMA behavior
-> > > > and hide it here behind the late_initcall_sync change.
-> > >
-> > > Okay. you're talking called ima_update_policy_flags() at late_initcall
-> > > wouldn't be not a problem even in case of late_initcall_sync's ima_init()
-> > > get failed with "TPM-bypass mode".
-> > >
-> > > I see then, I'll make a patch simpler then.
-> >
-> > But I think in case of below situation:
-> >  - late_initcall's first ima_init() is deferred.
-> >  - late_initcall_sync try again but failed and try again with
-> >    CONFIG_IMA_DEFAULT_HASH.
-> >
-> > I would like to sustain init_ima_core to reduce the same code repeat
-> > in late_initcall_sync.
+On Thu, Apr 23, 2026 at 09:25:42AM +0100, Sudeep Holla wrote:
+>On Thu, Apr 23, 2026 at 09:17:47AM +0800, Peng Fan wrote:
+[...]
+>> 
+>> My question is: if the firmware were to select divider 3 and produce
+>> 96,333,333 Hz (only ~0.13% higher than the request), would that be
+>> considered a violation of ROUND_DOWN semantics, or is ROUND_DOWN intended
+>> to select the closest achievable output frequency rather than enforcing
+>> a strict inequality against the requested rate?
+>> 
 >
-> I think what Mimi's proposing is:
->
-> If we're in late_initcall, and the TPM isn't available, return immediately
-> with an error (the EPROBE_DEFER?), don't do any init.
->
-> If we're in late_initcall_sync, either we're already initialised, so do
-> return and nothing, or run through the entire flow, even if the TPM isn't
-> unavailable.
->
-> So ima_init() just needs to know a) if it's in the sync or non-sync mode and
-> b) for the sync mode, if we've already done the init at
-> non-sync.
+>We can change the driver to default to ROUND_AUTO if that helps. I fully
+>understand the default ROUND_DOWN is not good but if firmware can't handle
+>your use case with ROUND_AUTO, it is firmware issue.
 
-But think think about when "late_initcall_sync" happens.
-In case of it, whether TPM present or by-pass mode, if it failed,
-it try again with the DEFAULT_HASH if hash isn't use DEFAULT one
-(e.x. user set boot arguments hash_setup=md5).
+Thanks for the suggestion.
 
-IOW, late_initcall_sync should call twice just like former code do this.
-I mean to wrap this duplication of code with init_core_ima().
-so that int late_initcall_sync in case of deferred case to try agina
-ima_init() with the DEFAULT HASH.
+Switching the default to ROUND_AUTO could indeed resolve the video clock
+configuration issue we are seeing.
 
---
-Sincerely,
-Yeoreum Yun
+I understand the concern that if firmware cannot handle a given use-case
+correctly with ROUND_AUTO, then it is fundamentally a firmware issue rather
+than something to be worked around in the OS.
+
+I will check internally with our firmware team to confirm whether using
+ROUND_AUTO as the default is safe and applicable for all clocks supported
+on our platforms.
+
+Thanks,
+Peng
+
+>
+>-- 
+>Regards,
+>Sudeep
 
