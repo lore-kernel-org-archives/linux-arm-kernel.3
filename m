@@ -4,89 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DB56FDEE43
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 19:08:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58CDEFDEE45
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 19:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1toyQl9PlDZmXyta9t6WwBIRZZDVbhq3ThHcNDSRZd4=; b=WXlfRK296JgvabyA3pI9xocaxO
-	8FIPIhGTyqXqwpjI+SChjh329SuLDrCtOFz3/5dyP0p5yZ+dqjxQMyhtuS/0I3WqaYCtgsNAgoQpH
-	jA5NDYhSEMoW9eCsyZ9v//axbnV/25BI1itb2o6tnCUwz5MRNyPzHf6LmvNse6TRZ00QGKj56DDS/
-	58+uFtfjQvZq5Mcbc8ZE5tFjqPNutMIhVT3x5ngN9tS7c1C5MBAEbw58zTdM0Ol2K+B+15JdtQULa
-	l8I7Wr9F58o1BYscUV5xTouAbByCkduvsbQGYOja2sOChL1AVPYjBNdgEYYIeTW5lCUXW3Qm4Ls5H
-	Z8NohLyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P74Af6Q/D+FF/S72s4IG/F6zKvyhw8lK6glm2Nh7J4U=; b=oSiRs0YB3VuE6YMvAig4Bvuzdg
+	1Zm3fIfpdJYX6soogiX2Eag1387yfM0ir0ZPh65+TG1IRjs41oR5yOqgVD3fvP/+xgoy/7Y9B/hbn
+	CzrVqEB579gvHjXOFlWrZHQsw1vnm8f7LSF29uPjXtmMjbNt90J34tjvdIGsHvXsQbn3EWAu/+89N
+	Fql2Ttv8wD4P9FijH3q19eL3Ct/F0rGFINcn/Vcar4xGXicUa5ca9h7lV2yT1A2+7DehW9LcKikjM
+	yxr9f3yI0NKvDxQNlU/FV8ew8h7yFspMNohVtysoff62yqrvJLAZWNjc7NwBewc9phrvQs5y2ZDhI
+	yOANQSug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFzPu-0000000CDAs-2Drq;
-	Thu, 23 Apr 2026 19:08:50 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1wFzSt-0000000CDd6-0ZVg;
+	Thu, 23 Apr 2026 19:11:55 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFzPi-0000000CD3K-2ohG;
-	Thu, 23 Apr 2026 19:08:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1776971186; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=NpfSPamOuKjZtWMSP3UWUUF+icZ732EAp4AzKd3ZsZmyySpYJhUJOqvhvKp5lSPOtgZJBtLVnW/SEWj2V1TTH//Bo9dd/qr2+aQ5dakjEwuRq5TEYfxMypbL1dC7eNjjfA0m/RR4Jb5aKqmBGlW+b5c8ixibhIq6gVj7xEw+NjE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1776971186; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=1toyQl9PlDZmXyta9t6WwBIRZZDVbhq3ThHcNDSRZd4=; 
-	b=g8vjTsq8M0/+t8Q3Tfl3wYou/SqD0Wl4c0/4i2QUvvdyk/iOdTAAtmYSf5+EKzTJM6aefOGwLwPOrbDoHJ2Ff/bLsYBBmSWESSah6tqZwxep+4eQNLRgpJXhFbTC+toIm3GJfE0G09z+2LVcR4kGhP7jl7nNVXGJ3/R4k5l2THw=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1776971186;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=1toyQl9PlDZmXyta9t6WwBIRZZDVbhq3ThHcNDSRZd4=;
-	b=H+FA1oHE4QSv+9YlSNt4vPMDb5GxUgUcqoyuJsPOejlynSmMZvvSAw9O2RTHvG7M
-	dSEiwsx0wdq6NkwcRflp27wUftGw75EDflYRkyt7XQENed3sHRPnraxWTgLzr/QrN/6
-	9qDaL5E59CXZObQcJnns+w8XHKUvBWevpQKOu+os=
-Received: by mx.zohomail.com with SMTPS id 1776971184812420.97567278254246;
-	Thu, 23 Apr 2026 12:06:24 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Thu, 23 Apr 2026 21:03:43 +0200
-Subject: [PATCH v14 20/28] drm/rockchip: dw_hdmi_qp: Implement "color
- format" DRM property
-MIME-Version: 1.0
+	id 1wFzSq-0000000CDcV-1uRa
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Apr 2026 19:11:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GwSEUlVrFlHf8H+eyzFBwo+wV++TNTlx4p6CKbbPHaXtSqBy7VUFaWVlyWsUcJz/EJVCB5c+Wuu79GLQx3x2qaqEnnYSLL2uRboVleuS6BEGA5ACC8ZgKXkc8iotSfTDdSe6btf0FZqsf4KL5PkhCe4qbs6b4KAQkz/ywn9QM2ARFcEp+oYhJA78vwFtel+DGoU7dAhoW77WWfsoIu1KlDsLAtU31i8F/tONVz6tXUxUS4b99041K6puLZR6YI5Bwh3FArZ7ke3A/ULs06+mtFIO2wGZqW5zeJMbdOr6bpjsvlxajsLq/7E9Hu+lMvwqhXp0bRt3GLHJru0W35G2aw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=P74Af6Q/D+FF/S72s4IG/F6zKvyhw8lK6glm2Nh7J4U=;
+ b=uBh9LlXDZWs38x57rIY4ovHQQyVOGvi+6nu7SfdW8RhDNWvj+vyGELW3wBoGMZI0c9w5N7pNOcVWevuY5gQvQ/Kr3hlfUwZINwnUSS7EKI4SDxzC4nkSlbIcCd9Hj0taP6j6u+6pHph8Fd2aIhkB96JFqY7oGXcVlKks55SDmZkJgrA0xGUDPV1jlvSbmIQJuWrkH4hDAGr8mzvrWCZ0+Xw5Ivh8L8hHwhRMRmxm04b0G4r+C2aag5MgNwVD0I7Zg3Bbid1tYiCA0SjtUrn2OHVFYa4L5TZhbCZ/Yp45dz3m0Wp8tri35ZpH5z1kBx0x1vT2818NwJA909992fZ+hg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=P74Af6Q/D+FF/S72s4IG/F6zKvyhw8lK6glm2Nh7J4U=;
+ b=PF1I9Lq5RNvwKt9YiL3wNJDkIMO//UrmSAl9NmgbTDJWds+0hedFbN5/Ovfg+mw0OTOrSCQ7irgkAv2SLjVa73hiSzzx1A9jGbkH0eCSAljBbHL/jrYeGfqUsuChlPVvC5dA+ogO9eth+Q9xHcaXlCXJ2vMh4CyQf6vo/OexOEmXFXjyHGtG4lFwQ24U1ir4VsKFJfmErQSm9KfGPBtr4Tpa3IAhx3ZRiIDSXV+oznpGOOPCYweb5c2o6J1jves2h/HyIu8i//QURosH/pZBq2rgthKs7FavJTYOTBCwJqLDIqyHsI7aWjdHBlKnEMMQyJwvNSBaJzaOFP3Y8NnayQ==
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
+ by AS8PR04MB8312.eurprd04.prod.outlook.com (2603:10a6:20b:3f1::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.22; Thu, 23 Apr
+ 2026 19:11:46 +0000
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::b4c0:6119:2228:2ceb]) by PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::b4c0:6119:2228:2ceb%4]) with mapi id 15.20.9846.021; Thu, 23 Apr 2026
+ 19:11:46 +0000
+From: Shenwei Wang <shenwei.wang@nxp.com>
+To: Andrew Lunn <andrew@lunn.ch>, Mathieu Poirier <mathieu.poirier@linaro.org>
+CC: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bjorn
+ Andersson <andersson@kernel.org>, Frank Li <frank.li@nxp.com>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng
+ Fan <peng.fan@nxp.com>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-remoteproc@vger.kernel.org"
+	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>
+Subject: Re: [PATCH v13 0/4] Enable Remote GPIO over RPMSG on i.MX Platform
+Thread-Topic: [PATCH v13 0/4] Enable Remote GPIO over RPMSG on i.MX Platform
+Thread-Index: AQHc01UHU14luaJCXE65v4u0LmXX1w==
+Date: Thu, 23 Apr 2026 19:11:46 +0000
+Message-ID: <PAXPR04MB91851AC64A2D3C066BE62806892A2@PAXPR04MB9185.eurprd04.prod.outlook.com>
+References: <20260422212849.1240591-1-shenwei.wang@nxp.com>
+ <CANLsYkypRaFTTP7MLLLR+=AB5JnRTA4i130qvWzB1qoAuM9FWQ@mail.gmail.com>
+ <cb6b8ec9-296e-40fe-848d-ae87463ff1db@lunn.ch>
+In-Reply-To: <cb6b8ec9-296e-40fe-848d-ae87463ff1db@lunn.ch>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB9185:EE_|AS8PR04MB8312:EE_
+x-ms-office365-filtering-correlation-id: 3e53eef2-9c1b-4314-08cc-08dea16c2a22
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|19092799006|366016|22082099003|18002099003|56012099003|38070700021;
+x-microsoft-antispam-message-info: 03CeH2d0t1694ieAnRrL428OSLMxcGuB+OFOOyGyxj109j47yCHRWY6yoa0Sa5ZvX68eN58Pqb9eVWULpEN+M8xd+vPYwR6iXaiOIR+VkOCt2lVYVyjAEcxJTaYS0NKceKhwx6xupNeoRcU3ncpIpSlrL8+tprw0mOROJj6ivwOKxYOkidWTenmSx4Io9AJ/MAGnofd6jG5Hhcg/M5hoZ5451hQM1726IUhTSeG53TjtgZHPSaUktDrYT/M1ks0HCwm1CAQz/AUN5F6QATDFgpbdWlrE0pO98j1Ix3zz8st0dc2XUWcei8c89pHJim1gPVzeFa2S9PKuFDBYAB2xhTIwXVF+cxHB7FtQ9y9S86mUH63p/QHyzLuKq2XTbfUM1pjGue6PyWs/DRe2Do9+Axf5tj/qGTFiOkrxnU6Mi00Ii23z3ezUZqGWV0tUWFcZs6pbx+Er79GaIpDP7e1ErBqwFuxxvFvj9fN67yHT9txbkHcZUUTw3Ha77TJATsfY4FdtnPw78VyRYLjFrThGQS69ni9dl91tP0eap3RJgKGLzkYnaIoSYTWaI39c6pB219bjT0//ziqOMQTU/AILIIShUSlCq3maxykvvkTzK4Z3i1duC1UEbtlYu7pIhshBDcv4MANrypqkRL5UQivfFFqWSvppB8mnTf0YcWJWKWv+o6ltxYWgxD1++gRk71OjuA3DMwzkRn5gIMhEV8wfWph87qq+L3Fl8ub/RYzNrz7gSFVdow4AYqo8FPvilPwU+SFH3SiCNe0SSgXom9UMCWEP45ApVfSAlEqjFRtZHhg=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(19092799006)(366016)(22082099003)(18002099003)(56012099003)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?QUp5UitQUFoxb1hsTXE4MDZDWDVYT25TNGJyYXZLa0NZUldmM216L0ZXKzFF?=
+ =?utf-8?B?UXB2RHkrNGNPQjJhdGxLU2o5RHVQWjIwYkV3K3oxcFN0WWxEaEpNbjFtS1p1?=
+ =?utf-8?B?Q2x3Zi9wWXJLNmg5dUc4cWlPK2o1cGdXUVJWc2NidFQxUjlGa0RIdHJ0ZUtC?=
+ =?utf-8?B?MFc3a0syOUZmcU96YnQyN2xkbWlYNk9XREdVSjZ5ZDBIaEhZWjBVMmtFUjUx?=
+ =?utf-8?B?amlLT2RkSzlsVmsvS1ZaaWNmMm55ZWpUOW1PNXBKaFZaMVJGaUpoUlFpR2tC?=
+ =?utf-8?B?UmR3MnQ1dDFRTFJZZXlIRCtJbjNnV2ZQcWVoSlE5ZHlVb1kwclJXeUw1RTQ4?=
+ =?utf-8?B?ODZwS2p4MzZhTDNDaWYxWjNGNVRtRkhyb2NhNU5BNytVMTU1cFp4aDFMQjh2?=
+ =?utf-8?B?a2V3TmxWZnhsNWk3Wis3UU8wNHEwMjFTeFVFVGtOeVlGNkZ4RnE4K1dydXZo?=
+ =?utf-8?B?bkp6bktKckpwNUVCUFNUckpsQ1YrejZFVlpnclhoUDhHS1JwNGlUenJBMjAr?=
+ =?utf-8?B?RElQNmovcEI5M3kxWmtpSC9MMThPSjAzQm9HUm1USlVINTdWYXdXZTJiWFF3?=
+ =?utf-8?B?bkhQZXJ4T0s3eHNBczdBRzNTeXVuZkd5dFBHdnZVbDRWQXVJWUZmYVZkdFFP?=
+ =?utf-8?B?NzFRemZaeHVEMEZWdDAzTi9DOFYwNnEyZzhxRjMvS29leklqbEV2ek5jWWVJ?=
+ =?utf-8?B?RzFPRDFXcUxSa0tPT2dJT0pSRFBpRExNcDA1b3NsSitRR1VqeVBvc2NielB2?=
+ =?utf-8?B?RGk1T05QQmdRYUl1bTBPcnhFZlVMcGMxdk1WT29RVTZUUDI5QnIxR1JzM0hx?=
+ =?utf-8?B?THg2UFVDWTRmU253OUJTS0FyODNrSW1EVE9xOWY5SWxKQkNFckZ3ZkpUVGFz?=
+ =?utf-8?B?WWVOMFNLREZhSGZjU1k4NzBSYS9IM1lNRmdLZEZPaXhUVm5jelBDZ1hLQlY4?=
+ =?utf-8?B?bzQ5cUV0TVU5UFNWU1pNTkVxOHBBVlh1VkJsRTVUY1JPcGgvWDlJUUFtcUxx?=
+ =?utf-8?B?UGYvMnhnd2tsYzQ4Q2dyY2NnZ0dlNXNHVERjcUdKUVo5eFNQSVNZQkd4VXE4?=
+ =?utf-8?B?eUtYVWdCYVlteUtkUy9aQmtiQWJWbXBwdXdza1V1cWhkNkRTR2l3eE4wUkpG?=
+ =?utf-8?B?eU5RR20yOW5UQms4bUR5QmxkdFdXYlM5bk02N2JBT242VW5sYlRwdkduQVdU?=
+ =?utf-8?B?NVRtS1pLOW5QdGREZGFUaUtNMzFtREd0UzFPSDBwc05KYU1jSlV0ZElmYXNh?=
+ =?utf-8?B?T3JqMGI5S0UyWm0wcTM1YnJQWUJSOFZHbTI2ZkE4ajQwd3liZS9kTWRvNHRu?=
+ =?utf-8?B?ZzVqdGZXVDF4S05NbThpRjdDZktOSGxWV05vU2FUUUZHWmxnZTZCWGJJOS9n?=
+ =?utf-8?B?MXJHQUZZUUc4aExVRGVrYjJuTm1oYTFjTnVCSjZXd2tKWjc1MEZZd0JLQ2VI?=
+ =?utf-8?B?dERUbHpia3Y3TkVQc3FtUzZPYnA3LzF4Zk9qdVY0WHAzbzZZRk81b2FKMjJC?=
+ =?utf-8?B?N0RodWZzMUo3SzNWQTRRN1V3SmtoOHRCdC9ldjd5UU1hb3BLRi83YUEramdu?=
+ =?utf-8?B?MDNKQ3ZUdTVmN1dMY2RMUlZFZzNKK0FnS1dMcTVWM2x1K0Uwb2ljZWN1eGti?=
+ =?utf-8?B?eWZVYXMyaEN3YkpyRUZCZTEzWXZpOUNKeFo0aWx4MVRSMEJkZmpZd3lSZ0pR?=
+ =?utf-8?B?YVhFblhzaHFkaWx2azZNaGRWS3VOazNibS9RbEloZy9HZWZhUUdQa3lLR0Z5?=
+ =?utf-8?B?R3RRbld4NCtjTGRuS25QaXRWZmJLazgveFRzSVpuamZVaVpHWWo3TU9ZdnBR?=
+ =?utf-8?B?ZGZRZldoMTVaa3NGaTkxUGlHbzNtRmFPOTE3VXRIWU5QS2RNSmVCN0ROcEZE?=
+ =?utf-8?B?SzVXM2FHelg3L1N6SnZ0d25KYjVYOXVmK3U1S2taL21NZzBlQUptYjdZbDRJ?=
+ =?utf-8?B?THl5UGxCN0g2Q1BubEdBNXYvelp2NkMrVzh2SG94Rk1lOHJMUzBta2VKZWJh?=
+ =?utf-8?B?Vkd0Q0lkTGluT3VPR0VNZExBTG0xRnRYM3pZV3VXYlB4VDQ4bnRLQ2hRbmV0?=
+ =?utf-8?B?emlDbitobUw0U3FDZ2RoOGJmc3dmZXBMak5sV01Icnp1T2lxaDBYNFRBN1NP?=
+ =?utf-8?B?dUdvYXd4ZFBUZ1BaR0hWaXhCeGRxSitSUlJ2NlpJaG1HYTdrdDM4a0c2Vm9q?=
+ =?utf-8?B?MDBuQm02anJEMXQ1bTl2RThnbjR6ZG1LeEFtbXBYUk9ac3N5SVIwWkxYbUgr?=
+ =?utf-8?B?VXZTWTFyaXpPZHN6ZitLT2I5d0VyRjcwa29VRGhORElWbGxEbnFOUUZSdE5o?=
+ =?utf-8?Q?z6WEU/E85sCgVUZ61B?=
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260423-color-format-v14-20-449a419ccbd4@collabora.com>
-References: <20260423-color-format-v14-0-449a419ccbd4@collabora.com>
-In-Reply-To: <20260423-color-format-v14-0-449a419ccbd4@collabora.com>
-To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
- Rodrigo Siqueira <siqueira@igalia.com>, 
- Alex Deucher <alexander.deucher@amd.com>, 
- =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Jani Nikula <jani.nikula@linux.intel.com>, 
- Rodrigo Vivi <rodrigo.vivi@intel.com>, 
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
- Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>
-Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
- linux-doc@vger.kernel.org, wayland-devel@lists.freedesktop.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-X-Mailer: b4 0.15.2
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3e53eef2-9c1b-4314-08cc-08dea16c2a22
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Apr 2026 19:11:46.8328
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: Fu2ZPc3DbTXYdOlRy+okmFHQkg3opp94kBqDiB6+G7rC3uyoRu+SC2wfqab/CQWnx/l5DE+pi1hBiyFolQVb4w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8312
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_120838_767121_545A0F34 
-X-CRM114-Status: GOOD (  20.25  )
+X-CRM114-CacheID: sfid-20260423_121152_520661_00D762EC 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,226 +160,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Switch between requested color formats by setting the right bus formats,
-configuring the VO GRF registers, and setting the right output mode.
-
-To do this, the encoder's atomic_check queries the bus format of the
-first bridge, which was determined by the bridge chain recursive format
-selection. Pick the input format if it's !FIXED, otherwise, pick the
-output format.
-
-The previously unused GRF register color format defines are redone as
-well. Both RK3588 and RK3576 use the same defines; it didn't look like
-this as there was a typo in the previously (unused) definition.
-
-Reviewed-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 107 ++++++++++++++++++++++---
- 1 file changed, 98 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index c78db7f8ab6c..9bf727c1dd7d 100644
---- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-@@ -11,6 +11,7 @@
- #include <linux/gpio/consumer.h>
- #include <linux/hw_bitfield.h>
- #include <linux/mfd/syscon.h>
-+#include <linux/media-bus-format.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
- #include <linux/phy/phy.h>
-@@ -44,10 +45,6 @@
- #define RK3576_8BPC			0x0
- #define RK3576_10BPC			0x6
- #define RK3576_COLOR_FORMAT_MASK	GENMASK(7, 4)
--#define RK3576_RGB			0x9
--#define RK3576_YUV422			0x1
--#define RK3576_YUV444			0x2
--#define RK3576_YUV420			0x3
- #define RK3576_CECIN_MASK		BIT(3)
- 
- #define RK3576_VO0_GRF_SOC_CON14	0x0038
-@@ -75,8 +72,6 @@
- #define RK3588_8BPC			0x0
- #define RK3588_10BPC			0x6
- #define RK3588_COLOR_FORMAT_MASK	GENMASK(3, 0)
--#define RK3588_RGB			0x0
--#define RK3588_YUV420			0x3
- #define RK3588_SCLIN_MASK		BIT(9)
- #define RK3588_SDAIN_MASK		BIT(10)
- #define RK3588_MODE_MASK		BIT(11)
-@@ -88,6 +83,11 @@
- #define HOTPLUG_DEBOUNCE_MS		150
- #define MAX_HDMI_PORT_NUM		2
- 
-+#define RK_COLOR_FMT_RGB		0x0
-+#define RK_COLOR_FMT_YUV422		0x1
-+#define RK_COLOR_FMT_YUV444		0x2
-+#define RK_COLOR_FMT_YUV420		0x3
-+
- struct rockchip_hdmi_qp {
- 	struct device *dev;
- 	struct regmap *regmap;
-@@ -116,6 +116,33 @@ static struct rockchip_hdmi_qp *to_rockchip_hdmi_qp(struct drm_encoder *encoder)
- 	return container_of(rkencoder, struct rockchip_hdmi_qp, encoder);
- }
- 
-+/**
-+ * dw_hdmi_qp_rockchip_bus_fmt_to_reg - converts a bus format to a GRF reg value
-+ * @bus_fmt: One of the MEDIA_BUS_FMT_s allowed by this driver's atomic_check
-+ *
-+ * Returns: an unshifted value to be written to the COLOR_FORMAT GRF register
-+ * on success, or %-EINVAL if the bus format is not supported.
-+ */
-+static int __pure dw_hdmi_qp_rockchip_bus_fmt_to_reg(u32 bus_fmt)
-+{
-+	switch (bus_fmt) {
-+	case MEDIA_BUS_FMT_RGB888_1X24:
-+	case MEDIA_BUS_FMT_RGB101010_1X30:
-+		return RK_COLOR_FMT_RGB;
-+	case MEDIA_BUS_FMT_UYVY8_1X16:
-+	case MEDIA_BUS_FMT_UYVY10_1X20:
-+		return RK_COLOR_FMT_YUV422;
-+	case MEDIA_BUS_FMT_YUV8_1X24:
-+	case MEDIA_BUS_FMT_YUV10_1X30:
-+		return RK_COLOR_FMT_YUV444;
-+	case MEDIA_BUS_FMT_UYYVYY8_0_5X24:
-+	case MEDIA_BUS_FMT_UYYVYY10_0_5X30:
-+		return RK_COLOR_FMT_YUV420;
-+	}
-+
-+	return -EINVAL;
-+}
-+
- static void dw_hdmi_qp_rockchip_encoder_enable(struct drm_encoder *encoder)
- {
- 	struct rockchip_hdmi_qp *hdmi = to_rockchip_hdmi_qp(encoder);
-@@ -131,29 +158,83 @@ static void dw_hdmi_qp_rockchip_encoder_enable(struct drm_encoder *encoder)
- 		hdmi->ctrl_ops->enc_init(hdmi, to_rockchip_crtc_state(crtc->state));
- }
- 
-+/**
-+ * dw_hdmi_qp_rockchip_get_vop_format - get the bus format VOP should output
-+ * @encoder: pointer to a &struct drm_encoder
-+ * @conn_state: pointer to the current atomic &struct drm_connector_state
-+ *
-+ * Determines which bus format the Rockchip video processor should output as
-+ * to feed into the bridge chain.
-+ *
-+ * Returns a MEDIA_BUS_FMT_* on success, or %0 on error.
-+ */
-+static u32 dw_hdmi_qp_rockchip_get_vop_format(struct drm_encoder *encoder,
-+					      struct drm_connector_state *conn_state)
-+{
-+	struct drm_bridge *bridge __free(drm_bridge_put) = NULL;
-+	struct drm_bridge_state *bstate;
-+
-+	bridge = drm_bridge_chain_get_first_bridge(encoder);
-+	if (!bridge)
-+		return 0;
-+
-+	bstate = drm_atomic_get_bridge_state(conn_state->state, bridge);
-+	if (!bstate)
-+		return 0;
-+
-+	if (bstate->input_bus_cfg.format != MEDIA_BUS_FMT_FIXED)
-+		return bstate->input_bus_cfg.format;
-+
-+	return bstate->output_bus_cfg.format;
-+}
-+
- static int
- dw_hdmi_qp_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
- 					 struct drm_crtc_state *crtc_state,
- 					 struct drm_connector_state *conn_state)
- {
--	struct rockchip_hdmi_qp *hdmi = to_rockchip_hdmi_qp(encoder);
- 	struct rockchip_crtc_state *s = to_rockchip_crtc_state(crtc_state);
-+	struct rockchip_hdmi_qp *hdmi = to_rockchip_hdmi_qp(encoder);
- 	union phy_configure_opts phy_cfg = {};
-+	u32 ingest_fmt;
- 	int ret;
- 
-+	ingest_fmt = dw_hdmi_qp_rockchip_get_vop_format(encoder, conn_state);
-+	if (!ingest_fmt)
-+		return -EINVAL;
-+
- 	if (hdmi->tmds_char_rate == conn_state->hdmi.tmds_char_rate &&
--	    s->output_bpc == conn_state->hdmi.output_bpc)
-+	    s->output_bpc == conn_state->hdmi.output_bpc &&
-+	    s->bus_format == ingest_fmt)
- 		return 0;
- 
-+	switch (ingest_fmt) {
-+	case MEDIA_BUS_FMT_RGB888_1X24:
-+	case MEDIA_BUS_FMT_RGB101010_1X30:
-+	case MEDIA_BUS_FMT_YUV8_1X24:
-+	case MEDIA_BUS_FMT_YUV10_1X30:
-+		s->output_mode = ROCKCHIP_OUT_MODE_AAAA;
-+		break;
-+	case MEDIA_BUS_FMT_UYVY8_1X16:
-+		s->output_mode = ROCKCHIP_OUT_MODE_YUV422;
-+		break;
-+	case MEDIA_BUS_FMT_UYYVYY8_0_5X24:
-+	case MEDIA_BUS_FMT_UYYVYY10_0_5X30:
-+		s->output_mode = ROCKCHIP_OUT_MODE_YUV420;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
- 	phy_cfg.hdmi.tmds_char_rate = conn_state->hdmi.tmds_char_rate;
- 	phy_cfg.hdmi.bpc = conn_state->hdmi.output_bpc;
- 
- 	ret = phy_configure(hdmi->phy, &phy_cfg);
- 	if (!ret) {
- 		hdmi->tmds_char_rate = conn_state->hdmi.tmds_char_rate;
--		s->output_mode = ROCKCHIP_OUT_MODE_AAAA;
- 		s->output_type = DRM_MODE_CONNECTOR_HDMIA;
- 		s->output_bpc = conn_state->hdmi.output_bpc;
-+		s->bus_format = ingest_fmt;
- 	} else {
- 		dev_err(hdmi->dev, "Failed to configure phy: %d\n", ret);
- 	}
-@@ -383,6 +464,7 @@ static void dw_hdmi_qp_rk3588_io_init(struct rockchip_hdmi_qp *hdmi)
- static void dw_hdmi_qp_rk3576_enc_init(struct rockchip_hdmi_qp *hdmi,
- 				       struct rockchip_crtc_state *state)
- {
-+	int color = dw_hdmi_qp_rockchip_bus_fmt_to_reg(state->bus_format);
- 	u32 val;
- 
- 	if (state->output_bpc == 10)
-@@ -390,12 +472,16 @@ static void dw_hdmi_qp_rk3576_enc_init(struct rockchip_hdmi_qp *hdmi,
- 	else
- 		val = FIELD_PREP_WM16(RK3576_COLOR_DEPTH_MASK, RK3576_8BPC);
- 
-+	if (likely(color >= 0))
-+		val |= FIELD_PREP_WM16(RK3576_COLOR_FORMAT_MASK, color);
-+
- 	regmap_write(hdmi->vo_regmap, RK3576_VO0_GRF_SOC_CON8, val);
- }
- 
- static void dw_hdmi_qp_rk3588_enc_init(struct rockchip_hdmi_qp *hdmi,
- 				       struct rockchip_crtc_state *state)
- {
-+	int color = dw_hdmi_qp_rockchip_bus_fmt_to_reg(state->bus_format);
- 	u32 val;
- 
- 	if (state->output_bpc == 10)
-@@ -403,6 +489,9 @@ static void dw_hdmi_qp_rk3588_enc_init(struct rockchip_hdmi_qp *hdmi,
- 	else
- 		val = FIELD_PREP_WM16(RK3588_COLOR_DEPTH_MASK, RK3588_8BPC);
- 
-+	if (likely(color >= 0))
-+		val |= FIELD_PREP_WM16(RK3588_COLOR_FORMAT_MASK, color);
-+
- 	regmap_write(hdmi->vo_regmap,
- 		     hdmi->port_id ? RK3588_GRF_VO1_CON6 : RK3588_GRF_VO1_CON3,
- 		     val);
-
--- 
-2.53.0
-
+DQoNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJvbTogQW5kcmV3IEx1bm4gPGFu
+ZHJld0BsdW5uLmNoPg0KPiBTZW50OiBUaHVyc2RheSwgQXByaWwgMjMsIDIwMjYgODo1NCBBTQ0K
+PiBUbzogTWF0aGlldSBQb2lyaWVyIDxtYXRoaWV1LnBvaXJpZXJAbGluYXJvLm9yZz4NCj4gQ2M6
+IFNoZW53ZWkgV2FuZyA8c2hlbndlaS53YW5nQG54cC5jb20+OyBMaW51cyBXYWxsZWlqDQo+IDxs
+aW51c3dAa2VybmVsLm9yZz47IEJhcnRvc3ogR29sYXN6ZXdza2kgPGJyZ2xAa2VybmVsLm9yZz47
+IEpvbmF0aGFuIENvcmJldA0KPiA8Y29yYmV0QGx3bi5uZXQ+OyBSb2IgSGVycmluZyA8cm9iaEBr
+ZXJuZWwub3JnPjsgS3J6eXN6dG9mIEtvemxvd3NraQ0KPiA8a3J6aytkdEBrZXJuZWwub3JnPjsg
+Q29ub3IgRG9vbGV5IDxjb25vcitkdEBrZXJuZWwub3JnPjsgQmpvcm4gQW5kZXJzc29uDQo+IDxh
+bmRlcnNzb25Aa2VybmVsLm9yZz47IEZyYW5rIExpIDxmcmFuay5saUBueHAuY29tPjsgU2FzY2hh
+IEhhdWVyDQo+IDxzLmhhdWVyQHBlbmd1dHJvbml4LmRlPjsgU2h1YWggS2hhbiA8c2toYW5AbGlu
+dXhmb3VuZGF0aW9uLm9yZz47IGxpbnV4LQ0KPiBncGlvQHZnZXIua2VybmVsLm9yZzsgbGludXgt
+ZG9jQHZnZXIua2VybmVsLm9yZzsgbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZzsNCj4gUGVu
+Z3V0cm9uaXggS2VybmVsIFRlYW0gPGtlcm5lbEBwZW5ndXRyb25peC5kZT47IEZhYmlvIEVzdGV2
+YW0NCj4gPGZlc3RldmFtQGdtYWlsLmNvbT47IFBlbmcgRmFuIDxwZW5nLmZhbkBueHAuY29tPjsN
+Cj4gZGV2aWNldHJlZUB2Z2VyLmtlcm5lbC5vcmc7IGxpbnV4LXJlbW90ZXByb2NAdmdlci5rZXJu
+ZWwub3JnOw0KPiBpbXhAbGlzdHMubGludXguZGV2OyBsaW51eC1hcm0ta2VybmVsQGxpc3RzLmlu
+ZnJhZGVhZC5vcmc7IGRsLWxpbnV4LWlteCA8bGludXgtDQo+IGlteEBueHAuY29tPg0KPiBTdWJq
+ZWN0OiBbRVhUXSBSZTogW1BBVENIIHYxMyAwLzRdIEVuYWJsZSBSZW1vdGUgR1BJTyBvdmVyIFJQ
+TVNHIG9uIGkuTVgNCj4gUGxhdGZvcm0NCj4gDQo+IENhdXRpb246IFRoaXMgaXMgYW4gZXh0ZXJu
+YWwgZW1haWwuIFBsZWFzZSB0YWtlIGNhcmUgd2hlbiBjbGlja2luZyBsaW5rcyBvciBvcGVuaW5n
+DQo+IGF0dGFjaG1lbnRzLiBXaGVuIGluIGRvdWJ0LCByZXBvcnQgdGhlIG1lc3NhZ2UgdXNpbmcg
+dGhlICdSZXBvcnQgdGhpcyBlbWFpbCcNCj4gYnV0dG9uDQo+IA0KPiANCj4gT24gVGh1LCBBcHIg
+MjMsIDIwMjYgYXQgMDY6NTM6MTJBTSAtMDYwMCwgTWF0aGlldSBQb2lyaWVyIHdyb3RlOg0KPiA+
+IE9uY2UgYWdhaW4gQW5kcmV3IEx1bm4gd2FzIGxlZnQgb3V0Lg0KPiA+DQo+ID4gT24gV2VkLCAy
+MiBBcHIgMjAyNiBhdCAxNToyOSwgU2hlbndlaSBXYW5nIDxzaGVud2VpLndhbmdAbnhwLmNvbT4N
+Cj4gd3JvdGU6DQo+ID4gPg0KPiA+ID4gU3VwcG9ydCB0aGUgcmVtb3RlIGRldmljZXMgb24gdGhl
+IHJlbW90ZSBwcm9jZXNzb3IgdmlhIHRoZSBSUE1TRyBidXMNCj4gPiA+IG9uIGkuTVggcGxhdGZv
+cm0uDQo+ID4gPg0KPiA+ID4gQ2hhbmdlcyBpbiB2MTM6DQo+ID4gPiAgLSBkcm9wIHRoZSBzdXBw
+b3J0IGZvciBsZWdhY3kgTlhQIGZpcm13YXJlLg0KPiA+ID4gIC0gcmVtb3ZlIHRoZSBmaXhlZF91
+cCBob29rcyBmcm9tIHRoZSBycG1zZyBncGlvIGRyaXZlci4NCj4gPiA+ICAtIGNvZGUgY2xlYW51
+cC4NCj4gDQo+IFRoYXQgbG9va3MgbGlrZSBhIHN0ZXAgZm9yd2FyZC4gTm93IHdlIGRvbid0IGNh
+cmUgYWJvdXQgbGVnYWN5IE5YUCBmaXJtd2FyZSwgaXQNCj4gbWFrZXMgaXQgZWFzaWVyIHRvIG1h
+a2UgYmlnZ2VyIGNoYW5nZXMsIGxpa2UgdXNlIHRoZSBtZXNzYWdlcyBmb3JtYXQgZnJvbSBncGlv
+LQ0KPiB2aXJ0aW8uDQo+IA0KDQpUaGUgaW1wbGVtZW50YXRpb24gYWRvcHRzIHRoZSBncGlv4oCR
+dmlydGlvIGRlc2lnbiwgaW5jbHVkaW5nIGl0cyBjb21tYW5kcywgcGFyYW1ldGVycywgYW5kIGVy
+cm9yIGNvZGVzLg0KDQpTaGVud2VpDQoNCj4gICAgICAgICAgQW5kcmV3DQo=
 
