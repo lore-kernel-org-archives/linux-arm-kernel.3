@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3F7AF589DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 14:19:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42F82F589DD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 14:19:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Mo2IeU/AaXoLyUW0cqRpgQJYVfBlAhtHpp2oMUPg6A=; b=Ul7q2hwpLTCJ5oyHp8iXnaYUze
-	qsk3lemxR3IWlBasuGeXPLcoG7CIVsyWQ2GYcayzkv8zxWo2JiZ4dTHCcB0Ihj2zf+YU/pBOweUGK
-	E4CHWnaSBevBy/cshK1A9rkC3Gbh7LVN7HY8s0IVffd+meDmvcAw7ZU7gBOm9WCJ7GGFL15ZNDj7y
-	ygxzH5BUlc5QeDcJP2dZyO34QrxXYy/521jCAgPToVJx42ubtnpQ2PGCi5m1Su7xtbDtR/TzHzmmf
-	FCk3PtdKBSOF069kfulR0hXaRi1kyk/D35loW1qq4hC3l+P0mkqcgorp3yeacHK5inK59qyvtsUQP
-	INWh06PQ==;
+	bh=Tpkzzua20tAlQ0uvVtVJePBkUzc26KvQoLCnhghAYSc=; b=AIQgT7q5LWI0o8yt/I56E8Gck2
+	BWwb0+SZHLRu52nELnoc87O8ykEiUiJYLU+bYbmMt7vZGD2L9hDTjE4BzkTmVo8bRXDyKCbhk+Oal
+	hPQPbFKWkQHW2kIWXJLvKWF3bYZjeUSNhb1ipg5DE0KwcKfcHiQ+IHbzSripiMah82CH24mZ5oTCp
+	GhqZ8CB6Y/GM4tagdfi29BCMVjcq/60bi7uEc/X7u//sV2CqpIheaCFEfSxGHwDv9KViNiabcvY+x
+	vD4O3YaXShSkFvWJ5aAy3WGHRzGajprFAY0D6irrViHCedl2gmfZCpkBjWdJEnHAGnVVcGkulhobb
+	WP/9ohaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFutj-0000000Bngq-1Gxm;
+	id 1wFutj-0000000Bnga-05AQ;
 	Thu, 23 Apr 2026 14:19:19 +0000
 Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFutc-0000000BneB-0u1S
+	id 1wFutb-0000000Bndj-1OfI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 14:19:17 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-43d76dd4ee8so6133251f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 07:19:11 -0700 (PDT)
+	Thu, 23 Apr 2026 14:19:16 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-43d6fbd0954so5340184f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 07:19:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1776953950; x=1777558750; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1776953949; x=1777558749; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=+Mo2IeU/AaXoLyUW0cqRpgQJYVfBlAhtHpp2oMUPg6A=;
-        b=Awj4jXsayoNG5ZzIROg4lp0RnFsnvI/78amSLrJpYchP99ZgAaLHGpYPd0sk6VTQT9
-         dgcCP2Cv+CsuCOqsn3nbaOW0l+MTaCKd33jAN4WQax2v2RQeg9D974Hj5PCtcX9T7g9E
-         rI1HvxKvlqKMeBRbLSPL3gWYTo2JLJPI6aOcJdROnPkWIOAn/noMdKLP7h2ZSwmU1x2e
-         gSYKeIRM8wFJCXxKl2mxjMdTBUSZ3m4b/dpdVGknWKKPTK4K4/ggisOb4vFBXfkBksFj
-         u5SJ8GCk9TrGS2kfHp2w18uy0kAjsJMkDMLrIk1mPedP7RGZPmJ5VpNLsbW7q+X8qxaf
-         qQew==
+        bh=Tpkzzua20tAlQ0uvVtVJePBkUzc26KvQoLCnhghAYSc=;
+        b=Ro7AFDXcsgfKdEHsDEdfexOw6xtT6nKzktNmc2oOIRIfvsXwnh4EgabjqFQUWcedM9
+         svYbezopEmL1HIZZ1KA/PHvx5ofbrplBn+9ajG4JtBLdt2aZcsFwn/jpTKiG8C9PWO4V
+         mkh1jeY+esSZoJNLl/O8jyvkp9aq+yBhGkXract1EQJK/OMJMJgdXiOOVwtJoxHqwZk/
+         xxs8iJUCLzHf4JPhDMdcDdLdb7++Y4EwHwqumHOLkxbf1+oyLV9khWpvxSk9E6fZ6EuV
+         eUHneTUg9l4elQX9/n4oYmXbZj80ewhTyj/3L+/7D0fhQro20AAs7BfKOXy8dj4orqql
+         t0XQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776953950; x=1777558750;
+        d=1e100.net; s=20251104; t=1776953949; x=1777558749;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=+Mo2IeU/AaXoLyUW0cqRpgQJYVfBlAhtHpp2oMUPg6A=;
-        b=MVz/d9HMra32/QD3Um50SHE0wcmdaXW+9/P+J0lNZZ8j02GGo7/0eJF8zQRcRhZD52
-         TkTXw+DJpkZgndBxqzys4Q+TDBeZSjbXGZeaYObv8f0TjGfU+tC02NyHSgUOWskcP6QA
-         roVDZGhb2zUnMTldY0ZPsmd2xPT7beA96o/jlScMx9hdF7EuZoOd/rFwAvYLoyuBaHJT
-         GmAYmTF8dOmneAAlASbfFjBn8ZWh0BPj5z5LrWensUtX/BrSBxKx0vftMdurMYDpY+hs
-         k8EBwrum7GBQhB4O5IF63b74G17lGugYZqZRtfKZ4BrpOvU/J8bw5VNVuIivwxTKvF4o
-         31PQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+eRm1fs3aQeFgSkX2nLAfYmW5qwnnRxc8sjVZ2PCxyy19NMRAKGqDiQwR+JWAiimAFwsL+JyKkMY8vRKDRSeoF@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLL2nQ+hv5NH3sJG9aNDZ2g2/kEcHI9rR4zudNAINtpcIyHOpk
-	g5XOQAlQJg/F7xzdHm/6aAq9O+pPqi/HSeYkrih6RZY4Xfae2Vz8jfWo1bRYybCwwFTolEUHa0N
-	C4vMpQwI=
-X-Gm-Gg: AeBDieubXddmQ6se2tzHZ+m2F62Qy8J7Bv94ij4yPUulWBBm7SRqjgCv2lcbYovvxMN
-	+lS3bnJuzEevGeUOM18WTPsyxcvBGl3EfXsPt1DGdPCbeOuvhwCbw84m2f8Vr9INfIkhaqLZPtS
-	lyqSltXi6PZuPOaiG5QoMil5AVdMEXW0V966F6PlQYV096Pw7ZF9iFoIiqNM8/TK4MXYCmP/po5
-	tq1tkMxFoTjynxQWODFRIDRMV0ku07z5uoZVPD8oMroXXzETKUH5zRWWj0F6nKMCbSdVTDsc3lG
-	n0eoQ3U71tJpeOJfiLNYKre3u4VMfvjiaiaKaVttCCEQRVFQw80fi/yJ7wIKLuyyoDc9ik3fUjm
-	VTXhagRNc1xoiK8MAdIdOTNLJDfTWEpynIEudyaR4hhOMpJ7jlVqaT/4cs34TsRcpb8nXBGa25M
-	bjYS3Xd53zwsyhDe1479JO+UQisl6HMC8kqqy5tnkmRSjjC8+r/8iUdmg4kJfr0HSDlgx9Sy3/o
-	O+A5uZXtZ9gGvD/4A==
-X-Received: by 2002:a5d:4ed2:0:b0:43f:ea25:20ff with SMTP id ffacd0b85a97d-43fea252120mr26389443f8f.29.1776953950228;
-        Thu, 23 Apr 2026 07:19:10 -0700 (PDT)
-Received: from ta2.c.googlers.com (17.83.155.104.bc.googleusercontent.com. [104.155.83.17])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43fe4e4d525sm51107483f8f.31.2026.04.23.07.19.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        bh=Tpkzzua20tAlQ0uvVtVJePBkUzc26KvQoLCnhghAYSc=;
+        b=B8lmyGJ71TJacpeu4rL+2yy7ePRzrYwlvjXj4PHUdj/tZtfmuMDh5wKJYKk72eQIuW
+         CjU7k4/FqHx9NP0mTF1s6hQSLH7iUuGx6zi5509Lhk4sPzk9XTbYoKBgM1bkWuygZFuO
+         YXBsmmQ34iTyboCHwY2EeGEM5CSj4fY3CZfwvY+ivKVlUutxCQRXeeyENivhqyiMkf5r
+         7Kd2T176mLVVaQoQwHiy+hyqUKuPEyeGAifVAeH0mxAe/0VlEzBMmy9LYP5wk4MvfTwX
+         SFBLOqHxhBLMVYixL1lHBQJ01Z+P1XCyMSBdsQs2zj9s+8NXzQKBnnDzGQtpwyKkY8sr
+         qkag==
+X-Forwarded-Encrypted: i=1; AFNElJ+0ULy6Y+PZGPVNFv5T+WjBtVfVb8r+vCkgI9UwoeGH3gcg1oAeS8inOaL6tAycAMMdrIyM8bTcLEy/fUaaRXGm@lists.infradead.org
+X-Gm-Message-State: AOJu0YxysfC9UPNzjvIJt3aSMqxrr9qYjCOurhR2BkszZ6VVoKSz07SU
+	JpfEgAQCm9ccAW2ovc7uHRnHa2FQ2lcjcfFPoifjvi8G7Gu+cZbdyQxA5U9rkGs5m7t6ZlgJSkS
+	6FuLoW/I=
+X-Gm-Gg: AeBDies3TfJWjnfY4J7JeHGrJGD8y2/t/Qo0T3Hu7uEehlwQV+bTeNGHOW+rQdEvBGo
+	JdHr3u/gtNy87mq/ID6JHkXmsXDwKVt7HXsLe8ZotjtMdNEpVQcS5e8phieEl9QA1opzjCtoDUg
+	X8jqjp/HM9VFeDpd3o7xtZKRlWR2c57ETLY64xVuYN4T7vatg0VYwTWPwrhJ5xA1cyEwALaDtNw
+	xBqudsyu/JY2ot5Mia9967bXLN3WNdr9l75hLhOxp243e/yQclD4teCKiXyP1Mg2fL/0piBXbhP
+	RQ0Ax0AS5XopbYwZ6BhW2qV5LDew1JsT2gZJcYai3xOhjXT6OKOhYP2pdvXwxM7ILFoFat9QtOo
+	2+fFsui6VYbo+KBQ2aksJhZGEdaRi7WDFsDik/JVNGvBMlUtxoorz9qQ0iJuEegQyRUH0ylIjk3
+	gjF3APNFIGVsAlgKHUavMvPjlmjVVsPyXvuvbPmPdKJey7Pk+h9tkvD6ppnk3DL5TUO2EL7JRHr
+	1ACbj9PdZ82xodEIw==
+X-Received: by 2002:a05:6000:2511:b0:43c:f3ef:ee36 with SMTP id ffacd0b85a97d-43fe3e0a460mr42116126f8f.33.1776953949040;
         Thu, 23 Apr 2026 07:19:09 -0700 (PDT)
+Received: from ta2.c.googlers.com (17.83.155.104.bc.googleusercontent.com. [104.155.83.17])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43fe4e4d525sm51107483f8f.31.2026.04.23.07.19.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Apr 2026 07:19:08 -0700 (PDT)
 From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Thu, 23 Apr 2026 14:19:08 +0000
-Subject: [PATCH 4/4] firmware: samsung: acpm: Fix dummy stubs to return
- ERR_PTR
+Date: Thu, 23 Apr 2026 14:19:06 +0000
+Subject: [PATCH 2/4] firmware: samsung: acpm: Fix sequence number leak and
+ infinite loop
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260423-acpm-fixes-sashiko-reports-v1-4-2217b790925e@linaro.org>
+Message-Id: <20260423-acpm-fixes-sashiko-reports-v1-2-2217b790925e@linaro.org>
 References: <20260423-acpm-fixes-sashiko-reports-v1-0-2217b790925e@linaro.org>
 In-Reply-To: <20260423-acpm-fixes-sashiko-reports-v1-0-2217b790925e@linaro.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -88,16 +88,16 @@ Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
  andre.draszik@linaro.org, jyescas@google.com, kernel-team@android.com, 
  Tudor Ambarus <tudor.ambarus@linaro.org>, stable@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1776953946; l=1843;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1776953946; l=2635;
  i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=TrETAIBRtr5BpleipM5VXU32aMTdlU394IStlNmAoNo=;
- b=i79vicUFzY3Onqf5OYj/Gpp1I7cWGIKf2Gu04oPG78VdXvKe/mM1tWjxIiGpqqhWXVO7u+3NR
- a963qJxKznSA4ZndiD2phqglKzLbYatsVVbBB1pq3M36X6MzqSjxJ6G
+ bh=VTtVl0TWCNfgfLbp5ijesyzVwlK/9w/oJ2E+cqfjm08=;
+ b=DYOtC6hQ0ucn9EaI7t93WN6xfszysLjwGSxnLnt8/zLOQRojSUpaUAulT4yyaGqqznnu6d/eb
+ IAZVKMnj/bSAiKaA92rMrcQ3twPuFvC4hYcAzccEMqK1+YuZ1KzxgbP
 X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
  pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_071912_268485_226FB700 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20260423_071911_394032_5CA54A1C 
+X-CRM114-Status: GOOD (  15.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,50 +112,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sashiko identified a potential NULL pointer dereference [1].
+Sashiko identified a sequence number leak and a possible infinite loop
+[1].
 
-The dummy stub implementation for devm_acpm_get_by_node() returns NULL
-when CONFIG_EXYNOS_ACPM_PROTOCOL is disabled.
+ACPM IPC sequence numbers are tracked via a 64-bit bitmap
+(`bitmap_seqnum`) to manage concurrent transactions. A bit is set when
+a sequence number is allocated in `acpm_prepare_xfer()`.
 
-However, the active implementation of this function returns an ERR_PTR
-on failure, and the consumer driver checks the return value using
-IS_ERR(). Because IS_ERR(NULL) evaluates to false, returning NULL from
-the stub tricks consumer drivers into treating the NULL return as a
-valid handle. Subsequent attempts to access handle->ops result in a
-fatal NULL pointer dereference.
+Previously, if a transfer timed out during RX polling, or if the
+underlying hardware mailbox failed to send the message via
+`mbox_send_message()`, the allocated sequence number bit was never
+cleared.
 
-Fix this by returning ERR_PTR(-ENODEV) in the disabled configuration
-to correctly propagate the disabled state and match the API contract.
+As these transient errors accumulate, all 63 available sequence numbers
+could eventually be leaked. Once the bitmap is full, the next call to
+`acpm_prepare_xfer()` would enter an infinite `while` loop attempting
+to find a free sequence number, permanently deadlocking the CPU.
+
+Fix this by ensuring the sequence number bit is explicitly cleared on
+all error paths:
+1. In `acpm_do_xfer()`, clear the bit if the mailbox transmission
+   fails.
+2. In `acpm_dequeue_by_polling()`, clear the bit if the queue read fails
+   or if the response times out.
 
 Cc: stable@vger.kernel.org
-Fixes: 6837c006d4e7 ("firmware: exynos-acpm: add empty method to allow compile test")
+Fixes: a88927b534ba ("firmware: add Exynos ACPM protocol driver")
 Closes: https://sashiko.dev/#/patchset/20260420-acpm-tmu-v3-0-3dc8e93f0b26%40linaro.org [1]
 Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 ---
- include/linux/firmware/samsung/exynos-acpm-protocol.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/firmware/samsung/exynos-acpm.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-diff --git a/include/linux/firmware/samsung/exynos-acpm-protocol.h b/include/linux/firmware/samsung/exynos-acpm-protocol.h
-index 13f17dc4443b..d4db2796a6fb 100644
---- a/include/linux/firmware/samsung/exynos-acpm-protocol.h
-+++ b/include/linux/firmware/samsung/exynos-acpm-protocol.h
-@@ -8,6 +8,7 @@
- #ifndef __EXYNOS_ACPM_PROTOCOL_H
- #define __EXYNOS_ACPM_PROTOCOL_H
+diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
+index e95edc350efa..a9baed5762d5 100644
+--- a/drivers/firmware/samsung/exynos-acpm.c
++++ b/drivers/firmware/samsung/exynos-acpm.c
+@@ -311,8 +311,10 @@ static int acpm_dequeue_by_polling(struct acpm_chan *achan,
+ 	timeout = ktime_add_us(ktime_get(), ACPM_POLL_TIMEOUT_US);
+ 	do {
+ 		ret = acpm_get_rx(achan, xfer);
+-		if (ret)
++		if (ret) {
++			clear_bit(seqnum - 1, achan->bitmap_seqnum);
+ 			return ret;
++		}
  
-+#include <linux/err.h>
- #include <linux/types.h>
+ 		if (!test_bit(seqnum - 1, achan->bitmap_seqnum))
+ 			return 0;
+@@ -324,6 +326,8 @@ static int acpm_dequeue_by_polling(struct acpm_chan *achan,
+ 	dev_err(dev, "Timeout! ch:%u s:%u bitmap:%lx.\n",
+ 		achan->id, seqnum, achan->bitmap_seqnum[0]);
  
- struct acpm_handle;
-@@ -57,7 +58,7 @@ struct acpm_handle *devm_acpm_get_by_node(struct device *dev,
- static inline struct acpm_handle *devm_acpm_get_by_node(struct device *dev,
- 							struct device_node *np)
- {
--	return NULL;
-+	return ERR_PTR(-ENODEV);
++	clear_bit(seqnum - 1, achan->bitmap_seqnum);
++
+ 	return -ETIME;
  }
- #endif
  
+@@ -455,8 +459,10 @@ int acpm_do_xfer(struct acpm_handle *handle, const struct acpm_xfer *xfer)
+ 		writel(idx, achan->tx.front);
+ 
+ 		ret = mbox_send_message(achan->chan, (void *)&msg);
+-		if (ret < 0)
++		if (ret < 0) {
++			clear_bit(achan->seqnum - 1, achan->bitmap_seqnum);
+ 			return ret;
++		}
+ 
+ 		mbox_client_txdone(achan->chan, 0);
+ 	}
 
 -- 
 2.54.0.545.g6539524ca2-goog
