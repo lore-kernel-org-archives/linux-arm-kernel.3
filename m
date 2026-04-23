@@ -4,85 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05772FC0340
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D62A8FC0342
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 15:23:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5VT18PIbrnPxIsVNhyJEZQwrWnfiHx8ppNoASHNMvek=; b=ofkI8Mbm1raVxB
-	ka6Ed/Y09LqW90UsIlw4fyrUWKyshgItUhuEWdc28CAwzRr21w3ZQhcXPqu3emj1FeXVDB1khbiX6
-	Mm06XAlA1l3xUnCiq4GTyYI73YxtkPey+/8gR4FFBV6FXFnIVf5DsHO0hCnWUT3yTSX0jbwNMvCwg
-	xLg1GcxMBfDhpAcazWHYy84424WKYhOQARHJ8I6IrcYulWHXPo9Qq512i/Dfte4OxgBVsMwXXmg+m
-	xOtUErO9klP0CwtddArTpKQUfaee+RNTdVK8X6aUhCI3hX1vJUWGB8aSYztVbaNQ0Mw2Yll21gX6C
-	U/c6t7z9VEqZSnokydhg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EN4V9UR7DRre5LEE2+ZTpG14TXvnUwqmjv4/QNq2Ugs=; b=3rSS2xE4XkZwG9VXVhceT6OkCd
+	LJ5fcK1OJ3ixvuwyxAXO6jLN/vkV02PWxeMjR08Hboh8Y+HEDhvKp7eQgmlz0rVWdHEGI8+cJjRd4
+	gN4t0BS7UNeH2sL2uRTS97GXAtLxOxJCD27FWxixvI8qMFde1vXmR6B4rU4dMo3sZU6w1XcSfWgNH
+	FQCo34B93GgWPqm6Fygr+bYyXrK108lGQ4uwJsgoSXqtzivzPbftw4aV3Z1cPxS3fiUiEwLhEEy6e
+	YhCKduFIwKpEqrjmvzsHS3hos7V3TWPzQhCwFDJsmqNdX+wJjWtbUXKDuo0PCsrVBoTWeGbM+5HwM
+	Iu/u4A5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFvtP-0000000BsVK-2tzo;
-	Thu, 23 Apr 2026 15:23:03 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1wFvtU-0000000BsYT-00EG;
+	Thu, 23 Apr 2026 15:23:08 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFvtN-0000000BsTm-1abW
+	id 1wFvtP-0000000BsUT-1g1D
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 15:23:02 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-483487335c2so66965125e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 08:23:00 -0700 (PDT)
+	Thu, 23 Apr 2026 15:23:04 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-488b8bc6bc9so48847105e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 08:23:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1776957779; x=1777562579; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=5VT18PIbrnPxIsVNhyJEZQwrWnfiHx8ppNoASHNMvek=;
-        b=fOGbF80Mm2muTRTO7R1brkPWd8sawWGLnmFcblrXqXw9+yagFSi05E0reT8DYD9z/J
-         LoyAp7Xv8XpTDHrHGPQqR36GExNCEF2T2nzqAN5T9LbSicCF7k7bj2FEoFGdXWGWRiNz
-         5MjufxmDBltXv9rWkwnyj1W398d2O+C8tbX75n8ajeVl6xYC3Ps3GDixJiqLhhDL9BQs
-         NAbQMsEBeBzBuG7w8UxjIR/EOGnNk5ILXK345g0qnSTpZbF6JbiZiwHM3vrGZVvoyjZw
-         8t7GhrisYHlSiznEDaH8ks1vUuNti7l5NXrm/pYMqaODVRpl2qFhIRIdo+mCpWOKRdPF
-         vaEA==
+        d=linaro.org; s=google; t=1776957781; x=1777562581; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=EN4V9UR7DRre5LEE2+ZTpG14TXvnUwqmjv4/QNq2Ugs=;
+        b=tC7mL+3/WPssR5PqjHS6P8pP9cWlEu/xB+KgXYaHmi99tj16IA6bvA0d8krTBAOoe1
+         AkZpFRYilKgWOpVSQuU7uBBX8DWDhW7Zl6fwyfCPDUx9GuD/mJXUFYZYavufb1na4NVY
+         elOwHXcmzjMdpQLfHChg1nqfNzSQCTcY9sQyLB9HS1OneQPWw5zfMrbCcpR50UD62hKq
+         7DjuXlMLVTpUaIg8cU465vJ/TrANVao2lvEjee+uEevs1RjSxMNMYmvmMFJTLZGjqs/p
+         di3Qqkrtk+GPkspEuGb9gBvVRJClIHmNI5Jl16xWlbTl0EQZhZ0QjkMnpXdC2Ch3KG6N
+         bPig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776957779; x=1777562579;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5VT18PIbrnPxIsVNhyJEZQwrWnfiHx8ppNoASHNMvek=;
-        b=givlPUFKgiLG4oOiqqhvJLCkeW3w4tYK1kj5c+kEi+nFDSnCYw9SXM7cN8MgNU0b4P
-         kfhFrpkyiYycE1OxRNvpTSFv3slsRWiSgqL7NwHuuAGtVin7Xv9nojVxMEUOv+lhkm9r
-         Jz9OBupbVyk5NFqrL4PbJkWUGr0ac2e3smOfIaozUT4Ro2WvGQUuZRXaO20Grd5rt2Gq
-         LIBwgfEOheSjJpCG4e4Px2JVFLneHJ4SadJABUMi0oH9bduQ2WFdbl0SgQS+uhmHAeK1
-         VLNRp7KjvsmWcUXi+gayk8gdqw/KuGHGXMyTMpll9FAtKkCx96Lec4LKxN/a4boxn21D
-         +yCA==
-X-Forwarded-Encrypted: i=1; AFNElJ/qwGYoHvXB8Jw0EgbFCUQw38FGnmk7QMmB4fduIFRl1g5snO+pTAqcIUMXrqNHoNNRDBGqtG8Lp2/GJk+fDfNJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTnmr6SiYPT4mr+ySSL7jhZsh2cs0aaMOZIIRW+x44xl556e4O
-	Cyu51hZ/qdN4fN90d+N5kk6hyNk7CLdb2oovWEkmQL+Gro583HVNKfY4dboUIRexQE0=
-X-Gm-Gg: AeBDievAz84Ht5YPwYk1kPCw/PuW2VCzDollOC5HMX9iYTfrDSCpHq6+KApn3hMf15U
-	XqMHcM3TH5HZNoov7NKwx+mVujiJpCETsvDydno5AqXLWw7Jdp5YpxSvWIm4qKUYsrAkNDktm1z
-	d1zO/ZmzK62qiO5DrL3C+QwC7ch/46eFRb4G9yWHm2PubA2U0nOV+nUiARc4CMPz9yno7RUVR3b
-	RVc+AcpgJqVYZzvIEEAcFAWNqJnSJTq9XtxGz6lUxLKOs/exgl0XOu6YVTjmzS8VYja9t5W1+oJ
-	UFKbplW9Z+SCUY8aQGNUNK84qt3EBlWlrNSBgcjOIWSehUn7G90qB/k8GYdZBoDi9XtUT1EIdyo
-	Qh1LFl49wOeCKZvOYLPrWejfMH40RQGdAWKa+VYUWVuG6lNTBzENOj3jh/t+p1h1OLMr2ZNH29o
-	3xUvYDujjirC3ggc1jwRNxjcOfTemfXv6N9YHGT69dJ1LMUxEYBz8okf2Qexjhsc+GtQX9iH6lK
-	wpk2J9O/9mdPPpfow==
-X-Received: by 2002:a05:600c:8b38:b0:485:39b2:a47c with SMTP id 5b1f17b1804b1-488fb796fa0mr377986255e9.25.1776957779158;
-        Thu, 23 Apr 2026 08:22:59 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1776957781; x=1777562581;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=EN4V9UR7DRre5LEE2+ZTpG14TXvnUwqmjv4/QNq2Ugs=;
+        b=mouhXK/hvXi8tSAFfJdsfd05m/9LLfmJqEaJMMQk6dpcOViTeANv0w+/OBx04YLgUD
+         nZSEmUjIkPV9LNPXNfZHkTPhj7qAJIy6s+yJVxyh03srArVVD01S1xSciPjnEH8yFFCR
+         Gm80DkKFKMyN+bCeYsVZ0RupdclZGXUEu3w3Xpcwmggekt/ntLMTGe0i4xY9/KrfG6Ca
+         ndZnpjL8alBXQVqDqRTBmKG56ef9qxC9hvko+C64fqOFgTOEle31N7bux/SdhfC7vvl+
+         kiy6Az30RNhq68Kic81Y2jwL5kMqmgjIsMbDTLQ2acb8Wsq/lXkRgUhjrQdVAnoXm4gC
+         aS4w==
+X-Forwarded-Encrypted: i=1; AFNElJ+sGpp0OH0xU3e7my+m6Nb67npSpNNbCWmZYhaTQSHLZR3Zx7I5gS00MLmhqdn2RD2NqpwZudRJ/6NXZ4IUZd9J@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqsMkM4N38BxvgGBqR73RzCl7nJBXoUrYQ3PIIBCWgZZWO/87R
+	u+CQNoSdhQkMM2Z/W9z1UXGAyjcEJco9PrqF921+zONRHPNZViO7AjKMqFMy9ZfaJls=
+X-Gm-Gg: AeBDies5+GwRRJX/Wsx9sUQXFXezUPWx3STkin45350XM4/F7kCd9VusMWaobitw+fO
+	KwRk/W4DWXiSB6ZDEJy3UHb+bgzs40dg44eLdFSRzmX9D3Kf/RYnseN63qcqysnVT/tiedwWSva
+	USTE17aRWk7/cWwBl6ZrE8oJCw2mmWO91Ix5HdaPvf6hebEPIPin4W2vbZDCui3dfJrFRnk4qjV
+	383q24Znw0mbiDXT9qm7WFCYFN0JAuUj5no4zrAYmwXF1k1MH1gqziASN2o+EuhdBHwjwyTsreD
+	j/M6ZzbBmSoWmxmig/B7pX+LVBTWxW0A4odpwAPgUr6MB06uBu7uMubzN697ObUZ7u0nCd4vp/N
+	GATpGKZH2GTmmD0x8qtimTuEQjI9I2WZRYSd7OTYpN5uIFFIVm+ZPWBQQkyBC4Xje5Oj57ppNTD
+	9NRxxOs2dAoXgfi7wmDTfpsMuHBYViGY5Oav0Tn/qjr4gbQRgyDz327AKZQnYwLF8lYMjefzH8U
+	A3jdKlw/KU2hFLxCA==
+X-Received: by 2002:a05:600c:a105:b0:486:fb69:4960 with SMTP id 5b1f17b1804b1-488fb7786e4mr293834645e9.19.1776957781446;
+        Thu, 23 Apr 2026 08:23:01 -0700 (PDT)
 Received: from ta2.c.googlers.com (17.83.155.104.bc.googleusercontent.com. [104.155.83.17])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4891f98728dsm90550755e9.23.2026.04.23.08.22.58
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4891f98728dsm90550755e9.23.2026.04.23.08.23.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Apr 2026 08:22:58 -0700 (PDT)
+        Thu, 23 Apr 2026 08:23:01 -0700 (PDT)
 From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Subject: [PATCH v4 00/11] thermal: samsung: Add support for Google GS101
- TMU
-Date: Thu, 23 Apr 2026 15:22:48 +0000
-Message-Id: <20260423-acpm-tmu-v4-0-8b59f8548634@linaro.org>
+Date: Thu, 23 Apr 2026 15:22:52 +0000
+Subject: [PATCH v4 04/11] firmware: samsung: acpm: Drop redundant _ops
+ suffix in acpm_ops members
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAEg56mkC/2WQQW7DIBBFr2KxLhUMtgte9R5VFhgPMWptHHCsV
- FHu3omTyq66/CPeQ/9fWcYUMLOmuLKES8ghjhTKl4K53o5H5KGjzEBALaRU3Lpp4PNw5vCGIL1
- AcKpl9HxK6MNlVX0cKPchzzF9r+ZF3q+/knKTLJIL7jxWdWcUGuHfv8JoU3yN6cjulgX2pNmRQ
- CQKsFqVXpSu/keqjSxB7EhFpOqcRqO8aOEveXtUSXg60xjzo8+2RVM8hc8l1so829yHz8gTTjH
- NmVsE3dbYVZWWDZUnZ2szcheHIczkwFoLZUBLo+jL2w/PLW9BhwEAAA==
-X-Change-ID: 20260113-acpm-tmu-27e21f0e2c3b
+Message-Id: <20260423-acpm-tmu-v4-4-8b59f8548634@linaro.org>
+References: <20260423-acpm-tmu-v4-0-8b59f8548634@linaro.org>
+In-Reply-To: <20260423-acpm-tmu-v4-0-8b59f8548634@linaro.org>
 To: "Rafael J. Wysocki" <rafael@kernel.org>, 
  Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -101,19 +98,18 @@ Cc: willmcvicker@google.com, jyescas@google.com, shin.son@samsung.com,
  linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org, 
- linux-clk@vger.kernel.org, Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ linux-clk@vger.kernel.org, Tudor Ambarus <tudor.ambarus@linaro.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1776957778; l=6958;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1776957778; l=4435;
  i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=lpprnZaM4doz39ONqYJs/k6i7enQK0i0cxznHQUKOJg=;
- b=u2MruZol6JukWD3V+mQ6lyGJ1Wg/VepW1XKXanfRVkKvfn/qKxrSKuwok9k9I9eg4HUMWqa5D
- CF1VKrFZ3JjAVY+6pBBgEUmLaPNY6hoabfozPpXr158zOyoCw6q9s0i
+ bh=6Fhzjxw+vi8XP19sFgBxNUlkscVh4nTSp5CfK4gr45o=;
+ b=m4fvvg7wwQHeVb0yPnYIqHEWlawnheJct73ayBmrt0vkfwIxMaAcSV6BGF7raasQPHx7k6W2Y
+ gg/2Y1LaGpgDZ1YNuIQjhH8k3GmTU4AO/Uu4HrbMnBnxExDYFknXje1
 X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
  pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_082301_491200_7A9A9A1C 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20260423_082303_469073_BB125701 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,148 +124,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the Thermal Management Unit (TMU) on the Google GS101
-SoC.
+Rename the `dvfs_ops` and `pmic_ops` members of `struct acpm_ops` to
+`dvfs` and `pmic` respectively.
 
-The GS101 TMU implementation utilizes a hybrid architecture where
-management is shared between the kernel and the Alive Clock and
-Power Manager (ACPM) firmware. This hybrid ACPM TMU architecture is 
-also present on other Samsung Exynos SoCs (e.g., AutoV920, Exynos850).
+Since these members are housed within the `acpm_ops` structure and
+utilize the `acpm_*_ops` types, the `_ops` suffix on the variable names
+creates unnecessary redundancy (e.g., `handle.ops.dvfs_ops`).
 
-Dependencies
-============
-- context dependency on the ACPM fixes sent at:
-  Link: https://lore.kernel.org/linux-samsung-soc/20260423-acpm-fixes-sashiko-reports-v1-0-2217b790925e@linaro.org/T/#t
-- cleanup and prep firmware patches 2, 3, 4, 5, 6, 7: required by the
-  thermal driver (patch 8).
-- bindings (patch 1): required for DTS validation.
-- thermal driver patch 8: required by defconfig (patch 11) - logical
-dependency. 
-
-Given the thermal driver is a new addition, I suggest everything to go
-through the Samsung SoC tree, with ACKs from the Thermal maintainers.
-The MFD and clk maintainers are included because of the cleanup patches
-(4 and 5). ACPM updated some structures that the mfd and clk client
-drivers are using, so these patches shall naturally go via the Samsung
-SoC tree.
-
-If the Thermal maintainers prefer to take the bindings and the thermal
-driver patches via their tree we'll need:
-- an immutable branch containing the firmware patches from the Samsung
-  SoC tree to serve as a base for the thermal driver.
-- an immutable branch containing the bindings and the thermal driver
-  from the thermal tree to serve as a base for the dts and defconfig.
-
-Architecture Overview
-=====================
-
-The hardware supports two parallel control paths. For this
-implementation, responsibilities are split as follows:
-
-1. Kernel Responsibility:
-- maintain direct memory-mapped access to the interrupt pending
-  (INTPEND) registers to identify thermal events.
-- map physical hardware interrupts to logical thermal zones.
-- coordinate functional operations through the ACPM IPC protocol.
-
-2. Firmware Responsibility (ACPM):
-- handle sensor initialization.
-- manage thermal thresholds configuration.
-- perform temperature acquisition and expose data via IPC.
-
-Sensor Mapping (One-to-Many)
-============================
-
-The SoC contains multiple physical temperature sensors, but the ACPM
-firmware abstracts these into logical groups (Clusters) for reporting:
-
-- ACPM Sensor 0 (Big Cluster): Aggregates physical sensors 0, 6, 7, 8, 9.
-- ACPM Sensor 1 (Mid Cluster): Aggregates physical sensors 4, 5.
-- ACPM Sensor 2 (Little Cluster): Aggregates physical sensors 1, 2.
-
-The driver maps physical interrupt bits back to these logical parents.
-When an interrupt fires, the driver checks the bitmask in the INTPEND
-registers and updates the corresponding logical thermal zone.
+This cleanup removes the stuttering, leading to cleaner consumer code.
 
 Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 ---
-Changes in v4: address sashiko review:
-- thermal driver: avoid mixing mutex cleanup helpers with goto statements
-- firmware, tmu:
-  - remove __packed from union acpm_tmu_msg.
-  - return ERR_PTR(-ENODEV) for devm_acpm_get_by_phandle when
-    CONFIG_EXYNOS_ACPM_PROTOCOL is disabled. 
-- Link to v3: https://lore.kernel.org/r/20260420-acpm-tmu-v3-0-3dc8e93f0b26@linaro.org
+ drivers/clk/samsung/clk-acpm.c                        | 8 ++++----
+ drivers/firmware/samsung/exynos-acpm.c                | 4 ++--
+ drivers/mfd/sec-acpm.c                                | 6 +++---
+ include/linux/firmware/samsung/exynos-acpm-protocol.h | 4 ++--
+ 4 files changed, 11 insertions(+), 11 deletions(-)
 
-Changes in v3:
-- thermal driver: use .set_trips() instead of .set_trip_point()
-- new cleaning/prerequisite patches for firmware/acpm:
-  - firmware: samsung: acpm: Make acpm_ops const and access via pointer
-  - firmware: samsung: acpm: Drop redundant _ops suffix in acpm_ops members
-  - firmware: samsung: acpm: Consolidate transfer initialization helper
-- firmware: acpm: TMU helpers - check return value from the firmware
-- overall change: emphasize that the ACPM TMU hibrid approach applies to
-  other Samsung SoCs as well (Exynos850, AutoV920).
-- dts: drop active trip points, update trip point values
-- collect R-b tags
-- Link to v2: https://lore.kernel.org/r/20260119-acpm-tmu-v2-0-e02a834f04c6@linaro.org
+diff --git a/drivers/clk/samsung/clk-acpm.c b/drivers/clk/samsung/clk-acpm.c
+index d8944160793a..93667777094c 100644
+--- a/drivers/clk/samsung/clk-acpm.c
++++ b/drivers/clk/samsung/clk-acpm.c
+@@ -68,8 +68,8 @@ static unsigned long acpm_clk_recalc_rate(struct clk_hw *hw,
+ {
+ 	struct acpm_clk *clk = to_acpm_clk(hw);
+ 
+-	return clk->handle->ops.dvfs_ops.get_rate(clk->handle,
+-					clk->mbox_chan_id, clk->id);
++	return clk->handle->ops.dvfs.get_rate(clk->handle, clk->mbox_chan_id,
++					      clk->id);
+ }
+ 
+ static int acpm_clk_determine_rate(struct clk_hw *hw,
+@@ -89,8 +89,8 @@ static int acpm_clk_set_rate(struct clk_hw *hw, unsigned long rate,
+ {
+ 	struct acpm_clk *clk = to_acpm_clk(hw);
+ 
+-	return clk->handle->ops.dvfs_ops.set_rate(clk->handle,
+-					clk->mbox_chan_id, clk->id, rate);
++	return clk->handle->ops.dvfs.set_rate(clk->handle, clk->mbox_chan_id,
++					      clk->id, rate);
+ }
+ 
+ static const struct clk_ops acpm_clk_ops = {
+diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
+index e5c85d769d0a..a2cd54ee4589 100644
+--- a/drivers/firmware/samsung/exynos-acpm.c
++++ b/drivers/firmware/samsung/exynos-acpm.c
+@@ -627,8 +627,8 @@ static int acpm_channels_init(struct acpm_info *acpm)
+  */
+ static void acpm_setup_ops(struct acpm_info *acpm)
+ {
+-	struct acpm_dvfs_ops *dvfs_ops = &acpm->handle.ops.dvfs_ops;
+-	struct acpm_pmic_ops *pmic_ops = &acpm->handle.ops.pmic_ops;
++	struct acpm_dvfs_ops *dvfs_ops = &acpm->handle.ops.dvfs;
++	struct acpm_pmic_ops *pmic_ops = &acpm->handle.ops.pmic;
+ 
+ 	dvfs_ops->set_rate = acpm_dvfs_set_rate;
+ 	dvfs_ops->get_rate = acpm_dvfs_get_rate;
+diff --git a/drivers/mfd/sec-acpm.c b/drivers/mfd/sec-acpm.c
+index 0e23b9d9f7ee..9e15b260b8df 100644
+--- a/drivers/mfd/sec-acpm.c
++++ b/drivers/mfd/sec-acpm.c
+@@ -391,7 +391,7 @@ static int sec_pmic_acpm_bus_write(void *context, const void *data,
+ {
+ 	struct sec_pmic_acpm_bus_context *ctx = context;
+ 	struct acpm_handle *acpm = ctx->shared->acpm;
+-	const struct acpm_pmic_ops *pmic_ops = &acpm->ops.pmic_ops;
++	const struct acpm_pmic_ops *pmic_ops = &acpm->ops.pmic;
+ 	size_t val_count = count - BITS_TO_BYTES(ACPM_ADDR_BITS);
+ 	const u8 *d = data;
+ 	const u8 *vals = &d[BITS_TO_BYTES(ACPM_ADDR_BITS)];
+@@ -411,7 +411,7 @@ static int sec_pmic_acpm_bus_read(void *context, const void *reg_buf, size_t reg
+ {
+ 	struct sec_pmic_acpm_bus_context *ctx = context;
+ 	struct acpm_handle *acpm = ctx->shared->acpm;
+-	const struct acpm_pmic_ops *pmic_ops = &acpm->ops.pmic_ops;
++	const struct acpm_pmic_ops *pmic_ops = &acpm->ops.pmic;
+ 	const u8 *r = reg_buf;
+ 	u8 reg;
+ 
+@@ -430,7 +430,7 @@ static int sec_pmic_acpm_bus_reg_update_bits(void *context, unsigned int reg, un
+ {
+ 	struct sec_pmic_acpm_bus_context *ctx = context;
+ 	struct acpm_handle *acpm = ctx->shared->acpm;
+-	const struct acpm_pmic_ops *pmic_ops = &acpm->ops.pmic_ops;
++	const struct acpm_pmic_ops *pmic_ops = &acpm->ops.pmic;
+ 
+ 	return pmic_ops->update_reg(acpm, ctx->shared->acpm_chan_id, ctx->type, reg & 0xff,
+ 				    ctx->shared->speedy_channel, val, mask);
+diff --git a/include/linux/firmware/samsung/exynos-acpm-protocol.h b/include/linux/firmware/samsung/exynos-acpm-protocol.h
+index d4db2796a6fb..b206efa62be6 100644
+--- a/include/linux/firmware/samsung/exynos-acpm-protocol.h
++++ b/include/linux/firmware/samsung/exynos-acpm-protocol.h
+@@ -36,8 +36,8 @@ struct acpm_pmic_ops {
+ };
+ 
+ struct acpm_ops {
+-	struct acpm_dvfs_ops dvfs_ops;
+-	struct acpm_pmic_ops pmic_ops;
++	struct acpm_dvfs_ops dvfs;
++	struct acpm_pmic_ops pmic;
+ };
+ 
+ /**
 
-Changes in v2:
-- architecture: switch from a syscon/MFD approach to a thermal-sensor
-  node with a phandle to the ACPM interface
-- bindings: address Krzysztof's feedback, drop redundencies,
-  interrupts description.
-- firmware: introduce devm_acpm_get_by_phandle() to standardize IPC
-  handle acquisition.
-- thermal driver: drop compatible's data and use the static data from
-  the driver directly.
-- defconfig, make EXYNOS_ACPM_THERMAL a module
-- Link to v1: https://lore.kernel.org/r/20260114-acpm-tmu-v1-0-cfe56d93e90f@linaro.org
-
----
-Tudor Ambarus (11):
-      dt-bindings: thermal: Add Google GS101 TMU
-      firmware: samsung: acpm: Consolidate transfer initialization helper
-      firmware: samsung: acpm: Annotate rx_data->cmd with __counted_by_ptr
-      firmware: samsung: acpm: Drop redundant _ops suffix in acpm_ops members
-      firmware: samsung: acpm: Make acpm_ops const and access via pointer
-      firmware: samsung: acpm: Add TMU protocol support
-      firmware: samsung: acpm: Add devm_acpm_get_by_phandle helper
-      thermal: samsung: Add Exynos ACPM TMU driver GS101
-      MAINTAINERS: Add entry for Samsung Exynos ACPM thermal driver
-      arm64: dts: exynos: gs101: Add thermal management unit
-      arm64: defconfig: enable Exynos ACPM thermal support
-
- .../bindings/thermal/google,gs101-tmu-top.yaml     |  68 +++
- MAINTAINERS                                        |   8 +
- arch/arm64/boot/dts/exynos/google/gs101-tmu.dtsi   | 136 +++++
- arch/arm64/boot/dts/exynos/google/gs101.dtsi       |  18 +
- arch/arm64/configs/defconfig                       |   1 +
- drivers/clk/samsung/clk-acpm.c                     |   8 +-
- drivers/firmware/samsung/Makefile                  |   1 +
- drivers/firmware/samsung/exynos-acpm-dvfs.c        |  20 +-
- drivers/firmware/samsung/exynos-acpm-pmic.c        |  20 +-
- drivers/firmware/samsung/exynos-acpm-tmu.c         | 240 +++++++++
- drivers/firmware/samsung/exynos-acpm-tmu.h         |  28 ++
- drivers/firmware/samsung/exynos-acpm.c             | 113 +++--
- drivers/firmware/samsung/exynos-acpm.h             |   2 +
- drivers/mfd/sec-acpm.c                             |   6 +-
- drivers/thermal/samsung/Kconfig                    |  17 +
- drivers/thermal/samsung/Makefile                   |   2 +
- drivers/thermal/samsung/acpm-tmu.c                 | 547 +++++++++++++++++++++
- .../linux/firmware/samsung/exynos-acpm-protocol.h  |  32 +-
- 18 files changed, 1195 insertions(+), 72 deletions(-)
----
-base-commit: 2e68039281932e6dc37718a1ea7cbb8e2cda42e6
-change-id: 20260113-acpm-tmu-27e21f0e2c3b
-prerequisite-change-id: 20260423-acpm-fixes-sashiko-reports-ae28b6ed5581:v1
-prerequisite-patch-id: 18d89d0e2bc0efe2cb366746ac4db36f4682f061
-prerequisite-patch-id: eb4f90add371877a1930c442c5464c4da7242889
-prerequisite-patch-id: 021cd1ee6d2b93f554dd5098cd1158977294dc41
-prerequisite-patch-id: b5da16b5c6d6731ea519ed68302fd52ce57c7ffa
-
-Best regards,
 -- 
-Tudor Ambarus <tudor.ambarus@linaro.org>
+2.54.0.545.g6539524ca2-goog
 
 
