@@ -4,119 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0D64FDEE47
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 20:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E94FDFDEE47
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 20:06:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L66LUNwoDrC8v+fLcz/2laZfBAffYNs40TcmMe7nvug=; b=1slG1UZ0D9071kUW0ICjmsx6is
-	HtW6pit88TtT+tS/V6xGpoG6R6pUWWbI/DAwuZN0NWjnLwq0xjDRoWRV04zjzf/4HvflPvqoFWWkP
-	DmTe8b0/gW/AXS1zAvG+2RMPg/pPPBOxaBMvafD7D3iSRvUCPtoztTBWT7DkUVW3bw4bOXyw3spRW
-	/EajE3wzxG0f/rB/2rBlwnGQcjKyA8sqoA7yI7OkJL5gCmwLLv/0UnsUJdhQQzqBn1aiXEpelp1kP
-	S+XntiKiGHm22X91+tcrjI/otW12MdIyQyYhO4jjVtG4XEdbHTB9OAqTMft0JfE6z1Ip6+jm7SPKm
-	yQHT4nFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=miy/V1Ssd8oZVcXvrSSNRZJTWkLzXKYl4wR7b24pcBU=; b=CvUrjYhqzrLthbv000a2EY6cs5
+	3J5afq+eFbXrj0+8oUBNuQFsVHocYoBrdr2hdNCxjcMnuf2PnqXScG2JJZsfgXhPUZNidugXOuMZR
+	H71iqV6hSJBbvQNt7b4NdJFtXKYMe/Jok3b/0e4zxsng7DEPNAPuGrhDFB2K95HUanWQhQJ5qPton
+	PIe7SupR9s/C2sBd2ldgRYOXoVlbENibB1b8xqS7UFTI/y6SuZnkEmE1uiaWZ0+U+Jk7I+X8eg4C3
+	ErLxJGj4qE0zVVstDTBq/mhO6NI7pWKMRvGi64CzKiJsjS2cHH5pJhPvLiaHlryJq2GfH5Tl9gu/r
+	YiHdzcJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG0Gi-0000000CGjP-3g8E;
-	Thu, 23 Apr 2026 20:03:24 +0000
-Received: from mail-eastus2azon11011043.outbound.protection.outlook.com ([52.101.57.43] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1wG0Jr-0000000CGtH-1xLH;
+	Thu, 23 Apr 2026 20:06:39 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG0Gf-0000000CGj2-37sb
+	id 1wG0Jp-0000000CGsu-1jy1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 20:03:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RRrxQUfkUVpHvtRnQVn7IKY0uec0C3JChQrNxm8zNjm5J9w71aiBsJcONf3POWmOz7SDA+r8eLrLj7gahM5kc+OTXhaTUJj2X9SKicHmmrzJz0Fvx3tnnOpFKNEGrMBbtrPXm4e1U2/yNiEaOCUF2jH6X3yH2JhWyQbJxV+LzkQsey8aP2LWxjAoOpih+Ls7bGN/QvfOxe2zSGUDYe2/HWAGkMn1gLzqzXCsRGEoLyQOBjb1T6tsO8mKJWWqW7xVaypBb7eR5/RHx0NvJv3IpGGJHZCx477oCUKMZddXKiLAXgsjeIwozYlnYLbgOaz20kF4ckafndkrxNvGoqAYpw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=L66LUNwoDrC8v+fLcz/2laZfBAffYNs40TcmMe7nvug=;
- b=MpOfg3c8/OJ9aL4kBRCnYCIvmM/Krz/MuAJInbI9Zyb0a80xrq1KPXpxLcJD5vnF0fg0VovAsDFi+f0cfthVw2ithcmLt8mwhA/qOics/LHjCvivDMlFXMvik7dUWLFvMK/nR3Mp5LBLncVddmtTu7Hruf/sZltUwq/LomxbaXVcVQT5NZuaN2b5roa7y65T4ia56mtOiMYrbiKFAH9JkPTL9t0AoKA8GM8QoqpWpmBcRSfOn7beL0fppumOp7Qvts/K7fHRhvimbd0mHiKo4cWkrkD7Y6TvxbXOxYdzGCBbq6bgl6TNsrj15coVBsykljmtcdiSSLtmQTEznqpC9Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=L66LUNwoDrC8v+fLcz/2laZfBAffYNs40TcmMe7nvug=;
- b=PXy6Iyrb6gw/YTX6RNITj6BytF9N55ykx1wWiSrdUJRuM4fEM6pIQJhpSdUIiMy2XAwvJLzCcV5z+ez65yS98gOII50DKoPIGfY+grixqlrNOpXzvBqDm2eRNR05JjvuuJEweK6b5yD4oY0nm83yRMKZJATVssWf28xxb5PCWQZ+10XVFdcF5XvV+loBc2iZ+OEog4NTZPCTFtimZ/cC1s4OUMn1wHTXmOZOOehdhqUmwnSVEcOKqQTPSuf/19ZNkFUjXKmNmUfV3RFfzo6xrEzTa5HHBs3cBQZmh2+cJQQvH1EXnA+R9oAepbw6PWnuA6v1XI0A9k8q0ZRRS4tfxg==
-Received: from BL1P221CA0027.NAMP221.PROD.OUTLOOK.COM (2603:10b6:208:2c5::8)
- by SJ2PR12MB9006.namprd12.prod.outlook.com (2603:10b6:a03:540::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.16; Thu, 23 Apr
- 2026 20:03:09 +0000
-Received: from BN2PEPF000044A6.namprd04.prod.outlook.com
- (2603:10b6:208:2c5:cafe::19) by BL1P221CA0027.outlook.office365.com
- (2603:10b6:208:2c5::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9791.48 via Frontend Transport; Thu,
- 23 Apr 2026 20:03:08 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- BN2PEPF000044A6.mail.protection.outlook.com (10.167.243.100) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.18 via Frontend Transport; Thu, 23 Apr 2026 20:03:08 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 23 Apr
- 2026 13:03:00 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Thu, 23 Apr 2026 13:02:59 -0700
-Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
- (10.126.190.181) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 23 Apr 2026 13:02:59 -0700
-Date: Thu, 23 Apr 2026 13:02:57 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>,
-	<kevin.tian@intel.com>
-CC: <joro@8bytes.org>, <praan@google.com>, <baolu.lu@linux.intel.com>,
-	<miko.lenczewski@arm.com>, <smostafa@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>, <jamien@nvidia.com>
-Subject: Re: [PATCH rc v2 0/5] iommu/arm-smmu-v3: Fix device crash on kdump
- kernel
-Message-ID: <aep68esJlQjaG1XE@Asurada-Nvidia>
-References: <cover.1776286352.git.nicolinc@nvidia.com>
+	Thu, 23 Apr 2026 20:06:38 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-488af96f6b2so90427895e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 13:06:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776974795; x=1777579595; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=miy/V1Ssd8oZVcXvrSSNRZJTWkLzXKYl4wR7b24pcBU=;
+        b=afSKc7ch+/5xoHTfew88GMeRZzrjEbKMvu4CG8t9vLTDDDgK2GlwzNDmt+NggZEIn6
+         bwkcYyd53ZALLuHLCNrNgI0vh+a2DA9Ftr8OgKXD+WejU2nz7se4ejDyix1XNwrIUoZO
+         Y5HaY4rwyrWYYHT6Sp7x4Fpmydf4vYsfdHp7jSaQIahXf/LwxEi48WoVqaTkbIex3wAm
+         vJgDeC/QJ5lz+o+vyW8MtQN+NkOoX5gtWXvc0q5tvAofgpZ6XzcaheAluyYfc5VWtBGQ
+         i0XJtucWx78vsat+c6L4ARoBZvWgVKKiBDe2vOH81IkwsgHWUYqVNntoKf62Mcmqf+Qj
+         bZxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776974795; x=1777579595;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=miy/V1Ssd8oZVcXvrSSNRZJTWkLzXKYl4wR7b24pcBU=;
+        b=r4srrfen+dMdO/j62IDdl9aAOdRyd4YRttA22SmBo+N51LcUwXT64VvmwQSUka0JSd
+         yp+FTNWroplBgA6RMdU/W+WGFUvKLZyi9aQNIWcV3QPcpCkwhiVtF6VyxpcDgYyot8MD
+         eQi/0mRyUgoXCO8xkuYgMnPMMzrecmGSPw6ELdBFVKk6v2FqY5arKXMVVn7+9uYXxdgH
+         /M0yR6H0ncsCMCsQ4ZpWShRRUOM6jNB0amwcsOt2lgrEVhNAdq4gjbL7laUg/+u5JemD
+         j1FdhlpHZkbAStKxMjlUrWHP/NoYUNMg1AUYs/s+4bRDyGYxWOyrkbetuwSei8eViKUk
+         qDCA==
+X-Forwarded-Encrypted: i=1; AFNElJ8leuMRpc7bFQKC7/8zZaYgRFBVYGWcEo6BPQgWMya/e3XX5Tle/XhttrYuYLUcY25i9DNWLV1+CRfGHXc5w6xE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/m4W33DQyOfK/QOP5aT1ghz2xJj3J9KzR5uJliixl6K8QpL4L
+	6NIjKRhY156wLM6EpUy8gThLrJXfuaqoCe59KHdjGzGH8xrDGPRx8MdV
+X-Gm-Gg: AeBDieu6oYd1WRBgSPey+WLgtKZL79IJYWbNSOwPndHpEv1b4saB5008aOA/gQbpXxQ
+	6/1tO1g2hNczXPq76ze6AA36na7MsGhxlKnBaordCkf8B6xXF6kh4jzGzFqBeCAo0Xlst0yB2cK
+	Wb7AnK8IHcZIiIYgBci297CeseRnFIRaH/4UnR1OxSGa8bXLv0tHroBheddjdBnZuAVR8lCLjq9
+	hZ6KeE0sTwirndXEPT7JiMgyFRfEEZ9/AQWzVXTxofV3OOY6RCfJL2kIeqF0kWrcUnHdkkNcZf2
+	RrHjx1iZcIpBlnWKMqYK/TmN1dt0EnEbIwtQoRUxOJlVp6q62ci687mtJduM1hv8m+d1ReG/+Ku
+	HO+Q6xbC8Ce/5ELgUw8+UrSIRje7tbE8U/p/3LbfiCarXa2dKYNy0st592Vm1J5tBaLBByxfpQ8
+	eW8QR3sjIoU9lg7YdP4YQV4Dh/3z6ZS2M1yAfl3VS9XKFtmHZzUgTyi+Qp5bjZXL/hTOCMpcc=
+X-Received: by 2002:a05:600c:468c:b0:48a:56d5:16f2 with SMTP id 5b1f17b1804b1-48a56d5179amr182114795e9.7.1776974794828;
+        Thu, 23 Apr 2026 13:06:34 -0700 (PDT)
+Received: from osama.. ([2a02:908:1b6:8980:5f44:38d2:bccf:b54f])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488fb75ab25sm167658815e9.11.2026.04.23.13.06.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Apr 2026 13:06:34 -0700 (PDT)
+From: Osama Abdelkader <osama.abdelkader@gmail.com>
+To: luca.ceresoli@bootlin.com,
+	Inki Dae <inki.dae@samsung.com>,
+	Seung-Woo Kim <sw0312.kim@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Hoegeun Kwon <hoegeun.kwon@samsung.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Osama Abdelkader <osama.abdelkader@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v3 2/3] drm/exynos: remove bridge when component_add fails
+Date: Thu, 23 Apr 2026 22:06:20 +0200
+Message-ID: <20260423200622.325076-2-osama.abdelkader@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260423200622.325076-1-osama.abdelkader@gmail.com>
+References: <20260423200622.325076-1-osama.abdelkader@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <cover.1776286352.git.nicolinc@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF000044A6:EE_|SJ2PR12MB9006:EE_
-X-MS-Office365-Filtering-Correlation-Id: 89d8c663-6020-43a0-1d37-08dea1735713
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|7416014|1800799024|36860700016|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: Bz7W/8hCAoY9yzCBrB5dhMpHnPPBfw9m1oDeHo7+a4j6KRadkjMTsEhA5QPZLy71lxjhySP4Q4wBK5ZptQ971cZ1gHm2/aJlInn9rJ1qyJj2XsHWQfhf2SvIAOXBPr7i5FKLIEZf57U5FJ0UOs4e1sTQ4SeYGh1DskRPX1y+YV9Ao5NjZPQp+plKfsa8lYdp6igO9NULplhRo8IBlEG1LAJtuCJFvZFoj2DoXFt8M9le2ftNsSxsm0OayMiHCd8a9l8XoQMNYLm7MCvgPcGyFYQIeGrQiji/ZCXKwvpTxgoT3pfV8qfeV9mUMPm3gLfiQXxYL6AGDuAlzp9DlopceH7hHZvg6EPrOb1qpQN3K2C6boS7M5AsqqAtgE7gMDSekHQbVxWhWAQZJjUC9GC0fED4/BP+fttmOtst9RLscERdAT6ds1XQxBco0ZO8bNiGHsGOdsj+AVMJ9Eu0/qgAiFctbicJ4PwjW1PK++01WXIsYdM9nm0r5sKlFDgNKVK+ts8mURqIgzzLauIGBqkqC7P6/lwW2ar+gqXaqOjSqxsICK5IbPo0JjpX3XQY4zkIW10QmowNhJ82Y9EIclFSMysrEN1wYlqObqYyefnUMWXmFPPz1/imPsbb4BiRBWn4VnIagdtEBGljEnDF6R4Q46y93HMZE5cTzMqbXceTbRHhSz/jmszZx2wUjtMU/Q4NRQ0GB9t7PoNUBqr74g5qhVwpmcJEVaFxzTyHx822RuZJsho2b43Z/lpjC+ewqW7Z7vofYw+NZIchowqtuTt3YA==
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(82310400026)(7416014)(1800799024)(36860700016)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: S9675W9krBpqA9cb2pqkNaVXb2mI2m1afwOD2YaXYzbqYWMq867KCjc792EgiXhWukUccq9yBydkzs53Mg9SlM+PRyVjKTT7Q4gv+RGNOD6ojYQ8KG2MXk0g71XjgSkm5NlGKf814vxjWSZ8T1HWGDuppJStp9+9VV9QlD/3677rMrorN02sv7zyw1fcGe1ErqttYz28TkgJAT81K8WRFlehb/ymQfO6b+CyfVHTSFbbsAgeYVjjYcsS80k1adfWou96ySWw9QJ30lGOVVuNbCpQ7Y48eRWKPLg2Qznqvyw1azYkOXa8UI8ODY0/QMKfvO+l0SDtWnTxIU9gZRozA/YMa1Cjz5QEqU0fZuib/9tiVxabMComtfKaX/rw+bDh6BSYppafy1V+c1kwmd27ecObM2HwRXYMR/CXTkLpoYT3cfsgewjVj0SNOPqgk49g
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2026 20:03:08.5501
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 89d8c663-6020-43a0-1d37-08dea1735713
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A6.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB9006
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_130321_785930_827C9393 
-X-CRM114-Status: UNSURE (   7.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260423_130637_468007_0E26133F 
+X-CRM114-Status: GOOD (  13.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,23 +111,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 15, 2026 at 02:17:35PM -0700, Nicolin Chen wrote:
-> This is on Github:
-> https://github.com/nicolinc/iommufd/commits/smmuv3_kdump-v2
-> 
-> Changelog
-> v2
->  * Add warning in non-coherent SMMU cases
->  * Keep eventq/priq disabled v.s. enabling-and-disabling-later
->  * Check KDUMP option in the beginning of arm_smmu_device_reset()
->  * Validate STRTAB format matches HW capability instead of forcing flags
+Use devm_drm_bridge_add() so the bridge is released if probe fails after
+registration, and drop the manual drm_bridge_remove() in remove().
 
-https://sashiko.dev/#/patchset/cover.1776286352.git.nicolinc%40nvidia.com
+Check the return value of devm_drm_bridge_add().
 
-Sashiko posted a few comments, mostly valid.
+Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
+Fixes: 576d72fbfb45 ("drm/exynos: mic: add a bridge at probe")
+Cc: stable@vger.kernel.org
+---
+v3: add Fixes and Cc tags
+v2: devm_drm_bridge_add instead of drm_bridge_add + goto remove_bridge
+---
+ drivers/gpu/drm/exynos/exynos_drm_mic.c | 8 +++-----
+ 1 file changed, 3 insertions(+), 5 deletions(-)
 
-I am fixing them with a v3.
+diff --git a/drivers/gpu/drm/exynos/exynos_drm_mic.c b/drivers/gpu/drm/exynos/exynos_drm_mic.c
+index 29a8366513fa..e68c954ec3e6 100644
+--- a/drivers/gpu/drm/exynos/exynos_drm_mic.c
++++ b/drivers/gpu/drm/exynos/exynos_drm_mic.c
+@@ -423,7 +423,9 @@ static int exynos_mic_probe(struct platform_device *pdev)
+ 
+ 	mic->bridge.of_node = dev->of_node;
+ 
+-	drm_bridge_add(&mic->bridge);
++	ret = devm_drm_bridge_add(dev, &mic->bridge);
++	if (ret)
++		goto err;
+ 
+ 	pm_runtime_enable(dev);
+ 
+@@ -443,12 +445,8 @@ static int exynos_mic_probe(struct platform_device *pdev)
+ 
+ static void exynos_mic_remove(struct platform_device *pdev)
+ {
+-	struct exynos_mic *mic = platform_get_drvdata(pdev);
+-
+ 	component_del(&pdev->dev, &exynos_mic_component_ops);
+ 	pm_runtime_disable(&pdev->dev);
+-
+-	drm_bridge_remove(&mic->bridge);
+ }
+ 
+ static const struct of_device_id exynos_mic_of_match[] = {
+-- 
+2.43.0
 
-Thanks
-Nicolin
 
