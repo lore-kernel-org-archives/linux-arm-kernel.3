@@ -4,104 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A3B0FDEE31
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 17:41:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99560FDEE39
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 17:44:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MtCO+j49oRtYrCNOBMxnRW4knEbb/1y7Mt3UWY7TQfE=; b=25ppATaeeplIgrBTeFg6X4uUTT
-	ZM2Z0wBnC38pqetmPDB1SKA6U6SQASOZ5B8ApNyeizZn2OlRgRqYQe4b3I42XRHsn+hoZmdklXSEK
-	m1wMWXKLS9+MthDviGPFDPBJVq6YZe7Z0g1hz06VXVdcz0L4rdImo/oFwDKd/utao70EobaL55p0S
-	LKq5lg2hWBp3Zb4hNDuiWtHZg+4gZYcTWjYMRttLLS+3sJ3hgTwwQxuqKASm8ejg1mOC+Srx70sFw
-	Xqbg2WyT1pTEMNeHIA5u+rHhyQCG5kowru0LkZkB2OUJIFbQwk+d1L6ZkbXNA4CjVVUA8wo/w1fbD
-	qMLdyaUg==;
+	bh=pN1bHXTr1LlOb/G1azX3CC1+rwLeWTb7QNVStx+Ul2g=; b=SByMpGw3+8tv6mvPzG9ZdwGwE5
+	tyzWBBxZgGFr0Y31rufiS5j3DmuEE3nqg92q/HAS3XqoUsmKzMhLJQbpisDAF+jptBJpXbFWzj8Bp
+	tRibCaIE0U0+tn78k2QK3zhOHaANWjozCNW2jjxHG8fYcVMgDqg6htgWlPEZYSnb7ev3f40zH/Ict
+	AZG3KZRTyC27x96nrz4RSBD4L9Ru8yOo4nEFlGyCtQldMUSiUWyxALB81meSJ1eqSjRF8ZZDVg4aX
+	fpw7GMkxd60MV08gGkRc8HhT+O8OTLZj795othr6W6rGO93uPV3ykT/khReGi95T4Bw6de6BPVodM
+	mOHWkWjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFy3K-0000000C4IQ-0MmQ;
-	Thu, 23 Apr 2026 17:41:26 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1wFy6I-0000000C4ei-2Q93;
+	Thu, 23 Apr 2026 17:44:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFy3I-0000000C4H7-1IRg
+	id 1wFy6H-0000000C4eY-05CL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 17:41:25 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-b936331786dso907618466b.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 10:41:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1776966082; x=1777570882; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=MtCO+j49oRtYrCNOBMxnRW4knEbb/1y7Mt3UWY7TQfE=;
-        b=hUhkBCEDTH4caDKs1lRfBFsvShWfbQ8RwZuqNJgTSKypFNlTV9Ym+bQxuHe3/m/3S7
-         UXoeT+tcl56j50WYiBEOltAsai2Z0JRtBNxDpmCvtU+ceO3KKG3/ppyNEbUPNcqzQjHC
-         V+CSjkahQ6YFCLpEyNtfq+f9PCzMHS0E64wHQ=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776966082; x=1777570882;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MtCO+j49oRtYrCNOBMxnRW4knEbb/1y7Mt3UWY7TQfE=;
-        b=biOcTwNf7CY8RpJp6aBq0fqY2Ap2M1LR13lymGanQYRkL3highGAhQk+q+OqdwnOAT
-         1azhjsz8GqMat4qvYwC4FMDh3ZlbtGP7SBVAA3cri7cLpRKbUjJ81d4gfhTXBl6Hdh7m
-         vtAW0SFkblGX3Anw1NXjLYrdeRT1JrEs3qSu44jCB7snchT5CFglbl04AjnEuLOgAIhd
-         +0bzNR4j4VgFMQzCSGPrhrv/8B7na7Xlb64K7V1QX39LXfhGKGF2orsVZLx1gWcm4xE0
-         RMYHsxlmJy4JULcwc4lF9qPJO5nORfVx0wtX4XbOkNkkfUEZYUuLCcZmJ6ZsYR/5YM6M
-         1aQQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8J9Wp7/yD711Tpx7VaY3YijFRxFdiMsezLlQhQy+3tgYnDL9UFvDglz2fZJHMFfM5wvmvDSpJHQdW6OD6BSLrr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyatq1xjHKhoUFEhdSSeI14CKAUwrg2ZxMd0kb1dHl9y7ik6KMG
-	t8xidq/D1DI2aQM/grFnYdvxDJkWCM+kDkJm3D+4Ud98c9+1zmuLSl0TjayhCfNA/510jST1mfU
-	8DVZ+z00=
-X-Gm-Gg: AeBDievl9q9quY6rzolUXLpW/lzoDyDsXDhmwWO0fSID+x+ujSlU70DaHM2XUx1jHN5
-	whMJRGCTcA2zU1DIa+Lft6+qu0qD2PD9ionVeAtuARR00xScOW2YZEKFzPast1gvqI0ivVz7z4W
-	gNl/HZMjJ3WclrFviw19jW2cQ+Btq557nGpnWN8EcJJq2vtl4ERrzNpVHKSUCBa7934BsQ4QM3N
-	RMEpz4jypMgfKiwFXzz6Psq+URp+DB3pOWgDjJkET2YzyoGN2KE+Gp3AzM6KyW/5ZWY/Jt8OqKD
-	hA2Q4xEndEsFGTaETft3LAmI7IoQgu1+58MSwPxRApWivmPZFXjDH6SG4Fjm8BsWce7R7vQcl3A
-	WuK9jcl+mQZQ0wWSpC/tud33cVxTiWexvznLe7WL3+c98xkI47h02ALAZ52KaGQH7dn0UEyYYv6
-	kx84R+UN2tYBmG9kxpjp2ey6DnZS9GM/BG1+uTA9XlgFxQozbsn95lcWIehVBIMZfJr24ay9U0b
-	sz+cAD5BaDQ8AbwJH3xig==
-X-Received: by 2002:a17:906:fe4d:b0:b9d:ed9a:5f30 with SMTP id a640c23a62f3a-ba41b1dfccdmr1455840766b.48.1776966081727;
-        Thu, 23 Apr 2026 10:41:21 -0700 (PDT)
-Received: from mail-ed1-f53.google.com (mail-ed1-f53.google.com. [209.85.208.53])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ba4516f7b11sm679785966b.14.2026.04.23.10.41.20
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Apr 2026 10:41:21 -0700 (PDT)
-Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-671dad7cac8so10251353a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 10:41:20 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/lC94sjgicAbnzkhDz32kr7hovMv4aJzAxyKuceIWdys46SuxDjGug1fLoSNvxMBN86yJH9c75NHxA6VlJTDZX@lists.infradead.org
-X-Received: by 2002:a05:6402:21c9:b0:672:522d:8f90 with SMTP id
- 4fb4d7f45d1cf-672bfd736fbmr12735589a12.4.1776966079746; Thu, 23 Apr 2026
- 10:41:19 -0700 (PDT)
+	Thu, 23 Apr 2026 17:44:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5119760139;
+	Thu, 23 Apr 2026 17:44:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B558DC2BCAF;
+	Thu, 23 Apr 2026 17:44:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776966268;
+	bh=Ca6918fcOAXDM3mevQIr9UFJydEQNXb86m/+edpbIC8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aBu8iRtFL+Ml28WAMlWVSTzNQysPYMICkXs8iHwEl66fo33PA83dxwmevXPQQ+8r+
+	 03oNzphPXfEn2JbEdywqHe7tIQBtSWk2smDoiP5qJEz4T9SIQJTUmfhl4b9SQHt5je
+	 ZOwt4sdI6EeBvPuh2YSRd1/7Nzc0ld+fSTlcJlo/M6Q/KKZVTJ9Yb0rkFLeCpYg3vq
+	 RUXInthqnG+cSRYc7ZytRSXcRZSrWI99++7ZWujhmzXACHfFkIte2jw04JlDIc58OZ
+	 +EYO0HeTnSkElit8Iw3fYHtGMH0IddZ9VlxfAChsS1CaEM59XvTguRxlE6Em7hXYYF
+	 Onb3Y/C9LQ6gA==
+Date: Thu, 23 Apr 2026 18:44:22 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Billy Tsai <billy_tsai@aspeedtech.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Ryan Chen <ryan_chen@aspeedtech.com>,
+	Andrew Jeffery <andrew@aj.id.au>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
+Subject: Re: [PATCH v7 1/3] dt-bindings: pinctrl: Add
+ aspeed,ast2700-soc0-pinctrl
+Message-ID: <20260423-clever-swooned-a06907e9101e@spud>
+References: <20260416-upstream_pinctrl-v7-0-d72762253163@aspeedtech.com>
+ <20260416-upstream_pinctrl-v7-1-d72762253163@aspeedtech.com>
+ <20260416-brutishly-saga-ba7168a4cd14@spud>
+ <OSQPR06MB7252EB0C2A1A3313DE49406B8B202@OSQPR06MB7252.apcprd06.prod.outlook.com>
+ <20260417-anemia-borrower-fb90ac02b417@spud>
+ <OSQPR06MB7252BD7967D2567AD6DA7A1D8B2F2@OSQPR06MB7252.apcprd06.prod.outlook.com>
 MIME-Version: 1.0
-References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
- <20260422125647.GP3126523@noisy.programming.kicks-ass.net>
- <20260422131338.GI3102924@noisy.programming.kicks-ass.net>
- <CAHnCjA2fa+dP1+yCYNQrTXQaW-JdtfMj7wMikwMeeCRg-3NhiA@mail.gmail.com>
- <87fr4l28zn.ffs@tglx> <CAHnCjA07ER=9xBqXq4jf5yn052W-E9ZXD86HxnRGtai6bpXbbQ@mail.gmail.com>
- <87cxzp1tn6.ffs@tglx>
-In-Reply-To: <87cxzp1tn6.ffs@tglx>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Thu, 23 Apr 2026 10:41:02 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wjsEqWJxXArS-P5+ksSY2Apaox8u6FtUrtyWSBEOL4Q2Q@mail.gmail.com>
-X-Gm-Features: AQROBzBzEOcvm7qbXfrxaRw14oufW4aJ2ixiz_9tNE7BqF1Jnabsdo_EuiA-ypA
-Message-ID: <CAHk-=wjsEqWJxXArS-P5+ksSY2Apaox8u6FtUrtyWSBEOL4Q2Q@mail.gmail.com>
-Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
- and tcmalloc everywhere
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: Mathias Stearn <mathias@mongodb.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, 
-	"Paul E. McKenney" <paulmck@kernel.org>, Chris Kennelly <ckennelly@google.com>, 
-	Dmitry Vyukov <dvyukov@google.com>, regressions@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Ingo Molnar <mingo@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Jinjie Ruan <ruanjinjie@huawei.com>, Blake Oler <blake.oler@mongodb.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_104124_420882_6AB91F1E 
-X-CRM114-Status: GOOD (  19.81  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="JAt2RGrDeiha8/Di"
+Content-Disposition: inline
+In-Reply-To: <OSQPR06MB7252BD7967D2567AD6DA7A1D8B2F2@OSQPR06MB7252.apcprd06.prod.outlook.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,57 +88,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Apr 2026 at 10:19, Thomas Gleixner <tglx@kernel.org> wrote:
->
->   C) Declare that this is not a regression because the ABI guarantee is
->      not violated and the RO property has been enforcable by RSEQ
->      debugging since day one.
 
-No, if this actually hits real users, that is not an option. If real
-users never used RSEQ debugging options, those options are simply
-irrelevant.
+--JAt2RGrDeiha8/Di
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Regression rules have never been about "it wouldn't have worked in
-some other configuration". That's like saying "that code would never
-have worked on another architecture". It may be true, but it's
-irrelevant for the people whose binaries no longer work.
+On Mon, Apr 20, 2026 at 07:22:57AM +0000, Billy Tsai wrote:
+> In particular, I'll split the constraints as follows:
+>=20
+> - For pinmux, the presence of `function` will require `groups`, and
+>   `pins` will not be allowed. This reflects the hardware design, where
+>   the groups are defined by the pins affected by a given mux expression
+>=20
+> - For pin configuration, exactly one of `groups` or `pins` will be
+>   required (using oneOf), so that configuration is applied either at
+>   group level or per-pin, but not both.
+>=20
+>=20
+> - if:
+>     required:
+>       - function
+>   then:
+>     required:
+>       - groups
+>     not:
+>       required:
+>         - pins
 
-We will have to fix this.
+>   else:
 
-This is not some kind of gray area. It clearly violates our regression rules.
+I think this is a separate section under an allOf, rather than an else.
+You can also simplify the condition above to just be
+- if:
+    required:
+      - function
+  then:
+    required:
+      - groups
+since the node will then always be tested against what you have below
 
-The only "ABI guarantee" is what people actually see and use, not some
-debug option that wasn't enabled.
+>     oneOf:
+>       - required:
+>           - groups
+>         not:
+>           required:
+>             - pins
+>       - required:
+>           - pins
+>         not:
+>           required:
+>             - groups
 
-And I just checked - it's not enabled in at least the Fedora distro
-kernels. Presumably other distros don't enable it either. So no actual
-non-kernel developer would *ever* have hit it, and claiming it is
-relevant is just garbage.
+I think this here simplifies to
+oneOf:
+  - required:
+     - groups
+  - required:
+     - pins
 
-IOW, that debug option was always a complete no-op except for kernel developers.
+You'd also need to note that pin level config settings should take
+precedence over group level ones.
 
-In fact, that debug option is actively *hidden* - you have to enable
-EXPERT to even see it. Soi it really is not a real option for normal
-people AT ALL.
+--JAt2RGrDeiha8/Di
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Christ, even *I* don't enable EXPERT except for build testing. It's
-literally something that only embedded people doing odd things should
-do.
+-----BEGIN PGP SIGNATURE-----
 
-If that rule was actually an important part of the ABI, it shouldn't
-have been a debug thing.
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaepadgAKCRB4tDGHoIJi
+0iGUAQCSvZRjl2it7AaROKHK0Bp704DuQXDbJXJ0D6NcO6IYSQD/TPXLQsCR9Y10
+jtbhzr6qfBOMLqlIhuZTFyJ2Xq5jBAw=
+=i4l7
+-----END PGP SIGNATURE-----
 
-So:
-
- (a) the debug code in question needs to just be removed, since it's
-now actively detrimental, and means that any kernel developer who
-*does* enable it can't actually test this case any more. It's checking
-for something that has been shown to not be true.
-
- (b) we need to fix this (revert if it can't be fixed otherwise)
-
-I see some patches flying around, but am not clear on whether there
-was an actual patch that make this work again?
-
-             Linus
+--JAt2RGrDeiha8/Di--
 
