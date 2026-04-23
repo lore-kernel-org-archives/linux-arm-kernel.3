@@ -4,68 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E47D9F589DA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 13:53:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59685F589DA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 13:55:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NJ45MRd50YmhTuS87ih6apveq2PuxqmT1boxyJYCNPo=; b=euvaIsIwD3A/efkHtHStIdzF5B
-	ILvWu/apowS1j/Axi2OMOfHmEgHS0G6Zb2/q6i4IcuKVCHYoyrMn9CEEEZcdSzDjKRAmsBFmBO9bE
-	FI0OkpSptZKqDVJUNk+fuOt3OeeL1HQ9qKiZbhfi4iQ3n5aOuF08tG4K6x9XRg5i3cb1w2u1uzpr7
-	E3O8X6tx8TcfLj55VPGsXXSWrdhRIogbESKlIeL4SaVjoQln2NmPEGbiwzvfLFNx9CQ7cD/GFK70H
-	yXm3iFyShP77H8+i3JrI0LXyM3YmPE/20SKbPhudwZ+/IxwOfZM/H2e4EPuNm2v0c4r0THhO90gHx
-	o6i/A+7Q==;
+	bh=WQLZOQO+U30wTOFIEuaoB0OkEf0e2/OM6gk0M5/r6uo=; b=WxyVKecsrHvWJuNmohSwJGhFO6
+	pIWfB5qojSFRuiaxbeEyDtBgjYjkuahXEPij3kFlOMKnfr/xn7OFDNnAXwHhtcHZm70C0brJuBOXH
+	Q30qBqNMsNC8aZvwyc5ZJWLLY+fIM/d1H8+9+QnIsZPnnLSthL9BC2Ybw7sMTKbsL+D3rZf9kgtg1
+	kvgmxH3+vLWcyrPIQPQDd7adCiiXDBLo9r1IO0/Ft/UAEqkTXA8Alf5LYPuUgcd27q8gZCLj1EUr7
+	ZhATYv6KRNPNJmgaCrNs2vDrIPtw98n+lciedonbUiH6FfbVlZKd+gIgCgrG4BjUDvKgEIKm5AEBQ
+	/jk89VFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFuV5-0000000Bm4F-3N99;
-	Thu, 23 Apr 2026 13:53:51 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFuV1-0000000Bm3o-30Ij
+	id 1wFuWZ-0000000BmCH-0nke;
+	Thu, 23 Apr 2026 13:55:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wFuWW-0000000BmBx-2n56
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 13:53:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=NJ45MRd50YmhTuS87ih6apveq2PuxqmT1boxyJYCNPo=; b=Idqd7BHnu2Vb4Ca8b6K1WFzn4p
-	I/HKK+Y6KDoSFcUFKSfzIYdeWWTfIB9QcuVugQ/GkQMCMqd8+1ueMe8ipPGg7khwJjj26jz38/82/
-	RUUEYHFn7spP9fIHQUSVVIkU54Ejhw6/pB/G01fSHd5PwBkqMzz1FeVZ/wgifXjOzEgo=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wFuUm-00HFdP-Cn; Thu, 23 Apr 2026 15:53:32 +0200
-Date: Thu, 23 Apr 2026 15:53:32 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Shenwei Wang <shenwei.wang@nxp.com>, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-gpio@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-imx@nxp.com
-Subject: Re: [PATCH v13 0/4] Enable Remote GPIO over RPMSG on i.MX Platform
-Message-ID: <cb6b8ec9-296e-40fe-848d-ae87463ff1db@lunn.ch>
-References: <20260422212849.1240591-1-shenwei.wang@nxp.com>
- <CANLsYkypRaFTTP7MLLLR+=AB5JnRTA4i130qvWzB1qoAuM9FWQ@mail.gmail.com>
+	Thu, 23 Apr 2026 13:55:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2D1181BF7;
+	Thu, 23 Apr 2026 06:55:13 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C49CF3F641;
+	Thu, 23 Apr 2026 06:55:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776952518; bh=quGwF0POZZMWSw3MtDXTCOpYSCku5HoAlCX2fTkXUug=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HoFfquLkrAjIHbreqmD/vsngA9Jq51G8D1ZktxBkXr0+1Imrp0R2GMKqVly52pOE4
+	 DNTOm6Jzb+i35WhTDOyqbHHIC1TtsngxZ5SzoCAW3QiufJValXXzCb6AYutmOGG+tC
+	 eiLybmpLA+D6Nuhs4c63SyPB9GaptFUCKVn5h12w=
+Date: Thu, 23 Apr 2026 14:55:14 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Mimi Zohar <zohar@linux.ibm.com>
+Cc: Jonathan McDowell <noodles@earth.li>,
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
+	roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+	eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+	sebastianene@google.com
+Subject: Re: [RFC PATCH v2 1/4] security: ima: call ima_init() again at
+ late_initcall_sync for defered TPM
+Message-ID: <aeokwrC86WI7uT+K@e129823.arm.com>
+References: <6919248bdc85dac60277fa9d9c83d8bd258ca635.camel@linux.ibm.com>
+ <aekXaU52fzvNYaUF@e129823.arm.com>
+ <aekkVQwueKbFtG7C@e129823.arm.com>
+ <82803bb3b471898a77084c449b73c7f7b4eb2149.camel@linux.ibm.com>
+ <aem0SSQuE1e3pGOS@e129823.arm.com>
+ <56a8aab50a3b5ce0a345fc2079fb2abc7d0f1b23.camel@linux.ibm.com>
+ <aeoAlVEwzRUPrlVe@e129823.arm.com>
+ <aeoRxWPyOHGJd+Jh@e129823.arm.com>
+ <aeoWO2Cwo04YYu2l@earth.li>
+ <bd908e28298d968740d03c97bc7e441de188b7b4.camel@linux.ibm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <CANLsYkypRaFTTP7MLLLR+=AB5JnRTA4i130qvWzB1qoAuM9FWQ@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <bd908e28298d968740d03c97bc7e441de188b7b4.camel@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_065347_776283_A3B8D49C 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20260423_065520_806799_42B47A94 
+X-CRM114-Status: GOOD (  68.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,22 +88,322 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 23, 2026 at 06:53:12AM -0600, Mathieu Poirier wrote:
-> Once again Andrew Lunn was left out.
-> 
-> On Wed, 22 Apr 2026 at 15:29, Shenwei Wang <shenwei.wang@nxp.com> wrote:
+> On Thu, 2026-04-23 at 13:53 +0100, Jonathan McDowell wrote:
+> > On Thu, Apr 23, 2026 at 01:34:13PM +0100, Yeoreum Yun wrote:
+> > > > > On Thu, 2026-04-23 at 06:55 +0100, Yeoreum Yun wrote:
+> > > > > > > On Wed, 2026-04-22 at 20:41 +0100, Yeoreum Yun wrote:
+> > > > > > > > > Hi Mimi,
+> > > > > > > > >
+> > > > > > > > > > On Wed, 2026-04-22 at 17:24 +0100, Yeoreum Yun wrote:
+> > > > > > > > > > > To generate the boot_aggregate log in the IMA subsystem with TPM PCR values,
+> > > > > > > > > > > the TPM driver must be built as built-in and
+> > > > > > > > > > > must be probed before the IMA subsystem is initialized.
+> > > > > > > > > > >
+> > > > > > > > > > > However, when the TPM device operates over the FF-A protocol using
+> > > > > > > > > > > the CRB interface, probing fails and returns -EPROBE_DEFER if
+> > > > > > > > > > > the tpm_crb_ffa device — an FF-A device that provides the communication
+> > > > > > > > > > > interface to the tpm_crb driver — has not yet been probed.
+> > > > > > > > > > >
+> > > > > > > > > > > To ensure the TPM device operating over the FF-A protocol with
+> > > > > > > > > > > the CRB interface is probed before IMA initialization,
+> > > > > > > > > > > the following conditions must be met:
+> > > > > > > > > > >
+> > > > > > > > > > >    1. The corresponding ffa_device must be registered,
+> > > > > > > > > > >       which is done via ffa_init().
+> > > > > > > > > > >
+> > > > > > > > > > >    2. The tpm_crb_driver must successfully probe this device via
+> > > > > > > > > > >       tpm_crb_ffa_init().
+> > > > > > > > > > >
+> > > > > > > > > > >    3. The tpm_crb driver using CRB over FF-A can then
+> > > > > > > > > > >       be probed successfully. (See crb_acpi_add() and
+> > > > > > > > > > >       tpm_crb_ffa_init() for reference.)
+> > > > > > > > > > >
+> > > > > > > > > > > Unfortunately, ffa_init(), tpm_crb_ffa_init(), and crb_acpi_driver_init() are
+> > > > > > > > > > > all registered with device_initcall, which means crb_acpi_driver_init() may
+> > > > > > > > > > > be invoked before ffa_init() and tpm_crb_ffa_init() are completed.
+> > > > > > > > > > >
+> > > > > > > > > > > When this occurs, probing the TPM device is deferred.
+> > > > > > > > > > > However, the deferred probe can happen after the IMA subsystem
+> > > > > > > > > > > has already been initialized, since IMA initialization is performed
+> > > > > > > > > > > during late_initcall, and deferred_probe_initcall() is performed
+> > > > > > > > > > > at the same level.
+> > > > > > > > > > >
+> > > > > > > > > > > To resolve this, call ima_init() again at late_inicall_sync level
+> > > > > > > > > > > so that let IMA not miss TPM PCR value when generating boot_aggregate
+> > > > > > > > > > > log though TPM device presents in the system.
+> > > > > > > > > > >
+> > > > > > > > > > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> > > > > > > > > >
+> > > > > > > > > > A lot of change for just detecting whether ima_init() is being called on
+> > > > > > > > > > late_initcall or late_initcall_sync(), without any explanation for all the other
+> > > > > > > > > > changes (e.g. ima_init_core).
+> > > > > > > > > >
+> > > > > > > > > > Please just limit the change to just calling ima_init() twice.
+> > > > > > > > >
+> > > > > > > > > My concern is that ima_update_policy_flags() will be called
+> > > > > > > > > when ima_init() is deferred -- not initialised anything.
+> > > > > > > > > though functionally, it might be okay however,
+> > > > > > > > > I think ima_update_policy_flags() and notifier should work after ima_init()
+> > > > > > > > > works logically.
+> > > > > > > > >
+> > > > > > > > > This change I think not much quite a lot. just wrapper ima_init() with
+> > > > > > > > > ima_init_core() with some error handling.
+> > > > > > > > >
+> > > > > > > > > Am I missing something?
+> > > > > > > >
+> > > > > > > > Also, if we handle in ima_init() only, but it failed with other reason,
+> > > > > > > > we shouldn't call again ima_init() in the late_initcall_sync.
+> > > > > > > >
+> > > > > > > > To handle this, It wouldn't do in the ima_init() but we need to handle
+> > > > > > > > it by caller of ima_init().
+> > > > > > >
+> > > > > > > Only tpm_default_chip() is being called to set the ima_tpm_chip.  On failure,
+> > > > > > > instead of going into TPM-bypass mode, return immediately.  There are no calls
+> > > > > > > to anything else.  Just call ima_init() a second time.
+> > > > > >
+> > > > > > I’m not fully convinced this is sufficient.
+> > > > > >
+> > > > > > What I meant is the case where ima_init() fails due to other
+> > > > > > initialisation steps, not only tpm_default_chip() (e.g. ima_fs_init()).
+> > > > >
+> > > > > The purpose of THIS patch is to add late_initcall_sync, when the TPM is not
+> > > > > available at late_initcall.  This would be classified as a bug fix and would be
+> > > > > backported.  No other changes should be included in this patch.
+> > > >
+> > > > Okay.
+> > > >
+> > > > > >
+> > > > > > I’d also like to ask again whether it is fine to call
+> > > > > > ima_update_policy_flags() and keep the notifier registered in the
+> > > > > > deferred TPM case. While this may be functionally acceptable, it seems
+> > > > > > logically questionable to do so when ima_init() has not completed.
+> > > > >
+> > > > > Other than extending the TPM, IMA should behave exactly the same whether there
+> > > > > is a TPM or goes into TPM-bypass mode.
+> > > > >
+> > > > > >
+> > > > > > There is also a possibility that a deferred case ultimately fails (e.g.
+> > > > > > deferred at late_initcall, but then failing at late_initcall_sync
+> > > > > > for another reason, even while entering TPM bypass mode). In that case,
+> > > > > > it seems more appropriate to handle this state in the caller of
+> > > > > > ima_init(), rather than inside ima_init() itself.
+> > > > >
+> > > > > If the TPM isn't found at late_initcall_sync(), then IMA should go into TPM-
+> > > > > bypass mode.  Please don't make any other changes to the existing IMA behavior
+> > > > > and hide it here behind the late_initcall_sync change.
+> > > >
+> > > > Okay. you're talking called ima_update_policy_flags() at late_initcall
+> > > > wouldn't be not a problem even in case of late_initcall_sync's ima_init()
+> > > > get failed with "TPM-bypass mode".
+> > > >
+> > > > I see then, I'll make a patch simpler then.
+> > >
+> > > But I think in case of below situation:
+> > >  - late_initcall's first ima_init() is deferred.
+> > >  - late_initcall_sync try again but failed and try again with
+> > >    CONFIG_IMA_DEFAULT_HASH.
+> > >
+> > > I would like to sustain init_ima_core to reduce the same code repeat
+> > > in late_initcall_sync.
 > >
-> > Support the remote devices on the remote processor via the RPMSG bus on
-> > i.MX platform.
+> > I think what Mimi's proposing is:
 > >
-> > Changes in v13:
-> >  - drop the support for legacy NXP firmware.
-> >  - remove the fixed_up hooks from the rpmsg gpio driver.
-> >  - code cleanup.
+> > If we're in late_initcall, and the TPM isn't available, return
+> > immediately with an error (the EPROBE_DEFER?), don't do any init.
+> >
+> > If we're in late_initcall_sync, either we're already initialised, so do
+> > return and nothing, or run through the entire flow, even if the TPM
+> > isn't unavailable.
+> >
+> > So ima_init() just needs to know a) if it's in the sync or non-sync mode
+> > and b) for the sync mode, if we've already done the init at
+> > non-sync.
+>
+> Thanks, Jonathan.  That is exactly what I'm suggesting.  Any other changes
+> should not be included in this patch.  Since Yeoreum is not hearing me, feel
+> free to post a patch.
 
-That looks like a step forward. Now we don't care about legacy NXP
-firmware, it makes it easier to make bigger changes, like use the
-messages format from gpio-virtio.
+I see. so what you need to is this only
+If it looks good to you. I'll send it at v3.
 
-	 Andrew
+diff --git a/include/linux/lsm_hooks.h b/include/linux/lsm_hooks.h
+index d48bf0ad26f4..88fe105b7f00 100644
+--- a/include/linux/lsm_hooks.h
++++ b/include/linux/lsm_hooks.h
+@@ -166,6 +166,7 @@ enum lsm_order {
+  * @initcall_fs: LSM callback for fs_initcall setup, optional
+  * @initcall_device: LSM callback for device_initcall() setup, optional
+  * @initcall_late: LSM callback for late_initcall() setup, optional
++ * @initcall_late_sync: LSM callback for late_initcall_sync() setup, optional
+  */
+ struct lsm_info {
+        const struct lsm_id *id;
+@@ -181,6 +182,7 @@ struct lsm_info {
+        int (*initcall_fs)(void);
+        int (*initcall_device)(void);
+        int (*initcall_late)(void);
++       int (*initcall_late_sync)(void);
+ };
+
+ #define DEFINE_LSM(lsm)                                                        \
+diff --git a/security/integrity/ima/ima_init.c b/security/integrity/ima/ima_init.c
+index a2f34f2d8ad7..334fa8927c45 100644
+--- a/security/integrity/ima/ima_init.c
++++ b/security/integrity/ima/ima_init.c
+@@ -118,10 +118,22 @@ void __init ima_load_x509(void)
+ int __init ima_init(void)
+ {
+        int rc;
++       static bool deferred = false;
++       static bool initialised = false;
++
++       if (initialised)
++               return 0;
+
+        ima_tpm_chip = tpm_default_chip();
+-       if (!ima_tpm_chip)
++       if (!ima_tpm_chip) {
++               if (!deferred) {
++                       pr_info("Defer initialisation to the late_initcall_sync stage.\n");
++                       deferred = true;
++                       return 0;
++               }
++
+                pr_info("No TPM chip found, activating TPM-bypass!\n");
++       }
+
+        rc = integrity_init_keyring(INTEGRITY_KEYRING_IMA);
+        if (rc)
+@@ -158,5 +170,7 @@ int __init ima_init(void)
+                                  UTS_RELEASE, strlen(UTS_RELEASE), false,
+                                  NULL, 0);
+
++       initialised = true;
++
+        return rc;
+ }
+diff --git a/security/integrity/ima/ima_main.c b/security/integrity/ima/ima_main.c
+index 1d6229b156fb..847ec74a183d 100644
+--- a/security/integrity/ima/ima_main.c
++++ b/security/integrity/ima/ima_main.c
+@@ -1274,6 +1274,11 @@ static int __init init_ima(void)
+        return error;
+ }
+
++static int __init late_init_ima(void)
++{
++       return ima_init();
++}
++
+ static struct security_hook_list ima_hooks[] __ro_after_init = {
+        LSM_HOOK_INIT(bprm_check_security, ima_bprm_check),
+        LSM_HOOK_INIT(bprm_creds_for_exec, ima_bprm_creds_for_exec),
+@@ -1321,4 +1326,6 @@ DEFINE_LSM(ima) = {
+        .blobs = &ima_blob_sizes,
+        /* Start IMA after the TPM is available */
+        .initcall_late = init_ima,
++       /* Start IMA late in case of probing TPM is deferred. */
++       .initcall_late_sync = late_init_ima,
+ };
+diff --git a/security/lsm_init.c b/security/lsm_init.c
+index 573e2a7250c4..4e5c59beb82a 100644
+--- a/security/lsm_init.c
++++ b/security/lsm_init.c
+@@ -547,13 +547,22 @@ device_initcall(security_initcall_device);
+  * security_initcall_late - Run the LSM late initcalls
+  */
+ static int __init security_initcall_late(void)
++{
++       return lsm_initcall(late);
++}
++late_initcall(security_initcall_late);
++
++/**
++ * security_initcall_late_sync - Run the LSM late initcalls sync
++ */
++static int __init security_initcall_late_sync(void)
+ {
+        int rc;
+
+-       rc = lsm_initcall(late);
++       rc = lsm_initcall(late_sync);
+        lsm_pr_dbg("all enabled LSMs fully activated\n");
+        call_blocking_lsm_notifier(LSM_STARTED_ALL, NULL);
+
+        return rc;
+ }
+-late_initcall(security_initcall_late);
++late_initcall_sync(security_initcall_late_sync);
+...skipping...
++
+                pr_info("No TPM chip found, activating TPM-bypass!\n");
++       }
+
+        rc = integrity_init_keyring(INTEGRITY_KEYRING_IMA);
+        if (rc)
+@@ -158,5 +170,7 @@ int __init ima_init(void)
+                                  UTS_RELEASE, strlen(UTS_RELEASE), false,
+                                  NULL, 0);
+
++       initialised = true;
++
+        return rc;
+ }
+diff --git a/security/integrity/ima/ima_main.c b/security/integrity/ima/ima_main.c
+index 1d6229b156fb..847ec74a183d 100644
+--- a/security/integrity/ima/ima_main.c
++++ b/security/integrity/ima/ima_main.c
+@@ -1274,6 +1274,11 @@ static int __init init_ima(void)
+        return error;
+ }
+
++static int __init late_init_ima(void)
++{
++       return ima_init();
++}
++
+ static struct security_hook_list ima_hooks[] __ro_after_init = {
+        LSM_HOOK_INIT(bprm_check_security, ima_bprm_check),
+        LSM_HOOK_INIT(bprm_creds_for_exec, ima_bprm_creds_for_exec),
+@@ -1321,4 +1326,6 @@ DEFINE_LSM(ima) = {
+        .blobs = &ima_blob_sizes,
+        /* Start IMA after the TPM is available */
+        .initcall_late = init_ima,
++       /* Start IMA late in case of probing TPM is deferred. */
++       .initcall_late_sync = late_init_ima,
+ };
+diff --git a/security/lsm_init.c b/security/lsm_init.c
+index 573e2a7250c4..4e5c59beb82a 100644
+--- a/security/lsm_init.c
++++ b/security/lsm_init.c
+@@ -547,13 +547,22 @@ device_initcall(security_initcall_device);
+  * security_initcall_late - Run the LSM late initcalls
+  */
+ static int __init security_initcall_late(void)
++{
++       return lsm_initcall(late);
++}
++late_initcall(security_initcall_late);
++
++/**
++ * security_initcall_late_sync - Run the LSM late initcalls sync
++ */
++static int __init security_initcall_late_sync(void)
+ {
+        int rc;
+
+-       rc = lsm_initcall(late);
++       rc = lsm_initcall(late_sync);
+        lsm_pr_dbg("all enabled LSMs fully activated\n");
+        call_blocking_lsm_notifier(LSM_STARTED_ALL, NULL);
+
+        return rc;
+ }
+-late_initcall(security_initcall_late);
++late_initcall_sync(security_initcall_late_sync);
+
+
+--
+Sincerely,
+Yeoreum Yun
 
