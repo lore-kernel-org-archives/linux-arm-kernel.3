@@ -4,78 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EC2AF9936B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 10:54:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B912BF9936C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 10:58:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3JJx/XC04FdiSIp/CP/WU0crkfGSt9tauFjUk3YssIE=; b=l/zhdguVt1F68EFI+MnDve85Xr
-	ae8Nz6Qj29gY418vc9s8njQSOCwTXUxEO4bx2bq6kGImPMZKtDQQG88tuTSdRGei4Cd6VEZ59THDV
-	WgJ3X5P2XYg7RxRbv3GGKwWnTTyWonMX7YbSmvs3RtiNhznyQcGSEDWgOJIskMShETqvoEsE3fSap
-	6MBUYvdKGD8zbYiHFcRTUdfV6o/DebXTlNwHGsqr99zqMZhejc8c/wLsAR8E1rR5BEpsk/i1Fpwyd
-	1kvo7JBdX7zID5EMjbMJN9RK/Np6uX4jssLZKYSv9BFUZSdhgBREW+e+8BiyvDkVvg2MgYlhKopCL
-	EJVRMfFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=REZmYsJnGZxN/JBzOKPE6iHCGaRwRhr1OeqXDLvUVAA=; b=taqKG2TcC9HLnqXN2Zkce+xg3b
+	oO+EWFBIzAzCbNoPCsXQCMgW+bBOahMBkgJeRcQ8AeakphnXUm9xgn4dk3wpTIrMAkAIUwRzOdGFp
+	GcWzdNicWP4E+6XB1E7iUtda29iAFEQzkCkZWjwWpTQzaL5p3g2i7nChDg9tnuCdDDUlv/ESu6Laa
+	12BLYV6BqzR5E0L39DijSf0/LARBgSVqla04qGPnzViA1R9zlycRo7PWgYHVGZ1gBu1NiSMeUOwuH
+	cVmCskbzjwAXAGCLojKrt2fqEREY2eIymThkm8zNYlBZERLyXTEwrw+CYL2JXtvwEceD6lwaUbXPR
+	sR0d16Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFrhl-0000000BVXV-25oV;
-	Thu, 23 Apr 2026 10:54:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wFrky-0000000BVjD-0cwm;
+	Thu, 23 Apr 2026 10:58:04 +0000
+Received: from mail-swedencentralazon11013021.outbound.protection.outlook.com ([52.101.83.21] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFrhi-0000000BVX9-2e8e
+	id 1wFrkv-0000000BViG-2fav
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 10:54:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5DB174011D;
-	Thu, 23 Apr 2026 10:54:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0B62C2BCAF;
-	Thu, 23 Apr 2026 10:54:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776941681;
-	bh=NHSuEK9H1801Db43XmFpxQoOeHBhCdehq8G+kH0L1gk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WxCijv5TIR/9gGmkrkA9sAHJW6JXbPHQvkzsGe9yqQ8AubEAUNc91qyNB+AofYwim
-	 kj5xQUhGJ4T8tWnTTpPmx0A4CPxm2QN4GDj3LtX1iO95Dmyy25IpB91spjE/Vp0tby
-	 b4/WKR1iizP+jJO42X4ewEp39VOJerxmaNoxuBpBQCC1PN/7L5QSq9b5d2S9fvMgzJ
-	 xhf93I4scNVIZVURuKIeKnYn21K7wZG6PTp5OUFUBiX5JaYxc8vRFOObJ+/TCsgIpM
-	 wGZeBzkERIYUnBHU6gyaqMhrFRS24ff+5tNI52FVZI64QP2yVusjoqR2sUcvOd9t+j
-	 wFH21U6FY0oyw==
-Date: Thu, 23 Apr 2026 12:54:38 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Jyri Sarha <jyri.sarha@iki.fi>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Simon Ser <contact@emersion.fr>, 
-	Harry Wentland <harry.wentland@amd.com>, Melissa Wen <mwen@igalia.com>, 
-	Sebastian Wick <sebastian.wick@redhat.com>, Alex Hung <alex.hung@amd.com>, 
-	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
-	Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
-	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v2 08/20] drm/plane: Add new atomic_create_state callback
-Message-ID: <20260423-fragrant-tody-of-inquire-a9f455@houat>
-References: <20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org>
- <20260320-drm-mode-config-init-v2-8-c63f1134e76c@kernel.org>
- <55c24dca-e354-49d1-8eaa-edf66f679428@suse.de>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="vpcnf3kbfe5e5pil"
+	Thu, 23 Apr 2026 10:58:03 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=tFUdErxT9oTEm/A6lfo2XGsxySZshD5o6wpUMi/JxaqskqTBa+JJTRKgrZdpj+vBvx8GG3JosXyF+5E2lIWezgJmQfbKIqorog66UqupKUmI3OQEvkXQIV6tZhopbiRTsyPFrDTB8O78lAX9gh8ssiXybcy4NyqZ3yG6/gEw4rT4fisp5D7ptd9oND1bUra097cHA+ztfpFnbX3refMTJGbDgycCu9ZeTPBrJLw8GsmJ/zjs29a/BN9kvzUbKjyV97JE4FAaSQjGSomB7wTgensJmKYf1JZs4vBRHE9hGdK7I2DZ7b4tBj3cGhJK6d2Jw1OhALSARFtavm69b+YgwQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=REZmYsJnGZxN/JBzOKPE6iHCGaRwRhr1OeqXDLvUVAA=;
+ b=yB9fISI2Vyzr0tACq8oWt9GvCfhTpSvIRUHhVVo3fpyQwn+bMr6wJz+VsQkFY22ZQoFZNKxCjd10trco1Cwg4JEkUdhAG0BYPPF7UsFHictrCY/7DqJchaSDS+uIy8N/5sM/42H0flyja66LHnfPGQGYkM765wT/AzNCgqHM1J5aLy5OQouOdskYwurjQ7/aaXGrEWtlDg2Edv42dX5zDfAqtieDrnTvdFjSF3MhpYaSl5lc7h1hRponaGeayBYmS4oges41tRP63ezUpWkQGwCAcjgb0iHVI2OJdWLmQz9kusD4dInT6hmeilZD0Oe/7kYviJr9rhpJjcGnt0kMgA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=REZmYsJnGZxN/JBzOKPE6iHCGaRwRhr1OeqXDLvUVAA=;
+ b=WSOoM4FMta51R+PeK6dhG6CT5w5X/l3b24OxXJhTqwG1yske7LpHxOyRCvQiwFznnjK1wJS4HB5f1LMzNWzxDP1fxctJbm0C2FaM8g2oZeaivsGWdmozsgl5urss1CqMJMfISKFn1M1R/QYT6ghnLabyB+Wcvo7P1Kk0nycpg+U=
+Received: from DUZPR01CA0090.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:46a::8) by DBBPR08MB10771.eurprd08.prod.outlook.com
+ (2603:10a6:10:53a::5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.17; Thu, 23 Apr
+ 2026 10:57:54 +0000
+Received: from DB5PEPF00014B9B.eurprd02.prod.outlook.com
+ (2603:10a6:10:46a:cafe::31) by DUZPR01CA0090.outlook.office365.com
+ (2603:10a6:10:46a::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.21 via Frontend Transport; Thu,
+ 23 Apr 2026 10:57:54 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DB5PEPF00014B9B.mail.protection.outlook.com (10.167.8.168) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.18
+ via Frontend Transport; Thu, 23 Apr 2026 10:57:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kM7M7bRke9wBq5GcYyp8hnhsplcAUlHRf/JIuz4fo4oRHtsG7G+nHaUmlSH2lYIXm1UkHlYDO1GYSlgpjl9Xsy/WsOBtxxwrfKKX7lx/dh7m596qHkR7IRWEwT0gGHVOTlXRLrjdTZAqrp18X+ik5icaMhoDCZH3SefQ4eixeFdsLK+7hW9HKvp6/MBYrT/VhOw+q/Q1IHJlKzgIGKyLRdyq6syAE4jMS8b2pROo4zcfQTOL3svmcBCuLHO5/M9y6PCE2j66/zdu+qbqEtQ5TbvNFl907h9uypScrPTAc++7V3BsAtF0N+GWi9LSxExNLMX0XshfOe6Cko5GPW/aqQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=REZmYsJnGZxN/JBzOKPE6iHCGaRwRhr1OeqXDLvUVAA=;
+ b=TGf0f95njdJ6Wujt6uR1ykeXzIR2LP/kjvF3SNAX5Bu2b8m8C+2Abb1QrqxiV9T8mnn15mpG0dRh/PQOuvlEtDqlwNruSfpMsfeoXNdtYpoN8vdj0nSHXb0tT0ebW7foQLep8X6a6FSDvHpKRETPYdvvMGKdGexJo0SRcfVl3zslGbbEhcQCIiLFKVDHykdVK/mgA4q/ZrZ45B86Z47xwqQbxhTpL+WxVBZDDGM8+suCXkOMGByNdTBmCkQO+v4UqdBCQKqvpjSJRswAuRGZIK7T1sc2hxOUYLxPCd3vV6fmPaLzRqEk6Q28Dx+KZ5VIYSahMGqhAFG5ypJcdsoVQg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=REZmYsJnGZxN/JBzOKPE6iHCGaRwRhr1OeqXDLvUVAA=;
+ b=WSOoM4FMta51R+PeK6dhG6CT5w5X/l3b24OxXJhTqwG1yske7LpHxOyRCvQiwFznnjK1wJS4HB5f1LMzNWzxDP1fxctJbm0C2FaM8g2oZeaivsGWdmozsgl5urss1CqMJMfISKFn1M1R/QYT6ghnLabyB+Wcvo7P1Kk0nycpg+U=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20) by GV2PR08MB8270.eurprd08.prod.outlook.com
+ (2603:10a6:150:c1::5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.21; Thu, 23 Apr
+ 2026 10:56:47 +0000
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::8c9b:58d2:2080:eb98]) by GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::8c9b:58d2:2080:eb98%4]) with mapi id 15.20.9846.016; Thu, 23 Apr 2026
+ 10:56:47 +0000
+Date: Thu, 23 Apr 2026 11:56:44 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	paul@paul-moore.com, jmorris@namei.org, zohar@linux.ibm.com,
+	roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+	eric.snowberg@oracle.com, jarkko@kernel.org, oupton@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, sebastianene@google.com
+Subject: Re: [RFC PATCH 4/4] firmware: arm_ffa: check pkvm initailised when
+ initailise ffa driver
+Message-ID: <aen67JwO0rBxo28A@e129823.arm.com>
+References: <20260417175759.3191279-1-yeoreum.yun@arm.com>
+ <20260417175759.3191279-5-yeoreum.yun@arm.com>
+ <87se8sbozv.wl-maz@kernel.org>
+ <aeNeNjfO7i128TIP@e129823.arm.com>
+ <87pl3vb5bm.wl-maz@kernel.org>
+ <aecf57rWloQwDh6v@e129823.arm.com>
+ <20260421-married-liberal-ammonite-dffda8@sudeepholla>
+ <aec/YSxYO1bOhXhn@e129823.arm.com>
+ <aejN52lwaqfoMuGJ@e129823.arm.com>
+ <aene4KFD5kbSbFRm@willie-the-truck>
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <55c24dca-e354-49d1-8eaa-edf66f679428@suse.de>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aene4KFD5kbSbFRm@willie-the-truck>
+X-ClientProxiedBy: LO3P265CA0026.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:387::9) To GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20)
+MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|GV2PR08MB8270:EE_|DB5PEPF00014B9B:EE_|DBBPR08MB10771:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9bf7e3eb-8f7a-421d-f284-08dea1272bd1
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info-Original: Kb0ytJZrrIFfrnS2a98qRqdjShl+Y5O7mPXwvI34WBFO6ONbQccB6lz74/MB9eMlaDmZgL3TR+pWgeDIDjjYG62M2K+nv4DEGoB+uI1QUnSVA6liVHxBSilzPtxDmr7JjOnn5VQT4hzdYVjIZSKQFEJyqrqs0SnYJT4Ar7JYw7xBDmFUpO/xJl4d8q2QMrif16HPupDWu9nwLF3mNPbdmLj04tjqt3MddyrVR7iRsjeoqg64nNoX6It9rha/zCZUWPszGYPZQwXVfa71cw5hgWAVuK6hIKMBTjDTjdHtu1sACwPbD/uPR5uPsXqtuE+/JUxvM1He/Mfc/xV7C3+X2kZKbwJn3wt64gXFieOwzCjcn+KFTW7IqCKmKlUQsfemt74+7ax2Yi+ZrqHR4p9MMm+t1Ck8fh1aZ97iLphnwoTVNApITvfBnvXhhv/Mw5dtUXkOopJYBwcrJ3nSy7BU9koJGKKEec/0swKAmT84UyAP6/lfx0+NKpo5tyIBy6+U2DnXJpuIYFF7L6V7CKXpCsA/QRCpd698yf1auJuxByyaeMaEShAXTf+Sru9vPivfiKlVdGz85fMGJQIOW4R5R5Hwl1r8uloPLCBD3fgZJMHOjG007Z5bk1MNnt2PC9ZXPIzWGiArbSWnNOkFgGjrV8OMwY5tvASr/mXJXVHxdKy0w0gl6FMPyHvNtKZDkYIP
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: OWLEgDINKvKM3lTjYq+eHZb39eXMXdTL4C0lZY4/ZO6Bybdl8f4F5Py+uvwR1HAJgQI4DzyofNiWclSOoBPbz70yEwPmIHCjnrD8ifaOBY+Shje8IGk8+31bjWG2RlBGng7m6jawtMGh0rWs7Tq02DzviJnI0ouWsRqcfyXj90SPrZUq55pyY4cKflsAcxeSPNr5uFDZLi4Qy4s7UAflr2vc2+iYyOktWUxUVFhygHHHUA1Vc+XA+UDHoluHJgCtZIV1dRbOIwlpr8341DjB05WW4e0C8J6QgfZDVA2MavOFqSaKlovcd2cQ+9Gsoo7XCVC4U2JVbSPUwEGwl60XCg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB8270
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB5PEPF00014B9B.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 79563b92-c3e6-4beb-b1f7-08dea12703c8
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|36860700016|14060799003|376014|35042699022|82310400026|13003099007|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: R+JrgPyfhqBEyzj9KyW6aU1S/STIEG/XxtdDJTW5zv1An2zXrFzOSmemeVK4Syu82eL5acqjqLgHqtTCFjhir6KIW3pcZJaL/eGw4Y390+9Z89pMZoLXrtApWoIN9dkjGow3GLQGLlQgGUkJHM+tdZXVNuM/fhePY1eVkxVFRAWkF3lAdGFbRvLnTcuBZ8Xq5h0/G0SOB715sb8CH/8pkFh+7H+WdHnd7h7a72DqYLErbLkP/mSx0eybsv0/jybs6aJLjTOQVphmXqzSI9Gav2EYtHObHSc3zJTohhWK3oppR/dRNNUBo6i141p/gszmlGE+ZcR+KkD44njEoxUdYBiYaK3LNaBa98leCBUvQo2vYleEWmL69l4T3DOORJRlPuCXApIT1WEw6mUemqkdOVjKhrYPfrbIefVF3R3yB1nNzHlmBkJdOyUw2KvnXHPXvmW1TTeBM2Z4cp6ylybcb6T8nJQd0S4PMo/R+UkPqUz67NLY7iSp93YhjP4RCSSHt/QTUAecKLLDJxcep6OO9XMGnec/J+e7spclIGrobnCNCBPuJqeJJiiDLSU0VYKm1fn/+/HgchHBnlxFcCroIYW5zfmdFsrTlpYgwYp1VzpYwjiSmjaA/XCFflTPSGHzrIt7Vb6P5/R5rXQzvlI3n6MNrXtdEsaXJQgXoezS6GiORsRInXdBANjuh+BI60A50fOmK7UR96dJ7CXBvYFIYGDMPqS2F6acRcODKS7GeSs=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(36860700016)(14060799003)(376014)(35042699022)(82310400026)(13003099007)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: GBcsgrT+iHrqPfhZAm/G65l/7KJQcgFLxXkDNmHgd3b/zuGofkreQUusRmKAXCDLE0mS2Ivl7bp99gq9nZ4BuTkl+38F02/Up4zOet17KItB/EkkgWvIDmkFIngsPV26LqAg2ulKkTld+J5tKdtsjmf09ni6lKWnQ/3QtC0OUDfh7593sU8vkXfOEnIbqabwSc0NU5tE3d0rLkioI9gkO1JIwRhmHgjTA/XkJQeXpa2b1bg8JF5DUOhrhCADrlp2rhBekPGacEHODORRBfvFrUMVDDGMRe+Aj2j6h7zu+CzaZ3mNjYv6qwQumTmo777i7efZrYPHCkCo4sH8Y5ycITUtA43cYgMFGI5lbDZNlOiR0Wtsbimw0oVQ0NZAoPKD9v2aJDEs/PG2HCpTYyFnRZ6MHxKaem53/oQDv+dDFe8fg9FM1L1eo5noZsrOI0LL
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2026 10:57:54.3176
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9bf7e3eb-8f7a-421d-f284-08dea1272bd1
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B9B.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR08MB10771
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_035442_735046_976127AF 
-X-CRM114-Status: GOOD (  34.61  )
+X-CRM114-CacheID: sfid-20260423_035801_708227_C08EE3E4 
+X-CRM114-Status: GOOD (  25.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,108 +169,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Will,
 
---vpcnf3kbfe5e5pil
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 08/20] drm/plane: Add new atomic_create_state callback
-MIME-Version: 1.0
+> On Wed, Apr 22, 2026 at 02:32:23PM +0100, Yeoreum Yun wrote:
+> > Hi All,
+> >
+> > > > On Tue, Apr 21, 2026 at 07:57:43AM +0100, Yeoreum Yun wrote:
+> > > >
+> > > > [...]
+> > > >
+> > > > >
+> > > > > Also, the FF-A initialization is not driven by a device probe, but rather
+> > > > > happens as part of the bus registration itself,
+> > > > > so it does not fit well with a device_link or probe deferral based approach.
+> > > > >
+> > > > > Instead, perhaps we could go with the idea I mentioned previously:
+> > > > > either introduce a notifier, or create a pseudo ffa_device
+> > > > > once pKVM initialization has completed, and
+> > > > > then let the ffa driver perform the additional initialization from there.
+> > > > >
+> > > > > Am I missing something?
+> > > > >
+> > > >
+> > > > In order to handle/cleanup some ugliness in interrupt management in the
+> > > > FF-A driver, we may introduce DT node eventually. But it will take sometime.
+> > >
+> > > Unfortunately, I think this DT node wouldn't be helpful to solve
+> > > this situation for dependency with the kvm misc device...
+> > >
+> > > IMHO, current situation, the notifier seems to good option. unless
+> > > we make the initcall to recongise this dependency.
+> > >
+> >
+> > I think the best approach for now is to introduce a notifier to handle this situation.
+> > If there are no further suggestions, I’ll send a v2 based on:
+> >   - https://lore.kernel.org/all/aeS4rAeVQ0yJIPYw@e129823.arm.com/
+>
+> I can't say that I'm a huge fan of that :/
+>
+> The notifier will literally fire once, for a single listener. That's
+> called a function call.
 
-On Tue, Apr 21, 2026 at 03:22:22PM +0200, Thomas Zimmermann wrote:
-> Hi
->=20
-> Am 20.03.26 um 17:27 schrieb Maxime Ripard:
-> > Commit 47b5ac7daa46 ("drm/atomic: Add new atomic_create_state callback
-> > to drm_private_obj") introduced a new pattern for allocating drm object
-> > states.
-> >=20
-> > Instead of relying on the reset() callback, it created a new
-> > atomic_create_state hook. This is helpful because reset is a bit
-> > overloaded: it's used to create the initial software state, reset it,
-> > but also reset the hardware.
-> >=20
-> > It can also be used either at probe time, to create the initial state
-> > and possibly reset the hardware to an expected default, but also during
-> > suspend/resume.
-> >=20
-> > Both these cases come with different expectations too: during the
-> > initialization, we want to initialize all states, but during
-> > suspend/resume, drm_private_states for example are expected to be kept
-> > around.
-> >=20
-> > And reset() isn't fallible, which makes it harder to handle
-> > initialization errors properly.
-> >=20
-> > And this is only really relevant for some drivers, since all the helpers
-> > for reset only create a new state, and don't touch the hardware at all.
-> >=20
-> > It was thus decided to create a new hook that would allocate and
-> > initialize a pristine state without any side effect:
-> > atomic_create_state to untangle a bit some of it, and to separate the
-> > initialization with the actual reset one might need during a
-> > suspend/resume.
-> >=20
-> > Let's continue the transition to the new pattern with planes.
-> >=20
-> > Signed-off-by: Maxime Ripard <mripard@kernel.org>
-> > ---
-> >   drivers/gpu/drm/drm_atomic_state_helper.c | 44 ++++++++++++++++++++++=
-+++++++++
-> >   drivers/gpu/drm/drm_mode_config.c         | 21 ++++++++++++++-
-> >   include/drm/drm_atomic_state_helper.h     |  4 +++
-> >   include/drm/drm_plane.h                   | 13 +++++++++
-> >   4 files changed, 81 insertions(+), 1 deletion(-)
-> >=20
-> > diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/dr=
-m/drm_atomic_state_helper.c
-> > index 2548d6da13675f63304dc92423c5d225de0447a8..f4ce9d3573cbecf216904db=
-54335e0cf84a01c39 100644
-> > --- a/drivers/gpu/drm/drm_atomic_state_helper.c
-> > +++ b/drivers/gpu/drm/drm_atomic_state_helper.c
-> > @@ -319,10 +319,29 @@ void __drm_atomic_helper_plane_reset(struct drm_p=
-lane *plane,
-> >   	plane->state =3D plane_state;
-> >   }
-> >   EXPORT_SYMBOL(__drm_atomic_helper_plane_reset);
-> > +/**
-> > + * __drm_atomic_helper_plane_create_state - initializes plane state
-> > + * @plane: plane object
-> > + * @state: new state to initialize
-> > + *
-> > + * Initializes the newly allocated @state, usually required when
-> > + * initializing the drivers.
-> > + *
-> > + * @state is assumed to be zeroed.
-> > + *
-> > + * This is useful for drivers that subclass @drm_plane_state.
-> > + */
-> > +void __drm_atomic_helper_plane_create_state(struct drm_plane *plane,
-> > +					    struct drm_plane_state *state)
-> > +{
-> > +	__drm_atomic_helper_plane_state_init(state, plane);
-> > +}
-> > +EXPORT_SYMBOL(__drm_atomic_helper_plane_create_state);
->=20
-> Will this function have another purpuse?=A0 Could we just call
-> _plane_state_init() directly from anywhere?
 
-Yeah, I guess that makes sense. I'll drop that patch and the similar ones.
+I revisited Marc’s suggestion about using device links
+(https://lore.kernel.org/all/87pl3vb5bm.wl-maz@kernel.org/)
+
+but unless I’m misunderstanding something, I don’t think it would be a viable solution:
+ - https://lore.kernel.org/all/aen0j3qM2k06OdXC@e129823.arm.com/#t
+
+Also, calling functions defined by FF-A from KVM would introduce
+an unnecessary module dependency between the KVM and FF-A drivers.
+
+I’ve been trying to find an alternative approach,
+but I’m not confident about what would be appropriate.
+
+If you don’t mind, could you share your thoughts on this?
 
 Thanks!
-Maxime
 
---vpcnf3kbfe5e5pil
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaen6bgAKCRAnX84Zoj2+
-dkUrAYDOMQH1R0rdVPEd0s+OfGrebhOcAQ5OABg6Mw53VpV+rFGnujuG6stJnEmW
-zh8kcmcBfR7oI+9DExvCM0FFCfUx1IhsnPmkBHlFUpZpKjsg81n0vRIsC71Orv1I
-q2H2sY1Pyw==
-=BF+U
------END PGP SIGNATURE-----
-
---vpcnf3kbfe5e5pil--
+--
+Sincerely,
+Yeoreum Yun
 
