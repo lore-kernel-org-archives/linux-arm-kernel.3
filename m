@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49533FDEE4D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 22:43:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A2E0FDEE28
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 22:45:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/T0GTDRuU/Ml1Jl3QzhDeR+2ndhb6qBdCM6HZ+ROdk0=; b=x3ZC4m0BhVTQSif0k/KSC28/oB
-	nZPIh+BUn8KJ2l1UVvfafbYfh3rs+WRnJSyZ7A30d5I2kQZZMHz3bNSFrLbOJiUBTHtrDsEF/BXPa
-	IDHwlbR0pR3PoHyDG/LzTloSpKiksxe+D0rzBPUu5ABBGlyt80MMz97P6a+X1RGL/MP6L+cTt91lx
-	VgylpmLcV8WDDROzwnEXQNCXOWS+P6YcZMxCwLGPY/f2ZXkZ8ueSDHi+s69+wNy1mJFolkGXhiw4x
-	jepiRq0GVpKA5UIluRTwYUCzOj+gR8YEEOwd+UnyQbHgNrCEyuSbaWCFWxho8B1ur62TIpiM27ryL
-	H4aj1t3g==;
+	bh=VHs1SB6C6q+VxGSLs4PEu15EKKlh8msoZuhCPbHV/WQ=; b=B6/hI7bbuXnfzBdu+XljXNntEG
+	TQvN2ZcU75xw/dpOqG3qB8/0H1Ae8rxm1ojN0Hzhw8bhmLdKO0huSHChbPev7yL/JC2JYLmjD5F21
+	fs+3dajOPrrOgrzo8gVmayIZNPVa6x4MwW326j1Ybc0yuhuI05T196+gwX+zDqwq8q40AADrZrZit
+	fR3hBdyFcb0UpIiEvJ0tO5QhK69B6SyMCt9Fc0GMseA6b1RWhx3Igz7rDyy47he6GyFw3++Z0+msg
+	UoZbv2H3gtDnCMuoiLaA4QfM4hS+txjJb5Ww1K38nhG7sGdxWoVUENU5ccM/sREiOxMGS7y30Q3fm
+	KqOxBH2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG2lY-0000000CNtv-2nrp;
-	Thu, 23 Apr 2026 22:43:24 +0000
-Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
+	id 1wG2nK-0000000CO83-2Rd7;
+	Thu, 23 Apr 2026 22:45:14 +0000
+Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG2lV-0000000CNtO-2ZoR
+	id 1wG2nH-0000000CO7S-1cLD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 22:43:22 +0000
-Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-8f0579401c4so247990285a.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 15:43:21 -0700 (PDT)
+	Thu, 23 Apr 2026 22:45:12 +0000
+Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-8eb5ad01402so554351385a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 15:45:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1776984200; x=1777589000; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1776984310; x=1777589110; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/T0GTDRuU/Ml1Jl3QzhDeR+2ndhb6qBdCM6HZ+ROdk0=;
-        b=NirjQ1w5P7ef3GVrhHg4LuxjR06LhYi+Ft66cUVtA8STOxD+rmmJF2dDjAUMqPNtKM
-         XSLxp8IyJslGTcFfUYgNwgk+YU21oSP6BEJEyuvfmnqEDXF/66cWi+gcKa/333k5nkC1
-         8vxRxZOCDAHjNZKSvMBodeeNFBj8M3tGLq3NyJjiYQKuup3jO/UBnGzeiIctooLxdRla
-         q+Rd4SbFmtbjDc6AzxeRZYf2Xls5lMo3r6V0HiwEzcTQ+uM1Cq41hxpjapDlD/umcr1K
-         BMUgHZIlHOA8d/fXYL5VyHlVdT0qavoo2gHtrqgk6BT8KzJq1d7jep0xWtwwBiZOZf6B
-         Bv2A==
+        bh=VHs1SB6C6q+VxGSLs4PEu15EKKlh8msoZuhCPbHV/WQ=;
+        b=eWOVKi5oS9QsoW9SOmCkktz3SulSAZ74Qh7dFnhpE6h9u/rwOL4boc+0IWuwiLna94
+         FQ+8UCR8L8JBeGHsiKhEyf1npZ4v5IG3OFGrYD+ogTBX4mAhVc4dvb7xfeZ/WMb5XRwb
+         2YJ5obE/k9US9C+NfU95ibVUF7ebm98Y8osptlPfzdGrhtY6cLtbmkC1lbEoseW7jsMn
+         Mgm0TWCYhwPXWgVN3V9Cb05Vi6Z4Ier/t4mhvyt/ynHTgi7AVYPtmmVrrLUDFAhIN5og
+         eEVa7MNS9NmlKFdE/rp4NRRpevQkex6QuysbyRRbIdIzTceZtG8nt76e8qPlxaMtmFL3
+         5mYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776984200; x=1777589000;
+        d=1e100.net; s=20251104; t=1776984310; x=1777589110;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=/T0GTDRuU/Ml1Jl3QzhDeR+2ndhb6qBdCM6HZ+ROdk0=;
-        b=PuUKTeWY3xE+4D3TFLWNabcr9Mmxn35r36posxrDqbH3IOe51u1dMOY/g/Q34JzKL+
-         33mjjYfHab4SdYTEQUXf8hgEkQiZTkNbXRFj9RhZiARqBtuqaZCbVtC/+i6UlF72cjAd
-         Mxy6ZFLst4jXH69pS3uW6xyIxPRiAQqzRPJNUU6bHxrbDURhAePA2Qs6IElaF2AlfmO9
-         ajyrMYJTiNAzxRGdAYT4PzVNUFktensuw2XE4F1sVYgs1mLXt7Koe9WqEa+EYRCiZt4h
-         BaAbZ7aLKotgjt0qoD81HV2O5A5IqLOudYRuCyN+1FdRB3Frjza1dHZPb6RXQDF4T4An
-         9W5Q==
-X-Forwarded-Encrypted: i=1; AFNElJ+Y2lFDJs19Aw3Fl7w+pgeU/cjPiOFngpXbAH6nVNADMSV680rNZL1zUBcpE7SnWoDaFUR3oFogGmuxF/HBht4o@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQKgqPPgoGxKTCggMnQHMbERnLXQG6IX2m8rKUNZi0v86Qr0ta
-	Ykepuq/OdA+JyTenKlcc6jkWZPvrKCr6DJCO19OWY8koLoX6gKARXHA04yRdCbbgyYg=
-X-Gm-Gg: AeBDiet8P68+fTt7H0Ce+GMKvcIwryOK2grsweya0y7HVpAdHEm/Q1os/mwmYWKwuWn
-	QCbgImGxHhoUF+B4W8IvcnN3mgweI50uZ1XdhF76FRKDIsmEH1Tk58Sy47ZKGFUSHEN719d4mVW
-	y4tFSAq3+E5XO3n6d2rNSUQOEYDE8rOuR4sb32RnE/nOmQOd9/gul9JlP36InDtQ4VhLYJjKBJQ
-	/pFgDfztrcoani/sPBkDkehrxUZkTpstk0qlI5aXtQmJEHnaF/2dVOlA6pHz2t0o4BtNfr3H17M
-	nFCUYP2SPk5/PYk8y169aluzQjPmAWj+PGMyr7a6kIida6kClHT9gqyt5znZTnI1u/3e5oszyYz
-	sUVGMS8BUP1R0H2EusvNKbu6nutGDGP+dZeoSJsnvHN27JKmCvB5y6cKjxbzwXmYoQhXQDAs+oG
-	ChIoPVlq0trh7ZbFxmSk4czyBVKrVVziPKwf3Cb9MF0OxdSC8guaq26z1EFoezEkquYTnV+lICV
-	8/dm4hXm6J+kCAcJ0KLxslM2ro=
-X-Received: by 2002:a05:620a:3187:b0:8f0:7516:da99 with SMTP id af79cd13be357-8f07516e40bmr1047695085a.60.1776984199901;
-        Thu, 23 Apr 2026 15:43:19 -0700 (PDT)
+        bh=VHs1SB6C6q+VxGSLs4PEu15EKKlh8msoZuhCPbHV/WQ=;
+        b=mhY8ntcT28G+Ne+GHkWi08msx3sSNf3DJyW0VtxWtvO22X+JmBJP+vmxYFKFEQ6s6u
+         8qycVaRGmBYQYigj4Wgu0gWfPBz3yPb+iw9HE1w2WGu8EnzVwIVKQRxFT93/xdFWBMYx
+         6gd/swfMQH2QlzfjpBfwRb8jYWrGY9SvXe47rkabBhDMDR2+EdwaMvtuuTRFZXRri5eh
+         fwcSBi9Y6f3mKRuqy5aVz/W3ILuY7ZCX/P5whlw2xId0MnY5Gikr6wsRATk1tjHoN7gt
+         AL/GaIHvK4n1WTCnBs/zOubLS4oH3MAHxZXCy2MgJAm7ebPYXyiVtwMt1zOrfj6BT84D
+         Uagw==
+X-Forwarded-Encrypted: i=1; AFNElJ9ulxFe9z8arytzAZ4cmPKYq8KPHTZQnZtoq12YKwYHfr12LZTbEsaZlFUKYFZX6f/m+dyISXig+QU+2SVzkuLx@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPImxrIE5tS4YyV8oHBHa7tCP3T9mdmqZWB0oBGIE333D5TtHU
+	OIVsoZ72gX36vWbJPq/9u7SG54DvJZISvw/nFEIh8cxbjz2Lp+/KIKzbHwCGeIwyqVo=
+X-Gm-Gg: AeBDievMckCwMUZL9SPo9vZJh6UCoMW32wNGYk+w79GaU+TaUb6rdVVZMAP6p5bOtJA
+	DcMbYth8lYVO4hRyRiqND6cYR1PHf299x/h1HUqcMVipr7bDVqX66dyb+PrOd1iDRzDQLvtyhvu
+	8iBlKC6cmT+OD+DPQkWtiw/y8wTDGv/4DzeZF+qrXbYIYDmvQtJ+86Z9G96wsrtRj/ifPXCJbT5
+	QXYG1q9xl88DHukdu+XN8jAGmZHA5HnUwT7Cw+P3kIcmImiiIQbsNcgA2y7u0zWWnLpesWQIK38
+	iAlLNYthkbaHnpfVeG0E0QdW96btdLfyFr5vSWMBQijMv3gc8OIh0zQqCz/wWWiPABja8CvPQB4
+	ViAa74Nk28gSdcwwK3Dqx8Y0Ii6wBc4xbsReJ0cm0shJU826psBhutjWDIASVIzq9S1Z0FYQ7YG
+	b2ZW1cCrt9s99qWATC7AObmVqOwA2F4wMqZakbVmXyTbBcAuilamK9qMFnIgV6h96kphOfBRV48
+	lhAXY+cJtn7Nvrt
+X-Received: by 2002:a05:620a:4554:b0:8ee:2c17:2ff3 with SMTP id af79cd13be357-8ee2c1733c4mr2169354085a.0.1776984309768;
+        Thu, 23 Apr 2026 15:45:09 -0700 (PDT)
 Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8b02aec3a3bsm169316686d6.49.2026.04.23.15.43.18
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8eb9becc72dsm1271207885a.34.2026.04.23.15.45.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Apr 2026 15:43:19 -0700 (PDT)
+        Thu, 23 Apr 2026 15:45:09 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1wG2lS-0000000GLHD-1ruw;
-	Thu, 23 Apr 2026 19:43:18 -0300
-Date: Thu, 23 Apr 2026 19:43:18 -0300
+	id 1wG2nE-0000000GLqe-155A;
+	Thu, 23 Apr 2026 19:45:08 -0300
+Date: Thu, 23 Apr 2026 19:45:08 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: Vidya Sagar <vidyas@nvidia.com>
 Cc: rafael@kernel.org, lenb@kernel.org, saket.dumbre@intel.com,
@@ -84,17 +84,18 @@ Cc: rafael@kernel.org, lenb@kernel.org, saket.dumbre@intel.com,
 	kthota@nvidia.com, sagar.tv@gmail.com, linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, acpica-devel@lists.linux.dev,
 	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V1 1/3] ACPICA: IORT: Add Root Complex PASID Flags field
-Message-ID: <20260423224318.GT3611611@ziepe.ca>
+Subject: Re: [PATCH V1 3/3] iommu/arm-smmu-v3: Honor IORT Root Complex PASID
+ descriptors
+Message-ID: <20260423224508.GU3611611@ziepe.ca>
 References: <20260423191417.2031652-1-vidyas@nvidia.com>
- <20260423191417.2031652-2-vidyas@nvidia.com>
+ <20260423191417.2031652-4-vidyas@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260423191417.2031652-2-vidyas@nvidia.com>
+In-Reply-To: <20260423191417.2031652-4-vidyas@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_154321_663901_14393CF0 
-X-CRM114-Status: GOOD (  17.54  )
+X-CRM114-CacheID: sfid-20260423_154511_458541_83EC3403 
+X-CRM114-Status: GOOD (  22.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,51 +110,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 24, 2026 at 12:44:15AM +0530, Vidya Sagar wrote:
-> The IORT spec, Issue E.c (ARM DEN 0049E.c, January 2022), bumps the
-> Root Complex Node to revision 4 and adds two PASID descriptors:
+On Fri, Apr 24, 2026 at 12:44:17AM +0530, Vidya Sagar wrote:
+> The SMMUv3 driver currently calls pci_enable_pasid() for any PCI
+> master that exposes a PASID capability, regardless of whether the
+> upstream Root Complex actually supports PASID and regardless of the
+> RC's declared Max PASID Width. With IORT spec E.c (RC node revision
+> >= 4) firmware reports both, so we can do better:
 > 
->   - PASID Capabilities at byte offset 33 (2 bytes), bits[4:0] of which
->     report the Max PASID Width supported by the Root Complex.
->   - Flags at byte offset 36 (4 bytes), bit 0 of which reports whether
->     the Root Complex itself supports PASID. This is distinct from the
->     existing ATS Attribute bit 2 (at offset 24) that only reports
->     whether the RC forwards PASID information on translated
->     transactions.
+>   - If the IORT Root Complex node says PASID is not supported
+>     (Flags bit 0 == 0 at byte offset 36), enabling PASID on the
+>     endpoint is futile - the RC will not forward the PASID prefix to
+>     the SMMU - so skip pci_enable_pasid() silently.
 > 
-> The ACPICA struct in include/acpi/actbl2.h was updated for the E.c
-> PASID Capabilities descriptor (offset 33) but stops short with a
-> trailing 'u8 reserved[]' flexible array, so the new Flags field at
-> offset 36 is unreachable and the existing ACPI_IORT_PASID_*
-> definitions have no consumer.
+>   - If the IORT Root Complex node reports a Max PASID Width (bits[4:0]
+>     of PASID Capabilities at offset 33), clamp the endpoint's
+>     pci_max_pasids() result by 1 << width before computing the SMMU
+>     SSID width. This prevents master->ssid_bits from exceeding what
+>     the RC can actually carry.
 > 
-> Replace the trailing flexible array with a fixed 'u8 reserved[1]'
-> followed by 'u32 flags' so the struct fully covers RC node revision 4,
-> and add the ACPI_IORT_RC_PASID_SUPPORTED mask for bit 0 of the new
-> field. With #pragma pack(1) in effect for actbl2.h, this lands the new
-> field at the spec-mandated absolute offset 36.
+> Both behaviours are gated on iort_pci_rc_pasid_max_width_known(), i.e.
+> RC node revision >= 4, so platforms with older IORT firmware see no
+> behavioural change and continue to enable PASID purely on the basis
+> of the endpoint capability.
+> 
+> Use the new IOMMU_FWSPEC_PCI_RC_PASID fwspec flag (set by IORT) for
+> the support check, and call iort_pci_rc_pasid_max_width_for_dev() for
+> the width clamp; both pieces are wired up in
+> iort_iommu_configure_id() by the previous patch.
 > 
 > Signed-off-by: Vidya Sagar <vidyas@nvidia.com>
 > ---
->  include/acpi/actbl2.h | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 26 ++++++++++++++++++---
+>  1 file changed, 23 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index e8d7dbe495f0..2b269307fd33 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -3071,16 +3071,28 @@ static void arm_smmu_enable_ats(struct arm_smmu_master *master)
+>  
+>  static int arm_smmu_enable_pasid(struct arm_smmu_master *master)
+>  {
+> -	int ret;
+> -	int features;
+> -	int num_pasids;
+> +	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(master->dev);
+>  	struct pci_dev *pdev;
+> +	int features, num_pasids, ret, rc_width;
 
-There is a whole process to change this file, I went through it once
-for canwbs..
+Don't reformat the code like this.
 
-https://lore.kernel.org/acpica-devel/2-v3-e2e16cd7467f+2a6a1-smmuv3_nesting_jgg@nvidia.com/
-
-You have to make a pull request here:
-
-https://github.com/acpica/acpica/pulls
-
-And then use the 
-
-generate/linux/make-patches.sh -u <commit-id>
-
-Script to make this patch for linux in the perscribed format.
-
-I think, something like that
+Otherwise the series broadly makes sense to me
 
 Jason
 
