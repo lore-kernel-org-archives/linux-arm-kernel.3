@@ -4,151 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DC28F99369
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 10:31:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB47BF99368
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 10:39:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PXRfu1fgu7Ku4V2oitAJJSzVzqrhO0j6eixyAt6wKDk=; b=hOtc0vt72EUrnTvpsmCYw6LUqR
-	CrS8Er6W+Y3Gg+KIHC2whIXYQiLvzLHr3S71E+Yy5pwoIKmBr/EjD0WF26VZ/yKSrYvnqVr94+qek
-	vzRK3tAs2yREoxmPtnCLLY90yo0oCR0ayKGupu+MrKPAaEwOevsK/ftdb7ZfNzM6v8fXmOSBbGa4g
-	pWdQ5r6W+W9dUamUEDEWSKw23FTXf9VJk8C8Qz0dXSpAF7GtmvW79svnhngUHUpjIiv2mTitKzWOm
-	HEAQfsu2wOaQpd4xqZH1vrLjM7zYyYP+sBA/UW4muLdWR+WCYYNZKtCbNiP5kMel3rck7bEKlYiI3
-	ET5we4FQ==;
+	bh=axjtZr7MIWi9WvuvT/qFBnFbDHBg+cjaNqhmst1f4XE=; b=lMTBdjNleB+clfQbN4HZEBp4TG
+	WquNioCckv/JqqeyYpouGXeQ7udssXWwPGa+SjxVk79+K3d5CpPE4vLdEaV72yh4g+Ob2N5qc88Vd
+	RAqGGbawwSAy69vdPIQhNL4WlztUpwC4AosBWeeJOS3Hp0Ibn9oYY+FXAaHua5DCjSphcgSmsUQWJ
+	4NZm+gm3Lzput9SDPz3cz4qV22NxWlPnjJCh93NE2mS5aexJMxM6gz/D63kP/QqCmoIvAaHLkYFK+
+	F7ufL9TKMg0f7FEb1oOEmOBQfpVDv5c9gdM9BrREaYKnjBN/UzKu8Hx9HlkuxL1x9d7OfHU0XuK6s
+	F7Ul7OlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFrKk-0000000BUHp-3PTY;
-	Thu, 23 Apr 2026 10:30:58 +0000
-Received: from mail-norwayeastazon11013019.outbound.protection.outlook.com ([40.107.159.19] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wFrSz-0000000BUeT-3K3d;
+	Thu, 23 Apr 2026 10:39:29 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFrKf-0000000BUGi-0BFd
+	id 1wFrSw-0000000BUe4-1Adk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 10:30:57 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=wBgO6Ou5Ml81y/ftZ58Xs678dtn0Q9CBmRDhwyg02YA9TwWdMcEw4xyXJ5DAYPipn5so1W6A1+a675Re/++V8VQks8JbljPUL00uu1jkbWsqZP3pWB3anGvupSaTKcMCIfkV+ujyv5ztnc0uCZoJkidtVGJJ68FxKLvhNfbgDNxCltb4Z0DlptrEX1SR/pFZoOBF/e7VF0aey6WXz/n1LJv56Bn4Wpc+zA1aOFP+0PS7WmFvzL2hQNNEN3iz1tpLw7+JO56YSc4i7v1mRH5O/v7Ep0+X4hsGitH7DUnhH9IWHwo9BQ4+6Y5fjHC/Uj86AlBumiZvmFHwFKohZwv3pg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PXRfu1fgu7Ku4V2oitAJJSzVzqrhO0j6eixyAt6wKDk=;
- b=wmiFnlwatK4bdK9BCgmh4iBC6p31VYl7/PvqUa613GmdH6yzNy9PF6PNyuOJDsJrwnyuV2cSNpdI2ZowW/hSteuXU0ySdkbw450uK/IwamaKpm1xNrJd5guIDKINikjfW1v8LB7CmEdqrVjrIdUxxnqfQfRPUwcCbVpLheirB0qEw9BGZH56XNVi3OKBruKCF/8E5FctL+iap/jK3mmee2AC5s706nQSCmwz6fRhsTEaBzK/a8PoppjgLN0WU8KUSsENZLuY13QHnn8tVTNEkawDWcyRDej5IfIg/4c4xvPBJ+AX6julRE7xevgAdauL4eAb1j6Iet9I7rXCEFFzsA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PXRfu1fgu7Ku4V2oitAJJSzVzqrhO0j6eixyAt6wKDk=;
- b=A+k07idLnSPNM//fHrs/aOrrecObrJR5G9z72zqtKBldfW06v6DkCZwpX2kIF76I9Id8k+ZAvWJZC7F8RBpsa5EaQ4TwV3P06UoJir2wb0Zi48szuB7M3wWQg0DrNX6oIyhWxBYYYBEQVq2dYJeOWENfvCJr3YQTkstH474RJLc=
-Received: from AS9PR04CA0062.eurprd04.prod.outlook.com (2603:10a6:20b:48b::12)
- by AMDPR08MB11649.eurprd08.prod.outlook.com (2603:10a6:20b:73c::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.21; Thu, 23 Apr
- 2026 10:30:45 +0000
-Received: from AMS0EPF000001B3.eurprd05.prod.outlook.com
- (2603:10a6:20b:48b:cafe::cf) by AS9PR04CA0062.outlook.office365.com
- (2603:10a6:20b:48b::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.21 via Frontend Transport; Thu,
- 23 Apr 2026 10:30:45 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AMS0EPF000001B3.mail.protection.outlook.com (10.167.16.167) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.18
- via Frontend Transport; Thu, 23 Apr 2026 10:30:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=W8HxhWytirnFxbBQ03BnJ2inuAMI350GqFEpVTLXFFkGo26DzC2vDKouSz6ogzF2j9ALON1OC3ilngeEIKQUJqBQclEAjUYR/zxh6m14riTgy2HGy6quFuTXXlc/9mVyF/uVD3rg8paPmTsEfWYaE3xhKEkdxPLDgTe3eFspR8Q60/g4qTLpCxjx+obBLqABwbTU0Nkv0DRH+vkxRwUn0/MoyzyjfnqdpbjwegRlVS8Pvh3sziKxSKjqtpvMBry5Cvp95LngwX9xbFRFfowqFX+u9mbXwG+LnesgkpSvqze1K7uwqZrR2XIiHQuGaOqML5ngGt+GDb7+OsRjcoD77Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PXRfu1fgu7Ku4V2oitAJJSzVzqrhO0j6eixyAt6wKDk=;
- b=dgIETMyesncFXHXMYsa6IIoHkYRYLYl9ns6Dlm2xAEyi+l7e9pIposx6hSa1HNnHwrC8Y2CnBybyMgVlCVOseyay3NdTkur84mP0ShLclIuNYbbBYfdQsV/7AjADd6XOWctvKpbdHcqSKpjVlwesYbD26FdWR+mBloNNfaojtBkV0wRaX0zZyrvSHBebViS7FMkOppfE3z7nMOWBzvUV4yKcK49TwM1ty8pFO96RGTIv795YeZwQ9/ws41wLO4e4tczD9GmBLSTi7POl0lzALX8jw4QupEB/lV7qQV+3ixkTdUhEHFurr3KWPqfYiCXRNfYviS/3wadHLo3EHOJz9A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PXRfu1fgu7Ku4V2oitAJJSzVzqrhO0j6eixyAt6wKDk=;
- b=A+k07idLnSPNM//fHrs/aOrrecObrJR5G9z72zqtKBldfW06v6DkCZwpX2kIF76I9Id8k+ZAvWJZC7F8RBpsa5EaQ4TwV3P06UoJir2wb0Zi48szuB7M3wWQg0DrNX6oIyhWxBYYYBEQVq2dYJeOWENfvCJr3YQTkstH474RJLc=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by AS4PR08MB7710.eurprd08.prod.outlook.com
- (2603:10a6:20b:511::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.21; Thu, 23 Apr
- 2026 10:29:40 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::8c9b:58d2:2080:eb98]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::8c9b:58d2:2080:eb98%4]) with mapi id 15.20.9846.016; Thu, 23 Apr 2026
- 10:29:39 +0000
-Date: Thu, 23 Apr 2026 11:29:35 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
-	zohar@linux.ibm.com, roberto.sassu@huawei.com,
-	dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com,
-	jarkko@kernel.org, jgg@ziepe.ca, sudeep.holla@kernel.org,
-	oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
-	noodles@meta.com, sebastianene@google.com
-Subject: Re: [RFC PATCH v2 4/4] firmware: arm_ffa: check pkvm initailised
- when initailise ffa driver
-Message-ID: <aen0j3qM2k06OdXC@e129823.arm.com>
-References: <20260422162449.1814615-1-yeoreum.yun@arm.com>
- <20260422162449.1814615-5-yeoreum.yun@arm.com>
- <865x5i13dl.wl-maz@kernel.org>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <865x5i13dl.wl-maz@kernel.org>
-X-ClientProxiedBy: LO4P123CA0529.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:2c5::6) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	Thu, 23 Apr 2026 10:39:27 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-b886fc047d5so1159008666b.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 03:39:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776940763; cv=none;
+        d=google.com; s=arc-20240605;
+        b=JVs+i7SXZpAERoHEHBRdyKz0B5QQGL4Ii/o2Nut4EGM/iS2MjY3AP/IU2W0Q46PUYT
+         3nYG4V9Bk3lseKIRfXI0TzHUr/xOW9rSZaOJdrYJL1n88wkJamfCXtMZ0CgJfURJjY1y
+         fq1obezDiZRdkSLz51EwVP4IIg6h8deyDMDnHzSv2YqrGABNTR0F98X8eCYwK45skl4J
+         shtsNj4WbLIo+pJXOVN52qewAywCBbjT37ljHYHlISE0o2oHnvC82vs47dns/rm57jUo
+         OZYOhUQ2WSpvhiG6GaTnaOdTH4P7ldeSzYZoSfnQiN2aDUM3pDSTnNSLq5MYc3gpwGyn
+         DedQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=axjtZr7MIWi9WvuvT/qFBnFbDHBg+cjaNqhmst1f4XE=;
+        fh=/EvoogfNn6Mx+FpWqsg2YE/rx92vbhLsTAlmCh9qY0c=;
+        b=Ci1ZoyKDju/MwDuXfLM9TjxW/DS5lZCva4dPpmjN3xJNaKL/FNqvo0Env89NQkC3uB
+         3gbqmqp3bDVSZiOx3XOcQOA+kN6xlFgLHPvtSy5ryYsEyQzDEJqURyZDuq6YbRG0eovO
+         QQZYpaychSJi/CI7q0cutOdCFsXwa5vP+tx4kAiFtw3Jy7GcX7l/bjTYq16Klta90+Fi
+         ksqMFdkjGrnpeF/qg7NjKh8+MY1daiOvFNNsWy3aEO6SQX8j87uKX1ktBASNaUPkjKd2
+         K38iLL0Dy7Lq6s0S/ENJRKyO/NfYckfqxBuL5wGouUs/kWqrCDDNTymSt3vJbMdzfVhh
+         nJLQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=mongodb.com; s=google; t=1776940763; x=1777545563; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=axjtZr7MIWi9WvuvT/qFBnFbDHBg+cjaNqhmst1f4XE=;
+        b=djq7saj14YGK5BL7mJgNGbybNL9JbgHv+PEEGABis8Y1gPRlLZinGjY7psGaEnWknU
+         05HNTTBf2AWVxPolImX11m6k9bWKIb0gj3jjymqkAAf9YDNDi6dDGXqw0ifjYBRWY9Lr
+         ZQxU6UvCDL6cGIIyqM2Kwt+H74JYLkxLZn5Yw=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776940763; x=1777545563;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=axjtZr7MIWi9WvuvT/qFBnFbDHBg+cjaNqhmst1f4XE=;
+        b=aCgplIZGOg1xVJoEAEyMwnwzqJCa1VOWSPqsHPrtRmJbCVjrAUIIq1aNfie4nb3BSH
+         4F/iiddPbgD9X4JFK0MJWwgX+7prrG4FYqaOdAG98iyf2CLetrvnkeWrS7DqnIIp/4P2
+         H6TkxzRXMvoxC6ucOHqxnRs53hNIA7xuBN0+m7SXh7z90rWsNfiUnnWnV6KoLvnXh+ao
+         EtGMKul168OeMI27Wlk4eULWt57zOKEmXNmpjy9MZGBM3jtuNHh1o3DoTmilHN1uVAJx
+         sViPBDJ/cHQTHvwP05djLzLaI5lgnuIaFLkiRSLUxNXWssD1ftfc6OeWzd4a8eUy02go
+         MRLg==
+X-Forwarded-Encrypted: i=1; AFNElJ8+zkszspdZl4e9Wvn4nrsF4tubUIDD8Ja4IstuL1fRwpUUBtXI/uTT5ZdNK0mkjd8RgR55POuNqtb/mW71REK0@lists.infradead.org
+X-Gm-Message-State: AOJu0YxiUrokjpyNqm4jTwXBnbwI/bhGumw8jJw4nt2z1vqk8qyH/JKR
+	mcZPtLtG0bqddDs00mli2gXB+KYGe8XVvO67huvIQthnxE2MiwgAZyJJoIn+LY3V1MwABiW/pLq
+	hnVFAIvBeW8dScNh3Z3PlI5xgO01Lca9aYHLGWUH8/w==
+X-Gm-Gg: AeBDiet80rHKXkW/Ge/bMpTGV1xiGSeBE9uZYekVrWYct0CZPme6QBxQTKgroZxRyIE
+	+P1DPVGSgM1f/3mjmQVec+L564Se885hmXNxbSEIatV+lSM9EnwvmoZcWOobt6v9cMPAw6e628l
+	IIgNv+gIDIMs/j84bUoeVeuxe0IpPJjgwLEwcO2uXms8CGORtxx446iig42yQl5q/nVg1+/hi6z
+	mkgGtic7ukhzj4Ek2mHrowycgP5A34X/D6Jt/wzl8N64TyLNJ/f/lLxQLCma57bE+pq/BGn6M2G
+	hWriLd5QDKOHBEsY
+X-Received: by 2002:a17:907:97cb:b0:ba6:7e1e:778a with SMTP id
+ a640c23a62f3a-ba67e1e78edmr989960466b.1.1776940763204; Thu, 23 Apr 2026
+ 03:39:23 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|AS4PR08MB7710:EE_|AMS0EPF000001B3:EE_|AMDPR08MB11649:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3f45b54f-f1cb-40a7-6a23-08dea12360b9
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info-Original: 3rhAFRAB41W1onlOuTyyuIx68A86JtAbw8PwHbyfGKalxSpl6x1iXhqP2N2eaBt9tO3LkpH8tGtFJ4e+Ah/iAjuE+prJg6AqBwJEOcm/sNaoEi0VlN/ajfdepdYq1pDqpH0ngl8Ff2mAxAVmU5AEyqhFTHXSBnXcZXcSSeWCZroAJXA4aDKgXYr2pSE6qq806WikmsX+zD0ESuSxLDS6CEPHxRp8to39YgHW7WDMl3t526W10QAPu6JAg4WaueIuCi4+bJ3wfD0LVm6G95S2kWoe/rAZ4rWclrO+zhFWZqYLNCd9Mfd+LgFWXp9XkeS2bIbjHhcON+aUVTpGb1k8ZjDWtu/FtZg9cGv7EdIN7RZynPuL/8J+VWHxdvMHKrzPXTyCoU9h66ys5W2c68frH4OJwTMEq4v+1qgC9DWHKsRS5zxrgKBBnBFcnp494K7AuknehDR7L+Gl8UB7UbzfVLvFpSS/I6ync4slrOvPV9dIrWW1JiM9RxvH6ZkHD5jUVhNCFAyWDbs2qGaOz8XnPar+SZ3dQFVSLWGo0BSUt1R79vC5vAAqmMqahnQ7NmKX2D/QLodm+ZTkV3rcvyJKD2O/rQUEzLFhfgN2XiZNS8wQ+RIdYh0aBLIjhjMY82XWkDVSGxvvNTR/fEXRdTlTb4plrFUmBWuWBJO83FJwp2FQtCcIXpvJkGY5ufR0Pk18AJvSJAjLOo1prA63iQJnSj+KLoatu/PMl3Q6a3BlcZ4=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: Jhf67sORar80KjP1OLLp1sZcBQFnBedMAwfCkL86DL1TXSiCsjhA26nd9zauw6KL8Sys7JnLndZDXv2mkNMFmUNLHjcvl9lioMTHG+705nSZjBwByIbZPgPZf+hyaDXgtveqU+X+yabKqwrNA/BIpcBL9WeDQwkdRniYrESv2MkKRpZcohMsRzEkibEERJmOUPvqV4vmPLc+pgplj+Wn+sqb1cE9KPC8A0snDxO8ulP2pJXlR6F0HFBCIUxZAPWjKdEt31TdKyLL35Ge3tYqtoAhPe8Qq0UCAWGeY0ThtD8tV4NRJnhdQyN7iyJyDMz1Ox0e17HqiBXa2MFsAIRYLA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR08MB7710
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF000001B3.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: fe781ea9-7d02-450a-413d-08dea123397a
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|35042699022|1800799024|14060799003|7416014|376014|36860700016|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: vt6Dxg5l1azSQ/NupTUegpGONSIeqmE6qN6Jqx5K/wM/N9MiUu7eekLjdcTlgymcDqsbOzQE9FW6x2RUB/U7CfzbJQ3z/J9vXJEP30kGzJcnG2LdhA75tSWMCFtv0yN8bSbxLdy1woIAjhVQddcfOP50SvRy/x+1zM3Z0LLFDzU0vJpInRNXpxvovz6BodPy3krTDBqja9NifbliPfD4voh8iee9+FE0Ym/a2udtyzKq+YXO83kKW2MVfpTs4JvM+S6NufCwjguNpZ0oBTz2/VhArtOY2gMv3UyguSnu+oUUdyrWHBncA/X+/O3Y5CNI2Cc7EbGti5HaDfpcErx1siZvaYG9PWu/9Oy9P+NP1dqOAASxVYqBUjBxIZd4YLS4QzrDG2RVRX9wqVx78kvYGO4aXfE/oVgJs938sPPiUO6Jy+1LKMEzoOt5NfrEGGyS1IvmhQFU7ka/AwUuPDucYaGKIbaTQn540Uzjvy/tGKXZRdUXi5UPKnZuuQnq6mTpSF4csXTHkuqM5SVYCoM/eKsat3uGmqdS9qwLL/mT2UJLekYAEfekfCAH84qnozs0RLmuXXWuJz8yTj4b1diLmOtA6Lf7IebEc+HahKcNQllOxjmrPYiV6RgkVFGASzZoT+ppUcJc/uB76qJgNmfiGNjyQqGTHvYQ57d+8Pzhg9moJ/KSojqLsKqmQU+0b3rR8rf7PYSTeWnI5m92rZy8DO3nFH5ThQ2Z10d8IKSkRyBuyyfu00XjiQWuJ/xrHyWuuSYArPapnK9Y97neo9luRg==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(35042699022)(1800799024)(14060799003)(7416014)(376014)(36860700016)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ulEsJQgaTy5MVImC3ISyML3BchvvU7U7Qa8JJnzYO9wwnuAyyq+doazP+ncJ3dj3JwCZlwyMM0wmpuCKNIVYfqM1uD34xjrmU5M2HJS88cSW9Yo92AbUqTLzSIare05xr6P+mrM9CoR5VTKY1fXQiKQJBLQ+rWlLCB/wFUXiPQhpSVnJaoFiTn4x3E6x1IvinUewzfNL2QJdz6dT3YYcFITAUkVNaoEhOC1nEtUG0weh09UA5k5mTvNLf7ie+9nV+2zScQ+ARhKVdUcJEdJbi+DoD7cYB3S5UUeEOmUWSxpNGN+PhmI7/+sXxlKMDakPZDIJOt2P0DO1/dT60tq+ywUVdUXWgwdZLMjznvmbRXIVzHS9axF8LyfJq1QGCBuD7Ka20KmTkMM1lKezkNb2RqNKKoKAzigyjizi6DVR9WSERoc7sxZQHOf5Nz3ciXRr
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2026 10:30:45.1032
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3f45b54f-f1cb-40a7-6a23-08dea12360b9
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001B3.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMDPR08MB11649
+References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
+ <20260422125647.GP3126523@noisy.programming.kicks-ass.net> <20260422131338.GI3102924@noisy.programming.kicks-ass.net>
+In-Reply-To: <20260422131338.GI3102924@noisy.programming.kicks-ass.net>
+From: Mathias Stearn <mathias@mongodb.com>
+Date: Thu, 23 Apr 2026 12:38:56 +0200
+X-Gm-Features: AQROBzDLZqpaRWt1enscGE22sx01XrMi4DwyHGjG6mzxtk-KQGkjwLXmTDGeCv8
+Message-ID: <CAHnCjA0zt93wp2jAs6QX3eN+BtR8Xb3iZROzs48xZ3GNrzXOfg@mail.gmail.com>
+Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
+ and tcmalloc everywhere
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Boqun Feng <boqun.feng@gmail.com>, "Paul E. McKenney" <paulmck@kernel.org>, 
+	Chris Kennelly <ckennelly@google.com>, Dmitry Vyukov <dvyukov@google.com>, regressions@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Ingo Molnar <mingo@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Jinjie Ruan <ruanjinjie@huawei.com>, Blake Oler <blake.oler@mongodb.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_033053_331075_E456C1D5 
-X-CRM114-Status: GOOD (  30.54  )
+X-CRM114-CacheID: sfid-20260423_033926_405516_79750989 
+X-CRM114-Status: GOOD (  37.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,107 +120,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
-
-> On Wed, 22 Apr 2026 17:24:49 +0100,
-> Yeoreum Yun <yeoreum.yun@arm.com> wrote:
-> >
-> > When pKVM is enabled, the FF-A driver must be initialized after pKVM.
-> > Otherwise, pKVM cannot negotiate the FF-A version or
-> > obtain RX/TX buffer information, leading to failures in FF-A calls.
-> >
-> > During FF-A driver initialization, check whether pKVM has been initialized.
-> > If pKVM isn't initailised, register notifier and do initialisation
-> > of FF-A driver when pKVM is initialized.
-> >
-> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > ---
-> >  arch/arm64/include/asm/virt.h     | 11 ++++++++++
-> >  arch/arm64/kvm/arm.c              | 21 ++++++++++++++++++
-> >  arch/arm64/kvm/pkvm.c             |  2 ++
-> >  drivers/firmware/arm_ffa/common.h |  4 ++--
-> >  drivers/firmware/arm_ffa/driver.c | 36 ++++++++++++++++++++++++++++++-
-> >  drivers/firmware/arm_ffa/smccc.c  |  2 +-
-> >  6 files changed, 72 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/arch/arm64/include/asm/virt.h b/arch/arm64/include/asm/virt.h
-> > index b51ab6840f9c..ad038a3b8727 100644
-> > --- a/arch/arm64/include/asm/virt.h
-> > +++ b/arch/arm64/include/asm/virt.h
-> > @@ -68,6 +68,8 @@
-> >  #include <asm/sysreg.h>
-> >  #include <asm/cpufeature.h>
-> >
-> > +struct notifier_block;
-> > +
-> >  /*
-> >   * __boot_cpu_mode records what mode CPUs were booted in.
-> >   * A correctly-implemented bootloader must start all CPUs in the same mode:
-> > @@ -166,6 +168,15 @@ static inline bool is_hyp_nvhe(void)
-> >  	return is_hyp_mode_available() && !is_kernel_in_hyp_mode();
-> >  }
-> >
-> > +enum kvm_arm_event {
-> > +	PKVM_INITIALISED,
-> > +	KVM_ARM_EVENT_MAX,
-> > +};
+On Wed, Apr 22, 2026 at 3:13=E2=80=AFPM Peter Zijlstra <peterz@infradead.or=
+g> wrote:
 >
-> Well, no.
+> On Wed, Apr 22, 2026 at 02:56:47PM +0200, Peter Zijlstra wrote:
+> > On Wed, Apr 22, 2026 at 11:50:26AM +0200, Mathias Stearn wrote:
+> >
+> > > Additionally, it breaks tcmalloc specifically by failing to overwrite
+> > > the cpu_id_start field at points where it was relied on for
+> > > correctness.
+> >
+> > This specific behaviour was documented as being wrong and running with
+> > DEBUG_RSEQ would have flagged it.
+> >
+> > The tcmalloc issue has been contentious for a long time. The tcmalloc
+> > folks relied on something that was documented to be wrong. It has been
+> > reported to the tcmalloc people many years ago and if you were to run
+> > tcmalloc on most any kernel (very much including 6.19) with
+> > DEBUG_RSEQ=3Dy, it would have yelled.
+> >
+> > The tcmalloc people didn't care. There was a proposal for an RSEQ
+> > extension for what they need, and they didn't care. All this should be
+> > in their bugzilla or whatever.
+> >
+> > The RSEQ rework improved performance significantly for everyone, and
+> > kept all the documented behaviour (+- arm64 bug). Tcmalloc got screwed
+> > over because they relied on implementation behaviour that was
+> > specifically documented to be broken. And they didn't care. Google was
+> > very much aware of this. And hasn't lifted a finger to remedy it.
 >
-> You are adding a whole infrastructure for something that happens
-> *once* in the lifetime of the system. What's next? D-Bus?
->
-> We already have a dependency mechanism, which I pointed to you last
-> time, and that you conveniently ignored. If that's not working for
-> you, then consider improving it.
->
-> If we had a whole set of in-kernel users depending on some global KVM
-> state change, we could look into it. But they are none, and all KVM
-> state changes are per-vcpu rather global.
->
-> So I'm not entertaining this invasive infrastructure for something so
-> limited.
+> Also: https://lore.kernel.org/all/874io5andc.ffs@tglx/
 
-I think I misunderstood your suggestion at first — I wasn’t ignoring it,
-and I apologise for that.
+(Sorry for the resend to folks who got this already - I got an alert
+that it was rejected by the mailinglists because it contained html so
+attempting to resend as plain text)
 
-I initially considered hooking into /dev/kvm registration,
-but there doesn’t seem to be a dedicated class or bus notifier for misc devices:
+I won't claim that tcmalloc _should_ be abusing cpu_id_start as it is.
+I agree that it seems questionable at best. However, I will strongly
+disagree with the following comment in that message:
 
-  - https://lore.kernel.org/all/aecf57rWloQwDh6v@e129823.arm.com/
+> What it not longer does is updating the
+> CPU number for the preemption case on the same CPU
+> because that's just a massive waste of CPU cycles.
 
+I don't think it will cost _any_ cycles to implement what I proposed.
+And it especially should have no impact from just enabling rseq on a
+thread as glibc now does. It should only result in different
+instructions being executed when the program actually _uses_ rseq by
+setting the rseq_cs variable to a non-null pointer. I will repeat the
+proposal with a bit more commentary in case you missed some of the
+details that make it free:
 
-Also, as I understand it, to make use of device_link,
-FF-A would need to represent itself (and pKVM) as proper devices.
+Any time a critical section might be aborted (migration, preemption,
+signal delivery, and membarrier IPI), the kernel _already_ must check
+the rseq_cs field to see if the thread is in a critical section [and
+if it is null because the program isn't using rseq critical sections,
+no further action is taken]. This is documented as nulling the pointer
+after (I assume to make later checks cheaper) [if this changed, then
+it *is* a change in _documented behavior_, not just an implementation
+detail]. It would be sufficient for tcmalloc's internal usage if every
+time the kernel nulled out rseq_cs, it also wrote the cpu id to
+cpu_id_start. [This is one additional store to a cacheline you are
+already writing to so it should be ~free on modern OoO CPUs and cheap
+on others. There might be a small cost to loading the current cpu, but
+since nothing depends on that other than the store, I still expect it
+to be ~free]
 
-However, even if we rely on notifiers for when the pKVM device and
-FF-A device are added, the ordering becomes problematic.
-When the pKVM device is added and probed, the FF-A consumer would add into
-deferred list be device core and  deferred_probe is triggered later
-(during late_initcall).
+To make this more concrete, I am proposing adding
 
-In other words, once FF-A itself is deferred,
-the deferred probe queue would look something like:
+unsafe_put_user((u32)task_cpu(t), &t->rseq.usrptr->cpu_id_start, efault);
 
-  (device depending on FF-A) → (some FF-A device) → (FF-A core)
+after each place where you currently do
 
-especially since finalise_pkvm() runs at late_initcall_sync.
+unsafe_put_user(0ULL, &t->rseq.usrptr->rseq_cs, efault);
 
-Unfortunately, deferred_probe_initcall() (also at late_initcall) only
-calls driver_deferred_probe_trigger() twice. In this scenario,
-the last device in the chain would not be probed immediately but only after a timeout.
-As a result, IMA would also fail to find the device in time.
+in rseq_update_user_cs. Is that something that you would expect to
+cause a performance issue?
 
-This is why I felt that device_link might not be suitable in this case —
-although I may be misunderstanding something.
+Again, I'm not claiming that it is "good" that this needs to be done.
+But it does seem like a small price to pay to keep existing binaries
+working on new kernels. Quoting the first paragraph of
+https://docs.kernel.org/admin-guide/reporting-regressions.html:
 
-If this understanding is correct, I’m not sure what alternative we have,
-other than adding some kind of notifier support (bus or class) to
-the misc driver, or introducing a custom notifier.
+> =E2=80=9CWe don=E2=80=99t cause regressions=E2=80=9D is the first rule of=
+ Linux kernel development; Linux founder and lead developer Linus Torvalds =
+established it himself and ensures it=E2=80=99s obeyed.
 
-Am I missing something?
-
---
-Sincerely,
-Yeoreum Yun
+I don't see anything on that page that says it doesn't count as a
+regression if the userspace program "relied on implementation
+behaviour that was specifically documented to be broken".
 
