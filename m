@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92241FDEE24
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 16:19:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B29FFDEE25
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 16:36:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TUvtZcKH+hnV4TOcIt/XowiCFud6XxmF4f2No/S1vfQ=; b=gk8YKYzKaLmVqK/5A1/T9BUedx
-	nMzU8pMzGJ4IYr1KcCl5AFcC7LtRxYYuAI5rB+lRG9joAcGwsFONB5uT5C0jOvgjc90JvG5ktCxaw
-	/YJjne6WqsykC0aS8zhxZArgRxM0UNeq9dg0YwLkhVXzIQrOq5Aao8uJJSKns+rtKwhv83vHXVLK5
-	2UK6nMAZeBfk4LlNhAmC8kCJCivpmWaq486shDLmezV/2eqgCri4mXdfSHY0WnywbKA9Z2e6RB8HT
-	ThBWJSWw3iBUKknMiCi+Zml0Gli98XGyHXWb+5Ow3s2gHFMnEFEEKBVo+icUkDDoPNxw+kxSFpqeE
-	ddkCGGNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xv8IR91E1iPDSRL6znc/7XWH51D69wQn+ndOG08NZbI=; b=cKAqcLdf50qsNaylc/0XVAKPeU
+	AWO1yoFk6rtNI//MnlfgLm0jwBAgIQKRSl0qpQHvHDoetJAd9+/yUHQ/iHIF3AxIvrzCmBe0rl+T4
+	aDNi0jk/AzCFZxmoxKVJjnGDjGBbbyv28cTAg0wHnlAXBusFX01MzTLVaaBpdMIxn4E/V/NFANts0
+	wyPe1xK1QKb4O7K1siIx1FvEfcmLdAuegQSSCMpnetVQr0+DuOSRUqg5l7HYkPFH8dDBLXcqEnHC5
+	iSfLSdTnBCHOV8vurFlXwi4eGr5ng/M4bF2qil2l43PZXRaZxXaO9+qhXf+uW1iW89HBx3ySIs+ZC
+	lg47MUyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFwlZ-0000000Bxcm-2MWA;
-	Thu, 23 Apr 2026 16:19:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wFx2S-0000000Byj0-0bzD;
+	Thu, 23 Apr 2026 16:36:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFwlX-0000000BxcS-1UWu
+	id 1wFx2Q-0000000Byih-3WZc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 16:19:00 +0000
+	Thu, 23 Apr 2026 16:36:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 38F4741892;
-	Thu, 23 Apr 2026 16:18:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17270C2BCB3;
-	Thu, 23 Apr 2026 16:18:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 08A2D60139;
+	Thu, 23 Apr 2026 16:36:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6273C2BCAF;
+	Thu, 23 Apr 2026 16:36:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776961138;
-	bh=9eVOvXWSKO9Mwpv08p5pQZbtG7HtNaejExq3zx6fma8=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=IDtEi5iM2fBWVk3l2mt5Mjf/3KLuLJmXLdRuVI5RXXXXPC4uyJa/6zPlH6WSSZvYU
-	 kUSCb+pZaBa2zjbqKMSChei4swNJI8bGGjUAXQoSFgaLItoCXKVfJw6gRjLgNfH/7I
-	 mvms7go0EnxzqzOLnaK35m2oq0blzW61Onq77c/1lDSpGNKTOv0iqFFLyhMlWrDYW4
-	 3J9m9LuP1/4CfuQ8bpVWx/iRsz+78tdbVAP5R0ocELwamiQyl2fToeh5fKQFkJdQSS
-	 0xvkhgSgmIUNBotOi3NDxacnYFmHdHJ/oamQt/aY0aXp0zl84otDw9OTFZgAIGSEuQ
-	 MZPGGvndMf/NA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B9F4038111CE;
-	Thu, 23 Apr 2026 16:18:20 +0000 (UTC)
-Subject: Re: [GIT PULL] soc: late changes for 7.1
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <61d255e9-84eb-460e-afc3-0405c9363524@app.fastmail.com>
-References: <61d255e9-84eb-460e-afc3-0405c9363524@app.fastmail.com>
-X-PR-Tracked-List-Id: <soc.lists.linux.dev>
-X-PR-Tracked-Message-Id: <61d255e9-84eb-460e-afc3-0405c9363524@app.fastmail.com>
-X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc-late-7.1
-X-PR-Tracked-Commit-Id: dd5dc1917473f398949b95f6b77c60d4d8eb1d97
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 507bd4b66c85d5b65696150cc16d31ac0b2ab151
-Message-Id: <177696109949.655676.11999537219261091094.pr-tracker-bot@kernel.org>
-Date: Thu, 23 Apr 2026 16:18:19 +0000
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, soc@lists.linux.dev, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_091859_412578_A1EA55B3 
-X-CRM114-Status: UNSURE (   4.32  )
-X-CRM114-Notice: Please train this message.
+	s=k20201202; t=1776962185;
+	bh=+ds0NJEr0kE5UiInXg4j6EEFq+upi2AL/UPD2beEDHw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=MFxUlvEil3p0G4/+Srcn1Lcv8ULKuz5MdQjip3z4jyrMDZoevDjCng49TzOKH9Fv3
+	 dEk69l7bhwQeudKNavjKtkNShhpMJB/1SFTf3Pz2vMxn3cSNznEVSMojHW7Gik4F02
+	 02YCjdt2DFw4iJJZ7A663518tvdF2eITdNnqbyHexDiw4uFQ23Sfykof2EOXoXZUAI
+	 Q/x/5W1MH58mW9ZPe9bkpTVQg+Vs2cbcnGGOqgF0MGDgW4d+yqDaB75QXgCksYYFyM
+	 5hBzl2IILNqzK0InB6PGcPYQxnALhyALO7CYvHYN9YblK1EmxBZBODAJQjBnrGFjJq
+	 c69nqIqmrVWpQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wFx2N-0000000E7YO-0aR6;
+	Thu, 23 Apr 2026 16:36:23 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH] KVM: arm64: Wake-up from WFI when iqrchip is in userspace
+Date: Thu, 23 Apr 2026 17:36:07 +0100
+Message-ID: <20260423163607.486345-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,16 +80,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Thu, 23 Apr 2026 14:00:43 +0200:
+It appears that there is nothing in the wake-up path that
+evaluates whether the in-kernel interrupts are pending unless
+we have a vgic.
 
-> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc-late-7.1
+This means that the userspace irqchip support has been broken for
+about four years, and nobody noticed. It was also broken before
+as we wouldn't wake-up on a PMU interrupt, but hey, who cares...
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/507bd4b66c85d5b65696150cc16d31ac0b2ab151
+It is probably time to remove the feature altogether, because it
+was a terrible idea 10 years ago, and it still is.
 
-Thank you!
+Fixes: b57de4ffd7c6d ("KVM: arm64: Simplify kvm_cpu_has_pending_timer()")
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/arm.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 176cbe8baad30..8bb2c7422cc8b 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -824,6 +824,10 @@ int kvm_arch_vcpu_runnable(struct kvm_vcpu *v)
+ {
+ 	bool irq_lines = *vcpu_hcr(v) & (HCR_VI | HCR_VF | HCR_VSE);
+ 
++	irq_lines |= (!irqchip_in_kernel(v->kvm) &&
++		      (kvm_timer_should_notify_user(v) ||
++		       kvm_pmu_should_notify_user(v)));
++
+ 	return ((irq_lines || kvm_vgic_vcpu_pending_irq(v))
+ 		&& !kvm_arm_vcpu_stopped(v) && !v->arch.pause);
+ }
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+2.47.3
+
 
