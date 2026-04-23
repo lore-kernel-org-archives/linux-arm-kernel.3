@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3DBDFDEE2F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 17:19:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE09FDEE2F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 17:23:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7RjHtx1jwbqQ55OcNCnJbcpuJoTX9YBGzZbzlHhCrsM=; b=BC01LJHcInSMMlbOILrK6CuJR8
-	3m4O/ik7FXvAOFtWublW6FwLDkQJ6NlMf7BU1Vo7dusiWBhOQFp7Dloqxvc5l+9t0PU03NzBZirCQ
-	gHz5q9RN1ZZvhTkZefWO/EqDPf3YzFtbnfeUgm/ze9SCc+RuDgHuJOxa/EPoy7/kG7C1jbzcoM4ww
-	LrG3KSdxOgPTuoLqGyRU5OGYmQKA5XGzT5kfBdvoB2YNXwRZc6NLsFILmi6n0Kes3VN95EDg7k+ix
-	dF+uqXAvUCqsrNqngYdjOfxz53AAd7cK7HP1r/AzNGshxeHAQhSJjAuwz8KgyWRkfhSd/w6pNktkj
-	4ebFI09Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=AhxSHKWr103/E1Abi9BgceUMalIe2NtUsSb9gyPNW6I=; b=oRZmKHsn5hcdUe
+	s6c6Q2nSCF/mJVhj17AXypNCapW89iZKOqHAErzWzejJq4AET/PL4X9+f7Um9bimuxw/R1x9X8FUx
+	PuOBXnOBgX7B24aLcAU+ZlXotr471PI3/SVcX7NwRKqU558WvJoVkvnn/IHV0AFbx1mjCniQ8s+St
+	67cTzzb6EGngKHGJ4V1fT/k3CpESFuCt6+G1Nl2lsB+xVXncc/TTIAT1p39YAhhwcgjTefb4c8dl8
+	F5ckkn2Hz3LdOIVUU80qaxX6N5e1eIjYkicib1fqC/Wzx+gPsRWod3DyP1b3SfHQKFYxLvIw/YcLT
+	XC1aIM4E5/9M7Zg4TICA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFxiO-0000000C1xe-1tix;
-	Thu, 23 Apr 2026 17:19:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wFxmK-0000000C2KE-3Cc9;
+	Thu, 23 Apr 2026 17:23:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFxiM-0000000C1xY-3ohF
+	id 1wFxmI-0000000C2JT-1UPE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 17:19:47 +0000
+	Thu, 23 Apr 2026 17:23:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C3D4960139;
-	Thu, 23 Apr 2026 17:19:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0E18C2BCAF;
-	Thu, 23 Apr 2026 17:19:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5D4A642AC9;
+	Thu, 23 Apr 2026 17:23:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 613FCC2BCAF;
+	Thu, 23 Apr 2026 17:23:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776964785;
-	bh=Cdmfkm8GEQ2TJcnyq/J8jHFvtrJGx0HP6bi3r/GUzuI=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=iDopWkP4JMOa0oed1lMMwY3+J0HB/CaIEcZaEPVxbZGqZImRl7y3AoHTReBd/KSkP
-	 dI7Q0rp7J5qByrzrg7P/zpks1NsLxI0ddqk5TEJOGNCOLpAL6crEIi21ckZgOyL1Ey
-	 +7e4FgZ61xdTiOsQOQ1Win77DpXPVAxp9KSzkQWCfSiUmnGxinyswJxG9KGR1jgnOS
-	 QE05YJ+x227s4UzoF8yxQrAp6JV2qzbxR35bT5v/0Fhd+64GjSPvauUn51IHJQq6Kb
-	 pZG+fQIN7K+Us4iIk18xy67XVpfavN79uYlSzycQ8QH2J42d9zQGklZq7HYdJkANlS
-	 8jJYvh11g3X7A==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Mathias Stearn <mathias@mongodb.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Boqun Feng
- <boqun.feng@gmail.com>, "Paul E. McKenney" <paulmck@kernel.org>, Chris
- Kennelly <ckennelly@google.com>, Dmitry Vyukov <dvyukov@google.com>,
- regressions@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Ingo Molnar <mingo@kernel.org>, Mark
- Rutland <mark.rutland@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, Blake
- Oler <blake.oler@mongodb.com>, Linus Torvalds
- <torvalds@linux-foundation.org>
-Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
- and tcmalloc everywhere
-In-Reply-To: <CAHnCjA07ER=9xBqXq4jf5yn052W-E9ZXD86HxnRGtai6bpXbbQ@mail.gmail.com>
-References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
- <20260422125647.GP3126523@noisy.programming.kicks-ass.net>
- <20260422131338.GI3102924@noisy.programming.kicks-ass.net>
- <CAHnCjA2fa+dP1+yCYNQrTXQaW-JdtfMj7wMikwMeeCRg-3NhiA@mail.gmail.com>
- <87fr4l28zn.ffs@tglx>
- <CAHnCjA07ER=9xBqXq4jf5yn052W-E9ZXD86HxnRGtai6bpXbbQ@mail.gmail.com>
-Date: Thu, 23 Apr 2026 19:19:41 +0200
-Message-ID: <87cxzp1tn6.ffs@tglx>
+	s=k20201202; t=1776965029;
+	bh=PBeU3E1iY6sycfyztxSJMPW0WRRpkbfBh6dm8PLuH3Y=;
+	h=From:Subject:Date:To:Cc:From;
+	b=axPiaa2W3QYjE2pfu+nW6DAUUtZiOUiNXCB7p3Ed9Ko0V6pFweAK/5IOYDAl44LD6
+	 ry27AkcvZbSVaXAvSFoR+qkfpTlDaciA+2DDBX3TY5B05dJEjFsan6GqT0MoPyPA2H
+	 XEvSUtsS9HVVZDW2k0JJpLLravkx2nm80lgki7oxDuFPnN51DAmB6LMDR2VtcU+F0h
+	 8jsjEHLr4pYBhrQBUh7VJQn5a82MOmXYfwiYPkeAqXfbo6zMRvMjFq4VzkX+YKTM6m
+	 kVqswg7tRFbwL2Xl/q1uI3jmSGaYiWlix6u8Bkug/kGbXOW+JPpSTislvHKInCssOU
+	 lx9cXOj6abZhw==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+Subject: [PATCH 0/8] firmware: arm_ffa: Fix cleanup, notification, and
+ discovery paths
+Date: Thu, 23 Apr 2026 18:22:50 +0100
+Message-Id: <20260423-ffa_fixes-v1-0-61189661affe@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAG5V6mkC/yXMwQ5FMBSE4VeRs9akWizuq4hIMeVYuNKDSMS7K
+ 5Zf5s+cJAgMoV9yUsDOwv85IksT6kY3D1DcR5PRptS5scp713g+ICp3vbVeA6bQFPsl4B1iXtW
+ fZWsndOtzQNd1A79pojRtAAAA
+X-Change-ID: 20260423-ffa_fixes-4ad33f0ee250
+To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Jens Wiklander <jens.wiklander@linaro.org>, 
+ Sudeep Holla <sudeep.holla@kernel.org>, 
+ Sebastian Ene <sebastianene@google.com>
+X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260423_102350_436964_06A0C046 
+X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,101 +77,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 23 2026 at 14:11, Mathias Stearn wrote:
+Hi all,
 
-Cc+ Linus
+This series fixes a set of issues in the FF-A driver around init
+cleanup, framework notification handling, v1.0 notifier lifetime, and
+partition discovery.
 
-> Of course, even if we make that change, it will only apply to _future_
-> binaries. That's why we prefer a kernel fix so that users will be able
-> to run our existing releases (or any containers that use them) on a
-> modern kernel.
+The fixes are all small and localized, but together they tighten a few
+important paths:
 
-I understand that and as everyone else I would be happy to do that, but
-the price everyone pays for proliferating the tcmalloc insanity is not
-cheap either.
+- fix the early init unwind path when RX buffer allocation fails
+- align the stored RX/TX buffer size with the size actually mapped to
+  firmware
+- ensure the framework notification handler always releases the RX
+  buffer correctly
+- validate framework notification payload bounds before copying data out
+  of the shared RX buffer
+- fix the partition lookup used for sched-recv callback registration
+- unregister the FF-A v1.0 bus notifier during teardown
+- bound the register-based partition discovery copies against the caller
+  buffer
+- reject FF-A driver registration without an ID table
 
-So let me recap the whole situation and how we got there:
+This is the outcome of the self-initiated review of the entire driver
+following the oversight of Sashiko’s review on one of the patches that
+was merged.
 
-  1) The original RSEQ implementation updates the rseq::cpu_id_start
-     field in user space more or less unconditionally on every exit to
-     user, whether the CPU/MMCID have been changed or not.
+https://sashiko.dev/#/patchset/20260402113939.930221-1-sebastianene@google.com
 
-     That went unnoticed for years because nothing used rseq aside of
-     google and tcmalloc. Once glibc registered rseq, this resulted in a
-     up to 15% performance penalty for syscall heavy workloads.
+Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+---
+Sudeep Holla (8):
+      firmware: arm_ffa: Check for NULL FF-A ID table while driver registration
+      firmware: arm_ffa: Skip free_pages on RX buffer alloc failure
+      firmware: arm_ffa: Align RxTx buffer size before mapping
+      firmware: arm_ffa: Fix Rx buffer release in fwk notification handler
+      firmware: arm_ffa: Validate framework notification payload bounds
+      firmware: arm_ffa: Unregister v1.0 bus notifier on teardown
+      firmware: arm_ffa: Fix sched-recv callback partition lookup
+      firmware: arm_ffa: Bound PARTITION_INFO_GET_REGS copies
 
-  2) The rseq::cpu_id_start field is documented as read only for user
-     space in the ABI contract and guaranteed to be updated by the
-     kernel when a task is migrated to a different CPU.
+ drivers/firmware/arm_ffa/bus.c    |  4 +-
+ drivers/firmware/arm_ffa/driver.c | 79 ++++++++++++++++++++++++++++-----------
+ 2 files changed, 60 insertions(+), 23 deletions(-)
+---
+base-commit: 2e68039281932e6dc37718a1ea7cbb8e2cda42e6
+change-id: 20260423-ffa_fixes-4ad33f0ee250
 
-  3) The RO for userspace property has been enforced by RSEQ debugging
-     mode since day one. If such a debug enabled kernel detects user
-     space changing the field it kills the task/application.
 
-  4) tcmalloc abused the suboptimal implementation (see #1) and
-     scribbled over rseq::cpu_id_start for their own nefarious purposes.
+-- 
+Regards,
+Sudeep
 
-  5) As a consequence of #4 tcmalloc cannot be used on a RSEQ debug
-     enabled kernel. Which means a developer cannot validate his RSEQ
-     code against a debug kernel when tcmalloc is in use on the system
-     as that would crash the tcmalloc dependent applications due to #3.
-
-  6) As a consequence of #4 tcmalloc cannot be used together with any
-     other facility/library which wants to utilize the ABI guaranteed
-     properties of rseq::cpu_id_start in the same application.
-
-  7) tcmalloc violates the ABI from day one and has since refused to
-     address the problem despite being offered a kernel side rseq
-     extension to solve it many years ago.
-
-  8) When addressing the performance issues of RSEQ the unconditional
-     update stopped to exist under the valid assumption that the kernel
-     has only to satisfy the guaranteed ABI properties, especially when
-     they are enforcable by RSEQ debug.
-
-     As a consequence this exposed the tcmalloc ABI violation because
-     the unconditional pointless overwriting of something which did not
-     change stopped to happen.
-
-Due to #4 everyone is in a hard place and up a creek without a paddle.
-
-Here are the possible solutions:
-
-  A) Mathias suggested to force overwrite rseq:cpu_id_start everytime
-     the rseq::rseq_cs field is cleared by the kernel under the not yet
-     validated theoretical assumption that this cures the problem for
-     tcmalloc.
-
-     If that's sufficient that would be harmless performance wise
-     because the write would be inside the already existing STAC/CLAC
-     section and just add some more noise to the rseq critical section
-     operations.
-
-     That would allow existing tcmalloc usage to continue, but
-     obviously would neither solve #5 and #6 above nor provide an
-     incentive for tcmalloc to actually fix their crap.
-
-  B) If that's not sufficient then keeping tcmalloc alive would require
-     to go back to the previous state and let everyone else pay the
-     price in terms of performance overhead.
-
-  C) Declare that this is not a regression because the ABI guarantee is
-     not violated and the RO property has been enforcable by RSEQ
-     debugging since day one.
-
-In my opinion #C is the right thing to do, but I can see a case being
-made for the lightweight fix Mathias suggested (#A) _if_ and only _if_
-that is sufficient. Picking #A would also mean that user space people
-have to take up the fight against tcmalloc when they want to use the
-RSEQ guaranteed ABI along with tcmalloc in the same application or use a
-RSEQ debug kernel to validate their own code.
-
-Going back to the full unconditional nightmare (#B) is not an option at
-all as anybody else has to take the massive performance hit.
-
-Oh well...
-
-Thanks,
-
-        tglx
 
