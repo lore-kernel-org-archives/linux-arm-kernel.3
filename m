@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89AD8FDEE32
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F137EFDEE33
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 17:24:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,53 +12,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7zXyaYPuNEBH/uqtbRt6221mLfw9k68fWfd4gc+ltoE=; b=kMKoyly0eR8L2gVfnJ/+UeYbvI
-	7j3P7AWsFq8kR/njNO9VnoPyJsTa8Zus1NQlNA1MQIi1shDQTjNb09tsCdlA7tj2+f5TZddGY+XqA
-	Lx4SYF4YR37gItpBOzRJ3SbwbeH16PvBjrktHyo1cJR5MtXk8OCsLrQVrTJ6NyWdiSWhed3/Mk1a1
-	FObctaqomXbb6tzsgZ3WSvLsKbC70koXvkq7JJswWf7QypWqYr4dkltzHpXB+3+fvIDT3zuj4AQAc
-	BWvJ66LEP5FjQq9O9s7XZ7QTKDPvTmwPplNkZPi5043JElLRZk8fTgmj4aaJlXXKTRilzdHAg9P6f
-	nNQFJQUA==;
+	bh=BhxQfSaEdm48BO6beZPKAs6raZHeeUDyJtb3UwUvNww=; b=ogmiQMDVLWwTPtgWDgBVApF9vM
+	WaLgmAt9uff7eJDHYJd0ongbWPnK8aXR+v4yu5bVRxozW6Xlj7vlneOstK9HAWMVmzCMnSdnJqkSj
+	M1mw87N6DrhSCnlndFIRSBaNZeExIz5sj/CeA6Eb2h5KdjnJtlHIWXTjT7j4DlDEg+QuUjLIym7d+
+	7youkKi7swx3uhaZNMF9T2pTBzC2x5EVvRx8b+TOh44ElVdayNT/kXd946EH7MQWwEUK3RTKy0i9a
+	RPlDW0AEUXnIzAf0v1EW8RPBrk/HB8z2DjKlroB4Gltk3Asjx2c9+v5ipHy/fKvqXMYRxdiMoBtvK
+	H6R1cong==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFxmS-0000000C2QB-2Q5v;
-	Thu, 23 Apr 2026 17:24:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wFxmR-0000000C2P0-2mTc;
+	Thu, 23 Apr 2026 17:23:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFxmO-0000000C2N1-0l8g
+	id 1wFxmL-0000000C2KD-1CW7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 17:23:57 +0000
+	Thu, 23 Apr 2026 17:23:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DCEFC4470D;
-	Thu, 23 Apr 2026 17:23:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A17DC2BCB4;
-	Thu, 23 Apr 2026 17:23:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A9A6F4092E;
+	Thu, 23 Apr 2026 17:23:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7302C2BCAF;
+	Thu, 23 Apr 2026 17:23:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776965035;
-	bh=Sf1aBgZQBBHoZh/jIDqPw5Ja/XaZRFBpyaILdxqZ3rE=;
+	s=k20201202; t=1776965032;
+	bh=i1zlfKqoBWN27zTMIh+OOnDw/plffp5P3L7s2aSHSfI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=nV75orVYw0VeiwzfuxSYdYMs7MGANGfv9rcR45y5mElYgWyEkGr9+TBAdSZiIj5r2
-	 hXxiWYXr71flMF2VpeMPjeLWclhN+6Li2LUqOXz6hf2G25JH3S5BLtnZQ5StbE8p2/
-	 ZOeLcMtzq1Vnp8EZheQhVW0gVJvkpZml0k/HpWcrXgyUCBitSpMYHryHKu6kv1AolS
-	 1XuHM6oVCE/PNdt+retDNpUqjVg8FImnusDZiMQOGEhjgsMc53GxCWu7D8klqI0meu
-	 YPkGPG99rk/tVLauyrNyOFgsYPZC6fv8wfSQ4N+0UkmnooxrUEnVEQbPl9qoISH5UH
-	 HABT+7rjEKYPw==
+	b=OFNk6j0KAd1NN8/nvgHQ6Egdms+ZX6699lnUxuVMk9JPdCRyrtnSRIiyg0GLGjUmm
+	 qesvgUwzgDwny0MXo2jU7QZ/VaIcsfPC82NZf109I2lyr8ZWL+m4xYUkWf1cLMAuCT
+	 ofd1IWRLCi26k48NpsVh0Pah/dXkvVKyrugEnyFFBLzXLM13DzRVl4CFBuuQ0O4XCZ
+	 W9uQpFDIreYtGlYeNbAbOmqVo/4JAZRodVcUn3g5N6BV4KG3YbUl7FPDiU9ExqAu/v
+	 6Ei/PWoUBUW4UiLwWUEzj13MDb0mbdM3oy9mfV5jXtIqLTDSXffKtle82za4UBbQA0
+	 Lr7N8qsaccf0g==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Thu, 23 Apr 2026 18:22:56 +0100
-Subject: [PATCH 6/8] firmware: arm_ffa: Unregister v1.0 bus notifier on
- teardown
+Date: Thu, 23 Apr 2026 18:22:53 +0100
+Subject: [PATCH 3/8] firmware: arm_ffa: Align RxTx buffer size before
+ mapping
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260423-ffa_fixes-v1-6-61189661affe@kernel.org>
+Message-Id: <20260423-ffa_fixes-v1-3-61189661affe@kernel.org>
 References: <20260423-ffa_fixes-v1-0-61189661affe@kernel.org>
 In-Reply-To: <20260423-ffa_fixes-v1-0-61189661affe@kernel.org>
 To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Cc: Jens Wiklander <jens.wiklander@linaro.org>, 
- Sudeep Holla <sudeep.holla@kernel.org>
+ Sudeep Holla <sudeep.holla@kernel.org>, 
+ Sebastian Ene <sebastianene@google.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_102356_245121_F7619E8E 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20260423_102353_350287_00AFE46C 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,69 +74,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For FF-A v1.0 the driver registers a bus notifier to backfill UUID
-matching, but the notifier was never unregistered on cleanup paths.
-Track the registration state and unregister it during teardown and early
-partition-setup failure.
+Commit 83210251fd70 ("firmware: arm_ffa: Use the correct buffer size during
+RXTX_MAP") advertises PAGE_ALIGN(rxtx_bufsz) to firmware when mapping the
+buffers but the driver continues to stores the minimum FF-A buffer size
+in drv_info->rxtx_bufsz which is used elsewhere in the driver.
 
-Fixes: 9dd15934f60d ("firmware: arm_ffa: Move the FF-A v1.0 NULL UUID workaround to bus notifier")
+Align the size before storing it so that the allocation, validation and
+FFA_RXTX_MAP all use the same buffer size.
+
+Fixes: 83210251fd70 ("firmware: arm_ffa: Use the correct buffer size during RXTX_MAP")
+Cc: Sebastian Ene <sebastianene@google.com>
+Link: https://sashiko.dev/#/patchset/20260402113939.930221-1-sebastianene@google.com
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_ffa/driver.c | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ drivers/firmware/arm_ffa/driver.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-index 0e030f377985..4edb88079bac 100644
+index e6a051b20cb7..4dec7ca52f8c 100644
 --- a/drivers/firmware/arm_ffa/driver.c
 +++ b/drivers/firmware/arm_ffa/driver.c
-@@ -100,6 +100,7 @@ struct ffa_drv_info {
- 	bool mem_ops_native;
- 	bool msg_direct_req2_supp;
- 	bool bitmap_created;
-+	bool bus_notifier_registered;
- 	bool notif_enabled;
- 	unsigned int sched_recv_irq;
- 	unsigned int notif_pend_irq;
-@@ -1638,6 +1639,15 @@ static struct notifier_block ffa_bus_nb = {
- 	.notifier_call = ffa_bus_notifier,
- };
- 
-+static void ffa_bus_notifier_unregister(void)
-+{
-+	if (!drv_info->bus_notifier_registered)
-+		return;
-+
-+	bus_unregister_notifier(&ffa_bus_type, &ffa_bus_nb);
-+	drv_info->bus_notifier_registered = false;
-+}
-+
- static int ffa_xa_add_partition_info(struct ffa_device *dev)
- {
- 	struct ffa_dev_part_info *info;
-@@ -1721,6 +1731,8 @@ static void ffa_partitions_cleanup(void)
- 	struct list_head *phead;
- 	unsigned long idx;
- 
-+	ffa_bus_notifier_unregister();
-+
- 	/* Clean up/free all registered devices */
- 	ffa_devices_unregister();
- 
-@@ -1748,11 +1760,14 @@ static int ffa_setup_partitions(void)
- 		ret = bus_register_notifier(&ffa_bus_type, &ffa_bus_nb);
- 		if (ret)
- 			pr_err("Failed to register FF-A bus notifiers\n");
-+		else
-+			drv_info->bus_notifier_registered = true;
+@@ -2063,6 +2063,7 @@ static int __init ffa_init(void)
+ 			rxtx_bufsz = SZ_4K;
  	}
  
- 	count = ffa_partition_probe(&uuid_null, &pbuf);
- 	if (count <= 0) {
- 		pr_info("%s: No partitions found, error %d\n", __func__, count);
-+		ffa_bus_notifier_unregister();
- 		return -EINVAL;
- 	}
++	rxtx_bufsz = PAGE_ALIGN(rxtx_bufsz);
+ 	drv_info->rxtx_bufsz = rxtx_bufsz;
+ 	drv_info->rx_buffer = alloc_pages_exact(rxtx_bufsz, GFP_KERNEL);
+ 	if (!drv_info->rx_buffer) {
+@@ -2078,7 +2079,7 @@ static int __init ffa_init(void)
  
+ 	ret = ffa_rxtx_map(virt_to_phys(drv_info->tx_buffer),
+ 			   virt_to_phys(drv_info->rx_buffer),
+-			   PAGE_ALIGN(rxtx_bufsz) / FFA_PAGE_SIZE);
++			   rxtx_bufsz / FFA_PAGE_SIZE);
+ 	if (ret) {
+ 		pr_err("failed to register FFA RxTx buffers\n");
+ 		goto free_pages;
 
 -- 
 2.43.0
