@@ -4,90 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91BA9FAD3F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 03:02:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55A3CFAD3F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 03:04:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/5nrVUEisrdFvdhbKV6CkO0NTyBn09hOKHVIHlVzjGE=; b=FDHkz8o1o4dItF4m2TuYy/+QiQ
-	PTMUTayL8FbIAeb0enqCpT4FnHYYFiTbQvRD2Y7hKpWNPkCU4fZau/34eKgMSOWyE4fX0nEhI0SYw
-	7qU2IINPZCebiEUz0X3jLAwgEqlFebVrAfgy36CJJAU/1DaqkSmVqDrTpLy2sNlXsw97yTEEjnaSv
-	92hJhWt03SK9Dsb1ZKzWHGg+MUsWlYEQWkuv+S7neZKeFDNDw94nHIsn5ArVIwLUX1WEZJ3Gq/kF/
-	n5HsNwvl7xkit1UrNCHvs2mPbekeYvLUGyhBG2mv3KbSK9IvYf74F/74oFGh6xxG1kIRPuMXh0LQ1
-	ubuPhJqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vlAmYP7r9qxca+e0yhfzO5YH1CKnRng0LfJO4BxlUSQ=; b=RJNKRXWi0FUeS7v+LhnVJrcL2S
+	pGshjc5cWIq9Tg/MqjzoLyAaTgUJrbR6R8ptykPAz9RxYNixCfPEYbY6aXV2QMIaEFOn3SqxmaR3I
+	I8DHY5HrDTgWYZWZIsgq5MOU0S9BkGqSxN5S+xOU6O25s25CV8W44kjS4YanSknCk0zHDgWLJ4cID
+	+pP6IiM2caAyomPfKBPokVsd+/M7A0Zs1xyy4Am7RhuUt+mQtYQbx1e8Hq29kBYpI7ITLq6poVLbt
+	BI/AcAAGuUnEGTDD77QoZDbqIS3Zp01ImSchFZDO/YJLiHamqXxZqIoyI0OUzN7YPhXM17z8C1O5+
+	B+uSteug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFkKq-0000000AwKM-0JpS;
-	Thu, 23 Apr 2026 03:02:36 +0000
-Received: from mout-p-101.mailbox.org ([80.241.56.151])
+	id 1wFkML-0000000AwVj-3ESo;
+	Thu, 23 Apr 2026 03:04:10 +0000
+Received: from mail-francesouthazon11011007.outbound.protection.outlook.com ([40.107.130.7] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFkKn-0000000AwJA-2e1G
+	id 1wFkMK-0000000AwV0-0UgP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 03:02:34 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4g1LVW4745z9tkP;
-	Thu, 23 Apr 2026 05:02:27 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1776913347;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/5nrVUEisrdFvdhbKV6CkO0NTyBn09hOKHVIHlVzjGE=;
-	b=DPutjH9MQYYO5ATse/UEF28ucYfgakB2kWu4c9xRmx35gIPQnQLsJeZt/Cwky43mPUl5ve
-	0y4dhQRLuvY0D4BcBFQbOuRbTyZv5oQnqkRzTKZxnDxXPPzLUA3bECh8qHQTLkO+72eZqF
-	bkC2rlH/vYiDCiZfNXyE/cYB1X/FKiMF47BpkXss0v66JVIpX5fMU2ToX7dTpBhhiEfEML
-	lshXWUGBLNGrJe9g4ULXtMK/YMCl8gQzX+rNLxvhKdJBd3bhzEW6Yrt3cQNYoIX9w2ybTh
-	/virglpGrKZO56UmDZAgafy0M77NxAqMuuEGlxcvOGjKaBr34RTUygt4hcSDAw==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=FUIbgGXM;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
-Message-ID: <0f933506-c196-4503-844f-2a375e2cf690@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1776913345;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/5nrVUEisrdFvdhbKV6CkO0NTyBn09hOKHVIHlVzjGE=;
-	b=FUIbgGXMsv1sill9OPNXBYLB4NOUVzzMVBDSstCCOyKvP2wG7IxvSD/tIH1PcFfOiWMgO1
-	pFXITu8yWV5lsIYqOuHAm7zVw8ZG55s1E0sqja+Hjdo4wYthVPQgKb2gk7mo78x9xo77z6
-	11N0GZKAaQmHjjjKmKTy/pPw9R5v05XU0OpQfmD7sh+JxeWnvaAtAyMNzUsP70qa/+GD+l
-	2QS4SO8nlvM+f7J0MDUr+IPPWPbzMgWTmqmAcWTCS5s9MfgRmZsH/zQrn7itA7jot11Nwi
-	aXQcQJfcpvZvdCdEdGIMgIwLlK/yTgXIEliOEvUM+BUAV3g57WV5AHNiDj5YEw==
-Date: Thu, 23 Apr 2026 01:33:33 +0200
-MIME-Version: 1.0
-Subject: Re: [PATCH v2 3/4] ARM: dts: renesas: r8a7740: Add ZT/ZTR trace clock
- on R-Mobile A1
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm
- <magnus.damm@gmail.com>, Michael Turquette <mturquette@baylibre.com>,
- Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-References: <20260415233300.457892-1-marek.vasut+renesas@mailbox.org>
- <20260415233300.457892-4-marek.vasut+renesas@mailbox.org>
- <20260421-cherubic-urban-beluga-49ee00@quoll>
+	Thu, 23 Apr 2026 03:04:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EmxkpDkGmRi3WP6H8RoRQR5cMFpzM1FJIrPcuFFflDNwjQfnLddWHx7oc9xFxVl76Fpbmx6hRqU6HRGXiBV6bEBI8PQxHgdgqX7JwFE77N+hOOZSbU4xP3zddcLYR3NFuwd2rDqVtL79ED7/wH9/RRvO/41xkq8Z6OWKlFuEjEcnaw6I3FHiZbWzPPhgbCipTrB9lNxcXTmv7Pf2SjyGUvYVNKTgpvHMLluaRm0BoTqG8xMtHtnSSdq0xpRElqtj+NhyeZsfcO33ja9vKIWBGyJMSrJHrppl8jkzxScwnhqoMT1MlySte0LDCxb/OuT8MJOqqc1FZbgqz9vGG0U+pg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vlAmYP7r9qxca+e0yhfzO5YH1CKnRng0LfJO4BxlUSQ=;
+ b=UNWouhGOk1ZsnMcCd5kQS2lhRP3Zt6iRHyRB1qIzgcd+/N/uq1N2N4Z1LuQMGolVOuY8Kaafilmpooa9IGSQLi8tjbsSCkLfTvz1hJd8KiyNURpIBWN1Js7MNktqsLY1MadOu9YRM/krEtnQAX8RohqTJkk7cOkslfmErJih99TKQmZN3IDV+fyHqo3s+N8tx+AKWu5+L8EYGGFslS4jp1yH/HT8qDLcMtG6Pmxp0AW7Kw6/l4DX/cIt+TjLuO2AocMpl1+5euwo8b9XpaZkMkFZDlG53dhOraaV9BxXTs3iKa8QVTETtkm7QXeEjL5rpAPfksd0TzgkWjgNeuJ+7g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vlAmYP7r9qxca+e0yhfzO5YH1CKnRng0LfJO4BxlUSQ=;
+ b=fo6hDbt1eobEaxc31c1rm0mw1jY1eXKG5Kt0yvmYMZgMVlG5xmVKZFqhdlwtHR2XLCKdJY7AuwPYsWszChsJEsAyhy9ML/bBxvD89YO5LjSibp00EdXuuu6VtgEIS6oXQwTBlqNOEU7mDZQoCFMuhqy6Rf/wFUCIL4BZR3Wq/tdtIuaxlu9+v2Iq3xVKHOX6kxQ+v7g6Gz63J1B8n+7jgEoFhwEVvcAf4Fci7ONoCtFzNNCxky8Nx4pZXyr+PhguID0xsZWhdYzLH3iVoEydLZIJBmXIsKscsuCht8TqYjpq2dfk2mOKpWjdmcflnRxEJVWW14bztMZeWMS6qagt8w==
+Received: from AM9PR04MB8353.eurprd04.prod.outlook.com (2603:10a6:20b:3ef::22)
+ by DU2PR04MB8727.eurprd04.prod.outlook.com (2603:10a6:10:2de::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.21; Thu, 23 Apr
+ 2026 03:04:00 +0000
+Received: from AM9PR04MB8353.eurprd04.prod.outlook.com
+ ([fe80::46ae:f774:f04c:a1bc]) by AM9PR04MB8353.eurprd04.prod.outlook.com
+ ([fe80::46ae:f774:f04c:a1bc%5]) with mapi id 15.20.9769.016; Thu, 23 Apr 2026
+ 03:04:00 +0000
+From: Chancel Liu <chancel.liu@nxp.com>
+To: Frank Li <frank.li@nxp.com>
+CC: "lgirdwood@gmail.com" <lgirdwood@gmail.com>, "broonie@kernel.org"
+	<broonie@kernel.org>, "perex@perex.cz" <perex@perex.cz>, "tiwai@suse.com"
+	<tiwai@suse.com>, "shengjiu.wang@gmail.com" <shengjiu.wang@gmail.com>,
+	"Xiubo.Lee@gmail.com" <Xiubo.Lee@gmail.com>, "festevam@gmail.com"
+	<festevam@gmail.com>, "nicoleotsuka@gmail.com" <nicoleotsuka@gmail.com>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de"
+	<kernel@pengutronix.de>, "shumingf@realtek.com" <shumingf@realtek.com>,
+	"rander.wang@linux.intel.com" <rander.wang@linux.intel.com>,
+	"pierre-louis.bossart@linux.dev" <pierre-louis.bossart@linux.dev>,
+	"linux-sound@vger.kernel.org" <linux-sound@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v2 1/3] ASoC: dapm: Fix widget lookup with prefixed names
+ across DAPM contexts
+Thread-Topic: [PATCH v2 1/3] ASoC: dapm: Fix widget lookup with prefixed names
+ across DAPM contexts
+Thread-Index: AQHczLC6HSvTOgrhqUqPN7hDL63+dLXjGmaAgAjnRgA=
+Date: Thu, 23 Apr 2026 03:03:59 +0000
+Message-ID: <AM9PR04MB8353E5A39BA0DB3CF230C7B5E32A2@AM9PR04MB8353.eurprd04.prod.outlook.com>
+References: <20260415081942.4183108-1-chancel.liu@nxp.com>
+ <20260415081942.4183108-2-chancel.liu@nxp.com>
+ <aeITn0SXl-wqgAyA@lizhi-Precision-Tower-5810>
+In-Reply-To: <aeITn0SXl-wqgAyA@lizhi-Precision-Tower-5810>
+Accept-Language: en-US
 Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <20260421-cherubic-urban-beluga-49ee00@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: 54kwxq1tnha1mex66tf4qrwip4irbwrn
-X-MBO-RS-ID: e40272b9ab78651b54b
-X-Rspamd-Queue-Id: 4g1LVW4745z9tkP
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM9PR04MB8353:EE_|DU2PR04MB8727:EE_
+x-ms-office365-filtering-correlation-id: 8723887b-8ed4-4247-5baf-08dea0e4f7a2
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|19092799006|18002099003|38070700021|56012099003|22082099003;
+x-microsoft-antispam-message-info: orHE+Np6XlHlX/F9TfdbgTSkS23QzXQcAxIPrcFX8jgZCLgWzXlHNNLClXZ9hnpOjZ182MobfWL6TvGyA4nU42LpEYKe9RESer83Ji/OkOpJBiH2c/d/Qj2CVe5EqoLJe3CsHsB2FubhfJ6vj697hvWKdxPHugilha5e78zhDgx0GgbUN18s8Q9rYHJ9QjNOE2bKlTaONNENFe1V0cUIXvZZZL6fQPMs6PxtpvDJrDYhuIRcmrP5EXhkRvxX9v2bihnwSEjScEbuThuFvDJ/YNREc4NOGgRG6DCnt4BbOsmIEhb0OBPklR6fBZyp9IgFY1R5Q/fUTf2oycOxNntvJg3xxuYbeVDG9HXJfF457h7XCMl4JEn22LNhG2b8ni+cxlelWu04fji1v5EK9HAy+SKA+RCR/6ACO8/AHdIZLPuxF9gGWRDHMBfW8NWgnGDLP1oDpU7V2w+ziOKzkMW3EcyoZYYGbzgrpTrM9kpk/i8Th462aeFSXyr1NGBUuZwnH5b5CuWdgoCgIxZRqGnck0NrUwkkedBEbfz78084m27eEeGEmokb9H8/Bj1+Xhbaq4VhxLmbaBHgRLWkyoSMQKN9tZ8X/PSDjr14qMA/GXE4WUnMcn3kWy/E8OaF7igJgqNOH+TbWkIWAz6xqtxtx0TxcFhkjuuloCSkrBrM2wjoU4GKjecZQgkMlHR953XZ+TjTe174fqKrb4yxCfCVxKdPcJD012Ak7+xIxAbZgbFVbSCd4S0L8egN/MwNLx4oKDOLCS+BvLXtuQTAGBrLm3Dm+LvcXK+QqosSsWa0xiQ=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8353.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(19092799006)(18002099003)(38070700021)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?gkN5Sj4agTbo4m0xo5DiaqqrEYIL5vZlslsBhRaX6qmUmBHlJUuWFaDaDuwn?=
+ =?us-ascii?Q?hOWDbAIT5fFG1EtybW3FfjZoVLYa7QbF1BghoIvEl27yueSt8ckjV7WKOdh3?=
+ =?us-ascii?Q?otArUEKsEj+eRqgNDlyI/fwX6dqUC8gB+Y1+W+rtxrlG76CXHxLqDldjasiS?=
+ =?us-ascii?Q?CzZMrhvceonJ5Rw8vDKhC5IK42a9pQPvfMt+zUSQGQR2VnQA9sZQgmWvAV5X?=
+ =?us-ascii?Q?MLU5s7fFP91e3PDrGhxMhTuTvg5YbucDNGfkjyNencORZCp6rZME8Qg8sc6d?=
+ =?us-ascii?Q?68qahDj2kj1q52CmlA93yrxSma/0WIy5/zx5nQZY9PufPggDLMTa8ITS2xeI?=
+ =?us-ascii?Q?8Drej+cj2CLNaKzvHspMPMgIXP3HNv+y4tfjEDLIEYYuhhXRXVZAHQ4Z9+j7?=
+ =?us-ascii?Q?qtrZuGhBW0Su8q7UYwHMCPXXreYRBVE7UFj4xaRXJcQIyV2psO15NmvvNiLB?=
+ =?us-ascii?Q?kZd/zw1sBjiQ5PmcHWrHjfwM9XDzQCbiUfVI1CqPGwoKk9xjZLY8tFBVHY8j?=
+ =?us-ascii?Q?yNd1BVTl0i7BjWvm4FLgVVywc/vl18T8GP5xexF0s8WpMT32MTaWSyY8mVX2?=
+ =?us-ascii?Q?P214n2eQRqB2WJXT2CNQ+3BQOBX/lBweZDeneuC6qJZMv2+7+DGrVJKqBhiw?=
+ =?us-ascii?Q?S0/Dfn7Nn7zFEVNAmkDedzrCwbqnGnPMeMwxLQIWf3FTDriJoUoTv9ArzLNR?=
+ =?us-ascii?Q?GuW9dJ5qCX/a0M1orh64msfZIrhADAIndCATB4HeMzbEu6q945hNQuyOp9B9?=
+ =?us-ascii?Q?bX6POXS8chpFSZ3uxhcxXNF3bCmfYq3/7OK9hc0AQWSfsm/VoDT3RbLd+A+m?=
+ =?us-ascii?Q?zwGtnTgIunhPfHyyRt33AY0+oQSXzChH0XyLTw0eQ04duU0hve6Ry6xrTmv1?=
+ =?us-ascii?Q?0LahfB3DmtVvcMPqyqpGaIpVE+RWkRvIcqz+OTuOIEq88gE/YX7pZ/WJvUU0?=
+ =?us-ascii?Q?Knbs6dgonqxU/TIhH9NrUuxiIgLeAS2tXWy9ew+EAFk4cXWU1PJyunKZh9gm?=
+ =?us-ascii?Q?Qy+UMir/qsgBmtQAZ2dSgAQqOjWYzmdWU2WGmIX/mpU7NoHuz2HyuEdK0spN?=
+ =?us-ascii?Q?8OyVEnUH5OlRvBiYdw4Kvp/nLacG1Xk5YZgx8DZqE837MCXkGetzUdsrmYyB?=
+ =?us-ascii?Q?E/0QFtcxWfPFk+aaC80sRt3RsOQ3NHwQAI6Gi6U9i3S0kRuVaZnCowxTL2ho?=
+ =?us-ascii?Q?xeq+SOQSoBJe+KYu9Pkc9b+5irCa7eWmzOXFBTEWLG8LV+eW5mygesJjAOkE?=
+ =?us-ascii?Q?ljSKGpsbl7BR1Sbo5wUc9wYAy+gGze6tZhmmaT6y6Z6hqfqkcqbTz85Aze7Q?=
+ =?us-ascii?Q?EZXVwSMT/0XOPAEasi8fJzJkX2j03T96e3ALFspp3z62KsEE2bywUyXd/rot?=
+ =?us-ascii?Q?hp74FJyD6NUill1FNBTPGwlvisKE8+0zS/2kYMbcl5JIFRNg7qHcEu8GxPHp?=
+ =?us-ascii?Q?Sbuu3epNwq5NE0LQS6kLgJP7BSksFEb4dWG1lQ0ir0sfpSSVud8rgMjxxi8x?=
+ =?us-ascii?Q?IUP7Kp7+9JjOcMsJAFdanPN4KCpbTCSuWT3hvxZN/xW6OBzomzbEZ1/xoZBX?=
+ =?us-ascii?Q?ImGUYEadk5Baklqol/wRieYZ4kk3K2lRZaqbEmkbTSJU5a4lxiGdOLq/LV/F?=
+ =?us-ascii?Q?xrskugd1PMi5iv4qrSTIV0v5wvU0DcEAq2hMxubcGGhKc3NqOvYZVGNlCjpZ?=
+ =?us-ascii?Q?p2j/gZkmrh8bZX2xuZpNxjqFHAKDjqkgDefdCg9Vc1sQ4YTp?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8353.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8723887b-8ed4-4247-5baf-08dea0e4f7a2
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Apr 2026 03:04:00.0310
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: jiiS/ADdpqLv/xGTzpnGOU0prttoW9g6u+eT1D6j/XRfBKyf3Mj3iM23PvRsYZY7X5QtxOyT1EM33yV6nMBMaA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8727
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260422_200233_846915_85934BA8 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20260422_200408_156507_95066B09 
+X-CRM114-Status: GOOD (  22.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,38 +152,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/21/26 10:02 AM, Krzysztof Kozlowski wrote:
-> On Thu, Apr 16, 2026 at 01:31:40AM +0200, Marek Vasut wrote:
->> Add ZT trace bus and ZTR trace clock on the R-Mobile A1.
->>
->> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
->> ---
->> Cc: Conor Dooley <conor+dt@kernel.org>
->> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
->> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
->> Cc: Magnus Damm <magnus.damm@gmail.com>
->> Cc: Michael Turquette <mturquette@baylibre.com>
->> Cc: Rob Herring <robh@kernel.org>
->> Cc: Stephen Boyd <sboyd@kernel.org>
->> Cc: devicetree@vger.kernel.org
->> Cc: linux-clk@vger.kernel.org
->> Cc: linux-kernel@vger.kernel.org
->> Cc: linux-renesas-soc@vger.kernel.org
->> ---
->> V2: Add ztr/zt clock at the end of the list to match bindings
->> ---
->>   arch/arm/boot/dts/renesas/r8a7740.dtsi    | 2 +-
-> 
->>   include/dt-bindings/clock/r8a7740-clock.h | 2 ++
-> 
-> This goes to the binding patch.
-> 
-> Didn't you have also a checkpatch warning?
-I only got this warning, but the docs 1/4 and includes 3/4 are a 
-separate patch in this series:
+> subject suggest change to
+>=20
+> ASoC: dapm: Use snd_soc_dapm_widget_name_cmp() to fix widget lookup
+> failures
+>=20
+> Frank
 
-"
-WARNING: DT binding docs and includes should be a separate patch. See: 
-Documentation/devicetree/bindings/submitting-patches.rst
-"
+OK, this looks more simplified and clearer.
+
+Regards,=20
+Chancel Liu
+
+> > Currently dapm_find_widget() manually constructs a prefixed widget name
+> > based on the provided DAPM context and compares it using strcmp(). This
+> > happens to work in most cases because callers usually know which DAPM
+> > context the target widget belongs to and pass in the matching DAPM
+> > context.
+> >
+> > However, this assumption breaks when search_other_contexts is enabled.
+> > In such cases, callers may intentionally pass a different DAPM context,
+> > while searching for a widget that actually belongs to another DAPM
+> > context.
+> >
+> > For example, when searching for a "DAC" widget, the widget belongs to
+> > the codec DAPM and be registered with a codec prefix, while the caller
+> > passes card->dapm and intends to search across all DAPM contexts. The
+> > current implementation incorrectly applies the caller card DAPM causing
+> > the lookup to fail even though the widget exists on the card.
+> >
+> > Use snd_soc_dapm_widget_name_cmp() instead, which compares widget
+> names
+> > using the widget's own DAPM context and prefix. It fixes widget lookup
+> > failures when searching across different DAPM contexts on the card.
+> >
+> > Fixes: ae4fc532244b ("ASoC: dapm: use component prefix when checking
+> widget names")
+> > Signed-off-by: Chancel Liu <chancel.liu@nxp.com>
+> > Assisted-by: Cody:Claude-3.5-Sonnet
+> > ---
+> >  sound/soc/soc-dapm.c | 13 +------------
+> >  1 file changed, 1 insertion(+), 12 deletions(-)
+> >
+> > diff --git a/sound/soc/soc-dapm.c b/sound/soc/soc-dapm.c
+> > index d6192204e613..c5b80d9ed64b 100644
+> > --- a/sound/soc/soc-dapm.c
+> > +++ b/sound/soc/soc-dapm.c
+> > @@ -2906,20 +2906,9 @@ static struct snd_soc_dapm_widget
+> *dapm_find_widget(
+> >  {
+> >  	struct snd_soc_dapm_widget *w;
+> >  	struct snd_soc_dapm_widget *fallback =3D NULL;
+> > -	char prefixed_pin[80];
+> > -	const char *pin_name;
+> > -	const char *prefix =3D dapm_prefix(dapm);
+> > -
+> > -	if (prefix) {
+> > -		snprintf(prefixed_pin, sizeof(prefixed_pin), "%s %s",
+> > -			 prefix, pin);
+> > -		pin_name =3D prefixed_pin;
+> > -	} else {
+> > -		pin_name =3D pin;
+> > -	}
+> >
+> >  	for_each_card_widgets(dapm->card, w) {
+> > -		if (!strcmp(w->name, pin_name)) {
+> > +		if (!snd_soc_dapm_widget_name_cmp(w, pin)) {
+> >  			if (w->dapm =3D=3D dapm)
+> >  				return w;
+> >  			else
+> > --
+> > 2.50.1
+> >
 
