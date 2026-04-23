@@ -4,124 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E939FC0379
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 15:48:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 236A4FC0360
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 16:08:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dC7DNEvH2Dc5r5NO1YFZU4U6vzo4Vxa0qfuO1PHkhoE=; b=oTMq9cf+7tztuFhuktbgn0REld
-	ETltxXoS3RIdqMAwM3Pax+xt1CGLYyj/AR/3N/xIMrmUocQbXrIzW4hamkOm21qj01kEimspYAVzF
-	7+Wu8TiS4HyRZT00MTrw015GxH2Nj8X8aGEE36xHU2vgI8I7a254C9e7wP5588RDyMO5oTr3eVJ/F
-	lUtMX8DqkfX914w2mpkypIDpSH74MsmfrYyhqqAv6Zypm+C2fU3Fnjiz0TmAvXpOs11GxaLvNCkrd
-	0uztS5UbQvrXm23fSOmTC6LjcynnUNHKQBKzG7A1ygmEUo+wyRlkvSr2+MzqodMOd7WyOU/NJIxnD
-	ooKEgJ5g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CaHYAujTtN03egJYqSPOAJhtfm+eFxDgH5/s+AKGkmg=; b=JlVee4jUkY1t55CyFtX1Ho6o4C
+	K4Kk4aJtzP6Ns3/UUSJM1DZO2Fy/6ezFwvbcBiRg5VacIfm6y0vgXng1p6sXLz6AgyITRntvk8fK1
+	+Z8F92CvbG0LOtqfzQolDnzhaKzWcI7ZABu1BQJVsedHTq2CJ7sQuioyA7gOakmoJhdjjjJx6/JJ2
+	HOQxhvbT/5XIa6DaAYlHjgANdDmeYMFSElXvrZXF3sbMnejJegd3/38958nuWN+y6r/fiT8RXPQeO
+	/GPJlCJuCy+MedHpGUna86TSNC5VgjdfxVjlQkiJNqbRThw+33i6uEJSIjL4ka74DOKnYR1IL1tp7
+	dMjP9vmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFwHV-0000000BuoM-1yLo;
-	Thu, 23 Apr 2026 15:47:57 +0000
-Received: from mail-westus3azon11010007.outbound.protection.outlook.com ([52.101.201.7] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1wFwb8-0000000BvW4-065O;
+	Thu, 23 Apr 2026 16:08:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFwHS-0000000Bunp-1uAo
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 15:47:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lgfzzNRR1/8JHuOyYM0SqXmMx7XeQZrjZj4FLuQcAwfZVczExaIPpt49lDHklcDa+cbdBur/F5WeQI1yaLsvt/+Hxcggkb2v+flTXeOgVMDVnC/ZGA/cFx5y0C4vXHRf4RYvrapqNYs2TWew6en2NNhxQRttuJjZujpKPKc2U18GhqmxvGjZ43GeI7/OXtyD6qBaOvTUErfUacyCIJ//lfzxcLhnKgdtcayESeIKftVz2oOH5m0N6C6Ui6xtrxnYuDSsAHl4E3iUjHPl0ef8XMu1PpxE+JX0L2ldWM5cTgHqZU3QStuHfzkjnzDlm5bJsbK403rzNOQmEZm1EtlSEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dC7DNEvH2Dc5r5NO1YFZU4U6vzo4Vxa0qfuO1PHkhoE=;
- b=scNcioX8QPK9zzmDjyw/PBTSQQb0tNT5i+3ETrIHvhcMqUL+Lb5DRPUAy/N2H1caqcxkKv97p3EWDNQllD97B7/p4tQAwfZ9SHAXLoJmBSjcTCMNB6BCFHhqPZQ8ifyAqBDUCFET8i79UUemU85UrO5m0PaUXouSJfAKsk4cbJXaWEKwavRGusj551dsDV6gvPYExA5Thvz3uF/b68HMV1fQg5zY2QghuWWeYWLMPbo0pUl4MnutQG1DIlGw50sQ013UUJsNyEchtkoLmaAOHadX3vwhrRLYA/4JOKFmk1XgJ9etXSxVwbDr7T7AVE4wTxDUxG1lUFroorQRQB0g5g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=linux.intel.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dC7DNEvH2Dc5r5NO1YFZU4U6vzo4Vxa0qfuO1PHkhoE=;
- b=poqKwhmEjjJWr/tA0FBURpZOnSW7lwkHum4WZ3MEpljQRRmQ6RBXI2DRvHgmYn8lqweAZFiAjYZhKJRdDc0XKV4RCwQkaYXulY5w19MfV1XvTap3RXdePrwebv4xU8TqdvYpdTXSIXnKGG2CXqjYpZ2Gn2bfD+Xycz33v1uZSrQw8Xig4huq2JIplFQro/QR+SnEBUC4DGAlHQZPmkDYvP6YsBxxjx8ql3g+I45W6ouJKyOeE9IDFzKigibtGHmGFfWnrhUE/dUJMlVT7/obPMCD+tIqTjci+CPr7c388dahz2IOKxdPQ3BR+cDULoaMVG5rYt+/1PPsoD2bzblAjw==
-Received: from CY5PR10CA0028.namprd10.prod.outlook.com (2603:10b6:930:1c::21)
- by CY1PR12MB9582.namprd12.prod.outlook.com (2603:10b6:930:fe::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.21; Thu, 23 Apr
- 2026 15:47:44 +0000
-Received: from CY4PEPF0000E9D6.namprd05.prod.outlook.com
- (2603:10b6:930:1c:cafe::89) by CY5PR10CA0028.outlook.office365.com
- (2603:10b6:930:1c::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.22 via Frontend Transport; Thu,
- 23 Apr 2026 15:47:43 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CY4PEPF0000E9D6.mail.protection.outlook.com (10.167.241.69) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.18 via Frontend Transport; Thu, 23 Apr 2026 15:47:43 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 23 Apr
- 2026 08:47:19 -0700
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 23 Apr
- 2026 08:47:19 -0700
-Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.6)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 23 Apr 2026 08:47:17 -0700
-Date: Thu, 23 Apr 2026 08:47:16 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Baolu Lu <baolu.lu@linux.intel.com>
-CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
- Roedel" <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>, "Jason
- Gunthorpe" <jgg@nvidia.com>, "Rafael J . Wysocki" <rafael@kernel.org>, "Len
- Brown" <lenb@kernel.org>, Pranjal Shrivastava <praan@google.com>, "Mostafa
- Saleh" <smostafa@google.com>, Kevin Tian <kevin.tian@intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <vsethi@nvidia.com>, Shuai Xue
-	<xueshuai@linux.alibaba.com>
-Subject: Re: [PATCH v3 06/11] iommu: Defer __iommu_group_free_device() to be
- outside group->mutex
-Message-ID: <aeo/BDwYM9yYHctI@Asurada-Nvidia>
-References: <cover.1776381841.git.nicolinc@nvidia.com>
- <3f5d229267d1f4d918641bc5b896f54b5c4b7782.1776381841.git.nicolinc@nvidia.com>
- <3570e178-f887-45c9-a251-e089915cfbd9@linux.intel.com>
+	id 1wFwb6-0000000BvUZ-1N6g;
+	Thu, 23 Apr 2026 16:08:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 57E8C60181;
+	Thu, 23 Apr 2026 16:08:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id DD790C2BCB4;
+	Thu, 23 Apr 2026 16:08:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776960490;
+	bh=wXjL0/ZjPWYklzHHsG/fnHIawjJ0r03LA6jLikwVGTc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=lBbau/8JGaGZrZ70Dg6tqGCO2fPy08Hyc/EKUc7+dqaadWU/UjzV21H//95ovUI5p
+	 w9tbFg9Ll9KLRwsRkD6wNEQ4OG0G7RKOSyzyUd5/W+KmgmSSZR29tXdBSmJJUpCZKM
+	 0BDzu6pbsmMcgKedernpAgH6we1YkEBeTngcDRv6X05vBP0ywwhwkeufmXvhKC4h6r
+	 pfUl1HVsWwMpOohiBauqGQDbtbWQ7pkVizkoW2cRbK0umNKdBEUsa28wUfOUT5+VVl
+	 gsHKQFiXggeKVbewT073vP4A7dSUoXsYYDtyz5muKFWKLJoTc2rMQFI9u5T8hc8vVd
+	 ND3ftKfj3IxCg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CB144FC0360;
+	Thu, 23 Apr 2026 16:08:10 +0000 (UTC)
+From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
+Date: Thu, 23 Apr 2026 18:07:16 +0200
+Subject: [PATCH v4 1/8] dt-bindings: thermal: amlogic: Add support for T7
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <3570e178-f887-45c9-a251-e089915cfbd9@linux.intel.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9D6:EE_|CY1PR12MB9582:EE_
-X-MS-Office365-Filtering-Correlation-Id: add238e4-2238-4d2a-6b6a-08dea14fa898
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|36860700016|1800799024|13003099007|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: FvJEpaecXYOhepOdyGIeR10eRmgp/o+6zOAENSVvrO2H0IzNpMeDK5o96/XYLfiNSO8YTSW10O8y5OPjG25j8fAFIXntgQRfpLOjP2lZ2IcR/3dYbZ09jvP3TeBQO6hFlVnPYJp6XJWfCqn0JqemBIBgIsmd9NsJjWRlH8bNL84/QUVy7Y2b09HiFBtDwKN+JPbn98sResqA/HszuGKAw+q0RIN3PS4ZqFL+JEJgN7zi/HDsivAooUk2NjQ8O7REjgE5dtWpOSmafBffiZYnA461aqvrU3px6DtJ8DDLtbByk7dEU5ix6Og+e7b+oqH4uqfD5Ts14r1Hqq8CNkaOiLiLyW5kMbooPCoQZI02zoKU8L8r6FOlNED65wFaM9BXVy4n+1sIHHLyALLT23X/QyTJjW84zPiOr95SkdbODWJ+JR39GNuJvxKQpOLDgWIsoyegtSIy7dC9yJczXJcQstaABcWCw4ukaC39edxs5MLj4ws46kO+u+3FqDzDZT83N6rb0stnVNYogWlUHDZOpS6MqkfwDfY12Cvwkgyc8RPn3uUExcZ8VUgV5bSauc8CTIubzGOUl6WMhlnZzS7vpC7O2md2Y2x46LXf/m6GStwFem6FEUWgaZTWwFNqPi/jBO8qhDpYv7B842d6Ov7cQ61qVz8+26uaz9IpbuR0K+GAHhKCsxBd08WGvHQUprmTbm9+LgRiiTwkQXIGJLpNJnVaXHK2ZFoSNpBmwhPz3oyX/9Rv/cqrFl+fADhmlx5iBVoEqUOIVJwXR9quHJX/Dg==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(36860700016)(1800799024)(13003099007)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: O5VG5Rzpiv5WCql5oNpBf+/zZ12wKn55sJRj2Inj6bq6p+JyshRYeerh2onACbj1CfUeTvS3+9YCTVQJFS6Va3MPwvrVlAa7PTPwUXdHIp2SY+dSojzlb3zN9RJoucu+ED1ZJ/LBGyzkB91GAeXaKz33e4x3X+XqEYYUaL8SP7PZF50iL5natFnCc86uEv5BU1A+HEOFfW/8gUj2/x+2P68AHYV0w+SG+Hnvzuh1GEu1lZ9Y4TuGiwBlFkxpNNuO2s/oj7fHvK53ad4l6ElOCbNtVpCXem+RJ9hqk3x8izeusgvktxZtaRbgP2t9LjCnKVuAqIk5izTyO3XQX545hoS84nJZLnHRPOGWSQpi9s3HXzSaDM69BnFUjfoeZTqTrElQod+flFrF71e06dJ3sQl3MI9ezOtPjNSrwLkHvZsNvpXwrqfxvB19u+pPdWPv
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2026 15:47:43.4935
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: add238e4-2238-4d2a-6b6a-08dea14fa898
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9D6.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY1PR12MB9582
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_084754_498351_99CAC25F 
-X-CRM114-Status: GOOD (  15.68  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260423-add-thermal-t7-vim4-v4-1-d4c1528d5044@aliel.fr>
+References: <20260423-add-thermal-t7-vim4-v4-0-d4c1528d5044@aliel.fr>
+In-Reply-To: <20260423-add-thermal-t7-vim4-v4-0-d4c1528d5044@aliel.fr>
+To: Guillaume La Roque <glaroque@baylibre.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-pm@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Ronald Claveau <linux-kernel-dev@aliel.fr>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2861;
+ i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
+ bh=42FjYfnK8gHAQIf5ZxFekEMwi0ysWDknaNuX/++vGok=;
+ b=owGbwMvMwCWm1SvKXP3cUInxtFoSQ+Yr5/vzP+b9+GgtcciWXWbJXJbJL69L3k19eftz+rG2/
+ /4H6xIXdZSyMIhxMciKKbL0z7U88e7y0TNf96inwMxhZQIZwsDFKQATEV3AyHAka+k6gdXRidnJ
+ /l63ij6ITDL9OFWN15v598fA/b+nLLVm+O/1Wmirw717DW8Nbiru+8x9YX+gasTH5kndy/k5WSs
+ Nb/MDAA==
+X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
+ fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
+X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
+ auth_id=744
+X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,45 +91,101 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: linux-kernel-dev@aliel.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 23, 2026 at 03:55:02PM +0800, Baolu Lu wrote:
-> On 4/17/26 07:28, Nicolin Chen wrote:
-> > +static void __iommu_group_empty_assert_owner_cnt(struct iommu_group *group)
-> > +{
-> > +	lockdep_assert_held(&group->mutex);
-> > +	/*
-> > +	 * If the group has become empty then ownership must have been
-> > +	 * released, and the current domain must be set back to NULL or
-> > +	 * the default domain.
-> > +	 */
-> 
-> Nit: this comment doesn't quite match the following code. The code
-> doesn't check "group->domain != NULL". Or perhaps in that case,
-> group->default_domain must be NULL?
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-This is the original patch from Jason:
-https://lore.kernel.org/r/4-v3-328044aa278c+45e49-iommu_probe_jgg@nvidia.com
+Add the amlogic,t7-thermal compatible for the Amlogic T7 thermal sensor.
 
-I kept the comments as-is, though It might be slightly confusing?
+Unlike existing variants which use a phandle to the ao-secure syscon,
+the T7 relies on a secure monitor interface described by a phandle and
+a sensor index argument.
 
-I think it means:
-If group->default_domain == NULL, it does check "set back to NULL".
-If group->default_domain != NULL, it then checks "default domain".
+The T7 integrates multiple thermal sensors, all accessed through the
+same SMC call. The sensor index argument is required to identify which
+sensor's calibration data the secure monitor should return, as a single
+SM_THERMAL_CALIB_READ command serves all of them.
 
-Maybe it could be "must be set back to the default domain (which
-itself can be NULL"?
+Introduce the amlogic,secure-monitor property as a phandle-array and
+make amlogic,ao-secure or amlogic,secure-monitor conditionally required
+depending on the compatible.
 
-> Furthermore, if a device is currently quarantined, group->domain will be
-> the blocking_domain. If that quarantined device is then hot-removed and
-> happens to be the last device in the group, will this WARN_ON trigger
-> unnecessarily?
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+---
+ .../bindings/thermal/amlogic,thermal.yaml          | 37 ++++++++++++++++++++--
+ 1 file changed, 35 insertions(+), 2 deletions(-)
 
-If a device is quarantined, its group->domain is retained to the
-previously attached domain. Its blocking state is logged in the
-gdev->blocked flag. So, I think it can pass the test.
+diff --git a/Documentation/devicetree/bindings/thermal/amlogic,thermal.yaml b/Documentation/devicetree/bindings/thermal/amlogic,thermal.yaml
+index 70b273271754b..e28612510d679 100644
+--- a/Documentation/devicetree/bindings/thermal/amlogic,thermal.yaml
++++ b/Documentation/devicetree/bindings/thermal/amlogic,thermal.yaml
+@@ -21,7 +21,9 @@ properties:
+               - amlogic,g12a-cpu-thermal
+               - amlogic,g12a-ddr-thermal
+           - const: amlogic,g12a-thermal
+-      - const: amlogic,a1-cpu-thermal
++      - enum:
++          - amlogic,a1-cpu-thermal
++          - amlogic,t7-thermal
+ 
+   reg:
+     maxItems: 1
+@@ -42,12 +44,34 @@ properties:
+   '#thermal-sensor-cells':
+     const: 0
+ 
++  amlogic,secure-monitor:
++    description: phandle to the secure monitor
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    items:
++      - items:
++          - description: phandle to the secure monitor
++          - description: sensor index to get specific calibration data
++
+ required:
+   - compatible
+   - reg
+   - interrupts
+   - clocks
+-  - amlogic,ao-secure
++
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - amlogic,a1-cpu-thermal
++              - amlogic,g12a-thermal
++    then:
++      required:
++        - amlogic,ao-secure
++    else:
++      required:
++        - amlogic,secure-monitor
+ 
+ unevaluatedProperties: false
+ 
+@@ -62,4 +86,13 @@ examples:
+         #thermal-sensor-cells = <0>;
+         amlogic,ao-secure = <&sec_AO>;
+     };
++  - |
++    temperature-sensor@20000 {
++        compatible = "amlogic,t7-thermal";
++        reg = <0x0 0x20000 0x0 0x50>;
++        interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_HIGH>;
++        clocks = <&clkc_periphs CLKID_TS>;
++        #thermal-sensor-cells = <0>;
++        amlogic,secure-monitor = <&sm 1>;
++    };
+ ...
 
-Thanks
-Nicolin
+-- 
+2.49.0
+
+
 
