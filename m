@@ -4,149 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED00EF589C9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 12:53:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40321F589C4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 12:53:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l/1CHSTh1YmMDh+l0XsZlMu0hpJ+Y0ykDkxT5aQu6/0=; b=BllqZkzHktYcTiM/9U0bMd6Chv
-	oMME4MVgF8RIyBbr+5Jqe3Ulh2dSKbWJTmDA1yKkJFkyDkSbV0RFI8wRwZ+w/sICrVAimy4p7B9J7
-	gSKMP2K47+tKMlYnLvrEk9eP9uGTB+DYEMfmwAx8ZgflyiH90L5CVsUMFpwnfzXmxug4IHxu+uXy6
-	jp4oE0ljfvvkH0/lyhmk2hnFlrVOkRIdIaz5RuphBeAiUUNGIF7DIxmX3OGK4OPVDnL4jZIyTpBR/
-	cXijVeOzVmOygEnvfomQbES5jY4rw9euOVJnutsA/ot9n7lH74MJVMbo5wHfLGtAtMdF7iph2SSPD
-	HY2nwxmQ==;
+	bh=PlOMd/0NtPo9HHMlpt/ZRLGSP9SrMcpTUqdlgaR2uVc=; b=IuLDfKRmTfOrH6JffNKQaaQPX1
+	cG9PF2/naQm+XJtBn8tCsOrWAS6hhgGM1WwC07bsX3PbVeTY07qGROxi6k2jfV0g4BGfz7e3kO2O4
+	2nZ3hPblK03qP+V7HqMMJjwvbX04iO+XM02ZlPYunTnJpEkEcvQNwfz8DDU1UUJY7IRwr8CjZnbUn
+	S7n1Q2Orxe2STue8U2TGyEACOO9s21+zNwWnI2oH/4uR1a02p5FjMN3Vw2kkrALuiBvkqaQxUpiug
+	NEyO9/xxRGFHQNoDL74yzYpX1p9DaBBqZaxdFHTY63LOC/Ryg8YyKHRFG735rO7ED4N1l/dDsTu1H
+	lXyeKmJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFtYb-0000000BghS-0ykn;
-	Thu, 23 Apr 2026 12:53:25 +0000
-Received: from mail-canadacentralazon11021113.outbound.protection.outlook.com ([40.107.192.113] helo=YT5PR01CU002.outbound.protection.outlook.com)
+	id 1wFtYi-0000000BgkL-1RHy;
+	Thu, 23 Apr 2026 12:53:32 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFtYY-0000000Bggh-1LUO
+	id 1wFtYc-0000000BghQ-1sGZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 12:53:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XEGBg5AKoWS/AdOBUiF7vQitz1KzLGOwz1bFJZgVuf8RY8oUuRNDvFmThep/V6qmNh9ElabZHgE8xA039/g11rSOSrXojyEPydlCdpzdIWxTTNZrp1pJsiyGeKzgkeSytAa1eiFjMunVBuOzn1mBxOLkSazuCY7S73hUBk2HoLRwvhSJSxe1l/kIjE9WOlpR5Boai+D9kYy2p/39xW1AVqj+Uiho6XaO+Z956J8pCx4vNsutaIsBz4CES0qCMBxvrx+2XRDpBOgw6jUfSg1JVWlZ4hAyWfspkcKKeRJ5XYpRpI8ceXb6putFkb67a1H9lcs0bIbzd23TWp/f6d9cKA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=l/1CHSTh1YmMDh+l0XsZlMu0hpJ+Y0ykDkxT5aQu6/0=;
- b=YSVVZOBsKK1XRiK1FapVV5qSj13CUpH6zKGD5F5edgPJ4fSsffY36mW6X5GPKuhMSYUn/UcYk4FXYUxb0SGF+pKHoGJKjT5BcFNRm4RLtUDE9o0s8JIpkQHJOs3VKxoqDoSbOXXei3VXSlok6blXKL6YhNk98svR+9StzKPgflQiyMd5Q3T+Ft+Rq48nt6j8eB88P2FrzGMT6sgIuHF6WmFaKUASymC7K0RSDE8Jn9Fq4tr0il4y8/vMs+jXCdX9wikLWLvFi433xw3Q1Y9T9RO9pLXAAM5AKPAGlRXzLzXT4UlqWyrhJlShfvD1Yl8EMwxA/SqkWpJbzp/9Y9Ks8g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=l/1CHSTh1YmMDh+l0XsZlMu0hpJ+Y0ykDkxT5aQu6/0=;
- b=Vg76VuuCsFt/LB8xOaLGI7pEBm4fAanJfTvsAdZBKBe6CTzCBtsayu13av4SL7CjOwcCuhKzReFBJ0W6yzMZnuWiIIFCtgwB26ZO0601ssBs+ac8ZRSPkOgZ9VRNpoU6kV/BPVEzXObtK38uqQ+ubu/rjo7IYBYOBACBTgtQ0OMl2gAgbsw0KACYWXuMo9eXMDJ0zWEUOg/LT67k/KihUcXgzsbzWgHIv5Ux9hSrxnRL20BmzWuK1GQi+vXxIsyJl9xirmOxTgppFLzILOj1ULYaDnJNAidgLVObOCZGZ1xhAH+/zO8TZoyEPAud4cpLPM0mdiq155X34Xe/iDv+ew==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:be::5)
- by YT1PPF07516E2ED.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b08::506) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.22; Thu, 23 Apr
- 2026 12:53:16 +0000
-Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6004:a862:d45d:90c1]) by YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6004:a862:d45d:90c1%3]) with mapi id 15.20.9846.021; Thu, 23 Apr 2026
- 12:53:16 +0000
-Message-ID: <84e0a8f6-c24c-469a-82a4-e82e33b764b4@efficios.com>
-Date: Thu, 23 Apr 2026 08:53:13 -0400
-User-Agent: Mozilla Thunderbird
-Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
- and tcmalloc everywhere
-To: Dmitry Vyukov <dvyukov@google.com>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>, linux-man@vger.kernel.org,
- Thomas Gleixner <tglx@linutronix.de>, Mark Rutland <mark.rutland@arm.com>,
- Mathias Stearn <mathias@mongodb.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Boqun Feng <boqun.feng@gmail.com>, "Paul E. McKenney" <paulmck@kernel.org>,
- Chris Kennelly <ckennelly@google.com>, regressions@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@kernel.org>,
- Blake Oler <blake.oler@mongodb.com>, Michael Jeanson <mjeanson@efficios.com>
-References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
- <aejCaG6n9s7ak5TO@J2N7QTR9R3.cambridge.arm.com> <87zf2u28d1.ffs@tglx>
- <aekPXvvuKHKlETjm@J2N7QTR9R3.cambridge.arm.com> <87wlxy22x7.ffs@tglx>
- <c5331cd6-76c8-430d-978e-fcad164e48f6@huawei.com>
- <CACT4Y+bxnQyHGdVNE1BYTx+Z2-cscLb38HYS9jBM5gPAz8=4bw@mail.gmail.com>
- <1e839a25-d15f-40d3-ad6a-20469fb6137c@efficios.com>
- <CACT4Y+bMH+q2C7Xg9oHRP5ZbmvLpMpYzrdAd7B6XoXYc8=22sQ@mail.gmail.com>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <CACT4Y+bMH+q2C7Xg9oHRP5ZbmvLpMpYzrdAd7B6XoXYc8=22sQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: YT4PR01CA0190.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:110::15) To YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:be::5)
+	Thu, 23 Apr 2026 12:53:27 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-b8f97c626aaso119697366b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 05:53:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776948804; cv=none;
+        d=google.com; s=arc-20240605;
+        b=PIEMDj0e/58/xwuEuI99SJKLqBGRe5S2J31tZA1gIFySf16FlFgyA3PT9bN76bkxFS
+         YyokUYQRtlxATTqxkkY4Rwf4x9JkdqxSZQXV5pH93/cewGOwLJB8IBaLgec/lJx4EjJu
+         +wKSj4QaV0JxYiHBSXmO3fOVIYnT/K8a7j6GAvc5wmMvooG+tZig+d8ptuhpq/OG5Xy7
+         PpP1cJVyJoKw+QaeYwDA3H0gkzBbmbAUDtdAi2g7HwxD63b7XiEym7hSeYob/wNCvExE
+         KjhuP7MRKrMGWw5WKhnSWbL4CqMoCkvjEhYiIjt0j158R5yn8NnR3mtKCJoNxwAEgusK
+         jOOA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=PlOMd/0NtPo9HHMlpt/ZRLGSP9SrMcpTUqdlgaR2uVc=;
+        fh=deNXQsJiK979deoaO0ZEkrhINNJld02rJj0mCvAPZ+U=;
+        b=cHcApY3hru+adHA0F6RzrGUbEHYs/9t/t7U9aorlVWJuRPLwwLFV7Ibvdf7Blwahdr
+         nhMxN1RMQV/ZPtHdZvZdqg6uqqkRQP69x58vdLdahqk/Kh1cONoYBNrtIJMu33U99xTM
+         u5l6ADLr93CzdnwXhIOxc1lWsXK/++zDev4WB0hpUD2dNQzO5xveuW80bUuoEk/MrPKO
+         Ne951tsCug77QTPzhnC/HkjbyGYFqx8s9hjreuL8TV0zXjtuz8Gx6WcXxjCREdiLPnam
+         8d9shHTgOi4ubCqOBzqv1qSbnrBAL4WtFZJvY1emnLyPcC4SIdBGcANmMofJDvwr3aqa
+         Y3TA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1776948804; x=1777553604; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=PlOMd/0NtPo9HHMlpt/ZRLGSP9SrMcpTUqdlgaR2uVc=;
+        b=ffdHxetVRTcCEghXBma9R24WlBBAZEvmAyflbO9wbd8bBXvKIHo+dohPUlmU/O+yp8
+         YuNp3FBUU+mt02D8IcBiJY+rXDFuAjpaijX5hZASYOQ9FOgR03QytCtRdpEvk56wauLa
+         hh9MMvfgF12/CgdQjBkU17OPhDiOz/GTtCwVwp6STY/oe86P4hMW+dZEVlUTEM1kivDs
+         T2fR02/cRLRmsXBGeDTYfVmbWgLCaAJrRaeLzu7Ipt0CMbCeJNzA2XNJCqIuy+akHWXO
+         QY3BQBX27bLQl/5VrmB24IZRfU7ZgiNL5OgADPwT5GR9uGCPaoV5UqRkh0smBbwX99Bf
+         5HFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776948804; x=1777553604;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PlOMd/0NtPo9HHMlpt/ZRLGSP9SrMcpTUqdlgaR2uVc=;
+        b=LltALfvA13uC52bwXoAyxSlfMQ5G/qMl1aA74cJGLNKI6V2FeWWyPLGXBbummmq4bY
+         7UjEe6om32nFc5a+R6nqf9B+VNnRbOByZ3DiQKfbKXVo5a0o+tlZbBprR4qsXX0o+Vmi
+         OKiJNbsmWpCklMAJB+muHQpZOk+OICUr8UYS5G7D9snVav4bolq3OjR54m1cOL/ZXk17
+         wEedbfYAUuGTtQJ/jhtfl6AV152dh40sSem6PdvkIUmEbP0s/bRXoLzyHlP0kg13Zm7S
+         meGXNf++70v9SuyaTCPh0BohwVkOlGmOkMFVwnmxeXvsFZkQ0ZhpjMSUqr403aG/M7eE
+         5/0g==
+X-Forwarded-Encrypted: i=1; AFNElJ9ppZL0JwGFry/X1+kSLmRQKqgziV4Acjyjml08l/XlRmlu7gIU9o2MsGtcIzTkbCYYqlAswRCKfpvG6rO+hUrh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxq/kvAkJl7hjhQkEA5CTedV/a3C+U+YYX85JSFu4/8V+mMH9Su
+	u1VUcnyMoPSZ0h5/FWdXYRwSruK6f4Fv+eDuh+qhW6//UY5D9f0MIJMPd3JXMdNV3Y1iBtdFtzN
+	oVH+wpjyO+uC3EyS167G5sRMOS5CbjDZTn5SY0KRO/g==
+X-Gm-Gg: AeBDiet8zhlO+nj7neolFPF5fNM5s68uF7TmenTx0elgSSCt5qvAIe4j8TkLEkCH51n
+	K9gJtrnWKD5cMDeOIBQUVQYi8nWRnjmg5zKliVLH08HtsSVZrEJQR5P3C5g9ezz7R+1thakQvr8
+	oTEYIdukiadij0IkW1X2BKp6EWgCHWlHpFqNWbHAheoUrSLLvMnZ7eT4gHvvohxeMGH5MZ3+zaH
+	P4pAr19su2eSgtRKtsqyh0v8paIGU1ArJYufXtroJa4axoYJuv5hrkVAUszQYc9W+u+JpQ5lru9
+	ynbbxzUnZvqLMlskoqWj/SFaxE5rELDdKUK5zWUVT6fStrlorp2g
+X-Received: by 2002:a17:907:72c5:b0:ba5:bef2:2aa9 with SMTP id
+ a640c23a62f3a-ba5bef2333fmr1133294666b.35.1776948803573; Thu, 23 Apr 2026
+ 05:53:23 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT2PR01MB9175:EE_|YT1PPF07516E2ED:EE_
-X-MS-Office365-Filtering-Correlation-Id: 817e3a42-bb26-468e-676a-08dea1374953
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 6QPyfmXifWWlVqolkZJiFuXjGY4YYRFbBngVfHr4xb0UK5U3QoMHEnJdPueVe79x0iiDetbXEEnco0mwlIzYOuTI+uJHpunGvUw83AsiHvjszL4hmx3tiV9z1OowJMGXu0R+PKuk925TOHMHlyD107t4wdGawMX41JMwXJVGDrRddInaTKM7uwxAi9TNZ7oMTPLKJIFVJ2uiThjwt/5NSNyp8a83UzQ+bPcRvS0lfijB0abcqcZXyO42K5qKlyyuGIvT2IH42Vgi3l5WwSjnDvywx0yTRf7yu/gXj/Rx3SGktnUtUc2A5wvt15Nh6Co2ChGRieJReQTlAv7UbVtiMn5/Jgh8R5IH9bST/eF56xYe2A6eTT4x5dLbeb1BAtCvFT1UZ0DZFDnYIZXF47DFqs9qpRxjtbcD7fus/jmlWAqnnKDm/bAm1vT0HZyEmNlUsUY3zAjZhBzZJQmdBFNEOCvci/Y3XbiNSIJiK+BuRanDeFKQxFaEvctSKhnPSj2iRfTeC1pMWCFpBMWbOgQBfzlXvpTZ6dMtKiSjDtSDANqUxwz1amr9gDuO+snoaItJJdUb3VEULjhhA6p5Kv3wGGptMWuHG5Q8+PStE4kK6EUKtSzS9SpSwD8gRsxCWyjQXwSRD+mvXPoWLBj9XYNJwuApD79/nhp9Bk6ke99Eo0g=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QnMrNXdLaU9JMEdLbHVmdXNLY2NYZmk1elBlNWRkWkx1WXZVWG9zVmdGZFlD?=
- =?utf-8?B?ZTJVYjNNMEVsZjVVVGVLeXVHZEt2dWlNNHNDM0F4eFUweDdrN1FudVFoZzY0?=
- =?utf-8?B?VG80Nk1mRkJXUGlMNEYvVEJQa1p4QkxURDFXZGFlSTNXTnRFck1rQlRsNENm?=
- =?utf-8?B?N0RYL0t2b2RMQ3piNWRsV1ljQy9rWUFES1BxZ1IzcTA0ZUE2WlBOc0FnS3Nw?=
- =?utf-8?B?NnZFa0RjUkJlbHU3WCtnOXh1MWQrS0RYQ0RPNU1kUVJTNTA0NW52d1B1MURF?=
- =?utf-8?B?QkkzbDZJbE9KRC9ZNGROS3R5aWo3Y2RYTzZGY1dlRUJ3U3ZhUkhCSWQvL203?=
- =?utf-8?B?OGx4bE1nZlNNT3cxc2VqWGgybDIzM0x2Yk50TEp0UjFna0RCRDF5MFdhcU9T?=
- =?utf-8?B?N0RpSVIvdkwvdmpYVmVYeTJwTHc1b0pCR2VXa3FNWW5YanROUzJFZkd6V1Bw?=
- =?utf-8?B?ZGQ5T2E5VG9KaVJRc0Y4RmtZVWpQNHhwVlpzRjJwU2dtSHBONi9JTHpDV1Bn?=
- =?utf-8?B?TVVWdEtKcTlPeGlxWkxEZFBydE96dDdmNmh3TVBJNlhLNDFUVjZjY0VYbHFJ?=
- =?utf-8?B?a0QwSzUyK1dPMkV6U2QvYW03dEVSM1BmZElYTXM0d0FSUlQ3UWg0SlB1M1cz?=
- =?utf-8?B?VElCWlA1TXkybjZRTUZnaVNCOWtqbW5YbzhVYTNjakNwOHlaSEZKNFQ5TTdY?=
- =?utf-8?B?anlIcGtnVlB6S0ZZUFBENWZBbHdSbUptZFVrMGZxcm9aVlZBYmJwYXM2MUtl?=
- =?utf-8?B?bUtnQytORW9UUWRtVk81b0JLOFNyQmp4THl0VkpFRlpNamFyZ0NJOTVod05W?=
- =?utf-8?B?TGtCRlNyUWJhTWh3QWJGWTB1aVYxZGt0MUlmN0YxOVlFNmdpekU0NzdKbStH?=
- =?utf-8?B?c2VHK1RxNjZnWnBkL3lyNFJWRGgwS3hIa1NqY2JVVjdmZ3k4dUxCRzFKOU1Q?=
- =?utf-8?B?ZFpFVVppVzdzUWt4RUZ6ckN2ekNMQ0JCUUt0TGlzNEh1Ulh4TFVBcnRxZ1hQ?=
- =?utf-8?B?c3NReUxRRzVjbGlQN2JGQ2dmK2d4aWV0YWQ4a25TSG9tcHUwWEt4bGRCMmpG?=
- =?utf-8?B?NUxKYktIMDFFWkgxQ0xBZkJpMWtJbHhGMDhib3Q5WFUrZXEwdkRiNXg0TzB6?=
- =?utf-8?B?SE5pWDA5cHBFU01waGVHUllZTVhaNjM5YjJ2MVR5akdVUmRxRys5Z29iaHlr?=
- =?utf-8?B?bWFQL2FJK01VZnZHZllzOU5IOUNsajA1emZIYUhJTm55ckJjeXRLaGsvbDI4?=
- =?utf-8?B?RnkwU1gxUTA5M3RJTS9MdEY3MTliL1E0U3dmT0NsNWZTbHB1REh0RzRYQzFG?=
- =?utf-8?B?RzdHQTBkYitxVXNzaFBMaDh1cDdCb3Y2NFFlRTd6VWg1R2gwSEJxWmFELzVS?=
- =?utf-8?B?SFJyS2JpVkE5VFYxb05wdnkrWm9iZWJHbmNNNmRGb2hMS1gxMEdUR09jVm1z?=
- =?utf-8?B?SjFmMTVEWW1xWFRrK2FITkdjZ0RGOGRWdExvdEwrdFNmQWYrbkFkV01OVXJm?=
- =?utf-8?B?UFcrcVRBbnN1T1N3UVJZRmdGaEpmai9rOU1VQkVmOVhIL1pZajg0RlVnNmN0?=
- =?utf-8?B?WWZRb0l3VTFMSm5kMitTeFcvZ0V4L2w1TWh5VU5EMlRxbnJwNVFIeldUS0d6?=
- =?utf-8?B?ZmRHTW1NZFFOVEdRU1F0VEN6bFB5TUNTeFNSQkFVa0RhUmtmMHlBYmsvSWE2?=
- =?utf-8?B?czF1M1JlcFU3MW13QVNHaE5CNnhTdWVMcDJ1RDc5T09oS0hSS3E4aWRRWXlB?=
- =?utf-8?B?cEpiLzBDZ1ZUVU1lWHZkTTVUbFpJWDNmdzd6c0FnSzhpbFEzUlZoc3dLVXNW?=
- =?utf-8?B?VzNYWkxSNFI1WlUvdlJyMXp5QzYyRXh5K3BQdHVqeHZ5ZEF5bHBJWHlHT3c1?=
- =?utf-8?B?emxaby9Ia2FFQXptbDJPdzBaSHcvb3pwQzA5Q04yNFpFcmpYNXVZN2NjcE1Y?=
- =?utf-8?B?bmFTSXFoRWg3WlV1NEE2dXA2RGJnbGlXODFYVE90Mk02QXE4SngzY0U5cGdT?=
- =?utf-8?B?aVY1OG9EN2hxeFRPa1V0THUwclhWcmozckNPWWJIRUtJSDAvTjhvODFPVktY?=
- =?utf-8?B?NWV2ODZVYkFwSE5aM1g0cWZtU1R5aWhiVWl3amlyRS9iMTNxU0wrMkVuRTJH?=
- =?utf-8?B?RVZzN1ZzbGNhSnh1N3ltZndEV3gyczhFMXY2M1h5d2JSOWs4b3NPMDlFK2xm?=
- =?utf-8?B?M2NvSzFrMVh0T05ObFg1WkYxMDEyY1JvcGtMLzIrNHFSSlZwWEJ5d2xKTlE0?=
- =?utf-8?B?YzhDVU9xc3ZaUXhVRFgwOUM2MjNlUnF1S2FzbU5iTzVsVDF5dlViVlVYSkpU?=
- =?utf-8?B?dXdwTHNUV0YveGFpbHMrWDQrbEpJaXFkTWRzKzB4a1JQQXNDUVFSbmtBdUdU?=
- =?utf-8?Q?PNTE5/S8aoyycpwc=3D?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 817e3a42-bb26-468e-676a-08dea1374953
-X-MS-Exchange-CrossTenant-AuthSource: YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2026 12:53:16.0288
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hotEsbO/9q+X4VIQiWE8vp6RCfsAOjaMVbBjH/jc7TGFIz+c/YaxtT6q3hN/KqBbEetaG9Z8ZEzaXpdgI86RH9qcGCItgdS9KRSQtVn+rjo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT1PPF07516E2ED
+References: <20260422212849.1240591-1-shenwei.wang@nxp.com>
+In-Reply-To: <20260422212849.1240591-1-shenwei.wang@nxp.com>
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+Date: Thu, 23 Apr 2026 06:53:12 -0600
+X-Gm-Features: AQROBzBDIr-bn4DX0ExOJm0nVY72516bKXS1r-ubIMnAcS6p_qKbuXjU_FLZ6Pw
+Message-ID: <CANLsYkypRaFTTP7MLLLR+=AB5JnRTA4i130qvWzB1qoAuM9FWQ@mail.gmail.com>
+Subject: Re: [PATCH v13 0/4] Enable Remote GPIO over RPMSG on i.MX Platform
+To: Shenwei Wang <shenwei.wang@nxp.com>, Andrew Lunn <andrew@lunn.ch>
+Cc: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>, 
+	linux-gpio@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, devicetree@vger.kernel.org, 
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-imx@nxp.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_055322_389988_472939F1 
-X-CRM114-Status: GOOD (  26.51  )
+X-CRM114-CacheID: sfid-20260423_055326_540572_E43C57F3 
+X-CRM114-Status: GOOD (  26.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,104 +121,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-04-23 08:36, Dmitry Vyukov wrote:
-> On Thu, 23 Apr 2026 at 14:29, Mathieu Desnoyers
-> <mathieu.desnoyers@efficios.com> wrote:
->>
->> On 2026-04-23 01:53, Dmitry Vyukov wrote:
->> [...]
->>> +linux-man
->>>
->>> This part of the rseq man page needs to be fixed as well I think. The
->>> kernel no longer reliably provides clearing of rseq_cs on preemption,
->>> right?
->>>
->>> https://git.kernel.org/pub/scm/libs/librseq/librseq.git/tree/doc/man/rseq.2#n241
->>
->> I'm maintaining this manual page in librseq.
->>
->>>
->>> "and set to NULL by the kernel when it restarts an assembly
->>> instruction sequence block,
->>> as well as when the kernel detects that it is preempting or delivering
->>> a signal outside of the range targeted by the rseq_cs."
->>
->> I think you got two things confused here.
->>
->> 1) There is currently a bug on arm64 where it fails to honor the
->>      rseq ABI contract wrt critical section abort. AFAIU there is a
->>      fix proposed for this.
->>
->> 2) Thomas relaxed the implementation of cpu_id_start field updates
->>      so it only stores to the rseq area when the current cpu actually
->>      changes (migration).
->>
->> So AFAIU the statement in the man page is still fine. It's just arm64
->> that needs fixing.
-> 
-> 
-> My understanding was that due to the ev->user_irq check here:
-> 
-> +static __always_inline void rseq_sched_switch_event(struct task_struct *t)
-> ...
-> +               bool raise = (ev->user_irq | ev->ids_changed) & ev->has_rseq;
-> +
-> +               if (raise) {
-> +                       ev->sched_switch = true;
-> +                       rseq_raise_notify_resume(t);
-> +               }
-> 
-> There won't be any rseq-related processing for threads preempted in
-> syscalls, which means that rseq_cs won't be NULLed for threads
-> preempted inside of syscalls.
+Once again Andrew Lunn was left out.
 
-Let's see if I understand your concern correctly. Scenario:
-
-A thread is within a rseq critical section. It exits the critical
-section without clearing the rseq_cs pointer, expecting the kernel
-to lazily clear the rseq_cs pointer eventually when it detects that
-it's not nested on top of the userspace critical section anymore.
-It then calls a system call _outside_ of the rseq critical section,
-but with rseq_cs pointer set. Based on the rseq man page wording,
-it would then expect the preemption within the system call to guarantee
-clearing that that pointer.
-
-Here is the relevant comment block in the man page:
-
-                      Updated by user-space, which sets the address of  the  cur‐
-                      rently active rseq_cs at the beginning of assembly instruc‐
-                      tion sequence block, and set to NULL by the kernel when  it
-                      restarts an assembly instruction sequence block, as well as
->>>>>>>>>
-                      when the kernel detects that it is preempting or delivering
-                      a  signal  outside  of  the  range targeted by the rseq_cs.
->>>>>>>>>
-                           ^^^ this
-
-The whole point about lazy-clearing of rseq_cs is that it _may_ happen when
-the kernel preempts or delivers a signal (or at any point really), but it's
-just an optimization.
-
-Updating the manual page with this wording would match the intent:
-
-                      Updated by user-space, which sets the address of  the  cur‐
-                      rently active rseq_cs at the beginning of assembly instruc‐
-                      tion sequence block, and set to NULL by the kernel when  it
-                      restarts an assembly instruction sequence block. May be set
-                      to NULL by the kernel when it detects that the current
-                      instruction pointer is outside of the range targeted by
-                      the rseq_cs.
-                      Also needs to be set to NULL by user-space before  reclaim‐
-                      ing memory that contains the targeted struct rseq_cs.
-
-Thoughts ?
-
-Thanks,
-
-Mathieu
-
--- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+On Wed, 22 Apr 2026 at 15:29, Shenwei Wang <shenwei.wang@nxp.com> wrote:
+>
+> Support the remote devices on the remote processor via the RPMSG bus on
+> i.MX platform.
+>
+> Changes in v13:
+>  - drop the support for legacy NXP firmware.
+>  - remove the fixed_up hooks from the rpmsg gpio driver.
+>  - code cleanup.
+>
+> Changes in v12:
+>  - Fixed the "underline" warning reported by Randy.
+>
+> Changes in v11:
+>  - Expand RPMSG for the first time per Shuah's review comment.
+>
+> Changes in v10:
+>  - Update gpio-rpmsg.rst according to Daniel Baluta's review comments.
+>  - Add a kernel CONFIG for fixed up handlers and only enable it on
+>    i.MX products.
+>  - Fixed bugs reported by kernel test robot.
+>
+> Changes in v9:
+>  - Reuse the gpio-virtio design for command and IRQ type definitions.
+>  - Remove msg_id, version, and vendor fields from the generic protocol.
+>  - Add fixed-up handlers to support legacy firmware.
+>
+> Changes in v8:
+>  - Add "depends on REMOTEPROC" in Kconfig to fix the build error reported
+>    by the kernel test robot.
+>  - Move the .rst patch before the .yaml patch.
+>  - Handle the "ngpios" DT property based on Andrew's feedback.
+>
+> Changes in v7:
+>  - Reworked the driver to use the rpmsg_driver framework instead of
+>    platform_driver, based on feedback from Bjorn and Arnaud.
+>  - Updated gpio-rpmsg.yaml and imx_rproc.yaml according to comments from
+>    Rob and Arnaud.
+>  - Further refinements to gpio-rpmsg.yaml per Arnaud's feedback.
+>
+> Changes in v6:
+>  - make the driver more generic with the actions below:
+>      rename the driver file to gpio-rpmsg.c
+>      remove the imx related info in the function and variable names
+>      rename the imx_rpmsg.h to rpdev_info.h
+>      create a gpio-rpmsg.yaml and refer it in imx_rproc.yaml
+>  - update the gpio-rpmsg.rst according to the feedback from Andrew and
+>    move the source file to driver-api/gpio
+>  - fix the bug reported by Zhongqiu Han
+>  - remove the I2C related info
+>
+> Changes in v5:
+>  - move the gpio-rpmsg.rst from admin-guide to staging directory after
+>    discussion with Randy Dunlap.
+>  - add include files with some code improvements per Bartosz's comments.
+>
+> Changes in v4:
+>  - add a documentation to describe the transport protocol per Andrew's
+>    comments.
+>  - add a new handler to get the gpio direction.
+>
+> Changes in v3:
+>  - fix various format issue and return value check per Peng 's review
+>    comments.
+>  - add the logic to also populate the subnodes which are not in the
+>    device map per Arnaud's request. (in imx_rproc.c)
+>  - update the yaml per Frank's review comments.
+>
+> Changes in v2:
+>  - re-implemented the gpio driver per Linus Walleij's feedback by using
+>    GPIOLIB_IRQCHIP helper library.
+>  - fix various format issue per Mathieu/Peng 's review comments.
+>  - update the yaml doc per Rob's feedback
+>
+> Shenwei Wang (4):
+>   docs: driver-api: gpio: rpmsg gpio driver over rpmsg bus
+>   dt-bindings: remoteproc: imx_rproc: Add "rpmsg" subnode support
+>   gpio: rpmsg: add generic rpmsg GPIO driver
+>   arm64: dts: imx8ulp: Add rpmsg node under imx_rproc
+>
+>  .../devicetree/bindings/gpio/gpio-rpmsg.yaml  |  55 ++
+>  .../bindings/remoteproc/fsl,imx-rproc.yaml    |  53 ++
+>  Documentation/driver-api/gpio/gpio-rpmsg.rst  | 266 ++++++++
+>  Documentation/driver-api/gpio/index.rst       |   1 +
+>  arch/arm64/boot/dts/freescale/imx8ulp.dtsi    |  25 +
+>  drivers/gpio/Kconfig                          |  17 +
+>  drivers/gpio/Makefile                         |   1 +
+>  drivers/gpio/gpio-rpmsg.c                     | 573 ++++++++++++++++++
+>  8 files changed, 991 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml
+>  create mode 100644 Documentation/driver-api/gpio/gpio-rpmsg.rst
+>  create mode 100644 drivers/gpio/gpio-rpmsg.c
+>
+> --
+> 2.43.0
+>
 
