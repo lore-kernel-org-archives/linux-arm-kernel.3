@@ -4,86 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47E27F99343
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 07:29:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A56FF99348
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Apr 2026 07:34:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mlFZtOeHAVGD6oxAHJWQ3NW409GkmoeA2VYFJ7x7mFg=; b=zRuHzFYUsA31rrGdpjDgTxdxCQ
-	z65HacznT5lf3tVVzat9jhjOjiYYMn5/jlkvyQxdxuHDnDA2sVZDYJE1opRcQU8HRakO8FMsiHtE2
-	cyzK2TxDwAo/IYDWJXDI+LnFizjsHtm86W19/CqsYkjHnOy290lkN+lsr5LGASU9mIIV+zDzEL1r1
-	3/RrUDB29NwRFtn2/CD8VK1fhrbU+X4BLlceM2LdpM/o6xK3XSRXsFrw8GJmxBXB7OJyMyQTFXUgJ
-	OEzk1FpSolmTGL1M0sgO2utaMQoJ+yyYbl5b7vRHlNac1EfEtJS3Xi94xZE2Lb3nC9pDEx0u+p393
-	DJyeyvsw==;
+	bh=/dslgzlo3e3q4Fp9CcQ8kHNOhLW06kFWzrlqwahyqjg=; b=csfj0WBAJB6w0drG8MbcarbJF9
+	TuErmO7AVexWG7ilmHX4FLIy9X/4Xw4o0R3QvVYOvAhEdp01HTh9jLM8cpVtCvIQHO+i+k64Vftac
+	woUm1m96l1dzTnE6iD/yc9YQbSR83UZzCSVW9I86xdrhKexjNLopZDLOJnhhVzs2n+Exa/bW0KDZH
+	1rDrdGvJa+/g+zMOiTVGrp7IHgniFFTLB2bgy1tKOYafwmVVQBAM9HnyM+LN5owZGDjZTBJAfMBJJ
+	tGjDdUrvuU47eexRXHoYmwVnoNPTatYSd8Mj6PdBr9nO5Keh7gH3h+69bFW6Fm4WtYJuR5Kp6Cnq2
+	hEivMCUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFoUj-0000000B9KJ-1Sbh;
-	Thu, 23 Apr 2026 07:29:05 +0000
-Received: from mail-vs1-f42.google.com ([209.85.217.42])
+	id 1wFoZb-0000000B9cO-3eDF;
+	Thu, 23 Apr 2026 07:34:07 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFoUH-0000000B9Ix-32yJ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Apr 2026 07:29:03 +0000
-Received: by mail-vs1-f42.google.com with SMTP id ada2fe7eead31-6057723d553so3391530137.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 00:28:37 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776929316; x=1777534116;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mlFZtOeHAVGD6oxAHJWQ3NW409GkmoeA2VYFJ7x7mFg=;
-        b=RF+4AN+HsarfNoGZrb2mNlr9KCaHzwq6tKl3e3calLu1lYatn4OxyqUMyV5cSJ8K0y
-         xRahHqnB4Y5Vfa16dgIEL5kyeWt3bhhwrYc/J79AJXEhXbT9tNrZvRXvnGes/IX26yez
-         MW5Ixc5MmACgv6as02jAJZMtLqoErWTY1AGsCqLqt+dPGd/V18Nx+IF4qH9FT7Twz6P/
-         tnBe7StdSsIjfzxJ0QIH3xwocG2WcRc7/fUxqQ2CVWB+rb/9ukkY5gqdaHyH4g6f/T2P
-         Bg8END/yH6/TAtnS8Rn2dnvOloL47VLK0/K6HwoQRMbwlsHKq5LGy8E7JQmkwpjiAY5D
-         JmsA==
-X-Forwarded-Encrypted: i=1; AFNElJ/0rxx4CFNQ2BKOaObQx3DWzXay/rtclRGUrgqOuhT8A1E//ZxIbzwQxSNDqCSW9CrO7VSCn515Dfcv4n5vwUIf@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXB/VmHtU44nVlNvcr4ShMOar8PXtwE5HnTcmXMV5q+pDM8OXC
-	iJ+ZSEiJK7srVd6Ilug2uJqWyLKgeVj6a8UdnGE1qF8q9oFnlPIX/JGsyVH1XWa0OuI=
-X-Gm-Gg: AeBDies7Sw6jWIBIz14NQWf8DRv+5Vk0JjHTGmPMtz66WtYzdI3MQ/RyGmZTXjmShdl
-	XyeY56d5JJew78NKtKuKIRFFoI+BYDBhnSQjX+LjwUuTapCiUNu/oYl22xqzLA9MAx1UUpw0tex
-	WJAVxj+NPwa8N6GLUESIrjeFtuSL+ObRLjqggaRFuIIUh9Kpe9t3D1S5v4K7tPnIyy/XaQgJGyj
-	jvgwBlmIV123GGutmxyO+Zc58albKxmVAE5yZHWCxiPwtGJotkMgXechb9QOdZRlTgx/wzCG/Lj
-	WXBncPN5Nl4E4+GLQM9y0LT/EwbBCEbS3uUfhuoHnGeatmj43IxBfiOXMWWuWr0aOYx1+L+XwwL
-	K8yervYXIO+8YYDfjvDUvQyOXQrGsV0EL23Ozr28P9f8ZJj6d4zQXGeFFLf7mDyG5Gro/9YPSV/
-	z48ZoUHBEchwJWzJqccSWiWBuhLpzTlRtskFahsoGPpoByPPZ3Y19IgrNkHCXn1789WMxbk5Y=
-X-Received: by 2002:a05:6102:6a90:b0:610:92a1:15c5 with SMTP id ada2fe7eead31-616f7c4f78bmr14354049137.31.1776929315737;
-        Thu, 23 Apr 2026 00:28:35 -0700 (PDT)
-Received: from mail-vs1-f53.google.com (mail-vs1-f53.google.com. [209.85.217.53])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-61747cb52c9sm9422850137.9.2026.04.23.00.28.34
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Apr 2026 00:28:34 -0700 (PDT)
-Received: by mail-vs1-f53.google.com with SMTP id ada2fe7eead31-605a3cff8d0so3814447137.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 00:28:34 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ9U5lEDxn1ys+hngBnwTGhED3cueuKvUZ8R+FprZMUvIicVqtZwPxqKQx6WqtCxvz1vgu4seISBFi+3+0nSs18l@lists.infradead.org
-X-Received: by 2002:a05:6102:374e:b0:610:76c6:b759 with SMTP id
- ada2fe7eead31-616f68d86a2mr13645250137.15.1776929313804; Thu, 23 Apr 2026
- 00:28:33 -0700 (PDT)
+	id 1wFoZW-0000000B9a4-3x6j;
+	Thu, 23 Apr 2026 07:34:05 +0000
+X-UUID: c9132b583ee611f1a6de359d7043e138-20260423
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=/dslgzlo3e3q4Fp9CcQ8kHNOhLW06kFWzrlqwahyqjg=;
+	b=lR37S7GNd+TGgtciLjs3l+10gQrRAckZICHxx7FuxykCxgkX18MUCgcK3d7Co2SEeNxWPvhwu3ABw05UNOdC2F05bhp44wAh/CJbq0RhvGosR6dMk6iDo0OcM6pfiJKZiL1/sQL69Znm8QiSivh7E+07D15k0L71CepXLg552bc=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:275e41a2-ee40-4aa2-a610-cbb73e3622ed,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e7bac3a,CLOUDID:8282c98f-6df4-4a3d-a7a4-fbdc42d669ce,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|865|888|898,TC:-5,Cont
+	ent:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0
+	,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: c9132b583ee611f1a6de359d7043e138-20260423
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
+	(envelope-from <irui.wang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 2001302535; Thu, 23 Apr 2026 00:33:56 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Thu, 23 Apr 2026 15:33:53 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Thu, 23 Apr 2026 15:33:52 +0800
+From: Irui Wang <irui.wang@mediatek.com>
+To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>, Rob Herring <robh+dt@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	<angelogioacchino.delregno@collabora.com>, <nicolas.dufresne@collabora.com>,
+	Tiffany Lin <tiffany.lin@mediatek.com>, kyrie wu <kyrie.wu@mediatek.com>
+CC: Yunfei Dong <yunfei.dong@mediatek.com>, Maoguang Meng
+	<maoguang.meng@mediatek.com>, Longfei Wang <longfei.wang@mediatek.com>, Irui
+ Wang <irui.wang@mediatek.com>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, "Rob Herring (Arm)" <robh@kernel.org>
+Subject: [PATCH v6 1/6] media: dt-bindings: mediatek,vcodec-encoder: Add MT8196
+Date: Thu, 23 Apr 2026 15:33:38 +0800
+Message-ID: <20260423073345.27402-2-irui.wang@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20260423073345.27402-1-irui.wang@mediatek.com>
+References: <20260423073345.27402-1-irui.wang@mediatek.com>
 MIME-Version: 1.0
-References: <177687458572.932171.10907864814735342737.stgit@mhiramat.tok.corp.google.com>
- <177687459412.932171.8121855108122534476.stgit@mhiramat.tok.corp.google.com>
-In-Reply-To: <177687459412.932171.8121855108122534476.stgit@mhiramat.tok.corp.google.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 23 Apr 2026 09:28:21 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdUfaE8PJOYSv6nSDat0BArp416U0JvVNizWXp_pJeFAOg@mail.gmail.com>
-X-Gm-Features: AQROBzBWFvupdSeqAxOVAc0cy9hT-Tw95EFaUW-lHl0FiR8iYpsy7jXE1aKRWTQ
-Message-ID: <CAMuHMdUfaE8PJOYSv6nSDat0BArp416U0JvVNizWXp_pJeFAOg@mail.gmail.com>
-Subject: Re: [PATCH v17 1/5] ring-buffer: Flush and stop persistent ring
- buffer on panic
-To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-Cc: Steven Rostedt <rostedt@goodmis.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
-	Ian Rogers <irogers@google.com>, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_002837_773371_CED370F5 
-X-CRM114-Status: GOOD (  21.43  )
+X-CRM114-CacheID: sfid-20260423_003402_982966_31EA2183 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,37 +94,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Apr 2026 at 18:26, Masami Hiramatsu (Google)
-<mhiramat@kernel.org> wrote:
-> From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
->
-> On real hardware, panic and machine reboot may not flush hardware cache
-> to memory. This means the persistent ring buffer, which relies on a
-> coherent state of memory, may not have its events written to the buffer
-> and they may be lost. Moreover, there may be inconsistency with the
-> counters which are used for validation of the integrity of the
-> persistent ring buffer which may cause all data to be discarded.
->
-> To avoid this issue, stop recording of the ring buffer on panic and
-> flush the cache of the ring buffer's memory.
->
-> Fixes: e645535a954a ("tracing: Add option to use memmapped memory for trace boot instance")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-> Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+Add support for MT8196 video encoder which uses VCP (Video Co-Processor)
+for firmware management. Unlike previous platforms that use SCP/VPU, MT8196
+requires VCP to load and execute the video encoding firmware, with the
+encoder communicating through VCP to perform encoding operations.
 
->  arch/m68k/include/asm/Kbuild         |    1 +
+Add the "mediatek,mt8196-vcodec-enc" compatible string and introduce
+the "mediatek,vcp" property to reference the VCP device, which is
+required for MT8196 encoder operation.
 
-Acked-by: Geert Uytterhoeven <geert@linux-m68k.org> # m68k
+Signed-off-by: Irui Wang <irui.wang@mediatek.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+---
+ .../media/mediatek,vcodec-encoder.yaml        | 22 +++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
-Gr{oetje,eeting}s,
-
-                        Geert
-
+diff --git a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
+index ebc615584f92..72698456374a 100644
+--- a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
++++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
+@@ -24,6 +24,7 @@ properties:
+               - mediatek,mt8188-vcodec-enc
+               - mediatek,mt8192-vcodec-enc
+               - mediatek,mt8195-vcodec-enc
++              - mediatek,mt8196-vcodec-enc
+       - items:
+           - const: mediatek,mt8186-vcodec-enc
+           - const: mediatek,mt8183-vcodec-enc
+@@ -58,6 +59,13 @@ properties:
+     description:
+       Describes point to scp.
+ 
++  mediatek,vcp:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Reference to the VCP (Video Co-Processor) device that loads and executes
++      the video encoding firmware. The encoder communicates with the firmware
++      through VCP to perform encoding operations.
++
+   power-domains:
+     maxItems: 1
+ 
+@@ -76,6 +84,20 @@ required:
+   - iommus
+ 
+ allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - mediatek,mt8196-vcodec-enc
++
++    then:
++      required:
++        - mediatek,vcp
++    else:
++      properties:
++        mediatek,vcp: false
++
+   - if:
+       properties:
+         compatible:
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+2.45.2
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
