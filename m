@@ -4,69 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A555DFB44C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 06:57:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B710BFB44BB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 06:58:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WaAr3D/sJYJM9KUktaMmbaJQ4TAUVyyqdpjSR1XE7gg=; b=kYdautGfe/ISIC8pn4T+JU++Ug
-	YZ+OvAdt0rrtZAdeCrKfmqOEdYpVOyn5ajXFfSCpPMSryZx5VrzsALjtAqg4qMMelTpIKpC0lIQ5U
-	oaFMSthgnMjfFhjtI9cc5KNwBDeZiN8xeU+CUTCFkXbjM3mTmC6CH/UtI+KMZupBQlVa1+aKflghz
-	chdIKwMNRyGdpq+05QilqJUJNYFtxAW94UF1XDPDReXWnIkY3PYMt/lo/6wOnxlRB7nc0kU+Grjfv
-	PVeUKoia6iMLXvBOcn+AAShfdR7NnIArKY87ZsXJcSXGXqA7rUJ8mRnnsrlhxy9fLUK5Uap9k35E0
-	B+XPzoCQ==;
+	bh=z1xKDipGgf54U9o9dE8hUvLsSiaTlrXktu+nKGuvzuE=; b=1N5uZL4rGDchJ+co/Nj0DJBe69
+	wiOPEp2xdJoJZ28gxqS/oeU6SKve1lKx5lqMKnWr0e9IgVDwkDzvhQv9jZ8DFUbIehXaTLcF6rkX8
+	9tvXeGnaI9GD09Mad/sA0zUX0LCFmYE9bPvG8BpCIW4pScPzl6X9tS4WUW0qREUBer0pVfJapEWPY
+	XNrtabC0WaLHEQzeLfHGKtHij6s09RV/5hnvhslOFANJhlHO33NiHzppg0vI3GelCMs9bH4NHKzpk
+	DxMgtuwjybcKrMeWslBlgGjl1smRpIwK376XqibUlXFYcsk2NQx7g2ii//qZNshsXdpLWJAssc4T9
+	6YmfSwDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGATT-0000000CkoF-1OZ5;
-	Fri, 24 Apr 2026 06:57:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wGAUO-0000000Ckxn-3DIl;
+	Fri, 24 Apr 2026 06:58:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGATS-0000000Cko7-0NUx
+	id 1wGAUM-0000000Ckx6-1pKR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 06:57:14 +0000
+	Fri, 24 Apr 2026 06:58:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7A5D6600CB
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 06:57:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 306A1C2BCB8
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 06:57:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0438A43995
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 06:58:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4E09C2BCB5
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 06:58:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777013833;
-	bh=SEr+WlmiWTO1JycrL0J1sw04K4DOCygSPT/tWDUVm/c=;
+	s=k20201202; t=1777013889;
+	bh=O11JtHJCuUQAT52gCcRyJqH4zG9oPQf0zzzYM4UNinA=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=IjYWA03pWY1gpD6BqRC2PF0uWz1T9wIBft+Tacmzv/+oes08+XmxX2nhVIiu47+qI
-	 OIOdtEnIWZ6D7EW5GqnkLS56vtU80ohCA1sca6MgmCFi1b7qJxgvdj4K98hGIcIuJd
-	 qIbhGCd+CSjbyyFc/ystRkrdi+hqYC0OEZjFZO+2xtAgGKDH8qLwpBKxoHuR1OKuOg
-	 o179q8kPysBwLyZsFD7DVzW2ln0jeIUHRf7cWCqpGfm86kFFATYNWq5wmrWiUfQgUd
-	 L9aL1xdEdJMMacAjYQY2JgNswuuLGb2LW3s/sEbkjRphfAQgVfJNuj7Guk5JTH0Jst
-	 vUy8rLjGehBrA==
-Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5a2c9c5ff87so8205067e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 23:57:13 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8ryyVvX4yBo0MPRgbsA1NMR+1GTLY6iPdHMexfy/EUiaRfMtZ6eJ37C/qmjowLTK7N9hpgoGKlSAU8dI06zfYc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxd/QJ0vondvZC+mfwoV32VxOpT50BJRF3FgSNTIT8Ra4jt4UCx
-	MeY/Q4g1CmzbbN62H9yb6tms4CnrPyJwvLkH1CQaii7hNNPTvCLqyTuDr/No3hwWvqu9s4dVyMJ
-	7qqBySjefRQsYkHScSpmTiWaeFJj5Yx4=
-X-Received: by 2002:a05:6512:2248:b0:5a4:992:e8b2 with SMTP id
- 2adb3069b0e04-5a4172e1c8bmr11414362e87.21.1777013831845; Thu, 23 Apr 2026
- 23:57:11 -0700 (PDT)
+	b=GxyJNBZdusOPbqwOVMA4YrUWqN31KyyYo4jfjWpXsEDdwGEXA593ipe04PLJWTpiY
+	 bVdcDuUHZCgsq321jBV6QY9glQ3TQ42PyM6wdDM2XojskN83MesJUSbkU1FYhAdH5J
+	 inSKG8//QrVVNJHP93/wuUoa9xtg299CH/rbzQ6OPCkzWRpi9LBuQoFfzqv6SyDpUO
+	 BfxWUiG44U2pld2NeeJNim/rV1lELcoJLSSB24xdufWa9RHRF7f4TeQXV/3XnBqhuC
+	 cY2YzOpihPpAwsvmsOgz/FAtK0IpKCk5bQxW7YmD1ErUJIhm7h+6vixMh4IM2iAhY/
+	 XHamUexj6LgHg==
+Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-38dd9f0fdc6so88232191fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 23:58:09 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/jGeVN22c8Ci03z21aw/MYfQqzraBlbtWBgCFE+cFE3NFTMAicL5UKGDQXaDvgD//l91mah2EkVf62t5sc7BVG@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQhEsVSdcDl8RR62mryEW3ym9he4ngkQFBQXfKmnlHbd3tIMR4
+	aQ4nkI5X5YbLTXxpPl5eD1hmm5KaiIMYMe/hWFPlELW5K9dwy6pKdQueeRNDXFOSG6UZqEXJD6q
+	m6e4dxU2beWNW1dSZT7w9A9gHRfw1VLs=
+X-Received: by 2002:a05:6512:224c:b0:5a4:558:33ae with SMTP id
+ 2adb3069b0e04-5a417299938mr7908003e87.10.1777013888402; Thu, 23 Apr 2026
+ 23:58:08 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260412-defconfig-v1-0-a46918286451@oss.qualcomm.com> <20260412-defconfig-v1-6-a46918286451@oss.qualcomm.com>
-In-Reply-To: <20260412-defconfig-v1-6-a46918286451@oss.qualcomm.com>
+References: <20260412-b4-defconfig-multi-v7-v1-0-e76de035c2df@oss.qualcomm.com>
+ <20260412-b4-defconfig-multi-v7-v1-1-e76de035c2df@oss.qualcomm.com>
+In-Reply-To: <20260412-b4-defconfig-multi-v7-v1-1-e76de035c2df@oss.qualcomm.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 24 Apr 2026 08:56:59 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkSTNbFwo7gwx+0e_ZwgXG0q0NS=L5-4fZ+k2kKEp6Fwg@mail.gmail.com>
-X-Gm-Features: AQROBzADNxzrQDzMGVp1H4a-vD6pm520ZnRTwIt0L-Jg8slJtjbP66Ix_lrXjwg
-Message-ID: <CAD++jLkSTNbFwo7gwx+0e_ZwgXG0q0NS=L5-4fZ+k2kKEp6Fwg@mail.gmail.com>
-Subject: Re: [PATCH 6/6] arm64: defconfig: Switch Ethernet drivers to modules
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, netdev@vger.kernel.org, 
-	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Drew Fustini <fustini@kernel.org>, soc@lists.linux.dev
+Date: Fri, 24 Apr 2026 08:57:55 +0200
+X-Gmail-Original-Message-ID: <CAD++jLm0zZiDW2L5AODjEjEX3qcfqGp0NwbYZiPgUPRX1CRh0Q@mail.gmail.com>
+X-Gm-Features: AQROBzCF4lvN9FYPmvasg68YE61CB4Kb6l3zRlu4SgJbvuenKhbHowY75TWFu9U
+Message-ID: <CAD++jLm0zZiDW2L5AODjEjEX3qcfqGp0NwbYZiPgUPRX1CRh0Q@mail.gmail.com>
+Subject: Re: [PATCH 1/5] ARM: multi_v7_defconfig: Move entries to match savedefconfig
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Bjorn Andersson <andersson@kernel.org>, Dmitry Baryshkov <lumag@kernel.org>, 
+	Dinh Nguyen <dinguyen@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Drew Fustini <fustini@kernel.org>, soc@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260423_235810_489663_E6698D9F 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,50 +87,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 12, 2026 at 6:21=E2=80=AFPM Krzysztof Kozlowski
+On Sun, Apr 12, 2026 at 7:12=E2=80=AFPM Krzysztof Kozlowski
 <krzysztof.kozlowski@oss.qualcomm.com> wrote:
 
-> Development of Linux kernel progressed over last 10 years and it is easy
-> to generate now initramfs for building own kernel, e.g. with Yocto or
-> mkosi.  Therefore for a few years of reviews on mailing lists, all new
-> options enabled in arm64 defconfig were with assumption of having
-> initramfs which can load bare minimum of modules to mount filesystem
-> from network or disk.  Basically network driver as built-in is not
-> anymore essential to boot the system, so switch almost all Ethernet
-> drivers to modules to save on kernel image size.
->
-> Similarly 9P network filesystem for QEMU, especially that testing kernel
-> unuder QEMU does not have any size or build process constraints and can
-> use initramfs with -initrd argument.
->
-> Notable exceptions / diff explanations:
->
-> 1. Intel CONFIG_IGB stays as built-in, because of dependency on I2C
->    which is also built-in.
->
-> 2. CONFIG_BCM4908_ENET and CONFIG_BCMASP appear in the diff, because
->    they were default=3Dy (via ARCH_BCMBCA or ARCH_BCM_IPROC).
->
-> 3. CONFIG_HNS3_HCLGE and CONFIG_HNS3_ENET are removed, because they are
->    default=3Dm.
->
-> Moving code to modules has positive impact on kernel image size, thus
-> boot time of all users not using above drivers and ability to flash
-> fixed-size boot partitions.
->
-> Old Image size: 41.11 MiB (Image.gz: 14.69 MiB)
-> New Image size: 39.14 MiB (Image.gz: 13.82 MiB)
->
-> bloat-o-meter of vmlinux:
-> add/remove: 4/6139 grow/shrink: 3/51 up/down: 34547/-2046619 (-2012072)
+> Only re-shuffle entries to match savedefconfig, without removing any
+> symbols.  This helps in reviewing defconfig when comparing with
+> savedefconfig and looking for obsolete symbols.  No impact on
+> include/generated/autoconf.h.
 >
 > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-In principle I think this is a sound change.
-
-But looping in netdev and Rafal to touch  base on how this might affect
-deployed systems. We've had issues with ethernet drivers that don't
-really like deferred probe for example.
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
 Yours,
 Linus Walleij
