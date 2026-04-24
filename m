@@ -4,68 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0E5CFED3F0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 16:55:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5FE4FED3F1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 16:56:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xfmbHeUoYIEBBDOOweTujinfatHSheyaTmni06YI2nI=; b=XKEOslMc1mH6wKjmZZUGWR6zpM
-	ULs5gYO9S2by/WmcP3C12JIku3HO2n1Fmg0qgKpE8XCa+y12lx+dNo7yGEe5JNuYCpDg6rXIj3ccM
-	IJ2MQBHHKkHvNwg4F4rppBrwZbdxPAnWRs4LURB5Vhy+9HqpeaEFvMqmtpbXZolg/Lmg3jKwMyiIH
-	GkCzdQEDNImWijgHgRlHzFZpjmOoyDwq0s+QvY4V0gIrpRCizOtgz9ft77TeDAN37yzuKIbwaCyPO
-	tHCgRvqIUNZkzGVhvAcq+7lgxcqD+Q3CShWTB+YmimEbHa3gsenbx3vmfAsxQv2yNzPuhkJYZTwhO
-	PIBDGY2A==;
+	bh=XkbCccT08Zzu3yFIZ/Fy+ALf3D6jeJ0x7Zlws4wZNec=; b=H+ZFeswgZ3Z4A9RpOOvsaXinDQ
+	SPWVPC7DNvBJRD2SaSIfndWWle5XENyF6HEn4zy3ieVzrMJ5Bh3fAF08QVkvo148FXbIxvHnzYfuK
+	+vYD8DVQniPkOUaHUHrR4d1pN1sqF62OjeSgONmzPwPJTfxpp3OAxd3i4qJr4iZlAe8keKSbQBeXL
+	iAagPSOYjiRvuGInGsb7OAMGkVYzygXe0cFWRzYg0BHQQeuqN9tIi+5LwPRsj6dl3EfYpYVENy0bq
+	RZcpn7nkbcMN9hZsRwmYq3J0vZ6cS4G/87E27ViTs4IWNsSGd3Ssn8a3T4tA0/6dibkaZ5ehXZvU2
+	C7KXPPNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJom-0000000DYCS-0WtR;
-	Fri, 24 Apr 2026 16:55:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJoj-0000000DYBu-42xz
+	id 1wGJpH-0000000DYIS-3Dvt;
+	Fri, 24 Apr 2026 16:56:23 +0000
+Received: from mail-northcentralusazon11013062.outbound.protection.outlook.com ([40.107.201.62] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wGJpF-0000000DYHf-1MFf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 16:55:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E29F91BB2;
-	Fri, 24 Apr 2026 09:55:42 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D68743FAA1;
-	Fri, 24 Apr 2026 09:55:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777049748; bh=zEcxzMcgMn89IJk+qVytUJpH1pbaIV64uI2bPOhptqs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=L7lsYPaGt/MYLypilx7KBbCsSo/imoWFFxSZCoUYR90FA47PAoKT+rcMmpKYmRToH
-	 UFMlir8JyHOrgOlKNaE3TLVXUcEYmWzcDoApQJlkKsP/Urpvote7g8Vf7pWXw23mgy
-	 C3dkGS7rKLvV2CxIvzR7qd3mYStmE5lOVoWj8V20=
-Date: Fri, 24 Apr 2026 17:55:42 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Jonathan McDowell <noodles@earth.li>
-Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
-	zohar@linux.ibm.com, roberto.sassu@huawei.com,
-	dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com,
-	jarkko@kernel.org, jgg@ziepe.ca, sudeep.holla@kernel.org,
-	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
-	sebastianene@google.com
-Subject: Re: [RFC PATCH v3 2/4] security: ima: call ima_init() again at
- late_initcall_sync for defered TPM
-Message-ID: <aeugjuJwhv6Dr3fm@e129823.arm.com>
-References: <cover.1777036497.git.noodles@meta.com>
- <5552c20c6d6d2ae3bbb6b35124af5d98d2f79163.1777036497.git.noodles@meta.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Fri, 24 Apr 2026 16:56:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VCiBYl3zBFI3hpNh3Eb0e55you3lBhlhrZjTnsoBHP85VS8epastqfruG26HM1Oj5Zo69L1Y7bsLYLe0w/Uyit12x6pugQULjFhuTU7MJZBUWxUNwG94Xz+D2rSr9awTCUaYjmTvZiYKQ/udnBTyXwy7wQGtxP+HsE+CDhSUyzD9lLqtKswstx/bgeWgy4GTtir7FQdEsIdDPKSFqx3W53/tbmT0r+eavWw+47QpH4zfs9kW1SVLssszRz645zbQW4ZlbDGqJaoVtVX7TeeOcry20KUQDQKLKnAabuxr59yQ+PaqkqVzBlblt9hnRahvGlvj9j10j3YPHD8WAwqvEw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XkbCccT08Zzu3yFIZ/Fy+ALf3D6jeJ0x7Zlws4wZNec=;
+ b=cMVjAcfQV2VhON6PYfSLtgQHw0ztooyS28lMfGzeNdjj8ayneF1cXPC0TKefxeaNlBEcdRkw9/A2HW2r2NKDCm54pZ68WEnK07u9/MvRqjPwXlV6HTtEIl7kb2ea0My3Smjm+nP6AsIhwGAJHDkSXtdZUlTVj6LMwN8CG6HNaU2R+jqO4NYks7Yk9uGSOcf4NvDVBQGdaicjown2sWsVYo3JKG9b7ZEsZ2bEyP905qzedPrFV9HiN4VLtbB34oiEctg7JppISDqMVumt1sAgNiOQfKTumqAhX8jDoWT5CBn8C2wUwjrzgil3z/3kjbLDz5DFUFj7AKUMGB4bulKf8w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XkbCccT08Zzu3yFIZ/Fy+ALf3D6jeJ0x7Zlws4wZNec=;
+ b=HTjd0bp/l4vyOybCDZlV4YUabo9RzuU+X4d1QpqB8+PQnurLb2UjgMZFeWfCAxnD649bfM0ejOY7yUKqNuIXv0UbR1nw/4op4uTBPZXp7zDZxYJd72xdhmcj78KAXOLFB7dNO/khiKRnKMiJCqYemzw6JFNMY7sHruwkta1z7z0JtjNdVvMK/SEwBNtaenyVo0H2sQrebZocX6T4ncRKIOq2tGL2oS61vgEva6VZCCMclxBdFUWW+aVJYejtUl9HrxEjDJ7xInG+wj/kbYhqf3dopvP9S2fMqaFRsIlDhxDTxgMMQWIBY8Soq1gIYHirWNj2WdrZwXkdt1nhOLoQ2Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by CY8PR12MB8243.namprd12.prod.outlook.com (2603:10b6:930:78::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.21; Fri, 24 Apr
+ 2026 16:56:15 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9846.019; Fri, 24 Apr 2026
+ 16:56:14 +0000
+Date: Fri, 24 Apr 2026 13:56:13 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, kevin.tian@intel.com,
+	joro@8bytes.org, praan@google.com, baolu.lu@linux.intel.com,
+	miko.lenczewski@arm.com, smostafa@google.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	jamien@nvidia.com
+Subject: Re: [PATCH rc v2 1/5] iommu/arm-smmu-v3: Add arm_smmu_adopt_strtab()
+ for kdump
+Message-ID: <20260424165613.GC3444440@nvidia.com>
+References: <cover.1776286352.git.nicolinc@nvidia.com>
+ <af5fb880e771bc31ba42644ae5570e1fa208217a.1776286352.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <5552c20c6d6d2ae3bbb6b35124af5d98d2f79163.1777036497.git.noodles@meta.com>
+In-Reply-To: <af5fb880e771bc31ba42644ae5570e1fa208217a.1776286352.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: BL1P223CA0039.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:208:5b6::10) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CY8PR12MB8243:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5b0483c5-01a0-469a-527d-08dea222651c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 2T3Oo3nrISJi6kbXFwAOlQlGy8hfpHJaGFLPaFZThfdgZAoDZ27ksijRqtQHu3McWvy2dZVCiWFThuOjj9N9p4sI4HRTN0Q/7j6JFfKCOA5QvYaob+8YVIblnmAzjtlRwGTofGOiiEgK0o5l4rqNJ/Olpga9auCgjXwg0k9WNlrBySPsNhLDP65ZDiVEFJ+Zyu3fo04g694cWTllIRq145ZK9qwRGhZKPI6OO860A5+3V3W2dqq2HV6yGwS9uyep+XXo3yhfwNLLBLH9KbZTqkSQnV5bIOyMkuSHW+wV344PfHuagFJasbMVj0brViBr4N31KM2F697ilTApqROzNBwsXaz/jaC0xXFET88Nc71DG93rqbiZMvemQO9BqPIvzIg5gjOnunmeAdsSpvNyhlMLnkv1kEYsUPPW7lSxkzDPUGVG8xZDLYHR9ovNLdA1yBH2Jd/sRTCgucJ5RARWPYsXHNHDhn2lfouwmdXovWNdPQXqXxtSss62mtOLu9E+3Z9v2GZepvt+4DW+FA03ceJkJDk9PtogPCAaEQvcEIMb1GPGMSV7DFC81/UTK6q0y/YXgBQRLREuz3p3nf8rhREQmhAk5d6FV6O6rxj48deMEfGAHlC5Ci9cImGqh71eVC2gQw8vTLwPkHxC2HSsh/GZfMKFqJnvh3F6QBwyx5SEn/v4BWg+K0LB3InTb0Cf5Yqvnw/sAqUCOpyvklaVFscM5yFuYHbiA4y6ywujw5M=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KMJNu9rcULx0XXgsbm5i3y/wWD3PABh2RBybsLvDPxvA19fHPYNU7GKuYdH8?=
+ =?us-ascii?Q?mOpI8KhTWHW8dRTKAUqTEwLixYo3ZspYTNsfr8UX5PjmZyPLswFKPkhzeA0M?=
+ =?us-ascii?Q?JoBZBFYOTXR07JNtLt+T3u44q7HTAgPcNaaWY7+JGlzxj1qqwU2q0vHxjNnB?=
+ =?us-ascii?Q?En1+KA0TJbKlRJraNER5daUmGUwmwVlX1Z1xF76gMdSAA+icx91cfwGe9STU?=
+ =?us-ascii?Q?pQRzPgBzlxOVd8zSXqbwbiv1nIyzJlMQfzOYo9S37p7coVS3fRqcP7hEIsNW?=
+ =?us-ascii?Q?gdiNxOvuhUriWHfeBcO6ek+5qtg+LZ+ujusxi/AhaEufU/DriulR7kKjZpfa?=
+ =?us-ascii?Q?y+GaLWPqeXOaBe+/7kAw3nQTy/tBYVAZeqWYvJWZFOM1xbFy43YMFRFyGeek?=
+ =?us-ascii?Q?6viQYYUbadKu2Yu4UlnJxBB7TbVCuKvbRZpkbY2H83kQLg2zgMpCifbOnSoq?=
+ =?us-ascii?Q?eqmBct712Hq/+zxROoqlDcO+1uDY3n4lZYJe+xNxNqaABUvZ0aRtYazebOf4?=
+ =?us-ascii?Q?N+2rZImUYZ+T68zElfEmhN9Jy/ecYqgtq7Q/UWNgtf7PfnSM9vWDjyHgGzFQ?=
+ =?us-ascii?Q?Tl6ntMI1xhIU3lIw1mAZ1XH1x1AG/3DdsP3xuYeqkMTrvunTjHTI+dPR4KUs?=
+ =?us-ascii?Q?yHACcaOGbOzGxF+cLHXkKmMfxjKwKE/ETB73i9AWJKfY39RnYaEaAdlsG7Gk?=
+ =?us-ascii?Q?HlO2pcs8VED8ijFAIPRp4y7SHgGNGd0OXeM2XIaZrt6oaeDHJ3HiC3mJOYD6?=
+ =?us-ascii?Q?iiwJhEbww+C6DWBTpUum3ISbw0n/PB+Qez0nDMyhSFAFh3D86nDjL+ej6qcx?=
+ =?us-ascii?Q?7AAOGn6NNFC/ZPUvgpYbnxH2FhcQRPPu9KoUbC6DwdsFQqDImxd4Wkhb/niD?=
+ =?us-ascii?Q?4+gZ6gDm6XgBUk2E6Z6tDjbalSuTt0NB1wXlOhvs2KmNAUTU9w8ypYeFyCcd?=
+ =?us-ascii?Q?+xMLkC+mPLFCRrCMl2fWLG+TXBqkAKZbiDmTUwyzaB3lR8RF7uRA1VLmnKwt?=
+ =?us-ascii?Q?4LH46anRT34tpPQc6EjzDTmMWwSOXPg1bCA68qY5vXJJ79NaR4ax8mKsWZ81?=
+ =?us-ascii?Q?VtDloC3T7tYHPnprKPpvPc7PBG3r6EaRuZ2MuA02uOHW7e7HMCITSzupTG7a?=
+ =?us-ascii?Q?L05ghMYOjpdt8wiV0tY0703LNeZLW/arWQy49qsOeHh7GhJC6rdXnLIb7js5?=
+ =?us-ascii?Q?EHr6veEd1/JGayMZA1BZbUNUzMoB+eYwhImxAqwuAKLKNw/Y0Ly7LxuNsOFK?=
+ =?us-ascii?Q?hBtwcOrBigLQo3EmdtUadrFt0eY19/IjXzQoUjFcMvrn+zlDKRnkC4wNDEC5?=
+ =?us-ascii?Q?qp2ht4rmBozgWoK3N7DoEyYAPKG1nv/uhzG9MnFwWZJJJkDAwPf8EN4S5Mfy?=
+ =?us-ascii?Q?HoYz5JDHSbFEJHVqyqugrjel4rb72iQbTXsEZQ9yZCqm9CMPRjTL7XsIlFBf?=
+ =?us-ascii?Q?NYKmzMBCG6WfEqcyQT/7dXKYS3NIJLDa/W5me4mKZ2paHpbMw6kx/LPNAKy5?=
+ =?us-ascii?Q?k2ct7W2LRFOP0+3mJVDdDj2DSqu5SZmf3QeisUwK44BV2wFpe1FiNRx7xm0A?=
+ =?us-ascii?Q?HDXSLaxBJRyfDBICZjS+oYnjO4SMTeD5VaTb2gLGw+p9vwXGbng4XASCV1W6?=
+ =?us-ascii?Q?KdjX4IGt3iNrB8yL1i+X0IbLNycH5yhZQJ/g0aCMdkvzYiX5KFhH1Aj+1P4Y?=
+ =?us-ascii?Q?hjJP7f5bqvlS3i1CUOEvIOyGADcVxwFoNY2JhHVDpaUxKIBa?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5b0483c5-01a0-469a-527d-08dea222651c
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2026 16:56:14.4257
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BCzoZL9W3Cv/luyarjWjCh9mfOZjbkl7m/UNm2Mj9g6pXbo/3Klw3d06jtdVdbpl
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB8243
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_095550_098268_CC716D84 
-X-CRM114-Status: GOOD (  43.66  )
+X-CRM114-CacheID: sfid-20260424_095621_375721_C26BEE7D 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,263 +141,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> From: Jonathan McDowell <noodles@meta.com>
->
-> The Linux IMA (Integrity Measurement Architecture) subsystem used for
-> secure boot, file integrity, or remote attestation cannot be a loadable
-> module for few reasons listed below:
->
->  o Boot-Time Integrity: IMA’s main role is to measure and appraise files
->    before they are used. This includes measuring critical system files
->    during early boot (e.g., init, init scripts, login binaries). If IMA
->    were a module, it would be loaded too late to cover those.
->
->  o TPM Dependency: IMA integrates tightly with the TPM to record
->    measurements into PCRs. The TPM must be initialized early (ideally
->    before init_ima()), which aligns with IMA being built-in.
->
->  o Security Model: IMA is part of a Trusted Computing Base (TCB). Making
->    it a module would weaken the security model, as a potentially
->    compromised system could delay or tamper with its initialization.
->
-> IMA must be built-in to ensure it starts measuring from the earliest
-> possible point in boot which inturn implies TPM must be initialised and
-> ready to use before IMA.
->
-> Unfortunately some TPM drivers (such as Arm FF-A, or SPI attached TPM
-> devices) are not reliably available during the initcall_late stage,
-> resulting in a log error:
->
->   ima: No TPM chip found, activating TPM-bypass!
->
-> and no measurements into the TPM by IMA. We can avoid this by doing IMA
-> init in the initcall_late_sync stage, after the drivers have completed
-> their init + registration.
->
-> Rather than do this everywhere, and needlessly delay the initialisation
-> of IMA when there is no need to do so, we continue to try to initialise
-> at the earlier stage, only deferring to the later point if the TPM is
-> not available yet.
->
-> Signed-off-by: Jonathan McDowell <noodles@meta.com>
-> ---
->  security/integrity/ima/ima.h              |  3 +-
->  security/integrity/ima/ima_init.c         | 25 ++++++++-------
->  security/integrity/ima/ima_main.c         | 37 ++++++++++++++++++++---
->  security/integrity/ima/ima_template_lib.c |  3 +-
->  4 files changed, 50 insertions(+), 18 deletions(-)
->
-> diff --git a/security/integrity/ima/ima.h b/security/integrity/ima/ima.h
-> index 89ebe98ffc5e..b3677b403a5a 100644
-> --- a/security/integrity/ima/ima.h
-> +++ b/security/integrity/ima/ima.h
-> @@ -65,6 +65,7 @@ extern struct ima_algo_desc *ima_algo_array __ro_after_init;
->  extern int ima_appraise;
->  extern struct tpm_chip *ima_tpm_chip;
->  extern const char boot_aggregate_name[];
-> +extern const char boot_aggregate_late_name[];
->
->  /* IMA event related data */
->  struct ima_event_data {
-> @@ -257,7 +258,7 @@ static inline void ima_measure_kexec_event(const char *event_name) {}
->  extern bool ima_canonical_fmt;
->
->  /* Internal IMA function definitions */
-> -int ima_init(void);
-> +int ima_init_core(bool late);
->  int ima_fs_init(void);
->  int ima_add_template_entry(struct ima_template_entry *entry, int violation,
->  			   const char *op, struct inode *inode,
-> diff --git a/security/integrity/ima/ima_init.c b/security/integrity/ima/ima_init.c
-> index a2f34f2d8ad7..5f335834a9bb 100644
-> --- a/security/integrity/ima/ima_init.c
-> +++ b/security/integrity/ima/ima_init.c
-> @@ -22,6 +22,7 @@
->
->  /* name for boot aggregate entry */
->  const char boot_aggregate_name[] = "boot_aggregate";
-> +const char boot_aggregate_late_name[] = "boot_aggregate_late";
->  struct tpm_chip *ima_tpm_chip;
->
->  /* Add the boot aggregate to the IMA measurement list and extend
-> @@ -39,17 +40,17 @@ struct tpm_chip *ima_tpm_chip;
->   * a different value.) Violations add a zero entry to the measurement
->   * list and extend the aggregate PCR value with ff...ff's.
->   */
-> -static int __init ima_add_boot_aggregate(void)
-> +static int __init ima_add_boot_aggregate(bool late)
->  {
->  	static const char op[] = "add_boot_aggregate";
->  	const char *audit_cause = "ENOMEM";
->  	struct ima_template_entry *entry;
->  	struct ima_iint_cache tmp_iint, *iint = &tmp_iint;
-> -	struct ima_event_data event_data = { .iint = iint,
-> -					     .filename = boot_aggregate_name };
-> +	struct ima_event_data event_data = { .iint = iint };
->  	struct ima_max_digest_data hash;
->  	struct ima_digest_data *hash_hdr = container_of(&hash.hdr,
->  						struct ima_digest_data, hdr);
-> +	const char *filename;
->  	int result = -ENOMEM;
->  	int violation = 0;
->
-> @@ -59,6 +60,12 @@ static int __init ima_add_boot_aggregate(void)
->  	iint->ima_hash->algo = ima_hash_algo;
->  	iint->ima_hash->length = hash_digest_size[ima_hash_algo];
->
-> +	if (late)
-> +		filename = boot_aggregate_late_name;
-> +	else
-> +		filename = boot_aggregate_name;
-> +	event_data.filename = filename;
+On Wed, Apr 15, 2026 at 02:17:36PM -0700, Nicolin Chen wrote:
+> +static int arm_smmu_adopt_strtab_2lvl(struct arm_smmu_device *smmu, u32 cfg_reg,
+> +				      dma_addr_t dma)
+> +{
+> +	u32 log2size = FIELD_GET(STRTAB_BASE_CFG_LOG2SIZE, cfg_reg);
+> +	u32 split = FIELD_GET(STRTAB_BASE_CFG_SPLIT, cfg_reg);
+> +	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
+> +	u32 num_l1_ents;
+> +	int i;
 > +
->  	/*
->  	 * With TPM 2.0 hash agility, TPM chips could support multiple TPM
->  	 * PCR banks, allowing firmware to configure and enable different
-> @@ -86,7 +93,7 @@ static int __init ima_add_boot_aggregate(void)
->  	}
->
->  	result = ima_store_template(entry, violation, NULL,
-> -				    boot_aggregate_name,
-> +				    filename,
->  				    CONFIG_IMA_MEASURE_PCR_IDX);
->  	if (result < 0) {
->  		ima_free_template_entry(entry);
-> @@ -95,7 +102,7 @@ static int __init ima_add_boot_aggregate(void)
->  	}
->  	return 0;
->  err_out:
-> -	integrity_audit_msg(AUDIT_INTEGRITY_PCR, NULL, boot_aggregate_name, op,
-> +	integrity_audit_msg(AUDIT_INTEGRITY_PCR, NULL, filename, op,
->  			    audit_cause, result, 0);
->  	return result;
->  }
-> @@ -115,14 +122,10 @@ void __init ima_load_x509(void)
->  }
->  #endif
->
-> -int __init ima_init(void)
-> +int __init ima_init_core(bool late)
->  {
->  	int rc;
->
-> -	ima_tpm_chip = tpm_default_chip();
-> -	if (!ima_tpm_chip)
-> -		pr_info("No TPM chip found, activating TPM-bypass!\n");
-> -
->  	rc = integrity_init_keyring(INTEGRITY_KEYRING_IMA);
->  	if (rc)
->  		return rc;
-> @@ -140,7 +143,7 @@ int __init ima_init(void)
->  	rc = ima_init_digests();
->  	if (rc != 0)
->  		return rc;
-> -	rc = ima_add_boot_aggregate();	/* boot aggregate must be first entry */
-> +	rc = ima_add_boot_aggregate(late);	/* boot aggregate must be first entry */
->  	if (rc != 0)
->  		return rc;
->
-> diff --git a/security/integrity/ima/ima_main.c b/security/integrity/ima/ima_main.c
-> index 1d6229b156fb..0b93a286c0d3 100644
-> --- a/security/integrity/ima/ima_main.c
-> +++ b/security/integrity/ima/ima_main.c
-> @@ -1237,7 +1237,7 @@ static int ima_kernel_module_request(char *kmod_name)
->
->  #endif /* CONFIG_INTEGRITY_ASYMMETRIC_KEYS */
->
-> -static int __init init_ima(void)
-> +static int __init init_ima(bool late)
->  {
->  	int error;
->
-> @@ -1247,10 +1247,26 @@ static int __init init_ima(void)
->  		return 0;
->  	}
->
-> +	/*
-> +	 * If we found the TPM during our first attempt, or we know there's no
-> +	 * TPM, nothing further to do
-> +	 */
-> +	if (late && (ima_tpm_chip || !IS_ENABLED(CONFIG_TCG_TPM)))
-> +		return 0;
-> +
-> +	ima_tpm_chip = tpm_default_chip();
-> +	if (!ima_tpm_chip && !late && IS_ENABLED(CONFIG_TCG_TPM)) {
-> +		pr_debug("TPM not available, will try later\n");
-> +		return -EPROBE_DEFER;
+> +	if (log2size < split) {
+> +		dev_err(smmu->dev, "kdump: invalid log2size %u < split %u\n",
+> +			log2size, split);
+> +		return -EINVAL;
 > +	}
 > +
-> +	if (!ima_tpm_chip)
-> +		pr_info("No TPM chip found, activating TPM-bypass!\n");
+> +	if (split != STRTAB_SPLIT) {
+> +		dev_err(smmu->dev,
+> +			"kdump: unsupported STRTAB_SPLIT %u (expected %u)\n",
+> +			split, STRTAB_SPLIT);
+> +		return -EINVAL;
+> +	}
 > +
->  	ima_appraise_parse_cmdline();
->  	ima_init_template_list();
->  	hash_setup(CONFIG_IMA_DEFAULT_HASH);
-> -	error = ima_init();
-> +	error = ima_init_core(late);
->
->  	if (error && strcmp(hash_algo_name[ima_hash_algo],
->  			    CONFIG_IMA_DEFAULT_HASH) != 0) {
-> @@ -1258,7 +1274,7 @@ static int __init init_ima(void)
->  			hash_algo_name[ima_hash_algo], CONFIG_IMA_DEFAULT_HASH);
->  		hash_setup_done = 0;
->  		hash_setup(CONFIG_IMA_DEFAULT_HASH);
-> -		error = ima_init();
-> +		error = ima_init_core(late);
->  	}
->
->  	if (error)
-> @@ -1274,6 +1290,16 @@ static int __init init_ima(void)
->  	return error;
->  }
->
-> +static int __init init_ima_late(void)
-> +{
-> +	return init_ima(false);
-> +}
-> +
-> +static int __init init_ima_late_sync(void)
-> +{
-> +	return init_ima(true);
-> +}
-> +
->  static struct security_hook_list ima_hooks[] __ro_after_init = {
->  	LSM_HOOK_INIT(bprm_check_security, ima_bprm_check),
->  	LSM_HOOK_INIT(bprm_creds_for_exec, ima_bprm_creds_for_exec),
-> @@ -1319,6 +1345,7 @@ DEFINE_LSM(ima) = {
->  	.init = init_ima_lsm,
->  	.order = LSM_ORDER_LAST,
->  	.blobs = &ima_blob_sizes,
-> -	/* Start IMA after the TPM is available */
-> -	.initcall_late = init_ima,
-> +	/* Ensure we start IMA after the TPM is available */
-> +	.initcall_late = init_ima_late,
-> +	.initcall_late_sync = init_ima_late_sync,
->  };
-> diff --git a/security/integrity/ima/ima_template_lib.c b/security/integrity/ima/ima_template_lib.c
-> index 0e627eac9c33..8a89236f926c 100644
-> --- a/security/integrity/ima/ima_template_lib.c
-> +++ b/security/integrity/ima/ima_template_lib.c
-> @@ -363,7 +363,8 @@ int ima_eventdigest_init(struct ima_event_data *event_data,
->  		goto out;
->  	}
->
-> -	if ((const char *)event_data->filename == boot_aggregate_name) {
-> +	if ((const char *)event_data->filename == boot_aggregate_name ||
-> +	    (const char *)event_data->filename == boot_aggregate_late_name) {
->  		if (ima_tpm_chip) {
->  			hash.hdr.algo = HASH_ALGO_SHA1;
->  			result = ima_calc_boot_aggregate(hash_hdr);
-> --
-> 2.53.0
->
+> +	num_l1_ents = 1 << (log2size - split);
+> +	cfg->l2.l1_dma = dma;
+> +	cfg->l2.num_l1_ents = num_l1_ents;
+> +	cfg->l2.l1tab = devm_memremap(
+> +		smmu->dev, dma, num_l1_ents * sizeof(struct arm_smmu_strtab_l1),
+> +		MEMREMAP_WB);
 
-This looks good to me. Feel free to add:
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+WB shouldn't be unconditional? If the SMMU is working non-coherently
+we need to map it NC. Same remark everwhere
 
-Thanks!
-
---
-Sincerely,
-Yeoreum Yun
+Jason
 
