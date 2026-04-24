@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99602F34C45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 02:51:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D72DEFDEE5F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 02:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RswL7+a6AHBCX2B/QSjc/IP4X10yzdYVMk5X7vkoIbU=; b=hcMzxOwMg343GJ6WTNqUnhnfMe
-	IGCpTT8daL+Z05Hc9s/a4g+ppsANZ7qoz7XpzijVEDOg7hH/2NOaVr7VeptG2lz4ZmtEcIKkAtUIT
-	o/oCLl0PyiQ2j0iWQoog89psQJwiruLxxpOasH8z/QzumwllOw8FJ8e1zb5s24uOr51gNbczn/ZWN
-	7cw7arAUHQmpAUTQp4ME0P3XI6my2QkhPDP08+IUVFDjNVF6famSJnAM7WpDX5tW3AzB+T1q+g88d
-	sHjy+hIU9k/svq1oZ2y+ntU+FIlh/qYzuphjt/cxNyYeuZecdq4GDpFn/GOedqFWmPRISpGxYeAJf
-	xZ21jjTQ==;
+	bh=HK+21rUbi61ZD68jk8PRoVMU1zJBbriLcNqET+soH7Q=; b=cxGMFidyBTeY5+Qng5dwam7ts9
+	wy/ZAMNeMFv4+1vjKiNSOBhSad8emGfFB+w83kbUq46c5PRY9i3WgflxfDq2diduWBPD2rCUmcklN
+	tvQRDqMF5a0r2ySOMFAZWQSkLkAVYr2/Ms5kTs96lVBZZh5Cm48O1Fkmrxm50WN7F7PBlsubT1u8m
+	omvNL9bPuIB9zQuyIdicUiJVyo5LjbIgsWYdNM/nNaJroPG+BWJXy6k/nF+aeDNPNJNYUjn+oCRYR
+	/NUhnC/wUsb40dgs8nmEh0+29vGtEVvt4k9f2DZcI/Ls9H1fXhseRxOr657LPUiB2nBjqBkrbZdNz
+	NNo6I2vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG6dE-0000000CXFp-1tmp;
-	Fri, 24 Apr 2026 02:51:04 +0000
+	id 1wG6dQ-0000000CXME-04Qu;
+	Fri, 24 Apr 2026 02:51:16 +0000
 Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG6dB-0000000CXEE-1aBH;
-	Fri, 24 Apr 2026 02:51:03 +0000
+	id 1wG6dM-0000000CXKZ-3VhH;
+	Fri, 24 Apr 2026 02:51:14 +0000
 Received: from local
 	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
 	 (Exim 4.99)
 	(envelope-from <daniel@makrotopia.org>)
-	id 1wG6d4-000000002Ri-1eCA;
-	Fri, 24 Apr 2026 02:50:54 +0000
-Date: Fri, 24 Apr 2026 03:50:46 +0100
+	id 1wG6dG-000000002SF-09LZ;
+	Fri, 24 Apr 2026 02:51:06 +0000
+Date: Fri, 24 Apr 2026 03:50:58 +0100
 From: Daniel Golle <daniel@makrotopia.org>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -49,17 +49,18 @@ To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
 	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v3 8/9] ARM: dts: mediatek: mt7623: wire HDMI audio path
- clocks into AFE
-Message-ID: <5dba44c0f9b63c6b97119eabaaff92768d6295bf.1776998727.git.daniel@makrotopia.org>
+Subject: [PATCH v3 9/9] ARM: dts: mediatek: mt7623n-bananapi-bpi-r2: add HDMI
+ audio machine node
+Message-ID: <30f71787e8e438ed12c27b98c1dc3e0c1ca81155.1776998727.git.daniel@makrotopia.org>
 References: <cover.1776998727.git.daniel@makrotopia.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <cover.1776998727.git.daniel@makrotopia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_195101_434471_F0BEC019 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20260423_195112_877565_5EF377D4 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,63 +75,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mirror the MT2701 change for the MT7623 SoC dtsi: add HADDS2PLL,
-audio_hdmi, audio_spdf and audio_apll to the AFE clocks list and
-reparent the AUDPLL mux to HADDS2PLL_98M. Required for HDMI audio
-on MT7623N boards via the shared mt2701 AFE driver.
+Instantiate the mediatek,mt2701-hdmi-audio machine on the
+BananaPi BPI-R2, binding the AFE HDMI playback path to the
+on-chip HDMI transmitter acting as the generic HDMI codec.
 
 Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 ---
 v3: no changes
 v2: no changes
 
- arch/arm/boot/dts/mediatek/mt7623.dtsi | 21 ++++++++++++++++-----
- 1 file changed, 16 insertions(+), 5 deletions(-)
+ arch/arm/boot/dts/mediatek/mt7623n-bananapi-bpi-r2.dts | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/arch/arm/boot/dts/mediatek/mt7623.dtsi b/arch/arm/boot/dts/mediatek/mt7623.dtsi
-index 71ac2b94c6ba..4eb028ffee6f 100644
---- a/arch/arm/boot/dts/mediatek/mt7623.dtsi
-+++ b/arch/arm/boot/dts/mediatek/mt7623.dtsi
-@@ -665,7 +665,11 @@ afe: audio-controller {
- 				 <&audsys CLK_AUD_AFE_CONN>,
- 				 <&audsys CLK_AUD_A1SYS>,
- 				 <&audsys CLK_AUD_A2SYS>,
--				 <&audsys CLK_AUD_AFE_MRGIF>;
-+				 <&audsys CLK_AUD_AFE_MRGIF>,
-+				 <&topckgen CLK_TOP_HADDS2PLL_294M>,
-+				 <&audsys CLK_AUD_HDMI>,
-+				 <&audsys CLK_AUD_SPDF>,
-+				 <&audsys CLK_AUD_APLL>;
- 
- 			clock-names = "infra_sys_audio_clk",
- 				      "top_audio_mux1_sel",
-@@ -700,15 +704,22 @@ afe: audio-controller {
- 				      "audio_afe_conn_pd",
- 				      "audio_a1sys_pd",
- 				      "audio_a2sys_pd",
--				      "audio_mrgif_pd";
-+				      "audio_mrgif_pd",
-+				      "hadds2pll_294m",
-+				      "audio_hdmi_pd",
-+				      "audio_spdf_pd",
-+				      "audio_apll_pd";
- 
- 			assigned-clocks = <&topckgen CLK_TOP_AUD_MUX1_SEL>,
- 					  <&topckgen CLK_TOP_AUD_MUX2_SEL>,
- 					  <&topckgen CLK_TOP_AUD_MUX1_DIV>,
--					  <&topckgen CLK_TOP_AUD_MUX2_DIV>;
-+					  <&topckgen CLK_TOP_AUD_MUX2_DIV>,
-+					  <&topckgen CLK_TOP_AUDPLL_MUX_SEL>;
- 			assigned-clock-parents = <&topckgen CLK_TOP_AUD1PLL_98M>,
--						 <&topckgen CLK_TOP_AUD2PLL_90M>;
--			assigned-clock-rates = <0>, <0>, <49152000>, <45158400>;
-+						 <&topckgen CLK_TOP_AUD2PLL_90M>,
-+						 <0>, <0>,
-+						 <&topckgen CLK_TOP_HADDS2PLL_98M>;
-+			assigned-clock-rates = <0>, <0>, <49152000>, <45158400>, <0>;
- 		};
+diff --git a/arch/arm/boot/dts/mediatek/mt7623n-bananapi-bpi-r2.dts b/arch/arm/boot/dts/mediatek/mt7623n-bananapi-bpi-r2.dts
+index a37f3fa223c7..139a76764faa 100644
+--- a/arch/arm/boot/dts/mediatek/mt7623n-bananapi-bpi-r2.dts
++++ b/arch/arm/boot/dts/mediatek/mt7623n-bananapi-bpi-r2.dts
+@@ -132,6 +132,13 @@ memory@80000000 {
+ 		device_type = "memory";
+ 		reg = <0 0x80000000 0 0x80000000>;
  	};
++
++	sound-hdmi {
++		compatible = "mediatek,mt7623n-hdmi-audio",
++			     "mediatek,mt2701-hdmi-audio";
++		mediatek,platform = <&afe>;
++		mediatek,audio-codec = <&hdmi0>;
++	};
+ };
  
+ &bls {
 -- 
 2.54.0
 
