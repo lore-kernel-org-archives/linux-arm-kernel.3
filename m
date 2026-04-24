@@ -4,165 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 802EBFB44A6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 05:57:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95ACAFB44A6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 05:57:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QkYW84mNfsxJu25KdM9HhqHWqHHn7yyj15gOr+bOnfo=; b=aEqWDYZlDq52oHCNNBCjGdwKSI
-	VeOjn5mFSfsosFuApV5Byxznws3kme9GKaHDbmeW3y5oAjja446By8tf31nJsAvi2sJIgQ9xSusVS
-	GxjIawC/30GzEPyMOSjnFcP5z+jjh15oC0i9Qbf2w2vgkwtKgW9M2pMaLpQu+aPnK81zD8u04Jgsk
-	dwc36EMkvSgHXua+N5ry7fXBrWvEvqgUby94r2mV/IQz5RK6sYMrwgaVVHek3qzwy21znUcLqsb8q
-	m4aqNNO2rY1MrNbgg267rCunhapgcxZkFr03gLL29KKgA38RU6DONLNzwTqmA36pwD4J8M3QZvII1
-	vrX8i55A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mq7kvweBVwKu99p8xpmRLJVZ17neeuneObD0eiz9l0A=; b=O0/OGHesuhHSLkOuh+hOggLBxi
+	02mM8iuRbTB6jp79QlWaqR5P/IAPYcRUwybWGzrmG4oHEtUy7etViwQxmtkzmYphr1DpZ5YQxIjx2
+	1kqlIydHVs2DcgccQYxBwBHcmNybnSWXbBjpSmLGkiWC1SkVu0ZIZ+nsDdvo3qlmWukhL0hds8ZOO
+	FsBhiqvVyJT/ZU9/aUWxrESPlGOswO4tuhDwGc0GOLdgt6Ik/kpupzPvLOw1UjJunKSTeTNLwvxWW
+	0vSB0+j3RTsUalo1zUhfudFDGUGI/sK5uBgcYRyUCZKkfaEOSl7t32PfqD8xuRmhNuCir2iVQ5M5o
+	n77uBxFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG9Xm-0000000Cgc9-1RF1;
-	Fri, 24 Apr 2026 05:57:38 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG9Xk-0000000Cgbm-0FY6
+	id 1wG9Xy-0000000Cgfq-0duo;
+	Fri, 24 Apr 2026 05:57:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wG9Xv-0000000Cgec-2qnC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 05:57:37 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63O5kUle1959422
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 05:57:35 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	QkYW84mNfsxJu25KdM9HhqHWqHHn7yyj15gOr+bOnfo=; b=g7cfeXDVAn3snLm6
-	E1quUpkxWxFy4WplkkUVShkx7qxuwSa8rSOoL5CQj0TiunCMKlVceeHnJ1DJA5LA
-	bp6L7idWgJBpIEFmCYpTOUOWbQ9+mgBg+IfduEullKSfB7BkALiGYfBNv9GnPeVB
-	7sl6a2UzIflDbUnDp9gDH1YtKfab1C1vLw1rnSEWmCWusw52GfaF2/XAow5rAV4u
-	zvb/J4VqYDvAOxHKVo9s93kaSVfvCTgslusZ4AWRcVXvWpjd967QbRiN+yNq2IDN
-	jiIHmrprUjiFsVfm9uP21SRsU7Wtqzy6u6znqP4vSahr9cI4i7DNkXSOil08nQRY
-	+YR/pg==
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dr2nrg12s-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 05:57:35 +0000 (GMT)
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-362eaa3aa61so416308a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 22:57:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1777010255; x=1777615055; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=QkYW84mNfsxJu25KdM9HhqHWqHHn7yyj15gOr+bOnfo=;
-        b=EA7v9BZxgSWyQ/IvX+p8wuT6T1sNyPuP/pClPSSGngqyUs3rmb8xLI/p8dBekyDMxc
-         bVzFF2a+MH7zZDtQ5c/BJHp6ygQ88rpJ+MXivZdvYnJcygm4lBwWBAsmvbvWo64uhk3k
-         Uk1JrxghgY21GhByN4OiZU6pUAvaY5o/Z0guLNkstPc8qpkHHMavFJnFpD2q/n3avFpz
-         /CsLtvZLlRKO4OIFm8Y3aueugoX3nqRdSJ09FWVJ33rc6aLCL/EwKFk/iWF8w9qd4Mwf
-         tXHI0mkW6uLCDAtC9kZVLB5sN0bi5fRzT6irpX/TCf+xlq9wVE66DzPjPMz6wezBUp/c
-         UdfA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777010255; x=1777615055;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=QkYW84mNfsxJu25KdM9HhqHWqHHn7yyj15gOr+bOnfo=;
-        b=JarzB8yGGPDbvpZzTAVTovb6ApsFLbHwYiI2Jm3pDYls+kLpc1cWQE12FwAOqD4dcm
-         YravvyaZr36BNqWzqWKHpi7YNrSn9wINdaAoipduihMzmJ2RW05q8uXywLVEp4jORtB0
-         SRYHYe61/YrisMoSy24+1/Dmf+B2uF7+0ai1TeLDcoJ0cxQDkCTcz6aQMRDxxCnutyE8
-         mCJ44L9y5BrfQ204zoDkvouxRgyzhLyRnMYzOKFhHGung9snDpNoAMy1n+1UCMXRhnT8
-         AfA4o3pfLJu6FXtkafyIkZRSWVar5pGHLTlOFd2qFtWHPbdS4+88Fe77irJ2qnZP24ov
-         qqjg==
-X-Forwarded-Encrypted: i=1; AFNElJ8Ktqdwr51iEcXpQKubEZ5ySo21UEd27ws4GEACBn/U9w1nHbLZNmYTIYApTwbhTFMwA8bnRV/mHnG/L7mzj3qU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBHOiuasoxebezNBrCJv8jXnV044yuDS4LyFjuPSdP+MZHYKVX
-	/B+NxGpQIiejVdtelszTcb0VBEaWJmRpuyVFAMjQqSrVgEpkHcya03Q1q3mYPi1aPkCUjnfj+oo
-	dlPES86Mc9KzvPeQ/R8gY4R/2MOqfpMBWNZIeh9+GIcifaw8EuA2jhGkn/t+pbxcrkBpF/jvgMj
-	ZkIA==
-X-Gm-Gg: AeBDiesZt6TRgbrpil3SH7qG67q3wxpLkoDmAobvC6MRE7Xyh62COm4cxFJWrVMbT6b
-	XkbZ4Z/2PFSMcXzWYAoCs/d4sEKCAnicp3ttsb5OIqBct02heQYEYScbUppcVB+7UnuUItjgMiK
-	zBSto9l2oJylXkpJPMsRJlJhQLpCu8nPDABv6cO5ABa/17f0K2MnL/E+vTLFXqNgZ0hIk/Jp8na
-	MULGdFWYjDGo2mvECMzWLx/ExAGgBraQZio5plNRPzLZWtmT04X/6XW3x/vTDLJlO72zB1qrSXL
-	xuARw1gXJNaFffjuPTOk5oEFasYhFQqiRL9I4k/MMf7+i33oWtpecbQR/nRa5lQlcjzzJXFjtX6
-	/rxG+qLiVtwRPwsc0OP7ZEO+/wrZZYsn7gX9j313KXGsK7PJwtt18HsTUgrpKK+TgTps=
-X-Received: by 2002:a05:6a21:9983:b0:39c:12c5:c6f5 with SMTP id adf61e73a8af0-3a08d73bfe5mr32758937637.18.1777010254745;
-        Thu, 23 Apr 2026 22:57:34 -0700 (PDT)
-X-Received: by 2002:a05:6a21:9983:b0:39c:12c5:c6f5 with SMTP id adf61e73a8af0-3a08d73bfe5mr32758909637.18.1777010254185;
-        Thu, 23 Apr 2026 22:57:34 -0700 (PDT)
-Received: from hu-vjitta-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c79770512afsm17288101a12.31.2026.04.23.22.57.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Apr 2026 22:57:33 -0700 (PDT)
-From: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-Date: Fri, 24 Apr 2026 11:26:08 +0530
-Subject: [PATCH v14 1/3] of: Add convenience wrappers for of_map_id()
+	Fri, 24 Apr 2026 05:57:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D25411BC0;
+	Thu, 23 Apr 2026 22:57:39 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E1F173F23F;
+	Thu, 23 Apr 2026 22:57:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777010265; bh=dTNza0KEYrjBEa6YZ5hzfCt/Ar2RAGWr/4ZMUagfrm0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oe+6nX2Bl77VP10ARS83jN4HK85wFcLCFAXYd40mLXLBqZV1OIDDgfS6b4AgRW/ak
+	 NOdIClJEzKWOV1JwA4VBULgTUCmX1/R+SQ8NsifWR2plQ4uq32gw42eErrQl74oPqa
+	 2DoOsoRSS8V5lkMdL0CiZGa6C23BZC52Dc5zDwww=
+Date: Fri, 24 Apr 2026 06:57:39 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Paul Moore <paul@paul-moore.com>
+Cc: Mimi Zohar <zohar@linux.ibm.com>, roberto.sassu@huawei.com,
+	Jonathan McDowell <noodles@earth.li>,
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	jmorris@namei.org, serge@hallyn.com, dmitry.kasatkin@gmail.com,
+	eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+	sebastianene@google.com
+Subject: Re: [RFC PATCH v2 1/4] security: ima: call ima_init() again at
+ late_initcall_sync for defered TPM
+Message-ID: <aesGU8a3mbVzvteH@e129823.arm.com>
+References: <aeoAlVEwzRUPrlVe@e129823.arm.com>
+ <aeoRxWPyOHGJd+Jh@e129823.arm.com>
+ <aeoWO2Cwo04YYu2l@earth.li>
+ <bd908e28298d968740d03c97bc7e441de188b7b4.camel@linux.ibm.com>
+ <aeokwrC86WI7uT+K@e129823.arm.com>
+ <aeomlp3I0eVE5mce@earth.li>
+ <aeotq8nPVu4wvEx5@e129823.arm.com>
+ <e4e242ae5533d5762a3647186a178764881bf9ff.camel@linux.ibm.com>
+ <aephL3MzYoqFGaT5@e129823.arm.com>
+ <CAHC9VhRQWHEWQ5NzOPiu8jtYv6UsRm8WVS4fd74AbkOcAd4y_g@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260424-parse_iommu_cells-v14-1-fd02f11b6c38@oss.qualcomm.com>
-References: <20260424-parse_iommu_cells-v14-0-fd02f11b6c38@oss.qualcomm.com>
-In-Reply-To: <20260424-parse_iommu_cells-v14-0-fd02f11b6c38@oss.qualcomm.com>
-To: Nipun Gupta <nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>,
-        Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>, Marc Zyngier <maz@kernel.org>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Thomas Gleixner <tglx@kernel.org>,
-        Saravana Kannan <saravanak@kernel.org>,
-        Richard Zhu <hongxing.zhu@nxp.com>,
-        Lucas Stach <l.stach@pengutronix.de>,
-        =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        Bjorn Helgaas <bhelgaas@google.com>, Frank Li <Frank.Li@nxp.com>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>, Juergen Gross <jgross@suse.com>,
-        Stefano Stabellini <sstabellini@kernel.org>,
-        Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-        Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Prakash Gupta <prakash.gupta@oss.qualcomm.com>,
-        Vikash Garodia <vikash.garodia@oss.qualcomm.com>
-Cc: linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-        linux-pci@vger.kernel.org, imx@lists.linux.dev,
-        xen-devel@lists.xenproject.org, linux-arm-msm@vger.kernel.org,
-        Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777010232; l=8620;
- i=vijayanand.jitta@oss.qualcomm.com; s=20260301; h=from:subject:message-id;
- bh=Bsp9hT6sgzNh1NrIZ0uduUy4Yj5U0gq9szC+ECoPqVA=;
- b=8NWpPedhLlqQ7b2HqBvErn44emkQL1+f69yBIykemc4nTU8mhLdWyBM6UrLv2aTheTYRGoULf
- 4gmGUfVAgn/Dyc1fN3co5ZAOWZ919HjRTHUr8oPlkiKa+0pRuDTHh2z
-X-Developer-Key: i=vijayanand.jitta@oss.qualcomm.com; a=ed25519;
- pk=Lpi7Cs3wHe8KZtqvyci7FTOLzsKpEHKGCaPNZw+1zRI=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI0MDA1MSBTYWx0ZWRfXwHefrm0AhYGR
- HN5/lFnccHKDUu7BI6tb9iOLgH+9dZlUrpuNEjOgso1w5wJyLjIXMtFWEyLyKH+fCJDRA/n7AgS
- eKm8E31xPlLNKJaukkDHvR3hNPu2nIUOgiS4BdjNEd7WURe0jszAdoIXhPDr7zD+cKsrTd2gAVj
- 5pkB6Z6SjnkbVkB6ET4mOSGzMA4Jje6wBkYEWki7Dcj27BgKNoML24cNIOljgTgsfemp7aLgdUY
- 7bdYFwPB5OjFlnG3FXQafy7/O1J50Zu3s5dYZbLbCMQg5HVhCtfVuyH3teNzjzt+vZ+LlYMu2Z2
- 3PSkaH5O8GAvVYKc6lk1RPZ+gFcHb3v/8vDY/0m34zLpxL1I/ldpuOGaTCuah30kKqlgcCarAAg
- cU7WZFJtbUDelH9e7p9P/ORVPgRwhWox/JagX3WOsukpG0k8kBkxUAE3bGCRblRFyyM9IqHUdKg
- uWoZlD0Y3UvUXIdqoIw==
-X-Authority-Analysis: v=2.4 cv=UqpT8ewB c=1 sm=1 tr=0 ts=69eb064f cx=c_pps
- a=vVfyC5vLCtgYJKYeQD43oA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=7CQSdrXTAAAA:8 a=VwQbUJbxAAAA:8 a=8AirrxEcAAAA:8 a=1XWaLZrsAAAA:8
- a=EUspDBNiAAAA:8 a=f4O9XJQV64orvU1ydW8A:9 a=QEXdDO2ut3YA:10
- a=rl5im9kqc5Lf4LNbBjHf:22 a=a-qgeE7W1pNrGK8U0ZQC:22 a=ST-jHhOKWsTCqRlWije3:22
-X-Proofpoint-ORIG-GUID: wtJ-FVdurMY-uXCjwfgu82XI_5eoukXS
-X-Proofpoint-GUID: wtJ-FVdurMY-uXCjwfgu82XI_5eoukXS
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-23_03,2026-04-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 priorityscore=1501 clxscore=1015 bulkscore=0
- lowpriorityscore=0 impostorscore=0 phishscore=0 adultscore=0 spamscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
- definitions=main-2604240051
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAHC9VhRQWHEWQ5NzOPiu8jtYv6UsRm8WVS4fd74AbkOcAd4y_g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_225736_116591_281626B9 
-X-CRM114-Status: GOOD (  20.89  )
+X-CRM114-CacheID: sfid-20260423_225747_909426_37C2F509 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,223 +88,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Robin Murphy <robin.murphy@arm.com>
+Hi Paul,
 
-Since we now have quite a few users parsing "iommu-map" and "msi-map"
-properties, give them some wrappers to conveniently encapsulate the
-appropriate sets of property names. This will also make it easier to
-then change of_map_id() to correctly account for specifier cells.
+> On Thu, Apr 23, 2026 at 2:13 PM Yeoreum Yun <yeoreum.yun@arm.com> wrote:
+> >
+> > Sounds good. Once the patch is posted, I’ll review it as well.
+> > Sorry again for the noise, and thanks for your patience ;)
+>
+> My apologies for not getting a chance to look at this patchset sooner.
+>
+> This seems like an obvious, perhaps even stupid, question, but I have
+> to ask: if IMA can be properly initialized via late_initcall_sync(),
+> why not simply do the initialization in late_initcall_sync() and drop
+> the late_initcall() initialization?
+>
+> Does any IMA functionality suffer if initialization waits until
+> late_initcall_sync()?  If so, it seems non-critical if waiting until
+> _sync() is acceptable, as it appears in these patches/comments.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Acked-by: Marc Zyngier <maz@kernel.org>
-Acked-by: Bjorn Helgaas <bhelgaas@google.com>
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-Signed-off-by: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
----
- drivers/cdx/cdx_msi.c                    |  3 +--
- drivers/iommu/of_iommu.c                 |  4 +---
- drivers/irqchip/irq-gic-its-msi-parent.c |  2 +-
- drivers/of/base.c                        | 38 ++++++++++++++++++++++++++++++++
- drivers/of/irq.c                         |  3 +--
- drivers/pci/controller/dwc/pci-imx6.c    |  6 ++---
- drivers/pci/controller/pcie-apple.c      |  3 +--
- drivers/xen/grant-dma-ops.c              |  3 +--
- include/linux/of.h                       | 18 +++++++++++++++
- 9 files changed, 64 insertions(+), 16 deletions(-)
+This is the way first patch did, and here is some discussion for this
+(Might you have seen, but in case of you missed):
+  - https://lore.kernel.org/all/a6a0e15286c983d720de227c6827adbe976c5b9b.camel@linux.ibm.com/
 
-diff --git a/drivers/cdx/cdx_msi.c b/drivers/cdx/cdx_msi.c
-index 91b95422b263..63b3544ec997 100644
---- a/drivers/cdx/cdx_msi.c
-+++ b/drivers/cdx/cdx_msi.c
-@@ -128,8 +128,7 @@ static int cdx_msi_prepare(struct irq_domain *msi_domain,
- 	int ret;
- 
- 	/* Retrieve device ID from requestor ID using parent device */
--	ret = of_map_id(parent->of_node, cdx_dev->msi_dev_id, "msi-map", "msi-map-mask",
--			NULL, &dev_id);
-+	ret = of_map_msi_id(parent->of_node, cdx_dev->msi_dev_id, NULL, &dev_id);
- 	if (ret) {
- 		dev_err(dev, "of_map_id failed for MSI: %d\n", ret);
- 		return ret;
-diff --git a/drivers/iommu/of_iommu.c b/drivers/iommu/of_iommu.c
-index 6b989a62def2..a511ecf21fcd 100644
---- a/drivers/iommu/of_iommu.c
-+++ b/drivers/iommu/of_iommu.c
-@@ -48,9 +48,7 @@ static int of_iommu_configure_dev_id(struct device_node *master_np,
- 	struct of_phandle_args iommu_spec = { .args_count = 1 };
- 	int err;
- 
--	err = of_map_id(master_np, *id, "iommu-map",
--			 "iommu-map-mask", &iommu_spec.np,
--			 iommu_spec.args);
-+	err = of_map_iommu_id(master_np, *id, &iommu_spec.np, iommu_spec.args);
- 	if (err)
- 		return err;
- 
-diff --git a/drivers/irqchip/irq-gic-its-msi-parent.c b/drivers/irqchip/irq-gic-its-msi-parent.c
-index d36b278ae66c..b63343a227a9 100644
---- a/drivers/irqchip/irq-gic-its-msi-parent.c
-+++ b/drivers/irqchip/irq-gic-its-msi-parent.c
-@@ -180,7 +180,7 @@ static int of_pmsi_get_msi_info(struct irq_domain *domain, struct device *dev, u
- 
- 	struct device_node *msi_ctrl __free(device_node) = NULL;
- 
--	return of_map_id(dev->of_node, dev->id, "msi-map", "msi-map-mask", &msi_ctrl, dev_id);
-+	return of_map_msi_id(dev->of_node, dev->id, &msi_ctrl, dev_id);
- }
- 
- static int its_pmsi_prepare(struct irq_domain *domain, struct device *dev,
-diff --git a/drivers/of/base.c b/drivers/of/base.c
-index 57420806c1a2..ae04487bd614 100644
---- a/drivers/of/base.c
-+++ b/drivers/of/base.c
-@@ -2201,3 +2201,41 @@ int of_map_id(const struct device_node *np, u32 id,
- 	return 0;
- }
- EXPORT_SYMBOL_GPL(of_map_id);
-+
-+/**
-+ * of_map_iommu_id - Translate an ID using "iommu-map" bindings.
-+ * @np: root complex device node.
-+ * @id: Requester ID of the device (e.g. PCI RID/BDF or a platform
-+ *      stream/device ID) used as the lookup key in the iommu-map table.
-+ * @target: optional pointer to a target device node.
-+ * @id_out: optional pointer to receive the translated ID.
-+ *
-+ * Convenience wrapper around of_map_id() using "iommu-map" and "iommu-map-mask".
-+ *
-+ * Return: 0 on success or a standard error code on failure.
-+ */
-+int of_map_iommu_id(const struct device_node *np, u32 id,
-+		    struct device_node **target, u32 *id_out)
-+{
-+	return of_map_id(np, id, "iommu-map", "iommu-map-mask", target, id_out);
-+}
-+EXPORT_SYMBOL_GPL(of_map_iommu_id);
-+
-+/**
-+ * of_map_msi_id - Translate an ID using "msi-map" bindings.
-+ * @np: root complex device node.
-+ * @id: Requester ID of the device (e.g. PCI RID/BDF or a platform
-+ *      stream/device ID) used as the lookup key in the msi-map table.
-+ * @target: optional pointer to a target device node.
-+ * @id_out: optional pointer to receive the translated ID.
-+ *
-+ * Convenience wrapper around of_map_id() using "msi-map" and "msi-map-mask".
-+ *
-+ * Return: 0 on success or a standard error code on failure.
-+ */
-+int of_map_msi_id(const struct device_node *np, u32 id,
-+		  struct device_node **target, u32 *id_out)
-+{
-+	return of_map_id(np, id, "msi-map", "msi-map-mask", target, id_out);
-+}
-+EXPORT_SYMBOL_GPL(of_map_msi_id);
-diff --git a/drivers/of/irq.c b/drivers/of/irq.c
-index 6367c67732d2..e37c1b3f8736 100644
---- a/drivers/of/irq.c
-+++ b/drivers/of/irq.c
-@@ -817,8 +817,7 @@ u32 of_msi_xlate(struct device *dev, struct device_node **msi_np, u32 id_in)
- 	 * "msi-map" or an "msi-parent" property.
- 	 */
- 	for (parent_dev = dev; parent_dev; parent_dev = parent_dev->parent) {
--		if (!of_map_id(parent_dev->of_node, id_in, "msi-map",
--				"msi-map-mask", msi_np, &id_out))
-+		if (!of_map_msi_id(parent_dev->of_node, id_in, msi_np, &id_out))
- 			break;
- 		if (!of_check_msi_parent(parent_dev->of_node, msi_np))
- 			break;
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index a5b8d0b71677..bff8289f804a 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -1144,8 +1144,7 @@ static int imx_pcie_add_lut_by_rid(struct imx_pcie *imx_pcie, u32 rid)
- 	u32 sid = 0;
- 
- 	target = NULL;
--	err_i = of_map_id(dev->of_node, rid, "iommu-map", "iommu-map-mask",
--			  &target, &sid_i);
-+	err_i = of_map_iommu_id(dev->of_node, rid, &target, &sid_i);
- 	if (target) {
- 		of_node_put(target);
- 	} else {
-@@ -1158,8 +1157,7 @@ static int imx_pcie_add_lut_by_rid(struct imx_pcie *imx_pcie, u32 rid)
- 	}
- 
- 	target = NULL;
--	err_m = of_map_id(dev->of_node, rid, "msi-map", "msi-map-mask",
--			  &target, &sid_m);
-+	err_m = of_map_msi_id(dev->of_node, rid, &target, &sid_m);
- 
- 	/*
- 	 *   err_m      target
-diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
-index 2d92fc79f6dd..a0937b7b3c4d 100644
---- a/drivers/pci/controller/pcie-apple.c
-+++ b/drivers/pci/controller/pcie-apple.c
-@@ -764,8 +764,7 @@ static int apple_pcie_enable_device(struct pci_host_bridge *bridge, struct pci_d
- 	dev_dbg(&pdev->dev, "added to bus %s, index %d\n",
- 		pci_name(pdev->bus->self), port->idx);
- 
--	err = of_map_id(port->pcie->dev->of_node, rid, "iommu-map",
--			"iommu-map-mask", NULL, &sid);
-+	err = of_map_iommu_id(port->pcie->dev->of_node, rid, NULL, &sid);
- 	if (err)
- 		return err;
- 
-diff --git a/drivers/xen/grant-dma-ops.c b/drivers/xen/grant-dma-ops.c
-index c2603e700178..1b7696b2d762 100644
---- a/drivers/xen/grant-dma-ops.c
-+++ b/drivers/xen/grant-dma-ops.c
-@@ -325,8 +325,7 @@ static int xen_dt_grant_init_backend_domid(struct device *dev,
- 		struct pci_dev *pdev = to_pci_dev(dev);
- 		u32 rid = PCI_DEVID(pdev->bus->number, pdev->devfn);
- 
--		if (of_map_id(np, rid, "iommu-map", "iommu-map-mask", &iommu_spec.np,
--				iommu_spec.args)) {
-+		if (of_map_iommu_id(np, rid, &iommu_spec.np, iommu_spec.args)) {
- 			dev_dbg(dev, "Cannot translate ID\n");
- 			return -ESRCH;
- 		}
-diff --git a/include/linux/of.h b/include/linux/of.h
-index be6ec4916adf..fe841f3cc747 100644
---- a/include/linux/of.h
-+++ b/include/linux/of.h
-@@ -465,6 +465,12 @@ int of_map_id(const struct device_node *np, u32 id,
- 	       const char *map_name, const char *map_mask_name,
- 	       struct device_node **target, u32 *id_out);
- 
-+int of_map_iommu_id(const struct device_node *np, u32 id,
-+		    struct device_node **target, u32 *id_out);
-+
-+int of_map_msi_id(const struct device_node *np, u32 id,
-+		  struct device_node **target, u32 *id_out);
-+
- phys_addr_t of_dma_get_max_cpu_address(struct device_node *np);
- 
- struct kimage;
-@@ -934,6 +940,18 @@ static inline int of_map_id(const struct device_node *np, u32 id,
- 	return -EINVAL;
- }
- 
-+static inline int of_map_iommu_id(const struct device_node *np, u32 id,
-+				  struct device_node **target, u32 *id_out)
-+{
-+	return -EINVAL;
-+}
-+
-+static inline int of_map_msi_id(const struct device_node *np, u32 id,
-+				struct device_node **target, u32 *id_out)
-+{
-+	return -EINVAL;
-+}
-+
- static inline phys_addr_t of_dma_get_max_cpu_address(struct device_node *np)
- {
- 	return PHYS_ADDR_MAX;
+Thanks.
 
--- 
-2.34.1
-
+--
+Sincerely,
+Yeoreum Yun
 
