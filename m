@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6927FED3F3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1D81FED3F2
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 16:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cG/0Aa00VOrcCbwfgsMLDLxzG3YoyfXWRPuqDAM4Krs=; b=pp1rP8Pv+3qMWG4GJpQx7nxEo0
-	gkgfc8K2KFsQv4b97KyZmMyRHcosohwz3WNkJpZsFd32B1mu0BpyiAyUp/8oNmnPKltL7Hn+i62LY
-	SEKGMoM/SE6Ia74MR5CaYp/c6wi+GmXKOwM/eiG7h9YY2EjN0w9AqnW841AcdohFJb9AQBd2iRE5z
-	KmzBlX7LtZCg5Zy35t4K/n33I5b7QuJOJ0GT1XIuMbMPeNHhOphQewyTErkJSl2Dx3tr7uiDNLCjy
-	W2uFtgUPN50x2T2LWo9+q9CcEKvVBFg6994H3Cb0E9yRyKhW1DKj48NEOAIryHrn729hiYvGfB7vp
-	RKjsyzqg==;
+	bh=IMeuKk3N1KumGCYaMtfihPo8p3bGRkb9IZElwKpDHwU=; b=ES5lTmCGtqjigSeJ1jL2v8LnE1
+	WMtnq7Xd2M6kBhk/a4dKov1YjwtL/dGNfF9KVPb3lVDKehg0jv328CGkDzi5W0i1jZoR9E3Dte/fV
+	waeudzpXiRpoYnUPkhrffqozzsF3JQ6N/gFrpkfMnlBkay3JlXDJa6NHMnEdSv4YTyuVFM3nhQG4E
+	a8MKXd6pUOjpjTHtTgE2U36WmTR+Yf7CWZubFs8tgTRSvvXVhuxEs/lUPSNxBNh5x+s+/jfXOv+FB
+	hXB92w9sWvood34uDvcYJ2d6LdTO3Fc+y1vjYpEuFOEUBIck2vXgoEquwbsRmeVO/iMpE2KrGTHVM
+	r7KZqtjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJhs-0000000DU18-1VSB;
-	Fri, 24 Apr 2026 16:48:44 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1wGJhp-0000000DTxS-2FFb;
+	Fri, 24 Apr 2026 16:48:41 +0000
+Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJhd-0000000DTjK-1cgm
+	id 1wGJhU-0000000DTc8-2nJP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 16:48:33 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2b458add85aso81833895ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 09:48:27 -0700 (PDT)
+	Fri, 24 Apr 2026 16:48:27 +0000
+Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2bdf6fe90a9so11663467eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 09:48:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777049307; x=1777654107; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cG/0Aa00VOrcCbwfgsMLDLxzG3YoyfXWRPuqDAM4Krs=;
-        b=P1Zefz03lefYythz77jzrvSkubNJ9xI2euWvaIlAOhET4qFXSGuyKNQxr5DFEd3DRM
-         jtWwErVcj6t4HbLdnzXFV2VwaFqkXVMmMlyAWfODwgtdmcS/Qo/Bc+fmL710ftln6std
-         KyyhUc64KLNxZLqHTG+RuXJlOGXUWMt2b7pGje0TPqiySYnhQm1UuexpG/awLxIkvi/Z
-         WJ7rOpC3981mGkCwzK43cYkzNe3iYua2ziRRWfCtWoze7np5rZiLCQ3GAaCorxIRhTmd
-         Ubd58IWhPNMBDdt6qnlkjgoaS/2gOobFGRZC9YwNPiS2+9h+DkY+QUzz/ozfdS460IxW
-         Z4NA==
+        d=google.com; s=20251104; t=1777049299; x=1777654099; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IMeuKk3N1KumGCYaMtfihPo8p3bGRkb9IZElwKpDHwU=;
+        b=bmo2WI13tLdaDco3HaL/ieXclMR4Sx2EaybtOngRmb6QNKvxernX3ZEZXvaGlGSL7N
+         qYw27beasgcEGrhkvoOcFhYXx7p9/ctpOUoTnFnfElCLnZk+hTLeDUFJ+MTV5aBzhEnF
+         R2FKPpMHxBqzLBPzl4C/XJnjnl6IT5vk3G73PNLxc5VlTY8O5adPHZLIEPkNGZCTN5SZ
+         lGVswpjU0W4npFHiEOOUS6imilw1/VNzhW63IDbubtbGnXG1ohXJ6gZi6CwOaWT9x7uI
+         abyt5fCKGVVVWtP2NJUkuEUXHMGpxL1uBKiYwnWVwK8YBsIFgwNENcXqKQomMDtR9XxP
+         UDKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777049307; x=1777654107;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cG/0Aa00VOrcCbwfgsMLDLxzG3YoyfXWRPuqDAM4Krs=;
-        b=ochItl+QMK/Gy0yTulQAQ3a2vwYs7ys8ik0ktDyXfexIBPKiftdjDUzYEyNTVsE9yd
-         hlDj8KH7S23drj0lJ+7Mv/gI3FBfj5A9B4RzSdHefqQkettRgZhH9cCiZhjvHxmF9DP+
-         jRY+Av31DJWQF01RSz9YJsYX6j7+ybvrjsW7dPRzpHu/QoqZkZjQ7D5FJvvdCoTjHTSd
-         BgiV3vqY5orWxXeOUhf0Ps7hy4XElbe+yp3L93iMk1Nvj1Qx1YGkGfGRRidq0dXShT/W
-         U+eaXreGD6POpvxJO2673CXZXbsuncFuKu5Z2YBuLSaupbiZJY6rDnfnEbFeLqZnbJom
-         hp1g==
-X-Forwarded-Encrypted: i=1; AFNElJ+FHISsbkoILbQgVhqNPBIX8WxglR3UeB4kIyz645hR9FgKaGTlcRNJL/XY23bxuaurqPrVxfgKGWB28bbspXh4@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHcLJ6oT8IW6jUbb5Pl7h1ViUcSjsXV59e2WtX604jWyOYlyfD
-	82qXiiDCSlFCmjMKJmS3KeQMAtTXPgNebXsgpbHtTquk+HIF7QJ/XnBK5hSX6iul4gbeG0e81j8
-	3PSG2urjCXg==
-X-Received: from pldd13.prod.google.com ([2002:a17:902:c18d:b0:2b4:5c5f:b38f])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:11ce:b0:2b4:5ff5:e51f
- with SMTP id d9443c01a7336-2b5f9f51dfemr339838925ad.36.1777049306859; Fri, 24
- Apr 2026 09:48:26 -0700 (PDT)
-Date: Fri, 24 Apr 2026 09:46:41 -0700
+        d=1e100.net; s=20251104; t=1777049299; x=1777654099;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=IMeuKk3N1KumGCYaMtfihPo8p3bGRkb9IZElwKpDHwU=;
+        b=i+zY36nfbITamzdt9tblk91UJsmF6LrlRABJKs+3TAC5Vdjb5J/LAn3MS/POhWxMPM
+         2nD5A2QiB1ovmSGT+9vBWgmER68YgX6FswPtWgBvYORJ1tg02xpIcjrhXPC0OFyQbwZI
+         8ij6zAh6isH99MTrsjXRc4eVGT2nUSqeKmpFLoU41DLimMd5hV3nm79H0jySZHh7pHlo
+         eIU6gtgR6GWNyIiEK83p4fiD5HGBi1B0DXfvCX38J6NZrPKkneCSuFYyQIF5YfPRm0Bf
+         Eosh3hwOu2CqPYn+DLzPQOlrmWWlmZddfWtkEQNpC4vpkZZNcUYqy3N5PbFUeOl7tDHf
+         CdVw==
+X-Forwarded-Encrypted: i=1; AFNElJ/Vlo2YISJRdI7YzbRiHqELnLzzSax/qYd8PxMdMybAlb7il9WisVX8cCE1EHlXtNuLMXxhGlUaC9lyVgDgzu4g@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9xSBZNs+DzYYPrTV0JZ5xN9rhCfONx5aSg9FUtTRUxd9gcufM
+	ba1tovBf4EuGIWDgwMCpGLXM6Q+A19VOe0bPIippisAQHjqElyUsrmGMmM0xldIfXyZGkunAVb1
+	aBBRA9s/S5w==
+X-Received: from dlbut4.prod.google.com ([2002:a05:7022:7e04:b0:12b:e83a:8d31])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:6988:b0:128:ceac:6da6
+ with SMTP id a92af1059eb24-12c73fad1e2mr15100379c88.30.1777049299072; Fri, 24
+ Apr 2026 09:48:19 -0700 (PDT)
+Date: Fri, 24 Apr 2026 09:46:37 -0700
 In-Reply-To: <20260424164721.2229025-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260423163406.1779809-1-irogers@google.com> <20260424164721.2229025-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260424164721.2229025-20-irogers@google.com>
-Subject: [PATCH v5 19/58] perf python: Add config file access
+Message-ID: <20260424164721.2229025-16-irogers@google.com>
+Subject: [PATCH v5 15/58] perf python: Add python session abstraction wrapping
+ perf's session
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -74,9 +77,10 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	linux-perf-users@vger.kernel.org, mingo@redhat.com, peterz@infradead.org, 
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_094830_592561_817ADA16 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20260424_094820_795082_6CEC0CA9 
+X-CRM114-Status: GOOD (  22.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,54 +95,402 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add perf.config_get(name) to expose the perf configuration system.
+Sessions are necessary to be able to use perf.data files within a
+tool. Add a wrapper python type that incorporates the tool. Allow a
+sample callback to be passed when creating the session. When
+process_events is run this callback will be called, if supplied, for
+sample events.
+
+An example use looks like:
+```
+$ perf record -e cycles,instructions -a sleep 3
+$ PYTHONPATH=3D..../perf/python python3
+Python 3.13.7 (main, Aug 20 2025, 22:17:40) [GCC 14.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import perf
+>>> count=3D0
+... def handle_sample(x):
+...   global count
+...   if count < 3:
+...     print(dir(x))
+...   count =3D count + 1
+... perf.session(perf.data("perf.data"),sample=3Dhandle_sample).process_eve=
+nts()
+...
+['__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', =
+'__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init=
+__', '__init_subclass__', '__le__', '__lt__', '__ne__', '__new__', '__reduc=
+e__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', =
+'__subclasshook__', 'sample_addr', 'sample_cpu', 'sample_id', 'sample_ip', =
+'sample_period', 'sample_pid', 'sample_stream_id', 'sample_tid', 'sample_ti=
+me', 'type']
+['__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', =
+'__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init=
+__', '__init_subclass__', '__le__', '__lt__', '__ne__', '__new__', '__reduc=
+e__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', =
+'__subclasshook__', 'sample_addr', 'sample_cpu', 'sample_id', 'sample_ip', =
+'sample_period', 'sample_pid', 'sample_stream_id', 'sample_tid', 'sample_ti=
+me', 'type']
+['__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', =
+'__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init=
+__', '__init_subclass__', '__le__', '__lt__', '__ne__', '__new__', '__reduc=
+e__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', =
+'__subclasshook__', 'sample_addr', 'sample_cpu', 'sample_id', 'sample_ip', =
+'sample_period', 'sample_pid', 'sample_stream_id', 'sample_tid', 'sample_ti=
+me', 'type']
+```
+
+Also, add the ability to get the thread associated with a session. For
+threads, allow the comm string to be retrieved. This can be useful for
+filtering threads. Connect up some of the standard event handling in
+psession->tool to better support queries of the machine. Also connect
+up the symbols.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/python.c | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+v2:
+
+1. Fixed Potential Crash in pyrf_thread__comm : Used
+   thread__comm_str() to safely retrieve the command name, avoiding a
+   crash if thread__comm() returns NULL.
+
+2. Fixed Double Free Risk: Zeroed out user_regs , intr_regs , and
+   callchain in the shallow copy of perf_sample to prevent Python from
+   attempting to free pointers it doesn't own.
+
+3. Fixed Memory Leak & Exception Handling in Callback: Handled the
+   return value of PyObject_CallFunction() to avoid leaks, and checked
+   for failure to abort the loop and propagate Python exceptions
+   cleanly.
+
+4. Enforced Type Safety: Used O!  with &pyrf_data__type in
+   PyArg_ParseTupleAndKeywords to prevent bad casts from passing
+   arbitrary objects as perf.data.
+
+5. Added Missing Build ID Handler: Registered
+   perf_event__process_build_id to allow correct symbol resolution.
+
+6. Fixed Double Free Crash on Init Failure: Set session and pdata to
+   NULL on failure to prevent tp_dealloc from double-freeing them.
+
+7. Preserved C-level Errors: Made pyrf_session__process_events return
+   the error code integer rather than always returning None .
+---
+ tools/perf/util/python.c | 259 ++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 258 insertions(+), 1 deletion(-)
 
 diff --git a/tools/perf/util/python.c b/tools/perf/util/python.c
-index 28961ad47010..dc10d8a42d92 100644
+index a2cdd92e0548..35eda69a32e1 100644
 --- a/tools/perf/util/python.c
 +++ b/tools/perf/util/python.c
-@@ -12,6 +12,7 @@
- #include "build-id.h"
+@@ -9,8 +9,10 @@
+ #include <perf/mmap.h>
+=20
  #include "callchain.h"
- #include "comm.h"
-+#include "config.h"
++#include "comm.h"
  #include "counts.h"
  #include "data.h"
- #include "debug.h"
-@@ -3230,7 +3231,26 @@ static PyObject *pyrf__syscall_id(PyObject *self, PyObject *args)
- 	return PyLong_FromLong(id);
++#include "debug.h"
+ #include "event.h"
+ #include "evlist.h"
+ #include "evsel.h"
+@@ -20,8 +22,12 @@
+ #include "pmus.h"
+ #include "print_binary.h"
+ #include "record.h"
++#include "session.h"
+ #include "strbuf.h"
++#include "symbol.h"
++#include "thread.h"
+ #include "thread_map.h"
++#include "tool.h"
+ #include "tp_pmu.h"
+ #include "trace-event.h"
+ #include "util/sample.h"
+@@ -2383,6 +2389,252 @@ static int pyrf_data__setup_types(void)
+ 	return PyType_Ready(&pyrf_data__type);
  }
- 
-+static PyObject *pyrf__config_get(PyObject *self, PyObject *args)
+=20
++struct pyrf_thread {
++	PyObject_HEAD
++
++	struct thread *thread;
++};
++
++static void pyrf_thread__delete(struct pyrf_thread *pthread)
 +{
-+	const char *config_name, *val;
-+
-+	if (!PyArg_ParseTuple(args, "s", &config_name))
-+		return NULL;
-+
-+	val = perf_config_get(config_name);
-+	if (!val)
-+		Py_RETURN_NONE;
-+	return PyUnicode_FromString(val);
++	thread__put(pthread->thread);
++	Py_TYPE(pthread)->tp_free((PyObject *)pthread);
 +}
 +
- static PyMethodDef perf__methods[] = {
++static PyObject *pyrf_thread__comm(PyObject *obj)
++{
++	struct pyrf_thread *pthread =3D (void *)obj;
++	const char *str =3D thread__comm_str(pthread->thread);
++
++	return PyUnicode_FromString(str);
++}
++
++static PyMethodDef pyrf_thread__methods[] =3D {
 +	{
-+		.ml_name  = "config_get",
-+		.ml_meth  = (PyCFunction) pyrf__config_get,
-+		.ml_flags = METH_VARARGS,
-+		.ml_doc	  = PyDoc_STR("Get a perf config value.")
++		.ml_name  =3D "comm",
++		.ml_meth  =3D (PyCFunction)pyrf_thread__comm,
++		.ml_flags =3D METH_NOARGS,
++		.ml_doc	  =3D PyDoc_STR("Comm(and) associated with this thread.")
 +	},
++	{ .ml_name =3D NULL, }
++};
++
++static const char pyrf_thread__doc[] =3D PyDoc_STR("perf thread object.");
++
++static PyTypeObject pyrf_thread__type =3D {
++	PyVarObject_HEAD_INIT(NULL, 0)
++	.tp_name	=3D "perf.thread",
++	.tp_basicsize	=3D sizeof(struct pyrf_thread),
++	.tp_dealloc	=3D (destructor)pyrf_thread__delete,
++	.tp_flags	=3D Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE,
++	.tp_methods	=3D pyrf_thread__methods,
++	.tp_doc		=3D pyrf_thread__doc,
++};
++
++static int pyrf_thread__setup_types(void)
++{
++	return PyType_Ready(&pyrf_thread__type);
++}
++
++static PyObject *pyrf_thread__from_thread(struct thread *thread)
++{
++	struct pyrf_thread *pthread =3D PyObject_New(struct pyrf_thread, &pyrf_th=
+read__type);
++
++	if (!pthread)
++		return NULL;
++
++	pthread->thread =3D thread__get(thread);
++	return (PyObject *)pthread;
++}
++
++struct pyrf_session {
++	PyObject_HEAD
++
++	struct perf_session *session;
++	struct perf_tool tool;
++	struct pyrf_data *pdata;
++	PyObject *sample;
++	PyObject *stat;
++};
++
++static int pyrf_session_tool__sample(const struct perf_tool *tool,
++				     union perf_event *event,
++				     struct perf_sample *sample,
++				     struct evsel *evsel,
++				     struct machine *machine __maybe_unused)
++{
++	struct pyrf_session *psession =3D container_of(tool, struct pyrf_session,=
+ tool);
++	PyObject *pyevent =3D pyrf_event__new(event);
++	struct pyrf_event *pevent =3D (struct pyrf_event *)pyevent;
++	PyObject *ret;
++
++	if (pyevent =3D=3D NULL)
++		return -ENOMEM;
++
++	memcpy(&pevent->event, event, event->header.size);
++	if (evsel__parse_sample(evsel, &pevent->event, &pevent->sample) < 0) {
++		Py_DECREF(pyevent);
++		return -1;
++	}
++	/* Avoid shallow copy pointing to lazily allocated memory that would be d=
+ouble freed. */
++	pevent->sample.user_regs =3D NULL;
++	pevent->sample.intr_regs =3D NULL;
++	if (pevent->sample.merged_callchain)
++		pevent->sample.callchain =3D NULL;
++
++	ret =3D PyObject_CallFunction(psession->sample, "O", pyevent);
++	if (!ret) {
++		PyErr_Print();
++		Py_DECREF(pyevent);
++		return -1;
++	}
++	Py_DECREF(ret);
++	Py_DECREF(pyevent);
++	return 0;
++}
++
++static PyObject *pyrf_session__process(struct pyrf_session *psession, PyOb=
+ject *args)
++{
++	struct machine *machine;
++	struct thread *thread =3D NULL;
++	PyObject *result;
++	int pid;
++
++	if (!PyArg_ParseTuple(args, "i", &pid))
++		return NULL;
++
++	machine =3D &psession->session->machines.host;
++	thread =3D machine__find_thread(machine, pid, pid);
++
++	if (!thread) {
++		machine =3D perf_session__find_machine(psession->session, pid);
++		if (machine)
++			thread =3D machine__find_thread(machine, pid, pid);
++	}
++
++	if (!thread) {
++		PyErr_Format(PyExc_TypeError, "Failed to find thread %d", pid);
++		return NULL;
++	}
++	result =3D pyrf_thread__from_thread(thread);
++	thread__put(thread);
++	return result;
++}
++
++static int pyrf_session__init(struct pyrf_session *psession, PyObject *arg=
+s, PyObject *kwargs)
++{
++	struct pyrf_data *pdata;
++	PyObject *sample =3D NULL;
++	static char *kwlist[] =3D { "data", "sample", NULL };
++
++	if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O!|O", kwlist, &pyrf_data=
+__type, &pdata,
++					 &sample))
++		return -1;
++
++	Py_INCREF(pdata);
++	psession->pdata =3D pdata;
++	perf_tool__init(&psession->tool, /*ordered_events=3D*/true);
++	psession->tool.ordering_requires_timestamps =3D true;
++
++	#define ADD_TOOL(name)						\
++	do {								\
++		if (name) {						\
++			if (!PyCallable_Check(name)) {			\
++				PyErr_SetString(PyExc_TypeError, #name " must be callable"); \
++				return -1;				\
++			}						\
++			psession->tool.name =3D pyrf_session_tool__##name; \
++			Py_INCREF(name);				\
++			psession->name =3D name;				\
++		}							\
++	} while (0)
++
++	ADD_TOOL(sample);
++	#undef ADD_TOOL
++
++	psession->tool.comm		=3D perf_event__process_comm;
++	psession->tool.mmap		=3D perf_event__process_mmap;
++	psession->tool.mmap2            =3D perf_event__process_mmap2;
++	psession->tool.namespaces       =3D perf_event__process_namespaces;
++	psession->tool.cgroup           =3D perf_event__process_cgroup;
++	psession->tool.exit             =3D perf_event__process_exit;
++	psession->tool.fork             =3D perf_event__process_fork;
++	psession->tool.ksymbol          =3D perf_event__process_ksymbol;
++	psession->tool.text_poke        =3D perf_event__process_text_poke;
++	psession->tool.build_id         =3D perf_event__process_build_id;
++	psession->session =3D perf_session__new(&pdata->data, &psession->tool);
++	if (IS_ERR(psession->session)) {
++		PyErr_Format(PyExc_IOError, "failed to create session: %ld",
++			     PTR_ERR(psession->session));
++		psession->session =3D NULL;
++		Py_DECREF(pdata);
++		psession->pdata =3D NULL;
++		return -1;
++	}
++
++	if (symbol__init(perf_session__env(psession->session)) < 0) {
++		perf_session__delete(psession->session);
++		psession->session =3D NULL;
++		Py_DECREF(psession->pdata);
++		psession->pdata =3D NULL;
++		return -1;
++	}
++
++	if (perf_session__create_kernel_maps(psession->session) < 0)
++		pr_warning("Cannot read kernel map\n");
++
++	return 0;
++}
++
++static void pyrf_session__delete(struct pyrf_session *psession)
++{
++	Py_XDECREF(psession->pdata);
++	Py_XDECREF(psession->sample);
++	perf_session__delete(psession->session);
++	Py_TYPE(psession)->tp_free((PyObject *)psession);
++}
++
++static PyObject *pyrf_session__process_events(struct pyrf_session *psessio=
+n)
++{
++	int err =3D perf_session__process_events(psession->session);
++	return PyLong_FromLong(err);
++}
++
++static PyMethodDef pyrf_session__methods[] =3D {
++	{
++		.ml_name  =3D "process_events",
++		.ml_meth  =3D (PyCFunction)pyrf_session__process_events,
++		.ml_flags =3D METH_NOARGS,
++		.ml_doc	  =3D PyDoc_STR("Iterate and process events.")
++	},
++	{
++		.ml_name  =3D "process",
++		.ml_meth  =3D (PyCFunction)pyrf_session__process,
++		.ml_flags =3D METH_VARARGS,
++		.ml_doc	  =3D PyDoc_STR("Returns the thread associated with a pid.")
++	},
++	{ .ml_name =3D NULL, }
++};
++
++static const char pyrf_session__doc[] =3D PyDoc_STR("perf session object."=
+);
++
++static PyTypeObject pyrf_session__type =3D {
++	PyVarObject_HEAD_INIT(NULL, 0)
++	.tp_name	=3D "perf.session",
++	.tp_basicsize	=3D sizeof(struct pyrf_session),
++	.tp_dealloc	=3D (destructor)pyrf_session__delete,
++	.tp_flags	=3D Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE,
++	.tp_methods	=3D pyrf_session__methods,
++	.tp_doc		=3D pyrf_session__doc,
++	.tp_init	=3D (initproc)pyrf_session__init,
++};
++
++static int pyrf_session__setup_types(void)
++{
++	pyrf_session__type.tp_new =3D PyType_GenericNew;
++	return PyType_Ready(&pyrf_session__type);
++}
++
+ static PyMethodDef perf__methods[] =3D {
  	{
- 		.ml_name  = "metrics",
- 		.ml_meth  = (PyCFunction) pyrf__metrics,
--- 
+ 		.ml_name  =3D "metrics",
+@@ -2446,7 +2698,9 @@ PyMODINIT_FUNC PyInit_perf(void)
+ 	    pyrf_pmu_iterator__setup_types() < 0 ||
+ 	    pyrf_pmu__setup_types() < 0 ||
+ 	    pyrf_counts_values__setup_types() < 0 ||
+-	    pyrf_data__setup_types() < 0)
++	    pyrf_data__setup_types() < 0 ||
++	    pyrf_session__setup_types() < 0 ||
++	    pyrf_thread__setup_types() < 0)
+ 		return module;
+=20
+ 	/* The page_size is placed in util object. */
+@@ -2497,6 +2751,9 @@ PyMODINIT_FUNC PyInit_perf(void)
+ 	Py_INCREF(&pyrf_data__type);
+ 	PyModule_AddObject(module, "data", (PyObject *)&pyrf_data__type);
+=20
++	Py_INCREF(&pyrf_session__type);
++	PyModule_AddObject(module, "session", (PyObject *)&pyrf_session__type);
++
+ 	dict =3D PyModule_GetDict(module);
+ 	if (dict =3D=3D NULL)
+ 		goto error;
+--=20
 2.54.0.545.g6539524ca2-goog
 
 
