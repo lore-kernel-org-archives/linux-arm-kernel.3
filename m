@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79C61FED3CB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 13:24:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B385FED3C3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 13:32:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NdNIwlr6EYICEoRxPpG8gr4dUMgZUbywrW3X2KQCWS4=; b=JV6F3l0wjLCe6C1uXas6KByecn
-	YzAnK0Mox7vzg1mHfYquN6pfliN+ceyulu7aC+1Kg0YFwQcrBIwd55eTCEre4lj1liUvstYGJ3aJM
-	J2ymVjbGlnzsXIV0HP5bvWmORXexGK6vOWNxujGzCgYxittjQC3eJNAcH8InNzE3bEjKrecUGYmCo
-	luiGzRwlC481SSqd9YZpqtvQCHYulRNB30fm4n8Uu2TTJPISb/6Qbzjn8VX8BxhQ9YFMzytS2UTMF
-	jQf0KM+PIAVxRPunWuxkZuRLl158O6wDm/fMlNsvfqDRa3hNZOXSqnpQ7rPZ3imTzF7iKOkL0Uy8D
-	nFLtxJPg==;
+	bh=pFS9HvjkUUe03AisYZmXn6wdasSNAqntMtTfQZJXHFE=; b=NE02fwx1CfiC+XqpcrjiOGu9qE
+	UDYHKAxf5JscGd1IEz6Wt+XoCyRkxkoIwKfzlQlWxqM6Bb8D1npaUZNZpN1fdyzsTn8QgSfVZG2zy
+	eK6sX7aefDPHCj9l4T9Yl7YrT/qP6N+zw1SqmBisgSyonjWX7gylF3hr2OgWae0O0xnZLwNNCSL3F
+	FQOrqKkEWNmauVdxRD7m05dDXPbaWOLVr0T5eSyxjfIEMj5QPbV9mDnBSFYoKLA0OL2wAYkenXqZf
+	i6n+v95v/d69ETpedK68u64vffe9H3joBVOQfN0gbFMGd0mPT36sLtBTm5cP6T7CWrNyp5QhzQ4f1
+	U33CaGGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGGWU-0000000DEXz-38rm;
-	Fri, 24 Apr 2026 13:24:46 +0000
-Received: from the.earth.li ([2a00:1098:86:4d:c0ff:ee:15:900d])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGGWR-0000000DEW4-4Bfg
+	id 1wGGds-0000000DFQj-1Ljb;
+	Fri, 24 Apr 2026 13:32:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wGGdp-0000000DFQA-3OxK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 13:24:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=earth.li;
-	s=the; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:
-	Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=NdNIwlr6EYICEoRxPpG8gr4dUMgZUbywrW3X2KQCWS4=; b=fVdQo7DLwhvnr8LSwWr0AJgZ9n
-	NnI+PRLs1iSPv/FGWFsYSEao3/izs4kRQtMLdis1TKFt50zUAyE5xICfYJCmwGHpsFveq00Dt2TX3
-	m+4ESjKmlE39lccShEg1XoCAMafp69xOHODZMqgaIHad4Ch38lGOPwqQ8EMM9bmswkbiH8M+H1Riw
-	Cv3u+USuE2tB5zISVKWmGR6r7S/Kh2M3FU7P/XGy5e4d23IYEN9oN9cb6WB1VFYt18/kyLF5d44aw
-	EgKFVBNGuc17CJh1a0xMJFcEsngOtw3oscgmmNwsaj5B1462QWjcg810U42GBfLEZ2NFdFnrRlQe6
-	wN5EgjpA==;
-Received: from noodles by the.earth.li with local (Exim 4.98.2)
-	(envelope-from <noodles@earth.li>)
-	id 1wGGWQ-0000000556r-0aRd;
-	Fri, 24 Apr 2026 14:24:42 +0100
-Date: Fri, 24 Apr 2026 14:24:42 +0100
-From: Jonathan McDowell <noodles@earth.li>
-To: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Cc: paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
-	zohar@linux.ibm.com, roberto.sassu@huawei.com,
-	dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com,
-	jarkko@kernel.org, jgg@ziepe.ca, sudeep.holla@kernel.org,
-	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
-	sebastianene@google.com, Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [RFC PATCH v3 4/4] Revert "firmware: arm_ffa: Change initcall level
- of ffa_init() to rootfs_initcall"
-Message-ID: <2e7b4dc552b45ddf14cc43bc449cbebb4ade0027.1777036497.git.noodles@meta.com>
-References: <cover.1777036497.git.noodles@meta.com>
+	Fri, 24 Apr 2026 13:32:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5BDAD1BA8;
+	Fri, 24 Apr 2026 06:32:13 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9CDD13F62B;
+	Fri, 24 Apr 2026 06:32:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1777037538; bh=/Jr8/sdUQILExlSNhoUC+H6o4ZnAtzegjWHXjc9nxwg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PMTTfHAJItHYZ8aawJ+Jzk17mvBiV3VHV5EmjXideXUXopqdeINDr+pN77e/BUTum
+	 kFmdmauR/A7tP4lWoLpYoYipKj5LVtq5cogG4i4XYtX7Nwpo/xhZvrgG51qjUGHcvV
+	 XnlMw95PTw4/xClzkivOBmeDgPwvavbVwEran/Uc=
+Date: Fri, 24 Apr 2026 14:32:05 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	Cristian Marussi <cristian.marussi@arm.com>, sudeep.holla@arm.com,
+	philip.radford@arm.com, james.quinlan@broadcom.com,
+	f.fainelli@gmail.com, vincent.guittot@linaro.org,
+	etienne.carriere@foss.st.com, peng.fan@oss.nxp.com,
+	michal.simek@amd.com, dan.carpenter@linaro.org,
+	geert+renesas@glider.be, kuninori.morimoto.gx@renesas.com,
+	marek.vasut+renesas@gmail.com
+Subject: Re: [PATCH v2 08/13] firmware: arm_scmi: Harden clock protocol
+ initialization
+Message-ID: <aetw1WcSCDxk11AV@pluto>
+References: <20260310184030.3669330-1-cristian.marussi@arm.com>
+ <20260310184030.3669330-9-cristian.marussi@arm.com>
+ <WNCeTzosRbKm_zGsbSPx8w@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <cover.1777036497.git.noodles@meta.com>
+In-Reply-To: <WNCeTzosRbKm_zGsbSPx8w@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_062444_044534_C6E9891A 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20260424_063221_934966_13561F11 
+X-CRM114-Status: GOOD (  28.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,34 +79,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yeoreum Yun <yeoreum.yun@arm.com>
+On Fri, Apr 24, 2026 at 02:07:59PM +0200, Nicolas Frattaroli wrote:
+> On Tuesday, 10 March 2026 19:40:25 Central European Summer Time Cristian Marussi wrote:
+> > Add proper error handling on failure to enumerate clocks features or
+> > rates.
+> > 
 
-This reverts commit 0e0546eabcd6c19765a8dbf5b5db3723e7b0ea75, which was
-added to address ordering issues with the IMA LSM initialisation where
-the TPM would not be fully ready by the time IMA wanted it. This has
-been resolved within IMA by retrying setup during late_initcall_sync if
-the TPM is not available at first.
+Hi,
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-Signed-off-by: Jonathan McDowell <noodles@meta.com>
----
- drivers/firmware/arm_ffa/driver.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> > ---
+> >  drivers/firmware/arm_scmi/clock.c | 22 ++++++++++++++++------
+> >  1 file changed, 16 insertions(+), 6 deletions(-)
+> > 
+> > diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
+> > index c9b62edce4fd..bf956305a8fe 100644
+> > --- a/drivers/firmware/arm_scmi/clock.c
+> > +++ b/drivers/firmware/arm_scmi/clock.c
+> > @@ -402,10 +402,16 @@ static int scmi_clock_attributes_get(const struct scmi_protocol_handle *ph,
+> >  		    SUPPORTS_RATE_CHANGE_REQUESTED_NOTIF(attributes))
+> >  			clk->rate_change_requested_notifications = true;
+> >  		if (PROTOCOL_REV_MAJOR(ph->version) >= 0x3) {
+> > -			if (SUPPORTS_PARENT_CLOCK(attributes))
+> > -				scmi_clock_possible_parents(ph, clk_id, cinfo);
+> > -			if (SUPPORTS_GET_PERMISSIONS(attributes))
+> > -				scmi_clock_get_permissions(ph, clk_id, clk);
+> > +			if (SUPPORTS_PARENT_CLOCK(attributes)) {
+> > +				ret = scmi_clock_possible_parents(ph, clk_id, cinfo);
+> > +				if (ret)
+> > +					return ret;
+> > +			}
+> > +			if (SUPPORTS_GET_PERMISSIONS(attributes)) {
+> > +				ret = scmi_clock_get_permissions(ph, clk_id, clk);
+> > +				if (ret)
+> > +					return ret;
+> > +			}
+> >  			if (SUPPORTS_EXTENDED_CONFIG(attributes))
+> >  				clk->extended_config = true;
+> >  		}
+> > @@ -1143,8 +1149,12 @@ static int scmi_clock_protocol_init(const struct scmi_protocol_handle *ph)
+> >  	for (clkid = 0; clkid < cinfo->num_clocks; clkid++) {
+> >  		cinfo->clkds[clkid].id = clkid;
+> >  		ret = scmi_clock_attributes_get(ph, clkid, cinfo);
+> > -		if (!ret)
+> > -			scmi_clock_describe_rates_get(ph, clkid, cinfo);
+> > +		if (ret)
+> > +			return ret;
+> > +
+> > +		ret = scmi_clock_describe_rates_get(ph, clkid, cinfo);
+> > +		if (ret)
+> > +			return ret;
+> >  	}
+> >  
+> >  	if (PROTOCOL_REV_MAJOR(ph->version) >= 0x3) {
+> > 
+> 
+> I see that a quirk is being added for this, but I thought I should chime
+> in with my opinion for future approaches in this direction.
+> 
+> I don't see how this hardens anything. All this does is break platforms
+> that were previously working by returning early. At most, this should
 
-diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-index f2f94d4d533e..01547c5c0e38 100644
---- a/drivers/firmware/arm_ffa/driver.c
-+++ b/drivers/firmware/arm_ffa/driver.c
-@@ -2106,7 +2106,7 @@ static int __init ffa_init(void)
- 	kfree(drv_info);
- 	return ret;
- }
--rootfs_initcall(ffa_init);
-+module_init(ffa_init);
- 
- static void __exit ffa_exit(void)
- {
--- 
-2.53.0
+Certainly the naming in the subject was chosen badly (by me!)...indeed it
+should be more something like "Enforce strict protocol compliance",
+because at the end all of the broken platforms really run a slighly odd
+out of spec SCMI firmware that does NOT implement one or more of the SCMI
+mandatory command...
+
+> be a warning (as in not WARN but pr_warn/dev_warn/...). If firmware
+> returns nonsense, a clock driver should imho try its best to work
+> around the nonsense in a safe way, because the alternative is that
+> a major part of the system (and thus likely the entire system) no
+
+..well yes we definitely dont want to break deployed platforms BUT also
+we dont want to legalize this kind of out of spec behaviour in future
+firmwares...hence (a number ?) of quirks an FW_BUG warns probably to
+let already broken deployed platforms survive while discouraging such
+implementation in future fw implementations...
+
+These firmware most certainly wont pass the SCMI compliance test suite [1],
+which indeed we do not mandate, but the reason these bugs happened is
+exactly because the kernel SCMI stack was buggy and left that door open...
+
+More specifically these kind of out-of-spec behaviours are not really just
+a matter being 'picky', the problem is that any resource set in any
+SCMI protocol is defined by the spec such as to be described by a
+contiguos set of IDs and the drivers are designed anyway under that
+assumption from the allocation point of view, so allowing a clock ID to
+just fail one of the mandatory commands and skip a domain would jeopardize
+all of this and, even if clearly is NOT a problem here, seems a fragile
+assumption.
+
+> longer works. It's basically the same reason why we avoid BUG(): sure,
+> you prevented a problem, but you tore down the entire system to tell
+> the user about it.
+
+No I feel this is a lot different from the BUG() scenario: we'll never
+merge this like this without enough quirks to let survive all the
+existing impacted platforms, but the shout here is for the fw-developer
+of a new un-deployed firmware: that WILL fail and no quirk will be accepted
+if they plan to design a future FW out of spec from scratch because they
+think is better....well...they can anyway of course but they will have
+to keep their own quirks donwstream forever :P
+
+Thanks,
+Cristian
+
+[1]: https://gitlab.arm.com/tests/scmi-tests/-/commits/master?ref_type=heads
 
 
