@@ -4,59 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9B6FFED3EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 15:51:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBB61FED3EF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 16:01:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cL3JNpv/5ux5K5zQUkIAsUUH302xWRWHJo1KqsuzLSQ=; b=i7omXbhFEpt3GXY6JZ5nxdswww
-	z4u4+1sDwIPzNR84nYqShEMRn8EZKSzTzBAJYmKSg0VmFOs0lXbmnINWgJTi9JCFH9eFh6rCTD/nJ
-	jPyv2A5VIStC4Tpwe/7EI44+HtUN7BgXZiNlHa5T3/s74BuWwvkB/2aryiqnZ8O9Qqfn8XOWD55KE
-	RBbd92EhQS/iEcLuxgTI52iC5M+jQa0LtdE+iZ92mjW9B2ZFM22wGRo7eSOwvyfpFuq92+sqeHMCg
-	nFHpvx6ywjvoo8ILroz68fAnhWpUU5vTTBGMVbX6zL7j3c/hcpBCrJHeTSVLAMwmv6jbDsPoinCm/
-	mODU80bg==;
+	bh=5zKflapK0+bktjIs1iUdOrcurlF9DL6mXrjwlTDFBE8=; b=KdteUsK9xoJUMVipljSaiCyxU1
+	sVMpQNcsHWr9SPAElQId5GriubmFVbZxxm9Du14H/8worKa5NhT7IqPM2WeSplEAaLKRBiwvqCHMa
+	VDgEk86mdpCR1KWFxXXm9GWMlnJvB+oC7UhrQcfHot9zaR0RgS+oKO/b0qK39lZp5tpgQJOHXDFYx
+	PL3RHei/fpoOU0FboeHwHWlAc1tplCCF6d5tqNi+7+0EyUo1SWb+86g30vHSo+s6d0KBmJ95Hgfmn
+	Sf7aPByNEAH+DLw4UvQEoFNhBD44bbahWHILZdVhh2FPUsyRimrXq4rk3h+aPMnufTTxzxdAF1vRQ
+	Te3WOumg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGIoX-0000000DQ1C-10Fo;
-	Fri, 24 Apr 2026 15:51:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGIoU-0000000DQ0n-2llP
+	id 1wGIyG-0000000DQYe-1lmd;
+	Fri, 24 Apr 2026 16:01:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wGIyD-0000000DQYF-3k7F
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 15:51:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1AC18358D;
-	Fri, 24 Apr 2026 08:51:23 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8A1253F7B4;
-	Fri, 24 Apr 2026 08:51:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777045888; bh=NC/mMOGrg8wY36a31hnnuUB+YEhuJPHUoFBs5yStwWU=;
+	Fri, 24 Apr 2026 16:01:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 51730404E2;
+	Fri, 24 Apr 2026 16:01:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC45DC19425;
+	Fri, 24 Apr 2026 16:01:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777046493;
+	bh=WOG+Fz92/zHztMNljeKjVYSh8yhdUV+2hZiJ4s0U7pw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=d61djaKJSu2S/PBDlhMBtiPsVG0Ltr3lfMEBD58Pcv7/JiwCkGHLqzvF8aemlAt2B
-	 8J8BUV1MzkgXSOHQE5Dw9OC5mATVPGW6lrVCedYJlxPw1k+c8AnL1NGA4MJ8AzEknL
-	 q15plqZe1mS1LYkh3ryLptk8LKYYApQD+NCRA18M=
-Date: Fri, 24 Apr 2026 16:51:24 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Leo Yan <leo.yan@arm.com>
-Cc: Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] kselftest/arm64: Fix build failure with GCC-15
-Message-ID: <aeuRfEeOUWEHzPix@arm.com>
-References: <20260422-selftests_arm64_gcc15-v2-1-c0134de8838a@arm.com>
+	b=XMlr5elmIrCp2UsJN2f5fAr2iKdsMtc5nmCYtxgK8U2AmEcfWX1s6IR4hjV/434Ag
+	 x9H2urDs6s0MfrvgL2QIxMxIdOnZX5a4s91bG4YTPZiXGHPI3gA+4vRuIGnQIJCXEt
+	 q6q129bIux5Ssg45yiaeE6pYPiSv6hJTvW5F5OdVT15t8GPkHJFBzbBne4GzE5Me9S
+	 obAqMJ5UrNV/nltVrTYYshkRi/Af4NsZJtOkqXbeluQ07xWmOV40zczK8OpTg81dnt
+	 FYYfIqgQvuz8srm7jrj3vsUBOYSCbX0O4hxkVU6VX2ItzcTc1RKNgCq5xJ33wL5yz/
+	 pL5JUDasBTECQ==
+Date: Fri, 24 Apr 2026 17:01:27 +0100
+From: Will Deacon <will@kernel.org>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Evangelos Petrongonas <epetron@amazon.de>,
+	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Pranjal Shrivastava <praan@google.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, nh-open-source@amazon.com,
+	Zeev Zilberman <zeev@amazon.com>
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow disabling Stage 1 translation
+Message-ID: <aeuT1-TB6dOT5ZQ2@willie-the-truck>
+References: <20260420124032.GO2577880@ziepe.ca>
+ <20260422064431.GA49867@dev-dsk-epetron-1c-1d4d9719.eu-west-1.amazon.com>
+ <20260422162351.GK3611611@ziepe.ca>
+ <aenp6FHzx9rtUQkZ@willie-the-truck>
+ <aenqxasLJ8yKYqbT@willie-the-truck>
+ <20260423142326.GP3611611@ziepe.ca>
+ <aepRy7Gp7Ng85Zr7@willie-the-truck>
+ <20260423223716.GS3611611@ziepe.ca>
+ <aeuJQW8bGLY-O_vv@willie-the-truck>
+ <20260424154256.GF3611611@ziepe.ca>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260422-selftests_arm64_gcc15-v2-1-c0134de8838a@arm.com>
+In-Reply-To: <20260424154256.GF3611611@ziepe.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_085130_740650_9EEEED8A 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20260424_090133_990283_5F7D4E20 
+X-CRM114-Status: GOOD (  36.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,39 +86,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 22, 2026 at 06:42:54PM +0100, Leo Yan wrote:
-> Building on Debian sid with GCC 15 fails:
+On Fri, Apr 24, 2026 at 12:42:56PM -0300, Jason Gunthorpe wrote:
+> On Fri, Apr 24, 2026 at 04:16:17PM +0100, Will Deacon wrote:
+> > > > > STE/CD is pretty simple now, there is only one place to put the CMO
+> > > > > and the ordering is all handled with that shared code. We no longer
+> > > > > care about ordering beyond all the writes must be visible to HW before
+> > > > > issuing the CMDQ invalidation command - which is the same environment
+> > > > > as the pagetable.
+> > > > 
+> > > > You presumably rely on 64-bit single-copy atomicity for hitless updates,
+> > > > no?
+> > > 
+> > > Yes, just like the page table does..
+> > > 
+> > > I hope that's not a problem or we have a issue with the PTW :)
+> > 
+> > You trimmed the part from my reply where I think we _do_ have an issue
+> > with the PTW. Here it is again:
+> > 
+> >   The non-coherent case looks more fragile, because I don't _think_ the
+> >   architecture provides any ordering or atomicity guarantees about cache
+> >   cleaning to the PoC. Presumably, the correct sequence would be to write
+> >   the PTE with the valid bit clear, do the CMO (with completion barrier),
+> >   *then* write the bottom byte with the valid bit set and do another CMO.
 > 
->     CC       libc-gcs
->   libc-gcs.c: In function 'ptrace_read_write':
->   libc-gcs.c:142:25: error: storage size of 'child_gcs' isn't known
->     142 |         struct user_gcs child_gcs;
->         |                         ^~~~~~~~~
->   libc-gcs.c:142:25: warning: unused variable 'child_gcs' [-Wunused-variable]
+> I wasn't sure if you are being serious.
 > 
-> For GCC-15, NT_ARM_GCS is defined in the libc header, causing gcs-util.h
-> to skip its fallback definition of struct user_gcs. This leads to the
-> compiler error.
+> CMO + barriers must provide an ordering guarentee about cache cleaning
+> to POC otherwise the entire Linux DMA API is broken. dma_sync must
+> order with following device DMA. IMHO that's not negotiable for Linux.
+
+The problem is with concurrent DMA (from the page-table walker) and I
+don't see anything that guarantees that in the CPU architecture. I don't
+think the streaming DMA API pretends to handle that case, does it? It
+relies on a pretty rigid ownership concept from what I understand.
+
+> All ARM iommus rely on 64 bit atomic non tearing. No bugs reported?
+
+It's hard to judge as I don't think SMMUs tend to perform a lot of
+speculative address translation when DMA isn't active. 
+
+> Any fix to that is going to have major performance downsides..
 > 
-> Fix this by including <asm/ptrace.h> to provide the proper definition.
+> I also strongly suspect it is provided on real HW. It would be hard to
+> even build HW where <= 64 bit quanta can tear.
+> 
+> Maybe this is something ARM should take a look at.
 
-This is not caused by GCC-15 as it doesn't provide these headers. AFAICT
-on Debian we have NT_ARM_GCS coming from glibc and user_gcs from the
-kernel asm/ptrace.h uapi header (linux-libc-dev). We also have
-NT_ARM_GCS in linux/elf.h as part of the kernel headers.
+Yes, we should ask. Maybe I missed something in the Arm ARM, but I can
+also seeing it being a pain to specify this behaviour all the way out to
+the PoC and I wouldn't be so bold as to say that it's hard to build HW
+that would exhibit problems here.
 
-While the kernel exposed the macro and structure in the same commit, I
-don't think it is required distros to align the glibc macro with the
-linux headers. Glibc does not even use the kernel's linux/elf.h for the
-macros, it just adds the definitions when they turn up in a released
-kernel.
+> > > And if Samiullah can tackle dma_alloc_coherent then maybe the whole
+> > > question is moot.
+> > 
+> > Yes, that would be great, but we probably need to fix the page-table
+> > code too.
+> 
+> You really want to deal with the likely perf regressions that would
+> cause on Android/etc?
 
-So you can have a glibc that defines NT_ARM_GCS but a linux-libc-dev
-package that is not up to date to include struct user_gcs.
+Of course I'd rather that the architecture said that our current code
+is fine, but if it doesn't then I don't have much choice, really. At the
+very least, we should minimise the number of places where we rely on
+non-architected behaviour and so keeping the CDs and STEs non-cacheable
+remains my preference.
 
-I think a better fix is to always define struct user_gcs and only
-conditionally define NT_ARM_GCS (IOW, move the #endif higher).
-
--- 
-Catalin
+Will
 
