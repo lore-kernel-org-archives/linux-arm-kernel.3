@@ -4,64 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A21FFB44C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 06:52:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F2F8FB44C1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 06:52:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RzOaZmZOU3dl46r5B3PGsrmNaOLaw60UvzBSLSeljFw=; b=xAd4nM9UNzKhTckMXi/zTHcyn/
-	nKdLfB9T/+rzzwaag4Ec9cNE7jUHVg3z5qCCZK3O7xr1lHgw13KCP3j3ZEiLzNxpqkFdBfROMhg+a
-	QfHqMRWk8Tb5DVOxaZXqeah9lIV5Jq2PJhZplbQsPt4cK+NbB3vqWofDzFFmoAVmlPmrkNgjiUaX+
-	9eqq747hK2ukXRlQJkwyihtE2+QpEf6WD3dYzQC26fPurkpcSjQ9aksuIbRRfTANmCclOcn2CW0Qx
-	d/ks71tDbmUBYWeTOhYdevQKGa9gCaF9p0tx90dro0ySrEfCRVTISFbbKa+ogy25ZIEnFffBkZ3X3
-	LhwNv9ww==;
+	bh=rynsA0E05m2lNvLZf1WIv6OBgnvIOBBfv84eGevzkvc=; b=zBqbRwkJcxnRr6NEr18M5bgrrx
+	/9K9SHV5c7SKDxJ9XneZq/nmCiGC4dsHW0WQJLByO/G0FNa6Lu4XDpKouJ/5NIHVdjjye2dmiTd3b
+	Q3P2zn+KXbiEWbq8ywULeO+6Eo5/AGVC3zbgf6dynjZDLUULV34M/q4M4/f6pexBTgbfAsrIJHwEX
+	E5nIhwwdZ6rSMUgqa5C6LlFQNINMX2nSRkaQVrbZosuasggo1Td3GrFD05VnR9RJ8fVLkGPZN+MkU
+	CN2q0tcpicJ036tjxN/UBCzYCbHgA7mEsm2RpZfo6DWOlivnD0+PgrP5WVL/3A5Z3cMNTq7psfOuf
+	eJ+4hleg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGAOm-0000000CjM1-3eeT;
-	Fri, 24 Apr 2026 06:52:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wGAOr-0000000CjOA-0kLU;
+	Fri, 24 Apr 2026 06:52:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGAOl-0000000CjLY-22xo
+	id 1wGAOo-0000000CjMf-3VXu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 06:52:23 +0000
+	Fri, 24 Apr 2026 06:52:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D05C660120;
-	Fri, 24 Apr 2026 06:52:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62604C19425;
-	Fri, 24 Apr 2026 06:52:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 342FF43650
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 06:52:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15E73C2BCC4
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 06:52:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777013541;
-	bh=LunDcW/SrlhnjtAd0/3w3tiTVtSbJhE45E5P2uzrZxs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AwMs5EPsu49JkZ6/YeSTq/PaAn8R4uXV+3GE9I7ZW+yesnUnl2Ak8LYkISJGBhxXO
-	 W9hI6mY/Qt5a00pwdsDHw8sq2aoH3hP3dRrFD/faj1m0fEZH14RRBBrQnjIbbsIQ3n
-	 PbrvQ088Fdm5AOQ7uSBOolPHmNzAbtTrQ8f6JXR588s3QStKvnmExkoc5ynpMVA1Cw
-	 gpu4SfHYTFv6c8M4GLR43sTyL+4L/NCVuaAn3ZfdqlK4TSra3DFkpCvzmwOSoyey4h
-	 DMYcHy7IJvUO0GNug5MFeotmfbPCOVaN8xzdCOF0eg+s9kL1dkKfNJsTNoDldvRaTW
-	 9X3z1WjfLNBww==
-From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-To: Steven Rostedt <rostedt@goodmis.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	Ian Rogers <irogers@google.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v18 2/8] ring-buffer: Flush and stop persistent ring buffer on panic
-Date: Fri, 24 Apr 2026 15:52:18 +0900
-Message-ID: <177701353869.2223789.427804252142130812.stgit@mhiramat.tok.corp.google.com>
-X-Mailer: git-send-email 2.54.0.rc2.544.gc7ae2d5bb8-goog
-In-Reply-To: <177701351903.2223789.17087009302463188638.stgit@mhiramat.tok.corp.google.com>
-References: <177701351903.2223789.17087009302463188638.stgit@mhiramat.tok.corp.google.com>
-User-Agent: StGit/0.19
+	s=k20201202; t=1777013546;
+	bh=nRJOP0j3XKc9GVJLe/zZOWTB37EaZHVbmNEGogY9PsE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=hOikG9eJKV2Lv8Rn+NieIPb+7w1cDLf8PS6wRdE54D5aD2/+gorw7crcQ4FmNz+dI
+	 nupGE8B+R+42EF8fNFIeMq1Yh2/tmh4o0DadhfLyWfaWLdHrUl9dSPwfzF2KLuDPB5
+	 QlivInoNaJtf9dPB7M+ImQk2qFDMiKOfP5zRsZL0Dv/e7ucSxMMBpqjjABN6K0DNzM
+	 boOZTAqEkVYPS+8xVBolHlGHnsUVktNvZKkNqppALex7Z4Fn6MhlbJOXHwfwLxGfKj
+	 aKmm6LyN4hjAswhJdKAoiEQ1DBEN2oByvgCrBo6FDCiuR46LeRbhBfvi43MSDOdia2
+	 vZJcr5arrmrMQ==
+Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-38e7b8e3f38so62688091fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 23:52:25 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ9H2DamJuZhp13nM7nX2o9stT88v2U9O+wg/Lsf2etMnQXqY3edOP5CBOA7RD5QadD8ledzbtLMt9Pf5B6X1Lid@lists.infradead.org
+X-Gm-Message-State: AOJu0YwS//wvCyrm0dYQuRx3A26o3OXYNq7Zsf2dnQZJv+wAkYpo+Ltn
+	tQ4lSBW47PRAaP9vz9K6m4A3iU9yrwKoQ2sfw23jxpDeVaOsfoWoV50V/7z4vbIwE+vDH8x124G
+	Tgcj+S8ZUPvj29d9wa2iG8n/BNEQ3/lo=
+X-Received: by 2002:a05:6512:2308:b0:5a4:74e:5f89 with SMTP id
+ 2adb3069b0e04-5a4172e1c0emr9146746e87.26.1777013544781; Thu, 23 Apr 2026
+ 23:52:24 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+References: <20260412-defconfig-v1-0-a46918286451@oss.qualcomm.com> <20260412-defconfig-v1-1-a46918286451@oss.qualcomm.com>
+In-Reply-To: <20260412-defconfig-v1-1-a46918286451@oss.qualcomm.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 24 Apr 2026 08:52:12 +0200
+X-Gmail-Original-Message-ID: <CAD++jLk=ajhfHfsbQUDyepOaRviuPCjdeHdXKzvk4Yc8m5BSDQ@mail.gmail.com>
+X-Gm-Features: AQROBzBYgKSFBKf2d7KO64mzd1gjg_XRv4U5aJq5vG1so1gyNy_IrLTtK12mfak
+Message-ID: <CAD++jLk=ajhfHfsbQUDyepOaRviuPCjdeHdXKzvk4Yc8m5BSDQ@mail.gmail.com>
+Subject: Re: [PATCH 1/6] arm64: defconfig: Move entries to match savedefconfig
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Drew Fustini <fustini@kernel.org>, soc@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260423_235226_911998_57F87B08 
+X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,385 +84,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+On Sun, Apr 12, 2026 at 6:21=E2=80=AFPM Krzysztof Kozlowski
+<krzysztof.kozlowski@oss.qualcomm.com> wrote:
 
-On real hardware, panic and machine reboot may not flush hardware cache
-to memory. This means the persistent ring buffer, which relies on a
-coherent state of memory, may not have its events written to the buffer
-and they may be lost. Moreover, there may be inconsistency with the
-counters which are used for validation of the integrity of the
-persistent ring buffer which may cause all data to be discarded.
+> Only re-shuffle entries to match savedefconfig, without removing any
+> symbols.  This helps in reviewing defconfig when comparing with
+> savedefconfig and looking for obsolete symbols.  No impact on
+> include/generated/autoconf.h.
+>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-To avoid this issue, stop recording of the ring buffer on panic and
-flush the cache of the ring buffer's memory.
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-Fixes: e645535a954a ("tracing: Add option to use memmapped memory for trace boot instance")
-Cc: stable@vger.kernel.org
-Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
-Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
----
- Changes in v13:
-   - Fix a rebase conflict.
- Changes in v11:
-   - Do nothing by default since flush_cache_vmap() does nothing on x86
-     but it can cause deadlock on some architectures via on_each_cpu()
-     because other CPUs will be stoppped when panic notifier is called.
- Changes in v9:
-   - Fix typo of & to &&.
-   - Fix typo of "Generic"
- Changes in v6:
-   - Introduce asm/ring_buffer.h for arch_ring_buffer_flush_range().
-   - Use flush_cache_vmap() instead of flush_cache_all().
- Changes in v5:
-   - Use ring_buffer_record_off() instead of ring_buffer_record_disable().
-   - Use flush_cache_all() to ensure flush all cache.
- Changes in v3:
-   - update patch description.
----
- arch/alpha/include/asm/Kbuild        |    1 +
- arch/arc/include/asm/Kbuild          |    1 +
- arch/arm/include/asm/Kbuild          |    1 +
- arch/arm64/include/asm/ring_buffer.h |   10 ++++++++++
- arch/csky/include/asm/Kbuild         |    1 +
- arch/hexagon/include/asm/Kbuild      |    1 +
- arch/loongarch/include/asm/Kbuild    |    1 +
- arch/m68k/include/asm/Kbuild         |    1 +
- arch/microblaze/include/asm/Kbuild   |    1 +
- arch/mips/include/asm/Kbuild         |    1 +
- arch/nios2/include/asm/Kbuild        |    1 +
- arch/openrisc/include/asm/Kbuild     |    1 +
- arch/parisc/include/asm/Kbuild       |    1 +
- arch/powerpc/include/asm/Kbuild      |    1 +
- arch/riscv/include/asm/Kbuild        |    1 +
- arch/s390/include/asm/Kbuild         |    1 +
- arch/sh/include/asm/Kbuild           |    1 +
- arch/sparc/include/asm/Kbuild        |    1 +
- arch/um/include/asm/Kbuild           |    1 +
- arch/x86/include/asm/Kbuild          |    1 +
- arch/xtensa/include/asm/Kbuild       |    1 +
- include/asm-generic/ring_buffer.h    |   13 +++++++++++++
- kernel/trace/ring_buffer.c           |   22 ++++++++++++++++++++++
- 23 files changed, 65 insertions(+)
- create mode 100644 arch/arm64/include/asm/ring_buffer.h
- create mode 100644 include/asm-generic/ring_buffer.h
-
-diff --git a/arch/alpha/include/asm/Kbuild b/arch/alpha/include/asm/Kbuild
-index 483965c5a4de..b154b4e3dfa8 100644
---- a/arch/alpha/include/asm/Kbuild
-+++ b/arch/alpha/include/asm/Kbuild
-@@ -5,4 +5,5 @@ generic-y += agp.h
- generic-y += asm-offsets.h
- generic-y += kvm_para.h
- generic-y += mcs_spinlock.h
-+generic-y += ring_buffer.h
- generic-y += text-patching.h
-diff --git a/arch/arc/include/asm/Kbuild b/arch/arc/include/asm/Kbuild
-index 4c69522e0328..483caacc6988 100644
---- a/arch/arc/include/asm/Kbuild
-+++ b/arch/arc/include/asm/Kbuild
-@@ -5,5 +5,6 @@ generic-y += extable.h
- generic-y += kvm_para.h
- generic-y += mcs_spinlock.h
- generic-y += parport.h
-+generic-y += ring_buffer.h
- generic-y += user.h
- generic-y += text-patching.h
-diff --git a/arch/arm/include/asm/Kbuild b/arch/arm/include/asm/Kbuild
-index 03657ff8fbe3..decad5f2c826 100644
---- a/arch/arm/include/asm/Kbuild
-+++ b/arch/arm/include/asm/Kbuild
-@@ -3,6 +3,7 @@ generic-y += early_ioremap.h
- generic-y += extable.h
- generic-y += flat.h
- generic-y += parport.h
-+generic-y += ring_buffer.h
- 
- generated-y += mach-types.h
- generated-y += unistd-nr.h
-diff --git a/arch/arm64/include/asm/ring_buffer.h b/arch/arm64/include/asm/ring_buffer.h
-new file mode 100644
-index 000000000000..62316c406888
---- /dev/null
-+++ b/arch/arm64/include/asm/ring_buffer.h
-@@ -0,0 +1,10 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef _ASM_ARM64_RING_BUFFER_H
-+#define _ASM_ARM64_RING_BUFFER_H
-+
-+#include <asm/cacheflush.h>
-+
-+/* Flush D-cache on persistent ring buffer */
-+#define arch_ring_buffer_flush_range(start, end)	dcache_clean_pop(start, end)
-+
-+#endif /* _ASM_ARM64_RING_BUFFER_H */
-diff --git a/arch/csky/include/asm/Kbuild b/arch/csky/include/asm/Kbuild
-index 3a5c7f6e5aac..7dca0c6cdc84 100644
---- a/arch/csky/include/asm/Kbuild
-+++ b/arch/csky/include/asm/Kbuild
-@@ -9,6 +9,7 @@ generic-y += qrwlock.h
- generic-y += qrwlock_types.h
- generic-y += qspinlock.h
- generic-y += parport.h
-+generic-y += ring_buffer.h
- generic-y += user.h
- generic-y += vmlinux.lds.h
- generic-y += text-patching.h
-diff --git a/arch/hexagon/include/asm/Kbuild b/arch/hexagon/include/asm/Kbuild
-index 1efa1e993d4b..0f887d4238ed 100644
---- a/arch/hexagon/include/asm/Kbuild
-+++ b/arch/hexagon/include/asm/Kbuild
-@@ -5,4 +5,5 @@ generic-y += extable.h
- generic-y += iomap.h
- generic-y += kvm_para.h
- generic-y += mcs_spinlock.h
-+generic-y += ring_buffer.h
- generic-y += text-patching.h
-diff --git a/arch/loongarch/include/asm/Kbuild b/arch/loongarch/include/asm/Kbuild
-index 9034b583a88a..7e92957baf6a 100644
---- a/arch/loongarch/include/asm/Kbuild
-+++ b/arch/loongarch/include/asm/Kbuild
-@@ -10,5 +10,6 @@ generic-y += qrwlock.h
- generic-y += user.h
- generic-y += ioctl.h
- generic-y += mmzone.h
-+generic-y += ring_buffer.h
- generic-y += statfs.h
- generic-y += text-patching.h
-diff --git a/arch/m68k/include/asm/Kbuild b/arch/m68k/include/asm/Kbuild
-index b282e0dd8dc1..62543bf305ff 100644
---- a/arch/m68k/include/asm/Kbuild
-+++ b/arch/m68k/include/asm/Kbuild
-@@ -3,5 +3,6 @@ generated-y += syscall_table.h
- generic-y += extable.h
- generic-y += kvm_para.h
- generic-y += mcs_spinlock.h
-+generic-y += ring_buffer.h
- generic-y += spinlock.h
- generic-y += text-patching.h
-diff --git a/arch/microblaze/include/asm/Kbuild b/arch/microblaze/include/asm/Kbuild
-index 7178f990e8b3..0030309b47ad 100644
---- a/arch/microblaze/include/asm/Kbuild
-+++ b/arch/microblaze/include/asm/Kbuild
-@@ -5,6 +5,7 @@ generic-y += extable.h
- generic-y += kvm_para.h
- generic-y += mcs_spinlock.h
- generic-y += parport.h
-+generic-y += ring_buffer.h
- generic-y += syscalls.h
- generic-y += tlb.h
- generic-y += user.h
-diff --git a/arch/mips/include/asm/Kbuild b/arch/mips/include/asm/Kbuild
-index 684569b2ecd6..9771c3d85074 100644
---- a/arch/mips/include/asm/Kbuild
-+++ b/arch/mips/include/asm/Kbuild
-@@ -12,5 +12,6 @@ generic-y += mcs_spinlock.h
- generic-y += parport.h
- generic-y += qrwlock.h
- generic-y += qspinlock.h
-+generic-y += ring_buffer.h
- generic-y += user.h
- generic-y += text-patching.h
-diff --git a/arch/nios2/include/asm/Kbuild b/arch/nios2/include/asm/Kbuild
-index 28004301c236..0a2530964413 100644
---- a/arch/nios2/include/asm/Kbuild
-+++ b/arch/nios2/include/asm/Kbuild
-@@ -5,6 +5,7 @@ generic-y += cmpxchg.h
- generic-y += extable.h
- generic-y += kvm_para.h
- generic-y += mcs_spinlock.h
-+generic-y += ring_buffer.h
- generic-y += spinlock.h
- generic-y += user.h
- generic-y += text-patching.h
-diff --git a/arch/openrisc/include/asm/Kbuild b/arch/openrisc/include/asm/Kbuild
-index cef49d60d74c..8aa34621702d 100644
---- a/arch/openrisc/include/asm/Kbuild
-+++ b/arch/openrisc/include/asm/Kbuild
-@@ -8,4 +8,5 @@ generic-y += spinlock_types.h
- generic-y += spinlock.h
- generic-y += qrwlock_types.h
- generic-y += qrwlock.h
-+generic-y += ring_buffer.h
- generic-y += user.h
-diff --git a/arch/parisc/include/asm/Kbuild b/arch/parisc/include/asm/Kbuild
-index 4fb596d94c89..d48d158f7241 100644
---- a/arch/parisc/include/asm/Kbuild
-+++ b/arch/parisc/include/asm/Kbuild
-@@ -4,4 +4,5 @@ generated-y += syscall_table_64.h
- generic-y += agp.h
- generic-y += kvm_para.h
- generic-y += mcs_spinlock.h
-+generic-y += ring_buffer.h
- generic-y += user.h
-diff --git a/arch/powerpc/include/asm/Kbuild b/arch/powerpc/include/asm/Kbuild
-index 2e23533b67e3..805b5aeebb6f 100644
---- a/arch/powerpc/include/asm/Kbuild
-+++ b/arch/powerpc/include/asm/Kbuild
-@@ -5,4 +5,5 @@ generated-y += syscall_table_spu.h
- generic-y += agp.h
- generic-y += mcs_spinlock.h
- generic-y += qrwlock.h
-+generic-y += ring_buffer.h
- generic-y += early_ioremap.h
-diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
-index bd5fc9403295..7721b63642f4 100644
---- a/arch/riscv/include/asm/Kbuild
-+++ b/arch/riscv/include/asm/Kbuild
-@@ -14,5 +14,6 @@ generic-y += ticket_spinlock.h
- generic-y += qrwlock.h
- generic-y += qrwlock_types.h
- generic-y += qspinlock.h
-+generic-y += ring_buffer.h
- generic-y += user.h
- generic-y += vmlinux.lds.h
-diff --git a/arch/s390/include/asm/Kbuild b/arch/s390/include/asm/Kbuild
-index 80bad7de7a04..0c1fc47c3ba0 100644
---- a/arch/s390/include/asm/Kbuild
-+++ b/arch/s390/include/asm/Kbuild
-@@ -7,3 +7,4 @@ generated-y += unistd_nr.h
- generic-y += asm-offsets.h
- generic-y += mcs_spinlock.h
- generic-y += mmzone.h
-+generic-y += ring_buffer.h
-diff --git a/arch/sh/include/asm/Kbuild b/arch/sh/include/asm/Kbuild
-index 4d3f10ed8275..f0403d3ee8ab 100644
---- a/arch/sh/include/asm/Kbuild
-+++ b/arch/sh/include/asm/Kbuild
-@@ -3,4 +3,5 @@ generated-y += syscall_table.h
- generic-y += kvm_para.h
- generic-y += mcs_spinlock.h
- generic-y += parport.h
-+generic-y += ring_buffer.h
- generic-y += text-patching.h
-diff --git a/arch/sparc/include/asm/Kbuild b/arch/sparc/include/asm/Kbuild
-index 17ee8a273aa6..49c6bb326b75 100644
---- a/arch/sparc/include/asm/Kbuild
-+++ b/arch/sparc/include/asm/Kbuild
-@@ -4,4 +4,5 @@ generated-y += syscall_table_64.h
- generic-y += agp.h
- generic-y += kvm_para.h
- generic-y += mcs_spinlock.h
-+generic-y += ring_buffer.h
- generic-y += text-patching.h
-diff --git a/arch/um/include/asm/Kbuild b/arch/um/include/asm/Kbuild
-index 1b9b82bbe322..2a1629ba8140 100644
---- a/arch/um/include/asm/Kbuild
-+++ b/arch/um/include/asm/Kbuild
-@@ -17,6 +17,7 @@ generic-y += module.lds.h
- generic-y += parport.h
- generic-y += percpu.h
- generic-y += preempt.h
-+generic-y += ring_buffer.h
- generic-y += runtime-const.h
- generic-y += softirq_stack.h
- generic-y += switch_to.h
-diff --git a/arch/x86/include/asm/Kbuild b/arch/x86/include/asm/Kbuild
-index 4566000e15c4..078fd2c0d69d 100644
---- a/arch/x86/include/asm/Kbuild
-+++ b/arch/x86/include/asm/Kbuild
-@@ -14,3 +14,4 @@ generic-y += early_ioremap.h
- generic-y += fprobe.h
- generic-y += mcs_spinlock.h
- generic-y += mmzone.h
-+generic-y += ring_buffer.h
-diff --git a/arch/xtensa/include/asm/Kbuild b/arch/xtensa/include/asm/Kbuild
-index 13fe45dea296..e57af619263a 100644
---- a/arch/xtensa/include/asm/Kbuild
-+++ b/arch/xtensa/include/asm/Kbuild
-@@ -6,5 +6,6 @@ generic-y += mcs_spinlock.h
- generic-y += parport.h
- generic-y += qrwlock.h
- generic-y += qspinlock.h
-+generic-y += ring_buffer.h
- generic-y += user.h
- generic-y += text-patching.h
-diff --git a/include/asm-generic/ring_buffer.h b/include/asm-generic/ring_buffer.h
-new file mode 100644
-index 000000000000..201d2aee1005
---- /dev/null
-+++ b/include/asm-generic/ring_buffer.h
-@@ -0,0 +1,13 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Generic arch dependent ring_buffer macros.
-+ */
-+#ifndef __ASM_GENERIC_RING_BUFFER_H__
-+#define __ASM_GENERIC_RING_BUFFER_H__
-+
-+#include <linux/cacheflush.h>
-+
-+/* Flush cache on ring buffer range if needed. Do nothing by default. */
-+#define arch_ring_buffer_flush_range(start, end)	do { } while (0)
-+
-+#endif /* __ASM_GENERIC_RING_BUFFER_H__ */
-diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
-index 5326924615a4..7288383b1f27 100644
---- a/kernel/trace/ring_buffer.c
-+++ b/kernel/trace/ring_buffer.c
-@@ -7,6 +7,7 @@
- #include <linux/ring_buffer_types.h>
- #include <linux/sched/isolation.h>
- #include <linux/trace_recursion.h>
-+#include <linux/panic_notifier.h>
- #include <linux/trace_events.h>
- #include <linux/ring_buffer.h>
- #include <linux/trace_clock.h>
-@@ -31,6 +32,7 @@
- #include <linux/oom.h>
- #include <linux/mm.h>
- 
-+#include <asm/ring_buffer.h>
- #include <asm/local64.h>
- #include <asm/local.h>
- #include <asm/setup.h>
-@@ -559,6 +561,7 @@ struct trace_buffer {
- 
- 	unsigned long			range_addr_start;
- 	unsigned long			range_addr_end;
-+	struct notifier_block		flush_nb;
- 
- 	struct ring_buffer_meta		*meta;
- 
-@@ -2521,6 +2524,16 @@ static void rb_free_cpu_buffer(struct ring_buffer_per_cpu *cpu_buffer)
- 	kfree(cpu_buffer);
- }
- 
-+/* Stop recording on a persistent buffer and flush cache if needed. */
-+static int rb_flush_buffer_cb(struct notifier_block *nb, unsigned long event, void *data)
-+{
-+	struct trace_buffer *buffer = container_of(nb, struct trace_buffer, flush_nb);
-+
-+	ring_buffer_record_off(buffer);
-+	arch_ring_buffer_flush_range(buffer->range_addr_start, buffer->range_addr_end);
-+	return NOTIFY_DONE;
-+}
-+
- static struct trace_buffer *alloc_buffer(unsigned long size, unsigned flags,
- 					 int order, unsigned long start,
- 					 unsigned long end,
-@@ -2651,6 +2664,12 @@ static struct trace_buffer *alloc_buffer(unsigned long size, unsigned flags,
- 
- 	mutex_init(&buffer->mutex);
- 
-+	/* Persistent ring buffer needs to flush cache before reboot. */
-+	if (start && end) {
-+		buffer->flush_nb.notifier_call = rb_flush_buffer_cb;
-+		atomic_notifier_chain_register(&panic_notifier_list, &buffer->flush_nb);
-+	}
-+
- 	return_ptr(buffer);
- 
-  fail_free_buffers:
-@@ -2749,6 +2768,9 @@ ring_buffer_free(struct trace_buffer *buffer)
- {
- 	int cpu;
- 
-+	if (buffer->range_addr_start && buffer->range_addr_end)
-+		atomic_notifier_chain_unregister(&panic_notifier_list, &buffer->flush_nb);
-+
- 	cpuhp_state_remove_instance(CPUHP_TRACE_RB_PREPARE, &buffer->node);
- 
- 	irq_work_sync(&buffer->irq_work.work);
-
+Yours,
+Linus Walleij
 
