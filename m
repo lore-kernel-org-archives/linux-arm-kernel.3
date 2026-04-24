@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCC4DFB44C4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 07:24:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ABFFFB44C5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 07:26:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sSxi7QicnJh3RVjnUrDAcHWVo9Pd42SQu6mr0xdkmu0=; b=JjyKwauh+L3EWW+aQ/pefWF4yz
-	UTMDcnGBj5/Ux8LrBglb40zFvy4/KtdnxcrG0cR6IuzUrOY0hhs526p5Nwj8wFiTcIgcYGMYS36H2
-	YeNx/xnkROpiBsNq2QKm46qZAms3Igiw9/f5Nvx4psFHp5i8S33Bb4dxygsF/loA80K9CWRX7X0Xy
-	PQy8q7dyy5YdqwK4bhm2lWr5toplFg0gTl8RMeL40BdcBuu46XPeM0YaXfMnqrCy6cFqUh9OZtvHI
-	p+bObPA9ZzdZ4rioMqse+rw8utS5NSj5g5diz/LIOBcC3OhNFD0LHwcHSp14/IY3Cge0NLJbskaOg
-	EefXj8fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iHXhgAVVuQdLQQvZLPXtNmgyqYZ7xrilDpR3AfuiRYU=; b=Zat3d118jCHBquXLFqYcOKWWhL
+	ycc/Wi8eOPtxVyTkar6xMtlVEw+P54nAHduNl5Qm7aNOld+zxCYVy86eqPLnRy8MuHHOlF/8o8IAI
+	K+h81hIaxPPGXOfmz3nQ7GtB5yfmUi80FaG0venCtnsimJugspHK4LytUJ76Ht7DUCMe+dJuGP1Zs
+	UiF/heQgmDSiKTelFXiMlLVDQ4XlE6hiENVPSv0iL1JFrUmviZnEUo1fwu4Ze71JXcLFP83cibbwU
+	Bmw+8wLwBd/l/M2sQZtGPIQNI3H+nNtna/wDeRVd0dreAqd2lp6ONYnzc2xXt3JWST7Yotex+dJBT
+	tvJSIoGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGAu8-0000000Co5n-1EUb;
-	Fri, 24 Apr 2026 07:24:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wGAvt-0000000CoEu-33H6;
+	Fri, 24 Apr 2026 07:26:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGAu7-0000000Co5g-1U6V
+	id 1wGAvq-0000000CoEO-2g6S
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 07:24:47 +0000
+	Fri, 24 Apr 2026 07:26:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6FCDF6001A;
-	Fri, 24 Apr 2026 07:24:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 207FFC19425;
-	Fri, 24 Apr 2026 07:24:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EB5C243C8B
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 07:26:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD6B4C2BCB7
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 07:26:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777015486;
-	bh=6mVWuteGVpQy8M878VFdWu6XkCt5gpyOdVPcDnaHa8s=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=sfxfy4wtCPyxDjviJPdNUMQ0DmV/qDZ05+48OVbM7hViSb6pq7JQkNHZHhS7T9YqN
-	 kYEvgoVakwXR0kwBU2v63u5Y04J9IWsmLukn3u6Su88OCwSTeLt7RzIv2EWaK6ImsT
-	 9423m0qMPrVJdbqqz6futIDiJWdQtOlQ6RZISFBzXdC6jdNMoZfw6WZcXPHR2jqP9+
-	 YZS0Zj49PmXVNv5/qdBbNw7kOSTU8ogLg+PDcvvK3+WOshPfCIqIDQSTszZL3fZDXv
-	 5wTxLDKNGhbuRaIRmkdowf/NuROQz4kidg19G4fbqn2iDxbmjvXgR97OnBFuhDbxFt
-	 f/MiYL6q75ONQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wGAu3-0000000EI9I-0fWL;
-	Fri, 24 Apr 2026 07:24:43 +0000
-Date: Fri, 24 Apr 2026 08:24:42 +0100
-Message-ID: <87jytwbz2d.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Yao Yuan <yaoyuan@linux.alibaba.com>
-Cc: kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH] KVM: arm64: Wake-up from WFI when iqrchip is in userspace
-In-Reply-To: <uhqgyol622go4lm5btbk4jyieb3swhskpkyel4mnksfeki2mo2@ecnjvxwiqcfw>
-References: <20260423163607.486345-1-maz@kernel.org>
-	<uhqgyol622go4lm5btbk4jyieb3swhskpkyel4mnksfeki2mo2@ecnjvxwiqcfw>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: yaoyuan@linux.alibaba.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1777015593;
+	bh=m3OnOKNjVkQfvjbC8vrwVb5oJK6foDK0Kguq8tXWdSo=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=e11Bde3dkLLbc0SCXq7yrsallptlVV4pT7hOvAZ9EQdzToIQzZv7oNhx6TJXA7DY/
+	 9QrcDG9bjBKqhxqUI/PPyJPHvSslG0BPu0KL6OnPNardT++2KXIgJ1LQJfXCmvwobN
+	 /r/vOHl+6hxWWFark0qRvXcTcCTukHcfYHfu/hbWFg3/HRhbloHfX/H4foY49ACqTL
+	 VvljpCWKZa7NnBa8FM87h/y+yJkEBTLGqoeHP8ZkqkrO2G9yD4V7AibjBa7N22rMab
+	 xcKyF/koJ4YpSigvP3ylBQ5Zch6sec+weo+rWWvZMAMszOFIwbYPHQW0mjqgD0Aehp
+	 OQ3tchQtpW/SQ==
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5a415fd6bceso8378388e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 00:26:33 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8eflLf4ANIDZXKgkDNr/HmsN4+CYERHos4SD0fA6p79HxDGBtL67ZB9KKwXH3vMv5oZrGMVf8bDwg3tIt4ZJGr@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfRAI604m2qz2DHPvSJ3hBj7jpY1aowUn1TGk8SR/QQRDwf5HC
+	G59FkE99gfnLnu7aZ8Fpij4M3sM6W+NFv7uzTCGrAaMfsK67fgT78jQ4QSoXijVimgspgk6/fzr
+	layGSphFEkdjI716vgerHhducKeDZeHs=
+X-Received: by 2002:a05:6512:3a86:b0:5a2:9b98:f280 with SMTP id
+ 2adb3069b0e04-5a4172ac06fmr10262099e87.22.1777015592508; Fri, 24 Apr 2026
+ 00:26:32 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260414-axiado-ax3000-sgpio-controller-v1-0-b5c7e4c2e69b@axiado.com>
+ <20260414-axiado-ax3000-sgpio-controller-v1-1-b5c7e4c2e69b@axiado.com>
+In-Reply-To: <20260414-axiado-ax3000-sgpio-controller-v1-1-b5c7e4c2e69b@axiado.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 24 Apr 2026 09:26:18 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=yc4rmNELLKUpreUqRbQ1Krg95C-o1xSrnD9Aicm4wgw@mail.gmail.com>
+X-Gm-Features: AQROBzCvj1UqvLHeNE2eWeWx72NKzjKr6xPICatDGA6Oq4KfxHHermVnTdGUct0
+Message-ID: <CAD++jL=yc4rmNELLKUpreUqRbQ1Krg95C-o1xSrnD9Aicm4wgw@mail.gmail.com>
+Subject: Re: [PATCH 1/3] dt-bindings: gpio: add Axiado SGPIO controller
+To: Petar Stepanovic <pstepanovic@axiado.com>
+Cc: Tzu-Hao Wei <twei@axiado.com>, Swark Yang <syang@axiado.com>, 
+	Prasad Bolisetty <pbolisetty@axiado.com>, Bartosz Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Harshit Shah <hshah@axiado.com>, SriNavmani A <srinavmani@axiado.com>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260424_002634_715726_8CC89A4E 
+X-CRM114-Status: GOOD (  18.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,64 +87,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 24 Apr 2026 07:33:02 +0100,
-Yao Yuan <yaoyuan@linux.alibaba.com> wrote:
-> 
-> On Thu, Apr 23, 2026 at 05:36:07PM +0800, Marc Zyngier wrote:
-> > It appears that there is nothing in the wake-up path that
-> > evaluates whether the in-kernel interrupts are pending unless
-> > we have a vgic.
-> >
-> > This means that the userspace irqchip support has been broken for
-> > about four years, and nobody noticed. It was also broken before
-> > as we wouldn't wake-up on a PMU interrupt, but hey, who cares...
-> >
-> > It is probably time to remove the feature altogether, because it
-> > was a terrible idea 10 years ago, and it still is.
-> >
-> > Fixes: b57de4ffd7c6d ("KVM: arm64: Simplify kvm_cpu_has_pending_timer()")
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > ---
-> >  arch/arm64/kvm/arm.c | 4 ++++
-> >  1 file changed, 4 insertions(+)
-> >
-> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> > index 176cbe8baad30..8bb2c7422cc8b 100644
-> > --- a/arch/arm64/kvm/arm.c
-> > +++ b/arch/arm64/kvm/arm.c
-> > @@ -824,6 +824,10 @@ int kvm_arch_vcpu_runnable(struct kvm_vcpu *v)
-> >  {
-> >  	bool irq_lines = *vcpu_hcr(v) & (HCR_VI | HCR_VF | HCR_VSE);
-> >
-> 
-> Hi Marc,
-> 
-> > +	irq_lines |= (!irqchip_in_kernel(v->kvm) &&
-> > +		      (kvm_timer_should_notify_user(v) ||
-> > +		       kvm_pmu_should_notify_user(v)));
-> 
-> How about a new helper like 'kvm_should_notify_us_irqchip()' ?
-> We can replace the same part at beginning of kvm_vcpu_exit_request() and
-> here w/ unlikely().
+Hi Petar,
 
-I'd rather not introduce a helper, for two reasons:
+thanks for your patch!
 
-- this needs to be backported all the way to 5.19, because that's how
-  far it has been broken. So keeping it small and localised is far
-  better than introducing a helper that will make the backport less
-  obvious.
+On Tue, Apr 14, 2026 at 3:49=E2=80=AFPM Petar Stepanovic <pstepanovic@axiad=
+o.com> wrote:
 
-- I have patches to remove the other calls to kvm_*_notify_user() as a
-  simplification of this utterly stupid feature.
+> Add device tree binding for the Axiado SGPIO controller.
+>
+> The SGPIO controller provides a serialized interface for
+> controlling multiple GPIO signals over a limited number of
+> physical lines. It supports configurable data direction and
+> interrupt handling.
+>
+> The binding describes the properties required to instantiate
+> the controller and register it as a GPIO provider.
+>
+> Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
 
-Finally, and while I agree that this could take an unlikely()
-qualifier, a much better course of action would be to have a separate
-patch that moves the qualifier to the predicate itself.
+(...)
 
-Thanks,
+> +description: |
+> +  The SGPIO controller provides a serialized interface for controlling
+> +  multiple GPIO signals over a limited number of physical lines.
+> +  It supports configurable data direction and interrupt handling.
 
-	M.
+This is pretty generic, can you write some details on how this happens?
 
--- 
-Jazz isn't dead. It just smells funny.
+> +  '#gpio-cells':
+> +    const: 2
+
+Are you sure you don't want to use 3 here instead and split the 128
+GPIOs into 4 "banks" second cell being the bank number?
+<&gpio 2 4>; ?
+
+Maybe this also solves the 512 GPIO by grouping the GPIOs into
+8 banks...?
+
+> +  '#interrupt-cells':
+> +    const: 2
+
+Same there.
+
+> +  design-variant:
+> +    description: SGPIO design variant size in bits (e.g. 128 or 512).
+> +    enum: [128, 512]
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+
+Just use two different compatible strings and infer the variant from
+that string instead.
+
+> +  ngpios:
+> +    description: The number of gpios this controller has.
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+
+Same here, certainly the 128 variant has 128 gpios and
+the 512 has 512 GPIOs? Just use the compatible string
+to infer this.
+
+> +  bus-frequency:
+> +    description: The SGPIO shift clock frequency in Hz.
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+
+Don't you want to use the clock bindings and a clk property
+for this?
+
+> +  apb-frequency:
+> +    description: The APB bus frequency in Hz.
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+
+Dito.
+
+> +  dout-init:
+> +    description: Initial values for the dout registers.
+> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> +    minItems: 4
+> +    maxItems: 4
+
+In:
+Documentation/devicetree/bindings/gpio/nxp,pcf8575.yaml
+
+you find:
+
+  lines-initial-states:
+    $ref: /schemas/types.yaml#/definitions/uint32
+    description:
+      Bitmask that specifies the initial state of each line.
+      When a bit is set to zero, the corresponding line will be initialized=
+ to
+      the input (pulled-up) state.
+      When the  bit is set to one, the line will be initialized to the
+      low-level output state.
+      If the property is not specified all lines will be initialized to the
+      input state.
+
+If this is what you want, use this standard binding instead.
+
+Yours,
+Linus Walleij
 
