@@ -4,94 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07C45FED3C9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 13:40:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27660FED3CC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 13:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rPjCFMFqi8QLuboc2zZPARuZC0PwzjGUIbdAh+rlNHU=; b=MrGxM0z7S+HwzvmSTYHSb5SgTo
-	/O3L387b1SiqElLBx98XBuRBPlVANIRUvve1W1+tmF0ol1M2GdluVZctFSKeC/ZemMvBTf8gnmO0x
-	bW1cVBLVsqEulfp7DcjdYpH9ZqoLzovPn9BZRzgBBudgbpYfHRUBMi2UkuG9Z3oUXJRzPww3xHuXU
-	09a2IGLtktAM0w2pwMRr6Pj+WPsyVucao5sjbuCj+KT8f7wOcbp+1lrT+BE9fzDapqw2jnUNPWYZf
-	SlSJ4UMGggrkjME/GUoTl5R/U6gcC5s6bWVDFBkTBrVCHjhpvBt6U85RnNMBiSMAFfjopcA4D7lZM
-	caLmSyNA==;
+	bh=qVITAiWvrW92i7MAbP6rXRmEbOpDAiwmF+Jd0SOVBOs=; b=y7X+D8zLAICGswXw9JFtWs/sdR
+	vs3+8hb+EjjuDOk6lyJ5HwQf1W2ozuU5tlYDfW3x5QQWoiaiu1NQMo1kZ3zHiuHQ8psiggL3XAGNh
+	iltqt0wwVnN/3QLLFxMuBl7CpGcTxOJ0PWu/nFi/WCJmSJY2pRSwdZynVTHHxEvB4v0OIG9xOddL0
+	eJF877MdUsDwwV74VORHDQMERv1oKFdMevB/VnO/GNyeLWWoNqXHsTXosELfi2a4Kueyo5YQFB+of
+	vW6goAdtDjXoXRC36AX7nxktiETGxwUu5bAc+/eL46XJEYbWZntxNdjMqvk4DDhOOalPuNH0rGM9r
+	S+VOHdSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGGlC-0000000DG40-0geB;
-	Fri, 24 Apr 2026 13:39:58 +0000
-Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
+	id 1wGGpq-0000000DGVx-3UtO;
+	Fri, 24 Apr 2026 13:44:46 +0000
+Received: from mail-ej1-f68.google.com ([209.85.218.68])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGGl9-0000000DG3e-2YjI
+	id 1wGGpn-0000000DGV7-3Xpp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 13:39:56 +0000
-Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-8ee7ffd738dso428145985a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 06:39:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1777037994; x=1777642794; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=rPjCFMFqi8QLuboc2zZPARuZC0PwzjGUIbdAh+rlNHU=;
-        b=TJmV6uIF6na8LWhBLqR6h+7HyYFrQB4kU3yzgSBExLufyR+E09oqfHdeO5WcIM1ZHE
-         TvYyo6y0G+hpz8WqWsRi/puOVAGVKeRV0RENrfluwB5QK/0qYnKrJy6rIovLB2xT10Wz
-         Pfoiq0h3zNllV3tImU93PfRryf6xmiCNSALiH/eUt4WMqydt9h3c1tE9seMfkrVM6w7F
-         bTNQLc+xuLeibeAKmEbkXIc9L8ZE9qvcffwZSTtAoMeXSMwTjQVM6mcYZNkrLCOe+/ZG
-         YoHx/A9tiKBuY/0j7QsVSAUAU5ynBiaoXxBQXI2CxoCd9C5rpVB0QdDDKVEgeS4D7fyI
-         4DGA==
+	Fri, 24 Apr 2026 13:44:45 +0000
+Received: by mail-ej1-f68.google.com with SMTP id a640c23a62f3a-ba699316b42so949302466b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 06:44:40 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777037994; x=1777642794;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rPjCFMFqi8QLuboc2zZPARuZC0PwzjGUIbdAh+rlNHU=;
-        b=Utnx49NYYvBavtLhPWVIMya8NShsDkfQ/K016yKr35uqGjm7EIcP6sDShLODMns63y
-         2SnNPGkP2mwhvPjih/iAKb/8d/U/fNKTIVEMvXPOg1DAEIH8hxH9Dz5mTql0rLnn94Tx
-         ZjGsvLRXblr8pPVEE8OCqcycJhoOHE6hwdsJ+ae2fkDeSv0sa2KyoeYX61auPJdOAU8T
-         bjTIaZhEtF3myML/5vPUf3Wj8/GPneeT+TX+ivbnkP4T629dFfKjWakWEyiGRIEFEOt9
-         0Q3gjSrV3IMwYbtevPYwWlyaAB1qzjQxlCrjCFIM+Hp5MBAfSiJ6MBP2QK4yl76KK2Kh
-         UVWA==
-X-Forwarded-Encrypted: i=1; AFNElJ/EDnJt6FwUAr5W+VbiYihQ1cX+fwMykL65Okpi5kU69qiKxiZnAEGD/pRdSbMmrkot5Pf20HtALjsmzokFxRBC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5HJ27gLgL0zOIR9GialszaOUzEuLunpGiktAkaIVBNP8VHUvY
-	W/p5aFM3O5g/iiDU0yn9MCGkJrg7rjs3Ctj1cwQe+/iNP10nvo5fyglquq7gvkRmi4I=
-X-Gm-Gg: AeBDietbQEIlPhqdLdJvUsHj7KTpSnYbEwiOslX1Ah4eQTw7YzVbFmAS2KCCZ1+dzYC
-	Ruqp8SC/mgFCGH/6ubPobbIxdxoQHZ2Vbsla7zT257fdQpnwoMekhWHj67fo4e09CvvGXQOxyTP
-	SfblenKr3tCgJjSvC9Dl0yo1KXr6jf5458cjhZdXfuy/XhvQkckVYmh8S4qJ/iEomLLYX2bZFCm
-	v7K0O1roh/rU+IfWrzb+PiJgIHEPnrdwMH2jUCeVO832j1iyBfInpHCB1dcinl2Hg8FssXwpwTw
-	/M5TugsYG32pqmNYFfpWA+nfDcZ3bpg/j+d6IQQE+B7G+p/xTOcW9d/2ZFTak0rbsxHylJ4RRNo
-	2+R/lY5FCqeL9X98WhblSTR+OqDsztmMf3hh0nDh9kXhZqFtTHMvGPiKXoz0kYl8ORfKHkgMVkk
-	wJCC6c56jpR62T9KPs7ANLxSQ/XnHxw46nhOnzDdkPSRGOwaLTNwqPpDpwNbRuFUM9TDg682yfJ
-	HvfhU+mC4k7TNO0
-X-Received: by 2002:a05:620a:40c1:b0:8cd:9281:6be9 with SMTP id af79cd13be357-8e78c5c256amr3549840385a.31.1777037994254;
-        Fri, 24 Apr 2026 06:39:54 -0700 (PDT)
-Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8e7d5fe9638sm1898047285a.1.2026.04.24.06.39.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Apr 2026 06:39:53 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wGGl7-00000002Yhv-0Ex0;
-	Fri, 24 Apr 2026 10:39:53 -0300
-Date: Fri, 24 Apr 2026 10:39:53 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Joonwon Kang <joonwonkang@google.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jpb@kernel.org,
-	nicolinc@nvidia.com, praan@google.com, kees@kernel.org,
-	amhetre@nvidia.com, Alexander.Grest@microsoft.com,
-	baolu.lu@linux.intel.com, smostafa@google.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RFC] iommu: Enable per-device SSID space for SVA
-Message-ID: <20260424133953.GY3611611@ziepe.ca>
-References: <20260424085339.3503582-1-joonwonkang@google.com>
+        d=1e100.net; s=20251104; t=1777038277; x=1777643077;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qVITAiWvrW92i7MAbP6rXRmEbOpDAiwmF+Jd0SOVBOs=;
+        b=KRQKuScsJWnqxgj3VDFkTkhjlfK+Ho+Qe7beiYur1MySJiWLKPyrRaOf48LNFyxfAX
+         znYPe+77GPuwJzEi17tJ/xbISw1gE1AFLcXoEc6fgfKAlVhWm4v1gKxGaOIB8AJp5QGf
+         M8hcDXPueOfrOxeDMqus4A/UAfhjb87tb0ZTbq7SJRbbtOrU231z6X8IetUBME0C0Jt3
+         4OgB2d3ZfdOpwnTlM4VrFqBR8zppDaFv9SAwJJiR6tdB9JinaXGw0lDdTmDTD5I+VbGm
+         YOJR4EsvX3Rt76owd3pmdD/rmdo65yKCIqLut/RB8XrauVhU8oUrHyA2/U/ExXl00H8A
+         BMcw==
+X-Gm-Message-State: AOJu0Ywvp1oaLG+8zEbviSjkaSyk8gn7qgKW+BvLAatNxgPQF9ytqp1e
+	pu/AQcOgdkuEJZZUJrfKNl+aiN44KtomX42YOB9w91PcbmC5t+bjHc5XCROPr0uCgej+nw==
+X-Gm-Gg: AeBDieu4nNj/4eeZ4wyEI14z8cUvOOV/PcFPqD2BdxwSPEuubTUMyaK3dPfhJgVf5Mi
+	L/3MFdk6NAfwTEzcDi0ogLCM3yLr5xsS3HbM1SOLPCa6aQt+gHx/4XPMJfztKzFU3n9Aj7VVOOU
+	Krh8lPHKXcHbrZyJegFon4PaV7R21zc88IpENglxt0j/q5zwitIcGKXqjVX5gU3zWBxypfbn64i
+	Z8F/QWglrsMcUY4tC3qhXyNouJGw5E6ZfXaApngdXby1jzi0w1TyaI7bTWf5OeBpBlybwZ5swcS
+	ZOqWtST0I+njTtDLwKX3DqIsnp2RM9V6DMZSwv6958oFOKOFizztCPK6/lJ61yGCS0kvriZ242e
+	2HcxIf66Rt6GAeDjM4UZK0KIV3xM/V0DvZF8QHLi9UyIDIux5mdOAq0H6v01WmqsOEJxP32yCdR
+	itev9TjKxrIhYvo7//yW+YfUhRC3hRhO0jlVVuQLCmYeRO8+GOYUZU/9ix+FGHxqOvslkNODY=
+X-Received: by 2002:a17:907:2d09:b0:bad:6134:7125 with SMTP id a640c23a62f3a-bad61347395mr228150566b.38.1777038274497;
+        Fri, 24 Apr 2026 06:44:34 -0700 (PDT)
+Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com. [209.85.218.52])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-672c4d5d8f9sm4774871a12.25.2026.04.24.06.44.34
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 24 Apr 2026 06:44:34 -0700 (PDT)
+Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-ba699316b42so949293566b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 06:44:34 -0700 (PDT)
+X-Received: by 2002:a17:907:9308:b0:ba7:34cb:388b with SMTP id
+ a640c23a62f3a-ba734cb3cd2mr1213880966b.42.1777038273933; Fri, 24 Apr 2026
+ 06:44:33 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260424085339.3503582-1-joonwonkang@google.com>
+References: <20260422233744.149872-1-marek.vasut+renesas@mailbox.org> <20260422233744.149872-2-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260422233744.149872-2-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 24 Apr 2026 15:44:19 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUoiAagA16Cg08vTzOzC2Lx_PAZd0K7rggEsxBgZ0NMdw@mail.gmail.com>
+X-Gm-Features: AQROBzBA7dqZ2ppfvOSrUp0QRX1PbdziYnEq3L5TnWuwS1i-ktuGiob_NjXbKkQ
+Message-ID: <CAMuHMdUoiAagA16Cg08vTzOzC2Lx_PAZd0K7rggEsxBgZ0NMdw@mail.gmail.com>
+Subject: Re: [PATCH v3 1/4] dt-bindings: clock: renesas,cpg-clocks: Document
+ ZT/ZTR trace clock on R-Mobile A1
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Magnus Damm <magnus.damm@gmail.com>, Michael Turquette <mturquette@baylibre.com>, 
+	Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_063955_658715_3135608F 
-X-CRM114-Status: GOOD (  14.73  )
+X-CRM114-CacheID: sfid-20260424_064444_382907_0B14724E 
+X-CRM114-Status: GOOD (  18.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,39 +98,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 24, 2026 at 08:53:39AM +0000, Joonwon Kang wrote:
-> For SVA, the IOMMU core always allocates PASID from the global PASID
-> space. The use of this global PASID space comes from the limitation of
-> the ENQCMD instruction in Intel CPUs that it fetches its PASID operand
-> from IA32_PASID, which is per-task.
+On Thu, 23 Apr 2026 at 01:38, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> Document ZT trace bus and ZTR trace clock on the R-Mobile A1.
+> These clock supply the coresight tracing modules, PTM, TPIU,
+> ETB and replicator. Without these clock, the coresight tracing
+> can not be operated. While this does change the ABI, it does so
+> by extending the existing clock-output-names, therefore if an
+> old software is used with new DT, the coresight tracing parts
+> will likely fail to probe, otherwise if new software is used
+> with an old DT, there is no impact.
+>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-That's right, and all the iommu drivers should have no issue with
-per-device pasid or they are not following the API contract..  I
-believe that has been taking care of already.
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue for v7.2 in a branch shared by clock and DTS.
 
-So, I don't think this is an iommu driver capability.
+Gr{oetje,eeting}s,
 
-Instead, you have to decide if the PASID is per device or not based on
-if the system will use ENQCMD or any similar instruction.  I
-understand ARM has introduced a similar instruction.
+                        Geert
 
-So you may be better off with some kind of 'arch has enqcmd like
-instruction' to control this instead of involving the iommu driver.
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-> - The device is not a PCIe device.
-> - The device is to use SVA.
-> - The supported SSID/PASID space is very small for the device; only 1 to
->   3 SSIDs are supported.
-
-Yuk
-
-> With this setup, when other modules have allocated all the PASIDs that
-> our device is expected to use from the global PASID space via APIs like
-> iommu_alloc_global_pasid() or iommu_sva_bind_device(), SVA binding to
-> our device fails due to the lack of available PASIDs.
-
-So you have multiple SVA using devices as well? Or multiple instances
-of the same device?
-
-Jason
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
