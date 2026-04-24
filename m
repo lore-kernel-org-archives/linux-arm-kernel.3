@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06AE8FED3F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 17:06:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46801FED3F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 17:09:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fwz+LQEDvhax0/Etk5/FnQP3mlusTw3Lbx69SBFO2xw=; b=lVf7eMP1/BwKBsCIIlCqubPRt/
-	hmqERCZUORWTLufWOrMu3s4QsAtjF7dyOqBeUzv/SKz9xtmE1A0UPY4A9WLwoJt8c21d4k7HZQ3gw
-	M9VjkzUYwjojirUX4p++xlb4C1iTfNwJO2gBQhKPRwCjQwhYSgDbHgtconzOAPTiDVh3i+hm5v4sa
-	s3UrRzp6vGwAdK+ysx1LDmpcuEuC1hl9XZT0NL0WoMJbv1BmITkPvOw8u403XfWlz6PuIpqUU5gn9
-	2FUqWOITDY/L7oEYjcC2NB2NdmYizdP3WPaoopENFNbcH2VglfTNHYyzivE7pFHAxCmLwGnsw4/d4
-	sHvvt+oA==;
+	bh=Jf5eRC+3hkPXLe9spFMB3uryYrD4+VVs7GGxsuqeMj4=; b=SnT5f0qj9ppTPfOUOjNrLx1Gr2
+	J7Pu7leBBNAsuBcOl3RbCVSf8etLx6YQyIzUnRT7LBxY5Y1U4O+0s6aq7RnZjs2+eM5p+1nR79r+8
+	yhv0271J3DLe7VbLOCyG7ts84DFMinD0qQ6EomkGhX8YFGrVGMRX+SfElTDwwzmPWa8Y919h+QCap
+	t8ilUG15Yy/ta0ReV5cPghgN7ZBay3/YaD/s7JKDGGl0c8loAZKKue71D0nCDjneqo1hH6pFxTl2X
+	gR8L7MgXenr334P521Ty75xhwn64rd+LCUrjPFxVUYui6MThlKmg+hs4sFTmUv43VGvR8tj3XOSvE
+	VzvEYkuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJyz-0000000DZcG-2j4J;
-	Fri, 24 Apr 2026 17:06:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wGK1d-0000000DZoP-0npA;
+	Fri, 24 Apr 2026 17:09:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJyy-0000000DZcA-1VPS
+	id 1wGK1a-0000000DZo1-3BwP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 17:06:24 +0000
+	Fri, 24 Apr 2026 17:09:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CB158600CB;
-	Fri, 24 Apr 2026 17:06:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36EAFC2BCB2;
-	Fri, 24 Apr 2026 17:06:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6417340716;
+	Fri, 24 Apr 2026 17:09:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D475C19425;
+	Fri, 24 Apr 2026 17:09:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777050383;
-	bh=xCE79Wvi8Mkp+ZGDctaw2DzfjgrYbScCrXQDDCMokJA=;
+	s=k20201202; t=1777050546;
+	bh=Jf5eRC+3hkPXLe9spFMB3uryYrD4+VVs7GGxsuqeMj4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=soS8YKrqJfBO4XBWAY/r3mngcqtyBkbOm8Ya3Dw6bovRKTuOlbOKpmFdFqTA4EhkC
-	 Q2hn+QQD8fqQwASYJb94Fkf8BPk2sYBXuPW0Vj/3xVdAs1OUii1XE/NRBRHAkPWUMK
-	 moriP1FVBiXjoiD8txVJ3H1nnoUharRuugzbvcdOSIBlPiPfyFZRWp1U3r0N1OEZe6
-	 7LnXlI3tyzqrRLYC6aY36nGLdPOFsn2McuvsBW+ahjgMbgsB4Yu8J5LyeU6ixWMcEe
-	 RiEij5Wajx0XvZE5elE8qSGz7+cJIXmaAL9fuOGkP0bWGFw0d30q6I5ONPPBh09vS0
-	 johWnH51n3CAw==
-Date: Fri, 24 Apr 2026 18:06:18 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	bhelgaas@google.com, frank.li@nxp.com, l.stach@pengutronix.de,
-	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 1/3] dt-bindings: PCI: imx6q-pcie: Add intr, aer and
- pme interrupts
-Message-ID: <20260424-sinless-unfiled-d1087a894da5@spud>
-References: <20260424025735.1490772-1-hongxing.zhu@nxp.com>
- <20260424025735.1490772-2-hongxing.zhu@nxp.com>
+	b=tfb1S2958mVyEkFt1mafWUZ0kVRVwKN7mJKUQLl6vJbmyK4oQRSrK12fXqEHePOIq
+	 8K6JArXVW2Zj3O3UP+YoVtW45pZID3HXQSlXnHXY5tPyKn2RV/98MmjIOlO8LERJZ0
+	 rO/BNxRgtrki1SwfVald0GZ9h7TkvT+/ShqmWZ9uUkdkAQxNH51bFx0ex2iXTznyF3
+	 H1TlVKEYZZahL0BW0evQG0JEczsyIULn7pDLg5VCTxdjNKMWgus4GFcFY9MRx4JH3i
+	 ETCL97Wi47BJj4/pOv7juf+BlfqDura2fSCZEww8nNG3Pt7Wwuz1Mgly9+1gJWU5no
+	 hhIxjioDgrAsw==
+Date: Fri, 24 Apr 2026 18:09:01 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Leo Yan <leo.yan@arm.com>, Will Deacon <will@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] kselftest/arm64: Fix build failure with GCC-15
+Message-ID: <b94bce09-69d5-4454-b4a0-81612f286f0a@sirena.org.uk>
+References: <20260422-selftests_arm64_gcc15-v2-1-c0134de8838a@arm.com>
+ <aeuRfEeOUWEHzPix@arm.com>
+ <63409143-f4eb-48c3-89de-1aef4fb57381@sirena.org.uk>
+ <aeud4Hqxq4PNitMc@arm.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="H0L8i4gwKKUpxCZw"
+	protocol="application/pgp-signature"; boundary="VjQb+OJ8kMEE1O8V"
 Content-Disposition: inline
-In-Reply-To: <20260424025735.1490772-2-hongxing.zhu@nxp.com>
+In-Reply-To: <aeud4Hqxq4PNitMc@arm.com>
+X-Cookie: 1 bulls, 3 cows.
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260424_100906_816822_51ACDB09 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,65 +80,38 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---H0L8i4gwKKUpxCZw
+--VjQb+OJ8kMEE1O8V
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Fri, Apr 24, 2026 at 10:57:33AM +0800, Richard Zhu wrote:
-> Add optional 'intr', 'aer', and 'pme' interrupt entries to the i.MX6Q
-> PCIe binding to support PCIe event-based interrupts for general
-> controller events, Advanced Error Reporting, and Power Management Events
-> respectively.
->=20
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> ---
+On Fri, Apr 24, 2026 at 05:44:16PM +0100, Catalin Marinas wrote:
 
-This binding supports lots of devices. Do they all have these additional
-interrupts?
+> OK, so it does look like it picks the kernel uapi/asm/ptrace.h. It
+> builds fine on Debian stable (no GCS anywhere) with including
+> asm/ptrace.h and removing struct user_gcs.
 
->  Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml | 6 ++++++
->  1 file changed, 6 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml b/=
-Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> index 9d1349855b422..badc7fcbd556c 100644
-> --- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> +++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> @@ -58,12 +58,18 @@ properties:
->      items:
->        - description: builtin MSI controller.
->        - description: builtin DMA controller.
-> +      - description: PCIe event interrupt.
-> +      - description: builtin AER SPI standalone interrupter line.
-> +      - description: builtin PME SPI standalone interrupter line.
-> =20
->    interrupt-names:
->      minItems: 1
->      items:
->        - const: msi
->        - const: dma
-> +      - const: intr
-> +      - const: aer
-> +      - const: pme
-> =20
->    reset-gpio:
->      description: Should specify the GPIO for controlling the PCI bus dev=
-ice
-> --=20
-> 2.37.1
->=20
+> But I think we should include asm/ptrace.h in libc-gcs.h and not the
+> gcs-util.h header (for NT_ARM_GCS it's fine to keep in gcs-util.h).
 
---H0L8i4gwKKUpxCZw
+It's not glibc specific so it seems reasonable to keep it in gcs-util.h,
+even though we don't currently have any nolibc stuff that uses ptrace.
+That said this isn't particularly strongly held opinion so I don't
+*really* mind either way.
+
+--VjQb+OJ8kMEE1O8V
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaeujCQAKCRB4tDGHoIJi
-0sbBAP9Y8BcAd/MDAAh/RMkRDbsa5ilgaKCx0jwcHj/+rWm2twD+N71s+zgqihzj
-hrfWyfc3pLzNgNi0wFP5B7kAHGteAg8=
-=fyjc
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnro60ACgkQJNaLcl1U
+h9DvmQf9Hl6f4XgZtvRirHt/yJ8iddnSzTd4OQv+Zs3n2ozcevp7y3izjmDagx/K
+czNCAe0Halgs1SEIbgXSyvXYQQ4GcgcMNVohwP3tZYQka9YmKCqxgEOttLXe2yzh
+Rbb3NDYLtdMdDMu02NGmD3jl7WvZojy5V8+McZyMqdHkUwHewLeQH3H6t7JaMPe9
+r5mVnyCz3k/3ifer/jcvOneHlltIXPWzdhVOxYLP/Vvu4SkmTMCbXWuYNRUeKy8C
+U3OHUi4CHvRVXtanIBQgeWhDxGkSk9GWtABiZxQrXs/nJ+WzrkH0TWpTnQbOaU07
+AClEmEae7Aty1eX3k6gmaydJIPYhdQ==
+=6Uel
 -----END PGP SIGNATURE-----
 
---H0L8i4gwKKUpxCZw--
+--VjQb+OJ8kMEE1O8V--
 
