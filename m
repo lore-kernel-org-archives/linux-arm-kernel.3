@@ -4,84 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D8A3FED3EA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 16:32:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 669F8FED3EF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 16:39:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BDEjbVVl1ff5ED1Bk2gEgsnejGfs78MMe9T0/Hg5ck8=; b=pCi9MbCNHVmnEaQ3mw/m4i7cox
-	sNaLUxkNoYX+kuUkIkgwCxSkIW4eHHQztF925r1cLIwyvbV5wh5KVzRAg5bzpZWDiLu0yHPQusd/2
-	Xfe5gx5iyhzw46MwS+aqgVY+yOipJ7rXThAGU5jr4EwcMFvQgme3laZv3HbvA74q63qKAGN0iw4r1
-	pPDcSo5xmJHW96RsgUp08W2BZJqKaUunrbxxL3l0zSwOv4LQv62Idk5/puuWrCTvk93D4RtGviElC
-	0/cY0V1b0kC1HqkpGmRZ+FMP/r/PC//3cJUSt9j0hK2S7Uz08YpfAWTti1vnlkF38/6UFIrxxy4fG
-	R/Sdudfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=baVqOWXW0W679wCWJSOseh6T7DFu4rt5dV7U28qjPJU=; b=mDjN86ywlrL5aE4NpbiuPQJDu2
+	84p4OowkgD3OAFpV4BDIedPmQtAmkQbY1DRifiBrPIPtB8Zhoo31Cti/qNS25e2XRf57dWGVHP0j3
+	1UpB94htjehVBJ0g4Ty8POUwnBarxBZMuDjdKlVZPSrpzXpKrnVOxLaUm79iox7jHffWe1AOwSEcc
+	iTXSQbK/LYOrwJOAOI7TjY1mibMa0jRZGlyLZxjjcMOQgzu/URp+BLnL46suUMf9asDd9TCs5u+Vu
+	BZ6QYR+eKo8D/JsTpUxGrYV6S5LQOzIb1t0013oZg4Ijin/g680qf4XoLG1PurbRDKANQ0XN5Y1mT
+	E5u41l/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJSP-0000000DSGf-3cA5;
-	Fri, 24 Apr 2026 16:32:45 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1wGJYs-0000000DSYo-08Lv;
+	Fri, 24 Apr 2026 16:39:26 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJSM-0000000DSGI-0n8j;
-	Fri, 24 Apr 2026 16:32:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1777048350; x=1777653150; i=wahrenst@gmx.net;
-	bh=BDEjbVVl1ff5ED1Bk2gEgsnejGfs78MMe9T0/Hg5ck8=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:From:Subject:To:
-	 Cc:References:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=Qtoux4nIvUIzuaZTbR7W4OPb5dUJwOHzNrtg9sB4zIkm8oowuirER9shZFxu09ol
-	 cl0GrvMzkIIvfLZ9ISv2LawDWJ3Txn4cXp0754T4g9lgUt2hl5bftqWEqNEw+PimG
-	 gNcOAJfSsiqP3nq/vOjG3KQWVfMUGX4T6rrKRbdXP4wSSPFvg3cAt1o2c+3TNsnz7
-	 PC1DdXrIz0wBxTwJyKvewUUHQCF//U6ZMxqzvcE14lfgK+O77j6Y923oGoQ/YVo4Z
-	 d9yVtrIVilYkb9lmb0jrsa+HsLn1QAJ3vdA8AoHWM6A3CYFEMctWBcXO1pIyDbcQi
-	 m9pw2TZXv5WyVmkaMQ==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MiJZO-1vlue33Igw-00lfQs; Fri, 24
- Apr 2026 18:32:29 +0200
-Message-ID: <f62423b3-64ce-407e-b0de-c27713c84bd3@gmx.net>
-Date: Fri, 24 Apr 2026 18:32:25 +0200
+	id 1wGJYp-0000000DSXk-2Xa5
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Apr 2026 16:39:24 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-50faeb8317bso42884641cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 09:39:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1777048762; x=1777653562; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=baVqOWXW0W679wCWJSOseh6T7DFu4rt5dV7U28qjPJU=;
+        b=FHKnMG8KFpfOTdh90xDdwAvDsaWz3pssBg3MynC8MaapRE86TJu6JufngGhnaPn4LB
+         30wJc1QBhbQJ4ah5sy9VMaAhHPA6CXrDuJx0TIBGhfx5ETeQGLOhcjlJXlLfGltM/h2C
+         wmnmUIDqLQ9HYJMxXi1G3j/l2clMitKEX36hIgvo46/hDZTo+cpWNTjMTGGdF45sDQkm
+         ipJMphzx3t2envdc1iNJTEBjVRkiOiEFDj7R7eVJoNvG40vvyHUxr4uZ2pSbcom6BFcP
+         Dextrx+GMrzcUuKvVG5AyXUI33+qGJW8XZhpVwr7yGA+aALNZTr30ycnlviyOCtQL3q3
+         +JpQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777048762; x=1777653562;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=baVqOWXW0W679wCWJSOseh6T7DFu4rt5dV7U28qjPJU=;
+        b=kr4qtJctCXBDzI6/xYjrCoeqWDbnO3HLOmY5oxnYHJDke3THLjPMBbROtvqKGhIf6Z
+         x0x7hbOfxVmSFrNjqp2DL+0SFvLqeHr+sWQiVyZ8h/6cs2wrE737AoDyeK5H+auwdbVO
+         0mGm4N8nUhcbpwX6JXSSeN4F63bD/K+qmnp+pEqVQ+Z6snN7v82cKAwQRxwlVdX7hLZP
+         X+LSX3KmR2KRw6KNBqoGElLOck2kGpiVOcVmbKMux6jjcHGTFytiLPioVEFVA4tvWf+g
+         PaVCSFTewbYcJjpNVflRYrXbM2f5kuwlNmTDq3+Oy2UsrPX4Lnn+XYQ8AknucxkhbpRh
+         GtbA==
+X-Forwarded-Encrypted: i=1; AFNElJ+pALLjpr7cqElWn+5KFAu2vz3Kxxn8quT5JxdyGBrtYCcjWtoWMZhLQKjIKilUuTLeWev0fYZCEXuae9+8p5Rk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8PnLHuw+uH9f9yz300EMUbkzlXS+axenDeH5CEXeExK58rJFu
+	aDJAWeicc6Ja3jfAGA7laqlY6kEozn8owjn65lwM5BsF36TaWQFd5zv6gxc9KScIdwo=
+X-Gm-Gg: AeBDievXVsZnZV2JzUFln44RcCidSBqECPHMDhuUtVD2o1Sh8f7LPwS2tjQ+QRBSI1n
+	vwAL6R9Om3X4SCvC9r2gr7TXAANVa+/sBBMy6lA/vUKQfRa8psuOCemRIwFQVZvy+UgHU420VSg
+	qOshcu8Q96QuAE2j/bZ58EZXJu54mcOvglwVo1Gi6h5u/qSOMLbJ8hHVlQgARGJbt7RI9B1WjZr
+	RJM26oyoREzsRnn8ub7uBFu/d5JcgyCTJZm5uufoGe6GeTyyTcJ+LJwzrIXqG/W4+58BXl2/idm
+	WnwnL8Bjfjn2sIWgVFIjeJq6vrITz51A9mlvc3SbfuLTU73Pb3UO3D34YqmVfKvU/tNNOzWJYfv
+	+GIXYrPjD32szAio03/oI0gNE52zAZZIdxRX33svvbsS6t0J6pqEOrVsYVOJ1sKq4dgbheW0Udi
+	Om3nPJIJnum8QQRPRKiEe6hA6S73srAwJS4IWcuc4kIFYx1+Pd7MgZnyp6H8wCSUFdkrzs3j4py
+	thFHUN0zlqBjDhJ6PAhIl65/xI=
+X-Received: by 2002:a05:622a:4187:b0:50b:37a1:a012 with SMTP id d75a77b69052e-50e36c419bcmr479897421cf.41.1777048762005;
+        Fri, 24 Apr 2026 09:39:22 -0700 (PDT)
+Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8b02ae7fef0sm182965026d6.38.2026.04.24.09.39.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Apr 2026 09:39:21 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wGJYn-00000003KVv-09ty;
+	Fri, 24 Apr 2026 13:39:21 -0300
+Date: Fri, 24 Apr 2026 13:39:21 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Will Deacon <will@kernel.org>
+Cc: Evangelos Petrongonas <epetron@amazon.de>,
+	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Pranjal Shrivastava <praan@google.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, nh-open-source@amazon.com,
+	Zeev Zilberman <zeev@amazon.com>
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow disabling Stage 1 translation
+Message-ID: <20260424163921.GG3611611@ziepe.ca>
+References: <20260422064431.GA49867@dev-dsk-epetron-1c-1d4d9719.eu-west-1.amazon.com>
+ <20260422162351.GK3611611@ziepe.ca>
+ <aenp6FHzx9rtUQkZ@willie-the-truck>
+ <aenqxasLJ8yKYqbT@willie-the-truck>
+ <20260423142326.GP3611611@ziepe.ca>
+ <aepRy7Gp7Ng85Zr7@willie-the-truck>
+ <20260423223716.GS3611611@ziepe.ca>
+ <aeuJQW8bGLY-O_vv@willie-the-truck>
+ <20260424154256.GF3611611@ziepe.ca>
+ <aeuT1-TB6dOT5ZQ2@willie-the-truck>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Stefan Wahren <wahrenst@gmx.net>
-Subject: Re: [PATCH] clk: bcm: rpi: Mark VEC clock as CLK_IGNORE_UNUSED
-To: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Mark Brown <broonie@kernel.org>,
- Maxime Ripard <mripard@kernel.org>, Dom Cobley <popcornmix@gmail.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, kernel-dev@igalia.com
-References: <20260401111416.562279-2-mcanal@igalia.com>
-Content-Language: en-US
-In-Reply-To: <20260401111416.562279-2-mcanal@igalia.com>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:bjls0Xgf8My+Rd62Rd8NYM40e7p9b+YL01PlLoAQRN+j4tImchA
- HKYQMMi3PT8E+/tRZHwmOHy2IdTyZZ8UKYNvzYVjrXRXdiVRicLj2AIDU47CWgnw2I1MnL7
- WpQIHJnpHzIgidTQaPFZTli5udXxO03id7LGlZNpFYcM4afT26r0HtWvcAfvxjfNrW5x/17
- Yw3hD4dSzYK/FMP71rGww==
-UI-OutboundReport: notjunk:1;M01:P0:9PIQFVN4LCI=;a9u4yxNLOGVv7dd0IETZVnOuJSZ PMrwt/1gycDxf7h7+bw5wJyQoiS24Oh1bO/ebKUo0E4XFFyN+cMgCYgz3ZEd7cpcxUa/X8kGq HyuIxkfuB7Kd2LmSqbmhOldqtnUIAR1jQ9YHIFEuFCq26Yux5eWmk3PxuyFzg9ItOrW2OdMH0 lSg2feLkURj/cBi3GSbyaFHDX0N7+527IVtMWoWbUL3zbUSHUudWOORclrrgEM/MfkalVsHHs V/CO9/xYfPi3f7tOAlg4WVFP82uQ4kTPnPCUNxq1V+fRhWL+AXIj537DLbqwRS+eW9DCpZd+r XCxp9suZV3Tsxh3QpSas1gyAndwCWuJTbyUv0Z+gxC5onWTOVtqjolqoAF/Rqo3suv5V2n5rM J1kOHcmzbwIjw+UETlTsrNLxg0Fimns5PhpCN8it15niHAGw55fkNFGK1Bg2vUx//9N5V+2bK OIOv4J19muOBc3dSAikMVzlgJ+gWGhdzMpotf9nmq+lpnAJQkdhMurF3p+0XIUREm6btXRT94 YoATzXUWryq/VyzyBeNc3Z316Z6RiEJu0+Z50trVmP+72Z9EnkFAqU1MKOevjoC0BNcpsnwUX 1ToCCir4x/mzzmqI46yOcWAmXZbyyemplLHRrj2ydDd5GC5QrIKYwUIapBVoMcMNJgWOlejMM It5WdINWHvx+8N4XoecU6Dv2MIHDREAI/LVykMZbsaqc654AcfUbh2WfbwQGSU5WnZnDuMqb9 cemxIl8NSCF/iYlQcyDjzrSfCwPHPpHJQ6hkqJym4bYQetbCeS1YZOLD1GHSJyNEOmTTS5T+/ wQvt1yg3sKin3ZA7B51Eol6a+CNU8u+PpoHP4Dtzl2ac3m7dJHxPnxsqmaBjX7u4T+Z0TUi+B FCkPjx98qxjpxjxqBzIJBsE8s6bgXMhbPLx6B854HNde2lVoeInzHwdeQc9TSw2FdBbAa0kgS p97CmaPvQZo6tex4KSQQi+UBmS0i8hTrwk36K2WRwIP37tKQcuhb0tRaCBoWt6dvpV6tliCpC zS3BPRqX428ZUeNRKur942XNwJ8rSXE82d9QzL3kQ7S4nE1G4OgPILs78K4DGX8FCEvhEWnAG bUSUpxhKM78OgwO6i0k4awUYrBrEmDo4JrLxsobYCVNJWiV1V/EVxK6XPhtZBzFL3zRjRZHDg FS0O9mfYfTqRBWVrQB9mRIJyZTibqdqr5uYE9qJuBTn+fuCwU7KB+Ho7frP/NlfHqTsakzAs8 hP5nyiCzEIoAkL7o7t/a3BQRqB7uQ7jxD1B2YYREi37zNs4O/smlaLvl6Y1O2xQMxMT6XRbwu J7IjXufNPMwkcAxE/MX+teOtAavLUHh7iLk4GOvRHtDezz1Qr61PKqYLoiIdI9FhXEo9hYbjK 2kxs9Zrry+SkgcuRm7KcgfG8X6BMBoRR/3B7esD8dIPnCCNGst5xID7lBB6+wwZkf+v/XyQeo E7mj0Fh4FG0t3ewwzZcy7pOMuSbXcXnkGuQX5FVUSO2xGdF3P09X20/C06A7o2jinMSDBepU4 wem8k3fOaOfNTosZkoK883iT3QILoOL16g6/M+d8LJXqyPGxzcksLOsGRCWkZDZ/bLkGpHyRm /3pQD08l/cLfWjO/R2HxbfwEXBSTP/TkdYbVMyp+CuLq8DyuwYJOn3OZYmhPYsET1bbdXOOx8 kG3yO+67k2/yEFaUh+8/bA+q/lHiTyEKcJBHo5kHmyqHAaQNmANAvKwCV03ky/xG4QUruOVUG rDGBl/d00wfmR4DmkSP3oHee+0UK6vuH6b2l38mEdlggaBjYU2nkebF8m/DCMun9yFBakBcuV bmhoWvPPGcW5kpixk7ruKUyVeiQEyNlT1IZ/j0bplZFYe+6FTbZCRbR3W+DOVVguFfYWR4F1B c8cK6oRgkex/MGAVe7H9iCnznwPpf6wDCvIbeoe96N3I780asFp3p9ppbeSat7pCYPDNddteX pVzqcwyApiw4AT51oIU3MhqJUF0RLav6PTo8LUxZAsP/pL8yXUoxM+wkpHKjlRa3KXJRTRbqf ZbcXIRgc5hYHIUF/SRl5LPPTdJI/0o+iS9lgbPiDmnE2D6rJ2+6EfDUdSRFe1FGZ3k4iXYb2G pQRyz9P0KG8ze18SNSdjALF4tL5i/wtNXg4zxC91Q72BRzQLK2QPQauMqXyL914rNR4LScBJ/ Mo+7dMgDF7LX++Bk4LWXOp8O132FzcU/JHVJ8Gn1keL/Zfz57FVDdXl5lcA3eJa3Ks9wwoxm1 ZOFa6YaVZHF2JardCsKHV1/1EWr35fmG0F1LZj+FRtHk1jqljOQb/MZ/DB2Av23HZd0m6Rs0i 42rZGsBlWCZmPpc5B4z8uGwQcHpiKIWLg8S9yEJWfRwPRM3okEDSdEvBatjn7owkK1UhMPvsT 89+vxxZc1bkMdESQ+LTbU2esntgtL6+fuCsYN6fPciJBvcxaK2ZsggufS/MfFbjPKGOkhyuzu Euee1+ZgIQzyFwAdHJvGi00raChhUSdlXHcWGqN7zkWOnTGF6hs9UyDBqcRTS+U5jzIgO4/oz 7H5q5zmrTWwQpGkHxrE6Djy9dRcFGXRClWkLC7iDPf/H2dUGPz8SJuQVIbXbI/JXBbCvLZ5+c TPSeBkKJBknUyzNgJSqxRN1PwM2A2ATGUObTY+cTGM8B7nBccWuzAXXNRdu8T7Q2sdBMFhrSh 5yTneaw0yphepj9pjwYvBG1+SpInbe/g/+OnLGFR1FYT0XF77KD3YM3xh5iPnGaaZC8tgfdtT vq26mGR3WTEvUcUc+tpfHrlfiGPtOiYpTS/A8fQSiVK6vN8e/2SATi+YWhFWQNwl5AH2KfXD0 z0a5BTbD8+RmGxfFSw3GgF6//ZbEtnf0cMgQXlGoSYBFV7f4KIyPSCvE7pwXm/TkGr8GYN5YC D9Ys/sWSRS3TzRL+2sujqxukz7YNBAudIYwvnB11IXbpa5FyZt/0RSOPgpJxjMbW18onqBJvJ njK2FAv2iK5UNhOlesjgaVio8e8Lj7y3t3aJJq01XYVxzQtCGBuuvl/lrKgPiexvwj2h77Iob b+GdvMQYOHQ+QmuYTizjs8j9I8ewdbBjfqDvJR9PCsygGodlC78Wk1AkNMYQICoAOFqEw+kH+ 50XzZY6SDd89BU7xG1WsUR6p8umhdfWyB0PclUwTIDD5gLQlEBJ1TfMoPafiklgzzHinpGx47 JP/ZyTz9bh4zImXkwNnvsQx/H1CKvrbN7i/DZOFO+SiXA2I84zjifxPR7tnr5VUrHvvuJwauN jy3SRGdA73G/YQamcSRAlYLXwdNYeMaJPkx59F/D6NOBZgYKxwuKknBKMWdUawK2sZ/zeO7WR 4iaysP5gGkrx399c7lVDwckVFb8+FgqXS9qVym8eSFJwELGc9BPZV/tqp7m4AM3Tt77UOMBUh 7kGPGEpKoEMWi+mcq/u/U8u/DxcmPZhYk9yEBjic+LyLh8iEs0q6gPNTkgY7iZfsFtTtw6EAC 0cSZZwfTyPdsGT1wkSNll7a1nDXUpYnWMgU2EDQ+TvFBRBsb5rfMZ9bVWO16uV64o/we4q7ob PAJwUwHZSFJp04/mrRda3fqP0CnrG0h94SlEWAPRElrMp6z2QBn3+5vQl6eWWx1e2JZ+8tgzU sKNXlLWKZNocdaBhnO1/JF3wvEyYTClPGGTErqV4AmbGFsWaYr8SKACFDVnsUtYkkkfTnyHIj ae9ZaXXApk/P3JMFsQtXN/vTwKe2TdKtZEpNLzfcWQBxmoVHS8FjMoybLAVcaNowXvmfu1jS3 Y8ma9jhAM8mJ/LQhaaoJW7OYnbO3SIrYLtjDmpZsZtFoIrx6wuDSRMVGDnUbZju/qVrNn11Gz 6O1edzlYAvf+yGy/av2yQlFt4lLki64TyLoQYfJFssyOkGLi202rnBdvQ0h1X9j/OyeDOGBys
- rdkpwhJ/GppY2BvejJYH1czeKKFEBOPBuTPWxXJZ9t9WhMnchKI8+HkJagB6awsWC6ZQ5H/MG WU5oeXVMvCFz/BUTpyFG1yM2HO888GGpNMyI57R+97eB8kMZZmEZvuH500EVbAx4QfRAuFiX7 5wf+gaml1dC+26UtkzLsEkmDRZDvOVXK8zXEN2S/oA222Zx4lJh+1wPNSx62qWV4Vx1tEgFQu 6hMLLrnSMsGtnFNQlHEAo9eWvoZOa22BQKdAggKQwgpkolLZEWm6IdBX5rkMgHs4nJPZybQHT eUkw3pbhFy7GbJ3nxQW3wHc8uRY0TgCrizMDqlIvMEaDB0/T7cXlUFVHftZdZUzeMYNPcM0PY uOW3yEDlGjDhUabYekuqU8tDKIO6vDr2LM92cxMlrCDDYb2OG7+eLXIe/I0R+geWdnGea0fs4 aMd6NdR26Mj0hPPuj4SIHtJF/+YRgB0nJ/YC0NNFBacGpCZUETiarG5Znfl+PGkKJ/0jrRB0W w4ryXlamksPRgZqVPcV1M0uxI36Wr7bEaAfgmyzaEMiy/ewMLvx+LfhGsxa6Cv2QPm0US+NSV IVtV2xmEZrhjXItBBXW9qv4vey7hz68jP4UkvSsUn4szRbaXhyaw8isGfqOBMjxjMw4kiYZlU K0KBrHrDFpRD1YyGIlKfO3zgcb9YXVa2dC4hdT8VjqfkNo8Y4NzJbLMISK7n6Z0pp9+5xAggi Q/nfx8MvNRkAN5a4I8KbQ1OSwE/ntBu9eDskuc6iPwVF4+ipYxLu2Udd07586KzOMNuK0WzfB qlXw8lPf2fwO5kQ09Yf+w4iy/gDDx8aR6LpkSbGKdfX6jFc5A+pmqD6BgYVDExpbUFGtSd/f/ ILWX2ZuRgmJd42PiMyEYuCBF1bBBxOkGumiCmq9ajpOlXZtOZm/lY5rmURKReuLTLOhvoWHLo XWsDwEm0X6oHXplOpjTJNYkM4buk1Q0rheqL34tu6fxn/5/LcVdAKU0dXFPOG+I7pRnjN4Y8a U6NroHK7MHvx7RwuXfkXwI6MEMqS14bVQPYaSG0YpN4DFNV8SpZVCGqYtI1SzSYgVnd8Wu+0V YEkySYkwHdn+gdvDqQGFb6dKMGI0yYD8NQE4+ccv36j0Ut9+F9TQ8xPMVHA+8Jv5/Z3K6VMs6 rHt/6WfEgc4XsFtkuKQbwz9DYLIPcaJ0U0w9MNHUlSsdAtoPvuNu1Lry3HiU3A1q+WtMD4b1Z 8L+eSnJTqiPp37c/61AvvyWXvATbAwrGzDQY4dd0mLK1+WmUh9gW0vNQkPkwaEIjNBZhmvNYO lo/05clnpXcWqIROLDl804wICtZ3zMMEXXmYkdLeswpwWOKPmG12gOavt42e74J6l/7Jx/WUR +9thGpSfPIiAgkldQTAVRzSP23rA5Rgh8ZFFEEnJGgKAO/S2hRW9X1NC90hkDMg3eIRtaDMGa YkCYSxeqF7cToSDLaY+k0FAy/3pIMd/NuH9UB/lF9ja6XUrEdVo6/uqwX0W3yLMbnlPIiPs6K +A31BeaOvrpTdEeENmF/ikHcO7juQm/6qqrZBRaRmlLymox6FDhkvrQtAnz8YsI9op
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aeuT1-TB6dOT5ZQ2@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_093242_611454_4490F724 
-X-CRM114-Status: UNSURE (   7.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260424_093923_682152_FD9ECECD 
+X-CRM114-Status: GOOD (  38.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,24 +117,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 01.04.26 um 13:13 schrieb Ma=C3=ADra Canal:
-> On Raspberry Pi 3B, the VEC clock is used by the VideoCore firmware
-> display driver, which remains active until the vc4 driver loads and
-> sends NOTIFY_DISPLAY_DONE. If this clock is disabled during boot, a bus
-> lockup happens and the firmware becomes unresponsive, causing a complete
-> system lockup.
->
-> Mark the VEC clock with CLK_IGNORE_UNUSED so it survives the unused
-> clock disablement and remains available until the vc4 driver takes over
-> display management.
->
-> Fixes: 672299736af6 ("clk: bcm: rpi: Manage clock rate in prepare/unprep=
-are callbacks")
-> Reported-by: Mark Brown <broonie@kernel.org>
-> Signed-off-by: Ma=C3=ADra Canal <mcanal@igalia.com>
+On Fri, Apr 24, 2026 at 05:01:27PM +0100, Will Deacon wrote:
+> On Fri, Apr 24, 2026 at 12:42:56PM -0300, Jason Gunthorpe wrote:
+> > On Fri, Apr 24, 2026 at 04:16:17PM +0100, Will Deacon wrote:
+> > > > > > STE/CD is pretty simple now, there is only one place to put the CMO
+> > > > > > and the ordering is all handled with that shared code. We no longer
+> > > > > > care about ordering beyond all the writes must be visible to HW before
+> > > > > > issuing the CMDQ invalidation command - which is the same environment
+> > > > > > as the pagetable.
+> > > > > 
+> > > > > You presumably rely on 64-bit single-copy atomicity for hitless updates,
+> > > > > no?
+> > > > 
+> > > > Yes, just like the page table does..
+> > > > 
+> > > > I hope that's not a problem or we have a issue with the PTW :)
+> > > 
+> > > You trimmed the part from my reply where I think we _do_ have an issue
+> > > with the PTW. Here it is again:
+> > > 
+> > >   The non-coherent case looks more fragile, because I don't _think_ the
+> > >   architecture provides any ordering or atomicity guarantees about cache
+> > >   cleaning to the PoC. Presumably, the correct sequence would be to write
+> > >   the PTE with the valid bit clear, do the CMO (with completion barrier),
+> > >   *then* write the bottom byte with the valid bit set and do another CMO.
+> > 
+> > I wasn't sure if you are being serious.
+> > 
+> > CMO + barriers must provide an ordering guarentee about cache cleaning
+> > to POC otherwise the entire Linux DMA API is broken. dma_sync must
+> > order with following device DMA. IMHO that's not negotiable for Linux.
+> 
+> The problem is with concurrent DMA (from the page-table walker) and I
+> don't see anything that guarantees that in the CPU architecture. I don't
+> think the streaming DMA API pretends to handle that case, does it? It
+> relies on a pretty rigid ownership concept from what I understand.
 
-FWIW:
+I think you pointed out two things, ordering and tearing.
 
-Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
+Ordering is OK. If I write a PTE, dma_sync, then command a device to
+use that IOVA the PTW must observe the new PTE value. Otherwise
+dma_sync isn't doing what Linux requires.
 
+Tearing is a different issue, if the device uses the IOVA and races
+with the PTE write changing it then you say maybe it can mis-read it
+with tearing.
+
+However, this race only happens if the PTE is currently non-valid or
+being changed to non-valid. Meaning randomly you will be getting an
+invalid IOVA event.
+
+In non-coherent mode we don't allow SVA and we don't allow VFIO. Only
+the DMA API and drivers open coding things.
+
+For VFIO and SVA, yes, we need the HW to work and properly, userspcae
+can trigger invalid IOVA, we can't tolerate a corrupted PTE.
+
+In embedded I suppose you could make an argument you don't care about
+it since invalid IOVA would have to be caused by a buggy kernel
+driver, it should never happen, and thus this is really a debug
+feature. If the race will never be hit in a working system maybe it is
+fine to leave it as is.
+
+Would be good to document this detail :)
+
+> Of course I'd rather that the architecture said that our current code
+> is fine, but if it doesn't then I don't have much choice, really. At the
+> very least, we should minimise the number of places where we rely on
+> non-architected behaviour and so keeping the CDs and STEs non-cacheable
+> remains my preference.
+
+So, I am convinced, PTW has that escape above that doesn't apply to
+STE/CD. Those can be accessed truely at any time and we can't ever
+leave a 64 bit value in a strange state.
+
+Jason
 
