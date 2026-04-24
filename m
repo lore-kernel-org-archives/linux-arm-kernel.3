@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37F7FFE5201
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 10:19:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73408FE5200
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 10:19:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kaJVp+Rkvos7hMGcdB3/B/ozxmdS++fHalGoX0UyZAM=; b=04wQJx7ReexJgvU4ClQvOI7eNR
-	DaJI+1ZE58clEk7lLAudhxYRu4oEDw5cnAp5DRxb0PIcV2/oaURVxenjBQZK4tfqIH4ilgCQXoDpg
-	hUl4/cggJycJzMOQY4dqum8f2AHD5364Hqp1gj1B1+d8vbFT/UQYZF5A9Cxyt86yHY8y/s+BGZ5HO
-	u4+BI/jYtSXOtfeKcjq46/H5HPluB98AIkrHXvGXmVnzi8mC39dLy+022aoeo9ercF2YXK13mGZNi
-	jqYrJTNpBqz3lfZrwvemfk5Oju029WokcpGVVFhFCW6tplTAgaDSYvUQf10v9v7yGpEhF+PndeNOE
-	RvzwyxUg==;
+	bh=jjJiO9/dbi9z0SHzS95PuN6dljtH/C2D8buRbgtiVHI=; b=pXXxPNskoUxG/6LU3XejoCysaZ
+	Ev5U8ueoPKMUTQHc5qqW9SFAbPT9uD6HWBP8ctFAKK+Tncoc3gz7yH7PdAcpxjlXKa4YLAx95oqhQ
+	b/sLFHG9z/Gh7Hi2KHTBJ5bDCxguJmwdyUa6YBRsL2LeXXvJnk6RH5HTjbKnOG8fjsOaWH0Mxr8zC
+	kUvT3xQKofQ/v8hctx6PP7rTO40kYnvgvRlEcOLOfUhhuLmx3bw7LQszU/s9UFtqzqpzQepV7SNso
+	JRj2IljDck9tgGvWtepQueE1SmHPb7hkdSvBZj6ErWTPvLsH/xdGIbyeYWhzFTkpGy9mxoTUjX41D
+	lRy/xwhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGDcs-0000000D0RU-35aQ;
-	Fri, 24 Apr 2026 10:19:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wGDcy-0000000D0VW-1SQm;
+	Fri, 24 Apr 2026 10:19:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGDcp-0000000D0QU-3hkl
+	id 1wGDcv-0000000D0TU-1B5Q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 10:19:07 +0000
+	Fri, 24 Apr 2026 10:19:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 51A9960123;
-	Fri, 24 Apr 2026 10:19:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D37DC19425;
-	Fri, 24 Apr 2026 10:19:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 02331416EA;
+	Fri, 24 Apr 2026 10:19:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57098C2BCB4;
+	Fri, 24 Apr 2026 10:19:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777025947;
-	bh=f47900U9YnBldlELIPGlSkJt8DWEabQXDHg1J7ci0Xo=;
+	s=k20201202; t=1777025952;
+	bh=5Ea5gMI9MfhFWsMh9WvE+F2BPQLTR3mTdSpzh4zL9cA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Xz+8UR56hLr1eLv/f2XUnKAAcORtzPv2HmVhoJeH3JpSAA2tXw+Q3Ga2gWiUr+Bha
-	 +1bw37PZdXO5b821IDB1gPfuu01J2sDewBUMorSuv/kSVV26cOCyKWlsX+Cxrspz4q
-	 GglDfqxVT0nGOBjxQQR18lfnblWZteYIehMipMRbz3pPNDBlZlwcb/0W28WS++wvBU
-	 /m1gkXx7NG4sr+8rCrOL0lx47avGBfO1Oo66ku7fOf1ddf5bso1WbTCMubSva94Cml
-	 62FsDjg1Csx//gIizyF7DBiw1ATlRPc7k6s1ZgWAip1iBlz0nlBga6X1/XiVFcQoNn
-	 BNb63n4DS8l/g==
+	b=rivjJvYl0nvqLcqlSZiGgPxyse5aaQaouk7pTKSOT+0W7hbpHE74dszgh+/T9ti8y
+	 j8p7OaTPX3conMxulwB0Pri4zlNGK6+QdXX6QFuwTBiorBW8D19qPZpDCAPrKh4JD5
+	 RNJ7Q3Jn61bwoG4MiR6lCxiNMbpgNH4qOiEh1ifWETDPPMCTrW0asvwBaVR9hJhTpe
+	 JlkXALPEzs3bG2YGS/G7hOFVe87OIUnlCKs7Kpb6JUhTb0Ootme/7NoKTovNhWztXC
+	 M/JhNMuPq1tvoEUNrYRXxshLVm8UbCm8+ofZ40pC/3aoovD7jlG9f8InSgeph+naiM
+	 DyWo/5VNYMh8Q==
 From: Maxime Ripard <mripard@kernel.org>
-Date: Fri, 24 Apr 2026 12:18:42 +0200
-Subject: [PATCH v3 02/20] drm/colorop: Fix typos in the doc
+Date: Fri, 24 Apr 2026 12:18:44 +0200
+Subject: [PATCH v3 04/20] drm/atomic: Expand atomic_create_state
+ expectations for drm_private_obj
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260424-drm-mode-config-init-v3-2-8b68d9db0d8b@kernel.org>
+Message-Id: <20260424-drm-mode-config-init-v3-4-8b68d9db0d8b@kernel.org>
 References: <20260424-drm-mode-config-init-v3-0-8b68d9db0d8b@kernel.org>
 In-Reply-To: <20260424-drm-mode-config-init-v3-0-8b68d9db0d8b@kernel.org>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -78,14 +79,17 @@ Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
  Maxime Ripard <mripard@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2294; i=mripard@kernel.org;
- h=from:subject:message-id; bh=f47900U9YnBldlELIPGlSkJt8DWEabQXDHg1J7ci0Xo=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJmvnTsP3NYxbJsYs1f9fnj23S6py4y7gm9WxtlqVTyfv
- 8slqYirYyoLgzAng6yYIssTmbDTy9sXVznYr/wBM4eVCWQIAxenAEykUJ2x4WASg8KvheGq19Nz
- Lpp/fap39GnO5BfV32eEdLl+dV9Q/yXq5pfuYtYH6oY3wxaFLlmWwthwd/um6F1PhDyY1jE52fe
- eObP9z5mlfz5/u9K6t2L1sdrSd5v29lhtF1mlqysQPnP9cyUvAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1229; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=5Ea5gMI9MfhFWsMh9WvE+F2BPQLTR3mTdSpzh4zL9cA=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJmvnbuiFV+oa+iaBM9m/JPXpnfWT/x8dNFWLqNvC2zeP
+ 38ULavaMZWFQZiTQVZMkeWJTNjp5e2LqxzsV/6AmcPKBDKEgYtTACbyoZuxYZa9y+n1vOdS1q24
+ vkRZcO7/3T7ff9wsmHg5Uvt4oJFTyKarpV6VbRy2IYb96tXLLBg3MNaKOW4VkhVdK7nwUK5TuOq
+ iiL/GkT0XmQ1K33SyNAntqk45+/D9Q9Z3fzf3VPRIv5m34BAA
 X-Developer-Key: i=mripard@kernel.org; a=openpgp;
  fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260424_031913_371432_8B8AF437 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,55 +104,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the documentation of drm_colorop introduced by commit cfc27680ee20
-("drm/colorop: Introduce new drm_colorop mode object"), the
-documentation of __drm_colorop_state_reset() and __drm_colorop_reset()
-were mentioning CRTC when they really meant colorop, probably due to
-copy and paste.
+The atomic_create_state callback documentation for planes, CRTCs, and
+connectors explicitly states the expected behaviour: the returned
+state must not be assigned to the object's state pointer, and hardware
+must not be touched.
 
-Fixes: cfc27680ee20 ("drm/colorop: Introduce new drm_colorop mode object")
-Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+The drm_private_state_funcs.atomic_create_state documentation is
+missing this clarification. Add it for consistency.
+
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 ---
- drivers/gpu/drm/drm_colorop.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ include/drm/drm_atomic.h | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/drm_colorop.c b/drivers/gpu/drm/drm_colorop.c
-index 764d12060666..48d0b7ae3fc9 100644
---- a/drivers/gpu/drm/drm_colorop.c
-+++ b/drivers/gpu/drm/drm_colorop.c
-@@ -503,11 +503,11 @@ void drm_colorop_atomic_destroy_state(struct drm_colorop *colorop,
-  * __drm_colorop_state_reset - resets colorop state to default values
-  * @colorop_state: atomic colorop state, must not be NULL
-  * @colorop: colorop object, must not be NULL
-  *
-  * Initializes the newly allocated @colorop_state with default
-- * values. This is useful for drivers that subclass the CRTC state.
-+ * values. This is useful for drivers that subclass the colorop state.
-  */
- static void __drm_colorop_state_reset(struct drm_colorop_state *colorop_state,
- 				      struct drm_colorop *colorop)
- {
- 	u64 val;
-@@ -526,14 +526,14 @@ static void __drm_colorop_state_reset(struct drm_colorop_state *colorop_state,
- /**
-  * __drm_colorop_reset - reset state on colorop
-  * @colorop: drm colorop
-  * @colorop_state: colorop state to assign
-  *
-- * Initializes the newly allocated @colorop_state and assigns it to
-- * the &drm_crtc->state pointer of @colorop, usually required when
-- * initializing the drivers or when called from the &drm_colorop_funcs.reset
-- * hook.
-+ * Initializes the newly allocated @colorop_state and assigns it to the
-+ * &drm_colorop->state pointer of @colorop, usually required when
-+ * initializing the drivers or when called from the
-+ * &drm_colorop_funcs.reset hook.
-  *
-  * This is useful for drivers that subclass the colorop state.
-  */
- static void __drm_colorop_reset(struct drm_colorop *colorop,
- 				struct drm_colorop_state *colorop_state)
+diff --git a/include/drm/drm_atomic.h b/include/drm/drm_atomic.h
+index f03cd199aee7..f7f9c6c85f3a 100644
+--- a/include/drm/drm_atomic.h
++++ b/include/drm/drm_atomic.h
+@@ -263,11 +263,14 @@ struct drm_private_state;
+ struct drm_private_state_funcs {
+ 	/**
+ 	 * @atomic_create_state:
+ 	 *
+ 	 * Allocates a pristine, initialized, state for the private
+-	 * object and returns it.
++	 * object and returns it. This callback must have no side
++	 * effects: in particular, the returned state must not be
++	 * assigned to the object's state pointer and it must not affect
++	 * the hardware state.
+ 	 *
+ 	 * RETURNS:
+ 	 *
+ 	 * A new, pristine, private state instance or an error pointer
+ 	 * on failure.
 
 -- 
 2.53.0
