@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B321FED3F0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 16:51:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AD83FED3F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 16:51:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Cc1jZjiNz6qIzGkr9ZYmlIDRLWz0J6P2q+qfe2/eFk=; b=iuGDsVN3DNWffCI1eu3v90K4qG
-	FWH77kbgbVfnN0anBK1X1YQ++0W5tuRkZOZV+WGnNRA39DSItT34AcoMC2e6SACbk4vRe/wnGCWzx
-	8aWTmoBDmAZ26DXlAeBecbtG4h0Be9h0H9PidEvbmUW8q+zveGMCqQWMnoZ7dHgMV5nLdNLZK/Xwp
-	zSXy3XNhCprt4LY6Vd7oE2osorqWyJpLhlqLhqMdqOHIhmlgNvu2YQpjvqe7cMcoorcThc+aJQiNJ
-	XOVfmS8UGWaKd8lQlm+RDY+phfsx5ORolzQUEvqMgcCK22oLhB0MhUsJOB6rjSBr8WbQ19WP2vvO8
-	YICt4EcA==;
+	bh=sdsIaZxORPBtHlF7NDydqw84ClDmIcXPteqzDGLLDeY=; b=tc0pQVyrr+54LzWnsalMGnPNXo
+	aKI7E3FGzjkpT/A9oquzsz44JaUD03i1RmDT60wdqu+p7QFDdfDsAPdyC5BtSsNuTMg29sgxXTCZM
+	g7czAcz3SEnuwkqu2ahrT0yuz6CQd8uCuyeeJ5jRoObCgY/a3gx5w0SWy9OHe6P40ibG2IjRY/ifz
+	vf5nmFa9x3Fq26+P4ESlviEOn2eMVpf1do2P98cXdxt02TSFzouiJMe88C7XR+0oI34vKQ/3GnAjJ
+	oyJ+2ZWGTCFMwGsWVux3EBtN/J5Y47wrBVJGyKP1VLW6R/q+cSzpKkMt7tNa7UZDLYDNkh4LiqgdP
+	XrYG5kNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJjw-0000000DWGq-2uqZ;
-	Fri, 24 Apr 2026 16:50:52 +0000
-Received: from mail-dl1-x124a.google.com ([2607:f8b0:4864:20::124a])
+	id 1wGJk0-0000000DWL4-0RA3;
+	Fri, 24 Apr 2026 16:50:56 +0000
+Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJia-0000000DUmd-3fe9
+	id 1wGJid-0000000DUpO-1ylc
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 24 Apr 2026 16:49:42 +0000
-Received: by mail-dl1-x124a.google.com with SMTP id a92af1059eb24-12c87ba0890so25327459c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 09:49:27 -0700 (PDT)
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2d9da2559aeso21252635eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 09:49:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777049366; x=1777654166; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777049369; x=1777654169; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0Cc1jZjiNz6qIzGkr9ZYmlIDRLWz0J6P2q+qfe2/eFk=;
-        b=JiOfyCqlm80guWXcTgaeBZLBIljnXh+oun/anY6NVQO3F1lCzvHDD9Te3UlBLqSJ4u
-         smupf8bzAhA5t1HUH27L/hF9k6/itpJ7KtuSzsVDj4ejbXt7tpK6B8E+wkHr0+p0vqxg
-         w0n+ODHuMGxJtVeyU7czRyWzTBuX2xWDLY0+9vsCxGbr95XiUdtODtWA5AqsftNxwlXd
-         +1XB0+6/YjcP0V6VGGUrV+nPSfWAK9gO4V836rvmDUvJHVGWe22kIOz7X1pi46Li3R4v
-         N1dFK5SM3lhorEeZV7LaFbu68UIUpqkKLwdZQ0LGQ2kGuhSL7NoSPvwgykW2dH6I2IRA
-         ljVg==
+        bh=sdsIaZxORPBtHlF7NDydqw84ClDmIcXPteqzDGLLDeY=;
+        b=KCrdU2lmcwQ1Rs5DWkEvUhHwMvpGxlTZSIPRYX4XkeVtNEkA0NobAumPHwARAQzfdo
+         +VtkLCd5VpoRSXtZaZyE0JL/CzzkvkBs1pOdLHfj9tWQSGm9QBv5FrnmUv+R5dNwH8Cn
+         FTgm9bty2mmX3nSJ5BwTPE7YvZvCDtf5Om5oSQ7ZKiGTUjEXo2CwJ8ZSv7JI65ab6BSO
+         FIkUBUBT/78PYhZcbO56WeRmREQLzq1WzBgPHPftUqAN5bqDQF53fFngYeCIWOjIiaHH
+         Kd/uFqixIg/Fc4H+W0bO5g6gTewDQkhLPExJ9ArMTvJfgupZQuhhNDEXL8kqP8i9zlx9
+         Mzog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777049366; x=1777654166;
+        d=1e100.net; s=20251104; t=1777049369; x=1777654169;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=0Cc1jZjiNz6qIzGkr9ZYmlIDRLWz0J6P2q+qfe2/eFk=;
-        b=rcpXwXP7c+MEBLabP9Zi9Lyok6oMJdH2IvNM7Dx6f2IUlO1PyUrmxMyYA9sEmiEJ64
-         Um88V6C73fs9c/YDi8oREknNyyvXzAMJLGB5wiI02kagV4PZ+mi/oicz/1BVWOP7JnaW
-         ICg+CQaKF4lyRNvb/UMe+wjJIehbiu2aTCAcEBTAOE5TKz218m4uBX3VjBDiTdaFsPLg
-         C6DZVHbw2wYN4P+iWjKuMKR9DwCgev9C/4+ReZLol01m6d6G1Gn/gxGEmCnz31eIVtrD
-         k7p9D8wYGCa5y5Q1z2Dn2TU0wWhwifQZvMwsDSZs/F41X9eoce3ZFE1omJeFavyLWW87
-         Vz5Q==
-X-Forwarded-Encrypted: i=1; AFNElJ817JqA6KgEkzF1tKeYrgyg14N6RG6Q/J1EnIBAUBqi8AUyZZiyNaKiKueoWdZ9mW6yzs+BPrKFb+95Mm+tSfFE@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXL9p+wHdVJJuBVeoVXIxnSA4S1oIPB291+ty9nhyvd1lW+C9z
-	4GSWBbTQftExqpovfvxuJzEsjibs1UU0ADv21TguPa9wWLPZWoztPaLaj5sePC8R7xK7wIuemhZ
-	Fy0vvMURUTQ==
-X-Received: from dlbpu10.prod.google.com ([2002:a05:7022:e88a:b0:12b:fba9:5eb0])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:4199:b0:12c:8b9:71db
- with SMTP id a92af1059eb24-12c73f97587mr18037107c88.21.1777049366351; Fri, 24
- Apr 2026 09:49:26 -0700 (PDT)
-Date: Fri, 24 Apr 2026 09:47:10 -0700
+        bh=sdsIaZxORPBtHlF7NDydqw84ClDmIcXPteqzDGLLDeY=;
+        b=i3Jodzoymg/yOksBnGxltzGHgat4ESBxtTSdOPB/TFX60epQzZVDXC9/TA1bl/KlVo
+         0FGQAI+eqEvNewJOpNjSpLg3nNPo7/Bc0ptU9AzY315FGFRYSQ4f2K01tSGOMyDSuQ5n
+         BZv5eqjuvrKbiuh1KTPL6ZW3RCTHK0DmmUOL0J6I3LiBzkmTUBUyvaazkxNpdml0FOnn
+         L0mAUVQszt/UOuvridaZn6kzPv6WWi8/w5HRhdXjU0i61MpnbsxE4uOFgbCgmhxejc+v
+         ZqOF38BPZLk1fhFggp5tYhsaw+jE1/wteNcx7sIU2ICQMje3nq54L3377zU4m2oF0roz
+         5Jqw==
+X-Forwarded-Encrypted: i=1; AFNElJ+nQ6MXhOCCj76ZJvYlLWwzmHptieGd8QV7WwcDPGgWiD9PLdS7XptXDxIXj3fLiMH5aDIKrUzcGRg7APkw3OiS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9AU3LUHGycptMbJn8L1bmrsNo7MiEnKdX542BtcAwXAtqXrpo
+	PNc6p5YxJWMrNJXOuvAEmi8dECoFkG7ywGEDv7xVZZQSONghNLtR3YFh/XZSGYs38Aes2t00+rO
+	iUwO0cKwdSA==
+X-Received: from dycao4.prod.google.com ([2002:a05:7301:7d04:b0:2da:3d44:ddce])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:9f12:b0:2e1:e3e6:2910
+ with SMTP id 5a478bee46e88-2e46577039dmr20625261eec.9.1777049368506; Fri, 24
+ Apr 2026 09:49:28 -0700 (PDT)
+Date: Fri, 24 Apr 2026 09:47:11 -0700
 In-Reply-To: <20260424164721.2229025-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260423163406.1779809-1-irogers@google.com> <20260424164721.2229025-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260424164721.2229025-49-irogers@google.com>
-Subject: [PATCH v5 48/58] perf rw-by-file: Port rw-by-file to use python module
+Message-ID: <20260424164721.2229025-50-irogers@google.com>
+Subject: [PATCH v5 49/58] perf rw-by-pid: Port rw-by-pid to use python module
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -75,8 +75,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_094929_145048_017352E0 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20260424_094931_725212_B394D2F6 
+X-CRM114-Status: GOOD (  16.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,17 +91,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Port the legacy Perl script rw-by-file.pl to a python script using the
+Port the legacy Perl script rw-by-pid.pl to a python script using the
 perf module in tools/perf/python.
 
 The new script uses a class-based architecture and leverages the
 perf.session API for event processing.
 
-It tracks read and write activity by file descriptor for a given
-program name, aggregating bytes requested/written and total counts.
+It tracks read and write activity by PID for all processes,
+aggregating bytes requested, bytes read, total reads, and errors.
 
 Complications:
-- Had to split long lines in __init__ to satisfy pylint.
+- Refactored process_event to extract helper methods
+  (_handle_sys_enter_read, etc.) to reduce the number of branches and
+  satisfy pylint.
+- Split long lines to comply with line length limits.
 - pylint warns about the module name not being snake_case, but it is
   kept for consistency with the original script name.
 
@@ -110,79 +113,106 @@ Signed-off-by: Ian Rogers <irogers@google.com>
 ---
 v2:
 
- - Fixed Substring Matching: Replaced if "sys_enter_read" in
-   event_name: with an exact match against syscalls:sys_enter_read and
-   raw_syscalls:sys_enter_read using sample.evsel.name . This prevents
-   variants like readv or readlink from incorrectly triggering the
-   read logic. Similar fixes were applied for write events.
+ - Fixed Substring Matching: Replaced loose substring checks like if
+   "sys_enter_read" in event_name: with exact matches against
+   syscalls:sys_enter_read and raw_syscalls:sys_enter_read using
+   sample.evsel.name . This prevents unrelated syscalls with similar
+   names (like readahead ) from being incorrectly aggregated. Similar
+   fixes were applied for exit events and write events.
 
- - Fixed Silent Error Dropping: Instead of silently returning when
-   expected fields are missing (causing AttributeError ), the script
-   now increments the self.unhandled counter for that event. This
-   ensures that missing data or unexpected event variants are reported
-   to the user instead of quietly skewing the results.
+ - Inlined Handlers and Tracked Errors: Inlined the _handle_sys_*
+   helper methods into process_event() to make error handling
+   easier. Now, if a sample lacks expected fields (raising
+   AttributeError ), it is added to the self.unhandled tracker instead
+   of being silently dropped, providing better visibility to the user.
+
+ - Code Cleanup: Fixed trailing whitespace and added a pylint disable
+   comment for too-many-branches caused by the inlining.
 ---
- tools/perf/python/rw-by-file.py | 103 ++++++++++++++++++++++++++++++++
- 1 file changed, 103 insertions(+)
- create mode 100755 tools/perf/python/rw-by-file.py
+ tools/perf/python/rw-by-pid.py | 158 +++++++++++++++++++++++++++++++++
+ 1 file changed, 158 insertions(+)
+ create mode 100755 tools/perf/python/rw-by-pid.py
 
-diff --git a/tools/perf/python/rw-by-file.py b/tools/perf/python/rw-by-file.py
+diff --git a/tools/perf/python/rw-by-pid.py b/tools/perf/python/rw-by-pid.py
 new file mode 100755
-index 000000000000..f71e0b21f64e
+index 000000000000..53e16b373111
 --- /dev/null
-+++ b/tools/perf/python/rw-by-file.py
-@@ -0,0 +1,103 @@
++++ b/tools/perf/python/rw-by-pid.py
+@@ -0,0 +1,158 @@
 +#!/usr/bin/env python3
 +# SPDX-License-Identifier: GPL-2.0-only
-+"""Display r/w activity for files read/written to for a given program."""
++"""Display r/w activity for all processes."""
 +
 +import argparse
 +from collections import defaultdict
 +import sys
-+from typing import Optional, Dict
++from typing import Optional, Dict, List, Tuple, Any
 +import perf
 +
-+class RwByFile:
-+    """Tracks and displays read/write activity by file descriptor."""
-+    def __init__(self, comm: str) -> None:
-+        self.for_comm = comm
-+        self.reads: Dict[int, Dict[str, int]] = defaultdict(
-+            lambda: {"bytes_requested": 0, "total_reads": 0}
++class RwByPid:
++    """Tracks and displays read/write activity by PID."""
++    def __init__(self) -> None:
++        self.reads: Dict[int, Dict[str, Any]] = defaultdict(
++            lambda: {
++                "bytes_requested": 0,
++                "bytes_read": 0,
++                "total_reads": 0,
++                "comm": "",
++                "errors": defaultdict(int),
++            }
 +        )
-+        self.writes: Dict[int, Dict[str, int]] = defaultdict(
-+            lambda: {"bytes_written": 0, "total_writes": 0}
++        self.writes: Dict[int, Dict[str, Any]] = defaultdict(
++            lambda: {
++                "bytes_written": 0,
++                "total_writes": 0,
++                "comm": "",
++                "errors": defaultdict(int),
++            }
 +        )
 +        self.unhandled: Dict[str, int] = defaultdict(int)
 +        self.session: Optional[perf.session] = None
 +
-+    def process_event(self, sample: perf.sample_event) -> None:
++    def process_event(self, sample: perf.sample_event) -> None:  # pylint: disable=too-many-branches
 +        """Process events."""
 +        event_name = sample.evsel.name  # type: ignore
-+
 +        pid = sample.sample_pid
++
 +        assert self.session is not None
 +        try:
 +            comm = self.session.process(pid).comm()
-+        except Exception: # pylint: disable=broad-except
++        except Exception:  # pylint: disable=broad-except
 +            comm = "unknown"
-+
-+        if comm != self.for_comm:
-+            return
 +
 +        if event_name in ("syscalls:sys_enter_read", "raw_syscalls:sys_enter_read"):
 +            try:
-+                fd = sample.fd
 +                count = sample.count
-+                self.reads[fd]["bytes_requested"] += count
-+                self.reads[fd]["total_reads"] += 1
++                self.reads[pid]["bytes_requested"] += count
++                self.reads[pid]["total_reads"] += 1
++                self.reads[pid]["comm"] = comm
++            except AttributeError:
++                self.unhandled[event_name] += 1
++        elif event_name in ("syscalls:sys_exit_read", "raw_syscalls:sys_exit_read"):
++            try:
++                ret = sample.ret
++                if ret > 0:
++                    self.reads[pid]["bytes_read"] += ret
++                else:
++                    self.reads[pid]["errors"][ret] += 1
 +            except AttributeError:
 +                self.unhandled[event_name] += 1
 +        elif event_name in ("syscalls:sys_enter_write", "raw_syscalls:sys_enter_write"):
 +            try:
-+                fd = sample.fd
 +                count = sample.count
-+                self.writes[fd]["bytes_written"] += count
-+                self.writes[fd]["total_writes"] += 1
++                self.writes[pid]["bytes_written"] += count
++                self.writes[pid]["total_writes"] += 1
++                self.writes[pid]["comm"] = comm
++            except AttributeError:
++                self.unhandled[event_name] += 1
++        elif event_name in ("syscalls:sys_exit_write", "raw_syscalls:sys_exit_write"):
++            try:
++                ret = sample.ret
++                if ret <= 0:
++                    self.writes[pid]["errors"][ret] += 1
 +            except AttributeError:
 +                self.unhandled[event_name] += 1
 +        else:
@@ -190,21 +220,54 @@ index 000000000000..f71e0b21f64e
 +
 +    def print_totals(self) -> None:
 +        """Print summary tables."""
-+        print(f"file read counts for {self.for_comm}:\n")
-+        print(f"{'fd':>6s}  {'# reads':>10s}  {'bytes_requested':>15s}")
-+        print(f"{'-'*6}  {'-'*10}  {'-'*15}")
++        print("read counts by pid:\n")
++        print(
++            f"{'pid':>6s}  {'comm':<20s}  {'# reads':>10s}  "
++            f"{'bytes_requested':>15s}  {'bytes_read':>10s}"
++        )
++        print(f"{'-'*6}  {'-'*20}  {'-'*10}  {'-'*15}  {'-'*10}")
 +
-+        for fd, data in sorted(self.reads.items(),
-+                               key=lambda kv: kv[1]["bytes_requested"], reverse=True):
-+            print(f"{fd:6d}  {data['total_reads']:10d}  {data['bytes_requested']:15d}")
++        for pid, data in sorted(self.reads.items(),
++                                key=lambda kv: kv[1]["bytes_read"], reverse=True):
++            print(
++                f"{pid:6d}  {data['comm']:<20s}  {data['total_reads']:10d}  "
++                f"{data['bytes_requested']:15d}  {data['bytes_read']:10d}"
++            )
 +
-+        print(f"\nfile write counts for {self.for_comm}:\n")
-+        print(f"{'fd':>6s}  {'# writes':>10s}  {'bytes_written':>15s}")
-+        print(f"{'-'*6}  {'-'*10}  {'-'*15}")
++        print("\nfailed reads by pid:\n")
++        print(f"{'pid':>6s}  {'comm':<20s}  {'error #':>6s}  {'# errors':>10s}")
++        print(f"{'-'*6}  {'-'*20}  {'-'*6}  {'-'*10}")
 +
-+        for fd, data in sorted(self.writes.items(),
-+                               key=lambda kv: kv[1]["bytes_written"], reverse=True):
-+            print(f"{fd:6d}  {data['total_writes']:10d}  {data['bytes_written']:15d}")
++        errcounts: List[Tuple[int, str, int, int]] = []
++        for pid, data in self.reads.items():
++            for error, count in data["errors"].items():
++                errcounts.append((pid, data["comm"], error, count))
++
++        for pid, comm, error, count in sorted(errcounts, key=lambda x: x[3], reverse=True):
++            print(f"{pid:6d}  {comm:<20s}  {error:6d}  {count:10d}")
++
++        print("\nwrite counts by pid:\n")
++        print(f"{'pid':>6s}  {'comm':<20s}  {'# writes':>10s}  {'bytes_written':>15s}")
++        print(f"{'-'*6}  {'-'*20}  {'-'*10}  {'-'*15}")
++
++        for pid, data in sorted(self.writes.items(),
++                                key=lambda kv: kv[1]["bytes_written"], reverse=True):
++            print(
++                f"{pid:6d}  {data['comm']:<20s}  "
++                f"{data['total_writes']:10d}  {data['bytes_written']:15d}"
++            )
++
++        print("\nfailed writes by pid:\n")
++        print(f"{'pid':>6s}  {'comm':<20s}  {'error #':>6s}  {'# errors':>10s}")
++        print(f"{'-'*6}  {'-'*20}  {'-'*6}  {'-'*10}")
++
++        errcounts = []
++        for pid, data in self.writes.items():
++            for error, count in data["errors"].items():
++                errcounts.append((pid, data["comm"], error, count))
++
++        for pid, comm, error, count in sorted(errcounts, key=lambda x: x[3], reverse=True):
++            print(f"{pid:6d}  {comm:<20s}  {error:6d}  {count:10d}")
 +
 +        if self.unhandled:
 +            print("\nunhandled events:\n")
@@ -221,12 +284,11 @@ index 000000000000..f71e0b21f64e
 +
 +def main() -> None:
 +    """Main function."""
-+    parser = argparse.ArgumentParser(description="Trace r/w activity by file")
-+    parser.add_argument("comm", help="Filter by command name")
++    parser = argparse.ArgumentParser(description="Trace r/w activity by PID")
 +    parser.add_argument("-i", "--input", default="perf.data", help="Input file")
 +    args = parser.parse_args()
 +
-+    analyzer = RwByFile(args.comm)
++    analyzer = RwByPid()
 +    try:
 +        analyzer.run(args.input)
 +    except IOError as e:
