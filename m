@@ -4,137 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7402BFF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 22:58:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C65A3FF8850
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 23:00:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FIyLrmJdaU6lHqer63thqt59Jd32JRWFrA/W4zN/LXk=; b=rc38IV1hagpWI71dTZ4GQeWt4Q
-	FbXUWREuWEGpaL1AsGQHZkE3mu3GnY1G9/NlCYzlP5GgufOjMHz2rp+UWJfqwoQp83vSDF3SQtvAD
-	8Ua/rL6yCT43lIQ5NsvKyeyiDzvDmDTPyZbrpEqgH9k8EvnWW30d8w2kfMm0xChEhYZA1AkBat2ml
-	7ThTj+AXSsF9eJGfGpSX6V7Q+bKDMsB+vgUoyO4ihbdQNyY6NR9MD5aW00NqtbfzHcb54qSACtpV/
-	exa7yAl9VudoxLpc1ay3fXYQbytYNCxiQCAn9GUnFWeUCu8BOAYUyZvwTH9WERLM5re/M8W3n6Plm
-	gZHIBZWg==;
+	bh=yJitWIhedwEhROcjfcAJaAzg1I+/wnNIEe6ZEGKeoOs=; b=0YEskSyZPpOEqYUe8jkXXcKasz
+	jFgGay/NbujR9o5JGKTQR+HCzxp470txklygQxMPvBJNrkM7lWG3OzHwegyi4NI7O14PHVVP/j05B
+	j6UL8MjA/wI2/UW6P4Me41wkvZRNNjA2QnbE9dlwgPY+Ryyo0ZJzn4+jeD1xrDKxNhU2CTBTbuTOk
+	MR8YeIO2M6U+RMkaTSeQsqtCK+DDsUUZUJWkWooxlo7pz0KOJDTfJPqtNX9SmAho+zwRVqxNvr9Mx
+	wGG84xXJ0+Z+Rr4YYXDm2V247WjY8LHDooBq12LHJDXVP386oM9fsjyZmUUEiXIX6YwTugP48nL6O
+	DhG1MxTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGPTk-0000000DrfP-0Us3;
-	Fri, 24 Apr 2026 22:58:32 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1wGPVb-0000000Drr2-2M2J;
+	Fri, 24 Apr 2026 23:00:27 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGPTh-0000000Drew-1djC
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 22:58:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PUlIxQU7JO5QLYDHS1wIrU74s1PmcgM/wf0rRHYeHbJuKtzsgLhRP7R3XNdlIv4AmHRCLQ5e9NHAYbPPBzOdlyaensvVq2LPlL/YXkhYdg/XszRzGqheByVktZSZPPhr9TBEDgLDnJGJrpWV6fzxiz6ZRY3EaNJU3Z7QysX9D3VD6j0iG38PRB2zshHbHsEJUv6WFK531K3rTZ2NfJIjDgMzNu7j3a8izv2gEmJiABQMcr8EbMhnUxb9SoxIY55TUyTnKhhryIFaKN458U7caHxSpuTsFvqBqxDDc1YV1hwESREq3KTyziYsD0/LtEuS5barSB/s/RdQz6PFNS7L/g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FIyLrmJdaU6lHqer63thqt59Jd32JRWFrA/W4zN/LXk=;
- b=HFX/9JmRgFLS7NtgVtuBABb6zSc3u93G4XwzKyyvkPumhNJcfPooiCOuqndf8/2SW0G2eSqMtzVKthJq/Zx8wFK+3DqNskPOYOnvXwjRVfKNwJqifH5ZKGW1FQtor2QWtNFN7vX8DRmAeRIfXg1jR26na0GpEMhao1UCHvaUEABPF40pnY6ApEB/yPQCyFqpwWiBDseqOv1EoTOHFn7GhZadkde6n8pIaE9pUWUeQFr5zD6X6quOUz1XM61qV29mmRidXIFbEbKe4Rp4aBNZ1wkeMU5dRaatloUhl8jZJuziYhl0Uy1TUGk3FMIa/s6LU21VguboLIML68W9zNLwQQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FIyLrmJdaU6lHqer63thqt59Jd32JRWFrA/W4zN/LXk=;
- b=fhMWJyleUCA0vxbp1Bse/c86mbWZ19glx7/s7SVWY240gVF+NyvSVB0yQifEWFDNEtGCelE62XmbdBU26kxRDUkJN4bkQN4R6kCmtRd1W0YRsNP9gLIrOsPDJOe2FkWR8as2ma25ZQr5iZTSUWlBmK1NSOQiC7e1Nk1u0ToPGKTRb0iM/PPO6McWKmCuZBwrX9UYkViaImSTlSYlWFfAldL1wH866SYfy/J7Euc8bL9sptP5enDdOe3H//f30YOcnvxxJHuxDTHKplZgPiEB4C1LfSmrNoRypZsJXRFV1HvBl6QapUiHAdO6x2iloA0nOvFDp/qXeCJ+VqepQmRxug==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by SJ5PPF183341E5B.namprd12.prod.outlook.com (2603:10b6:a0f:fc02::98c) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.20; Fri, 24 Apr
- 2026 22:58:21 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9846.019; Fri, 24 Apr 2026
- 22:58:21 +0000
-Date: Fri, 24 Apr 2026 19:58:20 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Baolu Lu <baolu.lu@linux.intel.com>, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Pranjal Shrivastava <praan@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-pci@vger.kernel.org, vsethi@nvidia.com,
-	Shuai Xue <xueshuai@linux.alibaba.com>
-Subject: Re: [PATCH v3 05/11] iommu: Change group->devices to RCU-protected
- list
-Message-ID: <20260424225820.GN3444440@nvidia.com>
-References: <cover.1776381841.git.nicolinc@nvidia.com>
- <12a224061de4fff9e0725909fd0ba4e14996ff08.1776381841.git.nicolinc@nvidia.com>
- <779dad61-d7e7-4ae0-83a9-8c5920222219@linux.intel.com>
- <aerey+ULGG589rdi@Asurada-Nvidia>
- <20260424131148.GB3444440@nvidia.com>
- <aevAqKFq7ATYk3+i@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aevAqKFq7ATYk3+i@Asurada-Nvidia>
-X-ClientProxiedBy: MN2PR20CA0066.namprd20.prod.outlook.com
- (2603:10b6:208:235::35) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	id 1wGPVY-0000000Drqc-29iM;
+	Fri, 24 Apr 2026 23:00:26 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 59E6C986;
+	Sat, 25 Apr 2026 00:58:39 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1777071519;
+	bh=mXeWIc4bSwDCNBcdRGufU1M9fLVnzL1D1gJleQSCgmQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FFci2RcD/qwzOICb/XJNhBJMrszBBdEiF2PyvpZYQfELPjQ992/wd1Xq+LB4T+F+a
+	 UAj9P3s909RycxhJp4fW+3EBpbIxcOA2C/2kXmTl51mqqbRKLFXHhfQRuik4aavhI3
+	 Tf7H1cNcUMW50IzgCaiIUOL90GIg1VQyVer2BrgU=
+Date: Sat, 25 Apr 2026 02:00:17 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Paul Elder <paul.elder@ideasonboard.com>
+Cc: Xu Hongfei <xuhf@rock-chips.com>, michael.riesch@collabora.com,
+	stefan.klug@ideasonboard.com, linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Heiko Stuebner <heiko@sntech.de>
+Subject: Re: [RFC PATCH 2/5] arm64: dts: rockchip: add ISP nodes to rk3588
+Message-ID: <20260424230017.GD3219146@killaraus.ideasonboard.com>
+References: <20260424175853.638202-1-paul.elder@ideasonboard.com>
+ <20260424175853.638202-3-paul.elder@ideasonboard.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SJ5PPF183341E5B:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1c14ff94-ee2b-4e14-138d-08dea254fb6a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: e4BwbU7x3BT+cfSPWm28EoMTYm3IuppVFnq9C635Lyz+L8RUN0pXPY8ELqQ28rsv5Ol4URknTg3lQHiU/8cAUov2DsTkycpCrgIud4xpfF/4Ll1rZf63yGt8hl6Lh+bMTtKtOocpGCpmiSCAbST/Q5djdrLJqC5i/TORn+TZtyzInQba9YrPEuZr6v/fT9xcEMua7JFog0YHegTPIrqwC76MPAcTQ3z45IJuGxoL7NupD6zjygADcvOp0uiTBJ0DELqQjsY97Qus4RPvFpevYZp8j8XdwrH/yhGMsxrl1V+HLtf99M09YiBVkeYIwr3h1GSGWUdtsxrgNHdgHWPmPFWAIkouj0bBDbAtnQGZZaTEl1z/SMOGHBF3jRj7Dbm2PSmhRhThT4uZaE5FMdlQdb/fpuiK01Hmwkd9W+SZBPjlFV9FCGp5hA45Fr8uzMn+KVifWAU2jKs2Ypx+wur60of3gd9nr9dC7yqvxu/52ilMihvySXvZiIFBqgmKrdIAnbeBBTm9iUfjS9Cv5DWz79zZ8sBOzRfTeOOhsgjKi+VYIcptq2LHqc4SvuXjENGVNdGzJa5V1vMKTBDrHOYr0EJC2BrBk/WV3E2A5pBy/cNAvX8Pcfe04u+8BVoGDX2sNmpYzvTN4QYw8BTh9kSFzeYvFvnEAmFdxLZ0fhRuV39UG9ktDoM8mZTDE9GISPQGgXuGhz5coz4ewjLJwbjX6VGdo+y8qo56LUNq7InI50c=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YNRwXEAT5iYrNwGSneriG1INQb+byBMSPIihU+7s62KBPFmiKf+y7qkBUWyK?=
- =?us-ascii?Q?a1Fs9E4hcIbUrla53BLhO2x/RfINPh6iCjDqaEX2anJfXWzQFQlK1DKf1UNj?=
- =?us-ascii?Q?eC2/+95rDxFTp8N8j+axaTahy74kCwU6TVjkeOVtlFZgyqjbk8ISuKIQ42Nu?=
- =?us-ascii?Q?OsV5+lhUS9UemhrzSqHhgyjve+c1gZEQAhPUBpW59gJp/jdwAfJEvSyCcwVy?=
- =?us-ascii?Q?gXwc//Xh9A7YEIsAa9mpUcItbLGn0dqJwX5d1ujEt05rbs2eMxiBmFs49XyQ?=
- =?us-ascii?Q?Po8Pt71KKlpYoCTI7/6F+4IMtEBw/84wevj830xdbxodKm2IL1pDndkyS5jI?=
- =?us-ascii?Q?9S2Uz7U5lUVLCtSbT0u/yP7ceWxZcoBhV1qGl8OP2pkVniYREld4XxNDGqYf?=
- =?us-ascii?Q?lBvoYM3hbF2y5kS6bzPTD4t1FOZBBaVw0rUJ31kFB2YxvOli28FykmYkkvyp?=
- =?us-ascii?Q?t7pw5RtQieuwTZ07Yu/ZnHZ9gKU5H4+o/cJ78z+TZN7iF4ew0yJ0GA4pH2tT?=
- =?us-ascii?Q?41RAQmQN+4rnlJ4gEsguFKlRMlj8Kx6p6WVw2QapU23yJonXqg5iCBnOt43O?=
- =?us-ascii?Q?8QL4jaPiZFjc78ciszWM9i+ldqAM9DeMo13GASosSt1Ux8u1my0s92dr8wqs?=
- =?us-ascii?Q?CqGL/HKsAVaUmBgkyrbFl+9RxNqYTumYj7MNPZHoY/xIRxJPw4xYlCYfA1BZ?=
- =?us-ascii?Q?0EkKXPhPplBOJr6fkU3+JkZ+qdU4k8VpfCz8Q78fJE6/XDBr79XYj8FQXbqN?=
- =?us-ascii?Q?CRrvKvmcLruJIk7x86LgXftqFueTgzV0Xb4T5cMOvQf8NonF0RlwxvSxPr8a?=
- =?us-ascii?Q?v55B8lSM/N2daFc7YqKKBkJdTKSy/w7CRL/XBGFVSAfv61XZgIhPNPkFCK8G?=
- =?us-ascii?Q?1qZSsjRUqwqS+l2x3nlzNj1K8Uoy/jhDTUBiZRnHk46V4U80/7LWrvWIp31l?=
- =?us-ascii?Q?XQ6T+cLe0XUHIm0vyWzyJEpc3JkkxgOFzme7ZY9K5YU5L9a0nHUx0OLZRQD0?=
- =?us-ascii?Q?WkkLfr6ZOfv2WiUtNtUD2qUJQijvwnlhv052HA/RXMO9q1pinNmg+QiIdQ4e?=
- =?us-ascii?Q?+3rKsPsI8JWWAEmvvsyND5vxOhnnAO7Mlae2vVDpkpYLIzyGPLD6N3A4Y9Hr?=
- =?us-ascii?Q?EMO7mVD5MHaDttCPXU939kSYmM90Ka3rjAuo7+CpdxE7Xm4DtZ3fu+mOYOV4?=
- =?us-ascii?Q?mPVRtHPzW/US5dDSNhI5sbQ9Lh+6E/1/RdSvykPNWWPaDc3VqkfegEbfKGKT?=
- =?us-ascii?Q?FQP7qQBydfdEqYBC8e2vR2vAmSYjbubK6Z3VRNqGIBpz9gHH/V5aGVMunWJs?=
- =?us-ascii?Q?C22m/PO+CTOSmmDcXV8qA7YgIVM3CdD2ILPlDD0UxAC33MSqbBA0Z3JGQtdy?=
- =?us-ascii?Q?O4VK6CDmp8S5a6OKhlgwuRDpwv52GBX2q8t84R2e5CVccwZ7MM/MfuGvCnjG?=
- =?us-ascii?Q?ujmn0/57NEghoP2TTh/0Gkxy/UbIdhEsLUyhkoVnl68SgZiE54sT0DAllc/o?=
- =?us-ascii?Q?ccmtfNFAgcKQeOXYO95njcAjgU42QmnbSu4hC9ckm+TTDJRWFRulr2KFBDqu?=
- =?us-ascii?Q?GKaJ6FayFzPSZ60lde2qQj0s7f7ob77gv6jNw7ExBpKQqSC3PNHVMm8+Mq52?=
- =?us-ascii?Q?toYnkuzKfoJxcLwTqHqgKmumrklwq6V444kEtRYeHnSK0+4S0GNwG025LlFo?=
- =?us-ascii?Q?ijUqt5ipcHwVu7qcjjlXRpZWbA6Mh8SXODNGXqx18i7U9Qh7?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1c14ff94-ee2b-4e14-138d-08dea254fb6a
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2026 22:58:21.3701
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: VlDscv+2Fep0sLGFleKvhdULy1sCYXPfhy5swrIyz/S8XA5nzZ9alt0f1UHeEkZO
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPF183341E5B
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260424175853.638202-3-paul.elder@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_155829_443413_8010C002 
-X-CRM114-Status: GOOD (  16.50  )
+X-CRM114-CacheID: sfid-20260424_160024_694916_B97769C8 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,40 +69,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 24, 2026 at 12:12:40PM -0700, Nicolin Chen wrote:
-> On Fri, Apr 24, 2026 at 10:11:48AM -0300, Jason Gunthorpe wrote:
-> > On Thu, Apr 23, 2026 at 08:08:59PM -0700, Nicolin Chen wrote:
-> > > On Fri, Apr 24, 2026 at 10:53:49AM +0800, Baolu Lu wrote:
-> > > > On 4/17/26 07:28, Nicolin Chen wrote:
-> > > > 	    mutex_unlock(&group->mutex);
-> > > >             /*
-> > > >              * FIXME: Mis-locked because the ops->probe_finalize() call-back
-> > > >              * of some IOMMU drivers calls arm_iommu_attach_device() which
-> > > >              * in-turn might call back into IOMMU core code, where it tries
-> > > >              * to take group->mutex, resulting in a deadlock.
-> > > >              */
-> > > >              for_each_group_device(group, gdev)
-> > > >                         iommu_group_do_probe_finalize(gdev->dev);
-> > > >         }
-> > > > 
-> > > >         return 0;
-> > > > }
-> > > > 
-> > > > Will the change above trigger a lockdep splat due to this "mis-locked"
-> > > > case?"
-> > > 
-> > > Oh, I missed this one. That's a good finding!
-> > > 
-> > > Perhaps we can just change it to list_for_each_entry_rcu holding
-> > > rcu_read_lock() and drop the FIXME.
-> > 
-> > You can't hold rcu across that function IIRC
-> 
-> Oh right. I didn't think too carefully...
-> 
-> I tend to keep it as-is. So, maybe just list_for_each_entry?
+Hi Paul,
 
-Does your series make this existing race materially worse?
+Thank you for the patch.
 
-Jason
+On Sat, Apr 25, 2026 at 02:58:47AM +0900, Paul Elder wrote:
+> From: Xu Hongfei <xuhf@rock-chips.com>
+> 
+> Add device tree nodes for the ISP and their iommus on the RK3588.
+> 
+> Signed-off-by: Xu Hongfei <xuhf@rock-chips.com>
+> Signed-off-by: Paul Elder <paul.elder@ideasonboard.com>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 60 +++++++++++++++++++
+>  1 file changed, 60 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+> index 8b98e5c3cc8b..607b03d55dfd 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+> @@ -3535,6 +3535,66 @@ gpio4: gpio@fec50000 {
+>  			#interrupt-cells = <2>;
+>  		};
+>  	};
+> +
+> +	isp0: isp@fdcb0000 {
+> +		compatible = "rockchip,rk3588-isp";
+> +		reg = <0x0 0xfdcb0000 0x0 0x7f00>;
+> +		interrupts = <GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH 0>,
+> +			     <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH 0>,
+> +			     <GIC_SPI 134 IRQ_TYPE_LEVEL_HIGH 0>;
+> +		interrupt-names = "isp_irq", "mi_irq";
+> +		clocks = <&cru ACLK_ISP0>, <&cru HCLK_ISP0>,
+> +			 <&cru CLK_ISP0_CORE>, <&cru CLK_ISP0_CORE_MARVIN>,
+> +			 <&cru CLK_ISP0_CORE_VICAP>;
+> +		clock-names = "aclk", "hclk", "clk_core",
+> +			      "clk_core_marvin", "clk_core_vicap";
+> +		power-domains = <&power RK3588_PD_VI>;
+> +		iommus = <&isp0_mmu>;
+> +		status = "disabled";
+> +	};
+> +
+> +	isp0_mmu: iommu@fdcb7f00 {
+> +		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
+> +		reg = <0x0 0xfdcb7f00 0x0 0x100>;
+> +		interrupts = <GIC_SPI 132 IRQ_TYPE_LEVEL_HIGH 0>;
+> +		interrupt-names = "isp0_mmu";
+
+I don't think interrupt-names is needed. Same for the second IOMMU.
+
+> +		clocks = <&cru ACLK_ISP0>, <&cru HCLK_ISP0>;
+> +		clock-names = "aclk", "iface";
+> +		power-domains = <&power RK3588_PD_VI>;
+> +		#iommu-cells = <0>;
+> +		rockchip,disable-mmu-reset;
+> +		status = "disabled";
+> +	};
+> +
+> +	isp1: isp@fdcc0000 {
+> +		compatible = "rockchip,rk3588-isp";
+> +		reg = <0x0 0xfdcc0000 0x0 0x7f00>;
+> +		interrupts = <GIC_SPI 135 IRQ_TYPE_LEVEL_HIGH 0>,
+> +			     <GIC_SPI 137 IRQ_TYPE_LEVEL_HIGH 0>,
+> +			     <GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH 0>;
+> +		interrupt-names = "isp_irq", "mi_irq";
+> +		clocks = <&cru ACLK_ISP1>, <&cru HCLK_ISP1>,
+> +			 <&cru CLK_ISP1_CORE>, <&cru CLK_ISP1_CORE_MARVIN>,
+> +			 <&cru CLK_ISP1_CORE_VICAP>;
+> +		clock-names = "aclk", "hclk", "clk_core",
+> +			      "clk_core_marvin", "clk_core_vicap";
+> +		power-domains = <&power RK3588_PD_ISP1>;
+> +		iommus = <&isp1_mmu>;
+> +		status = "disabled";
+> +	};
+> +
+> +	isp1_mmu: iommu@fdcc7f00 {
+> +		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
+> +		reg = <0x0 0xfdcc7f00 0x0 0x100>;
+> +		interrupts = <GIC_SPI 136 IRQ_TYPE_LEVEL_HIGH 0>;
+> +		interrupt-names = "isp1_mmu";
+> +		clocks = <&cru ACLK_ISP1>, <&cru HCLK_ISP1>;
+> +		clock-names = "aclk", "iface";
+> +		power-domains = <&power RK3588_PD_ISP1>;
+> +		#iommu-cells = <0>;
+> +		rockchip,disable-mmu-reset;
+> +		status = "disabled";
+> +	};
+>  };
+>  
+>  #include "rk3588-base-pinctrl.dtsi"
+
+-- 
+Regards,
+
+Laurent Pinchart
 
