@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C90BFED3F1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 16:47:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32617FED3F0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 16:48:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K/xS7q5C5QGMJMPDSriSnCglCHYvD9rGLYFUY/AUodE=; b=3iEGoSQHwp1zII/EEF6Cuq56UD
-	Bd3RKDD2nTcab27lHTSc7hy/GdursPjQmhWlmxXot33jlrniWjL0Dg3rzT7xfL/ZYgErHO0xCAe2V
-	oBq4AFEOKm1M3bcACzNCaDNb8KE4OJgRjgTOYDo7N39lMIMslb/y1JBGk9FNfH//gzasz/lFu+tdU
-	XZqYP8nPBKzuVD9x4Pu7g9HuqLpLsnJRNGkW9XZbvOqsfTLCaUe7T51zwI7OZMwGUg1ORTTHJeLKA
-	QKaLVpIPTajRxlMDswtE8erMaUj72oCAj5GdPz4NOGggz2r37vzT3UP8IPuNNE72ac4h7DPb+SM4U
-	tkaZ4g2Q==;
+	bh=RL6gbA3yHwRjF7ykSQ2dEvMc7Axg6yuH3FzRoVTsCT0=; b=JoQH9+LPffE3EGqlpT+/3hMF5h
+	lqbMCP7nRxlALcX0t5PruY9g5VgKCeBdxa0inyVIKC8NuJ84UwxkVYyNWiI506p2ZvSrO5dI7tS9z
+	mfa7apPhSxoxY/cDBjhfC1lh39eORZwyuISjjMgz5C5e49PVX2tKHMuSr5KQh7jRy8LpE7AQzwCQL
+	h18ZASSgyJgwc6hgnZOib8zuvSUp9lZqITb67jYLdtIt574KZdIf83PV6kF1Mb6aUjaQjbePn5VCi
+	HEi+u/ctI92TKdT5GbH1jVnbQ4gvoPaNf6GKLRHbjtNgLts8gmIR2Z+bymfUAie71m6fXePxVDO+J
+	F/YKLEig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJgm-0000000DTAZ-2sAK;
-	Fri, 24 Apr 2026 16:47:36 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1wGJh5-0000000DTIW-1qa2;
+	Fri, 24 Apr 2026 16:47:55 +0000
+Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJgg-0000000DT8c-3w2I
+	id 1wGJh2-0000000DTGG-3HqI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 16:47:32 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-3594620fe97so17474974a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 09:47:30 -0700 (PDT)
+	Fri, 24 Apr 2026 16:47:55 +0000
+Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2dd1c74508cso12952467eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 09:47:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777049250; x=1777654050; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777049271; x=1777654071; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=K/xS7q5C5QGMJMPDSriSnCglCHYvD9rGLYFUY/AUodE=;
-        b=DTrwN7dHj6p+u0aGBnsixsN5Q1i8HiSZzXEJr73KNc3XhqQQqjRzNWab4/qF+JjfKh
-         CZWP4ZXCr37EMvU5+C2M9mCVNngIZlBNLcstvfwv/PqyhriSTY4lP7IGu5qLaHtq4oOK
-         0VpyiNj1CDGCXYGcrXyYorZZxWtnASB7jNT0QtlYfVXPmOKXsMVgu3bXuRIyUioeqqQ9
-         bNhyLpShPbfsbFfs7S6eIueyQAR+BU29FxcYf9L4pI8ESzMohzCU/qW7gywyDTT06T3g
-         jzlaDrYUqv8CZln3lCuCfMLDCRwCkzxnAYdSdEJ7En6b8zhLKenzk0rWqowANerwpzJh
-         2xOg==
+        bh=RL6gbA3yHwRjF7ykSQ2dEvMc7Axg6yuH3FzRoVTsCT0=;
+        b=a+RWIdtuboOU2oB6apVolkb33DrZIV8aegVZhnCQGypkD9qstQ6/lfQq7mxOnbynpF
+         ZO5CE6LpSf3InkiWQEGqgZDGTrNO3YsYtIGk2QeWmCC8GJdtty9JnvWsIshkGKffg7cs
+         OESTqLVClYke6XgjPZfcOwJjbwp3Kgu+fXMUkC+nU6t7j3pITRbFlAgbEapMpM/qho7+
+         8Mz2CD9wYZt9JYrRmySlc7Rzge6+K0OXRssvs+wFUmQIIhZpqhWB7CtH96b7+rvprD4M
+         foNKHDtZcGP2EQbGAAY/ibqAIBrq0kfsYJgIKqy+DDAf6vqQSioqheHZ7fOELAefRXHr
+         6u8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777049250; x=1777654050;
+        d=1e100.net; s=20251104; t=1777049271; x=1777654071;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=K/xS7q5C5QGMJMPDSriSnCglCHYvD9rGLYFUY/AUodE=;
-        b=bzdjsQKGFyXpApBMC/jrh30wEVGTPx/cTSydkyvGsUWuNXdB82NdHIvgFZsNBqG+iK
-         /crJ3wYaKxqRjEw09yzHUfK24jcHQzmFgazrbovzgZysfOHqbQ9m9rHt44p9FiP9VTe/
-         mrL4ySLKgMxkItiC+/hU7ig7My2iRfYMl162NqaVz9ifLj3NXKQTRT7lnh+HxDK5EwAz
-         uuV0T13WRPCrtRfJ6yr9J+uQ0ha4AAHF/a/2OzOakZCwGuJkXBqrjPGl5evNC1XwSqYW
-         NK1zKSRWsYnzCohqk7VfmLMCOMYpR6jkiWDBLQlGIci8Z3OD42zILaUKt9YIjPQkhFha
-         x0QA==
-X-Forwarded-Encrypted: i=1; AFNElJ90XDVnqUvDB3J0DSztlRsQuQyWzvw6H4iHEGPuJwhkkH+/kMWmJg+ZC7FzqvGeOhX7Y0dIQN7OJ0N+vWrmHPe3@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPzULLZ65eg1hiivxCHenVrdClJiIxH0xwr/3q5WDXdiu73KFs
-	+QJCYIGDvBd5t5/aSfHfOnNERUr4eh/Ckq/zg+FzDfQk/TDtHv49PsZVG04nFbhGRPj5qD5an1O
-	zkf+UjILbsA==
-X-Received: from pgbfq1.prod.google.com ([2002:a05:6a02:2981:b0:bac:6acd:818b])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:7f85:b0:3a1:76d3:c1b4
- with SMTP id adf61e73a8af0-3a176d45d70mr27186517637.30.1777049249361; Fri, 24
- Apr 2026 09:47:29 -0700 (PDT)
-Date: Fri, 24 Apr 2026 09:46:24 -0700
+        bh=RL6gbA3yHwRjF7ykSQ2dEvMc7Axg6yuH3FzRoVTsCT0=;
+        b=qKeruueqavbckqPPhADwhmZJzKUX3WDWOUxNGaFjYxXaNUzayC2xf4YfqKD+ficQeS
+         mny3kZpQTBqD9WqVBtPDG1F4t/eDhjcm9raQMD723Sw8pibofNfTgb+caEsflcp2yjCo
+         N0NF6ot6uIqlqGekkyfOlHdClnYqK0NxfhNHdis3DMCdMdxsaITuga6qKTOtc5UwusiV
+         p4ay3EYkbzp43/qYXO5ttiSF6hR+tnNTTKH6Ni8BOzjGxt+1Ri4HM76+iYj3lyGYuW7I
+         w/laosHO6Thk3p3eUvJdD6PGXuaHkuor+QUNZIEmuHdCOMPuWmIvQISWK52JVHccLxVe
+         DiZw==
+X-Forwarded-Encrypted: i=1; AFNElJ9uheLzQGJ89JKwZ2hoS2lEQm9KR+/+paV8fZBHpfki2mHeMhRxmRWnTejkvUd2q3DyOb0boQNpulSf6GnVCAm5@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYYkQQpt2Xpm8/Q5Cv48VkgacVu5zl/gmSzlNpm9jEIcnyEWwM
+	DD5lZA6q8/uzDtwsdgn9hVI5icch56PA3RzczF3vYsuB58GRaMTygjCzrwTO0HbF5htblKfzXJ3
+	WVU95XOs3bg==
+X-Received: from dyjh29.prod.google.com ([2002:a05:7300:561d:b0:2e0:f299:f616])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:2d15:b0:2c9:ee15:a0d6
+ with SMTP id 5a478bee46e88-2e47901662fmr20345135eec.29.1777049251118; Fri, 24
+ Apr 2026 09:47:31 -0700 (PDT)
+Date: Fri, 24 Apr 2026 09:46:25 -0700
 In-Reply-To: <20260424164721.2229025-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260423163406.1779809-1-irogers@google.com> <20260424164721.2229025-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260424164721.2229025-3-irogers@google.com>
-Subject: [PATCH v5 02/58] perf arch arm: Sort includes and add missed explicit dependencies
+Message-ID: <20260424164721.2229025-4-irogers@google.com>
+Subject: [PATCH v5 03/58] perf arch x86: Sort includes and add missed explicit dependencies
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -75,8 +75,9 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_094731_002321_796F251B 
-X-CRM114-Status: GOOD (  10.08  )
+X-CRM114-CacheID: sfid-20260424_094752_835789_8B2824E5 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,64 +98,110 @@ of the code.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/arch/arm/util/cs-etm.c | 26 ++++++++++++++------------
- 1 file changed, 14 insertions(+), 12 deletions(-)
+ tools/perf/arch/x86/util/intel-bts.c | 20 +++++++++++--------
+ tools/perf/arch/x86/util/intel-pt.c  | 29 +++++++++++++++-------------
+ 2 files changed, 28 insertions(+), 21 deletions(-)
 
-diff --git a/tools/perf/arch/arm/util/cs-etm.c b/tools/perf/arch/arm/util/cs-etm.c
-index b7a839de8707..cdf8e3e60606 100644
---- a/tools/perf/arch/arm/util/cs-etm.c
-+++ b/tools/perf/arch/arm/util/cs-etm.c
-@@ -3,10 +3,13 @@
-  * Copyright(C) 2015 Linaro Limited. All rights reserved.
-  * Author: Mathieu Poirier <mathieu.poirier@linaro.org>
+diff --git a/tools/perf/arch/x86/util/intel-bts.c b/tools/perf/arch/x86/util/intel-bts.c
+index 85c8186300c8..100a23d27998 100644
+--- a/tools/perf/arch/x86/util/intel-bts.c
++++ b/tools/perf/arch/x86/util/intel-bts.c
+@@ -4,26 +4,30 @@
+  * Copyright (c) 2013-2015, Intel Corporation.
   */
-+#include "../../../util/cs-etm.h"
-+
-+#include <errno.h>
-+#include <stdlib.h>
  
--#include <api/fs/fs.h>
--#include <linux/bits.h>
- #include <linux/bitops.h>
-+#include <linux/bits.h>
- #include <linux/compiler.h>
- #include <linux/coresight-pmu.h>
- #include <linux/kernel.h>
-@@ -14,25 +17,24 @@
- #include <linux/string.h>
- #include <linux/types.h>
- #include <linux/zalloc.h>
-+#include <sys/stat.h>
++#include "../../../util/intel-bts.h"
 +
+ #include <errno.h>
+-#include <linux/kernel.h>
+-#include <linux/types.h>
++
+ #include <linux/bitops.h>
++#include <linux/kernel.h>
+ #include <linux/log2.h>
++#include <linux/types.h>
+ #include <linux/zalloc.h>
+ 
++#include <internal/lib.h> // page_size
++
++#include "../../../util/auxtrace.h"
+ #include "../../../util/cpumap.h"
++#include "../../../util/debug.h"
+ #include "../../../util/event.h"
+-#include "../../../util/evsel.h"
+ #include "../../../util/evlist.h"
++#include "../../../util/evsel.h"
+ #include "../../../util/mmap.h"
+-#include "../../../util/session.h"
++#include "../../../util/pmu.h"
+ #include "../../../util/pmus.h"
+-#include "../../../util/debug.h"
+ #include "../../../util/record.h"
++#include "../../../util/session.h"
+ #include "../../../util/tsc.h"
+-#include "../../../util/auxtrace.h"
+-#include "../../../util/intel-bts.h"
+-#include <internal/lib.h> // page_size
+ 
+ #define KiB(x) ((x) * 1024)
+ #define MiB(x) ((x) * 1024 * 1024)
+diff --git a/tools/perf/arch/x86/util/intel-pt.c b/tools/perf/arch/x86/util/intel-pt.c
+index c131a727774f..0307ff15d9fc 100644
+--- a/tools/perf/arch/x86/util/intel-pt.c
++++ b/tools/perf/arch/x86/util/intel-pt.c
+@@ -3,36 +3,39 @@
+  * intel_pt.c: Intel Processor Trace support
+  * Copyright (c) 2013-2015, Intel Corporation.
+  */
++#include "../../../util/intel-pt.h"
+ 
+ #include <errno.h>
+ #include <stdbool.h>
+-#include <linux/kernel.h>
+-#include <linux/types.h>
++
+ #include <linux/bitops.h>
++#include <linux/err.h>
++#include <linux/kernel.h>
+ #include <linux/log2.h>
++#include <linux/types.h>
+ #include <linux/zalloc.h>
+-#include <linux/err.h>
+ 
+-#include "../../../util/session.h"
 +#include <api/fs/fs.h>
 +#include <internal/lib.h> // page_size
- 
--#include "cs-etm.h"
--#include "../../../util/debug.h"
--#include "../../../util/record.h"
- #include "../../../util/auxtrace.h"
- #include "../../../util/cpumap.h"
++#include <subcmd/parse-options.h>
++
++#include "../../../util/auxtrace.h"
++#include "../../../util/config.h"
++#include "../../../util/cpumap.h"
 +#include "../../../util/debug.h"
  #include "../../../util/event.h"
  #include "../../../util/evlist.h"
  #include "../../../util/evsel.h"
--#include "../../../util/perf_api_probe.h"
  #include "../../../util/evsel_config.h"
-+#include "../../../util/perf_api_probe.h"
+-#include "../../../util/config.h"
+-#include "../../../util/cpumap.h"
+ #include "../../../util/mmap.h"
+-#include <subcmd/parse-options.h>
+ #include "../../../util/parse-events.h"
+-#include "../../../util/pmus.h"
+-#include "../../../util/debug.h"
+-#include "../../../util/auxtrace.h"
+ #include "../../../util/perf_api_probe.h"
 +#include "../../../util/pmu.h"
- #include "../../../util/pmus.h"
--#include "../../../util/cs-etm.h"
++#include "../../../util/pmus.h"
+ #include "../../../util/record.h"
++#include "../../../util/session.h"
+ #include "../../../util/target.h"
+ #include "../../../util/tsc.h"
 -#include <internal/lib.h> // page_size
-+#include "../../../util/record.h"
- #include "../../../util/session.h"
--
--#include <errno.h>
--#include <stdlib.h>
--#include <sys/stat.h>
-+#include "cs-etm.h"
+-#include "../../../util/intel-pt.h"
+-#include <api/fs/fs.h>
+ #include "cpuid.h"
  
- struct cs_etm_recording {
- 	struct auxtrace_record	itr;
+ #define KiB(x) ((x) * 1024)
 -- 
 2.54.0.545.g6539524ca2-goog
 
