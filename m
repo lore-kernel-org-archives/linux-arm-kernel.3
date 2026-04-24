@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B8D5FED3F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 17:59:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F5BFFED3F6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 17:59:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=laP+gPfvBlWlsPLNYSWFj0wJqjaXNbpNdOKgSDyC/+Y=; b=NLO7/eC8ZEMbPw/PSjWctcYAxd
-	3XACjT5Q/5oWt4N/wgtCi1I+5Yg8IBeKL6VJwC2Q+7UjqvQEWQ8Zg96P6Qy59z5a8RL0+P3/omAMK
-	DJwYtNAsImpoU1OFd88uEfyN94NvV/2Mmgo0fqZn2OyCHVZbuxL7BJGeMJeAA1P8czrjggrjNcvno
-	ONnAzp+ldWtyjCuEWfSuDtT+DmXTI/4LAuGlKlkinQ31cX8sFKPuGQ8UuxgWGbMnTo6mSfNDzKWtb
-	dthWzZtyCiMV31GUbyVCg+iQuQmPafNj2sLPhM7GXhw5hK00xNH7TSI7nzw7R/4g/BuVsGdQga/oN
-	UcUfT2NA==;
+	bh=Nq+36Gmi7io5ZhSvvC4/950fCuZd8ugXAHy5lU6swsY=; b=G7LelAg1rSHF2Qq3lKlmvfOasd
+	CCYN/EtAh4boc0m653M+c0KF/5DWWICN9ojCxuaYadhsneth+eC1OeBCcFBjKxikKEigVufQZlz9z
+	mI6IJedLg8HrNfAyaGV+u1WGPzvr1YPSFfcnEeRtjFDu7fmeRLrNY5mM7sOozUcbyqIlw2vKqY4sm
+	BTcez9BeHBdhQzE4YL0NUm/hujPhEiy0iQ7mQUlHT2j0K5ww035EiJ2gc6EGy1SYDyINNOiZw8Wm7
+	J8P7qeYIYBEwqCMqSGzuPbYPGZG/bQoFv7vWd8i5cSTecuSWHIqIzdkpJbSnoS2h9KSJS2EvdFoba
+	tWitnZYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGKoI-0000000DcAO-20Qk;
-	Fri, 24 Apr 2026 17:59:26 +0000
+	id 1wGKoN-0000000DcD3-2AwY;
+	Fri, 24 Apr 2026 17:59:31 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGKoE-0000000Dc96-3rbX;
-	Fri, 24 Apr 2026 17:59:24 +0000
+	id 1wGKoI-0000000Dc9s-3UMt;
+	Fri, 24 Apr 2026 17:59:28 +0000
 Received: from neptunite.hamster-moth.ts.net (unknown [IPv6:2404:7a81:160:2100:5216:c7b6:205:5f59])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9577D1E3E;
-	Fri, 24 Apr 2026 19:57:37 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 45DE01E48;
+	Fri, 24 Apr 2026 19:57:41 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1777053460;
-	bh=PWyHHqPGJo0i+5WLQBkcXXN9K4zpJRtULYXRlbKnC7Y=;
+	s=mail; t=1777053464;
+	bh=QKMIRFf+egZTLlRGURczjRcS1xEDrJXoY7l0Wd95zZA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ij7jB+JhpDntyOa9QMqRkzTN/QMUZ0uzIO+QvOxDAxJ0mc7b3vleLYXpFZbJcI3vI
-	 BlQDNJfeMsSH0PW2UMZ4X0y2khGQdCHLhmnCNkRt4cXVHntZzG/t8W/XDSlc2GsCfH
-	 NRYz61iSqXNOUkg3r1+14DzVw3PeZrKo9LL96RMs=
+	b=orR6Gr+6Egau2xm0MyviEZYvZwUYNU/i7QITxtNiF6EvwO2U0u06JeYL/cbzcsQnu
+	 zalf26n88lyT1fQY45zFO+I4GXVYyIM6xGAE/jgLgn8AuQW5tyg8vOhm5nXwezLDIN
+	 W5eTPyL7zw4G3fooR8PHewgqAzhB8nxN11RU73CA=
 From: Paul Elder <paul.elder@ideasonboard.com>
 To: laurent.pinchart@ideasonboard.com
-Cc: Paul Elder <paul.elder@ideasonboard.com>,
+Cc: Xu Hongfei <xuhf@rock-chips.com>,
 	michael.riesch@collabora.com,
-	xuhf@rock-chips.com,
 	stefan.klug@ideasonboard.com,
 	linux-media@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
+	Paul Elder <paul.elder@ideasonboard.com>,
 	Heiko Stuebner <heiko@sntech.de>
-Subject: [RFC PATCH 1/5] media: dt-bindings: Add rockchip rkisp2 bindings
-Date: Sat, 25 Apr 2026 02:58:46 +0900
-Message-ID: <20260424175853.638202-2-paul.elder@ideasonboard.com>
+Subject: [RFC PATCH 2/5] arm64: dts: rockchip: add ISP nodes to rk3588
+Date: Sat, 25 Apr 2026 02:58:47 +0900
+Message-ID: <20260424175853.638202-3-paul.elder@ideasonboard.com>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20260424175853.638202-1-paul.elder@ideasonboard.com>
 References: <20260424175853.638202-1-paul.elder@ideasonboard.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_105923_186648_DE9A7EC5 
-X-CRM114-Status: GOOD (  13.21  )
+X-CRM114-CacheID: sfid-20260424_105927_514731_23DFCFDC 
+X-CRM114-Status: UNSURE (   7.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,150 +73,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add documentation for the Rockchip rkisp2 bindings. This is meant to
-support multiple versions of Rockchip ISPs going forward, including the
-2.x series and 3.x series. The current version only adds the compatible
-for the RK3588, which is a 3.0.
+From: Xu Hongfei <xuhf@rock-chips.com>
 
+Add device tree nodes for the ISP and their iommus on the RK3588.
+
+Signed-off-by: Xu Hongfei <xuhf@rock-chips.com>
 Signed-off-by: Paul Elder <paul.elder@ideasonboard.com>
 ---
- .../bindings/media/rockchip-isp2.yaml         | 127 ++++++++++++++++++
- 1 file changed, 127 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/media/rockchip-isp2.yaml
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 60 +++++++++++++++++++
+ 1 file changed, 60 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/media/rockchip-isp2.yaml b/Documentation/devicetree/bindings/media/rockchip-isp2.yaml
-new file mode 100644
-index 000000000000..f4ef089adf6e
---- /dev/null
-+++ b/Documentation/devicetree/bindings/media/rockchip-isp2.yaml
-@@ -0,0 +1,127 @@
-+# SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/media/rockchip-isp2.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+index 8b98e5c3cc8b..607b03d55dfd 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+@@ -3535,6 +3535,66 @@ gpio4: gpio@fec50000 {
+ 			#interrupt-cells = <2>;
+ 		};
+ 	};
 +
-+title: Rockchip SoC Image Signal Processing unit v2
++	isp0: isp@fdcb0000 {
++		compatible = "rockchip,rk3588-isp";
++		reg = <0x0 0xfdcb0000 0x0 0x7f00>;
++		interrupts = <GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_SPI 134 IRQ_TYPE_LEVEL_HIGH 0>;
++		interrupt-names = "isp_irq", "mi_irq";
++		clocks = <&cru ACLK_ISP0>, <&cru HCLK_ISP0>,
++			 <&cru CLK_ISP0_CORE>, <&cru CLK_ISP0_CORE_MARVIN>,
++			 <&cru CLK_ISP0_CORE_VICAP>;
++		clock-names = "aclk", "hclk", "clk_core",
++			      "clk_core_marvin", "clk_core_vicap";
++		power-domains = <&power RK3588_PD_VI>;
++		iommus = <&isp0_mmu>;
++		status = "disabled";
++	};
 +
-+maintainers:
-+  - Paul Elder <paul.elder@ideasonboard.com>
++	isp0_mmu: iommu@fdcb7f00 {
++		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
++		reg = <0x0 0xfdcb7f00 0x0 0x100>;
++		interrupts = <GIC_SPI 132 IRQ_TYPE_LEVEL_HIGH 0>;
++		interrupt-names = "isp0_mmu";
++		clocks = <&cru ACLK_ISP0>, <&cru HCLK_ISP0>;
++		clock-names = "aclk", "iface";
++		power-domains = <&power RK3588_PD_VI>;
++		#iommu-cells = <0>;
++		rockchip,disable-mmu-reset;
++		status = "disabled";
++	};
 +
-+description: |
-+  Rockchip ISP2 is the Camera interface for the Rockchip series of SoCs which
-+  contains image processing, scaling, and compression functions.
++	isp1: isp@fdcc0000 {
++		compatible = "rockchip,rk3588-isp";
++		reg = <0x0 0xfdcc0000 0x0 0x7f00>;
++		interrupts = <GIC_SPI 135 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_SPI 137 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH 0>;
++		interrupt-names = "isp_irq", "mi_irq";
++		clocks = <&cru ACLK_ISP1>, <&cru HCLK_ISP1>,
++			 <&cru CLK_ISP1_CORE>, <&cru CLK_ISP1_CORE_MARVIN>,
++			 <&cru CLK_ISP1_CORE_VICAP>;
++		clock-names = "aclk", "hclk", "clk_core",
++			      "clk_core_marvin", "clk_core_vicap";
++		power-domains = <&power RK3588_PD_ISP1>;
++		iommus = <&isp1_mmu>;
++		status = "disabled";
++	};
 +
-+properties:
-+  compatible:
-+    enum:
-+      - rockchip,rk3588-isp
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    minItems: 3
-+    maxItems: 3
-+
-+  interrupt-names:
-+    items:
-+      - const: isp_irq
-+      - const: mi_irq
-+
-+  clocks:
-+    minItems: 3
-+    items:
-+      - description: ISP AXI clock (aclk)
-+      - description: ISP AHB clock (hclk)
-+      - description: ISP core clock (isp)
-+      # for rk3588
-+      - description: ISP core clock (marvin)
-+      - description: ISP core clock (vicap)
-+
-+  clock-names:
-+    minItems: 3
-+    items:
-+      - const: aclk
-+      - const: hclk
-+      - const: clk_core
-+      # for rk3588
-+      - const: clk_core_marvin
-+      - const: clk_core_vicap
-+
-+  iommus:
-+    maxItems: 1
-+
-+  power-domains:
-+    minItems: 1
-+    items:
-+      - description: ISP power domain
-+
-+  ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
-+
-+    properties:
-+      port@0:
-+        $ref: /schemas/graph.yaml#/$defs/port-base
-+        unevaluatedProperties: false
-+        description: connection point for VICAP in inline mode
-+
-+        properties:
-+          endpoint:
-+            $ref: video-interfaces.yaml#
-+            unevaluatedProperties: false
-+
-+    required:
-+      - port@0
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - clock-names
-+  - power-domains
-+
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: rockchip,rk3588-isp
-+    then:
-+      properties:
-+        clocks:
-+          minItems: 5
-+        clock-names:
-+          minItems: 5
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+
-+    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/power/rk3588-power.h>
-+
-+    parent0: parent {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        isp0: isp@fdcb0000 {
-+            compatible = "rockchip,rk3588-isp";
-+            reg = <0x0 0xfdcb0000 0x0 0x7f00>;
-+            interrupts = <GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH 0>,
-+                         <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH 0>,
-+                         <GIC_SPI 134 IRQ_TYPE_LEVEL_HIGH 0>;
-+            interrupt-names = "isp_irq", "mi_irq";
-+            clocks = <&cru ACLK_ISP0>, <&cru HCLK_ISP0>,
-+                     <&cru CLK_ISP0_CORE>, <&cru CLK_ISP0_CORE_MARVIN>,
-+                     <&cru CLK_ISP0_CORE_VICAP>;
-+            clock-names = "aclk", "hclk", "clk_core",
-+                        "clk_core_marvin", "clk_core_vicap";
-+            power-domains = <&power RK3588_PD_VI>;
-+            iommus = <&isp0_mmu>;
-+        };
-+    };
++	isp1_mmu: iommu@fdcc7f00 {
++		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
++		reg = <0x0 0xfdcc7f00 0x0 0x100>;
++		interrupts = <GIC_SPI 136 IRQ_TYPE_LEVEL_HIGH 0>;
++		interrupt-names = "isp1_mmu";
++		clocks = <&cru ACLK_ISP1>, <&cru HCLK_ISP1>;
++		clock-names = "aclk", "iface";
++		power-domains = <&power RK3588_PD_ISP1>;
++		#iommu-cells = <0>;
++		rockchip,disable-mmu-reset;
++		status = "disabled";
++	};
+ };
+ 
+ #include "rk3588-base-pinctrl.dtsi"
 -- 
 2.47.2
 
