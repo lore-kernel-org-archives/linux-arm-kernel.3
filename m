@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 620A1FED3F4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 16:48:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A90AFED3F1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 16:48:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=viZhgTNNP2buRGy766mhoKyGu3Atkn7DPzIJmPMe5kc=; b=Zv/pw8Rot+YH2mzMDp9h4V1XcJ
-	m3sbYsdv8HUXevl4LVrSfjDdlCAXsjoE7auTH1pKE99Mf4sr7rvQA0tP1O6PI9xxxkCaq49en1p75
-	YVQjpiAdxnGFm1DGo06G5HWCaBMRZf9C12gniQvEBxdQL+gHh5Us8JxnCQHUHaw8Ry4GiugE4geqj
-	1mpJtpJPe5ylWY0QT8zl3nvdn9PEUB2IpE/ko8BsYPAkO9ODEP8jyA5+L9gTtRmbKGX4jeXj3B91M
-	O6++n4Uke7cbyfqZJ96pluHiaV0DHjCEJYWPksJdBpr+P3TOlydFTlLxw25pAN5/sY4INSvILn3d2
-	82gA1J0w==;
+	bh=22olXlLY2a/aW3iIRalXE3Od5F0yl9bqDC7eX7ett48=; b=KYw2QmKefQRlk7/pWGi2oNTDVX
+	vayM+Ia3HFuqCyiXs9CD65j7P/itqhvn7s56ByyRMCmnV8cGEYVoR8rHBCfUFWOnZEkwuWbsKiUlb
+	SGFY1nP2wJvjniPacylS+bUaLEh7WC37lLlg0+ae7XpzVn6+zUjV5P6IeCoajbMRnlKNA0DdQgqob
+	l8vFNd36lO/avAuUdOkk46DxDqx+KwV2H//TwZJgSPZYbrXNjfvbSinRV1FDnGcreqG2b7bGAuA/v
+	S9utfnuE9vf3v0lx133HkL1BL5lRzlBV6Kj5jY4ThdBSdyC6TZnP9JBUdFmZ0RAuC0Aa6fQRJr6zh
+	XJesPutg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJhG-0000000DTQ6-1ovo;
-	Fri, 24 Apr 2026 16:48:06 +0000
-Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
+	id 1wGJhT-0000000DTbv-1mBI;
+	Fri, 24 Apr 2026 16:48:19 +0000
+Received: from mail-dl1-x124a.google.com ([2607:f8b0:4864:20::124a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJh8-0000000DTKH-3c4s
+	id 1wGJhF-0000000DTPD-40LN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 16:48:00 +0000
-Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2de07c12745so19743632eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 09:47:58 -0700 (PDT)
+	Fri, 24 Apr 2026 16:48:07 +0000
+Received: by mail-dl1-x124a.google.com with SMTP id a92af1059eb24-12c21dbc9c1so29133080c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 09:48:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777049278; x=1777654078; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777049284; x=1777654084; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=viZhgTNNP2buRGy766mhoKyGu3Atkn7DPzIJmPMe5kc=;
-        b=LOCdl5DfJGICAYAIhwApSTG/rG044MPm/jlDWSMBLrlx2pfEcE+sXQNskhE77XrHOt
-         miEJgdBPqaaXzyoya5hxSmsAzDyPrRvVSEqZYwCESubsYl6q8l8IJA/Ou8aQTCCXcwbf
-         h7PsPFGqj4MJqajnBUXfXYzsnkjOhVlP9DfkUPcEqqx0cw/n/wkoFDpTljehjHX86nKe
-         PVhg6Uw5dw/3+PJmD+LjXAaMkLEppJwriLH/kaRRvyfsg2mVvfhvWQYEY1QplfSbo6no
-         oyFZdAKjYvXSMU293mDeyOZDa+1jhkji+B9fLKJ5sDtLjxF38ZrVzR2ck7UR1neO94cw
-         K77A==
+        bh=22olXlLY2a/aW3iIRalXE3Od5F0yl9bqDC7eX7ett48=;
+        b=BMlCP8dKEeZgF2ovXjx7Y7i++4ub5frY3n95QQ1jFc8V3WU7etsqOS1PWWoQWPGAMj
+         Ev80lXMY0GHDfzEb9IhYuF+Lk1sfeeFTlhZie4GcuQDF/GeooS95jSN9tPqLIuaKziS+
+         +PbBXQzOyvsOvxw662kuyAT8l/BFGutg7q/2Q4VLIxxb0AzqJ9MQ3qs9e/3UKK0X8Do5
+         QBKFJ7ddJ0C6budf+m9BKkdZP9FCWUi3tWso7SJnwE4wGbNocegMQMQmKdKNJenRkbFw
+         BUSlzOa3T4LHhiVf/Zt/XaeeE9UkO4fO6I32hx97I1rUd38Le6ubRSYjlKs5R26F2QWr
+         u3ig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777049278; x=1777654078;
+        d=1e100.net; s=20251104; t=1777049284; x=1777654084;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=viZhgTNNP2buRGy766mhoKyGu3Atkn7DPzIJmPMe5kc=;
-        b=Jejr2t/DzXL+ZyZJevMbSmN7t3/zFWQ6NZtcYrimMTVHCUkmNz4Hl9ngRW79471zTB
-         imbX3STVU2XmLhjf1FtRoOFk6x1ZGZ8aR3IW0+ZfI0YpYD/vcwjUjTaV+soQEPtjeKJg
-         x4tKcgiE2kc6bcdetFJ3J9Xbg1qnq6cvx0aoJsHdOjBrhTGwoLkXR5NI6F9bSdn+x59z
-         OPKjR9H1llvOfvjr95Ql9j205pUkKiTZOVNb/+VCpI4BZ5LLywFbLr/KeJ3LxYYyYOj7
-         sQSSPbdMbJZOdG8Zpg1w+g1qdQ2mI5MmIMXt/f6Ag5Zk433jWqIgjoZb3NPfGfxfXU4l
-         fAiw==
-X-Forwarded-Encrypted: i=1; AFNElJ+IXg1F7alr/lUfLhavVfKjiS/vyJCL5D0UPnCiKjUMrv3INt0BeZeO4y1hQVpfUVoypZdwT5HR3n5MYzkWBAI5@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnBFfI+cu6LNnkuTpaoO1TSTrqnWFFNczJLg+RUeZsrUAG+aWH
-	ddQyieSaVLM5arbly2x8iPmR8mCrgADkzv3hdbYxGaPd+zq0W83eIga+51uxRl8adpEmHGo3hT9
-	i7n+YxOJG9Q==
-X-Received: from dlbtu24.prod.google.com ([2002:a05:7022:3c18:b0:12c:3dfa:518e])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:701b:270f:b0:12d:b993:c68f
- with SMTP id a92af1059eb24-12db993c9b2mr4578242c88.4.1777049277696; Fri, 24
- Apr 2026 09:47:57 -0700 (PDT)
-Date: Fri, 24 Apr 2026 09:46:28 -0700
+        bh=22olXlLY2a/aW3iIRalXE3Od5F0yl9bqDC7eX7ett48=;
+        b=DCcH9DAuvWDDPlYVZLmIMSpFn0NflHE8gcIjFskxRi0jlwzRGUbF35TClHJSlZ7g9J
+         z6+w3+EKo7e35UkGScbf4F+Hc9MbSkIAaA6q68B0PzmI0RA6jsWVifNdcFBcZ1ly/H7R
+         rUADm+72RfogTaf+w/bXTixvKt0Os5h8sRAW2XxcD5hXjDHQUrZ7BGuCP+1Su/NsrAQ5
+         ZTgsxhhUQZ6Ya1L7gegQouGmzJdMm9ppao2rowzaTydKwyIphKTxeiisJknyBDoX+Gpi
+         s1fSLUPegH0/Pvfrk0h7NPPXtqnBzS5GM0/01bjBAeCqeX8o7mhmcTvK8doS6JslV2IS
+         xiXg==
+X-Forwarded-Encrypted: i=1; AFNElJ9it3TkTNZRTxoEhJp3L1SJC2Wqa93QbzQcS2hXK+bOQDE2VdKtdRGkgtHRToAm5VJYhgMKnz9S2tq764p3jVNs@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJ9GXMN92oBnstzGkQh0BkbffgjOJtJik/T9YcwvTtA7CPvNKX
+	iR+a9Me5GQNwvbVEfp7bnoV3zWnAEqkqnAsM57UUNgO877sEdmp3U9PSIZEmkSE6ssQJpBnZVTK
+	zBS+kDBGj5w==
+X-Received: from dled13-n1.prod.google.com ([2002:a05:701b:42cd:10b0:12a:ad8d:be18])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:60f:b0:124:abaa:7ff2
+ with SMTP id a92af1059eb24-12c73f9bc97mr18739871c88.24.1777049284122; Fri, 24
+ Apr 2026 09:48:04 -0700 (PDT)
+Date: Fri, 24 Apr 2026 09:46:31 -0700
 In-Reply-To: <20260424164721.2229025-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260423163406.1779809-1-irogers@google.com> <20260424164721.2229025-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260424164721.2229025-7-irogers@google.com>
-Subject: [PATCH v5 06/58] perf util: Sort includes and add missed explicit dependencies
+Message-ID: <20260424164721.2229025-10-irogers@google.com>
+Subject: [PATCH v5 09/58] perf data: Add open flag
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -75,8 +75,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_094758_930451_A500DCA4 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20260424_094806_002175_432B9139 
+X-CRM114-Status: GOOD (  18.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,483 +91,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix missing includes found while cleaning the evsel/evlist header
-files. Sort the remaining header files for consistency with the rest
-of the code.
+Avoid double opens and ensure only open files are closed. This
+addresses some issues with python integration where the data file
+wants to be opened before being given to a session.
 
+Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/bpf_off_cpu.c       | 30 +++++-----
- tools/perf/util/bpf_trace_augment.c |  8 +--
- tools/perf/util/evlist.c            | 91 +++++++++++++++--------------
- tools/perf/util/evsel.c             | 75 ++++++++++++------------
- tools/perf/util/map.h               |  9 ++-
- tools/perf/util/perf_api_probe.c    | 18 +++---
- tools/perf/util/s390-sample-raw.c   | 19 +++---
- tools/perf/util/stat-shadow.c       | 20 ++++---
- tools/perf/util/stat.c              | 16 +++--
- 9 files changed, 152 insertions(+), 134 deletions(-)
+Changes in v2:
 
-diff --git a/tools/perf/util/bpf_off_cpu.c b/tools/perf/util/bpf_off_cpu.c
-index a3b699a5322f..48cb930cdd2e 100644
---- a/tools/perf/util/bpf_off_cpu.c
-+++ b/tools/perf/util/bpf_off_cpu.c
-@@ -1,23 +1,25 @@
- // SPDX-License-Identifier: GPL-2.0
--#include "util/bpf_counter.h"
--#include "util/debug.h"
--#include "util/evsel.h"
--#include "util/evlist.h"
--#include "util/off_cpu.h"
--#include "util/perf-hooks.h"
--#include "util/record.h"
--#include "util/session.h"
--#include "util/target.h"
--#include "util/cpumap.h"
--#include "util/thread_map.h"
--#include "util/cgroup.h"
--#include "util/strlist.h"
-+#include <linux/time64.h>
-+
- #include <bpf/bpf.h>
- #include <bpf/btf.h>
- #include <internal/xyarray.h>
--#include <linux/time64.h>
+1. Fixed File Rotation: In perf_data__switch() , I added data->open =
+   false; after the file is closed. This ensures that the subsequent
+   perf_data__open() call will not exit early and will successfully
+   open the new file.
+
+2. Fixed Memory Leak: In open_dir() , I added a call to
+   zfree(&data->file.path) if mkdir() fails, preventing the leak of
+   the path string.
+---
+ tools/perf/util/data.c | 26 ++++++++++++++++++++++----
+ tools/perf/util/data.h |  4 +++-
+ 2 files changed, 25 insertions(+), 5 deletions(-)
+
+diff --git a/tools/perf/util/data.c b/tools/perf/util/data.c
+index 94dc534a7386..17baf71897d1 100644
+--- a/tools/perf/util/data.c
++++ b/tools/perf/util/data.c
+@@ -346,8 +346,10 @@ static int open_dir(struct perf_data *data)
+ 		return -1;
  
-+#include "bpf_counter.h"
- #include "bpf_skel/off_cpu.skel.h"
-+#include "cgroup.h"
-+#include "cpumap.h"
-+#include "debug.h"
-+#include "evlist.h"
-+#include "evsel.h"
-+#include "off_cpu.h"
-+#include "parse-events.h"
-+#include "perf-hooks.h"
-+#include "record.h"
-+#include "session.h"
-+#include "strlist.h"
-+#include "target.h"
-+#include "thread_map.h"
+ 	if (perf_data__is_write(data) &&
+-	    mkdir(data->path, S_IRWXU) < 0)
++	    mkdir(data->path, S_IRWXU) < 0) {
++		zfree(&data->file.path);
+ 		return -1;
++	}
  
- #define MAX_STACKS  32
- #define MAX_PROC  4096
-diff --git a/tools/perf/util/bpf_trace_augment.c b/tools/perf/util/bpf_trace_augment.c
-index 9e706f0fa53d..a9cf2a77ded1 100644
---- a/tools/perf/util/bpf_trace_augment.c
-+++ b/tools/perf/util/bpf_trace_augment.c
-@@ -1,11 +1,11 @@
- #include <bpf/libbpf.h>
- #include <internal/xyarray.h>
+ 	ret = open_file(data);
  
--#include "util/debug.h"
--#include "util/evlist.h"
--#include "util/trace_augment.h"
--
- #include "bpf_skel/augmented_raw_syscalls.skel.h"
-+#include "debug.h"
-+#include "evlist.h"
-+#include "parse-events.h"
-+#include "trace_augment.h"
+@@ -360,9 +362,16 @@ static int open_dir(struct perf_data *data)
  
- static struct augmented_raw_syscalls_bpf *skel;
- static struct evsel *bpf_output;
-diff --git a/tools/perf/util/evlist.c b/tools/perf/util/evlist.c
-index ee971d15b3c6..35d65fe50e06 100644
---- a/tools/perf/util/evlist.c
-+++ b/tools/perf/util/evlist.c
-@@ -5,67 +5,68 @@
-  * Parts came from builtin-{top,stat,record}.c, see those files for further
-  * copyright notes.
-  */
--#include <api/fs/fs.h>
-+#include "evlist.h"
-+
- #include <errno.h>
- #include <inttypes.h>
--#include <poll.h>
--#include "cpumap.h"
--#include "util/mmap.h"
--#include "thread_map.h"
--#include "target.h"
--#include "dwarf-regs.h"
--#include "evlist.h"
--#include "evsel.h"
--#include "record.h"
--#include "debug.h"
--#include "units.h"
--#include "bpf_counter.h"
--#include <internal/lib.h> // page_size
--#include "affinity.h"
--#include "../perf.h"
--#include "asm/bug.h"
--#include "bpf-event.h"
--#include "util/event.h"
--#include "util/string2.h"
--#include "util/perf_api_probe.h"
--#include "util/evsel_fprintf.h"
--#include "util/pmu.h"
--#include "util/sample.h"
--#include "util/bpf-filter.h"
--#include "util/stat.h"
--#include "util/util.h"
--#include "util/env.h"
--#include "util/intel-tpebs.h"
--#include "util/metricgroup.h"
--#include "util/strbuf.h"
- #include <signal.h>
--#include <unistd.h>
--#include <sched.h>
- #include <stdlib.h>
- 
--#include "parse-events.h"
--#include <subcmd/parse-options.h>
--
- #include <fcntl.h>
--#include <sys/ioctl.h>
--#include <sys/mman.h>
--#include <sys/prctl.h>
--#include <sys/timerfd.h>
--#include <sys/wait.h>
--
- #include <linux/bitops.h>
-+#include <linux/err.h>
- #include <linux/hash.h>
- #include <linux/log2.h>
--#include <linux/err.h>
- #include <linux/string.h>
- #include <linux/time64.h>
- #include <linux/zalloc.h>
-+#include <poll.h>
-+#include <sched.h>
-+#include <sys/ioctl.h>
-+#include <sys/mman.h>
-+#include <sys/prctl.h>
-+#include <sys/timerfd.h>
-+#include <sys/wait.h>
-+#include <unistd.h>
-+
-+#include <api/fs/fs.h>
-+#include <internal/lib.h> // page_size
-+#include <internal/xyarray.h>
-+#include <perf/cpumap.h>
- #include <perf/evlist.h>
- #include <perf/evsel.h>
--#include <perf/cpumap.h>
- #include <perf/mmap.h>
-+#include <subcmd/parse-options.h>
- 
--#include <internal/xyarray.h>
-+#include "../perf.h"
-+#include "affinity.h"
-+#include "asm/bug.h"
-+#include "bpf-event.h"
-+#include "bpf-filter.h"
-+#include "bpf_counter.h"
-+#include "cpumap.h"
-+#include "debug.h"
-+#include "dwarf-regs.h"
-+#include "env.h"
-+#include "event.h"
-+#include "evsel.h"
-+#include "evsel_fprintf.h"
-+#include "intel-tpebs.h"
-+#include "metricgroup.h"
-+#include "mmap.h"
-+#include "parse-events.h"
-+#include "perf_api_probe.h"
-+#include "pmu.h"
-+#include "pmus.h"
-+#include "record.h"
-+#include "sample.h"
-+#include "stat.h"
-+#include "strbuf.h"
-+#include "string2.h"
-+#include "target.h"
-+#include "thread_map.h"
-+#include "units.h"
-+#include "util.h"
- 
- #ifdef LACKS_SIGQUEUE_PROTOTYPE
- int sigqueue(pid_t pid, int sig, const union sigval value);
-diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
-index 2ee87fd84d3e..e03727d395e9 100644
---- a/tools/perf/util/evsel.c
-+++ b/tools/perf/util/evsel.c
-@@ -11,68 +11,71 @@
-  */
- #define __SANE_USERSPACE_TYPES__
- 
--#include <byteswap.h>
-+#include "evsel.h"
-+
- #include <errno.h>
- #include <inttypes.h>
-+#include <stdlib.h>
-+
-+#include <dirent.h>
- #include <linux/bitops.h>
--#include <api/fs/fs.h>
--#include <api/fs/tracing_path.h>
--#include <linux/hw_breakpoint.h>
--#include <linux/perf_event.h>
- #include <linux/compiler.h>
-+#include <linux/ctype.h>
- #include <linux/err.h>
-+#include <linux/hw_breakpoint.h>
-+#include <linux/perf_event.h>
- #include <linux/zalloc.h>
- #include <sys/ioctl.h>
- #include <sys/resource.h>
- #include <sys/syscall.h>
- #include <sys/types.h>
--#include <dirent.h>
--#include <stdlib.h>
-+
-+#include <api/fs/fs.h>
-+#include <api/fs/tracing_path.h>
-+#include <byteswap.h>
-+#include <internal/lib.h>
-+#include <internal/threadmap.h>
-+#include <internal/xyarray.h>
-+#include <perf/cpumap.h>
- #include <perf/evsel.h>
-+
-+#include "../perf-sys.h"
- #include "asm/bug.h"
-+#include "bpf-filter.h"
- #include "bpf_counter.h"
- #include "callchain.h"
- #include "cgroup.h"
- #include "counts.h"
-+#include "debug.h"
-+#include "drm_pmu.h"
- #include "dwarf-regs.h"
-+#include "env.h"
- #include "event.h"
--#include "evsel.h"
--#include "time-utils.h"
--#include "util/env.h"
--#include "util/evsel_config.h"
--#include "util/evsel_fprintf.h"
- #include "evlist.h"
--#include <perf/cpumap.h>
--#include "thread_map.h"
--#include "target.h"
-+#include "evsel_config.h"
-+#include "evsel_fprintf.h"
-+#include "hashmap.h"
-+#include "hist.h"
-+#include "hwmon_pmu.h"
-+#include "intel-tpebs.h"
-+#include "memswap.h"
-+#include "off_cpu.h"
-+#include "parse-branch-options.h"
- #include "perf_regs.h"
-+#include "pmu.h"
-+#include "pmus.h"
- #include "record.h"
--#include "debug.h"
--#include "trace-event.h"
-+#include "rlimit.h"
- #include "session.h"
- #include "stat.h"
- #include "string2.h"
--#include "memswap.h"
--#include "util.h"
--#include "util/hashmap.h"
--#include "off_cpu.h"
--#include "pmu.h"
--#include "pmus.h"
--#include "drm_pmu.h"
--#include "hwmon_pmu.h"
-+#include "target.h"
-+#include "thread_map.h"
-+#include "time-utils.h"
- #include "tool_pmu.h"
- #include "tp_pmu.h"
--#include "rlimit.h"
--#include "../perf-sys.h"
--#include "util/parse-branch-options.h"
--#include "util/bpf-filter.h"
--#include "util/hist.h"
--#include <internal/xyarray.h>
--#include <internal/lib.h>
--#include <internal/threadmap.h>
--#include "util/intel-tpebs.h"
--
--#include <linux/ctype.h>
-+#include "trace-event.h"
-+#include "util.h"
- 
- #ifdef HAVE_LIBTRACEEVENT
- #include <event-parse.h>
-diff --git a/tools/perf/util/map.h b/tools/perf/util/map.h
-index 979b3e11b9bc..fb0279810ae9 100644
---- a/tools/perf/util/map.h
-+++ b/tools/perf/util/map.h
-@@ -2,14 +2,13 @@
- #ifndef __PERF_MAP_H
- #define __PERF_MAP_H
- 
--#include <linux/refcount.h>
--#include <linux/compiler.h>
--#include <linux/list.h>
--#include <linux/rbtree.h>
-+#include <stdbool.h>
- #include <stdio.h>
- #include <string.h>
--#include <stdbool.h>
-+
-+#include <linux/refcount.h>
- #include <linux/types.h>
-+
- #include <internal/rc_check.h>
- 
- struct dso;
-diff --git a/tools/perf/util/perf_api_probe.c b/tools/perf/util/perf_api_probe.c
-index 6ecf38314f01..e1904a330b28 100644
---- a/tools/perf/util/perf_api_probe.c
-+++ b/tools/perf/util/perf_api_probe.c
-@@ -1,14 +1,18 @@
- /* SPDX-License-Identifier: GPL-2.0 */
-+#include "perf_api_probe.h"
- 
--#include "perf-sys.h"
--#include "util/cloexec.h"
--#include "util/evlist.h"
--#include "util/evsel.h"
--#include "util/parse-events.h"
--#include "util/perf_api_probe.h"
--#include <perf/cpumap.h>
- #include <errno.h>
- 
-+#include <perf/cpumap.h>
-+
-+#include "cloexec.h"
-+#include "evlist.h"
-+#include "evsel.h"
-+#include "parse-events.h"
-+#include "perf-sys.h"
-+#include "pmu.h"
-+#include "pmus.h"
-+
- typedef void (*setup_probe_fn_t)(struct evsel *evsel);
- 
- static int perf_do_probe_api(setup_probe_fn_t fn, struct perf_cpu cpu, const char *str)
-diff --git a/tools/perf/util/s390-sample-raw.c b/tools/perf/util/s390-sample-raw.c
-index c6ae0ae8d86a..6bf0edf80d4e 100644
---- a/tools/perf/util/s390-sample-raw.c
-+++ b/tools/perf/util/s390-sample-raw.c
-@@ -12,25 +12,26 @@
-  * sample was taken from.
-  */
- 
--#include <unistd.h>
-+#include <inttypes.h>
- #include <stdio.h>
- #include <string.h>
--#include <inttypes.h>
- 
--#include <sys/stat.h>
-+#include <asm/byteorder.h>
- #include <linux/compiler.h>
- #include <linux/err.h>
--#include <asm/byteorder.h>
-+#include <sys/stat.h>
-+#include <unistd.h>
- 
-+#include "color.h"
- #include "debug.h"
--#include "session.h"
- #include "evlist.h"
--#include "color.h"
- #include "hashmap.h"
--#include "sample-raw.h"
-+#include "pmu.h"
-+#include "pmus.h"
- #include "s390-cpumcf-kernel.h"
--#include "util/pmu.h"
--#include "util/sample.h"
-+#include "sample-raw.h"
-+#include "sample.h"
-+#include "session.h"
- 
- static size_t ctrset_size(struct cf_ctrset_entry *set)
+ int perf_data__open(struct perf_data *data)
  {
-diff --git a/tools/perf/util/stat-shadow.c b/tools/perf/util/stat-shadow.c
-index bc2d44df7baf..48524450326d 100644
---- a/tools/perf/util/stat-shadow.c
-+++ b/tools/perf/util/stat-shadow.c
-@@ -2,20 +2,24 @@
- #include <errno.h>
- #include <math.h>
- #include <stdio.h>
--#include "evsel.h"
--#include "stat.h"
+-	if (check_pipe(data))
++	int ret;
 +
-+#include <linux/zalloc.h>
-+
-+#include "cgroup.h"
- #include "color.h"
- #include "debug.h"
--#include "pmu.h"
--#include "rblist.h"
- #include "evlist.h"
-+#include "evsel.h"
- #include "expr.h"
--#include "metricgroup.h"
--#include "cgroup.h"
--#include "units.h"
-+#include "hashmap.h"
- #include "iostat.h"
--#include "util/hashmap.h"
-+#include "metricgroup.h"
-+#include "pmu.h"
-+#include "pmus.h"
-+#include "rblist.h"
-+#include "stat.h"
- #include "tool_pmu.h"
-+#include "units.h"
++	if (data->open)
+ 		return 0;
  
- static bool tool_pmu__is_time_event(const struct perf_stat_config *config,
- 				   const struct evsel *evsel, int *tool_aggr_idx)
-diff --git a/tools/perf/util/stat.c b/tools/perf/util/stat.c
-index 14d169e22e8f..66eb9a66a4f7 100644
---- a/tools/perf/util/stat.c
-+++ b/tools/perf/util/stat.c
-@@ -1,21 +1,25 @@
- // SPDX-License-Identifier: GPL-2.0
-+#include "stat.h"
++	if (check_pipe(data)) {
++		data->open = true;
++		return 0;
++	}
 +
- #include <errno.h>
--#include <linux/err.h>
- #include <inttypes.h>
- #include <math.h>
- #include <string.h>
-+
-+#include <linux/err.h>
-+#include <linux/zalloc.h>
-+
- #include "counts.h"
- #include "cpumap.h"
- #include "debug.h"
-+#include "evlist.h"
-+#include "evsel.h"
-+#include "hashmap.h"
- #include "header.h"
--#include "stat.h"
-+#include "pmu.h"
- #include "session.h"
- #include "target.h"
--#include "evlist.h"
--#include "evsel.h"
- #include "thread_map.h"
--#include "util/hashmap.h"
--#include <linux/zalloc.h>
+ 	/* currently it allows stdio for pipe only */
+ 	data->file.use_stdio = false;
  
- void update_stats(struct stats *stats, u64 val)
+@@ -375,16 +384,24 @@ int perf_data__open(struct perf_data *data)
+ 	if (perf_data__is_read(data))
+ 		data->is_dir = is_dir(data);
+ 
+-	return perf_data__is_dir(data) ?
+-	       open_dir(data) : open_file_dup(data);
++	ret = perf_data__is_dir(data) ? open_dir(data) : open_file_dup(data);
++
++	if (!ret)
++		data->open = true;
++
++	return ret;
+ }
+ 
+ void perf_data__close(struct perf_data *data)
  {
++	if (!data->open)
++		return;
++
+ 	if (perf_data__is_dir(data))
+ 		perf_data__close_dir(data);
+ 
+ 	perf_data_file__close(&data->file);
++	data->open = false;
+ }
+ 
+ static ssize_t perf_data_file__read(struct perf_data_file *file, void *buf, size_t size)
+@@ -457,6 +474,7 @@ int perf_data__switch(struct perf_data *data,
+ 
+ 	if (!at_exit) {
+ 		perf_data_file__close(&data->file);
++		data->open = false;
+ 		ret = perf_data__open(data);
+ 		if (ret < 0)
+ 			goto out;
+diff --git a/tools/perf/util/data.h b/tools/perf/util/data.h
+index 8299fb5fa7da..76f57f60361f 100644
+--- a/tools/perf/util/data.h
++++ b/tools/perf/util/data.h
+@@ -50,6 +50,8 @@ struct perf_data {
+ 	const char		*path;
+ 	/** @file: Underlying file to be used. */
+ 	struct perf_data_file	 file;
++	/** @open: Has the file or directory been opened. */
++	bool			 open;
+ 	/** @is_pipe: Underlying file is a pipe. */
+ 	bool			 is_pipe;
+ 	/** @is_dir: Underlying file is a directory. */
+@@ -59,7 +61,7 @@ struct perf_data {
+ 	/** @in_place_update: A file opened for reading but will be written to. */
+ 	bool			 in_place_update;
+ 	/** @mode: Read or write mode. */
+-	enum perf_data_mode	 mode;
++	enum perf_data_mode	 mode:8;
+ 
+ 	struct {
+ 		/** @version: perf_dir_version. */
 -- 
 2.54.0.545.g6539524ca2-goog
 
