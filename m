@@ -4,59 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B734FED3F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 17:59:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7C8EFED3F5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 18:06:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+QYVPoAiF4BX+rSOxpXxLSrbOgc6Dszr0RK5BWmGnbM=; b=C6eis87H7dK2WDY44YhfgBf/HG
-	Rx3mnucZtJR1WeoOxKZh9g3Nmso7Ew30jZjjNXRUlLPwSUfjP9r+7tj/DAN0bZdRcEx8GQBa1csqd
-	PzejJD8c3h1UbCLo2av5RTKBNfQDGWck3YGH2ntOr4j7g1I8DsnseyGmOBqwW+kMwMy+rPMcWTUcT
-	PHulWASoQQrBCuDFYZzPo/a+pNRyCiYvKAQItlWBzIytfv9/xTuDtILYEM3rtoPaFRPEa6uMGmlx5
-	me6UZOT/2hyI0UeY/Su0YJRnrKsS690WOrCquQUZL/ZiZrSbNILtfTWENy1M29OJmdm1KCvsOONZI
-	4o9WAk4Q==;
+	bh=ZORKO2PbR+FindMSvM9e7Vr1yuvL6wDOH/eKP98C0l8=; b=wxPG+FfFmS47q5Yl5kal7a5nkP
+	5e4tkJoEGhazkKfRv7VTyRmAO1WNMUYAgPckEIGTu2CjxhgKbg/+Hs7gXFmntfmpDMfKuyN40AzgS
+	8AZ9kdeMirSLAtYo5NUPTX5Gb1zWiEU5P+eeI1cr559GAu+HOzPFKxbHAoCNPfvmIzJUUVuZMo0bC
+	bljbbVqmrGoWONlLmUZAAsHa0x7nZKZM/4fcbrixKWeMh4zdDLnl1HcbpQy2SfHqREy6JPnvJ+mWf
+	XpR+lI1tdw0UQ1/AvmzOHGgm6MEDMdrLVxUJ5mMvmCRYsOubMacEjCM6fMPh30LUOhwiju0Us5q1x
+	7cdk8b9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGKob-0000000DcMx-2nIo;
-	Fri, 24 Apr 2026 17:59:45 +0000
+	id 1wGKug-0000000Dd3r-1Sgw;
+	Fri, 24 Apr 2026 18:06:02 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGKoU-0000000DcGP-0Bew;
-	Fri, 24 Apr 2026 17:59:41 +0000
-Received: from neptunite.hamster-moth.ts.net (unknown [IPv6:2404:7a81:160:2100:5216:c7b6:205:5f59])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 628D11E48;
-	Fri, 24 Apr 2026 19:57:53 +0200 (CEST)
+	id 1wGKud-0000000Dd3P-3KXp;
+	Fri, 24 Apr 2026 18:06:01 +0000
+Received: from neptunite.rasen.tech (unknown [IPv6:2404:7a81:160:2100:5216:c7b6:205:5f59])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 6CFA8227;
+	Fri, 24 Apr 2026 20:04:16 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1777053476;
-	bh=fE4hdwsqJPKQRit+P7BE6GUWXYWcxRWC54E2ZpFROIU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rf3Z7kf83galdQM3I75h5x/1Mmxv7UzJ+9qWcWAMAqJXu4Wdg/5BObMlL4kSVvN3b
-	 nlFsqr42GGuV+VEuTFZx2cpSv5wSNWS+Jw+sm4cwrS+JobKpOn2TV75TpMELwpcMFt
-	 cc3qMV+P7I7M/CMa7PzEyHAX6D6pAwPgcOMx0jEU=
-From: Paul Elder <paul.elder@ideasonboard.com>
-To: laurent.pinchart@ideasonboard.com
-Cc: Paul Elder <paul.elder@ideasonboard.com>,
-	michael.riesch@collabora.com,
-	xuhf@rock-chips.com,
-	stefan.klug@ideasonboard.com,
-	linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 5/5] media: rkisp2: Add statistics capture video node
-Date: Sat, 25 Apr 2026 02:58:50 +0900
-Message-ID: <20260424175853.638202-6-paul.elder@ideasonboard.com>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20260424175853.638202-1-paul.elder@ideasonboard.com>
-References: <20260424175853.638202-1-paul.elder@ideasonboard.com>
+	s=mail; t=1777053856;
+	bh=ejKEisanWsd8xl2Mc9rPlQCU5cbmJtb0L3OmLefF4Tg=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=aPnK2f769Kq3yuTbeUBhlkIisCCCFu9ujppk9b0g2hlaHNf3gRgA7S5YWfS3CLOTk
+	 SEzb0ySjNcd7aHs6u+vG67DRL1i8VLSiDqqIDPhwS8DpzhprmbOwteuCIEk6aUgjhW
+	 rg/UGH6FP7Qk9D07JXD6JK6q9ZPWdHCkRCC1gOqU=
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260424175853.638202-2-paul.elder@ideasonboard.com>
+References: <20260424175853.638202-1-paul.elder@ideasonboard.com> <20260424175853.638202-2-paul.elder@ideasonboard.com>
+Subject: Re: [RFC PATCH 1/5] media: dt-bindings: Add rockchip rkisp2 bindings
+From: Paul Elder <paul.elder@ideasonboard.com>
+Cc: michael.riesch@collabora.com, xuhf@rock-chips.com, stefan.klug@ideasonboard.com, linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>
+To: laurent.pinchart@ideasonboard.com
+Date: Sat, 25 Apr 2026 03:05:50 +0900
+Message-ID: <177705395057.43355.18439675795236129023@neptunite.rasen.tech>
+User-Agent: alot/0.0.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_105938_679920_E7178461 
-X-CRM114-Status: GOOD (  26.56  )
+X-CRM114-CacheID: sfid-20260424_110600_000151_45E7CC09 
+X-CRM114-Status: GOOD (  17.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,1434 +65,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement support for getting statistics out of the ISP by dequeueing
-statistics buffers from rkisp2.
+Hi me,
 
-Support for configuring the statistics engines in the ISP is added as
-well, implemented as configurations in parameter buffers.
+Quoting Paul Elder (2026-04-25 02:58:46)
+> Add documentation for the Rockchip rkisp2 bindings. This is meant to
+> support multiple versions of Rockchip ISPs going forward, including the
+> 2.x series and 3.x series. The current version only adds the compatible
+> for the RK3588, which is a 3.0.
+>=20
+> Signed-off-by: Paul Elder <paul.elder@ideasonboard.com>
+> ---
+>  .../bindings/media/rockchip-isp2.yaml         | 127 ++++++++++++++++++
+>  1 file changed, 127 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/media/rockchip-isp2=
+.yaml
+>=20
+> diff --git a/Documentation/devicetree/bindings/media/rockchip-isp2.yaml b=
+/Documentation/devicetree/bindings/media/rockchip-isp2.yaml
+> new file mode 100644
+> index 000000000000..f4ef089adf6e
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/rockchip-isp2.yaml
+> @@ -0,0 +1,127 @@
+> +# SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/rockchip-isp2.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Rockchip SoC Image Signal Processing unit v2
+> +
+> +maintainers:
+> +  - Paul Elder <paul.elder@ideasonboard.com>
+> +
+> +description: |
+> +  Rockchip ISP2 is the Camera interface for the Rockchip series of SoCs =
+which
+> +  contains image processing, scaling, and compression functions.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - rockchip,rk3588-isp
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    minItems: 3
+> +    maxItems: 3
 
-Support for the following statistics engines is added:
-- AE (auto exposure) lite
-- Histogram lite
-- Histogram big
-- AWB (auto white balance)
+These should be 2.
 
-Signed-off-by: Paul Elder <paul.elder@ideasonboard.com>
----
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: isp_irq
+> +      - const: mi_irq
+> +
+> +  clocks:
+> +    minItems: 3
+> +    items:
+> +      - description: ISP AXI clock (aclk)
+> +      - description: ISP AHB clock (hclk)
+> +      - description: ISP core clock (isp)
+> +      # for rk3588
+> +      - description: ISP core clock (marvin)
+> +      - description: ISP core clock (vicap)
+> +
+> +  clock-names:
+> +    minItems: 3
+> +    items:
+> +      - const: aclk
+> +      - const: hclk
+> +      - const: clk_core
+> +      # for rk3588
+> +      - const: clk_core_marvin
+> +      - const: clk_core_vicap
+> +
+> +  iommus:
+> +    maxItems: 1
+> +
+> +  power-domains:
+> +    minItems: 1
 
-I've kept the debug counters that helped me debug interrupts for the
-stats engines.
----
- .../media/platform/rockchip/rkisp2/Makefile   |   3 +-
- .../platform/rockchip/rkisp2/rkisp2-common.h  |  56 ++
- .../platform/rockchip/rkisp2/rkisp2-debug.c   |  16 +
- .../platform/rockchip/rkisp2/rkisp2-dev.c     |  13 +
- .../platform/rockchip/rkisp2/rkisp2-isp.c     |   6 +
- .../platform/rockchip/rkisp2/rkisp2-params.c  | 238 +++++++++
- .../rockchip/rkisp2/rkisp2-regs-v2x.h         |  39 +-
- .../rockchip/rkisp2/rkisp2-regs-v3x.h         |  13 +
- .../platform/rockchip/rkisp2/rkisp2-stats.c   | 482 ++++++++++++++++++
- drivers/media/v4l2-core/v4l2-ioctl.c          |   1 +
- include/uapi/linux/rkisp2-config.h            | 233 ++++++++-
- include/uapi/linux/videodev2.h                |   1 +
- 12 files changed, 1098 insertions(+), 3 deletions(-)
- create mode 100644 drivers/media/platform/rockchip/rkisp2/rkisp2-stats.c
+This can be removed.
 
-diff --git a/drivers/media/platform/rockchip/rkisp2/Makefile b/drivers/media/platform/rockchip/rkisp2/Makefile
-index 0fa014afcae4..8e323a560a39 100644
---- a/drivers/media/platform/rockchip/rkisp2/Makefile
-+++ b/drivers/media/platform/rockchip/rkisp2/Makefile
-@@ -5,7 +5,8 @@ rockchip-isp2-y := rkisp2-capture.o \
-            rkisp2-dev.o \
-            rkisp2-dmarx.o \
-            rkisp2-isp.o \
--           rkisp2-params.o
-+           rkisp2-params.o \
-+           rkisp2-stats.o
- 
- rockchip-isp2-$(CONFIG_DEBUG_FS) += rkisp2-debug.o
- 
-diff --git a/drivers/media/platform/rockchip/rkisp2/rkisp2-common.h b/drivers/media/platform/rockchip/rkisp2/rkisp2-common.h
-index 7473dae6c525..742954e8b569 100644
---- a/drivers/media/platform/rockchip/rkisp2/rkisp2-common.h
-+++ b/drivers/media/platform/rockchip/rkisp2/rkisp2-common.h
-@@ -91,6 +91,7 @@ enum rkisp2_isp_pad {
- 	RKISP2_ISP_PAD_SINK_VIDEO,
- 	RKISP2_ISP_PAD_SINK_PARAMS,
- 	RKISP2_ISP_PAD_SOURCE_VIDEO,
-+	RKISP2_ISP_PAD_SOURCE_STATS,
- 	RKISP2_ISP_PAD_MAX
- };
- 
-@@ -314,6 +315,46 @@ struct rkisp2_capture {
- 	struct v4l2_rect crop;
- };
- 
-+/*
-+ * struct rkisp2_stats - ISP Statistics device
-+ *
-+ * @vnode:	  video node
-+ * @rkisp2:	  pointer to the rkisp2 device
-+ * @lock:	  locks the buffer list 'stat'
-+ * @stat:	  queue of rkisp2_buffer
-+ * @vdev_fmt:	  v4l2_format of the metadata format
-+ * @imsc:	  interrupts that the stats is listening for (for stats 3a)
-+ * @icr:	  interrupts that the stats has handled for the current frame (for stats 3a)
-+ * @cur_buf:	  the current buffer to accumulate stats over multiple interrupts
-+ *
-+ * The imsc and icr fields are necessary to accumulate the stats because there
-+ * seem to be separate interrupts in stats 3a for big modules and non-big
-+ * modules. The conditions that cause separate interrupts are not yet fully
-+ * understood, but is hypothesized to be big-mode & different window size
-+ * compared to lite mode. We may need a similar construct for the core stats,
-+ * but they have not been implemented yet (and they may not even exist).
-+ *
-+ * The imsc field is filled at v_start time to store what stats 3a interrupts
-+ * we expect, then as they come in they are cleared by signalling in icr. The
-+ * interrupt that fully sets icr (compared to imsc) will complete the stats
-+ * buffer. On the next v_start any leftovers are cleared and logged as a
-+ * counter to debugfs.
-+ */
-+struct rkisp2_stats {
-+	struct rkisp2_vdev_node vnode;
-+	struct rkisp2_device *rkisp2;
-+
-+	spinlock_t lock; /* locks the buffers list 'stats' */
-+	struct list_head stat;
-+	struct v4l2_format vdev_fmt;
-+
-+	u32 imsc;
-+	u32 icr;
-+	struct rkisp2_buffer *cur_buf;
-+
-+	unsigned int awb_window_offset;
-+};
-+
- /*
-  * struct rkisp2_params - ISP input parameters device
-  *
-@@ -342,9 +383,17 @@ struct rkisp2_debug {
- 	unsigned long irq_delay;
- 	unsigned long mipi_error;
- 	unsigned long stats_error;
-+	unsigned long stats3a_irq;
-+	unsigned long stats_irq_delay;
- 	unsigned long stop_timeout[2];
- 	unsigned long frame_drop[2];
- 	unsigned long complete_frames;
-+	unsigned long stats3a_hist_ch0_count;
-+	unsigned long stats3a_hist_ch1_count;
-+	unsigned long stats3a_hist_ch2_count;
-+	unsigned long stats3a_hist_big_count;
-+	unsigned long stats3a_awb_count;
-+	unsigned long stats3a_awb_done_count;
- };
- 
- /*
-@@ -366,6 +415,7 @@ struct rkisp2_debug {
-  * @capture_devs:  capture devices
-  * @dmarx:	   ISP memory read device
-  * @params:	   ISP parameters metadata output device
-+ * @stats:	   ISP statistics metadata capture device
-  * @pipe:	   media pipeline
-  * @stream_lock:   serializes {start/stop}_streaming callbacks between the capture devices.
-  * @debug:	   debug params to be exposed on debugfs
-@@ -388,6 +438,7 @@ struct rkisp2_device {
- 	struct rkisp2_capture capture_devs[2];
- 	struct rkisp2_dmarx dmarx;
- 	struct rkisp2_params params;
-+	struct rkisp2_stats stats;
- 	struct media_pipeline pipe;
- 	struct mutex stream_lock; /* serialize {start/stop}_streaming cb between capture devices */
- 	struct rkisp2_debug debug;
-@@ -478,6 +529,8 @@ irqreturn_t rkisp2_capture_isr(int irq, void *ctx);
- irqreturn_t rkisp2_mipi_isr(int irq, void *ctx);
- void rkisp2_dmarx_isr(struct rkisp2_device *rkisp2, u32 status);
- void rkisp2_params_isr(struct rkisp2_params *params);
-+void rkisp2_stats_isr_v_start(struct rkisp2_stats *);
-+irqreturn_t rkisp2_stats_isr_3a(struct rkisp2_stats *);
- 
- /* register/unregisters functions of the entities */
- int rkisp2_capture_devs_register(struct rkisp2_device *rkisp2);
-@@ -494,6 +547,9 @@ void rkisp2_params_pre_configure(struct rkisp2_params *params,
- 				 enum rkisp2_fmt_raw_pat_type bayer_pat);
- void rkisp2_params_post_configure(struct rkisp2_params *params);
- 
-+int rkisp2_stats_register(struct rkisp2_device *rkisp2);
-+void rkisp2_stats_unregister(struct rkisp2_device *rkisp2);
-+
- #if IS_ENABLED(CONFIG_DEBUG_FS)
- void rkisp2_debug_init(struct rkisp2_device *rkisp2);
- void rkisp2_debug_cleanup(struct rkisp2_device *rkisp2);
-diff --git a/drivers/media/platform/rockchip/rkisp2/rkisp2-debug.c b/drivers/media/platform/rockchip/rkisp2/rkisp2-debug.c
-index 4f439bd9156b..92beae3530c4 100644
---- a/drivers/media/platform/rockchip/rkisp2/rkisp2-debug.c
-+++ b/drivers/media/platform/rockchip/rkisp2/rkisp2-debug.c
-@@ -191,6 +191,10 @@ void rkisp2_debug_init(struct rkisp2_device *rkisp2)
- 			     &debug->mipi_error);
- 	debugfs_create_ulong("stats_error", 0444, debug->debugfs_dir,
- 			     &debug->stats_error);
-+	debugfs_create_ulong("stats3a_irq", 0444, debug->debugfs_dir,
-+			     &debug->stats3a_irq);
-+	debugfs_create_ulong("stats_irq_delay", 0444, debug->debugfs_dir,
-+			     &debug->stats_irq_delay);
- 	debugfs_create_ulong("mp_stop_timeout", 0444, debug->debugfs_dir,
- 			     &debug->stop_timeout[RKISP2_MAINPATH]);
- 	debugfs_create_ulong("sp_stop_timeout", 0444, debug->debugfs_dir,
-@@ -201,6 +205,18 @@ void rkisp2_debug_init(struct rkisp2_device *rkisp2)
- 			     &debug->frame_drop[RKISP2_SELFPATH]);
- 	debugfs_create_ulong("complete_frames", 0444, debug->debugfs_dir,
- 			     &debug->complete_frames);
-+	debugfs_create_ulong("stats3a_hist_ch0_count", 0444, debug->debugfs_dir,
-+			     &debug->stats3a_hist_ch0_count);
-+	debugfs_create_ulong("stats3a_hist_ch1_count", 0444, debug->debugfs_dir,
-+			     &debug->stats3a_hist_ch1_count);
-+	debugfs_create_ulong("stats3a_hist_ch2_count", 0444, debug->debugfs_dir,
-+			     &debug->stats3a_hist_ch2_count);
-+	debugfs_create_ulong("stats3a_hist_big_count", 0444, debug->debugfs_dir,
-+			     &debug->stats3a_hist_big_count);
-+	debugfs_create_ulong("stats3a_awb_count", 0444, debug->debugfs_dir,
-+			     &debug->stats3a_awb_count);
-+	debugfs_create_ulong("stats3a_awb_done_count", 0444, debug->debugfs_dir,
-+			     &debug->stats3a_awb_done_count);
- 	debugfs_create_file("input_status", 0444, debug->debugfs_dir, rkisp2,
- 			    &rkisp2_debug_input_status_fops);
- 
-diff --git a/drivers/media/platform/rockchip/rkisp2/rkisp2-dev.c b/drivers/media/platform/rockchip/rkisp2/rkisp2-dev.c
-index 0356ef2a1cf1..4042bf43d287 100644
---- a/drivers/media/platform/rockchip/rkisp2/rkisp2-dev.c
-+++ b/drivers/media/platform/rockchip/rkisp2/rkisp2-dev.c
-@@ -138,12 +138,21 @@ static int rkisp2_create_links(struct rkisp2_device *rkisp2)
- 	if (ret)
- 		return ret;
- 
-+	/* stats links */
-+	ret = media_create_pad_link(&rkisp2->isp.sd.entity,
-+				    RKISP2_ISP_PAD_SOURCE_STATS,
-+				    &rkisp2->stats.vnode.vdev.entity, 0,
-+				    MEDIA_LNK_FL_ENABLED |
-+				    MEDIA_LNK_FL_IMMUTABLE);
-+	if (ret)
-+		return ret;
- 
- 	return 0;
- }
- 
- static void rkisp2_entities_unregister(struct rkisp2_device *rkisp2)
- {
-+	rkisp2_stats_unregister(rkisp2);
- 	rkisp2_params_unregister(rkisp2);
- 	rkisp2_dmarx_unregister(rkisp2);
- 	rkisp2_capture_devs_unregister(rkisp2);
-@@ -170,6 +179,10 @@ static int rkisp2_entities_register(struct rkisp2_device *rkisp2)
- 	if (ret)
- 		goto error;
- 
-+	ret = rkisp2_stats_register(rkisp2);
-+	if (ret)
-+		goto error;
-+
- 	ret = rkisp2_create_links(rkisp2);
- 	if (ret)
- 		goto error;
-diff --git a/drivers/media/platform/rockchip/rkisp2/rkisp2-isp.c b/drivers/media/platform/rockchip/rkisp2/rkisp2-isp.c
-index 0967d5772bc9..f8f34f4f5919 100644
---- a/drivers/media/platform/rockchip/rkisp2/rkisp2-isp.c
-+++ b/drivers/media/platform/rockchip/rkisp2/rkisp2-isp.c
-@@ -812,6 +812,7 @@ int rkisp2_isp_register(struct rkisp2_device *rkisp2)
- 						MEDIA_PAD_FL_MUST_CONNECT;
- 	pads[RKISP2_ISP_PAD_SINK_PARAMS].flags = MEDIA_PAD_FL_SINK;
- 	pads[RKISP2_ISP_PAD_SOURCE_VIDEO].flags = MEDIA_PAD_FL_SOURCE;
-+	pads[RKISP2_ISP_PAD_SOURCE_STATS].flags = MEDIA_PAD_FL_SOURCE;
- 
- 	ret = media_entity_pads_init(&sd->entity, RKISP2_ISP_PAD_MAX, pads);
- 	if (ret)
-@@ -876,6 +877,9 @@ irqreturn_t rkisp2_isp_isr(int irq, void *ctx)
- 	if (!status)
- 		return IRQ_NONE;
- 
-+	/* This is in a separate register so we need to check it separately */
-+	rkisp2_stats_isr_3a(&rkisp2->stats);
-+
- 	/* Vertical sync signal, starting generating new frame */
- 	if (status & RKISP2_CIF_ISP_V_START) {
- 		rkisp2->isp.frame_sequence++;
-@@ -884,6 +888,8 @@ irqreturn_t rkisp2_isp_isr(int irq, void *ctx)
- 			WARN_ONCE(1, "irq delay is too long, buffers might not be in sync\n");
- 			rkisp2->debug.irq_delay++;
- 		}
-+
-+		rkisp2_stats_isr_v_start(&rkisp2->stats);
- 	}
- 	if (status & RKISP2_CIF_ISP_PIC_SIZE_ERROR) {
- 		/* Clear pic_size_error */
-diff --git a/drivers/media/platform/rockchip/rkisp2/rkisp2-params.c b/drivers/media/platform/rockchip/rkisp2/rkisp2-params.c
-index b7b27d0e90c6..b149c20a4763 100644
---- a/drivers/media/platform/rockchip/rkisp2/rkisp2-params.c
-+++ b/drivers/media/platform/rockchip/rkisp2/rkisp2-params.c
-@@ -33,6 +33,10 @@
- 		.priority = RKISP2_PARAMS_CONFIG_PRIO_ ## prio_postfix, \
- 	}
- 
-+/*
-+ * We only need one instance of hist_big here since it's only for accessing the
-+ * members of the union
-+ */
- union rkisp2_params_block {
- 	const struct v4l2_isp_params_block_header *header;
- 	const struct rkisp2_params_bls *bls;
-@@ -41,6 +45,10 @@ union rkisp2_params_block {
- 	const struct rkisp2_params_ccm *ccm;
- 	const struct rkisp2_params_goc *goc;
- 	const struct rkisp2_params_lsc *lsc;
-+	const struct rkisp2_params_ae_lite *ae_lite;
-+	const struct rkisp2_params_hist_lite *hist_lite;
-+	const struct rkisp2_params_hist_big *hist_big;
-+	const struct rkisp2_params_awb_meas *awb_meas;
- 	const __u8 *data;
- };
- 
-@@ -56,6 +64,14 @@ static void rkisp2_params_goc(struct rkisp2_params *params,
- 			      union rkisp2_params_block block);
- static void rkisp2_params_lsc(struct rkisp2_params *params,
- 			      union rkisp2_params_block block);
-+static void rkisp2_params_ae_lite(struct rkisp2_params *params,
-+				  union rkisp2_params_block block);
-+static void rkisp2_params_hist_lite(struct rkisp2_params *params,
-+				    union rkisp2_params_block block);
-+static void rkisp2_params_hist_big(struct rkisp2_params *params,
-+				   union rkisp2_params_block block);
-+static void rkisp2_params_awb_meas(struct rkisp2_params *params,
-+				   union rkisp2_params_block block);
- 
- typedef void (*rkisp2_params_handler)(struct rkisp2_params *params,
- 				      const union rkisp2_params_block block);
-@@ -79,6 +95,12 @@ rkisp2_params_handlers[] = {
- 	RKISP2_PARAMS_BLOCK_HANDLER_INFO(CCM, ccm, PRE),
- 	RKISP2_PARAMS_BLOCK_HANDLER_INFO(GOC, goc, PRE),
- 	RKISP2_PARAMS_BLOCK_HANDLER_INFO(LSC, lsc, POST),
-+	RKISP2_PARAMS_BLOCK_HANDLER_INFO(AE_LITE, ae_lite, PRE),
-+	RKISP2_PARAMS_BLOCK_HANDLER_INFO(HIST_LITE, hist_lite, PRE),
-+	RKISP2_PARAMS_BLOCK_HANDLER_INFO(HIST_BIG0, hist_big, PRE),
-+	RKISP2_PARAMS_BLOCK_HANDLER_INFO(HIST_BIG1, hist_big, PRE),
-+	RKISP2_PARAMS_BLOCK_HANDLER_INFO(HIST_BIG2, hist_big, PRE),
-+	RKISP2_PARAMS_BLOCK_HANDLER_INFO(AWB_MEAS, awb_meas, PRE),
- };
- 
- static const struct v4l2_isp_params_block_type_info
-@@ -89,6 +111,12 @@ rkisp2_params_block_types_info[] = {
- 	RKISP2_PARAMS_BLOCK_INFO(CCM, ccm),
- 	RKISP2_PARAMS_BLOCK_INFO(GOC, goc),
- 	RKISP2_PARAMS_BLOCK_INFO(LSC, lsc),
-+	RKISP2_PARAMS_BLOCK_INFO(AE_LITE, ae_lite),
-+	RKISP2_PARAMS_BLOCK_INFO(HIST_LITE, hist_lite),
-+	RKISP2_PARAMS_BLOCK_INFO(HIST_BIG0, hist_big),
-+	RKISP2_PARAMS_BLOCK_INFO(HIST_BIG1, hist_big),
-+	RKISP2_PARAMS_BLOCK_INFO(HIST_BIG2, hist_big),
-+	RKISP2_PARAMS_BLOCK_INFO(AWB_MEAS, awb_meas),
- };
- 
- static_assert(ARRAY_SIZE(rkisp2_params_handlers) ==
-@@ -415,6 +443,216 @@ static void rkisp2_params_lsc(struct rkisp2_params *params,
- 	rkisp2_param_set_bits(params, ISP3X_LSC_CTRL, data);
- }
- 
-+static void rkisp2_params_ae_lite(struct rkisp2_params *params,
-+				  union rkisp2_params_block block)
-+{
-+	const struct rkisp2_params_ae_lite *arg = block.ae_lite;
-+	u32 control;
-+
-+	if (block.header->flags & V4L2_ISP_PARAMS_FL_BLOCK_DISABLE) {
-+		rkisp2_param_clear_bits(params, ISP_RAWAE_LITE_CTRL,
-+					ISP3X_RAWAE_LITE_EN);
-+		rkisp2_param_clear_bits(params, ISP_ISP3A_IMSC, ISP2X_3A_RAWAE_CH0);
-+		return;
-+	}
-+
-+	if (!(block.header->flags & V4L2_ISP_PARAMS_FL_BLOCK_ENABLE))
-+		return;
-+
-+	/*
-+	 * \todo clamp these: width and height must be even, min size is 16x4,
-+	 * and total height must be < frame height
-+	 */
-+	rkisp2_write(params->rkisp2, ISP_RAWAE_LITE_BLK_SIZ,
-+		     ISP3X_RAWAE_LITE_H(arg->meas_window.h_size) |
-+		     ISP3X_RAWAE_LITE_V(arg->meas_window.v_size));
-+
-+	rkisp2_write(params->rkisp2, ISP_RAWAE_LITE_OFFSET,
-+		     ISP3X_RAWAE_LITE_H(arg->meas_window.h_offs) |
-+		     ISP3X_RAWAE_LITE_V(arg->meas_window.v_offs));
-+
-+	control = arg->window_num ? ISP3X_RAWAE_LITE_WNDNUM : 0;
-+	control |= ISP3X_RAWAE_LITE_EN;
-+
-+	rkisp2_param_set_bits(params, ISP_RAWAE_LITE_CTRL,
-+			      control);
-+	/* TODO figure out CH1 and CH2 */
-+	rkisp2_param_set_bits(params, ISP_ISP3A_IMSC, ISP2X_3A_RAWAE_CH0);
-+}
-+
-+static void rkisp2_params_hist_lite(struct rkisp2_params *params,
-+				    union rkisp2_params_block block)
-+{
-+	const struct rkisp2_params_hist_lite *arg = block.hist_lite;
-+	unsigned int i;
-+	u32 control;
-+
-+	if (block.header->flags & V4L2_ISP_PARAMS_FL_BLOCK_DISABLE) {
-+		rkisp2_param_clear_bits(params, ISP_RAWHIST_LITE_BASE, ISP_RAWHIST_CTRL_EN);
-+		rkisp2_param_clear_bits(params, ISP_ISP3A_IMSC, ISP2X_3A_RAWHIST_CH0);
-+		return;
-+	}
-+
-+	if (!(block.header->flags & V4L2_ISP_PARAMS_FL_BLOCK_ENABLE))
-+		return;
-+
-+	rkisp2_write(params->rkisp2, ISP_RAWHIST_LITE_SIZE,
-+		     ISP_RAWHIST_H_SIZE(arg->meas_window.h_size) |
-+		     ISP_RAWHIST_V_SIZE(arg->meas_window.v_size));
-+
-+	rkisp2_write(params->rkisp2, ISP_RAWHIST_LITE_OFFS,
-+		     ISP_RAWHIST_H_OFFS(arg->meas_window.h_offs) |
-+		     ISP_RAWHIST_V_OFFS(arg->meas_window.v_offs));
-+
-+	rkisp2_write(params->rkisp2, ISP_RAWHIST_LITE_RAW2Y_CC,
-+		     ISP_RAWHIST_RAW2Y_CC_RCC(arg->coeffs.r) |
-+		     ISP_RAWHIST_RAW2Y_CC_GCC(arg->coeffs.g) |
-+		     ISP_RAWHIST_RAW2Y_CC_BCC(arg->coeffs.b));
-+
-+	for (i = 0; i < 6; i++) {
-+		rkisp2_write(params->rkisp2, ISP_RAWHIST_LITE_WEIGHT + 4 * i,
-+			     ISP_RAWHIST_LITE_WEIGHT_WND0(arg->weights[4 * i + 0]) |
-+			     ISP_RAWHIST_LITE_WEIGHT_WND1(arg->weights[4 * i + 1]) |
-+			     ISP_RAWHIST_LITE_WEIGHT_WND2(arg->weights[4 * i + 2]) |
-+			     ISP_RAWHIST_LITE_WEIGHT_WND3(arg->weights[4 * i + 3]));
-+	}
-+
-+	rkisp2_write(params->rkisp2, ISP_RAWHIST_LITE_WEIGHT + 4 * 6,
-+		     ISP_RAWHIST_LITE_WEIGHT_WND0(arg->weights[24]));
-+
-+	control = ISP_RAWHIST_CTRL_EN |
-+		  ISP_RAWHIST_CTRL_STEPSIZE(arg->stepsize) |
-+		  ISP_RAWHIST_CTRL_MODE(arg->mode) |
-+		  ISP_RAWHIST_CTRL_WATERLINE(arg->waterline) |
-+		  ISP_RAWHIST_CTRL_DATA_SEL(arg->data_sel);
-+	rkisp2_write(params->rkisp2, ISP_RAWHIST_LITE_CTRL, control);
-+	// I think you can choose the channels in VI_ISP_PATH
-+	rkisp2_param_set_bits(params, ISP_ISP3A_IMSC, ISP2X_3A_RAWHIST_CH0);
-+}
-+
-+static void rkisp2_params_hist_big(struct rkisp2_params *params,
-+				   union rkisp2_params_block block)
-+{
-+	const struct rkisp2_params_hist_big *arg = block.hist_big;
-+	unsigned int i, reg_base, ctrl;
-+	u32 control;
-+
-+	switch (block.header->type) {
-+	case RKISP2_PARAMS_BLOCK_HIST_BIG0:
-+		reg_base = ISP_RAWHIST_BIG1_BASE;
-+		break;
-+	case RKISP2_PARAMS_BLOCK_HIST_BIG1:
-+		reg_base = ISP_RAWHIST_BIG2_BASE;
-+		break;
-+	case RKISP2_PARAMS_BLOCK_HIST_BIG2:
-+		reg_base = ISP_RAWHIST_BIG3_BASE;
-+		break;
-+	default:
-+		WARN_ONCE(1, "invalid big histogram base %x\n", reg_base);
-+		return;
-+	}
-+
-+	ctrl = reg_base + ISP_RAWHIST_BIG_CTRL;
-+
-+	if (block.header->flags & V4L2_ISP_PARAMS_FL_BLOCK_DISABLE) {
-+		rkisp2_param_clear_bits(params, ctrl, ISP_RAWHIST_CTRL_EN);
-+		rkisp2_param_clear_bits(params, ISP_ISP3A_IMSC, ISP2X_3A_RAWHIST_BIG);
-+		return;
-+	}
-+
-+	if (!(block.header->flags & V4L2_ISP_PARAMS_FL_BLOCK_ENABLE))
-+		return;
-+
-+	rkisp2_write(params->rkisp2, reg_base + ISP_RAWHIST_BIG_SIZE,
-+		     ISP_RAWHIST_H_SIZE(arg->meas_window.h_size) |
-+		     ISP_RAWHIST_V_SIZE(arg->meas_window.v_size));
-+
-+	rkisp2_write(params->rkisp2, reg_base + ISP_RAWHIST_BIG_OFFS,
-+		     ISP_RAWHIST_H_OFFS(arg->meas_window.h_offs) |
-+		     ISP_RAWHIST_V_OFFS(arg->meas_window.v_offs));
-+
-+	rkisp2_write(params->rkisp2, reg_base + ISP_RAWHIST_BIG_RAW2Y_CC,
-+		     ISP_RAWHIST_RAW2Y_CC_RCC(arg->coeffs.r) |
-+		     ISP_RAWHIST_RAW2Y_CC_GCC(arg->coeffs.g) |
-+		     ISP_RAWHIST_RAW2Y_CC_BCC(arg->coeffs.b));
-+
-+	/*
-+	 * TODO check if the other weights are programmed in the registers
-+	 * after the bins, or if it's sequential write
-+	 */
-+	for (i = 0; i < 16; i++) {
-+		rkisp2_write(params->rkisp2, reg_base + ISP_RAWHIST_BIG_WEIGHT_BASE + 4 * i,
-+			     ISP_RAWHIST_BIG_WEIGHT_WND0(arg->weights[5 * i + 0]) |
-+			     ISP_RAWHIST_BIG_WEIGHT_WND1(arg->weights[5 * i + 1]) |
-+			     ISP_RAWHIST_BIG_WEIGHT_WND2(arg->weights[5 * i + 2]) |
-+			     ISP_RAWHIST_BIG_WEIGHT_WND3(arg->weights[5 * i + 3]) |
-+			     ISP_RAWHIST_BIG_WEIGHT_WND4(arg->weights[5 * i + 4]));
-+	}
-+
-+	rkisp2_param_set_bits(params, ISP_CTRL1, ISP21_BIGMODE_MODE | ISP21_BIGMODE_FORCE_EN);
-+
-+	control = ISP_RAWHIST_CTRL_EN |
-+		  ISP_RAWHIST_CTRL_STEPSIZE(arg->stepsize) |
-+		  ISP_RAWHIST_CTRL_MODE(arg->mode) |
-+		  ISP_RAWHIST_CTRL_WATERLINE(arg->waterline) |
-+		  ISP_RAWHIST_CTRL_DATA_SEL(arg->data_sel) |
-+		  (arg->window_num & ISP_RAWHIST_BIG_CTRL_WND_MASK);
-+	rkisp2_write(params->rkisp2, ctrl, control);
-+	rkisp2_param_set_bits(params, ISP_ISP3A_IMSC, ISP2X_3A_RAWHIST_BIG);
-+}
-+
-+static void rkisp2_params_awb_meas(struct rkisp2_params *params,
-+				   union rkisp2_params_block block)
-+{
-+	const struct rkisp2_params_awb_meas *arg = block.awb_meas;
-+	unsigned int i;
-+	u32 val;
-+	u32 control = 0;
-+
-+	if (block.header->flags & V4L2_ISP_PARAMS_FL_BLOCK_DISABLE) {
-+		rkisp2_param_clear_bits(params, ISP3X_RAWAWB_CTRL,
-+					ISP3X_RAWAWB_CTRL_EN);
-+		rkisp2_param_clear_bits(params, ISP_ISP3A_IMSC, ISP2X_3A_RAWAWB);
-+		rkisp2_param_clear_bits(params, ISP21_RAWAWB_BLK_CTRL, 0x1);
-+		return;
-+	}
-+
-+	if (!(block.header->flags & V4L2_ISP_PARAMS_FL_BLOCK_ENABLE))
-+		return;
-+
-+	rkisp2_write(params->rkisp2, ISP21_RAWAWB_WIN_OFFS,
-+		     ISP3X_RAWAWB_WIN(arg->meas_window.h_offs,
-+				    arg->meas_window.v_offs));
-+	rkisp2_write(params->rkisp2, ISP21_RAWAWB_WIN_SIZE,
-+		     ISP3X_RAWAWB_WIN(arg->meas_window.h_size,
-+				    arg->meas_window.v_size));
-+
-+	rkisp2_write(params->rkisp2, ISP21_RAWAWB_LIMIT_RG_MAX,
-+		     ISP3X_RAWAWB_LIMITS(arg->limits[1].r, arg->limits[1].g));
-+	rkisp2_write(params->rkisp2, ISP21_RAWAWB_LIMIT_BY_MAX,
-+		     ISP3X_RAWAWB_LIMITS(arg->limits[1].b, arg->limits[1].y));
-+	rkisp2_write(params->rkisp2, ISP21_RAWAWB_LIMIT_RG_MIN,
-+		     ISP3X_RAWAWB_LIMITS(arg->limits[0].r, arg->limits[0].g));
-+	rkisp2_write(params->rkisp2, ISP21_RAWAWB_LIMIT_BY_MIN,
-+		     ISP3X_RAWAWB_LIMITS(arg->limits[0].b, arg->limits[0].y));
-+
-+	for (i = 0; i < RKISP2_ISP_AWB_COUNTS_SIZE / 5; i++) {
-+		val = (arg->weights[5 * i] & 0x3f)
-+		    | ((arg->weights[5 * i + 1] & 0x3f) << 6)
-+		    | ((arg->weights[5 * i + 2] & 0x3f) << 12)
-+		    | ((arg->weights[5 * i + 3] & 0x3f) << 18)
-+		    | ((arg->weights[5 * i + 4] & 0x3f) << 24);
-+		rkisp2_write(params->rkisp2, ISP21_RAWAWB_WRAM_DATA_BASE, val);
-+	}
-+
-+	// This options looks like it's required to get "useful" data out
-+	rkisp2_param_set_bits(params, ISP21_RAWAWB_BLK_CTRL, 0x1);
-+
-+	control |= ISP3X_RAWAWB_CTRL_EN;
-+	rkisp2_write(params->rkisp2, ISP3X_RAWAWB_CTRL, control);
-+	rkisp2_param_set_bits(params, ISP_ISP3A_IMSC, ISP2X_3A_RAWAWB);
-+}
-+
- static void rkisp2_params_configure(struct rkisp2_params *params,
- 				    struct rkisp2_params_buffer *buf,
- 				    enum rkisp2_params_configure_priority prio)
-diff --git a/drivers/media/platform/rockchip/rkisp2/rkisp2-regs-v2x.h b/drivers/media/platform/rockchip/rkisp2/rkisp2-regs-v2x.h
-index 883bdb7c2a61..26deacb0b63d 100644
---- a/drivers/media/platform/rockchip/rkisp2/rkisp2-regs-v2x.h
-+++ b/drivers/media/platform/rockchip/rkisp2/rkisp2-regs-v2x.h
-@@ -1429,7 +1429,7 @@
- #define ISP_RAWAE_LITE_BLK_SIZ			(ISP_RAWAE_LITE_BASE + 0x00004)
- #define ISP_RAWAE_LITE_OFFSET			(ISP_RAWAE_LITE_BASE + 0x00008)
- #define ISP_RAWAE_LITE_R2Y_CC			(ISP_RAWAE_LITE_BASE + 0x0000c)
--#define ISP_RAWAE_LITE_RO_MEAN			(ISP_RAWAE_LITE_BASE + 0x00010)
-+#define ISP_RAWAE_LITE_RO_MEAN(i)		(ISP_RAWAE_LITE_BASE + 0x00010 + ((i) * 4))
- #define ISP_RAWAE_LITE_RO_DBG1			(ISP_RAWAE_LITE_BASE + 0x00074)
- #define ISP_RAWAE_LITE_RO_DBG2			(ISP_RAWAE_LITE_BASE + 0x00078)
- 
-@@ -2585,4 +2585,41 @@
- /* ISP21 DHAZ/DRC/BAY3D */
- #define ISP21_SELF_FORCE_UPD		BIT(31)
- 
-+/* RAWHIST */
-+#define ISP_RAWHIST_CTRL_EN			BIT(0)
-+#define ISP_RAWHIST_CTRL_STEPSIZE(a)		(((a) & 0x7) << 1)
-+#define ISP_RAWHIST_CTRL_MODE(a)		(((a) & 0x7) << 8)
-+#define ISP_RAWHIST_CTRL_WATERLINE(a)		(((a) & 0xfff) << 12)
-+#define ISP_RAWHIST_CTRL_DATA_SEL(a)		(((a) & 0x7) << 24)
-+#define ISP_RAWHIST_CTRL_MEAS_DONE		BIT(31)
-+#define ISP_RAWHIST_BIG_CTRL_WND_5X5_1		BIT(28)
-+#define ISP_RAWHIST_BIG_CTRL_WND_15X15_0	BIT(29)
-+#define ISP_RAWHIST_BIG_CTRL_WND_15X15_1	(0x3 << 28)
-+#define ISP_RAWHIST_BIG_CTRL_WND_MASK		GENMASK(29, 28)
-+
-+#define ISP_RAWHIST_H_SIZE(a)			((a) & 0x7ff)
-+#define ISP_RAWHIST_V_SIZE(a)			(((a) & 0x7ff) << 16)
-+#define ISP_RAWHIST_H_OFFS(a)			((a) & 0x1fff)
-+#define ISP_RAWHIST_V_OFFS(a)			(((a) & 0x1fff) << 16)
-+
-+#define ISP_RAWHIST_RAW2Y_CC_RCC(a)		((a) & 0xff)
-+#define ISP_RAWHIST_RAW2Y_CC_GCC(a)		(((a) & 0xff) << 8)
-+#define ISP_RAWHIST_RAW2Y_CC_BCC(a)		(((a) & 0xff) << 16)
-+#define ISP_RAWHIST_RAW2Y_CC_OFF(a)		(((a) & 0xff) << 24)
-+
-+#define ISP_RAWHIST_LITE_WEIGHT_WND0(a)		((a) & 0x3f)
-+#define ISP_RAWHIST_LITE_WEIGHT_WND1(a)		(((a) & 0x3f) << 8)
-+#define ISP_RAWHIST_LITE_WEIGHT_WND2(a)		(((a) & 0x3f) << 16)
-+#define ISP_RAWHIST_LITE_WEIGHT_WND3(a)		(((a) & 0x3f) << 24)
-+
-+#define ISP_RAWHIST_BIG_WEIGHT_WND0(a)		((a) & 0x3f)
-+#define ISP_RAWHIST_BIG_WEIGHT_WND1(a)		(((a) & 0x3f) << 6)
-+#define ISP_RAWHIST_BIG_WEIGHT_WND2(a)		(((a) & 0x3f) << 12)
-+#define ISP_RAWHIST_BIG_WEIGHT_WND3(a)		(((a) & 0x3f) << 18)
-+#define ISP_RAWHIST_BIG_WEIGHT_WND4(a)		(((a) & 0x3f) << 24)
-+
-+#define ISP_RAWHIST_BIN_MASK 			GENMASK(27, 0)
-+
-+#define ISP_RAWHIST_RAM_OFFSET(a)		((a) & 0xff)
-+
- #endif /* _RKISP_REGS_V2X_H */
-diff --git a/drivers/media/platform/rockchip/rkisp2/rkisp2-regs-v3x.h b/drivers/media/platform/rockchip/rkisp2/rkisp2-regs-v3x.h
-index d27d9a48887e..73dc3b22873c 100644
---- a/drivers/media/platform/rockchip/rkisp2/rkisp2-regs-v3x.h
-+++ b/drivers/media/platform/rockchip/rkisp2/rkisp2-regs-v3x.h
-@@ -3367,6 +3367,13 @@
- #define ISP3X_RAWAE_BIG_WND3_EN		BIT(6)
- #define ISP3X_RAWAE_BIG_WND4_EN		BIT(7)
- 
-+#define ISP3X_RAWAE_LITE_H(a)			((a) & 0x1fff)
-+#define ISP3X_RAWAE_LITE_V(a)			(((a) & 0x1fff) << 16)
-+
-+#define ISP3X_RAWAE_LITE_RO_MEAN_R(a)		(((a) >> 22) & 0x3ff)
-+#define ISP3X_RAWAE_LITE_RO_MEAN_B(a)		(((a) >> 12) & 0x3ff)
-+#define ISP3X_RAWAE_LITE_RO_MEAN_G(a)		((a) & 0xfff)
-+
- /* RAWHIST */
- #define ISP3X_RAWHIST_EN		BIT(0)
- #define ISP3X_RAWHIST_STEPSIZE(x)	(((x) & 0x7) << 1)
-@@ -3397,6 +3404,12 @@
- #define ISP3X_RAWAF_INTLINE0_EN		BIT(27)
- 
- /* RAWAWB */
-+#define ISP3X_RAWAWB_CTRL_EN		BIT(0)
-+#define ISP3X_RAWAWB_CTRL_MEAS_DONE	BIT(31)
-+
-+#define ISP3X_RAWAWB_WIN(h, v)		(((h) & 0x1fff) | (((v) & 0x1fff) << 16))
-+#define ISP3X_RAWAWB_LIMITS(a, b)		(((a) & 0xff) | (((b) & 0xff) << 16))
-+
- #define ISP32_RAWAWB_2DDR_PATH_EN	BIT(23)
- #define ISP32_RAWAWB_2DDR_PATH_DS	BIT(27)
- #define ISP32_RAWAWB_2DDR_PATH_ERR	BIT(29)
-diff --git a/drivers/media/platform/rockchip/rkisp2/rkisp2-stats.c b/drivers/media/platform/rockchip/rkisp2/rkisp2-stats.c
-new file mode 100644
-index 000000000000..f9dbe05bf218
---- /dev/null
-+++ b/drivers/media/platform/rockchip/rkisp2/rkisp2-stats.c
-@@ -0,0 +1,482 @@
-+// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-+/*
-+ * Rockchip ISP2 Driver - Stats subdevice
-+ *
-+ * Copyright (C) 2017 Rockchip Electronics Co., Ltd.
-+ * Copyright (C) 2026 Ideas on Board Oy.
-+ */
-+
-+#include <media/v4l2-common.h>
-+#include <media/v4l2-event.h>
-+#include <media/v4l2-ioctl.h>
-+#include <media/videobuf2-core.h>
-+#include <media/videobuf2-dma-contig.h>
-+
-+#include "rkisp2-common.h"
-+
-+#define RKISP2_STATS_DEV_NAME	RKISP2_DRIVER_NAME "_stats"
-+
-+static int rkisp2_stats_enum_fmt_meta_cap(struct file *file, void *priv,
-+					  struct v4l2_fmtdesc *f)
-+{
-+	if (f->index)
-+		return -EINVAL;
-+
-+	f->pixelformat = V4L2_META_FMT_RKISP2_STATS;
-+
-+	return 0;
-+}
-+
-+static int rkisp2_stats_g_fmt_meta_cap(struct file *file, void *priv,
-+				       struct v4l2_format *f)
-+{
-+	static const struct v4l2_meta_format mfmt = {
-+		.dataformat = V4L2_META_FMT_RKISP2_STATS,
-+		.buffersize = sizeof(struct rkisp2_stats_buffer)
-+	};
-+
-+	f->fmt.meta = mfmt;
-+
-+	return 0;
-+}
-+
-+static int rkisp2_stats_querycap(struct file *file,
-+				 void *priv, struct v4l2_capability *cap)
-+{
-+	struct video_device *vdev = video_devdata(file);
-+
-+	strscpy(cap->driver, RKISP2_DRIVER_NAME, sizeof(cap->driver));
-+	strscpy(cap->card, vdev->name, sizeof(cap->card));
-+
-+	return 0;
-+}
-+
-+static const struct v4l2_ioctl_ops rkisp2_stats_ioctl = {
-+	.vidioc_reqbufs = vb2_ioctl_reqbufs,
-+	.vidioc_querybuf = vb2_ioctl_querybuf,
-+	.vidioc_create_bufs = vb2_ioctl_create_bufs,
-+	.vidioc_qbuf = vb2_ioctl_qbuf,
-+	.vidioc_dqbuf = vb2_ioctl_dqbuf,
-+	.vidioc_prepare_buf = vb2_ioctl_prepare_buf,
-+	.vidioc_expbuf = vb2_ioctl_expbuf,
-+	.vidioc_streamon = vb2_ioctl_streamon,
-+	.vidioc_streamoff = vb2_ioctl_streamoff,
-+	.vidioc_enum_fmt_meta_cap = rkisp2_stats_enum_fmt_meta_cap,
-+	.vidioc_g_fmt_meta_cap = rkisp2_stats_g_fmt_meta_cap,
-+	.vidioc_s_fmt_meta_cap = rkisp2_stats_g_fmt_meta_cap,
-+	.vidioc_try_fmt_meta_cap = rkisp2_stats_g_fmt_meta_cap,
-+	.vidioc_querycap = rkisp2_stats_querycap,
-+	.vidioc_subscribe_event = v4l2_ctrl_subscribe_event,
-+	.vidioc_unsubscribe_event = v4l2_event_unsubscribe,
-+};
-+
-+static const struct v4l2_file_operations rkisp2_stats_fops = {
-+	.mmap = vb2_fop_mmap,
-+	.unlocked_ioctl = video_ioctl2,
-+	.poll = vb2_fop_poll,
-+	.open = v4l2_fh_open,
-+	.release = vb2_fop_release
-+};
-+
-+static int rkisp2_stats_vb2_queue_setup(struct vb2_queue *vq,
-+					unsigned int *num_buffers,
-+					unsigned int *num_planes,
-+					unsigned int sizes[],
-+					struct device *alloc_devs[])
-+{
-+	/* TODO num_buffers */
-+
-+	*num_planes = 1;
-+
-+	sizes[0] = sizeof(struct rkisp2_stats_buffer);
-+
-+	return 0;
-+}
-+
-+static void rkisp2_stats_vb2_buf_queue(struct vb2_buffer *vb)
-+{
-+	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
-+	struct rkisp2_buffer *stats_buf =
-+		container_of(vbuf, struct rkisp2_buffer, vb);
-+	struct vb2_queue *vq = vb->vb2_queue;
-+	struct rkisp2_stats *stats_dev = vq->drv_priv;
-+
-+	spin_lock_irq(&stats_dev->lock);
-+	list_add_tail(&stats_buf->queue, &stats_dev->stat);
-+	spin_unlock_irq(&stats_dev->lock);
-+}
-+
-+static int rkisp2_stats_vb2_buf_prepare(struct vb2_buffer *vb)
-+{
-+	if (vb2_plane_size(vb, 0) < sizeof(struct rkisp2_stats_buffer))
-+		return -EINVAL;
-+
-+	vb2_set_plane_payload(vb, 0, sizeof(struct rkisp2_stats_buffer));
-+
-+	return 0;
-+}
-+
-+static int rkisp2_stats_vb2_start_streaming(struct vb2_queue *vq, unsigned int count)
-+{
-+	struct rkisp2_stats *stats = vq->drv_priv;
-+	stats->imsc = 0;
-+	stats->icr = 0;
-+	stats->cur_buf = NULL;
-+	stats->awb_window_offset = 0;
-+
-+	return 0;
-+}
-+
-+static void rkisp2_stats_vb2_stop_streaming(struct vb2_queue *vq)
-+{
-+	struct rkisp2_stats *stats = vq->drv_priv;
-+	struct rkisp2_buffer *buf;
-+	LIST_HEAD(tmp_list);
-+
-+	spin_lock_irq(&stats->lock);
-+	list_splice_init(&stats->stat, &tmp_list);
-+	spin_unlock_irq(&stats->lock);
-+
-+	list_for_each_entry(buf, &tmp_list, queue)
-+		vb2_buffer_done(&buf->vb.vb2_buf, VB2_BUF_STATE_ERROR);
-+
-+	if (stats->cur_buf != NULL) {
-+		vb2_buffer_done(&stats->cur_buf->vb.vb2_buf, VB2_BUF_STATE_ERROR);
-+		stats->cur_buf = NULL;
-+	}
-+}
-+
-+static const struct vb2_ops rkisp2_stats_vb2_ops = {
-+	.queue_setup = rkisp2_stats_vb2_queue_setup,
-+	.buf_queue = rkisp2_stats_vb2_buf_queue,
-+	.buf_prepare = rkisp2_stats_vb2_buf_prepare,
-+	.start_streaming = rkisp2_stats_vb2_start_streaming,
-+	.stop_streaming = rkisp2_stats_vb2_stop_streaming,
-+};
-+
-+static int
-+rkisp2_stats_init_vb2_queue(struct vb2_queue *q, struct rkisp2_stats *stats)
-+{
-+	struct rkisp2_vdev_node *node;
-+
-+	node = container_of(q, struct rkisp2_vdev_node, buf_queue);
-+
-+	q->type = V4L2_BUF_TYPE_META_CAPTURE;
-+	q->io_modes = VB2_MMAP | VB2_DMABUF;
-+	q->drv_priv = stats;
-+	q->ops = &rkisp2_stats_vb2_ops;
-+	q->mem_ops = &vb2_dma_contig_memops;
-+	q->buf_struct_size = sizeof(struct rkisp2_buffer);
-+	q->timestamp_flags = V4L2_BUF_FLAG_TIMESTAMP_MONOTONIC;
-+	q->lock = &node->vlock;
-+	q->dev = stats->rkisp2->dev;
-+
-+	return vb2_queue_init(q);
-+}
-+
-+static void rkisp2_stats_get_rawae_lite(struct rkisp2_stats *stats,
-+					u32 status,
-+					struct rkisp2_stats_buffer *pbuf)
-+{
-+	struct rkisp2_device *rkisp2 = stats->rkisp2;
-+	struct rkisp2_isp_ae_lite *ae_lite;
-+	unsigned int i;
-+	u32 val;
-+
-+	/* TODO figure out a nicer way to synchronize this with params and imsc */
-+	/* TODO figure out what the other channels are for */
-+	if (!(status & ISP2X_3A_RAWAE_CH0))
-+		return;
-+	stats->icr |= ISP2X_3A_RAWAE_CH0;
-+
-+	ae_lite = &pbuf->ae_lite;
-+
-+	for (i = 0; i < RKISP2_ISP_AE_MEAN_MAX_LITE; i++) {
-+		val = rkisp2_read(rkisp2, ISP_RAWAE_LITE_RO_MEAN(i));
-+		ae_lite->exp_mean_r[i] = ISP3X_RAWAE_LITE_RO_MEAN_R(val);
-+		ae_lite->exp_mean_g[i] = ISP3X_RAWAE_LITE_RO_MEAN_G(val);
-+		ae_lite->exp_mean_b[i] = ISP3X_RAWAE_LITE_RO_MEAN_B(val);
-+	}
-+
-+	/*
-+	 * The done bit is never set in the register; set it here to signal
-+	 * done to userspace
-+	 */
-+	ae_lite->done = 1;
-+}
-+
-+static void rkisp2_stats_hist_read(struct rkisp2_stats *stats, u32 reg_base,
-+				   struct rkisp2_isp_hist *hist)
-+{
-+	struct rkisp2_device *rkisp2 = stats->rkisp2;
-+	unsigned int i;
-+	u32 val, done;
-+	unsigned int ctrl = reg_base + ISP_RAWHIST_BIG_CTRL;
-+
-+	/*
-+	 * Unlike rawae lite, this actually does get set, and we need to use it
-+	 * to determine which big block to process
-+	 */
-+	done = rkisp2_read(rkisp2, ctrl) & ISP_RAWHIST_CTRL_MEAS_DONE;
-+	hist->done = done ? 1 : 0;
-+	if (!done)
-+		return;
-+
-+	rkisp2_write(rkisp2, reg_base + ISP_RAWHIST_BIG_HRAM_CTRL,
-+		     ISP_RAWHIST_RAM_OFFSET(0));
-+
-+	for (i = 0; i < RKISP2_ISP_HIST_BIN_N_MAX; i++) {
-+		val = rkisp2_read(rkisp2, reg_base + ISP_RAWHIST_BIG_RO_BASE_BIN);
-+		hist->hist_bins[i] = val;
-+	}
-+
-+	/* Set the done bit */
-+	val = rkisp2_read(rkisp2, ctrl);
-+	rkisp2_write(rkisp2, ctrl, val | ISP_RAWHIST_CTRL_MEAS_DONE);
-+}
-+
-+static void rkisp2_stats_get_hist(struct rkisp2_stats *stats,
-+				  u32 status,
-+				  struct rkisp2_stats_buffer *pbuf)
-+{
-+	/*
-+	 * It seems that big only triggers the big interrupt, and lite only
-+	 * triggers the ch0 interrupts. ch1 and ch2 interrupts are therefore
-+	 * unknown, and we need to check the done bits of every big module to
-+	 * determine which to process
-+	 */
-+
-+	/*
-+	 * It looks like we get separate interrupts for big in big-mode (ie.
-+	 * using the 15x15 grid) and for non-big stuff
-+	 */
-+
-+	if (status & ISP2X_3A_RAWHIST_CH0) {
-+		stats->rkisp2->debug.stats3a_hist_ch0_count++;
-+		stats->icr |= ISP2X_3A_RAWHIST_CH0;
-+		rkisp2_stats_hist_read(stats, ISP_RAWHIST_LITE_BASE, &pbuf->hist_lite);
-+	}
-+
-+	if (status & ISP2X_3A_RAWHIST_BIG) {
-+		stats->rkisp2->debug.stats3a_hist_big_count++;
-+		stats->icr |= ISP2X_3A_RAWHIST_BIG;
-+		rkisp2_stats_hist_read(stats, ISP_RAWHIST_BIG1_BASE, &pbuf->hist_big0);
-+		rkisp2_stats_hist_read(stats, ISP_RAWHIST_BIG2_BASE, &pbuf->hist_big1);
-+		rkisp2_stats_hist_read(stats, ISP_RAWHIST_BIG3_BASE, &pbuf->hist_big2);
-+	}
-+
-+}
-+
-+static void rkisp2_stats_get_rawawb(struct rkisp2_stats *stats,
-+				    u32 status,
-+				    struct rkisp2_stats_buffer *pbuf)
-+{
-+	struct rkisp2_device *rkisp2 = stats->rkisp2;
-+	struct rkisp2_isp_awb *awb = &pbuf->awb;
-+	unsigned int ctrl = ISP21_RAWAWB_CTRL;
-+	unsigned int i;
-+	u32 val1, val2;
-+	u32 done;
-+
-+	if (!(status & ISP2X_3A_RAWAWB))
-+		return;
-+	stats->icr |= ISP2X_3A_RAWAWB;
-+
-+	rkisp2->debug.stats3a_awb_count++;
-+
-+	done = rkisp2_read(rkisp2, ctrl) & ISP3X_RAWAWB_CTRL_MEAS_DONE;
-+	awb->done = done ? 1 : 0;
-+	if (!done)
-+		return;
-+
-+	rkisp2->debug.stats3a_awb_done_count++;
-+
-+	for (i = 0; i < RKISP2_ISP_AWB_COUNTS_SIZE; i++) {
-+		val1 = rkisp2_read(rkisp2, ISP21_RAWAWB_RAM_DATA_BASE);
-+		val2 = rkisp2_read(rkisp2, ISP21_RAWAWB_RAM_DATA_BASE);
-+		awb->counts_r[i] = (val2 >> 4) & 0x3ffff;
-+		awb->counts_g[i] = (val1 >> 18) | ((val2 & 0xf) << 14);
-+		awb->counts_b[i] = val1 & 0x3ffff;
-+		awb->counts_w[i] = val2 >> 22;
-+	}
-+
-+	/*
-+	 * Clear the done bit (reference says write 0 but writing 1 seems to be
-+	 * the correct reset, plus all the other stats 3a write 1 to reset)
-+	 */
-+	val1 = rkisp2_read(rkisp2, ctrl);
-+	rkisp2_write(rkisp2, ctrl, val1 | ISP3X_RAWAWB_CTRL_MEAS_DONE);
-+}
-+
-+/* This is always called in an intterupt context */
-+static struct rkisp2_buffer *rkisp2_stats_get_buf(struct rkisp2_stats *stats)
-+{
-+	struct rkisp2_buffer *ret = NULL;
-+
-+	if (stats->cur_buf != NULL)
-+		return stats->cur_buf;
-+
-+	/* get one empty buffer */
-+	if (!list_empty(&stats->stat)) {
-+		ret = list_first_entry(&stats->stat, struct rkisp2_buffer, queue);
-+		list_del(&ret->queue);
-+	}
-+
-+	stats->cur_buf = ret;
-+
-+	return ret;
-+}
-+
-+static void rkisp2_stats_complete_buf(struct rkisp2_stats *stats, struct rkisp2_buffer *buf)
-+{
-+	unsigned int frame_sequence = stats->rkisp2->isp.frame_sequence;
-+	u64 timestamp = ktime_get_ns();
-+
-+	vb2_set_plane_payload(&buf->vb.vb2_buf, 0,
-+			      sizeof(struct rkisp2_stats_buffer));
-+	buf->vb.sequence = frame_sequence;
-+	buf->vb.vb2_buf.timestamp = timestamp;
-+	vb2_buffer_done(&buf->vb.vb2_buf, VB2_BUF_STATE_DONE);
-+
-+	stats->cur_buf = NULL;
-+}
-+
-+static void rkisp2_stats_send_measurement_3a(struct rkisp2_stats *stats, u32 status)
-+{
-+	struct rkisp2_stats_buffer *cur_stat_buf;
-+	struct rkisp2_buffer *cur_buf;
-+
-+	cur_buf = rkisp2_stats_get_buf(stats);
-+	if (!cur_buf)
-+		return;
-+
-+	cur_stat_buf = (struct rkisp2_stats_buffer *)
-+			vb2_plane_vaddr(&cur_buf->vb.vb2_buf, 0);
-+
-+	rkisp2_stats_get_rawae_lite(stats, status, cur_stat_buf);
-+
-+	rkisp2_stats_get_hist(stats, status, cur_stat_buf);
-+
-+	rkisp2_stats_get_rawawb(stats, status, cur_stat_buf);
-+
-+	rkisp2_write(stats->rkisp2, ISP_ISP3A_ICR, stats->icr);
-+
-+	if (stats->imsc == stats->icr) {
-+		rkisp2_stats_complete_buf(stats, cur_buf);
-+		stats->icr = 0;
-+	}
-+}
-+
-+void rkisp2_stats_isr_v_start(struct rkisp2_stats *stats)
-+{
-+	if (stats->imsc != stats->icr && stats->cur_buf != NULL) {
-+		WARN_ONCE(1, "unhandled stats irq: expected %x got %x\n",
-+			  stats->imsc, stats->icr);
-+		stats->rkisp2->debug.stats_irq_delay++;
-+
-+		/*
-+		 * If we are in this block then it means the stats buffer has
-+		 * not been completed in rkisp2_stats_send_measurement_3a, so
-+		 * complete it here.
-+		 */
-+		spin_lock(&stats->lock);
-+		rkisp2_stats_complete_buf(stats, stats->cur_buf);
-+		spin_unlock(&stats->lock);
-+	}
-+
-+	/* TODO do we need locking for these two fields? */
-+	stats->imsc = rkisp2_read(stats->rkisp2, ISP_ISP3A_IMSC);
-+	stats->icr = 0;
-+}
-+
-+/* TODO maybe we can just return void */
-+irqreturn_t rkisp2_stats_isr_3a(struct rkisp2_stats *stats)
-+{
-+	struct rkisp2_device *rkisp2 = stats->rkisp2;
-+	u32 status;
-+
-+	status = rkisp2_read(rkisp2, ISP_ISP3A_MIS);
-+	if (!status)
-+		return IRQ_NONE;
-+
-+	spin_lock(&stats->lock);
-+
-+	rkisp2->debug.stats3a_irq++;
-+
-+	if (status & stats->imsc)
-+		rkisp2_stats_send_measurement_3a(stats, status);
-+
-+	spin_unlock(&stats->lock);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static void rkisp2_init_stats(struct rkisp2_stats *stats)
-+{
-+	stats->vdev_fmt.fmt.meta.dataformat =
-+		V4L2_META_FMT_RKISP2_STATS;
-+	stats->vdev_fmt.fmt.meta.buffersize =
-+		sizeof(struct rkisp2_stats_buffer);
-+}
-+
-+int rkisp2_stats_register(struct rkisp2_device *rkisp2)
-+{
-+	struct rkisp2_stats *stats = &rkisp2->stats;
-+	struct rkisp2_vdev_node *node = &stats->vnode;
-+	struct video_device *vdev = &node->vdev;
-+	int ret;
-+
-+	stats->rkisp2 = rkisp2;
-+	mutex_init(&node->vlock);
-+	INIT_LIST_HEAD(&stats->stat);
-+	spin_lock_init(&stats->lock);
-+
-+	strscpy(vdev->name, RKISP2_STATS_DEV_NAME, sizeof(vdev->name));
-+
-+	video_set_drvdata(vdev, stats);
-+	vdev->ioctl_ops = &rkisp2_stats_ioctl;
-+	vdev->fops = &rkisp2_stats_fops;
-+	vdev->release = video_device_release_empty;
-+	vdev->lock = &node->vlock;
-+	vdev->v4l2_dev = &rkisp2->v4l2_dev;
-+	vdev->queue = &node->buf_queue;
-+	vdev->device_caps = V4L2_CAP_META_CAPTURE | V4L2_CAP_STREAMING;
-+	vdev->vfl_dir =  VFL_DIR_RX;
-+	rkisp2_stats_init_vb2_queue(vdev->queue, stats);
-+	rkisp2_init_stats(stats);
-+	video_set_drvdata(vdev, stats);
-+
-+	node->pad.flags = MEDIA_PAD_FL_SINK;
-+	ret = media_entity_pads_init(&vdev->entity, 1, &node->pad);
-+	if (ret)
-+		goto error;
-+
-+	ret = video_register_device(vdev, VFL_TYPE_VIDEO, -1);
-+	if (ret) {
-+		dev_err(&vdev->dev,
-+			"failed to register %s, ret=%d\n", vdev->name, ret);
-+		goto error;
-+	}
-+
-+	return 0;
-+
-+error:
-+	media_entity_cleanup(&vdev->entity);
-+	mutex_destroy(&node->vlock);
-+	stats->rkisp2 = NULL;
-+	return ret;
-+}
-+
-+void rkisp2_stats_unregister(struct rkisp2_device *rkisp2)
-+{
-+	struct rkisp2_stats *stats = &rkisp2->stats;
-+	struct rkisp2_vdev_node *node = &stats->vnode;
-+	struct video_device *vdev = &node->vdev;
-+
-+	if (!stats->rkisp2)
-+		return;
-+
-+	vb2_video_unregister_device(vdev);
-+	media_entity_cleanup(&vdev->entity);
-+	mutex_destroy(&node->vlock);
-+}
-diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-core/v4l2-ioctl.c
-index 470e5b84ed15..1b5776487991 100644
---- a/drivers/media/v4l2-core/v4l2-ioctl.c
-+++ b/drivers/media/v4l2-core/v4l2-ioctl.c
-@@ -1468,6 +1468,7 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc *fmt)
- 	case V4L2_META_FMT_RK_ISP1_STAT_3A:	descr = "Rockchip ISP1 3A Statistics"; break;
- 	case V4L2_META_FMT_RK_ISP1_EXT_PARAMS:	descr = "Rockchip ISP1 Ext 3A Params"; break;
- 	case V4L2_META_FMT_RKISP2_PARAMS:	descr = "Rockchip ISP2 3A Parameters"; break;
-+	case V4L2_META_FMT_RKISP2_STATS:	descr = "Rockchip ISP2 3A Statistics"; break;
- 	case V4L2_META_FMT_C3ISP_PARAMS:	descr = "Amlogic C3 ISP Parameters"; break;
- 	case V4L2_META_FMT_C3ISP_STATS:		descr = "Amlogic C3 ISP Statistics"; break;
- 	case V4L2_META_FMT_MALI_C55_PARAMS:	descr = "ARM Mali-C55 ISP Parameters"; break;
-diff --git a/include/uapi/linux/rkisp2-config.h b/include/uapi/linux/rkisp2-config.h
-index 0e42dbf2c9f2..a45fe79a7716 100644
---- a/include/uapi/linux/rkisp2-config.h
-+++ b/include/uapi/linux/rkisp2-config.h
-@@ -20,6 +20,17 @@
- #define RKISP2_ISP_LSC_SAMPLES_MAX		17
- #define RKISP2_ISP_LSC_SECTORS_TBL_SIZE_MAX	16
- 
-+#define RKISP2_ISP_AE_MEAN_MAX_LITE	25
-+#define RKISP2_ISP_AE_MEAN_MAX_BIG	225
-+
-+#define RKISP2_ISP_HIST_WEIGHT_GRIDS_SIZE_LITE	25
-+#define RKISP2_ISP_HIST_WEIGHT_GRIDS_SIZE_BIG	225
-+#define RKISP2_ISP_HIST_WEIGHT_GRIDS_SIZE_MAX		RKISP2_ISP_HIST_WEIGHT_GRIDS_SIZE_BIG
-+
-+#define RKISP2_ISP_HIST_BIN_N_MAX	256
-+
-+#define RKISP2_ISP_AWB_COUNTS_SIZE	225
-+
- /**
-  * enum rkisp2_isp_version - ISP variants
-  *
-@@ -55,6 +66,98 @@ enum rkisp2_isp_set_active_table_when {
- 	RKISP2_ISP_LSC_SET_ACTIVE_TABLE_BEFORE,
- };
- 
-+enum rkisp2_isp_histogram_mode {
-+	RKISP2_ISP_HISTOGRAM_MODE_DISABLE,
-+	RKISP2_ISP_HISTOGRAM_MODE_R_HISTOGRAM = 2,
-+	RKISP2_ISP_HISTOGRAM_MODE_G_HISTOGRAM,
-+	RKISP2_ISP_HISTOGRAM_MODE_B_HISTOGRAM,
-+	RKISP2_ISP_HISTOGRAM_MODE_Y_HISTOGRAM
-+};
-+
-+/*
-+ * This selects which bits are used from the input data to compute the
-+ * histogram
-+ */
-+enum rkisp2_isp_histogram_data_sel {
-+	RKISP2_ISP_HISTOGRAM_DATA_SEL_11_4,
-+	RKISP2_ISP_HISTOGRAM_DATA_SEL_10_3,
-+	RKISP2_ISP_HISTOGRAM_DATA_SEL_9_2,
-+	RKISP2_ISP_HISTOGRAM_DATA_SEL_8_1,
-+	RKISP2_ISP_HISTOGRAM_DATA_SEL_7_0,
-+};
-+
-+/*---------- Statistics ------------*/
-+
-+/**
-+ * struct rkisp2_isp_ae_lite - statistics auto exposure data
-+ *
-+ * @exp_mean_r: Mean luminance value of block xy for r channel
-+ * @exp_mean_g: Mean luminance value of block xy for g channel
-+ * @exp_mean_b: Mean luminance value of block xy for b channel
-+ * @done: This set to nonzero when the stats are ready
-+ *
-+ * Image is divided into 5x5 blocks on lite and 15x15 blocks on big.
-+ */
-+struct rkisp2_isp_ae_lite {
-+	__u16 exp_mean_r[RKISP2_ISP_AE_MEAN_MAX_LITE];
-+	__u16 exp_mean_g[RKISP2_ISP_AE_MEAN_MAX_LITE];
-+	__u16 exp_mean_b[RKISP2_ISP_AE_MEAN_MAX_LITE];
-+	__u8 done;
-+};
-+
-+/**
-+ * struct rkisp2_cif_isp_hist_stat - statistics histogram data
-+ *
-+ * @hist_bins: measured bin counters. Each bin is a 28 bits unsigned fixed point
-+ *	       type. Bits 0-4 are the fractional part and bits 5-27 are the
-+ *	       integer part.
-+ * @done: This set to nonzero when the stats are ready
-+ *
-+ * There are 256 bins, at least on 3.x.
-+ */
-+struct rkisp2_isp_hist {
-+	__u32 hist_bins[RKISP2_ISP_HIST_BIN_N_MAX];
-+	__u8 done;
-+};
-+
-+/**
-+ * struct rkisp2_isp_awb - statistics auto white balance data
-+ *
-+ * @counts_r: Counts of red (18-bits)
-+ * @counts_g: Counts of green (18-bits)
-+ * @counts_b: Counts of blue (18-bits)
-+ * @counts_w: Counts of white point (10-bits)
-+ * @done: This set to nonzero when the stats are ready
-+ *
-+ * TODO Figure out what is being counted
-+ */
-+struct rkisp2_isp_awb {
-+	__u32 counts_r[RKISP2_ISP_AWB_COUNTS_SIZE];
-+	__u32 counts_g[RKISP2_ISP_AWB_COUNTS_SIZE];
-+	__u32 counts_b[RKISP2_ISP_AWB_COUNTS_SIZE];
-+	__u16 counts_w[RKISP2_ISP_AWB_COUNTS_SIZE];
-+	__u8 done;
-+};
-+
-+/**
-+ * struct rkisp2_stats_buffer - 3A statistics for the RkISP2
-+ *
-+ * @ae_lite: ae lite stats
-+ * @hist_lite: histogram lite stats
-+ * @hist_big0: histogram big0 stats
-+ * @hist_big1: histogram big0 stats
-+ * @hist_big2: histogram big0 stats
-+ * @awb: awb stats
-+ */
-+struct rkisp2_stats_buffer {
-+	struct rkisp2_isp_ae_lite ae_lite;
-+	struct rkisp2_isp_hist hist_lite;
-+	struct rkisp2_isp_hist hist_big0;
-+	struct rkisp2_isp_hist hist_big1;
-+	struct rkisp2_isp_hist hist_big2;
-+	struct rkisp2_isp_awb awb;
-+};
-+
- /*---------- Parameters ------------*/
- 
- /**
-@@ -66,6 +169,12 @@ enum rkisp2_isp_set_active_table_when {
-  * @RKISP2_PARAMS_BLOCK_CCM: Color correction matrix (in the CCM block)
-  * @RKISP2_PARAMS_BLOCK_GOC: Gamma out correction
-  * @RKISP2_PARAMS_BLOCK_LSC: Lens shading correction
-+ * @RKISP2_PARAMS_BLOCK_AE_LITE: AE measurement config (lite)
-+ * @RKISP2_PARAMS_BLOCK_HIST_LITE: Histogram measurement config (lite)
-+ * @RKISP2_PARAMS_BLOCK_HIST_BIG0: Histogram measurement config (zeroth big block)
-+ * @RKISP2_PARAMS_BLOCK_HIST_BIG1: Histogram measurement config (first big block)
-+ * @RKISP2_PARAMS_BLOCK_HIST_BIG2: Histogram measurement config (second big block)
-+ * @RKISP2_PARAMS_BLOCK_AWB_MEAS: AWB measurements config
-  * */
- enum rkisp2_params_block_type {
- 	RKISP2_PARAMS_BLOCK_BLS,
-@@ -74,6 +183,12 @@ enum rkisp2_params_block_type {
- 	RKISP2_PARAMS_BLOCK_CCM,
- 	RKISP2_PARAMS_BLOCK_GOC,
- 	RKISP2_PARAMS_BLOCK_LSC,
-+	RKISP2_PARAMS_BLOCK_AE_LITE,
-+	RKISP2_PARAMS_BLOCK_HIST_LITE,
-+	RKISP2_PARAMS_BLOCK_HIST_BIG0,
-+	RKISP2_PARAMS_BLOCK_HIST_BIG1,
-+	RKISP2_PARAMS_BLOCK_HIST_BIG2,
-+	RKISP2_PARAMS_BLOCK_AWB_MEAS,
- };
- 
- /**
-@@ -134,6 +249,36 @@ struct rkisp2_isp_awb_gains {
- 	__u16 gb;
- };
- 
-+/**
-+ * struct rkisp2_isp_color_cc - Color coefficients
-+ *
-+ * @r: Red coefficient
-+ * @g: Green coefficient
-+ * @b: Blue coefficient
-+ */
-+struct rkisp2_isp_color_cc {
-+	__u8 r;
-+	__u8 g;
-+	__u8 b;
-+};
-+
-+/**
-+ * struct rkisp2_isp_awb_color_quad - Group of RGB and luminance for AWB
-+ *
-+ * TODO redesign this?
-+ *
-+ * @r: Red
-+ * @g: Green
-+ * @b: Blue
-+ * @y: Y (luminance)
-+ */
-+struct rkisp2_isp_awb_color_quad {
-+	__u8 r;
-+	__u8 g;
-+	__u8 b;
-+	__u8 y;
-+};
-+
- /**
-  * struct rkisp2_params_bls - RkISP2 params BLS config
-  *
-@@ -323,12 +468,98 @@ struct rkisp2_params_lsc {
- 	__u8 window_mode;
- };
- 
-+/**
-+ * struct rkisp2_params_ae_lite - RKISP2 params AE lite config
-+ *
-+ * RkISP2 parameters auto exposure measurement configuration block.
-+ * Identified by :c:type:`RKISP2_PARAMS_BLOCK_AE_LITE`.
-+ *
-+ * TODO change window_num to enum?
-+ *
-+ * @header: The RkISP2 parameters block header
-+ * @window_num: 0 for 1x1, 1 for 5x5
-+ * @meas_window: Size of measurement window. First window for 5x5.
-+ */
-+struct rkisp2_params_ae_lite {
-+	struct v4l2_isp_params_block_header header;
-+	__u8 window_num;
-+	struct rkisp2_isp_window meas_window;
-+} __attribute__((aligned(8)));
-+
-+/**
-+ * struct rkisp2_params_hist_lite RKISP2 params histogram lite config
-+ *
-+ * RkISP2 parameters histogram configuration block.
-+ * Identified by :c:type:`RKISP2_PARAMS_BLOCK_HIST_LITE`.
-+ *
-+ * @header: The RkISP2 parameters block header
-+ * @data_sel: Data selection mode (from enum rkisp2_isp_histogram_data_sel)
-+ * @mode: Histogram mode (from enum rkisp2_isp_histogram_mode)
-+ * @stepsize: Predivider (count every <stepsize> pixel)
-+ * @waterline: Waterline for region statics
-+ * @coeffs: Coefficients for raw2y formula
-+ * @meas_window: Size of first measurement subwindow
-+ * @weights: Weights
-+ */
-+struct rkisp2_params_hist_lite {
-+	struct v4l2_isp_params_block_header header;
-+	__u8 data_sel;
-+	__u8 mode;
-+	__u8 stepsize;
-+	__u16 waterline;
-+	struct rkisp2_isp_color_cc coeffs;
-+	struct rkisp2_isp_window meas_window;
-+	__u8 weights[RKISP2_ISP_HIST_WEIGHT_GRIDS_SIZE_LITE];
-+} __attribute__((aligned(8)));
-+
-+/**
-+ * Same as struct rkisp2_params_hist_lite but for big channel
-+ *
-+ * RkISP2 parameters histogram configuration block.
-+ * Identified by :c:type:`RKISP2_PARAMS_BLOCK_HIST_BIG{0,1,2}`.
-+ *
-+ * @window_num: 0 or 1 for 5x5, 2 or 3 for 15x15
-+ */
-+struct rkisp2_params_hist_big {
-+	struct v4l2_isp_params_block_header header;
-+	__u8 window_num;
-+	__u8 data_sel;
-+	__u8 mode;
-+	__u8 stepsize;
-+	__u16 waterline;
-+	struct rkisp2_isp_color_cc coeffs;
-+	struct rkisp2_isp_window meas_window;
-+	__u8 weights[RKISP2_ISP_HIST_WEIGHT_GRIDS_SIZE_BIG];
-+} __attribute__((aligned(8)));
-+
-+/**
-+ * struct rkisp2_params_awb_meas - Configuration used by rawawb
-+ *
-+ * RkISP2 parameters AWB measurement configuration block.
-+ * Identified by :c:type:`RKISP2_PARAMS_BLOCK_AWB_MEAS`.
-+ *
-+ * @header: The RkISP2 parameters block header
-+ * @meas_window: Size of first measurement subwindow (13 bits)
-+ * @limits: Limits for white point detection [min, max] (8 bits)
-+ * @weights: Weights (6-bits)
-+ */
-+struct rkisp2_params_awb_meas {
-+	struct v4l2_isp_params_block_header header;
-+	struct rkisp2_isp_window meas_window;
-+	struct rkisp2_isp_awb_color_quad limits[2];
-+	__u8 weights[RKISP2_ISP_AWB_COUNTS_SIZE];
-+};
-+
- #define RKISP2_PARAMS_MAX_SIZE					\
- 	(sizeof(struct rkisp2_params_bls)			+\
- 	sizeof(struct rkisp2_params_awb_gains)			+\
- 	sizeof(struct rkisp2_params_csm)			+\
- 	sizeof(struct rkisp2_params_ccm)			+\
- 	sizeof(struct rkisp2_params_goc)			+\
--	sizeof(struct rkisp2_params_lsc))
-+	sizeof(struct rkisp2_params_lsc)			+\
-+	sizeof(struct rkisp2_params_ae_lite)			+\
-+	sizeof(struct rkisp2_params_hist_lite)			+\
-+	sizeof(struct rkisp2_params_hist_big) * 3		+\
-+	sizeof(struct rkisp2_params_awb_meas))
- 
- #endif /* _UAPI_RKISP2_CONFIG_H */
-diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
-index 1d418a752d89..399f4d73af15 100644
---- a/include/uapi/linux/videodev2.h
-+++ b/include/uapi/linux/videodev2.h
-@@ -878,6 +878,7 @@ struct v4l2_pix_format {
- 
- /* Vendor specific - used for RKISP2 camera sub-system */
- #define V4L2_META_FMT_RKISP2_PARAMS	v4l2_fourcc('R', 'K', '2', 'P') /* Rockchip ISP2 Parameters */
-+#define V4L2_META_FMT_RKISP2_STATS	v4l2_fourcc('R', 'K', '2', 'S') /* Rockchip ISP2 3A Statistics */
- 
- /* Vendor specific - used for C3_ISP */
- #define V4L2_META_FMT_C3ISP_PARAMS	v4l2_fourcc('C', '3', 'P', 'M') /* Amlogic C3 ISP Parameters */
--- 
-2.47.2
+> +    items:
+> +      - description: ISP power domain
+> +
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    properties:
+> +      port@0:
+> +        $ref: /schemas/graph.yaml#/$defs/port-base
+> +        unevaluatedProperties: false
+> +        description: connection point for VICAP in inline mode
+> +
+> +        properties:
+> +          endpoint:
+> +            $ref: video-interfaces.yaml#
+> +            unevaluatedProperties: false
+> +
+> +    required:
+> +      - port@0
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - clocks
+> +  - clock-names
+> +  - power-domains
+> +
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: rockchip,rk3588-isp
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 5
+> +        clock-names:
+> +          minItems: 5
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +
+> +    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/power/rk3588-power.h>
+> +
+> +    parent0: parent {
+> +        #address-cells =3D <2>;
+> +        #size-cells =3D <2>;
+> +
+> +        isp0: isp@fdcb0000 {
+> +            compatible =3D "rockchip,rk3588-isp";
+> +            reg =3D <0x0 0xfdcb0000 0x0 0x7f00>;
+> +            interrupts =3D <GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH 0>,
+> +                         <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH 0>,
+> +                         <GIC_SPI 134 IRQ_TYPE_LEVEL_HIGH 0>;
+> +            interrupt-names =3D "isp_irq", "mi_irq";
 
+I removed the interrupt name and forgot to remove the interrupt.
+
+I think the same problem is present in the dt node in the next patch.
+
+
+Paul
+
+> +            clocks =3D <&cru ACLK_ISP0>, <&cru HCLK_ISP0>,
+> +                     <&cru CLK_ISP0_CORE>, <&cru CLK_ISP0_CORE_MARVIN>,
+> +                     <&cru CLK_ISP0_CORE_VICAP>;
+> +            clock-names =3D "aclk", "hclk", "clk_core",
+> +                        "clk_core_marvin", "clk_core_vicap";
+> +            power-domains =3D <&power RK3588_PD_VI>;
+> +            iommus =3D <&isp0_mmu>;
+> +        };
+> +    };
+> --=20
+> 2.47.2
+>
 
