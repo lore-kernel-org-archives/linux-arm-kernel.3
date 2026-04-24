@@ -4,115 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D3C8FE51EB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 08:55:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 365C3FE51EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 08:58:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hDlP8y8oJfAzwiriWyNXaxF8PNjiFivBJXX2WXCxPWQ=; b=gwqzIYAJ2WsVv1UUDKQuFehdYk
-	WPpzf9PJNBJMBYibfJR9/tJm4J5W3PF7d0rqg0wWL2mrXDluBpFc9aIx8uvcwlirqx+fG10zBGWxb
-	N65zGP8ZkkXpCewdML8xEd2tQoUC/vspuJeRfYu2Q+XsRtgxbaAhRYj7ZTKHpIYDSzVX3wLIewX5t
-	p5HlPVBHp0PTxMcCpryEhhUjaLIUktpCBKVymURlgY1ngHZDinOgDRWo+R108iBJPaJR4zHrx2UIB
-	wJto7asnacJREhGdnJS61EBoaDb8OpyDBUt2HUaUYfozO9tlLGjYcrOR4IekIJ/fxVmFd5yiL7cjv
-	9xeE7T1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fwFNTETipk2+0oOmAmumV4DtfgdBkUEEsoK+rKkQKqg=; b=NgNqYcu8SHywdqWB1tcR9XW/4T
+	Jh9TNR4PtB6BemoHN3J+uGicdAwBqKE4YMjwlt0o10OYn9YMF21VfwA/kERwCiNjURFfURo8kGc9H
+	BipvY2inEUnherhf4XuBumXGUtwUU27LQn+CM9+KWkReHthDYb+Yx3SJLsBCwKeqODwR4PlwwQmEp
+	c872UcYLAmmgkn4OcZ92jrIrF8UUXxQpH/7iBA8GeByl4AkYAJjSoTGYlu2wgNfHTI4oVrpU5KRkG
+	3HnPSjsGF3NS0uYladoMRMuG0qQesq0yxqhdSWvP0iACw/HOOuF3Xy+uBduvNAHe96Qs84sjfs/1O
+	3wS+WfVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGCJN-0000000CtxE-1qma;
-	Fri, 24 Apr 2026 08:54:57 +0000
-Received: from fhigh-b3-smtp.messagingengine.com ([202.12.124.154])
+	id 1wGCMI-0000000CuIe-1zaI;
+	Fri, 24 Apr 2026 08:57:58 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGCJK-0000000CtwF-1VD2
+	id 1wGCMG-0000000CuID-1l3D
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 08:54:55 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 66AC47A0129;
-	Fri, 24 Apr 2026 04:54:52 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Fri, 24 Apr 2026 04:54:53 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1777020892;
-	 x=1777107292; bh=hDlP8y8oJfAzwiriWyNXaxF8PNjiFivBJXX2WXCxPWQ=; b=
-	Vxhoj+jDQThNaBN3A0wYJrBZQVfAvaeIBhrBatMkWC2/kkNDZ7eVboZribHL84Gk
-	Z2II62yW3Z154p5LcRS/EBPk6XYqESbvuxjTAE/JRGg2chHaWsou4YXt5gwd9akH
-	rg6g3+TE2uTRoKAbK7nP6YUj/Vb1B5Zru0tD7AWsrYcYN9jxjun7aui9T0pM9oO+
-	m4+67c4kKp8WAwmxoBJFJGvdhX+OF2tWKLeUfnXydOvJRvzbUPXJoXwLnUawtUrL
-	1ioe+Qq4H0cj8el4wvuck7AVBVIEWzDfJaTYgtFyxZ2Q/TiGpdMHjscJH+GBjI8L
-	GYkZftPgpcDVtrXn/A5W/w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1777020892; x=
-	1777107292; bh=hDlP8y8oJfAzwiriWyNXaxF8PNjiFivBJXX2WXCxPWQ=; b=u
-	cGkRF3dtcivkq7R/h1UtsQ3V0Rd3zT5GxWqVEt5taeGENmTcXVAnDIo56Ss/A1Mt
-	svvOzZ8pPoMS4G00FDbRtXQEGvN5PNG9R+2DF/WIkCmORfsCxKtiG5AXDzeytdIS
-	i9qTgkHBFSRsaH1A+xB9lfEgVCufshADpXNnYE1vcAoxpZG0UpGntE1dRmKfWiMx
-	fpgTYFp9uUhepRfScqD6TqS2KBL96oRLiylytKMSXj/aADu6vROTAT/trTZqlEhS
-	/KV6uenyD5sWM8Qm9ObV/Fmqj2KsfoniWs8QOj6GksYlOI737av/jjuu/269x7i8
-	L/hlKKwdmYFUVoFJWSXrQ==
-X-ME-Sender: <xms:2y_raRexXU55OfgzDqZmFJV1vD2xyDg3RucKZLkm9J_JWf3CZD7rzA>
-    <xme:2y_raaDkwZkbg-xZglrjzJ-G4gY5RkomaWh6CQXornCtGwrJtoJDLnvalOZ6uguxH
-    tvO3BfeKxXQN4SfBH1R5vSBNJPmv2p-wFwccHMCmvKUQo15SIxmwZg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdeileeitdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthhqredtredtjeenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpedvhfdvkeeuudevfffftefgvdevfedvleehvddvgeejvdefhedtgeegveehfeeljeen
-    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
-    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopeduledpmhhouggvpehsmhhtphhouhht
-    pdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtth
-    hopegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmpdhrtghp
-    thhtohepshhtvghfrghnughovghsihhnghgvrhesghhmrghilhdrtghomhdprhgtphhtth
-    hopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepfhhushhtihhn
-    iheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhhirhhishhlrggshieskhgvrhhnvg
-    hlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghp
-    thhtohepkhhriihksehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhhsfieskh
-    gvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:2y_raTg-oLq7z23uFnT5LQ8pf2PQAxekJTje9QHXbtbBzrhHWGQ5fA>
-    <xmx:2y_raea3M60xVRBvsZG6KSm_KKZBupGnMZ8oOrGOYwaRinxEos785g>
-    <xmx:2y_rafGpsa3rbSAeUpGn0L6bd-FS74ff7OLTFz9cgYW-pTQ87ANG8g>
-    <xmx:2y_raTZ42_tE0JvdJpKYMgNPgJGxqfnwKLSVzb3ORsbfXhpGx8LCfw>
-    <xmx:3C_raXpkK6XsJJv4ahSNjJaaJcp19Z3-bcksbi1eu__DcapeCDOv1EOd>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 5F1AA700069; Fri, 24 Apr 2026 04:54:51 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-X-ThreadId: Agn-P3jpxnXN
-Date: Fri, 24 Apr 2026 10:54:11 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Linus Walleij" <linusw@kernel.org>,
- =?UTF-8?Q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-Cc: "Jonathan Corbet" <corbet@lwn.net>,
- "Shuah Khan" <skhan@linuxfoundation.org>,
- "Russell King" <linux@armlinux.org.uk>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>,
- "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
- "Drew Fustini" <fustini@kernel.org>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- "Jiri Slaby" <jirislaby@kernel.org>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, soc@lists.linux.dev, linux-serial@vger.kernel.org
-Message-Id: <30b96e0d-f296-4c31-8701-a15c568ebffc@app.fastmail.com>
-In-Reply-To: <CAD++jL=_eDY_mG_QBreSrZiho0hUrDSciedq=vrxXaTiMwrSyg@mail.gmail.com>
-References: <20260421-send-v5-0-ace038e63515@gmail.com>
- <20260421-send-v5-8-ace038e63515@gmail.com>
- <CAD++jL=_eDY_mG_QBreSrZiho0hUrDSciedq=vrxXaTiMwrSyg@mail.gmail.com>
-Subject: Re: [PATCH v5 8/8] ARM: defconfig: Add a zx29 defconfig file
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+	Fri, 24 Apr 2026 08:57:57 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-35fbaada2f3so14146906a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 01:57:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1777021075; x=1777625875; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=fwFNTETipk2+0oOmAmumV4DtfgdBkUEEsoK+rKkQKqg=;
+        b=Nv66/TqwmyermPA/ny7us+JCQ8y6wY0Mjduwhr1LKube4RFLujHeMSN5TiGL4sUCUU
+         R0k2zGTPtHR93Z6O1XoD5/S89xd/DIb18ENwQabdkgMp7KSzUA7hWX7bPqYQxcJ4B+8B
+         IUXBri6jEWq1EEsWOfLJVAtdRP+XfhLwHhnGmEBNIviq6F0bOxGuSJnHKXEqcWpt4oEg
+         dlWaC4p2BU1LgjByxBzs1AvS/AfnC4GAIH8Av0MMTy66WzI1f+WL2CYSUKWIkeNSfrlJ
+         XjOC6nEyu+6UOVT6MR95coTSAqWSLi+3wM0ZH9hmAaOxxN5XVkeq/KoPjgOVn7J7J83C
+         PBfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777021075; x=1777625875;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=fwFNTETipk2+0oOmAmumV4DtfgdBkUEEsoK+rKkQKqg=;
+        b=TcE+LVJYAjPf+iEcNXBl3Zxsf22VMV5+bp1+2Bi7JkB03gPo1oA2MwY7pK0M05yY0D
+         r11BYYnQ8qybeJXzJNrtg2ioruQlB7QGJRKka9pztMkIooAtFsmIMYO8SbUCAvc+YQt3
+         Mc4xe6Z4jfQSSHF3uvMcqrwQ2yGmRzQd++V8sQdaTrDtQOeuiiL5RXHOuoA+IiCPwQH+
+         Cn2dHuQ08p0q7jBtNQw6kFXYSJjSUboG/m0ZewgORDCG8vifxLfdVo1lLDU2qXgIWeri
+         ynqpKf2mieElM3P3GjetqMXBufJBAn3EMJFmfdt8SoYxZR6mql4Q/z7cpgX7naMB1YwY
+         pz3w==
+X-Forwarded-Encrypted: i=1; AFNElJ+2KnAyWNsV00EQWBpxMfSbcKiDDMHxbrOxVIe4qS9xJnAX+Ng2BVAcQlhmLcM/cCCaW1juoB3J5qDQAfgKX9e3@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3qaK69qEQTNIt7kY58u8TsxlROn/4pUvURQzz77nNIIH6wyue
+	+l7QZyXNp2Wc7trKgg3qM9VZj+MgZ0V+QmlGrRtOBvJJBW5fD12hLewoEcrN5i86xJA8LU2YAiA
+	q8D7SgIBxicsy7uFmnqhAQnuMVA==
+X-Received: from pfbfm15.prod.google.com ([2002:a05:6a00:2f8f:b0:82a:6ac2:2386])
+ (user=joonwonkang job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6a20:734c:b0:39b:c4cd:d854 with SMTP id adf61e73a8af0-3a08d8a876emr35407723637.30.1777021074747;
+ Fri, 24 Apr 2026 01:57:54 -0700 (PDT)
+Date: Fri, 24 Apr 2026 08:57:53 +0000
+In-Reply-To: <20260424085011.3502295-1-joonwonkang@google.com>
+Mime-Version: 1.0
+References: <20260424085011.3502295-1-joonwonkang@google.com>
+X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
+Message-ID: <20260424085753.3505585-1-joonwonkang@google.com>
+Subject: Re: [PATCH RFC] iommu: Enable per-device SSID space for SVA
+From: Joonwon Kang <joonwonkang@google.com>
+To: joonwonkang@google.com
+Cc: Alexander.Grest@microsoft.com, amhetre@nvidia.com, 
+	baolu.lu@linux.intel.com, iommu@lists.linux.dev, jgg@ziepe.ca, 
+	joro@8bytes.org, kees@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, nicolinc@nvidia.com, praan@google.com, 
+	robin.murphy@arm.com, smostafa@google.com, will@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_015454_744273_8A5B7BD0 
-X-CRM114-Status: GOOD (  21.36  )
+X-CRM114-CacheID: sfid-20260424_015756_464916_8BBA3CE4 
+X-CRM114-Status: GOOD (  19.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,53 +91,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 24, 2026, at 09:13, Linus Walleij wrote:
-> On Tue, Apr 21, 2026 at 10:24=E2=80=AFPM Stefan D=C3=B6singer
-> <stefandoesinger@gmail.com> wrote:
->
->> This enables existing drivers that already are (UART) or will be (USB,
->> GPIO) necessary to operate this board even if they aren't declared in
->> the DTS yet.
->>
->> Signed-off-by: Stefan D=C3=B6singer <stefandoesinger@gmail.com>
->
-> *I* personally (as SoC maintainer) think that having a few more defcon=
-figs
-> is fine, even helpful.
->
-> But I would defer this to the more senior SoC maintainers because I th=
-ink
-> their stance is something like:
->
-> - We have multi_v7_defconfig for compile testing
->
-> - We know that binary gets way to big for your system: it's for build
->   testing and perhaps booting in QEMU or systems with many MB of
->   RAM, not for actually running it on products.
->
-> - You are encouraged to keep your own defconfig out-of-tree.
+> For SVA, the IOMMU core always allocates PASID from the global PASID
+> space. The use of this global PASID space comes from the limitation of
+> the ENQCMD instruction in Intel CPUs that it fetches its PASID operand
+> from IA32_PASID, which is per-task.
+> 
+> Due to this nature, SVA with ARM SMMU v3 has been found not working in
+> our environment when other modules/devices compete for PASID. The
+> environment looks as follows:
+> 
+> - The device is not a PCIe device.
+> - The device is to use SVA.
+> - The supported SSID/PASID space is very small for the device; only 1 to
+>   3 SSIDs are supported.
+> - There is a custom way of transmitting the SSID from the kernel to the
+>   device.
+> 
+> With this setup, when other modules have allocated all the PASIDs that
+> our device is expected to use from the global PASID space via APIs like
+> iommu_alloc_global_pasid() or iommu_sva_bind_device(), SVA binding to
+> our device fails due to the lack of available PASIDs.
+> 
+> Since SSID/PASID is supported per-SID in ARM SMMU v3, this commit
+> leverages the fact and lifts the use of the global PASID space if
+> possible. What it does includes:
+> 
+> - Introduce a new IOMMU capability IOMMU_CAP_PER_DEV_PASID_SPACE, which
+>   represents whether the IOMMU supports an independent PASID space per-
+>   device, not shared across devices. ARM SMMU v3 is the case.
+> - Open a new API iommu_attach_device_pasid_any() to allocate any
+>   available PASID and attach an IOMMU domain to it.
+> - Opt out the use of the global PASID space for SVA if the IOMMU has
+>   that capability, and use the new API to allocate a PASID in that case.
+> 
+> Signed-off-by: Joonwon Kang <joonwonkang@google.com>
 
-Right, we clearly need to do something better than what we are with
-the general defconfigs, as I'm sure many of the existing ones are
-never actually used for booting a machine, and are horribly out of
-date with the Kconfig options.
+Please disregard this RFC as I have sent a new one with more recipients.
 
-I wouldn't object to adding another defconfig for a new (or revived)
-soc family, but I don't want to have more per-board ones.
-Overall, we have about 70 defconfigs and 55 soc families that have their
-own mach-* directory (plus a few without code), and the number of
-defconfigs alone makes it hard to keep them up to date.=20
-
-> However I even challenged this myself by adding a defconfig for memory
-> constrained Broadcoms a while back (NACKed/ignored ;) so if it was all
-> up to me I would merge this.
-
-I don't even remember that discussion ;-)
-
-One idea might be to have a tiny base defconfig, plus platform
-specific fragments that add drivers. The problem is agreeing
-what bits are essential enough to still get enabled in the
-tiny config.
-
-       Arnd
+Thanks,
+Joonwon Kang
 
