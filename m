@@ -4,85 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E9BCF34C45
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 03:06:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31F96FDEE5E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 03:09:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IHAUP/N1IhFTrZ67Wk2ZXEKjx1HixJLRtjvrd6hoQK8=; b=L2zqq7WnXgo/Elk6NsTArZl5zO
-	79rhxl/IZhkieECTg+5qhNJl6zSPXMmi+eArWF14evDHZUwjiuALG17Ts2e2rsfj95HsYkpf3c86u
-	OUEv5djEOBzFrYTo4heddnDFXkrui/GJQX8bKQVQEYcNunNIL2fqTVQsA+1VKZ1jQelqVHpXF1UNf
-	C7+TT/9CIa97APZAHADsQUz6AqhlQztHsReMd6tZNJJKhabo0eKAntloHguJsMgoK0L6aMDmyVNJF
-	R8UDPIVJRp3qkjwsekNXOf+XMbdXRPvW8VcAg39q/TO4R9jXeMW7vYrlMo3gNZ3fhAZOWlu5BU62+
-	3bdbsBsA==;
+	bh=RIhPV6JdXmJ7o7wri5yQ1P/GTLuGcDdHdUf/92+Kh8A=; b=qZBfxRpJB2sYZepShEh0XVwEiY
+	ZrgTLF8ckSdInpCLS232Zqm1y1cmRdMqrGZrcnkmFDECDZrub6EtB4l9K6y9WF5+xfg+7eVFWL97e
+	G6mgyJ3I7E6zrOymjhQ1a5oAReiThPf0M7h+4YENBSNCkd8G/HuvOQO21HKVqrdJP5oADGC9RITro
+	W/Cn1plJOsp7zHfbH0PEpTWjGrh7+QuLC7PWOCLncdf8E3sn5a0JPfA9pPdrvlapod65Z+wudndmY
+	5MqJu/PwSPqBf3vV+ook+rcU+6If1x0+hkGJhpZqUVQe9jGRKwEtYNnczZo8WuPNJppl9UCWIDUVN
+	5NHn5mLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG6rk-0000000CZNo-2n1n;
-	Fri, 24 Apr 2026 03:06:04 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1wG6v6-0000000Ca3h-12Ib;
+	Fri, 24 Apr 2026 03:09:32 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG6rV-0000000CZ1j-2XWb;
-	Fri, 24 Apr 2026 03:05:50 +0000
-X-UUID: 7d3031e63f8a11f19e7563141e833ce8-20260423
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=IHAUP/N1IhFTrZ67Wk2ZXEKjx1HixJLRtjvrd6hoQK8=;
-	b=sK53nJRbT9k/gXfcuCH0phUgWRnmZa4lHmDocHqcc9Y2+aE0Sv1t0w7jymcUbHGPm9P33m5MQpEhXnRVWZJ2gTCGliG0byWv8RC73lBMFGrSa3Lvnqk4w/lK4f5L6COIlNe1daQlmAtHAQf5tsih2aWUuj36Hd6FQSKwONt6gD4=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:e818ae99-644d-4680-8e6b-6053ae2414fb,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
-	ON:release,TS:-30
-X-CID-META: VersionHash:e7bac3a,CLOUDID:fb27d48f-6df4-4a3d-a7a4-fbdc42d669ce,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|865|888|898,TC:-5,Cont
-	ent:0|15|50,EDM:2,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,
-	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 7d3031e63f8a11f19e7563141e833ce8-20260423
-Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw01.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 2095985070; Thu, 23 Apr 2026 20:05:46 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+	id 1wG6v4-0000000Ca3F-17v8
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Apr 2026 03:09:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Az6Lqh3mv+ik9FqCk7bs6zPyLbakBzucxogbxdOUPt1iiUSxbAazcYTswRkI1yywDzm70E8AZNdukykpegkrntEFGmoNtg1U0OoGwP1d1ecYkrwhAtqUCsKrMpcn006u4988+42+xofhNvxxZRmkOl5aXZRfnPhi4xGKwH+oD3Zmm4VecH2vC6Iy3MQ3ITfD9oVXpjnSE7dJgnSrOt++8A5j1xl/vaFp2CoLYxxTCa9C7Fwdrc6TiOqkryoy/+1sr9tu97jPJOTw8xqjtC4i7GnmapbMvUYkm6RTrrtSLSwqW8N600QUs9J3IttrQCTcU7FFQz9xz+95+FRbdAuw1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RIhPV6JdXmJ7o7wri5yQ1P/GTLuGcDdHdUf/92+Kh8A=;
+ b=R5Jt+44+Kc5IKi5GhYKCGg/r54dgsAbldH0iffsQdLwXu15nC7APJNWnZ639OO7vNqH3kby/grXBYZ20SHzORCtgkqW1AXCKpGIXvLVx+nIA2IxgweBUPtuzU92LErLfDmfPsnztHpc36YSKa+H+NlnPEVgCxmr+osVIkSI7kRlDMGS13f+qKDC+6Gr+fLvDcNR1UEfIA0/4m0VLHyIkpSzaeL4cPp5Ut05KOzMWtmB6KQLmr7E8DTwpA3TJidLhQmzytmj1uQ9aY4PkNoDjVbExQ+/tON+NIVRmk03X9F6f2hjQh+hUJ4yD3kQYFNsIc9sdcKJ2ZQjY+VxDc2u1Og==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=linux.intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RIhPV6JdXmJ7o7wri5yQ1P/GTLuGcDdHdUf/92+Kh8A=;
+ b=OV+lMwux+XCsmJToe5E5KqVgGol9Z7IeDTtaQI2Vp/kRIVkel4mJpWoWzgGsRICKeJSAMeAxGTECYCNrr2jKrX2beaROgBEr6xUdBEtHecLIGSrqidm+9Zh0ifig3T9LDmzIPxM40+jlP4IO7RiZosdzQ1Na0ytBaiDQDQda6oTfX/e5khm7AFy01qbCdt4uvQSvSL1p1mI7IQDYUqc4aYwJm8LtT+dg8I/RDLkU9uZKe7HakDfyWsauZUpZ9OoevCCjuPSCYRedAKlUtRvNHyqs3eKYt3x+R9QgBLg6HKZCSe7ZwxFvOm2IDHAf2Z/IAPisf19bCTqMGuTPcPia8g==
+Received: from BL0PR05CA0024.namprd05.prod.outlook.com (2603:10b6:208:91::34)
+ by PH0PR12MB999087.namprd12.prod.outlook.com (2603:10b6:510:38f::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.16; Fri, 24 Apr
+ 2026 03:09:18 +0000
+Received: from MN1PEPF0000ECD7.namprd02.prod.outlook.com
+ (2603:10b6:208:91:cafe::ae) by BL0PR05CA0024.outlook.office365.com
+ (2603:10b6:208:91::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.21 via Frontend Transport; Fri,
+ 24 Apr 2026 03:09:18 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ MN1PEPF0000ECD7.mail.protection.outlook.com (10.167.242.136) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.18 via Frontend Transport; Fri, 24 Apr 2026 03:09:17 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 23 Apr
+ 2026 20:09:02 -0700
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Fri, 24 Apr 2026 11:05:43 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Fri, 24 Apr 2026 11:05:42 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
-	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, Mauro
- Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>, Nicolas Dufresne
-	<nicolas.dufresne@collabora.com>, Nathan Hebert <nhebert@chromium.org>, Arnd
- Bergmann <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>, George Sun
-	<george.sun@mediatek.com>, <linux-media@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
-	<andrzejtp2010@gmail.com>, Yilong Zhou <yilong.zhou@mediatek.com>
-Subject: [PATCH v9 9/9] media: mediatek: encoder: Add MT8189 encoder compatible data
-Date: Fri, 24 Apr 2026 11:05:27 +0800
-Message-ID: <20260424030527.10656-10-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20260424030527.10656-1-kyrie.wu@mediatek.com>
-References: <20260424030527.10656-1-kyrie.wu@mediatek.com>
+ 15.2.2562.20; Thu, 23 Apr 2026 20:09:01 -0700
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
+ (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 23 Apr 2026 20:09:01 -0700
+Date: Thu, 23 Apr 2026 20:08:59 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Baolu Lu <baolu.lu@linux.intel.com>
+CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
+ Roedel" <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>, "Jason
+ Gunthorpe" <jgg@nvidia.com>, "Rafael J . Wysocki" <rafael@kernel.org>, "Len
+ Brown" <lenb@kernel.org>, Pranjal Shrivastava <praan@google.com>, "Mostafa
+ Saleh" <smostafa@google.com>, Kevin Tian <kevin.tian@intel.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-pci@vger.kernel.org>, <vsethi@nvidia.com>, Shuai Xue
+	<xueshuai@linux.alibaba.com>
+Subject: Re: [PATCH v3 05/11] iommu: Change group->devices to RCU-protected
+ list
+Message-ID: <aerey+ULGG589rdi@Asurada-Nvidia>
+References: <cover.1776381841.git.nicolinc@nvidia.com>
+ <12a224061de4fff9e0725909fd0ba4e14996ff08.1776381841.git.nicolinc@nvidia.com>
+ <779dad61-d7e7-4ae0-83a9-8c5920222219@linux.intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <779dad61-d7e7-4ae0-83a9-8c5920222219@linux.intel.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN1PEPF0000ECD7:EE_|PH0PR12MB999087:EE_
+X-MS-Office365-Filtering-Correlation-Id: a21a36fc-d7aa-419f-1739-08dea1aedf33
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|36860700016|82310400026|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: ryZKCl95TtqD/I2f6F+vuRhEZCBE+uFrknDdX+GAir612EAhtJ/+gJBHAkg7M+6SUmd1QYcg2jPlFbkW2Yi1R2JPAtRfYQ08U7EkxNHFBBaPFH6v3ydiHqjdfSFgeRT/Szf1KgO6vRHr5iGMtjsvTFweFLpwCP6v4ZiLIXh5HembP0cZ3FBxzjX5mrR84qNtlP7RLFic/eYsHNAAkQN6QisqgxuzWClnIAAK0fswuUWB2kq7TBjmcJkkThXnWLs7/+xO6Sz3B2z276GjHyKvdPZ6QVD0GDirhYlOF4isO59MtVyPKgoDqq/h8uPKxJdpBGUufgz0jlPBsMP7IzuMf6SLOFqROuyODW52Suh/op+icOdKZH+dnflleZXlGoeRhomVh+a7+Kfnwzgh3H+5ia+h81la1nwV3lpAGNwEyx7sDh215pabU7QSpdlVCfOgr3lKGjrUbLzFoMqhOPN5yzZSrfmZ1EvHyQAcFhJgVWAEXgUQVZJlvzyOiLZzm6B/bUTSQ+g4EBrC59zWubLEOdy4Kj17/zcoTd1y5twDURJubFCuvWNEDpIWz/RImRQP2NhsodateofPFwWzMMGk6njc5MN9IVPHFzsrrtFMp+eTAajFmNfVRXTQ1oNOoELIbCIluVkjGTpNBxjo3Te8NMF9zSC9V5FsYemCtTA4mI+eVzq3QWev988Nk8EXoDkRQ2AlL6xZrSOC3qAGy1AADSc9A+TToJF0rRIKggJ1+2jwNbg2e5YJLQJDNa0dy7w8YcXPRR14iAHwSnS3vbHNMQ==
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(36860700016)(82310400026)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: dZbDUIv1wFMx3HEb8mtHmyf9+CocfL9Zpg8hciEQ2as5xmL6Kks0W3DWV8Eol1EpY9o1aWIU5evnkckqaUAB4mjF6CVWhnqfPeqL7tX2gywfB02RP8vXDT87Bw7hf4Gojjg7r5QX4wUofDmu/UjnLdGLa8MSHRof0IUSIIHEXOokJYfXrJFBJeyRti6MfxboZK9DlDm6PHO26Aqw2pgL/Kh8HOEA8u7Q3+V7WjHa7tcFAoVLQIdpGPao+jm6nTQHTk1szPtkZEftgnHWMz42pIBIaThcxnTNJaw0Et2zV0DTp2UpBKQVZMvUYzlTxxZaKFT47veDKRrUgunXLL9Cv7092jsZWrcP/d7aYS4Xtz2Oh+WscspXK6uJT+SzzEe/r8xhyq5TK4RAAKoS4fZr5MSl3WHGKHv76fA4/hfkGC3hkRnGb1Cj/gtgKn7KFkEf
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2026 03:09:17.2248
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a21a36fc-d7aa-419f-1739-08dea1aedf33
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000ECD7.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB999087
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_200549_674980_1DE9C163 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260423_200930_342149_BFC2D94B 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,47 +136,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-add MT8189 compatible data to initialize platform data for encoder.
+On Fri, Apr 24, 2026 at 10:53:49AM +0800, Baolu Lu wrote:
+> On 4/17/26 07:28, Nicolin Chen wrote:
+> 	    mutex_unlock(&group->mutex);
+>             /*
+>              * FIXME: Mis-locked because the ops->probe_finalize() call-back
+>              * of some IOMMU drivers calls arm_iommu_attach_device() which
+>              * in-turn might call back into IOMMU core code, where it tries
+>              * to take group->mutex, resulting in a deadlock.
+>              */
+>              for_each_group_device(group, gdev)
+>                         iommu_group_do_probe_finalize(gdev->dev);
+>         }
+> 
+>         return 0;
+> }
+> 
+> Will the change above trigger a lockdep splat due to this "mis-locked"
+> case?"
 
-Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- .../mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c   | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+Oh, I missed this one. That's a good finding!
 
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-index d7328d013ff6..f3e1b121e3d8 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-@@ -478,6 +478,19 @@ static const struct mtk_vcodec_enc_pdata mt8196_pdata = {
- 	.set_dma_bit_mask = true,
- };
- 
-+static const struct mtk_vcodec_enc_pdata mt8189_pdata = {
-+	.venc_model_num = 8189,
-+	.capture_formats = mtk_video_formats_capture_h264,
-+	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
-+	.output_formats = mtk_video_formats_output,
-+	.num_output_formats = ARRAY_SIZE(mtk_video_formats_output),
-+	.min_bitrate = 64,
-+	.max_bitrate = 100000000,
-+	.core_id = VENC_SYS,
-+	.uses_common_fw_iface = true,
-+	.set_dma_bit_mask = true,
-+};
-+
- static const struct of_device_id mtk_vcodec_enc_match[] = {
- 	{.compatible = "mediatek,mt8173-vcodec-enc",
- 			.data = &mt8173_avc_pdata},
-@@ -488,6 +501,7 @@ static const struct of_device_id mtk_vcodec_enc_match[] = {
- 	{.compatible = "mediatek,mt8192-vcodec-enc", .data = &mt8192_pdata},
- 	{.compatible = "mediatek,mt8195-vcodec-enc", .data = &mt8195_pdata},
- 	{.compatible = "mediatek,mt8196-vcodec-enc", .data = &mt8196_pdata},
-+	{.compatible = "mediatek,mt8189-vcodec-enc", .data = &mt8189_pdata},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, mtk_vcodec_enc_match);
--- 
-2.45.2
+Perhaps we can just change it to list_for_each_entry_rcu holding
+rcu_read_lock() and drop the FIXME.
 
+Thanks!
+Nicolin
 
