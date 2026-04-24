@@ -4,79 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BE71FED3DF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 15:37:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06449FED3E6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 15:43:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+p9SdMC4qeM2H8Of98jh7DjRC6CE0wu7xhXrtnbqMWU=; b=YgfOtzhqasIPvGMKUdXeuyoQxw
-	xadfqf0Zdj1cr9lsXMMvoPTcZVbBcJGdA1jSz26k3rLIpsMqWsUMiOJy6zX0u/dFXSfFWmIwEVRT/
-	27twIPQCyAulUqgWxeKBcREaynxLtdIPVjBq2OM50deq5y+HZs57DIAnH3LTsgCGl57gko7Fm8l5j
-	uYZzhoWTk42MGDtraB+7j2JE9WbeHn7ps+7qxcWwJEw3usD1mh9j/TE+bSsosUB2oU9IbGXE9O66s
-	3DQ8RNjVKhjkLn0YyVfs+Bgx86S7N/bOlgPPFcFkGOsaM8IRcAqcDF5jB0FubIXI9dWqCtu6Ed12W
-	Xx6avydA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/x75TqXNcWuPRjyy/KdKbQT3qJql0Oi7XAZXrmCpBRk=; b=AF1JCBi1NfzCyOBKALvJlgOYqs
+	sIzHGZSK8O1cZ3xqXfWoTAnl83PxPut99f33+UWmWl9Ir5+XEoKTzN5oGk4x4/X3g3uWmAwEnRlWt
+	ETXvJ1Yk1rsLUGGPJ263p6J1Rz+2SLUscWMHJRmwLGlLaCFLnwcfbeyWf8uesEiGCKirC73PHlhIl
+	HbDhttTwEqxf06cLBX1Ufsz8BaGfUAM5yxvsoV+U/kySivPhUgf1VPMtxmBYupMPizUpRcK2k1opn
+	1jftrQjSC9BnGa6o57aMVNPRnn2XHM2Dob1C3UEZAsI8WHsWXgrAvBRmIhLX+RWdquIE+NyL0xWO9
+	lwDRtsOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGIaz-0000000DOPe-1lBN;
-	Fri, 24 Apr 2026 15:37:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wGIgH-0000000DOes-3Lel;
+	Fri, 24 Apr 2026 15:43:01 +0000
+Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGIax-0000000DOPE-0ofB;
-	Fri, 24 Apr 2026 15:37:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 57D6D440DE;
-	Fri, 24 Apr 2026 15:37:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2745C19425;
-	Fri, 24 Apr 2026 15:37:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777045050;
-	bh=NzWIjOZQIJ4QSRpkYHMG1j9Yn+1obIkLrovQUw3CG68=;
-	h=From:Date:Subject:To:Cc:From;
-	b=R6mHxdV3UdHyGtaWwY405z811gxBp5am9Ro/jwNOQZ4CRsgfYKC+9QAcjbdPk2/C0
-	 qstHcDaRN1naerujB6GjBnXeBKSsJWKzaATbIKB8owTUsNki+L8CXgW1QhpqtzDWBo
-	 SaxQ8xUkLCR1KYa13IZutKA4uFkH/h5znwBPjaiOIFLaWHC78H2VWq8p/Gi/iEnMxz
-	 S8Ad0IlgZX3tbF+ZUsiU2Y7E/gYL0qEosr6SulruTHuoLhz98mPRFy13i+1AEoJ/rJ
-	 xfXxBXNvkHNkcbaPdI9VsheC+JD6AJ9BIbW6QhAkpdRtwUeC+R51MJtjMKZ0hQFEC6
-	 J1s7g2YxugjRA==
-From: Mark Brown <broonie@kernel.org>
-Date: Fri, 24 Apr 2026 16:34:52 +0100
-Subject: [PATCH] clk: bcm: rpi: Mark VEC clock as CLK_IGNORE_UNUSED
+	id 1wGIgF-0000000DOeL-1lMM
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Apr 2026 15:43:00 +0000
+Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-8c70b5594f4so879101685a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 08:42:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1777045377; x=1777650177; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/x75TqXNcWuPRjyy/KdKbQT3qJql0Oi7XAZXrmCpBRk=;
+        b=ndPQsyAm356+l3BgckIXjh6Ik6aX0tiGyNLmJxGT/RKam/qSYblAzqwzEEbUw9jjGH
+         CkmIUrxZnHO3ECyIdBPYrrdWH8bEiU13mYYdW7TIx3XhJXGFxB2h27X9wj6KywLh9fUp
+         gvv1lNxrmHzdLkB+j1Sp7T/vjLpz5KFImQUEdwh5pXfwHWHMyu5ZKqu5BObS4MvzSJsh
+         jcUn+W490dKsQBQDxX7R2p8mCR9WaMlnMmCQZpL1dnBEyT5Xim0uQgMnV/ebqHd6GgEV
+         ooILTmTs3wYpPpX2N1FPBJMIkcVLbOBnpz2nSMU08HyDMCmqgPqngaeqP79vNnJIrmED
+         NGvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777045377; x=1777650177;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/x75TqXNcWuPRjyy/KdKbQT3qJql0Oi7XAZXrmCpBRk=;
+        b=Fxpju6X2L4Sin4Ao83TTooxi/ObZzCz2BkNZnyw7MAYyXgvz81PfWjjgqk9Mc1ubtp
+         Hum5ZzKg8g64FUdujkB7Fs/LlkRYlWfUWzb/3jOLUnJ2sG+LTbfegmLIkT5TLqBnx+hG
+         0gWLdNUl69gD5500xpiCYNC9Gxf5QtrxZu3B73U7H/+unL65T6JND7jjlljwdkNNx/7u
+         ChrGCLcJtEPgoytp3Orsxg/qFqK2uAR3Xsojl1j/Iv+ztU+oSDX7wRa6JPKp7L8wRIGm
+         3B/Q1Zl9TNr7656Uiuijm6H5f+AAPtPu7oCbnmHMhmTKPV1B1A2Y4ZGWpt6LHwaQP3HS
+         TroQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9fVaZlTwx6FHT74BB0RlIbfQfU/5cNQoAJAdkBgc5yyq5i+ofokfv9943VOKVKW/7L6yN2tCSHj39l0MLUNa3z@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEzJ+tvj0ndhqyZvjTL1I7yvIgDh8YYD2Va5Nx9nk7/rTjQ2KA
+	0YvU+q8UE6ja3gJdAcXOV53vFnD9kv9MJ5/xcSQioE+86UyVPhdZ/tizijffDhVN3aE=
+X-Gm-Gg: AeBDiescKA/q0UmrIdM76p0ceSbgVo1igm2rIh7x3xC0EdTg7FotslNi5gWfLJtqudo
+	CCHv2IhX5jfHF3CqLWJi4MXa0WlfDn3f9TZgpQZ6KN0r17rWnVlVCZPF44zoV2fqkQ4jOPKdm46
+	vi/D9VTXkfNIzmWaKcBbQERt7XR1f7/0SjYBLQVyjXfEwFYUacooeeQG6//2i3PTpWw0INkfCZW
+	APPcgOxgYPNMHnE1HZ3Viw6sFQltZEDQ3/X1DEkFftqISp1+f7SFevQUZD0oNIXYjpije/SzHha
+	npvFaI/33D7k1DNgC4eX8Vrsx+Uj9qJiFHUFTVm6/Hrb3j8nxg68xgAB9GqYGIXewtcyx8SvMKr
+	i2FdhWAKAt4q03bvnoycPdTahspIiphTTZeDixLCAsEaT4vuU4qz2DiwPqj8h20myhRYXMRkuvx
+	Ng+eQq2xrajXSloR6sFawmzL4Hk8shrH6NTKeSP3vPd8LUcJkjK5PEtdgU10fGnNH9Cyds+DGZz
+	tfk+qwGqx4eolXX
+X-Received: by 2002:a05:620a:31a5:b0:8d7:c82f:ff7b with SMTP id af79cd13be357-8e78cab251cmr3765152685a.35.1777045377193;
+        Fri, 24 Apr 2026 08:42:57 -0700 (PDT)
+Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8b02ae7fef0sm181782366d6.38.2026.04.24.08.42.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Apr 2026 08:42:56 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wGIgC-000000035kk-0Ekr;
+	Fri, 24 Apr 2026 12:42:56 -0300
+Date: Fri, 24 Apr 2026 12:42:56 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Will Deacon <will@kernel.org>
+Cc: Evangelos Petrongonas <epetron@amazon.de>,
+	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Pranjal Shrivastava <praan@google.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, nh-open-source@amazon.com,
+	Zeev Zilberman <zeev@amazon.com>
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow disabling Stage 1 translation
+Message-ID: <20260424154256.GF3611611@ziepe.ca>
+References: <20260420123221.20801-1-epetron@amazon.de>
+ <20260420124032.GO2577880@ziepe.ca>
+ <20260422064431.GA49867@dev-dsk-epetron-1c-1d4d9719.eu-west-1.amazon.com>
+ <20260422162351.GK3611611@ziepe.ca>
+ <aenp6FHzx9rtUQkZ@willie-the-truck>
+ <aenqxasLJ8yKYqbT@willie-the-truck>
+ <20260423142326.GP3611611@ziepe.ca>
+ <aepRy7Gp7Ng85Zr7@willie-the-truck>
+ <20260423223716.GS3611611@ziepe.ca>
+ <aeuJQW8bGLY-O_vv@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260424-clk-bcm-fix-pi3-v1-1-8a734e94cecb@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAJyN62kC/yXMyw5AMBCF4VeRWZukqpHwKmKhNWXc0yIS8e6K5
- ZeT81/gyTF5KKILHB3seZkDkjgC09VzS8hNMEghM6FkimYcUJsJLZ+4copSWdLKKpHbBsJrdRS
- mr1hWv/2uezLbm4H7fgB+P3ymcwAAAA==
-X-Change-ID: 20260423-clk-bcm-fix-pi3-24feb4f409fd
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Maxime Ripard <mripard@kernel.org>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Brian Masney <bmasney@redhat.com>, linux-clk@vger.kernel.org, 
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1968; i=broonie@kernel.org;
- h=from:subject:message-id; bh=IzJd3AuP5Nuq9Zvap5k1h/QxZqkhLbWrWEXCTZ3drAQ=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBp6442kwyoYyGAaCGRGLWTYSjr7u42wii9lDuVL
- uKQdaNHNdqJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaeuONgAKCRAk1otyXVSH
- 0ONgB/9+gWH2IkyXwL8eIwmCvYX2d612vE96lII9rkp/Cj8nfrsP/J56x4e2cISYEQlNv6nJf+A
- MD05BBQrupEJXlzQT4hs+IVb5fUIjFdqjpoYd6XwPyEyY9UyjM0T18z00nzkRGfpsfKZUpA47qj
- k/SlroJgKXxwjLeZBJA0SiLYou8EecZL1pKPjPCSvza3cnDtsamVGjDYEnWmdfpYH7cUFAnlHfe
- ac6IHs+EMvf0K3+6mDyNWajAVp1k1hHjRN8mhSfJ+ZbZUIaC/c/5WZRcjfpT33xizKSYCEaxaK4
- nMef375Ckcoljrdx+3+AZBnBOwxGY7SQn26rx71dcgSvsALN
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aeuJQW8bGLY-O_vv@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_083731_298305_DA156069 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20260424_084259_489941_EF157A81 
+X-CRM114-Status: GOOD (  28.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,58 +117,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Maíra Canal <mcanal@igalia.com>
+On Fri, Apr 24, 2026 at 04:16:17PM +0100, Will Deacon wrote:
+> > > > STE/CD is pretty simple now, there is only one place to put the CMO
+> > > > and the ordering is all handled with that shared code. We no longer
+> > > > care about ordering beyond all the writes must be visible to HW before
+> > > > issuing the CMDQ invalidation command - which is the same environment
+> > > > as the pagetable.
+> > > 
+> > > You presumably rely on 64-bit single-copy atomicity for hitless updates,
+> > > no?
+> > 
+> > Yes, just like the page table does..
+> > 
+> > I hope that's not a problem or we have a issue with the PTW :)
+> 
+> You trimmed the part from my reply where I think we _do_ have an issue
+> with the PTW. Here it is again:
+> 
+>   The non-coherent case looks more fragile, because I don't _think_ the
+>   architecture provides any ordering or atomicity guarantees about cache
+>   cleaning to the PoC. Presumably, the correct sequence would be to write
+>   the PTE with the valid bit clear, do the CMO (with completion barrier),
+>   *then* write the bottom byte with the valid bit set and do another CMO.
 
-On Raspberry Pi 3B, the VEC clock is used by the VideoCore firmware
-display driver, which remains active until the vc4 driver loads and
-sends NOTIFY_DISPLAY_DONE. If this clock is disabled during boot, a bus
-lockup happens and the firmware becomes unresponsive, causing a complete
-system lockup.
+I wasn't sure if you are being serious.
 
-Mark the VEC clock with CLK_IGNORE_UNUSED so it survives the unused
-clock disablement and remains available until the vc4 driver takes over
-display management.
+CMO + barriers must provide an ordering guarentee about cache cleaning
+to POC otherwise the entire Linux DMA API is broken. dma_sync must
+order with following device DMA. IMHO that's not negotiable for Linux.
 
-Fixes: 672299736af6 ("clk: bcm: rpi: Manage clock rate in prepare/unprepare callbacks")
-Reported-by: Mark Brown <broonie@kernel.org>
-Closes: https://lore.kernel.org/r/5f0bec08-f458-4fba-8bf3-06817a100c4c@sirena.org.uk
-Signed-off-by: Maíra Canal <mcanal@igalia.com>
-Link: https://patch.msgid.link/20260401111416.562279-2-mcanal@igalia.com
-Tested-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
-Resending this fix directly in the hope of getting it into -rc1 since
-this is a clear boot regression and neither the original report nor the
-fix have had any response for some reason.
----
- drivers/clk/bcm/clk-raspberrypi.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+All ARM iommus rely on 64 bit atomic non tearing. No bugs reported?
 
-diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-raspberrypi.c
-index df2d246eb6ef..f1a99de6de4f 100644
---- a/drivers/clk/bcm/clk-raspberrypi.c
-+++ b/drivers/clk/bcm/clk-raspberrypi.c
-@@ -160,6 +160,13 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
- 	[RPI_FIRMWARE_VEC_CLK_ID] = {
- 		.export = true,
- 		.minimize = true,
-+
-+		/*
-+		 * If this clock is disabled during boot, it causes a bus
-+		 * lockup in RPi 3B. Therefore, make sure it's left enabled
-+		 * during boot.
-+		 */
-+		.flags = CLK_IGNORE_UNUSED,
- 	},
- 	[RPI_FIRMWARE_DISP_CLK_ID] = {
- 		.export = true,
+Any fix to that is going to have major performance downsides..
 
----
-base-commit: 672299736af6c398e867782708b7400957e62c76
-change-id: 20260423-clk-bcm-fix-pi3-24feb4f409fd
+I also strongly suspect it is provided on real HW. It would be hard to
+even build HW where <= 64 bit quanta can tear.
 
-Best regards,
---  
-Mark Brown <broonie@kernel.org>
+Maybe this is something ARM should take a look at.
 
+At the very least it would warrant an IORT flag for safe HW to use to
+opt into the faster cachable flow.
+
+> > My argument is that the CMO on STE/CD shouldn't bother mobile, you
+> > could even view it as an micro-optimization because we do occasionally
+> > read-back the STE/CD fields.
+> 
+> I was against that read-back, iirc :)
+
+Yes, but it is OK :)
+
+> > And if Samiullah can tackle dma_alloc_coherent then maybe the whole
+> > question is moot.
+> 
+> Yes, that would be great, but we probably need to fix the page-table
+> code too.
+
+You really want to deal with the likely perf regressions that would
+cause on Android/etc?
+
+Jason
 
