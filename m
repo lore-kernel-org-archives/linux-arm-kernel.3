@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 365C3FE51EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 08:58:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E0CFFE51ED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 09:01:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fwFNTETipk2+0oOmAmumV4DtfgdBkUEEsoK+rKkQKqg=; b=NgNqYcu8SHywdqWB1tcR9XW/4T
-	Jh9TNR4PtB6BemoHN3J+uGicdAwBqKE4YMjwlt0o10OYn9YMF21VfwA/kERwCiNjURFfURo8kGc9H
-	BipvY2inEUnherhf4XuBumXGUtwUU27LQn+CM9+KWkReHthDYb+Yx3SJLsBCwKeqODwR4PlwwQmEp
-	c872UcYLAmmgkn4OcZ92jrIrF8UUXxQpH/7iBA8GeByl4AkYAJjSoTGYlu2wgNfHTI4oVrpU5KRkG
-	3HnPSjsGF3NS0uYladoMRMuG0qQesq0yxqhdSWvP0iACw/HOOuF3Xy+uBduvNAHe96Qs84sjfs/1O
-	3wS+WfVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5x8FNhQJX4eNbrnx+ErU8g8xHvVwy6ZaWN4nLbS1gmU=; b=3WnC6DAKAZvo23CDG2lSNxBqGp
+	rule8TxkXqz5gvJryaGZRafe1l+oMZP79nDsuhxVx6MD1WNdL1kaCban34w4gBbsvfcxB1DNq9pno
+	GqbI/P8zGxvwFipqPaio4tFVjWA+gaUaL0rlQnuJ+lj/c0t5EIKlxJLYfP382dRPB+JKTjOdioLQR
+	Ams2Wf8IuyIqdqohN3y1M5u9Fp1WKbBePbtfnayfYnWRqYTGkH/kWiXJ3moT3Z2AXn0bq9Ok9qq2n
+	c5JQxuq+zbLQSMbANCbzmC670TnrRtDkv1WkRg0+0A4CNQ5KLGwGv++HLg9hfCX9Mwb6Sh/EfnLFX
+	sA+LHXTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGCMI-0000000CuIe-1zaI;
-	Fri, 24 Apr 2026 08:57:58 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1wGCPM-0000000Cubu-3WVg;
+	Fri, 24 Apr 2026 09:01:08 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGCMG-0000000CuID-1l3D
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 08:57:57 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-35fbaada2f3so14146906a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 01:57:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777021075; x=1777625875; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=fwFNTETipk2+0oOmAmumV4DtfgdBkUEEsoK+rKkQKqg=;
-        b=Nv66/TqwmyermPA/ny7us+JCQ8y6wY0Mjduwhr1LKube4RFLujHeMSN5TiGL4sUCUU
-         R0k2zGTPtHR93Z6O1XoD5/S89xd/DIb18ENwQabdkgMp7KSzUA7hWX7bPqYQxcJ4B+8B
-         IUXBri6jEWq1EEsWOfLJVAtdRP+XfhLwHhnGmEBNIviq6F0bOxGuSJnHKXEqcWpt4oEg
-         dlWaC4p2BU1LgjByxBzs1AvS/AfnC4GAIH8Av0MMTy66WzI1f+WL2CYSUKWIkeNSfrlJ
-         XjOC6nEyu+6UOVT6MR95coTSAqWSLi+3wM0ZH9hmAaOxxN5XVkeq/KoPjgOVn7J7J83C
-         PBfA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777021075; x=1777625875;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=fwFNTETipk2+0oOmAmumV4DtfgdBkUEEsoK+rKkQKqg=;
-        b=TcE+LVJYAjPf+iEcNXBl3Zxsf22VMV5+bp1+2Bi7JkB03gPo1oA2MwY7pK0M05yY0D
-         r11BYYnQ8qybeJXzJNrtg2ioruQlB7QGJRKka9pztMkIooAtFsmIMYO8SbUCAvc+YQt3
-         Mc4xe6Z4jfQSSHF3uvMcqrwQ2yGmRzQd++V8sQdaTrDtQOeuiiL5RXHOuoA+IiCPwQH+
-         Cn2dHuQ08p0q7jBtNQw6kFXYSJjSUboG/m0ZewgORDCG8vifxLfdVo1lLDU2qXgIWeri
-         ynqpKf2mieElM3P3GjetqMXBufJBAn3EMJFmfdt8SoYxZR6mql4Q/z7cpgX7naMB1YwY
-         pz3w==
-X-Forwarded-Encrypted: i=1; AFNElJ+2KnAyWNsV00EQWBpxMfSbcKiDDMHxbrOxVIe4qS9xJnAX+Ng2BVAcQlhmLcM/cCCaW1juoB3J5qDQAfgKX9e3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3qaK69qEQTNIt7kY58u8TsxlROn/4pUvURQzz77nNIIH6wyue
-	+l7QZyXNp2Wc7trKgg3qM9VZj+MgZ0V+QmlGrRtOBvJJBW5fD12hLewoEcrN5i86xJA8LU2YAiA
-	q8D7SgIBxicsy7uFmnqhAQnuMVA==
-X-Received: from pfbfm15.prod.google.com ([2002:a05:6a00:2f8f:b0:82a:6ac2:2386])
- (user=joonwonkang job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a20:734c:b0:39b:c4cd:d854 with SMTP id adf61e73a8af0-3a08d8a876emr35407723637.30.1777021074747;
- Fri, 24 Apr 2026 01:57:54 -0700 (PDT)
-Date: Fri, 24 Apr 2026 08:57:53 +0000
-In-Reply-To: <20260424085011.3502295-1-joonwonkang@google.com>
-Mime-Version: 1.0
-References: <20260424085011.3502295-1-joonwonkang@google.com>
-X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260424085753.3505585-1-joonwonkang@google.com>
-Subject: Re: [PATCH RFC] iommu: Enable per-device SSID space for SVA
-From: Joonwon Kang <joonwonkang@google.com>
-To: joonwonkang@google.com
-Cc: Alexander.Grest@microsoft.com, amhetre@nvidia.com, 
-	baolu.lu@linux.intel.com, iommu@lists.linux.dev, jgg@ziepe.ca, 
-	joro@8bytes.org, kees@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, nicolinc@nvidia.com, praan@google.com, 
-	robin.murphy@arm.com, smostafa@google.com, will@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	id 1wGCPL-0000000Cubj-2RtY;
+	Fri, 24 Apr 2026 09:01:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=5x8FNhQJX4eNbrnx+ErU8g8xHvVwy6ZaWN4nLbS1gmU=; b=JMzzefrsneOI1ydvmBTfcmjeEU
+	AqXfzzQU3QNqdX6Zt84SZ0boyk8JSjaf79TaBPsFY7hBIH7p9XJcAS4PAyTo8Co7tdpwkSiKpqBiz
+	zfsj0QgPvIsMAgsb5+lZ2wB86vRPfUSOviMTj8OSrwWljIX7XJLGwVFUCNp/W57/bQT4aBux2Fof8
+	cdWTwGTCtTJZXDRFUl24oKsTiAdY5QqljfdF5IdTtbmPImFv8o3HqSGBCSxrDxN3d/BQsANMuYhZW
+	T1KIUnYy4rPw42qTKmxefGOaymKQS02aExKWVsmBUNlHnRY7OlODNcPOptP/X/GHXUdvQHT64yYun
+	nDldvSTA==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wGCPE-0000000ES74-47BE;
+	Fri, 24 Apr 2026 09:01:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BF94643B50;
+	Fri, 24 Apr 2026 09:00:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B754C19425;
+	Fri, 24 Apr 2026 09:00:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777021256;
+	bh=ZeT44hZbko3HmfUaBLlU+YH/qX5dhh/ai7xlsyQJ2M8=;
+	h=From:Date:Subject:To:Cc:From;
+	b=BOhnEJn321yXt4NlYDKi7j/HRsmSFMMl195mebaqniXdXXhlOnE/JNkt7/yR0EtEK
+	 aQbxw/LUMcMlq8STkoKVvkn1cgjkZMxmqc4ZDozEoELmAgWEn6Pc/bbE+9eYS8smbe
+	 gWznnuSnii7GzScGx5HhuezXmv+8gPWfOQ1ufPBIxMk7cS8bajrYQBLw/puRa9ar14
+	 D53WSFzsuFhA5bE/+NjlbY9BGDby3HRt3ZJSbrPAOry+m+NWaLGuda46v2g76gl0r9
+	 12sxbVZ3YR/7ta/5QJ0+brIkbgVuXCLEsLX7JZ8/BNMPJ/fGMiJehCm5ffEvui6eCV
+	 zGO0fMYn/GLOQ==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Fri, 24 Apr 2026 11:00:28 +0200
+Subject: [PATCH net] net: airoha: Do not read uninitialized fragment
+ address in airoha_dev_xmit()
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260424-airoha-xmit-fix-read-frag-v1-1-fdc0a83c79e8@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MMQqAMAwAvyKZDdQqDn5FHGKb1gxWSUWE4t8tj
+ gd3VyCzCmeYmgLKt2Q5UoWubcBtlCKj+MpgjR3NYHsk0WMjfHa5MMiDyuQxKEX0biQypnM0rFD
+ 7U7kK/3uGxBcs7/sBGe14GHAAAAA=
+X-Change-ID: 20260423-airoha-xmit-fix-read-frag-dc6aa001ca4b
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Simon Horman <horms@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_015756_464916_8BBA3CE4 
-X-CRM114-Status: GOOD (  19.73  )
+X-CRM114-CacheID: sfid-20260424_100101_477521_816F10BF 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,43 +91,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> For SVA, the IOMMU core always allocates PASID from the global PASID
-> space. The use of this global PASID space comes from the limitation of
-> the ENQCMD instruction in Intel CPUs that it fetches its PASID operand
-> from IA32_PASID, which is per-task.
-> 
-> Due to this nature, SVA with ARM SMMU v3 has been found not working in
-> our environment when other modules/devices compete for PASID. The
-> environment looks as follows:
-> 
-> - The device is not a PCIe device.
-> - The device is to use SVA.
-> - The supported SSID/PASID space is very small for the device; only 1 to
->   3 SSIDs are supported.
-> - There is a custom way of transmitting the SSID from the kernel to the
->   device.
-> 
-> With this setup, when other modules have allocated all the PASIDs that
-> our device is expected to use from the global PASID space via APIs like
-> iommu_alloc_global_pasid() or iommu_sva_bind_device(), SVA binding to
-> our device fails due to the lack of available PASIDs.
-> 
-> Since SSID/PASID is supported per-SID in ARM SMMU v3, this commit
-> leverages the fact and lifts the use of the global PASID space if
-> possible. What it does includes:
-> 
-> - Introduce a new IOMMU capability IOMMU_CAP_PER_DEV_PASID_SPACE, which
->   represents whether the IOMMU supports an independent PASID space per-
->   device, not shared across devices. ARM SMMU v3 is the case.
-> - Open a new API iommu_attach_device_pasid_any() to allocate any
->   available PASID and attach an IOMMU domain to it.
-> - Opt out the use of the global PASID space for SVA if the IOMMU has
->   that capability, and use the new API to allocate a PASID in that case.
-> 
-> Signed-off-by: Joonwon Kang <joonwonkang@google.com>
+The transmit loop in airoha_dev_xmit() reads fragment address and length
+during its final iteration, when the loop index equals
+skb_shinfo(skb)->nr_frags, at which point the fragment data is
+uninitialized. While these values are never consumed, the read itself is
+unsafe and may trigger a page fault. Fix this by avoiding the fragment
+read on the last iteration.
+Additionally, move the skb pointer from the first to the last used packet
+descriptor, so that airoha_qdma_tx_napi_poll() defers freeing the skb
+until the final descriptor is processed.
 
-Please disregard this RFC as I have sent a new one with more recipients.
+Fixes: 23020f0493270 ("net: airoha: Introduce ethernet support for EN7581 SoC")
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/ethernet/airoha/airoha_eth.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
-Thanks,
-Joonwon Kang
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 2bb0a3ff9810..d3a841908c82 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -1997,8 +1997,8 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
+ 	struct netdev_queue *txq;
+ 	struct airoha_queue *q;
+ 	LIST_HEAD(tx_list);
++	int i = 0, qid;
+ 	void *data;
+-	int i, qid;
+ 	u16 index;
+ 	u8 fport;
+ 
+@@ -2057,7 +2057,7 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
+ 			     list);
+ 	index = e - q->entry;
+ 
+-	for (i = 0; i < nr_frags; i++) {
++	while (true) {
+ 		struct airoha_qdma_desc *desc = &q->desc[index];
+ 		skb_frag_t *frag = &skb_shinfo(skb)->frags[i];
+ 		dma_addr_t addr;
+@@ -2069,7 +2069,7 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
+ 			goto error_unmap;
+ 
+ 		list_move_tail(&e->list, &tx_list);
+-		e->skb = i ? NULL : skb;
++		e->skb = i == nr_frags - 1 ? skb : NULL;
+ 		e->dma_addr = addr;
+ 		e->dma_len = len;
+ 
+@@ -2088,6 +2088,9 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
+ 		WRITE_ONCE(desc->msg1, cpu_to_le32(msg1));
+ 		WRITE_ONCE(desc->msg2, cpu_to_le32(0xffff));
+ 
++		if (++i == nr_frags)
++			break;
++
+ 		data = skb_frag_address(frag);
+ 		len = skb_frag_size(frag);
+ 	}
+
+---
+base-commit: e728258debd553c95d2e70f9cd97c9fde27c7130
+change-id: 20260423-airoha-xmit-fix-read-frag-dc6aa001ca4b
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
