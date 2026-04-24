@@ -4,65 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61591FED3C5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 12:51:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96A7EFED3C0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 13:12:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uA8PdTTYgGRzo9N81zSqFuER6UEOwe9I0uNrqgJ41wM=; b=GIXIY1C3hrrRm3Bh3GRO7rHQR2
-	IAlQBGy0/5J6hcVlqiamdcaC1ke28a8p3pHb2quzvgN+KraB1iRw0Hx8SvSOaIP89K7hqh8jWNYuw
-	moau/qr/GXAae0lttNmSL+tZLcuAGNvSnqnBjohQGBDWxipamOnAoa4XPiK8kImbsqwYwDRvR/mPR
-	3rEtGcRa1o+cQBfBT75YYB9+T1QXO1lxJKlI7FlD/z58O1ivwlK/q+o1/ndtnvD3N3a3FSBIa0GHr
-	Ekut7Qup5jbiecxsRC2GISxgDHPyU9J2sYjiG9XnuNJ26idEYpmuA+E1zvjZupGZutTf3hudgosTV
-	3GiTL4eQ==;
+	bh=0SEMsnCv7F0SZ1sMaRVWrWG3ATz0zPriTI/aw7CyBKA=; b=3QhHHAM9640tVe2+w3x4J4yOaq
+	tNIT5V769rjeo0F7ErjaecXtxwSAUddNfc5KpFnRyTwJAeceHxzeVLTwY/NLV77jCcfQzQfHpYFpZ
+	26HJYcNUebw5muU58F1Zxxi3Cp1n+f9Q3PomAIK82KU/9IZ5BRz11+HsNRCWyblDstnfoMFM7SWS8
+	whwLxbJP6AlY3yuDngWwF2euyp+7LWkN2tsy4KVvIKodv2t+KvSG294roJoc3N+5V0I5MVAXJB4aY
+	BV8ojBT2xy4E9PnCF4MPuHC3kr9TqrV2BhOa6PiYPiy/5ZX6J37vTG/JYmSsL5Dw+Yf82Pbra/GVF
+	egdF/f4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGG0N-0000000DChI-1rnq;
-	Fri, 24 Apr 2026 12:51:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGG0K-0000000DCgv-2XpL
+	id 1wGGKF-0000000DDa6-0IQl;
+	Fri, 24 Apr 2026 13:12:07 +0000
+Received: from mail-northcentralusazon11010016.outbound.protection.outlook.com ([52.101.193.16] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wGGKC-0000000DDZe-1uNY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 12:51:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E38E91A9A;
-	Fri, 24 Apr 2026 05:51:23 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DF9113F641;
-	Fri, 24 Apr 2026 05:51:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777035089; bh=FoL42KhHKRaCwoxP8nyowvsS3lcEySubWnFx6ufsLQQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=b1fPFpudGzrbFRDVUAXqxKzhE1enzLieWDbDwv8LTWOpXVBiztAYq7lWAaJKIx0Vq
-	 RKs3tKriO9xVUhH+VfaKvZrvYdQjGSu4KOPRWMIT8UZCvhH2UUvrKrC8V22pyi35eX
-	 XcQrixZqaUfKaFvnzcoyOqgWUxgCcnEb8Qw5sS3k=
-Date: Fri, 24 Apr 2026 13:51:25 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: Thomas Gleixner <tglx@kernel.org>, peterz@infradead.org,
-	sudeep.holla@kernel.org, yangyicong@hisilicon.com,
-	dietmar.eggemann@arm.com, Jonathan Cameron <jic23@kernel.org>,
-	linux-kernel@vger.kernel.org, James Morse <james.morse@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] cpu/hotplug: Fix NULL kobject warning in
- cpuhp_smt_enable()
-Message-ID: <aetnTT51ucm2azGG@arm.com>
-References: <20260417075534.3745793-1-ruanjinjie@huawei.com>
- <aeNxKpHzTQX4_kId@arm.com>
- <87ldee0z1w.ffs@tglx>
- <78515da3-03a1-4fdb-a606-3fea9f4cd20b@huawei.com>
- <aep85G05D3TM9uj2@arm.com>
- <c6fe5e31-c397-4cf1-a422-f8d1a28fe20b@huawei.com>
-MIME-Version: 1.0
+	Fri, 24 Apr 2026 13:12:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ot+8D2krCNHkduIE3Gh+dAhZlg5VyjAAxYktNpGs9UVd9kIKdzGiIhxnH9UpeOs59ZhVmvrskcz36V2myW/8HsUc8MyCcZiLAdHSw4DB0k6vItprZQKg9UKV0jHKeRILk6NHUVPBVadrazEMFeGPcwlloEHWNaogzXN4mRnqJWVHsdG08bkiCsunK11V228bG4HK9TUu0tW4RvHBtGbaT794rUfyas5z14u6BbZVdYOkvYTPlMdRbkGhZu0VQSSP9YiOsk054zxv217itCMu0Vv6QTmckz/ueemLsxUpAlR7x63YMg/+kMdyEMkQE+Reqnsgh3Imgeug3BPcVPJwNw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0SEMsnCv7F0SZ1sMaRVWrWG3ATz0zPriTI/aw7CyBKA=;
+ b=RuQW1c/cLipgf6Mr9G19gnZcExYdU3b9FjFccINLekCbD5ST8aCnMsPv69qkrSDr1POGldqZzzJcSlAewt5RmQ1sr3woeGThNbrby7Dcps7xvi99FRoM+0F26oplmnSomCqXxJVxuIsE0VotUZlfMoJjet2+HDOUbj0d1gE+jPE7bmQeVVs67ZMqP812L5hybuGj4sq7JBZ5e7JsxKmVinAxZwZAtggpueCxODEWy/ZzLNa0BsBvPApDUWLE3fOtQtCJq9rAJrukNeS93x7aQu38JqmoBy1hzD4MZHwP6sDZQQnsCJ+FFEI/CX5QARMTu3rrZK6L3JibS3ASGfXl+Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0SEMsnCv7F0SZ1sMaRVWrWG3ATz0zPriTI/aw7CyBKA=;
+ b=tu6o7BqOZ4GUtXZttRD8v5iTfiy47VGl36r2TMv0HTaP4VW3JL35RRxIrg2mutn7COW8nLL3vgUEjFwdGIP4DUxcDMPwHYPqt/F8L7vLjBpwi2yk9t7BSsI+OYJWswEIKvXwSf/vbPphSe4PEC8C41GMdx4FLTM650pDeeBFKNo9qDPPKZpdkQCY7vmtRjQattB/glA4W5eLoVD+bd4/IgXjMpVg+d+QBVAVZ3+OvOf9JiU978q2+nB75m6PHPQv3P+0mODvEyORLm4Z7qWmeBq2+1AKlAuHmAvLymBPJ+XGNuJsKIrAoY6XOdEWQxSvXjeNaxlGmjafi7krBPGGkg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by CH2PR12MB9543.namprd12.prod.outlook.com (2603:10b6:610:27f::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.21; Fri, 24 Apr
+ 2026 13:11:49 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9846.019; Fri, 24 Apr 2026
+ 13:11:49 +0000
+Date: Fri, 24 Apr 2026 10:11:48 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Baolu Lu <baolu.lu@linux.intel.com>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Pranjal Shrivastava <praan@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Kevin Tian <kevin.tian@intel.com>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-pci@vger.kernel.org, vsethi@nvidia.com,
+	Shuai Xue <xueshuai@linux.alibaba.com>
+Subject: Re: [PATCH v3 05/11] iommu: Change group->devices to RCU-protected
+ list
+Message-ID: <20260424131148.GB3444440@nvidia.com>
+References: <cover.1776381841.git.nicolinc@nvidia.com>
+ <12a224061de4fff9e0725909fd0ba4e14996ff08.1776381841.git.nicolinc@nvidia.com>
+ <779dad61-d7e7-4ae0-83a9-8c5920222219@linux.intel.com>
+ <aerey+ULGG589rdi@Asurada-Nvidia>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <c6fe5e31-c397-4cf1-a422-f8d1a28fe20b@huawei.com>
+In-Reply-To: <aerey+ULGG589rdi@Asurada-Nvidia>
+X-ClientProxiedBy: MN0PR02CA0026.namprd02.prod.outlook.com
+ (2603:10b6:208:530::7) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CH2PR12MB9543:EE_
+X-MS-Office365-Filtering-Correlation-Id: 53eb0116-a9b4-47ce-bc3b-08dea2030b57
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|376014|1800799024|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: S4MYqoEl7Odel8L4Z9L4ojofxhb2wtHJ4QFLaeaUO223GOQgSTWBGh5gg3iCjHiZNqDIIsg4E7hBzEkS18XFEowABgYZqav7lcclyD0+vKKFGvXrK5b4zM2RMl+Xc7D4s0oeFW+uObpEJIw5v6CAFqUcT1oJp1I6lX9hdP4eZ3kZaPWBvhmHBeMYPZaZIS/imHMqr5u/objxA9XEr31Cxc3Apa8eZExCG4XJrP5U+M5BAG8I6cHjMnhS8f2xfv6udS0xyKE5k+dTujE2k6SqC7DjYCcAsvvKvDaqYaKzkrdlHD+CDh2TLmaH/NKXq1bW83F+7V+7QS3C+TSteEGgGoXBuP/nwXyRKQN2xwGSqKcnUxTBfwW7o2NqJL73Owbo4GdWe0pgXGTx+KXSuG+IdUmsEAA5EEQDhfBnRJYzIWT8KUudxLK/AIbUebYIJxKdg8jpNFFB9GbaazmCVb0Noad6V1SrbiQOh4oifWRtHnH3J0bXjvHWMaKJWYuUQC//eek7CyQOGy2/I7bdJmFZukgtfe660AhI3avxYxSAOsRr60TuGoe/EgB1cuKwdbvQotXGglt2ue8v7X4X0PipbEnnLbIOJ1Hak0q3H45CxuTytOWqTbAVMPHmmxXHwFQ1rJ/kDoj4hfzWaJWiFGZntKoktFQVDx2EHeeDibaJucRYSuW9wRqrGsQH2r3Zm7inbi5ksoJ+9hGeUtNgnXgl8rrs9dr4keMlpff0Zgp8WJo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(1800799024)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?d6ctNdMlLpM6ppiaBCSVrPaNj02bIXVLqL6/IStGL8P5QXOYcxwDNswBZL7u?=
+ =?us-ascii?Q?O7EkCKsFxwb4EVeODVMwTELjKZ/bqVBXxpOMaDK/RpkEe8uidcQHNYEQuGTZ?=
+ =?us-ascii?Q?4v8waT1PgDqd8+vsnzm7D0LIYdy7fs6xjXncAjWy3qnh3QafaplFQY10sf7J?=
+ =?us-ascii?Q?4pJwoEMAgwC5yE8RQ/GwC2WWdad3EeZ7CoeEw3GhNHmNoAI+wz67mRsMsapE?=
+ =?us-ascii?Q?vOu6/gYBQwe+xfhz7mQmKmhg42hzWMzoAYwg/s+bEnzb7I5RRZ9STDmA9gN0?=
+ =?us-ascii?Q?6YgLa9sZQrocXk1mPPAJWNcsTjN0/4aCjyjm50o0oLoWYTAClheEwfRkQOLB?=
+ =?us-ascii?Q?xYERu3lKkLPLOao0VjHgzaAjAOVzQiVo2XN3EUufzBboCB6yYMX1P/B2hhZF?=
+ =?us-ascii?Q?sFqXnEdQSV7KAt+9YiAKafcdhlo6P9oEuWVoTJEMXDC8qu7Z5I86ZgU2NEVF?=
+ =?us-ascii?Q?wWBtZm5ZSI4vxZRou0mVX5U4/EAvMaLwWniltwNSQf5xo8lHSB5xkwBMUxOT?=
+ =?us-ascii?Q?qcBs3V5MujMr2/0NNPhnsDKHsWIrXzc+weQ9chc9ZNN3noOsRWBVnodT2IOP?=
+ =?us-ascii?Q?JtdAoP0wNFDpMyvGO89ZcQA7psWTFjtPqNbOTu3f66Rm/BHe7WF9LCbLYsdE?=
+ =?us-ascii?Q?PQjNS7Uv9Pk9lslfwywqteUNQh1A1WWz6DthCNQ9pm1vm6SU0d56tnQ+u+/G?=
+ =?us-ascii?Q?ODecMNxGDnqkir71hy3RbLJXALG+cZ4i8eJb83vtDmwgZKUiVKcbLq4aoLKR?=
+ =?us-ascii?Q?VmqAF8nCj9rmog7A+2PHKDFY+VM+FXxnX0DiFDYZ20FG7ENRitVERF7On89v?=
+ =?us-ascii?Q?kd57EOBLz4bZdvTChQ1y8p0/3OKLNN57GWGLXuFSA7/vEd5KNJ2yVeTFmY2+?=
+ =?us-ascii?Q?kSbi0vjf5JjXm+Y5eNtj4OdLlSQ96Wjsjn4quxi8Yw4tUV7/eEEOifhOmHk9?=
+ =?us-ascii?Q?MOJU2C0nBqWBDscmu/ZY093FfDzTv93iFJrVivct/tstKuLxy1PMtrHTUcrZ?=
+ =?us-ascii?Q?aA8CISaI/qSlQtJre7u4Ytm17TeGH5Csd9ghg/o9prcLenX8ANU8vsscqZs0?=
+ =?us-ascii?Q?eUpcUyh+uYRR5AN20iVJibtEjT2gTc7nAtbuofCJaHUjwxQ7utJgELtix/gs?=
+ =?us-ascii?Q?FjjO6qx+7BV//fRSl0Gbc8uOX+brrPTn36YyPfwt7DHDA/2+ntLb8FyYOYbj?=
+ =?us-ascii?Q?81WJri5tlPzZ+DYI5NqtGd0RrpQOnmFS2sZChQ7P84HlZcFi31Kh4Qa+4n4l?=
+ =?us-ascii?Q?XFbyaLxssyBH/Fblx7gY6FomS55sNxRSHNZEdBC8MNXUDTntHn0HVBL4X3Yb?=
+ =?us-ascii?Q?sYegouk6Ce5Yt3sMQENGzTnuLCTP3mAxQ/qceaxVn+s8gv0JkO23AkNHcFAF?=
+ =?us-ascii?Q?sEEOdq6N9FlASydJHVb7GEG7GLDZs5KIMmz4Y9tsE2XHxkPLAKmHgj0ecbOm?=
+ =?us-ascii?Q?OgZe3OYAoceyOmGmG9c+BhpAhmkB1XQCAduM+jpDcpi3/QwrNK6aQxobV6C7?=
+ =?us-ascii?Q?A/pQ96fXIcxhte46P5tglyjRzQKTWsbKKX6PHVmktWqh2elFi8ZlY+sXOEd0?=
+ =?us-ascii?Q?HSYGUyvgjjNaBJAk35o8lIMbzK8gpPDJETUPSm5uJ71gzkEKT/ENFPA170q/?=
+ =?us-ascii?Q?jsofSopKakTazJelMriP3H9cuXcoEwQcHNPX0OQGhipbYzG+y4U9RlWFx6Ke?=
+ =?us-ascii?Q?qn+OSwvjWi98UINMLl21VFgPQ2MI4jGK/8RCY1zLSMI0F/Co?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 53eb0116-a9b4-47ce-bc3b-08dea2030b57
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2026 13:11:49.4770
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: V4QTo5YZ96yLTTqdB1NU10dtG9uQmfWMk8R1zAPyDYqvUhZF9gjL1BFuJPv8Q6IC
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB9543
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_055132_817739_79A0C737 
-X-CRM114-Status: GOOD (  32.99  )
+X-CRM114-CacheID: sfid-20260424_061204_522566_243CED1E 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,103 +147,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-(updating Jonathan's email address to match MAINTAINERS)
-
-On Fri, Apr 24, 2026 at 09:56:24AM +0800, Jinjie Ruan wrote:
-> On 4/24/2026 4:11 AM, Catalin Marinas wrote:
-> > On Thu, Apr 23, 2026 at 08:32:34PM +0800, Jinjie Ruan wrote:
-> >> On 4/23/2026 6:08 PM, Thomas Gleixner wrote:
-> >>> On Sat, Apr 18 2026 at 12:55, Catalin Marinas wrote:
-> >>>> Another option would have been to avoid marking such CPUs present but I
-> >>>> think this will break other things. Yet another option is to register
-> >>>> all CPU devices even if they never come up (like maxcpus greater than
-> >>>> actual CPUs).
-> >>>>
-> >>>> Opinions? It might be an arm64+ACPI-only thing.
-> >>>
-> >>> I think so. The proper thing to do is to apply sane limits:
-> >>>
-> >>>  1) The possible CPUs enumerated by firmware N_POSSIBLE_FW
-> >>>
-> >>>  2) The maxcpus limit on the command line N_MAXCPUS_CL
-> >>>
-> >>> So the actual possible CPUs evaluates to:
-> >>>
-> >>>    num_possible = min(N_POSSIBLE_FW, N_MAXCPUS_CL, CONFIG_NR_CPUS);
-> >>>
-> >>> The evaluation of the firmware should not mark CPUs present which are
-> >>> actually not. ACPI gives you that information. See:
-> >>>
-> >>>          5.2.12.14 GIC CPU Interface (GICC) Structure
-> >>>
-> >>> in the ACPI spec. That has two related bits:
-> >>>
-> >>> Enabled:
-> >>>
-> >>>    If this bit is set, the processor is ready for use. If this bit is
-> >>>    clear and the Online Capable bit is set, the system supports enabling
-> >>>    this processor during OS runtime. If this bit is clear and the Online
-> >>>    Capable bit is also clear, this processor is un- usable, and the
-> >>>    operating system support will not attempt to use it.
-> >>>
-> >>> Online Capable:
-> >>>
-> >>>    The information conveyed by this bit depends on the value of the
-> >>>    Enabled bit. If the Enabled bit is set, this bit is reserved and must
-> >>>    be zero. Otherwise, if this bit is set, the system supports enabling
-> >>>    this processor later during OS runtime
-> >>>
-> >>> So the combination of those gives you the right answer:
-> >>>
-> >>>    Enabled	Online
-> >>>    	        Capable
-> >>>    0            0        Not present, not possible
-> >>>    0            1        Not present, but possible to "hotplug" layter
-> >>>    1            0        Present
-> >>>    1            1        Invalid
-> >>
-> >> On x86, it seems that all CPUs with the ACPI_MADT_ENABLED bit set will
-> >> be marked as present.
-> >>
-> >> acpi_parse_x2apic()
-> >>   -> enabled = processor->lapic_flags & ACPI_MADT_ENABLED
-> >>   -> topology_register_apic(enabled)
-> >>      -> topo_register_apic(enabled)
-> >>         -> set_cpu_present(cpu, true)
+On Thu, Apr 23, 2026 at 08:08:59PM -0700, Nicolin Chen wrote:
+> On Fri, Apr 24, 2026 at 10:53:49AM +0800, Baolu Lu wrote:
+> > On 4/17/26 07:28, Nicolin Chen wrote:
+> > 	    mutex_unlock(&group->mutex);
+> >             /*
+> >              * FIXME: Mis-locked because the ops->probe_finalize() call-back
+> >              * of some IOMMU drivers calls arm_iommu_attach_device() which
+> >              * in-turn might call back into IOMMU core code, where it tries
+> >              * to take group->mutex, resulting in a deadlock.
+> >              */
+> >              for_each_group_device(group, gdev)
+> >                         iommu_group_do_probe_finalize(gdev->dev);
+> >         }
 > > 
-> > Yes but arm64 marks all CPUs present even if !ACPI_MADT_ENABLED as we
-> > don't have the notion of hardware CPU hotplug.
+> >         return 0;
+> > }
 > > 
-> > I need to dig some more into the original vCPU hotplug support and why
-> > we ended up with all CPUs marked as present even if not calling
-> > register_cpu():
-> > 
-> > https://lore.kernel.org/linux-arm-kernel/20240529133446.28446-1-Jonathan.Cameron@huawei.com/
-> > 
-> > What's the MADT GICC provided by qemu with "-smp cpus=4,maxcpus=8"? If
-> > it says Enabled for the first 4 and Online Capable for the rest, maybe
-> > we can try something like below:
+> > Will the change above trigger a lockdep splat due to this "mis-locked"
+> > case?"
 > 
-> Yes, you are absolutely right,Enabled for the first 4(with GIC Flags:
-> 0x1, bit0 set) and Online Capable for the rest(with GIC Flags: 0x8, bit3
-> set). The ACPI MADT disassembly result is as follows:
+> Oh, I missed this one. That's a good finding!
+> 
+> Perhaps we can just change it to list_for_each_entry_rcu holding
+> rcu_read_lock() and drop the FIXME.
 
-That's great, thanks for checking.
+You can't hold rcu across that function IIRC
 
-I'd like to get some feedback from Jonathan and James as they
-contributed the vCPU hotplug support. The reason was for kubernetes to
-add vCPUs to an existing VM. Hopefully no-one relied on
-/sys/devices/system/cpu/present to report 0-7 in the above
-configuration.
-
-Have you tried the vCPU hotplug with this patch (the original use-case)?
-
-Anyway, feel free to post a v2 with the above proposal, cc Jonathan (on
-kernel.org) and James Morse and we'll take it from there. You can add a
-suggested-by me.
-
-Thanks.
-
--- 
-Catalin
+Jason
 
