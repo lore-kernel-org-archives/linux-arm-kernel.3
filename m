@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09CD8FB44C2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE61EFB44BB
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 06:53:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y1ECiro+y58ToY7WgHmDxcU+9/FZEe2xg1peTZknRxM=; b=GUK4Me8MuCtG98EJ+vtcugelJR
-	892YnTLovIwdKsPa6EZWkF92bXJ87kT9Pmt5+YtSc9kzttB2IgZp2w611sorYaLawKbExg8OrPqIW
-	a+ZYwU1z7BR4C0puxLel6c6JX2XOevsHumcqF0s+LnEB/cS2PZdJqt249/y6VUo+HsJ29uhLrR+Cg
-	z4cuxG38MqEUZWt03bw2dxNPipvVylaLPr5gD3+qK+H496SaKmxnC8XMTRTnL0gpRkH5HW8e/HhPW
-	YGhmFpxBna+hIp7+AA0sNsTuFx5gq/3GNOlUypWpeQcnV9soD/PE3Zd5Dblw5jBgBNuwfrYHOK+qz
-	7T6ikUTw==;
+	bh=ESovXTnb//23ATCh02sIdW6S43ZpKhgsaUtqyYgOhiA=; b=l4jyK1L8aaxIjI4U+VaTA8+Esr
+	98hT2TVhVFWQ6J2wLzWM+oPPeiaF12gxd3R6v+jWJgflZ/erlY8qhoH5BNLMgSw7/yKS1B3F44l4L
+	fpIkAfw53f0n/318oWVMLM/KZ+1eM5FR3HNSWWfXiYRCbbp6BwvVtz01pqbVXFEf4VYZcb7NIKkUV
+	Kyv8g12N/Ve6VBAceUmYnZI7W87smMRuAENzNhUdd1mnLMoxVTnys+GQyHSpb+USdpdBDt5FZ/Tf/
+	pS7+8McQfW6HgTJypFCsq7+tUl1Pkim7sjgXiWyB3W9+UTEzYs/Wc2rY7sHOn9J8PjslQxX7T3uk/
+	7KdliRPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGAPi-0000000CjtQ-1GjP;
-	Fri, 24 Apr 2026 06:53:22 +0000
+	id 1wGAPh-0000000Cjso-3NP8;
+	Fri, 24 Apr 2026 06:53:21 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGAPe-0000000Cjpx-0fTF
+	id 1wGAPO-0000000CjiD-363S
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 06:53:18 +0000
+	Fri, 24 Apr 2026 06:53:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 92ECD60121
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 06:53:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C24CC4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 06:53:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1F87D60132;
+	Fri, 24 Apr 2026 06:53:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8A68C2BCC4;
+	Fri, 24 Apr 2026 06:53:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777013597;
-	bh=5Vo3wXPhyKtM3/dyylPu8ExYPGX0PQDeds0ppBEwWBw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=GCiiIHeSTEmR0j6Ib97mZN2XuXDNgvlTu74PmDDR68QcbPYet5WOI/ZoNrp5V23e1
-	 5NZEJdG8YOfE98sC5lMD4gjJxQrUwYeWOyBaiNdjckIh7jQtpojYxcVhqXmY/oihoH
-	 IUCZ/wn97fIA1QHUYFLWgeq4H2Uhko9eo8h2dJvMxZlTjWccr1VrCLGLrKynQrnXnC
-	 TaGJks1FJOIr/OhUgwXpRv+NnjJwqGhVTRW8C17uzNELxxLf4mMst3WGF85zrYLfPQ
-	 iL1zWh1f8D/l2nSbCMy+FmYb6S4/L/z5Zc3RYyxhI8CkfJFsi4eLfzzOE7RGboGQEv
-	 J3HwYpjeyiXIg==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5a2b636b944so9769802e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 23:53:17 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+P4VlJyLsz3yAL+Ycl5n5o6z+nA2p/6Cw7RBPBq9tlCVUwhWocNoDRVvscPzeqKsVWtjKpaV4Xhf9DC1Vq9q0n@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHLx55DLgkgPNNvBTay9Uhc4JjWHgzPRcIcgMmyXk/z9ouKynH
-	WylqtM5E+3jvHw8FOhhATiyNJcnBS7PUB5xBMVuA2yuXppiE/uRTHoguXILrLVJZAuNxFd2xa77
-	jJw2T0zh8OXgxP/AnB1gQW6p1kUeqy6w=
-X-Received: by 2002:a05:6512:3096:b0:5a4:b0:a081 with SMTP id
- 2adb3069b0e04-5a4172bacb2mr9576668e87.2.1777013596043; Thu, 23 Apr 2026
- 23:53:16 -0700 (PDT)
+	s=k20201202; t=1777013581;
+	bh=ehzhVGhaTVolp1REeY4IslBziHTy1TaIC47b9qxFYjA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=u+rDo9q+vgg/J9/aj+D7TgxFt1T8F3Ls4251FG7LteldnRQKUD27Uc87CAx9zhN8n
+	 Ikr0yI7CfL2Kuty52Vk4YSUKJttXvNCXzZzFwR05+2wwqHhpwmcS1+djGWK5AXm273
+	 gvMGeOaRGEi8LNLiB1K+NYs/HBUNBlVDhUHK15HgYcxHgPnBW8dM+QQcnnxnRVEXMH
+	 4/1IRK/QPYyfN1ZI8EVRa31zbchIdiZ+p1v5R7Inf9e0ll03DvcYiUPP0n9NPmTGnS
+	 Jtfgc4aBHlEogXoUFt6gq6J+xfOhaVbP6yDldWHUeRjiIzBU1syHbi/meObn1qAxxW
+	 6zLN/gfCvK5wg==
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+To: Steven Rostedt <rostedt@goodmis.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	Ian Rogers <irogers@google.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v18 7/8] ring-buffer: Cleanup persistent ring buffer validation
+Date: Fri, 24 Apr 2026 15:52:59 +0900
+Message-ID: <177701357903.2223789.1327164275262010250.stgit@mhiramat.tok.corp.google.com>
+X-Mailer: git-send-email 2.54.0.rc2.544.gc7ae2d5bb8-goog
+In-Reply-To: <177701351903.2223789.17087009302463188638.stgit@mhiramat.tok.corp.google.com>
+References: <177701351903.2223789.17087009302463188638.stgit@mhiramat.tok.corp.google.com>
+User-Agent: StGit/0.19
 MIME-Version: 1.0
-References: <20260412-defconfig-v1-0-a46918286451@oss.qualcomm.com> <20260412-defconfig-v1-4-a46918286451@oss.qualcomm.com>
-In-Reply-To: <20260412-defconfig-v1-4-a46918286451@oss.qualcomm.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 24 Apr 2026 08:53:03 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmbk8HUppHnJkqND1RzMmdnv6drDP=tx7r20bgL8TFCCw@mail.gmail.com>
-X-Gm-Features: AQROBzA06myPZXYAZ7onhAGvH2alsvnS0tmCCwvnJ3RUS04OkeMyeNAR-CX6Lw8
-Message-ID: <CAD++jLmbk8HUppHnJkqND1RzMmdnv6drDP=tx7r20bgL8TFCCw@mail.gmail.com>
-Subject: Re: [PATCH 4/6] arm64: defconfig: Drop unused Ethernet vendors
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Drew Fustini <fustini@kernel.org>, soc@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,20 +76,290 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 12, 2026 at 6:21=E2=80=AFPM Krzysztof Kozlowski
-<krzysztof.kozlowski@oss.qualcomm.com> wrote:
+From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
-> Make going through `make menuconfig` easier by disabling the unused
-> Ethernet vendor menu options, where no actual driver for given vendor is
-> selected.
->
-> Impact checked with comparing old and new autoconf.h:
->   diff ... | grep '^-' | grep -v CONFIG_NET_VENDOR
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cleanup rb_meta_validate_events() function to make it easier to read.
+This includes the following cleanups:
+ - Introduce rb_validatation_state to hold working variables in
+   validation.
+ - Move repleated validation state updates into rb_validate_buffer().
+ - Move reader_page injection code outside of rb_meta_validate_events().
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+---
+ kernel/trace/ring_buffer.c |  186 ++++++++++++++++++++++----------------------
+ 1 file changed, 95 insertions(+), 91 deletions(-)
 
-Yours,
-Linus Walleij
+diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
+index de653a8e3cec..9850a0d8d24b 100644
+--- a/kernel/trace/ring_buffer.c
++++ b/kernel/trace/ring_buffer.c
+@@ -1883,8 +1883,16 @@ static int rb_read_data_buffer(struct buffer_data_page *dpage, int tail, int cpu
+ 	return events;
+ }
+ 
+-static int rb_validate_buffer(struct buffer_page *bpage, int cpu,
+-			      struct ring_buffer_cpu_meta *meta, u64 prev_ts, u64 next_ts)
++struct rb_validation_state {
++	unsigned long entries;
++	unsigned long entry_bytes;
++	int discarded;
++	u64 ts;
++};
++
++static int __rb_validate_buffer(struct buffer_page *bpage, int cpu,
++				struct ring_buffer_cpu_meta *meta,
++				u64 prev_ts, u64 next_ts)
+ {
+ 	struct buffer_data_page *dpage = bpage->page;
+ 	unsigned long long ts;
+@@ -1914,16 +1922,82 @@ static int rb_validate_buffer(struct buffer_page *bpage, int cpu,
+ 	return ret;
+ }
+ 
++static void rb_validate_buffer(struct buffer_page *bpage,
++			       struct ring_buffer_per_cpu *cpu_buffer,
++			       struct ring_buffer_cpu_meta *meta,
++			       struct rb_validation_state *state,
++			       u64 prev_ts, u64 next_ts)
++{
++	int ret;
++
++	ret = __rb_validate_buffer(bpage, cpu_buffer->cpu, meta, prev_ts, next_ts);
++	if (ret < 0) {
++		if (!state->discarded)
++			pr_info("Ring buffer meta [%d] invalid buffer page detected\n",
++				cpu_buffer->cpu);
++		state->discarded++;
++	} else {
++		/* If the buffer has content, update pages_touched */
++		if (ret)
++			local_inc(&cpu_buffer->pages_touched);
++
++		state->entries += ret;
++		state->entry_bytes += rb_page_size(bpage);
++		state->ts = bpage->page->time_stamp;
++	}
++}
++
++static void rb_meta_inject_reader_page(struct ring_buffer_per_cpu *cpu_buffer,
++				       struct ring_buffer_cpu_meta *meta,
++				       struct buffer_page *orig_head,
++				       struct buffer_page *head_page)
++{
++	struct buffer_page *bpage = orig_head;
++	int i;
++
++	rb_dec_page(&bpage);
++	/*
++	 * Insert the reader_page before the original head page.
++	 * Since the list encode RB_PAGE flags, general list
++	 * operations should be avoided.
++	 */
++	cpu_buffer->reader_page->list.next = &orig_head->list;
++	cpu_buffer->reader_page->list.prev = orig_head->list.prev;
++	orig_head->list.prev = &cpu_buffer->reader_page->list;
++	bpage->list.next = &cpu_buffer->reader_page->list;
++
++	/* Make the head_page the reader page */
++	cpu_buffer->reader_page = head_page;
++	bpage = head_page;
++	rb_inc_page(&head_page);
++	head_page->list.prev = bpage->list.prev;
++	rb_dec_page(&bpage);
++	bpage->list.next = &head_page->list;
++	rb_set_list_to_head(&bpage->list);
++	cpu_buffer->pages = &head_page->list;
++
++	cpu_buffer->head_page = head_page;
++	meta->head_buffer = (unsigned long)head_page->page;
++
++	/* Reset all the indexes */
++	bpage = cpu_buffer->reader_page;
++	meta->buffers[0] = rb_meta_subbuf_idx(meta, bpage->page);
++	bpage->id = 0;
++
++	for (i = 1, bpage = head_page; i < meta->nr_subbufs;
++	     i++, rb_inc_page(&bpage)) {
++		meta->buffers[i] = rb_meta_subbuf_idx(meta, bpage->page);
++		bpage->id = i;
++	}
++}
++
+ /* If the meta data has been validated, now validate the events */
+ static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
+ {
+ 	struct ring_buffer_cpu_meta *meta = cpu_buffer->ring_meta;
+ 	struct buffer_page *head_page, *orig_head, *orig_reader;
+-	unsigned long entry_bytes = 0;
+-	unsigned long entries = 0;
+-	int discarded = 0;
++	struct rb_validation_state state = { 0 };
+ 	int ret;
+-	u64 ts;
+ 	int i;
+ 
+ 	if (!meta || !meta->head_buffer)
+@@ -1933,25 +2007,16 @@ static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
+ 	orig_reader = cpu_buffer->reader_page;
+ 
+ 	/* Do the head page first */
+-	ret = rb_validate_buffer(head_page, cpu_buffer->cpu, meta, 0, 0);
++	ret = __rb_validate_buffer(head_page, cpu_buffer->cpu, meta, 0, 0);
+ 	if (ret < 0) {
+ 		pr_info("Ring buffer meta [%d] invalid head page detected\n",
+ 			cpu_buffer->cpu);
+ 		goto skip_rewind;
+ 	}
+-	ts = head_page->page->time_stamp;
++	state.ts = head_page->page->time_stamp;
+ 
+ 	/* Do the reader page - reader must be previous to head. */
+-	ret = rb_validate_buffer(orig_reader, cpu_buffer->cpu, meta, 0, ts);
+-	if (ret < 0) {
+-		pr_info("Ring buffer meta [%d] invalid reader page detected\n",
+-			cpu_buffer->cpu);
+-		discarded++;
+-	} else {
+-		entries += ret;
+-		entry_bytes += rb_page_size(orig_reader);
+-		ts = orig_reader->page->time_stamp;
+-	}
++	rb_validate_buffer(orig_reader, cpu_buffer, meta, &state, 0, state.ts);
+ 
+ 	/*
+ 	 * Try to rewind the head so that we can read the pages which are already
+@@ -1975,19 +2040,7 @@ static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
+ 		 * Skip if the page is invalid, or its timestamp is newer than the
+ 		 * previous valid page.
+ 		 */
+-		ret = rb_validate_buffer(head_page, cpu_buffer->cpu, meta, 0, ts);
+-		if (ret < 0) {
+-			if (!discarded)
+-				pr_info("Ring buffer meta [%d] invalid buffer page detected\n",
+-					cpu_buffer->cpu);
+-			discarded++;
+-		} else {
+-			entries += ret;
+-			entry_bytes += rb_page_size(head_page);
+-			if (ret > 0)
+-				local_inc(&cpu_buffer->pages_touched);
+-			ts = head_page->page->time_stamp;
+-		}
++		rb_validate_buffer(head_page, cpu_buffer, meta, &state, 0, state.ts);
+ 	}
+ 	if (i)
+ 		pr_info("Ring buffer [%d] rewound %d pages\n", cpu_buffer->cpu, i);
+@@ -2001,43 +2054,7 @@ static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
+ 	 * into the location just before the original head page.
+ 	 */
+ 	if (head_page != orig_head) {
+-		struct buffer_page *bpage = orig_head;
+-
+-		rb_dec_page(&bpage);
+-		/*
+-		 * Insert the reader_page before the original head page.
+-		 * Since the list encode RB_PAGE flags, general list
+-		 * operations should be avoided.
+-		 */
+-		cpu_buffer->reader_page->list.next = &orig_head->list;
+-		cpu_buffer->reader_page->list.prev = orig_head->list.prev;
+-		orig_head->list.prev = &cpu_buffer->reader_page->list;
+-		bpage->list.next = &cpu_buffer->reader_page->list;
+-
+-		/* Make the head_page the reader page */
+-		cpu_buffer->reader_page = head_page;
+-		bpage = head_page;
+-		rb_inc_page(&head_page);
+-		head_page->list.prev = bpage->list.prev;
+-		rb_dec_page(&bpage);
+-		bpage->list.next = &head_page->list;
+-		rb_set_list_to_head(&bpage->list);
+-		cpu_buffer->pages = &head_page->list;
+-
+-		cpu_buffer->head_page = head_page;
+-		meta->head_buffer = (unsigned long)head_page->page;
+-
+-		/* Reset all the indexes */
+-		bpage = cpu_buffer->reader_page;
+-		meta->buffers[0] = rb_meta_subbuf_idx(meta, bpage->page);
+-		bpage->id = 0;
+-
+-		for (i = 1, bpage = head_page; i < meta->nr_subbufs;
+-		     i++, rb_inc_page(&bpage)) {
+-			meta->buffers[i] = rb_meta_subbuf_idx(meta, bpage->page);
+-			bpage->id = i;
+-		}
+-
++		rb_meta_inject_reader_page(cpu_buffer, meta, orig_head, head_page);
+ 		/* We'll restart verifying from orig_head */
+ 		head_page = orig_head;
+ 	}
+@@ -2049,7 +2066,7 @@ static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
+ 		/* Nothing more to do, the only page is the reader page */
+ 		goto done;
+ 	}
+-	ts = head_page->page->time_stamp;
++	state.ts = head_page->page->time_stamp;
+ 
+ 	/* Iterate until finding the commit page */
+ 	for (i = 0; i < meta->nr_subbufs + 1; i++, rb_inc_page(&head_page)) {
+@@ -2058,21 +2075,8 @@ static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
+ 		if (head_page == orig_reader)
+ 			continue;
+ 
+-		ret = rb_validate_buffer(head_page, cpu_buffer->cpu, meta, ts, 0);
+-		if (ret < 0) {
+-			if (!discarded)
+-				pr_info("Ring buffer meta [%d] invalid buffer page detected\n",
+-					cpu_buffer->cpu);
+-			discarded++;
+-		} else {
+-			/* If the buffer has content, update pages_touched */
+-			if (ret)
+-				local_inc(&cpu_buffer->pages_touched);
++		rb_validate_buffer(head_page, cpu_buffer, meta, &state, state.ts, 0);
+ 
+-			entries += ret;
+-			entry_bytes += rb_page_size(head_page);
+-			ts = head_page->page->time_stamp;
+-		}
+ 		if (head_page == cpu_buffer->commit_page)
+ 			break;
+ 	}
+@@ -2083,25 +2087,25 @@ static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
+ 		goto invalid;
+ 	}
+  done:
+-	local_set(&cpu_buffer->entries, entries);
+-	local_set(&cpu_buffer->entries_bytes, entry_bytes);
++	local_set(&cpu_buffer->entries, state.entries);
++	local_set(&cpu_buffer->entries_bytes, state.entry_bytes);
+ 
+ 	pr_info("Ring buffer meta [%d] is from previous boot!", cpu_buffer->cpu);
+-	if (discarded)
+-		pr_cont(" (%d pages discarded)", discarded);
++	if (state.discarded)
++		pr_cont(" (%d pages discarded)", state.discarded);
+ 	pr_cont("\n");
+ 
+ #ifdef CONFIG_RING_BUFFER_PERSISTENT_INJECT
+ 	if (meta->nr_invalid)
+ 		pr_warn("Ring buffer testing [%d] invalid pages: %s (%d/%d)\n",
+ 			cpu_buffer->cpu,
+-			(discarded == meta->nr_invalid) ? "PASSED" : "FAILED",
+-			discarded, meta->nr_invalid);
++			(state.discarded == meta->nr_invalid) ? "PASSED" : "FAILED",
++			state.discarded, meta->nr_invalid);
+ 	if (meta->entry_bytes)
+ 		pr_warn("Ring buffer testing [%d] entry_bytes: %s (%ld/%ld)\n",
+ 			cpu_buffer->cpu,
+-			(entry_bytes == meta->entry_bytes) ? "PASSED" : "FAILED",
+-			(long)entry_bytes, (long)meta->entry_bytes);
++			(state.entry_bytes == meta->entry_bytes) ? "PASSED" : "FAILED",
++			(long)state.entry_bytes, (long)meta->entry_bytes);
+ 	meta->nr_invalid = 0;
+ 	meta->entry_bytes = 0;
+ #endif
+
 
