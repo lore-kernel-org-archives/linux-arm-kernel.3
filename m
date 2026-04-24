@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22D53FE51E4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 08:49:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29882FE51E5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 08:49:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aH/14ddBCo2kTCzx4ceCZMALAM1Tsur26jX4fxnDfAE=; b=kjV9W0T/G8BdqymmvTe/6OFAgS
-	q/wu8pjHBSGML/bV49V+Q5MIkcItRKgYjipSNPmHdAXYjdLTu7aoztO8iTPS5ybuBDxHbRfUVpt2B
-	JosdkUZ7tjcW/WYfYGyNfFQJU+KfV2ku9pp6CnI5ksafY+6CwVHrvOInYGUaQ2G7uBjV3wIukJTQ2
-	8tFOOLXW13VzWN1ateDm0N341iwI6l/iGyXije1d8mPSlgOYZDXhs7XAQuH4okLzy1X5HxT9EoKET
-	hVlWVFzDQ0HJkkn41Lp2Sa4IzvFfHvCMYuuofkbGB8QVC9JGYo94mALlAg+3zV865lauo5qiCKhaW
-	8TCfuOkQ==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=chjLWLOIpt5H2yMUpJCdXjXW1BJ6wL0l1ZmewdyTk+Q=; b=YPaQMepfamlLDxMnBP5I9AP7gY
+	TopqHD7nr+2fm4FM0WF3Gt7yDxnDPM6ToMpWOu1YrHKYktvXY2G05ANKdwel+F/TiZ3sjnxbuFGWe
+	S/y7Faw4ofMtQxfPNUB8fC4W4E1gmN8Tbq200p45wzll783TrQ7j7eLjfPNKXUa73tben1rV4ZbOQ
+	Xr5deHL+VW32pGfVZXGzjTkw7OOmkGVh9f5ybhXlsAcx88CgUyY72rxAHE0Q0DCNKQFN1UfwrS9jB
+	ZPp8lFWW7B9LHWNOz1769+5EwRyTP2RSJAgs8xT5nIbRIJputD/8aU4JOpVfn/SBMcGHY6Heb3bIo
+	QkkGzORg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGCDp-0000000Cszd-3jxi;
-	Fri, 24 Apr 2026 08:49:13 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1wGCDu-0000000Ct1n-0l8p;
+	Fri, 24 Apr 2026 08:49:18 +0000
+Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGCDo-0000000Csz0-0fzP
+	id 1wGCDp-0000000Csz1-0TRO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 08:49:13 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-488c0fcc6deso46336425e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 01:49:11 -0700 (PDT)
+	Fri, 24 Apr 2026 08:49:14 +0000
+Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-b9c1d1f7e5dso767526866b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 01:49:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777020550; x=1777625350; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=aH/14ddBCo2kTCzx4ceCZMALAM1Tsur26jX4fxnDfAE=;
-        b=A3NSmr+xEk5s+lI0LBvC1Ud5l4765Qm+1S2YJWuDpKUR0K6ur55iseczQ+uuIGzV/t
-         lit7/Q3b2cROm0qjiS6cjAzwxgBYHxwRfWQPZ94IOWoRIr/iI6WLVgFRcL17qBjxdpJJ
-         ezXrENRo/lw7ey/uu+L8hEE7+ZuuBQdM06ookt+UG3ehWIRb1vNwpqrl7rBbxmTNgRPg
-         cob72KHM25I7h9JbzPGRFptndwimbPWtRDZi4fs2U7MTo7HhWg31l3BFAfvRDQuru+73
-         Dgc9yM4kv+Zngd5Tq3980MEo3fY0CNlKQUx6b6B2NTX7O6PAJP4Cewjhv86nPjkdD5Hi
-         tvQA==
+        d=google.com; s=20251104; t=1777020551; x=1777625351; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=chjLWLOIpt5H2yMUpJCdXjXW1BJ6wL0l1ZmewdyTk+Q=;
+        b=hga9qHFug81BnNn3AfDO3E3H/V1aK5Qz0jvr5YfuucMVo/kDT+ugD89VxepQTAt+WI
+         XRDgn+zGmw2E8UKLEUho/baOJPFABefnEYP2eMHXkOYkRaiwXnQVvD2SAnSpPJGEGpbu
+         Ept3zXV6mbpF6AELZ7o0DMp5ujAa/NAizjyOI1Mg7vdSYrX3O2vhJ3+bkwAV/kLRYL8g
+         AeqjV1d8XBe/EuboSnu1wiJx7vQRboNc73JkjSXdl1kpMxOqsGTI1rgiQmP3iAT0JQnR
+         xoEWYaOX9DjQhh8HNbcBVyJ4uId2Je5l4vLfaH3LCWLIeVNIrZsYfTvQPSuRAjbsbDWs
+         RxMg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777020550; x=1777625350;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=aH/14ddBCo2kTCzx4ceCZMALAM1Tsur26jX4fxnDfAE=;
-        b=epFQAp8v4bWTHJgX2o6O4RtJzmG837YJ51Twr5tFD3h0LsgYFkKo5SWbZaw7gDnFox
-         dt5pVUsOi+pPG/sckXwJM0+pNbReqjWoEFEGBvEuzbKTilr75i/1uCTJ5POQgdo0Xi/w
-         8/2RzMiUxCe7QP6ekakSq34zjyGxRHcV4N45uvuObKcKPtDuNS90rdIvdWxV17LVjQHh
-         pRw9ehdIgvuHKmAZHBSJ9eviRT0iJMGA674wkEHxZqG3pVPFsjuDxBLMhaeX8Dg4cLet
-         sRZqtk4kzusvRK3p3zdYo8fHussurNuqWhWC0Q6U8I1zhCKzxiN59b22iTdWMmCsXTeb
-         LJ0Q==
-X-Forwarded-Encrypted: i=1; AFNElJ9wgL/tBNWbLLjoiFYqN0Njt3awiAz6EBXaitR2vvEkHsMZQPAufympqexvTlsapmx95aOW5iMQNoDcSJ7W/ePW@lists.infradead.org
-X-Gm-Message-State: AOJu0YxU/pPe5ZaTb/H2xKWl8yUhKEkGvwHNsvigXExcpIeJb/dG4FaW
-	M9fA7nqKn4N9G5nZS2yQ/FWXMCGTDpZNzBBqvX/qNNGrvWQ96xIdB6m5/9qfcTXWaI8jA9UKwUx
-	Y3Q==
-X-Received: from wrtj10.prod.google.com ([2002:a5d:604a:0:b0:43d:77d4:5f06])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4fc6:b0:48a:53ea:1408
- with SMTP id 5b1f17b1804b1-48a53ea15a4mr231487385e9.8.1777020549668; Fri, 24
- Apr 2026 01:49:09 -0700 (PDT)
-Date: Fri, 24 Apr 2026 09:49:02 +0100
+        d=1e100.net; s=20251104; t=1777020551; x=1777625351;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=chjLWLOIpt5H2yMUpJCdXjXW1BJ6wL0l1ZmewdyTk+Q=;
+        b=mDAhe1Y4ZsT0V7rmpJNvrRUTaYHyRpLbNrm057vIx2vnNKahUuK47UmPgCBaNbCJb0
+         EyCrSypDiHKqCKxG6lEqKqTZYmqO34uFIuNkV9omG0SaHoHpyIDHGTeDyBikd3acSCfJ
+         1wLJ7rToeDHSOd9V3UvFctP/WqsFY1E/UjH8icWulRZdLEA6JkKxFgumKKHogwjkV6Li
+         GLCd3zzqH5lNTwJ+b1P7O7bvJmeMBb+ayzRtjj7zNMonFbqP71j89cggpcsJU+A7dNyw
+         SgEOV4tAhYQJyv0DFlKLs7ja3My1qdK3rk4vUeQ8XVRisR/8TTKmmfhGbwELXfw49Eaa
+         ZVgA==
+X-Forwarded-Encrypted: i=1; AFNElJ8r7L+fpRqYZsjGYOpNEAbCLZmLh44ASwLlTirF3RU9knrJwSvbOkHAxy8S7lmxVBqf+7wDc2MF8jy+Rxx+gup9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyw76gOdQEeC4FyGcxHhc7p4S8mKP1J3P7ezTDDyspfvAfUy5MT
+	bLZFV9Fx+4LZGsMiL0xZFpKTfaO4YeLiM6JlvvvkRTZwORQ0776GGCSEw/yiuH73h7F0t7PpYgP
+	Z6w==
+X-Received: from ejbwt10.prod.google.com ([2002:a17:906:ee8a:b0:b9b:9f09:c27e])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a17:907:cd09:b0:b9e:f58:c581
+ with SMTP id a640c23a62f3a-ba41b3dff09mr1835202166b.45.1777020550736; Fri, 24
+ Apr 2026 01:49:10 -0700 (PDT)
+Date: Fri, 24 Apr 2026 09:49:03 +0100
+In-Reply-To: <20260424084908.370776-1-tabba@google.com>
 Mime-Version: 1.0
+References: <20260424084908.370776-1-tabba@google.com>
 X-Mailer: git-send-email 2.54.0.rc2.544.gc7ae2d5bb8-goog
-Message-ID: <20260424084908.370776-1-tabba@google.com>
-Subject: [PATCH 0/6] KVM: arm64: pKVM init and feature detection fixes
+Message-ID: <20260424084908.370776-2-tabba@google.com>
+Subject: [PATCH 1/6] KVM: arm64: Fix FEAT_Debugv8p9 to check DebugVer, not PMUVer
 From: Fuad Tabba <tabba@google.com>
 To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org
@@ -72,8 +74,8 @@ Cc: tabba@google.com, catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	joey.gouly@arm.com, yuzenghui@huawei.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_014912_261484_287274EA 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20260424_014913_162906_18B1EDB7 
+X-CRM114-Status: GOOD (  12.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,53 +90,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
+FEAT_Debugv8p9 is incorrectly defined against ID_AA64DFR0_EL1.PMUVer
+instead of ID_AA64DFR0_EL1.DebugVer.  All three consumers of the macro
+gate features that are architecturally tied to FEAT_Debugv8p9
+(DebugVer = 0b1011, DDI0487 M.b A2.2.10):
 
-These six patches are standalone correctness fixes I'd like to land
-before posting a follow-up to Will's pKVM infrastructure series [1]
-that moves vCPU state management to EL2. Sending them separately keeps
-the bigger series focused, but they are all valid fixes to have
-regardless.
+  - HDFGRTR2_EL2.nMDSELR_EL1, HDFGWTR2_EL2.nMDSELR_EL1: MDSELR_EL1
+    is present only when FEAT_Debugv8p9 is implemented (D24.3.21).
 
-The first patch fixes feature detection for FEAT_Debugv8p9: it was
-checking the wrong field in ID_AA64DFR0_EL1, causing KVM to treat
-certain EL2 control bits as RES0 on hardware that implements the
-feature.
+  - MDCR_EL2.EBWE: the Extended Breakpoint and Watchpoint Enable bit
+    is RES0 unless FEAT_Debugv8p9 is implemented (D24.3.17).
 
-The second patch is a trivial typo fix in comments.
+Neither register has any dependency on PMUVer.
 
-The third patch fixes feature detection for FEAT_SPE_FnE, which was
-also checking the wrong field.
+FEAT_Debugv8p9 and FEAT_PMUv3p9 are independent.  Per DDI0487 M.b
+A2.2.10, FEAT_Debugv8p9 is unconditionally mandatory from Armv8.9,
+whereas FEAT_PMUv3p9 is mandatory only when FEAT_PMUv3 is implemented.
+An Armv8.9 CPU without a PMU has DebugVer = 0b1011 but PMUVer = 0b0000,
+so the wrong field check would cause KVM to incorrectly treat EBWE and
+MDSELR_EL1 as RES0 on such hardware.
 
-The last three fix bugs in the pKVM vCPU and hypervisor initialisation
-paths: a latent macro parameter bug, a pin-reference leak with a
-publication ordering issue in __pkvm_init_vcpu(), and a call-ordering
-hazard in __pkvm_init_finalise() that is benign today but becomes a
-crash once fix_host_ownership() is extended to operate on a non-empty
-page-table.
+Fixes: 4bc0fe089840 ("KVM: arm64: Add sanitisation for FEAT_FGT2 registers")
+Signed-off-by: Fuad Tabba <tabba@google.com>
+---
+ arch/arm64/kvm/config.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-[1] https://lore.kernel.org/all/20260105154939.11041-1-will@kernel.org/
-
-Cheers,
-/fuad
-
-Fuad Tabba (5):
-  KVM: arm64: Fix FEAT_Debugv8p9 to check DebugVer, not PMUVer
-  KVM: arm64: Fix typo in feature check comments
-  KVM: arm64: Fix FEAT_SPE_FnE to use PMSIDR_EL1.FnE, not PMSVer
-  KVM: arm64: Fix kvm_vcpu_initialized() macro parameter
-  KVM: arm64: Fix pin leak and publication ordering in
-    __pkvm_init_vcpu()
-
-Quentin Perret (1):
-  KVM: arm64: Fix initialisation order in __pkvm_init_finalise()
-
- arch/arm64/include/asm/kvm_host.h |  2 +-
- arch/arm64/kvm/config.c           | 23 +++++++++++++------
- arch/arm64/kvm/hyp/nvhe/pkvm.c    | 38 ++++++++++++++++++++-----------
- arch/arm64/kvm/hyp/nvhe/setup.c   |  8 +++----
- 4 files changed, 46 insertions(+), 25 deletions(-)
-
+diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+index f35b8dddd7c1..093290b366e6 100644
+--- a/arch/arm64/kvm/config.c
++++ b/arch/arm64/kvm/config.c
+@@ -192,7 +192,7 @@ struct reg_feat_map_desc {
+ #define FEAT_SRMASK		ID_AA64MMFR4_EL1, SRMASK, IMP
+ #define FEAT_PoPS		ID_AA64MMFR4_EL1, PoPS, IMP
+ #define FEAT_PFAR		ID_AA64PFR1_EL1, PFAR, IMP
+-#define FEAT_Debugv8p9		ID_AA64DFR0_EL1, PMUVer, V3P9
++#define FEAT_Debugv8p9		ID_AA64DFR0_EL1, DebugVer, V8P9
+ #define FEAT_PMUv3_SS		ID_AA64DFR0_EL1, PMSS, IMP
+ #define FEAT_SEBEP		ID_AA64DFR0_EL1, SEBEP, IMP
+ #define FEAT_EBEP		ID_AA64DFR1_EL1, EBEP, IMP
 -- 
 2.54.0.rc2.544.gc7ae2d5bb8-goog
 
