@@ -4,137 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 897D2FED3CC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 14:38:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69498FED3D9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 15:03:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Wce7oXt3Tetx9qhsgwWAT4Y7786S1m3Y5hAHhmmPEw=; b=oy8aXN2jeyGmasx6uQzgDa8EFp
-	PfjAA7Hx9dt/dyh3uaIgSKzg5EgDzi7gDi56E9NvzM6Q42fj8aEnOKeCy4uspaIsJzd4k0wi+Lu45
-	TV5Qt3oB0Oo+7H2GL3oUYltermBdkQZ5EWheTLgzCLoSg8i3ZUcSkhYyhOgChjQEbyw/LQRzIdeLs
-	ASAjpsEJYIh1o8lQo9k4u7jcbldgxpa0pE+MdYfGeBDj0Vqm3U1MPtQxPElCWDMvXWVWM/GJYW0Mh
-	7wV0MGe1oJjNXYbMhpbh7rlOozAG69Sqxp4VB4fz5NPVulvG0C1HeVL83POir1XtHJjKUMF72wGmU
-	5Pbm5Dug==;
+	bh=jp5I3YVV3IMi72Sbykn4N4JHT7WAZ2XdR9LFxVLpZI0=; b=Af2GvjU2k79s9Vy9QYJjXVTcEm
+	DFXltO0Agzd9w2JUI8peL/8u8OQKSVcMloT7ZnEwk2xVAuIOHoGcubDP1hqyclkGoUizJrOmjEYbc
+	d6mJ8rtMFRKiOx9GbDPuZgxwrqzOga/GpAiOJvD/QgMzbvFvKGC4u+3Wj/x1SLEdAMGmz4hgmoYex
+	JbndoOUTLxL0CaLoAywPj5loxM1DbwFyZFHx/mYpQmCOlmyw6x3tq5ICuAenplWe7CGFqf298XEQr
+	/j8s9d0w7TX0WCf7a9PSLJoN791SVBLySM0u1ud4gFfWY1uvIpjIQq6DtKYtXbeWItAANfbuW2iTj
+	UTEvaZPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGHfW-0000000DKyO-0FYP;
-	Fri, 24 Apr 2026 14:38:10 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wGI3w-0000000DMNG-2u9D;
+	Fri, 24 Apr 2026 15:03:24 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGHfT-0000000DKxh-14We;
-	Fri, 24 Apr 2026 14:38:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iAg4eNtuRTDBMbkIZ7XkdyZp5vL4gLo1TARBFaqBC0Hb1aI36QPXvVPS+t4W0j0qiJ98MDQfaFF/XSYMxUUdZqD4gsdp/jmMz4BghrgUpteooYDggcxkW2V0kI6yLkows05rSdMCMp2y6rVSmReTZ2n6E+bD907lFt7Af1o6NFGDQltUIB20JDmtOocua6eq6iRRA9STly+wmIlESuJfDg2eb5B3ziOdox683uHghjw+nsGAUpscU61eQAfwRrHIOBVAr3BtQDuQMcsF/9RhC7EZ5zjaFuirPlXcRmwK79DpZG6+dWar3B+YMEWumXHjsv6vmC5XAIaQR6FXTRDUsA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2Wce7oXt3Tetx9qhsgwWAT4Y7786S1m3Y5hAHhmmPEw=;
- b=wdomfuyrh0ZGr7B+nMA9b7pgXVI2NgrGxvGdU5rVMxiQs117hCRG0ldLeJ1xnf6aNVdD4ZxxUXkBEU5XxbrPpdHmg/EDwwXyfsjfRCR87tfE555kVY9BTB1XtB/ogdIN7egmbqj1J9KZHwy9l0j9doQ/uEe+nKraAdOcBOVpgt8mvllEOxXS7xx8ydkmqFd0LFXsrcmaPrbJVqGrpRFOb7ci71OX13GnYkcVNRW5c9ls83OB/PQZnNdCD9xAdevLAfNFZdBIuAUrebjH7le+hdaFb/6R+NY5trRJghmAO0WV7nOjwfkfptJaorJM9szoO/O8xZS/YUgpnRLATBYHew==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2Wce7oXt3Tetx9qhsgwWAT4Y7786S1m3Y5hAHhmmPEw=;
- b=KJjGXdtb+XYAFVTyJ/8kTGrj7pgoCPgtylgcvdOuYU46nMOb++6B+DldN/InbSxYTA+4oWpJZ01gN/5a3MRZ2ewBSGx7+k+1nfrU8PX7sRWtxLusot/uaeGwvobD/sHPUUKCwGIQ7Iz4lvJtBWVpbaDiC6oTJEOrnYf3uVHuUVzOe4ZqRgD2ZYh54D8NJqfPHfsbFDLRcB5xsBlK4uZCElpbxwq6cz6GrhyMj1+dBoLrsWpJvjQ1d1J9cTM2mxZzeSTdmkK3JYkHYmzTmZZq8FfB4gWZTzDmSXr7gRi0i/GInDuCF4+KwOF9picmqvi48Mi8Qmlkg2DsyxHN1Js1KQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV1PR04MB9135.eurprd04.prod.outlook.com (2603:10a6:150:26::19)
- by AS8PR04MB8468.eurprd04.prod.outlook.com (2603:10a6:20b:34b::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.22; Fri, 24 Apr
- 2026 14:37:57 +0000
-Received: from GV1PR04MB9135.eurprd04.prod.outlook.com
- ([fe80::3826:2706:1e81:c9e2]) by GV1PR04MB9135.eurprd04.prod.outlook.com
- ([fe80::3826:2706:1e81:c9e2%5]) with mapi id 15.20.9846.021; Fri, 24 Apr 2026
- 14:37:56 +0000
-Date: Fri, 24 Apr 2026 17:37:51 +0300
-From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	dri-devel@lists.freedesktop.org, Jonas Karlman <jonas@kwiboo.se>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, linux-kernel@vger.kernel.org, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Simona Vetter <simona@ffwll.ch>, 
-	linux-arm-kernel@lists.infradead.org, Maxime Ripard <mripard@kernel.org>, imx@lists.linux.dev, 
-	linux@ew.tq-group.com, devicetree@vger.kernel.org, linux-phy@lists.infradead.org, 
-	Alexander Stein <alexander.stein@ew.tq-group.com>, Robert Foss <rfoss@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Ying Liu <victor.liu@nxp.com>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, David Airlie <airlied@gmail.com>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>
-Subject: Re: [PATCH v22 3/8] dt-bindings: display: bridge: Add Cadence
- MHDP8501
-Message-ID: <udpesa5i2fdi6rwrtuwut5zsahy7gvsla4p3ujqml6zl3mvayz@fd4e5tddzuv5>
-References: <20260424-dcss-hdmi-upstreaming-v22-0-30a28f89298d@oss.nxp.com>
- <20260424-dcss-hdmi-upstreaming-v22-3-30a28f89298d@oss.nxp.com>
- <177703391401.3671402.9330071570952735700.robh@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <177703391401.3671402.9330071570952735700.robh@kernel.org>
-X-ClientProxiedBy: FR4P281CA0193.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:ca::17) To GV1PR04MB9135.eurprd04.prod.outlook.com
- (2603:10a6:150:26::19)
+	id 1wGI3v-0000000DMNA-2C96
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 24 Apr 2026 15:03:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=jp5I3YVV3IMi72Sbykn4N4JHT7WAZ2XdR9LFxVLpZI0=; b=JY7598aQXXRv4U8//4S4j/GI5s
+	PjkN9CxXhZKejaSm6OwtRSjuzpD016ogOdLyq2+MN6fEef+jK8Ze0MfdZwToG3MRMOX94phLv+oih
+	/OdUbK5f76RK0N8jvjirAZf1aEDNaUEikSVKDEHe15zoB4z5W8vmWnXP4p8o6VwxNykpyMVRVOJ4t
+	tkV2WObks+GpYhtbYsFh7ueTzhKPcUxHCJAEZZfsDYf19SI12uTbXde57PJsd/pM9bsl++noXtvvx
+	w+S67lp0i5o9ihE4U5NBXqXeyfa3AT8BrCw5z1RP3EDbdn7aCIRzX7uOBzKWt36nSCP5RSoxqTtvg
+	fM0sM37Q==;
+Received: from 2001-1c00-8d85-4b00-266e-96ff-fe07-7dcc.cable.dynamic.v6.ziggo.nl ([2001:1c00:8d85:4b00:266e:96ff:fe07:7dcc] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wGI3r-0000000FNsV-38KB;
+	Fri, 24 Apr 2026 15:03:19 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 56C6A301261; Fri, 24 Apr 2026 17:03:18 +0200 (CEST)
+Date: Fri, 24 Apr 2026 17:03:18 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: Mathias Stearn <mathias@mongodb.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Jinjie Ruan <ruanjinjie@huawei.com>, linux-man@vger.kernel.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Boqun Feng <boqun.feng@gmail.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Chris Kennelly <ckennelly@google.com>, regressions@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Ingo Molnar <mingo@kernel.org>, Blake Oler <blake.oler@mongodb.com>
+Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
+ and tcmalloc everywhere
+Message-ID: <20260424150318.GE641209@noisy.programming.kicks-ass.net>
+References: <aekPXvvuKHKlETjm@J2N7QTR9R3.cambridge.arm.com>
+ <87wlxy22x7.ffs@tglx>
+ <c5331cd6-76c8-430d-978e-fcad164e48f6@huawei.com>
+ <CACT4Y+bxnQyHGdVNE1BYTx+Z2-cscLb38HYS9jBM5gPAz8=4bw@mail.gmail.com>
+ <87ik9i0xlj.ffs@tglx>
+ <CAHnCjA0UBNXfjHw=Y34OrAyGRNUtVF+zWd3ugyX6pd_mCk8K9w@mail.gmail.com>
+ <87a4ut1njh.ffs@tglx>
+ <CACT4Y+bBD7uCHXKqGo=epBXeEmsZ67Og2YO9kjNMT3ryjUY_sA@mail.gmail.com>
+ <CAHnCjA1LqbaUGkPe79EeP6Mpaki8QWeR-JBSbrG0z6pTm9CmUg@mail.gmail.com>
+ <87v7dgzbo7.ffs@tglx>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV1PR04MB9135:EE_|AS8PR04MB8468:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4677cb27-fa06-4d5f-e7cb-08dea20f133b
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|19092799006|366016|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: jDeL+jvKqhx43BTMF4r8QR8eHVwLA0fgPaln8GY315K5Rs7/Z3+txTZomT3j8cutViKxrOIrAflspn+fbt4FlIYyR0vgqsleRjdML1hFbseM0ABiA71ChQBOTS/FCU7u0mANX/gGdnSidk7T73SoiuhsQOSV3zD4E8MVyPjJT40HVo1TwFI1wz40yRl+J4snCoY78Wpeh86hsLyOkHS5MX+dXFaInnR8p3Vi+Mdr0+85NMuuCb+fQ0yfKFQaJkcCOFw+aGhtUHwkdAa/MG4PS/YaLVYgRG8L6Fh4Tcg/UHkMGMRuQDMp3UAnv6TA5WlsF9TDS5Mu78S9rOgJOasU9smkhqzPCy2elMTnAV8K+AuYC5beOnxFYlAW7JdT9B2kz0MDz1oWZdknpD/vMRfRKFFQly9mIPmppGmGcDEAdMgfaa9e7WRlN2dHslyOr2lV2FHVfWHCKbV6STG/bRZx3pp6+OsEi0rB67WX/I8O8talc6dT5QYwqLP8YMFglpNZPWDLv0FlMN56J2TG7GUf1UzrrI70EBE2qE9kIrhuGLQLHG0EzsVBnojHwF4lXB3xGQK+MDAsJ2ylkUYAubDsgMAVYRcZMvKW6At5wRghup0ZBKghAoq2LXSQ6sNBm5heY0uUra68eIrU1m4HX1s1yPcn6qLU0JiinHyZjnFcHq82n1wAsy1Dg/6Sl/TZp5y5
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR04MB9135.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(19092799006)(366016)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QNnzqCInUp55xnHYbYV9/ePG6yFtlUh3c9Hg4HtkEWghuxbNL/mAv2gPmoZx?=
- =?us-ascii?Q?CyJ1+IbnZLxhyDmWRLKGySZdvOdpyWNvquR+PCCaVdxgIVhUM4Im2KVc+/gC?=
- =?us-ascii?Q?CdcRw5wm90cbC21qE6oeuT5lGvUPAZ+czGSRuXPGHyatgKS4g5gdkaxaVuvQ?=
- =?us-ascii?Q?gKTtzkXYVddjHaBjLb2XHY6BA/4RIV/qIQSdd3SmaCjrvUGvsHyA+GHc3SIu?=
- =?us-ascii?Q?OaV8tApnvRCmCdfN25kAfzUR4TddjD77eekDHz0aIpQYk6hZFkutl/Qms7v2?=
- =?us-ascii?Q?s+Yglz2DCGLI+YyYK0gzRi/R9qDng4M4pfU9s5vN5XEDEQ7673gOsEK9ieSa?=
- =?us-ascii?Q?ol/x2suXfZwWPHiLGDMwsKiFrxADfMUffNHIPoobvlGhvsP59/WJxT+NsHyB?=
- =?us-ascii?Q?vriVKQ7Yj7fdn6GbGkFR0a4P9XME7R4ABCVk/5uA0glYRpH/g4e/u/RoVst+?=
- =?us-ascii?Q?pQ4yHiTB2nQND5nCtsWpkwI1F3hkfA3rTzz12MOGehdoniRrUJfivZC93r2F?=
- =?us-ascii?Q?WZft/tX2TI6txxb7LuPu9bz722M/sdiYLHozddPA4Dt3QItKyPUpC3brGOQp?=
- =?us-ascii?Q?HpdPWkaCKMsW7Cd5rNXnjFoCf8yM67rkP0COYwdOD6iAOa8629plMmLlF4Kn?=
- =?us-ascii?Q?RseqNv47CSpwKY0k7JizOyIg38ztthj226RkRgaqyybszEamlcSoRjEhh2Fh?=
- =?us-ascii?Q?H6Ly+10+wjTUB/5Q6Tf68EvNYENaBoey0aPMlOYOaygFJbUrm7ucRjl5j2BK?=
- =?us-ascii?Q?TAuloszo/hImxS3GuZAwQRfNN8UcefHC0wrX3PxjLmK+NJPFq+45lTuCR1YR?=
- =?us-ascii?Q?iceeLjGG/kQVM7/+Gp0ZK14BtJ8ZNxvd20ZlI5AA2zAIAkTft2JsBQ3rhTlf?=
- =?us-ascii?Q?i4GMZCgGmdNEkh1/3aVsa6oNmBNUhJ3vx3O3QtWu2lc55sGPShH7pZ5NzGnz?=
- =?us-ascii?Q?WopIyj6X8zKWr2z/3ER1ugjIh6ce4ALUDvBUxYqwvlgfm8ibasB9d0GZBZl/?=
- =?us-ascii?Q?0KxCTxhlRjAAGGhmYPo9VZB5i8G27LryHlxrRVF+GkopfJyztvvdnSztiD/V?=
- =?us-ascii?Q?Ynh+cjWKEbOFwM9sjSfmYl+M+IkuYAhgItCxg/gnCdypIJRNKzTl/BIUQwdq?=
- =?us-ascii?Q?2Id4NXCHxAdHzoJX2OYM4ZGR/nTT4OgEi4BA7sAsvwGUY17ZXgV3jrM6n7oC?=
- =?us-ascii?Q?USO2+bEaZTkO4cKKTtF2FKCxgAbh/bJttZHYo+veIY4nYyhkZUpHtYz7AJJV?=
- =?us-ascii?Q?L2xOvnA0M1sW1Gxdgl0eBsKBH33qecJhRxZDOImZtvqi97+sG9gNPu16oFCM?=
- =?us-ascii?Q?L3JO20fd9nOydsbamwf9frQ5YwWxaI0rmSNNrhbT3oqlcXUnffUuF0ejSSNf?=
- =?us-ascii?Q?ek7klSbHtSpAREeD84NM81PUFcj3idRFJNIQdUdhmGP5YDRSKcg4pRFv/+U9?=
- =?us-ascii?Q?SoO0qE7LXWArQJxzZweeZk579LHFsJvO5gTfykgjqFohOEBmS4sBlcrpBugD?=
- =?us-ascii?Q?JdcNvz+KB0F+Mq0z26InwC6BzeYBKOSPsZNaDO6QSJnN4OkhSNWq99bNhqwZ?=
- =?us-ascii?Q?MriURxZI7iVCR0Bv20zxOFjY0UydyjtQNXC0IxC/Zeuc/7z9u7bZF4PZScqY?=
- =?us-ascii?Q?9iNWzX00npAfc+n07twV/PmZyPWpi7+vCMgvvC4lS8idY9F+ShQcTwaKF2OY?=
- =?us-ascii?Q?BVMYyAsCBLnehpAZn5BOhkKbPlGUpNy7dWndWVoKqvVYXX6BnQrhi4HUyiSf?=
- =?us-ascii?Q?KWr1we5HEaFQPWBp3EYdAYvf90PwrHk=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4677cb27-fa06-4d5f-e7cb-08dea20f133b
-X-MS-Exchange-CrossTenant-AuthSource: GV1PR04MB9135.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2026 14:37:56.7502
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oH5SJk3PxiqAaxPlvrqDHaU6P4rUoQscsNZbA9MO94OWqrX49yrS7G2LLCqLPLYTXQ6YBXoIFv1v+UFMcST+0w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8468
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_073807_313265_9918B12E 
-X-CRM114-Status: GOOD (  17.97  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <87v7dgzbo7.ffs@tglx>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,54 +89,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 24, 2026 at 07:31:54AM -0500, Rob Herring (Arm) wrote:
+On Fri, Apr 24, 2026 at 04:16:08PM +0200, Thomas Gleixner wrote:
+> On Fri, Apr 24 2026 at 10:32, Mathias Stearn wrote:
+> > On Fri, Apr 24, 2026 at 9:57 AM Dmitry Vyukov <dvyukov@google.com> wrote:
+> >> The only problem is with membarrier (it used to force write to
+> >> __rseq_abi.cpu_id_start for all threads, but now it does not).
+> >> Otherwise the caching scheme works.
+> >
+> > I almost wrote a message last night saying that we didn't need
+> > cpu_id_start invalidation on preemption. However, I remembered that
+> > the Grow() function[1] does a load outside of a critical section then
+> > stores a derived value inside the critical section, guarded only by
+> > the cpu_id_start invalidation check in StoreCurrentCpu[2]. It really
+> > should be doing a compare against the original value inside the
+> > critical section (or just do the whole thing inside), but it doesn't.
+> > I haven't reasoned end-to-end through this fully to prove corruption
+> > is possible, but I suspect that it is if another thread same-cpu
+> > preempts between the loads and the store and updates the header before
+> > the original thread resumes and writes its original intended header
+> > value. Ditto for signals, which sometimes allocate even though they
+> > shouldn't.
+> >
+> > I was really hoping that we would only need to do the "redundant"
+> > cpu_id_start writes would only be needed on membarrier_rseq IPIs where
+> > it really is a pay-for-what-you-use functionality,
 > 
-> On Fri, 24 Apr 2026 11:07:16 +0000, Laurentiu Palcu wrote:
-> > From: Sandor Yu <Sandor.yu@nxp.com>
-> > 
-> > Add bindings for Cadence MHDP8501 DisplayPort/HDMI bridge.
-> > 
-> > Signed-off-by: Sandor Yu <Sandor.yu@nxp.com>
-> > Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-> > ---
-> >  .../bindings/display/bridge/cdns,mhdp8501.yaml     | 135 +++++++++++++++++++++
-> >  1 file changed, 135 insertions(+)
-> > 
-> 
-> My bot found errors running 'make dt_binding_check' on your patch:
-> 
-> yamllint warnings/errors:
-> 
-> dtschema/dtc warnings/errors:
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/bridge/cdns,mhdp8501.yaml: Unresolvable reference: /schemas/phy/fsl,imx8mq-hdptx-phy.yaml#
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/bridge/cdns,mhdp8501.example.dtb: display-bridge@32c00000 (fsl,imx8mq-mhdp8501): phy: False schema does not allow {'compatible': ['fsl,imx8mq-hdptx-phy'], '#phy-cells': 0, 'clocks': [[4294967295], [4294967295, 248]], 'clock-names': ['ref', 'apb'], 'phandle': 2}
-> 	from schema $id: http://devicetree.org/schemas/display/bridge/cdns,mhdp8501.yaml
-> Documentation/devicetree/bindings/display/bridge/cdns,mhdp8501.example.dtb: /example-0/display-bridge@32c00000/phy: failed to match any schema with compatible: ['fsl,imx8mq-hdptx-phy']
-> 
-> doc reference errors (make refcheckdocs):
-> 
-> See https://patchwork.kernel.org/project/devicetree/patch/20260424-dcss-hdmi-upstreaming-v22-3-30a28f89298d@oss.nxp.com
-> 
-> The base for the series is generally the latest rc1. A different dependency
-> should be noted in *this* patch.
-> 
-> If you already ran 'make dt_binding_check' and didn't see the above
-> error(s), then make sure 'yamllint' is installed and dt-schema is up to
-> date:
-> 
-> pip3 install dtschema --upgrade
-> 
-> Please check and re-submit after running the above command yourself. Note
-> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-> your schema. However, it must be unset to test all examples with your schema.
->
+> That's fine and can be solved without adding this sequence overhead into
+> the scheduler hotpath.
 
-It appears the problem is triggered by the fact that the dt-binding
-patch adding fsl,imx8mq-hdptx-phy.yaml comes later than this patch... I
-only tested with dt_binding_check after all patches were applied. :/
-I'll reorder the patches in the next version.
+Something like so? (probably needs help for !GENERIC bits)
 
--- 
-Thanks,
-Laurentiu
+---
+
+diff --git a/include/asm-generic/thread_info_tif.h b/include/asm-generic/thread_info_tif.h
+index 528e6fc7efe9..1d786003e42a 100644
+--- a/include/asm-generic/thread_info_tif.h
++++ b/include/asm-generic/thread_info_tif.h
+@@ -48,7 +48,10 @@
+ #define TIF_RSEQ		11	// Run RSEQ fast path
+ #define _TIF_RSEQ		BIT(TIF_RSEQ)
+ 
+-#define TIF_HRTIMER_REARM	12       // re-arm the timer
++#define TIF_RSEQ_FORCE_RESTART	12	// Reset RSEQ-CS from membarrier
++#define _TIF_RSEQ_FORCE_RESTART	BIT(TIF_RSEQ_FORCE_RESTART)
++
++#define TIF_HRTIMER_REARM	13       // re-arm the timer
+ #define _TIF_HRTIMER_REARM	BIT(TIF_HRTIMER_REARM)
+ 
+ #endif /* _ASM_GENERIC_THREAD_INFO_TIF_H_ */
+diff --git a/include/linux/rseq.h b/include/linux/rseq.h
+index b9d62fc2140d..2cbee6d41198 100644
+--- a/include/linux/rseq.h
++++ b/include/linux/rseq.h
+@@ -158,6 +158,8 @@ static inline unsigned int rseq_alloc_align(void)
+ 	return 1U << get_count_order(offsetof(struct rseq, end));
+ }
+ 
++extern void rseq_prepare_membarrier(struct mm_struct *mm);
++
+ #else /* CONFIG_RSEQ */
+ static inline void rseq_handle_slowpath(struct pt_regs *regs) { }
+ static inline void rseq_signal_deliver(struct ksignal *ksig, struct pt_regs *regs) { }
+@@ -167,6 +169,7 @@ static inline void rseq_force_update(void) { }
+ static inline void rseq_virt_userspace_exit(void) { }
+ static inline void rseq_fork(struct task_struct *t, u64 clone_flags) { }
+ static inline void rseq_execve(struct task_struct *t) { }
++static inline void rseq_prepare_membarrier(struct mm_struct *mm) { }
+ #endif  /* !CONFIG_RSEQ */
+ 
+ #ifdef CONFIG_DEBUG_RSEQ
+diff --git a/include/linux/rseq_entry.h b/include/linux/rseq_entry.h
+index f11ebd34f8b9..3dfaca776971 100644
+--- a/include/linux/rseq_entry.h
++++ b/include/linux/rseq_entry.h
+@@ -686,7 +686,12 @@ static __always_inline bool __rseq_exit_to_user_mode_restart(struct pt_regs *reg
+ #ifdef CONFIG_HAVE_GENERIC_TIF_BITS
+ static __always_inline bool test_tif_rseq(unsigned long ti_work)
+ {
+-	return ti_work & _TIF_RSEQ;
++	return ti_work & (_TIF_RSEQ | _TIF_RSEQ_FORCE_RESTART);
++}
++
++static __always_inline void clear_tif_rseq_force_restart(void)
++{
++	clear_thread_flag(TIF_RSEQ_FORCE_RESTART);
+ }
+ 
+ static __always_inline void clear_tif_rseq(void)
+@@ -696,6 +701,7 @@ static __always_inline void clear_tif_rseq(void)
+ }
+ #else
+ static __always_inline bool test_tif_rseq(unsigned long ti_work) { return true; }
++static __always_inline void clear_tif_rseq_force_restart(void) { }
+ static __always_inline void clear_tif_rseq(void) { }
+ #endif
+ 
+@@ -703,6 +709,11 @@ static __always_inline bool
+ rseq_exit_to_user_mode_restart(struct pt_regs *regs, unsigned long ti_work)
+ {
+ 	if (unlikely(test_tif_rseq(ti_work))) {
++		if (unlikely(ti_work & _TIF_RSEQ_FORCE_RESTART)) {
++			current->rseq.event.sched_switch = true;
++			current->rseq.event.ids_changed = true;
++			clear_tif_rseq_force_restart();
++		}
+ 		if (unlikely(__rseq_exit_to_user_mode_restart(regs))) {
+ 			current->rseq.event.slowpath = true;
+ 			set_tsk_thread_flag(current, TIF_NOTIFY_RESUME);
+diff --git a/kernel/rseq.c b/kernel/rseq.c
+index 38d3ef540760..9adc7f63adf5 100644
+--- a/kernel/rseq.c
++++ b/kernel/rseq.c
+@@ -255,6 +255,19 @@ static bool rseq_handle_cs(struct task_struct *t, struct pt_regs *regs)
+ 	return false;
+ }
+ 
++void rseq_prepare_membarrier(struct mm_struct *mm)
++{
++	struct task_struct *t;
++
++	guard(mutex)(&mm->mm_cid.mutex);
++
++	hlist_for_each_entry(t, &mm->mm_cid.user_list, mm_cid.node) {
++		if (t == current)
++			continue;
++		set_tsk_thread_flag(t, TIF_RSEQ_FORCE_RESTART);
++	}
++}
++
+ static void rseq_slowpath_update_usr(struct pt_regs *regs)
+ {
+ 	/*
+diff --git a/kernel/sched/membarrier.c b/kernel/sched/membarrier.c
+index 623445603725..696988bb991b 100644
+--- a/kernel/sched/membarrier.c
++++ b/kernel/sched/membarrier.c
+@@ -334,6 +334,7 @@ static int membarrier_private_expedited(int flags, int cpu_id)
+ 		      MEMBARRIER_STATE_PRIVATE_EXPEDITED_RSEQ_READY))
+ 			return -EPERM;
+ 		ipi_func = ipi_rseq;
++		rseq_prepare_membarrier(mm);
+ 	} else {
+ 		WARN_ON_ONCE(flags);
+ 		if (!(atomic_read(&mm->membarrier_state) &
 
