@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23E26FE51E4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 881EBFE51E9
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 08:49:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,60 +12,75 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YJY1gPOgAaLT6+Kz2+e0ENJlulAl4LJwepN5ROf8PcQ=; b=Cpbn2TgA+bluVcioGeqxzCI8HF
-	iAWlBnB6gepIrAprjBRGXbm/JgP/ATmHDjnFQ5M0F3ABBU8GsKGlyr0LV402l0EAGsUNZu+2u2049
-	enZyXec/kEOKDe59XJgsLJ6Bnz6sdfNIqZ+jKv5kw2fiILKB9xs8exrJJl5X1Nn/DdUHuFY0j8C7h
-	ZZfLmGRdOpZ5swcmidXH1LM1msYP1NdsteG7GDZ+XRFQlexxgz13Jed3KfJtg2YTq/NU8auX1NtD8
-	FFzYoacFlOccqEoYwtESqM9cxDw/aCcwSqfR/r0DmDFWO9Kr1uIwpo+M3Jr6vvfRWl1yt4PIPTazw
-	O/QoVxAw==;
+	bh=XShP+UFGcHA8+NRAMytT9G1kOFOShWj4IGMrrTJlFSk=; b=g2GtUm+uWszzP9XJ6GoHSrw7D0
+	AT+nTxlxIJ9QxqU5yuKWPwtFqOYnfsnR5zH9Xa+2IFWg73EeZmUGDiAh2uRRIpxb/TrQrvNkxbiKC
+	QzGo1mppo3Rv676xB0AtWhAnMAOf87mAYF36LYDMaHkOejPkrRi3rKKmp2jAiie2/WUxCv8edYQ5Y
+	Q/LB2iaKuFB0GblmDJ5DYUTAIw/d0V87Hv5jL+BVIroahGIjDNA8Yb9gfp1JcT0vjyK3dkHhOp7Fz
+	VkLVIAaAv2nMZpVxsjkU6dvGyXOT4+TozNrsdDoDRIdLwA1yfGrsKY2JMcVzq/nFyu9obxZDa51Ia
+	NcRHS1UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGCDu-0000000Ct2O-3EiZ;
-	Fri, 24 Apr 2026 08:49:18 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1wGCE3-0000000Ct5K-0VzH;
+	Fri, 24 Apr 2026 08:49:27 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGCDs-0000000Cszn-0WGL
-	for linux-arm-kernel@lists.infradead.org;
+	id 1wGCDt-0000000Ct0z-2cNu
+	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 24 Apr 2026 08:49:17 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-488dcaf2f2fso60939055e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 01:49:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=XShP+UFGcHA8+NRAMytT9G1kOFOShWj4IGMrrTJlFSk=; b=rGi7I/QLr+tzTmQNZANx6+I6J0
+	a3H3lvZ70mhz/WWjWhy+Out0W+Z7uvuhBdExWGa7tnzcAK7wybXz/Cxkas3F1XHZYyTZnjDfgegsh
+	Eh66u+gUwVAq1MSKSQCQY2hbaYaHUj4Zu5YN0Q6DSGOWlb9URCJlB5UiYqyjDLg4Zj9i8F6LsXOvB
+	jlCdsKrilkafuf0yd4t1WowzfRhfO5F9BCbK67T43qvcYnM3PuavgUqINvyEVCWDoZVKbvXSfCMEn
+	2UnPQBallJfJaebmvR7KA1PaMb7CoGxtnq4asjwRgLF3W4J/gntU+R6rOq+sxRYZh1C/qwjR+GSEZ
+	cnU6bsDA==;
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wGCDq-0000000EQur-25Bq
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Apr 2026 08:49:16 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-43e52dc8a04so6640375f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 01:49:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777020554; x=1777625354; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777020552; x=1777625352; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=YJY1gPOgAaLT6+Kz2+e0ENJlulAl4LJwepN5ROf8PcQ=;
-        b=F/YLscbO/m0tbzGRqgW5Wfo52J7oB/gJZuogktUawabQSP6FlQcvzod0kFFjmvh7mg
-         arcQRi3Z+w+Lp0GDnMJrepI08vHlBFS0tXvGzoYlnwftBMwUbXgT8IM2pikSCeS08LIJ
-         LOMn9maSt3mYjYtIxm/RU4k1oZbWzMoWd9sHyJhyyaRHSrFNkX0jzKfxp2xx5Iu7MmKA
-         xjZiNw3huYQmtzmkxnAY/3MpiIzdP+6JIJD1Z4ENAxjLvVz0q9OZ/mr/r1Bl8fXnWVcp
-         5RxG1fkGBFTzsp/NZjI9GNmtb4SJnx0Gp+npOCXiX0FRYk66lPOzO/j0ZcMi0SpHKe7b
-         74JQ==
+        bh=XShP+UFGcHA8+NRAMytT9G1kOFOShWj4IGMrrTJlFSk=;
+        b=RsF9rOQW8enOCYXgslQgzvza9p7udSr84yQtN7W/7tk1YIJas7XAukzIxC3tTd5M1N
+         gKkXS/Xs3tlFHLsiPtOEEjSNDPXogg2gQ326U+l75wE93Cwjf7iD77SO10GaI/4pa8FY
+         YVtTM0/WEA7a20hCShpb6pO+9jidq+V36Vn9Yu3D7MFktldSjVWbGxkRg1ViNvchyxOZ
+         6GcAczClM5JMY0pyop7oUUPj8I56Ophrhnfzy1j9AQZr0Mj9RuvRBHNzHcRYN4WgHxPD
+         gDqDKjs1QCUYJoV4FyqH+TOqcqGt9Yi4s1v/tUusKbb3tSfNuoW5oIVNcH7jidNmsnzf
+         htCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777020554; x=1777625354;
+        d=1e100.net; s=20251104; t=1777020552; x=1777625352;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=YJY1gPOgAaLT6+Kz2+e0ENJlulAl4LJwepN5ROf8PcQ=;
-        b=mAZz1N9HLtD3oR6G2l1iPRTE9ddEaI2437HmmLm6/7/R9mR9NrwcRwDBcmzNC1bX/3
-         ECdEPEuMs4v9bPuWespS7XJnNSn7skdNDD27F08tshCVUQFfB8UDmcBF9cuEq/zoSp55
-         wqftlVY59OUhpKZ6mfQzRJM+KtnjibTRWaXISC5e8b7cXihpiTlXmQIfRN4KNg2Qdd65
-         4739aYqE4gRYGlRxob5X5ualbwMVvr78ZylaRAHSiOVKGlwUqBaKAOw65B1dmyTnI8lS
-         gi3CT9/lHM/5DF90aGyJmSP4YGrekSOPqIsbSUzDlVxF6xTl6iIUHW5DjYL6Tf6RY6GS
-         kG6Q==
-X-Forwarded-Encrypted: i=1; AFNElJ8o1mELLE7QuJrMILZTAAsXDQM2Czi14ZWycgb5FHT2iKR3bBSjRA5quZ9gAZlHQagWcl7JHXKLkqvsZQ1ep8kA@lists.infradead.org
-X-Gm-Message-State: AOJu0YymbotH7sNfJHBUqFvIw8Cy24INNGSXjFNRDVmA3mSsTcrzTuF2
-	nprrV4FbbObQOF7kiQG/u65GOXd8aD/Y8QqJ4w7k9wE+DeiWSH9lvHslGFDEuqCCarOJBWyP+vo
-	bjg==
-X-Received: from wmpz12.prod.google.com ([2002:a05:600c:a0c:b0:488:ab5f:9e9e])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:19cf:b0:48a:66a8:9981
- with SMTP id 5b1f17b1804b1-48a66a89b9dmr10997185e9.27.1777020553789; Fri, 24
- Apr 2026 01:49:13 -0700 (PDT)
-Date: Fri, 24 Apr 2026 09:49:06 +0100
+        bh=XShP+UFGcHA8+NRAMytT9G1kOFOShWj4IGMrrTJlFSk=;
+        b=seQ55Z35dlvytfhEVGfk4toAmx9WluV9Ei5FrtVEd57JIlcgcjGasRiCCdscSrH/dJ
+         b96jdgNP2N7n4t8AG2X9SXWXInLHQYTQO89BT95L8fAJ4t+NQkb8pNY45Q2BEt7KmW9b
+         gFSeSfJGccVovdMdiEJN3C4PvUvTEL6KUZ4hW8Ss8ooF6p20fSw/hCQm6ZoBLawimJ6z
+         rmAyvU2/oAx5BoiClbf93BcrRiJzDjD9ODSjAVwvRqgisSTIfH6ZDN+JWHc4lUQUcQrW
+         SgYGBJisyQqS7JdDxzW47xmh2nKf0Om7rJtz0MIujT/Tkyu82XQUBOaAyU6RuStc18gw
+         ngzw==
+X-Forwarded-Encrypted: i=1; AFNElJ9qOIEdrRkrr9ud6hEfHIvcDeVVQYnO3Kb6Ejb2PnIhDYUiKAYiJph9uFDQrnNH7jCez0TyWGou7JoFNnqOTM67@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyp72bQUe1w/ymT6EKnoaU8lvjUu3NPnpd5n+jK3faCZ67cPAbQ
+	b5EfX8+T9N4d0IuY2BfEsp5oNsVwmOUDOHRNzGGfN/OIhOt5dq9aLNokk80+iPairltoQ1iktsP
+	d2Q==
+X-Received: from wmjf15.prod.google.com ([2002:a7b:cd0f:0:b0:485:37cb:adc1])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600d:8447:b0:489:1ff5:edda
+ with SMTP id 5b1f17b1804b1-4891ff5efe1mr218011645e9.6.1777020551865; Fri, 24
+ Apr 2026 01:49:11 -0700 (PDT)
+Date: Fri, 24 Apr 2026 09:49:04 +0100
 In-Reply-To: <20260424084908.370776-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20260424084908.370776-1-tabba@google.com>
 X-Mailer: git-send-email 2.54.0.rc2.544.gc7ae2d5bb8-goog
-Message-ID: <20260424084908.370776-5-tabba@google.com>
-Subject: [PATCH 4/6] KVM: arm64: Fix kvm_vcpu_initialized() macro parameter
+Message-ID: <20260424084908.370776-3-tabba@google.com>
+Subject: [PATCH 2/6] KVM: arm64: Fix typo in feature check comments
 From: Fuad Tabba <tabba@google.com>
 To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org
@@ -74,8 +89,8 @@ Cc: tabba@google.com, catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	joey.gouly@arm.com, yuzenghui@huawei.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_014916_170040_064AEE08 
-X-CRM114-Status: GOOD (  11.86  )
+X-CRM114-CacheID: sfid-20260424_094914_796120_4F2F0A12 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,31 +105,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The macro is defined with parameter 'v' but the body references the
-literal token 'vcpu' instead, causing it to silently operate on whatever
-'vcpu' resolves to in the caller's scope rather than the value passed by
-the caller. All current call sites happen to use a variable named 'vcpu',
-so the bug is latent.
+Revists -> Revisit. The following patch will add another similar line.
 
-Fixes: e016333745c7 ("KVM: arm64: Only reset vCPU-scoped feature ID regs once")
+No functional change intended.
+
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- arch/arm64/include/asm/kvm_host.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/kvm/config.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 851f6171751c..0e5dbc1c5879 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1548,7 +1548,7 @@ static inline bool __vcpu_has_feature(const struct kvm_arch *ka, int feature)
- #define kvm_vcpu_has_feature(k, f)	__vcpu_has_feature(&(k)->arch, (f))
- #define vcpu_has_feature(v, f)	__vcpu_has_feature(&(v)->kvm->arch, (f))
- 
--#define kvm_vcpu_initialized(v) vcpu_get_flag(vcpu, VCPU_INITIALIZED)
-+#define kvm_vcpu_initialized(v) vcpu_get_flag(v, VCPU_INITIALIZED)
- 
- int kvm_trng_call(struct kvm_vcpu *vcpu);
- #ifdef CONFIG_KVM
+diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+index 093290b366e6..a722ea178f68 100644
+--- a/arch/arm64/kvm/config.c
++++ b/arch/arm64/kvm/config.c
+@@ -283,7 +283,7 @@ static bool feat_anerr(struct kvm *kvm)
+ static bool feat_sme_smps(struct kvm *kvm)
+ {
+ 	/*
+-	 * Revists this if KVM ever supports SME -- this really should
++	 * Revisit this if KVM ever supports SME -- this really should
+ 	 * look at the guest's view of SMIDR_EL1. Funnily enough, this
+ 	 * is not captured in the JSON file, but only as a note in the
+ 	 * ARM ARM.
+@@ -295,7 +295,7 @@ static bool feat_sme_smps(struct kvm *kvm)
+ static bool feat_spe_fds(struct kvm *kvm)
+ {
+ 	/*
+-	 * Revists this if KVM ever supports SPE -- this really should
++	 * Revisit this if KVM ever supports SPE -- this really should
+ 	 * look at the guest's view of PMSIDR_EL1.
+ 	 */
+ 	return (kvm_has_feat(kvm, FEAT_SPEv1p4) &&
+@@ -305,7 +305,7 @@ static bool feat_spe_fds(struct kvm *kvm)
+ static bool feat_trbe_mpam(struct kvm *kvm)
+ {
+ 	/*
+-	 * Revists this if KVM ever supports both MPAM and TRBE --
++	 * Revisit this if KVM ever supports both MPAM and TRBE --
+ 	 * this really should look at the guest's view of TRBIDR_EL1.
+ 	 */
+ 	return (kvm_has_feat(kvm, FEAT_TRBE) &&
 -- 
 2.54.0.rc2.544.gc7ae2d5bb8-goog
 
