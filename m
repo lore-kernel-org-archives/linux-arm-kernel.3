@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B71FE51FA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 09:48:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A46FE51FB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 09:52:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zyyE/r/iA1MwYNHXAS7P+Cj4G1v9/C9w7YzUp4f7iBc=; b=CI900NwqwZ7p+JFWqXqxiq4SU3
-	QTnWJ0Ep8wAXRjmWDbkiySfjQtIxMVChnFj6ukABBhinp18P++6ZZUVIOTkZpu51h/HwSs+TIv9o0
-	H5OIzoX+vm0AvI8BE/NsZDYqfszPqYqLTWIPjbePcYxv7BXs9nz2yiTY+h37p8ksSRuinb2ga3sjz
-	Cq6CQm+Stgr8ECoS+ukhT3yaHK/siOsOas+JNfPtYK/Wt5SXiRzDOaLXLDWRFyVxfy7jYOi7EqeBX
-	pxdnBAV5GE2C60/lNQg2EvLO9NbNYT9DOEunEDSDYeymlm/6MFixV5yhszGaS8HoUcd8FESaBzlHo
-	8vOQUNaw==;
+	bh=7dSVP6vW9j9Y0EuiVzA7IMsg/jf0E4hSdGwD0NTLWuI=; b=W3j1iPZaYciiRNBEzp6+Gd9aUs
+	rhBDNQzH7k6Rhq59f7fDv0Bw8Ze8Fm9J1tDb+79YZpVDWfy0W3FkLnZXEJ4dVOMrJY3/yuZUadK7u
+	lCfMRsZi8XrcLA9McmpLlAr5mZJ8Wtqc+QLSMlCF5SJtHPLxyLwhIsSnNhPJ2Zhx23T8lAzY/H1/U
+	dQtgl5DdQmP9O2R0Xlk5YaH9PmnqNs/+aMDWKjAWz4bspu6Lo/nF2e8+FC/PHJu5DhgIUlLJnz3de
+	mGcs0u0GMe4lV+jK/1tfETQAqomH7ElhSS3BLQK0frMifShvGOw18RrBH6Kifp4C/X4U2fH0RWSqo
+	buV2SdVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGD8d-0000000CxLk-2mJI;
-	Fri, 24 Apr 2026 09:47:55 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1wGDCz-0000000CxiZ-3hBk;
+	Fri, 24 Apr 2026 09:52:25 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGD8a-0000000CxK1-3hY4
+	id 1wGDCx-0000000Cxhe-2UHh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 09:47:54 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4896c22fcbaso48064745e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 02:47:52 -0700 (PDT)
+	Fri, 24 Apr 2026 09:52:24 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-488b150559bso60843635e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 02:52:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1777024071; x=1777628871; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1777024342; x=1777629142; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=zyyE/r/iA1MwYNHXAS7P+Cj4G1v9/C9w7YzUp4f7iBc=;
-        b=maTCA5TUp8xzhVshCkccW3aTMn6hawPk9SRweNWfcKDWAjlEiRh6p9KJ43Pw2yIsLo
-         WcTsPgvUf1A7LOF3j9RRYTJ9z3QWhoXjbNoeq1DP7Y15LVvUR+Gk+qQLPYVi/goLXrwq
-         HXefUIA1u7HqmhTPc4+mKmuzEPkqT68PMzuWVQEIjb+d4JiE7kgyJd/Rqj1wknEDvq0R
-         Yf8G2ZXas2pFimnwNMlQiL0lszaW7Nr7EtYvJlIHTshq5DUr/hlNF1tCbgsiyOnwSs2F
-         I7Ua4DwRQB888/xwdFJ2yX9I2VO3rghk5bcyS1TX1RkyR0D5rciDGaEY4uj/mCRNZyNN
-         MQKg==
+        bh=7dSVP6vW9j9Y0EuiVzA7IMsg/jf0E4hSdGwD0NTLWuI=;
+        b=nodNGVJStPlNpcebO0709dShDlaf1E30y5VuJ7zpD1GIAeWlNT0DV6eKRsb3+LcfQk
+         +gi4oPgxwOG9HmdmRbhO+Ax8Cy/4wTzCi04V3D2rtEh8QwINRK0jMpqOz/cacFVCgTxo
+         vnSFXUNqjRRTgOEt39zMdiEJf8ogBBsJgRV7plYECw5sg0rBXZ42MuY5Fcayfz1MdqPH
+         4Nbz+KYrLV3kVvCG2jmdqmczXV0px8lTwYTgsFivaLv9GJmH53Oxrzm7v7PrvcugDIbY
+         CJT1o4u/PggAktB87OCArXTzvPAOFIDfHqDEh+5v6suzG9jwfaEoJLrrOjJpBX+Dv9tk
+         fhxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777024071; x=1777628871;
+        d=1e100.net; s=20251104; t=1777024342; x=1777629142;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=zyyE/r/iA1MwYNHXAS7P+Cj4G1v9/C9w7YzUp4f7iBc=;
-        b=A17t7WrhyhcRh8twqXdjZVDB/2Y4ytUmCTwZnSWbRDA/tZ+OlyPq9NDX8io+Zp53MJ
-         6X3fMzcWyrOOHy98DNzLXW7QFFSbYqK5wpT3RvYTfPDnsSGMkfaZaW9tqqWY36M0trjS
-         Ui4X6M/pZQoF4vUkTA+dHgzPmBFEB4VoUgRCSm0NaiU1BVjstMNPlAZqqzTIB85YE4cH
-         +/3PkZo0AW+xx6cvp6f3d98pIXI/mBsdOs00tt5UDjoONAhBFf5vj6BOaCRwhLDDlw8e
-         b46jNR5eJQFxlVcJ0o6PQsrBhtiC12qCsmtcGDAI3RirQJu1jyHFYLaHR8D3sR8EAU2p
-         qdFA==
-X-Forwarded-Encrypted: i=1; AFNElJ/i0cUqem5pVr0K+H8gzW31DcEc3CV6tDmtCj7n1mRmyUsydcbeZPeZolxSnTYj9EfaRk2F4qkxd/CJPP9Se7gG@lists.infradead.org
-X-Gm-Message-State: AOJu0YynwgxTsF5B5yovhyuUpUiewIhDFZKat3dPT+pKlrcpUUxFCnhP
-	NW1nDPWI10FzTv+z2et8+9oiwJE4+/PenJdwMhA12MkymquVICuxTmHMTv4Y0PsQiSQ=
-X-Gm-Gg: AeBDievBtf7gi/xg/4TwhWSJD2MzIULigSVrQKMpS6jRCDbbUiDmplwOObLEIx/gi3V
-	FU+zfEpOffkBq8pnMfyusVLAuLvOJKTYVYjw4x8PcTk0qXTSxMIk8nkHBCDE4M3TR6TLC5hYAqj
-	6bJxGSVYHJHpz2QDxiRhn65i2j1Ui8qeRjFRh4TixSKOf9UbgHtEHsiHgHdtTmBt85TZsDnjEBu
-	XHs3EVDQIO2nYxfZmyLag2K5afkR8WpRfZkcpAYS7sS9ELXa06nQ3koNS7Ejv/CUycnUBLFVzj2
-	vlHgD2haEeGHNUeHeZ3OPrdPsXetuvXxo4Y6Mj0LyJI5aGu4+WppGj0w5PAYMd3bfCm4YvrSMSu
-	bU/Zwwqc84ofwrU4lIo5qwyibMRl+TunklWYVScupjSb1Zd4O71nvRoIRZ9voLFxF/Z8FkzSUaD
-	NBkiDa3z8p7PKBzQm7ikSaxnc4mieinE7kk9GhU/rkqN9TwG8SLSAHblrxzjUHjvaYzFJAo9k4U
-	7bM7AzKnTb4xq4btw==
-X-Received: by 2002:a05:600c:c4a2:b0:488:c078:bfda with SMTP id 5b1f17b1804b1-488fb78eebdmr426779015e9.26.1777024070744;
-        Fri, 24 Apr 2026 02:47:50 -0700 (PDT)
+        bh=7dSVP6vW9j9Y0EuiVzA7IMsg/jf0E4hSdGwD0NTLWuI=;
+        b=PQ7RIiqxgTaXZ4/YZ/jjkf+PI7R7ppKxgsXYoGMcHaa6KIGNkmTCKf+VGxz2pKNk7S
+         iUOU2ZTrVxUn2oQEvoR3S0lKEqFaTJy/2ZyPvcXYTjrmi10+jOh+IqyGy6umYr0MTaus
+         7MiIGH9exzRCFBnia2ug08bS15NPSX/RSwHEZcv+8CZINw0DYY1VlEbORN8avQr7z7ZZ
+         eJQY017/6Dg548OmpBkLb2UdBcKp7hm29J2Lizy8fQRaxFlFO+RboWQaHudABpNbwKY1
+         teoLlGIl+nBZm76dErqlNbSoEvMgV54Pot7WCN+PWdW3m2A5mvCqlis7ogVeIb5vgTV6
+         6Qcw==
+X-Forwarded-Encrypted: i=1; AFNElJ/9KOkQxRcG6PI7aPmGncVLzUG0hoMRfpKaN5zYao2rzMGzWffX9H/tUSzIlxwOCXd8ahUBIwldiO1GjSoBN47O@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxwxi6RwAVFza+Xmu/CvB0+JGiw2Ol8MFKHQqq72sZ2BjVlf80l
+	pbOQSgmRRI2QxXzxrKN38HryoufEd6jDKzbmRy3Q+tQUFywZ3OexDyq/LcBHbhXzHug=
+X-Gm-Gg: AeBDieu9nd7aF1sU2buj1XDK36+s7R8mhLmb29HJ8/S3cGffTCote9YTqWxVuwGYzVj
+	T8Crd3Ml5hV76Jw8NqgnZec1C0eQLG26PQ38Sph5TBRdZXJXyNfHuOKawUv07ejOR4aeTLIquC0
+	G5JWPvXdX1/J4yhMyV7UEZ/oBEJxQcF9j4Gg5u0Qn0q1yBCqS+8RBaXIa1zZqPYfcGJRBywJ9cQ
+	7wIWA49jV2rVz+busrZBxyfHX5nWLCdlJo0PjCkzZYHDdW8cnwBMlFJqnmpRjNTqVvWhzXezyAk
+	O+6K/TMXY0TXTXTyROMAq5KYnghSnhIaG4zIdqTC4vewUBFENjIPk8DRsi2ycIrUkFMteQVp2mP
+	/MPn0TnWlokJXwFByMA4ZoIqQznhKTMjIc1G7LhMp8tyYlXw6XWiByXzgVH6Mz8uOALW8b5wujv
+	3ANcbysXHuxd5A1iCjPlNQlC125XdQYJU44d3ZpdbwaX6SJXoZifX3x8zYFGsAzkvNrGGhYR+WS
+	5JwiXt9P1QO4YrjrQ==
+X-Received: by 2002:a05:600c:a305:b0:48a:53cb:85f4 with SMTP id 5b1f17b1804b1-48a53cb8734mr195298735e9.24.1777024341572;
+        Fri, 24 Apr 2026 02:52:21 -0700 (PDT)
 Received: from ?IPV6:2a01:e0a:106d:1080:79e1:f56b:445c:ca9c? ([2a01:e0a:106d:1080:79e1:f56b:445c:ca9c])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488fb75ab25sm179552435e9.11.2026.04.24.02.47.49
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a55b8baaesm389489665e9.10.2026.04.24.02.52.20
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 24 Apr 2026 02:47:50 -0700 (PDT)
-Message-ID: <fe284566-5a71-4b9e-940b-a36c58cb94a5@linaro.org>
-Date: Fri, 24 Apr 2026 11:47:49 +0200
+        Fri, 24 Apr 2026 02:52:21 -0700 (PDT)
+Message-ID: <6d734851-6f0b-4351-832c-4ee08dfcc10d@linaro.org>
+Date: Fri, 24 Apr 2026 11:52:20 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v4 3/8] firmware: meson: sm: Add thermal calibration SMC
- call
+Subject: Re: [PATCH v4 5/8] arm64: dts: amlogic: t7: Add cooling cells to all
+ CPUs
 To: linux-kernel-dev@aliel.fr, Guillaume La Roque <glaroque@baylibre.com>,
  "Rafael J. Wysocki" <rafael@kernel.org>,
  Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
@@ -91,7 +91,7 @@ Cc: linux-pm@vger.kernel.org, linux-amlogic@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 References: <20260423-add-thermal-t7-vim4-v4-0-d4c1528d5044@aliel.fr>
- <20260423-add-thermal-t7-vim4-v4-3-d4c1528d5044@aliel.fr>
+ <20260423-add-thermal-t7-vim4-v4-5-d4c1528d5044@aliel.fr>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -118,12 +118,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <20260423-add-thermal-t7-vim4-v4-3-d4c1528d5044@aliel.fr>
+In-Reply-To: <20260423-add-thermal-t7-vim4-v4-5-d4c1528d5044@aliel.fr>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_024752_951684_28C95F49 
-X-CRM114-Status: GOOD (  17.24  )
+X-CRM114-CacheID: sfid-20260424_025223_653310_A16A67B1 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,65 +142,82 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 4/23/26 18:07, Ronald Claveau via B4 Relay wrote:
 > From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 > 
-> Add SM_THERMAL_CALIB_READ at SMC ID 0x82000047 in the command
-> table and implement meson_sm_get_thermal_calib(), which forwards the
-> tsensor_id argument to the secure monitor and returns the calibration data.
-> 
-> Also realign the CMD() column to improve readability.
+> Add #cooling-cells = <2> to all CPU nodes (both little and big cluster)
+> to allow them to be used as cooling devices in thermal zone mappings.
 > 
 > Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 > ---
->   drivers/firmware/meson/meson_sm.c | 29 ++++++++++++++++++++++++-----
->   1 file changed, 24 insertions(+), 5 deletions(-)
+>   arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 8 ++++++++
+>   1 file changed, 8 insertions(+)
 > 
-> diff --git a/drivers/firmware/meson/meson_sm.c b/drivers/firmware/meson/meson_sm.c
-> index 3ab67aaa9e5da..4e57986724212 100644
-> --- a/drivers/firmware/meson/meson_sm.c
-> +++ b/drivers/firmware/meson/meson_sm.c
-> @@ -41,12 +41,13 @@ static const struct meson_sm_chip gxbb_chip = {
->   	.cmd_shmem_in_base	= 0x82000020,
->   	.cmd_shmem_out_base	= 0x82000021,
->   	.cmd = {
-> -		CMD(SM_EFUSE_READ,	0x82000030),
-> -		CMD(SM_EFUSE_WRITE,	0x82000031),
-> +		CMD(SM_EFUSE_READ,		0x82000030),
-> +		CMD(SM_EFUSE_WRITE,		0x82000031),
->   		CMD(SM_EFUSE_USER_MAX,	0x82000033),
-> -		CMD(SM_GET_CHIP_ID,	0x82000044),
-> -		CMD(SM_A1_PWRC_SET,	0x82000093),
-> -		CMD(SM_A1_PWRC_GET,	0x82000095),
-> +		CMD(SM_GET_CHIP_ID,		0x82000044),
-> +		CMD(SM_THERMAL_CALIB_READ,	0x82000047),
-> +		CMD(SM_A1_PWRC_SET,		0x82000093),
-> +		CMD(SM_A1_PWRC_GET,		0x82000095),
->   		{ /* sentinel */ },
->   	},
->   };
-> @@ -245,6 +246,24 @@ struct meson_sm_firmware *meson_sm_get(struct device_node *sm_node)
->   }
->   EXPORT_SYMBOL_GPL(meson_sm_get);
+> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+> index 560c9dce35266..7aec65f036a9c 100644
+> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+> @@ -63,6 +63,7 @@ cpu100: cpu@100 {
+>   			i-cache-size = <0x8000>;
+>   			i-cache-sets = <32>;
+>   			next-level-cache = <&l2_cache_l>;
+> +			#cooling-cells = <2>;
+>   		};
 >   
-> +/**
-> + *
-> + * meson_sm_get_thermal_calib - Read thermal sensor calibration data.
-> + * @fw:		Pointer to secure-monitor firmware.
-> + * @trim_info:	Pointer to store the returned calibration data.
-> + * @tsensor_id:	Sensor index to identify which sensor's calibration data
-> + *		to retrieve
-> + *
-> + * Return: 0 on success, negative error code on failure.
-> + */
-> +int meson_sm_get_thermal_calib(struct meson_sm_firmware *fw, u32 *trim_info,
-> +			       u32 tsensor_id)
-> +{
-> +	return meson_sm_call(fw, SM_THERMAL_CALIB_READ, trim_info, tsensor_id,
-> +			     0, 0, 0, 0);
-> +}
-> +EXPORT_SYMBOL_GPL(meson_sm_get_thermal_calib);
-> +
->   #define SM_CHIP_ID_LENGTH	119
->   #define SM_CHIP_ID_OFFSET	4
->   #define SM_CHIP_ID_SIZE		12
+>   		cpu101: cpu@101 {
+> @@ -77,6 +78,7 @@ cpu101: cpu@101 {
+>   			i-cache-size = <0x8000>;
+>   			i-cache-sets = <32>;
+>   			next-level-cache = <&l2_cache_l>;
+> +			#cooling-cells = <2>;
+>   		};
+>   
+>   		cpu102: cpu@102 {
+> @@ -91,6 +93,7 @@ cpu102: cpu@102 {
+>   			i-cache-size = <0x8000>;
+>   			i-cache-sets = <32>;
+>   			next-level-cache = <&l2_cache_l>;
+> +			#cooling-cells = <2>;
+>   		};
+>   
+>   		cpu103: cpu@103 {
+> @@ -105,6 +108,7 @@ cpu103: cpu@103 {
+>   			i-cache-size = <0x8000>;
+>   			i-cache-sets = <32>;
+>   			next-level-cache = <&l2_cache_l>;
+> +			#cooling-cells = <2>;
+>   		};
+>   
+>   		cpu0: cpu@0 {
+> @@ -119,6 +123,7 @@ cpu0: cpu@0 {
+>   			i-cache-size = <0x10000>;
+>   			i-cache-sets = <64>;
+>   			next-level-cache = <&l2_cache_b>;
+> +			#cooling-cells = <2>;
+>   		};
+>   
+>   		cpu1: cpu@1 {
+> @@ -133,6 +138,7 @@ cpu1: cpu@1 {
+>   			i-cache-size = <0x10000>;
+>   			i-cache-sets = <64>;
+>   			next-level-cache = <&l2_cache_b>;
+> +			#cooling-cells = <2>;
+>   		};
+>   
+>   		cpu2: cpu@2 {
+> @@ -147,6 +153,7 @@ cpu2: cpu@2 {
+>   			i-cache-size = <0x10000>;
+>   			i-cache-sets = <64>;
+>   			next-level-cache = <&l2_cache_b>;
+> +			#cooling-cells = <2>;
+>   		};
+>   
+>   		cpu3: cpu@3 {
+> @@ -161,6 +168,7 @@ cpu3: cpu@3 {
+>   			i-cache-size = <0x10000>;
+>   			i-cache-sets = <64>;
+>   			next-level-cache = <&l2_cache_b>;
+> +			#cooling-cells = <2>;
+>   		};
+>   
+>   		l2_cache_l: l2-cache-cluster0 {
 > 
 
 Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
