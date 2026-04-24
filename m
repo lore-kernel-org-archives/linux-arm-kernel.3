@@ -4,147 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59909FB44B5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 06:18:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A0BAFB44BC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 06:33:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=alL+hUyAA8CVFqDPoDSZLKNyvSeKhYA06+IaqdFocCk=; b=p0qe2n6TL5hXmmRAXdsy/SzOSk
-	dAoOgJROzj7mqGqmSO7VTH3+/GDaStUfbsVnqaHToUedQfM/d/RxRQzcRr+1aFIYdj4MWXKAPBvs1
-	zAC8t9fSJ/66KdERzoOFzCSjVgasXlpEv/QsGEl7sZnC6FAGZEnnzoxhLdAN/OvP+FITb7kGUfJVG
-	tHk8zzRNq8vIaFSR9dswcwiM3fJlsTWumF8w1VEoI3/dsMrHftGanHjSm67O8ebBQ6hL8V5qp1A7b
-	GF3PgmFbjxLA+Ka5VNt2lVQekJugclc58E5Qg3LQVGVyI4/aUgJfZqt7x6zKstN9LTwKgh1FpIzRb
-	VKtGZknw==;
+	bh=8SDLGP7xfTuvBLKrkgTFGSV6/ELHlpEZ9aT6DGRWRtY=; b=HgeSklIiQh9PJ3Pio/cmM3z7Q3
+	OsEMVkMOKWPna5o6DwMKwS9h4hXXceFyLpqJ1hphyPg7BuR0K3EmSXYzrYA8U3IvD6KLNbT+d09Zu
+	gPVsCJ33Y7cae3mcMxs90fVJ5zSVMzAPP2n1w8TbUYPoqbwYd0MnKyClysVCp4osRt+PH4/SKLtzd
+	JzZgx8oOiR35YHEv9My8voWpM44j63ZrBdINejHzg4cpuluGVxpEPsdRIBI+qgG/6s8qbI1Jvbw91
+	lCaK++LQo9bqLHSrS0iDuRhWlSGTNCydMvHZ6y4GXy2uXrjE4pQms/R7+daMxo9upxCwfz7b/M4Kn
+	40JhojaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG9rX-0000000Chci-3tSW;
-	Fri, 24 Apr 2026 06:18:03 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wGA6H-0000000CiCX-0wFz;
+	Fri, 24 Apr 2026 06:33:18 +0000
+Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG9rW-0000000ChcI-0LzR
+	id 1wGA6E-0000000CiC6-1c3y
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 06:18:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JX9MMaePSVzQ5Q2tEGTkNMYtMgwIul5O2Hl65ISGDvc+31Xc4P28pF8wRO1ZyDAxpaOAMAMeFoHA+LR7TA4NBqcDAWl4+K/CLXUYFBBVeYgOeHP2Ycx98anGo8xVYVeXK+hydfZ3ylNa8t1pjvBRsqw1ZK05mibkq5Tu0Eawchzw2lebBxKlSuDicJ/5hjrWR87BhUTmJqivyx9HFN8jfA+UTuzouP8A4qtXgBQtaajiljNG3EtHzBn1v5pZUSVU3qkyM0mbFQdYhn0Z3lNL2oCxDDGimjZ8O0/WyD+8I7htAYfb2VjDClTdRCDO/kF7kFYMugkRpyoNP8Rb5TJhLw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=alL+hUyAA8CVFqDPoDSZLKNyvSeKhYA06+IaqdFocCk=;
- b=ZZeEgiUdcGf0abMxuMBo/K7eNVXgwcQIw2ImpeYgfyvdB0rRWiGz45VeJMNAJMrg5G+BqJks3XmXg4jlB1fgpotgKaQeZ0XtPrkd7PxIesAxkfg2bNX4iP4BqvxPDee1OkkO6dZFTy0zupZ0kt9btxkPSriLRBHZan5rf0oTsRK0bfv6+e/ZKWaLindYy94WoeFtOG/O/W4VgkdpYm3cjqNr3tP6P4PDaRvq0YgJhqiAg65PS4c8kOhg6fusEl6K7/dZ0/hKO55foddOAaLfg6hFInzhK5MoJmFV8TJAmNhbRaLn6ObRxemZV8EkzqHPsTjZFL9k8DY4qEz7mFqBBA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=alL+hUyAA8CVFqDPoDSZLKNyvSeKhYA06+IaqdFocCk=;
- b=ZVSCws0eg5MkF/BMgSMn/JIXfJVqys3uaM/FwqoCySY3nwTZX8+E/wDAscHmedCcGEU4ZFTpadL/XxwLIy8zihXgICIlyiGniLcQ8RMAn/g6P0hAIKnsV3LiRN1OQqVSeJvLGs1GByRLNFuK1tyjbLNsWTbBh/Yf/5juxgWnz9ncek6gitFwUYItR8GMJX562Swkxj5GbBywmeOeI91RY7x4eAL3msqq+pCGVhws7gyw7QjGmi3OLkB0rRD953RQi3s2n/D2ywy4GPE9t8JN4Frr9MqIorBecyHLJP+70m4cn9CBDoBgytmj3QhujsjXpjjnZ0dIOc/H1GClLvN/HA==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by GV4PR04MB11289.eurprd04.prod.outlook.com (2603:10a6:150:28f::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.22; Fri, 24 Apr
- 2026 06:17:55 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%3]) with mapi id 15.20.9846.021; Fri, 24 Apr 2026
- 06:17:54 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>, "Peng Fan (OSS)"
-	<peng.fan@oss.nxp.com>
-CC: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>, Daniel Baluta <daniel.baluta@nxp.com>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v3 0/3] Add i.MX94 remoteproc support and reset vector
- handling improvements
-Thread-Topic: [PATCH v3 0/3] Add i.MX94 remoteproc support and reset vector
- handling improvements
-Thread-Index: AQHczKxE5lBZehqJIEuxbd2exx0dCLXs8NsAgADYWwA=
-Date: Fri, 24 Apr 2026 06:17:54 +0000
-Message-ID: <PAXPR04MB845952CD7B5BB52C672DAFEC882B2@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20260415-imx943-rproc-v3-0-9fa7528db8ca@nxp.com>
- <aepUOjXBOWK-0wt9@p14s>
-In-Reply-To: <aepUOjXBOWK-0wt9@p14s>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|GV4PR04MB11289:EE_
-x-ms-office365-filtering-correlation-id: 83806825-5987-4257-eb45-08dea1c938f0
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|376014|7416014|38070700021|22082099003|18002099003|56012099003;
-x-microsoft-antispam-message-info: XXoW9kpzUClUZkM3J9Kjf2XY/4yaWaKD1GuwN8N5S6VyFMhtvlza/3Br/SDjz2W2YwVCZn5uvkB7ZhfPp0V229orMEUONfT55hPBxcmKWs9kQS6GUJnx5DkTL9Z2oyNjdaAsBbgycYIx5202VaXZY9yE9l1R/oGK8G9ImYto0aa9sAnnVunUPRdIIdA+CqQ9AoxeKzDSc5rLu7Rz/JV0ea+5W0KJ/JZjZETJNwzSeopOt8gyFNo6lBfvEUmmih3QCiy0PqkLzYvqseEszsHh0gha1pydIW0zGmQfk9GSlz7tb7d4SfwwMvZcytyMOdCHjQxzIFnXTvSjm0NMi+Ihlnivf6bXuZY9fMudED0QF4xIBSX91WGICqeBOrX/twTggacdTh9CtGE/wCNklWLzX3rjA5CFuFw/KH+zXZEJxppZZRcFCkMgTT0Fz9ZYDed8k8N1HePuTvcCtSTxYP3jWO3G27Dryvm8ICVr+TxihoF0IN3MQTCTvkMDYbJhBAeA3/Z/C1hwby5gn1BNXHlCMTIcJ7hGYsrDBO/lLBz1zaw05b0/J5LST7xb5AxiTibGdujXrmKZho1sF8Ciyg3eYSgGY0nqzkZAPregcD459iL4AmOzyC4tx/q2o5YZipFoxrOeF6QA/J0m1nOlswwZCcZm5Jt09iYhqOfWELDu5dL6eIozh2QrDrR/zKPxet9xfDYt3tQv1YTWiD56TMwWRuy9EHlX13glOi+s6hFiNrz3T0Tz8VsdgJDBs4h391WjcOe1XQppB8nGMOFJ/3KZTMwZh2YrKpiFJfb1tfc1OLo=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(376014)(7416014)(38070700021)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?a2h1SHVNaFA2T1FGcWpsbXk3R1VsN3RkeERaUFhtbEdKNllBTmZDL0NyL3A1?=
- =?utf-8?B?VG84Yys1R0NHcW94TUJCZklmdDYzT0YyUWVVQVFMK1lVQUJ0d20rTUlsZTI1?=
- =?utf-8?B?S0dJbmVOYk1DNENpR1U5cDYyVmdGYmRlWlpVby9vdTNNRGZibnZKTUFpTTBm?=
- =?utf-8?B?cFVWcXRNWEtObE5CeTNZWm1VREZ3MzFlcWl2VlRXM0N3SDVVeWFuVGl2aE45?=
- =?utf-8?B?Ykg4LzVweU9XRHZtbkpYMjFmQStkY1JLcjdYcGM4am9VRFAwR2R0OXNDdGpx?=
- =?utf-8?B?d2c4cll2WFdNZmhTQzNaRHB0NHd4QVZ5ZHZZZGNuY3ZOamJNcFZaSENtQlVo?=
- =?utf-8?B?U2JGUHAvNUp1UlphTWNGNEM2YXYvS1JnUlo1WVRlM2NLbDFlWTJtTHdnT1Zk?=
- =?utf-8?B?clh2UnpHY1Y3T081Z3JNSTQ1bFBBdlM2QTdtVFFyZGpkMVRhbWs1OVpwWFRx?=
- =?utf-8?B?T2Q1azhuWTd4ZmQzdVI4NkJHVGYyakJOUWZsczFmdkhwb2NEMUZJVUcvcHRQ?=
- =?utf-8?B?b0V0ZXkyRDFrWkRUQTEzcldMdk5rWjFsWWkyNDRkMkN3M2NrSjRJLzlDQkRx?=
- =?utf-8?B?WjI4MnhrRXp0N3Y5ZXhkR056NGpYYTZPSW00am1FbWdEU3NwNFcvQURJMXhu?=
- =?utf-8?B?OXhBZVdlY1A2M2FJdFdFeUlVdTZLeXd2QkhLaVMvdGZIUTdLTUw0NG0vWnBw?=
- =?utf-8?B?Rml1K0NVUG5KSGpVbXRHOG5wMGVKZStPazJERlRZMlpIcjdybkgySE1JN012?=
- =?utf-8?B?SHZySHNHYkQreGk3WmFYbWN6RVhmenhUOWlUOGNoUEJRdzA3em9TTkJzTHRV?=
- =?utf-8?B?NmtOT2FLdHZ5QWU0TmN2cG9nakxSTk8reVRPSHlrMWw3NzQ2eVlzd0JGb0Fs?=
- =?utf-8?B?YWZDdm1FREQyTjlpa0RUS0l5Vkc4YWZFZllhalJ6cVFmSVJ0ZmZYWGQvMDhL?=
- =?utf-8?B?cTcvUkpuaVhIS0lPM01CUEZXS2o3Q2JWV1lISFZMYmtGZDBnOTYyV3ljZ1hu?=
- =?utf-8?B?Y1lCdzh0b25wSWlGR0w0REtENFNPMFR0UnlKN253YWpvcUNCVkptelAxMEFa?=
- =?utf-8?B?VWhTMFRzdzJPVkIwbGg1NnpZZFQzUTh2a09WM0I3UlFLWVNETEh3THVvTTZW?=
- =?utf-8?B?YjZhSDR3QVRTNUQ4aUJscXdmRithTmVoNWx4T3JvODdFMWgrdk5iTkE5K1h2?=
- =?utf-8?B?YzFlaVA0U3ZJa0ExNEEvWERhYTBDemRzYVdKMndrR1R6K0VrMW9ZSk05dWI3?=
- =?utf-8?B?Yk1KWHRZRWo3MG5QYmpYT0VNeHBaSkZDZjBqc3VtTnlOSnZGalRXdlZDc0Fq?=
- =?utf-8?B?aXRScFhBYmZ6QWpicUtTbTFFR3RVTEMyQlBUcU1IZGc5LzN1NWkxajRuRzRH?=
- =?utf-8?B?b1M3ZXZhZGR1R2IyWGs3dGlzSGNmdTRBdEtKK2cvNDNYYTFqMGQrNCt6VVdO?=
- =?utf-8?B?SmIyT3pRRjhYMk9aelFod1B0VmtHcG5kYTQ1YVg2QW4rOWFOYm80cEd2SUQ1?=
- =?utf-8?B?MmVrZHJpSjRNQnRaRUU4cngwV1dtaHliTlNPL1dFdytDcCthd2QvRjNCdWNp?=
- =?utf-8?B?OS8vdXNUYnVteFQ4ZzlGN3pVc2xSTnNiNGZ3K0Z5T0tudmxsN3V1NFdPVVFE?=
- =?utf-8?B?eDFwYUZaS3Z1eGY2RXFvT0dmaytockNFV1lvZ1JYS2EvVms2NkVpZGR3bUdW?=
- =?utf-8?B?cHB6SEtIam9JOGQxOHBDWEVXRFVTQmxEbWs1dXp4M1N2d3JVVk1xWmE3T2Np?=
- =?utf-8?B?UHUxQ2Q4Y1lLU04rRWYyNVUyMVBuUFFGTFFxeEV0dFM1RGs3WmY4SW5IMzdP?=
- =?utf-8?B?UkFpOWlTVkZ5bE0zeUE4MW9ESFZBKzRvN2JmOGNuWHJlcEFjd1NWNFlZQlY3?=
- =?utf-8?B?TzV6SVN0WS85LzJRUmdLa21lbFQyek8vL0x0MzBMbTBxam85dnUxTk5UK2Mv?=
- =?utf-8?B?RS9KY2ZqMW1IOVFleW1MRWVHeXdsdnBhRytKUWloeGFhb0ttRHA2dGtOdGQr?=
- =?utf-8?B?QnFxYkRNazVqTXBteU9QNnhPTnBVT0xVaGd0YmFJcXdYZ20xMWUxd1d3Y1dv?=
- =?utf-8?B?WE5GR25RL2RIMzVCOVJ4Y2UxR0hnQ09rNnIxcCtuNHVIU24vVy9nVitrZ0FL?=
- =?utf-8?B?cENXZWovK1ViTmhOZzBzRTlMbWV2b3Zndi80L05DVC9RdXIzeGUwTGxLWHp0?=
- =?utf-8?B?VnBhbE1SSFNEcFBsaDZUR01WeFN1UmRVSVhwZHlzbjc2VzBxMXNxTHh0S3Bp?=
- =?utf-8?B?b0hnK1dyOVJuYW5lT2tQNkFsZVVSWCtKSHo0ZnROZDl2ZmZJMWN5RXcyRnda?=
- =?utf-8?Q?wrXH+wQ9ZlNqomAL1R?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Fri, 24 Apr 2026 06:33:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1777012387; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
+	bh=8SDLGP7xfTuvBLKrkgTFGSV6/ELHlpEZ9aT6DGRWRtY=;
+	b=v3g9sdw7iZKTrayetEWjBAP6YtFahg2eZPMyczU3HdDBZEgKPJPtFBoQdrXgNr6aGSu8e58KlizWq+iAulfEq7pmmj2Gl+TH6IPM+ED1BRWnmDCMKn6MGsKUKiu4ggLcIKVjcDBtsSt6PrUqA+NqrXKOVhOmDFQUtrBNEyo4npg=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R941e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=yaoyuan@linux.alibaba.com;NM=1;PH=DS;RN=8;SR=0;TI=SMTPD_---0X1bjMlB_1777012382;
+Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0X1bjMlB_1777012382 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 24 Apr 2026 14:33:02 +0800
+Date: Fri, 24 Apr 2026 14:33:02 +0800
+From: Yao Yuan <yaoyuan@linux.alibaba.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH] KVM: arm64: Wake-up from WFI when iqrchip is in userspace
+Message-ID: <uhqgyol622go4lm5btbk4jyieb3swhskpkyel4mnksfeki2mo2@ecnjvxwiqcfw>
+References: <20260423163607.486345-1-maz@kernel.org>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 83806825-5987-4257-eb45-08dea1c938f0
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Apr 2026 06:17:54.8437
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: AWCpkboDFRTrgTmTRIktcIf9ykR+XAbdA9jMaEw0qZHQs8H+UnGnlb1QxvovS+Lvbk9QOS8o3Vll6KsgjckJsg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11289
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260423163607.486345-1-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_231802_171283_7BF496CE 
-X-CRM114-Status: GOOD (  14.23  )
+X-CRM114-CacheID: sfid-20260423_233314_761531_595F6A69 
+X-CRM114-Status: GOOD (  16.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,25 +67,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgTWF0aGlldSwNCg0KPiBTdWJqZWN0OiBSZTogW1BBVENIIHYzIDAvM10gQWRkIGkuTVg5NCBy
-ZW1vdGVwcm9jIHN1cHBvcnQgYW5kIHJlc2V0DQo+IHZlY3RvciBoYW5kbGluZyBpbXByb3ZlbWVu
-dHMNClsuLi4uXQ0KPiA+DQo+ID4gLS0tDQo+ID4gUGVuZyBGYW4gKDMpOg0KPiA+ICAgICAgIGR0
-LWJpbmRpbmdzOiByZW1vdGVwcm9jOiBpbXgtcnByb2M6IFN1cHBvcnQgaS5NWDk0DQo+ID4gICAg
-ICAgcmVtb3RlcHJvYzogaW14X3Jwcm9jOiBQcm9ncmFtIG5vbi16ZXJvIFNNIENQVS9MTU0gcmVz
-ZXQNCj4gdmVjdG9yDQo+ID4gICAgICAgcmVtb3RlcHJvYzogaW14X3Jwcm9jOiBBZGQgc3VwcG9y
-dCBmb3IgaS5NWDk0DQo+ID4NCj4gPiAgLi4uL2JpbmRpbmdzL3JlbW90ZXByb2MvZnNsLGlteC1y
-cHJvYy55YW1sICAgICAgICAgfCAgMyArDQo+ID4gIGRyaXZlcnMvcmVtb3RlcHJvYy9pbXhfcnBy
-b2MuYyAgICAgICAgICAgICAgICAgICAgIHwgOTgNCj4gKysrKysrKysrKysrKysrKysrKysrLQ0K
-PiA+ICBkcml2ZXJzL3JlbW90ZXByb2MvaW14X3Jwcm9jLmggICAgICAgICAgICAgICAgICAgICB8
-ICAyICsNCj4gPiAgMyBmaWxlcyBjaGFuZ2VkLCAxMDEgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlv
-bnMoLSkNCj4gDQo+IE11Y2ggYmV0dGVyIC0gSSdsbCBwaWNrIHRoaXMgdXAgd2hlbiA3LjEtcmMx
-IGNvbWVzIG91dC4NCg0KVGhhbmtzLg0KDQpEYW5pZWwgc2VudCBtZSBhIG5vdGUgaW4gV2VkbmVz
-ZGF5IGR1cmluZyBhIHByaXZhdGUgY2hhdA0KdGhhdCBpbiBwYXRjaCAzLCB0aGUgTTMzUyBPQ1JB
-TSBzZWN1cmUgcmVnaW9uIHdhcyBub3QNCmluY2x1ZGVkLCAgb25seSBub24gc2VjdXJlIHJlZ2lv
-biB3YXMgaW5jbHVkZWQuDQoNCkkgd2lsbCBwb3N0IHBhdGNoIHY0IHRvIGFkZHJlc3MgRGFuaWVs
-J3MgY29uZXJuLg0KDQpUaGFua3MsDQpQZW5nLg0KDQo+IA0KPiBUaGFua3MsDQo+IE1hdGhpZXUN
-Cj4gDQo+ID4gLS0tDQo+ID4gYmFzZS1jb21taXQ6IDcyNDY5OWQ4ZDA1MjM5MDlkYTUxZmRhOGQx
-ZTEwYzFmZjg2N2IyODANCj4gPiBjaGFuZ2UtaWQ6IDIwMjYwMzExLWlteDk0My1ycHJvYy0yMDUw
-ZTAwYjY1ZjcNCj4gPg0KPiA+IEJlc3QgcmVnYXJkcywNCj4gPiAtLQ0KPiA+IFBlbmcgRmFuIDxw
-ZW5nLmZhbkBueHAuY29tPg0KPiA+DQo=
+On Thu, Apr 23, 2026 at 05:36:07PM +0800, Marc Zyngier wrote:
+> It appears that there is nothing in the wake-up path that
+> evaluates whether the in-kernel interrupts are pending unless
+> we have a vgic.
+>
+> This means that the userspace irqchip support has been broken for
+> about four years, and nobody noticed. It was also broken before
+> as we wouldn't wake-up on a PMU interrupt, but hey, who cares...
+>
+> It is probably time to remove the feature altogether, because it
+> was a terrible idea 10 years ago, and it still is.
+>
+> Fixes: b57de4ffd7c6d ("KVM: arm64: Simplify kvm_cpu_has_pending_timer()")
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/arm.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+>
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 176cbe8baad30..8bb2c7422cc8b 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -824,6 +824,10 @@ int kvm_arch_vcpu_runnable(struct kvm_vcpu *v)
+>  {
+>  	bool irq_lines = *vcpu_hcr(v) & (HCR_VI | HCR_VF | HCR_VSE);
+>
+
+Hi Marc,
+
+> +	irq_lines |= (!irqchip_in_kernel(v->kvm) &&
+> +		      (kvm_timer_should_notify_user(v) ||
+> +		       kvm_pmu_should_notify_user(v)));
+
+How about a new helper like 'kvm_should_notify_us_irqchip()' ?
+We can replace the same part at beginning of kvm_vcpu_exit_request() and
+here w/ unlikely().
+
+> +
+>  	return ((irq_lines || kvm_vgic_vcpu_pending_irq(v))
+>  		&& !kvm_arm_vcpu_stopped(v) && !v->arch.pause);
+>  }
+> --
+> 2.47.3
+>
 
