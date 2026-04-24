@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4020FED3F1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 16:48:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6927FED3F3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 16:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TiCzqIIsCpDeADhoki4N8x1LD0SbRK3k+MFHddyXRA8=; b=rJlIXpiHw/vOz+/AmoAG75kqdE
-	l354qNrJYwvPkkqOnxCwkNDAeUynodd/FuifSiSQQb0SiEHKmod7mS7tmAAPbtaKE4TZFxPye7pg+
-	yke+HAR2ragF9n/W756ZfoMOc4GJK441vr4q2xr3ZFq+dbEuaTlyFACdhFroSIUdOi/UOgxOM8B+T
-	b/TA8TUXxbugRZA5Cfmnc/inIdBChWVRo2j1vh03QPBkDjk3mAZM/CWARZYLaPPR4pE4kmFiQYPRL
-	553vFyWcSd99BHPfE32Mwbk5THaE2at8jbfH6AbCROyz/vugl3lU5ykR3scAPpmSESB9cdvYRJTIY
-	+8ZpuqXw==;
+	bh=cG/0Aa00VOrcCbwfgsMLDLxzG3YoyfXWRPuqDAM4Krs=; b=pp1rP8Pv+3qMWG4GJpQx7nxEo0
+	gkgfc8K2KFsQv4b97KyZmMyRHcosohwz3WNkJpZsFd32B1mu0BpyiAyUp/8oNmnPKltL7Hn+i62LY
+	SEKGMoM/SE6Ia74MR5CaYp/c6wi+GmXKOwM/eiG7h9YY2EjN0w9AqnW841AcdohFJb9AQBd2iRE5z
+	KmzBlX7LtZCg5Zy35t4K/n33I5b7QuJOJ0GT1XIuMbMPeNHhOphQewyTErkJSl2Dx3tr7uiDNLCjy
+	W2uFtgUPN50x2T2LWo9+q9CcEKvVBFg6994H3Cb0E9yRyKhW1DKj48NEOAIryHrn729hiYvGfB7vp
+	RKjsyzqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJho-0000000DTwP-36gy;
-	Fri, 24 Apr 2026 16:48:40 +0000
-Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
+	id 1wGJhs-0000000DU18-1VSB;
+	Fri, 24 Apr 2026 16:48:44 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJhX-0000000DTdj-36hv
+	id 1wGJhd-0000000DTjK-1cgm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 16:48:28 +0000
-Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2bda35eab74so7010909eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 09:48:21 -0700 (PDT)
+	Fri, 24 Apr 2026 16:48:33 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2b458add85aso81833895ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 09:48:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777049301; x=1777654101; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777049307; x=1777654107; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=TiCzqIIsCpDeADhoki4N8x1LD0SbRK3k+MFHddyXRA8=;
-        b=jnCpMMzloH6eVRDxcjHcniOIawR+cPMfAcBpcnNycd5uR5SIfXK4tCjSFMnNLd8vpA
-         Bs57zQ4I4uoz+jgQMNnJ7Z642I+v1t4fbdVOCUDEJUcBTImcLEYxf5OZ/eD7Ov3n5iTl
-         ERPGUniZQwUixHYyjU8xAc3Jcsvr4A9xV+ZJPBPBrXWf1Qssxk9ahFsxceeAA8Q5Zqt4
-         h2Chhh1YTNYpmG8AZwfcVurbk1xawncWY4JsjFW2CiKF+a51c1ShoIfyLi62CnpbR1oz
-         8/DpXbyN6zbq37GqKVHL2y0XhcmXWKxovDZZmohoc25O17g/lJZY/E1r9+vK/opdfZHq
-         1L8g==
+        bh=cG/0Aa00VOrcCbwfgsMLDLxzG3YoyfXWRPuqDAM4Krs=;
+        b=P1Zefz03lefYythz77jzrvSkubNJ9xI2euWvaIlAOhET4qFXSGuyKNQxr5DFEd3DRM
+         jtWwErVcj6t4HbLdnzXFV2VwaFqkXVMmMlyAWfODwgtdmcS/Qo/Bc+fmL710ftln6std
+         KyyhUc64KLNxZLqHTG+RuXJlOGXUWMt2b7pGje0TPqiySYnhQm1UuexpG/awLxIkvi/Z
+         WJ7rOpC3981mGkCwzK43cYkzNe3iYua2ziRRWfCtWoze7np5rZiLCQ3GAaCorxIRhTmd
+         Ubd58IWhPNMBDdt6qnlkjgoaS/2gOobFGRZC9YwNPiS2+9h+DkY+QUzz/ozfdS460IxW
+         Z4NA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777049301; x=1777654101;
+        d=1e100.net; s=20251104; t=1777049307; x=1777654107;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=TiCzqIIsCpDeADhoki4N8x1LD0SbRK3k+MFHddyXRA8=;
-        b=LVTq8/NDUbrIcidN+Jc2vKdH/QkwSVf1x5Fl+tHHTns3ZRKilzOpBznIqg6mFojKpq
-         wbdbPBWxvhnhaUCpphRnNFo3Jd2/EniKf8blJFBlp1+Vj0IaQxjzUxgL3eQDv5veNZdO
-         0R1rl9uxf/fGQiW1rGjqUOGUuSb9JjZufF0aoaQPEu6ZHXtfWyeGjR1rGlmOo5+Qhoix
-         wK8F8kXoaahsUE3RnBTszXqw5Eb70mcLMwPDikRrSnWtaEU7lQXsAUV7KuM7zQ4Ix73w
-         33YnsiVsoR7jzWa+C04bwPj1tKPyZVIa7xCQzraC7YF6WzvUqCC6pM9eCoPykA5VTu22
-         Mv+A==
-X-Forwarded-Encrypted: i=1; AFNElJ8W6BaGitrCmjmouFf6d9I6p1hKDIGhdaIU93AKt+n3gCbQdKpacsixgtLVz8JFKRoY6wwE1xNEv5ZkMsCYrb8f@lists.infradead.org
-X-Gm-Message-State: AOJu0YwletE4os4C83trRkWnE+5+KRVpYBwsWBo2iGAKWJuVzE4fB0/X
-	5+W9R0gCp60d8IhPPBYyFe3yAFfXJ068pLFjyYoSEie+ORAVQiRXhKJJ36+83m7LntdYPrSNvLR
-	3XydhjGNOzw==
-X-Received: from dybbs6.prod.google.com ([2002:a05:7300:a206:b0:2df:75ae:2719])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:2e88:b0:2d9:6652:524b
- with SMTP id 5a478bee46e88-2e42e201f39mr11442254eec.17.1777049300798; Fri, 24
- Apr 2026 09:48:20 -0700 (PDT)
-Date: Fri, 24 Apr 2026 09:46:38 -0700
+        bh=cG/0Aa00VOrcCbwfgsMLDLxzG3YoyfXWRPuqDAM4Krs=;
+        b=ochItl+QMK/Gy0yTulQAQ3a2vwYs7ys8ik0ktDyXfexIBPKiftdjDUzYEyNTVsE9yd
+         hlDj8KH7S23drj0lJ+7Mv/gI3FBfj5A9B4RzSdHefqQkettRgZhH9cCiZhjvHxmF9DP+
+         jRY+Av31DJWQF01RSz9YJsYX6j7+ybvrjsW7dPRzpHu/QoqZkZjQ7D5FJvvdCoTjHTSd
+         BgiV3vqY5orWxXeOUhf0Ps7hy4XElbe+yp3L93iMk1Nvj1Qx1YGkGfGRRidq0dXShT/W
+         U+eaXreGD6POpvxJO2673CXZXbsuncFuKu5Z2YBuLSaupbiZJY6rDnfnEbFeLqZnbJom
+         hp1g==
+X-Forwarded-Encrypted: i=1; AFNElJ+FHISsbkoILbQgVhqNPBIX8WxglR3UeB4kIyz645hR9FgKaGTlcRNJL/XY23bxuaurqPrVxfgKGWB28bbspXh4@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHcLJ6oT8IW6jUbb5Pl7h1ViUcSjsXV59e2WtX604jWyOYlyfD
+	82qXiiDCSlFCmjMKJmS3KeQMAtTXPgNebXsgpbHtTquk+HIF7QJ/XnBK5hSX6iul4gbeG0e81j8
+	3PSG2urjCXg==
+X-Received: from pldd13.prod.google.com ([2002:a17:902:c18d:b0:2b4:5c5f:b38f])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:11ce:b0:2b4:5ff5:e51f
+ with SMTP id d9443c01a7336-2b5f9f51dfemr339838925ad.36.1777049306859; Fri, 24
+ Apr 2026 09:48:26 -0700 (PDT)
+Date: Fri, 24 Apr 2026 09:46:41 -0700
 In-Reply-To: <20260424164721.2229025-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260423163406.1779809-1-irogers@google.com> <20260424164721.2229025-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260424164721.2229025-17-irogers@google.com>
-Subject: [PATCH v5 16/58] perf python: Add syscall name/id to convert syscall
- number and name
+Message-ID: <20260424164721.2229025-20-irogers@google.com>
+Subject: [PATCH v5 19/58] perf python: Add config file access
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -76,8 +75,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_094824_044537_7287FE80 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20260424_094830_592561_817ADA16 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,105 +91,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use perf's syscalltbl support to convert syscall number to name
-assuming the number is for the host machine. This avoids python
-libaudit support as tools/perf/scripts/python/syscall-counts.py
-requires.
+Add perf.config_get(name) to expose the perf configuration system.
 
 Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-v2:
-
-1. Guarded with HAVE_LIBTRACEEVENT : Wrapped the syscall functions and
-   their entries in perf__methods with #ifdef HAVE_LIBTRACEEVENT to
-   avoid potential linker errors if CONFIG_TRACE is disabled.
-
-2. Changed Exception Type: Updated pyrf__syscall_id to raise a
-   ValueError instead of a TypeError when a syscall is not found.
-
-3. Fixed Typo: Corrected "name number" to "name" in the docstring for
-   syscall_id.
----
- tools/perf/util/python.c | 44 ++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 44 insertions(+)
+ tools/perf/util/python.c | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
 diff --git a/tools/perf/util/python.c b/tools/perf/util/python.c
-index 35eda69a32e1..f240905e07d6 100644
+index 28961ad47010..dc10d8a42d92 100644
 --- a/tools/perf/util/python.c
 +++ b/tools/perf/util/python.c
-@@ -13,6 +13,7 @@
+@@ -12,6 +12,7 @@
+ #include "build-id.h"
+ #include "callchain.h"
+ #include "comm.h"
++#include "config.h"
  #include "counts.h"
  #include "data.h"
  #include "debug.h"
-+#include "dwarf-regs.h"
- #include "event.h"
- #include "evlist.h"
- #include "evsel.h"
-@@ -25,6 +26,7 @@
- #include "session.h"
- #include "strbuf.h"
- #include "symbol.h"
-+#include "syscalltbl.h"
- #include "thread.h"
- #include "thread_map.h"
- #include "tool.h"
-@@ -2635,6 +2637,36 @@ static int pyrf_session__setup_types(void)
- 	return PyType_Ready(&pyrf_session__type);
+@@ -3230,7 +3231,26 @@ static PyObject *pyrf__syscall_id(PyObject *self, PyObject *args)
+ 	return PyLong_FromLong(id);
  }
  
-+static PyObject *pyrf__syscall_name(PyObject *self, PyObject *args)
++static PyObject *pyrf__config_get(PyObject *self, PyObject *args)
 +{
-+	const char *name;
-+	int id;
++	const char *config_name, *val;
 +
-+	if (!PyArg_ParseTuple(args, "i", &id))
++	if (!PyArg_ParseTuple(args, "s", &config_name))
 +		return NULL;
 +
-+	name = syscalltbl__name(EM_HOST, id);
-+	if (!name)
++	val = perf_config_get(config_name);
++	if (!val)
 +		Py_RETURN_NONE;
-+	return PyUnicode_FromString(name);
-+}
-+
-+static PyObject *pyrf__syscall_id(PyObject *self, PyObject *args)
-+{
-+	const char *name;
-+	int id;
-+
-+	if (!PyArg_ParseTuple(args, "s", &name))
-+		return NULL;
-+
-+	id = syscalltbl__id(EM_HOST, name);
-+	if (id < 0) {
-+		PyErr_Format(PyExc_ValueError, "Failed to find syscall %s", name);
-+		return NULL;
-+	}
-+	return PyLong_FromLong(id);
++	return PyUnicode_FromString(val);
 +}
 +
  static PyMethodDef perf__methods[] = {
++	{
++		.ml_name  = "config_get",
++		.ml_meth  = (PyCFunction) pyrf__config_get,
++		.ml_flags = METH_VARARGS,
++		.ml_doc	  = PyDoc_STR("Get a perf config value.")
++	},
  	{
  		.ml_name  = "metrics",
-@@ -2668,6 +2700,18 @@ static PyMethodDef perf__methods[] = {
- 		.ml_flags = METH_NOARGS,
- 		.ml_doc	  = PyDoc_STR("Returns a sequence of pmus.")
- 	},
-+	{
-+		.ml_name  = "syscall_name",
-+		.ml_meth  = (PyCFunction) pyrf__syscall_name,
-+		.ml_flags = METH_VARARGS,
-+		.ml_doc	  = PyDoc_STR("Turns a syscall number to a string.")
-+	},
-+	{
-+		.ml_name  = "syscall_id",
-+		.ml_meth  = (PyCFunction) pyrf__syscall_id,
-+		.ml_flags = METH_VARARGS,
-+		.ml_doc	  = PyDoc_STR("Turns a syscall name to a number.")
-+	},
- 	{ .ml_name = NULL, }
- };
- 
+ 		.ml_meth  = (PyCFunction) pyrf__metrics,
 -- 
 2.54.0.545.g6539524ca2-goog
 
