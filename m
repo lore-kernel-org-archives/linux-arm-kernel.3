@@ -4,57 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C65A3FF8850
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 23:00:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE015FF8850
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 23:10:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yJitWIhedwEhROcjfcAJaAzg1I+/wnNIEe6ZEGKeoOs=; b=0YEskSyZPpOEqYUe8jkXXcKasz
-	jFgGay/NbujR9o5JGKTQR+HCzxp470txklygQxMPvBJNrkM7lWG3OzHwegyi4NI7O14PHVVP/j05B
-	j6UL8MjA/wI2/UW6P4Me41wkvZRNNjA2QnbE9dlwgPY+Ryyo0ZJzn4+jeD1xrDKxNhU2CTBTbuTOk
-	MR8YeIO2M6U+RMkaTSeQsqtCK+DDsUUZUJWkWooxlo7pz0KOJDTfJPqtNX9SmAho+zwRVqxNvr9Mx
-	wGG84xXJ0+Z+Rr4YYXDm2V247WjY8LHDooBq12LHJDXVP386oM9fsjyZmUUEiXIX6YwTugP48nL6O
-	DhG1MxTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZF2xo+im5ABqQb8juDoszdqEpMu6aUbnETaBqpZGMY0=; b=25Zh8MSwU0sEeAxQdDqzFodm9f
+	MEqN9eqVhcCAghSB9EtQ34SMp588a9iyRVoOwaEhyajKYmKViiJxhydmuAIfjEJvnKyLybfFOUTwz
+	AwOQgKoiLzTyxY4HDMJo+n6F7mYZlYZq6btiAgmHDcq/+k5XxnlsNMQxbGQWfu31tHQapXW0pvRcW
+	mENakhkwnbtvuQBx/BfvKIJ4hAAOl/pNdEWmA9WnYb3L/ufeOfVn8uVSrIXXFAPTGmD6aCrPAnMA5
+	1GMX4aNoYzHKs13xa5LLS7PTMtJeFdB+Pvgh3VXeb2TTcJBa1Ljf+jC0JGZMGlJ2Xc5z1IEoSClXg
+	8frQLBaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGPVb-0000000Drr2-2M2J;
-	Fri, 24 Apr 2026 23:00:27 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wGPfX-0000000DsKr-0viB;
+	Fri, 24 Apr 2026 23:10:43 +0000
+Received: from out-182.mta1.migadu.com ([95.215.58.182])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGPVY-0000000Drqc-29iM;
-	Fri, 24 Apr 2026 23:00:26 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 59E6C986;
-	Sat, 25 Apr 2026 00:58:39 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1777071519;
-	bh=mXeWIc4bSwDCNBcdRGufU1M9fLVnzL1D1gJleQSCgmQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FFci2RcD/qwzOICb/XJNhBJMrszBBdEiF2PyvpZYQfELPjQ992/wd1Xq+LB4T+F+a
-	 UAj9P3s909RycxhJp4fW+3EBpbIxcOA2C/2kXmTl51mqqbRKLFXHhfQRuik4aavhI3
-	 Tf7H1cNcUMW50IzgCaiIUOL90GIg1VQyVer2BrgU=
-Date: Sat, 25 Apr 2026 02:00:17 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Paul Elder <paul.elder@ideasonboard.com>
-Cc: Xu Hongfei <xuhf@rock-chips.com>, michael.riesch@collabora.com,
-	stefan.klug@ideasonboard.com, linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Heiko Stuebner <heiko@sntech.de>
-Subject: Re: [RFC PATCH 2/5] arm64: dts: rockchip: add ISP nodes to rk3588
-Message-ID: <20260424230017.GD3219146@killaraus.ideasonboard.com>
-References: <20260424175853.638202-1-paul.elder@ideasonboard.com>
- <20260424175853.638202-3-paul.elder@ideasonboard.com>
+	id 1wGPfT-0000000DsKG-1Va1
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Apr 2026 23:10:41 +0000
+Message-ID: <71fb19ff-6dde-43f4-a0e9-5c8cf2ba4ed4@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1777072234;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZF2xo+im5ABqQb8juDoszdqEpMu6aUbnETaBqpZGMY0=;
+	b=VXHbxxZfy9OoLtXfzxZ8LCjQMjD/OkCiG8Davia89CJr1Bfd4TuZZXt6E5Iwkup+l0h+3v
+	cFjh3APLkpXSJQIKe7Yoo0ID2ftKfKivDSn005tkbrPGCE8tOLFAb99bTVlgqSaCzwUXKq
+	dS3LDHdZC3mJaN1fdjTfIxwCD2pD6Pc=
+Date: Fri, 24 Apr 2026 16:10:19 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260424175853.638202-3-paul.elder@ideasonboard.com>
+Subject: Re: [PATCH RFC bpf-next 0/8] bpf: add support for KASAN checks in
+ JITed programs
+To: =?UTF-8?Q?Alexis_Lothor=C3=A9_=28eBPF_Foundation=29?=
+ <alexis.lothore@bootlin.com>, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
+ <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
+ Jiri Olsa <jolsa@kernel.org>, John Fastabend <john.fastabend@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>, David Ahern <dsahern@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Shuah Khan <shuah@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: ebpf@linuxfoundation.org,
+ Bastien Curutchet <bastien.curutchet@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Xu Kuohai <xukuohai@huawei.com>, bpf@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, kasan-dev@googlegroups.com,
+ linux-mm@kvack.org
+References: <20260413-kasan-v1-0-1a5831230821@bootlin.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Ihor Solodrai <ihor.solodrai@linux.dev>
+In-Reply-To: <20260413-kasan-v1-0-1a5831230821@bootlin.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_160024_694916_B97769C8 
-X-CRM114-Status: GOOD (  15.07  )
+X-CRM114-CacheID: sfid-20260424_161039_966906_662F1934 
+X-CRM114-Status: GOOD (  43.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,98 +93,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
+On 4/13/26 11:28 AM, Alexis LothorÃ© (eBPF Foundation) wrote:
+> Hello,
+> this series aims to bring basic support for KASAN checks to BPF JITed
+> programs. This follows the first RFC posted in [1].
 
-Thank you for the patch.
+Hi Alexis,
 
-On Sat, Apr 25, 2026 at 02:58:47AM +0900, Paul Elder wrote:
-> From: Xu Hongfei <xuhf@rock-chips.com>
+Thank you for working on this, it's a real testing gap.
+I have a few comments, see below.
+
+The series doesn't apply cleanly on bpf-next right now, but I was able
+to apply to a little older revision (eb5249b12507).
+
 > 
-> Add device tree nodes for the ISP and their iommus on the RK3588.
+> KASAN allows to spot memory management mistakes by reserving a fraction
+> of memory as "shadow memory" that will map to the rest of the memory and
+> allow its monitoring. Each memory-accessing instruction is then
+> instrumented at build time to call some ASAN check function, that will
+> analyze the corresponding bits in shadow memory, and if it detects the
+> access as invalid, trigger a detailed report. The goal of this series is
+> to replicate this mechanism for BPF programs when they are being JITed
+> into native instructions: that's then the (runtime) JIT compiler who is
+> in charge of inserting calls to the corresponding kasan checks, when a
+> program is being loaded into the kernel. This task involves:
+> - identifying at program load time the instructions performing memory
+>   accesses
+> - identifying those accesses properties (size ? read or write ?) to
+>   define the relevant kasan check function to call
+> - just before the identified instructions:
+>   - perform the basic context saving (ie: saving registers)
+>   - inserting a call to the relevant kasan check function 
+>   - restore context
+> - whenever the instrumented program executes, if it performs an invalid
+>   access, it triggers a kasan report identical to those instrumented on
+>   kernel side at build time.
 > 
-> Signed-off-by: Xu Hongfei <xuhf@rock-chips.com>
-> Signed-off-by: Paul Elder <paul.elder@ideasonboard.com>
+> As discussed in [1], this series is based on some choices and
+> assumptions:
+> - it focuses on x86_64 for now, and so only on KASAN_GENERIC
+
+I wonder if it's feasible to implement KASAN support on the verifier
+side in post-verification fixups. AI slop for illustration:
+
+  ;; Original (1 BPF insn):
+  dst = *(u64 *)(src + off)           ; BPF_LDX | BPF_MEM | BPF_DW
+
+  ;; Rewrite (~7 BPF insns):
+  r_tmp1 = src                         ; BPF_MOV64_REG
+  r_tmp1 += off                        ; BPF_ALU64 | BPF_ADD | K   (full address)
+  r_tmp2 = r_tmp1                      ; copy
+  r_tmp2 >>= 3                         ; KASAN_SHADOW_SCALE_SHIFT
+  r_tmp2 += KASAN_SHADOW_OFFSET        ; shadow address
+  r_tmp3 = *(u8 *)(r_tmp2 + 0)         ; BPF_LDX | BPF_B   (load shadow byte)
+  if r_tmp3 != 0 goto +2               ; BPF_JNE | PC+2
+  dst = *(u64 *)(src + off)            ; original access (fast path)
+  goto +1                              ; skip slowpath
+  call __asan_report_load8             ; BPF kfunc
+  dst = *(u64 *)(src + off)            ; retry the access after report (non-fatal)
+
+A sort of inline kasan directly in BPF.
+
+There are plenty of issues with it: instruction limit, exposing asan
+API as kfuncs, etc. On the flip side we get cross-arch support out of
+the box with no or mininal JIT changes.
+
+Honestly I'm not excited about this approach, but curious if anyone
+thought about this, or maybe it was already discussed?
+
+
+> - not all memory accessing BPF instructions are being instrumented:
+>   - it focuses on STX/LDX instructions
+>   - it discards instructions accessing BPF program stack (already
+>     monitored by page guards)
+>   - it discards possibly faulting instructions, like BPF_PROBE_MEM or
+>     BPF_PROBE_ATOMIC insns
+> 
+> The series is marked and sent as RFC:
+> - to allow collecting feedback early and make sure that it goes into the
+>   right direction
+> - because it depends on Xu's work to pass data between the verifier and
+>   JIT compilers. This work is not merged yet, see [2]. I have been
+>   tracking the various revisions he sent on the ML and based my local
+>   branch on his work
+> - because tests brought by this series currently can't run on BPF CI:
+>   they expect kasan multishot to be enabled, otherwise the first test
+>   will make all other kasan-related tests fail.
+
+AFAICT this can be trivially fixed on BPF CI side, we just need to set
+kasan_multi_shot for the VMs running the tests. I will do that, your
+next revision doesn't have to be and RFC.
+
+> - because some cases like atomic loads/stores are not instrumented yet
+>   (and are still making me scratch my head)
+> - because it will hopefully provide a good basis to discuss the topic at
+>   LSFMMBPF (see [3])
+
+Apparently, KASAN reporting routine takes a lock [1]:
+
+   __asan_load()
+     -> check_region_inline()
+        -> kasan_report()
+           -> start_report()
+             -> raw_spin_lock_irqsave(&report_lock, *flags);
+
+BPF programs can run in NMI context, and so it appears to be possible
+to get an unflagged (because of lockdep_off() in start_report)
+deadlock, if an NMI fires on a CPU already holding report_lock.
+Although I guess you'd need two KASAN bugs to happen
+simultaneously for that to occur?... A rare event, I would hope.
+
+It could be addressed with either in_nmi() check at runtime, or
+forbidding kasan for NMI-runnable BPF program types.
+
+That said, this may be a case of being overly defensive to appease the
+ai overlords.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/mm/kasan/report.c?h=v7.0#n204
+
+> 
+> Despite this series not being ready for integration yet, anyone
+> interested in running it locally can perform the following steps to run
+> the JITed KASAN instrumentation selftests:
+> - rebasing locally this series on [2]
+> - building and running the corresponding kernel with kasan_multi_shot
+>   enabled
+> - running `test_progs -a kasan`
+> 
+> And should get a variety of KASAN tests executed for BPF programs:
+> 
+>   #162/1   kasan/bpf_kasan_uaf_read_1:OK
+>   #162/2   kasan/bpf_kasan_uaf_read_2:OK
+>   #162/3   kasan/bpf_kasan_uaf_read_4:OK
+>   #162/4   kasan/bpf_kasan_uaf_read_8:OK
+>   #162/5   kasan/bpf_kasan_uaf_write_1:OK
+>   #162/6   kasan/bpf_kasan_uaf_write_2:OK
+>   #162/7   kasan/bpf_kasan_uaf_write_4:OK
+>   #162/8   kasan/bpf_kasan_uaf_write_8:OK
+>   #162/9   kasan/bpf_kasan_oob_read_1:OK
+>   #162/10  kasan/bpf_kasan_oob_read_2:OK
+>   #162/11  kasan/bpf_kasan_oob_read_4:OK
+>   #162/12  kasan/bpf_kasan_oob_read_8:OK
+>   #162/13  kasan/bpf_kasan_oob_write_1:OK
+>   #162/14  kasan/bpf_kasan_oob_write_2:OK
+>   #162/15  kasan/bpf_kasan_oob_write_4:OK
+>   #162/16  kasan/bpf_kasan_oob_write_8:OK
+>   #162     kasan:OK
+>   Summary: 1/16 PASSED, 0 SKIPPED, 0 FAILED
+> 
+> [1] https://lore.kernel.org/bpf/DG7UG112AVBC.JKYISDTAM30T@bootlin.com/
+> [2] https://lore.kernel.org/bpf/cover.1776062885.git.xukuohai@hotmail.com/
+> [3] https://lore.kernel.org/bpf/DGGNCXX79H8O.2P6K8L1QW1M8K@bootlin.com/
+> 
+> Signed-off-by: Alexis Lothoré (eBPF Foundation) <alexis.lothore@bootlin.com>
 > ---
->  arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 60 +++++++++++++++++++
->  1 file changed, 60 insertions(+)
+> Alexis Lothoré (eBPF Foundation) (8):
+>       kasan: expose generic kasan helpers
+>       bpf: mark instructions accessing program stack
+>       bpf: add BPF_JIT_KASAN for KASAN instrumentation of JITed programs
+>       bpf, x86: add helper to emit kasan checks in x86 JITed programs
+>       bpf, x86: emit KASAN checks into x86 JITed programs
+>       selftests/bpf: do not run verifier JIT tests when BPF_JIT_KASAN is enabled
+>       bpf, x86: enable KASAN for JITed programs on x86
+>       selftests/bpf: add tests to validate KASAN on JIT programs
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> index 8b98e5c3cc8b..607b03d55dfd 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> @@ -3535,6 +3535,66 @@ gpio4: gpio@fec50000 {
->  			#interrupt-cells = <2>;
->  		};
->  	};
-> +
-> +	isp0: isp@fdcb0000 {
-> +		compatible = "rockchip,rk3588-isp";
-> +		reg = <0x0 0xfdcb0000 0x0 0x7f00>;
-> +		interrupts = <GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH 0>,
-> +			     <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH 0>,
-> +			     <GIC_SPI 134 IRQ_TYPE_LEVEL_HIGH 0>;
-> +		interrupt-names = "isp_irq", "mi_irq";
-> +		clocks = <&cru ACLK_ISP0>, <&cru HCLK_ISP0>,
-> +			 <&cru CLK_ISP0_CORE>, <&cru CLK_ISP0_CORE_MARVIN>,
-> +			 <&cru CLK_ISP0_CORE_VICAP>;
-> +		clock-names = "aclk", "hclk", "clk_core",
-> +			      "clk_core_marvin", "clk_core_vicap";
-> +		power-domains = <&power RK3588_PD_VI>;
-> +		iommus = <&isp0_mmu>;
-> +		status = "disabled";
-> +	};
-> +
-> +	isp0_mmu: iommu@fdcb7f00 {
-> +		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
-> +		reg = <0x0 0xfdcb7f00 0x0 0x100>;
-> +		interrupts = <GIC_SPI 132 IRQ_TYPE_LEVEL_HIGH 0>;
-> +		interrupt-names = "isp0_mmu";
+>  arch/x86/Kconfig                                   |   1 +
+>  arch/x86/net/bpf_jit_comp.c                        | 106 +++++++++++++
+>  include/linux/bpf.h                                |   2 +
+>  include/linux/bpf_verifier.h                       |   2 +
+>  include/linux/kasan.h                              |  13 ++
+>  kernel/bpf/Kconfig                                 |   9 ++
+>  kernel/bpf/core.c                                  |  10 ++
+>  kernel/bpf/verifier.c                              |   7 +
+>  mm/kasan/kasan.h                                   |  10 --
+>  tools/testing/selftests/bpf/prog_tests/kasan.c     | 165 +++++++++++++++++++++
+>  tools/testing/selftests/bpf/progs/kasan.c          | 146 ++++++++++++++++++
+>  .../testing/selftests/bpf/test_kmods/bpf_testmod.c |  79 ++++++++++
+>  tools/testing/selftests/bpf/test_loader.c          |   5 +
+>  tools/testing/selftests/bpf/unpriv_helpers.c       |   5 +
+>  tools/testing/selftests/bpf/unpriv_helpers.h       |   1 +
+>  15 files changed, 551 insertions(+), 10 deletions(-)
+> ---
+> base-commit: 7990a071b32887a1a883952e8cf60134b6d6fea0
+> change-id: 20260126-kasan-fcd68f64cd7b
+> 
+> Best regards,
+> --  
+> Alexis Lothoré (eBPF Foundation) <alexis.lothore@bootlin.com>
+> 
 
-I don't think interrupt-names is needed. Same for the second IOMMU.
-
-> +		clocks = <&cru ACLK_ISP0>, <&cru HCLK_ISP0>;
-> +		clock-names = "aclk", "iface";
-> +		power-domains = <&power RK3588_PD_VI>;
-> +		#iommu-cells = <0>;
-> +		rockchip,disable-mmu-reset;
-> +		status = "disabled";
-> +	};
-> +
-> +	isp1: isp@fdcc0000 {
-> +		compatible = "rockchip,rk3588-isp";
-> +		reg = <0x0 0xfdcc0000 0x0 0x7f00>;
-> +		interrupts = <GIC_SPI 135 IRQ_TYPE_LEVEL_HIGH 0>,
-> +			     <GIC_SPI 137 IRQ_TYPE_LEVEL_HIGH 0>,
-> +			     <GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH 0>;
-> +		interrupt-names = "isp_irq", "mi_irq";
-> +		clocks = <&cru ACLK_ISP1>, <&cru HCLK_ISP1>,
-> +			 <&cru CLK_ISP1_CORE>, <&cru CLK_ISP1_CORE_MARVIN>,
-> +			 <&cru CLK_ISP1_CORE_VICAP>;
-> +		clock-names = "aclk", "hclk", "clk_core",
-> +			      "clk_core_marvin", "clk_core_vicap";
-> +		power-domains = <&power RK3588_PD_ISP1>;
-> +		iommus = <&isp1_mmu>;
-> +		status = "disabled";
-> +	};
-> +
-> +	isp1_mmu: iommu@fdcc7f00 {
-> +		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
-> +		reg = <0x0 0xfdcc7f00 0x0 0x100>;
-> +		interrupts = <GIC_SPI 136 IRQ_TYPE_LEVEL_HIGH 0>;
-> +		interrupt-names = "isp1_mmu";
-> +		clocks = <&cru ACLK_ISP1>, <&cru HCLK_ISP1>;
-> +		clock-names = "aclk", "iface";
-> +		power-domains = <&power RK3588_PD_ISP1>;
-> +		#iommu-cells = <0>;
-> +		rockchip,disable-mmu-reset;
-> +		status = "disabled";
-> +	};
->  };
->  
->  #include "rk3588-base-pinctrl.dtsi"
-
--- 
-Regards,
-
-Laurent Pinchart
 
