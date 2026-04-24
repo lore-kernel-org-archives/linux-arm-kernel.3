@@ -4,79 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C28D7FE51E2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 08:44:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22D53FE51E4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 08:49:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ny5eTUcXQ8sNFg3rMzRvq70mTgpAZQXdLFwvbxlyggI=; b=ZJHxT3MA3nMycm3Pcm3UfQBYsQ
-	e1bQY3QB2KCnGDBrjYyz/n8Wktr2+hOgtGz1f4FNe1t5SiwbyD+/KXPEGpwPX/XTR6KssxRiapG/5
-	MD+c5EowjYuB6T2niYi5TXN+ZAv9Y0on9auLgDa5L9S6oeLvt1U7hKUgbLaroZfTjJdqFjGvvuWMM
-	GxJ95WydK1I5PQ8qQDCKbgS1w67b3c2LpGWpbyRJrUvBdL8Dwzwa/IC7xjf3oRpgbgMmZqWTBZ72c
-	5TF/2S0wpRHfl0Jgo8yhgd5v+j8gnnoqwd95/mOLHIClub018TS31XQCT5FO1SCyaX1M3Umlw5IaR
-	vr75bBfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aH/14ddBCo2kTCzx4ceCZMALAM1Tsur26jX4fxnDfAE=; b=kjV9W0T/G8BdqymmvTe/6OFAgS
+	q/wu8pjHBSGML/bV49V+Q5MIkcItRKgYjipSNPmHdAXYjdLTu7aoztO8iTPS5ybuBDxHbRfUVpt2B
+	JosdkUZ7tjcW/WYfYGyNfFQJU+KfV2ku9pp6CnI5ksafY+6CwVHrvOInYGUaQ2G7uBjV3wIukJTQ2
+	8tFOOLXW13VzWN1ateDm0N341iwI6l/iGyXije1d8mPSlgOYZDXhs7XAQuH4okLzy1X5HxT9EoKET
+	hVlWVFzDQ0HJkkn41Lp2Sa4IzvFfHvCMYuuofkbGB8QVC9JGYo94mALlAg+3zV865lauo5qiCKhaW
+	8TCfuOkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGC9U-0000000Csha-0cr6;
-	Fri, 24 Apr 2026 08:44:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wGCDp-0000000Cszd-3jxi;
+	Fri, 24 Apr 2026 08:49:13 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGC9R-0000000Csh0-0DY0
+	id 1wGCDo-0000000Csz0-0fzP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 08:44:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 80AC143E0B;
-	Fri, 24 Apr 2026 08:44:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB358C19425;
-	Fri, 24 Apr 2026 08:44:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777020278;
-	bh=ZPtRTAcO5vKULVkGrPOpdr9dYJKbJwHKAW4LzVRqvoI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CW7ZL+CRxx2Sijgh6xjUCCZml3UTTpMsXH6cO1EZ6wibNcZoHu595LxCD4AB8p2gn
-	 jSaoBI3ElXU1BYxmuOc3NDEcABEdeWKt6wgHB6S1IsWuiFyVWmWv6h/971fYooCBzo
-	 RXo6526CET9X621wMlDYeWZctMcReAJzCTJhKeUpGjw8LbqkjVRhIMh6j6vBuXZgaN
-	 vJhIZiRh3AQausKSMcfwwnRicX+K/+23ib3tV7aeM7/IdPKDxwRxc5oXLTYFRczQqC
-	 tBByluQBB80/irXS/ql/+Ua1O0zUeEjDHWti0vhpQ85qMnzbxJfKvOh6qIr9+EWwRy
-	 IX3mNtvMouAVQ==
-Date: Fri, 24 Apr 2026 10:44:35 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Jyri Sarha <jyri.sarha@iki.fi>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Simon Ser <contact@emersion.fr>, 
-	Harry Wentland <harry.wentland@amd.com>, Melissa Wen <mwen@igalia.com>, 
-	Sebastian Wick <sebastian.wick@redhat.com>, Alex Hung <alex.hung@amd.com>, 
-	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
-	Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
-	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v2 15/20] drm/drv: Call drm_mode_config_create_state() by
- default
-Message-ID: <20260424-nimble-asparagus-tarsier-15f8bb@houat>
-References: <20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org>
- <20260320-drm-mode-config-init-v2-15-c63f1134e76c@kernel.org>
- <79cc30d5-80b5-4d87-a3ad-36d6fad98853@suse.de>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="3cb63aedvnuis3py"
-Content-Disposition: inline
-In-Reply-To: <79cc30d5-80b5-4d87-a3ad-36d6fad98853@suse.de>
+	Fri, 24 Apr 2026 08:49:13 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-488c0fcc6deso46336425e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 01:49:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1777020550; x=1777625350; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=aH/14ddBCo2kTCzx4ceCZMALAM1Tsur26jX4fxnDfAE=;
+        b=A3NSmr+xEk5s+lI0LBvC1Ud5l4765Qm+1S2YJWuDpKUR0K6ur55iseczQ+uuIGzV/t
+         lit7/Q3b2cROm0qjiS6cjAzwxgBYHxwRfWQPZ94IOWoRIr/iI6WLVgFRcL17qBjxdpJJ
+         ezXrENRo/lw7ey/uu+L8hEE7+ZuuBQdM06ookt+UG3ehWIRb1vNwpqrl7rBbxmTNgRPg
+         cob72KHM25I7h9JbzPGRFptndwimbPWtRDZi4fs2U7MTo7HhWg31l3BFAfvRDQuru+73
+         Dgc9yM4kv+Zngd5Tq3980MEo3fY0CNlKQUx6b6B2NTX7O6PAJP4Cewjhv86nPjkdD5Hi
+         tvQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777020550; x=1777625350;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=aH/14ddBCo2kTCzx4ceCZMALAM1Tsur26jX4fxnDfAE=;
+        b=epFQAp8v4bWTHJgX2o6O4RtJzmG837YJ51Twr5tFD3h0LsgYFkKo5SWbZaw7gDnFox
+         dt5pVUsOi+pPG/sckXwJM0+pNbReqjWoEFEGBvEuzbKTilr75i/1uCTJ5POQgdo0Xi/w
+         8/2RzMiUxCe7QP6ekakSq34zjyGxRHcV4N45uvuObKcKPtDuNS90rdIvdWxV17LVjQHh
+         pRw9ehdIgvuHKmAZHBSJ9eviRT0iJMGA674wkEHxZqG3pVPFsjuDxBLMhaeX8Dg4cLet
+         sRZqtk4kzusvRK3p3zdYo8fHussurNuqWhWC0Q6U8I1zhCKzxiN59b22iTdWMmCsXTeb
+         LJ0Q==
+X-Forwarded-Encrypted: i=1; AFNElJ9wgL/tBNWbLLjoiFYqN0Njt3awiAz6EBXaitR2vvEkHsMZQPAufympqexvTlsapmx95aOW5iMQNoDcSJ7W/ePW@lists.infradead.org
+X-Gm-Message-State: AOJu0YxU/pPe5ZaTb/H2xKWl8yUhKEkGvwHNsvigXExcpIeJb/dG4FaW
+	M9fA7nqKn4N9G5nZS2yQ/FWXMCGTDpZNzBBqvX/qNNGrvWQ96xIdB6m5/9qfcTXWaI8jA9UKwUx
+	Y3Q==
+X-Received: from wrtj10.prod.google.com ([2002:a5d:604a:0:b0:43d:77d4:5f06])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4fc6:b0:48a:53ea:1408
+ with SMTP id 5b1f17b1804b1-48a53ea15a4mr231487385e9.8.1777020549668; Fri, 24
+ Apr 2026 01:49:09 -0700 (PDT)
+Date: Fri, 24 Apr 2026 09:49:02 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.54.0.rc2.544.gc7ae2d5bb8-goog
+Message-ID: <20260424084908.370776-1-tabba@google.com>
+Subject: [PATCH 0/6] KVM: arm64: pKVM init and feature detection fixes
+From: Fuad Tabba <tabba@google.com>
+To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Cc: tabba@google.com, catalin.marinas@arm.com, will@kernel.org, maz@kernel.org, 
+	oupton@kernel.org, qperret@google.com, suzuki.poulose@arm.com, 
+	joey.gouly@arm.com, yuzenghui@huawei.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_014441_155961_AD2586D8 
-X-CRM114-Status: GOOD (  26.33  )
+X-CRM114-CacheID: sfid-20260424_014912_261484_287274EA 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,82 +88,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi folks,
 
---3cb63aedvnuis3py
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 15/20] drm/drv: Call drm_mode_config_create_state() by
- default
-MIME-Version: 1.0
+These six patches are standalone correctness fixes I'd like to land
+before posting a follow-up to Will's pKVM infrastructure series [1]
+that moves vCPU state management to EL2. Sending them separately keeps
+the bigger series focused, but they are all valid fixes to have
+regardless.
 
-Hi,
+The first patch fixes feature detection for FEAT_Debugv8p9: it was
+checking the wrong field in ID_AA64DFR0_EL1, causing KVM to treat
+certain EL2 control bits as RES0 on hardware that implements the
+feature.
 
-On Tue, Apr 21, 2026 at 03:38:16PM +0200, Thomas Zimmermann wrote:
-> Am 20.03.26 um 17:27 schrieb Maxime Ripard:
-> > Almost all drivers, and our documented skeleton, call
-> > drm_mode_config_reset() prior to calling drm_dev_register() to
-> > initialize its DRM object states.
-> >=20
-> > Now that we have drm_mode_config_create_state() to create that initial
-> > state if it doesn't exist, we can call it directly in
-> > drm_dev_register(). That way, we know that the initial atomic state will
-> > always be allocated without any boilerplate.
-> >=20
-> > Signed-off-by: Maxime Ripard <mripard@kernel.org>
-> > ---
-> >   drivers/gpu/drm/drm_drv.c | 4 ++++
-> >   1 file changed, 4 insertions(+)
-> >=20
-> > diff --git a/drivers/gpu/drm/drm_drv.c b/drivers/gpu/drm/drm_drv.c
-> > index 2915118436ce8a6640cfb0c59936031990727ed1..820106d56ab399a39cac56d=
-98662b5ddbcae8ded 100644
-> > --- a/drivers/gpu/drm/drm_drv.c
-> > +++ b/drivers/gpu/drm/drm_drv.c
-> > @@ -1097,10 +1097,14 @@ int drm_dev_register(struct drm_device *dev, un=
-signed long flags)
-> >   	if (drm_core_check_feature(dev, DRIVER_MODESET)) {
-> >   		ret =3D drm_modeset_register_all(dev);
-> >   		if (ret)
-> >   			goto err_unload;
-> > +
-> > +		ret =3D drm_mode_config_create_state(dev);
-> > +		if (ret)
-> > +			goto err_unload;
->=20
-> Way too late.
+The second patch is a trivial typo fix in comments.
 
-Yeah... I think that was Ville's main objection too.
+The third patch fixes feature detection for FEAT_SPE_FnE, which was
+also checking the wrong field.
 
-> Lets rather go through drivers and call this where they currently call
-> drm_mode_config_reset() for initialization.
+The last three fix bugs in the pKVM vCPU and hypervisor initialisation
+paths: a latent macro parameter bug, a pin-reference leak with a
+publication ordering issue in __pkvm_init_vcpu(), and a call-ordering
+hazard in __pkvm_init_finalise() that is benign today but becomes a
+crash once fix_host_ownership() is extended to operate on a non-empty
+page-table.
 
-I was really hoping to remove the boilerplate from drivers, but I don't
-really see a good place for it then. drm_mode_config_init() could be
-another candidate, but it looks weird to put it there too.
+[1] https://lore.kernel.org/all/20260105154939.11041-1-will@kernel.org/
 
-I'll drop that then.
+Cheers,
+/fuad
 
-> This can be a single-patch mass conversion IMHO.
+Fuad Tabba (5):
+  KVM: arm64: Fix FEAT_Debugv8p9 to check DebugVer, not PMUVer
+  KVM: arm64: Fix typo in feature check comments
+  KVM: arm64: Fix FEAT_SPE_FnE to use PMSIDR_EL1.FnE, not PMSVer
+  KVM: arm64: Fix kvm_vcpu_initialized() macro parameter
+  KVM: arm64: Fix pin leak and publication ordering in
+    __pkvm_init_vcpu()
 
-I'm not really sure? For it to work we'd need to convert these drivers
-objects from reset to atomic_create_state too. I absolutely want to do
-it next, but I don't think it will be as trivial as a sed call, and it
-would probably be best done by driver to allow reverts if we screw up.
+Quentin Perret (1):
+  KVM: arm64: Fix initialisation order in __pkvm_init_finalise()
 
-Maxime
+ arch/arm64/include/asm/kvm_host.h |  2 +-
+ arch/arm64/kvm/config.c           | 23 +++++++++++++------
+ arch/arm64/kvm/hyp/nvhe/pkvm.c    | 38 ++++++++++++++++++++-----------
+ arch/arm64/kvm/hyp/nvhe/setup.c   |  8 +++----
+ 4 files changed, 46 insertions(+), 25 deletions(-)
 
---3cb63aedvnuis3py
-Content-Type: application/pgp-signature; name="signature.asc"
+-- 
+2.54.0.rc2.544.gc7ae2d5bb8-goog
 
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaestcwAKCRAnX84Zoj2+
-dqD3AX91s5aTyrSIs+zg1NTVZ/3A3vLYBnSfFHi5Qil7rXN1H/JxIEEE9V0Ta7xL
-sVv2OtMBfAktM0SQa0/hMpYggLwZw3S6EpI61etzjCn+mWT08kRxfRP0K6KBacXD
-xc3d+CTDBg==
-=tyOY
------END PGP SIGNATURE-----
-
---3cb63aedvnuis3py--
 
