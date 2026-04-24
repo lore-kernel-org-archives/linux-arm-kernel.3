@@ -4,73 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A96FED3E2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 15:16:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BE71FED3DF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 15:37:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MaCdOObf5UPcAvD+z2xe46ZSwFGPYF4x6Up09Mib5CA=; b=yonIRqY6XHB4m1TtKaM9kUetZ1
-	e5iwjgHKKT/W6Bk23WymvCFDnjRmwThEJfhpHVmEOY5xNOkbtcuKG1Px/wHyyi44g/lvjkBpHCHpH
-	AU7p8XCmCjZOmujN8iTEnHYz34F5vEQYo3QXZ+DJNJbcxu+0Fnc1fiANcVts+/sEb/K6VXd7IIbue
-	YeASMwSVTxh6LOa3JAMnbOulToLiNi7eNuEbtG3hJbXhavWBAGL5mujv0vRBTCfDDGwEdN7pBgocm
-	OG0boDjlBYMUvU7uDBU5Irf98ay1GZjV2DnGe4DnaLYFedzqw++zvVEidrjDvlFnJVovQ6Xrj5zLS
-	FaFpdHag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+p9SdMC4qeM2H8Of98jh7DjRC6CE0wu7xhXrtnbqMWU=; b=YgfOtzhqasIPvGMKUdXeuyoQxw
+	xadfqf0Zdj1cr9lsXMMvoPTcZVbBcJGdA1jSz26k3rLIpsMqWsUMiOJy6zX0u/dFXSfFWmIwEVRT/
+	27twIPQCyAulUqgWxeKBcREaynxLtdIPVjBq2OM50deq5y+HZs57DIAnH3LTsgCGl57gko7Fm8l5j
+	uYZzhoWTk42MGDtraB+7j2JE9WbeHn7ps+7qxcWwJEw3usD1mh9j/TE+bSsosUB2oU9IbGXE9O66s
+	3DQ8RNjVKhjkLn0YyVfs+Bgx86S7N/bOlgPPFcFkGOsaM8IRcAqcDF5jB0FubIXI9dWqCtu6Ed12W
+	Xx6avydA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGIGY-0000000DNWW-1YU5;
-	Fri, 24 Apr 2026 15:16:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wGIaz-0000000DOPe-1lBN;
+	Fri, 24 Apr 2026 15:37:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGIGV-0000000DNW8-41NQ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 15:16:25 +0000
+	id 1wGIax-0000000DOPE-0ofB;
+	Fri, 24 Apr 2026 15:37:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0D15F41690;
-	Fri, 24 Apr 2026 15:16:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95047C19425;
-	Fri, 24 Apr 2026 15:16:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 57D6D440DE;
+	Fri, 24 Apr 2026 15:37:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2745C19425;
+	Fri, 24 Apr 2026 15:37:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777043782;
-	bh=nrM3UKcrO7tPwOt1LFMCFnX8PG4XqEiYfdua6M/CYZI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=H6v7GrWsEyBK2JTdhH44O/VJffVliTLN/jxYcPHtXzEA3iIKF1gnE3HGxGa9SKEQA
-	 RS7yTV0uv7X/4/m3kSfAS4hKfKLkfs/T231MtXN7LZH4G6Oq5otf3NdFktwJTloTB/
-	 AO/SVqd3Vzh3GyM8KS82GO1bSOmBWKyslzNbrFj80ipoaHN4HDTc14XqNe+SGZ+ymG
-	 i2FQpB8i/+GN99DxFVUqc028G3/n7yltam8zR7wSeIQZRovjqGiOPyvFKHUR6HZFKC
-	 niK8h5kYh3SfA4v1gs9iKh7L5JIC4yU5amMeESkf8nVxOeHry7hfqPBqTDutoLCpT8
-	 +MFE/f+awrvyA==
-Date: Fri, 24 Apr 2026 16:16:17 +0100
-From: Will Deacon <will@kernel.org>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Evangelos Petrongonas <epetron@amazon.de>,
-	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Pranjal Shrivastava <praan@google.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, nh-open-source@amazon.com,
-	Zeev Zilberman <zeev@amazon.com>
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow disabling Stage 1 translation
-Message-ID: <aeuJQW8bGLY-O_vv@willie-the-truck>
-References: <20260420123221.20801-1-epetron@amazon.de>
- <20260420124032.GO2577880@ziepe.ca>
- <20260422064431.GA49867@dev-dsk-epetron-1c-1d4d9719.eu-west-1.amazon.com>
- <20260422162351.GK3611611@ziepe.ca>
- <aenp6FHzx9rtUQkZ@willie-the-truck>
- <aenqxasLJ8yKYqbT@willie-the-truck>
- <20260423142326.GP3611611@ziepe.ca>
- <aepRy7Gp7Ng85Zr7@willie-the-truck>
- <20260423223716.GS3611611@ziepe.ca>
+	s=k20201202; t=1777045050;
+	bh=NzWIjOZQIJ4QSRpkYHMG1j9Yn+1obIkLrovQUw3CG68=;
+	h=From:Date:Subject:To:Cc:From;
+	b=R6mHxdV3UdHyGtaWwY405z811gxBp5am9Ro/jwNOQZ4CRsgfYKC+9QAcjbdPk2/C0
+	 qstHcDaRN1naerujB6GjBnXeBKSsJWKzaATbIKB8owTUsNki+L8CXgW1QhpqtzDWBo
+	 SaxQ8xUkLCR1KYa13IZutKA4uFkH/h5znwBPjaiOIFLaWHC78H2VWq8p/Gi/iEnMxz
+	 S8Ad0IlgZX3tbF+ZUsiU2Y7E/gYL0qEosr6SulruTHuoLhz98mPRFy13i+1AEoJ/rJ
+	 xfXxBXNvkHNkcbaPdI9VsheC+JD6AJ9BIbW6QhAkpdRtwUeC+R51MJtjMKZ0hQFEC6
+	 J1s7g2YxugjRA==
+From: Mark Brown <broonie@kernel.org>
+Date: Fri, 24 Apr 2026 16:34:52 +0100
+Subject: [PATCH] clk: bcm: rpi: Mark VEC clock as CLK_IGNORE_UNUSED
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260423223716.GS3611611@ziepe.ca>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260424-clk-bcm-fix-pi3-v1-1-8a734e94cecb@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAJyN62kC/yXMyw5AMBCF4VeRWZukqpHwKmKhNWXc0yIS8e6K5
+ ZeT81/gyTF5KKILHB3seZkDkjgC09VzS8hNMEghM6FkimYcUJsJLZ+4copSWdLKKpHbBsJrdRS
+ mr1hWv/2uezLbm4H7fgB+P3ymcwAAAA==
+X-Change-ID: 20260423-clk-bcm-fix-pi3-24feb4f409fd
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Maxime Ripard <mripard@kernel.org>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Brian Masney <bmasney@redhat.com>, linux-clk@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1968; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=IzJd3AuP5Nuq9Zvap5k1h/QxZqkhLbWrWEXCTZ3drAQ=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBp6442kwyoYyGAaCGRGLWTYSjr7u42wii9lDuVL
+ uKQdaNHNdqJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaeuONgAKCRAk1otyXVSH
+ 0ONgB/9+gWH2IkyXwL8eIwmCvYX2d612vE96lII9rkp/Cj8nfrsP/J56x4e2cISYEQlNv6nJf+A
+ MD05BBQrupEJXlzQT4hs+IVb5fUIjFdqjpoYd6XwPyEyY9UyjM0T18z00nzkRGfpsfKZUpA47qj
+ k/SlroJgKXxwjLeZBJA0SiLYou8EecZL1pKPjPCSvza3cnDtsamVGjDYEnWmdfpYH7cUFAnlHfe
+ ac6IHs+EMvf0K3+6mDyNWajAVp1k1hHjRN8mhSfJ+ZbZUIaC/c/5WZRcjfpT33xizKSYCEaxaK4
+ nMef375Ckcoljrdx+3+AZBnBOwxGY7SQn26rx71dcgSvsALN
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_081624_035336_7147BDC5 
-X-CRM114-Status: GOOD (  37.38  )
+X-CRM114-CacheID: sfid-20260424_083731_298305_DA156069 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,82 +91,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 23, 2026 at 07:37:16PM -0300, Jason Gunthorpe wrote:
-> On Thu, Apr 23, 2026 at 06:07:23PM +0100, Will Deacon wrote:
-> 
-> > I don't think it's that odd given that the STE/CD entries are bigger
-> > than PTEs and the SMMU permits a lot more relaxations about how they are
-> > accessed and cached compared to the PTW.
-> 
-> Well I'm not sure bigger really matters, but I wasn't aware there was
-> a spec relaxation here that would make the cachable path not viable
-> for STE but not PTW...
+From: Maíra Canal <mcanal@igalia.com>
 
-Things like the SMMU being allowed to cache invalid structures and
-loading structures using multiple, unordered accesses are the things
-that worry me relative to the page-tables. But see below.
+On Raspberry Pi 3B, the VEC clock is used by the VideoCore firmware
+display driver, which remains active until the vc4 driver loads and
+sends NOTIFY_DISPLAY_DONE. If this clock is disabled during boot, a bus
+lockup happens and the firmware becomes unresponsive, causing a complete
+system lockup.
 
-> > Having said that, the page-table code looks broken to me even in the
-> > coherent case:
-> > 
-> > 	ptep[i] = pte | paddr_to_iopte(paddr + i * sz, data);
-> > 
-> > as the compiler can theoretically make a right mess of that.
-> 
-> Heh, great. The iommupt stuff does better.. It does a 64 bit cmpxchg
-> to store a table pointer and a 64 bit WRITE_ONCE to store the pte,
-> then a CMO through the DMA API.
-> 
-> DMA API has to guarentee the right ordering, so we only have the
-> question below:
-> 
-> > > STE/CD is pretty simple now, there is only one place to put the CMO
-> > > and the ordering is all handled with that shared code. We no longer
-> > > care about ordering beyond all the writes must be visible to HW before
-> > > issuing the CMDQ invalidation command - which is the same environment
-> > > as the pagetable.
-> > 
-> > You presumably rely on 64-bit single-copy atomicity for hitless updates,
-> > no?
-> 
-> Yes, just like the page table does..
-> 
-> I hope that's not a problem or we have a issue with the PTW :)
+Mark the VEC clock with CLK_IGNORE_UNUSED so it survives the unused
+clock disablement and remains available until the vc4 driver takes over
+display management.
 
-You trimmed the part from my reply where I think we _do_ have an issue
-with the PTW. Here it is again:
+Fixes: 672299736af6 ("clk: bcm: rpi: Manage clock rate in prepare/unprepare callbacks")
+Reported-by: Mark Brown <broonie@kernel.org>
+Closes: https://lore.kernel.org/r/5f0bec08-f458-4fba-8bf3-06817a100c4c@sirena.org.uk
+Signed-off-by: Maíra Canal <mcanal@igalia.com>
+Link: https://patch.msgid.link/20260401111416.562279-2-mcanal@igalia.com
+Tested-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+Resending this fix directly in the hope of getting it into -rc1 since
+this is a clear boot regression and neither the original report nor the
+fix have had any response for some reason.
+---
+ drivers/clk/bcm/clk-raspberrypi.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-  The non-coherent case looks more fragile, because I don't _think_ the
-  architecture provides any ordering or atomicity guarantees about cache
-  cleaning to the PoC. Presumably, the correct sequence would be to write
-  the PTE with the valid bit clear, do the CMO (with completion barrier),
-  *then* write the bottom byte with the valid bit set and do another CMO.
+diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-raspberrypi.c
+index df2d246eb6ef..f1a99de6de4f 100644
+--- a/drivers/clk/bcm/clk-raspberrypi.c
++++ b/drivers/clk/bcm/clk-raspberrypi.c
+@@ -160,6 +160,13 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+ 	[RPI_FIRMWARE_VEC_CLK_ID] = {
+ 		.export = true,
+ 		.minimize = true,
++
++		/*
++		 * If this clock is disabled during boot, it causes a bus
++		 * lockup in RPi 3B. Therefore, make sure it's left enabled
++		 * during boot.
++		 */
++		.flags = CLK_IGNORE_UNUSED,
+ 	},
+ 	[RPI_FIRMWARE_DISP_CLK_ID] = {
+ 		.export = true,
 
-> > > I also don't like this "lot of systems thing". I don't want these
-> > > powerful capabilities locked up in some giant CSP's proprietary
-> > > kernel.  I want all the companies in the cloud market to have access
-> > > to the same feature set. That's what open source is supposed to be
-> > > driving toward. I have several interesting use cases for this
-> > > functionality already.
-> > 
-> > Sorry, the point here was definitely _not_ about keeping this out of
-> > tree, nor was I trying to say that this stuff isn't important. But the
-> > mobile world doesn't give a hoot about KHO and _does_ tend to care about
-> > the impact of CMO, so we have to find a way to balance the two worlds.
-> 
-> Yes, that make sense.
-> 
-> My argument is that the CMO on STE/CD shouldn't bother mobile, you
-> could even view it as an micro-optimization because we do occasionally
-> read-back the STE/CD fields.
+---
+base-commit: 672299736af6c398e867782708b7400957e62c76
+change-id: 20260423-clk-bcm-fix-pi3-24feb4f409fd
 
-I was against that read-back, iirc :)
+Best regards,
+--  
+Mark Brown <broonie@kernel.org>
 
-> And if Samiullah can tackle dma_alloc_coherent then maybe the whole
-> question is moot.
-
-Yes, that would be great, but we probably need to fix the page-table
-code too.
-
-Will
 
