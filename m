@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45BF8FB44C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 07:13:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCC4DFB44C4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 07:24:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/w9I7mamhI8PwCgAU7GnFmsVE4pO3utIWT5dv1gRVLE=; b=WIEGL70VC2UNqSEjXs75NoYVsZ
-	32uCLoct5VeNRFk+jJ+BqXsElVWUxNoOfEvaRDMU41w7cbP1+rhjPQ4OtwGv2ENqFb9LzB5BYCRV+
-	VtsOgwemgq4WCiZkQue4TntQVEqw8Tt+ET4/BKtoo/awOzW1UoLgz5fJoSv2b2vdX4fuCsDIlw5Zg
-	HL1q/4PGjfl/zTWjpBwx2wLJQsRrlK5ngZxxnDGS3H/wxLJd6J+qEonExOyMZVMrzOdIgx9GPuHpu
-	9yynaDt0Pl5sQLtls5Qids6Xal38TLn0bvZkEeAMm61d76hJ0eKk5UISeUc4g1bq5diO442Vo7Lep
-	RMa0Cz3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sSxi7QicnJh3RVjnUrDAcHWVo9Pd42SQu6mr0xdkmu0=; b=JjyKwauh+L3EWW+aQ/pefWF4yz
+	UTMDcnGBj5/Ux8LrBglb40zFvy4/KtdnxcrG0cR6IuzUrOY0hhs526p5Nwj8wFiTcIgcYGMYS36H2
+	YeNx/xnkROpiBsNq2QKm46qZAms3Igiw9/f5Nvx4psFHp5i8S33Bb4dxygsF/loA80K9CWRX7X0Xy
+	PQy8q7dyy5YdqwK4bhm2lWr5toplFg0gTl8RMeL40BdcBuu46XPeM0YaXfMnqrCy6cFqUh9OZtvHI
+	p+bObPA9ZzdZ4rioMqse+rw8utS5NSj5g5diz/LIOBcC3OhNFD0LHwcHSp14/IY3Cge0NLJbskaOg
+	EefXj8fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGAj3-0000000CmTl-0cTq;
-	Fri, 24 Apr 2026 07:13:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wGAu8-0000000Co5n-1EUb;
+	Fri, 24 Apr 2026 07:24:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGAj2-0000000CmSd-10At
+	id 1wGAu7-0000000Co5g-1U6V
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 07:13:20 +0000
+	Fri, 24 Apr 2026 07:24:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7206D60121
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 07:13:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17169C4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 07:13:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6FCDF6001A;
+	Fri, 24 Apr 2026 07:24:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 207FFC19425;
+	Fri, 24 Apr 2026 07:24:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777014799;
-	bh=tLZ/GDek49sI5Zs/eZ/fXFs5/EAJg95zumCgRfB6mFI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ZqTAkPNFuRt4zBNN91MjsuvIMRLyywfrnFCAPb7T7f0WzSHRKVAzABlzj6MTWuHbO
-	 DipU6fp9WKBSaiUKDif7XxbY2cwSKQFsZVjec2UqA6paA98OtJdhzXApvhX9eQM1B5
-	 KWVQ48tVMzv2gxHax2ms3LlSmP4v3rQ1z0m6p71HyPxmc48Q4c4VbWzKoOQ3d0NGMI
-	 BtrWK5VwCDE+cOiJ6a45f6dCGhdjqDGEPtZGrNrAcJkWy4okptGPbEExz8hJJUsr+s
-	 jnkuFrOqTdX49kDYy4u6sIUy7EAaa7WILsMvqfJfS7CRoujVTv8Ba4S9IT2zFRoh/G
-	 moZTOHfwajdSQ==
-Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5a283c44478so12718839e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 00:13:18 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+cBmjbRZXZ9chvC+niR1fg0IGC6m9ouGj8DipQR9WPl3XOmf4cWko8bv2zvLDIjR9b/vhgDLIsfYw3COD397Ed@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYNGrSOiX9gv+cBvmzY7/4GonHLFGgZH43J7p58H51kZl0IgOA
-	Yv53dpQBMn1XDci4iflqIR2DvhGRxcodSPtVX0MUkZ3ml/cUBVlxRI1NEBEH9FWbiU7e1NrmGGr
-	jgGItxMhdYKJsrLeB+L/2WVzN7S3zfHM=
-X-Received: by 2002:a05:6512:3b0b:b0:5a2:c0ab:b57f with SMTP id
- 2adb3069b0e04-5a4172bfef2mr9090696e87.14.1777014797734; Fri, 24 Apr 2026
- 00:13:17 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260421-send-v5-0-ace038e63515@gmail.com> <20260421-send-v5-8-ace038e63515@gmail.com>
-In-Reply-To: <20260421-send-v5-8-ace038e63515@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 24 Apr 2026 09:13:06 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=_eDY_mG_QBreSrZiho0hUrDSciedq=vrxXaTiMwrSyg@mail.gmail.com>
-X-Gm-Features: AQROBzAS_qKgmsidFIdx7V3XpX1JGmVrzkG_9S8znjc0YtyWq-b8e9KYfjIHcLw
-Message-ID: <CAD++jL=_eDY_mG_QBreSrZiho0hUrDSciedq=vrxXaTiMwrSyg@mail.gmail.com>
-Subject: Re: [PATCH v5 8/8] ARM: defconfig: Add a zx29 defconfig file
-To: =?UTF-8?Q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Russell King <linux@armlinux.org.uk>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Drew Fustini <fustini@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, soc@lists.linux.dev, linux-serial@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	s=k20201202; t=1777015486;
+	bh=6mVWuteGVpQy8M878VFdWu6XkCt5gpyOdVPcDnaHa8s=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=sfxfy4wtCPyxDjviJPdNUMQ0DmV/qDZ05+48OVbM7hViSb6pq7JQkNHZHhS7T9YqN
+	 kYEvgoVakwXR0kwBU2v63u5Y04J9IWsmLukn3u6Su88OCwSTeLt7RzIv2EWaK6ImsT
+	 9423m0qMPrVJdbqqz6futIDiJWdQtOlQ6RZISFBzXdC6jdNMoZfw6WZcXPHR2jqP9+
+	 YZS0Zj49PmXVNv5/qdBbNw7kOSTU8ogLg+PDcvvK3+WOshPfCIqIDQSTszZL3fZDXv
+	 5wTxLDKNGhbuRaIRmkdowf/NuROQz4kidg19G4fbqn2iDxbmjvXgR97OnBFuhDbxFt
+	 f/MiYL6q75ONQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wGAu3-0000000EI9I-0fWL;
+	Fri, 24 Apr 2026 07:24:43 +0000
+Date: Fri, 24 Apr 2026 08:24:42 +0100
+Message-ID: <87jytwbz2d.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Yao Yuan <yaoyuan@linux.alibaba.com>
+Cc: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH] KVM: arm64: Wake-up from WFI when iqrchip is in userspace
+In-Reply-To: <uhqgyol622go4lm5btbk4jyieb3swhskpkyel4mnksfeki2mo2@ecnjvxwiqcfw>
+References: <20260423163607.486345-1-maz@kernel.org>
+	<uhqgyol622go4lm5btbk4jyieb3swhskpkyel4mnksfeki2mo2@ecnjvxwiqcfw>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: yaoyuan@linux.alibaba.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,33 +86,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 21, 2026 at 10:24=E2=80=AFPM Stefan D=C3=B6singer
-<stefandoesinger@gmail.com> wrote:
+On Fri, 24 Apr 2026 07:33:02 +0100,
+Yao Yuan <yaoyuan@linux.alibaba.com> wrote:
+> 
+> On Thu, Apr 23, 2026 at 05:36:07PM +0800, Marc Zyngier wrote:
+> > It appears that there is nothing in the wake-up path that
+> > evaluates whether the in-kernel interrupts are pending unless
+> > we have a vgic.
+> >
+> > This means that the userspace irqchip support has been broken for
+> > about four years, and nobody noticed. It was also broken before
+> > as we wouldn't wake-up on a PMU interrupt, but hey, who cares...
+> >
+> > It is probably time to remove the feature altogether, because it
+> > was a terrible idea 10 years ago, and it still is.
+> >
+> > Fixes: b57de4ffd7c6d ("KVM: arm64: Simplify kvm_cpu_has_pending_timer()")
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/kvm/arm.c | 4 ++++
+> >  1 file changed, 4 insertions(+)
+> >
+> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> > index 176cbe8baad30..8bb2c7422cc8b 100644
+> > --- a/arch/arm64/kvm/arm.c
+> > +++ b/arch/arm64/kvm/arm.c
+> > @@ -824,6 +824,10 @@ int kvm_arch_vcpu_runnable(struct kvm_vcpu *v)
+> >  {
+> >  	bool irq_lines = *vcpu_hcr(v) & (HCR_VI | HCR_VF | HCR_VSE);
+> >
+> 
+> Hi Marc,
+> 
+> > +	irq_lines |= (!irqchip_in_kernel(v->kvm) &&
+> > +		      (kvm_timer_should_notify_user(v) ||
+> > +		       kvm_pmu_should_notify_user(v)));
+> 
+> How about a new helper like 'kvm_should_notify_us_irqchip()' ?
+> We can replace the same part at beginning of kvm_vcpu_exit_request() and
+> here w/ unlikely().
 
-> This enables existing drivers that already are (UART) or will be (USB,
-> GPIO) necessary to operate this board even if they aren't declared in
-> the DTS yet.
->
-> Signed-off-by: Stefan D=C3=B6singer <stefandoesinger@gmail.com>
+I'd rather not introduce a helper, for two reasons:
 
-*I* personally (as SoC maintainer) think that having a few more defconfigs
-is fine, even helpful.
+- this needs to be backported all the way to 5.19, because that's how
+  far it has been broken. So keeping it small and localised is far
+  better than introducing a helper that will make the backport less
+  obvious.
 
-But I would defer this to the more senior SoC maintainers because I think
-their stance is something like:
+- I have patches to remove the other calls to kvm_*_notify_user() as a
+  simplification of this utterly stupid feature.
 
-- We have multi_v7_defconfig for compile testing
+Finally, and while I agree that this could take an unlikely()
+qualifier, a much better course of action would be to have a separate
+patch that moves the qualifier to the predicate itself.
 
-- We know that binary gets way to big for your system: it's for build
-  testing and perhaps booting in QEMU or systems with many MB of
-  RAM, not for actually running it on products.
+Thanks,
 
-- You are encouraged to keep your own defconfig out-of-tree.
+	M.
 
-However I even challenged this myself by adding a defconfig for memory
-constrained Broadcoms a while back (NACKed/ignored ;) so if it was all
-up to me I would merge this.
-
-Yours,
-Linus Walleij
+-- 
+Jazz isn't dead. It just smells funny.
 
