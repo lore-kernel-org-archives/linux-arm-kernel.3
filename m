@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A1FDFE51F5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 596E3FE51F6
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 09:37:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r7frfbPf1U6f464ol2QjGAiiMus/6aLxPIWxUChKGh4=; b=p9M2hQSxYSNQ9pTX11EEoMEfVu
-	GI/2cIUvG0WdGQ3omKiCipKQqBXVgianPRpJVGabsfvH51ZGa21PWgqiaEbbhIYk3aVD/cKwXOiUc
-	kchG95Y2nObPAE0bGZmfCPRfahq48bxWqSS37DgbNSqZv2FMGQrtZSUDgE9X8RvdqC1gTaUcHRVaS
-	P7xrZjJHPnZRGbOUn6s5fqRn6wDdlGR7g21cy9NV7A5Tw5zBSNC6NQ44Oywwy2ynnlxC+NLal6/CE
-	KiHtCc/giw9U7icEQtAIUzfZHeQ7I79uEL+a6H19SfdyPthAcl3YwPVvlRU51fVlJ5Dp3Iq9coE6Y
-	92OWCoBg==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HLJxDrkixMXPsXH2OAxwjljjHn3k7qhworZTCrexYVc=; b=yYlJtjahhuOUdsVVZ1Q61dPOUb
+	kuJhbidgddbgWtNnNzGzjaEdu2TR6xOxdQL8DLw+fRg8z7ptgulWQGlbJcZ+B3RfJr2HeN9QATLKj
+	Nc5WEmPSgE9PwZeKkoypw09QryBG+Th4E1DDv3Mb/4LlOgHh7FuZMaHqXehVUCKR7EW8HrK9LhvBC
+	C0u/uj19852CUczv7XXQ6CeNiJTksh07CvWUxZl2Sy82OtZaUaBw3sGiKpyQ1HI8oDd6kc3wgX0/g
+	Mt3LXZat4H/51YpqneczWZVCfYTEgaNBR0UlLH7bQNnT+D+aSKQrdDbqwOjKHMkbPlfi5lEMcDJ6E
+	zTaXC78g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGCyH-0000000CwYF-3U6N;
+	id 1wGCyF-0000000CwXm-408O;
 	Fri, 24 Apr 2026 09:37:13 +0000
 Received: from smtp.uibk.ac.at ([138.232.1.140])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGCyC-0000000CwWl-1Ofp;
+	id 1wGCyC-0000000CwWm-1Om7;
 	Fri, 24 Apr 2026 09:37:10 +0000
 Received: from surface-pro-5 (77.119.189.242.wireless.dyn.drei.com [77.119.189.242])
 	(authenticated bits=0)
-	by smtp.uibk.ac.at (8.15.2/8.15.2/F1) with ESMTPSA id 63O9agoA1184944
+	by smtp.uibk.ac.at (8.15.2/8.15.2/F1) with ESMTPSA id 63O9ago91184944
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 24 Apr 2026 11:36:52 +0200
-DKIM-Filter: OpenDKIM Filter v2.11.0 smtp.uibk.ac.at 63O9agoA1184944
+	Fri, 24 Apr 2026 11:36:46 +0200
+DKIM-Filter: OpenDKIM Filter v2.11.0 smtp.uibk.ac.at 63O9ago91184944
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=student.uibk.ac.at;
-	s=prod24a; t=1777023412;
-	bh=r7frfbPf1U6f464ol2QjGAiiMus/6aLxPIWxUChKGh4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=rJ08/PGWx1y9C+1JnR1Bm2TC2dGyA+Lc+AJh5zw1Ruv97sMM5l3b6SjBhswp/jZBF
-	 EmQrOjumbHuIH1BoP8agAdkXZ6rurK2MEKC6XGiLavkVInMagJ5DoYA736qXgKFC0/
-	 s14uYtM2xxpMLIVMdwwG2j6pyzjxD51yIIR1aYHM=
+	s=prod24a; t=1777023407;
+	bh=HLJxDrkixMXPsXH2OAxwjljjHn3k7qhworZTCrexYVc=;
+	h=From:To:Cc:Subject:Date;
+	b=Y9PgnblUa1aoWUyT4wfZFk1xG6xiLaUU2qK8P8+PJj4faPENA0jwl2SscxzAirL1r
+	 /Wgx4AX4FggpC5APoG++uocqDPU3c0VV1GnCbBGnNJVYxBzQaqkIztS8gLzgOHBLO8
+	 rUQb8OhDskM2nyo0cnYtnK32bZh6n9S6+GVyCgZA=
 From: christian.koever-draxl@student.uibk.ac.at
 To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
         neil.armstrong@linaro.org, khilman@baylibre.com
 Cc: jbrunet@baylibre.com, martin.blumenstingl@googlemail.com,
         devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        =?UTF-8?q?Christian=20Stefan=20K=C3=B6v=C3=A9r-Draxl?= <christian.koever-draxl@student.uibk.ac.at>,
-        Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v5 1/2] dt-bindings: arm: amlogic: add support for Amediatech X98Q
-Date: Fri, 24 Apr 2026 11:36:32 +0200
-Message-ID: <20260424093633.10734-2-christian.koever-draxl@student.uibk.ac.at>
+        =?UTF-8?q?Christian=20Stefan=20K=C3=B6v=C3=A9r-Draxl?= <christian.koever-draxl@student.uibk.ac.at>
+Subject: [PATCH v5 0/2] Add support for Amediatech X98Q (Amlogic S905W2)
+Date: Fri, 24 Apr 2026 11:36:31 +0200
+Message-ID: <20260424093633.10734-1-christian.koever-draxl@student.uibk.ac.at>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260424093633.10734-1-christian.koever-draxl@student.uibk.ac.at>
-References: <20260424093633.10734-1-christian.koever-draxl@student.uibk.ac.at>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-Scanned-By: MIMEDefang_3.2_at_uibk.ac.at
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_023708_982906_FC47E0BF 
-X-CRM114-Status: UNSURE (   6.33  )
+X-CRM114-CacheID: sfid-20260424_023708_983532_126FBD0F 
+X-CRM114-Status: UNSURE (   9.85  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,32 +74,46 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Christian Stefan Kövér-Draxl <christian.koever-draxl@student.uibk.ac.at>
 
-Add the board binding for the Amediatech X98Q TV box.
+Supported features:
+- 1GB RAM (2GB variants exist)
+- 10/100 Ethernet (Internal PHY)
+- eMMC and SD card storage
+- PWM-based CPU voltage regulation
+- UART (Serial console)
 
-Signed-off-by: Christian Stefan Kövér-Draxl <christian.koever-draxl@student.uibk.ac.at>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
----
- Documentation/devicetree/bindings/arm/amlogic.yaml | 7 +++++++
- 1 file changed, 7 insertions(+)
+Notes:
+- The console uses uart_b at 921600 baud.
+- Verified memory via /proc/device-tree; U-Boot patches the node.
+- Tested on the 2GB RAM plus 16GB eMMC variant.
 
-diff --git a/Documentation/devicetree/bindings/arm/amlogic.yaml b/Documentation/devicetree/bindings/arm/amlogic.yaml
-index a885278bc4e2..c0167fbc310a 100644
---- a/Documentation/devicetree/bindings/arm/amlogic.yaml
-+++ b/Documentation/devicetree/bindings/arm/amlogic.yaml
-@@ -248,6 +248,13 @@ properties:
-           - const: amlogic,s805x2
-           - const: amlogic,s4
- 
-+      - description: Boards with the Amlogic Meson S4 S905W2 SoC
-+        items:
-+          - enum:
-+              - amediatech,x98q
-+          - const: amlogic,s905w2
-+          - const: amlogic,s4
-+
-       - description: Boards with the Amlogic Meson S4 S905Y4 SoC
-         items:
-           - enum:
+Changes in v5:
+- Drop Wireless SDIO Module comment.
+- Add generic description of Wireless SDIO Module in dts.
+
+Changes in v4:
+- Add/Change hardware description to cover letter and dts patch.
+
+Changes in v3:
+- Change position of the entry in the amlogic.yaml.
+- Change formatting of the Amlogic W150S1 Wi-Fi module comment.
+- Fix several formatting issues.
+
+Changes in v2:
+- Split dt-bindings and dts changes into separate patches.
+- Updated model string to match documented vendor prefix.
+- Put vddio_sd states array in a single line.
+- Added a comment for the unsupported Amlogic W150S1 Wi-Fi module. 
+
+Christian Stefan Kövér-Draxl (2):
+  dt-bindings: arm: amlogic: add support for Amediatech X98Q
+  arm64: dts: amlogic: add support for Amediatech X98Q
+
+ .../devicetree/bindings/arm/amlogic.yaml      |   7 +
+ arch/arm64/boot/dts/amlogic/Makefile          |   1 +
+ .../boot/dts/amlogic/meson-s4-s905w2-x98q.dts | 249 ++++++++++++++++++
+ 3 files changed, 257 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
+
 -- 
 2.54.0
 
