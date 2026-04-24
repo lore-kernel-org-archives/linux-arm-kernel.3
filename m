@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A311FFB44BB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 06:59:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AAF5FB44BB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 06:59:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iaYxt9AMLkeN9IM6ftUBSYmqelQZmEG9oCJlezeiK0w=; b=xLYxWgtvicyMBUH6PxIL1F6aqI
-	PMjO1ULBVXUtk+Qwd3/kZ3j7qclki9JJhPQb+hyrHSmvcgqUzZgDKnRTT2pnx5VRQxaiqDoDdn0XL
-	RaWHq6ysrd+bR4ucxPp9szmiWsqAs6bDbBVlLriVNBpGzO7WCskMesKt48DwO2f+fUYFGBCVY4r6e
-	BLtpAjPoDr/YxjMs0bHrHQOBWq3ksxaBP4ZeOnufIs2iK4kejCxFb13JJBZgvMNrV8Z7gA4CDB20M
-	Gyeor80ti+GOK62Uhu3G4NlE2PZmyt4T9cjHaDJI2I5H6A6qXI64f1glVkefqIDvY9sq45JSKHrFK
-	rY/u/WkA==;
+	bh=vJytY8WL4HMe3HBBQqeR7J9sAXb/0IxpjYcnbPquKV8=; b=AppBnxsK2K7jxyoDmLaRb9ZUJB
+	21K2Pq9rAeq+GxNskvtMCXZgKXpH+NC60DbUgcwLcagbo0gsz11HxXFuF4S9ssflroxei5CNlTK6m
+	JyuaKZPX9bVVgEO/udIzV7sQRN6oni851ly6id6Ml1CpcJlg2p2ozBKfUsyqnGjGbb+k6BSEZz6ei
+	MS+XqPh6Jk7Zr7dGaPS4zIE/bGVfbkHjmYeNdE1Vk3CeXlot9JkEKXo0ac14BnNOy1UnFgjoZ7Iba
+	XPM/mrpYceZYyjijq7buIPjE5KEAxntfpLl+Z6QbvGa7y+nxYPDAm3cAGPl+KCFAKh9NyE5YfaZsJ
+	HVqGO2Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGAV9-0000000Cl5T-1wJr;
-	Fri, 24 Apr 2026 06:58:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wGAVX-0000000ClCO-3cWc;
+	Fri, 24 Apr 2026 06:59:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGAV6-0000000Cl4g-2fXF
+	id 1wGAVW-0000000ClBy-2A89
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 06:58:57 +0000
+	Fri, 24 Apr 2026 06:59:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4FDC0440E4
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 06:58:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32AECC4AF0B
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 06:58:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DF467600AE
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 06:59:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9685AC4AF0B
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 06:59:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777013936;
-	bh=iaYxt9AMLkeN9IM6ftUBSYmqelQZmEG9oCJlezeiK0w=;
+	s=k20201202; t=1777013961;
+	bh=vJytY8WL4HMe3HBBQqeR7J9sAXb/0IxpjYcnbPquKV8=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=KD1cH/wVRAkhxpKyIgGwnVwNKO9vS8algf9lCpvMZ3LD/7nBABa++dWRLhEjBBgek
-	 fLzD4JgFrJadUBppjNykTLoHN35FXEaH6n4NXnYMv3ZndzGR1axbdsR+hnorJ3Oc/V
-	 Tc4Q9iocyGxz3PM3yYtcRGmlrm1oaJ46wycrmIES0GbSBHGIWGXokhrfc65IRlEgrI
-	 7Ble80djXX8hX7YVoNsbk/Tn5uN+M656P8PgHvGMyumKh+o/25Rgon+yv/0C8BhKZu
-	 WZcjTp4QqNrIS33YAt6yKdLX3cc4r4NVrpjnx+vUOP5/ldUIGFnqdsLzwOGiyO5Hs+
-	 UUwvvec2eST/Q==
-Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5a0faa0d15cso7408980e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 23:58:56 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8geMNOOVkMJsaT8Omh4squ2IaAUHNYokj6LNLI+8t80xAw5keyuQwU76QQStzvUjn6Yph0VQs+RxPyF1iZdGir@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPiXLGXHvVCw7xD8CtmGZlIZ6KUXt3xvgMu0xvsQZrO5o5FY+d
-	10IyuYivp2bsGqaI7PRA/8ZsIjDkM/xWdtiNNCslsXfaQ6s54NzDqKphSByrlrALp4fJUJ5Zsy5
-	r9TPiQA/xnT/uxeYj2Y3UuPF9v3t5wVo=
-X-Received: by 2002:a05:6512:138c:b0:5a4:6a5:9910 with SMTP id
- 2adb3069b0e04-5a4172dc698mr11347475e87.23.1777013934905; Thu, 23 Apr 2026
- 23:58:54 -0700 (PDT)
+	b=Kzywh5Z42fHQMDhvXyWb4tTW+4madIm//c1a8WPDnSRwZEeiqzJDmcnNE1BfLIaLr
+	 GoyAS2IIl4zc2lk/3o57KXvQkMXLEPu0IADq5I6DCb59Q3UnhegJ/Oh6auAFhkWD4s
+	 dh/QDaspJLyXs0ww0E+oAgXGOUEpb8a6PqsokVyLPrMUA7PHpkF86VQ6AKhFnKn3DZ
+	 mVqnp9zKx2oivgEb+260/EOpl5XNXbEisiBBbmOCVkh1VnQddcMySg5ZwkxzQkuKT+
+	 c6Di1GMHRnFRrUHQQ+KnVE6Hsxxkaz25HJZCO6iSS2Pwp6EW+bYazksWL8la+zwLm0
+	 XcjTuvyVWcI1w==
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5a40b2d268bso6063045e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 23:59:21 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8K9hYVe4ZMtMG/WUBId02rot2TmBgmNW8ukVChBuGXe3qcS8YQBs/ZGu3xXyxLUiaSBx5C+yYoKcBl3ttI07VV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyf9SVlkvRbQXh+pKyuTG6cSLV2CRHRTbbZwk0wfv4c95k9q61R
+	QgwU+LrvCOIi3Vu1CrDbcFpzrAXe0TfgfZRiNG9zH6E7MVENEWw2rUnzAEZJA/gv3J735TB5Zai
+	gMI8qB6SVyaJaxd6A65jckbUBbH/9NuU=
+X-Received: by 2002:a05:6512:3a86:b0:5a4:59:d47d with SMTP id
+ 2adb3069b0e04-5a4172be0d0mr11924307e87.4.1777013960336; Thu, 23 Apr 2026
+ 23:59:20 -0700 (PDT)
 MIME-Version: 1.0
 References: <20260412-b4-defconfig-multi-v7-v1-0-e76de035c2df@oss.qualcomm.com>
  <20260412-b4-defconfig-multi-v7-v1-3-e76de035c2df@oss.qualcomm.com>
 In-Reply-To: <20260412-b4-defconfig-multi-v7-v1-3-e76de035c2df@oss.qualcomm.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 24 Apr 2026 08:58:43 +0200
-X-Gmail-Original-Message-ID: <CAD++jLm1s4FWZ+zoKs-UkEhKgMEFVOTgAJrrbhjuTTZkPBUsVw@mail.gmail.com>
-X-Gm-Features: AQROBzBE7No9DY5SvJhFb2KBRmdi1-NdT3J1fO5lkzFDj3-nX3LtfUFmilbfCTY
-Message-ID: <CAD++jLm1s4FWZ+zoKs-UkEhKgMEFVOTgAJrrbhjuTTZkPBUsVw@mail.gmail.com>
+Date: Fri, 24 Apr 2026 08:59:08 +0200
+X-Gmail-Original-Message-ID: <CAD++jLkWR2=6ZbLZQKzL8+bqKGKByWOR5M9Dv3Lj0AJp46r+QA@mail.gmail.com>
+X-Gm-Features: AQROBzC76nTsXbrB6iGKQlywmHXe5UAMid2rCNSiTIGiO8bzyFgn1BPunTP0_eI
+Message-ID: <CAD++jLkWR2=6ZbLZQKzL8+bqKGKByWOR5M9Dv3Lj0AJp46r+QA@mail.gmail.com>
 Subject: Re: [PATCH 3/5] ARM: configs: Drop redundant SND_ATMEL_SOC
 To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Cc: Nicolas Ferre <nicolas.ferre@microchip.com>, 
@@ -70,10 +70,6 @@ Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_235856_695147_06539B9F 
-X-CRM114-Status: UNSURE (   8.31  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,4 +93,9 @@ On Sun, Apr 12, 2026 at 7:13=E2=80=AFPM Krzysztof Kozlowski
 > No impact on include/generated/autoconf.h.
 >
 > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+
+Yours,
+Linus Walleij
 
