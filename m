@@ -4,151 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B02F5FB44C0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 06:48:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97EA3FB44BB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 06:48:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1kLlcZ788tXaNN/+sKvun9sr55BDHs+1SnnpTa9xDN4=; b=WR5FhZrelsx8XlP6eyTlI/TFA5
-	S7xb1kMd7/t/d+ALCUgfQGTGmAED58yWTQFzWp6S33DjheiGSrLAUu9VjYj/66mywca4x54rqjcLE
-	yuhAnEbYDde4dIAcwAGs0PQAiXopKx55N1wZ2qMspXNBqYIqzQJmSswBnsQlReelmQ9oQ+barrDBP
-	tVqvf2S8PEkqis8VORQuq+autj0nvBiz6wm8cNhsZ/9TwWQVO2YTNKNkAD2KgtinOOkZBhgky+xYa
-	1Mh/RSmFMVJG3pJdsNfMDk5KPwOdrziX6JMGEbdAuCPHdjzt9V5nEPWAgKWXvcQ6v0JaQW4p8oMNr
-	8775/QdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0wOOuJYHpYbOuEeycs12zNp1Rnfrdks0Fil+00MPKdM=; b=rctYxU1AuMIieKsspzby9czubi
+	vV1brfq5RDAKukiGCZ0U4ixMNcQ14+usIuxNG1ad4s+HZd76Je/reDqgquBxOl6jZEoQ+k18RxjBx
+	k/jd0u7Bnd0lAZPSOY8n3P+96LU9zx/50d9SetFuxICRkFdcq9pi9Ov+k4jZ0sPT0ODBp3fxZhwFk
+	d3FYsEswLrpTdiGNg+I+W93KcG0Yb8mUC2rGjLZ5enEpTjYHrxue0ZyTg1ZcJ1fegL2XwBKU6ECqC
+	3MnR2YJQHUhEVinFm82ZtJvX1WKya4EB7tSVf1LlmWit4oZCOsdpmAJBOtXNYBfyNbWsn5lJGamwE
+	Rg5TYpRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGAKu-0000000Cit8-3VjU;
-	Fri, 24 Apr 2026 06:48:24 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wGALE-0000000CiyV-0blo;
+	Fri, 24 Apr 2026 06:48:44 +0000
+Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGAKs-0000000Cirb-248t
+	id 1wGALB-0000000Civl-0iVp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 06:48:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HukIGUi2X9P5HooGlDexci4heBjGBcraM2o3kpbVhZHegAuaRF2kA4H1Xr2EMkuVqHHy4nuanzc6idqmDRHM4jdqSS5uzmjKnDJhSRSyrKoXtovYm0YTwPqmi70lM1OLq6+OQ43tIqa+Z1Jexm7zfNaTyHdzJLl3hkp/cKXvwWmsyBxBpI9AAc1vVWHOpMb/ZYdxVMbPm561dehnr2UJebtja/Ctj5HkFEIbzP3Hd04jwJDjjMYmPJssJDMeYbceL5W9263KhSN0l9OqE2FN80KAt0q7fCJldmqDXdvga88X5dJ4bTLNPDGrL8OGGx7dsEnsGlPIubTGwxq98x9Lhw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1kLlcZ788tXaNN/+sKvun9sr55BDHs+1SnnpTa9xDN4=;
- b=uLkiP56LMI6P2wMOjy6DorCDG6yv7mzxw48HAo+ZCsse3S4E2BHrwX6ewdjEP4qfFI9W7huzCOqd6PTZmqRFZzg2aCv2g3edGhJBiSJhgGd9UReFFm9kLS7cLCg4o60fwlJPsDvt74JmmBs61w5dUb/ebLzvxcwY/70W8NnfUVVAQbO/oa5EBBB3Vmza9pzVwHyFR/MZqKOj1UmcAb/8uKEt4r4MYMBKH3wlZY6aVXvggPh5hdZZYDAYaQLt6KUYjKBElLrsTNiOBUjjTNO2iIZmlhWdZoE6GAAHG57mqiLnKVjrpv6znDlVycQHvgRJK8YdYPLREb1vUXtqC2Drew==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1kLlcZ788tXaNN/+sKvun9sr55BDHs+1SnnpTa9xDN4=;
- b=gTIujgEcMu4m/tQ5z2DGPi4AqFvwqs079hyU3meVHkTAd/2sqdkk0oc771xK8mlrmGjzCK2t9On+Po6nT6Io0eYPFANotQi3Y3l8FUwU7+GRHkeUj1EUtFrprHhjJGyzML+R/uzURruO3X2MRyQhenf0rLgA8A+/vTHChJuXjeVSQH4ehgeoDrkulOVU9RZdhNKMnAmEVlsX1KvhHqhvEA/jcV1CnBFKuI414ebZPRRE3NE14lsYKLFPNaCpet4fFeUKGgF+CWIF3fuSfxdtqfRuYn+DCQkNIGiCvvDCaa5fmC3Hx0OUVaLifMJgBRxfIsSsl/UqbW7n54dBmprTGQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
- by PA4PR04MB7903.eurprd04.prod.outlook.com (2603:10a6:102:b9::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.18; Fri, 24 Apr
- 2026 06:48:17 +0000
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::92c2:2e03:bf99:68eb%6]) with mapi id 15.20.9846.021; Fri, 24 Apr 2026
- 06:48:17 +0000
-From: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Date: Fri, 24 Apr 2026 14:49:51 +0800
-Subject: [PATCH v12 2/2] arm64: dts: imx8ulp: Add MIPI CSI-2 and ISI nodes
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260424-csi2_imx8ulp-v12-2-da148eabc035@oss.nxp.com>
-References: <20260424-csi2_imx8ulp-v12-0-da148eabc035@oss.nxp.com>
-In-Reply-To: <20260424-csi2_imx8ulp-v12-0-da148eabc035@oss.nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Fabio Estevam <festevam@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Hans Verkuil <hverkuil@kernel.org>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-media@vger.kernel.org, Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777013438; l=3152;
- i=guoniu.zhou@oss.nxp.com; s=20250815; h=from:subject:message-id;
- bh=tV/GCF75Mal68b6jVfbtaGotC4RyS5BPPNijCjUXxYA=;
- b=sJMoIo3ztmjnnnbv+EV4GyJmOMW42xLeN3ir7+K3QquSigIF/kYKBObbrFj6mAMvJHxOe+noY
- xeSuoY6EkbcDaZYppBtEm7cMzidE+2oT6cvqrjlxnib3Qn+h1VRh1pv
-X-Developer-Key: i=guoniu.zhou@oss.nxp.com; a=ed25519;
- pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
-X-ClientProxiedBy: MA5PR01CA0100.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1d1::8) To AS8PR04MB9080.eurprd04.prod.outlook.com
- (2603:10a6:20b:447::16)
+	Fri, 24 Apr 2026 06:48:43 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=0wOOuJYHpYbOuEeycs12zNp1Rnfrdks0Fil+00MPKdM=;
+	b=DPpgY3/SfNnZvib1urs+Yfyun56s9Ml4uYUtkoTnCjHagEI862zCQ98Mm0uv7Kv5WMucEYxVE
+	/0N5//JNhot9mldmWAhp0DwClZd9KdKYDAhpr6g38pR7C5MCM8CtB68TQPGZpf1drJ7UHRIafJp
+	j5d1FwoAyQSHAjPU7KsNtrc=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4g23Kg1SZnznTVg;
+	Fri, 24 Apr 2026 14:42:15 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id 08CAA402AB;
+	Fri, 24 Apr 2026 14:48:28 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Fri, 24 Apr 2026 14:48:27 +0800
+Message-ID: <0403d30d-e75e-4922-b8c1-8cae349f3dc2@huawei.com>
+Date: Fri, 24 Apr 2026 14:48:26 +0800
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB9080:EE_|PA4PR04MB7903:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3b24236c-4a88-4340-668e-08dea1cd770b
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|52116014|19092799006|1800799024|56012099003|18002099003|38350700014|22082099003|921020;
-X-Microsoft-Antispam-Message-Info: NVLLojuUBbt4sa4EMVdFjp8kpk/A6rTP92ibJ8+V2ufo/a6oRSv0xCogpHUAFdJLxdbpQm8NkLylOGKd87US3e2jQHz0DqCbNCYPPpCse80buwcOhwBzDwlqCciGUxF1m3VXzA7BTEN3hCiqoH5G58SPTAWT7R9Pw2Ip5sSexAPAlNC9g7zGOZM9l2Zz1y5jKRC0FbmXFnr1M543M5w6wCRGazJy/pgKDTVE7J4x8KDhGZ0Fi153qxF1t2lwX1i+ms2ot2C6NmAjzwla19VgadU+mgyqJuAQjE1bJbbiCh2Y87FrM3D7luJqya3XadW6HaDocqxHhEyQS44ltbmeNbhaJsNG10eIdalhKJnfR33Tu6ArgYNI75lAFeBvn6WB/hFImOVCCu5TADU8yA1MhSE52WSso+goQPgkzW6Tww+Zf/HrPigO/7TILqq67xEbTIGvLlzVLfwQK2fd3kvors2PqFzx6CrUoRYWuDJI1hMCNlf9DASOINohfpMXgf7grvS14tppnePNgw3HQlM3umbyWwCAW9GH7pIDyRYpffw8li2xM9oskIlwVusR5Rsl22ijQvqqfIpEXwfMK5XQTL4kmtvqL3OcsMNmz0RFYxDi9GZUxPC6F7+O2uWe6rmrfN/yESkaGO38VIJJwvfxC8Oku4e8TA0TcVCJu+XaPClAJ+pCbsksfGAJ26jwU9If+y12ehZI9l6fMkOWJ52sV9/qZhBtys2YafllsiJNpyD286WSqDx2g6Gx/ZaaaQWZ5tywGa/Cy80aQA61JDgpKfEAKAKeee2q1sN/hAb/kVbTbbn3B3rwAqwvfCkMsJYw
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(52116014)(19092799006)(1800799024)(56012099003)(18002099003)(38350700014)(22082099003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NUc0a0txZUQ1cTNtUGRFNTgrRzZDMXI2b29SazRWTXdDTUpDc0taK1VENXFh?=
- =?utf-8?B?ajlhZ1JLK0VQSTkyWnE3QVhLVFQwWFRsMHJhNUNnUWZ2Y2ZjSXNQTGJTNVhT?=
- =?utf-8?B?ZUhVSnVzN1ltUkRrQnMvMmIwWUNFbDh5TUY4Qm82KzVzckVWZ1N0UENLcWw1?=
- =?utf-8?B?V2JFS0dLK09VSXFLeVR6QmxmbzRZaVFXQ016WktUQUdIcUdiVmZJZXR6SFVx?=
- =?utf-8?B?d0NSMU9YOFJTS05FVHozT2h2RkJkVkhOTWVGZ1JOWExSNmd4M2tnYVlaQTFY?=
- =?utf-8?B?S1YrYmFaY1RFKzdGdWJwdEVQMXZhWWVZNVA0UktUd1ZEeC9EcWtwejhLYnBK?=
- =?utf-8?B?SFlSZnZXZHlVKzN5bUZ0VFhqaUs2M3FFT1lNMGdKNTZqV3k1bFNkOWNKRDNE?=
- =?utf-8?B?cXVhUHNIRWoxZmN6RDRhVzM3aHBXYVY2WE8rbmQxMENYbmNjaDAyWHNVVnYz?=
- =?utf-8?B?T0krUlBsa0t6S205N1E2UWdha2F2T0N5MjVwV2lsaDhPaS9NVG5meElPVzhZ?=
- =?utf-8?B?aGdQTGlnVXB5QVQwQmhTalQxV045TUN1enV1RDBvQnpTVFdzVmhPNFF0bDRO?=
- =?utf-8?B?M0pHYURwWUY2ZEpveTQyNFBKZENSOHY3V2RSM1p2MG1zZ0FoWEhJY0FSNnVr?=
- =?utf-8?B?c1ljeURENnZNWTVRUit5eGIxYjQwVXk0YmVRMGgwSGlLV1dxMkJHcGtaeFpN?=
- =?utf-8?B?bkVFQnNzS2ZzZjBkeFR4c0p1akd6Sk9mdm9UZkFDRUpaYVAvaTdnSXdVRjRE?=
- =?utf-8?B?aGtFK2dkQTZRQjRrNjUwa1ZneW8vM0JyWi9SSm1CaGZJMXp0T1BpREplSmVS?=
- =?utf-8?B?TEVFQmxsc2pveHlHN2R2eDcxVnNWaXQ0R1RmaE1FM0IyS2ZYV2t2Q0luL043?=
- =?utf-8?B?YlphTTRUdm0vNENtRldoczlwN29qLzgzZjBNdDNZMVJMT1VIbG1RVDJlLzN4?=
- =?utf-8?B?YlRqYTJKZi9DbXFjUjd5dDZxT1E0NG5Hb01pTkY1YlcrVFEraXJVV2duUzhp?=
- =?utf-8?B?Z0k2c0x5b2d6TWROSHE3UVJENG51ci9tdWo4MUovZE9xeE5McTJ4anR4Y3d3?=
- =?utf-8?B?b3dNV2FCQUpwTGJ6Y3ltUjdTdE1uV004UzVSeUZiTzJIL2xHRURKSi84eDlt?=
- =?utf-8?B?bTVvcUhLZTA2blNKN3pHeHVRcisveno3cDNoTWsvbFk1QUlKc1MvYURNdGpO?=
- =?utf-8?B?OVVHcXJrZXNicWY3eFRNYU85dkxQR0gwdGFzbjJNZ3JsZlZtbGN5Q1lmcmdT?=
- =?utf-8?B?KzBpQlZTZ29Eamk5L1NNV2gwdmc1UlBPNkVobENkenNZd3lMK0Y0R2xQV25C?=
- =?utf-8?B?Y2c5UEkwaTNjQytvYkVId2pUczMzZjUxVTJIeEl3VnJHNHdtaXpqa1JYeTV0?=
- =?utf-8?B?ZlltOHFKcHRwNXZGUzg1dUl5R2VrZ25lTmhkWVpjQi9LUzc1aG91NUlYRXBS?=
- =?utf-8?B?eEZCWFZZL2xwaEo2NFdCL1QzeE5jOENRdTY2SVlNbWhWbm1GaGtCUEdIbnpr?=
- =?utf-8?B?cUNHQ0t1ckVXVHVxV3NnQ1VoSHlQUmo4VHNQdlB4SmJ3aWp3MFl0S0N0V3ll?=
- =?utf-8?B?bHUvaGgrbjJOTUg5VUhXam5PZGpLcFRhZ2VvSUhHSW5yR29MOEFDUktaWnFR?=
- =?utf-8?B?TDlxQTJ4dWo5Y1N1WnhxUEFBbFViN2treXU1UlFyaStLTG1sWmU4Mm56N3M4?=
- =?utf-8?B?UGVFYVNLOEdCcjlVYVJ6M0IwVm9XMElzVjlPOXBuWnlSZVRqTEkycHBOQTRD?=
- =?utf-8?B?djFIMm9PdW1IUVNhdTBnRmJRTlJIcjh3Y21BMkRpbmRlMmFBQWJ4Z1R0Yjdi?=
- =?utf-8?B?QWZ0MTdMQXo3bmQ1bjFoZ1VWeWUvNmRMTEtqUE1UZTloUXlmS2xVenN3a1JO?=
- =?utf-8?B?QS82L3Fkd0RWU3BCelZvaGlNVnh6SFdpcXNrcUQzd21HMWZKK0JsQUxNZ2Nu?=
- =?utf-8?B?VWsvTVJMUG5GZWY5VDFweUU3OXlRQWk1MTAwb0t5R3BDbm00N2dPUXplZXM3?=
- =?utf-8?B?OHB1M0sxWmJpTnlBcU1TQWliNXQ5Q05ZN200MFR1WnV3UlZPVmVQVjlYWUJ1?=
- =?utf-8?B?VklQRWVDeDZ1ZmtXcm9uYXJPNEcrYXExc3ZLSFlBa1drWkZSK0xZa05tZ1Fh?=
- =?utf-8?B?U0lkNWROUU5SVTRNTHZnZ0YyK3Rjd3JEZEFZQXlaZkpPVHB3SGN2MmNvdWxS?=
- =?utf-8?B?T25NWm5nZCs3N1J2SlB2UjRTK041Rmt4dzYyNHUrbnRGcy85Slg5RUhzMUw0?=
- =?utf-8?B?K1EzTnZjOGp1U3dvaHpSbWVVb28vUjRyZVNpOGI4LzZoR2I2ajZXbEZIYVgv?=
- =?utf-8?B?R2xSbENHbFZVelRIZlVDL281ZHdodEVLN1E2TE5HQWlwNjVFYjZsZz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3b24236c-4a88-4340-668e-08dea1cd770b
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2026 06:48:17.2850
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DeDk3+6p3BuqEnXX4hv2VLTs3oZRuzmsthFqKbR6BszWpaIMSLIzDwmuJ66ssrtKcUrM2ahyXr4NbhL0xVeEsg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7903
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 4/5] KVM: arm64: Enable HDBSS support and handle HDBSSF
+ events
+To: Leonardo Bras <leo.bras@arm.com>
+CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
+	<corbet@lwn.net>, <pbonzini@redhat.com>, <will@kernel.org>,
+	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <liuyonglong@huawei.com>,
+	<Jonathan.Cameron@huawei.com>, <yezhenyu2@huawei.com>, <linuxarm@huawei.com>,
+	<joey.gouly@arm.com>, <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <skhan@linuxfoundation.org>,
+	<suzuki.poulose@arm.com>
+References: <20260225040421.2683931-1-zhengtian10@huawei.com>
+ <20260225040421.2683931-5-zhengtian10@huawei.com>
+ <acQj5grOdZT8LUGp@devkitleo>
+ <e3253959-0340-4c13-a980-a599e090a6de@huawei.com>
+ <acabezCO4B5BE40Q@devkitleo>
+ <4e800c1e-25db-4aa2-b100-63434973de93@huawei.com>
+ <acpfD3YjMpEdL5KZ@devkitleo> <aeeHNMqDx5Yipt_K@devkitleo>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <aeeHNMqDx5Yipt_K@devkitleo>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.120.103]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_234822_541821_4DCC0A83 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20260423_234841_714271_A38D50F2 
+X-CRM114-Status: UNSURE (   9.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,110 +91,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MIPI CSI-2 in the i.MX8ULP is almost identical to the version present
-in the i.MX8QXP/QM and is routed to the ISI. Add both the MIPI CSI-2 and
-ISI nodes, disabled by default, as they require an attached camera sensor
-to function.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
----
-Changes in v12:
-- Swap ISI axi and apb clocks to align with dt-binding requirements
-- Update commit message
+On 4/21/2026 10:18 PM, Leonardo Bras wrote:
+> On Mon, Mar 30, 2026 at 12:31:28PM +0100, Leonardo Bras wrote:
+>> On Sat, Mar 28, 2026 at 02:05:25PM +0800, Tian Zheng wrote:
+>>> On 3/27/2026 11:00 PM, Leonardo Bras wrote:
+>>>> On Fri, Mar 27, 2026 at 03:35:29PM +0800, Tian Zheng wrote:
+>>>>> On 3/26/2026 2:05 AM, Leonardo Bras wrote:
+>>>>>> Hello Tian,
+>>>>>>
+>>>>>> I am currently working on HACDBS enablement(which will be rebased on top of
+>>>>>> this patchset) and due to the fact HACDBS and HDBSS are kind of
+>>>>>> complementary I will sometimes come with some questions for issues I have
+>>>>>> faced myself on that part. :)
+>>>>>>
+>>>>>> (see below)
+>>>>> Of course! Happy to exchange ideas and learn together.
+>>>> :)
+> Hello Tian,
+>
+> On the above, HACDBS depends on HACDBSIRQ which can be announced by either
+> device-tree or ACPI.
+>
+> Do you think it's ok for it to be ACPI only, for now?
+>
+> Thanks!
+> Leo
 
-Changes in v11:
-- Removed #include <dt-bindings/reset/imx8ulp-pcc-reset.h> which was
-  deleted by Rob's dt-bindings cleanup series [2]
-- Replaced reset macros with numeric values and added comments to
-  document the reset indices
+Hi Leo,
 
-Changes in v1-v10:
-- See cover letter
----
- arch/arm64/boot/dts/freescale/imx8ulp.dtsi | 66 ++++++++++++++++++++++++++++++
- 1 file changed, 66 insertions(+)
+No problem with ACPI-only for HACDBSIRQ for now.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-index 9b5d98766512..c5cae7675ce0 100644
---- a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-@@ -859,6 +859,72 @@ spdif: spdif@2dab0000 {
- 				dma-names = "rx", "tx";
- 				status = "disabled";
- 			};
-+
-+			isi: isi@2dac0000 {
-+				compatible = "fsl,imx8ulp-isi";
-+				reg = <0x2dac0000 0x10000>;
-+				interrupts = <GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&cgc2 IMX8ULP_CLK_LPAV_AXI_DIV>,
-+					 <&pcc5 IMX8ULP_CLK_ISI>;
-+				clock-names = "axi", "apb";
-+				power-domains = <&scmi_devpd IMX8ULP_PD_ISI>;
-+				status = "disabled";
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+						isi_in: endpoint {
-+							remote-endpoint = <&mipi_csi_out>;
-+						};
-+					};
-+				};
-+			};
-+
-+			mipi_csi: csi@2daf0000 {
-+				compatible = "fsl,imx8ulp-mipi-csi2";
-+				reg = <0x2daf0000 0x10000>,
-+				      <0x2dad0000 0x10000>;
-+				clocks = <&pcc5 IMX8ULP_CLK_CSI>,
-+					 <&pcc5 IMX8ULP_CLK_CSI_CLK_ESC>,
-+					 <&pcc5 IMX8ULP_CLK_CSI_CLK_UI>,
-+					 <&pcc5 IMX8ULP_CLK_CSI_REGS>;
-+				clock-names = "core", "esc", "ui", "pclk";
-+				assigned-clocks = <&pcc5 IMX8ULP_CLK_CSI>,
-+						  <&pcc5 IMX8ULP_CLK_CSI_CLK_ESC>,
-+						  <&pcc5 IMX8ULP_CLK_CSI_CLK_UI>,
-+						  <&pcc5 IMX8ULP_CLK_CSI_REGS>;
-+				assigned-clock-parents = <&cgc2 IMX8ULP_CLK_PLL4_PFD1_DIV1>,
-+							 <&cgc2 IMX8ULP_CLK_PLL4_PFD1_DIV2>,
-+							 <&cgc2 IMX8ULP_CLK_PLL4_PFD0_DIV1>;
-+				assigned-clock-rates = <200000000>,
-+						       <80000000>,
-+						       <100000000>,
-+						       <79200000>;
-+				power-domains = <&scmi_devpd IMX8ULP_PD_MIPI_CSI>;
-+				resets = <&pcc5 5>,	/* PCC5_CSI_REGS_SWRST */
-+					 <&pcc5 6>;	/* PCC5_CSI_SWRST> */
-+				status = "disabled";
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+
-+						mipi_csi_out: endpoint {
-+							remote-endpoint = <&isi_in>;
-+						};
-+					};
-+				};
-+			};
- 		};
- 
- 		gpiod: gpio@2e200000 {
+Feel free to let me know if you have any questions while working
+on HACDBS on top of HDBSS.
 
--- 
-2.34.1
+Tian
 
 
