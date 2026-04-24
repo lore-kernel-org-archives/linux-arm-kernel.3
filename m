@@ -4,105 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06449FED3E6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 15:43:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2634FED3D7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 15:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/x75TqXNcWuPRjyy/KdKbQT3qJql0Oi7XAZXrmCpBRk=; b=AF1JCBi1NfzCyOBKALvJlgOYqs
-	sIzHGZSK8O1cZ3xqXfWoTAnl83PxPut99f33+UWmWl9Ir5+XEoKTzN5oGk4x4/X3g3uWmAwEnRlWt
-	ETXvJ1Yk1rsLUGGPJ263p6J1Rz+2SLUscWMHJRmwLGlLaCFLnwcfbeyWf8uesEiGCKirC73PHlhIl
-	HbDhttTwEqxf06cLBX1Ufsz8BaGfUAM5yxvsoV+U/kySivPhUgf1VPMtxmBYupMPizUpRcK2k1opn
-	1jftrQjSC9BnGa6o57aMVNPRnn2XHM2Dob1C3UEZAsI8WHsWXgrAvBRmIhLX+RWdquIE+NyL0xWO9
-	lwDRtsOA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G49m7TqNCta1lGr5Yx2+tiDLehSrfnUUJzeLNn054DI=; b=wWQbrQFHlVTVXdB6z++A6oc+1Y
+	wefS4J0Tu+L+BO1hKlgJ8jwWpkpe76PXPFeojNPZXbwy6DFydcByVuR4XBjQUd2CU/X5XiJJoK/z3
+	Q5Gy/aspK8X4+VaDyO4yWXku3zQE3YauksZ5vqoqS+D2XoH2pDBbvqVE18z5/g77RTGhItBwR/AjD
+	bIrXXZVbQsUlPo1OA+C7q5XdqjclTdOlVhmJOqOnKVmgnu22+kydLoJkl7wZ+wjLfRNGk+wLcScX7
+	GDPtZvcZ0qpnVDj2CQVSpptWJn2ip+4kZNBoZLSBkXTRKfSnwuxkyRoqvMsrlsY29EgmWMjBAnS4A
+	uYM/u2+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGIgH-0000000DOes-3Lel;
-	Fri, 24 Apr 2026 15:43:01 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
+	id 1wGIkn-0000000DOxN-3CZU;
+	Fri, 24 Apr 2026 15:47:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGIgF-0000000DOeL-1lMM
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 15:43:00 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-8c70b5594f4so879101685a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 08:42:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1777045377; x=1777650177; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/x75TqXNcWuPRjyy/KdKbQT3qJql0Oi7XAZXrmCpBRk=;
-        b=ndPQsyAm356+l3BgckIXjh6Ik6aX0tiGyNLmJxGT/RKam/qSYblAzqwzEEbUw9jjGH
-         CkmIUrxZnHO3ECyIdBPYrrdWH8bEiU13mYYdW7TIx3XhJXGFxB2h27X9wj6KywLh9fUp
-         gvv1lNxrmHzdLkB+j1Sp7T/vjLpz5KFImQUEdwh5pXfwHWHMyu5ZKqu5BObS4MvzSJsh
-         jcUn+W490dKsQBQDxX7R2p8mCR9WaMlnMmCQZpL1dnBEyT5Xim0uQgMnV/ebqHd6GgEV
-         ooILTmTs3wYpPpX2N1FPBJMIkcVLbOBnpz2nSMU08HyDMCmqgPqngaeqP79vNnJIrmED
-         NGvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777045377; x=1777650177;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/x75TqXNcWuPRjyy/KdKbQT3qJql0Oi7XAZXrmCpBRk=;
-        b=Fxpju6X2L4Sin4Ao83TTooxi/ObZzCz2BkNZnyw7MAYyXgvz81PfWjjgqk9Mc1ubtp
-         Hum5ZzKg8g64FUdujkB7Fs/LlkRYlWfUWzb/3jOLUnJ2sG+LTbfegmLIkT5TLqBnx+hG
-         0gWLdNUl69gD5500xpiCYNC9Gxf5QtrxZu3B73U7H/+unL65T6JND7jjlljwdkNNx/7u
-         ChrGCLcJtEPgoytp3Orsxg/qFqK2uAR3Xsojl1j/Iv+ztU+oSDX7wRa6JPKp7L8wRIGm
-         3B/Q1Zl9TNr7656Uiuijm6H5f+AAPtPu7oCbnmHMhmTKPV1B1A2Y4ZGWpt6LHwaQP3HS
-         TroQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9fVaZlTwx6FHT74BB0RlIbfQfU/5cNQoAJAdkBgc5yyq5i+ofokfv9943VOKVKW/7L6yN2tCSHj39l0MLUNa3z@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEzJ+tvj0ndhqyZvjTL1I7yvIgDh8YYD2Va5Nx9nk7/rTjQ2KA
-	0YvU+q8UE6ja3gJdAcXOV53vFnD9kv9MJ5/xcSQioE+86UyVPhdZ/tizijffDhVN3aE=
-X-Gm-Gg: AeBDiescKA/q0UmrIdM76p0ceSbgVo1igm2rIh7x3xC0EdTg7FotslNi5gWfLJtqudo
-	CCHv2IhX5jfHF3CqLWJi4MXa0WlfDn3f9TZgpQZ6KN0r17rWnVlVCZPF44zoV2fqkQ4jOPKdm46
-	vi/D9VTXkfNIzmWaKcBbQERt7XR1f7/0SjYBLQVyjXfEwFYUacooeeQG6//2i3PTpWw0INkfCZW
-	APPcgOxgYPNMHnE1HZ3Viw6sFQltZEDQ3/X1DEkFftqISp1+f7SFevQUZD0oNIXYjpije/SzHha
-	npvFaI/33D7k1DNgC4eX8Vrsx+Uj9qJiFHUFTVm6/Hrb3j8nxg68xgAB9GqYGIXewtcyx8SvMKr
-	i2FdhWAKAt4q03bvnoycPdTahspIiphTTZeDixLCAsEaT4vuU4qz2DiwPqj8h20myhRYXMRkuvx
-	Ng+eQq2xrajXSloR6sFawmzL4Hk8shrH6NTKeSP3vPd8LUcJkjK5PEtdgU10fGnNH9Cyds+DGZz
-	tfk+qwGqx4eolXX
-X-Received: by 2002:a05:620a:31a5:b0:8d7:c82f:ff7b with SMTP id af79cd13be357-8e78cab251cmr3765152685a.35.1777045377193;
-        Fri, 24 Apr 2026 08:42:57 -0700 (PDT)
-Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8b02ae7fef0sm181782366d6.38.2026.04.24.08.42.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Apr 2026 08:42:56 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wGIgC-000000035kk-0Ekr;
-	Fri, 24 Apr 2026 12:42:56 -0300
-Date: Fri, 24 Apr 2026 12:42:56 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Will Deacon <will@kernel.org>
-Cc: Evangelos Petrongonas <epetron@amazon.de>,
-	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Pranjal Shrivastava <praan@google.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, nh-open-source@amazon.com,
-	Zeev Zilberman <zeev@amazon.com>
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow disabling Stage 1 translation
-Message-ID: <20260424154256.GF3611611@ziepe.ca>
-References: <20260420123221.20801-1-epetron@amazon.de>
- <20260420124032.GO2577880@ziepe.ca>
- <20260422064431.GA49867@dev-dsk-epetron-1c-1d4d9719.eu-west-1.amazon.com>
- <20260422162351.GK3611611@ziepe.ca>
- <aenp6FHzx9rtUQkZ@willie-the-truck>
- <aenqxasLJ8yKYqbT@willie-the-truck>
- <20260423142326.GP3611611@ziepe.ca>
- <aepRy7Gp7Ng85Zr7@willie-the-truck>
- <20260423223716.GS3611611@ziepe.ca>
- <aeuJQW8bGLY-O_vv@willie-the-truck>
+	id 1wGIkj-0000000DOu2-05kx;
+	Fri, 24 Apr 2026 15:47:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2E8C7445B1;
+	Fri, 24 Apr 2026 15:47:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 04C28C2BCB5;
+	Fri, 24 Apr 2026 15:47:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777045656;
+	bh=pPT6y+8yDPk/GQWT/vdcn7MpQPzpLNFYEE57p+hOukM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=s1aHISigFggsjfoyCnx37nWoDwIVBc1j7TebZVO6k8YgUJ3QlF6dO6gQAXnNBG0OW
+	 owHjme2YWGUt7KvLbDtiaEhuDB+qntQReflVn1N1VLfPtpL4bQ8Tkfx5OAqer1rzHe
+	 +ZL67/nHgUkd6/Al7JRpKN/1UKhGMLGZzz3LZoy3samPIzGOZc6hgqKWGNUvNQaaVe
+	 Xkz2yfnWvGAzuMpAWPDeLoIlelWxiYjFOlRuJsDhl3ZCScFuLXpN6fuzmiIE7xOXvd
+	 nsQg9xjn7C7dhISIngiopQRFILSmJOI+T5Jg4PLpe6aejbR+SwmK3hj6M32oC8xGmE
+	 vuPu0YknMCYHg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EDE69FED3D7;
+	Fri, 24 Apr 2026 15:47:35 +0000 (UTC)
+From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
+Date: Fri, 24 Apr 2026 17:45:11 +0200
+Subject: [PATCH v5 3/8] firmware: meson: sm: Add thermal calibration SMC
+ call
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aeuJQW8bGLY-O_vv@willie-the-truck>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260424-add-thermal-t7-vim4-v5-3-9040ca36afe2@aliel.fr>
+References: <20260424-add-thermal-t7-vim4-v5-0-9040ca36afe2@aliel.fr>
+In-Reply-To: <20260424-add-thermal-t7-vim4-v5-0-9040ca36afe2@aliel.fr>
+To: Guillaume La Roque <glaroque@baylibre.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-pm@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Ronald Claveau <linux-kernel-dev@aliel.fr>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2230;
+ i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
+ bh=RboCfSHgRjly95YryQzSIFxNo4U3Gmip5nVqLI2kBVY=;
+ b=owGbwMvMwCWm1SvKXP3cUInxtFoSQ+brCb39+xXWvBRoN724JWn9M+Yq+1T7lPQCKa7zpWYac
+ orZ7zd2lLIwiHExyIopsvTPtTzx7vLRM1/3qKfAzGFlAhnCwMUpABMxOMnI8HiaCpPSvq5FhXwO
+ /kbKTcIHwtxPhxQkC1dmSO3gerJvKiPDEimXlqdSP2qnufzbvTYg4uvq6DkbebYv3MXGJbRs7o9
+ OJgA=
+X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
+ fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
+X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
+ auth_id=744
+X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_084259_489941_EF157A81 
-X-CRM114-Status: GOOD (  28.79  )
+X-CRM114-CacheID: sfid-20260424_084737_120287_6E25D557 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,66 +94,75 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: linux-kernel-dev@aliel.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 24, 2026 at 04:16:17PM +0100, Will Deacon wrote:
-> > > > STE/CD is pretty simple now, there is only one place to put the CMO
-> > > > and the ordering is all handled with that shared code. We no longer
-> > > > care about ordering beyond all the writes must be visible to HW before
-> > > > issuing the CMDQ invalidation command - which is the same environment
-> > > > as the pagetable.
-> > > 
-> > > You presumably rely on 64-bit single-copy atomicity for hitless updates,
-> > > no?
-> > 
-> > Yes, just like the page table does..
-> > 
-> > I hope that's not a problem or we have a issue with the PTW :)
-> 
-> You trimmed the part from my reply where I think we _do_ have an issue
-> with the PTW. Here it is again:
-> 
->   The non-coherent case looks more fragile, because I don't _think_ the
->   architecture provides any ordering or atomicity guarantees about cache
->   cleaning to the PoC. Presumably, the correct sequence would be to write
->   the PTE with the valid bit clear, do the CMO (with completion barrier),
->   *then* write the bottom byte with the valid bit set and do another CMO.
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-I wasn't sure if you are being serious.
+Add SM_THERMAL_CALIB_READ at SMC ID 0x82000047 in the command
+table and implement meson_sm_get_thermal_calib(), which forwards the
+tsensor_id argument to the secure monitor and returns the calibration data.
 
-CMO + barriers must provide an ordering guarentee about cache cleaning
-to POC otherwise the entire Linux DMA API is broken. dma_sync must
-order with following device DMA. IMHO that's not negotiable for Linux.
+Also realign the CMD() column to improve readability.
 
-All ARM iommus rely on 64 bit atomic non tearing. No bugs reported?
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+---
+ drivers/firmware/meson/meson_sm.c | 29 ++++++++++++++++++++++++-----
+ 1 file changed, 24 insertions(+), 5 deletions(-)
 
-Any fix to that is going to have major performance downsides..
+diff --git a/drivers/firmware/meson/meson_sm.c b/drivers/firmware/meson/meson_sm.c
+index 3ab67aaa9e5da..4e57986724212 100644
+--- a/drivers/firmware/meson/meson_sm.c
++++ b/drivers/firmware/meson/meson_sm.c
+@@ -41,12 +41,13 @@ static const struct meson_sm_chip gxbb_chip = {
+ 	.cmd_shmem_in_base	= 0x82000020,
+ 	.cmd_shmem_out_base	= 0x82000021,
+ 	.cmd = {
+-		CMD(SM_EFUSE_READ,	0x82000030),
+-		CMD(SM_EFUSE_WRITE,	0x82000031),
++		CMD(SM_EFUSE_READ,		0x82000030),
++		CMD(SM_EFUSE_WRITE,		0x82000031),
+ 		CMD(SM_EFUSE_USER_MAX,	0x82000033),
+-		CMD(SM_GET_CHIP_ID,	0x82000044),
+-		CMD(SM_A1_PWRC_SET,	0x82000093),
+-		CMD(SM_A1_PWRC_GET,	0x82000095),
++		CMD(SM_GET_CHIP_ID,		0x82000044),
++		CMD(SM_THERMAL_CALIB_READ,	0x82000047),
++		CMD(SM_A1_PWRC_SET,		0x82000093),
++		CMD(SM_A1_PWRC_GET,		0x82000095),
+ 		{ /* sentinel */ },
+ 	},
+ };
+@@ -245,6 +246,24 @@ struct meson_sm_firmware *meson_sm_get(struct device_node *sm_node)
+ }
+ EXPORT_SYMBOL_GPL(meson_sm_get);
+ 
++/**
++ *
++ * meson_sm_get_thermal_calib - Read thermal sensor calibration data.
++ * @fw:		Pointer to secure-monitor firmware.
++ * @trim_info:	Pointer to store the returned calibration data.
++ * @tsensor_id:	Sensor index to identify which sensor's calibration data
++ *		to retrieve
++ *
++ * Return: 0 on success, negative error code on failure.
++ */
++int meson_sm_get_thermal_calib(struct meson_sm_firmware *fw, u32 *trim_info,
++			       u32 tsensor_id)
++{
++	return meson_sm_call(fw, SM_THERMAL_CALIB_READ, trim_info, tsensor_id,
++			     0, 0, 0, 0);
++}
++EXPORT_SYMBOL_GPL(meson_sm_get_thermal_calib);
++
+ #define SM_CHIP_ID_LENGTH	119
+ #define SM_CHIP_ID_OFFSET	4
+ #define SM_CHIP_ID_SIZE		12
 
-I also strongly suspect it is provided on real HW. It would be hard to
-even build HW where <= 64 bit quanta can tear.
+-- 
+2.49.0
 
-Maybe this is something ARM should take a look at.
 
-At the very least it would warrant an IORT flag for safe HW to use to
-opt into the faster cachable flow.
-
-> > My argument is that the CMO on STE/CD shouldn't bother mobile, you
-> > could even view it as an micro-optimization because we do occasionally
-> > read-back the STE/CD fields.
-> 
-> I was against that read-back, iirc :)
-
-Yes, but it is OK :)
-
-> > And if Samiullah can tackle dma_alloc_coherent then maybe the whole
-> > question is moot.
-> 
-> Yes, that would be great, but we probably need to fix the page-table
-> code too.
-
-You really want to deal with the likely perf regressions that would
-cause on Android/etc?
-
-Jason
 
