@@ -4,69 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5B87FED3F5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 18:27:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 160BAFED3F5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 18:33:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WCwp+mIbLGBQYvAtNiYxPnSWx5RoqzsBw2FoZVW3aWg=; b=FzVb8UbHdGQNtbJFjTcBym7W32
-	ecUZmPxrunix4pEHV8sD8ATBx8xwFer2xntpV5qtTdUzgzvd32B4mct5hhOhKdWunbjceiUZJ2ENR
-	iEBk4pSpZT0xbh5uoChXe53QkrYq/oowhVgO3y2P9lUUXivAQeiVwNORqLLd5xJy7A4qkIUxOtZSo
-	p6mljCcxAbtNkhWHXDBmP5tPPx4HYGB2yAH3oJjZhbyCDZt8F2BqovXo/merY4KzbDdGGJYI7oBy2
-	L/gly8tKdiGAG5bON3VK69ZmZJjOk1XlkRIckxPkpyrXyPg8eEps8VGoJf7om5vohoY9LTuFJoRSY
-	PEfxAxvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p5EpQwZhAJjdbm3QzuvXtwgjsIJmE75H3o2MtIcAqFI=; b=Ga8Kd3sGSra0GtQZptlkj0iDFG
+	pkRLFAM7K9aVlXIxs7G9wf0YAXDr0Kdnwxqba5MmWtaEzg+dVqmLJ4kBvFQGLhOYvbb7fipgl+FG6
+	x2z6B4IKXxA7OTv+Wj6BwMSkH25+uBcyxBWM5rMaWYfJhhePnt6WVRlfBEj+Wnl2aBUZFQmdcyQs0
+	XRzHCyZPCSVm9vlXO3oBIVTB3Bars26Lgsc/XlNlyavI/ipyWeYovm8L8jVW1olRZCfKvRtlpRXMd
+	YoD+QdlGr0zuZZsa2sOFyd/EkVD1sHK7E/UKadC6Vi827YCOFU17DalyNIhy89QeL3jRze9+fY/cq
+	O1ilsrDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGLFX-0000000De7M-0q4x;
-	Fri, 24 Apr 2026 18:27:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wGLLT-0000000DeV8-0ia4;
+	Fri, 24 Apr 2026 18:33:43 +0000
+Received: from mail-westus3azon11011044.outbound.protection.outlook.com ([40.107.208.44] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGLFT-0000000De67-10MZ
+	id 1wGLLQ-0000000DeUA-1bEQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 18:27:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F040B4457B;
-	Fri, 24 Apr 2026 18:27:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0687C19425;
-	Fri, 24 Apr 2026 18:27:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777055249;
-	bh=umhEa+yjy8NpluGJvNLTzPXWi1CPXDJ9JKVWASLXvB8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=tDg/iaDS/8Qm3cy1lxsGl1I3iK09OomLEiNQpqzha/t/wJ8XnYyk2To2gJ/44d87A
-	 wEBm8arlADNCQsfyeBikPlWZUYgvDTzrenvtae09enHpD0UzDiWIuTXX+NzHWpzvRT
-	 hNeR8HEV5DGo4mnyhPFBgNwmjLuG/71S2TwmlyAuEPBRpTGYMWAfiuqZPQbimxk1BF
-	 xa+HWT/rAlTdfU/xSQEnpkuOFQcTnVt0ilc56/A+cTWgM1ao2LLXxNSmkqXx+/t2/y
-	 u+71t9aTMw55iOhmIlGAzIcGK6KBy0w2oKG/GcTA7iVqjaN7YMrKJ/qqK2nRmXtPpL
-	 /aw5K1prUDVsw==
-Date: Fri, 24 Apr 2026 19:27:20 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>, Thomas Gleixner <tglx@kernel.org>,
- peterz@infradead.org, sudeep.holla@kernel.org, yangyicong@hisilicon.com,
- dietmar.eggemann@arm.com, linux-kernel@vger.kernel.org, James Morse
- <james.morse@arm.com>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] cpu/hotplug: Fix NULL kobject warning in
- cpuhp_smt_enable()
-Message-ID: <20260424192720.4a147b9c@jic23-huawei>
-In-Reply-To: <aetnTT51ucm2azGG@arm.com>
-References: <20260417075534.3745793-1-ruanjinjie@huawei.com>
-	<aeNxKpHzTQX4_kId@arm.com>
-	<87ldee0z1w.ffs@tglx>
-	<78515da3-03a1-4fdb-a606-3fea9f4cd20b@huawei.com>
-	<aep85G05D3TM9uj2@arm.com>
-	<c6fe5e31-c397-4cf1-a422-f8d1a28fe20b@huawei.com>
-	<aetnTT51ucm2azGG@arm.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	Fri, 24 Apr 2026 18:33:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mpDrD7PGI2RDgvm0myjkIpsxD76U7dATgTIOkG4zmHAZaktttgbmnK1SzakeGyQlC4a5lPUDbHwTBtRfoHp4XgfC/YyHOj+1qXCK0OorbnjhXsDEZAof/+xEGH/cfAgXWdXo2fnT+eeknk7/FljbO1GEvSEmTT879ngU3oOQehLfs7VK7sNAwDehafUGTuFevmogvrAy55d32h/ns92Nz9np7MtB5WsxdMwQx61sQxnYUVvzDrx3TDyWekKm5dy88Zwo0jOXlxrMl3ViSCfouwOiiKO38tF5x8ZkT4Sk5I7dT79XgmSkepj3bT6BZ3TrZ1i8kaAcCrv0yyqJkA1kiQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=p5EpQwZhAJjdbm3QzuvXtwgjsIJmE75H3o2MtIcAqFI=;
+ b=eJHO70hM/Uvm7hAfRk2wu4v8CH/8UacT/fmpGZDMHciXR2zR3v2tMwWY6U8gEzLao6qgJsyCkz5a844/H1/Dg+qHYK34KXAkt+NrtAkfYgBi4nhx5YMFwobDTq2IaYL4EAewCskTuoJ2YZQzghggNxe9631nOx5nL5bj/ZfmyeCK9haYtchc/6K+9MIiuc8c+46gginCtH03sEadSCrxsGPBnYoUYesA/rSGdDmJAe9VKnAXuGfMOWVcpUEB0Hw5mnrviZvqpq/lE8J0HF//E463y5gQkbP5uGlFusIkL4fGc3wdz/0MpHeLV5OKFEPCmn1p1Dz8/VaEACc48DrNmw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=p5EpQwZhAJjdbm3QzuvXtwgjsIJmE75H3o2MtIcAqFI=;
+ b=mHogqlyjRA1JdPyZUx/QARYe2Zwh0lVbUkbhmDuIgGf/S/nGCQ4BnqGtqpjHCRCOBis23xro1R8LhZF/mHkYxDJeWJObz4GpToZ/mIRTaW1XDmbWUBi/rmRf6fXQMY62bpGBpw21r0YipmQhgNJg97kb9TJqte0IWBwqBYpGJkfGdDB4LskGdtBMoRk347vxcxXGLCmmjSAiKObaZWiCwqbex027BuBdTh2Ko4u4vcQalfN/zE6hchRadlvcR3qG0ax7SPvmZMCj9eZnvq4dv8mpnzclfrQw7Q/2KzwaMU3KnwW3/I/tYvcH6WUog65wpCRDifit4HRSTN+8uthZ1w==
+Received: from BN9PR03CA0381.namprd03.prod.outlook.com (2603:10b6:408:f7::26)
+ by MW4PR12MB6852.namprd12.prod.outlook.com (2603:10b6:303:207::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.16; Fri, 24 Apr
+ 2026 18:33:27 +0000
+Received: from BN2PEPF000044A4.namprd02.prod.outlook.com
+ (2603:10b6:408:f7:cafe::52) by BN9PR03CA0381.outlook.office365.com
+ (2603:10b6:408:f7::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.22 via Frontend Transport; Fri,
+ 24 Apr 2026 18:33:26 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ BN2PEPF000044A4.mail.protection.outlook.com (10.167.243.155) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9846.18 via Frontend Transport; Fri, 24 Apr 2026 18:33:26 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 24 Apr
+ 2026 11:33:18 -0700
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Fri, 24 Apr 2026 11:33:18 -0700
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
+ (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 24 Apr 2026 11:33:17 -0700
+Date: Fri, 24 Apr 2026 11:33:16 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <kevin.tian@intel.com>,
+	<joro@8bytes.org>, <praan@google.com>, <baolu.lu@linux.intel.com>,
+	<miko.lenczewski@arm.com>, <smostafa@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>, <jamien@nvidia.com>
+Subject: Re: [PATCH rc v2 1/5] iommu/arm-smmu-v3: Add arm_smmu_adopt_strtab()
+ for kdump
+Message-ID: <aeu3bNxCsy8azLOO@Asurada-Nvidia>
+References: <cover.1776286352.git.nicolinc@nvidia.com>
+ <af5fb880e771bc31ba42644ae5570e1fa208217a.1776286352.git.nicolinc@nvidia.com>
+ <20260424165613.GC3444440@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260424165613.GC3444440@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF000044A4:EE_|MW4PR12MB6852:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1c26bb8e-7044-4080-2d29-08dea22ff9ad
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|36860700016|376014|82310400026|1800799024|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: ztH/kNvrZf5sZne0iqMNF/yv79hnVXbgBOMEDaJZ4Yp+0WgU1oatW+n2Ob3kfSIUPayLJ8JuQ6pyUz5DmCJttsqjwK3U6hNpBkaIRD7BpGWFCpzkMCf0fWckKUgR9+P5usyCKG64lLiBBh1bpFbxsnZkkgoIiy9r4m/ZYDM3JZ1XlmLRmu+M86OJOz+nM8CHz8PCALa+nPYnYmXVxhOvlGweJKUOvCdc8/oQxKDP/IpehaXfJJxM43dpdXTWZja5l2oWy+OQvhK/wTxioIih1DlRSuzJMDXYEx4Ew1kyDKZbKYU0FSv28zZjaBxOCe/qPL+8M/sxM/L8Sidx6lj2F1zx6d3NL2uem+Di7yWI5lPBaJS2FNNFtFg8RNKqhRD4KxhuHDkN/b0zZwdcisIfrMRUaGGtOhuQHXTki7EnyKuphDbe7PdQaGzMpaLoROqI+4hk8KyfMC4Hz5x7rPtLHigo3AB3cQw32dUe/VwmnBcZpKmgHYh+9XdoXelH8De2q07oR6OOR4CxAVe4xpS4f8HnOA84ECecYRdhmCN6bIDbYtcPChTrBav8jOYzDtitTGov7dvzDVgRziWjAIvhn7OzM+739b8WCixznMvwwdEVpaCEXT05NP1CjLAvW1tSrJpkR5TwG90wcCU0KJin36KnJxLrm/LwyXvvfKDGZ0tQfHKPQ+0fG8kqvzwXrnd/65BD8feaZWrHVpNicV4SmGsa4DR0y7IfXUFTq8LnaXO7ba6wF6fQ49ED9F6qHHpZcfxM3THC7DQjvjP3uiNvnA==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(36860700016)(376014)(82310400026)(1800799024)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: bmDuVLcu0KGkkpqaXPnSZI7dCrbfpBJVwitrRVg/pgDC13O+fzID+JLu6j7SYzl6qVVdkL3N7nmVHheSYEOT7Azhd59EpMhUUmdBvIo3U6dfB1U8DAfKOTp4fjAcB0UYphFqVpQR/YTj9rpdRUyXxNJDDbOwyB9TQfNhgTOedlPjDRzCn07dhyHcn25m0soSbpx+zjdVgmDFQsmHXvRGOSCS1CHgjBcVDZRYczp1xQwyJIpEog6JOn7KffJKhC8GEv80s5s4k7BC5Crqt6QtGWyYuZPA0iYVwFPT5iin/L3QtluhPsP6OhUNHYn282PpF7tuVL8Ry0dvv4V3bGPz9HgGHlPp07C08OdRLV4SrdqGQKine5/5xiTldoZWAkcjTB2U8ftRoXAxCPffSdJSUtBUAcOg6U3UMEEwgTq5Ua+OFzs3T5tRSXz7zL5X192+
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2026 18:33:26.7763
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1c26bb8e-7044-4080-2d29-08dea22ff9ad
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A4.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB6852
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_112731_327952_1494293F 
-X-CRM114-Status: GOOD (  44.60  )
+X-CRM114-CacheID: sfid-20260424_113340_423876_D9BD7CAD 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,126 +132,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 24 Apr 2026 13:51:25 +0100
-Catalin Marinas <catalin.marinas@arm.com> wrote:
-
-> (updating Jonathan's email address to match MAINTAINERS)
-Thanks!
+On Fri, Apr 24, 2026 at 01:56:13PM -0300, Jason Gunthorpe wrote:
+> On Wed, Apr 15, 2026 at 02:17:36PM -0700, Nicolin Chen wrote:
+> > +static int arm_smmu_adopt_strtab_2lvl(struct arm_smmu_device *smmu, u32 cfg_reg,
+[..]
+> > +	cfg->l2.l1tab = devm_memremap(
+> > +		smmu->dev, dma, num_l1_ents * sizeof(struct arm_smmu_strtab_l1),
+> > +		MEMREMAP_WB);
 > 
-> On Fri, Apr 24, 2026 at 09:56:24AM +0800, Jinjie Ruan wrote:
-> > On 4/24/2026 4:11 AM, Catalin Marinas wrote:  
-> > > On Thu, Apr 23, 2026 at 08:32:34PM +0800, Jinjie Ruan wrote:  
-> > >> On 4/23/2026 6:08 PM, Thomas Gleixner wrote:  
-> > >>> On Sat, Apr 18 2026 at 12:55, Catalin Marinas wrote:  
-> > >>>> Another option would have been to avoid marking such CPUs present but I
-> > >>>> think this will break other things. Yet another option is to register
-> > >>>> all CPU devices even if they never come up (like maxcpus greater than
-> > >>>> actual CPUs).
-> > >>>>
-> > >>>> Opinions? It might be an arm64+ACPI-only thing.  
-> > >>>
-> > >>> I think so. The proper thing to do is to apply sane limits:
-> > >>>
-> > >>>  1) The possible CPUs enumerated by firmware N_POSSIBLE_FW
-> > >>>
-> > >>>  2) The maxcpus limit on the command line N_MAXCPUS_CL
-> > >>>
-> > >>> So the actual possible CPUs evaluates to:
-> > >>>
-> > >>>    num_possible = min(N_POSSIBLE_FW, N_MAXCPUS_CL, CONFIG_NR_CPUS);
-> > >>>
-> > >>> The evaluation of the firmware should not mark CPUs present which are
-> > >>> actually not. ACPI gives you that information. See:
-> > >>>
-> > >>>          5.2.12.14 GIC CPU Interface (GICC) Structure
-> > >>>
-> > >>> in the ACPI spec. That has two related bits:
-> > >>>
-> > >>> Enabled:
-> > >>>
-> > >>>    If this bit is set, the processor is ready for use. If this bit is
-> > >>>    clear and the Online Capable bit is set, the system supports enabling
-> > >>>    this processor during OS runtime. If this bit is clear and the Online
-> > >>>    Capable bit is also clear, this processor is un- usable, and the
-> > >>>    operating system support will not attempt to use it.
-> > >>>
-> > >>> Online Capable:
-> > >>>
-> > >>>    The information conveyed by this bit depends on the value of the
-> > >>>    Enabled bit. If the Enabled bit is set, this bit is reserved and must
-> > >>>    be zero. Otherwise, if this bit is set, the system supports enabling
-> > >>>    this processor later during OS runtime
-> > >>>
-> > >>> So the combination of those gives you the right answer:
-> > >>>
-> > >>>    Enabled	Online
-> > >>>    	        Capable
-> > >>>    0            0        Not present, not possible
-> > >>>    0            1        Not present, but possible to "hotplug" layter
-> > >>>    1            0        Present
-> > >>>    1            1        Invalid  
-> > >>
-> > >> On x86, it seems that all CPUs with the ACPI_MADT_ENABLED bit set will
-> > >> be marked as present.
-> > >>
-> > >> acpi_parse_x2apic()  
-> > >>   -> enabled = processor->lapic_flags & ACPI_MADT_ENABLED
-> > >>   -> topology_register_apic(enabled)
-> > >>      -> topo_register_apic(enabled)
-> > >>         -> set_cpu_present(cpu, true)  
-> > > 
-> > > Yes but arm64 marks all CPUs present even if !ACPI_MADT_ENABLED as we
-> > > don't have the notion of hardware CPU hotplug.
-> > > 
-> > > I need to dig some more into the original vCPU hotplug support and why
-> > > we ended up with all CPUs marked as present even if not calling
-> > > register_cpu():
+> WB shouldn't be unconditional? If the SMMU is working non-coherently
+> we need to map it NC. Same remark everwhere
 
-James may remember more but I think there were some usecases
-which broken if we reported CPUs that might turn up later as
-not present.  We spent some time discussing what to do about this
-on various calls, leading to just giving up and marking them present
-always.
+Hmm, I am trying to add a coherent-only gate for the series.
 
-I think it was something to do with userspace code that would allocate
-stuff based on the sysfs present information and die horribly when more
-CPUs turned up later.
+MEMREMAP_WC might work. But we cannot verify that on a coherent
+SMMU, right?
 
-I'm not sure I ever came across that code. Maybe it was something
-James had come across.  I may be completely wrong but my memory
-is hinting that it was something Android related?
-
-> > > 
-> > > https://lore.kernel.org/linux-arm-kernel/20240529133446.28446-1-Jonathan.Cameron@huawei.com/
-> > > 
-> > > What's the MADT GICC provided by qemu with "-smp cpus=4,maxcpus=8"? If
-> > > it says Enabled for the first 4 and Online Capable for the rest, maybe
-> > > we can try something like below:  
-> > 
-> > Yes, you are absolutely right,Enabled for the first 4(with GIC Flags:
-> > 0x1, bit0 set) and Online Capable for the rest(with GIC Flags: 0x8, bit3
-> > set). The ACPI MADT disassembly result is as follows:  
-> 
-> That's great, thanks for checking.
-> 
-> I'd like to get some feedback from Jonathan and James as they
-> contributed the vCPU hotplug support. The reason was for kubernetes to
-> add vCPUs to an existing VM. Hopefully no-one relied on
-> /sys/devices/system/cpu/present to report 0-7 in the above
-> configuration.
-
-I think not in the kubernetes case as such, but in general userspace
-code which might run on the same systems :(
-
-J
-> 
-> Have you tried the vCPU hotplug with this patch (the original use-case)?
-> 
-> Anyway, feel free to post a v2 with the above proposal, cc Jonathan (on
-> kernel.org) and James Morse and we'll take it from there. You can add a
-> suggested-by me.
-> 
-> Thanks.
-> 
-
+Nicolin
 
