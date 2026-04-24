@@ -4,163 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F099FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 23:20:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2021FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 23:29:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tSVZCreDHdfHSj5YXvYg/9zgTn5tioIwxJqmjz5Ir8o=; b=YREOZIwQYxBtdXljcOPy5OEp8n
-	HO9dKeJjuS6lon9k/7b7ftfG6LXhVSnvy2/YD4sRVy4XLrK8PWzu/cRW7DuUq7u2kSb/Eltw9NhHA
-	fV4HARvBOf0iOuDDuHCl/c29mSoSdymCLQ+Z1u4oeznf6wWNhCxMxzIZx77vowryl9sUdM+qa7M07
-	efCLt7UZ26E3igvKvJlVH3/k1tW4T3aeH8i17xP6jZqRrxcmX/3tYJ/hxZInZe0AOEUDtqk4FD7WG
-	CbYTGQpS1axYvhWOGKaQ4QCe3raTMf4TxwkWz30LSOHrBaB+X7RirVt6Rz/ea4AxGLSJIxW26+IWU
-	3lHSnceA==;
+	bh=ahCy8rxOvixjX2FA5ApDynwuvYGvOS/2mqLtTRZIyI4=; b=2OQfnrm8Ih/lW02gxt31i3hSKl
+	9pwumYVp5zDbX2LrShlVIL3HgKJ7jRkHyNBvO/IqCl7ElyfilByOHsoLsun5LmDsneHZTawyaGeDg
+	A2M4XGixF2BQG4rCG7Vkh7SjTQL60m54SRdCsl2DYGsuXMgXWt5hyxGx3xj3Ero1/jFrneGVBe/Ey
+	w0StDWiLkMn2MJn241WRMZ03hZ5mvNvSvIPEqTo9CvVtUD3/0CQbXEmrNKTxLRxegJzG+/Un5UyMw
+	7DuqEH1t9Uu8hxKW3fLOp2GyqaGa01LC+2ZM/5VBiIhrpm/Z3xrr4kLcu+UY+Pomlm9H7hzKASc9/
+	5zwjTmFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGPpB-0000000Dt36-21jn;
-	Fri, 24 Apr 2026 23:20:41 +0000
-Received: from mx0b-0064b401.pphosted.com ([205.220.178.238])
+	id 1wGPxS-0000000Dthp-0fje;
+	Fri, 24 Apr 2026 23:29:14 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGPov-0000000Dsxb-3hnY
+	id 1wGPxP-0000000DthQ-2JjJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 23:20:33 +0000
-Received: from pps.filterd (m0250812.ppops.net [127.0.0.1])
-	by mx0a-0064b401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63OCSR6f2707038;
-	Fri, 24 Apr 2026 23:20:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=windriver.com;
-	 h=cc:content-transfer-encoding:content-type:date:from
-	:in-reply-to:message-id:mime-version:references:subject:to; s=
-	PPS06212021; bh=tSVZCreDHdfHSj5YXvYg/9zgTn5tioIwxJqmjz5Ir8o=; b=
-	GU6otv0TMPcNmNhr3R0k+Wsfjx5z5lRTcDLj8YEIv5UARcXWbHQAdiQfH7zMXLLG
-	6ekt/NCWuZH/pI5VZu4F3uRfjAqDKkWp5dJPCgzGAC9eFF0Snd2x1q4yvmPEiF0a
-	JN2c92mZFpiSJvmxlHbc9BYXCqtLfHoX5GgoljpHXSLfQ/7n/gckxw4Q8EhjLP/O
-	Rfaf4IINusLWe1+2Ov5Rta5EXbgAnb4Ma5M8WmsTUXhZ2d6hhb/F0hBGfsgDCb/Q
-	uUPn1y/43R1fg7iCnP/08UDXsTEmVU+0OONXp61qvT3W4PnUBzmTQA8duvJcMSR2
-	tuxVjzyhoA+/eqz7NoxG1Q==
-Received: from mw6pr02cu001.outbound.protection.outlook.com (mail-westus2azon11012013.outbound.protection.outlook.com [52.101.48.13])
-	by mx0a-0064b401.pphosted.com (PPS) with ESMTPS id 4dq8u8an4y-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 24 Apr 2026 23:20:13 +0000 (GMT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GjzxA5Cq/FAYceXkDKui4xOvldzlAHcfYwyWstFfWDxz3s5+Wd2ZKIIV4SGBMTZY3GqnhRcKTk3GwE+XYkhb20ZoOkFooj7+W05H3ZBHxdtkjNY24yq6JdJNk5mxuCwLH3b2BpGZSw64lNXWh4SjD7tH8OEFn8donLXEBNt8vzTJCtJDqSqAGCcOQaCvNiFYO/RArdR7tdlpsAZyMLw4BqrsPeGny6WZquJ3p9F29F3QDxqdD5INZOHYm2c+1b/ediZDAzOyLPn9cMJXLwZ6NEtRu5Zz/a72RYOzlL44fJUgOC3mQsE8V5DQjwxhKFNmOhKftZGVYrtyDLSDcw72cQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tSVZCreDHdfHSj5YXvYg/9zgTn5tioIwxJqmjz5Ir8o=;
- b=mK1YyWxlaeWS5pel3phZJ/jpcBtc4qIy985brEhX4PePkRHeMeD7yc5LB1n6fbAoPON6uBClSY23YCoAsLC6N8Q0oB19UNpnZTmQsTLQNtZAZjwfzIxoBADmtMgQzZ6btwFppD3jLLS2QlJHW3FR3NGrXr+Ln60lOw+CdCla3thtdaL1zKazxRROxZqon1trBtpLpy4lqWiFhJJaR43HDe+WrIvjyQbBmrpxdsKl/NuKOFp1w11jnCxD/eW6JJ5jbKegY5nhH65678HHMUgQVYIrVXQI03XqiXRyrTe5nfePGFVnzI5X9q+a0Cno/Ee2qN/GUDnG7ACbYXglnnTUig==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=windriver.com; dmarc=pass action=none
- header.from=windriver.com; dkim=pass header.d=windriver.com; arc=none
-Received: from DS4PPFD667CEBB6.namprd11.prod.outlook.com
- (2603:10b6:f:fc02::53) by PH8PR11MB8061.namprd11.prod.outlook.com
- (2603:10b6:510:250::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.22; Fri, 24 Apr
- 2026 23:20:08 +0000
-Received: from DS4PPFD667CEBB6.namprd11.prod.outlook.com
- ([fe80::b919:1e6b:48a6:f655]) by DS4PPFD667CEBB6.namprd11.prod.outlook.com
- ([fe80::b919:1e6b:48a6:f655%6]) with mapi id 15.20.9846.021; Fri, 24 Apr 2026
- 23:20:06 +0000
-From: Xiaolei Wang <xiaolei.wang@windriver.com>
-To: laurent.pinchart@ideasonboard.com, mchehab@kernel.org, Frank.Li@nxp.com,
-        s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-        aisheng.dong@nxp.com, jacopo@jmondi.org, guoniu.zhou@nxp.com,
-        s.riedmueller@phytec.de, Xiaolei.Wang@windriver.com
-Cc: linux-media@vger.kernel.org, imx@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        stable@vger.kernel.org
-Subject: [PATCH 2/3] media: imx8-isi: add missing v4l2_subdev_cleanup() in crossbar and pipe
-Date: Sat, 25 Apr 2026 07:19:25 +0800
-Message-ID: <20260424231926.406079-3-xiaolei.wang@windriver.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260424231926.406079-1-xiaolei.wang@windriver.com>
-References: <20260424231926.406079-1-xiaolei.wang@windriver.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR02CA0032.apcprd02.prod.outlook.com
- (2603:1096:4:195::12) To DS4PPFD667CEBB6.namprd11.prod.outlook.com
- (2603:10b6:f:fc02::53)
+	Fri, 24 Apr 2026 23:29:12 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-43d64313c39so6492952f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 16:29:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1777073348; cv=none;
+        d=google.com; s=arc-20240605;
+        b=DH919EPWOzxMUF6r7SMpRxqf+/UCaIlRJ1t6e0U5l61vGe0fs88sHOS6FXqRHKeiAO
+         mT2c92w56OYFIXn669UtFSt5sx9A7rXO2WG+NMtRBMVH2sGWrz31QbmCjv6euoOPTupn
+         jt7wBYyUs59dXPuHuvOXwUuABFoAclU5go8AFYSDbJQnaRG3dCzXDkrver2RFL7XaNnd
+         gmTTFkeweaXA0z8a1HGWUHBu1ZLIYeraPYug8kpWLn72IwqSjYwribEnIfpAURc/j9ac
+         Q4BASR9Zt7B5p5h+5OYrLXdY1Uq1yCIHDPYi9E5AQetgv9DZXrDgquTJFjep0pF4RvRL
+         mgew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ahCy8rxOvixjX2FA5ApDynwuvYGvOS/2mqLtTRZIyI4=;
+        fh=RMyH6DauzIwKyAKuycUozWd7H+38P2dWZoifDcSAd0c=;
+        b=aJrdpQrnMOl8uQ06yfTpH63/TjrC7uHPVEkpHeTv4Cy96sM+7cjr3rnasnVuJOgRsP
+         IlQGR3uVRJo1SIr2/dksh8kDlzVgcyrznuzBUdik5dvmPG6FXesEY1qMKO3U0SG/bZvm
+         PfI6Os0qZ5g79nEsajBszVGoLcAUInOHbuR3xZCwbChreryh3+Tz0YKjVlh6Od9q/qHi
+         TzRiF/oy557YOFGasQSFWpNqpwPLK9TSL6k0LHc4hkBBgNCfcpGOg3iruLGRTkf8gWSp
+         LpxXj68/taamek2pkJs0js9b3t9ZbP9HxscvwS6TIdyjMtewE/mMlSm7QBXr+yzFuwVX
+         uhUg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777073348; x=1777678148; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ahCy8rxOvixjX2FA5ApDynwuvYGvOS/2mqLtTRZIyI4=;
+        b=n1llKQBF4+bSRI3bO3zCsN3E6FkSQcF8D68KebkOzcNsWQv5Wh1ExbNwPb3MBeR6jM
+         Khzogiz/NzNtGpGYUG246FE1S7OQQI0idgqK7V4/0OG/7rIHq6ocImzTomNeF4pYS9sv
+         zMX7VzeK+JO2QBTbaEaTxgrYsopcRIJFLjpDN1nic8uDk8NmcyOMUAavyPzfqyiP+vtD
+         sEtiJ8WOwBUOUEjji+QSQjvZ8eXa7znRlGw3i4puoJY2UBRyGXMDBxoSXHLI34DkWCrA
+         /q4O6Wu0PyuNAQSIFN5T/CCrURbxG4P7UYVfq38dPVUwhSQC3nWCcvUGEx8h680qJirY
+         zueQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777073348; x=1777678148;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ahCy8rxOvixjX2FA5ApDynwuvYGvOS/2mqLtTRZIyI4=;
+        b=HaE2m68Bvyeeh5wvTb/V0Y/mnJsvoSnMux7S1ileg/2Dp5qMzuAnG7O+iELOXr2TL+
+         DpqjL62IdPoxjKj7GfKPTHwNrYPBl55z37EZUNjMEn/Q6RNOlvGrHizBD/wHBp1G9ldb
+         BcaQVB7uEbri2ngCdNX3wNIAn5XDkIEVzNDred0J8Uq2WQ10A/gwoZIJNTv9RaQnPRsD
+         KTdNlsUy7FyTj5VgIVmWLjISO3M/iG/ajfNeynLghzky5Uzp+eW8KjL9fwEk8mjwHass
+         X/4019x7oNGywDUii3hGk7/M3SkFJn19HcQ1DZ+QWD0qgVC7hhbiYMWrkSqTj15tZkhe
+         K8yQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+AjyyIyWOCaFR9Nd0YBi9aOFgbZz3P2r+h+KeGrcoNJvGSrCbCLNAXm3cz9ABHhh6W9Bd2FpHjdrvGySVf0AeN@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPyzR2YJdH3aPmRGiQbJyt/a2c5FnzceXbrri5pLf/1o+jzAAc
+	E7xI/ze/PtXVhSR9Ag4ICgOovhp/qTnbtWTBrd4QlPPApW3UkzRfI+OmGG3XnBMC13Ps3m6BiIf
+	qc9K6JfdSR8gTmN1vkFhZ8ZJIaM2G1gA=
+X-Gm-Gg: AeBDieubswoARj4AdXtraRpKQ/iBGpt0F6NwpO6LsAGxgrgRUVxCGMI3MahFgAs3Lk6
+	EcYN+1Sj3B5konMywbtgfJeaPI7XITSzdNLmvDaVLoFw41jfv1H0wkwQv+uEg1Z7q98uEg9VitL
+	TYgmcOMX3j3WDA4BWue1ELgqRu9CLovowVgZWLuvkv/biATby5S6nnTqnQZ0mVGqPOemUyaDXoI
+	faj1IMtHWC4OpUpKGzQAFn2zCZ7LgoZBCtXGu9YIAUHCPS4LHAq0ixfn9yezL45KyyuyIz/dGWp
+	2B8i+8Bs3PsP4cv48LxkoWSip9dpV7yoA8sYKNG8gbG+k3XSp+V83SLWjH78kN7szwhIaZgmxuH
+	dgHRgMT6algU+3vlTTc1fZmTB+einI04aVb3x
+X-Received: by 2002:a05:6000:2c0b:b0:439:beb9:5a96 with SMTP id
+ ffacd0b85a97d-43fe3dfbff5mr53034945f8f.31.1777073348360; Fri, 24 Apr 2026
+ 16:29:08 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS4PPFD667CEBB6:EE_|PH8PR11MB8061:EE_
-X-MS-Office365-Filtering-Correlation-Id: d8dd905f-e6de-4078-e892-08dea25804fe
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|1800799024|56012099003|38350700014|22082099003|921020|18002099003;
-X-Microsoft-Antispam-Message-Info: VGHpf+NHGm4xiJa7CnakZXu7lS1jPL5QxOHeIK5fxeGoR2SS+hOQkg1CNyRQrXVrvMDUlr8a+2c30+4URAx1Wob6geLLS/DkfAm94NS1gMfueQx8h40Ch4/KKZHIWc65ZyUPtuZGkmz2PKbsLqEbE2uaiQLtZ6qkM+DN8BibK0Zd5NqhS1x5qHbaTMounDvenrZ1uz8g+7DIqGHWPOmPuHgoDGIJX0B8gwizTe/3gfy8zrfxSoDwJ+OIWBE3OmdT2hq/0/MdPBeJ//HI9IEqvXrwNs2MJl8ZDcV7PtLZLwZaQUGfLXhD56vHH4Ewg16aa+bixZNGW5RG/wKf/++tymqQyH4T80u++Ki8UhAQ6mucnpVwSztgv7Tm6eYbpV87llixWhi6zp52QM0glNzUKz1odhwQh95AHBvVCdhC7rIx83T6ZjfmarpIX2bskuZEZMpjmcxVtdRJje0FS3T1f5BqsISOlieomqpQHTbYSahDr0xwhXVyXWYYbEv+R2TJpSj0APTH9dHZLL8pB8PiGeqwF9NS5Wlr7futiBm12lmThxWbkT9AV4mrKR66DaP+gTTBE9Xgx39Ma7tqPPfMTmf4xyl1IG12H7H34/9itgVY7ZpJp6I+Jz179eR+drczDk+Qge9YeFUlfaNbhB+NXF1gPnb8YHOnfr8c6CIrFu6ytrU4MuCiPJ6z7kKCtQv3D+0jVaTckoEWTU+t+QJ/IEN6pdqhHVLh+EQojkHZB1Rz3FyLljHBqcUQ9uvzQxX8aHJGeznbGOE6I68AMvsEOKSXBH9Zb4fhNu7lm6upShgsVoOW3ocJPCqYB6SUk5g8
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS4PPFD667CEBB6.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(1800799024)(56012099003)(38350700014)(22082099003)(921020)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7bH7auqLlAhigBLsetu35AM8XVKEs/PzwGrEj/jeXEqGYHEaoDNSNaTVPNG2?=
- =?us-ascii?Q?gFDvgMmtQCHNJE4ZQkUjQPFVLgbgMmjpsJsjNpqCNwLyT+n8N5Uc92DCiK/3?=
- =?us-ascii?Q?ZnPpovn/EfXGsOXKgOIx6qDMnktAQqGNXahulzqziaBnh0OzfTZ/HMCe3nqw?=
- =?us-ascii?Q?VGIxWlItjTCynrK1kQq5rMvD10IPwTw02Yd38sKndFk9W9pJqiZIIViW+24U?=
- =?us-ascii?Q?6k+G0AvzM55dj71LazvETpLsQOJv7T1oNomCqXmRKNYbswQTjZylO+8DWTFt?=
- =?us-ascii?Q?l2zNU7yhJXhe9ekIsOHJWAsVCH8/hOl2dp4kbrtBhdABJnufhUGKoa1nsaQM?=
- =?us-ascii?Q?XjlX2grRyE5UrFocWEoRpnkhn1PpwPywX0Du8SGX6OszN+SggIVUklkdm9b6?=
- =?us-ascii?Q?s3ZvyiLLcjsC/zoft2xV1v9ohHZq0ogVpm+C6nPd7MEYwgsSoY/AuVEmFz+q?=
- =?us-ascii?Q?9pxw0ePgu3610KQGPOozptDqQOKaL0vjAnnpwqg/sKULJdLKDvEWQYGtywoN?=
- =?us-ascii?Q?709USRrcHpPne8IiatzA+MramBaJZUPzFbDlpstS6RwOJOymOZsYf/HPvv0J?=
- =?us-ascii?Q?jdKOP+plN6zl5UvAciaUEbLOZ/T6lFNiNORmAtay2q+yrlDbvufVVVBtSrZV?=
- =?us-ascii?Q?fbVZnsYby6JMRfaBb1G7OTgVqpThgEJtkiG5/fC5N1+sV4NBXyKQfMQIpkp4?=
- =?us-ascii?Q?+b1qbkwkeDE5/mbYYueH7xvYTT6mC0K2w0Sveyilb4pFiJw7ZIdya47HsbKv?=
- =?us-ascii?Q?fKkxoAcQThDrmwjE6p5YLPkSP7ZqEBFilJUNryDsx+I08J27NOTK2mAd+cr2?=
- =?us-ascii?Q?B6LJNqyLT9SV/j8+A5kOika89Q8q7cRRubEWjQY3gCejt/sXU9YXFzSmYU0s?=
- =?us-ascii?Q?P0FtpEEcpBH5mTX9D+s2ka/f6gNedyqJBwQDi/htSTsTVC2l0+cf4iLvooCU?=
- =?us-ascii?Q?kxjHJjbc91GiD3SX/MoE1OTW+yYNY0dNFHU1IOHfpEz73EvflXqbHnlMKsS+?=
- =?us-ascii?Q?beJ8sk2Ym5le1ZcA04dJj175e8jK0AbIx1sH7Wnxi2QumeRU+33fJB/X/LTl?=
- =?us-ascii?Q?vtuMSVuFnADm4wm4Jui+SCz9PZu7qAg1XbY3o15pGrmKrA7FDEfELGYSC/kY?=
- =?us-ascii?Q?KNts+uqWE6LUq678M/FwVo++Zlwf/2wZMgXmHC9bFHkXFNsf3dhTCChZ8gxw?=
- =?us-ascii?Q?SptlJe2dyvI1409TXWLWSi78RbncxMES7P5nRCB8mZTjlWxrr9Bpp+DdEaHj?=
- =?us-ascii?Q?0U6gJ04E/t1crrfkgRNMhSV8Hj935XUbQPp6YEha/Jx2YYPanHV+cBYXSJLC?=
- =?us-ascii?Q?G7T8IxbN95nn/cIEmGTymq6sDh4sXhS2Ut0m6UJjC/3uUe++WZ1r0dkyRMT8?=
- =?us-ascii?Q?B3Tm7N5dGis3cUt/KovNwHdWgBYZx2HOoqU30YcD7EZv/3mF4IDGWdQnP6ME?=
- =?us-ascii?Q?5g7Kn8YuOfmtjWJ+ol+pnKrhU/hboiuYnIQz8Bqrlc0a20Hjct+UFgGAHEhI?=
- =?us-ascii?Q?FuQIzXSub2kva0SpAMzUl1Oq72QK4zMEL5YiITiPMCVteLA+b+tfX4EKHeY6?=
- =?us-ascii?Q?zo2uVfEBjnku6Ct8wyFEwFSkDmqv8lojJ05wEoUxGDmYNfvEFGze8Pw0Xtkw?=
- =?us-ascii?Q?PWOMKPr/JSeA0zr0w0oD+aH/pvPIAechnh31JjBJ6uNBBrao5ZEnQvxiAEB3?=
- =?us-ascii?Q?44J8TtiSfh2PyrvgPDY9aZFtFLZ0XhcsEiYLabtbvks3fX79C1UjeSjtcIzo?=
- =?us-ascii?Q?ha1l5WdM3a5uCOX/xOoxUa4NeJ3vx9k=3D?=
-X-Exchange-RoutingPolicyChecked: bIqqA8G/iV0jwA5vaTovmsKtLUwgpjh1wEC208P+CLNJhjkIlWbt7MXlA3oUglf91QTJB/yhL2ec/560qL0FPnn4nDS0wPw2ifTbsRKT7i0DPC7+siy7uUvc6Tlqrhr5zF1OXRJevNC30K0bCq2evR5PEiYqK/K5OepbceuA4RQ9jGgPsHkxjCo2N03F8TD2cGVnO9G52VPImWdt7fvL8gaKNQKijkzHAFHJ8ZyNiT2UKN/Lggr2OwSdQkL8IejK4ZLTCArdAkVS0995aCn2QknSrT+iSCFkbrbOYg6vGq15PYfLoK/rY/CfI6q7Df7ynQmE9fwfJbd2ePHr7fqcvA==
-X-OriginatorOrg: windriver.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d8dd905f-e6de-4078-e892-08dea25804fe
-X-MS-Exchange-CrossTenant-AuthSource: DS4PPFD667CEBB6.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2026 23:20:05.9967
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8ddb2873-a1ad-4a18-ae4e-4644631433be
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0a/GyLLpBkeBkwa65LvqLc5DTe4T0ioiLS4C++g832yeVdGGrLxHYzQd8S1PZhYwC7NR/onkjMsy8qjHlvGvZXz7rdXTndLTdrW60IIZCdE=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR11MB8061
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI0MDIyNyBTYWx0ZWRfX03zLmQ4/J0O5
- DipEHVTqcVUoHiL1A9FAXzXNqSprQq/0/BEcnicoQTsonRdOQYuO4e0xuc5ih3EiwW9tA5RvY/p
- MouRmIdfok+au+tdp/xFv0+Ohe1NeNFAV6FA/1o2av0yPZHsJDceBiB0FNwM0CVQdulAXWXKdE0
- xJbxqq49B0sOpoQyXN3EMydLegc7BgoKiuTX/FS+UKiL93RjrhFLuqsYQzLpAkPsKfF5wRGrcVp
- PXAk6RCWcywB+1s6rH4eij4TsOS91c7ntGsi80B7nTroHqV0cOSfgm3iVrmZXfcajGEHRL8Fa7F
- W64bS0O+oHWkAve0w3lU74hWn2hAtYHD8TpyJcCDPKBCcTjQzoeVB+fd0r2Myw95J6xAuc7jrqJ
- 65dMlPOouDDIdIzsznTHWazZMt4i14yDsDLVeQX6KB7kAeS4g0EvGYxOId0GSdh5hew8HrZMtJD
- 6UhWm15loxu0/8R9IDQ==
-X-Proofpoint-GUID: Ha8Ni8d_VI9B7kwSzQzO3Dz2GEo1TBXw
-X-Authority-Analysis: v=2.4 cv=WLNPmHsR c=1 sm=1 tr=0 ts=69ebfaad cx=c_pps
- a=xOYz1KraVtwoi73AohHYLg==:117 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19
- a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
- a=xqWC_Br6kY4A:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=bi6dqmuHe4P4UrxVR6um:22 a=fTW__CHxibyLmBMfj2wP:22 a=VwQbUJbxAAAA:8
- a=t7CeM3EgAAAA:8 a=lgr16xn9cv1HVsKBfnsA:9 a=FdTzh2GWekK77mhwV6Dw:22
-X-Proofpoint-ORIG-GUID: Ha8Ni8d_VI9B7kwSzQzO3Dz2GEo1TBXw
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-24_04,2026-04-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 phishscore=0 lowpriorityscore=0 impostorscore=0 spamscore=0
- adultscore=0 clxscore=1011 bulkscore=0 priorityscore=1501 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604240227
+References: <20260413-kasan-v1-0-1a5831230821@bootlin.com> <71fb19ff-6dde-43f4-a0e9-5c8cf2ba4ed4@linux.dev>
+In-Reply-To: <71fb19ff-6dde-43f4-a0e9-5c8cf2ba4ed4@linux.dev>
+From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Date: Fri, 24 Apr 2026 16:28:56 -0700
+X-Gm-Features: AQROBzB_ndIthouIQciueRLu_dMM7bcPcCRP_ecesud5fA9xG1Ica2sIBP2K-bI
+Message-ID: <CAADnVQ+ytaX5oq_1TjKC66dnjd1-yh3yjmPrP-kEg5wEvX643g@mail.gmail.com>
+Subject: Re: [PATCH RFC bpf-next 0/8] bpf: add support for KASAN checks in
+ JITed programs
+To: Ihor Solodrai <ihor.solodrai@linux.dev>
+Cc: =?UTF-8?Q?Alexis_Lothor=C3=A9_=28eBPF_Foundation=29?= <alexis.lothore@bootlin.com>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+	John Fastabend <john.fastabend@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
+	David Ahern <dsahern@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>, 
+	"H. Peter Anvin" <hpa@zytor.com>, Shuah Khan <shuah@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Alexander Potapenko <glider@google.com>, 
+	Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	ebpf@linuxfoundation.org, Bastien Curutchet <bastien.curutchet@bootlin.com>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Xu Kuohai <xukuohai@huawei.com>, 
+	bpf <bpf@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	Network Development <netdev@vger.kernel.org>, 
+	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	kasan-dev <kasan-dev@googlegroups.com>, linux-mm <linux-mm@kvack.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_162026_040623_E6955B0A 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20260424_162911_678183_BD8A14E9 
+X-CRM114-Status: GOOD (  33.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,57 +136,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Both mxc_isi_crossbar_init() and mxc_isi_pipe_init() call
-v4l2_subdev_init_finalize() which allocates the subdev active state,
-but neither mxc_isi_crossbar_cleanup() nor mxc_isi_pipe_cleanup()
-calls v4l2_subdev_cleanup() to free it.
+On Fri, Apr 24, 2026 at 4:10=E2=80=AFPM Ihor Solodrai <ihor.solodrai@linux.=
+dev> wrote:
+>
+> I wonder if it's feasible to implement KASAN support on the verifier
+> side in post-verification fixups. AI slop for illustration:
+>
+>   ;; Original (1 BPF insn):
+>   dst =3D *(u64 *)(src + off)           ; BPF_LDX | BPF_MEM | BPF_DW
+>
+>   ;; Rewrite (~7 BPF insns):
+>   r_tmp1 =3D src                         ; BPF_MOV64_REG
+>   r_tmp1 +=3D off                        ; BPF_ALU64 | BPF_ADD | K   (ful=
+l address)
+>   r_tmp2 =3D r_tmp1                      ; copy
+>   r_tmp2 >>=3D 3                         ; KASAN_SHADOW_SCALE_SHIFT
+>   r_tmp2 +=3D KASAN_SHADOW_OFFSET        ; shadow address
+>   r_tmp3 =3D *(u8 *)(r_tmp2 + 0)         ; BPF_LDX | BPF_B   (load shadow=
+ byte)
+>   if r_tmp3 !=3D 0 goto +2               ; BPF_JNE | PC+2
+>   dst =3D *(u64 *)(src + off)            ; original access (fast path)
+>   goto +1                              ; skip slowpath
+>   call __asan_report_load8             ; BPF kfunc
+>   dst =3D *(u64 *)(src + off)            ; retry the access after report =
+(non-fatal)
+>
+> A sort of inline kasan directly in BPF.
+>
+> There are plenty of issues with it: instruction limit, exposing asan
+> API as kfuncs, etc. On the flip side we get cross-arch support out of
+> the box with no or mininal JIT changes.
+>
+> Honestly I'm not excited about this approach, but curious if anyone
+> thought about this, or maybe it was already discussed?
 
-This causes a memory leak on every rmmod, reported by kmemleak:
+We discussed this.
+It won't work because we don't have that many temp registers for once
+and second it has to preserve all (both callee and caller saved regs).
+This is arch specific.
 
-  unreferenced object 0xffff0000d06fc800 (size 192):
-    comm "(udev-worker)", pid 254, jiffies 4294913455
-    backtrace (crc 36eeae58):
-      kmemleak_alloc+0x34/0x40
-      __kvmalloc_node_noprof+0x5f8/0x7d8
-      __v4l2_subdev_state_alloc+0x1fc/0x30c
-      __v4l2_subdev_init_finalize+0x178/0x368
+Second, we do not want other archs. This feature is x86-64 only.
+It's being added to find _verifier_ bugs. To do that one arch is enough.
 
-Add the missing v4l2_subdev_cleanup() calls before media_entity_cleanup()
-in both crossbar and pipe cleanup paths.
+>
+> > - not all memory accessing BPF instructions are being instrumented:
+> >   - it focuses on STX/LDX instructions
+> >   - it discards instructions accessing BPF program stack (already
+> >     monitored by page guards)
+> >   - it discards possibly faulting instructions, like BPF_PROBE_MEM or
+> >     BPF_PROBE_ATOMIC insns
+> >
+> > The series is marked and sent as RFC:
+> > - to allow collecting feedback early and make sure that it goes into th=
+e
+> >   right direction
+> > - because it depends on Xu's work to pass data between the verifier and
+> >   JIT compilers. This work is not merged yet, see [2]. I have been
+> >   tracking the various revisions he sent on the ML and based my local
+> >   branch on his work
+> > - because tests brought by this series currently can't run on BPF CI:
+> >   they expect kasan multishot to be enabled, otherwise the first test
+> >   will make all other kasan-related tests fail.
+>
+> AFAICT this can be trivially fixed on BPF CI side, we just need to set
+> kasan_multi_shot for the VMs running the tests. I will do that, your
+> next revision doesn't have to be and RFC.
 
-Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
----
- drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c | 1 +
- drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c     | 1 +
- 2 files changed, 2 insertions(+)
++1
 
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-index 605a45124103..c580c831972e 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-@@ -491,6 +491,7 @@ int mxc_isi_crossbar_init(struct mxc_isi_dev *isi)
- 
- void mxc_isi_crossbar_cleanup(struct mxc_isi_crossbar *xbar)
- {
-+	v4l2_subdev_cleanup(&xbar->sd);
- 	media_entity_cleanup(&xbar->sd.entity);
- 	kfree(xbar->pads);
- 	kfree(xbar->inputs);
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-index a41c51dd9ce0..cb50af2270f6 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-@@ -819,6 +819,7 @@ void mxc_isi_pipe_cleanup(struct mxc_isi_pipe *pipe)
- {
- 	struct v4l2_subdev *sd = &pipe->sd;
- 
-+	v4l2_subdev_cleanup(sd);
- 	media_entity_cleanup(&sd->entity);
- 	mutex_destroy(&pipe->lock);
- }
--- 
-2.43.0
+> > - because some cases like atomic loads/stores are not instrumented yet
+> >   (and are still making me scratch my head)
+> > - because it will hopefully provide a good basis to discuss the topic a=
+t
+> >   LSFMMBPF (see [3])
+>
+> Apparently, KASAN reporting routine takes a lock [1]:
+>
+>    __asan_load()
+>      -> check_region_inline()
+>         -> kasan_report()
+>            -> start_report()
+>              -> raw_spin_lock_irqsave(&report_lock, *flags);
+>
+> BPF programs can run in NMI context, and so it appears to be possible
+> to get an unflagged (because of lockdep_off() in start_report)
+> deadlock, if an NMI fires on a CPU already holding report_lock.
+> Although I guess you'd need two KASAN bugs to happen
+> simultaneously for that to occur?... A rare event, I would hope.
+>
+> It could be addressed with either in_nmi() check at runtime, or
+> forbidding kasan for NMI-runnable BPF program types.
 
+We don't need that. If this bpf KASAN finds a bug, it means that
+it found a verifier bug. All things are out of the window.
+kasan_report() splat can just as well be the last thing that users will see=
+.
 
