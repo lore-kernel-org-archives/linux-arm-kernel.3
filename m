@@ -4,67 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B385FED3C3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 13:32:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07C45FED3C9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 13:40:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pFS9HvjkUUe03AisYZmXn6wdasSNAqntMtTfQZJXHFE=; b=NE02fwx1CfiC+XqpcrjiOGu9qE
-	UDYHKAxf5JscGd1IEz6Wt+XoCyRkxkoIwKfzlQlWxqM6Bb8D1npaUZNZpN1fdyzsTn8QgSfVZG2zy
-	eK6sX7aefDPHCj9l4T9Yl7YrT/qP6N+zw1SqmBisgSyonjWX7gylF3hr2OgWae0O0xnZLwNNCSL3F
-	FQOrqKkEWNmauVdxRD7m05dDXPbaWOLVr0T5eSyxjfIEMj5QPbV9mDnBSFYoKLA0OL2wAYkenXqZf
-	i6n+v95v/d69ETpedK68u64vffe9H3joBVOQfN0gbFMGd0mPT36sLtBTm5cP6T7CWrNyp5QhzQ4f1
-	U33CaGGw==;
+	bh=rPjCFMFqi8QLuboc2zZPARuZC0PwzjGUIbdAh+rlNHU=; b=MrGxM0z7S+HwzvmSTYHSb5SgTo
+	/O3L387b1SiqElLBx98XBuRBPlVANIRUvve1W1+tmF0ol1M2GdluVZctFSKeC/ZemMvBTf8gnmO0x
+	bW1cVBLVsqEulfp7DcjdYpH9ZqoLzovPn9BZRzgBBudgbpYfHRUBMi2UkuG9Z3oUXJRzPww3xHuXU
+	09a2IGLtktAM0w2pwMRr6Pj+WPsyVucao5sjbuCj+KT8f7wOcbp+1lrT+BE9fzDapqw2jnUNPWYZf
+	SlSJ4UMGggrkjME/GUoTl5R/U6gcC5s6bWVDFBkTBrVCHjhpvBt6U85RnNMBiSMAFfjopcA4D7lZM
+	caLmSyNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGGds-0000000DFQj-1Ljb;
-	Fri, 24 Apr 2026 13:32:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGGdp-0000000DFQA-3OxK
+	id 1wGGlC-0000000DG40-0geB;
+	Fri, 24 Apr 2026 13:39:58 +0000
+Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wGGl9-0000000DG3e-2YjI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 13:32:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5BDAD1BA8;
-	Fri, 24 Apr 2026 06:32:13 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9CDD13F62B;
-	Fri, 24 Apr 2026 06:32:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1777037538; bh=/Jr8/sdUQILExlSNhoUC+H6o4ZnAtzegjWHXjc9nxwg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PMTTfHAJItHYZ8aawJ+Jzk17mvBiV3VHV5EmjXideXUXopqdeINDr+pN77e/BUTum
-	 kFmdmauR/A7tP4lWoLpYoYipKj5LVtq5cogG4i4XYtX7Nwpo/xhZvrgG51qjUGHcvV
-	 XnlMw95PTw4/xClzkivOBmeDgPwvavbVwEran/Uc=
-Date: Fri, 24 Apr 2026 14:32:05 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	Cristian Marussi <cristian.marussi@arm.com>, sudeep.holla@arm.com,
-	philip.radford@arm.com, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@foss.st.com, peng.fan@oss.nxp.com,
-	michal.simek@amd.com, dan.carpenter@linaro.org,
-	geert+renesas@glider.be, kuninori.morimoto.gx@renesas.com,
-	marek.vasut+renesas@gmail.com
-Subject: Re: [PATCH v2 08/13] firmware: arm_scmi: Harden clock protocol
- initialization
-Message-ID: <aetw1WcSCDxk11AV@pluto>
-References: <20260310184030.3669330-1-cristian.marussi@arm.com>
- <20260310184030.3669330-9-cristian.marussi@arm.com>
- <WNCeTzosRbKm_zGsbSPx8w@collabora.com>
+	Fri, 24 Apr 2026 13:39:56 +0000
+Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-8ee7ffd738dso428145985a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 06:39:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1777037994; x=1777642794; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=rPjCFMFqi8QLuboc2zZPARuZC0PwzjGUIbdAh+rlNHU=;
+        b=TJmV6uIF6na8LWhBLqR6h+7HyYFrQB4kU3yzgSBExLufyR+E09oqfHdeO5WcIM1ZHE
+         TvYyo6y0G+hpz8WqWsRi/puOVAGVKeRV0RENrfluwB5QK/0qYnKrJy6rIovLB2xT10Wz
+         Pfoiq0h3zNllV3tImU93PfRryf6xmiCNSALiH/eUt4WMqydt9h3c1tE9seMfkrVM6w7F
+         bTNQLc+xuLeibeAKmEbkXIc9L8ZE9qvcffwZSTtAoMeXSMwTjQVM6mcYZNkrLCOe+/ZG
+         YoHx/A9tiKBuY/0j7QsVSAUAU5ynBiaoXxBQXI2CxoCd9C5rpVB0QdDDKVEgeS4D7fyI
+         4DGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777037994; x=1777642794;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rPjCFMFqi8QLuboc2zZPARuZC0PwzjGUIbdAh+rlNHU=;
+        b=Utnx49NYYvBavtLhPWVIMya8NShsDkfQ/K016yKr35uqGjm7EIcP6sDShLODMns63y
+         2SnNPGkP2mwhvPjih/iAKb/8d/U/fNKTIVEMvXPOg1DAEIH8hxH9Dz5mTql0rLnn94Tx
+         ZjGsvLRXblr8pPVEE8OCqcycJhoOHE6hwdsJ+ae2fkDeSv0sa2KyoeYX61auPJdOAU8T
+         bjTIaZhEtF3myML/5vPUf3Wj8/GPneeT+TX+ivbnkP4T629dFfKjWakWEyiGRIEFEOt9
+         0Q3gjSrV3IMwYbtevPYwWlyaAB1qzjQxlCrjCFIM+Hp5MBAfSiJ6MBP2QK4yl76KK2Kh
+         UVWA==
+X-Forwarded-Encrypted: i=1; AFNElJ/EDnJt6FwUAr5W+VbiYihQ1cX+fwMykL65Okpi5kU69qiKxiZnAEGD/pRdSbMmrkot5Pf20HtALjsmzokFxRBC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5HJ27gLgL0zOIR9GialszaOUzEuLunpGiktAkaIVBNP8VHUvY
+	W/p5aFM3O5g/iiDU0yn9MCGkJrg7rjs3Ctj1cwQe+/iNP10nvo5fyglquq7gvkRmi4I=
+X-Gm-Gg: AeBDietbQEIlPhqdLdJvUsHj7KTpSnYbEwiOslX1Ah4eQTw7YzVbFmAS2KCCZ1+dzYC
+	Ruqp8SC/mgFCGH/6ubPobbIxdxoQHZ2Vbsla7zT257fdQpnwoMekhWHj67fo4e09CvvGXQOxyTP
+	SfblenKr3tCgJjSvC9Dl0yo1KXr6jf5458cjhZdXfuy/XhvQkckVYmh8S4qJ/iEomLLYX2bZFCm
+	v7K0O1roh/rU+IfWrzb+PiJgIHEPnrdwMH2jUCeVO832j1iyBfInpHCB1dcinl2Hg8FssXwpwTw
+	/M5TugsYG32pqmNYFfpWA+nfDcZ3bpg/j+d6IQQE+B7G+p/xTOcW9d/2ZFTak0rbsxHylJ4RRNo
+	2+R/lY5FCqeL9X98WhblSTR+OqDsztmMf3hh0nDh9kXhZqFtTHMvGPiKXoz0kYl8ORfKHkgMVkk
+	wJCC6c56jpR62T9KPs7ANLxSQ/XnHxw46nhOnzDdkPSRGOwaLTNwqPpDpwNbRuFUM9TDg682yfJ
+	HvfhU+mC4k7TNO0
+X-Received: by 2002:a05:620a:40c1:b0:8cd:9281:6be9 with SMTP id af79cd13be357-8e78c5c256amr3549840385a.31.1777037994254;
+        Fri, 24 Apr 2026 06:39:54 -0700 (PDT)
+Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8e7d5fe9638sm1898047285a.1.2026.04.24.06.39.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Apr 2026 06:39:53 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wGGl7-00000002Yhv-0Ex0;
+	Fri, 24 Apr 2026 10:39:53 -0300
+Date: Fri, 24 Apr 2026 10:39:53 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Joonwon Kang <joonwonkang@google.com>
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jpb@kernel.org,
+	nicolinc@nvidia.com, praan@google.com, kees@kernel.org,
+	amhetre@nvidia.com, Alexander.Grest@microsoft.com,
+	baolu.lu@linux.intel.com, smostafa@google.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RFC] iommu: Enable per-device SSID space for SVA
+Message-ID: <20260424133953.GY3611611@ziepe.ca>
+References: <20260424085339.3503582-1-joonwonkang@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <WNCeTzosRbKm_zGsbSPx8w@collabora.com>
+In-Reply-To: <20260424085339.3503582-1-joonwonkang@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_063221_934966_13561F11 
-X-CRM114-Status: GOOD (  28.89  )
+X-CRM114-CacheID: sfid-20260424_063955_658715_3135608F 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,112 +106,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 24, 2026 at 02:07:59PM +0200, Nicolas Frattaroli wrote:
-> On Tuesday, 10 March 2026 19:40:25 Central European Summer Time Cristian Marussi wrote:
-> > Add proper error handling on failure to enumerate clocks features or
-> > rates.
-> > 
+On Fri, Apr 24, 2026 at 08:53:39AM +0000, Joonwon Kang wrote:
+> For SVA, the IOMMU core always allocates PASID from the global PASID
+> space. The use of this global PASID space comes from the limitation of
+> the ENQCMD instruction in Intel CPUs that it fetches its PASID operand
+> from IA32_PASID, which is per-task.
 
-Hi,
+That's right, and all the iommu drivers should have no issue with
+per-device pasid or they are not following the API contract..  I
+believe that has been taking care of already.
 
-> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-> > ---
-> >  drivers/firmware/arm_scmi/clock.c | 22 ++++++++++++++++------
-> >  1 file changed, 16 insertions(+), 6 deletions(-)
-> > 
-> > diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
-> > index c9b62edce4fd..bf956305a8fe 100644
-> > --- a/drivers/firmware/arm_scmi/clock.c
-> > +++ b/drivers/firmware/arm_scmi/clock.c
-> > @@ -402,10 +402,16 @@ static int scmi_clock_attributes_get(const struct scmi_protocol_handle *ph,
-> >  		    SUPPORTS_RATE_CHANGE_REQUESTED_NOTIF(attributes))
-> >  			clk->rate_change_requested_notifications = true;
-> >  		if (PROTOCOL_REV_MAJOR(ph->version) >= 0x3) {
-> > -			if (SUPPORTS_PARENT_CLOCK(attributes))
-> > -				scmi_clock_possible_parents(ph, clk_id, cinfo);
-> > -			if (SUPPORTS_GET_PERMISSIONS(attributes))
-> > -				scmi_clock_get_permissions(ph, clk_id, clk);
-> > +			if (SUPPORTS_PARENT_CLOCK(attributes)) {
-> > +				ret = scmi_clock_possible_parents(ph, clk_id, cinfo);
-> > +				if (ret)
-> > +					return ret;
-> > +			}
-> > +			if (SUPPORTS_GET_PERMISSIONS(attributes)) {
-> > +				ret = scmi_clock_get_permissions(ph, clk_id, clk);
-> > +				if (ret)
-> > +					return ret;
-> > +			}
-> >  			if (SUPPORTS_EXTENDED_CONFIG(attributes))
-> >  				clk->extended_config = true;
-> >  		}
-> > @@ -1143,8 +1149,12 @@ static int scmi_clock_protocol_init(const struct scmi_protocol_handle *ph)
-> >  	for (clkid = 0; clkid < cinfo->num_clocks; clkid++) {
-> >  		cinfo->clkds[clkid].id = clkid;
-> >  		ret = scmi_clock_attributes_get(ph, clkid, cinfo);
-> > -		if (!ret)
-> > -			scmi_clock_describe_rates_get(ph, clkid, cinfo);
-> > +		if (ret)
-> > +			return ret;
-> > +
-> > +		ret = scmi_clock_describe_rates_get(ph, clkid, cinfo);
-> > +		if (ret)
-> > +			return ret;
-> >  	}
-> >  
-> >  	if (PROTOCOL_REV_MAJOR(ph->version) >= 0x3) {
-> > 
-> 
-> I see that a quirk is being added for this, but I thought I should chime
-> in with my opinion for future approaches in this direction.
-> 
-> I don't see how this hardens anything. All this does is break platforms
-> that were previously working by returning early. At most, this should
+So, I don't think this is an iommu driver capability.
 
-Certainly the naming in the subject was chosen badly (by me!)...indeed it
-should be more something like "Enforce strict protocol compliance",
-because at the end all of the broken platforms really run a slighly odd
-out of spec SCMI firmware that does NOT implement one or more of the SCMI
-mandatory command...
+Instead, you have to decide if the PASID is per device or not based on
+if the system will use ENQCMD or any similar instruction.  I
+understand ARM has introduced a similar instruction.
 
-> be a warning (as in not WARN but pr_warn/dev_warn/...). If firmware
-> returns nonsense, a clock driver should imho try its best to work
-> around the nonsense in a safe way, because the alternative is that
-> a major part of the system (and thus likely the entire system) no
+So you may be better off with some kind of 'arch has enqcmd like
+instruction' to control this instead of involving the iommu driver.
 
-..well yes we definitely dont want to break deployed platforms BUT also
-we dont want to legalize this kind of out of spec behaviour in future
-firmwares...hence (a number ?) of quirks an FW_BUG warns probably to
-let already broken deployed platforms survive while discouraging such
-implementation in future fw implementations...
+> - The device is not a PCIe device.
+> - The device is to use SVA.
+> - The supported SSID/PASID space is very small for the device; only 1 to
+>   3 SSIDs are supported.
 
-These firmware most certainly wont pass the SCMI compliance test suite [1],
-which indeed we do not mandate, but the reason these bugs happened is
-exactly because the kernel SCMI stack was buggy and left that door open...
+Yuk
 
-More specifically these kind of out-of-spec behaviours are not really just
-a matter being 'picky', the problem is that any resource set in any
-SCMI protocol is defined by the spec such as to be described by a
-contiguos set of IDs and the drivers are designed anyway under that
-assumption from the allocation point of view, so allowing a clock ID to
-just fail one of the mandatory commands and skip a domain would jeopardize
-all of this and, even if clearly is NOT a problem here, seems a fragile
-assumption.
+> With this setup, when other modules have allocated all the PASIDs that
+> our device is expected to use from the global PASID space via APIs like
+> iommu_alloc_global_pasid() or iommu_sva_bind_device(), SVA binding to
+> our device fails due to the lack of available PASIDs.
 
-> longer works. It's basically the same reason why we avoid BUG(): sure,
-> you prevented a problem, but you tore down the entire system to tell
-> the user about it.
+So you have multiple SVA using devices as well? Or multiple instances
+of the same device?
 
-No I feel this is a lot different from the BUG() scenario: we'll never
-merge this like this without enough quirks to let survive all the
-existing impacted platforms, but the shout here is for the fw-developer
-of a new un-deployed firmware: that WILL fail and no quirk will be accepted
-if they plan to design a future FW out of spec from scratch because they
-think is better....well...they can anyway of course but they will have
-to keep their own quirks donwstream forever :P
-
-Thanks,
-Cristian
-
-[1]: https://gitlab.arm.com/tests/scmi-tests/-/commits/master?ref_type=heads
-
+Jason
 
