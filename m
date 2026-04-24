@@ -4,113 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27E29FB44C8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 08:33:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C28D7FE51E2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 08:44:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fHd592fobwdTWqnUNJFyuiJGQEtz3MizalfeABFs5so=; b=wxrLMyrqfJO/GiaFTmQenawJJZ
-	w0+LRh2aHPCLmgmmrj+ZcAaQgIKnLKzM9coGfU+IqCBL1u6UN/X6yd3Z4KkDjVQjwkNOdvSGBs/3v
-	j+F1ekobyqj7DwBjbQbI33SsIHOZp7vduu+Tfd9TReGY/ujYBGL0d1WCMlv9bmziSEAMDu1oc26F6
-	feaxDOUQstYe8OIdtcIn/+6uGW7j5MJ9PEWHFa8Gj3NRSohNFWFRtgk+KlbsAgnH355/0Rj7t8e81
-	zVd4QmTY0LYiFjLHsxHe+htq9p4hXdStUonFm/17/s92W2ryJk3W101QYavmxxXpYAJmYNqMO+43u
-	X6Ix9rFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ny5eTUcXQ8sNFg3rMzRvq70mTgpAZQXdLFwvbxlyggI=; b=ZJHxT3MA3nMycm3Pcm3UfQBYsQ
+	e1bQY3QB2KCnGDBrjYyz/n8Wktr2+hOgtGz1f4FNe1t5SiwbyD+/KXPEGpwPX/XTR6KssxRiapG/5
+	MD+c5EowjYuB6T2niYi5TXN+ZAv9Y0on9auLgDa5L9S6oeLvt1U7hKUgbLaroZfTjJdqFjGvvuWMM
+	GxJ95WydK1I5PQ8qQDCKbgS1w67b3c2LpGWpbyRJrUvBdL8Dwzwa/IC7xjf3oRpgbgMmZqWTBZ72c
+	5TF/2S0wpRHfl0Jgo8yhgd5v+j8gnnoqwd95/mOLHIClub018TS31XQCT5FO1SCyaX1M3Umlw5IaR
+	vr75bBfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGBy7-0000000Cs97-0YKa;
-	Fri, 24 Apr 2026 08:32:59 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1wGC9U-0000000Csha-0cr6;
+	Fri, 24 Apr 2026 08:44:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGBy1-0000000Cs8j-3CTi
+	id 1wGC9R-0000000Csh0-0DY0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 08:32:58 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-b936331786dso989585666b.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 01:32:53 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777019572; cv=none;
-        d=google.com; s=arc-20240605;
-        b=cFChGXOc3DP3wC2Hmu2vjtPRZRflpBMLu8dLLkurjDaOMLn5bsyqpQr0fo6iDUBedq
-         w+qMdZIQzb6l61w/pGwX5sXAE4qnZV+o0t3l8HgHpiOlQE3FK1U+pu0kj5tV0PgfBXOB
-         jm4vRYC4W1HFCESUcSP98/svOw4FUzQSc86Z3e+mx4AnYqh9rOB+atIh8OzCA6B4GzB/
-         XUsfPSM7NPBMsyChTlZ/Ops3ArIiK8j41PFV/QTAfuu+5hLarilLyyvwm5hQ4SM/nHa+
-         YfZu4DPKnX2CtZ5b1LNgyfIjYEdttdqB3NQ/ynnBla1JzCVOiAJJbISdkkgEOAc7o9wC
-         YWqg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=fHd592fobwdTWqnUNJFyuiJGQEtz3MizalfeABFs5so=;
-        fh=0gTkPR2y44HnishM5BnpK/fMnBb/kQTi0kedG/kHd0k=;
-        b=ZSUBuSt6jOV06QI1bPIzGtfQV0fG1HD9Z7kXIOCfgqJvfIlMOjVv8w8GmfYfQ4Khy+
-         Ml60z/UY4YmWSOrBUz4HdD/6roIW/2bzYWVcToMHD0tBhXPZNtPE7Rrku0P+GOBdGIjD
-         tpABIwMmIum10sjradYe1R6Nf1hYyWshn/UAbSeF7tr5Al/2ZLs53b+SuQZHiYAr2O/0
-         aDHHaS7XU8CBGFLW4v14eOIBsVXP3NT21yFHGBGEv132MVUrUUKzDjfIxklfyZKW5saR
-         dLkDc9Eqs4m/8WvKdbtr53b+csoQgGS+tbtdeRS4vJoqToQIlQBq4LdDdXoVUPhiYcac
-         JP3A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=mongodb.com; s=google; t=1777019572; x=1777624372; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fHd592fobwdTWqnUNJFyuiJGQEtz3MizalfeABFs5so=;
-        b=aV/XT7wXKjMGXIjo+iX/bl1I7ofrZVwFTN2H9lSEqexB9a0MuC3jdSDmQpgnt32hnu
-         Y6Q8kcNB8kBlL/ZWxmg+NRqMyPb9/SNTWcuVv72JSbb+YYMzukgXk2+fYaePV5JLPnUm
-         dS8M29FZF4htf+j21LXRn7f2WjUC2XD5aQm/I=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777019572; x=1777624372;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=fHd592fobwdTWqnUNJFyuiJGQEtz3MizalfeABFs5so=;
-        b=pcDq2r8NSQStqos0GxQ7daWzVWYHrAQ5PRfYAwUrUHf3XPfYf/45/LRbpFnEtnO4bx
-         DF3UtHByr5uq7l55mkbBUVLXnbddpunasjck2tqdnsu4Nj61vWuT7kb1XJrcpfEYqu1I
-         KQsKMyj1zyjQgko/JJkuC1Eld1o99BLg0Ej5pRdQ4fxQle99HMO0vdeS3LXCIq/ZPlcG
-         TWuqkNNvu2HrJdUmiOLUdk3322vVnnKMf0utj1tgnsQb6nsCr4tI7cbQfk0QIx3M2oJQ
-         SmONioZuFojVm88mXSVDOWBBPHxUI2+XfG5XqdQQXbn7MkQHufyGDch8LDjIFQwmOnvd
-         IbTw==
-X-Forwarded-Encrypted: i=1; AFNElJ/w572ATSAOt+FCvxoLviiihR1TlQbc0pBIaBQ7jwAdZjRjqZKe20tm/9LMBndUi2cs0NWYQ+GlBKk6KQ7YKLp3@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdaT7v7Ms9Eqd3FuhOaurVO53dFktCGI0ho5mv5X5txLyHuj72
-	JecHkkjROyzIa8Fj1ELJk2YpG30nDgKFgSO/ssMamOXzbVGTUGNktVTyowy8R8UVkQ+H8QjUEZJ
-	topdGUeWxcB4AasfvElgCiuUsqjAfnUZpns+yDVOQlg==
-X-Gm-Gg: AeBDiesLeTLvcyedgZ1p19Fb9LFJPRFSNIemmgRT5HrEgbzHv+9cDHsYgv+Vu4emUAr
-	s4vw2fPBkY5vmiTW/RLKSy758wA9qWUP0HOpM/U/3d6dF8aL74xGNPidYuup0C4hQabGIB0ThOk
-	eHEnpCPTAtpPIHopqGJ8b2ZyWOMzGQWiR8znII0fe1kiBnE6RChzDw+N1LB3JIcnZ+oB+jL6H8/
-	SzeM3MRnjqC9lZO5IYf2sTaD7k84gCWRa619JpCCQhXiGI+PMUliOwpt5F+JTtrQw2Fvu6yLCtL
-	xIfroQwVmSfSb9QQ
-X-Received: by 2002:a17:906:fe4d:b0:b9d:ed9a:5f30 with SMTP id
- a640c23a62f3a-ba41b1dfccdmr1577746366b.48.1777019571404; Fri, 24 Apr 2026
- 01:32:51 -0700 (PDT)
+	Fri, 24 Apr 2026 08:44:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 80AC143E0B;
+	Fri, 24 Apr 2026 08:44:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB358C19425;
+	Fri, 24 Apr 2026 08:44:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777020278;
+	bh=ZPtRTAcO5vKULVkGrPOpdr9dYJKbJwHKAW4LzVRqvoI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CW7ZL+CRxx2Sijgh6xjUCCZml3UTTpMsXH6cO1EZ6wibNcZoHu595LxCD4AB8p2gn
+	 jSaoBI3ElXU1BYxmuOc3NDEcABEdeWKt6wgHB6S1IsWuiFyVWmWv6h/971fYooCBzo
+	 RXo6526CET9X621wMlDYeWZctMcReAJzCTJhKeUpGjw8LbqkjVRhIMh6j6vBuXZgaN
+	 vJhIZiRh3AQausKSMcfwwnRicX+K/+23ib3tV7aeM7/IdPKDxwRxc5oXLTYFRczQqC
+	 tBByluQBB80/irXS/ql/+Ua1O0zUeEjDHWti0vhpQ85qMnzbxJfKvOh6qIr9+EWwRy
+	 IX3mNtvMouAVQ==
+Date: Fri, 24 Apr 2026 10:44:35 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Jyri Sarha <jyri.sarha@iki.fi>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Simon Ser <contact@emersion.fr>, 
+	Harry Wentland <harry.wentland@amd.com>, Melissa Wen <mwen@igalia.com>, 
+	Sebastian Wick <sebastian.wick@redhat.com>, Alex Hung <alex.hung@amd.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
+	Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v2 15/20] drm/drv: Call drm_mode_config_create_state() by
+ default
+Message-ID: <20260424-nimble-asparagus-tarsier-15f8bb@houat>
+References: <20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org>
+ <20260320-drm-mode-config-init-v2-15-c63f1134e76c@kernel.org>
+ <79cc30d5-80b5-4d87-a3ad-36d6fad98853@suse.de>
 MIME-Version: 1.0
-References: <CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com>
- <aejCaG6n9s7ak5TO@J2N7QTR9R3.cambridge.arm.com> <87zf2u28d1.ffs@tglx>
- <aekPXvvuKHKlETjm@J2N7QTR9R3.cambridge.arm.com> <87wlxy22x7.ffs@tglx>
- <c5331cd6-76c8-430d-978e-fcad164e48f6@huawei.com> <CACT4Y+bxnQyHGdVNE1BYTx+Z2-cscLb38HYS9jBM5gPAz8=4bw@mail.gmail.com>
- <87ik9i0xlj.ffs@tglx> <CAHnCjA0UBNXfjHw=Y34OrAyGRNUtVF+zWd3ugyX6pd_mCk8K9w@mail.gmail.com>
- <87a4ut1njh.ffs@tglx> <CACT4Y+bBD7uCHXKqGo=epBXeEmsZ67Og2YO9kjNMT3ryjUY_sA@mail.gmail.com>
-In-Reply-To: <CACT4Y+bBD7uCHXKqGo=epBXeEmsZ67Og2YO9kjNMT3ryjUY_sA@mail.gmail.com>
-From: Mathias Stearn <mathias@mongodb.com>
-Date: Fri, 24 Apr 2026 10:32:21 +0200
-X-Gm-Features: AQROBzCHcP8gD_lsen-_9uWdGTZxPs_ZNz8gEN7uOeloBdhtK06l3MK7cQ3RsCY
-Message-ID: <CAHnCjA1LqbaUGkPe79EeP6Mpaki8QWeR-JBSbrG0z6pTm9CmUg@mail.gmail.com>
-Subject: Re: [REGRESSION] rseq: refactoring in v6.19 broke everyone on arm64
- and tcmalloc everywhere
-To: Dmitry Vyukov <dvyukov@google.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Jinjie Ruan <ruanjinjie@huawei.com>, linux-man@vger.kernel.org, 
-	Mark Rutland <mark.rutland@arm.com>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Boqun Feng <boqun.feng@gmail.com>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Chris Kennelly <ckennelly@google.com>, regressions@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@kernel.org>, 
-	Blake Oler <blake.oler@mongodb.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="3cb63aedvnuis3py"
+Content-Disposition: inline
+In-Reply-To: <79cc30d5-80b5-4d87-a3ad-36d6fad98853@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_013253_873689_DF64ABEA 
-X-CRM114-Status: GOOD (  17.87  )
+X-CRM114-CacheID: sfid-20260424_014441_155961_AD2586D8 
+X-CRM114-Status: GOOD (  26.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,41 +91,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 24, 2026 at 9:57=E2=80=AFAM Dmitry Vyukov <dvyukov@google.com> =
-wrote:
-> > So if the code only requires to know when it got rescheduled to another
-> > CPU then it still should work, no?
->
-> This was my first thought too:
-> https://lore.kernel.org/lkml/CACT4Y+a9GnOh3wHKSRwzoKF6_OSksQ8qehnHfpCgkQS=
-t_OOmYg@mail.gmail.com/
-> The only problem is with membarrier (it used to force write to
-> __rseq_abi.cpu_id_start for all threads, but now it does not).
-> Otherwise the caching scheme works.
 
-I almost wrote a message last night saying that we didn't need
-cpu_id_start invalidation on preemption. However, I remembered that
-the Grow() function[1] does a load outside of a critical section then
-stores a derived value inside the critical section, guarded only by
-the cpu_id_start invalidation check in StoreCurrentCpu[2]. It really
-should be doing a compare against the original value inside the
-critical section (or just do the whole thing inside), but it doesn't.
-I haven't reasoned end-to-end through this fully to prove corruption
-is possible, but I suspect that it is if another thread same-cpu
-preempts between the loads and the store and updates the header before
-the original thread resumes and writes its original intended header
-value. Ditto for signals, which sometimes allocate even though they
-shouldn't.
+--3cb63aedvnuis3py
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 15/20] drm/drv: Call drm_mode_config_create_state() by
+ default
+MIME-Version: 1.0
 
-I was really hoping that we would only need to do the "redundant"
-cpu_id_start writes would only be needed on membarrier_rseq IPIs where
-it really is a pay-for-what-you-use functionality, I think existing
-binaries depend on invalidation on preemption. Luckily that should be
-cheap enough to be ~free.
+Hi,
 
+On Tue, Apr 21, 2026 at 03:38:16PM +0200, Thomas Zimmermann wrote:
+> Am 20.03.26 um 17:27 schrieb Maxime Ripard:
+> > Almost all drivers, and our documented skeleton, call
+> > drm_mode_config_reset() prior to calling drm_dev_register() to
+> > initialize its DRM object states.
+> >=20
+> > Now that we have drm_mode_config_create_state() to create that initial
+> > state if it doesn't exist, we can call it directly in
+> > drm_dev_register(). That way, we know that the initial atomic state will
+> > always be allocated without any boilerplate.
+> >=20
+> > Signed-off-by: Maxime Ripard <mripard@kernel.org>
+> > ---
+> >   drivers/gpu/drm/drm_drv.c | 4 ++++
+> >   1 file changed, 4 insertions(+)
+> >=20
+> > diff --git a/drivers/gpu/drm/drm_drv.c b/drivers/gpu/drm/drm_drv.c
+> > index 2915118436ce8a6640cfb0c59936031990727ed1..820106d56ab399a39cac56d=
+98662b5ddbcae8ded 100644
+> > --- a/drivers/gpu/drm/drm_drv.c
+> > +++ b/drivers/gpu/drm/drm_drv.c
+> > @@ -1097,10 +1097,14 @@ int drm_dev_register(struct drm_device *dev, un=
+signed long flags)
+> >   	if (drm_core_check_feature(dev, DRIVER_MODESET)) {
+> >   		ret =3D drm_modeset_register_all(dev);
+> >   		if (ret)
+> >   			goto err_unload;
+> > +
+> > +		ret =3D drm_mode_config_create_state(dev);
+> > +		if (ret)
+> > +			goto err_unload;
+>=20
+> Way too late.
 
-[1] https://github.com/google/tcmalloc/blob/8e98046ec5639bffbe70a53770a2699=
-dd355b26d/tcmalloc/internal/percpu_tcmalloc.h#L964-L980
-[2] https://github.com/google/tcmalloc/blob/8e98046ec5639bffbe70a53770a2699=
-dd355b26d/tcmalloc/internal/percpu_tcmalloc.h#L551-L605
+Yeah... I think that was Ville's main objection too.
+
+> Lets rather go through drivers and call this where they currently call
+> drm_mode_config_reset() for initialization.
+
+I was really hoping to remove the boilerplate from drivers, but I don't
+really see a good place for it then. drm_mode_config_init() could be
+another candidate, but it looks weird to put it there too.
+
+I'll drop that then.
+
+> This can be a single-patch mass conversion IMHO.
+
+I'm not really sure? For it to work we'd need to convert these drivers
+objects from reset to atomic_create_state too. I absolutely want to do
+it next, but I don't think it will be as trivial as a sed call, and it
+would probably be best done by driver to allow reverts if we screw up.
+
+Maxime
+
+--3cb63aedvnuis3py
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaestcwAKCRAnX84Zoj2+
+dqD3AX91s5aTyrSIs+zg1NTVZ/3A3vLYBnSfFHi5Qil7rXN1H/JxIEEE9V0Ta7xL
+sVv2OtMBfAktM0SQa0/hMpYggLwZw3S6EpI61etzjCn+mWT08kRxfRP0K6KBacXD
+xc3d+CTDBg==
+=tyOY
+-----END PGP SIGNATURE-----
+
+--3cb63aedvnuis3py--
 
