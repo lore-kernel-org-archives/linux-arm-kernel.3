@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82859FED3F1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 16:48:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4228DFED3F0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 16:48:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mqXJIn8r4IA9Gva4etcbzr/XlHSVW6Lm8pY9GKRmyzg=; b=TSR6Dc8hx5/KV9FWQZzQR4ZXs5
-	1jyvT88gGZ5uoroA+p/sc2mvhcGynUXacU+LNI0K5MrY07ax9RqKGzEZBG3skQAkjfTjruz0T6Opj
-	Hwo3lK0ehQThP31jKlgmRjjiLZ4HGQ7Jyw+nTPsaEksxLBA51uY7cMjkf6DxQRpjMvW0qRpsNQi5m
-	RaB6xa4jUEyP6BX1HuISqbkjuzEtfmZp+N6r0wB7P71uMR++1FJyfNE0vBuuSU4uiL7V7P2auR/2R
-	tt0dXQpijrVmmMisVdFPh2JI+EIvpIoGP2GplCRqBp1GYGBxZO58wP3V+TYvKYdaKFdxpqNNHiWuU
-	nddzodCw==;
+	bh=PdL5J++jQFS0WI1Hq1Y43G2dZXRWh1hnOIKdQUKwLiY=; b=RHyomwRNEvd2cbxMWayybjA/5q
+	uYYgnzbvF5Juiall7Ishzf33qI3EIyLG//oNvsrPFmAnIni1DlgesPLJRWUZvx7W0mVwhE2Zk24ls
+	VVy1hYcKhpFzRLfWNjN4IusKybsmQehMjgBKbUhSfPD1aZp4B6VFaDVqypL5nPdkWc7lfvXizb6A4
+	PUde1cQkQuNsAE7k4psrLulMwOfi7APVqbjauxqP/9DGEmmYLxQzmLPu964vNtiCz+bj+gTnsQw0D
+	CiIUdpEkaNYuYU3prUUnvMvMDzX+dvxZ2Y+r7+zzohK9KGAHTXlT8q1cM+CIGPcsyNAjqtiNSEwj1
+	MCaJzJwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJh9-0000000DTLD-39vg;
-	Fri, 24 Apr 2026 16:47:59 +0000
-Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
+	id 1wGJhA-0000000DTLe-0MZO;
+	Fri, 24 Apr 2026 16:48:00 +0000
+Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJh4-0000000DTHh-3hCO
+	id 1wGJh6-0000000DTJ7-3lYM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 16:47:56 +0000
-Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2bdf75bc88fso10401878eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 09:47:54 -0700 (PDT)
+	Fri, 24 Apr 2026 16:47:58 +0000
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2de07c12745so19743371eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 09:47:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777049274; x=1777654074; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777049276; x=1777654076; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=mqXJIn8r4IA9Gva4etcbzr/XlHSVW6Lm8pY9GKRmyzg=;
-        b=YTbEcYdF1/3UM6FZ1VKxmkPJWe6GCrQV6ipJdfyXm43dbdZHFHMwOtL35AQT+ZA3Eo
-         1ATxVneZUtUIEjMF8UYo3RQuUOXGziu5C6otoau56xb42cyn9ieqsoCTNtrCf3NnPOC1
-         wRSbbyRnownyLDyf5QNwO7QE2YyVdG6x6Ye4VsZ0gjzudKpbk2bp51o50cYyRdYfcuqi
-         ep7fNY6w4s1qOkYu1nw4HAfNEwk8joVNDcrGIH4bnyPDbm2zgst29E1M3tXSof1mr4XQ
-         ZuJDYvFczMmG3x9bJo6HX3Bbtz4gbamiWzbQcjM6GlsJJWVciQCxTDpQFG9gtsE968nr
-         T8CA==
+        bh=PdL5J++jQFS0WI1Hq1Y43G2dZXRWh1hnOIKdQUKwLiY=;
+        b=AnyRp5Hgeez4pvu+enlWI45Oj0XLwzrQah1fSXblzTwP48rGlcnMAlsRo7bFHlzANU
+         2suP5K/B8/6mMH/CmgKaa2WW4fcQie5Zen/yGMQ7dmPo1NkWRTnRFTL3Mnxw419aBpt5
+         OsngcKs5CrfeeYdDkv9Vw51QUBrGLUUAHNiVoAV7FiC6brw0X7zB+Poq/nhn541+cHig
+         Dxi5AiXDz5LSeDGQa+bIwIaLlH9ownlqU7WroI/8JxFIZOFuXEC46YrWO8/6qlpKKSPN
+         Yq2z2IRaKYdHTHtDSAFgdrjlzzQX337H8N+3lZFp3DlqNF22iLrwAIA5YG1qPNMD0RuD
+         nWmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777049274; x=1777654074;
+        d=1e100.net; s=20251104; t=1777049276; x=1777654076;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mqXJIn8r4IA9Gva4etcbzr/XlHSVW6Lm8pY9GKRmyzg=;
-        b=Tk/KhrDXrtD4r07NxjDn/wt0P2+IVKlkrpx2N5NyayJtFNh/a7zSLAg77XkTb6P9dG
-         /TwYiJjGTgzk4vWdigJ4yOpkghSTjtV4H+xiHXpUqCWOBYHCw4nQkRlJBjez0jez/feC
-         gpvu54gmE4sQkQB+QSG7xk1s2rnXBmOxRlnLUz7HTnc0jYaDJPESBsaDaZ+S3Et/bXsJ
-         CLzpfgRrtytq1Hog9mszkrFcohFDkYg71EUSrX5MpbNOCt4iFN6nwp+rp0HkFb7rQZDf
-         pdllCkS+Lknqknx/zqsn3kMnMJzgGM0N1leLYs40IV8yA8I9Uacm1PSlooKu2IdpiGSo
-         td+w==
-X-Forwarded-Encrypted: i=1; AFNElJ83hSKR05FT2+cPZtLPRKzYECjNTvzye76bDGXcC9lwHYA72Y0URfaRBFwQ4/GT8qyZyalC8+3tKL+x0JAnV37q@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxje6sliKsJyJv8WGZUV37FhoSZBf4y9D1N9rqGtd84YukEUyGX
-	nkKzH8H9yTNeCMzmSKIksqJNan2WtP9fH9UxLH0ZclIhRFkTOvbSBT0vSy1ZctLJNu5WXkk0kn/
-	6o8yfKxps6A==
-X-Received: from dycrm24.prod.google.com ([2002:a05:693c:2a18:b0:2d9:8328:8324])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:3723:b0:2e2:27bb:a48c
- with SMTP id 5a478bee46e88-2e47883b6f3mr15670318eec.14.1777049273554; Fri, 24
- Apr 2026 09:47:53 -0700 (PDT)
-Date: Fri, 24 Apr 2026 09:46:26 -0700
+        bh=PdL5J++jQFS0WI1Hq1Y43G2dZXRWh1hnOIKdQUKwLiY=;
+        b=jw+Hqf2lhTstZqUyLmujJcRJvrS1Afzp3YUmM5+JJPYxmfUE26hMvqo/Iq+quT0hrw
+         sx6PQ+TSG+E/k+37YfZqvJuZi/R5xdKwBSbTdD2BkUPbEOPGoPyKW57Wx5crMZvdwCnT
+         bwUNsl+DxTgk8mXeVuRpIewF6vMQYpLFBFyzWC4bcVS1TusXbMaq85QD+vItX/KuYibC
+         /TBxw7afsEbVOoCkfGiDE8LJhpqohCWS8GJqt1MRFQarSLOnCykTqGhX8PHpZiX93axR
+         mtFy13PG2qdBdfpPLTJ8iH2m8O25VJPjGjObAEjCGoVzyWs6uBUEBHfj1hApJs3z05wX
+         Bb9Q==
+X-Forwarded-Encrypted: i=1; AFNElJ8amyusL36dSv6SM8ewG1WNwdNJ4jSftyIyAnNMiqvA3d/vhrtBrTM8giEaOFHpO1Ohh2kgLxSZ8ZIHunnlIqsW@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXkDwEdEOv2HF47dXrjpjp/uChfIeUcyLDf5+Ixw+PPhxu1Bim
+	JiHRhsfIdHJKTRPValJsUNxaDdI9+8phMHKNEyahw3TQsQUWaZZcP+5MVDT1QuhcmrLoc9hPlbG
+	CCgJ0pKqNjQ==
+X-Received: from dybmf46.prod.google.com ([2002:a05:7301:92e:b0:2d9:3c6b:a26b])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:6c27:b0:2da:1a81:5ae
+ with SMTP id 5a478bee46e88-2e475b3994cmr19522429eec.10.1777049275591; Fri, 24
+ Apr 2026 09:47:55 -0700 (PDT)
+Date: Fri, 24 Apr 2026 09:46:27 -0700
 In-Reply-To: <20260424164721.2229025-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260423163406.1779809-1-irogers@google.com> <20260424164721.2229025-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260424164721.2229025-5-irogers@google.com>
-Subject: [PATCH v5 04/58] perf tests: Sort includes and add missed explicit dependencies
+Message-ID: <20260424164721.2229025-6-irogers@google.com>
+Subject: [PATCH v5 05/58] perf script: Sort includes and add missed explicit dependencies
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -75,8 +75,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_094754_937278_721C33E7 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20260424_094756_963557_CE3B1BCB 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,86 +91,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix missing #includes found while cleaning the evsel/evlist header
-files. Sort the remaining header files for consistency with the rest
-of the code.
+Fix missing #include of pmu.h found while cleaning the evsel/evlist
+header files. Sort the remaining header files for consistency with the
+rest of the code. Doing this exposed a missing forward declaration of
+addr_location in print_insn.h, add this and sort the forward
+declarations.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/tests/hwmon_pmu.c  | 14 +++++++++-----
- tools/perf/tests/mmap-basic.c | 18 +++++++++++-------
- 2 files changed, 20 insertions(+), 12 deletions(-)
+ tools/perf/builtin-script.c  | 111 ++++++++++++++++++-----------------
+ tools/perf/util/print_insn.h |   5 +-
+ 2 files changed, 60 insertions(+), 56 deletions(-)
 
-diff --git a/tools/perf/tests/hwmon_pmu.c b/tools/perf/tests/hwmon_pmu.c
-index 4aa4aac94f09..ada6e445c4c4 100644
---- a/tools/perf/tests/hwmon_pmu.c
-+++ b/tools/perf/tests/hwmon_pmu.c
-@@ -1,15 +1,19 @@
- // SPDX-License-Identifier: (LGPL-2.1 OR BSD-2-Clause)
--#include "debug.h"
--#include "evlist.h"
- #include "hwmon_pmu.h"
--#include "parse-events.h"
--#include "tests.h"
-+
- #include <errno.h>
-+
- #include <fcntl.h>
--#include <sys/stat.h>
- #include <linux/compiler.h>
- #include <linux/kernel.h>
- #include <linux/string.h>
-+#include <sys/stat.h>
-+
-+#include "debug.h"
-+#include "evlist.h"
-+#include "parse-events.h"
-+#include "pmus.h"
-+#include "tests.h"
- 
- static const struct test_event {
- 	const char *name;
-diff --git a/tools/perf/tests/mmap-basic.c b/tools/perf/tests/mmap-basic.c
-index 3313c236104e..8d04f6edb004 100644
---- a/tools/perf/tests/mmap-basic.c
-+++ b/tools/perf/tests/mmap-basic.c
-@@ -1,25 +1,29 @@
+diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
+index c8ac9f01a36b..853b141a0d50 100644
+--- a/tools/perf/builtin-script.c
++++ b/tools/perf/builtin-script.c
+@@ -1,74 +1,77 @@
  // SPDX-License-Identifier: GPL-2.0
- #include <errno.h>
--#include <fcntl.h>
- #include <inttypes.h>
- #include <stdlib.h>
+-#include "builtin.h"
++#include <errno.h>
++#include <inttypes.h>
++#include <signal.h>
++#include <stdio.h>
 +
++#include <dirent.h>
 +#include <fcntl.h>
++#include <linux/bitmap.h>
++#include <linux/compiler.h>
++#include <linux/ctype.h>
 +#include <linux/err.h>
 +#include <linux/kernel.h>
-+#include <linux/string.h>
-+
- #include <perf/cpumap.h>
++#include <linux/stringify.h>
++#include <linux/time64.h>
++#include <linux/unaligned.h>
++#include <linux/zalloc.h>
++#include <sys/param.h>
++#include <sys/stat.h>
++#include <sys/types.h>
++#include <sys/utsname.h>
++#include <unistd.h>
+ 
 +#include <perf/evlist.h>
-+#include <perf/mmap.h>
- 
- #include "cpumap.h"
- #include "debug.h"
- #include "event.h"
- #include "evlist.h"
- #include "evsel.h"
--#include "thread_map.h"
-+#include "pmu.h"
-+#include "pmus.h"
- #include "tests.h"
-+#include "thread_map.h"
- #include "util/affinity.h"
- #include "util/mmap.h"
- #include "util/sample.h"
--#include <linux/err.h>
++#include <subcmd/exec-cmd.h>
++#include <subcmd/pager.h>
++#include <subcmd/parse-options.h>
++
++#include "asm/bug.h"
++#include "builtin.h"
++#include "perf.h"
++#include "print_binary.h"
++#include "print_insn.h"
++#include "ui/ui.h"
++#include "util/annotate.h"
++#include "util/auxtrace.h"
++#include "util/cgroup.h"
++#include "util/color.h"
+ #include "util/counts.h"
++#include "util/cpumap.h"
++#include "util/data.h"
+ #include "util/debug.h"
++#include "util/dlfilter.h"
+ #include "util/dso.h"
+-#include <subcmd/exec-cmd.h>
+-#include "util/header.h"
+-#include <subcmd/parse-options.h>
+-#include "util/perf_regs.h"
+-#include "util/session.h"
+-#include "util/tool.h"
+-#include "util/map.h"
+-#include "util/srcline.h"
+-#include "util/symbol.h"
+-#include "util/thread.h"
+-#include "util/trace-event.h"
++#include "util/dump-insn.h"
+ #include "util/env.h"
++#include "util/event.h"
+ #include "util/evlist.h"
+ #include "util/evsel.h"
+ #include "util/evsel_fprintf.h"
+ #include "util/evswitch.h"
++#include "util/header.h"
++#include "util/map.h"
++#include "util/mem-events.h"
++#include "util/mem-info.h"
++#include "util/metricgroup.h"
++#include "util/path.h"
++#include "util/perf_regs.h"
++#include "util/pmu.h"
++#include "util/record.h"
++#include "util/session.h"
+ #include "util/sort.h"
+-#include "util/data.h"
+-#include "util/auxtrace.h"
+-#include "util/cpumap.h"
+-#include "util/thread_map.h"
++#include "util/srcline.h"
+ #include "util/stat.h"
+-#include "util/color.h"
+ #include "util/string2.h"
++#include "util/symbol.h"
+ #include "util/thread-stack.h"
++#include "util/thread.h"
++#include "util/thread_map.h"
+ #include "util/time-utils.h"
+-#include "util/path.h"
+-#include "util/event.h"
+-#include "util/mem-info.h"
+-#include "util/metricgroup.h"
+-#include "ui/ui.h"
+-#include "print_binary.h"
+-#include "print_insn.h"
+-#include <linux/bitmap.h>
+-#include <linux/compiler.h>
 -#include <linux/kernel.h>
--#include <linux/string.h>
+-#include <linux/stringify.h>
+-#include <linux/time64.h>
+-#include <linux/zalloc.h>
+-#include <linux/unaligned.h>
+-#include <sys/utsname.h>
+-#include "asm/bug.h"
+-#include "util/mem-events.h"
+-#include "util/dump-insn.h"
+-#include <dirent.h>
+-#include <errno.h>
+-#include <inttypes.h>
+-#include <signal.h>
+-#include <stdio.h>
+-#include <sys/param.h>
+-#include <sys/types.h>
+-#include <sys/stat.h>
+-#include <fcntl.h>
+-#include <unistd.h>
+-#include <subcmd/pager.h>
 -#include <perf/evlist.h>
--#include <perf/mmap.h>
+-#include <linux/err.h>
+-#include "util/dlfilter.h"
+-#include "util/record.h"
++#include "util/tool.h"
++#include "util/trace-event.h"
+ #include "util/util.h"
+-#include "util/cgroup.h"
+-#include "util/annotate.h"
+-#include "perf.h"
  
- /*
-  * This test will generate random numbers of calls to some getpid syscalls,
+-#include <linux/ctype.h>
+ #ifdef HAVE_LIBTRACEEVENT
+ #include <event-parse.h>
+ #endif
+diff --git a/tools/perf/util/print_insn.h b/tools/perf/util/print_insn.h
+index 07d11af3fc1c..a54f7e858e49 100644
+--- a/tools/perf/util/print_insn.h
++++ b/tools/perf/util/print_insn.h
+@@ -5,10 +5,11 @@
+ #include <stddef.h>
+ #include <stdio.h>
+ 
+-struct perf_sample;
+-struct thread;
++struct addr_location;
+ struct machine;
+ struct perf_insn;
++struct perf_sample;
++struct thread;
+ 
+ #define PRINT_INSN_IMM_HEX		(1<<0)
+ 
 -- 
 2.54.0.545.g6539524ca2-goog
 
