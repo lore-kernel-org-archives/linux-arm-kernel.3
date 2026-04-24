@@ -4,61 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C32EFED3F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 18:49:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC087FED3FA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 18:54:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Message-Id:Content-Type:To:Date:From:Cc:Mime-Version:Subject:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RKA/JMZYhDziL6eOGmSREqjLGYKJoQnSLzMtF2VvzKI=; b=3XdQkQxopKgKbNVGMFWvVfO+w3
-	VxQ0RU2bKiEOwTOIjwnO8aVDhaO2PHHO4jThKtRgWqQP13Tl5O1xXTb5qsFCXKtLPHAIB/zV6JhuJ
-	TLWvhx81VoY9Vbsu18rIYyTwK89LLjzd8vR3bMICY5VvijrDiXmo51KROwfvlh1rvyK/Yk2ZBAy9H
-	p4WLuVA1xXi67RFrlT/NyHiqqhcL+9XcwD186r06g9FQ4tRc3ISheNC3AyJ/TMfpxOlESF6OLIRNX
-	pU32T0p9TfJeog/7IOEBMxMtbqxf/vwhjTGXqkCuvaOnZ3lVI0C4+zAQuUh/h/wCP4bOfjSjdywcU
-	6JLDn8SQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vwajK7fE/xSxkYUMIjDnVxjmAHQBthF3xbKoitB/mqA=; b=xhfuTaFIuGGV/q1I5lw3IghtY/
+	Zk6W7bfTbyjtjrB1T1Dcw0EPqEgDFth9RsoIZpyPJCOrcjhRVcpxR2mV1OWXFV6qclrKK/AwixXCP
+	FJiMo5BTc6Y6cytEo7NnzaXFdjb2icHwch3QiuhuJTgKl43O3UKwb02a1S/aX5rS/TnbF291jFsB6
+	K/+2nIH8J3FmDYL3rmdBV7kbZrMONOL5zawIc09XoESvY1CnqkelSovQ1R3L7J/TekFKhu6jEaDEQ
+	ZJlEwxoTXHuOnvGr2c51LWYExeU1134deeg/0SeVTRnAHXZoOVvFnpCNDWUCeCpl36MOvUisEdEQg
+	ip/ibgcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGLan-0000000DfEf-3THo;
-	Fri, 24 Apr 2026 18:49:33 +0000
-Received: from va-2-37.ptr.blmpb.com ([209.127.231.37])
+	id 1wGLfR-0000000DfSE-2P4G;
+	Fri, 24 Apr 2026 18:54:21 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGLal-0000000DfEE-2JQ7
+	id 1wGLfN-0000000DfRs-08Wy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 18:49:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2604220257; d=cherr.cc; t=1777056560; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=RKA/JMZYhDziL6eOGmSREqjLGYKJoQnSLzMtF2VvzKI=;
- b=aKAKptg8zulczLBNFV8RCvD7rN1+nfL0LK7P37J6YZlhxU9VpcWr0LSxEMAp60BB9cH1+f
- e5bnk83W7H3W53DF9A0oxVPgsltL8RaphR1UOhWkLdWe+2KT+6qtZ0FCvDBSr9DTw2uQ8n
- MFr3KOceVOC4RrmFZdDx5l3mVa0ztocTQef+TMHrNwIV3UPRqErpxyL6PBvIvMAFgrDqOf
- pam5DyNJofvjk/BupS/qIxc1G/UUegz3+Gj2RHiIt8xFxP+s5e9NEWBaZmuh94WM5+1bUU
- q953WJxW4ikpju5VnzXvFT79KVWj9L1zT+nUHRke7liH9oMzM1s4pIH+MzJdkA==
-Subject: [PATCH] EDAC/xilinx: Fix stack off-by-one in debugfs UE injection handlers
-Mime-Version: 1.0
-X-Mailer: b4 0.14.2
-X-Original-From: Shengzhuo Wei <me@cherr.cc>
-Cc: <linux-edac@vger.kernel.org>, <linux-kernel@vger.kernel.org>, 
-	<linux-arm-kernel@lists.infradead.org>, "Shengzhuo Wei" <me@cherr.cc>
-From: "Shengzhuo Wei" <me@cherr.cc>
-Date: Sat, 25 Apr 2026 02:49:05 +0800
-X-B4-Tracking: v=1; b=H4sIACC762kC/x3MSwqAMAwA0atI1gZq/eJVxEWtiQahlVZEEe9uc fkWMw9ECkIR+uyBQKdE8S6hyDOwq3ELoczJoJVuVKVrpNlYjIexG3pmnG70jpCbVpWWqdNFCan dA7Fc/3cY3/cDHjAghWcAAAA=
-X-Lms-Return-Path: <lba+269ebbb2e+52f5bd+lists.infradead.org+me@cherr.cc>
-To: "Shubhrajyoti Datta" <shubhrajyoti.datta@amd.com>, 
-	"Sai Krishna Potthuri" <sai.krishna.potthuri@amd.com>, 
-	"Borislav Petkov" <bp@alien8.de>, "Tony Luck" <tony.luck@intel.com>, 
-	"Michal Simek" <michal.simek@amd.com>
-Content-Type: text/plain; charset=UTF-8
-Message-Id: <20260425-edac-stack-off-by-one-v1-1-4b2dd2b9c7df@cherr.cc>
-Content-Transfer-Encoding: 7bit
-Received: from pve.cherr ([111.42.148.227]) by smtp.feishu.cn with ESMTPS; Sat, 25 Apr 2026 02:49:18 +0800
-X-Change-Id: 20260425-edac-stack-off-by-one-f6703cfe8213
+	Fri, 24 Apr 2026 18:54:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=vwajK7fE/xSxkYUMIjDnVxjmAHQBthF3xbKoitB/mqA=; b=jxiKcELyUOnwZdMhYogsS3eKzz
+	8ULx/9UH9pQeTcaFWe+TMv98to+FLm13JmjIQB2RCOf6nsYEkuhLclz11KvEilXxsH9+1syjDdv12
+	kLrur/lUVwx7sZO5j+jPP0k2sMKu4rodgSyyGKl29akb4VCc2O0yz2pEAfgWpkAaF1brQmons02Fp
+	LWuSF79Qp0dyFJ01vc0pqUONDdjBKKFZPRmuLyomrCNV/aNr9DvMuEBQ0MA/OazT2gkUUnsbyOi0l
+	Bm3YEMMXExEnnY9+S5rbdSiEdS0SuCTRUO2J23llRmM+AHazn0FxGufOMZp0S7sIAOyHkE5ayxCQf
+	X2sVCdAQ==;
+Received: from [187.57.76.96] (helo=[192.168.15.100])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1wGLef-001iyP-V0; Fri, 24 Apr 2026 20:53:33 +0200
+Message-ID: <7c240ce3-dc27-42a1-a21d-d677d9822638@igalia.com>
+Date: Fri, 24 Apr 2026 15:53:21 -0300
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 1/2] arm64: vdso: Prepare for robust futex unlock
+ support
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Carlos O'Donell <carlos@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Florian Weimer <fweimer@redhat.com>, Rich Felker <dalias@aerifal.cx>,
+ Torvald Riegel <triegel@redhat.com>, Darren Hart <dvhart@infradead.org>,
+ Ingo Molnar <mingo@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
+ Arnd Bergmann <arnd@arndb.de>, "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+ Uros Bizjak <ubizjak@gmail.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+ kernel-dev@igalia.com
+References: <20260417-tonyk-robust_arm-v1-0-03aa64e2ff1a@igalia.com>
+ <20260417-tonyk-robust_arm-v1-1-03aa64e2ff1a@igalia.com>
+ <e0ee43e3-725c-4b99-80b3-956d24beb1c7@t-8ch.de>
+ <1a06fee7-65ff-4828-85f1-e3ee1e82610f@t-8ch.de>
+Content-Language: en-US
+From: =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
+In-Reply-To: <1a06fee7-65ff-4828-85f1-e3ee1e82610f@t-8ch.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_114931_671030_F65DFCFD 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20260424_115417_410165_165D1767 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,55 +88,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Two EDAC debugfs write handlers copy up to sizeof(buf) bytes into a
-fixed-size stack buffer and then unconditionally NUL-terminate it via
-buf[len] = '\0'.  When userspace writes >= sizeof(buf) bytes, len
-becomes sizeof(buf) and the NUL write lands 1 byte past the end of the
-stack buffer.
+Em 22/04/2026 10:17, Thomas Weißschuh escreveu:
+> On 2026-04-22 15:02:45+0200, Thomas Weißschuh wrote:
+>> On 2026-04-17 11:56:10-0300, André Almeida wrote:
+>>> There will be a VDSO function to unlock non-contended robust futexes in
+>>> user space. The unlock sequence is racy vs. clearing the list_pending_op
+>>> pointer in the task's robust list head. To plug this race the kernel needs
+>>> to know the critical section window so it can clear the pointer when the
+>>> task is interrupted within that race window. The window is determined by
+>>> labels in the inline assembly.
+>>>
+>>> Signed-off-by: André Almeida <andrealmeid@igalia.com>
+>>> ---
+>>> RFC: Those symbols can't be found by the linker after patch 2/2, it fails with:
+>>>
+>>> ld: arch/arm64/kernel/vdso.o: in function `vdso_futex_robust_unlock_update_ips':
+>>> arch/arm64/kernel/vdso.c:72:(.text+0x200): undefined reference to `__futex_list64_try_unlock_cs_success'
+>>> ld: arch/arm64/kernel/vdso.o: relocation R_AARCH64_ADR_PREL_PG_HI21 against symbol `__futex_list64_try_unlock_cs_success' which may bind externally can not be used when making a shared object; recompile with -fPIC
+>>> arch/arm64/kernel/vdso.c:72:(.text+0x200): dangerous relocation: unsupported relocation
+>>
+>> arch/arm64/kernel/vdso.o is a kernel object.
+>> __futex_list64_try_unlock_cs_success is a vDSO symbol.
+>> They live in wholly different objects, which are never linked together.
+>> Look at VDSO_SYMBOL() to get the offset of the vDSO symbol in kernel code.
+>>
+>> (...)
+> 
+> The diff below shows the idea. Compat code is not fixed, and I didn't
+> even try to run it. Also please use CONFIG_COMPAT_VDSO over plain
+> CONFIG_COMPAT.
+> 
 
-Fix by clamping the copy length to sizeof(buf) - 1 so that the NUL
-terminator is always in-bounds.
 
-Fixes: 3bd2706c910f ("EDAC/zynqmp: Add EDAC support for Xilinx ZynqMP OCM")
-Fixes: 83bf24051a60 ("EDAC/versal: Make the bit position of injected errors configurable")
-Signed-off-by: Shengzhuo Wei <me@cherr.cc>
----
- drivers/edac/versal_edac.c | 2 +-
- drivers/edac/zynqmp_edac.c | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+VDSO_SYMBOL() did the tricky, I fixed this for the v2, thanks Thomas!
 
-diff --git a/drivers/edac/versal_edac.c b/drivers/edac/versal_edac.c
-index 5a43b5d43ca28027c829f53aea50588297484c5c..917d7d1762aa9ec9f752e8419c24fd265048ff28 100644
---- a/drivers/edac/versal_edac.c
-+++ b/drivers/edac/versal_edac.c
-@@ -856,7 +856,7 @@ static ssize_t inject_data_ue_store(struct file *file, const char __user *data,
- 	u8 len, ue0, ue1;
- 	int i, ret;
- 
--	len = min_t(size_t, count, sizeof(buf));
-+	len = min_t(size_t, count, sizeof(buf) - 1);
- 	if (copy_from_user(buf, data, len))
- 		return -EFAULT;
- 
-diff --git a/drivers/edac/zynqmp_edac.c b/drivers/edac/zynqmp_edac.c
-index cdffc9e4194d42d4d11c5218c9f341ac46301a94..048a7b9becd622a5eeebf9c893ffdf9e163f5e9b 100644
---- a/drivers/edac/zynqmp_edac.c
-+++ b/drivers/edac/zynqmp_edac.c
-@@ -304,7 +304,7 @@ static ssize_t inject_ue_write(struct file *file, const char __user *data,
- 	if (!data)
- 		return -EFAULT;
- 
--	len = min_t(size_t, count, sizeof(buf));
-+	len = min_t(size_t, count, sizeof(buf) - 1);
- 	if (copy_from_user(buf, data, len))
- 		return -EFAULT;
- 
-
----
-base-commit: dd6c438c3e64a5ff0b5d7e78f7f9be547803ef1b
-change-id: 20260425-edac-stack-off-by-one-f6703cfe8213
-
-Best regards,
--- 
-Shengzhuo Wei <me@cherr.cc>
+	André
 
