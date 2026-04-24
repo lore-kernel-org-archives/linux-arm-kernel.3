@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ABFFFB44C5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 07:26:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10D6BFB44C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 07:44:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iHXhgAVVuQdLQQvZLPXtNmgyqYZ7xrilDpR3AfuiRYU=; b=Zat3d118jCHBquXLFqYcOKWWhL
-	ycc/Wi8eOPtxVyTkar6xMtlVEw+P54nAHduNl5Qm7aNOld+zxCYVy86eqPLnRy8MuHHOlF/8o8IAI
-	K+h81hIaxPPGXOfmz3nQ7GtB5yfmUi80FaG0venCtnsimJugspHK4LytUJ76Ht7DUCMe+dJuGP1Zs
-	UiF/heQgmDSiKTelFXiMlLVDQ4XlE6hiENVPSv0iL1JFrUmviZnEUo1fwu4Ze71JXcLFP83cibbwU
-	Bmw+8wLwBd/l/M2sQZtGPIQNI3H+nNtna/wDeRVd0dreAqd2lp6ONYnzc2xXt3JWST7Yotex+dJBT
-	tvJSIoGw==;
+	bh=ciAlsa0vHFigJqeo3ptgM4Yx67zHMqEoXBu2Oa4l5+o=; b=EJZl0HPpPfo5eNihqGVDgMcDEe
+	kT32844PdnzYj1chiO68zGb2iNYAlKCDbvAwFQpTRF7ILpbcjgJVWTrgQGrbcarVpZQrBTAM12A8t
+	kAID3ZWq317gNnBKoUmbsmpDIptje9skRgo3WvCKKYp7diMj4CNeVen2BK/0g+LWM9/oj4S1ltyBN
+	PWjmhb26hmresNnytg3neiE4AqdOweN0a5LPQKcFHL5rBbkpvj6f/4QItWmlcwIR45T2G/LYM6YxO
+	iAq4vo771jiKDBllT8qFy3jcKwVhUYtmSjTdrP90PH/Zp8F6yaRnm4iVGTWtKjEv4qVe0HC2IqDx7
+	+rrZtVrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGAvt-0000000CoEu-33H6;
-	Fri, 24 Apr 2026 07:26:37 +0000
+	id 1wGBD3-0000000Cp7F-2XTX;
+	Fri, 24 Apr 2026 07:44:21 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGAvq-0000000CoEO-2g6S
+	id 1wGBD1-0000000Cp6r-2POv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 07:26:35 +0000
+	Fri, 24 Apr 2026 07:44:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EB5C243C8B
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 07:26:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD6B4C2BCB7
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 07:26:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 46500442B8
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 07:44:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27D8CC2BCB4
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 07:44:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777015593;
-	bh=m3OnOKNjVkQfvjbC8vrwVb5oJK6foDK0Kguq8tXWdSo=;
+	s=k20201202; t=1777016657;
+	bh=5ObiY7L/NEZ2AVzTJWRLxmU4Cg40y2szTcf05CZbkBE=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=e11Bde3dkLLbc0SCXq7yrsallptlVV4pT7hOvAZ9EQdzToIQzZv7oNhx6TJXA7DY/
-	 9QrcDG9bjBKqhxqUI/PPyJPHvSslG0BPu0KL6OnPNardT++2KXIgJ1LQJfXCmvwobN
-	 /r/vOHl+6hxWWFark0qRvXcTcCTukHcfYHfu/hbWFg3/HRhbloHfX/H4foY49ACqTL
-	 VvljpCWKZa7NnBa8FM87h/y+yJkEBTLGqoeHP8ZkqkrO2G9yD4V7AibjBa7N22rMab
-	 xcKyF/koJ4YpSigvP3ylBQ5Zch6sec+weo+rWWvZMAMszOFIwbYPHQW0mjqgD0Aehp
-	 OQ3tchQtpW/SQ==
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5a415fd6bceso8378388e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 00:26:33 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8eflLf4ANIDZXKgkDNr/HmsN4+CYERHos4SD0fA6p79HxDGBtL67ZB9KKwXH3vMv5oZrGMVf8bDwg3tIt4ZJGr@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfRAI604m2qz2DHPvSJ3hBj7jpY1aowUn1TGk8SR/QQRDwf5HC
-	G59FkE99gfnLnu7aZ8Fpij4M3sM6W+NFv7uzTCGrAaMfsK67fgT78jQ4QSoXijVimgspgk6/fzr
-	layGSphFEkdjI716vgerHhducKeDZeHs=
-X-Received: by 2002:a05:6512:3a86:b0:5a2:9b98:f280 with SMTP id
- 2adb3069b0e04-5a4172ac06fmr10262099e87.22.1777015592508; Fri, 24 Apr 2026
- 00:26:32 -0700 (PDT)
+	b=XzVBZ0emHqYcfGw31lpnCzF0BdOdMSefCvbGjl08UMCG9TeIxzEjs/QybM5efbsCH
+	 TsAIXP0XnM/gayvMyDXKONLXjvwb+rPKxn4Akjc/07VMHdFtL+rJKN5utcpjbvutA5
+	 oTyS5H3KIN4B7dkVK14WfxwfaSnc8d7V0g/jt/GDjSy9orqxSyN6wau8JpNxFleeyl
+	 GHXyxNvJHYyxrtXy9G0rlvB1SRliyxvdFiFT3LOFIClDm3eHD1AhwoGYBG1wM5uAF0
+	 rpmjYB8O+goJLsapKNzzlQDd6ISSNQaNVWJUulEBS6un/lWFn+I5Kq5Nt1QQv7yhuE
+	 BsmyjzIVdXL1Q==
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5a3be187ffbso8024867e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 00:44:17 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/fIiU26hds697mADEu4DETpdsQFoxoUmK0djWDWfmLmyPeTKg7Cnslr0guDVTIkAbr0Q6RiGJXifP9XK+TB3H2@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywes5wXagcUUqoLhqIzPodOLxZqJKpVfrZC9mKMJ/PvX8prEo/j
+	kuoM5cBQEYc9nEZ5FiWjqv5CJtynH9xbACAkUuqrfiCyUwVpFPHy91uxVbe4HiEjygKUH/1j9/t
+	3+rqWILwwePwHWmMqk39IMGqHiUtJ750=
+X-Received: by 2002:a05:6512:1095:b0:5a4:e53:f52c with SMTP id
+ 2adb3069b0e04-5a417299818mr9911885e87.16.1777016655855; Fri, 24 Apr 2026
+ 00:44:15 -0700 (PDT)
 MIME-Version: 1.0
 References: <20260414-axiado-ax3000-sgpio-controller-v1-0-b5c7e4c2e69b@axiado.com>
- <20260414-axiado-ax3000-sgpio-controller-v1-1-b5c7e4c2e69b@axiado.com>
-In-Reply-To: <20260414-axiado-ax3000-sgpio-controller-v1-1-b5c7e4c2e69b@axiado.com>
+ <20260414-axiado-ax3000-sgpio-controller-v1-2-b5c7e4c2e69b@axiado.com>
+In-Reply-To: <20260414-axiado-ax3000-sgpio-controller-v1-2-b5c7e4c2e69b@axiado.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 24 Apr 2026 09:26:18 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=yc4rmNELLKUpreUqRbQ1Krg95C-o1xSrnD9Aicm4wgw@mail.gmail.com>
-X-Gm-Features: AQROBzCvj1UqvLHeNE2eWeWx72NKzjKr6xPICatDGA6Oq4KfxHHermVnTdGUct0
-Message-ID: <CAD++jL=yc4rmNELLKUpreUqRbQ1Krg95C-o1xSrnD9Aicm4wgw@mail.gmail.com>
-Subject: Re: [PATCH 1/3] dt-bindings: gpio: add Axiado SGPIO controller
+Date: Fri, 24 Apr 2026 09:44:04 +0200
+X-Gmail-Original-Message-ID: <CAD++jLkqD25mudwd0wBCz=-FCzgzssOv5bXTNDdizxdCOY0j=A@mail.gmail.com>
+X-Gm-Features: AQROBzCRgiauT9XkDa0yKpB-HNsx8xcHz9gG5I0VdXMGNJPbGVtGHrNlM1aaYHA
+Message-ID: <CAD++jLkqD25mudwd0wBCz=-FCzgzssOv5bXTNDdizxdCOY0j=A@mail.gmail.com>
+Subject: Re: [PATCH 2/3] gpio: axiado: add SGPIO controller support
 To: Petar Stepanovic <pstepanovic@axiado.com>
 Cc: Tzu-Hao Wei <twei@axiado.com>, Swark Yang <syang@axiado.com>, 
 	Prasad Bolisetty <pbolisetty@axiado.com>, Bartosz Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -71,8 +71,8 @@ Cc: Tzu-Hao Wei <twei@axiado.com>, Swark Yang <syang@axiado.com>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_002634_715726_8CC89A4E 
-X-CRM114-Status: GOOD (  18.49  )
+X-CRM114-CacheID: sfid-20260424_004419_651935_43AD78EC 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,98 +91,42 @@ Hi Petar,
 
 thanks for your patch!
 
-On Tue, Apr 14, 2026 at 3:49=E2=80=AFPM Petar Stepanovic <pstepanovic@axiad=
+On Tue, Apr 14, 2026 at 3:48=E2=80=AFPM Petar Stepanovic <pstepanovic@axiad=
 o.com> wrote:
 
-> Add device tree binding for the Axiado SGPIO controller.
+> Add support for the Axiado SGPIO controller.
 >
-> The SGPIO controller provides a serialized interface for
-> controlling multiple GPIO signals over a limited number of
-> physical lines. It supports configurable data direction and
-> interrupt handling.
+> The controller provides a serialized interface for GPIOs with
+> configurable direction and interrupt support.
 >
-> The binding describes the properties required to instantiate
-> the controller and register it as a GPIO provider.
+> The driver registers the controller as a gpio_chip and uses
+> regmap for register access.
 >
 > Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
 
 (...)
 
-> +description: |
-> +  The SGPIO controller provides a serialized interface for controlling
-> +  multiple GPIO signals over a limited number of physical lines.
-> +  It supports configurable data direction and interrupt handling.
+> +static void ax3000_sgpio_set(struct gpio_chip *chip, unsigned int offset=
+,
+> +                            int value)
+> +{
+> +       struct ax3000_sgpio *sgpio =3D gpiochip_get_data(chip);
+> +       unsigned long flags;
+> +       u32 bank =3D (offset / 2) / 32;
+> +       u32 position =3D (offset / 2) % 32;
 
-This is pretty generic, can you write some details on how this happens?
+This systematic calculation of offsets from bank and position and the
+whole bank concept makes me feel that perhaps the bindings are
+better off reflecting the bank structure either by defining several banks
+using 2 cells or by using a 3-cell binding?
 
-> +  '#gpio-cells':
-> +    const: 2
+For 3-cell see:
+commit bd3ce71078bde4ecbfc60d49c96d1c55de0635cc
+"gpiolib: of: Handle threecell GPIO chips"
+for some details on how this can help.
 
-Are you sure you don't want to use 3 here instead and split the 128
-GPIOs into 4 "banks" second cell being the bank number?
-<&gpio 2 4>; ?
-
-Maybe this also solves the 512 GPIO by grouping the GPIOs into
-8 banks...?
-
-> +  '#interrupt-cells':
-> +    const: 2
-
-Same there.
-
-> +  design-variant:
-> +    description: SGPIO design variant size in bits (e.g. 128 or 512).
-> +    enum: [128, 512]
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-
-Just use two different compatible strings and infer the variant from
-that string instead.
-
-> +  ngpios:
-> +    description: The number of gpios this controller has.
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-
-Same here, certainly the 128 variant has 128 gpios and
-the 512 has 512 GPIOs? Just use the compatible string
-to infer this.
-
-> +  bus-frequency:
-> +    description: The SGPIO shift clock frequency in Hz.
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-
-Don't you want to use the clock bindings and a clk property
-for this?
-
-> +  apb-frequency:
-> +    description: The APB bus frequency in Hz.
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-
-Dito.
-
-> +  dout-init:
-> +    description: Initial values for the dout registers.
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    minItems: 4
-> +    maxItems: 4
-
-In:
-Documentation/devicetree/bindings/gpio/nxp,pcf8575.yaml
-
-you find:
-
-  lines-initial-states:
-    $ref: /schemas/types.yaml#/definitions/uint32
-    description:
-      Bitmask that specifies the initial state of each line.
-      When a bit is set to zero, the corresponding line will be initialized=
- to
-      the input (pulled-up) state.
-      When the  bit is set to one, the line will be initialized to the
-      low-level output state.
-      If the property is not specified all lines will be initialized to the
-      input state.
-
-If this is what you want, use this standard binding instead.
+Either of these approaches will further probably help you to
+use GPIO_GENERIC (gpio-mmio) helper functions with this hardware,
 
 Yours,
 Linus Walleij
