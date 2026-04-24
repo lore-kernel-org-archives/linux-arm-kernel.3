@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E5F5FAD3F3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 04:01:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13777FAD41C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 04:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
 	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gpujrs8/T9khqz4kOMB5b5eQ6mfTFRAxAEUhHY8iLsk=; b=DF0yAoe/h6/6sXitZEQXOlc8LD
-	8EnPSlMmkwlY1w+XlirNw3g3IXb8+IP1+r705FTdc6faYRdcNf3HrWagHTWBMSZ54XhImBDW9Huo6
-	scRTTc7VkrkIy15oB4ER9yJnOFsn6AFVOn2VxuyGnxHlDnrp2MsUtmQclTX+h68fOghjdKAwP8DDT
-	2REoJZTOGO7CSd79vTXFYE0KiPkhmwaXo8Ze7T+eXhz+ab7hEIlbAO3by15SCQuexMjtT3dImsT30
-	D7qe4i9j0fJ3lpeVsv9/Y11wq6AXV4ELMOwNsu0OwttxMKqdTUr3QWIoSnM4qrW86BAdAPqVxYcfL
-	zjWJJA6Q==;
+	bh=eAizIGK8Pt5jSPz1hglQKsngv1foI6Uctfns3Q+4Q3I=; b=sVnMUkpC3NZH/2ALL37r5VUCH/
+	Hlqq281RJ/PMxUosvtoRNjjgcVUQN6WA2nzAGfK5kpfJabuvaCEBcFfx4ctt17SsfyRgMKG3u20K7
+	Eyk6TeLxIhr1Td7ADXiZcLWdOEDDiKUWcA9ITaiq5/QI21x+qrHkh1DkAQtMMEADy3hHBy51fgGQf
+	fvu33W85K3qYhuqWY36bnXaTxgsS63To1FjmxUHEdlaXWl/bcjaeR/UwE+8gojKIc3m/87rFZyazw
+	KCKbzDz8y3kIZ9YVR0gry6CsWidutBg+CwrrMe2WtHBApWXhIarux1ruF3e0hsxq5Y+enY1ef/ikP
+	QZZCJjSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG7jL-0000000Cc7x-1ml5;
-	Fri, 24 Apr 2026 04:01:27 +0000
-Received: from mail-northeuropeazon11011054.outbound.protection.outlook.com ([52.101.65.54] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wG7kV-0000000CcK4-0lnn;
+	Fri, 24 Apr 2026 04:02:39 +0000
+Received: from mail-northeuropeazon11011042.outbound.protection.outlook.com ([52.101.65.42] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG7jF-0000000Cc7W-4Bvi;
-	Fri, 24 Apr 2026 04:01:25 +0000
+	id 1wG7kS-0000000CcJW-3iSd;
+	Fri, 24 Apr 2026 04:02:38 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Op9sMv8dYpnn23YBgFjf8/FaeDQ/u9tG0L5t84lcXChdIvSY8sNfjT2Tl5npS/oJTJiCMxW9AwhIAZuwE5lkX5GPnKIj64lq7Bixpc++++Bt+bN2cGNwWS7ftY02H7iY1aU8ZN6N/ULV1TUbfIr6OdO23VEssIS5Thnh2/VcIIP7ROaY0t70Abd5UbHzqvx6ETTpcniRRkF8LskVKtztmBx9Gi+4xytp7c44XRghes9QaZMbs1EduqjBDK8bkoiX/yr/PixHx4TNKzmExCA92w/DI5mozci36NptuvoowFN/sLBQRM1Rho0fSw3GsKeMNqnB2FTV2BqbWeY/3YhCGw==
+ b=GjODJDBhSJhkZLt1f1/gAsWS4qJB2iRxWPcIpYebKQVU8f4/vcTDOdWNeP+Cg0W6lCK0+7tDZs9BnvpZKkfbtwErta5i2ooRQ0+ZHb3MIAhSW170oq7+kJh5AXkx2CIt+5RdB5HHp+iBM0uIjyfou2YL61bnF9C6ylGoqYsb3tLT4XZvQnSDCclZCA6um0bXEyBjBzpKA1eSxxN+AyH55Ac/tzst6fzz4u/TzjrNncaYh5dTfY4BwvRSGZlSLMyT7BDp9coLS9v0nFBTtXohWI8Ra/pVpVN1j4pCRsINZ1sDBiwfzH6uwg7Lc3f/VuNwhLb0LYamO2PG+gQAbz2t4g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gpujrs8/T9khqz4kOMB5b5eQ6mfTFRAxAEUhHY8iLsk=;
- b=khublKBFhWoef8skdWj4ft71gdKXftbOORzUbvtOdEN5vppnBXxGFIqs1x8MFXYs5Z3QZ3r5gPGsoq65JhTJCo99j0+afniSTvaUUd+WNwXYVULfNtiHNKg0vNCipCmfm2qBLjK+K/z32xjaIuhkSteshxbiWHubUGCvzznly+pt9dzAlAIpMVeLyZCMRb52IXCJzV8bB39WZ6ZZ12ikoh4QJMH8DQ0gYl3HmxOXEaxyBQvvuu8tU3lMMdUCqT7U6j/CHEtj+ijLsrI8wkVetnoE08/HZrZpd62rHg3m1SJchsFdJB6Dz3QoecGphM2sm03rDd/OaaKTtIYxIP1mVA==
+ bh=eAizIGK8Pt5jSPz1hglQKsngv1foI6Uctfns3Q+4Q3I=;
+ b=NkEswohqSqVQqVYvg+54brxMLu4TKVr/ecRd7FloaH6QoSUFWu6fv135CInmMchx8l7PsI8ztLMzTEJyRMM20jfFGgSsV72RWU3OR7HV2J3l75S9MSpgB5wRyLfB0MaT9M/z2yZajU7/6mg78EoX5cRUQ40UiawjeU5WVGPOlv/f15xTTznFYzYRnecOTXMlvZmwq1wiDLcUig+72rpwZJ9McvoacR2eYRnnoMMRybTNV7hYQVAiGF7CijOv1KiisGMIHlMH3uzUsfhuhF9WqvoE5JKZsJKrcvQOSsWyXQgYT99vxX2Ix5Xx4nuzOePhx491gugyhkgi/apIp4QuPg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gpujrs8/T9khqz4kOMB5b5eQ6mfTFRAxAEUhHY8iLsk=;
- b=OtfxO+DkwYu5zZn6iRM5neYYywiXdNO21AmrxQbN7kwtEMZc0hakq4yy/gMpb59pfyMMr+/aEz0ZVQ3k69XmmhXlb6z4+XmDmb0yWS+Sxyo4DkNRq9Gtp8jyMD93NoqfJDC2/MTkmgPTBYHXURy6vQ0JEMtJNz2eS0J9OQuDsbldzHW0gwmn2isV9Yty2VaqjuSAZk1t0CVA2G5cxMO1colZd/r27kv8wC5Io85e0r6cgb6VnQOHOWh+pqXV0jfb6KTYXVK3A7oIqsgEcVW/q3izekkYDnFU+CmcPelKgj34dB6jmqiKL/C9urF04bAyeMMqDjiGI319u9TeyZTqhA==
+ bh=eAizIGK8Pt5jSPz1hglQKsngv1foI6Uctfns3Q+4Q3I=;
+ b=lCKcTua+BmObR2PYRgr1VCcXKa6+cHmDiY+LA5NPQFD4Nnz0XU+orYvlz63Jgf19i+VuQBu8DmAraNe7kO5CnHh2aZoY0oxLRakP21e/utu8Mu5dHucIMtEFTBxUdP1aJrHddO+BGNaZ+4WN9GvSoHIxTJlhhtFaADbtrWTCSyUJrYS3o/ApDpC2SG1BxlCe4OL/mrRrUrnNyMxmZruwMXbBVCYOyT/MKrVadp1jZ4Wsv0zt9wYIAGYs06A/MEshTlH/kwiHSWUSsihYB6uxDbFNc3Xh76ymXtKwbCRLsYHlQHAY2zGvffoam270OsA1tbDILyBLEbk6u/hTATja+w==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
  by FRRPR04MB12618.eurprd04.prod.outlook.com (2603:10a6:d10:1d0::20) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.16; Fri, 24 Apr
- 2026 04:01:17 +0000
+ 2026 04:02:33 +0000
 Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
  ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
  ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9846.021; Fri, 24 Apr 2026
- 04:01:17 +0000
-Date: Fri, 24 Apr 2026 00:01:10 -0400
+ 04:02:33 +0000
+Date: Fri, 24 Apr 2026 00:02:22 -0400
 From: Frank Li <Frank.li@nxp.com>
 To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
 Cc: Michael Riesch <michael.riesch@collabora.com>,
@@ -69,70 +69,70 @@ Cc: Michael Riesch <michael.riesch@collabora.com>,
 	devicetree@vger.kernel.org, imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v2 4/7] media: synopsys: Add support for multiple streams
-Message-ID: <aerrBngobmHHktNU@lizhi-Precision-Tower-5810>
+Subject: Re: [PATCH v2 5/7] media: synopsys: Add PHY stopstate wait for i.MX93
+Message-ID: <aerrTtT8IAbFUiA9@lizhi-Precision-Tower-5810>
 References: <20260423-csi2_imx95-v2-0-934c02f3422a@oss.nxp.com>
- <20260423-csi2_imx95-v2-4-934c02f3422a@oss.nxp.com>
+ <20260423-csi2_imx95-v2-5-934c02f3422a@oss.nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260423-csi2_imx95-v2-4-934c02f3422a@oss.nxp.com>
-X-ClientProxiedBy: SN7PR04CA0052.namprd04.prod.outlook.com
- (2603:10b6:806:120::27) To PA4PR04MB9366.eurprd04.prod.outlook.com
+In-Reply-To: <20260423-csi2_imx95-v2-5-934c02f3422a@oss.nxp.com>
+X-ClientProxiedBy: BY3PR04CA0012.namprd04.prod.outlook.com
+ (2603:10b6:a03:217::17) To PA4PR04MB9366.eurprd04.prod.outlook.com
  (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|FRRPR04MB12618:EE_
-X-MS-Office365-Filtering-Correlation-Id: a2915731-aee3-48b1-79c5-08dea1b622cf
+X-MS-Office365-Filtering-Correlation-Id: c6c9c900-fad7-452c-bffa-08dea1b64fe9
 X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|19092799006|1800799024|366016|52116014|7416014|38350700014|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: X+RkutpdpUC3S4m8JVNuAUvjcOBzUA/bHdLFS6zkKV9NpsQb1OakQ6StAcfB/yti6YS4njE+WDaqzzCfh7rsMlzCUrXazeTKHrUji4JaDEdigBa/Yfxx6EEXUjBYhAN6tP1cmh/DN+IqJdQ/pDeDkrtZS6pXMCGPgy7MRFrpDM4k3DG6JmbJ7KyDq0Gdy7UgUhSMWwG6R6Tb1Fbpc3fMfnuqA5rrzNTZW7dHjLtYQH9TMxUUzZY6e+jF+OFZcfY1H0EwhKrsPuZgh6XWBS/k5KQhtXqzHmn7QDdfbtS4wCrowboX12Y2Jo/l0q63CyyG9rMiQ3xbxa3VoyelGv5xhRXyL5/LNpHlbnPaLPmojOwUPLVhCR3iTEbbX5OsRjx9rud9UIBXsPtfksP+BEpJmVZ707tl7K4zyr8IZ3msRr0aBblMlOaDXKOGdxzqJaVj2sQfohapFriNtk0c8i/bjzPELpA8IpIEOfHYRBlwUhezJwowMuA6Rb055vegNJ1dS7NZ9El+mrLGUtINtfP197bCYMfxf9gD7uRyZwH902jFM4iRTJbkjB/KdL0frXQPJ7NMHKoG425YuaOavX5j69ix++0jhifw5k3CxQkoHUmlTeEZSAdtTIBb/kRaJ1xTI/LSa8oJkcUu+EZAv2Js8GdXuTOfIyaRCU09ND2tge2FZQTKxexLfAjQ0IiZSqHwA2X8i5rl9Wz7rQIWpGhGw5QePQUhm0lyWzYOuVy9JY2r6ov74mpVQwB5rNq0dwwPOVt0yyPgx0ty5xUsByOTnMeM8bWSngD/FhDxAmTRDc4=
+X-Microsoft-Antispam-Message-Info: +KTgWZgEuflFos9oKl/BPbMlOuZPw2SdcHomQpavKhHUFLQsSyIyzcQG6TKEsuA+Rjcdn3L4v5aOvxDortQ1pCkSTdq5JhEYoFKkjLok8c4U1vWmMVFyXmxv88/rUx427S9PcxaO/voDjZ1941MlbyApdJpCJ198e3UinqMtlND0Y58UEtZFFSGQHzv3YE2M8s8qw5ec4cFdOli71yl26zm2x4vfl3c+IlDgOiHzcS8CseWVIkk/Ue+baUL72F1P3W8irlu05y6LHQxqmnf6aR/AIkA4bvrhzp3oS77b0uVmyeNYON2wxTcJTo4MfcUL1dVXe2N2f0FBpFHfw22Ii4EgI+gw7r8AliFZcHKpzDfSZivFhOJxZekLd7M2QM50o74ruRTjxqwL0OQbDhnAqTtrjqBUKPjQM4U6F2sEHYirzNhg1bOnodU74Z5myywcnKIBW7ypb57IVtL/wPZ83er05dZrzOW7XWCGwWgcKP3+ETAnjyXXB9eE+7AZIXFGyVyRzumyNpg7BRZaotJMlQA0mIAhr1nonwaIApzBi+VkoW03783BWHm88mZpesUbmcWt5ffwIB1pnijLjJeg40letPpSOgIVKF7kjLP6L0nubQLHG5FCRNv49I8OcPhVTnPyJy3skBMUQJC9hJfHBloJOaVGn0ZuCDk8+OjCXHJL6zx7zLUqXy2KjotLmKXIODSPO8hy3DR5pHZKQN6vPUgj9/2LHh4XDc/PyeC71Yt2jadr1p+NioXlIBpZbCCUJpJvCTJYNtVqzvBMWfhIzDJ53lcRu8GILzH6jpvhXMA=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(1800799024)(366016)(52116014)(7416014)(38350700014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gBHNxBFNoSDGgC9r1mB/0b8W1wQ9Uiey+wxgKZbDGDvAk8zGvE/8MK6GqmhK?=
- =?us-ascii?Q?UXbxoZyfWNUKjnkm699VhMxUFCsPmju8aiQrII8YBe4wXaHCvTIUNxmr6W6z?=
- =?us-ascii?Q?aKZ4K1JG2VbGEihSfRpOtCeGMjAz4s8wLgrQ5Zxpx7s/lJBHVGwm7uW3oLq5?=
- =?us-ascii?Q?bm4c4IIzgznpEcZ+E8FoclrVeGMZsSQ4SrQNag2IxpaGPSoUEs6g6vtK657E?=
- =?us-ascii?Q?Ga0PbXMw7noCOk0oKCcD9m9qXJN7ODLXEeY7GzybgrZ97dumNyN85M1+/Swh?=
- =?us-ascii?Q?BC4OcnTTkKb0nsfazGGGWf2wgfv6Bsyu8S0a5iPVY4HkXzW2yiyAzCvCId3a?=
- =?us-ascii?Q?pc1Lk2gtjJKwkfwRGOI0w3Bb9lRrG5HFEfVeswCBdSrpKBkLXz0BOkFE88/Y?=
- =?us-ascii?Q?zcyqw6sz4b4kfSl0p1GOxC/VYhoJlWqCFqIEgXmKIqbULy4V9RZdPKTzDqaG?=
- =?us-ascii?Q?Y0UhcaZoJUlFemrXJILzoXaX/B+pkebCd0ZSKikWnGLG8LkF0GawO5F0JbZx?=
- =?us-ascii?Q?eT/w6GDsK4tvHzA3IfWBt60g1lPBvzHUqqxHtMrCk7bFJ4pY5Y1EnbS9l+B4?=
- =?us-ascii?Q?qCNkmWeMz7HBljLVRWmkRuYlH3qxsLEWPHDBjpz77F0rsJ7IKFJQ7hHmUfgx?=
- =?us-ascii?Q?fFPnlNTt7p8aIUt2d9l4mWuuMuCbgsPQx0Fue1Pi0EiMpgts38XhTW2SFBlc?=
- =?us-ascii?Q?w9DXIho46zgHRU0a7mkc2XLr9LBzK11ecQrQ6dEIdr8LxBkQJuLXSewVXZ6z?=
- =?us-ascii?Q?9jtdWpx30TstoLeUqjuG8bDyybLD8w8FArPbW43pSgKI9Tyz18r3aqa88Q9M?=
- =?us-ascii?Q?Gs04AU/vY9wjq0R1tVxinouozOCG0ZRGM/5z5VspzYlcP74hnYmgqT0a1dsL?=
- =?us-ascii?Q?7L3L9pb7sF0Ip9jllgq4Yc2X4CjmNs0Sk3rKcdgQSXUiuNx4mjKsZ4aFjShE?=
- =?us-ascii?Q?xQlkUMpqLUYBV1xA3TrDN4FIl2lDNUqvbXB3QchlCYcSvRzIqThHzFcO36IA?=
- =?us-ascii?Q?JjwqdXBnOCUsS0qiSmzm2XFZcWKT8KzlOP1/B3mvP1GTmwJEmTxjEW9rMjaW?=
- =?us-ascii?Q?p0WnQmijbiULeVEGGZdQ0/SZZMQTPqtcG/zJyNh2KL4JhVjLVUc2MgX5ZO4H?=
- =?us-ascii?Q?B4zXRRqooBSXXUp1FCaNz1JZvYzpAbUqBDePzAIUByOyFxUHiIbPO3Ipxhf9?=
- =?us-ascii?Q?Bnp1k3u9lPw0bo/Ow+IdsbDUv/1EfCuDiQIkfnr5ZawR28v51kvD6uhYh1OH?=
- =?us-ascii?Q?OWoLFJJmneUmlH+i9cGLxbAcQjSfKF/nfUPNzYfG+y54OpneIBR1JYrzswIL?=
- =?us-ascii?Q?rMP/KNcWqEADQtveDfqeLEfYKubLlIhmW2ZBKoDhy/6brSNBHtTsV56AMlZk?=
- =?us-ascii?Q?T8Y0OrC+8b0/OTpThVfvz5TT8K+D0vVJwWS5lDFke4Rc7eQqnyNtXXV3TlVT?=
- =?us-ascii?Q?vpCND0U/kukFEzAIltj6OKicfXX8FUZtouXBge2YWp+zVJIL+IHC/fhn0azz?=
- =?us-ascii?Q?bE7BgNUslFdJUCiWHQn+JEjxQYfzlShAaYA8XWoihYm9yPKk7m+Y2IXsnQ/6?=
- =?us-ascii?Q?TCBgF03+SyuRPezZs3s+cTaoNpxyGO/X1ICNIn/1Fdzf1GR+nV/Rw1rmsM3O?=
- =?us-ascii?Q?i4IGaNNaaJ3gawPi4ILjfzAy3cAjAQtgXgugi9y19Ll3bG3w64rbI+CYpOK2?=
- =?us-ascii?Q?53ZbJGs/bDy+LjF3634WyNy7jnFT6w5ukHfi1qnhFr0sNnTI?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6Pn0MgLDmurDS3e3zKE3GgrnkajgoMjpBZsPT0Z6Um0dVsQGNq7Az5T8Vo04?=
+ =?us-ascii?Q?yIHKVoCJL0+IFWCghuHlsJKNPC9IivcM9O2PF10Xn10ChAtCYD72KqbYyY4c?=
+ =?us-ascii?Q?KC9MrVzwfOhp38ChCz77sgikRFIc5TO7tKNvHYQ3REVcUWEvSZ0Fddh5Mhd8?=
+ =?us-ascii?Q?48SaOshLmn4gQ6zsLJekQHY+Fy16c5lOcvXOCuNrzJWhuuJDF393tAZHhaiE?=
+ =?us-ascii?Q?u6kCzjhCerXmzQbJkty+3RysAZiiQyA0zbOqJ0tJDDzefe1b2Q2VpDrTMdK3?=
+ =?us-ascii?Q?smbk7SHWFJSwHX0Hl9LPZadj5F0vzwKWpU8pXwlk9uYiThJavZl8/xjMOpNB?=
+ =?us-ascii?Q?8t/WH4VOlGA4Awa+QHte4NoAOo+4+Kg8ZLQuRm+KIMxBvRN3sF38Mx6RaotY?=
+ =?us-ascii?Q?eGm+O23fidOP2T5zNYkTS7/5M6EjYcyRShTPkWLtBzPUZqrZtOcrvwa4iOdo?=
+ =?us-ascii?Q?V1qyGNrx5WkU7ZQv1BMCPR8qU4rHmukRJBdc2WSgUW1LGihZ5RoUIm592YGY?=
+ =?us-ascii?Q?g+lSwzRsDn74bxLpn0a5rSV6Sg5pvZXHR6pH9hxxHMnjRZYwWVOZLxRDNafJ?=
+ =?us-ascii?Q?PMRXFMmX9NfEgavpWA4gHUgW/q8kzBHPMoMeGngWn5U7RIGaf+tQkk6W7hsZ?=
+ =?us-ascii?Q?TrTs70Db8BzRULhZSyJaOYn8WFU0xuBY23lkpmnDJ/9Hpy6EtRK8Ay2Ehmbt?=
+ =?us-ascii?Q?Yx007I5FnkDfSsZA79vi74ArEHhkA76fY/4fZet/3OU6bGjEtchBH3yjqFGS?=
+ =?us-ascii?Q?tz+9HsPVaBl6Up82T8Ck0+t4bD29o71SjnD//U3Ug1ws3CEkP0vDO4GZl5Pn?=
+ =?us-ascii?Q?Ip3NU5+AvIin7upbzmh4AEfsJBdNFSLjTFIXYtdMzjgOCMOX8t1VFbC8nmnE?=
+ =?us-ascii?Q?fxJb5iaoVDCLseKVsxIAkzDJKmYleLFDcDUeARc965Il4fSlpKpO3v9RggrX?=
+ =?us-ascii?Q?JoWW1X6ep+STpt9VCPV0KQCQfh93SFBaXCEBmZ5Hb8ABMlx6PxdpDHboFEal?=
+ =?us-ascii?Q?gW8zfPg98hUGVkWxDZhhusntbWC4alG6qV3YEfLWP7bLs6LxsC/HsFFsSslC?=
+ =?us-ascii?Q?BrnrTRok9jRPZcJw0CeAcw3qqmNw6EivFsbUTx7ZJINlP1iGt1TaRcIwgFV+?=
+ =?us-ascii?Q?8XPl/ZhqkvAinTHPmxpJt+Q4OxC1plqNMDTSmep642j3ELOV/Xqx6NtZeYAh?=
+ =?us-ascii?Q?FD+XGrUk6AEJD3Hk1Zj7+yHhY+XPYiuQITK/xLfCOJ2n8Bfdh10POVH8BfXS?=
+ =?us-ascii?Q?oasPbh6dLOcwHp8zk7aOkNkYXqxmmnmSzW2e46OI04pc8n8s+FPvmgspE034?=
+ =?us-ascii?Q?civwPkcKDI0zGRal+rpI8DmKCyh7BoUosGWNCtHcyZsaFmaxCgrj1y0FrnXs?=
+ =?us-ascii?Q?EE7fzC6eJtP8wRJvX6nmgjt2YuRa2xlnYtXBzcV0ZMTfjn/ROAN4+xa+CuF2?=
+ =?us-ascii?Q?7FOtWu4n7zMvpcvXss+PVwXPqlyEN0pkZrvCXwe092vpaG/+sY/8K06L9KMm?=
+ =?us-ascii?Q?Bg75EjKic4p7d24DxTxpryT6Jkvx30Z2USXGfufIEVqYLI2Ua68BJGBYj8C1?=
+ =?us-ascii?Q?XVBrdtSRipX6n7QmWuqITb/NH+X+xX5vDAHAL+qiXCa7kWrBoaGKARRjRT1K?=
+ =?us-ascii?Q?R728ApN2ehPlJu8rB1rUqG/4THm4tIB6vdObJxvn2ZoPI2v7WwcDa6Y3Pv4C?=
+ =?us-ascii?Q?Xan5eTKo3hshVWo18N0LzX10XZ8VwKNi7e4dtrIhEGPkUVik?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a2915731-aee3-48b1-79c5-08dea1b622cf
+X-MS-Exchange-CrossTenant-Network-Message-Id: c6c9c900-fad7-452c-bffa-08dea1b64fe9
 X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2026 04:01:17.5484
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2026 04:02:33.2458
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: B7NNNH0MxLqUkxcNyxvaiRSR7puLkwiT1V1K4dPKe8jwCcxlOVLHhWHc5XHMXJcH/wYjona3ISU+oykU7dYwqA==
+X-MS-Exchange-CrossTenant-UserPrincipalName: 07w2HHc97MaingjVY1nKQT4uUbt21SahEpzccM+7bn6pxidlSkDhPnXZalTlB45VeSxK95YP2KDDNJuenr8eaw==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRRPR04MB12618
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_210122_062033_65B43A87 
-X-CRM114-Status: GOOD (  24.12  )
+X-CRM114-CacheID: sfid-20260423_210236_927262_BAFAF314 
+X-CRM114-Status: GOOD (  25.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,14 +147,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 23, 2026 at 04:22:59PM +0800, Guoniu Zhou wrote:
-> The current driver only supports single stream operation. Add support
-> for multiple concurrent streams by tracking enabled streams with a
-> bitmask and only initializing the hardware once for the first stream.
->
-> This enables use cases such as surround view systems where multiple
-> camera streams need to be processed simultaneously through the same
-> CSI-2 receiver interface.
+On Thu, Apr 23, 2026 at 04:23:00PM +0800, Guoniu Zhou wrote:
+> Implement waiting for D-PHY lanes to enter stop state on i.MX93. This
+> ensures proper PHY initialization by verifying that the clock lane and
+> all active data lanes have entered the stop state before proceeding with
+> further operations.
 >
 > Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
 > ---
@@ -162,73 +159,116 @@ On Thu, Apr 23, 2026 at 04:22:59PM +0800, Guoniu Zhou wrote:
 Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
 > Changes in v2:
-> - Simplify error handling by keeping goto labels instead of early returns
+> - Removes redundant register availability check
+> - Uses read_poll_timeout() with dw_mipi_csi2rx_read() instead of
+>   readl_poll_timeout() with direct register address
+> - Fixes stopstate condition logic
+> - Check PHY stopstate after sensor enable instead of before to ensure
+>   correct timing.
+> - Optimize PHY stopstate polling parameters (1000us->10us, 2s->1ms) to
+>   balance performance and responsiveness.
 > ---
->  drivers/media/platform/synopsys/dw-mipi-csi2rx.c | 24 ++++++++++++++++++------
->  1 file changed, 18 insertions(+), 6 deletions(-)
+>  drivers/media/platform/synopsys/dw-mipi-csi2rx.c | 36 ++++++++++++++++++++++++
+>  1 file changed, 36 insertions(+)
 >
 > diff --git a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
-> index d572d2eb3bcb..5a2e74d055c0 100644
+> index 5a2e74d055c0..8c38fe8a3f06 100644
 > --- a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
 > +++ b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
-> @@ -113,6 +113,7 @@ struct dw_mipi_csi2rx_device {
+> @@ -11,6 +11,7 @@
+>  #include <linux/clk.h>
+>  #include <linux/delay.h>
+>  #include <linux/io.h>
+> +#include <linux/iopoll.h>
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+>  #include <linux/phy/phy.h>
+> @@ -35,6 +36,8 @@
+>  #define DW_REG_EXIST		BIT(31)
+>  #define DW_REG(x)		(DW_REG_EXIST | (x))
 >
->  	enum v4l2_mbus_type bus_type;
->  	u32 lanes_num;
-> +	u64 enabled_streams;
+> +#define DPHY_STOPSTATE_CLK_LANE		BIT(16)
+> +
+>  #define DPHY_TEST_CTRL0_TEST_CLR	BIT(0)
 >
->  	const struct dw_mipi_csi2rx_drvdata *drvdata;
+>  #define IPI_VCID_VC(x)			FIELD_PREP(GENMASK(1, 0), (x))
+> @@ -65,6 +68,7 @@ enum dw_mipi_csi2rx_regs_index {
+>  	DW_MIPI_CSI2RX_PHY_TST_CTRL0,
+>  	DW_MIPI_CSI2RX_PHY_TST_CTRL1,
+>  	DW_MIPI_CSI2RX_PHY_SHUTDOWNZ,
+> +	DW_MIPI_CSI2RX_PHY_STOPSTATE,
+>  	DW_MIPI_CSI2RX_IPI_DATATYPE,
+>  	DW_MIPI_CSI2RX_IPI_MEM_FLUSH,
+>  	DW_MIPI_CSI2RX_IPI_MODE,
+> @@ -87,6 +91,7 @@ struct dw_mipi_csi2rx_drvdata {
+>  	void (*dphy_assert_reset)(struct dw_mipi_csi2rx_device *csi2);
+>  	void (*dphy_deassert_reset)(struct dw_mipi_csi2rx_device *csi2);
+>  	void (*ipi_enable)(struct dw_mipi_csi2rx_device *csi2);
+> +	int (*wait_for_phy_stopstate)(struct dw_mipi_csi2rx_device *csi2);
 >  };
-> @@ -537,20 +538,26 @@ static int dw_mipi_csi2rx_enable_streams(struct v4l2_subdev *sd,
->  	if (ret)
->  		goto err;
 >
-> -	ret = dw_mipi_csi2rx_start(csi2);
-> -	if (ret) {
-> -		dev_err(dev, "failed to enable CSI hardware\n");
-> -		goto err_pm_runtime_put;
-> +	if (!csi2->enabled_streams) {
-> +		ret = dw_mipi_csi2rx_start(csi2);
-> +		if (ret) {
-> +			dev_err(dev, "failed to enable CSI hardware\n");
-> +			goto err_pm_runtime_put;
-> +		}
->  	}
->
->  	ret = v4l2_subdev_enable_streams(remote_sd, remote_pad->index, mask);
+>  struct dw_mipi_csi2rx_format {
+> @@ -139,6 +144,7 @@ static const u32 imx93_regs[DW_MIPI_CSI2RX_MAX] = {
+>  	[DW_MIPI_CSI2RX_PHY_SHUTDOWNZ] = DW_REG(0x40),
+>  	[DW_MIPI_CSI2RX_DPHY_RSTZ] = DW_REG(0x44),
+>  	[DW_MIPI_CSI2RX_PHY_STATE] = DW_REG(0x48),
+> +	[DW_MIPI_CSI2RX_PHY_STOPSTATE] = DW_REG(0x4c),
+>  	[DW_MIPI_CSI2RX_PHY_TST_CTRL0] = DW_REG(0x50),
+>  	[DW_MIPI_CSI2RX_PHY_TST_CTRL1] = DW_REG(0x54),
+>  	[DW_MIPI_CSI2RX_IPI_MODE] = DW_REG(0x80),
+> @@ -550,10 +556,19 @@ static int dw_mipi_csi2rx_enable_streams(struct v4l2_subdev *sd,
 >  	if (ret)
 >  		goto err_csi_stop;
 >
-> +	csi2->enabled_streams |= streams_mask;
+> +	if (!csi2->enabled_streams &&
+> +	    csi2->drvdata->wait_for_phy_stopstate) {
+> +		ret = csi2->drvdata->wait_for_phy_stopstate(csi2);
+> +		if (ret)
+> +			goto err_disable_streams;
+> +	}
 > +
+>  	csi2->enabled_streams |= streams_mask;
+>
 >  	return 0;
 >
+> +err_disable_streams:
+> +	v4l2_subdev_disable_streams(remote_sd, remote_pad->index, mask);
 >  err_csi_stop:
-> -	dw_mipi_csi2rx_stop(csi2);
-> +	/* Stop CSI hardware if no streams are enabled */
-> +	if (!csi2->enabled_streams)
-> +		dw_mipi_csi2rx_stop(csi2);
->  err_pm_runtime_put:
->  	pm_runtime_put(dev);
->  err:
-> @@ -577,11 +584,16 @@ static int dw_mipi_csi2rx_disable_streams(struct v4l2_subdev *sd,
->  					       &streams_mask);
->
->  	ret = v4l2_subdev_disable_streams(remote_sd, remote_pad->index, mask);
-> +	if (ret)
-> +		dev_err(dev, "failed to disable streams on remote subdev: %d\n", ret);
->
-> -	dw_mipi_csi2rx_stop(csi2);
-> +	csi2->enabled_streams &= ~streams_mask;
->
->  	pm_runtime_put(dev);
->
-> +	if (!csi2->enabled_streams)
-> +		dw_mipi_csi2rx_stop(csi2);
-> +
->  	return ret;
+>  	/* Stop CSI hardware if no streams are enabled */
+>  	if (!csi2->enabled_streams)
+> @@ -864,11 +879,32 @@ static void imx93_csi2rx_dphy_ipi_enable(struct dw_mipi_csi2rx_device *csi2)
+>  	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_IPI_MODE, val);
 >  }
 >
+> +static int imx93_csi2rx_wait_for_phy_stopstate(struct dw_mipi_csi2rx_device *csi2)
+> +{
+> +	struct device *dev = csi2->dev;
+> +	u32 stopstate_mask;
+> +	u32 val;
+> +	int ret;
+> +
+> +	stopstate_mask = DPHY_STOPSTATE_CLK_LANE | GENMASK(csi2->lanes_num - 1, 0);
+> +
+> +	ret = read_poll_timeout(dw_mipi_csi2rx_read, val,
+> +				(val & stopstate_mask) == stopstate_mask,
+> +				 10, 1000, true,
+> +				 csi2, DW_MIPI_CSI2RX_PHY_STOPSTATE);
+> +	if (ret)
+> +		dev_err(dev, "lanes are not in stop state: %#x, expected %#x\n",
+> +			val, stopstate_mask);
+> +
+> +	return ret;
+> +}
+> +
+>  static const struct dw_mipi_csi2rx_drvdata imx93_drvdata = {
+>  	.regs = imx93_regs,
+>  	.dphy_assert_reset = imx93_csi2rx_dphy_assert_reset,
+>  	.dphy_deassert_reset = imx93_csi2rx_dphy_deassert_reset,
+>  	.ipi_enable = imx93_csi2rx_dphy_ipi_enable,
+> +	.wait_for_phy_stopstate = imx93_csi2rx_wait_for_phy_stopstate,
+>  };
+>
+>  static const struct of_device_id dw_mipi_csi2rx_of_match[] = {
 >
 > --
 > 2.34.1
