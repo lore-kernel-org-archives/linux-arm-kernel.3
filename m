@@ -4,43 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFA12FF8850
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 23:27:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7701FF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 26 Apr 2026 23:36:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/yRfGCz+H6Wk+KRLLP/U3Hu5ASdZ8/kg+ddKo/mVVEM=; b=3ngEuoQDq/qRNdHnbpdrskwm2y
-	ucJo2Mc4ouduCLquY6JPBNb0z3fJGXk7T7AauloTlLHccDepqtmGWi3mR3zkACqZQI7pshnavf9hr
-	zVPfSpOSPFEn8tnNlERNdKkjq8k9x0vtlEiU3owHHOT/dr2um2rBP3Qz+glZHfbIK2/kqEtux37mo
-	Q5gGkW88gU3JVRUjvSgzl1+vQLHr6EcSHXk1ofFzZtHl9j6mwDq5WoJkRIfgXkz9CmykX2QGdKnyW
-	X5S2Y1sdNuSWp/i1UgOK3E0LK4VCOqfP+fHrG68g9nkRdryN4Vf98Yk22yZJfUgNbPcgLsXm+CcpK
-	9m4EMw3g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	To:From:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=UN5GMXES+q82IEUxdO7KcvBdU4pF9d499+NH9uC/d04=; b=EPqq6jCozw8Lq1
+	TIQ0LPiDOFWpA6YnCVldRnCvL0lhAto6fjuAbZamHRpxsa+ITHRHwE2mitbj6mReRm4VBhQx2mp6h
+	9M4A9P6tZMQ4KvcslKPnaN7tEstYEhbEd8RHvvW2MwHkbkd+drXCBWY0L/OCdjZzSsqlAIYQsUjqI
+	E9fgpZO6/SCOfarnsEfbRbhZkA+vI+9qwVTn6Zz1ylzRkDkQfVpLt5J6AgcC4GhLzGtixUUFTKTNK
+	8hGq1KLrWg5XNXsgwIiokViS8srcZM5Mmy+9QIzudncO/9UE75aguhPSFzX3iLXj4nHG4e4KbDj9v
+	5d/RPyfNY7esE2AQk7Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wH8sV-0000000Fw36-1bzb;
-	Sun, 26 Apr 2026 23:27:07 +0000
-Received: from [50.53.43.113] (helo=bombadil.infradead.org)
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wH8sU-0000000Fw2i-15Wa;
-	Sun, 26 Apr 2026 23:27:06 +0000
-From: Randy Dunlap <rdunlap@infradead.org>
-To: linux-kernel@vger.kernel.org
-Cc: Randy Dunlap <rdunlap@infradead.org>,
-	linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
-	linux-doc@vger.kernel.org
-Subject: [PATCH] Documentation: ABI: sysfs-class-reboot-mode-reboot_modes: fix doc warnings
-Date: Sun, 26 Apr 2026 16:27:05 -0700
-Message-ID: <20260426232705.422938-1-rdunlap@infradead.org>
-X-Mailer: git-send-email 2.53.0
+	id 1wH91I-0000000FwLO-1RHE;
+	Sun, 26 Apr 2026 23:36:12 +0000
+Received: from mail.machinerydmaster.com ([158.220.101.35])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wH91F-0000000FwL5-3v6L
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 26 Apr 2026 23:36:11 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by mail.machinerydmaster.com (Postfix) with ESMTP id E862615A39C
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 11:14:17 +0200 (CEST)
+Received: from mail.machinerydmaster.com ([127.0.0.1])
+ by localhost (mail.machinerydmaster.com [127.0.0.1]) (amavis, port 10032)
+ with ESMTP id TXuGvm_eH4W5 for <linux-arm-kernel@lists.infradead.org>;
+ Fri, 24 Apr 2026 11:14:17 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by mail.machinerydmaster.com (Postfix) with ESMTP id D8473159F3F
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 10:57:17 +0200 (CEST)
+DKIM-Filter: OpenDKIM Filter v2.10.3 mail.machinerydmaster.com D8473159F3F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=machinerydmaster.com; s=99533872-1899-11F1-A79C-0C2B862F775B;
+	t=1777021038; bh=UN5GMXES+q82IEUxdO7KcvBdU4pF9d499+NH9uC/d04=;
+	h=From:To:Date:Message-ID:MIME-Version;
+	b=wAzMStW0Zfi6IXZ4kIgtJ+t6TqVny1TpVv0BCCyYiIC7HU3Q38x8ler8eqbWnu9Wx
+	 A8U2a8IenHW7WRuqrFdN4O70pMkeyaGVSp8pAQ5n5c/l0QJwitwspAluxTynwAAeKf
+	 54QNsoAd3dqEUsenUrrkgrCYlxP0qHwnw69kW+e8ED03lGIRUn2lsGbOzE23iALkRc
+	 8Y3XQUPWPYeUncmmzL2hziQ6DmzhLpkPJE2CJH7mnRGQSPjyXVHLuDymkf9zrx0Dif
+	 CAg+AiMizBli+2VoPgABB7AKz3ASuGaKh3Dq3f9G37DZSvVikqVsGM//+dZlYfvu23
+	 f48qgCuh2/ilA==
+X-Virus-Scanned: amavis at machinerydmaster.com
+Received: from mail.machinerydmaster.com ([127.0.0.1])
+ by localhost (mail.machinerydmaster.com [127.0.0.1]) (amavis, port 10026)
+ with ESMTP id fMFcIyzNK7DT for <linux-arm-kernel@lists.infradead.org>;
+ Fri, 24 Apr 2026 10:57:17 +0200 (CEST)
+Received: from [91.92.241.130] (unknown [91.92.241.130])
+	by mail.machinerydmaster.com (Postfix) with ESMTPSA id 31C60159B4C
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 10:52:23 +0200 (CEST)
+From: "Andriana Agathocleous"<ezra_sage@machinerydmaster.com>
+To: linux-arm-kernel@lists.infradead.org
+Subject: New Order- REQUEST FOR QUOTATION-URGENT
+Date: 24 Apr 2026 01:52:22 -0700
+Message-ID: <20260424015222.979652FC9F50CE7B@machinerydmaster.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260426_163610_122474_692DBB51 
+X-CRM114-Status: UNSURE (  -0.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -52,73 +80,26 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Andriana Agathocleous <andrianaagathocleous@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Repair the docs build warnings in this file by unindenting the description,
-adding blank lines, and using `` to quote *arg.
+Dear Sir/Madam,
 
-WARNING: Documentation/ABI/testing/sysfs-class-reboot-mode-reboot_modes:36: abi_sys_class_reboot_mode_driver_reboot_modes doesn't have a description
-Documentation/ABI/testing/sysfs-class-reboot-mode-reboot_modes:1: ERROR: Unexpected indentation. [docutils]
-Documentation/ABI/testing/sysfs-class-reboot-mode-reboot_modes:1: ERROR: Unexpected indentation. [docutils]
-Documentation/ABI/testing/sysfs-class-reboot-mode-reboot_modes:1: WARNING: Inline emphasis start-string without end-string. [docutils]
-Documentation/ABI/testing/sysfs-class-reboot-mode-reboot_modes:1: ERROR: Unexpected indentation. [docutils]
+Good day.
 
-Fixes: d3da03025e6d ("Documentation: ABI: Add sysfs-class-reboot-mode-reboot_modes")
-Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
----
-Cc: linux-pm@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: linux-doc@vger.kernel.org
+I am Andriana Agathocleous , Due to our recent project, we want=20
+to make inquiries about your products and we wish to establish a=20
+potential business cooperation with your Company. I will send=20
+requirements for your perusal and quote upon receiving your=20
+feedback.
 
- Documentation/ABI/testing/sysfs-class-reboot-mode-reboot_modes |   13 ++++++----
- 1 file changed, 8 insertions(+), 5 deletions(-)
+Please kindly send your current catalogue, price list, payment=20
+terms.
 
---- linux-next-20260424.orig/Documentation/ABI/testing/sysfs-class-reboot-mode-reboot_modes
-+++ linux-next-20260424/Documentation/ABI/testing/sysfs-class-reboot-mode-reboot_modes
-@@ -2,33 +2,36 @@ What:		/sys/class/reboot-mode/<driver>/r
- Date:		March 2026(TBD)
- KernelVersion:	TBD
- Contact:	linux-pm@vger.kernel.org
--		Description:
-+Description:
- 		This interface exposes the reboot-mode arguments
- 		registered with the reboot-mode framework. It is
- 		a read-only interface and provides a space
- 		separated list of reboot-mode arguments supported
- 		on the current platform.
- 		Example:
-+
- 		 recovery fastboot bootloader
- 
- 		The exact sysfs path may vary depending on the
- 		name of the driver that registers the arguments.
--		Example:
-+		Example::
-+
- 		 /sys/class/reboot-mode/nvmem-reboot-mode/reboot_modes
- 		 /sys/class/reboot-mode/syscon-reboot-mode/reboot_modes
- 		 /sys/class/reboot-mode/qcom-pon/reboot_modes
- 
- 		The supported arguments can be used by userspace to
- 		invoke device reset using the standard reboot() system
--		call interface, with the "argument" as string to "*arg"
--		parameter along with LINUX_REBOOT_CMD_RESTART2.
-+		call interface, with the "argument" as string to ``*arg``
-+		parameter along with ``LINUX_REBOOT_CMD_RESTART2``.
- 
- 		A driver can expose the supported arguments by
- 		registering them with the reboot-mode framework
- 		using the property names that follow the
- 		mode-<argument> format.
- 		Example:
--		 mode-bootloader, mode-recovery.
-+
-+		 mode-bootloader, mode-recovery
- 
- 		This attribute is useful for scripts or initramfs
- 		logic that need to programmatically determine
+Kindly acknowledge this communication and send me feedback upon=20
+receipt so we can place the order without any further delays.
+
+Best Regards,
+Andriana Agathocleous
 
