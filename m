@@ -4,130 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FF6BFED3FC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 20:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D959AFF8844
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 20:58:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CrFFVQJFoSFKzwZv0bd4I3UIGIPRzK+St9TtX/c2Vgs=; b=TAv6Nvy/CCDpanSF61pRoddf4r
-	guWbPZCASlq6maWOpnZJncNsxXb2kKpc4Bp6SN/mgDVj9vd4DFeN19gFpl6arfB3Ot92ozba8SZ5S
-	ThnMogDri67fOctRm0qabmSJnKJ0mpMcU98855HOB8AwuzVCeqp/UnVaYLBarRC+w9vWOYUVVzyPX
-	UTKsx42JAGooPjsbAJtcgD5jkU5fDDmu3CLLM5y+WWcnclgplS3ypGIeETuy7r5FnLB7maponE+ll
-	ovPi9xjQnJ4pRKLx+oKejbXDG79c72GdjskUM+AIAHBojCQKV0KdyoeAszrp4tnxm9n72+YU1kI4Z
-	LxNJw4lA==;
+	bh=YwGRskVvJ+HErll2L33Iad8KfkmAeIUpOmdPI14ot44=; b=ExEW1yRKdQFOSHn/7fP9zy/k3B
+	nwjReqeiObvt7EU0q5F5f0XM1MTOcnV8VvfivR+wr2Tn1S0rQIMlbnx+TRPrvz7vp5LBScrgJ/8Qd
+	kmDX95aHAdCRfRcuIDrP30t4Pxfn3CyjdPEXLzflw9qghUJpqUAD7N3nPM1DmVVgS0qs+ZqWuIBxW
+	ZpOSceNA5Via7spw2qOPTP+WOxXnmb9c5Sg9nMYcsCEeepwLujbmyZODolYe2UB7cQJFucff8BM0j
+	bG3CYbCYvvkW8XWYkWWrol21C1ce4LHG0PhSxvjBEAoZdUMJpUGH8mv5BBEOzmQsDJ6Xe/WmoxATe
+	gsf3yfNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGNUV-0000000DkJi-2CkF;
-	Fri, 24 Apr 2026 20:51:11 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1wGNb8-0000000DkbP-1jRh;
+	Fri, 24 Apr 2026 20:58:02 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGNUT-0000000DkJ9-154u
+	id 1wGNb6-0000000Dkb4-0Qvj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 20:51:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KJTGeZLah8VBJcTccmriX7n+3LNcXYEX3ZktjuncC5GgpFtC9kH8btUObbDq2Fas6IkJhrVkLTa4edUCdNf84PEe9KgQcjFxpQpI+6Ozp44WQz/9RFK+mTgL657MYOnb1bi5mQGdfmeB37ESoGfd8Bkc9OszorsKB0AxgFZTvjXQyrKoT34Kwn2KeRtx0EWKV1mte/5GAJFelISAUlZ4e7ch4s/w0e3VOjz5Sy3eEYng7HQTqHEHeSQc+VTdQLAPiLPfowf5MJh44ZJpeSMVQ23tKEOdh+ovCjGjzHYOxxSQ9dQqsz6QWUtbGiHwKfndJLVeoVbAI1dPqN8E4UAC8A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CrFFVQJFoSFKzwZv0bd4I3UIGIPRzK+St9TtX/c2Vgs=;
- b=ZeHaHcztpZeSVjuEwpMj6I1LUTnRLGWzM/3CudhuMKk4nsV1bnZbASqoYLQRRvKfVqfc88XPw8dAmYmXymiITJjUGJcGvyjIOmXymvFInP6pSc/XIqaACZ2RIPcziwgJwXKsQna687nWqaXJtZO15RZb6v3Fo/nQBzImlEEQJNTUloz7VgAkzBN8+ebTYLPZRr1MoSlVZMgg4cbO6Z25lhuLYkkWrY7juEAtgBDWi97u7mo/9jTF5YT28N8VpADuTsLeP4cy8QIgh+GRM9XpjpX6MyVYl7VY5y3gW9VjWzO+dX+bB/mLvlbA3G0U+pRGwjMJShb8xzWP+Nn+b7I1pw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CrFFVQJFoSFKzwZv0bd4I3UIGIPRzK+St9TtX/c2Vgs=;
- b=BTzC3Sv3fYsd2OgNHEG0r5I9QLJqnB3cN5iGcoxKrrVk97wvAaBueWWQvJC2rcZvA98eNhQbHJPD2Jhd3nrcskf9UvdlSSou/vjzkgcbdZPQeFkss2k9Y9CbXhurIcbZTQC+vtOu5/NCw6heCZE38LzQYyXsRCk+BOP6bscdTkRxTvCKsEKTlVsNrwjHbBc3L9Ds/F4M37CDczhXDJTYHgaZVRv6qwmcjMSZZ47oi923xr7YvJe9IGpuUT7mxl9cJt1sEG+M7YyP6ctCjXraUo180osb03cdjPQA7IluPbTXbslXEnwfTXb2DxI7SoLyXWP5rHFmTz/YExzm9E3nGw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by CY5PR12MB6131.namprd12.prod.outlook.com (2603:10b6:930:25::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.22; Fri, 24 Apr
- 2026 20:51:06 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9846.019; Fri, 24 Apr 2026
- 20:51:06 +0000
-Date: Fri, 24 Apr 2026 17:51:05 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, kevin.tian@intel.com,
-	joro@8bytes.org, praan@google.com, baolu.lu@linux.intel.com,
-	miko.lenczewski@arm.com, smostafa@google.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
-	jamien@nvidia.com
-Subject: Re: [PATCH rc v2 2/5] iommu/arm-smmu-v3: Implement
- is_attach_deferred() for kdump
-Message-ID: <20260424205105.GL3444440@nvidia.com>
-References: <cover.1776286352.git.nicolinc@nvidia.com>
- <7637d66c0f6c1fb16da4b5c9c4cec71752cf4d23.1776286352.git.nicolinc@nvidia.com>
- <20260424165927.GD3444440@nvidia.com>
- <aeu5/HsLwfhNWpbm@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aeu5/HsLwfhNWpbm@Asurada-Nvidia>
-X-ClientProxiedBy: MN2PR05CA0028.namprd05.prod.outlook.com
- (2603:10b6:208:c0::41) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Fri, 24 Apr 2026 20:58:01 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63OAEr0d3107467;
+	Fri, 24 Apr 2026 20:57:39 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=YwGRsk
+	VvJ+HErll2L33Iad8KfkmAeIUpOmdPI14ot44=; b=Zu5tdxyfSM8Cl+lTr/eM4B
+	cUA78X1tafcLaWe6+b7iH1sOQMTnGZcKfYa4cFcWbCUKpKDtWxv8s1C6HAeNQ261
+	reZT4dHk0sHs4O0+WmFSbjcQ6RJCvFswsq6q/4nwpUIIlX8fBcSEE4ei0s4bYMy/
+	Mq0lYg0yJgTA3vXBmcsrZtELpb7dFc7gOY9SPshihjlLj+4uddjxADgDe2nUwMA9
+	HPcM1PcsMeHbiZ2kj98UzJe5LpL0RDx8swqrTcD4b6YjaGofa/IgF59wR+mdAHPF
+	/HaUx+YSLRShntA4jxJrmI+BL+uFAmGwHJO8piUoXmWXADVR2qtWcms+n5vHTDIw
+	==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dpeu6pxkx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 24 Apr 2026 20:57:38 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 63OKoKZ3015146;
+	Fri, 24 Apr 2026 20:57:37 GMT
+Received: from smtprelay05.wdc07v.mail.ibm.com ([172.16.1.72])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4dpjkycheq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 24 Apr 2026 20:57:37 +0000 (GMT)
+Received: from smtpav04.wdc07v.mail.ibm.com (smtpav04.wdc07v.mail.ibm.com [10.39.53.231])
+	by smtprelay05.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63OKvaxN26149440
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 24 Apr 2026 20:57:36 GMT
+Received: from smtpav04.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 9946958052;
+	Fri, 24 Apr 2026 20:57:36 +0000 (GMT)
+Received: from smtpav04.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 5446958045;
+	Fri, 24 Apr 2026 20:57:34 +0000 (GMT)
+Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.11.225])
+	by smtpav04.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 24 Apr 2026 20:57:34 +0000 (GMT)
+Message-ID: <014cf39aa8d6a0bcfa1a95c069675977ac67b843.camel@linux.ibm.com>
+Subject: Re: [RFC PATCH v2 1/4] security: ima: call ima_init() again at
+ late_initcall_sync for defered TPM
+From: Mimi Zohar <zohar@linux.ibm.com>
+To: Paul Moore <paul@paul-moore.com>, Yeoreum Yun <yeoreum.yun@arm.com>,
+        roberto.sassu@huawei.com
+Cc: Jonathan McDowell <noodles@earth.li>,
+        linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        kvmarm@lists.linux.dev, jmorris@namei.org, serge@hallyn.com,
+        dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com, jarkko@kernel.org,
+        jgg@ziepe.ca, sudeep.holla@kernel.org, maz@kernel.org,
+        oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
+        yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
+        noodles@meta.com, sebastianene@google.com
+In-Reply-To: <CAHC9VhSaT_quKYnpFjAfqvL07JNbWMgM6c4pB9F46NHawX3DCA@mail.gmail.com>
+References: <aeoAlVEwzRUPrlVe@e129823.arm.com>
+	 <aeoRxWPyOHGJd+Jh@e129823.arm.com> <aeoWO2Cwo04YYu2l@earth.li>
+	 <bd908e28298d968740d03c97bc7e441de188b7b4.camel@linux.ibm.com>
+	 <aeokwrC86WI7uT+K@e129823.arm.com> <aeomlp3I0eVE5mce@earth.li>
+	 <aeotq8nPVu4wvEx5@e129823.arm.com>
+	 <e4e242ae5533d5762a3647186a178764881bf9ff.camel@linux.ibm.com>
+	 <aephL3MzYoqFGaT5@e129823.arm.com>
+	 <CAHC9VhRQWHEWQ5NzOPiu8jtYv6UsRm8WVS4fd74AbkOcAd4y_g@mail.gmail.com>
+	 <aesGU8a3mbVzvteH@e129823.arm.com>
+	 <CAHC9VhSaT_quKYnpFjAfqvL07JNbWMgM6c4pB9F46NHawX3DCA@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 24 Apr 2026 16:57:33 -0400
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CY5PR12MB6131:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2676993b-fcee-40bc-8fcc-08dea2433489
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: C+PKvJRDe0tdX1bN+3SmDHjRU2BxXs7r3/opEnl+vCcKikUrjMNh3wgtZv4RnSoADEpjH4xDmcTapcpCEjII/sXUxYBlY3X6ADmOJl92CCUenjFxVjDSzOjvTFu+S4UbK+Rrj+523742tbcd5a2clR7g5T3FoXALxOOkXMZksPRvIhrCP+sy+9h5+G9tVik8avaaTlW7MZxNefeFfw5lIG40szOWB0Xc6rt98IwF01nxdwcSEHc7duoTAyo8E4RRFOK7Ecq2PglX6xk4OoJRCodwuGDMLNp8zfBJNT1rTO3pNRsd8pHlXEv0Qh81O7Y+6i5UtRXyfQYO28uXjc0xKD0iGf2BZ/M1vvPVVn4+m64IUlIZ6PKwDyD7jlbVZkQ9eMxL3coUKBQ1/cyGKN8vJp7Yr/U8xXZC3WpCD+ftUObu6Yhi8RJ1/g0D6DOc4npA0FsEwqaa6zvqqVaZKzVU3p2vroo7cgy4Ro4Jx8aLEI3L4i1lrH24O+WmDMQiltATLeMUWI9vD0HQNlvKjy0fOHYZBaYpC98ecVbU/O1OyqN1WNWFhTIro9ffInBlI7yKy4PpT6SQPxxOk/zNIQ9zrEuZYgYIpbX0kZ3AwQTZ5mAODM3pmrmwyRvXqbXPnOeiKL04TOSvZ/EOECjqv/PgldKiDt2/Ld3Q359SHxhYrqTAXjQpoW2k0S2GSqao8zObHS9GzVOfI+HVTJyIgjh1c1GmcCRRkpduvrhgPPNB40k=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5z38jkTC2fOJ836CMpE+++WvYPdGWEqESK9LmkTydS/Pwj8fWcivUDnrlSU3?=
- =?us-ascii?Q?NE5wsKLpbGjtKWJ5eKDAZIE0SETMFcZg7zxCocTtdJrO6SuofP9PvIxnedi0?=
- =?us-ascii?Q?2wZes6MHKPAwkU9jxi/i2GcB7/oNvWZWMlFtOAEYelMOuWEcCg2MQetBc+Zz?=
- =?us-ascii?Q?RBL8VR5NN0LIFRIxydPOcJ4N6O9CzcPVS30CHUDzTRyX3le8nFzGGvnHJgqG?=
- =?us-ascii?Q?JcbRelPEj7i6aCEVXf0VEUj94jIekT1R7Dlp7wvE5+jrjKBPDbvsOBmA6KCS?=
- =?us-ascii?Q?/swtka+H2r6lNsoiFP+LGVnQHM6we3gJkpgMmg7hg/DUbHTCwbw4lS+1K9h2?=
- =?us-ascii?Q?UClgHuePJ876VwqKzMrt8AGta7fD1AWDxylzRQiDgSGHFAlig64v4NWk7cUw?=
- =?us-ascii?Q?cq22ltPN1jIzthd5l4yl1TEB5239ovfX4MrKt4W38UukgKK40g1YZ4s+mce9?=
- =?us-ascii?Q?Y0x+IySRY72DLG+Slh0vE+tnmcAxuUFMSAoZYNoouR2CTctBo/tXJ2lFaHa+?=
- =?us-ascii?Q?eRH0I+rxruTkNHPGtjja8quc7vLqQieEuF399jzHG2A7pcofNHf0fo1Yyi8/?=
- =?us-ascii?Q?k/1N/a4trSfaHq9BM3tRjspASYExhjuPlFDsG3bnW/Fx3ECwg8FG4SQ2GvMY?=
- =?us-ascii?Q?OioR/IQS1z5R6tc2tDty58eK9VD+rZ2RoSLJWS6JCguUIRwnSNbvBeae/YKG?=
- =?us-ascii?Q?1/X/vgtpA0DNYuTPmA4/Q4ViDXsmmeOKJeKX2JoZL4PhnrBIXPCvMGAyo9f7?=
- =?us-ascii?Q?ZMV4ybJxM9tJZMYqT2LtuaOGp1q9RvdHQY8LN3EWiPBxzZ41elt3IzRaw/wV?=
- =?us-ascii?Q?fjGkaXmUkMNafEE5BtMSMpyv8sVGoco94kd1vS4biIr5zrF/JwtUYe+4m8J4?=
- =?us-ascii?Q?JusYdzorBJOVrw4ij9CzOZ6sboweYQ28E6iOMBIg64yGBjiMAbVTBK8m700r?=
- =?us-ascii?Q?N2TVXiJYUT6KGy3h66eoreGjTN77a3tFqd1niqpqJDDSZ7+PE7Odnf5ZTHlm?=
- =?us-ascii?Q?mAwMWlPg56XBHi0iLgfKuWS+9BmMzPDPfmSgeR+jVfONrKgYUghrH0rzXvfg?=
- =?us-ascii?Q?JVa2EhfQTisdYihQD5gF5z+lPB1nZO3OyOhJCsLdzwk0QQQ6+DzeDx7/2bZm?=
- =?us-ascii?Q?q9dymxr8oDn+klOetNk4YHHNb75Renx7Hk4fcvnVBIQ9N5WgIJSTCUAu8L33?=
- =?us-ascii?Q?V3ZvqR+SbWxxxHhAyhB9QlpQ1V2FzaNBY/3ZuypN/QNoixM04y3pzu3PE6sc?=
- =?us-ascii?Q?pWgUzgBYtTVMnjDIpJKRABDkQpyb29QdIVe3seqjtM5446XINkzpHgEoOuA1?=
- =?us-ascii?Q?twLJLsWb21xo3nQ3M98HlT7wGyTq5aKRZves1dmgDHWyUeDbnWa1d74EYO97?=
- =?us-ascii?Q?Lf0aLTDCXTgqPpoP86nqAUIwuLaBZ5mAkP7zLPLhDVmLBP6BtZeKy/cM/1lQ?=
- =?us-ascii?Q?pOmEvu879gVRzG2CORIHbjagE6JZkRBp9RF7E71phXYIr7ISA6CQSKid5mZS?=
- =?us-ascii?Q?ibluP6CLU/uzaiTAUNsdqu+sUd06qMcS+D0Y9B9+NyY8WT/g0x0voA1twqtE?=
- =?us-ascii?Q?tW0WlysqorKeshvNnYcknzNjUOxbYadJvE730yS3r9ftjr1pvf1z4H8P/v5s?=
- =?us-ascii?Q?Bbtwb/3njh11O9WosGTlRqlo7Su0g8jSccMW8LSFDQRe3dY3qWwzMG6itKsp?=
- =?us-ascii?Q?SL5NlpX+M14k0VxVVmtcNqYxt1yooYiWJEx/w/SzEAT5tFjs?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2676993b-fcee-40bc-8fcc-08dea2433489
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2026 20:51:06.2499
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: U71m+xCqF9Ij0JDZT30xYqqjSRvmBC/FrLRv4L+E0jXZgCLSxW27y982jljT8S9K
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6131
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI0MDIwMyBTYWx0ZWRfX06Ce639L3CbQ
+ l/0x/77wK+IKQLPA5Q/B8rdy7BKQLMe7STCUzZpXuZSasflxv8h70wCR9sBxvWIYNaSZT8fglp8
+ VakevzNaaRUjd3DqqHfnK+SbNri9ykAX9xFqU1Mr8zt51ELPO401WieaeOlqeXzd8uuo8W1zCNB
+ bsGH4eb/jcqt3JjY+Tm8FhD8BULjuG7+BG3KvqTc8xyPLCGYdBMT7a+yCh2CQwXel+5/SHzhJuz
+ ugYEYGpUHxYQpjAiI2VA79h67LHMzaYBUtRJLSeSEFDWPlkWhpzAVXsAqeHvMEiadv/gzrbZimq
+ nSHSj26kHCrrmn8espLznx5ouPlqSS0+HF/BIasPKeLo9PjWWYcQqMy9/3lUGErRZUdzfrpdqez
+ rHHNgoB2x5E2Ggb7EUcUjxKHSfRWIh902+XQTCNzxyNn+6pTDIhlfNOYgHMhLFD20AIhMtGBegk
+ 6QxcZ8QhVE8E/nJQvXA==
+X-Proofpoint-ORIG-GUID: OvU2A1hQFsUaWSS9kjU--Uvph-WO9QpL
+X-Proofpoint-GUID: UsUwDxwDZJc5Q5bv-vD3gXsvrj1A1z1X
+X-Authority-Analysis: v=2.4 cv=BYfoFLt2 c=1 sm=1 tr=0 ts=69ebd943 cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VwQbUJbxAAAA:8
+ a=VnNF1IyMAAAA:8 a=7CQSdrXTAAAA:8 a=H6_ProKieZEkNf6nIh4A:9 a=QEXdDO2ut3YA:10
+ a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-24_03,2026-04-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 impostorscore=0 malwarescore=0 suspectscore=0
+ lowpriorityscore=0 adultscore=0 spamscore=0 clxscore=1015 bulkscore=0
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
+ definitions=main-2604240203
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_135109_299427_249B3733 
-X-CRM114-Status: GOOD (  16.78  )
+X-CRM114-CacheID: sfid-20260424_135800_268250_768A25E3 
+X-CRM114-Status: GOOD (  35.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,37 +139,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 24, 2026 at 11:44:12AM -0700, Nicolin Chen wrote:
-> On Fri, Apr 24, 2026 at 01:59:27PM -0300, Jason Gunthorpe wrote:
-> > On Wed, Apr 15, 2026 at 02:17:37PM -0700, Nicolin Chen wrote:
-> > > +static bool arm_smmu_is_attach_deferred(struct device *dev)
-> > > +{
-> > > +	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
-> > > +	struct arm_smmu_device *smmu = master->smmu;
-> > > +	int i;
-> > > +
-> > > +	if (!(smmu->options & ARM_SMMU_OPT_KDUMP))
-> > > +		return false;
-> > > +
-> > > +	for (i = 0; i < master->num_streams; i++) {
-> > > +		u32 sid = master->streams[i].id;
-> > > +		struct arm_smmu_ste *step;
-> > > +
-> > > +		/* Guard against unpopulated L2 entries in the adopted table */
-> > > +		if ((smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB) &&
-> > > +		    !smmu->strtab_cfg.l2.l2ptrs[arm_smmu_strtab_l1_idx(sid)])
-> > > +			continue;
-> > 
-> > This can probably just call arm_smmu_init_sid_strtab()
-> > 
-> > I think it is OK to allocate another level 2 here and it also has
-> > protections for SID out of range..
-> 
-> Actually, sashiko pointed out that this guard is a dead code.
-> 
-> arm_smmu_init_sid_strtab() is called in arm_smmu_insert_master().
+On Fri, 2026-04-24 at 16:15 -0400, Paul Moore wrote:
+> On Fri, Apr 24, 2026 at 1:57=E2=80=AFAM Yeoreum Yun <yeoreum.yun@arm.com>=
+ wrote:
+> > > On Thu, Apr 23, 2026 at 2:13=E2=80=AFPM Yeoreum Yun <yeoreum.yun@arm.=
+com> wrote:
+> > > >=20
+> > > > Sounds good. Once the patch is posted, I=E2=80=99ll review it as we=
+ll.
+> > > > Sorry again for the noise, and thanks for your patience ;)
+> > >=20
+> > > My apologies for not getting a chance to look at this patchset sooner=
+.
+> > >=20
+> > > This seems like an obvious, perhaps even stupid, question, but I have
+> > > to ask: if IMA can be properly initialized via late_initcall_sync(),
+> > > why not simply do the initialization in late_initcall_sync() and drop
+> > > the late_initcall() initialization?
+> > >=20
+> > > Does any IMA functionality suffer if initialization waits until
+> > > late_initcall_sync()?  If so, it seems non-critical if waiting until
+> > > _sync() is acceptable, as it appears in these patches/comments.
+> >=20
+> > This is the way first patch did, and here is some discussion for this
+> > (Might you have seen, but in case of you missed):
+> >   - https://lore.kernel.org/all/a6a0e15286c983d720de227c6827adbe976c5b9=
+b.camel@linux.ibm.com/
+>=20
+> Thanks for the pointer.
+>=20
+> Unfortunately, my concern remains the same: it's either "safe" to
+> initialize IMA at late_initcall_sync() or it isn't.  Attempting to
+> initialize IMA twice seems both odd and wrong.
 
-Even better
+Agreed.  However, IMA should be initialized as soon as the TPM becomes
+available, not delayed.
 
-Jason
+In patch 2/4 patch description, Jonathan describes the reasoning:
+
+Unfortunately some TPM drivers (such as Arm FF-A, or SPI attached TPM
+devices) are not reliably available during the initcall_late stage,
+resulting in a log error:
+
+  ima: No TPM chip found, activating TPM-bypass!
+
+and no measurements into the TPM by IMA. We can avoid this by doing IMA
+init in the initcall_late_sync stage, after the drivers have completed
+their init + registration.
+
+Rather than do this everywhere, and needlessly delay the initialisation
+of IMA when there is no need to do so, we continue to try to initialise
+at the earlier stage, only deferring to the later point if the TPM is
+not available yet.
+
+>=20
+> I understand the need to ensure that the TPM is available, but if it
+> isn't safe to wait to initialize IMA at late_initcall_sync() then it
+> would seem like this is a bad option and we need another mechanism to
+> synchronize IMA with TPM devices.  If it is safe to initalize IMA in
+> late_initcall_sync(), just do that and be done with it.
+
+Within the same initcall level there is no way of ordering the initializati=
+on.
+Yeorum attempted to address the ordering issue in commit 0e0546eabcd6
+("firmware: arm_ffa: Change initcall level of ffa_init() to rootfs_initcall=
+"),
+which is being reverted in this patch set.
+
+Ordering within an initcall level needs to be fixed, but for now retrying a=
+t
+late_initcall_sync works for some, hopefully most, cases.
+
+>=20
+> I'm also guessing a two stage init process, e.g. some in
+> late_initcall() and some in late_initcall_sync(), doesn't make much
+> sense here, but that could be one other thing to consider if some IMA
+> tasks must be done in late_initcall().
+
+Perhaps something to think about for the future.
+
+Mimi
 
