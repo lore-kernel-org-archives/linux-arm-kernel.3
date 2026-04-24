@@ -4,111 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5AF8FED3D7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 16:16:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAFCEFED3F0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 16:24:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+kaxdmfqBq8C2utWlphEm5LcRzpCJfnzuzdOC3D6RHM=; b=sRsRYzYJ84Qc6d4R/7PFL74SMc
-	Pg2OQKqeYwDntuyB/drhI+FbDKQXY8V+E0eD4ChbzdcEzByJVId6jQQtc3UOPYGmvGsYV3HgjxNof
-	nLgjCyBK+smg5vM9O84nZdA2QJd37uvPdfgNfOF5doUTp6rR9beblfWAgkhrBBKgG6MngyJlZg4Xh
-	oAG/PnzxMwq8wyMpiPqtV15qdt4eDsy3L898iqwTnNzKxrLTneIqKwt3e8kD2n1DKYIPOvcWgngEv
-	Anv6kqMofF9XMXaGJtWA+Dm4o+vbuk7dI8GfkmB+VaDGMoAo/wFr98UR7PIxtQD+ARE/Qzj5ZtuOv
-	aRwW0jGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bkHBfOVa4bz/wCbZfmwZYYdZCO/tCYPxae+JQxak4Yg=; b=0i6Nt6Gh4DhyQa9vM8tx4CVybk
+	XME4k+p3+DXbUonknHX470yu7fPSU6hsKVCWx9ZQGnEzEZKzblmlcmfMUOqrQ/zckSTyYfC3lwFGN
+	8BZNOkC9Wd9REx7oUSuBAhBrTKcFr6Ues8F/kTttW++a7MLARcI/2MpaH1ODYalHqlJhBq/ZRQe40
+	A8ezMEkV0Ev62adbxHz6FilbcJN4yjmk/NeRr76r6taTdDxaakWpCKMIHLylrH32Zb7l4oGN2Pu4v
+	N8bxBOvDCOm37r59xztlCr4gI04J4HQVafj6YNwc3lZgFpEUPAd1tb99Qn4NCvF3b/lTxjznzaOjR
+	jQKouj3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJCh-0000000DRTf-3tms;
-	Fri, 24 Apr 2026 16:16:31 +0000
-Received: from mail-dl1-x1233.google.com ([2607:f8b0:4864:20::1233])
+	id 1wGJKJ-0000000DRq0-3Nti;
+	Fri, 24 Apr 2026 16:24:23 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJCf-0000000DRTL-2wO6
+	id 1wGJKH-0000000DRpH-02Yi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 16:16:31 +0000
-Received: by mail-dl1-x1233.google.com with SMTP id a92af1059eb24-12c565476d7so4091199c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 09:16:29 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777047389; cv=none;
-        d=google.com; s=arc-20240605;
-        b=A6Xind/R3yJAhr0lQ7nwgWtDp8y69e2P8piVHXpa0VhAkMaRSBpqd31xdIypnhh9El
-         GPdNHVmPLPvOTz9wDVDEtKE0aBsMGrjSuK4JABdm7R3x158hkhW9UKYSHZD7uxsOkNtD
-         7p13TXk1PhleB40lprCnCgsBqTSGs9XCp8KNg6b57UwnYxAJxJECDLddwr1xY/tYsHzR
-         DYsPprzYOCTMNHDzZzByLh2bprChymlVpcqZfCnlFHymoWTvHNPISc8GqeTCPBDEeRxY
-         D8oYYCSCP2c9F75PZPpKojPBM27HhW/ba6+Zzual2POnb8NuNY8fZV3ldwYwtETbkK2X
-         t8tw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=+kaxdmfqBq8C2utWlphEm5LcRzpCJfnzuzdOC3D6RHM=;
-        fh=B899J2DyBB8zbnzgz9282uUX40BWzcjMog1+E3/Qs6o=;
-        b=K4TT7/7wBhhqlARFhm4NGF7Em2gnS/nteiZYvW7J2Nhm1Tz7S8Bh9IOi+EzIS9FFRH
-         r3lQeCwia6i0P2HbzLUEpcllKPWNGY8tcKaR6CTiiuXckLqtm/UCqUw7bs72C0hx0WY6
-         kDeGKgH2AmG+8mpH5x/1QkjeM+cliQIULPK8tmKEhVusMPjNSg8nBwTRXi/BZ3+9CP/a
-         KU8zOo8S/KBXG4md3e/5YSk0LG2Iq6NzNimposYXPI7OkcxRp0sWkJzm4TUGy7Pw99+O
-         ikla2OIcTPH/DUPghcvc72O4966NEE1kEwe5ADGeMlXpfv7vOBJxQVD26zc4TBaupsOV
-         cYqA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777047389; x=1777652189; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+kaxdmfqBq8C2utWlphEm5LcRzpCJfnzuzdOC3D6RHM=;
-        b=i+QOHP3+lz5h9tmZ2BVvkcS5ur47Mby6KKAbYo8qLJr+Iwghd9NDZHcdCoUM1Kzef0
-         rCo8NrQzpJzjmi4bDYALHhT6uiqwP5Cr6MktfR+l2qOtJCEF57NJ9rC65nYuBc/iqhLr
-         gxMDYwnPh75g6m6toqEIQlXV+/ND0A5iuqcVJwaeF5e+miCWEd4s9bcIzW0X3zw6ugPI
-         YZop2nOiIDK2sE3GQEOx1BLr1JYvkwYFsFDvN3Zjzw+9joeNZFABpqialv3v5Ctz7zdS
-         ca/vnKIEs0kPPV6zvl2PTSGjNYmxFAVmXgTQELp+2S5u4+HfCCoc0xJNAMQ155ZTGden
-         eUPw==
+	Fri, 24 Apr 2026 16:24:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1777047858;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bkHBfOVa4bz/wCbZfmwZYYdZCO/tCYPxae+JQxak4Yg=;
+	b=eZl25zDnldI79cy46T99uOTd673DqSE3j2FysmQbJamPpWT1+bYhnhXu0ciAPPgimA2OcG
+	Lwjqbk1m/+Fj2iobSg00wB8ywT39ue32rH3MCPB5qWPhjYtAyDBWfS9dESKDAbPzROkNcc
+	HyPxpHf9CxQ494ziriMuyR2fcay6u+w=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-663-VMBPq8wINb2W1th_eFh3OQ-1; Fri, 24 Apr 2026 12:24:16 -0400
+X-MC-Unique: VMBPq8wINb2W1th_eFh3OQ-1
+X-Mimecast-MFC-AGG-ID: VMBPq8wINb2W1th_eFh3OQ_1777047855
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-43d789cebcfso5509894f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 09:24:16 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777047389; x=1777652189;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=+kaxdmfqBq8C2utWlphEm5LcRzpCJfnzuzdOC3D6RHM=;
-        b=B8gtHxtUt3uTUD/ug9Xs3szdl4ew7edcVF8o56EjNs2Bv7X/dpaVum7AiPqbLo89G7
-         PJ6I8hMfsyy7dWyTO0KdpigpnI7r2ZDn/+mnAvKASfaDW9NtXmmkNp37+cTbEQmxCe8t
-         t4xIkEJD3Vts8F8V+wjFMRFUa7Iy6PPv/rL9ByiUA0oQnF6DWvP9eznbJm+hkNFA2Z6h
-         1vyGgNP/x/ghPlCKg60dZR5HhR8HbVuY4JiZYJgF+29UMHJtC/jQCuWgltcP3yrmEjYp
-         ccKMebN6jAXznZFb/ITeyvAuyn70gQ1xfwxtpFD7FK9E08Vu6oS3VSIy8A2Ud/HIwH2o
-         VMhw==
-X-Forwarded-Encrypted: i=1; AFNElJ9gTgOIc1lMkl8DwmRkqlsMvNzBRVFmrP7r5CDLqo30IhrGS+eiGahZq9gy04RiigUVFIzSaRyEQfYU16W805GL@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEHEpB3peBEa5h83d5/NSFMVhFbM9frYnUiUr0R3dhUkXAp3NO
-	dG3LKdcgsbyhQdV6wqF7hGPlgRUhJBUIf0AaokeI4EwqvuEul8cOjtNrNTNYC0W0G/WCR5NrVvM
-	M85DfNIVu7cCGNAmukJR20OGs39O3LzE=
-X-Gm-Gg: AeBDievxRrR2NdfTqQedzXjtottuMVV7W2s4x/Lb2kjVhXPcQv1vczdvWDm8njvXv46
-	QBj8YWlyt+Nqv01Cjvy4JMOb2glz8N5jKidL/HzNLQbq7d5SALL/XiDEhcW0xH5PZODo1/6wtpn
-	ZbBvvDzp65tAFV0VIcRx3gWp6NwbefmxbkAgPzCo+B1oVaUt8e+EE2WB37L0T7cAAS8CfBdlYO5
-	ZnuPixe5BwwFH4L6J+WqMqWmRc6ayBJyYZrLc5xLX5I2OyMhSVNeasQNJ/IQ55KAbQQCh4n/52N
-	eYMU8KBJWMYyVbENPrf9rcyPmCqsVhL8qY14qeOyjTxlkCbxBxNwMvCiOS/GSxZUEWA7Gh9Oz1B
-	DG4VQSx/B6uT8J8rmA/+Wj0a/ESLdt8oDye/vvQ==
-X-Received: by 2002:a05:7022:f016:b0:128:d4be:7438 with SMTP id
- a92af1059eb24-12c73fad42amr16965861c88.30.1777047388527; Fri, 24 Apr 2026
- 09:16:28 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1777047855; x=1777652655;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=bkHBfOVa4bz/wCbZfmwZYYdZCO/tCYPxae+JQxak4Yg=;
+        b=cKVGiI2jRI8yvMQ2/0Z91YFDLvRpPF2qg43vVnyslFLwtuxWtXSdlxpFRK4e3PwWXl
+         IXWuDcyamh2X2/85jHL4OARy00Q3fuiyNplWn8FB+Nzx9e7nj0VwVV1AwAj66srOLjCe
+         C4AdlfZWgpvsTS1YPeMp8qjXrltrXjuSGLdfsI7dOSfFx2UmhUgX1W5QuK4C7BnyZX1Y
+         hcYF+247xt4+A/0RU8c6ZB+yaLYGPpKj8vZlIBLqmT+DltljI/BqJaagqogg89TsresY
+         JOB8PD/HOe8kYr+5HlYnns/s+6klHPcJhiw1wzf/FWLv/GFBDpCetErcsgzNgemKO07g
+         XbkA==
+X-Gm-Message-State: AOJu0YxcMwfAuTXc37XwApG1QdHxAS2wEAnki0u4i2N7HZX4/vLmlynK
+	I0eeT1I4GGDJc0z5AevjqDU8Pcw2TEZiwtSmTVB8gvO+XOOe5rotAneqgsz8fswxGatD63zarQf
+	4zImLbaPIVehMtFWAOiUfvamYfsSvamxW2MHdABp/Kfjd5PcjluaM/1nmrjOwXdJ2fF18Iv158l
+	Fp
+X-Gm-Gg: AeBDiesIAhDMtH4CqnhLbiybskFGJTNArm49GL0Vu8pCDfQe3UG0IWoJe2lehWIkCfu
+	aU5jSsPxKpNB4cPRnFzcEk5k82dhC1dI011JvbYJd7es72D+HRhZnAcFDsyW7wXDpqy8OB6q95F
+	oiMmV5RXZm4R93adP37qokVt34HehFVF5TLY3OFTaO6xiP754Jy4FW2d+w6WEiKrC7Wzm6sQaku
+	4cKs6AHaylx+OmTXIkeGLQLdyC5dcPwQER4cYfS3kp3HdUX4j4n1tP8/a9eplYMxj/bDTNIYkQh
+	wvTNKmj/YHDWfStD8RyE+I8tA9DeBMs2TW92lTbAnw1G1FpSsxuS6hHKgqcAYtTijm27atOVfx2
+	LoYbzkuPQDuYVXd1QR8KBy0Y6SsNFZdHAty4l9nJICpfwq1/HfqYPeHDmUCYAkoutCEzfu/lsNC
+	VH1wIy0ZAGSH8qH/I=
+X-Received: by 2002:a05:600c:8b6b:b0:485:3c2e:60d5 with SMTP id 5b1f17b1804b1-488fb8859ddmr427762075e9.2.1777047855231;
+        Fri, 24 Apr 2026 09:24:15 -0700 (PDT)
+X-Received: by 2002:a05:600c:8b6b:b0:485:3c2e:60d5 with SMTP id 5b1f17b1804b1-488fb8859ddmr427761525e9.2.1777047854742;
+        Fri, 24 Apr 2026 09:24:14 -0700 (PDT)
+Received: from localhost (62-151-111-63.jazzfree.ya.com. [62.151.111.63])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a682588f8sm6272915e9.10.2026.04.24.09.24.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Apr 2026 09:24:13 -0700 (PDT)
+From: Javier Martinez Canillas <javierm@redhat.com>
+To: Thomas Zimmermann <tzimmermann@suse.de>, Arnd Bergmann <arnd@arndb.de>,
+ Ard Biesheuvel <ardb@kernel.org>, Ilias Apalodimas
+ <ilias.apalodimas@linaro.org>, Huacai Chen <chenhuacai@kernel.org>, WANG
+ Xuerui <kernel@xen0n.name>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Dave Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, "K. Y.
+ Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>,
+ Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+ longli@microsoft.com, Helge Deller <deller@gmx.de>
+Cc: linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-efi@vger.kernel.org, linux-riscv@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
+ linux-fbdev@vger.kernel.org
+Subject: Re: [PATCH 3/8] firmware: sysfb: Make CONFIG_SYSFB a
+ user-selectable option
+In-Reply-To: <0156562f-5fcf-47ce-8fea-03345f2c3fe6@suse.de>
+References: <20260402092305.208728-1-tzimmermann@suse.de>
+ <20260402092305.208728-4-tzimmermann@suse.de>
+ <78f76717-8f1e-41d6-92f7-261df96b84b6@app.fastmail.com>
+ <3e466158-c2e5-4e23-934f-dcdbb71ad41f@suse.de>
+ <d3d7c545-3b07-4881-a16d-45b6f039de19@app.fastmail.com>
+ <001efe27-9cbb-4a89-8d2d-a1f3ae15e505@suse.de>
+ <295a43ce-92fb-435d-a82f-d1cfa8f4f28d@app.fastmail.com>
+ <0156562f-5fcf-47ce-8fea-03345f2c3fe6@suse.de>
+Date: Fri, 24 Apr 2026 18:24:07 +0200
+Message-ID: <87se8kjpi0.fsf@ocarina.mail-host-address-is-not-set>
 MIME-Version: 1.0
-References: <20260420-beagley-ai-display-v1-0-f628543dfd14@ideasonboard.com> <20260420-beagley-ai-display-v1-15-f628543dfd14@ideasonboard.com>
-In-Reply-To: <20260420-beagley-ai-display-v1-15-f628543dfd14@ideasonboard.com>
-From: Robert Nelson <robertcnelson@gmail.com>
-Date: Fri, 24 Apr 2026 11:16:01 -0500
-X-Gm-Features: AQROBzA6ToQMdPNxQfm-1s1rL8nfgq-Z1E4rbqFRJtKj9KT9hbDXQ7tUBkUOYMM
-Message-ID: <CAOCHtYjJgqomKreDxLUiVbUtpeh36f0bL-jA6P-6rsoJrweshQ@mail.gmail.com>
-Subject: Re: [PATCH 15/15] arm64: dts: ti: beagley-ai: Enable HDMI display and audio
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Lee Jones <lee@kernel.org>, Aradhya Bhatia <aradhya.bhatia@linux.dev>, Nishanth Menon <nm@ti.com>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, Swamil Jain <s-jain1@ti.com>, Devarsh Thakkar <devarsht@ti.com>, 
-	Louis Chauvet <louis.chauvet@bootlin.com>, devicetree@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Andrew Davis <afd@ti.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: egrNZxrmCI1M6XJrBZitPxFxcVVkwowGup5cxWfHOZs_1777047855
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_091629_741183_261AD0DB 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20260424_092421_108558_C8BCD406 
+X-CRM114-Status: GOOD (  17.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,31 +124,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 20, 2026 at 8:04=E2=80=AFAM Tomi Valkeinen
-<tomi.valkeinen@ideasonboard.com> wrote:
+Thomas Zimmermann <tzimmermann@suse.de> writes:
+
+Hello,
+
+[...]
+
+>>>>>> On Thu, Apr 2, 2026, at 11:09, Thomas Zimmermann wrote:
+>>>>>> I don't really like this part of the series and would prefer
+>>>>>> to keep CONFIG_SYSFB hidden as much as possible as an x86
+
+I tend to agree with Arnd here, I'm also not seeing that much value on
+making this symbol user selectable. For now I would just keep it hidden.
+
+[...]
+
+>> Yes, I saw that as well and don't have an immediate idea for how
+>> to best do it. I saw that you already abstracted the access to
+>> the screen_info members in drm_sysfb_screen_info.c, which I think
+>> is a step in that direction.
+>>
+>> I also noticed that efidrm is mostly a subset of vesadrm, so
+>> in theory they could be merged back into an x86 drm driver
+>> along with the drm_sysfb_screen_info helpers, and have a non-x86
+>> driver that constructs a drm_sysfb_device directly from the
+>> EFI structures.
 >
-> From: Andrew Davis <afd@ti.com>
->
-> Enable HDMI support for BeagleY-AI platform. The display controller used =
-is
-> TIDSS and the HDMI bridge used is IT66122.
->
-> Based on DT by: Robert Nelson <robertcnelson@gmail.com>
-> Signed-off-by: Andrew Davis <afd@ti.com>
-> Signed-off-by: Swamil Jain <s-jain1@ti.com>
-> [tomi.valkeinen: cosmetic fixes]
-> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+> I would not want to have a unifed driver for all-things-screen_info. The 
+> code that can easily be shared is already in the sysfb helpers. But I 
+> don't mind adding a separate driver for EFI's Graphics Output Protocol.
 
-Tested-by: Robert Nelson <robertcnelson@gmail.com>
+I agree. It is much more maintainable if we have dedicated DRM drivers that
+use shared helpers, than attempting to have a driver for different platforms.
 
-Thank you for getting the display back end working on j722s family!
+As Thomas explained, the maintance effort is small on the DRM side and he has
+done a lot of work to split simpledrm in efidrm, vesadrm and ofdrm.
 
-After this goes in, I need to submit the usb/usb-hub changes to enable
-USB support...
+-- 
+Best regards,
 
-Regards,
+Javier Martinez Canillas
+Core Platforms
+Red Hat
 
---=20
-Robert Nelson
-https://rcn-ee.com/
 
