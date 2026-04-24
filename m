@@ -4,80 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 546FAFED3E2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 15:15:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A96FED3E2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 15:16:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=11B7mFpZ7qVCH2xf01dCaQCgfvR0W4/yFUJfYdr9MXk=; b=LImxlJ/wZzmlSbXkmHXTRsl62M
-	+x4AX0JVhO1QyGggJAeqP/uPaAcb44cGNKijrKovoHZ+74Talyr3uvNz1xSQAQq4J5XWIOuhzV0Rr
-	dQjha4pKygGrhnz6th3I2Nm4ieaa/3ZD8vGIn4hXdbwUm9CNWm+uPCt0V4s6RpX8ak6AuzHIivUMf
-	NNKhrlGIVMkIMPhUdC+iQ87cE7IhkGTh2yIErebg9NEv9PBn8soH2iIXz6l9eQnUK6y8wBiHLjmYK
-	ua9GxnBZmcYRt3MXZFQoOz23Hkuuqpwg1qFExTZpenY7+Z3lMx+THniPZxLQXEg34ihogfpyAMBf+
-	He5VI7Ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MaCdOObf5UPcAvD+z2xe46ZSwFGPYF4x6Up09Mib5CA=; b=yonIRqY6XHB4m1TtKaM9kUetZ1
+	e5iwjgHKKT/W6Bk23WymvCFDnjRmwThEJfhpHVmEOY5xNOkbtcuKG1Px/wHyyi44g/lvjkBpHCHpH
+	AU7p8XCmCjZOmujN8iTEnHYz34F5vEQYo3QXZ+DJNJbcxu+0Fnc1fiANcVts+/sEb/K6VXd7IIbue
+	YeASMwSVTxh6LOa3JAMnbOulToLiNi7eNuEbtG3hJbXhavWBAGL5mujv0vRBTCfDDGwEdN7pBgocm
+	OG0boDjlBYMUvU7uDBU5Irf98ay1GZjV2DnGe4DnaLYFedzqw++zvVEidrjDvlFnJVovQ6Xrj5zLS
+	FaFpdHag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGIFG-0000000DNDO-23DQ;
-	Fri, 24 Apr 2026 15:15:06 +0000
+	id 1wGIGY-0000000DNWW-1YU5;
+	Fri, 24 Apr 2026 15:16:26 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGIFE-0000000DNCH-23ZF
+	id 1wGIGV-0000000DNW8-41NQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 15:15:05 +0000
+	Fri, 24 Apr 2026 15:16:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A787144384;
-	Fri, 24 Apr 2026 15:15:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 834ECC19425;
-	Fri, 24 Apr 2026 15:15:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0D15F41690;
+	Fri, 24 Apr 2026 15:16:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95047C19425;
+	Fri, 24 Apr 2026 15:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777043703;
-	bh=g9K5mfNblRY0b8MrHwI5cfWeLShbsP+DXXMV5iplhIU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=ixejiLbCe6paehrBYEgux/SsbNRd7z0hbwWE3TgN2pwgIIvCNGNdeIfJ9tK+Y95ru
-	 oYaLVhKd6Wllz358gOUojfmSejLRJaq+8q2GtBDJSqIF4nk6OZJQ6/BVQd4QkqyQ96
-	 ldDaQq40R4xj6QDnnWHhlWhEi+PQXPRroBHYyyNn7s2jUbQIiXAOVO4qK0/Go7MVOq
-	 Nd+KX3P0gBE2ckpNniPIZJwnRslVs5KS8h36Bqe/8HtCpLmeKF7CHLG5lMGjkQpd9m
-	 Yd6X1/oKxy3NNdUCBIkWsAma9wwIRyxwe5tYXqGw3H+nihQkZTNnMm67JWCEGkV81Y
-	 2fsMq98wGr6EA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wGIFA-0000000EPWA-2PuZ;
-	Fri, 24 Apr 2026 15:15:00 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Ben Simner <ben.simner@cl.cam.ac.uk>,
-	David Woodhouse <dwmw@amazon.co.uk>,
-	Fuad Tabba <tabba@google.com>,
-	Quentin Perret <qperret@google.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Will Deacon <will@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org
-Subject: [GIT PULL] KVM/arm64 fixes for 7.1, take #1
-Date: Fri, 24 Apr 2026 16:14:43 +0100
-Message-ID: <20260424151443.750077-1-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	s=k20201202; t=1777043782;
+	bh=nrM3UKcrO7tPwOt1LFMCFnX8PG4XqEiYfdua6M/CYZI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=H6v7GrWsEyBK2JTdhH44O/VJffVliTLN/jxYcPHtXzEA3iIKF1gnE3HGxGa9SKEQA
+	 RS7yTV0uv7X/4/m3kSfAS4hKfKLkfs/T231MtXN7LZH4G6Oq5otf3NdFktwJTloTB/
+	 AO/SVqd3Vzh3GyM8KS82GO1bSOmBWKyslzNbrFj80ipoaHN4HDTc14XqNe+SGZ+ymG
+	 i2FQpB8i/+GN99DxFVUqc028G3/n7yltam8zR7wSeIQZRovjqGiOPyvFKHUR6HZFKC
+	 niK8h5kYh3SfA4v1gs9iKh7L5JIC4yU5amMeESkf8nVxOeHry7hfqPBqTDutoLCpT8
+	 +MFE/f+awrvyA==
+Date: Fri, 24 Apr 2026 16:16:17 +0100
+From: Will Deacon <will@kernel.org>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Evangelos Petrongonas <epetron@amazon.de>,
+	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Pranjal Shrivastava <praan@google.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, nh-open-source@amazon.com,
+	Zeev Zilberman <zeev@amazon.com>
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow disabling Stage 1 translation
+Message-ID: <aeuJQW8bGLY-O_vv@willie-the-truck>
+References: <20260420123221.20801-1-epetron@amazon.de>
+ <20260420124032.GO2577880@ziepe.ca>
+ <20260422064431.GA49867@dev-dsk-epetron-1c-1d4d9719.eu-west-1.amazon.com>
+ <20260422162351.GK3611611@ziepe.ca>
+ <aenp6FHzx9rtUQkZ@willie-the-truck>
+ <aenqxasLJ8yKYqbT@willie-the-truck>
+ <20260423142326.GP3611611@ziepe.ca>
+ <aepRy7Gp7Ng85Zr7@willie-the-truck>
+ <20260423223716.GS3611611@ziepe.ca>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: pbonzini@redhat.com, ben.simner@cl.cam.ac.uk, dwmw@amazon.co.uk, tabba@google.com, qperret@google.com, sebastianene@google.com, vdonnefort@google.com, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260423223716.GS3611611@ziepe.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_081504_579250_08BBB7ED 
-X-CRM114-Status: GOOD (  14.40  )
+X-CRM114-CacheID: sfid-20260424_081624_035336_7147BDC5 
+X-CRM114-Status: GOOD (  37.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,95 +85,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Paolo,
+On Thu, Apr 23, 2026 at 07:37:16PM -0300, Jason Gunthorpe wrote:
+> On Thu, Apr 23, 2026 at 06:07:23PM +0100, Will Deacon wrote:
+> 
+> > I don't think it's that odd given that the STE/CD entries are bigger
+> > than PTEs and the SMMU permits a lot more relaxations about how they are
+> > accessed and cached compared to the PTW.
+> 
+> Well I'm not sure bigger really matters, but I wasn't aware there was
+> a spec relaxation here that would make the cachable path not viable
+> for STE but not PTW...
 
-This is the first drop of KVM/arm64 fixes for 7.1. Nothing really
-major so far, but a rather wide range of fixes for idreg handling,
-long standing regressions, SMCCC compliance and more. Add a few
-cleanups to the fix, and that's about it. As usual, gory details in
-the tag below.
+Things like the SMMU being allowed to cache invalid structures and
+loading structures using multiple, unordered accesses are the things
+that worry me relative to the page-tables. But see below.
 
-Please pull,
+> > Having said that, the page-table code looks broken to me even in the
+> > coherent case:
+> > 
+> > 	ptep[i] = pte | paddr_to_iopte(paddr + i * sz, data);
+> > 
+> > as the compiler can theoretically make a right mess of that.
+> 
+> Heh, great. The iommupt stuff does better.. It does a 64 bit cmpxchg
+> to store a table pointer and a 64 bit WRITE_ONCE to store the pte,
+> then a CMO through the DMA API.
+> 
+> DMA API has to guarentee the right ordering, so we only have the
+> question below:
+> 
+> > > STE/CD is pretty simple now, there is only one place to put the CMO
+> > > and the ordering is all handled with that shared code. We no longer
+> > > care about ordering beyond all the writes must be visible to HW before
+> > > issuing the CMDQ invalidation command - which is the same environment
+> > > as the pagetable.
+> > 
+> > You presumably rely on 64-bit single-copy atomicity for hitless updates,
+> > no?
+> 
+> Yes, just like the page table does..
+> 
+> I hope that's not a problem or we have a issue with the PTW :)
 
-	M.
+You trimmed the part from my reply where I think we _do_ have an issue
+with the PTW. Here it is again:
 
-The following changes since commit 94b4ae79ebb42a8a6f2124b4d4b033b15a98e4f9:
+  The non-coherent case looks more fragile, because I don't _think_ the
+  architecture provides any ordering or atomicity guarantees about cache
+  cleaning to the PoC. Presumably, the correct sequence would be to write
+  the PTE with the valid bit clear, do the CMO (with completion barrier),
+  *then* write the bottom byte with the valid bit set and do another CMO.
 
-  Merge branch kvm-arm64/misc-7.1 into kvmarm-master/next (2026-04-08 12:26:11 +0100)
+> > > I also don't like this "lot of systems thing". I don't want these
+> > > powerful capabilities locked up in some giant CSP's proprietary
+> > > kernel.  I want all the companies in the cloud market to have access
+> > > to the same feature set. That's what open source is supposed to be
+> > > driving toward. I have several interesting use cases for this
+> > > functionality already.
+> > 
+> > Sorry, the point here was definitely _not_ about keeping this out of
+> > tree, nor was I trying to say that this stuff isn't important. But the
+> > mobile world doesn't give a hoot about KHO and _does_ tend to care about
+> > the impact of CMO, so we have to find a way to balance the two worlds.
+> 
+> Yes, that make sense.
+> 
+> My argument is that the CMO on STE/CD shouldn't bother mobile, you
+> could even view it as an micro-optimization because we do occasionally
+> read-back the STE/CD fields.
 
-are available in the Git repository at:
+I was against that read-back, iirc :)
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kvmarm-fixes-7.1-1
+> And if Samiullah can tackle dma_alloc_coherent then maybe the whole
+> question is moot.
 
-for you to fetch changes up to 4ce98bf0865c349e7026ad9c14f48da264920953:
+Yes, that would be great, but we probably need to fix the page-table
+code too.
 
-  KVM: arm64: Wake-up from WFI when iqrchip is in userspace (2026-04-24 12:03:57 +0100)
-
-----------------------------------------------------------------
-KVM/arm64 fixes for 7.1, take #1
-
-- Allow tracing for non-pKVM, which was accidentally disabled when
-  the series was merged
-
-- Rationalise the way the pKVM hypercall ranges are defined by using
-  the same mechanism as already used for the vcpu_sysreg enum
-
-- Enforce that SMCCC function numbers relayed by the pKVM proxy are
-  actually compliant with the specification
-
-- Fix a couple of feature to idreg mappings which resulted in the
-  wrong sanitisation being applied
-
-- Fix the GICD_IIDR revision number field that could never been
-  written correctly by userspace
-
-- Make kvm_vcpu_initialized() correctly use its parameter instead
-  of relying on the surrounding context
-
-- Enforce correct ordering in __pkvm_init_vcpu(), plugging a
-  potential pin leak at the same time
-
-- Move __pkvm_init_finalise() to a less dangerous spot, avoiding
-  future problems
-
-- Restore functional userspace irqchip support after a four year
-  breakage (last functional kernel was 5.18...). This is obviously
-  ripe for garbage collection.
-
-- ... and the usual lot of spelling fixes
-
-----------------------------------------------------------------
-David Woodhouse (1):
-      KVM: arm64: vgic: Fix IIDR revision field extracted from wrong value
-
-Fuad Tabba (5):
-      KVM: arm64: Fix FEAT_Debugv8p9 to check DebugVer, not PMUVer
-      KVM: arm64: Fix typo in feature check comments
-      KVM: arm64: Fix FEAT_SPE_FnE to use PMSIDR_EL1.FnE, not PMSVer
-      KVM: arm64: Fix kvm_vcpu_initialized() macro parameter
-      KVM: arm64: Fix pin leak and publication ordering in __pkvm_init_vcpu()
-
-Marc Zyngier (2):
-      KVM: arm64: pkvm: Adopt MARKER() to define host hypercall ranges
-      KVM: arm64: Wake-up from WFI when iqrchip is in userspace
-
-Quentin Perret (1):
-      KVM: arm64: Fix initialisation order in __pkvm_init_finalise()
-
-Sebastian Ene (1):
-      KVM: arm64: Reject non compliant SMCCC function calls in pKVM
-
-Vincent Donnefort (1):
-      KVM: arm64: Re-allow hyp tracing HVCs for [nh]VHE
-
- arch/arm64/include/asm/kvm_asm.h   | 28 ++++++++++++++++++----------
- arch/arm64/include/asm/kvm_host.h  |  5 +----
- arch/arm64/kvm/arm.c               |  4 ++++
- arch/arm64/kvm/config.c            | 23 ++++++++++++++++-------
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 30 +++++++++++++++++-------------
- arch/arm64/kvm/hyp/nvhe/pkvm.c     | 38 +++++++++++++++++++++++++-------------
- arch/arm64/kvm/hyp/nvhe/setup.c    |  6 +++---
- arch/arm64/kvm/vgic/vgic-mmio-v2.c |  2 +-
- arch/arm64/kvm/vgic/vgic-mmio-v3.c |  2 +-
- 9 files changed, 86 insertions(+), 52 deletions(-)
+Will
 
