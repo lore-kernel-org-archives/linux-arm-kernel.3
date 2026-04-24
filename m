@@ -4,87 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B9DFE5202
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 11:08:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 160C2FE520C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 11:08:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tBvRUhGont3QNqfCyXYiWQD9y3DBlZr+jlfnvLDE+kY=; b=HbONZrtrDMx/+rQoNrr94UIz1c
-	qwaq13KOmoBaKCzLJxy6LxrJnNjkWfhIjwsPT1FnsCt7J+nWW09W5yzrVxoHJ9q0Se0swZVl+GiBR
-	WGKuKpHdFpm4XZ10OA2xCk4wL/02QsYazgj7sQDz1nVkf3TA632UPV1sInWNPH+bzGLeT7PL6eFmQ
-	SoAvua0QzcwnorQMLKstd1RdctMBdTiiWQG8nFh8h+JrTz6Osz83OhpFH/iGQVn5IZRtKDFdeNN6k
-	mZan4MGiX9KCDWvChKQ3Acza6kqazeTBgCF99A3NgT8D9FXLGLwQqRT7Sm+MrHl2LjSGzgKON9Doj
-	aRvwbkrw==;
+	bh=C6GePlXqr4KEOmk21GYvQBuwFXeqvmi10cZFU9jiyGs=; b=V0ptC0m4aIt+SijjoBzuLl6cNR
+	Oq5ao03ARtGMaQPdsN9RrlY3/dnjZfU/YOgRgJ5djk45bPusF1eeqOt/CXcb3bRimQVgxDiA5f+s+
+	shNfJkmRkPzCJSUqlmdEox8FtLMn6dYvWvboDHl3pnQ+dhyTX6OkfyjnxGalS6vTKLAq3mM142DMh
+	0qKzAw53iZIetiJRMClAFe/dfo0M2WGIOvmeluL6Jb0qmmSkScG+k+flW+RgCaMD+mZAogO6AshaC
+	9Bs43hRKLKhixV41/t7lq7BM5epM2joaKAKgXrZA/s+JfmK9+FJgMRyI4PYfMWSeDbtwCoo32gGI2
+	lApwDQqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGEOG-0000000D4GX-0pKl;
-	Fri, 24 Apr 2026 11:08:08 +0000
+	id 1wGEOT-0000000D4Mm-1wRL;
+	Fri, 24 Apr 2026 11:08:21 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGEOD-0000000D4Fm-3glT
+	id 1wGEOJ-0000000D4IX-0UMJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 11:08:07 +0000
+	Fri, 24 Apr 2026 11:08:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2732244312;
-	Fri, 24 Apr 2026 11:08:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAD78C19425;
-	Fri, 24 Apr 2026 11:08:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CFE4144312;
+	Fri, 24 Apr 2026 11:08:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA4DBC2BCB6;
+	Fri, 24 Apr 2026 11:08:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777028885;
-	bh=EhTixBg2942FDflTxtXBYV+26rSI2mTgBToDUlR3aI0=;
-	h=From:To:Subject:Date:In-Reply-To:References:From;
-	b=gyLsioWS5UkEU/oiFMqlSXoZ/KEgJoWh5e1lbm7vRt1m8h6wiureytQh1/CpEvSjq
-	 UxYGnWQlFTW3mpCio70n3eisrCnXOjs9UcarC1eTY0DtkXTwmgPpz8IrTn4hV06pOq
-	 Nhe8Im1geRV7iqZx1OZbwwMuZbjRHEXWPC3gcvgvFTcHd+WCZ2661lb1CvJdbc5cSh
-	 l4u9acMIVyDT8UTSUlkAenrMYOPEMvlYSJ4k+ItlgAV8gj9DIIsQKExGrfLly9ut9t
-	 2CUBWlTveBbgoXYbuPugjG/kozw652T0pt3Xhm5ECHSQeOKhA9IOAR298hZo380dfN
-	 VWSNRF7Vk687g==
+	s=k20201202; t=1777028890;
+	bh=cmSla55ceuCbLiK30aqfSAllXwLZ2tM2r3ifRj5DUwI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=hBb/hNTAcd75sQn1Q24gofMGtsSOC2duEKWZgSdOuB8gWgI2gXbaQOc17YPe1fWlX
+	 6lbv0d7o1Q5rpU8W0H04GkZ1bTwtfJf+MXj8uLQwBTb+nN6kdTUP6tgoCf/R59irTL
+	 tzVNAxU7AwLJmRrKdd95N/wH1Z2GiVTFYObvCjVlSFK+uoQqNFfv7IjyIqTC9jXnbK
+	 r8B3a2dV/LyTHYnr9FKcZMZmyJ4eO7Lxf0G+lJmxw7m+KsnZxmOgOMugvzY3ihGNmZ
+	 x6pe2P3fhZcG2Pm8YPJTNcus3CDN+l7qQB2tFawDOp8UMlUGUxiFOnKjMD05xGchSC
+	 vagYo7CTAgnsA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wGEOA-0000000ELuP-12bL;
-	Fri, 24 Apr 2026 11:08:02 +0000
+	id 1wGEOG-0000000ELuX-251e;
+	Fri, 24 Apr 2026 11:08:08 +0000
 From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	David Woodhouse <dwmw@amazon.co.uk>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	Kees Cook <kees@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Nathan Chancellor <nathan@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
+To: catalin.marinas@arm.com,
 	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	David Woodhouse <dwmw2@infradead.org>
-Subject: Re: (subset) [PATCH 1/3] KVM: arm64: vgic: Fix IIDR revision field extracted from wrong value
-Date: Fri, 24 Apr 2026 12:07:57 +0100
-Message-ID: <177702878141.537738.13460155220731277452.b4-ty@kernel.org>
+	android-kvm@google.com,
+	Sebastian Ene <sebastianene@google.com>
+Cc: joey.gouly@arm.com,
+	korneld@google.com,
+	mrigendra.chaubey@gmail.com,
+	oupton@kernel.org,
+	perlarsen@google.com,
+	suzuki.poulose@arm.com,
+	will@kernel.org,
+	yuzenghui@huawei.com
+Subject: Re: [PATCH v2] KVM: arm64: Reject non compliant SMCCC function calls in pKVM
+Date: Fri, 24 Apr 2026 12:08:05 +0100
+Message-ID: <177702878144.537738.10946354960670336499.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260407210949.2076251-2-dwmw2@infradead.org>
-References: <20260407210949.2076251-1-dwmw2@infradead.org> <20260407210949.2076251-2-dwmw2@infradead.org>
+In-Reply-To: <20260408114118.422604-1-sebastianene@google.com>
+References: <20260408114118.422604-1-sebastianene@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, shuah@kernel.org, dwmw@amazon.co.uk, rananta@google.com, eric.auger@redhat.com, kees@kernel.org, arnd@arndb.de, nathan@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, dwmw2@infradead.org
+X-SA-Exim-Rcpt-To: catalin.marinas@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, android-kvm@google.com, sebastianene@google.com, joey.gouly@arm.com, korneld@google.com, mrigendra.chaubey@gmail.com, oupton@kernel.org, perlarsen@google.com, suzuki.poulose@arm.com, will@kernel.org, yuzenghui@huawei.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_040805_960382_0D5313B5 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20260424_040811_181281_516580F4 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,22 +93,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 07 Apr 2026 21:27:02 +0100, David Woodhouse wrote:
-> The uaccess write handlers for GICD_IIDR in both GICv2 and GICv3
-> extract the revision field from 'reg' (the current IIDR value read back
-> from the emulated distributor) instead of 'val' (the value userspace is
-> trying to write). This means userspace can never actually change the
-> implementation revision — the extracted value is always the current one.
+On Wed, 08 Apr 2026 11:41:18 +0000, Sebastian Ene wrote:
+> Prevent the propagation of a function-id that has the top bits set since
+> this is not compliant with the SMCCC spec and can overlap with the
+> already known function-id decoders. (eg. if we invoke an smc with
+> 0xffffffffc4000012 it will be decoded as a PSCI reset call). Instead,
+> make it clear that we don't support it and return an error.
 > 
-> Fix the FIELD_GET to use 'val' so that userspace can select a different
-> revision for migration compatibility.
 > 
 > [...]
 
 Applied to fixes, thanks!
 
-[1/3] KVM: arm64: vgic: Fix IIDR revision field extracted from wrong value
-      commit: a0e6ae45af17e8b27958830595799c702ffbab8d
+[1/1] KVM: arm64: Reject non compliant SMCCC function calls in pKVM
+      commit: 480ea48cad873b49a1fabd07c0847c3cf1c32286
 
 Cheers,
 
