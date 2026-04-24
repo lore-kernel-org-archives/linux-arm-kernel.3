@@ -4,92 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1826FE5200
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 10:20:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 338E5FE5204
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 10:43:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=waZ0cjt5eQT/m2pCNFidLm/zgGMtBmWWg3Q6aAy9I+M=; b=Hg4ADpMIJGl5siwHpshtbMbMSx
-	oI+Cws55hDLD0dw1CPwm5ZQq6kzaQc2IpDHBGdk8JDn0JVy+gIITUCvihKYJwM95lz2GD3AXIBioD
-	tiz5rGT9O7osSXKNk3Jmi6yvPXWr6q+JDcxHZzFW6JMVDmxQDUh1cR/Na+T94Z3fPsM9WVsU+lxYm
-	vTHd78ufCrjMhkba/bUCaGq31Wmex/KpuS0rZTk7vO78f1/hiMgSdYpUkNEb9KqIVBF+7mBtF8i9C
-	edh+n9KZo9i+UJECJ7ip8mUIT8n8UvNNjAiECOflYRyxLm37pdYtjjMnNJPAkV05oEmQQbmCfrFQ4
-	CGEjrDOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J5gTkcH32uD+Dsajybdo76tx0SOK3NMIQVQJNVoC96k=; b=qh6ffPsqE5Jkt0i74TV+5LLoa6
+	jwcbjSdVcgsgstLNEqUGnZ9Tb3vVo697v7CcUBXzXknMD5eDdRdjMd7OegKIEaxwknKNglqyiwInc
+	gG0LtkFI1A2iQoMUN4tLJyOmCmjVSRi0CVGL4HRA1sQJ1jTOB/zPIW/cKHyYSqOAndJch5ykFPUMr
+	uItdiVCYqBdjktAR29xh4qhJTWKUDZdtNXK2j3xfwbFpsDG4lhJ9PRc4/hnRFt8CNaM4pgh62r+eA
+	Ycn1XDzui1WQMVeDNyBKZ0/OqS4Zeo/LSinzUt+CqkCSQ58cS4gemmY9JJHhLf3UXm+K8Cf1Exeud
+	GXIIiZbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGDdl-0000000D1Rm-3ZtV;
-	Fri, 24 Apr 2026 10:20:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wGE0T-0000000D3Ap-3XPy;
+	Fri, 24 Apr 2026 10:43:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGDdb-0000000D1EN-33en
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 10:19:59 +0000
+	id 1wGE0T-0000000D3Af-0Pq4;
+	Fri, 24 Apr 2026 10:43:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2CD8D438B4;
-	Fri, 24 Apr 2026 10:19:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76A9BC2BCB4;
-	Fri, 24 Apr 2026 10:19:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 388096001A;
+	Fri, 24 Apr 2026 10:43:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E2B3C19425;
+	Fri, 24 Apr 2026 10:43:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777025995;
-	bh=7WwDimnrjxrL5GwHweBIXGptDgbfPw+6zEsaC+/oPMk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=m213SuUDjedNosTlBc85fXGICOldkgj57pzeoNR+bDo6uWL/hSOSyb/wsvZ1jbYN8
-	 iEYkbftwKgaRbM/abcNOBM/JBMXAFBnim+yddWYyQiaUpFofWD2X27vvZx8e21JO+J
-	 GHyB9S7JeDOad+uR0BxX1dnjPsxP/wrlyLsNomI82+iduHZedPVDPry4/Em4JKYj3Y
-	 F4SnD+eC5KIyTNAVktoupUqukXZkHidkjV5jJr3rJvFfHsi7IYm0Gy7A2c9XDyzRQW
-	 OfibzuEFvOeFsvaY2gj5oO3mj4doU8a4GWq95UWB1eoDcVEJbaaLfg4noGDC2aSDGV
-	 a/5dhwxdm9jkw==
-From: Maxime Ripard <mripard@kernel.org>
-Date: Fri, 24 Apr 2026 12:18:59 +0200
-Subject: [PATCH v3 19/20] drm/tidss: Convert to atomic_create_state
+	s=k20201202; t=1777027411;
+	bh=kknDDv9TuvxwgtonleSpBC/+VyXVDvyX2AE+3GnIAw4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SDMQHrfzRkuh92o/aG4I5AFMn1snndSnL+7WSnv5nef9ruDSGgGHKYWXEj7SPnJRm
+	 LY24+LVI4JMn1/V+jz/EXg2ysR8wksLiEdHrEs4oDg2Sg77Yv95DdREYTz1A6MHlbm
+	 zahdprpJZ8p9EDrFlUBQYhcXq4HLG3Th+yEgwKzPFS4yBqgKcaW0Hsg5UewY116SPo
+	 /UW4PgZfJUoJBxnt0rZHnVuSWp1AVHunPk5zviLN7TnXoiGy9WO8r5RAPu5LgZ0YNi
+	 yt01acpjkuo++DRtrv2I/a5YrVDa3/WsYv1ERETrMb6GtLkE+eGYnzouqLWZH2mPGZ
+	 x4CrRrJbSwWVw==
+Date: Fri, 24 Apr 2026 12:43:29 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Lee Jones <lee@kernel.org>, 
+	William Breathitt Gray <wbg@kernel.org>, Damon Ding <damon.ding@rock-chips.com>, kernel@collabora.com, 
+	Alexey Charkov <alchark@gmail.com>, linux-rockchip@lists.infradead.org, linux-pwm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org, 
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v5 0/6] Add Rockchip RK3576 PWM Support Through MFPWM
+Message-ID: <aetFgdIUlDG0AiMn@monoceros>
+References: <20260420-rk3576-pwm-v5-0-ae7cfbbe5427@collabora.com>
+ <20260421165656.168fe262@jic23-huawei>
+ <dB_doorKQsK5TdJ40Tv8Lw@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260424-drm-mode-config-init-v3-19-8b68d9db0d8b@kernel.org>
-References: <20260424-drm-mode-config-init-v3-0-8b68d9db0d8b@kernel.org>
-In-Reply-To: <20260424-drm-mode-config-init-v3-0-8b68d9db0d8b@kernel.org>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Jyri Sarha <jyri.sarha@iki.fi>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>, 
- Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>, 
- Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
- Rodrigo Vivi <rodrigo.vivi@intel.com>, 
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
- Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>, 
- Samuel Holland <samuel@sholland.org>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- Maxime Ripard <mripard@kernel.org>, 
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3093; i=mripard@kernel.org;
- h=from:subject:message-id; bh=7WwDimnrjxrL5GwHweBIXGptDgbfPw+6zEsaC+/oPMk=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJmvnSdci9WsfvnEeU3koydtDZtuPhPp/fZkQmxUKEOWq
- tjdBPfcjqksDMKcDLJiiixPZMJOL29fXOVgv/IHzBxWJpAhDFycAjARjQ2MDWvaDrELOy1Ukzm9
- k58/x/r+H7OnIXnX7iVea/MV9OFkEnkttWvV45ALS/Z8OSM3S+TxecaGIw7JM7ZVzQpcVqt3u/9
- 6hvB0x4vLc7NUyhm3Rli2bbzHqbSzc/LeM+9ry4wSJi+7bagDAA==
-X-Developer-Key: i=mripard@kernel.org; a=openpgp;
- fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_031955_878186_BAD5F2C8 
-X-CRM114-Status: GOOD (  14.06  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="nqpklusenoeywtel"
+Content-Disposition: inline
+In-Reply-To: <dB_doorKQsK5TdJ40Tv8Lw@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,90 +76,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Our driver uses reset to create the various object states, but only
-calls the helper that allocate a new state. They are thus strictly
-equivalent to the new atomic_create_state helpers, so let's switch to
-these.
 
-Reviewed-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-Signed-off-by: Maxime Ripard <mripard@kernel.org>
----
- drivers/gpu/drm/tidss/tidss_crtc.c  | 17 +++++++----------
- drivers/gpu/drm/tidss/tidss_plane.c |  2 +-
- 2 files changed, 8 insertions(+), 11 deletions(-)
+--nqpklusenoeywtel
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v5 0/6] Add Rockchip RK3576 PWM Support Through MFPWM
+MIME-Version: 1.0
 
-diff --git a/drivers/gpu/drm/tidss/tidss_crtc.c b/drivers/gpu/drm/tidss/tidss_crtc.c
-index a31c21c5f855..66e3d161c60b 100644
---- a/drivers/gpu/drm/tidss/tidss_crtc.c
-+++ b/drivers/gpu/drm/tidss/tidss_crtc.c
-@@ -355,24 +355,21 @@ static void tidss_crtc_destroy_state(struct drm_crtc *crtc,
- 
- 	__drm_atomic_helper_crtc_destroy_state(&tstate->base);
- 	kfree(tstate);
- }
- 
--static void tidss_crtc_reset(struct drm_crtc *crtc)
-+static struct drm_crtc_state *tidss_crtc_create_state(struct drm_crtc *crtc)
- {
- 	struct tidss_crtc_state *tstate;
- 
--	if (crtc->state)
--		tidss_crtc_destroy_state(crtc, crtc->state);
--
- 	tstate = kzalloc_obj(*tstate);
--	if (!tstate) {
--		crtc->state = NULL;
--		return;
--	}
-+	if (!tstate)
-+		return ERR_PTR(-ENOMEM);
- 
--	__drm_atomic_helper_crtc_reset(crtc, &tstate->base);
-+	__drm_atomic_helper_crtc_create_state(crtc, &tstate->base);
-+
-+	return &tstate->base;
- }
- 
- static struct drm_crtc_state *tidss_crtc_duplicate_state(struct drm_crtc *crtc)
- {
- 	struct tidss_crtc_state *state, *current_state;
-@@ -403,14 +400,14 @@ static void tidss_crtc_destroy(struct drm_crtc *crtc)
- 	drm_crtc_cleanup(crtc);
- 	kfree(tcrtc);
- }
- 
- static const struct drm_crtc_funcs tidss_crtc_funcs = {
--	.reset = tidss_crtc_reset,
- 	.destroy = tidss_crtc_destroy,
- 	.set_config = drm_atomic_helper_set_config,
- 	.page_flip = drm_atomic_helper_page_flip,
-+	.atomic_create_state = tidss_crtc_create_state,
- 	.atomic_duplicate_state = tidss_crtc_duplicate_state,
- 	.atomic_destroy_state = tidss_crtc_destroy_state,
- 	.enable_vblank = tidss_crtc_enable_vblank,
- 	.disable_vblank = tidss_crtc_disable_vblank,
- };
-diff --git a/drivers/gpu/drm/tidss/tidss_plane.c b/drivers/gpu/drm/tidss/tidss_plane.c
-index aaa02c851c59..518498d45765 100644
---- a/drivers/gpu/drm/tidss/tidss_plane.c
-+++ b/drivers/gpu/drm/tidss/tidss_plane.c
-@@ -176,12 +176,12 @@ static const struct drm_plane_helper_funcs tidss_primary_plane_helper_funcs = {
- };
- 
- static const struct drm_plane_funcs tidss_plane_funcs = {
- 	.update_plane = drm_atomic_helper_update_plane,
- 	.disable_plane = drm_atomic_helper_disable_plane,
--	.reset = drm_atomic_helper_plane_reset,
- 	.destroy = drm_plane_destroy,
-+	.atomic_create_state = drm_atomic_helper_plane_create_state,
- 	.atomic_duplicate_state = drm_atomic_helper_plane_duplicate_state,
- 	.atomic_destroy_state = drm_atomic_helper_plane_destroy_state,
- };
- 
- struct tidss_plane *tidss_plane_create(struct tidss_device *tidss,
+[Dropped Jonas Karlman from Cc:, their email bounced for me in the past]
 
--- 
-2.53.0
+Hello Nicolas,
 
+On Wed, Apr 22, 2026 at 01:31:14PM +0200, Nicolas Frattaroli wrote:
+> On Tuesday, 21 April 2026 17:56:56 Central European Summer Time Jonathan =
+Cameron wrote:
+> > On Mon, 20 Apr 2026 15:52:37 +0200
+> > Nicolas Frattaroli <nicolas.frattaroli@collabora.com> wrote:
+> >=20
+> > > This series introduces support for some of the functions of the new P=
+WM
+> > > silicon found on Rockchip's RK3576 SoC. Due to the wide range of
+> > > functionalities offered by it, including many parts which this series'
+> > > first iteration does not attempt to implement for now. The drivers are
+> > > modelled as an MFD, with no leakage of the MFD-ness into the binding,=
+ as
+> > > it's a Linux implementation detail.
+> >=20
+> > Just thought I'd point out that as this includes the linux-iio
+> > list sashiko took a look at it.  Quite a few things and at least
+> > the first one I looked at was valid (a dereference before a validity
+> > check)
+> >=20
+> > https://sashiko.dev/#/patchset/20260420-rk3576-pwm-v5-0-ae7cfbbe5427%40=
+collabora.com
+> >=20
+> > Whilst this tool does generate some false positives, it also finds
+> > quite a few things it seems us humans fail to spot.
+> >=20
+> > Jonathan
+> >=20
+>=20
+> While I'm not entirely opposed to this, I do think reviews should happen
+> on-list when possible. Sashiko is a Google service, so it has about a 50%
+> chance of still being around in 2 years time. One of the benefits of the
+> kernel development workflow is that discussion going back decades is still
+> accessible.
+
+I mostly agree to your point. A possibility that I would consider
+compatible with on-list review is looking through what Sashiko found and
+address that on the list. Something like
+https://lore.kernel.org/all/20260420204647.1713944-2-u.kleine-koenig@baylib=
+re.com/
+
+> The reason why these aren't posted to list goes into the other thing
+> that I currently am not stoked about, which is that I'd have to act as
+> a filter for a Bring-Your-Own-Brain noise generator to pick out the
+> parts that aren't convincing lies.
+
+I didn't look through the complete feedback, but the part that I looked
+at (I'd say the rough half) seems to be legitimate.
+
+I'm also have reservations about AI, but my (little) experience with
+this one seems to show that it's in the better half of the scale between
+helpful and useless time consumer. So when I come around to review your
+series I will for sure look through their feedback in more detail. That
+means that if I'm too slow for you, looking through the feedback
+yourself and addressing that (or deciding against it) might be a good
+way to spend the waiting time and maybe even making it easier for me.
+
+Best regards
+Uwe
+
+--nqpklusenoeywtel
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmnrSU4ACgkQj4D7WH0S
+/k5RbwgAosunTIJtGGwUzsLZV8Zw2wd/vePOh4BvI6BFVJqacUQI3GU2p7tDClfB
+CdyBjNdiFYBInb1IzLr2sBOr089SEgf6BzpuZn/ZHATI8hGw+ZeAUkJDfVkeJtno
+qRd6UZuLbzftwQqGudASQBbgc4/mTSqFC9kL7GriORrJ3FJNhtZdoLfUpglbCP65
+G6q2RWvEGqhht5UMfc7cjUk8l67cMru0ctOP32tzCQVBXGpZdbM3cBdcs8ZtBwN0
+KouApV1mbrQhFVXtvCPFTYTosXBb+rsRnq/mO8UWBeOVboAxVASK9PhP1eHJgutn
+Tk3r77pzRnSnrSTnagBFPlKU45DHOg==
+=/p0a
+-----END PGP SIGNATURE-----
+
+--nqpklusenoeywtel--
 
