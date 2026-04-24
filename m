@@ -4,84 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29E93F589DF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 02:58:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC635FDEE5E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 03:05:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ouo86Hd/U4yTmyOjpX8vlfvIQHV6b1lx0tV72daLCys=; b=ymHHTz7IcrOGGowsoGeLn0v14g
-	6RzsHr1N3PTZdwCDnS/NttlRWXDJdUG0CYTxFNZ4UZMYzVE/ZCcQRQWTqqZClbOyE9HjsS3wEYFJI
-	7kN/GT3rx2jjmCtm9sgnf/DU8UpwSBPEW+/E42o76y8pFSGrsEfdjzLJ+oBWRUslg7J4NPD4NT40N
-	Su0epjDqxmwuApq9r/XdjsbagZVcC9WmVCwwiS75j8oi2kUxGhBhpwhv6RoMLzmuroDSBDRqYldc7
-	THc9EspnTvLCvncLkxAjAKLLPGALKU8Ji05CUnFOH+ZpsMmjqbJCjF6bUuuQ/DGTC73U24nkc8+wg
-	0T4QEkew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7s6kM+55X0/tjsOTGbb2H455efulIyGYswcijZekl94=; b=FzpR7JRWP0Uurophb3/xLjK68e
+	I8y3SAUi75yQ3/3zjcMETwip4SIWcpK6c2oSuvqtjiwwxvO5x9Oi4iEZU4RIakegKIzWr+zk/MqCG
+	Irmoyq0ezBU5eDlXuFVGoxFNb/mxiH572/Mc7GOQPo+8p2he6zblV6uuLmPhMryONvv7kCCHlMGj3
+	EzK56WQX0FK6uJzkSTFgD58ipkkknWjtIxfl7atgdnTwwHHeqWdMHDBwbsrzn2+8S2nkAjyv/ff74
+	xGWtKnsPX24JG/FyqIv3qgL2bcO2xzAbL+Qtln7hJzddR7+JSaNO1UmjjeT71JOS2G/VA54EeLMKJ
+	CIAL+ejQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG6kc-0000000CYSs-4AwG;
-	Fri, 24 Apr 2026 02:58:43 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1wG6rO-0000000CYw1-0RmW;
+	Fri, 24 Apr 2026 03:05:42 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG6ka-0000000CYSU-3Lh5
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 02:58:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1776999520; x=1808535520;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=LY7ylunqk041+wYs1GYZnUQlrTZKJSzxWmD03SswSJU=;
-  b=dkXClRdHbQ5tG33jBY9yxopDoX+wxkQiIoaO/3suKmoXzgYo06YVfZ7l
-   1VdHmDCPCKlKTuinoI0TgopWdrd3Pb383e60taZdSNxAweD2QOtBaz2rV
-   ix172yYC3XwTm4LLZf99nyjwoEuWE9vj2cpRrebSUAxRPf71ZMaGo/TK+
-   PH+LfwSAukhws07itFpT1abqIlXAfGhSaT3twctE0dM0CFR8SC9+ub7qb
-   xalU2Sial9xsGrjraj0AtpHC7DbEpF+MinwyDFVDOq37+UDIjv0guOBZ0
-   bxw7N3YGvV3VTRfWHkB8YGhz2bRDQUIujygnl+ugHwATcFCzRw+UGpaOQ
-   w==;
-X-CSE-ConnectionGUID: Sxl5xP7zTjaISZm12ik2NQ==
-X-CSE-MsgGUID: gYvtWbctRMOThVQwhuljQQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11765"; a="80560118"
-X-IronPort-AV: E=Sophos;i="6.23,195,1770624000"; 
-   d="scan'208";a="80560118"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Apr 2026 19:58:40 -0700
-X-CSE-ConnectionGUID: dMsNdGbxQ7+V/twVt5iNEA==
-X-CSE-MsgGUID: wQSmWBAmRnCEOkwzNUW2pw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,196,1770624000"; 
-   d="scan'208";a="256345644"
-Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Apr 2026 19:58:36 -0700
-Message-ID: <fa3d734c-4447-4b7b-9a8d-bb95ffd0e851@linux.intel.com>
-Date: Fri, 24 Apr 2026 10:56:31 +0800
+	id 1wG6rK-0000000CYtu-3gju;
+	Fri, 24 Apr 2026 03:05:40 +0000
+X-UUID: 76089cbe3f8a11f19e7563141e833ce8-20260423
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=7s6kM+55X0/tjsOTGbb2H455efulIyGYswcijZekl94=;
+	b=UkWGeDqqmaeDtIf16b2NCbw/y2ltpVBTHtTL3aKAWraGohLbKgwVvdZCAyEd02NBzVjfbaRMh+fMDHqsiscJgDBaulxiYBCGAjzHfSU1FXdr9McDFROy2KdBMveN2ZcGxO45EhvDFVZaugPaqD7A0WTfdOapl03fAKAM+A8ZpcI=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:bacaf683-d8f9-4032-a1bc-b02d82a1366d,IP:0,U
+	RL:0,TC:0,Content:0,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:e7bac3a,CLOUDID:1627d48f-6df4-4a3d-a7a4-fbdc42d669ce,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|865|888|898,TC:-5,Content:0|
+	15|50,EDM:2,IP:nil,URL:99|1,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI
+	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_ULS,TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 76089cbe3f8a11f19e7563141e833ce8-20260423
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
+	(envelope-from <kyrie.wu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1219473066; Thu, 23 Apr 2026 20:05:34 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Fri, 24 Apr 2026 11:05:31 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Fri, 24 Apr 2026 11:05:30 +0800
+From: Kyrie Wu <kyrie.wu@mediatek.com>
+To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
+	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, Mauro
+ Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
+	Hans Verkuil <hverkuil@xs4all.nl>, Nicolas Dufresne
+	<nicolas.dufresne@collabora.com>, Nathan Hebert <nhebert@chromium.org>, Arnd
+ Bergmann <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>, George Sun
+	<george.sun@mediatek.com>, <linux-media@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+CC: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
+	<andrzejtp2010@gmail.com>, Yilong Zhou <yilong.zhou@mediatek.com>
+Subject: [PATCH v9 0/9] Enable video decoder & encoder for MT8189
+Date: Fri, 24 Apr 2026 11:05:18 +0800
+Message-ID: <20260424030527.10656-1-kyrie.wu@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 02/11] iommu: Pass in reset result to
- pci_dev_reset_iommu_done()
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- Joerg Roedel <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>,
- Jason Gunthorpe <jgg@nvidia.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
- Len Brown <lenb@kernel.org>, Pranjal Shrivastava <praan@google.com>,
- Mostafa Saleh <smostafa@google.com>, Kevin Tian <kevin.tian@intel.com>,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-pci@vger.kernel.org, vsethi@nvidia.com,
- Shuai Xue <xueshuai@linux.alibaba.com>
-References: <cover.1776381841.git.nicolinc@nvidia.com>
- <bf99f11ac9a42b5552ec3367d02840366459ae7b.1776381841.git.nicolinc@nvidia.com>
- <c8c8b482-3781-4d33-9aea-866467d15b69@linux.intel.com>
- <aerZa3aQBMCwzzT8@Asurada-Nvidia>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <aerZa3aQBMCwzzT8@Asurada-Nvidia>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_195840_860287_90B5C127 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20260423_200538_959921_CAE7DB64 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,46 +94,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/24/26 10:46, Nicolin Chen wrote:
-> On Fri, Apr 24, 2026 at 10:38:09AM +0800, Baolu Lu wrote:
->> On 4/17/26 07:28, Nicolin Chen wrote:
->>> @@ -4083,6 +4093,18 @@ void pci_dev_reset_iommu_done(struct pci_dev *pdev)
->>>    	if (WARN_ON(!group->blocking_domain))
->>>    		return;
->>> +	/*
->>> +	 * A reset failure implies that the device might be unreliable. E.g. its
->>> +	 * device cache might retain stale entries, which potentially results in
->>> +	 * memory corruption. Thus, do not unblock the device until a successful
->>> +	 * reset.
->>> +	 */
->>> +	if (!reset_succeeds) {
->>> +		pci_err(pdev,
->>> +			"Reset failed. Keep it blocked to protect memory\n");
->>> +		return;
->>> +	}
->>
->> Nit: pci_dev_reset_iommu_done() does nothing if reset_succeeds is false.
->> Would it be better to handle this in the caller instead? Something like:
->>
->> 	if (reset_succeeds)
->> 		pci_dev_reset_iommu_done(dev);
->>
->> ?
-> 
-> It would also need a print and some duplicated comments. Actually,
-> that would be my v2, which Kevin suggested this against:
-> https://lore.kernel.org/all/BN9PR11MB5276706AE4E0BBE86F0F6E158C4EA@BN9PR11MB5276.namprd11.prod.outlook.com/
+This series have the follow changing:
+Firstly add mt8189 video decoder compatible, profile and level to support
+MT8189 kernel driver.
+Secondly fix some bugs, including vp 4K profile2 and media device node
+number bug.
+Lastly, add mt8189 video encoder compatible.
 
-Oh, I forgot that comment.
+This series has been tested with MT8189 tast test.
+Encoding and decoding worked for this chip.
 
-> Though I don't have a strong personal reference here, I do see this
-> version slightly cleaner than doing in the callers.
+Patches 1 Add decoder compatible.
+Patches 1 fix decoder chip model.
+Patches 3-4 Add profile, level and probability size supporting.
+Patches 6 add decoder platform data to support MT8189.
+Patches 5 & 7 fix some bugs.
+Patches 8-9 Adds encoder compatible.
 
-Okay, you own the decision.
+---
+H264 test results:
+./fluster.py run -d GStreamer-H.264-V4L2SL-Gst1.0 -j2 -t 90
+    JVT-AVC_V1	Ran 96/135 tests successfully
 
-> Thanks
-> Nicolin
+VP9 test results:
+./fluster.py run -d GStreamer-VP9-V4L2SL-Gst1.0 -j2 -t 90
+	VP9-TEST-VECTORS	Ran 276/305 tests successfully
 
-Thanks,
-baolu
+v4l2-compliance test results:
+Compliance test for mtk-vcodec-enc device /dev/video2:
+Total for mtk-vcodec-enc device /dev/video2: 47, Succeeded: 46, Failed: 1, Warnings: 0
+Compliance test for mtk-vcodec-dec device /dev/video3:
+Total for mtk-vcodec-dec device /dev/video3: 48, Succeeded: 48, Failed: 0, Warnings: 0
+
+scp upstream link:
+https://patchwork.kernel.org/project/linux-mediatek/patch/20250811015922.32680-1-huayu.zong@mediatek.com/
+dtsi upstream link:
+https://lore.kernel.org/linux-mediatek/20251030134541.784011-12-jh.hsu@mediatek.com/T/#m847e35de0a5b18fac0ca0624a8559d84964ad5c7
+
+Changes compared with v8:
+--Rebased on top of the latest media tree
+
+Changes compared with v7:
+--relocate the patches set
+--refactor decoder platform data patch
+--fix commit message errors
+
+Changes compared with v6:
+--refactor the patches of set compatible data, profile and level
+--add reviewer to commit messages
+--fix commit message errors
+
+Changes compared with v5:
+--refactor the patches of set compatible data, profile and level
+--add reviewer to commit messages
+--fix commit message errors
+
+Changes compared with v4:
+--update H264 & vp9 fluster test results
+--update vp9 single core decoder prob size setting and commit messages
+
+Changes compared with v3:
+--add reviewer to commit messages
+--Rebased on top of the latest media tree
+
+Changes compared with v2:
+--add H264 fluster test results
+--reorder compatible string for dt-bindings
+
+Changes compared with v1:
+--add v4l2-compliance test results
+--add scp upstream link
+--add HW difference discriptions for dt-bindings commit messages
+
+This series patches dependent on:
+[1]
+https://patchwork.linuxtv.org/project/linux-media/patch/20260328051630.7937-2-yunfei.dong@mediatek.com/
+[2]
+https://patchwork.linuxtv.org/project/linux-media/patch/20260423073345.27402-2-irui.wang@mediatek.com/
+
+Kyrie Wu (9):
+  dt-bindings: media: mediatek: decoder: Add MT8189
+    mediatek,vcodec-decoder
+  media: mediatek: decoder: Add a new platform data member
+  media: mediatek: vcodec: Refactor Decoder profile & level Handling
+  media: mediatek: vcodec: Add VP9 Probability Size Configuration
+  media: mediatek: vcodec: Fix vp9 4096x2176 fail for profile2
+  media: mediatek: vcodec: add decoder compatible to support MT8189
+  media: mediatek: vcodec: Fix media device node number
+  dt-bindings: media: Add MT8189 mediatek,vcodec-encoder
+  media: mediatek: encoder: Add MT8189 encoder compatible data
+
+ .../media/mediatek,vcodec-encoder.yaml        |   2 +
+ .../media/mediatek,vcodec-subdev-decoder.yaml |   5 +-
+ .../mediatek/vcodec/decoder/mtk_vcodec_dec.c  |   2 +-
+ .../mediatek/vcodec/decoder/mtk_vcodec_dec.h  |   6 +
+ .../vcodec/decoder/mtk_vcodec_dec_drv.c       |  46 ++--
+ .../vcodec/decoder/mtk_vcodec_dec_drv.h       |  35 ++-
+ .../vcodec/decoder/mtk_vcodec_dec_hw.c        |   2 +-
+ .../vcodec/decoder/mtk_vcodec_dec_stateful.c  |  14 +
+ .../vcodec/decoder/mtk_vcodec_dec_stateless.c | 239 ++++++++++++------
+ .../vcodec/decoder/vdec/vdec_vp9_req_lat_if.c |  14 +-
+ .../vcodec/encoder/mtk_vcodec_enc_drv.c       |  14 +
+ 11 files changed, 253 insertions(+), 126 deletions(-)
+
+-- 
+2.45.2
+
 
