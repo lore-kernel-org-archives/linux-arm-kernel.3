@@ -4,137 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC9FFAD3F3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 04:05:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E437FB44A2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 04:24:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=35G4XE/mIKGPsswZXiJ7PZUjKNqMilFlyMRO4sj9X70=; b=K+crPkW59jmzR1lzMEkzGbeNfa
-	vVjDLjpCEbZleQ47bDDf3oPCl8JkFNKKsuzB9mq3EmGDK6IA36IW7HKoWsOh6o0DYS/r9BNhY8R+2
-	V18D5OO4fm7VY31qeZmWX4emnAMJJn6zXq0Vyug3AdTDrdqDIirhj0JZD+3oxtBoQYYW73qq3BW8J
-	RFNXDFMPtMtY+bi+2L3sxEPi2yfu02qUuHSQqVM5+bEM4DzHujQJ6r66o7TKd5fq2iUG2jI5Y90Hb
-	vhZcJyLs7F/O8/2SYMGj8GfPU3wpdW8Y0Pk80wUUsoAfjnCJUM/KcfLtJaoR94wUT2sPcTHWF2fyz
-	RcVR4UEA==;
+	bh=3/OZFVTlKXBacMFDOvu4TRCBU72cfYsR+OA/KFVFEpY=; b=3GADA+mm+vn4RV2OndxM7fWW4W
+	CEsAfqo7ckMwLcgs232jXkgLTujAoB7CMm0Ezu251q5Kx7X6u6ZyZPQ8Iij/qegELhZ+n3BFawGZN
+	4P6MaiyLYx8ViAXBC/hblJ72pXAoYViUXSD9ypuawuw7uQQ9MVhmsb8lph3xJKcMPr29gwEgfz1km
+	VjiuTNN4cyN8Nm8yNqEUrzbkSf4FbYb20Dzyw6VF23Zq/NDtuOhL5cPy5Wwt5HT3vigGtgOF9E3KL
+	TpJFZ6wSwe2V1QiPUb6NDCJAEeH5H6TylPkUz/qTNWS0MVGUmhGUw3HO2fAz1QtLw3DZkhV8jWjlA
+	BZkRyYIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG7n6-0000000CcXT-44E6;
-	Fri, 24 Apr 2026 04:05:20 +0000
-Received: from mail-northeuropeazon11010037.outbound.protection.outlook.com ([52.101.84.37] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wG855-0000000CdL8-3FaK;
+	Fri, 24 Apr 2026 04:23:55 +0000
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG7n5-0000000CcX2-1A6I;
-	Fri, 24 Apr 2026 04:05:20 +0000
+	id 1wG84z-0000000CdKi-1svE
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Apr 2026 04:23:51 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=seTzOxE3MXKBub7awaF34Cz2TkGltKEYpIkC07gO85gHU4Logs7+2KAt4KGXcxTbcZs+WiBRDUUa+RtAv3FMaglG9ATZAPIQudJqDFRcbx4edKQ8YHC+zPPEmSo6HqA/YsO3Ti1uGQjNPXsDvZu7l+3HUlL0LnNZhptmy8GpZFHvEyztySF+2AnkMnhFj+Ukv0w6BFL7H6uOngBMuwLwRSX5MEa1cnrDprnG45Jak5Da2JlVVFkO/R8TpX3D/EgLCsJa9Ffao5E1DbLmjpqsjJ1FfgVaHEVlTjELstgfvnoWBKi+OAl4+d2TUbWnndNOb+dx7YAd+4QOtopS6DNjdw==
+ b=QLN/yI0hFIF44NYXJOhlMzwUX7rdEN+pDMmW4Gf8XaU3u0KvN2EAqyh0MTbzg5lBhFTHP5EdRN3DruU4/EJIHmOmew6nP3Jsh+mpMKn+tjnw78i2Iyq3DJ5ehXwG7S3XP9VpAHdIzmHjRYHsYoW7MfQ4UdP1BiebHVzRXe9Dvalr83XxA6FLbfkLeC1I+gxyzJxxq36RIzNmCMvfzUcwbK7IfUbqV31+JIGelrAeXBJo47T6e0YPapXh7FXbnhr8HRJTD+W6t175qmMdqwJqY8SvPLoLYb7J1Ks0iTnsYrfwgZi2Q2cC6JcWRjxIT86qcpMqgFUCBXLE9D9rDxkfaQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=35G4XE/mIKGPsswZXiJ7PZUjKNqMilFlyMRO4sj9X70=;
- b=BfTmVAKXU+H3FmNSiL0CeYt9r1qtIXct1RjN81SVREaaHT5g7sSCjfDB0RguhpGfH+tzYOiafHUsd9mNgkYeNaPqBaL5Vl3sp0MFx0wf2OEVEvGpe7d5d7IC7YNXoQ3KysYdcz/lFBNiSgcIXI3hdYIBHZPQfFhPVt+4M12y4hym8hUef4+mf38xeYCHLuFx6+SFjMc09EU0fiQ0TV8ispt4mnFQDViihCLZkJ5ANj7RaxV+H0N00mW4hZ1IoFbHlF2HkdEitva6T3Fwmbmi4xx+OTDV3Icg8kjH3BvRUXmnry71ysQXd9ywS2UoVMi6K9d5avjFs6M8VnlnL4qG0A==
+ bh=3/OZFVTlKXBacMFDOvu4TRCBU72cfYsR+OA/KFVFEpY=;
+ b=YWHHtgkuc5XX+zMcX4d4xLqVAAKw0ZQcJEPwTDrJN3O1W5pBbQQqD2ssC4yjRy4r9kNCLoxV7hNXRPNEXu0wj+dl3Uo1RVvQCr69U6NMJMU3Gzygz/JK3lyFoE1i+N88ch0L9T63TJ5VHiSu18I8QSZm3Bgtk3udwusIZrdSmR4Mn+AlrwXvwOdM6ZE2v0xyb1ZmRO7zKVMqZ74SXqTW9Bt2S1pWQL1FYgAAG3qhbq/Uy7jRtZL69MN1lRCpp6r1e5m/Zec5qnc2XObbD+kUnejKfFt5pMVAwnk3/hcA+k0EZVgIwa+bGPEG+Ixrn2Rx7oSNgxFh7zlN0/I69CHKBA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=35G4XE/mIKGPsswZXiJ7PZUjKNqMilFlyMRO4sj9X70=;
- b=iQ38444ASl2a7Xfejb9GZakyO6wNTgT1V75BD4E0u/Yz7m0L/No8kDK/CGR4Bsp6ZuCxHCpnKr2WUKzOhKvFPaKf7E5Go+20C0GREl8vVNQ90tEWj/6p5YuWRFKtz0XbJt1DfFO66gvpnE8yS8x8Xt25MvzVkqWBMraXArBrKnRhP7/Ljqoiapisx2AUsoiRQjo0VJSJ/4ehcxDt873dAMH8uw46fY16nXLquXhtyB9M65hBCYZpbJSN2JjAtyt8cps37f7lsiqwuwUOboJVbU9tHZ8cQOSYa1z/FNud/tzPNKDV6JPV+oXoB/4OZobo9C/k4dKwlpjXRN1vY3LA2g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by FRRPR04MB12618.eurprd04.prod.outlook.com (2603:10a6:d10:1d0::20) with
+ bh=3/OZFVTlKXBacMFDOvu4TRCBU72cfYsR+OA/KFVFEpY=;
+ b=BCtX4XwYRyoRyA3otV+i5N7dOHyd6a7YQpHsuxyCTv3f04TufqQciRJx5Y5Q8jG9kXVJ6pMFwG1KZDfi7BU8uwY+G/ifSKJMNa5684FghDYEpHH8OLfW1IZDXK3g4fQe1q+5Cn8r/QOds99cC4o5MGeUXDAV8QwH4wvDPAtCW2Q=
+Received: from MW4PR12MB7285.namprd12.prod.outlook.com (2603:10b6:303:22e::11)
+ by SA0PR12MB4430.namprd12.prod.outlook.com (2603:10b6:806:70::20) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.16; Fri, 24 Apr
- 2026 04:05:15 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9846.021; Fri, 24 Apr 2026
- 04:05:14 +0000
-Date: Fri, 24 Apr 2026 00:05:05 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Cc: Michael Riesch <michael.riesch@collabora.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Mehdi Djait <mehdi.djait@linux.intel.com>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>,
-	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v2 6/7] media: dt-bindings: add NXP i.MX95 compatible
- string
-Message-ID: <aerr8XazTpavGP5K@lizhi-Precision-Tower-5810>
-References: <20260423-csi2_imx95-v2-0-934c02f3422a@oss.nxp.com>
- <20260423-csi2_imx95-v2-6-934c02f3422a@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260423-csi2_imx95-v2-6-934c02f3422a@oss.nxp.com>
-X-ClientProxiedBy: PH8PR21CA0009.namprd21.prod.outlook.com
- (2603:10b6:510:2ce::26) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.12; Fri, 24 Apr
+ 2026 04:23:45 +0000
+Received: from MW4PR12MB7285.namprd12.prod.outlook.com
+ ([fe80::ba9e:64a2:e92d:8cff]) by MW4PR12MB7285.namprd12.prod.outlook.com
+ ([fe80::ba9e:64a2:e92d:8cff%4]) with mapi id 15.20.9846.021; Fri, 24 Apr 2026
+ 04:23:45 +0000
+From: "Thangaraj, Senthil Nathan" <SenthilNathan.Thangaraj@amd.com>
+To: "Jain, Ronak" <ronak.jain@amd.com>, "Simek, Michal" <michal.simek@amd.com>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "Jain, Ronak" <ronak.jain@amd.com>
+Subject: RE: [PATCH 1/2] Documentation: ABI: add sysfs interface for ZynqMP
+ CSU registers
+Thread-Topic: [PATCH 1/2] Documentation: ABI: add sysfs interface for ZynqMP
+ CSU registers
+Thread-Index: AQHcx0zTX903aE5T90CJWK3WCUdePLXttShw
+Date: Fri, 24 Apr 2026 04:23:44 +0000
+Message-ID: <MW4PR12MB7285CDA342976C78DD0E3BB8E22B2@MW4PR12MB7285.namprd12.prod.outlook.com>
+References: <20260408114244.2852015-1-ronak.jain@amd.com>
+ <20260408114244.2852015-2-ronak.jain@amd.com>
+In-Reply-To: <20260408114244.2852015-2-ronak.jain@amd.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Enabled=True;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SetDate=2026-04-24T04:21:53.0000000Z;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Name=AMD
+ Internal Distribution
+ Only;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ContentBits=3;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Method=Standard
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MW4PR12MB7285:EE_|SA0PR12MB4430:EE_
+x-ms-office365-filtering-correlation-id: 6013283f-76a0-49c0-99b8-08dea1b9460d
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|38070700021|18002099003|56012099003|22082099003;
+x-microsoft-antispam-message-info: +qdivX1uGdnAadxzPt37zSSbnaW7Ki+LbASwA++FzCGVF2DgVH/DWnjlQFHchwdIcproPHqtIFasfVmYej7wlFSp+EL0nSqGnZXTKL6OAMuOH0PJPd0FQmV9thfv7OEKh9P7PV5QPvkccgff0vv7pHOeGSac43U0/RpnbijSzjvCPfYTOe0uK2DtI1ngBHzlKIi+QhEW3BXee3H63f7c2Z93WkSJRjJoX4TSjZwU3HAqeJwO1y3zFErChO/lToVytpCsuBOWaft0gLSWIuOovuyElosmVubWYQHUNFQ63nz26R1SzEn81PomJaLfjq3sgnJTwP4VDUWr7/+957AvxgK0t89H5dXuRHrA0Wa7/MsmuvPFKn/V67SZHz1/xDKI1c99BdafTZKbSv0ylz3p6+F7w4UYyleYaE8++q1VaydfRAWG6oKh8yl9tp7/6lJKKJjea4gpP5J3lq87PVu+WrmZUQp56TqeMhQIy2+cZpv97tLJikDLJVd3QQTiH5n0gKC8kZ7lxVFQrdZO5XPVt5CWgdxji1FRygxdg4vBw5KIsqW+H2aJAckboHP0HsgyDiRtruR8OlG76ULAYd0Lo1WzD6i1S3sYtuaF8oOCNSY0Uxa8ybHpnJR4k3luV1WrWpZvNKJ2jaQxIZUc3DnFk6jiWfqhuXMD637JQI5pLnEUM26jwB0wPEoc2QGQhERK0B2QIzhsmRnD2DytDjdKLb/iX70YWUteR2TaLQnmyXsqYQlo82goRdjz+5yFAjDD3lKuAYGJEOoO/7EFclP1Jm2KfIGsdwrudZ+826lcWZU=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR12MB7285.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(38070700021)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?WY3K4R0brk0gD1GtpXN/rNNiXO0Me13RcOorl9gQL1U1MtImZ0f726Hxs7rR?=
+ =?us-ascii?Q?EwQsVzpE5OQG+TLc0qbeEy4F5EvCBvrIUcvXeBQBTFN6JcUxTRZgKbcHfw8d?=
+ =?us-ascii?Q?4dhxj2f45nLbKC81I+MoALVf1iFen3rANjvmc2eUmsAko046JlNCB5bm+a3q?=
+ =?us-ascii?Q?4mdVxo47nIjCKOgmhf8UOpYaPmXRDuyQWhYK49SYsxSlOOPZ7vjJz/6iksAZ?=
+ =?us-ascii?Q?ey1p0Vkrfppz7r4Ipe0jkX7juRtoNCNh+Onc/8F/OxBM3kFCKXmFy7JYfiyP?=
+ =?us-ascii?Q?CYo6tBpLOvQ3S0tEMLniTW4BKGzIZmmI76T+zQ2uSmRya1pu2vQp/N2zYVOx?=
+ =?us-ascii?Q?pn5/qw0bjN0KtyD967e229N2ZNNe9HBzdXulNapNDgg9K7r46DPiyAGh+ALQ?=
+ =?us-ascii?Q?ME/gJa3PL/Cjc9qGCx5KgRsp7ChQnZE07qAf4QvxF4gCXHOQlIDRvBrrxySH?=
+ =?us-ascii?Q?wxoopCvrpis1u5GRjFcqbZtFRSIAbMXaTrS6qH+e15RarT6zlp0O5wzhORDL?=
+ =?us-ascii?Q?C4tawzzZ/i1Xs66QETy94PSKuXfld9NHxjiyKlT9tOTaVYhHKbWFZPqP4yxf?=
+ =?us-ascii?Q?W/1ngD2HGMsEQSsqV19wIz1NNHT++R7Vy4yKI9SLxXoeHKvtXA6Bjo4X9W/6?=
+ =?us-ascii?Q?kuXrPSPpVhq3OxnDgsO+McVeEyKnnq58GUwa06FcevdNWWgiz1367TXO+T9+?=
+ =?us-ascii?Q?A7vm8JbrJp7eua7m39dV7tzC+4z1IjyLw6fwqqtAmGyiQOZpAYECD7U7O+h2?=
+ =?us-ascii?Q?GMykvAJ+8vYmXo8y4fqru9d0ylrUvTSNQPYIQQBQ/cUBglGLzLfzXVnj6DZg?=
+ =?us-ascii?Q?+oY5sL2Nsx5xgZs2c9PBb5+RqnB9D0W4AOb7Ugz4mfKj54Ltg0DRa90g6R2t?=
+ =?us-ascii?Q?pW961n6qwQROQINHyycsSt2T32Jrn+NZzf+Sar3UaufGlZH5rLxklcf+20f1?=
+ =?us-ascii?Q?WQMOv++ws8q+h1ZnjRqqMyTl3FnU4RZ9BM2BQby/q7qFg3bLEGOUqO0TlAl7?=
+ =?us-ascii?Q?H001v1oxFRSRAHEJjQG5i4R686ZGC4auKpfFZHazPP1rynx6HnJu/15mnFbF?=
+ =?us-ascii?Q?o7h0YVnYLv/85rMi7knAS592qRT4Ex5MzEdifrGTakTYvDASvnOuEDo2qUfx?=
+ =?us-ascii?Q?9bTNcjpANk+X98w4rqpOG9BCUtxqgxkPe3dDjgPmJ46WT6BRMEopj1C3FxYD?=
+ =?us-ascii?Q?5vE0nrKTPvjOYgPTpiTYbGdghjtsV7F7qfAOQjbwVLFwE3M+cBpiDyExSHsB?=
+ =?us-ascii?Q?12Ut7ZXrMtuIyvv7GPxZa8FOKajnnXs5A7xBHM/uyEPl2jJPy6Epb8HR9w+v?=
+ =?us-ascii?Q?2qETEZoXaLKLSSuhxvRaHvjzVor3EtWpuJiWrEFQt/+N7a8ZWT93+2UuYDXq?=
+ =?us-ascii?Q?JYdDwvCjg1554J8+sb4U9mbhJBBev7F0FnB4E1YG+3u9fsUsdKbplm+wWoWz?=
+ =?us-ascii?Q?3myPF973BkoqtBiDPAqTYeVB/xuZcAjXAQmQNDeyPj7HZg3aIfG6M39HmZTD?=
+ =?us-ascii?Q?aVreKBTKLGlcGfZtpYKJ5OlIV/FNPdZibJ/blkXeesjPoAG4nrXNaiw0HBtF?=
+ =?us-ascii?Q?2341rD8Ee87SeoMMHCzDrX7zfQsq5xc03O2p7b+ojRq4BDoOeKKaOuVXieOj?=
+ =?us-ascii?Q?gJ4ei/J2q8xFPyNJAUCQLfviD1YjkmRlNqEf/6RtjPi3pdOH7Bx6/HnGf6mp?=
+ =?us-ascii?Q?8EMhYh2DUW4/XHaZSTDw8VgLpLeJPrLvx/Q0fMMhuNKKmC4s?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|FRRPR04MB12618:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0f7a0fc2-4266-4f2a-88a0-08dea1b6b033
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|19092799006|1800799024|366016|52116014|7416014|38350700014|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: TZSn4Tutz3JudH3tLJNiURPtSegYTI6kCK3knkC+yfwjq0rfL+iiC61IXVee3K7720N/ZbV5pXnPPIJyYFG40k3AKZ0ok0LYVsFhgc+4AvhXVHwcGp8Cf6eOAgBTDhvFBK1QZrGkHwuVF6kzGzRsRDPx1zkZi+BB4+Vk4GdqNitVXsCkTJEsUkGc6sVyKfFq3gYkMoZKtOvsZANwoGBdcWRC2Id1QZzhR8zH3jj/2gVgCJARsPakfPAYiV14twQc8dHzkaFRi6lQFRaTrGyqP9u804vilSuJwCSim7aJ+IzWR9FC7vlaiLNOlFCuTmky19EfOauDNv6POjZKOsqaIZcQzwLol9G9lplUe7AiPgTN91JsbLpb1w+EFzUuTl94aDDUxqhoN/bE/+cAXiGXZLbg5jFCAjyFlbRZTlwiYXBnFStNhzKxpgPBN3a5W/YbIZkOP1e+4aibgChiJIdaGvQafxr7hZ+P3OISYlldnxlgQbdyyi35PL/W632Q1sQMays+UWY5AXwcPnYsDhqP6qLXynpdiGwGrzpr5gJS42FeeW8O74y/BIEG2nVxenQT4SvH54DQQoiaa2Rqxh08pSo42MvjSO1yAyg50kzwU+4VMsxQTNztJIjxYPWi12/P+4YzHOSQfqLqr1FbRNtkRF73tgbl4Zcs3j7j41yxi1vQJd0QwcarrESGjANwMsAaLKZRoBM13BJ6lFQ+dTmylWj516NzTsuToA3NHcMjXiT9xuHRQzBIWa+o6xzevplE7b+iBNYENiIg70YhmcMDEh5dQArN1AM1LHXGHfoqeiM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(1800799024)(366016)(52116014)(7416014)(38350700014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zmDVMleLd+o0zrozun4QMO4zOfl2sqoPu/urhEz5ptZPtZbvwPlTNtNxVgBy?=
- =?us-ascii?Q?ZMGNiDgDMMjKcK9I94rWSLFIi6n91iB78IxCkDxj9ToGxBQAQ1VEKXx4vXpF?=
- =?us-ascii?Q?+/Q6xGXKVYN5bCg/4PgY8RgNGvK3VU0MXOchuh4AHw8aU/CPyJ1tQTwvyF6m?=
- =?us-ascii?Q?ZTYhsk/MxEY0CjpSfeVLNEmCYbaaUaEYgyC32t40d9A69zFec57PjgQ/GA09?=
- =?us-ascii?Q?RtvFmE11m7KGTfDFvfltwRIwE6qSLidxOTBMUQW3yHTePEOrgbijlTdwD+/8?=
- =?us-ascii?Q?vA8oiaL+5TQNpfcRZjiqusHK0X0CKjz14LOb5Av/qscVqtthMwvh0Lafe8PW?=
- =?us-ascii?Q?XLtRil7Y1KFRidv/dVWCSZ90GNUhLHTWkvdEv+iG0WFhXP4NIsM6AIS/q7d+?=
- =?us-ascii?Q?cY3JRMbYI+0F4a5eHBA7WnIwPauRnc+iDGP9sJOV4w0j0RrI1T+1xHCL1u+4?=
- =?us-ascii?Q?yHv6urQcOh91IPsuPe24W5keqsGyc1pLYEg7Io28dEoK4zLfxbaWvFlDZX9J?=
- =?us-ascii?Q?gcalO0lBCjO724UL9JnM486xc2sAHW5VkFI+JGyN3u4M/tB2Le873osKaxU6?=
- =?us-ascii?Q?KbX93bQe0HTTIf0KlcIbHRlEAyWPbWcyrVFeyhPBadplaJkeqA0LdJ6XD39Q?=
- =?us-ascii?Q?KlramV/18fIU8U/lYINZsnqAsab0irfFGf856dKKcf1XTyB9vfniBu8WFohH?=
- =?us-ascii?Q?xYhLn3nnu0vvmqxq5tQxhTaFmziK37zlZfl0NtwGEqLT64Yd22EAT27OrDJ7?=
- =?us-ascii?Q?kEksDp9EWdMqOfSOL0FWV6WXuFUzWP7CLWJQYLI9wMPm0gI5GhikDNm9wR7Y?=
- =?us-ascii?Q?qM/db2esqOygnaxmk81SiOHFRkXNq64rJNjp8/kOcENIXxaGPUvZ/baubgU5?=
- =?us-ascii?Q?lu0tCqOrPs4LR/wMRj8x/J//f50mc4J+BQNsLmD4tdtyzb8XX/qqZRvEa7nR?=
- =?us-ascii?Q?YevCdmcnP1/UPou2NjPLhRaYN6ZWRZ8tQxsuHXGb8TK6LiM69IpOc0TcOn3u?=
- =?us-ascii?Q?xkWnbHjrLUZW2KH7r9U7s80IXoVb7fqR11T+G1tWr1GWxEsQh4VgFv+MWPHG?=
- =?us-ascii?Q?tADMkFuWM4nzn8Z2SeQ1vofy6OxN4NAD/m1jlX63DUVjyW+zRTW+5bNM05V8?=
- =?us-ascii?Q?FuHQZWdvLHePWxkGrvL6eRfDkLBDeoEqBEZ9APtRaTIYcEeE15PPqrelvkni?=
- =?us-ascii?Q?+84akvpkoHUI5f46Z+Iz1oTLAjWrwAF9BtOjD+/eZuy9RgZHiFhhTGtlB3sS?=
- =?us-ascii?Q?zZT13RSduWFaRZg7VxXtMxfhNog1/9YYDqwWSVRzWbuyrKkxn6wXfDueA4D1?=
- =?us-ascii?Q?wcoqxZR9F/FupkZx9iDEMEx3x51JqQWAQe8tUyWLMC/Ff7BgpQjX3sueiKK7?=
- =?us-ascii?Q?NOzrf0LYfCH2GDyssgoN99++fNCHFiC2A9IYqq0j8J+FeEnalb6qriCKI9Cp?=
- =?us-ascii?Q?utG2Ik+6LNnPNo2B1FnF5qE+D8//jMmU2Crk/w2gbiAHidIsUEy+2o3Egkbu?=
- =?us-ascii?Q?ENBAahW8gXjucDyUxivZiS734cBGHzvoL3/MjYr1PJJkpblpNAOVZXwYaCPk?=
- =?us-ascii?Q?0U7MaH7E4huSma80EOyVW0JohfzL09UaSZQg1oWyHBnnoATnr8XVrZK2pjkG?=
- =?us-ascii?Q?GthO+ApPKYahaPlWN9PzPd5mhNBdQs1O/e0rswizoUhNrB+klImbBUrJy16D?=
- =?us-ascii?Q?Lc33tyRqIUlY3mbaiPOASbdnQU8BFJI5n38bDEqg88WvDOM6Vv5Z0l19XZGZ?=
- =?us-ascii?Q?OTvBqt4G+Q=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0f7a0fc2-4266-4f2a-88a0-08dea1b6b033
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-OriginatorOrg: amd.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2026 04:05:14.7163
+X-MS-Exchange-CrossTenant-AuthSource: MW4PR12MB7285.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6013283f-76a0-49c0-99b8-08dea1b9460d
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Apr 2026 04:23:44.9033
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +3F3hEuYKB9K6a7vjFtwiuh6JNEO+WBlIhsu3FBCT0PUsrczn9cLGcwLRwTG/C2ImajjPF9JGvwql2ljkSapUw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRRPR04MB12618
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 3m2HPJsPmpzncb/Ccvpuh37qKMNxF8+OhcQ79HNlbjO3BSzpW0on4qCay4nSi4tUdq4YhgT4txnFDwDawSuRtw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB4430
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_210519_341246_11394524 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20260423_212349_783843_C06DEC56 
+X-CRM114-Status: GOOD (  20.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,75 +143,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 23, 2026 at 04:23:01PM +0800, Guoniu Zhou wrote:
-> The i.MX95 CSI-2 controller is nearly identical to i.MX93, with the
-> main difference being the data output interface:
->
-> i.MX93 use IPI (Image Pixel Interface), which requires:
-> - Pixel clock input
-> - Software configuration through registers
->
-> i.MX95 uses IDI (Image Data Interface), which:
-> - Does not require pixel clock
-> - Is software transparent (no register configuration needed)
+[AMD Official Use Only - AMD Internal Distribution Only]
 
-Nit: Remove "Is", just "Software ... "
-
+> -----Original Message-----
+> From: Ronak Jain <ronak.jain@amd.com>
+> Sent: Wednesday, April 8, 2026 4:43 AM
+> To: Simek, Michal <michal.simek@amd.com>; Thangaraj, Senthil Nathan
+> <SenthilNathan.Thangaraj@amd.com>
+> Cc: linux-kernel@vger.kernel.org; linux-arm-kernel@lists.infradead.org; J=
+ain,
+> Ronak <ronak.jain@amd.com>
+> Subject: [PATCH 1/2] Documentation: ABI: add sysfs interface for ZynqMP C=
+SU
+> registers
 >
-> Due to these differences in register layout and initialization needs,
-> the two variants cannot share the same compatible string. The driver
-> needs to distinguish between them to handle the interface correctly.
+> Document the new sysfs interface that exposes Configuration Security Unit
+> (CSU) registers through the zynqmp-firmware driver.
 >
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+> The interface is available under:
+>
+>   /sys/devices/platform/firmware:zynqmp-firmware/csu_registers/
+>
+> The CSU registers are discovered at boot time using the PM_QUERY_DATA
+> firmware API. The following registers are currently supported:
+>
+>   - multiboot     (CSU_MULTI_BOOT)
+>   - idcode        (CSU_IDCODE, read-only)
+>   - pcap-status   (CSU_PCAP_STATUS, read-only)
+>
+> Read operations use the existing IOCTL_READ_REG firmware interface, while
+> write operations use IOCTL_MASK_WRITE_REG.
+>
+> Access control is enforced by the firmware. Write attempts to read-only r=
+egisters
+> are rejected by firmware even though the sysfs file permissions allow wri=
+tes.
+>
+> Document the ABI entry accordingly.
+>
+> Signed-off-by: Ronak Jain <ronak.jain@amd.com>
 > ---
-
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-
-> Changes in v2:
-> - Add dedicated constraint block for i.MX95 to reflect different clock
->   requirements (only per clock needed vs i.MX93 which needs both per
->   and pixel clocks)
-> - Update commit message to include more details about interface differences
-> ---
->  .../bindings/media/rockchip,rk3568-mipi-csi2.yaml        | 16 ++++++++++++++++
->  1 file changed, 16 insertions(+)
+>  .../ABI/stable/sysfs-driver-firmware-zynqmp   | 33 +++++++++++++++++++
+>  1 file changed, 33 insertions(+)
 >
-> diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
-> index 4ac4a3b6f406..4e0bc75c2136 100644
-> --- a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
-> +++ b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
-> @@ -18,6 +18,7 @@ properties:
->    compatible:
->      enum:
->        - fsl,imx93-mipi-csi2
-> +      - fsl,imx95-mipi-csi2
->        - rockchip,rk3568-mipi-csi2
+> diff --git a/Documentation/ABI/stable/sysfs-driver-firmware-zynqmp
+> b/Documentation/ABI/stable/sysfs-driver-firmware-zynqmp
+> index c3fec3c835af..f537f7d9bb55 100644
+> --- a/Documentation/ABI/stable/sysfs-driver-firmware-zynqmp
+> +++ b/Documentation/ABI/stable/sysfs-driver-firmware-zynqmp
+> @@ -254,3 +254,36 @@ Description:
+>               The expected result is 500.
 >
->    reg:
-> @@ -135,6 +136,21 @@ allOf:
->          clock-names:
->            minItems: 2
->
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: fsl,imx95-mipi-csi2
-> +    then:
-> +      properties:
-> +        interrupts:
-> +          maxItems: 1
-> +        interrupt-names: false
-> +        clocks:
-> +          maxItems: 1
-> +        clock-names:
-> +          maxItems: 1
+>  Users:               Xilinx
 > +
->  examples:
->    - |
->      #include <dt-bindings/clock/rk3568-cru.h>
->
+> +What:                /sys/devices/platform/firmware\:zynqmp-
+> firmware/csu_registers/*
+> +Date:                March 2026
+
+Should we need to change the month to April ?
+
+> +KernelVersion:       7.1
+> +Contact:     "Ronak Jain" <ronak.jain@amd.com>
+> +Description:
+> +             Read/Write CSU (Configuration Security Unit) registers.
+> +
+> +             This interface provides dynamic access to CSU registers tha=
+t are
+> +             discovered from the firmware at boot time using PM_QUERY_DA=
+TA
+> API.
+> +
+> +             The supported registers are:
+> +
+> +             - multiboot: CSU_MULTI_BOOT register
+> +             - idcode: CSU_IDCODE register (read-only)
+> +             - pcap-status: CSU_PCAP_STATUS register (read-only)
+> +
+> +             Read operations use the existing IOCTL_READ_REG API.
+> +             Write operations use the existing IOCTL_MASK_WRITE_REG API.
+> +
+> +             The firmware enforces access control - read-only registers =
+will reject
+> +             write attempts even though the sysfs permissions show write=
+ access.
+> +
+> +             Usage for reading::
+> +
+> +                 # cat /sys/devices/platform/firmware\:zynqmp-
+> firmware/csu_registers/multiboot
+> +                 # cat
+> +/sys/devices/platform/firmware\:zynqmp-firmware/csu_registers/idcode
+> +
+> +             Usage for writing (mask and value are in hexadecimal)::
+> +
+> +                 # echo 0xFFFFFFF 0x0 >
+> +/sys/devices/platform/firmware\:zynqmp-firmware/csu_registers/multiboot
+> +
+> +Users:               Xilinx/AMD
 > --
 > 2.34.1
->
+
+Thanks,
+Senthil
 
