@@ -4,66 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9FA4FED3CD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 14:01:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2ED6FED3CF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 14:10:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f6hD4wtW+751Ni0lApxyePPsPfRZU5U4e0NgGymmjl4=; b=p71W8OYrafjJ6m8M0/8zTic6QZ
-	qPF7yBLtxfufjUygUY77y01mMExrgfqGpxQRvdP5Rpt6Ck9rS9a5KQh9TCPHH0i4xePbTJrmS7m2Q
-	E/H4u4o85z3oVyrTmPloMjSLEIzW3hJU/1HSBDEmcv5SkMB2L39Pcz30SdUFEGgeJ86+pE2jNPOqq
-	FZEWyVKZCn3KfqMyomMaOXCYQ2R2BXSKsfySuUlfxZ57MkPsAmaiY8iyLv/kNWYB4QF/LsUCUvSir
-	ec2FBP+vRYmWPl5S8gXzOJEUdJgLs6hfeXGi4DmVhKMLdsxkB6UXdoSWfDXelPpC9Hwsd0ndVI8AX
-	lY8XXTcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:CC:To:From:Subject:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qgh3lJ+CjSPZqoH8RyKa1iBeGdTFbSZMbm/9a72fgmI=; b=fgjWXbI/KB3ZUNlET/LbcFGljg
+	f+kbaKK7DtqsP4997stpJjbyqGjLZ9xh4NDt7xIgPE4RnSEFpD5n+eQw16IHCTqScA9YVHSo3+Yne
+	DE565+Tm4wDRgHAfS90x6HN4NNSwCDp4+2V+fgk/Y6xy5JlH4MtGwud424TY/2+rX85GplYry1iVZ
+	kriSL5sWYiooyjvuBtuZxmsDzdFOj2QRKaehD17BnVw8/QgxCXltMkgxKnMwZQsXb0Mu7mkqWDxCC
+	HnFkVrocyMYSpw3si1Ibv0Ams5kYEgUGxYMMReK1TLGFsyuVfsq023Az+2lv6s+rOCoFjroJehW4G
+	uxblkFjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGH5d-0000000DHm9-49GR;
-	Fri, 24 Apr 2026 14:01:06 +0000
-Received: from courrier.aliel.fr ([65.21.61.41])
+	id 1wGHEt-0000000DIEN-1VPB;
+	Fri, 24 Apr 2026 14:10:39 +0000
+Received: from pdx-out-001.esa.us-west-2.outbound.mail-perimeter.amazon.com ([44.245.243.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGH5Z-0000000DHlK-2dio;
-	Fri, 24 Apr 2026 14:01:05 +0000
-Message-ID: <d81b706e-e703-46fd-b560-08b04fa49f98@aliel.fr>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1777039255;
-	bh=9pUhrKJcwFra8E+jfRhvbHF2LOR340gxwUJUdLIfuIs=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To;
-	b=ZpHkUmLdcMXDWY338GnmSfmcP+yIFuCYhyVpFLFW0EVRCADz2r2F6I3gxWK7n2F94
-	 zf3VQC/HKYFmdwULy3kXCe27kGQu19amfQL+y/nOJa3hT+jY1wC9lykgSdv1C/vd8T
-	 VEGWxpuHPTqTqnnZjx0vylRhNyF1VyoaWN4KRrB8=
-Date: Fri, 24 Apr 2026 16:00:53 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-From: linux-kernel-dev@aliel.fr
-Subject: Re: [PATCH v4 5/8] thermal: khadas-mcu-fan: Add fan config from
- platform data Add regulator support
-To: Neil Armstrong <neil.armstrong@linaro.org>
-Cc: linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
- Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Beniamino Galvani <b.galvani@gmail.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>
-References: <20260421-add-mcu-fan-khadas-vim4-v4-0-447114a28f2d@aliel.fr>
- <20260421-add-mcu-fan-khadas-vim4-v4-5-447114a28f2d@aliel.fr>
- <f057dbd9-5fa7-414f-98f4-1bbb691e2fc7@linaro.org>
+	id 1wGHEr-0000000DIDL-0YMo
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Apr 2026 14:10:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1777039837; x=1808575837;
+  h=from:to:cc:date:message-id:references:in-reply-to:
+   content-id:content-transfer-encoding:mime-version:subject;
+  bh=qgh3lJ+CjSPZqoH8RyKa1iBeGdTFbSZMbm/9a72fgmI=;
+  b=WukZM9y8a0mnmzmKvB1NnEoz4QCGkX4qzVN9cSU19CWf0o2FnNlU2+2k
+   wFg7PhLyi+i3fMHHCIpPl1t0Xxuk+nWPF06R4TQYUySNmFio4GzPaBdUi
+   QCq/lXscG5GYAaSztzcx5H5p7GbLKopqDagH/ugTy8UYjDjDUr8IuXXW7
+   OX1yxk+kf4f54znK6Hncyp9geoyiucjQVfsj9SlUgq8lI+P/QloPi6G35
+   EqiNFakJaUU565t31OrXkew0vc5v0m5gHR8hcwENGvZ0PWG8aaAJxW+CR
+   sGADfwvymuZGptY5iSuNeBMiS0Opgj4XTEhwqYZCJekYd08s4+ZlBu77u
+   w==;
+X-CSE-ConnectionGUID: 15NWk7qiQ2SUfTB3+sLZKw==
+X-CSE-MsgGUID: yfeYcnHuRXmiHRu96Pwy1w==
+X-IronPort-AV: E=Sophos;i="6.23,196,1770595200"; 
+   d="scan'208";a="17646447"
+Subject: Re: [PATCH v11 00/14] barrier: Add smp_cond_load_{relaxed, acquire}_timeout()
+Thread-Topic: [PATCH v11 00/14] barrier: Add smp_cond_load_{relaxed, acquire}_timeout()
+Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
+  by internal-pdx-out-001.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Apr 2026 14:10:30 +0000
+Received: from EX19MTAUWB002.ant.amazon.com [205.251.233.48:14253]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.27.2:2525] with esmtp (Farcaster)
+ id ac603786-d141-4164-ac94-10c72085e656; Fri, 24 Apr 2026 14:10:29 +0000 (UTC)
+X-Farcaster-Flow-ID: ac603786-d141-4164-ac94-10c72085e656
+Received: from EX19D032UWA001.ant.amazon.com (10.13.139.62) by
+ EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
+ Fri, 24 Apr 2026 14:10:28 +0000
+Received: from EX19D032UWA003.ant.amazon.com (10.13.139.37) by
+ EX19D032UWA001.ant.amazon.com (10.13.139.62) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
+ Fri, 24 Apr 2026 14:10:28 +0000
+Received: from EX19D032UWA003.ant.amazon.com ([fe80::8e94:8f60:9531:c497]) by
+ EX19D032UWA003.ant.amazon.com ([fe80::8e94:8f60:9531:c497%5]) with mapi id
+ 15.02.2562.037; Fri, 24 Apr 2026 14:10:28 +0000
+From: "Okanovic, Haris" <harisokn@amazon.com>
+To: "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"ankur.a.arora@oracle.com" <ankur.a.arora@oracle.com>
+CC: "joao.m.martins@oracle.com" <joao.m.martins@oracle.com>,
+	"xueshuai@linux.alibaba.com" <xueshuai@linux.alibaba.com>,
+	"david.laight.linux@gmail.com" <david.laight.linux@gmail.com>,
+	"boris.ostrovsky@oracle.com" <boris.ostrovsky@oracle.com>, "memxor@gmail.com"
+	<memxor@gmail.com>, "ashok.bhat@arm.com" <ashok.bhat@arm.com>,
+	"zhenglifeng1@huawei.com" <zhenglifeng1@huawei.com>, "konrad.wilk@oracle.com"
+	<konrad.wilk@oracle.com>, "cl@gentwo.org" <cl@gentwo.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>, "ast@kernel.org"
+	<ast@kernel.org>, "rdunlap@infradead.org" <rdunlap@infradead.org>,
+	"daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
+	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>, "arnd@arndb.de"
+	<arnd@arndb.de>, "will@kernel.org" <will@kernel.org>, "mark.rutland@arm.com"
+	<mark.rutland@arm.com>, "peterz@infradead.org" <peterz@infradead.org>,
+	"bpf@vger.kernel.org" <bpf@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "Okanovic, Haris"
+	<harisokn@amazon.com>, "rafael@kernel.org" <rafael@kernel.org>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>
+Thread-Index: AQHcx1Lc+RjIJDvKCE+BAEcv9rf8TbXs+zWAgAFeVwA=
+Date: Fri, 24 Apr 2026 14:10:28 +0000
+Message-ID: <5e8ef9d2bd0b3356e37e6a982d04d2d993c8a88f.camel@amazon.com>
+References: <20260408122538.3610871-1-ankur.a.arora@oracle.com>
+	 <20260423101631.84f26592d629eee46fbde6f8@linux-foundation.org>
+In-Reply-To: <20260423101631.84f26592d629eee46fbde6f8@linux-foundation.org>
+Accept-Language: en-US
 Content-Language: en-US
-In-Reply-To: <f057dbd9-5fa7-414f-98f4-1bbb691e2fc7@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.187.171.24]
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <D1A45CAF790C394AA6EF3536E4EF9861@amazon.com>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_070102_281566_6DB95BB8 
-X-CRM114-Status: GOOD (  20.06  )
+X-CRM114-CacheID: sfid-20260424_071037_297981_E249AAD9 
+X-CRM114-Status: GOOD (  18.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,159 +117,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for your review.
-
-On 4/24/26 12:00 PM, Neil Armstrong wrote:
-> On 4/21/26 13:49, Ronald Claveau via B4 Relay wrote:
->> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
->>
->> Replace the hardcoded MAX_LEVEL constant and fan register
->> with values read from platform_data (fan_reg, max_level),
->> as new MCUs need different values.
->>
->> Optionally acquire and enable a "fan" regulator supply
->> at probe time and on resume,
->> so boards that gate fan power through a regulator are handled.
->>
->> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
->> ---
->>   drivers/thermal/khadas_mcu_fan.c | 49 ++++++++++++++++++++++++++++++
->> +++++-----
->>   1 file changed, 43 insertions(+), 6 deletions(-)
->>
->> diff --git a/drivers/thermal/khadas_mcu_fan.c b/drivers/thermal/
->> khadas_mcu_fan.c
->> index d35e5313bea41..24559bf65de46 100644
->> --- a/drivers/thermal/khadas_mcu_fan.c
->> +++ b/drivers/thermal/khadas_mcu_fan.c
->> @@ -13,13 +13,15 @@
->>   #include <linux/regmap.h>
->>   #include <linux/sysfs.h>
->>   #include <linux/thermal.h>
->> -
->> -#define MAX_LEVEL 3
->> +#include <linux/regulator/consumer.h>
->>     struct khadas_mcu_fan_ctx {
->>       struct khadas_mcu *mcu;
->> +    unsigned int fan_reg;
->>       unsigned int level;
->> +    unsigned int max_level;
->>       struct thermal_cooling_device *cdev;
->> +    struct regulator *power;
->>   };
->>     static int khadas_mcu_fan_set_level(struct khadas_mcu_fan_ctx *ctx,
->> @@ -27,8 +29,7 @@ static int khadas_mcu_fan_set_level(struct
->> khadas_mcu_fan_ctx *ctx,
->>   {
->>       int ret;
->>   -    ret = regmap_write(ctx->mcu->regmap,
->> KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG,
->> -               level);
->> +    ret = regmap_write(ctx->mcu->regmap, ctx->fan_reg, level);
->>       if (ret)
->>           return ret;
->>   @@ -40,7 +41,9 @@ static int khadas_mcu_fan_set_level(struct
->> khadas_mcu_fan_ctx *ctx,
->>   static int khadas_mcu_fan_get_max_state(struct
->> thermal_cooling_device *cdev,
->>                       unsigned long *state)
->>   {
->> -    *state = MAX_LEVEL;
->> +    struct khadas_mcu_fan_ctx *ctx = cdev->devdata;
->> +
->> +    *state = ctx->max_level;
->>         return 0;
->>   }
->> @@ -61,7 +64,7 @@ khadas_mcu_fan_set_cur_state(struct
->> thermal_cooling_device *cdev,
->>   {
->>       struct khadas_mcu_fan_ctx *ctx = cdev->devdata;
->>   -    if (state > MAX_LEVEL)
->> +    if (state > ctx->max_level)
->>           return -EINVAL;
->>         if (state == ctx->level)
->> @@ -83,11 +86,32 @@ static int khadas_mcu_fan_probe(struct
->> platform_device *pdev)
->>       struct device *dev = &pdev->dev;
->>       struct khadas_mcu_fan_ctx *ctx;
->>       int ret;
->> +    const struct khadas_mcu_fan_pdata *pdata =
->> dev_get_platdata(&pdev->dev);
-> 
-> Move this on top to respect reverse christmas ordering.
-> 
-
-Ok I will do that.
-
->>         ctx = devm_kzalloc(dev, sizeof(*ctx), GFP_KERNEL);
->>       if (!ctx)
->>           return -ENOMEM;
->> +
->>       ctx->mcu = mcu;
->> +    ctx->fan_reg   = pdata->fan_reg;
->> +    ctx->max_level = pdata->max_level;
->> +
->> +    ctx->power = devm_regulator_get_optional(dev->parent, "fan");
->> +    if (IS_ERR(ctx->power)) {
->> +        if (PTR_ERR(ctx->power) == -ENODEV)
->> +            ctx->power = NULL;
->> +        else
->> +            return PTR_ERR(ctx->power);
->> +    }
->> +
->> +    if (ctx->power) {
->> +        ret = regulator_enable(ctx->power);
->> +        if (ret) {
->> +            dev_err(dev, "Failed to enable fan power supply: %d\n",
->> ret);
->> +            return ret; +        }
->> +    }
-> 
-> Or you can request with devm_regulator_get(dev->parent, "fan"); which will
-> return a dummy regulator, and then you can just call regulator_enable &
-> disable
-> and remove all those checks.
-> 
-
-Make sense, I'm on it.
-
->> +
->>       platform_set_drvdata(pdev, ctx);
->>         cdev = devm_thermal_of_cooling_device_register(dev->parent,
->> @@ -124,12 +148,25 @@ static int khadas_mcu_fan_suspend(struct device
->> *dev)
->>         ctx->level = level_save;
->>   +    if (ctx->power) {
->> +        ret = regulator_disable(ctx->power);
->> +        if (ret)
->> +            return ret;
->> +    }
-> 
-> if (ctx->power)
->     return regulator_disable(ctx->power);
-> 
->> +
->>       return 0;
->>   }
->>     static int khadas_mcu_fan_resume(struct device *dev)
->>   {
->>       struct khadas_mcu_fan_ctx *ctx = dev_get_drvdata(dev);
->> +    int ret;
->> +
->> +    if (ctx->power) {
->> +        ret = regulator_enable(ctx->power);
->> +        if (ret)
->> +            return ret;
->> +    }
->>         return khadas_mcu_fan_set_level(ctx, ctx->level);
->>   }
->>
-> 
-> Thanks,
-> Neil
-
-
--- 
-Best regards,
-Ronald
+T24gVGh1LCAyMDI2LTA0LTIzIGF0IDEwOjE2IC0wNzAwLCBBbmRyZXcgTW9ydG9uIHdyb3RlOg0K
+PiBDQVVUSU9OOiBUaGlzIGVtYWlsIG9yaWdpbmF0ZWQgZnJvbSBvdXRzaWRlIG9mIHRoZSBvcmdh
+bml6YXRpb24uIERvIG5vdCBjbGljayBsaW5rcyBvciBvcGVuIGF0dGFjaG1lbnRzIHVubGVzcyB5
+b3UgY2FuIGNvbmZpcm0gdGhlIHNlbmRlciBhbmQga25vdyB0aGUgY29udGVudCBpcyBzYWZlLg0K
+PiANCj4gDQo+IA0KPiBPbiBXZWQsICA4IEFwciAyMDI2IDE3OjU1OjI0ICswNTMwIEFua3VyIEFy
+b3JhIDxhbmt1ci5hLmFyb3JhQG9yYWNsZS5jb20+IHdyb3RlOg0KPiANCj4gPiBUaGUgY29yZSBr
+ZXJuZWwgb2Z0ZW4gdXNlcyBzbXBfY29uZF9sb2FkX3tyZWxheGVkLGFjcXVpcmV9KCkgdG8gc3Bp
+bg0KPiA+IG9uIGNvbmRpdGlvbiB2YXJpYWJsZXMgd2l0aCBhcmNoaXRlY3R1cmFsIHByaW1pdGl2
+ZXMgdXNlZCB0byBhdm9pZA0KPiA+IGhhbW1lcmluZyB0aGUgcmVsZXZhbnQgY2FjaGVsaW5lcy4N
+Cj4gPiANCj4gPiAuLi4NCj4gPiANCj4gPiBBY2NvcmRpbmdseSBhZGQgdHdvIGludGVyZmFjZXMg
+KHdpdGggdGhlaXIgZ2VuZXJpYyBhbmQgYXJtNjQgc3BlY2lmaWMNCj4gPiBpbXBsZW1lbnRhdGlv
+bnMpOg0KPiA+IA0KPiA+ICAgIHNtcF9jb25kX2xvYWRfcmVsYXhlZF90aW1lb3V0KHB0ciwgY29u
+ZF9leHByLCB0aW1lX2V4cHIsIHRpbWVvdXQpDQo+ID4gICAgc21wX2NvbmRfbG9hZF9hY3F1aXJl
+X3RpbWVvdXQocHRyLCBjb25kX2V4cHIsIHRpbWVfZXhwciwgdGltZW91dCkNCj4gPiANCj4gPiBB
+bHNvIGFkZCB0aWZfbmVlZF9yZXNjaGVkX3JlbGF4ZWRfd2FpdCgpIHdoaWNoIHdyYXBzIHRoZSBw
+b2xsaW5nDQo+ID4gcGF0dGVybiBhbmQgaXRzIHNjaGVkdWxlciBzcGVjaWZpYyBkZXRhaWxzIGlu
+IHBvbGxfaWRsZSgpLg0KPiA+IEluIGFkZGl0aW9uIGFkZCBhdG9taWNfY29uZF9yZWFkXypfdGlt
+ZW91dCgpLA0KPiANCj4gVGhhbmtzLCBJJ2xsIGFkZCB0aGlzIHRvIG1tLmdpdCdzIG1tLW5ldyBi
+cmFuY2ggdG9kYXkuDQoNClRoYXQncyBncmVhdCBuZXdzISBUaGFua3MgZm9yIGp1bXBpbmcgaW4g
+dG8gbW92ZSB0aGlzIGZvcndhcmQuDQoNCj4gDQo+IFRoaXMgaXNuJ3QgYW0gTU0gcGF0Y2hzZXQs
+IGJ1dCBtbS1uZXcgaXNuJ3QgaW5jbHVkZWQgaW4gbGludXgtbmV4dCwgYW5kDQo+IGxpbnV4LW5l
+eHQgaXNuJ3QgcHJlc2VudGx5IG9wZW4gZm9yIDcuMSBtYXRlcmlhbC4NCj4gDQo+IEFmdGVyIC1y
+YzEgSSdsbCBtb3ZlIHRoZSBzZXJpZXMgaW50byBtbS5naXQncyBtbS1ub25tbS11bnN0YWJsZSBi
+cmFuY2gsDQo+IHdoZXJlIGl0IHdpbGwgZ2V0IGxpbnV4LW5leHQgZXhwb3N1cmUuDQo+IA0KPiBJ
+IHNlZSB0aGF0IGZ1cnRoZXIgcmV2aWV3L2NvbW1lbnQgaGFzIGJlZW4gcmVxdWVzdGVkIC0gaG9w
+ZWZ1bGx5IHRoaXMNCj4gd2lsbCBoYXBwZW4gb3ZlciB0aGUgbmV4dCBjb3VwbGUgb2YgbW9udGhz
+LCBidXQgcGxlYXNlIGRvIGNvbnRpbnVlIHRvDQo+IGNoYXNlIHRoaXMgZG93biBpZiB5b3UgZmVl
+bCB0aGUgbmVlZC4NCj4gDQo+ID4gSGFyaXMgT2thbm92aWMgYWxzbyBzYXcgaW1wcm92ZW1lbnQg
+aW4gcmVhbCB3b3JrbG9hZHMgZHVlIHRvIHRoZQ0KPiA+IGNwdWlkbGUgY2hhbmdlczogIm9ic2Vy
+dmVkIDQtNiUgaW1wcm92ZW1lbnRzIGluIG1lbWNhaGVkLCBjYXNzYW5kcmEsDQo+ID4gbXlzcWws
+IGFuZCBwb3N0Z3Jlc3FsIHVuZGVyIGNlcnRhaW4gbG9hZHMuIE90aGVyIGFwcGxpY2F0aW9ucyBs
+aWtlbHkNCj4gPiBiZW5lZml0IHRvby4iIFsxMl0NCj4gDQo+IFRob3NlIGFyZSBzaWduaWZpY2Fu
+dCBpbXByb3ZlbWVudHMuICAgVGhyZWUgeWVhcnMgOigNCg0KUmVnYXJkcywNCkhhcmlzIE9rYW5v
+dmljDQpBV1MgR3Jhdml0b24gU29mdHdhcmUNCg0K
 
