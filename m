@@ -4,106 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1290FE5202
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 11:24:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D6D9FE520C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 11:28:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:
-	Date:In-Reply-To:From:Subject:Mime-Version:Content-Type:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+t+DJdjmBiSqlx1/PpjPe0tKhCBDYlA3fqYW1n4w00o=; b=skgwByb4r3m09bCIex6qIRiCtp
-	8XcOG2VYygYvegRPC/cJ6X/I3137oFMmti9ZSgITCcxDECEDXnVUVN+adMN1GQ5OZX2l8/8zrr6Bl
-	by+dU/SZ0oSxz1nckmH5Q2gj2Ct2zLbEuAWjdvvwEdarnoFG3wv5z5Zu9RYXMb8APoJsjjiAzIBUw
-	bHrIYN+n0XuTpOkuzYN900A2rd18jBWN8Yoaw+N6/iIaCKjwunjhamgH0CNOlu6IVxzYKvMDeLwBh
-	9FTdjcBeufobrzmpeyniBABvGdJm5CtpYAEATkYO8AXSiFqlrwPWOvjNqLz8IAp4Jc9hpK8jXFUiT
-	jcHCHKKQ==;
+	bh=eTjTO3Vp0zB9Wc0GJptJYSFqlnWOG96HJNT3Sm1YIxY=; b=wXrPAp4Twe0s1dSHdC2bbKiCE1
+	huNQ5nsy+dM77ZZ475eQks1iPUNsQF59y1K/SJEkjbpLJP6cpXw5Uou/70kXJ/xtA2aR9VuuhNKYU
+	mLwrN/WHmiEHua2e5oNigOiqSYgayGbNOIVEyWrbR+V4cfHhDgP1IQ/qP8s4zyFQIKNKaxTE20zMf
+	7CdnF9tbUwMXs6RyvFvAx4cBLYlK4mBWW+NpRpIj14dLYjalaPNkM47yOQ9fFDByOBdvBfY4KzdlC
+	PFORS1ZpZA9jRJ17RynMD3zz3IBh+fqVJBws6sgBsQgweTlispzmR3Q6cqzLd+EcKeln0UlF0N4Ke
+	uZsuoVdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGEdU-0000000D7hI-3ZB6;
-	Fri, 24 Apr 2026 11:23:52 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1wGEhw-0000000D7vC-21aV;
+	Fri, 24 Apr 2026 11:28:28 +0000
+Received: from mail-vk1-f179.google.com ([209.85.221.179])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGEdS-0000000D7gx-3P5T
+	id 1wGEhq-0000000D7uN-3SA7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 11:23:51 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-4411e1eba51so4260355f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 04:23:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777029828; x=1777634628; darn=lists.infradead.org;
-        h=to:references:message-id:cc:date:in-reply-to:from:subject
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=+t+DJdjmBiSqlx1/PpjPe0tKhCBDYlA3fqYW1n4w00o=;
-        b=ej5cIX7OGGRF1aEdfziql9pePIN8TbtR7iMQR2+bbsY0FXo7DfgJ9AFNXYd5IgQDec
-         2nn5Sz44sjhhnfIfOsiQx3eE0h5UK5UXuQ2MGMTKOyuQrWowoFkFHu/Lez+HRd867U/f
-         DAsFUw01S9sses5whXo+Mtd/jpjHO96sYO1BY9K1ofCyeKAGw2vGjnRzl5cQ7fzV0WaZ
-         JE7fpPs51QJTg5BIFBHDYxjsAph43C2K+YodZqAHR9mrCKWTeBLBPXo5apjA3hWix7Q8
-         vzcaVXVFtRCG+qnYl8CnBamcM0w2jYNCxEYZtkQuFHdhjhOKzr7U9/zbU1oI+lhMBs7m
-         wlZA==
+	Fri, 24 Apr 2026 11:28:26 +0000
+Received: by mail-vk1-f179.google.com with SMTP id 71dfb90a1353d-56db1b3626bso5023395e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 04:28:22 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777029828; x=1777634628;
-        h=to:references:message-id:cc:date:in-reply-to:from:subject
+        d=1e100.net; s=20251104; t=1777030101; x=1777634901;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=+t+DJdjmBiSqlx1/PpjPe0tKhCBDYlA3fqYW1n4w00o=;
-        b=I/bgQCdMyMaas9RuXOsqYLLXbolJfiBqLClrbSXb5GhpKVuUs4FS7hjqFH3w/OneO/
-         aQ3kZJ4YTx5cabNeUtcuXAx23Xbz5Wg548v+ZZHO8QL2h6byg/a7RGllrMClQYiQKfjU
-         I7yAtGTsJsKNBvY7muS78V+Tff/EcerajZ92/337IpYhT2/ZekkLOHbC+jycmgq/y8LY
-         PhcdsEK8Af2LApA6YHkwrMsStVpvAOskOiST8Rlyb+oPz/2jtwpgFOX7fjYg+cnH+MK9
-         WR4+Cvz0w3d2LpdEwA6C2t8c83bnCUs9xOR89LEqD6+fggNxT4HIoaMj8SwdgW74Tr3f
-         tEhA==
-X-Forwarded-Encrypted: i=1; AFNElJ/kCscsipWSGYUOfmYyY5jKOR9qHm3pLieyTeFN/xOmqC1+zYjQ9SizCPNdup87k/P7huIQr+bn78RIQkECakE4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBBVtyMiEZuqZmdxWLHovtOFwKYNAY+nVYPAIRxGN8kODJwIQb
-	0ezf9e2WXFeU+lYGQM2dXCdlNfj0oCHYR2HaKauTq2FaXOx7gZht/8aj
-X-Gm-Gg: AeBDiet8UIKUhrzqTfCzQjcgnBChNGcHmTJBK2R8PoQSm6tcM9TZD1uXPaXwVet5wmv
-	kmOBgT2rUUgVYgE81fEFQ9jEoQE0Rvatu379Qcc3CspkYyAEMtjdAMBIHRtjPeEpgKwuaCjAq9p
-	rhbuhKn2Q8oefMq5Ec7o4N10c1PqKC0FhlRipVwPR7shgBAcqGBVzGyJMGWf/dcYkwAKMHqBlqI
-	N84OjM0sBfmitfHDMzxES/ocqo3XDr/ovj1I6t6OIAVHvTQneuH80icUMrS/Ku+WK7Qa16IHXJv
-	3HQdESdxm8IT/v5iE+PU0vG0xpsIXSKIwrvBFHqHF3NIOIRICsR4+I1p1sKCUGWd3h6t0Y5NX9z
-	xggHJqso30xEDMrt6xWPzhe6cwVPuSgkn8eMUM4s/Su9YIyauXQMin4I7etLh2cBySwtvlNtSrN
-	HqdtNMomVARjoBUuR0azrjmw8NEOvfUzq1jxuloJ9VrP63
-X-Received: by 2002:a05:6000:240e:b0:439:ae2a:755e with SMTP id ffacd0b85a97d-43fe3e0b606mr48159269f8f.23.1777029828055;
-        Fri, 24 Apr 2026 04:23:48 -0700 (PDT)
-Received: from smtpclient.apple ([197.250.51.46])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43fe4cb1365sm63645843f8f.7.2026.04.24.04.23.43
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 24 Apr 2026 04:23:47 -0700 (PDT)
-Content-Type: multipart/signed;
-	boundary="Apple-Mail=_EE2E18C8-0A52-4302-9DA1-BBDF2F1ACD26";
-	protocol="application/pgp-signature";
-	micalg=pgp-sha256
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.500.181\))
-Subject: Re: [PATCH v5 1/8] ARM: zte: Add zx297520v3 platform support
-From: =?utf-8?Q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-In-Reply-To: <CAD++jL=am0f+sgBSFYQCdcFOvFWgPETn_pSgVdzETJ3_yUNqgw@mail.gmail.com>
-Date: Fri, 24 Apr 2026 14:23:29 +0300
-Cc: Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>,
- Russell King <linux@armlinux.org.uk>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>,
- Krzysztof Kozlowski <krzk@kernel.org>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Drew Fustini <fustini@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>,
- linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org,
- soc@lists.linux.dev,
- linux-serial@vger.kernel.org
-Message-Id: <BF5EABA2-3168-48A2-AE2D-D8EE2CF88E9F@gmail.com>
-References: <20260421-send-v5-0-ace038e63515@gmail.com>
- <20260421-send-v5-1-ace038e63515@gmail.com>
- <CAD++jL=am0f+sgBSFYQCdcFOvFWgPETn_pSgVdzETJ3_yUNqgw@mail.gmail.com>
-To: Linus Walleij <linusw@kernel.org>
-X-Mailer: Apple Mail (2.3864.500.181)
+        bh=eTjTO3Vp0zB9Wc0GJptJYSFqlnWOG96HJNT3Sm1YIxY=;
+        b=bMPWDeqc8RTQnYG65bYLyEG0tdTrrcGfEHO5QG08I1P/DSkW0OtKgmgJGFTDhYBJKL
+         qosZ1WlHwBJ48GI30HWPmX/bysEwdJK6dSJRaCGBAWX+FpStlUyGs+ChLY1Zv8SB1W8l
+         EQY/3+fEMQVwYjYkvOPVyA/ZQFoTdkUti1nqzWgf8oalv9yhxOV8MhL8eafm2FdwnfNJ
+         lhyR6ZalQtQ3EPFRYGWVlQJocPb6On+IGubwCAde1aL+Ps1MlMsQNJ16mJGl/eI7Exbz
+         blpIur1Ci5NRb9+RQY7i+4NhJz9WZvGRjNlYHf9MHW1AiDVmr5eOhMTz+y3xo3wIEtAB
+         nZkQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/QDIfG675j1VK9lmEm2itziCOBEz0VFXmpAvwm5V9fH9Rb0+PPMBE4/bd3wcc7wDz2/1+vSZ6YN+d/3X8vs5J5@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfcuihL+N1KSPNh+KLB950Y/GnKOs3ozDtgNHtxc+fcQvG7PFF
+	tO/Gbd3oW2zWBE+PKPWku0fKZXWxE8h7Phuyw9npGwRgBOq2MM5ValiArA67oWDk6m0=
+X-Gm-Gg: AeBDiesa+wR+BJwKiMF7W0CWtize6+2ZacgjOM+bD/n1+Kc8xUJnvj/H+08za5wJK8f
+	FFsHORWsNckG8RYGFItIzpcSMbEa1FHImCzL5io1V0CQnRII7UN6TzSt3oUQSy9UgjF8rYr97l0
+	YVZgQMIVPAg2GRv4M4+q72bYI9WLtw061g3YHKSjuX+AEAN1SIFY3+t83OnAbLm2Wtqw7NiJsoy
+	7M7ecR89TGBAqi/cXlYiAA53XBmVO+T+fzOm2SDXqfSvzG5z3O1s7jUF0bjHFlCQohCurrvDBBe
+	XWPPPqYLQ07IjW+d5WBuyixoaTP2oX060d7dgKDEx1FanjKj8/xYU1pz2/SUaVlkL8L05xYWvD/
+	VBYOkKz9/LOXKS6la1vz93P8iqnox+ol4e8zWtUHXIwEUedgOYqNjhYT4EDFto63HQgdSuENhG0
+	E5eCPY//vj2WTeLOmWzPljFFKmSVB9vA9DexUeuuUyKH+GX7ZWfkJ7zLl6tD5q+g3d/IXhM6rlk
+	JbRNQFIkg==
+X-Received: by 2002:a05:6122:8898:b0:567:44ba:bd8a with SMTP id 71dfb90a1353d-56fa59daac2mr11836255e0c.9.1777030101169;
+        Fri, 24 Apr 2026 04:28:21 -0700 (PDT)
+Received: from mail-ua1-f44.google.com (mail-ua1-f44.google.com. [209.85.222.44])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56fa93275f4sm13155564e0c.13.2026.04.24.04.28.19
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 24 Apr 2026 04:28:19 -0700 (PDT)
+Received: by mail-ua1-f44.google.com with SMTP id a1e0cc1a2514c-94aaa5d3bfcso4465631241.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 04:28:19 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8pHfuR1nBRZi/Cn0gtYSLB8DQ+2nNHNn71gW4KZBIkp9QeQ0jHkYfzRvoG5HehElwxfNcrzW+OKVCJezTOoCuM@lists.infradead.org
+X-Received: by 2002:a05:6102:292a:b0:60a:cd0e:5cee with SMTP id
+ ada2fe7eead31-616f4f84fdamr16386481137.12.1777030099174; Fri, 24 Apr 2026
+ 04:28:19 -0700 (PDT)
+MIME-Version: 1.0
+References: <cover.1776793163.git.geert+renesas@glider.be> <7hcxzqr4qi.fsf@baylibre.com>
+In-Reply-To: <7hcxzqr4qi.fsf@baylibre.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 24 Apr 2026 13:28:06 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdU=3AN8wHbnO2Cx4WsLuYWhv_fRfTA50fmrqyREO3nrbQ@mail.gmail.com>
+X-Gm-Features: AQROBzBE70P7irgYnQUYx63AIUadZqGfMGlPrac0wi4EECHihh00jV8ht_DYoMI
+Message-ID: <CAMuHMdU=3AN8wHbnO2Cx4WsLuYWhv_fRfTA50fmrqyREO3nrbQ@mail.gmail.com>
+Subject: Re: [PATCH/RFC 00/14] R-Car X5H Ironhide SCMI CPG/MDLC remapping
+To: Kevin Hilman <khilman@baylibre.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Magnus Damm <magnus.damm@gmail.com>, Saravana Kannan <saravanak@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Ulf Hansson <ulfh@kernel.org>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Marek Vasut <marek.vasut+renesas@mailbox.org>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_042350_890351_7AE31766 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20260424_042822_892725_C3EEEF53 
+X-CRM114-Status: GOOD (  26.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,68 +105,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Kevin,
 
---Apple-Mail=_EE2E18C8-0A52-4302-9DA1-BBDF2F1ACD26
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain;
-	charset=utf-8
+On Thu, 23 Apr 2026 at 00:48, Kevin Hilman <khilman@baylibre.com> wrote:
+> Geert Uytterhoeven <geert+renesas@glider.be> writes:
+> > TL;DR:
+> >
+> >     Describe hardware in DT, and perform the mapping to SCMI in Linux.
+> >
+> > The Renesas R-Car X5H-based Ironhide board is the first Renesas
+> > SoC/board combination that implements the ARM System Control and
+> > Management Interface (SCMI).
+> >
+> > This means Linux can no longer perform various system operations (e.g.
+> > clock, power domain, and reset control) by accessing the hardware
+> > directly.  Instead, these operations are abstracted according to various
+> > SCMI sub-protocols, and Linux has to send messages to an SCMI-compliant
+> > firmware running on a System Control Processor (SCP).
+> > More specifically, the R-Car X5H SCP FW SCMI controls access to:
+> >   1. Core clocks and module clocks,
+> >   2. Module resets,
+> >   3. Power domains,
+>
+> I'm very curious how power domain hierarchy is described on this SoC,
+> because one more issue to add to your list is that hierarchy cannot be
+> described for power domains in SCMI.
 
+So far I had no need for such a description. AFAIK, this is handled
+inside the SCMI firmware, which does know the hierarchy.  Hence the
+firmware can power up a domain when any of its children is powered up,
+and power it down when the last of its children is powered down?
 
+I think the clue lies in having a PSCI top-level domain, cfr. what
+you wrote in [1]:
 
-> Am 24.04.2026 um 10:06 schrieb Linus Walleij <linusw@kernel.org>:
->=20
-> On Tue, Apr 21, 2026 at 10:24=E2=80=AFPM Stefan D=C3=B6singer
-> <stefandoesinger@gmail.com> wrote:
->=20
->> This SoC is used in low end LTE-to-WiFi routers, for example some =
-D-Link
->> DWR 932 revisions, ZTE K10, ZLT S10 4G, but also models that are =
-branded
->> and sold by ISPs themselves. They are widespread in Africa, China,
->> Russia and Eastern Europe.
->>=20
->> This SoC is a relative of the zx296702 and zx296718 that had some
->> upstream support until commit 89d4f98ae90d ("ARM: remove zte zx
->> platform"). My eventual goal is to enable OpenWRT to run on these
->> devices.
->>=20
->> Signed-off-by: Stefan D=C3=B6singer <stefandoesinger@gmail.com>
->=20
-> Didn't I review this already? I don't remember, anyway:
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
+   "But... how do I describe the relationship of this hierarchy? In
+    particular, when the SCMI-controlled PDs are actually subdomains of a
+    top-level, non-SCMI PD."
 
-Yes, you did, but the previous version, and after I sent this one.
+Or am I missing something?
 
-And if I understand the b4 docs correctly, the Reviewed-by tags are sort =
-of handled client side: I have to tell b4 to fetch trailers, and then it =
-will add it when I send my v6 with Krzysztof's request to squash =
-patches.
+So far I have used only a few devices on R-Car X5H, and e.g. the
+serial ports are in the always-on domain.  I did experiment with
+a dummy UFS driver, as UFS is inside a real power domain, and that
+seemed to work fine.
 
+[1] https://lore.kernel.org/arm-scmi/7hecy3h7ky.fsf@baylibre.com/
 
---Apple-Mail=_EE2E18C8-0A52-4302-9DA1-BBDF2F1ACD26
-Content-Transfer-Encoding: 7bit
-Content-Disposition: attachment;
-	filename=signature.asc
-Content-Type: application/pgp-signature;
-	name=signature.asc
-Content-Description: Message signed with OpenPGP
+Gr{oetje,eeting}s,
 
------BEGIN PGP SIGNATURE-----
+                        Geert
 
-iQIzBAEBCAAdFiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmnrUrEACgkQPRO8yFRP
-GiKRrQ//d0i3JtN4eqnwGJS0KDoAetBNQXiNUwHJGszPaUlMzi1beDOdsTFk7Who
-t8GNv9VvwjuR7Agxy+B9vNltnZanU6djJKQhm1+Qd7AvlC86ueKD2tGZUxpmuipl
-37Poxi+E1zUTG68RTaJz1p0utLhaZkiCjVJzmTQgJJq3mAfYp8ycFI29IgdGHJCN
-612a3nSFm1l6vz8a+qSX9kQG1UnTYQjsavu1ACxQp9Kk1Xga1G+atLgfXTTY3Aav
-LjzHpAl+B0szQ84Zb05ZpJ1jiZYnMrDrIlNu1hv9/PTddXHyL2ISI+0um5OCvJ6n
-61iXnVpyJlrscV1Iqs23VwxKx+y3rnV1JIlf/j4n1nwkJ5LQLxRWuYUpmK71uwKt
-8WtiK3AD9VxnQvfVtAn2ltUaCLeeE+pZpSwnOvI31AOrwwZQ3ckSqkYRYVwnxVZZ
-hkYMk1IfqjRPdMgMjyAqKEPZ5hOqYC5eqd68uM0HAXpYnUT/FNxGw/+sV7oX3qyY
-eVho0WqhoeBEAezLTQ+GeCNlLirDpHwT2Y8NHYxSTlIQuwhwClwRPjdXCyS9adcF
-eCz32rEZFS75z0LG701LB+MlMhblYEkGiAm3DEsFo4778ft7kfWC5N3GJLbu31SX
-1/xC0sqkBY5zF5gvLXwtw0kEniW7PzEgc3oc2N3T37x4mk/WGfo=
-=+4QJ
------END PGP SIGNATURE-----
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
---Apple-Mail=_EE2E18C8-0A52-4302-9DA1-BBDF2F1ACD26--
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
