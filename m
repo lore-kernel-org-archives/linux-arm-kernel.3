@@ -4,131 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87D7BFB44A6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 04:39:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F7FBFB44B1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 05:57:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xQ+TOZuUoAlnC+nRF2LG4UBTesTzQsXmHBvPKenL6HI=; b=uritzogEk1+VNuCdWAk9eYODnU
-	9AAfCGVKtX9+FGiGN/9vgqNBBBkri21OVSSA9lZNAIuPa1K3HUyzpAgcZ7ZdIvPwH0BjvR2OGmJeE
-	NY/9TOj7wYCA3Q3W9fzpsbhaXiVBaz319T8ks6f1Q0hvxNQi+VtVI0BnONQt4XlHYljDfkzBki4Mv
-	e5oTpFOrJDkEZzC8i1g9uJGBsaEGhDjWOyXeeIn8YIFKNkAB7/+IEg98IdgNEWJIBQr1XtOYPbK2U
-	VpgQOB6iOVST7NhDbNimlSGFLILfLNsObxktFma1vI/QQ/HNj5rpZ4takQageJTZShEhofGhSPWnv
-	Ou8oHtsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yTMN2l5WkkkwpWqXhyGv2MqcOf1QG4ZJfDdEl00tCos=; b=EIbIeBYiWSri36
+	m1EvlqAdPU5/SZr7lv7HEos/VTmJSxOS2wKKjMIIOTC/lmL/CUIxR6WEZ4vvvzoKQTPHBr+/tneej
+	QhdQJcTEwdRaG5qXnnvbIbuQpwZuYKi1MiS+bX6dRdsC8Qpa1GSsvYuR2NR1KZllI/BBKjQ/pUxqq
+	+EplBKZIKoGIhm5VwPivvb3VTseOp9TLhG7rUn30mgAedTbLnydDGXwuiAVZSBEIDRR7M/AphiyxH
+	A/aGibZsc43WSIkDzpJegoZJH91Ot6UVuW2iNyKQoKoAuFaKqwuUDIB6Qf9mru8NNrFKohUUXQ3Y5
+	Pk73b7msgfAuNardUJ2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG8K5-0000000Ce0n-2eC8;
-	Fri, 24 Apr 2026 04:39:25 +0000
-Received: from mail-eastusazon11012060.outbound.protection.outlook.com ([52.101.53.60] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1wG9Xe-0000000Cgb5-0BRC;
+	Fri, 24 Apr 2026 05:57:30 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG8K2-0000000Ce0P-357H
+	id 1wG9Xb-0000000Cgah-0DxY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 04:39:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=miXitZqvJaVf7VE7tCudTQWfwQMjUnxWIP5YYwARBOtsKD8b0HTGdLYDymRVUQW9FWYpb5DAk8p80b2DfnCpIF5g4BbRFZEOmDmX24TvI7PFWt7mvdlsZFfPfDs4xzaxzkFiyVvr2tJ52a695yQg0UDYE/fG98MFrqh0YA8sEFBgZygUxulivLk4tlOCvFcPcEgLGd9/GUrui2N6Ar7C2cJ6llUedgGe9pM/ODjUbFN/adYg5IicD9y17U4Ij4WLyFSI14LZ3yh5RSw2QTwp2oanaV9oo17Nc4g8pHhxy69FlUdlT65jI1OupYNXUAZLMu3LrEGitdENM6hh1TRx3A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xQ+TOZuUoAlnC+nRF2LG4UBTesTzQsXmHBvPKenL6HI=;
- b=fmloIpFhIyIx4mD1xwxnWlATc9Cyzw6/rPLk/XjtG+yuaGJwO4OUfjY/qYdtkR6tPeuKhpqoAAbcOp9fI1O6AxKIUZAITWmxSbBvyCt3hiGxY8P2m/rbkNzGrwFcT2BVCpWLkA/+oFe0O2kuLunWhjYLGqkEc6aTYeQpaYffttZPWjYP/d8CyGedHQFgT7z/KzaRinwm2bWOXjWS1h1yJ+NMWzTxgDobW0LSWKcgJcLMmsuAXOlSoIvP/Kjnj8zaWR65jdfhGEOSGpzHJXcwmoVwefCrFhMWo57TguqNKOgfG5QIJ3qUuWQFKFearUI2hhjsaRfBmvzRZfQQ282Oig==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xQ+TOZuUoAlnC+nRF2LG4UBTesTzQsXmHBvPKenL6HI=;
- b=Fe4ItwAAgzdadJP4IalujzrantPJkLjV25FoVdHSS4oNIekgJ/HHNldlZeE2cc1gfztdv8lpx+ghIh9VddImn4gp/42epYC9AJ2zyFx3iQq95SNypmEO/6eFcp3YHvNm9o/AX+Fv2EdYpsoO6TvZ9lV2er3ZLkSqFPeFyttUYt0=
-Received: from MW4PR12MB7285.namprd12.prod.outlook.com (2603:10b6:303:22e::11)
- by DM6PR12MB4204.namprd12.prod.outlook.com (2603:10b6:5:212::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.22; Fri, 24 Apr
- 2026 04:39:17 +0000
-Received: from MW4PR12MB7285.namprd12.prod.outlook.com
- ([fe80::ba9e:64a2:e92d:8cff]) by MW4PR12MB7285.namprd12.prod.outlook.com
- ([fe80::ba9e:64a2:e92d:8cff%4]) with mapi id 15.20.9846.021; Fri, 24 Apr 2026
- 04:39:17 +0000
-From: "Thangaraj, Senthil Nathan" <SenthilNathan.Thangaraj@amd.com>
-To: "Jain, Ronak" <ronak.jain@amd.com>, "Simek, Michal" <michal.simek@amd.com>
-CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "Jain, Ronak" <ronak.jain@amd.com>
-Subject: RE: [PATCH 2/2] firmware: zynqmp: Add dynamic CSU register discovery
- and sysfs interface
-Thread-Topic: [PATCH 2/2] firmware: zynqmp: Add dynamic CSU register discovery
- and sysfs interface
-Thread-Index: AQHcx0zVS3Iep2O3q0SQvSQiaBigHbXtuJGQ
-Date: Fri, 24 Apr 2026 04:39:17 +0000
-Message-ID: <MW4PR12MB728503ED85B98A66805CE997E22B2@MW4PR12MB7285.namprd12.prod.outlook.com>
-References: <20260408114244.2852015-1-ronak.jain@amd.com>
- <20260408114244.2852015-3-ronak.jain@amd.com>
-In-Reply-To: <20260408114244.2852015-3-ronak.jain@amd.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Enabled=True;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SetDate=2026-04-24T04:34:05.0000000Z;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Name=AMD
- Internal Distribution
- Only;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ContentBits=3;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Method=Standard
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: MW4PR12MB7285:EE_|DM6PR12MB4204:EE_
-x-ms-office365-filtering-correlation-id: 2ba098d5-852b-4ab5-fb62-08dea1bb71d8
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|38070700021|56012099003|22082099003|18002099003;
-x-microsoft-antispam-message-info: zegBaEge81b03jZyk1KtEM5fCKVp86dnkB1zvXJd/aevRHdV1XB0rUccfGyKqokZfqrXQ45xpHaO9nCKKy0fAcedZd1IkvC9p95d+1f6QNXvKOFmshn8cC2yrzkRWpqiMX6GP7qWc3rgGKFM4PZVhiM6DyXqdeXLuE1ZXN2UGusq6clkJAxXp3ODgEn8jfVTDz7l7C7IYZHQJf9cDFFuQxIANxL1ijInqqiH2UEZuPyTi7u7zOfzwjGgktvs4h9c7FZRAWbHt1uM/4IYtRpLHDrWFvqUXdqYC6opkil0yl9FXx4MSDQ7sD411tQj/499DuJnA4hwHZulMj+q2C1+FLEpzN9ws9j46NrjfaLnG5ADViry5T9rJBQ3iD+FDwBi+BLxDk4rAndwaBdrCi7AEzPzzu+JMLTwpmpLJsGG5Axkj89NdolvS3tomh3UESYxnPbGS6rvJYltTJ/g21vKADvgRQEWU3G8Hjcy67zZ0asJCPpfr+2eUSDH4C9eEKuISZZjwdZjxNOuBiIhRKqxECm3Ps3i02aKQHko4T4Y4ma8iDxpaUZ2Q1552A1cDTVKwRfdqnM0kx/Ea4pr+PkVXi58dlyR18ujKsbEk/NS8kI5rw+phe4hOGIYEYzr0cDMeIvFjAG16JB89J/kDg/5orrc2BKXmk2Q53PQkV9McMG0RYXVIpH20QaZp+Pc7jE35dpuaOFR2yuH5i+NIcvjvdz/UOWWYTIk40ogMe9pPhDt/9bd/CeUt4nRyJtQ6sa/zpsnCdicgyUKKjoQR5VQRNeYqMid8sxIok5qPq0qkkQ=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR12MB7285.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(38070700021)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?D3iYQoV1MItar7OP8zkqlqdY6Rgtlv6Zri5Duzw+5VfT04PTOrOWUDPj30Pw?=
- =?us-ascii?Q?7CaUBS8vMKB+fCHOzdHae8CfOyIwDOOOPQia3uBJtVXpD0FLzpe43box1QLU?=
- =?us-ascii?Q?vKLa/HEBuzsZTAcjI+XQW+uOCeHOyhN9BlizcFB+WLrJCQnRttQqhqrzcyCN?=
- =?us-ascii?Q?2aIV0VxwnAEZHXr4uZoJo4mAvd+nD6/nMWYsdrY6LtZ5i9XnlObpkD8Wt08U?=
- =?us-ascii?Q?k7o3e+Imm71iV8/BlgzeSRji+7yuUiNUWQiRg31zNXKfHqljls9z0GZVKfs0?=
- =?us-ascii?Q?Sf7+f9IO3eSuWyWqW1G/3Mot+PF0jRZ8bx9X8yOpRKFHKtQ7MvPwKRR86qt9?=
- =?us-ascii?Q?wPnqlVtNKEWfoneiDayvIGhEKL5xWoOyaklDgrzYFneg3YfYm8O8w3KhMkcs?=
- =?us-ascii?Q?tKqGMCPOUpgVyWApCVdClLI2n9SJNoUWRqNkTFcaYyeM7nVGei5p5w1il7Or?=
- =?us-ascii?Q?FteDjHDIa0EoTGXdvdxWqc6VJX7Bt6gpTKSCRUB6YEymKBcRQU5kFcDu2Gti?=
- =?us-ascii?Q?AiCaxgU2lUbgq/jSksvWx6c/Xwfe6Ms6Uqb0483MObuE0X7u1tTnvQ8PFUHp?=
- =?us-ascii?Q?oyQd8TU+0YyzSurS0dJKTWnQgcaUhjX8RdttK7U4aRmfTiTE8xgOGjl0+I1p?=
- =?us-ascii?Q?vJ0mQc/CkNUzPQXoJnnpEgVnh0gS1wbs9Y9IQg1I3XIavvkl1aEHgJt7Mdrc?=
- =?us-ascii?Q?7eqrZC0+uJ1zsiV1nfMxfsxGqUX2dmWpDo4bREFIHv6U/3ey/VPB6lvQaw4D?=
- =?us-ascii?Q?AlF9P6eSOaw41a0G7I78lmbMKQ+FMmBxApAMoScWCudjZQ/iLz1b4LodhbqY?=
- =?us-ascii?Q?woi+W7zPaj9NPFx1LCcXTeg7VBKptmajNJPaLXOKT70nRAKrK+Cjrihu7RaB?=
- =?us-ascii?Q?HXQcQZM2Acd0kgeUUaoD+S+iWqXreGFJYk+nOZs9/xfeCDJ0Bz3cNd43+01x?=
- =?us-ascii?Q?NnpimlpwIoBf/BzylhjAoeWUTDGDrbSkc7hP1udfCYj4yq75Fm/SM1NrOyu6?=
- =?us-ascii?Q?UAulkdvV9DZTnvENQ1vjJlov4mCC5Zm9CzyI29kzVqauCVno7To9L40isU0B?=
- =?us-ascii?Q?l1RwMZ/pmMO/l1jipMyWPldhd7NA/wM3UgWLgFcnwsnRGDFkZ7ykiaub51BC?=
- =?us-ascii?Q?94dyDGyFJojqCyYgX34A3EwbkosrPgaZU370XR8YjDZn/CzQWhH4YIUXDzm+?=
- =?us-ascii?Q?CxCWJ4dQVlZY+OMeQ1FQW+FdYmsflIQEk0irkapFlTEIkZ5mTqg1cdIqP27i?=
- =?us-ascii?Q?qTK+bGOBKi1xUFYH61eZljCx6lOAIF05g4DQTFCM0ws0N2GaJPNLsG865teW?=
- =?us-ascii?Q?U6cBH8TD7TeYMhCPFAN3VB1yGuHsdPsNzoEO2husp/Fc1bcKFFgRNURftSDX?=
- =?us-ascii?Q?e1UqenaNJODIQ+tTBcDqOlx8gQ86BKun308bxcQGw777VaEctXZia2xJHmgI?=
- =?us-ascii?Q?I2fqkv93BsByQC+xB+eYX4x4chPn/UfAJ7xBKawktFBdGdhSBe+ktA2TWWWZ?=
- =?us-ascii?Q?xYMLTkbBK5dIg7D1e3SGeNl5A59QZyoZVVjBSlJfSva4nHzoBZHWj67eg9rf?=
- =?us-ascii?Q?LNPFaPgGtOZChaCS+CJ1RgJZ3AlshBUUrLSKlwonRJi+8mnWP+u17EyqPq2K?=
- =?us-ascii?Q?rMe0/NYklI2bZOkn5s/uMCnUb0fTf2Gr23ES2VohW/rU+UYh0CVijlsT2QBg?=
- =?us-ascii?Q?RwGfolEhqlM71lOWUg5CmXiKMjvRrV/9DKqlrdIXHHC+SRNg?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 24 Apr 2026 05:57:28 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63NNRfgE1888411
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 05:57:25 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=yTMN2l5WkkkwpWqXhyGv2M
+	qcOf1QG4ZJfDdEl00tCos=; b=MQtcYpEUYiNQ6ouvYFCY2hN7w3wo8Buj0qjRiY
+	Cs0V26GdDiI+8cixO9L0s0GnotUXPU8KmW2esxPobQoRrgws7mf8/sBbUwqf3/5I
+	WX21nQs9JKIAXhCr6frgHg2PJk/Jb19jf+CAxtbdrrrNhuR/io1XbPtLYxWdqeEa
+	GKJfQJHDyKrvYvzLyqt3cYfCM8CsDZQUqKTT4rstdydZpL9aM6hzshD3mhGukIFe
+	V7fQiubMYXayk0ncykH0WF8j5wU1MozQpfvFgvH/mtA90uk13P83jOB3nAndEZ9a
+	LY1am2uRPuODluYYviP6O5n7FjEtVKvm1rHMWgaRl7N9eP8g==
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dqp9dty1p-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 05:57:24 +0000 (GMT)
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-c709551ec08so8338980a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 22:57:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1777010244; x=1777615044; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=yTMN2l5WkkkwpWqXhyGv2MqcOf1QG4ZJfDdEl00tCos=;
+        b=dOOmDnD3aaXuLBP5qHsTopn613uQMHyQ8DbAlSR10Ub/O6T6GUL/7V8hFPsngNO+Pa
+         AxUrJ3R3l/b3nGIi0UgGhKvHlXcNkJJSp/QzAKiD9g/HEz3r2Q0TbLqlIGeMIjJSO5tC
+         2/HJgoTwEYVcMBm1a/4wUSjOJrZEV41aIcPRblgGwHM+iVq7cY/5MBsOkquNgI9NqfEv
+         o4OMsV9HR/A3bU+zQU2VOvgzJw6TKNGMH3SA2Kbr/wZ+FxZ6e6Mxz1q90vS5lD4uy6x4
+         BswrGyzmqp+nFmB/opq/v8YWJ1HOzLvpyvVI9yNi76eUheqZH6rjpiwbetKZGtYU8YqT
+         31FA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777010244; x=1777615044;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yTMN2l5WkkkwpWqXhyGv2MqcOf1QG4ZJfDdEl00tCos=;
+        b=j7AvFHPjhe+qjnJUpptZeB2qeMW7AjAuNVf9KBR46rZno2ruwGZ08cSOIjr4Vki5b0
+         4zt4rpEJW3dP9H1tUNnrdBKvAHrhQsxTBkEa/bGQQP8ysYXMQ+XIiZ/RVKlOY5lm+6Y3
+         em7+fsl3GpHxN/gbomdvfjXx8RiIQESnIZBaS9tFrQyyywDAWCvr14a71yV8NWLTn9LH
+         yVCpSEw6TRi4+KiTZnCDfJ1ZtTzxOcurUYO2NEr/d25zrWW7iqlQWSrWYRkIlLFhvmVa
+         sz47n0iccm8myfdHkMzRGguimsxjWOMJ+72thwGXDbzu9JxLHMK3ms7xpATqM8l1RPeL
+         544g==
+X-Forwarded-Encrypted: i=1; AFNElJ8xLN10prE5iwE/AVnN4hx7G1NFlI1OVRhvMh5rkPFC4xrPyBPOT/XK1DIfSYabgCh9u8tvGdKn0mxj8HTgKq4a@lists.infradead.org
+X-Gm-Message-State: AOJu0YyI/I5Xjc2ozOP6C622h7EbsWMSzAMJfF4OoIDjV9jDrUDelhNT
+	vnS2g+oFkxP6BDUK+htsTX+Zpx7M0XsG8rpcigD930Mp/BG/mpjEiqYb0JXh1T/2GnOlEmSKFcA
+	UUrnaQrTKMlIWgxrvL6kLWzwzJPtoY11qAlcvl3g2/hMKGKx45shGrioLRh1hEQqZU//zk1W3QD
+	LG7Q==
+X-Gm-Gg: AeBDieuW16D+Pq3B6vek9Hva/yliNO7elq7GdIW9qqwLzFtyJz/Bdy395CoWkjI3TrB
+	HJpJRJaLQNrqzt6MfaBp1A9tvPnm5K41zjeUf/94cNnrcOlF8oKk6eXK/vWjKmyizcyc5hdvfKQ
+	DW0xwY/WOZIUGZjdjqgyAt14OUYa+g25BuGfZjDFTE95BvArTE32watBrJupo59NcUzOClxBoa8
+	+AwAIt6FFR4VhxqI93z5wAegeCH6eS1XjvK2x3aAsGGEPJ5yKaAB0ilN1H586y90BUWfIMQiive
+	98LUIvgDg6SW4hdS3znLFa6lhguWmNPNxUUlOQHEeCoCt1DWuSFPFwWHjrUGjGCtwBMu54zHNAA
+	7hBU+Q0Yp//kEyRv6VvMDJLBs5w9qBGxQH16a1Y8OSo6aLSgcdbsMNUplSY5Tf0qCMDo=
+X-Received: by 2002:a05:6a20:7292:b0:39f:ebf7:5ba6 with SMTP id adf61e73a8af0-3a08d7abf91mr32181494637.25.1777010243925;
+        Thu, 23 Apr 2026 22:57:23 -0700 (PDT)
+X-Received: by 2002:a05:6a20:7292:b0:39f:ebf7:5ba6 with SMTP id adf61e73a8af0-3a08d7abf91mr32181453637.25.1777010243387;
+        Thu, 23 Apr 2026 22:57:23 -0700 (PDT)
+Received: from hu-vjitta-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c79770512afsm17288101a12.31.2026.04.23.22.57.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Apr 2026 22:57:23 -0700 (PDT)
+From: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+Subject: [PATCH v14 0/3] of: parsing of multi #{iommu,msi}-cells in maps
+Date: Fri, 24 Apr 2026 11:26:07 +0530
+Message-Id: <20260424-parse_iommu_cells-v14-0-fd02f11b6c38@oss.qualcomm.com>
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: MW4PR12MB7285.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2ba098d5-852b-4ab5-fb62-08dea1bb71d8
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Apr 2026 04:39:17.3939
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: BW4atwUTMADLnW6CLB9zuDL+RlDWdBu4BGdQadbCfvKf6Mbp7rOfjDvinnj0FEqqrNz6/nQdxd/UhEhRsZiKHg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4204
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAPgF62kC/33PwW7DIAwG4FepOI8KQ2Bhp73HNFWOMStS2nSwR
+ puqvPtoL8uB7GLpt+zP8k0UzomLeNndROY5lTSda4DuaSfoiOcPlinUhtBKO2UUyAvmwoc0nU7
+ XA/E4FglkzLPrkYcBRd27ZI7p+4G+vdd8TOVryj+PG7O/d//TZi+V7AIMxExkGV6nUvafVxypT
+ u1rEXd0BrWWfEsCVSlyOhKiRQj9FgUrStsmBZWCyBEtKe41bVF6RZnmf6ArFZhiMMoyo9+izB/
+ Vqb5JmUpF9BrYa+dgaFDLsvwCdDU36+YBAAA=
+X-Change-ID: 20260301-parse_iommu_cells-1c33768aebba
+To: Nipun Gupta <nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>,
+        Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>, Marc Zyngier <maz@kernel.org>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Thomas Gleixner <tglx@kernel.org>,
+        Saravana Kannan <saravanak@kernel.org>,
+        Richard Zhu <hongxing.zhu@nxp.com>,
+        Lucas Stach <l.stach@pengutronix.de>,
+        =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+        Manivannan Sadhasivam <mani@kernel.org>,
+        Bjorn Helgaas <bhelgaas@google.com>, Frank Li <Frank.Li@nxp.com>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, Juergen Gross <jgross@suse.com>,
+        Stefano Stabellini <sstabellini@kernel.org>,
+        Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+        Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Prakash Gupta <prakash.gupta@oss.qualcomm.com>,
+        Vikash Garodia <vikash.garodia@oss.qualcomm.com>
+Cc: linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+        linux-pci@vger.kernel.org, imx@lists.linux.dev,
+        xen-devel@lists.xenproject.org, linux-arm-msm@vger.kernel.org,
+        Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>,
+        Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777010232; l=8281;
+ i=vijayanand.jitta@oss.qualcomm.com; s=20260301; h=from:subject:message-id;
+ bh=PeFaW7Kdrw7pS2+czBSVD/S1WiB/N+6erzrmdMB/5Y8=;
+ b=fEKGmPri8LDYPP4nIodsRoCyeyYT1OGPS0OqEqaH/APENLrZpB+Q8nuTYzbfPqq917ee5aP2w
+ JYKMUiobPcFDsrp7EnUv2N9T4k7yYV5sMOp4PQ9MR9EoL3rLLaW0Suj
+X-Developer-Key: i=vijayanand.jitta@oss.qualcomm.com; a=ed25519;
+ pk=Lpi7Cs3wHe8KZtqvyci7FTOLzsKpEHKGCaPNZw+1zRI=
+X-Proofpoint-ORIG-GUID: N33eaDXfCCjDnGSMSvodqxjqtlLknPbu
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI0MDA1MSBTYWx0ZWRfX0WoEvRuA7UoQ
+ pjytBKA/94P8dE9LCFRY3Gd6ep1EyKUZ8apTQMS/Se2A5UfWUG/p+FiawnYnKMOeU5hcDsCCHYg
+ QZi/lO56aj6dPRpkvG6gaTemygjqI10Wfw5/2ztuHg8ftriT1FM+IvKsWNKr8Qt4yJ1eIxRX0iw
+ yAW7ufW7BUfFiSwS8hUtRg9O8eZgjnmmKq7auLiAuQAdDWu531nr/SwhDKZWWjxWOaCTYEZHbrV
+ /4Kll0mVh6VJGeRwyo3iTDfvDAXH5OGCn3tvEkHV3m1EeHz8cRVrgkwFm0u003070PX79LdngON
+ kPs2VHRpX5XTlyXfXZe/rz6DaUymMbkaoW1T9715HtOjjmrHBgACqA3wQMeyrfGgOyEpJjYpI6o
+ umpf5fuf4aNSmUMQq8iKH1WkEzJ17EtS1swSfHm6f6RcxLFW36GqsGlD+9K8Hi07fKng8y2/8wy
+ 24RmDyFD+TnH58OpK5g==
+X-Authority-Analysis: v=2.4 cv=fP4JG5ae c=1 sm=1 tr=0 ts=69eb0644 cx=c_pps
+ a=rz3CxIlbcmazkYymdCej/Q==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8 a=NEAV23lmAAAA:8 a=bC-a23v3AAAA:8
+ a=EUspDBNiAAAA:8 a=zd2uoN0lAAAA:8 a=tA7aZXjiAAAA:8 a=7CQSdrXTAAAA:8
+ a=8AirrxEcAAAA:8 a=1XWaLZrsAAAA:8 a=pGLkceISAAAA:8 a=iox4zFpeAAAA:8
+ a=DBfv99YmAAAA:8 a=JfrnYn6hAAAA:8 a=cWRNjhkoAAAA:8 a=fRNrpDd4OrOfg74B-YAA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=bFCP_H2QrGi7Okbo017w:22
+ a=TjNXssC_j7lpFel5tvFf:22 a=FO4_E8m0qiDe52t0p3_H:22 a=kIIFJ0VLUOy1gFZzwZHL:22
+ a=a-qgeE7W1pNrGK8U0ZQC:22 a=ST-jHhOKWsTCqRlWije3:22 a=WzC6qhA0u3u7Ye7llzcV:22
+ a=1CNFftbPRP8L7MoqJWF3:22 a=sVa6W5Aao32NNC1mekxh:22
+X-Proofpoint-GUID: N33eaDXfCCjDnGSMSvodqxjqtlLknPbu
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-23_03,2026-04-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 clxscore=1015 priorityscore=1501 adultscore=0 suspectscore=0
+ impostorscore=0 bulkscore=0 lowpriorityscore=0 spamscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604240051
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_213922_872953_94366943 
-X-CRM114-Status: GOOD (  29.83  )
+X-CRM114-CacheID: sfid-20260423_225727_236993_71F76D4C 
+X-CRM114-Status: GOOD (  21.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,447 +184,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[AMD Official Use Only - AMD Internal Distribution Only]
+So far our parsing of {iommu,msi}-map properties has always blindly
+assumed that the output specifiers will always have exactly 1 cell.
+This typically does happen to be the case, but is not actually enforced
+(and the PCI msi-map binding even explicitly states support for 0 or 1
+cells) - as a result we've now ended up with dodgy DTs out in the field
+which depend on this behaviour to map a 1-cell specifier for a 2-cell
+provider, despite that being bogus per the bindings themselves.
 
-> -----Original Message-----
-> From: Ronak Jain <ronak.jain@amd.com>
-> Sent: Wednesday, April 8, 2026 4:43 AM
-> To: Simek, Michal <michal.simek@amd.com>; Thangaraj, Senthil Nathan
-> <SenthilNathan.Thangaraj@amd.com>
-> Cc: linux-kernel@vger.kernel.org; linux-arm-kernel@lists.infradead.org; J=
-ain,
-> Ronak <ronak.jain@amd.com>
-> Subject: [PATCH 2/2] firmware: zynqmp: Add dynamic CSU register discovery
-> and sysfs interface
->
-> Add support for dynamically discovering and exposing Configuration Securi=
-ty
-> Unit (CSU) registers through sysfs. Leverage the existing PM_QUERY_DATA
-> API to discover available registers at runtime, making the interface flex=
-ible and
-> maintainable.
->
-> Key features:
-> - Dynamic register discovery using PM_QUERY_DATA API
->   * PM_QID_GET_NODE_COUNT: Query number of available registers
->   * PM_QID_GET_NODE_NAME: Query register names by index
-> - Automatic sysfs attribute creation under csu_registers/ group
-> - Read operations via existing IOCTL_READ_REG API
-> - Write operations via existing IOCTL_MASK_WRITE_REG API
-> - Firmware-enforced access control (read-only registers reject writes)
->
-> The sysfs interface is created at:
->   /sys/devices/platform/firmware:zynqmp-firmware/csu_registers/
->
-> Currently supported registers include:
->   - multiboot (CSU_MULTI_BOOT)
->   - idcode (CSU_IDCODE, read-only)
->   - pcap-status (CSU_PCAP_STATUS, read-only)
->
-> The dynamic discovery approach allows firmware to control which registers=
- are
-> exposed without requiring kernel changes, improving maintainability and
-> security.
->
-> Signed-off-by: Ronak Jain <ronak.jain@amd.com>
-> ---
->  MAINTAINERS                              |  10 +
->  drivers/firmware/xilinx/Makefile         |   2 +-
->  drivers/firmware/xilinx/zynqmp-csu-reg.c | 249 +++++++++++++++++++++++
-> drivers/firmware/xilinx/zynqmp-csu-reg.h |  18 ++
->  drivers/firmware/xilinx/zynqmp.c         |   6 +
->  include/linux/firmware/xlnx-zynqmp.h     |   4 +-
->  6 files changed, 287 insertions(+), 2 deletions(-)  create mode 100644
-> drivers/firmware/xilinx/zynqmp-csu-reg.c
->  create mode 100644 drivers/firmware/xilinx/zynqmp-csu-reg.h
->
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 10d12b51b1f6..37fe2b7e0ccf 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -29212,6 +29212,16 @@ F:   drivers/dma/xilinx/xdma.c
->  F:   include/linux/dma/amd_xdma.h
->  F:   include/linux/platform_data/amd_xdma.h
->
-> +XILINX ZYNQMP CSU REGISTER DRIVER
-> +M:   Senthil Nathan Thangaraj <senthilnathan.thangaraj@amd.com>
-> +R:   Michal Simek <michal.simek@amd.com>
-> +R:   Ronak Jain <ronak.jain@amd.com>
-> +L:   linux-arm-kernel@lists.infradead.org (moderated for non-subscribers=
-)
-> +S:   Maintained
-> +F:   Documentation/ABI/stable/sysfs-driver-firmware-zynqmp
-> +F:   drivers/firmware/xilinx/zynqmp-csu-reg.c
-> +F:   drivers/firmware/xilinx/zynqmp-csu-reg.h
-> +
->  XILINX ZYNQMP DPDMA DRIVER
->  M:   Laurent Pinchart <laurent.pinchart@ideasonboard.com>
->  L:   dmaengine@vger.kernel.org
-> diff --git a/drivers/firmware/xilinx/Makefile b/drivers/firmware/xilinx/M=
-akefile
-> index 8db0e66b6b7e..6203f41daaa6 100644
-> --- a/drivers/firmware/xilinx/Makefile
-> +++ b/drivers/firmware/xilinx/Makefile
-> @@ -1,5 +1,5 @@
->  # SPDX-License-Identifier: GPL-2.0
->  # Makefile for Xilinx firmwares
->
-> -obj-$(CONFIG_ZYNQMP_FIRMWARE) +=3D zynqmp.o zynqmp-ufs.o zynqmp-
-> crypto.o
-> +obj-$(CONFIG_ZYNQMP_FIRMWARE) +=3D zynqmp.o zynqmp-ufs.o zynqmp-
-> crypto.o
-> +zynqmp-csu-reg.o
->  obj-$(CONFIG_ZYNQMP_FIRMWARE_DEBUG) +=3D zynqmp-debug.o diff --git
-> a/drivers/firmware/xilinx/zynqmp-csu-reg.c b/drivers/firmware/xilinx/zynq=
-mp-csu-
-> reg.c
-> new file mode 100644
-> index 000000000000..1f304ce858b1
-> --- /dev/null
-> +++ b/drivers/firmware/xilinx/zynqmp-csu-reg.c
-> @@ -0,0 +1,249 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Xilinx Zynq MPSoC CSU Register Access
-> + *
-> + * Copyright (C) 2026 Advanced Micro Devices, Inc.
-> + *
-> + *  Michal Simek <michal.simek@amd.com>
-> + *  Ronak Jain <ronak.jain@amd.com>
-> + */
-> +
-> +#include <linux/firmware/xlnx-zynqmp.h> #include
-> +<linux/platform_device.h> #include <linux/slab.h> #include
-> +<linux/string.h>
-> +
-> +#include "zynqmp-csu-reg.h"
-> +
-> +/* Node ID for CSU module in firmware */ #define CSU_NODE_ID 0
-> +
-> +/* Maximum number of CSU registers supported */ #define MAX_CSU_REGS
-> 50
-> +
-> +/* Size of register name returned by firmware (3 u32 words =3D 12 bytes)
-> +*/ #define CSU_REG_NAME_LEN 12
-> +
-> +/**
-> + * struct zynqmp_csu_reg - CSU register information
-> + * @id: Register index from firmware
-> + * @name: Register name
-> + * @attr: Device attribute for sysfs
-> + */
-> +struct zynqmp_csu_reg {
-> +     u32 id;
-> +     char name[CSU_REG_NAME_LEN];
-> +     struct device_attribute attr;
-> +};
-> +
-> +/**
-> + * struct zynqmp_csu_data - Per-device CSU data
-> + * @csu_regs: Array of CSU registers
-> + * @csu_reg_count: Number of CSU registers
-> + * @csu_attr_group: Attribute group for sysfs  */ struct
-> +zynqmp_csu_data {
-> +     struct zynqmp_csu_reg *csu_regs;
-> +     int csu_reg_count;
-> +     struct attribute_group csu_attr_group; };
-> +
-> +/**
-> + * zynqmp_pm_get_node_count() - Get number of supported nodes via
-> +QUERY_DATA
-> + *
-> + * Return: Number of nodes on success, or negative error code  */
-> +static int zynqmp_pm_get_node_count(void) {
-> +     struct zynqmp_pm_query_data qdata =3D {0};
-> +     u32 ret_payload[PAYLOAD_ARG_CNT];
-> +     int ret;
-> +
-> +     qdata.qid =3D PM_QID_GET_NODE_COUNT;
-> +
-> +     ret =3D zynqmp_pm_query_data(qdata, ret_payload);
-> +     if (ret)
-> +             return ret;
-> +
-> +     return ret_payload[1];
-> +}
-> +
-> +/**
-> + * zynqmp_pm_get_node_name() - Get node name via QUERY_DATA
-> + * @index: Register index
-> + * @name: Buffer to store register name
-> + *
-> + * Return: 0 on success, error code otherwise  */ static int
-> +zynqmp_pm_get_node_name(u32 index, char *name) {
-> +     struct zynqmp_pm_query_data qdata =3D {0};
-> +     u32 ret_payload[PAYLOAD_ARG_CNT];
-> +     int ret;
-> +
-> +     qdata.qid =3D PM_QID_GET_NODE_NAME;
-> +     qdata.arg1 =3D index;
-> +
-> +     ret =3D zynqmp_pm_query_data(qdata, ret_payload);
-> +     if (ret)
-> +             return ret;
-> +
-> +     memcpy(name, &ret_payload[1], CSU_REG_NAME_LEN);
-> +     name[CSU_REG_NAME_LEN - 1] =3D '\0';
-> +
-> +     return 0;
-> +}
-> +
-> +/**
-> + * zynqmp_csu_reg_show() - Generic show function for all registers
-> + * @dev: Device pointer
-> + * @attr: Device attribute
-> + * @buf: Output buffer
-> + *
-> + * Return: Number of bytes written to buffer, or error code  */ static
-> +ssize_t zynqmp_csu_reg_show(struct device *dev,
-> +                                struct device_attribute *attr,
-> +                                char *buf)
-> +{
-> +     struct zynqmp_csu_reg *reg;
-> +     u32 value;
-> +     int ret;
-> +
-> +     /* Use container_of to get register directly */
-> +     reg =3D container_of(attr, struct zynqmp_csu_reg, attr);
-> +
-> +     ret =3D zynqmp_pm_sec_read_reg(CSU_NODE_ID, reg->id, &value);
-> +     if (ret)
-> +             return ret;
-> +
-> +     return sysfs_emit(buf, "0x%08x\n", value); }
-> +
-> +/**
-> + * zynqmp_csu_reg_store() - Generic store function for writable
-> +registers
-> + * @dev: Device pointer
-> + * @attr: Device attribute
-> + * @buf: Input buffer
-> + * @count: Buffer size
-> + *
-> + * Format: "mask value" - both mask and value required
-> + * Example: echo "0xFFFFFFFF 0x12345678" > register
-> + *
-> + * Return: count on success, error code otherwise  */ static ssize_t
-> +zynqmp_csu_reg_store(struct device *dev,
-> +                                 struct device_attribute *attr,
-> +                                 const char *buf, size_t count)
-> +{
-> +     struct zynqmp_csu_reg *reg;
-> +     u32 mask, value;
-> +     int ret;
-> +
-> +     reg =3D container_of(attr, struct zynqmp_csu_reg, attr);
-> +
-> +     if (sscanf(buf, "%x %x", &mask, &value) !=3D 2)
-> +             return -EINVAL;
-> +
-> +     ret =3D zynqmp_pm_sec_mask_write_reg(CSU_NODE_ID, reg->id, mask,
-> value);
-> +     if (ret)
-> +             return ret;
-> +
-> +     return count;
-> +}
-> +
-> +/**
-> + * zynqmp_csu_discover_registers() - Discover CSU registers from
-> +firmware
-> + * @pdev: Platform device pointer
-> + *
-> + * This function uses PM_QUERY_DATA to discover all available CSU
-> +registers
-> + * and creates sysfs group under
-> +/sys/devices/platform/firmware:zynqmp-firmware/
-> + *
-> + * Return: 0 on success, error code otherwise  */ int
-> +zynqmp_csu_discover_registers(struct platform_device *pdev) {
-> +     struct zynqmp_csu_data *csu_data;
-> +     struct attribute **attrs;
-> +     int count, ret, i;
-> +
-> +     ret =3D zynqmp_pm_is_function_supported(PM_QUERY_DATA,
-> PM_QID_GET_NODE_COUNT);
-> +     if (ret) {
-> +             dev_dbg(&pdev->dev, "CSU register discovery not supported b=
-y
-> current firmware\n");
-> +             return 0;
-> +     }
+Since there is some potential use[1] in being able to map at least
+single input IDs to multi-cell output specifiers (and properly support
+0-cell outputs as well), add support for properly parsing and using the
+target nodes' #cells values, albeit with the unfortunate complication of
+still having to work around expectations of the old behaviour too.
+							-- Robin.
 
-Should we also call zynqmp_pm_is_function_supported(PM_QUERY_DATA, PM_QID_G=
-ET_NODE_NAME) to verify firmware support before proceeding?
+Unlike single #{}-cell, it is complex to establish a linear relation
+between input 'id' and output specifier for multi-cell properties, thus
+it is always expected that len never going to be > 1.
 
-> +
-> +     count =3D zynqmp_pm_get_node_count();
-> +     if (count < 0)
-> +             return count;
-> +     if (count =3D=3D 0) {
-> +             dev_dbg(&pdev->dev, "No nodes available from firmware\n");
-> +             return 0;
-> +     }
-> +
-> +     /* Validate count to prevent excessive memory allocation */
-> +     if (count > MAX_CSU_REGS) {
-> +             dev_err(&pdev->dev, "Register count %d exceeds maximum %d\n=
-",
-> +                     count, MAX_CSU_REGS);
-> +             return -EINVAL;
-> +     }
-> +
-> +     dev_dbg(&pdev->dev, "Discovered %d nodes from firmware\n", count);
-> +
-> +     csu_data =3D devm_kzalloc(&pdev->dev, sizeof(*csu_data), GFP_KERNEL=
-);
-> +     if (!csu_data)
-> +             return -ENOMEM;
-> +
-> +     csu_data->csu_reg_count =3D count;
-> +
-> +     csu_data->csu_regs =3D devm_kcalloc(&pdev->dev, count,
-> sizeof(*csu_data->csu_regs),
-> +                                       GFP_KERNEL);
-> +     if (!csu_data->csu_regs) {
-> +             devm_kfree(&pdev->dev, csu_data);
-> +             return -ENOMEM;
-> +     }
-> +
-> +     attrs =3D devm_kcalloc(&pdev->dev, count + 1, sizeof(*attrs), GFP_K=
-ERNEL);
-> +     if (!attrs) {
-> +             devm_kfree(&pdev->dev, csu_data->csu_regs);
-> +             devm_kfree(&pdev->dev, csu_data);
-> +             return -ENOMEM;
-> +     }
-> +
-> +     for (i =3D 0; i < count; i++) {
-> +             struct zynqmp_csu_reg *reg =3D &csu_data->csu_regs[i];
-> +             struct device_attribute *dev_attr =3D &reg->attr;
-> +
-> +             reg->id =3D i;
-> +
-> +             ret =3D zynqmp_pm_get_node_name(i, reg->name);
-> +             if (ret) {
-> +                     dev_warn(&pdev->dev, "Failed to get name for regist=
-er %d\n",
-> i);
-> +                     snprintf(reg->name, sizeof(reg->name), "csu_reg_%d"=
-, i);
-> +             }
-> +
-> +             /* Create sysfs attribute - firmware enforces actual access=
- control */
-> +             sysfs_attr_init(&dev_attr->attr);
-> +             dev_attr->attr.name =3D reg->name;
-> +             dev_attr->attr.mode =3D 0644;
-> +             dev_attr->show =3D zynqmp_csu_reg_show;
-> +             dev_attr->store =3D zynqmp_csu_reg_store;
-> +
-> +             attrs[i] =3D &dev_attr->attr;
-> +
-> +             dev_dbg(&pdev->dev, "Register %d: id=3D%d name=3D%s\n", i, =
-reg->id,
-> reg->name);
-> +     }
-> +
-> +     csu_data->csu_attr_group.name =3D "csu_registers";
-> +     csu_data->csu_attr_group.attrs =3D attrs;
-> +
-> +     ret =3D devm_device_add_group(&pdev->dev, &csu_data->csu_attr_group=
-);
-> +     if (ret) {
-> +             devm_kfree(&pdev->dev, attrs);
-> +             devm_kfree(&pdev->dev, csu_data->csu_regs);
-> +             devm_kfree(&pdev->dev, csu_data);
-> +     }
-> +
-> +     return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(zynqmp_csu_discover_registers);
-> diff --git a/drivers/firmware/xilinx/zynqmp-csu-reg.h
-> b/drivers/firmware/xilinx/zynqmp-csu-reg.h
-> new file mode 100644
-> index 000000000000..b12415db3496
-> --- /dev/null
-> +++ b/drivers/firmware/xilinx/zynqmp-csu-reg.h
-> @@ -0,0 +1,18 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Xilinx Zynq MPSoC CSU Register Access
-> + *
-> + * Copyright (C) 2026 Advanced Micro Devices, Inc.
-> + *
-> + *  Michal Simek <michal.simek@amd.com>
-> + *  Ronak Jain <ronak.jain@amd.com>
-> + */
-> +
-> +#ifndef __ZYNQMP_CSU_REG_H__
-> +#define __ZYNQMP_CSU_REG_H__
-> +
-> +#include <linux/platform_device.h>
-> +
-> +int zynqmp_csu_discover_registers(struct platform_device *pdev);
-> +
-> +#endif /* __ZYNQMP_CSU_REG_H__ */
-> diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/z=
-ynqmp.c
-> index fbe8510f4927..b549d07f7497 100644
-> --- a/drivers/firmware/xilinx/zynqmp.c
-> +++ b/drivers/firmware/xilinx/zynqmp.c
-> @@ -27,6 +27,7 @@
->
->  #include <linux/firmware/xlnx-zynqmp.h>  #include <linux/firmware/xlnx-e=
-vent-
-> manager.h>
-> +#include "zynqmp-csu-reg.h"
->  #include "zynqmp-debug.h"
->
->  /* Max HashMap Order for PM API feature check (1<<7 =3D 128) */ @@ -2120=
-,6
-> +2121,11 @@ static int zynqmp_firmware_probe(struct platform_device *pdev=
-)
->                       dev_err_probe(&pdev->dev, PTR_ERR(em_dev), "EM regi=
-ster
-> fail with error\n");
->       }
->
-> +     /* Discover CSU registers dynamically */
-> +     ret =3D zynqmp_csu_discover_registers(pdev);
-> +     if (ret)
-> +             dev_warn(&pdev->dev, "CSU register discovery failed: %d\n",=
- ret);
-> +
->       return of_platform_populate(dev->of_node, NULL, NULL, dev);  }
->
-> diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmwar=
-e/xlnx-
-> zynqmp.h
-> index d70dcd462b44..a4b293eb96ce 100644
-> --- a/include/linux/firmware/xlnx-zynqmp.h
-> +++ b/include/linux/firmware/xlnx-zynqmp.h
-> @@ -3,7 +3,7 @@
->   * Xilinx Zynq MPSoC Firmware layer
->   *
->   *  Copyright (C) 2014-2021 Xilinx
-> - *  Copyright (C) 2022 - 2025 Advanced Micro Devices, Inc.
-> + *  Copyright (C) 2022 - 2026 Advanced Micro Devices, Inc.
->   *
->   *  Michal Simek <michal.simek@amd.com>
->   *  Davorin Mista <davorin.mista@aggios.com> @@ -262,6 +262,8 @@ enum
-> pm_query_id {
->       PM_QID_CLOCK_GET_NUM_CLOCKS =3D 12,
->       PM_QID_CLOCK_GET_MAX_DIVISOR =3D 13,
->       PM_QID_PINCTRL_GET_ATTRIBUTES =3D 15,
-> +     PM_QID_GET_NODE_NAME =3D 16,
-> +     PM_QID_GET_NODE_COUNT =3D 17,
->  };
->
->  enum rpu_oper_mode {
-> --
-> 2.34.1
+These changes have been tested on QEMU for the arm64 architecture.
 
-Thanks,
-Senthil
+Since, this would also need update in dt-schema, raised PR[2] for the
+same.
+
+[1] https://lore.kernel.org/all/20250627-video_cb-v3-0-51e18c0ffbce@quicinc.com/
+[2] PR for iommu-map dtschema: https://github.com/devicetree-org/dt-schema/pull/184
+
+V14:
+  - Updated Patch 2 ("of: Factor arguments passed to of_map_id() into a struct") to
+    fix below two issues in of_msi_xlate() that were introduced by the API refactoring:
+
+    1) The refactoring changed of_map_id()'s dual-purpose **target parameter to
+    an explicit filter_np parameter. In of_msi_xlate(), this caused
+    of_map_msi_id() to return 0 (pass-through) instead of -ENODEV when a node
+    has no msi-map, terminating the device hierarchy walk prematurely before
+    reaching the root complex node that has the msi-map. This broke MSI
+    allocation for PCIe endpoint devices (e.g., wcn7850 Wi-Fi on ARM64).
+
+    2) Additionally, fsl_mc_get_msi_id() passes msi_np == NULL to of_msi_xlate(),
+    which would dereference NULL with the new API.
+
+  Link to v13:
+  https://patch.msgid.link/20260408-parse_iommu_cells-v13-0-fa921e92661b@oss.qualcomm.com
+
+V13:
+  - Fix bad_map handling in of_map_id(): 'cells' is re-initialized to 0
+    on each loop iteration, so the !bad_map guard was insufficient, cells
+    stayed 0 for all entries after the first. Fix by explicitly setting
+    cells=1 when bad_map is true on every iteration.
+  - Collected Acked-by from Frank Li.
+
+  Link to v12:
+  https://patch.msgid.link/20260331-parse_iommu_cells-v12-0-decfd305eea9@oss.qualcomm.com
+
+V12:
+  - Call of_node_put() unconditionally in imx_pcie_add_lut_by_rid()
+    thereby addressing comments from Bjorn Helgaas.
+
+  Link to v11:
+  https://lore.kernel.org/r/20260325-parse_iommu_cells-v11-0-1fefa5c0e82c@oss.qualcomm.com
+
+V11:
+  - Added explicit filter_np parameter to of_map_id() and of_map_msi_id()
+    per Dmitry Baryshkov's review feedback, making the filter explicit
+    instead of overloading arg->np as both input filter and output parameter.
+  - Removed of_node_put() from inside of_map_id(), making the caller responsible
+    for reference management. Updated of_msi_xlate() to properly handle reference counting.
+  - Collected ACKed by tags, and fixed minor typos.
+  Link to v10:
+  https://lore.kernel.org/r/20260309-parse_iommu_cells-v10-0-c62fcaa5a1d8@oss.qualcomm.com
+
+V10:
+  - Move of_map_iommu_id()/of_map_msi_id() from include/linux/of.h to
+    drivers/of/base.c as out-of-line helpers per feedback from Marc Zyngier
+    and Rob Herring.
+  - Add kernel-doc to document both helpers for discoverability and
+    usage clarity.
+  - Fix of_map_msi_id() wrapper and all its callers (cdx_msi.c,
+    irq-gic-its-msi-parent.c, drivers/of/irq.c) to correctly use the new
+    struct of_phandle_args-based API with proper of_node_put() handling
+    as per feeback from Dmitry.
+  Link to v9:
+  https://lore.kernel.org/r/20260301-parse_iommu_cells-v9-0-4d1bceecc5e1@oss.qualcomm.com
+
+V9:
+  - Updated TO/CC list based on feedback to include all relevant
+    maintainers.
+  - No functional changes to the patches themselves.
+
+  Link to V8:
+  https://lore.kernel.org/all/20260226074245.3098486-1-vijayanand.jitta@oss.qualcomm.com/
+
+V8:
+  - Removed mentions of of_map_args from commit message to match code.
+
+  Link to V7:
+  https://lore.kernel.org/all/20260210101157.2145113-1-vijayanand.jitta@oss.qualcomm.com/
+
+V7:
+  - Removed of_map_id_args structure and replaced it with
+    of_phandle_args as suggested by Dmitry.
+
+  Link to V6:
+  https://lore.kernel.org/all/20260121055400.937856-1-vijayanand.jitta@oss.qualcomm.com/
+
+V6:
+  - Fixed build error reported by kernel test bot.
+
+  Link to V5:
+  https://lore.kernel.org/all/20260118181125.1436036-1-vijayanand.jitta@oss.qualcomm.com/
+
+V5:
+  - Fixed Build Warnings.
+  - Raised PR for iommu-map dtschema: https://github.com/devicetree-org/dt-schema/pull/184
+
+  Link to V4:
+  https://lore.kernel.org/all/20251231114257.2382820-1-vijayanand.jitta@oss.qualcomm.com/
+
+V4:
+  - Added Reviewed-by tag.
+  - Resolved warnings reported by kernel test bot, minor code
+    reorganization.
+
+  Link to V3:
+  https://lore.kernel.org/all/20251221213602.2413124-1-vijayanand.jitta@oss.qualcomm.com/
+
+V3:
+  - Added Reviewed-by tag.
+  - Updated of_map_id_args struct as a wrapper to of_phandle_args and
+    added comment description as suggested by Rob Herring.
+
+  Link to V2:
+  https://lore.kernel.org/all/20251204095530.8627-1-vijayanand.jitta@oss.qualcomm.com/
+
+V2:
+  - Incorporated the patches from Robin that does the clean implementation.
+  - Dropped the patches the were adding multi-map support from this series
+    as suggested.
+
+V1:
+ https://lore.kernel.org/all/cover.1762235099.git.charan.kalla@oss.qualcomm.com/
+
+RFC:
+ https://lore.kernel.org/all/20250928171718.436440-1-charan.kalla@oss.qualcomm.com/#r
+
+Signed-off-by: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+---
+To: Nipun Gupta <nipun.gupta@amd.com>
+To: Nikhil Agarwal <nikhil.agarwal@amd.com>
+To: Joerg Roedel <joro@8bytes.org>
+To: Will Deacon <will@kernel.org>
+To: Robin Murphy <robin.murphy@arm.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+To: Thomas Gleixner <tglx@kernel.org>
+To: Rob Herring <robh@kernel.org>
+To: Saravana Kannan <saravanak@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+To: Lucas Stach <l.stach@pengutronix.de>
+To: Krzysztof Wilczyński <kwilczynski@kernel.org>
+To: Manivannan Sadhasivam <mani@kernel.org>
+To: Bjorn Helgaas <bhelgaas@google.com>
+To: Frank Li <Frank.Li@nxp.com>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+To: Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Fabio Estevam <festevam@gmail.com>
+To: Juergen Gross <jgross@suse.com>
+To: Stefano Stabellini <sstabellini@kernel.org>
+To: Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
+Cc: linux-arm-msm@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: iommu@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-pci@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: xen-devel@lists.xenproject.org
+
+---
+Charan Teja Kalla (1):
+      of: Factor arguments passed to of_map_id() into a struct
+
+Robin Murphy (2):
+      of: Add convenience wrappers for of_map_id()
+      of: Respect #{iommu,msi}-cells in maps
+
+ drivers/cdx/cdx_msi.c                    |   8 +-
+ drivers/iommu/of_iommu.c                 |   6 +-
+ drivers/irqchip/irq-gic-its-msi-parent.c |  11 +-
+ drivers/of/base.c                        | 215 ++++++++++++++++++++++++-------
+ drivers/of/irq.c                         |  31 ++++-
+ drivers/pci/controller/dwc/pci-imx6.c    |  34 +++--
+ drivers/pci/controller/pcie-apple.c      |   6 +-
+ drivers/xen/grant-dma-ops.c              |   5 +-
+ include/linux/of.h                       |  30 ++++-
+ 9 files changed, 257 insertions(+), 89 deletions(-)
+---
+base-commit: 3fa5e5702a82d259897bd7e209469bc06368bf31
+change-id: 20260301-parse_iommu_cells-1c33768aebba
+
+Best regards,
+--  
+Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+
 
