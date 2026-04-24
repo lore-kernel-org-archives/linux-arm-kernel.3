@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C23F6FE51FB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 09:55:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CBE9FE51FB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 09:55:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e+of0FE0tSbmaf7cezfG/Dp70p8BpOoi594bsa5N30Y=; b=0toF41NAKFb1mGmxn54dr8KP0Z
-	5oEiVZw57F0BHb4+X/IeM8XO9K3NokKubW0JeqLTYgNLDlQg+XTKqm1bIPXdlyB7zlmSq/sWtb3vE
-	GU7C3LqlvOwRNtHiGyjfbkQ2SpZSnQimLwJtDNfXY2Lsc1QwfwI/3VQu/ZSY1nva0Gn1XNtWIytui
-	icwAsJtfAcHS1UTfFN1ZscuecohI+tOWXG+WsRNz10wGqHjQ5/qPi/MhIazZGRgzVMcJLw7IoOt7n
-	D+Ofgj4iTac/XqrBIGU4w86yJ+Q/+QCTu/SjJof7jSXyfgUzwgjai6GHod6MVIZeVGGfj12jpairf
-	aigIBLXQ==;
+	bh=OrfueS0M3ksdEe4kTwzYyRrLHN8xQEsX3ULqrEC+KDU=; b=4mRsCgkRqZrbCRh5aV/mK/rg0b
+	srzfNgoZEh4jsmqBJjIA6OSisIDZjRzKJQDG8VwSyhpafk5KGn+seMiujMSm9AAzwrtgIXlaVrhSx
+	JvxmHg+T1OJ7GlunVQNAsT5iXtBUzY163XfJBcg4hNj2kx05nPP56ydQQCvg5kDZzqP0EOAN4k9XZ
+	MXLJ8HFNaG7+GtiPSOrvRLD2TQaTuarWVsbc5ds8gK0KbaWZKYZpOv5zCxu2J3C3LJtqyf+Taz9sg
+	nsJsfK66KT2Iw5SwFMbCIfY19ncWawj2HgCVXccoTgEYpzIc75X4YScttik8XW2huzlGm26xsfkBD
+	fa+otErA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGDFo-0000000CyMA-1XmM;
-	Fri, 24 Apr 2026 09:55:20 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1wGDG1-0000000CyPw-41Ig;
+	Fri, 24 Apr 2026 09:55:33 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGDFl-0000000CyLV-3NBx
+	id 1wGDFw-0000000CyOL-34iq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 09:55:18 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4891e5b9c1fso57724065e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 02:55:17 -0700 (PDT)
+	Fri, 24 Apr 2026 09:55:32 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-43eada6d900so7454419f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 02:55:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1777024516; x=1777629316; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1777024527; x=1777629327; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=e+of0FE0tSbmaf7cezfG/Dp70p8BpOoi594bsa5N30Y=;
-        b=f0Qz9nkDBfH/EjzvTw1hOBYVRPgrE1tl8jAuhTA/z4a4Wb31fpPqyz98qnWzhQTTRJ
-         Q2rdZ43UC9iopxUiI4Y1vFMu5ljo4YhDH3RUvaFArrLVSDAPS7qrTmyshKR6w2nCVFBE
-         k1X/LcNNAFZRKJDLQ2oLr9QLGon4JWXRE+Iub/QoGO10Muzym2/pclJhtEbHfWTnPwuc
-         Jdti/bYDNPD7zfK+MEOjeKrxuMvVlG/FavZD+CNBgefK59nbmakFW47zQe5SFwW3KU1z
-         aGmC88l+3jywS6CAFSNi4CxbXekwlMY1R3ECCL606oCtNcsIP5mDaUjA4FxMk3bEIgLv
-         DhIA==
+        bh=OrfueS0M3ksdEe4kTwzYyRrLHN8xQEsX3ULqrEC+KDU=;
+        b=HJ+OHtQi6iadCr14XNlkrtbaSGtIZlA8p89kvjKU6WiIqTmzOPWLiGPlLONsTN6rkd
+         fKwedQxuVmakF5eNO6eZvBekhdcjw56nkQB3fGECFC5FSIempzwJeFetVY/zQeKwKZMb
+         MUmT2lbg5kqr+zJnrKUR+Rlxk40Kzf8HMnfYyb3TzTr1pZoUQ/MHCNliaJL5j2rVnAG5
+         MqM1CPuUhHMjmzGqojGb+wTY2y8pE0x1XuYBaLdfF0VfWcza9jq9wvYG4XPTir6Eg+kd
+         vdQeITIio2RkayTI5icMWIAEsdgGdXfOEbArsimqJOMu5EUHkPauHTZh9YhwX0WNxmBO
+         b/3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777024516; x=1777629316;
+        d=1e100.net; s=20251104; t=1777024527; x=1777629327;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=e+of0FE0tSbmaf7cezfG/Dp70p8BpOoi594bsa5N30Y=;
-        b=Va/eSCxstxZT2C1l8I0SxdDJEAlp0pLBz+E8bb+A5ZgDAg/+BsUe45PSkdZiTvCxHO
-         2B/Wym+TClZLKwOlVosOjtPvK3zyCN3ozG3LHIWwBg505ZJNH8zmPG33JoXAqsHQa0eV
-         DhyK7hoxCOIuhWe+K3JpkDCJhQDe1jl+bpwMu5P1wYujxNYdeUHi9Ibev3X7kvVciSIr
-         nSguYWH60a0a4nTNFKye45FTcR9ekmutkujaDd8VtorTZ6vzglVP2qcx9OkymtaF956i
-         pgrK1eQ0waek9QCTkI15R9m8GtSCmIbKOnjD2pa5Lrhkrns0w/FvJwii/DGY1FqG26D9
-         bMkQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8w2cyQlGXyThNFi+u4Zi0Uhm+wk/mVlbKoDRp69Axo6vr8xl3McOzsa3k83+phjUWKY1UiEEyKPscIStVe04tX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx58tGxT0O0zDzP8SaqtpIrzAOZfstIRlh1dV3JoANH3In5UmC2
-	nQyPw/ChZBHguJctugDKYjwWzIz5AM8/23JoLFNpGMRplLf5jUCkK6O8Y6OgLo2nzRk=
-X-Gm-Gg: AeBDieuo+5TzSd1fQrWB4Eo1iFbE0IhzufokHd+F/Y+2RTcRxODeoIx3izDD2JbZSj3
-	jh2v//Byj7wWIw3fH9p6kyzAJMpHzZyqgOEBvatfhABwFMM2DuuSr31BprE69tlQKl98W5IFQV/
-	VZmxLR1sOsAHpAhJ941/ALU7NiMuwn4KYHSMI2lDN+6Y3I4VMBR5bEfgyAFg1u/O0qI6YKNsRyA
-	ny+TNG1kN+tppzTVYcZ7t2fwS3QiYrmHtcR+DwJEIoyMmiu7+lNYJt1TO2kPePd1dsDSuKt/SI/
-	g3gdwm8+hwq2d0q2T9gjDbSbZSaEOtkNRQf/M1uoeW0KBG1XEO+931Dms2Sfr3SaTA4a3z/pjxl
-	3Do0iDKvr8Wan+VTVB+cP+u00+/bWF7ibdC9xPBZKgMRth2LZBI99u1LR/lg0FM8lxln2yM+qnF
-	K6CiIgUHNqbSpl/PgSqIupTaimrip7RIq3cj11OtHm5Rkb6gK/2EUErXVQO0UDVOyrgUVldcRck
-	m24CeoWGJ4N0awJtA==
-X-Received: by 2002:a05:600c:888b:b0:488:c40b:c8bf with SMTP id 5b1f17b1804b1-488fb73d234mr372911565e9.2.1777024515945;
-        Fri, 24 Apr 2026 02:55:15 -0700 (PDT)
+        bh=OrfueS0M3ksdEe4kTwzYyRrLHN8xQEsX3ULqrEC+KDU=;
+        b=JWntMXMK2FRRRRAb+7OYmlwuCPe9fwl6P+0tX3HByFoEfw03/bCRDAnWFTfZ5U1flG
+         lDVJoXCi9yLgtJKsNlyBjeDSICFD8gNtxSppoOwkMtUnPg9dQPofHymxe0SJD4d8n2xo
+         1zCOj659AIwGgbS4F0ngS1aYUj3M4Uy+WK5H2Fad668CjAzQfnBOAp2Hw20gBlYoz+GX
+         0Wyaz+M4VYt2RDGV5pJ+6kRuyWKpPHPdYlooJE/Y8Xpr3t7883PeX2lI0YfvqYBPleds
+         4qIoi6H940Iw9OmHOnWycrw7RieDFRVcRdtOP4ImY7oemzyzRS1RY5YBeG4hqsnrf7+4
+         vJ3A==
+X-Forwarded-Encrypted: i=1; AFNElJ9ZHc2pDA5X/CSTT8AEO1bbZibYKx0N+nJyvA74+vq6v0e/ZEfe8iSthHaGvjuXip07evvUTEYfQ1loK9aCI2WN@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjBgtfSSJPAh+mmSsAYZEq2BXBg2nas+K1thZpzmzErerGR58S
+	UTMRJlYQy5tNZtPbSFQPWnSdbGQO5H+5FoaBgE47TME360Pr4/90oLHy0zTGtXG7H/0=
+X-Gm-Gg: AeBDiesoYmhu3iN24LiY83vJD6flsWoRJn/q6F/bvfmRsodhLfUe673b+3XZ1hSvoGV
+	LBN5UP9o1szAKANUrM04TLYko+jXla1rXF/tocSVs9ZlaaZGhhxaQRbWUI3Ojd0GdDq5+A6P1jo
+	XBgLsaR58KlLrJvcX+x8R3HKNmV7Vi9Ool0Br0zCdMpodFkkobRpuwfeokCFyKDQHUIVphFDRzS
+	qErKiMcsUjhcO2MKxfirAKZUZb4NaqDinXeci5PhZuujJAYudw9yp5AMVhwaIzRRZr8UWqLfo3X
+	fz9ED34suqwrcFovo2eeNH93wVV1Do2k0c+KeyGxEyMQoEdAIO/Id9/wtxxa2Jvx0foVDaRta2v
+	nTwjMM9n72siXNJTKFp8OAJej1WsO+fHbjtrsFko2e+qFpS/IcvCpo5V7O0mVHlNWY0bAtDOpqA
+	/V6CDnCIoHfaI1+MUl73fCyUdJ+cIxjcUlHx55x46CxW/NFmcJ55yXqUu4QS/NeCjpvzfi70c2y
+	O0iMY//8XTyTfQP1Q==
+X-Received: by 2002:a05:600c:34c7:b0:489:1c32:210d with SMTP id 5b1f17b1804b1-4891c32266amr308527675e9.15.1777024526813;
+        Fri, 24 Apr 2026 02:55:26 -0700 (PDT)
 Received: from ?IPV6:2a01:e0a:106d:1080:79e1:f56b:445c:ca9c? ([2a01:e0a:106d:1080:79e1:f56b:445c:ca9c])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488fc18bccfsm526904435e9.8.2026.04.24.02.55.14
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4891bb3d121sm583739045e9.14.2026.04.24.02.55.25
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 24 Apr 2026 02:55:15 -0700 (PDT)
-Message-ID: <afd6b8b9-06b5-41e1-9b3e-e4a896d77f8c@linaro.org>
-Date: Fri, 24 Apr 2026 11:55:14 +0200
+        Fri, 24 Apr 2026 02:55:26 -0700 (PDT)
+Message-ID: <4ba28eee-db47-436a-9008-605cae805f81@linaro.org>
+Date: Fri, 24 Apr 2026 11:55:25 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v4 3/8] mfd: khadas-mcu: Add per-variant configuration
- infrastructure and VIM4 support
+Subject: Re: [PATCH v4 4/8] mfd: khadas-mcu: Add support for VIM4 MCU variant
 To: linux-kernel-dev@aliel.fr, Lee Jones <lee@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
@@ -93,7 +92,7 @@ Cc: linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org
 References: <20260421-add-mcu-fan-khadas-vim4-v4-0-447114a28f2d@aliel.fr>
- <20260421-add-mcu-fan-khadas-vim4-v4-3-447114a28f2d@aliel.fr>
+ <20260421-add-mcu-fan-khadas-vim4-v4-4-447114a28f2d@aliel.fr>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -120,12 +119,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <20260421-add-mcu-fan-khadas-vim4-v4-3-447114a28f2d@aliel.fr>
+In-Reply-To: <20260421-add-mcu-fan-khadas-vim4-v4-4-447114a28f2d@aliel.fr>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_025517_897599_FB2A83B4 
-X-CRM114-Status: GOOD (  18.43  )
+X-CRM114-CacheID: sfid-20260424_025528_809937_861EBF54 
+X-CRM114-Status: GOOD (  22.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,78 +143,174 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 4/21/26 13:49, Ronald Claveau via B4 Relay wrote:
 > From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 > 
-> Introduce a per-variant configuration structure (khadas_mcu_data)
-> holding the regmap config and MFD cells,
-> selected at probe time via the of_device_id match data.
-> This makes adding other variants straightforward.
+> Refactor probe() to use per-variant khadas_mcu_data
+> instead of hardcoded globals.
 > 
-> Also introduce khadas_mcu_fan_pdata to pass fan register address and
-> maximum level to the fan sub-driver, removing the hardcoded constants.
+> Add dedicated regmap configuration and device data for the VIM4 MCU,
+> with its own volatile/writeable registers.
+> 
+> Add the fan control register
+> (0–100 levels vs 0–3 for previous supported boards).
+> 
+> Add a new compatible string "khadas,vim4-mcu".
 > 
 > Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 > ---
->   include/linux/mfd/khadas-mcu.h | 39 +++++++++++++++++++++++++++++++++++++--
->   1 file changed, 37 insertions(+), 2 deletions(-)
+>   drivers/mfd/khadas-mcu.c | 106 ++++++++++++++++++++++++++++++++++++++++++-----
+>   1 file changed, 95 insertions(+), 11 deletions(-)
 > 
-> diff --git a/include/linux/mfd/khadas-mcu.h b/include/linux/mfd/khadas-mcu.h
-> index a99ba2ed0e4e0..75e275d3fa8d9 100644
-> --- a/include/linux/mfd/khadas-mcu.h
-> +++ b/include/linux/mfd/khadas-mcu.h
-> @@ -70,6 +70,13 @@
->   #define KHADAS_MCU_WOL_INIT_START_REG		0x87 /* WO */
->   #define KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG	0x88 /* WO */
->   
-> +/* VIM4 specific registers */
-> +#define KHADAS_MCU_VIM4_REST_CONF_REG		0x2c /* WO - reset EEPROM */
-> +#define KHADAS_MCU_VIM4_LED_ON_RAM_REG		0x89 /* WO - LED volatile */
-> +#define KHADAS_MCU_VIM4_FAN_CTRL_REG		0x8a /* WO */
-> +#define KHADAS_MCU_VIM4_WDT_EN_REG		0x8b /* WO */
-> +#define KHADAS_MCU_VIM4_SYS_RST_REG		0x91 /* WO */
-> +
->   enum {
->   	KHADAS_BOARD_VIM1 = 0x1,
->   	KHADAS_BOARD_VIM2,
-> @@ -82,10 +89,38 @@ enum {
->    * struct khadas_mcu - Khadas MCU structure
->    * @device:		device reference used for logs
->    * @regmap:		register map
-> + * @data:		pointer to variant-specific config
->    */
->   struct khadas_mcu {
-> -	struct device *dev;
-> -	struct regmap *regmap;
-> +	struct device			*dev;
-> +	struct regmap			*regmap;
-> +	const struct khadas_mcu_data	*data;
-> +};
-> +
-> +/**
-> + * struct khadas_mcu_data - per-variant configuration
-> + * @regmap_config:	regmap configuration
-> + * @cells:		MFD sub-devices
-> + * @ncells:		number of sub-devices
-> + * @fan_cells:		MFD fan sub-devices
-> + * @nfan_cells:		number of fan sub-devices
-> + */
-> +struct khadas_mcu_data {
-> +	const struct regmap_config	*regmap_config;
-> +	const struct mfd_cell		*cells;
-> +	int				ncells;
-> +	const struct mfd_cell		*fan_cells;
-> +	int				nfan_cells;
-> +};
-> +
-> +/**
-> + * struct khadas_mcu_fan_pdata - fan sub-driver configuration
-> + * @fan_reg: register address to write the fan level
-> + * @max_level: maximum fan level
-> + */
-> +struct khadas_mcu_fan_pdata {
-> +	unsigned int fan_reg;
-> +	unsigned int max_level;
+> diff --git a/drivers/mfd/khadas-mcu.c b/drivers/mfd/khadas-mcu.c
+> index ba981a7886921..b36b3b3ab73c0 100644
+> --- a/drivers/mfd/khadas-mcu.c
+> +++ b/drivers/mfd/khadas-mcu.c
+> @@ -75,15 +75,91 @@ static const struct regmap_config khadas_mcu_regmap_config = {
+>   	.cache_type	= REGCACHE_MAPLE,
 >   };
 >   
->   #endif /* MFD_KHADAS_MCU_H */
+> +static const struct khadas_mcu_fan_pdata khadas_mcu_fan_pdata = {
+> +	.fan_reg	= KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG,
+> +	.max_level	= 3,
+> +};
+> +
+>   static struct mfd_cell khadas_mcu_fan_cells[] = {
+>   	/* VIM1/2 Rev13+ and VIM3 only */
+> -	{ .name = "khadas-mcu-fan-ctrl", },
+> +	{
+> +		.name = "khadas-mcu-fan-ctrl",
+> +		.platform_data = &khadas_mcu_fan_pdata,
+> +		.pdata_size    = sizeof(khadas_mcu_fan_pdata),
+> +	},
+>   };
+>   
+>   static struct mfd_cell khadas_mcu_cells[] = {
+>   	{ .name = "khadas-mcu-user-mem", },
+>   };
+>   
+> +static const struct khadas_mcu_data khadas_mcu_data = {
+> +	.regmap_config	= &khadas_mcu_regmap_config,
+> +	.cells		= khadas_mcu_cells,
+> +	.ncells		= ARRAY_SIZE(khadas_mcu_cells),
+> +	.fan_cells	= khadas_mcu_fan_cells,
+> +	.nfan_cells	= ARRAY_SIZE(khadas_mcu_fan_cells),
+> +};
+> +
+> +static bool khadas_mcu_vim4_reg_volatile(struct device *dev, unsigned int reg)
+> +{
+> +	switch (reg) {
+> +	case KHADAS_MCU_PWR_OFF_CMD_REG:
+> +	case KHADAS_MCU_VIM4_REST_CONF_REG:
+> +	case KHADAS_MCU_WOL_INIT_START_REG:
+> +	case KHADAS_MCU_VIM4_LED_ON_RAM_REG:
+> +	case KHADAS_MCU_VIM4_FAN_CTRL_REG:
+> +	case KHADAS_MCU_VIM4_WDT_EN_REG:
+> +	case KHADAS_MCU_VIM4_SYS_RST_REG:
+> +		return true;
+> +	default:
+> +		return false;
+> +	}
+> +}
+> +
+> +static bool khadas_mcu_vim4_reg_writeable(struct device *dev, unsigned int reg)
+> +{
+> +	switch (reg) {
+> +	case KHADAS_MCU_VERSION_0_REG:
+> +	case KHADAS_MCU_VERSION_1_REG:
+> +	case KHADAS_MCU_SHUTDOWN_NORMAL_STATUS_REG:
+> +		return false;
+> +	default:
+> +		return true;
+> +	}
+> +}
+> +
+> +static const struct regmap_config khadas_mcu_vim4_regmap_config = {
+> +	.reg_bits	= 8,
+> +	.reg_stride	= 1,
+> +	.val_bits	= 8,
+> +	.max_register	= KHADAS_MCU_VIM4_SYS_RST_REG,
+> +	.volatile_reg	= khadas_mcu_vim4_reg_volatile,
+> +	.writeable_reg	= khadas_mcu_vim4_reg_writeable,
+> +	.cache_type	= REGCACHE_MAPLE,
+> +};
+> +
+> +static const struct khadas_mcu_fan_pdata khadas_vim4_fan_pdata = {
+> +	.fan_reg	= KHADAS_MCU_VIM4_FAN_CTRL_REG,
+> +	.max_level	= 0x64,
+> +};
+> +
+> +static const struct mfd_cell khadas_mcu_vim4_cells[] = {
+> +	{
+> +		.name		= "khadas-mcu-fan-ctrl",
+> +		.platform_data	= &khadas_vim4_fan_pdata,
+> +		.pdata_size	= sizeof(khadas_vim4_fan_pdata),
+> +	},
+> +};
+> +
+> +static const struct khadas_mcu_data khadas_vim4_mcu_data = {
+> +	.regmap_config	= &khadas_mcu_vim4_regmap_config,
+> +	.cells		= NULL,
+> +	.ncells		= 0,
+> +	.fan_cells	= khadas_mcu_vim4_cells,
+> +	.nfan_cells	= ARRAY_SIZE(khadas_mcu_vim4_cells),
+> +};
+> +
+>   static int khadas_mcu_probe(struct i2c_client *client)
+>   {
+>   	struct device *dev = &client->dev;
+> @@ -94,28 +170,35 @@ static int khadas_mcu_probe(struct i2c_client *client)
+>   	if (!ddata)
+>   		return -ENOMEM;
+>   
+> +	ddata->data = i2c_get_match_data(client);
+> +	if (!ddata->data)
+> +		return -EINVAL;
+> +
+>   	i2c_set_clientdata(client, ddata);
+>   
+>   	ddata->dev = dev;
+>   
+> -	ddata->regmap = devm_regmap_init_i2c(client, &khadas_mcu_regmap_config);
+> +	ddata->regmap = devm_regmap_init_i2c(client,
+> +					     ddata->data->regmap_config);
+>   	if (IS_ERR(ddata->regmap)) {
+>   		ret = PTR_ERR(ddata->regmap);
+>   		dev_err(dev, "Failed to allocate register map: %d\n", ret);
+>   		return ret;
+>   	}
+>   
+> -	ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+> -				   khadas_mcu_cells,
+> -				   ARRAY_SIZE(khadas_mcu_cells),
+> -				   NULL, 0, NULL);
+> -	if (ret)
+> -		return ret;
+> +	if (ddata->data->cells && ddata->data->ncells) {
+> +		ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+> +					   ddata->data->cells,
+> +					   ddata->data->ncells,
+> +					   NULL, 0, NULL);
+> +		if (ret)
+> +			return ret;
+> +	}
+>   
+>   	if (of_property_present(dev->of_node, "#cooling-cells"))
+>   		return devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+> -					    khadas_mcu_fan_cells,
+> -					    ARRAY_SIZE(khadas_mcu_fan_cells),
+> +					    ddata->data->fan_cells,
+> +					    ddata->data->nfan_cells,
+>   					    NULL, 0, NULL);
+>   
+>   	return 0;
+> @@ -123,7 +206,8 @@ static int khadas_mcu_probe(struct i2c_client *client)
+>   
+>   #ifdef CONFIG_OF
+>   static const struct of_device_id khadas_mcu_of_match[] = {
+> -	{ .compatible = "khadas,mcu", },
+> +	{ .compatible = "khadas,mcu", .data = &khadas_mcu_data },
+> +	{ .compatible = "khadas,vim4-mcu", .data = &khadas_vim4_mcu_data },
+>   	{},
+>   };
+>   MODULE_DEVICE_TABLE(of, khadas_mcu_of_match);
 > 
 
 Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
