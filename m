@@ -4,167 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1DE4FE520D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 11:40:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4136CFE5214
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 12:08:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LPbX4HtvAPXyPhYOHpIX5qSzN0AjUwOwX5mxwxSzf6U=; b=Mi+FKNqIfr+wyF2b6MYXis8DTv
-	IrKnUo/nRcbUJlBE2n5OEYK2Aaq5SDU/foz88Bjrty2svNYkOw5LUfagkVn3sHPERK3jPzIFQsctq
-	ZewkoB0bwkyoOmyb8Q3Y1gnoArpsrsObhrRQfPEXvd2/+xvwC0tT6KUDRPrVLS14L49BeYuJ4A97C
-	RDGDN4XilG5PEpgUHLDAqMkoxGr4nEwMdnA5Fvlb536lfdinX/ibcuF3bL+Z16Mj92w2Eb/ZcE0Gl
-	M2GX5d7PU4NOOmxvpVmS29BlyNEfMFYJqntVG+TK/N+IUMbK7Ts3OPQsCYTaTMN8y402wxvPyCmfo
-	svKZDESQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eFoNQkR4m6ISqcP4PxzgHhBXbH5/ARCp3z5MOkbHYek=; b=48ty126RIUlwA+MMADFxCRaFAQ
+	qiFD8HFsCWCUbcGLw40DwRvSc3jbgqBl/zUfI6tQ0u9jOV7D56AIZPFkhSnTSiWYkpFgQyapUbdbA
+	IJHcCeI87941lJpFHai3DWaLVbCVta2NfdyE72YcPxRNYF7DnTIOgQsX584nQBLxs+Ss9I3asvHZB
+	Wx/rsPJy5oVXWU1m8u0Bs2vrKfS6znOqKMM0am+zGyE1wCr3IP4FgprZOuVVUqi0DVLRWfprPrYMS
+	OLFA1Y5TnDx6PLCl8Zg7cB4nqYOgLQptucxYm28geDeXnHtB4RM0TnMi+O2C8+Ja03BKPmGPTjWuI
+	JBvvqEbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGEtW-0000000D8xb-1fJ3;
-	Fri, 24 Apr 2026 11:40:26 +0000
+	id 1wGFKZ-0000000DA2c-2Rud;
+	Fri, 24 Apr 2026 12:08:23 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGEtV-0000000D8xG-2vOF
+	id 1wGFKY-0000000DA2U-22dS
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 24 Apr 2026 11:40:25 +0000
+	Fri, 24 Apr 2026 12:08:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=LPbX4HtvAPXyPhYOHpIX5qSzN0AjUwOwX5mxwxSzf6U=; b=IKyPl9UNL5L1o4fHU9uX4nY/fj
-	k4OXvftf38icsKz9LS9igVb0rkxIBCa1mUI5pDsRMhNKqHI1i200oz5Zo+38JFvC3pan3idP6Fvmw
-	W3uHvKYJ9rh51wQk4tvG8ov4RU72U+fSKXFH7mFv3qYkAkaa+VP18xWi+IedhyivRZVZF4m4ulcSn
-	2j6VMA7/9N5uydChIpPGmgYMNkDTTUouDOY9yyQeJn7OdlKJJG2Nw2xjJZs9QIEztdmea7gtDaO1y
-	WyQrqM4MzA9ofZDhcf5G9uMfiUoWaxKJQG0I0CrxhfgT4KEL039xT/ZP0xSf6emdoJPUAID24dHq/
-	4J3FBcYw==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	bh=eFoNQkR4m6ISqcP4PxzgHhBXbH5/ARCp3z5MOkbHYek=; b=NPZRv8pHRqIj5WKo3vGtQjv17O
+	Sw3o0RfI4LYL4KA8bwgauR8UCqEIE/9cz0xV7uW6oVxGKFF4yZKHawAKjwmT6jJp/uo4hI4AnmGb1
+	+pOuSj5H/FZ1QXCNWv82lN8H7iKuhgCJkDex/eZMX2GC2R7f8qciUu1CJ+zH4Jzea+P/q4X4kw0wb
+	mqSeAcknUj6EovBn87Sp70FX6mydLti1jrrPkswRqQgJokU/UgDGQaDXz0c1ica+N1bavEp1Xdhx7
+	eTYKHa167bzjp5pPouDGpllwUcA+qL/E3KWMZ1ArRRO/Ej8dwdwOS/8lwjN6eHcCGxVdKh1vFv447
+	SekanInQ==;
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGEtS-0000000Ei1O-2Wke
+	id 1wGFKU-0000000EkOE-3RJi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 11:40:24 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63OAEsYT2447121
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 11:40:18 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	LPbX4HtvAPXyPhYOHpIX5qSzN0AjUwOwX5mxwxSzf6U=; b=kMcXYtU2JntMEEVO
-	vzxBHYitkpG0WikSf8OZ/TXJl6KZ9jjhaRbOODsSjyJlXFlG48/rS7Fck1x647fv
-	fwsblb0RLUjoQCY8RhGr0osUsuf/pLR99qOYB4djWLOcNP0nvtWjbrqy7CRL2deZ
-	F+BD0eLyge+FHFd2zkaH9rWqbHTslKQCSjtBYxPumXsqXZfrgrgyqJPai1pQW/y1
-	3OpzEDSGU4LAVNIih+bGsmC/L4zF46teE5m/SdYZYoOgwzTROGYXJf3Do9VDHLLh
-	hw8vzazFn576CfZd7gbGM995J1swZI4kHpSc61GSMZn0jjHZYcEGpzfnJ/7yRiM8
-	W4352w==
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dr6kprbke-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 11:40:18 +0000 (GMT)
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-8b026c4497fso15810896d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 04:40:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1777030817; x=1777635617; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=LPbX4HtvAPXyPhYOHpIX5qSzN0AjUwOwX5mxwxSzf6U=;
-        b=FR/rFhh3TItXQWHdHlR+hLDkEBVPe2/SdN/YY/IeKaH8XQMyao8H0VlIkYXLVo4j7s
-         PrXbCBuBaZRdUjjWJ7oDDCLpuPlO3CPallL8c/co5KEV6UI6MMzc3PomGan7cEUiw5Pu
-         VP+8s8AFq93BLuiECR+B2xWyPCW3uxlx00lSOayIclGbKlxDvykhu4SN1Crb7cWg0Qvc
-         ZPBIN3IK4hVbk0kXv41w3U7Hg6VhzJtAh5D0D5c9z6JcSu3PZQnvxzd0h3quJFEXKs/V
-         sXJ3u9kA7ZVRETrpJJkp3GCU7xjLkBW2gobWeFcoNwkcAk4xsDSlpwC/IX7f6YZrkdJF
-         VQhg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777030817; x=1777635617;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LPbX4HtvAPXyPhYOHpIX5qSzN0AjUwOwX5mxwxSzf6U=;
-        b=A/JL4t8QKLM4waijQHw0BBrXkn09qw9Ke4dowNOSojWm1+o508GTrlMo75OPCUR+XS
-         mZBpQQFS587caxB+EL4Ft4IzfEDJBVgTOx9FtLg/LEJ2v9ID3Pt/w+IaqZX7FOfssNFF
-         zklEv1Iy+XKVa1rr2KzrSxp2CsP6tp7yYZUq6HrJrr7bt022pKFS8sr/hdo1Gn/akCGi
-         0zbYbRLc6bffux4tTKsHNovnv4ZXGrWRywXX7UYS8UAh6fTzQKvOHQKlKIM0o8oaGGHq
-         4PT6L4VFwI99loVvtqYtTS2R6XLGlN3vc4QYolWpYwGRCH21XuEQ2zMd0WW1w9CSQobH
-         leOw==
-X-Forwarded-Encrypted: i=1; AFNElJ+oe2swZpYoE/jpLvpxoQbK2lEFQNa2zlHv8A8lpHflQDDNGPu8Ed8JmRj6n3+8U20d1n8o6EmgDCp35m1ZtiAe@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQMn7DOu/qd+6SNEv8pmRRpNPkPaRep5tn70YwtYpmfVC7TbpM
-	SqZhg/KLnkAdobjppkNhXuwOnXuF4g2XxV/Mtck5/JiGT1So9dIpCJm9XcU/IuEKZ5yaQ/EDzgv
-	x23jtd6Q3n2q+ek1teED6CmDKNVsqv67aSwTyZpkzKZRWb1Wvipwr4CmnFw0SvUcRVcH4PIsf55
-	bOaQ==
-X-Gm-Gg: AeBDieuLajltBpI395YWjQitRQGhfmt5C99/mPWZhxCdOj62qR9MezS3B8QrOGGUE6o
-	f/b+AQ345Oi4I0LvCAEUXCr9mzQnVDaBQsGjdeKsX1hVXezEOuyU0YUXXWd4YWcyChEjHYXzyqU
-	Lp+a0IdIMYy7P4ZJNRJVQF3KFiP9h7TeQTj5cpU3rP+GXvLYDpTPi0C7m0N1rBwoF4Kxsmgwtb8
-	ubme/d69f4hpJF20u8AjAm0o8ieWJccqkBfl1DJ6h7FvXHQpXNkOAxCNSrU8G2z6yNRCJh8nVwn
-	0ChyNeIsuMK+hddhautC7IxXp/gucgTGCtcjGslMnxKPpnNUBaQWG5sKb3MzIN6Q6yBaY2++ZO9
-	P7OEdC52JzOiIMqIRPhydDebR573OzQsYrKqQ5bhsqTZAw32o9oRnlY5uuOXqbvsnt1y6gLm0yV
-	73p3YieqFtXmfFDQ==
-X-Received: by 2002:a05:6214:411a:b0:8ac:a91c:c9c with SMTP id 6a1803df08f44-8b0281fe001mr342499496d6.7.1777030817390;
-        Fri, 24 Apr 2026 04:40:17 -0700 (PDT)
-X-Received: by 2002:a05:6214:411a:b0:8ac:a91c:c9c with SMTP id 6a1803df08f44-8b0281fe001mr342498976d6.7.1777030816944;
-        Fri, 24 Apr 2026 04:40:16 -0700 (PDT)
-Received: from [192.168.119.254] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a4187e7dfesm5896580e87.71.2026.04.24.04.40.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 24 Apr 2026 04:40:16 -0700 (PDT)
-Message-ID: <b0690213-da71-4b8c-bab8-8581fc3d0211@oss.qualcomm.com>
-Date: Fri, 24 Apr 2026 13:40:12 +0200
+	Fri, 24 Apr 2026 12:08:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1777032487; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=HXNAqMyoHqMgojwx6MnSPNk+yj4GSKW7Qn83OGawyK+hTs3JO0eL+PoijG73hKgQLLVJeMVJ3QSNtR//RCwJNcx+sJxAZk2E8JWMOSDdi6CV7MjafiBiAo8btLABSx1cARDKtbJaRyLVby/3cADoDoYOdQUXGiwtf8K1zaQUvDY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1777032487; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=eFoNQkR4m6ISqcP4PxzgHhBXbH5/ARCp3z5MOkbHYek=; 
+	b=gmeNvQ9vTiST3jlKgMWx5sbT0O2IlcJF+XMlcqiijASRHoR7EiMnq+YxJop8AzGxbgMQP+7CAqGIkCtJyU81en0g+r+FbJJotCdfMkzMthsmYmmMJXkTtU8NlZGQmSbQ/EK/04GEzlugsDOI57xVIvVJvWcec64wrXoNGL7m/kI=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1777032486;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=eFoNQkR4m6ISqcP4PxzgHhBXbH5/ARCp3z5MOkbHYek=;
+	b=GNjp24LTPgImMeeRy9ecSwNznTfZzqE0PBV40tgjM9DgNaleLQMsytVbXmci0k6K
+	OQZBY2eIVgIOhF3g1Cy8As2FqCV+XIhVwxvvE4PYFHXyyYo9Il+jjcqqiTPLciUBLem
+	pD/+780Rmjwb8L1lBrA1xCFI2yHk6hZuttzqvOgU=
+Received: by mx.zohomail.com with SMTPS id 1777032485578973.2634566723241;
+	Fri, 24 Apr 2026 05:08:05 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org,
+ Cristian Marussi <cristian.marussi@arm.com>
+Cc: sudeep.holla@arm.com, philip.radford@arm.com, james.quinlan@broadcom.com,
+ f.fainelli@gmail.com, vincent.guittot@linaro.org,
+ etienne.carriere@foss.st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
+ dan.carpenter@linaro.org, geert+renesas@glider.be,
+ kuninori.morimoto.gx@renesas.com, marek.vasut+renesas@gmail.com,
+ Cristian Marussi <cristian.marussi@arm.com>
+Subject: Re: [PATCH v2 08/13] firmware: arm_scmi: Harden clock protocol initialization
+Date: Fri, 24 Apr 2026 14:07:59 +0200
+Message-ID: <WNCeTzosRbKm_zGsbSPx8w@collabora.com>
+In-Reply-To: <20260310184030.3669330-9-cristian.marussi@arm.com>
+References: <20260310184030.3669330-1-cristian.marussi@arm.com>
+ <20260310184030.3669330-9-cristian.marussi@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/8] clk: qcom: gpucc: Add GPU Clock Controller driver
- for Eliza
-To: Taniya Das <taniya.das@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
-        Imran Shaik <imran.shaik@oss.qualcomm.com>,
-        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org
-References: <20260409-eliza_mm_cc_v2-v2-0-bc0c6dd77bc5@oss.qualcomm.com>
- <20260409-eliza_mm_cc_v2-v2-5-bc0c6dd77bc5@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20260409-eliza_mm_cc_v2-v2-5-bc0c6dd77bc5@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=cdDiaHDM c=1 sm=1 tr=0 ts=69eb56a2 cx=c_pps
- a=UgVkIMxJMSkC9lv97toC5g==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=EUspDBNiAAAA:8 a=whjPl3NbLinN2m9j5McA:9 a=QEXdDO2ut3YA:10
- a=1HOtulTD9v-eNWfpl4qZ:22
-X-Proofpoint-GUID: TH5RoBvtyYhRHZwjF9vStgbrcDy_YcZR
-X-Proofpoint-ORIG-GUID: TH5RoBvtyYhRHZwjF9vStgbrcDy_YcZR
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI0MDExMSBTYWx0ZWRfXxR1A+utPmSgH
- iTMBNk0Lds5SFczbpU0fRxTFEEbs2JTiOmVKQGo/EGJx4OCyXcOeWox7+lC0GmHjZeAE4p2t3QA
- 99yl7ziC/9P4B8cwHoAvljh9bpnroQsWDrtArRtJYJmfSyf9ej3ICOfsJAqOJqXj+oWm9P3kK8y
- gRw7+mR0/ole1NvTl8ZjbxXl+BCD/9ds17AKvSdbCkDKg76pbb3U2oVnre9RMyWkWHT9kwFlC5w
- DgtTNwexCdJK4HaYj6A+zHM7M2iZT6OZKP2jqqjGY+3XePfgWcCKc9Xcd01z+bPU5kUZ8Etd3zX
- A7q1xY8yrKSjOrrVUKh2F+M4lyiRr5qBi2//4gTzETXzv2PGMa9sfG9tmEHXJ37L5yabsnWyzmY
- tF5LL05om92iSHgQr+TICUbZfhfyXKKugfJHX7PyZI4R0EjUN6hTiIlHqncUrFdr8ybt12pj39Q
- jUMlIi2x09Oe0eJPC6w==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-23_03,2026-04-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 malwarescore=0 spamscore=0 impostorscore=0 lowpriorityscore=0
- suspectscore=0 phishscore=0 bulkscore=0 adultscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604240111
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_124022_992293_3CC76FB7 
-X-CRM114-Status: UNSURE (   8.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260424_130819_325458_6A3162F8 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,13 +99,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/9/26 8:10 PM, Taniya Das wrote:
-> Add Graphics Clock Controller (GPUCC) support for Eliza platform.
+On Tuesday, 10 March 2026 19:40:25 Central European Summer Time Cristian Marussi wrote:
+> Add proper error handling on failure to enumerate clocks features or
+> rates.
 > 
-> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
+> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 > ---
+>  drivers/firmware/arm_scmi/clock.c | 22 ++++++++++++++++------
+>  1 file changed, 16 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
+> index c9b62edce4fd..bf956305a8fe 100644
+> --- a/drivers/firmware/arm_scmi/clock.c
+> +++ b/drivers/firmware/arm_scmi/clock.c
+> @@ -402,10 +402,16 @@ static int scmi_clock_attributes_get(const struct scmi_protocol_handle *ph,
+>  		    SUPPORTS_RATE_CHANGE_REQUESTED_NOTIF(attributes))
+>  			clk->rate_change_requested_notifications = true;
+>  		if (PROTOCOL_REV_MAJOR(ph->version) >= 0x3) {
+> -			if (SUPPORTS_PARENT_CLOCK(attributes))
+> -				scmi_clock_possible_parents(ph, clk_id, cinfo);
+> -			if (SUPPORTS_GET_PERMISSIONS(attributes))
+> -				scmi_clock_get_permissions(ph, clk_id, clk);
+> +			if (SUPPORTS_PARENT_CLOCK(attributes)) {
+> +				ret = scmi_clock_possible_parents(ph, clk_id, cinfo);
+> +				if (ret)
+> +					return ret;
+> +			}
+> +			if (SUPPORTS_GET_PERMISSIONS(attributes)) {
+> +				ret = scmi_clock_get_permissions(ph, clk_id, clk);
+> +				if (ret)
+> +					return ret;
+> +			}
+>  			if (SUPPORTS_EXTENDED_CONFIG(attributes))
+>  				clk->extended_config = true;
+>  		}
+> @@ -1143,8 +1149,12 @@ static int scmi_clock_protocol_init(const struct scmi_protocol_handle *ph)
+>  	for (clkid = 0; clkid < cinfo->num_clocks; clkid++) {
+>  		cinfo->clkds[clkid].id = clkid;
+>  		ret = scmi_clock_attributes_get(ph, clkid, cinfo);
+> -		if (!ret)
+> -			scmi_clock_describe_rates_get(ph, clkid, cinfo);
+> +		if (ret)
+> +			return ret;
+> +
+> +		ret = scmi_clock_describe_rates_get(ph, clkid, cinfo);
+> +		if (ret)
+> +			return ret;
+>  	}
+>  
+>  	if (PROTOCOL_REV_MAJOR(ph->version) >= 0x3) {
+> 
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+I see that a quirk is being added for this, but I thought I should chime
+in with my opinion for future approaches in this direction.
 
-Konrad
+I don't see how this hardens anything. All this does is break platforms
+that were previously working by returning early. At most, this should
+be a warning (as in not WARN but pr_warn/dev_warn/...). If firmware
+returns nonsense, a clock driver should imho try its best to work
+around the nonsense in a safe way, because the alternative is that
+a major part of the system (and thus likely the entire system) no
+longer works. It's basically the same reason why we avoid BUG(): sure,
+you prevented a problem, but you tore down the entire system to tell
+the user about it.
+
+Kind regards,
+Nicolas Frattaroli
+
+
 
