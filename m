@@ -4,93 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C99E7F45A1E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 04:31:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98D07FF885A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 22:38:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-transfer-encoding:
+	MIME-version:Message-id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BD+xwKu/bN5/gMMBjSUYvF/EGDAVlZJDs5yWBOqQPgU=; b=IMynsSIhQcG0L2h5Auh4ACPvm+
-	Mx5Xo1DEoPslmovBzLTUuVc8IpVK+S4vFV0jUBw5LX3GZQY/2SW6wssVe104/t2uPe7mqQk+fB/XE
-	hLFLOiVIH3qJaqjcxFXdg1KwChDnOfoQQOFxuNEUZRvJ//D+UDzEC2YqD1YhqN86APwlXbW0hQ6YV
-	u/M8RktYBm8EEIkwTR6nT+NNyrX1kVgCYfdYxn8EJHOYhrsuJwDY27yg1SnzKvF99iqwh7nP7dMkm
-	Ds1BzcxrpRiwUikvmLyYifz0ph5RDJg62VtAFUv0yzDDAIDcoIxxO9zWR2ZB62ABlWwuqCLDolSOx
-	2biZZzQg==;
+	bh=PuNCSuhDY3aqUFt5mHJ3ZpNiytDxGYxQFnYjsTy8j+M=; b=cYROVkyRkyDO1iWes8dsLFg1Jb
+	pYPs9A219F5+3taNgFu1lTBhbCnr1mbYSZiNBSS42yiJ4sE68+9L5w4ybJCwvmTwjYiD6x6Dz4YTt
+	XMwS1sHDn7UYhL+ttK+gWEnqxSCQHspz34dD4zxYtLhXUN35aUnHwRtEMtiZS4N6CCA+esb6rYf9J
+	jcOjRuPp65fvcDub1w1LnQWwtvt7EYjRvBLEIEr2g1rnbliBPI82mLv+pMwAM1WP16nvf7M3+Ok5A
+	q+H/d7NIkK/EFAMg7iQNmyybTt0b17NdXKz1mb9FPaA8sWFC0ULwnM7cBW38k1aO0f3MiPgtUIIZq
+	dOszV58Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBQ00-0000000D8Yf-37Dy;
-	Sat, 11 Apr 2026 04:31:12 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1wGPAa-0000000DozU-415L;
+	Fri, 24 Apr 2026 22:38:44 +0000
+Received: from acj35aaf127.lhr1.oracleemaildelivery.com ([130.35.116.127])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBPzy-0000000D8YJ-1wQ7
+	id 1wGPAW-0000000Dox4-3QqC
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Apr 2026 04:31:11 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-35da2d35eccso2137258a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 21:31:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775881869; x=1776486669; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=BD+xwKu/bN5/gMMBjSUYvF/EGDAVlZJDs5yWBOqQPgU=;
-        b=dMq6PD2iZ9MXpCBgXVwukoFMkxQLS7i7cjT79fRNUdMPHRBumSkKEm5LOq3V8mK+3t
-         fJBr046glWl8gvCl9XhzZPeJ/8HwLDmIY6iFV23s+3WIJoGEACRb8y+oTOhuD906oD3i
-         Pq/4kMm/KaGuUXnKx9MXas3/5umTdDwrQP3AVHJe9rJeWFsoV3ETjAKEbK2WfKP7GnDI
-         RSjXr0ay3khM1jh605QDUjm/kJSg3dWLxq9inMg4fNDIfdE+UA8dntglg4KXN6uujIAm
-         5Lj6jZnu36atQuOOvAbDhGl4OJs05oynSpSpP3ODFceQHH84n4wfXTQquVwS4q3b5Niy
-         zFkw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775881869; x=1776486669;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BD+xwKu/bN5/gMMBjSUYvF/EGDAVlZJDs5yWBOqQPgU=;
-        b=i/JdbqmEPvTTqRDs7MVZB1abb2bkPiw4GACZzthjc6jj4AZZTeK3U6QEUU6/YkGSe9
-         x2PFnLsIRBmITNMOt2zvydqJmcpNsBF6OSHx6ioyeUfc4KwOfuAxrI2p3VDnPBeTQ9IC
-         2b2Okt+Em7y40Aj91maQMO2vL6fR8JReg4pRunNWZ5j7Occ6Ct7p+Nd8EQpaiH/XFTi0
-         DenG5/3OQl9YWIkPoDUArkpzqQMHLHo3dk3S/u814pA1FCvUjWV5Yld9/VBHhwOVCFjN
-         sGvhXqpShVluIzZI+WE0Tots8HYtHQuVaTPGsIg6OX13k7r8sn4iGzsrQMqlKVjX4FdO
-         4dBg==
-X-Forwarded-Encrypted: i=1; AJvYcCUwURgDJiPffZZUtgQGoqjZptrFw+A2IuS1EuweVr2s4tg7ZYtlQs24GX0ngUtYkN2+OmdCpuyyKMgkuExeHqP2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyvb4YpZqkVfXufPy3zE5KcYUteVXcQnki7SezodJZUvdzLoL5w
-	AzIRalHVqm9A+h/q2IqmdULJLNe+mAa8h3Dq6hjah7J2kF94pCiOLbxt
-X-Gm-Gg: AeBDietWH46GcgY1vE687Gqzgow49ByigcsbMCsCvGZ2II8p0kcMBN2KSkyrqP7FeSB
-	jgFEWF2xSWtfJKP+wfEFsTj0EmjCd39KcDZ9A2eRbOpfypyEPR1Az1b0ZZ3hizPYS/al6MHsaBl
-	9nRNpWjC7Xsrou/I9yV4VbWKuCY/Eo9ynUKOD6mWaK2RDxfItZExu2lpfCuE05IbqMtt4sfXiNI
-	VVDg3Q7javGxXpiN8KkgKRENJfnuZRQMQkfZhKPunofPmQfpjBNxUKi5DPv7upNsIoboVtqQIIz
-	e45yxj6/LFyb+ZZD6cc5HQSfAbqJ/IpDTw/CyiitHhI2WmSH5PW81BrEMp3ORsPxIdelHJztTud
-	Ffkm7cKzmy5Spz7gUwvngW0yNG3R7Odeqtro/bie4zuP4WbrDnOKCbJDRGdjRLs8weE1PrzO3iI
-	+NaG2Klq/SVWBmZkgMmdIwTtKkOVVVdPdyxOAxJFewfTCM1dG/8sats2U=
-X-Received: by 2002:a17:90a:dfc7:b0:35b:e52a:6fe5 with SMTP id 98e67ed59e1d1-35e4274e358mr5585311a91.5.1775881869282;
-        Fri, 10 Apr 2026 21:31:09 -0700 (PDT)
-Received: from ryzen ([2601:644:8000:5b5d::8bd])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35e3512f27asm8038120a91.10.2026.04.10.21.31.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Apr 2026 21:31:08 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-pci@vger.kernel.org
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:PCI DRIVER FOR MVEBU (Marvell Armada 370 and Ar...),
-	linux-kernel@vger.kernel.org (open list),
-	linux-hardening@vger.kernel.org (open list:KERNEL HARDENING (not covered by other areas):Keyword:\b__counted_by(_le|_be)?\b)
-Subject: [PATCH] PCI: mvebu: allocate ports with pcie struct
-Date: Fri, 10 Apr 2026 21:30:51 -0700
-Message-ID: <20260411043051.174309-1-rosenp@gmail.com>
+	Fri, 24 Apr 2026 22:38:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=oracle-uk-012026;
+ d=raczylo.com;
+ h=Date:To:From:Subject:Message-Id:MIME-Version:Sender:List-Unsubscribe:List-Unsubscribe-Post;
+ bh=PuNCSuhDY3aqUFt5mHJ3ZpNiytDxGYxQFnYjsTy8j+M=;
+ b=M18F5BvUEwzKBLGJZU0io9sP+yZuw4c0sOYEum3t/NmnrWVru+yWSSJqE7p6zqk+g4++iCSt4iDq
+   t3GfnpQbro9TDTJwmJhCCpBtF0PVEXkiKQlzzwbgSBr/YkLGXrtiBPZn9Fzfz0fhhCaOCaA9olCy
+   TpPhJ+yYChkboumFmUJQB5JHkzmgHwSygTniUaz3cHMtz7zDK3Ohml0NOHDRsrJOF0xDqhqEZfjB
+   7C+GtO3hGBePAzmAiZVwBq2mlt1dpY+VU6CD6RZBhkm7z7ijyV/LDtYXYDbnYpRyUigPxvVcXf7U
+   6EmTMnKKHRMBji01aRzCme053IXd+aITMbj44g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=prod-lhr-20191104;
+ d=lhr1.rp.oracleemaildelivery.com;
+ h=Date:To:From:Subject:Message-Id:MIME-Version:Sender:List-Unsubscribe:List-Unsubscribe-Post;
+ bh=PuNCSuhDY3aqUFt5mHJ3ZpNiytDxGYxQFnYjsTy8j+M=;
+ b=yc8n6H502MIkc6eeNOT2ij7l7WUFNO5O40b8XquHMzMphCNcN+uoaCWU37S43gzmcs6bopLRzsBd
+   llKvwFH7ISwpE7YYjLiHe+0SGqYBNKC1aKGBBPQrov7ZDbbGK1UkkfnPEhqCd6dYqAAFwMHFaGhE
+   2jBlK0wAyVeuJRN7r4wmu/vTj3Qbj2G0FPjGsmjtVaruep/xWjVz/+TPzQwCbE4ch4uVAF0cLfv0
+   7AO4NyCvC//vH2shbYO/3OuPS8FNlYiVinvI204Czv+LmllRYgzOIvB1NT/Pga34SPdqGXuq0yk/
+   DsrEriTZtUHMmoVPQ8r3+CTrDsqak/0/sFdkZA==
+Received: by omta-ad1-fd1-401-uk-london-1.omtaad1.vcndplhr.oraclevcn.com
+ (Oracle Communications Messaging Server 8.1.0.1.20260212 64bit (built Feb 12
+ 2026))
+ with ESMTPS id <0TE000GM9S8ATKE0@omta-ad1-fd1-401-uk-london-1.omtaad1.vcndplhr.oraclevcn.com> for
+ linux-arm-kernel@lists.infradead.org; Fri, 24 Apr 2026 22:38:34 +0000 (GMT)
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+From: Lukasz Raczylo <lukasz@raczylo.com>
+To: netdev@vger.kernel.org
+Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,	linux-rpi-kernel@lists.infradead.org
+Subject: [RFC PATCH net-next 0/3] net: macb: candidate fixes for silent TX
+ stall on BCM2712/RP1
+Date: Fri, 24 Apr 2026 23:38:30 +0100
+Message-id: <cover.1777064117.git.lukasz@raczylo.com>
 X-Mailer: git-send-email 2.53.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+MIME-version: 1.0
+Content-transfer-encoding: 8bit
+Reporting-Meta: AAFzDiYTuS9jvqSCDQoXiqVnkU2yDl7DFh57yZB8VktRLO86c1eFyO5ekvNWCLwV
+ PHyd9gw8WA5srfV/TRDz0HPcqN0ckK5QcJLGNRG4cjCQ32stu6Pr+z05azan5l7g
+ ACfAZIRLx5MhSYhhiCoMPIW1oAg52r5A6nAbVoGAXyXwn9Rim1uNmmKWWao08MDQ
+ 8XDHq3AQ77lApNIg3wD2Lqew3/uHxnohKFdd1UXY0C+FAWnnaXiUcJAWNHOBpSB/
+ /tVI+zdhPyc7KI8CacZfiLBR3A8l6IjaFGjg8h2/ipUYxyygA7bhS1T/cTED1AxC
+ NeG8ROFcTfGrHvHzfKF5Zsccb4TRCNvk9q2w+ciZ7fBcIbJSsIIk9Sxbej3eWUKS
+ i0UeApU/gx2L5xm8jkwRFIHaO9x4ZDbxWITMOmMUXyMw3OjRKLbFD0niOJevkCov gQz/RNXi
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_213110_508879_1B01BB9C 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20260424_153841_382933_F29F4A7E 
+X-CRM114-Status: GOOD (  20.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,95 +90,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use a flexible array member to combine allocations and simplify
-slightly.
+Hi netdev, Nicolas, Claudiu, linux-rpi,
 
-Add __counted_by for extra runtime analysis.
+This series proposes three candidate fixes for the silent TX stall
+observed on Raspberry Pi 5 (BCM2712 SoC, Cadence GEM via RP1 PCIe
+south bridge).  The bug has been reported, with reproducers, at:
 
-Needed to move mvebu_pcie struct below others as flexible array members
-require full definitions.
+  * https://github.com/cilium/cilium/issues/43198
+  * https://bugs.launchpad.net/ubuntu/+source/linux-raspi/+bug/2133877
 
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- drivers/pci/controller/pci-mvebu.c | 33 ++++++++++++------------------
- 1 file changed, 13 insertions(+), 20 deletions(-)
+Cilium #43198 reports reproduction on linux-raspi 6.17.0-1004, and
+explicitly notes reproduction with both Cilium/eBPF and
+Calico/nftables dataplanes (i.e. not CNI-specific).  We observe the
+same failure mode on kernel 6.18.24 built from raspberrypi/linux
+rpi-6.18.y @ f2f68e79f16f, across a 24-node Raspberry Pi 5 fleet.
+The 6.17/6.18 commonality and the two-CNI reproduction together
+put the root cause below the packet-scheduling layer, in the macb
+driver or the RP1 PCIe path.
 
-diff --git a/drivers/pci/controller/pci-mvebu.c b/drivers/pci/controller/pci-mvebu.c
-index a72aa57591c0..dea50f6e88be 100644
---- a/drivers/pci/controller/pci-mvebu.c
-+++ b/drivers/pci/controller/pci-mvebu.c
-@@ -78,18 +78,6 @@
- #define PCIE_DEBUG_CTRL         0x1a60
- #define  PCIE_DEBUG_SOFT_RESET		BIT(20)
- 
--struct mvebu_pcie_port;
--
--/* Structure representing all PCIe interfaces */
--struct mvebu_pcie {
--	struct platform_device *pdev;
--	struct mvebu_pcie_port *ports;
--	struct resource io;
--	struct resource realio;
--	struct resource mem;
--	int nports;
--};
--
- struct mvebu_pcie_window {
- 	phys_addr_t base;
- 	phys_addr_t remap;
-@@ -125,6 +113,16 @@ struct mvebu_pcie_port {
- 	int intx_irq;
- };
- 
-+/* Structure representing all PCIe interfaces */
-+struct mvebu_pcie {
-+	struct platform_device *pdev;
-+	struct resource io;
-+	struct resource realio;
-+	struct resource mem;
-+	int nports;
-+	struct mvebu_pcie_port ports[] __counted_by(nports);
-+};
-+
- static inline void mvebu_writel(struct mvebu_pcie_port *port, u32 val, u32 reg)
- {
- 	writel(val, port->base + reg);
-@@ -1455,11 +1453,13 @@ static int mvebu_pcie_probe(struct platform_device *pdev)
- 	struct device_node *child;
- 	int num, i, ret;
- 
--	bridge = devm_pci_alloc_host_bridge(dev, sizeof(struct mvebu_pcie));
-+	num = of_get_available_child_count(np);
-+	bridge = devm_pci_alloc_host_bridge(dev, struct_size(pcie, ports, num));
- 	if (!bridge)
- 		return -ENOMEM;
- 
- 	pcie = pci_host_bridge_priv(bridge);
-+	pcie->nports = num;
- 	pcie->pdev = pdev;
- 	platform_set_drvdata(pdev, pcie);
- 
-@@ -1467,12 +1467,6 @@ static int mvebu_pcie_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	num = of_get_available_child_count(np);
--
--	pcie->ports = devm_kcalloc(dev, num, sizeof(*pcie->ports), GFP_KERNEL);
--	if (!pcie->ports)
--		return -ENOMEM;
--
- 	i = 0;
- 	for_each_available_child_of_node(np, child) {
- 		struct mvebu_pcie_port *port = &pcie->ports[i];
-@@ -1488,7 +1482,6 @@ static int mvebu_pcie_probe(struct platform_device *pdev)
- 		port->dn = child;
- 		i++;
- 	}
--	pcie->nports = i;
- 
- 	for (i = 0; i < pcie->nports; i++) {
- 		struct mvebu_pcie_port *port = &pcie->ports[i];
+Observed symptoms (our side, 6.18.24; consistent with the linked
+reports):
+
+  * queue->tx_tail stops advancing at a single second;
+  * /sys/class/net/<iface>/statistics/tx_packets stops incrementing;
+  * qdisc backlog grows past zero; netif_stop_subqueue() is called;
+  * RX counters continue advancing; the MAC IRQ line continues to
+    fire (RX completions are handled);
+  * no kernel log line is produced for the duration of the stall;
+  * dev_watchdog does not fire: macb_netdev_ops has no
+    .ndo_tx_timeout, and our reading is that trans_start is kept
+    fresh by successful xmit prior to the ring filling;
+  * recovery on our side has required `ip link set <iface> down/up`
+    via an out-of-band watchdog DaemonSet.
+
+Reading the current driver we identified three plausible races
+between driver and hardware, each of which could independently
+produce the observed behaviour.  We did not determine which is the
+actual root cause -- that likely requires either BCM2712/RP1
+documentation we do not have, or dynamic tracing of the driver
+during an in-situ stall.  The series therefore attempts to close
+all three, with each commit message stating which specific race
+that patch is targeting.
+
+  Patch 1/3 -- flush PCIe posted write after TSTART doorbell.
+  Writes to NCR are posted PCIe writes and may not reach the MAC
+  before the driver returns.  If the TSTART doorbell is lost, no
+  TX starts, no TCOMP arrives, and the ring goes quiescent.  A
+  read-back of NCR after the write is a standard read-after-write
+  PCIe flush.
+
+  Patch 2/3 -- re-check ISR after IER re-enable in macb_tx_poll().
+  An existing comment in macb_tx_poll() notes that completions
+  raised while TCOMP is masked do not re-fire when IER is
+  re-enabled, and mitigates the window with macb_tx_complete_pending(),
+  which inspects driver-visible ring state only (after rmb()).  On
+  PCIe-attached parts the descriptor DMA write that sets TX_USED
+  can remain in flight when that check runs; the rmb() orders CPU
+  writes but does not retire peripheral DMA.  Reading ISR directly
+  after IER re-enable addresses this in two ways: (a) the MMIO read
+  is an architected PCIe read barrier for prior DMA writes, so a
+  subsequent macb_tx_complete_pending() sees up-to-date TX_USED
+  state; (b) it directly observes a pending TCOMP bit if the
+  hardware has one set.  Either signal reschedules NAPI.
+
+  Patch 3/3 -- TX stall watchdog.  Defence-in-depth.  If patches
+  1 and 2 close the races we identified, this patch performs a
+  single spin_lock_irqsave/unlock and a branch per queue per
+  second with no other effect.  If a further race remains that we
+  have not identified, it invokes the driver's own existing
+  macb_tx_restart(), which already verifies that TBQP is behind
+  tx_head before re-asserting TSTART.  We include this patch
+  because we have empirically observed multi-minute stalls on this
+  hardware; we are willing to drop it if the preference is for
+  1 and 2 to stand alone.
+
+Status and testing:
+
+  * Apply-tested against Linux net-next HEAD (this series is
+    generated from it) and against raspberrypi/linux rpi-6.18.y @
+    f2f68e79f16f (the fork our fleet runs): all three apply
+    cleanly on net-next; the rpi fork carries an additional local
+    `bool tx_pending` field on `struct macb_queue` that is not in
+    mainline, so we maintain a small rebased patch 3 hunk for it.
+  * Build-tested: the series compiles cleanly as part of our Talos
+    image build pipeline on arm64.
+  * Runtime-tested, early signal: ~4 h 20 min of post-patch uptime
+    on the canary node, ~3 h 15 min on the slowest (last master to
+    upgrade), ~95 node-hours cumulative across the 24-node fleet at
+    the time this cover letter was written.  During that window the
+    fleet-wide counts are zero RECOVER events, zero `[tx-stall]`
+    partial markers (an out-of-band userspace detector that records
+    even transient one-second freezes that recover before the
+    3-second threshold), and zero ping-failure markers.  Pre-patch
+    reference window (2026-04-24 14:00-18:10 UTC, when proper
+    monitoring was in place) observed multiple stalls per hour at
+    fleet level; at that rate we would expect on the order of 50
+    stalls in 95 node-hours, actual is zero.  We will follow up
+    with a 24 h and a 1-week data point as the same observability
+    runs forward; the direction so far is consistent with patches
+    1 and 2 closing the underlying race(s) and patch 3 correctly
+    being a no-op on healthy hardware.
+
+The series does not depend on any other in-flight work we are
+aware of.  Happy to split, rebase, or drop individual patches on
+feedback.  All three are independently revertable.
+
+Lukasz Raczylo (3):
+  net: macb: flush PCIe posted write after TSTART doorbell
+  net: macb: re-check ISR after IER re-enable in macb_tx_poll
+  net: macb: add TX stall watchdog as defence-in-depth safety net
+
+ drivers/net/ethernet/cadence/macb.h      |  5 ++
+ drivers/net/ethernet/cadence/macb_main.c | 99 +++++++++++++++++++++---
+ 2 files changed, 94 insertions(+), 10 deletions(-)
+
 -- 
 2.53.0
 
