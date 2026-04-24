@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EE5CFED3F2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 620A1FED3F4
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 16:48:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,60 +12,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=niT+j+ygae4DUDVZvlLCzSKgJX/QJcllkfXgy9y3G00=; b=efbtVsncyc2gHv2VcUXdNjFTXS
-	80D7W2EH/LLJcmGpP1isVUNfAnngPkQ5fLq+1yzYJBInAdNmVBfyTc7TeQ34E+BMZ86zL2P8+7NQj
-	aTbdz0aWH7aXByBOVyTh8qNb/YVZqKz2QiBd9GnvGHz6sHPXAgur94M843MHTQHtyTsqtFHXdIwr6
-	U1PpW4udKNFVuuJ7SxTC3EBOyxrUiJaF15kKBvR1+tqO4g3b9GNU15t0iDie906AkDMWiBYa4vyBX
-	eTDx6CEmzTbveOCwBkk1IQCJxE2Kmcsv2OZQVN8/7VZbcz4S8DLk5EHVA367+5/3T4sWN3GnvF4D+
-	HqXvXHfA==;
+	bh=viZhgTNNP2buRGy766mhoKyGu3Atkn7DPzIJmPMe5kc=; b=Zv/pw8Rot+YH2mzMDp9h4V1XcJ
+	m3sbYsdv8HUXevl4LVrSfjDdlCAXsjoE7auTH1pKE99Mf4sr7rvQA0tP1O6PI9xxxkCaq49en1p75
+	YVQjpiAdxnGFm1DGo06G5HWCaBMRZf9C12gniQvEBxdQL+gHh5Us8JxnCQHUHaw8Ry4GiugE4geqj
+	1mpJtpJPe5ylWY0QT8zl3nvdn9PEUB2IpE/ko8BsYPAkO9ODEP8jyA5+L9gTtRmbKGX4jeXj3B91M
+	O6++n4Uke7cbyfqZJ96pluHiaV0DHjCEJYWPksJdBpr+P3TOlydFTlLxw25pAN5/sY4INSvILn3d2
+	82gA1J0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJhH-0000000DTRn-2B5y;
-	Fri, 24 Apr 2026 16:48:07 +0000
+	id 1wGJhG-0000000DTQ6-1ovo;
+	Fri, 24 Apr 2026 16:48:06 +0000
 Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJhD-0000000DTNe-0HoP
+	id 1wGJh8-0000000DTKH-3c4s
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 16:48:04 +0000
-Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2bdf75bc88fso10402160eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 09:48:02 -0700 (PDT)
+	Fri, 24 Apr 2026 16:48:00 +0000
+Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2de07c12745so19743632eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 09:47:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1777049282; x=1777654082; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1777049278; x=1777654078; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=niT+j+ygae4DUDVZvlLCzSKgJX/QJcllkfXgy9y3G00=;
-        b=adMAaySgMSWFuy+rECuXOVZo278mme9Jxalm0F4SxwEcGzvIptCavXXGj+3desboi2
-         QYkvRbW+9Eeazd0egPpEhvcNouiB2BsNGEt8bGWBSzLWsntACG6/tPLQJhsi6JHo/Q8B
-         Tmmi/1kAC7/3SJoLpQue9UHM7IrKPQLRP+DYSvj8aWvmGFH6SeKdpMTl3OkGXVVqW8Fb
-         mm1y/znE5LSyZN2sSDOHKLQeVbKaV8xenzoUA/zCLvXXGkKCkaQSZXw6SNrgUy5O+Z+j
-         F5KIu/y3knbO/lQm7ff9Z+od96RYrT1SyqCsZLAPjATWMT5FnmR5BnfkyGeADUWQsMvG
-         Rkag==
+        bh=viZhgTNNP2buRGy766mhoKyGu3Atkn7DPzIJmPMe5kc=;
+        b=LOCdl5DfJGICAYAIhwApSTG/rG044MPm/jlDWSMBLrlx2pfEcE+sXQNskhE77XrHOt
+         miEJgdBPqaaXzyoya5hxSmsAzDyPrRvVSEqZYwCESubsYl6q8l8IJA/Ou8aQTCCXcwbf
+         h7PsPFGqj4MJqajnBUXfXYzsnkjOhVlP9DfkUPcEqqx0cw/n/wkoFDpTljehjHX86nKe
+         PVhg6Uw5dw/3+PJmD+LjXAaMkLEppJwriLH/kaRRvyfsg2mVvfhvWQYEY1QplfSbo6no
+         oyFZdAKjYvXSMU293mDeyOZDa+1jhkji+B9fLKJ5sDtLjxF38ZrVzR2ck7UR1neO94cw
+         K77A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777049282; x=1777654082;
+        d=1e100.net; s=20251104; t=1777049278; x=1777654078;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=niT+j+ygae4DUDVZvlLCzSKgJX/QJcllkfXgy9y3G00=;
-        b=NeKfFVAh2f2+3i7ZgmTSRlbYzfUFSJCtylyISjiMXMXL1jZuoGHdDKPNgPTeu1G/YU
-         Cqy+U7l7+O+vid4WAWl83SV997qka+KXKKKxgZQLDft6Sm6oGdhROHidgnZPMRjk2uUA
-         0YByFivhFssp/TQs6tArOSG4ToIh1vn2X+scGX0LlutbVRCeXe7nEfXg/yMWhuQAO+oM
-         FftBxWV1XJy3UBdvJlwoGI5ZwBUN0gHSjRwY2/BqCC+gnn+HYREgXAwrRuPmw2ndq0Tx
-         a4jGUkWcA0GszZak06GmmHcTGcHyg4lcmg0UZa5irrF82jDrHFyI22esrZGH1NyIq2Fo
-         crrg==
-X-Forwarded-Encrypted: i=1; AFNElJ/k7gNJ8FucjXU/sNYcJaB7UnYtJ7943hr5n9f2d2UASjIr5sj3egcJktduHRH4cy2j2TJHVyHuZPItaM1WNvks@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAK77YWbFJg3P5PamHFjucsHElMXRwSShKhxiM3kB6ByWFoi7L
-	P77roTkRGNsF+aqCGadkMpPet4A+Dien4QMPUDkRGFF2eddyS6ooNXi8ifBp+DF9v0tbSm+xDf8
-	/gE1d64N4iQ==
-X-Received: from dybrt7.prod.google.com ([2002:a05:7301:4707:b0:2d8:e988:4a97])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:4185:b0:2e0:1f09:d924
- with SMTP id 5a478bee46e88-2e464ea9aeemr17387563eec.5.1777049281746; Fri, 24
- Apr 2026 09:48:01 -0700 (PDT)
-Date: Fri, 24 Apr 2026 09:46:30 -0700
+        bh=viZhgTNNP2buRGy766mhoKyGu3Atkn7DPzIJmPMe5kc=;
+        b=Jejr2t/DzXL+ZyZJevMbSmN7t3/zFWQ6NZtcYrimMTVHCUkmNz4Hl9ngRW79471zTB
+         imbX3STVU2XmLhjf1FtRoOFk6x1ZGZ8aR3IW0+ZfI0YpYD/vcwjUjTaV+soQEPtjeKJg
+         x4tKcgiE2kc6bcdetFJ3J9Xbg1qnq6cvx0aoJsHdOjBrhTGwoLkXR5NI6F9bSdn+x59z
+         OPKjR9H1llvOfvjr95Ql9j205pUkKiTZOVNb/+VCpI4BZ5LLywFbLr/KeJ3LxYYyYOj7
+         sQSSPbdMbJZOdG8Zpg1w+g1qdQ2mI5MmIMXt/f6Ag5Zk433jWqIgjoZb3NPfGfxfXU4l
+         fAiw==
+X-Forwarded-Encrypted: i=1; AFNElJ+IXg1F7alr/lUfLhavVfKjiS/vyJCL5D0UPnCiKjUMrv3INt0BeZeO4y1hQVpfUVoypZdwT5HR3n5MYzkWBAI5@lists.infradead.org
+X-Gm-Message-State: AOJu0YxnBFfI+cu6LNnkuTpaoO1TSTrqnWFFNczJLg+RUeZsrUAG+aWH
+	ddQyieSaVLM5arbly2x8iPmR8mCrgADkzv3hdbYxGaPd+zq0W83eIga+51uxRl8adpEmHGo3hT9
+	i7n+YxOJG9Q==
+X-Received: from dlbtu24.prod.google.com ([2002:a05:7022:3c18:b0:12c:3dfa:518e])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:701b:270f:b0:12d:b993:c68f
+ with SMTP id a92af1059eb24-12db993c9b2mr4578242c88.4.1777049277696; Fri, 24
+ Apr 2026 09:47:57 -0700 (PDT)
+Date: Fri, 24 Apr 2026 09:46:28 -0700
 In-Reply-To: <20260424164721.2229025-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260423163406.1779809-1-irogers@google.com> <20260424164721.2229025-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
-Message-ID: <20260424164721.2229025-9-irogers@google.com>
-Subject: [PATCH v5 08/58] perf evsel/evlist: Avoid unnecessary #includes
+Message-ID: <20260424164721.2229025-7-irogers@google.com>
+Subject: [PATCH v5 06/58] perf util: Sort includes and add missed explicit dependencies
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org, 
 	leo.yan@linux.dev, namhyung@kernel.org, tmricht@linux.ibm.com
@@ -75,9 +75,8 @@ Cc: alice.mei.rogers@gmail.com, dapeng1.mi@linux.intel.com,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_094803_124297_52A6FB90 
-X-CRM114-Status: UNSURE (   8.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260424_094758_930451_A500DCA4 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,102 +91,483 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use forward declarations and remove unnecessary #includes in
-evsel.h. Sort the forward declarations in evsel.h and evlist.h.
+Fix missing includes found while cleaning the evsel/evlist header
+files. Sort the remaining header files for consistency with the rest
+of the code.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/evlist.h | 15 +++++++++------
- tools/perf/util/evsel.h  | 20 +++++++++++---------
- 2 files changed, 20 insertions(+), 15 deletions(-)
+ tools/perf/util/bpf_off_cpu.c       | 30 +++++-----
+ tools/perf/util/bpf_trace_augment.c |  8 +--
+ tools/perf/util/evlist.c            | 91 +++++++++++++++--------------
+ tools/perf/util/evsel.c             | 75 ++++++++++++------------
+ tools/perf/util/map.h               |  9 ++-
+ tools/perf/util/perf_api_probe.c    | 18 +++---
+ tools/perf/util/s390-sample-raw.c   | 19 +++---
+ tools/perf/util/stat-shadow.c       | 20 ++++---
+ tools/perf/util/stat.c              | 16 +++--
+ 9 files changed, 152 insertions(+), 134 deletions(-)
 
-diff --git a/tools/perf/util/evlist.h b/tools/perf/util/evlist.h
-index e507f5f20ef6..e54761c670b6 100644
---- a/tools/perf/util/evlist.h
-+++ b/tools/perf/util/evlist.h
-@@ -2,29 +2,32 @@
- #ifndef __PERF_EVLIST_H
- #define __PERF_EVLIST_H 1
- 
-+#include <signal.h>
+diff --git a/tools/perf/util/bpf_off_cpu.c b/tools/perf/util/bpf_off_cpu.c
+index a3b699a5322f..48cb930cdd2e 100644
+--- a/tools/perf/util/bpf_off_cpu.c
++++ b/tools/perf/util/bpf_off_cpu.c
+@@ -1,23 +1,25 @@
+ // SPDX-License-Identifier: GPL-2.0
+-#include "util/bpf_counter.h"
+-#include "util/debug.h"
+-#include "util/evsel.h"
+-#include "util/evlist.h"
+-#include "util/off_cpu.h"
+-#include "util/perf-hooks.h"
+-#include "util/record.h"
+-#include "util/session.h"
+-#include "util/target.h"
+-#include "util/cpumap.h"
+-#include "util/thread_map.h"
+-#include "util/cgroup.h"
+-#include "util/strlist.h"
++#include <linux/time64.h>
 +
- #include <linux/compiler.h>
- #include <linux/kernel.h>
--#include <linux/refcount.h>
- #include <linux/list.h>
-+#include <linux/refcount.h>
-+#include <pthread.h>
+ #include <bpf/bpf.h>
+ #include <bpf/btf.h>
+ #include <internal/xyarray.h>
+-#include <linux/time64.h>
+ 
++#include "bpf_counter.h"
+ #include "bpf_skel/off_cpu.skel.h"
++#include "cgroup.h"
++#include "cpumap.h"
++#include "debug.h"
++#include "evlist.h"
++#include "evsel.h"
++#include "off_cpu.h"
++#include "parse-events.h"
++#include "perf-hooks.h"
++#include "record.h"
++#include "session.h"
++#include "strlist.h"
++#include "target.h"
++#include "thread_map.h"
+ 
+ #define MAX_STACKS  32
+ #define MAX_PROC  4096
+diff --git a/tools/perf/util/bpf_trace_augment.c b/tools/perf/util/bpf_trace_augment.c
+index 9e706f0fa53d..a9cf2a77ded1 100644
+--- a/tools/perf/util/bpf_trace_augment.c
++++ b/tools/perf/util/bpf_trace_augment.c
+@@ -1,11 +1,11 @@
+ #include <bpf/libbpf.h>
+ #include <internal/xyarray.h>
+ 
+-#include "util/debug.h"
+-#include "util/evlist.h"
+-#include "util/trace_augment.h"
+-
+ #include "bpf_skel/augmented_raw_syscalls.skel.h"
++#include "debug.h"
++#include "evlist.h"
++#include "parse-events.h"
++#include "trace_augment.h"
+ 
+ static struct augmented_raw_syscalls_bpf *skel;
+ static struct evsel *bpf_output;
+diff --git a/tools/perf/util/evlist.c b/tools/perf/util/evlist.c
+index ee971d15b3c6..35d65fe50e06 100644
+--- a/tools/perf/util/evlist.c
++++ b/tools/perf/util/evlist.c
+@@ -5,67 +5,68 @@
+  * Parts came from builtin-{top,stat,record}.c, see those files for further
+  * copyright notes.
+  */
+-#include <api/fs/fs.h>
++#include "evlist.h"
++
+ #include <errno.h>
+ #include <inttypes.h>
+-#include <poll.h>
+-#include "cpumap.h"
+-#include "util/mmap.h"
+-#include "thread_map.h"
+-#include "target.h"
+-#include "dwarf-regs.h"
+-#include "evlist.h"
+-#include "evsel.h"
+-#include "record.h"
+-#include "debug.h"
+-#include "units.h"
+-#include "bpf_counter.h"
+-#include <internal/lib.h> // page_size
+-#include "affinity.h"
+-#include "../perf.h"
+-#include "asm/bug.h"
+-#include "bpf-event.h"
+-#include "util/event.h"
+-#include "util/string2.h"
+-#include "util/perf_api_probe.h"
+-#include "util/evsel_fprintf.h"
+-#include "util/pmu.h"
+-#include "util/sample.h"
+-#include "util/bpf-filter.h"
+-#include "util/stat.h"
+-#include "util/util.h"
+-#include "util/env.h"
+-#include "util/intel-tpebs.h"
+-#include "util/metricgroup.h"
+-#include "util/strbuf.h"
+ #include <signal.h>
+-#include <unistd.h>
+-#include <sched.h>
+ #include <stdlib.h>
+ 
+-#include "parse-events.h"
+-#include <subcmd/parse-options.h>
+-
+ #include <fcntl.h>
+-#include <sys/ioctl.h>
+-#include <sys/mman.h>
+-#include <sys/prctl.h>
+-#include <sys/timerfd.h>
+-#include <sys/wait.h>
+-
+ #include <linux/bitops.h>
++#include <linux/err.h>
+ #include <linux/hash.h>
+ #include <linux/log2.h>
+-#include <linux/err.h>
+ #include <linux/string.h>
+ #include <linux/time64.h>
+ #include <linux/zalloc.h>
++#include <poll.h>
++#include <sched.h>
++#include <sys/ioctl.h>
++#include <sys/mman.h>
++#include <sys/prctl.h>
++#include <sys/timerfd.h>
++#include <sys/wait.h>
 +#include <unistd.h>
 +
- #include <api/fd/array.h>
- #include <internal/evlist.h>
- #include <internal/evsel.h>
++#include <api/fs/fs.h>
++#include <internal/lib.h> // page_size
++#include <internal/xyarray.h>
++#include <perf/cpumap.h>
  #include <perf/evlist.h>
-+
- #include "affinity.h"
- #include "events_stats.h"
- #include "evsel.h"
- #include "rblist.h"
--#include <pthread.h>
--#include <signal.h>
--#include <unistd.h>
+ #include <perf/evsel.h>
+-#include <perf/cpumap.h>
+ #include <perf/mmap.h>
++#include <subcmd/parse-options.h>
  
--struct pollfd;
--struct thread_map;
- struct perf_cpu_map;
- struct perf_stat_config;
-+struct pollfd;
- struct record_opts;
- struct strbuf;
- struct target;
-+struct thread_map;
+-#include <internal/xyarray.h>
++#include "../perf.h"
++#include "affinity.h"
++#include "asm/bug.h"
++#include "bpf-event.h"
++#include "bpf-filter.h"
++#include "bpf_counter.h"
++#include "cpumap.h"
++#include "debug.h"
++#include "dwarf-regs.h"
++#include "env.h"
++#include "event.h"
++#include "evsel.h"
++#include "evsel_fprintf.h"
++#include "intel-tpebs.h"
++#include "metricgroup.h"
++#include "mmap.h"
++#include "parse-events.h"
++#include "perf_api_probe.h"
++#include "pmu.h"
++#include "pmus.h"
++#include "record.h"
++#include "sample.h"
++#include "stat.h"
++#include "strbuf.h"
++#include "string2.h"
++#include "target.h"
++#include "thread_map.h"
++#include "units.h"
++#include "util.h"
  
- /*
-  * State machine of bkw_mmap_state:
-diff --git a/tools/perf/util/evsel.h b/tools/perf/util/evsel.h
-index 339b5c08a33d..b099c8e5dd86 100644
---- a/tools/perf/util/evsel.h
-+++ b/tools/perf/util/evsel.h
-@@ -2,28 +2,30 @@
- #ifndef __PERF_EVSEL_H
- #define __PERF_EVSEL_H 1
+ #ifdef LACKS_SIGQUEUE_PROTOTYPE
+ int sigqueue(pid_t pid, int sig, const union sigval value);
+diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
+index 2ee87fd84d3e..e03727d395e9 100644
+--- a/tools/perf/util/evsel.c
++++ b/tools/perf/util/evsel.c
+@@ -11,68 +11,71 @@
+  */
+ #define __SANE_USERSPACE_TYPES__
  
--#include <linux/list.h>
- #include <stdbool.h>
--#include <sys/types.h>
+-#include <byteswap.h>
++#include "evsel.h"
 +
-+#include <linux/list.h>
- #include <linux/perf_event.h>
- #include <linux/types.h>
-+#include <sys/types.h>
+ #include <errno.h>
+ #include <inttypes.h>
++#include <stdlib.h>
 +
- #include <internal/evsel.h>
++#include <dirent.h>
+ #include <linux/bitops.h>
+-#include <api/fs/fs.h>
+-#include <api/fs/tracing_path.h>
+-#include <linux/hw_breakpoint.h>
+-#include <linux/perf_event.h>
+ #include <linux/compiler.h>
++#include <linux/ctype.h>
+ #include <linux/err.h>
++#include <linux/hw_breakpoint.h>
++#include <linux/perf_event.h>
+ #include <linux/zalloc.h>
+ #include <sys/ioctl.h>
+ #include <sys/resource.h>
+ #include <sys/syscall.h>
+ #include <sys/types.h>
+-#include <dirent.h>
+-#include <stdlib.h>
++
++#include <api/fs/fs.h>
++#include <api/fs/tracing_path.h>
++#include <byteswap.h>
++#include <internal/lib.h>
++#include <internal/threadmap.h>
++#include <internal/xyarray.h>
++#include <perf/cpumap.h>
  #include <perf/evsel.h>
 +
- #include "symbol_conf.h"
--#include "pmus.h"
++#include "../perf-sys.h"
+ #include "asm/bug.h"
++#include "bpf-filter.h"
+ #include "bpf_counter.h"
+ #include "callchain.h"
+ #include "cgroup.h"
+ #include "counts.h"
++#include "debug.h"
++#include "drm_pmu.h"
+ #include "dwarf-regs.h"
++#include "env.h"
+ #include "event.h"
+-#include "evsel.h"
+-#include "time-utils.h"
+-#include "util/env.h"
+-#include "util/evsel_config.h"
+-#include "util/evsel_fprintf.h"
+ #include "evlist.h"
+-#include <perf/cpumap.h>
+-#include "thread_map.h"
+-#include "target.h"
++#include "evsel_config.h"
++#include "evsel_fprintf.h"
++#include "hashmap.h"
++#include "hist.h"
++#include "hwmon_pmu.h"
++#include "intel-tpebs.h"
++#include "memswap.h"
++#include "off_cpu.h"
++#include "parse-branch-options.h"
+ #include "perf_regs.h"
++#include "pmu.h"
++#include "pmus.h"
+ #include "record.h"
+-#include "debug.h"
+-#include "trace-event.h"
++#include "rlimit.h"
+ #include "session.h"
+ #include "stat.h"
+ #include "string2.h"
+-#include "memswap.h"
+-#include "util.h"
+-#include "util/hashmap.h"
+-#include "off_cpu.h"
 -#include "pmu.h"
+-#include "pmus.h"
+-#include "drm_pmu.h"
+-#include "hwmon_pmu.h"
++#include "target.h"
++#include "thread_map.h"
++#include "time-utils.h"
+ #include "tool_pmu.h"
+ #include "tp_pmu.h"
+-#include "rlimit.h"
+-#include "../perf-sys.h"
+-#include "util/parse-branch-options.h"
+-#include "util/bpf-filter.h"
+-#include "util/hist.h"
+-#include <internal/xyarray.h>
+-#include <internal/lib.h>
+-#include <internal/threadmap.h>
+-#include "util/intel-tpebs.h"
+-
+-#include <linux/ctype.h>
++#include "trace-event.h"
++#include "util.h"
  
-+struct bperf_follower_bpf;
-+struct bperf_leader_bpf;
-+struct bpf_counter_ops;
- struct bpf_object;
- struct cgroup;
-+struct hashmap;
- struct perf_counts;
-+struct perf_pmu;
- struct perf_stat_config;
- struct perf_stat_evsel;
--union perf_event;
--struct bpf_counter_ops;
- struct target;
--struct hashmap;
--struct bperf_leader_bpf;
--struct bperf_follower_bpf;
-+union perf_event;
+ #ifdef HAVE_LIBTRACEEVENT
+ #include <event-parse.h>
+diff --git a/tools/perf/util/map.h b/tools/perf/util/map.h
+index 979b3e11b9bc..fb0279810ae9 100644
+--- a/tools/perf/util/map.h
++++ b/tools/perf/util/map.h
+@@ -2,14 +2,13 @@
+ #ifndef __PERF_MAP_H
+ #define __PERF_MAP_H
  
- typedef int (evsel__sb_cb_t)(union perf_event *event, void *data);
+-#include <linux/refcount.h>
+-#include <linux/compiler.h>
+-#include <linux/list.h>
+-#include <linux/rbtree.h>
++#include <stdbool.h>
+ #include <stdio.h>
+ #include <string.h>
+-#include <stdbool.h>
++
++#include <linux/refcount.h>
+ #include <linux/types.h>
++
+ #include <internal/rc_check.h>
  
+ struct dso;
+diff --git a/tools/perf/util/perf_api_probe.c b/tools/perf/util/perf_api_probe.c
+index 6ecf38314f01..e1904a330b28 100644
+--- a/tools/perf/util/perf_api_probe.c
++++ b/tools/perf/util/perf_api_probe.c
+@@ -1,14 +1,18 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
++#include "perf_api_probe.h"
+ 
+-#include "perf-sys.h"
+-#include "util/cloexec.h"
+-#include "util/evlist.h"
+-#include "util/evsel.h"
+-#include "util/parse-events.h"
+-#include "util/perf_api_probe.h"
+-#include <perf/cpumap.h>
+ #include <errno.h>
+ 
++#include <perf/cpumap.h>
++
++#include "cloexec.h"
++#include "evlist.h"
++#include "evsel.h"
++#include "parse-events.h"
++#include "perf-sys.h"
++#include "pmu.h"
++#include "pmus.h"
++
+ typedef void (*setup_probe_fn_t)(struct evsel *evsel);
+ 
+ static int perf_do_probe_api(setup_probe_fn_t fn, struct perf_cpu cpu, const char *str)
+diff --git a/tools/perf/util/s390-sample-raw.c b/tools/perf/util/s390-sample-raw.c
+index c6ae0ae8d86a..6bf0edf80d4e 100644
+--- a/tools/perf/util/s390-sample-raw.c
++++ b/tools/perf/util/s390-sample-raw.c
+@@ -12,25 +12,26 @@
+  * sample was taken from.
+  */
+ 
+-#include <unistd.h>
++#include <inttypes.h>
+ #include <stdio.h>
+ #include <string.h>
+-#include <inttypes.h>
+ 
+-#include <sys/stat.h>
++#include <asm/byteorder.h>
+ #include <linux/compiler.h>
+ #include <linux/err.h>
+-#include <asm/byteorder.h>
++#include <sys/stat.h>
++#include <unistd.h>
+ 
++#include "color.h"
+ #include "debug.h"
+-#include "session.h"
+ #include "evlist.h"
+-#include "color.h"
+ #include "hashmap.h"
+-#include "sample-raw.h"
++#include "pmu.h"
++#include "pmus.h"
+ #include "s390-cpumcf-kernel.h"
+-#include "util/pmu.h"
+-#include "util/sample.h"
++#include "sample-raw.h"
++#include "sample.h"
++#include "session.h"
+ 
+ static size_t ctrset_size(struct cf_ctrset_entry *set)
+ {
+diff --git a/tools/perf/util/stat-shadow.c b/tools/perf/util/stat-shadow.c
+index bc2d44df7baf..48524450326d 100644
+--- a/tools/perf/util/stat-shadow.c
++++ b/tools/perf/util/stat-shadow.c
+@@ -2,20 +2,24 @@
+ #include <errno.h>
+ #include <math.h>
+ #include <stdio.h>
+-#include "evsel.h"
+-#include "stat.h"
++
++#include <linux/zalloc.h>
++
++#include "cgroup.h"
+ #include "color.h"
+ #include "debug.h"
+-#include "pmu.h"
+-#include "rblist.h"
+ #include "evlist.h"
++#include "evsel.h"
+ #include "expr.h"
+-#include "metricgroup.h"
+-#include "cgroup.h"
+-#include "units.h"
++#include "hashmap.h"
+ #include "iostat.h"
+-#include "util/hashmap.h"
++#include "metricgroup.h"
++#include "pmu.h"
++#include "pmus.h"
++#include "rblist.h"
++#include "stat.h"
+ #include "tool_pmu.h"
++#include "units.h"
+ 
+ static bool tool_pmu__is_time_event(const struct perf_stat_config *config,
+ 				   const struct evsel *evsel, int *tool_aggr_idx)
+diff --git a/tools/perf/util/stat.c b/tools/perf/util/stat.c
+index 14d169e22e8f..66eb9a66a4f7 100644
+--- a/tools/perf/util/stat.c
++++ b/tools/perf/util/stat.c
+@@ -1,21 +1,25 @@
+ // SPDX-License-Identifier: GPL-2.0
++#include "stat.h"
++
+ #include <errno.h>
+-#include <linux/err.h>
+ #include <inttypes.h>
+ #include <math.h>
+ #include <string.h>
++
++#include <linux/err.h>
++#include <linux/zalloc.h>
++
+ #include "counts.h"
+ #include "cpumap.h"
+ #include "debug.h"
++#include "evlist.h"
++#include "evsel.h"
++#include "hashmap.h"
+ #include "header.h"
+-#include "stat.h"
++#include "pmu.h"
+ #include "session.h"
+ #include "target.h"
+-#include "evlist.h"
+-#include "evsel.h"
+ #include "thread_map.h"
+-#include "util/hashmap.h"
+-#include <linux/zalloc.h>
+ 
+ void update_stats(struct stats *stats, u64 val)
+ {
 -- 
 2.54.0.545.g6539524ca2-goog
 
