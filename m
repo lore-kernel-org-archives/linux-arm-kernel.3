@@ -4,82 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4931FF885A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 23:19:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8D7EFF8850
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 23:20:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P3XVMe3dGeABivLaYIdooN1MvQa1CctnziG70XU09po=; b=JO0RbKdMqP7dGkLrqbj9TPeAFF
-	hEEH2RawMAiBOuQVAZnb3/PQe2F9iW/UyvJSpqvHPimFYz0nPnb6YVQD7B9+8zkzBqXIzKL5ZqPO0
-	6h8BfbvNqDEPuXDCa7SQ84/q2HqH6hOfxuusiwhC54PHff4qqLBwg4jSHtdB8/rtYpCWXJ6VJqD6k
-	x8h2Z/oxCLa0C5YyrDS76OLIc+ld9iLa1C+k8svxvjd0RTip6oTD4AT1xxsg0qT9T92Buuxb7sVql
-	A5WlIGuG9HT8IK61jzvME3h0j31BTo4oj7U5DnzcAXo2LM+E94Nm1RcsCS8F5gZTZzHwXDob6+J5w
-	srOalRZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YfXJmk1rKy91sVPCJcR2ZGRntnpylvMLW+ISRscuS2U=; b=TwurpiXIxavjFYzvM86O0gAUj2
+	D6/8cM2j4UjIDWeOjbOEu8s6pXM1TYytwybIaHDe2CiJ5yEosIV+uT6+se3l3jtH8gQI1LUQL7TWA
+	+Pouk9ptR4PqStxNbZBtgPr97WLsJuysogc1cFCN/UKzytY4En9fJ5h6RxOL3VDZaYzqC4G3DHeJX
+	XX8T9TQaEat2Jrz7CpE6+Adnu+Y16m5FlLXoIywtcS8GBTfIIsdW1cXCSIRSS3secKvpLGvkcmvvI
+	v2TLjf8FWBjrD+66Wk3Phrx0NbtDjhgCujJRpbgvoNqaLmryhroRRaQDpmsRhA/KiuwlrXm/DYvDM
+	c+M/AfbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGPnc-0000000Dspu-2qPv;
-	Fri, 24 Apr 2026 23:19:04 +0000
-Received: from out-189.mta1.migadu.com ([95.215.58.189])
+	id 1wGPp0-0000000DsyR-0CgR;
+	Fri, 24 Apr 2026 23:20:30 +0000
+Received: from mx0b-0064b401.pphosted.com ([205.220.178.238])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGPnZ-0000000DspZ-3isG
+	id 1wGPou-0000000DsxC-161L
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 23:19:03 +0000
-Message-ID: <7dd64547-25a4-46de-a896-98fcec04468e@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1777072738;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=P3XVMe3dGeABivLaYIdooN1MvQa1CctnziG70XU09po=;
-	b=lAdngFjWpn+SFIEIgyjCn6oyJ7s6mP8JViggHzKVI1eQOG8r8fZE96FmVDJRHvA5PSglKz
-	UM1P3b5Y3bU4XRPVejznw6aBsaRiopshcyt4CJCQ3+MTz1tCmr61vtPiwmaHEKEmgNqEbm
-	tyMnnBKBDxXtgqkPNrAauQU71Wd0y8w=
-Date: Fri, 24 Apr 2026 16:18:29 -0700
-MIME-Version: 1.0
-Subject: Re: [PATCH RFC bpf-next 2/8] bpf: mark instructions accessing program
- stack
-To: =?UTF-8?Q?Alexis_Lothor=C3=A9_=28eBPF_Foundation=29?=
- <alexis.lothore@bootlin.com>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
- <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
- Jiri Olsa <jolsa@kernel.org>, John Fastabend <john.fastabend@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, David Ahern <dsahern@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Shuah Khan <shuah@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>,
- Alexander Potapenko <glider@google.com>,
- Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: ebpf@linuxfoundation.org,
- Bastien Curutchet <bastien.curutchet@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Xu Kuohai <xukuohai@huawei.com>, bpf@vger.kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, kasan-dev@googlegroups.com,
- linux-mm@kvack.org
-References: <20260413-kasan-v1-0-1a5831230821@bootlin.com>
- <20260413-kasan-v1-2-1a5831230821@bootlin.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Ihor Solodrai <ihor.solodrai@linux.dev>
-In-Reply-To: <20260413-kasan-v1-2-1a5831230821@bootlin.com>
-Content-Type: text/plain; charset=UTF-8
+	Fri, 24 Apr 2026 23:20:29 +0000
+Received: from pps.filterd (m0250811.ppops.net [127.0.0.1])
+	by mx0a-0064b401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63ON1H6r1572799;
+	Fri, 24 Apr 2026 23:19:59 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=windriver.com;
+	 h=cc:content-transfer-encoding:content-type:date:from
+	:message-id:mime-version:subject:to; s=PPS06212021; bh=YfXJmk1rK
+	y91sVPCJcR2ZGRntnpylvMLW+ISRscuS2U=; b=aRpWfAPjbFyY9CPw9zPdfeeer
+	Ch37/6zfTieo8txuBo9zmerFA7JTYscZ7smywSFQRjiYWufsYsmy1MUt49NOjrsZ
+	SZZ75nnzcX6T6S3cCBvJ5/v5ofRTFOtMOInYdv/d+baiwkJM3weavzHsgZxtm3GX
+	X++f8hXay4FbWxQKDm2Rhmd6P/11/jrMy1kGjgl9GqYe1fE1F7giWxgBsjMrvYP1
+	fPJE0kw93xNPQC9wW+P3Y6glh2o457jcpBgbd0WHpXpgjyY3/4N1dUSeVkYX02bG
+	3nYp/KKiPEx9PyitRVaZwQ7J4gis8D/DPP8HZ/N5LCPjr6lCclat/aqZw5QRg==
+Received: from mw6pr02cu001.outbound.protection.outlook.com (mail-westus2azon11012040.outbound.protection.outlook.com [52.101.48.40])
+	by mx0a-0064b401.pphosted.com (PPS) with ESMTPS id 4dq8qc2nax-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 24 Apr 2026 23:19:59 +0000 (GMT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ALGqVp7Kc3Mg5QH9Hp+1/JdVCHwuJnUYZwtDga4Rb4eiIxFpr3lShBPO9fqGdcdqvd6FeBzfZwzIOC7yjEljC6mXg46bC3PfIVk/XkeGZD6vzzIY9Pl/g2A8+aCJ3Nd/7IXVnWad8Anv1GzpI79YnotTX+SYibDyyy4dX5SgW7lA7gB0BQ479febrLn9mmZqlxHnb/lK/g1D4fnuvJPEiQKiCTt2YeUeynN3s1Tbzeugc7/ANJbPbL5OB26YaCAvlykiDLh7TPUnw9OIJY+lhAfDGW6QNZdPyVlsuEeVFf5JKDHLESWZDaYE/IpQsMCaAa6T6l4zrZ39A3H5Yt+9cw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YfXJmk1rKy91sVPCJcR2ZGRntnpylvMLW+ISRscuS2U=;
+ b=aLJqkkugPIEd2B6g3z3Ab0LexXNizRpj+ilJYIN6mpNvF3IX6l/qGwKrLWtVX3GY9xO76MdxUu5O409QC3Um+EC2iYHF7kYHI3wwlvbmoBtuNmCaCyBJ/nX77J9lokPP8sZDgr18dgxwXCsEeCdb1yNx6c2tv8np0e2lMOsp/MgMKaavNlHXeZa36Jr0noeSgbRGdC3hQE7iKE5N5LmmYDK0BJgOvo5iLCugspbMqU2/0ZMYyCivLezM3jqNmjNIGw70eTnK+KKbIvdhyKBG0f/RlYao77KDeXfdk3KBH7Vu/uPoAAd72lqEPSFe8t1JCIJG9CPhoE5meWirdy2+WA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=windriver.com; dmarc=pass action=none
+ header.from=windriver.com; dkim=pass header.d=windriver.com; arc=none
+Received: from DS4PPFD667CEBB6.namprd11.prod.outlook.com
+ (2603:10b6:f:fc02::53) by PH8PR11MB8061.namprd11.prod.outlook.com
+ (2603:10b6:510:250::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.22; Fri, 24 Apr
+ 2026 23:19:54 +0000
+Received: from DS4PPFD667CEBB6.namprd11.prod.outlook.com
+ ([fe80::b919:1e6b:48a6:f655]) by DS4PPFD667CEBB6.namprd11.prod.outlook.com
+ ([fe80::b919:1e6b:48a6:f655%6]) with mapi id 15.20.9846.021; Fri, 24 Apr 2026
+ 23:19:54 +0000
+From: Xiaolei Wang <xiaolei.wang@windriver.com>
+To: laurent.pinchart@ideasonboard.com, mchehab@kernel.org, Frank.Li@nxp.com,
+        s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+        aisheng.dong@nxp.com, jacopo@jmondi.org, guoniu.zhou@nxp.com,
+        s.riedmueller@phytec.de, Xiaolei.Wang@windriver.com
+Cc: linux-media@vger.kernel.org, imx@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        stable@vger.kernel.org
+Subject: [PATCH 0/3] media: imx8-isi: fix resource lifecycle bugs
+Date: Sat, 25 Apr 2026 07:19:23 +0800
+Message-ID: <20260424231926.406079-1-xiaolei.wang@windriver.com>
+X-Mailer: git-send-email 2.43.0
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR02CA0032.apcprd02.prod.outlook.com
+ (2603:1096:4:195::12) To DS4PPFD667CEBB6.namprd11.prod.outlook.com
+ (2603:10b6:f:fc02::53)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS4PPFD667CEBB6:EE_|PH8PR11MB8061:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2bcefe3e-3e43-4dd7-5b1f-08dea257fe3a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|1800799024|56012099003|38350700014|921020|18002099003;
+X-Microsoft-Antispam-Message-Info: 6ztHO5WtMifmUB5qeDTsZQq58W9Ub7BCRKKhlpvTRLJ5td37g3TQv/QODcSPcJwLAE+1cGTJe9dO7anzhOJ1X7Hc8yRVZU6FBreq2lrkzxmaygFxpIIjZLz+TzSUqd23S+driKfdMk+3uF631KE8p7ursVSSj+HEBFCup+1UsjeK5jxQx9yZ5DgSmRtkrNO+g4j63gV5ohMMy0rPXd3wrBCMjLZm5SmV7g4xh5RlhXBhcijxII9WvwA1FpnxKlmLcc5dtgtC/szAKtl5WTJIaHTgbeSOj77LUQLVOnzpOE6fBW+3YWkDgcnlpobij+fwGD/fI3H3pJ9kaX00AFWkx8KmImxn5utRgISSVlyKPDVH2L5GZVM6nAz0y9N1Yc5rHxClpTUWgFWBTOjBUoUkpAr4DNzv39wXOMYVGPToXPlRMzk2Hz2Ak9/GWrb4iqx+JnQMV1+rLG858eO2EgIC85OmvCXXjdN+zI9+EJBGt4vK5jOhNpwh4BTx0V8HBCNDtnKD7w3ppKiuPbfCNWrwf+sC4MCwDb8zarYUlPDKJBJbeISk0GbPF4B/lESltgQ3M+WA5voHfRrtIxj1y04Kbt6DxuX7wTkk3wRhMU6rlvZbbJdCNAXKIMHQd232YByX/Ry/UylA6YOfpRIkqUISkFOPJte85DeRmezRcMmgAdPldx4iifkbQ7xB3jXG80w6BsMZMtIfgKyyDyORbJWxD6u5AF1vYNUvyh1kdOQReTDeLUbP8A2JIrOIYsehCfSvFOc6lpKj5KtEQR3XJTdkX+cmnI/dWaTrMG6Kbg7T/BZtIdKdrIC5Np30PpM8t2Ny
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS4PPFD667CEBB6.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(1800799024)(56012099003)(38350700014)(921020)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UuuDH/zZCbCVvOfR0UZ/+klYkt1lIZho6pG6yLsCWXVdsbnJ0nnaP1/5aEVY?=
+ =?us-ascii?Q?PwxFTbRPkINIAWgMEqZGBxvD9QHHzlHMMBD2C2AjhJwNpuTTSJAvGf5wedIP?=
+ =?us-ascii?Q?7Z07vhBXDwEuxFRLs5ZQH6XdbIvdpAVy07X5HESqp5mYWhanx7QzIhW2ALCp?=
+ =?us-ascii?Q?RvxzqO0kJj8kBw7WzBzUgGbrffNtxrQmDr6gl9sBepf58HCTo1Mah+a93ouW?=
+ =?us-ascii?Q?P9Ed1W0kMnl681x2bq6AM9drDeFT4Hy8gTxLjZLmmqJrDQSk85hDERdA1om0?=
+ =?us-ascii?Q?AK1I6mZT8SFztjrUoGpKKQknIZzvQI7S/Re/wHu6le+OtRud0/2yJKqcA326?=
+ =?us-ascii?Q?1dxqVTAlWtw++6WiFmjkEUTSj4jMQtnvmrZdjQqqXyXumsbasVKyBxvKkUC2?=
+ =?us-ascii?Q?wnXIZevdxgPNSCQZ8ZM7F2GmZ4/ooOE+LSEIJoqjDkTwBr1WEouIvmFZAUgQ?=
+ =?us-ascii?Q?Bh/rfzcLwuFAdiiVM0ly4bD6JsMu5VrjwEDYv58EdDvC4gyiy/6BwY8eT8cE?=
+ =?us-ascii?Q?L3DsgyLZlyYyhfBWRX6pLttOdNYgbNbOkXdaMwaXV+LEVocdTujwnOU65Gj5?=
+ =?us-ascii?Q?OrDC4Ru1ymcVHMUnP8BLVRNg+ElnxU7N2wiSiyMp/ltSUd1d0Xrl2c8jOR7j?=
+ =?us-ascii?Q?7TRKvBfjXvDVXHAKAiBqErgzNgQKQRe5EG9g4b5lFseoyAsM6PRI5sPmqmdJ?=
+ =?us-ascii?Q?xzEzicRLdPK8YWUhYuiXXqnXLePCKtlRW88PxM97PkiBSuMPnpmUGxJCHj1L?=
+ =?us-ascii?Q?/JKl0ysAlIgFvbrZRmZk6Ue97afAne9XYX62F2Wj+Zi/uEHBSgoAFS2Lt1zo?=
+ =?us-ascii?Q?V/MVd0etckXfIObvaWIHZhYzyFWhQEhAYM0bd/euAr0+s4PX7T03SeSLyoZo?=
+ =?us-ascii?Q?P4+jW755rlHgKC9Fa82juIA9tFBHmc0VlKRAAyBlz7ksjDLlqUbexkAIVbrL?=
+ =?us-ascii?Q?51QQEkeQB2L44WFg/PQaYfP3l+6fA1JxpDSpSEH4oeypmAgTlFe6ZExmplwk?=
+ =?us-ascii?Q?zA61l8Ll4RBhkytKmT/E+XlWzj+GWQd3s8zPxrsh1WR5+gwtdvD4aGwwzC1s?=
+ =?us-ascii?Q?xr/hl/ZMU4BGnrRLFGsWvt2VCTUU3g7R4djXzLsoizjEKkcGyXuCdOTRZ9/X?=
+ =?us-ascii?Q?V9Jmqn7Crw42e6lwx8MEtKtP+C8eNfXPEtYb4XPwbSPGOvg7MFXqFo9+9RUF?=
+ =?us-ascii?Q?5aF9qDijbL2AzBIuAkaDsoKSzS/R1emMvla6NitSyvqjkQhFIoWhr2no6RMO?=
+ =?us-ascii?Q?xZOKFC56zmxRPIoSZEacK+lAR5DK4z+KmzLP3vZt2lL1LssKVbyNtw4hW0YB?=
+ =?us-ascii?Q?hOitewXsM0wCKjM0AG+HMhAOBydGG/YsiRcSHGewkoB77hgn4MjEhnAoCTZP?=
+ =?us-ascii?Q?W71vfrKZPeVrRIjNXRAGUM207A1AV6SSyIsUyl6+pO1R5UQqhQPmsHkEd7bm?=
+ =?us-ascii?Q?8VdDtb5heMm8VfQMG7+5a9H0O1XAUuWLtgo01VIDrIJd9SJETcT3HdewnHbn?=
+ =?us-ascii?Q?seVfzX0hL4xO/ZhZX2h60clTB31A2HDLoknaHw3XbRamiR9QGDA8v1WSMwTC?=
+ =?us-ascii?Q?Eh8U1VxtI0hmPZOA/wi67OmoEBymCHFgDx0h31UJCo7hnuHkmMYt1XdMDFzV?=
+ =?us-ascii?Q?lcgCvUny+D3LCMcdqedpAIEEZSV6HgL0Rfk0fCE9OLHdv/eRyE6/G0u1cX+o?=
+ =?us-ascii?Q?DBE5nmVnBDbvkomBXxrG0XYp4nLu7phBhlcaw7bUMWReWah7z/FD9mWcekS7?=
+ =?us-ascii?Q?FyZtN0RaCjo0364g34aYCX5b5H0324Y=3D?=
+X-Exchange-RoutingPolicyChecked: JKHXoBXVHvoELMEQ10kQNGSiORQ/jT/8IK4Zs1uRALtCZEC6t7UnqI1P5Ob6Layu/sCZ73ptFZXbjAJaP1kmao93xN1wd9UaNvz35EmSYOYk8y4c9h2Lv/Gho9ymoOSSyotPHmr+CSGzb7kN/wjItXf2a7ZitZ/qbbBUKKQ+A/v1nr7I/T1b37I88a/mBnUQI7UKMWNC85WezW3sb6ObLCoiKUTkQSF7U9wdd6s7a6GSXmt04LWtNYMsSUbjdlmR89RwY3maHAlBXSh0m+aNc1aJ9O6my8SJLNI5epV8N4xo0n0/azQihMnOKhB8Qi8rU9PSs/vZ4M0IIM5sisHmCA==
+X-OriginatorOrg: windriver.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2bcefe3e-3e43-4dd7-5b1f-08dea257fe3a
+X-MS-Exchange-CrossTenant-AuthSource: DS4PPFD667CEBB6.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2026 23:19:54.6455
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8ddb2873-a1ad-4a18-ae4e-4644631433be
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /TP9CwAuSL9640YkxXFfVlBF5M0AHJA42gLfZsbbW7kwCU4SReQiHZ+Ddo22c3u59Zjl1MelaL7DY3es+V9L8yjoaMbDZPVzXSl8/j58oWM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR11MB8061
+X-Proofpoint-GUID: GcZUWhUPjkqhjTCSj_7CPUeqvV7DvQLu
+X-Proofpoint-ORIG-GUID: GcZUWhUPjkqhjTCSj_7CPUeqvV7DvQLu
+X-Authority-Analysis: v=2.4 cv=EY74hvmC c=1 sm=1 tr=0 ts=69ebfa9f cx=c_pps
+ a=utdtqqQbqC3rwi1NYZt6Rw==:117 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19
+ a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
+ a=xqWC_Br6kY4A:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=bi6dqmuHe4P4UrxVR6um:22 a=klDOsUkWDRETUCZYPvoE:22 a=IXbfCZE1DMr23do8zJ4A:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI0MDIyNyBTYWx0ZWRfX5jCybBZ7ogcK
+ go4D3WGV9Wz8waG7hTTINwJjK0LlFVt7NQvpHLG0xUO/UhmSpS95VNtZnTRBVnD/gOxa3tp4z7o
+ rnlOHAEvLNdeFl+T/DT45hlmO2+UQEjjGzINFjCk//ZJOzUEMPBp1y6/QbikuNU4QxBQAIeMw+h
+ c/mY6+nIktWfkM5wmuoAEJ2uTd0gDwDn/nPwyeXfm+NdZY4ZF8CdntsErk7upBmENm4VNhd4LuB
+ lWvv7fBDP6pCJRZ/KRGZYizT9Gp2K0MEzfWh2JeDljC5mpq4fpMvQf70unvjbu0Q6zXIjcK1rcy
+ iaJMHvIlbpd9odjLhEM8vbFtUYv3vor/BTdR/jqI0N9fbVtPUDsyScdL5OOxYpvi5oKYUTKgYxt
+ CjGIQ92g12eKvpJQgK0SAnySyxyihLvoqmtUndqqVVEdbDmT/XuXmcd2GCRJufAGSRjDdNXmba4
+ +WiYLBY5K4x2/AmhZ3g==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-24_04,2026-04-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 priorityscore=1501 impostorscore=0 malwarescore=0
+ adultscore=0 clxscore=1011 phishscore=0 bulkscore=0 spamscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
+ definitions=main-2604240227
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_161902_217696_1F2ED11D 
-X-CRM114-Status: GOOD (  24.87  )
+X-CRM114-CacheID: sfid-20260424_162024_460373_65C2AE2B 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,110 +172,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/13/26 11:28 AM, Alexis LothorÃ© (eBPF Foundation) wrote:
-> In order to prepare to emit KASAN checks in JITed programs, JIT
-> compilers need to be aware about whether some load/store instructions
-> are targeting the bpf program stack, as those should not be monitored
-> (we already have guard pages for that, and it is difficult anyway to
-> correctly monitor any kind of data passed on stack).
-> 
-> To support this need, make the BPF verifier mark the instructions that
-> access program stack:
-> - add a setter that allows the verifier to mark instructions accessing
->   the program stack
-> - add a getter that allows JIT compilers to check whether instructions
->   being JITed are accessing the stack
-> 
-> Signed-off-by: Alexis Lothoré (eBPF Foundation) <alexis.lothore@bootlin.com>
-> ---
->  include/linux/bpf.h          |  2 ++
->  include/linux/bpf_verifier.h |  2 ++
->  kernel/bpf/core.c            | 10 ++++++++++
->  kernel/bpf/verifier.c        |  7 +++++++
->  4 files changed, 21 insertions(+)
-> 
-> diff --git a/include/linux/bpf.h b/include/linux/bpf.h
-> index b4b703c90ca9..774a0395c498 100644
-> --- a/include/linux/bpf.h
-> +++ b/include/linux/bpf.h
-> @@ -1543,6 +1543,8 @@ void bpf_jit_uncharge_modmem(u32 size);
->  bool bpf_prog_has_trampoline(const struct bpf_prog *prog);
->  bool bpf_insn_is_indirect_target(const struct bpf_verifier_env *env, const struct bpf_prog *prog,
->  				 int insn_idx);
-> +bool bpf_insn_accesses_stack(const struct bpf_verifier_env *env,
-> +			     const struct bpf_prog *prog, int insn_idx);
->  #else
->  static inline int bpf_trampoline_link_prog(struct bpf_tramp_link *link,
->  					   struct bpf_trampoline *tr,
-> diff --git a/include/linux/bpf_verifier.h b/include/linux/bpf_verifier.h
-> index b148f816f25b..ab99ed4c4227 100644
-> --- a/include/linux/bpf_verifier.h
-> +++ b/include/linux/bpf_verifier.h
-> @@ -660,6 +660,8 @@ struct bpf_insn_aux_data {
->  	u16 const_reg_map_mask;
->  	u16 const_reg_subprog_mask;
->  	u32 const_reg_vals[10];
-> +	/* instruction accesses stack */
-> +	bool accesses_stack;
->  };
->  
->  #define MAX_USED_MAPS 64 /* max number of maps accessed by one eBPF program */
-> diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-> index 8b018ff48875..340abfdadbed 100644
-> --- a/kernel/bpf/core.c
-> +++ b/kernel/bpf/core.c
-> @@ -1582,6 +1582,16 @@ bool bpf_insn_is_indirect_target(const struct bpf_verifier_env *env, const struc
->  	insn_idx += prog->aux->subprog_start;
->  	return env->insn_aux_data[insn_idx].indirect_target;
->  }
-> +
-> +bool bpf_insn_accesses_stack(const struct bpf_verifier_env *env,
-> +			     const struct bpf_prog *prog, int insn_idx)
-> +{
-> +	if (!env)
-> +		return false;
-> +	insn_idx += prog->aux->subprog_start;
-> +	return env->insn_aux_data[insn_idx].accesses_stack;
-> +}
-> +
->  #endif /* CONFIG_BPF_JIT */
->  
->  /* Base function for offset calculation. Needs to go into .text section,
-> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-> index 1e36b9e91277..7bce4fb4e540 100644
-> --- a/kernel/bpf/verifier.c
-> +++ b/kernel/bpf/verifier.c
-> @@ -3502,6 +3502,11 @@ static void mark_indirect_target(struct bpf_verifier_env *env, int idx)
->  	env->insn_aux_data[idx].indirect_target = true;
->  }
->  
-> +static void mark_insn_accesses_stack(struct bpf_verifier_env *env, int idx)
-> +{
-> +	env->insn_aux_data[idx].accesses_stack = true;
-> +}
-> +
->  #define LR_FRAMENO_BITS	3
->  #define LR_SPI_BITS	6
->  #define LR_ENTRY_BITS	(LR_SPI_BITS + LR_FRAMENO_BITS + 1)
-> @@ -6490,6 +6495,8 @@ static int check_mem_access(struct bpf_verifier_env *env, int insn_idx, u32 regn
->  		else
->  			err = check_stack_write(env, regno, off, size,
->  						value_regno, insn_idx);
-> +
-> +		mark_insn_accesses_stack(env, insn_idx);
+This series fixes three resource lifecycle issues in the imx8-isi driver,
+all introduced by commit cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver").
 
-I am not sure this can be done unconditionally here.
+Patch 1 fixes a use-after-free on rmmod: mxc_isi_remove() called
+crossbar cleanup before v4l2 cleanup, freeing the crossbar pads while
+the media framework still needed them to remove links. Fix by swapping
+the cleanup order.
 
-It may be possible in different states to have different pointer
-types for the affected reg (PTR_TO_STACK in one execution path and say
-PTR_TO_MAP_VALUE in another). And if set uncoditionally,
-instrumentation may be skipped for legitimate targets.
+Patch 2 fixes a memory leak on rmmod: both crossbar and pipe cleanup
+paths were missing v4l2_subdev_cleanup() calls to free the subdev
+active state allocated by v4l2_subdev_init_finalize().
 
-Maybe reset by default in check_mem_access()?
+Patch 3 fixes resource leaks in probe error paths: the pipes array
+allocated with kzalloc_objs() was never freed on failure or remove,
+and already-initialized pipes were not cleaned up when a later pipe
+init or v4l2 init failed. Fix by switching to devm_kcalloc() and
+adding pipe cleanup in the error path.
 
->  	} else if (reg_is_pkt_pointer(reg)) {
->  		if (t == BPF_WRITE && !may_access_direct_pkt_data(env, NULL, t)) {
->  			verbose(env, "cannot write into packet\n");
-> 
+Xiaolei Wang (3):
+  media: imx8-isi: fix use-after-free on remove
+  media: imx8-isi: add missing v4l2_subdev_cleanup() in crossbar and
+    pipe
+  media: imx8-isi: fix resource leaks in probe error paths and remove
+
+ drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c     | 7 +++++--
+ drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c | 1 +
+ drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c     | 1 +
+ 3 files changed, 7 insertions(+), 2 deletions(-)
+
+-- 
+2.43.0
 
 
