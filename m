@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2344FB44BB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 06:53:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACD4EFB44BB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 06:53:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LP3KiFp1p7P1eDookElpbgEeKWszgnpI/oLrbxKKyQ0=; b=DBbfde9R+EsdYNEmfM8IQ0aaRx
-	m8eRKNU6vTqlzIFln4/92kcPqDXSxUYf8LQlTTvKxjOUj6b4fpZ31jyjKA/20kacq0k060UVBsg+j
-	WZMhOvWtP794CGX+Cw6k4WHSA38m+oZx898Eey2AdOJWsEPwDS+8Xk9vKdlgkhoDUMeZFVuVRanWN
-	/tumHgR2X+6bNefSaMq1tBRUhuaViGU9avSPLhlq6sfTWuS2Vsf/ok8+nAMKsd1/KlGKAhxoG60RH
-	s3tz3oJMbjDu+vGMT9/A8kTkbs/Aqenfk55Y+q+zwz27RVMr5CZuSc2gBcm2TP4YR4OjWju4D0bEz
-	4MSESdEA==;
+	bh=gNbMg9AslVvZiiEWGI6uGT+vEhOUt52xGI3Fc3qxq8U=; b=m82HlVkr1IB8odsQ3Tm9saFCWQ
+	4ZZun6x8/W/EFdRXYDXa4ujjyTI2V4YpOT/LERR+OBPGbXJ77ZRQbTMyhIOJ0Y9rY7zQlvuSAw4j+
+	1tYBFFtol8Ffdp5J+dCwCa31N7cOzZ+6n8x6eUqYgj5QiGVWkBqMv1CxhimrxSqHn6/Fo/LIkIgDy
+	uo+gYd3vciEDIniG0PbQ6qfx+y3T/6GUHfbHS/AZcDvdfIL93OnwQDwf1ry6SPeF7WWJlm22N4e60
+	cVzzrncBEGx20vkARMWasHMhTBnuy1leqwxHWTZMZSg6oLPaItcUCZdsArRWCw43SY4NDfcnmmmGX
+	OdEbxGuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGAPI-0000000Cjdt-2DAr;
-	Fri, 24 Apr 2026 06:52:56 +0000
+	id 1wGAPP-0000000Cjk0-1aDF;
+	Fri, 24 Apr 2026 06:53:06 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGAPG-0000000CjcQ-3G2g
+	id 1wGAPN-0000000Cjhu-16vl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 06:52:54 +0000
+	Fri, 24 Apr 2026 06:53:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0FC26600CB;
-	Fri, 24 Apr 2026 06:52:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 994C6C2BCB6;
-	Fri, 24 Apr 2026 06:52:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AB87460123
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 06:53:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64FAAC2BCB4
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 06:53:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777013573;
-	bh=ZNLWUqzy6prqN8C2IicGEQorWhN6QWpt0ii93XNC/uo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hXbevsU9B9t/NRBMR7+fap/Rf+nLhzAUx9MO25V9+OFRA5xvaY5Z306Rp5KkJmzDo
-	 Axf9W9Lg/b7PXrVaAa8IOLMb2pLrxYdL2LP4vg+kUHnlVbibN/f9a8SccMT+pWR5kW
-	 ns2ZKusPJpVuDRBcr7pmeT12223BireSNzXjoYMm9nLTZckvbgQHJQ4EFGcVI5BrKK
-	 j1LXOb9b0UIiSqXk8ujF+yDuavdirtMbiW8GzviaNBPNFbdSI900m1CCmvM8ZvjQHx
-	 Mpl1fPlSur4gfwOJlbuEyOpnWyvsYcFvjejxbneCbc3ldE54tSG16O1epW9xUuzreB
-	 T5k3Ij95f6Qtw==
-From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-To: Steven Rostedt <rostedt@goodmis.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	Ian Rogers <irogers@google.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v18 6/8] ring-buffer: Show commit numbers in buffer_meta file
-Date: Fri, 24 Apr 2026 15:52:51 +0900
-Message-ID: <177701357092.2223789.2924578391155511584.stgit@mhiramat.tok.corp.google.com>
-X-Mailer: git-send-email 2.54.0.rc2.544.gc7ae2d5bb8-goog
-In-Reply-To: <177701351903.2223789.17087009302463188638.stgit@mhiramat.tok.corp.google.com>
-References: <177701351903.2223789.17087009302463188638.stgit@mhiramat.tok.corp.google.com>
-User-Agent: StGit/0.19
+	s=k20201202; t=1777013580;
+	bh=gNbMg9AslVvZiiEWGI6uGT+vEhOUt52xGI3Fc3qxq8U=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=JTXK1Ak76tCGFWb7vMniYbyq48DWii1+RRGlO2wpvHGVtEwu+GHK6qPRR/JR43xDJ
+	 vciN28Hl4jKw1KkBnhwlwO6S40W7KZuAA8XFeQ58hfxnzCAa2xulzagF34iX24r40p
+	 CXFMSnpG2L5N8KK8kWRpjtx8Q7WxxAnhxVMZFxbruCPqmFG4TV3rcq/LUxo4z/RhGo
+	 JVhJDpY3ooIl3JpsK4uvUbobtIbS6fLwWX/GFgtYnUYeDP3lgzzJOqNxik61gGtTLF
+	 vZYJzgxks1Wo7Arfqcl+Re7FkJfmH+gackc2aue4fNtMf3a+QfJHCfLVXzDOkaoyhm
+	 8bxZtuQW3ZFBA==
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5a337552604so6916663e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Apr 2026 23:53:00 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/djhGztFCvnpjJ7DAJYlTLZrKFFy7eI0mVaWiuWBu673FdbGYVdQ6gHJ3fqN9lU9mX7517wxgfsDvz91+tqr5x@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw22E1pAjgSDThtDxORYtpL/1AEyJfupKEzJpQDmOnyKR1k31oE
+	uu+jK0hS49VDKVt+GIKO9RTE/e9OLiKEk3S3sTfVEkWKLIZ0X9UeHZafm5gClmbSBGX8BV7J8A4
+	d/OKE4gHT8J7T8WfCRAV3hsbSGk+OXRw=
+X-Received: by 2002:a05:6512:1447:10b0:5a4:194c:d897 with SMTP id
+ 2adb3069b0e04-5a4194cd8bamr7403618e87.12.1777013578918; Thu, 23 Apr 2026
+ 23:52:58 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+References: <20260412-defconfig-v1-0-a46918286451@oss.qualcomm.com> <20260412-defconfig-v1-3-a46918286451@oss.qualcomm.com>
+In-Reply-To: <20260412-defconfig-v1-3-a46918286451@oss.qualcomm.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 24 Apr 2026 08:52:47 +0200
+X-Gmail-Original-Message-ID: <CAD++jLk=CwN95oU9bfhi_NmbCqn58rok2vLZg5sG4owUcvAfKQ@mail.gmail.com>
+X-Gm-Features: AQROBzDCv_DrToTiZDyzTe7ZjtHhnunM9aws4kiPnrnL6FeGj5zRRLPjXVxCHtM
+Message-ID: <CAD++jLk=CwN95oU9bfhi_NmbCqn58rok2vLZg5sG4owUcvAfKQ@mail.gmail.com>
+Subject: Re: [PATCH 3/6] arm64: defconfig: Drop default or selected drivers
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Drew Fustini <fustini@kernel.org>, soc@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,46 +80,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+On Sun, Apr 12, 2026 at 6:21=E2=80=AFPM Krzysztof Kozlowski
+<krzysztof.kozlowski@oss.qualcomm.com> wrote:
 
-In addition to the index number, show the commit numbers of
-each data page in the per_cpu buffer_meta file.
-This is useful for understanding the current status of the
-persistent ring buffer. (Note that this file is shown
-only for persistent ring buffer and its backup instance)
+> Drop all options which are either defaults or selected by other drivers:
+> 1. IMX Pinctrl drivers are defaults for this ARCH.
+> 2. RP1 is selected by MISC_RP1.
+> 3. I2C_DESIGNWARE_PLATFORM is default with I2C_DESIGNWARE_CORE.
+> 4. DRM_SAMSUNG_DSIM is selected by DRM_EXYNOS_DSI.
+> 5. SUN6I, SUN8I and Renesas DRM drivers have defaults.
+> 6. SND_SOC_ROCKCHIP does not exist.
+> 7. Several ASoC drivers are selected by other main sound switches.
+> 8. USB_CDNS3_IMX is default with USB_CDNS3.
+> 9. IPQ_APSS_5018 never existed.
+>
+> No impact on include/generated/autoconf.h.
+>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
----
- Changes in v17:
- - Added NULL check for dpage in rbm_show in ring_buffer.c.
- Changes in v16:
-  - update description.
----
- kernel/trace/ring_buffer.c |    5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
-index e8d2b3457d7f..de653a8e3cec 100644
---- a/kernel/trace/ring_buffer.c
-+++ b/kernel/trace/ring_buffer.c
-@@ -2216,6 +2216,7 @@ static int rbm_show(struct seq_file *m, void *v)
- 	struct ring_buffer_per_cpu *cpu_buffer = m->private;
- 	struct ring_buffer_cpu_meta *meta = cpu_buffer->ring_meta;
- 	unsigned long val = (unsigned long)v;
-+	struct buffer_data_page *dpage;
- 
- 	if (val == 1) {
- 		seq_printf(m, "head_buffer:   %d\n",
-@@ -2228,7 +2229,9 @@ static int rbm_show(struct seq_file *m, void *v)
- 	}
- 
- 	val -= 2;
--	seq_printf(m, "buffer[%ld]:    %d\n", val, meta->buffers[val]);
-+	dpage = rb_range_buffer(cpu_buffer, val);
-+	seq_printf(m, "buffer[%ld]:    %d (commit: %ld)\n",
-+		   val, meta->buffers[val], dpage ? local_read(&dpage->commit) : -1);
- 
- 	return 0;
- }
-
+Yours,
+Linus Walleij
 
