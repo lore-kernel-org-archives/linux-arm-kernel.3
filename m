@@ -4,115 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FB93FED3E2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 15:15:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 546FAFED3E2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 15:15:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XSxlKFIeNK6UZ+zgOcNeSOcSDg/ZVpbaHIVyYTslZsw=; b=FmjTZ5NtUqj+svQk7LOooJsQfj
-	IHIeXTCvCJ3V+dokeKJXs48p7u+zNBDGaxbQoBySGnqNdyTSf8MJZiGpo3clIxuq1jK0gmbPE/ZD2
-	8KzBhHCmb6BXFSoK3YA6zctcqFMcJOogmQbxvRoF4Ig/4rpj+g1CqEVZHhzkRfn11lXGHf1B33irE
-	c5chDzfe/Y8m2z+BApxSRkvASjr+3xVBwXWReg7oekq6Ij38rDrFFbow5nXDZNrLViadA5KAnkPh0
-	w+Van1ON3pA7XhyqJZFTMB7913GBCtk7vedOrIGwEKwVLvOYsHLsLTG5/uY3QL4H7z9vpMRJ2GyrO
-	56yL1hdw==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=11B7mFpZ7qVCH2xf01dCaQCgfvR0W4/yFUJfYdr9MXk=; b=LImxlJ/wZzmlSbXkmHXTRsl62M
+	+x4AX0JVhO1QyGggJAeqP/uPaAcb44cGNKijrKovoHZ+74Talyr3uvNz1xSQAQq4J5XWIOuhzV0Rr
+	dQjha4pKygGrhnz6th3I2Nm4ieaa/3ZD8vGIn4hXdbwUm9CNWm+uPCt0V4s6RpX8ak6AuzHIivUMf
+	NNKhrlGIVMkIMPhUdC+iQ87cE7IhkGTh2yIErebg9NEv9PBn8soH2iIXz6l9eQnUK6y8wBiHLjmYK
+	ua9GxnBZmcYRt3MXZFQoOz23Hkuuqpwg1qFExTZpenY7+Z3lMx+THniPZxLQXEg34ihogfpyAMBf+
+	He5VI7Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGIFA-0000000DNAc-2oX3;
-	Fri, 24 Apr 2026 15:15:00 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wGIFG-0000000DNDO-23DQ;
+	Fri, 24 Apr 2026 15:15:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGIF8-0000000DNA5-1EF7;
-	Fri, 24 Apr 2026 15:14:59 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63OAEsQv2447126;
-	Fri, 24 Apr 2026 15:14:34 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=XSxlKFIeNK6
-	UZ+zgOcNeSOcSDg/ZVpbaHIVyYTslZsw=; b=eQNc/XZXE8zX+nPeVVAp8oVoCog
-	T1xKJLGx7twDUtiNDKQDzr/XO1azL/GE9dfLmRpQrZN3UzaIsOn7GULe7pHGA0X/
-	ELXw8GbfJxaGMKHYh+tt3Wo5kutEA9Q414djlJ1aE3y8K7UyeJ6B4TlOu2mA62UU
-	j0TyHgEhHZYSPQCOUu5wzJsywOk6EqwCPfnP1WdWySeZ/shKI2E4ePW9ReUJLYaw
-	D7bFAKX4jlYHHohVFWE7chx/+rXfU98xXUhD5XZcrMiw+r3kMrzBMidOMf1re00U
-	/O+OZhA65ZG6oBJi20o1p5cFrtJPnbeJNa8eWH3jxi+halba1Lb7xGaY2NQ==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dr6kps7kv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 24 Apr 2026 15:14:33 +0000 (GMT)
-Received: from pps.filterd (NALASPPMTA03.qualcomm.com [127.0.0.1])
-	by NALASPPMTA03.qualcomm.com (8.18.1.7/8.18.1.7) with ESMTP id 63OFDZ9t020591;
-	Fri, 24 Apr 2026 15:14:33 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by NALASPPMTA03.qualcomm.com (PPS) with ESMTPS id 4draepg8vp-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 24 Apr 2026 15:14:33 +0000 (GMT)
-Received: from NALASPPMTA03.qualcomm.com (NALASPPMTA03.qualcomm.com [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.1.12) with ESMTP id 63OFEWQY021907;
-	Fri, 24 Apr 2026 15:14:32 GMT
-Received: from hu-devc-lv-u22-c.qualcomm.com (hu-cang-lv.qualcomm.com [10.81.25.255])
-	by NALASPPMTA03.qualcomm.com (PPS) with ESMTPS id 63OFEWkp021900
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 24 Apr 2026 15:14:32 +0000 (GMT)
-Received: by hu-devc-lv-u22-c.qualcomm.com (Postfix, from userid 359480)
-	id 6BDD35D0; Fri, 24 Apr 2026 08:14:32 -0700 (PDT)
-From: Can Guo <can.guo@oss.qualcomm.com>
-To: avri.altman@wdc.com, bvanassche@acm.org, beanhuo@micron.com,
-        peter.wang@mediatek.com, martin.petersen@oracle.com, mani@kernel.org
-Cc: linux-scsi@vger.kernel.org, Can Guo <can.guo@oss.qualcomm.com>,
-        Alim Akhtar <alim.akhtar@samsung.com>,
-        "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Ram Kumar Dwivedi <ram.dwivedi@oss.qualcomm.com>,
-        Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>,
-        Huan Tang <tanghuan@vivo.com>, Daniel Lee <chullee@google.com>,
-        Liu Song <liu.song13@zte.com.cn>, Bean Huo <huobean@gmail.com>,
-        vamshi gajjela <vamshigajjela@google.com>,
-        "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-        Adrian Hunter <adrian.hunter@intel.com>,
-        linux-kernel@vger.kernel.org (open list),
-        linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek),
-        linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek)
-Subject: [PATCH v2 1/2] scsi: ufs: core: Introduce function ufshcd_query_attr_qword()
-Date: Fri, 24 Apr 2026 08:14:19 -0700
-Message-Id: <20260424151420.111675-2-can.guo@oss.qualcomm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260424151420.111675-1-can.guo@oss.qualcomm.com>
-References: <20260424151420.111675-1-can.guo@oss.qualcomm.com>
+	id 1wGIFE-0000000DNCH-23ZF
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Apr 2026 15:15:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A787144384;
+	Fri, 24 Apr 2026 15:15:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 834ECC19425;
+	Fri, 24 Apr 2026 15:15:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777043703;
+	bh=g9K5mfNblRY0b8MrHwI5cfWeLShbsP+DXXMV5iplhIU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=ixejiLbCe6paehrBYEgux/SsbNRd7z0hbwWE3TgN2pwgIIvCNGNdeIfJ9tK+Y95ru
+	 oYaLVhKd6Wllz358gOUojfmSejLRJaq+8q2GtBDJSqIF4nk6OZJQ6/BVQd4QkqyQ96
+	 ldDaQq40R4xj6QDnnWHhlWhEi+PQXPRroBHYyyNn7s2jUbQIiXAOVO4qK0/Go7MVOq
+	 Nd+KX3P0gBE2ckpNniPIZJwnRslVs5KS8h36Bqe/8HtCpLmeKF7CHLG5lMGjkQpd9m
+	 Yd6X1/oKxy3NNdUCBIkWsAma9wwIRyxwe5tYXqGw3H+nihQkZTNnMm67JWCEGkV81Y
+	 2fsMq98wGr6EA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wGIFA-0000000EPWA-2PuZ;
+	Fri, 24 Apr 2026 15:15:00 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Ben Simner <ben.simner@cl.cam.ac.uk>,
+	David Woodhouse <dwmw@amazon.co.uk>,
+	Fuad Tabba <tabba@google.com>,
+	Quentin Perret <qperret@google.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Will Deacon <will@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Subject: [GIT PULL] KVM/arm64 fixes for 7.1, take #1
+Date: Fri, 24 Apr 2026 16:14:43 +0100
+Message-ID: <20260424151443.750077-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Authority-Analysis: v=2.4 cv=cdDiaHDM c=1 sm=1 tr=0 ts=69eb88d9 cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=eoimf2acIAo5FJnRuUoq:22 a=mpaa-ttXAAAA:8 a=EUspDBNiAAAA:8
- a=NbVfUCxmoLbEYo6_3H4A:9
-X-Proofpoint-GUID: Rqkoq6GcDINpTj4SKP5vl-U4J16gcqYk
-X-Proofpoint-ORIG-GUID: Rqkoq6GcDINpTj4SKP5vl-U4J16gcqYk
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI0MDE0NyBTYWx0ZWRfXxN4Aj9ZwblC/
- /3Cq8OChRC78rTSN8goJQeUpdcLRC9bgvZJ4bTYInqVL1pcIyTC+5quoCOfiUgYsIk4KkkUakSK
- q1uAQhK81GlDcvTOYd0wcxYzTLJ/yX3NCSE8FpOxJ3tj5cOkVPPdV+xMlp3Y6edMdQBLQD0ke02
- mf2IrrSXU4+r91Rxuo8vfIdPK3O5UEo/oWLUOdb3XOwKz8t9xngFYlHHJbFdr9Cj7LQvQFYs8Wa
- FYRjROSDkXeRJEw/tMj5qmWh2ftJ0czaHzKVgbcK4mnkAc7ch8wJQMA1B6gaftiOVOSrVla6BoI
- +9CBy4ntz864WsJUoxbrbqholIS26JiLIv/jmXcaK4qPWPavYUNZGXeEGcO3gUdKtcPBWjZ0CJ5
- WiNBTWPT6PI4soer0TYm00zTxmZZszh6h+3Et5iU6uQ7sqMrffbVPKEiQsXWJvVHzlq/kvwTVLc
- cTKV1MsyhR5LaivbddA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-24_01,2026-04-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 malwarescore=0 spamscore=0 impostorscore=0 lowpriorityscore=0
- suspectscore=0 phishscore=0 bulkscore=0 adultscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604240147
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: pbonzini@redhat.com, ben.simner@cl.cam.ac.uk, dwmw@amazon.co.uk, tabba@google.com, qperret@google.com, sebastianene@google.com, vdonnefort@google.com, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_081458_338838_16342F25 
-X-CRM114-Status: GOOD (  19.55  )
+X-CRM114-CacheID: sfid-20260424_081504_579250_08BBB7ED 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,269 +92,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a new generic function ufshcd_query_attr_qword() to handle
-quad-word (64-bit) UFS attribute operations. This consolidates the
-handling of 64-bit attributes which was previously scattered across
-multiple specialized functions.
+Paolo,
 
-Reviewed-by: Peter Wang <peter.wang@mediatek.com>
-Signed-off-by: Can Guo <can.guo@oss.qualcomm.com>
----
- drivers/ufs/core/ufs-sysfs.c   |  30 ++++++--
- drivers/ufs/core/ufshcd-priv.h |   3 +-
- drivers/ufs/core/ufshcd.c      | 126 +++++++++++++++++----------------
- 3 files changed, 94 insertions(+), 65 deletions(-)
+This is the first drop of KVM/arm64 fixes for 7.1. Nothing really
+major so far, but a rather wide range of fixes for idreg handling,
+long standing regressions, SMCCC compliance and more. Add a few
+cleanups to the fix, and that's about it. As usual, gory details in
+the tag below.
 
-diff --git a/drivers/ufs/core/ufs-sysfs.c b/drivers/ufs/core/ufs-sysfs.c
-index 99af3c73f1af..d9dc4cc3452e 100644
---- a/drivers/ufs/core/ufs-sysfs.c
-+++ b/drivers/ufs/core/ufs-sysfs.c
-@@ -594,8 +594,13 @@ static ssize_t device_lvl_exception_id_show(struct device *dev,
- 	u64 exception_id;
- 	int err;
- 
-+	if (hba->dev_info.wspecversion < 0x410)
-+		return -EOPNOTSUPP;
-+
- 	ufshcd_rpm_get_sync(hba);
--	err = ufshcd_read_device_lvl_exception_id(hba, &exception_id);
-+	err = ufshcd_query_attr_qword(hba, UPIU_QUERY_OPCODE_READ_ATTR,
-+				      QUERY_ATTR_IDN_DEV_LVL_EXCEPTION_ID,
-+				      0, 0, &exception_id);
- 	ufshcd_rpm_put_sync(hba);
- 
- 	if (err)
-@@ -1670,6 +1675,12 @@ static inline bool ufshcd_is_wb_attrs(enum attr_idn idn)
- 		idn <= QUERY_ATTR_IDN_CURR_WB_BUFF_SIZE;
- }
- 
-+static inline bool ufshcd_is_qword_attr(enum attr_idn idn)
-+{
-+	return idn == QUERY_ATTR_IDN_TIMESTAMP ||
-+	       idn == QUERY_ATTR_IDN_DEV_LVL_EXCEPTION_ID;
-+}
-+
- static int wb_read_resize_attrs(struct ufs_hba *hba,
- 			enum attr_idn idn, u32 *attr_val)
- {
-@@ -1736,6 +1747,7 @@ static ssize_t _name##_show(struct device *dev,				\
- 	struct device_attribute *attr, char *buf)			\
- {									\
- 	struct ufs_hba *hba = dev_get_drvdata(dev);			\
-+	u64 qword_value;						\
- 	u32 value;							\
- 	int ret;							\
- 	u8 index = 0;							\
-@@ -1748,14 +1760,24 @@ static ssize_t _name##_show(struct device *dev,				\
- 	if (ufshcd_is_wb_attrs(QUERY_ATTR_IDN##_uname))			\
- 		index = ufshcd_wb_get_query_index(hba);			\
- 	ufshcd_rpm_get_sync(hba);					\
--	ret = ufshcd_query_attr(hba, UPIU_QUERY_OPCODE_READ_ATTR,	\
--		QUERY_ATTR_IDN##_uname, index, 0, &value);		\
-+	if (ufshcd_is_qword_attr(QUERY_ATTR_IDN##_uname))		\
-+		ret = ufshcd_query_attr_qword(hba,			\
-+			UPIU_QUERY_OPCODE_READ_ATTR,			\
-+			QUERY_ATTR_IDN##_uname,				\
-+			index, 0, &qword_value);			\
-+	else								\
-+		ret = ufshcd_query_attr(hba,				\
-+			UPIU_QUERY_OPCODE_READ_ATTR,			\
-+			QUERY_ATTR_IDN##_uname, index, 0, &value);	\
- 	ufshcd_rpm_put_sync(hba);					\
- 	if (ret) {							\
- 		ret = -EINVAL;						\
- 		goto out;						\
- 	}								\
--	ret = sysfs_emit(buf, "0x%08X\n", value);			\
-+	if (ufshcd_is_qword_attr(QUERY_ATTR_IDN##_uname))		\
-+		ret = sysfs_emit(buf, "0x%016llX\n", qword_value);	\
-+	else								\
-+		ret = sysfs_emit(buf, "0x%08X\n", value);		\
- out:									\
- 	up(&hba->host_sem);						\
- 	return ret;							\
-diff --git a/drivers/ufs/core/ufshcd-priv.h b/drivers/ufs/core/ufshcd-priv.h
-index 0a72148cb053..ed1adeb22ec6 100644
---- a/drivers/ufs/core/ufshcd-priv.h
-+++ b/drivers/ufs/core/ufshcd-priv.h
-@@ -60,6 +60,8 @@ int ufshcd_query_attr_retry(struct ufs_hba *hba, enum query_opcode opcode,
- 			    u32 *attr_val);
- int ufshcd_query_attr(struct ufs_hba *hba, enum query_opcode opcode,
- 		      enum attr_idn idn, u8 index, u8 selector, u32 *attr_val);
-+int ufshcd_query_attr_qword(struct ufs_hba *hba, enum query_opcode opcode,
-+			    enum attr_idn idn, u8 index, u8 sel, u64 *attr_val);
- int ufshcd_query_flag(struct ufs_hba *hba, enum query_opcode opcode,
- 	enum flag_idn idn, u8 index, bool *flag_res);
- void ufshcd_auto_hibern8_update(struct ufs_hba *hba, u32 ahit);
-@@ -106,7 +108,6 @@ int ufshcd_exec_raw_upiu_cmd(struct ufs_hba *hba,
- 			     enum query_opcode desc_op);
- 
- int ufshcd_wb_toggle(struct ufs_hba *hba, bool enable);
--int ufshcd_read_device_lvl_exception_id(struct ufs_hba *hba, u64 *exception_id);
- 
- int ufshcd_uic_tx_eqtr(struct ufs_hba *hba, int gear);
- void ufshcd_apply_valid_tx_eq_settings(struct ufs_hba *hba);
-diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
-index 4805e40ed4d7..c92e0409c793 100644
---- a/drivers/ufs/core/ufshcd.c
-+++ b/drivers/ufs/core/ufshcd.c
-@@ -3611,6 +3611,67 @@ int ufshcd_query_attr_retry(struct ufs_hba *hba,
- 	return ret;
- }
- 
-+/**
-+ * ufshcd_query_attr_qword - Function of sending query requests for quad-word attributes
-+ * @hba: per-adapter instance
-+ * @opcode: attribute opcode
-+ * @idn: attribute idn to access
-+ * @index: index field
-+ * @sel: selector field
-+ * @attr_val: the attribute value after the query request completes
-+ *
-+ * Return: 0 for success, non-zero in case of failure.
-+ */
-+int ufshcd_query_attr_qword(struct ufs_hba *hba, enum query_opcode opcode,
-+			    enum attr_idn idn, u8 index, u8 sel, u64 *attr_val)
-+{
-+	struct utp_upiu_query_v4_0 *upiu_req;
-+	struct utp_upiu_query_v4_0 *upiu_resp;
-+	struct ufs_query_req *request = NULL;
-+	struct ufs_query_res *response = NULL;
-+	int err;
-+
-+	if (!attr_val) {
-+		dev_err(hba->dev, "%s: attribute value required for opcode 0x%x\n",
-+			__func__, opcode);
-+		return -EINVAL;
-+	}
-+
-+	ufshcd_dev_man_lock(hba);
-+
-+	ufshcd_init_query(hba, &request, &response, opcode, idn, index, sel);
-+
-+	switch (opcode) {
-+	case UPIU_QUERY_OPCODE_WRITE_ATTR:
-+		request->query_func = UPIU_QUERY_FUNC_STANDARD_WRITE_REQUEST;
-+		upiu_req = (struct utp_upiu_query_v4_0 *)&request->upiu_req;
-+		put_unaligned_be64(*attr_val, &upiu_req->osf3);
-+		break;
-+	case UPIU_QUERY_OPCODE_READ_ATTR:
-+		request->query_func = UPIU_QUERY_FUNC_STANDARD_READ_REQUEST;
-+		break;
-+	default:
-+		dev_err(hba->dev, "%s: Expected query attr opcode but got = 0x%.2x\n",
-+			__func__, opcode);
-+		err = -EINVAL;
-+		goto out_unlock;
-+	}
-+
-+	err = ufshcd_exec_dev_cmd(hba, DEV_CMD_TYPE_QUERY, dev_cmd_timeout);
-+	if (err) {
-+		dev_err(hba->dev, "%s: opcode 0x%.2x for idn %d failed, index %d, selector %d, err = %d\n",
-+			__func__, opcode, idn, index, sel, err);
-+		goto out_unlock;
-+	}
-+
-+	upiu_resp = (struct utp_upiu_query_v4_0 *)response;
-+	*attr_val = get_unaligned_be64(&upiu_resp->osf3);
-+
-+out_unlock:
-+	ufshcd_dev_man_unlock(hba);
-+	return err;
-+}
-+
- /*
-  * Return: 0 upon success; > 0 in case the UFS device reported an OCS error;
-  * < 0 if another error occurred.
-@@ -6224,46 +6285,6 @@ static void ufshcd_bkops_exception_event_handler(struct ufs_hba *hba)
- 				__func__, err);
- }
- 
--/*
-- * Return: 0 upon success; > 0 in case the UFS device reported an OCS error;
-- * < 0 if another error occurred.
-- */
--int ufshcd_read_device_lvl_exception_id(struct ufs_hba *hba, u64 *exception_id)
--{
--	struct utp_upiu_query_v4_0 *upiu_resp;
--	struct ufs_query_req *request = NULL;
--	struct ufs_query_res *response = NULL;
--	int err;
--
--	if (hba->dev_info.wspecversion < 0x410)
--		return -EOPNOTSUPP;
--
--	ufshcd_hold(hba);
--	mutex_lock(&hba->dev_cmd.lock);
--
--	ufshcd_init_query(hba, &request, &response,
--			  UPIU_QUERY_OPCODE_READ_ATTR,
--			  QUERY_ATTR_IDN_DEV_LVL_EXCEPTION_ID, 0, 0);
--
--	request->query_func = UPIU_QUERY_FUNC_STANDARD_READ_REQUEST;
--
--	err = ufshcd_exec_dev_cmd(hba, DEV_CMD_TYPE_QUERY, dev_cmd_timeout);
--
--	if (err) {
--		dev_err(hba->dev, "%s: failed to read device level exception %d\n",
--			__func__, err);
--		goto out;
--	}
--
--	upiu_resp = (struct utp_upiu_query_v4_0 *)response;
--	*exception_id = get_unaligned_be64(&upiu_resp->osf3);
--out:
--	mutex_unlock(&hba->dev_cmd.lock);
--	ufshcd_release(hba);
--
--	return err;
--}
--
- static int __ufshcd_wb_toggle(struct ufs_hba *hba, bool set, enum flag_idn idn)
- {
- 	u8 index;
-@@ -9113,35 +9134,20 @@ static int ufshcd_device_params_init(struct ufs_hba *hba)
- 
- static void ufshcd_set_timestamp_attr(struct ufs_hba *hba)
- {
--	int err;
--	struct ufs_query_req *request = NULL;
--	struct ufs_query_res *response = NULL;
- 	struct ufs_dev_info *dev_info = &hba->dev_info;
--	struct utp_upiu_query_v4_0 *upiu_data;
-+	u64 ts_ns;
-+	int err;
- 
- 	if (dev_info->wspecversion < 0x400 ||
- 	    hba->dev_quirks & UFS_DEVICE_QUIRK_NO_TIMESTAMP_SUPPORT)
- 		return;
- 
--	ufshcd_dev_man_lock(hba);
--
--	ufshcd_init_query(hba, &request, &response,
--			  UPIU_QUERY_OPCODE_WRITE_ATTR,
--			  QUERY_ATTR_IDN_TIMESTAMP, 0, 0);
--
--	request->query_func = UPIU_QUERY_FUNC_STANDARD_WRITE_REQUEST;
--
--	upiu_data = (struct utp_upiu_query_v4_0 *)&request->upiu_req;
--
--	put_unaligned_be64(ktime_get_real_ns(), &upiu_data->osf3);
--
--	err = ufshcd_exec_dev_cmd(hba, DEV_CMD_TYPE_QUERY, dev_cmd_timeout);
--
-+	ts_ns = ktime_get_real_ns();
-+	err = ufshcd_query_attr_qword(hba, UPIU_QUERY_OPCODE_WRITE_ATTR,
-+				      QUERY_ATTR_IDN_TIMESTAMP, 0, 0, &ts_ns);
- 	if (err)
- 		dev_err(hba->dev, "%s: failed to set timestamp %d\n",
- 			__func__, err);
--
--	ufshcd_dev_man_unlock(hba);
- }
- 
- /**
--- 
-2.34.1
+Please pull,
 
+	M.
+
+The following changes since commit 94b4ae79ebb42a8a6f2124b4d4b033b15a98e4f9:
+
+  Merge branch kvm-arm64/misc-7.1 into kvmarm-master/next (2026-04-08 12:26:11 +0100)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kvmarm-fixes-7.1-1
+
+for you to fetch changes up to 4ce98bf0865c349e7026ad9c14f48da264920953:
+
+  KVM: arm64: Wake-up from WFI when iqrchip is in userspace (2026-04-24 12:03:57 +0100)
+
+----------------------------------------------------------------
+KVM/arm64 fixes for 7.1, take #1
+
+- Allow tracing for non-pKVM, which was accidentally disabled when
+  the series was merged
+
+- Rationalise the way the pKVM hypercall ranges are defined by using
+  the same mechanism as already used for the vcpu_sysreg enum
+
+- Enforce that SMCCC function numbers relayed by the pKVM proxy are
+  actually compliant with the specification
+
+- Fix a couple of feature to idreg mappings which resulted in the
+  wrong sanitisation being applied
+
+- Fix the GICD_IIDR revision number field that could never been
+  written correctly by userspace
+
+- Make kvm_vcpu_initialized() correctly use its parameter instead
+  of relying on the surrounding context
+
+- Enforce correct ordering in __pkvm_init_vcpu(), plugging a
+  potential pin leak at the same time
+
+- Move __pkvm_init_finalise() to a less dangerous spot, avoiding
+  future problems
+
+- Restore functional userspace irqchip support after a four year
+  breakage (last functional kernel was 5.18...). This is obviously
+  ripe for garbage collection.
+
+- ... and the usual lot of spelling fixes
+
+----------------------------------------------------------------
+David Woodhouse (1):
+      KVM: arm64: vgic: Fix IIDR revision field extracted from wrong value
+
+Fuad Tabba (5):
+      KVM: arm64: Fix FEAT_Debugv8p9 to check DebugVer, not PMUVer
+      KVM: arm64: Fix typo in feature check comments
+      KVM: arm64: Fix FEAT_SPE_FnE to use PMSIDR_EL1.FnE, not PMSVer
+      KVM: arm64: Fix kvm_vcpu_initialized() macro parameter
+      KVM: arm64: Fix pin leak and publication ordering in __pkvm_init_vcpu()
+
+Marc Zyngier (2):
+      KVM: arm64: pkvm: Adopt MARKER() to define host hypercall ranges
+      KVM: arm64: Wake-up from WFI when iqrchip is in userspace
+
+Quentin Perret (1):
+      KVM: arm64: Fix initialisation order in __pkvm_init_finalise()
+
+Sebastian Ene (1):
+      KVM: arm64: Reject non compliant SMCCC function calls in pKVM
+
+Vincent Donnefort (1):
+      KVM: arm64: Re-allow hyp tracing HVCs for [nh]VHE
+
+ arch/arm64/include/asm/kvm_asm.h   | 28 ++++++++++++++++++----------
+ arch/arm64/include/asm/kvm_host.h  |  5 +----
+ arch/arm64/kvm/arm.c               |  4 ++++
+ arch/arm64/kvm/config.c            | 23 ++++++++++++++++-------
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 30 +++++++++++++++++-------------
+ arch/arm64/kvm/hyp/nvhe/pkvm.c     | 38 +++++++++++++++++++++++++-------------
+ arch/arm64/kvm/hyp/nvhe/setup.c    |  6 +++---
+ arch/arm64/kvm/vgic/vgic-mmio-v2.c |  2 +-
+ arch/arm64/kvm/vgic/vgic-mmio-v3.c |  2 +-
+ 9 files changed, 86 insertions(+), 52 deletions(-)
 
