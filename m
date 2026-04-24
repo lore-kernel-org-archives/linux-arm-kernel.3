@@ -4,113 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7856FFED3E6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 18:27:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5B87FED3F5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 18:27:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8fKE6uWynXvOQK+WQLf5kO4iqhFOCsKdnL+aW04mVOs=; b=Cp+S+F28d67Egaixv9amR3gcqj
-	l/oXQ5Dn93hfHB3gftl3xumDU1W6xb1PfZhbxGEdWLStrxUlc/awe48bZcj3LZABav17c6YTZrzjb
-	H/u4hU3taWaGd2QmvHGCtT9r6qhuVnkp6rdd4ZvnY5L+aetMA1CPRDlQ+hBY6Ju6OZiLvhbIPUO1v
-	EBstu8wbA4ZYSb26S5obhvccdaVVleLh5UeTiQcgP5ilOrjcSwc5ngOzS+zbMq+7v3dpVr3u3G00J
-	taMSuecSWVHDQf6/ULNSYIhcXCrWHspwlVLR8zJPXZeTvA/JYNrnkZwLEkaHHjBZlHHh2bUjwk7zM
-	gutYY+pg==;
+	bh=WCwp+mIbLGBQYvAtNiYxPnSWx5RoqzsBw2FoZVW3aWg=; b=FzVb8UbHdGQNtbJFjTcBym7W32
+	ecUZmPxrunix4pEHV8sD8ATBx8xwFer2xntpV5qtTdUzgzvd32B4mct5hhOhKdWunbjceiUZJ2ENR
+	iEBk4pSpZT0xbh5uoChXe53QkrYq/oowhVgO3y2P9lUUXivAQeiVwNORqLLd5xJy7A4qkIUxOtZSo
+	p6mljCcxAbtNkhWHXDBmP5tPPx4HYGB2yAH3oJjZhbyCDZt8F2BqovXo/merY4KzbDdGGJYI7oBy2
+	L/gly8tKdiGAG5bON3VK69ZmZJjOk1XlkRIckxPkpyrXyPg8eEps8VGoJf7om5vohoY9LTuFJoRSY
+	PEfxAxvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGLFR-0000000De5t-1p6A;
-	Fri, 24 Apr 2026 18:27:29 +0000
-Received: from mail-dl1-x122e.google.com ([2607:f8b0:4864:20::122e])
+	id 1wGLFX-0000000De7M-0q4x;
+	Fri, 24 Apr 2026 18:27:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGLFO-0000000De57-2SVQ
+	id 1wGLFT-0000000De67-10MZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 18:27:27 +0000
-Received: by mail-dl1-x122e.google.com with SMTP id a92af1059eb24-12dbd0f8063so1373316c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 11:27:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777055246; cv=none;
-        d=google.com; s=arc-20240605;
-        b=OB7Nhrvpttv1kZDuaVjH2Y2Mq0lieafoEt1h32AdeG+s88kaOqGCnpEF6sTT5lu1Wu
-         RYx3rbVAl3XIGNm+/ac2Gw3kwd9pPIeqcRt6xld8YENuZEcal2xQHMh6rVso5PNtlCHf
-         Ksc8gRM4p8NiZxb5RXRSH0vccFAdVfsauw/m9TbVIXzbIf4VWun+gUjftG1FBlz95yMX
-         EClbvEfI3JTBA2WVYIE7chpnSlko0JjL5JY3KsbAuWDg/tM5uI5mCwhmEbu1xMdQ3aoS
-         SeILYt/hgX1VsdOCZAi0ec8B/lyKaF8J/T5+YvUNyvv4gYaBq1ZAcV/15ztCmg2jS2C8
-         GX2w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=8fKE6uWynXvOQK+WQLf5kO4iqhFOCsKdnL+aW04mVOs=;
-        fh=BjudYkJOYGDw/xTAmuZ9f4j/hvZM7oLnC9bmWnDDt2c=;
-        b=Fz92V48xTNrdc2/wmG6sbxPmM2AgLEcdfTf7EFBw25Fv9HA5Asx6K1rcXRMMHd6Jg6
-         fS1g24kSF8IrHXG41oyc90SM/iezNUgM5DBLiqdEoPp4Mayp6/CYJA8zRMnvsBB9+a9h
-         3+Cn0WmE1kwOy2IlYc/j7Witye+pBXTLy09n1e7zw1xx1DrA6BnQxsH2Vgbje8zktvPl
-         zV47BA0s95GoKLSpTEqVohhrKRzMlJQp0UICxAIlMKusTv4PZvZwqdplrt1C6v2BARdz
-         4rOkgx97eBA5QPidugDEChTMOxFkIlv/g6E775e7jDOYVzAYSXSOs5Sz8zJvkKEaLMcM
-         wo1g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777055246; x=1777660046; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8fKE6uWynXvOQK+WQLf5kO4iqhFOCsKdnL+aW04mVOs=;
-        b=rSz1jEYtQ823uxP9tIo9bQL2HxvBNNTtf0Wn2ICEKNmQza7QJdlI7SC5875Q50YOcB
-         QI7zqvsWKS4sF+PkeJFaeyRGBaji2q/Ihg3GUJaQyLyOalVaixC3jJBlyJydn/en1awj
-         dvFUpNnD8N7WYSTfaUUaFmrJ0VmF6svfTRFLxZdMJvDev1kdKMPumjxeiK+tS32/hsn4
-         0kGRrOLXuyLE20Nh0xCtj+wd0gBgOis8B87FNQGkbl9M52G9+Yb8pgVQeX3QlbGaI6Vd
-         90G1mtdUtFpo2C9ljcu/EGvxj0Mxzh+bClN1T3oAtzp6asnsEDAGymVlCteiX4WfLaeL
-         1rOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777055246; x=1777660046;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=8fKE6uWynXvOQK+WQLf5kO4iqhFOCsKdnL+aW04mVOs=;
-        b=Mw1TPI5drN9O+ApIVniYRO4dvwiXCd+nZULD6h2snBMxOzn7IAWIMzOWDjIu8KM8sk
-         TONWUfVwOxuS8i5s+6EVoe6HcAa5Px8veuGN+Ic/C1pyjLR5ZoeDQ60TuU3OE1xIjG/8
-         c+jhoEF5LY+wfPf7yrvOTYTyTDqDqZgNQOD1J0e/la6Sn+JUrWDWNMVUk06cXMqRhznP
-         GYqNn2p8Woa8MPeO+vmPTGCIsMEIuN6J4lpw1xAa5xKpurY33hoTCLYb+9opFEsAQFrh
-         8aPtFfq4tnmRAiWYsjKbizDlA77MD6uFH5JJ6ZXp8lJFOcdeYGWO0THg6iLlX34gasFu
-         8aCg==
-X-Forwarded-Encrypted: i=1; AFNElJ9MO8XbyQQzLkOmifuZmB94p+64BCJUA9MSk10IKkDVMjM1+wfohsXCHLa7wAwli4ktA4rFk5EfFkwhan9OkMpU@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvnpU7TcYK7qaT7u29kvtC0M4zYUb/A1iMX/m9++L4UaMgcLlv
-	LcnZ4zu2FxdZyu/MV0eMC/5V5Tjso6VBLHNi1PorcIOpfKn2uWjYLsBJa1ZuukfHGc7PGIezpIq
-	4/9YKQs2bj1vKXOmQvgQ4sWMoWcS1mtA=
-X-Gm-Gg: AeBDiesclxRulidUQwLdWowXNqM6I7dMMRDF7HXt2JAMXj5xHctdMvBogBi4ubzvJ2S
-	M6g7HT4lh17zfMOtDOh0FhjyiF72ZeHmXfOS1/a1l7JRgPCCEw2SrpnNXOK53gafg/KapZ1FU7Z
-	Br3s1S+JNg/iSVUO6VjjkoqdeXFeQ6Qx7RQxhz+fRd1NRdJvPdKdB2zawCBMj7OYs+zml53TpNV
-	j1DR2P9TavubRPJyOM7ECN24dccU6p0bcu1Q9FGUpQ0TYgXKQQ3ySFAlyshNaakOQJ75KyUVfb4
-	HbbGMFtdJz7cNUaM3m0uFyCeA9sE/geRf4YjvZDKyzHhBDSAw1z7YNnhUCnF0AVHL15lVX/HO9n
-	XB92Zv6S6S91MgOE6n6YrqS9yS4+FTtmvUua7ew==
-X-Received: by 2002:a05:7022:383:b0:12a:6fb7:87e3 with SMTP id
- a92af1059eb24-12c73fac0cbmr19164773c88.31.1777055245496; Fri, 24 Apr 2026
- 11:27:25 -0700 (PDT)
+	Fri, 24 Apr 2026 18:27:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id F040B4457B;
+	Fri, 24 Apr 2026 18:27:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0687C19425;
+	Fri, 24 Apr 2026 18:27:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777055249;
+	bh=umhEa+yjy8NpluGJvNLTzPXWi1CPXDJ9JKVWASLXvB8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=tDg/iaDS/8Qm3cy1lxsGl1I3iK09OomLEiNQpqzha/t/wJ8XnYyk2To2gJ/44d87A
+	 wEBm8arlADNCQsfyeBikPlWZUYgvDTzrenvtae09enHpD0UzDiWIuTXX+NzHWpzvRT
+	 hNeR8HEV5DGo4mnyhPFBgNwmjLuG/71S2TwmlyAuEPBRpTGYMWAfiuqZPQbimxk1BF
+	 xa+HWT/rAlTdfU/xSQEnpkuOFQcTnVt0ilc56/A+cTWgM1ao2LLXxNSmkqXx+/t2/y
+	 u+71t9aTMw55iOhmIlGAzIcGK6KBy0w2oKG/GcTA7iVqjaN7YMrKJ/qqK2nRmXtPpL
+	 /aw5K1prUDVsw==
+Date: Fri, 24 Apr 2026 19:27:20 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>, Thomas Gleixner <tglx@kernel.org>,
+ peterz@infradead.org, sudeep.holla@kernel.org, yangyicong@hisilicon.com,
+ dietmar.eggemann@arm.com, linux-kernel@vger.kernel.org, James Morse
+ <james.morse@arm.com>, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] cpu/hotplug: Fix NULL kobject warning in
+ cpuhp_smt_enable()
+Message-ID: <20260424192720.4a147b9c@jic23-huawei>
+In-Reply-To: <aetnTT51ucm2azGG@arm.com>
+References: <20260417075534.3745793-1-ruanjinjie@huawei.com>
+	<aeNxKpHzTQX4_kId@arm.com>
+	<87ldee0z1w.ffs@tglx>
+	<78515da3-03a1-4fdb-a606-3fea9f4cd20b@huawei.com>
+	<aep85G05D3TM9uj2@arm.com>
+	<c6fe5e31-c397-4cf1-a422-f8d1a28fe20b@huawei.com>
+	<aetnTT51ucm2azGG@arm.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20260420-beagley-ai-display-v1-0-f628543dfd14@ideasonboard.com>
- <20260420-beagley-ai-display-v1-15-f628543dfd14@ideasonboard.com>
- <CAOCHtYjJgqomKreDxLUiVbUtpeh36f0bL-jA6P-6rsoJrweshQ@mail.gmail.com> <cb19eafe-6c25-4a2a-bd31-9fb280837623@ideasonboard.com>
-In-Reply-To: <cb19eafe-6c25-4a2a-bd31-9fb280837623@ideasonboard.com>
-From: Robert Nelson <robertcnelson@gmail.com>
-Date: Fri, 24 Apr 2026 13:26:57 -0500
-X-Gm-Features: AQROBzDdYR96fKz8FXyueV-T0huFl-SkTA_xyoSbvkzAGH098Vzr3EpRVRVzohg
-Message-ID: <CAOCHtYgQ=71GtnUFkwhoVTkWma9rrbjp3xyKYUGVv1dG63m0Dw@mail.gmail.com>
-Subject: Re: [PATCH 15/15] arm64: dts: ti: beagley-ai: Enable HDMI display and audio
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Andrei Aldea <andrei@ti.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Lee Jones <lee@kernel.org>, Aradhya Bhatia <aradhya.bhatia@linux.dev>, Nishanth Menon <nm@ti.com>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, Swamil Jain <s-jain1@ti.com>, Devarsh Thakkar <devarsht@ti.com>, 
-	Louis Chauvet <louis.chauvet@bootlin.com>, devicetree@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Andrew Davis <afd@ti.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_112726_629338_576B2C2E 
-X-CRM114-Status: GOOD (  15.32  )
+X-CRM114-CacheID: sfid-20260424_112731_327952_1494293F 
+X-CRM114-Status: GOOD (  44.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,41 +81,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 24, 2026 at 12:04=E2=80=AFPM Tomi Valkeinen
-<tomi.valkeinen@ideasonboard.com> wrote:
->
-> Hi,
->
-> On 24/04/2026 19:16, Robert Nelson wrote:
-> > On Mon, Apr 20, 2026 at 8:04=E2=80=AFAM Tomi Valkeinen
-> > <tomi.valkeinen@ideasonboard.com> wrote:
-> >>
-> >> From: Andrew Davis <afd@ti.com>
-> >>
-> >> Enable HDMI support for BeagleY-AI platform. The display controller us=
-ed is
-> >> TIDSS and the HDMI bridge used is IT66122.
-> >>
-> >> Based on DT by: Robert Nelson <robertcnelson@gmail.com>
-> >> Signed-off-by: Andrew Davis <afd@ti.com>
-> >> Signed-off-by: Swamil Jain <s-jain1@ti.com>
-> >> [tomi.valkeinen: cosmetic fixes]
-> >> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> >
-> > Tested-by: Robert Nelson <robertcnelson@gmail.com>
-> >
-> > Thank you for getting the display back end working on j722s family!
-> What displays did you test? I don't have OLDI panel...
+On Fri, 24 Apr 2026 13:51:25 +0100
+Catalin Marinas <catalin.marinas@arm.com> wrote:
 
-I was buggin @Andrei Aldea to get you one. I also don't have the
-'special' Lincoln tech display or the TI cloned panel that works on
-OLDI..  Right now just HDMI as i decided to tackle cc33xx wifi again
-today on mainline..
+> (updating Jonathan's email address to match MAINTAINERS)
+Thanks!
+> 
+> On Fri, Apr 24, 2026 at 09:56:24AM +0800, Jinjie Ruan wrote:
+> > On 4/24/2026 4:11 AM, Catalin Marinas wrote:  
+> > > On Thu, Apr 23, 2026 at 08:32:34PM +0800, Jinjie Ruan wrote:  
+> > >> On 4/23/2026 6:08 PM, Thomas Gleixner wrote:  
+> > >>> On Sat, Apr 18 2026 at 12:55, Catalin Marinas wrote:  
+> > >>>> Another option would have been to avoid marking such CPUs present but I
+> > >>>> think this will break other things. Yet another option is to register
+> > >>>> all CPU devices even if they never come up (like maxcpus greater than
+> > >>>> actual CPUs).
+> > >>>>
+> > >>>> Opinions? It might be an arm64+ACPI-only thing.  
+> > >>>
+> > >>> I think so. The proper thing to do is to apply sane limits:
+> > >>>
+> > >>>  1) The possible CPUs enumerated by firmware N_POSSIBLE_FW
+> > >>>
+> > >>>  2) The maxcpus limit on the command line N_MAXCPUS_CL
+> > >>>
+> > >>> So the actual possible CPUs evaluates to:
+> > >>>
+> > >>>    num_possible = min(N_POSSIBLE_FW, N_MAXCPUS_CL, CONFIG_NR_CPUS);
+> > >>>
+> > >>> The evaluation of the firmware should not mark CPUs present which are
+> > >>> actually not. ACPI gives you that information. See:
+> > >>>
+> > >>>          5.2.12.14 GIC CPU Interface (GICC) Structure
+> > >>>
+> > >>> in the ACPI spec. That has two related bits:
+> > >>>
+> > >>> Enabled:
+> > >>>
+> > >>>    If this bit is set, the processor is ready for use. If this bit is
+> > >>>    clear and the Online Capable bit is set, the system supports enabling
+> > >>>    this processor during OS runtime. If this bit is clear and the Online
+> > >>>    Capable bit is also clear, this processor is un- usable, and the
+> > >>>    operating system support will not attempt to use it.
+> > >>>
+> > >>> Online Capable:
+> > >>>
+> > >>>    The information conveyed by this bit depends on the value of the
+> > >>>    Enabled bit. If the Enabled bit is set, this bit is reserved and must
+> > >>>    be zero. Otherwise, if this bit is set, the system supports enabling
+> > >>>    this processor later during OS runtime
+> > >>>
+> > >>> So the combination of those gives you the right answer:
+> > >>>
+> > >>>    Enabled	Online
+> > >>>    	        Capable
+> > >>>    0            0        Not present, not possible
+> > >>>    0            1        Not present, but possible to "hotplug" layter
+> > >>>    1            0        Present
+> > >>>    1            1        Invalid  
+> > >>
+> > >> On x86, it seems that all CPUs with the ACPI_MADT_ENABLED bit set will
+> > >> be marked as present.
+> > >>
+> > >> acpi_parse_x2apic()  
+> > >>   -> enabled = processor->lapic_flags & ACPI_MADT_ENABLED
+> > >>   -> topology_register_apic(enabled)
+> > >>      -> topo_register_apic(enabled)
+> > >>         -> set_cpu_present(cpu, true)  
+> > > 
+> > > Yes but arm64 marks all CPUs present even if !ACPI_MADT_ENABLED as we
+> > > don't have the notion of hardware CPU hotplug.
+> > > 
+> > > I need to dig some more into the original vCPU hotplug support and why
+> > > we ended up with all CPUs marked as present even if not calling
+> > > register_cpu():
 
+James may remember more but I think there were some usecases
+which broken if we reported CPUs that might turn up later as
+not present.  We spent some time discussing what to do about this
+on various calls, leading to just giving up and marking them present
+always.
 
-Regards,
+I think it was something to do with userspace code that would allocate
+stuff based on the sysfs present information and die horribly when more
+CPUs turned up later.
 
---
-Robert Nelson
-https://rcn-ee.com/
+I'm not sure I ever came across that code. Maybe it was something
+James had come across.  I may be completely wrong but my memory
+is hinting that it was something Android related?
+
+> > > 
+> > > https://lore.kernel.org/linux-arm-kernel/20240529133446.28446-1-Jonathan.Cameron@huawei.com/
+> > > 
+> > > What's the MADT GICC provided by qemu with "-smp cpus=4,maxcpus=8"? If
+> > > it says Enabled for the first 4 and Online Capable for the rest, maybe
+> > > we can try something like below:  
+> > 
+> > Yes, you are absolutely right,Enabled for the first 4(with GIC Flags:
+> > 0x1, bit0 set) and Online Capable for the rest(with GIC Flags: 0x8, bit3
+> > set). The ACPI MADT disassembly result is as follows:  
+> 
+> That's great, thanks for checking.
+> 
+> I'd like to get some feedback from Jonathan and James as they
+> contributed the vCPU hotplug support. The reason was for kubernetes to
+> add vCPUs to an existing VM. Hopefully no-one relied on
+> /sys/devices/system/cpu/present to report 0-7 in the above
+> configuration.
+
+I think not in the kubernetes case as such, but in general userspace
+code which might run on the same systems :(
+
+J
+> 
+> Have you tried the vCPU hotplug with this patch (the original use-case)?
+> 
+> Anyway, feel free to post a v2 with the above proposal, cc Jonathan (on
+> kernel.org) and James Morse and we'll take it from there. You can add a
+> suggested-by me.
+> 
+> Thanks.
+> 
+
 
